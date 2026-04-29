@@ -1,0 +1,87 @@
+# BEST_PRACTICES
+
+## Purpose
+
+Accepted validated practices for Special Ops Prompts Workflows.
+
+## Entry schema
+
+```yaml
+practice_entry:
+  id:
+  status: accepted | deprecated
+  practice:
+  context_conditions:
+  evidence_refs:
+  scores:
+    EVD:
+    IMP:
+    RSK:
+  owner: special_ops__prompts_workflows
+  validator: meta_ops
+  review_due:
+```
+
+## Accepted practices
+
+- id: `PW-BP-001`
+  status: accepted
+  practice: Use full final bodies or live-edit instructions as the default artifact for Markdown rewrites; let Codex edit the live checkout and let Git generate the review diff.
+  context_conditions:
+    - new file creation
+    - compact seed normalization
+    - large Markdown rewrite
+    - bounded Markdown patch where exact byte context is fragile
+    - files with CRLF or uncertain line endings
+  evidence_refs:
+    - operator feedback, 2026-04-27, "unified-diff process diagnosis"
+    - `managed/processes/DEEP_RESEARCH_TO_PATCHSPEC_WORKFLOW.md`
+  scores:
+    EVD: 5
+    IMP: 5
+    RSK: 5
+  owner: special_ops__prompts_workflows
+  validator: meta_ops
+  review_due: 2026-07-27
+- id: `PW-BP-002`
+  status: accepted
+  practice: Treat pre-authored unified diffs as acceptable only when generated and checked in the actual repo checkout; otherwise emit a blocked patch or one-file live-edit instruction.
+  context_conditions:
+    - existing-file patch packs
+    - browser or chat research handoffs
+    - connector output that is not line-stable
+    - any workflow using Markdown as a patch carrier
+  evidence_refs:
+    - operator feedback, 2026-04-27, "patch artifact hierarchy"
+    - `managed/processes/DEEP_RESEARCH_TO_PATCHSPEC_WORKFLOW.md`
+  scores:
+    EVD: 5
+    IMP: 5
+    RSK: 5
+  owner: special_ops__prompts_workflows
+  validator: meta_ops
+  review_due: 2026-07-27
+- id: `PW-BP-003`
+  status: accepted
+  practice: For implementation-ready deep-research prompts, include a preflight contract that specifies source-access priority, citation/evidence expectations, zero-budget exclusions, locked-assumption handling, missing-source behavior, and the Phase 1 fallback before the main research task begins.
+  context_conditions:
+    - deep research must synthesize from a local or repo-internal source basis
+    - the prompt has many locked decisions or exclusions
+    - the output must be operational rather than exploratory
+    - connector behavior, citation mechanics, or tool capability could distract the agent
+    - the task should convert uncertainty into validation tests instead of re-research loops
+  evidence_refs:
+    - `OpenClaw/02_research-kb/best-practices/operational-framework/UpdateProcessSSOTS/DRGPT55THinkingProcess.md`
+    - `OpenClaw/04_final-system-setup/AfterOpenClawFIrstSetup/New_orchestration/DeepResearchPrompt_v2.md`
+    - `managed/processes/DEEP_RESEARCH_TO_PATCHSPEC_WORKFLOW.md`
+  scores:
+    EVD: 5
+    IMP: 5
+    RSK: 4
+  owner: special_ops__prompts_workflows
+  validator: meta_ops
+  review_due: 2026-07-28
+
+## Empty-state marker or initial entries
+
+Add entries here only after validation and promotion from `LEARNING_QUEUE.md`.
