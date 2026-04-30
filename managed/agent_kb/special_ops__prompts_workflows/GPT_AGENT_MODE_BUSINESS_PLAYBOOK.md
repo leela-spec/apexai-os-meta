@@ -5,6 +5,7 @@
 - **Purpose:** Define how to instruct and use ChatGPT Agent mode safely and effectively in a browser-based ChatGPT Business or Enterprise-style workspace.
 - **Audience:** Operators, founders, business users, admins, and agent designers who want reliable results without silent data exposure, drift, or uncontrolled external actions.
 - **Scope:** ChatGPT Agent mode, ChatGPT Workspace Agents, apps/connectors, browser execution, custom instructions, Business workspace controls, and practical prompt design.
+- **Mode-routing boundary:** This playbook applies after Agent Mode has passed the route-by-bottleneck gate. For OpenClaw KB architecture, prompt design, doctrine synthesis, exact markdown, and unified diff work, default to extended thinking with repo/file access unless external browser/app action is the real bottleneck. See `docs/Agent_Mode_vs_Thinking_Mode_Routing_Baseline.md`.
 - **Freshness note:** This guide was created from official OpenAI documentation checked on 2026-04-29, plus the project’s information-design rules for retrieval-first, explicitly labeled knowledge artifacts.
 
 ---
@@ -73,12 +74,19 @@
 
 - **Rule:** Use Agent mode for bounded, supervised execution; use Workspace Agents only after the workflow is stable, tested, and permission-bounded.
 
+### Mode-routing reconciliation
+
+- **Rule:** Do not use this playbook as authority to send precise text-artifact work into Agent Mode by default.
+- **Rule:** Route OpenClaw KB, prompt-flow, doctrine, markdown, and unified-diff production to extended thinking with repo/file access unless the task requires browser, app, form, spreadsheet, or other external UI action.
+- **Rule:** Treat Agent Mode file/diff guidance below as a containment rule for cases where Agent Mode is explicitly chosen, not as the default route for exact artifact production.
+
 ---
 
-## 3A. Production-first rule for file, diff, KB, and prompt runs
+## 3A. Production-first containment rule for Agent Mode file, diff, KB, and prompt runs
 
 ### Why this rule exists
 
+- **Routing caveat:** For OpenClaw KB, prompt, doctrine, markdown, and unified-diff work, the preferred mode is extended thinking with repo/file access. This section only constrains Agent Mode when an operator has explicitly chosen it because external tool/browser/app action is part of the job.
 - **Problem:** Agent Mode follows the task it is given. If the prompt over-emphasizes pre-analysis, ledgers, control artifacts, acceptance-test definitions, or broad source gates, those artifacts can replace the requested file or diff.
 - **Learning:** For file creation, KB repair, prompt-design, and workflow-design runs, the safest useful pattern is **produce → validate → improve**, not **pre-analyze → ledger → audit → recommend next action**.
 - **Risk/evidence/impact:** This rule is high-evidence and high-impact because failed runs produced control scaffolding and unvalidated patches while the intended one-agent/five-file output remained incomplete. The adoption risk is low-to-medium because imperfect first artifacts can be validated and patched, while missing artifacts cannot be promoted at all.

@@ -31,6 +31,9 @@ This file records the durable cross-reference graph for the first-wave holding-o
 | `docs/LEARNING_SYSTEM.md` | `managed/knowledge/KB_PROMOTION_LEDGER_TEMPLATE.md` | learning-to-candidate pointer |
 | `docs/LEARNING_SYSTEM.md` | `managed/agent_kb/special_ops__knowledge_bank/`, `managed/agent_kb/special_ops__prompts_workflows/`, `managed/agent_kb/special_ops__hygiene_clean/` | agent benefit pointer for learning capture and production-result write-down |
 | `docs/PROCESS_BLUEPRINT_SYSTEM.md` | `managed/rules/OPERATING_SPINE_CANON.md`, `managed/agent_kb/special_ops__prompts_workflows/`, `managed/agent_kb/meta_ops/` | companion process map for authority lookup and artifact-production sequencing |
+| `docs/Agent_Mode_vs_Thinking_Mode_Routing_Baseline.md` | `managed/agent_kb/special_ops__ai_handling_routing/`, `managed/rules/QA_HYGIENE_PROTOCOL.md` | route-by-bottleneck doctrine and hygiene guardrail |
+| `docs/Agent_Mode_vs_Thinking_Mode_Routing_Baseline_Context.md` | `managed/agent_kb/special_ops__ai_handling_routing/MISTAKES.md`, `managed/rules/QA_HYGIENE_PROTOCOL.md` | mode-mismatch rationale and failure-pattern support |
+| `managed/agent_kb/special_ops__prompts_workflows/GPT_AGENT_MODE_BUSINESS_PLAYBOOK.md` | `docs/Agent_Mode_vs_Thinking_Mode_Routing_Baseline.md`, `managed/agent_kb/special_ops__ai_handling_routing/` | Agent Mode playbook reconciliation with route-by-bottleneck doctrine |
 
 ## First-wave seed-to-KB references
 
