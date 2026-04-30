@@ -242,6 +242,63 @@ template_entry:
   validator: meta_ops
   review_due: 2026-07-30
 
+- id: `PW-TPL-005`
+  status: accepted
+  use_when: Designing a prompt for a file, diff, KB update, or downloadable artifact where the operator should only validate the produced artifact and say continue.
+  template_body: |
+    # Artifact-Impossible-To-Miss Prompt Skeleton
+
+    ## Mission
+
+    Produce `<TARGET_ARTIFACT>` as the first substantive output of this run.
+
+    ## Target artifact contract
+
+    - path/name: `<TARGET_PATH_OR_NAME>`
+    - format: `<RAW_PATCH | MARKDOWN | JSON | OTHER>`
+    - minimum contents: `<REQUIRED_SECTIONS_OR_DIFF_TARGETS>`
+    - forbidden wrappers: `<FORBIDDEN_FORMATS_OR_EXTRA_PROSE>`
+
+    ## Source boundary
+
+    Use only `<SOURCE_LIST>`. Treat prior reports or Markdown patches as intent unless they are verified live preimages.
+
+    ## Production order
+
+    1. Create the target artifact.
+    2. Validate the created artifact against format, scope, source fit, and mechanical checks.
+    3. Repair once if validation fails.
+    4. Stop with compact status and wait for `continue`.
+
+    ## Guardrail priority
+
+    Guardrails prevent unsafe widening; they must not replace the production step. If a blocker prevents production, name the exact blocker and stop.
+
+    ## Final status
+
+    Return:
+
+    ```yaml
+    selected_unit:
+    target_artifact:
+    source_files_read:
+    files_changed:
+    validation_status:
+    blockers:
+    next_continue_command: continue
+    ```
+  evidence_refs:
+    - `Production_First_Agent_Mode_KB_Update_Prompt_Flow.md`
+    - `Production_First_Iteration_Learning_Record.md`
+    - `Final_Production_First_Agent_Mode_Integration_Pack.md`
+  scores:
+    EVD: 5
+    IMP: 5
+    RSK: 4
+  owner: special_ops__prompts_workflows
+  validator: meta_ops
+  review_due: 2026-07-30
+
 ## Empty-state marker or initial entries
 
 Add entries here only after validation and promotion from `LEARNING_QUEUE.md`.
