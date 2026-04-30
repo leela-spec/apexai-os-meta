@@ -30,6 +30,15 @@ Each KB root derives the same five-file scaffold:
 | `special_ops__ai_handling_routing` | `managed/agent_kb/special_ops__ai_handling_routing/` | advisory model/tool routing boundary | `special_ops__ai_handling_routing` | `meta_ops` | not config authority |
 | `special_ops__hygiene_clean` | `managed/agent_kb/special_ops__hygiene_clean/` | structural QA and hygiene boundary | `special_ops__hygiene_clean` | `meta_detective` | not promotion authority |
 
+## Companion doc benefit index
+
+The following docs are companion maps that benefit multiple agents. They may inform bounded work, but they do not replace each agent's KB root, compact seed, shared governance files, or promotion authority.
+
+| Companion doc | Primary beneficiary agents | Use when | Boundary |
+|---|---|---|---|
+| `docs/LEARNING_SYSTEM.md` | `special_ops__knowledge_bank`, `special_ops__prompts_workflows`, `special_ops__hygiene_clean`, `meta_ops`, `meta_detective` | learning capture, candidate routing, production-result write-down, and distinguishing accepted truth from candidate lessons | companion explainer; promotion still routes through `managed/rules/PROMOTION_PROTOCOL.md` and managed KB governance |
+| `docs/PROCESS_BLUEPRINT_SYSTEM.md` | `meta_ops`, `special_ops__prompts_workflows`, `special_ops__knowledge_bank`, `special_ops__hygiene_clean`, `alfred` | process-map lookup, artifact-production sequencing, and routing operators to the correct managed authority surface | companion map; runtime law remains in managed canons, managed rituals, and managed processes |
+
 ## Boundary note
 
 This index maps KB roots only. It does not replace compact activation seeds, shared governance surfaces, or the promotion protocol.
