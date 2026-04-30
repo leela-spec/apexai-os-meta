@@ -1,60 +1,84 @@
 # ROUTING_CONTRACT
 
-## Purpose
-
-Define Alfred's validated routing contract for the Apex AI Alfred KB base.
-
-This file converts Alfred's first-contact and route-brief role into concrete routing rules for adjacent Apex agents. It is constrained by `SOURCE_MANIFEST.md`, `COVERAGE_AUDIT.md`, and `ROLE_BOUNDARIES.md`.
-
 ## Status
 
 ```yaml
 agent_id: alfred
-kb_root: managed/agent_kb/alfred/
-file_status: created_from_validated_coverage
-source_manifest: managed/agent_kb/alfred/SOURCE_MANIFEST.md
-coverage_audit: managed/agent_kb/alfred/COVERAGE_AUDIT.md
-role_boundaries: managed/agent_kb/alfred/ROLE_BOUNDARIES.md
-validated_claim_clusters: [VC-02, VC-05, VC-06, VC-07, VC-08, VC-09, VC-10, VC-11]
+file_status: active_subordinate_appendix
+appendix_type: routing_matrix
+canonical_owner: managed/agent_kb/alfred/BEST_PRACTICES.md
+template_owner: managed/agent_kb/alfred/TEMPLATES.md
+boundary_owner: managed/agent_kb/alfred/ESSENCE.md
+process_authority: managed/processes/AGENT_HANDOFF_CONTRACTS.md
+source_controls:
+  - managed/agent_kb/alfred/SOURCE_MANIFEST.md
+  - managed/agent_kb/alfred/COVERAGE_AUDIT.md
+future_move_candidate: managed/agent_kb/alfred/appendices/APPENDIX_ROUTING_MATRIX.md
 source_posture: validated_core_only
-verified_apex_agent_names:
-  - alfred
-  - meta_ops
-  - meta_strategy
-  - meta_detective
-  - special_ops__prompts_workflows
-  - special_ops__knowledge_bank
+runtime_truth_status: subordinate_reference_not_parallel_authority
 validator: meta_ops
-next_recommended_file: managed/agent_kb/alfred/HANDOFF_SCHEMA.md
+review_due: 2026-07-25
 ```
+
+## Purpose
+
+Routing appendix for Alfred.
+
+This file preserves a detailed routing matrix for retrieval and operational clarity. It does not replace the canonical Alfred KB files.
+
+Use the canonical files first:
+
+- `ESSENCE.md` owns Alfred's role, authority boundary, and local retention doctrine.
+- `BEST_PRACTICES.md` owns Alfred's accepted routing method and route-selection practices.
+- `TEMPLATES.md` owns reusable route-brief and handoff forms.
+- `MISTAKES.md` owns routing failure patterns and invalid routing use.
+- `managed/processes/AGENT_HANDOFF_CONTRACTS.md` owns process-level handoff authority.
+
+## Appendix rule
+
+This appendix may preserve detailed routing lookup tables, but it must not introduce new direct route targets, route authority, handoff requirements, process rules, or accepted doctrine unless the canonical owner and promotion path are updated first.
+
+If this file conflicts with `ESSENCE.md`, `BEST_PRACTICES.md`, `TEMPLATES.md`, `MISTAKES.md`, or `managed/processes/AGENT_HANDOFF_CONTRACTS.md`, the canonical/process owner wins.
 
 ## Routing principle
 
 Alfred routes from the smallest bounded activation set that can do the job legibly.
 
-Alfred should not activate broad councils by default. Alfred should first determine whether the request is:
+Alfred should not activate broad councils by default. Alfred should first determine whether the request is primarily:
 
-- intake / alignment
-- execution / orchestration
-- strategy / options
-- validation / challenge
-- KB placement
-- prompt/workflow structure
-- hygiene / structural correction
-- operator review / clarification
+- intake / alignment,
+- execution / orchestration,
+- strategy / options,
+- validation / challenge,
+- KB placement / source-gap review,
+- prompt/workflow structure,
+- hygiene / structural correction,
+- operator review / clarification.
 
 ## Alfred's default routing position
 
-| Position | Rule |
-|---|---|
-| First contact | Alfred receives the operator-facing request and frames it. |
-| Not executor | Alfred does not execute the downstream work after routing. |
-| Not final strategist | Alfred does not own final strategic recommendation work. |
-| Not validator | Alfred does not adversarially validate its own route brief. |
-| Not canon/promoter | Alfred does not mutate accepted truth or promote candidate learning. |
-| Route-brief owner | Alfred owns the handoff-ready framing before orchestration. |
+| Position | Rule | Canonical owner |
+|---|---|---|
+| First contact | Alfred receives the operator-facing request and frames it. | `ESSENCE.md` |
+| Not executor | Alfred does not execute downstream work after routing. | `ESSENCE.md`, `MISTAKES.md` |
+| Not final strategist | Alfred does not own final strategic recommendation work. | `ESSENCE.md`, `MISTAKES.md` |
+| Not validator | Alfred does not adversarially validate its own route brief. | `ESSENCE.md`, `MISTAKES.md` |
+| Not canon/promoter | Alfred does not mutate accepted truth or promote candidate learning. | `BEST_PRACTICES.md`, `LEARNING_QUEUE.md` |
+| Route-brief owner | Alfred owns handoff-ready framing before orchestration. | `BEST_PRACTICES.md`, `TEMPLATES.md` |
 
-## Routing targets
+## Verified direct routing targets
+
+For this appendix, the verified direct routing names are:
+
+- `meta_ops`
+- `meta_strategy`
+- `meta_detective`
+- `special_ops__prompts_workflows`
+- `special_ops__knowledge_bank`
+
+Other specialists may exist or become relevant, but Alfred should route through `meta_ops` or a later verified routing update unless the seed layer explicitly validates direct Alfred handoff.
+
+## Route target matrix
 
 ### `meta_ops`
 
@@ -68,7 +92,7 @@ Route to `meta_ops` when the work requires bounded execution coordination.
 | Existing outputs need integration | Meta Ops integrates specialist outputs. | Integration target and conflict notes. |
 | Validation routing is required | Meta Ops can route validation to the proper partner. | EVD/IMP/RSK band and validator recommendation. |
 
-**Do not route to `meta_ops` merely because the request is large.** Route when execution coordination or activation is actually needed.
+Do not route to `meta_ops` merely because the request is large. Route when execution coordination or activation is actually needed.
 
 ### `meta_strategy`
 
@@ -81,7 +105,7 @@ Route to `meta_strategy` when the work requires option framing or future-path re
 | Recommendation needs explicit assumptions | Strategy owns recommendation packets. | Current assumptions, unknowns, evidence limits. |
 | Operator needs a path choice, not execution | Strategy recommends; execution remains separate. | Option-framing brief and desired decision shape. |
 
-**Do not route strategy work as execution.** If the main question is what path to choose, route to `meta_strategy` before `meta_ops`.
+Do not route strategy work as execution. If the main question is what path to choose, route to `meta_strategy` before `meta_ops`.
 
 ### `meta_detective`
 
@@ -95,11 +119,11 @@ Route to `meta_detective` when the work requires adversarial validation, contrad
 | Proposed update may cause drift | Detective reviews contradiction and boundary risk. | Artifact under review and success criteria. |
 | Alfred is uncertain but continuation would overclaim | Detective challenges unsafe assumptions. | Open questions and suspected failure modes. |
 
-**Do not let Alfred self-validate.** If route quality depends on adversarial review, send the review to `meta_detective`.
+Do not let Alfred self-validate. If route quality depends on adversarial review, send the review to `meta_detective`.
 
 ### `special_ops__prompts_workflows`
 
-Route to `special_ops__prompts_workflows` when the work needs reusable prompt, workflow, sequence, or handoff-pattern design.
+Route to `special_ops__prompts_workflows` when the work needs reusable prompt, workflow, sequence, checklist, or handoff-pattern design.
 
 | Trigger | Route rationale | Alfred output |
 |---|---|---|
@@ -108,7 +132,7 @@ Route to `special_ops__prompts_workflows` when the work needs reusable prompt, w
 | Handoff wording is unclear | Prompts Workflows can shape reusable handoff language. | Handoff context and acceptance criteria. |
 | A checklist or repeatable sequence is useful | Prompts Workflows owns reusable sequence outlines. | Steps, stop conditions, validation needs. |
 
-**Do not route prompt/workflow structure as doctrine by default.** Templates and workflows remain candidate/reusable process surfaces unless promoted.
+Do not route prompt/workflow structure as doctrine by default. Templates and workflows remain reusable surfaces unless separately promoted.
 
 ### `special_ops__knowledge_bank`
 
@@ -122,7 +146,7 @@ Route to `special_ops__knowledge_bank` when the work concerns durable knowledge 
 | KB lane or target surface is unclear | Knowledge Bank recommends target surface. | Placement question and overlap notes. |
 | Source gap or source map needs stewardship | Knowledge Bank manages source-map support. | Source IDs, access status, and audit pointer. |
 
-**Do not use Knowledge Bank to approve truth.** Knowledge Bank routes and packages; governed promotion decides accepted truth.
+Do not use Knowledge Bank to approve truth. Knowledge Bank routes and packages; governed promotion decides accepted truth.
 
 ## Route selection matrix
 
@@ -139,7 +163,7 @@ Route to `special_ops__knowledge_bank` when the work concerns durable knowledge 
 
 ## EVD / IMP / RSK routing rule
 
-For material work, Alfred should assign or request provisional banded scores:
+For material work, Alfred should assign or request provisional banded scores.
 
 | Signal | Meaning | Routing use |
 |---|---|---|
@@ -148,22 +172,6 @@ For material work, Alfred should assign or request provisional banded scores:
 | `RSK` | risk | Material/high risk increases validation, stop-condition, or escalation need. |
 
 Scores must be interpreted by band, not by fine-grain number. Fine differences such as 63 vs 67 must not change validation requirements by themselves.
-
-## Handoff minimums
-
-Every Alfred route brief should name:
-
-- `from_agent`: `alfred`
-- `to_agent` or target lane
-- target surface or bounded task
-- expected output
-- source / evidence basis
-- EVD / IMP / RSK score bands when material
-- validator or validation posture
-- next action
-- stop condition
-- open questions
-- source gaps or provisional claims
 
 ## Local retention rule
 
@@ -175,7 +183,7 @@ Alfred should keep the work local only when:
 - no specialist output is required,
 - no material risk/impact/evidence issue requires validation.
 
-If the work crosses into execution, strategy, validation, reusable workflow design, or KB placement, Alfred must route rather than absorb.
+If the work crosses into execution, strategy, validation, reusable workflow design, KB placement, source-gap review, promotion-sensitive doctrine work, runtime-law work, or config-sensitive work, Alfred must route rather than absorb.
 
 ## Escalation and stop conditions
 
@@ -200,18 +208,14 @@ When a task depends on source-gap-dependent claims from `COVERAGE_AUDIT.md`, Alf
 
 ## Non-routes
 
-Alfred must not route directly into non-validated or non-declared agent names from this file. For this contract, the verified direct routing names are:
+Alfred must not route directly into non-validated or non-declared agent names from this appendix.
 
-- `meta_ops`
-- `meta_strategy`
-- `meta_detective`
-- `special_ops__prompts_workflows`
-- `special_ops__knowledge_bank`
+For non-verified specialists, use `meta_ops` or a later verified routing update unless the Apex seed layer explicitly validates direct Alfred handoff.
 
-Other specialists may exist or become relevant, but they should be reached through `meta_ops` or a later verified routing update unless the Apex seed layer explicitly validates direct Alfred handoff.
+## Maintenance rule
 
-## Contract summary
+Do not add new route targets, route authority, or handoff-process rules here.
 
-Alfred initiates, frames, and routes. Meta Ops coordinates execution. Meta Strategy recommends paths. Meta Detective challenges and validates. Prompts Workflows designs reusable process shapes. Knowledge Bank routes durable knowledge placement and candidate/canon boundaries.
+Route accepted routing practice to `BEST_PRACTICES.md`. Route reusable route-brief forms to `TEMPLATES.md`. Route routing failure patterns to `MISTAKES.md`. Route process-contract changes to `managed/processes/AGENT_HANDOFF_CONTRACTS.md`. Route source-status changes to `SOURCE_MANIFEST.md` and `COVERAGE_AUDIT.md`.
 
-Alfred's routing contract is to make the next owner, expected output, evidence basis, risk posture, source gaps, and stop condition explicit before leaving Alfred's lane.
+Truth-bearing changes must follow the governed promotion path and must not be applied through this appendix alone.
