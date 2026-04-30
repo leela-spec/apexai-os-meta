@@ -124,6 +124,28 @@ mistake_entry:
   validator: meta_ops
   review_due: 2026-07-30
 
+- id: `PW-MK-006`
+  status: accepted
+  pattern: Prompt design overweights guardrails, source-gating, or meta-analysis until the requested artifact is delayed, missing, or replaced by a recommendation to continue.
+  trigger_conditions:
+    - "do not" constraints outnumber or obscure the required production step
+    - the first checkpoint is a ledger, plan, audit, or claim cache rather than the requested artifact
+    - validation requirements are written as hypothetical checks before any artifact exists
+    - the run spends more effort proving it is safe than creating the bounded target file or patch
+    - the final answer asks the operator to continue before producing the promised artifact
+  countermeasure: Put the exact target artifact, path, format, and stop condition in the mission block; require artifact creation as the first substantive action; move risk, evidence, and plausibility review into the post-artifact validation layer.
+  evidence_refs:
+    - `Production_First_Agent_Mode_KB_Update_Prompt_Flow.md`
+    - `Production_First_Iteration_Learning_Record.md`
+    - `Final_Production_First_Agent_Mode_Integration_Pack.md`
+  scores:
+    EVD: 5
+    IMP: 5
+    RSK: 4
+  owner: special_ops__prompts_workflows
+  validator: meta_ops
+  review_due: 2026-07-30
+
 ## Empty-state marker or initial entries
 
 Add entries here only after validation and promotion from `LEARNING_QUEUE.md`.
