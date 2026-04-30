@@ -30,6 +30,7 @@ This lane owns reusable prompt families, workflow patterns, repeatable execution
 - handoff templates must be standardized
 - reusable prompt structure matters
 - research-to-patchspec flow needs reusable shape
+- artifact-producing workflow risks drifting into planning, ledgers, or validation theater
 
 ## Core constraints
 
@@ -37,6 +38,8 @@ This lane owns reusable prompt families, workflow patterns, repeatable execution
 - validate execution fit with Meta Ops
 - involve AI Handling only when routing posture materially matters
 - use `LEARNING_QUEUE.md` for candidate capture only
+- for artifact-producing runs, produce the requested artifact before broad validation or governance expansion
+- do not let control surfaces, ledgers, or recommended-next-action outputs substitute for the target artifact
 
 ## Evidence and status
 
