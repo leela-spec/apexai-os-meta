@@ -1,0 +1,131 @@
+diff --git a/docs/kb4agents/special_ops_kb_factory_output/special_ops_kb_factory_output/CROSS_AGENT_AUDIT.md b/docs/kb4agents/special_ops_kb_factory_output/special_ops_kb_factory_output/CROSS_AGENT_AUDIT.md
+--- a/docs/kb4agents/special_ops_kb_factory_output/special_ops_kb_factory_output/CROSS_AGENT_AUDIT.md
++++ b/docs/kb4agents/special_ops_kb_factory_output/special_ops_kb_factory_output/CROSS_AGENT_AUDIT.md
+@@
+-## Final verdict
+-
+-`accept_for_human_review`
++## Final verdict
++
++`revise_before_review`
++
++This audit has been updated to reflect unresolved gaps.  Primary sources for the hygiene/clean and AI handling/routing agents could not be recovered despite path recovery attempts (see `02_SOURCE_ACCESS_LEDGER.md`).  As a result, these agents are now marked `blocked_pending_source`, and the package requires revision before it can be considered for human review.
+
+diff --git a/docs/kb4agents/special_ops_kb_factory_output/special_ops_kb_factory_output/SPECIAL_OPS_AGENT_REGISTRY.md b/docs/kb4agents/special_ops_kb_factory_output/special_ops_kb_factory_output/SPECIAL_OPS_AGENT_REGISTRY.md
+--- a/docs/kb4agents/special_ops_kb_factory_output/special_ops_kb_factory_output/SPECIAL_OPS_AGENT_REGISTRY.md
++++ b/docs/kb4agents/special_ops_kb_factory_output/special_ops_kb_factory_output/SPECIAL_OPS_AGENT_REGISTRY.md
+@@ | AI Handling / Routing Agent | ai_handling_routing | `special_ops__ai_handling_routing` | Decide which agent to use for which task, enforce single‑agent scope, route tasks to specialized agents, and handle escalation or narrowing decisions. | medium | provisional | primary verification escalation file missing; guidance derived from single‑agent guides and supporting materials only |
+-| AI Handling / Routing Agent | ai_handling_routing | `special_ops__ai_handling_routing` | Decide which agent to use for which task, enforce single‑agent scope, route tasks to specialized agents, and handle escalation or narrowing decisions. | medium | provisional | primary verification escalation file missing; guidance derived from single‑agent guides and supporting materials only |
++| AI Handling / Routing Agent | ai_handling_routing | `special_ops__ai_handling_routing` | Decide which agent to use for which task, enforce single‑agent scope, route tasks to specialized agents, and handle escalation or narrowing decisions. | medium | blocked_pending_source | primary verification escalation file missing; guidance derived from single‑agent guides and supporting materials only |
+@@ | Hygiene / Clean Agent | hygiene_clean | `special_ops__hygiene_clean` | Detect drift, ensure cleanup discipline, enforce source hygiene, and provide recovery playbooks for corrupted state. | low | provisional | primary anti‑drift ledger was inaccessible; doctrine built from supporting evidence and general patterns only |
+-| Hygiene / Clean Agent | hygiene_clean | `special_ops__hygiene_clean` | Detect drift, ensure cleanup discipline, enforce source hygiene, and provide recovery playbooks for corrupted state. | low | provisional | primary anti‑drift ledger was inaccessible; doctrine built from supporting evidence and general patterns only |
++| Hygiene / Clean Agent | hygiene_clean | `special_ops__hygiene_clean` | Detect drift, ensure cleanup discipline, enforce source hygiene, and provide recovery playbooks for corrupted state. | low | blocked_pending_source | primary anti‑drift ledger was inaccessible; doctrine built from supporting evidence and general patterns only |
+
+diff --git a/docs/kb4agents/special_ops_kb_factory_output/special_ops_kb_factory_output/SPECIAL_OPS_SWARM_CONTRACT.md b/docs/kb4agents/special_ops_kb_factory_output/special_ops_kb_factory_output/SPECIAL_OPS_SWARM_CONTRACT.md
+new file mode 100644
+--- /dev/null
++++ b/docs/kb4agents/special_ops_kb_factory_output/special_ops_kb_factory_output/SPECIAL_OPS_SWARM_CONTRACT.md
+@@
++# SPECIAL_OPS_SWARM_CONTRACT
++
++## Purpose
++
++This contract defines the overarching responsibilities, authority order, and interaction rules for the Special Ops agent swarm within OpenClaw.  It clarifies how individual agents coordinate to maintain bounded scope, source fidelity, and mutual respect for each other’s domains.
++
++## Authority hierarchy
++
++1. **User instruction** — The user’s current directive always takes precedence when it does not conflict with safety or system rules.
++2. **System prompts and controlling instructions** — The controlling Agent Mode prompts (e.g., this contract and the KB factory prompts) set global rules and stop conditions.
++3. **Source index** — The `SPECIAL_OPS_KB_BASE_BUILD_INDEX.md` defines which sources may be used and their roles.
++4. **Primary sources** — Files marked primary in the index carry the highest content authority.
++5. **Supporting sources** — Provide clarification and additional context but must not override primary sources.
++6. **Evidence‑only sources** — May illustrate failures or edge cases but do not create doctrine.
++7. **Generated KB files** — Serve as candidate knowledge, not truth; they must conform to this contract and await human approval.
++
++## Inter‑agent coordination
++
++- **Single‑agent focus**: Each agent may only operate within its assigned cluster and mission.  No agent should borrow rules from another cluster without explicit citation and limits.
++- **Handoff discipline**: When one agent completes its task, it must provide a clear handoff package with inputs, outputs, and open questions for the next agent.
++- **Escalation**: If an agent encounters a question outside its scope or a missing source, it must stop and refer the task to the appropriate agent or a human reviewer.
++- **Conflict resolution**: When two agents disagree on doctrine or boundaries, defer to the higher authority in the hierarchy above or mark the claim as provisional or blocked.
++
++## Hard boundaries
++
++- **No source expansion**: Agents must not introduce unindexed sources.
++- **No cross‑domain rewrites**: One agent must not rewrite or override another agent’s content without explicit instructions and primary source support.
++- **No self‑approval**: Agents cannot declare final truth; only human reviewers may approve the KB.
++
++## Open questions
++
++- How should the swarm handle emerging source files not yet indexed?
++- What mechanisms ensure consistent updates across agents when a primary source changes?
+
+diff --git a/docs/kb4agents/special_ops_kb_factory_output/special_ops_kb_factory_output/GROUP_SOURCE_AUTHORITY_MATRIX.md b/docs/kb4agents/special_ops_kb_factory_output/special_ops_kb_factory_output/GROUP_SOURCE_AUTHORITY_MATRIX.md
+new file mode 100644
+--- /dev/null
++++ b/docs/kb4agents/special_ops_kb_factory_output/special_ops_kb_factory_output/GROUP_SOURCE_AUTHORITY_MATRIX.md
+@@
++# GROUP_SOURCE_AUTHORITY_MATRIX
++
++## Purpose
++
++This matrix summarises the primary and supporting sources for each Special Ops agent cluster, clarifying their roles and read modes.  Reviewers can use it to confirm that doctrine derives from the correct authority level.
++
++| Cluster | Primary sources | Supporting sources | Evidence sources | Notes |
++|---|---|---|---|---|
++| special_ops__informatics_design | INFORMATION_DESIGN_80_20_ESSENCE.md | — | — | Core 80/20 rules for information design. |
++| special_ops__prompts_workflows | PROMPT_DESIGN_80_20_BEST_PRACTICE.md; WORKFLOW_80_20_ESSENCE.md; WORKFLOW_BEST_PRACTICES_RESEARCH.md | CODEX_GIT_EXECUTION_ESSENCE.md; CODEX_RESILIENT_MIGRATION_PROCESS.md | — | Provides prompt and workflow doctrine as well as codex execution guidance. |
++| special_ops__ai_handling_routing | SOURCE_AUTHORITY_VERIFICATION_ESCALATION_80_20_ESSENCE.md | SingleGuide_Claude.md; SingleGuide_GPT.md | — | Primary source missing; cluster remains blocked until recovered. |
++| special_ops__hygiene_clean | FAILURE_AND_ANTI_DRIFT_LEDGER.md | — | prob – prompt design & process failure.md | Primary ledger missing; doctrine provisional or blocked. |
++| special_ops__research_api_cost | Research Agent API Calls Performance & Cost.md | — | — | Manual file describing model performance and cost assumptions. |
++
++## Interpretation
++
++- **Primary sources** hold the highest authority and must be read fully before use.
++- **Supporting sources** supplement primary files but cannot override them.
++- **Evidence sources** supply concrete examples of failures; they inform mistakes/failures sections without generating positive doctrine.
+
+diff --git a/docs/kb4agents/special_ops_kb_factory_output/special_ops_kb_factory_output/SPECIAL_OPS_KB_ACCEPTANCE_TESTS.md b/docs/kb4agents/special_ops_kb_factory_output/special_ops_kb_factory_output/SPECIAL_OPS_KB_ACCEPTANCE_TESTS.md
+new file mode 100644
+--- /dev/null
++++ b/docs/kb4agents/special_ops_kb_factory_output/special_ops_kb_factory_output/SPECIAL_OPS_KB_ACCEPTANCE_TESTS.md
+@@
++# SPECIAL_OPS_KB_ACCEPTANCE_TESTS
++
++## Purpose
++
++These mechanical acceptance tests verify that each batch of the Special Ops KB package complies with structural, metadata, and source‑integrity requirements.  All tests must pass before the package may be recommended for human review.
++
++| Test | Requirement | Pass condition |
++|---|---|---|
++| **Structure** | Expected package files exist | All required control files and any agent files in scope are present; no missing files |
++| **Metadata** | Frontmatter matches schema | YAML frontmatter in every KB file conforms to the specified fields and values |
++| **Source access** | Required sources were read or blocked | No final state of “not accessed due to time”; missing primary sources are flagged and affected agents are blocked |
++| **Source slice** | Metadata matches actual source use | `source_slice` in each file correctly lists primary, supporting, and evidence sources |
++| **Evidence boundary** | Evidence‑only stays evidence‑only | Failure anecdotes and evidence are not promoted into best practices |
++| **Essence** | Essence compresses prior files | `ESSENCE.md` files include only content from the preceding four files and do not introduce new doctrine |
++| **Citation durability** | Repo‑stable references | Source references in files use durable repo paths or section names; no opaque runtime tokens remain |
++| **Diff integrity** | Patches apply to live preimage | Unified diffs apply cleanly against the current repo state (`git apply --check` passes) |
++| **Audit honesty** | Verdict matches evidence | `CROSS_AGENT_AUDIT.md` does not claim approval when unresolved gaps or failing tests remain |
+
+diff --git a/docs/kb4agents/special_ops_kb_factory_output/special_ops_kb_factory_output/SPECIAL_OPS_SHARED_GLOSSARY.md b/docs/kb4agents/special_ops_kb_factory_output/special_ops_kb_factory_output/SPECIAL_OPS_SHARED_GLOSSARY.md
+new file mode 100644
+--- /dev/null
++++ b/docs/kb4agents/special_ops_kb_factory_output/special_ops_kb_factory_output/SPECIAL_OPS_SHARED_GLOSSARY.md
+@@
++# SPECIAL_OPS_SHARED_GLOSSARY
++
++## Purpose
++
++Provide a concise glossary of terms used throughout the Special Ops KB to ensure consistent understanding among contributors and reviewers.
++
++| Term | Definition |
++|---|---|
++| **Agent** | A specialized component within OpenClaw that performs bounded tasks using a defined set of sources and rules. |
++| **Primary source** | A file listed in the build index as primary; it carries the highest authority and must be read fully. |
++| **Supporting source** | A file that supplements a primary source; it cannot override primary doctrine but may clarify or expand on it. |
++| **Evidence‑only source** | A source used solely to illustrate failures or edge cases; it should not generate positive doctrine without additional support. |
++| **Provisional** | A label indicating that a claim or agent is based on incomplete or weak sources and requires human review. |
++| **Blocked** | A status indicating that work on a file or agent must stop due to missing sources or unresolved conflicts. |
++| **Source slice** | The set of primary, supporting, and evidence sources explicitly cited in a KB file’s metadata. |
++| **Acceptance test** | A mechanical check that verifies structural and source integrity before a KB batch can be recommended for review. |
