@@ -80,6 +80,8 @@ This file does not cover:
     
 - File production is subordinate manufacturing work. It may be required by the operating spine, but it must not become the master process of the system.
     
+- Within an already-authorized artifact-manufacturing run, production is first inside the bounded file-production loop: create the requested target artifact, then validate, plausibility-check, research further, and improve it. This does not invert runtime authority; it prevents governance scaffolding from substituting for the requested file, diff, or KB output.
+    
 
 ## Canonical operating cycle
 
@@ -210,6 +212,10 @@ Subordinate outward pointers include, at minimum:
 ## Boundaries and anti-drift rules
 
 - Do not reinstall a file-production-first architecture under new terminology.
+    
+- Do not confuse system-level operating-spine-first authority with artifact-run sequencing. The system stays operating-spine-first, but a bounded production pass must still produce the requested artifact before broad audit/control expansion.
+    
+- Do not let scope contracts, source ledgers, claim caches, acceptance-test files, or other control surfaces become substitute deliverables when the user asked for a concrete file, diff, KB update, or prompt artifact.
     
 - Do not treat README files, docs, or rituals as substitute hosts for constitutional runtime law.
     
