@@ -103,6 +103,26 @@ practice_entry:
   validator: meta_ops
   review_due: 2026-07-30
 
+- id: `PW-BP-005`
+  status: accepted
+  practice: Design production prompts so the target artifact is impossible to miss: name the artifact, place production before analysis, keep guardrails subordinate to output delivery, and require validation only after the first concrete artifact exists.
+  context_conditions:
+    - prompt design for file, diff, KB, or downloadable artifact creation
+    - continuation-based production flows
+    - browser or connector runs where preflight, source gates, or governance checks can crowd out delivery
+    - tasks where the user needs to validate and continue rather than receive another plan
+  evidence_refs:
+    - `Production_First_Agent_Mode_KB_Update_Prompt_Flow.md`
+    - `Production_First_Iteration_Learning_Record.md`
+    - `Final_Production_First_Agent_Mode_Integration_Pack.md`
+  scores:
+    EVD: 5
+    IMP: 5
+    RSK: 4
+  owner: special_ops__prompts_workflows
+  validator: meta_ops
+  review_due: 2026-07-30
+
 ## Empty-state marker or initial entries
 
 Add entries here only after validation and promotion from `LEARNING_QUEUE.md`.
