@@ -21,8 +21,8 @@ Governing routing, delegation, state, and handoff rules live in `managed/rules/A
 - the task is simple, quick, or conversational
 - personal context is needed
 - the task needs real-time user interaction
-- the task is security-sensitive
-- the task requires user approval
+- the task has security sensitivity
+- the task requires operator approval
 
 ### Delegate to a specialist when
 
@@ -31,6 +31,19 @@ Governing routing, delegation, state, and handoff rules live in `managed/rules/A
 - success criteria can be stated explicitly
 - parallel help would keep the main assistant responsive
 - budgets and return format can be named up front
+
+## AI execution-mode routing note
+
+Use this compact gate before turning a prompt flow into an execution run:
+
+| Bottleneck | Preferred mode | Boundary |
+|---|---|---|
+| reasoning, doctrine, KB architecture, prompt design, exact markdown, or unified diff drafting | extended thinking with repo/file access | do not send to Agent Mode only because the task is complex |
+| browser, website, app, form, spreadsheet UI, account action, or supervised online operation | Agent Mode | require explicit action boundaries and confirmation gates |
+| broad multi-source synthesis with cited reporting | Deep Research or web-backed extended thinking | do not use as a substitute for repo mutation or tests |
+| patch application, test execution, or mechanical repo validation | Codex or repo-aware execution | verify in the actual checkout before treating the result as applied |
+
+This is a companion shortcut for operator routing. Durable mode doctrine lives in `docs/Agent_Mode_vs_Thinking_Mode_Routing_Baseline.md` and accepted AI-routing entries live in `managed/agent_kb/special_ops__ai_handling_routing/`.
 
 ## Quick reference
 
