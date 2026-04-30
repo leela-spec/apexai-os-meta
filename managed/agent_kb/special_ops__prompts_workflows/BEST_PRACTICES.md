@@ -123,6 +123,26 @@ practice_entry:
   validator: meta_ops
   review_due: 2026-07-30
 
+- id: `PW-BP-006`
+  status: accepted
+  practice: Declare the intended execution mode and bottleneck in prompt flows before invoking Agent Mode.
+  context_conditions:
+    - prompt-flow design for KB, doctrine, markdown, unified diff, or repo work
+    - workflows that could be misread as Agent Mode tasks because they are complex
+    - tasks that mix reasoning, research, external action, and patch execution
+    - operator-continuation flows where the next executor needs a clear mode boundary
+  evidence_refs:
+    - `docs/Agent_Mode_vs_Thinking_Mode_Routing_Baseline.md`
+    - `docs/Agent_Mode_vs_Thinking_Mode_Routing_Baseline_Context.md`
+    - `managed/agent_kb/special_ops__ai_handling_routing/BEST_PRACTICES.md`
+  scores:
+    EVD: 5
+    IMP: 5
+    RSK: 1
+  owner: special_ops__prompts_workflows
+  validator: meta_ops
+  review_due: 2026-07-30
+
 ## Empty-state marker or initial entries
 
 Add entries here only after validation and promotion from `LEARNING_QUEUE.md`.
