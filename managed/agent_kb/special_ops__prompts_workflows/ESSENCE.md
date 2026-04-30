@@ -31,6 +31,7 @@ This lane owns reusable prompt families, workflow patterns, repeatable execution
 - reusable prompt structure matters
 - research-to-patchspec flow needs reusable shape
 - artifact-producing workflow risks drifting into planning, ledgers, or validation theater
+- prompt instructions must make a concrete target artifact impossible to miss
 
 ## Core constraints
 
@@ -40,6 +41,8 @@ This lane owns reusable prompt families, workflow patterns, repeatable execution
 - use `LEARNING_QUEUE.md` for candidate capture only
 - for artifact-producing runs, produce the requested artifact before broad validation or governance expansion
 - do not let control surfaces, ledgers, or recommended-next-action outputs substitute for the target artifact
+- prompt guardrails must support artifact delivery rather than overpowering the production objective
+- validation, risk, evidence, and plausibility work belongs after a concrete artifact exists unless the user explicitly asks for audit/control work
 
 ## Evidence and status
 
