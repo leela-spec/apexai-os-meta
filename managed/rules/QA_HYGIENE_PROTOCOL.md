@@ -84,6 +84,13 @@ Every QA/Hygiene finding must declare at least:
 - **Definition:** a project-local overlay weakens the managed floor or conflicts ambiguously with it.
 - **Examples:** weaker approval posture; weaker escalation posture; hidden local authority rules; local interface bypass.
 
+#### Mode-mismatch substitution
+
+- **Definition:** a task is routed to a mode whose strengths do not match the bottleneck, causing the run to produce the wrong kind of output.
+- **Severity:** `P1` when mode mismatch replaces a requested concrete artifact, patch, or action result with reports, plans, ledgers, or unvalidated instructions; `P2` when the mismatch is caught early and clearly labeled as diagnostic.
+- **Evidence signals:** Agent Mode used for exact KB, prompt, doctrine, markdown, or unified diff work without an external UI/action requirement; Deep Research used as a substitute for repo mutation; normal chat used for patch/test work without repo validation; browser/action tasks answered only as advice.
+- **Required correction:** reroute by bottleneck, restate the concrete success condition, produce or execute the requested artifact/action in the correct mode, and validate the output before closing the finding.
+
 #### Governance-first substitution
 
 - **Definition:** a run is asked to create or patch a concrete artifact, but instead produces planning, source ledgers, claim caches, acceptance-test scaffolds, broad audit reports, or other control surfaces while the target artifact remains missing, unvalidated, or unusable.
@@ -357,6 +364,7 @@ A `P3` finding closes only when:
 - Findings may not be closed by silence.
 - Findings may not be closed only because later prose stopped mentioning them.
 - Governance-first substitution may close only when the concrete target artifact exists and has been checked against its requested format/scope; a better plan, broader ledger, or cleaner audit does not close the finding by itself.
+- Mode-mismatch substitution may close only when the task is rerouted to the correct execution mode and the requested artifact, action result, research synthesis, or patch/test outcome has been produced and validated.
 - A finding may not be downgraded without an explicit reason.
 - Severe findings may not be rephrased as routine notes to avoid routing consequences.
 
