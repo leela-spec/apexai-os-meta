@@ -4,24 +4,25 @@
 
 Folder index for Alfred's Apex AI agent knowledge base.
 
-Alfred is the operator-facing intake, alignment, and route-brief lane. The Alfred KB resolves through the canonical five-file scaffold. Additional files are either source/audit controls, absorbed redirects, or active subordinate appendices that support retrieval without becoming parallel authority.
+Alfred is the operator-facing intake, alignment, and route-brief lane. The Alfred KB resolves through the canonical five-file scaffold. Additional files are either source/audit controls, absorbed redirects, moved redirects, or active subordinate appendices under `appendices/` that support retrieval without becoming parallel authority.
 
 ## Status
 
 ```yaml
 agent_id: alfred
 kb_root: managed/agent_kb/alfred/
-file_status: folder_index_after_redirect_and_appendix_decision_pass
+file_status: folder_index_after_appendix_folder_move
 source_phase: pass_a_source_bundle_complete
 canonical_consolidation_status: complete
 absorbed_redirect_pass_status: complete
 appendix_decision_pass_status: complete
+appendix_folder_move_status: complete
 source_posture: validated_core_only
 canonical_scaffold_status: primary_runtime_kb_interface
 supporting_material_status: redirected_or_subordinate_appendix_or_source_audit_control
 leela_surface_map_status: intentionally_skipped_until_source_extension
 validator: meta_ops
-next_recommended_action: run_manual_source_extension_audit_or_optionally_move_active_appendices_to_appendices_folder
+next_recommended_action: run_manual_source_extension_audit_before_hardening_detailed_leela_surface_mechanics
 ```
 
 ## Canonical five-file KB scaffold
@@ -46,21 +47,21 @@ The files below do not define a second KB scaffold.
 | `DOCTRINE.md` | absorbed redirect | Durable doctrine resolves to `ESSENCE.md`; operating method resolves to `BEST_PRACTICES.md`; failure-pattern material resolves to `MISTAKES.md`. |
 | `ROLE_BOUNDARIES.md` | absorbed redirect | Boundary doctrine resolves to `ESSENCE.md`; boundary practice resolves to `BEST_PRACTICES.md`; boundary failures resolve to `MISTAKES.md`. |
 | `HANDOFF_SCHEMA.md` | absorbed redirect | Reusable Alfred handoff forms resolve to `TEMPLATES.md`; process-level handoff authority resolves to `managed/processes/AGENT_HANDOFF_CONTRACTS.md`. |
-| `ROUTING_CONTRACT.md` | active subordinate appendix | Detailed routing matrix for retrieval. Canonical routing method remains in `BEST_PRACTICES.md`; reusable route forms remain in `TEMPLATES.md`; process authority remains in `managed/processes/AGENT_HANDOFF_CONTRACTS.md`. |
-| `WORKFLOW_PLAYBOOK.md` | active subordinate appendix | Detailed workflow shapes for retrieval. Accepted method remains in `BEST_PRACTICES.md`; reusable forms remain in `TEMPLATES.md`; failures remain in `MISTAKES.md`. |
+| `ROUTING_CONTRACT.md` | moved redirect | Active routing appendix moved to `appendices/APPENDIX_ROUTING_MATRIX.md`. |
+| `WORKFLOW_PLAYBOOK.md` | moved redirect | Active workflow appendix moved to `appendices/APPENDIX_WORKFLOW_PLAYBOOK.md`. |
 | `SOURCE_MANIFEST.md` | source/audit control | Keep. This is provenance and source-status control, not doctrine. |
 | `COVERAGE_AUDIT.md` | source/audit control | Keep. This constrains validated/provisional/source-gap claims, but is not accepted doctrine by itself. |
 
 ## Active subordinate appendices
 
-| Appendix file | Appendix type | Reason retained | Future move candidate |
+| Appendix file | Appendix type | Reason retained | Canonical owner |
 |---|---|---|---|
-| `ROUTING_CONTRACT.md` | routing matrix | Preserves detailed per-target trigger/rationale/output lookup tables with retrieval value beyond canonical summaries. | `appendices/APPENDIX_ROUTING_MATRIX.md` |
-| `WORKFLOW_PLAYBOOK.md` | workflow playbook | Preserves detailed stepwise workflows, outputs, and stop conditions that would bloat `BEST_PRACTICES.md`. | `appendices/APPENDIX_WORKFLOW_PLAYBOOK.md` |
+| `appendices/APPENDIX_ROUTING_MATRIX.md` | routing matrix | Preserves detailed per-target trigger/rationale/output lookup tables with retrieval value beyond canonical summaries. | `BEST_PRACTICES.md` |
+| `appendices/APPENDIX_WORKFLOW_PLAYBOOK.md` | workflow playbook | Preserves detailed stepwise workflows, outputs, and stop conditions that would bloat `BEST_PRACTICES.md`. | `BEST_PRACTICES.md` |
 
 Appendices are subordinate references. They must not introduce new route targets, route authority, process authority, accepted doctrine, source status, or promotion rules unless the canonical owner and promotion path are updated first.
 
-## Absorbed redirect files
+## Redirect files
 
 | Redirect file | Use instead |
 |---|---|
@@ -68,6 +69,8 @@ Appendices are subordinate references. They must not introduce new route targets
 | `DOCTRINE.md` | `ESSENCE.md`, `BEST_PRACTICES.md`, `MISTAKES.md`, `SOURCE_MANIFEST.md`, `COVERAGE_AUDIT.md` |
 | `ROLE_BOUNDARIES.md` | `ESSENCE.md`, `BEST_PRACTICES.md`, `MISTAKES.md`, `SOURCE_MANIFEST.md`, `COVERAGE_AUDIT.md` |
 | `HANDOFF_SCHEMA.md` | `TEMPLATES.md`, `BEST_PRACTICES.md`, `MISTAKES.md`, `managed/processes/AGENT_HANDOFF_CONTRACTS.md` |
+| `ROUTING_CONTRACT.md` | `appendices/APPENDIX_ROUTING_MATRIX.md`, `BEST_PRACTICES.md`, `TEMPLATES.md`, `MISTAKES.md`, `managed/processes/AGENT_HANDOFF_CONTRACTS.md` |
+| `WORKFLOW_PLAYBOOK.md` | `appendices/APPENDIX_WORKFLOW_PLAYBOOK.md`, `BEST_PRACTICES.md`, `TEMPLATES.md`, `MISTAKES.md`, `managed/processes/AGENT_HANDOFF_CONTRACTS.md` |
 
 Do not add new doctrine to redirect files. Redirect files exist for compatibility and pointer hygiene only.
 
@@ -87,7 +90,7 @@ Do not add new doctrine to redirect files. Redirect files exist for compatibilit
 | reusable intake form, route brief, handoff packet, escalation form, report format | `TEMPLATES.md` |
 | unvalidated future learning | `LEARNING_QUEUE.md` |
 | provenance, source status, coverage state | `SOURCE_MANIFEST.md` / `COVERAGE_AUDIT.md` |
-| detailed route lookup table or workflow procedure too bulky for canonical files | subordinate appendix only |
+| detailed route lookup table or workflow procedure too bulky for canonical files | `appendices/` subordinate appendix only |
 
 ## Routing summary
 
@@ -100,7 +103,7 @@ Do not add new doctrine to redirect files. Redirect files exist for compatibilit
 | KB placement, source map, candidate/canon separation | `special_ops__knowledge_bank` |
 | Clarify operator intent before routing | Alfred/operator loop |
 
-For detailed routing lookup, use `ROUTING_CONTRACT.md` as a subordinate appendix. If the appendix conflicts with `ESSENCE.md`, `BEST_PRACTICES.md`, `TEMPLATES.md`, `MISTAKES.md`, or `managed/processes/AGENT_HANDOFF_CONTRACTS.md`, the canonical/process owner wins.
+For detailed routing lookup, use `appendices/APPENDIX_ROUTING_MATRIX.md` as a subordinate appendix. If the appendix conflicts with `ESSENCE.md`, `BEST_PRACTICES.md`, `TEMPLATES.md`, `MISTAKES.md`, or `managed/processes/AGENT_HANDOFF_CONTRACTS.md`, the canonical/process owner wins.
 
 ## Source posture
 
@@ -122,16 +125,15 @@ When adding or repairing Alfred KB material:
 2. Route durable content to the correct canonical owner by content type.
 3. Keep `SOURCE_MANIFEST.md` and `COVERAGE_AUDIT.md` as source/audit controls.
 4. Keep subordinate appendices retrieval-focused and explicitly subordinate.
-5. Do not let support files become a parallel scaffold.
-6. Keep `LEARNING_QUEUE.md` candidate-only.
-7. Keep future writes one file per turn with fetch-before-write and fetch-back verification.
-8. Use the governed promotion path for truth-bearing changes.
-9. Run source-extension audit before hardening detailed Leela surface mechanics.
+5. Keep active appendices under `appendices/`; keep old root paths as redirects for compatibility.
+6. Do not let support files become a parallel scaffold.
+7. Keep `LEARNING_QUEUE.md` candidate-only.
+8. Keep future writes one file per turn where possible; structural moves may require create-new-file plus redirect-old-file.
+9. Use the governed promotion path for truth-bearing changes.
+10. Run source-extension audit before hardening detailed Leela surface mechanics.
 
 ## Recommended next actions
 
-1. Optionally move active appendices into `managed/agent_kb/alfred/appendices/` one at a time:
-   - `ROUTING_CONTRACT.md` -> `appendices/APPENDIX_ROUTING_MATRIX.md` with old-path redirect.
-   - `WORKFLOW_PLAYBOOK.md` -> `appendices/APPENDIX_WORKFLOW_PLAYBOOK.md` with old-path redirect.
-2. Run the manual source-extension audit before creating `LEELA_SURFACE_MAP.md` or hardening detailed Leela mechanics.
-3. Update `SOURCE_MANIFEST.md` and `COVERAGE_AUDIT.md` only after source-extension audit records actual read status.
+1. Run the manual source-extension audit before creating `LEELA_SURFACE_MAP.md` or hardening detailed Leela mechanics.
+2. Update `SOURCE_MANIFEST.md` and `COVERAGE_AUDIT.md` only after source-extension audit records actual read status.
+3. Keep old root-path redirects until repo references are updated or compatibility is no longer needed.
