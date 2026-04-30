@@ -103,6 +103,27 @@ mistake_entry:
   validator: meta_ops
   review_due: 2026-07-28
 
+- id: `PW-MK-005`
+  status: accepted
+  pattern: Governance-first substitution in artifact-producing workflows.
+  trigger_conditions:
+    - the user asks for a concrete file, diff, KB update, or prompt artifact
+    - the workflow produces source ledgers, scope contracts, broad audits, claim caches, or acceptance-test scaffolds first
+    - validation is described before any target artifact exists
+    - the run ends with a recommended next action rather than the requested artifact
+  countermeasure: Reframe the workflow as one bounded production unit: produce the target artifact first, validate the concrete artifact second, repair once if validation fails, and stop for operator continuation.
+  evidence_refs:
+    - `Production_First_Iteration_Learning_Record.md`
+    - `Production_First_Diff_Validation_Report.md`
+    - `GitHub_Extended_Thinking_Production_First_Patch_Flow.md`
+  scores:
+    EVD: 5
+    IMP: 5
+    RSK: 4
+  owner: special_ops__prompts_workflows
+  validator: meta_ops
+  review_due: 2026-07-30
+
 ## Empty-state marker or initial entries
 
 Add entries here only after validation and promotion from `LEARNING_QUEUE.md`.
