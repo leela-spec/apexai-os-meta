@@ -192,6 +192,56 @@ template_entry:
   validator: meta_ops
   review_due: 2026-07-28
 
+- id: `PW-TPL-004`
+  status: accepted
+  use_when: A prompt or workflow run must create a concrete file, patch, prompt artifact, or KB update and previous runs risked substituting control artifacts for production.
+  template_body: |
+    # Production-First Artifact Run
+
+    ## Mission
+
+    Produce exactly one named target artifact before broad validation or learning documentation.
+
+    ## Target artifact
+
+    `<TARGET_ARTIFACT>`
+
+    ## Source rules
+
+    - Use only the named source files and live target preimages.
+    - Treat previous patches or reports as intent, not as valid preimages.
+    - Do not browse or widen source scope unless explicitly authorized.
+    - If a secondary source is missing, state the caveat after production rather than switching into audit mode.
+
+    ## Production sequence
+
+    1. Create the target artifact.
+    2. Validate the concrete artifact against scope, source fit, format, and patchability.
+    3. Repair once if validation fails.
+    4. Stop with compact status and wait for operator continuation.
+
+    ## Forbidden substitutions
+
+    - do not create a source ledger instead of the artifact
+    - do not create a broad audit instead of the artifact
+    - do not create acceptance-test scaffolding without running the check
+    - do not end with only a recommended next action
+
+    ## Completion standard
+
+    The run is complete only when the target artifact exists or a concrete blocker prevents artifact creation.
+  evidence_refs:
+    - `Production_First_Agent_Mode_KB_Update_Prompt_Flow.md`
+    - `Production_First_Iteration_Learning_Record.md`
+    - `GitHub_Extended_Thinking_Production_First_Patch_Flow.md`
+  scores:
+    EVD: 5
+    IMP: 5
+    RSK: 4
+  owner: special_ops__prompts_workflows
+  validator: meta_ops
+  review_due: 2026-07-30
+
 ## Empty-state marker or initial entries
 
 Add entries here only after validation and promotion from `LEARNING_QUEUE.md`.
