@@ -82,6 +82,27 @@ practice_entry:
   validator: meta_ops
   review_due: 2026-07-28
 
+- id: `PW-BP-004`
+  status: accepted
+  practice: Use production-first iteration for artifact-producing prompt and workflow runs: create the requested file, patch, prompt artifact, or KB update before broad validation, second research, or governance expansion.
+  context_conditions:
+    - file creation or file repair
+    - patch or unified-diff generation
+    - KB update or prompt artifact production
+    - continuation-based workflow execution
+    - subscription-browser or connector-mediated runs where control scaffolding can crowd out the artifact
+  evidence_refs:
+    - `Production_First_Iteration_Learning_Record.md`
+    - `Production_First_Diff_Validation_Report.md`
+    - `GitHub_Extended_Thinking_Production_First_Patch_Flow.md`
+  scores:
+    EVD: 5
+    IMP: 5
+    RSK: 4
+  owner: special_ops__prompts_workflows
+  validator: meta_ops
+  review_due: 2026-07-30
+
 ## Empty-state marker or initial entries
 
 Add entries here only after validation and promotion from `LEARNING_QUEUE.md`.
