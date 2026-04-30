@@ -146,6 +146,28 @@ mistake_entry:
   validator: meta_ops
   review_due: 2026-07-30
 
+- id: `PW-MK-007`
+  status: accepted
+  pattern: Agent Mode prompt flow is written for exact KB, doctrine, markdown, prompt, or unified-diff artifacts without an external-action bottleneck.
+  trigger_conditions:
+    - the requested output is a precise text artifact or repo patch
+    - the prompt invokes Agent Mode because the task is complex rather than because external UI/tool action is required
+    - browser/app permissions, action gates, or autonomous run framing are emphasized while the artifact could be produced through extended thinking and repo/file access
+    - the run risks creating plans, ledgers, validation theater, or next-step recommendations instead of the requested artifact
+  countermeasure: Route by bottleneck first; use extended thinking with repo/file access for reasoning-heavy artifact drafting, Codex/repo tools for patch application and tests, Deep Research for broad synthesis, and Agent Mode only when browser/app/tool action is the real bottleneck.
+  evidence_refs:
+    - `docs/Agent_Mode_vs_Thinking_Mode_Routing_Baseline.md`
+    - `docs/Agent_Mode_vs_Thinking_Mode_Routing_Baseline_Context.md`
+    - `managed/agent_kb/special_ops__ai_handling_routing/MISTAKES.md`
+    - `managed/agent_kb/special_ops__prompts_workflows/GPT_AGENT_MODE_BUSINESS_PLAYBOOK.md`
+  scores:
+    EVD: 5
+    IMP: 5
+    RSK: 1
+  owner: special_ops__prompts_workflows
+  validator: meta_ops
+  review_due: 2026-07-30
+
 ## Empty-state marker or initial entries
 
 Add entries here only after validation and promotion from `LEARNING_QUEUE.md`.
