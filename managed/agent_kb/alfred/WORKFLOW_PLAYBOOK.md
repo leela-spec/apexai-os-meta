@@ -1,40 +1,57 @@
 # WORKFLOW_PLAYBOOK
 
-## Purpose
-
-Operational workflow playbook for Alfred inside `managed/agent_kb/alfred/`.
-
-This file turns validated Alfred doctrine, routing, and handoff rules into repeatable workflow shapes. It intentionally excludes detailed Leela product mechanics, exact day/night rituals, 5V mechanics, and voice-to-markdown/mobile intake details because those remain source-gap-dependent.
-
 ## Status
 
 ```yaml
 agent_id: alfred
-kb_root: managed/agent_kb/alfred/
-file_status: created_from_validated_core_files
-source_manifest: managed/agent_kb/alfred/SOURCE_MANIFEST.md
-coverage_audit: managed/agent_kb/alfred/COVERAGE_AUDIT.md
-role_boundaries: managed/agent_kb/alfred/ROLE_BOUNDARIES.md
-routing_contract: managed/agent_kb/alfred/ROUTING_CONTRACT.md
-handoff_schema: managed/agent_kb/alfred/HANDOFF_SCHEMA.md
-doctrine: managed/agent_kb/alfred/DOCTRINE.md
+file_status: active_subordinate_appendix
+appendix_type: workflow_playbook
+canonical_owner: managed/agent_kb/alfred/BEST_PRACTICES.md
+template_owner: managed/agent_kb/alfred/TEMPLATES.md
+boundary_owner: managed/agent_kb/alfred/ESSENCE.md
+failure_owner: managed/agent_kb/alfred/MISTAKES.md
+process_authority: managed/processes/AGENT_HANDOFF_CONTRACTS.md
+source_controls:
+  - managed/agent_kb/alfred/SOURCE_MANIFEST.md
+  - managed/agent_kb/alfred/COVERAGE_AUDIT.md
+future_move_candidate: managed/agent_kb/alfred/appendices/APPENDIX_WORKFLOW_PLAYBOOK.md
 source_posture: validated_core_only
-leela_surface_map_status: intentionally_skipped_for_this_iteration
+runtime_truth_status: subordinate_reference_not_parallel_authority
 validator: meta_ops
-next_recommended_file: managed/agent_kb/alfred/README.md
+review_due: 2026-07-25
 ```
+
+## Purpose
+
+Workflow appendix for Alfred.
+
+This file preserves detailed procedural workflow shapes for retrieval and operational reuse. It does not replace the canonical Alfred KB files.
+
+Use the canonical files first:
+
+- `ESSENCE.md` owns Alfred's identity, boundary, local retention doctrine, and operating maxim.
+- `BEST_PRACTICES.md` owns accepted Alfred operating method.
+- `TEMPLATES.md` owns reusable intake, route-brief, handoff, escalation, and report forms.
+- `MISTAKES.md` owns workflow failure patterns and invalid-use cases.
+- `managed/processes/AGENT_HANDOFF_CONTRACTS.md` owns process-level handoff authority.
+
+## Appendix rule
+
+This appendix may preserve detailed stepwise workflows, stop conditions, and output shapes, but it must not introduce new doctrine, route targets, process authority, source status, or promotion rules unless the canonical owner and promotion path are updated first.
+
+If this file conflicts with `ESSENCE.md`, `BEST_PRACTICES.md`, `TEMPLATES.md`, `MISTAKES.md`, `SOURCE_MANIFEST.md`, `COVERAGE_AUDIT.md`, or `managed/processes/AGENT_HANDOFF_CONTRACTS.md`, the canonical/source/process owner wins.
 
 ## Workflow principle
 
 Alfred workflows should reduce ambiguity and route work without absorbing downstream ownership.
 
-Every workflow should end with one of these outcomes:
+Every Alfred workflow should end with one of these outcomes:
 
-- local operator-facing clarification
-- route brief to a verified target
-- validation/challenge request
-- source-gap review request
-- stop/hold/escalation recommendation
+- local operator-facing clarification,
+- route brief to a verified target,
+- validation/challenge request,
+- knowledge placement or source-gap review request,
+- stop/hold/escalation recommendation.
 
 ## Workflow 1 — Intake to route
 
@@ -44,25 +61,25 @@ Use when a new operator request arrives.
 
 1. Capture the operator request.
 2. Identify desired output.
-3. Capture constraints, blockers, timing, and relevant prior context.
+3. Capture constraints, blockers, timing, capacity, and relevant prior context.
 4. Detect ambiguity or missing decision context.
 5. Classify the request by function:
-   - intake / alignment
-   - execution / orchestration
-   - strategy / options
-   - validation / challenge
-   - workflow / prompt pattern
-   - KB placement / source mapping
-   - operator clarification
+   - intake / alignment,
+   - execution / orchestration,
+   - strategy / options,
+   - validation / challenge,
+   - workflow / prompt pattern,
+   - KB placement / source mapping,
+   - operator clarification.
 6. Assign EVD/IMP/RSK bands when material.
 7. Choose the smallest bounded route.
-8. Produce a route brief using `HANDOFF_SCHEMA.md`.
+8. Produce a route brief using `TEMPLATES.md`.
 9. Stop at the route boundary.
 
 ### Output
 
-- clarified task frame, or
-- route brief, or
+- clarified task frame,
+- route brief,
 - operator clarification request.
 
 ### Stop condition
@@ -83,7 +100,7 @@ Use when the request is not ready to route.
 
 ### Output
 
-- compact clarification question, or
+- compact clarification question,
 - route brief with explicit assumption.
 
 ### Stop condition
@@ -164,7 +181,7 @@ Use when evidence is weak, risk is high, contradiction appears, authority is unc
 
 Stop if Alfred would need to self-validate contested or high-risk work.
 
-## Workflow 6 — Workflow / prompt pattern routing
+## Workflow 6 — Workflow / prompt-pattern routing
 
 Use when the problem is a repeatable prompt, workflow, checklist, route pattern, or handoff template.
 
@@ -203,19 +220,20 @@ Optionally add `meta_detective` if contradiction, drift, or authority conflict i
 
 1. Identify candidate knowledge or source issue.
 2. State source status:
-   - fully_read
-   - partially_read
-   - not_accessible
-   - provisional
-   - mixed
-3. Name target surface question.
+   - fully_read,
+   - partially_read,
+   - not_accessible,
+   - provisional,
+   - mixed.
+3. Name target-surface question.
 4. Identify candidate/canon risk.
 5. Request placement recommendation or source-gap review.
 6. Preserve source gaps in the handoff.
 
 ### Output
 
-- `knowledge_placement` or `source_gap_review` handoff.
+- `knowledge_placement` handoff,
+- `source_gap_review` handoff.
 
 ### Stop condition
 
@@ -223,7 +241,7 @@ Stop if unread source material is being treated as accepted doctrine.
 
 ## Workflow 8 — Alfred KB single-file write phase
 
-Use when Alfred KB files are being created or repaired one file at a time.
+Use when Alfred KB files are being created, repaired, redirected, or converted to appendices one file at a time.
 
 ### Route posture
 
@@ -233,13 +251,16 @@ Alfred frames the write; `meta_ops` or the active executor performs bounded writ
 
 1. Fetch current target file.
 2. Classify current status:
-   - absent
-   - valid/current
-   - flawed
-   - partial/corrupt
-   - stale
-3. Compare against `SOURCE_MANIFEST.md`, `COVERAGE_AUDIT.md`, and prior validated KB files.
-4. Create or update exactly one file.
+   - absent,
+   - valid/current,
+   - flawed,
+   - partial/corrupt,
+   - stale,
+   - duplicate authority,
+   - appendix candidate,
+   - redirect candidate.
+3. Compare against the canonical five files and source/audit controls.
+4. Create, update, redirect, or slim exactly one file.
 5. Fetch back immediately.
 6. Verify fetched content against required sections and source posture.
 7. Report path, operation, commit SHA, fetched blob SHA, verification result, and next recommended file.
@@ -259,22 +280,22 @@ Use whenever a source-gap-dependent claim appears.
 
 ### Steps
 
-1. Locate the claim in `COVERAGE_AUDIT.md` or source bundle.
-2. Determine whether it is validated, partially validated, provisional, or blocked.
-3. If local/manual source is required, mark it `not_accessible` unless directly read.
+1. Locate the claim in `COVERAGE_AUDIT.md`, `SOURCE_MANIFEST.md`, or an approved source-extension bundle.
+2. Determine whether it is validated, partially validated, provisional, blocked, or not accessible.
+3. If a local/manual source is required, mark it `not_accessible` unless directly read.
 4. Prevent hardening into doctrine.
 5. Route to Knowledge Bank for source placement or source-gap review if needed.
 6. Route to Detective if contradiction or drift risk exists.
 
 ### Output
 
-- source-gap note, or
-- source-gap review handoff, or
+- source-gap note,
+- source-gap review handoff,
 - validation challenge handoff.
 
 ### Stop condition
 
-Stop if the next step would imply that `M01-M40` local/manual sources were read when they were not.
+Stop if the next step would imply that local/manual sources were read when they were not.
 
 ## Workflow 10 — Escalation / hold
 
@@ -282,14 +303,14 @@ Use when Alfred cannot safely route or proceed.
 
 ### Triggers
 
-- weak evidence with material/high impact
-- high risk with no validator
-- unclear source status
-- contested authority
-- runtime law/config mutation pressure
-- candidate learning treated as accepted truth
-- direct route target not verified
-- operator constraints conflict with requested action
+- weak evidence with material/high impact,
+- high risk with no validator,
+- unclear source status,
+- contested authority,
+- runtime law/config mutation pressure,
+- candidate learning treated as accepted truth,
+- direct route target not verified,
+- operator constraints conflict with requested action.
 
 ### Steps
 
@@ -309,12 +330,12 @@ The following workflows are not defined here because their source basis remains 
 
 | Deferred workflow | Reason |
 |---|---|
-| Detailed Leela Skill Tree / Path / Rhythm / Sequencing workflow | Local/manual Leela sources remain `not_accessible`. |
+| Detailed Leela Skill Tree / Path / Rhythm / Sequencing workflow | Local/manual Leela sources remain `not_accessible` unless separately read. |
 | Exact day-start / day-close / night-bridge protocol | Day/night mechanics remain source-gap-dependent. |
 | Exact 5V workflow | 5V framework details remain source-gap-dependent. |
 | Voice-to-markdown / mobile-intake procedure | Source detail remains source-gap-dependent. |
-| Algorithm / BP / RB / XP recommendation workflow | Metric and algorithm sources remain unread. |
-| Stats / Sid / Kharma / Community workflows | Detailed source coverage is incomplete. |
+| Algorithm / BP / RB / XP recommendation workflow | Metric and algorithm sources remain unread unless separately validated. |
+| Stats / Sid / Kharma / Community workflows | Detailed source coverage is incomplete unless a source-extension pass validates them. |
 
 ## Workflow quality checklist
 
@@ -327,7 +348,15 @@ Before a workflow output leaves Alfred, verify:
 5. Constraints and must-not-do rules are visible.
 6. Stop condition is present.
 7. Provisional claims are marked.
-8. Alfred has not absorbed execution, strategy, validation, or promotion authority.
+8. Alfred has not absorbed execution, strategy, validation, promotion, runtime-law, or config authority.
+
+## Maintenance rule
+
+Do not add new doctrine, route authority, process authority, source status, or promotion rules here.
+
+Route accepted operating method to `BEST_PRACTICES.md`. Route reusable forms to `TEMPLATES.md`. Route failure patterns to `MISTAKES.md`. Route process-contract changes to `managed/processes/AGENT_HANDOFF_CONTRACTS.md`. Route source-status changes to `SOURCE_MANIFEST.md` and `COVERAGE_AUDIT.md`.
+
+Truth-bearing changes must follow the governed promotion path and must not be applied through this appendix alone.
 
 ## Operating rule
 
