@@ -84,6 +84,13 @@ Every QA/Hygiene finding must declare at least:
 - **Definition:** a project-local overlay weakens the managed floor or conflicts ambiguously with it.
 - **Examples:** weaker approval posture; weaker escalation posture; hidden local authority rules; local interface bypass.
 
+#### Governance-first substitution
+
+- **Definition:** a run is asked to create or patch a concrete artifact, but instead produces planning, source ledgers, claim caches, acceptance-test scaffolds, broad audit reports, or other control surfaces while the target artifact remains missing, unvalidated, or unusable.
+- **Severity:** `P1` when the run is presented as successful or blocks downstream work; `P2` when clearly labeled as a partial diagnostic.
+- **Evidence signals:** absent requested file/diff/KB artifact; many control artifacts but no usable target artifact; validation status such as `not_checked` while claiming readiness; continuation steps redesign the process instead of producing the next named artifact; broad all-system audit when a one-agent or one-file target was requested.
+- **Required correction:** stop control-first expansion, restate the target artifact, produce it in the next pass, validate the produced artifact, and only then add broader audit, research, or learning documentation.
+
 ### Severity model
 
 Findings use four severities:
@@ -349,6 +356,7 @@ A `P3` finding closes only when:
 
 - Findings may not be closed by silence.
 - Findings may not be closed only because later prose stopped mentioning them.
+- Governance-first substitution may close only when the concrete target artifact exists and has been checked against its requested format/scope; a better plan, broader ledger, or cleaner audit does not close the finding by itself.
 - A finding may not be downgraded without an explicit reason.
 - Severe findings may not be rephrased as routine notes to avoid routing consequences.
 
