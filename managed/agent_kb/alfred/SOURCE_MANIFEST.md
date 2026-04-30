@@ -4,74 +4,167 @@
 
 Source ledger for the Alfred KB base in `managed/agent_kb/alfred/`.
 
-This file records which sources informed the current Alfred KB files, how each source should be treated, and where source gaps must remain visible. It is a source-control surface, not accepted doctrine by itself.
+This file records the source basis for Alfred KB repair after the failed build flow. It is a source-control and coverage surface, not accepted doctrine by itself.
 
-## Manifest status
+## Repair status
 
 ```yaml
-manifest_status:
-  agent_id: alfred
-  kb_root: managed/agent_kb/alfred/
-  build_status: apex_side_source_manifest_created
-  created_at: 2026-04-30
-  owner: alfred
-  validator: meta_ops
-  next_audit_file: managed/agent_kb/alfred/COVERAGE_AUDIT.md
+agent_id: alfred
+kb_root: managed/agent_kb/alfred/
+source_phase: pass_a_source_bundle_complete
+write_phase_file: managed/agent_kb/alfred/SOURCE_MANIFEST.md
+write_scope: single_file_repair
+source_repo: leela-spec/MasterOfArts
+target_repo: leela-spec/apexai-os-meta
+source_bundle: alfred_source_bundle_pass_a.md
+current_status: repaired_from_pass_a_source_bundle
+previous_status_classification: procedurally_flawed_or_incomplete
+validator: meta_ops
+next_action: create_or_update managed/agent_kb/alfred/COVERAGE_AUDIT.md
 ```
+
+## Previous manifest classification
+
+Before this repair, the existing Apex manifest was classified as `procedurally_flawed_or_incomplete` because it:
+
+- stated that the direct source bundle artifact was not present in the write turn,
+- relied on existing Apex Alfred KB files as local basis,
+- stated Master Of Arts sources were not re-read during the Apex write phase,
+- collapsed the many local/manual Night4 sources into one `IDX-N4` cluster,
+- did not enumerate every local/manual source from the index with explicit `not_accessible` status.
+
+This replacement uses the completed Pass A source bundle as the source basis and preserves source gaps instead of hardening them into doctrine.
 
 ## Source classes
 
 | Class | Meaning | Use rule |
 |---|---|---|
-| `S` | Master Of Arts source reference used by the Alfred KB synthesis | May support doctrine only when the claim is already present in the verified KB base or later re-read during audit. |
-| `A` | Apex AI repo source or convention reference | May support local Apex scaffold, ownership, naming, and compatibility decisions. |
-| `IDX` | Source-index or gap-derived reference | May identify intended source coverage, but must not be represented as fully read doctrine. |
-| `LOCAL_MANUAL_GAP` | Local/manual source named by an index but not accessible in the write turn | Must remain explicit in this manifest and in `COVERAGE_AUDIT.md`. |
+| `IDX` | Master Of Arts source index | Governs expected source coverage for this Alfred KB recovery pass. |
+| `R` | Repo-accessible Master Of Arts source | May support doctrine only for claims extracted in the source bundle. |
+| `M` | Local/manual Windows/Obsidian source listed by the index | Must remain `not_accessible` until directly attached/read in a separate manual-source pass. |
+| `BUNDLE` | Pass A source bundle | Source extraction and write-planning bridge; not a substitute for future direct source reads if doctrine changes. |
+| `APEX` | Apex repo convention/current file | May guide local file placement and compatibility only; must not substitute for Master Of Arts source reading. |
 
-## Source ledger
+## Read-status summary
 
-| ID | Source | Role | Current treatment | Candidate outputs informed | Notes |
-|---|---|---|---|---|---|
-| `S0` | `leela-spec/MasterOfArts/agent_kb_source_indexes/ALFRED_KB_BASE_BUILD_INDEX.md` | primary index | index authority for expected Alfred source coverage | all Alfred KB files | The index is treated as the source-map basis; unresolved source-access gaps route to `COVERAGE_AUDIT.md`. |
-| `S1` | `leela-spec/MasterOfArts/OpenClaw/07_finalopenclawsystem/managed/agents/alfred.md` | primary seed | source-reference carried by existing Alfred KB files | `AGENT_CARD.md`, `ESSENCE.md`, `BEST_PRACTICES.md`, `MISTAKES.md`, `TEMPLATES.md` | Establishes Alfred identity, boundaries, and routing role. |
-| `S2` | `leela-spec/MasterOfArts/OpenClaw/07_finalopenclawsystem/managed/processes/HOLDING_ORCHESTRATION_FLOW.md` | supporting process source | source-reference carried by existing Alfred KB files | `AGENT_CARD.md`, `BEST_PRACTICES.md`, `TEMPLATES.md` | Supports route-ready handoff and orchestration-flow boundaries. |
-| `S3` | `leela-spec/MasterOfArts/OpenClaw/04_final-system-setup/NewFinals/AfterProPromptIteration/FirstAgents/Agent_Alfred_GPT.md` | primary Alfred behavior source | source-reference carried by existing Alfred KB files | all doctrine and template files | Supports first-contact alignment, route framing, and recommendation behavior. |
-| `S4` | `leela-spec/MasterOfArts/OpenClaw/04_final-system-setup/NewFinals/AfterProPromptIteration/FirstAgents/Agent_Alfred_Gem.md` | parallel Alfred behavior source | source-reference carried by existing Alfred KB files | `AGENT_CARD.md`, `BEST_PRACTICES.md`, `MISTAKES.md`, `TEMPLATES.md` | Supports cross-model Alfred consistency and Leela-ladder framing. |
-| `S5` | `leela-spec/MasterOfArts/OpenClaw/04_final-system-setup/NewFinals/AfterProPromptIteration/Alfred_Use_Case.md` | applied use-case source | source-reference carried by existing Alfred KB files | `AGENT_CARD.md`, `ESSENCE.md`, `BEST_PRACTICES.md`, `MISTAKES.md`, `TEMPLATES.md` | Supports operational examples, day/week alignment, and recommendation boundaries. |
-| `A1` | `leela-spec/apexai-os-meta/managed/agents/alfred.md` | Apex seed reference | local Apex seed pointer | `AGENT_CARD.md`, folder identity, scaffold compatibility | Used to keep the KB root aligned with the Apex agent seed surface. |
-| `A2` | `leela-spec/apexai-os-meta/managed/agent_kb/AGENT_KB_INDEX.md` | Apex KB convention source | local convention reference | naming, file set, validator, promotion routing | Used for scaffold compatibility and agent-KB placement. |
-| `IDX-N4` | Night4/local/manual product sources referenced by Alfred synthesis | gap/source-index cluster | index-derived only unless later directly accessible | Path/Rhythm/Sequencing/Algorithm/Stats/Sid claims | Must remain visibly marked as local/manual or inferred. Do not harden as fully read doctrine. |
+| Category | Count | Status |
+|---|---:|---|
+| Master Of Arts source index | 1 | fully_read |
+| Repo-accessible Master Of Arts sources | 5 | fully_read |
+| Local/manual index sources | 40 | not_accessible |
+| Apex writes before this file | 0 in Pass A; this file is first write in Pass B | controlled single-file repair |
 
-## Apex KB files verified as local basis
+## Source index
 
-| File | Role in this manifest | Source-relevant observations |
-|---|---|---|
-| `AGENT_CARD.md` | source-basis anchor | Lists the Alfred source IDs and Apex pointers; establishes KB root, seed pointer, validator, and handoff partners. |
-| `ESSENCE.md` | doctrine anchor | Points to `SOURCE_MANIFEST.md` and `COVERAGE_AUDIT.md`; preserves accepted compact boundary doctrine. |
-| `BEST_PRACTICES.md` | source-to-practice ledger | Carries evidence refs per practice and marks `IDX-N4` as not directly accessible where relevant. |
-| `MISTAKES.md` | source-gap protection | Contains the explicit hidden-source-gap failure pattern and requires source gaps to be recorded here and in coverage audit. |
-| `TEMPLATES.md` | reusable-output source ledger | Carries evidence refs for first-contact, weekly alignment, day-start, rhythm repair, handoff, and escalation templates. |
-| `LEARNING_QUEUE.md` | candidate-only learning intake | Confirms learning entries are not runtime truth and must route through governed promotion. |
+| source_id | path/name | role | required_read_mode | accessible | actual_read_status | notes |
+|---|---|---|---|---|---|---|
+| IDX | `agent_kb_source_indexes/ALFRED_KB_BASE_BUILD_INDEX.md` | source_index | read full | yes | fully_read | Master Of Arts source index; sha `1a400a47fa35056555c988b73f2c0a121d81e41b`. |
 
-## Access and confidence rules
+## Repo-accessible Master Of Arts sources
 
-- **Rule:** Claims supported only by `IDX-N4` or other local/manual references must be marked as `index-derived`, `inferred`, or `needs_validation` unless a later audit directly reads the source.
-- **Rule:** Alfred doctrine may use stable source synthesis already present in the verified KB base, but later substantive changes require source review or a `LEARNING_QUEUE.md` candidate.
-- **Rule:** This manifest does not promote new truth. It records the source status behind the current KB base.
+| source_id | path/name | role | required_read_mode | accessible | actual_read_status | sha | doctrine use |
+|---|---|---|---|---|---|---|---|
+| R01 | `OpenClaw/07_finalopenclawsystem/managed/agents/alfred.md` | primary | read full | yes | fully_read | `fc4014c0d4c7696edcf0d45f553b96034ffc5ceb` | Alfred identity, ownership, handoff contract, and role boundaries. |
+| R02 | `OpenClaw/07_finalopenclawsystem/managed/processes/HOLDING_ORCHESTRATION_FLOW.md` | primary | read full | yes | fully_read | `9ac1f1373adb2198922e9143e7df7c67db5abb30` | Intake thresholding, smallest bounded activation, EVD/IMP/RSK, handoff minimums, promotion/hygiene guardrails. |
+| R03 | `OpenClaw/04_final-system-setup/NewFinals/AfterProPromptIteration/FirstAgents/Agent_Alfred_GPT.md` | primary | read full | yes | fully_read | `8b1602127b4ce5b2502df705453de0b063e6199f` | Alfred role synthesis, Leela surfaces, Path/Rhythm/Sequencing/Stats/Sid/Algorithm boundaries. |
+| R04 | `OpenClaw/04_final-system-setup/NewFinals/AfterProPromptIteration/FirstAgents/Agent_Alfred_Gem.md` | primary | read full | yes | fully_read | `a6b3b667312c846f48a7cdfaf270a299dc818bae` | Steward behavior, day/night concepts, life layer, operator-facing routing. |
+| R05 | `OpenClaw/04_final-system-setup/NewFinals/AfterProPromptIteration/Alfred_Use_Case.md` | primary | read full | yes | fully_read | `db16e4841a6638aa05ee6bb6958c7cdce7fdc45a` | First contact, personal priorities, delegation, Meta Ops synchronization. |
+
+## Local/manual sources from the index
+
+These sources were listed by the Master Of Arts index, but are local Windows/Obsidian paths outside repo-accessible Master Of Arts content in this recovery pass. They are not read in Pass A and must not be treated as fully validated doctrine.
+
+| source_id | path/name | role | required_read_mode | accessible | actual_read_status | doctrine area |
+|---|---|---|---|---|---|---|
+| M01 | `1stContentDevelopmentProcessChat.md` | primary | read full | no | not_accessible | Unified product flow / MVP |
+| M02 | `2ndContentDevelopmentProcessChat.md` | primary | read full | no | not_accessible | Sequencing / Spark / Session / Flow |
+| M03 | `2ndContentDevelopmentProcessChat Rhythm.md` | primary | read full | no | not_accessible | Rhythm |
+| M04 | `Skill Tree Update N4 v1.md` | primary | read full | no | not_accessible | Skill Tree / Epics / Chunks |
+| M05 | `PathUpdatev2.md` | primary | read full | no | not_accessible | Path |
+| M06 | `Sequencing SSOT Updatev2.md` | primary | read full | no | not_accessible | Sequencing / Spark / Session / Flow |
+| M07 | `Rhythm SSOT Updatev2.md` | primary | read full | no | not_accessible | Rhythm |
+| M08 | `Rhythm_Feature_Screen_Spec.md` | primary | read full | no | not_accessible | Rhythm |
+| M09 | `Skill Tree Specs v3.md` | supporting | read full | no | not_accessible | Skill Tree / Epics / Chunks |
+| M10 | `Path - Specs & Docs (vSpark Prototype) v5.md` | supporting | read full | no | not_accessible | Path |
+| M11 | `SCR_SequenceSelect Specs & Docs v2.md` | supporting | read full | no | not_accessible | Sequencing / Spark / Session / Flow |
+| M12 | `SCR_SequenceRun Specs & Docs new.md` | supporting | read full | no | not_accessible | Sequencing / Spark / Session / Flow |
+| M13 | `101 - Chunks & Chunk Database.md` | supporting | read full | no | not_accessible | Skill Tree / Epics / Chunks |
+| M14 | `102 - Epics (Database + Skill Tree).md` | supporting | read full | no | not_accessible | Skill Tree / Epics / Chunks |
+| M15 | `103 - Path.md` | supporting | read full | no | not_accessible | Path |
+| M16 | `104 -Rhythm.md` | supporting | read full | no | not_accessible | Rhythm |
+| M17 | `105 - Sequencing & Sequencing Template.md` | supporting | read full | no | not_accessible | Sequencing / Spark / Session / Flow |
+| M18 | `105 - Sequencing.md` | duplicate | skim | no | not_accessible | Sequencing / Spark / Session / Flow |
+| M19 | `101 Chunks & 102 Epics.md` | duplicate | skim | no | not_accessible | Skill Tree / Epics / Chunks |
+| M20 | `Sequencing & Science.md` | supporting | read full | no | not_accessible | Sequencing / Spark / Session / Flow |
+| M21 | `Sequencing Intertwinement.md` | supporting | read full | no | not_accessible | Sequencing / Spark / Session / Flow |
+| M22 | `Sequencing Info.md` | supporting | read full | no | not_accessible | Sequencing / Spark / Session / Flow |
+| M23 | `Sequence - Builder, Settings, Details and Examples.md` | supporting | read full | no | not_accessible | Sequencing / Spark / Session / Flow |
+| M24 | `Sequence Instant Schema & Example.md` | supporting | read full | no | not_accessible | Sequencing / Spark / Session / Flow |
+| M25 | `Sequence Template.md` | supporting | skim | no | not_accessible | Sequencing / Spark / Session / Flow |
+| M26 | `Sequence Template DR.md` | supporting | skim | no | not_accessible | Sequencing / Spark / Session / Flow |
+| M27 | `Daily Flows.md` | supporting | read full | no | not_accessible | Sequencing / Spark / Session / Flow |
+| M28 | `Flows.md` | supporting | read full | no | not_accessible | Sequencing / Spark / Session / Flow |
+| M29 | `A day of Sequences.md` | supporting | read full | no | not_accessible | Sequencing / Spark / Session / Flow |
+| M30 | `Craft Flows - Holistic Work Sequences.md` | supporting | skim | no | not_accessible | Sequencing / Spark / Session / Flow |
+| M31 | `Sequences Extraction 1.md` | evidence | use as evidence only | no | not_accessible | Sequencing / Spark / Session / Flow |
+| M32 | `Sequnece Extraction 2.md` | evidence | use as evidence only | no | not_accessible | Sequencing / Spark / Session / Flow |
+| M33 | `Learn2Learn Sequences, Epic, Chunks, Personas, Stories.md` | evidence | use as evidence only | no | not_accessible | Sequencing / Spark / Session / Flow |
+| M34 | `Learn2Learn Epic - Use Cases and Sequences.md` | evidence | use as evidence only | no | not_accessible | Sequencing / Spark / Session / Flow |
+| M35 | `Part 1 Chunks.md` | supporting | skim | no | not_accessible | Skill Tree / Epics / Chunks |
+| M36 | `Part 4 Chunks Sequencing & Science.md` | supporting | read full | no | not_accessible | Sequencing / Spark / Session / Flow |
+| M37 | `Gamification Research.md` | supporting | skim | no | not_accessible | Gamification / Kharma / Community |
+| M38 | `Metric Update - BP & RB.md` | supporting | skim | no | not_accessible | Algorithm / BP / RB |
+| M39 | `Leela User Story & Flow Map.md` | supporting | skim | no | not_accessible | Unified product flow / MVP |
+| M40 | `Leela MVP User Story & Flow Map.md` | supporting | skim | no | not_accessible | Unified product flow / MVP |
+
+## Extraction ledger pointer
+
+The detailed claim ledger is in `alfred_source_bundle_pass_a.md`, section `EXTRACTION_LEDGER`, claims `C01` through `C19`.
+
+### Stable high-confidence claim clusters
+
+- `C01-C05`: Alfred identity, owns/does-not-own boundaries, and handoff partners.
+- `C06-C09`: Holding orchestration, EVD/IMP/RSK, handoff minimums, promotion/hygiene guardrails.
+- `C10-C11`: Alfred as first-contact executive aligner distinct from Meta Operations.
+- `C16-C18`: Routing to Meta Ops, Strategy, Critic/Detective, and continuous Alfred/Meta Ops synchronization.
+- `C19`: Failure modes and anti-drift safeguards.
+
+### Medium-confidence / source-gap-dependent claim clusters
+
+- `C12-C13`: Alfred's interpretation of Leela surfaces and the Path-Rhythm-Sequencing-Stats loop.
+- `C14`: Information-design style requirements as applied to Alfred outputs.
+- `C15`: day-start/day-close/night-bridge, voice-to-markdown intake, and policy-level tool/model routing details.
+
+These claims may guide provisional Apex scaffolding but must remain gap-marked until the corresponding manual/local sources are read or attached in a separate source-extension pass.
+
+## Doctrine-hardening rules
+
+- **Rule:** Repo-accessible source claims may support Alfred KB doctrine only where the source bundle extracted them as stable or where later source reads validate them.
+- **Rule:** Local/manual sources `M01-M40` must remain `not_accessible` and cannot be treated as read.
+- **Rule:** No single cluster label such as `IDX-N4` may replace enumeration of the local/manual sources.
+- **Rule:** Existing Apex KB files may guide local conventions, but must not substitute for Master Of Arts source reading.
+- **Rule:** Leela feature details below high-level Alfred synthesis must be marked provisional unless supported by read source material.
+- **Rule:** Candidate learning is not accepted truth and must route through `LEARNING_QUEUE.md` or the governed promotion path.
 - **Rule:** Any contradiction, inaccessible source, stale source, or overclaimed read status must be carried into `COVERAGE_AUDIT.md`.
 
-## Known source gaps
+## Coverage gaps to preserve
 
-| Gap ID | Gap | Impact | Required handling |
-|---|---|---|---|
-| `GAP-001` | Direct source bundle artifact was not present in this single-file write turn. | Manifest relies on verified existing Apex Alfred KB files for source IDs and source-gap semantics. | Treat as a coverage-audit note, not as a blocker to creating the Apex-side manifest. |
-| `GAP-002` | Night4/local/manual product sources behind `IDX-N4` were not directly readable in this write turn. | Product-specific Path, Rhythm, Sequencing, Algorithm, Stats, and Sid details may be incomplete. | Mark related claims as inferred/index-derived and audit them before any future promotion. |
-| `GAP-003` | Master Of Arts sources were not re-read during this Apex write phase. | Source ledger reflects prior synthesis and current KB evidence refs rather than a fresh extraction pass. | Re-read Master Of Arts only if `COVERAGE_AUDIT.md` or future change work requires it. |
+The following areas remain not fully validated from Pass A:
 
-## Promotion and update boundary
+- Skill Tree / Epics / Chunks details
+- Path demand, priority, and weekly planning details
+- Rhythm capacity, time supply, placement, and four-pane planning details
+- Sequencing / Spark / Session / Flow manual entry, ranked recommendation, and template/instance details
+- Algorithm / BP / RB / XP ranking mechanics
+- Stats and Sid specifics
+- Gamification / Kharma / Community details
+- unified product flow / MVP details
+- day/night protocol mechanics
+- 5V framework details
+- voice-to-markdown/mobile intake mechanics
 
-- Source updates are candidates until validated.
-- Learning entries go to `LEARNING_QUEUE.md`.
-- Coverage failures go to `COVERAGE_AUDIT.md`.
-- Accepted doctrine changes must route through the governed promotion path.
-- This file may be updated without doctrine change when a source becomes newly accessible, deprecated, contradicted, or superseded.
+## Update boundary
+
+This manifest repair does not create final doctrine. It establishes the source ledger required before writing doctrine-bearing Alfred KB files.
+
+Next required file: `managed/agent_kb/alfred/COVERAGE_AUDIT.md`.
