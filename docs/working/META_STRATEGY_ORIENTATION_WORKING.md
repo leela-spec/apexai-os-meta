@@ -119,6 +119,12 @@ Registry rule:
 These files are orientation and workflow surfaces only. They are not accepted canon, not managed agent seeds, and not separate KB roots. Promote compact validated entries only through the governed Meta Strategy KB path.
 ```
 
+Scoring note:
+
+```text
+Lane-local readiness or candidate-priority scores are internal working signals only. Governed handoff and promotion metadata uses the active EVD / IMP / RSK 1-100 scale.
+```
+
 ---
 
 ## 4. Strategy tool stack
