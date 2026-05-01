@@ -18,9 +18,11 @@ learning_entry:
   status: candidate | strong_candidate | needs_validation | rejected | archived
   source_ref:
   summary:
-  candidate_target: essence | best_practice | mistake | template | archive
+  candidate_target: essence | best_practice | mistake | template | archive | mixed_pack
+  candidate_targets: []
   evidence_refs:
   scores:
+    score_scale: 1-100
     EVD:
     IMP:
     RSK:
@@ -44,7 +46,12 @@ learning_entry:
     - docs/working/META_STRATEGY_ASSUMPTION_LEVERAGE_WORKING.md
     - docs/working/META_STRATEGY_SYNTHESIZER_WORKING.md
   summary: Candidate internal sub-lane system for Meta Strategy. The pack defines Logic Architect, Scenario & Timing Strategist, Creative Reframer, Assumption & Leverage Mapper, and Strategy Synthesizer as working sub-lanes/modes rather than permanent sub-agents. It supports bounded multi-frame triangulation, cross-frame confrontation, recommendation packets, Detective validation handoffs, and Meta Ops mission briefs.
-  candidate_target: template
+  candidate_target: mixed_pack
+  candidate_targets:
+    - essence
+    - best_practice
+    - mistake
+    - template
   evidence_refs:
     - uploaded strategy framework research set
     - uploaded logic and synthesis framework research
@@ -52,9 +59,10 @@ learning_entry:
     - uploaded challenge and debiasing research
     - docs/working/META_STRATEGY_ORIENTATION_WORKING.md
   scores:
-    EVD: 4
-    IMP: 5
-    RSK: 2
+    score_scale: 1-100
+    EVD: 80
+    IMP: 85
+    RSK: 35
   owner: meta_strategy
   validator: meta_detective
   overlap_check: required before promotion; verify boundaries with meta_ops, meta_detective, prompts/workflows, AI routing, knowledge_bank, and informatics design before accepted KB promotion.
@@ -64,8 +72,8 @@ learning_entry:
 ## Promotion route
 
 1. capture candidate here
-2. score `EVD` / `IMP` / `RSK`
-3. route to the target file class
+2. score `EVD` / `IMP` / `RSK` on the 1-100 handoff scale
+3. route to the target file class or classes
 4. validate with `meta_detective`
 5. package durable promotions through `managed/knowledge/KB_PROMOTION_LEDGER_TEMPLATE.md`
 6. apply only through the governed promotion path
