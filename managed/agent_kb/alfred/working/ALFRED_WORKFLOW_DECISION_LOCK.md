@@ -13,6 +13,7 @@ owner: operator_and_alfred_workflow_design
 update_rule: update after every newly validated workflow decision
 read_rule: read before answering or patching Alfred workflow / personal-assistant design questions
 promotion_rule: validated decisions may later be promoted into canonical Alfred KB files through the normal source/audit/promotion path
+resolved_detail_lock: managed/agent_kb/alfred/working/APEX_VARIABLES_HANDOFF_DECISION_LOCK.md
 ```
 
 This is a working decision-lock file for the developing Alfred workflow. It is not accepted doctrine by itself. It exists to preserve current decisions, open questions, and Q&A defaults while the Alfred personal-assistant workflow is being designed.
@@ -26,6 +27,8 @@ Canonical KB files remain under `managed/agent_kb/alfred/`. This file may inform
 - **Decision:** Newer operator corrections beat older assistant assumptions.
 - **Decision:** All prior Q&A content from this workflow is considered validated unless it was explicitly corrected, rejected, or superseded by a newer operator message.
 - **Decision:** The current strongest correction is that Alfred is the only personal-agent actor in this Apex/OpenClaw workflow.
+- **Decision:** `managed/agent_kb/alfred/working/APEX_VARIABLES_HANDOFF_DECISION_LOCK.md` resolves the prior open decisions about process-handover priority, Daily Command Board fields, MetaOps craft-flow handoff, Session Export / OpState separation, tracking, pattern learning, and planning horizon.
+- **Decision:** The corrected priority model is `EVD / IMP / RSK + URG`, 1-100, for Alfred/Apex process handovers where time pressure matters.
 - **Constraint:** If this file conflicts with older chat content, this file wins for the next Alfred-workflow iteration.
 - **Constraint:** If a future operator message conflicts with this file, update this file before continuing workflow design.
 
@@ -71,6 +74,7 @@ All current-system user stories must use **Alfred** as the actor.
 - morning planning before the operator starts work
 - organization of the four craft-flow working day
 - ranking of project outputs and next tasks from the operator's perspective
+- process-handover priority framing with `EVD / IMP / RSK + URG` when time pressure matters
 - personal-context-aware recommendations
 - calendar-aware and long-range planning recommendations
 - session outro prompting and completion support
@@ -90,6 +94,7 @@ All current-system user stories must use **Alfred** as the actor.
 - final truth promotion
 - pretending the future Leela app already exists as runtime
 - acting as a separate product agent from himself
+- replacing first-wave `EVD / IMP / RSK` handoff contracts with another metric family
 
 ---
 
@@ -110,9 +115,12 @@ All current-system user stories must use **Alfred** as the actor.
 ### 3.3 Algorithm / decision logic
 
 - **Decision:** Alfred may need a logic layer to decide what to do next.
+- **Decision:** Alfred's first explicit heuristic layer is the corrected process-handover priority model: `EVD / IMP / RSK + URG` plus readiness, lane, hard flags, and P0-P3 classification.
+- **Decision:** `URG` is added only where time pressure, deadline pressure, delay penalty, or blocked-window pressure materially affects priority.
+- **Decision:** `value / urgency / leverage / fit` must not be reintroduced as canonical metric fields.
 - **Current status:** use explicit heuristics first; do not claim a full product Algorithm exists.
 - **Future path:** the heuristic layer may later inform the Leela app's Algorithm design.
-- **Open task:** define Alfred's first heuristic ranking model for project packets, flow allocation, next-highest-impact tasks, and handoff priority.
+- **Resolved task:** the first heuristic ranking model is defined in `APEX_VARIABLES_HANDOFF_DECISION_LOCK.md`.
 
 ---
 
@@ -150,6 +158,8 @@ default_daily_craft_flow_allocation:
 - **Decision:** One flow is normally reserved for Master of Arts business/system work.
 - **Decision:** One flow remains wildcard and is assigned by current priority.
 - **Decision:** Urgent overrides are possible, but Alfred must name the tradeoff and the displaced work.
+- **Decision:** No more than four P1 craft-flow items may be assigned in one day.
+- **Decision:** P0 items are surfaced before normal allocation and are not auto-assigned by default.
 
 ---
 
@@ -214,7 +224,7 @@ The morning output must include at least:
 - project packets received from Night / OpenClaw processing
 - project-specific night-shift protocols and outputs
 - proposed daily shift process and task plans
-- priority and metric/ranking signals when available
+- `EVD / IMP / RSK + URG` priority signals where time pressure matters
 - ranked daily priorities
 - proposed four craft-flow sessions
 - proposed physical / mental / regen chunks where relevant
@@ -222,11 +232,11 @@ The morning output must include at least:
 - visible assumptions and blocked items
 - operator decisions needed
 
-### 7.2 High-priority unresolved template
+### 7.2 Daily Command Board template
 
-- **Open task:** define the exact Daily Command Board template.
-- **Open task:** define how physical, mental, and regen chunk selections appear in the Daily Command Board.
-- **Status:** high priority before KB hardening.
+- **Resolved:** the exact Daily Command Board v1 fields are defined in `APEX_VARIABLES_HANDOFF_DECISION_LOCK.md`.
+- **Resolved:** physical, mental, and regen chunk selections appear through a separate `rhythm_profile`, not by bloating every craft-flow card.
+- **Status:** ready for appendix integration before canonical KB patching.
 
 ### 7.3 Non-work routine planning
 
@@ -246,6 +256,7 @@ The morning output must include at least:
 - **Decision:** The operator corrects the pre-filled scaffold with actual output, updated priorities, blockers, and next tasks.
 - **Decision:** Best-practice direction: the operator can drop session outputs into the scaffold and correct the anticipated next steps instead of writing the outro from scratch.
 - **Decision:** Alfred and MetaOps both process the corrected session outro.
+- **Resolved:** exact low-friction Session Export correction fields are defined in `APEX_VARIABLES_HANDOFF_DECISION_LOCK.md`.
 
 ### 8.2 Night processing
 
@@ -259,7 +270,7 @@ Night processing must compare and synthesize:
 - what KB/pattern candidates should be updated
 - what improved flows should be proposed for the next day
 - what project-specific tasks or protocols should be prepared for the morning
-- what project-specific daily shift plans should be proposed with priorities and metric rankings where available
+- what project-specific daily shift plans should be proposed with `EVD / IMP / RSK + URG` priority signals where relevant
 
 ### 8.3 Repo protocol relationship
 
@@ -267,10 +278,7 @@ Night processing must compare and synthesize:
 - **Known repo paths:**
   - `managed/rituals/NIGHT_PLANNING_PROTOCOL.md`
   - `managed/rituals/SESSION_EXPORT_PROTOCOL.md`
-- **Uploaded source inputs:**
-  - `/mnt/data/NIGHT_PLANNING_PROTOCOL.md`
-  - `/mnt/data/SESSION_EXPORT_PROTOCOL.md`
-- **Action:** before patching those protocols, run a delta audit against the uploaded versions.
+- **Action:** process files should be patched only if the corrected Alfred/Apex model exposes a real contradiction, gap, or pointer update need.
 
 ---
 
@@ -279,6 +287,7 @@ Night processing must compare and synthesize:
 - **Decision:** Alfred should create and evolve his own pattern library from the operator's interactions, behaviors, repeated workflows, repeated craft-flow structures, and recurring planning corrections.
 - **Decision:** Pattern candidates should start lightweight and become durable only through repeated use, operator validation, and KB/promotion discipline.
 - **Decision:** Pattern-library development should be designed as a process and KB logic, not as an ad-hoc memory dump.
+- **Resolved:** pattern candidate creation and promotion thresholds are defined in `APEX_VARIABLES_HANDOFF_DECISION_LOCK.md`.
 
 ### 9.1 Pattern candidates include
 
@@ -323,6 +332,10 @@ Night processing must compare and synthesize:
 - authoritative BP/XP
 - biometric/body signals
 
+### 10.4 Tracking schema status
+
+- **Resolved:** minimum acceptable tracking format is defined in `APEX_VARIABLES_HANDOFF_DECISION_LOCK.md`.
+
 ---
 
 ## 11. Skill-tree / chunk-system lock
@@ -359,8 +372,11 @@ Night processing must compare and synthesize:
 
 - **Decision:** Alfred may use calendar knowledge to plan ahead.
 - **Decision:** Alfred may plan days, weeks, and months as recommendations.
+- **Decision:** v1 planning horizon is daily plus light weekly preview.
+- **Decision:** full Weekly Rhythm Plan belongs to v1.1 after daily tracking evidence exists.
+- **Decision:** monthly planning is later and directional only when used.
 - **Constraint:** Alfred must not silently mutate calendar state or commit the operator to events without permission.
-- **Open task:** define how far ahead Alfred should plan in v1 and what artifacts represent week/month plans.
+- **Resolved:** how far ahead Alfred should plan in v1 is defined in `APEX_VARIABLES_HANDOFF_DECISION_LOCK.md`.
 
 ---
 
@@ -394,29 +410,43 @@ Night processing must compare and synthesize:
 
 ## 14. Immediate next steps
 
-1. Use this file as the context lock before further Alfred workflow design.
-2. Create the prefilled Q&A flow for operator validation.
-3. After Q&A validation, create appendix drafts.
+1. Use this file and `APEX_VARIABLES_HANDOFF_DECISION_LOCK.md` as context locks before further Alfred workflow design.
+2. Create appendices in this order:
+   - `APPENDIX_PROCESS_HANDOVER_PRIORITY.md`
+   - `APPENDIX_DAILY_COMMAND_BOARD_AND_HANDOFFS.md`
+   - `APPENDIX_SESSION_EXPORT_OPSTATE_AND_TRACKING.md`
+   - `APPENDIX_PATTERN_LEARNING_AND_RHYTHM.md`
+3. Run completeness, simplification, and process/handoff audits.
 4. Only then patch canonical Alfred KB files.
 
 ---
 
 ## 15. Current open questions
 
-1. What exact fields belong in the Daily Command Board?
-2. What exact fields belong in the pre-filled Session Export scaffold?
-3. What exact heuristic ranking formula should Alfred use before a full Algorithm exists?
-4. How far ahead should Alfred plan in v1: day only, week, or month?
-5. Where should working-pattern candidates live before promotion into canonical KB?
-6. Should Rhythm logic be a single appendix first or a separate working package with multiple templates?
-7. What is the minimum acceptable tracking format for the first live use?
-8. What exact schema should Alfred use when handing a craft-flow target to MetaOps?
-9. Which daily board fields are editable by the operator in morning review?
-10. How should Night's predicted Session Export scaffold be displayed so the operator can correct it with minimal friction?
+1. Should Rhythm logic be a single appendix first or a separate working package with multiple templates?
+2. Which later pattern-library storage path should hold rejected candidates before canonical promotion infrastructure exists?
+3. What exact evidence threshold should later permit low-risk OpState auto-apply classes?
+4. How should full Weekly Rhythm Plan v1.1 be represented after enough daily tracking exists?
 
 ---
 
-## 16. Rejected older assumptions
+## 16. Resolved open questions
+
+| Prior open question | Resolution |
+|---|---|
+| Exact fields in Daily Command Board | Resolved in `APEX_VARIABLES_HANDOFF_DECISION_LOCK.md`. |
+| Exact fields in pre-filled Session Export scaffold | Resolved through operator-required Session Export fields in `APEX_VARIABLES_HANDOFF_DECISION_LOCK.md`. |
+| First heuristic ranking formula before full Algorithm | Resolved as `EVD / IMP / RSK + URG` process-handover priority model plus readiness, lane, hard flags, and P0-P3 classification. |
+| How far ahead Alfred should plan in v1 | Resolved as daily + light weekly preview; full weekly v1.1; monthly later/directional. |
+| Where working-pattern candidates live before promotion | Resolved as candidate-first pattern learning with promotion and rejected-candidate archive rules; exact long-term storage path remains future-improvement detail. |
+| Minimum acceptable tracking format | Resolved as `tracking_record_v1`. |
+| Exact MetaOps handoff schema | Resolved as `metaops_craft_flow_handoff_v1`, while preserving formal first-wave handoff requirements when applicable. |
+| Which daily board fields are editable by the operator | Resolved through board lock/revision rule. |
+| Night scaffold low-friction correction | Resolved through operator-required Session Export fields and correction event rule. |
+
+---
+
+## 17. Rejected older assumptions
 
 These older assumptions are superseded and must not be reintroduced:
 
@@ -428,15 +458,18 @@ These older assumptions are superseded and must not be reintroduced:
 - Recovery replacing one of the four normal working craft flows.
 - Work-only craft flows.
 - Project-linked physical chunks by default.
-- Mood/energy tracking in v1.
+- Mood/energy tracking in Alfred tracking v1.
 - Emotional-tone coaching as default craft-flow logic.
 - Branch/taxonomy over-design before usage creates enough evidence.
+- A parallel `value / urgency / leverage / fit` metric system.
+- 0-3 orientation scoring as the canonical process-handover model.
 
 ---
 
-## 17. Update log
+## 18. Update log
 
 | Date | Change |
 |---|---|
 | 2026-05-01 | Initial working decision-lock file created from operator corrections after Alfred interaction-design Q&A. |
 | 2026-05-01 | Controlled against `ChatsoFar.md`; added supersession rule, stronger Alfred-only naming lock, long-range planning, protocol paths, session-scaffold details, skill-tree posture, rejected-assumption register, and expanded open questions. |
+| 2026-05-01 | Updated after corrected `APEX_VARIABLES_HANDOFF_DECISION_LOCK.md`; resolved prior open questions with `EVD / IMP / RSK + URG` process-handover priority model and rejected V/U/L/F as a parallel canonical metric system. |
