@@ -103,6 +103,22 @@ A sub-lane becomes a true sub-agent only if all conditions hold:
 - bounded activation by Meta Ops
 - overlap improves drift control more than it increases complexity
 
+### 3.5 Sub-lane working-file registry
+
+| Lane | Working file | Status | Promote now? |
+|---|---|---|---|
+| Logic Architect | `docs/working/META_STRATEGY_LOGIC_ARCHITECT_WORKING.md` | working | no |
+| Scenario & Timing Strategist | `docs/working/META_STRATEGY_SCENARIO_TIMING_WORKING.md` | working | no |
+| Creative Reframer | `docs/working/META_STRATEGY_CREATIVE_REFRAMER_WORKING.md` | working | no |
+| Assumption & Leverage Mapper | `docs/working/META_STRATEGY_ASSUMPTION_LEVERAGE_WORKING.md` | working | no |
+| Strategy Synthesizer | `docs/working/META_STRATEGY_SYNTHESIZER_WORKING.md` | working | no |
+
+Registry rule:
+
+```text
+These files are orientation and workflow surfaces only. They are not accepted canon, not managed agent seeds, and not separate KB roots. Promote compact validated entries only through the governed Meta Strategy KB path.
+```
+
 ---
 
 ## 4. Strategy tool stack
