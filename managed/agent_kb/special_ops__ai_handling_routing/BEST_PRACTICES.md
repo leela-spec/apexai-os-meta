@@ -14,6 +14,7 @@ practice_entry:
   context_conditions:
   evidence_refs:
   scores:
+    score_scale: 1-100
     EVD:
     IMP:
     RSK:
@@ -24,7 +25,7 @@ practice_entry:
 
 ## Score convention
 
-Scores use a 1-5 scale:
+All `EVD` / `IMP` / `RSK` scores use the active 1-100 scale. No 1-5 metric scale is used in this KB.
 
 - `EVD`: evidence strength
 - `IMP`: positive impact when followed
@@ -43,9 +44,10 @@ practice_entry:
   evidence_refs:
     - docs/Agent_Mode_vs_Thinking_Mode_Routing_Baseline.md
   scores:
-    EVD: 5
-    IMP: 5
-    RSK: 1
+    score_scale: 1-100
+    EVD: 90
+    IMP: 90
+    RSK: 20
   owner: special_ops__ai_handling_routing
   validator: meta_ops
   review_due: 2026-07-25
@@ -63,9 +65,10 @@ practice_entry:
   evidence_refs:
     - docs/Agent_Mode_vs_Thinking_Mode_Routing_Baseline.md
   scores:
-    EVD: 5
-    IMP: 5
-    RSK: 2
+    score_scale: 1-100
+    EVD: 90
+    IMP: 90
+    RSK: 35
   owner: special_ops__ai_handling_routing
   validator: meta_ops
   review_due: 2026-07-25
@@ -83,9 +86,10 @@ practice_entry:
   evidence_refs:
     - docs/Agent_Mode_vs_Thinking_Mode_Routing_Baseline.md
   scores:
-    EVD: 5
-    IMP: 5
-    RSK: 1
+    score_scale: 1-100
+    EVD: 90
+    IMP: 90
+    RSK: 20
   owner: special_ops__ai_handling_routing
   validator: meta_ops
   review_due: 2026-07-25
@@ -102,9 +106,10 @@ practice_entry:
   evidence_refs:
     - docs/Agent_Mode_vs_Thinking_Mode_Routing_Baseline.md
   scores:
-    EVD: 5
-    IMP: 4
-    RSK: 2
+    score_scale: 1-100
+    EVD: 90
+    IMP: 80
+    RSK: 35
   owner: special_ops__ai_handling_routing
   validator: meta_ops
   review_due: 2026-07-25
@@ -122,9 +127,10 @@ practice_entry:
   evidence_refs:
     - docs/Agent_Mode_vs_Thinking_Mode_Routing_Baseline.md
   scores:
-    EVD: 5
-    IMP: 5
-    RSK: 2
+    score_scale: 1-100
+    EVD: 90
+    IMP: 90
+    RSK: 35
   owner: special_ops__ai_handling_routing
   validator: meta_ops
   review_due: 2026-07-25
