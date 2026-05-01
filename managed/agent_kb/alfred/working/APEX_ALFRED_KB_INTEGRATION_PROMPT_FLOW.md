@@ -8,39 +8,104 @@ repo: leela-spec/apexai-os-meta
 path: managed/agent_kb/alfred/working/APEX_ALFRED_KB_INTEGRATION_PROMPT_FLOW.md
 status: working_handover_prompt_flow
 canonical_status: non_canonical
-purpose: prompt flow for a separate chat to integrate locked Apex and Alfred workflow decisions into Apex AI and Alfred KB
+purpose: corrected prompt flow for integrating locked Alfred/Apex process-handover priority decisions into Apex AI and Alfred KB
 created_for: operator_handoff_to_new_chat
 source_decision_locks:
   - managed/agent_kb/alfred/working/ALFRED_WORKFLOW_DECISION_LOCK.md
   - managed/agent_kb/alfred/working/APEX_VARIABLES_HANDOFF_DECISION_LOCK.md
   - managed/agent_kb/alfred/working/ALFRED_WORKFLOW_PREFILLED_QA.md
-integration_style: staged_audit_appendices_then_canonical_patches
+integration_style: staged_audit_appendices_then_compact_canonical_patches
+supersedes: prior V/U/L/F-oriented handover prompt flow
 ```
 
-This file is a handover prompt flow. It is not canonical doctrine. It gives another chat a controlled sequence for integrating the accepted Apex/Alfred decisions into the repo without reintroducing drift, over-engineering, or hidden truth mutation.
+This file is a handover prompt flow. It is not canonical doctrine. It gives another chat a controlled sequence for integrating the corrected accepted Alfred/Apex decisions into the repo without reintroducing drift, over-engineering, or hidden truth mutation.
 
 ---
 
-# 1. Critical premise
+# 1. Critical corrected premise
 
 The integration chat must treat these as locked:
 
 - **Alfred is the only current-system personal assistant actor.**
 - **Leela is future productization, not current runtime.**
-- **Apex orientation uses `value / urgency / leverage / fit`, 0-3, with P0-P3 classification.**
-- **Existing first-wave agent handoff contracts use `EVD / IMP / RSK`, 1-100. Do not replace them with V/U/L/F.**
+- **Existing first-wave agent handoff contracts use `EVD / IMP / RSK`, 1-100. Preserve them.**
+- **Alfred/Apex process handovers use `EVD / IMP / RSK + URG`, 1-100, only where time pressure changes prioritization.**
+- **The prior `value / urgency / leverage / fit` model is rejected as a parallel canonical metric system.**
+- **`value` is absorbed into `IMP`.**
+- **`urgency` becomes `URG`.**
+- **`leverage` becomes rationale / unlock effect, not a score.**
+- **`fit` becomes readiness, constraints, and hard flags, not a score.**
 - **Informatics Design owns structure, taxonomy, naming, decomposition, and retrieval-safe packaging, but not truth validation or final promotion.**
-- **Agent handoffs must remain bounded, reviewable, state-aware, source-aware, and resistant to drift.**
-- **The locked Apex variable/handoff decisions are captured in `APEX_VARIABLES_HANDOFF_DECISION_LOCK.md`.**
+- **Agent handoffs and process handovers must remain bounded, reviewable, state-aware, source-aware, and resistant to drift.**
+- **The corrected locked decisions are captured in `APEX_VARIABLES_HANDOFF_DECISION_LOCK.md`.**
 
 ---
 
-# 2. Prompt 0 — Bootstrap and non-drift setup
+# 2. Non-negotiable constraints
+
+1. Do not introduce another current-system personal assistant actor.
+2. Do not treat Leela app as current runtime.
+3. Do not silently mutate SSOT, OpState, calendar, or canonical KB truth.
+4. Do not reintroduce `value / urgency / leverage / fit` as canonical fields.
+5. Do not create `APPENDIX_APEX_ORIENTATION_AND_ROUTING.md` under the old V/U/L/F model.
+6. Do not replace first-wave `EVD / IMP / RSK` handoff thresholds.
+7. Add `URG` only for process handovers where time pressure matters.
+8. Preserve candidate/canonical separation.
+9. Use appendices for operational detail, then compact canonical patches.
+10. Process files should be patched only if there is a real contradiction, gap, or pointer update need.
+11. Every patch must include a simplification check.
+12. Prefer one file per patch pass unless the operator explicitly authorizes a paired source/audit update.
+
+---
+
+# 3. Correct metric model
+
+```yaml
+agent_handoff_metrics_v1:
+  EVD: 1-100
+  IMP: 1-100
+  RSK: 1-100
+
+process_handover_priority_v1:
+  metrics:
+    EVD: 1-100
+    IMP: 1-100
+    RSK: 1-100
+    URG: 1-100
+  controls:
+    readiness: ready|partial|missing_input|blocked|operator_decision_needed
+    lane: leela|master_of_arts|wildcard|none
+    hard_flags: []
+    priority_class: P0|P1|P2|P3
+  rationale:
+    impact_reason:
+    urgency_reason:
+    unlocks: []
+    risk_note:
+    next_action:
+```
+
+## 3.1 Applies to
+
+| Surface | Model |
+|---|---|
+| Formal first-wave agent handoff | `EVD / IMP / RSK`; add `URG` only if time pressure materially affects priority |
+| Night -> Alfred morning handover | `EVD / IMP / RSK + URG` |
+| Session Export -> Night synthesis | trace first; Night may derive `EVD / IMP / RSK + URG` planning packets |
+| Daily Command Board priority stack | `EVD / IMP / RSK + URG` plus readiness/lane/hard flags |
+| Craft-flow allocation CF1-CF4 | P-class derived from process-handover metrics and readiness |
+| Raw Session Export trace | no priority metrics required in raw trace |
+| OpState delta candidate | evidence and operator approval fields; no P-class unless routed for planning |
+| Pattern candidate | evidence count and source refs; no P-class unless routed for planning |
+
+---
+
+# 4. Prompt 0 — Bootstrap and non-drift setup
 
 ```text
-# Apex + Alfred KB Integration Bootstrap
+# Apex + Alfred KB Integration Bootstrap — Corrected Metric Model
 
-You are integrating locked workflow decisions into the Apex AI and Alfred KB system.
+You are integrating locked Alfred/Apex process-handover decisions into the Apex AI and Alfred KB system.
 
 Repo:
 - leela-spec/apexai-os-meta
@@ -69,11 +134,11 @@ Process / informatics / handoff sources:
 
 Non-negotiable constraints:
 1. Alfred is the only current-system personal assistant actor.
-2. Do not introduce another assistant actor.
-3. Do not treat Leela app as current runtime.
-4. Do not silently mutate SSOT, OpState, calendar, or canonical KB truth.
-5. Do not replace first-wave `EVD / IMP / RSK` handoff thresholds with `value / urgency / leverage / fit`.
-6. Treat `value / urgency / leverage / fit` as Alfred/Apex planning orientation for project packets, daily boards, craft-flow assignment, and routing—not as a replacement for general agent handoff risk thresholds.
+2. Leela is future productization, not current runtime.
+3. Existing first-wave `EVD / IMP / RSK` handoff thresholds remain intact.
+4. Process handovers use `EVD / IMP / RSK + URG`, 1-100.
+5. `value / urgency / leverage / fit` must not be reintroduced as canonical fields.
+6. `value` is absorbed into `IMP`; `urgency` becomes `URG`; `leverage` becomes rationale/unlock effect; `fit` becomes readiness/constraints/hard flags.
 7. Preserve candidate/canonical separation.
 8. Use appendices first, then compact canonical patches.
 9. One file per patch pass unless explicitly instructed otherwise.
@@ -87,7 +152,7 @@ First task:
 Output:
 1. SOURCE_MAP
 2. DECISION_SUMMARY
-3. TWO-TIER_METRIC_MODEL
+3. CORRECTED_METRIC_MODEL
 4. TARGET_FILE_MAP
 5. INTEGRATION_RISKS
 6. PATCH_ORDER
@@ -98,33 +163,32 @@ Stop after this audit.
 
 ---
 
-# 3. Prompt 1 — Confirm the two-tier metric model
+# 5. Prompt 1 — Confirm corrected metric model
 
 ```text
-# Control Pass — Two-Tier Metric Model
+# Control Pass — Corrected Metric Model
 
 Mission:
-Prevent metric-system collision between:
-A. Apex/Alfred planning orientation
-B. First-wave agent handoff risk/evidence thresholds
+Prevent metric-system collision and lock the corrected model.
 
 Read:
 - managed/agent_kb/alfred/working/APEX_VARIABLES_HANDOFF_DECISION_LOCK.md
 - managed/processes/AGENT_HANDOFF_CONTRACTS.md
 
-Create a precise decision memo.
-
 Must lock:
-1. `value / urgency / leverage / fit` are for Alfred/Apex daily planning, project packets, Daily Command Board, craft-flow allocation, and routing recommendations.
-2. `EVD / IMP / RSK` remain the first-wave agent handoff threshold model.
-3. Do not merge the systems.
-4. Do not convert `EVD / IMP / RSK` to 0-3.
-5. Do not convert `value / urgency / leverage / fit` to 1-100.
-6. When Alfred sends MetaOps a craft-flow handoff, include Apex orientation only if it helps explain daily priority, but maintain any required handoff contract fields if the handoff crosses first-wave process boundaries.
+1. `EVD / IMP / RSK` remain the existing first-wave handoff control model.
+2. Alfred/Apex process handovers add `URG` when time pressure matters.
+3. Do not merge in `value / leverage / fit` as score variables.
+4. `value` is absorbed into `IMP`.
+5. `urgency` becomes `URG` and uses 1-100.
+6. `leverage` is rationale/unlock effect, not score.
+7. `fit` is readiness/constraints/hard flags, not score.
+8. Do not convert `EVD / IMP / RSK` to 0-3.
+9. Do not create a second 0-3 orientation system.
 
 Output:
-1. Final two-tier model.
-2. When each metric system applies.
+1. Final corrected model.
+2. When `URG` applies.
 3. Collision examples.
 4. Anti-drift rules.
 5. Patch targets.
@@ -135,18 +199,16 @@ Do not write files yet.
 
 ---
 
-# 4. Prompt 2 — Integration architecture map
+# 6. Prompt 2 — Integration architecture map
 
 ```text
-# Integration Architecture Map — Apex Decisions into Alfred KB
+# Integration Architecture Map — Corrected Alfred/Apex Process Handover Model
 
 Mission:
-Create the file-level integration plan.
-
-Use the locked decisions to determine exactly where each concept belongs.
+Create the file-level integration plan for the corrected `EVD / IMP / RSK + URG` model.
 
 Candidate new appendices:
-- managed/agent_kb/alfred/appendices/APPENDIX_APEX_ORIENTATION_AND_ROUTING.md
+- managed/agent_kb/alfred/appendices/APPENDIX_PROCESS_HANDOVER_PRIORITY.md
 - managed/agent_kb/alfred/appendices/APPENDIX_DAILY_COMMAND_BOARD_AND_HANDOFFS.md
 - managed/agent_kb/alfred/appendices/APPENDIX_SESSION_EXPORT_OPSTATE_AND_TRACKING.md
 - managed/agent_kb/alfred/appendices/APPENDIX_PATTERN_LEARNING_AND_RHYTHM.md
@@ -170,11 +232,11 @@ Process files to inspect but not overwrite unless necessary:
 Rules:
 - Appendices carry operational detail.
 - Canonical files carry compact doctrine only.
-- Process files should be patched only if the locked decisions expose a real contradiction, gap, or pointer update need.
+- Process files should be patched only if the corrected decisions expose a real contradiction, gap, or pointer update need.
 - Informatics Design should be used as the structure/taxonomy/retrieval-safety lens.
 - Knowledge/KB operations should be used as promotion/candidate/canonical lens.
-- MetaOps should remain execution workflow owner.
-- Alfred should remain operator-facing planner/coordinator.
+- MetaOps remains execution workflow owner.
+- Alfred remains operator-facing planner/coordinator.
 
 Output:
 1. Concept-to-file matrix.
@@ -191,37 +253,38 @@ Do not write files yet.
 
 ---
 
-# 5. Prompt 3 — Create appendix: Apex orientation and routing
+# 7. Prompt 3 — Create appendix: Process handover priority
 
 ```text
-# Create APPENDIX_APEX_ORIENTATION_AND_ROUTING.md
+# Create APPENDIX_PROCESS_HANDOVER_PRIORITY.md
 
 Target:
-- managed/agent_kb/alfred/appendices/APPENDIX_APEX_ORIENTATION_AND_ROUTING.md
+- managed/agent_kb/alfred/appendices/APPENDIX_PROCESS_HANDOVER_PRIORITY.md
 
 Mission:
-Create Alfred’s operational appendix for Apex planning orientation and next-action routing.
+Create Alfred's operational appendix for process-handover priority using `EVD / IMP / RSK + URG`.
 
 Must include:
 1. Purpose
 2. Authority boundary
-3. Relationship to broader first-wave `EVD / IMP / RSK` handoff model
-4. Apex Orientation Core v1:
-   - value
-   - urgency
-   - leverage
-   - fit
-   - 0-3 scale
-5. Removed/absorbed variables:
-   - time_pressure -> urgency
-   - risk_if_deferred -> urgency
-   - effort -> fit
-   - readiness/calendar/operator constraint -> fit
-   - default_lane_alignment -> policy_lane
-6. Controls:
-   - confidence as modifier/display field
-   - policy_lane as guardrail
-7. Hard flags:
+3. Relationship to `AGENT_HANDOFF_CONTRACTS.md`
+4. Difference between agent handoff and process handover
+5. Core metrics:
+   - EVD
+   - IMP
+   - RSK
+   - URG
+   - 1-100 scale
+6. Replaced variable mapping:
+   - value -> IMP
+   - urgency -> URG
+   - leverage -> rationale.unlocks
+   - fit -> readiness/constraints/hard_flags
+7. Controls:
+   - readiness
+   - lane
+   - hard_flags
+8. Hard flags:
    - hard_deadline
    - blocked
    - missing_input
@@ -229,89 +292,21 @@ Must include:
    - hygiene_hold
    - calendar_conflict
    - no_actionable_next_step
-8. P0-P3 priority classification
-9. P1 max-four-craft-flow rule
-10. P0 no-auto-assign rule
-11. Low-confidence handoff rule
-12. Examples:
-   - Leela P1
-   - Master of Arts P1/P0
+9. P0-P3 priority classification
+10. P1 max-four-craft-flow rule
+11. P0 no-auto-assign rule
+12. Low-evidence / low-readiness handoff rule
+13. Examples:
+   - Night -> Day Leela P1
+   - urgent Master of Arts P0 candidate
    - blocked P3
    - calendar conflict P0/rhythm repair
-13. Anti-patterns:
-   - weighted total score
-   - 0-10 scoring
-   - hidden confidence
-   - policy lane as score
-   - assigning more than four P1s
-14. Source basis
-15. Open future improvements
-
-Output:
-- Full proposed file content.
-- Unified diff.
-- Simplification check:
-  - What could be removed?
-  - What is necessary?
-  - What is over-engineered?
-- Stop before applying unless instructed.
-```
-
----
-
-# 6. Prompt 4 — Create appendix: Daily Command Board and MetaOps handoffs
-
-```text
-# Create APPENDIX_DAILY_COMMAND_BOARD_AND_HANDOFFS.md
-
-Target:
-- managed/agent_kb/alfred/appendices/APPENDIX_DAILY_COMMAND_BOARD_AND_HANDOFFS.md
-
-Mission:
-Define Alfred’s Daily Command Board and Alfred -> MetaOps craft-flow handoff.
-
-Must include:
-1. Purpose
-2. Daily Command Board v1 schema
-3. Project Packet v1 schema
-4. Four craft-flow working day:
-   - CF1 Leela
-   - CF2 Leela
-   - CF3 Master of Arts
-   - CF4 wildcard
-5. Daily priority stack
-6. Separate `rhythm_profile`
-   - physical chunk candidates by flow
-   - mental chunk candidates by flow
-   - final break/reset
-   - afterwork regen plan
-7. Board lock rule:
-   - before operator lock editable
-   - after lock immutable
-   - revisions only after lock
-8. Deferred/not-today handling
-9. P0 risks and repairs section
-10. MetaOps Craft Flow Handoff v1:
-    - identity
-    - intent
-    - constraints
-    - mandatory outputs
-    - optional outputs
-    - state_effect defaults
-11. Relationship to AGENT_HANDOFF_CONTRACTS:
-    - when this is a local Alfred->MetaOps craft-flow brief
-    - when formal first-wave handoff packet is required
-12. Examples:
-    - normal Leela flow
-    - urgent Master of Arts override
-    - low-confidence discovery handoff
-    - overloaded day with deferred P1
-13. Operator edit tracking
 14. Anti-patterns:
-    - board as giant dashboard
-    - mixing rhythm profile into every card
-    - auto-mutating after lock
-    - sending raw project dumps to MetaOps
+   - reintroducing V/U/L/F
+   - weighted total score
+   - hidden evidence weakness
+   - lane as score
+   - assigning more than four P1s
 15. Source basis
 16. Open future improvements
 
@@ -324,7 +319,60 @@ Output:
 
 ---
 
-# 7. Prompt 5 — Create appendix: Session Export, OpState, and tracking
+# 8. Prompt 4 — Create appendix: Daily Command Board and MetaOps handoffs
+
+```text
+# Create APPENDIX_DAILY_COMMAND_BOARD_AND_HANDOFFS.md
+
+Target:
+- managed/agent_kb/alfred/appendices/APPENDIX_DAILY_COMMAND_BOARD_AND_HANDOFFS.md
+
+Mission:
+Define Alfred's Daily Command Board and Alfred -> MetaOps craft-flow handoff using corrected `EVD / IMP / RSK + URG` priority control.
+
+Must include:
+1. Purpose
+2. Daily Command Board v1 schema
+3. Project Packet v1 schema
+4. Priority control fields:
+   - EVD
+   - IMP
+   - RSK
+   - URG
+   - readiness
+   - lane
+   - hard_flags
+   - priority_class
+5. Four craft-flow working day:
+   - CF1 Leela
+   - CF2 Leela
+   - CF3 Master of Arts
+   - CF4 wildcard
+6. Daily priority stack
+7. Separate `rhythm_profile`
+8. Board lock rule
+9. Deferred/not-today handling
+10. P0 risks and repairs section
+11. MetaOps Craft Flow Handoff v1
+12. Relationship to AGENT_HANDOFF_CONTRACTS:
+    - local craft-flow brief
+    - formal first-wave handoff packet
+13. Examples
+14. Operator edit tracking
+15. Anti-patterns
+16. Source basis
+17. Open future improvements
+
+Output:
+- Full proposed file content.
+- Unified diff.
+- Simplification check.
+- Stop before applying unless instructed.
+```
+
+---
+
+# 9. Prompt 5 — Create appendix: Session Export, OpState, and tracking
 
 ```text
 # Create APPENDIX_SESSION_EXPORT_OPSTATE_AND_TRACKING.md
@@ -333,57 +381,30 @@ Target:
 - managed/agent_kb/alfred/appendices/APPENDIX_SESSION_EXPORT_OPSTATE_AND_TRACKING.md
 
 Mission:
-Define the trace/state/tracking model for Alfred’s craft-flow loop.
+Define the trace/state/tracking model for Alfred's craft-flow loop.
+
+Must preserve:
+- Session Export is trace.
+- OpState is state delta candidate only.
+- Raw Session Export does not need priority metrics.
+- Night may derive process-handover priority packets from Session Exports.
 
 Must include:
 1. Purpose
 2. Trace vs state distinction
 3. Session Export as immutable trace after submission
-4. Correction rule:
-   - append correction event
-   - no silent overwrite
-5. Operator-required Session Export fields:
-   - objective_met
-   - outputs_delivered
-   - deviations
-   - blockers_found
-   - next_highest_impact_tasks max 3
-   - process_worked enum
-   - chat_flow_efficiency enum
+4. Correction rule
+5. Operator-required Session Export fields
 6. What Alfred/Night pre-fills
 7. What operator corrects
-8. OpState delta candidate v1:
-   - delta_id
-   - project_id
-   - source_session_export_id
-   - field_path
-   - old_value
-   - proposed_value
-   - reason
-   - evidence
-   - operator_approved false
-9. OpState approval v1:
-   - operator required
-   - no auto-apply
-   - possible later low-risk auto-apply classes
+8. OpState delta candidate v1
+9. OpState approval v1
 10. Tracking Record v1 schema
-11. Mood/energy/BP-XP excluded in v1
-12. Tracking rollups:
-   - daily
-   - weekly preview
-   - pattern candidates
-   - future Algorithm evidence
-13. Relationship to existing NIGHT_PLANNING_PROTOCOL.md and SESSION_EXPORT_PROTOCOL.md
-14. Examples:
-   - complete session
-   - partial session
-   - blocked session
-   - correction after submission
-15. Anti-patterns:
-   - full trace into OpState
-   - editable trace without revision
-   - making operator write essays
-   - mood/energy tracking in v1
+11. Mood/energy/BP-XP excluded in Alfred tracking v1
+12. Tracking rollups
+13. Relationship to NIGHT_PLANNING_PROTOCOL.md and SESSION_EXPORT_PROTOCOL.md
+14. Examples
+15. Anti-patterns
 16. Source basis
 17. Future improvements
 
@@ -396,7 +417,7 @@ Output:
 
 ---
 
-# 8. Prompt 6 — Create appendix: Pattern learning and Rhythm
+# 10. Prompt 6 — Create appendix: Pattern learning and Rhythm
 
 ```text
 # Create APPENDIX_PATTERN_LEARNING_AND_RHYTHM.md
@@ -405,55 +426,22 @@ Target:
 - managed/agent_kb/alfred/appendices/APPENDIX_PATTERN_LEARNING_AND_RHYTHM.md
 
 Mission:
-Define Alfred’s candidate pattern learning and Rhythm planning reference.
+Define Alfred's candidate pattern learning and Rhythm planning reference.
 
 Must include:
 1. Purpose
-2. Pattern learning boundary:
-   - candidate is not canonical
-   - working pattern library is not accepted truth
-3. Pattern candidate creation:
-   - repeated success >= 2
-   - repeated failure same root cause >= 2
-   - repeated operator correction same field >= 2
-   - highly efficient workflow seen >= 2
-4. Pattern promotion:
-   - successful uses >= 3
-   - evidence across >= 2 sessions or periods
-   - operator approved
-   - KB Ops placed
-   - emergency manual promotion label
+2. Pattern learning boundary
+3. Pattern candidate creation thresholds
+4. Pattern promotion thresholds
 5. Rejected candidate archive
-6. Operator override learning:
-   - single override = planning correction
-   - repeated same override count 2 = candidate
-   - canonical change requires validation
-7. Rhythm in Daily Command Board:
-   - light v1 rhythm_profile
-   - separate from execution cards
-8. Afterwork regeneration:
-   - planned by Alfred
-   - does not replace work craft flow
-   - optional note only
-9. Weekly planning:
-   - v1 light preview
-   - v1.1 full Weekly Rhythm Plan
-10. Monthly planning:
-   - later
-   - directional only
-11. Relationship to skill-tree/chunk system:
-   - lightweight candidate capture now
-   - no taxonomy over-design
-12. Examples:
-   - repeated successful MetaOps handoff
-   - repeated operator board correction
-   - recurring blocker
-   - physical/mental chunk rotation
-13. Anti-patterns:
-   - promoting after one occurrence
-   - deleting rejected patterns
-   - full weekly automation too early
-   - detailed monthly task schedule in v1
+6. Operator override learning
+7. Rhythm in Daily Command Board
+8. Afterwork regeneration
+9. Weekly planning v1 / v1.1 split
+10. Monthly planning later/directional
+11. Relationship to skill-tree/chunk system
+12. Examples
+13. Anti-patterns
 14. Source basis
 15. Future improvements register
 
@@ -466,7 +454,7 @@ Output:
 
 ---
 
-# 9. Prompt 7 — Patch parent working decision lock references
+# 11. Prompt 7 — Patch parent working decision lock references
 
 ```text
 # Patch ALFRED_WORKFLOW_DECISION_LOCK.md references
@@ -475,24 +463,25 @@ Target:
 - managed/agent_kb/alfred/working/ALFRED_WORKFLOW_DECISION_LOCK.md
 
 Mission:
-Update the parent Alfred decision lock to point to the new Apex variable/handoff decision lock and mark prior open questions as resolved.
+Update the parent Alfred decision lock to point to the corrected Apex variable/handoff decision lock and mark prior open questions as resolved.
 
 Must update:
 1. Add reference to:
    - managed/agent_kb/alfred/working/APEX_VARIABLES_HANDOFF_DECISION_LOCK.md
-2. Mark these as resolved:
+2. Mark first heuristic ranking model as resolved by:
+   - `EVD / IMP / RSK + URG` process-handover priority model
+3. Mark these as resolved:
    - Daily Command Board fields
    - pre-filled Session Export fields
-   - first heuristic ranking model
    - how far ahead Alfred plans in v1
    - pattern candidate location/path
    - minimum tracking format
    - MetaOps handoff schema
    - operator board editability
    - Night scaffold low-friction correction
-3. Preserve unresolved items that are genuinely still open.
-4. Preserve Alfred-only naming lock.
-5. Preserve non-canonical working status.
+4. Preserve unresolved items that are genuinely still open.
+5. Preserve Alfred-only naming lock.
+6. Preserve non-canonical working status.
 
 Output:
 - Unified diff only.
@@ -503,135 +492,74 @@ Output:
 
 ---
 
-# 10. Prompt 8 — Canonical patch: ESSENCE.md
+# 12. Canonical patch prompts
 
-```text
-# Patch Alfred ESSENCE.md — compact doctrine only
+Canonical patches must be compact. They must not repeat full appendix schemas.
 
-Target:
-- managed/agent_kb/alfred/ESSENCE.md
+## ESSENCE.md
 
-Mission:
-Add compact canonical doctrine reflecting the accepted Apex decisions without bloating ESSENCE.md.
+Add only compact doctrine:
 
-Must add:
-1. Alfred uses Apex orientation logic for daily/project planning:
-   - value
-   - urgency
-   - leverage
-   - fit
-2. Alfred uses P0-P3 classes for routing/project packet orientation.
-3. Alfred respects the four-craft-flow workday.
-4. Alfred creates Daily Command Board recommendations.
-5. Alfred sends bounded MetaOps handoffs.
-6. Alfred treats Session Exports as trace, OpState as state delta, and patterns as candidates until promoted.
-7. Alfred does not silently mutate SSOT, OpState, calendar, or canonical KB.
-8. Alfred remains the only current-system personal assistant actor.
+- Alfred may use corrected process-handover priority control: `EVD / IMP / RSK + URG`.
+- Alfred uses P0-P3 classes for Daily Command Board and process-handover routing.
+- Alfred respects the four-craft-flow workday.
+- Alfred creates Daily Command Board recommendations.
+- Alfred sends bounded MetaOps handoffs.
+- Alfred treats Session Exports as trace, OpState as state delta, and patterns as candidates until promoted.
+- Alfred does not silently mutate SSOT, OpState, calendar, or canonical KB.
+- Alfred remains the only current-system personal assistant actor.
 
-Must not include:
-- full schemas
-- long examples
-- detailed tracking fields
-- implementation mechanics
-- future app assistant naming
+Must not include V/U/L/F.
 
-Output:
-- Unified diff.
-- Canonical scope note.
-- Over-engineering check.
-```
+## BEST_PRACTICES.md
 
----
+Add accepted practice for:
 
-# 11. Prompt 9 — Canonical patch: BEST_PRACTICES.md
-
-```text
-# Patch Alfred BEST_PRACTICES.md — operational practice
-
-Target:
-- managed/agent_kb/alfred/BEST_PRACTICES.md
-
-Mission:
-Add accepted practice for using the Apex decisions in real Alfred operation.
-
-Must add practice sections:
-1. Project Packet review practice
-2. Orientation scoring practice:
-   - V/U/L/F
-   - confidence
-   - policy_lane
-   - hard_flags
-3. P0-P3 classification practice
-4. Daily Command Board practice
-5. MetaOps handoff practice
-6. Session Export / OpState separation practice
-7. Tracking practice
-8. Pattern candidate practice
-9. Rhythm profile practice
-10. Weekly preview / monthly directional practice
+- Project Packet review
+- `EVD / IMP / RSK + URG` process-handover priority
+- readiness/lane/hard flag practice
+- P0-P3 classification
+- Daily Command Board
+- MetaOps handoff
+- Session Export / OpState separation
+- tracking
+- pattern candidates
+- rhythm profile
+- weekly preview/monthly directional planning
 
 Must include:
+
 - Do not use weighted total scoring.
+- Do not reintroduce V/U/L/F.
 - Do not assign more than four P1 craft-flow items.
 - Do not auto-assign P0.
 - Do not let Session Export mutate OpState directly.
 - Do not promote patterns without threshold.
 
-Output:
-- Unified diff.
-- Simplification check.
-```
+## MISTAKES.md
 
----
+Add failure modes:
 
-# 12. Prompt 10 — Canonical patch: MISTAKES.md
+- Reintroducing V/U/L/F as a second metric system.
+- Treating Leela app as runtime.
+- Reintroducing a second current-system personal assistant actor.
+- Using weighted score totals as if precise.
+- Treating lane as importance.
+- Ignoring hard flags.
+- Assigning more than four P1 craft-flow items.
+- Auto-assigning P0 without operator confirmation.
+- Mutating board after operator lock.
+- Putting full Session Export trace into OpState.
+- Letting Session Export update OpState directly.
+- Promoting patterns after one occurrence.
+- Tracking mood/energy/BP-XP in Alfred v1 despite exclusion.
+- Overbuilding weekly/monthly planning before daily tracking exists.
+- Making the Daily Command Board a giant dashboard.
 
-```text
-# Patch Alfred MISTAKES.md — failure modes
+## TEMPLATES.md
 
-Target:
-- managed/agent_kb/alfred/MISTAKES.md
+Add compact reusable templates:
 
-Mission:
-Add failure modes created by the new Apex orientation/handoff system.
-
-Add mistakes:
-1. Reintroducing a second current-system personal assistant actor.
-2. Treating Leela app as runtime.
-3. Mixing V/U/L/F with EVD/IMP/RSK.
-4. Using weighted score totals as if precise.
-5. Treating confidence as priority.
-6. Treating policy lane as importance.
-7. Ignoring hard flags.
-8. Assigning more than four P1 craft-flow items.
-9. Auto-assigning P0 without operator confirmation.
-10. Mutating board after operator lock.
-11. Putting full Session Export trace into OpState.
-12. Letting Session Export update OpState directly.
-13. Promoting patterns after one occurrence.
-14. Tracking mood/energy/BP-XP in v1 despite exclusion.
-15. Overbuilding weekly/monthly planning before daily tracking exists.
-16. Making the Daily Command Board a giant dashboard.
-
-Output:
-- Unified diff.
-- Failure-mode rationale.
-```
-
----
-
-# 13. Prompt 11 — Canonical patch: TEMPLATES.md
-
-```text
-# Patch Alfred TEMPLATES.md — templates and schemas
-
-Target:
-- managed/agent_kb/alfred/TEMPLATES.md
-
-Mission:
-Add compact reusable templates. Put full details in appendices; templates should be usable directly.
-
-Add templates:
 1. Project Packet v1
 2. Daily Command Board v1
 3. MetaOps Craft Flow Handoff v1
@@ -642,162 +570,65 @@ Add templates:
 8. Weekly Preview v1
 9. Monthly Direction Map placeholder
 
-Rules:
-- Keep templates compact.
-- Use canonical field names from APEX_VARIABLES_HANDOFF_DECISION_LOCK.md.
-- Do not include old variable names except in “removed/absorbed” note if needed.
-- Do not include future app assistant naming.
-- Do not include weighted score totals.
+Templates must use `EVD / IMP / RSK + URG`, readiness, lane, hard flags, and P-class where priority control is needed.
 
-Output:
-- Unified diff.
-- Template usability check.
-- Over-engineering check.
-```
+## LEARNING_QUEUE.md
 
----
+Capture future candidates only:
 
-# 14. Prompt 12 — Canonical patch: LEARNING_QUEUE.md
+- Full Weekly Rhythm Plan v1.1
+- Monthly Direction Map operationalization
+- Low-risk OpState auto-apply classes
+- Future Algorithm from tracking evidence
+- Future BP/XP relation
+- Future mood/energy tracking reconsideration
+- Pattern library storage structure
+- Automation of candidate detection
+- Visualization of Daily Command Board
+- Calibration of `EVD / IMP / RSK + URG` and P-class rules from real use
 
-```text
-# Patch Alfred LEARNING_QUEUE.md — future improvements only
+## SOURCE_MANIFEST.md and COVERAGE_AUDIT.md
 
-Target:
-- managed/agent_kb/alfred/LEARNING_QUEUE.md
+Add corrected source/audit controls for:
 
-Mission:
-Capture future improvement candidates without promoting them to doctrine.
-
-Add future candidates:
-1. Full Weekly Rhythm Plan v1.1.
-2. Monthly Direction Map operationalization.
-3. Low-risk OpState auto-apply classes.
-4. Future Algorithm from tracking evidence.
-5. Future BP/XP relation.
-6. Future mood/energy tracking reconsideration.
-7. Pattern library storage structure.
-8. Automation of candidate detection.
-9. Visualization of Daily Command Board.
-10. Calibration of V/U/L/F and P-Class rules from real use.
-
-For each:
-- source decision
-- current status
-- blocker
-- promotion condition
-- target future file
-
-Output:
-- Unified diff.
-- Candidate register.
-```
-
----
-
-# 15. Prompt 13 — Source/audit patch: SOURCE_MANIFEST.md and COVERAGE_AUDIT.md
-
-```text
-# Patch source and coverage controls
-
-Targets:
-- managed/agent_kb/alfred/SOURCE_MANIFEST.md
-- managed/agent_kb/alfred/COVERAGE_AUDIT.md
-
-Mission:
-Update source/audit controls for the new locked Apex decision files and research inputs.
-
-Rules:
-- Preserve old history.
-- Add new decision-lock and research inputs.
-- Mark what is validated by operator.
-- Mark what remains candidate/future.
-- Do not imply canonical promotion just because working decision lock exists.
-- Separate:
-  - accepted operator decisions
-  - working locked decisions
-  - appendix-level doctrine
-  - canonical KB doctrine
-  - future learning queue candidates
-
-Must include:
-- APEX_VARIABLES_HANDOFF_DECISION_LOCK.md
-- ALFRED_WORKFLOW_DECISION_LOCK.md
-- ALFRED_WORKFLOW_PREFILLED_QA.md
-- Variables&Metrics research reports if available in repo or upload context
-- AGENT_HANDOFF_CONTRACTS.md relationship
+- corrected `APEX_VARIABLES_HANDOFF_DECISION_LOCK.md`
+- `ALFRED_WORKFLOW_DECISION_LOCK.md`
+- `ALFRED_WORKFLOW_PREFILLED_QA.md`
+- `AGENT_HANDOFF_CONTRACTS.md` relationship
+- uploaded/manual Rhythm, Sequencing, Craft Flow, and Daily Flow sources when directly available
 - Informatics Design role
 
-Output:
-- Unified diffs.
-- Coverage delta table.
-- Remaining source gaps.
-- Stop before applying unless instructed.
-```
+Do not imply canonical promotion just because a working lock exists.
+
+## README.md
+
+Update index after appendices and corrected lock integration. It must show where to find:
+
+- process-handover priority variables
+- Daily Command Board
+- MetaOps handoff
+- Session Export / OpState
+- Tracking
+- Pattern learning
+- Rhythm profile
 
 ---
 
-# 16. Prompt 14 — README patch
+# 13. Control runs
 
-```text
-# Patch Alfred README.md — index and usage map
+## Completeness audit rows
 
-Target:
-- managed/agent_kb/alfred/README.md
-
-Mission:
-Update the Alfred KB folder index after appendices and locked decision integration.
-
-Must include:
-1. New appendices and what each is for.
-2. Working decision locks and their status.
-3. Current canonical files remain primary.
-4. Appendices are subordinate operational doctrine.
-5. Working locks are non-canonical until promoted.
-6. Where to look for:
-   - orientation variables
-   - Daily Command Board
-   - MetaOps handoff
-   - Session Export / OpState
-   - Tracking
-   - Pattern learning
-   - Rhythm profile
-7. Next recommended action.
-
-Output:
-- Unified diff.
-- Navigation clarity check.
-```
-
----
-
-# 17. Prompt 15 — High-impact control run: completeness audit
-
-```text
-# Control Run — Completeness Audit
-
-Mission:
-Audit whether all accepted decisions from:
-- ALFRED_WORKFLOW_DECISION_LOCK.md
-- APEX_VARIABLES_HANDOFF_DECISION_LOCK.md
-- validated Q&A
-- research synthesis
-
-are represented in:
-- new appendices
-- canonical Alfred KB patches
-- source/audit controls
-- README
-
-Create a coverage matrix.
-
-Rows:
 - Alfred-only naming
 - Leela app boundary
-- V/U/L/F orientation
-- urgency naming
-- removed variables
-- confidence modifier
-- policy_lane guardrail
+- EVD/IMP/RSK preservation
+- URG process-handover extension
+- V/U/L/F rejected
+- value -> IMP
+- urgency -> URG
+- leverage -> rationale.unlocks
+- fit -> readiness/constraints/hard_flags
+- readiness control
+- lane guardrail
 - hard flags
 - P0-P3 classes
 - P1 max 4
@@ -820,215 +651,45 @@ Rows:
 - afterwork regen
 - weekly preview v1 / full v1.1
 - monthly later/directional
-- no V/U/L/F vs EVD/IMP/RSK collision
 
-Columns:
-- decision lock
-- appendix
-- ESSENCE
-- BEST_PRACTICES
-- MISTAKES
-- TEMPLATES
-- LEARNING_QUEUE
-- SOURCE_MANIFEST
-- COVERAGE_AUDIT
-- README
+## Simplification audit questions
 
-Output:
-1. Coverage matrix.
-2. Missing integrations.
-3. Over-integrated areas.
-4. Contradictions.
-5. Required fixes.
-6. No-write verdict.
-
-Do not patch in this run.
-```
-
----
-
-# 18. Prompt 16 — High-impact control run: simplification / over-engineering audit
-
-```text
-# Control Run — Simplification and Over-Engineering Audit
-
-Mission:
-Challenge the integration for unnecessary complexity.
-
-Use Informatics Design lens:
-- structure
-- taxonomy
-- naming
-- decomposition
-- retrieval-safe packaging
-- bounded context readability
-
-Audit questions:
 1. Are there too many appendices?
-2. Are any schemas duplicated across files unnecessarily?
+2. Are schemas duplicated unnecessarily?
 3. Are any fields too detailed for v1?
-4. Are any fields better marked future/v1.1?
-5. Does Daily Command Board risk becoming a giant dashboard?
-6. Does MetaOps handoff over-prescribe MetaOps internals?
-7. Are V/U/L/F definitions simple enough for real use?
-8. Are hard flags clear enough?
-9. Are tracking fields minimal?
-10. Are pattern thresholds simple and enforceable?
-11. Does the system preserve high impact with low operator burden?
-12. Does retrieval become easier or harder?
+4. Does the Daily Command Board risk becoming a giant dashboard?
+5. Does MetaOps handoff over-prescribe MetaOps internals?
+6. Is `URG` necessary and bounded?
+7. Are readiness and hard flags simple enough?
+8. Are tracking fields minimal?
+9. Are pattern thresholds enforceable?
+10. Does the system preserve high impact with low operator burden?
+11. Does retrieval become easier or harder?
 
-Output:
-1. Simplification verdict.
-2. Keep/remove/defer table.
-3. Minimal viable v1 set.
-4. Deferred v1.1 set.
-5. Patch recommendations.
-6. Risk of over-compression.
-7. Final recommended simplification patch list.
+## Process/handoff audit questions
 
-Do not patch until the operator approves.
-```
-
----
-
-# 19. Prompt 17 — High-impact control run: process quality and handoff audit
-
-```text
-# Control Run — Process Quality and Handoff Audit
-
-Mission:
-Validate that the integrated Alfred/Apex process is high-impact, simple, and interoperable with existing Apex handoff contracts.
-
-Read:
-- AGENT_HANDOFF_CONTRACTS.md
-- APEX_VARIABLES_HANDOFF_DECISION_LOCK.md
-- APPENDIX_DAILY_COMMAND_BOARD_AND_HANDOFFS.md
-- APPENDIX_SESSION_EXPORT_OPSTATE_AND_TRACKING.md
-
-Check:
 1. Are Alfred -> MetaOps handoffs bounded?
 2. Do handoffs name source, objective, expected output, constraints, stop condition, and return path?
-3. Is the difference between local craft-flow handoff and formal first-wave handoff clear?
+3. Is the difference between local craft-flow brief and formal first-wave handoff clear?
 4. Are EVD/IMP/RSK preserved where existing process requires them?
-5. Is V/U/L/F limited to daily/project orientation?
-6. Are target states and authority boundaries clear?
-7. Are blocked/operator-review-required states respected?
-8. Is candidate/canonical separation preserved?
-9. Is OpState protected from trace pollution?
-10. Are validator paths clear where risk is high?
+5. Is URG limited to time-sensitive process handovers?
+6. Are V/U/L/F absent as canonical fields?
+7. Are target states and authority boundaries clear?
+8. Are blocked/operator-review-required states respected?
+9. Is candidate/canonical separation preserved?
+10. Is OpState protected from trace pollution?
 11. Is there any hidden truth mutation?
 12. Is there any role-boundary drift?
 
-Output:
-1. Pass/fail by criterion.
-2. Required fixes.
-3. Recommended improvements.
-4. Explicit no-drift verdict.
-5. Patch list if needed.
-
-Do not patch in this run.
-```
-
 ---
 
-# 20. Prompt 18 — High-impact control run: future improvements capture
-
-```text
-# Control Run — Future Improvements Capture
-
-Mission:
-Save useful insights without bloating v1.
-
-Inputs:
-- all appendices
-- canonical patch drafts
-- simplification audit
-- process/handoff audit
-- operator corrections
-
-Create a future-improvements register.
-
-Categories:
-1. Algorithm evolution
-2. Weekly Rhythm Plan v1.1
-3. Monthly Direction Map
-4. OpState low-risk auto-apply
-5. Pattern library storage and retrieval
-6. Tracking analytics
-7. BP/XP relationship
-8. mood/energy reconsideration
-9. Daily Command Board visualization
-10. MetaOps workflow automation
-11. source/audit automation
-12. future Leela productization
-
-For each item:
-- insight
-- current status
-- why not v1
-- evidence/source
-- target future artifact
-- promotion condition
-- risk if premature
-- expected impact
-
-Output:
-1. Future improvements table.
-2. Items to add to LEARNING_QUEUE.md.
-3. Items to leave out.
-4. Items requiring operator decision.
-5. No-write recommendation.
-
-Do not patch until approved.
-```
-
----
-
-# 21. Prompt 19 — Final consistency gate
-
-```text
-# Final Consistency Gate — Before Canonical Patch Merge
-
-Mission:
-Run the final gate before accepting the integration.
-
-Must verify:
-1. Alfred-only actor rule holds everywhere.
-2. Leela app is not treated as runtime.
-3. V/U/L/F and EVD/IMP/RSK are not conflated.
-4. Appendices contain detail; canonical files stay compact.
-5. Daily Command Board is usable, not bloated.
-6. MetaOps handoff is bounded and not over-prescriptive.
-7. Session Export remains trace.
-8. OpState remains state delta only.
-9. Pattern learning remains candidate-first.
-10. Tracking remains minimal and excludes mood/energy/BP-XP.
-11. Rhythm profile is light and separate.
-12. Weekly/monthly planning are not prematurely operationalized.
-13. Source/audit controls reflect reality.
-14. README navigation is clear.
-15. All rejected alternatives remain rejected.
-
-Output:
-1. Final pass/fail.
-2. Remaining blockers.
-3. Safe-to-patch list.
-4. Unsafe-to-patch list.
-5. Exact next implementation sequence.
-6. Operator approval request.
-
-Do not merge or patch without explicit operator approval.
-```
-
----
-
-# 22. Recommended execution order
+# 14. Recommended execution order
 
 ```text
 0  Bootstrap
-1  Two-tier metric model
+1  Corrected metric model control pass
 2  Integration architecture map
-3  APPENDIX_APEX_ORIENTATION_AND_ROUTING
+3  APPENDIX_PROCESS_HANDOVER_PRIORITY
 4  APPENDIX_DAILY_COMMAND_BOARD_AND_HANDOFFS
 5  APPENDIX_SESSION_EXPORT_OPSTATE_AND_TRACKING
 6  APPENDIX_PATTERN_LEARNING_AND_RHYTHM
@@ -1050,7 +711,7 @@ Do not merge or patch without explicit operator approval.
 
 ---
 
-# 23. Implementation principle
+# 15. Implementation principle
 
 ```yaml
 integration_rule:
@@ -1060,23 +721,26 @@ integration_rule:
   source_audit_files: provenance_and_coverage
   learning_queue: future_improvements_only
   process_files: only_patch_if_contradiction_or_pointer_gap_exists
+  metric_model: preserve_EVD_IMP_RSK_add_URG_only_for_process_handovers
 ```
 
 ---
 
-# 24. Handover note for the next chat
+# 16. Handover note for next chat
 
-Before doing any repo writes, the next chat should read this file and the two decision locks. Then it should run Prompt 0 and Prompt 1 without writing files. Only after the operator approves the integration map should it create appendices.
+Before doing repo writes, the next chat should read this file and the corrected `APEX_VARIABLES_HANDOFF_DECISION_LOCK.md`.
 
 The main failure modes to avoid are:
 
-1. Reintroducing a second current-system personal assistant actor.
-2. Treating the future Leela app as runtime.
-3. Replacing `EVD / IMP / RSK` with V/U/L/F in first-wave handoff contracts.
-4. Duplicating long schemas across too many files.
-5. Turning the Daily Command Board into a bloated dashboard.
-6. Making Session Export mutate OpState directly.
-7. Promoting pattern candidates too early.
-8. Moving v1.1/monthly future improvements into v1.
-9. Patching canonical files before appendices stabilize.
-10. Writing process-file changes without a demonstrated contradiction or pointer gap.
+1. Reintroducing V/U/L/F as a canonical metric system.
+2. Reintroducing a second current-system personal assistant actor.
+3. Treating the future Leela app as runtime.
+4. Replacing `EVD / IMP / RSK` in first-wave handoff contracts.
+5. Using `URG` outside time-sensitive process handovers.
+6. Duplicating long schemas across too many files.
+7. Turning the Daily Command Board into a bloated dashboard.
+8. Making Session Export mutate OpState directly.
+9. Promoting pattern candidates too early.
+10. Moving v1.1/monthly future improvements into v1.
+11. Patching canonical files before appendices stabilize.
+12. Writing process-file changes without a demonstrated contradiction or pointer gap.
