@@ -132,6 +132,12 @@ Runtime loading follows these boundaries:
 
 A candidate may inform a review question, but it may not silently drive execution as if it were accepted doctrine.
 
+## Metric Score Convention
+
+All managed KB and process scoring fields named `EVD`, `IMP`, and `RSK` use the active 1-100 scale.
+
+There is no 1-5 exception. If older entries or source material contain 1-5 scores, convert them to 1-100 before using them as managed KB or process metadata.
+
 ## Candidate-Only Learning Queue Rule
 
 `LEARNING_QUEUE.md` files are capture queues, not truth surfaces.
@@ -142,7 +148,7 @@ A queue entry may record:
 - source or evidence reference
 - proposed target file
 - owner and validator
-- initial `EVD`, `IMP`, and `RSK` scores on the 1-5 scale
+- initial `EVD`, `IMP`, and `RSK` scores on the active 1-100 scale
 - review need or due path
 
 A queue entry may not:
@@ -202,4 +208,5 @@ This file is valid when:
 - self-promotion is explicitly forbidden
 - owner and validator expectations are explicit
 - runtime loading is bounded and on demand
+- `EVD`, `IMP`, and `RSK` use the active 1-100 score scale everywhere
 - no full source map, promotion ledger schema, long agent doctrine, handoff schema, or config doctrine is embedded here
