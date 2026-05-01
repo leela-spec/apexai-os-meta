@@ -21,24 +21,38 @@ Canonical KB files remain under `managed/agent_kb/alfred/`. This file may inform
 
 ---
 
+## 0.1 Supersession rule
+
+- **Decision:** Newer operator corrections beat older assistant assumptions.
+- **Decision:** All prior Q&A content from this workflow is considered validated unless it was explicitly corrected, rejected, or superseded by a newer operator message.
+- **Decision:** The current strongest correction is that Alfred is the only personal-agent actor in this Apex/OpenClaw workflow.
+- **Constraint:** If this file conflicts with older chat content, this file wins for the next Alfred-workflow iteration.
+- **Constraint:** If a future operator message conflicts with this file, update this file before continuing workflow design.
+
+---
+
 ## 1. Non-negotiable naming lock
 
 ### 1.1 Current-system naming
 
 - **Decision:** The personal assistant in this Apex/OpenClaw environment is called **Alfred**.
 - **Decision:** Alfred is the operator-facing personal assistant, organizer, planner, and workflow coordinator in this system.
+- **Decision:** Alfred is the current test/development version of the future personal assistant concept.
 - **Decision:** Do not introduce a second personal-agent actor for this workflow.
-- **Decision:** Do not use the future Leela-app personal-agent name in ordinary Alfred workflow design.
+- **Decision:** Do not use any future Leela-app assistant name in ordinary Alfred workflow design, Q&A, user stories, templates, or repo patches.
 
 ### 1.2 Future app naming
 
 - **Decision:** The future Leela app may use a different product name for the personal assistant.
 - **Constraint:** That future app name must not be treated as a separate agent, separate owner, or parallel architecture inside this Apex/OpenClaw workflow.
 - **Constraint:** The future Leela app is not the runtime environment for this process.
+- **Constraint:** Future app naming may be discussed only in an explicit productization boundary section, not as the actor for current-system use cases.
 
 ### 1.3 Drift prevention rule
 
 If a future answer splits Alfred from a separate in-app assistant actor, that answer is wrong for this workflow unless the operator explicitly asks for future product naming or app-spec comparison.
+
+All current-system user stories must use **Alfred** as the actor.
 
 ---
 
@@ -58,6 +72,7 @@ If a future answer splits Alfred from a separate in-app assistant actor, that an
 - organization of the four craft-flow working day
 - ranking of project outputs and next tasks from the operator's perspective
 - personal-context-aware recommendations
+- calendar-aware and long-range planning recommendations
 - session outro prompting and completion support
 - next-highest-impact task framing
 - pattern-library evolution from repeated interactions
@@ -97,6 +112,7 @@ If a future answer splits Alfred from a separate in-app assistant actor, that an
 - **Decision:** Alfred may need a logic layer to decide what to do next.
 - **Current status:** use explicit heuristics first; do not claim a full product Algorithm exists.
 - **Future path:** the heuristic layer may later inform the Leela app's Algorithm design.
+- **Open task:** define Alfred's first heuristic ranking model for project packets, flow allocation, next-highest-impact tasks, and handoff priority.
 
 ---
 
@@ -107,6 +123,7 @@ If a future answer splits Alfred from a separate in-app assistant actor, that an
 - **Decision:** The Leela app should later be built from the validated mechanisms, patterns, templates, tracking, and interaction learnings produced through Alfred.
 - **Constraint:** Do not answer Alfred workflow questions as if Leela app screens, features, or agents already exist in this environment.
 - **Constraint:** Use app language only when explicitly discussing future productization.
+- **Deferred:** product-agnostic or detailed app-facing naming decisions are skipped until a later productization iteration.
 
 ---
 
@@ -117,7 +134,7 @@ If a future answer splits Alfred from a separate in-app assistant actor, that an
 - **Decision:** A normal working day is organized around **four craft-flow sessions**.
 - **Decision:** These four craft flows represent the working day.
 - **Decision:** Recovery/regeneration comes after the four work craft flows, not as a normal replacement for one of them.
-- **Exception:** Alfred may deviate only if calendar reality, sickness, travel, or explicit operator override makes four craft flows impossible.
+- **Exception:** Alfred may deviate only if calendar/availability reality or explicit operator override makes four craft flows impossible.
 
 ### 5.2 Default allocation
 
@@ -132,6 +149,7 @@ default_daily_craft_flow_allocation:
 - **Decision:** Two flows are normally reserved for Leela-related app/product/build/spec work.
 - **Decision:** One flow is normally reserved for Master of Arts business/system work.
 - **Decision:** One flow remains wildcard and is assigned by current priority.
+- **Decision:** Urgent overrides are possible, but Alfred must name the tradeoff and the displaced work.
 
 ---
 
@@ -170,6 +188,7 @@ totals:
 - **Decision:** Re-Cap is a cognitive outro step after deep work.
 - **Decision:** Every sprint ends with a recap.
 - **Decision:** The final sprint/session has a real output protocol saved for the Night shift.
+- **Decision:** A craft-flow session may produce one concrete output or multiple concrete outputs.
 
 ### 6.3 Craft-flow essence
 
@@ -178,6 +197,7 @@ totals:
 - **Decision:** Work-only craft flows are rejected for this workflow.
 - **Decision:** Physical chunks are not project-linked by default.
 - **Decision:** Emotional-tone coaching is not a default craft-flow component; use cognitive/process frames unless explicitly needed.
+- **Clarification:** The 15-minute final break is an internal transition/reset inside the 120-minute craft-flow container. Larger regeneration belongs after the four-flow working day.
 
 ---
 
@@ -192,6 +212,9 @@ totals:
 The morning output must include at least:
 
 - project packets received from Night / OpenClaw processing
+- project-specific night-shift protocols and outputs
+- proposed daily shift process and task plans
+- priority and metric/ranking signals when available
 - ranked daily priorities
 - proposed four craft-flow sessions
 - proposed physical / mental / regen chunks where relevant
@@ -202,7 +225,13 @@ The morning output must include at least:
 ### 7.2 High-priority unresolved template
 
 - **Open task:** define the exact Daily Command Board template.
+- **Open task:** define how physical, mental, and regen chunk selections appear in the Daily Command Board.
 - **Status:** high priority before KB hardening.
+
+### 7.3 Non-work routine planning
+
+- **Decision:** Alfred may lightly begin planning non-work routines.
+- **Boundary:** non-work routine planning must not displace the four craft-flow working day unless explicitly approved or calendar reality makes the default day impossible.
 
 ---
 
@@ -215,6 +244,8 @@ The morning output must include at least:
 - **Decision:** The outro feeds Night processing.
 - **Decision:** The outro should be based on a pre-filled scaffold generated from what Night expected to happen.
 - **Decision:** The operator corrects the pre-filled scaffold with actual output, updated priorities, blockers, and next tasks.
+- **Decision:** Best-practice direction: the operator can drop session outputs into the scaffold and correct the anticipated next steps instead of writing the outro from scratch.
+- **Decision:** Alfred and MetaOps both process the corrected session outro.
 
 ### 8.2 Night processing
 
@@ -228,10 +259,17 @@ Night processing must compare and synthesize:
 - what KB/pattern candidates should be updated
 - what improved flows should be proposed for the next day
 - what project-specific tasks or protocols should be prepared for the morning
+- what project-specific daily shift plans should be proposed with priorities and metric rankings where available
 
 ### 8.3 Repo protocol relationship
 
 - **Decision:** Use the existing Session Export and Night Planning protocols as the operating-spine basis.
+- **Known repo paths:**
+  - `managed/rituals/NIGHT_PLANNING_PROTOCOL.md`
+  - `managed/rituals/SESSION_EXPORT_PROTOCOL.md`
+- **Uploaded source inputs:**
+  - `/mnt/data/NIGHT_PLANNING_PROTOCOL.md`
+  - `/mnt/data/SESSION_EXPORT_PROTOCOL.md`
 - **Action:** before patching those protocols, run a delta audit against the uploaded versions.
 
 ---
@@ -260,6 +298,7 @@ Night processing must compare and synthesize:
 
 - **Decision:** Start building tracking infrastructure now so the system can learn from use.
 - **Decision:** Tracking may become central for later epics, chunks, and future Algorithm development.
+- **Decision:** Define complex user flows and interactions early enough to create a solid first learning system.
 
 ### 10.2 Track in v1
 
@@ -286,7 +325,17 @@ Night processing must compare and synthesize:
 
 ---
 
-## 11. Rhythm logic lock
+## 11. Skill-tree / chunk-system lock
+
+- **Decision:** Alfred should eventually help build a personal chunk, epic, and skill-tree system from use.
+- **Decision:** This is not the top-priority definition task right now.
+- **Decision:** The personal system may be defined by the operator later and then evolve through usage.
+- **Decision:** Branch/life-domain classification may later be defined by the Leela system/product logic.
+- **Current posture:** build lightly through lived usage, tracking, and pattern candidates; do not over-design taxonomy now.
+
+---
+
+## 12. Rhythm logic lock
 
 - **Decision:** Rhythm is not a separate app feature in this workflow.
 - **Decision:** Rhythm is not a separate agent in v1.
@@ -294,7 +343,7 @@ Night processing must compare and synthesize:
 - **Definition:** Rhythm is Alfred's gamified life/time planning logic for days, weeks, and eventually months.
 - **Purpose:** give excellent recommendations by balancing project priority, calendar reality, craft-flow placement, branch balance, and long-range planning.
 
-### 11.1 Rhythm reference should support
+### 12.1 Rhythm reference should support
 
 - daily planning
 - weekly planning
@@ -306,16 +355,23 @@ Night processing must compare and synthesize:
 - physical / mental / regen branch balancing
 - future Leela product logic extraction
 
+### 12.2 Calendar and long-range planning
+
+- **Decision:** Alfred may use calendar knowledge to plan ahead.
+- **Decision:** Alfred may plan days, weeks, and months as recommendations.
+- **Constraint:** Alfred must not silently mutate calendar state or commit the operator to events without permission.
+- **Open task:** define how far ahead Alfred should plan in v1 and what artifacts represent week/month plans.
+
 ---
 
-## 12. Q&A flow requirement
+## 13. Q&A flow requirement
 
 - **Decision:** Before KB building, create a comprehensive Q&A flow.
 - **Decision:** Every question must be prefilled with a proposed answer, recommendation, and options.
 - **Purpose:** the operator validates, corrects, or improves the prefilled answers.
 - **Constraint:** the Q&A must use Alfred as the current system actor and must not split off a second personal agent.
 
-### 12.1 Required Q&A blocks
+### 13.1 Required Q&A blocks
 
 1. Alfred identity and naming
 2. Alfred vs MetaOps
@@ -327,15 +383,16 @@ Night processing must compare and synthesize:
 8. Night processing
 9. Pattern library
 10. Tracking v1
-11. Rhythm reference logic
-12. Next-action decision logic
-13. Calendar and long-range planning
-14. Future Leela productization boundary
-15. KB integration path
+11. Personal chunk / epic / skill-tree evolution
+12. Rhythm reference logic
+13. Next-action decision logic
+14. Calendar and long-range planning
+15. Future Leela productization boundary
+16. KB integration path
 
 ---
 
-## 13. Immediate next steps
+## 14. Immediate next steps
 
 1. Use this file as the context lock before further Alfred workflow design.
 2. Create the prefilled Q&A flow for operator validation.
@@ -344,7 +401,7 @@ Night processing must compare and synthesize:
 
 ---
 
-## 14. Current open questions
+## 15. Current open questions
 
 1. What exact fields belong in the Daily Command Board?
 2. What exact fields belong in the pre-filled Session Export scaffold?
@@ -353,11 +410,33 @@ Night processing must compare and synthesize:
 5. Where should working-pattern candidates live before promotion into canonical KB?
 6. Should Rhythm logic be a single appendix first or a separate working package with multiple templates?
 7. What is the minimum acceptable tracking format for the first live use?
+8. What exact schema should Alfred use when handing a craft-flow target to MetaOps?
+9. Which daily board fields are editable by the operator in morning review?
+10. How should Night's predicted Session Export scaffold be displayed so the operator can correct it with minimal friction?
 
 ---
 
-## 15. Update log
+## 16. Rejected older assumptions
+
+These older assumptions are superseded and must not be reintroduced:
+
+- A separate current-system personal agent distinct from Alfred.
+- User stories for current-system workflow using the future app assistant name instead of Alfred.
+- A separate timekeeper/nudge role split away from Alfred in this architecture.
+- Treating Leela app as current runtime participant.
+- Treating Rhythm as an app feature or separate agent in v1.
+- Recovery replacing one of the four normal working craft flows.
+- Work-only craft flows.
+- Project-linked physical chunks by default.
+- Mood/energy tracking in v1.
+- Emotional-tone coaching as default craft-flow logic.
+- Branch/taxonomy over-design before usage creates enough evidence.
+
+---
+
+## 17. Update log
 
 | Date | Change |
 |---|---|
 | 2026-05-01 | Initial working decision-lock file created from operator corrections after Alfred interaction-design Q&A. |
+| 2026-05-01 | Controlled against `ChatsoFar.md`; added supersession rule, stronger Alfred-only naming lock, long-range planning, protocol paths, session-scaffold details, skill-tree posture, rejected-assumption register, and expanded open questions. |
