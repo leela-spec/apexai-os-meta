@@ -141,6 +141,73 @@ learning_entry:
   review_due: 2026-07-25
 ```
 
+### LQ-KB-006 — Apex project-to-meta candidate packet standard
+
+```yaml
+learning_entry:
+  id: LQ-KB-006
+  status: strong_candidate
+  source_ref: docs/LEARNING_SYSTEM.md
+  summary: Project-originated KB learning should be captured as a sanitized LearningCandidate packet before meta review or promotion.
+  candidate_target: template
+  evidence_refs:
+    - docs/LEARNING_SYSTEM.md
+    - managed/knowledge/AGENT_KB_LANES.md
+  scores:
+    EVD: 90
+    IMP: 94
+    RSK: 25
+  owner: special_ops__knowledge_bank
+  validator: special_ops__informatics_design
+  overlap_check: promotion protocol remains governing authority; this lane owns placement/readiness only
+  review_due: 2026-07-25
+```
+
+### LQ-KB-007 — Meta-to-project KB release delta readiness
+
+```yaml
+learning_entry:
+  id: LQ-KB-007
+  status: strong_candidate
+  source_ref: ApexAI_OS_Federated_Orchestration_Handover.md
+  summary: Reusable KB improvements should be prepared as reviewed release-pack deltas for project repos, not uncontrolled full-folder sync.
+  candidate_target: best_practice
+  evidence_refs:
+    - managed/knowledge/AGENT_KB_LANES.md
+    - releases/meta-release-v0.1/MANIFEST.md
+  scores:
+    EVD: 86
+    IMP: 92
+    RSK: 30
+  owner: special_ops__knowledge_bank
+  validator: special_ops__informatics_design
+  overlap_check: release approval remains outside this lane
+  review_due: 2026-07-25
+```
+
+### LQ-KB-008 — Source notes and promotion trace database decision
+
+```yaml
+learning_entry:
+  id: LQ-KB-008
+  status: needs_validation
+  source_ref: KBFuture.md
+  summary: Decide whether this KB needs dedicated source-notes and promotion-trace appendices in Apex, or whether shared managed knowledge surfaces are sufficient.
+  candidate_target: appendix
+  evidence_refs:
+    - managed/knowledge/KB_STARTING_SOURCE_MAP.md
+    - managed/knowledge/KB_PROMOTION_LEDGER_TEMPLATE.md
+    - appendices/APPENDIX_KB_SOURCE_MANIFEST.md
+  scores:
+    EVD: 78
+    IMP: 90
+    RSK: 45
+  owner: special_ops__knowledge_bank
+  validator: special_ops__informatics_design
+  overlap_check: avoid duplicating shared governance databases inside a local agent KB unless narrow local value is proven
+  review_due: 2026-07-25
+```
+
 ## Promotion route
 
 1. Capture candidate here.
@@ -155,3 +222,4 @@ learning_entry:
 - **Rule:** archive rejected or superseded entries with reason.
 - **Rule:** never remove a candidate solely because scaffold prose now references it.
 - **Rule:** if a candidate belongs mainly to another agent, keep only the placement implication here and route the body outward.
+- **Rule:** project-originated candidates must be sanitized before meta-level queue use.
