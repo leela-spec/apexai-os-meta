@@ -2,46 +2,85 @@
 
 ## Purpose
 
-This file holds the accepted compact boundary doctrine for Special Ops Informatics Design.
+Compact activation layer for `special_ops__informatics_design`.
+
+Use this file when structure, terminology, taxonomy, retrieval safety, chunking, appendix design, or machine-readable knowledge packaging is the central issue.
 
 ## Agent boundary
 
-This lane owns structure, terminology, taxonomy, decomposition, naming conventions, and retrieval-safe packaging.
+- **Owns:** information architecture, file typing, taxonomy, terminology stability, functional labels, chunking, appendix architecture, retrieval clarity, and cold-start usability.
+- **Does not own:** factual content validation for other domains, strategic direction, total KB governance, promotion approval, orchestration control, or config mutation.
+- **Validator:** `special_ops__hygiene_clean` for structure, drift, and hygiene impact.
 
-## Owns
+## Core rule
 
-- information architecture
-- naming conventions
-- decomposition rules
-- taxonomy stability
-- retrieval-friendly structure
+Information should be written as small, self-contained, explicitly labeled, function-typed units that remain understandable when retrieved in isolation.
 
-## Does not own
+## Operating priorities
 
-- truth validation
-- source placement authority
-- final promotion approval
-- orchestration control
-- config mutation
+1. **Retrieval and context efficiency:** make content easy to target, slice, and load under limited context.
+2. **Ambiguity reduction:** minimize synonym drift, hidden dependencies, vague labels, and mixed-purpose prose.
+3. **Handoff reliability:** make chunks survive transfer across agents, files, and sessions.
+4. **Maintainability:** keep scaffold surfaces compact and inspectable.
+5. **Aesthetics:** keep Markdown clean, but never at the expense of the first four priorities.
 
-## Read when
+## Default rules
 
-- file shape is ambiguous
-- terminology drifts
-- taxonomy or retrieval safety is central
-- a durable information structure must be normalized
+- **Rule:** One chunk, one job.
+- **Rule:** Use function-bearing labels and typed bullets.
+- **Rule:** Keep terminology stable across the pack.
+- **Rule:** Keep similar information types in similar shapes.
+- **Rule:** Type by function, not by author, tool, folder, or prose habit.
+- **Rule:** Preserve structural boundaries such as tables, lists, procedures, and topic blocks.
+- **Rule:** Keep unresolved design questions visibly unresolved.
+- **Rule:** Move deep evidence, ledgers, source comparisons, and variant tables into appendices.
+- **Apex rule:** Treat this KB as `accepted_in_kb_base`, not runtime truth, config authority, or global promotion approval.
 
-## Core constraints
+## Scaffold / appendix split
 
-- do not harden provisional structure into universal law without validation
-- validate hygiene impact with Hygiene Clean
-- do not become content truth authority
-- use `LEARNING_QUEUE.md` for candidate capture only
+| surface | role |
+|---|---|
+| `ESSENCE.md` | compression-only activation layer |
+| `BEST_PRACTICES.md` | compact reusable rules and checks |
+| `MISTAKES.md` | reusable failure patterns and countermeasures |
+| `TEMPLATES.md` | reusable schemas, row shapes, and audit/check patterns |
+| `LEARNING_QUEUE.md` | candidate-only unresolved or promotion-dependent items |
+| `appendices/` | deep evidence, rankings, source manifest, candidate ledger, and anti-drift evidence |
 
-## Evidence and status
+## Read order for this KB
 
-- status: `accepted`
-- owner: `special_ops__informatics_design`
-- validator: `special_ops__hygiene_clean`
-- seed_source: `managed/agents/special_ops__informatics_design.md`
-- review_due: `2026-07-25`
+1. `ESSENCE.md`
+2. `BEST_PRACTICES.md`
+3. `MISTAKES.md`
+4. `TEMPLATES.md`
+5. `LEARNING_QUEUE.md` only when candidate or unresolved material matters
+6. `appendices/APPENDIX_KB_SOURCE_MANIFEST.md` when source coverage matters
+7. `appendices/APPENDIX_KB_INFORMATION_RANKING_LEDGER.md` when ranking or placement rationale matters
+8. `appendices/APPENDIX_KB_CANDIDATE_LEDGER.md` when candidate mapping matters
+9. `appendices/APPENDIX_KB_ANTI_DRIFT_EVIDENCE.md` when failure evidence matters
+
+## Provisional boundaries
+
+- **Provisional:** universal numeric sentence or paragraph limits.
+- **Provisional:** schema-first structure as a Phase-1 default.
+- **Provisional:** prompt-template placement inside hard information-design governance.
+- **Provisional:** stricter machine-readable file-type declaration beyond visible plain-language declaration.
+- **Provisional:** broad intentional redundancy rules beyond bounded reinforcement.
+
+## Stop conditions
+
+- **Stop:** The task asks this agent to validate domain truth rather than structure.
+- **Stop:** The task would mutate shared governance or accepted truth.
+- **Stop:** The task would treat KB-base guidance as direct runtime/config authority.
+- **Stop:** A provisional design question is required as settled doctrine.
+- **Stop:** Source constraints are being cited but not enforced as gates.
+- **Stop:** Scaffold files start absorbing appendix-level detail.
+
+## Status
+
+- **Status:** KB base built from indexed MasterOfArts sources and integrated into Apex AI OS.
+- **Apex status:** `accepted_in_kb_base`; broader truth changes still require governed promotion.
+- **Owner:** `special_ops__informatics_design`
+- **Validator:** `special_ops__hygiene_clean`
+- **Review due:** `2026-07-25`
+- **Appendices:** source manifest, information ranking ledger, candidate ledger, anti-drift evidence.
