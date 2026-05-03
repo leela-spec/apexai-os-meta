@@ -5,31 +5,66 @@ branch: main
 target_agent: special_ops__knowledge_bank
 target_root: managed/agent_kb/special_ops__knowledge_bank
 scope: apex_new_base_integration
-mode: preserve_new_base_patch_minimal_apex_delta
+mode: execute_actual_file_integration_not_prior_run_summary
 discovery_rule: check_newversion_and_newversions_before_blocking
+anti_failure_rule: no_false_positive_completion
 ---
 
 # PROMPTFLOW — special_ops__knowledge_bank Apex New-Base Integration FINAL
 
 ## 0. Purpose
 
-Integrate newly placed Apex AI OS KB files for `special_ops__knowledge_bank` into their standard KB paths.
+Execute the actual Knowledge Bank integration into the Apex AI OS repo.
 
-This is a fidelity-preserving integration, not a cleanup, rewrite, redesign, normalization, localization, or rebuild.
+This promptflow must integrate the newly placed Knowledge Bank KB files into their standard paths while preserving the new base and patching only required Apex AI OS compatibility deltas.
 
-The newly placed KB files are the canonical base. Existing Apex KB files are legacy-value sources only.
+This is an execution flow. It is not a report-only flow and not a restatement of an earlier base build.
 
-## 1. Prime directive
+## 1. Absolute anti-failure rule
+
+Do not claim execution from memory, previous chat summaries, previous base-build results, or retrieved execution snippets.
+
+A valid execution requires all of the following in this run:
+
+1. Read this promptflow file.
+2. Inspect the actual target root.
+3. Inspect `newversion/` and `newversions/` if present.
+4. Build a content/H1 identity map.
+5. Compare mapped new bases against current Apex standard files.
+6. Decide per target whether an Apex delta must be patched.
+7. Patch files when valid deltas exist.
+8. Fetch back every patched file from `main`.
+9. Return changed-file set, unchanged-file set, skipped-file set, and verification status.
+
+If no files are patched, the final report must still show the identity map, comparison result, and per-file no-change justification.
+
+## 2. Prime directive
 
 Preserve first. Patch second. Improve never.
 
 The task is not to make the KB better; the task is to make the new KB base Apex-compatible without changing its design.
 
-The new base wins on structure, wording, headings, file roles, intentional overlap, cross-references, appendices, IDs, database tables, evidence links, ranking links, and candidate links.
+The newly placed KB files are the canonical base. Existing Apex KB files are legacy-value sources only.
+
+The new base wins on:
+
+- structure
+- wording
+- headings
+- file roles
+- intentional overlap
+- cross-references
+- appendices
+- IDs
+- database tables
+- evidence links
+- ranking links
+- candidate links
+- source lineage
 
 Do not clean, improve, simplify, summarize, normalize, deduplicate, reorder, relabel, isolate, localize, sanitize, or redesign the new base.
 
-## 2. Hard scope
+## 3. Hard scope
 
 Work only inside:
 
@@ -69,7 +104,29 @@ other agent KB folders
 managed/agents/**
 ```
 
-## 3. Non-negotiable discovery rule
+Do not read or operate on external repos as active targets. Historical source references may remain as evidence lineage.
+
+## 4. Mandatory execution ledger
+
+Before editing, create an internal execution ledger with these rows:
+
+```text
+|step|required_action|evidence_required|status|
+|---|---|---|---|
+|1|read promptflow|current promptflow path + SHA/content seen|pending|
+|2|inspect target root|list of current standard files found|pending|
+|3|inspect new-base folders|newversion/newversions existence + file list|pending|
+|4|map identities|H1/content identity map|pending|
+|5|compare files|per-target comparison table|pending|
+|6|decide deltas|keep/patch/reject table|pending|
+|7|patch if needed|commit SHA per patched file or no-change justification|pending|
+|8|fetch back|fetch-back status per patched file|pending|
+|9|final report|changed/unchanged/skipped/blocked summary|pending|
+```
+
+The final response must include enough information to prove this ledger was completed. Do not output the word `completed` unless steps 1-9 have evidence.
+
+## 5. Non-negotiable discovery rule
 
 Before any comparison, delta decision, or patch:
 
@@ -79,12 +136,16 @@ Before any comparison, delta decision, or patch:
 4. Build the identity map from detected content identity, not filename alone.
 5. Do not mark a target missing until both candidate folders have been checked.
 
-## 4. Identity map gate
+If both folders are absent or empty, stop with `blocked_missing_new_base` and report actual inspected paths. Do not use old Apex files as replacements.
 
-Produce internally before editing:
+## 6. Identity map gate
 
+Produce before editing:
+
+```text
 | physical_new_base_path | detected_h1 | intended_target_file | confidence | action |
 |---|---|---|---|---|
+```
 
 Allowed confidence:
 
@@ -106,15 +167,55 @@ Rules:
 - No new base found after checking both folders -> do not overwrite with old Apex.
 - Filename mismatch is only an identity-map problem, not permission to clean or redesign content.
 
-## 5. Valid Apex delta
+## 7. File comparison table
 
-Patch old Apex logic only if it is:
+For each allowed target file, produce before editing:
 
-1. present in the old Apex file
-2. absent from the mapped new base
-3. still valid for Apex AI OS
-4. necessary for Apex operation
-5. insertable without changing the new base architecture
+```text
+| target_file | mapped_new_base_source | old_apex_file | comparison_result | apex_delta_needed | action |
+|---|---|---|---|---|---|
+```
+
+Allowed `action`:
+
+```text
+patch_new_base_with_apex_delta
+promote_new_base_no_delta
+skip_missing_new_base
+skip_ambiguous_identity
+skip_conflict
+```
+
+## 8. Legacy delta decision table
+
+For every old-only element considered, produce:
+
+```text
+| old_file_element | decision | reason | exact_target_section |
+|---|---|---|---|
+```
+
+Allowed `decision`:
+
+```text
+keep_already_represented
+patch_into_new
+reject_obsolete
+reject_duplicate
+reject_generic
+reject_external_active_target
+reject_over_normalizing
+```
+
+## 9. Valid Apex delta
+
+Patch old Apex logic only if it is all of the following:
+
+1. present in the old Apex file,
+2. absent from the mapped new base,
+3. still valid for Apex AI OS,
+4. necessary for Apex operation,
+5. insertable without changing the new base architecture.
 
 Likely valid Knowledge Bank deltas:
 
@@ -124,6 +225,8 @@ Likely valid Knowledge Bank deltas:
 - source-note / promotion-trace boundaries
 - owner / validator / review metadata
 - accepted_in_kb_base vs runtime truth boundary
+- MetaOps / Special Ops orchestration boundary
+- no direct runtime/config mutation constraints
 
 Reject:
 
@@ -131,11 +234,27 @@ Reject:
 - appendix restructuring
 - deduplication
 - schema normalization
+- generic KB prose
 - external repo as active target
 - migration/process commentary
 - source/provenance sanitization unless exactly obsolete or Apex-incompatible
+- future-research ideas unless already present as old Apex logic and required for Apex operation
 
-## 6. Knowledge Bank-specific warning
+## 10. Future-research / cross-system delta handling
+
+Do not silently add broad future-research improvements merely because they were discussed elsewhere.
+
+Items such as QA trace, source notes, examples, sidecars, attach packs, promotion trace, status vocabulary, read-budget profiles, and cross-agent harmonization may be patched only if they meet the valid Apex delta test in Section 9.
+
+If such items are important but not valid for direct patching in this integration run, report them under:
+
+```text
+remaining_questions / deferred_candidates
+```
+
+Do not treat future-research lists as automatic edit authorization.
+
+## 11. Knowledge Bank-specific warning
 
 Knowledge Bank appendices are database surfaces.
 
@@ -152,13 +271,9 @@ Preserve:
 - appendix-to-scaffold routing
 - cross-file pointers
 
-## 7. Intentional overlap rule
-
 Repeated concepts across scaffold files and appendices are presumed intentional retrieval architecture.
 
-Do not remove, relocate, compress, or isolate overlap unless the new base directly contradicts itself.
-
-## 8. External source rule
+## 12. External source rule
 
 Do not operate on external repos.
 
@@ -166,15 +281,15 @@ Do not preserve obsolete statements that external repos are active targets or ru
 
 Do not remove evidence references, source IDs, or database lineage merely because they mention historical sources.
 
-## 9. Patch phase
+## 13. Patch phase
 
-After the identity map gate:
+After Sections 5-8 are complete:
 
 1. Use mapped new base as body.
 2. Apply only valid Apex deltas from the old Apex file.
-3. Preserve headings, order, overlap, IDs, tables, appendices, and cross-references.
+3. Preserve headings, order, overlap, IDs, tables, appendices, source lineage, and cross-references.
 4. Do not edit unrelated wording.
-5. Replace the standard file with the mapped new base plus approved Apex delta.
+5. Replace the standard file with the mapped new base plus valid Apex delta.
 6. Fetch back each edited file from `main`.
 7. Check edited files for forbidden active external-target claims.
 
@@ -194,7 +309,7 @@ ESSENCE.md
 
 Patch `ESSENCE.md` last.
 
-## 10. Stop / skip conditions
+## 14. Stop / skip conditions
 
 Skip the affected target and report if:
 
@@ -207,26 +322,29 @@ patch would touch non-Knowledge-Bank files
 patch would mutate runtime config or governance authority
 ```
 
-Do not repair ambiguous content.
+Stop the entire run if the target root is not `managed/agent_kb/special_ops__knowledge_bank/` or repo is not `leela-spec/apexai-os-meta`.
 
-## 11. Final validation table
+## 15. Final validation table
 
 Return:
 
-| file | new_base_preserved | apex_delta_added | overlap_preserved | appendix_structure_preserved | forbidden_external_target_refs_removed | fetch_back | status |
-|---|---|---|---|---|---|---|---|
+```text
+| file | mapped_new_base | new_base_preserved | apex_delta_added | forbidden_external_target_refs_removed | fetch_back | status |
+|---|---|---|---|---|---|---|
+```
 
 Allowed status:
 
 ```text
 patched
+promoted_no_delta
 no_change_needed
 skipped_ambiguous
 skipped_missing_new_base
 blocked_conflict
 ```
 
-## 12. Final response
+## 16. Final response
 
 Return:
 
@@ -234,17 +352,21 @@ Return:
 repo:
 branch:
 target_root:
+promptflow_read:
+new_base_folders_inspected:
 identity_map:
+comparison_table:
 files_patched:
+files_promoted_no_delta:
 files_unchanged:
 files_skipped:
 apex_logic_added:
 legacy_logic_rejected:
-intentional_overlap_preserved:
-appendix_structure_preserved:
+deferred_candidates:
 external_target_refs_removed:
 fetch_back_status:
+changed_file_set:
 remaining_questions:
 ```
 
-Do not claim completion unless every patched file was fetched back from `main`.
+Do not claim completion unless every patched file was fetched back from `main` and every unpatched target has an explicit comparison-table justification.
