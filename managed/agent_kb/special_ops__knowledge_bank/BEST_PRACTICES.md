@@ -55,6 +55,27 @@ Compact operating doctrine for Special Ops Knowledge Bank. Detailed source mater
 - **Evidence:** `AIHowTo/Codex/CODEX_RESILIENT_MIGRATION_PROCESS.md`; `KB-KB-INFO-005`.
 - **Use when:** deciding whether to read more sources or touch surfaces outside the KB root.
 
+### BP-KB-006 — Route Apex project learning as candidate packets
+
+- **Rule:** In ApexAI_OS, project-local KB learning routes upward as candidate material: project learning queue, project validation or hygiene check, LearningCandidate packet, meta review, promotion decision, and only then release-pack inclusion.
+- **Why:** The meta repo learns from projects without allowing raw project data, uncontrolled sync, or candidate-to-runtime truth leakage.
+- **Evidence:** `docs/LEARNING_SYSTEM.md`; `managed/knowledge/AGENT_KB_LANES.md`; `ApexAI_OS_Federated_Orchestration_Handover.md`.
+- **Use when:** project KB findings, recurring mistakes, source-placement improvements, or template improvements may deserve meta-level reuse.
+
+### BP-KB-007 — Keep meta-to-project KB changes release-pack shaped
+
+- **Rule:** A KB improvement that should travel from ApexAI_OS meta to projects must be packaged as a reviewed meta release delta, not copied as raw history or an unreviewed full KB dump.
+- **Why:** Projects receive the released operating kernel and selected KB deltas, not raw meta learning history or unrelated project context.
+- **Evidence:** `ApexAI_OS_Federated_Orchestration_Handover.md`; `managed/knowledge/AGENT_KB_LANES.md`.
+- **Use when:** preparing reusable KB improvements for downstream project repos.
+
+### BP-KB-008 — Protect project isolation in KB evidence routing
+
+- **Rule:** Store only sanitized, generalized, source-status-clear KB learnings in the meta Knowledge Bank lane; do not ingest raw coaching, investment, community, app, personal, secret, or project-local data into this KB.
+- **Why:** ApexAI_OS uses a holding-layer/subsidiary model: the meta repo generalizes learning, while project repos keep local sensitive context.
+- **Evidence:** `ApexAI_OS_Federated_Orchestration_Handover.md`; `docs/LEARNING_SYSTEM.md`.
+- **Use when:** deciding whether a project-originated note belongs in this KB, a project-local KB, a promotion packet, or no shared surface.
+
 ## Quality gates
 
 - **Gate:** Every scaffold summary has an appendix pointer.
@@ -62,6 +83,8 @@ Compact operating doctrine for Special Ops Knowledge Bank. Detailed source mater
 - **Gate:** No raw failure archive is copied into scaffold files.
 - **Gate:** No candidate is self-promoted by the writer that captured it.
 - **Gate:** Any future accepted-truth change routes through the governed promotion path.
+- **Gate:** Apex project-originated material is sanitized and generalized before meta-level KB use.
+- **Gate:** Meta-to-project KB changes are release-pack candidates, not uncontrolled sync.
 
 ## Review
 
