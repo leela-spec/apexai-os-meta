@@ -2,7 +2,7 @@
 
 ## Purpose
 
-Reusable Knowledge Bank forms for source manifesting, candidate capture, validation, and improvement capture.
+Reusable Knowledge Bank forms for source manifesting, candidate capture, validation, improvement capture, Apex LearningCandidate routing, and KB release-delta readiness.
 
 ## Boundary
 
@@ -13,7 +13,7 @@ Reusable Knowledge Bank forms for source manifesting, candidate capture, validat
 
 ## Template index
 
-|template_id|use_when|related_appendix|
+|template_id|use_when|related_appendix_or_surface|
 |---|---|---|
 |TPL-KB-001|recording a source used for KB-base construction|`appendices/APPENDIX_KB_SOURCE_MANIFEST.md`|
 |TPL-KB-002|capturing a candidate extracted from source ledgers|`appendices/APPENDIX_KB_CANDIDATE_LEDGER.md`|
@@ -21,6 +21,8 @@ Reusable Knowledge Bank forms for source manifesting, candidate capture, validat
 |TPL-KB-004|recording anti-drift evidence or evidence-only material|`appendices/APPENDIX_KB_ANTI_DRIFT_EVIDENCE.md`|
 |TPL-KB-005|capturing out-of-mode improvements without applying them|`LEARNING_QUEUE.md`|
 |TPL-KB-006|fetch-back verification after KB file writes|all scaffold and appendix files|
+|TPL-KB-007|drafting sanitized project-to-meta KB learning|`LEARNING_QUEUE.md`; `managed/knowledge/KB_PROMOTION_LEDGER_TEMPLATE.md`|
+|TPL-KB-008|preparing meta-to-project KB release delta readiness|release-pack review surfaces|
 
 ## TPL-KB-001 — Source manifest row
 
@@ -86,8 +88,59 @@ Use this when a better idea appears but is outside the authorized mode or target
 - [ ] no shared governance or accepted truth was changed
 ```
 
+## TPL-KB-007 — Apex project-to-meta LearningCandidate packet
+
+Use this when a project-local KB lesson may be useful at the Apex meta layer.
+
+```yaml
+learning_candidate:
+  id:
+  origin_project:
+  sanitized: true | false
+  raw_project_data_included: false
+  source_refs:
+  observed_result:
+  generalized_learning:
+  proposed_meta_target:
+    lane: special_ops__knowledge_bank
+    file: LEARNING_QUEUE.md | BEST_PRACTICES.md | MISTAKES.md | TEMPLATES.md | appendix
+  candidate_status: candidate | strong_candidate | needs_validation
+  scores:
+    EVD:
+    IMP:
+    RSK:
+  owner: special_ops__knowledge_bank
+  validator: special_ops__informatics_design
+  promotion_surface: managed/knowledge/KB_PROMOTION_LEDGER_TEMPLATE.md
+  release_pack_relevance:
+  notes:
+```
+
+## TPL-KB-008 — Meta-to-project KB release delta readiness
+
+Use this when a validated KB improvement may be released from Apex meta to project repos.
+
+```yaml
+kb_release_delta:
+  id:
+  source_meta_file:
+  target_project_pack:
+  include_files:
+  exclude_files:
+  appendices_included: none | selected | all
+  reason_for_inclusion:
+  project_adoption_mode: adopt | defer | reject | project_decides
+  raw_meta_history_included: false
+  project_data_included: false
+  validator:
+  release_status: candidate | ready_for_review | approved | rejected
+  notes:
+```
+
 ## Use constraints
 
 - **Constraint:** Do not add new status values casually.
 - **Constraint:** Do not paste full source bodies into template examples.
 - **Constraint:** Do not use templates as permission to bypass source manifest and validator review.
+- **Constraint:** LearningCandidate packets must not contain raw project data.
+- **Constraint:** Release-delta templates prepare review; they do not approve release.
