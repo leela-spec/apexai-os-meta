@@ -1,63 +1,116 @@
-# MISTAKES
+# LEARNING_QUEUE
 
 ## Purpose
 
-Accepted validated AI Handling Routing failure patterns and countermeasures.
+Candidate-only capture surface for AI Handling Routing learning. This file is never runtime truth.
+
+## Write permissions
+
+- `special_ops__ai_handling_routing` may add candidate entries
+- `meta_ops` may add validation notes
+- `meta_detective` may add escalation notes when overreach risk appears
+- no writer may self-promote entries into accepted files
 
 ## Entry schema
 
 ```yaml
-mistake_entry:
+learning_entry:
   id:
-  status: accepted | deprecated
-  pattern:
-  trigger_conditions:
-  countermeasure:
+  status: candidate | strong_candidate | needs_validation | rejected | archived
+  source_ref:
+  summary:
+  candidate_target: essence | best_practice | mistake | template | archive
   evidence_refs:
   scores:
-    score_scale: 1-100
     EVD:
     IMP:
     RSK:
   owner: special_ops__ai_handling_routing
   validator: meta_ops
+  overlap_check:
   review_due:
 ```
 
-## Score convention
+## Pending entries
 
-All `EVD` / `IMP` / `RSK` scores use the active 1-100 scale. No 1-5 metric scale is used in this KB.
-
-- `EVD`: evidence strength
-- `IMP`: positive impact when prevented
-- `RSK`: adoption risk of the countermeasure inside the stated context conditions
-
-## Accepted mistake patterns
+### AIHR-LQ-001 — Current model/provider decision matrix
 
 ```yaml
-mistake_entry:
-  id: AIHR-MK-001
-  status: accepted
-  pattern: Mode-mismatch substitution routes a task to a mode whose strengths do not match the bottleneck, causing the system to produce the wrong kind of output.
-  trigger_conditions:
-    - Agent Mode is used for KB architecture, prompt design, doctrine synthesis, exact markdown, or unified diff drafting without a real external UI/action bottleneck
-    - Deep Research is used where the user needs repo mutation, patch application, or tests
-    - normal chat is used for patch/test execution without repo-aware validation
-    - extended thinking is used where the user actually needs browser, app, form, spreadsheet, or multi-tool action
-  countermeasure: Route by bottleneck before execution; require a concrete success condition; use Agent Mode for external action, extended thinking for reasoning/artifact drafting, Deep Research for broad synthesis, and Codex/repo tooling for patch application and tests.
+learning_entry:
+  id: AIHR-LQ-001
+  status: needs_validation
+  source_ref: APPENDIX_KB_CANDIDATE_LEDGER.md#AIHR-DEFER-001
+  summary: Build a current model/provider/cost-quality matrix only from freshly verified provider and benchmark sources.
+  candidate_target: template
   evidence_refs:
-    - docs/Agent_Mode_vs_Thinking_Mode_Routing_Baseline.md
-    - docs/Agent_Mode_vs_Thinking_Mode_Routing_Baseline_Context.md
+    - APPENDIX_KB_SOURCE_MANIFEST.md#Ranking-plausibility-check
+    - APPENDIX_KB_ANTI_DRIFT_EVIDENCE.md#AIHR-DRIFT-011
   scores:
-    score_scale: 1-100
-    EVD: 90
-    IMP: 90
-    RSK: 20
+    EVD: 3
+    IMP: 5
+    RSK: 5
   owner: special_ops__ai_handling_routing
   validator: meta_ops
+  overlap_check: must not duplicate runtime config authority or provider-policy authority
   review_due: 2026-07-25
 ```
 
-## Empty-state marker or initial entries
+### AIHR-LQ-002 — Config-impact review packet pattern
 
-Initial accepted mode-mismatch entry is present. Add further entries only after validation and promotion from `LEARNING_QUEUE.md`.
+```yaml
+learning_entry:
+  id: AIHR-LQ-002
+  status: needs_validation
+  source_ref: APPENDIX_KB_CANDIDATE_LEDGER.md#AIHR-DEFER-002
+  summary: Define a formal handoff pattern for routing advisory recommendations that may affect runtime config into manual/governance review.
+  candidate_target: template
+  evidence_refs:
+    - APPENDIX_KB_ANTI_DRIFT_EVIDENCE.md#AIHR-DRIFT-010
+    - TEMPLATES.md#AIHR-TPL-006
+  scores:
+    EVD: 4
+    IMP: 5
+    RSK: 5
+  owner: special_ops__ai_handling_routing
+  validator: meta_ops
+  overlap_check: must not authorize direct edits to openclaw.json or model registry
+  review_due: 2026-07-25
+```
+
+### AIHR-LQ-003 — Cross-agent routing boundary review
+
+```yaml
+learning_entry:
+  id: AIHR-LQ-003
+  status: candidate
+  source_ref: APPENDIX_KB_CANDIDATE_LEDGER.md#AIHR-DEFER-003
+  summary: Review whether AI Handling Routing needs a bounded cross-agent routing matrix or whether existing templates are sufficient.
+  candidate_target: archive
+  evidence_refs:
+    - APPENDIX_KB_SOURCE_MANIFEST.md#Material-conflicts
+    - APPENDIX_KB_ANTI_DRIFT_EVIDENCE.md#AIHR-DRIFT-008
+  scores:
+    EVD: 3
+    IMP: 3
+    RSK: 4
+  owner: special_ops__ai_handling_routing
+  validator: meta_ops
+  overlap_check: must not create all-agent orchestration authority or new first-wave agents
+  review_due: 2026-07-25
+```
+
+## Promotion route
+
+1. capture candidate here
+2. score `EVD` / `IMP` / `RSK`
+3. validate with `meta_ops`
+4. escalate to manual review whenever config impact is implicated
+5. package durable promotions through `managed/knowledge/KB_PROMOTION_LEDGER_TEMPLATE.md`
+6. apply only through the governed promotion path
+
+## Hard boundaries
+
+- **Constraint:** Candidate entries are not accepted practices.
+- **Constraint:** This queue does not authorize config mutation.
+- **Constraint:** This queue does not create new routing authority.
+- **Constraint:** Provider/model-specific entries require current verification before use.
