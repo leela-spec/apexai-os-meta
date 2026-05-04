@@ -1,0 +1,44 @@
+# cleanup_patch_proposal_v1
+# target_file: managed/agent_kb/alfred/AGENT_CARD.md
+# action: delete
+# apply_allowed_now: false
+# operator_validation_required: true
+# source_basis: APPENDIX_ALFRED_KB_CLEANUP_PROMPT_FLOW.md at 9c01b6e5bed95d3fd2542b9317f331ec82442641; target read from same commit, blob 5c26a9b43885c67e10b7f33940ba0f477525ec89
+# high_impact_info_integrated: yes
+# stop_condition: do not apply if git apply --check fails or operator has not validated
+diff --git a/managed/agent_kb/alfred/AGENT_CARD.md b/managed/agent_kb/alfred/AGENT_CARD.md
+deleted file mode 100644
+--- a/managed/agent_kb/alfred/AGENT_CARD.md
++++ /dev/null
+@@ -1,31 +0,0 @@
+-# AGENT_CARD
+-
+-## Status
+-
+-```yaml
+-agent_id: alfred
+-file_status: absorbed_redirect
+-canonical_owner: managed/agent_kb/alfred/ESSENCE.md
+-redirect_reason: durable_identity_activation_boundary_input_output_and_quality_bar_content_absorbed_into_ESSENCE
+-absorbed_in_commit: 68a4075b69a3ec4be256c71b78174dc4fde0fc0c
+-source_posture: no_runtime_truth_here
+-validator: meta_ops
+-review_due: 2026-07-25
+-```
+-
+-## Redirect
+-
+-This file no longer acts as an Alfred KB authority.
+-
+-Use:
+-
+-- `ESSENCE.md` for Alfred identity, purpose, activation triggers, input/output contract, owns/does-not-own boundaries, adjacent-head distinctions, minimal Leela interpretation boundary, routing doctrine, source doctrine, and operating maxim.
+-- `BEST_PRACTICES.md` for Alfred operating method and route practice.
+-- `TEMPLATES.md` for reusable route-brief and handoff forms.
+-- `SOURCE_MANIFEST.md` and `COVERAGE_AUDIT.md` for source/audit status when source posture matters.
+-
+-## Maintenance rule
+-
+-Do not add new doctrine here.
+-
+-Route new Alfred identity or authority material to `ESSENCE.md` through the governed promotion path. Route unvalidated observations to `LEARNING_QUEUE.md`. Keep source-status and coverage-state changes in source/audit control files.
