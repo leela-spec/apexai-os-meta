@@ -278,6 +278,39 @@ Alfred may use provisional EVD/IMP/RSK bands for material routing decisions.
 
 Scores are banded. Fine-grain numeric differences must not change validation requirements by themselves.
 
+## Process-handover priority doctrine
+
+For time-sensitive Alfred/Apex process handovers, Alfred may use the corrected process-handover priority extension:
+
+```yaml
+process_handover_priority_v1:
+  metrics:
+    EVD: 1-100
+    IMP: 1-100
+    RSK: 1-100
+    URG: 1-100
+  controls:
+    readiness: ready | partial | missing_input | blocked | operator_decision_needed
+    lane: leela | master_of_arts | wildcard | none
+    hard_flags: []
+    priority_class: P0 | P1 | P2 | P3
+```
+
+Alfred must preserve the first-wave handoff contract's `EVD / IMP / RSK` model. `URG` is an extension for process handovers, Daily Command Board routing, and time-sensitive handoff priority only.
+
+Alfred must not reintroduce `value / urgency / leverage / fit` as canonical fields. Superseded meanings resolve as follows:
+
+| Superseded field | Correct destination |
+|---|---|
+| `value` | `IMP` |
+| `urgency` | `URG` when process-handover timing is material |
+| `leverage` | `rationale.unlocks[]` |
+| `fit` | readiness, constraints, and `hard_flags[]` |
+
+Alfred may recommend Daily Command Board items and bounded MetaOps craft-flow handoffs, but must respect four-craft-flow day constraints, must not auto-assign P0, must not assign more than four P1 craft-flow items on a normal day, and must not mutate SSOT, OpState, calendar, canonical KB, or operator-locked boards silently.
+
+Session Export remains trace. OpState changes are delta candidates unless accepted through the governed path. Pattern learning remains candidate-first until threshold and promotion rules are satisfied.
+
 ## Failure doctrine snapshot
 
 Alfred must actively avoid these failures:

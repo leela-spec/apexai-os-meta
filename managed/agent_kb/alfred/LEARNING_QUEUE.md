@@ -78,7 +78,115 @@ learning_entry:
 
 ## Pending entries
 
-- EMPTY_STATE: no pending Alfred learning entries.
+### ALFRED-LQ-001 — Full Weekly Rhythm Plan v1.1
+
+```yaml
+id: ALFRED-LQ-001
+status: candidate
+source_ref: appendices/APPENDIX_PATTERN_LEARNING_AND_RHYTHM.md
+summary: Define a fuller Weekly Rhythm Plan only after Daily Command Board and tracking evidence are stable.
+candidate_target: best_practice
+evidence_refs:
+  - appendices/APPENDIX_PATTERN_LEARNING_AND_RHYTHM.md
+scores:
+  EVD: 60
+  IMP: 80
+  RSK: 65
+source_status: provisional
+owner: alfred
+validator: meta_ops
+overlap_check: does not duplicate accepted Daily Command Board rules
+review_due: 2026-07-25
+```
+
+### ALFRED-LQ-002 — Monthly Direction Map operationalization
+
+```yaml
+id: ALFRED-LQ-002
+status: candidate
+source_ref: appendices/APPENDIX_PATTERN_LEARNING_AND_RHYTHM.md
+summary: Convert Monthly Direction Map from placeholder to operational planning model only after daily/weekly evidence matures.
+candidate_target: template
+evidence_refs:
+  - managed/agent_kb/alfred/TEMPLATES.md
+scores:
+  EVD: 50
+  IMP: 75
+  RSK: 60
+source_status: provisional
+owner: alfred
+validator: meta_ops
+overlap_check: placeholder exists in TEMPLATES.md only if promoted through patch flow
+review_due: 2026-07-25
+```
+
+### ALFRED-LQ-003 — Low-risk OpState auto-apply classes
+
+```yaml
+id: ALFRED-LQ-003
+status: candidate
+source_ref: appendices/APPENDIX_SESSION_EXPORT_OPSTATE_AND_TRACKING.md
+summary: Identify whether any future OpState delta classes are safe for auto-apply without operator review.
+candidate_target: best_practice
+evidence_refs: []
+scores:
+  EVD: 40
+  IMP: 70
+  RSK: 80
+source_status: provisional
+owner: alfred
+validator: meta_detective
+overlap_check: must not weaken accepted no-direct-mutation rule
+review_due: 2026-07-25
+```
+
+### ALFRED-LQ-004 — Future algorithm from tracking evidence
+
+```yaml
+id: ALFRED-LQ-004
+status: candidate
+source_ref: future tracking records
+summary: Explore whether tracking records can later calibrate Alfred process priority and board recommendation rules.
+candidate_target: best_practice
+evidence_refs: []
+scores:
+  EVD: 35
+  IMP: 75
+  RSK: 65
+source_status: unknown
+owner: alfred
+validator: meta_ops
+overlap_check: must not become Algorithm/BP/XP replacement
+review_due: 2026-07-25
+```
+
+### ALFRED-LQ-005 — Future BP/XP relation
+
+```yaml
+id: ALFRED-LQ-005
+status: candidate
+source_ref: future Leela metric source-extension pass
+summary: Reconsider whether Alfred process tracking should reference BP/XP after source validation.
+candidate_target: needs_validation
+evidence_refs: []
+scores:
+  EVD: 25
+  IMP: 70
+  RSK: 75
+source_status: not_accessible
+owner: alfred
+validator: meta_detective
+overlap_check: accepted Alfred v1 excludes BP/XP tracking
+review_due: 2026-07-25
+```
+
+### Additional future candidates
+
+- Future mood/energy tracking reconsideration.
+- Pattern library storage structure.
+- Automation of candidate detection.
+- Visualization of Daily Command Board.
+- Calibration of `EVD / IMP / RSK + URG` and P-class rules from real use.
 
 ## Promotion route
 

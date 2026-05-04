@@ -334,6 +334,221 @@ Use after a single-file KB patch or repair iteration.
 
 Evidence: `WORKFLOW_PLAYBOOK.md`, `BEST_PRACTICES.md`. Owner: `alfred`. Validator: `meta_ops`. Review due: `2026-07-25`.
 
+### ALFRED-TPL-011 — Project Packet v1
+
+Use when a work item needs compact project-facing context before MetaOps, Strategy, Detective, or KB routing.
+
+```yaml
+project_packet_v1:
+  packet_id: PP-YYYYMMDD-001
+  title: <short title>
+  lane: leela | master_of_arts | wildcard | none
+  current_state: draft | candidate | needs_validation | blocked | operator_review_required | accepted
+  objective: <bounded objective>
+  desired_output: <artifact or decision needed>
+  context_summary: <compact context>
+  metrics:
+    EVD: <1-100>
+    IMP: <1-100>
+    RSK: <1-100>
+    URG: <1-100 or null if not a process handover>
+  controls:
+    readiness: ready | partial | missing_input | blocked | operator_decision_needed
+    hard_flags: []
+    priority_class: P0 | P1 | P2 | P3
+  rationale:
+    impact_reason: <why it matters>
+    urgency_reason: <why timing matters or none>
+    unlocks: []
+    risk_note: <risk>
+    next_action: <smallest next action>
+  stop_condition: <pause/escalation trigger>
+```
+
+Evidence: `APPENDIX_PROCESS_HANDOVER_PRIORITY.md`, `AGENT_HANDOFF_CONTRACTS.md`. Owner: `alfred`. Validator: `meta_ops`. Review due: `2026-07-25`.
+
+### ALFRED-TPL-012 — Daily Command Board v1
+
+Use when Alfred needs to present today's bounded command surface.
+
+```md
+## Daily Command Board
+
+| Class | Item | Lane | Readiness | EVD | IMP | RSK | URG | Hard flags | Next action |
+|---|---|---|---|---:|---:|---:|---:|---|---|
+| P1 | <item> | <lane> | <readiness> | <1-100> | <1-100> | <1-100> | <1-100> | <flags> | <action> |
+
+### Board controls
+
+- **P0:** operator-confirmed or true stop-the-line only.
+- **P1 cap:** maximum four normal-day craft-flow items.
+- **Lock status:** draft | operator_locked | needs_revision.
+- **Mutation rule:** after lock, add proposed deltas only.
+```
+
+Evidence: `APPENDIX_DAILY_COMMAND_BOARD_AND_HANDOFFS.md`. Owner: `alfred`. Validator: `meta_ops`. Review due: `2026-07-25`.
+
+### ALFRED-TPL-013 — MetaOps Craft Flow Handoff v1
+
+Use when a Daily Command Board item becomes bounded MetaOps execution coordination.
+
+```yaml
+metaops_craft_flow_handoff_v1:
+  handoff_id: HND-alfred-metaops-YYYYMMDD-001
+  from_agent: alfred
+  to_agent: meta_ops
+  handoff_type: execution_orchestration
+  board_item_ref: <Daily Command Board item id>
+  lane: leela | master_of_arts | wildcard | none
+  priority_class: P1 | P2 | P3
+  objective: <bounded execution objective>
+  expected_output: <return artifact>
+  constraints:
+    must_do: []
+    must_not_do:
+      - Do not exceed the bounded objective.
+      - Do not mutate canonical files without a patch plan and approval path.
+  metrics:
+    EVD: <1-100>
+    IMP: <1-100>
+    RSK: <1-100>
+    URG: <1-100>
+  readiness: ready | partial | missing_input | blocked | operator_decision_needed
+  hard_flags: []
+  next_action: <immediate next step>
+  stop_condition: <pause/escalation trigger>
+  return_expected: <what MetaOps should return>
+```
+
+Evidence: `APPENDIX_DAILY_COMMAND_BOARD_AND_HANDOFFS.md`, `AGENT_HANDOFF_CONTRACTS.md`. Owner: `alfred`. Validator: `meta_ops`. Review due: `2026-07-25`.
+
+### ALFRED-TPL-014 — Operator-required Session Export correction
+
+Use when a Session Export contains an operator-required correction and the correction must not directly mutate OpState.
+
+```md
+## Session Export Correction
+
+- **Session export ref:** `<path or id>`
+- **Correction source:** operator | verifier | trace audit
+- **Correction:** <what was wrong>
+- **Corrected trace statement:** <replacement trace statement>
+- **OpState impact:** none | candidate_delta_required
+- **Delta candidate ref:** `<id or none>`
+- **Hard flags:** []
+- **Stop condition:** Do not mutate OpState until delta is accepted.
+```
+
+Evidence: `APPENDIX_SESSION_EXPORT_OPSTATE_AND_TRACKING.md`. Owner: `alfred`. Validator: `meta_ops`. Review due: `2026-07-25`.
+
+### ALFRED-TPL-015 — OpState Delta Candidate v1
+
+Use when trace or tracking suggests a live operating-state update.
+
+```yaml
+opstate_delta_candidate_v1:
+  delta_id: OPD-YYYYMMDD-001
+  source_trace: <Session Export, board item, or tracking record>
+  proposed_change: <state change>
+  reason: <why this may need to change>
+  current_state_claim: <current known state>
+  target_state_claim: <proposed state>
+  evidence:
+    EVD: <1-100>
+    source_status: fully_read | partially_read | provisional | mixed | unknown
+  impact:
+    IMP: <1-100>
+  risk:
+    RSK: <1-100>
+    hard_flags: []
+  readiness: ready | partial | missing_input | blocked | operator_decision_needed
+  validator: meta_ops | meta_detective | operator
+  acceptance_needed: true
+  stop_condition: Do not apply until accepted.
+```
+
+Evidence: `APPENDIX_SESSION_EXPORT_OPSTATE_AND_TRACKING.md`. Owner: `alfred`. Validator: `meta_ops`. Review due: `2026-07-25`.
+
+### ALFRED-TPL-016 — Tracking Record v1
+
+Use for minimal Alfred v1 process tracking.
+
+```yaml
+tracking_record_v1:
+  record_id: TRK-YYYYMMDD-001
+  source: daily_board | session_export | handoff_return | operator_note
+  item_ref: <id or path>
+  action_taken: <what happened>
+  result: done | partial | skipped | blocked | deferred
+  friction_note: <short note or none>
+  follow_up_candidate: <none or candidate id>
+  exclusions:
+    mood_energy_tracking: excluded_in_v1
+    bp_xp_tracking: excluded_in_v1
+```
+
+Evidence: `APPENDIX_SESSION_EXPORT_OPSTATE_AND_TRACKING.md`. Owner: `alfred`. Validator: `meta_ops`. Review due: `2026-07-25`.
+
+### ALFRED-TPL-017 — Pattern Candidate v1
+
+Use when repeated observations may become a future stable pattern.
+
+```yaml
+pattern_candidate_v1:
+  pattern_id: PAT-YYYYMMDD-001
+  observation: <what repeated or appears useful>
+  occurrences:
+    count: <integer>
+    refs: []
+  suspected_value: <why it may matter>
+  constraints: []
+  evidence:
+    EVD: <1-100>
+    IMP: <1-100>
+    RSK: <1-100>
+  status: candidate | strong_candidate | needs_validation | rejected | promoted
+  promotion_threshold_note: <what evidence is still needed>
+  stop_condition: Do not promote after one occurrence.
+```
+
+Evidence: `APPENDIX_PATTERN_LEARNING_AND_RHYTHM.md`. Owner: `alfred`. Validator: `meta_ops`. Review due: `2026-07-25`.
+
+### ALFRED-TPL-018 — Weekly Preview v1
+
+Use when daily board and rhythm evidence should become a lightweight week-facing preview without full operationalization.
+
+```md
+## Weekly Preview
+
+- **Week anchor:** <main orientation>
+- **Known hard constraints:** <calendar/operator constraints>
+- **Likely P1 candidates:** <small list>
+- **Rhythm considerations:** <soft capacity/placement notes>
+- **Deferred candidates:** <P2/P3 or future work>
+- **Evidence basis:** <tracking/session/board refs>
+- **Open questions:** <blocking questions>
+- **Boundary:** This is a preview, not a full Weekly Rhythm Plan.
+```
+
+Evidence: `APPENDIX_PATTERN_LEARNING_AND_RHYTHM.md`, `APPENDIX_DAILY_COMMAND_BOARD_AND_HANDOFFS.md`. Owner: `alfred`. Validator: `meta_ops`. Review due: `2026-07-25`.
+
+### ALFRED-TPL-019 — Monthly Direction Map placeholder
+
+Use only as a non-operational placeholder until future work defines the monthly planning model.
+
+```md
+## Monthly Direction Map Placeholder
+
+- **Directional theme:** <theme>
+- **Likely lanes:** leela | master_of_arts | wildcard | mixed
+- **Known constraints:** <constraints>
+- **Candidate focus areas:** <short list>
+- **Evidence gaps:** <what is not yet known>
+- **Do not operationalize yet:** monthly planning remains future work until daily/weekly evidence is stable.
+```
+
+Evidence: `APPENDIX_PATTERN_LEARNING_AND_RHYTHM.md`, `LEARNING_QUEUE.md`. Owner: `alfred`. Validator: `meta_ops`. Review due: `2026-07-25`.
+
 ## Controlled handoff types
 
 Use these values for `handoff_type`:

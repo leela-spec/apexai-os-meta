@@ -44,6 +44,8 @@ This replacement uses the completed Pass A source bundle as the source basis and
 | `M` | Local/manual Windows/Obsidian source listed by the index | Must remain `not_accessible` until directly attached/read in a separate manual-source pass. |
 | `BUNDLE` | Pass A source bundle | Source extraction and write-planning bridge; not a substitute for future direct source reads if doctrine changes. |
 | `APEX` | Apex repo convention/current file | May guide local file placement and compatibility only; must not substitute for Master Of Arts source reading. |
+| `LOCK` | Corrected Apex working lock | May control this canonical patch pass when explicitly listed by the handover; remains working/control material unless compact-promoted. |
+| `APPENDIX` | Subordinate Alfred appendix | May hold detail and retrieval support; does not become canonical doctrine merely by existing. |
 
 ## Read-status summary
 
@@ -137,6 +139,29 @@ The detailed claim ledger is in `alfred_source_bundle_pass_a.md`, section `EXTRA
 
 These claims may guide provisional Apex scaffolding but must remain gap-marked until the corresponding manual/local sources are read or attached in a separate source-extension pass.
 
+## Process-handover correction ledger
+
+The following Apex files form the source/control basis for the corrected Alfred process-handover patch pass. They supplement the existing source manifest for this bounded patch and do not imply that appendix detail is automatically canonical.
+
+| source_id | path/name | class | role | status | doctrine use |
+|---|---|---|---|---|---|
+| LOCK-01 | `managed/agent_kb/alfred/working/APEX_VARIABLES_HANDOFF_DECISION_LOCK.md` | LOCK | corrected decision lock | working_control | Corrects process-handover metric collision; preserves `EVD / IMP / RSK`; adds `URG` only for process handovers; rejects V/U/L/F as canonical. |
+| LOCK-02 | `managed/agent_kb/alfred/working/APEX_ALFRED_KB_INTEGRATION_PROMPT_FLOW.md` | LOCK | corrected integration prompt flow | working_control | Blocks V/U/L/F regeneration and routes detail through the process-handover appendix. |
+| LOCK-03 | `managed/agent_kb/alfred/working/ALFRED_WORKFLOW_DECISION_LOCK.md` | LOCK | parent workflow decision lock | working_control | Records resolved workflow questions against corrected priority model. |
+| LOCK-04 | `managed/agent_kb/alfred/working/APEX_ALFRED_CANONICAL_PATCH_HANDOVER.md` | LOCK | handover prompt | working_handover | Defines the remaining patch sequence and final consistency gate for compact canonical promotion. |
+| APPX-01 | `managed/agent_kb/alfred/appendices/APPENDIX_PROCESS_HANDOVER_PRIORITY.md` | APPENDIX | process-handover priority detail | subordinate_appendix | Detailed source for `EVD / IMP / RSK + URG`, readiness, lane, hard flags, P0-P3, and V/U/L/F rejection. |
+| APPX-02 | `managed/agent_kb/alfred/appendices/APPENDIX_DAILY_COMMAND_BOARD_AND_HANDOFFS.md` | APPENDIX | Daily Command Board and MetaOps handoff detail | subordinate_appendix | Detailed source for bounded board practice, craft-flow cap, P0 control, and MetaOps handoff shape. |
+| APPX-03 | `managed/agent_kb/alfred/appendices/APPENDIX_SESSION_EXPORT_OPSTATE_AND_TRACKING.md` | APPENDIX | trace/state/tracking detail | subordinate_appendix | Detailed source for Session Export as trace, OpState delta candidate separation, and minimal tracking. |
+| APPX-04 | `managed/agent_kb/alfred/appendices/APPENDIX_PATTERN_LEARNING_AND_RHYTHM.md` | APPENDIX | pattern learning and Rhythm profile detail | subordinate_appendix | Detailed source for candidate-first pattern learning, Rhythm profile posture, weekly preview, and monthly direction placeholders. |
+
+### Relationship to `AGENT_HANDOFF_CONTRACTS.md`
+
+`managed/processes/AGENT_HANDOFF_CONTRACTS.md` remains authoritative for first-wave inter-agent handoff contract semantics. Its `EVD / IMP / RSK` handoff model is preserved. The Alfred process-handover extension adds `URG` only for time-sensitive process handovers, Daily Command Board priority, and process-handover routing.
+
+### Relationship to uploaded/manual Alfred, Rhythm, Sequencing, Daily, and Craft Flow source materials
+
+Some uploaded source materials in the wider working context describe Alfred, Rhythm, Sequencing, Daily Flows, and Craft Flows. Unless those materials are directly read and recorded in this manifest during a source-extension pass, they remain outside the validated source ledger for canonical doctrine. They may inform operator-local reasoning but must not be claimed as fully read source evidence here.
+
 ## Doctrine-hardening rules
 
 - **Rule:** Repo-accessible source claims may support Alfred KB doctrine only where the source bundle extracted them as stable or where later source reads validate them.
@@ -144,6 +169,8 @@ These claims may guide provisional Apex scaffolding but must remain gap-marked u
 - **Rule:** No single cluster label such as `IDX-N4` may replace enumeration of the local/manual sources.
 - **Rule:** Existing Apex KB files may guide local conventions, but must not substitute for Master Of Arts source reading.
 - **Rule:** Leela feature details below high-level Alfred synthesis must be marked provisional unless supported by read source material.
+- **Rule:** Corrected working locks may guide this bounded patch pass, but their stable content must be compact-promoted into canonical files before it becomes canonical doctrine.
+- **Rule:** Subordinate appendices may hold detail; accepted canonical files should remain compact and should not duplicate whole schemas unnecessarily.
 - **Rule:** Candidate learning is not accepted truth and must route through `LEARNING_QUEUE.md` or the governed promotion path.
 - **Rule:** Any contradiction, inaccessible source, stale source, or overclaimed read status must be carried into `COVERAGE_AUDIT.md`.
 

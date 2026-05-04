@@ -58,6 +58,10 @@ The files below do not define a second KB scaffold.
 |---|---|---|---|
 | `appendices/APPENDIX_ROUTING_MATRIX.md` | routing matrix | Preserves detailed per-target trigger/rationale/output lookup tables with retrieval value beyond canonical summaries. | `BEST_PRACTICES.md` |
 | `appendices/APPENDIX_WORKFLOW_PLAYBOOK.md` | workflow playbook | Preserves detailed stepwise workflows, outputs, and stop conditions that would bloat `BEST_PRACTICES.md`. | `BEST_PRACTICES.md` |
+| `appendices/APPENDIX_PROCESS_HANDOVER_PRIORITY.md` | process handover priority | Preserves detailed `EVD / IMP / RSK + URG`, readiness, lane, hard-flag, P-class, and V/U/L/F rejection logic. | `ESSENCE.md` / `BEST_PRACTICES.md` |
+| `appendices/APPENDIX_DAILY_COMMAND_BOARD_AND_HANDOFFS.md` | Daily Command Board and handoffs | Preserves detailed board, P0/P1, four-craft-flow, and bounded MetaOps handoff procedure. | `BEST_PRACTICES.md` / `TEMPLATES.md` |
+| `appendices/APPENDIX_SESSION_EXPORT_OPSTATE_AND_TRACKING.md` | Session Export, OpState, and tracking | Preserves detailed trace/state separation, delta-candidate, and minimal tracking procedure. | `BEST_PRACTICES.md` / `TEMPLATES.md` |
+| `appendices/APPENDIX_PATTERN_LEARNING_AND_RHYTHM.md` | pattern learning and Rhythm profile | Preserves candidate-first pattern learning, Rhythm profile, weekly preview, and monthly placeholder detail. | `BEST_PRACTICES.md` / `LEARNING_QUEUE.md` |
 
 Appendices are subordinate references. They must not introduce new route targets, route authority, process authority, accepted doctrine, source status, or promotion rules unless the canonical owner and promotion path are updated first.
 
@@ -104,6 +108,18 @@ Do not add new doctrine to redirect files. Redirect files exist for compatibilit
 | Clarify operator intent before routing | Alfred/operator loop |
 
 For detailed routing lookup, use `appendices/APPENDIX_ROUTING_MATRIX.md` as a subordinate appendix. If the appendix conflicts with `ESSENCE.md`, `BEST_PRACTICES.md`, `TEMPLATES.md`, `MISTAKES.md`, or `managed/processes/AGENT_HANDOFF_CONTRACTS.md`, the canonical/process owner wins.
+
+## Process-handover quick lookup
+
+| Need | Route |
+|---|---|
+| Process handover priority | `appendices/APPENDIX_PROCESS_HANDOVER_PRIORITY.md` |
+| Daily Command Board | `appendices/APPENDIX_DAILY_COMMAND_BOARD_AND_HANDOFFS.md` |
+| MetaOps craft-flow handoff | `appendices/APPENDIX_DAILY_COMMAND_BOARD_AND_HANDOFFS.md` |
+| Session Export / OpState | `appendices/APPENDIX_SESSION_EXPORT_OPSTATE_AND_TRACKING.md` |
+| Tracking | `appendices/APPENDIX_SESSION_EXPORT_OPSTATE_AND_TRACKING.md` |
+| Pattern learning | `appendices/APPENDIX_PATTERN_LEARNING_AND_RHYTHM.md` |
+| Rhythm profile | `appendices/APPENDIX_PATTERN_LEARNING_AND_RHYTHM.md` and `appendices/APPENDIX_DAILY_COMMAND_BOARD_AND_HANDOFFS.md` |
 
 ## Source posture
 

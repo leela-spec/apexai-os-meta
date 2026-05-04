@@ -52,6 +52,30 @@ next_recommended_file: managed/agent_kb/alfred/ROLE_BOUNDARIES.md
 | Kharma / Community / Gamification details | source-gap-dependent | low | Requires manual/local source pass or attached source read. |
 | Day/night protocol, 5V, voice-to-markdown/mobile intake | source-gap-dependent | medium/low | Mention only as candidate/provisional until source extension. |
 
+## Process-handover correction coverage delta
+
+| Coverage area | Status | Confidence | Handling |
+|---|---|---|---|
+| Metric collision corrected | validated for this patch pass | high | Canonical files may compactly state corrected process-handover model. |
+| First-wave handoff `EVD / IMP / RSK` retained | validated | high | `AGENT_HANDOFF_CONTRACTS.md` remains authoritative for first-wave handoffs. |
+| `URG` added only for process handovers | validated for Alfred process-handover extension | high | Do not broaden `URG` into generic first-wave handoff schema without process update. |
+| V/U/L/F rejected as canonical | validated | high | Treat any `value / urgency / leverage / fit` recurrence as drift. |
+| Readiness/lane/hard flags as controls | validated for patch pass | high | Use as process-handover controls, not weighted scores. |
+| P0-P3 Daily Command Board classification | validated for patch pass | medium/high | P0 requires operator confirmation or true stop-line condition. |
+| Four P1 craft-flow normal-day cap | validated for patch pass | medium/high | Keep as Alfred/Daily Board constraint. |
+| Session Export / OpState separation | validated for patch pass | high | Session Export remains trace; OpState changes remain delta candidates. |
+| Candidate/canonical separation preserved | validated | high | Appendices hold detail; canonical files compact-promote stable doctrine only. |
+| Pattern learning candidate-first | validated for patch pass | medium/high | Do not promote after one occurrence. |
+| Weekly full Rhythm Plan | provisional/future | medium | Keep in `LEARNING_QUEUE.md` until daily evidence and source coverage mature. |
+| Monthly planning | provisional/future | medium | Keep as placeholder/future candidate. |
+| Algorithm calibration | provisional/future | low/medium | Do not implement as Alfred v1. |
+| BP/XP integration | provisional/future | low | Requires Leela metric source-extension validation. |
+| Mood/energy tracking | provisional/future | low/medium | Explicitly excluded from Alfred v1 unless later promoted. |
+
+### Patch-pass audit note
+
+The corrected locks and appendices are sufficient to guide a compact canonical patch, but they do not erase the broader source-gap status for detailed Leela product mechanics. Source/audit controls should record these files as patch-pass controls and subordinate appendices, not as automatic canonical promotion.
+
 ## Validated claim register
 
 These claim clusters can safely inform the next Apex KB files, subject to file-local scope and fetch-back verification.

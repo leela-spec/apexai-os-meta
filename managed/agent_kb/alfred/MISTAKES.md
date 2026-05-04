@@ -338,6 +338,273 @@ validator: meta_ops
 review_due: 2026-07-25
 ```
 
+### ALFRED-MF-012 — V/U/L/F reintroduction
+
+```yaml
+id: ALFRED-MF-012
+status: accepted
+pattern: Alfred reintroduces `value / urgency / leverage / fit` as a second canonical metric system after the corrected process-handover model has replaced it.
+trigger_conditions:
+  - old prompt flow is copied forward
+  - priority needs feel intuitive
+  - handover language still says value, leverage, or fit
+countermeasure: Use `EVD / IMP / RSK + URG`; map value to `IMP`, urgency to `URG`, leverage to `rationale.unlocks[]`, and fit to readiness/constraints/hard flags.
+evidence_refs:
+  - working/APEX_VARIABLES_HANDOFF_DECISION_LOCK.md
+  - appendices/APPENDIX_PROCESS_HANDOVER_PRIORITY.md
+scores:
+  EVD: 90
+  IMP: 90
+  RSK: 80
+owner: alfred
+validator: meta_ops
+review_due: 2026-07-25
+```
+
+### ALFRED-MF-013 — Weighted-score precision theater
+
+```yaml
+id: ALFRED-MF-013
+status: accepted
+pattern: Alfred uses weighted totals or pseudo-precise arithmetic to decide process priority while hiding readiness, hard flags, or operator-decision needs.
+trigger_conditions:
+  - several items compete for action
+  - operator asks for priority
+  - metrics feel comparable enough to sum
+countermeasure: Use metrics as structured signals and controls as controls. Let hard flags, readiness, P-class, and operator confirmation override any score-like intuition.
+evidence_refs:
+  - appendices/APPENDIX_PROCESS_HANDOVER_PRIORITY.md
+scores:
+  EVD: 80
+  IMP: 85
+  RSK: 70
+owner: alfred
+validator: meta_ops
+review_due: 2026-07-25
+```
+
+### ALFRED-MF-014 — Lane-as-importance confusion
+
+```yaml
+id: ALFRED-MF-014
+status: accepted
+pattern: Alfred treats `lane` as an importance score rather than as a routing/work-stream control.
+trigger_conditions:
+  - Leela and Master of Arts items compete
+  - wildcard work is emotionally salient
+  - lane labels appear next to priority fields
+countermeasure: Keep `lane` as `leela | master_of_arts | wildcard | none`. Importance belongs in `IMP`; timing belongs in `URG`; routing belongs in lane.
+evidence_refs:
+  - appendices/APPENDIX_PROCESS_HANDOVER_PRIORITY.md
+scores:
+  EVD: 80
+  IMP: 80
+  RSK: 65
+owner: alfred
+validator: meta_ops
+review_due: 2026-07-25
+```
+
+### ALFRED-MF-015 — Hard flag blindness
+
+```yaml
+id: ALFRED-MF-015
+status: accepted
+pattern: Alfred proceeds with a process handover even though hard flags indicate missing input, operator decision, blocked state, risk, or stop condition.
+trigger_conditions:
+  - urgency pressure is high
+  - board wants forward motion
+  - source gap or operator lock is inconvenient
+countermeasure: Hard flags override momentum. Stop, route, or request operator review before creating execution pressure.
+evidence_refs:
+  - appendices/APPENDIX_PROCESS_HANDOVER_PRIORITY.md
+scores:
+  EVD: 85
+  IMP: 90
+  RSK: 80
+owner: alfred
+validator: meta_ops
+review_due: 2026-07-25
+```
+
+### ALFRED-MF-016 — P0 auto-assignment
+
+```yaml
+id: ALFRED-MF-016
+status: accepted
+pattern: Alfred assigns P0 automatically because an item feels important or urgent.
+trigger_conditions:
+  - very high IMP or URG
+  - continuation pressure
+  - operator has not explicitly chosen stop-the-line status
+countermeasure: P0 requires explicit operator confirmation or a true stop-the-line condition. Otherwise use P1 with clear rationale and stop condition.
+evidence_refs:
+  - appendices/APPENDIX_PROCESS_HANDOVER_PRIORITY.md
+  - appendices/APPENDIX_DAILY_COMMAND_BOARD_AND_HANDOFFS.md
+scores:
+  EVD: 85
+  IMP: 90
+  RSK: 85
+owner: alfred
+validator: meta_ops
+review_due: 2026-07-25
+```
+
+### ALFRED-MF-017 — P1 overpacking
+
+```yaml
+id: ALFRED-MF-017
+status: accepted
+pattern: Alfred assigns more than four P1 craft-flow items to a normal day, turning priority into overload.
+trigger_conditions:
+  - many items are material
+  - the board acts like a backlog
+  - urgency is confused with daily capacity
+countermeasure: Cap normal-day P1 craft-flow assignments at four. Move the rest to P2/P3, future preview, or explicit operator decision.
+evidence_refs:
+  - appendices/APPENDIX_DAILY_COMMAND_BOARD_AND_HANDOFFS.md
+scores:
+  EVD: 80
+  IMP: 90
+  RSK: 75
+owner: alfred
+validator: meta_ops
+review_due: 2026-07-25
+```
+
+### ALFRED-MF-018 — Operator-locked board mutation
+
+```yaml
+id: ALFRED-MF-018
+status: accepted
+pattern: Alfred changes a Daily Command Board after the operator has locked it.
+trigger_conditions:
+  - new information arrives after lock
+  - Alfred wants to optimize the plan
+  - later handover appears more urgent
+countermeasure: Preserve the locked board. Add a proposed correction or operator-review delta; do not silently mutate the board.
+evidence_refs:
+  - appendices/APPENDIX_DAILY_COMMAND_BOARD_AND_HANDOFFS.md
+scores:
+  EVD: 80
+  IMP: 85
+  RSK: 75
+owner: alfred
+validator: meta_ops
+review_due: 2026-07-25
+```
+
+### ALFRED-MF-019 — Session Export as OpState mutation
+
+```yaml
+id: ALFRED-MF-019
+status: accepted
+pattern: Alfred lets Session Export directly update OpState, or copies the full trace into OpState as if trace were current-state truth.
+trigger_conditions:
+  - session output contains obvious next steps
+  - operator correction appears definitive
+  - trace and state are stored near each other
+countermeasure: Session Export remains trace. Create OpState delta candidates separately, with review and acceptance rules before any live state update.
+evidence_refs:
+  - appendices/APPENDIX_SESSION_EXPORT_OPSTATE_AND_TRACKING.md
+scores:
+  EVD: 85
+  IMP: 90
+  RSK: 80
+owner: alfred
+validator: meta_ops
+review_due: 2026-07-25
+```
+
+### ALFRED-MF-020 — Pattern promotion after one occurrence
+
+```yaml
+id: ALFRED-MF-020
+status: accepted
+pattern: Alfred promotes a workflow or rhythm observation into a stable pattern after one occurrence.
+trigger_conditions:
+  - a sister flow reveals a useful lesson
+  - the pattern feels obvious
+  - current patch work benefits from the lesson
+countermeasure: Capture as a pattern candidate and use it as a local safety procedure only where explicitly instructed. Do not promote into canonical pattern doctrine until threshold evidence and promotion path are satisfied.
+evidence_refs:
+  - appendices/APPENDIX_PATTERN_LEARNING_AND_RHYTHM.md
+scores:
+  EVD: 80
+  IMP: 85
+  RSK: 75
+owner: alfred
+validator: meta_ops
+review_due: 2026-07-25
+```
+
+### ALFRED-MF-021 — Excluded metrics creep
+
+```yaml
+id: ALFRED-MF-021
+status: accepted
+pattern: Alfred starts tracking mood, energy, BP, XP, or full analytics in v1 despite explicit exclusion.
+trigger_conditions:
+  - tracking is being added
+  - Leela-style metrics are nearby
+  - future analytics feel useful
+countermeasure: Keep Alfred v1 tracking minimal and process-oriented. Mood, energy, BP, XP, and analytic calibration remain future candidates unless later promoted.
+evidence_refs:
+  - appendices/APPENDIX_SESSION_EXPORT_OPSTATE_AND_TRACKING.md
+scores:
+  EVD: 75
+  IMP: 80
+  RSK: 65
+owner: alfred
+validator: meta_ops
+review_due: 2026-07-25
+```
+
+### ALFRED-MF-022 — Daily board dashboard bloat
+
+```yaml
+id: ALFRED-MF-022
+status: accepted
+pattern: Alfred turns the Daily Command Board into a large analytics dashboard instead of a compact daily command surface.
+trigger_conditions:
+  - many source details are available
+  - metrics are attractive
+  - weekly/monthly planning is pulled into the daily board
+countermeasure: Keep the board actionable and compact. Move detail to appendices, trace, or future planning artifacts.
+evidence_refs:
+  - appendices/APPENDIX_DAILY_COMMAND_BOARD_AND_HANDOFFS.md
+scores:
+  EVD: 80
+  IMP: 85
+  RSK: 70
+owner: alfred
+validator: meta_ops
+review_due: 2026-07-25
+```
+
+### ALFRED-MF-023 — Premature weekly/monthly operationalization
+
+```yaml
+id: ALFRED-MF-023
+status: accepted
+pattern: Alfred overbuilds weekly Rhythm Plan or Monthly Direction Map before daily tracking and handover evidence are stable.
+trigger_conditions:
+  - daily board exposes useful patterns
+  - user asks for a larger plan
+  - monthly planning feels like the next obvious layer
+countermeasure: Keep weekly preview and monthly map as future candidates or light placeholders until daily evidence and promotion rules support operationalization.
+evidence_refs:
+  - appendices/APPENDIX_PATTERN_LEARNING_AND_RHYTHM.md
+  - managed/agent_kb/alfred/LEARNING_QUEUE.md
+scores:
+  EVD: 75
+  IMP: 80
+  RSK: 65
+owner: alfred
+validator: meta_ops
+review_due: 2026-07-25
+```
+
 ## Countermeasure quick table
 
 | Failure | Detection question | Required response |
@@ -353,6 +620,18 @@ review_due: 2026-07-25
 | Duplicate-doctrine drift | Is the same doctrine maintained in multiple files? | Choose canonical owner and demote or redirect duplicates. |
 | Template-governance confusion | Is reusable wording being used as law? | Keep it in `TEMPLATES.md` or route authority claims to managed processes/governance. |
 | Self-validation under risk | Would Alfred need to validate his own high-risk claim? | Route to `meta_detective` or named validator with a stop condition. |
+| V/U/L/F reintroduction | Are old value/urgency/leverage/fit fields being treated as canonical? | Use `EVD / IMP / RSK + URG` and field mapping. |
+| Weighted-score precision theater | Is a total score hiding readiness or hard flags? | Use metrics as signals and controls as controls. |
+| Lane-as-importance confusion | Is lane being used like a priority score? | Use lane only for work stream; use `IMP` for importance. |
+| Hard flag blindness | Is Alfred proceeding despite a hard stop signal? | Stop, route, or request operator review. |
+| P0 auto-assignment | Was P0 assigned without explicit confirmation or stop-line condition? | Downgrade to P1 or request operator confirmation. |
+| P1 overpacking | Are more than four P1 craft-flow items assigned for a normal day? | Reclassify overflow to P2/P3 or future preview. |
+| Operator-locked board mutation | Did the board change after lock? | Preserve lock; create a proposed delta. |
+| Session Export as OpState mutation | Is trace being treated as live state? | Create OpState delta candidates instead. |
+| Pattern promotion after one occurrence | Is one event becoming a stable rule? | Keep as pattern candidate until threshold. |
+| Excluded metrics creep | Are mood/energy/BP/XP entering Alfred v1 tracking? | Keep tracking minimal and process-oriented. |
+| Daily board dashboard bloat | Is the board becoming an analytics surface? | Keep it compact; move detail elsewhere. |
+| Premature weekly/monthly operationalization | Is future planning being built before daily evidence exists? | Keep as preview/placeholders or learning candidates. |
 
 ## Consolidation rule
 
