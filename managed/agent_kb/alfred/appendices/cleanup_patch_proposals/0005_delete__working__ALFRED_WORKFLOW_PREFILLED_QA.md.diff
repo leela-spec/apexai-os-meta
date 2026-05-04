@@ -1,0 +1,12 @@
+# cleanup_patch_proposal_v1
+# target_file: managed/agent_kb/alfred/working/ALFRED_WORKFLOW_PREFILLED_QA.md
+# action: delete
+# apply_allowed_now: false
+# operator_validation_required: true
+# source_basis: APPENDIX_ALFRED_KB_CLEANUP_PROMPT_FLOW.md at 9c01b6e5bed95d3fd2542b9317f331ec82442641
+# high_impact_info_integrated: unclear
+# stop_condition: do not apply until exact deletion hunk passes git apply --check and operator validates
+
+# PROPOSAL_STATUS: needs_revision_before_apply
+# Target-specific proposal slot created.
+# Operator decision/final high-impact check required; extract to LEARNING_QUEUE.md only if a candidate remains.
