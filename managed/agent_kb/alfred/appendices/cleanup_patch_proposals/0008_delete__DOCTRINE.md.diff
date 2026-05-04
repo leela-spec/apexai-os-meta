@@ -1,0 +1,49 @@
+# cleanup_patch_proposal_v1
+# target_file: managed/agent_kb/alfred/DOCTRINE.md
+# action: delete
+# apply_allowed_now: false
+# operator_validation_required: true
+# source_basis: APPENDIX_ALFRED_KB_CLEANUP_PROMPT_FLOW.md at 9c01b6e5bed95d3fd2542b9317f331ec82442641; target read from same commit, blob 4cb6d5e9d0c982a3831a0b15f8cbc4eaeb08d4cf
+# high_impact_info_integrated: yes
+# stop_condition: do not apply if git apply --check fails or operator has not validated
+diff --git a/managed/agent_kb/alfred/DOCTRINE.md b/managed/agent_kb/alfred/DOCTRINE.md
+deleted file mode 100644
+--- a/managed/agent_kb/alfred/DOCTRINE.md
++++ /dev/null
+@@ -1,36 +0,0 @@
+-# DOCTRINE
+-
+-## Status
+-
+-```yaml
+-agent_id: alfred
+-file_status: absorbed_redirect
+-canonical_owner: managed/agent_kb/alfred/ESSENCE.md
+-secondary_canonical_owners:
+-  - managed/agent_kb/alfred/BEST_PRACTICES.md
+-  - managed/agent_kb/alfred/MISTAKES.md
+-redirect_reason: durable_identity_authority_routing_handoff_evidence_source_and_failure_doctrine_absorbed_into_canonical_files
+-absorbed_in_commit: 68a4075b69a3ec4be256c71b78174dc4fde0fc0c
+-source_posture: no_runtime_truth_here
+-validator: meta_ops
+-review_due: 2026-07-25
+-```
+-
+-## Redirect
+-
+-This file no longer acts as an Alfred KB authority.
+-
+-Use:
+-
+-- `ESSENCE.md` for Alfred identity, authority boundary, core doctrine, routing boundary, source doctrine, EVD/IMP/RSK doctrine, deferred-doctrine boundaries, and operating maxim.
+-- `BEST_PRACTICES.md` for accepted Alfred operating method, routing practice, source-gap practice, EVD/IMP/RSK practice, and one-file repair discipline.
+-- `MISTAKES.md` for accepted Alfred failure patterns, including executor drift, strategy absorption, critic bypass, certainty theater, source-gap hardening, candidate-truth leakage, appendix-as-authority drift, and duplicate-doctrine drift.
+-- `SOURCE_MANIFEST.md` and `COVERAGE_AUDIT.md` for provenance, source status, and validated/provisional/source-gap separation.
+-
+-## Maintenance rule
+-
+-Do not add new doctrine here.
+-
+-Route new Alfred identity or authority material to `ESSENCE.md`; route operating-method material to `BEST_PRACTICES.md`; route failure-pattern material to `MISTAKES.md`; route reusable forms to `TEMPLATES.md`; route unvalidated observations to `LEARNING_QUEUE.md`.
+-
+-Truth-bearing changes must follow the governed promotion path and must not be applied through this redirect file.
