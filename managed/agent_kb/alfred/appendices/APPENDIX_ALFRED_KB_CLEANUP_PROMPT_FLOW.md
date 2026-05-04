@@ -4,7 +4,12 @@
 
 Controlled prompt flow for cleaning the Alfred knowledge base in `leela-spec/apexai-os-meta`.
 
-This appendix is a planning artifact for Codex. It defines an iterative process for auditing high-impact information, creating one unified-diff proposal per affected file, and stopping for operator validation before any cleanup is applied.
+This appendix separates two phases that must not be conflated:
+
+1. **Patch proposal creation:** the planning agent creates the inventory, decision matrix, patch index, and one unified-diff proposal file per affected target file inside `managed/agent_kb/alfred/appendices/cleanup_patch_proposals/`.
+2. **Patch application:** Codex applies only the operator-approved diff files, one by one, using a locked apply-instruction file created after all proposal diffs are present and validated.
+
+Codex must not invent, improve, regenerate, merge, reorder, or expand the patch set.
 
 ## Status
 
@@ -13,11 +18,14 @@ artifact_id: APPENDIX_ALFRED_KB_CLEANUP_PROMPT_FLOW
 repo_scope: leela-spec/apexai-os-meta
 kb_scope: managed/agent_kb/alfred/
 artifact_type: prompt_flow_appendix
-execution_owner: codex_after_operator_validation
+proposal_file_author: planning_agent
+codex_role: apply_operator_approved_diffs_only
 operator_decisions_validated: true
 patch_application_allowed_by_this_file: false
-patch_file_creation_allowed_by_this_file: true
+patch_file_creation_by_codex_allowed: false
+patch_file_creation_by_planning_agent_allowed: true
 requires_operator_validation_before_apply: true
+codex_apply_instruction_file_required: true
 ```
 
 ## Non-negotiable scope
@@ -33,6 +41,8 @@ forbidden_work:
   - editing MasterOfArts
   - editing Leela product files outside Alfred KB
   - applying cleanup patches before operator validation
+  - letting Codex create or alter proposal diffs
+  - letting Codex add improvements not explicitly listed in the locked apply instruction
   - adding improvements not explicitly defined here
 ```
 
@@ -44,21 +54,32 @@ validated_decisions:
   delete_working_handover_files: true
   delete_redirect_files_after_high_impact_integration_check: true
   source_manifest_and_coverage_audit_todos_after_cleanup: true
-  actual_application_by_codex_last_step: true
+  planning_agent_creates_unified_diff_files: true
+  codex_only_applies_approved_unified_diff_files: true
 ```
+
+## Responsibility split
+
+| Actor | Allowed | Forbidden |
+|---|---|---|
+| Planning agent | Create inventory, decision matrix, patch index, individual `.diff` proposal files, and final Codex apply instruction. | Apply cleanup patches or delete target files directly. |
+| Operator | Approve, reject, revise, or reorder the proposed patch set. | None. Operator approval is the only authorization source. |
+| Codex | Apply only the exact approved diff files listed in the final apply instruction, one at a time. | Create new diffs, rewrite diffs, improve silently, touch unlisted files, combine patches, change order unless instructed, or continue after failure. |
 
 ## Hard guardrails
 
 1. Stay inside `leela-spec/apexai-os-meta` and `managed/agent_kb/alfred/`.
-2. Do not apply patches during proposal stage.
-3. Create one unified diff proposal file per target file.
-4. Do not create one giant cleanup patch.
-5. Do not silently add improvements.
-6. Any improvement idea must be recorded as `operator_decision_needed` and left unapplied.
-7. Do not delete a file until high-impact information is confirmed integrated into the five-file scaffold, likely-to-stay appendices, or source/audit controls.
-8. Do not use placeholders such as `...` inside generated diffs.
-9. Every generated diff must pass `git apply --check` before later application.
-10. Every final application step must be one file at a time with fetch-back verification.
+2. The planning agent writes the unified diff proposal files into the repo.
+3. Codex does not write, revise, or invent proposal diffs.
+4. Codex receives a final locked apply-instruction file only after all proposal diffs exist.
+5. Do not create one giant cleanup patch.
+6. Create one unified diff proposal file per target file.
+7. Do not silently add improvements.
+8. Any improvement idea must be recorded as `operator_decision_needed` and left unapplied.
+9. Do not delete a file until high-impact information is confirmed integrated into the five-file scaffold, likely-to-stay appendices, or source/audit controls.
+10. Do not use placeholders such as `...` inside generated diffs.
+11. Every generated diff must be checkable with `git apply --check` before later application.
+12. Every final application step must be one file at a time with fetch-back verification.
 
 ## Target classes
 
@@ -113,7 +134,7 @@ No patches are authorized for these files in this prompt flow.
 
 ## Required reference scan before any deletion proposal
 
-Scan references inside:
+The planning agent must scan references inside:
 
 ```yaml
 required_reference_scan_scope:
@@ -138,14 +159,14 @@ reference_classification:
   harmless_history: leave only if source/audit controls still make sense
 ```
 
-## Iterative Codex flow
+## Iterative proposal flow for the planning agent
 
-### Phase 0 — initialize
+### Phase 0 — initialize proposal area
 
 1. Confirm repo is `leela-spec/apexai-os-meta`.
 2. Confirm work is under `managed/agent_kb/alfred/`.
 3. Create or refresh `managed/agent_kb/alfred/appendices/cleanup_patch_proposals/`.
-4. Do not modify target cleanup files.
+4. Do not modify target cleanup files except by writing proposal artifacts.
 5. Do not delete anything.
 
 ### Phase 1 — current-state inventory
@@ -185,7 +206,7 @@ Required columns:
 | `patch_file_to_create` | exact diff proposal file path. |
 | `apply_allowed_now` | always `false` at proposal stage. |
 | `operator_options` | predefined A/B/C options. |
-| `codex_recommendation` | recommended option and rationale. |
+| `planning_recommendation` | recommended option and rationale. |
 
 ### Phase 3 — integration extraction
 
@@ -217,7 +238,7 @@ integration_targets:
 
 ### Phase 4 — create individual unified diff proposal files
 
-Create one `.diff` file per target file that needs a change.
+The planning agent creates one `.diff` file per target file that needs a change.
 
 Directory:
 
@@ -256,6 +277,7 @@ unified_diff_requirements:
   include_standard_header: true
   git_apply_check_required: true
   apply_patch_now: false
+  codex_may_rewrite_diff: false
 ```
 
 ### Phase 5 — patch proposal index
@@ -276,7 +298,7 @@ Required columns:
 | `depends_on` | Prior patch that must be applied first. |
 | `operator_status` | pending / approved / rejected / needs revision. |
 | `git_apply_check` | pass / fail / not_run. |
-| `codex_notes` | Short notes. |
+| `notes` | Short notes. |
 
 ### Phase 6 — operator validation checkpoint
 
@@ -285,21 +307,51 @@ Stop and present:
 1. Current-state inventory.
 2. Decision matrix.
 3. Patch index.
-4. Any `operator_decision_needed` rows.
-5. No applied changes.
+4. All generated `.diff` proposal files.
+5. Any `operator_decision_needed` rows.
+6. Confirmation that no cleanup patches were applied.
 
-### Phase 7 — final application step, only after operator approval
+### Phase 7 — create locked Codex apply instruction after operator approval
 
-When and only when the operator approves:
+Only after the operator approves the exact patch set, create:
 
-1. Apply one patch at a time.
-2. Run `git apply --check` before applying each patch.
-3. Apply the patch.
-4. Fetch/read the changed path or confirm deletion.
-5. Record result in `03_APPLY_REPORT.md`.
-6. Stop on first failure.
+```text
+managed/agent_kb/alfred/appendices/cleanup_patch_proposals/99_CODEX_APPLY_APPROVED_DIFFS_ONLY.md
+```
 
-Recommended apply order:
+This file must list:
+
+- exact approved diff files,
+- exact apply order,
+- exact target file for each diff,
+- `git apply --check` command for each diff,
+- apply command for each diff,
+- fetch-back or deletion-confirmation command for each target,
+- stop-on-failure rule,
+- explicit prohibition against any unlisted work.
+
+Codex must not run from the general prompt flow alone. Codex may run only from `99_CODEX_APPLY_APPROVED_DIFFS_ONLY.md`.
+
+## Locked Codex apply instruction requirements
+
+The final Codex apply instruction must include this block verbatim:
+
+```yaml
+codex_locked_apply_rules:
+  role: apply_existing_operator_approved_diffs_only
+  may_create_new_diffs: false
+  may_edit_existing_diffs: false
+  may_touch_unlisted_files: false
+  may_improve_silently: false
+  may_reorder_steps: false
+  may_continue_after_failure: false
+  must_run_git_apply_check_before_each_apply: true
+  must_apply_one_diff_at_a_time: true
+  must_verify_after_each_apply: true
+  must_stop_and_report_on_first_failure: true
+```
+
+## Recommended apply order for the locked Codex file
 
 ```yaml
 recommended_apply_order:
@@ -335,7 +387,7 @@ recommended_apply_order:
 
 ## Improvement handling rule
 
-If Codex sees an improvement not defined above, it must not patch it.
+If an improvement is not defined above, it must not be patched.
 
 Record only:
 
@@ -355,11 +407,12 @@ operator_decision_needed:
 proposal_done_definition:
   current_state_inventory_created: true
   decision_matrix_created: true
-  one_diff_file_per_target_change_created: true
+  one_diff_file_per_target_change_created_by_planning_agent: true
   patch_index_created: true
   no_target_cleanup_patch_applied: true
   all_unvalidated_improvements_marked_operator_decision_needed: true
   operator_validation_requested: true
+  codex_apply_instruction_not_created_until_operator_approval: true
 ```
 
 ## Application done definition
@@ -367,6 +420,8 @@ proposal_done_definition:
 ```yaml
 application_done_definition:
   operator_approved_exact_patch_set: true
+  locked_codex_apply_instruction_created: true
+  codex_applied_only_listed_diffs: true
   patches_applied_one_file_at_a_time: true
   git_apply_check_passed_before_each_apply: true
   fetch_back_or_deletion_confirmation_done_after_each_apply: true
