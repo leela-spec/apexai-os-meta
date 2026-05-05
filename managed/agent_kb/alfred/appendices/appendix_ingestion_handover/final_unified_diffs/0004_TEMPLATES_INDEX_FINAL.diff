@@ -1,0 +1,67 @@
+diff --git a/managed/agent_kb/alfred/TEMPLATES.md b/managed/agent_kb/alfred/TEMPLATES.md
+--- a/managed/agent_kb/alfred/TEMPLATES.md
++++ b/managed/agent_kb/alfred/TEMPLATES.md
+@@
+-# TEMPLATES
++# TEMPLATES
+@@
+-## Purpose
+-
+-Accepted validated reusable Alfred templates.
+-
+-This file is the canonical home for Alfred's reusable forms: intake frames, alignment frames, route briefs, handoff packets, escalation forms, and KB repair reports. It absorbs the reusable template-level material from `HANDOFF_SCHEMA.md` while preserving `ESSENCE.md` as authority, `BEST_PRACTICES.md` as operating method, and `MISTAKES.md` as anti-pattern control.
++## Purpose
++
++Accepted validated reusable Alfred template index.
++
++This file is the compact canonical index for Alfred reusable forms. Detailed reusable forms live in grouped template files under `managed/agent_kb/alfred/templates/`. Templates remain reusable forms, not governance, runtime law, source ledgers, or process authority.
+@@
+-file_status: canonical_templates_consolidated
++file_status: canonical_templates_index_split
+@@
+-next_recommended_file: managed/agent_kb/alfred/LEARNING_QUEUE.md
++template_groups:
++  - managed/agent_kb/alfred/templates/routing_templates.md
++  - managed/agent_kb/alfred/templates/daily_board_templates.md
++  - managed/agent_kb/alfred/templates/project_packet_templates.md
++  - managed/agent_kb/alfred/templates/trace_state_tracking_templates.md
++  - managed/agent_kb/alfred/templates/pattern_learning_templates.md
++next_recommended_file: managed/agent_kb/alfred/LEARNING_QUEUE.md
+@@
+-## Accepted templates
++## Accepted template groups
++
++| Group file | Contains | Canonical index range |
++|---|---|---|
++| `templates/routing_templates.md` | first-contact intake, route brief, handoff packet, escalation, validation, KB/source-gap review | `ALFRED-TPL-001`, `005-010`, `030` |
++| `templates/daily_board_templates.md` | Daily Command Board compact form and board lock controls | `ALFRED-TPL-012` plus merged board compact form |
++| `templates/project_packet_templates.md` | Project Packet, process handover priority card, MetaOps craft-flow handoff | `ALFRED-TPL-011`, `013`, merged `021`, `023`, `024` |
++| `templates/trace_state_tracking_templates.md` | Session Export correction, OpState delta candidate, minimal tracking record | `ALFRED-TPL-014`, `015`, `016` plus merged `025-027` |
++| `templates/pattern_learning_templates.md` | Pattern Candidate and Rejected Pattern Archive | `ALFRED-TPL-017`, `029`; Weekly Preview and Monthly Direction Map deferred to learning queue |
++
++## Small always-used forms retained in index
++
++The full forms are in the grouped files. This index retains only the smallest lookup needed to select the correct group.
++
++| Need | Use |
++|---|---|
++| New operator request | `templates/routing_templates.md`, `ALFRED-TPL-001` |
++| Weekly alignment or day-start frame | `templates/routing_templates.md`, `ALFRED-TPL-002` / `ALFRED-TPL-003` |
++| Rhythm repair | `templates/routing_templates.md`, `ALFRED-TPL-004` |
++| Material route or handoff | `templates/routing_templates.md`, `ALFRED-TPL-005` / `ALFRED-TPL-006` |
++| Daily board | `templates/daily_board_templates.md`, `ALFRED-TPL-012` |
++| Process handover or Project Packet | `templates/project_packet_templates.md`, `ALFRED-TPL-011` |
++| MetaOps craft-flow handoff | `templates/project_packet_templates.md`, `ALFRED-TPL-013` |
++| Session trace or OpState delta | `templates/trace_state_tracking_templates.md`, `ALFRED-TPL-014` / `ALFRED-TPL-015` |
++| Minimal tracking | `templates/trace_state_tracking_templates.md`, `ALFRED-TPL-016` |
++| Pattern learning | `templates/pattern_learning_templates.md`, `ALFRED-TPL-017` / `ALFRED-TPL-029` |
+@@
+-### ALFRED-TPL-018 — Weekly Preview v1
++### Deferred template candidates
++
++The following forms are not accepted template-index content in this split and should move to `LEARNING_QUEUE.md` candidate-only treatment until promoted:
++
++- Weekly Preview
++- Monthly Direction Map
++
++<!-- Existing long template bodies are replaced by grouped files in 0005_TEMPLATE_GROUPS_FINAL.diff. -->
