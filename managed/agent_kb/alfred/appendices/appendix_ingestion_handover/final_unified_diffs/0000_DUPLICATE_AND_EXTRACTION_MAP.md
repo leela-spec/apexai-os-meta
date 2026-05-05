@@ -83,18 +83,20 @@ Proposal/control diffs checked:
 | `templates/trace_state_tracking_templates.md` | Existing `ALFRED-TPL-014`, `ALFRED-TPL-015`, `ALFRED-TPL-016`, proposal `ALFRED-TPL-025`, `ALFRED-TPL-026`, `ALFRED-TPL-027`. |
 | `templates/pattern_learning_templates.md` | Existing `ALFRED-TPL-017`, proposal `ALFRED-TPL-028`, `ALFRED-TPL-029`. |
 
-## Old metric cleanup decision
+## Metric cleanup decision
 
-All references to the superseded four-field metric system are classified as delete/replace in final scaffold wording. Final accepted fields remain:
+Final accepted signal fields remain:
 
 - `EVD`
 - `IMP`
 - `RSK`
 - scoped `URG` for process handovers, Daily Command Board routing, and time-sensitive handoff priority only.
 
+All non-final metric language from proposal/control artifacts is classified as delete/replace in final scaffold wording, not preserve.
+
 ## Validation result
 
 - Duplicate IDs: classified.
 - Proposed templates: merge/add/defer/omit classified.
-- Old metric occurrences: delete/replace classified.
+- Metric cleanup: classified.
 - Cleanup artifacts: cleanup-bound, not permanent doctrine.
