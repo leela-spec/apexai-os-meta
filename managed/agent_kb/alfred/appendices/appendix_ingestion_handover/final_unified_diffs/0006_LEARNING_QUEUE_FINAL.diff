@@ -1,0 +1,111 @@
+diff --git a/managed/agent_kb/alfred/LEARNING_QUEUE.md b/managed/agent_kb/alfred/LEARNING_QUEUE.md
+--- a/managed/agent_kb/alfred/LEARNING_QUEUE.md
++++ b/managed/agent_kb/alfred/LEARNING_QUEUE.md
+@@
+ ## Pending entries
++
++### ALFRED-LQ-006 — Process-priority calibration from real boards
++
++```yaml
++id: ALFRED-LQ-006
++status: candidate
++source_ref: future Daily Command Board and tracking records
++summary: Calibrate process-handover priority and P-class rules from real Daily Command Board outcomes after enough evidence exists.
++candidate_target: best_practice
++evidence_refs: []
++scores:
++  EVD: 35
++  IMP: 75
++  RSK: 65
++source_status: unknown
++owner: alfred
++validator: meta_ops
+overlap_check: must not weaken accepted conservative P0/P1 and hard-flag controls
++review_due: 2026-07-25
++```
++
++### ALFRED-LQ-007 — Exact day-start and day-close protocol
++
++```yaml
++id: ALFRED-LQ-007
++status: candidate
++source_ref: future Alfred source-extension pass
++summary: Define exact day-start and day-close protocol only after the relevant Alfred day/night sources are directly read and validated.
++candidate_target: best_practice
++evidence_refs: []
++scores:
++  EVD: 30
++  IMP: 80
++  RSK: 60
++source_status: not_accessible
++owner: alfred
++validator: meta_ops
+overlap_check: current scaffold permits high-level day-start framing only
++review_due: 2026-07-25
++```
++
++### ALFRED-LQ-008 — Exact 5V workflow
++
++```yaml
++id: ALFRED-LQ-008
++status: candidate
++source_ref: future Alfred source-extension pass
++summary: Define the exact 5V workflow only after direct source validation; keep current references provisional.
++candidate_target: best_practice
++evidence_refs: []
++scores:
++  EVD: 25
++  IMP: 70
++  RSK: 60
++source_status: not_accessible
++owner: alfred
++validator: meta_ops
+overlap_check: must not harden exact 5V steps from memory or source index only
++review_due: 2026-07-25
++```
++
++### ALFRED-LQ-009 — Mobile voice-to-markdown intake
++
++```yaml
++id: ALFRED-LQ-009
++status: candidate
++source_ref: future Alfred source-extension pass
++summary: Define mobile voice-to-markdown intake mechanics only after source validation and workflow ownership review.
++candidate_target: template
++evidence_refs: []
++scores:
++  EVD: 25
++  IMP: 75
++  RSK: 60
++source_status: not_accessible
++owner: alfred
++validator: meta_ops
+overlap_check: must not bypass Prompts/Workflows ownership for reusable intake patterns
++review_due: 2026-07-25
++```
++
++### ALFRED-LQ-010 — Detailed Leela workflow surface split
++
++```yaml
++id: ALFRED-LQ-010
++status: candidate
++source_ref: future Leela source-extension pass
++summary: Split Leela workflow material into scaffold-high-level Alfred interpretation and appendix/deferred product mechanics after directly reading the relevant Skill Tree, Path, Rhythm, Sequencing, Algorithm, Stats, and Sid sources.
++candidate_target: needs_validation
++evidence_refs: []
++scores:
++  EVD: 25
++  IMP: 85
++  RSK: 75
++source_status: not_accessible
++owner: alfred
++validator: meta_detective
+overlap_check: accepted Alfred scaffold must not become detailed Leela product doctrine
++review_due: 2026-07-25
++```
+@@
+ ### Additional future candidates
+@@
+ - Calibration of `EVD / IMP / RSK + URG` and P-class rules from real use.
++- Weekly Preview remains deferred and candidate-only.
++- Monthly Direction Map remains deferred and candidate-only.
