@@ -1,0 +1,258 @@
+diff --git a/managed/agent_kb/alfred/templates/routing_templates.md b/managed/agent_kb/alfred/templates/routing_templates.md
+new file mode 100644
+--- /dev/null
++++ b/managed/agent_kb/alfred/templates/routing_templates.md
+@@
++# Routing Templates
++
++Reusable Alfred routing forms. These are templates, not governance.
++
++## ALFRED-TPL-001 — First-contact intake
++
++Use for new operator requests: goal, desired output, context, timing, capacity, priority, evidence/source status, risk, open questions, recommended owner, next action, stop condition.
++
++## ALFRED-TPL-005 — Compact route brief
++
++Use for operator-readable handoffs. Required fields: `to`, `type`, objective, expected output, constraints, evidence, EVD/IMP/RSK posture, validator, next action, stop condition, open questions, source gaps.
++
++## ALFRED-TPL-006 — Canonical handoff packet
++
++Use for material, multi-step, source-sensitive, or high-risk handoffs. Preserve source status, validator, stop condition, and return expectation.
++
++## ALFRED-TPL-007 / ALFRED-TPL-030 — Escalation, route decision, and hold
++
++Use when Alfred should not continue locally. Include blocker, unsafe continuation risk, evidence, affected surface, recommended next owner, operator-decision need, and stop condition.
++
++## ALFRED-TPL-008 — Validation challenge request
++
++Use for `meta_detective` review when contradiction, drift, weak evidence, or high risk makes self-validation invalid.
++
++## ALFRED-TPL-009 — Knowledge placement / source-gap review
++
++Use for `special_ops__knowledge_bank` when material needs durable placement, source mapping, or candidate/canon separation.
++
++## ALFRED-TPL-010 — One-file KB repair report
++
++Use after a single-file KB patch or repair iteration: target, operation, canonical class, reason, source basis, commit SHA, fetched blob SHA, verification result, remaining risk, next recommended file.
++
+diff --git a/managed/agent_kb/alfred/templates/daily_board_templates.md b/managed/agent_kb/alfred/templates/daily_board_templates.md
+new file mode 100644
+--- /dev/null
++++ b/managed/agent_kb/alfred/templates/daily_board_templates.md
+@@
++# Daily Board Templates
++
++Reusable Alfred Daily Command Board forms. These forms are compact command surfaces, not analytics dashboards.
++
++## ALFRED-TPL-012 — Daily Command Board v1
++
++```md
++## Daily Command Board
++
++| Class | Item | Lane | Readiness | EVD | IMP | RSK | URG | Hard flags | Next action |
++|---|---|---|---|---:|---:|---:|---:|---|---|
++| P1 | <item> | <lane> | <readiness> | <1-100> | <1-100> | <1-100> | <1-100> | <flags> | <action> |
++
++### Board controls
++
++- **P0:** operator-confirmed or true stop-the-line only.
++- **P1 cap:** maximum four normal-day craft-flow items.
++- **Lock status:** draft | operator_locked | needs_revision.
++- **Mutation rule:** after lock, add proposed deltas only.
++```
++
++## Merged compact board fields
++
++```yaml
++daily_command_board_compact_v1:
++  board_id:
++  date:
++  source_window:
++  operator_locked: false
++  calendar_reality:
++    hard_locks: []
++    available_work_windows: []
++    conflicts: []
++  risks_and_repairs: []
++  priority_stack: []
++  craft_flows:
++    CF1:
++    CF2:
++    CF3:
++    CF4:
++  deferred_or_not_today: []
++  rhythm_profile_ref:
++  tracking_seed:
++```
++
+diff --git a/managed/agent_kb/alfred/templates/project_packet_templates.md b/managed/agent_kb/alfred/templates/project_packet_templates.md
+new file mode 100644
+--- /dev/null
++++ b/managed/agent_kb/alfred/templates/project_packet_templates.md
+@@
++# Project Packet Templates
++
++Reusable Alfred packet and bounded MetaOps handoff forms.
++
++## ALFRED-TPL-011 — Project Packet v1
++
++```yaml
++project_packet_v1:
++  packet_id:
++  title:
++  lane: leela | master_of_arts | wildcard | none
++  current_state: draft | candidate | needs_validation | blocked | operator_review_required | accepted
++  objective:
++  desired_output:
++  context_summary:
++  metrics:
++    EVD:
++    IMP:
++    RSK:
++    URG:
++  controls:
++    readiness: ready | partial | missing_input | blocked | operator_decision_needed
++    hard_flags: []
++    priority_class: P0 | P1 | P2 | P3
++  rationale:
++    impact_reason:
++    urgency_reason:
++    unlocks: []
++    risk_note:
++    next_action:
++  stop_condition:
++```
++
++## ALFRED-TPL-013 — MetaOps Craft Flow Handoff v1
++
++```yaml
++metaops_craft_flow_handoff_v1:
++  handoff_id:
++  from_agent: alfred
++  to_agent: meta_ops
++  handoff_type: execution_orchestration
++  board_item_ref:
++  lane: leela | master_of_arts | wildcard | none
++  priority_class: P1 | P2 | P3
++  objective:
++  expected_output:
++  constraints:
++    must_do: []
++    must_not_do:
++      - Do not exceed the bounded objective.
++      - Do not mutate canonical files without a patch plan and approval path.
++  metrics:
++    EVD:
++    IMP:
++    RSK:
++    URG:
++  readiness:
++  hard_flags: []
++  next_action:
++  stop_condition:
++  return_expected:
++```
++
+diff --git a/managed/agent_kb/alfred/templates/trace_state_tracking_templates.md b/managed/agent_kb/alfred/templates/trace_state_tracking_templates.md
+new file mode 100644
+--- /dev/null
++++ b/managed/agent_kb/alfred/templates/trace_state_tracking_templates.md
+@@
++# Trace, State, and Tracking Templates
++
++Reusable Alfred trace/state/tracking forms. Session Export remains trace; OpState changes remain delta candidates until accepted.
++
++## ALFRED-TPL-014 — Session Export correction
++
++```md
++## Session Export Correction
++
++- **Session export ref:** `<path or id>`
++- **Correction source:** operator | verifier | trace audit
++- **Correction:** <what was wrong>
++- **Corrected trace statement:** <replacement trace statement>
++- **OpState impact:** none | candidate_delta_required
++- **Delta candidate ref:** `<id or none>`
++- **Hard flags:** []
++- **Stop condition:** Do not mutate OpState until delta is accepted.
++```
++
++## ALFRED-TPL-015 — OpState Delta Candidate v1
++
++```yaml
++opstate_delta_candidate_v1:
++  delta_id:
++  source_trace:
++  proposed_change:
++  reason:
++  current_state_claim:
++  target_state_claim:
++  evidence:
++    EVD:
++    source_status: fully_read | partially_read | provisional | mixed | unknown
++  impact:
++    IMP:
++  risk:
++    RSK:
++    hard_flags: []
++  readiness: ready | partial | missing_input | blocked | operator_decision_needed
++  validator: meta_ops | meta_detective | operator
++  acceptance_needed: true
++  stop_condition: Do not apply until accepted.
++```
++
++## ALFRED-TPL-016 — Tracking Record v1
++
++```yaml
++tracking_record_v1:
++  record_id:
++  source: daily_board | session_export | handoff_return | operator_note
++  item_ref:
++  action_taken:
++  result: done | partial | skipped | blocked | deferred
++  friction_note:
++  follow_up_candidate:
++  exclusions:
++    mood_energy_tracking: excluded_in_v1
++    bp_xp_tracking: excluded_in_v1
++```
++
+diff --git a/managed/agent_kb/alfred/templates/pattern_learning_templates.md b/managed/agent_kb/alfred/templates/pattern_learning_templates.md
+new file mode 100644
+--- /dev/null
++++ b/managed/agent_kb/alfred/templates/pattern_learning_templates.md
+@@
++# Pattern Learning Templates
++
++Reusable Alfred pattern-learning forms. Pattern observations remain candidate-first until threshold evidence and promotion rules are satisfied.
++
++## ALFRED-TPL-017 — Pattern Candidate v1
++
++```yaml
++pattern_candidate_v1:
++  pattern_id:
++  observation:
++  occurrences:
++    count:
++    refs: []
++  suspected_value:
++  constraints: []
++  evidence:
++    EVD:
++    IMP:
++    RSK:
++  status: candidate | strong_candidate | needs_validation | rejected | promoted
++  promotion_threshold_note:
++  stop_condition: Do not promote after one occurrence.
++```
++
++## ALFRED-TPL-029 — Rejected Pattern Archive v1
++
++```yaml
++rejected_pattern_archive_v1:
++  candidate_id:
++  rejected_at:
++  rejection_reason:
++  source_tracking_records: []
++  resurface_only_if_new_evidence_count: ">=2"
++```
