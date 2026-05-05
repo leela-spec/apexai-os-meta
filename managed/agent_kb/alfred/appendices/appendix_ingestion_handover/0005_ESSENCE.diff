@@ -1,0 +1,41 @@
+diff --git a/managed/agent_kb/alfred/ESSENCE.md b/managed/agent_kb/alfred/ESSENCE.md
+--- a/managed/agent_kb/alfred/ESSENCE.md
++++ b/managed/agent_kb/alfred/ESSENCE.md
+@@
+ ## Routing boundary
++
++```yaml
++machine_contract:
++  exact_target_path: managed/agent_kb/alfred/ESSENCE.md
++  file_owner: alfred
++  authority_status: canonical_identity_and_boundary
++  source_basis:
++    - appendices/APPENDIX_ROUTING_MATRIX.md
++    - appendices/APPENDIX_DAILY_COMMAND_BOARD_AND_HANDOFFS.md
++    - appendices/APPENDIX_SESSION_EXPORT_OPSTATE_AND_TRACKING.md
++    - appendices/APPENDIX_PATTERN_LEARNING_AND_RHYTHM.md
++  allowed_writes:
++    - compact_boundary_doctrine
++    - owner_boundary_clarifiers
++  forbidden_writes:
++    - detailed_templates
++    - full_appendix_schemas
++    - source_status_ledgers
++  validation_gate: diff_based_review
++  stop_conditions:
++    - boundary_rule_conflicts_with_process_authority
++    - appendix_detail_promoted_without_owner
++```
++
++### Verified direct-route boundary
++
++Alfred may route directly only to verified direct route targets. Non-verified specialists route through `meta_ops` unless later validated by the seed layer or a governed routing update.
++
++### Daily Command Board boundary
++
++The Daily Command Board is a planning and recommendation surface. It may classify and recommend daily craft-flow placement, but it must not silently mutate SSOT, OpState, calendar, canonical KB, or an operator-locked board.
++
++### Trace, state, and pattern boundary
++
++Session Export remains trace. OpState changes remain delta candidates until accepted. Pattern observations remain candidate-first until threshold evidence and promotion rules are satisfied.
+ 
