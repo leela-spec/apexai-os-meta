@@ -45,6 +45,94 @@ mistake_entry:
 
 ## Accepted mistake patterns
 
+### ALFRED-MF-024 — Unverified direct-route drift
+
+```yaml
+id: ALFRED-MF-024
+status: accepted
+pattern: Alfred routes directly to a specialist that is not validated in the current routing matrix or seed-layer route contract.
+trigger_conditions:
+  - requested owner sounds plausible but is not verified
+  - broad specialist pool is inferred
+  - Alfred bypasses meta_ops for an unverified target
+countermeasure: Route through `meta_ops` unless the direct route target is explicitly verified by the current routing matrix or a later validated route update.
+evidence_refs:
+  - appendices/APPENDIX_ROUTING_MATRIX.md
+scores:
+  EVD: 85
+  IMP: 85
+  RSK: 75
+owner: alfred
+validator: meta_ops
+review_due: 2026-07-25
+```
+
+### ALFRED-MF-025 — Raw project dump to MetaOps
+
+```yaml
+id: ALFRED-MF-025
+status: accepted
+pattern: Alfred sends raw project or source context to MetaOps instead of a bounded craft-flow or execution handoff.
+trigger_conditions:
+  - Daily Command Board item becomes execution work
+  - source material is large
+  - Alfred expects MetaOps to infer objective, outputs, and stop condition
+countermeasure: Use a bounded MetaOps craft-flow handoff with objective, expected outputs, priority control, constraints, requested outputs, and stop condition.
+evidence_refs:
+  - appendices/APPENDIX_DAILY_COMMAND_BOARD_AND_HANDOFFS.md
+scores:
+  EVD: 80
+  IMP: 85
+  RSK: 70
+owner: alfred
+validator: meta_ops
+review_due: 2026-07-25
+```
+
+### ALFRED-MF-026 — Session trace pollution
+
+```yaml
+id: ALFRED-MF-026
+status: accepted
+pattern: Alfred lets Session Export trace pollute OpState, Daily Command Board priority, or canonical KB without a delta, packet, or promotion step.
+trigger_conditions:
+  - session output looks actionable
+  - Night derives next work from trace
+  - tracking suggests state should change
+countermeasure: Keep Session Export as immutable trace; create OpState delta candidates or Project Packets separately and require review before state or doctrine changes.
+evidence_refs:
+  - appendices/APPENDIX_SESSION_EXPORT_OPSTATE_AND_TRACKING.md
+scores:
+  EVD: 85
+  IMP: 90
+  RSK: 80
+owner: alfred
+validator: meta_ops
+review_due: 2026-07-25
+```
+
+### ALFRED-MF-027 — Rejected candidate trace loss
+
+```yaml
+id: ALFRED-MF-027
+status: accepted
+pattern: Rejected pattern candidates disappear without rejection reason or source-record trace.
+trigger_conditions:
+  - pattern candidate is weak
+  - operator rejects a candidate
+  - cleanup removes candidate records
+countermeasure: Archive rejected candidates with rejection reason, source records, and resurface threshold instead of deleting silently.
+evidence_refs:
+  - appendices/APPENDIX_PATTERN_LEARNING_AND_RHYTHM.md
+scores:
+  EVD: 75
+  IMP: 70
+  RSK: 65
+owner: alfred
+validator: meta_ops
+review_due: 2026-07-25
+```
+
 ### ALFRED-MF-001 — Universal-executive drift
 
 ```yaml
@@ -632,6 +720,10 @@ review_due: 2026-07-25
 | Excluded metrics creep | Are mood/energy/BP/XP entering Alfred v1 tracking? | Keep tracking minimal and process-oriented. |
 | Daily board dashboard bloat | Is the board becoming an analytics surface? | Keep it compact; move detail elsewhere. |
 | Premature weekly/monthly operationalization | Is future planning being built before daily evidence exists? | Keep as preview/placeholders or learning candidates. |
+| Unverified direct-route drift | Is Alfred bypassing `meta_ops` for an unverified target? | Route through `meta_ops` unless verified. |
+| Raw project dump to MetaOps | Is MetaOps receiving raw context instead of a bounded handoff? | Use a craft-flow or execution handoff with objective, outputs, constraints, and stop condition. |
+| Session trace pollution | Is trace becoming state, board priority, or doctrine? | Create packet/delta/promotion candidates separately. |
+| Rejected candidate trace loss | Is a rejected candidate deleted without reason? | Archive with source records and resurface threshold. |
 
 ## Consolidation rule
 
