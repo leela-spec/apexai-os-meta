@@ -4,7 +4,9 @@
 
 Accepted validated reusable Alfred templates.
 
-This file is the canonical home for Alfred's reusable forms: intake frames, alignment frames, route briefs, handoff packets, escalation forms, and KB repair reports. It absorbs the reusable template-level material from `HANDOFF_SCHEMA.md` while preserving `ESSENCE.md` as authority, `BEST_PRACTICES.md` as operating method, and `MISTAKES.md` as anti-pattern control.
+This file is the canonical index for Alfred's reusable forms: intake frames, alignment frames, route briefs, handoff packets, escalation forms, KB repair reports, board forms, project packets, trace/state/tracking forms, and pattern-learning forms.
+
+Detailed grouped forms may live under `managed/agent_kb/alfred/templates/`. Grouped template files are reusable-form surfaces only; they do not define governance, runtime law, source status, or process authority.
 
 ## Status
 
@@ -12,7 +14,7 @@ This file is the canonical home for Alfred's reusable forms: intake frames, alig
 agent_id: alfred
 kb_root: managed/agent_kb/alfred/
 canonical_file: TEMPLATES.md
-file_status: canonical_templates_consolidated
+file_status: canonical_templates_index_with_grouped_files
 absorbed_template_from:
   - managed/agent_kb/alfred/HANDOFF_SCHEMA.md
 constrained_by:
@@ -23,6 +25,12 @@ constrained_by:
   - managed/agent_kb/alfred/COVERAGE_AUDIT.md
 source_posture: validated_core_only
 validator: meta_ops
+template_groups:
+  - managed/agent_kb/alfred/templates/routing_templates.md
+  - managed/agent_kb/alfred/templates/daily_board_templates.md
+  - managed/agent_kb/alfred/templates/project_packet_templates.md
+  - managed/agent_kb/alfred/templates/trace_state_tracking_templates.md
+  - managed/agent_kb/alfred/templates/pattern_learning_templates.md
 next_recommended_file: managed/agent_kb/alfred/LEARNING_QUEUE.md
 review_due: 2026-07-25
 ```
@@ -52,6 +60,22 @@ Templates are reusable forms, not governance or runtime law.
 Use these templates to make Alfred outputs consistent and route-ready. Do not treat examples as permission to execute, self-validate, promote accepted truth, mutate config, or harden source-gap-dependent Leela mechanics.
 
 When a template depends on detailed Leela product mechanics, mark those mechanics as source-gap-dependent unless a later source-extension pass directly validates them.
+
+## Grouped template index
+
+The following grouped files hold reusable forms by function. They are subordinate to this index and to the canonical/process owners named above.
+
+| Group file | Contains |
+|---|---|
+| `templates/routing_templates.md` | First-contact intake, route brief, canonical handoff packet, escalation/hold, validation challenge, KB/source-gap review, KB repair report. |
+| `templates/daily_board_templates.md` | Daily Command Board compact form, CF1-CF4 board fields, board lock controls, P0/P1 controls. |
+| `templates/project_packet_templates.md` | Project Packet, process handover priority card, bounded MetaOps craft-flow handoff. |
+| `templates/trace_state_tracking_templates.md` | Session Export correction, OpState delta candidate, minimal tracking record. |
+| `templates/pattern_learning_templates.md` | Pattern Candidate and Rejected Pattern Archive. |
+
+## Deferred template candidates
+
+Weekly Preview and Monthly Direction Map remain deferred / candidate-only until later promotion. They may be preserved as candidate reference forms, but they are not operational planning doctrine and must not be treated as accepted daily/weekly/monthly runtime authority.
 
 ## Accepted templates
 
@@ -513,7 +537,7 @@ pattern_candidate_v1:
 
 Evidence: `APPENDIX_PATTERN_LEARNING_AND_RHYTHM.md`. Owner: `alfred`. Validator: `meta_ops`. Review due: `2026-07-25`.
 
-### ALFRED-TPL-018 — Weekly Preview v1
+### ALFRED-TPL-018 — Weekly Preview deferred candidate
 
 Use when daily board and rhythm evidence should become a lightweight week-facing preview without full operationalization.
 
@@ -532,7 +556,7 @@ Use when daily board and rhythm evidence should become a lightweight week-facing
 
 Evidence: `APPENDIX_PATTERN_LEARNING_AND_RHYTHM.md`, `APPENDIX_DAILY_COMMAND_BOARD_AND_HANDOFFS.md`. Owner: `alfred`. Validator: `meta_ops`. Review due: `2026-07-25`.
 
-### ALFRED-TPL-019 — Monthly Direction Map placeholder
+### ALFRED-TPL-019 — Monthly Direction Map deferred placeholder
 
 Use only as a non-operational placeholder until future work defines the monthly planning model.
 
