@@ -1,0 +1,30 @@
+diff --git a/managed/agent_kb/alfred/README.md b/managed/agent_kb/alfred/README.md
+--- a/managed/agent_kb/alfred/README.md
++++ b/managed/agent_kb/alfred/README.md
+@@ -45,6 +45,18 @@ The files below do not define a second KB scaffold.
+ | `SOURCE_MANIFEST.md` | source/audit control | Keep. This is provenance and source-status control, not doctrine. |
+ | `COVERAGE_AUDIT.md` | source/audit control | Keep. This constrains validated/provisional/source-gap claims, but is not accepted doctrine by itself. |
+ 
++### Template group structure
++
++If the grouped template structure is applied, `TEMPLATES.md` remains the canonical template index and detailed reusable forms live under:
++
++- `managed/agent_kb/alfred/templates/routing_templates.md`
++- `managed/agent_kb/alfred/templates/daily_board_templates.md`
++- `managed/agent_kb/alfred/templates/project_packet_templates.md`
++- `managed/agent_kb/alfred/templates/trace_state_tracking_templates.md`
++- `managed/agent_kb/alfred/templates/pattern_learning_templates.md`
++
++Grouped template files are reusable-form surfaces only. They do not define governance, runtime law, source status, or process authority.
++
+ ## Active subordinate appendices
+ 
+ | Appendix file | Appendix type | Reason retained | Canonical owner |
+@@ -181,6 +193,7 @@ When adding or repairing Alfred KB material:
+ 8. Keep future writes one file per turn where possible; structural moves may require create-new-file plus redirect-old-file.
+ 9. Use the governed promotion path for truth-bearing changes.
+ 10. Run source-extension audit before hardening detailed Leela surface mechanics.
++11. Do not add permanent navigation to cleanup-bound proposal/control folders after ingestion.
+ 
+ ## Recommended next actions
+ 
