@@ -1,0 +1,26 @@
+diff --git a/managed/agent_kb/alfred/README.md b/managed/agent_kb/alfred/README.md
+--- a/managed/agent_kb/alfred/README.md
++++ b/managed/agent_kb/alfred/README.md
+@@
+ ## Canonical five-file KB scaffold
+@@
+ | `TEMPLATES.md` | consolidated | Accepted reusable Alfred forms. | Absorbed reusable handoff and route-brief forms from `HANDOFF_SCHEMA.md`. |
+@@
+ ## Support-file classification
++
++### Template group structure
++
++If the final template split is applied, `TEMPLATES.md` remains the compact canonical template index and detailed reusable forms move to:
++
++- `managed/agent_kb/alfred/templates/routing_templates.md`
++- `managed/agent_kb/alfred/templates/daily_board_templates.md`
++- `managed/agent_kb/alfred/templates/project_packet_templates.md`
++- `managed/agent_kb/alfred/templates/trace_state_tracking_templates.md`
++- `managed/agent_kb/alfred/templates/pattern_learning_templates.md`
++
++Grouped template files are reusable-form surfaces only. They do not define governance, runtime law, source status, or process authority.
+@@
+ ## Maintenance rule
+@@
+ 10. Run source-extension audit before hardening detailed Leela surface mechanics.
++11. Do not add permanent navigation to cleanup-bound proposal/control folders after ingestion.
