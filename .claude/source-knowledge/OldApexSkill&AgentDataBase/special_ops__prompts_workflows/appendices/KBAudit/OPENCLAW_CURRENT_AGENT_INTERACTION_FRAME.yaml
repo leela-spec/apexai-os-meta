@@ -1,0 +1,251 @@
+schema_version: "1.0"
+artifact_type: "current_repo_agent_orchestration_frame"
+artifact_name: "OPENCLAW_CURRENT_AGENT_INTERACTION_FRAME"
+status: "draft_orientation_frame"
+audience: "deep_research_prompt"
+purpose: >
+  Describe how the current repo organizes, defines, routes, validates, and
+  constrains first-wave agent interaction. This file is an orientation frame,
+  not an agent-definition file and not a prompt/task specification.
+
+source_basis:
+  source_index:
+    path: "agent_kb_source_indexes/KB_INFORMATICS_DEEP_RESEARCH_ONLINE_REPO_INDEX.yaml"
+    role: "navigation_and_source_authority_index"
+    current_authority_boundary: "OpenClaw/07_finalopenclawsystem"
+    source_or_staging_boundary: "OpenClaw/04_final-system-setup, OpenClaw/02_research-kb, and agent_kb_source_indexes are evidence/source-selection material, not runtime law"
+  current_managed_surfaces:
+    role_state_law: "OpenClaw/07_finalopenclawsystem/managed/rules/AGENT_SWARM_INTERACTION_CANON.md"
+    activation_index: "OpenClaw/07_finalopenclawsystem/managed/agents/AGENT_INDEX.md"
+    handoff_contract: "OpenClaw/07_finalopenclawsystem/managed/processes/AGENT_HANDOFF_CONTRACTS.md"
+    kb_lane_policy: "OpenClaw/07_finalopenclawsystem/managed/knowledge/AGENT_KB_LANES.md"
+    orchestration_flow: "OpenClaw/07_finalopenclawsystem/managed/processes/HOLDING_ORCHESTRATION_FLOW.md"
+    overlap_validation: "OpenClaw/07_finalopenclawsystem/managed/knowledge/OVERLAP_VALIDATION_MATRIX.md"
+    cross_reference_manifest: "OpenClaw/07_finalopenclawsystem/managed/knowledge/CROSS_REFERENCE_MANIFEST.md"
+
+core_model:
+  interaction_surface: "repo_managed_files"
+  default_posture: "sequential_conservative"
+  human_contact_default: "one_main_user_facing_coordinator"
+  delegation_rule: "allowed_only_when_bounded_legible_reviewable"
+  hidden_context_rule: "handoff_must_not_depend_on_transient_chat_reasoning"
+  permission_rule: "operational_state_grants_permission; semantic_role_only_defines_accountability"
+  truth_rule: "candidate_or_learning_material_is_not_accepted_truth"
+  validation_rule: "high_impact_or_high_risk_work_requires_named_validator_or_operator_review"
+
+first_wave_named_agents:
+  alfred:
+    seed: "managed/agents/alfred.md"
+    kb_root: "managed/agent_kb/alfred/"
+    role: "operator_intake_constraints_route_brief"
+    default_validator: "meta_ops"
+  meta_ops:
+    seed: "managed/agents/meta_ops.md"
+    kb_root: "managed/agent_kb/meta_ops/"
+    role: "orchestration_activation_sequence_control_handoff_routing"
+    default_validator: "meta_detective"
+  meta_strategy:
+    seed: "managed/agents/meta_strategy.md"
+    kb_root: "managed/agent_kb/meta_strategy/"
+    role: "options_timing_leverage_recommendation"
+    default_validator: "meta_detective"
+  meta_detective:
+    seed: "managed/agents/meta_detective.md"
+    kb_root: "managed/agent_kb/meta_detective/"
+    role: "adversarial_validation_drift_detection_plausibility_escalation"
+    default_validator: "special_ops__hygiene_clean"
+  special_ops__knowledge_bank:
+    seed: "managed/agents/special_ops__knowledge_bank.md"
+    kb_root: "managed/agent_kb/special_ops__knowledge_bank/"
+    role: "kb_placement_lifecycle_manifest_source_routing"
+    default_validator: "special_ops__informatics_design"
+  special_ops__informatics_design:
+    seed: "managed/agents/special_ops__informatics_design.md"
+    kb_root: "managed/agent_kb/special_ops__informatics_design/"
+    role: "structure_terminology_readability_taxonomy"
+    default_validator: "special_ops__hygiene_clean"
+  special_ops__prompts_workflows:
+    seed: "managed/agents/special_ops__prompts_workflows.md"
+    kb_root: "managed/agent_kb/special_ops__prompts_workflows/"
+    role: "reusable_prompt_workflow_patchspec_patterns"
+    default_validator: "meta_ops"
+  special_ops__ai_handling_routing:
+    seed: "managed/agents/special_ops__ai_handling_routing.md"
+    kb_root: "managed/agent_kb/special_ops__ai_handling_routing/"
+    role: "advisory_model_tool_routing_posture"
+    default_validator: "meta_ops"
+  special_ops__hygiene_clean:
+    seed: "managed/agents/special_ops__hygiene_clean.md"
+    kb_root: "managed/agent_kb/special_ops__hygiene_clean/"
+    role: "structural_qa_pointer_integrity_cleanup_safety"
+    default_validator: "meta_detective"
+
+semantic_role_layer:
+  meaning: "accountability_and_work_type"
+  roles:
+    PLANNER: "session_or_cycle_routing"
+    STRUCTURER: "bounded_artifact_internal_structure"
+    DRAFTER: "candidate_content_or_bounded_working_output"
+    VERIFIER: "bounded_review_validation_loopback_or_escalation"
+    AUDITOR: "cross_surface_integrity_hygiene_governance_reliability"
+    PROMOTER: "approved_transition_execution_only"
+  anti_conflation:
+    - "role_label_is_not_permission"
+    - "planning_authority_is_not_truth_authority"
+    - "verification_is_not_promotion_execution"
+    - "candidate_output_is_not_accepted_truth"
+
+operational_state_layer:
+  meaning: "permission_layer_for_current_bounded_task_or_surface"
+  states:
+    BUILD:
+      permits: ["bounded_creation", "bounded_structuring", "bounded_drafting", "candidate_output"]
+      forbids: ["silent_self_verification", "direct_truth_mutation_outside_promotion_path", "lock_bypass"]
+    VERIFY:
+      permits: ["review", "consistency_check", "reject_invalid_handoff", "propose_loopback_hold_escalation"]
+      forbids: ["unmarked_substantive_rewrite_of_reviewed_artifact", "truth_mutation_by_recommendation_only"]
+    LOCK:
+      permits: ["read", "compare", "reference", "prepare_routing_or_audit_output"]
+      forbids: ["substantive_mutation_without_governing_unblock"]
+  normal_transitions:
+    - "BUILD->VERIFY: candidate ready for review"
+    - "VERIFY->BUILD: visible failure reason requires revision"
+    - "VERIFY->LOCK: approval/escalation/governance condition freezes workstream"
+    - "LOCK->BUILD: only after explicit unblock"
+  forbidden_transitions:
+    - "BUILD->promotion_complete"
+    - "VERIFY->silent_truth_rewrite"
+    - "LOCK->BUILD_by_convenience"
+
+kb_organization:
+  lane_classes:
+    compact_activation_seed:
+      location: "managed/agents/<agent_id>.md"
+      function: "activate agent, state compact role boundary, point to kb root"
+      rule: "do_not_store_rich_doctrine_here"
+    per_agent_kb_root:
+      location: "managed/agent_kb/<agent_id>/"
+      function: "accepted role doctrine, practices, mistakes, templates, candidate queue"
+      scaffold: ["ESSENCE.md", "BEST_PRACTICES.md", "MISTAKES.md", "TEMPLATES.md", "LEARNING_QUEUE.md"]
+    shared_governance_surface:
+      location: "managed/knowledge/"
+      function: "kb placement, source routing, promotion templates, manifests, overlap validation"
+    process_contract_surface:
+      location: "managed/processes/"
+      function: "handoff, orchestration, workflow contracts"
+  runtime_loading_boundary:
+    - "seeds_may_load_for_activation_and_routing"
+    - "ESSENCE_loads_when_agent_boundary_matters"
+    - "BEST_PRACTICES_MISTAKES_TEMPLATES_load_on_demand"
+    - "managed_knowledge_loads_for_placement_promotion_overlap_questions"
+    - "managed_processes_loads_for_workflow_handoff_orchestration_questions"
+    - "LEARNING_QUEUE_never_loads_as_accepted_truth"
+
+routing_logic:
+  start:
+    alfred: "operator_context_priorities_calendar_ambiguity"
+    meta_ops: "bounded_execution_or_research_problem_already_concrete"
+  add:
+    meta_strategy: "meaningful_options_timing_tradeoffs_scenario_uncertainty"
+    meta_detective: "T2_plus_weak_evidence_disagreement_or_drift_risk"
+    special_ops__knowledge_bank: "durable_source_placement_lane_routing_candidate_logging"
+    special_ops__informatics_design: "retrieval_safe_low_drift_structurally_clean_output"
+    special_ops__prompts_workflows: "reusable_execution_pattern_or_patchspec_workflow"
+    special_ops__ai_handling_routing: "model_tool_posture_affects_quality_cost_safety"
+    special_ops__hygiene_clean: "stale_state_missing_surfaces_broken_pointers_backlog_hygiene"
+
+handoff_model:
+  valid_handoff_requires:
+    - "from_agent"
+    - "to_agent"
+    - "bounded_objective"
+    - "current_state"
+    - "target_state"
+    - "inputs_with_status"
+    - "expected_outputs"
+    - "constraints"
+    - "authority_basis"
+    - "EVD_1_100"
+    - "IMP_1_100"
+    - "RSK_1_100"
+    - "validation_required"
+    - "validator"
+    - "next_action"
+    - "stop_conditions"
+  receiver_dispositions: ["accept", "reject", "validate", "revise", "escalate", "operator_review_required"]
+  stop_or_reject_if:
+    - "target_agent_not_first_wave"
+    - "domain_master_or_new_agent_creation_implied"
+    - "target_needs_authority_outside_lane"
+    - "candidate_or_learning_queue_treated_as_truth"
+    - "source_or_staging_material_treated_as_runtime_authority"
+    - "accepted_truth_changes_without_promotion_path"
+    - "config_change_implied_without_operator_review"
+    - "evidence_too_weak_for_claimed_impact_or_risk"
+    - "blocked_state_has_no_unblock_condition"
+
+default_handoff_pairs:
+  - ["alfred", "meta_ops", "route_brief_to_orchestration"]
+  - ["alfred", "meta_strategy", "strategy_options_request"]
+  - ["meta_ops", "meta_detective", "validation_request"]
+  - ["meta_strategy", "meta_detective", "challenge_recommendation"]
+  - ["meta_detective", "meta_ops", "verdict_or_stop_condition_return"]
+  - ["meta_detective", "special_ops__hygiene_clean", "structural_or_trace_concern"]
+  - ["special_ops__knowledge_bank", "special_ops__informatics_design", "kb_placement_shape_validation"]
+  - ["special_ops__knowledge_bank", "meta_detective", "promotion_or_canonization_risk_validation"]
+  - ["special_ops__informatics_design", "special_ops__hygiene_clean", "structural_hygiene_validation"]
+  - ["special_ops__prompts_workflows", "meta_ops", "workflow_pattern_return"]
+  - ["special_ops__ai_handling_routing", "meta_ops", "advisory_routing_recommendation"]
+  - ["special_ops__hygiene_clean", "meta_detective", "hygiene_finding_for_adversarial_review"]
+  - ["meta_ops", "special_ops__knowledge_bank", "kb_placement_or_candidate_routing_request"]
+
+hard_overlap_boundaries:
+  - "alfred_must_not_absorb_meta_ops_strategy_detective_or_runtime_law"
+  - "meta_ops_orchestrates_but_does_not_self_validate_high_impact_output"
+  - "meta_strategy_frames_options_but_does_not_command_execution"
+  - "meta_detective_validates_and_challenges_but_does_not_execute_findings"
+  - "knowledge_bank_owns_placement_lifecycle_and_candidate_routing_not_truth_promotion"
+  - "informatics_design_owns_structure_taxonomy_retrieval_shape_not_truth_authority"
+  - "hygiene_clean_classifies_routes_and_recommends_cleanup_not_truth_mutation"
+  - "prompts_workflows_owns_reusable_patterns_not_orchestration_authority"
+  - "ai_handling_routing_is_advisory_not_config_authority"
+  - "domain_masters_are_deferred_not_first_wave"
+
+deep_research_must_understand:
+  - "current_repo_already_has_first_wave_agent_interaction_surfaces"
+  - "agent_names_are_seed_vocabulary_subordinate_to_role_state_law"
+  - "role_state_handoff_and_kb_lane_surfaces_are_distinct_and_should_not_be_merged"
+  - "compact_seeds_and_per_agent_kb_roots_are_deliberately_separated"
+  - "handoff_packets_are_control_surfaces_not_implementation_authority"
+  - "learning_queue_and_candidate_material_are_not_runtime_truth"
+  - "source_staging_material_is_evidence_only_unless_promoted"
+  - "deep_research_should_not_redefine_first_wave_interaction_from_scratch_without_showing_conflict_with_managed_surfaces"
+
+open_alignment_questions:
+  - id: "Q1"
+    topic: "metric_scale_consistency"
+    current_recommendation: "use_EVD_IMP_RSK_1_100_for_deep_research_and_handoff"
+    note: "some queue-source material may mention older scales; current handoff/index posture favors 1-100"
+  - id: "Q2"
+    topic: "include_orchestration_flow_depth"
+    current_recommendation: "reference_HOLDING_ORCHESTRATION_FLOW_as_source; do_not_inline_full_flow_here"
+  - id: "Q3"
+    topic: "artifact_scope"
+    current_recommendation: "keep_this_file_as_current_interaction_frame_only; no_agent_redefinition"
+
+compression_rule:
+  if_context_tight_keep_only:
+    - "source_basis.current_managed_surfaces"
+    - "core_model"
+    - "first_wave_named_agents"
+    - "semantic_role_layer.roles"
+    - "operational_state_layer.states"
+    - "kb_organization.lane_classes"
+    - "routing_logic"
+    - "handoff_model.valid_handoff_requires"
+    - "hard_overlap_boundaries"
+
+final_reader_instruction: >
+  Use this file to understand the current repo's agent interaction architecture.
+  Do not use it to create new agents, redefine roles, mutate managed law, or
+  replace the underlying authority files.

@@ -1,0 +1,61 @@
+diff --git a/OpenClaw/07_finalopenclawsystem/managed/agent_kb/special_ops__prompts_workflows/MISTAKES.md b/OpenClaw/07_finalopenclawsystem/managed/agent_kb/special_ops__prompts_workflows/MISTAKES.md
+index 5410755..4444444 100644
+--- a/OpenClaw/07_finalopenclawsystem/managed/agent_kb/special_ops__prompts_workflows/MISTAKES.md
++++ b/OpenClaw/07_finalopenclawsystem/managed/agent_kb/special_ops__prompts_workflows/MISTAKES.md
+@@ -153,12 +153,46 @@ mistake_entry:
+   owner: special_ops__prompts_workflows
+   validator: meta_ops
+   review_due: 2026-07-27
++
++- id: `PW-MK-007`
++  status: accepted
++  pattern: A named promptflow artifact is treated as the whole task even when the operator intended execution of the broader flow.
++  trigger_conditions:
++    - operator names a promptflow, appendix, or artifact path
++    - named artifact already exists or matches a prior commit
++    - user asks to execute rather than merely inspect
++    - assistant does not compare operator intent against the artifact contract and repo state
++  countermeasure: Run an intent-contract check before reporting completion. If the operator's intended execution scope is broader than the named artifact status, create the missing bounded output artifact or stop on a real blocking question. Do not report `no-op` merely because one named file already exists.
++  evidence_refs:
++    - `appendices/APPENDIX_KB_QA_AND_NEXT_RESEARCH_PLAN.md#user-intent-versus-executed-promptflow-gap-analysis`
++    - `appendices/APPENDIX_KB_EXAMPLES.md#example-2-user-intent-versus-named-artifact-mismatch`
++    - `appendices/PROMPTFLOW_PROMPTS_WORKFLOWS_BOUNDED_EXECUTION_GUARDRAILS.md#5-required-execution-contract`
++  scores:
++    EVD: 5
++    IMP: 5
++    RSK: 4
++  owner: special_ops__prompts_workflows
++  validator: meta_ops
++  review_due: 2026-07-27
++
++- id: `PW-MK-008`
++  status: accepted
++  pattern: Completion is claimed from artifact existence instead of current completeness, intent fit, and validation against the requested phase.
++  trigger_conditions:
++    - prior artifact exists
++    - previous commit already contains related content
++    - assistant reports status before checking the intended deliverable
++    - requested output includes decisions, options, recommendations, or next-step research
++  countermeasure: Validate against the active requested deliverable: intended output, exact target, content completeness, one-file or one-artifact constraint, and stop condition. If the content exists but does not answer the requested decision layer, create the missing artifact or report the exact gap.
++  evidence_refs:
++    - `appendices/APPENDIX_KB_QA_AND_NEXT_RESEARCH_PLAN.md#current-qa-status`
++    - `appendices/APPENDIX_KB_EXAMPLES.md#regression-checklist`
++  scores:
++    EVD: 5
++    IMP: 5
++    RSK: 4
++  owner: special_ops__prompts_workflows
++  validator: meta_ops
++  review_due: 2026-07-27
+ 
+ ## Appendix pointers
+ 
+ - Anti-drift evidence: `appendices/APPENDIX_KB_ANTI_DRIFT_EVIDENCE.md`
+ - Source conflict report: `appendices/SOURCE_CONFLICT_REPORT.md`
+ - Candidate ledger: `appendices/APPENDIX_KB_CANDIDATE_LEDGER.md`
++- Examples: `appendices/APPENDIX_KB_EXAMPLES.md`
++- QA and next research plan: `appendices/APPENDIX_KB_QA_AND_NEXT_RESEARCH_PLAN.md`
+ 
+ ## Promotion boundary
+ 
+ Add entries here only after validation and promotion from `LEARNING_QUEUE.md`.

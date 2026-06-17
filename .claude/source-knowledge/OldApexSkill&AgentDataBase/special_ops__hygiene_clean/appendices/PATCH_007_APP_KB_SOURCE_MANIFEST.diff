@@ -1,0 +1,66 @@
+diff --git a/OpenClaw/07_finalopenclawsystem/managed/agent_kb/special_ops__hygiene_clean/appendices/APPENDIX_KB_SOURCE_MANIFEST.md b/OpenClaw/07_finalopenclawsystem/managed/agent_kb/special_ops__hygiene_clean/appendices/APPENDIX_KB_SOURCE_MANIFEST.md
+--- a/OpenClaw/07_finalopenclawsystem/managed/agent_kb/special_ops__hygiene_clean/appendices/APPENDIX_KB_SOURCE_MANIFEST.md
++++ b/OpenClaw/07_finalopenclawsystem/managed/agent_kb/special_ops__hygiene_clean/appendices/APPENDIX_KB_SOURCE_MANIFEST.md
+@@ -19,6 +19,14 @@
+ | mode | appendix-first KB base build |
+ | write_scope | target root only |
+ 
++## Current update authority note
++
++For the approved Hygiene Clean KB scaffold-update pass, `appendices/ChangesHygiene.md` and `appendices/ChangesHygiene2.md` are the local approval and design-table authorities.
++
++`appendices/PROMPTFLOW_HYGIENE_CLEAN_UNIFIED_DIFF_ARTIFACT_MANUFACTURING.md` governs creation of the per-file unified-diff artifacts for that pass.
++
++The older base-build promptflow remains historical build context only. It does not supersede the current folder-local unified-diff manufacturing promptflow for this update sequence.
++
+ ## Source authority order used
+ 
+ | Tier | Source | Role in this build | Status |
+@@ -101,11 +109,11 @@
+ 
+ ## Gap risk
+ 
+-| Gap | Severity | Disposition |
+-|---|---|---|
+-| One source-inventory access blocker exists for an external/local `UpdateProcessSSOTS` directory | P2 | not blocking for this build because the promptflow source slice has repo-accessible sources and ledgers sufficient for KB base extraction |
+-| Several ledger source paths preserve older local corpus labels | P3 | handled by mapping to repo-accessible source-index paths or treating as ledger evidence only |
+-| Some high-value informatics-design raw sources are represented through ledgers rather than fetched as standalone raw files | P2 | acceptable for this KB base because the target agent needs compact hygiene doctrine plus appendices, not full informatics canon extraction |
++| Gap | Source-gap severity | Disposition | Follow-up |
++|---|---|---|---|
++| One source-inventory access blocker exists for an external/local `UpdateProcessSSOTS` directory | P2 | not blocking for this build because the promptflow source slice has repo-accessible sources and ledgers sufficient for KB base extraction | monitor if future update depends on blocked external/local material |
++| Several ledger source paths preserve older local corpus labels | P3 | handled by mapping to repo-accessible source-index paths or treating as ledger evidence only | preserve representative-source mapping in future manifests |
++| Some high-value informatics-design raw sources are represented through ledgers rather than fetched as standalone raw files | P2 | acceptable for this KB base because the target agent needs compact hygiene doctrine plus appendices, not full informatics canon extraction | revisit only if Hygiene needs deeper Informatics-owned doctrine |
+ 
+ ## Authority risk
+ 
+@@ -121,6 +129,25 @@
+ | Collapsing evidence and rule | store postmortems in anti-drift appendix and summarize only reusable safeguards in scaffold files |
+ | Silent closure of P0/P1 findings | require explicit finding records and closure evidence |
+ 
++## Source Notes register
++
++| note_id | source_path | source_gap_severity | source_note_type | decision | rationale | affected_candidates | affected_scaffold_files | follow_up | status |
++|---|---|---|---|---|---|---|---|---|---|
++| SN-HC-001 | `appendices/ChangesHygiene.md`; `appendices/ChangesHygiene2.md` | none | authority_note | use as current update authority | Operator approved all listed integrations; design table declares exact changed-file set. | `HYG-UPD-001` to `HYG-UPD-013`; `HC-CAND-001` to `HC-CAND-016` | all approved changed files | validate patch artifacts against both files | monitored |
++| SN-HC-002 | `appendices/PROMPTFLOW_HYGIENE_CLEAN_UNIFIED_DIFF_ARTIFACT_MANUFACTURING.md` | none | authority_note | govern unified-diff artifact creation | Prevents scope expansion and requires one diff artifact per target file. | all approved update candidates | all approved changed files | final patchset validation after all seven artifacts exist | monitored |
++| SN-HC-003 | external/local `UpdateProcessSSOTS` directory | P2 | access_blocker | non-blocking for current pass | Current target-folder-local authorities and existing ledgers are sufficient for approved diff artifact creation. | none directly | none directly | revisit only if future work depends on that directory | deferred |
++| SN-HC-004 | older local corpus labels in source ledgers | P3 | representative_choice | map to repo-accessible representative paths or treat as ledger evidence | Prevents source-summary substitution while preserving evidence lineage. | source and provenance candidates | source manifest and candidate ledger | preserve mapping notes in future manifest refreshes | monitored |
++
++## Conflict Watch register
++
++| watch_id | potential_conflict | affected_scope | severity | current_handling | escalation_condition | status |
++|---|---|---|---|---|---|---|
++| CW-HC-001 | Historical base-build promptflow vs current unified-diff manufacturing promptflow | current KB update sequence | P2 | current folder-local unified-diff promptflow governs this pass | if an artifact attempts direct scaffold mutation instead of `.diff` creation | monitored |
++| CW-HC-002 | Candidate realization vs runtime-truth promotion | candidate ledger, learning queue, essence | P1 | realization means represented in KB base only; runtime truth requires governed promotion | if any diff claims `runtime_truth` for a candidate | monitored |
++| CW-HC-003 | Source notes as manifest section vs standalone appendix | source manifest | P3 | keep Source Notes register inside this manifest; do not create standalone appendix yet | if source notes outgrow manifest or require independent lifecycle | deferred |
++
+ ## Conflict report decision
+ 
+ `SOURCE_CONFLICT_REPORT.md` was not created in this pass.
+@@ -134,5 +161,7 @@
+ - **Duplication:** recorded and bounded.
+ - **Gap risk:** non-blocking for KB base build.
+ - **Authority risk:** controlled by candidate-only and evidence-only status rules.
++- **Source notes:** represented locally in this manifest; no standalone source-notes appendix created in this pass.
++- **Conflict watch:** monitored locally; no material blocking conflict found.
+ - **Proceed to scaffold drafting:** yes.

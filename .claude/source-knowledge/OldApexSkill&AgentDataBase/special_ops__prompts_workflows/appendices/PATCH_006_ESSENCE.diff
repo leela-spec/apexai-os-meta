@@ -1,0 +1,19 @@
+diff --git a/OpenClaw/07_finalopenclawsystem/managed/agent_kb/special_ops__prompts_workflows/ESSENCE.md b/OpenClaw/07_finalopenclawsystem/managed/agent_kb/special_ops__prompts_workflows/ESSENCE.md
+index 5d58984..6666666 100644
+--- a/OpenClaw/07_finalopenclawsystem/managed/agent_kb/special_ops__prompts_workflows/ESSENCE.md
++++ b/OpenClaw/07_finalopenclawsystem/managed/agent_kb/special_ops__prompts_workflows/ESSENCE.md
+@@ -29,6 +29,7 @@ This lane owns reusable prompt/workflow construction patterns, stage-gated execut
+ - **Verify before trust:** use read-back, diff, file-state check, checklist, evidence, or test before reporting completion.
+ - **Patch/write mode by context:** patch stable local defects; use full final body or live-edit instruction when diff transport is fragile.
+ - **Capture, do not smuggle:** out-of-mode improvements go to a capture section or learning queue, not into the current bounded run.
++- **Examples are regression tests:** concrete prompt/workflow examples check behavior; they are not decorative reference material.
+ - **Templates are not governance:** templates help build prompts/workflows; they do not create runtime authority.
+@@ -56,6 +57,9 @@ This lane owns reusable prompt/workflow construction patterns, stage-gated execut
+ - Candidate ledger: `appendices/APPENDIX_KB_CANDIDATE_LEDGER.md`
+ - Anti-drift evidence: `appendices/APPENDIX_KB_ANTI_DRIFT_EVIDENCE.md`
+ - Conflict report: `appendices/SOURCE_CONFLICT_REPORT.md`
++- Examples: `appendices/APPENDIX_KB_EXAMPLES.md`
++- Source notes: `appendices/APPENDIX_KB_SOURCE_NOTES.md`
++- QA and next research plan: `appendices/APPENDIX_KB_QA_AND_NEXT_RESEARCH_PLAN.md`
+ 
+ ## Evidence and status
