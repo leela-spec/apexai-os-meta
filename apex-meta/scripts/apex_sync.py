@@ -1,7 +1,3 @@
-
-# FILE: apex-meta/scripts/apex_sync.py
-
-```python
 #!/usr/bin/env python3
 """Deterministic read-side synchronization checks for Apex task files.
 

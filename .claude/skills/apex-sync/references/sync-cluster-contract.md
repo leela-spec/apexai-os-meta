@@ -1,7 +1,3 @@
-
-# FILE: .claude/skills/apex-sync/references/sync-cluster-contract.md
-
-```markdown
 # Sync Cluster Contract
 
 ```yaml

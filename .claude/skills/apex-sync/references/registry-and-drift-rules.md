@@ -1,7 +1,3 @@
-
-# FILE: .claude/skills/apex-sync/references/registry-and-drift-rules.md
-
-```markdown
 # Registry and Drift Rules
 
 ```yaml

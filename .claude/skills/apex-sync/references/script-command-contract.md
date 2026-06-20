@@ -1,7 +1,3 @@
-
-# FILE: .claude/skills/apex-sync/references/script-command-contract.md
-
-```markdown
 # Script Command Contract
 
 ```yaml

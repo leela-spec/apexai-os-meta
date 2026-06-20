@@ -1,7 +1,3 @@
-
-# FILE: .claude/skills/apex-sync/references/scoring-and-focus-rules.md
-
-```markdown
 # Scoring and Focus Rules
 
 ```yaml

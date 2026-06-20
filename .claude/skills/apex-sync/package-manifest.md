@@ -1,7 +1,3 @@
-
-# FILE: .claude/skills/apex-sync/package-manifest.md
-
-```markdown
 # Apex Sync Package Manifest
 
 ```yaml
