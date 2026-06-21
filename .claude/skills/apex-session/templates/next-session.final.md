@@ -1,0 +1,19 @@
+# Current Step
+
+USER_INPUT_REQUIRED
+
+# Open Items
+
+- USER_INPUT_REQUIRED
+
+# Risks
+
+- USER_INPUT_REQUIRED
+
+# Decisions Made
+
+- USER_INPUT_REQUIRED
+
+# Next Actions
+
+- USER_INPUT_REQUIRED
