@@ -1,5 +1,60 @@
 #!/usr/bin/env python3
 """
+repair_apex_kb_format.py
+
+Purpose:
+  Repair Apex KB files that were accidentally saved as chat-output blocks
+  instead of final repository files.
+
+What it fixes:
+  - Removes leading "# FILE: ..." wrapper lines.
+  - Removes outer Markdown code fences around whole files.
+  - Rehydrates common collapsed Markdown/code-fence boundaries.
+  - Rehydrates simple collapsed YAML-like blocks inside Markdown fences.
+  - Replaces malformed apex-meta/scripts/apex_kb.py with a runnable
+    deterministic Python implementation matching the declared command surface.
+
+What it does NOT do:
+  - Does not redesign Apex KB.
+  - Does not contact GitHub or external services.
+  - Does not commit, push, or create PRs.
+  - Does not mutate files unless --apply is supplied.
+  - Does not delete test KB roots.
+"""
+
+from __future__ import annotations
+
+import argparse
+import ast
+import hashlib
+import json
+import os
+import re
+import shutil
+import subprocess
+import sys
+from datetime import datetime, timezone
+from pathlib import Path
+from typing import Any
+
+
+REPO_RELATIVE_MARKDOWN_FILES = [
+    ".claude/skills/apex-kb/SKILL.md",
+    ".claude/skills/apex-kb/references/kb-contract.md",
+    ".claude/skills/apex-kb/references/ingest-query-lint-audit-rules.md",
+    ".claude/skills/apex-kb/references/script-command-contract.md",
+    ".claude/skills/apex-kb/templates/ingest-analysis-template.md",
+    ".claude/skills/apex-kb/templates/wiki-page-templates.md",
+    ".claude/skills/apex-kb/package-manifest.md",
+]
+
+SCRIPT_PATH = "apex-meta/scripts/apex_kb.py"
+
+BACKUP_DIR = ".repair-backups/apex-kb-format"
+
+
+CLEAN_APEX_KB_PY = r'''#!/usr/bin/env python3
+"""
 apex_kb.py
 
 Deterministic Python helper for the Apex KB skill.
@@ -790,6 +845,326 @@ def main(argv: list[str] | None = None) -> int:
         else:
             print(f"apex_kb_error: failed\nerror: {exc}", file=sys.stderr)
         return EXIT_INVOCATION_ERROR
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
+'''
+
+
+def now_stamp() -> str:
+    return datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
+
+
+def read_text(path: Path) -> str:
+    return path.read_text(encoding="utf-8", errors="replace")
+
+
+def write_text(path: Path, text: str) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(text, encoding="utf-8", newline="\n")
+
+
+def sha256_text(text: str) -> str:
+    return hashlib.sha256(text.encode("utf-8")).hexdigest()
+
+
+def strip_chat_file_wrapper(text: str) -> str:
+    text = text.replace("\r\n", "\n").replace("\r", "\n")
+    text = text.lstrip("\ufeff")
+
+    # Remove leading "# FILE: `path`" or "# FILE: path".
+    text = re.sub(r"^\s*# FILE:\s*`?[^`\n]+`?\s*\n+", "", text, count=1)
+
+    stripped = text.strip()
+
+    # Remove one whole-file outer fence when present.
+    m = re.fullmatch(r"```(?:[a-zA-Z0-9_-]+)?\n?(.*?)\n?```\s*", stripped, flags=re.S)
+    if m:
+        text = m.group(1).strip() + "\n"
+
+    return text
+
+
+def rehydrate_yamlish_line(line: str) -> str:
+    """
+    Best-effort repair for collapsed YAML-like content:
+      "root:  a: 1  b: 2    - item"
+    becomes multiple lines. This is not a semantic YAML parser; it repairs
+    common collapse artifacts from chat-output file blocks.
+    """
+    s = line.strip()
+
+    # Put list items on their own line.
+    s = re.sub(r"(?<=\S)( {2,})(-\s+)", lambda m: "\n" + m.group(1) + m.group(2), s)
+
+    # Put keys on their own line when preceded by 2+ spaces.
+    s = re.sub(
+        r"(?<=\S)( {2,})([A-Za-z_][A-Za-z0-9_-]*:)",
+        lambda m: "\n" + m.group(1) + m.group(2),
+        s,
+    )
+
+    return s
+
+
+def rehydrate_fenced_blocks(text: str) -> str:
+    # Normalize fence starts.
+    text = re.sub(r"```(yaml|markdown|md|json|text|python)", r"\n```\1\n", text)
+    text = re.sub(r"```(#{1,6}\s)", r"```\n\n\1", text)
+    text = re.sub(r"```(\s*##+ )", r"```\n\n\1", text)
+
+    # Place headings on their own lines.
+    text = re.sub(r"(?<!\n)(#{1,6}\s+[A-Z0-9<])", r"\n\n\1", text)
+
+    # Apply YAML-ish rehydration only inside yaml fenced blocks.
+    def fix_yaml_block(match: re.Match[str]) -> str:
+        lang = match.group(1)
+        body = match.group(2)
+        if "\n" not in body.strip() or max((len(x) for x in body.splitlines()), default=0) > 240:
+            fixed = rehydrate_yamlish_line(body)
+        else:
+            fixed = body
+        return f"```{lang}\n{fixed.strip()}\n```"
+
+    text = re.sub(r"```(yaml|json)\n(.*?)```", fix_yaml_block, text, flags=re.S)
+
+    # Remove excessive blank lines.
+    text = re.sub(r"\n{4,}", "\n\n\n", text)
+    return text.strip() + "\n"
+
+
+def repair_skill_frontmatter(text: str) -> str:
+    """
+    Special repair for collapsed SKILL.md frontmatter:
+      ---name: apex-kbdescription: > ...---# Apex KB
+    """
+    if text.startswith("---\n"):
+        return text
+
+    if not text.startswith("---name:"):
+        return text
+
+    m = re.search(r"---name:\s*([A-Za-z0-9_-]+)description:\s*>\s*(.*?)---#\s*", text, flags=re.S)
+    if not m:
+        return text
+
+    name = m.group(1).strip()
+    desc = " ".join(m.group(2).split())
+    body_start = m.end() - len("# ")
+    body = text[body_start:]
+
+    wrapped_desc = "\n".join(f"  {part}" for part in wrap_words(desc, 88))
+    return f"---\nname: {name}\ndescription: >\n{wrapped_desc}\n---\n\n{body}"
+
+
+def wrap_words(text: str, width: int) -> list[str]:
+    words = text.split()
+    lines: list[str] = []
+    current = ""
+    for word in words:
+        if not current:
+            current = word
+        elif len(current) + 1 + len(word) <= width:
+            current += " " + word
+        else:
+            lines.append(current)
+            current = word
+    if current:
+        lines.append(current)
+    return lines or [""]
+
+
+def repair_markdown(text: str, is_skill: bool) -> str:
+    text = strip_chat_file_wrapper(text)
+    if is_skill:
+        text = repair_skill_frontmatter(text)
+    text = rehydrate_fenced_blocks(text)
+
+    # Remove accidental leading blank before frontmatter in SKILL.md.
+    if is_skill:
+        text = text.lstrip()
+    return text
+
+
+def backup_file(repo: Path, path: Path, backup_root: Path) -> Path:
+    rel = path.relative_to(repo)
+    target = backup_root / rel
+    target.parent.mkdir(parents=True, exist_ok=True)
+    shutil.copy2(path, target)
+    return target
+
+
+def detect_whole_file_fence(text: str) -> bool:
+    stripped = text.strip()
+    return stripped.startswith("```") and stripped.endswith("```")
+
+
+def validate_markdown_file(path: Path, text: str, is_skill: bool) -> list[str]:
+    problems: list[str] = []
+    first = text.lstrip().splitlines()[0] if text.strip() else ""
+
+    if first.startswith("# FILE:"):
+        problems.append("still starts with # FILE wrapper")
+    if detect_whole_file_fence(text):
+        problems.append("still wrapped in a whole-file Markdown fence")
+    if is_skill and not text.lstrip().startswith("---\nname:"):
+        problems.append("SKILL.md does not start with YAML frontmatter")
+    if "```yaml" in text and "```yaml\n" not in text:
+        problems.append("contains malformed yaml fence start")
+    return problems
+
+
+def python_compile_ok(text: str) -> tuple[bool, str | None]:
+    try:
+        ast.parse(text)
+        return True, None
+    except SyntaxError as exc:
+        return False, f"{exc.msg} at line {exc.lineno}"
+
+
+def run_help_check(repo: Path, script_rel: str) -> tuple[bool, str]:
+    script = repo / script_rel
+    commands = [
+        [sys.executable, str(script), "--help"],
+        [sys.executable, str(script), "--json", "scaffold", "--help"],
+        [sys.executable, str(script), "--json", "hash", "--help"],
+        [sys.executable, str(script), "--json", "preflight", "--help"],
+        [sys.executable, str(script), "--json", "manifest", "--help"],
+        [sys.executable, str(script), "--json", "index", "--help"],
+        [sys.executable, str(script), "--json", "lint", "--help"],
+        [sys.executable, str(script), "--json", "audit", "--help"],
+    ]
+
+    failures: list[str] = []
+    for cmd in commands:
+        proc = subprocess.run(cmd, cwd=repo, capture_output=True, text=True)
+        if proc.returncode != 0:
+            failures.append(f"{' '.join(cmd)} -> {proc.returncode}: {proc.stderr.strip() or proc.stdout.strip()}")
+
+    if failures:
+        return False, "\n".join(failures)
+    return True, "all help commands passed"
+
+
+def repair_repo(repo: Path, apply: bool, run_help: bool) -> int:
+    stamp = now_stamp()
+    backup_root = repo / BACKUP_DIR / stamp
+    report: dict[str, Any] = {
+        "repo": repo.as_posix(),
+        "apply": apply,
+        "backup_root": backup_root.as_posix(),
+        "markdown_files": [],
+        "script_file": None,
+        "validation": [],
+    }
+
+    changed = False
+    fatal = False
+
+    for rel in REPO_RELATIVE_MARKDOWN_FILES:
+        path = repo / rel
+        item: dict[str, Any] = {"path": rel, "exists": path.exists(), "changed": False, "problems_after": []}
+
+        if not path.exists():
+            item["problems_after"].append("missing file")
+            fatal = True
+            report["markdown_files"].append(item)
+            continue
+
+        original = read_text(path)
+        is_skill = rel.endswith("/SKILL.md") or rel == ".claude/skills/apex-kb/SKILL.md"
+        repaired = repair_markdown(original, is_skill=is_skill)
+
+        item["original_sha256"] = sha256_text(original)
+        item["repaired_sha256"] = sha256_text(repaired)
+        item["changed"] = original != repaired
+        item["problems_after"] = validate_markdown_file(path, repaired, is_skill=is_skill)
+
+        if item["problems_after"]:
+            fatal = True
+
+        if item["changed"]:
+            changed = True
+            if apply:
+                backup_file(repo, path, backup_root)
+                write_text(path, repaired)
+
+        report["markdown_files"].append(item)
+
+    script_path = repo / SCRIPT_PATH
+    script_item: dict[str, Any] = {"path": SCRIPT_PATH, "exists": script_path.exists(), "changed": False, "problems_after": []}
+
+    if not script_path.exists():
+        script_item["problems_after"].append("missing script file")
+        fatal = True
+    else:
+        original_script = read_text(script_path)
+        repaired_script = CLEAN_APEX_KB_PY.strip() + "\n"
+        ok, err = python_compile_ok(repaired_script)
+
+        script_item["original_sha256"] = sha256_text(original_script)
+        script_item["repaired_sha256"] = sha256_text(repaired_script)
+        script_item["changed"] = original_script != repaired_script
+        script_item["compile_ok"] = ok
+        if err:
+            script_item["problems_after"].append(err)
+            fatal = True
+
+        if script_item["changed"]:
+            changed = True
+            if apply:
+                backup_file(repo, script_path, backup_root)
+                write_text(script_path, repaired_script)
+
+    report["script_file"] = script_item
+
+    if apply and run_help and not fatal:
+        ok, detail = run_help_check(repo, SCRIPT_PATH)
+        report["validation"].append({"check": "apex_kb_help_surface", "ok": ok, "detail": detail})
+        if not ok:
+            fatal = True
+
+    report["changed"] = changed
+    report["status"] = "failed" if fatal else ("changed" if changed else "clean")
+    print(json.dumps(report, indent=2, ensure_ascii=False))
+
+    if fatal:
+        return 2
+    return 0
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser(description="Repair Apex KB chat-output file malformats.")
+    parser.add_argument(
+        "--repo-root",
+        default=".",
+        help="Repository root. Default: current directory.",
+    )
+    parser.add_argument(
+        "--apply",
+        action="store_true",
+        help="Actually write repaired files. Without this, only reports planned changes.",
+    )
+    parser.add_argument(
+        "--check",
+        action="store_true",
+        help="Dry-run check mode. Equivalent to omitting --apply.",
+    )
+    parser.add_argument(
+        "--no-help-check",
+        action="store_true",
+        help="Skip apex_kb.py --help validation after --apply.",
+    )
+
+    args = parser.parse_args()
+    repo = Path(args.repo_root).resolve()
+
+    if not (repo / ".git").exists():
+        print(json.dumps({"status": "failed", "error": "repo root does not contain .git", "repo": repo.as_posix()}, indent=2))
+        return 2
+
+    return repair_repo(repo=repo, apply=args.apply, run_help=not args.no_help_check)
 
 
 if __name__ == "__main__":
