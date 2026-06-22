@@ -1,39 +1,19 @@
-# Next Session
+# Current Step
 
-~~~yaml
-next_session_context:
-  canonical_source: "../references/handoff-and-next-session-contract.md"
-  source: ""
-  review_flags: []
-  handoff_requests: []
-~~~
+USER_INPUT_REQUIRED
 
-## Current Step
+# Open Items
 
-`<Exact point where the next session should resume.>`
+- USER_INPUT_REQUIRED
 
-## Open Items
+# Risks
 
-- `<Unresolved item that needs continuation or operator review.>`
+- USER_INPUT_REQUIRED
 
-## Risks
+# Decisions Made
 
-- `<Risk, uncertainty, missing raw_source_path, sync requirement, or conflict_between_sources.>`
+- USER_INPUT_REQUIRED
 
-## Decisions Made
+# Next Actions
 
-- `<Confirmed decision to preserve for the next session.>`
-
-## Next Actions
-
-- `<Human-readable next action proposal without deterministic ranking.>`
-
-## Planning Layer Feed
-
-~~~yaml
-planning_layer_feed:
-  source: ""
-  notes: ""
-  handoff_requests: []
-  review_flags: []
-~~~
+- USER_INPUT_REQUIRED

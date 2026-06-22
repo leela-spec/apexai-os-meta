@@ -1,50 +1,27 @@
-# Task Plan
+# Goal
 
-~~~yaml
-task_plan:
-  canonical_source: "../references/handoff-and-next-session-contract.md"
-  source: ""
-  review_flags: []
-  handoff_requests: []
-~~~
+USER_INPUT_REQUIRED
 
-## Current Step
+# Current Step
 
-`<State the current session step or phase.>`
+USER_INPUT_REQUIRED
 
-## Open Items
+# Phases
 
-- `<Open item requiring continuation, review, or handoff.>`
+- USER_INPUT_REQUIRED
 
-## Active Task Records
+# Decisions
 
-~~~yaml
-active_task_records:
-  - id: 0
-    title: ""
-    status: open
-    priority: medium
-    due_date: null
-    depends_on: []
-    blocked_by: []
-    acceptance_criteria: []
-    definition_of_done: []
-    notes: ""
-    source: ""
-~~~
+- USER_INPUT_REQUIRED
 
-## Handoff Requests
+# Open Items
 
-~~~yaml
-handoff_requests:
-  - owner: apex-sync
-    request: ""
-    source: ""
-    review_flags: []
-~~~
+- USER_INPUT_REQUIRED
 
-## Review Flags
+# Risks
 
-~~~yaml
-review_flags: []
-~~~
+- USER_INPUT_REQUIRED
+
+# Next Actions
+
+- USER_INPUT_REQUIRED

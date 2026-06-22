@@ -1,48 +1,21 @@
-# Findings
+# Durable Findings
 
-~~~yaml
-findings:
-  canonical_source: "../references/handoff-and-next-session-contract.md"
-  source: ""
-  raw_source_path: ""
-  review_flags: []
-~~~
+- USER_INPUT_REQUIRED
 
-## Decisions Made
+# Decisions Made
 
-- `<Decision confirmed by the operator or directly supported by session evidence.>`
+- USER_INPUT_REQUIRED
 
-## Durable Findings
+# Source Notes
 
-- `<Finding that should persist into later sessions.>`
+- raw_source_ref: USER_INPUT_REQUIRED
+- raw_source_path: USER_INPUT_REQUIRED
 
-## State Delta Summary
+# Open Questions
 
-~~~yaml
-state_delta_summary:
-  source: ""
-  raw_source_path: ""
-  notes: ""
-  review_flags: []
-~~~
+- USER_INPUT_REQUIRED
 
-## Entity Update Proposals
+# Operator Validations
 
-~~~yaml
-entity_update_proposal:
-  entity_id: ""
-  entity_path: "apex-meta/entities/<entity_id>.md"
-  entity_type: ""
-  raw_source: ""
-  raw_source_path: "apex-meta/raw/<source>.md"
-  source: ""
-  notes: ""
-  confirmation_token: ""
-  review_flags: []
-~~~
-
-## Review Flags
-
-~~~yaml
-review_flags: []
-~~~
+- operator_validation: USER_INPUT_REQUIRED
+- validation_timestamp: USER_INPUT_REQUIRED

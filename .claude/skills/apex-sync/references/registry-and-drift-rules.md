@@ -1,87 +1,242 @@
 # Registry and Drift Rules
 
+## purpose
+
+This file defines the registry and drift rules for `apex-sync`.
+
+The registry is a deterministic compact index of Apex task files. It is
+generated from task frontmatter and task paths. It is not a planning document,
+session narrative, status mutation file, or handoff file.
+
+## task_file_discovery
+
+Task files are discovered with this glob, relative to repository root:
+
+```txt
+apex-meta/epics/*/[0-9][0-9][0-9].md
+```
+
+Discovery rules:
+
+- Only Markdown files matching the exact glob are task inputs.
+- Files outside the glob are ignored by `apex-sync`.
+- Task id must come from frontmatter field `id`.
+- File stem may not silently replace a missing `id`.
+- Epic slug is the immediate parent directory under `apex-meta/epics/`.
+- Task body is preserved for parsing context but not written back.
+
+## task_frontmatter_validation
+
+Each task file is expected to contain YAML-like frontmatter followed by Markdown
+body content.
+
+Required for exact graph computation:
+
+- `id`
+- `status`
+
+Optional but parsed when present:
+
+- `title`
+- `name`
+- `priority`
+- `due_date`
+- `depends_on`
+- `blocked_by`
+- `updated_date`
+- `created_date`
+- `updated`
+- `created`
+- `updated_at`
+- `created_at`
+
+Validation rules:
+
+| Rule | Review flag |
+|---|---|
+| Missing opening or closing frontmatter fence | `malformed_frontmatter` |
+| Frontmatter line cannot be parsed as YAML-like `key: value` | `malformed_frontmatter` |
+| Missing `id` | `missing_task_id` |
+| Non-integer `id` | `missing_task_id` |
+| Duplicate integer `id` across task files | `duplicate_task_id` |
+| Status not in H1 enum | `unsupported_status` |
+| `depends_on` target does not exist | `missing_dependency_target` |
+| `depends_on` graph contains a cycle | `circular_dependency_risk` |
+| Status is `blocked` and `blocked_by` is empty | `blocked_without_reason` |
+
+H1 status values are exactly:
+
+- `open`
+- `in-progress`
+- `blocked`
+- `done`
+- `deferred`
+
+## registry_schema
+
+The registry file is Markdown at:
+
+```txt
+apex-meta/registry/index.md
+```
+
+The generated registry must include:
+
+- H1-compatible metadata block.
+- Source glob.
+- Generation timestamp.
+- Task count.
+- Discovered task-file count.
+- Review flag count.
+- Task table with:
+  - `id`
+  - `epic_slug`
+  - `status`
+  - `priority`
+  - `due_date`
+  - `depends_on`
+  - `blocked_by`
+  - `updated_date`
+  - `created_date`
+  - `title`
+  - `task_path`
+- Review flag list when any flags exist.
+
+The registry is an index. It must not redefine planning logic, task mutation
+logic, operator validation, or session handoff rules.
+
+## registry_rebuild_rules
+
+The registry is rebuilt by:
+
+```bash
+python scripts/apex_sync.py registry --root . --json --dry-run true
+```
+
+Dry-run rebuild behavior:
+
+- Reads task files.
+- Validates task files.
+- Generates registry content in memory.
+- Prints `registry_report`.
+- Does not write files.
+
+Explicit write behavior:
+
+```bash
+python scripts/apex_sync.py registry --root . --json --dry-run false
+```
+
+The write behavior:
+
+- Writes only `apex-meta/registry/index.md`.
+- Creates the registry parent directory if needed.
+- Does not write task files.
+- Does not write handoff files.
+- Does not write skill files.
+- Does not write source files.
+
+## drift_detection_rules
+
+Drift is checked by:
+
+```bash
+python scripts/apex_sync.py drift --root . --json --dry-run true
+```
+
+Drift exists when regenerated registry content differs from the current content
+of:
+
+```txt
+apex-meta/registry/index.md
+```
+
+Drift report behavior:
+
+- Regenerate registry content in memory.
+- Read the current registry when it exists.
+- Compare exact content.
+- Set `drift_detected` to `true` when content differs.
+- Add `drift_detected` review flag when content differs.
+- Add `registry_out_of_date` review flag when content differs.
+- Return regenerated registry content for review.
+- Do not write the registry.
+
+## malformed_task_file_policy
+
+Malformed task files must not stop the full report unless the script itself
+fails.
+
+Policy:
+
+- Report malformed task files with `malformed_frontmatter`.
+- Continue loading other task files.
+- Exclude malformed files from exact dependency graph computation.
+- Include malformed-file flags in report `review_flags`.
+- Do not repair malformed files.
+- Do not infer missing frontmatter fields from body text.
+
+## dry_run_default
+
+Default mode is dry-run:
+
 ```yaml
-registry_and_drift_rules:
-  canonical_source: ".claude/skills/apex-sync/references/registry-and-drift-rules.md"
+dry_run_default: true
+```
 
-  registry_schema:
-    artifact_name: registry_report
-    durable_path: "apex-meta/registry/index.md"
-    source_glob: "apex-meta/epics/*/[0-9][0-9][0-9].md"
-    format: markdown
-    generated_by: "apex-meta/scripts/apex_sync.py registry"
-    table_columns:
-      - id
-      - epic_slug
-      - status
-      - priority
-      - due_date
-      - depends_on
-      - blocked_by
-      - title
-      - task_path
-    required_metadata:
-      registry_report:
-        source:
-          type: string
-        task_count:
-          type: integer
-          min: 0
-        review_flags_count:
-          type: integer
-          min: 0
+Dry-run mode must be used for:
 
-  registry_rebuild_rules:
-    default_mode: dry_run
-    dry_run_behavior: "Print registry_report with generated registry_content; do not write files."
-    write_behavior: "Write generated registry_content only to apex-meta/registry/index.md."
-    write_requires:
-      subcommand: registry
-      dry_run: false
-      target_path: "apex-meta/registry/index.md"
-    sort_order:
-      - epic_slug
-      - id
-    input_glob: "apex-meta/epics/*/[0-9][0-9][0-9].md"
-    no_task_file_writes: true
-    no_handoff_file_writes: true
-    no_entity_file_writes: true
-    no_skill_file_writes: true
+- `next`
+- `blockers`
+- `registry` preview
+- `stall`
+- `drift`
+- `score`
 
-  drift_detection_rules:
-    artifact_name: drift_report
-    comparison: "Regenerate registry_content from current task files and compare it to apex-meta/registry/index.md."
-    drift_detected_when:
-      - "apex-meta/registry/index.md is missing."
-      - "apex-meta/registry/index.md content differs from regenerated registry_content."
-      - "Task files produce review_flags that affect registry correctness."
-    review_flags:
-      - registry_out_of_date
-      - drift_detected
-      - malformed_frontmatter
-      - missing_task_id
-      - unsupported_status
-      - missing_dependency_target
-      - circular_dependency_risk
-    write_allowed: false
+## explicit_non_dry_run_write_gate
 
-  malformed_file_policy:
-    malformed_frontmatter:
-      action: "Report malformed_frontmatter and continue scanning remaining files."
-    missing_task_id:
-      action: "Report missing_task_id and exclude that file from id-based graph computation."
-    unsupported_status:
-      action: "Report unsupported_status and keep the task visible in validation output."
-    missing_dependency_target:
-      action: "Report missing_dependency_target in dependency_validation_report."
-    circular_dependency_risk:
-      action: "Report circular_dependency_risk and do not mark affected graph fully valid."
-    invalid_due_date:
-      action: "Treat urgency score as 999 and preserve the original due_date value."
-      
+A write is allowed only when all conditions are true:
 
-## Registry Notes
+```yaml
+explicit_non_dry_run_write_gate:
+  subcommand: registry
+  flag: --dry-run false
+  operator_intent: explicit
+  output_path: apex-meta/registry/index.md
+```
 
-The registry is generated state. It is never manually edited by `apex-sync`. The only allowed write behavior is an explicit `registry` command with `--dry-run false`.
+No other command may write.
 
-`drift` is always read-only. It may include the regenerated registry content so the operator or a downstream gated process can inspect differences before any write.
+## only_allowed_write_path
+
+```txt
+apex-meta/registry/index.md
+```
+
+Forbidden write paths include:
+
+- `apex-meta/epics/`
+- `apex-meta/handoff/`
+- `.claude/skills/`
+- `source-knowledge/`
+- any path outside the repository root
+
+## final_registry_report_contract
+
+`registry_report` must include:
+
+- `report_name`
+- `generated_at`
+- `dry_run`
+- `root`
+- `script_exit_code`
+- `review_flags`
+- `target_path`
+- `allowed_write_path`
+- `wrote_registry`
+- `task_count`
+- `discovered_task_files`
+- `registry_content`
+
+The report must be valid whether it is produced in dry-run mode or explicit
+write mode.

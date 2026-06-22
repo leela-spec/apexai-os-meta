@@ -1,50 +1,32 @@
-# Progress
+# Session Log
 
-~~~yaml
-progress:
-  canonical_source: "../references/handoff-and-next-session-contract.md"
-  session_progress_log:
-    append_only: true
-  source: ""
-  review_flags: []
-~~~
+- USER_INPUT_REQUIRED
 
-## Session Progress Log
+# Actions Taken
 
-| timestamp | action | source | notes | review_flags |
-|---|---|---|---|---|
-| `<YYYY-MM-DDTHH:MM:SSZ>` | `<action taken or proposal drafted>` | `<source>` | `<notes>` | `<flags>` |
+- USER_INPUT_REQUIRED
 
-## Operator Validation Result
+# Status Mutations
 
-~~~yaml
-operator_validation_result:
-  confirmation_token: ""
-  review_flags: []
-  notes: ""
-~~~
+- task_id: USER_INPUT_REQUIRED
+- task_title: USER_INPUT_REQUIRED
+- status_before: USER_INPUT_REQUIRED
+- status_after: USER_INPUT_REQUIRED
+- status_change_reason: USER_INPUT_REQUIRED
+- operator_validation: USER_INPUT_REQUIRED
+- validation_status: USER_INPUT_REQUIRED
+- validation_timestamp: USER_INPUT_REQUIRED
 
-## Mutation Proposals
+# State Deltas
 
-~~~yaml
-status_mutation_proposal:
-  id: 0
-  title: ""
-  status: open
-  source: ""
-  notes: ""
-  confirmation_token: ""
-  review_flags: []
+- state_delta_id: USER_INPUT_REQUIRED
+- raw_source_ref: USER_INPUT_REQUIRED
+- raw_source_path: USER_INPUT_REQUIRED
 
-before_after_mutation_preview:
-  before: ""
-  after: ""
-  source: ""
-  review_flags: []
-~~~
+# Errors or Review Flags
 
-## Handoff Requests
+- review_flags: USER_INPUT_REQUIRED
 
-~~~yaml
-handoff_requests: []
-~~~
+# Next Step
+
+USER_INPUT_REQUIRED
