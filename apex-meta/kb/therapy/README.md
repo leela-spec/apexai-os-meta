@@ -4,10 +4,10 @@
 kb_root: "apex-meta/kb/therapy/"
 created_at: "2026-06-22T00:00:00Z"
 created_by: "apex-kb first repo-backed test run"
-status: phase_1_intake_created
+status: phase_2_compilation_in_progress
 primary_domain: therapy_support
 clinical_boundary: "supportive knowledgebase only; not diagnosis, treatment, emergency guidance, or replacement for licensed care"
-privacy_boundary: "repo_file_operations_only"
+privacy_boundary: "private_repo_internal_only"
 ```
 
 ## Purpose
@@ -16,7 +16,7 @@ This KB stores source-preserving NARM and therapy-support material for structure
 
 ## Current Test Run
 
-The first repo-backed Apex KB run created Phase 1 intake/process artifacts only. Full Phase 2 wiki compilation remains gated by the package rule requiring the exact operator phrase `approve ingest`.
+The first repo-backed Apex KB run created Phase 1 intake/process artifacts. Phase 2 compiles source-preserving internal wiki pages inside this private repository.
 
 ## Source Root
 
@@ -30,6 +30,8 @@ apex-meta/kb/therapy/raw/notes/
 apex-meta/kb/therapy/ingest-analysis/narm-project-intake.analysis.md
 ```
 
-## Private Repo Boundary
+## Internal Repo Boundary
 
-All work on this KB must stay inside repository file operations. Do not use issue comments, pull-request comments, reviewer/assignee actions, email-like actions, account mentions, or connector flows that ask to send or share content outside the repo file tree.
+Allowed inside `leela-spec/apexai-os-meta`: file reads, file writes, commits, branches, pull requests, issues, comments, labels, assignees, reviews, and connector flows that remain inside this private repository.
+
+Forbidden: email-like actions, Outlook/Gmail actions, notifications or messages to outside people/services, cross-repo sharing, external recipients, or any connector flow that moves this material outside this private repository.
