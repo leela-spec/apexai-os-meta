@@ -7,11 +7,12 @@ created_by: "apex-kb first repo-backed test run"
 status: phase_1_intake_created
 primary_domain: therapy_support
 clinical_boundary: "supportive knowledgebase only; not diagnosis, treatment, emergency guidance, or replacement for licensed care"
+privacy_boundary: "repo_file_operations_only"
 ```
 
 ## Purpose
 
-This KB stores source-preserving NARM and therapy-support material for structured self-reflection, therapist-session preparation, and future NARM-aligned knowledge compilation.
+This KB stores source-preserving NARM and therapy-support material for structured self-reflection, practitioner-session preparation, and future NARM-aligned knowledge compilation.
 
 ## Current Test Run
 
@@ -28,3 +29,7 @@ apex-meta/kb/therapy/raw/notes/
 ```text
 apex-meta/kb/therapy/ingest-analysis/narm-project-intake.analysis.md
 ```
+
+## Private Repo Boundary
+
+All work on this KB must stay inside repository file operations. Do not use issue comments, pull-request comments, reviewer/assignee actions, email-like actions, account mentions, or connector flows that ask to send or share content outside the repo file tree.
