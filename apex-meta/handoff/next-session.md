@@ -1,33 +1,38 @@
 # Current Step
 
-Durable planning and session handoff files exist for the NARM-support knowledgebase project. A dedicated handover now exists for another chat to prepare definitions of done and index-preparation artifacts before Codex performs the actual index-building pass.
+Preparation artifacts now exist under `apex-meta/artifacts/narm-support-knowledgebase/`. The next session should move from preparation into the later Codex index-building pass only after operator validation questions are answered.
 
 # Open Items
 
-- Confirm final index format and destination.
-- Confirm whether generated indexes should be written into the Obsidian Therapy folder or into this repo.
-- Confirm final generated-index destination; current recommendation is repo-first under `apex-meta/artifacts/narm-support-knowledgebase/`.
-- Validate dependencies for tasks 001 through 008.
-- Prepare definitions of done for Tasks 001 through 006.
-- Preserve Tasks 007 and 008 as later-phase work.
+- Operator must validate final index destination: repo-only, Obsidian-only, or repo plus Obsidian mirror.
+- Operator must validate whether final indexes should be one master file per domain or split into modular files.
+- Operator must decide whether `ManifestationHowTo.md` and `Notion_Surrender_Page.md` are psychological material or adjacent practice context.
+- Operator must confirm how to classify `MyTherapy.md` after inspection.
+- Operator must confirm whether diagnostic-style hypotheses are allowed in all artifacts or only personal-material/fusion artifacts.
+- Dependency validation for tasks 001 through 008 remains an apex-sync concern if deterministic actionability is needed.
+- Final indexes have not been built.
 
 # Risks
 
-- Process drift risk: if the operator asks for a step out of package order, state the mismatch and follow the skill-package process.
-- Output-quality risk: avoid vague reassurance and generic therapy language; preserve the operator's request for direct, behaviorally concrete work.
-- Some dependency relationships were proposed qualitatively and still need apex-sync validation.
-- Source files have not yet been inspected or indexed.
+- Process drift risk: do not build final indexes before operator validation unless the operator explicitly narrows or approves the unresolved questions.
+- Output-quality risk: preserve directness, evidence labels, and no-fluff style.
+- Clinical-boundary risk: do not convert NARM concepts into diagnosis or therapist replacement.
+- Source-traceability risk: every later theory, personal, and fusion record needs source pointers.
+- Destination risk: do not write generated indexes into the Obsidian Therapy folder without explicit approval.
 
 # Decisions Made
 
-- Operator approved the apex-plan packet for handoff.
-- Created epic `narm-support-knowledgebase`.
-- Created eight open task records.
-- Created H6 handoff artifacts.
-- Created `apex-meta/handoff/narm-index-prep-handover.md` for the next chat.
+- Preparation artifacts were created repo-first under `apex-meta/artifacts/narm-support-knowledgebase/`.
+- The current preparation pass did not build final indexes.
+- Tasks 007 and 008 remain later-phase work.
+- The later Codex pass should use `definitions-of-done.md`, `index-artifact-plan.md`, `index-validation-questions.md`, `source-file-map.md`, and `workflow-prompts.md` as its implementation basis.
 
 # Next Actions
 
-- In the next chat, read `apex-meta/handoff/narm-index-prep-handover.md`.
-- Prepare `definitions-of-done.md`, `index-artifact-plan.md`, `index-validation-questions.md`, and `source-file-map.md` under `apex-meta/artifacts/narm-support-knowledgebase/`.
-- Do not build the final indexes in the handover chat; prepare them for a later Codex index-building pass.
+- Read `apex-meta/artifacts/narm-support-knowledgebase/definitions-of-done.md`.
+- Read `apex-meta/artifacts/narm-support-knowledgebase/index-artifact-plan.md`.
+- Read `apex-meta/artifacts/narm-support-knowledgebase/index-validation-questions.md`.
+- Read `apex-meta/artifacts/narm-support-knowledgebase/source-file-map.md`.
+- Read `apex-meta/artifacts/narm-support-knowledgebase/workflow-prompts.md`.
+- Resolve blocking operator validation questions.
+- Then run the later Codex index-building pass without writing to Obsidian unless explicitly approved.
