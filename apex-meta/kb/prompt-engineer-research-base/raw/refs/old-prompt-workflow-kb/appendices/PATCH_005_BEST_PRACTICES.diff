@@ -1,0 +1,62 @@
+diff --git a/OpenClaw/07_finalopenclawsystem/managed/agent_kb/special_ops__prompts_workflows/BEST_PRACTICES.md b/OpenClaw/07_finalopenclawsystem/managed/agent_kb/special_ops__prompts_workflows/BEST_PRACTICES.md
+index 6d12652..5555555 100644
+--- a/OpenClaw/07_finalopenclawsystem/managed/agent_kb/special_ops__prompts_workflows/BEST_PRACTICES.md
++++ b/OpenClaw/07_finalopenclawsystem/managed/agent_kb/special_ops__prompts_workflows/BEST_PRACTICES.md
+@@ -158,13 +158,51 @@ practice_entry:
+   owner: special_ops__prompts_workflows
+   validator: meta_ops
+   review_due: 2026-07-27
++
++- id: `PW-BP-007`
++  status: accepted
++  practice: Record durable QA, gap, and next-research results in a repo appendix when a KB build or improvement pass changes what future agents should rely on.
++  context_conditions:
++    - KB build or improvement pass
++    - future scaffold promotion candidates are identified
++    - verification, gap analysis, or next-research work would otherwise remain only in chat
++    - multiple appendices or scaffold files may be affected later
++  evidence_refs:
++    - `appendices/APPENDIX_KB_QA_AND_NEXT_RESEARCH_PLAN.md#purpose`
++    - `appendices/APPENDIX_KB_QA_AND_NEXT_RESEARCH_PLAN.md#current-qa-status`
++    - `appendices/APPENDIX_KB_QA_AND_NEXT_RESEARCH_PLAN.md#next-patch-candidates`
++  scores:
++    EVD: 5
++    IMP: 5
++    RSK: 3
++  owner: special_ops__prompts_workflows
++  validator: meta_ops
++  review_due: 2026-07-27
++
++- id: `PW-BP-008`
++  status: accepted
++  practice: Treat prompt and workflow examples as behavioral regression tests for this lane; use them to check whether prompts preserve target, source, mode, validation, and stop discipline.
++  context_conditions:
++    - prompt or promptflow behavior is being taught, reused, or validated
++    - a previous failure involved scope drift, no-op completion, fragile diff transport, or out-of-mode improvement application
++    - a template needs concrete before/after evidence
++  evidence_refs:
++    - `appendices/APPENDIX_KB_QA_AND_NEXT_RESEARCH_PLAN.md#f5-scaffold-promotion-matrix`
++    - `appendices/APPENDIX_KB_EXAMPLES.md#purpose`
++    - `appendices/APPENDIX_KB_EXAMPLES.md#regression-checklist`
++  scores:
++    EVD: 5
++    IMP: 5
++    RSK: 3
++  owner: special_ops__prompts_workflows
++  validator: meta_ops
++  review_due: 2026-07-27
+ 
+ ## Appendix pointers
+ 
+ - Source manifest: `appendices/APPENDIX_KB_SOURCE_MANIFEST.md`
+ - Ranking ledger: `appendices/APPENDIX_KB_INFORMATION_RANKING_LEDGER.md`
+ - Candidate ledger: `appendices/APPENDIX_KB_CANDIDATE_LEDGER.md`
+ - Anti-drift evidence: `appendices/APPENDIX_KB_ANTI_DRIFT_EVIDENCE.md`
+ - Source conflicts: `appendices/SOURCE_CONFLICT_REPORT.md`
++- Examples: `appendices/APPENDIX_KB_EXAMPLES.md`
++- Source notes: `appendices/APPENDIX_KB_SOURCE_NOTES.md`
++- QA and next research plan: `appendices/APPENDIX_KB_QA_AND_NEXT_RESEARCH_PLAN.md`
+ 
+ ## Promotion boundary
+ 
+ Add or revise accepted practices only after validation through `LEARNING_QUEUE.md` and `meta_ops` review.

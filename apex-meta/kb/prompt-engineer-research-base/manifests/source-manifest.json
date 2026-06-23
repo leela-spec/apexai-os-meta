@@ -1,5 +1,43 @@
 {
-  "manifest_version": "0.1",
-  "updated_at": "2026-06-23T11:45:44Z",
-  "sources": []
+    "manifest_version":  "0.1",
+    "updated_at":  "2026-06-23T12:13:42Z",
+    "sources":  [
+                    {
+                        "source_hash":  "ba58064ab782fd3c178231fd06c8afe0c5884b7275770f0caded8be48d3b85a1",
+                        "required_operator_phrase":  "approve ingest",
+                        "phase_2_allowed":  false,
+                        "source_label":  "Current broken PromptEngineer package",
+                        "notes":  "Current package source material and drift evidence. Do not treat as final canonical package.",
+                        "source_storage_mode":  "snapshot_copy",
+                        "source_authority":  "current_repo_source_material",
+                        "snapshot_path":  "raw/refs/current-promptengineer-package",
+                        "source_path":  ".claude/skills/PromptEngineer",
+                        "source_id":  "current-promptengineer-package"
+                    },
+                    {
+                        "source_hash":  "952762863334834377fe196b920c2e670ed37de91ab074aaf21da951957d74da",
+                        "required_operator_phrase":  "approve ingest",
+                        "phase_2_allowed":  false,
+                        "source_label":  "Old OpenClaw prompt workflow KB",
+                        "notes":  "Primary PromptEngineer research base: doctrine, templates, promptflows, handoff, verification, anti-drift material.",
+                        "source_storage_mode":  "snapshot_copy",
+                        "source_authority":  "primary_research_base",
+                        "snapshot_path":  "raw/refs/old-prompt-workflow-kb",
+                        "source_path":  "source-knowledge/old_openclaw-KB\u0026Agents/special_ops__prompts_workflows",
+                        "source_id":  "old-prompt-workflow-kb"
+                    },
+                    {
+                        "source_hash":  "a2861104f9e3059d0b16cbb585a7c28a968ff4d96719881d487d644e39dc0062",
+                        "risk":  "community_risk_unknown",
+                        "required_operator_phrase":  "approve ingest",
+                        "phase_2_allowed":  false,
+                        "source_label":  "Prompt engineering patterns candidate blueprint",
+                        "notes":  "Optional candidate blueprint. Preserve community/risk_unknown flag; do not promote as canonical without review.",
+                        "source_storage_mode":  "snapshot_copy",
+                        "source_authority":  "candidate_blueprint",
+                        "snapshot_path":  "raw/refs/prompt-engineering-patterns-candidate",
+                        "source_path":  "source-knowledge/old_openclaw-KB\u0026Agents/special_ops__prompts_workflows/NewResearchBlueprints/anti-gravity-PE/prompt-engineering-patterns",
+                        "source_id":  "prompt-engineering-patterns-candidate"
+                    }
+                ]
 }
