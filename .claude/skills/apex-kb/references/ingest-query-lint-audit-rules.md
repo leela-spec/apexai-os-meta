@@ -593,3 +593,4 @@ completion_gates:
       - operator_decision_recorded_or_requested
       - resolved_items_archived_when_approved
       - unresolved_items_preserved
+```
