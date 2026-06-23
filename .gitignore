@@ -1,0 +1,12 @@
+
+# Local validator environments
+.venv-skillvalidators/
+
+# Local patch/debug scripts
+patch_promptengineer_kb_schema.py
+
+# Raw accidental preflight archive; keep derived inventory, do not track raw bulk outputs
+apex-meta/kb/_candidate-corpus-inventories/skill-preflight-corpus-2026-06-23/archive/
+
+# Local accidental/source cleanup marker
+source-knowledge/old_openclaw-KB&Agents/delete.md
