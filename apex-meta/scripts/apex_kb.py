@@ -85,6 +85,30 @@ PAGE_TYPE_DIRS = {
     "entity": "wiki/entities",
 }
 
+SOURCE_STORAGE_MODES = {
+    "pointer_only",
+    "copy_into_kb",
+    "snapshot_copy",
+}
+
+ALLOWED_CONFIDENCE_VALUES = {
+    "high",
+    "medium",
+    "low",
+    "mixed",
+    "unknown",
+}
+
+ALLOWED_CLAIM_LABEL_VALUES = {
+    "direct_source_claim",
+    "synthesis",
+    "inference",
+    "hypothesis",
+    "contradiction",
+    "open_question",
+    "operator_note",
+}
+
 
 def utc_now() -> str:
     return _dt.datetime.now(_dt.timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z")
@@ -197,6 +221,122 @@ def list_sources(manifest: dict[str, Any]) -> list[dict[str, Any]]:
     return [s for s in sources if isinstance(s, dict)] if isinstance(sources, list) else []
 
 
+
+
+def resolve_source_storage_mode(source: Path, kb_root: Path, explicit_mode: str | None) -> str:
+    """Resolve source storage mode deterministically for preflight output."""
+    if explicit_mode:
+        return explicit_mode
+
+    if source.exists():
+        try:
+            source.resolve().relative_to(Path.cwd().resolve())
+            return "pointer_only"
+        except ValueError:
+            return "copy_into_kb"
+        except OSError:
+            return "copy_into_kb"
+
+    return "copy_into_kb"
+
+
+def source_storage_flags(mode: str) -> dict[str, bool]:
+    return {
+        "copy_required": mode == "copy_into_kb",
+        "snapshot_required": mode == "snapshot_copy",
+    }
+
+
+def validate_manifest_storage_fields(manifest: dict[str, Any]) -> list[dict[str, Any]]:
+    """Validate source storage metadata on source manifest entries."""
+    findings: list[dict[str, Any]] = []
+
+    for index, entry in enumerate(list_sources(manifest)):
+        source_label = entry.get("source_id") or entry.get("id") or f"sources[{index}]"
+        mode = entry.get("source_storage_mode")
+
+        if not mode:
+            findings.append({
+                "severity": "warning",
+                "code": "missing_source_storage_mode",
+                "source": source_label,
+            })
+            continue
+
+        if mode not in SOURCE_STORAGE_MODES:
+            findings.append({
+                "severity": "error",
+                "code": "invalid_source_storage_mode",
+                "source": source_label,
+                "value": mode,
+                "allowed": sorted(SOURCE_STORAGE_MODES),
+            })
+            continue
+
+        if not entry.get("source_hash") and not entry.get("no_hash_reason"):
+            findings.append({
+                "severity": "warning",
+                "code": "source_ref_missing_hash_or_no_hash_reason",
+                "source": source_label,
+            })
+
+        if mode == "copy_into_kb" and not entry.get("copied_to"):
+            findings.append({
+                "severity": "warning",
+                "code": "copy_into_kb_missing_copied_to",
+                "source": source_label,
+            })
+
+        if mode == "snapshot_copy" and not entry.get("snapshot_path"):
+            findings.append({
+                "severity": "warning",
+                "code": "snapshot_copy_missing_snapshot_path",
+                "source": source_label,
+            })
+
+    return findings
+
+
+def validate_epistemic_frontmatter(
+    fm: dict[str, str],
+    rel: str,
+    require_confidence: bool,
+) -> tuple[list[dict[str, Any]], list[dict[str, str]], list[dict[str, str]]]:
+    findings: list[dict[str, Any]] = []
+    invalid_confidence_values: list[dict[str, str]] = []
+    invalid_claim_label_values: list[dict[str, str]] = []
+
+    confidence = fm.get("confidence")
+    if confidence:
+        if confidence not in ALLOWED_CONFIDENCE_VALUES:
+            invalid_confidence_values.append({"path": rel, "value": confidence})
+            findings.append({
+                "severity": "warning",
+                "code": "invalid_confidence_value",
+                "path": rel,
+                "value": confidence,
+                "allowed": sorted(ALLOWED_CONFIDENCE_VALUES),
+            })
+    elif require_confidence:
+        findings.append({
+            "severity": "warning",
+            "code": "missing_confidence",
+            "path": rel,
+            "allowed": sorted(ALLOWED_CONFIDENCE_VALUES),
+        })
+
+    claim_label = fm.get("claim_label")
+    if claim_label and claim_label not in ALLOWED_CLAIM_LABEL_VALUES:
+        invalid_claim_label_values.append({"path": rel, "value": claim_label})
+        findings.append({
+            "severity": "warning",
+            "code": "invalid_claim_label_value",
+            "path": rel,
+            "value": claim_label,
+            "allowed": sorted(ALLOWED_CLAIM_LABEL_VALUES),
+        })
+
+    return findings, invalid_confidence_values, invalid_claim_label_values
 def extract_frontmatter(text: str) -> tuple[dict[str, str], str]:
     if not text.startswith("---\n"):
         return {}, text
@@ -401,6 +541,9 @@ def cmd_preflight(args: argparse.Namespace) -> int:
     source = Path(args.source)
     missing, findings = validate_structure(kb_root)
 
+    source_storage_mode = resolve_source_storage_mode(source, kb_root, args.source_storage_mode)
+    storage_flags = source_storage_flags(source_storage_mode)
+
     source_hash = None
     no_hash_reason = None
     duplicate_candidates: list[dict[str, Any]] = []
@@ -431,8 +574,11 @@ def cmd_preflight(args: argparse.Namespace) -> int:
             "kb_root": kb_root.as_posix(),
             "source_path": source.as_posix(),
             "source_exists": source.exists(),
+            "source_storage_mode": source_storage_mode,
             "source_hash": source_hash,
             "no_hash_reason": no_hash_reason,
+            "copy_required": storage_flags["copy_required"],
+            "snapshot_required": storage_flags["snapshot_required"],
             "duplicate_source_candidates": duplicate_candidates,
             "analysis_path": analysis_path.as_posix(),
             "phase_2_allowed": False,
@@ -443,7 +589,6 @@ def cmd_preflight(args: argparse.Namespace) -> int:
         args.json,
         EXIT_OK if status == "passed" else EXIT_VALIDATION_FAILURE,
     )
-
 
 def page_type_from_path(path: Path) -> str:
     parts = set(path.parts)
@@ -563,17 +708,34 @@ def cmd_lint(args: argparse.Namespace) -> int:
     broken_links: list[dict[str, str]] = []
     missing_source_pointers: list[str] = []
     malformed_frontmatter: list[str] = []
+    invalid_confidence_values: list[dict[str, str]] = []
+    invalid_claim_label_values: list[dict[str, str]] = []
 
     for page in pages:
         rel = page.relative_to(kb_root).as_posix()
         text = page.read_text(encoding="utf-8", errors="replace")
         fm, _ = extract_frontmatter(text)
-        if page.name != "index.md" and not fm:
+
+        is_index = page.name == "index.md"
+
+        if not is_index and not fm:
             malformed_frontmatter.append(rel)
             findings.append({"severity": "warning", "code": "missing_frontmatter", "path": rel})
-        if page.name != "index.md" and "source_refs" not in text and "source_pointers" not in text:
+
+        if fm:
+            epistemic_findings, bad_confidence, bad_claim_labels = validate_epistemic_frontmatter(
+                fm=fm,
+                rel=rel,
+                require_confidence=not is_index,
+            )
+            findings.extend(epistemic_findings)
+            invalid_confidence_values.extend(bad_confidence)
+            invalid_claim_label_values.extend(bad_claim_labels)
+
+        if not is_index and "source_refs" not in text and "source_pointers" not in text:
             missing_source_pointers.append(rel)
             findings.append({"severity": "warning", "code": "missing_source_pointer", "path": rel})
+
         for link in extract_wikilinks(text):
             if link not in slugs:
                 broken_links.append({"from": rel, "to": link})
@@ -593,6 +755,8 @@ def cmd_lint(args: argparse.Namespace) -> int:
             "broken_links": broken_links,
             "orphan_pages": build_machine_index(kb_root)["orphan_pages"] if (kb_root / "wiki").exists() else [],
             "missing_source_pointers": missing_source_pointers,
+            "invalid_confidence_values": invalid_confidence_values,
+            "invalid_claim_label_values": invalid_claim_label_values,
             "stale_index": False,
             "manifest_issues": [f for f in findings if "manifest" in f.get("code", "")],
             "audit_shape_issues": [],
@@ -602,14 +766,14 @@ def cmd_lint(args: argparse.Namespace) -> int:
         exit_code,
     )
 
-
 def cmd_manifest(args: argparse.Namespace) -> int:
     kb_root = Path(args.kb_root)
     manifest_path = kb_root / "manifests" / "source-manifest.json"
     manifest, findings = read_manifest(kb_root)
+    findings.extend(validate_manifest_storage_fields(manifest))
 
     if args.validate_only or not args.allow_write:
-        status = "passed" if not findings else "failed"
+        status = "passed" if not any(f.get("severity") == "error" for f in findings) else "failed"
         return emit(
             {
                 "artifact_name": "manifest_report",
@@ -617,6 +781,13 @@ def cmd_manifest(args: argparse.Namespace) -> int:
                 "kb_root": kb_root.as_posix(),
                 "manifest_path": manifest_path.as_posix(),
                 "source_entries_count": len(list_sources(manifest)),
+                "validated_storage_fields": [
+                    "source_storage_mode",
+                    "source_hash",
+                    "no_hash_reason",
+                    "copied_to",
+                    "snapshot_path",
+                ],
                 "changed_entries": [],
                 "findings": findings,
                 "writes_performed": False,
@@ -638,6 +809,13 @@ def cmd_manifest(args: argparse.Namespace) -> int:
             "kb_root": kb_root.as_posix(),
             "manifest_path": manifest_path.as_posix(),
             "source_entries_count": len(list_sources(manifest)),
+            "validated_storage_fields": [
+                "source_storage_mode",
+                "source_hash",
+                "no_hash_reason",
+                "copied_to",
+                "snapshot_path",
+            ],
             "changed_entries": [],
             "writes_performed": True,
             "findings": findings,
@@ -645,7 +823,6 @@ def cmd_manifest(args: argparse.Namespace) -> int:
         args.json,
         EXIT_OK,
     )
-
 
 def read_audit_frontmatter(path: Path) -> dict[str, str]:
     text = path.read_text(encoding="utf-8", errors="replace")
@@ -742,6 +919,12 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--kb-root", required=True)
     p.add_argument("--source", required=True)
     p.add_argument("--source-slug", required=True)
+    p.add_argument(
+        "--source-storage-mode",
+        choices=sorted(SOURCE_STORAGE_MODES),
+        default=None,
+        help="How this source is stored: pointer_only, copy_into_kb, or snapshot_copy",
+    )
     p.set_defaults(func=cmd_preflight)
 
     p = sub.add_parser("manifest", help="Validate or initialize source manifest")
