@@ -10,3 +10,11 @@ apex-meta/kb/_candidate-corpus-inventories/skill-preflight-corpus-2026-06-23/arc
 
 # Local accidental/source cleanup marker
 source-knowledge/old_openclaw-KB&Agents/delete.md
+
+# Local PDF conversion environments
+.venv-pdfmd/
+.venv-pdfmd312/
+tmp_convert_pdf_to_md.py
+
+# Raw cloned repos for skill best-practice acquisition; extracted SKILL.md files are tracked separately
+apex-meta/kb/_source-acquisitions/skill-best-practices-official-2026-06-23/raw/official-repos/
