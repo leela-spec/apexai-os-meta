@@ -52,6 +52,7 @@ shared_frontmatter_rules:
     - created_at
     - updated_at
     - confidence
+    - claim_label
     - status
   page_type_allowed:
     - summary
@@ -66,6 +67,14 @@ shared_frontmatter_rules:
     - low
     - mixed
     - unknown
+
+  claim_label_allowed:
+    - raw_source
+    - source_backed_summary
+    - behavioral_inference
+    - working_hypothesis
+    - operator_question
+    - practitioner_question
   status_allowed:
     - draft
     - active
@@ -77,83 +86,67 @@ shared_frontmatter_rules:
     - source_path
     - source_hash
     - source_pointer
+    - source_storage_mode
 ```
 
-# Template A — Summary Page
+# Template A - Summary Page
+
 ```markdown
----title: "<Source or topic summary title>"page_type: summarykb_slug: "<kb-slug>"summary_slug: "<source-or-topic-slug>"source_refs:  - source_id: "<source-id>"    source_path: "<raw/source/path/or/pointer>"    source_hash: "<sha256-or-NA>"    source_pointer: "<heading/page/anchor/line/passage reference>"created_at: "YYYY-MM-DDTHH:MM:SSZ"updated_at: "YYYY-MM-DDTHH:MM:SSZ"confidence: "high | medium | low | mixed | unknown"status: "draft | active | needs_review | deprecated | superseded"related_concepts:  - "<concept-slug>"related_entities:  - "<entity-slug>"review_flags: []---
+---
+title: "<Source or topic summary title>"
+page_type: summary
+kb_slug: "<kb-slug>"
+summary_slug: "<source-or-topic-slug>"
+source_refs:
+  - source_id: "<source-id>"
+    source_path: "<raw/source/path/or/pointer>"
+    source_hash: "<sha256-or-NA>"
+    source_pointer: "<heading/page/anchor/line/passage reference>"
+    source_storage_mode: "pointer_only | copy_into_kb | snapshot_copy"
+created_at: "YYYY-MM-DDTHH:MM:SSZ"
+updated_at: "YYYY-MM-DDTHH:MM:SSZ"
+confidence: "high | medium | low | mixed | unknown"
+claim_label: "raw_source | source_backed_summary | behavioral_inference | working_hypothesis | operator_question | practitioner_question"
+status: "draft | active | needs_review | deprecated | superseded"
+related_concepts:
+  - "<concept-slug>"
+related_entities:
+  - "<entity-slug>"
+review_flags: []
+---
 
 # <Source or Topic Summary Title>
+
+## Core Summary
+
+<Write a dense, source-grounded summary of the source or topic. Preserve structure, claims, mechanisms, and limitations. Do not generalize beyond evidence.>
+
+## What This Source Adds to the KB
+
 ```yaml
-page_metadata:
-  page_type: summary
-  intended_use: "Fast source-level context retrieval for future AI work."
-  source_grounding: "All substantive claims require source_refs or inline source pointers."
+adds:
+  - "<Specific reusable knowledge contribution.>"
+clarifies:
+  - "<Concept, process, entity, or decision this source clarifies.>"
+limits:
+  - "<What this source does not establish.>"
 ```
 
-
-#
-
-# Core Summary<Write a dense, source-grounded summary of the source or topic. Preserve the source’s actual structure, claims, mechanisms, and limitations. Do not generalize beyond the available evidence.>
-
-## What This Source Adds to the KB- **Adds:** <Specific reusable knowledge contribution.>- **Clarifies:** <Concept, process, entity, or decision this source clarifies.>- **Limits:** <What this source does not establish.>
-
 ## Key Claims
+
 ```yaml
 key_claims:
   - claim_id: "C001"
     claim: "<Specific source-grounded claim>"
     source_pointer: "<heading/page/anchor/line/passage reference>"
     confidence: "high | medium | low"
+    claim_label: "source_backed_summary"
     used_in_pages:
       - "wiki/concepts/<concept-slug>.md"
 ```
 
+## Open Questions
 
-#
-
-# Extracted Concepts
-```yaml
-extracted_concepts:
-  - concept_slug: "<concept-slug>"
-    concept_label: "<Concept label>"
-    page_path: "wiki/concepts/<concept-slug>.md"
-    source_pointer: "<heading/page/anchor/line/passage reference>"
-```
-
-
-#
-
-# Extracted Entities
-```yaml
-extracted_entities:
-  - entity_slug: "<entity-slug>"
-    entity_label: "<Entity label>"
-    entity_type: "person | organization | project | tool | framework | file | artifact | other"
-    page_path: "wiki/entities/<entity-slug>.md"
-    source_pointer: "<heading/page/anchor/line/passage reference>"
-```
-
-
-#
-
-# Contradictions and Tensions
-```yaml
-contradictions:
-  status: "none_detected | possible | confirmed"
-  items:
-    - contradiction_id: "X001"
-      severity: "low | medium | high"
-      summary: "<Visible contradiction or tension>"
-      source_pointer: "<current source pointer>"
-      related_page: "<existing page path or NA>"
-      handling: "callout_added | audit_item_needed | operator_review_needed"
-```
-
-
-#
-
-# Open Questions
 ```yaml
 open_questions:
   - question_id: "Q001"
@@ -161,41 +154,44 @@ open_questions:
     proposed_handling: "audit_item | planning_task_candidate | leave_as_gap | ask_operator"
     source_pointer: "<source pointer or NA>"
 ```
-
-
-#
-
-# Backlinks
-```yaml
-backlinks:
-  concepts:
-    - "[[<concept-slug>]]"
-  entities:
-    - "[[<entity-slug>]]"
-  related_summaries:
-    - "[[<summary-slug>]]"
-``````
-
-# Template B — Concept Page
-```markdown
----title: "<Concept Label>"page_type: conceptkb_slug: "<kb-slug>"concept_slug: "<concept-slug>"source_refs:  - source_id: "<source-id>"    source_path: "<raw/source/path/or/pointer>"    source_hash: "<sha256-or-NA>"    source_pointer: "<heading/page/anchor/line/passage reference>"created_at: "YYYY-MM-DDTHH:MM:SSZ"updated_at: "YYYY-MM-DDTHH:MM:SSZ"confidence: "high | medium | low | mixed | unknown"status: "draft | active | needs_review | deprecated | superseded"aliases:  - "<alias>"related_concepts:  - "<related-concept-slug>"related_entities:  - "<related-entity-slug>"review_flags: []---
-
-# <Concept Label>
-```yaml
-page_metadata:
-  page_type: concept
-  intended_use: "Reusable concept page for fast context loading and crosslinking."
-  concept_slug: "<concept-slug>"
 ```
 
+# Template B - Concept Page
 
-#
+```markdown
+---
+title: "<Concept Label>"
+page_type: concept
+kb_slug: "<kb-slug>"
+concept_slug: "<concept-slug>"
+source_refs:
+  - source_id: "<source-id>"
+    source_path: "<raw/source/path/or/pointer>"
+    source_hash: "<sha256-or-NA>"
+    source_pointer: "<heading/page/anchor/line/passage reference>"
+    source_storage_mode: "pointer_only | copy_into_kb | snapshot_copy"
+created_at: "YYYY-MM-DDTHH:MM:SSZ"
+updated_at: "YYYY-MM-DDTHH:MM:SSZ"
+confidence: "high | medium | low | mixed | unknown"
+claim_label: "raw_source | source_backed_summary | behavioral_inference | working_hypothesis | operator_question | practitioner_question"
+status: "draft | active | needs_review | deprecated | superseded"
+aliases:
+  - "<alias>"
+related_concepts:
+  - "<related-concept-slug>"
+related_entities:
+  - "<related-entity-slug>"
+review_flags: []
+---
 
-# Definition<Define the concept using only source-grounded evidence. If multiple sources disagree, present the competing definitions instead of merging them silently.>
+# <Concept Label>
 
-## Why It Matters<Explain why this concept matters inside the KB’s domain and future Apex/AI work. Keep it short and source-grounded.>
+## Definition
+
+<Define the concept using only source-grounded evidence. If sources disagree, present competing definitions instead of merging silently.>
 
 ## Source-Grounded Notes
+
 ```yaml
 source_grounded_notes:
   - note_id: "N001"
@@ -203,12 +199,11 @@ source_grounded_notes:
     source_id: "<source-id>"
     source_pointer: "<heading/page/anchor/line/passage reference>"
     confidence: "high | medium | low"
+    claim_label: "source_backed_summary"
 ```
 
+## Relationships
 
-#
-
-# Relationships
 ```yaml
 relationships:
   parent_concepts:
@@ -223,22 +218,33 @@ relationships:
     - "[[<summary-slug>]]"
 ```
 
+## Usage Patterns
 
-#
-
-# Usage Patterns
 ```yaml
 usage_patterns:
   - pattern_id: "P001"
     pattern: "<How this concept is used operationally or analytically>"
     source_pointer: "<heading/page/anchor/line/passage reference>"
     confidence: "high | medium | low"
+    claim_label: "behavioral_inference | source_backed_summary | working_hypothesis"
 ```
 
+## Applied Card
 
-#
+```yaml
+applied_card:
+  shortest_useful_summary: "<One or two sentences for fast practical use.>"
+  when_this_pattern_appears:
+    - "<Observable situation or cue.>"
+  questions_to_ask:
+    - "<Precise applied question.>"
+  do_not_do:
+    - "<Common misuse, overreach, or bypass.>"
+  next_clean_action: "<Smallest practical action if this concept is active.>"
+```
 
-# Contradictions and Variants
+## Contradictions and Variants
+
 ```yaml
 contradictions_and_variants:
   status: "none_detected | possible | confirmed"
@@ -252,161 +258,81 @@ contradictions_and_variants:
       handling: "preserve_both | audit_item_needed | operator_review_needed"
 ```
 
+## Open Questions
 
-#
-
-# Open Questions
 ```yaml
 open_questions:
   - question_id: "Q001"
-    question: "<Question about the concept>"
+    question: "<Open question>"
     blocks_use: false
-    proposed_handling: "audit_item | planning_task_candidate | leave_as_gap | ask_operator"
+    proposed_handling: "audit_item | ingest_more_sources | ask_operator | practitioner_review"
+```
 ```
 
+# Template C - Entity Page
 
-#
-
-# Source Pointers
-```yaml
-source_pointers:
+```markdown
+---
+title: "<Entity Label>"
+page_type: entity
+kb_slug: "<kb-slug>"
+entity_slug: "<entity-slug>"
+entity_type: "person | organization | project | tool | framework | file | artifact | other"
+source_refs:
   - source_id: "<source-id>"
     source_path: "<raw/source/path/or/pointer>"
+    source_hash: "<sha256-or-NA>"
     source_pointer: "<heading/page/anchor/line/passage reference>"
-    supports:
-      - "definition"
-      - "usage_patterns"
-      - "relationships"
-``````
-
-# Template C — Entity Page
-```markdown
----title: "<Entity Label>"page_type: entitykb_slug: "<kb-slug>"entity_slug: "<entity-slug>"entity_type: "person | organization | project | tool | framework | file | artifact | other"source_refs:  - source_id: "<source-id>"    source_path: "<raw/source/path/or/pointer>"    source_hash: "<sha256-or-NA>"    source_pointer: "<heading/page/anchor/line/passage reference>"created_at: "YYYY-MM-DDTHH:MM:SSZ"updated_at: "YYYY-MM-DDTHH:MM:SSZ"confidence: "high | medium | low | mixed | unknown"status: "draft | active | needs_review | deprecated | superseded"aliases:  - "<alias>"related_concepts:  - "<concept-slug>"related_entities:  - "<related-entity-slug>"review_flags: []---
+    source_storage_mode: "pointer_only | copy_into_kb | snapshot_copy"
+created_at: "YYYY-MM-DDTHH:MM:SSZ"
+updated_at: "YYYY-MM-DDTHH:MM:SSZ"
+confidence: "high | medium | low | mixed | unknown"
+claim_label: "raw_source | source_backed_summary | behavioral_inference | working_hypothesis | operator_question | practitioner_question"
+status: "draft | active | needs_review | deprecated | superseded"
+aliases: []
+related_concepts: []
+review_flags: []
+---
 
 # <Entity Label>
-```yaml
-page_metadata:
-  page_type: entity
-  intended_use: "Reusable entity page for people, organizations, projects, tools, files, or artifacts."
-  entity_slug: "<entity-slug>"
-  entity_type: "<entity-type>"
-```
 
+## Entity Summary
 
-#
+<Describe the entity only from source-grounded evidence.>
 
-# Entity Summary<Describe what the source material establishes about this entity. Do not add biographical, organizational, or tool claims not present in the KB sources.>
+## Source-Grounded Facts
 
-## Role in This KB
-```yaml
-role_in_kb:
-  role_summary: "<Why this entity matters here>"
-  appears_in:
-    - "wiki/summaries/<summary-slug>.md"
-  connected_concepts:
-    - "wiki/concepts/<concept-slug>.md"
-```
-
-
-#
-
-# Source-Grounded Facts
 ```yaml
 source_grounded_facts:
   - fact_id: "F001"
-    fact: "<Specific fact about the entity>"
+    fact: "<Specific fact>"
     source_id: "<source-id>"
-    source_pointer: "<heading/page/anchor/line/passage reference>"
+    source_pointer: "<source pointer>"
     confidence: "high | medium | low"
+    claim_label: "source_backed_summary"
+```
 ```
 
+# Template D - Wiki Index
 
-#
-
-# Relationships
-```yaml
-relationships:
-  related_entities:
-    - entity: "[[<entity-slug>]]"
-      relationship: "<relationship label>"
-      source_pointer: "<source pointer>"
-  related_concepts:
-    - concept: "[[<concept-slug>]]"
-      relationship: "<relationship label>"
-      source_pointer: "<source pointer>"
-  source_summaries:
-    - "[[<summary-slug>]]"
-```
-
-
-#
-
-# Known Ambiguities
-```yaml
-known_ambiguities:
-  - ambiguity_id: "A001"
-    summary: "<Ambiguity, naming collision, incomplete source, or uncertainty>"
-    source_pointer: "<source pointer or NA>"
-    proposed_handling: "alias | audit_item | operator_review | leave_flagged"
-```
-
-
-#
-
-# Contradictions
-```yaml
-contradictions:
-  status: "none_detected | possible | confirmed"
-  items:
-    - contradiction_id: "X001"
-      summary: "<Contradiction involving this entity>"
-      source_refs:
-        - "<source pointer A>"
-        - "<source pointer B>"
-      handling: "preserve_both | audit_item_needed | operator_review_needed"
-```
-
-
-#
-
-# Source Pointers
-```yaml
-source_pointers:
-  - source_id: "<source-id>"
-    source_path: "<raw/source/path/or/pointer>"
-    source_pointer: "<heading/page/anchor/line/passage reference>"
-    supports:
-      - "entity_summary"
-      - "facts"
-      - "relationships"
-``````
-
-# Template D — Wiki Index
 ```markdown
----title: "<KB Title> Index"page_type: indexkb_slug: "<kb-slug>"source_refs: []created_at: "YYYY-MM-DDTHH:MM:SSZ"updated_at: "YYYY-MM-DDTHH:MM:SSZ"confidence: "mixed"status: "active"review_flags: []---
+---
+title: "<KB Title> Index"
+page_type: index
+kb_slug: "<kb-slug>"
+source_refs: []
+created_at: "YYYY-MM-DDTHH:MM:SSZ"
+updated_at: "YYYY-MM-DDTHH:MM:SSZ"
+confidence: "mixed"
+claim_label: "source_backed_summary"
+status: "active"
+review_flags: []
+---
 
 # <KB Title> Index
-```yaml
-index_metadata:
-  kb_slug: "<kb-slug>"
-  kb_schema: "kb-schema.md"
-  index_role: "Entry point for index-first query and fast AI context loading."
-  machine_section_owner: python
-  llm_section_owner: llm
-```
 
+<!-- BEGIN AUTO-GENERATED INDEX -->
 
-#
-
-# How to Use This KB1. Start with this index.2. Select the smallest relevant set of pages.3. Read selected pages fully before answering.4. Preserve contradictions and gaps.5. Save important query outputs under `outputs/queries/` when useful.
-
-## KB Scope
-```yaml
-kb_scope:
-  kb_topic_title: "<from kb-schema.md>"
-  language_policy: "<from kb-schema.md>"
-  source_authority_policy: "<from kb-schema.md>"
-```<!-- BEGIN AUTO-GENERATED INDEX -->
 ```yaml
 machine_generated_index:
   generated_at: "YYYY-MM-DDTHH:MM:SSZ"
@@ -418,71 +344,50 @@ machine_generated_index:
     entities: []
   detected_links: []
   orphan_pages: []
-  stale_index_hash: "<hash-or-NA>"
-```<!-- END AUTO-GENERATED INDEX --><!-- BEGIN LLM SUMMARY -->
-
-## LLM Summary<LLM-owned semantic overview of the KB. Include major categories, central concepts, source clusters, contradictions, and knowledge gaps. Do not overwrite the machine-generated section.>
-
-## Major Concept Clusters
-```yaml
-major_concept_clusters:
-  - cluster_id: "CL001"
-    label: "<Cluster label>"
-    concepts:
-      - "[[<concept-slug>]]"
-    summaries:
-      - "[[<summary-slug>]]"
-    notes: "<Short semantic note>"
+  stale_index_hash: "NA"
 ```
 
+<!-- END AUTO-GENERATED INDEX -->
 
-#
+<!-- BEGIN LLM SUMMARY -->
 
-# Knowledge Gaps
-```yaml
-knowledge_gaps:
-  - gap_id: "G001"
-    gap: "<Known gap>"
-    related_pages:
-      - "wiki/concepts/<concept-slug>.md"
-    proposed_handling: "ingest_more_sources | audit_item | planning_task_candidate | leave_as_gap"
+## LLM Summary
+
+<LLM-owned semantic overview. Do not overwrite the machine-generated section.>
+
+<!-- END LLM SUMMARY -->
 ```
 
+# Template E - Query Output
 
-#
-
-# Active Contradictions
-```yaml
-active_contradictions:
-  - contradiction_id: "X001"
-    summary: "<Contradiction summary>"
-    related_pages:
-      - "wiki/concepts/<concept-slug>.md"
-    handling: "audit_item_needed | operator_review_needed | preserved_variant"
-```<!-- END LLM SUMMARY -->```
-
-# Template E — Query Output
 ```markdown
----title: "<Query Title>"page_type: query_outputkb_slug: "<kb-slug>"query_slug: "<query-slug>"source_refs:  - source_id: "<source-id-or-page-path>"    source_path: "<wiki/page/path>"    source_hash: "NA"    source_pointer: "<section anchor>"created_at: "YYYY-MM-DDTHH:MM:SSZ"updated_at: "YYYY-MM-DDTHH:MM:SSZ"confidence: "high | medium | low | mixed | unknown"status: "draft | active | needs_review"review_flags: []---
+---
+title: "<Query Title>"
+page_type: query_output
+kb_slug: "<kb-slug>"
+query_slug: "<query-slug>"
+source_refs:
+  - source_id: "<source-id-or-page-path>"
+    source_path: "<wiki/page/path>"
+    source_hash: "NA"
+    source_pointer: "<section anchor>"
+    source_storage_mode: "pointer_only"
+created_at: "YYYY-MM-DDTHH:MM:SSZ"
+updated_at: "YYYY-MM-DDTHH:MM:SSZ"
+confidence: "high | medium | low | mixed | unknown"
+claim_label: "source_backed_summary | behavioral_inference | working_hypothesis"
+status: "draft | active | needs_review"
+review_flags: []
+---
 
 # <Query Title>
-```yaml
-query_metadata:
-  query: "<operator query>"
-  kb_slug: "<kb-slug>"
-  query_mode: "index_first"
-  pages_read:
-    - "wiki/index.md"
-    - "wiki/concepts/<concept-slug>.md"
-  saved_because: "<Why this query output is useful to preserve>"
-```
 
+## Answer
 
-#
-
-# Answer<Answer the query using only the compiled KB pages and explicit source pointers. Preserve uncertainty.>
+<Answer from compiled KB pages and explicit source pointers. Preserve uncertainty.>
 
 ## Evidence Pages
+
 ```yaml
 evidence_pages:
   - page_path: "wiki/<path>.md"
@@ -491,57 +396,32 @@ evidence_pages:
     supports:
       - "<answer claim>"
 ```
-
-
-#
-
-# Confidence
-```yaml
-confidence_assessment:
-  confidence: "high | medium | low | mixed | unknown"
-  rationale: "<Why this confidence level is appropriate>"
 ```
 
+# Template F - Audit Item
 
-#
-
-# Contradictions
-```yaml
-contradictions:
-  status: "none_detected | possible | confirmed"
-  items:
-    - contradiction_id: "X001"
-      summary: "<Contradiction relevant to the answer>"
-      related_pages:
-        - "wiki/<path>.md"
-      impact_on_answer: "<How it affects the answer>"
-```
-
-
-#
-
-# Knowledge Gaps
-```yaml
-knowledge_gaps:
-  - gap_id: "G001"
-    gap: "<Missing knowledge needed for stronger answer>"
-    proposed_handling: "ingest_more_sources | audit_item | planning_task_candidate | leave_as_gap"
-```
-
-
-#
-
-# Suggested Followups
-```yaml
-suggested_followups:
-  - "<Followup query, source ingest, or audit action>"
-``````
-
-# Template F — Audit Item
 ```markdown
----title: "<Audit Item Title>"page_type: audit_itemkb_slug: "<kb-slug>"audit_id: "<audit-id>"source_refs:  - source_id: "<source-id-or-page-path>"    source_path: "<source/page/path>"    source_hash: "<sha256-or-NA>"    source_pointer: "<heading/page/anchor/line/passage reference>"created_at: "YYYY-MM-DDTHH:MM:SSZ"updated_at: "YYYY-MM-DDTHH:MM:SSZ"confidence: "high | medium | low | mixed | unknown"status: "draft | active | needs_review | deprecated | superseded"review_flags: []---
+---
+title: "<Audit Item Title>"
+page_type: audit_item
+kb_slug: "<kb-slug>"
+audit_id: "<audit-id>"
+source_refs:
+  - source_id: "<source-id-or-page-path>"
+    source_path: "<source/page/path>"
+    source_hash: "<sha256-or-NA>"
+    source_pointer: "<heading/page/anchor/line/passage reference>"
+    source_storage_mode: "pointer_only | copy_into_kb | snapshot_copy"
+created_at: "YYYY-MM-DDTHH:MM:SSZ"
+updated_at: "YYYY-MM-DDTHH:MM:SSZ"
+confidence: "high | medium | low | mixed | unknown"
+claim_label: "operator_question | practitioner_question | working_hypothesis"
+status: "draft | active | needs_review | deprecated | superseded"
+review_flags: []
+---
 
 # <Audit Item Title>
+
 ```yaml
 audit_item:
   audit_id: "<audit-id>"
@@ -554,48 +434,13 @@ audit_item:
   created_at: "YYYY-MM-DDTHH:MM:SSZ"
 ```
 
+## Summary
 
-#
-
-# Summary<Short description of the issue, feedback, contradiction, quality concern, or gap.>
-
-## Evidence
-```yaml
-evidence:
-  - evidence_id: "E001"
-    source_path: "<source/page/path>"
-    source_pointer: "<heading/page/anchor/line/passage reference>"
-    note: "<What this evidence shows>"
+<Short description of the issue, feedback, contradiction, quality concern, or gap.>
 ```
-
-
-#
-
-# Proposed Resolution
-```yaml
-proposed_resolution:
-  recommendation: "accept | partial | reject | defer"
-  action:
-    - "<Proposed page edit, source ingest, link fix, naming change, or operator decision>"
-  reason: "<Why this resolution is appropriate>"
-```
-
-
-#
-
-# Operator Decision
-```yaml
-operator_decision:
-  decision: "pending | accept | partial | reject | defer"
-  decided_at: "YYYY-MM-DDTHH:MM:SSZ | NA"
-  decision_note: "<Operator note or NA>"
-  move_to_resolved_when_complete: false
-``````
-
-
-#
 
 # Completion Gate
+
 ```yaml
 completion_gate:
   valid_wiki_page_templates_file:
@@ -609,11 +454,5 @@ completion_gate:
       - shared_frontmatter_rules_present
       - source_pointer_policy_present
       - contradiction_visibility_present
-  invalid_if:
-    - source_pointers_optional_for_substantive_claims
-    - contradiction_sections_removed
-    - index_machine_and_llm_sections_collapsed
-    - phase_2_gate_removed
-    - generated_claims_allowed_without_sources
-    - script_generated_semantic_sections
+      - claim_label_and_confidence_separated
 ```

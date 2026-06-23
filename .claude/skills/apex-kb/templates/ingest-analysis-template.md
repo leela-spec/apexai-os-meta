@@ -12,7 +12,11 @@ template_metadata:
   phase: ingest_phase_1
   required_halt_after_completion: true
   phase_2_requires_operator_phrase: "approve ingest"
-  purpose: >    Capture the LLM-owned semantic analysis of one raw source before wiki page    generation. This artifact preserves extracted concepts, entities, claims,    contradictions, proposed wiki changes, and open review questions so the    operator can approve or reject Phase 2 generation.
+  purpose: >
+    Capture the LLM-owned semantic analysis of one raw source before wiki page
+    generation. This artifact preserves extracted concepts, entities, claims,
+    contradictions, proposed wiki changes, and open review questions so the
+    operator can approve or reject Phase 2 generation.
   write_scope:
     allowed_path: "apex-meta/kb/<kb-slug>/ingest-analysis/"
     forbidden_paths_during_phase_1:
@@ -60,8 +64,10 @@ source_identity:
   author_or_origin: "<author/origin if known, otherwise unknown>"
   publication_or_creation_date: "YYYY-MM-DD | YYYY-MM | YYYY | unknown"
   source_authority_level: "primary | secondary | tertiary | unclear"
-  source_authority_rationale: >    <Short reason based only on available source context and kb-schema authority policy.>
-  source_scope: >    <What this source appears to cover.>
+  source_authority_rationale: >
+    <Short reason based only on available source context and kb-schema authority policy.>
+  source_scope: >
+    <What this source appears to cover.>
   source_limitations:
     - "<Known limitation, missing context, partial extraction, or uncertainty.>"
 ```
@@ -69,8 +75,11 @@ source_identity:
 # 2. Source Summary
 ```yaml
 source_summary:
-  one_sentence_core: >    <One sentence capturing the source's central knowledge contribution.>
-  compact_summary: >    <Dense 3-7 sentence summary. Preserve specificity. Do not generalize beyond    the source.>
+  one_sentence_core: >
+    <One sentence capturing the source's central knowledge contribution.>
+  compact_summary: >
+    <Dense 3-7 sentence summary. Preserve specificity. Do not generalize beyond
+    the source.>
   relevant_to_kb_because:
     - "<Reason this source belongs in this KB.>"
   likely_not_relevant_for:
@@ -87,13 +96,16 @@ extraction_candidates:
   reusable_definitions:
     - term: "<term>"
       source_pointer: "<heading/page/anchor/line/passage reference>"
-      definition_candidate: >        <Source-grounded definition candidate.>
+      definition_candidate: >
+        <Source-grounded definition candidate.>
       confidence: "high | medium | low"
   reusable_processes:
     - process_name: "<process name>"
       source_pointer: "<heading/page/anchor/line/passage reference>"
-      process_summary: >        <Process logic extracted from source.>
-      possible_apex_use: >        <How this process might be reusable in Apex KB or downstream packages.>
+      process_summary: >
+        <Process logic extracted from source.>
+      possible_apex_use: >
+        <How this process might be reusable in Apex KB or downstream packages.>
       confidence: "high | medium | low"
 ```
 
@@ -104,7 +116,8 @@ concept_candidates:
     concept_label: "<Human readable concept label>"
     source_pointers:
       - "<heading/page/anchor/line/passage reference>"
-    concept_summary: >      <What the source says about this concept.>
+    concept_summary: >
+      <What the source says about this concept.>
     proposed_page_action: "create | update | no_page_needed"
     proposed_page_path: "wiki/concepts/<concept-slug>.md"
     related_existing_pages:
@@ -121,7 +134,8 @@ entity_candidates:
     entity_type: "person | organization | project | tool | framework | file | artifact | other"
     source_pointers:
       - "<heading/page/anchor/line/passage reference>"
-    entity_summary: >      <What the source establishes about this entity.>
+    entity_summary: >
+      <What the source establishes about this entity.>
     proposed_page_action: "create | update | no_page_needed"
     proposed_page_path: "wiki/entities/<entity-slug>.md"
     related_existing_pages:
@@ -134,7 +148,8 @@ entity_candidates:
 ```yaml
 claim_candidates:
   - claim_id: "C001"
-    claim_text: >      <Specific claim extracted from the source.>
+    claim_text: >
+      <Specific claim extracted from the source.>
     source_pointer: "<heading/page/anchor/line/passage reference>"
     claim_type: "definition | decision | fact | recommendation | warning | open_question | other"
     applies_to:
@@ -153,11 +168,14 @@ contradiction_candidates:
   items:
     - contradiction_id: "X001"
       severity: "low | medium | high"
-      source_claim: >        <Claim from the current source.>
-      conflicting_existing_claim: >        <Claim from existing KB material, if known.>
+      source_claim: >
+        <Claim from the current source.>
+      conflicting_existing_claim: >
+        <Claim from existing KB material, if known.>
       current_source_pointer: "<heading/page/anchor/line/passage reference>"
       existing_source_pointer: "<existing page/source pointer or unknown>"
-      interpretation: >        <Neutral explanation of the conflict. Do not silently resolve.>
+      interpretation: >
+        <Neutral explanation of the conflict. Do not silently resolve.>
       proposed_handling: "add_contradiction_callout | create_audit_item | ask_operator | ignore_with_reason"
       review_required: true
 ```
@@ -243,7 +261,8 @@ operator_review_gate:
   required_operator_phrase: "approve ingest"
   recommended_operator_decision:
     decision: "approve | approve_with_changes | reject | defer"
-    rationale: >      <Short rationale based on source value, contradictions, and open questions.>
+    rationale: >
+      <Short rationale based on source value, contradictions, and open questions.>
   if_approved_next_actions:
     - "Generate or update summary page with source pointers."
     - "Generate or update approved concept pages with source pointers."

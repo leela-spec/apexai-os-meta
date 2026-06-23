@@ -24,7 +24,7 @@ Non-scope:
 
 Runtime:
 - Python standard library only.
-- No shell-out except this script's own local validation when called externally.
+- No shell-out.
 - No network access.
 - Dry-run by default for write-capable commands.
 """

@@ -126,6 +126,55 @@ skill_contract:
     preserve_exact_source_path: true
     never_treat_missing_source_as_verified: true
     source_pointer_required_on_generated_pages: true
+    source_storage_modes:
+      pointer_only:
+        use_when: "Source already exists durably inside this repository and should not be duplicated."
+        required_fields:
+          - source_path
+          - source_hash
+          - source_storage_mode
+      copy_into_kb:
+        use_when: "Source is external, uploaded, temporary, or not durably stored in this repository."
+        required_fields:
+          - source_path
+          - source_hash
+          - copied_to
+          - source_storage_mode
+      snapshot_copy:
+        use_when: "Source may change and the KB requires a frozen evidence version."
+        required_fields:
+          - source_path
+          - source_hash
+          - snapshot_path
+          - source_storage_mode
+    default_for_repo_internal_sources: pointer_only
+    default_for_external_or_uploaded_sources: copy_into_kb
+
+  phase_gate_policy:
+    normal_mode:
+      same_prompt_approval_allowed: false
+      requires_separate_operator_turn: true
+    explicit_test_mode:
+      same_prompt_approval_allowed: true
+      condition: "Phase 1 artifacts must exist before Phase 2 generation begins."
+    required_phrase: "approve ingest"
+
+  epistemic_labels:
+    confidence:
+      allowed:
+        - high
+        - medium
+        - low
+        - mixed
+        - unknown
+    claim_label:
+      allowed:
+        - raw_source
+        - source_backed_summary
+        - behavioral_inference
+        - working_hypothesis
+        - operator_question
+        - practitioner_question
 ```
 
 
@@ -133,12 +182,57 @@ skill_contract:
 
 # Supporting Files
 
-```
-supporting_files:  - path: "references/kb-contract.md"    read_when:      - validating_apex_kb_scope      - scaffold_mode      - checking_data_layout      - routing_to_apex_plan_session_sync      - validating_forbidden_behavior  - path: "references/ingest-query-lint-audit-rules.md"    read_when:      - ingest_phase_1      - ingest_phase_2      - query_mode      - lint_mode      - audit_mode      - checking_operator_review_gate      - validating_semantic_vs_deterministic_ownership  - path: "references/script-command-contract.md"    read_when:      - scaffold_mode      - lint_mode      - index_rebuild_needed      - hash_source_needed      - audit_file_listing_needed      - operator_asks_about_apex_kb_py  - path: "templates/ingest-analysis-template.md"    read_when:      - writing_ingest_phase_1_analysis      - operator_requests_blank_phase_1_template      - phase_1_output_shape_is_unclear  - path: "templates/wiki-page-templates.md"    read_when:      - creating_summary_page      - creating_concept_page      - creating_entity_page      - checking_generated_page_shape  - path: "package-manifest.md"    read_when:      - operator_inspects_package_structure      - validating_file_inventory      - checking_v1_scope
-```
+```yaml
+supporting_files:
+  - path: "references/kb-contract.md"
+    read_when:
+      - validating_apex_kb_scope
+      - scaffold_mode
+      - checking_data_layout
+      - routing_to_apex_plan_session_sync
+      - validating_forbidden_behavior
 
+  - path: "references/ingest-query-lint-audit-rules.md"
+    read_when:
+      - ingest_phase_1
+      - ingest_phase_2
+      - query_mode
+      - lint_mode
+      - audit_mode
+      - checking_operator_review_gate
+      - validating_semantic_vs_deterministic_ownership
+      - checking_source_storage_mode
 
-#
+  - path: "references/script-command-contract.md"
+    read_when:
+      - scaffold_mode
+      - lint_mode
+      - index_rebuild_needed
+      - hash_source_needed
+      - audit_file_listing_needed
+      - operator_asks_about_apex_kb_py
+      - reconciling_cli_arguments
+
+  - path: "templates/ingest-analysis-template.md"
+    read_when:
+      - writing_ingest_phase_1_analysis
+      - operator_requests_blank_phase_1_template
+      - phase_1_output_shape_is_unclear
+
+  - path: "templates/wiki-page-templates.md"
+    read_when:
+      - creating_summary_page
+      - creating_concept_page
+      - creating_entity_page
+      - checking_generated_page_shape
+      - checking_claim_label_vs_confidence
+
+  - path: "package-manifest.md"
+    read_when:
+      - operator_inspects_package_structure
+      - validating_file_inventory
+      - checking_v1_scope
+```
 
 # Procedure
 
@@ -155,14 +249,97 @@ supporting_files:  - path: "references/kb-contract.md"    read_when:      - vali
 
 # Failure Modes
 
-```
-failure_modes:  missing_kb_slug:    response: "Stop and request a kb_slug before touching files."  missing_kb_root:    response: "Route to scaffold mode and propose the required KB root paths."  missing_kb_schema:    response: "Create or request kb-schema.md; do not substitute CLAUDE.md."  missing_raw_source:    response: "Stop. Do not infer source content from filename, title, or prior summaries."  duplicate_source_hash:    response: "Report prior ingest record and ask whether to skip, compare, or re-ingest as a new version."  phase_2_without_approval:    response: "Stop after Phase 1. Require the exact operator approval phrase before generating wiki pages."  stale_index_detected:    response: "Run or request Python index rebuild for the machine section before relying on index completeness."  broken_links_or_orphans:    response: "Return deterministic lint findings and keep semantic page repair separate."  contradiction_detected:    response: "Preserve the contradiction as a review flag or callout; do not silently collapse conflicting claims."  source_authority_unclear:    response: "Mark authority as uncertain in the ingest analysis and request operator review."  write_outside_kb_root_requested:    response: "Require explicit operator approval and identify the exact target path before writing."  external_contact_requested_or_implied:    response: "Do not contact external authors, maintainers, contributors, or third parties."
-```
+```yaml
+failure_modes:
+  missing_kb_slug:
+    response: "Stop and request a kb_slug before touching files."
 
+  missing_kb_root:
+    response: "Route to scaffold mode and propose the required KB root paths."
 
-#
+  missing_kb_schema:
+    response: "Create or request kb-schema.md; do not substitute CLAUDE.md."
+
+  missing_raw_source:
+    response: "Stop. Do not infer source content from filename, title, or prior summaries."
+
+  duplicate_source_hash:
+    response: "Report prior ingest record and ask whether to skip, compare, or re-ingest as a new version."
+
+  phase_2_without_approval:
+    response: "Stop after Phase 1. Require the exact operator approval phrase before generating wiki pages."
+
+  same_prompt_phase_2_approval_in_normal_mode:
+    response: "Treat as not approved. Require a separate operator turn unless explicit test mode is declared."
+
+  stale_index_detected:
+    response: "Run or request Python index rebuild for the machine section before relying on index completeness."
+
+  broken_links_or_orphans:
+    response: "Return deterministic lint findings and keep semantic page repair separate."
+
+  contradiction_detected:
+    response: "Preserve the contradiction as a review flag or callout; do not silently collapse conflicting claims."
+
+  source_authority_unclear:
+    response: "Mark authority as uncertain in the ingest analysis and request operator review."
+
+  source_storage_mode_unclear:
+    response: "Default repo-internal durable sources to pointer_only; default external or uploaded sources to copy_into_kb."
+
+  write_outside_kb_root_requested:
+    response: "Require explicit operator approval and identify the exact target path before writing."
+
+  external_contact_requested_or_implied:
+    response: "Do not contact external authors, maintainers, contributors, recipients, or third parties."
+```
 
 # Completion Gate
 
+```yaml
+completion_gate:
+  valid_completion_requires:
+    - requested_mode_identified
+    - kb_slug_resolved
+    - kb_root_policy_followed
+    - source_storage_mode_resolved
+    - raw_source_policy_followed_when_ingesting
+    - deterministic_vs_semantic_ownership_respected
+    - operator_gate_respected_for_ingest_phase_2
+    - output_artifact_matches_requested_mode
+    - confidence_and_claim_label_not_conflated
+    - review_flags_returned_when_uncertainty_exists
+
+  valid_outputs_by_mode:
+    scaffold:
+      - kb_root_scaffold_plan_or_created_paths
+      - kb-schema.md
+      - initial_wiki_index
+      - initial_source_manifest
+
+    ingest_phase_1:
+      - ingest_analysis
+      - operator_review_required
+
+    ingest_phase_2:
+      - generated_or_updated_wiki_pages
+      - updated_manifest
+      - updated_index_sections
+      - postflight_review_flags
+
+    query:
+      - wiki_grounded_answer
+      - evidence_pages
+      - confidence
+      - claim_label
+      - knowledge_gaps
+      - optional_saved_query_output
+
+    lint:
+      - deterministic_health_report
+      - semantic_review_flags
+
+    audit:
+      - grouped_audit_items
+      - proposed_accept_partial_reject_defer_actions
 ```
-completion_gate:  valid_completion_requires:    - requested_mode_identified    - kb_slug_resolved    - kb_root_policy_followed    - raw_source_policy_followed_when_ingesting    - deterministic_vs_semantic_ownership_respected    - operator_gate_respected_for_ingest_phase_2    - output_artifact_matches_requested_mode    - review_flags_returned_when_uncertainty_exists  valid_outputs_by_mode:    scaffold:      - kb_root_scaffold_plan_or_created_paths      - kb-schema.md      - initial_wiki_index      - initial_source_manifest    ingest_phase_1:      - ingest_analysis      - operator_review_required    ingest_phase_2:      - generated_or_updated_wiki_pages      - updated_manifest      - updated_index_sections      - postflight_review_flags    query:      - wiki_grounded_answer      - evidence_pages      - confidence      - knowledge_gaps      - optional_saved_query_output    lint:      - deterministic_health_report      - semantic_review_flags    audit:      - grouped_audit_items      - proposed_accept_partial_reject_defer_actions

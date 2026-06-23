@@ -45,8 +45,14 @@ kb_contract:
       - wiki_search.py
       - update-index.py
       - init_wiki.py
-  primary_purpose: >    Maintain a durable, source-preserving, compiled knowledge base that lets    Claude and other AI agents answer from reusable wiki context instead of    repeatedly rereading raw sources.
-  non_purpose: >    Apex KB is not a planner, task mutator, ranking engine, blocker scanner,    status merger, or session handoff engine. Other Apex packages may consume    KB outputs, but they do not define KB behavior.
+  primary_purpose: >
+    Maintain a durable, source-preserving, compiled knowledge base that lets
+    Claude and other AI agents answer from reusable wiki context instead of
+    repeatedly rereading raw sources.
+  non_purpose: >
+    Apex KB is not a planner, task mutator, ranking engine, blocker scanner,
+    status merger, or session handoff engine. Other Apex packages may consume
+    KB outputs, but they do not define KB behavior.
 ```
 
 

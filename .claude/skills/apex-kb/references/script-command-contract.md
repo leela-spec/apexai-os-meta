@@ -8,7 +8,12 @@ script_command_contract:
   canonical_rules:
     kb_contract: ".claude/skills/apex-kb/references/kb-contract.md"
     operation_rules: ".claude/skills/apex-kb/references/ingest-query-lint-audit-rules.md"
-  purpose: >    Define the deterministic Python interface used by apex-kb for scaffold,    source hashing, preflight validation, manifest checks, index structure    generation, link validation, orphan detection, stale-index detection, and    audit listing. This contract does not define semantic extraction, page    drafting, contradiction interpretation, or query synthesis.
+  purpose: >
+    Define the deterministic Python interface used by apex-kb for scaffold,
+    source hashing, preflight validation, manifest checks, index structure
+    generation, link validation, orphan detection, stale-index detection, and
+    audit listing. This contract does not define semantic extraction, page
+    drafting, contradiction interpretation, or query synthesis.
   runtime_policy:
     language: python
     python_version_floor: "3.10"
@@ -48,7 +53,8 @@ script_command_contract:
 # Command Surface
 ```yaml
 command_surface:
-  invocation_pattern: >    python apex-meta/scripts/apex_kb.py <subcommand> --kb-root apex-meta/kb/<kb-slug>/ [options]
+  invocation_pattern: >
+    python apex-meta/scripts/apex_kb.py [global-options] <subcommand> [subcommand-options]
   global_arguments:
     kb_root:
       flag: "--kb-root"
@@ -123,7 +129,9 @@ subcommand_contracts:
       - "--json"
       - "--dry-run"
       - "--allow-write"
+      - "--title"
       - "--topic-title"
+      - "--force"
     required_checks:
       - parent_directory_exists_or_can_be_created
       - target_kb_root_does_not_conflict_with_file
@@ -157,15 +165,17 @@ subcommand_contracts:
       - "--path"
     optional_arguments:
       - "--json"
-      - "--algorithm"
     default_algorithm: "sha256"
-    directory_hash_rule: >      For a directory, hash each contained file deterministically, sort by      relative path, then hash the ordered path/hash manifest.
+    directory_hash_rule: >
+      For a directory, hash each contained file deterministically, sort by
+      relative path, then hash the ordered path/hash manifest.
     output_artifact: hash_report
     writes_possible: false
   preflight:
     required_arguments:
       - "--kb-root"
       - "--source"
+      - "--source-slug"
     optional_arguments:
       - "--json"
       - "--strict"
@@ -186,6 +196,7 @@ subcommand_contracts:
       - "--kb-root"
     optional_arguments:
       - "--source"
+      - "--source-slug"
       - "--source-hash"
       - "--analysis-path"
       - "--generated-page"
@@ -425,7 +436,9 @@ exit_code_policy:  0:
     meaning: "Command failed due to validation errors, missing inputs, or malformed KB files."  3:
     meaning: "Command refused because requested write is unsafe or outside policy."  4:
     meaning: "Command invocation error, such as unknown subcommand or invalid argument."
-  rule: >    When --json is supplied, the script must still emit a valid JSON object for    exit codes 0, 1, 2, and 3 whenever possible.
+  rule: >
+    When --json is supplied, the script must still emit a valid JSON object for
+    exit codes 0, 1, 2, and 3 whenever possible.
 ```
 
 
@@ -535,4 +548,67 @@ completion_gate:
     - semantic_generation_by_script
     - network_access
     - repo_write_instruction
+```
+
+## JSON Output Compatibility Notes
+
+```yaml
+json_output_compatibility_notes:
+  known_actual_fields:
+    common:
+      - artifact_name
+      - status
+      - kb_root
+      - findings
+    scaffold:
+      - dry_run
+      - writes_performed
+      - created_paths
+      - skipped_paths
+    hash:
+      - path
+      - path_type
+      - hash_algorithm
+      - hash_value
+      - file_count
+      - bytes_total
+    preflight:
+      - source_path
+      - source_slug
+      - source_hash
+      - existing_manifest_entry
+      - existing_phase_1_analysis
+      - index_status
+    index:
+      - index_path
+      - dry_run
+      - writes_performed
+      - machine_index_section_present
+      - llm_summary_section_preserved
+      - semantic_content_generated_by_python
+      - page_count
+      - orphan_pages_count
+    lint:
+      - checks_run
+      - missing_required_paths
+      - malformed_frontmatter
+      - broken_links
+      - orphan_pages
+      - missing_source_pointers
+      - stale_index
+      - manifest_issues
+      - audit_shape_issues
+    audit:
+      - open_count
+      - resolved_count
+      - deferred_count
+      - rejected_count
+      - grouped_items
+      - malformed_items
+      - missing_targets
+
+  compatibility_rule: >
+    If this contract and actual apex_kb.py output diverge, update this contract
+    or the script in a dedicated reconciliation patch before relying on tests as
+    proof of package correctness.
 ```

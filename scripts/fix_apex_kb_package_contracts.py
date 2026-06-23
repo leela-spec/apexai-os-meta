@@ -290,13 +290,6 @@ review_flags: []
 
 # <Source or Topic Summary Title>
 
-```yaml
-page_metadata:
-  page_type: summary
-  intended_use: "Fast source-level context retrieval for future AI work."
-  source_grounding: "All substantive claims require source_refs or inline source pointers."
-```
-
 ## Core Summary
 
 <Write a dense, source-grounded summary of the source or topic. Preserve structure, claims, mechanisms, and limitations. Do not generalize beyond evidence.>
@@ -333,18 +326,6 @@ open_questions:
     question: "<Open knowledge question>"
     proposed_handling: "audit_item | planning_task_candidate | leave_as_gap | ask_operator"
     source_pointer: "<source pointer or NA>"
-```
-
-## Backlinks
-
-```yaml
-backlinks:
-  concepts:
-    - "[[<concept-slug>]]"
-  entities:
-    - "[[<entity-slug>]]"
-  related_summaries:
-    - "[[<summary-slug>]]"
 ```
 ```
 
@@ -469,6 +450,7 @@ title: "<Entity Label>"
 page_type: entity
 kb_slug: "<kb-slug>"
 entity_slug: "<entity-slug>"
+entity_type: "person | organization | project | tool | framework | file | artifact | other"
 source_refs:
   - source_id: "<source-id>"
     source_path: "<raw/source/path/or/pointer>"
@@ -480,7 +462,6 @@ updated_at: "YYYY-MM-DDTHH:MM:SSZ"
 confidence: "high | medium | low | mixed | unknown"
 claim_label: "raw_source | source_backed_summary | behavioral_inference | working_hypothesis | operator_question | practitioner_question"
 status: "draft | active | needs_review | deprecated | superseded"
-entity_type: "person | organization | project | tool | framework | file | artifact | other"
 aliases: []
 related_concepts: []
 review_flags: []
@@ -503,19 +484,152 @@ source_grounded_facts:
     confidence: "high | medium | low"
     claim_label: "source_backed_summary"
 ```
+```
 
-## Relationships
+# Template D - Wiki Index
+
+```markdown
+---
+title: "<KB Title> Index"
+page_type: index
+kb_slug: "<kb-slug>"
+source_refs: []
+created_at: "YYYY-MM-DDTHH:MM:SSZ"
+updated_at: "YYYY-MM-DDTHH:MM:SSZ"
+confidence: "mixed"
+claim_label: "source_backed_summary"
+status: "active"
+review_flags: []
+---
+
+# <KB Title> Index
+
+<!-- BEGIN AUTO-GENERATED INDEX -->
 
 ```yaml
-relationships:
-  related_concepts:
-    - "[[<concept-slug>]]"
-  related_entities:
-    - "[[<entity-slug>]]"
-  source_summaries:
-    - "[[<summary-slug>]]"
+machine_generated_index:
+  generated_at: "YYYY-MM-DDTHH:MM:SSZ"
+  generated_by: "apex_kb.py index"
+  page_count: 0
+  pages:
+    summaries: []
+    concepts: []
+    entities: []
+  detected_links: []
+  orphan_pages: []
+  stale_index_hash: "NA"
+```
+
+<!-- END AUTO-GENERATED INDEX -->
+
+<!-- BEGIN LLM SUMMARY -->
+
+## LLM Summary
+
+<LLM-owned semantic overview. Do not overwrite the machine-generated section.>
+
+<!-- END LLM SUMMARY -->
+```
+
+# Template E - Query Output
+
+```markdown
+---
+title: "<Query Title>"
+page_type: query_output
+kb_slug: "<kb-slug>"
+query_slug: "<query-slug>"
+source_refs:
+  - source_id: "<source-id-or-page-path>"
+    source_path: "<wiki/page/path>"
+    source_hash: "NA"
+    source_pointer: "<section anchor>"
+    source_storage_mode: "pointer_only"
+created_at: "YYYY-MM-DDTHH:MM:SSZ"
+updated_at: "YYYY-MM-DDTHH:MM:SSZ"
+confidence: "high | medium | low | mixed | unknown"
+claim_label: "source_backed_summary | behavioral_inference | working_hypothesis"
+status: "draft | active | needs_review"
+review_flags: []
+---
+
+# <Query Title>
+
+## Answer
+
+<Answer from compiled KB pages and explicit source pointers. Preserve uncertainty.>
+
+## Evidence Pages
+
+```yaml
+evidence_pages:
+  - page_path: "wiki/<path>.md"
+    relevant_sections:
+      - "<section heading>"
+    supports:
+      - "<answer claim>"
 ```
 ```
+
+# Template F - Audit Item
+
+```markdown
+---
+title: "<Audit Item Title>"
+page_type: audit_item
+kb_slug: "<kb-slug>"
+audit_id: "<audit-id>"
+source_refs:
+  - source_id: "<source-id-or-page-path>"
+    source_path: "<source/page/path>"
+    source_hash: "<sha256-or-NA>"
+    source_pointer: "<heading/page/anchor/line/passage reference>"
+    source_storage_mode: "pointer_only | copy_into_kb | snapshot_copy"
+created_at: "YYYY-MM-DDTHH:MM:SSZ"
+updated_at: "YYYY-MM-DDTHH:MM:SSZ"
+confidence: "high | medium | low | mixed | unknown"
+claim_label: "operator_question | practitioner_question | working_hypothesis"
+status: "draft | active | needs_review | deprecated | superseded"
+review_flags: []
+---
+
+# <Audit Item Title>
+
+```yaml
+audit_item:
+  audit_id: "<audit-id>"
+  type: "contradiction | quality | staleness | gap | naming | source_authority | broken_link | missing_source_pointer | duplicate_page | operator_note"
+  severity: "low | medium | high"
+  status: "open | resolved | deferred | rejected"
+  target_path: "<wiki/page/path>"
+  target_anchor: "<heading-or-anchor-or-NA>"
+  source_ref: "<source pointer or NA>"
+  created_at: "YYYY-MM-DDTHH:MM:SSZ"
+```
+
+## Summary
+
+<Short description of the issue, feedback, contradiction, quality concern, or gap.>
+```
+
+# Completion Gate
+
+```yaml
+completion_gate:
+  valid_wiki_page_templates_file:
+    required:
+      - summary_template_present
+      - concept_template_present
+      - entity_template_present
+      - index_template_present
+      - query_output_template_present
+      - audit_item_template_present
+      - shared_frontmatter_rules_present
+      - source_pointer_policy_present
+      - contradiction_visibility_present
+      - claim_label_and_confidence_separated
+```
+
 '''
 
 
@@ -659,11 +773,15 @@ def patch_wiki_templates(text: str) -> str:
             "    - operator_question\n"
             "    - practitioner_question\n",
         )
-    text = text.replace("    - confidence\n    - status\n", "    - confidence\n    - claim_label\n    - status\n")
-    text = text.replace("    - source_pointer\n", "    - source_pointer\n    - source_storage_mode\n", 1)
-    text = replace_from(text, "# Template A", WIKI_TEMPLATE_A_ONWARD)
+    if "    - claim_label\n" not in text:
+        text = text.replace("    - confidence\n    - status\n", "    - confidence\n    - claim_label\n    - status\n")
+    source_ref_start = text.find("  source_ref_shape:")
+    source_ref_end = text.find("```", source_ref_start)
+    if source_ref_start != -1 and source_ref_end != -1 and "source_storage_mode" not in text[source_ref_start:source_ref_end]:
+        text = text.replace("    - source_pointer\n", "    - source_pointer\n    - source_storage_mode\n", 1)
+    if "---title:" in text or "# Template D" not in text or "Template F - Audit Item" not in text:
+        text = replace_from(text, "# Template A", WIKI_TEMPLATE_A_ONWARD)
     return text
-
 
 def patch_script_contract(text: str) -> str:
     text = re.sub(
@@ -747,8 +865,81 @@ def patch_operation_rules(text: str) -> str:
             "      condition: \"Phase 1 artifacts must exist before Phase 2 generation begins.\"\n\n"
             "  phase_0_preflight:\n",
         )
+    text = text.replace(
+        '  required_read_sequence:    1: "Read wiki/index.md."    2: "Select likely relevant summaries, concepts, and entities."    3: "Read the selected pages."    4: "Answer from compiled KB pages."    5: "Report evidence pages, contradictions, confidence, and gaps."\n',
+        '  required_read_sequence:\n'
+        '    1: "Read wiki/index.md."\n'
+        '    2: "Select likely relevant summaries, concepts, and entities."\n'
+        '    3: "Read the selected pages."\n'
+        '    4: "Answer from compiled KB pages."\n'
+        '    5: "Report evidence pages, contradictions, confidence, and gaps."\n',
+    )
+    text = text.replace(
+        '  audit_review_sequence:    1: "List open audit items."    2: "Group by target_path, type, and severity."    3: "Select one item or one target group for review."    4: "Read the target page and source pointers when available."    5: "Propose accept, partial, reject, or defer."    6: "Apply resolution only after operator decision."    7: "Move resolved item to audit/resolved/ while preserving history."\n',
+        '  audit_review_sequence:\n'
+        '    1: "List open audit items."\n'
+        '    2: "Group by target_path, type, and severity."\n'
+        '    3: "Select one item or one target group for review."\n'
+        '    4: "Read the target page and source pointers when available."\n'
+        '    5: "Propose accept, partial, reject, or defer."\n'
+        '    6: "Apply resolution only after operator decision."\n'
+        '    7: "Move resolved item to audit/resolved/ while preserving history."\n',
+    )
+    text = text.replace(
+        'completion_gates:  ingest_phase_1_complete:    required:      - ingest_analysis_file_created      - source_identity_recorded      - source_summary_created      - concept_candidates_listed      - entity_candidates_listed      - contradiction_candidates_listed_or_none_recorded      - open_questions_recorded_or_none_recorded      - proposed_page_changes_listed      - operator_review_gate_present      - no_wiki_pages_written  ingest_phase_2_complete:    required:      - operator_confirmation_phrase_received      - approved_page_changes_applied      - generated_or_updated_pages_have_source_pointers      - contradictions_preserved_or_reviewed      - source_manifest_updated_or_failure_reported      - index_updated_or_stale_index_flagged      - postflight_report_created  query_complete:    required:      - index_read_first      - relevant_pages_read      - answer_grounded_in_pages      - evidence_pages_named      - contradictions_reported      - knowledge_gaps_reported      - confidence_stated  quick_lint_complete:    required:      - deterministic_findings_reported      - broken_links_reported      - orphan_pages_reported      - stale_index_status_reported      - missing_required_paths_reported  full_lint_complete:    required:      - quick_lint_completed      - semantic_review_flags_reported      - source_pointer_quality_checked      - recommended_next_action_present  audit_complete:    required:      - open_items_grouped      - selected_item_or_group_reviewed      - operator_decision_recorded_or_requested      - resolved_items_archived_when_approved      - unresolved_items_preserved\n',
+        'completion_gates:\n'
+        '  ingest_phase_1_complete:\n'
+        '    required:\n'
+        '      - ingest_analysis_file_created\n'
+        '      - source_identity_recorded\n'
+        '      - source_summary_created\n'
+        '      - concept_candidates_listed\n'
+        '      - entity_candidates_listed\n'
+        '      - contradiction_candidates_listed_or_none_recorded\n'
+        '      - open_questions_recorded_or_none_recorded\n'
+        '      - proposed_page_changes_listed\n'
+        '      - operator_review_gate_present\n'
+        '      - no_wiki_pages_written\n'
+        '  ingest_phase_2_complete:\n'
+        '    required:\n'
+        '      - operator_confirmation_phrase_received\n'
+        '      - approved_page_changes_applied\n'
+        '      - generated_or_updated_pages_have_source_pointers\n'
+        '      - contradictions_preserved_or_reviewed\n'
+        '      - source_manifest_updated_or_failure_reported\n'
+        '      - index_updated_or_stale_index_flagged\n'
+        '      - postflight_report_created\n'
+        '  query_complete:\n'
+        '    required:\n'
+        '      - index_read_first\n'
+        '      - relevant_pages_read\n'
+        '      - answer_grounded_in_pages\n'
+        '      - evidence_pages_named\n'
+        '      - contradictions_reported\n'
+        '      - knowledge_gaps_reported\n'
+        '      - confidence_stated\n'
+        '  quick_lint_complete:\n'
+        '    required:\n'
+        '      - deterministic_findings_reported\n'
+        '      - broken_links_reported\n'
+        '      - orphan_pages_reported\n'
+        '      - stale_index_status_reported\n'
+        '      - missing_required_paths_reported\n'
+        '  full_lint_complete:\n'
+        '    required:\n'
+        '      - quick_lint_completed\n'
+        '      - semantic_review_flags_reported\n'
+        '      - source_pointer_quality_checked\n'
+        '      - recommended_next_action_present\n'
+        '  audit_complete:\n'
+        '    required:\n'
+        '      - open_items_grouped\n'
+        '      - selected_item_or_group_reviewed\n'
+        '      - operator_decision_recorded_or_requested\n'
+        '      - resolved_items_archived_when_approved\n'
+        '      - unresolved_items_preserved\n',
+    )
     return text
-
 
 def patch_apex_kb_py(text: str) -> str:
     return text.replace(
@@ -770,14 +961,17 @@ def build_patches() -> dict[Path, str]:
 def validate_texts(texts: dict[Path, str]) -> list[str]:
     findings: list[str] = []
     collapsed_patterns = [
-        r"supporting_files:\s+-\s+path:",
-        r"failure_modes:\s+\w",
-        r"completion_gate:\s+valid_completion_requires:",
-        r"---title:",
-        r"page_type:\s+\w+kb_slug:",
-        r"purpose:\s+>\s+\w",
-        r"invocation_pattern:\s+>\s+\w",
-        r"directory_hash_rule:\s+>\s+\w",
+        r"(?m)^supporting_files:  - path:",
+        r"(?m)^failure_modes:  \\w",
+        r"(?m)^completion_gate:  valid_completion_requires:",
+        r"(?m)^---title:",
+        r"(?m)^page_type: .*kb_slug:",
+        r"(?m)^  purpose: >    \\S",
+        r"(?m)^  invocation_pattern: >    \\S",
+        r"(?m)^    directory_hash_rule: >      \\S",
+        r"(?m)^  required_read_sequence:    1:",
+        r"(?m)^  audit_review_sequence:    1:",
+        r"(?m)^completion_gates:  ingest_phase_1_complete:",
     ]
     for path, text in texts.items():
         for pattern in collapsed_patterns:
@@ -786,7 +980,7 @@ def validate_texts(texts: dict[Path, str]) -> list[str]:
 
     required = {
         SKILL_PATH: ["source_storage_modes:", "phase_gate_policy:", "claim_label:", "confidence_and_claim_label_not_conflated"],
-        WIKI_TEMPLATES_PATH: ["claim_label_allowed:", "Applied Card", "source_storage_mode"],
+        WIKI_TEMPLATES_PATH: ["claim_label_allowed:", "Applied Card", "Template F - Audit Item", "source_storage_mode"],
         SCRIPT_CONTRACT_PATH: ["--source-slug", "[global-options] <subcommand>", "JSON Output Compatibility Notes"],
         OP_RULES_PATH: ["source_storage_policy:", "epistemic_fields:", "phase_gate_policy:"],
     }
@@ -795,7 +989,6 @@ def validate_texts(texts: dict[Path, str]) -> list[str]:
             if needle not in texts.get(path, ""):
                 findings.append(f"{path}: missing required content: {needle}")
     return findings
-
 
 def make_diff(path: Path, old: str, new: str) -> str:
     return "".join(

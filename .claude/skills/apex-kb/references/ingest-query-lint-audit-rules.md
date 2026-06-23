@@ -58,6 +58,38 @@ shared_operation_rules:
     generated_pages_require_source_pointers: true
     missing_source_rule: "Never infer source contents from filename, title, summary, or prior memory."
     contradiction_rule: "Expose contradictions instead of silently resolving them."
+  source_storage_policy:
+    allowed_modes:
+      - pointer_only
+      - copy_into_kb
+      - snapshot_copy
+    default_for_repo_internal_sources: pointer_only
+    default_for_external_or_uploaded_sources: copy_into_kb
+    generated_pages_must_record:
+      - source_storage_mode
+      - source_path
+      - source_hash
+
+  epistemic_fields:
+    confidence:
+      meaning: "How strongly the KB should trust the page or claim."
+      allowed:
+        - high
+        - medium
+        - low
+        - mixed
+        - unknown
+    claim_label:
+      meaning: "What kind of epistemic object the statement is."
+      allowed:
+        - raw_source
+        - source_backed_summary
+        - behavioral_inference
+        - working_hypothesis
+        - operator_question
+        - practitioner_question
+    rule: "Do not place claim-label values inside the confidence field."
+
   ownership_split:
     python_owns:
       - source_hashing
@@ -96,7 +128,9 @@ shared_operation_rules:
 # Ingest Rules
 ```yaml
 ingest_rules:
-  purpose: >    Convert one raw source or source pointer into Phase 1 analysis first, then    approved wiki pages, manifest updates, index updates, and review flags.
+  purpose: >
+    Convert one raw source or source pointer into Phase 1 analysis first, then
+    approved wiki pages, manifest updates, index updates, and review flags.
   modes:
     ingest_phase_1:
       writes_allowed:
@@ -118,6 +152,14 @@ ingest_rules:
         - "manifests/source-manifest.json"
         - "audit/*"
         - "log/*"
+  phase_gate_policy:
+    normal_mode:
+      same_prompt_approval_allowed: false
+      requires_separate_operator_turn: true
+    explicit_test_mode:
+      same_prompt_approval_allowed: true
+      condition: "Phase 1 artifacts must exist before Phase 2 generation begins."
+
   phase_0_preflight:
     owner: python
     required_checks:
@@ -240,13 +282,21 @@ ingest_rules:
 # Query Rules
 ```yaml
 query_rules:
-  purpose: >    Answer operator or agent questions from the compiled KB by reading the    index first, then a small relevant set of wiki pages, and reporting    evidence, contradictions, confidence, and gaps.
+  purpose: >
+    Answer operator or agent questions from the compiled KB by reading the
+    index first, then a small relevant set of wiki pages, and reporting
+    evidence, contradictions, confidence, and gaps.
   index_first_required: true
   default_relevant_page_count:
     minimum: 3
     maximum: 5
     exception: "Read more only when the query spans many page families or the index is stale."
-  required_read_sequence:    1: "Read wiki/index.md."    2: "Select likely relevant summaries, concepts, and entities."    3: "Read the selected pages."    4: "Answer from compiled KB pages."    5: "Report evidence pages, contradictions, confidence, and gaps."
+  required_read_sequence:
+    1: "Read wiki/index.md."
+    2: "Select likely relevant summaries, concepts, and entities."
+    3: "Read the selected pages."
+    4: "Answer from compiled KB pages."
+    5: "Report evidence pages, contradictions, confidence, and gaps."
   query_inputs:
     required:
       - kb_slug
@@ -298,7 +348,9 @@ query_rules:
 # Lint Rules
 ```yaml
 lint_rules:
-  purpose: >    Check KB health with deterministic validation first, then optional semantic    review flags when a full lint is requested.
+  purpose: >
+    Check KB health with deterministic validation first, then optional semantic
+    review flags when a full lint is requested.
   lint_modes:
     quick_lint:
       owner: python
@@ -371,7 +423,9 @@ lint_rules:
 # Audit Rules
 ```yaml
 audit_rules:
-  purpose: >    Capture, group, review, and resolve human or model feedback about KB page    quality, contradictions, staleness, naming, gaps, or source problems.
+  purpose: >
+    Capture, group, review, and resolve human or model feedback about KB page
+    quality, contradictions, staleness, naming, gaps, or source problems.
   audit_item_types:
     - contradiction
     - quality
@@ -398,7 +452,14 @@ audit_rules:
       status: "open | resolved | deferred | rejected"
       summary: string
       proposed_resolution: string_or_null
-  audit_review_sequence:    1: "List open audit items."    2: "Group by target_path, type, and severity."    3: "Select one item or one target group for review."    4: "Read the target page and source pointers when available."    5: "Propose accept, partial, reject, or defer."    6: "Apply resolution only after operator decision."    7: "Move resolved item to audit/resolved/ while preserving history."
+  audit_review_sequence:
+    1: "List open audit items."
+    2: "Group by target_path, type, and severity."
+    3: "Select one item or one target group for review."
+    4: "Read the target page and source pointers when available."
+    5: "Propose accept, partial, reject, or defer."
+    6: "Apply resolution only after operator decision."
+    7: "Move resolved item to audit/resolved/ while preserving history."
   operator_decisions:
     accept:
       meaning: "Apply the proposed correction or page update."
@@ -481,4 +542,54 @@ review_flags_and_failure_modes:
 
 # Completion Gates
 ```yaml
-completion_gates:  ingest_phase_1_complete:    required:      - ingest_analysis_file_created      - source_identity_recorded      - source_summary_created      - concept_candidates_listed      - entity_candidates_listed      - contradiction_candidates_listed_or_none_recorded      - open_questions_recorded_or_none_recorded      - proposed_page_changes_listed      - operator_review_gate_present      - no_wiki_pages_written  ingest_phase_2_complete:    required:      - operator_confirmation_phrase_received      - approved_page_changes_applied      - generated_or_updated_pages_have_source_pointers      - contradictions_preserved_or_reviewed      - source_manifest_updated_or_failure_reported      - index_updated_or_stale_index_flagged      - postflight_report_created  query_complete:    required:      - index_read_first      - relevant_pages_read      - answer_grounded_in_pages      - evidence_pages_named      - contradictions_reported      - knowledge_gaps_reported      - confidence_stated  quick_lint_complete:    required:      - deterministic_findings_reported      - broken_links_reported      - orphan_pages_reported      - stale_index_status_reported      - missing_required_paths_reported  full_lint_complete:    required:      - quick_lint_completed      - semantic_review_flags_reported      - source_pointer_quality_checked      - recommended_next_action_present  audit_complete:    required:      - open_items_grouped      - selected_item_or_group_reviewed      - operator_decision_recorded_or_requested      - resolved_items_archived_when_approved      - unresolved_items_preserved
+completion_gates:
+  ingest_phase_1_complete:
+    required:
+      - ingest_analysis_file_created
+      - source_identity_recorded
+      - source_summary_created
+      - concept_candidates_listed
+      - entity_candidates_listed
+      - contradiction_candidates_listed_or_none_recorded
+      - open_questions_recorded_or_none_recorded
+      - proposed_page_changes_listed
+      - operator_review_gate_present
+      - no_wiki_pages_written
+  ingest_phase_2_complete:
+    required:
+      - operator_confirmation_phrase_received
+      - approved_page_changes_applied
+      - generated_or_updated_pages_have_source_pointers
+      - contradictions_preserved_or_reviewed
+      - source_manifest_updated_or_failure_reported
+      - index_updated_or_stale_index_flagged
+      - postflight_report_created
+  query_complete:
+    required:
+      - index_read_first
+      - relevant_pages_read
+      - answer_grounded_in_pages
+      - evidence_pages_named
+      - contradictions_reported
+      - knowledge_gaps_reported
+      - confidence_stated
+  quick_lint_complete:
+    required:
+      - deterministic_findings_reported
+      - broken_links_reported
+      - orphan_pages_reported
+      - stale_index_status_reported
+      - missing_required_paths_reported
+  full_lint_complete:
+    required:
+      - quick_lint_completed
+      - semantic_review_flags_reported
+      - source_pointer_quality_checked
+      - recommended_next_action_present
+  audit_complete:
+    required:
+      - open_items_grouped
+      - selected_item_or_group_reviewed
+      - operator_decision_recorded_or_requested
+      - resolved_items_archived_when_approved
+      - unresolved_items_preserved
