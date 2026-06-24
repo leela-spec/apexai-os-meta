@@ -1,21 +1,18 @@
 ---
 name: apex-kb
 description: >
-  Use this skill when the operator asks to scaffold, lock source intake, ingest,
-  compile, query, lint, or audit a durable Apex knowledge base under
-  apex-meta/kb/<kb-slug>/. Accepts a kb_slug, raw source paths, source-custody
-  decisions, existing KB files, operator review decisions, and Apex context.
-  Produces source-preserving KB artifacts, source-intake locks, phase-1 ingest
-  analysis, wiki pages, saved query outputs, deterministic health reports, or
-  audit review flags. Does not plan projects, mutate task status, rank next
-  tasks, rebuild Apex task registries, or write outside the KB root without
-  explicit operator approval.
+  Use this skill when the operator asks to scaffold, ingest, compile, query, lint, or
+  audit a durable Apex knowledge base under apex-meta/kb/<kb-slug>/. Accepts a kb_slug,
+  raw source paths, existing KB files, operator review decisions, and Apex context.
+  Produces source-preserving KB artifacts, phase-1 ingest analysis, wiki pages, saved
+  query outputs, deterministic health reports, or audit review flags. Does not plan
+  projects, mutate task status, rank next tasks, rebuild Apex task registries, or write
+  outside the KB root without explicit operator approval.
 ---
 
 # Apex KB
 
 ## Skill Contract
-
 ```yaml
 skill_contract:
   primary_output: apex_kb_artifact
@@ -25,7 +22,6 @@ skill_contract:
   one_kb_slug_per_invocation: true
   modes:
     - scaffold
-    - source_intake_lock
     - ingest_phase_1
     - ingest_phase_2
     - query
@@ -80,13 +76,10 @@ skill_contract:
       - "log/"
   owns:
     - source_root_contract
-    - source_intake_lock
     - raw_source_preservation
-    - source_copy_or_snapshot_decision
-    - source_pointer_exception_record
+    - source_pointer_creation
     - source_hashing_request
     - source_manifest_update
-    - actual_file_read_ledger
     - ingest_phase_1_analysis
     - operator_review_gate
     - ingest_phase_2_wiki_generation
@@ -132,17 +125,14 @@ skill_contract:
     preserve_exact_source_filename: true
     preserve_exact_source_path: true
     never_treat_missing_source_as_verified: true
-    never_treat_manifest_as_source_comprehension: true
     source_pointer_required_on_generated_pages: true
-    actual_file_read_ledger_required_for_strict_profiles: true
     source_storage_modes:
       pointer_only:
-        use_when: "Source already exists durably and operator accepts pointer risk. For strict profiles this requires an explicit exception."
+        use_when: "Source already exists durably inside this repository and should not be duplicated."
         required_fields:
           - source_path
-          - source_hash_or_no_hash_reason
+          - source_hash
           - source_storage_mode
-          - pointer_exception_reason_when_strict
       copy_into_kb:
         use_when: "Source is external, uploaded, temporary, or not durably stored in this repository."
         required_fields:
@@ -151,43 +141,14 @@ skill_contract:
           - copied_to
           - source_storage_mode
       snapshot_copy:
-        use_when: "Source may change, is critical, or the KB requires a frozen evidence version."
+        use_when: "Source may change and the KB requires a frozen evidence version."
         required_fields:
           - source_path
-          - source_hash_or_inventory_hash
+          - source_hash
           - snapshot_path
           - source_storage_mode
-    custody_profiles:
-      standard:
-        default_for_repo_internal_sources: pointer_only
-        default_for_external_or_uploaded_sources: copy_into_kb
-        pointer_only_allowed: true
-      skill_generation:
-        default_for_repo_internal_sources: snapshot_copy
-        default_for_external_or_uploaded_sources: snapshot_copy
-        pointer_only_allowed: false
-        pointer_only_exception_requires:
-          - explicit_operator_approval
-          - no_copy_reason
-          - stable_source_path
-          - source_hash_or_no_hash_reason
-          - future_read_access_confirmed
-          - exception_recorded_in_source_intake_lock
-      research_base:
-        default_for_repo_internal_sources: snapshot_copy
-        default_for_external_or_uploaded_sources: snapshot_copy
-        pointer_only_allowed: false
-        pointer_only_exception_requires:
-          - explicit_operator_approval
-          - no_copy_reason
-          - stable_source_path
-          - source_hash_or_no_hash_reason
-          - future_read_access_confirmed
-          - exception_recorded_in_source_intake_lock
-    default_custody_profile: standard
-    strict_profiles:
-      - skill_generation
-      - research_base
+    default_for_repo_internal_sources: pointer_only
+    default_for_external_or_uploaded_sources: copy_into_kb
 
   phase_gate_policy:
     normal_mode:
@@ -216,6 +177,9 @@ skill_contract:
         - practitioner_question
 ```
 
+
+#
+
 # Supporting Files
 
 ```yaml
@@ -239,16 +203,6 @@ supporting_files:
       - validating_semantic_vs_deterministic_ownership
       - checking_source_storage_mode
 
-  - path: "references/source-custody-and-read-verification.md"
-    read_when:
-      - source_intake_lock
-      - ingesting_skill_generation_kb
-      - ingesting_research_base_kb
-      - operator_rejects_pointer_only
-      - checking_actual_file_read_evidence
-      - nested_source_corpus_detected
-      - pseudo_validation_or_memory_contamination_risk
-
   - path: "references/script-command-contract.md"
     read_when:
       - scaffold_mode
@@ -259,19 +213,11 @@ supporting_files:
       - operator_asks_about_apex_kb_py
       - reconciling_cli_arguments
 
-  - path: "templates/source-intake-lock-template.md"
-    read_when:
-      - creating_source_intake_lock
-      - strict_custody_profile_selected
-      - source_universe_or_snapshot_scope_unclear
-      - nested_source_promotions_needed
-
   - path: "templates/ingest-analysis-template.md"
     read_when:
       - writing_ingest_phase_1_analysis
       - operator_requests_blank_phase_1_template
       - phase_1_output_shape_is_unclear
-      - source_access_ledger_needed
 
   - path: "templates/wiki-page-templates.md"
     read_when:
@@ -290,16 +236,16 @@ supporting_files:
 
 # Procedure
 
-1. **Resolve mode, KB root, and custody profile.** Identify the requested mode, `kb_slug`, target KB root, and whether the operator is asking for scaffold, source-intake lock, ingest, query, lint, or audit. If the KB will generate or repair skills, or the operator rejects pointer-only custody, use the `skill_generation` or `research_base` custody profile.
+1. **Resolve mode and KB root.** Identify the requested mode, `kb_slug`, target KB root, and whether the operator is asking for scaffold, ingest, query, lint, or audit; stop if `kb_slug` or source path requirements are missing.
 2. **Load the KB control files.** Read `kb-schema.md`, `wiki/index.md`, `manifests/source-manifest.json`, and relevant pages under `wiki/`; if the KB root does not exist, route to scaffold mode.
-3. **Load source-custody hardening when relevant.** Read `references/source-custody-and-read-verification.md` for `source_intake_lock`, strict custody profiles, nested source corpora, pseudo-validation risk, or operator complaints about pointer-only behavior.
-4. **Run deterministic preparation where relevant.** For scaffold, hash, source inventory, index, lint, stale-index, dead-link, orphan, or audit-listing needs, use the Python script contract instead of re-implementing exact file scans through reasoning.
-5. **Create source-intake lock when needed.** For large, nested, skill-generation, or research-base KBs, write one lock artifact under `log/` that records accepted sources, excluded/deferred sources, storage decisions, first-class source IDs, observed inventory, expected missing items, and pointer-only exceptions. Do not split this into multiple reports unless the operator requests it.
-6. **Perform semantic work with the LLM only after source custody is clear.** Use reasoning for source interpretation, concept extraction, entity synthesis, contradiction interpretation, open-question capture, page drafting, query synthesis, and operator-facing judgment. Do not substitute prior summaries, manifest entries, file names, or memory for actual source content.
-7. **Execute ingest as a two-phase gate.** In `ingest_phase_1`, read the actual source files or approved pointer exceptions, write or return one analysis under `ingest-analysis/<source-slug>.analysis.md`, include a source access ledger for strict profiles, and halt. Only proceed to `ingest_phase_2` when the operator explicitly approves the ingest.
-8. **Generate or update wiki pages.** In `ingest_phase_2`, create or update summary, concept, and entity pages with source pointers, crosslinks, contradiction callouts, and open questions; preserve raw source identity and update the source manifest.
-9. **Answer queries index-first.** For `query`, read `wiki/index.md` first, select the smallest sufficient set of relevant pages, answer from compiled KB pages, mark confidence, cite source-page evidence, and save query output when requested.
-10. **Validate and report.** For `lint` or after page generation, separate deterministic health findings from semantic review flags; do not silently repair uncertain contradictions, missing authority, ambiguous source claims, missing raw/refs custody, or missing read ledgers.
+3. **Run deterministic preparation where relevant.** For scaffold, hash, index, lint, stale-index, dead-link, orphan, or audit-listing needs, use the Python script contract instead of re-implementing exact file scans through reasoning.
+4. **Perform semantic work with the LLM only.** Use reasoning for source interpretation, concept extraction, entity synthesis, contradiction interpretation, open-question capture, page drafting, query synthesis, and operator-facing judgment.
+5. **Execute ingest as a two-phase gate.** In `ingest_phase_1`, write or return one analysis under `ingest-analysis/<source-slug>.analysis.md` and halt. Only proceed to `ingest_phase_2` when the operator explicitly approves the ingest.
+6. **Generate or update wiki pages.** In `ingest_phase_2`, create or update summary, concept, and entity pages with source pointers, crosslinks, contradiction callouts, and open questions; preserve raw source identity and update the source manifest.
+7. **Answer queries index-first.** For `query`, read `wiki/index.md` first, select the smallest sufficient set of relevant pages, answer from compiled KB pages, mark confidence, cite source-page evidence, and save query output when requested.
+8. **Validate and report.** For `lint` or after page generation, separate deterministic health findings from semantic review flags; do not silently repair uncertain contradictions, missing authority, or ambiguous source claims.
+
+#
 
 # Failure Modes
 
@@ -316,18 +262,6 @@ failure_modes:
 
   missing_raw_source:
     response: "Stop. Do not infer source content from filename, title, or prior summaries."
-
-  manifest_overtrust_detected:
-    response: "State that manifest proves registration only, not source reading or semantic comprehension. Require Phase 1 analysis evidence."
-
-  pointer_only_without_strict_exception:
-    response: "For skill_generation or research_base profiles, stop unless the operator explicitly approves a pointer-only exception and records the required fields."
-
-  nested_source_buried_under_parent:
-    response: "Promote the nested package/corpus to a first-class source_id or record an explicit defer/exclude decision in the source-intake lock."
-
-  missing_source_access_ledger:
-    response: "Do not run Phase 2. Create or repair Phase 1 analysis with files opened/read, skipped files, missing expected files, and anti-pseudo-validation checks."
 
   duplicate_source_hash:
     response: "Report prior ingest record and ask whether to skip, compare, or re-ingest as a new version."
@@ -351,7 +285,7 @@ failure_modes:
     response: "Mark authority as uncertain in the ingest analysis and request operator review."
 
   source_storage_mode_unclear:
-    response: "Use the active custody profile. Standard may use pointer_only for stable repo-internal sources; skill_generation and research_base default to snapshot_copy."
+    response: "Default repo-internal durable sources to pointer_only; default external or uploaded sources to copy_into_kb."
 
   write_outside_kb_root_requested:
     response: "Require explicit operator approval and identify the exact target path before writing."
@@ -369,10 +303,7 @@ completion_gate:
     - kb_slug_resolved
     - kb_root_policy_followed
     - source_storage_mode_resolved
-    - custody_profile_resolved
-    - strict_profile_pointer_exceptions_recorded_or_absent
     - raw_source_policy_followed_when_ingesting
-    - actual_file_read_ledger_present_when_required
     - deterministic_vs_semantic_ownership_respected
     - operator_gate_respected_for_ingest_phase_2
     - output_artifact_matches_requested_mode
@@ -386,18 +317,8 @@ completion_gate:
       - initial_wiki_index
       - initial_source_manifest
 
-    source_intake_lock:
-      - accepted_sources
-      - excluded_or_deferred_sources
-      - first_class_source_ids
-      - storage_decisions
-      - observed_inventory
-      - pointer_only_exceptions_or_none
-      - phase_1_ready_or_blocked_verdict
-
     ingest_phase_1:
       - ingest_analysis
-      - source_access_ledger_when_required
       - operator_review_required
 
     ingest_phase_2:
