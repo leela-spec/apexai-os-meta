@@ -1,4 +1,5 @@
 # Apex KB Ingest Analysis Template
+
 ```yaml
 template_metadata:
   artifact_name: apex_kb_ingest_analysis
@@ -8,15 +9,16 @@ template_metadata:
   canonical_rules:
     kb_contract: ".claude/skills/apex-kb/references/kb-contract.md"
     operation_rules: ".claude/skills/apex-kb/references/ingest-query-lint-audit-rules.md"
+    source_custody_rules: ".claude/skills/apex-kb/references/source-custody-and-read-verification.md"
     script_contract: ".claude/skills/apex-kb/references/script-command-contract.md"
   phase: ingest_phase_1
   required_halt_after_completion: true
   phase_2_requires_operator_phrase: "approve ingest"
   purpose: >
-    Capture the LLM-owned semantic analysis of one raw source before wiki page
-    generation. This artifact preserves extracted concepts, entities, claims,
-    contradictions, proposed wiki changes, and open review questions so the
-    operator can approve or reject Phase 2 generation.
+    Capture the LLM-owned semantic analysis of one preserved source before wiki
+    page generation. This artifact proves what the source contributes, what
+    files were actually opened/read, what was skipped, what should become wiki
+    knowledge, and what requires operator review.
   write_scope:
     allowed_path: "apex-meta/kb/<kb-slug>/ingest-analysis/"
     forbidden_paths_during_phase_1:
@@ -26,27 +28,29 @@ template_metadata:
       - "apex-meta/kb/<kb-slug>/audit/resolved/"
 ```
 
-
-#
-
 # Required Header
+
 ```yaml
 ingest_analysis:
   analysis_id: "<kb-slug>-<source-slug>-analysis"
   kb_slug: "<kb-slug>"
   source_slug: "<source-slug>"
+  custody_profile: "standard | skill_generation | research_base"
   source_ref:
-    source_path: "<raw/source/path/or/pointer>"
-    source_type: "article | paper | note | ref | other"
-    source_hash: "<sha256-or-NA>"
-    hash_algorithm: "sha256 | NA"
-    no_hash_reason: "NA | pointer_only | source_unavailable | other"
+    source_path: "<raw/source/path/or/approved-pointer>"
+    snapshot_path: "apex-meta/kb/<kb-slug>/raw/refs/<source-id>/ | NA"
+    source_type: "article | paper | note | ref | directory | package | other"
+    source_hash_or_inventory_hash: "<sha256-or-NA>"
+    hash_algorithm: "sha256 | directory_inventory | NA"
+    no_hash_reason: "NA | pointer_exception | source_unavailable | binary | other"
+    source_storage_mode: "pointer_only | copy_into_kb | snapshot_copy"
   created_at: "YYYY-MM-DDTHH:MM:SSZ"
   created_by: "apex-kb"
   phase: ingest_phase_1
   status: operator_review_needed
   preflight:
     report_available: true
+    source_intake_lock_available: true_or_false
     duplicate_source_candidates: []
     existing_manifest_entry: false
     existing_phase_1_analysis: false
@@ -58,9 +62,10 @@ ingest_analysis:
 ```
 
 # 1. Source Identity
+
 ```yaml
 source_identity:
-  title: "<source title if explicit, otherwise filename>"
+  title: "<source title if explicit, otherwise filename/folder name>"
   author_or_origin: "<author/origin if known, otherwise unknown>"
   publication_or_creation_date: "YYYY-MM-DD | YYYY-MM | YYYY | unknown"
   source_authority_level: "primary | secondary | tertiary | unclear"
@@ -72,21 +77,53 @@ source_identity:
     - "<Known limitation, missing context, partial extraction, or uncertainty.>"
 ```
 
-# 2. Source Summary
+# 2. Source Access Ledger
+
+Required for `skill_generation` and `research_base` custody profiles. Optional but recommended for `standard`.
+
+```yaml
+source_access_ledger:
+  custody_profile: "standard | skill_generation | research_base"
+  custody_verdict: "copied_or_snapshotted | pointer_exception_approved | insufficient_custody"
+  source_root_examined: "apex-meta/kb/<kb-slug>/raw/refs/<source-id>/ | <approved pointer path>"
+  files_opened_and_read:
+    - path: "<relative path under raw/refs or approved pointer path>"
+      read_depth: "full | targeted_sections | metadata_only"
+      sections_or_ranges:
+        - "<heading, line range, page range, or NA>"
+      why_read: "<reason this file matters>"
+      evidence_contribution: "<what this file contributed to analysis>"
+  files_seen_but_not_read:
+    - path: "<relative path>"
+      reason_not_read: "binary | duplicate | irrelevant | too_large | deferred | inaccessible"
+      blocks_phase_2: true_or_false
+  missing_expected_files:
+    - expected_path_or_pattern: "<path or pattern>"
+      reason_expected: "<why it should exist>"
+      blocks_phase_2: true_or_false
+  anti_pseudo_validation_check:
+    manifest_only_used_as_evidence: false
+    prior_chat_memory_used_as_source: false
+    path_name_used_as_content_evidence: false
+    summary_substituted_for_source: false
+```
+
+# 3. Source Summary
+
 ```yaml
 source_summary:
   one_sentence_core: >
     <One sentence capturing the source's central knowledge contribution.>
   compact_summary: >
-    <Dense 3-7 sentence summary. Preserve specificity. Do not generalize beyond
-    the source.>
+    <Dense 3-7 sentence summary. Preserve specificity. Do not generalize beyond the source.>
   relevant_to_kb_because:
     - "<Reason this source belongs in this KB.>"
   likely_not_relevant_for:
     - "<Topic or use case this source does not support.>"
 ```
 
-# 3. Extraction Candidates
+# 4. Extraction Candidates
+
 ```yaml
 extraction_candidates:
   high_value_sections:
@@ -109,7 +146,8 @@ extraction_candidates:
       confidence: "high | medium | low"
 ```
 
-# 4. Concept Candidates
+# 5. Concept Candidates
+
 ```yaml
 concept_candidates:
   - concept_slug: "<kebab-case-concept-slug>"
@@ -126,7 +164,8 @@ concept_candidates:
     review_flags: []
 ```
 
-# 5. Entity Candidates
+# 6. Entity Candidates
+
 ```yaml
 entity_candidates:
   - entity_slug: "<kebab-case-entity-slug>"
@@ -144,7 +183,8 @@ entity_candidates:
     review_flags: []
 ```
 
-# 6. Claim Candidates
+# 7. Claim Candidates
+
 ```yaml
 claim_candidates:
   - claim_id: "C001"
@@ -161,7 +201,8 @@ claim_candidates:
     review_flags: []
 ```
 
-# 7. Contradiction Candidates
+# 8. Contradiction Candidates
+
 ```yaml
 contradiction_candidates:
   status: "none_detected | possible | confirmed"
@@ -180,7 +221,8 @@ contradiction_candidates:
       review_required: true
 ```
 
-# 8. Proposed Wiki Page Changes
+# 9. Proposed Wiki Page Changes
+
 ```yaml
 proposed_wiki_page_changes:
   summaries:
@@ -204,14 +246,17 @@ proposed_wiki_page_changes:
       - "<LLM-owned summary, category, gap, or contradiction note for index LLM section.>"
 ```
 
-# 9. Proposed Manifest Updates
+# 10. Proposed Manifest Updates
+
 ```yaml
 proposed_manifest_updates:
   source_entry:
     source_id: "<source-id>"
-    source_path: "<raw/source/path/or/pointer>"
-    source_hash: "<sha256-or-NA>"
-    hash_algorithm: "sha256 | NA"
+    source_path: "<raw/source/path/or/approved-pointer>"
+    snapshot_path: "<snapshot path or NA>"
+    source_hash_or_inventory_hash: "<sha256-or-NA>"
+    hash_algorithm: "sha256 | directory_inventory | NA"
+    source_storage_mode: "pointer_only | copy_into_kb | snapshot_copy"
     ingest_status: "phase_1_complete_operator_review_needed"
     ingest_analysis_path: "ingest-analysis/<source-slug>.analysis.md"
     generated_pages: []
@@ -225,7 +270,8 @@ proposed_manifest_updates:
       - "<flag or empty>"
 ```
 
-# 10. Open Questions
+# 11. Open Questions
+
 ```yaml
 open_questions:
   operator_questions:
@@ -241,18 +287,20 @@ open_questions:
         - "<page path or none>"
 ```
 
-# 11. Review Flags
+# 12. Review Flags
+
 ```yaml
 review_flags:
   - flag_id: "RF001"
-    type: "source_authority | contradiction | missing_context | duplicate_source | ambiguous_entity | naming | scope | other"
+    type: "source_authority | contradiction | missing_context | duplicate_source | missing_read_ledger | pointer_exception | ambiguous_entity | naming | scope | other"
     severity: "low | medium | high"
     summary: "<Short review flag summary.>"
     required_before_phase_2: true
     proposed_resolution: "<What the operator or LLM should do next.>"
 ```
 
-# 12. Operator Review Gate
+# 13. Operator Review Gate
+
 ```yaml
 operator_review_gate:
   phase_1_result: "ready_for_operator_review | blocked | insufficient_source"
@@ -262,7 +310,7 @@ operator_review_gate:
   recommended_operator_decision:
     decision: "approve | approve_with_changes | reject | defer"
     rationale: >
-      <Short rationale based on source value, contradictions, and open questions.>
+      <Short rationale based on source value, custody, files read, contradictions, and open questions.>
   if_approved_next_actions:
     - "Generate or update summary page with source pointers."
     - "Generate or update approved concept pages with source pointers."
@@ -275,33 +323,16 @@ operator_review_gate:
     - "Record rejection reason if operator provides one."
 ```
 
-
-#
-
 # Completion Gate
+
 ```yaml
 completion_gate:
-  phase_1_analysis_complete:
-    required:
-      - required_header_filled
-      - source_identity_filled
-      - source_summary_filled
-      - extraction_candidates_reviewed
-      - concept_candidates_reviewed
-      - entity_candidates_reviewed
-      - claim_candidates_reviewed
-      - contradiction_candidates_reviewed
-      - proposed_wiki_page_changes_filled
-      - proposed_manifest_updates_filled
-      - open_questions_filled
-      - review_flags_filled
-      - operator_review_gate_filled
-      - no_wiki_pages_written
-      - phase_2_allowed_now_false
   invalid_if:
-    - generated_wiki_page_content_in_phase_1
-    - source_pointers_missing_for_claims
+    - generated_wiki_content_during_phase_1
+    - source_pointers_missing_from_claims
+    - source_access_ledger_missing_for_strict_profile
+    - manifest_or_prior_memory_substituted_for_source_reading
     - contradiction_silently_resolved
     - operator_gate_omitted
-    - manifest_marked_as_phase_2_complete
+    - phase_2_marked_allowed_without_operator_phrase
 ```
