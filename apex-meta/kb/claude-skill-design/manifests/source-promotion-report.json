@@ -1,0 +1,50 @@
+﻿[
+    {
+        "source":  "raw\\official-docs",
+        "target":  "sources/curated/official-docs",
+        "status":  "copied",
+        "file_count":  13
+    },
+    {
+        "source":  "raw\\official-pdfs",
+        "target":  "sources/curated/official-pdfs",
+        "status":  "copied",
+        "file_count":  3
+    },
+    {
+        "source":  "raw\\repo-extracts",
+        "target":  "sources/curated/repo-extracts",
+        "status":  "copied",
+        "file_count":  19
+    },
+    {
+        "source":  "raw\\academic",
+        "target":  "sources/curated/academic",
+        "status":  "copied",
+        "file_count":  7
+    },
+    {
+        "source":  "raw\\secondary",
+        "target":  "sources/curated/secondary",
+        "status":  "copied",
+        "file_count":  5
+    },
+    {
+        "source":  "raw\\official-repos",
+        "target":  "sources/curated/official-repos",
+        "status":  "copied",
+        "file_count":  588
+    },
+    {
+        "source":  "manifests",
+        "target":  "sources/curated/manifests",
+        "status":  "copied",
+        "file_count":  3
+    },
+    {
+        "source":  "log",
+        "target":  "sources/curated/logs",
+        "status":  "copied",
+        "file_count":  2
+    }
+]
