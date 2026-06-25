@@ -61,7 +61,56 @@ kb_contract:
 # Data Root Contract
 
 ```
-data_root_contract:  root_template: "apex-meta/kb/<kb-slug>/"  required_root_files:    - path: "README.md"      role: "Human orientation for this KB instance."    - path: "kb-schema.md"      role: "KB-local schema and operating policy. Replaces blueprint CLAUDE.md inside KB roots."  required_directories:    raw:      path: "raw/"      role: "Immutable or pointer-preserved source intake."      children:        - "articles/"        - "papers/"        - "notes/"        - "refs/"    ingest_analysis:      path: "ingest-analysis/"      role: "Phase 1 ingest analysis outputs before operator approval."    wiki:      path: "wiki/"      role: "Compiled AI-consumable knowledge pages."      children:        - "index.md"        - "concepts/"        - "entities/"        - "summaries/"    manifests:      path: "manifests/"      role: "Source manifest, hash records, and deterministic state metadata."      required_files:        - "source-manifest.json"    audit:      path: "audit/"      role: "Open human feedback, correction, contradiction, and quality items."      children:        - "resolved/"    outputs:      path: "outputs/"      role: "Saved query outputs and reusable synthesis artifacts."      children:        - "queries/"    log:      path: "log/"      role: "Operation history and durable maintenance notes."  forbidden_root_files:    - path: "CLAUDE.md"      reason: "Reserved Claude Code root-context convention; KB-local schema must be kb-schema.md."    - path: "SKILL.md"      reason: "Skill entrypoint belongs in .claude/skills/apex-kb/, not in a KB data root."
+data_root_contract:
+  root_template: "apex-meta/kb/<kb-slug>/"
+  required_root_files:
+    - path: "README.md"
+      role: "Human orientation for this KB instance."
+    - path: "kb-schema.md"
+      role: "KB-local schema and operating policy. Replaces blueprint CLAUDE.md inside KB roots."
+  required_directories:
+    raw:
+      path: "raw/"
+      role: "Immutable or pointer-preserved source intake."
+      children:
+        - "articles/"
+        - "papers/"
+        - "notes/"
+        - "refs/"
+    ingest_analysis:
+      path: "ingest-analysis/"
+      role: "Phase 1 ingest analysis outputs before operator approval."
+    wiki:
+      path: "wiki/"
+      role: "Compiled AI-consumable knowledge pages."
+      children:
+        - "index.md"
+        - "concepts/"
+        - "entities/"
+        - "summaries/"
+    manifests:
+      path: "manifests/"
+      role: "Source manifest, hash records, and deterministic state metadata."
+      required_files:
+        - "source-manifest.json"
+    audit:
+      path: "audit/"
+      role: "Open human feedback, correction, contradiction, and quality items."
+      children:
+        - "resolved/"
+    outputs:
+      path: "outputs/"
+      role: "Saved query outputs and reusable synthesis artifacts."
+      children:
+        - "queries/"
+    log:
+      path: "log/"
+      role: "Operation history and durable maintenance notes."
+  forbidden_root_files:
+    - path: "CLAUDE.md"
+      reason: "Reserved Claude Code root-context convention; KB-local schema must be kb-schema.md."
+    - path: "SKILL.md"
+      reason: "Skill entrypoint belongs in .claude/skills/apex-kb/, not in a KB data root."
 ```
 
 
@@ -70,7 +119,35 @@ data_root_contract:  root_template: "apex-meta/kb/<kb-slug>/"  required_root_fil
 # KB Schema Contract
 
 ```
-kb_schema_contract:  file: "apex-meta/kb/<kb-slug>/kb-schema.md"  role: "KB-local schema, authority, language, taxonomy, and operator-review policy."  required_fields:    kb_topic_title:      type: string      required: true      purpose: "Human-readable topic or domain represented by this KB."    kb_source_authority_list:      type: list      required: true      purpose: "Ordered source-authority rules for resolving conflicts."    kb_concept_taxonomy_top_level:      type: list      required: true      purpose: "Top-level concept buckets used to organize concept pages."    kb_language_policy:      type: string_or_map      required: true      purpose: "Defines output language, source-language handling, and translation behavior."    kb_operator_review_policy:      type: map      required: true      purpose: "Defines when Phase 1, contradictions, source conflicts, and audit items require operator review."  must_not_contain:    - repo_global_claude_instructions    - model_identity_rules    - project_wide_agent_behavior    - unrelated_apex_package_rules
+kb_schema_contract:
+  file: "apex-meta/kb/<kb-slug>/kb-schema.md"
+  role: "KB-local schema, authority, language, taxonomy, and operator-review policy."
+  required_fields:
+    kb_topic_title:
+      type: string
+      required: true
+      purpose: "Human-readable topic or domain represented by this KB."
+    kb_source_authority_list:
+      type: list
+      required: true
+      purpose: "Ordered source-authority rules for resolving conflicts."
+    kb_concept_taxonomy_top_level:
+      type: list
+      required: true
+      purpose: "Top-level concept buckets used to organize concept pages."
+    kb_language_policy:
+      type: string_or_map
+      required: true
+      purpose: "Defines output language, source-language handling, and translation behavior."
+    kb_operator_review_policy:
+      type: map
+      required: true
+      purpose: "Defines when Phase 1, contradictions, source conflicts, and audit items require operator review."
+  must_not_contain:
+    - repo_global_claude_instructions
+    - model_identity_rules
+    - project_wide_agent_behavior
+    - unrelated_apex_package_rules
 ```
 
 
@@ -79,7 +156,28 @@ kb_schema_contract:  file: "apex-meta/kb/<kb-slug>/kb-schema.md"  role: "KB-loca
 # Source Policy
 
 ```
-source_policy:  raw_sources_are_immutable: true  preserve_exact_source_filename: true  preserve_exact_source_path: true  source_pointer_required_on_generated_pages: true  source_manifest_required: true  source_hash_required_when_possible: true  accepted_source_forms:    local_markdown_or_text:      action: "Copy or preserve under raw/ with exact filename."    local_large_or_binary_file:      action: "Create pointer reference under raw/refs/ with path, metadata, and operator-provided context."    url_or_external_reference:      action: "Store as source pointer only unless operator supplies local content."    prior_kb_page:      action: "Treat as compiled context, not raw source."  forbidden_source_behavior:    - infer_content_from_filename_only    - treat_missing_source_as_verified    - overwrite_raw_source_without_operator_instruction    - erase_old_source_identity_on_reingest    - silently_collapse_conflicting_sources
+source_policy:
+  raw_sources_are_immutable: true
+  preserve_exact_source_filename: true
+  preserve_exact_source_path: true
+  source_pointer_required_on_generated_pages: true
+  source_manifest_required: true
+  source_hash_required_when_possible: true
+  accepted_source_forms:
+    local_markdown_or_text:
+      action: "Copy or preserve under raw/ with exact filename."
+    local_large_or_binary_file:
+      action: "Create pointer reference under raw/refs/ with path, metadata, and operator-provided context."
+    url_or_external_reference:
+      action: "Store as source pointer only unless operator supplies local content."
+    prior_kb_page:
+      action: "Treat as compiled context, not raw source."
+  forbidden_source_behavior:
+    - infer_content_from_filename_only
+    - treat_missing_source_as_verified
+    - overwrite_raw_source_without_operator_instruction
+    - erase_old_source_identity_on_reingest
+    - silently_collapse_conflicting_sources
 ```
 
 

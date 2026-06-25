@@ -151,7 +151,7 @@ claim_candidates:
     claim_text: >
       <Specific claim extracted from the source.>
     source_pointer: "<heading/page/anchor/line/passage reference>"
-    claim_type: "definition | decision | fact | recommendation | warning | open_question | other"
+    claim_label: "raw_source | source_backed_summary | behavioral_inference | working_hypothesis | operator_question | practitioner_question"
     applies_to:
       - "<concept/entity/artifact/process>"
     confidence: "high | medium | low"

@@ -1,0 +1,142 @@
+{
+  "artifact_name": "apex_kb_hardening_patch_report",
+  "generated_at": "2026-06-25T11:39:58Z",
+  "mode": "verify",
+  "repo_head": "67a704ae09115a23de2bac6c66cb14a954a353af",
+  "repo_branch": "main",
+  "active_patch_count": 6,
+  "status_counts": {
+    "applied": 6
+  },
+  "changed_files": [],
+  "allowlist": [
+    ".claude/skills/apex-kb/SKILL.md",
+    ".claude/skills/apex-kb/package-manifest.md",
+    ".claude/skills/apex-kb/references/ingest-query-lint-audit-rules.md",
+    ".claude/skills/apex-kb/references/kb-contract.md",
+    ".claude/skills/apex-kb/templates/ingest-analysis-template.md",
+    "apex-meta/scripts/apex_kb.py"
+  ],
+  "deferred_patches": [
+    {
+      "id": "G4-DEFER-STALE-INDEX-HASH",
+      "group": "group_4_stale_index",
+      "target_files": [
+        "apex-meta/scripts/apex_kb.py",
+        ".claude/skills/apex-kb/references/ingest-query-lint-audit-rules.md"
+      ],
+      "status": "deferred",
+      "reason": "Stale-index behavior is a script-behavior change. This script records the gap but does not patch it until an explicit deterministic index freshness contract is approved. Current apex_kb.py reports stale_index=False and stale_index_hash=NA, so the weakness is real but should not be changed through an unreviewed broad code edit.",
+      "recommendation": "Add a later exact patch that stores and compares a deterministic wiki page content hash in the machine index."
+    },
+    {
+      "id": "G5-DEFER-GOLDEN-FIXTURE",
+      "group": "group_5_fixture_plan",
+      "target_files": [
+        "apex-meta/tests/apex-kb/**",
+        "apex-meta/kb/_fixtures/apex-kb-golden/**"
+      ],
+      "status": "deferred",
+      "reason": "The handover allows optional isolated tests/fixtures only if justified. This patch pass touches no optional fixture paths to keep unrelated changes out of the first hardening patch.",
+      "recommendation": "Create fixture/test files in a separate reviewable patch after the document/script parity pass lands."
+    }
+  ],
+  "results": [
+    {
+      "id": "G1-KB-CONTRACT-DATA-ROOT-REFLOW",
+      "group": "group_1_docs_readability",
+      "file": ".claude/skills/apex-kb/references/kb-contract.md",
+      "description": "Reformat compressed data_root_contract block into readable YAML.",
+      "status": "applied",
+      "old_match_count": 0,
+      "new_match_count": 1,
+      "changed": false,
+      "old_sha256": "f87e8fe857bc9045ebfbc72bbf9d1bbfc598933d216c971a354f8e2243cdae7f",
+      "new_sha256": "f87e8fe857bc9045ebfbc72bbf9d1bbfc598933d216c971a354f8e2243cdae7f",
+      "risk": 35,
+      "impact": 88,
+      "evidence": 92,
+      "message": "New anchor is present exactly as expected."
+    },
+    {
+      "id": "G1-KB-CONTRACT-KB-SCHEMA-REFLOW",
+      "group": "group_1_docs_readability",
+      "file": ".claude/skills/apex-kb/references/kb-contract.md",
+      "description": "Reformat compressed kb_schema_contract block into readable YAML.",
+      "status": "applied",
+      "old_match_count": 0,
+      "new_match_count": 1,
+      "changed": false,
+      "old_sha256": "f87e8fe857bc9045ebfbc72bbf9d1bbfc598933d216c971a354f8e2243cdae7f",
+      "new_sha256": "f87e8fe857bc9045ebfbc72bbf9d1bbfc598933d216c971a354f8e2243cdae7f",
+      "risk": 35,
+      "impact": 88,
+      "evidence": 92,
+      "message": "New anchor is present exactly as expected."
+    },
+    {
+      "id": "G1-KB-CONTRACT-SOURCE-POLICY-REFLOW",
+      "group": "group_1_docs_readability",
+      "file": ".claude/skills/apex-kb/references/kb-contract.md",
+      "description": "Reformat compressed source_policy block into readable YAML.",
+      "status": "applied",
+      "old_match_count": 0,
+      "new_match_count": 1,
+      "changed": false,
+      "old_sha256": "f87e8fe857bc9045ebfbc72bbf9d1bbfc598933d216c971a354f8e2243cdae7f",
+      "new_sha256": "f87e8fe857bc9045ebfbc72bbf9d1bbfc598933d216c971a354f8e2243cdae7f",
+      "risk": 35,
+      "impact": 88,
+      "evidence": 92,
+      "message": "New anchor is present exactly as expected."
+    },
+    {
+      "id": "G2-PYTHON-CLAIM-LABEL-VOCABULARY",
+      "group": "group_2_claim_labels",
+      "file": "apex-meta/scripts/apex_kb.py",
+      "description": "Align Python claim_label vocabulary with SKILL.md and operation rules.",
+      "status": "applied",
+      "old_match_count": 0,
+      "new_match_count": 1,
+      "changed": false,
+      "old_sha256": "53079350964426699886caf175398a4ff30e39f58acd1d1a994ab63ce4c7cf59",
+      "new_sha256": "53079350964426699886caf175398a4ff30e39f58acd1d1a994ab63ce4c7cf59",
+      "risk": 42,
+      "impact": 94,
+      "evidence": 95,
+      "message": "New anchor is present exactly as expected."
+    },
+    {
+      "id": "G2-TEMPLATE-CLAIM-LABEL-FIELD",
+      "group": "group_2_claim_labels",
+      "file": ".claude/skills/apex-kb/templates/ingest-analysis-template.md",
+      "description": "Change claim candidate field from claim_type to canonical claim_label vocabulary.",
+      "status": "applied",
+      "old_match_count": 0,
+      "new_match_count": 1,
+      "changed": false,
+      "old_sha256": "8054f3f23c244d3e37fe51b7f71b37460f77d30d08e2f8a0f17b757893edfecd",
+      "new_sha256": "8054f3f23c244d3e37fe51b7f71b37460f77d30d08e2f8a0f17b757893edfecd",
+      "risk": 42,
+      "impact": 94,
+      "evidence": 95,
+      "message": "New anchor is present exactly as expected."
+    },
+    {
+      "id": "G3-SCRIPT-CONTRACT-PARITY-MANIFEST-STATUS",
+      "group": "group_3_script_contract_parity",
+      "file": ".claude/skills/apex-kb/package-manifest.md",
+      "description": "Update package manifest to reflect that apex_kb.py exists on main instead of being only next_file_to_generate.",
+      "status": "applied",
+      "old_match_count": 0,
+      "new_match_count": 1,
+      "changed": false,
+      "old_sha256": "dad9fbffe6c5c092a1752967aa71edd5c5808df33c2a1c1de4c10400e54a8af8",
+      "new_sha256": "dad9fbffe6c5c092a1752967aa71edd5c5808df33c2a1c1de4c10400e54a8af8",
+      "risk": 30,
+      "impact": 82,
+      "evidence": 88,
+      "message": "New anchor is present exactly as expected."
+    }
+  ]
+}

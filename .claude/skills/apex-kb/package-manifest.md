@@ -179,7 +179,7 @@ file_inventory:
   external_script:
     - path: "apex-meta/scripts/apex_kb.py"
       role: "Future deterministic Python implementation for scaffold, hash, preflight, manifest, index, lint, and audit operations."
-      status: "next_file_to_generate"
+      status: "present_on_main_requires_contract_validation"
       read_when:
         - running_apex_kb_deterministic_operations
         - validating_python_implementation_against_contract

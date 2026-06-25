@@ -100,13 +100,12 @@ ALLOWED_CONFIDENCE_VALUES = {
 }
 
 ALLOWED_CLAIM_LABEL_VALUES = {
-    "direct_source_claim",
-    "synthesis",
-    "inference",
-    "hypothesis",
-    "contradiction",
-    "open_question",
-    "operator_note",
+    "raw_source",
+    "source_backed_summary",
+    "behavioral_inference",
+    "working_hypothesis",
+    "operator_question",
+    "practitioner_question",
 }
 
 
