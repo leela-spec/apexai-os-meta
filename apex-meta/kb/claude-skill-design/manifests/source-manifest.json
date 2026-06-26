@@ -1,0 +1,9 @@
+{
+  "manifest_version": "0.1",
+  "kb_slug": "claude-skill-design",
+  "manifest_status": "structural_placeholder",
+  "source_root": "apex-meta/kb/claude-skill-design/sources",
+  "sources": [],
+  "note": "Created to satisfy deterministic Apex KB scaffold checks. Full source inventory exists separately if present.",
+  "updated_at": "2026-06-26T10:00:00Z"
+}
