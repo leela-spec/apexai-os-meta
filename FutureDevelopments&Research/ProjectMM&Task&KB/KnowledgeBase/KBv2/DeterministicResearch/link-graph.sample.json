@@ -1,0 +1,174 @@
+{
+  "metadata": {
+    "artifact": "link-graph.sample.json",
+    "scope": "Best-effort read-only audit via available repo/project files; not a full local checkout regex crawl.",
+    "repo": "leela-spec/apexai-os-meta",
+    "generated_for": "Apex Markdown Link Graph and Process-Flow Representability Audit"
+  },
+  "nodes": [
+    {
+      "id": ".claude/Claude.md",
+      "type": "control_file",
+      "role": "core loop, skill index, artifact paths"
+    },
+    {
+      "id": ".claude/skills/PrecapNextDay/Skill_precap-next-day.md",
+      "type": "skill_entrypoint",
+      "role": "daily orchestration compiler"
+    },
+    {
+      "id": ".claude/skills/PrecapNextDay/precap-next-day-package-manifest.md",
+      "type": "package_manifest",
+      "role": "PreCapNextDay file index and dependency map"
+    },
+    {
+      "id": ".claude/skills/apex-kb/SKILL.md",
+      "type": "skill_entrypoint",
+      "role": "durable knowledge-base compiler"
+    },
+    {
+      "id": ".claude/skills/apex-kb/package-manifest.md",
+      "type": "package_manifest",
+      "role": "Apex KB file index and source trace"
+    },
+    {
+      "id": ".claude/skills/apex-sync/SKILL.md",
+      "type": "skill_entrypoint",
+      "role": "deterministic read-side synchronization"
+    },
+    {
+      "id": ".claude/skills/apex-session/SKILL.md",
+      "type": "skill_entrypoint",
+      "role": "session state, gated mutation, handoff"
+    },
+    {
+      "id": ".claude/skills/PromptEngineer/SKILL_prompt-engineering.md",
+      "type": "skill_entrypoint",
+      "role": "copy-paste prompt generation"
+    },
+    {
+      "id": ".claude/skills/AIRouting/ai-routing-and-usage-tracking-SKILL.md",
+      "type": "skill_entrypoint",
+      "role": "usage-aware AI routing"
+    },
+    {
+      "id": ".claude/skills/Workflow&Processes/workflow-process-design-SKILL.md",
+      "type": "skill_entrypoint",
+      "role": "workflow/process validation"
+    },
+    {
+      "id": "ApexDefinition&OldVersions/ApexWithClaude/Architecture/AnotherMetaLevelFlow.md",
+      "type": "architecture_spec",
+      "role": "canonical loop and artifact system"
+    }
+  ],
+  "edges": [
+    {
+      "source": ".claude/Claude.md",
+      "target": "PreCapWeek",
+      "type": "process_sequence",
+      "evidence": "core_loop"
+    },
+    {
+      "source": ".claude/Claude.md",
+      "target": "PreCapNextDay",
+      "type": "process_sequence",
+      "evidence": "core_loop"
+    },
+    {
+      "source": ".claude/Claude.md",
+      "target": "FlowRecap",
+      "type": "process_sequence",
+      "evidence": "core_loop"
+    },
+    {
+      "source": ".claude/Claude.md",
+      "target": "APSU",
+      "type": "process_sequence",
+      "evidence": "core_loop"
+    },
+    {
+      "source": ".claude/Claude.md",
+      "target": ".claude/skills/PrecapNextDay/Skill_precap-next-day.md",
+      "type": "explicit_file_reference",
+      "evidence": "skill_path"
+    },
+    {
+      "source": ".claude/Claude.md",
+      "target": ".claude/skills/flow-recap/Skill_flow-recap.md",
+      "type": "explicit_file_reference",
+      "status": "missing_by_index"
+    },
+    {
+      "source": ".claude/Claude.md",
+      "target": ".claude/skills/status-merge/Skill_status-merge.md",
+      "type": "explicit_file_reference",
+      "status": "missing_by_index"
+    },
+    {
+      "source": ".claude/skills/PrecapNextDay/Skill_precap-next-day.md",
+      "target": "references/flow-packet-contract.md",
+      "type": "supporting_file_reference"
+    },
+    {
+      "source": ".claude/skills/PrecapNextDay/Skill_precap-next-day.md",
+      "target": "FlowRecap",
+      "type": "contract_dependency",
+      "evidence": "FlowRecap handoff; must not run FlowRecap"
+    },
+    {
+      "source": ".claude/skills/PrecapNextDay/Skill_precap-next-day.md",
+      "target": "prompt-engineering",
+      "type": "package_interface"
+    },
+    {
+      "source": ".claude/skills/PrecapNextDay/Skill_precap-next-day.md",
+      "target": "ai-routing-and-usage-tracking",
+      "type": "package_interface"
+    },
+    {
+      "source": ".claude/skills/PrecapNextDay/Skill_precap-next-day.md",
+      "target": "workflow-process-design",
+      "type": "package_interface"
+    },
+    {
+      "source": ".claude/skills/apex-kb/SKILL.md",
+      "target": "apex_plan",
+      "type": "hands_off_to"
+    },
+    {
+      "source": ".claude/skills/apex-kb/SKILL.md",
+      "target": "apex_session",
+      "type": "hands_off_to"
+    },
+    {
+      "source": ".claude/skills/apex-kb/SKILL.md",
+      "target": "apex_sync",
+      "type": "hands_off_to"
+    },
+    {
+      "source": ".claude/skills/apex-kb/package-manifest.md",
+      "target": "apex-meta/scripts/apex_kb.py",
+      "type": "script_path"
+    },
+    {
+      "source": ".claude/skills/apex-sync/SKILL.md",
+      "target": "scripts/apex_sync.py",
+      "type": "script_path"
+    },
+    {
+      "source": ".claude/skills/apex-session/SKILL.md",
+      "target": "apex-sync",
+      "type": "does_not_own_boundary"
+    },
+    {
+      "source": "ApexDefinition&OldVersions/ApexWithClaude/Architecture/AnotherMetaLevelFlow.md",
+      "target": "PreCapWeek \u2192 PreCapNextDay \u2192 OperatorExecutesPlannedFlow \u2192 FlowRecap \u2192 StatusMerge \u2192 NextCycle",
+      "type": "explicit_sequence"
+    }
+  ],
+  "notes": [
+    "This sample intentionally excludes inferred semantic edges.",
+    "Counts are sample/audit counts, not whole-repo counts, because no local checkout regex crawl was executed."
+  ]
+}
