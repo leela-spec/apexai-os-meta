@@ -1,0 +1,10 @@
+{
+  "apex_kb": [],
+  "ingest": [],
+  "orchestration_boundary": [],
+  "retrieval": [
+    "raw/refs/DATEV_SKR42-Kontenrahmen.md",
+    "raw/refs/DATEV_Verfahrensdokumentation-GoBD.md"
+  ],
+  "skill_design": []
+}
