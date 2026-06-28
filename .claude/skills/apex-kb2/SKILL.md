@@ -1,5 +1,5 @@
 ---
-name: apex-kb
+name: apex-kb2
 description: >
   Use this skill when the operator asks to scaffold, intake sources, hash sources,
   run deterministic corpus intelligence, perform two-phase ingest, compile wiki
@@ -11,12 +11,12 @@ description: >
   rebuild task registries, contact external services, or write outside the KB root.
 ---
 
-# Apex KB
+# Apex KB2
 
 ## Operating contract
 
 ```yaml
-package_name: apex-kb
+package_name: apex-kb2
 primary_role: durable_source_preserving_knowledge_base_compiler
 data_root_template: apex-meta/kb/<kb-slug>/
 one_kb_root_per_invocation: true

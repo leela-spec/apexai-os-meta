@@ -1,9 +1,9 @@
-# Apex KB Package Manifest
+# Apex KB2 Package Manifest
 
 ```yaml
 package_manifest:
-  package_name: apex-kb
-  package_path: .claude/skills/apex-kb/
+  package_name: apex-kb2
+  package_path: .claude/skills/apex-kb2/
   package_role: durable_knowledge_base_compiler
   data_root_template: apex-meta/kb/<kb-slug>/
   script_paths:
@@ -63,6 +63,28 @@ required_runtime_paths:
   - log/
 ```
 
+## Canonical versus derived KB paths
+
+```yaml
+canonical_paths:
+  - raw/
+  - kb-schema.md
+  - manifests/source-manifest.json
+  - ingest-analysis/
+  - wiki/
+  - audit/
+  - log/
+
+derived_rebuildable_paths:
+  - manifests/phase0/
+  - derived/search/
+  - outputs/queries/
+```
+
 ## Scope exclusions
 
-Apex KB does not own project planning, task status mutation, exact next-task ranking, dependency graph traversal, blocker scanning, task registry rebuilds, session handoff authoring outside the KB root, external contact, hosted retrieval, or public web research without operator request.
+Apex KB2 does not own project planning, task status mutation, exact next-task ranking, dependency graph traversal, blocker scanning, task registry rebuilds, session handoff authoring outside the KB root, external contact, hosted retrieval, or public web research without operator request.
+
+## Executability note
+
+The skill folder is not executable by itself. It requires the repo-level scripts at `apex-meta/scripts/apex_kb.py` and `apex-meta/scripts/apex_kb_retrieval.py` for deterministic lifecycle, validation, and retrieval operations.
