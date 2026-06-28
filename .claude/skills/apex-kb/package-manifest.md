@@ -1,9 +1,9 @@
-# Apex KB2 Package Manifest
+# Apex KB Package Manifest
 
 ```yaml
 package_manifest:
-  package_name: apex-kb2
-  package_path: .claude/skills/apex-kb2/
+  package_name: apex-kb
+  package_path: .claude/skills/apex-kb/
   package_role: durable_knowledge_base_compiler
   data_root_template: apex-meta/kb/<kb-slug>/
   script_paths:
@@ -83,7 +83,7 @@ derived_rebuildable_paths:
 
 ## Scope exclusions
 
-Apex KB2 does not own project planning, task status mutation, exact next-task ranking, dependency graph traversal, blocker scanning, task registry rebuilds, session handoff authoring outside the KB root, external contact, hosted retrieval, or public web research without operator request.
+Apex KB does not own project planning, task status mutation, exact next-task ranking, dependency graph traversal, blocker scanning, task registry rebuilds, session handoff authoring outside the KB root, external contact, hosted retrieval, or public web research without operator request.
 
 ## Executability note
 

@@ -1,4 +1,4 @@
-# Apex KB2 Contract
+# Apex KB Contract
 
 ## Data root
 
@@ -8,7 +8,7 @@ data_root_contract:
   one_kb_slug_per_invocation: true
   forbidden_root_files:
     CLAUDE.md: KB-local schema must be kb-schema.md
-    SKILL.md: skill entrypoint belongs in .claude/skills/apex-kb2/
+    SKILL.md: skill entrypoint belongs in .claude/skills/apex-kb/
 ```
 
 ## Canonical versus derived
@@ -114,4 +114,4 @@ Do not place claim-label values in the confidence field.
 
 ## Boundary contract
 
-Apex KB2 may expose read-only evidence packets to Apex Plan, Apex Sync, Apex Session, PreCap, FlowRecap, APSU/status-merge, and personal orchestration. It must not mutate their files or redefine their ownership. Knowledge gaps may be offered as planning candidates, but task creation and status mutation belong outside Apex KB2.
+Apex KB may expose read-only evidence packets to Apex Plan, Apex Sync, Apex Session, PreCap, FlowRecap, APSU/status-merge, and personal orchestration. It must not mutate their files or redefine their ownership. Knowledge gaps may be offered as planning candidates, but task creation and status mutation belong outside Apex KB.
