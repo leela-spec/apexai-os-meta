@@ -1,0 +1,2013 @@
+[
+  {
+    "has_frontmatter": true,
+    "parse_status": "detected",
+    "path": "sources/curated/academic/arxiv-agent-skills-data-driven-analysis.html.meta.md",
+    "raw_field_keys": [
+      "acquired_at",
+      "saved_file",
+      "source_id",
+      "tier",
+      "title",
+      "type",
+      "url"
+    ]
+  },
+  {
+    "has_frontmatter": true,
+    "parse_status": "detected",
+    "path": "sources/curated/academic/arxiv-evoskills.html.meta.md",
+    "raw_field_keys": [
+      "acquired_at",
+      "saved_file",
+      "source_id",
+      "tier",
+      "title",
+      "type",
+      "url"
+    ]
+  },
+  {
+    "has_frontmatter": true,
+    "parse_status": "detected",
+    "path": "sources/curated/academic/arxiv-skill-md-semantic-supply-chain.html.meta.md",
+    "raw_field_keys": [
+      "acquired_at",
+      "saved_file",
+      "source_id",
+      "tier",
+      "title",
+      "type",
+      "url"
+    ]
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/logs/acquisition-log.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": true,
+    "parse_status": "detected",
+    "path": "sources/curated/official-docs/agentskills-home.html.meta.md",
+    "raw_field_keys": [
+      "acquired_at",
+      "saved_file",
+      "source_id",
+      "tier",
+      "title",
+      "type",
+      "url"
+    ]
+  },
+  {
+    "has_frontmatter": true,
+    "parse_status": "detected",
+    "path": "sources/curated/official-docs/agentskills-specification.html.meta.md",
+    "raw_field_keys": [
+      "acquired_at",
+      "saved_file",
+      "source_id",
+      "tier",
+      "title",
+      "type",
+      "url"
+    ]
+  },
+  {
+    "has_frontmatter": true,
+    "parse_status": "detected",
+    "path": "sources/curated/official-docs/anthropic-agent-skills-overview.html.meta.md",
+    "raw_field_keys": [
+      "acquired_at",
+      "saved_file",
+      "source_id",
+      "tier",
+      "title",
+      "type",
+      "url"
+    ]
+  },
+  {
+    "has_frontmatter": true,
+    "parse_status": "detected",
+    "path": "sources/curated/official-docs/anthropic-engineering-agent-skills.html.meta.md",
+    "raw_field_keys": [
+      "acquired_at",
+      "saved_file",
+      "source_id",
+      "tier",
+      "title",
+      "type",
+      "url"
+    ]
+  },
+  {
+    "has_frontmatter": true,
+    "parse_status": "detected",
+    "path": "sources/curated/official-docs/anthropic-skill-authoring-best-practices.html.meta.md",
+    "raw_field_keys": [
+      "acquired_at",
+      "saved_file",
+      "source_id",
+      "tier",
+      "title",
+      "type",
+      "url"
+    ]
+  },
+  {
+    "has_frontmatter": true,
+    "parse_status": "detected",
+    "path": "sources/curated/official-docs/claude-blog-complete-guide-to-building-skills.html.meta.md",
+    "raw_field_keys": [
+      "acquired_at",
+      "saved_file",
+      "source_id",
+      "tier",
+      "title",
+      "type",
+      "url"
+    ]
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-pdfs/anthropic-complete-guide-to-building-skills-for-claude.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": true,
+    "parse_status": "detected",
+    "path": "sources/curated/official-pdfs/anthropic-complete-guide-to-building-skills-for-claude.md.meta.md",
+    "raw_field_keys": [
+      "acquired_at",
+      "converted_saved_file",
+      "source_id",
+      "tier",
+      "title",
+      "type",
+      "url"
+    ]
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/agentskills-agentskills/.claude/settings.json",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/agentskills-agentskills/CONTRIBUTING.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/agentskills-agentskills/docs/CLAUDE.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": true,
+    "parse_status": "parsed",
+    "path": "sources/curated/official-repos/agentskills-agentskills/docs/client-implementation/adding-skills-support.mdx",
+    "raw_field_keys": [
+      "description",
+      "sidebarTitle",
+      "title"
+    ]
+  },
+  {
+    "has_frontmatter": true,
+    "parse_status": "parsed",
+    "path": "sources/curated/official-repos/agentskills-agentskills/docs/clients.mdx",
+    "raw_field_keys": [
+      "description",
+      "title"
+    ]
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/agentskills-agentskills/docs/docs.json",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": true,
+    "parse_status": "parsed",
+    "path": "sources/curated/official-repos/agentskills-agentskills/docs/home.mdx",
+    "raw_field_keys": [
+      "description",
+      "sidebarTitle",
+      "title"
+    ]
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/agentskills-agentskills/docs/README.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": true,
+    "parse_status": "parsed",
+    "path": "sources/curated/official-repos/agentskills-agentskills/docs/skill-creation/best-practices.mdx",
+    "raw_field_keys": [
+      "description",
+      "sidebarTitle",
+      "title"
+    ]
+  },
+  {
+    "has_frontmatter": true,
+    "parse_status": "parsed",
+    "path": "sources/curated/official-repos/agentskills-agentskills/docs/skill-creation/evaluating-skills.mdx",
+    "raw_field_keys": [
+      "description",
+      "sidebarTitle",
+      "title"
+    ]
+  },
+  {
+    "has_frontmatter": true,
+    "parse_status": "parsed",
+    "path": "sources/curated/official-repos/agentskills-agentskills/docs/skill-creation/optimizing-descriptions.mdx",
+    "raw_field_keys": [
+      "description",
+      "sidebarTitle",
+      "title"
+    ]
+  },
+  {
+    "has_frontmatter": true,
+    "parse_status": "parsed",
+    "path": "sources/curated/official-repos/agentskills-agentskills/docs/skill-creation/quickstart.mdx",
+    "raw_field_keys": [
+      "description",
+      "title"
+    ]
+  },
+  {
+    "has_frontmatter": true,
+    "parse_status": "parsed",
+    "path": "sources/curated/official-repos/agentskills-agentskills/docs/skill-creation/using-scripts.mdx",
+    "raw_field_keys": [
+      "description",
+      "sidebarTitle",
+      "title"
+    ]
+  },
+  {
+    "has_frontmatter": true,
+    "parse_status": "parsed",
+    "path": "sources/curated/official-repos/agentskills-agentskills/docs/specification.mdx",
+    "raw_field_keys": [
+      "description",
+      "title"
+    ]
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/agentskills-agentskills/package.json",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/agentskills-agentskills/README.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/agentskills-agentskills/skills-ref/CLAUDE.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/agentskills-agentskills/skills-ref/pyproject.toml",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/agentskills-agentskills/skills-ref/README.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/agentskills-agentskills/skills-ref/src/skills_ref/__init__.py",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/agentskills-agentskills/skills-ref/src/skills_ref/cli.py",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/agentskills-agentskills/skills-ref/src/skills_ref/errors.py",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/agentskills-agentskills/skills-ref/src/skills_ref/models.py",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/agentskills-agentskills/skills-ref/src/skills_ref/parser.py",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/agentskills-agentskills/skills-ref/src/skills_ref/prompt.py",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/agentskills-agentskills/skills-ref/src/skills_ref/validator.py",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/agentskills-agentskills/skills-ref/tests/__init__.py",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/agentskills-agentskills/skills-ref/tests/test_parser.py",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/agentskills-agentskills/skills-ref/tests/test_prompt.py",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/agentskills-agentskills/skills-ref/tests/test_validator.py",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": true,
+    "parse_status": "detected",
+    "path": "sources/curated/official-repos/agentskills-agentskills.repo.meta.md",
+    "raw_field_keys": [
+      "acquired_at",
+      "local_path",
+      "source_id",
+      "tier",
+      "title",
+      "type",
+      "url"
+    ]
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/.claude-plugin/marketplace.json",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/README.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/algorithmic-art/LICENSE.txt",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": true,
+    "parse_status": "parsed",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/algorithmic-art/SKILL.md",
+    "raw_field_keys": [
+      "description",
+      "license",
+      "name"
+    ]
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/brand-guidelines/LICENSE.txt",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": true,
+    "parse_status": "parsed",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/brand-guidelines/SKILL.md",
+    "raw_field_keys": [
+      "description",
+      "license",
+      "name"
+    ]
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/canvas-design/canvas-fonts/ArsenalSC-OFL.txt",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/canvas-design/canvas-fonts/BigShoulders-OFL.txt",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/canvas-design/canvas-fonts/Boldonse-OFL.txt",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/canvas-design/canvas-fonts/BricolageGrotesque-OFL.txt",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/canvas-design/canvas-fonts/CrimsonPro-OFL.txt",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/canvas-design/canvas-fonts/DMMono-OFL.txt",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/canvas-design/canvas-fonts/EricaOne-OFL.txt",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/canvas-design/canvas-fonts/GeistMono-OFL.txt",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/canvas-design/canvas-fonts/Gloock-OFL.txt",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/canvas-design/canvas-fonts/IBMPlexMono-OFL.txt",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/canvas-design/canvas-fonts/InstrumentSans-OFL.txt",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/canvas-design/canvas-fonts/Italiana-OFL.txt",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/canvas-design/canvas-fonts/JetBrainsMono-OFL.txt",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/canvas-design/canvas-fonts/Jura-OFL.txt",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/canvas-design/canvas-fonts/LibreBaskerville-OFL.txt",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/canvas-design/canvas-fonts/Lora-OFL.txt",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/canvas-design/canvas-fonts/NationalPark-OFL.txt",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/canvas-design/canvas-fonts/NothingYouCouldDo-OFL.txt",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/canvas-design/canvas-fonts/Outfit-OFL.txt",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/canvas-design/canvas-fonts/PixelifySans-OFL.txt",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/canvas-design/canvas-fonts/PoiretOne-OFL.txt",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/canvas-design/canvas-fonts/RedHatMono-OFL.txt",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/canvas-design/canvas-fonts/Silkscreen-OFL.txt",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/canvas-design/canvas-fonts/SmoochSans-OFL.txt",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/canvas-design/canvas-fonts/Tektur-OFL.txt",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/canvas-design/canvas-fonts/WorkSans-OFL.txt",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/canvas-design/canvas-fonts/YoungSerif-OFL.txt",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/canvas-design/LICENSE.txt",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": true,
+    "parse_status": "parsed",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/canvas-design/SKILL.md",
+    "raw_field_keys": [
+      "description",
+      "license",
+      "name"
+    ]
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/claude-api/csharp/claude-api.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/claude-api/curl/examples.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/claude-api/curl/managed-agents.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/claude-api/go/claude-api.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/claude-api/go/managed-agents/README.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/claude-api/java/claude-api.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/claude-api/java/managed-agents/README.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/claude-api/LICENSE.txt",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/claude-api/php/claude-api.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/claude-api/php/managed-agents/README.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/claude-api/python/claude-api/batches.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/claude-api/python/claude-api/files-api.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/claude-api/python/claude-api/README.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/claude-api/python/claude-api/streaming.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/claude-api/python/claude-api/tool-use.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/claude-api/python/managed-agents/README.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/claude-api/ruby/claude-api.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/claude-api/ruby/managed-agents/README.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/claude-api/shared/agent-design.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/claude-api/shared/anthropic-cli.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/claude-api/shared/claude-platform-on-aws.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/claude-api/shared/error-codes.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/claude-api/shared/live-sources.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/claude-api/shared/managed-agents-api-reference.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/claude-api/shared/managed-agents-client-patterns.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/claude-api/shared/managed-agents-core.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/claude-api/shared/managed-agents-environments.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/claude-api/shared/managed-agents-events.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/claude-api/shared/managed-agents-memory.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/claude-api/shared/managed-agents-multiagent.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/claude-api/shared/managed-agents-onboarding.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/claude-api/shared/managed-agents-outcomes.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/claude-api/shared/managed-agents-overview.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/claude-api/shared/managed-agents-scheduled-deployments.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/claude-api/shared/managed-agents-self-hosted-sandboxes.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/claude-api/shared/managed-agents-tools.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/claude-api/shared/managed-agents-webhooks.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/claude-api/shared/model-migration.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/claude-api/shared/models.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/claude-api/shared/prompt-caching.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/claude-api/shared/token-counting.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/claude-api/shared/tool-use-concepts.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": true,
+    "parse_status": "parsed",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/claude-api/SKILL.md",
+    "raw_field_keys": [
+      "description",
+      "license",
+      "name"
+    ]
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/claude-api/typescript/claude-api/batches.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/claude-api/typescript/claude-api/files-api.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/claude-api/typescript/claude-api/README.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/claude-api/typescript/claude-api/streaming.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/claude-api/typescript/claude-api/tool-use.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/claude-api/typescript/managed-agents/README.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": true,
+    "parse_status": "parsed",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/doc-coauthoring/SKILL.md",
+    "raw_field_keys": [
+      "description",
+      "name"
+    ]
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/docx/LICENSE.txt",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/docx/scripts/__init__.py",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/docx/scripts/accept_changes.py",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/docx/scripts/comment.py",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/docx/scripts/office/helpers/__init__.py",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/docx/scripts/office/helpers/merge_runs.py",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/docx/scripts/office/helpers/simplify_redlines.py",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/docx/scripts/office/pack.py",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/docx/scripts/office/soffice.py",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/docx/scripts/office/unpack.py",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/docx/scripts/office/validate.py",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/docx/scripts/office/validators/__init__.py",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/docx/scripts/office/validators/base.py",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/docx/scripts/office/validators/docx.py",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/docx/scripts/office/validators/pptx.py",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/docx/scripts/office/validators/redlining.py",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": true,
+    "parse_status": "parsed",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/docx/SKILL.md",
+    "raw_field_keys": [
+      "description",
+      "license",
+      "name"
+    ]
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/frontend-design/LICENSE.txt",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": true,
+    "parse_status": "parsed",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/frontend-design/SKILL.md",
+    "raw_field_keys": [
+      "description",
+      "license",
+      "name"
+    ]
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/internal-comms/examples/3p-updates.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/internal-comms/examples/company-newsletter.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/internal-comms/examples/faq-answers.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/internal-comms/examples/general-comms.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/internal-comms/LICENSE.txt",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": true,
+    "parse_status": "parsed",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/internal-comms/SKILL.md",
+    "raw_field_keys": [
+      "description",
+      "license",
+      "name"
+    ]
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/mcp-builder/LICENSE.txt",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/mcp-builder/reference/evaluation.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/mcp-builder/reference/mcp_best_practices.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/mcp-builder/reference/node_mcp_server.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/mcp-builder/reference/python_mcp_server.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/mcp-builder/scripts/connections.py",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/mcp-builder/scripts/evaluation.py",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/mcp-builder/scripts/requirements.txt",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": true,
+    "parse_status": "parsed",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/mcp-builder/SKILL.md",
+    "raw_field_keys": [
+      "description",
+      "license",
+      "name"
+    ]
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/pdf/forms.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/pdf/LICENSE.txt",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/pdf/reference.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/pdf/scripts/check_bounding_boxes.py",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/pdf/scripts/check_fillable_fields.py",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/pdf/scripts/convert_pdf_to_images.py",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/pdf/scripts/create_validation_image.py",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/pdf/scripts/extract_form_field_info.py",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/pdf/scripts/extract_form_structure.py",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/pdf/scripts/fill_fillable_fields.py",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/pdf/scripts/fill_pdf_form_with_annotations.py",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": true,
+    "parse_status": "parsed",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/pdf/SKILL.md",
+    "raw_field_keys": [
+      "description",
+      "license",
+      "name"
+    ]
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/pptx/editing.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/pptx/LICENSE.txt",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/pptx/pptxgenjs.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/pptx/scripts/__init__.py",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/pptx/scripts/add_slide.py",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/pptx/scripts/clean.py",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/pptx/scripts/office/helpers/__init__.py",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/pptx/scripts/office/helpers/merge_runs.py",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/pptx/scripts/office/helpers/simplify_redlines.py",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/pptx/scripts/office/pack.py",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/pptx/scripts/office/soffice.py",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/pptx/scripts/office/unpack.py",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/pptx/scripts/office/validate.py",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/pptx/scripts/office/validators/__init__.py",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/pptx/scripts/office/validators/base.py",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/pptx/scripts/office/validators/docx.py",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/pptx/scripts/office/validators/pptx.py",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/pptx/scripts/office/validators/redlining.py",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/pptx/scripts/thumbnail.py",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": true,
+    "parse_status": "parsed",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/pptx/SKILL.md",
+    "raw_field_keys": [
+      "description",
+      "license",
+      "name"
+    ]
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/skill-creator/agents/analyzer.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/skill-creator/agents/comparator.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/skill-creator/agents/grader.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/skill-creator/eval-viewer/generate_review.py",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/skill-creator/LICENSE.txt",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/skill-creator/references/schemas.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/skill-creator/scripts/__init__.py",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/skill-creator/scripts/aggregate_benchmark.py",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/skill-creator/scripts/generate_report.py",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/skill-creator/scripts/improve_description.py",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/skill-creator/scripts/package_skill.py",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/skill-creator/scripts/quick_validate.py",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/skill-creator/scripts/run_eval.py",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/skill-creator/scripts/run_loop.py",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/skill-creator/scripts/utils.py",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": true,
+    "parse_status": "parsed",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/skill-creator/SKILL.md",
+    "raw_field_keys": [
+      "description",
+      "name"
+    ]
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/slack-gif-creator/core/easing.py",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/slack-gif-creator/core/frame_composer.py",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/slack-gif-creator/core/gif_builder.py",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/slack-gif-creator/core/validators.py",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/slack-gif-creator/LICENSE.txt",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/slack-gif-creator/requirements.txt",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": true,
+    "parse_status": "parsed",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/slack-gif-creator/SKILL.md",
+    "raw_field_keys": [
+      "description",
+      "license",
+      "name"
+    ]
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/theme-factory/LICENSE.txt",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": true,
+    "parse_status": "parsed",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/theme-factory/SKILL.md",
+    "raw_field_keys": [
+      "description",
+      "license",
+      "name"
+    ]
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/theme-factory/theme-showcase.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/theme-factory/themes/arctic-frost.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/theme-factory/themes/botanical-garden.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/theme-factory/themes/desert-rose.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/theme-factory/themes/forest-canopy.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/theme-factory/themes/golden-hour.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/theme-factory/themes/midnight-galaxy.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/theme-factory/themes/modern-minimalist.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/theme-factory/themes/ocean-depths.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/theme-factory/themes/sunset-boulevard.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/theme-factory/themes/tech-innovation.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/web-artifacts-builder/LICENSE.txt",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": true,
+    "parse_status": "parsed",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/web-artifacts-builder/SKILL.md",
+    "raw_field_keys": [
+      "description",
+      "license",
+      "name"
+    ]
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/webapp-testing/examples/console_logging.py",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/webapp-testing/examples/element_discovery.py",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/webapp-testing/examples/static_html_automation.py",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/webapp-testing/LICENSE.txt",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/webapp-testing/scripts/with_server.py",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": true,
+    "parse_status": "parsed",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/webapp-testing/SKILL.md",
+    "raw_field_keys": [
+      "description",
+      "license",
+      "name"
+    ]
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/xlsx/LICENSE.txt",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/xlsx/scripts/office/helpers/__init__.py",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/xlsx/scripts/office/helpers/merge_runs.py",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/xlsx/scripts/office/helpers/simplify_redlines.py",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/xlsx/scripts/office/pack.py",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/xlsx/scripts/office/soffice.py",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/xlsx/scripts/office/unpack.py",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/xlsx/scripts/office/validate.py",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/xlsx/scripts/office/validators/__init__.py",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/xlsx/scripts/office/validators/base.py",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/xlsx/scripts/office/validators/docx.py",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/xlsx/scripts/office/validators/pptx.py",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/xlsx/scripts/office/validators/redlining.py",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/xlsx/scripts/recalc.py",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": true,
+    "parse_status": "parsed",
+    "path": "sources/curated/official-repos/anthropics-skills/skills/xlsx/SKILL.md",
+    "raw_field_keys": [
+      "description",
+      "license",
+      "name"
+    ]
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/spec/agent-skills-spec.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": true,
+    "parse_status": "parsed",
+    "path": "sources/curated/official-repos/anthropics-skills/template/SKILL.md",
+    "raw_field_keys": [
+      "description",
+      "name"
+    ]
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/official-repos/anthropics-skills/THIRD_PARTY_NOTICES.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": true,
+    "parse_status": "detected",
+    "path": "sources/curated/official-repos/anthropics-skills.repo.meta.md",
+    "raw_field_keys": [
+      "acquired_at",
+      "local_path",
+      "source_id",
+      "tier",
+      "title",
+      "type",
+      "url"
+    ]
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/curated/README.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": true,
+    "parse_status": "parsed",
+    "path": "sources/curated/repo-extracts/anthropics-skills__skills__algorithmic-art__SKILL.md",
+    "raw_field_keys": [
+      "description",
+      "license",
+      "name"
+    ]
+  },
+  {
+    "has_frontmatter": true,
+    "parse_status": "parsed",
+    "path": "sources/curated/repo-extracts/anthropics-skills__skills__brand-guidelines__SKILL.md",
+    "raw_field_keys": [
+      "description",
+      "license",
+      "name"
+    ]
+  },
+  {
+    "has_frontmatter": true,
+    "parse_status": "parsed",
+    "path": "sources/curated/repo-extracts/anthropics-skills__skills__canvas-design__SKILL.md",
+    "raw_field_keys": [
+      "description",
+      "license",
+      "name"
+    ]
+  },
+  {
+    "has_frontmatter": true,
+    "parse_status": "parsed",
+    "path": "sources/curated/repo-extracts/anthropics-skills__skills__claude-api__SKILL.md",
+    "raw_field_keys": [
+      "description",
+      "license",
+      "name"
+    ]
+  },
+  {
+    "has_frontmatter": true,
+    "parse_status": "parsed",
+    "path": "sources/curated/repo-extracts/anthropics-skills__skills__doc-coauthoring__SKILL.md",
+    "raw_field_keys": [
+      "description",
+      "name"
+    ]
+  },
+  {
+    "has_frontmatter": true,
+    "parse_status": "parsed",
+    "path": "sources/curated/repo-extracts/anthropics-skills__skills__docx__SKILL.md",
+    "raw_field_keys": [
+      "description",
+      "license",
+      "name"
+    ]
+  },
+  {
+    "has_frontmatter": true,
+    "parse_status": "parsed",
+    "path": "sources/curated/repo-extracts/anthropics-skills__skills__frontend-design__SKILL.md",
+    "raw_field_keys": [
+      "description",
+      "license",
+      "name"
+    ]
+  },
+  {
+    "has_frontmatter": true,
+    "parse_status": "parsed",
+    "path": "sources/curated/repo-extracts/anthropics-skills__skills__internal-comms__SKILL.md",
+    "raw_field_keys": [
+      "description",
+      "license",
+      "name"
+    ]
+  },
+  {
+    "has_frontmatter": true,
+    "parse_status": "parsed",
+    "path": "sources/curated/repo-extracts/anthropics-skills__skills__mcp-builder__SKILL.md",
+    "raw_field_keys": [
+      "description",
+      "license",
+      "name"
+    ]
+  },
+  {
+    "has_frontmatter": true,
+    "parse_status": "parsed",
+    "path": "sources/curated/repo-extracts/anthropics-skills__skills__pdf__SKILL.md",
+    "raw_field_keys": [
+      "description",
+      "license",
+      "name"
+    ]
+  },
+  {
+    "has_frontmatter": true,
+    "parse_status": "parsed",
+    "path": "sources/curated/repo-extracts/anthropics-skills__skills__pptx__SKILL.md",
+    "raw_field_keys": [
+      "description",
+      "license",
+      "name"
+    ]
+  },
+  {
+    "has_frontmatter": true,
+    "parse_status": "parsed",
+    "path": "sources/curated/repo-extracts/anthropics-skills__skills__skill-creator__SKILL.md",
+    "raw_field_keys": [
+      "description",
+      "name"
+    ]
+  },
+  {
+    "has_frontmatter": true,
+    "parse_status": "parsed",
+    "path": "sources/curated/repo-extracts/anthropics-skills__skills__slack-gif-creator__SKILL.md",
+    "raw_field_keys": [
+      "description",
+      "license",
+      "name"
+    ]
+  },
+  {
+    "has_frontmatter": true,
+    "parse_status": "parsed",
+    "path": "sources/curated/repo-extracts/anthropics-skills__skills__theme-factory__SKILL.md",
+    "raw_field_keys": [
+      "description",
+      "license",
+      "name"
+    ]
+  },
+  {
+    "has_frontmatter": true,
+    "parse_status": "parsed",
+    "path": "sources/curated/repo-extracts/anthropics-skills__skills__web-artifacts-builder__SKILL.md",
+    "raw_field_keys": [
+      "description",
+      "license",
+      "name"
+    ]
+  },
+  {
+    "has_frontmatter": true,
+    "parse_status": "parsed",
+    "path": "sources/curated/repo-extracts/anthropics-skills__skills__webapp-testing__SKILL.md",
+    "raw_field_keys": [
+      "description",
+      "license",
+      "name"
+    ]
+  },
+  {
+    "has_frontmatter": true,
+    "parse_status": "parsed",
+    "path": "sources/curated/repo-extracts/anthropics-skills__skills__xlsx__SKILL.md",
+    "raw_field_keys": [
+      "description",
+      "license",
+      "name"
+    ]
+  },
+  {
+    "has_frontmatter": true,
+    "parse_status": "parsed",
+    "path": "sources/curated/repo-extracts/anthropics-skills__template__SKILL.md",
+    "raw_field_keys": [
+      "description",
+      "name"
+    ]
+  },
+  {
+    "has_frontmatter": true,
+    "parse_status": "detected",
+    "path": "sources/curated/secondary/deepwiki-anthropics-skills.html.meta.md",
+    "raw_field_keys": [
+      "acquired_at",
+      "saved_file",
+      "source_id",
+      "tier",
+      "title",
+      "type",
+      "url"
+    ]
+  },
+  {
+    "has_frontmatter": true,
+    "parse_status": "detected",
+    "path": "sources/curated/secondary/deepwiki-skill-md-format-specification.html.meta.md",
+    "raw_field_keys": [
+      "acquired_at",
+      "saved_file",
+      "source_id",
+      "tier",
+      "title",
+      "type",
+      "url"
+    ]
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/operator-supplied/notes/Apex_Alfred_Skill_Definition_Guide.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/operator-supplied/notes/Claude_Skill_Package_BestPractice_Handover.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/operator-supplied/notes/Claude_Skill_PromptFlow_Design_Guidance_v1.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/operator-supplied/notes/ClaudePhase1FilePreparation.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/operator-supplied/notes/ClaudeSetupGeneral.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/operator-supplied/notes/FB_Claude.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/operator-supplied/notes/FB_Claude2.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/operator-supplied/notes/FBClaude.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/operator-supplied/README.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/README.md",
+    "raw_field_keys": []
+  }
+]

@@ -1,0 +1,2980 @@
+[
+  {
+    "markdown_links": [],
+    "path": "sources/curated/academic/arxiv-agent-skills-data-driven-analysis.html.meta.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/academic/arxiv-evoskills.html.meta.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/academic/arxiv-skill-md-semantic-supply-chain.html.meta.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/logs/acquisition-log.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-docs/agentskills-home.html.meta.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-docs/agentskills-specification.html.meta.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-docs/anthropic-agent-skills-overview.html.meta.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-docs/anthropic-engineering-agent-skills.html.meta.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-docs/anthropic-skill-authoring-best-practices.html.meta.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-docs/claude-blog-complete-guide-to-building-skills.html.meta.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-pdfs/anthropic-complete-guide-to-building-skills-for-claude.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-pdfs/anthropic-complete-guide-to-building-skills-for-claude.md.meta.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/agentskills-agentskills/.claude/settings.json",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [
+      {
+        "line": 9,
+        "normalized_target": "https://agentskills.io",
+        "target": "https://agentskills.io",
+        "target_type": "absolute_url",
+        "text": "documentation site"
+      },
+      {
+        "line": 13,
+        "normalized_target": "https://github.com/agentskills/agentskills/issues",
+        "target": "https://github.com/agentskills/agentskills/issues",
+        "target_type": "absolute_url",
+        "text": "Open an issue"
+      },
+      {
+        "line": 17,
+        "normalized_target": "https://github.com/agentskills/agentskills/discussions",
+        "target": "https://github.com/agentskills/agentskills/discussions",
+        "target_type": "absolute_url",
+        "text": "Start a discussion"
+      },
+      {
+        "line": 24,
+        "normalized_target": "https://github.com/agentskills/agentskills/discussions",
+        "target": "https://github.com/agentskills/agentskills/discussions",
+        "target_type": "absolute_url",
+        "text": "Discussions"
+      },
+      {
+        "line": 28,
+        "normalized_target": "https://agentskills.io",
+        "target": "https://agentskills.io",
+        "target_type": "absolute_url",
+        "text": "agentskills.io"
+      },
+      {
+        "line": 33,
+        "normalized_target": "docs/snippets/clients.jsx",
+        "target": "docs/snippets/clients.jsx",
+        "target_type": "relative_file",
+        "text": "`docs/snippets/clients.jsx`"
+      },
+      {
+        "line": 40,
+        "normalized_target": "https://github.com/agentskills/agentskills/issues",
+        "target": "https://github.com/agentskills/agentskills/issues",
+        "target_type": "absolute_url",
+        "text": "Issues"
+      },
+      {
+        "line": 40,
+        "normalized_target": "https://github.com/agentskills/agentskills/discussions",
+        "target": "https://github.com/agentskills/agentskills/discussions",
+        "target_type": "absolute_url",
+        "text": "Discussions"
+      },
+      {
+        "line": 49,
+        "normalized_target": "https://github.com/agentskills/agentskills/discussions",
+        "target": "https://github.com/agentskills/agentskills/discussions",
+        "target_type": "absolute_url",
+        "text": "Discussion"
+      },
+      {
+        "line": 55,
+        "normalized_target": "https://mintlify.com/",
+        "target": "https://mintlify.com/",
+        "target_type": "absolute_url",
+        "text": "Mintlify"
+      },
+      {
+        "line": 69,
+        "normalized_target": "https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo",
+        "target": "https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo",
+        "target_type": "absolute_url",
+        "text": "Fork the repository"
+      },
+      {
+        "line": 114,
+        "normalized_target": "LICENSE",
+        "target": "LICENSE",
+        "target_type": "relative_file",
+        "text": "Apache License 2.0"
+      },
+      {
+        "line": 114,
+        "normalized_target": "docs/LICENSE",
+        "target": "docs/LICENSE",
+        "target_type": "relative_file",
+        "text": "CC-BY 4.0"
+      }
+    ],
+    "path": "sources/curated/official-repos/agentskills-agentskills/CONTRIBUTING.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [
+      {
+        "line": 7,
+        "normalized_target": "https://mintlify.com",
+        "target": "https://mintlify.com",
+        "target_type": "absolute_url",
+        "text": "Mintlify"
+      }
+    ],
+    "path": "sources/curated/official-repos/agentskills-agentskills/docs/CLAUDE.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [
+      {
+        "line": 16,
+        "normalized_target": "/specification",
+        "target": "/specification",
+        "target_type": "absolute_path",
+        "text": "Agent Skills specification"
+      },
+      {
+        "line": 57,
+        "normalized_target": "https://specifications.freedesktop.org/basedir-spec/latest/",
+        "target": "https://specifications.freedesktop.org/basedir-spec/latest/",
+        "target_type": "absolute_url",
+        "text": "XDG"
+      },
+      {
+        "line": 115,
+        "normalized_target": "/specification",
+        "target": "/specification",
+        "target_type": "absolute_path",
+        "text": "specification"
+      },
+      {
+        "line": 140,
+        "normalized_target": "/specification",
+        "target": "/specification",
+        "target_type": "absolute_path",
+        "text": "specification"
+      },
+      {
+        "line": 161,
+        "normalized_target": null,
+        "target": "#the-core-principle-progressive-disclosure",
+        "target_type": "anchor",
+        "text": "tier 1 of progressive disclosure"
+      },
+      {
+        "line": 182,
+        "normalized_target": null,
+        "target": "#step-4-activate-skills",
+        "target_type": "anchor",
+        "text": "Step 4"
+      },
+      {
+        "line": 182,
+        "normalized_target": null,
+        "target": "#structured-wrapping",
+        "target_type": "anchor",
+        "text": "Structured wrapping"
+      },
+      {
+        "line": 192,
+        "normalized_target": null,
+        "target": "#step-4-activate-skills",
+        "target_type": "anchor",
+        "text": "Step 4"
+      },
+      {
+        "line": 198,
+        "normalized_target": null,
+        "target": "#step-4-activate-skills",
+        "target_type": "anchor",
+        "text": "Step 4"
+      },
+      {
+        "line": 236,
+        "normalized_target": null,
+        "target": "#the-core-principle-progressive-disclosure",
+        "target_type": "anchor",
+        "text": "tier 2 of progressive disclosure"
+      },
+      {
+        "line": 240,
+        "normalized_target": null,
+        "target": "#step-3-disclose-available-skills-to-the-model",
+        "target_type": "anchor",
+        "text": "Step 3"
+      },
+      {
+        "line": 248,
+        "normalized_target": null,
+        "target": "#what-the-model-receives",
+        "target_type": "anchor",
+        "text": "What the model receives"
+      },
+      {
+        "line": 268,
+        "normalized_target": "/specification",
+        "target": "/specification#compatibility-field",
+        "target_type": "absolute_path",
+        "text": "`compatibility`"
+      },
+      {
+        "line": 301,
+        "normalized_target": null,
+        "target": "#step-5-manage-skill-context-over-time",
+        "target_type": "anchor",
+        "text": "Step 5"
+      },
+      {
+        "line": 325,
+        "normalized_target": null,
+        "target": "#structured-wrapping",
+        "target_type": "anchor",
+        "text": "structured tags"
+      }
+    ],
+    "path": "sources/curated/official-repos/agentskills-agentskills/docs/client-implementation/adding-skills-support.mdx",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/agentskills-agentskills/docs/clients.mdx",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [
+      {
+        "line": 12,
+        "normalized_target": "https://discord.gg/MKPE9g8aUy",
+        "target": "https://discord.gg/MKPE9g8aUy",
+        "target_type": "absolute_url",
+        "text": "Discord server"
+      },
+      {
+        "line": 12,
+        "normalized_target": "https://github.com/agentskills/agentskills/discussions/273",
+        "target": "https://github.com/agentskills/agentskills/discussions/273",
+        "target_type": "absolute_url",
+        "text": "announcement"
+      }
+    ],
+    "path": "sources/curated/official-repos/agentskills-agentskills/docs/docs.json",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [
+      {
+        "line": 47,
+        "normalized_target": "/clients",
+        "target": "/clients",
+        "target_type": "absolute_path",
+        "text": "Client Showcase"
+      },
+      {
+        "line": 53,
+        "normalized_target": "https://www.anthropic.com/",
+        "target": "https://www.anthropic.com/",
+        "target_type": "absolute_url",
+        "text": "Anthropic"
+      },
+      {
+        "line": 55,
+        "normalized_target": "https://github.com/agentskills/agentskills",
+        "target": "https://github.com/agentskills/agentskills",
+        "target_type": "absolute_url",
+        "text": "GitHub"
+      },
+      {
+        "line": 55,
+        "normalized_target": "https://discord.gg/MKPE9g8aUy",
+        "target": "https://discord.gg/MKPE9g8aUy",
+        "target_type": "absolute_url",
+        "text": "Discord"
+      }
+    ],
+    "path": "sources/curated/official-repos/agentskills-agentskills/docs/home.mdx",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [
+      {
+        "line": 3,
+        "normalized_target": "https://agentskills.io/",
+        "target": "https://agentskills.io/",
+        "target_type": "absolute_url",
+        "text": "documentation site"
+      },
+      {
+        "line": 3,
+        "normalized_target": "https://mintlify.com",
+        "target": "https://mintlify.com",
+        "target_type": "absolute_url",
+        "text": "Mintlify"
+      }
+    ],
+    "path": "sources/curated/official-repos/agentskills-agentskills/docs/README.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [
+      {
+        "line": 44,
+        "normalized_target": "/skill-creation/evaluating-skills",
+        "target": "/skill-creation/evaluating-skills",
+        "target_type": "absolute_path",
+        "text": "Evaluating skill output quality"
+      },
+      {
+        "line": 76,
+        "normalized_target": "/skill-creation/evaluating-skills",
+        "target": "/skill-creation/evaluating-skills",
+        "target_type": "absolute_path",
+        "text": "Evaluating skill output quality"
+      },
+      {
+        "line": 88,
+        "normalized_target": "/specification",
+        "target": "/specification#progressive-disclosure",
+        "target_type": "absolute_path",
+        "text": "specification"
+      },
+      {
+        "line": 90,
+        "normalized_target": "/specification",
+        "target": "/specification#progressive-disclosure",
+        "target_type": "absolute_path",
+        "text": "progressive disclosure"
+      },
+      {
+        "line": 159,
+        "normalized_target": null,
+        "target": "#templates-for-output-format",
+        "target_type": "anchor",
+        "text": "Templates for output format"
+      },
+      {
+        "line": 184,
+        "normalized_target": null,
+        "target": "#refine-with-real-execution",
+        "target_type": "anchor",
+        "text": "Refine with real execution"
+      },
+      {
+        "line": 266,
+        "normalized_target": "/skill-creation/evaluating-skills",
+        "target": "/skill-creation/evaluating-skills",
+        "target_type": "absolute_path",
+        "text": "iterating on a skill"
+      },
+      {
+        "line": 268,
+        "normalized_target": "/skill-creation/using-scripts",
+        "target": "/skill-creation/using-scripts",
+        "target_type": "absolute_path",
+        "text": "Using scripts in skills"
+      },
+      {
+        "line": 274,
+        "normalized_target": "/skill-creation/evaluating-skills",
+        "target": "/skill-creation/evaluating-skills",
+        "target_type": "absolute_path",
+        "text": "Evaluating skill output quality"
+      },
+      {
+        "line": 275,
+        "normalized_target": "/skill-creation/optimizing-descriptions",
+        "target": "/skill-creation/optimizing-descriptions",
+        "target_type": "absolute_path",
+        "text": "Optimizing skill descriptions"
+      }
+    ],
+    "path": "sources/curated/official-repos/agentskills-agentskills/docs/skill-creation/best-practices.mdx",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [
+      {
+        "line": 124,
+        "normalized_target": "https://platform.claude.com/docs/en/agent-sdk/typescript#sdk-task-notification-message",
+        "target": "https://platform.claude.com/docs/en/agent-sdk/typescript#sdk-task-notification-message",
+        "target_type": "absolute_url",
+        "text": "task completion notification"
+      },
+      {
+        "line": 142,
+        "normalized_target": null,
+        "target": "#reviewing-results-with-a-human",
+        "target_type": "anchor",
+        "text": "human review"
+      },
+      {
+        "line": 269,
+        "normalized_target": null,
+        "target": "#iterating-on-the-skill",
+        "target_type": "anchor",
+        "text": "iteration step"
+      },
+      {
+        "line": 284,
+        "normalized_target": "/skill-creation/using-scripts",
+        "target": "/skill-creation/using-scripts",
+        "target_type": "absolute_path",
+        "text": "Using scripts"
+      },
+      {
+        "line": 297,
+        "normalized_target": "https://github.com/anthropics/skills/tree/main/skills/skill-creator",
+        "target": "https://github.com/anthropics/skills/tree/main/skills/skill-creator",
+        "target_type": "absolute_url",
+        "text": "`skill-creator`"
+      }
+    ],
+    "path": "sources/curated/official-repos/agentskills-agentskills/docs/skill-creation/evaluating-skills.mdx",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [
+      {
+        "line": 13,
+        "normalized_target": "/specification",
+        "target": "/specification#progressive-disclosure",
+        "target_type": "absolute_path",
+        "text": "progressive disclosure"
+      },
+      {
+        "line": 26,
+        "normalized_target": "/specification",
+        "target": "/specification#description-field",
+        "target_type": "absolute_path",
+        "text": "specification"
+      },
+      {
+        "line": 144,
+        "normalized_target": null,
+        "target": "#running-multiple-times",
+        "target_type": "anchor",
+        "text": "above"
+      },
+      {
+        "line": 163,
+        "normalized_target": "https://github.com/anthropics/skills/tree/main/skills/skill-creator",
+        "target": "https://github.com/anthropics/skills/tree/main/skills/skill-creator",
+        "target_type": "absolute_url",
+        "text": "`skill-creator`"
+      },
+      {
+        "line": 171,
+        "normalized_target": "/specification",
+        "target": "/specification#description-field",
+        "target_type": "absolute_path",
+        "text": "1024-character limit"
+      },
+      {
+        "line": 193,
+        "normalized_target": "/skill-creation/evaluating-skills",
+        "target": "/skill-creation/evaluating-skills",
+        "target_type": "absolute_path",
+        "text": "Evaluating skill output quality"
+      }
+    ],
+    "path": "sources/curated/official-repos/agentskills-agentskills/docs/skill-creation/optimizing-descriptions.mdx",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [
+      {
+        "line": 10,
+        "normalized_target": "https://code.visualstudio.com/",
+        "target": "https://code.visualstudio.com/",
+        "target_type": "absolute_url",
+        "text": "VS Code"
+      },
+      {
+        "line": 10,
+        "normalized_target": "https://marketplace.visualstudio.com/items?itemName=GitHub.copilot",
+        "target": "https://marketplace.visualstudio.com/items?itemName=GitHub.copilot",
+        "target_type": "absolute_url",
+        "text": "GitHub Copilot"
+      },
+      {
+        "line": 77,
+        "normalized_target": "/skill-creation/best-practices",
+        "target": "/skill-creation/best-practices",
+        "target_type": "absolute_path",
+        "text": "Best practices"
+      },
+      {
+        "line": 78,
+        "normalized_target": "/skill-creation/optimizing-descriptions",
+        "target": "/skill-creation/optimizing-descriptions",
+        "target_type": "absolute_path",
+        "text": "Optimizing skill descriptions"
+      },
+      {
+        "line": 79,
+        "normalized_target": "/specification",
+        "target": "/specification",
+        "target_type": "absolute_path",
+        "text": "Specification"
+      },
+      {
+        "line": 80,
+        "normalized_target": "https://github.com/anthropics/skills",
+        "target": "https://github.com/anthropics/skills",
+        "target_type": "absolute_url",
+        "text": "Example skills"
+      }
+    ],
+    "path": "sources/curated/official-repos/agentskills-agentskills/docs/skill-creation/quickstart.mdx",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [
+      {
+        "line": 15,
+        "normalized_target": "https://docs.astral.sh/uv/guides/tools/",
+        "target": "https://docs.astral.sh/uv/guides/tools/",
+        "target_type": "absolute_url",
+        "text": "uvx"
+      },
+      {
+        "line": 15,
+        "normalized_target": "https://docs.astral.sh/uv/",
+        "target": "https://docs.astral.sh/uv/",
+        "target_type": "absolute_url",
+        "text": "uv"
+      },
+      {
+        "line": 26,
+        "normalized_target": "https://pipx.pypa.io/",
+        "target": "https://pipx.pypa.io/",
+        "target_type": "absolute_url",
+        "text": "pipx"
+      },
+      {
+        "line": 37,
+        "normalized_target": "https://docs.npmjs.com/cli/commands/npx",
+        "target": "https://docs.npmjs.com/cli/commands/npx",
+        "target_type": "absolute_url",
+        "text": "npx"
+      },
+      {
+        "line": 49,
+        "normalized_target": "https://bun.sh/docs/cli/bunx",
+        "target": "https://bun.sh/docs/cli/bunx",
+        "target_type": "absolute_url",
+        "text": "bunx"
+      },
+      {
+        "line": 49,
+        "normalized_target": "https://bun.sh/",
+        "target": "https://bun.sh/",
+        "target_type": "absolute_url",
+        "text": "Bun"
+      },
+      {
+        "line": 60,
+        "normalized_target": "https://docs.deno.com/runtime/reference/cli/run/",
+        "target": "https://docs.deno.com/runtime/reference/cli/run/",
+        "target_type": "absolute_url",
+        "text": "deno run"
+      },
+      {
+        "line": 60,
+        "normalized_target": "https://deno.com/",
+        "target": "https://deno.com/",
+        "target_type": "absolute_url",
+        "text": "Deno"
+      },
+      {
+        "line": 71,
+        "normalized_target": "https://pkg.go.dev/cmd/go#hdr-Compile_and_run_Go_program",
+        "target": "https://pkg.go.dev/cmd/go#hdr-Compile_and_run_Go_program",
+        "target_type": "absolute_url",
+        "text": "go run"
+      },
+      {
+        "line": 86,
+        "normalized_target": "/specification",
+        "target": "/specification#compatibility-field",
+        "target_type": "absolute_path",
+        "text": "`compatibility` frontmatter field"
+      },
+      {
+        "line": 130,
+        "normalized_target": "https://peps.python.org/pep-0723/",
+        "target": "https://peps.python.org/pep-0723/",
+        "target_type": "absolute_url",
+        "text": "PEP 723"
+      },
+      {
+        "line": 145,
+        "normalized_target": "https://docs.astral.sh/uv/",
+        "target": "https://docs.astral.sh/uv/",
+        "target_type": "absolute_url",
+        "text": "uv"
+      },
+      {
+        "line": 151,
+        "normalized_target": "https://pipx.pypa.io/",
+        "target": "https://pipx.pypa.io/",
+        "target_type": "absolute_url",
+        "text": "pipx"
+      },
+      {
+        "line": 153,
+        "normalized_target": "https://peps.python.org/pep-0508/",
+        "target": "https://peps.python.org/pep-0508/",
+        "target_type": "absolute_url",
+        "text": "PEP 508"
+      }
+    ],
+    "path": "sources/curated/official-repos/agentskills-agentskills/docs/skill-creation/using-scripts.mdx",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [
+      {
+        "line": 205,
+        "normalized_target": null,
+        "target": "#file-references",
+        "target_type": "anchor",
+        "text": "reference files"
+      },
+      {
+        "line": 239,
+        "normalized_target": "https://github.com/agentskills/agentskills/tree/main/skills-ref",
+        "target": "https://github.com/agentskills/agentskills/tree/main/skills-ref",
+        "target_type": "absolute_url",
+        "text": "skills-ref"
+      }
+    ],
+    "path": "sources/curated/official-repos/agentskills-agentskills/docs/specification.mdx",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/agentskills-agentskills/package.json",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [
+      {
+        "line": 3,
+        "normalized_target": "https://img.shields.io/badge/Discord-Join-5865F2?logo=discord&logoColor=white",
+        "target": "https://img.shields.io/badge/Discord-Join-5865F2?logo=discord&logoColor=white",
+        "target_type": "absolute_url",
+        "text": "![Discord"
+      },
+      {
+        "line": 44,
+        "normalized_target": "https://agentskills.io/clients",
+        "target": "https://agentskills.io/clients",
+        "target_type": "absolute_url",
+        "text": "Client Showcase"
+      },
+      {
+        "line": 48,
+        "normalized_target": "https://agentskills.io",
+        "target": "https://agentskills.io",
+        "target_type": "absolute_url",
+        "text": "Documentation"
+      },
+      {
+        "line": 49,
+        "normalized_target": "https://agentskills.io/specification",
+        "target": "https://agentskills.io/specification",
+        "target_type": "absolute_url",
+        "text": "Specification"
+      },
+      {
+        "line": 50,
+        "normalized_target": "https://github.com/anthropics/skills",
+        "target": "https://github.com/anthropics/skills",
+        "target_type": "absolute_url",
+        "text": "Example Skills"
+      },
+      {
+        "line": 51,
+        "normalized_target": "https://discord.gg/MKPE9g8aUy",
+        "target": "https://discord.gg/MKPE9g8aUy",
+        "target_type": "absolute_url",
+        "text": "Discord"
+      },
+      {
+        "line": 55,
+        "normalized_target": "https://www.anthropic.com/",
+        "target": "https://www.anthropic.com/",
+        "target_type": "absolute_url",
+        "text": "Anthropic"
+      },
+      {
+        "line": 55,
+        "normalized_target": "CONTRIBUTING.md",
+        "target": "CONTRIBUTING.md",
+        "target_type": "relative_file",
+        "text": "`CONTRIBUTING.md`"
+      },
+      {
+        "line": 59,
+        "normalized_target": "LICENSE",
+        "target": "LICENSE",
+        "target_type": "relative_file",
+        "text": "Apache 2.0"
+      },
+      {
+        "line": 59,
+        "normalized_target": "https://creativecommons.org/licenses/by/4.0/",
+        "target": "https://creativecommons.org/licenses/by/4.0/",
+        "target_type": "absolute_url",
+        "text": "CC-BY-4.0"
+      }
+    ],
+    "path": "sources/curated/official-repos/agentskills-agentskills/README.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/agentskills-agentskills/skills-ref/CLAUDE.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/agentskills-agentskills/skills-ref/pyproject.toml",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [
+      {
+        "line": 20,
+        "normalized_target": "https://docs.astral.sh/uv/",
+        "target": "https://docs.astral.sh/uv/",
+        "target_type": "absolute_url",
+        "text": "uv"
+      },
+      {
+        "line": 45,
+        "normalized_target": "https://docs.astral.sh/uv/",
+        "target": "https://docs.astral.sh/uv/",
+        "target_type": "absolute_url",
+        "text": "uv"
+      }
+    ],
+    "path": "sources/curated/official-repos/agentskills-agentskills/skills-ref/README.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/agentskills-agentskills/skills-ref/src/skills_ref/__init__.py",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/agentskills-agentskills/skills-ref/src/skills_ref/cli.py",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/agentskills-agentskills/skills-ref/src/skills_ref/errors.py",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/agentskills-agentskills/skills-ref/src/skills_ref/models.py",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/agentskills-agentskills/skills-ref/src/skills_ref/parser.py",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/agentskills-agentskills/skills-ref/src/skills_ref/prompt.py",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/agentskills-agentskills/skills-ref/src/skills_ref/validator.py",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/agentskills-agentskills/skills-ref/tests/__init__.py",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/agentskills-agentskills/skills-ref/tests/test_parser.py",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/agentskills-agentskills/skills-ref/tests/test_prompt.py",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/agentskills-agentskills/skills-ref/tests/test_validator.py",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/agentskills-agentskills.repo.meta.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/.claude-plugin/marketplace.json",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [
+      {
+        "line": 1,
+        "normalized_target": "http://agentskills.io",
+        "target": "http://agentskills.io",
+        "target_type": "absolute_url",
+        "text": "agentskills.io"
+      },
+      {
+        "line": 3,
+        "normalized_target": "https://skills.sh/b/anthropics/skills",
+        "target": "https://skills.sh/b/anthropics/skills",
+        "target_type": "absolute_url",
+        "text": "![skills.sh"
+      },
+      {
+        "line": 9,
+        "normalized_target": "https://support.claude.com/en/articles/12512176-what-are-skills",
+        "target": "https://support.claude.com/en/articles/12512176-what-are-skills",
+        "target_type": "absolute_url",
+        "text": "What are skills?"
+      },
+      {
+        "line": 10,
+        "normalized_target": "https://support.claude.com/en/articles/12512180-using-skills-in-claude",
+        "target": "https://support.claude.com/en/articles/12512180-using-skills-in-claude",
+        "target_type": "absolute_url",
+        "text": "Using skills in Claude"
+      },
+      {
+        "line": 11,
+        "normalized_target": "https://support.claude.com/en/articles/12512198-creating-custom-skills",
+        "target": "https://support.claude.com/en/articles/12512198-creating-custom-skills",
+        "target_type": "absolute_url",
+        "text": "How to create custom skills"
+      },
+      {
+        "line": 12,
+        "normalized_target": "https://anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills",
+        "target": "https://anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills",
+        "target_type": "absolute_url",
+        "text": "Equipping agents for the real world with Agent Skills"
+      },
+      {
+        "line": 20,
+        "normalized_target": "https://www.anthropic.com/news/create-files",
+        "target": "https://www.anthropic.com/news/create-files",
+        "target_type": "absolute_url",
+        "text": "Claude's document capabilities"
+      },
+      {
+        "line": 20,
+        "normalized_target": "./skills/docx",
+        "target": "./skills/docx",
+        "target_type": "relative_file",
+        "text": "`skills/docx`"
+      },
+      {
+        "line": 20,
+        "normalized_target": "./skills/pdf",
+        "target": "./skills/pdf",
+        "target_type": "relative_file",
+        "text": "`skills/pdf`"
+      },
+      {
+        "line": 20,
+        "normalized_target": "./skills/pptx",
+        "target": "./skills/pptx",
+        "target_type": "relative_file",
+        "text": "`skills/pptx`"
+      },
+      {
+        "line": 20,
+        "normalized_target": "./skills/xlsx",
+        "target": "./skills/xlsx",
+        "target_type": "relative_file",
+        "text": "`skills/xlsx`"
+      },
+      {
+        "line": 27,
+        "normalized_target": "./skills",
+        "target": "./skills",
+        "target_type": "relative_file",
+        "text": "./skills"
+      },
+      {
+        "line": 28,
+        "normalized_target": "./spec",
+        "target": "./spec",
+        "target_type": "relative_file",
+        "text": "./spec"
+      },
+      {
+        "line": 29,
+        "normalized_target": "./template",
+        "target": "./template",
+        "target_type": "relative_file",
+        "text": "./template"
+      },
+      {
+        "line": 57,
+        "normalized_target": "https://support.claude.com/en/articles/12512180-using-skills-in-claude#h_a4222fa77b",
+        "target": "https://support.claude.com/en/articles/12512180-using-skills-in-claude#h_a4222fa77b",
+        "target_type": "absolute_url",
+        "text": "Using skills in Claude"
+      },
+      {
+        "line": 61,
+        "normalized_target": "https://docs.claude.com/en/api/skills-guide#creating-a-skill",
+        "target": "https://docs.claude.com/en/api/skills-guide#creating-a-skill",
+        "target_type": "absolute_url",
+        "text": "Skills API Quickstart"
+      },
+      {
+        "line": 90,
+        "normalized_target": "https://support.claude.com/en/articles/12512198-creating-custom-skills",
+        "target": "https://support.claude.com/en/articles/12512198-creating-custom-skills",
+        "target_type": "absolute_url",
+        "text": "How to create custom skills"
+      },
+      {
+        "line": 96,
+        "normalized_target": "https://www.notion.so/notiondevs/Notion-Skills-for-Claude-28da4445d27180c7af1df7d8615723d0",
+        "target": "https://www.notion.so/notiondevs/Notion-Skills-for-Claude-28da4445d27180c7af1df7d8615723d0",
+        "target_type": "absolute_url",
+        "text": "Notion Skills for Claude"
+      }
+    ],
+    "path": "sources/curated/official-repos/anthropics-skills/README.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/algorithmic-art/LICENSE.txt",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/algorithmic-art/SKILL.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/brand-guidelines/LICENSE.txt",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/brand-guidelines/SKILL.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/canvas-design/canvas-fonts/ArsenalSC-OFL.txt",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/canvas-design/canvas-fonts/BigShoulders-OFL.txt",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/canvas-design/canvas-fonts/Boldonse-OFL.txt",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/canvas-design/canvas-fonts/BricolageGrotesque-OFL.txt",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/canvas-design/canvas-fonts/CrimsonPro-OFL.txt",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/canvas-design/canvas-fonts/DMMono-OFL.txt",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/canvas-design/canvas-fonts/EricaOne-OFL.txt",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/canvas-design/canvas-fonts/GeistMono-OFL.txt",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/canvas-design/canvas-fonts/Gloock-OFL.txt",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/canvas-design/canvas-fonts/IBMPlexMono-OFL.txt",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/canvas-design/canvas-fonts/InstrumentSans-OFL.txt",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/canvas-design/canvas-fonts/Italiana-OFL.txt",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/canvas-design/canvas-fonts/JetBrainsMono-OFL.txt",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/canvas-design/canvas-fonts/Jura-OFL.txt",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/canvas-design/canvas-fonts/LibreBaskerville-OFL.txt",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/canvas-design/canvas-fonts/Lora-OFL.txt",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/canvas-design/canvas-fonts/NationalPark-OFL.txt",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/canvas-design/canvas-fonts/NothingYouCouldDo-OFL.txt",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/canvas-design/canvas-fonts/Outfit-OFL.txt",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/canvas-design/canvas-fonts/PixelifySans-OFL.txt",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/canvas-design/canvas-fonts/PoiretOne-OFL.txt",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/canvas-design/canvas-fonts/RedHatMono-OFL.txt",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/canvas-design/canvas-fonts/Silkscreen-OFL.txt",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/canvas-design/canvas-fonts/SmoochSans-OFL.txt",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/canvas-design/canvas-fonts/Tektur-OFL.txt",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/canvas-design/canvas-fonts/WorkSans-OFL.txt",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/canvas-design/canvas-fonts/YoungSerif-OFL.txt",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/canvas-design/LICENSE.txt",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/canvas-design/SKILL.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [
+      {
+        "line": 150,
+        "normalized_target": "../shared/tool-use-concepts.md",
+        "target": "../shared/tool-use-concepts.md",
+        "target_type": "relative_file",
+        "text": "shared tool use concepts"
+      }
+    ],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/claude-api/csharp/claude-api.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/claude-api/curl/examples.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/claude-api/curl/managed-agents.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/claude-api/go/claude-api.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [
+      {
+        "line": 152,
+        "normalized_target": "../../shared/managed-agents-events.md",
+        "target": "../../shared/managed-agents-events.md#steering-patterns",
+        "target_type": "relative_file",
+        "text": "Steering Patterns"
+      }
+    ],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/claude-api/go/managed-agents/README.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [
+      {
+        "line": 184,
+        "normalized_target": "../shared/tool-use-concepts.md",
+        "target": "../shared/tool-use-concepts.md",
+        "target_type": "relative_file",
+        "text": "shared memory tool concepts"
+      },
+      {
+        "line": 213,
+        "normalized_target": "../shared/tool-use-concepts.md",
+        "target": "../shared/tool-use-concepts.md",
+        "target_type": "relative_file",
+        "text": "shared tool use concepts"
+      }
+    ],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/claude-api/java/claude-api.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [
+      {
+        "line": 119,
+        "normalized_target": "../../shared/managed-agents-events.md",
+        "target": "../../shared/managed-agents-events.md#steering-patterns",
+        "target_type": "relative_file",
+        "text": "Steering Patterns"
+      }
+    ],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/claude-api/java/managed-agents/README.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/claude-api/LICENSE.txt",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [
+      {
+        "line": 159,
+        "normalized_target": "../shared/tool-use-concepts.md",
+        "target": "../shared/tool-use-concepts.md",
+        "target_type": "relative_file",
+        "text": "shared tool use concepts"
+      }
+    ],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/claude-api/php/claude-api.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [
+      {
+        "line": 107,
+        "normalized_target": "../../shared/managed-agents-events.md",
+        "target": "../../shared/managed-agents-events.md#steering-patterns",
+        "target_type": "relative_file",
+        "text": "Steering Patterns"
+      }
+    ],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/claude-api/php/managed-agents/README.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/claude-api/python/claude-api/batches.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/claude-api/python/claude-api/files-api.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/claude-api/python/claude-api/README.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/claude-api/python/claude-api/streaming.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [
+      {
+        "line": 3,
+        "normalized_target": "../../shared/tool-use-concepts.md",
+        "target": "../../shared/tool-use-concepts.md",
+        "target_type": "relative_file",
+        "text": "shared/tool-use-concepts.md"
+      },
+      {
+        "line": 54,
+        "normalized_target": "https://modelcontextprotocol.io/",
+        "target": "https://modelcontextprotocol.io/",
+        "target_type": "absolute_url",
+        "text": "MCP (Model Context Protocol)"
+      }
+    ],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/claude-api/python/claude-api/tool-use.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [
+      {
+        "line": 124,
+        "normalized_target": "../../shared/managed-agents-events.md",
+        "target": "../../shared/managed-agents-events.md#steering-patterns",
+        "target_type": "relative_file",
+        "text": "Steering Patterns"
+      },
+      {
+        "line": 194,
+        "normalized_target": "../../shared/managed-agents-events.md",
+        "target": "../../shared/managed-agents-events.md#receiving-events",
+        "target_type": "relative_file",
+        "text": "Receiving Events"
+      }
+    ],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/claude-api/python/managed-agents/README.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [
+      {
+        "line": 92,
+        "normalized_target": "../shared/tool-use-concepts.md",
+        "target": "../shared/tool-use-concepts.md",
+        "target_type": "relative_file",
+        "text": "shared tool use concepts"
+      }
+    ],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/claude-api/ruby/claude-api.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [
+      {
+        "line": 104,
+        "normalized_target": "../../shared/managed-agents-events.md",
+        "target": "../../shared/managed-agents-events.md#steering-patterns",
+        "target_type": "relative_file",
+        "text": "Steering Patterns"
+      }
+    ],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/claude-api/ruby/managed-agents/README.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/claude-api/shared/agent-design.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [
+      {
+        "line": 106,
+        "normalized_target": "https://github.com/tidwall/gjson/blob/master/SYNTAX.md",
+        "target": "https://github.com/tidwall/gjson/blob/master/SYNTAX.md",
+        "target_type": "absolute_url",
+        "text": "GJSON path"
+      }
+    ],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/claude-api/shared/anthropic-cli.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/claude-api/shared/claude-platform-on-aws.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [
+      {
+        "line": 154,
+        "normalized_target": "https://status.anthropic.com",
+        "target": "https://status.anthropic.com",
+        "target_type": "absolute_url",
+        "text": "status.anthropic.com"
+      }
+    ],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/claude-api/shared/error-codes.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/claude-api/shared/live-sources.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [
+      {
+        "line": 412,
+        "normalized_target": "https://platform.claude.com/docs/en/api/rate-limits",
+        "target": "https://platform.claude.com/docs/en/api/rate-limits",
+        "target_type": "absolute_url",
+        "text": "Messages API token limits"
+      },
+      {
+        "line": 420,
+        "normalized_target": "https://platform.claude.com/docs/en/api/rate-limits",
+        "target": "https://platform.claude.com/docs/en/api/rate-limits",
+        "target_type": "absolute_url",
+        "text": "rate limits"
+      },
+      {
+        "line": 422,
+        "normalized_target": null,
+        "target": "#error-handling",
+        "target_type": "anchor",
+        "text": "Error Handling"
+      }
+    ],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/claude-api/shared/managed-agents-api-reference.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/claude-api/shared/managed-agents-client-patterns.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/claude-api/shared/managed-agents-core.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/claude-api/shared/managed-agents-environments.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/claude-api/shared/managed-agents-events.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/claude-api/shared/managed-agents-memory.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/claude-api/shared/managed-agents-multiagent.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/claude-api/shared/managed-agents-onboarding.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/claude-api/shared/managed-agents-outcomes.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/claude-api/shared/managed-agents-overview.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/claude-api/shared/managed-agents-scheduled-deployments.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/claude-api/shared/managed-agents-self-hosted-sandboxes.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/claude-api/shared/managed-agents-tools.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/claude-api/shared/managed-agents-webhooks.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [
+      {
+        "line": 446,
+        "normalized_target": "https://platform.claude.com/docs/en/api/rate-limits",
+        "target": "https://platform.claude.com/docs/en/api/rate-limits",
+        "target_type": "absolute_url",
+        "text": "API rate limits"
+      }
+    ],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/claude-api/shared/model-migration.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/claude-api/shared/models.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/claude-api/shared/prompt-caching.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/claude-api/shared/token-counting.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/claude-api/shared/tool-use-concepts.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/claude-api/SKILL.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/claude-api/typescript/claude-api/batches.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/claude-api/typescript/claude-api/files-api.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [
+      {
+        "line": 247,
+        "normalized_target": "../../shared/error-codes.md",
+        "target": "../../shared/error-codes.md",
+        "target_type": "relative_file",
+        "text": "shared/error-codes.md"
+      }
+    ],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/claude-api/typescript/claude-api/README.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [
+      {
+        "line": 154,
+        "normalized_target": "./tool-use.md",
+        "target": "./tool-use.md#streaming-manual-loop",
+        "target_type": "relative_file",
+        "text": "Streaming Manual Loop"
+      }
+    ],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/claude-api/typescript/claude-api/streaming.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [
+      {
+        "line": 3,
+        "normalized_target": "../../shared/tool-use-concepts.md",
+        "target": "../../shared/tool-use-concepts.md",
+        "target_type": "relative_file",
+        "text": "shared/tool-use-concepts.md"
+      },
+      {
+        "line": 156,
+        "normalized_target": "./README.md",
+        "target": "./README.md#error-handling",
+        "target_type": "relative_file",
+        "text": "Error Handling"
+      }
+    ],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/claude-api/typescript/claude-api/tool-use.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [
+      {
+        "line": 134,
+        "normalized_target": "../../shared/managed-agents-events.md",
+        "target": "../../shared/managed-agents-events.md#steering-patterns",
+        "target_type": "relative_file",
+        "text": "Steering Patterns"
+      }
+    ],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/claude-api/typescript/managed-agents/README.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/doc-coauthoring/SKILL.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/docx/LICENSE.txt",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/docx/scripts/__init__.py",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/docx/scripts/accept_changes.py",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/docx/scripts/comment.py",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/docx/scripts/office/helpers/__init__.py",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/docx/scripts/office/helpers/merge_runs.py",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/docx/scripts/office/helpers/simplify_redlines.py",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/docx/scripts/office/pack.py",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/docx/scripts/office/soffice.py",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/docx/scripts/office/unpack.py",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/docx/scripts/office/validate.py",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/docx/scripts/office/validators/__init__.py",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/docx/scripts/office/validators/base.py",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/docx/scripts/office/validators/docx.py",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/docx/scripts/office/validators/pptx.py",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/docx/scripts/office/validators/redlining.py",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/docx/SKILL.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/frontend-design/LICENSE.txt",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/frontend-design/SKILL.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/internal-comms/examples/3p-updates.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/internal-comms/examples/company-newsletter.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/internal-comms/examples/faq-answers.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/internal-comms/examples/general-comms.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/internal-comms/LICENSE.txt",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/internal-comms/SKILL.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/mcp-builder/LICENSE.txt",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/mcp-builder/reference/evaluation.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/mcp-builder/reference/mcp_best_practices.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/mcp-builder/reference/node_mcp_server.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/mcp-builder/reference/python_mcp_server.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/mcp-builder/scripts/connections.py",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/mcp-builder/scripts/evaluation.py",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/mcp-builder/scripts/requirements.txt",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [
+      {
+        "line": 58,
+        "normalized_target": "./reference/mcp_best_practices.md",
+        "target": "./reference/mcp_best_practices.md",
+        "target_type": "relative_file",
+        "text": "📋 View Best Practices"
+      },
+      {
+        "line": 62,
+        "normalized_target": "./reference/node_mcp_server.md",
+        "target": "./reference/node_mcp_server.md",
+        "target_type": "relative_file",
+        "text": "⚡ TypeScript Guide"
+      },
+      {
+        "line": 66,
+        "normalized_target": "./reference/python_mcp_server.md",
+        "target": "./reference/python_mcp_server.md",
+        "target_type": "relative_file",
+        "text": "🐍 Python Guide"
+      },
+      {
+        "line": 83,
+        "normalized_target": "./reference/node_mcp_server.md",
+        "target": "./reference/node_mcp_server.md",
+        "target_type": "relative_file",
+        "text": "⚡ TypeScript Guide"
+      },
+      {
+        "line": 84,
+        "normalized_target": "./reference/python_mcp_server.md",
+        "target": "./reference/python_mcp_server.md",
+        "target_type": "relative_file",
+        "text": "🐍 Python Guide"
+      },
+      {
+        "line": 155,
+        "normalized_target": "./reference/evaluation.md",
+        "target": "./reference/evaluation.md",
+        "target_type": "relative_file",
+        "text": "✅ Evaluation Guide"
+      },
+      {
+        "line": 204,
+        "normalized_target": "./reference/mcp_best_practices.md",
+        "target": "./reference/mcp_best_practices.md",
+        "target_type": "relative_file",
+        "text": "📋 MCP Best Practices"
+      },
+      {
+        "line": 216,
+        "normalized_target": "./reference/python_mcp_server.md",
+        "target": "./reference/python_mcp_server.md",
+        "target_type": "relative_file",
+        "text": "🐍 Python Implementation Guide"
+      },
+      {
+        "line": 223,
+        "normalized_target": "./reference/node_mcp_server.md",
+        "target": "./reference/node_mcp_server.md",
+        "target_type": "relative_file",
+        "text": "⚡ TypeScript Implementation Guide"
+      },
+      {
+        "line": 231,
+        "normalized_target": "./reference/evaluation.md",
+        "target": "./reference/evaluation.md",
+        "target_type": "relative_file",
+        "text": "✅ Evaluation Guide"
+      }
+    ],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/mcp-builder/SKILL.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/pdf/forms.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/pdf/LICENSE.txt",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/pdf/reference.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/pdf/scripts/check_bounding_boxes.py",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/pdf/scripts/check_fillable_fields.py",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/pdf/scripts/convert_pdf_to_images.py",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/pdf/scripts/create_validation_image.py",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/pdf/scripts/extract_form_field_info.py",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/pdf/scripts/extract_form_structure.py",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/pdf/scripts/fill_fillable_fields.py",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/pdf/scripts/fill_pdf_form_with_annotations.py",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/pdf/SKILL.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/pptx/editing.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/pptx/LICENSE.txt",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/pptx/pptxgenjs.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/pptx/scripts/__init__.py",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/pptx/scripts/add_slide.py",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/pptx/scripts/clean.py",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/pptx/scripts/office/helpers/__init__.py",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/pptx/scripts/office/helpers/merge_runs.py",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/pptx/scripts/office/helpers/simplify_redlines.py",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/pptx/scripts/office/pack.py",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/pptx/scripts/office/soffice.py",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/pptx/scripts/office/unpack.py",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/pptx/scripts/office/validate.py",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/pptx/scripts/office/validators/__init__.py",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/pptx/scripts/office/validators/base.py",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/pptx/scripts/office/validators/docx.py",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/pptx/scripts/office/validators/pptx.py",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/pptx/scripts/office/validators/redlining.py",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/pptx/scripts/thumbnail.py",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [
+      {
+        "line": 14,
+        "normalized_target": "editing.md",
+        "target": "editing.md",
+        "target_type": "relative_file",
+        "text": "editing.md"
+      },
+      {
+        "line": 15,
+        "normalized_target": "pptxgenjs.md",
+        "target": "pptxgenjs.md",
+        "target_type": "relative_file",
+        "text": "pptxgenjs.md"
+      },
+      {
+        "line": 36,
+        "normalized_target": "editing.md",
+        "target": "editing.md",
+        "target_type": "relative_file",
+        "text": "editing.md"
+      },
+      {
+        "line": 45,
+        "normalized_target": "pptxgenjs.md",
+        "target": "pptxgenjs.md",
+        "target_type": "relative_file",
+        "text": "pptxgenjs.md"
+      },
+      {
+        "line": 167,
+        "normalized_target": null,
+        "target": "#converting-to-images",
+        "target_type": "anchor",
+        "text": "Converting to Images"
+      }
+    ],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/pptx/SKILL.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/skill-creator/agents/analyzer.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/skill-creator/agents/comparator.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/skill-creator/agents/grader.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/skill-creator/eval-viewer/generate_review.py",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/skill-creator/LICENSE.txt",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/skill-creator/references/schemas.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/skill-creator/scripts/__init__.py",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/skill-creator/scripts/aggregate_benchmark.py",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/skill-creator/scripts/generate_report.py",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/skill-creator/scripts/improve_description.py",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/skill-creator/scripts/package_skill.py",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/skill-creator/scripts/quick_validate.py",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/skill-creator/scripts/run_eval.py",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/skill-creator/scripts/run_loop.py",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/skill-creator/scripts/utils.py",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/skill-creator/SKILL.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/slack-gif-creator/core/easing.py",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/slack-gif-creator/core/frame_composer.py",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/slack-gif-creator/core/gif_builder.py",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/slack-gif-creator/core/validators.py",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/slack-gif-creator/LICENSE.txt",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/slack-gif-creator/requirements.txt",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/slack-gif-creator/SKILL.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/theme-factory/LICENSE.txt",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/theme-factory/SKILL.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/theme-factory/theme-showcase.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/theme-factory/themes/arctic-frost.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/theme-factory/themes/botanical-garden.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/theme-factory/themes/desert-rose.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/theme-factory/themes/forest-canopy.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/theme-factory/themes/golden-hour.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/theme-factory/themes/midnight-galaxy.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/theme-factory/themes/modern-minimalist.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/theme-factory/themes/ocean-depths.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/theme-factory/themes/sunset-boulevard.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/theme-factory/themes/tech-innovation.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/web-artifacts-builder/LICENSE.txt",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/web-artifacts-builder/SKILL.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/webapp-testing/examples/console_logging.py",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/webapp-testing/examples/element_discovery.py",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/webapp-testing/examples/static_html_automation.py",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/webapp-testing/LICENSE.txt",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/webapp-testing/scripts/with_server.py",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/webapp-testing/SKILL.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/xlsx/LICENSE.txt",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/xlsx/scripts/office/helpers/__init__.py",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/xlsx/scripts/office/helpers/merge_runs.py",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/xlsx/scripts/office/helpers/simplify_redlines.py",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/xlsx/scripts/office/pack.py",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/xlsx/scripts/office/soffice.py",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/xlsx/scripts/office/unpack.py",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/xlsx/scripts/office/validate.py",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/xlsx/scripts/office/validators/__init__.py",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/xlsx/scripts/office/validators/base.py",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/xlsx/scripts/office/validators/docx.py",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/xlsx/scripts/office/validators/pptx.py",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/xlsx/scripts/office/validators/redlining.py",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/xlsx/scripts/recalc.py",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/skills/xlsx/SKILL.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/spec/agent-skills-spec.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills/template/SKILL.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [
+      {
+        "line": 33,
+        "normalized_target": "https://ffmpeg.org/releases/ffmpeg-7.0.2.tar.xz",
+        "target": "https://ffmpeg.org/releases/ffmpeg-7.0.2.tar.xz",
+        "target_type": "absolute_url",
+        "text": "https://ffmpeg.org/releases/ffmpeg-7.0.2.tar.xz"
+      },
+      {
+        "line": 39,
+        "normalized_target": "https://fsf.org/",
+        "target": "https://fsf.org/",
+        "target_type": "absolute_url",
+        "text": "https://fsf.org/"
+      },
+      {
+        "line": 270,
+        "normalized_target": "https://www.gnu.org/licenses/",
+        "target": "https://www.gnu.org/licenses/",
+        "target_type": "absolute_url",
+        "text": "https://www.gnu.org/licenses/"
+      },
+      {
+        "line": 281,
+        "normalized_target": "https://www.gnu.org/licenses/",
+        "target": "https://www.gnu.org/licenses/",
+        "target_type": "absolute_url",
+        "text": "https://www.gnu.org/licenses/"
+      },
+      {
+        "line": 283,
+        "normalized_target": "https://www.gnu.org/licenses/why-not-lgpl.html",
+        "target": "https://www.gnu.org/licenses/why-not-lgpl.html",
+        "target_type": "absolute_url",
+        "text": "https://www.gnu.org/licenses/why-not-lgpl.html"
+      },
+      {
+        "line": 307,
+        "normalized_target": "mailto:andrij.design@gmail.com",
+        "target": "mailto:andrij.design@gmail.com",
+        "target_type": "relative_file",
+        "text": "andrij.design@gmail.com"
+      },
+      {
+        "line": 309,
+        "normalized_target": "https://github.com/xotypeco/big_shoulders",
+        "target": "https://github.com/xotypeco/big_shoulders",
+        "target_type": "absolute_url",
+        "text": "https://github.com/xotypeco/big\\_shoulders"
+      },
+      {
+        "line": 311,
+        "normalized_target": "https://github.com/googlefonts/boldonse",
+        "target": "https://github.com/googlefonts/boldonse",
+        "target_type": "absolute_url",
+        "text": "https://github.com/googlefonts/boldonse"
+      },
+      {
+        "line": 313,
+        "normalized_target": "https://github.com/ateliertriay/bricolage",
+        "target": "https://github.com/ateliertriay/bricolage",
+        "target_type": "absolute_url",
+        "text": "https://github.com/ateliertriay/bricolage"
+      },
+      {
+        "line": 315,
+        "normalized_target": "https://github.com/Fonthausen/CrimsonPro",
+        "target": "https://github.com/Fonthausen/CrimsonPro",
+        "target_type": "absolute_url",
+        "text": "https://github.com/Fonthausen/CrimsonPro"
+      },
+      {
+        "line": 317,
+        "normalized_target": "https://www.github.com/googlefonts/dm-mono",
+        "target": "https://www.github.com/googlefonts/dm-mono",
+        "target_type": "absolute_url",
+        "text": "https://www.github.com/googlefonts/dm-mono"
+      },
+      {
+        "line": 319,
+        "normalized_target": "mailto:luciano@latinotype.com",
+        "target": "mailto:luciano@latinotype.com",
+        "target_type": "relative_file",
+        "text": "luciano@latinotype.com"
+      },
+      {
+        "line": 321,
+        "normalized_target": "https://github.com/vercel/geist-font.git",
+        "target": "https://github.com/vercel/geist-font.git",
+        "target_type": "absolute_url",
+        "text": "https://github.com/vercel/geist-font.git"
+      },
+      {
+        "line": 323,
+        "normalized_target": "https://github.com/duartp/gloock",
+        "target": "https://github.com/duartp/gloock",
+        "target_type": "absolute_url",
+        "text": "https://github.com/duartp/gloock"
+      },
+      {
+        "line": 327,
+        "normalized_target": "https://github.com/Instrument/instrument-sans",
+        "target": "https://github.com/Instrument/instrument-sans",
+        "target_type": "absolute_url",
+        "text": "https://github.com/Instrument/instrument-sans"
+      },
+      {
+        "line": 329,
+        "normalized_target": "mailto:hi@typemade.mx",
+        "target": "mailto:hi@typemade.mx",
+        "target_type": "relative_file",
+        "text": "hi@typemade.mx"
+      },
+      {
+        "line": 331,
+        "normalized_target": "https://github.com/JetBrains/JetBrainsMono",
+        "target": "https://github.com/JetBrains/JetBrainsMono",
+        "target_type": "absolute_url",
+        "text": "https://github.com/JetBrains/JetBrainsMono"
+      },
+      {
+        "line": 333,
+        "normalized_target": "https://github.com/ossobuffo/jura",
+        "target": "https://github.com/ossobuffo/jura",
+        "target_type": "absolute_url",
+        "text": "https://github.com/ossobuffo/jura"
+      },
+      {
+        "line": 335,
+        "normalized_target": "https://github.com/impallari/Libre-Baskerville",
+        "target": "https://github.com/impallari/Libre-Baskerville",
+        "target_type": "absolute_url",
+        "text": "https://github.com/impallari/Libre-Baskerville"
+      },
+      {
+        "line": 337,
+        "normalized_target": "https://github.com/cyrealtype/Lora-Cyrillic",
+        "target": "https://github.com/cyrealtype/Lora-Cyrillic",
+        "target_type": "absolute_url",
+        "text": "https://github.com/cyrealtype/Lora-Cyrillic"
+      },
+      {
+        "line": 339,
+        "normalized_target": "https://github.com/benhoepner/National-Park",
+        "target": "https://github.com/benhoepner/National-Park",
+        "target_type": "absolute_url",
+        "text": "https://github.com/benhoepner/National-Park"
+      },
+      {
+        "line": 343,
+        "normalized_target": "https://github.com/Outfitio/Outfit-Fonts",
+        "target": "https://github.com/Outfitio/Outfit-Fonts",
+        "target_type": "absolute_url",
+        "text": "https://github.com/Outfitio/Outfit-Fonts"
+      },
+      {
+        "line": 345,
+        "normalized_target": "https://github.com/eifetx/Pixelify-Sans",
+        "target": "https://github.com/eifetx/Pixelify-Sans",
+        "target_type": "absolute_url",
+        "text": "https://github.com/eifetx/Pixelify-Sans"
+      },
+      {
+        "line": 347,
+        "normalized_target": "mailto:denis.masharov@gmail.com",
+        "target": "mailto:denis.masharov@gmail.com",
+        "target_type": "relative_file",
+        "text": "denis.masharov@gmail.com"
+      },
+      {
+        "line": 349,
+        "normalized_target": "https://github.com/RedHatOfficial/RedHatFont",
+        "target": "https://github.com/RedHatOfficial/RedHatFont",
+        "target_type": "absolute_url",
+        "text": "https://github.com/RedHatOfficial/RedHatFont"
+      },
+      {
+        "line": 351,
+        "normalized_target": "https://github.com/googlefonts/silkscreen",
+        "target": "https://github.com/googlefonts/silkscreen",
+        "target_type": "absolute_url",
+        "text": "https://github.com/googlefonts/silkscreen"
+      },
+      {
+        "line": 353,
+        "normalized_target": "https://github.com/googlefonts/smooch-sans",
+        "target": "https://github.com/googlefonts/smooch-sans",
+        "target_type": "absolute_url",
+        "text": "https://github.com/googlefonts/smooch-sans"
+      },
+      {
+        "line": 355,
+        "normalized_target": "https://www.github.com/hyvyys/Tektur",
+        "target": "https://www.github.com/hyvyys/Tektur",
+        "target_type": "absolute_url",
+        "text": "https://www.github.com/hyvyys/Tektur"
+      },
+      {
+        "line": 357,
+        "normalized_target": "https://github.com/weiweihuanghuang/Work-Sans",
+        "target": "https://github.com/weiweihuanghuang/Work-Sans",
+        "target_type": "absolute_url",
+        "text": "https://github.com/weiweihuanghuang/Work-Sans"
+      },
+      {
+        "line": 359,
+        "normalized_target": "https://github.com/noirblancrouge/YoungSerif",
+        "target": "https://github.com/noirblancrouge/YoungSerif",
+        "target_type": "absolute_url",
+        "text": "https://github.com/noirblancrouge/YoungSerif"
+      }
+    ],
+    "path": "sources/curated/official-repos/anthropics-skills/THIRD_PARTY_NOTICES.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/official-repos/anthropics-skills.repo.meta.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/README.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/repo-extracts/anthropics-skills__skills__algorithmic-art__SKILL.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/repo-extracts/anthropics-skills__skills__brand-guidelines__SKILL.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/repo-extracts/anthropics-skills__skills__canvas-design__SKILL.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/repo-extracts/anthropics-skills__skills__claude-api__SKILL.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/repo-extracts/anthropics-skills__skills__doc-coauthoring__SKILL.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/repo-extracts/anthropics-skills__skills__docx__SKILL.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/repo-extracts/anthropics-skills__skills__frontend-design__SKILL.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/repo-extracts/anthropics-skills__skills__internal-comms__SKILL.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [
+      {
+        "line": 58,
+        "normalized_target": "./reference/mcp_best_practices.md",
+        "target": "./reference/mcp_best_practices.md",
+        "target_type": "relative_file",
+        "text": "📋 View Best Practices"
+      },
+      {
+        "line": 62,
+        "normalized_target": "./reference/node_mcp_server.md",
+        "target": "./reference/node_mcp_server.md",
+        "target_type": "relative_file",
+        "text": "⚡ TypeScript Guide"
+      },
+      {
+        "line": 66,
+        "normalized_target": "./reference/python_mcp_server.md",
+        "target": "./reference/python_mcp_server.md",
+        "target_type": "relative_file",
+        "text": "🐍 Python Guide"
+      },
+      {
+        "line": 83,
+        "normalized_target": "./reference/node_mcp_server.md",
+        "target": "./reference/node_mcp_server.md",
+        "target_type": "relative_file",
+        "text": "⚡ TypeScript Guide"
+      },
+      {
+        "line": 84,
+        "normalized_target": "./reference/python_mcp_server.md",
+        "target": "./reference/python_mcp_server.md",
+        "target_type": "relative_file",
+        "text": "🐍 Python Guide"
+      },
+      {
+        "line": 155,
+        "normalized_target": "./reference/evaluation.md",
+        "target": "./reference/evaluation.md",
+        "target_type": "relative_file",
+        "text": "✅ Evaluation Guide"
+      },
+      {
+        "line": 204,
+        "normalized_target": "./reference/mcp_best_practices.md",
+        "target": "./reference/mcp_best_practices.md",
+        "target_type": "relative_file",
+        "text": "📋 MCP Best Practices"
+      },
+      {
+        "line": 216,
+        "normalized_target": "./reference/python_mcp_server.md",
+        "target": "./reference/python_mcp_server.md",
+        "target_type": "relative_file",
+        "text": "🐍 Python Implementation Guide"
+      },
+      {
+        "line": 223,
+        "normalized_target": "./reference/node_mcp_server.md",
+        "target": "./reference/node_mcp_server.md",
+        "target_type": "relative_file",
+        "text": "⚡ TypeScript Implementation Guide"
+      },
+      {
+        "line": 231,
+        "normalized_target": "./reference/evaluation.md",
+        "target": "./reference/evaluation.md",
+        "target_type": "relative_file",
+        "text": "✅ Evaluation Guide"
+      }
+    ],
+    "path": "sources/curated/repo-extracts/anthropics-skills__skills__mcp-builder__SKILL.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/repo-extracts/anthropics-skills__skills__pdf__SKILL.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [
+      {
+        "line": 14,
+        "normalized_target": "editing.md",
+        "target": "editing.md",
+        "target_type": "relative_file",
+        "text": "editing.md"
+      },
+      {
+        "line": 15,
+        "normalized_target": "pptxgenjs.md",
+        "target": "pptxgenjs.md",
+        "target_type": "relative_file",
+        "text": "pptxgenjs.md"
+      },
+      {
+        "line": 36,
+        "normalized_target": "editing.md",
+        "target": "editing.md",
+        "target_type": "relative_file",
+        "text": "editing.md"
+      },
+      {
+        "line": 45,
+        "normalized_target": "pptxgenjs.md",
+        "target": "pptxgenjs.md",
+        "target_type": "relative_file",
+        "text": "pptxgenjs.md"
+      },
+      {
+        "line": 167,
+        "normalized_target": null,
+        "target": "#converting-to-images",
+        "target_type": "anchor",
+        "text": "Converting to Images"
+      }
+    ],
+    "path": "sources/curated/repo-extracts/anthropics-skills__skills__pptx__SKILL.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/repo-extracts/anthropics-skills__skills__skill-creator__SKILL.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/repo-extracts/anthropics-skills__skills__slack-gif-creator__SKILL.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/repo-extracts/anthropics-skills__skills__theme-factory__SKILL.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/repo-extracts/anthropics-skills__skills__web-artifacts-builder__SKILL.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/repo-extracts/anthropics-skills__skills__webapp-testing__SKILL.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/repo-extracts/anthropics-skills__skills__xlsx__SKILL.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/repo-extracts/anthropics-skills__template__SKILL.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/secondary/deepwiki-anthropics-skills.html.meta.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/curated/secondary/deepwiki-skill-md-format-specification.html.meta.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/operator-supplied/notes/Apex_Alfred_Skill_Definition_Guide.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/operator-supplied/notes/Claude_Skill_Package_BestPractice_Handover.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/operator-supplied/notes/Claude_Skill_PromptFlow_Design_Guidance_v1.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/operator-supplied/notes/ClaudePhase1FilePreparation.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/operator-supplied/notes/ClaudeSetupGeneral.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [
+      {
+        "line": 1,
+        "normalized_target": "https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/104634686/c3b490ae-f89d-430a-b50f-06a3d7136972/package-manifest-2.md?AWSAccessKeyId=ASIA2F3EMEYESFNGTRGI&Signature=ZeEyw1ciHpM31wEKS3j1p1cso0E%3D&x-amz-security-token=IQoJb3JpZ2luX2VjEKj%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJGMEQCIFRKpeaook%2FvVtyfjdakbeGjYRGQUSW2DCDqu1OXJz8tAiAyqVyJr43yJctrMpeT9YLtUkUbm5x2rmPjibbrves%2B%2BSrzBAhxEAEaDDY5OTc1MzMwOTcwNSIMYxyLj0af2F1EeC4KKtAEF52WOW4FsOC1ZPiUyq1b2NyJpfGwk6XIAStg1OX37q2g6KOCz2pATMGT6t1veHk%2FP5JD3igI98FiLgl%2BW0kYa7fB1vvaHS9453H%2FaZsRbN7ZE1NZF148Gq9by7VVe5i9Wmvv1yS2JkvI1CTpjn2Mczcv5Z%2FI%2BhOvsdmWBsabI5caVLm95n31ITS2t1PME2wp0g6nCZVu3IYOQRMhRbj3nOqb3ItYKLgGmRmYaVJJb7a%2BnNDq7KbYAyXXCI6cC7B3SIC6ZLwAVpMeRKrpEajDp0Xx%2F2%2FircKFBu4KPapg12Z0S7jnaLWAP6m%2Bd8%2FDlwRpgQXI2uuG6GMEuOyfR58L%2Fw%2FJ8XDH4agTGvfyxyViVtvqfIU1q0l95sWRuPl8vFPcdNn05MhUGcVaGkdhvmOTwhW6yDyk7Y66pMSdsfDyoPta%2B%2FH8NVVTAuMLCMDz1bwmls6dpFwotmUMKiHFFAViyFVMfK7oxibATjvLMeTXWKtY2ID8xerkHw4ptlYZLTDdUPuzqGj59N0tggl%2BXfXAnXIoAGclwlPRlCkPoHmOvoXB4OUcFpUAFkS8w7tW6nw0jEKwYEufsm9Mvik2OswOnqvslfowB87gif30d9IdJz13yi8C2YUVP%2F7oME79buUSdY3xti2vL0HmwdZNroqILNDltdmGl5%2FNimbEk9%2FOJe%2BsTvnUJ1Yu8LsjyKGxGgIbVaEOshRc0HxTgmU%2FDboA3OD7Dhf1z4KrMtJn26I9Er9CIzQiyvjKNITFv199DEVVXUsM8ByuMrU3CfDOCZtN7TDngMTRBjqZAeG061WFKfwIYybgN1LH7KJrregQv6JgBdgrpyKOUXI8b2QI7atHoB0UIsyn9A9biiSCZxNkuQxneRHvmK0eMsgtQboCMTY6nfbqn1txCG%2B%2BGUEsNBdPoQCYgYm11Q7EhANgFMm6J8wPKd7yEzt8gps9xtERN7V435C3b5Pkr4iTN4paYcVzA9T9fWecwwfd3i7YAAtIUT%2FYOQ%3D%3D&Expires=1781599802",
+        "target": "https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/104634686/c3b490ae-f89d-430a-b50f-06a3d7136972/package-manifest-2.md?AWSAccessKeyId=ASIA2F3EMEYESFNGTRGI&Signature=ZeEyw1ciHpM31wEKS3j1p1cso0E%3D&x-amz-security-token=IQoJb3JpZ2luX2VjEKj%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJGMEQCIFRKpeaook%2FvVtyfjdakbeGjYRGQUSW2DCDqu1OXJz8tAiAyqVyJr43yJctrMpeT9YLtUkUbm5x2rmPjibbrves%2B%2BSrzBAhxEAEaDDY5OTc1MzMwOTcwNSIMYxyLj0af2F1EeC4KKtAEF52WOW4FsOC1ZPiUyq1b2NyJpfGwk6XIAStg1OX37q2g6KOCz2pATMGT6t1veHk%2FP5JD3igI98FiLgl%2BW0kYa7fB1vvaHS9453H%2FaZsRbN7ZE1NZF148Gq9by7VVe5i9Wmvv1yS2JkvI1CTpjn2Mczcv5Z%2FI%2BhOvsdmWBsabI5caVLm95n31ITS2t1PME2wp0g6nCZVu3IYOQRMhRbj3nOqb3ItYKLgGmRmYaVJJb7a%2BnNDq7KbYAyXXCI6cC7B3SIC6ZLwAVpMeRKrpEajDp0Xx%2F2%2FircKFBu4KPapg12Z0S7jnaLWAP6m%2Bd8%2FDlwRpgQXI2uuG6GMEuOyfR58L%2Fw%2FJ8XDH4agTGvfyxyViVtvqfIU1q0l95sWRuPl8vFPcdNn05MhUGcVaGkdhvmOTwhW6yDyk7Y66pMSdsfDyoPta%2B%2FH8NVVTAuMLCMDz1bwmls6dpFwotmUMKiHFFAViyFVMfK7oxibATjvLMeTXWKtY2ID8xerkHw4ptlYZLTDdUPuzqGj59N0tggl%2BXfXAnXIoAGclwlPRlCkPoHmOvoXB4OUcFpUAFkS8w7tW6nw0jEKwYEufsm9Mvik2OswOnqvslfowB87gif30d9IdJz13yi8C2YUVP%2F7oME79buUSdY3xti2vL0HmwdZNroqILNDltdmGl5%2FNimbEk9%2FOJe%2BsTvnUJ1Yu8LsjyKGxGgIbVaEOshRc0HxTgmU%2FDboA3OD7Dhf1z4KrMtJn26I9Er9CIzQiyvjKNITFv199DEVVXUsM8ByuMrU3CfDOCZtN7TDngMTRBjqZAeG061WFKfwIYybgN1LH7KJrregQv6JgBdgrpyKOUXI8b2QI7atHoB0UIsyn9A9biiSCZxNkuQxneRHvmK0eMsgtQboCMTY6nfbqn1txCG%2B%2BGUEsNBdPoQCYgYm11Q7EhANgFMm6J8wPKd7yEzt8gps9xtERN7V435C3b5Pkr4iTN4paYcVzA9T9fWecwwfd3i7YAAtIUT%2FYOQ%3D%3D&Expires=1781599802",
+        "target_type": "absolute_url",
+        "text": "[ppl-ai-file-upload.s3.amazonaws"
+      },
+      {
+        "line": 25,
+        "normalized_target": "https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/104634686/6437db9d-1006-4269-ae5d-4a650ed2ab71/project-status-overview_SKILL-3.md?AWSAccessKeyId=ASIA2F3EMEYESFNGTRGI&Signature=yqBEAckJ9BDUM8z0TD5RFaCxpyg%3D&x-amz-security-token=IQoJb3JpZ2luX2VjEKj%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJGMEQCIFRKpeaook%2FvVtyfjdakbeGjYRGQUSW2DCDqu1OXJz8tAiAyqVyJr43yJctrMpeT9YLtUkUbm5x2rmPjibbrves%2B%2BSrzBAhxEAEaDDY5OTc1MzMwOTcwNSIMYxyLj0af2F1EeC4KKtAEF52WOW4FsOC1ZPiUyq1b2NyJpfGwk6XIAStg1OX37q2g6KOCz2pATMGT6t1veHk%2FP5JD3igI98FiLgl%2BW0kYa7fB1vvaHS9453H%2FaZsRbN7ZE1NZF148Gq9by7VVe5i9Wmvv1yS2JkvI1CTpjn2Mczcv5Z%2FI%2BhOvsdmWBsabI5caVLm95n31ITS2t1PME2wp0g6nCZVu3IYOQRMhRbj3nOqb3ItYKLgGmRmYaVJJb7a%2BnNDq7KbYAyXXCI6cC7B3SIC6ZLwAVpMeRKrpEajDp0Xx%2F2%2FircKFBu4KPapg12Z0S7jnaLWAP6m%2Bd8%2FDlwRpgQXI2uuG6GMEuOyfR58L%2Fw%2FJ8XDH4agTGvfyxyViVtvqfIU1q0l95sWRuPl8vFPcdNn05MhUGcVaGkdhvmOTwhW6yDyk7Y66pMSdsfDyoPta%2B%2FH8NVVTAuMLCMDz1bwmls6dpFwotmUMKiHFFAViyFVMfK7oxibATjvLMeTXWKtY2ID8xerkHw4ptlYZLTDdUPuzqGj59N0tggl%2BXfXAnXIoAGclwlPRlCkPoHmOvoXB4OUcFpUAFkS8w7tW6nw0jEKwYEufsm9Mvik2OswOnqvslfowB87gif30d9IdJz13yi8C2YUVP%2F7oME79buUSdY3xti2vL0HmwdZNroqILNDltdmGl5%2FNimbEk9%2FOJe%2BsTvnUJ1Yu8LsjyKGxGgIbVaEOshRc0HxTgmU%2FDboA3OD7Dhf1z4KrMtJn26I9Er9CIzQiyvjKNITFv199DEVVXUsM8ByuMrU3CfDOCZtN7TDngMTRBjqZAeG061WFKfwIYybgN1LH7KJrregQv6JgBdgrpyKOUXI8b2QI7atHoB0UIsyn9A9biiSCZxNkuQxneRHvmK0eMsgtQboCMTY6nfbqn1txCG%2B%2BGUEsNBdPoQCYgYm11Q7EhANgFMm6J8wPKd7yEzt8gps9xtERN7V435C3b5Pkr4iTN4paYcVzA9T9fWecwwfd3i7YAAtIUT%2FYOQ%3D%3D&Expires=1781599802",
+        "target": "https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/104634686/6437db9d-1006-4269-ae5d-4a650ed2ab71/project-status-overview_SKILL-3.md?AWSAccessKeyId=ASIA2F3EMEYESFNGTRGI&Signature=yqBEAckJ9BDUM8z0TD5RFaCxpyg%3D&x-amz-security-token=IQoJb3JpZ2luX2VjEKj%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJGMEQCIFRKpeaook%2FvVtyfjdakbeGjYRGQUSW2DCDqu1OXJz8tAiAyqVyJr43yJctrMpeT9YLtUkUbm5x2rmPjibbrves%2B%2BSrzBAhxEAEaDDY5OTc1MzMwOTcwNSIMYxyLj0af2F1EeC4KKtAEF52WOW4FsOC1ZPiUyq1b2NyJpfGwk6XIAStg1OX37q2g6KOCz2pATMGT6t1veHk%2FP5JD3igI98FiLgl%2BW0kYa7fB1vvaHS9453H%2FaZsRbN7ZE1NZF148Gq9by7VVe5i9Wmvv1yS2JkvI1CTpjn2Mczcv5Z%2FI%2BhOvsdmWBsabI5caVLm95n31ITS2t1PME2wp0g6nCZVu3IYOQRMhRbj3nOqb3ItYKLgGmRmYaVJJb7a%2BnNDq7KbYAyXXCI6cC7B3SIC6ZLwAVpMeRKrpEajDp0Xx%2F2%2FircKFBu4KPapg12Z0S7jnaLWAP6m%2Bd8%2FDlwRpgQXI2uuG6GMEuOyfR58L%2Fw%2FJ8XDH4agTGvfyxyViVtvqfIU1q0l95sWRuPl8vFPcdNn05MhUGcVaGkdhvmOTwhW6yDyk7Y66pMSdsfDyoPta%2B%2FH8NVVTAuMLCMDz1bwmls6dpFwotmUMKiHFFAViyFVMfK7oxibATjvLMeTXWKtY2ID8xerkHw4ptlYZLTDdUPuzqGj59N0tggl%2BXfXAnXIoAGclwlPRlCkPoHmOvoXB4OUcFpUAFkS8w7tW6nw0jEKwYEufsm9Mvik2OswOnqvslfowB87gif30d9IdJz13yi8C2YUVP%2F7oME79buUSdY3xti2vL0HmwdZNroqILNDltdmGl5%2FNimbEk9%2FOJe%2BsTvnUJ1Yu8LsjyKGxGgIbVaEOshRc0HxTgmU%2FDboA3OD7Dhf1z4KrMtJn26I9Er9CIzQiyvjKNITFv199DEVVXUsM8ByuMrU3CfDOCZtN7TDngMTRBjqZAeG061WFKfwIYybgN1LH7KJrregQv6JgBdgrpyKOUXI8b2QI7atHoB0UIsyn9A9biiSCZxNkuQxneRHvmK0eMsgtQboCMTY6nfbqn1txCG%2B%2BGUEsNBdPoQCYgYm11Q7EhANgFMm6J8wPKd7yEzt8gps9xtERN7V435C3b5Pkr4iTN4paYcVzA9T9fWecwwfd3i7YAAtIUT%2FYOQ%3D%3D&Expires=1781599802",
+        "target_type": "absolute_url",
+        "text": "[ppl-ai-file-upload.s3.amazonaws"
+      },
+      {
+        "line": 52,
+        "normalized_target": "https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/104634686/408477a3-4f08-44f7-96ab-066b8e68bf22/project-status-overview-contract-4.md?AWSAccessKeyId=ASIA2F3EMEYESFNGTRGI&Signature=%2FEThsaHkXGBNvGEU%2BGfd3uUz1dM%3D&x-amz-security-token=IQoJb3JpZ2luX2VjEKj%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJGMEQCIFRKpeaook%2FvVtyfjdakbeGjYRGQUSW2DCDqu1OXJz8tAiAyqVyJr43yJctrMpeT9YLtUkUbm5x2rmPjibbrves%2B%2BSrzBAhxEAEaDDY5OTc1MzMwOTcwNSIMYxyLj0af2F1EeC4KKtAEF52WOW4FsOC1ZPiUyq1b2NyJpfGwk6XIAStg1OX37q2g6KOCz2pATMGT6t1veHk%2FP5JD3igI98FiLgl%2BW0kYa7fB1vvaHS9453H%2FaZsRbN7ZE1NZF148Gq9by7VVe5i9Wmvv1yS2JkvI1CTpjn2Mczcv5Z%2FI%2BhOvsdmWBsabI5caVLm95n31ITS2t1PME2wp0g6nCZVu3IYOQRMhRbj3nOqb3ItYKLgGmRmYaVJJb7a%2BnNDq7KbYAyXXCI6cC7B3SIC6ZLwAVpMeRKrpEajDp0Xx%2F2%2FircKFBu4KPapg12Z0S7jnaLWAP6m%2Bd8%2FDlwRpgQXI2uuG6GMEuOyfR58L%2Fw%2FJ8XDH4agTGvfyxyViVtvqfIU1q0l95sWRuPl8vFPcdNn05MhUGcVaGkdhvmOTwhW6yDyk7Y66pMSdsfDyoPta%2B%2FH8NVVTAuMLCMDz1bwmls6dpFwotmUMKiHFFAViyFVMfK7oxibATjvLMeTXWKtY2ID8xerkHw4ptlYZLTDdUPuzqGj59N0tggl%2BXfXAnXIoAGclwlPRlCkPoHmOvoXB4OUcFpUAFkS8w7tW6nw0jEKwYEufsm9Mvik2OswOnqvslfowB87gif30d9IdJz13yi8C2YUVP%2F7oME79buUSdY3xti2vL0HmwdZNroqILNDltdmGl5%2FNimbEk9%2FOJe%2BsTvnUJ1Yu8LsjyKGxGgIbVaEOshRc0HxTgmU%2FDboA3OD7Dhf1z4KrMtJn26I9Er9CIzQiyvjKNITFv199DEVVXUsM8ByuMrU3CfDOCZtN7TDngMTRBjqZAeG061WFKfwIYybgN1LH7KJrregQv6JgBdgrpyKOUXI8b2QI7atHoB0UIsyn9A9biiSCZxNkuQxneRHvmK0eMsgtQboCMTY6nfbqn1txCG%2B%2BGUEsNBdPoQCYgYm11Q7EhANgFMm6J8wPKd7yEzt8gps9xtERN7V435C3b5Pkr4iTN4paYcVzA9T9fWecwwfd3i7YAAtIUT%2FYOQ%3D%3D&Expires=1781599802",
+        "target": "https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/104634686/408477a3-4f08-44f7-96ab-066b8e68bf22/project-status-overview-contract-4.md?AWSAccessKeyId=ASIA2F3EMEYESFNGTRGI&Signature=%2FEThsaHkXGBNvGEU%2BGfd3uUz1dM%3D&x-amz-security-token=IQoJb3JpZ2luX2VjEKj%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJGMEQCIFRKpeaook%2FvVtyfjdakbeGjYRGQUSW2DCDqu1OXJz8tAiAyqVyJr43yJctrMpeT9YLtUkUbm5x2rmPjibbrves%2B%2BSrzBAhxEAEaDDY5OTc1MzMwOTcwNSIMYxyLj0af2F1EeC4KKtAEF52WOW4FsOC1ZPiUyq1b2NyJpfGwk6XIAStg1OX37q2g6KOCz2pATMGT6t1veHk%2FP5JD3igI98FiLgl%2BW0kYa7fB1vvaHS9453H%2FaZsRbN7ZE1NZF148Gq9by7VVe5i9Wmvv1yS2JkvI1CTpjn2Mczcv5Z%2FI%2BhOvsdmWBsabI5caVLm95n31ITS2t1PME2wp0g6nCZVu3IYOQRMhRbj3nOqb3ItYKLgGmRmYaVJJb7a%2BnNDq7KbYAyXXCI6cC7B3SIC6ZLwAVpMeRKrpEajDp0Xx%2F2%2FircKFBu4KPapg12Z0S7jnaLWAP6m%2Bd8%2FDlwRpgQXI2uuG6GMEuOyfR58L%2Fw%2FJ8XDH4agTGvfyxyViVtvqfIU1q0l95sWRuPl8vFPcdNn05MhUGcVaGkdhvmOTwhW6yDyk7Y66pMSdsfDyoPta%2B%2FH8NVVTAuMLCMDz1bwmls6dpFwotmUMKiHFFAViyFVMfK7oxibATjvLMeTXWKtY2ID8xerkHw4ptlYZLTDdUPuzqGj59N0tggl%2BXfXAnXIoAGclwlPRlCkPoHmOvoXB4OUcFpUAFkS8w7tW6nw0jEKwYEufsm9Mvik2OswOnqvslfowB87gif30d9IdJz13yi8C2YUVP%2F7oME79buUSdY3xti2vL0HmwdZNroqILNDltdmGl5%2FNimbEk9%2FOJe%2BsTvnUJ1Yu8LsjyKGxGgIbVaEOshRc0HxTgmU%2FDboA3OD7Dhf1z4KrMtJn26I9Er9CIzQiyvjKNITFv199DEVVXUsM8ByuMrU3CfDOCZtN7TDngMTRBjqZAeG061WFKfwIYybgN1LH7KJrregQv6JgBdgrpyKOUXI8b2QI7atHoB0UIsyn9A9biiSCZxNkuQxneRHvmK0eMsgtQboCMTY6nfbqn1txCG%2B%2BGUEsNBdPoQCYgYm11Q7EhANgFMm6J8wPKd7yEzt8gps9xtERN7V435C3b5Pkr4iTN4paYcVzA9T9fWecwwfd3i7YAAtIUT%2FYOQ%3D%3D&Expires=1781599802",
+        "target_type": "absolute_url",
+        "text": "[ppl-ai-file-upload.s3.amazonaws"
+      },
+      {
+        "line": 71,
+        "normalized_target": "https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/104634686/13b2e954-11a3-4f12-bdcd-92149c4ca2d3/ranking-and-validation-rules-6.md?AWSAccessKeyId=ASIA2F3EMEYESFNGTRGI&Signature=OcZkzGW9kFVDaodnkERNKLE%2Fu9w%3D&x-amz-security-token=IQoJb3JpZ2luX2VjEKj%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJGMEQCIFRKpeaook%2FvVtyfjdakbeGjYRGQUSW2DCDqu1OXJz8tAiAyqVyJr43yJctrMpeT9YLtUkUbm5x2rmPjibbrves%2B%2BSrzBAhxEAEaDDY5OTc1MzMwOTcwNSIMYxyLj0af2F1EeC4KKtAEF52WOW4FsOC1ZPiUyq1b2NyJpfGwk6XIAStg1OX37q2g6KOCz2pATMGT6t1veHk%2FP5JD3igI98FiLgl%2BW0kYa7fB1vvaHS9453H%2FaZsRbN7ZE1NZF148Gq9by7VVe5i9Wmvv1yS2JkvI1CTpjn2Mczcv5Z%2FI%2BhOvsdmWBsabI5caVLm95n31ITS2t1PME2wp0g6nCZVu3IYOQRMhRbj3nOqb3ItYKLgGmRmYaVJJb7a%2BnNDq7KbYAyXXCI6cC7B3SIC6ZLwAVpMeRKrpEajDp0Xx%2F2%2FircKFBu4KPapg12Z0S7jnaLWAP6m%2Bd8%2FDlwRpgQXI2uuG6GMEuOyfR58L%2Fw%2FJ8XDH4agTGvfyxyViVtvqfIU1q0l95sWRuPl8vFPcdNn05MhUGcVaGkdhvmOTwhW6yDyk7Y66pMSdsfDyoPta%2B%2FH8NVVTAuMLCMDz1bwmls6dpFwotmUMKiHFFAViyFVMfK7oxibATjvLMeTXWKtY2ID8xerkHw4ptlYZLTDdUPuzqGj59N0tggl%2BXfXAnXIoAGclwlPRlCkPoHmOvoXB4OUcFpUAFkS8w7tW6nw0jEKwYEufsm9Mvik2OswOnqvslfowB87gif30d9IdJz13yi8C2YUVP%2F7oME79buUSdY3xti2vL0HmwdZNroqILNDltdmGl5%2FNimbEk9%2FOJe%2BsTvnUJ1Yu8LsjyKGxGgIbVaEOshRc0HxTgmU%2FDboA3OD7Dhf1z4KrMtJn26I9Er9CIzQiyvjKNITFv199DEVVXUsM8ByuMrU3CfDOCZtN7TDngMTRBjqZAeG061WFKfwIYybgN1LH7KJrregQv6JgBdgrpyKOUXI8b2QI7atHoB0UIsyn9A9biiSCZxNkuQxneRHvmK0eMsgtQboCMTY6nfbqn1txCG%2B%2BGUEsNBdPoQCYgYm11Q7EhANgFMm6J8wPKd7yEzt8gps9xtERN7V435C3b5Pkr4iTN4paYcVzA9T9fWecwwfd3i7YAAtIUT%2FYOQ%3D%3D&Expires=1781599802",
+        "target": "https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/104634686/13b2e954-11a3-4f12-bdcd-92149c4ca2d3/ranking-and-validation-rules-6.md?AWSAccessKeyId=ASIA2F3EMEYESFNGTRGI&Signature=OcZkzGW9kFVDaodnkERNKLE%2Fu9w%3D&x-amz-security-token=IQoJb3JpZ2luX2VjEKj%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJGMEQCIFRKpeaook%2FvVtyfjdakbeGjYRGQUSW2DCDqu1OXJz8tAiAyqVyJr43yJctrMpeT9YLtUkUbm5x2rmPjibbrves%2B%2BSrzBAhxEAEaDDY5OTc1MzMwOTcwNSIMYxyLj0af2F1EeC4KKtAEF52WOW4FsOC1ZPiUyq1b2NyJpfGwk6XIAStg1OX37q2g6KOCz2pATMGT6t1veHk%2FP5JD3igI98FiLgl%2BW0kYa7fB1vvaHS9453H%2FaZsRbN7ZE1NZF148Gq9by7VVe5i9Wmvv1yS2JkvI1CTpjn2Mczcv5Z%2FI%2BhOvsdmWBsabI5caVLm95n31ITS2t1PME2wp0g6nCZVu3IYOQRMhRbj3nOqb3ItYKLgGmRmYaVJJb7a%2BnNDq7KbYAyXXCI6cC7B3SIC6ZLwAVpMeRKrpEajDp0Xx%2F2%2FircKFBu4KPapg12Z0S7jnaLWAP6m%2Bd8%2FDlwRpgQXI2uuG6GMEuOyfR58L%2Fw%2FJ8XDH4agTGvfyxyViVtvqfIU1q0l95sWRuPl8vFPcdNn05MhUGcVaGkdhvmOTwhW6yDyk7Y66pMSdsfDyoPta%2B%2FH8NVVTAuMLCMDz1bwmls6dpFwotmUMKiHFFAViyFVMfK7oxibATjvLMeTXWKtY2ID8xerkHw4ptlYZLTDdUPuzqGj59N0tggl%2BXfXAnXIoAGclwlPRlCkPoHmOvoXB4OUcFpUAFkS8w7tW6nw0jEKwYEufsm9Mvik2OswOnqvslfowB87gif30d9IdJz13yi8C2YUVP%2F7oME79buUSdY3xti2vL0HmwdZNroqILNDltdmGl5%2FNimbEk9%2FOJe%2BsTvnUJ1Yu8LsjyKGxGgIbVaEOshRc0HxTgmU%2FDboA3OD7Dhf1z4KrMtJn26I9Er9CIzQiyvjKNITFv199DEVVXUsM8ByuMrU3CfDOCZtN7TDngMTRBjqZAeG061WFKfwIYybgN1LH7KJrregQv6JgBdgrpyKOUXI8b2QI7atHoB0UIsyn9A9biiSCZxNkuQxneRHvmK0eMsgtQboCMTY6nfbqn1txCG%2B%2BGUEsNBdPoQCYgYm11Q7EhANgFMm6J8wPKd7yEzt8gps9xtERN7V435C3b5Pkr4iTN4paYcVzA9T9fWecwwfd3i7YAAtIUT%2FYOQ%3D%3D&Expires=1781599802",
+        "target_type": "absolute_url",
+        "text": "[ppl-ai-file-upload.s3.amazonaws"
+      },
+      {
+        "line": 75,
+        "normalized_target": "https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/104634686/13b2e954-11a3-4f12-bdcd-92149c4ca2d3/ranking-and-validation-rules-6.md?AWSAccessKeyId=ASIA2F3EMEYESFNGTRGI&Signature=OcZkzGW9kFVDaodnkERNKLE%2Fu9w%3D&x-amz-security-token=IQoJb3JpZ2luX2VjEKj%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJGMEQCIFRKpeaook%2FvVtyfjdakbeGjYRGQUSW2DCDqu1OXJz8tAiAyqVyJr43yJctrMpeT9YLtUkUbm5x2rmPjibbrves%2B%2BSrzBAhxEAEaDDY5OTc1MzMwOTcwNSIMYxyLj0af2F1EeC4KKtAEF52WOW4FsOC1ZPiUyq1b2NyJpfGwk6XIAStg1OX37q2g6KOCz2pATMGT6t1veHk%2FP5JD3igI98FiLgl%2BW0kYa7fB1vvaHS9453H%2FaZsRbN7ZE1NZF148Gq9by7VVe5i9Wmvv1yS2JkvI1CTpjn2Mczcv5Z%2FI%2BhOvsdmWBsabI5caVLm95n31ITS2t1PME2wp0g6nCZVu3IYOQRMhRbj3nOqb3ItYKLgGmRmYaVJJb7a%2BnNDq7KbYAyXXCI6cC7B3SIC6ZLwAVpMeRKrpEajDp0Xx%2F2%2FircKFBu4KPapg12Z0S7jnaLWAP6m%2Bd8%2FDlwRpgQXI2uuG6GMEuOyfR58L%2Fw%2FJ8XDH4agTGvfyxyViVtvqfIU1q0l95sWRuPl8vFPcdNn05MhUGcVaGkdhvmOTwhW6yDyk7Y66pMSdsfDyoPta%2B%2FH8NVVTAuMLCMDz1bwmls6dpFwotmUMKiHFFAViyFVMfK7oxibATjvLMeTXWKtY2ID8xerkHw4ptlYZLTDdUPuzqGj59N0tggl%2BXfXAnXIoAGclwlPRlCkPoHmOvoXB4OUcFpUAFkS8w7tW6nw0jEKwYEufsm9Mvik2OswOnqvslfowB87gif30d9IdJz13yi8C2YUVP%2F7oME79buUSdY3xti2vL0HmwdZNroqILNDltdmGl5%2FNimbEk9%2FOJe%2BsTvnUJ1Yu8LsjyKGxGgIbVaEOshRc0HxTgmU%2FDboA3OD7Dhf1z4KrMtJn26I9Er9CIzQiyvjKNITFv199DEVVXUsM8ByuMrU3CfDOCZtN7TDngMTRBjqZAeG061WFKfwIYybgN1LH7KJrregQv6JgBdgrpyKOUXI8b2QI7atHoB0UIsyn9A9biiSCZxNkuQxneRHvmK0eMsgtQboCMTY6nfbqn1txCG%2B%2BGUEsNBdPoQCYgYm11Q7EhANgFMm6J8wPKd7yEzt8gps9xtERN7V435C3b5Pkr4iTN4paYcVzA9T9fWecwwfd3i7YAAtIUT%2FYOQ%3D%3D&Expires=1781599802",
+        "target": "https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/104634686/13b2e954-11a3-4f12-bdcd-92149c4ca2d3/ranking-and-validation-rules-6.md?AWSAccessKeyId=ASIA2F3EMEYESFNGTRGI&Signature=OcZkzGW9kFVDaodnkERNKLE%2Fu9w%3D&x-amz-security-token=IQoJb3JpZ2luX2VjEKj%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJGMEQCIFRKpeaook%2FvVtyfjdakbeGjYRGQUSW2DCDqu1OXJz8tAiAyqVyJr43yJctrMpeT9YLtUkUbm5x2rmPjibbrves%2B%2BSrzBAhxEAEaDDY5OTc1MzMwOTcwNSIMYxyLj0af2F1EeC4KKtAEF52WOW4FsOC1ZPiUyq1b2NyJpfGwk6XIAStg1OX37q2g6KOCz2pATMGT6t1veHk%2FP5JD3igI98FiLgl%2BW0kYa7fB1vvaHS9453H%2FaZsRbN7ZE1NZF148Gq9by7VVe5i9Wmvv1yS2JkvI1CTpjn2Mczcv5Z%2FI%2BhOvsdmWBsabI5caVLm95n31ITS2t1PME2wp0g6nCZVu3IYOQRMhRbj3nOqb3ItYKLgGmRmYaVJJb7a%2BnNDq7KbYAyXXCI6cC7B3SIC6ZLwAVpMeRKrpEajDp0Xx%2F2%2FircKFBu4KPapg12Z0S7jnaLWAP6m%2Bd8%2FDlwRpgQXI2uuG6GMEuOyfR58L%2Fw%2FJ8XDH4agTGvfyxyViVtvqfIU1q0l95sWRuPl8vFPcdNn05MhUGcVaGkdhvmOTwhW6yDyk7Y66pMSdsfDyoPta%2B%2FH8NVVTAuMLCMDz1bwmls6dpFwotmUMKiHFFAViyFVMfK7oxibATjvLMeTXWKtY2ID8xerkHw4ptlYZLTDdUPuzqGj59N0tggl%2BXfXAnXIoAGclwlPRlCkPoHmOvoXB4OUcFpUAFkS8w7tW6nw0jEKwYEufsm9Mvik2OswOnqvslfowB87gif30d9IdJz13yi8C2YUVP%2F7oME79buUSdY3xti2vL0HmwdZNroqILNDltdmGl5%2FNimbEk9%2FOJe%2BsTvnUJ1Yu8LsjyKGxGgIbVaEOshRc0HxTgmU%2FDboA3OD7Dhf1z4KrMtJn26I9Er9CIzQiyvjKNITFv199DEVVXUsM8ByuMrU3CfDOCZtN7TDngMTRBjqZAeG061WFKfwIYybgN1LH7KJrregQv6JgBdgrpyKOUXI8b2QI7atHoB0UIsyn9A9biiSCZxNkuQxneRHvmK0eMsgtQboCMTY6nfbqn1txCG%2B%2BGUEsNBdPoQCYgYm11Q7EhANgFMm6J8wPKd7yEzt8gps9xtERN7V435C3b5Pkr4iTN4paYcVzA9T9fWecwwfd3i7YAAtIUT%2FYOQ%3D%3D&Expires=1781599802",
+        "target_type": "absolute_url",
+        "text": "[ppl-ai-file-upload.s3.amazonaws"
+      },
+      {
+        "line": 96,
+        "normalized_target": "https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/104634686/c3b490ae-f89d-430a-b50f-06a3d7136972/package-manifest-2.md?AWSAccessKeyId=ASIA2F3EMEYESFNGTRGI&Signature=ZeEyw1ciHpM31wEKS3j1p1cso0E%3D&x-amz-security-token=IQoJb3JpZ2luX2VjEKj%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJGMEQCIFRKpeaook%2FvVtyfjdakbeGjYRGQUSW2DCDqu1OXJz8tAiAyqVyJr43yJctrMpeT9YLtUkUbm5x2rmPjibbrves%2B%2BSrzBAhxEAEaDDY5OTc1MzMwOTcwNSIMYxyLj0af2F1EeC4KKtAEF52WOW4FsOC1ZPiUyq1b2NyJpfGwk6XIAStg1OX37q2g6KOCz2pATMGT6t1veHk%2FP5JD3igI98FiLgl%2BW0kYa7fB1vvaHS9453H%2FaZsRbN7ZE1NZF148Gq9by7VVe5i9Wmvv1yS2JkvI1CTpjn2Mczcv5Z%2FI%2BhOvsdmWBsabI5caVLm95n31ITS2t1PME2wp0g6nCZVu3IYOQRMhRbj3nOqb3ItYKLgGmRmYaVJJb7a%2BnNDq7KbYAyXXCI6cC7B3SIC6ZLwAVpMeRKrpEajDp0Xx%2F2%2FircKFBu4KPapg12Z0S7jnaLWAP6m%2Bd8%2FDlwRpgQXI2uuG6GMEuOyfR58L%2Fw%2FJ8XDH4agTGvfyxyViVtvqfIU1q0l95sWRuPl8vFPcdNn05MhUGcVaGkdhvmOTwhW6yDyk7Y66pMSdsfDyoPta%2B%2FH8NVVTAuMLCMDz1bwmls6dpFwotmUMKiHFFAViyFVMfK7oxibATjvLMeTXWKtY2ID8xerkHw4ptlYZLTDdUPuzqGj59N0tggl%2BXfXAnXIoAGclwlPRlCkPoHmOvoXB4OUcFpUAFkS8w7tW6nw0jEKwYEufsm9Mvik2OswOnqvslfowB87gif30d9IdJz13yi8C2YUVP%2F7oME79buUSdY3xti2vL0HmwdZNroqILNDltdmGl5%2FNimbEk9%2FOJe%2BsTvnUJ1Yu8LsjyKGxGgIbVaEOshRc0HxTgmU%2FDboA3OD7Dhf1z4KrMtJn26I9Er9CIzQiyvjKNITFv199DEVVXUsM8ByuMrU3CfDOCZtN7TDngMTRBjqZAeG061WFKfwIYybgN1LH7KJrregQv6JgBdgrpyKOUXI8b2QI7atHoB0UIsyn9A9biiSCZxNkuQxneRHvmK0eMsgtQboCMTY6nfbqn1txCG%2B%2BGUEsNBdPoQCYgYm11Q7EhANgFMm6J8wPKd7yEzt8gps9xtERN7V435C3b5Pkr4iTN4paYcVzA9T9fWecwwfd3i7YAAtIUT%2FYOQ%3D%3D&Expires=1781599802",
+        "target": "https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/104634686/c3b490ae-f89d-430a-b50f-06a3d7136972/package-manifest-2.md?AWSAccessKeyId=ASIA2F3EMEYESFNGTRGI&Signature=ZeEyw1ciHpM31wEKS3j1p1cso0E%3D&x-amz-security-token=IQoJb3JpZ2luX2VjEKj%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJGMEQCIFRKpeaook%2FvVtyfjdakbeGjYRGQUSW2DCDqu1OXJz8tAiAyqVyJr43yJctrMpeT9YLtUkUbm5x2rmPjibbrves%2B%2BSrzBAhxEAEaDDY5OTc1MzMwOTcwNSIMYxyLj0af2F1EeC4KKtAEF52WOW4FsOC1ZPiUyq1b2NyJpfGwk6XIAStg1OX37q2g6KOCz2pATMGT6t1veHk%2FP5JD3igI98FiLgl%2BW0kYa7fB1vvaHS9453H%2FaZsRbN7ZE1NZF148Gq9by7VVe5i9Wmvv1yS2JkvI1CTpjn2Mczcv5Z%2FI%2BhOvsdmWBsabI5caVLm95n31ITS2t1PME2wp0g6nCZVu3IYOQRMhRbj3nOqb3ItYKLgGmRmYaVJJb7a%2BnNDq7KbYAyXXCI6cC7B3SIC6ZLwAVpMeRKrpEajDp0Xx%2F2%2FircKFBu4KPapg12Z0S7jnaLWAP6m%2Bd8%2FDlwRpgQXI2uuG6GMEuOyfR58L%2Fw%2FJ8XDH4agTGvfyxyViVtvqfIU1q0l95sWRuPl8vFPcdNn05MhUGcVaGkdhvmOTwhW6yDyk7Y66pMSdsfDyoPta%2B%2FH8NVVTAuMLCMDz1bwmls6dpFwotmUMKiHFFAViyFVMfK7oxibATjvLMeTXWKtY2ID8xerkHw4ptlYZLTDdUPuzqGj59N0tggl%2BXfXAnXIoAGclwlPRlCkPoHmOvoXB4OUcFpUAFkS8w7tW6nw0jEKwYEufsm9Mvik2OswOnqvslfowB87gif30d9IdJz13yi8C2YUVP%2F7oME79buUSdY3xti2vL0HmwdZNroqILNDltdmGl5%2FNimbEk9%2FOJe%2BsTvnUJ1Yu8LsjyKGxGgIbVaEOshRc0HxTgmU%2FDboA3OD7Dhf1z4KrMtJn26I9Er9CIzQiyvjKNITFv199DEVVXUsM8ByuMrU3CfDOCZtN7TDngMTRBjqZAeG061WFKfwIYybgN1LH7KJrregQv6JgBdgrpyKOUXI8b2QI7atHoB0UIsyn9A9biiSCZxNkuQxneRHvmK0eMsgtQboCMTY6nfbqn1txCG%2B%2BGUEsNBdPoQCYgYm11Q7EhANgFMm6J8wPKd7yEzt8gps9xtERN7V435C3b5Pkr4iTN4paYcVzA9T9fWecwwfd3i7YAAtIUT%2FYOQ%3D%3D&Expires=1781599802",
+        "target_type": "absolute_url",
+        "text": "[ppl-ai-file-upload.s3.amazonaws"
+      },
+      {
+        "line": 100,
+        "normalized_target": "https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/104634686/c3b490ae-f89d-430a-b50f-06a3d7136972/package-manifest-2.md?AWSAccessKeyId=ASIA2F3EMEYESFNGTRGI&Signature=ZeEyw1ciHpM31wEKS3j1p1cso0E%3D&x-amz-security-token=IQoJb3JpZ2luX2VjEKj%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJGMEQCIFRKpeaook%2FvVtyfjdakbeGjYRGQUSW2DCDqu1OXJz8tAiAyqVyJr43yJctrMpeT9YLtUkUbm5x2rmPjibbrves%2B%2BSrzBAhxEAEaDDY5OTc1MzMwOTcwNSIMYxyLj0af2F1EeC4KKtAEF52WOW4FsOC1ZPiUyq1b2NyJpfGwk6XIAStg1OX37q2g6KOCz2pATMGT6t1veHk%2FP5JD3igI98FiLgl%2BW0kYa7fB1vvaHS9453H%2FaZsRbN7ZE1NZF148Gq9by7VVe5i9Wmvv1yS2JkvI1CTpjn2Mczcv5Z%2FI%2BhOvsdmWBsabI5caVLm95n31ITS2t1PME2wp0g6nCZVu3IYOQRMhRbj3nOqb3ItYKLgGmRmYaVJJb7a%2BnNDq7KbYAyXXCI6cC7B3SIC6ZLwAVpMeRKrpEajDp0Xx%2F2%2FircKFBu4KPapg12Z0S7jnaLWAP6m%2Bd8%2FDlwRpgQXI2uuG6GMEuOyfR58L%2Fw%2FJ8XDH4agTGvfyxyViVtvqfIU1q0l95sWRuPl8vFPcdNn05MhUGcVaGkdhvmOTwhW6yDyk7Y66pMSdsfDyoPta%2B%2FH8NVVTAuMLCMDz1bwmls6dpFwotmUMKiHFFAViyFVMfK7oxibATjvLMeTXWKtY2ID8xerkHw4ptlYZLTDdUPuzqGj59N0tggl%2BXfXAnXIoAGclwlPRlCkPoHmOvoXB4OUcFpUAFkS8w7tW6nw0jEKwYEufsm9Mvik2OswOnqvslfowB87gif30d9IdJz13yi8C2YUVP%2F7oME79buUSdY3xti2vL0HmwdZNroqILNDltdmGl5%2FNimbEk9%2FOJe%2BsTvnUJ1Yu8LsjyKGxGgIbVaEOshRc0HxTgmU%2FDboA3OD7Dhf1z4KrMtJn26I9Er9CIzQiyvjKNITFv199DEVVXUsM8ByuMrU3CfDOCZtN7TDngMTRBjqZAeG061WFKfwIYybgN1LH7KJrregQv6JgBdgrpyKOUXI8b2QI7atHoB0UIsyn9A9biiSCZxNkuQxneRHvmK0eMsgtQboCMTY6nfbqn1txCG%2B%2BGUEsNBdPoQCYgYm11Q7EhANgFMm6J8wPKd7yEzt8gps9xtERN7V435C3b5Pkr4iTN4paYcVzA9T9fWecwwfd3i7YAAtIUT%2FYOQ%3D%3D&Expires=1781599802",
+        "target": "https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/104634686/c3b490ae-f89d-430a-b50f-06a3d7136972/package-manifest-2.md?AWSAccessKeyId=ASIA2F3EMEYESFNGTRGI&Signature=ZeEyw1ciHpM31wEKS3j1p1cso0E%3D&x-amz-security-token=IQoJb3JpZ2luX2VjEKj%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJGMEQCIFRKpeaook%2FvVtyfjdakbeGjYRGQUSW2DCDqu1OXJz8tAiAyqVyJr43yJctrMpeT9YLtUkUbm5x2rmPjibbrves%2B%2BSrzBAhxEAEaDDY5OTc1MzMwOTcwNSIMYxyLj0af2F1EeC4KKtAEF52WOW4FsOC1ZPiUyq1b2NyJpfGwk6XIAStg1OX37q2g6KOCz2pATMGT6t1veHk%2FP5JD3igI98FiLgl%2BW0kYa7fB1vvaHS9453H%2FaZsRbN7ZE1NZF148Gq9by7VVe5i9Wmvv1yS2JkvI1CTpjn2Mczcv5Z%2FI%2BhOvsdmWBsabI5caVLm95n31ITS2t1PME2wp0g6nCZVu3IYOQRMhRbj3nOqb3ItYKLgGmRmYaVJJb7a%2BnNDq7KbYAyXXCI6cC7B3SIC6ZLwAVpMeRKrpEajDp0Xx%2F2%2FircKFBu4KPapg12Z0S7jnaLWAP6m%2Bd8%2FDlwRpgQXI2uuG6GMEuOyfR58L%2Fw%2FJ8XDH4agTGvfyxyViVtvqfIU1q0l95sWRuPl8vFPcdNn05MhUGcVaGkdhvmOTwhW6yDyk7Y66pMSdsfDyoPta%2B%2FH8NVVTAuMLCMDz1bwmls6dpFwotmUMKiHFFAViyFVMfK7oxibATjvLMeTXWKtY2ID8xerkHw4ptlYZLTDdUPuzqGj59N0tggl%2BXfXAnXIoAGclwlPRlCkPoHmOvoXB4OUcFpUAFkS8w7tW6nw0jEKwYEufsm9Mvik2OswOnqvslfowB87gif30d9IdJz13yi8C2YUVP%2F7oME79buUSdY3xti2vL0HmwdZNroqILNDltdmGl5%2FNimbEk9%2FOJe%2BsTvnUJ1Yu8LsjyKGxGgIbVaEOshRc0HxTgmU%2FDboA3OD7Dhf1z4KrMtJn26I9Er9CIzQiyvjKNITFv199DEVVXUsM8ByuMrU3CfDOCZtN7TDngMTRBjqZAeG061WFKfwIYybgN1LH7KJrregQv6JgBdgrpyKOUXI8b2QI7atHoB0UIsyn9A9biiSCZxNkuQxneRHvmK0eMsgtQboCMTY6nfbqn1txCG%2B%2BGUEsNBdPoQCYgYm11Q7EhANgFMm6J8wPKd7yEzt8gps9xtERN7V435C3b5Pkr4iTN4paYcVzA9T9fWecwwfd3i7YAAtIUT%2FYOQ%3D%3D&Expires=1781599802",
+        "target_type": "absolute_url",
+        "text": "[ppl-ai-file-upload.s3.amazonaws"
+      },
+      {
+        "line": 119,
+        "normalized_target": "https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/104634686/e4495fd0-cde8-430d-bb22-63b30500b745/current-project-status-overview-template.md?AWSAccessKeyId=ASIA2F3EMEYESFNGTRGI&Signature=8vMulEGTcYwCCJfmuTPfsL6fYWs%3D&x-amz-security-token=IQoJb3JpZ2luX2VjEKj%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJGMEQCIFRKpeaook%2FvVtyfjdakbeGjYRGQUSW2DCDqu1OXJz8tAiAyqVyJr43yJctrMpeT9YLtUkUbm5x2rmPjibbrves%2B%2BSrzBAhxEAEaDDY5OTc1MzMwOTcwNSIMYxyLj0af2F1EeC4KKtAEF52WOW4FsOC1ZPiUyq1b2NyJpfGwk6XIAStg1OX37q2g6KOCz2pATMGT6t1veHk%2FP5JD3igI98FiLgl%2BW0kYa7fB1vvaHS9453H%2FaZsRbN7ZE1NZF148Gq9by7VVe5i9Wmvv1yS2JkvI1CTpjn2Mczcv5Z%2FI%2BhOvsdmWBsabI5caVLm95n31ITS2t1PME2wp0g6nCZVu3IYOQRMhRbj3nOqb3ItYKLgGmRmYaVJJb7a%2BnNDq7KbYAyXXCI6cC7B3SIC6ZLwAVpMeRKrpEajDp0Xx%2F2%2FircKFBu4KPapg12Z0S7jnaLWAP6m%2Bd8%2FDlwRpgQXI2uuG6GMEuOyfR58L%2Fw%2FJ8XDH4agTGvfyxyViVtvqfIU1q0l95sWRuPl8vFPcdNn05MhUGcVaGkdhvmOTwhW6yDyk7Y66pMSdsfDyoPta%2B%2FH8NVVTAuMLCMDz1bwmls6dpFwotmUMKiHFFAViyFVMfK7oxibATjvLMeTXWKtY2ID8xerkHw4ptlYZLTDdUPuzqGj59N0tggl%2BXfXAnXIoAGclwlPRlCkPoHmOvoXB4OUcFpUAFkS8w7tW6nw0jEKwYEufsm9Mvik2OswOnqvslfowB87gif30d9IdJz13yi8C2YUVP%2F7oME79buUSdY3xti2vL0HmwdZNroqILNDltdmGl5%2FNimbEk9%2FOJe%2BsTvnUJ1Yu8LsjyKGxGgIbVaEOshRc0HxTgmU%2FDboA3OD7Dhf1z4KrMtJn26I9Er9CIzQiyvjKNITFv199DEVVXUsM8ByuMrU3CfDOCZtN7TDngMTRBjqZAeG061WFKfwIYybgN1LH7KJrregQv6JgBdgrpyKOUXI8b2QI7atHoB0UIsyn9A9biiSCZxNkuQxneRHvmK0eMsgtQboCMTY6nfbqn1txCG%2B%2BGUEsNBdPoQCYgYm11Q7EhANgFMm6J8wPKd7yEzt8gps9xtERN7V435C3b5Pkr4iTN4paYcVzA9T9fWecwwfd3i7YAAtIUT%2FYOQ%3D%3D&Expires=1781599802",
+        "target": "https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/104634686/e4495fd0-cde8-430d-bb22-63b30500b745/current-project-status-overview-template.md?AWSAccessKeyId=ASIA2F3EMEYESFNGTRGI&Signature=8vMulEGTcYwCCJfmuTPfsL6fYWs%3D&x-amz-security-token=IQoJb3JpZ2luX2VjEKj%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJGMEQCIFRKpeaook%2FvVtyfjdakbeGjYRGQUSW2DCDqu1OXJz8tAiAyqVyJr43yJctrMpeT9YLtUkUbm5x2rmPjibbrves%2B%2BSrzBAhxEAEaDDY5OTc1MzMwOTcwNSIMYxyLj0af2F1EeC4KKtAEF52WOW4FsOC1ZPiUyq1b2NyJpfGwk6XIAStg1OX37q2g6KOCz2pATMGT6t1veHk%2FP5JD3igI98FiLgl%2BW0kYa7fB1vvaHS9453H%2FaZsRbN7ZE1NZF148Gq9by7VVe5i9Wmvv1yS2JkvI1CTpjn2Mczcv5Z%2FI%2BhOvsdmWBsabI5caVLm95n31ITS2t1PME2wp0g6nCZVu3IYOQRMhRbj3nOqb3ItYKLgGmRmYaVJJb7a%2BnNDq7KbYAyXXCI6cC7B3SIC6ZLwAVpMeRKrpEajDp0Xx%2F2%2FircKFBu4KPapg12Z0S7jnaLWAP6m%2Bd8%2FDlwRpgQXI2uuG6GMEuOyfR58L%2Fw%2FJ8XDH4agTGvfyxyViVtvqfIU1q0l95sWRuPl8vFPcdNn05MhUGcVaGkdhvmOTwhW6yDyk7Y66pMSdsfDyoPta%2B%2FH8NVVTAuMLCMDz1bwmls6dpFwotmUMKiHFFAViyFVMfK7oxibATjvLMeTXWKtY2ID8xerkHw4ptlYZLTDdUPuzqGj59N0tggl%2BXfXAnXIoAGclwlPRlCkPoHmOvoXB4OUcFpUAFkS8w7tW6nw0jEKwYEufsm9Mvik2OswOnqvslfowB87gif30d9IdJz13yi8C2YUVP%2F7oME79buUSdY3xti2vL0HmwdZNroqILNDltdmGl5%2FNimbEk9%2FOJe%2BsTvnUJ1Yu8LsjyKGxGgIbVaEOshRc0HxTgmU%2FDboA3OD7Dhf1z4KrMtJn26I9Er9CIzQiyvjKNITFv199DEVVXUsM8ByuMrU3CfDOCZtN7TDngMTRBjqZAeG061WFKfwIYybgN1LH7KJrregQv6JgBdgrpyKOUXI8b2QI7atHoB0UIsyn9A9biiSCZxNkuQxneRHvmK0eMsgtQboCMTY6nfbqn1txCG%2B%2BGUEsNBdPoQCYgYm11Q7EhANgFMm6J8wPKd7yEzt8gps9xtERN7V435C3b5Pkr4iTN4paYcVzA9T9fWecwwfd3i7YAAtIUT%2FYOQ%3D%3D&Expires=1781599802",
+        "target_type": "absolute_url",
+        "text": "[ppl-ai-file-upload.s3.amazonaws"
+      },
+      {
+        "line": 123,
+        "normalized_target": "https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/104634686/e4495fd0-cde8-430d-bb22-63b30500b745/current-project-status-overview-template.md?AWSAccessKeyId=ASIA2F3EMEYESFNGTRGI&Signature=8vMulEGTcYwCCJfmuTPfsL6fYWs%3D&x-amz-security-token=IQoJb3JpZ2luX2VjEKj%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJGMEQCIFRKpeaook%2FvVtyfjdakbeGjYRGQUSW2DCDqu1OXJz8tAiAyqVyJr43yJctrMpeT9YLtUkUbm5x2rmPjibbrves%2B%2BSrzBAhxEAEaDDY5OTc1MzMwOTcwNSIMYxyLj0af2F1EeC4KKtAEF52WOW4FsOC1ZPiUyq1b2NyJpfGwk6XIAStg1OX37q2g6KOCz2pATMGT6t1veHk%2FP5JD3igI98FiLgl%2BW0kYa7fB1vvaHS9453H%2FaZsRbN7ZE1NZF148Gq9by7VVe5i9Wmvv1yS2JkvI1CTpjn2Mczcv5Z%2FI%2BhOvsdmWBsabI5caVLm95n31ITS2t1PME2wp0g6nCZVu3IYOQRMhRbj3nOqb3ItYKLgGmRmYaVJJb7a%2BnNDq7KbYAyXXCI6cC7B3SIC6ZLwAVpMeRKrpEajDp0Xx%2F2%2FircKFBu4KPapg12Z0S7jnaLWAP6m%2Bd8%2FDlwRpgQXI2uuG6GMEuOyfR58L%2Fw%2FJ8XDH4agTGvfyxyViVtvqfIU1q0l95sWRuPl8vFPcdNn05MhUGcVaGkdhvmOTwhW6yDyk7Y66pMSdsfDyoPta%2B%2FH8NVVTAuMLCMDz1bwmls6dpFwotmUMKiHFFAViyFVMfK7oxibATjvLMeTXWKtY2ID8xerkHw4ptlYZLTDdUPuzqGj59N0tggl%2BXfXAnXIoAGclwlPRlCkPoHmOvoXB4OUcFpUAFkS8w7tW6nw0jEKwYEufsm9Mvik2OswOnqvslfowB87gif30d9IdJz13yi8C2YUVP%2F7oME79buUSdY3xti2vL0HmwdZNroqILNDltdmGl5%2FNimbEk9%2FOJe%2BsTvnUJ1Yu8LsjyKGxGgIbVaEOshRc0HxTgmU%2FDboA3OD7Dhf1z4KrMtJn26I9Er9CIzQiyvjKNITFv199DEVVXUsM8ByuMrU3CfDOCZtN7TDngMTRBjqZAeG061WFKfwIYybgN1LH7KJrregQv6JgBdgrpyKOUXI8b2QI7atHoB0UIsyn9A9biiSCZxNkuQxneRHvmK0eMsgtQboCMTY6nfbqn1txCG%2B%2BGUEsNBdPoQCYgYm11Q7EhANgFMm6J8wPKd7yEzt8gps9xtERN7V435C3b5Pkr4iTN4paYcVzA9T9fWecwwfd3i7YAAtIUT%2FYOQ%3D%3D&Expires=1781599802",
+        "target": "https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/104634686/e4495fd0-cde8-430d-bb22-63b30500b745/current-project-status-overview-template.md?AWSAccessKeyId=ASIA2F3EMEYESFNGTRGI&Signature=8vMulEGTcYwCCJfmuTPfsL6fYWs%3D&x-amz-security-token=IQoJb3JpZ2luX2VjEKj%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJGMEQCIFRKpeaook%2FvVtyfjdakbeGjYRGQUSW2DCDqu1OXJz8tAiAyqVyJr43yJctrMpeT9YLtUkUbm5x2rmPjibbrves%2B%2BSrzBAhxEAEaDDY5OTc1MzMwOTcwNSIMYxyLj0af2F1EeC4KKtAEF52WOW4FsOC1ZPiUyq1b2NyJpfGwk6XIAStg1OX37q2g6KOCz2pATMGT6t1veHk%2FP5JD3igI98FiLgl%2BW0kYa7fB1vvaHS9453H%2FaZsRbN7ZE1NZF148Gq9by7VVe5i9Wmvv1yS2JkvI1CTpjn2Mczcv5Z%2FI%2BhOvsdmWBsabI5caVLm95n31ITS2t1PME2wp0g6nCZVu3IYOQRMhRbj3nOqb3ItYKLgGmRmYaVJJb7a%2BnNDq7KbYAyXXCI6cC7B3SIC6ZLwAVpMeRKrpEajDp0Xx%2F2%2FircKFBu4KPapg12Z0S7jnaLWAP6m%2Bd8%2FDlwRpgQXI2uuG6GMEuOyfR58L%2Fw%2FJ8XDH4agTGvfyxyViVtvqfIU1q0l95sWRuPl8vFPcdNn05MhUGcVaGkdhvmOTwhW6yDyk7Y66pMSdsfDyoPta%2B%2FH8NVVTAuMLCMDz1bwmls6dpFwotmUMKiHFFAViyFVMfK7oxibATjvLMeTXWKtY2ID8xerkHw4ptlYZLTDdUPuzqGj59N0tggl%2BXfXAnXIoAGclwlPRlCkPoHmOvoXB4OUcFpUAFkS8w7tW6nw0jEKwYEufsm9Mvik2OswOnqvslfowB87gif30d9IdJz13yi8C2YUVP%2F7oME79buUSdY3xti2vL0HmwdZNroqILNDltdmGl5%2FNimbEk9%2FOJe%2BsTvnUJ1Yu8LsjyKGxGgIbVaEOshRc0HxTgmU%2FDboA3OD7Dhf1z4KrMtJn26I9Er9CIzQiyvjKNITFv199DEVVXUsM8ByuMrU3CfDOCZtN7TDngMTRBjqZAeG061WFKfwIYybgN1LH7KJrregQv6JgBdgrpyKOUXI8b2QI7atHoB0UIsyn9A9biiSCZxNkuQxneRHvmK0eMsgtQboCMTY6nfbqn1txCG%2B%2BGUEsNBdPoQCYgYm11Q7EhANgFMm6J8wPKd7yEzt8gps9xtERN7V435C3b5Pkr4iTN4paYcVzA9T9fWecwwfd3i7YAAtIUT%2FYOQ%3D%3D&Expires=1781599802",
+        "target_type": "absolute_url",
+        "text": "[ppl-ai-file-upload.s3.amazonaws"
+      },
+      {
+        "line": 138,
+        "normalized_target": "https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/104634686/c83c1401-fdbc-437b-a260-68e6b6e6f593/starter-manual-test-overview-7.md?AWSAccessKeyId=ASIA2F3EMEYESFNGTRGI&Signature=mKyCJdGCRsgqx52R9%2FeDUVTE6Qk%3D&x-amz-security-token=IQoJb3JpZ2luX2VjEKj%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJGMEQCIFRKpeaook%2FvVtyfjdakbeGjYRGQUSW2DCDqu1OXJz8tAiAyqVyJr43yJctrMpeT9YLtUkUbm5x2rmPjibbrves%2B%2BSrzBAhxEAEaDDY5OTc1MzMwOTcwNSIMYxyLj0af2F1EeC4KKtAEF52WOW4FsOC1ZPiUyq1b2NyJpfGwk6XIAStg1OX37q2g6KOCz2pATMGT6t1veHk%2FP5JD3igI98FiLgl%2BW0kYa7fB1vvaHS9453H%2FaZsRbN7ZE1NZF148Gq9by7VVe5i9Wmvv1yS2JkvI1CTpjn2Mczcv5Z%2FI%2BhOvsdmWBsabI5caVLm95n31ITS2t1PME2wp0g6nCZVu3IYOQRMhRbj3nOqb3ItYKLgGmRmYaVJJb7a%2BnNDq7KbYAyXXCI6cC7B3SIC6ZLwAVpMeRKrpEajDp0Xx%2F2%2FircKFBu4KPapg12Z0S7jnaLWAP6m%2Bd8%2FDlwRpgQXI2uuG6GMEuOyfR58L%2Fw%2FJ8XDH4agTGvfyxyViVtvqfIU1q0l95sWRuPl8vFPcdNn05MhUGcVaGkdhvmOTwhW6yDyk7Y66pMSdsfDyoPta%2B%2FH8NVVTAuMLCMDz1bwmls6dpFwotmUMKiHFFAViyFVMfK7oxibATjvLMeTXWKtY2ID8xerkHw4ptlYZLTDdUPuzqGj59N0tggl%2BXfXAnXIoAGclwlPRlCkPoHmOvoXB4OUcFpUAFkS8w7tW6nw0jEKwYEufsm9Mvik2OswOnqvslfowB87gif30d9IdJz13yi8C2YUVP%2F7oME79buUSdY3xti2vL0HmwdZNroqILNDltdmGl5%2FNimbEk9%2FOJe%2BsTvnUJ1Yu8LsjyKGxGgIbVaEOshRc0HxTgmU%2FDboA3OD7Dhf1z4KrMtJn26I9Er9CIzQiyvjKNITFv199DEVVXUsM8ByuMrU3CfDOCZtN7TDngMTRBjqZAeG061WFKfwIYybgN1LH7KJrregQv6JgBdgrpyKOUXI8b2QI7atHoB0UIsyn9A9biiSCZxNkuQxneRHvmK0eMsgtQboCMTY6nfbqn1txCG%2B%2BGUEsNBdPoQCYgYm11Q7EhANgFMm6J8wPKd7yEzt8gps9xtERN7V435C3b5Pkr4iTN4paYcVzA9T9fWecwwfd3i7YAAtIUT%2FYOQ%3D%3D&Expires=1781599802",
+        "target": "https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/104634686/c83c1401-fdbc-437b-a260-68e6b6e6f593/starter-manual-test-overview-7.md?AWSAccessKeyId=ASIA2F3EMEYESFNGTRGI&Signature=mKyCJdGCRsgqx52R9%2FeDUVTE6Qk%3D&x-amz-security-token=IQoJb3JpZ2luX2VjEKj%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJGMEQCIFRKpeaook%2FvVtyfjdakbeGjYRGQUSW2DCDqu1OXJz8tAiAyqVyJr43yJctrMpeT9YLtUkUbm5x2rmPjibbrves%2B%2BSrzBAhxEAEaDDY5OTc1MzMwOTcwNSIMYxyLj0af2F1EeC4KKtAEF52WOW4FsOC1ZPiUyq1b2NyJpfGwk6XIAStg1OX37q2g6KOCz2pATMGT6t1veHk%2FP5JD3igI98FiLgl%2BW0kYa7fB1vvaHS9453H%2FaZsRbN7ZE1NZF148Gq9by7VVe5i9Wmvv1yS2JkvI1CTpjn2Mczcv5Z%2FI%2BhOvsdmWBsabI5caVLm95n31ITS2t1PME2wp0g6nCZVu3IYOQRMhRbj3nOqb3ItYKLgGmRmYaVJJb7a%2BnNDq7KbYAyXXCI6cC7B3SIC6ZLwAVpMeRKrpEajDp0Xx%2F2%2FircKFBu4KPapg12Z0S7jnaLWAP6m%2Bd8%2FDlwRpgQXI2uuG6GMEuOyfR58L%2Fw%2FJ8XDH4agTGvfyxyViVtvqfIU1q0l95sWRuPl8vFPcdNn05MhUGcVaGkdhvmOTwhW6yDyk7Y66pMSdsfDyoPta%2B%2FH8NVVTAuMLCMDz1bwmls6dpFwotmUMKiHFFAViyFVMfK7oxibATjvLMeTXWKtY2ID8xerkHw4ptlYZLTDdUPuzqGj59N0tggl%2BXfXAnXIoAGclwlPRlCkPoHmOvoXB4OUcFpUAFkS8w7tW6nw0jEKwYEufsm9Mvik2OswOnqvslfowB87gif30d9IdJz13yi8C2YUVP%2F7oME79buUSdY3xti2vL0HmwdZNroqILNDltdmGl5%2FNimbEk9%2FOJe%2BsTvnUJ1Yu8LsjyKGxGgIbVaEOshRc0HxTgmU%2FDboA3OD7Dhf1z4KrMtJn26I9Er9CIzQiyvjKNITFv199DEVVXUsM8ByuMrU3CfDOCZtN7TDngMTRBjqZAeG061WFKfwIYybgN1LH7KJrregQv6JgBdgrpyKOUXI8b2QI7atHoB0UIsyn9A9biiSCZxNkuQxneRHvmK0eMsgtQboCMTY6nfbqn1txCG%2B%2BGUEsNBdPoQCYgYm11Q7EhANgFMm6J8wPKd7yEzt8gps9xtERN7V435C3b5Pkr4iTN4paYcVzA9T9fWecwwfd3i7YAAtIUT%2FYOQ%3D%3D&Expires=1781599802",
+        "target_type": "absolute_url",
+        "text": "[ppl-ai-file-upload.s3.amazonaws"
+      },
+      {
+        "line": 142,
+        "normalized_target": "https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/104634686/c83c1401-fdbc-437b-a260-68e6b6e6f593/starter-manual-test-overview-7.md?AWSAccessKeyId=ASIA2F3EMEYESFNGTRGI&Signature=mKyCJdGCRsgqx52R9%2FeDUVTE6Qk%3D&x-amz-security-token=IQoJb3JpZ2luX2VjEKj%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJGMEQCIFRKpeaook%2FvVtyfjdakbeGjYRGQUSW2DCDqu1OXJz8tAiAyqVyJr43yJctrMpeT9YLtUkUbm5x2rmPjibbrves%2B%2BSrzBAhxEAEaDDY5OTc1MzMwOTcwNSIMYxyLj0af2F1EeC4KKtAEF52WOW4FsOC1ZPiUyq1b2NyJpfGwk6XIAStg1OX37q2g6KOCz2pATMGT6t1veHk%2FP5JD3igI98FiLgl%2BW0kYa7fB1vvaHS9453H%2FaZsRbN7ZE1NZF148Gq9by7VVe5i9Wmvv1yS2JkvI1CTpjn2Mczcv5Z%2FI%2BhOvsdmWBsabI5caVLm95n31ITS2t1PME2wp0g6nCZVu3IYOQRMhRbj3nOqb3ItYKLgGmRmYaVJJb7a%2BnNDq7KbYAyXXCI6cC7B3SIC6ZLwAVpMeRKrpEajDp0Xx%2F2%2FircKFBu4KPapg12Z0S7jnaLWAP6m%2Bd8%2FDlwRpgQXI2uuG6GMEuOyfR58L%2Fw%2FJ8XDH4agTGvfyxyViVtvqfIU1q0l95sWRuPl8vFPcdNn05MhUGcVaGkdhvmOTwhW6yDyk7Y66pMSdsfDyoPta%2B%2FH8NVVTAuMLCMDz1bwmls6dpFwotmUMKiHFFAViyFVMfK7oxibATjvLMeTXWKtY2ID8xerkHw4ptlYZLTDdUPuzqGj59N0tggl%2BXfXAnXIoAGclwlPRlCkPoHmOvoXB4OUcFpUAFkS8w7tW6nw0jEKwYEufsm9Mvik2OswOnqvslfowB87gif30d9IdJz13yi8C2YUVP%2F7oME79buUSdY3xti2vL0HmwdZNroqILNDltdmGl5%2FNimbEk9%2FOJe%2BsTvnUJ1Yu8LsjyKGxGgIbVaEOshRc0HxTgmU%2FDboA3OD7Dhf1z4KrMtJn26I9Er9CIzQiyvjKNITFv199DEVVXUsM8ByuMrU3CfDOCZtN7TDngMTRBjqZAeG061WFKfwIYybgN1LH7KJrregQv6JgBdgrpyKOUXI8b2QI7atHoB0UIsyn9A9biiSCZxNkuQxneRHvmK0eMsgtQboCMTY6nfbqn1txCG%2B%2BGUEsNBdPoQCYgYm11Q7EhANgFMm6J8wPKd7yEzt8gps9xtERN7V435C3b5Pkr4iTN4paYcVzA9T9fWecwwfd3i7YAAtIUT%2FYOQ%3D%3D&Expires=1781599802",
+        "target": "https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/104634686/c83c1401-fdbc-437b-a260-68e6b6e6f593/starter-manual-test-overview-7.md?AWSAccessKeyId=ASIA2F3EMEYESFNGTRGI&Signature=mKyCJdGCRsgqx52R9%2FeDUVTE6Qk%3D&x-amz-security-token=IQoJb3JpZ2luX2VjEKj%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJGMEQCIFRKpeaook%2FvVtyfjdakbeGjYRGQUSW2DCDqu1OXJz8tAiAyqVyJr43yJctrMpeT9YLtUkUbm5x2rmPjibbrves%2B%2BSrzBAhxEAEaDDY5OTc1MzMwOTcwNSIMYxyLj0af2F1EeC4KKtAEF52WOW4FsOC1ZPiUyq1b2NyJpfGwk6XIAStg1OX37q2g6KOCz2pATMGT6t1veHk%2FP5JD3igI98FiLgl%2BW0kYa7fB1vvaHS9453H%2FaZsRbN7ZE1NZF148Gq9by7VVe5i9Wmvv1yS2JkvI1CTpjn2Mczcv5Z%2FI%2BhOvsdmWBsabI5caVLm95n31ITS2t1PME2wp0g6nCZVu3IYOQRMhRbj3nOqb3ItYKLgGmRmYaVJJb7a%2BnNDq7KbYAyXXCI6cC7B3SIC6ZLwAVpMeRKrpEajDp0Xx%2F2%2FircKFBu4KPapg12Z0S7jnaLWAP6m%2Bd8%2FDlwRpgQXI2uuG6GMEuOyfR58L%2Fw%2FJ8XDH4agTGvfyxyViVtvqfIU1q0l95sWRuPl8vFPcdNn05MhUGcVaGkdhvmOTwhW6yDyk7Y66pMSdsfDyoPta%2B%2FH8NVVTAuMLCMDz1bwmls6dpFwotmUMKiHFFAViyFVMfK7oxibATjvLMeTXWKtY2ID8xerkHw4ptlYZLTDdUPuzqGj59N0tggl%2BXfXAnXIoAGclwlPRlCkPoHmOvoXB4OUcFpUAFkS8w7tW6nw0jEKwYEufsm9Mvik2OswOnqvslfowB87gif30d9IdJz13yi8C2YUVP%2F7oME79buUSdY3xti2vL0HmwdZNroqILNDltdmGl5%2FNimbEk9%2FOJe%2BsTvnUJ1Yu8LsjyKGxGgIbVaEOshRc0HxTgmU%2FDboA3OD7Dhf1z4KrMtJn26I9Er9CIzQiyvjKNITFv199DEVVXUsM8ByuMrU3CfDOCZtN7TDngMTRBjqZAeG061WFKfwIYybgN1LH7KJrregQv6JgBdgrpyKOUXI8b2QI7atHoB0UIsyn9A9biiSCZxNkuQxneRHvmK0eMsgtQboCMTY6nfbqn1txCG%2B%2BGUEsNBdPoQCYgYm11Q7EhANgFMm6J8wPKd7yEzt8gps9xtERN7V435C3b5Pkr4iTN4paYcVzA9T9fWecwwfd3i7YAAtIUT%2FYOQ%3D%3D&Expires=1781599802",
+        "target_type": "absolute_url",
+        "text": "[ppl-ai-file-upload.s3.amazonaws"
+      },
+      {
+        "line": 150,
+        "normalized_target": "https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/104634686/1ae29411-851b-43d2-bd1a-c994f45b1a71/PromptFLow-5.md?AWSAccessKeyId=ASIA2F3EMEYESFNGTRGI&Signature=x5bfbb%2FLDmd8T%2F2fiIxLjx0V2jU%3D&x-amz-security-token=IQoJb3JpZ2luX2VjEKj%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJGMEQCIFRKpeaook%2FvVtyfjdakbeGjYRGQUSW2DCDqu1OXJz8tAiAyqVyJr43yJctrMpeT9YLtUkUbm5x2rmPjibbrves%2B%2BSrzBAhxEAEaDDY5OTc1MzMwOTcwNSIMYxyLj0af2F1EeC4KKtAEF52WOW4FsOC1ZPiUyq1b2NyJpfGwk6XIAStg1OX37q2g6KOCz2pATMGT6t1veHk%2FP5JD3igI98FiLgl%2BW0kYa7fB1vvaHS9453H%2FaZsRbN7ZE1NZF148Gq9by7VVe5i9Wmvv1yS2JkvI1CTpjn2Mczcv5Z%2FI%2BhOvsdmWBsabI5caVLm95n31ITS2t1PME2wp0g6nCZVu3IYOQRMhRbj3nOqb3ItYKLgGmRmYaVJJb7a%2BnNDq7KbYAyXXCI6cC7B3SIC6ZLwAVpMeRKrpEajDp0Xx%2F2%2FircKFBu4KPapg12Z0S7jnaLWAP6m%2Bd8%2FDlwRpgQXI2uuG6GMEuOyfR58L%2Fw%2FJ8XDH4agTGvfyxyViVtvqfIU1q0l95sWRuPl8vFPcdNn05MhUGcVaGkdhvmOTwhW6yDyk7Y66pMSdsfDyoPta%2B%2FH8NVVTAuMLCMDz1bwmls6dpFwotmUMKiHFFAViyFVMfK7oxibATjvLMeTXWKtY2ID8xerkHw4ptlYZLTDdUPuzqGj59N0tggl%2BXfXAnXIoAGclwlPRlCkPoHmOvoXB4OUcFpUAFkS8w7tW6nw0jEKwYEufsm9Mvik2OswOnqvslfowB87gif30d9IdJz13yi8C2YUVP%2F7oME79buUSdY3xti2vL0HmwdZNroqILNDltdmGl5%2FNimbEk9%2FOJe%2BsTvnUJ1Yu8LsjyKGxGgIbVaEOshRc0HxTgmU%2FDboA3OD7Dhf1z4KrMtJn26I9Er9CIzQiyvjKNITFv199DEVVXUsM8ByuMrU3CfDOCZtN7TDngMTRBjqZAeG061WFKfwIYybgN1LH7KJrregQv6JgBdgrpyKOUXI8b2QI7atHoB0UIsyn9A9biiSCZxNkuQxneRHvmK0eMsgtQboCMTY6nfbqn1txCG%2B%2BGUEsNBdPoQCYgYm11Q7EhANgFMm6J8wPKd7yEzt8gps9xtERN7V435C3b5Pkr4iTN4paYcVzA9T9fWecwwfd3i7YAAtIUT%2FYOQ%3D%3D&Expires=1781599802",
+        "target": "https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/104634686/1ae29411-851b-43d2-bd1a-c994f45b1a71/PromptFLow-5.md?AWSAccessKeyId=ASIA2F3EMEYESFNGTRGI&Signature=x5bfbb%2FLDmd8T%2F2fiIxLjx0V2jU%3D&x-amz-security-token=IQoJb3JpZ2luX2VjEKj%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJGMEQCIFRKpeaook%2FvVtyfjdakbeGjYRGQUSW2DCDqu1OXJz8tAiAyqVyJr43yJctrMpeT9YLtUkUbm5x2rmPjibbrves%2B%2BSrzBAhxEAEaDDY5OTc1MzMwOTcwNSIMYxyLj0af2F1EeC4KKtAEF52WOW4FsOC1ZPiUyq1b2NyJpfGwk6XIAStg1OX37q2g6KOCz2pATMGT6t1veHk%2FP5JD3igI98FiLgl%2BW0kYa7fB1vvaHS9453H%2FaZsRbN7ZE1NZF148Gq9by7VVe5i9Wmvv1yS2JkvI1CTpjn2Mczcv5Z%2FI%2BhOvsdmWBsabI5caVLm95n31ITS2t1PME2wp0g6nCZVu3IYOQRMhRbj3nOqb3ItYKLgGmRmYaVJJb7a%2BnNDq7KbYAyXXCI6cC7B3SIC6ZLwAVpMeRKrpEajDp0Xx%2F2%2FircKFBu4KPapg12Z0S7jnaLWAP6m%2Bd8%2FDlwRpgQXI2uuG6GMEuOyfR58L%2Fw%2FJ8XDH4agTGvfyxyViVtvqfIU1q0l95sWRuPl8vFPcdNn05MhUGcVaGkdhvmOTwhW6yDyk7Y66pMSdsfDyoPta%2B%2FH8NVVTAuMLCMDz1bwmls6dpFwotmUMKiHFFAViyFVMfK7oxibATjvLMeTXWKtY2ID8xerkHw4ptlYZLTDdUPuzqGj59N0tggl%2BXfXAnXIoAGclwlPRlCkPoHmOvoXB4OUcFpUAFkS8w7tW6nw0jEKwYEufsm9Mvik2OswOnqvslfowB87gif30d9IdJz13yi8C2YUVP%2F7oME79buUSdY3xti2vL0HmwdZNroqILNDltdmGl5%2FNimbEk9%2FOJe%2BsTvnUJ1Yu8LsjyKGxGgIbVaEOshRc0HxTgmU%2FDboA3OD7Dhf1z4KrMtJn26I9Er9CIzQiyvjKNITFv199DEVVXUsM8ByuMrU3CfDOCZtN7TDngMTRBjqZAeG061WFKfwIYybgN1LH7KJrregQv6JgBdgrpyKOUXI8b2QI7atHoB0UIsyn9A9biiSCZxNkuQxneRHvmK0eMsgtQboCMTY6nfbqn1txCG%2B%2BGUEsNBdPoQCYgYm11Q7EhANgFMm6J8wPKd7yEzt8gps9xtERN7V435C3b5Pkr4iTN4paYcVzA9T9fWecwwfd3i7YAAtIUT%2FYOQ%3D%3D&Expires=1781599802",
+        "target_type": "absolute_url",
+        "text": "[ppl-ai-file-upload.s3.amazonaws"
+      },
+      {
+        "line": 154,
+        "normalized_target": "https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/104634686/1ae29411-851b-43d2-bd1a-c994f45b1a71/PromptFLow-5.md?AWSAccessKeyId=ASIA2F3EMEYESFNGTRGI&Signature=x5bfbb%2FLDmd8T%2F2fiIxLjx0V2jU%3D&x-amz-security-token=IQoJb3JpZ2luX2VjEKj%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJGMEQCIFRKpeaook%2FvVtyfjdakbeGjYRGQUSW2DCDqu1OXJz8tAiAyqVyJr43yJctrMpeT9YLtUkUbm5x2rmPjibbrves%2B%2BSrzBAhxEAEaDDY5OTc1MzMwOTcwNSIMYxyLj0af2F1EeC4KKtAEF52WOW4FsOC1ZPiUyq1b2NyJpfGwk6XIAStg1OX37q2g6KOCz2pATMGT6t1veHk%2FP5JD3igI98FiLgl%2BW0kYa7fB1vvaHS9453H%2FaZsRbN7ZE1NZF148Gq9by7VVe5i9Wmvv1yS2JkvI1CTpjn2Mczcv5Z%2FI%2BhOvsdmWBsabI5caVLm95n31ITS2t1PME2wp0g6nCZVu3IYOQRMhRbj3nOqb3ItYKLgGmRmYaVJJb7a%2BnNDq7KbYAyXXCI6cC7B3SIC6ZLwAVpMeRKrpEajDp0Xx%2F2%2FircKFBu4KPapg12Z0S7jnaLWAP6m%2Bd8%2FDlwRpgQXI2uuG6GMEuOyfR58L%2Fw%2FJ8XDH4agTGvfyxyViVtvqfIU1q0l95sWRuPl8vFPcdNn05MhUGcVaGkdhvmOTwhW6yDyk7Y66pMSdsfDyoPta%2B%2FH8NVVTAuMLCMDz1bwmls6dpFwotmUMKiHFFAViyFVMfK7oxibATjvLMeTXWKtY2ID8xerkHw4ptlYZLTDdUPuzqGj59N0tggl%2BXfXAnXIoAGclwlPRlCkPoHmOvoXB4OUcFpUAFkS8w7tW6nw0jEKwYEufsm9Mvik2OswOnqvslfowB87gif30d9IdJz13yi8C2YUVP%2F7oME79buUSdY3xti2vL0HmwdZNroqILNDltdmGl5%2FNimbEk9%2FOJe%2BsTvnUJ1Yu8LsjyKGxGgIbVaEOshRc0HxTgmU%2FDboA3OD7Dhf1z4KrMtJn26I9Er9CIzQiyvjKNITFv199DEVVXUsM8ByuMrU3CfDOCZtN7TDngMTRBjqZAeG061WFKfwIYybgN1LH7KJrregQv6JgBdgrpyKOUXI8b2QI7atHoB0UIsyn9A9biiSCZxNkuQxneRHvmK0eMsgtQboCMTY6nfbqn1txCG%2B%2BGUEsNBdPoQCYgYm11Q7EhANgFMm6J8wPKd7yEzt8gps9xtERN7V435C3b5Pkr4iTN4paYcVzA9T9fWecwwfd3i7YAAtIUT%2FYOQ%3D%3D&Expires=1781599802",
+        "target": "https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/104634686/1ae29411-851b-43d2-bd1a-c994f45b1a71/PromptFLow-5.md?AWSAccessKeyId=ASIA2F3EMEYESFNGTRGI&Signature=x5bfbb%2FLDmd8T%2F2fiIxLjx0V2jU%3D&x-amz-security-token=IQoJb3JpZ2luX2VjEKj%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJGMEQCIFRKpeaook%2FvVtyfjdakbeGjYRGQUSW2DCDqu1OXJz8tAiAyqVyJr43yJctrMpeT9YLtUkUbm5x2rmPjibbrves%2B%2BSrzBAhxEAEaDDY5OTc1MzMwOTcwNSIMYxyLj0af2F1EeC4KKtAEF52WOW4FsOC1ZPiUyq1b2NyJpfGwk6XIAStg1OX37q2g6KOCz2pATMGT6t1veHk%2FP5JD3igI98FiLgl%2BW0kYa7fB1vvaHS9453H%2FaZsRbN7ZE1NZF148Gq9by7VVe5i9Wmvv1yS2JkvI1CTpjn2Mczcv5Z%2FI%2BhOvsdmWBsabI5caVLm95n31ITS2t1PME2wp0g6nCZVu3IYOQRMhRbj3nOqb3ItYKLgGmRmYaVJJb7a%2BnNDq7KbYAyXXCI6cC7B3SIC6ZLwAVpMeRKrpEajDp0Xx%2F2%2FircKFBu4KPapg12Z0S7jnaLWAP6m%2Bd8%2FDlwRpgQXI2uuG6GMEuOyfR58L%2Fw%2FJ8XDH4agTGvfyxyViVtvqfIU1q0l95sWRuPl8vFPcdNn05MhUGcVaGkdhvmOTwhW6yDyk7Y66pMSdsfDyoPta%2B%2FH8NVVTAuMLCMDz1bwmls6dpFwotmUMKiHFFAViyFVMfK7oxibATjvLMeTXWKtY2ID8xerkHw4ptlYZLTDdUPuzqGj59N0tggl%2BXfXAnXIoAGclwlPRlCkPoHmOvoXB4OUcFpUAFkS8w7tW6nw0jEKwYEufsm9Mvik2OswOnqvslfowB87gif30d9IdJz13yi8C2YUVP%2F7oME79buUSdY3xti2vL0HmwdZNroqILNDltdmGl5%2FNimbEk9%2FOJe%2BsTvnUJ1Yu8LsjyKGxGgIbVaEOshRc0HxTgmU%2FDboA3OD7Dhf1z4KrMtJn26I9Er9CIzQiyvjKNITFv199DEVVXUsM8ByuMrU3CfDOCZtN7TDngMTRBjqZAeG061WFKfwIYybgN1LH7KJrregQv6JgBdgrpyKOUXI8b2QI7atHoB0UIsyn9A9biiSCZxNkuQxneRHvmK0eMsgtQboCMTY6nfbqn1txCG%2B%2BGUEsNBdPoQCYgYm11Q7EhANgFMm6J8wPKd7yEzt8gps9xtERN7V435C3b5Pkr4iTN4paYcVzA9T9fWecwwfd3i7YAAtIUT%2FYOQ%3D%3D&Expires=1781599802",
+        "target_type": "absolute_url",
+        "text": "[ppl-ai-file-upload.s3.amazonaws"
+      }
+    ],
+    "path": "sources/operator-supplied/notes/FB_Claude.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/operator-supplied/notes/FB_Claude2.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [
+      {
+        "line": 39,
+        "normalized_target": "https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/collection_bb623669-af60-464a-9150-332aff44b287/0b371272-4664-4703-a065-aa8efa6db970/Claude_Skill_Package_BestPractice_Handover.md?AWSAccessKeyId=ASIA2F3EMEYEYEXMQCN5&Signature=KoURu0c1CFwIoWXB%2B28yiQ06A%2BU%3D&x-amz-security-token=IQoJb3JpZ2luX2VjEMH%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJHMEUCIQCgoSVpXRrTYojQ1CjN4ZbiwVIC0j3mxO2NFj4KX5wbHAIgP2U%2FXwA80EfJE20S%2BTsMLCtH6x6ygSslcNjIOuSd%2FGUq%2FAQIiv%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARABGgw2OTk3NTMzMDk3MDUiDAwsk%2FsrLopYA6dQ4yrQBHO9ue3BW%2Buin9SeVC24jf0elCKwvp0FtHXsOs%2FQpyYKwKOl72EGleFUzsDcvgl2KmNsLJd3kVA5PHNN3voqqqvbDII0tzj7DRDYFECqAq1keHMV8E0Cr5wFfodHxkvJeqzue%2BLEwSWMZ8OdI8aSXpwMnNGLbFKdHlAU5KLtZfkGWq350cBsowa6FtRiKJznD88d%2Fo3ksHg1jsRVgSuwlagXsGowkn%2BrWx0KMVvN4cEE9ZmSYAyknGfziBmGkXB9NC3B5LgYiaWeW%2FZYfjyP0%2FCpO2ZV1b6hZtkP6cYNW1%2BVZiwU6S%2Fc%2BwzpsmhuOFGKeIa%2BcN0dAwwc%2BdGNyHNHBJxFDOMiUGQnrZ5vPRo2d4DsKqBoWQjzT54uiHdAxji%2FjKXDPkVkQc4zb8jI2%2F0Vpi76wfM4FTnVLtXcudgpbof3J5eSvi14bT%2BjCNtSrsE%2B6x6R%2BcHPkYYkK5s1mwKLVDefGVom9H4%2BseN4VX1dNJANVOe8I4CgKpyYksetRXoqvTMTEUv%2Fp0KOXlr6XLnWttA27LoRBfA5TxVvBgmpAk5QaCBr3cu1L9oRGpQBiWL6m%2FR2MlJs%2FyOyo6cMTwQIKX%2Bm7GDXQYYszcLdukVaAkTn5sRbToof57Dz323D46GwM4eSYxZnQYAWyDvRUqAR3aGjhowXsEm7uUHoTN6W59NHWP3MHLkLA6SIXzts7%2BYgF3sqQMC1PklftzXGOXKp%2F0ij1qf%2F2UGJhIlfdzsN%2B0fl0dyaLa0GsKyZ8Zt9wVK3VhrcHhM66XnhYt6Ign32urUw%2F7fJ0QY6mAExqBXME8S%2F606o49wVeeNvv8GQncGQIdv0HwYS%2Bhb8HlyOi0fUnoJ7hZep7m4ZHTa4duMan4uiaITqeiHKCsZDw2I1yYjPQFqfAMgfqgeCqbz63feuhYRGCy5CpZXxTLwuCzmal1SC7oqdLMn0GBU7jLDr6htfFInjhpTvCPU4yJisa%2FFedOKGwXCBLJFk4rx%2FReVFN4wRtg%3D%3D&Expires=1781688786",
+        "target": "https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/collection_bb623669-af60-464a-9150-332aff44b287/0b371272-4664-4703-a065-aa8efa6db970/Claude_Skill_Package_BestPractice_Handover.md?AWSAccessKeyId=ASIA2F3EMEYEYEXMQCN5&Signature=KoURu0c1CFwIoWXB%2B28yiQ06A%2BU%3D&x-amz-security-token=IQoJb3JpZ2luX2VjEMH%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJHMEUCIQCgoSVpXRrTYojQ1CjN4ZbiwVIC0j3mxO2NFj4KX5wbHAIgP2U%2FXwA80EfJE20S%2BTsMLCtH6x6ygSslcNjIOuSd%2FGUq%2FAQIiv%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARABGgw2OTk3NTMzMDk3MDUiDAwsk%2FsrLopYA6dQ4yrQBHO9ue3BW%2Buin9SeVC24jf0elCKwvp0FtHXsOs%2FQpyYKwKOl72EGleFUzsDcvgl2KmNsLJd3kVA5PHNN3voqqqvbDII0tzj7DRDYFECqAq1keHMV8E0Cr5wFfodHxkvJeqzue%2BLEwSWMZ8OdI8aSXpwMnNGLbFKdHlAU5KLtZfkGWq350cBsowa6FtRiKJznD88d%2Fo3ksHg1jsRVgSuwlagXsGowkn%2BrWx0KMVvN4cEE9ZmSYAyknGfziBmGkXB9NC3B5LgYiaWeW%2FZYfjyP0%2FCpO2ZV1b6hZtkP6cYNW1%2BVZiwU6S%2Fc%2BwzpsmhuOFGKeIa%2BcN0dAwwc%2BdGNyHNHBJxFDOMiUGQnrZ5vPRo2d4DsKqBoWQjzT54uiHdAxji%2FjKXDPkVkQc4zb8jI2%2F0Vpi76wfM4FTnVLtXcudgpbof3J5eSvi14bT%2BjCNtSrsE%2B6x6R%2BcHPkYYkK5s1mwKLVDefGVom9H4%2BseN4VX1dNJANVOe8I4CgKpyYksetRXoqvTMTEUv%2Fp0KOXlr6XLnWttA27LoRBfA5TxVvBgmpAk5QaCBr3cu1L9oRGpQBiWL6m%2FR2MlJs%2FyOyo6cMTwQIKX%2Bm7GDXQYYszcLdukVaAkTn5sRbToof57Dz323D46GwM4eSYxZnQYAWyDvRUqAR3aGjhowXsEm7uUHoTN6W59NHWP3MHLkLA6SIXzts7%2BYgF3sqQMC1PklftzXGOXKp%2F0ij1qf%2F2UGJhIlfdzsN%2B0fl0dyaLa0GsKyZ8Zt9wVK3VhrcHhM66XnhYt6Ign32urUw%2F7fJ0QY6mAExqBXME8S%2F606o49wVeeNvv8GQncGQIdv0HwYS%2Bhb8HlyOi0fUnoJ7hZep7m4ZHTa4duMan4uiaITqeiHKCsZDw2I1yYjPQFqfAMgfqgeCqbz63feuhYRGCy5CpZXxTLwuCzmal1SC7oqdLMn0GBU7jLDr6htfFInjhpTvCPU4yJisa%2FFedOKGwXCBLJFk4rx%2FReVFN4wRtg%3D%3D&Expires=1781688786",
+        "target_type": "absolute_url",
+        "text": "[ppl-ai-file-upload.s3.amazonaws"
+      },
+      {
+        "line": 49,
+        "normalized_target": "https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/collection_bb623669-af60-464a-9150-332aff44b287/96a9f696-553a-479a-b4e3-8ac0ee0e8234/Claude_Skill_PromptFlow_Design_Guidance_v1.md?AWSAccessKeyId=ASIA2F3EMEYEYEXMQCN5&Signature=7r2laihsCI0d3utDGgpSI%2BlVvIU%3D&x-amz-security-token=IQoJb3JpZ2luX2VjEMH%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJHMEUCIQCgoSVpXRrTYojQ1CjN4ZbiwVIC0j3mxO2NFj4KX5wbHAIgP2U%2FXwA80EfJE20S%2BTsMLCtH6x6ygSslcNjIOuSd%2FGUq%2FAQIiv%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARABGgw2OTk3NTMzMDk3MDUiDAwsk%2FsrLopYA6dQ4yrQBHO9ue3BW%2Buin9SeVC24jf0elCKwvp0FtHXsOs%2FQpyYKwKOl72EGleFUzsDcvgl2KmNsLJd3kVA5PHNN3voqqqvbDII0tzj7DRDYFECqAq1keHMV8E0Cr5wFfodHxkvJeqzue%2BLEwSWMZ8OdI8aSXpwMnNGLbFKdHlAU5KLtZfkGWq350cBsowa6FtRiKJznD88d%2Fo3ksHg1jsRVgSuwlagXsGowkn%2BrWx0KMVvN4cEE9ZmSYAyknGfziBmGkXB9NC3B5LgYiaWeW%2FZYfjyP0%2FCpO2ZV1b6hZtkP6cYNW1%2BVZiwU6S%2Fc%2BwzpsmhuOFGKeIa%2BcN0dAwwc%2BdGNyHNHBJxFDOMiUGQnrZ5vPRo2d4DsKqBoWQjzT54uiHdAxji%2FjKXDPkVkQc4zb8jI2%2F0Vpi76wfM4FTnVLtXcudgpbof3J5eSvi14bT%2BjCNtSrsE%2B6x6R%2BcHPkYYkK5s1mwKLVDefGVom9H4%2BseN4VX1dNJANVOe8I4CgKpyYksetRXoqvTMTEUv%2Fp0KOXlr6XLnWttA27LoRBfA5TxVvBgmpAk5QaCBr3cu1L9oRGpQBiWL6m%2FR2MlJs%2FyOyo6cMTwQIKX%2Bm7GDXQYYszcLdukVaAkTn5sRbToof57Dz323D46GwM4eSYxZnQYAWyDvRUqAR3aGjhowXsEm7uUHoTN6W59NHWP3MHLkLA6SIXzts7%2BYgF3sqQMC1PklftzXGOXKp%2F0ij1qf%2F2UGJhIlfdzsN%2B0fl0dyaLa0GsKyZ8Zt9wVK3VhrcHhM66XnhYt6Ign32urUw%2F7fJ0QY6mAExqBXME8S%2F606o49wVeeNvv8GQncGQIdv0HwYS%2Bhb8HlyOi0fUnoJ7hZep7m4ZHTa4duMan4uiaITqeiHKCsZDw2I1yYjPQFqfAMgfqgeCqbz63feuhYRGCy5CpZXxTLwuCzmal1SC7oqdLMn0GBU7jLDr6htfFInjhpTvCPU4yJisa%2FFedOKGwXCBLJFk4rx%2FReVFN4wRtg%3D%3D&Expires=1781688786",
+        "target": "https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/collection_bb623669-af60-464a-9150-332aff44b287/96a9f696-553a-479a-b4e3-8ac0ee0e8234/Claude_Skill_PromptFlow_Design_Guidance_v1.md?AWSAccessKeyId=ASIA2F3EMEYEYEXMQCN5&Signature=7r2laihsCI0d3utDGgpSI%2BlVvIU%3D&x-amz-security-token=IQoJb3JpZ2luX2VjEMH%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJHMEUCIQCgoSVpXRrTYojQ1CjN4ZbiwVIC0j3mxO2NFj4KX5wbHAIgP2U%2FXwA80EfJE20S%2BTsMLCtH6x6ygSslcNjIOuSd%2FGUq%2FAQIiv%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARABGgw2OTk3NTMzMDk3MDUiDAwsk%2FsrLopYA6dQ4yrQBHO9ue3BW%2Buin9SeVC24jf0elCKwvp0FtHXsOs%2FQpyYKwKOl72EGleFUzsDcvgl2KmNsLJd3kVA5PHNN3voqqqvbDII0tzj7DRDYFECqAq1keHMV8E0Cr5wFfodHxkvJeqzue%2BLEwSWMZ8OdI8aSXpwMnNGLbFKdHlAU5KLtZfkGWq350cBsowa6FtRiKJznD88d%2Fo3ksHg1jsRVgSuwlagXsGowkn%2BrWx0KMVvN4cEE9ZmSYAyknGfziBmGkXB9NC3B5LgYiaWeW%2FZYfjyP0%2FCpO2ZV1b6hZtkP6cYNW1%2BVZiwU6S%2Fc%2BwzpsmhuOFGKeIa%2BcN0dAwwc%2BdGNyHNHBJxFDOMiUGQnrZ5vPRo2d4DsKqBoWQjzT54uiHdAxji%2FjKXDPkVkQc4zb8jI2%2F0Vpi76wfM4FTnVLtXcudgpbof3J5eSvi14bT%2BjCNtSrsE%2B6x6R%2BcHPkYYkK5s1mwKLVDefGVom9H4%2BseN4VX1dNJANVOe8I4CgKpyYksetRXoqvTMTEUv%2Fp0KOXlr6XLnWttA27LoRBfA5TxVvBgmpAk5QaCBr3cu1L9oRGpQBiWL6m%2FR2MlJs%2FyOyo6cMTwQIKX%2Bm7GDXQYYszcLdukVaAkTn5sRbToof57Dz323D46GwM4eSYxZnQYAWyDvRUqAR3aGjhowXsEm7uUHoTN6W59NHWP3MHLkLA6SIXzts7%2BYgF3sqQMC1PklftzXGOXKp%2F0ij1qf%2F2UGJhIlfdzsN%2B0fl0dyaLa0GsKyZ8Zt9wVK3VhrcHhM66XnhYt6Ign32urUw%2F7fJ0QY6mAExqBXME8S%2F606o49wVeeNvv8GQncGQIdv0HwYS%2Bhb8HlyOi0fUnoJ7hZep7m4ZHTa4duMan4uiaITqeiHKCsZDw2I1yYjPQFqfAMgfqgeCqbz63feuhYRGCy5CpZXxTLwuCzmal1SC7oqdLMn0GBU7jLDr6htfFInjhpTvCPU4yJisa%2FFedOKGwXCBLJFk4rx%2FReVFN4wRtg%3D%3D&Expires=1781688786",
+        "target_type": "absolute_url",
+        "text": "[ppl-ai-file-upload.s3.amazonaws"
+      },
+      {
+        "line": 55,
+        "normalized_target": "https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/collection_bb623669-af60-464a-9150-332aff44b287/0b371272-4664-4703-a065-aa8efa6db970/Claude_Skill_Package_BestPractice_Handover.md?AWSAccessKeyId=ASIA2F3EMEYEYEXMQCN5&Signature=KoURu0c1CFwIoWXB%2B28yiQ06A%2BU%3D&x-amz-security-token=IQoJb3JpZ2luX2VjEMH%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJHMEUCIQCgoSVpXRrTYojQ1CjN4ZbiwVIC0j3mxO2NFj4KX5wbHAIgP2U%2FXwA80EfJE20S%2BTsMLCtH6x6ygSslcNjIOuSd%2FGUq%2FAQIiv%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARABGgw2OTk3NTMzMDk3MDUiDAwsk%2FsrLopYA6dQ4yrQBHO9ue3BW%2Buin9SeVC24jf0elCKwvp0FtHXsOs%2FQpyYKwKOl72EGleFUzsDcvgl2KmNsLJd3kVA5PHNN3voqqqvbDII0tzj7DRDYFECqAq1keHMV8E0Cr5wFfodHxkvJeqzue%2BLEwSWMZ8OdI8aSXpwMnNGLbFKdHlAU5KLtZfkGWq350cBsowa6FtRiKJznD88d%2Fo3ksHg1jsRVgSuwlagXsGowkn%2BrWx0KMVvN4cEE9ZmSYAyknGfziBmGkXB9NC3B5LgYiaWeW%2FZYfjyP0%2FCpO2ZV1b6hZtkP6cYNW1%2BVZiwU6S%2Fc%2BwzpsmhuOFGKeIa%2BcN0dAwwc%2BdGNyHNHBJxFDOMiUGQnrZ5vPRo2d4DsKqBoWQjzT54uiHdAxji%2FjKXDPkVkQc4zb8jI2%2F0Vpi76wfM4FTnVLtXcudgpbof3J5eSvi14bT%2BjCNtSrsE%2B6x6R%2BcHPkYYkK5s1mwKLVDefGVom9H4%2BseN4VX1dNJANVOe8I4CgKpyYksetRXoqvTMTEUv%2Fp0KOXlr6XLnWttA27LoRBfA5TxVvBgmpAk5QaCBr3cu1L9oRGpQBiWL6m%2FR2MlJs%2FyOyo6cMTwQIKX%2Bm7GDXQYYszcLdukVaAkTn5sRbToof57Dz323D46GwM4eSYxZnQYAWyDvRUqAR3aGjhowXsEm7uUHoTN6W59NHWP3MHLkLA6SIXzts7%2BYgF3sqQMC1PklftzXGOXKp%2F0ij1qf%2F2UGJhIlfdzsN%2B0fl0dyaLa0GsKyZ8Zt9wVK3VhrcHhM66XnhYt6Ign32urUw%2F7fJ0QY6mAExqBXME8S%2F606o49wVeeNvv8GQncGQIdv0HwYS%2Bhb8HlyOi0fUnoJ7hZep7m4ZHTa4duMan4uiaITqeiHKCsZDw2I1yYjPQFqfAMgfqgeCqbz63feuhYRGCy5CpZXxTLwuCzmal1SC7oqdLMn0GBU7jLDr6htfFInjhpTvCPU4yJisa%2FFedOKGwXCBLJFk4rx%2FReVFN4wRtg%3D%3D&Expires=1781688786",
+        "target": "https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/collection_bb623669-af60-464a-9150-332aff44b287/0b371272-4664-4703-a065-aa8efa6db970/Claude_Skill_Package_BestPractice_Handover.md?AWSAccessKeyId=ASIA2F3EMEYEYEXMQCN5&Signature=KoURu0c1CFwIoWXB%2B28yiQ06A%2BU%3D&x-amz-security-token=IQoJb3JpZ2luX2VjEMH%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJHMEUCIQCgoSVpXRrTYojQ1CjN4ZbiwVIC0j3mxO2NFj4KX5wbHAIgP2U%2FXwA80EfJE20S%2BTsMLCtH6x6ygSslcNjIOuSd%2FGUq%2FAQIiv%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARABGgw2OTk3NTMzMDk3MDUiDAwsk%2FsrLopYA6dQ4yrQBHO9ue3BW%2Buin9SeVC24jf0elCKwvp0FtHXsOs%2FQpyYKwKOl72EGleFUzsDcvgl2KmNsLJd3kVA5PHNN3voqqqvbDII0tzj7DRDYFECqAq1keHMV8E0Cr5wFfodHxkvJeqzue%2BLEwSWMZ8OdI8aSXpwMnNGLbFKdHlAU5KLtZfkGWq350cBsowa6FtRiKJznD88d%2Fo3ksHg1jsRVgSuwlagXsGowkn%2BrWx0KMVvN4cEE9ZmSYAyknGfziBmGkXB9NC3B5LgYiaWeW%2FZYfjyP0%2FCpO2ZV1b6hZtkP6cYNW1%2BVZiwU6S%2Fc%2BwzpsmhuOFGKeIa%2BcN0dAwwc%2BdGNyHNHBJxFDOMiUGQnrZ5vPRo2d4DsKqBoWQjzT54uiHdAxji%2FjKXDPkVkQc4zb8jI2%2F0Vpi76wfM4FTnVLtXcudgpbof3J5eSvi14bT%2BjCNtSrsE%2B6x6R%2BcHPkYYkK5s1mwKLVDefGVom9H4%2BseN4VX1dNJANVOe8I4CgKpyYksetRXoqvTMTEUv%2Fp0KOXlr6XLnWttA27LoRBfA5TxVvBgmpAk5QaCBr3cu1L9oRGpQBiWL6m%2FR2MlJs%2FyOyo6cMTwQIKX%2Bm7GDXQYYszcLdukVaAkTn5sRbToof57Dz323D46GwM4eSYxZnQYAWyDvRUqAR3aGjhowXsEm7uUHoTN6W59NHWP3MHLkLA6SIXzts7%2BYgF3sqQMC1PklftzXGOXKp%2F0ij1qf%2F2UGJhIlfdzsN%2B0fl0dyaLa0GsKyZ8Zt9wVK3VhrcHhM66XnhYt6Ign32urUw%2F7fJ0QY6mAExqBXME8S%2F606o49wVeeNvv8GQncGQIdv0HwYS%2Bhb8HlyOi0fUnoJ7hZep7m4ZHTa4duMan4uiaITqeiHKCsZDw2I1yYjPQFqfAMgfqgeCqbz63feuhYRGCy5CpZXxTLwuCzmal1SC7oqdLMn0GBU7jLDr6htfFInjhpTvCPU4yJisa%2FFedOKGwXCBLJFk4rx%2FReVFN4wRtg%3D%3D&Expires=1781688786",
+        "target_type": "absolute_url",
+        "text": "[ppl-ai-file-upload.s3.amazonaws"
+      },
+      {
+        "line": 72,
+        "normalized_target": "https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/collection_bb623669-af60-464a-9150-332aff44b287/0b371272-4664-4703-a065-aa8efa6db970/Claude_Skill_Package_BestPractice_Handover.md?AWSAccessKeyId=ASIA2F3EMEYEYEXMQCN5&Signature=KoURu0c1CFwIoWXB%2B28yiQ06A%2BU%3D&x-amz-security-token=IQoJb3JpZ2luX2VjEMH%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJHMEUCIQCgoSVpXRrTYojQ1CjN4ZbiwVIC0j3mxO2NFj4KX5wbHAIgP2U%2FXwA80EfJE20S%2BTsMLCtH6x6ygSslcNjIOuSd%2FGUq%2FAQIiv%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARABGgw2OTk3NTMzMDk3MDUiDAwsk%2FsrLopYA6dQ4yrQBHO9ue3BW%2Buin9SeVC24jf0elCKwvp0FtHXsOs%2FQpyYKwKOl72EGleFUzsDcvgl2KmNsLJd3kVA5PHNN3voqqqvbDII0tzj7DRDYFECqAq1keHMV8E0Cr5wFfodHxkvJeqzue%2BLEwSWMZ8OdI8aSXpwMnNGLbFKdHlAU5KLtZfkGWq350cBsowa6FtRiKJznD88d%2Fo3ksHg1jsRVgSuwlagXsGowkn%2BrWx0KMVvN4cEE9ZmSYAyknGfziBmGkXB9NC3B5LgYiaWeW%2FZYfjyP0%2FCpO2ZV1b6hZtkP6cYNW1%2BVZiwU6S%2Fc%2BwzpsmhuOFGKeIa%2BcN0dAwwc%2BdGNyHNHBJxFDOMiUGQnrZ5vPRo2d4DsKqBoWQjzT54uiHdAxji%2FjKXDPkVkQc4zb8jI2%2F0Vpi76wfM4FTnVLtXcudgpbof3J5eSvi14bT%2BjCNtSrsE%2B6x6R%2BcHPkYYkK5s1mwKLVDefGVom9H4%2BseN4VX1dNJANVOe8I4CgKpyYksetRXoqvTMTEUv%2Fp0KOXlr6XLnWttA27LoRBfA5TxVvBgmpAk5QaCBr3cu1L9oRGpQBiWL6m%2FR2MlJs%2FyOyo6cMTwQIKX%2Bm7GDXQYYszcLdukVaAkTn5sRbToof57Dz323D46GwM4eSYxZnQYAWyDvRUqAR3aGjhowXsEm7uUHoTN6W59NHWP3MHLkLA6SIXzts7%2BYgF3sqQMC1PklftzXGOXKp%2F0ij1qf%2F2UGJhIlfdzsN%2B0fl0dyaLa0GsKyZ8Zt9wVK3VhrcHhM66XnhYt6Ign32urUw%2F7fJ0QY6mAExqBXME8S%2F606o49wVeeNvv8GQncGQIdv0HwYS%2Bhb8HlyOi0fUnoJ7hZep7m4ZHTa4duMan4uiaITqeiHKCsZDw2I1yYjPQFqfAMgfqgeCqbz63feuhYRGCy5CpZXxTLwuCzmal1SC7oqdLMn0GBU7jLDr6htfFInjhpTvCPU4yJisa%2FFedOKGwXCBLJFk4rx%2FReVFN4wRtg%3D%3D&Expires=1781688786",
+        "target": "https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/collection_bb623669-af60-464a-9150-332aff44b287/0b371272-4664-4703-a065-aa8efa6db970/Claude_Skill_Package_BestPractice_Handover.md?AWSAccessKeyId=ASIA2F3EMEYEYEXMQCN5&Signature=KoURu0c1CFwIoWXB%2B28yiQ06A%2BU%3D&x-amz-security-token=IQoJb3JpZ2luX2VjEMH%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJHMEUCIQCgoSVpXRrTYojQ1CjN4ZbiwVIC0j3mxO2NFj4KX5wbHAIgP2U%2FXwA80EfJE20S%2BTsMLCtH6x6ygSslcNjIOuSd%2FGUq%2FAQIiv%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARABGgw2OTk3NTMzMDk3MDUiDAwsk%2FsrLopYA6dQ4yrQBHO9ue3BW%2Buin9SeVC24jf0elCKwvp0FtHXsOs%2FQpyYKwKOl72EGleFUzsDcvgl2KmNsLJd3kVA5PHNN3voqqqvbDII0tzj7DRDYFECqAq1keHMV8E0Cr5wFfodHxkvJeqzue%2BLEwSWMZ8OdI8aSXpwMnNGLbFKdHlAU5KLtZfkGWq350cBsowa6FtRiKJznD88d%2Fo3ksHg1jsRVgSuwlagXsGowkn%2BrWx0KMVvN4cEE9ZmSYAyknGfziBmGkXB9NC3B5LgYiaWeW%2FZYfjyP0%2FCpO2ZV1b6hZtkP6cYNW1%2BVZiwU6S%2Fc%2BwzpsmhuOFGKeIa%2BcN0dAwwc%2BdGNyHNHBJxFDOMiUGQnrZ5vPRo2d4DsKqBoWQjzT54uiHdAxji%2FjKXDPkVkQc4zb8jI2%2F0Vpi76wfM4FTnVLtXcudgpbof3J5eSvi14bT%2BjCNtSrsE%2B6x6R%2BcHPkYYkK5s1mwKLVDefGVom9H4%2BseN4VX1dNJANVOe8I4CgKpyYksetRXoqvTMTEUv%2Fp0KOXlr6XLnWttA27LoRBfA5TxVvBgmpAk5QaCBr3cu1L9oRGpQBiWL6m%2FR2MlJs%2FyOyo6cMTwQIKX%2Bm7GDXQYYszcLdukVaAkTn5sRbToof57Dz323D46GwM4eSYxZnQYAWyDvRUqAR3aGjhowXsEm7uUHoTN6W59NHWP3MHLkLA6SIXzts7%2BYgF3sqQMC1PklftzXGOXKp%2F0ij1qf%2F2UGJhIlfdzsN%2B0fl0dyaLa0GsKyZ8Zt9wVK3VhrcHhM66XnhYt6Ign32urUw%2F7fJ0QY6mAExqBXME8S%2F606o49wVeeNvv8GQncGQIdv0HwYS%2Bhb8HlyOi0fUnoJ7hZep7m4ZHTa4duMan4uiaITqeiHKCsZDw2I1yYjPQFqfAMgfqgeCqbz63feuhYRGCy5CpZXxTLwuCzmal1SC7oqdLMn0GBU7jLDr6htfFInjhpTvCPU4yJisa%2FFedOKGwXCBLJFk4rx%2FReVFN4wRtg%3D%3D&Expires=1781688786",
+        "target_type": "absolute_url",
+        "text": "[ppl-ai-file-upload.s3.amazonaws"
+      },
+      {
+        "line": 80,
+        "normalized_target": "https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/collection_bb623669-af60-464a-9150-332aff44b287/0b371272-4664-4703-a065-aa8efa6db970/Claude_Skill_Package_BestPractice_Handover.md?AWSAccessKeyId=ASIA2F3EMEYEYEXMQCN5&Signature=KoURu0c1CFwIoWXB%2B28yiQ06A%2BU%3D&x-amz-security-token=IQoJb3JpZ2luX2VjEMH%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJHMEUCIQCgoSVpXRrTYojQ1CjN4ZbiwVIC0j3mxO2NFj4KX5wbHAIgP2U%2FXwA80EfJE20S%2BTsMLCtH6x6ygSslcNjIOuSd%2FGUq%2FAQIiv%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARABGgw2OTk3NTMzMDk3MDUiDAwsk%2FsrLopYA6dQ4yrQBHO9ue3BW%2Buin9SeVC24jf0elCKwvp0FtHXsOs%2FQpyYKwKOl72EGleFUzsDcvgl2KmNsLJd3kVA5PHNN3voqqqvbDII0tzj7DRDYFECqAq1keHMV8E0Cr5wFfodHxkvJeqzue%2BLEwSWMZ8OdI8aSXpwMnNGLbFKdHlAU5KLtZfkGWq350cBsowa6FtRiKJznD88d%2Fo3ksHg1jsRVgSuwlagXsGowkn%2BrWx0KMVvN4cEE9ZmSYAyknGfziBmGkXB9NC3B5LgYiaWeW%2FZYfjyP0%2FCpO2ZV1b6hZtkP6cYNW1%2BVZiwU6S%2Fc%2BwzpsmhuOFGKeIa%2BcN0dAwwc%2BdGNyHNHBJxFDOMiUGQnrZ5vPRo2d4DsKqBoWQjzT54uiHdAxji%2FjKXDPkVkQc4zb8jI2%2F0Vpi76wfM4FTnVLtXcudgpbof3J5eSvi14bT%2BjCNtSrsE%2B6x6R%2BcHPkYYkK5s1mwKLVDefGVom9H4%2BseN4VX1dNJANVOe8I4CgKpyYksetRXoqvTMTEUv%2Fp0KOXlr6XLnWttA27LoRBfA5TxVvBgmpAk5QaCBr3cu1L9oRGpQBiWL6m%2FR2MlJs%2FyOyo6cMTwQIKX%2Bm7GDXQYYszcLdukVaAkTn5sRbToof57Dz323D46GwM4eSYxZnQYAWyDvRUqAR3aGjhowXsEm7uUHoTN6W59NHWP3MHLkLA6SIXzts7%2BYgF3sqQMC1PklftzXGOXKp%2F0ij1qf%2F2UGJhIlfdzsN%2B0fl0dyaLa0GsKyZ8Zt9wVK3VhrcHhM66XnhYt6Ign32urUw%2F7fJ0QY6mAExqBXME8S%2F606o49wVeeNvv8GQncGQIdv0HwYS%2Bhb8HlyOi0fUnoJ7hZep7m4ZHTa4duMan4uiaITqeiHKCsZDw2I1yYjPQFqfAMgfqgeCqbz63feuhYRGCy5CpZXxTLwuCzmal1SC7oqdLMn0GBU7jLDr6htfFInjhpTvCPU4yJisa%2FFedOKGwXCBLJFk4rx%2FReVFN4wRtg%3D%3D&Expires=1781688786",
+        "target": "https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/collection_bb623669-af60-464a-9150-332aff44b287/0b371272-4664-4703-a065-aa8efa6db970/Claude_Skill_Package_BestPractice_Handover.md?AWSAccessKeyId=ASIA2F3EMEYEYEXMQCN5&Signature=KoURu0c1CFwIoWXB%2B28yiQ06A%2BU%3D&x-amz-security-token=IQoJb3JpZ2luX2VjEMH%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJHMEUCIQCgoSVpXRrTYojQ1CjN4ZbiwVIC0j3mxO2NFj4KX5wbHAIgP2U%2FXwA80EfJE20S%2BTsMLCtH6x6ygSslcNjIOuSd%2FGUq%2FAQIiv%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARABGgw2OTk3NTMzMDk3MDUiDAwsk%2FsrLopYA6dQ4yrQBHO9ue3BW%2Buin9SeVC24jf0elCKwvp0FtHXsOs%2FQpyYKwKOl72EGleFUzsDcvgl2KmNsLJd3kVA5PHNN3voqqqvbDII0tzj7DRDYFECqAq1keHMV8E0Cr5wFfodHxkvJeqzue%2BLEwSWMZ8OdI8aSXpwMnNGLbFKdHlAU5KLtZfkGWq350cBsowa6FtRiKJznD88d%2Fo3ksHg1jsRVgSuwlagXsGowkn%2BrWx0KMVvN4cEE9ZmSYAyknGfziBmGkXB9NC3B5LgYiaWeW%2FZYfjyP0%2FCpO2ZV1b6hZtkP6cYNW1%2BVZiwU6S%2Fc%2BwzpsmhuOFGKeIa%2BcN0dAwwc%2BdGNyHNHBJxFDOMiUGQnrZ5vPRo2d4DsKqBoWQjzT54uiHdAxji%2FjKXDPkVkQc4zb8jI2%2F0Vpi76wfM4FTnVLtXcudgpbof3J5eSvi14bT%2BjCNtSrsE%2B6x6R%2BcHPkYYkK5s1mwKLVDefGVom9H4%2BseN4VX1dNJANVOe8I4CgKpyYksetRXoqvTMTEUv%2Fp0KOXlr6XLnWttA27LoRBfA5TxVvBgmpAk5QaCBr3cu1L9oRGpQBiWL6m%2FR2MlJs%2FyOyo6cMTwQIKX%2Bm7GDXQYYszcLdukVaAkTn5sRbToof57Dz323D46GwM4eSYxZnQYAWyDvRUqAR3aGjhowXsEm7uUHoTN6W59NHWP3MHLkLA6SIXzts7%2BYgF3sqQMC1PklftzXGOXKp%2F0ij1qf%2F2UGJhIlfdzsN%2B0fl0dyaLa0GsKyZ8Zt9wVK3VhrcHhM66XnhYt6Ign32urUw%2F7fJ0QY6mAExqBXME8S%2F606o49wVeeNvv8GQncGQIdv0HwYS%2Bhb8HlyOi0fUnoJ7hZep7m4ZHTa4duMan4uiaITqeiHKCsZDw2I1yYjPQFqfAMgfqgeCqbz63feuhYRGCy5CpZXxTLwuCzmal1SC7oqdLMn0GBU7jLDr6htfFInjhpTvCPU4yJisa%2FFedOKGwXCBLJFk4rx%2FReVFN4wRtg%3D%3D&Expires=1781688786",
+        "target_type": "absolute_url",
+        "text": "[ppl-ai-file-upload.s3.amazonaws"
+      },
+      {
+        "line": 82,
+        "normalized_target": "https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/collection_bb623669-af60-464a-9150-332aff44b287/96a9f696-553a-479a-b4e3-8ac0ee0e8234/Claude_Skill_PromptFlow_Design_Guidance_v1.md?AWSAccessKeyId=ASIA2F3EMEYEYEXMQCN5&Signature=7r2laihsCI0d3utDGgpSI%2BlVvIU%3D&x-amz-security-token=IQoJb3JpZ2luX2VjEMH%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJHMEUCIQCgoSVpXRrTYojQ1CjN4ZbiwVIC0j3mxO2NFj4KX5wbHAIgP2U%2FXwA80EfJE20S%2BTsMLCtH6x6ygSslcNjIOuSd%2FGUq%2FAQIiv%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARABGgw2OTk3NTMzMDk3MDUiDAwsk%2FsrLopYA6dQ4yrQBHO9ue3BW%2Buin9SeVC24jf0elCKwvp0FtHXsOs%2FQpyYKwKOl72EGleFUzsDcvgl2KmNsLJd3kVA5PHNN3voqqqvbDII0tzj7DRDYFECqAq1keHMV8E0Cr5wFfodHxkvJeqzue%2BLEwSWMZ8OdI8aSXpwMnNGLbFKdHlAU5KLtZfkGWq350cBsowa6FtRiKJznD88d%2Fo3ksHg1jsRVgSuwlagXsGowkn%2BrWx0KMVvN4cEE9ZmSYAyknGfziBmGkXB9NC3B5LgYiaWeW%2FZYfjyP0%2FCpO2ZV1b6hZtkP6cYNW1%2BVZiwU6S%2Fc%2BwzpsmhuOFGKeIa%2BcN0dAwwc%2BdGNyHNHBJxFDOMiUGQnrZ5vPRo2d4DsKqBoWQjzT54uiHdAxji%2FjKXDPkVkQc4zb8jI2%2F0Vpi76wfM4FTnVLtXcudgpbof3J5eSvi14bT%2BjCNtSrsE%2B6x6R%2BcHPkYYkK5s1mwKLVDefGVom9H4%2BseN4VX1dNJANVOe8I4CgKpyYksetRXoqvTMTEUv%2Fp0KOXlr6XLnWttA27LoRBfA5TxVvBgmpAk5QaCBr3cu1L9oRGpQBiWL6m%2FR2MlJs%2FyOyo6cMTwQIKX%2Bm7GDXQYYszcLdukVaAkTn5sRbToof57Dz323D46GwM4eSYxZnQYAWyDvRUqAR3aGjhowXsEm7uUHoTN6W59NHWP3MHLkLA6SIXzts7%2BYgF3sqQMC1PklftzXGOXKp%2F0ij1qf%2F2UGJhIlfdzsN%2B0fl0dyaLa0GsKyZ8Zt9wVK3VhrcHhM66XnhYt6Ign32urUw%2F7fJ0QY6mAExqBXME8S%2F606o49wVeeNvv8GQncGQIdv0HwYS%2Bhb8HlyOi0fUnoJ7hZep7m4ZHTa4duMan4uiaITqeiHKCsZDw2I1yYjPQFqfAMgfqgeCqbz63feuhYRGCy5CpZXxTLwuCzmal1SC7oqdLMn0GBU7jLDr6htfFInjhpTvCPU4yJisa%2FFedOKGwXCBLJFk4rx%2FReVFN4wRtg%3D%3D&Expires=1781688786",
+        "target": "https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/collection_bb623669-af60-464a-9150-332aff44b287/96a9f696-553a-479a-b4e3-8ac0ee0e8234/Claude_Skill_PromptFlow_Design_Guidance_v1.md?AWSAccessKeyId=ASIA2F3EMEYEYEXMQCN5&Signature=7r2laihsCI0d3utDGgpSI%2BlVvIU%3D&x-amz-security-token=IQoJb3JpZ2luX2VjEMH%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJHMEUCIQCgoSVpXRrTYojQ1CjN4ZbiwVIC0j3mxO2NFj4KX5wbHAIgP2U%2FXwA80EfJE20S%2BTsMLCtH6x6ygSslcNjIOuSd%2FGUq%2FAQIiv%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARABGgw2OTk3NTMzMDk3MDUiDAwsk%2FsrLopYA6dQ4yrQBHO9ue3BW%2Buin9SeVC24jf0elCKwvp0FtHXsOs%2FQpyYKwKOl72EGleFUzsDcvgl2KmNsLJd3kVA5PHNN3voqqqvbDII0tzj7DRDYFECqAq1keHMV8E0Cr5wFfodHxkvJeqzue%2BLEwSWMZ8OdI8aSXpwMnNGLbFKdHlAU5KLtZfkGWq350cBsowa6FtRiKJznD88d%2Fo3ksHg1jsRVgSuwlagXsGowkn%2BrWx0KMVvN4cEE9ZmSYAyknGfziBmGkXB9NC3B5LgYiaWeW%2FZYfjyP0%2FCpO2ZV1b6hZtkP6cYNW1%2BVZiwU6S%2Fc%2BwzpsmhuOFGKeIa%2BcN0dAwwc%2BdGNyHNHBJxFDOMiUGQnrZ5vPRo2d4DsKqBoWQjzT54uiHdAxji%2FjKXDPkVkQc4zb8jI2%2F0Vpi76wfM4FTnVLtXcudgpbof3J5eSvi14bT%2BjCNtSrsE%2B6x6R%2BcHPkYYkK5s1mwKLVDefGVom9H4%2BseN4VX1dNJANVOe8I4CgKpyYksetRXoqvTMTEUv%2Fp0KOXlr6XLnWttA27LoRBfA5TxVvBgmpAk5QaCBr3cu1L9oRGpQBiWL6m%2FR2MlJs%2FyOyo6cMTwQIKX%2Bm7GDXQYYszcLdukVaAkTn5sRbToof57Dz323D46GwM4eSYxZnQYAWyDvRUqAR3aGjhowXsEm7uUHoTN6W59NHWP3MHLkLA6SIXzts7%2BYgF3sqQMC1PklftzXGOXKp%2F0ij1qf%2F2UGJhIlfdzsN%2B0fl0dyaLa0GsKyZ8Zt9wVK3VhrcHhM66XnhYt6Ign32urUw%2F7fJ0QY6mAExqBXME8S%2F606o49wVeeNvv8GQncGQIdv0HwYS%2Bhb8HlyOi0fUnoJ7hZep7m4ZHTa4duMan4uiaITqeiHKCsZDw2I1yYjPQFqfAMgfqgeCqbz63feuhYRGCy5CpZXxTLwuCzmal1SC7oqdLMn0GBU7jLDr6htfFInjhpTvCPU4yJisa%2FFedOKGwXCBLJFk4rx%2FReVFN4wRtg%3D%3D&Expires=1781688786",
+        "target_type": "absolute_url",
+        "text": "[ppl-ai-file-upload.s3.amazonaws"
+      },
+      {
+        "line": 84,
+        "normalized_target": "https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/collection_bb623669-af60-464a-9150-332aff44b287/0b371272-4664-4703-a065-aa8efa6db970/Claude_Skill_Package_BestPractice_Handover.md?AWSAccessKeyId=ASIA2F3EMEYEYEXMQCN5&Signature=KoURu0c1CFwIoWXB%2B28yiQ06A%2BU%3D&x-amz-security-token=IQoJb3JpZ2luX2VjEMH%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJHMEUCIQCgoSVpXRrTYojQ1CjN4ZbiwVIC0j3mxO2NFj4KX5wbHAIgP2U%2FXwA80EfJE20S%2BTsMLCtH6x6ygSslcNjIOuSd%2FGUq%2FAQIiv%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARABGgw2OTk3NTMzMDk3MDUiDAwsk%2FsrLopYA6dQ4yrQBHO9ue3BW%2Buin9SeVC24jf0elCKwvp0FtHXsOs%2FQpyYKwKOl72EGleFUzsDcvgl2KmNsLJd3kVA5PHNN3voqqqvbDII0tzj7DRDYFECqAq1keHMV8E0Cr5wFfodHxkvJeqzue%2BLEwSWMZ8OdI8aSXpwMnNGLbFKdHlAU5KLtZfkGWq350cBsowa6FtRiKJznD88d%2Fo3ksHg1jsRVgSuwlagXsGowkn%2BrWx0KMVvN4cEE9ZmSYAyknGfziBmGkXB9NC3B5LgYiaWeW%2FZYfjyP0%2FCpO2ZV1b6hZtkP6cYNW1%2BVZiwU6S%2Fc%2BwzpsmhuOFGKeIa%2BcN0dAwwc%2BdGNyHNHBJxFDOMiUGQnrZ5vPRo2d4DsKqBoWQjzT54uiHdAxji%2FjKXDPkVkQc4zb8jI2%2F0Vpi76wfM4FTnVLtXcudgpbof3J5eSvi14bT%2BjCNtSrsE%2B6x6R%2BcHPkYYkK5s1mwKLVDefGVom9H4%2BseN4VX1dNJANVOe8I4CgKpyYksetRXoqvTMTEUv%2Fp0KOXlr6XLnWttA27LoRBfA5TxVvBgmpAk5QaCBr3cu1L9oRGpQBiWL6m%2FR2MlJs%2FyOyo6cMTwQIKX%2Bm7GDXQYYszcLdukVaAkTn5sRbToof57Dz323D46GwM4eSYxZnQYAWyDvRUqAR3aGjhowXsEm7uUHoTN6W59NHWP3MHLkLA6SIXzts7%2BYgF3sqQMC1PklftzXGOXKp%2F0ij1qf%2F2UGJhIlfdzsN%2B0fl0dyaLa0GsKyZ8Zt9wVK3VhrcHhM66XnhYt6Ign32urUw%2F7fJ0QY6mAExqBXME8S%2F606o49wVeeNvv8GQncGQIdv0HwYS%2Bhb8HlyOi0fUnoJ7hZep7m4ZHTa4duMan4uiaITqeiHKCsZDw2I1yYjPQFqfAMgfqgeCqbz63feuhYRGCy5CpZXxTLwuCzmal1SC7oqdLMn0GBU7jLDr6htfFInjhpTvCPU4yJisa%2FFedOKGwXCBLJFk4rx%2FReVFN4wRtg%3D%3D&Expires=1781688786",
+        "target": "https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/collection_bb623669-af60-464a-9150-332aff44b287/0b371272-4664-4703-a065-aa8efa6db970/Claude_Skill_Package_BestPractice_Handover.md?AWSAccessKeyId=ASIA2F3EMEYEYEXMQCN5&Signature=KoURu0c1CFwIoWXB%2B28yiQ06A%2BU%3D&x-amz-security-token=IQoJb3JpZ2luX2VjEMH%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCXVzLWVhc3QtMSJHMEUCIQCgoSVpXRrTYojQ1CjN4ZbiwVIC0j3mxO2NFj4KX5wbHAIgP2U%2FXwA80EfJE20S%2BTsMLCtH6x6ygSslcNjIOuSd%2FGUq%2FAQIiv%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARABGgw2OTk3NTMzMDk3MDUiDAwsk%2FsrLopYA6dQ4yrQBHO9ue3BW%2Buin9SeVC24jf0elCKwvp0FtHXsOs%2FQpyYKwKOl72EGleFUzsDcvgl2KmNsLJd3kVA5PHNN3voqqqvbDII0tzj7DRDYFECqAq1keHMV8E0Cr5wFfodHxkvJeqzue%2BLEwSWMZ8OdI8aSXpwMnNGLbFKdHlAU5KLtZfkGWq350cBsowa6FtRiKJznD88d%2Fo3ksHg1jsRVgSuwlagXsGowkn%2BrWx0KMVvN4cEE9ZmSYAyknGfziBmGkXB9NC3B5LgYiaWeW%2FZYfjyP0%2FCpO2ZV1b6hZtkP6cYNW1%2BVZiwU6S%2Fc%2BwzpsmhuOFGKeIa%2BcN0dAwwc%2BdGNyHNHBJxFDOMiUGQnrZ5vPRo2d4DsKqBoWQjzT54uiHdAxji%2FjKXDPkVkQc4zb8jI2%2F0Vpi76wfM4FTnVLtXcudgpbof3J5eSvi14bT%2BjCNtSrsE%2B6x6R%2BcHPkYYkK5s1mwKLVDefGVom9H4%2BseN4VX1dNJANVOe8I4CgKpyYksetRXoqvTMTEUv%2Fp0KOXlr6XLnWttA27LoRBfA5TxVvBgmpAk5QaCBr3cu1L9oRGpQBiWL6m%2FR2MlJs%2FyOyo6cMTwQIKX%2Bm7GDXQYYszcLdukVaAkTn5sRbToof57Dz323D46GwM4eSYxZnQYAWyDvRUqAR3aGjhowXsEm7uUHoTN6W59NHWP3MHLkLA6SIXzts7%2BYgF3sqQMC1PklftzXGOXKp%2F0ij1qf%2F2UGJhIlfdzsN%2B0fl0dyaLa0GsKyZ8Zt9wVK3VhrcHhM66XnhYt6Ign32urUw%2F7fJ0QY6mAExqBXME8S%2F606o49wVeeNvv8GQncGQIdv0HwYS%2Bhb8HlyOi0fUnoJ7hZep7m4ZHTa4duMan4uiaITqeiHKCsZDw2I1yYjPQFqfAMgfqgeCqbz63feuhYRGCy5CpZXxTLwuCzmal1SC7oqdLMn0GBU7jLDr6htfFInjhpTvCPU4yJisa%2FFedOKGwXCBLJFk4rx%2FReVFN4wRtg%3D%3D&Expires=1781688786",
+        "target_type": "absolute_url",
+        "text": "[ppl-ai-file-upload.s3.amazonaws"
+      }
+    ],
+    "path": "sources/operator-supplied/notes/FBClaude.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/operator-supplied/README.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "sources/README.md",
+    "wikilinks": []
+  }
+]
