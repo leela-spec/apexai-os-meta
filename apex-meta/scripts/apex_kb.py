@@ -224,11 +224,11 @@ def strip_scalar(value: str) -> Any:
 
 def parse_frontmatter(markdown: str) -> Tuple[Dict[str, Any], str, str]:
     lines = markdown.splitlines()
-    if not lines or lines[0].strip() != "---":
+    if not lines or lines[0].strip().lstrip("\ufeff") != "---":
         return {}, markdown, "missing"
     end = None
     for i in range(1, len(lines)):
-        if lines[i].strip() == "---":
+        if lines[i].strip().lstrip("\ufeff") == "---":
             end = i
             break
     if end is None:

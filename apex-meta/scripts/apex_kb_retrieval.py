@@ -199,11 +199,11 @@ def strip_yaml_scalar(value: str) -> Any:
 
 def parse_frontmatter(markdown: str) -> Tuple[Dict[str, Any], str, int]:
     lines = markdown.splitlines()
-    if not lines or lines[0].strip() != "---":
+    if not lines or lines[0].strip().lstrip("\ufeff") != "---":
         return {}, markdown, 1
     end_idx: Optional[int] = None
     for i in range(1, len(lines)):
-        if lines[i].strip() == "---":
+        if lines[i].strip().lstrip("\ufeff") == "---":
             end_idx = i
             break
     if end_idx is None:
