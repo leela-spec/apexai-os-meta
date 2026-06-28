@@ -37,6 +37,8 @@ LLM_END = "<!-- END LLM SUMMARY -->"
 PHASE2_APPROVAL = "approve ingest"
 MANIFEST_PATH = Path("manifests/source-manifest.json")
 PHASE0_DIR = Path("manifests/phase0")
+SOURCE_INVENTORY_JSON = Path("manifests/source-inventory.json")
+SOURCE_INVENTORY_CSV = Path("manifests/source-inventory.csv")
 WIKI_REQUIRED_FIELDS = ["title", "page_type", "kb_slug", "source_refs", "created_at", "updated_at", "confidence", "claim_label", "status"]
 CONFIDENCE_ALLOWED = {"high", "medium", "low", "mixed", "unknown"}
 CLAIM_LABEL_ALLOWED = {"raw_source", "source_backed_summary", "behavioral_inference", "working_hypothesis", "operator_question", "practitioner_question"}
@@ -438,14 +440,54 @@ def cmd_preflight(args: argparse.Namespace) -> Dict[str, Any]:
 
 
 def iter_source_files(kb_root: Path) -> List[Path]:
-    roots = [kb_root / "raw"]
+    roots = [kb_root / "sources", kb_root / "raw"]
+    excluded_parts = {"manifests", "wiki", "ingest-analysis", "derived", "outputs", "audit", "log"}
     files: List[Path] = []
+    seen: set[Path] = set()
     for root in roots:
         if root.exists():
             for p in sorted(root.rglob("*")):
-                if p.is_file() and p.suffix.lower() in TEXT_EXTS:
+                try:
+                    rel_parts = set(p.relative_to(kb_root).parts)
+                except ValueError:
+                    rel_parts = set()
+                resolved = p.resolve()
+                if p.is_file() and p.suffix.lower() in TEXT_EXTS and not (rel_parts & excluded_parts) and resolved not in seen:
                     files.append(p)
+                    seen.add(resolved)
     return files
+
+
+def read_source_inventory(kb_root: Path) -> Dict[str, Any]:
+    json_path = kb_root / SOURCE_INVENTORY_JSON
+    csv_path = kb_root / SOURCE_INVENTORY_CSV
+    result: Dict[str, Any] = {
+        "json_path": SOURCE_INVENTORY_JSON.as_posix(),
+        "json_exists": json_path.exists(),
+        "json_readable": False,
+        "json_entry_count": 0,
+        "csv_path": SOURCE_INVENTORY_CSV.as_posix(),
+        "csv_exists": csv_path.exists(),
+        "csv_readable": False,
+        "csv_entry_count": 0,
+        "errors": [],
+    }
+    if json_path.exists():
+        try:
+            loaded = json.loads(json_path.read_text(encoding="utf-8-sig"))
+            entries = loaded if isinstance(loaded, list) else loaded.get("sources", []) if isinstance(loaded, dict) else []
+            result["json_readable"] = isinstance(entries, list)
+            result["json_entry_count"] = len(entries) if isinstance(entries, list) else 0
+        except Exception as exc:
+            result["errors"].append({"path": SOURCE_INVENTORY_JSON.as_posix(), "error": str(exc)})
+    if csv_path.exists():
+        try:
+            with csv_path.open("r", encoding="utf-8-sig", newline="") as f:
+                result["csv_entry_count"] = sum(1 for _ in csv.DictReader(f))
+            result["csv_readable"] = True
+        except Exception as exc:
+            result["errors"].append({"path": SOURCE_INVENTORY_CSV.as_posix(), "error": str(exc)})
+    return result
 
 
 def parse_markdown_structure(path: Path, kb_root: Path) -> Dict[str, Any]:
@@ -516,6 +558,12 @@ def normalize_link_target(target: str) -> Optional[str]:
 
 def source_type_guess(path: Path) -> str:
     lower = path.as_posix().lower()
+    if "/sources/curated/academic/" in lower:
+        return "academic"
+    if "/sources/curated/official-docs/" in lower or "/sources/curated/official-repos/" in lower or "/sources/curated/official-pdfs/" in lower:
+        return "official"
+    if "/sources/operator-supplied/" in lower:
+        return "operator_supplied"
     if "/papers/" in lower:
         return "paper"
     if "/articles/" in lower:
@@ -530,13 +578,14 @@ def source_type_guess(path: Path) -> str:
 def cmd_phase0(args: argparse.Namespace) -> Dict[str, Any]:
     kb_root = resolve_kb_root(args.kb_root)
     dry_run = effective_dry_run(args)
+    inventory = read_source_inventory(kb_root)
     files = iter_source_files(kb_root)
     structures = [parse_markdown_structure(p, kb_root) for p in files]
     heading_map = [{"path": r["path"], "source_type_guess": r["source_type_guess"], "h1_title": r["h1_title"], "headings": r["headings"], "parser_warnings": r["parser_warnings"]} for r in structures]
     link_map = [{"path": r["path"], "markdown_links": r["markdown_links"], "wikilinks": r["wikilinks"]} for r in structures]
     frontmatter_map = [{"path": r["path"], **r["frontmatter"]} for r in structures]
     keyword_hits, topic_map = keyword_artifacts(kb_root, files)
-    profile = corpus_profile(kb_root, files, structures, keyword_hits)
+    profile = corpus_profile(kb_root, files, structures, keyword_hits, inventory)
     priority = priority_candidates(kb_root, files, structures, keyword_hits)
     report = phase0_report(kb_root, files, structures)
     writes = [
@@ -549,7 +598,7 @@ def cmd_phase0(args: argparse.Namespace) -> Dict[str, Any]:
         write_text(kb_root / PHASE0_DIR / "source-priority-candidates.md", priority, kb_root, args.allow_write, dry_run),
         write_text(kb_root / PHASE0_DIR / "phase0-navigation-report.md", report, kb_root, args.allow_write, dry_run),
     ]
-    return {"command": "phase0", "dry_run": dry_run, "source_file_count": len(files), "artifact_count": len(writes), "writes": writes, "phase_boundary": "no ingest-analysis, wiki semantic pages, embeddings, or vector stores created"}
+    return {"command": "phase0", "dry_run": dry_run, "source_file_count": len(files), "source_inventory": inventory, "artifact_count": len(writes), "writes": writes, "phase_boundary": "no ingest-analysis, wiki semantic pages, embeddings, or vector stores created"}
 
 
 def keyword_groups() -> Dict[str, List[str]]:
@@ -581,13 +630,27 @@ def keyword_artifacts(kb_root: Path, files: List[Path]) -> Tuple[List[Dict[str, 
     return hits, {k: sorted(v) for k, v in topic_files.items()}
 
 
-def corpus_profile(kb_root: Path, files: List[Path], structures: List[Dict[str, Any]], hits: List[Dict[str, Any]]) -> str:
+def corpus_profile(kb_root: Path, files: List[Path], structures: List[Dict[str, Any]], hits: List[Dict[str, Any]], inventory: Optional[Dict[str, Any]] = None) -> str:
     ext_counts = Counter(p.suffix.lower() or "[none]" for p in files)
     sizes = [(relpath(kb_root, p), p.stat().st_size) for p in files]
     sizes.sort(key=lambda x: x[1], reverse=True)
     warnings = Counter(w for s in structures for w in s.get("parser_warnings", []))
     noise = [path for path, size in sizes if size > 1_000_000 or any(part in path.lower() for part in ["node_modules", "dist/", "build/", "vendor/"])]
-    lines = ["# Phase 0 Corpus Profile", "", f"Generated: `{utc_now()}`", "", "## source_inventory_status", "", f"- Files scanned: `{len(files)}`", f"- Total bytes: `{sum(size for _, size in sizes)}`", "", "## file_count_by_extension", ""]
+    lines = ["# Phase 0 Corpus Profile", "", f"Generated: `{utc_now()}`", "", "## source_inventory_status", ""]
+    if inventory:
+        lines.extend([
+            f"- JSON inventory present: `{inventory.get('json_exists')}`",
+            f"- JSON inventory readable: `{inventory.get('json_readable')}`",
+            f"- JSON inventory entries: `{inventory.get('json_entry_count')}`",
+            f"- CSV inventory present: `{inventory.get('csv_exists')}`",
+            f"- CSV inventory readable: `{inventory.get('csv_readable')}`",
+            f"- CSV inventory entries: `{inventory.get('csv_entry_count')}`",
+        ])
+        if inventory.get("errors"):
+            lines.append(f"- Inventory warnings: `{len(inventory.get('errors', []))}`")
+    else:
+        lines.append("- Inventory status: `not_checked`")
+    lines.extend(["", f"- Source roots scanned: `sources/`, `raw/`", f"- Files scanned: `{len(files)}`", f"- Total bytes: `{sum(size for _, size in sizes)}`", "", "## file_count_by_extension", ""])
     for ext, count in sorted(ext_counts.items()):
         lines.append(f"- `{ext}`: {count}")
     lines.extend(["", "## largest_files", ""])
