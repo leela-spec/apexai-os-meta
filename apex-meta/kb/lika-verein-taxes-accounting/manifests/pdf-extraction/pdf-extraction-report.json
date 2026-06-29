@@ -1,0 +1,46 @@
+{
+  "generated_at": "2026-06-29T09:57:15Z",
+  "kb_slug": "lika-verein-taxes-accounting",
+  "tool": "pymupdf4llm",
+  "input_pdf_count": 4,
+  "converted_count": 4,
+  "failed_count": 0,
+  "results": [
+    {
+      "pdf_path": "apex-meta/kb/lika-verein-taxes-accounting/raw/refs/DRV_K5001_Kuenstlersozialabgabe.pdf",
+      "pdf_sha256": "c5dcb7f7d43345f97a82edafafc1d8738bd7a5de01c4dfa91aab416dadc266d7",
+      "markdown_path": "apex-meta/kb/lika-verein-taxes-accounting/raw/refs/_pdf_extracted_md/DRV_K5001_Kuenstlersozialabgabe.md",
+      "markdown_sha256": "6d87a9c17370a4fbd2fdb3254b773bde6c4eb52c13bc86405255b3356b16e65f",
+      "status": "converted",
+      "markdown_chars": 12203,
+      "generated_at": "2026-06-29T09:56:46Z"
+    },
+    {
+      "pdf_path": "apex-meta/kb/lika-verein-taxes-accounting/raw/refs/IHK-Niederbayern_Checkliste-Kleinbetragsrechnungen.pdf",
+      "pdf_sha256": "cd641c23f831d398d6c20bd5b4057e7b40cf72c4951e537ea02b9834de6a3e3b",
+      "markdown_path": "apex-meta/kb/lika-verein-taxes-accounting/raw/refs/_pdf_extracted_md/IHK-Niederbayern_Checkliste-Kleinbetragsrechnungen.md",
+      "markdown_sha256": "a4c39868cf0695c3e249cea9513551403692b298493a702fc2de6f1f6bae475c",
+      "status": "converted",
+      "markdown_chars": 1343,
+      "generated_at": "2026-06-29T09:56:48Z"
+    },
+    {
+      "pdf_path": "apex-meta/kb/lika-verein-taxes-accounting/raw/refs/K5001.pdf",
+      "pdf_sha256": "c5dcb7f7d43345f97a82edafafc1d8738bd7a5de01c4dfa91aab416dadc266d7",
+      "markdown_path": "apex-meta/kb/lika-verein-taxes-accounting/raw/refs/_pdf_extracted_md/K5001.md",
+      "markdown_sha256": "6624688c9202d10c8c55eed6f51f996454a182c925c53b757446ae4f796d4a4f",
+      "status": "converted",
+      "markdown_chars": 12151,
+      "generated_at": "2026-06-29T09:56:54Z"
+    },
+    {
+      "pdf_path": "apex-meta/kb/lika-verein-taxes-accounting/raw/refs/LfSt-Bayern_Merkblatt-Festveranstaltungen-2025.pdf",
+      "pdf_sha256": "e0697b4d10c74241ec72aaac0dd5cd913b9de4189d8bc0cbc6a89caac9324566",
+      "markdown_path": "apex-meta/kb/lika-verein-taxes-accounting/raw/refs/_pdf_extracted_md/LfSt-Bayern_Merkblatt-Festveranstaltungen-2025.md",
+      "markdown_sha256": "a0e9a5443053d13bc83d95a253739c03e9e9d8bebcabcb75db85b5e9c25d5f10",
+      "status": "converted",
+      "markdown_chars": 25419,
+      "generated_at": "2026-06-29T09:57:15Z"
+    }
+  ]
+}

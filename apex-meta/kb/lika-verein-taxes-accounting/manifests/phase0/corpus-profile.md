@@ -1,6 +1,6 @@
 # Phase 0 Corpus Profile
 
-Generated: `2026-06-28T20:38:50Z`
+Generated: `2026-06-29T09:57:28Z`
 
 ## source_inventory_status
 
@@ -12,12 +12,12 @@ Generated: `2026-06-28T20:38:50Z`
 - CSV inventory entries: `0`
 
 - Source roots scanned: `sources/`, `raw/`
-- Files scanned: `31`
-- Total bytes: `932112`
+- Files scanned: `35`
+- Total bytes: `984093`
 
 ## file_count_by_extension
 
-- `.md`: 29
+- `.md`: 33
 - `.yaml`: 2
 
 ## largest_files
@@ -34,14 +34,14 @@ Generated: `2026-06-28T20:38:50Z`
 - `raw/refs/gemini-research_sources.yaml`: 33739 bytes
 - `raw/refs/Buergergesellschaft_Ehrenamt-Auslagen.md`: 28673 bytes
 - `raw/refs/IHK-Berlin_Pflichtangaben-Rechnungen.md`: 26142 bytes
+- `raw/refs/_pdf_extracted_md/LfSt-Bayern_Merkblatt-Festveranstaltungen-2025.md`: 25919 bytes
 - `raw/refs/pretix_Taxes-Guide.md`: 25519 bytes
 - `raw/refs/AWV_GoBD-Praxisleitfaden.md`: 16561 bytes
 - `raw/refs/IHK-Koblenz_Reverse-Charge-Auslaendische-Dienstleister.md`: 15328 bytes
 - `raw/refs/StBK-Hamburg_Mindestumsatzgarantien-Gastronomie.md`: 15200 bytes
+- `raw/refs/_pdf_extracted_md/DRV_K5001_Kuenstlersozialabgabe.md`: 12383 bytes
+- `raw/refs/_pdf_extracted_md/K5001.md`: 12331 bytes
 - `raw/refs/DATEV_SKR42-Branchenpaket-Einrichten.md`: 11186 bytes
-- `raw/refs/ticketio_FAQ-Veranstalter.md`: 10512 bytes
-- `raw/refs/VUT_KSK-Abgabepflicht-Elektronische-Musik.md`: 9560 bytes
-- `raw/refs/DeutschesEhrenamt_Rechnungslegung-Verein.md`: 8861 bytes
 
 ## likely_generated_or_noise_files
 
@@ -53,7 +53,7 @@ Generated: `2026-06-28T20:38:50Z`
 
 ## source_group_summary
 
-- `ref`: 31
+- `ref`: 35
 
 ## parser_warning_summary
 

@@ -1,5 +1,65 @@
 [
   {
+    "has_frontmatter": true,
+    "parse_status": "parsed",
+    "path": "raw/refs/_pdf_extracted_md/DRV_K5001_Kuenstlersozialabgabe.md",
+    "raw_field_keys": [
+      "artifact_role",
+      "generated_at",
+      "generated_by",
+      "kb_slug",
+      "phase2_ready",
+      "semantic_status",
+      "source_pdf_path",
+      "source_pdf_sha256"
+    ]
+  },
+  {
+    "has_frontmatter": true,
+    "parse_status": "parsed",
+    "path": "raw/refs/_pdf_extracted_md/IHK-Niederbayern_Checkliste-Kleinbetragsrechnungen.md",
+    "raw_field_keys": [
+      "artifact_role",
+      "generated_at",
+      "generated_by",
+      "kb_slug",
+      "phase2_ready",
+      "semantic_status",
+      "source_pdf_path",
+      "source_pdf_sha256"
+    ]
+  },
+  {
+    "has_frontmatter": true,
+    "parse_status": "parsed",
+    "path": "raw/refs/_pdf_extracted_md/K5001.md",
+    "raw_field_keys": [
+      "artifact_role",
+      "generated_at",
+      "generated_by",
+      "kb_slug",
+      "phase2_ready",
+      "semantic_status",
+      "source_pdf_path",
+      "source_pdf_sha256"
+    ]
+  },
+  {
+    "has_frontmatter": true,
+    "parse_status": "parsed",
+    "path": "raw/refs/_pdf_extracted_md/LfSt-Bayern_Merkblatt-Festveranstaltungen-2025.md",
+    "raw_field_keys": [
+      "artifact_role",
+      "generated_at",
+      "generated_by",
+      "kb_slug",
+      "phase2_ready",
+      "semantic_status",
+      "source_pdf_path",
+      "source_pdf_sha256"
+    ]
+  },
+  {
     "has_frontmatter": false,
     "parse_status": "missing",
     "path": "raw/refs/AWV_GoBD-Praxisleitfaden.md",
