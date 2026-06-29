@@ -1,0 +1,221 @@
+{
+  "generated_at": "2026-06-29T15:59:44.099891+00:00",
+  "script": "convert-lika-verein-downloaded-pdfs.py",
+  "repo_root": "C:\\GitDev\\apexai-os-meta",
+  "kb_root": "apex-meta/kb/lika-verein-taxes-accounting",
+  "download_report": "apex-meta/kb/lika-verein-taxes-accounting/manifests/downloads/missing-source-download-report_20260629_171832.json",
+  "source_mode": "download_report",
+  "dry_run": false,
+  "force": false,
+  "marker_enabled": false,
+  "pdf_count": 8,
+  "results": [
+    {
+      "pdf": "apex-meta/kb/lika-verein-taxes-accounting/raw/refs/AWV_Muster-Verfahrensdokumentation-Belegablage.pdf",
+      "markdown": "apex-meta/kb/lika-verein-taxes-accounting/raw/refs/AWV_Muster-Verfahrensdokumentation-Belegablage.md",
+      "marker_markdown": "apex-meta/kb/lika-verein-taxes-accounting/raw/refs/AWV_Muster-Verfahrensdokumentation-Belegablage.marker.md",
+      "conversion_report": "apex-meta/kb/lika-verein-taxes-accounting/raw/refs/AWV_Muster-Verfahrensdokumentation-Belegablage.conversion-report.json",
+      "created_at": "2026-06-29T15:59:44.119061+00:00",
+      "script": "convert-lika-verein-downloaded-pdfs.py",
+      "policy": "pymupdf4llm first; marker-pdf only if quality check fails",
+      "dry_run": false,
+      "force": false,
+      "steps": [
+        {
+          "converter": "pymupdf4llm",
+          "returncode": 0,
+          "stdout": "147691\n",
+          "stderr": ""
+        }
+      ],
+      "quality_check_after_pymupdf4llm": {
+        "status": "review",
+        "warnings": [
+          "table_heavy"
+        ],
+        "size_chars": 147691,
+        "heading_count": 82,
+        "tableish_count": 16,
+        "replacement_char_count": 0,
+        "line_count": 1658
+      },
+      "status": "converted_pymupdf4llm_selected",
+      "selected_markdown": "apex-meta/kb/lika-verein-taxes-accounting/raw/refs/AWV_Muster-Verfahrensdokumentation-Belegablage.md",
+      "selection_reason": "pymupdf4llm_quality_pass_or_marker_disabled"
+    },
+    {
+      "pdf": "apex-meta/kb/lika-verein-taxes-accounting/raw/refs/BMF_GoBD-2024.pdf",
+      "markdown": "apex-meta/kb/lika-verein-taxes-accounting/raw/refs/BMF_GoBD-2024.md",
+      "marker_markdown": "apex-meta/kb/lika-verein-taxes-accounting/raw/refs/BMF_GoBD-2024.marker.md",
+      "conversion_report": "apex-meta/kb/lika-verein-taxes-accounting/raw/refs/BMF_GoBD-2024.conversion-report.json",
+      "created_at": "2026-06-29T16:00:32.588964+00:00",
+      "script": "convert-lika-verein-downloaded-pdfs.py",
+      "policy": "pymupdf4llm first; marker-pdf only if quality check fails",
+      "dry_run": false,
+      "force": false,
+      "steps": [],
+      "status": "skipped_existing_markdown",
+      "quality_check_existing_markdown": {
+        "status": "pass",
+        "warnings": [],
+        "size_chars": 47000,
+        "heading_count": 29,
+        "tableish_count": 0,
+        "replacement_char_count": 0,
+        "line_count": 357
+      },
+      "selected_markdown": "apex-meta/kb/lika-verein-taxes-accounting/raw/refs/BMF_GoBD-2024.md",
+      "selection_reason": "existing_markdown_present_use_force_to_regenerate"
+    },
+    {
+      "pdf": "apex-meta/kb/lika-verein-taxes-accounting/raw/refs/DRV_K5001_Kuenstlersozialabgabe.pdf",
+      "markdown": "apex-meta/kb/lika-verein-taxes-accounting/raw/refs/DRV_K5001_Kuenstlersozialabgabe.md",
+      "marker_markdown": "apex-meta/kb/lika-verein-taxes-accounting/raw/refs/DRV_K5001_Kuenstlersozialabgabe.marker.md",
+      "conversion_report": "apex-meta/kb/lika-verein-taxes-accounting/raw/refs/DRV_K5001_Kuenstlersozialabgabe.conversion-report.json",
+      "created_at": "2026-06-29T16:00:32.613831+00:00",
+      "script": "convert-lika-verein-downloaded-pdfs.py",
+      "policy": "pymupdf4llm first; marker-pdf only if quality check fails",
+      "dry_run": false,
+      "force": false,
+      "steps": [],
+      "status": "skipped_existing_markdown",
+      "quality_check_existing_markdown": {
+        "status": "pass",
+        "warnings": [],
+        "size_chars": 11519,
+        "heading_count": 10,
+        "tableish_count": 2,
+        "replacement_char_count": 0,
+        "line_count": 154
+      },
+      "selected_markdown": "apex-meta/kb/lika-verein-taxes-accounting/raw/refs/DRV_K5001_Kuenstlersozialabgabe.md",
+      "selection_reason": "existing_markdown_present_use_force_to_regenerate"
+    },
+    {
+      "pdf": "apex-meta/kb/lika-verein-taxes-accounting/raw/refs/FinanzverwaltungNRW_Mein-ELSTER-fuer-Vereine.pdf",
+      "markdown": "apex-meta/kb/lika-verein-taxes-accounting/raw/refs/FinanzverwaltungNRW_Mein-ELSTER-fuer-Vereine.md",
+      "marker_markdown": "apex-meta/kb/lika-verein-taxes-accounting/raw/refs/FinanzverwaltungNRW_Mein-ELSTER-fuer-Vereine.marker.md",
+      "conversion_report": "apex-meta/kb/lika-verein-taxes-accounting/raw/refs/FinanzverwaltungNRW_Mein-ELSTER-fuer-Vereine.conversion-report.json",
+      "created_at": "2026-06-29T16:00:32.634455+00:00",
+      "script": "convert-lika-verein-downloaded-pdfs.py",
+      "policy": "pymupdf4llm first; marker-pdf only if quality check fails",
+      "dry_run": false,
+      "force": false,
+      "steps": [],
+      "status": "skipped_existing_markdown",
+      "quality_check_existing_markdown": {
+        "status": "pass",
+        "warnings": [],
+        "size_chars": 50873,
+        "heading_count": 37,
+        "tableish_count": 2,
+        "replacement_char_count": 0,
+        "line_count": 667
+      },
+      "selected_markdown": "apex-meta/kb/lika-verein-taxes-accounting/raw/refs/FinanzverwaltungNRW_Mein-ELSTER-fuer-Vereine.md",
+      "selection_reason": "existing_markdown_present_use_force_to_regenerate"
+    },
+    {
+      "pdf": "apex-meta/kb/lika-verein-taxes-accounting/raw/refs/IHK-Niederbayern_Checkliste-Kleinbetragsrechnungen.pdf",
+      "markdown": "apex-meta/kb/lika-verein-taxes-accounting/raw/refs/IHK-Niederbayern_Checkliste-Kleinbetragsrechnungen.md",
+      "marker_markdown": "apex-meta/kb/lika-verein-taxes-accounting/raw/refs/IHK-Niederbayern_Checkliste-Kleinbetragsrechnungen.marker.md",
+      "conversion_report": "apex-meta/kb/lika-verein-taxes-accounting/raw/refs/IHK-Niederbayern_Checkliste-Kleinbetragsrechnungen.conversion-report.json",
+      "created_at": "2026-06-29T16:00:32.666125+00:00",
+      "script": "convert-lika-verein-downloaded-pdfs.py",
+      "policy": "pymupdf4llm first; marker-pdf only if quality check fails",
+      "dry_run": false,
+      "force": false,
+      "steps": [],
+      "status": "skipped_existing_markdown",
+      "quality_check_existing_markdown": {
+        "status": "review",
+        "warnings": [
+          "low_text_volume",
+          "low_heading_count",
+          "table_heavy"
+        ],
+        "size_chars": 622,
+        "heading_count": 1,
+        "tableish_count": 4,
+        "replacement_char_count": 0,
+        "line_count": 14
+      },
+      "selected_markdown": "apex-meta/kb/lika-verein-taxes-accounting/raw/refs/IHK-Niederbayern_Checkliste-Kleinbetragsrechnungen.md",
+      "selection_reason": "existing_markdown_present_use_force_to_regenerate"
+    },
+    {
+      "pdf": "apex-meta/kb/lika-verein-taxes-accounting/raw/refs/K5001.pdf",
+      "markdown": "apex-meta/kb/lika-verein-taxes-accounting/raw/refs/K5001.md",
+      "marker_markdown": "apex-meta/kb/lika-verein-taxes-accounting/raw/refs/K5001.marker.md",
+      "conversion_report": "apex-meta/kb/lika-verein-taxes-accounting/raw/refs/K5001.conversion-report.json",
+      "created_at": "2026-06-29T16:00:32.689379+00:00",
+      "script": "convert-lika-verein-downloaded-pdfs.py",
+      "policy": "pymupdf4llm first; marker-pdf only if quality check fails",
+      "dry_run": false,
+      "force": false,
+      "steps": [],
+      "status": "skipped_existing_markdown",
+      "quality_check_existing_markdown": {
+        "status": "pass",
+        "warnings": [],
+        "size_chars": 11519,
+        "heading_count": 10,
+        "tableish_count": 2,
+        "replacement_char_count": 0,
+        "line_count": 154
+      },
+      "selected_markdown": "apex-meta/kb/lika-verein-taxes-accounting/raw/refs/K5001.md",
+      "selection_reason": "existing_markdown_present_use_force_to_regenerate"
+    },
+    {
+      "pdf": "apex-meta/kb/lika-verein-taxes-accounting/raw/refs/KSK_Info04_Abgabepflicht-Veranstalter.pdf",
+      "markdown": "apex-meta/kb/lika-verein-taxes-accounting/raw/refs/KSK_Info04_Abgabepflicht-Veranstalter.md",
+      "marker_markdown": "apex-meta/kb/lika-verein-taxes-accounting/raw/refs/KSK_Info04_Abgabepflicht-Veranstalter.marker.md",
+      "conversion_report": "apex-meta/kb/lika-verein-taxes-accounting/raw/refs/KSK_Info04_Abgabepflicht-Veranstalter.conversion-report.json",
+      "created_at": "2026-06-29T16:00:32.717807+00:00",
+      "script": "convert-lika-verein-downloaded-pdfs.py",
+      "policy": "pymupdf4llm first; marker-pdf only if quality check fails",
+      "dry_run": false,
+      "force": false,
+      "steps": [],
+      "status": "skipped_existing_markdown",
+      "quality_check_existing_markdown": {
+        "status": "pass",
+        "warnings": [],
+        "size_chars": 21512,
+        "heading_count": 23,
+        "tableish_count": 0,
+        "replacement_char_count": 0,
+        "line_count": 216
+      },
+      "selected_markdown": "apex-meta/kb/lika-verein-taxes-accounting/raw/refs/KSK_Info04_Abgabepflicht-Veranstalter.md",
+      "selection_reason": "existing_markdown_present_use_force_to_regenerate"
+    },
+    {
+      "pdf": "apex-meta/kb/lika-verein-taxes-accounting/raw/refs/LfSt-Bayern_Merkblatt-Festveranstaltungen-2025.pdf",
+      "markdown": "apex-meta/kb/lika-verein-taxes-accounting/raw/refs/LfSt-Bayern_Merkblatt-Festveranstaltungen-2025.md",
+      "marker_markdown": "apex-meta/kb/lika-verein-taxes-accounting/raw/refs/LfSt-Bayern_Merkblatt-Festveranstaltungen-2025.marker.md",
+      "conversion_report": "apex-meta/kb/lika-verein-taxes-accounting/raw/refs/LfSt-Bayern_Merkblatt-Festveranstaltungen-2025.conversion-report.json",
+      "created_at": "2026-06-29T16:00:32.736731+00:00",
+      "script": "convert-lika-verein-downloaded-pdfs.py",
+      "policy": "pymupdf4llm first; marker-pdf only if quality check fails",
+      "dry_run": false,
+      "force": false,
+      "steps": [],
+      "status": "skipped_existing_markdown",
+      "quality_check_existing_markdown": {
+        "status": "review",
+        "warnings": [
+          "table_heavy"
+        ],
+        "size_chars": 24705,
+        "heading_count": 19,
+        "tableish_count": 17,
+        "replacement_char_count": 0,
+        "line_count": 319
+      },
+      "selected_markdown": "apex-meta/kb/lika-verein-taxes-accounting/raw/refs/LfSt-Bayern_Merkblatt-Festveranstaltungen-2025.md",
+      "selection_reason": "existing_markdown_present_use_force_to_regenerate"
+    }
+  ]
+}

@@ -3,7 +3,7 @@
   "markdown": "apex-meta/kb/lika-verein-taxes-accounting/raw/refs/BMF_GoBD-2024.md",
   "marker_markdown": "apex-meta/kb/lika-verein-taxes-accounting/raw/refs/BMF_GoBD-2024.marker.md",
   "conversion_report": "apex-meta/kb/lika-verein-taxes-accounting/raw/refs/BMF_GoBD-2024.conversion-report.json",
-  "created_at": "2026-06-29T15:52:06.866219+00:00",
+  "created_at": "2026-06-29T16:00:32.588964+00:00",
   "script": "convert-lika-verein-downloaded-pdfs.py",
   "policy": "pymupdf4llm first; marker-pdf only if quality check fails",
   "dry_run": false,

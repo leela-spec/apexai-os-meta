@@ -260,6 +260,9 @@ AWV_ASSET_SOURCE: Dict[str, Any] = {
         ".pdf": "raw/refs/AWV_Muster-Verfahrensdokumentation-Belegablage.pdf",
         ".docx": "raw/refs/AWV_Muster-Verfahrensdokumentation-Belegablage.docx",
     },
+    "known_asset_urls": {
+        ".pdf": "https://www.awv-net.de/fileadmin/user_upload/Publikationen/Musterverfahrensdokumentation/Belegablage_V1_20151026.pdf",
+    },
     "reason": "The page exists as MD, but the actual reusable template file may not be archived.",
 }
 
@@ -541,7 +544,8 @@ def download_awv_assets(
     discovery = discover_awv_assets(repo_root, timeout=timeout, retries=retries, sleep_seconds=sleep_seconds)
     outputs: List[Dict[str, Any]] = [discovery]
 
-    if discovery["status"] != "assets_discovered":
+    known_asset_urls = AWV_ASSET_SOURCE.get("known_asset_urls", {})
+    if discovery["status"] != "assets_discovered" and not known_asset_urls:
         return outputs
 
     by_ext: Dict[str, str] = {}
@@ -549,6 +553,8 @@ def download_awv_assets(
         ext = Path(urllib.parse.urlparse(link).path).suffix.lower()
         if ext in (".pdf", ".docx") and ext not in by_ext:
             by_ext[ext] = link
+    for ext, link in known_asset_urls.items():
+        by_ext.setdefault(ext, link)
 
     for ext, target_rel in AWV_ASSET_SOURCE["targets"].items():
         source_id = f"awv_template_asset_{ext.lstrip('.')}"

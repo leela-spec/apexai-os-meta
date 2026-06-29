@@ -3,20 +3,14 @@
   "markdown": "apex-meta/kb/lika-verein-taxes-accounting/raw/refs/K5001.md",
   "marker_markdown": "apex-meta/kb/lika-verein-taxes-accounting/raw/refs/K5001.marker.md",
   "conversion_report": "apex-meta/kb/lika-verein-taxes-accounting/raw/refs/K5001.conversion-report.json",
-  "created_at": "2026-06-29T15:52:06.948697+00:00",
+  "created_at": "2026-06-29T16:00:32.689379+00:00",
   "script": "convert-lika-verein-downloaded-pdfs.py",
   "policy": "pymupdf4llm first; marker-pdf only if quality check fails",
   "dry_run": false,
   "force": false,
-  "steps": [
-    {
-      "converter": "pymupdf4llm",
-      "returncode": 0,
-      "stdout": "11519\n",
-      "stderr": ""
-    }
-  ],
-  "quality_check_after_pymupdf4llm": {
+  "steps": [],
+  "status": "skipped_existing_markdown",
+  "quality_check_existing_markdown": {
     "status": "pass",
     "warnings": [],
     "size_chars": 11519,
@@ -25,7 +19,6 @@
     "replacement_char_count": 0,
     "line_count": 154
   },
-  "status": "converted_pymupdf4llm_selected",
   "selected_markdown": "apex-meta/kb/lika-verein-taxes-accounting/raw/refs/K5001.md",
-  "selection_reason": "pymupdf4llm_quality_pass_or_marker_disabled"
+  "selection_reason": "existing_markdown_present_use_force_to_regenerate"
 }

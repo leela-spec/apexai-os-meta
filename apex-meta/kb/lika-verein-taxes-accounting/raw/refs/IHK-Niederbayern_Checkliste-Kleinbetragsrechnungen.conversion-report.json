@@ -3,7 +3,7 @@
   "markdown": "apex-meta/kb/lika-verein-taxes-accounting/raw/refs/IHK-Niederbayern_Checkliste-Kleinbetragsrechnungen.md",
   "marker_markdown": "apex-meta/kb/lika-verein-taxes-accounting/raw/refs/IHK-Niederbayern_Checkliste-Kleinbetragsrechnungen.marker.md",
   "conversion_report": "apex-meta/kb/lika-verein-taxes-accounting/raw/refs/IHK-Niederbayern_Checkliste-Kleinbetragsrechnungen.conversion-report.json",
-  "created_at": "2026-06-29T15:52:06.930367+00:00",
+  "created_at": "2026-06-29T16:00:32.666125+00:00",
   "script": "convert-lika-verein-downloaded-pdfs.py",
   "policy": "pymupdf4llm first; marker-pdf only if quality check fails",
   "dry_run": false,
