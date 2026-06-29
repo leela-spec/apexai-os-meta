@@ -1,0 +1,27 @@
+{
+  "generated_at": "2026-06-29T15:14:52Z",
+  "source": {
+    "source_id": "bzst_50a_abzugsteuer",
+    "title": "BZSt Abzugsteuer §50a EStG",
+    "priority": "P0",
+    "target_path": "raw/refs/BZSt_50a-Abzugsteuer.md",
+    "capture_method": "jina_markdown_or_html_snapshot",
+    "urls": [
+      "https://www.bzst.de/DE/Privatpersonen/Abzugsteuern_50a/abzugsteuern_node.html",
+      "https://www.bzst.de/DE/Unternehmen/Abzugsteuern/Abzugsteuern_node.html"
+    ],
+    "section": "core_missing_p0_p1",
+    "reason": "Foreign artists / §50a is a core contractor topic.",
+    "quality_score": 87,
+    "existing_related_path": null,
+    "risk_flags": []
+  },
+  "download": {
+    "target_path": "C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\lika-verein-taxes-accounting\\raw\\refs\\BZSt_50a-Abzugsteuer.md",
+    "sha256": "8974e947b5eba1862cc6ddc6a328ada0ebc18c3e5a68fbe3cd8ca6adc783bb97",
+    "size_bytes": 49942,
+    "original_url": "https://r.jina.ai/https://www.bzst.de/DE/Privatpersonen/Abzugsteuern_50a/abzugsteuern_node.html",
+    "final_url": "https://r.jina.ai/https://www.bzst.de/DE/Privatpersonen/Abzugsteuern_50a/abzugsteuern_node.html",
+    "content_type": "text/plain; charset=utf-8"
+  }
+}

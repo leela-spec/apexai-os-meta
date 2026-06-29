@@ -1,0 +1,26 @@
+{
+  "generated_at": "2026-06-29T15:14:39Z",
+  "source": {
+    "source_id": "bmj_ustg_14",
+    "title": "§14 UStG — Ausstellung von Rechnungen",
+    "priority": "P1",
+    "target_path": "raw/refs/BMJ_UStG_14_Rechnungen.md",
+    "capture_method": "jina_markdown_or_html_snapshot",
+    "urls": [
+      "https://www.gesetze-im-internet.de/ustg_1980/__14.html"
+    ],
+    "section": "core_missing_p0_p1",
+    "reason": "Needed to cross-check IHK and ticket invoice logic.",
+    "quality_score": null,
+    "existing_related_path": null,
+    "risk_flags": []
+  },
+  "download": {
+    "target_path": "C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\lika-verein-taxes-accounting\\raw\\refs\\BMJ_UStG_14_Rechnungen.md",
+    "sha256": "df72475e17f140cd1fea087ea6e5956bb9c59a586e375265e19a30edbb3769f8",
+    "size_bytes": 9732,
+    "original_url": "https://r.jina.ai/https://www.gesetze-im-internet.de/ustg_1980/__14.html",
+    "final_url": "https://r.jina.ai/https://www.gesetze-im-internet.de/ustg_1980/__14.html",
+    "content_type": "text/plain; charset=utf-8"
+  }
+}

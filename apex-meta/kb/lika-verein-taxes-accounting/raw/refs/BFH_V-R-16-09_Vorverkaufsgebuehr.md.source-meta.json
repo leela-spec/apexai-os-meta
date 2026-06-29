@@ -1,0 +1,26 @@
+{
+  "generated_at": "2026-06-29T15:15:06Z",
+  "source": {
+    "source_id": "bfh_v_r_16_09_vorverkaufsgebuehr",
+    "title": "BFH V R 16/09 — Vorverkaufsgebühr",
+    "priority": "P1",
+    "target_path": "raw/refs/BFH_V-R-16-09_Vorverkaufsgebuehr.md",
+    "capture_method": "jina_markdown_or_html_snapshot",
+    "urls": [
+      "https://www.bundesfinanzhof.de/de/entscheidung/entscheidungen-online/detail/STRE201210056/"
+    ],
+    "section": "core_missing_p0_p1",
+    "reason": "Ticket fee / VAT treatment source.",
+    "quality_score": 84,
+    "existing_related_path": null,
+    "risk_flags": []
+  },
+  "download": {
+    "target_path": "C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\lika-verein-taxes-accounting\\raw\\refs\\BFH_V-R-16-09_Vorverkaufsgebuehr.md",
+    "sha256": "f044e466fda5758bf60ef7700d61ba492a6d98c28b0a5952fc0d94c534cd77ad",
+    "size_bytes": 21371,
+    "original_url": "https://r.jina.ai/https://www.bundesfinanzhof.de/de/entscheidung/entscheidungen-online/detail/STRE201210056/",
+    "final_url": "https://r.jina.ai/https://www.bundesfinanzhof.de/de/entscheidung/entscheidungen-online/detail/STRE201210056/",
+    "content_type": "text/plain; charset=utf-8"
+  }
+}

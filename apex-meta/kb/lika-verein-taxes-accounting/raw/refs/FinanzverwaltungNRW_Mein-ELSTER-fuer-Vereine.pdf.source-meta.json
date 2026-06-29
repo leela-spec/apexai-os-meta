@@ -1,0 +1,28 @@
+{
+  "generated_at": "2026-06-29T15:15:25Z",
+  "source": {
+    "source_id": "finanzverwaltung_nrw_mein_elster_vereine_pdf",
+    "title": "Mein ELSTER für Vereine — NRW brochure PDF",
+    "priority": "P1",
+    "target_path": "raw/refs/FinanzverwaltungNRW_Mein-ELSTER-fuer-Vereine.pdf",
+    "capture_method": "direct_pdf",
+    "urls": [
+      "https://www.finanzverwaltung.nrw.de/system/files/media/document/file/2026_05_26_internet_endf_einzs_brosch_meinelstervereine.pdf"
+    ],
+    "section": "optional_download_because_pdf_or_asset_missing",
+    "reason": "Official PDF useful for ELSTER process; mark Gemeinnützigkeit transfer risk.",
+    "quality_score": null,
+    "existing_related_path": "raw/refs/FinanzamtNRW_Vereine-Umsatzsteuer.md",
+    "risk_flags": [
+      "gemeinnuetzigkeit_context_possible"
+    ]
+  },
+  "download": {
+    "target_path": "C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\lika-verein-taxes-accounting\\raw\\refs\\FinanzverwaltungNRW_Mein-ELSTER-fuer-Vereine.pdf",
+    "sha256": "d7539be95a42cd2de77f8f2b0db67741f8e4786fc21026f05c5534a668743a67",
+    "size_bytes": 2696096,
+    "original_url": "https://www.finanzverwaltung.nrw.de/system/files/media/document/file/2026_05_26_internet_endf_einzs_brosch_meinelstervereine.pdf",
+    "final_url": "https://www.finanzverwaltung.nrw.de/system/files/media/document/file/2026_05_26_internet_endf_einzs_brosch_meinelstervereine.pdf",
+    "content_type": "application/pdf"
+  }
+}

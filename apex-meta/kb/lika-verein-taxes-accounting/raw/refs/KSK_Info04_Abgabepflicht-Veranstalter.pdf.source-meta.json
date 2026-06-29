@@ -1,0 +1,26 @@
+{
+  "generated_at": "2026-06-29T15:14:28Z",
+  "source": {
+    "source_id": "ksk_info04_veranstalter",
+    "title": "KSK Informationsschrift Nr. 4 — Abgabepflicht von Veranstaltern",
+    "priority": "P0",
+    "target_path": "raw/refs/KSK_Info04_Abgabepflicht-Veranstalter.pdf",
+    "capture_method": "direct_pdf",
+    "urls": [
+      "https://www.kuenstlersozialkasse.de/fileadmin/Dokumente/Mediencenter_Unternehmer_Verwerter/Informationsschriften/Info_04_Abgabepflicht_von_Veranstaltern.pdf"
+    ],
+    "section": "core_missing_p0_p1",
+    "reason": "Top source, P0, not found in repo search.",
+    "quality_score": 93,
+    "existing_related_path": null,
+    "risk_flags": []
+  },
+  "download": {
+    "target_path": "C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\lika-verein-taxes-accounting\\raw\\refs\\KSK_Info04_Abgabepflicht-Veranstalter.pdf",
+    "sha256": "16e8d5216aa9bba694e8d64565c5d1fb18ac252fa5cec1083547f8e4cfd07649",
+    "size_bytes": 203113,
+    "original_url": "https://www.kuenstlersozialkasse.de/fileadmin/Dokumente/Mediencenter_Unternehmer_Verwerter/Informationsschriften/Info_04_Abgabepflicht_von_Veranstaltern.pdf",
+    "final_url": "https://www.kuenstlersozialkasse.de/fileadmin/Dokumente/Mediencenter_Unternehmer_Verwerter/Informationsschriften/Info_04_Abgabepflicht_von_Veranstaltern.pdf",
+    "content_type": "application/pdf"
+  }
+}

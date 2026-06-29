@@ -1,0 +1,27 @@
+{
+  "generated_at": "2026-06-29T15:15:02Z",
+  "source": {
+    "source_id": "eventbrite_event_payout_financials",
+    "title": "Eventbrite Event/Payout financial information",
+    "priority": "P2",
+    "target_path": "raw/refs/Eventbrite_Event-Payout-Financial-Information.md",
+    "capture_method": "jina_markdown",
+    "urls": [
+      "https://www.eventbrite.de/help/de/articles/263015/so-koennen-sie-alle-finanzinformationen-zu-einem-event-in-form-einer-event-rechnung-abrufen/",
+      "https://www.eventbrite.co.uk/help/en-us/articles/263015/how-to-see-all-of-your-event-s-financial-information-with-event-invoices/"
+    ],
+    "section": "core_missing_p0_p1",
+    "reason": "Complements Eventbrite Umsatzübersicht already present.",
+    "quality_score": 63,
+    "existing_related_path": null,
+    "risk_flags": []
+  },
+  "download": {
+    "target_path": "C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\lika-verein-taxes-accounting\\raw\\refs\\Eventbrite_Event-Payout-Financial-Information.md",
+    "sha256": "4ceff83cdcf34bcb037a55868c05af20bcecfdb28115eea19f11697610db0eab",
+    "size_bytes": 2524,
+    "original_url": "https://r.jina.ai/https://www.eventbrite.de/help/de/articles/263015/so-koennen-sie-alle-finanzinformationen-zu-einem-event-in-form-einer-event-rechnung-abrufen/",
+    "final_url": "https://r.jina.ai/https://www.eventbrite.de/help/de/articles/263015/so-koennen-sie-alle-finanzinformationen-zu-einem-event-in-form-einer-event-rechnung-abrufen/",
+    "content_type": "text/plain; charset=utf-8"
+  }
+}

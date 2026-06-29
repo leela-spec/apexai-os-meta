@@ -1,0 +1,27 @@
+{
+  "generated_at": "2026-06-29T15:14:56Z",
+  "source": {
+    "source_id": "pretix_order_lifecycle",
+    "title": "pretix Order Lifecycle",
+    "priority": "P1",
+    "target_path": "raw/refs/pretix_Order-Lifecycle.md",
+    "capture_method": "jina_markdown",
+    "urls": [
+      "https://docs.pretix.eu/dev/api/guides/order_lifecycle.html",
+      "https://docs.pretix.eu/en/latest/api/guides/order_lifecycle.html"
+    ],
+    "section": "core_missing_p0_p1",
+    "reason": "Needed for refund/storno/order-status workflow.",
+    "quality_score": 80,
+    "existing_related_path": null,
+    "risk_flags": []
+  },
+  "download": {
+    "target_path": "C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\lika-verein-taxes-accounting\\raw\\refs\\pretix_Order-Lifecycle.md",
+    "sha256": "284a53e4d983784834ed5902b12c01c295adf766ec7f3ebf2c7d32fdea3ba0ab",
+    "size_bytes": 50469,
+    "original_url": "https://r.jina.ai/https://docs.pretix.eu/dev/api/guides/order_lifecycle.html",
+    "final_url": "https://r.jina.ai/https://docs.pretix.eu/dev/api/guides/order_lifecycle.html",
+    "content_type": "text/plain; charset=utf-8"
+  }
+}
