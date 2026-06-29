@@ -1,0 +1,154 @@
+## **Information zur Künstlersozialabgabe** 
+
+**==> picture [166 x 47] intentionally omitted <==**
+
+## **Allgemeine Informationen** 
+
+Selbständige Künstler und Publizisten werden seit 1.1.1983 durch das Künstlersozialversicherungsgesetz (KSVG) in den Schutz der gesetzlichen Sozialversicherung einbezogen. Sie tragen ihre Beiträge nur zur Hälfte. Die andere Beitragshälfte wird durch einen Bundeszuschuss und eine Abgabe der Unternehmer, die künstlerische und publizistische Leistungen verwerten, finanziert. 
+
+Wird ein Unternehmer durch die Inanspruchnahme einer künstlerischen oder publizistischen Leistung von einem selbständigen Künstler oder Publizisten abgabepflichtig nach § 24 KSVG, muss er die Künstlersozialabgabe an die Künstlersozialkasse zahlen. 
+
+## **Wer ist abgabepflichtig?** 
+
+Private Unternehmen und Betriebe können ebenso abgabepflichtig sein wie öffentlich-rechtliche Körperschaften, Anstalten, eingetragene Vereine und andere Personengemeinschaften. Auch die steuerrechtlich anerkannte Gemeinnützigkeit ändert nichts daran, dass Künstlersozialabgaben gezahlt werden müssen. 
+
+Betroffen sind vor allem diejenigen Unternehmen, die typischerweise künstlerische oder publizistische Werke oder Leistungen verwerten **(typische Verwerter)** . Dazu gehören: 
+
+- Buchverlage, Presseverlage und sonstige Verlage, Presseagenturen (einschließlich Bilderdienste), 
+
+- - Theater (ausgenommen Filmtheater), Orchester, Chöre und vergleichbare Unternehmen, 
+
+- - Theaterdirektionen, Konzertdirektionen und Gastspieldirektionen sowie sonstige Unternehmen, deren wesentlicher Zweck darauf gerichtet ist, für die Aufführung oder Darbietung künstlerischer oder publizistischer Werke oder Leistungen zu sorgen, 
+
+- Rundfunkanbieter und Fernsehanbieter, 
+
+- Hersteller von bespielten Bildträger und Tonträgern (ausschließlich alleiniger Vervielfältigung), 
+
+- Galerien, Kunsthandel, 
+
+- Werbung oder Öffentlichkeitsarbeit für Dritte, 
+
+- Varietéunternehmen und Zirkusunternehmen, Museen, 
+
+- Ausbildungseinrichtungen und Fortbildungseinrichtungen für künstlerische und publizistische Tätigkeiten 
+
+Es kommt nicht auf den Namen eines Unternehmens an oder darauf, dass ausschließlich die oben genannten Tätigkeiten betrieben werden. Die Tätigkeiten sind vielmehr im weiteren Sinn zu verstehen und können auch auf Unternehmen und Einrichtungen zutreffen, die nur in ähnlicher Weise tätig werden. 
+
+Unternehmen, die Werbung oder Öffentlichkeitsarbeit für Zwecke ihres eigenen Unternehmens betreiben, sind ebenfalls abgabepflichtig, wenn sie Aufträge an selbständige Künstler und Publizisten erteilen **(Eigenwerber)** . Damit gehören praktisch alle verkaufsorientierten Unternehmen zu den Abgabepflichtigen nach dem KSVG. Das Bundessozialgericht hat den Begriff der Werbung in seinem Urteil vom 20.4.1994 - 3/12 RK 66/92 - über die Abgabepflicht einer Ersatzkasse als positive Darstellung des Unternehmens und seiner Leistungen in der Öffentlichkeit (so genannte Imagepflege) definiert. Unternehmer, aber auch Städte, Landkreise und Gemeinden, Verbände und Vereine, die regelmäßig Aufträge an selbständige Künstler und Publizisten erteilen, um beispielsweise Geschäftsberichte, Kataloge, Prospekte, Zeitschriften, Broschüren, Zeitungsartikel zu erstellen, Produkte zu gestalten und Konzerte, Theateraufführungen und Vorträge zu veranstalten, gehören deshalb zum abgabepflichtigen Personenkreis. 
+
+Schließlich kann jeder als Unternehmer abgabepflichtig werden, wenn er selbständige künstlerische oder publizistische Leistungen für jegliche Zwecke seines Unternehmens in Anspruch nimmt und damit Einnahmen erzielen will **(Generalklausel)** . 
+
+Die Abgabepflicht als Eigenwerber und nach der Generalklausel setzt jedoch voraus, dass die in einem Kalenderjahr gezahlten Entgelte an selbständige Künstler oder Publizisten aus einem Auftrag oder mehreren Aufträgen die maßgebliche Bagatellgrenze übersteigen. 
+
+Seite 1 von 4 
+
+**K5001-00 DRV** Version 09013 
+
+Die kalenderjährliche Bagatellgrenze beträgt: 
+
+Kalenderjahr Bagatellgrenze bis 2024 450 EUR 2025 700 EUR ab 2026 1.000 EUR 
+
+Bei der Generalklausel werden Entgelte im Rahmen von Veranstaltungen, in denen künstlerische oder publizistische Werke oder Leistungen aufgeführt oder dargeboten werden, nur berücksichtigt, wenn mehr als 3 Veranstaltungen im Kalenderjahr stattfinden. 
+
+Als abgabepflichtige Unternehmer kommen auch selbständige Künstler oder Publizisten in Betracht, die künstlerische oder publizistische Werke oder Leistungen Dritter verwerten. 
+
+## **Wer ist Künstler oder Publizist?** 
+
+Künstler im Sinne dieses Gesetzes ist, wer Musik, bildende Kunst oder darstellende Kunst schafft, ausübt oder lehrt. Publizist ist, wer als Schriftsteller, Journalist oder in ähnlicher Weise publizistisch tätig ist oder Publizistik lehrt. 
+
+## Beispielhafte, nicht abschließende Aufzählung: 
+
+|**im Bereich Wort**|**im Bereich bildende Kunst / Design**|
+|---|---|
+|Ausbilder im Bereich Wort|Ausbilder im Bereich bildende Kunst/Design|
+|Autor|Bildhauer, Plastiker|
+|Bildjournalist, Pressefotograf|experimenteller Künstler (zum Beispiel Objektmacher)|
+|Drehbuchautor|Fotograf (künstlerischer), Lichtbildner, Fotodesigner|
+|Fachmann für Öffentlichkeitsarbeit/<br>Werbung|Grafikdesigner, Modedesigner, Textildesigner,<br>Industriedesigner|
+|Journalist, Redakteur|Karikaturist, Trickzeichner, Comiczeichner, Illustrator|
+|Korrespondent, Texter|Layouter|
+|Kritiker|Maler, Zeichner, Grafiker|
+|Lektor|Performancekünstler, Aktionskünstler|
+|PR-Fachmann|Videokünstler, Colorist (Trickfilm)|
+|Schriftsteller, Dichter|Werbefotograf, Stylist, Visagist|
+|wissenschaftlicher Autor|Webdesigner|
+|**im Bereich Musik**|**im Bereich darstellende Kunst**|
+|Arrangeur (Musikbearbeiter)|Ausbilder im Bereich darstellende Kunst|
+|Ausbilder im Bereich Musik|Ballettlehrer, Balletttänzer, Ballettmeister|
+|Chorleiter|Bühnenbildner, Filmbildner, Kostümbildner, Maskenbildner|
+|Alleinunterhalter|Bühnenmaler|
+|Instrumentalsolist|Dompteur|
+|Musiker|Eiskunstläufer (Showbereich)|
+|Kapellmeister, Dirigent|Kameramann|
+|Komponist|Puppenspieler, Marionettenspieler, Figurenspieler|
+|Librettist, Textdichter|Quizmaster, Entertainer, Komiker|
+|Liedermacher, Musiklehrer|Regisseur, Filmemacher, Choreograph|
+|Sänger|Schauspieler, Kabarettist|
+|Tanzmusiker, Popmusiker (Instrumentalist)|Sprecher, Synchronsprecher, Moderator, Rezitator|
+
+
+
+Seite 2 von 4 
+
+**K5001-00 DRV** Version 09013 
+
+## **Wie hoch ist die Künstlersozialabgabe?** 
+
+Alle Zahlungen, die ein Abgabepflichtiger im Laufe eines Jahres an selbständige Künstler und Publizisten für entsprechende Leistungen entrichtet, werden summiert und mit dem für jedes Jahr neu festgelegten Abgabesatz multipliziert. Das Ergebnis ist die für das jeweilige Jahr zu zahlende Künstlersozialabgabe. 
+
+Zu beachten ist, dass neben den Honoraren, Lizenzen und so weiter sämtliche Auslagen und Nebenkosten, die einem Künstler oder Publizisten erstattet werden, zum Beispiel für Material, Transport, Telefon und nicht künstlerische Nebenleistungen, in die Berechnung einbezogen werden. 
+
+Nicht in die Berechnung einzubeziehen sind die so genannte Übungsleiterpauschale im Sinne des § 3 Nummer 26 Einkommensteuergesetz (EStG) und seit 2025 auch die Ehrenamtspauschale nach § 3 Nummer 26a EStG sowie folgende Zahlungen, wenn sie gesondert ausgewiesen sind: 
+
+- Umsatzsteuer 
+
+- steuerfreie Aufwandsentschädigungen (zum Beispiel Reisekosten und Bewirtungskosten) 
+
+- - Zahlungen an urheberrechtliche Verwertungsgesellschaften (zum Beispiel GEMA) 
+
+- - Vervielfältigungskosten (Druckkosten) 
+
+Die Künstlersozialabgabe wird für einen Zeitraum von 5 Jahren nacherhoben. 
+
+## **Abgabesätze seit dem Jahr 2020** 
+
+**2020 bis 2022 4,2 Prozent 2023 bis 2025 5,0 Prozent seit 2026 4,9 Prozent** 
+
+## **Welche Beträge sind aufzuzeichnen?** 
+
+Alle Entgelte, die an einen selbständigen Künstler oder Publizisten für eine künstlerische oder publizistische Leistung gezahlt werden, unterliegen der Abgabepflicht. Außerdem gehören auch Zahlungen an Künstler/Publizisten zur Bemessungsgrundlage, die als Gewerbetreibende, Einzelunternehmer oder 
+
+Personengesellschaften (zum Beispiel GbR) am Markt auftreten. Ausgenommen sind Zahlungen an juristische Personen (zum Beispiel GmbH), an Kommanditgesellschaften (zum Beispiel KG) oder an offene Handelsgesellschaften (OHG). 
+
+Selbständig bedeutet in diesem Zusammenhang, dass der Künstler/Publizist auf freiberuflicher Basis arbeitet, also nicht als Arbeitnehmer für das Unternehmen tätig wird. Dies kann auch nebenberuflich, also neben einer Haupttätigkeit, zum Beispiel als Angestellter, Beamter oder Student, geschehen. Es ist auch unerheblich, ob die Zahlungsempfänger nach dem KSVG versichert sind. Zahlungen an Nichtversicherte sind also ebenso aufzuzeichnen und zu melden, wie zum Beispiel Zahlungen an im Ausland lebende Künstler und Publizisten. 
+
+Abgabepflichtige Unternehmer haben fortlaufende Aufzeichnungen über die gezahlten Entgelte zu führen. Die den Aufzeichnungen zu Grunde liegenden Unterlagen sind aufzubewahren, damit eine Nachprüfbarkeit gewährleistet ist. 
+
+## **Klare Verträge sind wichtig** 
+
+Bei 2-seitigen Verträgen ist die Frage, wer die Künstlersozialabgabe zu zahlen hat, unproblematisch. Ein abgabepflichtiger Unternehmer, der mit einem Künstler oder Publizisten einen Vertrag über eine künstlerische oder publizistische Leistung schließt, muss das Honorar inklusive aller Nebenkosten melden. 
+
+Sobald an der Vertragsgestaltung mehrere Personen beteiligt sind, kann sich die Frage ergeben, wer die Künstlersozialabgabe zahlen muss. Maßgebend für die Beurteilung, wer im Einzelfall abgabepflichtig ist, sind die zivilrechtlichen, also die vertraglichen Vereinbarungen. Grundsätzlich ist die Abgabe von dem Unternehmer zu entrichten, der in unmittelbaren Vertragsbeziehungen zu dem Künstler steht. Das ist im Regelfall derjenige, der von dem Künstler die künstlerische Leistung verlangen und gegebenenfalls einklagen und gegen den der Künstler seine Ansprüche richten und durchsetzen kann. 
+
+Seite 3 von 4 
+
+**K5001-00 DRV** Version 09013 
+
+Der Vertreter eines Künstlers oder Publizisten (zum Beispiel ein Agent oder ein Manager) ist zur Künstlersozialabgabe verpflichtet, sofern er nicht nachweist, dass der Vertragspartner des Künstlers oder Publizisten selbst ein abgabepflichtiges Unternehmen betreibt. Es ist deswegen (auch) zur korrekten Erhebung der Künstlersozialabgabe wichtig, dass klare vertragliche Vereinbarungen geschlossen und in der Praxis entsprechend angewendet werden. 
+
+Zu beachten ist jedoch, dass durch einen Vertrag nicht geregelt werden kann, wer die Künstlersozialabgabe gegenüber der Künstlersozialkasse zu zahlen hat. Die Abgabepflicht ergibt sich allein aus dem Gesetz. 
+
+## **Überwachung der Künstlersozialabgabe** 
+
+Neben der Künstlersozialkasse prüfen die Rentenversicherungsträger bei den Arbeitgebern die rechtzeitige und vollständige Entrichtung der Künstlersozialabgabe (§ 28p Absatz 1a Viertes Buch Sozialgesetzbuch - SGB IV). Mit der Prüfung soll Abgabegerechtigkeit hergestellt und eine Anhebung des Künstlersozialabgabesatzes verhindert werden. 
+
+Die im beigefügten Fragebogen zu treffenden Angaben werden im Rahmen der Betriebsprüfung durch den zuständigen Rentenversicherungsträger benötigt. 
+
+Auf unserer Internetseite www.deutsche-rentenversicherung.de/betriebspruefung finden Sie Informationen zur Betriebsprüfung und zur Prüfung der Künstlersozialabgabe. 
+
+**==> picture [58 x 58] intentionally omitted <==**
+
+Seite 4 von 4 
+
+**K5001-00 DRV** Version 09013 
+

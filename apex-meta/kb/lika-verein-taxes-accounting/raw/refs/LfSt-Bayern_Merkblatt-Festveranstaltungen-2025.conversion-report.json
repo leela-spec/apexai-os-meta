@@ -1,0 +1,33 @@
+{
+  "pdf": "apex-meta/kb/lika-verein-taxes-accounting/raw/refs/LfSt-Bayern_Merkblatt-Festveranstaltungen-2025.pdf",
+  "markdown": "apex-meta/kb/lika-verein-taxes-accounting/raw/refs/LfSt-Bayern_Merkblatt-Festveranstaltungen-2025.md",
+  "marker_markdown": "apex-meta/kb/lika-verein-taxes-accounting/raw/refs/LfSt-Bayern_Merkblatt-Festveranstaltungen-2025.marker.md",
+  "conversion_report": "apex-meta/kb/lika-verein-taxes-accounting/raw/refs/LfSt-Bayern_Merkblatt-Festveranstaltungen-2025.conversion-report.json",
+  "created_at": "2026-06-29T15:52:45.648566+00:00",
+  "script": "convert-lika-verein-downloaded-pdfs.py",
+  "policy": "pymupdf4llm first; marker-pdf only if quality check fails",
+  "dry_run": false,
+  "force": false,
+  "steps": [
+    {
+      "converter": "pymupdf4llm",
+      "returncode": 0,
+      "stdout": "24705\n",
+      "stderr": ""
+    }
+  ],
+  "quality_check_after_pymupdf4llm": {
+    "status": "review",
+    "warnings": [
+      "table_heavy"
+    ],
+    "size_chars": 24705,
+    "heading_count": 19,
+    "tableish_count": 17,
+    "replacement_char_count": 0,
+    "line_count": 319
+  },
+  "status": "converted_pymupdf4llm_selected",
+  "selected_markdown": "apex-meta/kb/lika-verein-taxes-accounting/raw/refs/LfSt-Bayern_Merkblatt-Festveranstaltungen-2025.md",
+  "selection_reason": "pymupdf4llm_quality_pass_or_marker_disabled"
+}

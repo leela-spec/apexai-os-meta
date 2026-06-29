@@ -1,0 +1,24 @@
+{
+  "pdf": "apex-meta/kb/lika-verein-taxes-accounting/raw/refs/BMF_GoBD-2024.pdf",
+  "markdown": "apex-meta/kb/lika-verein-taxes-accounting/raw/refs/BMF_GoBD-2024.md",
+  "marker_markdown": "apex-meta/kb/lika-verein-taxes-accounting/raw/refs/BMF_GoBD-2024.marker.md",
+  "conversion_report": "apex-meta/kb/lika-verein-taxes-accounting/raw/refs/BMF_GoBD-2024.conversion-report.json",
+  "created_at": "2026-06-29T15:52:06.866219+00:00",
+  "script": "convert-lika-verein-downloaded-pdfs.py",
+  "policy": "pymupdf4llm first; marker-pdf only if quality check fails",
+  "dry_run": false,
+  "force": false,
+  "steps": [],
+  "status": "skipped_existing_markdown",
+  "quality_check_existing_markdown": {
+    "status": "pass",
+    "warnings": [],
+    "size_chars": 47000,
+    "heading_count": 29,
+    "tableish_count": 0,
+    "replacement_char_count": 0,
+    "line_count": 357
+  },
+  "selected_markdown": "apex-meta/kb/lika-verein-taxes-accounting/raw/refs/BMF_GoBD-2024.md",
+  "selection_reason": "existing_markdown_present_use_force_to_regenerate"
+}

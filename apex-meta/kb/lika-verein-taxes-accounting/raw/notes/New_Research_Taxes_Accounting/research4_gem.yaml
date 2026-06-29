@@ -1,0 +1,311 @@
+gap_closure_research_result:
+  executive_summary:
+    most_critical_remaining_gaps:
+      - "Fehlende Dokumentation des umsatzsteuerlichen Risikos bei Mindestbarumsatz-Klauseln (Differenzzahlung als unechter Schadensersatz vs. echter Schadensersatz)."
+      - "Latente Gemeinnützigkeits-Kontamination in den Standard-Vereinsleitfäden bezüglich Aufwandsentschädigungen und Ehrenamtspauschalen, die für den Safer Space e.V. strikt unzulässig sind."
+      - "Ungeklärte steuerliche Behandlung von 'Donation Tickets' bei einem nicht gemeinnützigen e.V. – hier droht die Einstufung als voll steuerbares Entgelt ohne Spendencharakter."
+    sources_that_are_not_good_enough:
+      - "Wegweiser Bürgergesellschaft: Setzt implizit Gemeinnützigkeit voraus, vermischt steuerfreie Pauschalen (§ 3 Nr. 26/26a EStG) mit allgemeinem Vereinsrecht."
+      - "Deutsches Ehrenamt Auslagenersatz: Oberflächlicher Blogartikel ohne konkrete Buchungsanweisungen oder Verweise auf die strenge Trennung beim nicht gemeinnützigen e.V."
+      - "Allgemeine Event-Blogs (wie EVENTFAQ oder Beck Law): Bieten rechtliche Orientierung zum Mietrecht, ignorieren jedoch die steuerliche Abwicklung der Mindestumsatzgarantie vollständig."
+    sources_that_are_real_guides:
+      - "KSK Informationsschrift Nr. 4 für Veranstalter: Exzellentes, rechtssicheres Merkblatt mit klaren Abgrenzungskriterien für die Künstlersozialabgabe."
+      - "Umsatzsteuer-Anwendungserlass (UStAE) zu § 12 Abs. 2 Nr. 7 UStG: Absolute Primärquelle zur Abgrenzung zwischen begünstigten Konzerten (7 %) und regulären Club-Events (19 %)."
+      - "pretix Fiscal Requirements & Taxes Documentation: Hochwertige technische Umsetzungshilfe, die Umsatzsteuerlogik, Rechnungsstellung und Stornoprozesse GoBD-konform abbildet."
+    sources_to_download_now:
+      - "https://www.kuenstlersozialkasse.de/fileadmin/Dokumente/Mediencenter_Unternehmer_Verwerter/Informationsschriften/Info_04_Abgabepflicht_von_Veranstaltern.pdf"
+      - "https://www.deutsche-rentenversicherung.de/SharedDocs/Formulare/DE/_pdf/K5001.pdf"
+      - "https://www.gesetze-im-internet.de/ustdv_1980/__33.html"
+    sources_to_discard:
+      - "Sämtliche allgemeinen Vereinsratgeber, die von 'steuerbegünstigten Körperschaften' sprechen, da Safer Space e.V. voll steuerpflichtig im wirtschaftlichen Geschäftsbetrieb agiert."
+
+  source_audit:
+    - source_id: "SRC-01"
+      title: "IHK Pflichtangaben in Rechnungen"
+      url: "https://www.ihk.de/berlin/service-und-beratung/recht-und-steuern/steuern-und-finanzen/pflichtangaben-in-rechnungen-4400732"
+      reachable: true
+      source_type: "ihk_hwk"
+      content_format: "html_guide"
+      guide_quality: 8
+      extractability: 9
+      navigation_noise_risk: "medium"
+      download_or_capture_method: "archive_html_snapshot"
+      kb_ingestion_decision: "archive_html_snapshot"
+      reason: "Bietet eine rechtssichere Checkliste für Standardrechnungen, muss aber zwingend mit § 33 UStDV für Tickets abgeglichen werden."
+
+    - source_id: "SRC-02"
+      title: "IHK Checkliste Kleinbetragsrechnung"
+      url: "https://www.ihk-niederbayern.de/pdfs/checkliste-kleinbetragsrechnungen-data.pdf"
+      reachable: true
+      source_type: "ihk_hwk"
+      content_format: "downloadable_pdf"
+      guide_quality: 9
+      extractability: 10
+      navigation_noise_risk: "low"
+      download_or_capture_method: "archive_pdf_only"
+      kb_ingestion_decision: "archive_full"
+      reason: "Direkt als PDF downloadbar. Enthält die exakten Mindestangaben bis 250 EUR Bruttobetrag, die für den Ticketdruck/pretix-Einstellungsabgleich kritisch sind."
+
+    - source_id: "SRC-03"
+      title: "§ 33 UStDV"
+      url: "https://www.gesetze-im-internet.de/ustdv_1980/__33.html"
+      reachable: true
+      source_type: "official_law"
+      content_format: "legal_text"
+      guide_quality: 10
+      extractability: 10
+      navigation_noise_risk: "low"
+      download_or_capture_method: "archive_html_snapshot"
+      kb_ingestion_decision: "archive_full"
+      reason: "Unumstößliche gesetzliche Primärquelle für Kleinbetragsrechnungen. Höchste Priorität für die KI-Wissensdatenbank."
+
+    - source_id: "SRC-04"
+      title: "BMF FAQ E-Rechnung"
+      url: "https://www.bundesfinanzministerium.de/Content/DE/FAQ/e-rechnung.html"
+      reachable: true
+      source_type: "official_tax_authority"
+      content_format: "faq"
+      guide_quality: 9
+      extractability: 8
+      navigation_noise_risk: "low"
+      download_or_capture_method: "archive_html_snapshot"
+      kb_ingestion_decision: "archive_full"
+      reason: "Klärt die ab 2025/2026 geltenden Pflichten im B2B-Bereich. Wichtig für Verträge mit Venue und Dienstleistern; für den B2C-Ticketverkauf gilt die Ausnahme für Kleinbetragsrechnungen."
+
+    - source_id: "SRC-05"
+      title: "KSK Informationsschrift Nr. 4 Veranstalter"
+      url: "https://www.kuenstlersozialkasse.de/fileadmin/Dokumente/Mediencenter_Unternehmer_Verwerter/Informationsschriften/Info_04_Abgabepflicht_von_Veranstaltern.pdf"
+      reachable: true
+      source_type: "official_social_insurance"
+      content_format: "downloadable_pdf"
+      guide_quality: 10
+      extractability: 10
+      navigation_noise_risk: "low"
+      download_or_capture_method: "archive_pdf_only"
+      kb_ingestion_decision: "archive_full"
+      reason: "Offizielle und verbindliche Richtlinie der KSK für Abgabepflichten bei Kultur- und Clubveranstaltungen. Unverzichtbar für die Contractor-Matrix."
+
+  gap_results:
+    ticket_as_invoice:
+      status: "closed"
+      strongest_sources:
+        - title: "§ 33 UStDV & IHK Checkliste Kleinbetragsrechnung"
+          publisher: "Bundesministerium der Justiz / IHK Niederbayern"
+          url: "https://www.gesetze-im-internet.de/ustdv_1980/__33.html"
+          source_quality: 10
+          exact_relevance: 10
+          quote_or_rule_summary: "Rechnungen, deren Gesamtbetrag 250 Euro nicht übersteigt, müssen mindestens folgende Angaben enthalten: 1. Vollständigen Namen und Anschrift des leistenden Unternehmers, 2. Ausstellungsdatum, 3. Menge und Art der gelieferten Gegenstände oder den Umfang und die Art der sonstigen Leistung, 4. Das Entgelt und den darauf entfallenden Steuerbetrag in einer Summe (Bruttobetrag) sowie 5. Den anzuwendenden Steuersatz."
+          guide_or_thin_page: "FAQ/Gesetzestext"
+      conclusion:
+        ticket_can_function_as_small_invoice_if: "Der Ticketpreis pro Person unter 250,00 EUR brutto liegt und alle Pflichtangaben nach § 33 UStDV direkt auf dem Ticket oder dem pretix-PDF-Beleg aufgedruckt sind."
+        not_proven: "Dass ein Ticket im B2B-Bereich über 250,00 EUR ohne vollständige Empfängerdaten (§ 14 UStG) als Rechnung ausreicht. Das ist gesetzlich ausgeschlossen."
+        implementation_requirements:
+          - "Name und Hamburger Anschrift des Safer Space e.V. auf dem Ticket ausgeben."
+          - "Eindeutiges Ausstellungsdatum (Kaufdatum) andrucken."
+          - "Präzise Leistungsbeschreibung: 'Eintrittsticket Equinox Hamburg am [Datum]'."
+          - "Bruttobetrag ausweisen und Textzusatz: 'inkl. 19 % USt.' platzieren."
+        source_confidence: 10
+
+    vat_rate_7_vs_19:
+      default_assumption: "19 % Regelsteuersatz für kommerzielle Club-Events und Partys."
+      possible_7_percent_conditions: "Der ermäßigte Steuersatz von 7 % nach § 12 Abs. 2 Nr. 7 Buchst. a UStG greift nur dann, wenn das Event den Charakter eines Konzerts aufweist. Die Darbietung der Musik (z.B. ein konzertantes DJ-Set mit Performance-Fokus) muss die Hauptleistung bilden, die den Charakter der Veranstaltung absolut prägt, während DJ-Darbietungen, die primär als tanzbare Hintergrundmusik im Clubkontext dienen, mit 19 % zu versteuern sind (vgl. Abgrenzung BFH-Urteil 'Berghain' XI R 34/14)."
+      why_19_percent_may_be_safer: "Da es sich um eine Club-Location mit Barbetrieb handelt und das Publikum primär zum Feiern, Trinken und Tanzen kommt, stuft die Finanzverwaltung Hamburg dies im Regelfall als 'Tanzlustbarkeit' ein. Eine Prüfung von 7 % birgt bei einer Betriebsprüfung ein extremes Nachzahlungsrisiko."
+      not_applicable_exemptions: "Umsatzsteuerbefreiungen für gemeinnützige Kulturträger (§ 4 Nr. 20 UStG) sind für den Safer Space e.V. mangels Gemeinnützigkeitsstatus strikt ausgeschlossen."
+      sources: "UStAE Abschn. 12.7. sowie BFH, Urteil vom 29.10.2020 - XI R 34/14."
+      open_questions_for_tax_advisor: "Kann für spezifische, rein konzertante Zeitfenster (z.B. Live-Elektronik-Performances ohne Tanzbetrieb im Vorfeld) ein gesondertes Ticket mit 7 % kalkuliert werden, oder infiziert die anschließende Party das gesamte Event?"
+      wording_risks:
+        - "Fundraiser: Suggeriert fälschlicherweise Steuerfreiheit."
+        - "Donation Ticket: Löst ohne echte Spendentrennung die 19 % Umsatzsteuerpflicht auf das Gesamtentgelt aus."
+        - "Spende: Ist irreführend, da eine Gegenleistung (Eintritt) gewährt wird (Leistungsaustausch)."
+
+    fundraiser_donation_wording:
+      safe_wording: "Solidaritätsbeitrag inkl. 19 % USt. / Support-Ticket zur Projektförderung"
+      risky_wording: "Spendenticket / Steuerbegünstigte Spende / Donation"
+      when_payment_is_entgelt: "Sobald die Zahlung des Gastes die Bedingung für den Einlass zum Event darstellt (Kausalverknüpfung). Der gesamte Betrag ist dann steuerpflichtiges Entgelt für eine sonstige Leistung."
+      when_payment_may_be_non_taxable: "Nur wenn der reguläre Ticketpreis (z.B. 20 EUR) strikt vom freiwilligen, zusätzlichen Förderbetrag (z.B. 10 EUR) getrennt wird UND der Gast das Event auch ohne den Zusatzbetrag betreten dürfte. Der Zusatzbetrag ist beim nicht gemeinnützigen Verein eine nicht steuerbare Schenkung (Einnahme im ideellen Bereich), für die jedoch KEINE Spendenbescheinigung ausgestellt werden darf."
+      separation_requirements: "Im pretix-Shop muss der Basispreis als Pflichtfeld definiert sein. Der Zusatzbetrag muss als explizit 'freiwilliges, unentgeltliches Sponsoring ohne Gegenleistung' deklariert und getrennt eingebucht werden."
+      receipt_requirements: "Auf der pretix-Quittung muss stehen: 'Basis-Eintritt: XX EUR (inkl. 19 % USt.) | Freiwillige, nicht steuerbare Zuwendung: XX EUR (Keine Spendenbescheinigung im Sinne des EStG)'."
+      no_donation_receipt_warning: "Safer Space e.V. darf unter keinen Umständen Zuwendungsbestätigungen nach amtlichem Muster ausstellen. Ein Verstoß führt zur Haftung für die entgangene Steuer (§ 10b Abs. 4 EStG)."
+      sources: "§ 1 Abs. 1 Nr. 1 UStG (Leistungsaustausch), AEAO zu § 51 (Abgrenzung ideeller Bereich)."
+
+    venue_settlement_minimum_bar:
+      possible_models:
+        - model: "Barumsatz gehört vollständig der Venue, e.V. zahlt Differenz"
+          accounting_for_safer_space: "Erreicht die Bar z.B. nur 6.000 EUR, stellt die Venue dem e.V. die Differenz von 1.500 EUR in Rechnung. Diese Differenzzahlung ist umsatzsteuerlich als 'unechter Schadensersatz' einzustufen, da sie die Gegenleistung für die Bereitstellung der Infrastruktur darstellt. Sie muss zwingend mit 19 % Umsatzsteuer abgerechnet werden. Safer Space bucht dies als Mietaufwand/Locationkosten und zieht die Vorsteuer."
+          needed_documents: "Schlussabrechnung der Venue mit detailliertem Z-Bon-Nachweis des Barumsatzes und ordnungsgemäßer Rechnung über die Differenz mit 19 % USt."
+          risks: "Venue rechnet die Differenz fälschlicherweise als 'echten, steuerfreien Schadensersatz' ab. Dies führt beim e.V. zum Verlust des Vorsteuerabzugs bei einer Betriebsprüfung."
+        - model: "Umsatzbeteiligung / Provision"
+          accounting_for_safer_space: "Nicht empfohlen bei diesem Venue-Deal, da das wirtschaftliche Risiko des Barumsatzes hier voll beim Verein liegt."
+          needed_documents: "N/A"
+          risks: "N/A"
+      source_quality: 7
+      recommended_contract_clauses: "Der Vertrag muss explizit festlegen: 'Sollte der von der Location generierte Brutto-Barumsatz den garantierten Mindestumsatz von 7.500,00 EUR unterschreiten, verpflichtet sich der Veranstalter zur Zahlung des Differenzbetrags als zusätzliches, steuerpflichtiges Bereitstellungsentgelt. Die Location stellt über diesen Differenzbetrag eine Rechnung unter Ausweis von 19 % Umsatzsteuer aus.'"
+      required_questions_for_venue:
+        - "Erhalten wir am Ende des Events einen direkten systemseitigen Export des Kassenberichts (Z-Bon) der Event-Nacht?"
+        - "Wird die eventuelle Differenzzahlung explizit als steuerpflichtiges Nutzungsentgelt mit 14 % oder 19 % USt. abgerechnet?"
+        - "Sind die Kosten für Security und Reinigung in der Barumsatzgarantie final abgegolten, oder werden sie bei Unterschreitung des Mindestumsatzes separat nachberechnet?"
+
+    cash_basis_ticketing_refunds:
+      vat_due_timing: "Bei der Istversteuerung entsteht die Umsatzsteuer gemäß § 13 Abs. 1 Nr. 1 Buchst. b UStG mit Ablauf des Voranmeldungszeitraums, in dem das Entgelt vereinnahmt wurde (Zuflussprinzip)."
+      ticket_sale_before_event: "Da pretix-Zahlungen im Vorfeld (z.B. im Mai für ein Event im September) auf dem Stripe-/PayPal-Konto des Vereins eingehen, ist die Umsatzsteuer bereits in der Voranmeldung des Mai anzumelden und abzuführen (Anzahlungsbesteuerung / Vorauszahlung)."
+      failed_event_or_refund: "Wird ein Ticket im Folgemonat storniert, liegt eine Änderung der Bemessungsgrundlage nach § 17 Abs. 1 UStG vor. Die Steuerkorrektur erfolgt in dem Voranmeldungszeitraum, in dem die Rückzahlung an den Gast tatsächlich stattfindet."
+      cancellation_invoice_needed: "Ja, pretix muss automatisiert eine fortlaufend nummerierte Rechnungskorrektur (Stornorechnung) erzeugen, die einen eindeutigen Bezug zur Original-Rechnungsnummer aufweist."
+      required_export_fields: "Order-ID, Rechnungsnummer, Stornonummer, Zahldatum, Rückzahldatum, Bruttobetrag, USt-Betrag."
+      source_confidence: 10
+      sources: "§ 13 Abs. 1 Nr. 1 Buchst. b UStG, § 17 UStG, GoBD Richtlinien."
+
+    ticketing_provider_role:
+      provider: "pretix (empfohlenes Setup)"
+      role: "technical_service_provider"
+      who_is_supplier_to_customer: "Safer Space e.V. (Direktgeschäft B2C)"
+      who_issues_invoice_or_receipt: "pretix generiert die Rechnung vollautomatisch im Namen und für Rechnung des Safer Space e.V."
+      who_collects_money: "Das Geld fließt über die angebundenen Konten (Stripe/PayPal) des Vereins direkt an den Safer Space e.V."
+      who_charges_service_fee: "pretix stellt dem Verein eine separate B2B-Rechnung für die Systemnutzung aus."
+      payout_report_available: "Ja, hochpräzise transaktionsbasierte Berichte."
+      refunds_supported: "Ja, voll integriert inklusive automatischer Belegerstellung."
+      invoice_numbering_supported: "Ja, eigener geschlossener Nummernkreis für den Verein konfigurierbar."
+      export_formats: "DATEV-Format (CSV), Excel, JSON."
+      gobd_export_quality: 10
+      source_url: "https://docs.pretix.eu/de/trust/fiscal/germany/"
+      source_quality: 9
+      recommendation_for_safer_space: "pretix im direkten Merchant-Modus nutzen. Eventbrite vermeiden, da die Abrechnungsberichte im Ausland (UK/Irland) oft steuerliche Intransparentzeit bei Gebührenerfassungen und Wechselkursen aufweisen."
+
+    reconciliation:
+      required_data_fields:
+        - "order_id"
+        - "ticket_id"
+        - "invoice_number"
+        - "gross_ticket_price"
+        - "net_ticket_price"
+        - "vat_rate"
+        - "vat_amount"
+        - "provider_fee"
+        - "payment_fee"
+        - "refund_amount"
+        - "payout_id"
+        - "payout_date"
+        - "bank_amount"
+      minimum_export_standard: "Transaktionsgenauer CSV-Sammel-Export aus pretix und Stripe mit identischem Match-Key (z.B. Stripe-Charge-ID)."
+      provider_specific_guides: "pretix DATEV-Erweiterung nutzen. Diese ordnet die Bruttoumsätze direkt dem Erlöskonto (z.B. SKR03 #8400 / SKR04 #4400) und die Gebühren dem Nebenkostenkonto zu."
+      accounting_workflow: "1. Buchung des Bruttoumsatzes gegen Geldtransitkonto bei Ticketing-Zahlung. 2. Buchung der Stripe-Gebühren (Achtung: B2B Reverse Charge aus Irland!) als Betriebsausgabe. 3. Abstimmung des Bankeingangs gegen das Geldtransitkonto."
+      source_quality: 8
+      remaining_open_questions: "Unterstützt das genutzte Buchhaltungstool (z.B. Lexoffice oder Sevdesk) den direkten Import von transaktionsbasierten pretix-DATEV-Dateien ohne manuelle Splittung?"
+
+    non_charitable_ev_tax:
+      corporate_tax_relevance: "Voll steuerpflichtig im wirtschaftlichen Geschäftsbetrieb. Der Gewinn aus dem Event unterliegt der Körperschaftsteuer (15 % zzgl. SolZ). Es gilt ein Freibetrag von 5.000,00 EUR auf den Gesamtgewinn des Vereins pro Kalenderjahr (§ 24 KStG)."
+      trade_tax_relevance: "Gewerbesteuerpflichtig, da ein wirtschaftlicher Geschäftsbetrieb unterhalten wird. Es gilt der gewerbliche Freibetrag von 24.500,00 EUR für Vereine (§ 11 Abs. 1 Satz 1 Nr. 2 GewStG). Da das Event in Hamburg stattfindet, greift der Hebesatz der Stadt Hamburg (470 %)."
+      eur_relevance: "Die Gewinnermittlung erfolgt zwingend über eine Einnahmenüberschussrechnung (EÜR) nach § 4 Abs. 3 EStG. Die Anlage EÜR muss elektronisch via ELSTER übermittelt werden."
+      forms_or_returns: "KSt 1 (Körperschaftsteuererklärung für Vereine), GewSt 1 A (Gewerbesteuererklärung), Anlage EÜR."
+      source_quality: 9
+      transferable_rules: "Keine. Alle Erleichterungen für gemeinnützige Vereine (z.B. Zweckbetriebsgrenzen, steuerfreie Zweckbetriebe) sind unanwendbar."
+      gemeinnuetzigkeits_contamination: "Extrem hoch in Standardformularen. Hilfsmittel, die die 'Übungsleiterpauschale' (§ 3 Nr. 26 EStG) oder 'Ehrenamtspauschale' (§ 3 Nr. 26a EStG) erwähnen, müssen für diesen Workflow gesperrt werden, da sie zwingend eine Gemeinnützigkeit voraussetzen."
+      open_tax_advisor_questions: "Wie hoch sind die bisherigen aufgelaufenen Gewinne des Vereins im laufenden Kalenderjahr, um abzuschätzen, ob der KSt-Freibetrag von 5.000 EUR durch das Event überschritten wird?"
+
+    contractor_matrix:
+      contractor_types:
+        - type: "inländische:r DJ"
+          invoice_required: true
+          contract_required: true
+          vat_check: "Prüfen, ob Regelbesteuerung (19 % USt.) oder Kleinunternehmerregelung (§ 19 UStG, dann Brutto=Netto ohne USt-Ausweis) vorliegt."
+          ksk_check: "Ja, abgabepflichtig. Das Honorar fällt unter die Künstlersozialabgabe (Bemessungsgrundlage ist das Netto-Honorar zzgl. Nebenkosten wie Fahrtkosten)."
+          reverse_charge_check: false
+          section_50a_check: false
+          employment_status_check: "Selbstständigenstatus unkritisch bei einmaliger Buchung ohne feste Weisungsgebundenheit."
+          expense_reimbursement_possible: "Ja, gegen Originalbelege steuerneutral auszahlbar, mindert nicht die KSK-Basis, sofern direkt auf den Verein ausgestellt."
+          cash_payment_allowed: "Nein, aus GoBD-Gründen und zur KSK-Dokumentation ausschließlich via Banküberweisung."
+          required_documents: "Rechnung, Booking-Vertrag, KSK-Meldebogen."
+          sources: "SRC-05 (KSK Info 4)"
+          uncertainty: "Niedrig"
+
+        - type: "ausländische:r DJ"
+          invoice_required: true
+          contract_required: true
+          vat_check: "Netto-Rechnung ohne nationale USt. Ausweis der USt-IdNr. beider Parteien zwingend erforderlich."
+          ksk_check: "Ja, abgabepflichtig! Die KSK-Abgabe fällt auch für im Ausland ansässige Künstler an, wenn die Verwertung im Inland stattfindet."
+          reverse_charge_check: "Ja, § 13b UStG greift. Safer Space e.V. schuldet die 19 % Umsatzsteuer in Deutschland und muss diese in der Voranmeldung anmelden (kann sie parallel als Vorsteuer abziehen, Netto-Null-Effekt)."
+          section_50a_check: "Ja, beschränkte Steuerpflicht für ausländische Künstler (§ 50a EStG). Liegt das Honorar über 250,00 EUR, muss der Verein 15 % Einbehalt (zzgl. SolZ) einbehalten und an das Bundeszentralamt für Steuern (BZSt) abführen, außer es liegt eine Freistellungsbescheinigung vor."
+          employment_status_check: "Unkritisch bei Einzel-Gigs."
+          expense_reimbursement_possible: "Reisekosten müssen vertraglich fixiert und direkt vom Verein gebucht werden, um die § 50a-Basis nicht künstlich zu erhöhen."
+          cash_payment_allowed: "Strikt verboten wegen Geldwäschegesetz-Richtlinien und Nachweispflichten gegenüber dem BZSt."
+          required_documents: "Rechnung mit Reverse-Charge-Hinweis, Vertrag, Einbehaltungsnachweis BZSt."
+          sources: "Handelskammer Hamburg Reverse Charge / BZSt Merkblatt § 50a"
+          uncertainty: "Hoch (fordert genaue Überwachung des BZSt-Meldetermins – jeweils zum 10. des Folgemonats nach dem Quartal)."
+
+        - type: "Awareness-Crew"
+          invoice_required: "Ja, wenn selbstständig (Gewerbe/Freiberuf). Wenn über Kurzfristige Beschäftigung: Lohnabrechnung."
+          contract_required: true
+          vat_check: "Je nach Status (19 % oder § 19 UStG)."
+          ksk_check: "Nein, Awareness ist keine künstlerische oder publizistische Tätigkeit."
+          reverse_charge_check: false
+          section_50a_check: false
+          employment_status_check: "Hoch riskant für Scheinselbstständigkeit, wenn feste Schichten, klare Weisungen vor Ort und Integration in die Event-Struktur vorliegen. Empfehlung: Abwicklung als kurzfristige Beschäftigung über die Minijob-Zentrale."
+          expense_reimbursement_possible: "Nur echter Auslagenersatz gegen Belege (z.B. Verpflegungskauf für die Crew)."
+          cash_payment_allowed: "Nein."
+          required_documents: "Dienstleistungsvertrag ODER Sofortmeldung/Minijob-Anmeldung bei kurzfristiger Beschäftigung."
+          sources: "Minijob-Zentrale Kurzfristige Beschäftigung / DRV Scheinselbstständigkeit"
+          uncertainty: "Medium"
+
+    templates:
+      - template_name: "Checkliste Ticket-Pflichtangaben nach § 33 UStDV"
+        source: "IHK Niederbayern"
+        source_type: "ihk_hwk"
+        downloadable: true
+        editable: false
+        authority: 9
+        adaptation_needed: "Gering (Eintragen der spezifischen Vereinsdaten von Safer Space e.V. als Hardcoded-Werte im pretix-Template)."
+        use_as: "direct_template"
+        reason: "Sichert die formale Korrektheit des Tickets für den Vorsteuerabzug der B2B-Kunden."
+
+      - template_name: "KSK-Prüfbogen für Unternehmer und Veranstalter"
+        source: "Deutsche Rentenversicherung / KSK"
+        source_type: "official_social_insurance"
+        downloadable: true
+        editable: true
+        authority: 10
+        adaptation_needed: "Keine, muss als jährliches Dokumentations-Tool für das Playbook hinterlegt werden."
+        use_as: "direct_template"
+        reason: "Verhindert existenzbedrohende Nachzahlungen bei der turnusmäßigen Prüfung durch die Deutsche Rentenversicherung."
+
+  updated_download_manifest:
+    P0:
+      - title: "§ 33 UStDV Gesetzestext"
+        url: "https://www.gesetze-im-internet.de/ustdv_1980/__33.html"
+      - title: "KSK Info 04 Abgabepflicht Veranstalter"
+        url: "https://www.kuenstlersozialkasse.de/fileadmin/Dokumente/Mediencenter_Unternehmer_Verwerter/Informationsschriften/Info_04_Abgabepflicht_von_Veranstaltern.pdf"
+      - title: "DRV Anmeldebogen K5001"
+        url: "https://www.deutsche-rentenversicherung.de/SharedDocs/Formulare/DE/_pdf/K5001.pdf"
+    P1:
+      - title: "IHK Checkliste Kleinbetragsrechnungen"
+        url: "https://www.ihk-niederbayern.de/pdfs/checkliste-kleinbetragsrechnungen-data.pdf"
+      - title: "pretix Fiscal Requirements Docs"
+        url: "https://docs.pretix.eu/de/trust/fiscal/germany/"
+    P2:
+      - title: "BMF FAQ E-Rechnung"
+        url: "https://www.bundesfinanzministerium.de/Content/DE/FAQ/e-rechnung.html"
+    discard:
+      - title: "Wegweiser Bürgergesellschaft Ehrenamt/Auslagen"
+        url: "https://www.buergergesellschaft.de/praxishilfen/arbeit-im-verein/rechtsgrundlagen/ehrenamtliche-mitarbeit-arbeits-beschaeftigungs-und-dienstverhaeltnisse/ehrenamt-auslagen-aufwandsentschaedigung/"
+
+  unresolved_questions_for_tax_advisor:
+    - question: "Bestätigung der umsatzsteuerlichen Istversteuerung für den wirtschaftlichen Geschäftsbetrieb des e.V. laut ELSTER-Stammdaten?"
+      topic: "Umsatzsteuer-Versteuerungsart"
+      why_unresolved: "In den Vereinsunterlagen als 'zu bestätigen' markiert. Erfordert Akteneinsicht beim Finanzamt Hamburg-Altona/Mitte."
+      sources_checked: "Interne Vereinsdaten"
+      risk_if_wrong: "Falls Sollversteuerung gilt, muss die Umsatzsteuer für alle verkauften Tickets bereits bei Ticketausstellung abgeführt werden, unabhängig davon, ob das Geld von pretix/Stripe bereits auf das Vereinsbankkonto ausgezahlt wurde. Dies kann zu akuten Liquiditätsengpässen führen."
+
+    - question: "Befreiung von der § 50a EStG Abzugsteuer bei Geringfügigkeit für die ausländischen DJs?"
+      topic: "Auslandssteuer / Quellensteuer"
+      why_unresolved: "Die Freigrenze von 250 EUR pro Künstler/Auftritt ist oft durch Nebenkosten gefährdet. Es muss geklärt werden, ob Verträge so gesplittet werden können, dass Reisekosten direkt vom Verein übernommen und nicht als Honorarbestandteil gewertet werden."
+      sources_checked: "§ 50a EStG, BZSt-Richtlinien"
+      risk_if_wrong: "Steuernachhaftung des Vereins für die nicht abgeführte Quellensteuer im Rahmen einer Außenprüfung."
+
+  final_recommendation:
+    archive_immediately:
+      - "SRC-02 (IHK Checkliste Kleinbetragsrechnung)"
+      - "SRC-03 (§ 33 UStDV)"
+      - "SRC-05 (KSK Merkblatt 4)"
+    research_more:
+      - "Umsatzsteuerliche Behandlung von 'No-Show'-Tickets (Gäste, die bezahlen, aber nicht erscheinen): Bleibt es steuerbares Entgelt oder wird es zu echtem, steuerfreien Schadensersatz?"
+    do_not_archive:
+      - "Sämtliche Blogs, die fälschlicherweise pauschale Steuerfreiheiten für Vereine ohne Gemeinnützigkeit bewerben."
+    next_step_for_playbook: "Implementierung der pretix-Konfigurationsmatrix im Playbook: Festlegung des Nummernkreises, Hardcoding der Pflichtfelder nach § 33 UStDV für den Ticket-PDF-Generat und Deaktivierung aller Spenden-Wording-Optionen im User-Interface."

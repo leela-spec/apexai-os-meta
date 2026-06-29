@@ -1,0 +1,31 @@
+{
+  "pdf": "apex-meta/kb/lika-verein-taxes-accounting/raw/refs/KSK_Info04_Abgabepflicht-Veranstalter.pdf",
+  "markdown": "apex-meta/kb/lika-verein-taxes-accounting/raw/refs/KSK_Info04_Abgabepflicht-Veranstalter.md",
+  "marker_markdown": "apex-meta/kb/lika-verein-taxes-accounting/raw/refs/KSK_Info04_Abgabepflicht-Veranstalter.marker.md",
+  "conversion_report": "apex-meta/kb/lika-verein-taxes-accounting/raw/refs/KSK_Info04_Abgabepflicht-Veranstalter.conversion-report.json",
+  "created_at": "2026-06-29T15:52:25.000243+00:00",
+  "script": "convert-lika-verein-downloaded-pdfs.py",
+  "policy": "pymupdf4llm first; marker-pdf only if quality check fails",
+  "dry_run": false,
+  "force": false,
+  "steps": [
+    {
+      "converter": "pymupdf4llm",
+      "returncode": 0,
+      "stdout": "21512\n",
+      "stderr": ""
+    }
+  ],
+  "quality_check_after_pymupdf4llm": {
+    "status": "pass",
+    "warnings": [],
+    "size_chars": 21512,
+    "heading_count": 23,
+    "tableish_count": 0,
+    "replacement_char_count": 0,
+    "line_count": 216
+  },
+  "status": "converted_pymupdf4llm_selected",
+  "selected_markdown": "apex-meta/kb/lika-verein-taxes-accounting/raw/refs/KSK_Info04_Abgabepflicht-Veranstalter.md",
+  "selection_reason": "pymupdf4llm_quality_pass_or_marker_disabled"
+}

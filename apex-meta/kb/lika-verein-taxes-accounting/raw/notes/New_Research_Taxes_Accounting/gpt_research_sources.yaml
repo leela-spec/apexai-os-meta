@@ -1,0 +1,784 @@
+Unten ist die **gerankte Quellenbewertung** als Arbeitsgrundlage. Fokus: **Quellenbasis sammeln**, nicht Safer-Space-Playbook finalisieren.
+
+```yaml
+source_research_results:
+  metadata:
+    research_date: "2026-06-28"
+    researched_for: "Safer Space e.V. Event-Steuer-/Buchhaltungs-Playbook"
+    event_context: "nicht gemeinnütziger e.V., Hamburg, Club-/Kultur-/Fundraiser-Event, USt-pflichtig, EÜR"
+    scope:
+      - "Rechnung"
+      - "Ticketing"
+      - "Umsatzsteuer"
+      - "Vereinsbuchhaltung"
+      - "EÜR"
+      - "GoBD"
+      - "KSK"
+      - "Contractors"
+      - "Venue Settlement"
+    excluded:
+      - "reine Gesetzestexte ohne Praxisnutzen, außer als Pflichtreferenz"
+      - "nicht verifizierbare SEO-Blogs"
+      - "Quellen, die Gemeinnützigkeit ungeprüft voraussetzen"
+
+  ranked_sources:
+    - rank: 1
+      id: "SRC-001"
+      topic_cluster: "A. Rechnungsausstellung"
+      source_name: "Pflichtangaben in Rechnungen"
+      publisher: "IHK Berlin"
+      source_type: "ihk"
+      url: "https://www.ihk.de/berlin/service-und-beratung/recht-und-steuern/steuern-und-finanzen/pflichtangaben-in-rechnungen-4400732"
+      date_or_last_updated: "ca. 2024/2025 laut Suchindex"
+      fit_score: 9
+      verification_score: 10
+      practicality_score: 9
+      transfer_risk: "low"
+      upload_priority: "P0"
+      why_relevant: "Sehr gute Primärquelle für Pflichtangaben bei Rechnungen über 250 EUR brutto und Abgrenzung zu Kleinbetragsrechnungen. :contentReference[oaicite:0]{index=0}"
+      usable_patterns:
+        - "Rechnungs-Pflichtangaben-Checkliste"
+        - "Basis für Ticket-/Rechnungstextblöcke"
+      direct_safer_space_use:
+        - "Pflichtfelder für Ausgangsrechnungen an Sponsoren, B2B-Käufer:innen, Dienstleister-Abrechnung"
+        - "Prüfliste für Ticket-Rechnung > 250 EUR"
+      limitations:
+        - "Keine spezifische Event-/Ticketing-Prozesslogik"
+      needs_crosscheck_with:
+        - "§ 14 UStG"
+        - "IHK Kleinbetragsrechnung"
+        - "E-Rechnung B2B"
+      recommended_download_or_capture:
+        type: "html"
+        reason: "P0-Basisreferenz für Rechnungspflichtangaben"
+
+    - rank: 2
+      id: "SRC-002"
+      topic_cluster: "A. Kleinbetragsrechnung / Ticket"
+      source_name: "Checkliste für Rechnungen bis 250 Euro brutto"
+      publisher: "IHK Niederbayern"
+      source_type: "ihk"
+      url: "https://www.ihk-niederbayern.de/pdfs/checkliste-kleinbetragsrechnungen-data.pdf"
+      date_or_last_updated: "nicht eindeutig; PDF aktuell im Suchindex"
+      fit_score: 10
+      verification_score: 10
+      practicality_score: 10
+      transfer_risk: "low"
+      upload_priority: "P0"
+      why_relevant: "Direkte Checkliste für Kleinbetragsrechnungen bis 250 EUR brutto mit Pflichtangaben für Vorsteuerabzug. :contentReference[oaicite:1]{index=1}"
+      usable_patterns:
+        - "Ticket als Kleinbetragsbeleg"
+        - "Pflichtfelder: Leistender, Datum, Leistungsbeschreibung, Bruttobetrag, Steuersatz"
+      direct_safer_space_use:
+        - "Mindestangaben für einfache B2C-Tickets bis 250 EUR"
+        - "Belegprüfung für Abendkasse/kleine Eingangsrechnungen"
+      limitations:
+        - "Ersetzt keine Prüfung, ob Ticketing-Anbieter tatsächlich Rechnung im Namen des Veranstalters erstellt"
+      needs_crosscheck_with:
+        - "Ticketing-Anbieter-Doku"
+        - "Steuerberatung"
+      recommended_download_or_capture:
+        type: "pdf"
+        reason: "Sehr konkrete Checkliste"
+
+    - rank: 3
+      id: "SRC-003"
+      topic_cluster: "F. KSK"
+      source_name: "Informationsschrift Nr. 4 zur Abgabepflicht von Veranstaltern"
+      publisher: "Künstlersozialkasse"
+      source_type: "ksk"
+      url: "https://www.kuenstlersozialkasse.de/fileadmin/Dokumente/Mediencenter_Unternehmer_Verwerter/Informationsschriften/Info_04_Abgabepflicht_von_Veranstaltern.pdf"
+      date_or_last_updated: "aktueller KSK-Mediencenter-Stand"
+      fit_score: 10
+      verification_score: 10
+      practicality_score: 9
+      transfer_risk: "low"
+      upload_priority: "P0"
+      why_relevant: "Direkt für Veranstalter; behandelt u.a. die Frage, wer bei mehreren Beteiligten melde-/abgabepflichtig ist. :contentReference[oaicite:2]{index=2}"
+      usable_patterns:
+        - "KSK-Prüffrage je Vertragspartner"
+        - "Veranstalter-/Agentur-/Vermittler-Abgrenzung"
+        - "Meldepflicht-Check"
+      direct_safer_space_use:
+        - "KSK-Check für DJs, Performer:innen, Musiker:innen, Design, Foto/Video"
+      limitations:
+        - "Keine Buchungslogik für EÜR; nur KSK-Abgabe"
+      needs_crosscheck_with:
+        - "KSK Mediencenter"
+        - "Deutsche Rentenversicherung K5001"
+      recommended_download_or_capture:
+        type: "pdf"
+        reason: "Pflichtquelle für Künstler:innen-/DJs-/Performer:innen-Prozess"
+
+    - rank: 4
+      id: "SRC-004"
+      topic_cluster: "F. KSK"
+      source_name: "K5001-00 Information zur Künstlersozialabgabe"
+      publisher: "Deutsche Rentenversicherung"
+      source_type: "official"
+      url: "https://www.deutsche-rentenversicherung.de/SharedDocs/Formulare/DE/_pdf/K5001.pdf?__blob=publicationFile&v=9"
+      date_or_last_updated: "aktueller Suchindex; Abgabesatz seit 2026 erwähnt"
+      fit_score: 9
+      verification_score: 10
+      practicality_score: 8
+      transfer_risk: "low"
+      upload_priority: "P0"
+      why_relevant: "Offizielle DRV-Prüfquelle; nennt Aufzeichnungspflichten, Nacherhebung und Abgabesätze. :contentReference[oaicite:3]{index=3}"
+      usable_patterns:
+        - "5-Jahres-Aufbewahrungs-/Prüfrisiko"
+        - "Entgeltliste für selbständige Künstler:innen/Publizist:innen"
+      direct_safer_space_use:
+        - "KSK-Register je Event-ID"
+        - "KSK-relevante Honorare separat markieren"
+      limitations:
+        - "Nicht event-spezifisch genug; mit KSK Info Nr. 4 kombinieren"
+      needs_crosscheck_with:
+        - "KSK Informationsschrift Nr. 4"
+      recommended_download_or_capture:
+        type: "pdf"
+        reason: "Prüfungsnahe offizielle Quelle"
+
+    - rank: 5
+      id: "SRC-005"
+      topic_cluster: "C. Vereinsbuchhaltung / SKR42"
+      source_name: "DATEV-Kontenrahmen SKR 42 Vereine, Stiftungen, gGmbH"
+      publisher: "DATEV"
+      source_type: "datev"
+      url: "https://www.datev.de/web/de/shop/produkt-details/datev-kontenrahmen-skr-42-vereine-stiftungen-ggmbh-bilanz-12901"
+      date_or_last_updated: "Stand Januar 2026"
+      fit_score: 8
+      verification_score: 10
+      practicality_score: 8
+      transfer_risk: "medium"
+      upload_priority: "P0"
+      why_relevant: "DATEV-Kontenrahmen für Vereine/Stiftungen/gGmbHs; enthält Konten und Steuerschlüssel. :contentReference[oaicite:4]{index=4}"
+      usable_patterns:
+        - "Kontenstruktur"
+        - "Steuerschlüssel"
+        - "Buchungslogik für Vereinskontext"
+      direct_safer_space_use:
+        - "Konten-/Kategorie-Mapping für Event-EÜR"
+        - "Abstimmung mit Steuerberatung"
+      limitations:
+        - "Stark auf gemeinnützige Körperschaften/DATEV-Branchenpaket ausgerichtet; Safer Space ist nicht gemeinnützig"
+      needs_crosscheck_with:
+        - "Steuerberatung"
+        - "nicht gemeinnütziger e.V. / wirtschaftlicher Geschäftsbetrieb"
+      recommended_download_or_capture:
+        type: "pdf"
+        reason: "Kontenrahmen als technische Buchhaltungsbasis"
+
+    - rank: 6
+      id: "SRC-006"
+      topic_cluster: "C. DATEV Einrichtung"
+      source_name: "SKR42 Branchenpaket Vereine, Stiftungen, gGmbHs einrichten"
+      publisher: "DATEV Hilfe-Center"
+      source_type: "datev"
+      url: "https://help-center.apps.datev.de/documents/1022996"
+      date_or_last_updated: "aktualisiert 2025-11-24 laut Suchindex"
+      fit_score: 7
+      verification_score: 10
+      practicality_score: 8
+      transfer_risk: "medium"
+      upload_priority: "P1"
+      why_relevant: "Praktische DATEV-Einrichtung des Branchenpakets SKR42. :contentReference[oaicite:5]{index=5}"
+      usable_patterns:
+        - "DATEV-Einrichtungslogik"
+        - "Kontenrahmenwechsel / Mandantenanlage"
+      direct_safer_space_use:
+        - "Briefing für Steuerbüro oder Buchhaltungssoftware-Auswahl"
+      limitations:
+        - "Nur relevant, wenn DATEV/SKR42 tatsächlich genutzt wird"
+      needs_crosscheck_with:
+        - "DATEV SKR42 PDF"
+        - "Steuerberatung"
+      recommended_download_or_capture:
+        type: "html"
+        reason: "Nützlich für Setup-Entscheidung"
+
+    - rank: 7
+      id: "SRC-007"
+      topic_cluster: "E. GoBD / Archiv"
+      source_name: "Verfahrensdokumentation gemäß GoBD erstellen"
+      publisher: "DATEV"
+      source_type: "datev"
+      url: "https://www.datev.de/web/de/berufsgruppenuebergreifend/ratgeber/rechnungswesen/verfahrensdokumentation-gemaess-gobd-erstellen"
+      date_or_last_updated: "GoBD-Änderungen 2024 erwähnt"
+      fit_score: 9
+      verification_score: 10
+      practicality_score: 8
+      transfer_risk: "low"
+      upload_priority: "P0"
+      why_relevant: "Erklärt Verfahrensdokumentation als GoBD-Anforderung und praktische Relevanz. :contentReference[oaicite:6]{index=6}"
+      usable_patterns:
+        - "Verfahrensdokumentation"
+        - "Prozessbeschreibung für digitale Belege"
+      direct_safer_space_use:
+        - "Archivprozess für Ticketing-CSV, Rechnungs-PDFs, Kontoauszüge, Verträge"
+      limitations:
+        - "Nicht speziell für Vereine/Eventorganisation"
+      needs_crosscheck_with:
+        - "BMF GoBD"
+        - "Ticketing-Doku"
+      recommended_download_or_capture:
+        type: "html"
+        reason: "Praxisquelle für digitales Belegarchiv"
+
+    - rank: 8
+      id: "SRC-008"
+      topic_cluster: "E. GoBD / Archiv"
+      source_name: "Grundsätze zur ordnungsmäßigen Führung und Aufbewahrung elektronischer Unterlagen"
+      publisher: "Bundesfinanzministerium"
+      source_type: "official"
+      url: "https://www.bundesfinanzministerium.de/Content/DE/Downloads/BMF_Schreiben/Weitere_Steuerthemen/Abgabenordnung/AO-Anwendungserlass/2024-03-11-aenderung-gobd.html"
+      date_or_last_updated: "2024-03-11"
+      fit_score: 8
+      verification_score: 10
+      practicality_score: 5
+      transfer_risk: "low"
+      upload_priority: "P0"
+      why_relevant: "Offizielle GoBD-Pflichtreferenz; wichtig als harte Grundlage für Archiv-/Datenzugriffsprozess. :contentReference[oaicite:7]{index=7}"
+      usable_patterns:
+        - "Pflichtreferenz für Verfahrensdokumentation"
+        - "Aufbewahrung / Unveränderbarkeit / Datenzugriff"
+      direct_safer_space_use:
+        - "Normativer Anker im späteren Playbook"
+      limitations:
+        - "Kein leicht übernehmbares Muster; braucht praktische DATEV/IHK-Quelle daneben"
+      needs_crosscheck_with:
+        - "DATEV GoBD"
+        - "IHK GoBD"
+      recommended_download_or_capture:
+        type: "html"
+        reason: "Offizielle Pflichtreferenz"
+
+    - rank: 9
+      id: "SRC-009"
+      topic_cluster: "B. Ticketing / GoBD / Deutschland"
+      source_name: "pretix Fiscal requirements Germany"
+      publisher: "pretix"
+      source_type: "ticketing_provider"
+      url: "https://docs.pretix.eu/de/trust/fiscal/germany/"
+      date_or_last_updated: "aktueller Suchindex"
+      fit_score: 10
+      verification_score: 8
+      practicality_score: 10
+      transfer_risk: "medium"
+      upload_priority: "P0"
+      why_relevant: "Extrem praktische Ticketing-spezifische Doku für Deutschland; nennt u.a. Verfahrensdokumentation, Zugriff, Datenübertragung in Buchhaltung und Change-Logging. :contentReference[oaicite:8]{index=8}"
+      usable_patterns:
+        - "Ticketing-System in Verfahrensdokumentation beschreiben"
+        - "Rollen/Zugriffe/Export in Buchhaltung"
+        - "Change-Logging"
+      direct_safer_space_use:
+        - "Vorlage für Ticketing-Prozessdokumentation"
+        - "Audit-Trail-Anforderungen an Ticketshop"
+      limitations:
+        - "Anbieterquelle; steuerliche Einordnung muss extern geprüft werden"
+      needs_crosscheck_with:
+        - "BMF GoBD"
+        - "DATEV GoBD"
+        - "Steuerberatung"
+      recommended_download_or_capture:
+        type: "html"
+        reason: "Beste praktische Quelle für Ticketing + GoBD"
+
+    - rank: 10
+      id: "SRC-010"
+      topic_cluster: "B. Ticketing / Steuerregeln"
+      source_name: "pretix Taxes"
+      publisher: "pretix"
+      source_type: "ticketing_provider"
+      url: "https://docs.pretix.eu/de/guides/taxes/"
+      date_or_last_updated: "aktueller Suchindex"
+      fit_score: 9
+      verification_score: 7
+      practicality_score: 10
+      transfer_risk: "medium"
+      upload_priority: "P1"
+      why_relevant: "Praktische Doku zur Anlage von Steuerregeln im Ticketshop; pretix weist ausdrücklich darauf hin, dass die korrekten Steuern vom lokalen Recht und Einzelfall abhängen. :contentReference[oaicite:9]{index=9}"
+      usable_patterns:
+        - "Steuerregel je Produkt/Ticketart"
+        - "Konfiguration unterschiedlicher USt-Sätze"
+      direct_safer_space_use:
+        - "Setup-Checkliste für Ticketarten"
+      limitations:
+        - "Keine steuerliche Entscheidung, ob 7%/19%/befreit"
+      needs_crosscheck_with:
+        - "IHK/Finanzverwaltung"
+        - "Steuerberatung"
+      recommended_download_or_capture:
+        type: "html"
+        reason: "Sehr praktisch für Ticketshop-Konfiguration"
+
+    - rank: 11
+      id: "SRC-011"
+      topic_cluster: "B. Ticketing / Reports"
+      source_name: "Event-Controlling & Reporting"
+      publisher: "ticket.io"
+      source_type: "ticketing_provider"
+      url: "https://www.ticket.io/controlling/"
+      date_or_last_updated: "aktueller Suchindex"
+      fit_score: 9
+      verification_score: 7
+      practicality_score: 9
+      transfer_risk: "medium"
+      upload_priority: "P1"
+      why_relevant: "Beschreibt konkrete Veranstalterabrechnung nach Event mit Umsatzübersicht, Rechnung, PDF, Auszahlungen und Gutschriften. :contentReference[oaicite:10]{index=10}"
+      usable_patterns:
+        - "Umsatzübersicht"
+        - "Rechnung/Gutschrift-PDF"
+        - "Auszahlungsprozess"
+      direct_safer_space_use:
+        - "Dokumentationsliste für Ticketing-Abschluss je Event-ID"
+      limitations:
+        - "Marketing-/Anbieterseite; nicht steuerlich abschließend"
+      needs_crosscheck_with:
+        - "IHK Rechnung"
+        - "Steuerberatung"
+        - "tatsächlicher Vertrag mit ticket.io"
+      recommended_download_or_capture:
+        type: "html"
+        reason: "Nützlich für Ticketing-Abrechnungsprozess"
+
+    - rank: 12
+      id: "SRC-012"
+      topic_cluster: "B. Ticketing / Reports"
+      source_name: "FAQ Veranstalter"
+      publisher: "ticket.io"
+      source_type: "ticketing_provider"
+      url: "https://www.ticket.io/ticketing-software/faq-veranstalter/"
+      date_or_last_updated: "aktueller Suchindex"
+      fit_score: 8
+      verification_score: 7
+      practicality_score: 8
+      transfer_risk: "medium"
+      upload_priority: "P1"
+      why_relevant: "Ergänzt Controlling-Seite: Abrechnung per E-Mail nach Veranstaltung mit Umsatzübersicht und Rechnung; Gebührenmodell wird beschrieben. :contentReference[oaicite:11]{index=11}"
+      usable_patterns:
+        - "Abrechnungszeitpunkt"
+        - "Gebührenarten"
+        - "Veranstalter-Kommunikation"
+      direct_safer_space_use:
+        - "Fragenliste an Ticketing-Anbieter"
+      limitations:
+        - "Nicht detailliert genug für komplette Buchhaltung"
+      needs_crosscheck_with:
+        - "Vertrag/AGB ticket.io"
+        - "Rechnungspflichtangaben"
+      recommended_download_or_capture:
+        type: "html"
+        reason: "Anbieterprozess dokumentieren"
+
+    - rank: 13
+      id: "SRC-013"
+      topic_cluster: "B. Ticketing / Export"
+      source_name: "Umsatzübersicht herunterladen"
+      publisher: "Eventbrite"
+      source_type: "ticketing_provider"
+      url: "https://www.eventbrite.de/help/de/articles/187426/so-erstellen-und-exportieren-sie-eine-umsatzuebersicht/"
+      date_or_last_updated: "aktueller Suchindex"
+      fit_score: 8
+      verification_score: 7
+      practicality_score: 9
+      transfer_risk: "medium"
+      upload_priority: "P1"
+      why_relevant: "Konkreter Exportbericht für Ticketumsatz, Ticketbuchungsgebühren und Steuern; Gruppierung/Filter/Spalten möglich. :contentReference[oaicite:12]{index=12}"
+      usable_patterns:
+        - "Export-/Report-Checkliste"
+        - "Ticketumsatz, Gebühren, Steuern getrennt auswerten"
+      direct_safer_space_use:
+        - "Reconciliation-Matrix: Ticketshop → Auszahlung → Bank → EÜR"
+      limitations:
+        - "Eventbrite-spezifisch; US-/internationale Steuerlogik teilweise nicht direkt passend"
+      needs_crosscheck_with:
+        - "deutsches USt-Recht"
+        - "konkrete Eventbrite-Vertragsrolle"
+      recommended_download_or_capture:
+        type: "html"
+        reason: "Guter Export-/CSV-Prozessanker"
+
+    - rank: 14
+      id: "SRC-014"
+      topic_cluster: "B. Ticketing / Zahlungsarten"
+      source_name: "Bericht über Vertriebskanäle und Zahlungsarten herunterladen"
+      publisher: "Eventbrite"
+      source_type: "ticketing_provider"
+      url: "https://www.eventbrite.de/help/de/articles/312206/bericht-ueber-vertriebskanaele-und-zahlungsarten-herunterladen/"
+      date_or_last_updated: "aktueller Suchindex"
+      fit_score: 8
+      verification_score: 7
+      practicality_score: 8
+      transfer_risk: "medium"
+      upload_priority: "P1"
+      why_relevant: "Hilft bei der Unterscheidung von Onlineverkauf, Einlassverkauf, manuellen Tickets und Zahlungsmethoden. :contentReference[oaicite:13]{index=13}"
+      usable_patterns:
+        - "Vertriebskanalreport"
+        - "Zahlungsmethodenreport"
+      direct_safer_space_use:
+        - "Kontrollbericht für Abendkasse/manuell hinzugefügte Tickets"
+      limitations:
+        - "Nur Eventbrite; keine steuerliche Belegprüfung"
+      needs_crosscheck_with:
+        - "Kassenprozess"
+        - "GoBD"
+      recommended_download_or_capture:
+        type: "html"
+        reason: "Guter Kontrollreport für Ticketing"
+
+    - rank: 15
+      id: "SRC-015"
+      topic_cluster: "D. Umsatzsteuer Verein"
+      source_name: "Vereine und die Umsatzsteuer"
+      publisher: "Finanzverwaltung NRW"
+      source_type: "official"
+      url: "https://www.finanzamt.nrw.de/steuerinfos/weitere-themen/vereine-und-stiftungen/vereine-und-die-umsatzsteuer"
+      date_or_last_updated: "aktueller Suchindex"
+      fit_score: 8
+      verification_score: 10
+      practicality_score: 7
+      transfer_risk: "medium"
+      upload_priority: "P0"
+      why_relevant: "Offizielle Finanzverwaltungsquelle zu Umsatzsteuer bei Vereinen, Vorsteuer und Besonderheiten. :contentReference[oaicite:14]{index=14}"
+      usable_patterns:
+        - "Verein als umsatzsteuerlicher Unternehmer"
+        - "Vorsteuer-Prüfung"
+      direct_safer_space_use:
+        - "USt-/Vorsteuer-Kapitel als Pflichtreferenz"
+      limitations:
+        - "Teilweise allgemeine Vereins-/Gemeinnützigkeitslogik; Hamburg-spezifisch nicht direkt"
+      needs_crosscheck_with:
+        - "Finanzamt Hamburg"
+        - "Steuerberatung"
+      recommended_download_or_capture:
+        type: "html"
+        reason: "Offizielle Vereins-USt-Quelle"
+
+    - rank: 16
+      id: "SRC-016"
+      topic_cluster: "D. Event-USt / Festveranstaltungen"
+      source_name: "Merkblatt zu steuerlichen Fragen bei Festveranstaltungen"
+      publisher: "Bayerisches Landesamt für Steuern"
+      source_type: "official"
+      url: "https://www.lfst.bayern.de/fileadmin/RESSOURCEN/INFORMATIONEN/Steuerinfos/Zielgruppen/Vereine/Merkblatt_Festveranstaltungen_2025-01.pdf"
+      date_or_last_updated: "2025-01"
+      fit_score: 8
+      verification_score: 10
+      practicality_score: 8
+      transfer_risk: "high"
+      upload_priority: "P1"
+      why_relevant: "Sehr eventnah; enthält Zuordnung typischer Einnahmen/Ausgaben von Festveranstaltungen und Hinweise u.a. zu § 13b UStG bei Künstlervergütungen. :contentReference[oaicite:15]{index=15}"
+      usable_patterns:
+        - "Event-Einnahmen-/Ausgaben-Kategorien"
+        - "Künstlervergütung / Reverse-Charge-Prüffeld"
+      direct_safer_space_use:
+        - "Checkliste für Event-Einnahmen, Eventkosten, Künstler:innenrechnungen"
+      limitations:
+        - "Stark auf gemeinnützige Vereine/Sphärenlogik bezogen; nicht blind übernehmen"
+      needs_crosscheck_with:
+        - "Safer Space nicht gemeinnützig"
+        - "Steuerberatung"
+      recommended_download_or_capture:
+        type: "pdf"
+        reason: "Beste offizielle Event-/Vereinsfest-Praxisquelle, aber riskant"
+
+    - rank: 17
+      id: "SRC-017"
+      topic_cluster: "A. E-Rechnung"
+      source_name: "Elektronische Rechnung"
+      publisher: "IHK München"
+      source_type: "ihk"
+      url: "https://www.ihk-muenchen.de/ratgeber/steuern/elektronische-rechnungen/"
+      date_or_last_updated: "aktueller Suchindex"
+      fit_score: 8
+      verification_score: 10
+      practicality_score: 9
+      transfer_risk: "low"
+      upload_priority: "P0"
+      why_relevant: "Praxisleitfaden zu E-Rechnung ab 2025; B2B-Empfangspflicht und strukturierte Formate statt bloß PDF. :contentReference[oaicite:16]{index=16}"
+      usable_patterns:
+        - "E-Rechnungs-Readiness"
+        - "B2B-Rechnungsempfang"
+        - "ZUGFeRD/XRechnung-Prüffeld"
+      direct_safer_space_use:
+        - "B2B-Eingangsrechnungen und Ausgangsrechnungen an Unternehmen/Sponsoren"
+      limitations:
+        - "B2C-Tickets sind nicht der Kern der E-Rechnungspflicht"
+      needs_crosscheck_with:
+        - "BMF E-Rechnung FAQ"
+      recommended_download_or_capture:
+        type: "html"
+        reason: "Praktische E-Rechnungs-Umsetzung"
+
+    - rank: 18
+      id: "SRC-018"
+      topic_cluster: "A. E-Rechnung Pflichtreferenz"
+      source_name: "FAQ zur Einführung der E-Rechnung"
+      publisher: "Bundesfinanzministerium"
+      source_type: "official"
+      url: "https://www.bundesfinanzministerium.de/Content/DE/FAQ/e-rechnung.html"
+      date_or_last_updated: "aktueller Suchindex"
+      fit_score: 7
+      verification_score: 10
+      practicality_score: 6
+      transfer_risk: "low"
+      upload_priority: "P1"
+      why_relevant: "Offizielle FAQ zur verpflichtenden E-Rechnung zwischen inländischen Unternehmern ab 2025 und Übergangsregelungen; private Endverbraucher sind ausgenommen. :contentReference[oaicite:17]{index=17}"
+      usable_patterns:
+        - "B2B/B2C-Abgrenzung"
+        - "Übergangsfristen"
+      direct_safer_space_use:
+        - "Pflichtreferenz für B2B-Rechnungsprozess"
+      limitations:
+        - "Weniger Muster/Checkliste als IHK"
+      needs_crosscheck_with:
+        - "IHK München E-Rechnung"
+      recommended_download_or_capture:
+        type: "html"
+        reason: "Offizielle Normauslegung"
+
+    - rank: 19
+      id: "SRC-019"
+      topic_cluster: "C. Vereinsbuchhaltung"
+      source_name: "Rechnungslegung und Buchführung im Verein"
+      publisher: "Deutsches Ehrenamt"
+      source_type: "vereinsportal"
+      url: "https://deutsches-ehrenamt.de/steuern-finanzen/rechnungslegung-buchfuehrung-verein/"
+      date_or_last_updated: "aktueller Suchindex"
+      fit_score: 8
+      verification_score: 7
+      practicality_score: 8
+      transfer_risk: "medium"
+      upload_priority: "P1"
+      why_relevant: "Praxisnah für Vereinsbuchhaltung, Prozesse, Berichte und Softwareeinsatz. :contentReference[oaicite:18]{index=18}"
+      usable_patterns:
+        - "Buchhaltungsorganisation"
+        - "Belegsammlung"
+        - "interne Berichte"
+      direct_safer_space_use:
+        - "Vereinsbuchhaltung-Grundstruktur"
+      limitations:
+        - "Teilweise allgemeiner Vereinskontext; Gemeinnützigkeitsannahmen prüfen"
+      needs_crosscheck_with:
+        - "DATEV"
+        - "Steuerberatung"
+      recommended_download_or_capture:
+        type: "html"
+        reason: "Gute Vereins-Praxisquelle"
+
+    - rank: 20
+      id: "SRC-020"
+      topic_cluster: "G. Auslagenerstattung"
+      source_name: "Ehrenamt, Auslagen, Aufwandsentschädigung"
+      publisher: "Wegweiser Bürgergesellschaft"
+      source_type: "vereinsportal"
+      url: "https://www.buergergesellschaft.de/praxishilfen/arbeit-im-verein/rechtsgrundlagen/ehrenamtliche-mitarbeit-arbeits-beschaeftigungs-und-dienstverhaeltnisse/ehrenamt-auslagen-aufwandsentschaedigung/"
+      date_or_last_updated: "aktueller Suchindex"
+      fit_score: 8
+      verification_score: 7
+      practicality_score: 8
+      transfer_risk: "medium"
+      upload_priority: "P1"
+      why_relevant: "Erklärt Auslagenersatz gegen Nachweis/Beleg und Abgrenzung zu Vergütung. :contentReference[oaicite:19]{index=19}"
+      usable_patterns:
+        - "Auslagenersatz nur gegen Beleg"
+        - "Abgrenzung Auslage vs. Arbeitslohn/Honorar"
+      direct_safer_space_use:
+        - "Crew-Auslagenformular"
+        - "Belegpflicht und Genehmigungsprozess"
+      limitations:
+        - "Ehrenamtspauschale/Übungsleiterpauschale nicht automatisch passend; bei Club-Crew riskant"
+      needs_crosscheck_with:
+        - "Steuerberatung"
+        - "Minijob/kurzfristige Beschäftigung"
+      recommended_download_or_capture:
+        type: "html"
+        reason: "Gute Prozessquelle für Auslagen"
+
+  best_by_use_case:
+    invoice_template:
+      primary_sources:
+        - "SRC-001"
+        - "SRC-002"
+      backup_sources:
+        - "SRC-017"
+        - "SRC-018"
+    small_invoice_ticket:
+      primary_sources:
+        - "SRC-002"
+        - "SRC-009"
+      backup_sources:
+        - "SRC-010"
+        - "SRC-013"
+    ticketing_export_and_reconciliation:
+      primary_sources:
+        - "SRC-009"
+        - "SRC-013"
+        - "SRC-014"
+      backup_sources:
+        - "SRC-011"
+        - "SRC-012"
+    event_vat_logic:
+      primary_sources:
+        - "SRC-015"
+        - "SRC-016"
+      backup_sources:
+        - "SRC-010"
+    association_accounting:
+      primary_sources:
+        - "SRC-005"
+        - "SRC-006"
+        - "SRC-019"
+      backup_sources:
+        - "SRC-020"
+    gobd_archive:
+      primary_sources:
+        - "SRC-007"
+        - "SRC-008"
+        - "SRC-009"
+      backup_sources:
+        - "SRC-017"
+    ksk_contractor_check:
+      primary_sources:
+        - "SRC-003"
+        - "SRC-004"
+      backup_sources:
+        - "SRC-016"
+    venue_settlement:
+      primary_sources:
+        - "SRC-021_NOT_TOP20_EVENTFAQ_LOCATION_CHECKLIST"
+        - "SRC-022_NOT_TOP20_MICHOW_ULBRICHT_MUSTERVERTRAEGE"
+      backup_sources:
+        - "SRC-023_NOT_TOP20_IHK_MUSTERVERTRAEGE"
+
+  source_gaps:
+    - gap: "Keine perfekte offizielle Quelle gefunden: Ticket als Rechnung für Club-/Kultur-B2C-Ticketing in Deutschland"
+      why_it_matters: "Safer Space braucht klare Entscheidung, ob Ticket-PDF, Ticketing-Rechnung oder separate Rechnung als Beleg gilt."
+      suggested_next_search: "Eintrittskarte als Rechnung Umsatzsteuer Pflichtangaben Veranstalter Ticketing Anbieter"
+      likely_source_type: "IHK, Steuerkanzlei, Ticketing-Anbieter-AGB"
+    - gap: "Venue-Settlement / Mindest-Barumsatz / Barumsatzgarantie kaum offiziell dokumentiert"
+      why_it_matters: "Clubdeal mit Mindest-Barumsatz muss sauber als Vertrag, Eingangsrechnung, Gutschrift oder Settlement dokumentiert werden."
+      suggested_next_search: "Mindestumsatz Eventlocation Veranstalter Rechnung Barumsatzgarantie Umsatzsteuer"
+      likely_source_type: "Eventrecht-Kanzlei, Mustervertrag, Steuerkanzlei"
+    - gap: "Nicht gemeinnütziger e.V. mit kulturellem Club-Fundraiser wird selten direkt behandelt"
+      why_it_matters: "Viele Vereinsquellen setzen Gemeinnützigkeit, Zweckbetrieb oder Spendenlogik voraus."
+      suggested_next_search: "nicht gemeinnütziger Verein wirtschaftlicher Geschäftsbetrieb Umsatzsteuer Veranstaltung"
+      likely_source_type: "Steuerkanzlei, Finanzverwaltung, Vereinsrecht"
+    - gap: "Refund/Storno/Gutschrift-Prozess bei deutschen Ticketing-Anbietern steuerlich nicht vollständig"
+      why_it_matters: "Stornos brauchen Beleg-/Korrekturprozess und eindeutige Buchung."
+      suggested_next_search: "Ticketing Storno Gutschrift Rechnung Veranstalter Umsatzsteuer"
+      likely_source_type: "pretix, ticket.io, Steuerberatung"
+    - gap: "Crew-Vergütung vs. Auslagenersatz vs. Minijob/kurzfristige Beschäftigung"
+      why_it_matters: "Club-Crew kann nicht automatisch als Ehrenamt/Auslage behandelt werden."
+      suggested_next_search: "Verein Helfer Veranstaltung Vergütung Minijob kurzfristige Beschäftigung Auslagenersatz"
+      likely_source_type: "Minijob-Zentrale, Steuerkanzlei, Vereinsportal"
+
+  preliminary_shortlist_for_upload:
+    p0_upload_now:
+      - id: "SRC-001"
+        title: "IHK Berlin Pflichtangaben in Rechnungen"
+        url: "https://www.ihk.de/berlin/service-und-beratung/recht-und-steuern/steuern-und-finanzen/pflichtangaben-in-rechnungen-4400732"
+        reason: "Basis für Rechnungs-Pflichtangaben"
+      - id: "SRC-002"
+        title: "IHK Niederbayern Checkliste Kleinbetragsrechnung"
+        url: "https://www.ihk-niederbayern.de/pdfs/checkliste-kleinbetragsrechnungen-data.pdf"
+        reason: "Beste Quelle für Ticket/Kleinbetragsbeleg"
+      - id: "SRC-003"
+        title: "KSK Informationsschrift Nr. 4 Veranstalter"
+        url: "https://www.kuenstlersozialkasse.de/fileadmin/Dokumente/Mediencenter_Unternehmer_Verwerter/Informationsschriften/Info_04_Abgabepflicht_von_Veranstaltern.pdf"
+        reason: "Pflichtquelle für DJs/Künstler:innen/Performer:innen"
+      - id: "SRC-004"
+        title: "DRV K5001 Information zur Künstlersozialabgabe"
+        url: "https://www.deutsche-rentenversicherung.de/SharedDocs/Formulare/DE/_pdf/K5001.pdf?__blob=publicationFile&v=9"
+        reason: "Prüfungsnahe KSK-/DRV-Quelle"
+      - id: "SRC-005"
+        title: "DATEV SKR42 Kontenrahmen"
+        url: "https://www.datev.de/web/de/shop/produkt-details/datev-kontenrahmen-skr-42-vereine-stiftungen-ggmbh-bilanz-12901"
+        reason: "Kontenrahmen-/Kategoriegrundlage"
+      - id: "SRC-007"
+        title: "DATEV Verfahrensdokumentation GoBD"
+        url: "https://www.datev.de/web/de/berufsgruppenuebergreifend/ratgeber/rechnungswesen/verfahrensdokumentation-gemaess-gobd-erstellen"
+        reason: "Praktische GoBD-Prozessquelle"
+      - id: "SRC-008"
+        title: "BMF GoBD"
+        url: "https://www.bundesfinanzministerium.de/Content/DE/Downloads/BMF_Schreiben/Weitere_Steuerthemen/Abgabenordnung/AO-Anwendungserlass/2024-03-11-aenderung-gobd.html"
+        reason: "Offizielle GoBD-Pflichtreferenz"
+      - id: "SRC-009"
+        title: "pretix Fiscal requirements Germany"
+        url: "https://docs.pretix.eu/de/trust/fiscal/germany/"
+        reason: "Beste Ticketing-GoBD-Prozessquelle"
+      - id: "SRC-015"
+        title: "Finanzverwaltung NRW Vereine und Umsatzsteuer"
+        url: "https://www.finanzamt.nrw.de/steuerinfos/weitere-themen/vereine-und-stiftungen/vereine-und-die-umsatzsteuer"
+        reason: "Offizielle USt-Quelle für Vereine"
+      - id: "SRC-017"
+        title: "IHK München Elektronische Rechnung"
+        url: "https://www.ihk-muenchen.de/ratgeber/steuern/elektronische-rechnungen/"
+        reason: "B2B-E-Rechnung ab 2025"
+
+    p1_upload_next:
+      - id: "SRC-006"
+        title: "DATEV SKR42 Branchenpaket einrichten"
+        url: "https://help-center.apps.datev.de/documents/1022996"
+        reason: "DATEV-Setup"
+      - id: "SRC-010"
+        title: "pretix Taxes"
+        url: "https://docs.pretix.eu/de/guides/taxes/"
+        reason: "Ticketshop-Steuerregeln"
+      - id: "SRC-011"
+        title: "ticket.io Event-Controlling & Reporting"
+        url: "https://www.ticket.io/controlling/"
+        reason: "Abrechnung, Umsatzübersicht, Rechnung, Gutschriften"
+      - id: "SRC-013"
+        title: "Eventbrite Umsatzübersicht"
+        url: "https://www.eventbrite.de/help/de/articles/187426/so-erstellen-und-exportieren-sie-eine-umsatzuebersicht/"
+        reason: "Ticketumsatz/Gebühren/Steuern exportieren"
+      - id: "SRC-014"
+        title: "Eventbrite Vertriebskanäle und Zahlungsarten"
+        url: "https://www.eventbrite.de/help/de/articles/312206/bericht-ueber-vertriebskanaele-und-zahlungsarten-herunterladen/"
+        reason: "Reconciliation nach Verkaufskanal/Zahlungsart"
+      - id: "SRC-016"
+        title: "LfSt Bayern Merkblatt Festveranstaltungen"
+        url: "https://www.lfst.bayern.de/fileadmin/RESSOURCEN/INFORMATIONEN/Steuerinfos/Zielgruppen/Vereine/Merkblatt_Festveranstaltungen_2025-01.pdf"
+        reason: "Eventnahe Praxisquelle, aber Gemeinnützigkeitsrisiko"
+      - id: "SRC-019"
+        title: "Deutsches Ehrenamt Rechnungslegung und Buchführung im Verein"
+        url: "https://deutsches-ehrenamt.de/steuern-finanzen/rechnungslegung-buchfuehrung-verein/"
+        reason: "Vereinsbuchhaltungspraxis"
+      - id: "SRC-020"
+        title: "Wegweiser Bürgergesellschaft Auslagen/Aufwandsentschädigung"
+        url: "https://www.buergergesellschaft.de/praxishilfen/arbeit-im-verein/rechtsgrundlagen/ehrenamtliche-mitarbeit-arbeits-beschaeftigungs-und-dienstverhaeltnisse/ehrenamt-auslagen-aufwandsentschaedigung/"
+        reason: "Auslagenersatz-Prozess"
+```
+
+## Matrix: Thema → beste Quelle → warum
+
+| Thema                                   |      Beste Quelle | Warum                                                                 |
+| --------------------------------------- | ----------------: | --------------------------------------------------------------------- |
+| Rechnung > 250 €                        |           SRC-001 | IHK, sehr konkrete Pflichtangaben, direkt übertragbar                 |
+| Kleinbetragsrechnung / Ticket bis 250 € |           SRC-002 | Checkliste, sehr praktisch, P0                                        |
+| E-Rechnung B2B                          | SRC-017 + SRC-018 | IHK praktisch, BMF offiziell                                          |
+| Ticketing-GoBD / Verfahrensdoku         |           SRC-009 | pretix dokumentiert genau die Schnittstelle Ticketshop → Buchhaltung  |
+| Ticketing-Export / Umsatzreport         | SRC-013 + SRC-014 | Eventbrite zeigt Ticketumsatz, Gebühren, Steuern, Vertriebskanäle     |
+| ticket.io-Abrechnung                    | SRC-011 + SRC-012 | Umsatzübersicht, Rechnung, Auszahlung, Gutschrift                     |
+| Vereinsbuchhaltung / Kontenrahmen       | SRC-005 + SRC-019 | DATEV technisch stark, Deutsches Ehrenamt praxisnah                   |
+| GoBD-Archiv                             | SRC-007 + SRC-008 | DATEV praktisch, BMF offiziell                                        |
+| KSK / Veranstalter                      | SRC-003 + SRC-004 | KSK und DRV, direkt prüfungsrelevant                                  |
+| Event-USt / Festveranstaltung           | SRC-015 + SRC-016 | Finanzverwaltung + eventnahes Merkblatt, aber Gemeinnützigkeitsrisiko |
+| Auslagenerstattung                      |           SRC-020 | Gute Abgrenzung Auslage vs. Vergütung                                 |
+| Venue / Mindestumsatz                   |        Noch Lücke | Quellenlage schwach; eher Eventrecht-Kanzlei/Mustervertrag nötig      |
+
+## Quellen, die gut aussehen, aber riskant sind
+
+| Quelle                                                     | Risiko                                                                                                                         |
+| ---------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| **LfSt Bayern Merkblatt Festveranstaltungen**              | Sehr nützlich, aber stark Vereins-/Gemeinnützigkeits-/Sphärenlogik; nicht blind auf nicht gemeinnützigen e.V. übertragen.      |
+| **DATEV SKR42**                                            | Technisch hochwertig, aber für Vereine/Stiftungen/gGmbHs und oft gemeinnützige Körperschaften gedacht.                         |
+| **Deutsches Ehrenamt / Vereinswelt**                       | Praxisnah, aber häufig mit Gemeinnützigkeit, Zweckbetrieb, Spendenlogik; Safer Space muss Negativabgrenzung markieren.         |
+| **Ticketing-Anbieter-Dokus**                               | Praktisch für Exporte/Reports, aber keine steuerliche Autorität.                                                               |
+| **Eventrecht-/Mustervertragsseiten zu Venue**              | Praktisch, aber rechtlich/steuerlich nicht abschließend; individuelle Clubdeals brauchen Vertragsprüfung.                      |
+| **Auslagen-/Ehrenamtsvorlagen aus Sport-/Kirchenvereinen** | Können Beleglogik liefern, enthalten aber oft Spendenverzicht/Zuwendungsbestätigung; für Safer Space aktuell nicht übernehmen. |
+
+## Wichtigster nächster Recherchebedarf
+
+**Venue-Settlement** ist die größte Lücke: Mindest-Barumsatz, wer Getränke verkauft, wer Rechnung/Gutschrift ausstellt, ob Safer Space eine Ausgleichszahlung schuldet, und wie das in USt/EÜR landet. Dafür braucht ihr wahrscheinlich eine Mischung aus **Eventrecht-Mustervertrag**, **konkretem Clubvertrag** und **Steuerberatung**.
