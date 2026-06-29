@@ -3,8 +3,11 @@
   "ingest": [],
   "orchestration_boundary": [],
   "retrieval": [
+    "raw/notes/New_Research_Taxes_Accounting/HTML-MD/DATEV_SKR42-Kontenrahmen.md",
+    "raw/notes/New_Research_Taxes_Accounting/HTML-MD/DATEV_Verfahrensdokumentation-GoBD.md",
     "raw/refs/DATEV_SKR42-Kontenrahmen.md",
-    "raw/refs/DATEV_Verfahrensdokumentation-GoBD.md"
+    "raw/refs/DATEV_Verfahrensdokumentation-GoBD.md",
+    "raw/refs/pretix_Order-Lifecycle.md"
   ],
   "skill_design": []
 }

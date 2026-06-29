@@ -1,5 +1,239 @@
 [
   {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "raw/notes/GapResearch_claude.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "raw/notes/JudgementOfSources.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "raw/notes/New_Research_Taxes_Accounting/gemini-research_sources.yaml",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "raw/notes/New_Research_Taxes_Accounting/gpt_research_sources.yaml",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "raw/notes/New_Research_Taxes_Accounting/HTML-MD/AWV_GoBD-Praxisleitfaden.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "raw/notes/New_Research_Taxes_Accounting/HTML-MD/BMF_FAQ-E-Rechnung.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "raw/notes/New_Research_Taxes_Accounting/HTML-MD/BMF_GoBD-2024.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "raw/notes/New_Research_Taxes_Accounting/HTML-MD/BuchhaltungsButler_EUeR-Kostenstellen.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "raw/notes/New_Research_Taxes_Accounting/HTML-MD/Buergergesellschaft_Ehrenamt-Auslagen.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "raw/notes/New_Research_Taxes_Accounting/HTML-MD/DATEV_SKR42-Branchenpaket-Einrichten.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "raw/notes/New_Research_Taxes_Accounting/HTML-MD/DATEV_SKR42-Kontenrahmen.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "raw/notes/New_Research_Taxes_Accounting/HTML-MD/DATEV_Verfahrensdokumentation-GoBD.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "raw/notes/New_Research_Taxes_Accounting/HTML-MD/DeutschesEhrenamt_Rechnungslegung-Verein.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "raw/notes/New_Research_Taxes_Accounting/HTML-MD/DeutschesEhrenamt_Wirtschaftlicher-Geschaeftsbetrieb.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "raw/notes/New_Research_Taxes_Accounting/HTML-MD/DRV_Minijob-Kurzfristige-Beschaeftigung.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "raw/notes/New_Research_Taxes_Accounting/HTML-MD/Eventbrite_Umsatzuebersicht-Export.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "raw/notes/New_Research_Taxes_Accounting/HTML-MD/Eventbrite_Vertriebskanaele-Zahlungsarten.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "raw/notes/New_Research_Taxes_Accounting/HTML-MD/eventfaq_Club-Veranstaltungsvertrag-Mindestumsatz.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "raw/notes/New_Research_Taxes_Accounting/HTML-MD/FinanzamtNRW_Vereine-Umsatzsteuer.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "raw/notes/New_Research_Taxes_Accounting/HTML-MD/IHK-Berlin_Pflichtangaben-Rechnungen.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "raw/notes/New_Research_Taxes_Accounting/HTML-MD/IHK-Hannover_E-Rechnungspflicht-Vereine-2025.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "raw/notes/New_Research_Taxes_Accounting/HTML-MD/IHK-Koblenz_Reverse-Charge-Auslaendische-Dienstleister.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "raw/notes/New_Research_Taxes_Accounting/HTML-MD/IHK-MittlererNiederrhein_Kulturveranstaltungen-USt.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "raw/notes/New_Research_Taxes_Accounting/HTML-MD/IHK-Muenchen_E-Rechnung.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "raw/notes/New_Research_Taxes_Accounting/HTML-MD/lexoffice_Ist-vs-Sollversteuerung.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "raw/notes/New_Research_Taxes_Accounting/HTML-MD/pretix_Fiscal-Requirements-Germany.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "raw/notes/New_Research_Taxes_Accounting/HTML-MD/pretix_Taxes-Guide.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "raw/notes/New_Research_Taxes_Accounting/HTML-MD/StBK-Hamburg_Mindestumsatzgarantien-Gastronomie.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "raw/notes/New_Research_Taxes_Accounting/HTML-MD/ticketio_Event-Controlling-Reporting.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "raw/notes/New_Research_Taxes_Accounting/HTML-MD/ticketio_FAQ-Veranstalter.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "raw/notes/New_Research_Taxes_Accounting/HTML-MD/vereinsknowhow_Kassenfuehrung-Verein.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "raw/notes/New_Research_Taxes_Accounting/HTML-MD/Vereinswelt_Auslagenerstattung-Muster.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "raw/notes/New_Research_Taxes_Accounting/HTML-MD/VUT_KSK-Abgabepflicht-Elektronische-Musik.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "raw/notes/New_Research_Taxes_Accounting/Research2_gem.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "raw/notes/New_Research_Taxes_Accounting/research2_gpt.yaml",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "raw/notes/New_Research_Taxes_Accounting/Research2Fail_gpt.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "raw/notes/New_Research_Taxes_Accounting/Research3Tickets_gpt.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "raw/notes/New_Research_Taxes_Accounting/research4_gem.yaml",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "raw/notes/New_Research_Taxes_Accounting/Research4_perpDR.md",
+    "raw_field_keys": []
+  },
+  {
     "has_frontmatter": true,
     "parse_status": "parsed",
     "path": "raw/refs/_pdf_extracted_md/DRV_K5001_Kuenstlersozialabgabe.md",
@@ -68,13 +302,67 @@
   {
     "has_frontmatter": false,
     "parse_status": "missing",
+    "path": "raw/refs/AWV_Muster-Verfahrensdokumentation-Belegablage.conversion-report.json",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "raw/refs/AWV_Muster-Verfahrensdokumentation-Belegablage.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "raw/refs/BFH_V-R-16-09_Vorverkaufsgebuehr.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "raw/refs/BFH_V-R-16-09_Vorverkaufsgebuehr.md.source-meta.json",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
     "path": "raw/refs/BMF_FAQ-E-Rechnung.md",
     "raw_field_keys": []
   },
   {
     "has_frontmatter": false,
     "parse_status": "missing",
+    "path": "raw/refs/BMF_GoBD-2024.conversion-report.json",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
     "path": "raw/refs/BMF_GoBD-2024.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "raw/refs/BMJ_UStDV_33_Kleinbetragsrechnungen.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "raw/refs/BMJ_UStDV_33_Kleinbetragsrechnungen.md.source-meta.json",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "raw/refs/BMJ_UStG_14_Rechnungen.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "raw/refs/BMJ_UStG_14_Rechnungen.md.source-meta.json",
     "raw_field_keys": []
   },
   {
@@ -87,6 +375,18 @@
     "has_frontmatter": false,
     "parse_status": "missing",
     "path": "raw/refs/Buergergesellschaft_Ehrenamt-Auslagen.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "raw/refs/BZSt_50a-Abzugsteuer.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "raw/refs/BZSt_50a-Abzugsteuer.md.source-meta.json",
     "raw_field_keys": []
   },
   {
@@ -122,7 +422,31 @@
   {
     "has_frontmatter": false,
     "parse_status": "missing",
+    "path": "raw/refs/DRV_K5001_Kuenstlersozialabgabe.conversion-report.json",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "raw/refs/DRV_K5001_Kuenstlersozialabgabe.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
     "path": "raw/refs/DRV_Minijob-Kurzfristige-Beschaeftigung.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "raw/refs/Eventbrite_Event-Payout-Financial-Information.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "raw/refs/Eventbrite_Event-Payout-Financial-Information.md.source-meta.json",
     "raw_field_keys": []
   },
   {
@@ -147,6 +471,24 @@
     "has_frontmatter": false,
     "parse_status": "missing",
     "path": "raw/refs/FinanzamtNRW_Vereine-Umsatzsteuer.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "raw/refs/FinanzverwaltungNRW_Mein-ELSTER-fuer-Vereine.conversion-report.json",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "raw/refs/FinanzverwaltungNRW_Mein-ELSTER-fuer-Vereine.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "raw/refs/FinanzverwaltungNRW_Mein-ELSTER-fuer-Vereine.pdf.source-meta.json",
     "raw_field_keys": []
   },
   {
@@ -194,13 +536,79 @@
   {
     "has_frontmatter": false,
     "parse_status": "missing",
+    "path": "raw/refs/IHK-Niederbayern_Checkliste-Kleinbetragsrechnungen.conversion-report.json",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "raw/refs/IHK-Niederbayern_Checkliste-Kleinbetragsrechnungen.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "raw/refs/K5001.conversion-report.json",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "raw/refs/K5001.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "raw/refs/KSK_Info04_Abgabepflicht-Veranstalter.conversion-report.json",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "raw/refs/KSK_Info04_Abgabepflicht-Veranstalter.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "raw/refs/KSK_Info04_Abgabepflicht-Veranstalter.pdf.source-meta.json",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
     "path": "raw/refs/lexoffice_Ist-vs-Sollversteuerung.md",
     "raw_field_keys": []
   },
   {
     "has_frontmatter": false,
     "parse_status": "missing",
+    "path": "raw/refs/LfSt-Bayern_Merkblatt-Festveranstaltungen-2025.conversion-report.json",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "raw/refs/LfSt-Bayern_Merkblatt-Festveranstaltungen-2025.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
     "path": "raw/refs/pretix_Fiscal-Requirements-Germany.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "raw/refs/pretix_Order-Lifecycle.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "raw/refs/pretix_Order-Lifecycle.md.source-meta.json",
     "raw_field_keys": []
   },
   {

@@ -1,0 +1,117 @@
+{
+  "results": [
+    {
+      "command": "python apex-meta\\scripts\\apex_kb.py --kb-root apex-meta\\kb\\lika-verein-taxes-accounting --json status",
+      "name": "pre-status",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "{\n  \"audit_item_count\": 0,\n  \"command\": \"status\",\n  \"exists\": true,\n  \"index_status\": \"fresh\",\n  \"kb_root\": \"C:\\\\GitDev\\\\apexai-os-meta\\\\apex-meta\\\\kb\\\\lika-verein-taxes-accounting\",\n  \"phase0_artifacts_present\": true,\n  \"search_index_present\": true,\n  \"source_count\": 95,\n  \"wiki_page_count\": 1\n}\n",
+      "summary": "audit_item_count=0, command=status, exists=True, index_status=fresh, kb_root=C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\lika-verein-taxes-accounting"
+    },
+    {
+      "command": "python apex-meta\\scripts\\apex_kb.py --kb-root apex-meta\\kb\\lika-verein-taxes-accounting --json health",
+      "name": "pre-health",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "{\n  \"command\": \"health\",\n  \"network_required\": false,\n  \"optional_modules\": {\n    \"frontmatter\": true,\n    \"markdown_it\": true,\n    \"yaml\": true\n  },\n  \"python_version\": \"3.11.9\",\n  \"shell_out_used\": false,\n  \"sqlite\": {\n    \"error\": null,\n    \"fts5_available\": true,\n    \"sqlite_version\": \"3.45.1\"\n  },\n  \"tools\": {\n    \"git\": true,\n    \"rg\": true\n  }\n}\n",
+      "summary": "command=health, network_required=False, optional_modules={'frontmatter': True, 'markdown_it': True, 'yaml': True}, python_version=3.11.9, shell_out_used=False"
+    },
+    {
+      "command": "python apex-meta\\scripts\\apex_kb.py --kb-root apex-meta\\kb\\lika-verein-taxes-accounting --json lint",
+      "name": "pre-lint",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "{\n  \"command\": \"lint\",\n  \"deterministic_only\": true,\n  \"issue_count\": 0,\n  \"issues\": [],\n  \"status\": \"pass\"\n}\n",
+      "summary": "status=pass"
+    },
+    {
+      "command": "python apex-meta\\scripts\\apex_kb.py --kb-root apex-meta\\kb\\lika-verein-taxes-accounting --json audit",
+      "name": "pre-audit",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "{\n  \"command\": \"audit\",\n  \"groups\": {},\n  \"item_count\": 0,\n  \"mutations\": false\n}\n",
+      "summary": "command=audit, groups={}, item_count=0, mutations=False"
+    },
+    {
+      "command": "python apex-meta\\scripts\\apex_kb.py --kb-root apex-meta\\kb\\lika-verein-taxes-accounting --json phase0 --dry-run",
+      "name": "phase0-dry-run",
+      "returncode": 2,
+      "stderr": "usage: apex_kb.py [-h] --kb-root KB_ROOT [--json] [--dry-run] [--allow-write]\n                  [--strict]\n                  {scaffold,source-intake,hash,preflight,phase0,ingest-phase1,ingest-phase2,index,query,lint,audit,status,health}\n                  ...\napex_kb.py: error: unrecognized arguments: --dry-run\n",
+      "stdout": "",
+      "summary": "usage: apex_kb.py [-h] --kb-root KB_ROOT [--json] [--dry-run] [--allow-write]"
+    },
+    {
+      "command": "python apex-meta\\scripts\\apex_kb.py --kb-root apex-meta\\kb\\lika-verein-taxes-accounting --allow-write --json phase0",
+      "name": "phase0-apply",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "{\n  \"artifact_count\": 8,\n  \"command\": \"phase0\",\n  \"dry_run\": false,\n  \"phase_boundary\": \"no ingest-analysis, wiki semantic pages, embeddings, or vector stores created\",\n  \"source_file_count\": 103,\n  \"source_inventory\": {\n    \"csv_entry_count\": 0,\n    \"csv_exists\": false,\n    \"csv_path\": \"manifests/source-inventory.csv\",\n    \"csv_readable\": false,\n    \"errors\": [],\n    \"json_entry_count\": 0,\n    \"json_exists\": false,\n    \"json_path\": \"manifests/source-inventory.json\",\n    \"json_readable\": false\n  },\n  \"writes\": [\n    {\n      \"changed\": true,\n      \"exists\": true,\n      \"path\": \"manifests/phase0/corpus-profile.md\",\n      \"written\": true\n    },\n    {\n      \"changed\": true,\n      \"exists\": true,\n      \"path\": \"manifests/phase0/heading-map.json\",\n      \"written\": true\n    },\n    {\n      \"changed\": true,\n      \"exists\": true,\n      \"path\": \"manifests/phase0/markdown-link-map.json\",\n      \"written\": true\n    },\n    {\n      \"changed\": true,\n      \"exists\": true,\n      \"path\": \"manifests/phase0/frontmatter-map.json\",\n      \"written\": true\n    },\n    {\n      \"changed\": true,\n      \"exists\": true,\n      \"path\": \"manifests/phase0/keyword-hits.ndjson\",\n      \"written\": true\n    },\n    {\n      \"changed\": true,\n      \"exists\": true,\n      \"path\": \"manifests/phase0/topic-file-map.json\",\n      \"written\": true\n    },\n    {\n      \"changed\": true,\n      \"exists\": true,\n      \"path\": \"manifests/phase0/source-priority-candidates.md\",\n      \"written\": true\n    },\n    {\n      \"changed\": true,\n      \"exists\": true,\n      \"path\": \"manifests/phase0/phase0-navigation-report.md\",\n      \"written\": true\n    }\n  ]\n}\n",
+      "summary": "artifact_count=8, command=phase0, dry_run=False, phase_boundary=no ingest-analysis, wiki semantic pages, embeddings, or vector stores created, source_file_count=103"
+    },
+    {
+      "command": "python scripts\\lika_kb_deterministic_lifecycle_tools.py --kb-root apex-meta\\kb\\lika-verein-taxes-accounting --stamp 20260629_162739 web-clutter-audit",
+      "name": "web-clutter-audit",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "{\n  \"jsonl_path\": \"apex-meta\\\\kb\\\\lika-verein-taxes-accounting\\\\audit\\\\web-clutter-candidates_20260629_162739.jsonl\",\n  \"report_path\": \"apex-meta\\\\kb\\\\lika-verein-taxes-accounting\\\\log\\\\web-clutter-audit_20260629_162739.md\",\n  \"candidates\": 69,\n  \"files_scanned\": 77\n}\n",
+      "summary": "jsonl_path=apex-meta\\kb\\lika-verein-taxes-accounting\\audit\\web-clutter-candidates_20260629_162739.jsonl, report_path=apex-meta\\kb\\lika-verein-taxes-accounting\\log\\web-clutter-audit_20260629_162739.md, candidates=69, files_scanned=77"
+    },
+    {
+      "command": "python apex-meta\\scripts\\apex_kb.py --kb-root apex-meta\\kb\\lika-verein-taxes-accounting --json index --dry-run",
+      "name": "index-dry-run",
+      "returncode": 2,
+      "stderr": "usage: apex_kb.py [-h] --kb-root KB_ROOT [--json] [--dry-run] [--allow-write]\n                  [--strict]\n                  {scaffold,source-intake,hash,preflight,phase0,ingest-phase1,ingest-phase2,index,query,lint,audit,status,health}\n                  ...\napex_kb.py: error: unrecognized arguments: --dry-run\n",
+      "stdout": "",
+      "summary": "usage: apex_kb.py [-h] --kb-root KB_ROOT [--json] [--dry-run] [--allow-write]"
+    },
+    {
+      "command": "python apex-meta\\scripts\\apex_kb.py --kb-root apex-meta\\kb\\lika-verein-taxes-accounting --allow-write --json index",
+      "name": "index-apply",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "{\n  \"command\": \"index\",\n  \"dry_run\": false,\n  \"page_count\": 1,\n  \"write\": {\n    \"changed\": true,\n    \"exists\": true,\n    \"path\": \"wiki/index.md\",\n    \"written\": true\n  }\n}\n",
+      "summary": "command=index, dry_run=False, page_count=1, write={'changed': True, 'exists': True, 'path': 'wiki/index.md', 'written': True}"
+    },
+    {
+      "command": "python apex-meta\\scripts\\apex_kb.py --kb-root apex-meta\\kb\\lika-verein-taxes-accounting --json lint",
+      "name": "post-lint",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "{\n  \"command\": \"lint\",\n  \"deterministic_only\": true,\n  \"issue_count\": 0,\n  \"issues\": [],\n  \"status\": \"pass\"\n}\n",
+      "summary": "status=pass"
+    },
+    {
+      "command": "python apex-meta\\scripts\\apex_kb.py --kb-root apex-meta\\kb\\lika-verein-taxes-accounting --json audit",
+      "name": "post-audit",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "{\n  \"command\": \"audit\",\n  \"groups\": {},\n  \"item_count\": 0,\n  \"mutations\": false\n}\n",
+      "summary": "command=audit, groups={}, item_count=0, mutations=False"
+    },
+    {
+      "command": "python apex-meta\\scripts\\apex_kb.py --kb-root apex-meta\\kb\\lika-verein-taxes-accounting --json status",
+      "name": "post-status",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "{\n  \"audit_item_count\": 0,\n  \"command\": \"status\",\n  \"exists\": true,\n  \"index_status\": \"fresh\",\n  \"kb_root\": \"C:\\\\GitDev\\\\apexai-os-meta\\\\apex-meta\\\\kb\\\\lika-verein-taxes-accounting\",\n  \"phase0_artifacts_present\": true,\n  \"search_index_present\": true,\n  \"source_count\": 95,\n  \"wiki_page_count\": 1\n}\n",
+      "summary": "audit_item_count=0, command=status, exists=True, index_status=fresh, kb_root=C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\lika-verein-taxes-accounting"
+    },
+    {
+      "command": "python apex-meta\\scripts\\apex_kb_retrieval.py --kb-root apex-meta\\kb\\lika-verein-taxes-accounting --json health",
+      "name": "retrieval-health",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "{\n  \"command\": \"health\",\n  \"derived_search_dir\": \"C:\\\\GitDev\\\\apexai-os-meta\\\\apex-meta\\\\kb\\\\lika-verein-taxes-accounting\\\\derived\\\\search\",\n  \"kb_root\": \"C:\\\\GitDev\\\\apexai-os-meta\\\\apex-meta\\\\kb\\\\lika-verein-taxes-accounting\",\n  \"kb_root_exists\": true,\n  \"optional_modules\": {\n    \"frontmatter\": true,\n    \"markdown_it\": true,\n    \"yaml\": true\n  },\n  \"python_version\": \"3.11.9\",\n  \"sqlite\": {\n    \"compile_options\": [\n      \"ATOMIC_INTRINSICS=0\",\n      \"COMPILER=msvc-1938\",\n      \"DEFAULT_AUTOVACUUM\",\n      \"DEFAULT_CACHE_SIZE=-2000\",\n      \"DEFAULT_FILE_FORMAT=4\",\n      \"DEFAULT_JOURNAL_SIZE_LIMIT=-1\",\n      \"DEFAULT_MMAP_SIZE=0\",\n      \"DEFAULT_PAGE_SIZE=4096\",\n      \"DEFAULT_PCACHE_INITSZ=20\",\n      \"DEFAULT_RECURSIVE_TRIGGERS\",\n      \"DEFAULT_SECTOR_SIZE=4096\",\n      \"DEFAULT_SYNCHRONOUS=2\",\n      \"DEFAULT_WAL_AUTOCHECKPOINT=1000\",\n      \"DEFAULT_WAL_SYNCHRONOUS=2\",\n      \"DEFAULT_WORKER_THREADS=0\",\n      \"DIRECT_OVERFLOW_READ\",\n      \"ENABLE_FTS3\",\n      \"ENABLE_FTS4\",\n      \"ENABLE_FTS5\",\n      \"ENABLE_MATH_FUNCTIONS\",\n      \"ENABLE_RTREE\",\n      \"MALLOC_SOFT_LIMIT=1024\",\n      \"MAX_ATTACHED=10\",\n      \"MAX_COLUMN=2000\",\n      \"MAX_COMPOUND_SELECT=500\",\n      \"MAX_DEFAULT_PAGE_SIZE=8192\",\n      \"MAX_EXPR_DEPTH=1000\",\n      \"MAX_FUNCTION_ARG=127\",\n      \"MAX_LENGTH=1000000000\",\n      \"MAX_LIKE_PATTERN_LENGTH=50000\",\n      \"MAX_MMAP_SIZE=0x7fff0000\",\n      \"MAX_PAGE_COUNT=0xfffffffe\",\n      \"MAX_PAGE_SIZE=65536\",\n      \"MAX_SQL_LENGTH=1000000000\",\n      \"MAX_TRIGGER_DEPTH=1000\",\n      \"MAX_VARIABLE_NUMBER=32766\",\n      \"MAX_VDBE_OP=250000000\",\n      \"MAX_WORKER_THREADS=8\",\n      \"MUTEX_W32\",\n      \"OMIT_AUTOINIT\",\n      \"SYSTEM_MALLOC\",\n      \"TEMP_STORE=1\",\n      \"THREADSAFE=1\"\n    ],\n    \"error\": null,\n    \"fts5_available\": true,\n    \"sqlite3_module\": true,\n    \"sqlite_version\": \"3.45.1\"\n  },\n  \"tools\": {\n    \"git\": true,\n    \"rg\": true\n  }\n}\n",
+      "summary": "command=health, derived_search_dir=C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\lika-verein-taxes-accounting\\derived\\search, kb_root=C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\lika-verein-taxes-accounting, kb_root_exists=True, optional_modules={'frontmatter': True, 'markdown_it': True, 'yaml': True}"
+    },
+    {
+      "command": "python apex-meta\\scripts\\apex_kb_retrieval.py --kb-root apex-meta\\kb\\lika-verein-taxes-accounting --json stale",
+      "name": "retrieval-stale",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "{\n  \"added\": [],\n  \"command\": \"stale\",\n  \"deleted\": [],\n  \"generated_at\": \"2026-06-28T20:40:01Z\",\n  \"kb_root\": \"C:\\\\GitDev\\\\apexai-os-meta\\\\apex-meta\\\\kb\\\\lika-verein-taxes-accounting\",\n  \"modified\": [],\n  \"status\": \"fresh\"\n}\n",
+      "summary": "status=fresh"
+    }
+  ],
+  "stamp": "20260629_162739"
+}

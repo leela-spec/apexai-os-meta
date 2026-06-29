@@ -1,8 +1,8 @@
 # Phase 0 Navigation Report
 
-Generated: `2026-06-29T09:57:28Z`
+Generated: `2026-06-29T16:30:56Z`
 KB root: `C:\GitDev\apexai-os-meta\apex-meta\kb\lika-verein-taxes-accounting`
-Files scanned: `35`
+Files scanned: `103`
 
 ## Artifacts
 
