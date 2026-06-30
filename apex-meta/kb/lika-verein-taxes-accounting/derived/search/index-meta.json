@@ -1,10 +1,151 @@
 {
   "backend": "sqlite_fts5",
-  "chunk_count": 0,
-  "files": {},
-  "generated_at": "2026-06-28T20:40:01Z",
+  "chunk_count": 174,
+  "files": {
+    "wiki/Phase1_IngestAnalysis.md": {
+      "hash": "4dec4b2ce847b2e40ebfc1e94571658ab119ec08a6203a69f8b5e10b8875dbfe",
+      "mtime": 1782832197.26562
+    },
+    "wiki/Phase2_MinimalSummaryLayer.md": {
+      "hash": "cba1d19a0631af632e2f3f3bd9cf7f7e68a709f51c33fb2dafd36ccf46d52d50",
+      "mtime": 1782832197.26562
+    },
+    "wiki/concepts/belegablage-verfahrensdokumentation.md": {
+      "hash": "bc4272c680818e25a8918676f32e64badda3db0b5b51195af2d6470bd089f448",
+      "mtime": 1782831177.2561028
+    },
+    "wiki/concepts/e-rechnung-verein.md": {
+      "hash": "23c19424cf99f8a199cf5cb5b95ef8cb75509656998120d532d23a9fbe981f6b",
+      "mtime": 1782831177.2571006
+    },
+    "wiki/concepts/foreign-artist-50a.md": {
+      "hash": "306e9e6d59c3d141b0a484a0e003959938edff2735a3c49051c4720472da5861",
+      "mtime": 1782831177.260101
+    },
+    "wiki/concepts/invoice-core-fields.md": {
+      "hash": "275e47dd522f046784631d748237d08d9328c715a6680348cb010b74dc530607",
+      "mtime": 1782831177.291011
+    },
+    "wiki/concepts/kleinbetragsrechnung.md": {
+      "hash": "068c1d6c21635085567989f45c54d45063ededc42c5d5cc0638cc2a7aa58e9fe",
+      "mtime": 1782831177.293005
+    },
+    "wiki/concepts/kuenstlersozialabgabe-event.md": {
+      "hash": "258d1a3e5ed6e27e5bd917a453dacaa06d60712d8dd9daed1a331b2e1283546d",
+      "mtime": 1782831177.293005
+    },
+    "wiki/concepts/minijob-short-term-event-work.md": {
+      "hash": "3ae9e20b48e9dcb856e4366fb054423f85be0646aeb012fc45f07e140000e47a",
+      "mtime": 1782831177.369851
+    },
+    "wiki/concepts/source-quality-risk.md": {
+      "hash": "d38ceab9610fc0dfc424b90443c62f893f82a9c00254e11da78cd266314fa1fe",
+      "mtime": 1782831177.3924527
+    },
+    "wiki/concepts/ticket-as-invoice-gap.md": {
+      "hash": "c0e1b164ed1a264d3a2da268ea846a315885d026eadf8bf49c8922326c4155f7",
+      "mtime": 1782831177.3924527
+    },
+    "wiki/concepts/ticketing-provider-reconciliation.md": {
+      "hash": "cc555b63f87d97f2b5c12defdc0818ac02c5f46b27bdb349acbe82fbe6483bf3",
+      "mtime": 1782831177.3945425
+    },
+    "wiki/concepts/unresolved-tax-risk-register.md": {
+      "hash": "3e98473bba61c2e3892eb8cd4dcb9c67ff33aa1ca860d701926b1f9ecd14f189",
+      "mtime": 1782831177.3945425
+    },
+    "wiki/concepts/ust-7-vs-19-event-context.md": {
+      "hash": "30024356f35a135b4dd467f4e6c9d8a0c54ca13767cc87a466a6cf5547c9f938",
+      "mtime": 1782831177.3945425
+    },
+    "wiki/concepts/verein-activity-areas.md": {
+      "hash": "d0b02fd6cb77abc0ba41af41c81fecb0d6fbf8baadc7b86aa1717dd74e399603",
+      "mtime": 1782831177.396547
+    },
+    "wiki/concepts/vorsteuer-zuordnung-aufteilung.md": {
+      "hash": "190b05db9f0d269728f44aef3c7010bcd37bb187e5d196e1273e4d4e7031f43c",
+      "mtime": 1782831177.399656
+    },
+    "wiki/concepts/web-clutter-filter.md": {
+      "hash": "05a9f4d578d7acd14c92d9ec0c5226385d35c5204dca4874ffffa3bbad2b85b5",
+      "mtime": 1782831177.399656
+    },
+    "wiki/entities/awv.md": {
+      "hash": "696c369f4e4b6b5c48342e40c3125e7d8ef56613459d7fcdfd70fdb3ace1be88",
+      "mtime": 1782831177.4036748
+    },
+    "wiki/entities/bmf.md": {
+      "hash": "212fc0339955c583eca0b17c02843ceca58b472731339352d65478325c2e1fc4",
+      "mtime": 1782831177.703395
+    },
+    "wiki/entities/bmj-gesetze-im-internet.md": {
+      "hash": "6718e1eb4fb4f73a63deba1ffb355ea81946bcdbbd6545628a15795b05385e4f",
+      "mtime": 1782831177.7103329
+    },
+    "wiki/entities/bzst.md": {
+      "hash": "610ba96a090acff8f1be228e8e8dc5f5d4d7f7540170ebcf40c286278c85275c",
+      "mtime": 1782831177.7220552
+    },
+    "wiki/entities/datev.md": {
+      "hash": "420e4b99d03a29cae00573a494d3fafe914453f2c82a46ba104cfd0bfeb4a91a",
+      "mtime": 1782831177.728115
+    },
+    "wiki/entities/deutsche-rentenversicherung.md": {
+      "hash": "b9202fbeb856b548c0da8ba80eafa08e75bd71355bd1d3ff7a7506fc8bb51126",
+      "mtime": 1782831177.8804104
+    },
+    "wiki/entities/eventbrite.md": {
+      "hash": "590dfb6c4d11fc6ba122cc284ba99984ad1307139c582557c091b407bac48c3c",
+      "mtime": 1782831178.162445
+    },
+    "wiki/entities/kuenstlersozialkasse.md": {
+      "hash": "dd16bf45cd579b2091077b558f02c2b36148c164bf69a063e493f3e3059dead5",
+      "mtime": 1782831178.459819
+    },
+    "wiki/entities/lfst-bayern.md": {
+      "hash": "095060f37f886d62fb0a81acb644413969b829c8ff00a24730d4dcee519682b7",
+      "mtime": 1782831178.6521215
+    },
+    "wiki/entities/pretix.md": {
+      "hash": "1289966b3d2d1ad37674ecfe41cc5bfff2de49085b22a109c7988ccb582060d1",
+      "mtime": 1782831178.6541283
+    },
+    "wiki/entities/ticketio.md": {
+      "hash": "f644adaca9cff2e1fd943833b496cfae9b393c2d86f8847cb3686972f8967a2c",
+      "mtime": 1782831178.6960294
+    },
+    "wiki/index_old.md": {
+      "hash": "56f84259107267ccabb366d4582f2c084a2c39148935356442e7ddaa226d99b4",
+      "mtime": 1782750848.1781173
+    },
+    "wiki/summaries/artist-contractor-obligations.md": {
+      "hash": "ba8a2f6ab4c3b5efbbb2ac5dd9b5a9e122a6a9d48c1fe028e10c8e8e36f90962",
+      "mtime": 1782813789.848682
+    },
+    "wiki/summaries/association-accounting-process.md": {
+      "hash": "113ccfb6bd2c3aadeffcb5504d23274311d525a5ae57050928bc04d4185870d6",
+      "mtime": 1782813789.8446698
+    },
+    "wiki/summaries/core-tax-law-invoicing-gobd.md": {
+      "hash": "a8bc2b06d8c0f87ae52d234dba2a1239579f42b2507d641054db5bd598211c75",
+      "mtime": 1782813789.8397248
+    },
+    "wiki/summaries/events-vat-tickets.md": {
+      "hash": "098d5e79519770991991d5de5c112a6f7b774862a762a667a606bf2a003e86c4",
+      "mtime": 1782813789.8466754
+    },
+    "wiki/summaries/source-judgment-and-open-risks.md": {
+      "hash": "5b612a253efe5d740e75bb6c86833ef6f41c8f97689871891152b90ccc0d7643",
+      "mtime": 1782813789.8506873
+    },
+    "wiki/summaries/source-quality-and-custody.md": {
+      "hash": "7a71a4065a88bde26399a5ede76b764703c8a62bcca72b129252484dfa84fb4f",
+      "mtime": 1782813789.852694
+    }
+  },
+  "generated_at": "2026-06-30T15:10:07Z",
   "kb_slug": "lika-verein-taxes-accounting",
-  "page_count": 0,
+  "page_count": 35,
   "policy": "derived_rebuildable_not_canonical",
   "schema_version": "1.0"
 }

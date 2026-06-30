@@ -1,3 +1,15 @@
+---
+title: "Apex KB Next Runbook v2"
+page_type: audit_item
+kb_slug: "lika-verein-taxes-accounting"
+source_refs: []
+created_at: "2026-06-30T15:10:00Z"
+updated_at: "2026-06-30T15:10:00Z"
+confidence: "unknown"
+claim_label: "raw_source"
+status: "needs_review"
+---
+
 # Apex KB Next Runbook v2
 
 ## 0. Inputs

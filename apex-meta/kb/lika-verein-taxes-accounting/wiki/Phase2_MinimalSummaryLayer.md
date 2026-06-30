@@ -1,3 +1,15 @@
+---
+title: "Phase 2 Minimal Summary Layer Chat Output"
+page_type: audit_item
+kb_slug: "lika-verein-taxes-accounting"
+source_refs: []
+created_at: "2026-06-30T15:10:00Z"
+updated_at: "2026-06-30T15:10:00Z"
+confidence: "unknown"
+claim_label: "raw_source"
+status: "active"
+---
+
 Phase 2 gate accepted. I reloaded the live `apex-kb` skill contract and the saved Phase 1 artifact instead of relying on memory. The skill contract requires Phase 2 only after `approve ingest`, and Phase 2 may draft/update `wiki/summaries/`, `wiki/concepts/`, `wiki/entities/`, audit items, and semantic index sections with source pointers and confidence labels.
 
 I am producing this as **chat-output only**. I did **not** write repo files. The current repo wiki index still has compiled page count `0` and “No LLM summary has been approved yet,” so the index block below is the intended Phase 2 replacement content.

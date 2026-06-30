@@ -19,15 +19,59 @@ status: "active"
 
 <!-- BEGIN AUTO-GENERATED INDEX -->
 
-Generated manually in this continuation: `2026-06-30T12:15:00Z`
+Generated: `2026-06-30T15:10:07Z`
 
-Compiled Phase 2 page count recorded here: `32`
+Compiled page count: `35`
 
-Deterministic script rebuild still required in a real checkout:
+## Audit_Item Pages
 
-```bash
-python apex-meta/scripts/apex_kb.py --kb-root apex-meta/kb/lika-verein-taxes-accounting --json --allow-write index
-```
+- [Phase 1 Ingest Analysis Chat Output](Phase1_IngestAnalysis.md) - `active` / `unknown`
+- [Phase 2 Minimal Summary Layer Chat Output](Phase2_MinimalSummaryLayer.md) - `active` / `unknown`
+
+## Concept Pages
+
+- [Belegablage and procedure documentation](concepts/belegablage-verfahrensdokumentation.md) - `active` / `medium`
+- [E-Rechnung for a Verein](concepts/e-rechnung-verein.md) - `needs_review` / `medium`
+- [Foreign artist §50a withholding](concepts/foreign-artist-50a.md) - `needs_review` / `medium`
+- [Mandatory invoice fields](concepts/invoice-core-fields.md) - `active` / `high`
+- [Kleinbetragsrechnung](concepts/kleinbetragsrechnung.md) - `active` / `high`
+- [Künstlersozialabgabe for events](concepts/kuenstlersozialabgabe-event.md) - `needs_review` / `medium`
+- [Minijob and short-term event work](concepts/minijob-short-term-event-work.md) - `needs_review` / `medium`
+- [Source quality risk](concepts/source-quality-risk.md) - `active` / `high`
+- [Ticket as invoice gap](concepts/ticket-as-invoice-gap.md) - `needs_review` / `unknown`
+- [Ticketing provider reconciliation](concepts/ticketing-provider-reconciliation.md) - `needs_review` / `medium`
+- [Unresolved tax risk register](concepts/unresolved-tax-risk-register.md) - `needs_review` / `mixed`
+- [VAT 7% versus 19% in event context](concepts/ust-7-vs-19-event-context.md) - `needs_review` / `unknown`
+- [Verein activity areas](concepts/verein-activity-areas.md) - `needs_review` / `medium`
+- [Input VAT assignment and allocation](concepts/vorsteuer-zuordnung-aufteilung.md) - `needs_review` / `low`
+- [Web clutter filter](concepts/web-clutter-filter.md) - `active` / `high`
+
+## Entity Pages
+
+- [Arbeitsgemeinschaft für wirtschaftliche Verwaltung e.V.](entities/awv.md) - `active` / `medium`
+- [Bundesministerium der Finanzen](entities/bmf.md) - `active` / `high`
+- [BMJ / Gesetze im Internet](entities/bmj-gesetze-im-internet.md) - `active` / `high`
+- [Bundeszentralamt fuer Steuern](entities/bzst.md) - `needs_review` / `medium`
+- [DATEV](entities/datev.md) - `needs_review` / `medium`
+- [Deutsche Rentenversicherung](entities/deutsche-rentenversicherung.md) - `needs_review` / `medium`
+- [Eventbrite](entities/eventbrite.md) - `needs_review` / `low`
+- [Künstlersozialkasse](entities/kuenstlersozialkasse.md) - `needs_review` / `medium`
+- [LfSt Bayern](entities/lfst-bayern.md) - `needs_review` / `medium`
+- [pretix](entities/pretix.md) - `needs_review` / `medium`
+- [ticket.io](entities/ticketio.md) - `needs_review` / `low`
+
+## Index Pages
+
+- [Lika Verein Taxes Accounting Index](index_old.md) - `active` / `unknown`
+
+## Summary Pages
+
+- [Artists, Contractors, KSK, Foreign Artists, §50a, and Reverse Charge](summaries/artist-contractor-obligations.md) - `needs_review` / `medium`
+- [Association Accounting Process and Receipt Custody](summaries/association-accounting-process.md) - `needs_review` / `medium`
+- [Core Tax Law, Invoicing, E-Rechnung, and GoBD](summaries/core-tax-law-invoicing-gobd.md) - `needs_review` / `medium`
+- [Events, VAT, Tickets, Presale Fees, and Ticketing Providers](summaries/events-vat-tickets.md) - `needs_review` / `medium`
+- [Source Judgment and Open Tax/Accounting Risks](summaries/source-judgment-and-open-risks.md) - `needs_review` / `medium`
+- [Source Quality, Web Clutter, Duplicates, and Custody](summaries/source-quality-and-custody.md) - `active` / `high`
 
 <!-- END AUTO-GENERATED INDEX -->
 

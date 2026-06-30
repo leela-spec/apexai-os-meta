@@ -1,3 +1,15 @@
+---
+title: "Phase 1 Ingest Analysis Chat Output"
+page_type: audit_item
+kb_slug: "lika-verein-taxes-accounting"
+source_refs: []
+created_at: "2026-06-30T15:10:00Z"
+updated_at: "2026-06-30T15:10:00Z"
+confidence: "unknown"
+claim_label: "raw_source"
+status: "active"
+---
+
 ## Missing-file / access status
 
 No hard stop. I could read the installed Apex KB contract, deterministic lifecycle outputs, Phase 0 reports, source manifest segments, and selected high-signal source files. I did **not** read all 95/103 sources end-to-end in this response. The artifacts below are therefore **grouped Phase 1 ingest analyses** grounded in inspected source excerpts and Phase 0 navigation, with uninspected or noisy sources explicitly flagged.
