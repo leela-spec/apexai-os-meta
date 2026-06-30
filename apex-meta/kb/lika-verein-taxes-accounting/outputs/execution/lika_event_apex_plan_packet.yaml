@@ -1,0 +1,79 @@
+plan_packet_metadata:
+  package_name: apex-plan
+  planning_status: operator_review_packet_only
+  source_summary:
+    - Location - Fundraiser Hamburg .xlsx inspected
+    - KB source index, README, manifest segment, and APEX skill contracts consulted
+project_capture_record:
+  project_slug: lika-event-equinox-fundraiser-hamburg
+  goal: Create safe operating model for ticketing, organizing, documenting, accounting, and closing out the LIKA fundraiser/club-cultural event.
+  constraints:
+    - no final tax/legal advice
+    - no raw source mutation
+    - no task status mutation
+    - repo/project sources first; no web research in this run
+epic_record:
+  id: 1
+  title: LIKA Equinox Event Operating Model
+  status: open
+proposed_task_records:
+  - id: 101
+    title: Confirm venue settlement terms
+    status: open
+    priority: high
+    depends_on: []
+  - id: 102
+    title: Validate ticket VAT and support wording
+    status: open
+    priority: high
+    depends_on: []
+  - id: 103
+    title: Configure ticketing provider and receipt fields
+    status: open
+    priority: high
+    depends_on: [102]
+  - id: 104
+    title: Build GoBD event archive
+    status: open
+    priority: high
+    depends_on: []
+  - id: 105
+    title: Create artist/KSK and foreign-service register
+    status: open
+    priority: high
+    depends_on: []
+  - id: 106
+    title: Create crew/payment classification matrix
+    status: open
+    priority: medium
+    depends_on: []
+  - id: 107
+    title: Run payout reconciliation and closeout packet
+    status: open
+    priority: high
+    depends_on: [101, 103, 104, 105]
+dependency_plan:
+  proposals_not_validated_by_script: true
+  validation_requested_from_apex_sync: true
+priority_urgency_focus_rationale:
+  focus_candidates:
+    - Confirm venue settlement terms
+    - Validate ticket VAT and support wording
+    - Configure ticketing provider and receipt fields
+    - Build GoBD event archive
+review_flags:
+  - tax_validation_required
+  - venue_settlement_evidence_gap
+  - provider_unknown
+  - operator_owner_missing
+  - dependency_proposals_not_script_validated
+handoff_requests:
+  to_apex_sync:
+    - Run next/blockers/score once canonical task files exist.
+  to_apex_session:
+    - Create handoff artifacts once operator confirms write.
+operator_gate:
+  required:
+    - Confirm ticketing provider
+    - Confirm VAT/support wording path
+    - Confirm repo/task-write policy
