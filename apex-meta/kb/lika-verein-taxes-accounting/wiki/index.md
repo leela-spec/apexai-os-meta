@@ -1,15 +1,15 @@
 ---
 title: "Lika Verein Taxes Accounting Index"
-page_type: index
+page_type: "index"
 kb_slug: "lika-verein-taxes-accounting"
 source_refs:
   - source_id: "llm-phase1-grouped-ingest"
     source_path: "ingest-analysis/"
     source_hash: "NA"
     source_pointer: "Phase 1 grouped analyses approved for Phase 2"
-    source_storage_mode: "copy_into_kb"
+    source_storage_mode: "derived_from_ingest_analysis"
 created_at: "2026-06-28T20:37:26Z"
-updated_at: "2026-06-29T18:00:00Z"
+updated_at: "2026-06-30T12:15:00Z"
 confidence: "medium"
 claim_label: "source_backed_summary"
 status: "active"
@@ -19,11 +19,15 @@ status: "active"
 
 <!-- BEGIN AUTO-GENERATED INDEX -->
 
-Generated: `2026-06-29T16:34:08Z`
+Generated manually in this continuation: `2026-06-30T12:15:00Z`
 
-Compiled page count before Phase 2 chat-output compile: `0`
+Compiled Phase 2 page count recorded here: `32`
 
-Deterministic index rebuild required after saving Phase 2 pages locally.
+Deterministic script rebuild still required in a real checkout:
+
+```bash
+python apex-meta/scripts/apex_kb.py --kb-root apex-meta/kb/lika-verein-taxes-accounting --json --allow-write index
+```
 
 <!-- END AUTO-GENERATED INDEX -->
 
@@ -31,123 +35,62 @@ Deterministic index rebuild required after saving Phase 2 pages locally.
 
 ## Phase 2 Semantic Index Summary
 
-This KB currently compiles six approved Phase 2 summary pages from the grouped Phase 1 ingest analysis:
+This KB contains six Phase 2 summary pages plus the minimum required concept and entity pages compiled from the approved grouped Phase 1 ingest analyses.
 
-```yaml
-compiled_summaries:
-  - path: "wiki/summaries/core-tax-law-invoicing-gobd.md"
-    covers:
-      - invoices
-      - Kleinbetragsrechnung
-      - E-Rechnung
-      - Belegablage
-      - GoBD source-quality warning
-    confidence: "medium"
-    status: "needs_review"
+### Summary pages
 
-  - path: "wiki/summaries/association-accounting-process.md"
-    covers:
-      - accounting source custody
-      - receipt/evidence workflow
-      - reimbursement evidence
-      - DATEV/SKR42 cleanup requirement
-    confidence: "medium"
-    status: "needs_review"
+- `wiki/summaries/core-tax-law-invoicing-gobd.md`
+- `wiki/summaries/association-accounting-process.md`
+- `wiki/summaries/events-vat-tickets.md`
+- `wiki/summaries/artist-contractor-obligations.md`
+- `wiki/summaries/source-judgment-and-open-risks.md`
+- `wiki/summaries/source-quality-and-custody.md`
 
-  - path: "wiki/summaries/events-vat-tickets.md"
-    covers:
-      - event revenue/expense assignment
-      - event VAT treatment risk
-      - ticketing-provider configuration
-      - ticket-as-invoice gap
-    confidence: "medium"
-    status: "needs_review"
+### Concept pages
 
-  - path: "wiki/summaries/artist-contractor-obligations.md"
-    covers:
-      - Künstlersozialabgabe
-      - foreign artist §50a
-      - foreign artist VAT recipient liability
-      - artist contract counterparty review
-    confidence: "medium"
-    status: "needs_review"
+- `wiki/concepts/invoice-core-fields.md`
+- `wiki/concepts/kleinbetragsrechnung.md`
+- `wiki/concepts/e-rechnung-verein.md`
+- `wiki/concepts/belegablage-verfahrensdokumentation.md`
+- `wiki/concepts/verein-activity-areas.md`
+- `wiki/concepts/ust-7-vs-19-event-context.md`
+- `wiki/concepts/vorsteuer-zuordnung-aufteilung.md`
+- `wiki/concepts/ticket-as-invoice-gap.md`
+- `wiki/concepts/ticketing-provider-reconciliation.md`
+- `wiki/concepts/kuenstlersozialabgabe-event.md`
+- `wiki/concepts/foreign-artist-50a.md`
+- `wiki/concepts/minijob-short-term-event-work.md`
+- `wiki/concepts/source-quality-risk.md`
+- `wiki/concepts/web-clutter-filter.md`
+- `wiki/concepts/unresolved-tax-risk-register.md`
 
-  - path: "wiki/summaries/source-judgment-and-open-risks.md"
-    covers:
-      - source authority hierarchy
-      - transfer safety
-      - unresolved tax risk register
-      - venue settlement gap
-    confidence: "medium"
-    status: "needs_review"
+### Entity pages
 
-  - path: "wiki/summaries/source-quality-and-custody.md"
-    covers:
-      - web clutter
-      - duplicate source custody
-      - table-heavy PDF risk
-      - Phase 1 placeholder replacement
-    confidence: "high"
-    status: "active"
-````
+- `wiki/entities/bmf.md`
+- `wiki/entities/bmj-gesetze-im-internet.md`
+- `wiki/entities/awv.md`
+- `wiki/entities/datev.md`
+- `wiki/entities/deutsche-rentenversicherung.md`
+- `wiki/entities/kuenstlersozialkasse.md`
+- `wiki/entities/lfst-bayern.md`
+- `wiki/entities/bzst.md`
+- `wiki/entities/pretix.md`
+- `wiki/entities/eventbrite.md`
+- `wiki/entities/ticketio.md`
 
-## Query Routing
+## Query routing
 
-```yaml
-query_routing:
-  invoice_or_e_rechnung:
-    read_first:
-      - "wiki/summaries/core-tax-law-invoicing-gobd.md"
+- Invoice, e-invoice, and receipt custody: start with `wiki/summaries/core-tax-law-invoicing-gobd.md`, then `invoice-core-fields`, `kleinbetragsrechnung`, `e-rechnung-verein`, or `belegablage-verfahrensdokumentation`.
+- Event VAT and ticketing: start with `wiki/summaries/events-vat-tickets.md`, then `verein-activity-areas`, `ust-7-vs-19-event-context`, `ticket-as-invoice-gap`, or `ticketing-provider-reconciliation`.
+- Artists, KSK, foreign artists, and event work: start with `wiki/summaries/artist-contractor-obligations.md`, then `kuenstlersozialabgabe-event`, `foreign-artist-50a`, or `minijob-short-term-event-work`.
+- Source quality and unresolved risks: start with `wiki/summaries/source-quality-and-custody.md` and `wiki/summaries/source-judgment-and-open-risks.md`, then `source-quality-risk`, `web-clutter-filter`, or `unresolved-tax-risk-register`.
 
-  receipts_or_bookkeeping_process:
-    read_first:
-      - "wiki/summaries/association-accounting-process.md"
-      - "wiki/summaries/source-quality-and-custody.md"
+## Highest-risk open items
 
-  event_vat_or_ticketing:
-    read_first:
-      - "wiki/summaries/events-vat-tickets.md"
-      - "wiki/summaries/source-judgment-and-open-risks.md"
+- 7% versus 19% VAT for mixed cultural/club event formats.
+- Ticket-as-invoice and platform receipt evidence.
+- Foreign artist withholding and VAT workflow.
+- KSK threshold/application details.
+- Noisy web captures and table-heavy PDF sources.
 
-  artist_payments_or_ksk_or_foreign_artists:
-    read_first:
-      - "wiki/summaries/artist-contractor-obligations.md"
-
-  source_quality_or_cleanup:
-    read_first:
-      - "wiki/summaries/source-quality-and-custody.md"
-
-  unresolved_risks:
-    read_first:
-      - "wiki/summaries/source-judgment-and-open-risks.md"
-```
-
-## Highest-Risk Open Items
-
-```yaml
-high_risk_open_items:
-  - id: R001
-    title: "7% versus 19% VAT for mixed cultural/club event formats"
-    status: "unresolved"
-    handling: "tax_advisor_review"
-
-  - id: R002
-    title: "Ticket-as-invoice / platform receipt evidence"
-    status: "unresolved"
-    handling: "audit_item"
-
-  - id: R003
-    title: "Venue settlement / Mindestbarumsatz / Barumsatzgarantie"
-    status: "unresolved"
-    handling: "additional_research_or_tax_advisor_review"
-
-  - id: R004
-    title: "Foreign artist §50a and VAT workflow"
-    status: "partially_mapped"
-    handling: "separate_workflow_required"
-
-  - id: R005
-    title: "High-noise authority captures"
-    status: "cleanup_required"
-    handling: "create_cleaned_snapshots"
-```
+<!-- END LLM SUMMARY -->
