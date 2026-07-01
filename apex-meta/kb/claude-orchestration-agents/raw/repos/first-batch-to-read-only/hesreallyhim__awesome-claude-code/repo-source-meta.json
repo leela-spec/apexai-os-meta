@@ -1,0 +1,20 @@
+{
+  "source_type": "github_repo",
+  "downloaded_at": "2026-07-01T10:42:21Z",
+  "repo": "hesreallyhim/awesome-claude-code",
+  "url": "https://github.com/hesreallyhim/awesome-claude-code.git",
+  "decision_group": "first_batch_to_read_only",
+  "decision": "read_only_reference",
+  "priority": 2,
+  "why": "Discovery hub for Claude Code skills, hooks, commands, apps, plugins, and orchestrators.",
+  "include_paths": [
+    "README.md",
+    "LICENSE",
+    "docs/"
+  ],
+  "notes": "Do not ingest linked repos from this index without separate verification.",
+  "head": "29755104e1f15404f99db9e5f381e23960efc4a0",
+  "default_branch": "main",
+  "git_metadata_stripped": true,
+  "warning": "Do not run scripts from this downloaded repo without separate review."
+}
