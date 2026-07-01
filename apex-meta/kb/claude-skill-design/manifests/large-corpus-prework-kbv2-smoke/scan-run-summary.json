@@ -1,0 +1,295 @@
+{
+  "binary_or_asset_files": 0,
+  "bounds": {
+    "max_bytes_per_file": 512000,
+    "max_candidates": 120,
+    "max_files": 5000,
+    "max_structure_lines": 4000
+  },
+  "candidate_count": 39,
+  "extension_counts": {
+    ".json": 1,
+    ".md": 39
+  },
+  "files_seen": 40,
+  "generated_at": "2026-06-30T20:03:20Z",
+  "largest_files": [
+    {
+      "extension": ".md",
+      "is_binary_or_asset": false,
+      "is_package_manifest": false,
+      "is_text_candidate": true,
+      "mtime_utc": "2026-06-26T14:18:52Z",
+      "name": "Apex_KB_Project_Resource_Machine_Readable_Knowledge_Index.md",
+      "path": "DeterministicResearch/Apex_KB_Project_Resource_Machine_Readable_Knowledge_Index.md",
+      "path_reasons": [],
+      "path_score": 0,
+      "size_bytes": 65401
+    },
+    {
+      "extension": ".md",
+      "is_binary_or_asset": false,
+      "is_package_manifest": false,
+      "is_text_candidate": true,
+      "mtime_utc": "2026-06-26T14:23:23Z",
+      "name": "Apex_KB_Project_Resource_Index.machine-readable.yaml.md",
+      "path": "DeterministicResearch/Apex_KB_Project_Resource_Index.machine-readable.yaml.md",
+      "path_reasons": [],
+      "path_score": 0,
+      "size_bytes": 51136
+    },
+    {
+      "extension": ".md",
+      "is_binary_or_asset": false,
+      "is_package_manifest": false,
+      "is_text_candidate": true,
+      "mtime_utc": "2026-06-26T15:29:52Z",
+      "name": "deep-research-report (11).md",
+      "path": "DeterministicResearch/deep-research-report (11).md",
+      "path_reasons": [],
+      "path_score": 0,
+      "size_bytes": 49041
+    },
+    {
+      "extension": ".md",
+      "is_binary_or_asset": false,
+      "is_package_manifest": false,
+      "is_text_candidate": true,
+      "mtime_utc": "2026-06-26T06:59:44Z",
+      "name": "DR_Apex KB  QueryRetrieval Integration_Final Patch Pack.md",
+      "path": "DR_Apex KB  QueryRetrieval Integration_Final Patch Pack.md",
+      "path_reasons": [
+        "filename-token:eval+25"
+      ],
+      "path_score": 25,
+      "size_bytes": 48654
+    },
+    {
+      "extension": ".md",
+      "is_binary_or_asset": false,
+      "is_package_manifest": false,
+      "is_text_candidate": true,
+      "mtime_utc": "2026-06-25T17:41:28Z",
+      "name": "Claude_Apex KB_SQLiteFTS5BM25_CCv3.md",
+      "path": "Claude_Apex KB_SQLiteFTS5BM25_CCv3.md",
+      "path_reasons": [
+        "filename-token:claude+45"
+      ],
+      "path_score": 45,
+      "size_bytes": 47117
+    },
+    {
+      "extension": ".md",
+      "is_binary_or_asset": false,
+      "is_package_manifest": false,
+      "is_text_candidate": true,
+      "mtime_utc": "2026-06-26T13:44:56Z",
+      "name": "Anotehr failed process.md",
+      "path": "DeterministicResearch/Anotehr failed process.md",
+      "path_reasons": [
+        "filename-token:process+25"
+      ],
+      "path_score": 25,
+      "size_bytes": 44193
+    },
+    {
+      "extension": ".md",
+      "is_binary_or_asset": false,
+      "is_package_manifest": false,
+      "is_text_candidate": true,
+      "mtime_utc": "2026-06-25T17:04:37Z",
+      "name": "Apex KB+SQLite FTS5BM25  Implementation Plan.md",
+      "path": "Apex KB+SQLite FTS5BM25  Implementation Plan.md",
+      "path_reasons": [],
+      "path_score": 0,
+      "size_bytes": 43330
+    },
+    {
+      "extension": ".md",
+      "is_binary_or_asset": false,
+      "is_package_manifest": false,
+      "is_text_candidate": true,
+      "mtime_utc": "2026-06-25T16:34:11Z",
+      "name": "KB-Researchv3_gpt_FB_claude.md",
+      "path": "KB-Researchv3_gpt_FB_claude.md",
+      "path_reasons": [
+        "filename-token:claude+45",
+        "path-token:kb+20"
+      ],
+      "path_score": 65,
+      "size_bytes": 41608
+    },
+    {
+      "extension": ".md",
+      "is_binary_or_asset": false,
+      "is_package_manifest": false,
+      "is_text_candidate": true,
+      "mtime_utc": "2026-06-25T17:13:53Z",
+      "name": "Claude_Apex KB_SQLiteFTS5BM25_CCv2.md",
+      "path": "Claude_Apex KB_SQLiteFTS5BM25_CCv2.md",
+      "path_reasons": [
+        "filename-token:claude+45"
+      ],
+      "path_score": 45,
+      "size_bytes": 40570
+    },
+    {
+      "extension": ".md",
+      "is_binary_or_asset": false,
+      "is_package_manifest": false,
+      "is_text_candidate": true,
+      "mtime_utc": "2026-06-26T14:50:39Z",
+      "name": "NewDRPrompt.md",
+      "path": "DeterministicResearch/NewDRPrompt.md",
+      "path_reasons": [
+        "filename-token:prompt+45"
+      ],
+      "path_score": 45,
+      "size_bytes": 38951
+    },
+    {
+      "extension": ".md",
+      "is_binary_or_asset": false,
+      "is_package_manifest": false,
+      "is_text_candidate": true,
+      "mtime_utc": "2026-06-26T14:34:50Z",
+      "name": "Anotehr failed DRPromptdesign4.md",
+      "path": "DeterministicResearch/Anotehr failed DRPromptdesign4.md",
+      "path_reasons": [
+        "filename-token:prompt+45"
+      ],
+      "path_score": 45,
+      "size_bytes": 38517
+    },
+    {
+      "extension": ".md",
+      "is_binary_or_asset": false,
+      "is_package_manifest": false,
+      "is_text_candidate": true,
+      "mtime_utc": "2026-06-25T17:53:49Z",
+      "name": "Claude_Apex KB_SQLiteFTS5BM25_GPTv2.md",
+      "path": "Claude_Apex KB_SQLiteFTS5BM25_GPTv2.md",
+      "path_reasons": [
+        "filename-token:claude+45"
+      ],
+      "path_score": 45,
+      "size_bytes": 36206
+    },
+    {
+      "extension": ".md",
+      "is_binary_or_asset": false,
+      "is_package_manifest": false,
+      "is_text_candidate": true,
+      "mtime_utc": "2026-06-26T10:34:26Z",
+      "name": "Pre-LLMCorbusMechanisms_GPT.md",
+      "path": "DeterministicResearch/Pre-LLMCorbusMechanisms_GPT.md",
+      "path_reasons": [],
+      "path_score": 0,
+      "size_bytes": 31619
+    },
+    {
+      "extension": ".md",
+      "is_binary_or_asset": false,
+      "is_package_manifest": false,
+      "is_text_candidate": true,
+      "mtime_utc": "2026-06-26T14:09:12Z",
+      "name": "SourceIndex.md",
+      "path": "DeterministicResearch/SourceIndex.md",
+      "path_reasons": [],
+      "path_score": 0,
+      "size_bytes": 31585
+    },
+    {
+      "extension": ".md",
+      "is_binary_or_asset": false,
+      "is_package_manifest": false,
+      "is_text_candidate": true,
+      "mtime_utc": "2026-06-26T07:26:58Z",
+      "name": "FB_DR_RetrievalINtegration_Claude.md",
+      "path": "FB_DR_RetrievalINtegration_Claude.md",
+      "path_reasons": [
+        "filename-token:claude+45",
+        "filename-token:eval+25"
+      ],
+      "path_score": 70,
+      "size_bytes": 29769
+    },
+    {
+      "extension": ".md",
+      "is_binary_or_asset": false,
+      "is_package_manifest": false,
+      "is_text_candidate": true,
+      "mtime_utc": "2026-06-25T17:07:07Z",
+      "name": "Claude_Apex KB_SQLiteFTS5BM25_CC.md",
+      "path": "Claude_Apex KB_SQLiteFTS5BM25_CC.md",
+      "path_reasons": [
+        "filename-token:claude+45"
+      ],
+      "path_score": 45,
+      "size_bytes": 28127
+    },
+    {
+      "extension": ".md",
+      "is_binary_or_asset": false,
+      "is_package_manifest": false,
+      "is_text_candidate": true,
+      "mtime_utc": "2026-06-26T11:24:37Z",
+      "name": "Pre-LLM Tool Stack Installability and Value Audit.md",
+      "path": "DeterministicResearch/Pre-LLM Tool Stack Installability and Value Audit.md",
+      "path_reasons": [],
+      "path_score": 0,
+      "size_bytes": 25944
+    },
+    {
+      "extension": ".md",
+      "is_binary_or_asset": false,
+      "is_package_manifest": false,
+      "is_text_candidate": true,
+      "mtime_utc": "2026-06-25T15:30:35Z",
+      "name": "KB-Researchv3_gpt.md",
+      "path": "KB-Researchv3_gpt.md",
+      "path_reasons": [
+        "path-token:kb+20"
+      ],
+      "path_score": 20,
+      "size_bytes": 24911
+    },
+    {
+      "extension": ".md",
+      "is_binary_or_asset": false,
+      "is_package_manifest": false,
+      "is_text_candidate": true,
+      "mtime_utc": "2026-06-25T14:50:31Z",
+      "name": "KB-Researchv2_gpt.md",
+      "path": "KB-Researchv2_gpt.md",
+      "path_reasons": [
+        "path-token:kb+20"
+      ],
+      "path_score": 20,
+      "size_bytes": 21635
+    },
+    {
+      "extension": ".md",
+      "is_binary_or_asset": false,
+      "is_package_manifest": false,
+      "is_text_candidate": true,
+      "mtime_utc": "2026-06-25T18:24:51Z",
+      "name": "DR_PromptFinalization2ndTry_v1.md",
+      "path": "DR_PromptFinalization2ndTry_v1.md",
+      "path_reasons": [
+        "filename-token:prompt+45"
+      ],
+      "path_score": 45,
+      "size_bytes": 21138
+    }
+  ],
+  "largest_skipped_by_byte_limit": [],
+  "mode": "candidates",
+  "output_root": "C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\claude-skill-design\\manifests\\large-corpus-prework-kbv2-smoke",
+  "profile": "balanced",
+  "runtime_seconds": 2.218,
+  "source_root": "C:\\GitDev\\apexai-os-meta\\FutureDevelopments&Research\\ProjectMM&Task&KB\\KnowledgeBase\\KBv2",
+  "structure_records": 39,
+  "text_candidate_files": 40,
+  "total_bytes_seen": 992124
+}

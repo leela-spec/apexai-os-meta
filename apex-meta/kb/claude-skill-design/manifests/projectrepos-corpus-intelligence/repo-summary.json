@@ -1,0 +1,2793 @@
+[
+  {
+    "repo_slug": "antigravity-awesome-skills-main",
+    "root_path": "source-knowledge\\ProjectRepos\\antigravity-awesome-skills-main",
+    "total_files_seen": 16967,
+    "included_files": 14176,
+    "skipped_files": 2791,
+    "total_included_bytes": 122344399,
+    "skill_entrypoint_count": 5525,
+    "package_manifest_count": 21,
+    "reference_count": 3121,
+    "template_count": 658,
+    "example_count": 428,
+    "script_count": 2127,
+    "top_level_readme_present": true,
+    "likely_relevance": {
+      "score": 433785,
+      "label": "high",
+      "reasons": [
+        "contains SKILL.md or skill entrypoint-like files",
+        "contains prompt-related paths/files",
+        "contains references",
+        "large/noisy repo; avoid bulk import"
+      ]
+    },
+    "high_signal_files": [
+      {
+        "path": "plugins/antigravity-awesome-skills-claude/skills/prompt-engineering-patterns/SKILL.md",
+        "score": 480,
+        "reasons": [
+          "filename skill.md +100",
+          "path contains skills +35",
+          "path contains skill +35",
+          "path contains prompt-engineering +50",
+          "frontmatter present +25",
+          "frontmatter has name +25"
+        ]
+      },
+      {
+        "path": "plugins/antigravity-awesome-skills/skills/prompt-engineering-patterns/SKILL.md",
+        "score": 480,
+        "reasons": [
+          "filename skill.md +100",
+          "path contains skills +35",
+          "path contains skill +35",
+          "path contains prompt-engineering +50",
+          "frontmatter present +25",
+          "frontmatter has name +25"
+        ]
+      },
+      {
+        "path": "skills/prompt-engineering-patterns/SKILL.md",
+        "score": 480,
+        "reasons": [
+          "filename skill.md +100",
+          "path contains skills +35",
+          "path contains skill +35",
+          "path contains prompt-engineering +50",
+          "frontmatter present +25",
+          "frontmatter has name +25"
+        ]
+      },
+      {
+        "path": "skills/skill-creator/SKILL.md",
+        "score": 465,
+        "reasons": [
+          "filename skill.md +100",
+          "path contains skills +35",
+          "path contains skill +35",
+          "frontmatter present +25",
+          "frontmatter has name +25",
+          "frontmatter has description +35"
+        ]
+      },
+      {
+        "path": "skills/skill-optimizer/SKILL.md",
+        "score": 460,
+        "reasons": [
+          "filename skill.md +100",
+          "path contains skills +35",
+          "path contains skill +35",
+          "frontmatter present +25",
+          "frontmatter has name +25",
+          "frontmatter has description +35"
+        ]
+      },
+      {
+        "path": "skills/manage-skills/SKILL.md",
+        "score": 455,
+        "reasons": [
+          "filename skill.md +100",
+          "path contains skills +35",
+          "path contains skill +35",
+          "frontmatter present +25",
+          "frontmatter has name +25",
+          "frontmatter has description +35"
+        ]
+      },
+      {
+        "path": "plugins/antigravity-awesome-skills-claude/skills/skill-writer/SKILL.md",
+        "score": 450,
+        "reasons": [
+          "filename skill.md +100",
+          "path contains skills +35",
+          "path contains skill +35",
+          "frontmatter present +25",
+          "frontmatter has name +25",
+          "frontmatter has description +35"
+        ]
+      },
+      {
+        "path": "plugins/antigravity-awesome-skills/skills/skill-writer/SKILL.md",
+        "score": 450,
+        "reasons": [
+          "filename skill.md +100",
+          "path contains skills +35",
+          "path contains skill +35",
+          "frontmatter present +25",
+          "frontmatter has name +25",
+          "frontmatter has description +35"
+        ]
+      },
+      {
+        "path": "skills/skill-writer/SKILL.md",
+        "score": 450,
+        "reasons": [
+          "filename skill.md +100",
+          "path contains skills +35",
+          "path contains skill +35",
+          "frontmatter present +25",
+          "frontmatter has name +25",
+          "frontmatter has description +35"
+        ]
+      },
+      {
+        "path": "plugins/antigravity-awesome-skills-claude/skills/tool-design/SKILL.md",
+        "score": 440,
+        "reasons": [
+          "filename skill.md +100",
+          "path contains skills +35",
+          "path contains skill +35",
+          "frontmatter present +25",
+          "frontmatter has name +25",
+          "frontmatter has description +35"
+        ]
+      },
+      {
+        "path": "plugins/antigravity-awesome-skills/skills/tool-design/SKILL.md",
+        "score": 440,
+        "reasons": [
+          "filename skill.md +100",
+          "path contains skills +35",
+          "path contains skill +35",
+          "frontmatter present +25",
+          "frontmatter has name +25",
+          "frontmatter has description +35"
+        ]
+      },
+      {
+        "path": "skills/tool-design/SKILL.md",
+        "score": 440,
+        "reasons": [
+          "filename skill.md +100",
+          "path contains skills +35",
+          "path contains skill +35",
+          "frontmatter present +25",
+          "frontmatter has name +25",
+          "frontmatter has description +35"
+        ]
+      },
+      {
+        "path": "plugins/antigravity-awesome-skills-claude/skills/skill-audit/SKILL.md",
+        "score": 435,
+        "reasons": [
+          "filename skill.md +100",
+          "path contains skills +35",
+          "path contains skill +35",
+          "frontmatter present +25",
+          "frontmatter has name +25",
+          "frontmatter has description +35"
+        ]
+      },
+      {
+        "path": "plugins/antigravity-awesome-skills/skills/skill-audit/SKILL.md",
+        "score": 435,
+        "reasons": [
+          "filename skill.md +100",
+          "path contains skills +35",
+          "path contains skill +35",
+          "frontmatter present +25",
+          "frontmatter has name +25",
+          "frontmatter has description +35"
+        ]
+      },
+      {
+        "path": "skills/skill-audit/SKILL.md",
+        "score": 435,
+        "reasons": [
+          "filename skill.md +100",
+          "path contains skills +35",
+          "path contains skill +35",
+          "frontmatter present +25",
+          "frontmatter has name +25",
+          "frontmatter has description +35"
+        ]
+      },
+      {
+        "path": "plugins/antigravity-awesome-skills-claude/skills/agent-orchestration-improve-agent/SKILL.md",
+        "score": 430,
+        "reasons": [
+          "filename skill.md +100",
+          "path contains skills +35",
+          "path contains skill +35",
+          "frontmatter present +25",
+          "frontmatter has name +25",
+          "frontmatter has description +35"
+        ]
+      },
+      {
+        "path": "plugins/antigravity-awesome-skills-claude/skills/agent-orchestrator/SKILL.md",
+        "score": 430,
+        "reasons": [
+          "filename skill.md +100",
+          "path contains skills +35",
+          "path contains skill +35",
+          "frontmatter present +25",
+          "frontmatter has name +25",
+          "frontmatter has description +35"
+        ]
+      },
+      {
+        "path": "plugins/antigravity-awesome-skills-claude/skills/skill-installer/SKILL.md",
+        "score": 430,
+        "reasons": [
+          "filename skill.md +100",
+          "path contains skills +35",
+          "path contains skill +35",
+          "frontmatter present +25",
+          "frontmatter has name +25",
+          "frontmatter has description +35"
+        ]
+      },
+      {
+        "path": "plugins/antigravity-awesome-skills-claude/skills/skill-sentinel/SKILL.md",
+        "score": 430,
+        "reasons": [
+          "filename skill.md +100",
+          "path contains skills +35",
+          "path contains skill +35",
+          "frontmatter present +25",
+          "frontmatter has name +25",
+          "frontmatter has description +35"
+        ]
+      },
+      {
+        "path": "plugins/antigravity-awesome-skills-claude/skills/yao-meta-skill/SKILL.md",
+        "score": 430,
+        "reasons": [
+          "filename skill.md +100",
+          "path contains skills +35",
+          "path contains skill +35",
+          "frontmatter present +25",
+          "frontmatter has name +25",
+          "frontmatter has description +35"
+        ]
+      }
+    ]
+  },
+  {
+    "repo_slug": "apex-kb",
+    "root_path": "source-knowledge\\ProjectRepos\\apex-kb",
+    "total_files_seen": 15,
+    "included_files": 15,
+    "skipped_files": 0,
+    "total_included_bytes": 40787,
+    "skill_entrypoint_count": 1,
+    "package_manifest_count": 2,
+    "reference_count": 6,
+    "template_count": 5,
+    "example_count": 2,
+    "script_count": 0,
+    "top_level_readme_present": false,
+    "likely_relevance": {
+      "score": 120,
+      "label": "high",
+      "reasons": [
+        "contains SKILL.md or skill entrypoint-like files",
+        "contains references"
+      ]
+    },
+    "high_signal_files": [
+      {
+        "path": "SKILL.md",
+        "score": 340,
+        "reasons": [
+          "filename skill.md +100",
+          "path contains skill +35",
+          "frontmatter present +25",
+          "frontmatter has name +25",
+          "frontmatter has description +35",
+          "content phrase 'Use this skill when' +60"
+        ]
+      },
+      {
+        "path": "package-manifest.md",
+        "score": 155,
+        "reasons": [
+          "filename package-manifest.md +50",
+          "filename contains manifest +30",
+          "content phrase 'SKILL.md' +40",
+          "content phrase 'Claude' +20",
+          "content phrase 'scripts' +15"
+        ]
+      },
+      {
+        "path": "references/kb-contract.md",
+        "score": 115,
+        "reasons": [
+          "path contains references +30",
+          "content phrase 'frontmatter' +25",
+          "content phrase 'SKILL.md' +40",
+          "content phrase 'Claude' +20"
+        ]
+      },
+      {
+        "path": "examples/lifecycle-runbook.md",
+        "score": 80,
+        "reasons": [
+          "path contains examples +20",
+          "content phrase 'SKILL.md' +40",
+          "content phrase 'Claude' +20"
+        ]
+      },
+      {
+        "path": "templates/source-manifest-template.json",
+        "score": 80,
+        "reasons": [
+          "filename contains manifest +30",
+          "filename contains template +25",
+          "path contains templates +25"
+        ]
+      },
+      {
+        "path": "templates/ingest-analysis-template.md",
+        "score": 75,
+        "reasons": [
+          "filename contains template +25",
+          "path contains templates +25",
+          "frontmatter present +25"
+        ]
+      },
+      {
+        "path": "templates/query-output-template.md",
+        "score": 75,
+        "reasons": [
+          "filename contains template +25",
+          "path contains templates +25",
+          "frontmatter present +25"
+        ]
+      },
+      {
+        "path": "templates/wiki-page-templates.md",
+        "score": 75,
+        "reasons": [
+          "filename contains template +25",
+          "path contains templates +25",
+          "content phrase 'frontmatter' +25"
+        ]
+      },
+      {
+        "path": "references/script-command-contract.md",
+        "score": 70,
+        "reasons": [
+          "path contains references +30",
+          "content phrase 'frontmatter' +25",
+          "content phrase 'scripts' +15"
+        ]
+      },
+      {
+        "path": "references/ingest-query-lint-audit-rules.md",
+        "score": 55,
+        "reasons": [
+          "path contains references +30",
+          "content phrase 'frontmatter' +25"
+        ]
+      },
+      {
+        "path": "templates/kb-schema-template.md",
+        "score": 50,
+        "reasons": [
+          "filename contains template +25",
+          "path contains templates +25"
+        ]
+      },
+      {
+        "path": "references/acceptance-tests.md",
+        "score": 45,
+        "reasons": [
+          "path contains references +30",
+          "content phrase 'scripts' +15"
+        ]
+      },
+      {
+        "path": "examples/powershell-commands.md",
+        "score": 35,
+        "reasons": [
+          "path contains examples +20",
+          "content phrase 'scripts' +15"
+        ]
+      },
+      {
+        "path": "references/lifecycle-state-machine.md",
+        "score": 30,
+        "reasons": [
+          "path contains references +30"
+        ]
+      },
+      {
+        "path": "references/retrieval-contract.md",
+        "score": 30,
+        "reasons": [
+          "path contains references +30"
+        ]
+      }
+    ]
+  },
+  {
+    "repo_slug": "backlog-main",
+    "root_path": "source-knowledge\\ProjectRepos\\backlog-main",
+    "total_files_seen": 947,
+    "included_files": 877,
+    "skipped_files": 70,
+    "total_included_bytes": 3765539,
+    "skill_entrypoint_count": 0,
+    "package_manifest_count": 0,
+    "reference_count": 8,
+    "template_count": 5,
+    "example_count": 6,
+    "script_count": 292,
+    "top_level_readme_present": false,
+    "likely_relevance": {
+      "score": 30,
+      "label": "low",
+      "reasons": [
+        "contains prompt-related paths/files",
+        "contains references",
+        "large/noisy repo; avoid bulk import"
+      ]
+    },
+    "high_signal_files": [
+      {
+        "path": "Backlog.md-main/backlog/tasks/back-356 - Add-references-field-to-task-domain-object.md",
+        "score": 120,
+        "reasons": [
+          "filename contains reference +25",
+          "path contains references +30",
+          "frontmatter present +25",
+          "content phrase 'frontmatter' +25",
+          "content phrase 'tools' +15"
+        ]
+      },
+      {
+        "path": "Backlog.md-main/backlog/tasks/back-349 - Publish-Backlog.md-as-an-Agent-Skill-with-bundled-guidance-no-MCP-resources-required-for-instructions.md",
+        "score": 115,
+        "reasons": [
+          "path contains skill +35",
+          "frontmatter present +25",
+          "content phrase 'SKILL.md' +40",
+          "content phrase 'tools' +15"
+        ]
+      },
+      {
+        "path": "Backlog.md-main/backlog/tasks/back-366.01 - Refactor-init-wizard-prompts-to-clack.md",
+        "score": 115,
+        "reasons": [
+          "filename contains prompt +35",
+          "path contains prompts +35",
+          "frontmatter present +25",
+          "content phrase 'Claude' +20"
+        ]
+      },
+      {
+        "path": "Backlog.md-main/backlog/completed/back-4.5 - cli-init-prompts-for-reporter-name-and-global-local-config.md",
+        "score": 95,
+        "reasons": [
+          "filename contains prompt +35",
+          "path contains prompts +35",
+          "frontmatter present +25"
+        ]
+      },
+      {
+        "path": "Backlog.md-main/backlog/tasks/back-366 - Evaluate-and-replace-prompts-library-with-clack-in-CLI-wizards.md",
+        "score": 95,
+        "reasons": [
+          "filename contains prompt +35",
+          "path contains prompts +35",
+          "frontmatter present +25"
+        ]
+      },
+      {
+        "path": "Backlog.md-main/backlog/tasks/back-366.02 - Refactor-advanced-config-wizard-prompts-to-clack.md",
+        "score": 95,
+        "reasons": [
+          "filename contains prompt +35",
+          "path contains prompts +35",
+          "frontmatter present +25"
+        ]
+      },
+      {
+        "path": "Backlog.md-main/backlog/drafts/draft-9 - Improve-docs-readme-with-generic-example-and-CLI-command-reference.md",
+        "score": 85,
+        "reasons": [
+          "filename contains reference +25",
+          "filename contains example +20",
+          "path contains docs +15",
+          "frontmatter present +25"
+        ]
+      },
+      {
+        "path": "Backlog.md-main/backlog/tasks/back-403 - Expose-and-honor-task-ordinal-in-MCP-task-tools.md",
+        "score": 85,
+        "reasons": [
+          "frontmatter present +25",
+          "content phrase 'frontmatter' +25",
+          "content phrase 'Claude' +20",
+          "content phrase 'tools' +15"
+        ]
+      },
+      {
+        "path": "Backlog.md-main/backlog/completed/back-203 - Show-meaningful-description-in-web-kanban.md",
+        "score": 80,
+        "reasons": [
+          "filename contains description +35",
+          "frontmatter present +25",
+          "content phrase 'Claude' +20"
+        ]
+      },
+      {
+        "path": "Backlog.md-main/backlog/completed/back-4.8 - cli-enforce-description-header.md",
+        "score": 80,
+        "reasons": [
+          "filename contains description +35",
+          "frontmatter present +25",
+          "content phrase 'Claude' +20"
+        ]
+      },
+      {
+        "path": "Backlog.md-main/backlog/drafts/draft-10 - CLI-Add-Agent-Instruction-Prompt.md",
+        "score": 80,
+        "reasons": [
+          "filename contains prompt +35",
+          "frontmatter present +25",
+          "content phrase 'Claude' +20"
+        ]
+      },
+      {
+        "path": "Backlog.md-main/backlog/tasks/back-382 - Sanitize-dependencies-and-references-when-archiving-tasks.md",
+        "score": 80,
+        "reasons": [
+          "filename contains reference +25",
+          "path contains references +30",
+          "frontmatter present +25"
+        ]
+      },
+      {
+        "path": "Backlog.md-main/backlog/tasks/back-440 - Handle-cancel-in-agents-update-prompt.md",
+        "score": 80,
+        "reasons": [
+          "filename contains prompt +35",
+          "frontmatter present +25",
+          "content phrase 'Claude' +20"
+        ]
+      },
+      {
+        "path": "Backlog.md-main/src/test/references.test.ts",
+        "score": 80,
+        "reasons": [
+          "filename contains reference +25",
+          "path contains references +30",
+          "content phrase 'frontmatter' +25"
+        ]
+      },
+      {
+        "path": "Backlog.md-main/backlog/completed/back-289 - Implement-resource-templates-list-handler-to-return-empty-list-instead-of-error.md",
+        "score": 75,
+        "reasons": [
+          "filename contains template +25",
+          "path contains templates +25",
+          "frontmatter present +25"
+        ]
+      },
+      {
+        "path": "Backlog.md-main/backlog/completed/back-29 - add-github-templates.md",
+        "score": 75,
+        "reasons": [
+          "filename contains template +25",
+          "path contains templates +25",
+          "frontmatter present +25"
+        ]
+      },
+      {
+        "path": "Backlog.md-main/backlog/completed/back-302 - Support-flexible-ID-formats-for-tasks-and-docs.md",
+        "score": 75,
+        "reasons": [
+          "path contains docs +15",
+          "frontmatter present +25",
+          "content phrase 'Claude' +20",
+          "content phrase 'tools' +15"
+        ]
+      },
+      {
+        "path": "Backlog.md-main/backlog/completed/back-182 - Document-agents-command-and-reorganize-README-CLI-reference-tables.md",
+        "score": 70,
+        "reasons": [
+          "filename contains reference +25",
+          "frontmatter present +25",
+          "content phrase 'Claude' +20"
+        ]
+      },
+      {
+        "path": "Backlog.md-main/backlog/completed/back-183 - Add-ordinal-field-for-custom-task-ordering-in-web-UI.md",
+        "score": 70,
+        "reasons": [
+          "frontmatter present +25",
+          "content phrase 'frontmatter' +25",
+          "content phrase 'Claude' +20"
+        ]
+      },
+      {
+        "path": "Backlog.md-main/backlog/completed/back-321 - Status-change-callbacks-in-task-frontmatter.md",
+        "score": 70,
+        "reasons": [
+          "frontmatter present +25",
+          "content phrase 'frontmatter' +25",
+          "content phrase 'Claude' +20"
+        ]
+      }
+    ]
+  },
+  {
+    "repo_slug": "ccpm-main",
+    "root_path": "source-knowledge\\ProjectRepos\\ccpm-main",
+    "total_files_seen": 27,
+    "included_files": 9,
+    "skipped_files": 18,
+    "total_included_bytes": 53468,
+    "skill_entrypoint_count": 1,
+    "package_manifest_count": 0,
+    "reference_count": 6,
+    "template_count": 0,
+    "example_count": 0,
+    "script_count": 0,
+    "top_level_readme_present": true,
+    "likely_relevance": {
+      "score": 140,
+      "label": "high",
+      "reasons": [
+        "contains SKILL.md or skill entrypoint-like files",
+        "contains references"
+      ]
+    },
+    "high_signal_files": [
+      {
+        "path": "skill/ccpm/SKILL.md",
+        "score": 280,
+        "reasons": [
+          "filename skill.md +100",
+          "path contains skill +35",
+          "frontmatter present +25",
+          "frontmatter has name +25",
+          "frontmatter has description +35",
+          "content phrase 'frontmatter' +25"
+        ]
+      },
+      {
+        "path": "README.md",
+        "score": 185,
+        "reasons": [
+          "filename readme.md +30",
+          "content phrase 'frontmatter' +25",
+          "content phrase 'SKILL.md' +40",
+          "content phrase 'Agent Skills' +40",
+          "content phrase 'Claude' +20",
+          "content phrase 'tools' +15"
+        ]
+      },
+      {
+        "path": "skill/ccpm/references/track.md",
+        "score": 125,
+        "reasons": [
+          "path contains skill +35",
+          "path contains references +30",
+          "content phrase 'frontmatter' +25",
+          "content phrase 'Claude' +20",
+          "content phrase 'scripts' +15"
+        ]
+      },
+      {
+        "path": "skill/ccpm/references/conventions.md",
+        "score": 110,
+        "reasons": [
+          "path contains skill +35",
+          "path contains references +30",
+          "content phrase 'frontmatter' +25",
+          "content phrase 'Claude' +20"
+        ]
+      },
+      {
+        "path": "skill/ccpm/references/execute.md",
+        "score": 110,
+        "reasons": [
+          "path contains skill +35",
+          "path contains references +30",
+          "content phrase 'frontmatter' +25",
+          "content phrase 'Claude' +20"
+        ]
+      },
+      {
+        "path": "skill/ccpm/references/plan.md",
+        "score": 110,
+        "reasons": [
+          "path contains skill +35",
+          "path contains references +30",
+          "content phrase 'frontmatter' +25",
+          "content phrase 'Claude' +20"
+        ]
+      },
+      {
+        "path": "skill/ccpm/references/structure.md",
+        "score": 110,
+        "reasons": [
+          "path contains skill +35",
+          "path contains references +30",
+          "content phrase 'frontmatter' +25",
+          "content phrase 'Claude' +20"
+        ]
+      },
+      {
+        "path": "skill/ccpm/references/sync.md",
+        "score": 110,
+        "reasons": [
+          "path contains skill +35",
+          "path contains references +30",
+          "content phrase 'frontmatter' +25",
+          "content phrase 'Claude' +20"
+        ]
+      },
+      {
+        "path": "CHANGELOG.md",
+        "score": 60,
+        "reasons": [
+          "content phrase 'frontmatter' +25",
+          "content phrase 'Claude' +20",
+          "content phrase 'tools' +15"
+        ]
+      }
+    ]
+  },
+  {
+    "repo_slug": "claude-skills-main",
+    "root_path": "source-knowledge\\ProjectRepos\\claude-skills-main",
+    "total_files_seen": 554,
+    "included_files": 537,
+    "skipped_files": 17,
+    "total_included_bytes": 4965180,
+    "skill_entrypoint_count": 66,
+    "package_manifest_count": 2,
+    "reference_count": 369,
+    "template_count": 9,
+    "example_count": 1,
+    "script_count": 7,
+    "top_level_readme_present": true,
+    "likely_relevance": {
+      "score": 7575,
+      "label": "high",
+      "reasons": [
+        "contains SKILL.md or skill entrypoint-like files",
+        "contains prompt-related paths/files",
+        "contains references",
+        "large/noisy repo; avoid bulk import"
+      ]
+    },
+    "high_signal_files": [
+      {
+        "path": "skills/prompt-engineer/SKILL.md",
+        "score": 325,
+        "reasons": [
+          "filename skill.md +100",
+          "path contains skills +35",
+          "path contains skill +35",
+          "frontmatter present +25",
+          "frontmatter has name +25",
+          "frontmatter has description +35"
+        ]
+      },
+      {
+        "path": "skills/chaos-engineer/SKILL.md",
+        "score": 305,
+        "reasons": [
+          "filename skill.md +100",
+          "path contains skills +35",
+          "path contains skill +35",
+          "frontmatter present +25",
+          "frontmatter has name +25",
+          "frontmatter has description +35"
+        ]
+      },
+      {
+        "path": "skills/cli-developer/SKILL.md",
+        "score": 305,
+        "reasons": [
+          "filename skill.md +100",
+          "path contains skills +35",
+          "path contains skill +35",
+          "frontmatter present +25",
+          "frontmatter has name +25",
+          "frontmatter has description +35"
+        ]
+      },
+      {
+        "path": "skills/fine-tuning-expert/SKILL.md",
+        "score": 295,
+        "reasons": [
+          "filename skill.md +100",
+          "path contains skills +35",
+          "path contains skill +35",
+          "frontmatter present +25",
+          "frontmatter has name +25",
+          "frontmatter has description +35"
+        ]
+      },
+      {
+        "path": "skills/legacy-modernizer/SKILL.md",
+        "score": 295,
+        "reasons": [
+          "filename skill.md +100",
+          "path contains skills +35",
+          "path contains skill +35",
+          "frontmatter present +25",
+          "frontmatter has name +25",
+          "frontmatter has description +35"
+        ]
+      },
+      {
+        "path": "skills/ml-pipeline/SKILL.md",
+        "score": 295,
+        "reasons": [
+          "filename skill.md +100",
+          "path contains skills +35",
+          "path contains skill +35",
+          "frontmatter present +25",
+          "frontmatter has name +25",
+          "frontmatter has description +35"
+        ]
+      },
+      {
+        "path": "skills/rag-architect/SKILL.md",
+        "score": 295,
+        "reasons": [
+          "filename skill.md +100",
+          "path contains skills +35",
+          "path contains skill +35",
+          "frontmatter present +25",
+          "frontmatter has name +25",
+          "frontmatter has description +35"
+        ]
+      },
+      {
+        "path": "skills/spark-engineer/SKILL.md",
+        "score": 295,
+        "reasons": [
+          "filename skill.md +100",
+          "path contains skills +35",
+          "path contains skill +35",
+          "frontmatter present +25",
+          "frontmatter has name +25",
+          "frontmatter has description +35"
+        ]
+      },
+      {
+        "path": "skills/angular-architect/SKILL.md",
+        "score": 290,
+        "reasons": [
+          "filename skill.md +100",
+          "path contains skills +35",
+          "path contains skill +35",
+          "frontmatter present +25",
+          "frontmatter has name +25",
+          "frontmatter has description +35"
+        ]
+      },
+      {
+        "path": "skills/code-reviewer/SKILL.md",
+        "score": 290,
+        "reasons": [
+          "filename skill.md +100",
+          "path contains skills +35",
+          "path contains skill +35",
+          "frontmatter present +25",
+          "frontmatter has name +25",
+          "frontmatter has description +35"
+        ]
+      },
+      {
+        "path": "skills/debugging-wizard/SKILL.md",
+        "score": 290,
+        "reasons": [
+          "filename skill.md +100",
+          "path contains skills +35",
+          "path contains skill +35",
+          "frontmatter present +25",
+          "frontmatter has name +25",
+          "frontmatter has description +35"
+        ]
+      },
+      {
+        "path": "skills/devops-engineer/SKILL.md",
+        "score": 290,
+        "reasons": [
+          "filename skill.md +100",
+          "path contains skills +35",
+          "path contains skill +35",
+          "frontmatter present +25",
+          "frontmatter has name +25",
+          "frontmatter has description +35"
+        ]
+      },
+      {
+        "path": "skills/flutter-expert/SKILL.md",
+        "score": 290,
+        "reasons": [
+          "filename skill.md +100",
+          "path contains skills +35",
+          "path contains skill +35",
+          "frontmatter present +25",
+          "frontmatter has name +25",
+          "frontmatter has description +35"
+        ]
+      },
+      {
+        "path": "skills/golang-pro/SKILL.md",
+        "score": 290,
+        "reasons": [
+          "filename skill.md +100",
+          "path contains skills +35",
+          "path contains skill +35",
+          "frontmatter present +25",
+          "frontmatter has name +25",
+          "frontmatter has description +35"
+        ]
+      },
+      {
+        "path": "skills/javascript-pro/SKILL.md",
+        "score": 290,
+        "reasons": [
+          "filename skill.md +100",
+          "path contains skills +35",
+          "path contains skill +35",
+          "frontmatter present +25",
+          "frontmatter has name +25",
+          "frontmatter has description +35"
+        ]
+      },
+      {
+        "path": "skills/kotlin-specialist/SKILL.md",
+        "score": 290,
+        "reasons": [
+          "filename skill.md +100",
+          "path contains skills +35",
+          "path contains skill +35",
+          "frontmatter present +25",
+          "frontmatter has name +25",
+          "frontmatter has description +35"
+        ]
+      },
+      {
+        "path": "skills/mcp-developer/SKILL.md",
+        "score": 290,
+        "reasons": [
+          "filename skill.md +100",
+          "path contains skills +35",
+          "path contains skill +35",
+          "frontmatter present +25",
+          "frontmatter has name +25",
+          "frontmatter has description +35"
+        ]
+      },
+      {
+        "path": "skills/playwright-expert/SKILL.md",
+        "score": 290,
+        "reasons": [
+          "filename skill.md +100",
+          "path contains skills +35",
+          "path contains skill +35",
+          "frontmatter present +25",
+          "frontmatter has name +25",
+          "frontmatter has description +35"
+        ]
+      },
+      {
+        "path": "skills/python-pro/SKILL.md",
+        "score": 290,
+        "reasons": [
+          "filename skill.md +100",
+          "path contains skills +35",
+          "path contains skill +35",
+          "frontmatter present +25",
+          "frontmatter has name +25",
+          "frontmatter has description +35"
+        ]
+      },
+      {
+        "path": "skills/react-native-expert/SKILL.md",
+        "score": 290,
+        "reasons": [
+          "filename skill.md +100",
+          "path contains skills +35",
+          "path contains skill +35",
+          "frontmatter present +25",
+          "frontmatter has name +25",
+          "frontmatter has description +35"
+        ]
+      }
+    ]
+  },
+  {
+    "repo_slug": "claude-task-master-main",
+    "root_path": "source-knowledge\\ProjectRepos\\claude-task-master-main",
+    "total_files_seen": 1214,
+    "included_files": 1104,
+    "skipped_files": 110,
+    "total_included_bytes": 11220965,
+    "skill_entrypoint_count": 0,
+    "package_manifest_count": 12,
+    "reference_count": 5,
+    "template_count": 16,
+    "example_count": 12,
+    "script_count": 821,
+    "top_level_readme_present": true,
+    "likely_relevance": {
+      "score": 135,
+      "label": "high",
+      "reasons": [
+        "contains prompt-related paths/files",
+        "contains references",
+        "large/noisy repo; avoid bulk import"
+      ]
+    },
+    "high_signal_files": [
+      {
+        "path": "apps/docs/archive/examples.mdx",
+        "score": 150,
+        "reasons": [
+          "filename contains example +20",
+          "path contains examples +20",
+          "path contains docs +15",
+          "frontmatter present +25",
+          "frontmatter has description +35",
+          "content phrase 'Claude' +20"
+        ]
+      },
+      {
+        "path": "apps/docs/tdd-workflow/quickstart.mdx",
+        "score": 145,
+        "reasons": [
+          "filename contains quickstart +35",
+          "path contains docs +15",
+          "frontmatter present +25",
+          "frontmatter has description +35",
+          "content phrase 'Claude' +20",
+          "content phrase 'tools' +15"
+        ]
+      },
+      {
+        "path": "apps/docs/archive/ai-client-utils-example.mdx",
+        "score": 130,
+        "reasons": [
+          "filename contains example +20",
+          "path contains docs +15",
+          "frontmatter present +25",
+          "frontmatter has description +35",
+          "content phrase 'Claude' +20",
+          "content phrase 'tools' +15"
+        ]
+      },
+      {
+        "path": "apps/docs/capabilities/loop.mdx",
+        "score": 125,
+        "reasons": [
+          "path contains docs +15",
+          "frontmatter present +25",
+          "frontmatter has description +35",
+          "content phrase 'Claude' +20",
+          "content phrase 'tools' +15",
+          "content phrase 'scripts' +15"
+        ]
+      },
+      {
+        "path": "apps/docs/archive/command-reference.mdx",
+        "score": 120,
+        "reasons": [
+          "filename contains reference +25",
+          "path contains docs +15",
+          "frontmatter present +25",
+          "frontmatter has description +35",
+          "content phrase 'Claude' +20"
+        ]
+      },
+      {
+        "path": "apps/docs/command-reference.mdx",
+        "score": 120,
+        "reasons": [
+          "filename contains reference +25",
+          "path contains docs +15",
+          "frontmatter present +25",
+          "frontmatter has description +35",
+          "content phrase 'Claude' +20"
+        ]
+      },
+      {
+        "path": "packages/claude-code-plugin/agents/task-checker.md",
+        "score": 120,
+        "reasons": [
+          "frontmatter present +25",
+          "frontmatter has name +25",
+          "frontmatter has description +35",
+          "content phrase 'Claude' +20",
+          "content phrase 'tools' +15"
+        ]
+      },
+      {
+        "path": "src/prompts/schemas/README.md",
+        "score": 115,
+        "reasons": [
+          "filename readme.md +30",
+          "path contains prompts +35",
+          "content phrase 'Claude' +20",
+          "content phrase 'tools' +15",
+          "content phrase 'scripts' +15"
+        ]
+      },
+      {
+        "path": "src/prompts/schemas/prompt-template.schema.json",
+        "score": 115,
+        "reasons": [
+          "filename contains template +25",
+          "filename contains prompt +35",
+          "path contains prompts +35",
+          "content phrase 'Claude' +20"
+        ]
+      },
+      {
+        "path": "apps/docs/archive/Installation.mdx",
+        "score": 110,
+        "reasons": [
+          "path contains docs +15",
+          "frontmatter present +25",
+          "frontmatter has description +35",
+          "content phrase 'Claude' +20",
+          "content phrase 'scripts' +15"
+        ]
+      },
+      {
+        "path": "apps/docs/archive/ai-development-workflow.mdx",
+        "score": 110,
+        "reasons": [
+          "path contains docs +15",
+          "frontmatter present +25",
+          "frontmatter has description +35",
+          "content phrase 'Claude' +20",
+          "content phrase 'scripts' +15"
+        ]
+      },
+      {
+        "path": "apps/docs/archive/configuration.mdx",
+        "score": 110,
+        "reasons": [
+          "path contains docs +15",
+          "frontmatter present +25",
+          "frontmatter has description +35",
+          "content phrase 'Claude' +20",
+          "content phrase 'scripts' +15"
+        ]
+      },
+      {
+        "path": "apps/docs/configuration.mdx",
+        "score": 110,
+        "reasons": [
+          "path contains docs +15",
+          "frontmatter present +25",
+          "frontmatter has description +35",
+          "content phrase 'Claude' +20",
+          "content phrase 'scripts' +15"
+        ]
+      },
+      {
+        "path": "apps/docs/tdd-workflow/ai-agent-integration.mdx",
+        "score": 110,
+        "reasons": [
+          "path contains docs +15",
+          "frontmatter present +25",
+          "frontmatter has description +35",
+          "content phrase 'Claude' +20",
+          "content phrase 'tools' +15"
+        ]
+      },
+      {
+        "path": "apps/docs/capabilities/task-structure.mdx",
+        "score": 105,
+        "reasons": [
+          "path contains docs +15",
+          "frontmatter present +25",
+          "frontmatter has description +35",
+          "content phrase 'tools' +15",
+          "content phrase 'scripts' +15"
+        ]
+      },
+      {
+        "path": "packages/claude-code-plugin/agents/task-executor.md",
+        "score": 105,
+        "reasons": [
+          "frontmatter present +25",
+          "frontmatter has name +25",
+          "frontmatter has description +35",
+          "content phrase 'Claude' +20"
+        ]
+      },
+      {
+        "path": "packages/claude-code-plugin/agents/task-orchestrator.md",
+        "score": 100,
+        "reasons": [
+          "frontmatter present +25",
+          "frontmatter has name +25",
+          "frontmatter has description +35",
+          "content phrase 'tools' +15"
+        ]
+      },
+      {
+        "path": "src/prompts/README.md",
+        "score": 100,
+        "reasons": [
+          "filename readme.md +30",
+          "path contains prompts +35",
+          "content phrase 'evaluation' +20",
+          "content phrase 'scripts' +15"
+        ]
+      },
+      {
+        "path": ".taskmaster/docs/README.md",
+        "score": 95,
+        "reasons": [
+          "filename readme.md +30",
+          "path contains docs +15",
+          "content phrase 'Claude' +20",
+          "content phrase 'tools' +15",
+          "content phrase 'scripts' +15"
+        ]
+      },
+      {
+        "path": ".taskmaster/docs/prd.txt",
+        "score": 95,
+        "reasons": [
+          "path contains docs +15",
+          "content phrase 'Claude' +20",
+          "content phrase 'prompt engineering' +30",
+          "content phrase 'tools' +15",
+          "content phrase 'scripts' +15"
+        ]
+      }
+    ]
+  },
+  {
+    "repo_slug": "crewAI-main",
+    "root_path": "source-knowledge\\ProjectRepos\\crewAI-main",
+    "total_files_seen": 17812,
+    "included_files": 17790,
+    "skipped_files": 22,
+    "total_included_bytes": 171995163,
+    "skill_entrypoint_count": 3,
+    "package_manifest_count": 10,
+    "reference_count": 322,
+    "template_count": 33,
+    "example_count": 133,
+    "script_count": 1254,
+    "top_level_readme_present": true,
+    "likely_relevance": {
+      "score": 14150,
+      "label": "high",
+      "reasons": [
+        "contains SKILL.md or skill entrypoint-like files",
+        "contains prompt-related paths/files",
+        "contains references",
+        "large/noisy repo; avoid bulk import"
+      ]
+    },
+    "high_signal_files": [
+      {
+        "path": "docs/edge/en/concepts/skills.mdx",
+        "score": 290,
+        "reasons": [
+          "path contains skills +35",
+          "path contains skill +35",
+          "path contains docs +15",
+          "frontmatter present +25",
+          "frontmatter has description +35",
+          "content phrase 'progressive disclosure' +50"
+        ]
+      },
+      {
+        "path": "docs/v1.12.0/en/concepts/skills.mdx",
+        "score": 290,
+        "reasons": [
+          "path contains skills +35",
+          "path contains skill +35",
+          "path contains docs +15",
+          "frontmatter present +25",
+          "frontmatter has description +35",
+          "content phrase 'progressive disclosure' +50"
+        ]
+      },
+      {
+        "path": "docs/v1.12.1/en/concepts/skills.mdx",
+        "score": 290,
+        "reasons": [
+          "path contains skills +35",
+          "path contains skill +35",
+          "path contains docs +15",
+          "frontmatter present +25",
+          "frontmatter has description +35",
+          "content phrase 'progressive disclosure' +50"
+        ]
+      },
+      {
+        "path": "docs/v1.12.2/en/concepts/skills.mdx",
+        "score": 290,
+        "reasons": [
+          "path contains skills +35",
+          "path contains skill +35",
+          "path contains docs +15",
+          "frontmatter present +25",
+          "frontmatter has description +35",
+          "content phrase 'progressive disclosure' +50"
+        ]
+      },
+      {
+        "path": "docs/v1.13.0/en/concepts/skills.mdx",
+        "score": 290,
+        "reasons": [
+          "path contains skills +35",
+          "path contains skill +35",
+          "path contains docs +15",
+          "frontmatter present +25",
+          "frontmatter has description +35",
+          "content phrase 'progressive disclosure' +50"
+        ]
+      },
+      {
+        "path": "docs/v1.14.0/en/concepts/skills.mdx",
+        "score": 290,
+        "reasons": [
+          "path contains skills +35",
+          "path contains skill +35",
+          "path contains docs +15",
+          "frontmatter present +25",
+          "frontmatter has description +35",
+          "content phrase 'progressive disclosure' +50"
+        ]
+      },
+      {
+        "path": "docs/v1.14.1/en/concepts/skills.mdx",
+        "score": 290,
+        "reasons": [
+          "path contains skills +35",
+          "path contains skill +35",
+          "path contains docs +15",
+          "frontmatter present +25",
+          "frontmatter has description +35",
+          "content phrase 'progressive disclosure' +50"
+        ]
+      },
+      {
+        "path": "docs/v1.14.2/en/concepts/skills.mdx",
+        "score": 290,
+        "reasons": [
+          "path contains skills +35",
+          "path contains skill +35",
+          "path contains docs +15",
+          "frontmatter present +25",
+          "frontmatter has description +35",
+          "content phrase 'progressive disclosure' +50"
+        ]
+      },
+      {
+        "path": "docs/v1.14.3/en/concepts/skills.mdx",
+        "score": 290,
+        "reasons": [
+          "path contains skills +35",
+          "path contains skill +35",
+          "path contains docs +15",
+          "frontmatter present +25",
+          "frontmatter has description +35",
+          "content phrase 'progressive disclosure' +50"
+        ]
+      },
+      {
+        "path": "docs/v1.14.4/en/concepts/skills.mdx",
+        "score": 290,
+        "reasons": [
+          "path contains skills +35",
+          "path contains skill +35",
+          "path contains docs +15",
+          "frontmatter present +25",
+          "frontmatter has description +35",
+          "content phrase 'progressive disclosure' +50"
+        ]
+      },
+      {
+        "path": "docs/v1.14.5/en/concepts/skills.mdx",
+        "score": 290,
+        "reasons": [
+          "path contains skills +35",
+          "path contains skill +35",
+          "path contains docs +15",
+          "frontmatter present +25",
+          "frontmatter has description +35",
+          "content phrase 'progressive disclosure' +50"
+        ]
+      },
+      {
+        "path": "docs/v1.14.6/en/concepts/skills.mdx",
+        "score": 290,
+        "reasons": [
+          "path contains skills +35",
+          "path contains skill +35",
+          "path contains docs +15",
+          "frontmatter present +25",
+          "frontmatter has description +35",
+          "content phrase 'progressive disclosure' +50"
+        ]
+      },
+      {
+        "path": "docs/v1.14.7/en/concepts/skills.mdx",
+        "score": 290,
+        "reasons": [
+          "path contains skills +35",
+          "path contains skill +35",
+          "path contains docs +15",
+          "frontmatter present +25",
+          "frontmatter has description +35",
+          "content phrase 'progressive disclosure' +50"
+        ]
+      },
+      {
+        "path": "lib/crewai/tests/skills/fixtures/valid-skill/SKILL.md",
+        "score": 270,
+        "reasons": [
+          "filename skill.md +100",
+          "path contains skills +35",
+          "path contains skill +35",
+          "frontmatter present +25",
+          "frontmatter has name +25",
+          "frontmatter has description +35"
+        ]
+      },
+      {
+        "path": "lib/crewai/src/crewai/skills/models.py",
+        "score": 255,
+        "reasons": [
+          "path contains skills +35",
+          "path contains skill +35",
+          "content phrase 'progressive disclosure' +50",
+          "content phrase 'frontmatter' +25",
+          "content phrase 'SKILL.md' +40",
+          "content phrase 'Agent Skills' +40"
+        ]
+      },
+      {
+        "path": "lib/crewai/tests/skills/fixtures/invalid-name/SKILL.md",
+        "score": 255,
+        "reasons": [
+          "filename skill.md +100",
+          "path contains skills +35",
+          "path contains skill +35",
+          "frontmatter present +25",
+          "frontmatter has name +25",
+          "frontmatter has description +35"
+        ]
+      },
+      {
+        "path": "lib/crewai/tests/skills/fixtures/minimal-skill/SKILL.md",
+        "score": 255,
+        "reasons": [
+          "filename skill.md +100",
+          "path contains skills +35",
+          "path contains skill +35",
+          "frontmatter present +25",
+          "frontmatter has name +25",
+          "frontmatter has description +35"
+        ]
+      },
+      {
+        "path": "docs/edge/pt-BR/concepts/skills.mdx",
+        "score": 240,
+        "reasons": [
+          "path contains skills +35",
+          "path contains skill +35",
+          "path contains docs +15",
+          "frontmatter present +25",
+          "frontmatter has description +35",
+          "content phrase 'frontmatter' +25"
+        ]
+      },
+      {
+        "path": "docs/v1.12.0/pt-BR/concepts/skills.mdx",
+        "score": 240,
+        "reasons": [
+          "path contains skills +35",
+          "path contains skill +35",
+          "path contains docs +15",
+          "frontmatter present +25",
+          "frontmatter has description +35",
+          "content phrase 'frontmatter' +25"
+        ]
+      },
+      {
+        "path": "docs/v1.12.1/pt-BR/concepts/skills.mdx",
+        "score": 240,
+        "reasons": [
+          "path contains skills +35",
+          "path contains skill +35",
+          "path contains docs +15",
+          "frontmatter present +25",
+          "frontmatter has description +35",
+          "content phrase 'frontmatter' +25"
+        ]
+      }
+    ]
+  },
+  {
+    "repo_slug": "gsd-core-next",
+    "root_path": "source-knowledge\\ProjectRepos\\gsd-core-next",
+    "total_files_seen": 2349,
+    "included_files": 1315,
+    "skipped_files": 1034,
+    "total_included_bytes": 9872367,
+    "skill_entrypoint_count": 0,
+    "package_manifest_count": 17,
+    "reference_count": 127,
+    "template_count": 63,
+    "example_count": 7,
+    "script_count": 22,
+    "top_level_readme_present": true,
+    "likely_relevance": {
+      "score": 2885,
+      "label": "high",
+      "reasons": [
+        "contains prompt-related paths/files",
+        "contains references",
+        "large/noisy repo; avoid bulk import"
+      ]
+    },
+    "high_signal_files": [
+      {
+        "path": "docs/ARCHITECTURE.md",
+        "score": 220,
+        "reasons": [
+          "path contains docs +15",
+          "content phrase 'progressive disclosure' +50",
+          "content phrase 'frontmatter' +25",
+          "content phrase 'SKILL.md' +40",
+          "content phrase 'Agent Skills' +40",
+          "content phrase 'Claude' +20"
+        ]
+      },
+      {
+        "path": "agents/gsd-doc-writer.md",
+        "score": 200,
+        "reasons": [
+          "frontmatter present +25",
+          "frontmatter has name +25",
+          "frontmatter has description +35",
+          "content phrase 'frontmatter' +25",
+          "content phrase 'SKILL.md' +40",
+          "content phrase 'Claude' +20"
+        ]
+      },
+      {
+        "path": "agents/gsd-intel-updater.md",
+        "score": 200,
+        "reasons": [
+          "frontmatter present +25",
+          "frontmatter has name +25",
+          "frontmatter has description +35",
+          "content phrase 'frontmatter' +25",
+          "content phrase 'SKILL.md' +40",
+          "content phrase 'Claude' +20"
+        ]
+      },
+      {
+        "path": "agents/gsd-code-fixer.md",
+        "score": 185,
+        "reasons": [
+          "frontmatter present +25",
+          "frontmatter has name +25",
+          "frontmatter has description +35",
+          "content phrase 'frontmatter' +25",
+          "content phrase 'SKILL.md' +40",
+          "content phrase 'Claude' +20"
+        ]
+      },
+      {
+        "path": "agents/gsd-code-reviewer.md",
+        "score": 185,
+        "reasons": [
+          "frontmatter present +25",
+          "frontmatter has name +25",
+          "frontmatter has description +35",
+          "content phrase 'frontmatter' +25",
+          "content phrase 'SKILL.md' +40",
+          "content phrase 'Claude' +20"
+        ]
+      },
+      {
+        "path": "agents/gsd-plan-checker.md",
+        "score": 185,
+        "reasons": [
+          "frontmatter present +25",
+          "frontmatter has name +25",
+          "frontmatter has description +35",
+          "content phrase 'frontmatter' +25",
+          "content phrase 'SKILL.md' +40",
+          "content phrase 'Claude' +20"
+        ]
+      },
+      {
+        "path": "agents/gsd-ui-checker.md",
+        "score": 185,
+        "reasons": [
+          "frontmatter present +25",
+          "frontmatter has name +25",
+          "frontmatter has description +35",
+          "content phrase 'frontmatter' +25",
+          "content phrase 'SKILL.md' +40",
+          "content phrase 'Claude' +20"
+        ]
+      },
+      {
+        "path": "agents/gsd-ui-researcher.md",
+        "score": 185,
+        "reasons": [
+          "frontmatter present +25",
+          "frontmatter has name +25",
+          "frontmatter has description +35",
+          "content phrase 'frontmatter' +25",
+          "content phrase 'SKILL.md' +40",
+          "content phrase 'Claude' +20"
+        ]
+      },
+      {
+        "path": "agents/gsd-eval-auditor.md",
+        "score": 180,
+        "reasons": [
+          "frontmatter present +25",
+          "frontmatter has name +25",
+          "frontmatter has description +35",
+          "content phrase 'SKILL.md' +40",
+          "content phrase 'Claude' +20",
+          "content phrase 'evaluation' +20"
+        ]
+      },
+      {
+        "path": "agents/gsd-doc-verifier.md",
+        "score": 175,
+        "reasons": [
+          "frontmatter present +25",
+          "frontmatter has name +25",
+          "frontmatter has description +35",
+          "content phrase 'SKILL.md' +40",
+          "content phrase 'Claude' +20",
+          "content phrase 'tools' +15"
+        ]
+      },
+      {
+        "path": "docs/CLI-TOOLS.md",
+        "score": 170,
+        "reasons": [
+          "path contains docs +15",
+          "content phrase 'frontmatter' +25",
+          "content phrase 'SKILL.md' +40",
+          "content phrase 'Agent Skills' +40",
+          "content phrase 'Claude' +20",
+          "content phrase 'tools' +15"
+        ]
+      },
+      {
+        "path": "docs/skills/discovery-contract.md",
+        "score": 170,
+        "reasons": [
+          "path contains skills +35",
+          "path contains skill +35",
+          "path contains docs +15",
+          "content phrase 'frontmatter' +25",
+          "content phrase 'SKILL.md' +40",
+          "content phrase 'Claude' +20"
+        ]
+      },
+      {
+        "path": "agents/gsd-research-synthesizer.md",
+        "score": 165,
+        "reasons": [
+          "frontmatter present +25",
+          "frontmatter has name +25",
+          "frontmatter has description +35",
+          "content phrase 'frontmatter' +25",
+          "content phrase 'Claude' +20",
+          "content phrase 'evaluation' +20"
+        ]
+      },
+      {
+        "path": "docs/how-to/attach-a-plugin-skill-to-a-gsd-agent.md",
+        "score": 165,
+        "reasons": [
+          "path contains skill +35",
+          "path contains docs +15",
+          "content phrase 'SKILL.md' +40",
+          "content phrase 'Agent Skills' +40",
+          "content phrase 'Claude' +20",
+          "content phrase 'tools' +15"
+        ]
+      },
+      {
+        "path": "docs/research/2026-05-12-skill-surface-budget.md",
+        "score": 165,
+        "reasons": [
+          "path contains skill +35",
+          "path contains docs +15",
+          "content phrase 'frontmatter' +25",
+          "content phrase 'SKILL.md' +40",
+          "content phrase 'Claude' +20",
+          "content phrase 'tools' +15"
+        ]
+      },
+      {
+        "path": "agents/gsd-codebase-mapper.md",
+        "score": 160,
+        "reasons": [
+          "frontmatter present +25",
+          "frontmatter has name +25",
+          "frontmatter has description +35",
+          "content phrase 'SKILL.md' +40",
+          "content phrase 'Claude' +20",
+          "content phrase 'tools' +15"
+        ]
+      },
+      {
+        "path": "agents/gsd-executor.md",
+        "score": 160,
+        "reasons": [
+          "frontmatter present +25",
+          "frontmatter has name +25",
+          "frontmatter has description +35",
+          "content phrase 'frontmatter' +25",
+          "content phrase 'Claude' +20",
+          "content phrase 'tools' +15"
+        ]
+      },
+      {
+        "path": "agents/gsd-integration-checker.md",
+        "score": 160,
+        "reasons": [
+          "frontmatter present +25",
+          "frontmatter has name +25",
+          "frontmatter has description +35",
+          "content phrase 'SKILL.md' +40",
+          "content phrase 'Claude' +20",
+          "content phrase 'tools' +15"
+        ]
+      },
+      {
+        "path": "agents/gsd-nyquist-auditor.md",
+        "score": 160,
+        "reasons": [
+          "frontmatter present +25",
+          "frontmatter has name +25",
+          "frontmatter has description +35",
+          "content phrase 'SKILL.md' +40",
+          "content phrase 'Claude' +20",
+          "content phrase 'tools' +15"
+        ]
+      },
+      {
+        "path": "agents/gsd-pattern-mapper.md",
+        "score": 160,
+        "reasons": [
+          "frontmatter present +25",
+          "frontmatter has name +25",
+          "frontmatter has description +35",
+          "content phrase 'SKILL.md' +40",
+          "content phrase 'Claude' +20",
+          "content phrase 'tools' +15"
+        ]
+      }
+    ]
+  },
+  {
+    "repo_slug": "llm-wiki",
+    "root_path": "source-knowledge\\ProjectRepos\\llm-wiki",
+    "total_files_seen": 1,
+    "included_files": 1,
+    "skipped_files": 0,
+    "total_included_bytes": 11985,
+    "skill_entrypoint_count": 0,
+    "package_manifest_count": 0,
+    "reference_count": 0,
+    "template_count": 0,
+    "example_count": 0,
+    "script_count": 0,
+    "top_level_readme_present": false,
+    "likely_relevance": {
+      "score": 0,
+      "label": "low",
+      "reasons": [
+        "limited direct skill-design signal"
+      ]
+    },
+    "high_signal_files": [
+      {
+        "path": "llm-wiki.md",
+        "score": 75,
+        "reasons": [
+          "content phrase 'frontmatter' +25",
+          "content phrase 'Claude' +20",
+          "content phrase 'tools' +15",
+          "content phrase 'scripts' +15"
+        ]
+      }
+    ]
+  },
+  {
+    "repo_slug": "llm-wiki-main",
+    "root_path": "source-knowledge\\ProjectRepos\\llm-wiki-main",
+    "total_files_seen": 54,
+    "included_files": 35,
+    "skipped_files": 19,
+    "total_included_bytes": 119047,
+    "skill_entrypoint_count": 1,
+    "package_manifest_count": 1,
+    "reference_count": 0,
+    "template_count": 7,
+    "example_count": 0,
+    "script_count": 0,
+    "top_level_readme_present": true,
+    "likely_relevance": {
+      "score": 110,
+      "label": "high",
+      "reasons": [
+        "contains SKILL.md or skill entrypoint-like files"
+      ]
+    },
+    "high_signal_files": [
+      {
+        "path": "llm-wiki/SKILL.md",
+        "score": 280,
+        "reasons": [
+          "filename skill.md +100",
+          "path contains skill +35",
+          "frontmatter present +25",
+          "frontmatter has name +25",
+          "frontmatter has description +35",
+          "content phrase 'frontmatter' +25"
+        ]
+      },
+      {
+        "path": "README.md",
+        "score": 130,
+        "reasons": [
+          "filename readme.md +30",
+          "content phrase 'frontmatter' +25",
+          "content phrase 'SKILL.md' +40",
+          "content phrase 'Claude' +20",
+          "content phrase 'scripts' +15"
+        ]
+      },
+      {
+        "path": "llm-wiki/commands/wiki-lint.md",
+        "score": 120,
+        "reasons": [
+          "frontmatter present +25",
+          "frontmatter has description +35",
+          "content phrase 'frontmatter' +25",
+          "content phrase 'Claude' +20",
+          "content phrase 'scripts' +15"
+        ]
+      },
+      {
+        "path": "llm-wiki/workflows/ingest.md",
+        "score": 115,
+        "reasons": [
+          "content phrase 'frontmatter' +25",
+          "content phrase 'SKILL.md' +40",
+          "content phrase 'Claude' +20",
+          "content phrase 'tools' +15",
+          "content phrase 'scripts' +15"
+        ]
+      },
+      {
+        "path": "CONTRIBUTING.md",
+        "score": 100,
+        "reasons": [
+          "content phrase 'frontmatter' +25",
+          "content phrase 'SKILL.md' +40",
+          "content phrase 'Claude' +20",
+          "content phrase 'scripts' +15"
+        ]
+      },
+      {
+        "path": "llm-wiki/commands/wiki-ingest.md",
+        "score": 95,
+        "reasons": [
+          "frontmatter present +25",
+          "frontmatter has description +35",
+          "content phrase 'Claude' +20",
+          "content phrase 'scripts' +15"
+        ]
+      },
+      {
+        "path": "llm-wiki/workflows/lint.md",
+        "score": 80,
+        "reasons": [
+          "content phrase 'frontmatter' +25",
+          "content phrase 'SKILL.md' +40",
+          "content phrase 'scripts' +15"
+        ]
+      },
+      {
+        "path": "llm-wiki.md",
+        "score": 75,
+        "reasons": [
+          "content phrase 'frontmatter' +25",
+          "content phrase 'Claude' +20",
+          "content phrase 'tools' +15",
+          "content phrase 'scripts' +15"
+        ]
+      },
+      {
+        "path": ".github/ISSUE_TEMPLATE/bug_report.md",
+        "score": 70,
+        "reasons": [
+          "frontmatter present +25",
+          "frontmatter has name +25",
+          "content phrase 'Claude' +20"
+        ]
+      },
+      {
+        "path": "llm-wiki/WIKI.md",
+        "score": 60,
+        "reasons": [
+          "content phrase 'frontmatter' +25",
+          "content phrase 'Claude' +20",
+          "content phrase 'scripts' +15"
+        ]
+      },
+      {
+        "path": "llm-wiki/commands/wiki-graph.md",
+        "score": 60,
+        "reasons": [
+          "frontmatter present +25",
+          "frontmatter has description +35"
+        ]
+      },
+      {
+        "path": "llm-wiki/commands/wiki-query.md",
+        "score": 60,
+        "reasons": [
+          "frontmatter present +25",
+          "frontmatter has description +35"
+        ]
+      },
+      {
+        "path": "llm-wiki/commands/wiki-review.md",
+        "score": 60,
+        "reasons": [
+          "frontmatter present +25",
+          "frontmatter has description +35"
+        ]
+      },
+      {
+        "path": "llm-wiki/commands/wiki-save.md",
+        "score": 60,
+        "reasons": [
+          "frontmatter present +25",
+          "frontmatter has description +35"
+        ]
+      },
+      {
+        "path": "llm-wiki/workflows/query.md",
+        "score": 55,
+        "reasons": [
+          "content phrase 'SKILL.md' +40",
+          "content phrase 'scripts' +15"
+        ]
+      },
+      {
+        "path": ".github/ISSUE_TEMPLATE/feature_request.md",
+        "score": 50,
+        "reasons": [
+          "frontmatter present +25",
+          "frontmatter has name +25"
+        ]
+      },
+      {
+        "path": "SUPPORT.md",
+        "score": 50,
+        "reasons": [
+          "content phrase 'Claude' +20",
+          "content phrase 'tools' +15",
+          "content phrase 'scripts' +15"
+        ]
+      },
+      {
+        "path": "llm-wiki/templates/article.md",
+        "score": 50,
+        "reasons": [
+          "path contains templates +25",
+          "frontmatter present +25"
+        ]
+      },
+      {
+        "path": "llm-wiki/templates/concept.md",
+        "score": 50,
+        "reasons": [
+          "path contains templates +25",
+          "frontmatter present +25"
+        ]
+      },
+      {
+        "path": "llm-wiki/templates/person.md",
+        "score": 50,
+        "reasons": [
+          "path contains templates +25",
+          "frontmatter present +25"
+        ]
+      }
+    ]
+  },
+  {
+    "repo_slug": "llm-wiki-skill-main",
+    "root_path": "source-knowledge\\ProjectRepos\\llm-wiki-skill-main",
+    "total_files_seen": 49,
+    "included_files": 42,
+    "skipped_files": 7,
+    "total_included_bytes": 300982,
+    "skill_entrypoint_count": 1,
+    "package_manifest_count": 4,
+    "reference_count": 5,
+    "template_count": 0,
+    "example_count": 0,
+    "script_count": 25,
+    "top_level_readme_present": true,
+    "likely_relevance": {
+      "score": 135,
+      "label": "high",
+      "reasons": [
+        "contains SKILL.md or skill entrypoint-like files",
+        "contains references"
+      ]
+    },
+    "high_signal_files": [
+      {
+        "path": "llm-wiki/SKILL.md",
+        "score": 295,
+        "reasons": [
+          "filename skill.md +100",
+          "path contains skill +35",
+          "frontmatter present +25",
+          "frontmatter has name +25",
+          "frontmatter has description +35",
+          "content phrase 'frontmatter' +25"
+        ]
+      },
+      {
+        "path": "llm-wiki/references/audit-guide.md",
+        "score": 145,
+        "reasons": [
+          "path contains references +30",
+          "content phrase 'frontmatter' +25",
+          "content phrase 'SKILL.md' +40",
+          "content phrase 'Claude' +20",
+          "content phrase 'tools' +15",
+          "content phrase 'scripts' +15"
+        ]
+      },
+      {
+        "path": "README.md",
+        "score": 120,
+        "reasons": [
+          "filename readme.md +30",
+          "content phrase 'SKILL.md' +40",
+          "content phrase 'Claude' +20",
+          "content phrase 'tools' +15",
+          "content phrase 'scripts' +15"
+        ]
+      },
+      {
+        "path": "llm-wiki/references/schema-guide.md",
+        "score": 90,
+        "reasons": [
+          "path contains references +30",
+          "content phrase 'frontmatter' +25",
+          "content phrase 'Claude' +20",
+          "content phrase 'tools' +15"
+        ]
+      },
+      {
+        "path": "llm-wiki/references/article-guide.md",
+        "score": 75,
+        "reasons": [
+          "path contains references +30",
+          "content phrase 'frontmatter' +25",
+          "content phrase 'Claude' +20"
+        ]
+      },
+      {
+        "path": "llm-wiki/references/log-guide.md",
+        "score": 65,
+        "reasons": [
+          "path contains references +30",
+          "content phrase 'Claude' +20",
+          "content phrase 'scripts' +15"
+        ]
+      },
+      {
+        "path": "llm-wiki/scripts/scaffold.py",
+        "score": 60,
+        "reasons": [
+          "content phrase 'frontmatter' +25",
+          "content phrase 'Claude' +20",
+          "content phrase 'scripts' +15"
+        ]
+      },
+      {
+        "path": "llm-wiki/references/tooling-tips.md",
+        "score": 55,
+        "reasons": [
+          "path contains references +30",
+          "content phrase 'frontmatter' +25"
+        ]
+      },
+      {
+        "path": "plugins/obsidian-audit/manifest.json",
+        "score": 30,
+        "reasons": [
+          "filename contains manifest +30"
+        ]
+      },
+      {
+        "path": "audit-shared/src/schema.ts",
+        "score": 25,
+        "reasons": [
+          "content phrase 'frontmatter' +25"
+        ]
+      },
+      {
+        "path": "audit-shared/src/serialize.ts",
+        "score": 25,
+        "reasons": [
+          "content phrase 'frontmatter' +25"
+        ]
+      },
+      {
+        "path": "llm-wiki/scripts/audit_review.py",
+        "score": 25,
+        "reasons": [
+          "content phrase 'frontmatter' +25"
+        ]
+      },
+      {
+        "path": "llm-wiki/scripts/lint_wiki.py",
+        "score": 25,
+        "reasons": [
+          "content phrase 'frontmatter' +25"
+        ]
+      },
+      {
+        "path": "web/client/main.ts",
+        "score": 25,
+        "reasons": [
+          "content phrase 'frontmatter' +25"
+        ]
+      },
+      {
+        "path": "web/server/render/markdown.ts",
+        "score": 25,
+        "reasons": [
+          "content phrase 'frontmatter' +25"
+        ]
+      },
+      {
+        "path": "web/server/routes/graph.ts",
+        "score": 25,
+        "reasons": [
+          "content phrase 'frontmatter' +25"
+        ]
+      },
+      {
+        "path": "web/server/routes/pages.ts",
+        "score": 25,
+        "reasons": [
+          "content phrase 'frontmatter' +25"
+        ]
+      },
+      {
+        "path": "audit-shared/src/id.ts",
+        "score": 20,
+        "reasons": [
+          "content phrase 'Claude' +20"
+        ]
+      },
+      {
+        "path": "audit-shared/package.json",
+        "score": 15,
+        "reasons": [
+          "content phrase 'scripts' +15"
+        ]
+      },
+      {
+        "path": "plugins/obsidian-audit/package.json",
+        "score": 15,
+        "reasons": [
+          "content phrase 'scripts' +15"
+        ]
+      }
+    ]
+  },
+  {
+    "repo_slug": "planning-with-files-master",
+    "root_path": "source-knowledge\\ProjectRepos\\planning-with-files-master",
+    "total_files_seen": 393,
+    "included_files": 226,
+    "skipped_files": 167,
+    "total_included_bytes": 1593255,
+    "skill_entrypoint_count": 17,
+    "package_manifest_count": 2,
+    "reference_count": 17,
+    "template_count": 55,
+    "example_count": 13,
+    "script_count": 67,
+    "top_level_readme_present": true,
+    "likely_relevance": {
+      "score": 1755,
+      "label": "high",
+      "reasons": [
+        "contains SKILL.md or skill entrypoint-like files",
+        "contains references"
+      ]
+    },
+    "high_signal_files": [
+      {
+        "path": ".kiro/skills/planning-with-files/SKILL.md",
+        "score": 375,
+        "reasons": [
+          "filename skill.md +100",
+          "path contains skills +35",
+          "path contains skill +35",
+          "frontmatter present +25",
+          "frontmatter has name +25",
+          "frontmatter has description +35"
+        ]
+      },
+      {
+        "path": "skills/planning-with-files/SKILL.md",
+        "score": 370,
+        "reasons": [
+          "filename skill.md +100",
+          "path contains skills +35",
+          "path contains skill +35",
+          "frontmatter present +25",
+          "frontmatter has name +25",
+          "frontmatter has description +35"
+        ]
+      },
+      {
+        "path": ".codebuddy/skills/planning-with-files/SKILL.md",
+        "score": 305,
+        "reasons": [
+          "filename skill.md +100",
+          "path contains skills +35",
+          "path contains skill +35",
+          "frontmatter present +25",
+          "frontmatter has name +25",
+          "frontmatter has description +35"
+        ]
+      },
+      {
+        "path": ".codex/skills/planning-with-files/SKILL.md",
+        "score": 305,
+        "reasons": [
+          "filename skill.md +100",
+          "path contains skills +35",
+          "path contains skill +35",
+          "frontmatter present +25",
+          "frontmatter has name +25",
+          "frontmatter has description +35"
+        ]
+      },
+      {
+        "path": ".cursor/skills/planning-with-files/SKILL.md",
+        "score": 305,
+        "reasons": [
+          "filename skill.md +100",
+          "path contains skills +35",
+          "path contains skill +35",
+          "frontmatter present +25",
+          "frontmatter has name +25",
+          "frontmatter has description +35"
+        ]
+      },
+      {
+        "path": ".factory/skills/planning-with-files/SKILL.md",
+        "score": 305,
+        "reasons": [
+          "filename skill.md +100",
+          "path contains skills +35",
+          "path contains skill +35",
+          "frontmatter present +25",
+          "frontmatter has name +25",
+          "frontmatter has description +35"
+        ]
+      },
+      {
+        "path": ".mastracode/skills/planning-with-files/SKILL.md",
+        "score": 305,
+        "reasons": [
+          "filename skill.md +100",
+          "path contains skills +35",
+          "path contains skill +35",
+          "frontmatter present +25",
+          "frontmatter has name +25",
+          "frontmatter has description +35"
+        ]
+      },
+      {
+        "path": ".opencode/skills/planning-with-files/SKILL.md",
+        "score": 305,
+        "reasons": [
+          "filename skill.md +100",
+          "path contains skills +35",
+          "path contains skill +35",
+          "frontmatter present +25",
+          "frontmatter has name +25",
+          "frontmatter has description +35"
+        ]
+      },
+      {
+        "path": "skills/planning-with-files-ar/SKILL.md",
+        "score": 305,
+        "reasons": [
+          "filename skill.md +100",
+          "path contains skills +35",
+          "path contains skill +35",
+          "frontmatter present +25",
+          "frontmatter has name +25",
+          "frontmatter has description +35"
+        ]
+      },
+      {
+        "path": "skills/planning-with-files-de/SKILL.md",
+        "score": 305,
+        "reasons": [
+          "filename skill.md +100",
+          "path contains skills +35",
+          "path contains skill +35",
+          "frontmatter present +25",
+          "frontmatter has name +25",
+          "frontmatter has description +35"
+        ]
+      },
+      {
+        "path": "skills/planning-with-files-es/SKILL.md",
+        "score": 305,
+        "reasons": [
+          "filename skill.md +100",
+          "path contains skills +35",
+          "path contains skill +35",
+          "frontmatter present +25",
+          "frontmatter has name +25",
+          "frontmatter has description +35"
+        ]
+      },
+      {
+        "path": "skills/planning-with-files-zh/SKILL.md",
+        "score": 305,
+        "reasons": [
+          "filename skill.md +100",
+          "path contains skills +35",
+          "path contains skill +35",
+          "frontmatter present +25",
+          "frontmatter has name +25",
+          "frontmatter has description +35"
+        ]
+      },
+      {
+        "path": "skills/planning-with-files-zht/SKILL.md",
+        "score": 305,
+        "reasons": [
+          "filename skill.md +100",
+          "path contains skills +35",
+          "path contains skill +35",
+          "frontmatter present +25",
+          "frontmatter has name +25",
+          "frontmatter has description +35"
+        ]
+      },
+      {
+        "path": ".pi/skills/planning-with-files/SKILL.md",
+        "score": 290,
+        "reasons": [
+          "filename skill.md +100",
+          "path contains skills +35",
+          "path contains skill +35",
+          "frontmatter present +25",
+          "frontmatter has name +25",
+          "frontmatter has description +35"
+        ]
+      },
+      {
+        "path": ".continue/skills/planning-with-files/SKILL.md",
+        "score": 270,
+        "reasons": [
+          "filename skill.md +100",
+          "path contains skills +35",
+          "path contains skill +35",
+          "frontmatter present +25",
+          "frontmatter has name +25",
+          "frontmatter has description +35"
+        ]
+      },
+      {
+        "path": ".gemini/skills/planning-with-files/SKILL.md",
+        "score": 270,
+        "reasons": [
+          "filename skill.md +100",
+          "path contains skills +35",
+          "path contains skill +35",
+          "frontmatter present +25",
+          "frontmatter has name +25",
+          "frontmatter has description +35"
+        ]
+      },
+      {
+        "path": ".hermes/skills/planning-with-files/SKILL.md",
+        "score": 270,
+        "reasons": [
+          "filename skill.md +100",
+          "path contains skills +35",
+          "path contains skill +35",
+          "frontmatter present +25",
+          "frontmatter has name +25",
+          "frontmatter has description +35"
+        ]
+      },
+      {
+        "path": ".codebuddy/skills/planning-with-files/references/reference.md",
+        "score": 210,
+        "reasons": [
+          "filename contains reference +25",
+          "path contains skills +35",
+          "path contains skill +35",
+          "path contains references +30",
+          "content phrase 'progressive disclosure' +50",
+          "content phrase 'Claude' +20"
+        ]
+      },
+      {
+        "path": ".codex/skills/planning-with-files/references/reference.md",
+        "score": 210,
+        "reasons": [
+          "filename contains reference +25",
+          "path contains skills +35",
+          "path contains skill +35",
+          "path contains references +30",
+          "content phrase 'progressive disclosure' +50",
+          "content phrase 'Claude' +20"
+        ]
+      },
+      {
+        "path": ".gemini/skills/planning-with-files/references/reference.md",
+        "score": 210,
+        "reasons": [
+          "filename contains reference +25",
+          "path contains skills +35",
+          "path contains skill +35",
+          "path contains references +30",
+          "content phrase 'progressive disclosure' +50",
+          "content phrase 'Claude' +20"
+        ]
+      }
+    ]
+  },
+  {
+    "repo_slug": "ProjectMapping&Apex",
+    "root_path": "source-knowledge\\ProjectRepos\\ProjectMapping&Apex",
+    "total_files_seen": 3,
+    "included_files": 3,
+    "skipped_files": 0,
+    "total_included_bytes": 19673,
+    "skill_entrypoint_count": 0,
+    "package_manifest_count": 0,
+    "reference_count": 0,
+    "template_count": 0,
+    "example_count": 0,
+    "script_count": 0,
+    "top_level_readme_present": false,
+    "likely_relevance": {
+      "score": 0,
+      "label": "low",
+      "reasons": [
+        "limited direct skill-design signal"
+      ]
+    },
+    "high_signal_files": [
+      {
+        "path": "phase-6-pm2-audit.md",
+        "score": 115,
+        "reasons": [
+          "content phrase 'frontmatter' +25",
+          "content phrase 'SKILL.md' +40",
+          "content phrase 'Claude' +20",
+          "content phrase 'tools' +15",
+          "content phrase 'scripts' +15"
+        ]
+      },
+      {
+        "path": "phase-5-coverage-gate.md",
+        "score": 40,
+        "reasons": [
+          "content phrase 'frontmatter' +25",
+          "content phrase 'scripts' +15"
+        ]
+      }
+    ]
+  },
+  {
+    "repo_slug": "skillcheck",
+    "root_path": "source-knowledge\\ProjectRepos\\skillcheck",
+    "total_files_seen": 183,
+    "included_files": 178,
+    "skipped_files": 5,
+    "total_included_bytes": 731563,
+    "skill_entrypoint_count": 14,
+    "package_manifest_count": 1,
+    "reference_count": 3,
+    "template_count": 7,
+    "example_count": 0,
+    "script_count": 96,
+    "top_level_readme_present": true,
+    "likely_relevance": {
+      "score": 1515,
+      "label": "high",
+      "reasons": [
+        "contains SKILL.md or skill entrypoint-like files",
+        "contains prompt-related paths/files",
+        "contains references"
+      ]
+    },
+    "high_signal_files": [
+      {
+        "path": "SKILL.md",
+        "score": 345,
+        "reasons": [
+          "filename skill.md +100",
+          "path contains skill +35",
+          "frontmatter present +25",
+          "frontmatter has name +25",
+          "frontmatter has description +35",
+          "content phrase 'Use this skill when' +60"
+        ]
+      },
+      {
+        "path": "skills/skillcheck/SKILL.md",
+        "score": 320,
+        "reasons": [
+          "filename skill.md +100",
+          "path contains skills +35",
+          "path contains skill +35",
+          "frontmatter present +25",
+          "frontmatter has name +25",
+          "frontmatter has description +35"
+        ]
+      },
+      {
+        "path": "tests/fixtures/templates/SKILL.md",
+        "score": 245,
+        "reasons": [
+          "filename skill.md +100",
+          "path contains skill +35",
+          "path contains templates +25",
+          "frontmatter present +25",
+          "frontmatter has name +25",
+          "frontmatter has description +35"
+        ]
+      },
+      {
+        "path": "src/skillcheck/rules/description.py",
+        "score": 215,
+        "reasons": [
+          "filename contains description +35",
+          "path contains skill +35",
+          "content phrase 'Use this skill when' +60",
+          "content phrase 'frontmatter' +25",
+          "content phrase 'SKILL.md' +40",
+          "content phrase 'Claude' +20"
+        ]
+      },
+      {
+        "path": "docs/case-study-silent-skill-failure.md",
+        "score": 205,
+        "reasons": [
+          "path contains skill +35",
+          "path contains docs +15",
+          "content phrase 'frontmatter' +25",
+          "content phrase 'SKILL.md' +40",
+          "content phrase 'Agent Skills' +40",
+          "content phrase 'Claude' +20"
+        ]
+      },
+      {
+        "path": "CHANGELOG.md",
+        "score": 165,
+        "reasons": [
+          "content phrase 'progressive disclosure' +50",
+          "content phrase 'frontmatter' +25",
+          "content phrase 'SKILL.md' +40",
+          "content phrase 'Claude' +20",
+          "content phrase 'tools' +15",
+          "content phrase 'scripts' +15"
+        ]
+      },
+      {
+        "path": "tests/fixtures/critique/multi_section.md",
+        "score": 160,
+        "reasons": [
+          "frontmatter present +25",
+          "frontmatter has name +25",
+          "frontmatter has description +35",
+          "content phrase 'Use this skill when' +60",
+          "content phrase 'tools' +15"
+        ]
+      },
+      {
+        "path": "tests/fixtures/graph/skill_frontmatter_tools.md",
+        "score": 160,
+        "reasons": [
+          "path contains skill +35",
+          "frontmatter present +25",
+          "frontmatter has name +25",
+          "frontmatter has description +35",
+          "content phrase 'frontmatter' +25",
+          "content phrase 'tools' +15"
+        ]
+      },
+      {
+        "path": "tests/fixtures/graph/skill_unreferenced_tool.md",
+        "score": 160,
+        "reasons": [
+          "filename contains reference +25",
+          "path contains skill +35",
+          "frontmatter present +25",
+          "frontmatter has name +25",
+          "frontmatter has description +35",
+          "content phrase 'tools' +15"
+        ]
+      },
+      {
+        "path": "tests/test_description.py",
+        "score": 155,
+        "reasons": [
+          "filename contains description +35",
+          "content phrase 'Use this skill when' +60",
+          "content phrase 'SKILL.md' +40",
+          "content phrase 'Claude' +20"
+        ]
+      },
+      {
+        "path": "src/skillcheck/agents/graph_base.py",
+        "score": 150,
+        "reasons": [
+          "path contains skill +35",
+          "content phrase 'frontmatter' +25",
+          "content phrase 'SKILL.md' +40",
+          "content phrase 'Claude' +20",
+          "content phrase 'prompt engineering' +30"
+        ]
+      },
+      {
+        "path": "src/skillcheck/rules/disclosure.py",
+        "score": 150,
+        "reasons": [
+          "path contains skill +35",
+          "content phrase 'progressive disclosure' +50",
+          "content phrase 'frontmatter' +25",
+          "content phrase 'SKILL.md' +40"
+        ]
+      },
+      {
+        "path": "src/skillcheck/config.py",
+        "score": 145,
+        "reasons": [
+          "path contains skill +35",
+          "content phrase 'progressive disclosure' +50",
+          "content phrase 'frontmatter' +25",
+          "content phrase 'Claude' +20",
+          "content phrase 'tools' +15"
+        ]
+      },
+      {
+        "path": "src/skillcheck/rules/references.py",
+        "score": 145,
+        "reasons": [
+          "filename contains reference +25",
+          "path contains skill +35",
+          "path contains references +30",
+          "content phrase 'SKILL.md' +40",
+          "content phrase 'scripts' +15"
+        ]
+      },
+      {
+        "path": "tests/fixtures/canvas_design_pattern.md",
+        "score": 145,
+        "reasons": [
+          "frontmatter present +25",
+          "frontmatter has name +25",
+          "frontmatter has description +35",
+          "content phrase 'Use this skill when' +60"
+        ]
+      },
+      {
+        "path": "tests/fixtures/template_placeholder_description.md",
+        "score": 145,
+        "reasons": [
+          "filename contains description +35",
+          "filename contains template +25",
+          "frontmatter present +25",
+          "frontmatter has name +25",
+          "frontmatter has description +35"
+        ]
+      },
+      {
+        "path": "tests/fixtures/valid_good_desc.md",
+        "score": 145,
+        "reasons": [
+          "frontmatter present +25",
+          "frontmatter has name +25",
+          "frontmatter has description +35",
+          "content phrase 'Use this skill when' +60"
+        ]
+      },
+      {
+        "path": "docs/case-study-v1-real-world-runs.md",
+        "score": 135,
+        "reasons": [
+          "path contains docs +15",
+          "content phrase 'frontmatter' +25",
+          "content phrase 'SKILL.md' +40",
+          "content phrase 'Claude' +20",
+          "content phrase 'evaluation' +20",
+          "content phrase 'tools' +15"
+        ]
+      },
+      {
+        "path": "README.md",
+        "score": 130,
+        "reasons": [
+          "filename readme.md +30",
+          "content phrase 'frontmatter' +25",
+          "content phrase 'SKILL.md' +40",
+          "content phrase 'Claude' +20",
+          "content phrase 'tools' +15"
+        ]
+      },
+      {
+        "path": "src/skillcheck/rules/__init__.py",
+        "score": 130,
+        "reasons": [
+          "path contains skill +35",
+          "content phrase 'progressive disclosure' +50",
+          "content phrase 'frontmatter' +25",
+          "content phrase 'Claude' +20"
+        ]
+      }
+    ]
+  }
+]

@@ -1,0 +1,381 @@
+{
+  "binary_or_asset_files": 77,
+  "bounds": {
+    "max_bytes_per_file": 512000,
+    "max_candidates": 200,
+    "max_files": 5000,
+    "max_structure_lines": 4000
+  },
+  "candidate_count": 200,
+  "extension_counts": {
+    ".backup": 1,
+    ".bat": 1,
+    ".cpp": 1,
+    ".css": 3,
+    ".csv": 25,
+    ".disabled": 1,
+    ".dot": 1,
+    ".env": 2,
+    ".example": 8,
+    ".go": 4,
+    ".gz": 1,
+    ".h": 1,
+    ".html": 8,
+    ".ico": 1,
+    ".ini": 1,
+    ".java": 2,
+    ".jpeg": 3,
+    ".js": 35,
+    ".json": 78,
+    ".jsonl": 1,
+    ".jsx": 2,
+    ".md": 3972,
+    ".mjs": 90,
+    ".png": 14,
+    ".py": 354,
+    ".sh": 38,
+    ".svg": 4,
+    ".swift": 2,
+    ".template": 8,
+    ".ts": 27,
+    ".tsx": 23,
+    ".ttf": 54,
+    ".txt": 76,
+    ".webmanifest": 2,
+    ".xml": 7,
+    ".xsd": 78,
+    ".yaml": 33,
+    ".yml": 21,
+    "[none]": 17
+  },
+  "files_seen": 5000,
+  "generated_at": "2026-06-30T20:04:07Z",
+  "largest_files": [
+    {
+      "extension": ".json",
+      "is_binary_or_asset": false,
+      "is_package_manifest": false,
+      "is_text_candidate": true,
+      "mtime_utc": "2026-06-23T09:15:56Z",
+      "name": "catalog.json",
+      "path": "antigravity-awesome-skills-main/data/catalog.json",
+      "path_reasons": [],
+      "path_score": 0,
+      "size_bytes": 1111125
+    },
+    {
+      "extension": ".backup",
+      "is_binary_or_asset": false,
+      "is_package_manifest": false,
+      "is_text_candidate": false,
+      "mtime_utc": "2026-06-23T09:15:54Z",
+      "name": "skills.json.backup",
+      "path": "antigravity-awesome-skills-main/apps/web-app/public/skills.json.backup",
+      "path_reasons": [
+        "filename-token:skill+45"
+      ],
+      "path_score": 45,
+      "size_bytes": 1067666
+    },
+    {
+      "extension": ".json",
+      "is_binary_or_asset": false,
+      "is_package_manifest": false,
+      "is_text_candidate": true,
+      "mtime_utc": "2026-06-23T09:15:56Z",
+      "name": "skills_index.json",
+      "path": "antigravity-awesome-skills-main/data/skills_index.json",
+      "path_reasons": [
+        "filename-token:skill+45"
+      ],
+      "path_score": 45,
+      "size_bytes": 1067666
+    },
+    {
+      "extension": ".json",
+      "is_binary_or_asset": false,
+      "is_package_manifest": false,
+      "is_text_candidate": true,
+      "mtime_utc": "2026-06-23T09:15:53Z",
+      "name": "skills_index.json",
+      "path": "antigravity-awesome-skills-main/skills_index.json",
+      "path_reasons": [
+        "filename-token:skill+45"
+      ],
+      "path_score": 45,
+      "size_bytes": 1067666
+    },
+    {
+      "extension": ".png",
+      "is_binary_or_asset": true,
+      "is_package_manifest": false,
+      "is_text_candidate": false,
+      "mtime_utc": "2026-06-23T09:15:56Z",
+      "name": "github-social-preview.png",
+      "path": "antigravity-awesome-skills-main/assets/github-social-preview.png",
+      "path_reasons": [],
+      "path_score": 0,
+      "size_bytes": 808834
+    },
+    {
+      "extension": ".json",
+      "is_binary_or_asset": false,
+      "is_package_manifest": false,
+      "is_text_candidate": true,
+      "mtime_utc": "2026-06-23T09:15:56Z",
+      "name": "plugin-compatibility.json",
+      "path": "antigravity-awesome-skills-main/data/plugin-compatibility.json",
+      "path_reasons": [],
+      "path_score": 0,
+      "size_bytes": 680162
+    },
+    {
+      "extension": ".png",
+      "is_binary_or_asset": true,
+      "is_package_manifest": false,
+      "is_text_candidate": false,
+      "mtime_utc": "2026-06-23T09:21:29Z",
+      "name": "nvda-deep-dive-thesis.png",
+      "path": "antigravity-awesome-skills-main/plugins/antigravity-awesome-skills/skills/xvary-stock-research/assets/nvda-deep-dive-thesis.png",
+      "path_reasons": [
+        "path-token:skills+50"
+      ],
+      "path_score": 50,
+      "size_bytes": 504946
+    },
+    {
+      "extension": ".png",
+      "is_binary_or_asset": true,
+      "is_package_manifest": false,
+      "is_text_candidate": false,
+      "mtime_utc": "2026-06-23T09:21:29Z",
+      "name": "nvda-deep-dive-scenarios.png",
+      "path": "antigravity-awesome-skills-main/plugins/antigravity-awesome-skills/skills/xvary-stock-research/assets/nvda-deep-dive-scenarios.png",
+      "path_reasons": [
+        "path-token:skills+50"
+      ],
+      "path_score": 50,
+      "size_bytes": 501245
+    },
+    {
+      "extension": ".md",
+      "is_binary_or_asset": false,
+      "is_package_manifest": false,
+      "is_text_candidate": true,
+      "mtime_utc": "2026-06-23T09:15:53Z",
+      "name": "CATALOG.md",
+      "path": "antigravity-awesome-skills-main/CATALOG.md",
+      "path_reasons": [],
+      "path_score": 0,
+      "size_bytes": 487433
+    },
+    {
+      "extension": ".svg",
+      "is_binary_or_asset": true,
+      "is_package_manifest": false,
+      "is_text_candidate": false,
+      "mtime_utc": "2026-06-23T09:15:54Z",
+      "name": "favicon.svg",
+      "path": "antigravity-awesome-skills-main/apps/web-app/public/favicon.svg",
+      "path_reasons": [],
+      "path_score": 0,
+      "size_bytes": 448367
+    },
+    {
+      "extension": ".png",
+      "is_binary_or_asset": true,
+      "is_package_manifest": false,
+      "is_text_candidate": false,
+      "mtime_utc": "2026-06-23T09:21:29Z",
+      "name": "nvda-deep-dive-hero.png",
+      "path": "antigravity-awesome-skills-main/plugins/antigravity-awesome-skills/skills/xvary-stock-research/assets/nvda-deep-dive-hero.png",
+      "path_reasons": [
+        "path-token:skills+50"
+      ],
+      "path_score": 50,
+      "size_bytes": 418706
+    },
+    {
+      "extension": ".md",
+      "is_binary_or_asset": false,
+      "is_package_manifest": false,
+      "is_text_candidate": true,
+      "mtime_utc": "2026-06-23T09:15:53Z",
+      "name": "CHANGELOG.md",
+      "path": "antigravity-awesome-skills-main/CHANGELOG.md",
+      "path_reasons": [],
+      "path_score": 0,
+      "size_bytes": 321235
+    },
+    {
+      "extension": ".md",
+      "is_binary_or_asset": false,
+      "is_package_manifest": false,
+      "is_text_candidate": true,
+      "mtime_utc": "2026-06-23T09:19:41Z",
+      "name": "v5-section-digest-index.md",
+      "path": "antigravity-awesome-skills-main/plugins/antigravity-awesome-skills/skills/crossframe/references/v5-section-digest-index.md",
+      "path_reasons": [
+        "path-token:skills+50"
+      ],
+      "path_score": 50,
+      "size_bytes": 301799
+    },
+    {
+      "extension": ".json",
+      "is_binary_or_asset": false,
+      "is_package_manifest": false,
+      "is_text_candidate": true,
+      "mtime_utc": "2026-06-23T09:15:54Z",
+      "name": "package-lock.json",
+      "path": "antigravity-awesome-skills-main/apps/web-app/package-lock.json",
+      "path_reasons": [],
+      "path_score": 0,
+      "size_bytes": 287823
+    },
+    {
+      "extension": ".xsd",
+      "is_binary_or_asset": false,
+      "is_package_manifest": false,
+      "is_text_candidate": false,
+      "mtime_utc": "2026-06-23T09:19:56Z",
+      "name": "sml.xsd",
+      "path": "antigravity-awesome-skills-main/plugins/antigravity-awesome-skills/skills/docx-official/ooxml/schemas/ISO-IEC29500-4_2016/sml.xsd",
+      "path_reasons": [
+        "path-token:skills+50"
+      ],
+      "path_score": 50,
+      "size_bytes": 242277
+    },
+    {
+      "extension": ".xsd",
+      "is_binary_or_asset": false,
+      "is_package_manifest": false,
+      "is_text_candidate": false,
+      "mtime_utc": "2026-06-23T09:20:45Z",
+      "name": "sml.xsd",
+      "path": "antigravity-awesome-skills-main/plugins/antigravity-awesome-skills/skills/pptx-official/ooxml/schemas/ISO-IEC29500-4_2016/sml.xsd",
+      "path_reasons": [
+        "path-token:skills+50"
+      ],
+      "path_score": 50,
+      "size_bytes": 242277
+    },
+    {
+      "extension": ".ttf",
+      "is_binary_or_asset": true,
+      "is_package_manifest": false,
+      "is_text_candidate": false,
+      "mtime_utc": "2026-06-23T09:19:18Z",
+      "name": "WorkSans-Bold.ttf",
+      "path": "antigravity-awesome-skills-main/plugins/antigravity-awesome-skills/skills/canvas-design/canvas-fonts/WorkSans-Bold.ttf",
+      "path_reasons": [
+        "path-token:skills+50"
+      ],
+      "path_score": 50,
+      "size_bytes": 191304
+    },
+    {
+      "extension": ".ttf",
+      "is_binary_or_asset": true,
+      "is_package_manifest": false,
+      "is_text_candidate": false,
+      "mtime_utc": "2026-06-23T09:19:18Z",
+      "name": "WorkSans-Regular.ttf",
+      "path": "antigravity-awesome-skills-main/plugins/antigravity-awesome-skills/skills/canvas-design/canvas-fonts/WorkSans-Regular.ttf",
+      "path_reasons": [
+        "path-token:skills+50"
+      ],
+      "path_score": 50,
+      "size_bytes": 188916
+    },
+    {
+      "extension": ".jpeg",
+      "is_binary_or_asset": true,
+      "is_package_manifest": false,
+      "is_text_candidate": false,
+      "mtime_utc": "2026-06-23T09:15:55Z",
+      "name": "aas-social-card.jpeg",
+      "path": "antigravity-awesome-skills-main/assets/aas-social-card.jpeg",
+      "path_reasons": [],
+      "path_score": 0,
+      "size_bytes": 179698
+    },
+    {
+      "extension": ".ttf",
+      "is_binary_or_asset": true,
+      "is_package_manifest": false,
+      "is_text_candidate": false,
+      "mtime_utc": "2026-06-23T09:19:18Z",
+      "name": "WorkSans-BoldItalic.ttf",
+      "path": "antigravity-awesome-skills-main/plugins/antigravity-awesome-skills/skills/canvas-design/canvas-fonts/WorkSans-BoldItalic.ttf",
+      "path_reasons": [
+        "path-token:skills+50"
+      ],
+      "path_score": 50,
+      "size_bytes": 175772
+    }
+  ],
+  "largest_skipped_by_byte_limit": [
+    {
+      "extension": ".json",
+      "is_binary_or_asset": false,
+      "is_package_manifest": false,
+      "is_text_candidate": true,
+      "mtime_utc": "2026-06-23T09:15:56Z",
+      "name": "catalog.json",
+      "path": "antigravity-awesome-skills-main/data/catalog.json",
+      "path_reasons": [],
+      "path_score": 0,
+      "size_bytes": 1111125
+    },
+    {
+      "extension": ".json",
+      "is_binary_or_asset": false,
+      "is_package_manifest": false,
+      "is_text_candidate": true,
+      "mtime_utc": "2026-06-23T09:15:56Z",
+      "name": "skills_index.json",
+      "path": "antigravity-awesome-skills-main/data/skills_index.json",
+      "path_reasons": [
+        "filename-token:skill+45"
+      ],
+      "path_score": 45,
+      "size_bytes": 1067666
+    },
+    {
+      "extension": ".json",
+      "is_binary_or_asset": false,
+      "is_package_manifest": false,
+      "is_text_candidate": true,
+      "mtime_utc": "2026-06-23T09:15:53Z",
+      "name": "skills_index.json",
+      "path": "antigravity-awesome-skills-main/skills_index.json",
+      "path_reasons": [
+        "filename-token:skill+45"
+      ],
+      "path_score": 45,
+      "size_bytes": 1067666
+    },
+    {
+      "extension": ".json",
+      "is_binary_or_asset": false,
+      "is_package_manifest": false,
+      "is_text_candidate": true,
+      "mtime_utc": "2026-06-23T09:15:56Z",
+      "name": "plugin-compatibility.json",
+      "path": "antigravity-awesome-skills-main/data/plugin-compatibility.json",
+      "path_reasons": [],
+      "path_score": 0,
+      "size_bytes": 680162
+    }
+  ],
+  "mode": "inventory",
+  "output_root": "C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\claude-skill-design\\manifests\\large-corpus-prework-projectrepos-smoke",
+  "profile": "balanced",
+  "runtime_seconds": 17.266,
+  "source_root": "C:\\GitDev\\apexai-os-meta\\source-knowledge\\ProjectRepos",
+  "structure_records": 0,
+  "text_candidate_files": 4697,
+  "total_bytes_seen": 56403457
+}

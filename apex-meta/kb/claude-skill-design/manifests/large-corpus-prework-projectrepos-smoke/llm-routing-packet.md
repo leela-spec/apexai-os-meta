@@ -1,0 +1,179 @@
+# LLM Routing Packet
+
+## Purpose
+
+Use this packet to choose what to read first. It is deterministic evidence, not semantic analysis.
+
+## Scan Snapshot
+
+- source_root: `C:\GitDev\apexai-os-meta\source-knowledge\ProjectRepos`
+- files_seen: `5000`
+- text_candidate_files: `4697`
+- candidate_count: `200`
+- total_bytes_seen: `56403457`
+
+## Read First
+
+- `antigravity-awesome-skills-main/plugins/antigravity-awesome-skills-claude/skills/app-builder/templates/SKILL.md`
+  - score: 235
+  - reasons: filename:skill.md+120; filename-token:skill+45; path-token:templates+20; path-token:skills+50
+- `antigravity-awesome-skills-main/plugins/antigravity-awesome-skills/skills/app-builder/templates/SKILL.md`
+  - score: 235
+  - reasons: filename:skill.md+120; filename-token:skill+45; path-token:templates+20; path-token:skills+50
+- `antigravity-awesome-skills-main/plugins/antigravity-awesome-skills-claude/skills/accessibility-compliance-accessibility-audit/SKILL.md`
+  - score: 215
+  - reasons: filename:skill.md+120; filename-token:skill+45; path-token:skills+50
+- `antigravity-awesome-skills-main/plugins/antigravity-awesome-skills-claude/skills/accesslint-scan/SKILL.md`
+  - score: 215
+  - reasons: filename:skill.md+120; filename-token:skill+45; path-token:skills+50
+- `antigravity-awesome-skills-main/plugins/antigravity-awesome-skills-claude/skills/address-github-comments/SKILL.md`
+  - score: 215
+  - reasons: filename:skill.md+120; filename-token:skill+45; path-token:skills+50
+- `antigravity-awesome-skills-main/plugins/antigravity-awesome-skills-claude/skills/agent-manager-skill/SKILL.md`
+  - score: 215
+  - reasons: filename:skill.md+120; filename-token:skill+45; path-token:skills+50
+- `antigravity-awesome-skills-main/plugins/antigravity-awesome-skills-claude/skills/airflow-dag-patterns/SKILL.md`
+  - score: 215
+  - reasons: filename:skill.md+120; filename-token:skill+45; path-token:skills+50
+- `antigravity-awesome-skills-main/plugins/antigravity-awesome-skills-claude/skills/akf-trust-metadata/SKILL.md`
+  - score: 215
+  - reasons: filename:skill.md+120; filename-token:skill+45; path-token:skills+50
+- `antigravity-awesome-skills-main/plugins/antigravity-awesome-skills-claude/skills/anti-reversing-techniques/SKILL.md`
+  - score: 215
+  - reasons: filename:skill.md+120; filename-token:skill+45; path-token:skills+50
+- `antigravity-awesome-skills-main/plugins/antigravity-awesome-skills-claude/skills/anti-sycophancy/SKILL.md`
+  - score: 215
+  - reasons: filename:skill.md+120; filename-token:skill+45; path-token:skills+50
+- `antigravity-awesome-skills-main/plugins/antigravity-awesome-skills-claude/skills/api-design-principles/SKILL.md`
+  - score: 215
+  - reasons: filename:skill.md+120; filename-token:skill+45; path-token:skills+50
+- `antigravity-awesome-skills-main/plugins/antigravity-awesome-skills-claude/skills/api-testing-observability-api-mock/SKILL.md`
+  - score: 215
+  - reasons: filename:skill.md+120; filename-token:skill+45; path-token:skills+50
+- `antigravity-awesome-skills-main/plugins/antigravity-awesome-skills-claude/skills/architecture-patterns/SKILL.md`
+  - score: 215
+  - reasons: filename:skill.md+120; filename-token:skill+45; path-token:skills+50
+- `antigravity-awesome-skills-main/plugins/antigravity-awesome-skills-claude/skills/architecture/SKILL.md`
+  - score: 215
+  - reasons: filename:skill.md+120; filename-token:skill+45; path-token:skills+50
+- `antigravity-awesome-skills-main/plugins/antigravity-awesome-skills-claude/skills/async-python-patterns/SKILL.md`
+  - score: 215
+  - reasons: filename:skill.md+120; filename-token:skill+45; path-token:skills+50
+- `antigravity-awesome-skills-main/plugins/antigravity-awesome-skills-claude/skills/attack-tree-construction/SKILL.md`
+  - score: 215
+  - reasons: filename:skill.md+120; filename-token:skill+45; path-token:skills+50
+- `antigravity-awesome-skills-main/plugins/antigravity-awesome-skills-claude/skills/auth-implementation-patterns/SKILL.md`
+  - score: 215
+  - reasons: filename:skill.md+120; filename-token:skill+45; path-token:skills+50
+- `antigravity-awesome-skills-main/plugins/antigravity-awesome-skills-claude/skills/avalonia-viewmodels-zafiro/SKILL.md`
+  - score: 215
+  - reasons: filename:skill.md+120; filename-token:skill+45; path-token:skills+50
+- `antigravity-awesome-skills-main/plugins/antigravity-awesome-skills-claude/skills/avalonia-zafiro-development/SKILL.md`
+  - score: 215
+  - reasons: filename:skill.md+120; filename-token:skill+45; path-token:skills+50
+- `antigravity-awesome-skills-main/plugins/antigravity-awesome-skills-claude/skills/aws-skills/SKILL.md`
+  - score: 215
+  - reasons: filename:skill.md+120; filename-token:skill+45; path-token:skills+50
+- `antigravity-awesome-skills-main/plugins/antigravity-awesome-skills-claude/skills/awt-e2e-testing/SKILL.md`
+  - score: 215
+  - reasons: filename:skill.md+120; filename-token:skill+45; path-token:skills+50
+- `antigravity-awesome-skills-main/plugins/antigravity-awesome-skills-claude/skills/azure-ai-transcription-py/SKILL.md`
+  - score: 215
+  - reasons: filename:skill.md+120; filename-token:skill+45; path-token:skills+50
+- `antigravity-awesome-skills-main/plugins/antigravity-awesome-skills-claude/skills/backtesting-frameworks/SKILL.md`
+  - score: 215
+  - reasons: filename:skill.md+120; filename-token:skill+45; path-token:skills+50
+- `antigravity-awesome-skills-main/plugins/antigravity-awesome-skills-claude/skills/bash-defensive-patterns/SKILL.md`
+  - score: 215
+  - reasons: filename:skill.md+120; filename-token:skill+45; path-token:skills+50
+- `antigravity-awesome-skills-main/plugins/antigravity-awesome-skills-claude/skills/bats-testing-patterns/SKILL.md`
+  - score: 215
+  - reasons: filename:skill.md+120; filename-token:skill+45; path-token:skills+50
+- `antigravity-awesome-skills-main/plugins/antigravity-awesome-skills-claude/skills/billing-automation/SKILL.md`
+  - score: 215
+  - reasons: filename:skill.md+120; filename-token:skill+45; path-token:skills+50
+- `antigravity-awesome-skills-main/plugins/antigravity-awesome-skills/skills/accessibility-compliance-accessibility-audit/SKILL.md`
+  - score: 215
+  - reasons: filename:skill.md+120; filename-token:skill+45; path-token:skills+50
+- `antigravity-awesome-skills-main/plugins/antigravity-awesome-skills/skills/accesslint-scan/SKILL.md`
+  - score: 215
+  - reasons: filename:skill.md+120; filename-token:skill+45; path-token:skills+50
+- `antigravity-awesome-skills-main/plugins/antigravity-awesome-skills/skills/address-github-comments/SKILL.md`
+  - score: 215
+  - reasons: filename:skill.md+120; filename-token:skill+45; path-token:skills+50
+- `antigravity-awesome-skills-main/plugins/antigravity-awesome-skills/skills/agent-manager-skill/SKILL.md`
+  - score: 215
+  - reasons: filename:skill.md+120; filename-token:skill+45; path-token:skills+50
+- `antigravity-awesome-skills-main/plugins/antigravity-awesome-skills/skills/airflow-dag-patterns/SKILL.md`
+  - score: 215
+  - reasons: filename:skill.md+120; filename-token:skill+45; path-token:skills+50
+- `antigravity-awesome-skills-main/plugins/antigravity-awesome-skills/skills/akf-trust-metadata/SKILL.md`
+  - score: 215
+  - reasons: filename:skill.md+120; filename-token:skill+45; path-token:skills+50
+- `antigravity-awesome-skills-main/plugins/antigravity-awesome-skills/skills/anti-reversing-techniques/SKILL.md`
+  - score: 215
+  - reasons: filename:skill.md+120; filename-token:skill+45; path-token:skills+50
+- `antigravity-awesome-skills-main/plugins/antigravity-awesome-skills/skills/anti-sycophancy/SKILL.md`
+  - score: 215
+  - reasons: filename:skill.md+120; filename-token:skill+45; path-token:skills+50
+- `antigravity-awesome-skills-main/plugins/antigravity-awesome-skills/skills/api-design-principles/SKILL.md`
+  - score: 215
+  - reasons: filename:skill.md+120; filename-token:skill+45; path-token:skills+50
+- `antigravity-awesome-skills-main/plugins/antigravity-awesome-skills/skills/api-testing-observability-api-mock/SKILL.md`
+  - score: 215
+  - reasons: filename:skill.md+120; filename-token:skill+45; path-token:skills+50
+- `antigravity-awesome-skills-main/plugins/antigravity-awesome-skills/skills/architecture-patterns/SKILL.md`
+  - score: 215
+  - reasons: filename:skill.md+120; filename-token:skill+45; path-token:skills+50
+- `antigravity-awesome-skills-main/plugins/antigravity-awesome-skills/skills/architecture/SKILL.md`
+  - score: 215
+  - reasons: filename:skill.md+120; filename-token:skill+45; path-token:skills+50
+- `antigravity-awesome-skills-main/plugins/antigravity-awesome-skills/skills/async-python-patterns/SKILL.md`
+  - score: 215
+  - reasons: filename:skill.md+120; filename-token:skill+45; path-token:skills+50
+- `antigravity-awesome-skills-main/plugins/antigravity-awesome-skills/skills/attack-tree-construction/SKILL.md`
+  - score: 215
+  - reasons: filename:skill.md+120; filename-token:skill+45; path-token:skills+50
+- `antigravity-awesome-skills-main/plugins/antigravity-awesome-skills/skills/auth-implementation-patterns/SKILL.md`
+  - score: 215
+  - reasons: filename:skill.md+120; filename-token:skill+45; path-token:skills+50
+- `antigravity-awesome-skills-main/plugins/antigravity-awesome-skills/skills/avalonia-viewmodels-zafiro/SKILL.md`
+  - score: 215
+  - reasons: filename:skill.md+120; filename-token:skill+45; path-token:skills+50
+- `antigravity-awesome-skills-main/plugins/antigravity-awesome-skills/skills/avalonia-zafiro-development/SKILL.md`
+  - score: 215
+  - reasons: filename:skill.md+120; filename-token:skill+45; path-token:skills+50
+- `antigravity-awesome-skills-main/plugins/antigravity-awesome-skills/skills/aws-skills/SKILL.md`
+  - score: 215
+  - reasons: filename:skill.md+120; filename-token:skill+45; path-token:skills+50
+- `antigravity-awesome-skills-main/plugins/antigravity-awesome-skills/skills/awt-e2e-testing/SKILL.md`
+  - score: 215
+  - reasons: filename:skill.md+120; filename-token:skill+45; path-token:skills+50
+- `antigravity-awesome-skills-main/plugins/antigravity-awesome-skills/skills/azure-ai-transcription-py/SKILL.md`
+  - score: 215
+  - reasons: filename:skill.md+120; filename-token:skill+45; path-token:skills+50
+- `antigravity-awesome-skills-main/plugins/antigravity-awesome-skills/skills/backtesting-frameworks/SKILL.md`
+  - score: 215
+  - reasons: filename:skill.md+120; filename-token:skill+45; path-token:skills+50
+- `antigravity-awesome-skills-main/plugins/antigravity-awesome-skills/skills/bash-defensive-patterns/SKILL.md`
+  - score: 215
+  - reasons: filename:skill.md+120; filename-token:skill+45; path-token:skills+50
+- `antigravity-awesome-skills-main/plugins/antigravity-awesome-skills/skills/bats-testing-patterns/SKILL.md`
+  - score: 215
+  - reasons: filename:skill.md+120; filename-token:skill+45; path-token:skills+50
+- `antigravity-awesome-skills-main/plugins/antigravity-awesome-skills/skills/billing-automation/SKILL.md`
+  - score: 215
+  - reasons: filename:skill.md+120; filename-token:skill+45; path-token:skills+50
+
+## Large Files Requiring Separate Handling
+
+- `antigravity-awesome-skills-main/data/catalog.json`: 1111125 bytes
+- `antigravity-awesome-skills-main/data/skills_index.json`: 1067666 bytes
+- `antigravity-awesome-skills-main/skills_index.json`: 1067666 bytes
+- `antigravity-awesome-skills-main/data/plugin-compatibility.json`: 680162 bytes
+
+## Suggested Next Questions
+
+- Should this corpus get only a curated-source allowlist, or also a local lexical search index?
+- Are databases/exports present that need schema-specific extractors?
+- Which project-specific keyword groups should be added before the next scan?
