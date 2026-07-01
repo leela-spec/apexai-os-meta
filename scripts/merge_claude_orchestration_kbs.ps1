@@ -10,10 +10,10 @@ $ErrorActionPreference = "Stop"
 
 function UtcStamp { (Get-Date).ToUniversalTime().ToString("yyyyMMdd_HHmmss") }
 function UtcIso { (Get-Date).ToUniversalTime().ToString("yyyy-MM-ddTHH:mm:ssZ") }
-function FullPath($p) { [System.IO.Path]::GetFullPath($p) }
-function RelPath($p) { [System.IO.Path]::GetRelativePath((Get-Location).Path, (FullPath $p)).Replace("\", "/") }
-function EnsureDir($p) { if (-not $DryRun -and -not (Test-Path -LiteralPath $p -PathType Container)) { New-Item -ItemType Directory -Path $p -Force | Out-Null } }
-function Sha256($p) { if (Test-Path -LiteralPath $p -PathType Leaf) { (Get-FileHash -LiteralPath $p -Algorithm SHA256).Hash.ToLowerInvariant() } else { $null } }
+function FullPath([string]$p) { [System.IO.Path]::GetFullPath($p) }
+function RelPath([string]$p) { [System.IO.Path]::GetRelativePath((Get-Location).Path, (FullPath $p)).Replace("\", "/") }
+function EnsureDir([string]$p) { if (-not $DryRun -and -not (Test-Path -LiteralPath $p -PathType Container)) { New-Item -ItemType Directory -Path $p -Force | Out-Null } }
+function Sha256([string]$p) { if (Test-Path -LiteralPath $p -PathType Leaf) { return (Get-FileHash -LiteralPath $p -Algorithm SHA256).Hash.ToLowerInvariant() }; return $null }
 
 function RootScore($root) {
   $name = $root.Name.ToLowerInvariant()
@@ -21,7 +21,11 @@ function RootScore($root) {
   foreach ($n in @("kb-schema.md", "README.md", "source-manifest.json", "source-inventory.json")) {
     $p = Join-Path $root.FullName $n
     if (Test-Path -LiteralPath $p -PathType Leaf) {
-      try { $sample += "`n" + ((Get-Content -LiteralPath $p -Raw -Encoding UTF8).Substring(0, [Math]::Min(30000, (Get-Item $p).Length))) } catch {}
+      try {
+        $txt = Get-Content -LiteralPath $p -Raw -Encoding UTF8
+        if ($txt.Length -gt 30000) { $txt = $txt.Substring(0, 30000) }
+        $sample += "`n" + $txt
+      } catch {}
     }
   }
   $hay = ($name + "`n" + $sample).ToLowerInvariant()
@@ -32,12 +36,12 @@ function RootScore($root) {
     @("workflow",3), @("prompt",3), @("hook",2), @("subagent",3),
     @("claude code",5), @("skill package",5), @("agent skills",5)
   )) {
-    if ($hay.Contains($x[0])) { $score += [int]$x[1]; $reasons += $x[0] }
+    if ($hay.Contains([string]$x[0])) { $score += [int]$x[1]; $reasons += [string]$x[0] }
   }
-  [pscustomobject]@{ score = $score; reasons = @($reasons | Select-Object -Unique) }
+  return [pscustomobject]@{ score = $score; reasons = @($reasons | Select-Object -Unique) }
 }
 
-function DomainHints($name) {
+function DomainHints([string]$name) {
   $n = $name.ToLowerInvariant()
   $d = @()
   if ($n -match "skill") { $d += "skill-package-design" }
@@ -47,7 +51,7 @@ function DomainHints($name) {
   if ($n -match "prompt") { $d += "prompt-pack-and-artifact-contracts" }
   if ($n -match "claude|orchestrat") { $d += "external-repo-patterns" }
   if ($d.Count -eq 0) { $d += "external-repo-patterns" }
-  @($d | Select-Object -Unique)
+  return @($d | Select-Object -Unique)
 }
 
 function WriteTextSafe($path, $text, $stamp, $ledger, $role) {
@@ -56,11 +60,12 @@ function WriteTextSafe($path, $text, $stamp, $ledger, $role) {
   $action = "created"
   if (Test-Path -LiteralPath $path -PathType Leaf) {
     $old = Get-Content -LiteralPath $path -Raw -Encoding UTF8
-    if ($old -eq $text) { $action = "skipped_identical" }
-    else { $target = "$path.incoming.$stamp"; $action = "conflict_preserved_as_incoming" }
+    if ($old -eq $text) { $action = "skipped_identical" } else { $target = "$path.incoming.$stamp"; $action = "conflict_preserved_as_incoming" }
   }
   if (-not $DryRun -and $action -ne "skipped_identical") { Set-Content -LiteralPath $target -Value $text -Encoding UTF8 -NoNewline }
-  $ledger.Add([pscustomobject]@{ role=$role; action=$action; source=$null; target=(RelPath $target); bytes=[Text.Encoding]::UTF8.GetByteCount($text); sha256=(if((-not $DryRun) -and (Test-Path $target)){Sha256 $target}else{$null}) })
+  $outHash = $null
+  if ((-not $DryRun) -and (Test-Path -LiteralPath $target -PathType Leaf)) { $outHash = Sha256 $target }
+  $ledger.Add([pscustomobject]@{ role=$role; action=$action; source=$null; target=(RelPath $target); bytes=[Text.Encoding]::UTF8.GetByteCount($text); sha256=$outHash })
 }
 
 function CopyRoot($sourceRoot, $targetRoot, $stamp, $ledger) {
@@ -84,7 +89,7 @@ function CopyRoot($sourceRoot, $targetRoot, $stamp, $ledger) {
     }
     if ($action -ne "copied") { $ledger.Add([pscustomobject]@{ role="source_copy"; action=$action; source=(RelPath $f.FullName); target=(RelPath $final); bytes=$f.Length; source_sha256=$srcHash }) }
   }
-  [pscustomobject]@{ source_root=(RelPath $sourceRoot.FullName); target_root=(RelPath $targetRoot); file_count=$files.Count; bytes_total=$bytes; files_copied=$copied; files_skipped_identical=$skipped; conflicts=$conflicts }
+  return [pscustomobject]@{ source_root=(RelPath $sourceRoot.FullName); target_root=(RelPath $targetRoot); file_count=$files.Count; bytes_total=$bytes; files_copied=$copied; files_skipped_identical=$skipped; conflicts=$conflicts }
 }
 
 $stamp = UtcStamp
@@ -106,8 +111,8 @@ $summaries = [System.Collections.Generic.List[object]]::new()
 $sourceMap = [System.Collections.Generic.List[object]]::new()
 $missing = [System.Collections.Generic.List[string]]::new()
 
-$dirs = @($dest,$rawGroups,$migration,(Join-Path $dest "wiki/summaries"),(Join-Path $dest "wiki/concepts"),(Join-Path $dest "wiki/entities"),(Join-Path $dest "ingest-analysis"),(Join-Path $dest "audit"),(Join-Path $dest "log"),(Join-Path $dest "derived/search"),(Join-Path $dest "outputs/queries"))
 $domains = @("skill-package-design","agent-subagent-design","workflow-design","commands-hooks-rules-memory","prompt-pack-and-artifact-contracts","apex-application-patterns","external-repo-patterns")
+$dirs = @($dest,$rawGroups,$migration,(Join-Path $dest "wiki/summaries"),(Join-Path $dest "wiki/concepts"),(Join-Path $dest "wiki/entities"),(Join-Path $dest "ingest-analysis"),(Join-Path $dest "audit"),(Join-Path $dest "log"),(Join-Path $dest "derived/search"),(Join-Path $dest "outputs/queries"))
 foreach ($d in $domains) { $dirs += (Join-Path $dest "domains/$d") }
 foreach ($d in $dirs) { EnsureDir $d }
 
@@ -154,13 +159,11 @@ foreach ($name in ($expectedCore + $expectedOptional)) {
   if (Test-Path -LiteralPath $p -PathType Container) { $candidates[$name] = Get-Item -LiteralPath $p }
   elseif ($expectedCore -contains $name) { $missing.Add("$KbRoot/$name") }
 }
-
 foreach ($child in @(Get-ChildItem -LiteralPath $kbRootAbs -Directory -Force | Where-Object { $_.Name -ne $DestinationSlug -and $_.Name -ne "_source-acquisitions" })) {
   if ($candidates.ContainsKey($child.Name)) { continue }
   $sc = RootScore $child
   if ($sc.score -ge 7) { $candidates[$child.Name] = $child }
 }
-
 $acq = Join-Path $kbRootAbs "_source-acquisitions"
 if (Test-Path -LiteralPath $acq -PathType Container) {
   foreach ($child in @(Get-ChildItem -LiteralPath $acq -Directory -Force)) {
@@ -180,7 +183,10 @@ foreach ($key in ($candidates.Keys | Sort-Object)) {
 
 $hashRows = [System.Collections.Generic.List[object]]::new()
 if (Test-Path -LiteralPath $rawGroups -PathType Container) {
-  foreach ($f in @(Get-ChildItem -LiteralPath $rawGroups -Recurse -File -Force -ErrorAction SilentlyContinue)) { $h = Sha256 $f.FullName; if ($h) { $hashRows.Add([pscustomobject]@{ hash=$h; path=(RelPath $f.FullName); bytes=$f.Length }) } }
+  foreach ($f in @(Get-ChildItem -LiteralPath $rawGroups -Recurse -File -Force -ErrorAction SilentlyContinue)) {
+    $h = Sha256 $f.FullName
+    if ($h) { $hashRows.Add([pscustomobject]@{ hash=$h; path=(RelPath $f.FullName); bytes=$f.Length }) }
+  }
 }
 $dupes = @($hashRows | Group-Object hash | Where-Object { $_.Count -gt 1 } | ForEach-Object { [pscustomobject]@{ sha256=$_.Name; count=$_.Count; paths=@($_.Group | Select-Object -ExpandProperty path) } })
 $conflicts = @($ledger | Where-Object { $_.action -eq "conflict_preserved_as_incoming" })
@@ -190,10 +196,13 @@ $copyLedger = [pscustomobject]@{ generated_at=$now; dry_run=[bool]$DryRun; desti
 
 $mapMd = "# Source Root Map`n`n| Source root | Score | Domains | Reasons | Target |`n|---|---:|---|---|---|`n"
 foreach ($r in $sourceMap) { $mapMd += "| ``$($r.source_root)`` | $($r.score) | ``$([string]::Join(', ', $r.domains))`` | ``$([string]::Join(', ', $r.reasons))`` | ``$($r.target_root)`` |`n" }
-
 $ledgerMd = "# Copy Ledger`n`n| Source root | Files | Bytes | Copied | Skipped identical | Conflicts |`n|---|---:|---:|---:|---:|---:|`n"
 foreach ($s in $summaries) { $ledgerMd += "| ``$($s.source_root)`` | $($s.file_count) | $($s.bytes_total) | $($s.files_copied) | $($s.files_skipped_identical) | $($s.conflicts) |`n" }
 
+$verdictText = if ($missing.Count -eq 0 -and $conflicts.Count -eq 0) { "PASS" } else { "PARTIAL" }
+$missingText = if ($missing.Count -eq 0) { "None." } else { ($missing | ForEach-Object { "- ``$_``" }) -join "`n" }
+$conflictText = if ($conflicts.Count -eq 0) { "None." } else { ($conflicts | Select-Object -First 200 | ForEach-Object { "- ``$($_.target)``" }) -join "`n" }
+$destRel = RelPath $dest
 $report = @"
 # Claude Code Orchestration Design KB Migration Report
 
@@ -201,13 +210,13 @@ Generated: ``$now``
 
 ## Verdict
 
-$(if($missing.Count -eq 0 -and $conflicts.Count -eq 0){"PASS"}else{"PARTIAL"})
+$verdictText
 
 ## Git context
 
 ````yaml
 branch: $branch
-destination_root: $(RelPath $dest)
+destination_root: $destRel
 lifecycle_executed: false
 phase1_executed: false
 phase2_executed: false
@@ -222,7 +231,7 @@ $statusBefore
 
 ## Missing expected roots
 
-$(if($missing.Count -eq 0){"None."}else{($missing | ForEach-Object { "- ``$_``" }) -join "`n"})
+$missingText
 
 ## Included source roots
 
@@ -234,7 +243,7 @@ $ledgerMd
 
 ## Conflicts
 
-$(if($conflicts.Count -eq 0){"None."}else{($conflicts | Select-Object -First 200 | ForEach-Object { "- ``$($_.target)``" }) -join "`n"})
+$conflictText
 
 ## Duplicate hash groups
 
