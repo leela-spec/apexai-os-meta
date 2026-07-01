@@ -1,0 +1,986 @@
+{
+  "exclude": [
+    {
+      "reason": "Mostly duplicate copies of top-level antigravity skills; import cleaner top-level skills first.",
+      "repo_path": "antigravity-awesome-skills-main/plugins/antigravity-awesome-skills-claude/skills/*"
+    },
+    {
+      "reason": "Mostly duplicate plugin copies of top-level skills; avoid duplicate import pollution.",
+      "repo_path": "antigravity-awesome-skills-main/plugins/antigravity-awesome-skills/skills/*"
+    },
+    {
+      "reason": "Bundle copies duplicate canonical/top-level skill examples unless package architecture is specifically under review.",
+      "repo_path": "antigravity-awesome-skills-main/plugins/antigravity-bundle-*/skills/*"
+    },
+    {
+      "reason": "Large generated catalog skipped by byte limit; use schema-specific extractor later if needed.",
+      "repo_path": "antigravity-awesome-skills-main/data/catalog.json"
+    },
+    {
+      "reason": "Large generated skill index; do not import raw JSON catalog into KB sources.",
+      "repo_path": "antigravity-awesome-skills-main/data/skills_index.json"
+    },
+    {
+      "reason": "Duplicate/generated skill index; not a curated source file.",
+      "repo_path": "antigravity-awesome-skills-main/skills_index.json"
+    },
+    {
+      "reason": "Binary/assets and screenshots; not text evidence for skill design.",
+      "repo_path": "crewAI-main/docs/images/*"
+    },
+    {
+      "reason": "Large generated docs index; schema-specific extraction required before use.",
+      "repo_path": "crewAI-main/docs/docs.json"
+    },
+    {
+      "reason": "Test cassette data; not skill-package design evidence.",
+      "repo_path": "crewAI-main/lib/crewai/tests/cassettes/*"
+    },
+    {
+      "reason": "Large task-management data; project-management artifact, not skill package design.",
+      "repo_path": "claude-task-master-main/.taskmaster/tasks/tasks.json"
+    },
+    {
+      "reason": "Build/dependency lockfile; exclude.",
+      "repo_path": "claude-task-master-main/package-lock.json"
+    },
+    {
+      "reason": "Project/task management family absent from top candidate set; include only if later studying process tooling, not Claude skill packaging.",
+      "repo_path": "backlog-main/*"
+    },
+    {
+      "reason": "Project-management/process framework; not core for Claude Skill Design KB.",
+      "repo_path": "ccpm-main/*"
+    },
+    {
+      "reason": "Media assets; exclude from text KB import.",
+      "repo_path": "planning-with-files-master/media/*"
+    },
+    {
+      "reason": "Generated dependency trees; never import.",
+      "repo_path": "source-knowledge/ProjectRepos/**/node_modules/**"
+    },
+    {
+      "reason": "Git internals; never import.",
+      "repo_path": "source-knowledge/ProjectRepos/**/.git/**"
+    },
+    {
+      "reason": "Binary assets/fonts/media; not text source evidence.",
+      "repo_path": "source-knowledge/ProjectRepos/**/*.png|*.jpg|*.jpeg|*.gif|*.mov|*.mp4|*.ttf|*.woff*"
+    },
+    {
+      "reason": "Only include code when it explains skill package boundaries; generic app implementation is pollution.",
+      "repo_path": "generic app source code under antigravity/crewAI/other repos"
+    }
+  ],
+  "include_first": [
+    {
+      "bucket": "skill_package_examples",
+      "destination_group": "skill_package_examples",
+      "expected_kb_value": "Shows how a skill about skill creation frames scope, triggers, and workflow.",
+      "h1": "Skill Writer",
+      "priority": 1,
+      "reason": "Directly about writing skills; high-value meta example for SKILL.md authoring.",
+      "repo": "antigravity-awesome-skills-main",
+      "risk": "low",
+      "score": 351,
+      "size_bytes": 5063,
+      "source_path": "antigravity-awesome-skills-main/skills/skill-writer/SKILL.md"
+    },
+    {
+      "bucket": "skill_package_examples",
+      "destination_group": "skill_package_examples",
+      "expected_kb_value": "Helps define user-facing skill behavior and boundaries.",
+      "h1": "Using Skills",
+      "priority": 1,
+      "reason": "Directly about using skills; strong evidence for skill activation and usage patterns.",
+      "repo": "antigravity-awesome-skills-main",
+      "risk": "low",
+      "score": 351,
+      "size_bytes": 4279,
+      "source_path": "antigravity-awesome-skills-main/skills/using-superpowers/SKILL.md"
+    },
+    {
+      "bucket": "skill_quality_and_evaluation",
+      "destination_group": "skill_quality_and_evaluation",
+      "expected_kb_value": "Useful for evaluation criteria and bad-pattern detection.",
+      "h1": "SkillCheck",
+      "priority": 1,
+      "reason": "Skill quality/checking package surfaced by deterministic ranking.",
+      "repo": "antigravity-awesome-skills-main",
+      "risk": "low",
+      "score": 351,
+      "size_bytes": 4338,
+      "source_path": "antigravity-awesome-skills-main/skills/skill-check/SKILL.md"
+    },
+    {
+      "bucket": "skill_quality_and_evaluation",
+      "destination_group": "skill_quality_and_evaluation",
+      "expected_kb_value": "Likely strongest external evaluation/linting source in ProjectRepos.",
+      "h1": null,
+      "priority": 1,
+      "reason": "Dedicated skillcheck repo candidate.",
+      "repo": "skillcheck",
+      "risk": "low",
+      "score": 323,
+      "size_bytes": 3899,
+      "source_path": "skillcheck/skills/skillcheck/SKILL.md"
+    },
+    {
+      "bucket": "skill_quality_and_evaluation",
+      "destination_group": "skill_quality_and_evaluation",
+      "expected_kb_value": "Gives concrete pass-case evidence for minimum expected structure.",
+      "h1": null,
+      "priority": 1,
+      "reason": "Valid fixture for skill parsing/validation.",
+      "repo": "crewAI-main",
+      "risk": "low",
+      "score": 271,
+      "size_bytes": 406,
+      "source_path": "crewAI-main/lib/crewai/tests/skills/fixtures/valid-skill/SKILL.md"
+    },
+    {
+      "bucket": "skill_quality_and_evaluation",
+      "destination_group": "skill_quality_and_evaluation",
+      "expected_kb_value": "Clarifies lower bound of acceptable skill package shape.",
+      "h1": null,
+      "priority": 1,
+      "reason": "Minimal fixture for skill parsing/validation.",
+      "repo": "crewAI-main",
+      "risk": "low",
+      "score": 223,
+      "size_bytes": 84,
+      "source_path": "crewAI-main/lib/crewai/tests/skills/fixtures/minimal-skill/SKILL.md"
+    },
+    {
+      "bucket": "skill_quality_and_evaluation",
+      "destination_group": "skill_quality_and_evaluation",
+      "expected_kb_value": "Useful negative example for lint/rubric design.",
+      "h1": null,
+      "priority": 1,
+      "reason": "Invalid fixture for skill parsing/validation.",
+      "repo": "crewAI-main",
+      "risk": "low",
+      "score": 219,
+      "size_bytes": 73,
+      "source_path": "crewAI-main/lib/crewai/tests/skills/fixtures/invalid-name/SKILL.md"
+    },
+    {
+      "bucket": "subskill_or_package_architecture",
+      "destination_group": "subskill_or_package_architecture",
+      "expected_kb_value": "Useful for package metadata and source manifest boundaries.",
+      "h1": "Manifest Setup",
+      "priority": 1,
+      "reason": "Manifest-focused skill package.",
+      "repo": "antigravity-awesome-skills-main",
+      "risk": "low",
+      "score": 323,
+      "size_bytes": 3835,
+      "source_path": "antigravity-awesome-skills-main/skills/manifest/SKILL.md"
+    },
+    {
+      "bucket": "tool_script_boundaries",
+      "destination_group": "tool_script_boundaries",
+      "expected_kb_value": "Shows how references can be created and routed as supporting material.",
+      "h1": null,
+      "priority": 1,
+      "reason": "Reference-building package.",
+      "repo": "antigravity-awesome-skills-main",
+      "risk": "low",
+      "score": 323,
+      "size_bytes": 5552,
+      "source_path": "antigravity-awesome-skills-main/skills/reference-builder/SKILL.md"
+    },
+    {
+      "bucket": "subskill_or_package_architecture",
+      "destination_group": "subskill_or_package_architecture",
+      "expected_kb_value": "Evidence for nested package/subskill-like organization.",
+      "h1": "Project Templates",
+      "priority": 1,
+      "reason": "Nested templates skill under a larger package path.",
+      "repo": "antigravity-awesome-skills-main",
+      "risk": "low",
+      "score": 295,
+      "size_bytes": 2034,
+      "source_path": "antigravity-awesome-skills-main/skills/app-builder/templates/SKILL.md"
+    },
+    {
+      "bucket": "subskill_or_package_architecture",
+      "destination_group": "subskill_or_package_architecture",
+      "expected_kb_value": "Useful for template folder semantics and reusable artifacts.",
+      "h1": "Documentation Templates",
+      "priority": 1,
+      "reason": "Template-oriented package.",
+      "repo": "antigravity-awesome-skills-main",
+      "risk": "low",
+      "score": 291,
+      "size_bytes": 3715,
+      "source_path": "antigravity-awesome-skills-main/skills/documentation-templates/SKILL.md"
+    },
+    {
+      "bucket": "skill_package_examples",
+      "destination_group": "skill_package_examples",
+      "expected_kb_value": "Representative high-signal workflow skill for agent design.",
+      "h1": "AI Agent Development Workflow",
+      "priority": 1,
+      "reason": "Highest ranked agent-development skill.",
+      "repo": "antigravity-awesome-skills-main",
+      "risk": "low",
+      "score": 451,
+      "size_bytes": 4066,
+      "source_path": "antigravity-awesome-skills-main/skills/ai-agent-development/SKILL.md"
+    },
+    {
+      "bucket": "skill_package_examples",
+      "destination_group": "skill_package_examples",
+      "expected_kb_value": "Shows bundle-style skill description and documentation workflow framing.",
+      "h1": "Documentation Workflow Bundle",
+      "priority": 1,
+      "reason": "High-ranked documentation workflow bundle.",
+      "repo": "antigravity-awesome-skills-main",
+      "risk": "low",
+      "score": 427,
+      "size_bytes": 5665,
+      "source_path": "antigravity-awesome-skills-main/skills/documentation/SKILL.md"
+    },
+    {
+      "bucket": "skill_package_examples",
+      "destination_group": "skill_package_examples",
+      "expected_kb_value": "Relevant to KB/retrieval skill design and reference use.",
+      "h1": "RAG Implementation Workflow",
+      "priority": 1,
+      "reason": "High-ranked RAG implementation workflow.",
+      "repo": "antigravity-awesome-skills-main",
+      "risk": "low",
+      "score": 419,
+      "size_bytes": 4603,
+      "source_path": "antigravity-awesome-skills-main/skills/rag-implementation/SKILL.md"
+    },
+    {
+      "bucket": "skill_quality_and_evaluation",
+      "destination_group": "skill_quality_and_evaluation",
+      "expected_kb_value": "Useful for quality, trace, and completion-audit patterns.",
+      "h1": "agenttrace Session Audit",
+      "priority": 1,
+      "reason": "Audit/session package with high agent signal.",
+      "repo": "antigravity-awesome-skills-main",
+      "risk": "low",
+      "score": 415,
+      "size_bytes": 5787,
+      "source_path": "antigravity-awesome-skills-main/skills/agenttrace-session-audit/SKILL.md"
+    },
+    {
+      "bucket": "comparative_agent_frameworks",
+      "destination_group": "comparative_agent_frameworks",
+      "expected_kb_value": "Transfers orchestration ideas into skill-package boundaries.",
+      "h1": "Native Parallel Agents",
+      "priority": 1,
+      "reason": "Parallel agent package with strong agent/workflow signal.",
+      "repo": "antigravity-awesome-skills-main",
+      "risk": "low",
+      "score": 411,
+      "size_bytes": 5681,
+      "source_path": "antigravity-awesome-skills-main/skills/parallel-agents/SKILL.md"
+    },
+    {
+      "bucket": "skill_quality_and_evaluation",
+      "destination_group": "skill_quality_and_evaluation",
+      "expected_kb_value": "Supports evaluation, validation, and QA sections of the KB.",
+      "h1": "Testing/QA Workflow Bundle",
+      "priority": 1,
+      "reason": "Testing/QA workflow bundle.",
+      "repo": "antigravity-awesome-skills-main",
+      "risk": "low",
+      "score": 403,
+      "size_bytes": 5189,
+      "source_path": "antigravity-awesome-skills-main/skills/testing-qa/SKILL.md"
+    },
+    {
+      "bucket": "prompt_and_instruction_design",
+      "destination_group": "prompt_and_instruction_design",
+      "expected_kb_value": "Useful for instruction sequencing and task-plan prompt structure.",
+      "h1": "Writing Plans",
+      "priority": 1,
+      "reason": "Planning/instruction skill with strong workflow signal.",
+      "repo": "antigravity-awesome-skills-main",
+      "risk": "low",
+      "score": 403,
+      "size_bytes": 3746,
+      "source_path": "antigravity-awesome-skills-main/skills/writing-plans/SKILL.md"
+    },
+    {
+      "bucket": "skill_quality_and_evaluation",
+      "destination_group": "skill_quality_and_evaluation",
+      "expected_kb_value": "Good exemplar for safety/risk-oriented skill behavior.",
+      "h1": "Security Auditing Workflow Bundle",
+      "priority": 1,
+      "reason": "Security auditing workflow bundle.",
+      "repo": "antigravity-awesome-skills-main",
+      "risk": "low",
+      "score": 399,
+      "size_bytes": 5514,
+      "source_path": "antigravity-awesome-skills-main/skills/security-audit/SKILL.md"
+    },
+    {
+      "bucket": "skill_quality_and_evaluation",
+      "destination_group": "skill_quality_and_evaluation",
+      "expected_kb_value": "Supports evaluation and tool-boundary examples.",
+      "h1": "API Security Testing Workflow",
+      "priority": 1,
+      "reason": "API security testing workflow.",
+      "repo": "antigravity-awesome-skills-main",
+      "risk": "low",
+      "score": 399,
+      "size_bytes": 3925,
+      "source_path": "antigravity-awesome-skills-main/skills/api-security-testing/SKILL.md"
+    },
+    {
+      "bucket": "tool_script_boundaries",
+      "destination_group": "tool_script_boundaries",
+      "expected_kb_value": "Strong source for tools/connectors and skill-tool boundaries.",
+      "h1": "MCP Tool Developer",
+      "priority": 1,
+      "reason": "MCP tool developer skill.",
+      "repo": "antigravity-awesome-skills-main",
+      "risk": "low",
+      "score": 371,
+      "size_bytes": 4867,
+      "source_path": "antigravity-awesome-skills-main/skills/mcp-tool-developer/SKILL.md"
+    },
+    {
+      "bucket": "tool_script_boundaries",
+      "destination_group": "tool_script_boundaries",
+      "expected_kb_value": "Concrete example of command/tool usage boundaries.",
+      "h1": "RunAPI CLI",
+      "priority": 1,
+      "reason": "CLI-oriented skill package.",
+      "repo": "antigravity-awesome-skills-main",
+      "risk": "low",
+      "score": 383,
+      "size_bytes": 4611,
+      "source_path": "antigravity-awesome-skills-main/skills/runapi-cli/SKILL.md"
+    },
+    {
+      "bucket": "tool_script_boundaries",
+      "destination_group": "tool_script_boundaries",
+      "expected_kb_value": "Likely useful for safe allowed-tools and command discipline.",
+      "h1": "Tool Use Guardian",
+      "priority": 1,
+      "reason": "Tool-use governance package.",
+      "repo": "antigravity-awesome-skills-main",
+      "risk": "low",
+      "score": 363,
+      "size_bytes": 3409,
+      "source_path": "antigravity-awesome-skills-main/skills/tool-use-guardian/SKILL.md"
+    },
+    {
+      "bucket": "subskill_or_package_architecture",
+      "destination_group": "subskill_or_package_architecture",
+      "expected_kb_value": "Useful for memory/context boundaries in skill packages.",
+      "h1": "Agent Memory Skill",
+      "priority": 1,
+      "reason": "Agent memory MCP package.",
+      "repo": "antigravity-awesome-skills-main",
+      "risk": "low",
+      "score": 363,
+      "size_bytes": 2560,
+      "source_path": "antigravity-awesome-skills-main/skills/agent-memory-mcp/SKILL.md"
+    },
+    {
+      "bucket": "subskill_or_package_architecture",
+      "destination_group": "subskill_or_package_architecture",
+      "expected_kb_value": "Potential evidence for modular memory/reference design.",
+      "h1": "Hierarchical Agent Memory (HAM)",
+      "priority": 1,
+      "reason": "Hierarchical memory package.",
+      "repo": "antigravity-awesome-skills-main",
+      "risk": "low",
+      "score": 331,
+      "size_bytes": 4662,
+      "source_path": "antigravity-awesome-skills-main/skills/hierarchical-agent-memory/SKILL.md"
+    },
+    {
+      "bucket": "comparative_agent_frameworks",
+      "destination_group": "comparative_agent_frameworks",
+      "expected_kb_value": "Transferable patterns for staged workflows and role separation.",
+      "h1": "Multi-Agent Brainstorming (Structured Design Review)",
+      "priority": 1,
+      "reason": "Structured multi-agent design review package.",
+      "repo": "antigravity-awesome-skills-main",
+      "risk": "low",
+      "score": 363,
+      "size_bytes": 5733,
+      "source_path": "antigravity-awesome-skills-main/skills/multi-agent-brainstorming/SKILL.md"
+    },
+    {
+      "bucket": "subskill_or_package_architecture",
+      "destination_group": "subskill_or_package_architecture",
+      "expected_kb_value": "Good evidence for package orchestration and nested workflow design.",
+      "h1": "Design Orchestration (Meta-Skill)",
+      "priority": 1,
+      "reason": "Meta-skill for design orchestration.",
+      "repo": "antigravity-awesome-skills-main",
+      "risk": "low",
+      "score": 335,
+      "size_bytes": 3837,
+      "source_path": "antigravity-awesome-skills-main/skills/design-orchestration/SKILL.md"
+    },
+    {
+      "bucket": "subskill_or_package_architecture",
+      "destination_group": "subskill_or_package_architecture",
+      "expected_kb_value": "May clarify dynamic workflow declaration and upstream/license metadata.",
+      "h1": "Optional: declare the upstream license if source_repo is set",
+      "priority": 1,
+      "reason": "Workflow/package metadata candidate.",
+      "repo": "antigravity-awesome-skills-main",
+      "risk": "low",
+      "score": 379,
+      "size_bytes": 4462,
+      "source_path": "antigravity-awesome-skills-main/skills/open-dynamic-workflows/SKILL.md"
+    },
+    {
+      "bucket": "prompt_and_instruction_design",
+      "destination_group": "prompt_and_instruction_design",
+      "expected_kb_value": "Useful for progressive disclosure and bounded context design.",
+      "h1": "Optional: declare the upstream license if source_repo is set",
+      "priority": 1,
+      "reason": "Context/token budgeting skill.",
+      "repo": "antigravity-awesome-skills-main",
+      "risk": "low",
+      "score": 367,
+      "size_bytes": 4629,
+      "source_path": "antigravity-awesome-skills-main/skills/recursive-context-pruning-token-budgeting/SKILL.md"
+    },
+    {
+      "bucket": "prompt_and_instruction_design",
+      "destination_group": "prompt_and_instruction_design",
+      "expected_kb_value": "Directly relevant to description/prompt/instruction design.",
+      "h1": "Prompt Optimization",
+      "priority": 1,
+      "reason": "Prompt optimization package.",
+      "repo": "antigravity-awesome-skills-main",
+      "risk": "low",
+      "score": 299,
+      "size_bytes": 1742,
+      "source_path": "antigravity-awesome-skills-main/skills/llm-application-dev-prompt-optimize/SKILL.md"
+    },
+    {
+      "bucket": "skill_quality_and_evaluation",
+      "destination_group": "skill_quality_and_evaluation",
+      "expected_kb_value": "Good source for completion gates and quality rubrics.",
+      "h1": "Verification Before Completion",
+      "priority": 1,
+      "reason": "Verification-before-completion package.",
+      "repo": "antigravity-awesome-skills-main",
+      "risk": "low",
+      "score": 343,
+      "size_bytes": 4661,
+      "source_path": "antigravity-awesome-skills-main/skills/verification-before-completion/SKILL.md"
+    },
+    {
+      "bucket": "prompt_and_instruction_design",
+      "destination_group": "prompt_and_instruction_design",
+      "expected_kb_value": "Relevant to Claude-specific instruction style and operational boundaries.",
+      "h1": "Claude Code Guide",
+      "priority": 1,
+      "reason": "Claude-code guide package.",
+      "repo": "antigravity-awesome-skills-main",
+      "risk": "low",
+      "score": 335,
+      "size_bytes": 2638,
+      "source_path": "antigravity-awesome-skills-main/skills/claude-code-guide/SKILL.md"
+    },
+    {
+      "bucket": "prompt_and_instruction_design",
+      "destination_group": "prompt_and_instruction_design",
+      "expected_kb_value": "Useful comparative instruction-file pattern for skills.",
+      "h1": "Maintaining AGENTS.md",
+      "priority": 1,
+      "reason": "AGENTS.md maintenance package.",
+      "repo": "antigravity-awesome-skills-main",
+      "risk": "low",
+      "score": 343,
+      "size_bytes": 4752,
+      "source_path": "antigravity-awesome-skills-main/skills/agents-md/SKILL.md"
+    },
+    {
+      "bucket": "skill_package_examples",
+      "destination_group": "skill_package_examples",
+      "expected_kb_value": "Representative docs-oriented package with references/tool boundaries.",
+      "h1": "API Documentation Workflow",
+      "priority": 1,
+      "reason": "API documentation workflow.",
+      "repo": "antigravity-awesome-skills-main",
+      "risk": "low",
+      "score": 379,
+      "size_bytes": 3605,
+      "source_path": "antigravity-awesome-skills-main/skills/api-documentation/SKILL.md"
+    },
+    {
+      "bucket": "skill_package_examples",
+      "destination_group": "skill_package_examples",
+      "expected_kb_value": "Useful for studying meta-skill anti/patterns.",
+      "h1": "Yao Meta Skill",
+      "priority": 1,
+      "reason": "Meta-skill with high skill-package keyword signal.",
+      "repo": "antigravity-awesome-skills-main",
+      "risk": "low",
+      "score": 379,
+      "size_bytes": 4332,
+      "source_path": "antigravity-awesome-skills-main/skills/yao-meta-skill/SKILL.md"
+    },
+    {
+      "bucket": "tool_script_boundaries",
+      "destination_group": "tool_script_boundaries",
+      "expected_kb_value": "Cross-repo example for MCP/tool skill design.",
+      "h1": "MCP Developer",
+      "priority": 1,
+      "reason": "MCP Developer skill from a separate Claude-skills repo.",
+      "repo": "claude-skills-main",
+      "risk": "low",
+      "score": 351,
+      "size_bytes": 5724,
+      "source_path": "claude-skills-main/skills/mcp-developer/SKILL.md"
+    },
+    {
+      "bucket": "skill_package_examples",
+      "destination_group": "skill_package_examples",
+      "expected_kb_value": "Compare against antigravity documentation package.",
+      "h1": "Code Documenter",
+      "priority": 1,
+      "reason": "Documentation-oriented Claude skill.",
+      "repo": "claude-skills-main",
+      "risk": "low",
+      "score": 339,
+      "size_bytes": 5496,
+      "source_path": "claude-skills-main/skills/code-documenter/SKILL.md"
+    },
+    {
+      "bucket": "skill_quality_and_evaluation",
+      "destination_group": "skill_quality_and_evaluation",
+      "expected_kb_value": "Quality/risk review example from another repo family.",
+      "h1": "Security Reviewer",
+      "priority": 1,
+      "reason": "Security reviewer Claude skill.",
+      "repo": "claude-skills-main",
+      "risk": "low",
+      "score": 339,
+      "size_bytes": 4878,
+      "source_path": "claude-skills-main/skills/security-reviewer/SKILL.md"
+    },
+    {
+      "bucket": "skill_quality_and_evaluation",
+      "destination_group": "skill_quality_and_evaluation",
+      "expected_kb_value": "Evaluation/review behavior example.",
+      "h1": "Code Reviewer",
+      "priority": 1,
+      "reason": "Code reviewer Claude skill.",
+      "repo": "claude-skills-main",
+      "risk": "low",
+      "score": 307,
+      "size_bytes": 5179,
+      "source_path": "claude-skills-main/skills/code-reviewer/SKILL.md"
+    },
+    {
+      "bucket": "tool_script_boundaries",
+      "destination_group": "tool_script_boundaries",
+      "expected_kb_value": "Good tool/command boundary comparison.",
+      "h1": "CLI Developer",
+      "priority": 1,
+      "reason": "CLI developer Claude skill.",
+      "repo": "claude-skills-main",
+      "risk": "low",
+      "score": 303,
+      "size_bytes": 4614,
+      "source_path": "claude-skills-main/skills/cli-developer/SKILL.md"
+    },
+    {
+      "bucket": "prompt_and_instruction_design",
+      "destination_group": "prompt_and_instruction_design",
+      "expected_kb_value": "Useful for source extraction and requirements-oriented prompts.",
+      "h1": "Spec Miner",
+      "priority": 1,
+      "reason": "Spec mining skill.",
+      "repo": "claude-skills-main",
+      "risk": "low",
+      "score": 319,
+      "size_bytes": 4595,
+      "source_path": "claude-skills-main/skills/spec-miner/SKILL.md"
+    },
+    {
+      "bucket": "skill_quality_and_evaluation",
+      "destination_group": "skill_quality_and_evaluation",
+      "expected_kb_value": "Cross-repo test/evaluation source.",
+      "h1": "Test Master",
+      "priority": 1,
+      "reason": "Testing-focused Claude skill.",
+      "repo": "claude-skills-main",
+      "risk": "low",
+      "score": 295,
+      "size_bytes": 5034,
+      "source_path": "claude-skills-main/skills/test-master/SKILL.md"
+    },
+    {
+      "bucket": "subskill_or_package_architecture",
+      "destination_group": "subskill_or_package_architecture",
+      "expected_kb_value": "Useful for comparing design role packaging.",
+      "h1": "Architecture Designer",
+      "priority": 1,
+      "reason": "Architecture-design Claude skill.",
+      "repo": "claude-skills-main",
+      "risk": "low",
+      "score": 295,
+      "size_bytes": 4750,
+      "source_path": "claude-skills-main/skills/architecture-designer/SKILL.md"
+    },
+    {
+      "bucket": "prompt_and_instruction_design",
+      "destination_group": "prompt_and_instruction_design",
+      "expected_kb_value": "Instruction design example for turning requirements into work.",
+      "h1": "Feature Forge",
+      "priority": 1,
+      "reason": "Feature generation/planning skill.",
+      "repo": "claude-skills-main",
+      "risk": "low",
+      "score": 299,
+      "size_bytes": 4289,
+      "source_path": "claude-skills-main/skills/feature-forge/SKILL.md"
+    },
+    {
+      "bucket": "skill_package_examples",
+      "destination_group": "skill_package_examples",
+      "expected_kb_value": "Representative real-world skill package with testing/tool angle.",
+      "h1": "Playwright Expert",
+      "priority": 1,
+      "reason": "High-ranked concrete tool/domain skill.",
+      "repo": "claude-skills-main",
+      "risk": "low",
+      "score": 355,
+      "size_bytes": 5582,
+      "source_path": "claude-skills-main/skills/playwright-expert/SKILL.md"
+    }
+  ],
+  "maybe_later": [
+    {
+      "bucket": "skill_package_examples",
+      "condition": "Representative app-development package; import if needing broader examples.",
+      "h1": "React/Next.js Development Workflow",
+      "reason": "Ranked ProjectRepos candidate not essential for first import.",
+      "repo": "antigravity-awesome-skills-main",
+      "score": 411,
+      "source_path": "antigravity-awesome-skills-main/skills/react-nextjs-development/SKILL.md"
+    },
+    {
+      "bucket": "skill_package_examples",
+      "condition": "Representative backend/API package.",
+      "h1": "Python/FastAPI Development Workflow",
+      "reason": "Ranked ProjectRepos candidate not essential for first import.",
+      "repo": "antigravity-awesome-skills-main",
+      "score": 407,
+      "source_path": "antigravity-awesome-skills-main/skills/python-fastapi-development/SKILL.md"
+    },
+    {
+      "bucket": "tool_script_boundaries",
+      "condition": "Media analysis package; useful if studying tool/reference boundaries.",
+      "h1": "Seek and Analyze Video",
+      "reason": "Ranked ProjectRepos candidate not essential for first import.",
+      "repo": "antigravity-awesome-skills-main",
+      "score": 407,
+      "source_path": "antigravity-awesome-skills-main/skills/seek-and-analyze-video/SKILL.md"
+    },
+    {
+      "bucket": "skill_package_examples",
+      "condition": "Agent/persona portfolio package; maybe useful for meta-agent examples.",
+      "h1": "AgentFolio",
+      "reason": "Ranked ProjectRepos candidate not essential for first import.",
+      "repo": "antigravity-awesome-skills-main",
+      "score": 403,
+      "source_path": "antigravity-awesome-skills-main/skills/agentfolio/SKILL.md"
+    },
+    {
+      "bucket": "skill_quality_and_evaluation",
+      "condition": "Security testing package; include if expanding safety/eval examples.",
+      "h1": "Web Security Testing Workflow",
+      "reason": "Ranked ProjectRepos candidate not essential for first import.",
+      "repo": "antigravity-awesome-skills-main",
+      "score": 391,
+      "source_path": "antigravity-awesome-skills-main/skills/web-security-testing/SKILL.md"
+    },
+    {
+      "bucket": "skill_package_examples",
+      "condition": "Database workflow bundle; representative technical package.",
+      "h1": "Database Workflow Bundle",
+      "reason": "Ranked ProjectRepos candidate not essential for first import.",
+      "repo": "antigravity-awesome-skills-main",
+      "score": 367,
+      "source_path": "antigravity-awesome-skills-main/skills/database/SKILL.md"
+    },
+    {
+      "bucket": "skill_package_examples",
+      "condition": "Concrete optimization package; useful domain example.",
+      "h1": "PostgreSQL Optimization Workflow",
+      "reason": "Ranked ProjectRepos candidate not essential for first import.",
+      "repo": "antigravity-awesome-skills-main",
+      "score": 371,
+      "source_path": "antigravity-awesome-skills-main/skills/postgresql-optimization/SKILL.md"
+    },
+    {
+      "bucket": "skill_quality_and_evaluation",
+      "condition": "Testing workflow package; include if QA coverage needs more examples.",
+      "h1": "E2E Testing Workflow",
+      "reason": "Ranked ProjectRepos candidate not essential for first import.",
+      "repo": "antigravity-awesome-skills-main",
+      "score": 363,
+      "source_path": "antigravity-awesome-skills-main/skills/e2e-testing/SKILL.md"
+    },
+    {
+      "bucket": "tool_script_boundaries",
+      "condition": "Script-heavy package; useful for command boundary analysis.",
+      "h1": "Bash Scripting Workflow",
+      "reason": "Ranked ProjectRepos candidate not essential for first import.",
+      "repo": "antigravity-awesome-skills-main",
+      "score": 363,
+      "source_path": "antigravity-awesome-skills-main/skills/bash-scripting/SKILL.md"
+    },
+    {
+      "bucket": "tool_script_boundaries",
+      "condition": "DevOps package likely to contain command/tool boundaries.",
+      "h1": "Cloud/DevOps Workflow Bundle",
+      "reason": "Ranked ProjectRepos candidate not essential for first import.",
+      "repo": "antigravity-awesome-skills-main",
+      "score": 363,
+      "source_path": "antigravity-awesome-skills-main/skills/cloud-devops/SKILL.md"
+    },
+    {
+      "bucket": "subskill_or_package_architecture",
+      "condition": "Workflow-level package; useful for architecture comparison.",
+      "h1": "Antigravity Workflows",
+      "reason": "Ranked ProjectRepos candidate not essential for first import.",
+      "repo": "antigravity-awesome-skills-main",
+      "score": 355,
+      "source_path": "antigravity-awesome-skills-main/skills/antigravity-workflows/SKILL.md"
+    },
+    {
+      "bucket": "comparative_agent_frameworks",
+      "condition": "Agent discovery package; useful but not core.",
+      "h1": "Global Chat Agent Discovery",
+      "reason": "Ranked ProjectRepos candidate not essential for first import.",
+      "repo": "antigravity-awesome-skills-main",
+      "score": 355,
+      "source_path": "antigravity-awesome-skills-main/skills/global-chat-agent-discovery/SKILL.md"
+    },
+    {
+      "bucket": "subskill_or_package_architecture",
+      "condition": "Long-context memory package; maybe useful for context design.",
+      "h1": "RecallMax — God-Tier Long-Context Memory",
+      "reason": "Ranked ProjectRepos candidate not essential for first import.",
+      "repo": "antigravity-awesome-skills-main",
+      "score": 347,
+      "source_path": "antigravity-awesome-skills-main/skills/recallmax/SKILL.md"
+    },
+    {
+      "bucket": "prompt_and_instruction_design",
+      "condition": "Knowledge extraction package; useful if source-analysis coverage is thin.",
+      "h1": "Knowledge Extraction",
+      "reason": "Ranked ProjectRepos candidate not essential for first import.",
+      "repo": "antigravity-awesome-skills-main",
+      "score": 347,
+      "source_path": "antigravity-awesome-skills-main/skills/bdistill-knowledge-extraction/SKILL.md"
+    },
+    {
+      "bucket": "skill_package_examples",
+      "condition": "Small domain skill example.",
+      "h1": "UX/UI Principles",
+      "reason": "Ranked ProjectRepos candidate not essential for first import.",
+      "repo": "antigravity-awesome-skills-main",
+      "score": 347,
+      "source_path": "antigravity-awesome-skills-main/skills/uxui-principles/SKILL.md"
+    },
+    {
+      "bucket": "comparative_agent_frameworks",
+      "condition": "Agent manager package; useful but may drift from skill design.",
+      "h1": "Antigravity Agent Manager",
+      "reason": "Ranked ProjectRepos candidate not essential for first import.",
+      "repo": "antigravity-awesome-skills-main",
+      "score": 343,
+      "source_path": "antigravity-awesome-skills-main/skills/antigravity-agent-manager/SKILL.md"
+    },
+    {
+      "bucket": "skill_quality_and_evaluation",
+      "condition": "TDD workflow source; include if evaluation needs development-process examples.",
+      "h1": "TDD Workflow",
+      "reason": "Ranked ProjectRepos candidate not essential for first import.",
+      "repo": "antigravity-awesome-skills-main",
+      "score": 331,
+      "source_path": "antigravity-awesome-skills-main/skills/tdd-workflow/SKILL.md"
+    },
+    {
+      "bucket": "skill_quality_and_evaluation",
+      "condition": "TDD package; maybe duplicate with tdd-workflow.",
+      "h1": "Test-Driven Development",
+      "reason": "Ranked ProjectRepos candidate not essential for first import.",
+      "repo": "antigravity-awesome-skills-main",
+      "score": 331,
+      "source_path": "antigravity-awesome-skills-main/skills/tdd/SKILL.md"
+    },
+    {
+      "bucket": "skill_package_examples",
+      "condition": "Role-based skill example; include only if studying personas.",
+      "h1": "Senior Architect",
+      "reason": "Ranked ProjectRepos candidate not essential for first import.",
+      "repo": "antigravity-awesome-skills-main",
+      "score": 327,
+      "source_path": "antigravity-awesome-skills-main/skills/senior-architect/SKILL.md"
+    },
+    {
+      "bucket": "skill_package_examples",
+      "condition": "Role-based fullstack package; non-core.",
+      "h1": "Senior Fullstack",
+      "reason": "Ranked ProjectRepos candidate not essential for first import.",
+      "repo": "antigravity-awesome-skills-main",
+      "score": 327,
+      "source_path": "antigravity-awesome-skills-main/skills/senior-fullstack/SKILL.md"
+    },
+    {
+      "bucket": "skill_package_examples",
+      "condition": "High-ranked concrete Claude-skill example.",
+      "h1": ".NET Core Expert",
+      "reason": "Ranked ProjectRepos candidate not essential for first import.",
+      "repo": "claude-skills-main",
+      "score": 363,
+      "source_path": "claude-skills-main/skills/dotnet-core-expert/SKILL.md"
+    },
+    {
+      "bucket": "skill_package_examples",
+      "condition": "Concrete domain skill; maybe later.",
+      "h1": "Flutter Expert",
+      "reason": "Ranked ProjectRepos candidate not essential for first import.",
+      "repo": "claude-skills-main",
+      "score": 347,
+      "source_path": "claude-skills-main/skills/flutter-expert/SKILL.md"
+    },
+    {
+      "bucket": "skill_package_examples",
+      "condition": "Concrete frontend skill; maybe later.",
+      "h1": "Vue Expert",
+      "reason": "Ranked ProjectRepos candidate not essential for first import.",
+      "repo": "claude-skills-main",
+      "score": 347,
+      "source_path": "claude-skills-main/skills/vue-expert/SKILL.md"
+    },
+    {
+      "bucket": "skill_package_examples",
+      "condition": "Concrete language skill; maybe later.",
+      "h1": "Golang Pro",
+      "reason": "Ranked ProjectRepos candidate not essential for first import.",
+      "repo": "claude-skills-main",
+      "score": 343,
+      "source_path": "claude-skills-main/skills/golang-pro/SKILL.md"
+    },
+    {
+      "bucket": "tool_script_boundaries",
+      "condition": "MCP/tool-focused Claude skill; useful if MCP coverage expands.",
+      "h1": "Atlassian MCP Expert",
+      "reason": "Ranked ProjectRepos candidate not essential for first import.",
+      "repo": "claude-skills-main",
+      "score": 339,
+      "source_path": "claude-skills-main/skills/atlassian-mcp/SKILL.md"
+    },
+    {
+      "bucket": "skill_package_examples",
+      "condition": "Concrete frontend skill; maybe later.",
+      "h1": "React Expert",
+      "reason": "Ranked ProjectRepos candidate not essential for first import.",
+      "repo": "claude-skills-main",
+      "score": 331,
+      "source_path": "claude-skills-main/skills/react-expert/SKILL.md"
+    },
+    {
+      "bucket": "subskill_or_package_architecture",
+      "condition": "Architecture/persona example.",
+      "h1": "Java Architect",
+      "reason": "Ranked ProjectRepos candidate not essential for first import.",
+      "repo": "claude-skills-main",
+      "score": 323,
+      "source_path": "claude-skills-main/skills/java-architect/SKILL.md"
+    },
+    {
+      "bucket": "skill_package_examples",
+      "condition": "Concrete language skill; maybe later.",
+      "h1": "TypeScript Pro",
+      "reason": "Ranked ProjectRepos candidate not essential for first import.",
+      "repo": "claude-skills-main",
+      "score": 319,
+      "source_path": "claude-skills-main/skills/typescript-pro/SKILL.md"
+    },
+    {
+      "bucket": "skill_quality_and_evaluation",
+      "condition": "Debugging workflow example.",
+      "h1": "Debugging Wizard",
+      "reason": "Ranked ProjectRepos candidate not essential for first import.",
+      "repo": "claude-skills-main",
+      "score": 311,
+      "source_path": "claude-skills-main/skills/debugging-wizard/SKILL.md"
+    },
+    {
+      "bucket": "skill_package_examples",
+      "condition": "Concrete language skill; maybe later.",
+      "h1": "JavaScript Pro",
+      "reason": "Ranked ProjectRepos candidate not essential for first import.",
+      "repo": "claude-skills-main",
+      "score": 311,
+      "source_path": "claude-skills-main/skills/javascript-pro/SKILL.md"
+    },
+    {
+      "bucket": "skill_package_examples",
+      "condition": "Concrete framework skill; maybe later.",
+      "h1": "Next.js Developer",
+      "reason": "Ranked ProjectRepos candidate not essential for first import.",
+      "repo": "claude-skills-main",
+      "score": 299,
+      "source_path": "claude-skills-main/skills/nextjs-developer/SKILL.md"
+    },
+    {
+      "bucket": "skill_package_examples",
+      "condition": "Concrete data skill; maybe later.",
+      "h1": "SQL Pro",
+      "reason": "Ranked ProjectRepos candidate not essential for first import.",
+      "repo": "claude-skills-main",
+      "score": 299,
+      "source_path": "claude-skills-main/skills/sql-pro/SKILL.md"
+    },
+    {
+      "bucket": "subskill_or_package_architecture",
+      "condition": "Architecture example; maybe later.",
+      "h1": "GraphQL Architect",
+      "reason": "Ranked ProjectRepos candidate not essential for first import.",
+      "repo": "claude-skills-main",
+      "score": 287,
+      "source_path": "claude-skills-main/skills/graphql-architect/SKILL.md"
+    },
+    {
+      "bucket": "skill_package_examples",
+      "condition": "Concrete language skill; maybe later.",
+      "h1": "C++ Pro",
+      "reason": "Ranked ProjectRepos candidate not essential for first import.",
+      "repo": "claude-skills-main",
+      "score": 283,
+      "source_path": "claude-skills-main/skills/cpp-pro/SKILL.md"
+    }
+  ],
+  "source_basis": [
+    "TARGET-WORK.md",
+    "llm-routing-packet.md",
+    "candidate-files.md",
+    "candidate-files.json",
+    "scan-run-summary.json"
+  ],
+  "source_gaps": [
+    "ProjectRepos prework does not itself add canonical official Claude/Anthropic Agent Skills guidance; keep official baseline from curated official docs/repos.",
+    "Need source-backed confirmation for subskills/nested package semantics from official or near-official sources before treating nested examples as canonical.",
+    "Need stronger official guidance on description/frontmatter/allowed-tools constraints if not already covered by existing official sources.",
+    "Need a focused evaluation/rubric source beyond skillcheck and fixture examples for high-confidence quality scoring.",
+    "Need explicit bad-pattern examples for overbroad descriptions, unsafe tools, missing references, and generated-package pollution."
+  ],
+  "target_kb": "claude-skill-design"
+}

@@ -1,0 +1,232 @@
+# LLM Routing Packet
+
+## Purpose
+
+Use this packet to choose what to read first. It is deterministic evidence, not semantic analysis.
+
+## Scan Snapshot
+
+- source_root: `C:\GitDev\apexai-os-meta\source-knowledge\ProjectRepos`
+- files_seen: `41138`
+- text_candidate_files: `37174`
+- candidate_count: `2000`
+- total_bytes_seen: `620938957`
+
+## Read First
+
+- `antigravity-awesome-skills-main/plugins/antigravity-awesome-skills-claude/skills/ai-agent-development/SKILL.md`
+  - score: 451
+  - reasons: filename:skill.md+120; filename-token:skill+45; path-token:skills+50; keyword-group:llm_designx71; keyword-group:skill_packagex8; keyword-group:workflowx33
+  - h1: AI Agent Development Workflow
+- `antigravity-awesome-skills-main/plugins/antigravity-awesome-skills/skills/ai-agent-development/SKILL.md`
+  - score: 451
+  - reasons: filename:skill.md+120; filename-token:skill+45; path-token:skills+50; keyword-group:llm_designx71; keyword-group:skill_packagex8; keyword-group:workflowx33
+  - h1: AI Agent Development Workflow
+- `antigravity-awesome-skills-main/skills/ai-agent-development/SKILL.md`
+  - score: 451
+  - reasons: filename:skill.md+120; filename-token:skill+45; path-token:skills+50; keyword-group:llm_designx71; keyword-group:skill_packagex8; keyword-group:workflowx33
+  - h1: AI Agent Development Workflow
+- `antigravity-awesome-skills-main/plugins/antigravity-awesome-skills-claude/skills/documentation/SKILL.md`
+  - score: 427
+  - reasons: filename:skill.md+120; filename-token:skill+45; path-token:skills+50; keyword-group:llm_designx8; keyword-group:skill_packagex9; keyword-group:workflowx21
+  - h1: Documentation Workflow Bundle
+- `antigravity-awesome-skills-main/plugins/antigravity-awesome-skills/skills/documentation/SKILL.md`
+  - score: 427
+  - reasons: filename:skill.md+120; filename-token:skill+45; path-token:skills+50; keyword-group:llm_designx8; keyword-group:skill_packagex9; keyword-group:workflowx21
+  - h1: Documentation Workflow Bundle
+- `antigravity-awesome-skills-main/skills/documentation/SKILL.md`
+  - score: 427
+  - reasons: filename:skill.md+120; filename-token:skill+45; path-token:skills+50; keyword-group:llm_designx8; keyword-group:skill_packagex9; keyword-group:workflowx21
+  - h1: Documentation Workflow Bundle
+- `antigravity-awesome-skills-main/plugins/antigravity-awesome-skills-claude/skills/rag-implementation/SKILL.md`
+  - score: 419
+  - reasons: filename:skill.md+120; filename-token:skill+45; path-token:skills+50; keyword-group:llm_designx30; keyword-group:skill_packagex9; keyword-group:workflowx18
+  - h1: RAG Implementation Workflow
+- `antigravity-awesome-skills-main/plugins/antigravity-awesome-skills/skills/rag-implementation/SKILL.md`
+  - score: 419
+  - reasons: filename:skill.md+120; filename-token:skill+45; path-token:skills+50; keyword-group:llm_designx30; keyword-group:skill_packagex9; keyword-group:workflowx18
+  - h1: RAG Implementation Workflow
+- `antigravity-awesome-skills-main/plugins/antigravity-bundle-llm-application-developer/skills/rag-implementation/SKILL.md`
+  - score: 419
+  - reasons: filename:skill.md+120; filename-token:skill+45; path-token:skills+50; keyword-group:llm_designx30; keyword-group:skill_packagex9; keyword-group:workflowx18
+  - h1: RAG Implementation Workflow
+- `antigravity-awesome-skills-main/skills/rag-implementation/SKILL.md`
+  - score: 419
+  - reasons: filename:skill.md+120; filename-token:skill+45; path-token:skills+50; keyword-group:llm_designx30; keyword-group:skill_packagex9; keyword-group:workflowx18
+  - h1: RAG Implementation Workflow
+- `antigravity-awesome-skills-main/plugins/antigravity-awesome-skills-claude/skills/agenttrace-session-audit/SKILL.md`
+  - score: 415
+  - reasons: filename:skill.md+120; filename-token:skill+45; path-token:skills+50; keyword-group:llm_designx41; keyword-group:skill_packagex3; keyword-group:workflowx8
+  - h1: agenttrace Session Audit
+- `antigravity-awesome-skills-main/plugins/antigravity-awesome-skills/skills/agenttrace-session-audit/SKILL.md`
+  - score: 415
+  - reasons: filename:skill.md+120; filename-token:skill+45; path-token:skills+50; keyword-group:llm_designx41; keyword-group:skill_packagex3; keyword-group:workflowx8
+  - h1: agenttrace Session Audit
+- `antigravity-awesome-skills-main/skills/agenttrace-session-audit/SKILL.md`
+  - score: 415
+  - reasons: filename:skill.md+120; filename-token:skill+45; path-token:skills+50; keyword-group:llm_designx41; keyword-group:skill_packagex3; keyword-group:workflowx8
+  - h1: agenttrace Session Audit
+- `antigravity-awesome-skills-main/plugins/antigravity-awesome-skills-claude/skills/parallel-agents/SKILL.md`
+  - score: 411
+  - reasons: filename:skill.md+120; filename-token:skill+45; path-token:skills+50; keyword-group:llm_designx46; keyword-group:skill_packagex2; keyword-group:workflowx13
+  - h1: Native Parallel Agents
+- `antigravity-awesome-skills-main/plugins/antigravity-awesome-skills-claude/skills/react-nextjs-development/SKILL.md`
+  - score: 411
+  - reasons: filename:skill.md+120; filename-token:skill+45; path-token:skills+50; keyword-group:llm_designx8; keyword-group:skill_packagex11; keyword-group:workflowx18
+  - h1: React/Next.js Development Workflow
+- `antigravity-awesome-skills-main/plugins/antigravity-awesome-skills/skills/parallel-agents/SKILL.md`
+  - score: 411
+  - reasons: filename:skill.md+120; filename-token:skill+45; path-token:skills+50; keyword-group:llm_designx46; keyword-group:skill_packagex2; keyword-group:workflowx13
+  - h1: Native Parallel Agents
+- `antigravity-awesome-skills-main/plugins/antigravity-awesome-skills/skills/react-nextjs-development/SKILL.md`
+  - score: 411
+  - reasons: filename:skill.md+120; filename-token:skill+45; path-token:skills+50; keyword-group:llm_designx8; keyword-group:skill_packagex11; keyword-group:workflowx18
+  - h1: React/Next.js Development Workflow
+- `antigravity-awesome-skills-main/skills/parallel-agents/SKILL.md`
+  - score: 411
+  - reasons: filename:skill.md+120; filename-token:skill+45; path-token:skills+50; keyword-group:llm_designx46; keyword-group:skill_packagex2; keyword-group:workflowx13
+  - h1: Native Parallel Agents
+- `antigravity-awesome-skills-main/skills/react-nextjs-development/SKILL.md`
+  - score: 411
+  - reasons: filename:skill.md+120; filename-token:skill+45; path-token:skills+50; keyword-group:llm_designx8; keyword-group:skill_packagex11; keyword-group:workflowx18
+  - h1: React/Next.js Development Workflow
+- `antigravity-awesome-skills-main/plugins/antigravity-awesome-skills-claude/skills/python-fastapi-development/SKILL.md`
+  - score: 407
+  - reasons: filename:skill.md+120; filename-token:skill+45; path-token:skills+50; keyword-group:llm_designx8; keyword-group:skill_packagex9; keyword-group:workflowx17
+  - h1: Python/FastAPI Development Workflow
+- `antigravity-awesome-skills-main/plugins/antigravity-awesome-skills-claude/skills/seek-and-analyze-video/SKILL.md`
+  - score: 407
+  - reasons: filename:skill.md+120; filename-token:skill+45; path-token:skills+50; keyword-group:llm_designx10; keyword-group:skill_packagex10; keyword-group:workflowx11
+  - h1: Seek and Analyze Video
+- `antigravity-awesome-skills-main/plugins/antigravity-awesome-skills/skills/python-fastapi-development/SKILL.md`
+  - score: 407
+  - reasons: filename:skill.md+120; filename-token:skill+45; path-token:skills+50; keyword-group:llm_designx8; keyword-group:skill_packagex9; keyword-group:workflowx17
+  - h1: Python/FastAPI Development Workflow
+- `antigravity-awesome-skills-main/plugins/antigravity-awesome-skills/skills/seek-and-analyze-video/SKILL.md`
+  - score: 407
+  - reasons: filename:skill.md+120; filename-token:skill+45; path-token:skills+50; keyword-group:llm_designx10; keyword-group:skill_packagex10; keyword-group:workflowx11
+  - h1: Seek and Analyze Video
+- `antigravity-awesome-skills-main/skills/python-fastapi-development/SKILL.md`
+  - score: 407
+  - reasons: filename:skill.md+120; filename-token:skill+45; path-token:skills+50; keyword-group:llm_designx8; keyword-group:skill_packagex9; keyword-group:workflowx17
+  - h1: Python/FastAPI Development Workflow
+- `antigravity-awesome-skills-main/skills/seek-and-analyze-video/SKILL.md`
+  - score: 407
+  - reasons: filename:skill.md+120; filename-token:skill+45; path-token:skills+50; keyword-group:llm_designx10; keyword-group:skill_packagex10; keyword-group:workflowx11
+  - h1: Seek and Analyze Video
+- `antigravity-awesome-skills-main/plugins/antigravity-awesome-skills-claude/skills/agentfolio/SKILL.md`
+  - score: 403
+  - reasons: filename:skill.md+120; filename-token:skill+45; path-token:skills+50; keyword-group:llm_designx55; keyword-group:skill_packagex11; keyword-group:workflowx8
+  - h1: AgentFolio
+- `antigravity-awesome-skills-main/plugins/antigravity-awesome-skills-claude/skills/testing-qa/SKILL.md`
+  - score: 403
+  - reasons: filename:skill.md+120; filename-token:skill+45; path-token:skills+50; keyword-group:llm_designx8; keyword-group:skill_packagex11; keyword-group:workflowx22
+  - h1: Testing/QA Workflow Bundle
+- `antigravity-awesome-skills-main/plugins/antigravity-awesome-skills-claude/skills/writing-plans/SKILL.md`
+  - score: 403
+  - reasons: filename:skill.md+120; filename-token:skill+45; path-token:skills+50; keyword-group:llm_designx6; keyword-group:skill_packagex9; keyword-group:workflowx14
+  - h1: Writing Plans
+- `antigravity-awesome-skills-main/plugins/antigravity-awesome-skills/skills/agentfolio/SKILL.md`
+  - score: 403
+  - reasons: filename:skill.md+120; filename-token:skill+45; path-token:skills+50; keyword-group:llm_designx55; keyword-group:skill_packagex11; keyword-group:workflowx8
+  - h1: AgentFolio
+- `antigravity-awesome-skills-main/plugins/antigravity-awesome-skills/skills/testing-qa/SKILL.md`
+  - score: 403
+  - reasons: filename:skill.md+120; filename-token:skill+45; path-token:skills+50; keyword-group:llm_designx8; keyword-group:skill_packagex11; keyword-group:workflowx22
+  - h1: Testing/QA Workflow Bundle
+- `antigravity-awesome-skills-main/plugins/antigravity-awesome-skills/skills/writing-plans/SKILL.md`
+  - score: 403
+  - reasons: filename:skill.md+120; filename-token:skill+45; path-token:skills+50; keyword-group:llm_designx6; keyword-group:skill_packagex9; keyword-group:workflowx14
+  - h1: Writing Plans
+- `antigravity-awesome-skills-main/skills/agentfolio/SKILL.md`
+  - score: 403
+  - reasons: filename:skill.md+120; filename-token:skill+45; path-token:skills+50; keyword-group:llm_designx55; keyword-group:skill_packagex11; keyword-group:workflowx8
+  - h1: AgentFolio
+- `antigravity-awesome-skills-main/skills/testing-qa/SKILL.md`
+  - score: 403
+  - reasons: filename:skill.md+120; filename-token:skill+45; path-token:skills+50; keyword-group:llm_designx8; keyword-group:skill_packagex11; keyword-group:workflowx22
+  - h1: Testing/QA Workflow Bundle
+- `antigravity-awesome-skills-main/skills/writing-plans/SKILL.md`
+  - score: 403
+  - reasons: filename:skill.md+120; filename-token:skill+45; path-token:skills+50; keyword-group:llm_designx6; keyword-group:skill_packagex9; keyword-group:workflowx14
+  - h1: Writing Plans
+- `antigravity-awesome-skills-main/plugins/antigravity-awesome-skills-claude/skills/api-security-testing/SKILL.md`
+  - score: 399
+  - reasons: filename:skill.md+120; filename-token:skill+45; path-token:skills+50; keyword-group:llm_designx8; keyword-group:skill_packagex8; keyword-group:workflowx17
+  - h1: API Security Testing Workflow
+- `antigravity-awesome-skills-main/plugins/antigravity-awesome-skills-claude/skills/security-audit/SKILL.md`
+  - score: 399
+  - reasons: filename:skill.md+120; filename-token:skill+45; path-token:skills+50; keyword-group:llm_designx6; keyword-group:skill_packagex9; keyword-group:workflowx17
+  - h1: Security Auditing Workflow Bundle
+- `antigravity-awesome-skills-main/plugins/antigravity-awesome-skills/skills/api-security-testing/SKILL.md`
+  - score: 399
+  - reasons: filename:skill.md+120; filename-token:skill+45; path-token:skills+50; keyword-group:llm_designx8; keyword-group:skill_packagex8; keyword-group:workflowx17
+  - h1: API Security Testing Workflow
+- `antigravity-awesome-skills-main/plugins/antigravity-awesome-skills/skills/security-audit/SKILL.md`
+  - score: 399
+  - reasons: filename:skill.md+120; filename-token:skill+45; path-token:skills+50; keyword-group:llm_designx6; keyword-group:skill_packagex9; keyword-group:workflowx17
+  - h1: Security Auditing Workflow Bundle
+- `antigravity-awesome-skills-main/plugins/antigravity-bundle-aas-privacy-compliance-engineering/skills/security-audit/SKILL.md`
+  - score: 399
+  - reasons: filename:skill.md+120; filename-token:skill+45; path-token:skills+50; keyword-group:llm_designx6; keyword-group:skill_packagex9; keyword-group:workflowx17
+  - h1: Security Auditing Workflow Bundle
+- `antigravity-awesome-skills-main/plugins/antigravity-bundle-aas-security-engineer/skills/api-security-testing/SKILL.md`
+  - score: 399
+  - reasons: filename:skill.md+120; filename-token:skill+45; path-token:skills+50; keyword-group:llm_designx8; keyword-group:skill_packagex8; keyword-group:workflowx17
+  - h1: API Security Testing Workflow
+- `antigravity-awesome-skills-main/skills/api-security-testing/SKILL.md`
+  - score: 399
+  - reasons: filename:skill.md+120; filename-token:skill+45; path-token:skills+50; keyword-group:llm_designx8; keyword-group:skill_packagex8; keyword-group:workflowx17
+  - h1: API Security Testing Workflow
+- `antigravity-awesome-skills-main/skills/security-audit/SKILL.md`
+  - score: 399
+  - reasons: filename:skill.md+120; filename-token:skill+45; path-token:skills+50; keyword-group:llm_designx6; keyword-group:skill_packagex9; keyword-group:workflowx17
+  - h1: Security Auditing Workflow Bundle
+- `antigravity-awesome-skills-main/plugins/antigravity-awesome-skills-claude/skills/kubestellar-console/SKILL.md`
+  - score: 395
+  - reasons: filename:skill.md+120; filename-token:skill+45; path-token:skills+50; keyword-group:llm_designx41; keyword-group:skill_packagex6; keyword-group:workflowx2
+  - h1: KubeStellar Console
+- `antigravity-awesome-skills-main/plugins/antigravity-awesome-skills/skills/kubestellar-console/SKILL.md`
+  - score: 395
+  - reasons: filename:skill.md+120; filename-token:skill+45; path-token:skills+50; keyword-group:llm_designx41; keyword-group:skill_packagex6; keyword-group:workflowx2
+  - h1: KubeStellar Console
+- `antigravity-awesome-skills-main/skills/kubestellar-console/SKILL.md`
+  - score: 395
+  - reasons: filename:skill.md+120; filename-token:skill+45; path-token:skills+50; keyword-group:llm_designx41; keyword-group:skill_packagex6; keyword-group:workflowx2
+  - h1: KubeStellar Console
+- `antigravity-awesome-skills-main/plugins/antigravity-awesome-skills-claude/skills/web-security-testing/SKILL.md`
+  - score: 391
+  - reasons: filename:skill.md+120; filename-token:skill+45; path-token:skills+50; keyword-group:llm_designx7; keyword-group:skill_packagex8; keyword-group:workflowx17
+  - h1: Web Security Testing Workflow
+- `antigravity-awesome-skills-main/plugins/antigravity-awesome-skills/skills/web-security-testing/SKILL.md`
+  - score: 391
+  - reasons: filename:skill.md+120; filename-token:skill+45; path-token:skills+50; keyword-group:llm_designx7; keyword-group:skill_packagex8; keyword-group:workflowx17
+  - h1: Web Security Testing Workflow
+- `antigravity-awesome-skills-main/plugins/antigravity-bundle-aas-security-engineer/skills/web-security-testing/SKILL.md`
+  - score: 391
+  - reasons: filename:skill.md+120; filename-token:skill+45; path-token:skills+50; keyword-group:llm_designx7; keyword-group:skill_packagex8; keyword-group:workflowx17
+  - h1: Web Security Testing Workflow
+- `antigravity-awesome-skills-main/skills/web-security-testing/SKILL.md`
+  - score: 391
+  - reasons: filename:skill.md+120; filename-token:skill+45; path-token:skills+50; keyword-group:llm_designx7; keyword-group:skill_packagex8; keyword-group:workflowx17
+  - h1: Web Security Testing Workflow
+- `antigravity-awesome-skills-main/plugins/antigravity-awesome-skills-claude/skills/runapi-cli/SKILL.md`
+  - score: 383
+  - reasons: filename:skill.md+120; filename-token:skill+45; path-token:skills+50; keyword-group:llm_designx15; keyword-group:skill_packagex14; keyword-group:workflowx8
+  - h1: RunAPI CLI
+
+## Large Files Requiring Separate Handling
+
+- `claude-task-master-main/.taskmaster/tasks/tasks.json`: 1558493 bytes
+- `crewAI-main/docs/docs.json`: 1476650 bytes
+- `crewAI-main/lib/crewai/tests/cassettes/TestCrewMultimodalFileUpload.test_pdf_upload_anthropic.yaml`: 1299867 bytes
+- `claude-task-master-main/package-lock.json`: 1231443 bytes
+- `antigravity-awesome-skills-main/data/catalog.json`: 1111125 bytes
+- `antigravity-awesome-skills-main/data/skills_index.json`: 1067666 bytes
+- `antigravity-awesome-skills-main/skills_index.json`: 1067666 bytes
+
+## Suggested Next Questions
+
+- Should this corpus get only a curated-source allowlist, or also a local lexical search index?
+- Are databases/exports present that need schema-specific extractors?
+- Which project-specific keyword groups should be added before the next scan?
