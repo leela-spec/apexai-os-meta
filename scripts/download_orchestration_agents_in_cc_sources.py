@@ -94,8 +94,6 @@ PRIMARY_ORCHESTRATION_URLS = [
 # useful for real file/config patterns, not just official documentation prose.
 REPO_AND_EXTERNAL_URLS = [
     "https://raw.githubusercontent.com/agentskills/agentskills/main/README.md",
-    "https://raw.githubusercontent.com/vinnie357/claude-skills/main/plugin.json",
-    "https://raw.githubusercontent.com/vinnie357/claude-skills/main/marketplace.json",
     "https://raw.githubusercontent.com/vinnie357/claude-skills/main/.claude-plugin/plugin.json",
     "https://raw.githubusercontent.com/vinnie357/claude-skills/main/.claude-plugin/marketplace.json",
     "https://raw.githubusercontent.com/trailofbits/claude-code-config/main/settings.json",
@@ -106,7 +104,7 @@ REPO_AND_EXTERNAL_URLS = [
     "https://www.mindstudio.ai/blog/what-are-claude-code-skills",
 ]
 
-MARKDOWN_LINK_RE = re.compile(r"!??\[([^\]]{0,500})\]\(([^)\s]+)(?:\s+['\"][^)]+['"])?\)")
+MARKDOWN_LINK_RE = re.compile(r"!??\[([^\]]{0,500})\]\(([^)\s]+)(?:\s+['\"][^)]+['\"])?\)")
 AUTOLINK_RE = re.compile(r"<((?:https?|ftp)://[^>\s]+)>")
 BARE_URL_RE = re.compile(r"(?<![\](])\b(?:https?|ftp)://[^\s<>'\"`|]+")
 TRAILING_PUNCT = ".,;:!?)]}"
@@ -172,6 +170,10 @@ def find_repo_root(start: Path) -> Path:
 
 def strip_markdown_noise(url: str) -> str:
     url = html.unescape(url.strip())
+    # Bare URL extraction can see Markdown as:
+    #   https://real.example/file](https://wrapper.example?q=...)
+    # Keep the visible URL portion, which is the intended source in these notes.
+    url = url.split("](", 1)[0].strip()
     # Accidental Markdown table suffixes sometimes get captured into bare URLs.
     url = url.split("|")[0].strip()
     while url and url[-1] in TRAILING_PUNCT:
@@ -180,7 +182,10 @@ def strip_markdown_noise(url: str) -> str:
 
 
 def unwrap_google_search(url: str) -> str:
-    parsed = urllib.parse.urlsplit(url)
+    try:
+        parsed = urllib.parse.urlsplit(url)
+    except ValueError:
+        return url
     host = parsed.netloc.lower().removeprefix("www.")
     if host == "google.com" and parsed.path.startswith("/search"):
         params = urllib.parse.parse_qs(parsed.query)
@@ -191,7 +196,10 @@ def unwrap_google_search(url: str) -> str:
 
 
 def github_blob_to_raw(url: str) -> str:
-    parsed = urllib.parse.urlsplit(url)
+    try:
+        parsed = urllib.parse.urlsplit(url)
+    except ValueError:
+        return url
     host = parsed.netloc.lower()
     if host != "github.com":
         return url
@@ -204,11 +212,27 @@ def github_blob_to_raw(url: str) -> str:
     return url
 
 
+def repair_known_moved_url(url: str) -> str:
+    moved = {
+        "https://raw.githubusercontent.com/vinnie357/claude-skills/main/plugin.json":
+            "https://raw.githubusercontent.com/vinnie357/claude-skills/main/.claude-plugin/plugin.json",
+        "https://raw.githubusercontent.com/vinnie357/claude-skills/main/marketplace.json":
+            "https://raw.githubusercontent.com/vinnie357/claude-skills/main/.claude-plugin/marketplace.json",
+    }
+    return moved.get(url, url)
+
+
 def normalize_url(url: str) -> Optional[str]:
     url = strip_markdown_noise(url)
+    if "\\" in url:
+        return None
     url = unwrap_google_search(url)
     url = github_blob_to_raw(url)
-    parsed = urllib.parse.urlsplit(url)
+    url = repair_known_moved_url(url)
+    try:
+        parsed = urllib.parse.urlsplit(url)
+    except ValueError:
+        return None
     if parsed.scheme.lower() not in {"http", "https", "ftp"}:
         return None
     query_pairs = []
@@ -339,6 +363,8 @@ def parse_exact_raw_blocks(text: str, source_note: str) -> List[SourceCandidate]
 def extract_generic_urls(text: str, source_note: str) -> List[SourceCandidate]:
     out: List[SourceCandidate] = []
     for line_no, line in enumerate(text.splitlines(), start=1):
+        if "Fetch failed" in line:
+            continue
         for regex in (MARKDOWN_LINK_RE, AUTOLINK_RE, BARE_URL_RE):
             for match in regex.finditer(line):
                 if regex is MARKDOWN_LINK_RE:

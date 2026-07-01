@@ -1,0 +1,22 @@
+{
+  "source_url": "https://raw.githubusercontent.com/vinnie357/claude-skills/main/.claude-plugin/marketplace.json",
+  "original_url_text": "https://raw.githubusercontent.com/vinnie357/claude-skills/main/marketplace.json",
+  "capture_url": "https://raw.githubusercontent.com/vinnie357/claude-skills/main/.claude-plugin/marketplace.json",
+  "final_url": "https://raw.githubusercontent.com/vinnie357/claude-skills/main/.claude-plugin/marketplace.json",
+  "capture_method": "direct",
+  "tier": "repo-example",
+  "title": "Claude Code Marketplace Registry Definition (vinnie357/claude-skills)",
+  "target_component_type": "JSON Schema Marketplace Manifest",
+  "structural_integrity_key": "",
+  "verification_method": "",
+  "evidence": null,
+  "impact": null,
+  "risk": null,
+  "origin": "exact_raw_block",
+  "source_note": "apex-meta/kb/claude-orchestration-agents/raw/notes/OrchestrationAgentsInCC_Research_gem.md",
+  "source_line": 28,
+  "downloaded_at": "2026-07-01T09:45:38Z",
+  "content_type": "text/plain; charset=utf-8",
+  "bytes_written": 10012,
+  "sha256": "a6aa0bda06aa4dd9840d28feccaae2d3073b20b2d77d40990be041186c41b234"
+}

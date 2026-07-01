@@ -1,0 +1,22 @@
+{
+  "source_url": "https://raw.githubusercontent.com/trailofbits/claude-code-config/main/settings.json",
+  "original_url_text": "https://raw.githubusercontent.com/trailofbits/claude-code-config/main/settings.json",
+  "capture_url": "https://raw.githubusercontent.com/trailofbits/claude-code-config/main/settings.json",
+  "final_url": "https://raw.githubusercontent.com/trailofbits/claude-code-config/main/settings.json",
+  "capture_method": "direct",
+  "tier": "repo-example",
+  "title": "Trail of Bits Hardened Claude Code Enterprise Template",
+  "target_component_type": "JSON Configuration & Sandboxing Policy Fabric",
+  "structural_integrity_key": "",
+  "verification_method": "",
+  "evidence": null,
+  "impact": null,
+  "risk": null,
+  "origin": "exact_raw_block",
+  "source_note": "apex-meta/kb/claude-orchestration-agents/raw/notes/OrchestrationAgentsInCC_Research_gem.md",
+  "source_line": 39,
+  "downloaded_at": "2026-07-01T09:45:40Z",
+  "content_type": "text/plain; charset=utf-8",
+  "bytes_written": 2325,
+  "sha256": "e181f9f7622ebd50e412d209a4654f5155969a9e24e48e310adb137b38c9c2bd"
+}

@@ -1,0 +1,22 @@
+{
+  "source_url": "https://code.claude.com/docs/en/features-overview.md",
+  "original_url_text": "https://code.claude.com/docs/en/features-overview.md",
+  "capture_url": "https://code.claude.com/docs/en/features-overview.md",
+  "final_url": "https://code.claude.com/docs/en/features-overview.md",
+  "capture_method": "direct",
+  "tier": "primary",
+  "title": "https://code.claude.com/docs/en/features-overview.md",
+  "target_component_type": "Official Anthropic Doc",
+  "structural_integrity_key": "",
+  "verification_method": "",
+  "evidence": 5,
+  "impact": 4,
+  "risk": 5,
+  "origin": "rating_table",
+  "source_note": "apex-meta/kb/claude-orchestration-agents/raw/notes/OrchestrationAgentsInCC_Research_CC.md",
+  "source_line": 24,
+  "downloaded_at": "2026-07-01T09:45:17Z",
+  "content_type": "text/markdown; charset=utf-8",
+  "bytes_written": 30471,
+  "sha256": "6eedc3737aa641c4e0f477ff135dfcdd59d349b5d30fd5072901a6277020eb19"
+}
