@@ -1,0 +1,22 @@
+{
+  "source_url": "https://raw.githubusercontent.com/vinnie357/claude-skills/main/.claude-plugin/plugin.json",
+  "original_url_text": "https://raw.githubusercontent.com/vinnie357/claude-skills/main/plugin.json",
+  "capture_url": "https://raw.githubusercontent.com/vinnie357/claude-skills/main/.claude-plugin/plugin.json",
+  "final_url": "https://raw.githubusercontent.com/vinnie357/claude-skills/main/.claude-plugin/plugin.json",
+  "capture_method": "direct",
+  "tier": "repo-example",
+  "title": "Claude Code Plugin Manifest Blueprint (vinnie357/claude-skills)",
+  "target_component_type": "JSON Manifest Configuration",
+  "structural_integrity_key": "",
+  "verification_method": "",
+  "evidence": null,
+  "impact": null,
+  "risk": null,
+  "origin": "exact_raw_block",
+  "source_note": "apex-meta/kb/claude-orchestration-agents/raw/notes/OrchestrationAgentsInCC_Research_gem.md",
+  "source_line": 17,
+  "downloaded_at": "2026-07-01T09:45:37Z",
+  "content_type": "text/plain; charset=utf-8",
+  "bytes_written": 5762,
+  "sha256": "572a1d31524b917b785b777542116549e89f87b55b4c505987868f808ac3c308"
+}

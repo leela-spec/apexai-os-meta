@@ -1,0 +1,22 @@
+{
+  "source_url": "https://code.claude.com/docs/en/skills.md",
+  "original_url_text": "https://code.claude.com/docs/en/skills.md",
+  "capture_url": "https://code.claude.com/docs/en/skills.md",
+  "final_url": "https://code.claude.com/docs/en/skills.md",
+  "capture_method": "direct",
+  "tier": "primary",
+  "title": "https://code.claude.com/docs/en/skills.md",
+  "target_component_type": "Official Anthropic Doc (machine-readable MD)",
+  "structural_integrity_key": "",
+  "verification_method": "",
+  "evidence": 5,
+  "impact": 5,
+  "risk": 5,
+  "origin": "rating_table",
+  "source_note": "apex-meta/kb/claude-orchestration-agents/raw/notes/OrchestrationAgentsInCC_Research_CC.md",
+  "source_line": 12,
+  "downloaded_at": "2026-07-01T09:44:53Z",
+  "content_type": "text/markdown; charset=utf-8",
+  "bytes_written": 62762,
+  "sha256": "100e947d5b77ee7b0510488c9f4d908e351d7c464a0db24958a02ff533b9ff25"
+}
