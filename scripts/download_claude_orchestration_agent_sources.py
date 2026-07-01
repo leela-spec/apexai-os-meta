@@ -35,6 +35,7 @@ import datetime as dt
 import hashlib
 import html
 import json
+import os
 import re
 import sys
 import time
@@ -122,6 +123,10 @@ def find_repo_root(start: Path) -> Path:
 
 def normalize_url(url: str) -> Optional[str]:
     url = html.unescape(url.strip())
+    # Bare URLs inside Markdown tables are followed by the next cell delimiter.
+    # Treat that delimiter as provenance text, not as part of the URL.
+    if "|" in url:
+        url = url.split("|", 1)[0]
     while url and url[-1] in TRAILING_PUNCT:
         url = url[:-1]
     if not url:
@@ -132,6 +137,7 @@ def normalize_url(url: str) -> Optional[str]:
     if parsed.scheme.lower() not in {"http", "https", "ftp"}:
         return None
     host = parsed.netloc.lower()
+    # Remove obvious tracking params but keep query parameters that may identify PDFs/assets.
     query_pairs = []
     for key, value in urllib.parse.parse_qsl(parsed.query, keep_blank_values=True):
         kl = key.lower()
@@ -139,7 +145,8 @@ def normalize_url(url: str) -> Optional[str]:
             continue
         query_pairs.append((key, value))
     clean_query = urllib.parse.urlencode(query_pairs, doseq=True)
-    return urllib.parse.urlunsplit((parsed.scheme.lower(), host, parsed.path or "/", clean_query, ""))
+    clean = urllib.parse.urlunsplit((parsed.scheme.lower(), host, parsed.path or "/", clean_query, ""))
+    return clean
 
 
 def domain_of(url: str) -> str:
@@ -197,13 +204,27 @@ def dedupe_links(hits: Iterable[LinkHit]) -> List[LinkHit]:
 
 
 def url_extension(url: str) -> str:
-    return Path(urllib.parse.urlsplit(url).path).suffix.lower()
+    parsed = urllib.parse.urlsplit(url)
+    suffix = Path(parsed.path).suffix.lower()
+    return suffix
 
 
 def build_jina_url(url: str) -> str:
     # Same pattern as the existing promptquorum PowerShell downloader:
     #   https://r.jina.ai/https://example.com/page
     return "https://r.jina.ai/" + url
+
+
+def github_raw_url(url: str) -> Optional[str]:
+    parsed = urllib.parse.urlsplit(url)
+    if parsed.netloc.lower().removeprefix("www.") != "github.com":
+        return None
+    parts = [part for part in parsed.path.split("/") if part]
+    if len(parts) >= 5 and parts[2] == "blob":
+        owner, repo, branch = parts[0], parts[1], parts[3]
+        raw_path = "/".join(parts[4:])
+        return f"https://raw.githubusercontent.com/{owner}/{repo}/{branch}/{raw_path}"
+    return None
 
 
 def safe_slug(text: str, max_len: int = 90) -> str:
@@ -314,7 +335,9 @@ def render_markdown_report(results: Sequence[DownloadResult], args: argparse.Nam
     for r in results:
         target = r.target_path or ""
         reason = r.error or r.skipped_reason or ""
-        lines.append(f"| {r.index} | {r.status} | `{r.normalized_url}` | `{target}` | {r.line} | {reason} |")
+        lines.append(
+            f"| {r.index} | {r.status} | `{r.normalized_url}` | `{target}` | {r.line} | {reason} |"
+        )
     lines.append("")
     return "\n".join(lines)
 
@@ -368,7 +391,12 @@ def run(args: argparse.Namespace) -> int:
             continue
 
         direct_ext = url_extension(hit.normalized_url)
-        if direct_ext in DIRECT_EXTENSIONS:
+        raw_github_url = github_raw_url(hit.normalized_url)
+        if raw_github_url:
+            capture_url, ext, method = raw_github_url, url_extension(raw_github_url) or ".txt", "github_raw"
+        elif domain_of(hit.normalized_url) == "github.com":
+            capture_url, ext, method = hit.normalized_url, ".html", "github_html"
+        elif direct_ext in DIRECT_EXTENSIONS:
             capture_url, ext, method = hit.normalized_url, direct_ext, "direct"
         elif args.no_jina:
             capture_url, ext, method = hit.normalized_url, ".html", "raw_html"
@@ -408,6 +436,7 @@ def run(args: argparse.Namespace) -> int:
 
         try:
             data, content_type, final_url = request_bytes(capture_url, args.timeout, args.max_bytes)
+            # Jina occasionally returns empty or denial pages. Keep them out by default.
             if len(data) < args.min_bytes:
                 raise ValueError(f"download_too_small:{len(data)}<{args.min_bytes}")
             out_dir.mkdir(parents=True, exist_ok=True)
@@ -455,8 +484,13 @@ def run(args: argparse.Namespace) -> int:
         "unique_links_seen": len(hits),
         "results": [asdict(r) for r in results],
     }
-    write_text(json_report, json.dumps(report_payload, indent=2, ensure_ascii=False) + "\n")
-    write_text(md_report, render_markdown_report(results, args))
+    if not args.dry_run:
+        write_text(json_report, json.dumps(report_payload, indent=2, ensure_ascii=False) + "\n")
+        write_text(md_report, render_markdown_report(results, args))
+    else:
+        # Even dry-run writes reports unless disabled; this makes the planned run auditable.
+        write_text(json_report, json.dumps(report_payload, indent=2, ensure_ascii=False) + "\n")
+        write_text(md_report, render_markdown_report(results, args))
 
     downloaded = sum(1 for r in results if r.status == "downloaded")
     failed = sum(1 for r in results if r.status == "failed")

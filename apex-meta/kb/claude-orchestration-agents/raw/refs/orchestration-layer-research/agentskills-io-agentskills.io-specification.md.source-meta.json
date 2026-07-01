@@ -1,0 +1,14 @@
+{
+  "source_url": "https://agentskills.io/specification",
+  "original_url_text": "https://agentskills.io/specification",
+  "capture_url": "https://r.jina.ai/https://agentskills.io/specification",
+  "capture_method": "jina_markdown",
+  "source_note": "apex-meta/kb/claude-orchestration-agents/raw/notes/SubskillsVsAgents_CC.md",
+  "source_line": 15,
+  "link_text": "agentskills.io/specification",
+  "context": "The official Agent Skills specification at [agentskills.io/specification](https://agentskills.io/specification) is concrete, authoritative, and sufficient to define macro/meso/micro architecture. \"Subskill\" is **not** an official term. Nested SKILL.md packages are neither supported nor demonstrated in canonical sources.[[anthropic.mintlify](https://anthropic.mintlify.app/en/docs/agents-and-tools/agent-skills/best-practices)]",
+  "downloaded_at": "2026-07-01T09:18:10Z",
+  "content_type": "text/plain; charset=utf-8",
+  "bytes_written": 5537,
+  "sha256": "4757b590e17afa97bfc8ed59a84047a48acb66c02165d4a307585dcdb2390478"
+}
