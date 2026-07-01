@@ -1,0 +1,145 @@
+﻿{
+    "kb_slug":  "apex-kb-skill-test",
+    "target":  "C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\apex-kb-skill-test",
+    "created_at":  "2026-06-23T17:50:06",
+    "sources":  [
+                    {
+                        "id":  "anthropic-agent-skills-overview",
+                        "tier":  "A",
+                        "title":  "Anthropic Agent Skills Overview",
+                        "url":  "https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview",
+                        "filename":  "anthropic-agent-skills-overview.html",
+                        "type":  "official_doc",
+                        "role":  "Official conceptual definition of Agent Skills.",
+                        "folder":  "official-docs"
+                    },
+                    {
+                        "id":  "anthropic-skill-authoring-best-practices",
+                        "tier":  "A",
+                        "title":  "Anthropic Skill Authoring Best Practices",
+                        "url":  "https://platform.claude.com/docs/en/agents-and-tools/agent-skills/best-practices",
+                        "filename":  "anthropic-skill-authoring-best-practices.html",
+                        "type":  "official_doc",
+                        "role":  "Official guidance for discoverable, concise, tested Skills.",
+                        "folder":  "official-docs"
+                    },
+                    {
+                        "id":  "anthropic-complete-guide-pdf",
+                        "tier":  "A",
+                        "title":  "The Complete Guide to Building Skills for Claude",
+                        "url":  "https://resources.anthropic.com/hubfs/The-Complete-Guide-to-Building-Skill-for-Claude.pdf?hsLang=en",
+                        "filename":  "anthropic-complete-guide-to-building-skills-for-claude.pdf",
+                        "type":  "official_pdf",
+                        "role":  "Official long-form guide for planning, structure, testing, and distribution.",
+                        "folder":  "official-pdfs"
+                    },
+                    {
+                        "id":  "anthropic-engineering-agent-skills",
+                        "tier":  "A",
+                        "title":  "Equipping agents for the real world with Agent Skills",
+                        "url":  "https://www.anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills",
+                        "filename":  "anthropic-engineering-agent-skills.html",
+                        "type":  "official_article",
+                        "role":  "Official engineering rationale and best-practice explanation.",
+                        "folder":  "official-docs"
+                    },
+                    {
+                        "id":  "claude-blog-complete-guide",
+                        "tier":  "A",
+                        "title":  "A complete guide to building skills for Claude",
+                        "url":  "https://claude.com/blog/complete-guide-to-building-skills-for-claude",
+                        "filename":  "claude-blog-complete-guide-to-building-skills.html",
+                        "type":  "official_blog",
+                        "role":  "Official blog landing page for skill-building guide.",
+                        "folder":  "official-docs"
+                    },
+                    {
+                        "id":  "agentskills-specification",
+                        "tier":  "B",
+                        "title":  "Agent Skills Specification",
+                        "url":  "https://agentskills.io/specification",
+                        "filename":  "agentskills-specification.html",
+                        "type":  "open_standard",
+                        "role":  "Open standard for SKILL.md package format and progressive disclosure.",
+                        "folder":  "official-docs"
+                    },
+                    {
+                        "id":  "agentskills-home",
+                        "tier":  "B",
+                        "title":  "Agent Skills Overview",
+                        "url":  "https://agentskills.io/home",
+                        "filename":  "agentskills-home.html",
+                        "type":  "open_standard",
+                        "role":  "Open standard overview of skill folder and SKILL.md model.",
+                        "folder":  "official-docs"
+                    },
+                    {
+                        "id":  "deepwiki-anthropics-skills",
+                        "tier":  "C",
+                        "title":  "DeepWiki anthropics/skills",
+                        "url":  "https://deepwiki.com/anthropics/skills",
+                        "filename":  "deepwiki-anthropics-skills.html",
+                        "type":  "secondary_index",
+                        "role":  "Secondary map of official anthropics/skills repo.",
+                        "folder":  "secondary"
+                    },
+                    {
+                        "id":  "deepwiki-skill-md-format",
+                        "tier":  "C",
+                        "title":  "DeepWiki SKILL.md Format Specification",
+                        "url":  "https://deepwiki.com/anthropics/skills/2.2-skill.md-format-specification",
+                        "filename":  "deepwiki-skill-md-format-specification.html",
+                        "type":  "secondary_index",
+                        "role":  "Secondary indexed reference for SKILL.md format.",
+                        "folder":  "secondary"
+                    },
+                    {
+                        "id":  "arxiv-agent-skills-data-driven-analysis",
+                        "tier":  "Research",
+                        "title":  "Agent Skills: A Data-Driven Analysis of Claude Skills",
+                        "url":  "https://arxiv.org/abs/2602.08004",
+                        "filename":  "arxiv-agent-skills-data-driven-analysis.html",
+                        "type":  "academic",
+                        "role":  "Academic analysis of skill ecosystem, redundancy, budgets, and risk.",
+                        "folder":  "academic"
+                    },
+                    {
+                        "id":  "arxiv-skill-md-semantic-supply-chain",
+                        "tier":  "Research",
+                        "title":  "Under the Hood of SKILL.md: Semantic Supply-chain Attacks",
+                        "url":  "https://arxiv.org/abs/2605.11418",
+                        "filename":  "arxiv-skill-md-semantic-supply-chain.html",
+                        "type":  "academic",
+                        "role":  "Academic risk model for SKILL.md wording, discovery, selection, and governance.",
+                        "folder":  "academic"
+                    },
+                    {
+                        "id":  "arxiv-evoskills",
+                        "tier":  "Research",
+                        "title":  "EvoSkills: Self-Evolving Agent Skills via Co-Evolutionary Verification",
+                        "url":  "https://arxiv.org/abs/2604.01687",
+                        "filename":  "arxiv-evoskills.html",
+                        "type":  "academic",
+                        "role":  "Academic source for verifier-guided skill generation and improvement loops.",
+                        "folder":  "academic"
+                    }
+                ],
+    "repos":  [
+                  {
+                      "id":  "anthropics-skills",
+                      "tier":  "A",
+                      "folder":  "anthropics-skills",
+                      "role":  "Official public Agent Skills repository.",
+                      "title":  "anthropics/skills",
+                      "url":  "https://github.com/anthropics/skills.git"
+                  },
+                  {
+                      "id":  "agentskills-agentskills",
+                      "tier":  "B",
+                      "folder":  "agentskills-agentskills",
+                      "role":  "Open standard documentation repository.",
+                      "title":  "agentskills/agentskills",
+                      "url":  "https://github.com/agentskills/agentskills.git"
+                  }
+              ]
+}

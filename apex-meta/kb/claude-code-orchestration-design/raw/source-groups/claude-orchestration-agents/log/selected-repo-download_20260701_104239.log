@@ -1,0 +1,10 @@
+started: 2026-07-01T10:41:47Z
+git_version: git version 2.52.0.windows.1
+target_root: C:\GitDev\apexai-os-meta\apex-meta\kb\claude-orchestration-agents
+$ git clone --filter=blob:none --no-checkout --depth 1 https://github.com/shanraisshan/claude-code-best-practice.git C:\GitDev\apexai-os-meta\apex-meta\kb\claude-orchestration-agents\raw\repos\first-batch-to-clone\shanraisshan__claude-code-best-practice
+$ git clone --filter=blob:none --no-checkout --depth 1 https://github.com/bmad-code-org/BMAD-METHOD.git C:\GitDev\apexai-os-meta\apex-meta\kb\claude-orchestration-agents\raw\repos\first-batch-to-clone\bmad-code-org__BMAD-METHOD
+$ git clone --filter=blob:none --no-checkout --depth 1 https://github.com/amanaiproduct/personal-os.git C:\GitDev\apexai-os-meta\apex-meta\kb\claude-orchestration-agents\raw\repos\first-batch-to-clone\amanaiproduct__personal-os
+$ git clone --filter=blob:none --no-checkout --depth 1 https://github.com/iannuttall/claude-agents.git C:\GitDev\apexai-os-meta\apex-meta\kb\claude-orchestration-agents\raw\repos\first-batch-to-clone\iannuttall__claude-agents
+$ git clone --filter=blob:none --no-checkout --depth 1 https://github.com/hesreallyhim/awesome-claude-code.git C:\GitDev\apexai-os-meta\apex-meta\kb\claude-orchestration-agents\raw\repos\first-batch-to-read-only\hesreallyhim__awesome-claude-code
+$ git clone --filter=blob:none --no-checkout --depth 1 https://github.com/Aider-AI/aider.git C:\GitDev\apexai-os-meta\apex-meta\kb\claude-orchestration-agents\raw\repos\first-batch-to-read-only\Aider-AI__aider
+$ git clone --filter=blob:none --no-checkout --depth 1 https://github.com/princeton-nlp/SWE-agent.git C:\GitDev\apexai-os-meta\apex-meta\kb\claude-orchestration-agents\raw\repos\first-batch-to-read-only\princeton-nlp__SWE-agent

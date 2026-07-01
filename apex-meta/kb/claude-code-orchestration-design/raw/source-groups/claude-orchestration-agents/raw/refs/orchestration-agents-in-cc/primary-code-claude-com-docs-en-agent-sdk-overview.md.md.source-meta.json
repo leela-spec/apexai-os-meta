@@ -1,0 +1,22 @@
+{
+  "source_url": "https://code.claude.com/docs/en/agent-sdk/overview.md",
+  "original_url_text": "https://code.claude.com/docs/en/agent-sdk/overview.md",
+  "capture_url": "https://code.claude.com/docs/en/agent-sdk/overview.md",
+  "final_url": "https://code.claude.com/docs/en/agent-sdk/overview.md",
+  "capture_method": "direct",
+  "tier": "primary",
+  "title": "https://code.claude.com/docs/en/agent-sdk/overview.md",
+  "target_component_type": "Official Anthropic Doc",
+  "structural_integrity_key": "",
+  "verification_method": "",
+  "evidence": 5,
+  "impact": 4,
+  "risk": 3,
+  "origin": "rating_table",
+  "source_note": "apex-meta/kb/claude-orchestration-agents/raw/notes/OrchestrationAgentsInCC_Research_CC.md",
+  "source_line": 22,
+  "downloaded_at": "2026-07-01T09:45:13Z",
+  "content_type": "text/markdown; charset=utf-8",
+  "bytes_written": 25550,
+  "sha256": "0260ac33a19fa1bc94eb4a2678e075798de919b136fb6219e96db762069ddc35"
+}

@@ -1,0 +1,573 @@
+﻿{
+    "generated_at":  "2026-07-01T07:11:11Z",
+    "target_kb":  "claude-skill-design",
+    "source_root":  "source-knowledge/ProjectRepos",
+    "destination_root":  "apex-meta/kb/claude-skill-design/sources/curated/high-impact-repos",
+    "allowlist_path":  "apex-meta/kb/claude-skill-design/manifests/large-corpus-prework-projectrepos/curated-import-allowlist.json",
+    "include_maybe_later":  true,
+    "what_if_only":  false,
+    "planned_count":  79,
+    "copied_count":  79,
+    "skipped_count":  0,
+    "validation_errors":  [
+
+                          ],
+    "copied":  [
+                   {
+                       "selection_group":  "include_first",
+                       "bucket":  "skill_package_examples",
+                       "repo":  "antigravity-awesome-skills-main",
+                       "source_path":  "antigravity-awesome-skills-main/skills/skill-writer/SKILL.md",
+                       "destination":  "apex-meta\\kb\\claude-skill-design\\sources\\curated\\high-impact-repos\\antigravity-awesome-skills-main\\skills\\skill-writer\\SKILL.md"
+                   },
+                   {
+                       "selection_group":  "include_first",
+                       "bucket":  "skill_package_examples",
+                       "repo":  "antigravity-awesome-skills-main",
+                       "source_path":  "antigravity-awesome-skills-main/skills/using-superpowers/SKILL.md",
+                       "destination":  "apex-meta\\kb\\claude-skill-design\\sources\\curated\\high-impact-repos\\antigravity-awesome-skills-main\\skills\\using-superpowers\\SKILL.md"
+                   },
+                   {
+                       "selection_group":  "include_first",
+                       "bucket":  "skill_quality_and_evaluation",
+                       "repo":  "antigravity-awesome-skills-main",
+                       "source_path":  "antigravity-awesome-skills-main/skills/skill-check/SKILL.md",
+                       "destination":  "apex-meta\\kb\\claude-skill-design\\sources\\curated\\high-impact-repos\\antigravity-awesome-skills-main\\skills\\skill-check\\SKILL.md"
+                   },
+                   {
+                       "selection_group":  "include_first",
+                       "bucket":  "skill_quality_and_evaluation",
+                       "repo":  "skillcheck",
+                       "source_path":  "skillcheck/skills/skillcheck/SKILL.md",
+                       "destination":  "apex-meta\\kb\\claude-skill-design\\sources\\curated\\high-impact-repos\\skillcheck\\skills\\skillcheck\\SKILL.md"
+                   },
+                   {
+                       "selection_group":  "include_first",
+                       "bucket":  "skill_quality_and_evaluation",
+                       "repo":  "crewAI-main",
+                       "source_path":  "crewAI-main/lib/crewai/tests/skills/fixtures/valid-skill/SKILL.md",
+                       "destination":  "apex-meta\\kb\\claude-skill-design\\sources\\curated\\high-impact-repos\\crewAI-main\\lib\\crewai\\tests\\skills\\fixtures\\valid-skill\\SKILL.md"
+                   },
+                   {
+                       "selection_group":  "include_first",
+                       "bucket":  "skill_quality_and_evaluation",
+                       "repo":  "crewAI-main",
+                       "source_path":  "crewAI-main/lib/crewai/tests/skills/fixtures/minimal-skill/SKILL.md",
+                       "destination":  "apex-meta\\kb\\claude-skill-design\\sources\\curated\\high-impact-repos\\crewAI-main\\lib\\crewai\\tests\\skills\\fixtures\\minimal-skill\\SKILL.md"
+                   },
+                   {
+                       "selection_group":  "include_first",
+                       "bucket":  "skill_quality_and_evaluation",
+                       "repo":  "crewAI-main",
+                       "source_path":  "crewAI-main/lib/crewai/tests/skills/fixtures/invalid-name/SKILL.md",
+                       "destination":  "apex-meta\\kb\\claude-skill-design\\sources\\curated\\high-impact-repos\\crewAI-main\\lib\\crewai\\tests\\skills\\fixtures\\invalid-name\\SKILL.md"
+                   },
+                   {
+                       "selection_group":  "include_first",
+                       "bucket":  "subskill_or_package_architecture",
+                       "repo":  "antigravity-awesome-skills-main",
+                       "source_path":  "antigravity-awesome-skills-main/skills/manifest/SKILL.md",
+                       "destination":  "apex-meta\\kb\\claude-skill-design\\sources\\curated\\high-impact-repos\\antigravity-awesome-skills-main\\skills\\manifest\\SKILL.md"
+                   },
+                   {
+                       "selection_group":  "include_first",
+                       "bucket":  "tool_script_boundaries",
+                       "repo":  "antigravity-awesome-skills-main",
+                       "source_path":  "antigravity-awesome-skills-main/skills/reference-builder/SKILL.md",
+                       "destination":  "apex-meta\\kb\\claude-skill-design\\sources\\curated\\high-impact-repos\\antigravity-awesome-skills-main\\skills\\reference-builder\\SKILL.md"
+                   },
+                   {
+                       "selection_group":  "include_first",
+                       "bucket":  "subskill_or_package_architecture",
+                       "repo":  "antigravity-awesome-skills-main",
+                       "source_path":  "antigravity-awesome-skills-main/skills/app-builder/templates/SKILL.md",
+                       "destination":  "apex-meta\\kb\\claude-skill-design\\sources\\curated\\high-impact-repos\\antigravity-awesome-skills-main\\skills\\app-builder\\templates\\SKILL.md"
+                   },
+                   {
+                       "selection_group":  "include_first",
+                       "bucket":  "subskill_or_package_architecture",
+                       "repo":  "antigravity-awesome-skills-main",
+                       "source_path":  "antigravity-awesome-skills-main/skills/documentation-templates/SKILL.md",
+                       "destination":  "apex-meta\\kb\\claude-skill-design\\sources\\curated\\high-impact-repos\\antigravity-awesome-skills-main\\skills\\documentation-templates\\SKILL.md"
+                   },
+                   {
+                       "selection_group":  "include_first",
+                       "bucket":  "skill_package_examples",
+                       "repo":  "antigravity-awesome-skills-main",
+                       "source_path":  "antigravity-awesome-skills-main/skills/ai-agent-development/SKILL.md",
+                       "destination":  "apex-meta\\kb\\claude-skill-design\\sources\\curated\\high-impact-repos\\antigravity-awesome-skills-main\\skills\\ai-agent-development\\SKILL.md"
+                   },
+                   {
+                       "selection_group":  "include_first",
+                       "bucket":  "skill_package_examples",
+                       "repo":  "antigravity-awesome-skills-main",
+                       "source_path":  "antigravity-awesome-skills-main/skills/documentation/SKILL.md",
+                       "destination":  "apex-meta\\kb\\claude-skill-design\\sources\\curated\\high-impact-repos\\antigravity-awesome-skills-main\\skills\\documentation\\SKILL.md"
+                   },
+                   {
+                       "selection_group":  "include_first",
+                       "bucket":  "skill_package_examples",
+                       "repo":  "antigravity-awesome-skills-main",
+                       "source_path":  "antigravity-awesome-skills-main/skills/rag-implementation/SKILL.md",
+                       "destination":  "apex-meta\\kb\\claude-skill-design\\sources\\curated\\high-impact-repos\\antigravity-awesome-skills-main\\skills\\rag-implementation\\SKILL.md"
+                   },
+                   {
+                       "selection_group":  "include_first",
+                       "bucket":  "skill_quality_and_evaluation",
+                       "repo":  "antigravity-awesome-skills-main",
+                       "source_path":  "antigravity-awesome-skills-main/skills/agenttrace-session-audit/SKILL.md",
+                       "destination":  "apex-meta\\kb\\claude-skill-design\\sources\\curated\\high-impact-repos\\antigravity-awesome-skills-main\\skills\\agenttrace-session-audit\\SKILL.md"
+                   },
+                   {
+                       "selection_group":  "include_first",
+                       "bucket":  "comparative_agent_frameworks",
+                       "repo":  "antigravity-awesome-skills-main",
+                       "source_path":  "antigravity-awesome-skills-main/skills/parallel-agents/SKILL.md",
+                       "destination":  "apex-meta\\kb\\claude-skill-design\\sources\\curated\\high-impact-repos\\antigravity-awesome-skills-main\\skills\\parallel-agents\\SKILL.md"
+                   },
+                   {
+                       "selection_group":  "include_first",
+                       "bucket":  "skill_quality_and_evaluation",
+                       "repo":  "antigravity-awesome-skills-main",
+                       "source_path":  "antigravity-awesome-skills-main/skills/testing-qa/SKILL.md",
+                       "destination":  "apex-meta\\kb\\claude-skill-design\\sources\\curated\\high-impact-repos\\antigravity-awesome-skills-main\\skills\\testing-qa\\SKILL.md"
+                   },
+                   {
+                       "selection_group":  "include_first",
+                       "bucket":  "prompt_and_instruction_design",
+                       "repo":  "antigravity-awesome-skills-main",
+                       "source_path":  "antigravity-awesome-skills-main/skills/writing-plans/SKILL.md",
+                       "destination":  "apex-meta\\kb\\claude-skill-design\\sources\\curated\\high-impact-repos\\antigravity-awesome-skills-main\\skills\\writing-plans\\SKILL.md"
+                   },
+                   {
+                       "selection_group":  "include_first",
+                       "bucket":  "skill_quality_and_evaluation",
+                       "repo":  "antigravity-awesome-skills-main",
+                       "source_path":  "antigravity-awesome-skills-main/skills/security-audit/SKILL.md",
+                       "destination":  "apex-meta\\kb\\claude-skill-design\\sources\\curated\\high-impact-repos\\antigravity-awesome-skills-main\\skills\\security-audit\\SKILL.md"
+                   },
+                   {
+                       "selection_group":  "include_first",
+                       "bucket":  "skill_quality_and_evaluation",
+                       "repo":  "antigravity-awesome-skills-main",
+                       "source_path":  "antigravity-awesome-skills-main/skills/api-security-testing/SKILL.md",
+                       "destination":  "apex-meta\\kb\\claude-skill-design\\sources\\curated\\high-impact-repos\\antigravity-awesome-skills-main\\skills\\api-security-testing\\SKILL.md"
+                   },
+                   {
+                       "selection_group":  "include_first",
+                       "bucket":  "tool_script_boundaries",
+                       "repo":  "antigravity-awesome-skills-main",
+                       "source_path":  "antigravity-awesome-skills-main/skills/mcp-tool-developer/SKILL.md",
+                       "destination":  "apex-meta\\kb\\claude-skill-design\\sources\\curated\\high-impact-repos\\antigravity-awesome-skills-main\\skills\\mcp-tool-developer\\SKILL.md"
+                   },
+                   {
+                       "selection_group":  "include_first",
+                       "bucket":  "tool_script_boundaries",
+                       "repo":  "antigravity-awesome-skills-main",
+                       "source_path":  "antigravity-awesome-skills-main/skills/runapi-cli/SKILL.md",
+                       "destination":  "apex-meta\\kb\\claude-skill-design\\sources\\curated\\high-impact-repos\\antigravity-awesome-skills-main\\skills\\runapi-cli\\SKILL.md"
+                   },
+                   {
+                       "selection_group":  "include_first",
+                       "bucket":  "tool_script_boundaries",
+                       "repo":  "antigravity-awesome-skills-main",
+                       "source_path":  "antigravity-awesome-skills-main/skills/tool-use-guardian/SKILL.md",
+                       "destination":  "apex-meta\\kb\\claude-skill-design\\sources\\curated\\high-impact-repos\\antigravity-awesome-skills-main\\skills\\tool-use-guardian\\SKILL.md"
+                   },
+                   {
+                       "selection_group":  "include_first",
+                       "bucket":  "subskill_or_package_architecture",
+                       "repo":  "antigravity-awesome-skills-main",
+                       "source_path":  "antigravity-awesome-skills-main/skills/agent-memory-mcp/SKILL.md",
+                       "destination":  "apex-meta\\kb\\claude-skill-design\\sources\\curated\\high-impact-repos\\antigravity-awesome-skills-main\\skills\\agent-memory-mcp\\SKILL.md"
+                   },
+                   {
+                       "selection_group":  "include_first",
+                       "bucket":  "subskill_or_package_architecture",
+                       "repo":  "antigravity-awesome-skills-main",
+                       "source_path":  "antigravity-awesome-skills-main/skills/hierarchical-agent-memory/SKILL.md",
+                       "destination":  "apex-meta\\kb\\claude-skill-design\\sources\\curated\\high-impact-repos\\antigravity-awesome-skills-main\\skills\\hierarchical-agent-memory\\SKILL.md"
+                   },
+                   {
+                       "selection_group":  "include_first",
+                       "bucket":  "comparative_agent_frameworks",
+                       "repo":  "antigravity-awesome-skills-main",
+                       "source_path":  "antigravity-awesome-skills-main/skills/multi-agent-brainstorming/SKILL.md",
+                       "destination":  "apex-meta\\kb\\claude-skill-design\\sources\\curated\\high-impact-repos\\antigravity-awesome-skills-main\\skills\\multi-agent-brainstorming\\SKILL.md"
+                   },
+                   {
+                       "selection_group":  "include_first",
+                       "bucket":  "subskill_or_package_architecture",
+                       "repo":  "antigravity-awesome-skills-main",
+                       "source_path":  "antigravity-awesome-skills-main/skills/design-orchestration/SKILL.md",
+                       "destination":  "apex-meta\\kb\\claude-skill-design\\sources\\curated\\high-impact-repos\\antigravity-awesome-skills-main\\skills\\design-orchestration\\SKILL.md"
+                   },
+                   {
+                       "selection_group":  "include_first",
+                       "bucket":  "subskill_or_package_architecture",
+                       "repo":  "antigravity-awesome-skills-main",
+                       "source_path":  "antigravity-awesome-skills-main/skills/open-dynamic-workflows/SKILL.md",
+                       "destination":  "apex-meta\\kb\\claude-skill-design\\sources\\curated\\high-impact-repos\\antigravity-awesome-skills-main\\skills\\open-dynamic-workflows\\SKILL.md"
+                   },
+                   {
+                       "selection_group":  "include_first",
+                       "bucket":  "prompt_and_instruction_design",
+                       "repo":  "antigravity-awesome-skills-main",
+                       "source_path":  "antigravity-awesome-skills-main/skills/recursive-context-pruning-token-budgeting/SKILL.md",
+                       "destination":  "apex-meta\\kb\\claude-skill-design\\sources\\curated\\high-impact-repos\\antigravity-awesome-skills-main\\skills\\recursive-context-pruning-token-budgeting\\SKILL.md"
+                   },
+                   {
+                       "selection_group":  "include_first",
+                       "bucket":  "prompt_and_instruction_design",
+                       "repo":  "antigravity-awesome-skills-main",
+                       "source_path":  "antigravity-awesome-skills-main/skills/llm-application-dev-prompt-optimize/SKILL.md",
+                       "destination":  "apex-meta\\kb\\claude-skill-design\\sources\\curated\\high-impact-repos\\antigravity-awesome-skills-main\\skills\\llm-application-dev-prompt-optimize\\SKILL.md"
+                   },
+                   {
+                       "selection_group":  "include_first",
+                       "bucket":  "skill_quality_and_evaluation",
+                       "repo":  "antigravity-awesome-skills-main",
+                       "source_path":  "antigravity-awesome-skills-main/skills/verification-before-completion/SKILL.md",
+                       "destination":  "apex-meta\\kb\\claude-skill-design\\sources\\curated\\high-impact-repos\\antigravity-awesome-skills-main\\skills\\verification-before-completion\\SKILL.md"
+                   },
+                   {
+                       "selection_group":  "include_first",
+                       "bucket":  "prompt_and_instruction_design",
+                       "repo":  "antigravity-awesome-skills-main",
+                       "source_path":  "antigravity-awesome-skills-main/skills/claude-code-guide/SKILL.md",
+                       "destination":  "apex-meta\\kb\\claude-skill-design\\sources\\curated\\high-impact-repos\\antigravity-awesome-skills-main\\skills\\claude-code-guide\\SKILL.md"
+                   },
+                   {
+                       "selection_group":  "include_first",
+                       "bucket":  "prompt_and_instruction_design",
+                       "repo":  "antigravity-awesome-skills-main",
+                       "source_path":  "antigravity-awesome-skills-main/skills/agents-md/SKILL.md",
+                       "destination":  "apex-meta\\kb\\claude-skill-design\\sources\\curated\\high-impact-repos\\antigravity-awesome-skills-main\\skills\\agents-md\\SKILL.md"
+                   },
+                   {
+                       "selection_group":  "include_first",
+                       "bucket":  "skill_package_examples",
+                       "repo":  "antigravity-awesome-skills-main",
+                       "source_path":  "antigravity-awesome-skills-main/skills/api-documentation/SKILL.md",
+                       "destination":  "apex-meta\\kb\\claude-skill-design\\sources\\curated\\high-impact-repos\\antigravity-awesome-skills-main\\skills\\api-documentation\\SKILL.md"
+                   },
+                   {
+                       "selection_group":  "include_first",
+                       "bucket":  "skill_package_examples",
+                       "repo":  "antigravity-awesome-skills-main",
+                       "source_path":  "antigravity-awesome-skills-main/skills/yao-meta-skill/SKILL.md",
+                       "destination":  "apex-meta\\kb\\claude-skill-design\\sources\\curated\\high-impact-repos\\antigravity-awesome-skills-main\\skills\\yao-meta-skill\\SKILL.md"
+                   },
+                   {
+                       "selection_group":  "include_first",
+                       "bucket":  "tool_script_boundaries",
+                       "repo":  "claude-skills-main",
+                       "source_path":  "claude-skills-main/skills/mcp-developer/SKILL.md",
+                       "destination":  "apex-meta\\kb\\claude-skill-design\\sources\\curated\\high-impact-repos\\claude-skills-main\\skills\\mcp-developer\\SKILL.md"
+                   },
+                   {
+                       "selection_group":  "include_first",
+                       "bucket":  "skill_package_examples",
+                       "repo":  "claude-skills-main",
+                       "source_path":  "claude-skills-main/skills/code-documenter/SKILL.md",
+                       "destination":  "apex-meta\\kb\\claude-skill-design\\sources\\curated\\high-impact-repos\\claude-skills-main\\skills\\code-documenter\\SKILL.md"
+                   },
+                   {
+                       "selection_group":  "include_first",
+                       "bucket":  "skill_quality_and_evaluation",
+                       "repo":  "claude-skills-main",
+                       "source_path":  "claude-skills-main/skills/security-reviewer/SKILL.md",
+                       "destination":  "apex-meta\\kb\\claude-skill-design\\sources\\curated\\high-impact-repos\\claude-skills-main\\skills\\security-reviewer\\SKILL.md"
+                   },
+                   {
+                       "selection_group":  "include_first",
+                       "bucket":  "skill_quality_and_evaluation",
+                       "repo":  "claude-skills-main",
+                       "source_path":  "claude-skills-main/skills/code-reviewer/SKILL.md",
+                       "destination":  "apex-meta\\kb\\claude-skill-design\\sources\\curated\\high-impact-repos\\claude-skills-main\\skills\\code-reviewer\\SKILL.md"
+                   },
+                   {
+                       "selection_group":  "include_first",
+                       "bucket":  "tool_script_boundaries",
+                       "repo":  "claude-skills-main",
+                       "source_path":  "claude-skills-main/skills/cli-developer/SKILL.md",
+                       "destination":  "apex-meta\\kb\\claude-skill-design\\sources\\curated\\high-impact-repos\\claude-skills-main\\skills\\cli-developer\\SKILL.md"
+                   },
+                   {
+                       "selection_group":  "include_first",
+                       "bucket":  "prompt_and_instruction_design",
+                       "repo":  "claude-skills-main",
+                       "source_path":  "claude-skills-main/skills/spec-miner/SKILL.md",
+                       "destination":  "apex-meta\\kb\\claude-skill-design\\sources\\curated\\high-impact-repos\\claude-skills-main\\skills\\spec-miner\\SKILL.md"
+                   },
+                   {
+                       "selection_group":  "include_first",
+                       "bucket":  "skill_quality_and_evaluation",
+                       "repo":  "claude-skills-main",
+                       "source_path":  "claude-skills-main/skills/test-master/SKILL.md",
+                       "destination":  "apex-meta\\kb\\claude-skill-design\\sources\\curated\\high-impact-repos\\claude-skills-main\\skills\\test-master\\SKILL.md"
+                   },
+                   {
+                       "selection_group":  "include_first",
+                       "bucket":  "subskill_or_package_architecture",
+                       "repo":  "claude-skills-main",
+                       "source_path":  "claude-skills-main/skills/architecture-designer/SKILL.md",
+                       "destination":  "apex-meta\\kb\\claude-skill-design\\sources\\curated\\high-impact-repos\\claude-skills-main\\skills\\architecture-designer\\SKILL.md"
+                   },
+                   {
+                       "selection_group":  "include_first",
+                       "bucket":  "prompt_and_instruction_design",
+                       "repo":  "claude-skills-main",
+                       "source_path":  "claude-skills-main/skills/feature-forge/SKILL.md",
+                       "destination":  "apex-meta\\kb\\claude-skill-design\\sources\\curated\\high-impact-repos\\claude-skills-main\\skills\\feature-forge\\SKILL.md"
+                   },
+                   {
+                       "selection_group":  "include_first",
+                       "bucket":  "skill_package_examples",
+                       "repo":  "claude-skills-main",
+                       "source_path":  "claude-skills-main/skills/playwright-expert/SKILL.md",
+                       "destination":  "apex-meta\\kb\\claude-skill-design\\sources\\curated\\high-impact-repos\\claude-skills-main\\skills\\playwright-expert\\SKILL.md"
+                   },
+                   {
+                       "selection_group":  "maybe_later",
+                       "bucket":  "skill_package_examples",
+                       "repo":  "antigravity-awesome-skills-main",
+                       "source_path":  "antigravity-awesome-skills-main/skills/react-nextjs-development/SKILL.md",
+                       "destination":  "apex-meta\\kb\\claude-skill-design\\sources\\curated\\high-impact-repos\\antigravity-awesome-skills-main\\skills\\react-nextjs-development\\SKILL.md"
+                   },
+                   {
+                       "selection_group":  "maybe_later",
+                       "bucket":  "skill_package_examples",
+                       "repo":  "antigravity-awesome-skills-main",
+                       "source_path":  "antigravity-awesome-skills-main/skills/python-fastapi-development/SKILL.md",
+                       "destination":  "apex-meta\\kb\\claude-skill-design\\sources\\curated\\high-impact-repos\\antigravity-awesome-skills-main\\skills\\python-fastapi-development\\SKILL.md"
+                   },
+                   {
+                       "selection_group":  "maybe_later",
+                       "bucket":  "tool_script_boundaries",
+                       "repo":  "antigravity-awesome-skills-main",
+                       "source_path":  "antigravity-awesome-skills-main/skills/seek-and-analyze-video/SKILL.md",
+                       "destination":  "apex-meta\\kb\\claude-skill-design\\sources\\curated\\high-impact-repos\\antigravity-awesome-skills-main\\skills\\seek-and-analyze-video\\SKILL.md"
+                   },
+                   {
+                       "selection_group":  "maybe_later",
+                       "bucket":  "skill_package_examples",
+                       "repo":  "antigravity-awesome-skills-main",
+                       "source_path":  "antigravity-awesome-skills-main/skills/agentfolio/SKILL.md",
+                       "destination":  "apex-meta\\kb\\claude-skill-design\\sources\\curated\\high-impact-repos\\antigravity-awesome-skills-main\\skills\\agentfolio\\SKILL.md"
+                   },
+                   {
+                       "selection_group":  "maybe_later",
+                       "bucket":  "skill_quality_and_evaluation",
+                       "repo":  "antigravity-awesome-skills-main",
+                       "source_path":  "antigravity-awesome-skills-main/skills/web-security-testing/SKILL.md",
+                       "destination":  "apex-meta\\kb\\claude-skill-design\\sources\\curated\\high-impact-repos\\antigravity-awesome-skills-main\\skills\\web-security-testing\\SKILL.md"
+                   },
+                   {
+                       "selection_group":  "maybe_later",
+                       "bucket":  "skill_package_examples",
+                       "repo":  "antigravity-awesome-skills-main",
+                       "source_path":  "antigravity-awesome-skills-main/skills/database/SKILL.md",
+                       "destination":  "apex-meta\\kb\\claude-skill-design\\sources\\curated\\high-impact-repos\\antigravity-awesome-skills-main\\skills\\database\\SKILL.md"
+                   },
+                   {
+                       "selection_group":  "maybe_later",
+                       "bucket":  "skill_package_examples",
+                       "repo":  "antigravity-awesome-skills-main",
+                       "source_path":  "antigravity-awesome-skills-main/skills/postgresql-optimization/SKILL.md",
+                       "destination":  "apex-meta\\kb\\claude-skill-design\\sources\\curated\\high-impact-repos\\antigravity-awesome-skills-main\\skills\\postgresql-optimization\\SKILL.md"
+                   },
+                   {
+                       "selection_group":  "maybe_later",
+                       "bucket":  "skill_quality_and_evaluation",
+                       "repo":  "antigravity-awesome-skills-main",
+                       "source_path":  "antigravity-awesome-skills-main/skills/e2e-testing/SKILL.md",
+                       "destination":  "apex-meta\\kb\\claude-skill-design\\sources\\curated\\high-impact-repos\\antigravity-awesome-skills-main\\skills\\e2e-testing\\SKILL.md"
+                   },
+                   {
+                       "selection_group":  "maybe_later",
+                       "bucket":  "tool_script_boundaries",
+                       "repo":  "antigravity-awesome-skills-main",
+                       "source_path":  "antigravity-awesome-skills-main/skills/bash-scripting/SKILL.md",
+                       "destination":  "apex-meta\\kb\\claude-skill-design\\sources\\curated\\high-impact-repos\\antigravity-awesome-skills-main\\skills\\bash-scripting\\SKILL.md"
+                   },
+                   {
+                       "selection_group":  "maybe_later",
+                       "bucket":  "tool_script_boundaries",
+                       "repo":  "antigravity-awesome-skills-main",
+                       "source_path":  "antigravity-awesome-skills-main/skills/cloud-devops/SKILL.md",
+                       "destination":  "apex-meta\\kb\\claude-skill-design\\sources\\curated\\high-impact-repos\\antigravity-awesome-skills-main\\skills\\cloud-devops\\SKILL.md"
+                   },
+                   {
+                       "selection_group":  "maybe_later",
+                       "bucket":  "subskill_or_package_architecture",
+                       "repo":  "antigravity-awesome-skills-main",
+                       "source_path":  "antigravity-awesome-skills-main/skills/antigravity-workflows/SKILL.md",
+                       "destination":  "apex-meta\\kb\\claude-skill-design\\sources\\curated\\high-impact-repos\\antigravity-awesome-skills-main\\skills\\antigravity-workflows\\SKILL.md"
+                   },
+                   {
+                       "selection_group":  "maybe_later",
+                       "bucket":  "comparative_agent_frameworks",
+                       "repo":  "antigravity-awesome-skills-main",
+                       "source_path":  "antigravity-awesome-skills-main/skills/global-chat-agent-discovery/SKILL.md",
+                       "destination":  "apex-meta\\kb\\claude-skill-design\\sources\\curated\\high-impact-repos\\antigravity-awesome-skills-main\\skills\\global-chat-agent-discovery\\SKILL.md"
+                   },
+                   {
+                       "selection_group":  "maybe_later",
+                       "bucket":  "subskill_or_package_architecture",
+                       "repo":  "antigravity-awesome-skills-main",
+                       "source_path":  "antigravity-awesome-skills-main/skills/recallmax/SKILL.md",
+                       "destination":  "apex-meta\\kb\\claude-skill-design\\sources\\curated\\high-impact-repos\\antigravity-awesome-skills-main\\skills\\recallmax\\SKILL.md"
+                   },
+                   {
+                       "selection_group":  "maybe_later",
+                       "bucket":  "prompt_and_instruction_design",
+                       "repo":  "antigravity-awesome-skills-main",
+                       "source_path":  "antigravity-awesome-skills-main/skills/bdistill-knowledge-extraction/SKILL.md",
+                       "destination":  "apex-meta\\kb\\claude-skill-design\\sources\\curated\\high-impact-repos\\antigravity-awesome-skills-main\\skills\\bdistill-knowledge-extraction\\SKILL.md"
+                   },
+                   {
+                       "selection_group":  "maybe_later",
+                       "bucket":  "skill_package_examples",
+                       "repo":  "antigravity-awesome-skills-main",
+                       "source_path":  "antigravity-awesome-skills-main/skills/uxui-principles/SKILL.md",
+                       "destination":  "apex-meta\\kb\\claude-skill-design\\sources\\curated\\high-impact-repos\\antigravity-awesome-skills-main\\skills\\uxui-principles\\SKILL.md"
+                   },
+                   {
+                       "selection_group":  "maybe_later",
+                       "bucket":  "comparative_agent_frameworks",
+                       "repo":  "antigravity-awesome-skills-main",
+                       "source_path":  "antigravity-awesome-skills-main/skills/antigravity-agent-manager/SKILL.md",
+                       "destination":  "apex-meta\\kb\\claude-skill-design\\sources\\curated\\high-impact-repos\\antigravity-awesome-skills-main\\skills\\antigravity-agent-manager\\SKILL.md"
+                   },
+                   {
+                       "selection_group":  "maybe_later",
+                       "bucket":  "skill_quality_and_evaluation",
+                       "repo":  "antigravity-awesome-skills-main",
+                       "source_path":  "antigravity-awesome-skills-main/skills/tdd-workflow/SKILL.md",
+                       "destination":  "apex-meta\\kb\\claude-skill-design\\sources\\curated\\high-impact-repos\\antigravity-awesome-skills-main\\skills\\tdd-workflow\\SKILL.md"
+                   },
+                   {
+                       "selection_group":  "maybe_later",
+                       "bucket":  "skill_quality_and_evaluation",
+                       "repo":  "antigravity-awesome-skills-main",
+                       "source_path":  "antigravity-awesome-skills-main/skills/tdd/SKILL.md",
+                       "destination":  "apex-meta\\kb\\claude-skill-design\\sources\\curated\\high-impact-repos\\antigravity-awesome-skills-main\\skills\\tdd\\SKILL.md"
+                   },
+                   {
+                       "selection_group":  "maybe_later",
+                       "bucket":  "skill_package_examples",
+                       "repo":  "antigravity-awesome-skills-main",
+                       "source_path":  "antigravity-awesome-skills-main/skills/senior-architect/SKILL.md",
+                       "destination":  "apex-meta\\kb\\claude-skill-design\\sources\\curated\\high-impact-repos\\antigravity-awesome-skills-main\\skills\\senior-architect\\SKILL.md"
+                   },
+                   {
+                       "selection_group":  "maybe_later",
+                       "bucket":  "skill_package_examples",
+                       "repo":  "antigravity-awesome-skills-main",
+                       "source_path":  "antigravity-awesome-skills-main/skills/senior-fullstack/SKILL.md",
+                       "destination":  "apex-meta\\kb\\claude-skill-design\\sources\\curated\\high-impact-repos\\antigravity-awesome-skills-main\\skills\\senior-fullstack\\SKILL.md"
+                   },
+                   {
+                       "selection_group":  "maybe_later",
+                       "bucket":  "skill_package_examples",
+                       "repo":  "claude-skills-main",
+                       "source_path":  "claude-skills-main/skills/dotnet-core-expert/SKILL.md",
+                       "destination":  "apex-meta\\kb\\claude-skill-design\\sources\\curated\\high-impact-repos\\claude-skills-main\\skills\\dotnet-core-expert\\SKILL.md"
+                   },
+                   {
+                       "selection_group":  "maybe_later",
+                       "bucket":  "skill_package_examples",
+                       "repo":  "claude-skills-main",
+                       "source_path":  "claude-skills-main/skills/flutter-expert/SKILL.md",
+                       "destination":  "apex-meta\\kb\\claude-skill-design\\sources\\curated\\high-impact-repos\\claude-skills-main\\skills\\flutter-expert\\SKILL.md"
+                   },
+                   {
+                       "selection_group":  "maybe_later",
+                       "bucket":  "skill_package_examples",
+                       "repo":  "claude-skills-main",
+                       "source_path":  "claude-skills-main/skills/vue-expert/SKILL.md",
+                       "destination":  "apex-meta\\kb\\claude-skill-design\\sources\\curated\\high-impact-repos\\claude-skills-main\\skills\\vue-expert\\SKILL.md"
+                   },
+                   {
+                       "selection_group":  "maybe_later",
+                       "bucket":  "skill_package_examples",
+                       "repo":  "claude-skills-main",
+                       "source_path":  "claude-skills-main/skills/golang-pro/SKILL.md",
+                       "destination":  "apex-meta\\kb\\claude-skill-design\\sources\\curated\\high-impact-repos\\claude-skills-main\\skills\\golang-pro\\SKILL.md"
+                   },
+                   {
+                       "selection_group":  "maybe_later",
+                       "bucket":  "tool_script_boundaries",
+                       "repo":  "claude-skills-main",
+                       "source_path":  "claude-skills-main/skills/atlassian-mcp/SKILL.md",
+                       "destination":  "apex-meta\\kb\\claude-skill-design\\sources\\curated\\high-impact-repos\\claude-skills-main\\skills\\atlassian-mcp\\SKILL.md"
+                   },
+                   {
+                       "selection_group":  "maybe_later",
+                       "bucket":  "skill_package_examples",
+                       "repo":  "claude-skills-main",
+                       "source_path":  "claude-skills-main/skills/react-expert/SKILL.md",
+                       "destination":  "apex-meta\\kb\\claude-skill-design\\sources\\curated\\high-impact-repos\\claude-skills-main\\skills\\react-expert\\SKILL.md"
+                   },
+                   {
+                       "selection_group":  "maybe_later",
+                       "bucket":  "subskill_or_package_architecture",
+                       "repo":  "claude-skills-main",
+                       "source_path":  "claude-skills-main/skills/java-architect/SKILL.md",
+                       "destination":  "apex-meta\\kb\\claude-skill-design\\sources\\curated\\high-impact-repos\\claude-skills-main\\skills\\java-architect\\SKILL.md"
+                   },
+                   {
+                       "selection_group":  "maybe_later",
+                       "bucket":  "skill_package_examples",
+                       "repo":  "claude-skills-main",
+                       "source_path":  "claude-skills-main/skills/typescript-pro/SKILL.md",
+                       "destination":  "apex-meta\\kb\\claude-skill-design\\sources\\curated\\high-impact-repos\\claude-skills-main\\skills\\typescript-pro\\SKILL.md"
+                   },
+                   {
+                       "selection_group":  "maybe_later",
+                       "bucket":  "skill_quality_and_evaluation",
+                       "repo":  "claude-skills-main",
+                       "source_path":  "claude-skills-main/skills/debugging-wizard/SKILL.md",
+                       "destination":  "apex-meta\\kb\\claude-skill-design\\sources\\curated\\high-impact-repos\\claude-skills-main\\skills\\debugging-wizard\\SKILL.md"
+                   },
+                   {
+                       "selection_group":  "maybe_later",
+                       "bucket":  "skill_package_examples",
+                       "repo":  "claude-skills-main",
+                       "source_path":  "claude-skills-main/skills/javascript-pro/SKILL.md",
+                       "destination":  "apex-meta\\kb\\claude-skill-design\\sources\\curated\\high-impact-repos\\claude-skills-main\\skills\\javascript-pro\\SKILL.md"
+                   },
+                   {
+                       "selection_group":  "maybe_later",
+                       "bucket":  "skill_package_examples",
+                       "repo":  "claude-skills-main",
+                       "source_path":  "claude-skills-main/skills/nextjs-developer/SKILL.md",
+                       "destination":  "apex-meta\\kb\\claude-skill-design\\sources\\curated\\high-impact-repos\\claude-skills-main\\skills\\nextjs-developer\\SKILL.md"
+                   },
+                   {
+                       "selection_group":  "maybe_later",
+                       "bucket":  "skill_package_examples",
+                       "repo":  "claude-skills-main",
+                       "source_path":  "claude-skills-main/skills/sql-pro/SKILL.md",
+                       "destination":  "apex-meta\\kb\\claude-skill-design\\sources\\curated\\high-impact-repos\\claude-skills-main\\skills\\sql-pro\\SKILL.md"
+                   },
+                   {
+                       "selection_group":  "maybe_later",
+                       "bucket":  "subskill_or_package_architecture",
+                       "repo":  "claude-skills-main",
+                       "source_path":  "claude-skills-main/skills/graphql-architect/SKILL.md",
+                       "destination":  "apex-meta\\kb\\claude-skill-design\\sources\\curated\\high-impact-repos\\claude-skills-main\\skills\\graphql-architect\\SKILL.md"
+                   },
+                   {
+                       "selection_group":  "maybe_later",
+                       "bucket":  "skill_package_examples",
+                       "repo":  "claude-skills-main",
+                       "source_path":  "claude-skills-main/skills/cpp-pro/SKILL.md",
+                       "destination":  "apex-meta\\kb\\claude-skill-design\\sources\\curated\\high-impact-repos\\claude-skills-main\\skills\\cpp-pro\\SKILL.md"
+                   }
+               ],
+    "skipped":  [
+
+                ]
+}

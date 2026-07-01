@@ -1,0 +1,167 @@
+﻿{
+    "generated_at":  "2026-07-01T12:30:06Z",
+    "destination_root":  "apex-meta/kb/claude-code-orchestration-design",
+    "explicit_copy_plan":  [
+                               {
+                                   "id":  "claude-skill-design",
+                                   "source":  "apex-meta/kb/claude-skill-design",
+                                   "target":  "apex-meta/kb/claude-code-orchestration-design/raw/source-groups/claude-skill-design",
+                                   "required":  true,
+                                   "domains":  [
+                                                   "skill-package-design",
+                                                   "commands-hooks-rules-memory"
+                                               ],
+                                   "priority":  "P0-P1",
+                                   "reason":  "Main existing Claude skill-design KB with schema, source inventories, Phase 0 artifacts, official docs, operator notes, and large corpus intelligence."
+                               },
+                               {
+                                   "id":  "skill-design-best-practices",
+                                   "source":  "apex-meta/kb/skill-design-best-practices",
+                                   "target":  "apex-meta/kb/claude-code-orchestration-design/raw/source-groups/skill-design-best-practices",
+                                   "required":  true,
+                                   "domains":  [
+                                                   "skill-package-design"
+                                               ],
+                                   "priority":  "P0-P1",
+                                   "reason":  "Focused earlier skill best-practices KB with Phase 1 analysis of official skill-package guidance."
+                               },
+                               {
+                                   "id":  "skill-best-practices-official-source-acquisition",
+                                   "source":  "apex-meta/kb/_source-acquisitions/skill-best-practices-official-2026-06-23",
+                                   "target":  "apex-meta/kb/claude-code-orchestration-design/raw/source-groups/_source-acquisitions/skill-best-practices-official-2026-06-23",
+                                   "required":  true,
+                                   "domains":  [
+                                                   "skill-package-design"
+                                               ],
+                                   "priority":  "P0",
+                                   "reason":  "Raw official source-acquisition archive for Anthropic Agent Skills docs, official PDF, engineering article, Agent Skills specification, official repos, and academic/security sources."
+                               },
+                               {
+                                   "id":  "claude-orchestration-agents",
+                                   "source":  "apex-meta/kb/claude-orchestration-agents",
+                                   "target":  "apex-meta/kb/claude-code-orchestration-design/raw/source-groups/claude-orchestration-agents",
+                                   "required":  true,
+                                   "domains":  [
+                                                   "agent-subagent-design",
+                                                   "workflow-design",
+                                                   "commands-hooks-rules-memory",
+                                                   "external-repo-patterns"
+                                               ],
+                                   "priority":  "P1-P3",
+                                   "reason":  "Downloaded Claude orchestration agent repo corpus, including Claude Code best practices, BMAD, personal-os, claude-agents, awesome-claude-code, Aider, and SWE-agent."
+                               },
+                               {
+                                   "id":  "prompt-engineer-research-base",
+                                   "source":  "apex-meta/kb/prompt-engineer-research-base",
+                                   "target":  "apex-meta/kb/claude-code-orchestration-design/raw/source-groups/prompt-engineer-research-base",
+                                   "required":  false,
+                                   "domains":  [
+                                                   "prompt-pack-and-artifact-contracts",
+                                                   "apex-application-patterns"
+                                               ],
+                                   "priority":  "P2",
+                                   "reason":  "Prompt/workflow research KB. Relevant only as supporting material for prompt-pack design and artifact-contract patterns."
+                               }
+                           ],
+    "source_roots":  [
+                         {
+                             "id":  "claude-skill-design",
+                             "source":  "apex-meta/kb/claude-skill-design",
+                             "target":  "apex-meta/kb/claude-code-orchestration-design/raw/source-groups/claude-skill-design",
+                             "required":  true,
+                             "copied":  true,
+                             "status":  "copied",
+                             "domains":  [
+                                             "skill-package-design",
+                                             "commands-hooks-rules-memory"
+                                         ],
+                             "priority":  "P0-P1",
+                             "reason":  "Main existing Claude skill-design KB with schema, source inventories, Phase 0 artifacts, official docs, operator notes, and large corpus intelligence.",
+                             "file_count":  783,
+                             "bytes_total":  474150880,
+                             "conflicts":  0
+                         },
+                         {
+                             "id":  "skill-design-best-practices",
+                             "source":  "apex-meta/kb/skill-design-best-practices",
+                             "target":  "apex-meta/kb/claude-code-orchestration-design/raw/source-groups/skill-design-best-practices",
+                             "required":  true,
+                             "copied":  true,
+                             "status":  "copied",
+                             "domains":  [
+                                             "skill-package-design"
+                                         ],
+                             "priority":  "P0-P1",
+                             "reason":  "Focused earlier skill best-practices KB with Phase 1 analysis of official skill-package guidance.",
+                             "file_count":  5,
+                             "bytes_total":  19656,
+                             "conflicts":  0
+                         },
+                         {
+                             "id":  "skill-best-practices-official-source-acquisition",
+                             "source":  "apex-meta/kb/_source-acquisitions/skill-best-practices-official-2026-06-23",
+                             "target":  "apex-meta/kb/claude-code-orchestration-design/raw/source-groups/_source-acquisitions/skill-best-practices-official-2026-06-23",
+                             "required":  true,
+                             "copied":  true,
+                             "status":  "copied",
+                             "domains":  [
+                                             "skill-package-design"
+                                         ],
+                             "priority":  "P0",
+                             "reason":  "Raw official source-acquisition archive for Anthropic Agent Skills docs, official PDF, engineering article, Agent Skills specification, official repos, and academic/security sources.",
+                             "file_count":  633,
+                             "bytes_total":  20594511,
+                             "conflicts":  0
+                         },
+                         {
+                             "id":  "claude-orchestration-agents",
+                             "source":  "apex-meta/kb/claude-orchestration-agents",
+                             "target":  "apex-meta/kb/claude-code-orchestration-design/raw/source-groups/claude-orchestration-agents",
+                             "required":  true,
+                             "copied":  true,
+                             "status":  "copied",
+                             "domains":  [
+                                             "agent-subagent-design",
+                                             "workflow-design",
+                                             "commands-hooks-rules-memory",
+                                             "external-repo-patterns"
+                                         ],
+                             "priority":  "P1-P3",
+                             "reason":  "Downloaded Claude orchestration agent repo corpus, including Claude Code best practices, BMAD, personal-os, claude-agents, awesome-claude-code, Aider, and SWE-agent.",
+                             "file_count":  1038,
+                             "bytes_total":  21652192,
+                             "conflicts":  0
+                         },
+                         {
+                             "id":  "prompt-engineer-research-base",
+                             "source":  "apex-meta/kb/prompt-engineer-research-base",
+                             "target":  "apex-meta/kb/claude-code-orchestration-design/raw/source-groups/prompt-engineer-research-base",
+                             "required":  false,
+                             "copied":  true,
+                             "status":  "copied",
+                             "domains":  [
+                                             "prompt-pack-and-artifact-contracts",
+                                             "apex-application-patterns"
+                                         ],
+                             "priority":  "P2",
+                             "reason":  "Prompt/workflow research KB. Relevant only as supporting material for prompt-pack design and artifact-contract patterns.",
+                             "file_count":  242,
+                             "bytes_total":  2845034,
+                             "conflicts":  0
+                         }
+                     ],
+    "missing_required":  [
+
+                         ],
+    "audit_only_unmapped_candidates":  [
+                                           {
+                                               "path":  "apex-meta/kb/apex-kb-skill-test",
+                                               "reason":  "folder_name_token_match",
+                                               "tokens":  [
+                                                              "skill"
+                                                          ],
+                                               "copied":  false,
+                                               "action":  "operator_review_required_before_adding_to_copy_plan"
+                                           }
+                                       ]
+}

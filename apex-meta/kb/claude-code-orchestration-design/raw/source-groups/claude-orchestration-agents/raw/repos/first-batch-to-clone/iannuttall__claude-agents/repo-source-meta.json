@@ -1,0 +1,20 @@
+{
+  "source_type": "github_repo",
+  "downloaded_at": "2026-07-01T10:42:15Z",
+  "repo": "iannuttall/claude-agents",
+  "url": "https://github.com/iannuttall/claude-agents.git",
+  "decision_group": "first_batch_to_clone",
+  "decision": "clone_selectively",
+  "priority": 2,
+  "why": "Small, low-noise Claude subagent template source.",
+  "include_paths": [
+    "README.md",
+    "LICENSE",
+    "agents/"
+  ],
+  "notes": "Use as subagent formatting reference, not as a large permanent agent roster.",
+  "head": "f7df2c3e7395d163ad52d0793bac8fa7ce0d776a",
+  "default_branch": "main",
+  "git_metadata_stripped": true,
+  "warning": "Do not run scripts from this downloaded repo without separate review."
+}

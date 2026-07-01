@@ -1,0 +1,1380 @@
+[
+  {
+    "extension": ".md",
+    "h1": "Step 1 — Read confirmation",
+    "is_binary_or_asset": false,
+    "is_package_manifest": false,
+    "is_text_candidate": true,
+    "keyword_hits": {
+      "evaluation": 46,
+      "knowledge_base": 269,
+      "llm_design": 140,
+      "mcp_tooling": 15,
+      "memory": 42,
+      "skill_package": 115,
+      "workflow": 11
+    },
+    "keyword_score": 280,
+    "line_count": 459,
+    "mtime_utc": "2026-06-25T17:53:49Z",
+    "name": "Claude_Apex KB_SQLiteFTS5BM25_GPTv2.md",
+    "path": "Claude_Apex KB_SQLiteFTS5BM25_GPTv2.md",
+    "path_reasons": [
+      "filename-token:claude+45"
+    ],
+    "path_score": 45,
+    "reasons": [
+      "filename-token:claude+45",
+      "keyword-group:llm_designx140",
+      "keyword-group:skill_packagex115",
+      "keyword-group:workflowx11",
+      "keyword-group:knowledge_basex269",
+      "keyword-group:evaluationx46",
+      "keyword-group:memoryx42",
+      "keyword-group:mcp_toolingx15"
+    ],
+    "score": 325,
+    "size_bytes": 36206
+  },
+  {
+    "extension": ".md",
+    "h1": null,
+    "is_binary_or_asset": false,
+    "is_package_manifest": false,
+    "is_text_candidate": true,
+    "keyword_hits": {
+      "evaluation": 14,
+      "knowledge_base": 82,
+      "llm_design": 36,
+      "mcp_tooling": 14,
+      "memory": 17,
+      "skill_package": 50,
+      "workflow": 38
+    },
+    "keyword_score": 280,
+    "line_count": 1,
+    "mtime_utc": "2026-06-26T13:34:15Z",
+    "name": "Anotehr failed DRPromptdesign3.md",
+    "path": "DeterministicResearch/Anotehr failed DRPromptdesign3.md",
+    "path_reasons": [
+      "filename-token:prompt+45"
+    ],
+    "path_score": 45,
+    "reasons": [
+      "filename-token:prompt+45",
+      "keyword-group:llm_designx36",
+      "keyword-group:skill_packagex50",
+      "keyword-group:workflowx38",
+      "keyword-group:knowledge_basex82",
+      "keyword-group:evaluationx14",
+      "keyword-group:memoryx17",
+      "keyword-group:mcp_toolingx14"
+    ],
+    "score": 325,
+    "size_bytes": 17508
+  },
+  {
+    "extension": ".md",
+    "h1": "COPY-PASTE PROMPT BELOW — FOR GPT DEEP RESEARCH (o3 / o4 / GPT-5.5)",
+    "is_binary_or_asset": false,
+    "is_package_manifest": false,
+    "is_text_candidate": true,
+    "keyword_hits": {
+      "evaluation": 40,
+      "knowledge_base": 181,
+      "llm_design": 74,
+      "mcp_tooling": 12,
+      "memory": 23,
+      "skill_package": 97,
+      "workflow": 107
+    },
+    "keyword_score": 280,
+    "line_count": 96,
+    "mtime_utc": "2026-06-26T14:34:50Z",
+    "name": "Anotehr failed DRPromptdesign4.md",
+    "path": "DeterministicResearch/Anotehr failed DRPromptdesign4.md",
+    "path_reasons": [
+      "filename-token:prompt+45"
+    ],
+    "path_score": 45,
+    "reasons": [
+      "filename-token:prompt+45",
+      "keyword-group:llm_designx74",
+      "keyword-group:skill_packagex97",
+      "keyword-group:workflowx107",
+      "keyword-group:knowledge_basex181",
+      "keyword-group:evaluationx40",
+      "keyword-group:memoryx23",
+      "keyword-group:mcp_toolingx12"
+    ],
+    "score": 325,
+    "size_bytes": 38517
+  },
+  {
+    "extension": ".md",
+    "h1": null,
+    "is_binary_or_asset": false,
+    "is_package_manifest": false,
+    "is_text_candidate": true,
+    "keyword_hits": {
+      "evaluation": 35,
+      "knowledge_base": 149,
+      "llm_design": 57,
+      "mcp_tooling": 8,
+      "memory": 18,
+      "skill_package": 88,
+      "workflow": 87
+    },
+    "keyword_score": 272,
+    "line_count": 39,
+    "mtime_utc": "2026-06-26T14:50:39Z",
+    "name": "NewDRPrompt.md",
+    "path": "DeterministicResearch/NewDRPrompt.md",
+    "path_reasons": [
+      "filename-token:prompt+45"
+    ],
+    "path_score": 45,
+    "reasons": [
+      "filename-token:prompt+45",
+      "keyword-group:llm_designx57",
+      "keyword-group:skill_packagex88",
+      "keyword-group:workflowx87",
+      "keyword-group:knowledge_basex149",
+      "keyword-group:evaluationx35",
+      "keyword-group:memoryx18",
+      "keyword-group:mcp_toolingx8"
+    ],
+    "score": 317,
+    "size_bytes": 38951
+  },
+  {
+    "extension": ".md",
+    "h1": "Phase 1 — Read Ledger",
+    "is_binary_or_asset": false,
+    "is_package_manifest": false,
+    "is_text_candidate": true,
+    "keyword_hits": {
+      "evaluation": 61,
+      "knowledge_base": 357,
+      "llm_design": 31,
+      "mcp_tooling": 3,
+      "memory": 7,
+      "skill_package": 80,
+      "workflow": 11
+    },
+    "keyword_score": 240,
+    "line_count": 100,
+    "mtime_utc": "2026-06-26T07:26:58Z",
+    "name": "FB_DR_RetrievalINtegration_Claude.md",
+    "path": "FB_DR_RetrievalINtegration_Claude.md",
+    "path_reasons": [
+      "filename-token:claude+45",
+      "filename-token:eval+25"
+    ],
+    "path_score": 70,
+    "reasons": [
+      "filename-token:claude+45",
+      "filename-token:eval+25",
+      "keyword-group:llm_designx31",
+      "keyword-group:skill_packagex80",
+      "keyword-group:workflowx11",
+      "keyword-group:knowledge_basex357",
+      "keyword-group:evaluationx61",
+      "keyword-group:memoryx7",
+      "keyword-group:mcp_toolingx3"
+    ],
+    "score": 310,
+    "size_bytes": 29769
+  },
+  {
+    "extension": ".md",
+    "h1": "Apex KB + SQLite FTS5/BM25 — Technical Verifier Report",
+    "is_binary_or_asset": false,
+    "is_package_manifest": false,
+    "is_text_candidate": true,
+    "keyword_hits": {
+      "evaluation": 51,
+      "knowledge_base": 250,
+      "llm_design": 83,
+      "mcp_tooling": 7,
+      "memory": 31,
+      "skill_package": 92,
+      "workflow": 8
+    },
+    "keyword_score": 260,
+    "line_count": 585,
+    "mtime_utc": "2026-06-25T17:41:28Z",
+    "name": "Claude_Apex KB_SQLiteFTS5BM25_CCv3.md",
+    "path": "Claude_Apex KB_SQLiteFTS5BM25_CCv3.md",
+    "path_reasons": [
+      "filename-token:claude+45"
+    ],
+    "path_score": 45,
+    "reasons": [
+      "filename-token:claude+45",
+      "keyword-group:llm_designx83",
+      "keyword-group:skill_packagex92",
+      "keyword-group:workflowx8",
+      "keyword-group:knowledge_basex250",
+      "keyword-group:evaluationx51",
+      "keyword-group:memoryx31",
+      "keyword-group:mcp_toolingx7"
+    ],
+    "score": 305,
+    "size_bytes": 47117
+  },
+  {
+    "extension": ".md",
+    "h1": null,
+    "is_binary_or_asset": false,
+    "is_package_manifest": false,
+    "is_text_candidate": true,
+    "keyword_hits": {
+      "evaluation": 7,
+      "knowledge_base": 66,
+      "llm_design": 30,
+      "mcp_tooling": 12,
+      "memory": 8,
+      "skill_package": 41,
+      "workflow": 30
+    },
+    "keyword_score": 260,
+    "line_count": 1,
+    "mtime_utc": "2026-06-26T13:32:23Z",
+    "name": "Anotehr failed DRPromptdesign.md",
+    "path": "DeterministicResearch/Anotehr failed DRPromptdesign.md",
+    "path_reasons": [
+      "filename-token:prompt+45"
+    ],
+    "path_score": 45,
+    "reasons": [
+      "filename-token:prompt+45",
+      "keyword-group:llm_designx30",
+      "keyword-group:skill_packagex41",
+      "keyword-group:workflowx30",
+      "keyword-group:knowledge_basex66",
+      "keyword-group:evaluationx7",
+      "keyword-group:memoryx8",
+      "keyword-group:mcp_toolingx12"
+    ],
+    "score": 305,
+    "size_bytes": 12928
+  },
+  {
+    "extension": ".md",
+    "h1": "Handover: Deep Research Prompt for Apex KB Phase 0 Integration",
+    "is_binary_or_asset": false,
+    "is_package_manifest": false,
+    "is_text_candidate": true,
+    "keyword_hits": {
+      "evaluation": 53,
+      "knowledge_base": 148,
+      "llm_design": 123,
+      "mcp_tooling": 27,
+      "memory": 34,
+      "skill_package": 54,
+      "workflow": 62
+    },
+    "keyword_score": 280,
+    "line_count": 433,
+    "mtime_utc": "2026-06-26T13:44:56Z",
+    "name": "Anotehr failed process.md",
+    "path": "DeterministicResearch/Anotehr failed process.md",
+    "path_reasons": [
+      "filename-token:process+25"
+    ],
+    "path_score": 25,
+    "reasons": [
+      "filename-token:process+25",
+      "keyword-group:llm_designx123",
+      "keyword-group:skill_packagex54",
+      "keyword-group:workflowx62",
+      "keyword-group:knowledge_basex148",
+      "keyword-group:evaluationx53",
+      "keyword-group:memoryx34",
+      "keyword-group:mcp_toolingx27"
+    ],
+    "score": 305,
+    "size_bytes": 44193
+  },
+  {
+    "extension": ".md",
+    "h1": "Recommendation",
+    "is_binary_or_asset": false,
+    "is_package_manifest": false,
+    "is_text_candidate": true,
+    "keyword_hits": {
+      "evaluation": 48,
+      "knowledge_base": 144,
+      "llm_design": 63,
+      "mcp_tooling": 4,
+      "memory": 19,
+      "skill_package": 42,
+      "workflow": 26
+    },
+    "keyword_score": 256,
+    "line_count": 716,
+    "mtime_utc": "2026-06-25T18:24:51Z",
+    "name": "DR_PromptFinalization2ndTry_v1.md",
+    "path": "DR_PromptFinalization2ndTry_v1.md",
+    "path_reasons": [
+      "filename-token:prompt+45"
+    ],
+    "path_score": 45,
+    "reasons": [
+      "filename-token:prompt+45",
+      "keyword-group:llm_designx63",
+      "keyword-group:skill_packagex42",
+      "keyword-group:workflowx26",
+      "keyword-group:knowledge_basex144",
+      "keyword-group:evaluationx48",
+      "keyword-group:memoryx19",
+      "keyword-group:mcp_toolingx4"
+    ],
+    "score": 301,
+    "size_bytes": 21138
+  },
+  {
+    "extension": ".md",
+    "h1": "Research report — best KB / memory / retrieval architecture for Apex + Claude Code",
+    "is_binary_or_asset": false,
+    "is_package_manifest": false,
+    "is_text_candidate": true,
+    "keyword_hits": {
+      "evaluation": 32,
+      "knowledge_base": 131,
+      "llm_design": 84,
+      "mcp_tooling": 39,
+      "memory": 106,
+      "skill_package": 35,
+      "workflow": 38
+    },
+    "keyword_score": 280,
+    "line_count": 539,
+    "mtime_utc": "2026-06-25T14:50:31Z",
+    "name": "KB-Researchv2_gpt.md",
+    "path": "KB-Researchv2_gpt.md",
+    "path_reasons": [
+      "path-token:kb+20"
+    ],
+    "path_score": 20,
+    "reasons": [
+      "path-token:kb+20",
+      "keyword-group:llm_designx84",
+      "keyword-group:skill_packagex35",
+      "keyword-group:workflowx38",
+      "keyword-group:knowledge_basex131",
+      "keyword-group:evaluationx32",
+      "keyword-group:memoryx106",
+      "keyword-group:mcp_toolingx39"
+    ],
+    "score": 300,
+    "size_bytes": 21635
+  },
+  {
+    "extension": ".md",
+    "h1": "0. First correction: personal orchestration must be a core layer",
+    "is_binary_or_asset": false,
+    "is_package_manifest": false,
+    "is_text_candidate": true,
+    "keyword_hits": {
+      "evaluation": 28,
+      "knowledge_base": 158,
+      "llm_design": 123,
+      "mcp_tooling": 60,
+      "memory": 66,
+      "skill_package": 14,
+      "workflow": 26
+    },
+    "keyword_score": 280,
+    "line_count": 727,
+    "mtime_utc": "2026-06-25T15:30:35Z",
+    "name": "KB-Researchv3_gpt.md",
+    "path": "KB-Researchv3_gpt.md",
+    "path_reasons": [
+      "path-token:kb+20"
+    ],
+    "path_score": 20,
+    "reasons": [
+      "path-token:kb+20",
+      "keyword-group:llm_designx123",
+      "keyword-group:skill_packagex14",
+      "keyword-group:workflowx26",
+      "keyword-group:knowledge_basex158",
+      "keyword-group:evaluationx28",
+      "keyword-group:memoryx66",
+      "keyword-group:mcp_toolingx60"
+    ],
+    "score": 300,
+    "size_bytes": 24911
+  },
+  {
+    "extension": ".md",
+    "h1": null,
+    "is_binary_or_asset": false,
+    "is_package_manifest": false,
+    "is_text_candidate": true,
+    "keyword_hits": {
+      "evaluation": 6,
+      "knowledge_base": 62,
+      "llm_design": 26,
+      "mcp_tooling": 11,
+      "memory": 7,
+      "skill_package": 39,
+      "workflow": 29
+    },
+    "keyword_score": 252,
+    "line_count": 435,
+    "mtime_utc": "2026-06-26T13:32:50Z",
+    "name": "Anotehr failed DRPromptdesign2.md",
+    "path": "DeterministicResearch/Anotehr failed DRPromptdesign2.md",
+    "path_reasons": [
+      "filename-token:prompt+45"
+    ],
+    "path_score": 45,
+    "reasons": [
+      "filename-token:prompt+45",
+      "keyword-group:llm_designx26",
+      "keyword-group:skill_packagex39",
+      "keyword-group:workflowx29",
+      "keyword-group:knowledge_basex62",
+      "keyword-group:evaluationx6",
+      "keyword-group:memoryx7",
+      "keyword-group:mcp_toolingx11"
+    ],
+    "score": 297,
+    "size_bytes": 12177
+  },
+  {
+    "extension": ".md",
+    "h1": "Apex KB + SQLite FTS5/BM25 — Implementation Plan v2",
+    "is_binary_or_asset": false,
+    "is_package_manifest": false,
+    "is_text_candidate": true,
+    "keyword_hits": {
+      "evaluation": 49,
+      "knowledge_base": 315,
+      "llm_design": 66,
+      "mcp_tooling": 6,
+      "memory": 13,
+      "skill_package": 23,
+      "workflow": 4
+    },
+    "keyword_score": 240,
+    "line_count": 486,
+    "mtime_utc": "2026-06-25T17:13:53Z",
+    "name": "Claude_Apex KB_SQLiteFTS5BM25_CCv2.md",
+    "path": "Claude_Apex KB_SQLiteFTS5BM25_CCv2.md",
+    "path_reasons": [
+      "filename-token:claude+45"
+    ],
+    "path_score": 45,
+    "reasons": [
+      "filename-token:claude+45",
+      "keyword-group:llm_designx66",
+      "keyword-group:skill_packagex23",
+      "keyword-group:workflowx4",
+      "keyword-group:knowledge_basex315",
+      "keyword-group:evaluationx49",
+      "keyword-group:memoryx13",
+      "keyword-group:mcp_toolingx6"
+    ],
+    "score": 285,
+    "size_bytes": 40570
+  },
+  {
+    "extension": ".md",
+    "h1": null,
+    "is_binary_or_asset": false,
+    "is_package_manifest": false,
+    "is_text_candidate": true,
+    "keyword_hits": {
+      "evaluation": 66,
+      "knowledge_base": 286,
+      "llm_design": 222,
+      "mcp_tooling": 46,
+      "memory": 56,
+      "skill_package": 45,
+      "workflow": 156
+    },
+    "keyword_score": 280,
+    "line_count": 1367,
+    "mtime_utc": "2026-06-26T14:23:23Z",
+    "name": "Apex_KB_Project_Resource_Index.machine-readable.yaml.md",
+    "path": "DeterministicResearch/Apex_KB_Project_Resource_Index.machine-readable.yaml.md",
+    "path_reasons": [],
+    "path_score": 0,
+    "reasons": [
+      "keyword-group:llm_designx222",
+      "keyword-group:skill_packagex45",
+      "keyword-group:workflowx156",
+      "keyword-group:knowledge_basex286",
+      "keyword-group:evaluationx66",
+      "keyword-group:memoryx56",
+      "keyword-group:mcp_toolingx46"
+    ],
+    "score": 280,
+    "size_bytes": 51136
+  },
+  {
+    "extension": ".md",
+    "h1": "Apex KB Project Resource Machine-Readable Knowledge Index",
+    "is_binary_or_asset": false,
+    "is_package_manifest": false,
+    "is_text_candidate": true,
+    "keyword_hits": {
+      "evaluation": 112,
+      "knowledge_base": 268,
+      "llm_design": 164,
+      "mcp_tooling": 41,
+      "memory": 140,
+      "skill_package": 47,
+      "workflow": 210
+    },
+    "keyword_score": 280,
+    "line_count": 2551,
+    "mtime_utc": "2026-06-26T14:18:52Z",
+    "name": "Apex_KB_Project_Resource_Machine_Readable_Knowledge_Index.md",
+    "path": "DeterministicResearch/Apex_KB_Project_Resource_Machine_Readable_Knowledge_Index.md",
+    "path_reasons": [],
+    "path_score": 0,
+    "reasons": [
+      "keyword-group:llm_designx164",
+      "keyword-group:skill_packagex47",
+      "keyword-group:workflowx210",
+      "keyword-group:knowledge_basex268",
+      "keyword-group:evaluationx112",
+      "keyword-group:memoryx140",
+      "keyword-group:mcp_toolingx41"
+    ],
+    "score": 280,
+    "size_bytes": 65401
+  },
+  {
+    "extension": ".md",
+    "h1": "Apex KB Project Resource Intelligence Index v0.2 — Deep Research Optimized",
+    "is_binary_or_asset": false,
+    "is_package_manifest": false,
+    "is_text_candidate": true,
+    "keyword_hits": {
+      "evaluation": 59,
+      "knowledge_base": 286,
+      "llm_design": 172,
+      "mcp_tooling": 42,
+      "memory": 32,
+      "skill_package": 39,
+      "workflow": 148
+    },
+    "keyword_score": 280,
+    "line_count": 3,
+    "mtime_utc": "2026-06-26T14:09:12Z",
+    "name": "SourceIndex.md",
+    "path": "DeterministicResearch/SourceIndex.md",
+    "path_reasons": [],
+    "path_score": 0,
+    "reasons": [
+      "keyword-group:llm_designx172",
+      "keyword-group:skill_packagex39",
+      "keyword-group:workflowx148",
+      "keyword-group:knowledge_basex286",
+      "keyword-group:evaluationx59",
+      "keyword-group:memoryx32",
+      "keyword-group:mcp_toolingx42"
+    ],
+    "score": 280,
+    "size_bytes": 31585
+  },
+  {
+    "extension": ".md",
+    "h1": "Apex KB × Apex Orchestration Integration Map",
+    "is_binary_or_asset": false,
+    "is_package_manifest": false,
+    "is_text_candidate": true,
+    "keyword_hits": {
+      "evaluation": 74,
+      "knowledge_base": 342,
+      "llm_design": 114,
+      "mcp_tooling": 18,
+      "memory": 62,
+      "skill_package": 112,
+      "workflow": 135
+    },
+    "keyword_score": 280,
+    "line_count": 424,
+    "mtime_utc": "2026-06-26T15:29:52Z",
+    "name": "deep-research-report (11).md",
+    "path": "DeterministicResearch/deep-research-report (11).md",
+    "path_reasons": [],
+    "path_score": 0,
+    "reasons": [
+      "keyword-group:llm_designx114",
+      "keyword-group:skill_packagex112",
+      "keyword-group:workflowx135",
+      "keyword-group:knowledge_basex342",
+      "keyword-group:evaluationx74",
+      "keyword-group:memoryx62",
+      "keyword-group:mcp_toolingx18"
+    ],
+    "score": 280,
+    "size_bytes": 49041
+  },
+  {
+    "extension": ".md",
+    "h1": "Apex KB + SQLite FTS5/BM25 — Complete Working Specification",
+    "is_binary_or_asset": false,
+    "is_package_manifest": false,
+    "is_text_candidate": true,
+    "keyword_hits": {
+      "evaluation": 17,
+      "knowledge_base": 260,
+      "llm_design": 106,
+      "mcp_tooling": 5,
+      "memory": 25,
+      "skill_package": 9,
+      "workflow": 4
+    },
+    "keyword_score": 232,
+    "line_count": 532,
+    "mtime_utc": "2026-06-25T17:07:07Z",
+    "name": "Claude_Apex KB_SQLiteFTS5BM25_CC.md",
+    "path": "Claude_Apex KB_SQLiteFTS5BM25_CC.md",
+    "path_reasons": [
+      "filename-token:claude+45"
+    ],
+    "path_score": 45,
+    "reasons": [
+      "filename-token:claude+45",
+      "keyword-group:llm_designx106",
+      "keyword-group:skill_packagex9",
+      "keyword-group:workflowx4",
+      "keyword-group:knowledge_basex260",
+      "keyword-group:evaluationx17",
+      "keyword-group:memoryx25",
+      "keyword-group:mcp_toolingx5"
+    ],
+    "score": 277,
+    "size_bytes": 28127
+  },
+  {
+    "extension": ".md",
+    "h1": "Apex KB / Query / Retrieval Integration — Final Patch Pack",
+    "is_binary_or_asset": false,
+    "is_package_manifest": false,
+    "is_text_candidate": true,
+    "keyword_hits": {
+      "evaluation": 97,
+      "knowledge_base": 563,
+      "llm_design": 56,
+      "mcp_tooling": 1,
+      "memory": 41,
+      "skill_package": 69,
+      "workflow": 28
+    },
+    "keyword_score": 244,
+    "line_count": 1263,
+    "mtime_utc": "2026-06-26T06:59:44Z",
+    "name": "DR_Apex KB  QueryRetrieval Integration_Final Patch Pack.md",
+    "path": "DR_Apex KB  QueryRetrieval Integration_Final Patch Pack.md",
+    "path_reasons": [
+      "filename-token:eval+25"
+    ],
+    "path_score": 25,
+    "reasons": [
+      "filename-token:eval+25",
+      "keyword-group:llm_designx56",
+      "keyword-group:skill_packagex69",
+      "keyword-group:workflowx28",
+      "keyword-group:knowledge_basex563",
+      "keyword-group:evaluationx97",
+      "keyword-group:memoryx41",
+      "keyword-group:mcp_toolingx1"
+    ],
+    "score": 269,
+    "size_bytes": 48654
+  },
+  {
+    "extension": ".md",
+    "h1": "Pre-LLM Corpus Intelligence Research Report",
+    "is_binary_or_asset": false,
+    "is_package_manifest": false,
+    "is_text_candidate": true,
+    "keyword_hits": {
+      "evaluation": 2,
+      "knowledge_base": 57,
+      "llm_design": 30,
+      "mcp_tooling": 22,
+      "memory": 3,
+      "skill_package": 47,
+      "workflow": 12
+    },
+    "keyword_score": 220,
+    "line_count": 271,
+    "mtime_utc": "2026-06-26T10:34:02Z",
+    "name": "FBGPT_Claude1.md",
+    "path": "DeterministicResearch/FBGPT_Claude1.md",
+    "path_reasons": [
+      "filename-token:claude+45"
+    ],
+    "path_score": 45,
+    "reasons": [
+      "filename-token:claude+45",
+      "keyword-group:llm_designx30",
+      "keyword-group:skill_packagex47",
+      "keyword-group:workflowx12",
+      "keyword-group:knowledge_basex57",
+      "keyword-group:evaluationx2",
+      "keyword-group:memoryx3",
+      "keyword-group:mcp_toolingx22"
+    ],
+    "score": 265,
+    "size_bytes": 17573
+  },
+  {
+    "extension": ".md",
+    "h1": "Codex Task",
+    "is_binary_or_asset": false,
+    "is_package_manifest": false,
+    "is_text_candidate": true,
+    "keyword_hits": {
+      "evaluation": 7,
+      "knowledge_base": 24,
+      "llm_design": 28,
+      "mcp_tooling": 16,
+      "memory": 8,
+      "skill_package": 61,
+      "workflow": 20
+    },
+    "keyword_score": 260,
+    "line_count": 215,
+    "mtime_utc": "2026-06-26T11:26:43Z",
+    "name": "Markdown Structure Parser Spike for Apex KB Phase.md",
+    "path": "DeterministicResearch/Markdown Structure Parser Spike for Apex KB Phase.md",
+    "path_reasons": [],
+    "path_score": 0,
+    "reasons": [
+      "keyword-group:llm_designx28",
+      "keyword-group:skill_packagex61",
+      "keyword-group:workflowx20",
+      "keyword-group:knowledge_basex24",
+      "keyword-group:evaluationx7",
+      "keyword-group:memoryx8",
+      "keyword-group:mcp_toolingx16"
+    ],
+    "score": 260,
+    "size_bytes": 15670
+  },
+  {
+    "extension": ".md",
+    "h1": "HANDOVER: Failure & Drift Post-Mortem",
+    "is_binary_or_asset": false,
+    "is_package_manifest": false,
+    "is_text_candidate": true,
+    "keyword_hits": {
+      "evaluation": 19,
+      "knowledge_base": 18,
+      "llm_design": 45,
+      "mcp_tooling": 3,
+      "memory": 8,
+      "skill_package": 2,
+      "workflow": 26
+    },
+    "keyword_score": 212,
+    "line_count": 243,
+    "mtime_utc": "2026-06-26T14:42:05Z",
+    "name": "PromptDesignFailures.md",
+    "path": "DeterministicResearch/PromptDesignFailures.md",
+    "path_reasons": [
+      "filename-token:prompt+45"
+    ],
+    "path_score": 45,
+    "reasons": [
+      "filename-token:prompt+45",
+      "keyword-group:llm_designx45",
+      "keyword-group:skill_packagex2",
+      "keyword-group:workflowx26",
+      "keyword-group:knowledge_basex18",
+      "keyword-group:evaluationx19",
+      "keyword-group:memoryx8",
+      "keyword-group:mcp_toolingx3"
+    ],
+    "score": 257,
+    "size_bytes": 18091
+  },
+  {
+    "extension": ".md",
+    "h1": null,
+    "is_binary_or_asset": false,
+    "is_package_manifest": false,
+    "is_text_candidate": true,
+    "keyword_hits": {
+      "evaluation": 5,
+      "knowledge_base": 50,
+      "llm_design": 40,
+      "mcp_tooling": 6,
+      "memory": 12,
+      "skill_package": 7,
+      "workflow": 3
+    },
+    "keyword_score": 204,
+    "line_count": 89,
+    "mtime_utc": "2026-06-25T18:10:06Z",
+    "name": "Claude_Apex KB_SQLiteFTS5BM25_CCv4AddOn.md",
+    "path": "Claude_Apex KB_SQLiteFTS5BM25_CCv4AddOn.md",
+    "path_reasons": [
+      "filename-token:claude+45"
+    ],
+    "path_score": 45,
+    "reasons": [
+      "filename-token:claude+45",
+      "keyword-group:llm_designx40",
+      "keyword-group:skill_packagex7",
+      "keyword-group:workflowx3",
+      "keyword-group:knowledge_basex50",
+      "keyword-group:evaluationx5",
+      "keyword-group:memoryx12",
+      "keyword-group:mcp_toolingx6"
+    ],
+    "score": 249,
+    "size_bytes": 7397
+  },
+  {
+    "extension": ".md",
+    "h1": "Apex KB + SQLite FTS5/BM25 — Implementation Plan",
+    "is_binary_or_asset": false,
+    "is_package_manifest": false,
+    "is_text_candidate": true,
+    "keyword_hits": {
+      "evaluation": 47,
+      "knowledge_base": 267,
+      "llm_design": 72,
+      "mcp_tooling": 7,
+      "memory": 10,
+      "skill_package": 27,
+      "workflow": 5
+    },
+    "keyword_score": 248,
+    "line_count": 636,
+    "mtime_utc": "2026-06-25T17:04:37Z",
+    "name": "Apex KB+SQLite FTS5BM25  Implementation Plan.md",
+    "path": "Apex KB+SQLite FTS5BM25  Implementation Plan.md",
+    "path_reasons": [],
+    "path_score": 0,
+    "reasons": [
+      "keyword-group:llm_designx72",
+      "keyword-group:skill_packagex27",
+      "keyword-group:workflowx5",
+      "keyword-group:knowledge_basex267",
+      "keyword-group:evaluationx47",
+      "keyword-group:memoryx10",
+      "keyword-group:mcp_toolingx7"
+    ],
+    "score": 248,
+    "size_bytes": 43330
+  },
+  {
+    "extension": ".md",
+    "h1": "Pre-LLM Corpus Intelligence Research Report",
+    "is_binary_or_asset": false,
+    "is_package_manifest": false,
+    "is_text_candidate": true,
+    "keyword_hits": {
+      "evaluation": 13,
+      "knowledge_base": 155,
+      "llm_design": 88,
+      "mcp_tooling": 32,
+      "memory": 2,
+      "skill_package": 51,
+      "workflow": 19
+    },
+    "keyword_score": 248,
+    "line_count": 805,
+    "mtime_utc": "2026-06-26T10:34:26Z",
+    "name": "Pre-LLMCorbusMechanisms_GPT.md",
+    "path": "DeterministicResearch/Pre-LLMCorbusMechanisms_GPT.md",
+    "path_reasons": [],
+    "path_score": 0,
+    "reasons": [
+      "keyword-group:llm_designx88",
+      "keyword-group:skill_packagex51",
+      "keyword-group:workflowx19",
+      "keyword-group:knowledge_basex155",
+      "keyword-group:evaluationx13",
+      "keyword-group:memoryx2",
+      "keyword-group:mcp_toolingx32"
+    ],
+    "score": 248,
+    "size_bytes": 31619
+  },
+  {
+    "extension": ".md",
+    "h1": null,
+    "is_binary_or_asset": false,
+    "is_package_manifest": false,
+    "is_text_candidate": true,
+    "keyword_hits": {
+      "evaluation": 5,
+      "knowledge_base": 104,
+      "llm_design": 8,
+      "mcp_tooling": 22,
+      "memory": 16,
+      "workflow": 2
+    },
+    "keyword_score": 180,
+    "line_count": 110,
+    "mtime_utc": "2026-06-25T16:34:11Z",
+    "name": "KB-Researchv3_gpt_FB_claude.md",
+    "path": "KB-Researchv3_gpt_FB_claude.md",
+    "path_reasons": [
+      "filename-token:claude+45",
+      "path-token:kb+20"
+    ],
+    "path_score": 65,
+    "reasons": [
+      "filename-token:claude+45",
+      "path-token:kb+20",
+      "keyword-group:llm_designx8",
+      "keyword-group:workflowx2",
+      "keyword-group:knowledge_basex104",
+      "keyword-group:evaluationx5",
+      "keyword-group:memoryx16",
+      "keyword-group:mcp_toolingx22"
+    ],
+    "score": 245,
+    "size_bytes": 41608
+  },
+  {
+    "extension": ".md",
+    "h1": "Apex Phase 0 Corpus Intelligence Implementation Decision",
+    "is_binary_or_asset": false,
+    "is_package_manifest": false,
+    "is_text_candidate": true,
+    "keyword_hits": {
+      "evaluation": 8,
+      "knowledge_base": 34,
+      "llm_design": 22,
+      "mcp_tooling": 7,
+      "memory": 5,
+      "skill_package": 26,
+      "workflow": 41
+    },
+    "keyword_score": 240,
+    "line_count": 320,
+    "mtime_utc": "2026-06-26T12:05:59Z",
+    "name": "Apex Phase 0 Corpus Intelligence Implementation Decision.md",
+    "path": "DeterministicResearch/Apex Phase 0 Corpus Intelligence Implementation Decision.md",
+    "path_reasons": [],
+    "path_score": 0,
+    "reasons": [
+      "keyword-group:llm_designx22",
+      "keyword-group:skill_packagex26",
+      "keyword-group:workflowx41",
+      "keyword-group:knowledge_basex34",
+      "keyword-group:evaluationx8",
+      "keyword-group:memoryx5",
+      "keyword-group:mcp_toolingx7"
+    ],
+    "score": 240,
+    "size_bytes": 14608
+  },
+  {
+    "extension": ".md",
+    "h1": "Codex Task — Phase 0 Pre-LLM Tool Stack Installability and Value Audit ## 0. Mission You are auditing the practical tool options for a deterministic Phase 0 pre-LLM corpus intelligence layer for:",
+    "is_binary_or_asset": false,
+    "is_package_manifest": false,
+    "is_text_candidate": true,
+    "keyword_hits": {
+      "evaluation": 16,
+      "knowledge_base": 103,
+      "llm_design": 57,
+      "mcp_tooling": 80,
+      "skill_package": 59,
+      "workflow": 35
+    },
+    "keyword_score": 240,
+    "line_count": 607,
+    "mtime_utc": "2026-06-26T11:24:37Z",
+    "name": "Pre-LLM Tool Stack Installability and Value Audit.md",
+    "path": "DeterministicResearch/Pre-LLM Tool Stack Installability and Value Audit.md",
+    "path_reasons": [],
+    "path_score": 0,
+    "reasons": [
+      "keyword-group:llm_designx57",
+      "keyword-group:skill_packagex59",
+      "keyword-group:workflowx35",
+      "keyword-group:knowledge_basex103",
+      "keyword-group:evaluationx16",
+      "keyword-group:mcp_toolingx80"
+    ],
+    "score": 240,
+    "size_bytes": 25944
+  },
+  {
+    "extension": ".md",
+    "h1": "`apex-meta/kb/claude-skill-design/manifests/phase0-tool-audit.md`",
+    "is_binary_or_asset": false,
+    "is_package_manifest": false,
+    "is_text_candidate": true,
+    "keyword_hits": {
+      "evaluation": 10,
+      "knowledge_base": 62,
+      "llm_design": 25,
+      "mcp_tooling": 27,
+      "skill_package": 35,
+      "workflow": 20
+    },
+    "keyword_score": 240,
+    "line_count": 298,
+    "mtime_utc": "2026-06-26T11:33:02Z",
+    "name": "Pre-LLMToolStack.md",
+    "path": "DeterministicResearch/Pre-LLMToolStack.md",
+    "path_reasons": [],
+    "path_score": 0,
+    "reasons": [
+      "keyword-group:llm_designx25",
+      "keyword-group:skill_packagex35",
+      "keyword-group:workflowx20",
+      "keyword-group:knowledge_basex62",
+      "keyword-group:evaluationx10",
+      "keyword-group:mcp_toolingx27"
+    ],
+    "score": 240,
+    "size_bytes": 14156
+  },
+  {
+    "extension": ".md",
+    "h1": "Apex Link Graph and Process-Flow Representability Audit",
+    "is_binary_or_asset": false,
+    "is_package_manifest": false,
+    "is_text_candidate": true,
+    "keyword_hits": {
+      "evaluation": 1,
+      "knowledge_base": 57,
+      "llm_design": 102,
+      "memory": 18,
+      "skill_package": 87,
+      "workflow": 63
+    },
+    "keyword_score": 204,
+    "line_count": 137,
+    "mtime_utc": "2026-06-26T11:35:45Z",
+    "name": "Apex Link Graph and Process-Flow Representability Audit.md",
+    "path": "DeterministicResearch/Apex Link Graph and Process-Flow Representability Audit.md",
+    "path_reasons": [
+      "filename-token:process+25"
+    ],
+    "path_score": 25,
+    "reasons": [
+      "filename-token:process+25",
+      "keyword-group:llm_designx102",
+      "keyword-group:skill_packagex87",
+      "keyword-group:workflowx63",
+      "keyword-group:knowledge_basex57",
+      "keyword-group:evaluationx1",
+      "keyword-group:memoryx18"
+    ],
+    "score": 229,
+    "size_bytes": 18920
+  },
+  {
+    "extension": ".md",
+    "h1": null,
+    "is_binary_or_asset": false,
+    "is_package_manifest": false,
+    "is_text_candidate": true,
+    "keyword_hits": {
+      "knowledge_base": 26,
+      "llm_design": 23,
+      "mcp_tooling": 3,
+      "memory": 8,
+      "skill_package": 16,
+      "workflow": 33
+    },
+    "keyword_score": 204,
+    "line_count": 154,
+    "mtime_utc": "2026-06-26T11:20:55Z",
+    "name": "CLI_Process_GPT.md",
+    "path": "DeterministicResearch/CLI_Process_GPT.md",
+    "path_reasons": [
+      "filename-token:process+25"
+    ],
+    "path_score": 25,
+    "reasons": [
+      "filename-token:process+25",
+      "keyword-group:llm_designx23",
+      "keyword-group:skill_packagex16",
+      "keyword-group:workflowx33",
+      "keyword-group:knowledge_basex26",
+      "keyword-group:memoryx8",
+      "keyword-group:mcp_toolingx3"
+    ],
+    "score": 229,
+    "size_bytes": 9193
+  },
+  {
+    "extension": ".md",
+    "h1": "Apex KB — detective analysis",
+    "is_binary_or_asset": false,
+    "is_package_manifest": false,
+    "is_text_candidate": true,
+    "keyword_hits": {
+      "evaluation": 12,
+      "knowledge_base": 93,
+      "llm_design": 15,
+      "memory": 7,
+      "skill_package": 20,
+      "workflow": 34
+    },
+    "keyword_score": 228,
+    "line_count": 306,
+    "mtime_utc": "2026-06-25T07:27:34Z",
+    "name": "Updates_apex-kb.md",
+    "path": "Updates_apex-kb.md",
+    "path_reasons": [],
+    "path_score": 0,
+    "reasons": [
+      "keyword-group:llm_designx15",
+      "keyword-group:skill_packagex20",
+      "keyword-group:workflowx34",
+      "keyword-group:knowledge_basex93",
+      "keyword-group:evaluationx12",
+      "keyword-group:memoryx7"
+    ],
+    "score": 228,
+    "size_bytes": 14588
+  },
+  {
+    "extension": ".md",
+    "h1": "Apex Link Graph and Process-Flow Representability Audit",
+    "is_binary_or_asset": false,
+    "is_package_manifest": false,
+    "is_text_candidate": true,
+    "keyword_hits": {
+      "evaluation": 1,
+      "knowledge_base": 19,
+      "llm_design": 39,
+      "memory": 7,
+      "skill_package": 33,
+      "workflow": 26
+    },
+    "keyword_score": 192,
+    "line_count": 118,
+    "mtime_utc": "2026-06-26T11:35:29Z",
+    "name": "process-flow-graph-audit.md",
+    "path": "DeterministicResearch/process-flow-graph-audit.md",
+    "path_reasons": [
+      "filename-token:process+25"
+    ],
+    "path_score": 25,
+    "reasons": [
+      "filename-token:process+25",
+      "keyword-group:llm_designx39",
+      "keyword-group:skill_packagex33",
+      "keyword-group:workflowx26",
+      "keyword-group:knowledge_basex19",
+      "keyword-group:evaluationx1",
+      "keyword-group:memoryx7"
+    ],
+    "score": 217,
+    "size_bytes": 7341
+  },
+  {
+    "extension": ".md",
+    "h1": "Markdown Parser Spike Report",
+    "is_binary_or_asset": false,
+    "is_package_manifest": false,
+    "is_text_candidate": true,
+    "keyword_hits": {
+      "evaluation": 2,
+      "knowledge_base": 13,
+      "llm_design": 15,
+      "mcp_tooling": 12,
+      "memory": 4,
+      "skill_package": 46,
+      "workflow": 8
+    },
+    "keyword_score": 216,
+    "line_count": 165,
+    "mtime_utc": "2026-06-26T11:26:17Z",
+    "name": "markdown-parser-spike-report.md",
+    "path": "DeterministicResearch/markdown-parser-spike-report.md",
+    "path_reasons": [],
+    "path_score": 0,
+    "reasons": [
+      "keyword-group:llm_designx15",
+      "keyword-group:skill_packagex46",
+      "keyword-group:workflowx8",
+      "keyword-group:knowledge_basex13",
+      "keyword-group:evaluationx2",
+      "keyword-group:memoryx4",
+      "keyword-group:mcp_toolingx12"
+    ],
+    "score": 216,
+    "size_bytes": 8200
+  },
+  {
+    "extension": ".md",
+    "h1": null,
+    "is_binary_or_asset": false,
+    "is_package_manifest": false,
+    "is_text_candidate": true,
+    "keyword_hits": {
+      "evaluation": 5,
+      "knowledge_base": 8,
+      "llm_design": 30,
+      "mcp_tooling": 16,
+      "memory": 27,
+      "workflow": 5
+    },
+    "keyword_score": 192,
+    "line_count": 107,
+    "mtime_utc": "2026-06-25T14:51:18Z",
+    "name": "research2_gem.md",
+    "path": "research2_gem.md",
+    "path_reasons": [
+      "path-token:research+15"
+    ],
+    "path_score": 15,
+    "reasons": [
+      "path-token:research+15",
+      "keyword-group:llm_designx30",
+      "keyword-group:workflowx5",
+      "keyword-group:knowledge_basex8",
+      "keyword-group:evaluationx5",
+      "keyword-group:memoryx27",
+      "keyword-group:mcp_toolingx16"
+    ],
+    "score": 207,
+    "size_bytes": 6832
+  },
+  {
+    "extension": ".md",
+    "h1": null,
+    "is_binary_or_asset": false,
+    "is_package_manifest": false,
+    "is_text_candidate": true,
+    "keyword_hits": {
+      "evaluation": 2,
+      "knowledge_base": 9,
+      "llm_design": 30,
+      "memory": 3,
+      "skill_package": 1,
+      "workflow": 7
+    },
+    "keyword_score": 128,
+    "line_count": 82,
+    "mtime_utc": "2026-06-26T15:25:10Z",
+    "name": "DRFailureClaude2.md",
+    "path": "DeterministicResearch/DRFailureClaude2.md",
+    "path_reasons": [
+      "filename-token:claude+45"
+    ],
+    "path_score": 45,
+    "reasons": [
+      "filename-token:claude+45",
+      "keyword-group:llm_designx30",
+      "keyword-group:skill_packagex1",
+      "keyword-group:workflowx7",
+      "keyword-group:knowledge_basex9",
+      "keyword-group:evaluationx2",
+      "keyword-group:memoryx3"
+    ],
+    "score": 173,
+    "size_bytes": 19597
+  },
+  {
+    "extension": ".md",
+    "h1": null,
+    "is_binary_or_asset": false,
+    "is_package_manifest": false,
+    "is_text_candidate": true,
+    "keyword_hits": {
+      "evaluation": 1,
+      "knowledge_base": 13,
+      "llm_design": 7,
+      "mcp_tooling": 1,
+      "memory": 3,
+      "skill_package": 9
+    },
+    "keyword_score": 124,
+    "line_count": 51,
+    "mtime_utc": "2026-06-25T18:09:29Z",
+    "name": "Claude_Apex KB_SQLiteFTS5BM25_Specia_CC.md",
+    "path": "Claude_Apex KB_SQLiteFTS5BM25_Specia_CC.md",
+    "path_reasons": [
+      "filename-token:claude+45"
+    ],
+    "path_score": 45,
+    "reasons": [
+      "filename-token:claude+45",
+      "keyword-group:llm_designx7",
+      "keyword-group:skill_packagex9",
+      "keyword-group:knowledge_basex13",
+      "keyword-group:evaluationx1",
+      "keyword-group:memoryx3",
+      "keyword-group:mcp_toolingx1"
+    ],
+    "score": 169,
+    "size_bytes": 3283
+  },
+  {
+    "extension": ".md",
+    "h1": "Apex Link Graph Summary",
+    "is_binary_or_asset": false,
+    "is_package_manifest": false,
+    "is_text_candidate": true,
+    "keyword_hits": {
+      "knowledge_base": 15,
+      "llm_design": 17,
+      "memory": 3,
+      "skill_package": 20,
+      "workflow": 7
+    },
+    "keyword_score": 160,
+    "line_count": 50,
+    "mtime_utc": "2026-06-26T11:35:27Z",
+    "name": "graph-summary.md",
+    "path": "DeterministicResearch/graph-summary.md",
+    "path_reasons": [],
+    "path_score": 0,
+    "reasons": [
+      "keyword-group:llm_designx17",
+      "keyword-group:skill_packagex20",
+      "keyword-group:workflowx7",
+      "keyword-group:knowledge_basex15",
+      "keyword-group:memoryx3"
+    ],
+    "score": 160,
+    "size_bytes": 2281
+  },
+  {
+    "extension": ".md",
+    "h1": null,
+    "is_binary_or_asset": false,
+    "is_package_manifest": false,
+    "is_text_candidate": true,
+    "keyword_hits": {
+      "evaluation": 4,
+      "llm_design": 10,
+      "memory": 1,
+      "workflow": 3
+    },
+    "keyword_score": 72,
+    "line_count": 53,
+    "mtime_utc": "2026-06-26T15:25:38Z",
+    "name": "DRFailureClaude3.md",
+    "path": "DeterministicResearch/DRFailureClaude3.md",
+    "path_reasons": [
+      "filename-token:claude+45"
+    ],
+    "path_score": 45,
+    "reasons": [
+      "filename-token:claude+45",
+      "keyword-group:llm_designx10",
+      "keyword-group:workflowx3",
+      "keyword-group:evaluationx4",
+      "keyword-group:memoryx1"
+    ],
+    "score": 117,
+    "size_bytes": 6893
+  }
+]

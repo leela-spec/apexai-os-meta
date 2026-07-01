@@ -1,0 +1,464 @@
+{
+  "binary_or_asset_files": 638,
+  "bounds": {
+    "max_bytes_per_file": 1048576,
+    "max_candidates": 2000,
+    "max_files": 0,
+    "max_structure_lines": 8000
+  },
+  "candidate_count": 2000,
+  "extension_counts": {
+    ".astro": 2,
+    ".backup": 1,
+    ".bash": 1,
+    ".bat": 2,
+    ".bin": 2,
+    ".cast": 2,
+    ".cff": 1,
+    ".cjs": 883,
+    ".cpp": 3,
+    ".css": 17,
+    ".csv": 118,
+    ".cts": 129,
+    ".disabled": 1,
+    ".dot": 3,
+    ".env": 6,
+    ".example": 26,
+    ".fish": 1,
+    ".gif": 6,
+    ".go": 12,
+    ".gz": 3,
+    ".h": 3,
+    ".hook": 14,
+    ".html": 30,
+    ".ico": 1,
+    ".ini": 3,
+    ".j2": 1,
+    ".java": 6,
+    ".jpeg": 11,
+    ".jpg": 1,
+    ".js": 501,
+    ".json": 583,
+    ".jsonc": 1,
+    ".jsonl": 5,
+    ".jsx": 10,
+    ".lock": 1,
+    ".mcpb": 1,
+    ".md": 14202,
+    ".mdc": 31,
+    ".mdx": 15752,
+    ".mjs": 302,
+    ".mov": 1,
+    ".mp3": 2,
+    ".mp4": 2,
+    ".patch": 1298,
+    ".png": 270,
+    ".prompt": 1,
+    ".properties": 1,
+    ".ps1": 74,
+    ".py": 3343,
+    ".sh": 293,
+    ".snap": 1,
+    ".sql": 2,
+    ".svg": 15,
+    ".swift": 6,
+    ".tape": 2,
+    ".template": 24,
+    ".test": 1,
+    ".tmpl": 1,
+    ".toml": 13,
+    ".ts": 848,
+    ".tsx": 130,
+    ".ttf": 324,
+    ".txt": 348,
+    ".typed": 6,
+    ".wav": 1,
+    ".webmanifest": 2,
+    ".webp": 1,
+    ".xml": 33,
+    ".xsd": 390,
+    ".yaml": 788,
+    ".yml": 115,
+    "[none]": 124
+  },
+  "files_seen": 41138,
+  "generated_at": "2026-06-30T20:10:21Z",
+  "largest_files": [
+    {
+      "extension": ".gif",
+      "is_binary_or_asset": true,
+      "is_package_manifest": false,
+      "is_text_candidate": false,
+      "mtime_utc": "2026-06-19T07:50:48Z",
+      "name": "mlflow-tracing.gif",
+      "path": "crewAI-main/docs/images/mlflow-tracing.gif",
+      "path_reasons": [
+        "path-token:docs+30"
+      ],
+      "path_score": 30,
+      "size_bytes": 17153907
+    },
+    {
+      "extension": ".mov",
+      "is_binary_or_asset": true,
+      "is_package_manifest": false,
+      "is_text_candidate": false,
+      "mtime_utc": "2026-06-19T07:50:55Z",
+      "name": "sfdcdemo-vini.mov",
+      "path": "crewAI-main/docs/images/enterprise/sfdcdemo-vini.mov",
+      "path_reasons": [
+        "path-token:docs+30"
+      ],
+      "path_score": 30,
+      "size_bytes": 15787349
+    },
+    {
+      "extension": ".gif",
+      "is_binary_or_asset": true,
+      "is_package_manifest": false,
+      "is_text_candidate": false,
+      "mtime_utc": "2026-06-19T07:50:49Z",
+      "name": "weave-tracing.gif",
+      "path": "crewAI-main/docs/images/weave-tracing.gif",
+      "path_reasons": [
+        "path-token:docs+30"
+      ],
+      "path_score": 30,
+      "size_bytes": 13774971
+    },
+    {
+      "extension": ".gif",
+      "is_binary_or_asset": true,
+      "is_package_manifest": false,
+      "is_text_candidate": false,
+      "mtime_utc": "2026-06-19T07:50:46Z",
+      "name": "crewai_traces.gif",
+      "path": "crewAI-main/docs/images/crewai_traces.gif",
+      "path_reasons": [
+        "path-token:docs+30"
+      ],
+      "path_score": 30,
+      "size_bytes": 10977409
+    },
+    {
+      "extension": ".png",
+      "is_binary_or_asset": true,
+      "is_package_manifest": false,
+      "is_text_candidate": false,
+      "mtime_utc": "2026-06-19T08:18:36Z",
+      "name": "v3-banner.png",
+      "path": "planning-with-files-master/media/v3-banner.png",
+      "path_reasons": [],
+      "path_score": 0,
+      "size_bytes": 7596532
+    },
+    {
+      "extension": ".png",
+      "is_binary_or_asset": true,
+      "is_package_manifest": false,
+      "is_text_candidate": false,
+      "mtime_utc": "2026-06-19T07:50:55Z",
+      "name": "snowflake-configure.png",
+      "path": "crewAI-main/docs/images/enterprise/snowflake-configure.png",
+      "path_reasons": [
+        "path-token:docs+30"
+      ],
+      "path_score": 30,
+      "size_bytes": 5954634
+    },
+    {
+      "extension": ".png",
+      "is_binary_or_asset": true,
+      "is_package_manifest": false,
+      "is_text_candidate": false,
+      "mtime_utc": "2026-06-19T07:50:52Z",
+      "name": "databricks-configure.png",
+      "path": "crewAI-main/docs/images/enterprise/databricks-configure.png",
+      "path_reasons": [
+        "path-token:docs+30"
+      ],
+      "path_score": 30,
+      "size_bytes": 5238641
+    },
+    {
+      "extension": ".jpeg",
+      "is_binary_or_asset": true,
+      "is_package_manifest": false,
+      "is_text_candidate": false,
+      "mtime_utc": "2026-06-23T09:17:26Z",
+      "name": "dog-original.jpeg",
+      "path": "antigravity-awesome-skills-main/plugins/antigravity-awesome-skills-claude/skills/last30days/assets/dog-original.jpeg",
+      "path_reasons": [
+        "path-token:skills+50"
+      ],
+      "path_score": 50,
+      "size_bytes": 4014063
+    },
+    {
+      "extension": ".jpeg",
+      "is_binary_or_asset": true,
+      "is_package_manifest": false,
+      "is_text_candidate": false,
+      "mtime_utc": "2026-06-23T09:24:01Z",
+      "name": "dog-original.jpeg",
+      "path": "antigravity-awesome-skills-main/skills/last30days/assets/dog-original.jpeg",
+      "path_reasons": [
+        "path-token:skills+50"
+      ],
+      "path_score": 50,
+      "size_bytes": 4014063
+    },
+    {
+      "extension": ".png",
+      "is_binary_or_asset": true,
+      "is_package_manifest": false,
+      "is_text_candidate": false,
+      "mtime_utc": "2026-06-19T07:50:57Z",
+      "name": "v01180.png",
+      "path": "crewAI-main/docs/images/releases/v01180.png",
+      "path_reasons": [
+        "path-token:docs+30"
+      ],
+      "path_score": 30,
+      "size_bytes": 2868715
+    },
+    {
+      "extension": ".jpeg",
+      "is_binary_or_asset": true,
+      "is_package_manifest": false,
+      "is_text_candidate": false,
+      "mtime_utc": "2026-06-23T09:17:26Z",
+      "name": "aging-portrait.jpeg",
+      "path": "antigravity-awesome-skills-main/plugins/antigravity-awesome-skills-claude/skills/last30days/assets/aging-portrait.jpeg",
+      "path_reasons": [
+        "path-token:skills+50"
+      ],
+      "path_score": 50,
+      "size_bytes": 2817207
+    },
+    {
+      "extension": ".jpeg",
+      "is_binary_or_asset": true,
+      "is_package_manifest": false,
+      "is_text_candidate": false,
+      "mtime_utc": "2026-06-23T09:24:01Z",
+      "name": "aging-portrait.jpeg",
+      "path": "antigravity-awesome-skills-main/skills/last30days/assets/aging-portrait.jpeg",
+      "path_reasons": [
+        "path-token:skills+50"
+      ],
+      "path_score": 50,
+      "size_bytes": 2817207
+    },
+    {
+      "extension": ".png",
+      "is_binary_or_asset": true,
+      "is_package_manifest": false,
+      "is_text_candidate": false,
+      "mtime_utc": "2026-06-19T07:50:57Z",
+      "name": "v01170.png",
+      "path": "crewAI-main/docs/images/releases/v01170.png",
+      "path_reasons": [
+        "path-token:docs+30"
+      ],
+      "path_score": 30,
+      "size_bytes": 2794649
+    },
+    {
+      "extension": ".jpeg",
+      "is_binary_or_asset": true,
+      "is_package_manifest": false,
+      "is_text_candidate": false,
+      "mtime_utc": "2026-06-23T09:17:27Z",
+      "name": "swimmom-mockup.jpeg",
+      "path": "antigravity-awesome-skills-main/plugins/antigravity-awesome-skills-claude/skills/last30days/assets/swimmom-mockup.jpeg",
+      "path_reasons": [
+        "path-token:skills+50"
+      ],
+      "path_score": 50,
+      "size_bytes": 2764821
+    },
+    {
+      "extension": ".jpeg",
+      "is_binary_or_asset": true,
+      "is_package_manifest": false,
+      "is_text_candidate": false,
+      "mtime_utc": "2026-06-23T09:24:01Z",
+      "name": "swimmom-mockup.jpeg",
+      "path": "antigravity-awesome-skills-main/skills/last30days/assets/swimmom-mockup.jpeg",
+      "path_reasons": [
+        "path-token:skills+50"
+      ],
+      "path_score": 50,
+      "size_bytes": 2764821
+    },
+    {
+      "extension": ".png",
+      "is_binary_or_asset": true,
+      "is_package_manifest": false,
+      "is_text_candidate": false,
+      "mtime_utc": "2026-06-19T07:50:58Z",
+      "name": "v01210.png",
+      "path": "crewAI-main/docs/images/releases/v01210.png",
+      "path_reasons": [
+        "path-token:docs+30"
+      ],
+      "path_score": 30,
+      "size_bytes": 2728183
+    },
+    {
+      "extension": ".gif",
+      "is_binary_or_asset": true,
+      "is_package_manifest": false,
+      "is_text_candidate": false,
+      "mtime_utc": "2026-06-17T11:15:12Z",
+      "name": "backlog-v1.40.gif",
+      "path": "backlog-main/Backlog.md-main/.github/backlog-v1.40.gif",
+      "path_reasons": [],
+      "path_score": 0,
+      "size_bytes": 2632070
+    },
+    {
+      "extension": ".png",
+      "is_binary_or_asset": true,
+      "is_package_manifest": false,
+      "is_text_candidate": false,
+      "mtime_utc": "2026-06-19T07:50:58Z",
+      "name": "v0950.png",
+      "path": "crewAI-main/docs/images/releases/v0950.png",
+      "path_reasons": [
+        "path-token:docs+30"
+      ],
+      "path_score": 30,
+      "size_bytes": 2582616
+    },
+    {
+      "extension": ".png",
+      "is_binary_or_asset": true,
+      "is_package_manifest": false,
+      "is_text_candidate": false,
+      "mtime_utc": "2026-06-19T07:50:58Z",
+      "name": "v01200.png",
+      "path": "crewAI-main/docs/images/releases/v01200.png",
+      "path_reasons": [
+        "path-token:docs+30"
+      ],
+      "path_score": 30,
+      "size_bytes": 2569229
+    },
+    {
+      "extension": ".png",
+      "is_binary_or_asset": true,
+      "is_package_manifest": false,
+      "is_text_candidate": false,
+      "mtime_utc": "2026-06-19T07:50:57Z",
+      "name": "v01140.png",
+      "path": "crewAI-main/docs/images/releases/v01140.png",
+      "path_reasons": [
+        "path-token:docs+30"
+      ],
+      "path_score": 30,
+      "size_bytes": 2556030
+    }
+  ],
+  "largest_skipped_by_byte_limit": [
+    {
+      "extension": ".json",
+      "is_binary_or_asset": false,
+      "is_package_manifest": false,
+      "is_text_candidate": true,
+      "mtime_utc": "2026-06-19T08:08:41Z",
+      "name": "tasks.json",
+      "path": "claude-task-master-main/.taskmaster/tasks/tasks.json",
+      "path_reasons": [],
+      "path_score": 0,
+      "size_bytes": 1558493
+    },
+    {
+      "extension": ".json",
+      "is_binary_or_asset": false,
+      "is_package_manifest": false,
+      "is_text_candidate": true,
+      "mtime_utc": "2026-06-19T07:50:14Z",
+      "name": "docs.json",
+      "path": "crewAI-main/docs/docs.json",
+      "path_reasons": [
+        "path-token:docs+30"
+      ],
+      "path_score": 30,
+      "size_bytes": 1476650
+    },
+    {
+      "extension": ".yaml",
+      "is_binary_or_asset": false,
+      "is_package_manifest": false,
+      "is_text_candidate": true,
+      "mtime_utc": "2026-06-19T07:59:12Z",
+      "name": "TestCrewMultimodalFileUpload.test_pdf_upload_anthropic.yaml",
+      "path": "crewAI-main/lib/crewai/tests/cassettes/TestCrewMultimodalFileUpload.test_pdf_upload_anthropic.yaml",
+      "path_reasons": [],
+      "path_score": 0,
+      "size_bytes": 1299867
+    },
+    {
+      "extension": ".json",
+      "is_binary_or_asset": false,
+      "is_package_manifest": false,
+      "is_text_candidate": true,
+      "mtime_utc": "2026-06-19T08:08:35Z",
+      "name": "package-lock.json",
+      "path": "claude-task-master-main/package-lock.json",
+      "path_reasons": [],
+      "path_score": 0,
+      "size_bytes": 1231443
+    },
+    {
+      "extension": ".json",
+      "is_binary_or_asset": false,
+      "is_package_manifest": false,
+      "is_text_candidate": true,
+      "mtime_utc": "2026-06-23T09:15:56Z",
+      "name": "catalog.json",
+      "path": "antigravity-awesome-skills-main/data/catalog.json",
+      "path_reasons": [],
+      "path_score": 0,
+      "size_bytes": 1111125
+    },
+    {
+      "extension": ".json",
+      "is_binary_or_asset": false,
+      "is_package_manifest": false,
+      "is_text_candidate": true,
+      "mtime_utc": "2026-06-23T09:15:56Z",
+      "name": "skills_index.json",
+      "path": "antigravity-awesome-skills-main/data/skills_index.json",
+      "path_reasons": [
+        "filename-token:skill+45"
+      ],
+      "path_score": 45,
+      "size_bytes": 1067666
+    },
+    {
+      "extension": ".json",
+      "is_binary_or_asset": false,
+      "is_package_manifest": false,
+      "is_text_candidate": true,
+      "mtime_utc": "2026-06-23T09:15:53Z",
+      "name": "skills_index.json",
+      "path": "antigravity-awesome-skills-main/skills_index.json",
+      "path_reasons": [
+        "filename-token:skill+45"
+      ],
+      "path_score": 45,
+      "size_bytes": 1067666
+    }
+  ],
+  "mode": "full",
+  "output_root": "C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\claude-skill-design\\manifests\\large-corpus-prework-projectrepos",
+  "profile": "deep",
+  "runtime_seconds": 106.855,
+  "source_root": "C:\\GitDev\\apexai-os-meta\\source-knowledge\\ProjectRepos",
+  "structure_records": 2000,
+  "text_candidate_files": 37174,
+  "total_bytes_seen": 620938957
+}

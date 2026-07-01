@@ -1,0 +1,132 @@
+diff --git a/OpenClaw/07_finalopenclawsystem/managed/agent_kb/special_ops__prompts_workflows/TEMPLATES.md b/OpenClaw/07_finalopenclawsystem/managed/agent_kb/special_ops__prompts_workflows/TEMPLATES.md
+index 566d820..3333333 100644
+--- a/OpenClaw/07_finalopenclawsystem/managed/agent_kb/special_ops__prompts_workflows/TEMPLATES.md
++++ b/OpenClaw/07_finalopenclawsystem/managed/agent_kb/special_ops__prompts_workflows/TEMPLATES.md
+@@ -185,6 +185,119 @@ template_entry:
+     IMP: 5
+     RSK: 2
+   owner: special_ops__prompts_workflows
+   validator: meta_ops
+   review_due: 2026-07-27
++
++- id: `PW-TPL-006`
++  status: accepted
++  use_when: A named promptflow or artifact may not fully express the operator's actual intended execution scope.
++  template_body: |
++    # User Intent / Artifact Contract Check
++
++    Use this before declaring completion from file equality, existing-artifact status, or a narrow promptflow interpretation.
++
++    ```yaml
++    intent_contract_check:
++      user_intent: <what the operator is asking to happen in plain language>
++      named_promptflow_or_artifact: <exact named file, promptflow, or artifact>
++      intended_execution_scope: <gap analysis | artifact manufacturing | scaffold update | apply | verify | other>
++      exact_output_expected: <repo path, diff artifact path, report, or none>
++      repo_write_expected: true | false
++      scaffold_mutation_allowed: true | false
++      appendix_only_allowed: true | false
++      source_inputs_allowed:
++        - <exact source path>
++      source_inputs_forbidden:
++        - broad governance reread
++        - unrelated repo traversal
++      open_questions: []
++      stop_if_mismatch: true
++    ```
++
++    ## Execution rule
++
++    - If user intent and the named artifact contract disagree, surface the mismatch.
++    - If no blocking question remains, execute the operator's bounded intent.
++    - Do not report `no-op` merely because a named artifact already exists.
++    - Do not mutate scaffold files unless that mutation is explicitly allowed.
++  evidence_refs:
++    - `appendices/APPENDIX_KB_QA_AND_NEXT_RESEARCH_PLAN.md#user-intent-versus-executed-promptflow-gap-analysis`
++    - `appendices/PROMPTFLOW_PROMPTS_WORKFLOWS_BOUNDED_EXECUTION_GUARDRAILS.md#5-required-execution-contract`
++    - `appendices/APPENDIX_KB_EXAMPLES.md#example-2-user-intent-versus-named-artifact-mismatch`
++  scores:
++    EVD: 5
++    IMP: 5
++    RSK: 3
++  owner: special_ops__prompts_workflows
++  validator: meta_ops
++  review_due: 2026-07-27
++
++- id: `PW-TPL-007`
++  status: accepted
++  use_when: Choosing between unified diff, full final body, or live-edit instruction for Markdown or repo file changes.
++  template_body: |
++    # Edit Mode Chooser
++
++    ```yaml
++    edit_mode_chooser:
++      target_file: <repo-relative-path>
++      change_size: small | medium | large
++      anchor_stability: stable | fragile | unknown
++      markdown_transport_risk: low | medium | high
++      exact_byte_patch_safe: true | false
++      new_file: true | false
++      recommended_mode: unified_diff | full_final_body | live_edit_instruction
++      forbidden_modes:
++        - broad rewrite
++        - hand edit after failed patch without operator approval
++        - unrelated cleanup
++      reason: <why this mode is safest>
++    ```
++
++    ## Decision rules
++
++    - Use `unified_diff` for small bounded defects when anchors are stable and patch transport is reliable.
++    - Use `full_final_body` for new files or controlled replacement when exact patch transport is riskier than replacing the whole target.
++    - Use `live_edit_instruction` when a deterministic executor can safely edit one file but the chat/connector diff transport is fragile.
++    - If `git apply --check` or equivalent validation fails during APPLY, stop and report rather than hand-editing.
++  evidence_refs:
++    - `appendices/SOURCE_CONFLICT_REPORT.md#pw-conflict-001`
++    - `appendices/APPENDIX_KB_QA_AND_NEXT_RESEARCH_PLAN.md#f5-scaffold-promotion-matrix`
++    - `appendices/APPENDIX_KB_EXAMPLES.md#example-3-fragile-diff-to-live-edit-contract`
++  scores:
++    EVD: 5
++    IMP: 5
++    RSK: 5
++  owner: special_ops__prompts_workflows
++  validator: meta_ops
++  review_due: 2026-07-27
++
++- id: `PW-TPL-008`
++  status: accepted
++  use_when: Capturing adjacent KB improvements discovered during a closed one-file or one-artifact execution phase.
++  template_body: |
++    # Improvement Opportunities Not Applied
++
++    | Opportunity | Why noticed | Why not applied now | Suggested future target |
++    |---|---|---|---|
++    | `<IMPROVEMENT>` | `<EVIDENCE_OR_TRIGGER>` | current phase is `<PHASE>` and allowed target is `<TARGET>` | `<QUEUE_OR_FILE>` |
++
++    ## Rule
++
++    Capture the improvement without applying it. If the operator later authorizes it, create a new bounded contract or diff artifact for that target.
++  evidence_refs:
++    - `appendices/APPENDIX_KB_EXAMPLES.md#example-5-out-of-mode-improvement-capture`
++    - `appendices/APPENDIX_KB_SOURCE_NOTES.md#anti-overuse-boundaries`
++  scores:
++    EVD: 5
++    IMP: 4
++    RSK: 3
++  owner: special_ops__prompts_workflows
++  validator: meta_ops
++  review_due: 2026-07-27
+ 
+ ## Appendix pointers
+ 
+ - Ranking ledger: `appendices/APPENDIX_KB_INFORMATION_RANKING_LEDGER.md`
+ - Candidate ledger: `appendices/APPENDIX_KB_CANDIDATE_LEDGER.md`
+ - Anti-drift evidence: `appendices/APPENDIX_KB_ANTI_DRIFT_EVIDENCE.md`
+ - Conflict report: `appendices/SOURCE_CONFLICT_REPORT.md`
++- Examples: `appendices/APPENDIX_KB_EXAMPLES.md`
++- Source notes: `appendices/APPENDIX_KB_SOURCE_NOTES.md`
++- QA and next research plan: `appendices/APPENDIX_KB_QA_AND_NEXT_RESEARCH_PLAN.md`
+ 
+ ## Promotion boundary
+ 
+ Add templates here only after validation and promotion from `LEARNING_QUEUE.md`.

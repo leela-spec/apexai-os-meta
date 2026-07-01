@@ -1,0 +1,14 @@
+﻿
+source             target                         status file_count
+------             ------                         ------ ----------
+raw\official-docs  sources/curated/official-docs  copied         13
+raw\official-pdfs  sources/curated/official-pdfs  copied          3
+raw\repo-extracts  sources/curated/repo-extracts  copied         19
+raw\academic       sources/curated/academic       copied          7
+raw\secondary      sources/curated/secondary      copied          5
+raw\official-repos sources/curated/official-repos copied        588
+manifests          sources/curated/manifests      copied          3
+log                sources/curated/logs           copied          2
+
+
+
