@@ -1,0 +1,24 @@
+{
+  "source_type": "github_repo",
+  "downloaded_at": "2026-07-01T10:41:55Z",
+  "repo": "shanraisshan/claude-code-best-practice",
+  "url": "https://github.com/shanraisshan/claude-code-best-practice.git",
+  "decision_group": "first_batch_to_clone",
+  "decision": "must_clone_and_study",
+  "priority": 1,
+  "why": "Verified Claude Code .claude layout and command-agent-skill routing reference.",
+  "include_paths": [
+    ".claude/",
+    "CLAUDE.md",
+    "README.md",
+    "LICENSE",
+    "best-practice/",
+    "implementation/",
+    "orchestration-workflow/"
+  ],
+  "notes": "Primary Claude-native layout source.",
+  "head": "9a5e4033f924711c22e2044c546e1eb7208d1da0",
+  "default_branch": "main",
+  "git_metadata_stripped": true,
+  "warning": "Do not run scripts from this downloaded repo without separate review."
+}

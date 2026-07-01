@@ -1,0 +1,21 @@
+{
+  "source_type": "github_repo",
+  "downloaded_at": "2026-07-01T10:42:29Z",
+  "repo": "Aider-AI/aider",
+  "url": "https://github.com/Aider-AI/aider.git",
+  "decision_group": "first_batch_to_read_only",
+  "decision": "read_only_reference",
+  "priority": 3,
+  "why": "Repo-map and atomic Git workflow reference; not an Apex orchestration foundation.",
+  "include_paths": [
+    "README.md",
+    "LICENSE",
+    "docs/",
+    "aider/repomap.py"
+  ],
+  "notes": "Read for repo-map / git-state concepts only. Avoid full codebase ingestion.",
+  "head": "5dc9490bb35f9729ef2c95d00a19ccd30c26339c",
+  "default_branch": "main",
+  "git_metadata_stripped": true,
+  "warning": "Do not run scripts from this downloaded repo without separate review."
+}

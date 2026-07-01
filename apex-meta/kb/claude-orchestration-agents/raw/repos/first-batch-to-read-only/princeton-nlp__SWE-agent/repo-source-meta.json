@@ -1,0 +1,20 @@
+{
+  "source_type": "github_repo",
+  "downloaded_at": "2026-07-01T10:42:39Z",
+  "repo": "princeton-nlp/SWE-agent",
+  "url": "https://github.com/princeton-nlp/SWE-agent.git",
+  "decision_group": "first_batch_to_read_only",
+  "decision": "read_only_reference",
+  "priority": 3,
+  "why": "Agent-computer-interface and issue-to-fix-to-validate reference.",
+  "include_paths": [
+    "README.md",
+    "LICENSE",
+    "docs/"
+  ],
+  "notes": "Use conceptually. Original repo may be superseded by mini-SWE-agent for active development.",
+  "head": "d336402e7f7e21b6d6004436e24935aa203888e5",
+  "default_branch": "main",
+  "git_metadata_stripped": true,
+  "warning": "Do not run scripts from this downloaded repo without separate review."
+}
