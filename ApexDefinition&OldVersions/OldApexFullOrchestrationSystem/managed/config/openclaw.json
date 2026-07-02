@@ -1,0 +1,48 @@
+{
+  "system_name": "Master of Arts Runtime Base",
+  "project_anchor": "OpenClaw",
+  "repo_identity": "Master of Arts",
+  "repo_slug_target": "master-of-arts",
+  "orchestration_mode": "sequential-conservative",
+  "advanced_orchestration_blocked_until_validation": true,
+  "python_resolution_policy": {
+    "check_command_name_first": true,
+    "check_absolute_path_second": true,
+    "treat_absolute_path_success_as_resolution_drift": true,
+    "record_verified_interpreter_in_run_artifacts": true
+  },
+  "agents": {
+    "defaults": {
+      "model": {
+        "primary": "openai:gpt-4.1-mini",
+        "fallback": "openai:gpt-4.1"
+      },
+      "workspace": "./",
+      "tools": ["file", "shell", "browser"]
+    },
+    "registered": {}
+  },
+  "models": {
+    "providers": {
+      "openai": {
+        "apiKey": "${OPENAI_API_KEY}"
+      }
+    }
+  },
+  "tools": {
+    "enabled": ["file", "shell", "browser"],
+    "permissions": {
+      "shell": {
+        "allowlist": ["git", "npm", "node"]
+      }
+    }
+  },
+  "security": {
+    "sandbox": true,
+    "networkPolicy": "restricted"
+  },
+  "logging": {
+    "level": "info",
+    "output": "~/.config/openclaw/logs/openclaw.log"
+  }
+}

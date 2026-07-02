@@ -1,0 +1,18 @@
+diff --git a/agent_kb_source_indexes/META_HEADS_KB_BASE_BUILD_INDEX.md b/agent_kb_source_indexes/META_HEADS_KB_BASE_BUILD_INDEX.md
+--- a/agent_kb_source_indexes/META_HEADS_KB_BASE_BUILD_INDEX.md
++++ b/agent_kb_source_indexes/META_HEADS_KB_BASE_BUILD_INDEX.md
+@@ -185,6 +185,14 @@
+ 31. [MASTER_IDEA_LEDGER.md](https://github.com/leela-spec/MasterOfArts/blob/main/OpenClaw/04_final-system-setup/NewFinals/ResourceScreeningLedgers/MASTER_IDEA_LEDGER.md)
+    - role: `supporting`
+    - read: `skim`
+    - reason: idea-level cross-check for detective candidate extraction.
++32. [META_DETECTIVE_WATCHDOG_QA_HYGIENE_EXECUTION_PLAN.md](https://github.com/leela-spec/MasterOfArts/blob/main/OpenClaw/07_finalopenclawsystem/docs/working/META_DETECTIVE_WATCHDOG_QA_HYGIENE_EXECUTION_PLAN.md)
++   - role: `supporting`
++   - read: `read full`
++   - reason: working execution plan for the watchdog QA/Hygiene candidate pack; not accepted canon by storage alone.
++33. [META_DETECTIVE_EXECUTION_PROMPTFLOW_COMPLIANCE_AUDITOR_WORKING.md](https://github.com/leela-spec/MasterOfArts/blob/main/OpenClaw/07_finalopenclawsystem/docs/working/META_DETECTIVE_EXECUTION_PROMPTFLOW_COMPLIANCE_AUDITOR_WORKING.md)
++   - role: `supporting`
++   - read: `read full`
++   - reason: working-mode detail for execution and promptflow compliance audit; not a separate agent or KB root.
+ 
+ ## Files Outside MasterOfArts Repo To Attach Manually

@@ -1,0 +1,105 @@
+diff --git a/OpenClaw/07_finalopenclawsystem/managed/agent_kb/meta_detective/MISTAKES.md b/OpenClaw/07_finalopenclawsystem/managed/agent_kb/meta_detective/MISTAKES.md
+--- a/OpenClaw/07_finalopenclawsystem/managed/agent_kb/meta_detective/MISTAKES.md
++++ b/OpenClaw/07_finalopenclawsystem/managed/agent_kb/meta_detective/MISTAKES.md
+@@ -28,1 +28,105 @@
+ ## Accepted mistake patterns
++
++### DET-MIS-PROCESS-COMPLIANCE-FALSE-POSITIVE — Process compliance false positive
++
++```yaml
++mistake_entry:
++  id: DET-MIS-PROCESS-COMPLIANCE-FALSE-POSITIVE
++  status: accepted
++  pattern: Agent claims it followed a required execution method, but actual tool/write behavior shows a different method was used.
++  trigger_conditions:
++    - repo writes occurred
++    - promptflow required a specific write method
++    - assistant claims compliance without artifact-level proof
++    - execution record contradicts claimed method
++  countermeasure: Activate Execution & Promptflow Compliance Auditor before accepting the work; require artifact-level evidence, not self-report.
++  evidence_refs:
++    - OpenClaw/07_finalopenclawsystem/docs/working/META_DETECTIVE_WATCHDOG_QA_HYGIENE_EXECUTION_PLAN.md
++  scores:
++    score_scale: 1-100
++    EVD: 97
++    IMP: 98
++    RSK: 96
++  owner: meta_detective
++  validator: special_ops__hygiene_clean
++  review_due: 2026-07-25
++```
++
++### DET-MIS-SCOPE-EXPANSION-AS-DILIGENCE — Scope expansion disguised as diligence
++
++```yaml
++mistake_entry:
++  id: DET-MIS-SCOPE-EXPANSION-AS-DILIGENCE
++  status: accepted
++  pattern: Agent silently expands targets, files, validation surfaces, or architecture scope and presents the expansion as careful diligence.
++  trigger_conditions:
++    - hard target list exists
++    - output touches extra files or concepts
++    - added work was not requested or separately authorized
++    - expansion changes the task from bounded execution into redesign
++  countermeasure: Treat bounded target lists as locks; stop or hold when additional targets appear necessary instead of silently adding them.
++  evidence_refs:
++    - OpenClaw/07_finalopenclawsystem/docs/working/META_DETECTIVE_WATCHDOG_QA_HYGIENE_EXECUTION_PLAN.md
++  scores:
++    score_scale: 1-100
++    EVD: 94
++    IMP: 96
++    RSK: 92
++  owner: meta_detective
++  validator: special_ops__hygiene_clean
++  review_due: 2026-07-25
++```
++
++### DET-MIS-SELF-REPORTED-COMPLIANCE — Self-reported compliance accepted as proof
++
++```yaml
++mistake_entry:
++  id: DET-MIS-SELF-REPORTED-COMPLIANCE
++  status: accepted
++  pattern: A compliance claim is accepted because the same actor states it complied, without independent artifact evidence or read-back validation.
++  trigger_conditions:
++    - output says the process was followed
++    - no read-back, diff, log, test, or file-state evidence is provided
++    - same actor executed and approved its own work
++    - downstream acceptance depends on compliance accuracy
++  countermeasure: Require artifact evidence and an explicit compliance gate verdict before accepting the claim.
++  evidence_refs:
++    - OpenClaw/07_finalopenclawsystem/docs/working/META_DETECTIVE_WATCHDOG_QA_HYGIENE_EXECUTION_PLAN.md
++  scores:
++    score_scale: 1-100
++    EVD: 97
++    IMP: 99
++    RSK: 94
++  owner: meta_detective
++  validator: special_ops__hygiene_clean
++  review_due: 2026-07-25
++```
++
++### DET-MIS-PROMPTFLOW-TREATED-AS-DECORATION — Promptflow treated as decoration
++
++```yaml
++mistake_entry:
++  id: DET-MIS-PROMPTFLOW-TREATED-AS-DECORATION
++  status: accepted
++  pattern: Agent follows the broad task intent while ignoring exact sequencing, validation order, stop conditions, or method constraints in the promptflow.
++  trigger_conditions:
++    - promptflow defines exact micro-steps
++    - agent jumps ahead or batches steps together
++    - stop conditions are bypassed
++    - validation occurs only in final prose rather than after each required artifact
++  countermeasure: Treat promptflow steps as binding execution constraints; hold at the first missed read, validation, stop condition, or target lock.
++  evidence_refs:
++    - OpenClaw/07_finalopenclawsystem/docs/working/META_DETECTIVE_WATCHDOG_QA_HYGIENE_EXECUTION_PLAN.md
++  scores:
++    score_scale: 1-100
++    EVD: 96
++    IMP: 98
++    RSK: 95
++  owner: meta_detective
++  validator: special_ops__hygiene_clean
++  review_due: 2026-07-25
++```

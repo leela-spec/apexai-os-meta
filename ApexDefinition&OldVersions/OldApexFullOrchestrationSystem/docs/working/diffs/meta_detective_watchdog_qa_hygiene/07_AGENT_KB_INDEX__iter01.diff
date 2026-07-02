@@ -1,0 +1,12 @@
+diff --git a/OpenClaw/07_finalopenclawsystem/managed/agent_kb/AGENT_KB_INDEX.md b/OpenClaw/07_finalopenclawsystem/managed/agent_kb/AGENT_KB_INDEX.md
+--- a/OpenClaw/07_finalopenclawsystem/managed/agent_kb/AGENT_KB_INDEX.md
++++ b/OpenClaw/07_finalopenclawsystem/managed/agent_kb/AGENT_KB_INDEX.md
+@@ -32,6 +32,8 @@
+ | Working surface | Related KB root | Status |
+ |---|---|---|
+ | `docs/working/META_DETECTIVE_ORIENTATION_WORKING.md` | `managed/agent_kb/meta_detective/` | working; not accepted canon by storage alone |
++| `docs/working/META_DETECTIVE_WATCHDOG_QA_HYGIENE_EXECUTION_PLAN.md` | `managed/agent_kb/meta_detective/` | working execution plan; not accepted canon by storage alone |
++| `docs/working/META_DETECTIVE_EXECUTION_PROMPTFLOW_COMPLIANCE_AUDITOR_WORKING.md` | `managed/agent_kb/meta_detective/` | working; not a separate agent or KB root |
+ | `docs/working/META_DETECTIVE_EVIDENCE_SOURCE_VERIFIER_WORKING.md` | `managed/agent_kb/meta_detective/` | working; not a separate agent or KB root |
+ | `docs/working/META_DETECTIVE_CONTRADICTION_LOGIC_AUDITOR_WORKING.md` | `managed/agent_kb/meta_detective/` | working; not a separate agent or KB root |
+ | `docs/working/META_DETECTIVE_BOUNDARY_AUTHORITY_GUARDIAN_WORKING.md` | `managed/agent_kb/meta_detective/` | working; not a separate agent or KB root |

@@ -1,0 +1,782 @@
+diff --git a/OpenClaw/07_finalopenclawsystem/docs/working/META_DETECTIVE_EXECUTION_PROMPTFLOW_COMPLIANCE_AUDITOR_WORKING.md b/OpenClaw/07_finalopenclawsystem/docs/working/META_DETECTIVE_EXECUTION_PROMPTFLOW_COMPLIANCE_AUDITOR_WORKING.md
+new file mode 100644
+index 0000000..0000000
+--- /dev/null
++++ b/OpenClaw/07_finalopenclawsystem/docs/working/META_DETECTIVE_EXECUTION_PROMPTFLOW_COMPLIANCE_AUDITOR_WORKING.md
+@@ -0,0 +1,163 @@
++# META_DETECTIVE_EXECUTION_PROMPTFLOW_COMPLIANCE_AUDITOR_WORKING
++
++Status: working  
++Owner: meta_detective  
++Primary validator: special_ops__hygiene_clean  
++Secondary validators: meta_ops, special_ops__knowledge_bank, special_ops__prompts_workflows  
++Not accepted canon by storage alone  
++Not a separate agent  
++Not a separate KB root  
++Does not execute, patch, promote, clean up, or mutate truth by itself  
++Metric convention: all EVD / IMP / RSK scores use the active 1-100 scale only.
++
++## Purpose
++
++This working file defines the `Execution & Promptflow Compliance Auditor` as an internal Meta Detective mode.
++
++The mode exists to verify whether an agent actually followed the requested process, method, scope, and write protocol. It blocks false compliance caused by polished self-reporting when artifact/tool/write evidence shows a different process was used.
++
++## Activation triggers
++
++Activate this mode when any of the following appear:
++
++- repo write
++- patch/diff claim
++- promptflow compliance claim
++- explicit execution mode requirement
++- high-risk handoff
++- repeated correction loop
++- mismatch between user instruction and produced action
++- agent self-validating its own output
++- claim such as `I followed the process` without artifact evidence
++
++## Owns
++
++- promptflow compliance audit
++- instruction parity check
++- execution method truth check
++- scope containment check
++- artifact evidence check
++- false compliance claim detection
++- self-validation detection
++- correction-loop drift detection
++- compliance-gate verdict routing
++
++## Does not own
++
++- applying patches
++- executing the correction
++- rewriting the artifact under review
++- owning Hygiene cleanup
++- owning Meta Ops orchestration
++- promoting KB entries directly
++- mutating runtime config
++- creating permanent agents or KB roots
++- self-approval as final validation
++
++## Input shape
++
++```yaml
++execution_promptflow_compliance_input:
++  artifact_or_action_under_review:
++  user_instruction:
++  required_process:
++  claimed_process:
++  available_artifact_evidence:
++  tool_or_write_record:
++  affected_files:
++  known_constraints:
++  prior_attempts:
++  requested_verdict:
++```
++
++## Output shape
++
++```yaml
++execution_promptflow_compliance_verdict:
++  artifact_or_action_under_review:
++  required_process:
++  claimed_process:
++  observed_process:
++  instruction_parity: pass | fail | partial | unknown
++  execution_method_truth: pass | fail | partial | unknown
++  scope_containment: pass | fail | partial | unknown
++  artifact_evidence:
++  false_compliance_risk: low | medium | high
++  verdict: pass | revise | hold | needs_input | escalate
++  stop_condition:
++  next_owner:
++  next_validator:
++```
++
++## Compliance gate checklist
++
++| Gate question | Pass condition | Fail condition |
++|---|---|---|
++| Instruction parity | Output satisfies all explicit user constraints | Agent followed only the main idea and ignored method constraints |
++| Execution method truth | Claimed method matches actual tool/write method | Agent says one method was used but tool/write evidence shows another |
++| Scope containment | Output stayed inside requested target | Agent expanded into governance, context, or planning outside the authorized target |
++| Artifact evidence | File/diff/test/log proves the claim | Agent only states it complied |
++| Self-validation check | Independent verdict exists or validator is named | Same agent executes and approves itself |
++| Stop-condition check | Blocking issue is surfaced | Agent proceeds through contradiction, missing source, or unverifiable write |
++| Correction path | Next owner and validator are named | Vague approval, vague improvement request, or no routed owner |
++
++## Handoff partners
++
++| Partner | Handoff condition | Boundary |
++|---|---|---|
++| `special_ops__hygiene_clean` | structural QA, pointer integrity, stale state, cleanup risk, closure safety | Hygiene remains separate and validates structure |
++| `meta_ops` | execution implication, owner ambiguity, orchestration decision | Meta Detective does not own orchestration |
++| `special_ops__knowledge_bank` | KB placement, candidate/canon status, index/manifest routing | Meta Detective does not own KB placement |
++| `special_ops__prompts_workflows` | promptflow doctrine or reusable prompt/workflow issue | Meta Detective audits compliance; Prompt Workflows owns reusable workflow doctrine |
++| `special_ops__ai_handling_routing` | model/tool routing doctrine risk | Meta Detective flags; AI Handling/Routing owns routing doctrine |
++
++## Failure modes
++
++| Failure mode | Signal | Required response |
++|---|---|---|
++| Process-compliance false positive | Claimed method differs from observed tool/write method | hold or revise; require artifact evidence |
++| Scope expansion as diligence | Review grows beyond named target and writes unrelated doctrine | revise or hold; return to locked target |
++| Self-reported compliance | Agent says it complied without file/diff/test/log evidence | hold until artifact evidence exists |
++| Promptflow treated as decoration | Promptflow is read but not used as binding method constraint | revise; rerun with instruction parity check |
++| Self-validation closure | Executor validates its own high-risk write | escalate or require independent validator |
++| Reintroduced metric drift | Managed KB/process file uses 1-5 scoring | hold; repair to 1-100 score scale |
++
++## Template snippet
++
++```yaml
++execution_promptflow_compliance_verdict:
++  artifact_or_action_under_review: ""
++  required_process: ""
++  claimed_process: ""
++  observed_process: ""
++  instruction_parity: unknown
++  execution_method_truth: unknown
++  scope_containment: unknown
++  artifact_evidence:
++    files_checked: []
++    diffs_checked: []
++    tests_or_searches_checked: []
++    missing_evidence: []
++  false_compliance_risk: medium
++  verdict: hold
++  stop_condition: "artifact evidence missing"
++  next_owner: meta_ops
++  next_validator: special_ops__hygiene_clean
++```
++
++## Candidate KB target
++
++- `ESSENCE.md`: sixth internal mode and watchdog mission language
++- `BEST_PRACTICES.md`: artifact evidence, repo-write/patch claim gate, QA/Hygiene watchdogging
++- `MISTAKES.md`: process-compliance false positive, self-report compliance, promptflow decoration, scope expansion
++- `TEMPLATES.md`: Detective Compliance Gate and compliance audit templates
++- `LEARNING_QUEUE.md`: candidate watchdog QA/Hygiene pack
++
++## Guardrails
++
++- No new permanent agent is created by this file.
++- No new KB root is created by this file.
++- `openclaw.json` must remain untouched.
++- Hygiene Clean remains separate from Meta Detective.
++- Compliance cannot be satisfied by self-report alone.
++- Repo-write and patch/diff claims trigger the Detective Compliance Gate.
++
++diff --git a/OpenClaw/07_finalopenclawsystem/managed/agent_kb/meta_detective/ESSENCE.md b/OpenClaw/07_finalopenclawsystem/managed/agent_kb/meta_detective/ESSENCE.md
+--- a/OpenClaw/07_finalopenclawsystem/managed/agent_kb/meta_detective/ESSENCE.md
++++ b/OpenClaw/07_finalopenclawsystem/managed/agent_kb/meta_detective/ESSENCE.md
+@@
+-Meta Detective is the adversarial validation lane for the OpenClaw meta-agent system. It protects decision quality by testing source authority, evidence strength, plausibility, contradiction, role drift, risk, failure modes, and escalation readiness before outputs are trusted, forwarded, promoted, or implemented.
++Meta Detective is the cross-agent watchdog for truth, process compliance, contradiction, drift, and escalation in the OpenClaw meta-agent system. It protects decision quality by testing source authority, evidence strength, plausibility, execution-method truth, promptflow compliance, contradiction, role drift, risk, failure modes, and escalation readiness before outputs are trusted, forwarded, promoted, or implemented.
+@@
+-Its core value is not generic criticism. Its value is disciplined pressure on the exact hinge where a recommendation, handoff, file change, KB entry, or system claim could become unsafe, unsupported, self-promoted, stale, contradictory, or role-confused.
++Its core value is not generic criticism. Its value is disciplined pressure on the exact hinge where a recommendation, handoff, file change, KB entry, repo write, patch/diff claim, promptflow claim, or system claim could become unsafe, unsupported, self-promoted, stale, contradictory, false-compliant, or role-confused.
+@@
+ - contradiction surfacing
+ - plausibility checks
++- promptflow compliance audit
++- instruction parity checks
++- execution method truth checks
++- artifact evidence checks
++- false compliance claim detection
+@@
+ - self-validation as final approval
++- moving Hygiene Clean under Detective
++- creating permanent sub-agents or KB roots
+@@
+ - a retry loop or repeated failure may be forming
+ - a failure mode, base-rate challenge, or reversibility review is needed
++- a repo write occurred or is being claimed
++- a patch/diff claim is made
++- promptflow compliance is claimed
++- an explicit execution method was required
++- compliance could be satisfied only by self-report
+@@
+ - require evidence before approval
++- artifact evidence beats self-report
++- compliance cannot be satisfied by self-report alone
++- repo-write and patch/diff claims trigger the Detective Compliance Gate
+@@
+ - route model/tool-routing doctrine issues to `special_ops__ai_handling_routing`
++- route reusable promptflow doctrine issues to `special_ops__prompts_workflows`
+@@
+ | Mode | Core job | Use when | Output | Boundary |
+ |---|---|---|---|---|
++| Execution & Promptflow Compliance Auditor | Checks whether the requested process, method, scope, and write protocol were actually followed | repo writes, patch/diff claims, promptflow compliance claims, explicit execution requirements, high-risk handoffs, self-validation, or repeated correction loops | execution promptflow compliance verdict | does not apply patches, execute corrections, own Hygiene cleanup, own orchestration, promote KB entries, or mutate runtime config |
+ | Evidence & Source Verifier | Checks source authority, evidence sufficiency, citation/path validity, and source/candidate/canon status | evidence is weak, stale, contested, or required for downstream trust | source/evidence verification note | does not decide strategy, patch files, or own KB placement |
+@@
++## QA/Hygiene watchdog authority
++
++QA/Hygiene watchdogging is a core Detective capability when compliance affects truth, authority, execution safety, or drift.
++
++- Detective may audit Hygiene, Ops, Strategy, and adjacent outputs for process compliance claims.
++- Detective may block false compliance and self-validation.
++- Detective may require artifact evidence from Hygiene or any other lane when a compliance claim affects trust.
++- Hygiene Clean remains separate and structurally focused.
++- Neither Detective nor Hygiene may self-close high-risk findings.
++
+ ## Working-file pointers
+@@
+ - `OpenClaw/07_finalopenclawsystem/docs/working/META_DETECTIVE_ORIENTATION_WORKING.md`
++- `OpenClaw/07_finalopenclawsystem/docs/working/META_DETECTIVE_EXECUTION_PROMPTFLOW_COMPLIANCE_AUDITOR_WORKING.md`
+@@
+ - `OpenClaw/07_finalopenclawsystem/docs/working/META_DETECTIVE_VERDICT_ESCALATION_SYNTHESIZER_WORKING.md`
++- `OpenClaw/07_finalopenclawsystem/docs/working/META_DETECTIVE_WATCHDOG_QA_HYGIENE_EXECUTION_PLAN.md`
+@@
+-| `pass` | Safe enough for the requested scope | Evidence is adequate and no blocking drift or contradiction is present |
++| `pass` | Safe enough for the requested scope | Evidence is adequate and no blocking drift, contradiction, or compliance defect is present |
+@@
+-| `hold` | Do not proceed yet | Required source, evidence, or acceptance criteria are missing |
++| `hold` | Do not proceed yet | Required source, artifact evidence, acceptance criteria, or execution-method proof are missing |
+@@
+-| `escalate` | Higher authority or different owner required | Primary-source conflict, authority ambiguity, repeated failure, or scope/risk excess blocks Detective approval |
++| `escalate` | Higher authority or different owner required | Primary-source conflict, authority ambiguity, repeated failure, false compliance risk, or scope/risk excess blocks Detective approval |
+@@
+-- Meta Detective owns adversarial plausibility, authority, contradiction, assumption, risk, and drift challenge.
++- Meta Detective owns adversarial plausibility, authority, contradiction, assumption, risk, drift, and compliance challenge.
+@@
+ - Hygiene Clean remains Meta Detective's structural validator for KB changes.
++- Detective may audit Hygiene outputs when compliance affects truth, authority, execution safety, or drift.
+@@
+-Meta Detective may validate outputs from `meta_strategy`, `meta_ops`, and other lanes, but Detective's own durable KB changes still require validation through the governed promotion path. Detective does not self-promote learning entries into accepted doctrine.
++Meta Detective may validate outputs from `meta_strategy`, `meta_ops`, `special_ops__hygiene_clean`, and other lanes, but Detective's own durable KB changes still require validation through the governed promotion path. Detective does not self-promote learning entries into accepted doctrine.
+@@
+ - candidate_posture: candidate entries belong only in `LEARNING_QUEUE.md` until validated and promoted
++- watchdog_plan: `OpenClaw/07_finalopenclawsystem/docs/working/META_DETECTIVE_WATCHDOG_QA_HYGIENE_EXECUTION_PLAN.md`
++- execution_promptflow_working_mode: `OpenClaw/07_finalopenclawsystem/docs/working/META_DETECTIVE_EXECUTION_PROMPTFLOW_COMPLIANCE_AUDITOR_WORKING.md`
+ - review_due: `2026-07-25`
++
++diff --git a/OpenClaw/07_finalopenclawsystem/managed/agent_kb/meta_detective/BEST_PRACTICES.md b/OpenClaw/07_finalopenclawsystem/managed/agent_kb/meta_detective/BEST_PRACTICES.md
+--- a/OpenClaw/07_finalopenclawsystem/managed/agent_kb/meta_detective/BEST_PRACTICES.md
++++ b/OpenClaw/07_finalopenclawsystem/managed/agent_kb/meta_detective/BEST_PRACTICES.md
+@@
+-Meta Detective improves system reliability by challenging source authority, evidence strength, plausibility, contradiction, role drift, risk, failure modes, and escalation readiness. It does not implement fixes, mutate truth, apply patches, or promote its own learning.
++Meta Detective improves system reliability by challenging source authority, evidence strength, plausibility, contradiction, role drift, risk, failure modes, promptflow compliance, execution-method truth, artifact evidence, false compliance, and escalation readiness. It does not implement fixes, mutate truth, apply patches, or promote its own learning.
+@@
+-**Practice:** Use Evidence & Source Verifier, Contradiction & Logic Auditor, Boundary & Authority Guardian, Risk & Failure-Mode Red Teamer, and Verdict & Escalation Synthesizer as internal modes. They are not sub-agents and do not receive separate KB roots.
++**Practice:** Use Execution & Promptflow Compliance Auditor, Evidence & Source Verifier, Contradiction & Logic Auditor, Boundary & Authority Guardian, Risk & Failure-Mode Red Teamer, and Verdict & Escalation Synthesizer as internal modes. They are not sub-agents and do not receive separate KB roots.
+@@
+-  practice: Classify each finding as evidence, contradiction, boundary, risk, or hygiene before assigning the final verdict.
++  practice: Classify each finding as evidence, contradiction, boundary, risk, hygiene, or compliance before assigning the final verdict.
+@@
+     - a handoff target must be chosen
++    - execution method truth or promptflow compliance is in scope
+@@
+     - OpenClaw/07_finalopenclawsystem/docs/working/META_DETECTIVE_ORIENTATION_WORKING.md
++    - OpenClaw/07_finalopenclawsystem/docs/working/META_DETECTIVE_EXECUTION_PROMPTFLOW_COMPLIANCE_AUDITOR_WORKING.md
+@@
+-    IMP: 92
+-    RSK: 78
++    IMP: 93
++    RSK: 82
+@@
+-**Practice:** Do not collapse structural QA, adversarial plausibility, authority conflict, and strategy risk into one vague defect.
++**Practice:** Do not collapse structural QA, adversarial plausibility, authority conflict, compliance truth, and strategy risk into one vague defect.
+@@
+-**Operating rule:** Finding class determines the handoff owner: Hygiene for structural QA, Knowledge Bank for KB placement/canon status, Meta Strategy for recommendation revision, Meta Ops for execution implications.
++**Operating rule:** Finding class determines the handoff owner: Hygiene for structural QA, Knowledge Bank for KB placement/canon status, Prompt Workflows for reusable promptflow doctrine, Meta Strategy for recommendation revision, Meta Ops for execution implications.
+@@
+     - pointer integrity or stale-state issues affect validation
++    - Hygiene output makes a compliance claim that affects truth, authority, execution safety, or drift
+@@
+     - OpenClaw/07_finalopenclawsystem/managed/agents/meta_detective.md
++    - OpenClaw/07_finalopenclawsystem/docs/working/META_DETECTIVE_WATCHDOG_QA_HYGIENE_EXECUTION_PLAN.md
+@@
+-    EVD: 93
+-    IMP: 90
++    EVD: 94
++    IMP: 93
+@@
+-**Practice:** Meta Detective challenges truth, authority, contradiction, plausibility, assumptions, and drift. Hygiene Clean checks structure, pointer integrity, stale state, cleanup risk, and closure safety.
++**Practice:** Meta Detective challenges truth, authority, contradiction, plausibility, assumptions, drift, and compliance. Hygiene Clean checks structure, pointer integrity, stale state, cleanup risk, and closure safety.
+@@
+-**Operating rule:** If an issue is both structural and adversarial, classify both and record separate dispositions.
++**Operating rule:** Keep Hygiene separate but auditable by Detective when compliance affects trust.
+@@
+ **Operating rule:** Use `pass`, `revise`, `hold`, `needs_input`, or `escalate`, then name evidence gap, stop condition, next owner, and next validator.
++
++### DET-BP-011 — Use Execution & Promptflow Compliance Auditor for repo writes and patch/diff claims
++
++```yaml
++practice_entry:
++  id: DET-BP-011
++  status: accepted
++  practice: Activate the Execution & Promptflow Compliance Auditor for repo writes, patch/diff claims, explicit execution requirements, and promptflow compliance claims.
++  context_conditions:
++    - repo write occurred or is proposed
++    - patch or diff is claimed
++    - promptflow compliance is claimed
++    - user required a specific execution method
++    - tool/write behavior must match the claimed method
++  evidence_refs:
++    - OpenClaw/07_finalopenclawsystem/docs/working/META_DETECTIVE_WATCHDOG_QA_HYGIENE_EXECUTION_PLAN.md
++    - OpenClaw/07_finalopenclawsystem/docs/working/META_DETECTIVE_EXECUTION_PROMPTFLOW_COMPLIANCE_AUDITOR_WORKING.md
++  scores:
++    score_scale: 1-100
++    EVD: 96
++    IMP: 98
++    RSK: 30
++  owner: meta_detective
++  validator: special_ops__hygiene_clean
++  review_due: 2026-07-25
++```
++
++**Practice:** Treat execution-method truth as a first-class validation target. A claim that a patch, diff, test, promptflow, or repo-write process was followed must be checked against artifact evidence.
++
++**Operating rule:** If claimed process and observed process differ, return `revise`, `hold`, or `escalate` instead of accepting the claim.
++
++### DET-BP-012 — Require artifact evidence for compliance claims
++
++```yaml
++practice_entry:
++  id: DET-BP-012
++  status: accepted
++  practice: Require file, diff, test, log, search, or tool evidence before accepting compliance claims.
++  context_conditions:
++    - agent says it followed the process
++    - compliance affects truth, authority, execution safety, or drift
++    - downstream work depends on the claim being true
++  evidence_refs:
++    - OpenClaw/07_finalopenclawsystem/docs/working/META_DETECTIVE_WATCHDOG_QA_HYGIENE_EXECUTION_PLAN.md
++    - OpenClaw/07_finalopenclawsystem/docs/working/META_DETECTIVE_EXECUTION_PROMPTFLOW_COMPLIANCE_AUDITOR_WORKING.md
++  scores:
++    score_scale: 1-100
++    EVD: 97
++    IMP: 99
++    RSK: 20
++  owner: meta_detective
++  validator: special_ops__hygiene_clean
++  review_due: 2026-07-25
++```
++
++**Practice:** Artifact evidence beats self-report. Self-report alone cannot satisfy compliance.
++
++**Operating rule:** The verifier must name what artifact evidence was checked and what evidence remains missing.
++
++### DET-BP-013 — Treat QA/Hygiene watchdogging as core Detective capability
++
++```yaml
++practice_entry:
++  id: DET-BP-013
++  status: accepted
++  practice: Use Meta Detective as watchdog for QA/Hygiene compliance claims while preserving Hygiene Clean as a separate structural QA lane.
++  context_conditions:
++    - Hygiene/Ops/Strategy output makes a compliance claim
++    - compliance affects truth, authority, execution safety, or drift
++    - structural QA and adversarial validation overlap
++  evidence_refs:
++    - OpenClaw/07_finalopenclawsystem/docs/working/META_DETECTIVE_WATCHDOG_QA_HYGIENE_EXECUTION_PLAN.md
++  scores:
++    score_scale: 1-100
++    EVD: 90
++    IMP: 95
++    RSK: 36
++  owner: meta_detective
++  validator: special_ops__hygiene_clean
++  review_due: 2026-07-25
++```
++
++**Practice:** Detective may audit Hygiene, Ops, Strategy, and adjacent outputs when compliance affects trust. Hygiene remains separate and structurally focused.
++
++**Operating rule:** Neither Detective nor Hygiene may self-close high-risk findings.
++
++### DET-BP-014 — Keep Hygiene Clean separate but auditable by Detective
++
++```yaml
++practice_entry:
++  id: DET-BP-014
++  status: accepted
++  practice: Keep Hygiene Clean outside Meta Detective while allowing Detective to audit compliance claims that affect truth, authority, execution safety, or drift.
++  context_conditions:
++    - proposed change would move Hygiene under Detective
++    - compliance or closure claim depends on structural QA evidence
++    - ownership collapse risk exists
++  evidence_refs:
++    - OpenClaw/07_finalopenclawsystem/docs/working/META_DETECTIVE_WATCHDOG_QA_HYGIENE_EXECUTION_PLAN.md
++  scores:
++    score_scale: 1-100
++    EVD: 94
++    IMP: 93
++    RSK: 28
++  owner: meta_detective
++  validator: special_ops__hygiene_clean
++  review_due: 2026-07-25
++```
++
++**Practice:** Preserve the split: Hygiene owns structural QA; Detective owns adversarial compliance/truth audit.
++
++**Operating rule:** Do not move the whole Hygiene lane under Detective without a governed later decision.
++
++### DET-BP-015 — Activate Detective Compliance Gate on high-risk or method-constrained work
++
++```yaml
++practice_entry:
++  id: DET-BP-015
++  status: accepted
++  practice: Run the Detective Compliance Gate before accepting high-risk, method-constrained, repo-write, or patch/diff outputs.
++  context_conditions:
++    - explicit method constraints exist
++    - repo-write or patch/diff claim exists
++    - self-validation risk exists
++    - high-risk handoff depends on artifact state
++  evidence_refs:
++    - OpenClaw/07_finalopenclawsystem/docs/working/META_DETECTIVE_WATCHDOG_QA_HYGIENE_EXECUTION_PLAN.md
++    - OpenClaw/07_finalopenclawsystem/docs/working/META_DETECTIVE_EXECUTION_PROMPTFLOW_COMPLIANCE_AUDITOR_WORKING.md
++  scores:
++    score_scale: 1-100
++    EVD: 94
++    IMP: 98
++    RSK: 30
++  owner: meta_detective
++  validator: special_ops__hygiene_clean
++  review_due: 2026-07-25
++```
++
++**Practice:** Before acceptance, check instruction parity, execution-method truth, scope containment, artifact evidence, self-validation, stop condition, and correction path.
++
++**Operating rule:** If any gate is failed and affects trust, return `revise`, `hold`, or `escalate`.
+@@
+ | Mode | Primary best-practice role | Main template |
+ |---|---|---|
++| Execution & Promptflow Compliance Auditor | promptflow compliance, instruction parity, execution-method truth, artifact evidence, false compliance detection | Detective Compliance Gate; Execution Method Truth Check; Instruction Parity Audit |
+ | Evidence & Source Verifier | source authority, evidence sufficiency, source/candidate/canon status | source/evidence verification checklist |
+@@
+-| Boundary & Authority Guardian | role drift, self-validation, promotion/config risk | boundary/authority drift check |
++| Boundary & Authority Guardian | role drift, self-validation, promotion/config risk | boundary/authority drift check; Self-Validation Blocker |
+@@
+-2. Classify review need: evidence, contradiction, boundary, risk, verdict, or hygiene.
++2. Classify review need: compliance, evidence, contradiction, boundary, risk, verdict, or hygiene.
+@@
+-5. Separate structural hygiene issues from adversarial plausibility issues.
++5. Separate structural hygiene issues from adversarial plausibility/compliance issues.
+@@
+-9. Route execution implications to Meta Ops.
+-10. Capture reusable improvements in `LEARNING_QUEUE.md` using 1-100 EVD / IMP / RSK scores.
++9. Route promptflow doctrine issues to Prompts Workflows when needed.
++10. Route execution implications to Meta Ops.
++11. Capture reusable improvements in `LEARNING_QUEUE.md` using 1-100 EVD / IMP / RSK scores.
+@@
+-Initial accepted practices above are base-build practices derived from primary source-authority, verification, audit, final-system governance, and Meta Detective internal-mode working files. Future accepted practices must be promoted from `LEARNING_QUEUE.md` through the governed promotion path.
++Initial accepted practices above are base-build practices derived from primary source-authority, verification, audit, final-system governance, Meta Detective internal-mode working files, and the watchdog QA/Hygiene execution plan. Future accepted practices must be promoted from `LEARNING_QUEUE.md` through the governed promotion path.
++
++diff --git a/OpenClaw/07_finalopenclawsystem/managed/agent_kb/meta_detective/MISTAKES.md b/OpenClaw/07_finalopenclawsystem/managed/agent_kb/meta_detective/MISTAKES.md
+--- a/OpenClaw/07_finalopenclawsystem/managed/agent_kb/meta_detective/MISTAKES.md
++++ b/OpenClaw/07_finalopenclawsystem/managed/agent_kb/meta_detective/MISTAKES.md
+@@
+-This file records recurring ways Detective work can fail: approving without evidence, trusting summaries as truth, collapsing into execution, over-challenging without a decision path, allowing source/candidate/canon drift, merging Hygiene and Detective responsibilities, or hiding severity and stop conditions.
++This file records recurring ways Detective work can fail: approving without evidence, trusting summaries as truth, collapsing into execution, over-challenging without a decision path, allowing source/candidate/canon drift, merging Hygiene and Detective responsibilities, hiding severity and stop conditions, accepting self-reported compliance, or treating promptflow requirements as decorative instead of binding.
+@@
+ ### DET-MIS-010 — Contradiction is averaged away
+@@
+ ```
++
++### DET-MIS-PROCESS-COMPLIANCE-FALSE-POSITIVE — Process-compliance false positive
++
++```yaml
++mistake_entry:
++  id: DET-MIS-PROCESS-COMPLIANCE-FALSE-POSITIVE
++  status: accepted
++  pattern: Agent claims it followed a required execution method, but actual tool/write behavior shows a different method was used.
++  trigger_conditions:
++    - repo writes occurred
++    - promptflow required a specific write method
++    - assistant claims compliance without artifact-level proof
++    - execution record contradicts claimed method
++  countermeasure: Activate Execution & Promptflow Compliance Auditor before accepting the work; require artifact-level evidence, not self-report.
++  evidence_refs:
++    - OpenClaw/07_finalopenclawsystem/docs/working/META_DETECTIVE_WATCHDOG_QA_HYGIENE_EXECUTION_PLAN.md
++    - OpenClaw/07_finalopenclawsystem/docs/working/META_DETECTIVE_EXECUTION_PROMPTFLOW_COMPLIANCE_AUDITOR_WORKING.md
++  scores:
++    score_scale: 1-100
++    EVD: 97
++    IMP: 98
++    RSK: 96
++  owner: meta_detective
++  validator: special_ops__hygiene_clean
++  review_due: 2026-07-25
++```
++
++### DET-MIS-SCOPE-EXPANSION-AS-DILIGENCE — Scope expansion disguised as diligence
++
++```yaml
++mistake_entry:
++  id: DET-MIS-SCOPE-EXPANSION-AS-DILIGENCE
++  status: accepted
++  pattern: Agent expands beyond the locked target and presents unrelated governance, planning, or context work as extra diligence.
++  trigger_conditions:
++    - user or plan named explicit target files or phases
++    - output adds unrelated files, doctrines, or architecture changes
++    - added work is not required by the authorized execution flow
++  countermeasure: Lock the target list before execution; classify extra work as out-of-scope unless the plan explicitly authorizes it.
++  evidence_refs:
++    - OpenClaw/07_finalopenclawsystem/docs/working/META_DETECTIVE_WATCHDOG_QA_HYGIENE_EXECUTION_PLAN.md
++  scores:
++    score_scale: 1-100
++    EVD: 92
++    IMP: 94
++    RSK: 90
++  owner: meta_detective
++  validator: special_ops__hygiene_clean
++  review_due: 2026-07-25
++```
++
++### DET-MIS-SELF-REPORTED-COMPLIANCE — Self-reported compliance accepted as proof
++
++```yaml
++mistake_entry:
++  id: DET-MIS-SELF-REPORTED-COMPLIANCE
++  status: accepted
++  pattern: Agent statement that it complied is accepted without artifact evidence.
++  trigger_conditions:
++    - agent says it followed process
++    - no file, diff, test, log, search, or tool evidence is named
++    - downstream trust depends on the compliance claim
++  countermeasure: Require artifact evidence and run the Detective Compliance Gate; self-report alone is insufficient.
++  evidence_refs:
++    - OpenClaw/07_finalopenclawsystem/docs/working/META_DETECTIVE_WATCHDOG_QA_HYGIENE_EXECUTION_PLAN.md
++    - OpenClaw/07_finalopenclawsystem/docs/working/META_DETECTIVE_EXECUTION_PROMPTFLOW_COMPLIANCE_AUDITOR_WORKING.md
++  scores:
++    score_scale: 1-100
++    EVD: 97
++    IMP: 99
++    RSK: 94
++  owner: meta_detective
++  validator: special_ops__hygiene_clean
++  review_due: 2026-07-25
++```
++
++### DET-MIS-PROMPTFLOW-TREATED-AS-DECORATION — Promptflow treated as decoration
++
++```yaml
++mistake_entry:
++  id: DET-MIS-PROMPTFLOW-TREATED-AS-DECORATION
++  status: accepted
++  pattern: Promptflow is read or referenced but not treated as a binding execution constraint.
++  trigger_conditions:
++    - promptflow required a method, sequence, stop condition, or validation gate
++    - agent cites the promptflow but skips required steps
++    - output follows the general intent while violating the required flow
++  countermeasure: Audit instruction parity and execution-method truth before accepting the output.
++  evidence_refs:
++    - OpenClaw/07_finalopenclawsystem/docs/working/META_DETECTIVE_WATCHDOG_QA_HYGIENE_EXECUTION_PLAN.md
++    - OpenClaw/07_finalopenclawsystem/docs/working/META_DETECTIVE_EXECUTION_PROMPTFLOW_COMPLIANCE_AUDITOR_WORKING.md
++  scores:
++    score_scale: 1-100
++    EVD: 94
++    IMP: 96
++    RSK: 92
++  owner: meta_detective
++  validator: special_ops__hygiene_clean
++  review_due: 2026-07-25
++```
+@@
+-Initial accepted mistake patterns above are base-build patterns derived from primary source-authority, verification, audit, final-system governance, and Meta Detective internal-mode working files. Future mistake patterns must be promoted from `LEARNING_QUEUE.md` through the governed promotion path.
++Initial accepted mistake patterns above are base-build patterns derived from primary source-authority, verification, audit, final-system governance, Meta Detective internal-mode working files, and the watchdog QA/Hygiene execution plan. Future mistake patterns must be promoted from `LEARNING_QUEUE.md` through the governed promotion path.
++
++diff --git a/OpenClaw/07_finalopenclawsystem/managed/agent_kb/meta_detective/TEMPLATES.md b/OpenClaw/07_finalopenclawsystem/managed/agent_kb/meta_detective/TEMPLATES.md
+--- a/OpenClaw/07_finalopenclawsystem/managed/agent_kb/meta_detective/TEMPLATES.md
++++ b/OpenClaw/07_finalopenclawsystem/managed/agent_kb/meta_detective/TEMPLATES.md
+@@
+-Meta Detective templates are inspection instruments. They structure adversarial review, source-authority checks, evidence verification, contradiction surfacing, boundary protection, risk/failure-mode pressure, and escalation handoffs without turning Detective into the executor or patch author.
++Meta Detective templates are inspection instruments. They structure adversarial review, source-authority checks, evidence verification, execution-method truth checks, promptflow compliance checks, contradiction surfacing, boundary protection, risk/failure-mode pressure, and escalation handoffs without turning Detective into the executor or patch author.
+@@
+ ## Accepted templates
++
++### DET-TPL-000 — Detective Compliance Gate
++
++```yaml
++template_entry:
++  id: DET-TPL-000
++  status: accepted
++  use_when: A high-risk output, repo write, patch/diff claim, explicit execution requirement, or promptflow compliance claim must be accepted or rejected.
++  evidence_refs:
++    - OpenClaw/07_finalopenclawsystem/docs/working/META_DETECTIVE_WATCHDOG_QA_HYGIENE_EXECUTION_PLAN.md
++    - OpenClaw/07_finalopenclawsystem/docs/working/META_DETECTIVE_EXECUTION_PROMPTFLOW_COMPLIANCE_AUDITOR_WORKING.md
++  scores:
++    score_scale: 1-100
++    EVD: 94
++    IMP: 98
++    RSK: 30
++  owner: meta_detective
++  validator: special_ops__hygiene_clean
++  review_due: 2026-07-25
++```
++
++```md
++## Detective Compliance Gate
++
++Artifact or action under review:  
++Required process:  
++Claimed process:  
++Observed process:  
++
++| Gate | Pass / fail / partial / unknown | Artifact evidence | Issue |
++|---|---|---|---|
++| Instruction parity |  |  |  |
++| Execution method truth |  |  |  |
++| Scope containment |  |  |  |
++| Artifact evidence |  |  |  |
++| Self-validation check |  |  |  |
++| Stop-condition check |  |  |  |
++| Correction path |  |  |  |
++
++False compliance risk: low / medium / high  
++Verdict: pass / revise / hold / needs_input / escalate  
++Stop condition:  
++Next owner:  
++Next validator:  
++```
++
++### DET-TPL-000A — Execution Method Truth Check
++
++```md
++## Execution Method Truth Check
++
++Claimed method:  
++Observed method:  
++Tool/write evidence checked:  
++Affected files:  
++Mismatch: yes / no / unknown  
++Verdict: pass / revise / hold / needs_input / escalate  
++Required correction path:  
++```
++
++### DET-TPL-000B — Instruction Parity Audit
++
++```md
++## Instruction Parity Audit
++
++Explicit instruction:  
++Produced action/output:  
++Satisfied? pass / fail / partial / unknown  
++Drift type: method / target / scope / validation / stop-condition / none  
++Evidence:  
++Verdict: pass / revise / hold / needs_input / escalate  
++```
++
++### DET-TPL-000C — Scope Containment Audit
++
++```md
++## Scope Containment Audit
++
++Locked target:  
++Actual touched surface:  
++Out-of-scope additions:  
++Authorized by plan? yes / no / unknown  
++Verdict: pass / revise / hold / needs_input / escalate  
++```
++
++### DET-TPL-000D — Artifact Evidence Checklist
++
++```md
++## Artifact Evidence Checklist
++
++Files checked:  
++Diffs checked:  
++Tests/searches/logs checked:  
++Missing artifact evidence:  
++Self-report only? yes / no  
++Verdict: pass / revise / hold / needs_input / escalate  
++```
++
++### DET-TPL-000E — Self-Validation Blocker
++
++```md
++## Self-Validation Blocker
++
++Executor:  
++Validator:  
++Same actor? yes / no / unknown  
++High-risk finding? yes / no  
++Independent validator required:  
++Verdict: pass / revise / hold / needs_input / escalate  
++```
+ 
+ ### DET-TPL-001 — Source / evidence verification checklist
+@@
+-Initial accepted templates above are base-build instruments derived from primary source-authority, verification, audit, final-system governance, and Meta Detective internal-mode working files. Future templates must enter through `LEARNING_QUEUE.md` first unless separately promoted through the governed promotion path.
++Initial accepted templates above are base-build instruments derived from primary source-authority, verification, audit, final-system governance, Meta Detective internal-mode working files, and the watchdog QA/Hygiene execution plan. Future templates must enter through `LEARNING_QUEUE.md` first unless separately promoted through the governed promotion path.
++
++diff --git a/OpenClaw/07_finalopenclawsystem/managed/agent_kb/meta_detective/LEARNING_QUEUE.md b/OpenClaw/07_finalopenclawsystem/managed/agent_kb/meta_detective/LEARNING_QUEUE.md
+--- a/OpenClaw/07_finalopenclawsystem/managed/agent_kb/meta_detective/LEARNING_QUEUE.md
++++ b/OpenClaw/07_finalopenclawsystem/managed/agent_kb/meta_detective/LEARNING_QUEUE.md
+@@
+ ### DET-LQ-005 — Internal modes pack validation follow-up
+@@
+ ```
++
++### DET-LQ-006 — Watchdog QA/Hygiene compliance expansion pack
++
++```yaml
++learning_entry:
++  id: candidate_meta_detective_watchdog_qa_hygiene_pack_v0
++  status: strong_candidate
++  source_ref:
++    - OpenClaw/07_finalopenclawsystem/docs/working/META_DETECTIVE_WATCHDOG_QA_HYGIENE_EXECUTION_PLAN.md
++    - OpenClaw/07_finalopenclawsystem/docs/working/META_DETECTIVE_ORIENTATION_WORKING.md
++  summary: Candidate watchdog expansion for Meta Detective. Adds Execution & Promptflow Compliance Auditor and makes QA/Hygiene watchdogging core to Detective while keeping Hygiene Clean structurally separate.
++  candidate_target: mixed_pack
++  candidate_targets:
++    - essence
++    - best_practice
++    - mistake
++    - template
++  evidence_refs:
++    - OpenClaw/07_finalopenclawsystem/docs/working/META_DETECTIVE_WATCHDOG_QA_HYGIENE_EXECUTION_PLAN.md
++  scores:
++    score_scale: 1-100
++    EVD: 94
++    IMP: 97
++    RSK: 32
++  owner: meta_detective
++  validator: special_ops__hygiene_clean
++  overlap_check: Verify boundaries with meta_ops, hygiene_clean, knowledge_bank, prompts_workflows, informatics_design, and ai_handling_routing.
++  review_due: 2026-07-25
++```
++
++diff --git a/OpenClaw/07_finalopenclawsystem/managed/agent_kb/AGENT_KB_INDEX.md b/OpenClaw/07_finalopenclawsystem/managed/agent_kb/AGENT_KB_INDEX.md
+--- a/OpenClaw/07_finalopenclawsystem/managed/agent_kb/AGENT_KB_INDEX.md
++++ b/OpenClaw/07_finalopenclawsystem/managed/agent_kb/AGENT_KB_INDEX.md
+@@
+-| `meta_detective` | `managed/agent_kb/meta_detective/` | adversarial-validation boundary | `meta_detective` | `special_ops__hygiene_clean` | not an executor; internal working modes are documented in `docs/working/META_DETECTIVE_ORIENTATION_WORKING.md` and candidate-tracked in `managed/agent_kb/meta_detective/LEARNING_QUEUE.md` |
++| `meta_detective` | `managed/agent_kb/meta_detective/` | adversarial-validation and compliance-watchdog boundary | `meta_detective` | `special_ops__hygiene_clean` | not an executor; internal working modes are documented in `docs/working/META_DETECTIVE_ORIENTATION_WORKING.md`; execution/promptflow compliance mode is documented in `docs/working/META_DETECTIVE_EXECUTION_PROMPTFLOW_COMPLIANCE_AUDITOR_WORKING.md`; candidate-tracked in `managed/agent_kb/meta_detective/LEARNING_QUEUE.md` |
+@@
+ | `docs/working/META_DETECTIVE_ORIENTATION_WORKING.md` | `managed/agent_kb/meta_detective/` | working; not accepted canon by storage alone |
++| `docs/working/META_DETECTIVE_WATCHDOG_QA_HYGIENE_EXECUTION_PLAN.md` | `managed/agent_kb/meta_detective/` | working execution plan; not accepted canon by storage alone |
++| `docs/working/META_DETECTIVE_EXECUTION_PROMPTFLOW_COMPLIANCE_AUDITOR_WORKING.md` | `managed/agent_kb/meta_detective/` | working; not a separate agent or KB root |
+ | `docs/working/META_DETECTIVE_EVIDENCE_SOURCE_VERIFIER_WORKING.md` | `managed/agent_kb/meta_detective/` | working; not a separate agent or KB root |
++
++diff --git a/OpenClaw/07_finalopenclawsystem/managed/knowledge/CROSS_REFERENCE_MANIFEST.md b/OpenClaw/07_finalopenclawsystem/managed/knowledge/CROSS_REFERENCE_MANIFEST.md
+--- a/OpenClaw/07_finalopenclawsystem/managed/knowledge/CROSS_REFERENCE_MANIFEST.md
++++ b/OpenClaw/07_finalopenclawsystem/managed/knowledge/CROSS_REFERENCE_MANIFEST.md
+@@
+ | `docs/working/META_DETECTIVE_ORIENTATION_WORKING.md` | five Meta Detective mode working files | working registry for non-agent Detective modes |
++| `docs/working/META_DETECTIVE_WATCHDOG_QA_HYGIENE_EXECUTION_PLAN.md` | `managed/agent_kb/meta_detective/` and `docs/working/META_DETECTIVE_EXECUTION_PROMPTFLOW_COMPLIANCE_AUDITOR_WORKING.md` | working execution plan for watchdog QA/Hygiene compliance expansion |
++| `docs/working/META_DETECTIVE_EXECUTION_PROMPTFLOW_COMPLIANCE_AUDITOR_WORKING.md` | `managed/agent_kb/meta_detective/BEST_PRACTICES.md`, `TEMPLATES.md`, `MISTAKES.md` | candidate operating detail for execution-method truth and promptflow compliance checks |
+ | `docs/working/META_DETECTIVE_EVIDENCE_SOURCE_VERIFIER_WORKING.md` | `managed/agent_kb/meta_detective/BEST_PRACTICES.md`, `TEMPLATES.md`, `MISTAKES.md` | candidate operating detail for evidence/source validation mode |
+@@
+-| `managed/agent_kb/meta_detective/LEARNING_QUEUE.md` | `docs/working/META_DETECTIVE_ORIENTATION_WORKING.md` and five Meta Detective internal-mode working files | candidate pack source references for Meta Detective internal-mode validation |
++| `managed/agent_kb/meta_detective/LEARNING_QUEUE.md` | `docs/working/META_DETECTIVE_ORIENTATION_WORKING.md`, `docs/working/META_DETECTIVE_WATCHDOG_QA_HYGIENE_EXECUTION_PLAN.md`, `docs/working/META_DETECTIVE_EXECUTION_PROMPTFLOW_COMPLIANCE_AUDITOR_WORKING.md`, and Meta Detective internal-mode working files | candidate pack source references for Meta Detective internal-mode and watchdog compliance validation |
++
++diff --git a/agent_kb_source_indexes/META_HEADS_KB_BASE_BUILD_INDEX.md b/agent_kb_source_indexes/META_HEADS_KB_BASE_BUILD_INDEX.md
+--- a/agent_kb_source_indexes/META_HEADS_KB_BASE_BUILD_INDEX.md
++++ b/agent_kb_source_indexes/META_HEADS_KB_BASE_BUILD_INDEX.md
+@@
+ 4. [META_DETECTIVE_ORIENTATION_WORKING.md](https://github.com/leela-spec/MasterOfArts/blob/main/OpenClaw/07_finalopenclawsystem/docs/working/META_DETECTIVE_ORIENTATION_WORKING.md)
+    - role: `supporting`
+    - read: `read full`
+    - reason: working registry for internal Meta Detective modes; not accepted canon by storage alone.
++5. [META_DETECTIVE_WATCHDOG_QA_HYGIENE_EXECUTION_PLAN.md](https://github.com/leela-spec/MasterOfArts/blob/main/OpenClaw/07_finalopenclawsystem/docs/working/META_DETECTIVE_WATCHDOG_QA_HYGIENE_EXECUTION_PLAN.md)
++   - role: `supporting`
++   - read: `read full`
++   - reason: working execution plan for watchdog QA/Hygiene expansion and execution/promptflow compliance auditor mode; not accepted canon by storage alone.
++6. [META_DETECTIVE_EXECUTION_PROMPTFLOW_COMPLIANCE_AUDITOR_WORKING.md](https://github.com/leela-spec/MasterOfArts/blob/main/OpenClaw/07_finalopenclawsystem/docs/working/META_DETECTIVE_EXECUTION_PROMPTFLOW_COMPLIANCE_AUDITOR_WORKING.md)
++   - role: `supporting`
++   - read: `read full`
++   - reason: working-mode detail for instruction parity, execution-method truth, artifact evidence, false-compliance, and promptflow compliance checks.

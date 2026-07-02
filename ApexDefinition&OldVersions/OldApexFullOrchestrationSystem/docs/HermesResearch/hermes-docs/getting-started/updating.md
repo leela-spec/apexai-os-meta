@@ -1,0 +1,172 @@
+Title: Updating & Uninstalling | Hermes Agent
+
+URL Source: https://hermes-agent.nousresearch.com/docs/getting-started/updating
+
+Markdown Content:
+## Updating[​](https://hermes-agent.nousresearch.com/docs/getting-started/updating#updating "Direct link to Updating")
+
+### Git installs[​](https://hermes-agent.nousresearch.com/docs/getting-started/updating#git-installs "Direct link to Git installs")
+
+Update to the latest version with a single command:
+
+`hermes update`
+
+This pulls the latest code from `main`, updates dependencies, and prompts you to configure any new options that were added since your last update.
+
+### pip installs[​](https://hermes-agent.nousresearch.com/docs/getting-started/updating#pip-installs "Direct link to pip installs")
+
+PyPI releases track **tagged versions** (major and minor releases), not every commit on `main`. Check for updates and upgrade with:
+
+`hermes update --check    # see if a newer release is on PyPIhermes update            # runs pip install --upgrade hermes-agent`
+
+Or manually:
+
+`pip install --upgrade hermes-agent    # or: uv pip install --upgrade hermes-agent`
+
+tip
+
+`hermes update` automatically detects new configuration options and prompts you to add them. If you skipped that prompt, you can manually run `hermes config check` to see missing options, then `hermes config migrate` to interactively add them.
+
+### What happens during an update (git installs)[​](https://hermes-agent.nousresearch.com/docs/getting-started/updating#what-happens-during-an-update-git-installs "Direct link to What happens during an update (git installs)")
+
+When you run `hermes update`, the following steps occur:
+
+1.   **Pairing-data snapshot** — a lightweight pre-update state snapshot is saved (covers `~/.hermes/pairing/`, Feishu comment rules, and other state files that get modified at runtime). Recoverable via the snapshot restore flow described under [Snapshots and rollback](https://hermes-agent.nousresearch.com/docs/user-guide/checkpoints-and-rollback), or by extracting the most recent quick-snapshot zip Hermes wrote next to your `~/.hermes/` directory.
+2.   **Git pull** — pulls the latest code from the `main` branch and updates submodules
+3.   **Post-pull syntax validation + auto-rollback** — after the pull, Hermes compiles the eight critical files every `hermes` invocation imports at startup. If any fails to parse (e.g. an orphan merge-conflict marker, an accidentally truncated file), Hermes runs `git reset --hard <pre-pull-sha>` to roll the install back so your shell stays bootable. Re-run `hermes update` once the upstream fix lands.
+4.   **Dependency install** — runs `uv pip install -e ".[all]"` to pick up new or changed dependencies
+5.   **Config migration** — detects new config options added since your version and prompts you to set them
+6.   **Gateway auto-restart** — running gateways are refreshed after the update completes so the new code takes effect immediately. Service-managed gateways (systemd on Linux, launchd on macOS) are restarted through the service manager. Manual gateways are relaunched automatically when Hermes can map the running PID back to a profile.
+
+### Updating against a non-default branch: `--branch`[​](https://hermes-agent.nousresearch.com/docs/getting-started/updating#updating-against-a-non-default-branch---branch "Direct link to updating-against-a-non-default-branch---branch")
+
+By default `hermes update` tracks `origin/main`. Pass `--branch <name>` to update against a different branch — useful for QA channels, feature branches, or release-candidate testing:
+
+`hermes update --branch release-candidatehermes update --check --branch experimental   # preview behindness only`
+
+If your local checkout is on a different branch, Hermes auto-stashes any uncommitted work, switches HEAD to the target branch, and then pulls. Branches that don't exist locally are auto-tracked from `origin/<name>` (`git checkout -B <name> origin/<name>`). Branches that don't exist anywhere fail cleanly — your stashed changes are restored before exit so you're never stranded in a weird state. The `main`-only fork-upstream sync logic is automatically skipped on non-`main` branches.
+
+### Preview-only: `hermes update --check`[​](https://hermes-agent.nousresearch.com/docs/getting-started/updating#preview-only-hermes-update---check "Direct link to preview-only-hermes-update---check")
+
+Want to know if an update is available before pulling? Run `hermes update --check` — for git installs it fetches and compares commits against `origin/main`; for pip installs it queries PyPI for the latest release. No files are modified, no gateway is restarted. Useful in scripts and cron jobs that gate on "is there an update".
+
+### Full pre-update backup: `--backup`[​](https://hermes-agent.nousresearch.com/docs/getting-started/updating#full-pre-update-backup---backup "Direct link to full-pre-update-backup---backup")
+
+For high-value profiles (production gateways, shared team installs) you can opt into a full pre-pull backup of `HERMES_HOME` (config, auth, sessions, skills, pairing):
+
+`hermes update --backup`
+
+Or make it the default for every run:
+
+`# ~/.hermes/config.yamlupdates:  pre_update_backup: true`
+
+`--backup` was the always-on behavior in earlier builds, but it was adding minutes to every update on large homes, so it's now opt-in. The lightweight pairing-data snapshot above still runs unconditionally.
+
+### Windows: another `hermes.exe` is running[​](https://hermes-agent.nousresearch.com/docs/getting-started/updating#windows-another-hermesexe-is-running "Direct link to windows-another-hermesexe-is-running")
+
+On Windows, `hermes update` will refuse to run if it detects another `hermes.exe` process holding the venv's entry-point executable open — most commonly the Hermes Desktop app's spawned backend, an open `hermes` REPL in another terminal, or a running gateway:
+
+`$ hermes update✗ Another hermes.exe is running:    PID 12345  hermes.exe  Updating now would fail to overwrite ...\venv\Scripts\hermes.exe because  Windows blocks REPLACE on a running executable.  Close Hermes Desktop, exit any open `hermes` REPLs, and  stop the gateway (`hermes gateway stop`) before retrying.  Override with `hermes update --force` if you've already  confirmed those processes will not write to the venv.`
+
+Close the listed processes and re-run. If you're sure the concurrent process won't interfere (rare — usually only useful when an antivirus shim is mis-attributed), pass `--force` to skip the check. In that case the updater will still retry the `.exe` rename with exponential backoff and, on stubborn locks, schedule the replacement for next reboot via `MoveFileEx(MOVEFILE_DELAY_UNTIL_REBOOT)` so the update can complete.
+
+Expected output looks like:
+
+`$ hermes updateUpdating Hermes Agent...📥 Pulling latest code...Already up to date.  (or: Updating abc1234..def5678)📦 Updating dependencies...✅ Dependencies updated🔍 Checking for new config options...✅ Config is up to date  (or: Found 2 new options — running migration...)🔄 Restarting gateways...✅ Gateway restarted✅ Hermes Agent updated successfully!`
+
+### Recommended Post-Update Validation[​](https://hermes-agent.nousresearch.com/docs/getting-started/updating#recommended-post-update-validation "Direct link to Recommended Post-Update Validation")
+
+`hermes update` handles the main update path, but a quick validation confirms everything landed cleanly:
+
+1.   `git status --short` — if the tree is unexpectedly dirty, inspect before continuing
+2.   `hermes doctor` — checks config, dependencies, and service health
+3.   `hermes --version` — confirm the version bumped as expected
+4.   If you use the gateway: `hermes gateway status`
+5.   If `doctor` reports npm audit issues: run `npm audit fix` in the flagged directory
+
+Dirty working tree after update
+
+If `git status --short` shows unexpected changes after `hermes update`, stop and inspect them before continuing. This usually means local modifications were reapplied on top of the updated code, or a dependency step refreshed lockfiles.
+
+### If your terminal disconnects mid-update[​](https://hermes-agent.nousresearch.com/docs/getting-started/updating#if-your-terminal-disconnects-mid-update "Direct link to If your terminal disconnects mid-update")
+
+`hermes update` protects itself against accidental terminal loss:
+
+*   The update ignores `SIGHUP`, so closing your SSH session or terminal window no longer kills it mid-install. `pip` and `git` child processes inherit this protection, so the Python environment cannot be left half-installed by a dropped connection.
+*   All output is mirrored to `~/.hermes/logs/update.log` while the update runs. If your terminal disappears, reconnect and inspect the log to see whether the update finished and whether the gateway restart succeeded:
+
+`tail -f ~/.hermes/logs/update.log`
+
+*   `Ctrl-C` (SIGINT) and system shutdown (SIGTERM) are still honored — those are deliberate cancellations, not accidents.
+
+You no longer need to wrap `hermes update` in `screen` or `tmux` to survive a terminal drop.
+
+### Checking your current version[​](https://hermes-agent.nousresearch.com/docs/getting-started/updating#checking-your-current-version "Direct link to Checking your current version")
+
+`hermes version`
+
+Compare against the latest release at the [GitHub releases page](https://github.com/NousResearch/hermes-agent/releases).
+
+### Updating from Messaging Platforms[​](https://hermes-agent.nousresearch.com/docs/getting-started/updating#updating-from-messaging-platforms "Direct link to Updating from Messaging Platforms")
+
+You can also update directly from Telegram, Discord, Slack, WhatsApp, or Teams by sending:
+
+`/update`
+
+This pulls the latest code, updates dependencies, and restarts running gateways. The bot will briefly go offline during the restart (typically 5–15 seconds) and then resume.
+
+### Manual Update[​](https://hermes-agent.nousresearch.com/docs/getting-started/updating#manual-update "Direct link to Manual Update")
+
+If you installed manually (not via the quick installer):
+
+`cd /path/to/hermes-agentexport VIRTUAL_ENV="$(pwd)/venv"# Pull latest codegit pull origin main# Reinstall (picks up new dependencies)uv pip install -e ".[all]"# Check for new config optionshermes config checkhermes config migrate   # Interactively add any missing options`
+
+### Rollback instructions[​](https://hermes-agent.nousresearch.com/docs/getting-started/updating#rollback-instructions "Direct link to Rollback instructions")
+
+If an update introduces a problem, you can roll back to a previous version:
+
+`cd /path/to/hermes-agent# List recent versionsgit log --oneline -10# Roll back to a specific commitgit checkout <commit-hash>git submodule update --init --recursiveuv pip install -e ".[all]"# Restart the gateway if runninghermes gateway restart`
+
+To roll back to a specific release tag (substitute your previous tag — e.g. a recent release like `v2026.5.16`, or any earlier tag from `git tag --sort=-version:refname`):
+
+`git checkout vX.Y.Zgit submodule update --init --recursiveuv pip install -e ".[all]"`
+
+warning
+
+Rolling back may cause config incompatibilities if new options were added. Run `hermes config check` after rolling back and remove any unrecognized options from `config.yaml` if you encounter errors.
+
+### Note for Nix users[​](https://hermes-agent.nousresearch.com/docs/getting-started/updating#note-for-nix-users "Direct link to Note for Nix users")
+
+If you installed via Nix flake, updates are managed through the Nix package manager:
+
+`# Update the flake inputnix flake update hermes-agent# Or rebuild with the latestnix profile upgrade hermes-agent`
+
+Nix installations are immutable — rollback is handled by Nix's generation system:
+
+`nix profile rollback`
+
+See [Nix Setup](https://hermes-agent.nousresearch.com/docs/getting-started/nix-setup) for more details.
+
+* * *
+
+## Uninstalling[​](https://hermes-agent.nousresearch.com/docs/getting-started/updating#uninstalling "Direct link to Uninstalling")
+
+### Git installs[​](https://hermes-agent.nousresearch.com/docs/getting-started/updating#git-installs-1 "Direct link to Git installs")
+
+`hermes uninstall`
+
+The uninstaller gives you the option to keep your configuration files (`~/.hermes/`) for a future reinstall.
+
+### pip installs[​](https://hermes-agent.nousresearch.com/docs/getting-started/updating#pip-installs-1 "Direct link to pip installs")
+
+`pip uninstall hermes-agentrm -rf ~/.hermes            # Optional — keep if you plan to reinstall`
+
+### Manual Uninstall[​](https://hermes-agent.nousresearch.com/docs/getting-started/updating#manual-uninstall "Direct link to Manual Uninstall")
+
+`rm -f ~/.local/bin/hermesrm -rf /path/to/hermes-agentrm -rf ~/.hermes            # Optional — keep if you plan to reinstall`
+
+info
+
+If you installed the gateway as a system service, stop and disable it first:
+
+`hermes gateway stop# Linux: systemctl --user disable hermes-gateway# macOS: launchctl remove ai.hermes.gateway`

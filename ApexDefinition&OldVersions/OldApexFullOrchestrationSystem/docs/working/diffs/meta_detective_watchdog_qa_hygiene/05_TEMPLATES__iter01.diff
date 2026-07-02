@@ -1,0 +1,208 @@
+diff --git a/OpenClaw/07_finalopenclawsystem/managed/agent_kb/meta_detective/TEMPLATES.md b/OpenClaw/07_finalopenclawsystem/managed/agent_kb/meta_detective/TEMPLATES.md
+--- a/OpenClaw/07_finalopenclawsystem/managed/agent_kb/meta_detective/TEMPLATES.md
++++ b/OpenClaw/07_finalopenclawsystem/managed/agent_kb/meta_detective/TEMPLATES.md
+@@ -28,1 +28,189 @@
+ ## Accepted templates
++
++### DET-TPL-009 — Detective Compliance Gate
++
++```yaml
++template_entry:
++  id: DET-TPL-009
++  status: accepted
++  use_when: A repo write, patch/diff claim, promptflow compliance claim, or high-risk handoff must be checked against exact method and scope constraints.
++  evidence_refs:
++    - OpenClaw/07_finalopenclawsystem/docs/working/META_DETECTIVE_WATCHDOG_QA_HYGIENE_EXECUTION_PLAN.md
++  scores:
++    score_scale: 1-100
++    EVD: 94
++    IMP: 98
++    RSK: 30
++  owner: meta_detective
++  validator: special_ops__hygiene_clean
++  review_due: 2026-07-25
++```
++
++```yaml
++detective_compliance_gate:
++  artifact_or_action_under_review:
++  required_process:
++  claimed_process:
++  observed_process:
++  instruction_parity: pass | fail | partial | unknown
++  execution_method_truth: pass | fail | partial | unknown
++  scope_containment: pass | fail | partial | unknown
++  artifact_evidence:
++  self_validation_risk: low | medium | high
++  stop_condition:
++  verdict: pass | revise | hold | needs_input | escalate
++  next_owner:
++  next_validator:
++```
++
++### DET-TPL-010 — Execution Method Truth Check
++
++```yaml
++template_entry:
++  id: DET-TPL-010
++  status: accepted
++  use_when: The output claims a specific method was used, such as unified diff creation, patch application, read-back validation, or no target mutation.
++  evidence_refs:
++    - OpenClaw/07_finalopenclawsystem/docs/working/META_DETECTIVE_WATCHDOG_QA_HYGIENE_EXECUTION_PLAN.md
++  scores:
++    score_scale: 1-100
++    EVD: 97
++    IMP: 99
++    RSK: 20
++  owner: meta_detective
++  validator: special_ops__hygiene_clean
++  review_due: 2026-07-25
++```
++
++```md
++## Execution Method Truth Check
++
++Required method:  
++Claimed method:  
++Observed method:  
++Artifact evidence:  
++
++| Check | Result | Evidence |
++|---|---|---|
++| Claimed method matches observed tool/write behavior | pass / fail / partial / unknown |  |
++| Forbidden method avoided | pass / fail / partial / unknown |  |
++| Read-back occurred when required | pass / fail / partial / unknown |  |
++| Target file was not mutated when only artifact creation was allowed | pass / fail / partial / unknown |  |
++
++Verdict: pass / revise / hold / needs_input / escalate  
++Blocker:  
++```
++
++### DET-TPL-011 — Instruction Parity Audit
++
++```yaml
++template_entry:
++  id: DET-TPL-011
++  status: accepted
++  use_when: A result may have followed the broad intent while missing exact constraints, sequence, stop conditions, or forbidden actions.
++  evidence_refs:
++    - OpenClaw/07_finalopenclawsystem/docs/working/META_DETECTIVE_WATCHDOG_QA_HYGIENE_EXECUTION_PLAN.md
++  scores:
++    score_scale: 1-100
++    EVD: 96
++    IMP: 98
++    RSK: 95
++  owner: meta_detective
++  validator: special_ops__hygiene_clean
++  review_due: 2026-07-25
++```
++
++```md
++## Instruction Parity Audit
++
++| Instruction | Required exactly? | Observed behavior | Parity |
++|---|---:|---|---|
++|  | yes / no |  | pass / fail / partial / unknown |
++
++Missed instruction:  
++Forbidden action risk:  
++Stop condition triggered: yes / no  
++Verdict: pass / revise / hold / needs_input / escalate  
++```
++
++### DET-TPL-012 — Scope Containment Audit
++
++```yaml
++template_entry:
++  id: DET-TPL-012
++  status: accepted
++  use_when: A workflow has a locked target list, forbidden files, forbidden concepts, or one-target-at-a-time requirement.
++  evidence_refs:
++    - OpenClaw/07_finalopenclawsystem/docs/working/META_DETECTIVE_WATCHDOG_QA_HYGIENE_EXECUTION_PLAN.md
++  scores:
++    score_scale: 1-100
++    EVD: 94
++    IMP: 96
++    RSK: 92
++  owner: meta_detective
++  validator: special_ops__hygiene_clean
++  review_due: 2026-07-25
++```
++
++```md
++## Scope Containment Audit
++
++Allowed targets:  
++Forbidden targets:  
++Touched targets:  
++
++| Target | Allowed? | Touched? | Issue |
++|---|---|---|---|
++|  | yes / no | yes / no |  |
++
++Silent expansion detected: yes / no  
++Verdict: pass / revise / hold / needs_input / escalate  
++```
++
++### DET-TPL-013 — Artifact Evidence Checklist
++
++```yaml
++template_entry:
++  id: DET-TPL-013
++  status: accepted
++  use_when: A compliance or execution claim must be proven from artifact-level evidence instead of self-report.
++  evidence_refs:
++    - OpenClaw/07_finalopenclawsystem/docs/working/META_DETECTIVE_WATCHDOG_QA_HYGIENE_EXECUTION_PLAN.md
++  scores:
++    score_scale: 1-100
++    EVD: 97
++    IMP: 99
++    RSK: 94
++  owner: meta_detective
++  validator: special_ops__hygiene_clean
++  review_due: 2026-07-25
++```
++
++```md
++## Artifact Evidence Checklist
++
++| Claim | Required evidence | Observed evidence | Result |
++|---|---|---|---|
++|  | diff / file / log / test / read-back / tool record |  | pass / fail / partial / unknown |
++
++Evidence gap:  
++Self-report only? yes / no  
++Verdict: pass / revise / hold / needs_input / escalate  
++```
++
++### DET-TPL-014 — Self-Validation Blocker
++
++```yaml
++template_entry:
++  id: DET-TPL-014
++  status: accepted
++  use_when: The same actor or lane both executed and approved a high-risk output, repo write, patch/diff claim, or KB promotion claim.
++  evidence_refs:
++    - OpenClaw/07_finalopenclawsystem/docs/working/META_DETECTIVE_WATCHDOG_QA_HYGIENE_EXECUTION_PLAN.md
++  scores:
++    score_scale: 1-100
++    EVD: 94
++    IMP: 95
++    RSK: 96
++  owner: meta_detective
++  validator: special_ops__hygiene_clean
++  review_due: 2026-07-25
++```
++
++```md
++## Self-Validation Blocker
++
++Executor:  
++Reviewer / validator:  
++Independent artifact evidence:  
++
++Self-validation present: yes / no  
++Can proceed without independent validation? yes / no  
++Required validator:  
++Verdict: pass / revise / hold / needs_input / escalate  
++```

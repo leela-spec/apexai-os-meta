@@ -1,0 +1,12 @@
+diff --git a/OpenClaw/07_finalopenclawsystem/managed/knowledge/CROSS_REFERENCE_MANIFEST.md b/OpenClaw/07_finalopenclawsystem/managed/knowledge/CROSS_REFERENCE_MANIFEST.md
+--- a/OpenClaw/07_finalopenclawsystem/managed/knowledge/CROSS_REFERENCE_MANIFEST.md
++++ b/OpenClaw/07_finalopenclawsystem/managed/knowledge/CROSS_REFERENCE_MANIFEST.md
+@@ -31,6 +31,8 @@
+ | Source file | Points to | Why |
+ |---|---|---|
+ | `docs/working/META_DETECTIVE_ORIENTATION_WORKING.md` | five Meta Detective mode working files | working registry for non-agent Detective modes |
++| `docs/working/META_DETECTIVE_WATCHDOG_QA_HYGIENE_EXECUTION_PLAN.md` | `managed/agent_kb/meta_detective/` | working execution plan for watchdog QA/Hygiene candidate pack; not accepted canon by storage alone |
++| `docs/working/META_DETECTIVE_EXECUTION_PROMPTFLOW_COMPLIANCE_AUDITOR_WORKING.md` | `managed/agent_kb/meta_detective/` | candidate operating detail for execution and promptflow compliance audit mode; not a separate agent or KB root |
+ | `docs/working/META_DETECTIVE_EVIDENCE_SOURCE_VERIFIER_WORKING.md` | `managed/agent_kb/meta_detective/BEST_PRACTICES.md`, `TEMPLATES.md`, `MISTAKES.md` | candidate operating detail for evidence/source validation mode |
+ | `docs/working/META_DETECTIVE_CONTRADICTION_LOGIC_AUDITOR_WORKING.md` | `managed/agent_kb/meta_detective/BEST_PRACTICES.md`, `TEMPLATES.md`, `MISTAKES.md` | candidate operating detail for contradiction and logic audit mode |
+ | `docs/working/META_DETECTIVE_BOUNDARY_AUTHORITY_GUARDIAN_WORKING.md` | `managed/knowledge/OVERLAP_VALIDATION_MATRIX.md` and `managed/agent_kb/meta_detective/` | candidate operating detail for role, authority, config, and promotion boundary checks |

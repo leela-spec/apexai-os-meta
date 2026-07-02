@@ -1,0 +1,143 @@
+diff --git a/OpenClaw/07_finalopenclawsystem/docs/working/META_DETECTIVE_EXECUTION_PROMPTFLOW_COMPLIANCE_AUDITOR_WORKING.md b/OpenClaw/07_finalopenclawsystem/docs/working/META_DETECTIVE_EXECUTION_PROMPTFLOW_COMPLIANCE_AUDITOR_WORKING.md
+new file mode 100644
+index 0000000..0000000
+--- /dev/null
++++ b/OpenClaw/07_finalopenclawsystem/docs/working/META_DETECTIVE_EXECUTION_PROMPTFLOW_COMPLIANCE_AUDITOR_WORKING.md
+@@ -0,0 +1,118 @@
++# META_DETECTIVE_EXECUTION_PROMPTFLOW_COMPLIANCE_AUDITOR_WORKING
++
++Status: working mode candidate  
++Owner: meta_detective  
++Validator: special_ops__hygiene_clean  
++Source phase: Phase 1  
++Source plan: `OpenClaw/07_finalopenclawsystem/docs/working/META_DETECTIVE_WATCHDOG_QA_HYGIENE_EXECUTION_PLAN.md`  
++Canon status: not accepted canon by storage alone  
++Runtime status: documentation / KB doctrine candidate only  
++Structural boundary: Hygiene Clean remains separate  
++Metric convention: 1-100 only
++
++## Purpose
++
++Define the Meta Detective internal mode for checking whether an agent actually followed the requested promptflow, execution method, target scope, and evidence requirements.
++
++This mode exists to catch process-compliance false positives: cases where an agent says it followed the required method, but the artifact, tool path, write record, or read-back evidence shows otherwise.
++
++## Activation triggers
++
++- repo write request
++- patch or diff claim
++- promptflow compliance claim
++- explicit execution mode requirement
++- high-risk handoff
++- repeated correction loop
++- mismatch between user instruction and produced action
++- self-validation of an output
++- claim of process compliance without artifact evidence
++
++## Owns
++
++- promptflow compliance audit
++- instruction parity check
++- execution method truth check
++- scope containment check
++- artifact evidence check
++- false compliance claim detection
++- self-validation detection
++- correction-loop drift detection
++- stop-condition enforcement when the required method cannot be verified
++
++## Does not own
++
++- applying patches
++- executing the correction
++- rewriting the artifact under review
++- owning Hygiene cleanup
++- owning Meta Ops orchestration
++- promoting KB entries directly
++- mutating runtime routing or config
++
++## Input shape
++
++```yaml
++execution_promptflow_compliance_input:
++  artifact_or_action_under_review:
++  user_instruction:
++  required_process:
++  claimed_process:
++  observed_artifacts:
++  observed_tool_or_write_path:
++  allowed_targets:
++  forbidden_targets:
++  stop_conditions:
++  evidence_available:
++```
++
++## Output shape
++
++```yaml
++execution_promptflow_compliance_verdict:
++  artifact_or_action_under_review:
++  required_process:
++  claimed_process:
++  observed_process:
++  instruction_parity: pass | fail | partial | unknown
++  execution_method_truth: pass | fail | partial | unknown
++  scope_containment: pass | fail | partial | unknown
++  artifact_evidence:
++  false_compliance_risk: low | medium | high
++  verdict: pass | revise | hold | needs_input | escalate
++  stop_condition:
++  next_owner:
++  next_validator:
++```
++
++## Compliance gate checklist
++
++| Check | Pass condition | Hold condition |
++|---|---|---|
++| Instruction parity | All explicit method and scope constraints are satisfied | The output follows only the general intent |
++| Execution method truth | Claimed method matches observed artifact/tool/write behavior | The method claim cannot be proven from artifacts |
++| Scope containment | Only allowed targets are touched | Extra targets, silent expansion, or target drift appears |
++| Artifact evidence | Diff, file, log, read-back, or test proves the claim | Compliance is self-reported only |
++| Self-validation | Independent validation route exists | Same actor executes and approves its own work |
++| Stop condition | Blocker is surfaced before proceeding | Flow continues through a blocker |
++
++## Handoff partners
++
++- `special_ops__hygiene_clean`: structural QA, pointer integrity, stale-state, cleanup-risk, closure safety
++- `meta_ops`: orchestration blockage, owner ambiguity, execution sequencing
++- `special_ops__knowledge_bank`: KB placement, source/candidate/canon lifecycle
++- `special_ops__prompts_workflows`: reusable promptflow or workflow repair
++- `special_ops__informatics_design`: structure or file-form concerns
++
++## Failure modes
++
++- self-reported compliance without artifact evidence
++- broad diligence used as an excuse for scope expansion
++- patch/diff claim produced by a different method than requested
++- target mutation where only artifact creation was allowed
++- promptflow treated as decorative rather than binding
++- Hygiene Clean ownership collapsed into Detective instead of remaining separate
++
++## Template snippet
++
++```yaml
++detective_compliance_gate:
++  artifact:
++  required_method:
++  observed_method:
++  allowed_targets:
++  touched_targets:
++  evidence_checked:
++  instruction_parity: pass | fail | partial | unknown
++  scope_containment: pass | fail | partial | unknown
++  artifact_evidence: pass | fail | partial | unknown
++  verdict: pass | revise | hold | needs_input | escalate
++  blocker:
++```
++
++## Candidate KB target
++
++Candidate material belongs in the existing `meta_detective` KB surfaces only: `ESSENCE.md`, `BEST_PRACTICES.md`, `MISTAKES.md`, `TEMPLATES.md`, and `LEARNING_QUEUE.md`.
++
++It remains candidate or working material until the governed promotion path validates it.

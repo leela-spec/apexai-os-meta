@@ -1,0 +1,34 @@
+diff --git a/OpenClaw/07_finalopenclawsystem/managed/agent_kb/meta_detective/LEARNING_QUEUE.md b/OpenClaw/07_finalopenclawsystem/managed/agent_kb/meta_detective/LEARNING_QUEUE.md
+--- a/OpenClaw/07_finalopenclawsystem/managed/agent_kb/meta_detective/LEARNING_QUEUE.md
++++ b/OpenClaw/07_finalopenclawsystem/managed/agent_kb/meta_detective/LEARNING_QUEUE.md
+@@ -31,1 +31,35 @@
+ ## Pending entries
++
++### DET-LQ-006 — Watchdog QA/Hygiene candidate pack
++
++```yaml
++learning_entry:
++  id: candidate_meta_detective_watchdog_qa_hygiene_pack_v0
++  status: strong_candidate
++  source_ref:
++    - OpenClaw/07_finalopenclawsystem/docs/working/META_DETECTIVE_WATCHDOG_QA_HYGIENE_EXECUTION_PLAN.md
++    - OpenClaw/07_finalopenclawsystem/docs/working/META_DETECTIVE_ORIENTATION_WORKING.md
++  summary: Candidate watchdog expansion for Meta Detective. Adds Execution & Promptflow Compliance Auditor and makes QA/Hygiene watchdogging core to Detective while keeping Hygiene Clean structurally separate.
++  candidate_target: mixed_pack
++  candidate_targets:
++    - essence
++    - best_practice
++    - mistake
++    - template
++  evidence_refs:
++    - OpenClaw/07_finalopenclawsystem/docs/working/META_DETECTIVE_WATCHDOG_QA_HYGIENE_EXECUTION_PLAN.md
++  scores:
++    score_scale: 1-100
++    EVD: 94
++    IMP: 97
++    RSK: 32
++  owner: meta_detective
++  validator: special_ops__hygiene_clean
++  overlap_check: Verify boundaries with meta_ops, hygiene_clean, knowledge_bank, prompts_workflows, informatics_design, and ai_handling_routing.
++  review_due: 2026-07-25
++```

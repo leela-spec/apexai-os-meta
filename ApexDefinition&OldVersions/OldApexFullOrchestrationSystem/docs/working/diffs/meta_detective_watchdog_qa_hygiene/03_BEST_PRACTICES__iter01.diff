@@ -1,0 +1,132 @@
+diff --git a/OpenClaw/07_finalopenclawsystem/managed/agent_kb/meta_detective/BEST_PRACTICES.md b/OpenClaw/07_finalopenclawsystem/managed/agent_kb/meta_detective/BEST_PRACTICES.md
+--- a/OpenClaw/07_finalopenclawsystem/managed/agent_kb/meta_detective/BEST_PRACTICES.md
++++ b/OpenClaw/07_finalopenclawsystem/managed/agent_kb/meta_detective/BEST_PRACTICES.md
+@@ -31,1 +31,128 @@
+ ## Accepted practices
++
++### DET-BP-011 — Use Execution & Promptflow Compliance Auditor for repo writes and patch/diff claims
++
++```yaml
++practice_entry:
++  id: DET-BP-011
++  status: accepted
++  practice: Activate Execution & Promptflow Compliance Auditor whenever repo writes, patch claims, diff claims, or explicit method-constrained promptflows are present.
++  context_conditions:
++    - repo write occurs or is proposed
++    - patch or diff artifact is claimed
++    - user instruction specifies a hard execution method
++    - read-back validation is required before continuing
++  evidence_refs:
++    - OpenClaw/07_finalopenclawsystem/docs/working/META_DETECTIVE_WATCHDOG_QA_HYGIENE_EXECUTION_PLAN.md
++  scores:
++    score_scale: 1-100
++    EVD: 94
++    IMP: 98
++    RSK: 30
++  owner: meta_detective
++  validator: special_ops__hygiene_clean
++  review_due: 2026-07-25
++```
++
++**Practice:** Treat the required execution method as part of the truth claim. A correct-looking result is not compliant if it was produced by a forbidden method or touched a forbidden target.
++
++### DET-BP-012 — Require artifact evidence for compliance claims
++
++```yaml
++practice_entry:
++  id: DET-BP-012
++  status: accepted
++  practice: Compliance claims require artifact evidence such as diff content, read-back content, file state, log output, test output, or tool record.
++  context_conditions:
++    - assistant claims it followed a promptflow
++    - assistant claims a patch, diff, test, or write was performed
++    - acceptance depends on method, target, or scope accuracy
++  evidence_refs:
++    - OpenClaw/07_finalopenclawsystem/docs/working/META_DETECTIVE_WATCHDOG_QA_HYGIENE_EXECUTION_PLAN.md
++  scores:
++    score_scale: 1-100
++    EVD: 97
++    IMP: 99
++    RSK: 20
++  owner: meta_detective
++  validator: special_ops__hygiene_clean
++  review_due: 2026-07-25
++```
++
++**Practice:** Self-report does not satisfy compliance. The Detective verdict must cite the artifact or observed action that proves or disproves the claim.
++
++### DET-BP-013 — Treat QA/Hygiene watchdogging as core Detective capability
++
++```yaml
++practice_entry:
++  id: DET-BP-013
++  status: accepted
++  practice: Use Meta Detective to watchdog QA/Hygiene-relevant claims when truth, authority, execution safety, or drift is at stake.
++  context_conditions:
++    - structural QA outcome is used as trust evidence
++    - Hygiene or Ops output may self-validate
++    - pointer, stale-state, or closure claim affects a truth verdict
++  evidence_refs:
++    - OpenClaw/07_finalopenclawsystem/docs/working/META_DETECTIVE_WATCHDOG_QA_HYGIENE_EXECUTION_PLAN.md
++  scores:
++    score_scale: 1-100
++    EVD: 90
++    IMP: 95
++    RSK: 36
++  owner: meta_detective
++  validator: special_ops__hygiene_clean
++  review_due: 2026-07-25
++```
++
++**Practice:** Detective may audit QA/Hygiene claims, but it does not absorb Hygiene Clean as an owner lane.
++
++### DET-BP-014 — Keep Hygiene Clean separate but auditable by Detective
++
++```yaml
++practice_entry:
++  id: DET-BP-014
++  status: accepted
++  practice: Preserve Hygiene Clean as the separate structural QA lane while allowing Detective to audit compliance, authority, and self-validation risks.
++  context_conditions:
++    - structural and adversarial findings overlap
++    - Hygiene evidence affects a Detective verdict
++    - cleanup or closure safety touches truth status
++  evidence_refs:
++    - OpenClaw/07_finalopenclawsystem/docs/working/META_DETECTIVE_WATCHDOG_QA_HYGIENE_EXECUTION_PLAN.md
++  scores:
++    score_scale: 1-100
++    EVD: 94
++    IMP: 93
++    RSK: 28
++  owner: meta_detective
++  validator: special_ops__hygiene_clean
++  review_due: 2026-07-25
++```
++
++**Practice:** Hygiene owns structural QA. Detective owns adversarial/compliance watchdogging. Mixed findings need separate dispositions.
++
++### DET-BP-015 — Activate Detective Compliance Gate on high-risk or method-constrained work
++
++```yaml
++practice_entry:
++  id: DET-BP-015
++  status: accepted
++  practice: Run a Detective Compliance Gate before accepting high-risk outputs or work constrained by exact method, exact targets, or exact validation order.
++  context_conditions:
++    - promptflow has explicit do/do-not constraints
++    - work must stop on missing target or failed validation
++    - target drift would corrupt the result
++    - compliance cannot be inferred from final prose
++  evidence_refs:
++    - OpenClaw/07_finalopenclawsystem/docs/working/META_DETECTIVE_WATCHDOG_QA_HYGIENE_EXECUTION_PLAN.md
++  scores:
++    score_scale: 1-100
++    EVD: 94
++    IMP: 98
++    RSK: 30
++  owner: meta_detective
++  validator: special_ops__hygiene_clean
++  review_due: 2026-07-25
++```
++
++**Practice:** The gate checks instruction parity, execution-method truth, scope containment, artifact evidence, self-validation, stop conditions, and correction route before pass.
