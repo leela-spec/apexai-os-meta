@@ -1,0 +1,75 @@
+## Functional status of the KB
+
+|Dimension|Status|Assessment|
+|---|---|---|
+|**Agent activation**|**Strong**|`ESSENCE.md` is short, explicit, and usable as first-load context.|
+|**Role boundary**|**Strong**|Owns structure/taxonomy/terminology/retrieval; does not own truth validation, strategy, or promotion.|
+|**Best-practice usability**|**Strong**|`BEST_PRACTICES.md` is actionable and compact.|
+|**Failure memory**|**Strong**|`MISTAKES.md` captures the main drift modes clearly.|
+|**Template utility**|**Strong**|`TEMPLATES.md` gives direct row/file patterns for future expansions.|
+|**Source provenance**|**Strong**|Source manifest is present and records coverage, gaps, role fit, duplication, and authority risk.|
+|**Ranking logic**|**Strong**|Ranking ledger maps source units to scaffold targets and appendix pointers.|
+|**Candidate handling**|**Strong**|Candidate ledger and learning queue distinguish integrated, resolved, deferred, accepted-for-KB-base, and unresolved/provisional material.|
+|**Research completeness**|**Good but not final**|The core source pack is sufficient, but several high-value open questions remain deliberately unresolved.|
+|**Machine-readability**|**Good+**|Tables, schemas, candidate decisions, and research planning are usable. Optional sidecars remain deferred.|
+|**Database readiness**|**Good**|Appendices already behave like Markdown databases. Further normalization remains optional and evidence-triggered.|
+
+## What is still missing or deferred
+
+|Gap|Severity|Why it matters|Status|Next action|
+|---|---|---|---|---|
+|**No dedicated `SOURCE_NOTES` / SN database found**|Medium|If you expected a source-notes database, it is either named differently, absent, or outside the repo search surface.|Deferred|Create `appendices/APPENDIX_KB_SOURCE_NOTES.md` or locate the actual SN file manually only if source-note replay becomes necessary.|
+|**No machine-readable sidecar**|Medium|Markdown tables are useful, but not ideal for automated querying.|Deferred|Add optional `.json` or `.yaml` database exports only if a consuming workflow needs them.|
+|**No separate QA report file**|Low/Medium|QA status is useful, but a separate report is only needed if QA becomes recurring or too large.|Represented|Current QA/readiness/research planning is in `APPENDIX_KB_QA_AND_NEXT_RESEARCH_PLAN.md`.|
+|**No source conflict report**|Low|Not needed now because no blocking conflict was found.|Conditional|Create only if future sources conflict.|
+|**No direct import of full Gemini/Perplexity variants**|Low/Medium|Variants are represented, not fully copied. This is good for density, weaker for exhaustive research replay.|Deferred|Add variant comparison appendix only if needed.|
+|**No runtime examples**|Low|Templates exist, but no applied examples.|Deferred|Add `appendices/APPENDIX_KB_EXAMPLES.md` with 3-5 before/after transformations only if future agents need examples.|
+
+## Research that may be useful next
+
+A. **Governed Markdown strictness**
+
+1. Should sentence-level rules remain guidance, or should procedure files get a stricter rule?
+2. Should numeric limits ever be used, or only semantic checks?
+
+B. **Schema and database structure**  
+3. Should source/ranking/candidate ledgers be mirrored as JSON/YAML for agent ingestion?  
+4. What is the minimal schema that preserves usefulness without becoming bureaucracy?
+
+C. **Prompt-template placement**  
+5. Are prompt templates a governed file type, an operational support asset, or a prompts-workflows concern only?  
+6. When does a prompt template become system knowledge rather than workflow tooling?
+
+D. **File-type declaration**  
+7. Is plain-language file-type declaration enough?  
+8. Should future governed files require frontmatter fields like `class`, `role`, `surface`, `quality`, `scope`, `purpose`, and `dependencies`?
+
+E. **Redundancy discipline**  
+9. How much repetition between `ESSENCE`, `BEST_PRACTICES`, `TEMPLATES`, and appendices is useful?  
+10. When does reinforcement become contradiction risk?
+
+## Completed next step
+
+The previously recommended research-planning appendix has been created:
+
+```
+OpenClaw/07_finalopenclawsystem/managed/agent_kb/special_ops__informatics_design/appendices/APPENDIX_KB_QA_AND_NEXT_RESEARCH_PLAN.md
+```
+
+It contains:
+
+|Section|Contents|Status|
+|---|---|---|
+|`Functional Readiness`|Score each scaffold and appendix.|Initialized|
+|`Missing Database Candidates`|SN/source-notes file question, JSON/YAML sidecar question.|Initialized|
+|`Research Backlog`|The 10 questions above, ranked by impact.|Initialized|
+|`Recommended Attach Pack`|Runtime pack vs rebuild/audit pack.|Initialized|
+|`Next Research Candidates`|Optional `SOURCE_NOTES`, `EXAMPLES`, variant comparison, or sidecar schema files.|Initialized|
+
+## Current assessment
+
+The informatics-design KB is **functional as a compact agent KB base now**.
+
+- **Decision:** The main improvement is no longer more doctrine.
+- **Decision:** The current next-improvement class is optional database normalization, examples, or recurring QA only when future use proves the need.
+- **Constraint:** Do not reopen the whole research corpus to add these optional surfaces without a bounded trigger.

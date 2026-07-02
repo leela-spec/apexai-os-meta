@@ -1,0 +1,94 @@
+research_function_id: KB_SYSTEM_RELIABILITY_AUDIT_V1
+purpose: >
+  Determine whether the current Apex AI OS knowledge-base design is machine-followable,
+  token-efficient, drift-resistant, and safe for file-editing agents.
+
+inputs_required:
+  - current Apex repo file tree
+  - five Special Ops KB folders
+  - MetaOps KB seed
+  - failed integration chat transcript
+  - relevant commits/diffs from failed runs
+  - current promptflow templates
+  - source indexes and appendices
+
+research_questions:
+  architecture:
+    - Are the KBs designed as human documentation, machine contracts, or both?
+    - Which files are activation surfaces vs database surfaces vs evidence surfaces?
+    - Does every agent have exactly one authority boundary?
+    - Is MetaOps defined enough to sequence the five agents safely?
+
+  machine_followability:
+    - Can an AI determine allowed reads/writes without inference?
+    - Are stop conditions executable?
+    - Are validation gates path-based and diff-based?
+    - Are statuses machine-distinguishable?
+    - Can candidates become truth accidentally?
+
+  token_efficiency:
+    - What is the minimum attach pack per task type?
+    - Which appendices should never be loaded during runtime?
+    - Which ledgers need summaries or indexes?
+    - Are scaffold files compact enough for activation?
+
+  drift_resistance:
+    - Which rules are prose-only and therefore likely to be ignored?
+    - Which promptflows contain ambiguous phase verbs?
+    - Are repository and folder paths hard-coded?
+    - Are external repo references clearly separated into evidence vs active target?
+
+  editing_safety:
+    - Do promptflows use changed-file whitelist validation?
+    - Do they prevent full-file rewrites?
+    - Do they require identity maps for misfiled files?
+    - Do they require exact diff review before success?
+
+  schema_design:
+    - Should Markdown ledgers gain YAML frontmatter?
+    - Which fields are mandatory in every promptflow?
+    - Which status vocabulary should be global?
+    - Should source notes, promotion traces, and QA reports be shared schemas?
+
+outputs_required:
+  - issue_inventory
+  - severity_table
+  - machine_contract_gaps
+  - recommended_global_invariants
+  - per_agent_patch_plan
+  - MetaOps_orchestration_patch_plan
+  - unified_diff_specs
+  - no_patch_reasons
+  - research_backlog
+
+success_criteria:
+  - every recommendation maps to one file owner
+  - every P0/P1 issue has a blocking rule
+  - every patch proposal includes exact target path
+  - no prose-only critical rule remains
+5. Important corrective view
+
+You probably do not need to throw away a month of work.
+
+But you do need to reclassify the work:
+
+Current material	Likely status
+Agent role doctrine	Mostly salvageable.
+Scaffold files	Useful, but need machine-contract additions.
+Appendices	Useful database surfaces, but need stricter schemas.
+Promptflows	Partially unreliable; must be rebuilt as executable contracts.
+Validation reports	Useful as evidence, but not proof unless path/diff-based.
+Future research	Useful, but must not become automatic patch authorization.
+
+The work was not useless. The failure exposed that the system was missing a layer:
+
+Human-readable KB doctrine
+        +
+Machine-executable control contract
+
+So the correction is not “rewrite everything.” It is:
+
+add hard execution contracts,
+audit all promptflows against them,
+recover useful deltas from wrong commits,
+then patch only correct target files.

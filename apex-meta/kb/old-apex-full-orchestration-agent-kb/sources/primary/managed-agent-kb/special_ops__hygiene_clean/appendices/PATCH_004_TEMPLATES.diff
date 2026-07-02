@@ -1,0 +1,143 @@
+diff --git a/OpenClaw/07_finalopenclawsystem/managed/agent_kb/special_ops__hygiene_clean/TEMPLATES.md b/OpenClaw/07_finalopenclawsystem/managed/agent_kb/special_ops__hygiene_clean/TEMPLATES.md
+--- a/OpenClaw/07_finalopenclawsystem/managed/agent_kb/special_ops__hygiene_clean/TEMPLATES.md
++++ b/OpenClaw/07_finalopenclawsystem/managed/agent_kb/special_ops__hygiene_clean/TEMPLATES.md
+@@ -6,6 +6,44 @@
+ 
+ Detailed candidate basis lives in `appendices/APPENDIX_KB_CANDIDATE_LEDGER.md`.
+ 
++## Template chooser
++
++| Need | Use template |
++|---|---|
++| Run or report a bounded audit | `hygiene_audit_record` |
++| Record a hygiene issue | `finding_record` |
++| Close, downgrade, defer, or escalate a finding | `closure_record` plus closure validity checklist |
++| Lock a drift-sensitive execution mode | `execution_mode_lock` |
++| Record source coverage or access status | `source_manifest_row` |
++| Record source-note decisions | `source_note_row` |
++| Rank a reusable information unit | `information_ranking_row` |
++| Record source evidence or postmortem evidence | `evidence_note` |
++| Trace candidate realization into scaffold or appendix | `candidate_realization_trace` |
++| Report unsafe source disagreement | `source_conflict_report` |
++
++## Severity crib
++
++| Severity | Local meaning | Default handling |
++|---|---|---|
++| `P0` | Critical governance, authority, or trace failure; normal continuation is unsafe. | hold or escalate immediately |
++| `P1` | High-risk integrity failure affecting current routing, source trust, closure, or approval safety. | remediate before normal progression or declare bounded degraded handling |
++| `P2` | Material hygiene debt that degrades reliability but is not immediately blocking. | backlog with bounded follow-up path |
++| `P3` | Low-risk cleanup, naming, formatting, or minor consistency issue. | batch cleanup or explicit deferment |
++
++## Closure validity checklist
++
++A closure is valid only when every applicable check is true:
++
++- the original finding remains identifiable
++- the affected surface was rechecked after remediation
++- required action is complete or explicit deferment/downgrade is recorded
++- closure evidence references are visible
++- residual risk is stated when any risk remains
++- downgrade reason is stated when severity changed
++- follow-up path is stated for deferred or partially remediated issues
++- verifier is named or verification owner is explicitly pending
++- closure does not silently promote candidate content into runtime truth
++
+ ## Hygiene audit record
+ 
+ ```yaml
+@@ -17,10 +55,20 @@
+     conflicts: []
+   checked_surfaces: []
+   expected_surfaces: []
++  check_families:
++    authority_boundary: true | false
++    verification_boundary: true | false
++    candidate_truth_boundary: true | false
++    cross_agent_ownership: true | false
++    config_impact_review: true | false
+   missing_surfaces: []
+   extra_surfaces: []
+   exact_preservation_required: true | false
+   metrics_checked:
++    file_count: true | false
++    missing_files: true | false
++    extra_files: true | false
++    size: true | false
+     bytes: true | false
+     chars: true | false
+     lines: true | false
+@@ -33,7 +81,7 @@
+ 
+ ```yaml
+ finding_record:
+   finding_id:
+-  finding_class: authority_drift | verification_drift | rewrite_drift | mode_drift | scope_drift | closure_drift | candidate_truth_drift | pointer_failure | state_integrity_failure
++  finding_class: authority_drift | verification_drift | rewrite_drift | mode_drift | scope_drift | closure_drift | candidate_truth_drift | pointer_failure | state_integrity_failure | source_gap | config_impact_review_missing | cross_agent_ownership_unclear | exact_preservation_failure
+   severity: P0 | P1 | P2 | P3
+   affected_surface:
+   description:
+@@ -42,6 +90,8 @@
+   required_action:
+   hold_or_escalation_needed: true | false
+   owner:
++  routed_owner:
++  routing_reason:
+   verifier:
+   status: open | remediating | blocked | closed | escalated
+ ```
+@@ -61,6 +111,20 @@
+   closed_at:
+ ```
+ 
++## Candidate realization trace
++
++```yaml
++candidate_realization_trace:
++  candidate_id:
++  source_file:
++  approved_decision: integrate_into_scaffold | integrate_into_appendix | split_between_scaffold_and_appendix | keep_as_candidate | defer | reject
++  realized_as:
++  realized_file:
++  scaffold_id:
++  status_after_build: accepted_in_kb_base | candidate | strong_candidate | evidence_only | deferred | rejected | promotion_required
++  next_validation:
++  notes:
++```
++
+ ## Execution-mode lock
+ 
+ ```yaml
+@@ -91,6 +155,21 @@
+   notes:
+ ```
+ 
++## Source note row
++
++```yaml
++source_note_row:
++  note_id:
++  source_path:
++  source_gap_severity: P0 | P1 | P2 | P3 | none
++  source_note_type: access_blocker | duplicate_resolution | representative_choice | conflict_watch | authority_note | inclusion_note
++  decision:
++  rationale:
++  affected_candidates: []
++  affected_scaffold_files: []
++  follow_up:
++  status: open | monitored | closed | deferred
++```
++
+ ## Information ranking row
+ 
+ ```yaml
+@@ -133,6 +212,9 @@
+   affected_scope:
+   source_a:
+   source_b:
++  conflict_watch_status: open | monitored | closed
++  source_gap_severity: P0 | P1 | P2 | P3 | none
++  affected_candidates: []
+   conflict_summary:
+   blocking: true | false
+   safest_interim_handling:

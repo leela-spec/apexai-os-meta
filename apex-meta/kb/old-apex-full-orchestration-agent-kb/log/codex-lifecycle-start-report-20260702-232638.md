@@ -1,0 +1,339 @@
+﻿# Codex Lifecycle Start Report
+
+Generated: `2026-07-02T21:26:42Z`
+
+## repo_state
+
+- branch: `codex/start-old-apex-agent-kb-lifecycle`
+- commit_before: `9691cd70c9c65973f66418776018d00470e8d1c0`
+- commit_after: `9691cd70c9c65973f66418776018d00470e8d1c0`
+- dirty_files_before:
+  - `?? FutureDevelopments&Research/ProjectMM&Task&KB/KnowledgeBase/KBv3Testruns/chathistory5.md`
+- dirty_files_after:
+  - `?? FutureDevelopments&Research/ProjectMM&Task&KB/KnowledgeBase/KBv3Testruns/chathistory5.md`
+  - `?? apex-meta/kb/old-apex-full-orchestration-agent-kb/`
+
+## source_root_precheck
+
+- source_context_root_exists: `true`
+- primary_source_root_exists: `true`
+- file_count_primary: `243`
+- file_count_context: `451`
+
+## apex_kb_contract_precheck
+
+- skill_path_exists: `true`
+- script_path_exists: `true`
+- command_help_captured: `true`
+- command families present: `scaffold`, `source-intake`, `hash`, `preflight`, `phase0`, `ingest-phase1`, `ingest-phase2`, `index`, `query`, `lint`, `audit`, `status`, `health`
+- command-surface note: `hash` requires `--path`; `source-intake` accepts one source path per call.
+
+## scaffold_result
+
+- kb_root_created_or_existing: `created`
+- paths_created: `README.md`, `kb-schema.md`, `raw/articles`, `raw/papers`, `raw/notes`, `raw/refs`, `raw/other`, `ingest-analysis`, `wiki/index.md`, `wiki/concepts`, `wiki/entities`, `wiki/summaries`, `manifests/source-manifest.json`, `manifests/phase0`, `derived/search`, `audit/resolved`, `outputs/queries`, `log`
+- paths_already_existing: none before scaffold
+
+## source_custody_result
+
+- storage_mode_used: `pointer_only` in `manifests/source-manifest.json` for primary and context roots
+- manifest_entries_added: `2`
+- primary source hash: `10241c1821ef7f135fee8a49be520d406164e1aa29b8d1e7f74f51d1255d7a3e` (`sha256-tree`)
+- context source hash: `8312472bf4b08f299b9be10d738a6e13fa2374fc4bb504b5be0f65a2fff71365` (`sha256-tree`)
+- hashes_generated: `true`
+- skipped_files: none reported by source-intake/hash
+- duplicate_candidates: none reported by source-intake
+- custody workaround: because current Phase 0 scans only `sources/` and `raw/`, copied only the primary corpus to `sources/primary/managed-agent-kb/` and wrote deterministic `manifests/source-inventory.json` plus CSV for Phase 0 navigation. Context root remains pointer-only.
+
+## phase0_result
+
+- artifacts_written:
+  - `apex-meta/kb/old-apex-full-orchestration-agent-kb/manifests/phase0/corpus-profile.md`
+  - `apex-meta/kb/old-apex-full-orchestration-agent-kb/manifests/phase0/heading-map.json`
+  - `apex-meta/kb/old-apex-full-orchestration-agent-kb/manifests/phase0/markdown-link-map.json`
+  - `apex-meta/kb/old-apex-full-orchestration-agent-kb/manifests/phase0/frontmatter-map.json`
+  - `apex-meta/kb/old-apex-full-orchestration-agent-kb/manifests/phase0/keyword-hits.ndjson`
+  - `apex-meta/kb/old-apex-full-orchestration-agent-kb/manifests/phase0/topic-file-map.json`
+  - `apex-meta/kb/old-apex-full-orchestration-agent-kb/manifests/phase0/source-priority-candidates.md`
+  - `apex-meta/kb/old-apex-full-orchestration-agent-kb/manifests/phase0/phase0-navigation-report.md`
+- corpus_profile_summary: `243` inventory entries, `227` files scanned by Phase 0, `3,240,879` bytes scanned, extensions `.md` = `221`, `.py` = `4`, `.yaml` = `2`.
+- parser_warnings: `unclosed_code_fence`: `6`
+- duplicate_hash_groups: present in `manifests/phase0/corpus-profile.md`
+- recommended_phase1_batches: use `manifests/phase0/source-priority-candidates.md`; first deterministic candidates include `Why Do Multi-Agent LLM Systems Fail.md`, `Prep4DR_Prompt_Gem.md`, `APPENDIX_INTERNAL_MODES.md`, `ClaudeChatHistory4PromptflowsNodrift.md`, and `FAILURE_AND_ANTI_DRIFT_LEDGER.md`.
+
+## validation_result
+
+- py_compile_result: `pass`
+- preflight_result: `ok`
+- lint_result: `pass`, issue_count `0`
+- status_result: source_count `2`, wiki_page_count `1` scaffold index only, phase0_artifacts_present `true`, search_index_present `false`
+
+## files_changed
+
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/kb-schema.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/manifests/phase0/corpus-profile.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/manifests/phase0/frontmatter-map.json`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/manifests/phase0/heading-map.json`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/manifests/phase0/keyword-hits.ndjson`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/manifests/phase0/markdown-link-map.json`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/manifests/phase0/phase0-navigation-report.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/manifests/phase0/source-priority-candidates.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/manifests/phase0/topic-file-map.json`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/manifests/source-inventory.csv`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/manifests/source-inventory.json`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/manifests/source-manifest.json`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/README.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/AGENT_KB_INDEX.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/alfred/BEST_PRACTICES.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/alfred/ESSENCE.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/alfred/LEARNING_QUEUE.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/alfred/MISTAKES.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/alfred/TEMPLATES.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/KB_SYSTEM_RELIABILITY_AUDIT_V1`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/meta_detective/appendices/architectural_failures/AGENTIC_ORCHESTRATION_RESEARCH_INTAKE_INDEX.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/meta_detective/appendices/Failures/AnotherConstantFailure.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/meta_detective/appendices/Failures/ConstantAIFailureAnalysis.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/meta_detective/appendices/Failures/FAILURE_AND_ANTI_DRIFT_LEDGER.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/meta_detective/appendices/Failures/ResearchOnAIFailure_claude.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/meta_detective/appendices/Research4AgenticOrchestration/Prep4DR_Prompt_Gem.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/meta_detective/appendices/Research4AgenticOrchestration/Studies/Discrete Modeling via Boundary Conditional Diffusion Processes.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/meta_detective/appendices/Research4AgenticOrchestration/Studies/Drift No More-Context Equilibria in Multi-Turn LLM Interactions.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/meta_detective/appendices/Research4AgenticOrchestration/Studies/EAGER Efficient Failure Management for Multi-Agent Systems with Reasoning Trace Representation.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/meta_detective/appendices/Research4AgenticOrchestration/Studies/how-to-build-reliable-ai-workflows-with-agentic-primitives-and-context-engineering.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/meta_detective/appendices/Research4AgenticOrchestration/Studies/LLM01-2025 Prompt Injection.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/meta_detective/appendices/Research4AgenticOrchestration/Studies/Lost in the Middle How Language Models Use Long Contexts.pdf`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/meta_detective/appendices/Research4AgenticOrchestration/Studies/Some LLM failures are prompt problems. Some very clearly aren’t..md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/meta_detective/appendices/Research4AgenticOrchestration/Studies/Study Generative AI results depend on user prompts as much as models.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/meta_detective/appendices/Research4AgenticOrchestration/Studies/When AI Fails, What Works_ A Data-Driven Taxonomy of Real-World Risk Mitigation Strategies.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/meta_detective/appendices/Research4AgenticOrchestration/Studies/Why Do Multi-Agent LLM Systems Fail.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/meta_detective/appendices/Research4AgenticOrchestration/Studies_Claude.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/meta_detective/appendices/Research4AgenticOrchestration/Studies_GPT.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/meta_detective/appendices/ResearchOnAI_gem.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/meta_detective/APPENDIX_INTERNAL_MODES.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/meta_detective/BEST_PRACTICES.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/meta_detective/ESSENCE.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/meta_detective/LEARNING_QUEUE.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/meta_detective/MISTAKES.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/meta_detective/TEMPLATES.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/meta_ops/BEST_PRACTICES.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/meta_ops/ESSENCE.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/meta_ops/LEARNING_QUEUE.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/meta_ops/MISTAKES.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/meta_ops/TEMPLATES.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/meta_strategy/Appendices/DecisionMakingProcessReseearch_gem.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/meta_strategy/BEST_PRACTICES.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/meta_strategy/ESSENCE.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/meta_strategy/LEARNING_QUEUE.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/meta_strategy/MISTAKES.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/meta_strategy/TEMPLATES.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__ai_handling_routing/2Do_context_file_authority_reference.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__ai_handling_routing/appendices/APPENDIX_KB_ANTI_DRIFT_EVIDENCE.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__ai_handling_routing/appendices/APPENDIX_KB_CANDIDATE_LEDGER.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__ai_handling_routing/appendices/APPENDIX_KB_CROSS_AGENT_GAP_TRANSFER_ANALYSIS.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__ai_handling_routing/appendices/APPENDIX_KB_INFORMATION_RANKING_LEDGER.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__ai_handling_routing/appendices/APPENDIX_KB_QUALITY_IMPROVEMENT_ANALYSIS.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__ai_handling_routing/appendices/APPENDIX_KB_SOURCE_MANIFEST.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__ai_handling_routing/appendices/NewAppendices/APPENDIX_KB_MACHINE_READABLE_INDEX.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__ai_handling_routing/appendices/NewAppendices/APPENDIX_KB_MODE_TOOL_VARIANT_COMPARISON.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__ai_handling_routing/appendices/NewAppendices/APPENDIX_KB_QA_AND_NEXT_RESEARCH_PLAN.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__ai_handling_routing/appendices/NewAppendices/APPENDIX_KB_ROUTING_EXAMPLE.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__ai_handling_routing/appendices/NewAppendices/APPENDIX_KB_SOURCE_NOTES.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__ai_handling_routing/appendices/NewAppendices/ProcessFlowStatus.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__ai_handling_routing/appendices/PROMPTFLOW_KB_BASE_BUILD.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__ai_handling_routing/BEST_PRACTICES.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__ai_handling_routing/ESSENCE.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__ai_handling_routing/LEARNING_QUEUE.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__ai_handling_routing/MISTAKES.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__ai_handling_routing/Research/aihr_templates_research_v1.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__ai_handling_routing/Research/APPENDIX_KB_SOURCE_NOTES_RESEARCH.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__ai_handling_routing/Research/ESSENCE_patch_candidates_ranked_integration_matrix.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__ai_handling_routing/Research/NewPatchProcess_Search&ReplaceUntitled.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__ai_handling_routing/Research/RESEARCH_RESULT__APPENDIX_KB_MACHINE_READABLE_INDEX.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__ai_handling_routing/Research/RESEARCH_RESULT__APPENDIX_KB_MACHINE_READABLE_INDEX_Gem.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__ai_handling_routing/Research/RESEARCH_RESULT__APPENDIX_KB_MODE_TOOL_VARIANT_COMPARISON.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__ai_handling_routing/Research/RESEARCH_RESULT__APPENDIX_KB_MODE_TOOL_VARIANT_COMPARISON_gem.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__ai_handling_routing/Research/RESEARCH_RESULT__APPENDIX_KB_ROUTING_EXAMPLES.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__ai_handling_routing/Research/RESEARCH_RESULT__APPENDIX_KB_SOURCE_NOTES.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__ai_handling_routing/Research/RESEARCH_RESULT__ESSENCE_PATCH_CANDIDATES.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__ai_handling_routing/Research/RESEARCH_RESULT__TEMPLATES_PATCH_CANDIDATES.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__ai_handling_routing/Research/script_patchwithpython.py`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__ai_handling_routing/TEMPLATES.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__hygiene_clean/appendices/APPENDIX_KB_ANTI_DRIFT_EVIDENCE.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__hygiene_clean/appendices/APPENDIX_KB_CANDIDATE_LEDGER.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__hygiene_clean/appendices/APPENDIX_KB_INFORMATION_RANKING_LEDGER.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__hygiene_clean/appendices/APPENDIX_KB_QA_AND_NEXT_RESEARCH_PLAN.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__hygiene_clean/appendices/APPENDIX_KB_SOURCE_MANIFEST.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__hygiene_clean/appendices/ChangesHygiene.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__hygiene_clean/appendices/ChangesHygiene2.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__hygiene_clean/appendices/CODEX_APPLY_PLAN_HYGIENE_CLEAN_PATCHSET.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__hygiene_clean/appendices/LEARNINGS_PROMPTFLOW_HYGIENE_CLEAN_EXECUTION.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__hygiene_clean/appendices/PATCH_001_APP_KB_QA_AND_NEXT_RESEARCH_PLAN.diff`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__hygiene_clean/appendices/PATCH_002_ESSENCE.diff`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__hygiene_clean/appendices/PATCH_003_BEST_PRACTICES.diff`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__hygiene_clean/appendices/PATCH_004_TEMPLATES.diff`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__hygiene_clean/appendices/PATCH_005_LEARNING_QUEUE.diff`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__hygiene_clean/appendices/PATCH_006_APP_KB_CANDIDATE_LEDGER.diff`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__hygiene_clean/appendices/PATCH_007_APP_KB_SOURCE_MANIFEST.diff`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__hygiene_clean/appendices/PATCHSET_VALIDATION_REPORT.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__hygiene_clean/appendices/PROMPTFLOW_HYGIENE_CLEAN_UNIFIED_DIFF_ARTIFACT_MANUFACTURING.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__hygiene_clean/appendices/PROMPTFLOW_SPECIAL_OPS_HYGIENE_CLEAN_KB_UPDATE_FOLDER_LOCAL_CORRECTED.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__hygiene_clean/appendices/Q&A&HygieneFuture.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__hygiene_clean/BEST_PRACTICES.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__hygiene_clean/ESSENCE.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__hygiene_clean/LEARNING_QUEUE.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__hygiene_clean/MISTAKES.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__hygiene_clean/PROMPTFLOW_KB_BASE_BUILD.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__hygiene_clean/TEMPLATES.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__informatics_design/appendices/2Dos`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__informatics_design/appendices/APPENDIX_KB_ANTI_DRIFT_EVIDENCE.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__informatics_design/appendices/APPENDIX_KB_CANDIDATE_LEDGER.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__informatics_design/appendices/APPENDIX_KB_INFORMATION_RANKING_LEDGER.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__informatics_design/appendices/APPENDIX_KB_QA_AND_NEXT_RESEARCH_PLAN.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__informatics_design/appendices/APPENDIX_KB_SOURCE_MANIFEST.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__informatics_design/appendices/PromptFlowInfoDesi.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__informatics_design/BEST_PRACTICES.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__informatics_design/ESSENCE.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__informatics_design/LEARNING_QUEUE.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__informatics_design/MISTAKES.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__informatics_design/TEMPLATES.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__knowledge_bank/appendices/APPENDIX_KB_ANTI_DRIFT_EVIDENCE.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__knowledge_bank/appendices/APPENDIX_KB_CANDIDATE_LEDGER.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__knowledge_bank/appendices/APPENDIX_KB_DATABASE_SCHEMA.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__knowledge_bank/appendices/APPENDIX_KB_EXAMPLES.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__knowledge_bank/appendices/APPENDIX_KB_INFORMATION_RANKING_LEDGER.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__knowledge_bank/appendices/APPENDIX_KB_PROMOTION_TRACE.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__knowledge_bank/appendices/APPENDIX_KB_QA_AND_NEXT_RESEARCH_PLAN.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__knowledge_bank/appendices/APPENDIX_KB_SOURCE_MANIFEST.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__knowledge_bank/appendices/APPENDIX_KB_SOURCE_NOTES.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__knowledge_bank/appendices/KBFuture.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__knowledge_bank/appendices/PROMPTFLOW_KB_BASE_BUILD.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__knowledge_bank/appendices/PROMPTFLOW_SPECIAL_OPS_KNOWLEDGE_BANK_KB_UPDATE_CORRECTED.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__knowledge_bank/BEST_PRACTICES.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__knowledge_bank/ESSENCE.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__knowledge_bank/LEARNING_QUEUE.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__knowledge_bank/MISTAKES.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__knowledge_bank/TEMPLATES.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/APPENDIX_KB_ANTI_DRIFT_EVIDENCE.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/APPENDIX_KB_CANDIDATE_LEDGER.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/APPENDIX_KB_CONSTANT_FAILURE_INTEGRATION_PROCESS.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/APPENDIX_KB_CONSTANT_FAILURE_INTEGRATION_RANKING.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/APPENDIX_KB_CONSTANT_FAILURE_SOURCE_NOTES.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/APPENDIX_KB_CONSTANT_FRAME_PROCESS_CLOSE_REPORT.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/APPENDIX_KB_DEEP_RESEARCH_PROMPT_AUDIT_TEMPLATE_UNVERIFIED.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/APPENDIX_KB_EXAMPLES.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/APPENDIX_KB_EXECUTION_CONTROL_CONTRACTS.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/APPENDIX_KB_EXTERNAL_CLAIM_VERIFICATION.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/APPENDIX_KB_INFORMATION_RANKING_LEDGER.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/APPENDIX_KB_PATCH_TRANSPORT_PROTOCOLS.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/APPENDIX_KB_PREIMAGE_CHECKED_SCAFFOLD_MUTATION_PROCESS.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/APPENDIX_KB_QA_AND_NEXT_RESEARCH_PLAN.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/APPENDIX_KB_REGRESSION_EXAMPLES_AGENT_DRIFT.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/APPENDIX_KB_RUNTIME_TEMPLATE_CATALOG.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/APPENDIX_KB_SOURCE_MANIFEST.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/APPENDIX_KB_SOURCE_NOTES.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/CODEX_APPLY_PLAN_PROMPTS_WORKFLOWS_AGGRESSIVE_P1_PATCHSET.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/FilePatching_GPT&Git_Gem.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/KBAudit/AGENT_PATCH_CONTRACT.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/KBAudit/AnotherConstantFailure.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/KBAudit/ConstantAIFailureAnalysis.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/KBAudit/DR_GEM_ AgtnticAIFailure&ExtractionLEdger.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/KBAudit/DR_PAtch.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/KBAudit/DRPrompt4INf&KBRedesign.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/KBAudit/DRPrompt4INf&KBRedesign_v2.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/KBAudit/DRREALTHINKING.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/KBAudit/KB_Audit_v2 (1).md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/KBAudit/KB_AUDIT_V2_NEW_FILE_REWRITE_PROCESS.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/KBAudit/KB_AUDIT_V2_PROMPT_PACKET_MODE.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/KBAudit/KB_AUDIT_V2_SCAFFOLD_REWRITE_PROCESS.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/KBAudit/KB_AUDIT_V2_UPDATE_PIPELINE.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/KBAudit/OPENCLAW_CURRENT_AGENT_INTERACTION_FRAME.yaml`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/KBAudit/OPENCLAW_CURRENT_AGENT_INTERACTION_FRAME_v1_1 (1).yaml`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/KBAudit/PATCH_PROCESS_PLAN.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/KBAudit/TASK-001_create-dr-inf-kb-prompt-v2.patch.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/KBAudit/TASK-002_harden-agent-patch-contract-local-packet.patch.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/KBAudit/ThinkingProcessTestRunDR.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/NewResearchBecauseOfConstantFailure/AnotherConstantFailure.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/NewResearchBecauseOfConstantFailure/ConstantAIFailureAnalysis.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/NewResearchBecauseOfConstantFailure/GPT_PATCH_WORKFLOW.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/NewResearchBecauseOfConstantFailure/KB_Design_BP_extra.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/NewResearchBecauseOfConstantFailure/NewFinals/construction_guide.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/NewResearchBecauseOfConstantFailure/NewFinals/File_Authoring_Authority_Reference.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/NewResearchBecauseOfConstantFailure/NewGuardrailsAllegeldyIncorporated/00_PROJECT_BOOTSTRAP.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/NewResearchBecauseOfConstantFailure/NewGuardrailsAllegeldyIncorporated/00_SYSTEM_BOOTSTRAP.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/NewResearchBecauseOfConstantFailure/NewGuardrailsAllegeldyIncorporated/01_API_CALL_STRUCTURE (2).md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/NewResearchBecauseOfConstantFailure/NewGuardrailsAllegeldyIncorporated/01_API_CALL_STRUCTURE.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/NewResearchBecauseOfConstantFailure/NewGuardrailsAllegeldyIncorporated/01_ARTIFACT_SINGLE_FILE.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/NewResearchBecauseOfConstantFailure/NewGuardrailsAllegeldyIncorporated/02_MULTI_FILE_SESSION.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/NewResearchBecauseOfConstantFailure/NewGuardrailsAllegeldyIncorporated/02_STATE_BLOCK.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/NewResearchBecauseOfConstantFailure/NewGuardrailsAllegeldyIncorporated/03_PROJECT_OPENER.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/NewResearchBecauseOfConstantFailure/NewGuardrailsAllegeldyIncorporated/03_TASK_PAYLOAD.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/NewResearchBecauseOfConstantFailure/NewGuardrailsAllegeldyIncorporated/04_OUTPUT_ROUTER.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/NewResearchBecauseOfConstantFailure/NewGuardrailsAllegeldyIncorporated/04_STATE_BLOCK.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/NewResearchBecauseOfConstantFailure/NewGuardrailsAllegeldyIncorporated/05_FILE_OUTPUT.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/NewResearchBecauseOfConstantFailure/NewGuardrailsAllegeldyIncorporated/05_SPLIT_SIGNAL.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/NewResearchBecauseOfConstantFailure/NewGuardrailsAllegeldyIncorporated/06_DIFF_OUTPUT (1).md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/NewResearchBecauseOfConstantFailure/NewGuardrailsAllegeldyIncorporated/06_DIFF_OUTPUT.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/NewResearchBecauseOfConstantFailure/NewGuardrailsAllegeldyIncorporated/07_RESEARCH_BLOCK.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/NewResearchBecauseOfConstantFailure/NewGuardrailsAllegeldyIncorporated/07_RESEARCH_OUTPUT.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/NewResearchBecauseOfConstantFailure/NewGuardrailsAllegeldyIncorporated/08_GATE_CHECK.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/NewResearchBecauseOfConstantFailure/NewGuardrailsAllegeldyIncorporated/08_TASK_CLOSURE.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/NewResearchBecauseOfConstantFailure/NewGuardrailsAllegeldyIncorporated/09_CONTROL_SIGNALS.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/NewResearchBecauseOfConstantFailure/NewGuardrailsAllegeldyIncorporated/10_MANIFEST_OUTPUT.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/NewResearchBecauseOfConstantFailure/NewGuardrailsAllegeldyIncorporated/11_TASK_CLOSURE.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/NewResearchBecauseOfConstantFailure/promptworkflowsAPI.py`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/NewResearchBecauseOfConstantFailure/promptworkflowsChat.py`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/NewResearchBecauseOfConstantFailure/Recap&ProcessImprovs/APPENDIX_KB_PREIMAGE_CHECKED_SCAFFOLD_MUTATION_PROCESS.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/NewResearchBecauseOfConstantFailure/Recap&ProcessImprovs/APPENDIX_KB_PREIMAGE_CHECKED_SCAFFOLD_MUTATION_PROCESS_v2.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/NewResearchBecauseOfConstantFailure/Recap&ProcessImprovs/APPENDIX_KB_PREIMAGE_CHECKED_SCAFFOLD_MUTATION_PROCESS_v3.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/NewResearchBecauseOfConstantFailure/Recap&ProcessImprovs/Audit&Q&A.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/NewResearchBecauseOfConstantFailure/Recap&ProcessImprovs/AuditImprovements.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/NewResearchBecauseOfConstantFailure/Recap&ProcessImprovs/ClaudeChatHistory4PromptflowsNodrift.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/NewResearchBecauseOfConstantFailure/Recap&ProcessImprovs/CompletlyLost/construction_guide_V2.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/NewResearchBecauseOfConstantFailure/Recap&ProcessImprovs/CompletlyLost/ConstructionGuide_From_KB_Audit_V2.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/NewResearchBecauseOfConstantFailure/Recap&ProcessImprovs/Improved future process.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/NewResearchBecauseOfConstantFailure/Recap&ProcessImprovs/ImrpovementsClaude.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/NewResearchBecauseOfConstantFailure/Recap&ProcessImprovs/KB_Audit.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/NewResearchBecauseOfConstantFailure/Recap&ProcessImprovs/KB_Audit_v2.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/NewResearchBecauseOfConstantFailure/Recap&ProcessImprovs/PROMPTFLOW_CONSTANT_FRAME_CONTROLLED_KB_INTEGRATION.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/NewResearchBecauseOfConstantFailure/Recap&ProcessImprovs/PythonPatchProcess/Prompt4PythonProcess.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/NewResearchBecauseOfConstantFailure/Recap&ProcessImprovs/PythonPatchProcess/PythonProcess.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/NewResearchBecauseOfConstantFailure/Recap&ProcessImprovs/PythonPatchProcess/pythonsetup.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/NewResearchBecauseOfConstantFailure/Untitled.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/PATCH_001_APP_KB_EXAMPLES.diff`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/PATCH_002_APP_KB_SOURCE_NOTES.diff`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/PATCH_003_TEMPLATES.diff`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/PATCH_004_MISTAKES.diff`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/PATCH_005_BEST_PRACTICES.diff`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/PATCH_006_ESSENCE.diff`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/patches/RESTART-01_BEST_PRACTICES.patch.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/patches/TASK-01_BEST_PRACTICES.patch.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/patches/TASK-02_MISTAKES.patch.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/patches/TASK-03_TEMPLATES.patch.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/patches/TASK-04_LEARNING_QUEUE.patch.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/patches/TASK-05_ESSENCE.patch.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/PROMPTFLOW_PROMPTS_WORKFLOWS_BOUNDED_EXECUTION_GUARDRAILS.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/Prompts&WorkflowsFuture.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/rewrite_candidates/REWRITE-01_BEST_PRACTICES.v2.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/rewrite_candidates/REWRITE-02_MISTAKES.v2.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/rewrite_candidates/REWRITE-05_ESSENCE.v2.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/SOURCE_CONFLICT_REPORT.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__prompts_workflows/BEST_PRACTICES.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__prompts_workflows/BEST_PRACTICES_v_old.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__prompts_workflows/ESSENCE.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__prompts_workflows/LEARNING_QUEUE.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__prompts_workflows/MISTAKES.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__prompts_workflows/NewResearchBecauseOfConstantFailure/promptworkflowsChat - Kopie.py`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__prompts_workflows/PROMPTFLOW_CONSTANT_FRAME_CONTROLLED_KB_INTEGRATION.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__prompts_workflows/PROMPTFLOW_KB_BASE_BUILD.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__prompts_workflows/TEMPLATES.md`
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/wiki/index.md`
+
+- `apex-meta/kb/old-apex-full-orchestration-agent-kb/log/codex-lifecycle-start-report-20260702-232638.md`
+
+## next_llm_handoff
+
+- recommended Phase 1 batch files/sources: start from `manifests/phase0/source-priority-candidates.md` and the high-scoring primary-corpus files listed above.
+- open questions: decide whether Phase 1 should treat copied `sources/primary/managed-agent-kb/` as the read target or prefer original paths from `manifests/source-inventory.json`; decide whether duplicate hash groups should be collapsed, compared, or interpreted as repeated evidence.
+- source quality warnings: `6` parser warnings for unclosed code fences; multiple duplicate hash groups; Phase 0 scanned `227` parseable files while inventory records `243` files.
+- Phase 1 semantic ingest has not yet been done.
+- Phase 2 wiki drafting is blocked until the operator provides exactly: `approve ingest`.

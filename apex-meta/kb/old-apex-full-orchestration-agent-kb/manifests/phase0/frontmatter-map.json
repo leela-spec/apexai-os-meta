@@ -1,0 +1,2095 @@
+[
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/AGENT_KB_INDEX.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/alfred/BEST_PRACTICES.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/alfred/ESSENCE.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/alfred/LEARNING_QUEUE.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/alfred/MISTAKES.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/alfred/TEMPLATES.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": true,
+    "parse_status": "parsed",
+    "path": "sources/primary/managed-agent-kb/meta_detective/appendices/architectural_failures/AGENTIC_ORCHESTRATION_RESEARCH_INTAKE_INDEX.md",
+    "raw_field_keys": [
+      "class",
+      "context_mode",
+      "created_at",
+      "last_validated_at",
+      "owner",
+      "purpose",
+      "quality",
+      "role",
+      "scope",
+      "status",
+      "surface",
+      "target_agent",
+      "target_folder",
+      "validator",
+      "version"
+    ]
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/meta_detective/appendices/Failures/AnotherConstantFailure.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/meta_detective/appendices/Failures/ConstantAIFailureAnalysis.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/meta_detective/appendices/Failures/FAILURE_AND_ANTI_DRIFT_LEDGER.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/meta_detective/appendices/Failures/ResearchOnAIFailure_claude.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/meta_detective/appendices/Research4AgenticOrchestration/Prep4DR_Prompt_Gem.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/meta_detective/appendices/Research4AgenticOrchestration/Studies/Discrete Modeling via Boundary Conditional Diffusion Processes.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/meta_detective/appendices/Research4AgenticOrchestration/Studies/Drift No More-Context Equilibria in Multi-Turn LLM Interactions.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/meta_detective/appendices/Research4AgenticOrchestration/Studies/EAGER Efficient Failure Management for Multi-Agent Systems with Reasoning Trace Representation.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/meta_detective/appendices/Research4AgenticOrchestration/Studies/how-to-build-reliable-ai-workflows-with-agentic-primitives-and-context-engineering.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/meta_detective/appendices/Research4AgenticOrchestration/Studies/LLM01-2025 Prompt Injection.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/meta_detective/appendices/Research4AgenticOrchestration/Studies/Some LLM failures are prompt problems. Some very clearly aren’t..md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/meta_detective/appendices/Research4AgenticOrchestration/Studies/Study Generative AI results depend on user prompts as much as models.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/meta_detective/appendices/Research4AgenticOrchestration/Studies/When AI Fails, What Works_ A Data-Driven Taxonomy of Real-World Risk Mitigation Strategies.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/meta_detective/appendices/Research4AgenticOrchestration/Studies/Why Do Multi-Agent LLM Systems Fail.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/meta_detective/appendices/Research4AgenticOrchestration/Studies_Claude.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/meta_detective/appendices/Research4AgenticOrchestration/Studies_GPT.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/meta_detective/appendices/ResearchOnAI_gem.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/meta_detective/APPENDIX_INTERNAL_MODES.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/meta_detective/BEST_PRACTICES.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/meta_detective/ESSENCE.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/meta_detective/LEARNING_QUEUE.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/meta_detective/MISTAKES.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/meta_detective/TEMPLATES.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/meta_ops/BEST_PRACTICES.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/meta_ops/ESSENCE.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/meta_ops/LEARNING_QUEUE.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/meta_ops/MISTAKES.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/meta_ops/TEMPLATES.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/meta_strategy/Appendices/DecisionMakingProcessReseearch_gem.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/meta_strategy/BEST_PRACTICES.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/meta_strategy/ESSENCE.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/meta_strategy/LEARNING_QUEUE.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/meta_strategy/MISTAKES.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/meta_strategy/TEMPLATES.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": true,
+    "parse_status": "parsed",
+    "path": "sources/primary/managed-agent-kb/special_ops__ai_handling_routing/2Do_context_file_authority_reference.md",
+    "raw_field_keys": [
+      "created_at",
+      "directive_ceilings",
+      "do_not_load_if",
+      "load_surface",
+      "purpose",
+      "scope",
+      "this_file_directive_count",
+      "version"
+    ]
+  },
+  {
+    "has_frontmatter": true,
+    "parse_status": "parsed",
+    "path": "sources/primary/managed-agent-kb/special_ops__ai_handling_routing/appendices/APPENDIX_KB_ANTI_DRIFT_EVIDENCE.md",
+    "raw_field_keys": [
+      "class",
+      "dependencies",
+      "owner",
+      "purpose",
+      "quality",
+      "role",
+      "scope",
+      "status",
+      "surface",
+      "validator"
+    ]
+  },
+  {
+    "has_frontmatter": true,
+    "parse_status": "parsed",
+    "path": "sources/primary/managed-agent-kb/special_ops__ai_handling_routing/appendices/APPENDIX_KB_CANDIDATE_LEDGER.md",
+    "raw_field_keys": [
+      "class",
+      "dependencies",
+      "owner",
+      "purpose",
+      "quality",
+      "role",
+      "scope",
+      "status",
+      "surface",
+      "validator"
+    ]
+  },
+  {
+    "has_frontmatter": true,
+    "parse_status": "parsed",
+    "path": "sources/primary/managed-agent-kb/special_ops__ai_handling_routing/appendices/APPENDIX_KB_CROSS_AGENT_GAP_TRANSFER_ANALYSIS.md",
+    "raw_field_keys": [
+      "class",
+      "dependencies",
+      "owner",
+      "purpose",
+      "quality",
+      "role",
+      "scope",
+      "status",
+      "surface",
+      "validator"
+    ]
+  },
+  {
+    "has_frontmatter": true,
+    "parse_status": "parsed",
+    "path": "sources/primary/managed-agent-kb/special_ops__ai_handling_routing/appendices/APPENDIX_KB_INFORMATION_RANKING_LEDGER.md",
+    "raw_field_keys": [
+      "class",
+      "dependencies",
+      "owner",
+      "purpose",
+      "quality",
+      "role",
+      "scope",
+      "status",
+      "surface",
+      "validator"
+    ]
+  },
+  {
+    "has_frontmatter": true,
+    "parse_status": "parsed",
+    "path": "sources/primary/managed-agent-kb/special_ops__ai_handling_routing/appendices/APPENDIX_KB_QUALITY_IMPROVEMENT_ANALYSIS.md",
+    "raw_field_keys": [
+      "class",
+      "dependencies",
+      "owner",
+      "purpose",
+      "quality",
+      "role",
+      "scope",
+      "status",
+      "surface",
+      "validator"
+    ]
+  },
+  {
+    "has_frontmatter": true,
+    "parse_status": "parsed",
+    "path": "sources/primary/managed-agent-kb/special_ops__ai_handling_routing/appendices/APPENDIX_KB_SOURCE_MANIFEST.md",
+    "raw_field_keys": [
+      "class",
+      "dependencies",
+      "owner",
+      "purpose",
+      "quality",
+      "role",
+      "scope",
+      "status",
+      "surface",
+      "validator"
+    ]
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/special_ops__ai_handling_routing/appendices/NewAppendices/APPENDIX_KB_MACHINE_READABLE_INDEX.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/special_ops__ai_handling_routing/appendices/NewAppendices/APPENDIX_KB_MODE_TOOL_VARIANT_COMPARISON.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/special_ops__ai_handling_routing/appendices/NewAppendices/APPENDIX_KB_QA_AND_NEXT_RESEARCH_PLAN.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/special_ops__ai_handling_routing/appendices/NewAppendices/APPENDIX_KB_ROUTING_EXAMPLE.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/special_ops__ai_handling_routing/appendices/NewAppendices/APPENDIX_KB_SOURCE_NOTES.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/special_ops__ai_handling_routing/appendices/NewAppendices/ProcessFlowStatus.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": true,
+    "parse_status": "parsed",
+    "path": "sources/primary/managed-agent-kb/special_ops__ai_handling_routing/appendices/PROMPTFLOW_KB_BASE_BUILD.md",
+    "raw_field_keys": [
+      "created_at",
+      "owner",
+      "promptflow_id",
+      "quality",
+      "repo_boundary",
+      "source_index",
+      "source_repo",
+      "status",
+      "target_agent",
+      "target_branch",
+      "target_kb_root",
+      "target_repo",
+      "validator",
+      "working_repo"
+    ]
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/special_ops__ai_handling_routing/BEST_PRACTICES.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/special_ops__ai_handling_routing/ESSENCE.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/special_ops__ai_handling_routing/LEARNING_QUEUE.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/special_ops__ai_handling_routing/MISTAKES.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/special_ops__ai_handling_routing/Research/aihr_templates_research_v1.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/special_ops__ai_handling_routing/Research/APPENDIX_KB_SOURCE_NOTES_RESEARCH.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/special_ops__ai_handling_routing/Research/ESSENCE_patch_candidates_ranked_integration_matrix.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/special_ops__ai_handling_routing/Research/NewPatchProcess_Search&ReplaceUntitled.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/special_ops__ai_handling_routing/Research/RESEARCH_RESULT__APPENDIX_KB_MACHINE_READABLE_INDEX.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/special_ops__ai_handling_routing/Research/RESEARCH_RESULT__APPENDIX_KB_MACHINE_READABLE_INDEX_Gem.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/special_ops__ai_handling_routing/Research/RESEARCH_RESULT__APPENDIX_KB_MODE_TOOL_VARIANT_COMPARISON.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/special_ops__ai_handling_routing/Research/RESEARCH_RESULT__APPENDIX_KB_MODE_TOOL_VARIANT_COMPARISON_gem.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/special_ops__ai_handling_routing/Research/RESEARCH_RESULT__APPENDIX_KB_ROUTING_EXAMPLES.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/special_ops__ai_handling_routing/Research/RESEARCH_RESULT__APPENDIX_KB_SOURCE_NOTES.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/special_ops__ai_handling_routing/Research/RESEARCH_RESULT__ESSENCE_PATCH_CANDIDATES.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/special_ops__ai_handling_routing/Research/RESEARCH_RESULT__TEMPLATES_PATCH_CANDIDATES.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/special_ops__ai_handling_routing/Research/script_patchwithpython.py",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/special_ops__ai_handling_routing/TEMPLATES.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/special_ops__hygiene_clean/appendices/APPENDIX_KB_ANTI_DRIFT_EVIDENCE.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/special_ops__hygiene_clean/appendices/APPENDIX_KB_CANDIDATE_LEDGER.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/special_ops__hygiene_clean/appendices/APPENDIX_KB_INFORMATION_RANKING_LEDGER.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/special_ops__hygiene_clean/appendices/APPENDIX_KB_QA_AND_NEXT_RESEARCH_PLAN.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/special_ops__hygiene_clean/appendices/APPENDIX_KB_SOURCE_MANIFEST.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/special_ops__hygiene_clean/appendices/ChangesHygiene.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/special_ops__hygiene_clean/appendices/ChangesHygiene2.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/special_ops__hygiene_clean/appendices/CODEX_APPLY_PLAN_HYGIENE_CLEAN_PATCHSET.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": true,
+    "parse_status": "parsed",
+    "path": "sources/primary/managed-agent-kb/special_ops__hygiene_clean/appendices/LEARNINGS_PROMPTFLOW_HYGIENE_CLEAN_EXECUTION.md",
+    "raw_field_keys": [
+      "format",
+      "learning_id",
+      "repo",
+      "source_chat_file",
+      "status",
+      "target_root"
+    ]
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/special_ops__hygiene_clean/appendices/PATCHSET_VALIDATION_REPORT.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": true,
+    "parse_status": "parsed",
+    "path": "sources/primary/managed-agent-kb/special_ops__hygiene_clean/appendices/PROMPTFLOW_HYGIENE_CLEAN_UNIFIED_DIFF_ARTIFACT_MANUFACTURING.md",
+    "raw_field_keys": [
+      "artifact_root",
+      "created_for",
+      "mode",
+      "promptflow_id",
+      "repo_boundary",
+      "status",
+      "target_agent",
+      "target_branch",
+      "target_kb_root",
+      "target_repo",
+      "working_repo"
+    ]
+  },
+  {
+    "has_frontmatter": true,
+    "parse_status": "parsed",
+    "path": "sources/primary/managed-agent-kb/special_ops__hygiene_clean/appendices/PROMPTFLOW_SPECIAL_OPS_HYGIENE_CLEAN_KB_UPDATE_FOLDER_LOCAL_CORRECTED.md",
+    "raw_field_keys": [
+      "appendix_input",
+      "branch_creation_forbidden",
+      "connector_whole_file_replacement_allowed",
+      "created_at",
+      "cross_agent_kb_reads_forbidden",
+      "diff_application_method_required",
+      "execution_branch_required",
+      "owner",
+      "promptflow_id",
+      "quality",
+      "repo_boundary",
+      "source_authority",
+      "source_repo",
+      "stale_global_source_indexes_forbidden",
+      "status",
+      "target_agent",
+      "target_branch",
+      "target_kb_root",
+      "target_repo",
+      "validator",
+      "working_repo"
+    ]
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/special_ops__hygiene_clean/appendices/Q&A&HygieneFuture.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/special_ops__hygiene_clean/BEST_PRACTICES.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/special_ops__hygiene_clean/ESSENCE.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/special_ops__hygiene_clean/LEARNING_QUEUE.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/special_ops__hygiene_clean/MISTAKES.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": true,
+    "parse_status": "parsed",
+    "path": "sources/primary/managed-agent-kb/special_ops__hygiene_clean/PROMPTFLOW_KB_BASE_BUILD.md",
+    "raw_field_keys": [
+      "created_at",
+      "owner",
+      "promptflow_id",
+      "quality",
+      "repo_boundary",
+      "source_index",
+      "source_repo",
+      "status",
+      "target_agent",
+      "target_branch",
+      "target_kb_root",
+      "target_repo",
+      "validator",
+      "working_repo"
+    ]
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/special_ops__hygiene_clean/TEMPLATES.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/special_ops__informatics_design/appendices/APPENDIX_KB_ANTI_DRIFT_EVIDENCE.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/special_ops__informatics_design/appendices/APPENDIX_KB_CANDIDATE_LEDGER.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/special_ops__informatics_design/appendices/APPENDIX_KB_INFORMATION_RANKING_LEDGER.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/special_ops__informatics_design/appendices/APPENDIX_KB_QA_AND_NEXT_RESEARCH_PLAN.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/special_ops__informatics_design/appendices/APPENDIX_KB_SOURCE_MANIFEST.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/special_ops__informatics_design/appendices/PromptFlowInfoDesi.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/special_ops__informatics_design/BEST_PRACTICES.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/special_ops__informatics_design/ESSENCE.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/special_ops__informatics_design/LEARNING_QUEUE.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/special_ops__informatics_design/MISTAKES.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/special_ops__informatics_design/TEMPLATES.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/special_ops__knowledge_bank/appendices/APPENDIX_KB_ANTI_DRIFT_EVIDENCE.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/special_ops__knowledge_bank/appendices/APPENDIX_KB_CANDIDATE_LEDGER.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/special_ops__knowledge_bank/appendices/APPENDIX_KB_DATABASE_SCHEMA.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/special_ops__knowledge_bank/appendices/APPENDIX_KB_EXAMPLES.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/special_ops__knowledge_bank/appendices/APPENDIX_KB_INFORMATION_RANKING_LEDGER.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/special_ops__knowledge_bank/appendices/APPENDIX_KB_PROMOTION_TRACE.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/special_ops__knowledge_bank/appendices/APPENDIX_KB_QA_AND_NEXT_RESEARCH_PLAN.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/special_ops__knowledge_bank/appendices/APPENDIX_KB_SOURCE_MANIFEST.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/special_ops__knowledge_bank/appendices/APPENDIX_KB_SOURCE_NOTES.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/special_ops__knowledge_bank/appendices/KBFuture.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": true,
+    "parse_status": "parsed",
+    "path": "sources/primary/managed-agent-kb/special_ops__knowledge_bank/appendices/PROMPTFLOW_KB_BASE_BUILD.md",
+    "raw_field_keys": [
+      "created_at",
+      "owner",
+      "promptflow_id",
+      "quality",
+      "repo_boundary",
+      "source_index",
+      "source_repo",
+      "status",
+      "target_agent",
+      "target_branch",
+      "target_kb_root",
+      "target_repo",
+      "validator",
+      "working_repo"
+    ]
+  },
+  {
+    "has_frontmatter": true,
+    "parse_status": "parsed",
+    "path": "sources/primary/managed-agent-kb/special_ops__knowledge_bank/appendices/PROMPTFLOW_SPECIAL_OPS_KNOWLEDGE_BANK_KB_UPDATE_CORRECTED.md",
+    "raw_field_keys": [
+      "appendix_input",
+      "audit_input",
+      "branch_creation_forbidden",
+      "created_at",
+      "execution_branch_required",
+      "owner",
+      "promptflow_id",
+      "quality",
+      "repo_boundary",
+      "source_index",
+      "source_repo",
+      "status",
+      "target_agent",
+      "target_branch",
+      "target_kb_root",
+      "target_repo",
+      "validator",
+      "working_repo"
+    ]
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/special_ops__knowledge_bank/BEST_PRACTICES.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/special_ops__knowledge_bank/ESSENCE.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/special_ops__knowledge_bank/LEARNING_QUEUE.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/special_ops__knowledge_bank/MISTAKES.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/special_ops__knowledge_bank/TEMPLATES.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/APPENDIX_KB_ANTI_DRIFT_EVIDENCE.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/APPENDIX_KB_CANDIDATE_LEDGER.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": true,
+    "parse_status": "parsed",
+    "path": "sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/APPENDIX_KB_CONSTANT_FAILURE_INTEGRATION_PROCESS.md",
+    "raw_field_keys": [
+      "class",
+      "created_at",
+      "dependencies",
+      "owner",
+      "purpose",
+      "quality",
+      "role",
+      "scope",
+      "status",
+      "surface",
+      "validator"
+    ]
+  },
+  {
+    "has_frontmatter": true,
+    "parse_status": "parsed",
+    "path": "sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/APPENDIX_KB_CONSTANT_FAILURE_INTEGRATION_RANKING.md",
+    "raw_field_keys": [
+      "class",
+      "dependencies",
+      "generated_at",
+      "owner",
+      "purpose",
+      "quality",
+      "role",
+      "scope",
+      "source_file_count_verified",
+      "status",
+      "surface",
+      "validator"
+    ]
+  },
+  {
+    "has_frontmatter": true,
+    "parse_status": "parsed",
+    "path": "sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/APPENDIX_KB_CONSTANT_FAILURE_SOURCE_NOTES.md",
+    "raw_field_keys": [
+      "class",
+      "created_at",
+      "owner",
+      "purpose",
+      "quality",
+      "role",
+      "scope",
+      "source_refs",
+      "source_root",
+      "status",
+      "surface",
+      "target_agent",
+      "target_root",
+      "task_id",
+      "validator"
+    ]
+  },
+  {
+    "has_frontmatter": true,
+    "parse_status": "parsed",
+    "path": "sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/APPENDIX_KB_CONSTANT_FRAME_PROCESS_CLOSE_REPORT.md",
+    "raw_field_keys": [
+      "active_task_id",
+      "class",
+      "created_at",
+      "owner",
+      "promptflow_id",
+      "quality",
+      "scope",
+      "source_root",
+      "status",
+      "surface",
+      "target_agent",
+      "target_branch",
+      "target_repo",
+      "target_root",
+      "validator",
+      "working_repo"
+    ]
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/APPENDIX_KB_DEEP_RESEARCH_PROMPT_AUDIT_TEMPLATE_UNVERIFIED.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": true,
+    "parse_status": "parsed",
+    "path": "sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/APPENDIX_KB_EXAMPLES.md",
+    "raw_field_keys": [
+      "class",
+      "dependencies",
+      "owner",
+      "purpose",
+      "quality",
+      "role",
+      "scope",
+      "status",
+      "surface",
+      "validator"
+    ]
+  },
+  {
+    "has_frontmatter": true,
+    "parse_status": "parsed",
+    "path": "sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/APPENDIX_KB_EXECUTION_CONTROL_CONTRACTS.md",
+    "raw_field_keys": [
+      "class",
+      "created_at",
+      "owner",
+      "purpose",
+      "quality",
+      "role",
+      "scope",
+      "source_refs",
+      "source_root",
+      "status",
+      "surface",
+      "target_agent",
+      "target_root",
+      "validator"
+    ]
+  },
+  {
+    "has_frontmatter": true,
+    "parse_status": "parsed",
+    "path": "sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/APPENDIX_KB_EXTERNAL_CLAIM_VERIFICATION.md",
+    "raw_field_keys": [
+      "class",
+      "created_at",
+      "owner",
+      "purpose",
+      "quality",
+      "role",
+      "scope",
+      "source_refs",
+      "source_root",
+      "status",
+      "surface",
+      "target_agent",
+      "target_root",
+      "task_id",
+      "validator"
+    ]
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/APPENDIX_KB_INFORMATION_RANKING_LEDGER.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": true,
+    "parse_status": "parsed",
+    "path": "sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/APPENDIX_KB_PATCH_TRANSPORT_PROTOCOLS.md",
+    "raw_field_keys": [
+      "class",
+      "created_at",
+      "owner",
+      "purpose",
+      "quality",
+      "role",
+      "scope",
+      "source_refs",
+      "source_root",
+      "status",
+      "surface",
+      "target_agent",
+      "target_root",
+      "task_id",
+      "validator"
+    ]
+  },
+  {
+    "has_frontmatter": true,
+    "parse_status": "parsed",
+    "path": "sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/APPENDIX_KB_PREIMAGE_CHECKED_SCAFFOLD_MUTATION_PROCESS.md",
+    "raw_field_keys": [
+      "class",
+      "created_at",
+      "owner",
+      "purpose",
+      "quality",
+      "role",
+      "scope",
+      "source_refs",
+      "source_root",
+      "status",
+      "surface",
+      "target_agent",
+      "target_root",
+      "task_id",
+      "validator"
+    ]
+  },
+  {
+    "has_frontmatter": true,
+    "parse_status": "parsed",
+    "path": "sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/APPENDIX_KB_QA_AND_NEXT_RESEARCH_PLAN.md",
+    "raw_field_keys": [
+      "class",
+      "dependencies",
+      "generated_at",
+      "owner",
+      "purpose",
+      "quality",
+      "role",
+      "scope",
+      "status",
+      "surface",
+      "validator"
+    ]
+  },
+  {
+    "has_frontmatter": true,
+    "parse_status": "parsed",
+    "path": "sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/APPENDIX_KB_REGRESSION_EXAMPLES_AGENT_DRIFT.md",
+    "raw_field_keys": [
+      "class",
+      "created_at",
+      "owner",
+      "purpose",
+      "quality",
+      "role",
+      "scope",
+      "source_refs",
+      "source_root",
+      "status",
+      "surface",
+      "target_agent",
+      "target_root",
+      "task_id",
+      "validator"
+    ]
+  },
+  {
+    "has_frontmatter": true,
+    "parse_status": "parsed",
+    "path": "sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/APPENDIX_KB_RUNTIME_TEMPLATE_CATALOG.md",
+    "raw_field_keys": [
+      "class",
+      "created_at",
+      "owner",
+      "purpose",
+      "quality",
+      "role",
+      "scope",
+      "source_refs",
+      "source_root",
+      "status",
+      "surface",
+      "target_agent",
+      "target_root",
+      "task_id",
+      "validator"
+    ]
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/APPENDIX_KB_SOURCE_MANIFEST.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": true,
+    "parse_status": "parsed",
+    "path": "sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/APPENDIX_KB_SOURCE_NOTES.md",
+    "raw_field_keys": [
+      "class",
+      "dependencies",
+      "owner",
+      "purpose",
+      "quality",
+      "role",
+      "scope",
+      "status",
+      "surface",
+      "validator"
+    ]
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/CODEX_APPLY_PLAN_PROMPTS_WORKFLOWS_AGGRESSIVE_P1_PATCHSET.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/FilePatching_GPT&Git_Gem.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/KBAudit/AGENT_PATCH_CONTRACT.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/KBAudit/AnotherConstantFailure.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/KBAudit/ConstantAIFailureAnalysis.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/KBAudit/DR_GEM_ AgtnticAIFailure&ExtractionLEdger.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/KBAudit/DR_PAtch.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/KBAudit/DRPrompt4INf&KBRedesign.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/KBAudit/DRPrompt4INf&KBRedesign_v2.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/KBAudit/DRREALTHINKING.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": true,
+    "parse_status": "parsed",
+    "path": "sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/KBAudit/KB_Audit_v2 (1).md",
+    "raw_field_keys": [
+      "changelog",
+      "class",
+      "context_mode",
+      "created_at",
+      "extended_check_count",
+      "last_validated_at",
+      "max_active_checks",
+      "note_on_limits",
+      "owner",
+      "role",
+      "rule_count_ceilings",
+      "scope_constraints",
+      "status",
+      "surface",
+      "target_model_max",
+      "target_model_min",
+      "target_use",
+      "this_file_rule_count",
+      "validator",
+      "version"
+    ]
+  },
+  {
+    "has_frontmatter": true,
+    "parse_status": "parsed",
+    "path": "sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/KBAudit/KB_AUDIT_V2_NEW_FILE_REWRITE_PROCESS.md",
+    "raw_field_keys": [
+      "candidate_output_root",
+      "class",
+      "context_mode",
+      "created_at",
+      "last_validated_at",
+      "max_active_rules",
+      "role",
+      "source_contracts",
+      "status",
+      "supersedes_for_restart",
+      "surface",
+      "target_branch",
+      "target_model_min",
+      "target_repo",
+      "target_root",
+      "validated_against_model",
+      "version"
+    ]
+  },
+  {
+    "has_frontmatter": true,
+    "parse_status": "parsed",
+    "path": "sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/KBAudit/KB_AUDIT_V2_PROMPT_PACKET_MODE.md",
+    "raw_field_keys": [
+      "class",
+      "context_mode",
+      "created_at",
+      "last_validated_at",
+      "max_active_rules",
+      "parent_pipeline",
+      "patch_output_root",
+      "role",
+      "scope",
+      "source_contracts",
+      "status",
+      "surface",
+      "target_branch",
+      "target_model_min",
+      "target_repo",
+      "target_root",
+      "validated_against_model",
+      "version"
+    ]
+  },
+  {
+    "has_frontmatter": true,
+    "parse_status": "parsed",
+    "path": "sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/KBAudit/KB_AUDIT_V2_SCAFFOLD_REWRITE_PROCESS.md",
+    "raw_field_keys": [
+      "class",
+      "context_mode",
+      "created_at",
+      "last_validated_at",
+      "max_active_rules",
+      "patch_output_root",
+      "role",
+      "scope",
+      "source_contracts",
+      "status",
+      "supersedes_for_restart",
+      "surface",
+      "target_branch",
+      "target_model_min",
+      "target_repo",
+      "target_root",
+      "validated_against_model",
+      "version"
+    ]
+  },
+  {
+    "has_frontmatter": true,
+    "parse_status": "parsed",
+    "path": "sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/KBAudit/KB_AUDIT_V2_UPDATE_PIPELINE.md",
+    "raw_field_keys": [
+      "appendix_root",
+      "class",
+      "context_mode",
+      "created_at",
+      "last_validated_at",
+      "max_active_rules",
+      "patch_output_root",
+      "role",
+      "scope",
+      "source_contracts",
+      "status",
+      "surface",
+      "target_branch",
+      "target_model_min",
+      "target_repo",
+      "target_root",
+      "validated_against_model",
+      "version"
+    ]
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/KBAudit/OPENCLAW_CURRENT_AGENT_INTERACTION_FRAME.yaml",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/KBAudit/OPENCLAW_CURRENT_AGENT_INTERACTION_FRAME_v1_1 (1).yaml",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/KBAudit/PATCH_PROCESS_PLAN.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/KBAudit/TASK-001_create-dr-inf-kb-prompt-v2.patch.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/KBAudit/TASK-002_harden-agent-patch-contract-local-packet.patch.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/KBAudit/ThinkingProcessTestRunDR.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/NewResearchBecauseOfConstantFailure/AnotherConstantFailure.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/NewResearchBecauseOfConstantFailure/ConstantAIFailureAnalysis.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/NewResearchBecauseOfConstantFailure/GPT_PATCH_WORKFLOW.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/NewResearchBecauseOfConstantFailure/KB_Design_BP_extra.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": true,
+    "parse_status": "parsed",
+    "path": "sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/NewResearchBecauseOfConstantFailure/NewFinals/construction_guide.md",
+    "raw_field_keys": [
+      "class",
+      "context_mode",
+      "created_at",
+      "last_validated_at",
+      "max_active_checks",
+      "max_active_rules",
+      "role",
+      "scope_constraints",
+      "source_files",
+      "status",
+      "surface",
+      "target_model_min",
+      "target_use",
+      "version"
+    ]
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/NewResearchBecauseOfConstantFailure/NewFinals/File_Authoring_Authority_Reference.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/NewResearchBecauseOfConstantFailure/NewGuardrailsAllegeldyIncorporated/00_PROJECT_BOOTSTRAP.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/NewResearchBecauseOfConstantFailure/NewGuardrailsAllegeldyIncorporated/00_SYSTEM_BOOTSTRAP.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/NewResearchBecauseOfConstantFailure/NewGuardrailsAllegeldyIncorporated/01_API_CALL_STRUCTURE (2).md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/NewResearchBecauseOfConstantFailure/NewGuardrailsAllegeldyIncorporated/01_API_CALL_STRUCTURE.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/NewResearchBecauseOfConstantFailure/NewGuardrailsAllegeldyIncorporated/01_ARTIFACT_SINGLE_FILE.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/NewResearchBecauseOfConstantFailure/NewGuardrailsAllegeldyIncorporated/02_MULTI_FILE_SESSION.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/NewResearchBecauseOfConstantFailure/NewGuardrailsAllegeldyIncorporated/02_STATE_BLOCK.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/NewResearchBecauseOfConstantFailure/NewGuardrailsAllegeldyIncorporated/03_PROJECT_OPENER.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/NewResearchBecauseOfConstantFailure/NewGuardrailsAllegeldyIncorporated/03_TASK_PAYLOAD.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/NewResearchBecauseOfConstantFailure/NewGuardrailsAllegeldyIncorporated/04_OUTPUT_ROUTER.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/NewResearchBecauseOfConstantFailure/NewGuardrailsAllegeldyIncorporated/04_STATE_BLOCK.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/NewResearchBecauseOfConstantFailure/NewGuardrailsAllegeldyIncorporated/05_FILE_OUTPUT.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/NewResearchBecauseOfConstantFailure/NewGuardrailsAllegeldyIncorporated/05_SPLIT_SIGNAL.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/NewResearchBecauseOfConstantFailure/NewGuardrailsAllegeldyIncorporated/06_DIFF_OUTPUT (1).md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/NewResearchBecauseOfConstantFailure/NewGuardrailsAllegeldyIncorporated/06_DIFF_OUTPUT.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/NewResearchBecauseOfConstantFailure/NewGuardrailsAllegeldyIncorporated/07_RESEARCH_BLOCK.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/NewResearchBecauseOfConstantFailure/NewGuardrailsAllegeldyIncorporated/07_RESEARCH_OUTPUT.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/NewResearchBecauseOfConstantFailure/NewGuardrailsAllegeldyIncorporated/08_GATE_CHECK.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/NewResearchBecauseOfConstantFailure/NewGuardrailsAllegeldyIncorporated/08_TASK_CLOSURE.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/NewResearchBecauseOfConstantFailure/NewGuardrailsAllegeldyIncorporated/09_CONTROL_SIGNALS.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/NewResearchBecauseOfConstantFailure/NewGuardrailsAllegeldyIncorporated/10_MANIFEST_OUTPUT.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/NewResearchBecauseOfConstantFailure/NewGuardrailsAllegeldyIncorporated/11_TASK_CLOSURE.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/NewResearchBecauseOfConstantFailure/promptworkflowsAPI.py",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/NewResearchBecauseOfConstantFailure/promptworkflowsChat.py",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": true,
+    "parse_status": "parsed",
+    "path": "sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/NewResearchBecauseOfConstantFailure/Recap&ProcessImprovs/APPENDIX_KB_PREIMAGE_CHECKED_SCAFFOLD_MUTATION_PROCESS.md",
+    "raw_field_keys": [
+      "class",
+      "created_at",
+      "owner",
+      "purpose",
+      "quality",
+      "role",
+      "scope",
+      "source_refs",
+      "source_root",
+      "status",
+      "surface",
+      "target_agent",
+      "target_root",
+      "task_id",
+      "validator"
+    ]
+  },
+  {
+    "has_frontmatter": true,
+    "parse_status": "parsed",
+    "path": "sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/NewResearchBecauseOfConstantFailure/Recap&ProcessImprovs/APPENDIX_KB_PREIMAGE_CHECKED_SCAFFOLD_MUTATION_PROCESS_v2.md",
+    "raw_field_keys": [
+      "class",
+      "context_mode",
+      "created_at",
+      "owner",
+      "purpose",
+      "quality",
+      "role",
+      "scope",
+      "status",
+      "surface",
+      "target_agent",
+      "target_root",
+      "task_id",
+      "validated_against_model",
+      "validator",
+      "version"
+    ]
+  },
+  {
+    "has_frontmatter": true,
+    "parse_status": "parsed",
+    "path": "sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/NewResearchBecauseOfConstantFailure/Recap&ProcessImprovs/APPENDIX_KB_PREIMAGE_CHECKED_SCAFFOLD_MUTATION_PROCESS_v3.md",
+    "raw_field_keys": [
+      "class",
+      "context_mode",
+      "created_at",
+      "owner",
+      "purpose",
+      "quality",
+      "role",
+      "scope",
+      "status",
+      "surface",
+      "target_agent",
+      "target_root",
+      "task_id",
+      "validated_against_model",
+      "validator",
+      "version"
+    ]
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/NewResearchBecauseOfConstantFailure/Recap&ProcessImprovs/Audit&Q&A.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/NewResearchBecauseOfConstantFailure/Recap&ProcessImprovs/AuditImprovements.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/NewResearchBecauseOfConstantFailure/Recap&ProcessImprovs/ClaudeChatHistory4PromptflowsNodrift.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": true,
+    "parse_status": "parsed",
+    "path": "sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/NewResearchBecauseOfConstantFailure/Recap&ProcessImprovs/CompletlyLost/construction_guide_V2.md",
+    "raw_field_keys": [
+      "class",
+      "context_mode",
+      "created_at",
+      "last_validated_at",
+      "max_active_checks",
+      "max_active_rules",
+      "role",
+      "scope_constraints",
+      "source_files",
+      "status",
+      "surface",
+      "target_model_min",
+      "target_use",
+      "version"
+    ]
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/NewResearchBecauseOfConstantFailure/Recap&ProcessImprovs/CompletlyLost/ConstructionGuide_From_KB_Audit_V2.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/NewResearchBecauseOfConstantFailure/Recap&ProcessImprovs/Improved future process.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/NewResearchBecauseOfConstantFailure/Recap&ProcessImprovs/ImrpovementsClaude.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/NewResearchBecauseOfConstantFailure/Recap&ProcessImprovs/KB_Audit.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": true,
+    "parse_status": "parsed",
+    "path": "sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/NewResearchBecauseOfConstantFailure/Recap&ProcessImprovs/KB_Audit_v2.md",
+    "raw_field_keys": [
+      "changelog",
+      "class",
+      "context_mode",
+      "created_at",
+      "extended_check_count",
+      "last_validated_at",
+      "max_active_checks",
+      "max_active_rules",
+      "owner",
+      "role",
+      "rule_count",
+      "scope_constraints",
+      "status",
+      "surface",
+      "target_model_max",
+      "target_model_min",
+      "target_use",
+      "validator",
+      "version"
+    ]
+  },
+  {
+    "has_frontmatter": true,
+    "parse_status": "parsed",
+    "path": "sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/NewResearchBecauseOfConstantFailure/Recap&ProcessImprovs/PROMPTFLOW_CONSTANT_FRAME_CONTROLLED_KB_INTEGRATION.md",
+    "raw_field_keys": [
+      "class",
+      "created_at",
+      "owner",
+      "promptflow_id",
+      "quality",
+      "realizes",
+      "source_repo",
+      "source_root",
+      "status",
+      "surface",
+      "target_agent",
+      "target_branch",
+      "target_kb_root",
+      "target_repo",
+      "validator",
+      "working_repo"
+    ]
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/NewResearchBecauseOfConstantFailure/Recap&ProcessImprovs/PythonPatchProcess/Prompt4PythonProcess.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/NewResearchBecauseOfConstantFailure/Recap&ProcessImprovs/PythonPatchProcess/PythonProcess.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/NewResearchBecauseOfConstantFailure/Recap&ProcessImprovs/PythonPatchProcess/pythonsetup.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/NewResearchBecauseOfConstantFailure/Untitled.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/patches/RESTART-01_BEST_PRACTICES.patch.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": true,
+    "parse_status": "parsed",
+    "path": "sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/patches/TASK-01_BEST_PRACTICES.patch.md",
+    "raw_field_keys": [
+      "audit_flags",
+      "created_at",
+      "target_file",
+      "task_id",
+      "write_class"
+    ]
+  },
+  {
+    "has_frontmatter": true,
+    "parse_status": "parsed",
+    "path": "sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/patches/TASK-02_MISTAKES.patch.md",
+    "raw_field_keys": [
+      "audit_flags",
+      "created_at",
+      "target_file",
+      "task_id",
+      "write_class"
+    ]
+  },
+  {
+    "has_frontmatter": true,
+    "parse_status": "parsed",
+    "path": "sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/patches/TASK-03_TEMPLATES.patch.md",
+    "raw_field_keys": [
+      "audit_flags",
+      "created_at",
+      "target_file",
+      "task_id",
+      "write_class"
+    ]
+  },
+  {
+    "has_frontmatter": true,
+    "parse_status": "parsed",
+    "path": "sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/patches/TASK-04_LEARNING_QUEUE.patch.md",
+    "raw_field_keys": [
+      "audit_flags",
+      "created_at",
+      "target_file",
+      "task_id",
+      "write_class"
+    ]
+  },
+  {
+    "has_frontmatter": true,
+    "parse_status": "parsed",
+    "path": "sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/patches/TASK-05_ESSENCE.patch.md",
+    "raw_field_keys": [
+      "audit_flags",
+      "created_at",
+      "target_file",
+      "task_id",
+      "write_class"
+    ]
+  },
+  {
+    "has_frontmatter": true,
+    "parse_status": "parsed",
+    "path": "sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/PROMPTFLOW_PROMPTS_WORKFLOWS_BOUNDED_EXECUTION_GUARDRAILS.md",
+    "raw_field_keys": [
+      "artifact_root",
+      "created_for",
+      "learning_source",
+      "mode",
+      "promptflow_id",
+      "repo_boundary",
+      "source_template",
+      "status",
+      "target_agent",
+      "target_branch",
+      "target_kb_root",
+      "target_repo",
+      "working_repo"
+    ]
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/Prompts&WorkflowsFuture.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": true,
+    "parse_status": "parsed",
+    "path": "sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/rewrite_candidates/REWRITE-01_BEST_PRACTICES.v2.md",
+    "raw_field_keys": [
+      "candidate_for",
+      "class",
+      "context_mode",
+      "created_at",
+      "last_validated_at",
+      "max_active_rules",
+      "owner",
+      "role",
+      "source_file",
+      "status",
+      "surface",
+      "target_model_min",
+      "validator",
+      "version"
+    ]
+  },
+  {
+    "has_frontmatter": true,
+    "parse_status": "parsed",
+    "path": "sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/rewrite_candidates/REWRITE-02_MISTAKES.v2.md",
+    "raw_field_keys": [
+      "candidate_for",
+      "class",
+      "context_mode",
+      "created_at",
+      "last_validated_at",
+      "max_active_checks",
+      "max_active_registry_entries",
+      "max_active_rules",
+      "owner",
+      "role",
+      "source_file",
+      "status",
+      "surface",
+      "target_model_min",
+      "validator",
+      "version"
+    ]
+  },
+  {
+    "has_frontmatter": true,
+    "parse_status": "parsed",
+    "path": "sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/rewrite_candidates/REWRITE-05_ESSENCE.v2.md",
+    "raw_field_keys": [
+      "candidate_for",
+      "class",
+      "context_mode",
+      "created_at",
+      "last_validated_at",
+      "max_active_checks",
+      "max_active_rules",
+      "owner",
+      "role",
+      "source_file",
+      "status",
+      "surface",
+      "target_model_min",
+      "validator",
+      "version"
+    ]
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/special_ops__prompts_workflows/appendices/SOURCE_CONFLICT_REPORT.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": true,
+    "parse_status": "parsed",
+    "path": "sources/primary/managed-agent-kb/special_ops__prompts_workflows/BEST_PRACTICES.md",
+    "raw_field_keys": [
+      "class",
+      "context_mode",
+      "last_validated_at",
+      "owner",
+      "role",
+      "source_file",
+      "status",
+      "surface",
+      "validator",
+      "version"
+    ]
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/special_ops__prompts_workflows/BEST_PRACTICES_v_old.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/special_ops__prompts_workflows/ESSENCE.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/special_ops__prompts_workflows/LEARNING_QUEUE.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/special_ops__prompts_workflows/MISTAKES.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/special_ops__prompts_workflows/NewResearchBecauseOfConstantFailure/promptworkflowsChat - Kopie.py",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": true,
+    "parse_status": "parsed",
+    "path": "sources/primary/managed-agent-kb/special_ops__prompts_workflows/PROMPTFLOW_CONSTANT_FRAME_CONTROLLED_KB_INTEGRATION.md",
+    "raw_field_keys": [
+      "class",
+      "created_at",
+      "owner",
+      "promptflow_id",
+      "quality",
+      "realizes",
+      "source_repo",
+      "source_root",
+      "status",
+      "surface",
+      "target_agent",
+      "target_branch",
+      "target_kb_root",
+      "target_repo",
+      "validator",
+      "working_repo"
+    ]
+  },
+  {
+    "has_frontmatter": true,
+    "parse_status": "parsed",
+    "path": "sources/primary/managed-agent-kb/special_ops__prompts_workflows/PROMPTFLOW_KB_BASE_BUILD.md",
+    "raw_field_keys": [
+      "created_at",
+      "owner",
+      "promptflow_id",
+      "quality",
+      "repo_boundary",
+      "source_index",
+      "source_repo",
+      "status",
+      "target_agent",
+      "target_branch",
+      "target_kb_root",
+      "target_repo",
+      "validator",
+      "working_repo"
+    ]
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "sources/primary/managed-agent-kb/special_ops__prompts_workflows/TEMPLATES.md",
+    "raw_field_keys": []
+  }
+]

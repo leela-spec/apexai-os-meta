@@ -1,0 +1,36 @@
+{
+  "created_at": "2026-07-02T21:23:35Z",
+  "kb_slug": "old-apex-full-orchestration-agent-kb",
+  "schema_version": "1.0",
+  "sources": [
+    {
+      "added_at": "2026-07-02T21:23:50Z",
+      "hash_algorithm": "sha256-tree",
+      "ingest_status": "source_intake_only",
+      "no_hash_reason": "NA",
+      "original_source_path": "C:\\GitDev\\apexai-os-meta\\ApexDefinition&OldVersions\\OldApexFullOrchestrationSystem\\managed\\agent_kb",
+      "source_hash": "10241c1821ef7f135fee8a49be520d406164e1aa29b8d1e7f74f51d1255d7a3e",
+      "source_id": "old-apex-agent-kb-primary",
+      "source_path": "C:\\GitDev\\apexai-os-meta\\ApexDefinition&OldVersions\\OldApexFullOrchestrationSystem\\managed\\agent_kb",
+      "source_storage_mode": "pointer_only",
+      "source_type": "ref",
+      "status": "active",
+      "title": "Old Apex managed agent_kb source corpus"
+    },
+    {
+      "added_at": "2026-07-02T21:23:57Z",
+      "hash_algorithm": "sha256-tree",
+      "ingest_status": "source_intake_only",
+      "no_hash_reason": "NA",
+      "original_source_path": "C:\\GitDev\\apexai-os-meta\\ApexDefinition&OldVersions\\OldApexFullOrchestrationSystem",
+      "source_hash": "8312472bf4b08f299b9be10d738a6e13fa2374fc4bb504b5be0f65a2fff71365",
+      "source_id": "old-apex-full-orchestration-context",
+      "source_path": "C:\\GitDev\\apexai-os-meta\\ApexDefinition&OldVersions\\OldApexFullOrchestrationSystem",
+      "source_storage_mode": "pointer_only",
+      "source_type": "ref",
+      "status": "active",
+      "title": "Old Apex full orchestration system context"
+    }
+  ],
+  "updated_at": "2026-07-02T21:23:57Z"
+}

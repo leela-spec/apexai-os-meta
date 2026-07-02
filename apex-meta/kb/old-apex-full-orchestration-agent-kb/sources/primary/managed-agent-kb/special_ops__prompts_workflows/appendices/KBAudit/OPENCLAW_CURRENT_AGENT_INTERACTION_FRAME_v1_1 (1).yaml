@@ -1,0 +1,279 @@
+schema_version: "1.1"
+artifact_type: "current_repo_agent_orchestration_frame"
+artifact_name: "OPENCLAW_CURRENT_AGENT_INTERACTION_FRAME"
+status: "revised_orientation_input"
+audience: "deep_research_prompt_or_meta_research_prompt_planner"
+purpose: >
+  Describe how the current repo organizes, defines, routes, validates, and
+  constrains first-wave agent interaction, so a later deep research prompt can
+  reason about meta-level orchestration improvements from the correct baseline.
+  This is not an agent-definition file, not a KB redesign file, and not an
+  execution-task specification.
+
+scope_lock:
+  include:
+    - current_agent_activation_surfaces
+    - current_first_wave_agent_map
+    - current_role_state_interaction_model
+    - current_routing_logic
+    - current_validation_and_overlap_boundaries
+    - current_repo_surfaces_that_deep_research_must_consider
+  exclude:
+    - new_agent_design
+    - full_handoff_schema
+    - full_kb_scaffold_policy
+    - kb_redesign_implications
+    - downstream_prompt_writing
+    - patch_or_git_mutation_protocols
+    - runtime_api_contracts
+    - implementation_sequence
+
+source_basis:
+  source_index:
+    path: "openClaw/agent_kb_source_indexes/KB_INFORMATICS_DEEP_RESEARCH_ONLINE_REPO_INDEX.yaml"
+    role: "navigation_and_source_authority_index"
+  current_authority_boundary:
+    path: "OpenClaw/07_finalopenclawsystem"
+    meaning: "current managed-system baseline for interaction analysis"
+  source_or_staging_boundary:
+    paths:
+      - "OpenClaw/04_final-system-setup"
+      - "OpenClaw/02_research-kb"
+      - "openClaw/agent_kb_source_indexes"
+    meaning: "evidence/source-selection material, not direct runtime law unless promoted or mirrored in managed surfaces"
+
+current_managed_surfaces:
+  role_state_law: "OpenClaw/07_finalopenclawsystem/managed/rules/AGENT_SWARM_INTERACTION_CANON.md"
+  activation_index: "OpenClaw/07_finalopenclawsystem/managed/agents/AGENT_INDEX.md"
+  handoff_surface: "OpenClaw/07_finalopenclawsystem/managed/processes/AGENT_HANDOFF_CONTRACTS.md"
+  kb_lane_policy: "OpenClaw/07_finalopenclawsystem/managed/knowledge/AGENT_KB_LANES.md"
+  orchestration_flow: "OpenClaw/07_finalopenclawsystem/managed/processes/HOLDING_ORCHESTRATION_FLOW.md"
+  overlap_validation: "OpenClaw/07_finalopenclawsystem/managed/knowledge/OVERLAP_VALIDATION_MATRIX.md"
+  cross_reference_manifest: "OpenClaw/07_finalopenclawsystem/managed/knowledge/CROSS_REFERENCE_MANIFEST.md"
+
+interpretation_status:
+  current_model_is:
+    - "crucial_input_for_meta_orchestration_research"
+    - "baseline_to_understand_before_suggesting_improvements"
+    - "not_to_be_ignored_or_reinvented_from_scratch_without_conflict_analysis"
+  current_model_is_not:
+    - "immutable_final_law"
+    - "free_redesign_space"
+    - "complete_future_architecture"
+  improvement_posture: >
+    Later deep research should be allowed and expected to identify improvements
+    to the meta-level orchestration layer, but only after understanding this
+    current repo interaction model and preserving any validated boundaries that
+    reduce drift.
+
+metrics_standard:
+  scale: "1-100"
+  fields:
+    EVD: "source reliability or evidence strength"
+    IMP: "usefulness or practical impact"
+    RSK: "drift/safety/architecture risk if used uncritically"
+  rule: "Use 1-100 consistently for future research, handoff, validation, and ranking artifacts."
+
+core_model:
+  interaction_surface: "repo_managed_files"
+  default_posture: "sequential_conservative"
+  human_contact_default: "one_main_user_facing_coordinator"
+  delegation_rule: "allowed_only_when_bounded_legible_reviewable"
+  hidden_context_rule: "handoff_or_delegation_must_not_depend_on_transient_chat_reasoning"
+  permission_rule: "operational_state_grants_permission; semantic_role_defines_accountability"
+  truth_rule: "candidate_or_learning_material_is_not_accepted_truth"
+  validation_rule: "high_impact_or_high_risk_work_requires_named_validation_or_operator_review"
+
+first_wave_named_agents:
+  alfred:
+    seed: "managed/agents/alfred.md"
+    kb_root: "managed/agent_kb/alfred/"
+    role: "operator_intake_constraints_route_brief"
+    default_validator: "meta_ops"
+  meta_ops:
+    seed: "managed/agents/meta_ops.md"
+    kb_root: "managed/agent_kb/meta_ops/"
+    role: "orchestration_activation_sequence_control_routing"
+    default_validator: "meta_detective"
+  meta_strategy:
+    seed: "managed/agents/meta_strategy.md"
+    kb_root: "managed/agent_kb/meta_strategy/"
+    role: "options_timing_leverage_recommendation"
+    default_validator: "meta_detective"
+  meta_detective:
+    seed: "managed/agents/meta_detective.md"
+    kb_root: "managed/agent_kb/meta_detective/"
+    role: "adversarial_validation_drift_detection_plausibility_escalation"
+    default_validator: "special_ops__hygiene_clean"
+  special_ops__knowledge_bank:
+    seed: "managed/agents/special_ops__knowledge_bank.md"
+    kb_root: "managed/agent_kb/special_ops__knowledge_bank/"
+    role: "kb_placement_lifecycle_manifest_source_routing"
+    default_validator: "special_ops__informatics_design"
+  special_ops__informatics_design:
+    seed: "managed/agents/special_ops__informatics_design.md"
+    kb_root: "managed/agent_kb/special_ops__informatics_design/"
+    role: "structure_terminology_readability_taxonomy"
+    default_validator: "special_ops__hygiene_clean"
+  special_ops__prompts_workflows:
+    seed: "managed/agents/special_ops__prompts_workflows.md"
+    kb_root: "managed/agent_kb/special_ops__prompts_workflows/"
+    role: "reusable_prompt_workflow_patchspec_patterns"
+    default_validator: "meta_ops"
+  special_ops__ai_handling_routing:
+    seed: "managed/agents/special_ops__ai_handling_routing.md"
+    kb_root: "managed/agent_kb/special_ops__ai_handling_routing/"
+    role: "advisory_model_tool_routing_posture"
+    default_validator: "meta_ops"
+  special_ops__hygiene_clean:
+    seed: "managed/agents/special_ops__hygiene_clean.md"
+    kb_root: "managed/agent_kb/special_ops__hygiene_clean/"
+    role: "structural_qa_pointer_integrity_cleanup_safety"
+    default_validator: "meta_detective"
+
+semantic_role_layer:
+  meaning: "accountability_and_work_type"
+  roles:
+    PLANNER: "session_or_cycle_routing"
+    STRUCTURER: "bounded_artifact_internal_structure"
+    DRAFTER: "candidate_content_or_bounded_working_output"
+    VERIFIER: "bounded_review_validation_loopback_or_escalation"
+    AUDITOR: "cross_surface_integrity_hygiene_governance_reliability"
+    PROMOTER: "approved_transition_execution_only"
+  anti_conflation:
+    - "role_label_is_not_permission"
+    - "planning_authority_is_not_truth_authority"
+    - "verification_is_not_promotion_execution"
+    - "candidate_output_is_not_accepted_truth"
+
+operational_state_layer:
+  meaning: "permission_layer_for_current_bounded_task_or_surface"
+  states:
+    BUILD:
+      permits: ["bounded_creation", "bounded_structuring", "bounded_drafting", "candidate_output"]
+      forbids: ["silent_self_verification", "direct_truth_mutation_outside_promotion_path", "lock_bypass"]
+    VERIFY:
+      permits: ["review", "consistency_check", "reject_invalid_handoff_or_claim", "propose_loopback_hold_escalation"]
+      forbids: ["unmarked_substantive_rewrite_of_reviewed_artifact", "truth_mutation_by_recommendation_only"]
+    LOCK:
+      permits: ["read", "compare", "reference", "prepare_routing_or_audit_output"]
+      forbids: ["substantive_mutation_without_governing_unblock"]
+  normal_transitions:
+    - "BUILD->VERIFY: candidate ready for review"
+    - "VERIFY->BUILD: visible failure reason requires revision"
+    - "VERIFY->LOCK: approval/escalation/governance condition freezes workstream"
+    - "LOCK->BUILD: explicit unblock only"
+  forbidden_transitions:
+    - "BUILD->promotion_complete"
+    - "VERIFY->silent_truth_rewrite"
+    - "LOCK->BUILD_by_convenience"
+
+repo_interaction_surfaces:
+  compact_activation_seeds:
+    location: "managed/agents/<agent_id>.md"
+    function: "activate agent, state compact role boundary, point to kb root"
+    note: "rich doctrine should not be stored in seed files"
+  per_agent_kb_roots:
+    location: "managed/agent_kb/<agent_id>/"
+    function: "agent-specific durable doctrine and working knowledge"
+    note: "full scaffold policy and redesign implications are intentionally out of scope for this file"
+  shared_governance_surface:
+    location: "managed/knowledge/"
+    function: "placement, promotion, overlap, manifests, cross-reference governance"
+  process_contract_surface:
+    location: "managed/processes/"
+    function: "orchestration, handoff existence, workflow/process contracts"
+  rule_surface:
+    location: "managed/rules/"
+    function: "role-state and interaction law"
+
+routing_logic:
+  start:
+    alfred: "operator_context_priorities_calendar_ambiguity"
+    meta_ops: "bounded_execution_or_research_problem_already_concrete"
+  add_when_relevant:
+    meta_strategy: "meaningful_options_timing_tradeoffs_scenario_uncertainty"
+    meta_detective: "T2_plus_weak_evidence_disagreement_or_drift_risk"
+    special_ops__knowledge_bank: "durable_source_placement_lane_routing_candidate_logging"
+    special_ops__informatics_design: "retrieval_safe_low_drift_structurally_clean_output"
+    special_ops__prompts_workflows: "reusable_execution_pattern_or_patchspec_workflow"
+    special_ops__ai_handling_routing: "model_tool_posture_affects_quality_cost_safety"
+    special_ops__hygiene_clean: "stale_state_missing_surfaces_broken_pointers_backlog_hygiene"
+
+handoff_awareness:
+  include_level: "existence_only"
+  summary: >
+    The repo includes a managed handoff surface for bounded inter-agent
+    delegation and validation. Deep research should know this surface exists
+    and should consult it directly when analyzing orchestration improvements.
+  not_included_here:
+    - full_packet_schema
+    - required_field_list
+    - default_handoff_pairs
+    - detailed_stop_conditions
+  reason: "Avoid duplicating process law in this compact orientation frame."
+
+hard_overlap_boundaries:
+  - "alfred_must_not_absorb_meta_ops_strategy_detective_or_runtime_law"
+  - "meta_ops_orchestrates_but_does_not_self_validate_high_impact_output"
+  - "meta_strategy_frames_options_but_does_not_command_execution"
+  - "meta_detective_validates_and_challenges_but_does_not_execute_findings"
+  - "knowledge_bank_owns_placement_lifecycle_and_candidate_routing_not_truth_promotion"
+  - "informatics_design_owns_structure_taxonomy_retrieval_shape_not_truth_authority"
+  - "hygiene_clean_classifies_routes_and_recommends_cleanup_not_truth_mutation"
+  - "prompts_workflows_owns_reusable_patterns_not_orchestration_authority"
+  - "ai_handling_routing_is_advisory_not_config_authority"
+  - "domain_masters_are_deferred_not_first_wave"
+
+future_merge_required_elsewhere:
+  kb_scaffold_and_redesign:
+    include_in_this_file: false
+    should_exist_in_later_deep_research_input: true
+    required_future_scope:
+      - "full_five_file_scaffold_policy"
+      - "kb_redesign_implications"
+      - "knowledge_bank_design_module_requirements"
+      - "informatics_design_module_requirements"
+      - "agent_kb_machine_readability_and_token_efficiency_rules"
+    reason: >
+      KB scaffold policy is important, but mixing it into the current interaction
+      frame would blur orchestration understanding with downstream KB/module
+      redesign work.
+
+deep_research_must_understand:
+  - "current_repo_already_has_first_wave_agent_interaction_surfaces"
+  - "agent_names_are_seed_vocabulary_subordinate_to_role_state_law"
+  - "role_state_routing_kb_lanes_and_process_surfaces_are_distinct"
+  - "compact_activation_seeds_and_per_agent_kb_roots_are_deliberately_separated"
+  - "handoff_surface_exists_but_details_should_be_read_from_source_if_needed"
+  - "learning_queue_and_candidate_material_are_not_runtime_truth"
+  - "source_or_staging_material_is_evidence_only_unless_promoted"
+  - "the_current_model_should_be_used_as_crucial_input_for_future_meta_orchestration_improvement_research"
+
+deep_research_must_not_do_from_this_file:
+  - "redefine_first_wave_agents"
+  - "invent_new_orchestration_layer_without_conflict_check"
+  - "treat_this_summary_as_superseding_managed_sources"
+  - "infer_full_handoff_schema_from_this_file"
+  - "infer_full_kb_scaffold_policy_from_this_file"
+  - "collapse_kb_design_and_interaction_orchestration_into_one_artifact"
+
+compression_rule:
+  if_context_tight_keep_only:
+    - "current_managed_surfaces"
+    - "interpretation_status"
+    - "metrics_standard"
+    - "core_model"
+    - "first_wave_named_agents"
+    - "semantic_role_layer.roles"
+    - "operational_state_layer.states"
+    - "routing_logic"
+    - "handoff_awareness"
+    - "hard_overlap_boundaries"
+    - "future_merge_required_elsewhere"
+
+final_reader_instruction: >
+  Use this file to understand the current repo's agent interaction architecture
+  as crucial baseline input for later meta-level orchestration improvement work.
+  Do not use it to define new agents, replace managed sources, or perform KB
+  scaffold redesign.
