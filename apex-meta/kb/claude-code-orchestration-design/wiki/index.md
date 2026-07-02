@@ -1,7 +1,25 @@
-﻿# Claude Code Orchestration Design Wiki Index
+---
+title: "Claude Code Orchestration Design Index"
+page_type: index
+kb_slug: "claude-code-orchestration-design"
+source_refs: []
+created_at: "2026-07-02T12:18:37Z"
+updated_at: "2026-07-02T12:18:37Z"
+confidence: "unknown"
+claim_label: "source_backed_summary"
+status: "active"
+---
 
-Status: scaffolded only.
+# Claude Code Orchestration Design Index
 
-No Phase 2 wiki synthesis has been run.
+<!-- BEGIN AUTO-GENERATED INDEX -->
 
-Review migration reports first, then run deterministic Phase 0.
+No compiled wiki pages indexed yet.
+
+<!-- END AUTO-GENERATED INDEX -->
+
+<!-- BEGIN LLM SUMMARY -->
+
+No LLM summary has been approved yet.
+
+<!-- END LLM SUMMARY -->

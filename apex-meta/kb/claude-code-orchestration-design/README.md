@@ -1,25 +1,18 @@
-﻿# Claude Code Orchestration Design KB
+# Claude Code Orchestration Design
 
-This is the integrated Option C KB root for Claude-native Apex orchestration design.
+This Apex KB root is a source-preserving knowledge base for `claude-code-orchestration-design`.
 
-It copies and preserves source custody from existing Apex KB roots related to:
+Canonical paths:
 
-- Claude skill design
-- Agent Skills / SKILL.md package design
-- Claude agents and subagents
-- Claude Code workflows
-- commands, hooks, rules, memory, and .claude/ layout
-- prompt-pack and artifact-contract design
-- external repo orchestration patterns
+- `raw/` preserves source files or durable pointers.
+- `ingest-analysis/` stores Phase 1 LLM analysis before operator approval.
+- `wiki/` stores approved compiled KB pages.
+- `manifests/source-manifest.json` records source custody and hashes.
+- `manifests/phase0/` stores deterministic navigation artifacts.
+- `derived/search/` stores rebuildable retrieval indexes.
+- `audit/` stores open and resolved review items.
+- `outputs/queries/` stores reusable cited query packets.
 
-This script only performs a source-preserving migration scaffold.
-
-It does not run:
-
-- deterministic Phase 0
-- Phase 1 semantic ingest
-- Phase 2 wiki synthesis
-- retrieval index build
-- lint/audit maintenance
-
-Next step: review manifests/migration/migration-report.md, then run deterministic Phase 0 for this KB root.
+Apex KB must not mutate Apex Plan, Apex Sync, Apex Session, PreCap, FlowRecap,
+APSU, or personal orchestration state. Other systems may consume KB outputs as
+read-only evidence packets.
