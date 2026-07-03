@@ -2,6 +2,21 @@
   "created_at": "2026-07-02T12:18:37Z",
   "kb_slug": "claude-code-orchestration-design",
   "schema_version": "1.0",
-  "sources": [],
-  "updated_at": "2026-07-02T12:18:37Z"
+  "sources": [
+    {
+      "added_at": "2026-07-03T11:11:48Z",
+      "hash_algorithm": "sha256-tree",
+      "ingest_status": "source_intake_only",
+      "no_hash_reason": "NA",
+      "original_source_path": "C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\claude-code-orchestration-design\\raw",
+      "source_hash": "7ff48fcaa703b93dc319b343149dbbd530f76a75097b1e7d05b42f31dd33acd6",
+      "source_id": "claude-code-orchestration-design-raw",
+      "source_path": "C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\claude-code-orchestration-design\\raw",
+      "source_storage_mode": "pointer_only",
+      "source_type": "other",
+      "status": "active",
+      "title": "Claude Code Orchestration Design Raw Source Tree"
+    }
+  ],
+  "updated_at": "2026-07-03T11:11:48Z"
 }
