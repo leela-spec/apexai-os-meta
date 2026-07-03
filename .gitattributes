@@ -1,0 +1,2 @@
+apex-meta/kb/therapy/raw/picture-extraction/ET-Heller-NARM/pages/*.png filter=lfs diff=lfs merge=lfs -text
+apex-meta/kb/therapy/raw/picture-extraction/ET-Heller-NARM/images/*.jpeg filter=lfs diff=lfs merge=lfs -text
