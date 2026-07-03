@@ -1100,6 +1100,134 @@ def cmd_lint_repo_execution_router(args: argparse.Namespace) -> Dict[str, Any]:
     }
 
 
+def line_number_for_offset(text: str, offset: int) -> int:
+    return text.count("\n", 0, offset) + 1
+
+
+def historical_path_entries(text: str) -> List[Dict[str, Any]]:
+    entries: List[Dict[str, Any]] = []
+    lines = text.splitlines()
+    current: Optional[Dict[str, Any]] = None
+    for idx, line in enumerate(lines, start=1):
+        old_path = re.match(r"^\s*-\s+old_path\s*:\s*(.+?)\s*$", line)
+        if old_path:
+            if current:
+                entries.append(current)
+            current = {"old_path": old_path.group(1).strip().strip("\"'"), "line": idx}
+            continue
+        if current:
+            field = re.match(r"^\s+(status|current_path)\s*:\s*(.+?)\s*$", line)
+            if field:
+                current[field.group(1)] = field.group(2).strip().strip("\"'")
+            elif re.match(r"^\S", line) or re.match(r"^\s*-\s+\S", line):
+                entries.append(current)
+                current = None
+    if current:
+        entries.append(current)
+    return entries
+
+
+def add_historical_finding(findings: List[Dict[str, Any]], issue: str, severity: str, message: str, line: Optional[int] = None, value: Optional[str] = None) -> None:
+    finding: Dict[str, Any] = {"type": "historical_path_authority", "issue": issue, "severity": severity, "message": message}
+    if line is not None:
+        finding["line"] = line
+    if value is not None:
+        finding["value"] = value
+    findings.append(finding)
+
+
+def lint_historical_path_authority_file(kb_root: Path, path: Path) -> Dict[str, Any]:
+    text = read_text(path)
+    low = text.lower()
+    findings: List[Dict[str, Any]] = []
+    canonical_values = route_field_values(text, "canonical_current_path")
+    canonical_current_path = canonical_values[0] if canonical_values else ""
+    entries = historical_path_entries(text)
+
+    for entry in entries:
+        line = int(entry.get("line", 1))
+        status = str(entry.get("status", "")).lower()
+        current_path = str(entry.get("current_path", ""))
+        old_path = str(entry.get("old_path", ""))
+        if status in {"active", "current", "runtime_authority", "config_authority"}:
+            add_historical_finding(
+                findings,
+                "historical_path_used_as_current_target",
+                "fail",
+                "Historical path appears to be used as current implementation target.",
+                line,
+                old_path,
+            )
+        if status not in {"superseded", "deprecated", "historical", "legacy", "source_trace"}:
+            add_historical_finding(findings, "unmarked_legacy_path", "warning", "Legacy path appears without historical-source marker.", line, old_path)
+        if not current_path:
+            add_historical_finding(findings, "missing_current_path", "fail", "Historical path entry must point to a current path.", line, old_path)
+        if current_path and canonical_current_path and current_path != canonical_current_path:
+            add_historical_finding(findings, "current_path_mismatch", "fail", "Historical path current_path must match canonical_current_path.", line, current_path)
+
+    if entries and not canonical_current_path:
+        add_historical_finding(findings, "missing_canonical_current_path", "fail", "Historical path mappings require canonical_current_path.")
+
+    legacy_patterns = [
+        r"\bOpenClaw\b",
+        r"\bold OpenClaw\b",
+        r"\blegacy runtime\b",
+        r"\b[A-Za-z]:\\",
+        r"\blocal Windows path\b",
+    ]
+    historical_context = "historical_source_evidence" in text or "historical_paths:" in text or "deprecated_appendix" in text or "migration_risk_note" in text
+    for pattern in legacy_patterns:
+        for match in re.finditer(pattern, text):
+            if not historical_context:
+                add_historical_finding(
+                    findings,
+                    "unmarked_legacy_path",
+                    "warning",
+                    "Legacy path appears without historical-source marker.",
+                    line_number_for_offset(text, match.start()),
+                    match.group(0),
+                )
+
+    current_authority_near_legacy = bool(re.search(r"(?is)(write to|update|replace|runtime authority|config authority).{0,120}(OpenClaw|old OpenClaw|legacy runtime|[A-Za-z]:\\)", text))
+    if current_authority_near_legacy:
+        add_historical_finding(findings, "historical_path_used_as_current_target", "fail", "Historical path appears to be used as current implementation target.")
+
+    if re.search(r"\b(provider|model|cost|performance)\b", low) and re.search(r"\b(current|runtime|authority|policy)\b", low) and "current verification" not in low:
+        add_historical_finding(findings, "stale_provider_or_model_claim", "warning", "Provider/model/cost/performance claim requires current verification.")
+
+    old_role_current = bool(re.search(r"(?is)(old agent role|meta detective|meta ops|meta strategy|special ops).{0,120}(current agent|current skill|runtime role|promote|promoted)", text))
+    if old_role_current and "operator decision" not in low:
+        add_historical_finding(findings, "old_role_promoted_without_decision", "fail", "Old role name appears promoted into current agent/skill without recorded operator decision.")
+
+    try:
+        file_path = relpath(kb_root, path)
+    except ValueError:
+        file_path = str(path)
+    return {"path": file_path, "finding_count": len(findings), "findings": findings}
+
+
+def cmd_lint_historical_path_authority(args: argparse.Namespace) -> Dict[str, Any]:
+    kb_root = resolve_kb_root(args.kb_root)
+    target = Path(args.target).expanduser().resolve()
+    files = route_contract_files(target)
+    results = [lint_historical_path_authority_file(kb_root, p) for p in files]
+    findings = [finding for result in results for finding in result["findings"]]
+    fail_count = sum(1 for finding in findings if finding.get("severity") == "fail")
+    warning_count = sum(1 for finding in findings if finding.get("severity") == "warning")
+    status = "fail" if fail_count or (warning_count and args.strict) else "warn" if warning_count else "pass"
+    return {
+        "command": "lint-historical-path-authority",
+        "status": status,
+        "target": str(target),
+        "file_count": len(files),
+        "finding_count": len(findings),
+        "fail_count": fail_count,
+        "warning_count": warning_count,
+        "results": results,
+        "deterministic_only": True,
+    }
+
+
 def audit_items(kb_root: Path) -> List[Dict[str, Any]]:
     root = kb_root / "audit"
     if not root.exists():
@@ -1225,6 +1353,11 @@ def build_parser() -> argparse.ArgumentParser:
     router_lint.add_argument("--json", action="store_true", default=argparse.SUPPRESS)
     router_lint.add_argument("--strict", action="store_true", default=argparse.SUPPRESS)
     router_lint.set_defaults(func=cmd_lint_repo_execution_router)
+    historical_lint = sub.add_parser("lint-historical-path-authority")
+    historical_lint.add_argument("--target", required=True, help="Markdown/YAML file or directory to lint")
+    historical_lint.add_argument("--json", action="store_true", default=argparse.SUPPRESS)
+    historical_lint.add_argument("--strict", action="store_true", default=argparse.SUPPRESS)
+    historical_lint.set_defaults(func=cmd_lint_historical_path_authority)
     sub.add_parser("audit").set_defaults(func=cmd_audit)
     sub.add_parser("status").set_defaults(func=cmd_status)
     sub.add_parser("health").set_defaults(func=cmd_health)
