@@ -51,3 +51,31 @@ Use this index first, then read the smallest sufficient page set. For role bound
 ## Source Discipline
 
 The old OpenClaw-specific runtime paths and local Windows paths are historical source evidence, not current runtime authority. Current Apex or Claude-native implementation decisions require separate approval and verification.
+
+<!-- BEGIN AUTO-GENERATED INDEX -->
+
+Generated: `2026-07-03T11:17:54Z`
+
+Compiled page count: `11`
+
+## Concept Pages
+
+- [Agent Doctrine and Promotion Patterns](concepts/agent-doctrine-and-promotion-patterns.md) - `active` / `high`
+- [Migration Safety Patterns](concepts/migration-safety-patterns.md) - `active` / `mixed`
+- [Validation and Routing Guardrails](concepts/validation-and-routing-guardrails.md) - `active` / `high`
+
+## Entity Pages
+
+- [Meta Detective Internal Modes](entities/meta-detective-internal-modes.md) - `active` / `high`
+- [Old Agent Roles](entities/old-agent-roles.md) - `active` / `high`
+- [Reusable Artifact Families](entities/reusable-artifact-families.md) - `active` / `high`
+
+## Summary Pages
+
+- [Handoff, Validation, and Risk Doctrine](summaries/handoff-validation-and-risk-doctrine.md) - `active` / `high`
+- [Migration to Claude-Native Orchestration](summaries/migration-to-claude-native-orchestration.md) - `active` / `mixed`
+- [Old Agent KB Architecture](summaries/old-agent-kb-architecture.md) - `active` / `high`
+- [Old Agent Role System](summaries/old-agent-role-system.md) - `active` / `high`
+- [Reusable Old Agent KB Patterns](summaries/reusable-old-agent-kb-patterns.md) - `active` / `high`
+
+<!-- END AUTO-GENERATED INDEX -->
