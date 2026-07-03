@@ -1346,6 +1346,7 @@ def build_parser() -> argparse.ArgumentParser:
     q.set_defaults(func=cmd_query)
 
     lint_cmd = sub.add_parser("lint")
+    lint_cmd.add_argument("--json", action="store_true", default=argparse.SUPPRESS)
     lint_cmd.add_argument("--strict", action="store_true", default=argparse.SUPPRESS)
     lint_cmd.set_defaults(func=cmd_lint)
     router_lint = sub.add_parser("lint-repo-execution-router")
@@ -1358,9 +1359,15 @@ def build_parser() -> argparse.ArgumentParser:
     historical_lint.add_argument("--json", action="store_true", default=argparse.SUPPRESS)
     historical_lint.add_argument("--strict", action="store_true", default=argparse.SUPPRESS)
     historical_lint.set_defaults(func=cmd_lint_historical_path_authority)
-    sub.add_parser("audit").set_defaults(func=cmd_audit)
-    sub.add_parser("status").set_defaults(func=cmd_status)
-    sub.add_parser("health").set_defaults(func=cmd_health)
+    audit_cmd = sub.add_parser("audit")
+    audit_cmd.add_argument("--json", action="store_true", default=argparse.SUPPRESS)
+    audit_cmd.set_defaults(func=cmd_audit)
+    status_cmd = sub.add_parser("status")
+    status_cmd.add_argument("--json", action="store_true", default=argparse.SUPPRESS)
+    status_cmd.set_defaults(func=cmd_status)
+    health_cmd = sub.add_parser("health")
+    health_cmd.add_argument("--json", action="store_true", default=argparse.SUPPRESS)
+    health_cmd.set_defaults(func=cmd_health)
     return parser
 
 
