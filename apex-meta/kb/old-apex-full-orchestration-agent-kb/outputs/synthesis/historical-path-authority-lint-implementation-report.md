@@ -1,3 +1,6 @@
+# Historical Path Authority Lint Implementation Report
+
+```yaml
 verdict: PASS
 command_added: lint-historical-path-authority
 script_modified: apex-meta/scripts/apex_kb.py
@@ -6,9 +9,13 @@ validation:
   py_compile: PASS
   help_output: PASS
   valid_fixture: PASS
-  invalid_fixture: PASS
+  invalid_fixture_detected: PASS
   json_output: PASS
 warnings:
   - NONE
 failures:
   - NONE
+notes:
+  - "Command was already present on main before this validation run."
+  - "Invalid fixture PASS means the command detected invalid historical path authority usage and exited non-zero as expected."
+```
