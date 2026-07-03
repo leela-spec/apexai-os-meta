@@ -1,0 +1,445 @@
+﻿{
+  "generated_at": "2026-07-03T10:26:16Z",
+  "pdf": "C:\\Users\\gehm7\\Downloads\\ET-Heller-NARM.pdf",
+  "page_count": 467,
+  "thresholds": {
+    "min_width": 300,
+    "min_height": 300,
+    "min_area_ratio": 0.04,
+    "render_zoom": 2.0
+  },
+  "picture_page_count": 13,
+  "extracted_image_count": 13,
+  "rendered_page_count": 13,
+  "pages": [
+    {
+      "page": 1,
+      "image_block_count": 1,
+      "extracted_image_count": 1,
+      "image_blocks": [
+        {
+          "bbox": [
+            0.0,
+            0.0,
+            612.0,
+            792.0
+          ],
+          "width_pt": 612.0,
+          "height_pt": 792.0,
+          "area_ratio": 1.0,
+          "ext": "jpeg",
+          "xref": null
+        }
+      ],
+      "extracted_images": [
+        {
+          "page": 1,
+          "xref": 19,
+          "width_px": 1309,
+          "height_px": 1920,
+          "colorspace": "DeviceRGB",
+          "bits_per_component": 8,
+          "file": "C:\\GitDev\\apexai-os-meta\\artifacts\\pdf-picture-extraction\\ET-Heller-NARM\\images\\page-0001_xref-19_1.jpeg"
+        }
+      ]
+    },
+    {
+      "page": 4,
+      "image_block_count": 0,
+      "extracted_image_count": 1,
+      "image_blocks": [],
+      "extracted_images": [
+        {
+          "page": 4,
+          "xref": 495,
+          "width_px": 1250,
+          "height_px": 429,
+          "colorspace": "DeviceRGB",
+          "bits_per_component": 8,
+          "file": "C:\\GitDev\\apexai-os-meta\\artifacts\\pdf-picture-extraction\\ET-Heller-NARM\\images\\page-0004_xref-495_1.jpeg"
+        }
+      ]
+    },
+    {
+      "page": 26,
+      "image_block_count": 1,
+      "extracted_image_count": 1,
+      "image_blocks": [
+        {
+          "bbox": [
+            77.25,
+            72.0,
+            534.75,
+            720.0
+          ],
+          "width_pt": 457.5,
+          "height_pt": 648.0,
+          "area_ratio": 0.6116,
+          "ext": "jpeg",
+          "xref": null
+        }
+      ],
+      "extracted_images": [
+        {
+          "page": 26,
+          "xref": 861,
+          "width_px": 642,
+          "height_px": 974,
+          "colorspace": "DeviceGray",
+          "bits_per_component": 8,
+          "file": "C:\\GitDev\\apexai-os-meta\\artifacts\\pdf-picture-extraction\\ET-Heller-NARM\\images\\page-0026_xref-861_1.jpeg"
+        }
+      ]
+    },
+    {
+      "page": 36,
+      "image_block_count": 1,
+      "extracted_image_count": 1,
+      "image_blocks": [
+        {
+          "bbox": [
+            77.25,
+            81.75,
+            534.75,
+            395.25
+          ],
+          "width_pt": 457.5,
+          "height_pt": 313.5,
+          "area_ratio": 0.2959,
+          "ext": "jpeg",
+          "xref": null
+        }
+      ],
+      "extracted_images": [
+        {
+          "page": 36,
+          "xref": 971,
+          "width_px": 637,
+          "height_px": 436,
+          "colorspace": "DeviceGray",
+          "bits_per_component": 8,
+          "file": "C:\\GitDev\\apexai-os-meta\\artifacts\\pdf-picture-extraction\\ET-Heller-NARM\\images\\page-0036_xref-971_1.jpeg"
+        }
+      ]
+    },
+    {
+      "page": 38,
+      "image_block_count": 1,
+      "extracted_image_count": 1,
+      "image_blocks": [
+        {
+          "bbox": [
+            77.25,
+            81.75,
+            534.75,
+            485.25
+          ],
+          "width_pt": 457.5,
+          "height_pt": 403.5,
+          "area_ratio": 0.3809,
+          "ext": "jpeg",
+          "xref": null
+        }
+      ],
+      "extracted_images": [
+        {
+          "page": 38,
+          "xref": 1017,
+          "width_px": 650,
+          "height_px": 573,
+          "colorspace": "DeviceGray",
+          "bits_per_component": 8,
+          "file": "C:\\GitDev\\apexai-os-meta\\artifacts\\pdf-picture-extraction\\ET-Heller-NARM\\images\\page-0038_xref-1017_1.jpeg"
+        }
+      ]
+    },
+    {
+      "page": 40,
+      "image_block_count": 1,
+      "extracted_image_count": 1,
+      "image_blocks": [
+        {
+          "bbox": [
+            77.25,
+            81.75,
+            534.75,
+            525.0
+          ],
+          "width_pt": 457.5,
+          "height_pt": 443.25,
+          "area_ratio": 0.4184,
+          "ext": "jpeg",
+          "xref": null
+        }
+      ],
+      "extracted_images": [
+        {
+          "page": 40,
+          "xref": 1052,
+          "width_px": 649,
+          "height_px": 629,
+          "colorspace": "DeviceGray",
+          "bits_per_component": 8,
+          "file": "C:\\GitDev\\apexai-os-meta\\artifacts\\pdf-picture-extraction\\ET-Heller-NARM\\images\\page-0040_xref-1052_1.jpeg"
+        }
+      ]
+    },
+    {
+      "page": 135,
+      "image_block_count": 1,
+      "extracted_image_count": 1,
+      "image_blocks": [
+        {
+          "bbox": [
+            77.25,
+            72.0,
+            534.75,
+            720.0
+          ],
+          "width_pt": 457.5,
+          "height_pt": 648.0,
+          "area_ratio": 0.6116,
+          "ext": "jpeg",
+          "xref": null
+        }
+      ],
+      "extracted_images": [
+        {
+          "page": 135,
+          "xref": 1965,
+          "width_px": 650,
+          "height_px": 997,
+          "colorspace": "DeviceGray",
+          "bits_per_component": 8,
+          "file": "C:\\GitDev\\apexai-os-meta\\artifacts\\pdf-picture-extraction\\ET-Heller-NARM\\images\\page-0135_xref-1965_1.jpeg"
+        }
+      ]
+    },
+    {
+      "page": 141,
+      "image_block_count": 1,
+      "extracted_image_count": 1,
+      "image_blocks": [
+        {
+          "bbox": [
+            77.25,
+            81.75,
+            534.75,
+            513.75
+          ],
+          "width_pt": 457.5,
+          "height_pt": 432.0,
+          "area_ratio": 0.4078,
+          "ext": "jpeg",
+          "xref": null
+        }
+      ],
+      "extracted_images": [
+        {
+          "page": 141,
+          "xref": 2038,
+          "width_px": 644,
+          "height_px": 608,
+          "colorspace": "DeviceGray",
+          "bits_per_component": 8,
+          "file": "C:\\GitDev\\apexai-os-meta\\artifacts\\pdf-picture-extraction\\ET-Heller-NARM\\images\\page-0141_xref-2038_1.jpeg"
+        }
+      ]
+    },
+    {
+      "page": 383,
+      "image_block_count": 1,
+      "extracted_image_count": 1,
+      "image_blocks": [
+        {
+          "bbox": [
+            77.25,
+            72.0,
+            534.75,
+            720.0
+          ],
+          "width_pt": 457.5,
+          "height_pt": 648.0,
+          "area_ratio": 0.6116,
+          "ext": "jpeg",
+          "xref": null
+        }
+      ],
+      "extracted_images": [
+        {
+          "page": 383,
+          "xref": 3621,
+          "width_px": 645,
+          "height_px": 1026,
+          "colorspace": "DeviceGray",
+          "bits_per_component": 8,
+          "file": "C:\\GitDev\\apexai-os-meta\\artifacts\\pdf-picture-extraction\\ET-Heller-NARM\\images\\page-0383_xref-3621_1.jpeg"
+        }
+      ]
+    },
+    {
+      "page": 428,
+      "image_block_count": 1,
+      "extracted_image_count": 1,
+      "image_blocks": [
+        {
+          "bbox": [
+            77.25,
+            342.0,
+            240.75,
+            603.0
+          ],
+          "width_pt": 163.5,
+          "height_pt": 261.0,
+          "area_ratio": 0.088,
+          "ext": "jpeg",
+          "xref": null
+        }
+      ],
+      "extracted_images": [
+        {
+          "page": 428,
+          "xref": 3923,
+          "width_px": 300,
+          "height_px": 477,
+          "colorspace": "DeviceRGB",
+          "bits_per_component": 8,
+          "file": "C:\\GitDev\\apexai-os-meta\\artifacts\\pdf-picture-extraction\\ET-Heller-NARM\\images\\page-0428_xref-3923_1.jpeg"
+        }
+      ]
+    },
+    {
+      "page": 430,
+      "image_block_count": 1,
+      "extracted_image_count": 1,
+      "image_blocks": [
+        {
+          "bbox": [
+            112.6,
+            72.0,
+            540.0,
+            687.45
+          ],
+          "width_pt": 427.4,
+          "height_pt": 615.45,
+          "area_ratio": 0.5427,
+          "ext": "jpeg",
+          "xref": null
+        }
+      ],
+      "extracted_images": [
+        {
+          "page": 430,
+          "xref": 3955,
+          "width_px": 1130,
+          "height_px": 1800,
+          "colorspace": "DeviceRGB",
+          "bits_per_component": 8,
+          "file": "C:\\GitDev\\apexai-os-meta\\artifacts\\pdf-picture-extraction\\ET-Heller-NARM\\images\\page-0430_xref-3955_1.jpeg"
+        }
+      ]
+    },
+    {
+      "page": 464,
+      "image_block_count": 0,
+      "extracted_image_count": 1,
+      "image_blocks": [],
+      "extracted_images": [
+        {
+          "page": 464,
+          "xref": 4173,
+          "width_px": 308,
+          "height_px": 56,
+          "colorspace": "DeviceRGB",
+          "bits_per_component": 8,
+          "file": "C:\\GitDev\\apexai-os-meta\\artifacts\\pdf-picture-extraction\\ET-Heller-NARM\\images\\page-0464_xref-4173_1.jpeg"
+        }
+      ]
+    },
+    {
+      "page": 465,
+      "image_block_count": 1,
+      "extracted_image_count": 1,
+      "image_blocks": [
+        {
+          "bbox": [
+            77.25,
+            72.0,
+            534.75,
+            682.5
+          ],
+          "width_pt": 457.5,
+          "height_pt": 610.5,
+          "area_ratio": 0.5762,
+          "ext": "jpeg",
+          "xref": null
+        }
+      ],
+      "extracted_images": [
+        {
+          "page": 465,
+          "xref": 4232,
+          "width_px": 640,
+          "height_px": 853,
+          "colorspace": "DeviceRGB",
+          "bits_per_component": 8,
+          "file": "C:\\GitDev\\apexai-os-meta\\artifacts\\pdf-picture-extraction\\ET-Heller-NARM\\images\\page-0465_xref-4232_1.jpeg"
+        }
+      ]
+    }
+  ],
+  "rendered_pages": [
+    {
+      "page": 1,
+      "file": "C:\\GitDev\\apexai-os-meta\\artifacts\\pdf-picture-extraction\\ET-Heller-NARM\\pages\\page-0001.png"
+    },
+    {
+      "page": 4,
+      "file": "C:\\GitDev\\apexai-os-meta\\artifacts\\pdf-picture-extraction\\ET-Heller-NARM\\pages\\page-0004.png"
+    },
+    {
+      "page": 26,
+      "file": "C:\\GitDev\\apexai-os-meta\\artifacts\\pdf-picture-extraction\\ET-Heller-NARM\\pages\\page-0026.png"
+    },
+    {
+      "page": 36,
+      "file": "C:\\GitDev\\apexai-os-meta\\artifacts\\pdf-picture-extraction\\ET-Heller-NARM\\pages\\page-0036.png"
+    },
+    {
+      "page": 38,
+      "file": "C:\\GitDev\\apexai-os-meta\\artifacts\\pdf-picture-extraction\\ET-Heller-NARM\\pages\\page-0038.png"
+    },
+    {
+      "page": 40,
+      "file": "C:\\GitDev\\apexai-os-meta\\artifacts\\pdf-picture-extraction\\ET-Heller-NARM\\pages\\page-0040.png"
+    },
+    {
+      "page": 135,
+      "file": "C:\\GitDev\\apexai-os-meta\\artifacts\\pdf-picture-extraction\\ET-Heller-NARM\\pages\\page-0135.png"
+    },
+    {
+      "page": 141,
+      "file": "C:\\GitDev\\apexai-os-meta\\artifacts\\pdf-picture-extraction\\ET-Heller-NARM\\pages\\page-0141.png"
+    },
+    {
+      "page": 383,
+      "file": "C:\\GitDev\\apexai-os-meta\\artifacts\\pdf-picture-extraction\\ET-Heller-NARM\\pages\\page-0383.png"
+    },
+    {
+      "page": 428,
+      "file": "C:\\GitDev\\apexai-os-meta\\artifacts\\pdf-picture-extraction\\ET-Heller-NARM\\pages\\page-0428.png"
+    },
+    {
+      "page": 430,
+      "file": "C:\\GitDev\\apexai-os-meta\\artifacts\\pdf-picture-extraction\\ET-Heller-NARM\\pages\\page-0430.png"
+    },
+    {
+      "page": 464,
+      "file": "C:\\GitDev\\apexai-os-meta\\artifacts\\pdf-picture-extraction\\ET-Heller-NARM\\pages\\page-0464.png"
+    },
+    {
+      "page": 465,
+      "file": "C:\\GitDev\\apexai-os-meta\\artifacts\\pdf-picture-extraction\\ET-Heller-NARM\\pages\\page-0465.png"
+    }
+  ]
+}
