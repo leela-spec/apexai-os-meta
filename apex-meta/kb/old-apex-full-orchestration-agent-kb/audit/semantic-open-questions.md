@@ -15,6 +15,12 @@ source_refs:
   - source_id: batch04-reusable-patterns-and-migration
     source_path: apex-meta/kb/old-apex-full-orchestration-agent-kb/ingest-analysis/batch04-reusable-patterns-and-migration.analysis.md
     source_pointer: contradictions_or_tensions
+  - source_id: semantic-continuation-after-lint-closure
+    source_path: apex-meta/kb/old-apex-full-orchestration-agent-kb/outputs/synthesis/apex-kb-semantic-continuation-after-lint-closure.md
+    source_pointer: audit_open_questions_to_preserve
+  - source_id: final-combined-lint-audit-status-postflight-report
+    source_path: apex-meta/kb/old-apex-full-orchestration-agent-kb/outputs/synthesis/final-combined-lint-audit-status-postflight-report.md
+    source_pointer: real_surface_checks; notes
 ```
 
 ## Audit Items
@@ -56,6 +62,36 @@ audit_items:
     current_handling: "Recorded migration classification without implementation."
     status: active
     source_pointer: "batch04-reusable-patterns-and-migration.analysis.md / migration_notes"
+
+  - id: OAQ-007
+    question: "Which of the 39 repo-execution-router synthesis-surface findings require semantic wiki edits versus later deterministic cleanup?"
+    current_handling: "Recorded as real-surface lint findings, visible but non-blocking; not auto-fixed in this semantic compile pass."
+    status: active
+    source_pointer: "final-combined-lint-audit-status-postflight-report.md / real_surface_checks / router_synthesis_surface_findings"
+
+  - id: OAQ-008
+    question: "Which of the 18 historical wiki surface findings are stale-authority risks versus acceptable historical source references?"
+    current_handling: "Recorded as real-surface lint findings, visible but non-blocking; migration-safety-patterns now clarifies historical evidence versus current authority."
+    status: active
+    source_pointer: "final-combined-lint-audit-status-postflight-report.md / real_surface_checks / historical_wiki_surface_findings"
+
+  - id: OAQ-009
+    question: "Should deterministic execution safety be represented as a standalone summary page only, or also as a cross-linked concept family in a future pass?"
+    current_handling: "Created a retrieval-first summary page and a repo-execution-routing-safety concept page; broader concept-family expansion remains open."
+    status: active
+    source_pointer: "apex-kb-semantic-continuation-after-lint-closure.md / audit_open_questions_to_preserve / AQ-003"
+
+  - id: OAQ-010
+    question: "Which source-authority build surfaces should be promoted into active Apex KB process doctrine versus retained as current Claude-native implementation evidence?"
+    current_handling: "Not resolved in this semantic compile pass; promotion requires later source-backed or operator decision."
+    status: active
+    source_pointer: "apex-kb-semantic-continuation-after-lint-closure.md / audit_open_questions_to_preserve / AQ-004"
+
+  - id: OAQ-011
+    question: "Are there remaining old OpenClaw-specific runtime assumptions embedded in current wiki language that should be relabeled as historical evidence?"
+    current_handling: "Not closed; historical-path-authority lint findings remain visible evidence for later review."
+    status: active
+    source_pointer: "apex-kb-semantic-continuation-after-lint-closure.md / audit_open_questions_to_preserve / AQ-005"
 ```
 
 ## Closure Rule
