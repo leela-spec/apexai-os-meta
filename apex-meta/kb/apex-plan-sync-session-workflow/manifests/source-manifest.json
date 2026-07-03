@@ -1,0 +1,85 @@
+{
+  "kb_slug": "apex-plan-sync-session-workflow",
+  "manifest_status": "phase1_pointer_only_source_manifest",
+  "created_from": "live GitHub connector reads on main",
+  "source_storage_mode_default": "pointer_only",
+  "phase2_allowed": false,
+  "required_phrase": "approve ingest",
+  "sources": [
+    {
+      "source_id": "APS-001",
+      "path": ".claude/skills/apex-plan/SKILL.md",
+      "source_type": "skill_entrypoint",
+      "storage_mode": "pointer_only",
+      "repo_ref": "main",
+      "blob_sha": "4309d7198a32232fdbeeb488024da57a356c2756",
+      "read_status": "read",
+      "lines_read": "1-260",
+      "role": "Apex Plan entrypoint, ownership boundary, procedure, failure modes, output requirements, and completion gate."
+    },
+    {
+      "source_id": "APS-002",
+      "path": ".claude/skills/apex-plan/package-manifest.md",
+      "source_type": "package_manifest",
+      "storage_mode": "pointer_only",
+      "repo_ref": "main",
+      "blob_sha": "11339bb850217b10fd0cf18c4923782b006b5757",
+      "read_status": "read",
+      "lines_read": "1-94",
+      "role": "Apex Plan file inventory, package boundaries, and acceptance checks."
+    },
+    {
+      "source_id": "APS-003",
+      "path": ".claude/skills/apex-sync/SKILL.md",
+      "source_type": "skill_entrypoint",
+      "storage_mode": "pointer_only",
+      "repo_ref": "main",
+      "blob_sha": "ddf5283053cb81e263519711238962051bbe277f",
+      "read_status": "read",
+      "lines_read": "1-210",
+      "role": "Apex Sync entrypoint, deterministic read-side command policy, validation rules, failure modes, and completion gate."
+    },
+    {
+      "source_id": "APS-004",
+      "path": ".claude/skills/apex-sync/package-manifest.md",
+      "source_type": "package_manifest",
+      "storage_mode": "pointer_only",
+      "repo_ref": "main",
+      "blob_sha": "d57dc0848211cd576ddffae38d143c390be6cb35",
+      "read_status": "read",
+      "lines_read": "1-172",
+      "role": "Apex Sync exact file index, source basis, package invariants, validation checklist, and forbidden claims."
+    },
+    {
+      "source_id": "APS-005",
+      "path": ".claude/skills/apex-session/SKILL.md",
+      "source_type": "skill_entrypoint",
+      "storage_mode": "pointer_only",
+      "repo_ref": "main",
+      "blob_sha": "4760552ee58ebd16a1a016c75b5853d9d1c3966c",
+      "read_status": "read",
+      "lines_read": "1-322",
+      "role": "Apex Session entrypoint, session evidence handling, mutation gate, H6 handoff artifacts, validation rules, failure modes, and completion gate."
+    },
+    {
+      "source_id": "APS-006",
+      "path": ".claude/skills/apex-session/package-manifest.md",
+      "source_type": "package_manifest",
+      "storage_mode": "pointer_only",
+      "repo_ref": "main",
+      "blob_sha": "3d1156242e95b0ba07ad8b306dab190107f24e2b",
+      "read_status": "read",
+      "lines_read": "1-335",
+      "role": "Apex Session exact file index, source basis map, read order, package invariants, validation checklist, and forbidden claims."
+    }
+  ],
+  "not_read_in_this_run": [
+    ".claude/skills/apex-plan/references/*.md",
+    ".claude/skills/apex-plan/templates/*.md",
+    ".claude/skills/apex-sync/references/*.md",
+    "scripts/apex_sync.py",
+    ".claude/skills/apex-session/references/*.md",
+    ".claude/skills/apex-session/templates/*.md"
+  ],
+  "reason_not_read": "The package entrypoints and manifests were sufficient to create a coherent Phase 1 workflow-boundary ingest. Supporting references are proposed as Phase 2 or follow-up deepening sources, not blockers."
+}
