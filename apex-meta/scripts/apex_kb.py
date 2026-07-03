@@ -45,9 +45,23 @@ CLAIM_LABEL_ALLOWED = {"raw_source", "source_backed_summary", "behavioral_infere
 STATUS_ALLOWED = {"draft", "active", "needs_review", "deprecated", "superseded"}
 PAGE_TYPE_ALLOWED = {"summary", "concept", "entity", "index", "query_output", "audit_item"}
 TEXT_EXTS = {".md", ".mdx", ".txt", ".yaml", ".yml", ".json", ".csv", ".py", ".toml"}
+HANDOVER_TEXT_EXTS = {".md", ".markdown", ".txt", ".yaml", ".yml"}
 RAW_SUBDIRS = ["raw/articles", "raw/papers", "raw/notes", "raw/refs", "raw/other"]
 REQUIRED_DIRS = RAW_SUBDIRS + ["ingest-analysis", "wiki/concepts", "wiki/entities", "wiki/summaries", "manifests", "manifests/phase0", "derived/search", "audit/resolved", "outputs/queries", "log"]
 REQUIRED_FILES = ["README.md", "kb-schema.md", "wiki/index.md", "manifests/source-manifest.json"]
+REPO_ROUTE_REQUIRED_FIELDS = [
+    "repository",
+    "branch",
+    "exact_target_paths",
+    "operation_class",
+    "allowed_actions",
+    "forbidden_actions",
+    "pre_write_checks",
+    "post_write_checks",
+    "stop_conditions",
+    "commit_strategy",
+]
+OPERATION_CLASS_ALLOWED = {"create", "update", "delete", "rename", "generated_output", "config_change"}
 
 
 def utc_now() -> str:
@@ -951,6 +965,141 @@ def cmd_lint(args: argparse.Namespace) -> Dict[str, Any]:
     return {"command": "lint", "status": severity, "issue_count": len(issues), "issues": issues, "deterministic_only": True}
 
 
+def route_contract_files(target: Path) -> List[Path]:
+    if target.is_file():
+        return [target]
+    if target.is_dir():
+        return sorted(p for p in target.rglob("*") if p.is_file() and (p.suffix.lower() in HANDOVER_TEXT_EXTS or not p.suffix))
+    raise FileNotFoundError(f"target not found: {target}")
+
+
+def route_field_present(text: str, field: str) -> bool:
+    pattern = rf"(?im)^\s*(?:[-*]\s*)?(?:{re.escape(field)})\s*:"
+    return re.search(pattern, text) is not None
+
+
+def route_field_values(text: str, field: str) -> List[str]:
+    pattern = rf"(?im)^\s*(?:[-*]\s*)?{re.escape(field)}\s*:\s*(.+?)\s*$"
+    return [m.group(1).strip().strip("\"'") for m in re.finditer(pattern, text)]
+
+
+def route_field_has_list_items(text: str, field: str) -> bool:
+    lines = text.splitlines()
+    for idx, line in enumerate(lines):
+        if re.match(rf"(?i)^\s*(?:[-*]\s*)?{re.escape(field)}\s*:\s*(.*)$", line):
+            value = line.split(":", 1)[1].strip()
+            if value and value not in {"[]", "{}", "null", "None", "~"}:
+                return True
+            base_indent = len(line) - len(line.lstrip())
+            for child in lines[idx + 1:]:
+                if not child.strip():
+                    continue
+                indent = len(child) - len(child.lstrip())
+                if indent <= base_indent:
+                    return False
+                if re.match(r"^\s*-\s+\S+", child):
+                    return True
+            return False
+    return False
+
+
+def detect_validator_executor_collapse(text: str) -> bool:
+    normalized = re.sub(r"[\s_-]+", "_", text.lower())
+    explicit_flags = [
+        "validator_executor_collapse:_true",
+        "same_actor_validates_executes_approves:_true",
+        "same_actor_validate_execute_approve:_true",
+        "same_actor:_validator_executor_final_approver",
+    ]
+    if any(flag in normalized for flag in explicit_flags):
+        return True
+    high_risk = bool(re.search(r"(?im)^\s*(?:risk|risk_level|operation_risk)\s*:\s*(high|critical)\b", text))
+    same_actor = bool(re.search(r"(?im)^\s*(?:same_actor|single_actor|operator_override)\s*:\s*(true|yes|none)\b", text))
+    role_collapse_words = all(word in normalized for word in ["validator", "executor"]) and any(word in normalized for word in ["final_approver", "self_approve", "self_approval"])
+    return high_risk and (same_actor or role_collapse_words)
+
+
+def lint_repo_execution_router_file(kb_root: Path, path: Path) -> Dict[str, Any]:
+    text = read_text(path)
+    findings: List[Dict[str, Any]] = []
+
+    for field in ["repository", "branch", "exact_target_paths", "operation_class", "pre_write_checks", "stop_conditions", "commit_strategy"]:
+        if not route_field_present(text, field):
+            issue = f"missing_{field}"
+            severity = "fail" if field in {"exact_target_paths", "operation_class"} else "warning"
+            findings.append({"type": "repo_execution_router", "issue": issue, "severity": severity, "message": f"Missing required route contract field: {field}"})
+
+    if not route_field_has_list_items(text, "exact_target_paths"):
+        findings.append({
+            "type": "repo_execution_router",
+            "issue": "missing_exact_target_paths",
+            "severity": "fail",
+            "message": "Repo-affecting work must list exact repo-relative target paths before writes.",
+        })
+
+    operation_values = route_field_values(text, "operation_class")
+    if operation_values and operation_values[0] not in OPERATION_CLASS_ALLOWED:
+        findings.append({
+            "type": "repo_execution_router",
+            "issue": "invalid_operation_class",
+            "severity": "fail",
+            "message": "Operation class is required: create, update, delete, rename, generated_output, or config_change.",
+            "value": operation_values[0],
+        })
+
+    if not route_field_present(text, "allowed_actions") or not route_field_present(text, "forbidden_actions"):
+        findings.append({
+            "type": "repo_execution_router",
+            "issue": "missing_allowed_or_forbidden_actions",
+            "severity": "warning",
+            "message": "Allowed and forbidden actions should be explicit to prevent advisory routing collapse.",
+        })
+
+    if not route_field_present(text, "post_write_checks") or not route_field_has_list_items(text, "post_write_checks"):
+        findings.append({
+            "type": "repo_execution_router",
+            "issue": "missing_post_write_checks",
+            "severity": "warning",
+            "message": "Post-write read-back or deterministic check is required for medium/high-risk work.",
+        })
+
+    if detect_validator_executor_collapse(text):
+        findings.append({
+            "type": "repo_execution_router",
+            "issue": "validator_executor_collapse",
+            "severity": "fail",
+            "message": "High-risk work cannot rely on the same actor to validate, execute, and final-approve without explicit operator override.",
+        })
+
+    try:
+        file_path = relpath(kb_root, path)
+    except ValueError:
+        file_path = str(path)
+    return {"path": file_path, "finding_count": len(findings), "findings": findings}
+
+
+def cmd_lint_repo_execution_router(args: argparse.Namespace) -> Dict[str, Any]:
+    kb_root = resolve_kb_root(args.kb_root)
+    target = Path(args.target).expanduser().resolve()
+    files = route_contract_files(target)
+    results = [lint_repo_execution_router_file(kb_root, p) for p in files]
+    findings = [finding for result in results for finding in result["findings"]]
+    fail_count = sum(1 for finding in findings if finding.get("severity") == "fail")
+    warning_count = sum(1 for finding in findings if finding.get("severity") == "warning")
+    status = "fail" if fail_count or (warning_count and args.strict) else "warn" if warning_count else "pass"
+    return {
+        "command": "lint-repo-execution-router",
+        "status": status,
+        "target": str(target),
+        "file_count": len(files),
+        "finding_count": len(findings),
+        "fail_count": fail_count,
+        "warning_count": warning_count,
+        "results": results,
+        "deterministic_only": True,
+    }
+
+
 def audit_items(kb_root: Path) -> List[Dict[str, Any]]:
     root = kb_root / "audit"
     if not root.exists():
@@ -1016,7 +1165,7 @@ def cmd_health(args: argparse.Namespace) -> Dict[str, Any]:
 
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description="Apex KB deterministic lifecycle helper")
-    parser.add_argument("--kb-root", required=True, help="Path to one KB root, e.g. apex-meta/kb/<kb-slug>/")
+    parser.add_argument("--kb-root", help="Path to one KB root, e.g. apex-meta/kb/<kb-slug>/")
     parser.add_argument("--json", action="store_true")
     parser.add_argument("--dry-run", action="store_true", help="Preview writes even when --allow-write is present")
     parser.add_argument("--allow-write", action="store_true", help="Permit deterministic writes inside kb_root")
@@ -1071,6 +1220,11 @@ def build_parser() -> argparse.ArgumentParser:
     lint_cmd = sub.add_parser("lint")
     lint_cmd.add_argument("--strict", action="store_true", default=argparse.SUPPRESS)
     lint_cmd.set_defaults(func=cmd_lint)
+    router_lint = sub.add_parser("lint-repo-execution-router")
+    router_lint.add_argument("--target", required=True, help="Markdown/YAML handover file or directory to lint")
+    router_lint.add_argument("--json", action="store_true", default=argparse.SUPPRESS)
+    router_lint.add_argument("--strict", action="store_true", default=argparse.SUPPRESS)
+    router_lint.set_defaults(func=cmd_lint_repo_execution_router)
     sub.add_parser("audit").set_defaults(func=cmd_audit)
     sub.add_parser("status").set_defaults(func=cmd_status)
     sub.add_parser("health").set_defaults(func=cmd_health)
@@ -1080,6 +1234,8 @@ def build_parser() -> argparse.ArgumentParser:
 def main(argv: Optional[Sequence[str]] = None) -> int:
     parser = build_parser()
     args = parser.parse_args(argv)
+    if not args.kb_root:
+        parser.error("--kb-root is required")
     try:
         result = args.func(args)
         emit(args, result)
