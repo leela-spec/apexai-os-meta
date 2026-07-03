@@ -31,6 +31,9 @@ package_manifest:
 | `references/retrieval-contract.md` | Retrieval, index, stale, and query-output contract |
 | `references/lifecycle-state-machine.md` | Full lifecycle state machine |
 | `references/acceptance-tests.md` | Local command-level tests |
+| `references/knowledge-promotion-rules.md` | Source/candidate/doctrine/runtime promotion gate rules |
+| `references/repo-execution-router-lint-spec.md` | Future deterministic lint spec for repo execution route contracts |
+| `references/historical-path-authority-lint-spec.md` | Future deterministic lint spec for legacy path/current authority separation |
 | `templates/ingest-analysis-template.md` | Phase 1 LLM analysis template |
 | `templates/wiki-page-templates.md` | Phase 2 wiki page templates |
 | `templates/query-output-template.md` | Query packet template |
