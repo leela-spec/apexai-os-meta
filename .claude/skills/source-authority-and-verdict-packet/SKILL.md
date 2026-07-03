@@ -18,7 +18,6 @@ description: >
 package_name: source-authority-and-verdict-packet
 primary_role: validation_and_routing_guardrail
 source_doctrine:
-  kb_slug: old-apex-full-orchestration-agent-kb
   primary_pages:
     - apex-meta/kb/old-apex-full-orchestration-agent-kb/wiki/summaries/handoff-validation-and-risk-doctrine.md
     - apex-meta/kb/old-apex-full-orchestration-agent-kb/wiki/concepts/validation-and-routing-guardrails.md
@@ -44,56 +43,30 @@ does_not_own:
 
 ## Trigger conditions
 
-Use this skill when the user asks to validate, verify, approve, challenge, audit, route, or decide whether to carry forward an AI output, implementation plan, migration packet, handover, KB phase output, or repo-change proposal.
+Use this skill when the operator asks to validate, verify, approve, challenge, audit, route, or decide whether to carry forward an AI output, implementation plan, migration packet, handover, KB phase output, or repo-change proposal.
 
 Treat the task as medium or high risk when it touches repo writes, runtime configuration, provider/model policy, KB phase gates, current architecture migration, or authority promotion.
 
-Do not use this skill for trivial formatting, low-risk copy edits, or pure drafting unless validation or approval is requested.
-
-## Core doctrine
+## Doctrine
 
 ```yaml
 rules:
-  source_authority_before_verification: >
-    Classify what each source is before trusting, forwarding, approving,
-    routing, patching, or implementing an output.
-  approval_by_fluency_is_invalid: >
-    Do not approve an artifact because it is polished, coherent, or plausible.
-    Require concrete evidence, read-back, diff, test, schema, source pointer,
-    or acceptance criteria.
-  validator_executor_separation: >
-    Validators return findings, evidence gaps, risks, stop conditions, and
-    owner routes. They do not implement or self-approve the reviewed fix.
-  historical_source_not_runtime_authority: >
-    Old OpenClaw paths, old local paths, old role rosters, and stale provider
-    claims remain historical evidence unless separately verified and promoted.
-  candidate_not_canon: >
-    Learning queues, draft patterns, and candidate notes are not runtime truth
-    until promoted through an owner/validator or operator gate.
+  source_authority_before_verification: "Classify each source before trusting, approving, routing, or implementing an output."
+  approval_by_fluency_is_invalid: "Do not approve an artifact because it is polished or plausible; require evidence, read-back, diff, test, schema, source pointer, or acceptance criteria."
+  validator_executor_separation: "Validators return findings, gaps, risks, stop conditions, and owner routes; they do not implement or self-approve the reviewed fix."
+  historical_source_not_runtime_authority: "Old OpenClaw paths, old local paths, old role rosters, and stale provider claims remain historical evidence unless verified and promoted."
+  candidate_not_canon: "Learning queues, draft patterns, and candidate notes are not runtime truth until promoted through an owner/validator or operator gate."
 ```
 
 ## Source authority classes
 
 ```yaml
-source_authority_classes:
-  current_primary:
-    examples: [live_repo_file_read_in_current_run, current_operator_instruction, current_official_docs, deterministic_report_from_current_target_state]
-    default_trust: high
-  compiled_kb_primary:
-    examples: [compiled_wiki_index, compiled_summary_page, compiled_concept_page, compiled_entity_page, semantic_open_questions_audit_page]
-    default_trust: high_or_frontmatter_limited
-  secondary_analysis:
-    examples: [ingest_analysis, prior_research_report, migration_decision_packet]
-    default_trust: medium
-  historical_evidence:
-    examples: [old_OpenClaw_paths, old_local_paths, old_agent_role_roster, old_model_or_provider_claims]
-    default_trust: low_for_current_runtime_authority
-  unverified_claim:
-    examples: [memory_based_statement, filename_inference, plausible_AI_synthesis_without_source_pointer]
-    default_trust: low
-  operator_decision:
-    examples: [approval_phrase, scope_expansion, explicit_override]
-    default_trust: binding_within_stated_scope
+current_primary: "Live repo files read in the current run, current operator instruction, current official docs, or deterministic report from current target state."
+compiled_kb_primary: "Approved compiled KB wiki index, summary, concept, entity, or audit page."
+secondary_analysis: "Phase 1 analysis, prior research report, or migration decision packet."
+historical_evidence: "Old paths, old role names, old configs, old runtime assumptions, or legacy examples."
+unverified_claim: "Memory-based, filename-inferred, or plausible AI synthesis without source pointer."
+operator_decision: "Human authority decision such as approval phrase, scope expansion, or explicit override."
 ```
 
 ## Procedure
@@ -101,7 +74,7 @@ source_authority_classes:
 1. Define the artifact or decision under review, requested action, stakes, affected surfaces, and explicit operator constraints.
 2. Build a source ledger with source name, authority class, read status, relevance, and limits.
 3. Check for validator/executor collapse. If the validator is also expected to implement and approve a high-risk fix, stop or route.
-4. Scan for these anti-patterns: approval by fluency, summary elevation, advisory routing collapse, path drift, candidate-as-canon, old-runtime-authority import, unsupported current claims.
+4. Scan for approval by fluency, summary elevation, advisory routing collapse, path drift, candidate-as-canon, old-runtime-authority import, and unsupported current claims.
 5. Return the verdict packet. Preserve unresolved operator decisions instead of silently normalizing them.
 
 ## Verdict packet schema
@@ -117,16 +90,11 @@ VERDICT_PACKET:
     secondary_sources_read: []
     historical_sources_used: []
     unverified_or_unread_sources: []
-  key_findings:
-    - ""
-  evidence_gaps:
-    - "NONE | "
-  risks:
-    - "NONE | "
-  stop_conditions:
-    - "NONE | "
-  required_operator_decisions:
-    - "NONE | "
+  key_findings: []
+  evidence_gaps: []
+  risks: []
+  stop_conditions: []
+  required_operator_decisions: []
   next_owner_or_route: ""
   validator_executor_boundary:
     validator_did_not_execute_fix: true
@@ -141,34 +109,11 @@ VERDICT_PACKET:
     old_runtime_authority_import: "clear | warning | violation"
 ```
 
-## Verdict semantics
-
-```yaml
-PASS: "Evidence is sufficient, authority is clear, and no blocking gaps or operator decisions remain."
-PASS_WITH_WARNINGS: "Artifact is usable, but limits or risks must be carried into the next step."
-NEEDS_OPERATOR_DECISION: "Evidence is sufficient but a human authority choice is required before proceeding."
-FAIL: "Required sources are missing, claims are unsupported, authority is inverted, or high-risk validation/execution is collapsed."
-```
-
 ## Repo-affecting work addendum
 
-For repo-affecting work, require or produce this route contract before execution:
+For repo-affecting work, require or produce a route contract before execution: repository, branch, exact target paths, operation class, allowed actions, forbidden actions, pre-write checks, post-write checks, stop conditions, and commit strategy.
 
-```yaml
-repo_route_contract:
-  repository: ""
-  branch: ""
-  exact_target_paths: []
-  operation_class: "create | update | delete | rename | generated_output | config_change"
-  allowed_actions: []
-  forbidden_actions: []
-  pre_write_checks: []
-  post_write_checks: []
-  stop_conditions: []
-  commit_strategy: "direct_main | short_lived_branch | no_commit | operator_decision"
-```
-
-If the route contract is missing for medium/high-risk repo work, return `NEEDS_OPERATOR_DECISION` or `FAIL` rather than approving execution.
+If this contract is missing for medium/high-risk repo work, return `NEEDS_OPERATOR_DECISION` or `FAIL` rather than approving execution.
 
 ## Completion criteria
 
