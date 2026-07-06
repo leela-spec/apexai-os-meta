@@ -21,6 +21,7 @@ next_precap_handoff_context_contract:
       - active_next_actions_view
       - blocker_digest
       - unresolved_operator_decisions_view
+      - usage_summary_ref_view
       - evidence_refs_for_next_planning
       - handoff_validation_status
     must_not_own:
@@ -65,56 +66,53 @@ source_authority:
     - path: .claude/Claude.md
       status: inspected
       relevant_finding: >
-        The core loop places next_PreCapNextDay after APSU/StatusMerge and
-        requires manual operator trigger and validation. The repo behavior rules
-        forbid auto-triggering skills and unconfirmed state overwrite.
+        The orchestration registry places StatusMerge behind operator gate G5 and
+        forbids auto-triggering skills, cron or scheduler creation, calendar
+        auto-events, and unconfirmed state overwrite.
+    - path: .claude/skills/project-kb-manager/SKILL.md
+      status: inspected
+      relevant_finding: >
+        project-kb-manager owns durable project KB updates and next PreCap context
+        writes when such writes are accepted by the operator.
+    - path: .claude/skills/project-kb-manager/references/project-schema.md
+      status: inspected
+      relevant_finding: >
+        durable project record fields, types, registries, and consumed recap
+        records remain owned by the project KB schema.
+    - path: .claude/skills/project-kb-manager/references/apex-orchestration-state-packet-contract.md
+      status: inspected
+      relevant_finding: >
+        apex_orchestration_state_packet is a compact handoff view that may be
+        referenced, not redefined or overwritten by this package.
+    - path: .claude/skills/ProjectStatus/project-status-overview_SKILL_v3.md
+      status: inspected
+      relevant_finding: >
+        ProjectStatus owns current_project_status_overview and does not own
+        status_merge or next-day planning artifacts.
+    - path: .claude/skills/flow-recap/references/flow-recap-packet-contract.md
+      status: inspected
+      relevant_finding: >
+        FlowRecap candidate deltas are candidate-only and must be reconciled by a
+        downstream merge interface before any durable project state proposal.
     - path: .claude/skills/status-merge/references/status-merge-packet-contract.md
       status: created_in_this_package
       relevant_finding: >
         status_merge_packet owns next_PreCapNextDay_input_context as a compact
         planning seed while keeping durable project writes proposal-gated and
         project-kb-manager-boundary-safe.
-    - path: .claude/skills/PrecapNextDay/Skill_precap-next-day.md
+    - path: apex-meta/kb/claude-code-orchestration-design/wiki/concepts/status-merge-packet.md
       status: inspected
       relevant_finding: >
-        PreCapNextDay produces next_day_plan-centered planning artifacts, treats
-        missing inputs as confidence/review signals, and must not execute work,
-        run FlowRecap, or merge status.
-    - path: .claude/skills/project-kb-manager/SKILL.md
-      status: inspected
-      relevant_finding: >
-        project-kb-manager is the compact durable project KB authority for
-        project status, milestone state, FlowRecap consumption, and
-        PreCapNextDay context.
-    - path: .claude/skills/project-kb-manager/references/apex-orchestration-state-packet-contract.md
-      status: inspected
-      relevant_finding: >
-        apex_orchestration_state_packet provides weekly and next-day planning
-        views but must not become a weekly plan, next-day plan, FlowRecap output,
-        or status merge.
-    - path: .claude/skills/project-kb-manager/templates/apex-orchestration-state-packet-template.md
-      status: inspected
-      relevant_finding: >
-        Operator-facing planning handoffs should use compact cards, source
-        status, missing-input markers, and confidence notes rather than exposing
-        full durable project data.
-    - path: .claude/skills/model-usage-log/references/model-usage-delta-contract.md
-      status: inspected
-      relevant_finding: >
-        Usage artifacts are advisory and non-blocking; exact quota, pricing, or
-        product-limit claims require explicit evidence.
+        StatusMerge produces updated status, conflict notes, and next-context seed
+        after accepted recap deltas are reviewed.
 
   source_gap_register:
-    - path: .claude/skills/model-usage-log/references/usage-summary-contract.md
-      status: missing
-      handling: >
-        Keep usage_summary_ref optional/opaque. Do not define usage_summary
-        schema in this handoff contract.
     - path: .claude/skills/flow-recap/references/project-status-delta-contract.md
       status: missing
-      handling: >
-        Do not infer project_status_delta schema. Carry only evidence-backed
-        accepted/deferred/conflicting delta summaries from status_merge_packet.
+      handling: Use flow_recap_packet candidate_project_status_delta references only; do not define a separate durable delta schema here.
+    - path: .claude/skills/model-usage-log/references/usage-summary-contract.md
+      status: missing
+      handling: Keep usage_summary_ref reference-only until the usage summary contract exists.
 ```
 
 ## Schema: next_PreCapNextDay_input_context
@@ -122,7 +120,6 @@ source_authority:
 ```yaml
 next_PreCapNextDay_input_context:
   type: object
-  role: compact_seed_for_next_daily_planning
   required:
     - context_id
     - created_or_updated_at
@@ -139,7 +136,7 @@ next_PreCapNextDay_input_context:
   fields:
     context_id:
       type: string
-      format: next_PreCapNextDay_input_context_<YYYY_MM_DD>_<short_slug>
+      format: next_precap_context_<YYYY_MM_DD>_<short_slug>
       required: true
 
     created_or_updated_at:
@@ -148,62 +145,62 @@ next_PreCapNextDay_input_context:
       required: true
 
     source_status_merge_packet_ref:
-      type: object_ref
-      ref: status_merge_packet
+      type: string
+      ref: status_merge_packet.merge_packet_id
       required: true
-      note: Reference only. status_merge_packet schema is owned by status-merge.
+      note: The context must be traceable to exactly one status_merge_packet source.
 
     updated_project_focus:
-      type: object_ref
-      ref: updated_project_focus_view
+      type: list
+      item_ref: updated_project_focus_item
+      min_items: 0
+      max_items: 12
       required: true
-      note: Compact planning view only; not current_project_status_overview.
+      note: Compact list of project focus changes proposed by StatusMerge.
 
     active_next_actions:
       type: list
-      item_ref: active_next_action_seed
-      required: true
+      item_ref: active_next_action_item
       min_items: 0
-      max_items: 12
+      max_items: 24
+      required: true
+      note: Candidate next actions for PreCapNextDay input, not a generated next_day_plan.
 
     blockers:
       type: list
-      item_ref: blocker_seed
-      required: true
+      item_ref: blocker_item
       min_items: 0
-      max_items: 12
+      max_items: 16
+      required: true
+      note: Blockers must include source evidence or operator decision requirements when available.
 
     unresolved_operator_decisions:
       type: list
-      item_ref: unresolved_operator_decision_seed
-      required: true
+      item_ref: unresolved_operator_decision
       min_items: 0
-      max_items: 12
+      max_items: 16
+      required: true
+      note: Conflicts and unresolved choices must remain visible to the next planning run.
 
     usage_summary_ref:
-      type: object_ref_or_null
+      type: string_or_null
       ref: usage_summary
       required: true
-      nullable: true
-      note: >
-        Opaque optional reference. usage_summary_schema is not owned here and may
-        be missing until model-usage-log provides a usage-summary contract.
+      note: Reference only. The usage summary schema is not owned by status-merge.
 
     evidence_refs:
       type: list
-      item_type: object_ref
-      required: true
+      item_ref: evidence_ref
       min_items: 0
-      note: Preserve refs used to justify focus, actions, blockers, and decisions.
+      max_items: 32
+      required: true
+      note: Preserve refs to FlowRecap, usage summaries, previous state packets, and operator notes.
 
     confidence:
-      type: string
-      allowed:
-        - high
-        - medium
-        - low
-        - unknown
+      type: object_ref
+      ref: confidence_summary
       required: true
+      note: Confidence summarizes readiness for downstream planning, not factual certainty for durable state writes.
 
     validation_status:
       type: string
@@ -216,162 +213,106 @@ next_PreCapNextDay_input_context:
       required: true
 ```
 
-## Supporting Object Sketches
+## Minimal Supporting Object Sketches
 
 ```yaml
-updated_project_focus_view:
+updated_project_focus_item:
   type: object
   required:
-    - focus_status
+    - focus_id
+    - project_ref
     - focus_summary
-    - project_refs
-    - change_basis
+    - source_refs
+    - status
   fields:
-    focus_status:
-      type: string
+    status:
       allowed:
-        - updated_from_accepted_deltas
-        - unchanged
-        - partial
-        - blocked_by_conflict
-        - unknown
-    focus_summary:
-      type: string
-      required: true
-      note: One compact paragraph or card-ready sentence for PreCapNextDay.
-    project_refs:
-      type: list
-      item_type: object_ref
-      required: true
-    change_basis:
-      type: string
-      allowed:
-        - accepted_delta_candidates
-        - operator_review
-        - previous_state_only
-        - conflict_review_only
-        - insufficient_evidence
+        - proposed_new_focus
+        - continued_focus
+        - reduced_focus
+        - paused_focus
+        - conflict_review_needed
 
-active_next_action_seed:
+active_next_action_item:
   type: object
   required:
     - action_id
+    - project_ref
     - action_summary
+    - action_status
     - source_refs
-    - suggested_owner
-    - planning_relevance
-    - readiness
   fields:
-    suggested_owner:
-      type: string
+    action_status:
       allowed:
-        - operator
-        - PreCapNextDay
-        - project-kb-manager
-        - ProjectStatus
-        - status-merge
-        - unknown
-    planning_relevance:
-      type: string
-      allowed:
-        - candidate_for_next_flow
-        - supporting_context
-        - followup_after_operator_decision
-        - blocked
-    readiness:
-      type: string
-      allowed:
-        - ready
-        - needs_operator_decision
-        - needs_evidence
-        - blocked
+        - ready_for_precap_consideration
+        - blocked_by_operator_decision
+        - blocked_by_missing_evidence
         - deferred
+        - conflict_review_needed
 
-blocker_seed:
+blocker_item:
   type: object
   required:
     - blocker_id
     - blocker_summary
-    - affected_refs
-    - severity
-    - proposed_unblock_path
+    - affected_project_refs
+    - source_refs
+    - resolution_needed
   fields:
-    severity:
-      type: string
+    resolution_needed:
       allowed:
-        - high
-        - medium
-        - low
-        - unknown
+        - operator_decision
+        - project_kb_manager_update
+        - missing_evidence
+        - conflict_resolution
+        - no_action_required
 
-unresolved_operator_decision_seed:
+unresolved_operator_decision:
   type: object
   required:
     - decision_id
     - decision_summary
     - options
-    - needed_before
-    - evidence_refs
+    - source_refs
+    - impact_if_unresolved
   fields:
-    needed_before:
-      type: string
+    impact_if_unresolved:
       allowed:
-        - next_PreCapNextDay
-        - project_kb_manager_write
-        - ProjectStatus_refresh
-        - future_weekly_plan
-        - not_blocking
+        - blocks_next_precap
+        - limits_next_precap_confidence
+        - blocks_project_kb_write
+        - informational_only
+
+confidence_summary:
+  type: object
+  required:
+    - level
+    - rationale
+    - limiting_factors
+  fields:
+    level:
+      allowed:
+        - high
+        - medium
+        - low
+        - blocked
 ```
 
-## Validation Rules
+## Boundary Validation
 
 ```yaml
-next_precap_handoff_context_validation_rules:
-  required_checks:
-    context_id_matches_format: true
-    source_status_merge_packet_ref_present: true
-    updated_project_focus_present: true
-    active_next_actions_list_present: true
-    blockers_list_present: true
-    unresolved_operator_decisions_list_present: true
-    usage_summary_ref_present_or_null_with_gap_flag: true
-    evidence_refs_present: true
-    confidence_allowed_value: true
-    validation_status_allowed_value: true
-
-  boundary_checks:
-    does_not_create_next_day_plan: true
-    does_not_define_flow_packet_or_prompt_pack: true
-    does_not_mutate_project_kb: true
-    does_not_redefine_current_project_status_overview: true
-    does_not_create_calendar_write: true
-    does_not_auto_trigger_PreCapNextDay: true
-    unresolved_conflicts_are_operator_review_flags: true
-
-  warning_conditions:
-    - confidence_low_or_unknown
-    - evidence_refs_empty
-    - usage_summary_ref_null
-    - active_next_actions_empty
-    - unresolved_operator_decisions_nonempty
-    - source_status_merge_packet_validation_not_valid
-
-  blocking_conditions:
-    - source_status_merge_packet_ref_missing
-    - updated_project_focus_blocked_by_conflict
-    - missing_state_owner_required_for_next_planning
-    - context_attempts_to_create_next_day_plan
-    - context_attempts_to_write_project_kb_directly
-```
-
-## Non-Goals
-
-```yaml
-non_goals:
-  - Do not create a next_day_plan.
-  - Do not create flow_packet or flow_prompt_pack artifacts.
-  - Do not mutate project KB records or consumed recap registries.
-  - Do not redefine usage_summary, model_usage_delta, or project_status_delta schemas.
-  - Do not create calendar_event_write_request or calendar events.
-  - Do not auto-trigger PreCapNextDay, PreCapWeek, FlowRecap, project-kb-manager, or runtime execution.
+boundary_validation:
+  compact_seed_only: true
+  next_day_plan_not_created: true
+  PreCapNextDay_schema_not_defined: true
+  project_kb_manager_boundary_preserved: true
+  durable_project_state_not_written: true
+  ProjectStatus_schema_not_redefined: true
+  flow_recap_schema_not_redefined: true
+  usage_summary_schema_not_redefined: true
+  unresolved_conflicts_preserved: true
+  no_runtime_created: true
+  no_scheduler_created: true
+  no_agent_created: true
+  no_calendar_write_created: true
 ```
