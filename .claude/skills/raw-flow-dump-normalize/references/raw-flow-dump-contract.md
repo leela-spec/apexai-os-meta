@@ -2,14 +2,65 @@
 
 ```yaml
 raw_flow_dump_contract:
-  artifact_name: normalized_raw_flow_dump
+  artifact_name: raw_flow_dump_contract
   file_role: raw_flow_dump_normalize_reference_contract
-  package: raw-flow-dump-normalize
+  package_name: raw-flow-dump-normalize
+  package_path: ".claude/skills/raw-flow-dump-normalize/"
   purpose: >
-    Define the minimal interface for normalizing messy operator execution
-    evidence into one reviewable raw-flow dump artifact per planned flow. This
-    file prepares FlowRecap input without running FlowRecap, creating project
-    status deltas, logging model usage deltas, or mutating project state.
+    Define the minimal interface contract for normalizing messy operator
+    execution evidence into one normalized_raw_flow_dump artifact per flow.
+    This contract prepares FlowRecap input clarity without running FlowRecap,
+    merging status, logging model usage deltas, executing project work, or
+    overwriting project state.
+
+  source_authority:
+    inspected_sources:
+      - path: ".claude/Claude.md"
+        status: inspected
+        role: repo_level_loop_and_missing_skill_index
+      - path: ".claude/skills/PrecapNextDay/Skill_precap-next-day.md"
+        status: inspected
+        role: upstream_planning_boundary_and_raw_capture_preparation
+      - path: ".claude/skills/PrecapNextDay/precap-next-day-package-manifest.md"
+        status: inspected
+        role: upstream_package_boundary_and_path_policy
+      - path: ".claude/skills/PrecapNextDay/references/flow-packet-contract.md"
+        status: inspected
+        role: flow_packet_raw_capture_and_skipped_flow_preparation
+      - path: ".claude/skills/PrecapNextDay/references/flow-prompt-pack-contract.md"
+        status: inspected
+        role: prompt_pack_capture_hints_and_FlowRecap_preparation_boundary
+      - path: ".claude/skills/PrecapNextDay/references/daily-plan-output-contract.md"
+        status: inspected
+        role: next_day_plan_boundary_and_generated_file_context
+      - path: ".claude/skills/PrecapNextDay/references/input-intake-and-resilience-contract.md"
+        status: inspected
+        role: partial_input_and_uncertainty_handling_pattern
+      - path: ".claude/skills/PrecapNextDay/references/usage-tracking-dependency-contract.md"
+        status: inspected
+        role: model_usage_notes_boundary_without_usage_delta_ownership
+      - path: ".claude/skills/PrecapNextDay/references/prompt-engineering-dependency-contract.md"
+        status: inspected
+        role: prompt_packet_boundary_reference
+      - path: ".claude/skills/PrecapNextDay/references/calendar-event-write-contract.md"
+        status: inspected
+        role: no_calendar_mutation_boundary
+      - path: ".claude/skills/PrecapNextDay/references/workflow-process-validation-contract.md"
+        status: inspected
+        role: no_workflow_taxonomy_redefinition_boundary
+      - path: ".claude/skills/PrecapNextDay/references/validation-checklist.md"
+        status: inspected
+        role: validation_status_pattern_and_boundary_checks
+
+    source_gap_register:
+      - source_name: Claude skill best-practice guide in repo root
+        attempted_path: "Claude_Skill_Package_BestPractice_Handover.md"
+        status: missing_in_repo_at_tested_path
+        handling: "Do not guess a repo path; use available project guidance only as structural background."
+      - source_name: Claude prompt-flow design guidance in repo root
+        attempted_path: "Claude_Skill_PromptFlow_Design_Guidance_v1.md"
+        status: missing_in_repo_at_tested_path
+        handling: "Do not guess a repo path; use available project guidance only as structural background."
 
   ownership:
     owns:
@@ -19,6 +70,8 @@ raw_flow_dump_contract:
       - source_reference_capture_rules
       - completion_state_normalization
       - confidence_and_gap_flags
+      - raw_flow_dump_validation_rules
+      - downstream_FlowRecap_input_readiness_rules
     must_not_own:
       - next_day_plan_schema
       - flow_packet_schema
@@ -32,42 +85,30 @@ raw_flow_dump_contract:
       - project_kb_schema
       - calendar_write_schema
       - runtime_execution
-
-  source_authority:
-    inspected_sources:
-      - .claude/Claude.md
-      - .claude/skills/PrecapNextDay/Skill_precap-next-day.md
-      - .claude/skills/PrecapNextDay/precap-next-day-package-manifest.md
-      - .claude/skills/PrecapNextDay/references/flow-packet-contract.md
-      - .claude/skills/PrecapNextDay/references/flow-prompt-pack-contract.md
-      - .claude/skills/PrecapNextDay/references/daily-plan-output-contract.md
-      - .claude/skills/PrecapNextDay/references/input-intake-and-resilience-contract.md
-      - .claude/skills/PrecapNextDay/references/usage-tracking-dependency-contract.md
-      - Claude_Skill_Package_BestPractice_Handover.md
-      - Claude_Skill_PromptFlow_Design_Guidance_v1.md
-    source_gap_register: []
+      - scheduler_behavior
+      - automatic_state_overwrite
 
   downstream_consumers:
     primary:
       - FlowRecap
     secondary:
-      - model-usage-log
-      - status-merge
-      - next_PreCapNextDay
+      - operator_review
+      - future_status_merge_after_FlowRecap
+      - future_model_usage_log_after_execution_review
 
   global_rules:
     one_normalized_raw_flow_dump_per_flow: true
-    source_flow_packet_ref_required: true
-    raw_evidence_must_be_separated_from_interpretation: true
-    missing_details_must_be_preserved_as_gaps: true
-    decisions_must_be_captured_without_expanding_scope: true
-    model_usage_notes_are_notes_only_not_usage_delta: true
+    raw_evidence_must_be_separated_from_normalized_interpretation: true
+    uncertainty_must_be_preserved_not_fabricated: true
+    source_refs_must_be_captured_when_available: true
+    missing_sources_become_gap_flags: true
     completion_state_must_be_explicit: true
-    skipped_flows_should_use_skipped_flow_marker: true
+    skipped_flows_should_use_skipped_flow_marker_when_no_execution_evidence_exists: true
+    model_usage_notes_are_notes_only_not_usage_delta: true
     FlowRecap_not_run: true
-    project_status_not_merged: true
-    calendar_events_not_created: true
+    status_merge_not_run: true
     project_work_not_executed: true
+    calendar_events_not_created: true
 ```
 
 ## Schema: normalized_raw_flow_dump
@@ -95,7 +136,7 @@ normalized_raw_flow_dump:
   fields:
     dump_id:
       type: string
-      format: "raw_flow_dump_<YYYY_MM_DD>_<flow_id>_<short_slug>"
+      format: "raw_flow_dump_<execution_day>_<flow_id>_<short_slug>"
       required: true
 
     artifact_name:
@@ -111,31 +152,45 @@ normalized_raw_flow_dump:
     flow_id:
       type: string
       required: true
-      note: "Use the source flow_packet flow_id when available. Do not invent a canonical flow identity when the source is ambiguous."
+      note: "Use the flow_id from the source flow_packet when available."
 
     source_flow_packet_ref:
       type: object
       required: true
       fields:
-        packet_id:
+        flow_packet_id:
           type: string
           required: false
-        packet_path_or_label:
+        flow_packet_path_or_label:
           type: string
           required: false
         source_status:
           type: string
           allowed:
-            - supplied
-            - inferred_from_operator_note
+            - available
+            - partially_available
             - missing
-            - ambiguous
+            - unknown
           required: true
 
     flow_prompt_pack_ref:
       type: object
       required: false
-      note: "Optional reference only. Do not redefine flow_prompt_pack or prompt_packet schemas."
+      fields:
+        flow_prompt_pack_id:
+          type: string
+          required: false
+        flow_prompt_pack_path_or_label:
+          type: string
+          required: false
+        source_status:
+          type: string
+          allowed:
+            - available
+            - partially_available
+            - missing
+            - unknown
+          required: true
 
     completion_state:
       type: string
@@ -151,57 +206,85 @@ normalized_raw_flow_dump:
     evidence_sources:
       type: list
       item_ref: evidence_source
-      min_items: 1
+      min_items: 0
       required: true
+      item_fields:
+        - source_type
+        - source_ref_or_paste_label
+        - reliability
 
     operator_summary:
       type: object
       required: true
       fields:
-        raw_summary:
+        raw_operator_statement:
           type: string
-          required: true
-          note: "Preserve operator language where useful."
+          required: false
+          nullable: true
         normalized_summary:
           type: string
           required: true
-          note: "Summarize what happened without adding unsupported facts."
-        uncertainty_notes:
+        interpretation_notes:
+          type: list
+          item_type: string
+          required: false
+        uncertainty_flags:
           type: list
           item_type: string
           required: false
 
     produced_outputs:
       type: list
-      item_ref: produced_output
+      item_ref: produced_output_ref
+      min_items: 0
       required: true
+      note: "Use empty list when no output was produced; do not invent artifacts."
 
     decisions_made:
       type: list
       item_ref: decision_made
+      min_items: 0
       required: true
+      note: "Capture explicit decisions only; inferred decisions require low confidence flag."
 
     blockers_or_failures:
       type: list
       item_ref: blocker_or_failure
+      min_items: 0
       required: true
 
     open_questions:
       type: list
       item_ref: open_question
+      min_items: 0
       required: true
 
     model_usage_notes:
-      type: list
-      item_ref: model_usage_note
+      type: object
       required: true
-      note: "Capture surfaces, models, prompts, or quota observations only when known. Do not create model_usage_delta."
+      note: "Notes only; this package must not create model_usage_delta."
+      fields:
+        usage_observed:
+          type: string
+          allowed:
+            - supplied
+            - partially_supplied
+            - not_supplied
+            - unknown
+          required: true
+        notes:
+          type: list
+          item_type: string
+          required: true
+        suggested_usage_log_followup:
+          type: boolean
+          required: false
 
     normalization_confidence:
       type: object
       required: true
       fields:
-        confidence_level:
+        overall:
           type: string
           allowed:
             - high
@@ -209,14 +292,17 @@ normalized_raw_flow_dump:
             - low
             - unknown
           required: true
-        confidence_reasons:
+        reasons:
           type: list
           item_type: string
           required: true
-        missing_minimum_evidence:
+        gap_flags:
           type: list
           item_type: string
-          required: false
+          required: true
+        operator_review_recommended:
+          type: boolean
+          required: true
 
     validation_status:
       type: string
@@ -229,7 +315,7 @@ normalized_raw_flow_dump:
       required: true
 ```
 
-## Schema: evidence_source
+## Supporting Object Sketches
 
 ```yaml
 evidence_source:
@@ -242,46 +328,40 @@ evidence_source:
     source_type:
       type: string
       allowed:
-        - pasted_chat_history
-        - uploaded_markdown
-        - artifact_path
-        - git_diff_or_commit_ref
-        - prompt_output
         - operator_note
-        - decision_note
-        - blocker_note
-        - model_usage_note
+        - chat_history
+        - prompt_output
+        - artifact_path
+        - repo_file
+        - screenshot_description
+        - calendar_context
+        - usage_note
+        - other
         - unknown
       required: true
-
     source_ref_or_paste_label:
       type: string
       required: true
-      note: "Use a path, chat label, artifact label, commit ref, or operator-provided source label."
-
     reliability:
       type: string
       allowed:
         - high
         - medium
         - low
+        - unverified
         - unknown
       required: true
-
-    extraction_notes:
+    source_excerpt_or_summary:
       type: string
       required: false
-```
+      nullable: true
 
-## Schema: produced_output
-
-```yaml
-produced_output:
+produced_output_ref:
   type: object
   required:
     - output_label
     - output_type
-    - output_ref_or_status
+    - output_ref_or_location
     - confidence
   fields:
     output_label:
@@ -290,17 +370,45 @@ produced_output:
     output_type:
       type: string
       allowed:
-        - file_created
-        - file_updated
-        - draft_text
-        - analysis
-        - prompt
+        - repo_file
+        - markdown_artifact
+        - prompt_text
         - decision_log
-        - repo_change
+        - research_note
+        - template
+        - example
         - no_output
+        - other
         - unknown
       required: true
-    output_ref_or_status:
+    output_ref_or_location:
+      type: string
+      required: false
+      nullable: true
+    confidence:
+      type: string
+      allowed:
+        - high
+        - medium
+        - low
+        - unknown
+      required: true
+
+decision_made:
+  type: object
+  required:
+    - decision_label
+    - decision_summary
+    - decision_source
+    - confidence
+  fields:
+    decision_label:
+      type: string
+      required: true
+    decision_summary:
+      type: string
+      required: true
+    decision_source:
       type: string
       required: true
     confidence:
@@ -311,76 +419,41 @@ produced_output:
         - low
         - unknown
       required: true
-```
 
-## Schema: decision_made
-
-```yaml
-decision_made:
-  type: object
-  required:
-    - decision_label
-    - decision_summary
-    - evidence_ref
-    - review_needed
-  fields:
-    decision_label:
-      type: string
-      required: true
-    decision_summary:
-      type: string
-      required: true
-    evidence_ref:
-      type: string
-      required: false
-    review_needed:
-      type: boolean
-      required: true
-```
-
-## Schema: blocker_or_failure
-
-```yaml
 blocker_or_failure:
   type: object
   required:
     - blocker_label
-    - blocker_type
-    - impact_on_flow
-    - recommended_handling
+    - blocker_summary
+    - impact
+    - recommended_next_handling
   fields:
     blocker_label:
       type: string
       required: true
-    blocker_type:
+    blocker_summary:
+      type: string
+      required: true
+    impact:
       type: string
       allowed:
-        - missing_input
-        - tool_failure
-        - repo_access_issue
-        - ambiguity
-        - operator_capacity
-        - dependency_missing
-        - validation_failure
+        - none
+        - low
+        - medium
+        - high
+        - blocking
         - unknown
       required: true
-    impact_on_flow:
+    recommended_next_handling:
       type: string
       required: true
-    recommended_handling:
-      type: string
-      required: true
-```
 
-## Schema: open_question
-
-```yaml
 open_question:
   type: object
   required:
     - question
     - why_it_matters
-    - suggested_owner
+    - recommended_owner
   fields:
     question:
       type: string
@@ -388,108 +461,56 @@ open_question:
     why_it_matters:
       type: string
       required: true
-    suggested_owner:
+    recommended_owner:
       type: string
       allowed:
         - operator
-        - future_FlowRecap
-        - future_PreCapNextDay
-        - project_status_owner
+        - next_PreCapNextDay
+        - FlowRecap
+        - model_usage_log
+        - status_merge
+        - project_kb_manager
         - unknown
       required: true
-```
-
-## Schema: model_usage_note
-
-```yaml
-model_usage_note:
-  type: object
-  required:
-    - usage_note
-    - usage_source
-    - usage_confidence
-  fields:
-    usage_note:
-      type: string
-      required: true
-    usage_source:
-      type: string
-      required: false
-    usage_confidence:
-      type: string
-      allowed:
-        - high
-        - medium
-        - low
-        - unknown
-      required: true
-    creates_model_usage_delta:
-      type: boolean
-      const: false
-      required: true
-```
-
-## Boundary Rules
-
-```yaml
-boundary_rules:
-  normalized_raw_flow_dump_may_include:
-    - what_happened_during_the_flow
-    - raw_or_normalized_operator_summary
-    - source_references
-    - output_references
-    - decisions_made
-    - blockers_or_failures
-    - open_questions
-    - model_usage_notes_without_delta_schema
-    - confidence_and_review_flags
-
-  normalized_raw_flow_dump_must_not_include:
-    - Do not include next_day_plan schema.
-    - Do not include flow_packet schema.
-    - Do not include flow_prompt_pack schema.
-    - Do not include prompt_packet schema.
-    - Do not include FlowRecap output or flow_recap_packet schema.
-    - Do not include project_status_delta or status_merge output.
-    - Do not include model_usage_delta schema.
-    - Do not claim execution, calendar writes, state merge, or FlowRecap completion.
 ```
 
 ## Validation Rules
 
 ```yaml
 raw_flow_dump_validation_rules:
-  valid:
-    requires:
-      - required_fields_present
-      - at_least_one_evidence_source
-      - completion_state_explicit
-      - source_flow_packet_ref_status_clear
-      - uncertainty_preserved
-      - no_forbidden_output_created
+  minimum_valid_evidence:
+    requires_at_least_one_of:
+      - operator_summary.normalized_summary
+      - produced_outputs
+      - blockers_or_failures
+      - open_questions
+      - completion_state
 
-  valid_with_warnings:
-    use_when:
-      - source_flow_packet_ref_is_inferred
-      - evidence_is_partial_but_usable
-      - some_outputs_or_decisions_need_operator_review
+  completion_state_rules:
+    skipped:
+      rule: "If completion_state is skipped and no execution evidence exists, create or reference skipped_flow_marker instead of forcing a normalized_raw_flow_dump."
+    unknown:
+      rule: "Use only when evidence is too thin to classify; set validation_status to operator_review_recommended or low_confidence."
+    completed_or_partially_completed:
+      rule: "Require at least one evidence source, produced output, decision, blocker, or explicit operator summary."
 
-  operator_review_recommended:
-    use_when:
-      - completion_state_is_unknown_or_ambiguous
-      - evidence_sources_have_low_reliability
-      - important_decisions_or_outputs_are_inferred
+  boundary_checks:
+    - Do not create flow_recap_packet.
+    - Do not create project_status_delta.
+    - Do not create model_usage_delta.
+    - Do not merge project status.
+    - Do not execute project work.
+    - Do not create or update calendar events.
+    - Do not overwrite source flow_packet or flow_prompt_pack artifacts.
 
-  low_confidence:
-    use_when:
-      - raw_evidence_is_thin
-      - multiple_required_details_are_unknown
-      - normalization_depends_on_operator_memory
-
-  blocked_by_missing_minimum_evidence:
-    use_when:
-      - execution_day_missing
-      - flow_id_and_source_flow_packet_ref_both_missing
-      - no_evidence_sources_available
-      - no_operator_summary_available
+  downstream_FlowRecap_readiness:
+    ready_when:
+      - source_flow_packet_ref.source_status is available or partially_available
+      - completion_state is not unknown
+      - evidence_sources or operator_summary contains usable evidence
+      - normalization_confidence.operator_review_recommended is false or review flags are explicit
+    not_ready_when:
+      - validation_status is blocked_by_missing_minimum_evidence
+      - completion_state is unknown with no evidence source
+      - source_flow_packet_ref.source_status is missing and flow_id cannot be verified
 ```
