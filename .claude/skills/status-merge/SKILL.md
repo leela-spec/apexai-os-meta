@@ -9,7 +9,7 @@ description: Use this skill when you need to review validated FlowRecap-derived 
 
 Use `status-merge` as the APEX loop interface for turning validated recap-derived candidates into an operator-reviewable merge proposal.
 
-This skill does **not** write durable project state. It does **not** replace `project-kb-manager`, `ProjectStatus`, `flow-recap`, `model-usage-log`, `PreCapNextDay`, `PreCapWeek`, `apex-plan`, `apex-sync`, or `apex-session`.
+This skill does **not** write durable project state. It does **not** replace `project-kb-manager`, `ProjectStatus`, `flow-recap`, `model-usage-log`, `PreCapNextDay`, `PreCapWeek`, `apex-plan`, `apex-sync`, `apex-session`, or `apex-kb`.
 
 ## Use When
 
@@ -25,7 +25,7 @@ This skill does **not** write durable project state. It does **not** replace `pr
 - The user asks to generate or validate a FlowRecap packet. Use `flow-recap`.
 - The user asks to mutate durable project KB records directly. Use `project-kb-manager` after operator confirmation.
 - The user asks for current project status overview generation. Use `ProjectStatus`.
-- The task requires runtime execution, scheduler behavior, cron, agents, auto-triggering, or autonomous overwrite.
+- The task requires runtime execution, scheduler behavior, cron, agents, auto-triggering, calendar writes, or autonomous overwrite.
 
 ## Inputs
 
@@ -164,7 +164,7 @@ supporting_files:
       - needing_minimal_APEX_example
       - checking_one_accepted_delta_one_conflict_pattern
       - confirming_no_project_kb_mutation_pattern
-      - showing_valid_with_warnings_packet_shape
+      - showing_operator_review_recommended_packet_shape
 
   - path: .claude/skills/status-merge/package-manifest.md
     read_when:
@@ -202,6 +202,8 @@ completion_gate:
   no_automatic_status_overwrite_created: true
   next_PreCapNextDay_input_context_is_clear: true
   no_runtime_execution_created: true
+  no_scheduler_created: true
+  no_agent_created: true
   no_calendar_write_created: true
   no_next_day_plan_created: true
 ```
