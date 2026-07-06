@@ -5,13 +5,16 @@ package_manifest:
   package_name: status-merge
   package_path: .claude/skills/status-merge/
   package_role: minimal_interface_package
-  lifecycle_status: interface_package_in_progress
+  lifecycle_status: interface_package_ready_for_skill_entrypoint
   created_for: APEX orchestration loop
   artifact_family:
     - status_merge_packet
     - merge_proposal
+    - accepted_delta_register_view
     - conflict_notes
+    - consumed_recap_candidate_list
     - next_PreCapNextDay_input_context
+    - operator_conflict_review_gate
 
   intent: >
     Provide the minimal interface package for reviewing validated recap-derived
@@ -22,7 +25,7 @@ package_manifest:
     This package does not implement runtime automation, scheduler behavior,
     autonomous state overwrite, direct project KB mutation, or replacement of
     project-kb-manager, ProjectStatus, FlowRecap, PreCapNextDay, PreCapWeek,
-    model-usage-log, apex-plan, apex-sync, or apex-session.
+    model-usage-log, apex-plan, apex-sync, apex-session, or apex-kb.
 ```
 
 ## File Inventory
@@ -32,7 +35,7 @@ files:
   - path: .claude/skills/status-merge/references/status-merge-packet-contract.md
     role: primary_packet_contract
     status: created
-    commit: 3eaa1da9d6c49a8b6dc966fa43899f1d9f70c5c4
+    commit: 9dc21016090e46b3f797a617956c8caf7825a3c7
     loaded_by_default: false
     read_when:
       - defining_status_merge_packet_schema
@@ -43,7 +46,7 @@ files:
   - path: .claude/skills/status-merge/references/next-precaphandoff-context-contract.md
     role: downstream_context_contract
     status: created
-    commit: c1f8edbea08ae0cd2e345f36751e2d3b9550a969
+    commit: 772d4d56243ebc95c2f10aba3e722c6e19b0e0e3
     loaded_by_default: false
     read_when:
       - defining_next_PreCapNextDay_input_context
@@ -54,7 +57,7 @@ files:
   - path: .claude/skills/status-merge/templates/status-merge-packet-template.md
     role: operator_facing_template
     status: created
-    commit: e3bf1e892e4b211cbb8fad022a83c6a83386c67c
+    commit: bb795f81bb30049668104839144fb550ee5cbcc0
     loaded_by_default: false
     read_when:
       - producing_operator_review_packet
@@ -65,7 +68,7 @@ files:
   - path: .claude/skills/status-merge/examples/apex-minimal-status-merge-example.md
     role: minimal_apex_example
     status: created
-    commit: fdad73f34183c4ce43a970bb1592aa78a9efa0fe
+    commit: 90f3b1f8c056f4b1af248c46d210443d0e8470e3
     loaded_by_default: false
     read_when:
       - checking_minimal_valid_example
@@ -75,7 +78,7 @@ files:
 
   - path: .claude/skills/status-merge/package-manifest.md
     role: package_inventory_and_boundary_manifest
-    status: created
+    status: created_in_current_step
     commit: pending_current_commit
     loaded_by_default: false
     read_when:
@@ -119,63 +122,58 @@ source_authority_register:
     - path: .claude/skills/project-kb-manager/references/project-schema.md
       status: inspected
       relevance:
-        - owns_project_kb_schema_fields_and_allowed_values
-        - provides_base_record_milestone_progress_registry_and_consumed_recap_shapes
+        - owns_durable_project_record_schema
+        - owns_project_registry_and_consumed_recap_record_shapes
+        - forbids_schema_drift_outside_project_schema
 
     - path: .claude/skills/project-kb-manager/references/apex-orchestration-state-packet-contract.md
       status: inspected
       relevance:
-        - defines_compact_state_handoff_role
-        - preserves_existing_package_ownership_boundaries
-        - excludes_status_merge_runtime_and_next_day_plan_creation
+        - defines_compact_state_handoff_to_PreCapWeek_and_PreCapNextDay
+        - preserves_upstream_owner_boundaries
+        - prevents_redefinition_of_upstream_schemas
 
     - path: .claude/skills/project-kb-manager/templates/apex-orchestration-state-packet-template.md
       status: inspected
       relevance:
-        - demonstrates_operator_first_review_cards
-        - demonstrates_compact_weekly_and_next_day_planning_views
+        - models_operator_review_first_state_handoff_style
+        - uses_refs_short_digests_confidence_notes_and_review_flags
+        - avoids_full_database_exposure
 
     - path: .claude/skills/ProjectStatus/project-status-overview_SKILL_v3.md
       status: inspected
       relevance:
-        - owns_current_project_status_overview_output
-        - explicitly_excludes_status_merge_and_next_day_plans
+        - owns_current_project_status_overview
+        - explicitly_does_not_create_status_merges
+        - separates_status_overview_from_daily_weekly_planning
 
     - path: .claude/skills/flow-recap/references/flow-recap-packet-contract.md
       status: inspected
       relevance:
-        - defines_flow_recap_outputs_as_candidate_only
-        - forbids_project_kb_mutation_and_status_merge_execution
-        - separates_candidate_deltas_from_accepted_state
-
-    - path: .claude/skills/model-usage-log/references/model-usage-delta-contract.md
-      status: inspected
-      relevance:
-        - defines_model_usage_delta_as_advisory_non_blocking
-        - prevents_status_merge_from_owning_usage_metering_or_runtime_claims
+        - defines_flow_recap_packet_as_candidate_delta_source
+        - states_project_status_and_usage_deltas_are_candidate_only
+        - routes_status_merge_as_downstream_consumer
 
     - path: apex-meta/kb/claude-code-orchestration-design/wiki/concepts/status-merge-packet.md
       status: inspected
       relevance:
-        - gives_status_merge_concept
-        - says_conflicts_are_exposed_before_acceptance
-        - says_no_status_merge_runtime_is_implemented
+        - describes_status_merge_as_validated_recap_delta_reconciliation
+        - requires_conflicts_to_be_exposed_before_acceptance
+        - defines_next_context_seed_without_runtime_implementation
 
     - path: apex-meta/kb/claude-code-orchestration-design/raw/source-groups/claude-skill-design/sources/operator-supplied/notes/Claude_Skill_Package_BestPractice_Handover.md
       status: inspected
       relevance:
         - defines_skill_package_anatomy
-        - allows_references_templates_examples_and_manifest
-        - forbids_runtime_scheduler_test_files_for_interface_packages
-        - restricts_SKILL_md_frontmatter
+        - forbids_runtime_scheduler_task_board_and_calendar_integration_files
+        - constrains_SKILL_md_frontmatter_and_section_order
 
     - path: apex-meta/kb/claude-code-orchestration-design/raw/source-groups/claude-skill-design/sources/operator-supplied/notes/Claude_Skill_PromptFlow_Design_Guidance_v1.md
       status: inspected
       relevance:
-        - requires_Use_this_skill_when_description_start
-        - recommends_5_to_8_step_procedures
-        - keeps_failure_modes_compact
-        - warns_against_yaml_indentation_collapse
+        - requires_description_to_start_with_use_this_skill_when
+        - recommends_5_to_8_procedure_steps
+        - requires_supporting_files_yaml_and_boolean_completion_gate
 ```
 
 ## Source Gap Register
@@ -186,22 +184,23 @@ source_gap_register:
     status: missing
     impact: medium
     handling: >
-      Do not infer or redefine project_status_delta schema. StatusMerge may carry
-      recap-derived delta summaries only as candidates, references, conflict
-      notes, or proposal views until the owning contract exists.
+      StatusMerge uses candidate_project_status_delta references from
+      flow_recap_packet only. It does not define a separate durable project status
+      delta schema.
 
   - path: .claude/skills/model-usage-log/references/usage-summary-contract.md
     status: missing
     impact: medium
     handling: >
-      Keep usage_summary_ref opaque and nullable where needed. Do not define the
-      usage_summary schema in status-merge.
+      StatusMerge keeps usage summaries as opaque source_usage_summary_refs and
+      usage_summary_ref fields. It does not define or validate usage_summary
+      internals.
 ```
 
-## Ownership Boundary
+## Boundary Register
 
 ```yaml
-ownership_boundary:
+boundary_register:
   owns:
     - status_merge_packet
     - merge_proposal
@@ -224,12 +223,56 @@ ownership_boundary:
     - calendar_write_schema
     - runtime_execution
     - automatic_status_overwrite
+
+  enforced_rules:
+    interface_only: true
+    no_runtime: true
+    no_scheduler: true
+    no_agent: true
+    no_calendar_write: true
+    no_direct_project_kb_mutation: true
+    no_automatic_status_overwrite: true
+    durable_writes_operator_gated: true
+    durable_writes_project_kb_manager_bound: true
+    conflicts_surface_before_acceptance: true
+    state_changes_proposal_only_until_confirmed: true
 ```
 
-## Package Validation Status
+## Artifact Coverage
 
 ```yaml
-package_validation_status:
+artifact_coverage:
+  status_merge_packet:
+    contract: .claude/skills/status-merge/references/status-merge-packet-contract.md
+    template: .claude/skills/status-merge/templates/status-merge-packet-template.md
+    example: .claude/skills/status-merge/examples/apex-minimal-status-merge-example.md
+    status: covered
+
+  next_PreCapNextDay_input_context:
+    contract: .claude/skills/status-merge/references/next-precaphandoff-context-contract.md
+    template_section: .claude/skills/status-merge/templates/status-merge-packet-template.md#11-next-precapnextday-input-context
+    example_section: .claude/skills/status-merge/examples/apex-minimal-status-merge-example.md#9-next-precapnextday-input-context
+    status: covered
+
+  operator_conflict_review_gate:
+    contract_section: .claude/skills/status-merge/references/status-merge-packet-contract.md#boundary-validation
+    template_sections:
+      - .claude/skills/status-merge/templates/status-merge-packet-template.md#2-operator-review-first
+      - .claude/skills/status-merge/templates/status-merge-packet-template.md#3-prominent-conflict-notes
+    example_section: .claude/skills/status-merge/examples/apex-minimal-status-merge-example.md#4-prominent-conflict--deferred-note
+    status: covered
+
+  project_kb_manager_write_boundary:
+    contract: .claude/skills/status-merge/references/status-merge-packet-contract.md
+    template: .claude/skills/status-merge/templates/status-merge-packet-template.md
+    example: .claude/skills/status-merge/examples/apex-minimal-status-merge-example.md
+    status: covered
+```
+
+## Completion Gate Snapshot
+
+```yaml
+completion_gate_snapshot:
   source_files_inspected_or_gaps_recorded: true
   package_path_created: true
   status_merge_packet_contract_created: true
@@ -242,34 +285,4 @@ package_validation_status:
   conflicts_are_surfaced_before_acceptance: true
   no_automatic_status_overwrite_created: true
   next_PreCapNextDay_input_context_is_clear: true
-
-  overall_status: incomplete_until_SKILL_md_created
-```
-
-## Non-Runtime Assurance
-
-```yaml
-non_runtime_assurance:
-  no_scripts_created: true
-  no_tests_created: true
-  no_scheduler_created: true
-  no_cron_created: true
-  no_agent_runtime_created: true
-  no_calendar_write_created: true
-  no_project_kb_write_created: true
-  no_status_overwrite_created: true
-  no_external_api_integration_created: true
-```
-
-## Finalization Dependency
-
-```yaml
-finalization_dependency:
-  remaining_file:
-    path: .claude/skills/status-merge/SKILL.md
-    requirement: >
-      Create the skill entrypoint with only allowed frontmatter fields `name`
-      and `description`, with description beginning exactly with
-      `Use this skill when`, a 5-8 step procedure, compact failure modes, and a
-      boolean completion gate.
 ```
