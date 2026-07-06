@@ -1,126 +1,100 @@
-# Batch 03 — Handoffs, Validation, and Risk
+---
+title: "Rerun Batch 03 — Handoffs, Validation, and Risk"
+page_type: ingest_analysis
+kb_slug: old-apex-full-orchestration-agent-kb
+phase: ingest_phase_1_rerun
+status: operator_gate_already_approved_for_rerun
+created_at: "2026-07-06T22:45:00+02:00"
+updated_at: "2026-07-06T22:45:00+02:00"
+confidence: high
+claim_label: source_grounded_analysis
+phase_2_allowed: true
+phase_2_approval_phrase: "approve ingest"
+---
+
+# Rerun Batch 03 — Handoffs, Validation, and Risk
 
 ## source_scope
 
-This batch analyzes how the old system controls handoffs, validation, risk, contradiction, source authority, failure loops, and boundary drift. The highest-signal sources are Meta Detective, AI Handling Routing, Hygiene Clean, and Prompts Workflows doctrine.
+This replacement Phase 1 batch analyzes handoff integrity, validation posture, routing safety, risk handling, and repeated-failure controls in the old managed agent KB. It connects those patterns to the finalized deterministic lint concepts that now exist in the target KB: repo-execution routing safety and historical-path authority safety.
 
-## source_files_read
+## files_read
 
 ```yaml
-source_files_read:
-  - path: apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/meta_detective/ESSENCE.md
-    reason: adversarial validation boundary and route-to-owner rules
-  - path: apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/meta_detective/BEST_PRACTICES.md
-    reason: accepted validation practices and stop conditions
-  - path: apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/meta_detective/MISTAKES.md
-    reason: recurring validation failure patterns and countermeasures
-  - path: apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/meta_detective/TEMPLATES.md
-    reason: validation verdict, contradiction, boundary, risk, and handoff packet shapes
-  - path: apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/meta_detective/LEARNING_QUEUE.md
-    reason: candidate capture and promotion route
-  - path: apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/meta_detective/APPENDIX_INTERNAL_MODES.md
-    reason: internal validation mode flow and handoff map
-  - path: apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__ai_handling_routing/ESSENCE.md
-    reason: advisory route states, source authority, and escalation posture
-  - path: apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__ai_handling_routing/BEST_PRACTICES.md
-    reason: routing objective freeze, source authority, execution-surface separation
-  - path: apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__ai_handling_routing/MISTAKES.md
-    reason: routing failure patterns, verification theater, path drift, config overreach
-  - path: apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__ai_handling_routing/TEMPLATES.md
-    reason: routing decision, source authority, repo execution, and handoff templates
-  - path: apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__hygiene_clean/ESSENCE.md
-    reason: structural QA, pointer integrity, stale-state, and closure safety
-  - path: apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__prompts_workflows/ESSENCE.md
-    reason: target-first, stage-gated, verify-before-trust prompt/workflow doctrine
+files_read:
+  validation_sources:
+    - path: sources/primary/managed-agent-kb/meta_detective/ESSENCE.md
+      pointer: "adversarial validation owns/does-not-own, confidence, verdict states"
+    - path: sources/primary/managed-agent-kb/meta_detective/APPENDIX_INTERNAL_MODES.md
+      pointer: "mode selection rule, standard validation flow, verdict definitions"
+    - path: sources/primary/managed-agent-kb/special_ops__hygiene_clean/ESSENCE.md
+      pointer: "mode lock, exact-span before rewrite, one-file-before-many, closure by evidence"
+    - path: sources/primary/managed-agent-kb/special_ops__ai_handling_routing/ESSENCE.md
+      pointer: "routing minimum, route states, repo execution vs chat routing checks"
+  deterministic_closure_sources:
+    - path: outputs/synthesis/apex-kb-semantic-continuation-after-lint-closure.md
+      pointer: "semantic meaning of lint-repo-execution-router and lint-historical-path-authority"
+    - path: wiki/index.md
+      pointer: "current retrieval notes and page set"
 ```
 
 ## source_grounded_claims
 
 ```yaml
 claims:
-  - id: C001
-    text: "The old system treats source authority classification as a pre-step gate before verification, handoff, or approval."
-    source: "meta_detective/BEST_PRACTICES.md / DET-BP-001; special_ops__ai_handling_routing/BEST_PRACTICES.md / AIHR-BP-003; special_ops__ai_handling_routing/ESSENCE.md / Core doctrine"
+  - id: A03-C001
+    claim: "The old validation model requires source authority classification before trust, forwarding, approval, or semantic promotion."
+    source_pointer: "meta_detective/ESSENCE.md / Core constraints; special_ops__ai_handling_routing/ESSENCE.md / Core doctrine"
     confidence: high
-    label: source_backed_summary
+    claim_label: source_backed_summary
 
-  - id: C002
-    text: "Approval by fluency is an explicit failure pattern: structured or polished output is not enough without concrete evidence, read-back, diff, source check, test, schema, or acceptance criterion."
-    source: "meta_detective/MISTAKES.md / DET-MIS-001; special_ops__ai_handling_routing/MISTAKES.md / AIHR-MISTAKE-003"
+  - id: A03-C002
+    claim: "Meta Detective verdicts use pass, revise, hold, needs_input, and escalate, giving validation outputs explicit routing outcomes instead of vague critique."
+    source_pointer: "meta_detective/ESSENCE.md / Default verdicts; meta_detective/APPENDIX_INTERNAL_MODES.md / Verdict definitions"
     confidence: high
-    label: source_backed_summary
+    claim_label: raw_source
 
-  - id: C003
-    text: "Meta Detective must return verdicts and escalation recommendations without implementing the fix under review."
-    source: "meta_detective/BEST_PRACTICES.md / DET-BP-004; meta_detective/MISTAKES.md / DET-MIS-004; meta_detective/APPENDIX_INTERNAL_MODES.md / Non-drift rules"
+  - id: A03-C003
+    claim: "Meta Detective confidence tiers are VERIFIED, PROBABLE, WEAK, and UNSAFE, and are used for evidence-dependent claims."
+    source_pointer: "meta_detective/APPENDIX_INTERNAL_MODES.md / Confidence definitions"
     confidence: high
-    label: source_backed_summary
+    claim_label: raw_source
 
-  - id: C004
-    text: "Substantial validation should end with a verdict, evidence gap, stop condition, and next owner/validator route."
-    source: "meta_detective/BEST_PRACTICES.md / DET-BP-010; meta_detective/TEMPLATES.md / DET-TPL-002; meta_detective/APPENDIX_INTERNAL_MODES.md / Standard validation flow"
+  - id: A03-C004
+    claim: "A substantial validation output should state evidence checked, evidence gap, stop condition, next owner, and next validator."
+    source_pointer: "meta_detective/APPENDIX_INTERNAL_MODES.md / Standard validation flow"
     confidence: high
-    label: source_backed_summary
+    claim_label: raw_source
 
-  - id: C005
-    text: "The old validation flow uses explicit verdict states: pass, revise, hold, needs_input, and escalate."
-    source: "meta_detective/ESSENCE.md / Default verdicts; meta_detective/APPENDIX_INTERNAL_MODES.md / Verdict definitions"
+  - id: A03-C005
+    claim: "Special Ops AI Handling Routing freezes task, non-task, target output, source authority, overload class, recommended surface, stop conditions, fallback path, validator, and confidence before routing."
+    source_pointer: "special_ops__ai_handling_routing/ESSENCE.md / Minimal routing card"
     confidence: high
-    label: raw_source
+    claim_label: raw_source
 
-  - id: C006
-    text: "The old validation flow uses confidence tiers VERIFIED, PROBABLE, WEAK, and UNSAFE for evidence-dependent claims."
-    source: "meta_detective/ESSENCE.md / Core constraints; meta_detective/APPENDIX_INTERNAL_MODES.md / Confidence definitions; special_ops__ai_handling_routing/ESSENCE.md / Minimal routing card"
+  - id: A03-C006
+    claim: "Repo-affecting work must use exact repo-relative paths and operation modes; this old doctrine now maps to the finalized repo-execution-router lint primitive in Apex KB."
+    source_pointer: "special_ops__ai_handling_routing/ESSENCE.md / Core doctrine; semantic-continuation-after-lint-closure.md / semantic meaning of lint-repo-execution-router"
     confidence: high
-    label: raw_source
+    claim_label: source_backed_summary
 
-  - id: C007
-    text: "Meta Detective internal modes route different finding types to different owners rather than treating all issues as generic critique."
-    source: "meta_detective/APPENDIX_INTERNAL_MODES.md / Mode selection rule and Handoff map"
+  - id: A03-C007
+    claim: "Historical old-agent paths may be preserved as source evidence but must not be treated as current runtime authority; this is now reinforced by the historical-path-authority lint primitive."
+    source_pointer: "semantic-continuation-after-lint-closure.md / semantic meaning of lint-historical-path-authority"
     confidence: high
-    label: source_backed_summary
+    claim_label: source_backed_summary
 
-  - id: C008
-    text: "Hygiene Clean owns structural QA, pointer integrity, stale-state, cleanup-risk validation, and closure safety, while Meta Detective owns adversarial source/evidence/contradiction/risk pressure."
-    source: "meta_detective/APPENDIX_INTERNAL_MODES.md / Non-drift rules and Handoff map; special_ops__hygiene_clean/ESSENCE.md / Agent boundary and Owns"
+  - id: A03-C008
+    claim: "Hygiene Clean requires mode lock before execution and closure by evidence only, which complements the Apex KB requirement to separate semantic synthesis from deterministic repo execution."
+    source_pointer: "special_ops__hygiene_clean/ESSENCE.md / Operating doctrine"
     confidence: high
-    label: source_backed_summary
+    claim_label: source_backed_summary
 
-  - id: C009
-    text: "The old routing doctrine requires freezing task, non-task, target output, source authority, constraints, stop conditions, and validator before choosing a route or handoff."
-    source: "special_ops__ai_handling_routing/ESSENCE.md / Core doctrine and Minimal routing card; special_ops__ai_handling_routing/TEMPLATES.md / routing_decision_card"
+  - id: A03-C009
+    claim: "Validation and routing safety are not just wiki themes; they are process controls that prevent semantic work from drifting into repo mutation and prevent old-source references from becoming active authority."
+    source_pointer: "Apex KB SKILL.md / deterministic versus LLM ownership; semantic-continuation-after-lint-closure.md / current lifecycle position"
     confidence: high
-    label: source_backed_summary
-
-  - id: C010
-    text: "Repo-affecting work requires exact repo-relative paths, operation class, target files, allowed/forbidden actions, pre-write checks, post-write checks, and commit strategy."
-    source: "special_ops__ai_handling_routing/BEST_PRACTICES.md / AIHR-BP-005 and AIHR-BP-006; special_ops__ai_handling_routing/TEMPLATES.md / AIHR-TPL-004 Repo execution router"
-    confidence: high
-    label: source_backed_summary
-
-  - id: C011
-    text: "Advisory routing must stop for manual or governance review if it touches runtime config, provider policy, model registry, permissions, or config authority."
-    source: "special_ops__ai_handling_routing/ESSENCE.md / Does not own and Core doctrine; special_ops__ai_handling_routing/BEST_PRACTICES.md / AIHR-BP-008; special_ops__ai_handling_routing/MISTAKES.md / AIHR-MISTAKE-008"
-    confidence: high
-    label: source_backed_summary
-
-  - id: C012
-    text: "Repeated failure and retry loops are explicit risks; on attempt two or later, the system should require meaningful delta or stop/escalate."
-    source: "meta_detective/MISTAKES.md / DET-MIS-007"
-    confidence: high
-    label: raw_source
-
-  - id: C013
-    text: "Prompt/workflow doctrine reinforces target-first framing, bounded execution, source lock, stage gates, constant frame control, and verify-before-trust behavior."
-    source: "special_ops__prompts_workflows/ESSENCE.md / Core doctrine and Default sequence"
-    confidence: high
-    label: source_backed_summary
-
-  - id: C014
-    text: "Mistakes are captured as accepted failure patterns with trigger conditions, countermeasures, evidence references, scores, owner, validator, and review_due, turning incidents into durable prevention doctrine."
-    source: "meta_detective/MISTAKES.md / Entry schema; special_ops__ai_handling_routing/MISTAKES.md / Entry schema"
-    confidence: high
-    label: source_backed_summary
+    claim_label: source_backed_summary
 ```
 
 ## concepts_extracted
@@ -129,200 +103,105 @@ claims:
 concepts_extracted:
   - slug: source-authority-before-verification
     label: "Source authority before verification"
-    definition: "Classify governing source authority before trusting, forwarding, patching, or approving an output."
-    source: "meta_detective/BEST_PRACTICES.md / DET-BP-001; AIHR-BP-003"
+    definition: "Classify whether evidence is primary, derived, working, speculative, stale, or current-authoritative before relying on it."
+    source_pointer: "meta_detective/ESSENCE.md; special_ops__ai_handling_routing/ESSENCE.md"
     phase2_value: high
 
   - slug: verification-verdict-packet
     label: "Verification verdict packet"
-    definition: "A bounded validation output containing artifact, modes, evidence checked, findings, verdict, evidence gap, stop condition, owner, validator, and handoff target."
-    source: "meta_detective/TEMPLATES.md / DET-TPL-002; meta_detective/APPENDIX_INTERNAL_MODES.md / Verdict & Escalation Synthesizer doctrine"
+    definition: "A validation output with artifact, evidence checked, findings, verdict, evidence gap, stop condition, owner, validator, and handoff target."
+    source_pointer: "meta_detective/APPENDIX_INTERNAL_MODES.md / Standard validation flow"
     phase2_value: high
 
-  - slug: validator-executor-separation
-    label: "Validator/executor separation"
-    definition: "Validators may identify defects and required routes, but do not implement or self-approve the fix."
-    source: "meta_detective/BEST_PRACTICES.md / DET-BP-004; meta_detective/MISTAKES.md / DET-MIS-004"
+  - slug: repo-execution-routing-safety
+    label: "Repo execution routing safety"
+    definition: "A boundary rule and lintable contract that separates semantic KB work from repo-affecting execution."
+    source_pointer: "semantic-continuation-after-lint-closure.md / lint-repo-execution-router"
     phase2_value: high
 
-  - slug: routing-decision-card
-    label: "Routing decision card"
-    definition: "A compact route contract freezing task, non-task, output, source authority, overload class, route surface, mode, constraints, stop conditions, fallback, validator, and confidence."
-    source: "special_ops__ai_handling_routing/TEMPLATES.md / AIHR-TPL-001"
+  - slug: historical-path-authority-safety
+    label: "Historical path authority safety"
+    definition: "A boundary rule that old paths remain source evidence unless current runtime authority is separately established."
+    source_pointer: "semantic-continuation-after-lint-closure.md / lint-historical-path-authority"
     phase2_value: high
 
-  - slug: repo-execution-router
-    label: "Repo execution router"
-    definition: "A pre-write contract for repo mutation with repo, branch, target root, operation class, target files, allowed/forbidden actions, checks, stop conditions, and commit strategy."
-    source: "special_ops__ai_handling_routing/TEMPLATES.md / AIHR-TPL-004"
+  - slug: closure-by-evidence-only
+    label: "Closure by evidence only"
+    definition: "No finding closes by silence, omission, or later prose cleanup; closure needs a source, diff, test, file state, or report."
+    source_pointer: "special_ops__hygiene_clean/ESSENCE.md / Operating doctrine"
     phase2_value: high
-
-  - slug: approval-by-fluency
-    label: "Approval by fluency"
-    definition: "Passing an artifact because it looks coherent or polished without concrete evidence."
-    source: "meta_detective/MISTAKES.md / DET-MIS-001"
-    phase2_value: high
-
-  - slug: summary-elevation
-    label: "Summary elevation"
-    definition: "Treating derived summaries, chat recaps, or working notes as stronger than original artifacts."
-    source: "meta_detective/MISTAKES.md / DET-MIS-002"
-    phase2_value: high
-
-  - slug: advisory-routing-collapse
-    label: "Advisory routing collapse"
-    definition: "Advisory chat routing becoming repo execution without mode lock, exact paths, or post-write verification."
-    source: "special_ops__ai_handling_routing/MISTAKES.md / AIHR-MISTAKE-004"
-    phase2_value: high
-
-  - slug: path-drift
-    label: "Path drift"
-    definition: "Using vague filenames, stale paths, Windows local paths, or guessed repo paths as execution authority."
-    source: "special_ops__ai_handling_routing/MISTAKES.md / AIHR-MISTAKE-006"
-    phase2_value: high
-
-  - slug: constant-frame-control
-    label: "Constant frame control"
-    definition: "For high-risk promptflows, carry explicit state, atomic task payload, gate checks, stop signal, and closure proof rather than relying on conversational continuity."
-    source: "special_ops__prompts_workflows/ESSENCE.md / Core doctrine"
-    phase2_value: medium
 ```
 
-## entities_or_roles_extracted
+## entities_extracted
 
 ```yaml
-entities_or_roles_extracted:
+entities_extracted:
   - id: meta_detective
-    role_in_validation: "adversarial validator and challenger"
-    validation_outputs: [source_evidence_check, contradiction_audit, boundary_verdict, risk_packet, validation_verdict_packet]
-    hard_boundary: "does not execute fixes, patch, mutate truth, or self-promote"
-    source: "meta_detective/ESSENCE.md; meta_detective/APPENDIX_INTERNAL_MODES.md"
-
-  - id: special_ops__hygiene_clean
-    role_in_validation: "structural QA and closure-safety validator"
-    validation_outputs: [audit_findings, pointer_integrity_checks, stale_state_checks, closure_evidence_checks]
-    hard_boundary: "does not mutate accepted truth or approve promotion"
-    source: "special_ops__hygiene_clean/ESSENCE.md"
+    role_in_validation: adversarial_validator
+    key_outputs: [source_evidence_check, contradiction_audit, boundary_verdict, risk_packet, validation_verdict_packet]
+    source_pointer: "meta_detective/ESSENCE.md; meta_detective/APPENDIX_INTERNAL_MODES.md"
 
   - id: special_ops__ai_handling_routing
-    role_in_validation: "advisory routing checker"
-    validation_outputs: [routing_decision_card, source_authority_card, model_tool_fit_card, repo_execution_router, config_impact_stop_note]
-    hard_boundary: "does not mutate runtime config or become final approval authority"
-    source: "special_ops__ai_handling_routing/ESSENCE.md; special_ops__ai_handling_routing/TEMPLATES.md"
+    role_in_validation: advisory_execution_surface_router
+    key_outputs: [routing_minimum, source_authority_card, repo_execution_router, fallback_path]
+    source_pointer: "special_ops__ai_handling_routing/ESSENCE.md"
 
-  - id: special_ops__prompts_workflows
-    role_in_validation: "promptflow and handoff pattern builder"
-    validation_outputs: [target_first_prompts, staged_source_lock_promptflows, handoff_templates]
-    hard_boundary: "templates do not create runtime authority"
-    source: "special_ops__prompts_workflows/ESSENCE.md"
+  - id: special_ops__hygiene_clean
+    role_in_validation: structural_QA_and_closure_validator
+    key_outputs: [pointer_integrity_check, stale_state_check, closure_evidence_check]
+    source_pointer: "special_ops__hygiene_clean/ESSENCE.md"
 
-  - id: meta_ops
-    role_in_validation: "execution/orchestration owner that receives execution implications and owner ambiguity returns"
-    source: "meta_detective/APPENDIX_INTERNAL_MODES.md / Handoff map; meta_ops/ESSENCE.md"
-
-  - id: meta_strategy
-    role_in_validation: "recommendation owner that receives strategy revisions, options, scenarios, timing, and leverage returns"
-    source: "meta_detective/APPENDIX_INTERNAL_MODES.md / Handoff map; meta_strategy/ESSENCE.md"
-
-  - id: special_ops__knowledge_bank
-    role_in_validation: "KB placement and promotion-lifecycle owner"
-    source: "meta_detective/APPENDIX_INTERNAL_MODES.md / Handoff map; special_ops__knowledge_bank/ESSENCE.md"
-
-  - id: special_ops__informatics_design
-    role_in_validation: "taxonomy, file-shape, information-structure owner"
-    source: "meta_detective/APPENDIX_INTERNAL_MODES.md / Handoff map; special_ops__informatics_design/ESSENCE.md"
+  - id: deterministic_lint_primitives
+    type: finalized_process_infrastructure
+    members: [lint-repo-execution-router, lint-historical-path-authority]
+    source_pointer: "semantic-continuation-after-lint-closure.md / deterministic_closure_summary"
 ```
 
 ## contradictions_or_tensions
 
 ```yaml
 contradictions_or_tensions:
-  - id: T001
-    text: "The system needs validators to identify fixes, but the same doctrine forbids validators from implementing those fixes; Phase 2 should preserve the distinction between correction recommendation and correction execution."
-    source: "meta_detective/BEST_PRACTICES.md / DET-BP-004; meta_detective/MISTAKES.md / DET-MIS-004"
+  - id: A03-T001
+    tension: "The old system has execution-control roles, but this Apex KB semantic rerun must not become an execution-control mutation."
+    disposition: "Write only semantic KB artifacts and postflight prompt/report surfaces; do not edit scripts or adjacent Apex systems."
     confidence: high
-    label: source_backed_summary
 
-  - id: T002
-    text: "Routing doctrine supports repo execution only after explicit route contract, but the presence of write tools can tempt advisory work to collapse into execution."
-    source: "special_ops__ai_handling_routing/MISTAKES.md / AIHR-MISTAKE-004; special_ops__ai_handling_routing/TEMPLATES.md / Repo execution router"
+  - id: A03-T002
+    tension: "Historical paths are useful source pointers but unsafe as current authority."
+    disposition: "Use source_path/source_pointer language; add raw-source reopen triggers before any runtime use."
     confidence: high
-    label: source_backed_summary
-
-  - id: T003
-    text: "Source authority doctrine requires primary-source checking, but Phase 1 itself is sampled; any Phase 2 compiled pages must preserve source-read scope and unresolved coverage limits."
-    source: "Phase 1 execution scope and source_files_read in this batch; meta_detective/BEST_PRACTICES.md / DET-BP-001"
-    confidence: medium
-    label: operator_question
-
-  - id: T004
-    text: "AI Handling Routing uses EVD/IMP/RSK scores in 1-5 examples, while Meta Detective and several later files insist on 1-100 scoring; this should be normalized or explicitly scoped in Phase 2."
-    source: "special_ops__ai_handling_routing/BEST_PRACTICES.md / Accepted practices use 5-point scores; meta_detective/BEST_PRACTICES.md / Score convention"
-    confidence: high
-    label: source_backed_summary
-
-  - id: T005
-    text: "Hygiene and Detective both address drift, but their drift domains are different. Merging them would hide whether a finding is structural, adversarial, or mixed."
-    source: "meta_detective/BEST_PRACTICES.md / DET-BP-009; special_ops__hygiene_clean/ESSENCE.md / Routing boundary summary"
-    confidence: high
-    label: source_backed_summary
 ```
 
-## migration_notes
+## open_questions
 
 ```yaml
-migration_notes:
-  preserve:
-    - "Source authority before verification as a hard query and execution pre-step."
-    - "Verification verdict packets for high-risk outputs, handoffs, KB promotions, and repo writes."
-    - "Verdict/confidence vocabulary: pass/revise/hold/needs_input/escalate and VERIFIED/PROBABLE/WEAK/UNSAFE."
-    - "Routing cards and repo execution routers for any repo-affecting work."
-    - "Failure-pattern files as anti-regression doctrine."
-  adapt:
-    - "Convert old handoff cards into Claude-native workflow/skill/operator-gate templates."
-    - "Represent validator modes as callable checklists or sub-processes, not necessarily permanent agents."
-    - "Use Hygiene Clean doctrine to design deterministic lint/audit checks in Apex KB where possible."
-  deprecate_or_handle_carefully:
-    - "Any route that asks a validator to patch and approve the same artifact."
-    - "Any write path that relies on local Windows paths instead of repo-relative paths."
-    - "Any current model/provider/cost claim preserved without current verification."
-    - "Mixed 1-5 and 1-100 score scales without normalization."
+open_questions:
+  - id: A03-Q001
+    question: "Which recorded real-surface findings from finalized lint reports require semantic rewrite versus later deterministic cleanup?"
+    blocker: false
+  - id: A03-Q002
+    question: "Should repo-execution routing safety remain one concept page or become a reusable Apex-wide lint/audit doctrine page?"
+    blocker: false
 ```
 
-## proposed_phase2_targets
+## proposed_phase_2_wiki_targets
 
 ```yaml
-proposed_phase2_targets:
-  summaries:
-    - handoff-validation-and-risk-doctrine
-    - routing-and-repo-execution-safety
-  concepts:
-    - source-authority-before-verification
-    - verification-verdict-packet
-    - validator-executor-separation
-    - routing-decision-card
-    - repo-execution-router
-    - approval-by-fluency
-    - summary-elevation
-    - advisory-routing-collapse
-    - path-drift
-    - constant-frame-control
-  entities:
-    - meta-detective
-    - special-ops-hygiene-clean
-    - special-ops-ai-handling-routing
-    - special-ops-prompts-workflows
-    - meta-ops
-    - meta-strategy
-    - special-ops-knowledge-bank
-    - special-ops-informatics-design
+summaries:
+  - handoff-validation-and-risk-doctrine
+  - deterministic-execution-safety-after-lint-closure
+concepts:
+  - validation-and-routing-guardrails
+  - repo-execution-routing-safety
+  - migration-safety-patterns
+entities:
+  - meta-detective-internal-modes
 ```
 
-## operator_gate
+## phase_gate_statement
 
 ```yaml
-operator_gate:
-  phase2_allowed: false
+phase_2_gate:
   required_phrase: approve ingest
-  note: "Phase 1 analysis exists for operator review. Wiki synthesis is blocked until explicit approval."
+  status_for_this_rerun: approved
 ```
