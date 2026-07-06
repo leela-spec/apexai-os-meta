@@ -18,6 +18,7 @@ canonical:
   - raw/
   - kb-schema.md
   - manifests/source-manifest.json
+  - manifests/source-payload-manifest.json
   - ingest-analysis/
   - wiki/
   - audit/
@@ -49,7 +50,8 @@ required_directories:
   wiki/concepts/: compiled concept pages
   wiki/entities/: compiled entity pages
   wiki/summaries/: compiled source/topic summaries
-  manifests/source-manifest.json: source custody manifest
+  manifests/source-manifest.json: source-reference custody manifest
+  manifests/source-payload-manifest.json: deterministic raw-payload custody ledger
   manifests/phase0/: deterministic corpus intelligence
   derived/search/: local search indexes
   audit/resolved/: resolved review items
@@ -82,6 +84,11 @@ Rules:
 - Hash sources before ingest, or record `no_hash_reason`.
 - Never infer source contents from filename, title, memory, or prior summaries.
 - Generated pages must record source pointers.
+- `source-manifest.json` remains the source-reference ledger; do not replace it with the payload manifest.
+- `source-payload-manifest.json` records per-file path, byte size, SHA-256, group, group aggregate SHA-256, root aggregate SHA-256, total file count, and total byte count.
+- Payload groups are folder-derived by default: first-level folders under `raw/`; files directly under `raw/` use group `root`.
+- Optional group maps must be explicit JSON. Do not infer deterministic groups from filenames or LLM semantic decisions.
+- Do not add an external BagIt dependency; the Apex-native ledger uses Python stdlib hashing.
 
 ## Page contract
 
@@ -120,7 +127,7 @@ Phase 2 wiki compile introduces an adaptive page‑level value contract for sum
 - **Macro / Meso / Micro** – a three‑layer synthesis. Macro describes high‑level themes across all sources; Meso captures mid‑level patterns; Micro provides specific details anchored by source pointers.
 - **Key Claims** – specific claims supported by source pointers. Each claim must include an id, description, pointer, confidence, and claim label. This section remains required.
 - **Routes Here** – navigational cues that help users and LLMs route queries to this page. Include route‑by‑question examples and cross‑links to related pages. This integrated routing list replaces prior “Relationships” or “Known Relationships” sections.
-- **Uncertainty / Raw Source Triggers** – consolidate contradictions, open questions, and any situation that requires revisiting raw sources. Each item must describe the uncertainty, provide a source pointer, and suggest how it should be handled (e.g., audit item, planning task candidate, revisit source, leave as gap, ask operator).
+- **Uncertainty / Raw Source Reopen Triggers** – consolidate contradictions, open questions, and any situation that requires revisiting raw sources. Each item must describe the uncertainty, provide a source pointer, and suggest how it should be handled (e.g., audit item, planning task candidate, revisit source, leave as gap, ask operator).
 
 Compiled pages may include additional sections if useful, but must not include any page‑level score metric or impose a rigid 20‑field schema. The goal is to adapt the depth and breadth of each section to the KB context while preserving source grounding and operator oversight.
 

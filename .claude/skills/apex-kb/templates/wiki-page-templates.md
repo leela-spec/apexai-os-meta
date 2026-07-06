@@ -1,5 +1,13 @@
 # Apex KB Wiki Page Templates
 
+## Phase 2 adaptive page value rules
+
+- Use the exact required headings: Adaptive Ranked Source Set, Macro / Meso / Micro, Key Claims, Routes Here, and Uncertainty / Raw Source Reopen Triggers.
+- Do not impose a fixed source count. Carry every materially relevant Phase 1 source for broad pages; narrow pages may need only one or a few sources.
+- Do not require a separate source cluster map on every page.
+- Do not add a `page_value_score` metric.
+- Prefer warnings/reporting for missing value sections before hard failures.
+
 ## Shared frontmatter
 
 ```yaml
@@ -110,7 +118,7 @@ routes:
     relation: "<relation description>"
 ```
 
-## Uncertainty / Raw Source Triggers
+## Uncertainty / Raw Source Reopen Triggers
 
 ```yaml
 uncertainty_triggers:
@@ -216,7 +224,7 @@ evidence:
     supports: "<claim or section>"
 ```
 
-## Uncertainty / Raw Source Triggers
+## Uncertainty / Raw Source Reopen Triggers
 
 ```yaml
 uncertainty_triggers:
@@ -321,7 +329,7 @@ routes:
 evidence: []
 ```
 
-## Uncertainty / Raw Source Triggers
+## Uncertainty / Raw Source Reopen Triggers
 
 ```yaml
 uncertainty_triggers:

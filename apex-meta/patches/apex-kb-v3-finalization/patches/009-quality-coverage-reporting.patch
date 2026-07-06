@@ -1,0 +1,58 @@
+diff --git a/.claude/skills/apex-kb/references/ingest-query-lint-audit-rules.md b/.claude/skills/apex-kb/references/ingest-query-lint-audit-rules.md
+index 05337831..fc044af9 100644
+--- a/.claude/skills/apex-kb/references/ingest-query-lint-audit-rules.md
++++ b/.claude/skills/apex-kb/references/ingest-query-lint-audit-rules.md
+@@ -15,11 +15,13 @@ phase_boundaries:
+     - wiki pages
+     - semantic summaries
+     - vector stores
+-  phase1_must_halt_before:
+-    - wiki page generation
+-    - manifest semantic updates
+-  phase2_requires:
+-    exact_phrase: approve ingest
++  phase1_to_phase2_default:
++    continuous_when_selected_output_tier_includes_wiki: true
++  safe_modes_that_stop_before_wiki:
++    - analysis_only
++    - phase1_only
++    - operator_explicit_stop_before_wiki
++  legacy_explicit_gate_phrase: approve ingest
+ ```
+ 
+ ## Ingest rules
+@@ -28,12 +30,13 @@ phase_boundaries:
+ 
+ 1. Select storage mode: `pointer_only`, `copy_into_kb`, or `snapshot_copy`.
+ 2. Hash source before ingest, or record `no_hash_reason`.
+-3. Update `manifests/source-manifest.json` with deterministic custody fields.
+-4. Stop if a duplicate source hash exists unless the operator explicitly requests a version or duplicate.
++3. Update `manifests/source-manifest.json` with deterministic source-reference custody fields.
++4. Run `generate-source-payload-manifest` after source intake to write `manifests/source-payload-manifest.json`.
++5. Stop if a duplicate source hash exists unless the operator explicitly requests a version or duplicate.
+ 
+ ### Phase 0
+ 
+-Python may create only deterministic artifacts under `manifests/phase0/`:
++Python may create only deterministic artifacts under `manifests/phase0/`. Phase 0 should run after the source payload manifest exists, or report that it is missing/stale:
+ 
+ - `corpus-profile.md`
+ - `heading-map.json`
+@@ -50,7 +53,7 @@ LLM writes one analysis under `ingest-analysis/<source-slug>.analysis.md`. It mu
+ 
+ ### Phase 2
+ 
+-Requires exact phrase `approve ingest`. Allowed outputs are compiled wiki pages, manifest semantic updates, deterministic index updates, audit items, and logs. Compiled wiki pages must implement the Phase 2 page value contract, including the sections Adaptive Ranked Source Set, Macro / Meso / Micro, Key Claims, Routes Here, and Uncertainty / Raw Source Triggers. Uncertainties and low-confidence claims must remain visible.
++When the selected output tier includes wiki output, Phase 2 follows Phase 1 in the same semantic compile by default. It halts only for `analysis_only`, `phase1_only`, or `operator_explicit_stop_before_wiki`. Compiled wiki pages must implement the Phase 2 page value contract, including the sections Adaptive Ranked Source Set, Macro / Meso / Micro, Key Claims, Routes Here, and Uncertainty / Raw Source Reopen Triggers. Uncertainties and low-confidence claims must remain visible.
+ 
+ ## Query rules
+ 
+@@ -69,6 +72,8 @@ Deterministic lint checks:
+ - required root paths
+ - forbidden KB root files
+ - source-manifest JSON shape
++- source payload manifest exists / stale status
++- report-only Phase 2 value contract coverage: adaptive ranked source set, macro/meso/micro, key claims, routes, and raw-source reopen triggers
+ - required frontmatter fields
+ - confidence and claim_label enums
+ - dead wikilinks

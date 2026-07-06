@@ -38,6 +38,7 @@ canonical_paths:
   - raw/
   - kb-schema.md
   - manifests/source-manifest.json
+  - manifests/source-payload-manifest.json
   - ingest-analysis/
   - wiki/
   - audit/
@@ -48,13 +49,14 @@ derived_paths:
   - derived/search/
   - outputs/queries/
 
-approval_gate:
-  phrase: approve ingest
-  required_before:
-    - wiki_page_generation
-    - manifest_semantic_updates
-    - audit_items_from_semantic_claims
-
+semantic_compile_policy:
+  default: continuous_phase1_to_phase2_when_output_tier_includes_wiki
+  no_mandatory_gate_by_default: true
+  safe_modes:
+    - analysis_only
+    - phase1_only
+    - operator_explicit_stop_before_wiki
+  legacy_explicit_gate_phrase: approve ingest
 boundary:
   must_not_mutate:
     - apex-plan files
@@ -64,6 +66,23 @@ boundary:
     - FlowRecap artifacts
     - APSU/status-merge artifacts
     - personal orchestration state
+```
+
+## Operator-facing v3 lifecycle and output tiers
+
+```yaml
+operator_flow:
+  A_prepare: repo / KB preflight, scaffold, path validation, run profile selection
+  B_ingest_and_compile: source intake, source payload manifest, Phase 0, semantic analysis, and wiki compile when selected output tier requires it
+  C_postflight: index rebuild, retrieval rebuild, lint, audit, status, quality / coverage report
+  D_query_or_maintain: query packets, stale checks, source drift checks, repair backlog
+
+output_tiers:
+  source_only: custody and manifests only
+  analysis_only: semantic analysis, no wiki pages
+  compiled_minimal: small high-value wiki with index and patch backlog
+  compiled_full: full summaries/concepts/entities
+  query_ready: compiled wiki plus postflight, retrieval, quality/query checks
 ```
 
 ## File navigation
@@ -89,15 +108,16 @@ Read supporting files only when needed:
 ## Procedure
 
 1. Resolve exactly one `--kb-root`. Never hardcode `claude-skill-design`; treat it only as a possible test KB slug.
-2. Run deterministic checks through `apex-meta/scripts/apex_kb.py` for scaffold, hash, source-intake, preflight, phase0, index, lint, audit, status, and health.
-3. Preserve source custody before semantic work: raw source, durable pointer, storage mode, source hash or no-hash reason, source manifest entry.
-4. Run Phase 0 before LLM ingest when corpus navigation is needed. Phase 0 may create only deterministic artifacts under `manifests/phase0/`.
-5. In Phase 1, create source-grounded semantic analysis under `ingest-analysis/` and halt. Do not generate wiki pages yet.
-6. Proceed to Phase 2 only after the operator provides the exact phrase `approve ingest`. In normal mode this must be a separate operator turn after Phase 1 exists.
-7. In Phase 2, draft or update `wiki/summaries/`, `wiki/concepts/`, and `wiki/entities/` pages and any audit or semantic index sections. Compiled pages **must** implement the Phase 2 page value contract: include an Adaptive Ranked Source Set, Macro / Meso / Micro synthesis, Key Claims with source pointers and labels, Routes Here, and Uncertainty / Raw Source Triggers. Every claim still needs a source pointer, confidence, and claim label.
-8. Rebuild deterministic index sections and retrieval indexes after wiki updates. Use `apex_kb_retrieval.py` for `build-index`, `stale`, `query`, `export`, and `clear-index`.
-9. Answer queries index-first. Read `wiki/index.md`, retrieve the smallest sufficient page set, synthesize from compiled wiki pages, and save query packets when reuse is useful.
-10. Keep lint/audit maintenance read-only unless the operator explicitly asks for a deterministic write inside the KB root.
+2. Select a run profile and output tier before intake.
+3. Run deterministic checks through `apex-meta/scripts/apex_kb.py` for scaffold, hash, source-intake, generate-source-payload-manifest, preflight, phase0, index, lint, audit, status, and health.
+4. Preserve source custody before semantic work: raw source, durable pointer, storage mode, source hash or no-hash reason, source manifest entry, and source payload manifest.
+5. Run `generate-source-payload-manifest` after source intake and before Phase 0. It is an Apex-native BagIt-style ledger using stdlib hashing only; it does not replace `source-manifest.json`.
+6. Run Phase 0 before LLM ingest when corpus navigation is needed. Phase 0 may create only deterministic artifacts under `manifests/phase0/`.
+7. When the selected output tier includes wiki output, Phase 1 semantic analysis and Phase 2 wiki compile are one continuous semantic compile by default. Stop after Phase 1 only for `analysis_only`, `phase1_only`, or `operator_explicit_stop_before_wiki` safe modes.
+8. In Phase 2, draft or update `wiki/summaries/`, `wiki/concepts/`, and `wiki/entities/` pages and any audit or semantic index sections. Compiled pages **must** implement the Phase 2 page value contract: include an Adaptive Ranked Source Set, Macro / Meso / Micro synthesis, Key Claims with source pointers and labels, Routes Here, and Uncertainty / Raw Source Reopen Triggers. Every claim still needs a source pointer, confidence, and claim label.
+9. Rebuild deterministic index sections and retrieval indexes after wiki updates. Use `apex_kb_retrieval.py` for `build-index`, `stale`, `query`, `export`, and `clear-index`.
+10. Answer queries index-first. Read `wiki/index.md`, retrieve the smallest sufficient page set, synthesize from compiled wiki pages, and save query packets when reuse is useful.
+11. Keep lint/audit maintenance read-only unless the operator explicitly asks for a deterministic write inside the KB root.
 
 ## Deterministic versus LLM ownership
 
@@ -106,6 +126,7 @@ python_owns:
   - scaffold_structure
   - file_hashing
   - source_manifest_shape
+  - source_payload_manifest_generation
   - source_storage_mode_recording
   - corpus_profile
   - heading_link_frontmatter_maps
@@ -142,10 +163,10 @@ missing_source:
   behavior: stop
   rule: never infer source contents from filename, title, memory, or summary
 
-phase2_without_approval:
+phase2_stop_requested:
   behavior: stop_after_phase1
-  required_phrase: approve ingest
-
+  applies_to: [analysis_only, phase1_only, operator_explicit_stop_before_wiki]
+  optional_legacy_phrase: approve ingest
 stale_retrieval_index:
   behavior: report_stale_and_rebuild_before_reliance
 

@@ -1,0 +1,112 @@
+{
+  "baseline_branch": "main",
+  "baseline_ref_used": "f64820fd112a0ac4305ab1f5a16ba063284f8a3d",
+  "baseline_repo": "leela-spec/apexai-os-meta",
+  "canonical_package": ".claude/skills/apex-kb/",
+  "generation_mode": "connector-read plus local extracted-context patch builder",
+  "patch_pack": "apex-kb-v3-finalization",
+  "patch_pack_root": "apex-meta/patches/apex-kb-v3-finalization/",
+  "patches": [
+    {
+      "bytes": 13706,
+      "file": "patches/001-apex-kb-py-source-payload-manifest.patch",
+      "sha256": "671648075ab6b513858e0c50226ba0cab9f715b14e656a174b6f40e63b6cd550",
+      "target_path": "apex-meta/scripts/apex_kb.py"
+    },
+    {
+      "bytes": 5764,
+      "file": "patches/002-skill-v3-lifecycle.patch",
+      "sha256": "4e567f47388d9dfedbafa1a67afa012fd0890e45416485694f4a5caca2cd2f3a",
+      "target_path": ".claude/skills/apex-kb/SKILL.md"
+    },
+    {
+      "bytes": 3604,
+      "file": "patches/003-script-command-contract.patch",
+      "sha256": "35aeac6f92fd047369e63d8dafa4a1ba4ca6c03269a5dc92925a8029659ed9d6",
+      "target_path": ".claude/skills/apex-kb/references/script-command-contract.md"
+    },
+    {
+      "bytes": 3439,
+      "file": "patches/004-kb-contract-source-custody.patch",
+      "sha256": "0cc652eee0844641404973ae55c7e12000516058971122173e1cd2b5131bdf18",
+      "target_path": ".claude/skills/apex-kb/references/kb-contract.md"
+    },
+    {
+      "bytes": 1357,
+      "file": "patches/005-wiki-page-template-value-contract.patch",
+      "sha256": "25252670655224f6ef7db1389055d2b2c4d615cb69cb967963668cfaee51831f",
+      "target_path": ".claude/skills/apex-kb/templates/wiki-page-templates.md"
+    },
+    {
+      "bytes": 1790,
+      "file": "patches/006-ingest-analysis-template-run-profile.patch",
+      "sha256": "64369cda2b2422e3ef6efeb0e7a613f4264da953ecdebe3048d01f3ae1e0ebe1",
+      "target_path": ".claude/skills/apex-kb/templates/ingest-analysis-template.md"
+    },
+    {
+      "bytes": 3967,
+      "file": "patches/007-lifecycle-runbook-v3.patch",
+      "sha256": "7f4738798714f2cadca1f452bc9e58cc3c30f4ac45e9c62aa8e0bde752442362",
+      "target_path": ".claude/skills/apex-kb/examples/lifecycle-runbook.md"
+    },
+    {
+      "bytes": 2423,
+      "file": "patches/008-acceptance-tests-v3.patch",
+      "sha256": "4a302aff96ae79e25ee958afb4909a8572443fa54f8196c97c114d1b0dbb07a3",
+      "target_path": ".claude/skills/apex-kb/references/acceptance-tests.md"
+    },
+    {
+      "bytes": 3144,
+      "file": "patches/009-quality-coverage-reporting.patch",
+      "sha256": "bd2210fb2c9ef5e95b86cafa64b66dc604cbe9dd7a10a337d0350816cf93ec28",
+      "target_path": ".claude/skills/apex-kb/references/ingest-query-lint-audit-rules.md"
+    },
+    {
+      "bytes": 606,
+      "file": "patches/010-package-manifest-source-payload.patch",
+      "sha256": "578655f17054d090ff082d05518dc80359d5d2dd396f52e7cdb841e9b83184a5",
+      "target_path": ".claude/skills/apex-kb/package-manifest.md"
+    },
+    {
+      "bytes": 2850,
+      "file": "patches/011-lifecycle-state-machine-v3.patch",
+      "sha256": "5b36b928cbe58fca9e9367c4e71278e049d814386783bbc4cf0f76a86d59f2e5",
+      "target_path": ".claude/skills/apex-kb/references/lifecycle-state-machine.md"
+    },
+    {
+      "bytes": 1493,
+      "file": "patches/012-powershell-gitbash-commands.patch",
+      "sha256": "05eaf3412bf777f004a332933ae36d08d1064547089833eea1520f205c4ec580",
+      "target_path": ".claude/skills/apex-kb/examples/powershell-commands.md"
+    }
+  ],
+  "scope_guards": {
+    "no_apex_kb2_touch": true,
+    "no_external_bagit_dependency": true,
+    "no_hardcoded_kb_slug": true,
+    "no_hardcoded_semantic_batches": true,
+    "no_runtime_wiki_rewrite": true
+  },
+  "target_files_read": [
+    "apex-meta/scripts/apex_kb.py",
+    "apex-meta/scripts/apex_kb_retrieval.py",
+    ".claude/skills/apex-kb/SKILL.md",
+    ".claude/skills/apex-kb/package-manifest.md",
+    ".claude/skills/apex-kb/references/kb-contract.md",
+    ".claude/skills/apex-kb/references/script-command-contract.md",
+    ".claude/skills/apex-kb/references/ingest-query-lint-audit-rules.md",
+    ".claude/skills/apex-kb/references/lifecycle-state-machine.md",
+    ".claude/skills/apex-kb/references/acceptance-tests.md",
+    ".claude/skills/apex-kb/templates/ingest-analysis-template.md",
+    ".claude/skills/apex-kb/templates/wiki-page-templates.md",
+    ".claude/skills/apex-kb/examples/lifecycle-runbook.md",
+    ".claude/skills/apex-kb/examples/powershell-commands.md"
+  ],
+  "validation": {
+    "git_apply_check": "PASS",
+    "git_apply_check_scope": "extracted-context workspace built from live connector-fetched target contexts; not a full clone",
+    "py_compile_apex_kb": "NOT_RUN_full_live_checkout_unavailable",
+    "py_compile_retrieval": "NOT_RUN_full_live_checkout_unavailable",
+    "source_payload_manifest_smoke": "NOT_RUN_full_live_checkout_unavailable"
+  }
+}

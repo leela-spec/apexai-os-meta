@@ -1,44 +1,32 @@
 # Apex KB Lifecycle Runbook
 
-## 1. Scaffold
+## A. Prepare
 
-Create one KB root under `apex-meta/kb/<kb-slug>/`. Verify there is no `CLAUDE.md` or `SKILL.md` inside the KB root.
+Create or validate one KB root under `apex-meta/kb/<kb-slug>/`. Verify there is no `CLAUDE.md` or `SKILL.md` inside the KB root. Select the run profile and output tier before intake.
 
-## 2. Source intake
-
-Add each source through `source-intake`, not by silently dropping files into wiki pages. Select storage mode, preserve original path, hash source, and update the source manifest.
-
-## 3. Phase 0 corpus intelligence
-
-Run `phase0` after source intake. Use the generated maps to choose high-signal files for LLM analysis. Phase 0 is not semantic ingest.
-
-## 4. Phase 1 analysis
-
-Create the analysis file under `ingest-analysis/`. Fill it from source evidence only. Stop with `operator_review_needed`.
-
-## 5. Operator gate
-
-Proceed only after the operator says exactly `approve ingest`. In normal operation, do not accept same-prompt approval before Phase 1 exists.
-
-## 6. Phase 2 wiki compilation
-
-Generate or update summary, concept, and entity pages. Include source pointers, confidence, claim labels, contradictions, open questions, and review flags. Do not over-resolve contradictions.
-
-## 7. Index and validation
-
-Run deterministic index rebuild, lint, and retrieval index build. Treat stale indexes as derived-state problems, not source truth problems.
-
-Write-enabled deterministic commands must pass `--allow-write` as a global flag before the subcommand:
-
-```bash
-python apex-meta/scripts/apex_kb.py --kb-root apex-meta/kb/<kb-slug>/ --allow-write index
-python apex-meta/scripts/apex_kb_retrieval.py --kb-root apex-meta/kb/<kb-slug>/ --allow-write build-index
+```yaml
+output_tiers:
+  source_only: custody and manifests only
+  analysis_only: semantic analysis, no wiki pages
+  compiled_minimal: small high-value wiki with index and patch backlog
+  compiled_full: full summaries/concepts/entities
+  query_ready: compiled wiki plus postflight, retrieval, quality/query checks
 ```
 
-## 8. Query
+## B. Ingest and compile
 
-Read `wiki/index.md` first, retrieve only the smallest sufficient evidence set, synthesize from compiled pages, and save query outputs when reusable.
+Add each source through `source-intake`, not by silently dropping files into wiki pages. Select storage mode, preserve original path, hash source, and update `manifests/source-manifest.json`.
 
-## 9. Maintenance
+Run `generate-source-payload-manifest` after source intake and before Phase 0. It writes `manifests/source-payload-manifest.json`, grouped by first-level `raw/` folder with direct `raw/` files in group `root`.
 
-Run `lint`, `audit`, `status`, and `health`. List repair actions, but do not mutate Apex Plan, Apex Sync, Apex Session, PreCap, FlowRecap, APSU, or personal orchestration artifacts from Apex KB.
+Run `phase0` after the payload manifest. Use the generated maps to choose high-signal files for LLM analysis. Phase 0 is not semantic ingest.
+
+When the output tier includes wiki pages, Phase 1 analysis and Phase 2 wiki compile are one continuous semantic compile by default. Stop before wiki only for `analysis_only`, `phase1_only`, or `operator_explicit_stop_before_wiki`.
+
+## C. Postflight
+
+Run deterministic index rebuild, retrieval index build/stale check, lint, audit, status, and quality / coverage reporting. Treat stale indexes as derived-state problems, not source truth problems. Missing Phase 2 value-contract sections should be reported before they become hard failures.
+
+## D. Query or maintain
+
+Read `wiki/index.md` first, retrieve only the smallest sufficient evidence set, synthesize from compiled pages, and save query outputs when reusable. Run `lint`, `audit`, `status`, and `health` for maintenance. List repair actions, but do not mutate Apex Plan, Apex Sync, Apex Session, PreCap, FlowRecap, APSU, or personal orchestration artifacts from Apex KB.

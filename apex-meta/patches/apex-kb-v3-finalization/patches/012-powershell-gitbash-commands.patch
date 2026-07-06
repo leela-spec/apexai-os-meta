@@ -1,0 +1,29 @@
+diff --git a/.claude/skills/apex-kb/examples/powershell-commands.md b/.claude/skills/apex-kb/examples/powershell-commands.md
+index 12d6e002..855f27e8 100644
+--- a/.claude/skills/apex-kb/examples/powershell-commands.md
++++ b/.claude/skills/apex-kb/examples/powershell-commands.md
+@@ -7,8 +7,9 @@ cd C:\GitDev\apexai-os-meta
+ # Choose one KB root. Do not rely on a silent default.
+ $KB="apex-meta/kb/<kb-slug>"
+ 
+-# Write-enabled commands use `--allow-write` as a global flag before the subcommand.
+-# Do not put `--allow-write` after the subcommand.
++# Git Bash is preferred for deterministic redirect/pipe-heavy validation when available.
++# PowerShell examples remain supported.
++# `--allow-write`, `--json`, `--dry-run`, and `--strict` may be placed before or after the subcommand.
+ 
+ # 1. Scaffold preview, then write.
+ python apex-meta/scripts/apex_kb.py --kb-root $KB --json scaffold --title "<Topic Title>"
+@@ -18,9 +19,10 @@ python apex-meta/scripts/apex_kb.py --kb-root $KB --allow-write --json scaffold
+ python apex-meta/scripts/apex_kb.py --kb-root $KB --json hash --path "path\to\source.md"
+ python apex-meta/scripts/apex_kb.py --kb-root $KB --allow-write --json source-intake --source-path "path\to\source.md" --source-type note --storage-mode copy_into_kb --source-id "<source-id>"
+ 
+-# 3. Deterministic preflight and Phase 0.
++# 3. Deterministic preflight, payload manifest, and Phase 0.
+ python apex-meta/scripts/apex_kb.py --kb-root $KB --json preflight --source-path "path\to\source.md"
+-python apex-meta/scripts/apex_kb.py --kb-root $KB --allow-write --json phase0
++python apex-meta/scripts/apex_kb.py --kb-root $KB generate-source-payload-manifest --allow-write --json
++python apex-meta/scripts/apex_kb.py --kb-root $KB phase0 --allow-write --json
+ 
+ # 4. Phase 1 shell. LLM fills semantic analysis and stops.
+ python apex-meta/scripts/apex_kb.py --kb-root $KB --allow-write --json ingest-phase1 --source-path "path\to\source.md" --source-slug "<source-slug>"

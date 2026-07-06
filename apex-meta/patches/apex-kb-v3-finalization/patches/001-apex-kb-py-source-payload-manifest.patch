@@ -1,0 +1,262 @@
+diff --git a/apex-meta/scripts/apex_kb.py b/apex-meta/scripts/apex_kb.py
+index 4802b6d1..b73d4086 100644
+--- a/apex-meta/scripts/apex_kb.py
++++ b/apex-meta/scripts/apex_kb.py
+@@ -36,6 +36,7 @@ LLM_BEGIN = "<!-- BEGIN LLM SUMMARY -->"
+ LLM_END = "<!-- END LLM SUMMARY -->"
+ PHASE2_APPROVAL = "approve ingest"
+ MANIFEST_PATH = Path("manifests/source-manifest.json")
++SOURCE_PAYLOAD_MANIFEST_PATH = Path("manifests/source-payload-manifest.json")
+ PHASE0_DIR = Path("manifests/phase0")
+ SOURCE_INVENTORY_JSON = Path("manifests/source-inventory.json")
+ SOURCE_INVENTORY_CSV = Path("manifests/source-inventory.csv")
+@@ -44,6 +45,13 @@ CONFIDENCE_ALLOWED = {"high", "medium", "low", "mixed", "unknown"}
+ CLAIM_LABEL_ALLOWED = {"raw_source", "source_backed_summary", "behavioral_inference", "working_hypothesis", "operator_question", "practitioner_question"}
+ STATUS_ALLOWED = {"draft", "active", "needs_review", "deprecated", "superseded"}
+ PAGE_TYPE_ALLOWED = {"summary", "concept", "entity", "index", "query_output", "audit_item"}
++PHASE2_VALUE_HEADINGS = [
++    "Adaptive Ranked Source Set",
++    "Macro / Meso / Micro",
++    "Key Claims",
++    "Routes Here",
++    "Uncertainty / Raw Source Reopen Triggers",
++]
+ TEXT_EXTS = {".md", ".mdx", ".txt", ".yaml", ".yml", ".json", ".csv", ".py", ".toml"}
+ HANDOVER_TEXT_EXTS = {".md", ".markdown", ".txt", ".yaml", ".yml"}
+ RAW_SUBDIRS = ["raw/articles", "raw/papers", "raw/notes", "raw/refs", "raw/other"]
+@@ -148,6 +156,114 @@ def sha256_dir(path: Path) -> str:
+     return h.hexdigest()
+ 
+ 
++
++
++def sha256_payload_records(records: List[Dict[str, Any]]) -> str:
++    """Hash a stable path/size/hash ledger without reading file bytes again."""
++    h = hashlib.sha256()
++    for record in sorted(records, key=lambda r: r["path"]):
++        h.update(record["path"].encode("utf-8"))
++        h.update(b"\0")
++        h.update(str(record["size_bytes"]).encode("ascii"))
++        h.update(b"\0")
++        h.update(record["sha256"].encode("ascii"))
++        h.update(b"\0")
++    return h.hexdigest()
++
++
++def load_payload_group_map(path: Optional[str]) -> Dict[str, str]:
++    if not path:
++        return {}
++    group_map_path = Path(path).expanduser().resolve()
++    loaded = json.loads(read_text(group_map_path))
++    if isinstance(loaded, dict) and isinstance(loaded.get("groups"), dict):
++        loaded = loaded["groups"]
++    if not isinstance(loaded, dict):
++        raise SystemExit("--group-map must be a JSON object or an object with a groups object")
++    result: Dict[str, str] = {}
++    for key, value in loaded.items():
++        if not isinstance(key, str) or not isinstance(value, str) or not value.strip():
++            raise SystemExit("--group-map entries must map string paths to non-empty string group names")
++        result[key.replace("\\", "/").lstrip("/")] = value.strip()
++    return result
++
++
++def payload_group_for_file(kb_root: Path, raw_root: Path, path: Path, group_map: Dict[str, str]) -> str:
++    rel_kb = relpath(kb_root, path)
++    rel_raw = path.resolve().relative_to(raw_root.resolve()).as_posix()
++    if rel_kb in group_map:
++        return group_map[rel_kb]
++    if rel_raw in group_map:
++        return group_map[rel_raw]
++    parts = rel_raw.split("/")
++    return parts[0] if len(parts) > 1 else "root"
++
++
++def iter_payload_files(raw_root: Path) -> List[Path]:
++    if not raw_root.exists():
++        return []
++    return sorted(p for p in raw_root.rglob("*") if p.is_file())
++
++
++def build_source_payload_manifest(kb_root: Path, raw_root: Optional[Path] = None, group_map_path: Optional[str] = None, include_generated_at: bool = False) -> Dict[str, Any]:
++    raw_root = (raw_root or (kb_root / "raw")).expanduser().resolve()
++    ensure_inside(kb_root, raw_root)
++    group_map = load_payload_group_map(group_map_path)
++    files: List[Dict[str, Any]] = []
++    groups: Dict[str, List[Dict[str, Any]]] = defaultdict(list)
++    for path in iter_payload_files(raw_root):
++        ensure_inside(kb_root, path)
++        rel_raw = path.resolve().relative_to(raw_root.resolve()).as_posix()
++        group = payload_group_for_file(kb_root, raw_root, path, group_map)
++        record = {
++            "path": relpath(kb_root, path),
++            "raw_relative_path": rel_raw,
++            "group": group,
++            "size_bytes": path.stat().st_size,
++            "sha256": sha256_file(path),
++        }
++        files.append(record)
++        groups[group].append(record)
++    source_groups = []
++    for group_id in sorted(groups):
++        records = sorted(groups[group_id], key=lambda r: r["path"])
++        first = records[0]["path"] if records else "raw/"
++        folder = "raw/" if group_id == "root" else "/".join(first.split("/")[:2])
++        source_groups.append({
++            "level": 2,
++            "group_id": group_id,
++            "folder": folder,
++            "file_count": len(records),
++            "total_size_bytes": sum(int(r["size_bytes"]) for r in records),
++            "sha256": sha256_payload_records(records),
++            "files": [r["path"] for r in records],
++        })
++    files_sorted = sorted(files, key=lambda r: r["path"])
++    manifest: Dict[str, Any] = {
++        "manifest_version": "1.0",
++        "schema": "apex.source_payload_manifest.v1",
++        "hash_algorithm": "sha256",
++        "kb_slug": kb_root.name,
++        "kb_root": kb_root.as_posix(),
++        "payload_root": raw_root.as_posix(),
++        "aggregate": {
++            "level": 1,
++            "file_count": len(files_sorted),
++            "total_size_bytes": sum(int(r["size_bytes"]) for r in files_sorted),
++            "sha256": sha256_payload_records(files_sorted),
++        },
++        "source_groups": source_groups,
++        "files": files_sorted,
++    }
++    if group_map:
++        manifest["grouping"] = {"default": "first-level folder under raw/", "root_group": "files directly under raw/", "group_map_entries": len(group_map)}
++    else:
++        manifest["grouping"] = {"default": "first-level folder under raw/", "root_group": "files directly under raw/"}
++    if include_generated_at:
++        manifest["generated_at"] = utc_now()
++    return manifest
++
++
+ def hash_path(path: Path) -> Dict[str, Any]:
+     p = path.expanduser().resolve()
+     if not p.exists():
+@@ -504,6 +620,31 @@ def read_source_inventory(kb_root: Path) -> Dict[str, Any]:
+     return result
+ 
+ 
++
++
++def cmd_generate_source_payload_manifest(args: argparse.Namespace) -> Dict[str, Any]:
++    kb_root = resolve_kb_root(args.kb_root)
++    dry_run = effective_dry_run(args)
++    raw_root = Path(args.raw_root).expanduser().resolve() if args.raw_root else kb_root / "raw"
++    output = Path(args.output).expanduser().resolve() if args.output else kb_root / SOURCE_PAYLOAD_MANIFEST_PATH
++    ensure_inside(kb_root, raw_root)
++    ensure_inside(kb_root, output)
++    manifest = build_source_payload_manifest(kb_root, raw_root, args.group_map, args.include_generated_at)
++    text = json.dumps(manifest, indent=2, ensure_ascii=False, sort_keys=True) + "\n"
++    write = write_text(output, text, kb_root, args.allow_write, dry_run)
++    return {
++        "command": "generate-source-payload-manifest",
++        "dry_run": dry_run,
++        "output": relpath(kb_root, output),
++        "payload_root": relpath(kb_root, raw_root),
++        "file_count": manifest["aggregate"]["file_count"],
++        "total_size_bytes": manifest["aggregate"]["total_size_bytes"],
++        "root_sha256": manifest["aggregate"]["sha256"],
++        "group_count": len(manifest["source_groups"]),
++        "write": write,
++    }
++
++
+ def parse_markdown_structure(path: Path, kb_root: Path) -> Dict[str, Any]:
+     text = read_text(path)
+     meta, body, fm_status = parse_frontmatter(text)
+@@ -906,6 +1047,48 @@ def lint_frontmatter(kb_root: Path) -> List[Dict[str, Any]]:
+     return issues
+ 
+ 
++
++
++def source_payload_manifest_status(kb_root: Path) -> str:
++    path = kb_root / SOURCE_PAYLOAD_MANIFEST_PATH
++    if not path.exists():
++        return "missing"
++    try:
++        current = json.loads(read_text(path))
++        expected = build_source_payload_manifest(kb_root)
++        current_aggregate = current.get("aggregate", {}) if isinstance(current, dict) else {}
++        expected_aggregate = expected.get("aggregate", {})
++        tracked = ["file_count", "total_size_bytes", "sha256"]
++        return "fresh" if all(current_aggregate.get(k) == expected_aggregate.get(k) for k in tracked) else "stale"
++    except Exception:
++        return "unreadable"
++
++
++def lint_source_payload_manifest(kb_root: Path) -> List[Dict[str, Any]]:
++    status = source_payload_manifest_status(kb_root)
++    if status == "fresh":
++        return []
++    return [{"type": "source_payload_manifest", "issue": status, "severity": "report_only", "path": SOURCE_PAYLOAD_MANIFEST_PATH.as_posix()}]
++
++
++def has_markdown_heading(text: str, heading: str) -> bool:
++    return re.search(rf"(?im)^##+\s+{re.escape(heading)}\s*$", text) is not None
++
++
++def lint_page_value_contract(kb_root: Path) -> List[Dict[str, Any]]:
++    issues: List[Dict[str, Any]] = []
++    for page in wiki_pages(kb_root):
++        meta, _body, status = parse_frontmatter(read_text(page))
++        page_type = meta.get("page_type") if status not in {"missing", "malformed"} else None
++        if page_type not in {"summary", "concept", "entity"}:
++            continue
++        text = read_text(page)
++        for heading in PHASE2_VALUE_HEADINGS:
++            if not has_markdown_heading(text, heading):
++                issues.append({"type": "page_value_contract", "severity": "report_only", "path": relpath(kb_root, page), "issue": "missing_section", "section": heading})
++    return issues
++
++
+ def lint_paths(kb_root: Path) -> List[Dict[str, Any]]:
+     issues = []
+     for d in REQUIRED_DIRS:
+@@ -958,11 +1141,15 @@ def cmd_lint(args: argparse.Namespace) -> Dict[str, Any]:
+     issues.extend(lint_paths(kb_root))
+     issues.extend(lint_frontmatter(kb_root))
+     issues.extend(lint_wikilinks(kb_root))
++    issues.extend(lint_source_payload_manifest(kb_root))
++    issues.extend(lint_page_value_contract(kb_root))
+     stale = stale_index_status(kb_root)
+     if stale != "fresh":
+         issues.append({"type": "index", "issue": stale})
+-    severity = "fail" if issues and args.strict else "warn" if issues else "pass"
+-    return {"command": "lint", "status": severity, "issue_count": len(issues), "issues": issues, "deterministic_only": True}
++    report_only_count = sum(1 for issue in issues if issue.get("severity") == "report_only")
++    blocking_issues = [issue for issue in issues if issue.get("severity") != "report_only"]
++    severity = "fail" if blocking_issues and args.strict else "warn" if issues else "pass"
++    return {"command": "lint", "status": severity, "issue_count": len(issues), "report_only_count": report_only_count, "issues": issues, "deterministic_only": True}
+ 
+ 
+ def route_contract_files(target: Path) -> List[Path]:
+@@ -1260,6 +1447,7 @@ def cmd_status(args: argparse.Namespace) -> Dict[str, Any]:
+         "wiki_page_count": len(wiki_pages(kb_root)),
+         "audit_item_count": len(audit_items(kb_root)),
+         "index_status": stale_index_status(kb_root),
++        "source_payload_manifest_status": source_payload_manifest_status(kb_root),
+         "phase0_artifacts_present": (kb_root / PHASE0_DIR / "phase0-navigation-report.md").exists(),
+         "search_index_present": (kb_root / "derived/search/index-meta.json").exists(),
+     }
+@@ -1321,6 +1509,13 @@ def build_parser() -> argparse.ArgumentParser:
+     h.add_argument("--path", required=True)
+     h.set_defaults(func=cmd_hash)
+ 
++    pm = sub.add_parser("generate-source-payload-manifest", aliases=["source-payload-manifest", "payload-manifest"])
++    pm.add_argument("--raw-root", help="Override payload root; defaults to <kb-root>/raw")
++    pm.add_argument("--output", help="Override output path; defaults to manifests/source-payload-manifest.json")
++    pm.add_argument("--group-map", help="Optional explicit JSON map of raw-relative or KB-relative paths to group names")
++    pm.add_argument("--include-generated-at", action="store_true", help="Include a volatile generated_at timestamp; off by default for deterministic diffs")
++    pm.set_defaults(func=cmd_generate_source_payload_manifest)
++
+     pf = sub.add_parser("preflight")
+     pf.add_argument("--source-path")
+     pf.set_defaults(func=cmd_preflight)

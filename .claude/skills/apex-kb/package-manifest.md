@@ -73,6 +73,7 @@ canonical_paths:
   - raw/
   - kb-schema.md
   - manifests/source-manifest.json
+  - manifests/source-payload-manifest.json
   - ingest-analysis/
   - wiki/
   - audit/

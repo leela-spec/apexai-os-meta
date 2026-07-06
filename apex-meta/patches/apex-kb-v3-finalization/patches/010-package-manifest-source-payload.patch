@@ -1,0 +1,12 @@
+diff --git a/.claude/skills/apex-kb/package-manifest.md b/.claude/skills/apex-kb/package-manifest.md
+index 83183041..425e6431 100644
+--- a/.claude/skills/apex-kb/package-manifest.md
++++ b/.claude/skills/apex-kb/package-manifest.md
+@@ -73,6 +73,7 @@ canonical_paths:
+   - raw/
+   - kb-schema.md
+   - manifests/source-manifest.json
++  - manifests/source-payload-manifest.json
+   - ingest-analysis/
+   - wiki/
+   - audit/

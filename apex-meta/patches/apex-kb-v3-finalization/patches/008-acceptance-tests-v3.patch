@@ -1,0 +1,50 @@
+diff --git a/.claude/skills/apex-kb/references/acceptance-tests.md b/.claude/skills/apex-kb/references/acceptance-tests.md
+index e5c721ee..bed057d3 100644
+--- a/.claude/skills/apex-kb/references/acceptance-tests.md
++++ b/.claude/skills/apex-kb/references/acceptance-tests.md
+@@ -42,7 +42,8 @@ This source mentions Apex KB, source manifest, Phase 1, approve ingest, SQLite F
+ "@ | Set-Content -Encoding UTF8 tmp/smoke-source.md
+ python apex-meta/scripts/apex_kb.py --kb-root $KB --json hash --path tmp/smoke-source.md
+ python apex-meta/scripts/apex_kb.py --kb-root $KB --allow-write --json source-intake --source-path tmp/smoke-source.md --source-type note --storage-mode copy_into_kb --source-id smoke-source
+-python apex-meta/scripts/apex_kb.py --kb-root $KB --allow-write --json phase0
++python apex-meta/scripts/apex_kb.py --kb-root $KB generate-source-payload-manifest --allow-write --json
++python apex-meta/scripts/apex_kb.py --kb-root $KB phase0 --allow-write --json
+ ```
+ 
+ Pass criteria:
+@@ -50,6 +51,7 @@ Pass criteria:
+ - Hash returns SHA-256.
+ - Source file is copied to `raw/notes/smoke-source.md`.
+ - Source manifest includes `smoke-source`.
++- `manifests/source-payload-manifest.json` exists, includes per-file SHA-256 records, includes group `notes`, and has a root aggregate SHA-256.
+ - `manifests/phase0/` contains eight deterministic artifacts.
+ - No `ingest-analysis/` or semantic wiki pages are created by Phase 0.
+ 
+@@ -161,6 +163,27 @@ python apex-meta/scripts/apex_kb.py --kb-root $KB --json audit
+ python apex-meta/scripts/apex_kb_retrieval.py --kb-root $KB --json stale
+ ```
+ 
++## Source payload manifest deterministic fixture
++
++```bash
++KB="apex-meta/kb/apex-kb-payload-smoke"
++mkdir -p "$KB/raw/group-a"
++printf 'root
++' > "$KB/raw/root-file.md"
++printf 'group
++' > "$KB/raw/group-a/file-a.md"
++python apex-meta/scripts/apex_kb.py --kb-root "$KB" generate-source-payload-manifest --allow-write --json
++python apex-meta/scripts/apex_kb.py --kb-root "$KB" status --json
++```
++
++Pass criteria:
++
++- Manifest exists at `manifests/source-payload-manifest.json`.
++- `files` includes `raw/root-file.md` and `raw/group-a/file-a.md`.
++- Groups include `root` and `group-a`.
++- Re-running the command without `--include-generated-at` produces deterministic aggregate hashes.
++- `status` reports source payload manifest status as `fresh`.
++
+ Pass criteria:
+ 
+ - Lint passes or reports only intentional test issues.

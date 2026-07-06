@@ -2,6 +2,12 @@
 analysis_id: "<kb-slug>-<source-slug>-analysis"
 kb_slug: "<kb-slug>"
 source_slug: "<source-slug>"
+run_profile:
+  output_tier: "source_only | analysis_only | compiled_minimal | compiled_full | query_ready"
+  safe_mode: "none | phase1_only | operator_explicit_stop_before_wiki"
+source_payload_manifest_ref:
+  path: "manifests/source-payload-manifest.json"
+  status_at_analysis_time: "fresh | missing | stale | not_checked"
 source_ref:
   source_path: "<raw/source/path/or/pointer>"
   source_type: "article | paper | note | ref | other"
@@ -12,9 +18,10 @@ created_at: "YYYY-MM-DDTHH:MM:SSZ"
 created_by: "apex-kb"
 phase: ingest_phase_1
 status: operator_review_needed
-operator_gate:
-  phase_2_allowed: false
-  required_confirmation_phrase: "approve ingest"
+semantic_compile_policy:
+  phase_2_continues_when_output_tier_includes_wiki: true
+  stop_before_wiki_only_for: "analysis_only | phase1_only | operator_explicit_stop_before_wiki"
+  optional_resume_phrase: "approve ingest"
 ---
 
 # Phase 1 Ingest Analysis - <source title>
@@ -113,6 +120,6 @@ audit_items: []
 manifest_updates: []
 ```
 
-## 9. Operator Gate
+## 9. Compile Decision
 
-Stop here. Do not generate wiki pages until the operator provides the exact phrase `approve ingest` after reviewing this analysis.
+If the selected output tier is `analysis_only` or the safe mode is `phase1_only` / `operator_explicit_stop_before_wiki`, stop here. Otherwise continue into Phase 2 wiki compile and produce pages that implement the adaptive page value contract.
