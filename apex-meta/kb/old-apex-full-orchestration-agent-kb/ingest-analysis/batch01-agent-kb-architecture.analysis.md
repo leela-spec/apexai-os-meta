@@ -1,125 +1,110 @@
-# Batch 01 — Agent KB Architecture
+---
+title: "Rerun Batch 01 — Agent KB Architecture"
+page_type: ingest_analysis
+kb_slug: old-apex-full-orchestration-agent-kb
+phase: ingest_phase_1_rerun
+status: operator_gate_already_approved_for_rerun
+created_at: "2026-07-06T22:45:00+02:00"
+updated_at: "2026-07-06T22:45:00+02:00"
+confidence: high
+claim_label: source_grounded_analysis
+phase_2_allowed: true
+phase_2_approval_phrase: "approve ingest"
+---
+
+# Rerun Batch 01 — Agent KB Architecture
 
 ## source_scope
 
-This batch analyzes the old Apex managed agent KB as a durable agent-doctrine architecture: KB root mapping, five-file scaffolds, owner/validator metadata, source/candidate/canon separation, compact activation files, appendix-backed detail, and cross-session behavior preservation.
+This replacement Phase 1 batch analyzes the old managed agent KB as an architecture for durable, source-preserving role doctrine. It focuses on the storage pattern rather than on current runtime authority.
 
-The run used the mirrored source corpus under:
+The source corpus used for this rerun is the mirrored KB-local corpus under:
 
 ```text
 apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/
 ```
 
-The original operator-designated source root remains:
+The historical `OpenClaw` and Windows-local paths are treated only as source evidence. They are not current Apex runtime authority.
 
-```text
-ApexDefinition&OldVersions/OldApexFullOrchestrationSystem/managed/agent_kb/
-```
-
-## source_files_read
+## files_read
 
 ```yaml
-source_files_read:
-  - path: apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/AGENT_KB_INDEX.md
-    reason: root map and five-file scaffold convention
-  - path: apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/alfred/ESSENCE.md
-    reason: example compact agent boundary file
-  - path: apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/meta_ops/ESSENCE.md
-    reason: orchestration role boundary
-  - path: apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/meta_strategy/ESSENCE.md
-    reason: strategy role boundary
-  - path: apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/meta_detective/ESSENCE.md
-    reason: validator role and accepted compact doctrine
-  - path: apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/meta_detective/BEST_PRACTICES.md
-    reason: accepted practice schema and promotion discipline
-  - path: apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/meta_detective/LEARNING_QUEUE.md
-    reason: candidate-only queue semantics
-  - path: apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/meta_detective/APPENDIX_INTERNAL_MODES.md
-    reason: accepted appendix doctrine and scaffold/appendix relationship
-  - path: apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__knowledge_bank/ESSENCE.md
-    reason: KB placement and lifecycle routing doctrine
-  - path: apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__informatics_design/ESSENCE.md
-    reason: structure, taxonomy, chunking, and retrieval-safety doctrine
-  - path: apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__hygiene_clean/ESSENCE.md
-    reason: structural QA, pointer integrity, stale-state, and closure-safety doctrine
-  - path: apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__prompts_workflows/ESSENCE.md
-    reason: prompt/workflow boundary and staged execution doctrine
-  - path: apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/special_ops__ai_handling_routing/ESSENCE.md
-    reason: advisory routing boundary and routing card doctrine
-```
-
-Helper/navigation files read:
-
-```yaml
-helper_files_read:
-  - apex-meta/kb/old-apex-full-orchestration-agent-kb/README.md
-  - apex-meta/kb/old-apex-full-orchestration-agent-kb/manifests/source-inventory.json
-  - apex-meta/kb/old-apex-full-orchestration-agent-kb/manifests/phase0/source-priority-candidates.md
+files_read:
+  control:
+    - path: .claude/skills/apex-kb/SKILL.md
+      pointer: "Phase 2 page value contract and Apex KB lifecycle boundary"
+    - path: apex-meta/kb/old-apex-full-orchestration-agent-kb/wiki/index.md
+      pointer: "current compiled page set"
+    - path: apex-meta/kb/old-apex-full-orchestration-agent-kb/log/phase2-wiki-compile-report.md
+      pointer: "prior Phase 2 compile evidence"
+    - path: apex-meta/kb/old-apex-full-orchestration-agent-kb/manifests/phase0/corpus-profile.md
+      pointer: "227 files scanned; 243 inventory entries; deterministic baseline"
+    - path: apex-meta/kb/old-apex-full-orchestration-agent-kb/manifests/phase0/source-priority-candidates.md
+      pointer: "deterministic navigation hints"
+  raw_sources:
+    - path: sources/primary/managed-agent-kb/AGENT_KB_INDEX.md
+      pointer: "Purpose; Scaffold convention; Agent KB root map; Working surface pointers; Boundary note"
+    - path: sources/primary/managed-agent-kb/alfred/ESSENCE.md
+      pointer: "operator-facing intake role boundary"
+    - path: sources/primary/managed-agent-kb/meta_ops/ESSENCE.md
+      pointer: "bounded orchestration and execution-control role boundary"
+    - path: sources/primary/managed-agent-kb/meta_strategy/ESSENCE.md
+      pointer: "option/recommendation role boundary"
+    - path: sources/primary/managed-agent-kb/meta_detective/ESSENCE.md
+      pointer: "adversarial validation role boundary"
+    - path: sources/primary/managed-agent-kb/meta_detective/APPENDIX_INTERNAL_MODES.md
+      pointer: "accepted appendix doctrine and anti-sprawl rule"
+    - path: sources/primary/managed-agent-kb/special_ops__ai_handling_routing/ESSENCE.md
+      pointer: "route states and repo-execution routing doctrine"
+    - path: sources/primary/managed-agent-kb/special_ops__hygiene_clean/ESSENCE.md
+      pointer: "structural QA, pointer integrity, closure-by-evidence doctrine"
 ```
 
 ## source_grounded_claims
 
 ```yaml
 claims:
-  - id: C001
-    text: "The old agent KB has an explicit root index whose purpose is to map every first-wave agent to its KB root inside managed/agent_kb."
-    source: "AGENT_KB_INDEX.md / Purpose"
+  - id: A01-C001
+    claim: "The old system has an explicit KB root index for first-wave agents and maps each role to a KB root, default owner, and default validator."
+    source_pointer: "AGENT_KB_INDEX.md / Purpose and Agent KB root map"
     confidence: high
-    label: raw_source
+    claim_label: raw_source
 
-  - id: C002
-    text: "Each agent KB root follows the same five-file scaffold: ESSENCE.md, BEST_PRACTICES.md, MISTAKES.md, TEMPLATES.md, and LEARNING_QUEUE.md."
-    source: "AGENT_KB_INDEX.md / Scaffold convention"
+  - id: A01-C002
+    claim: "Each durable agent KB root follows a five-file scaffold: ESSENCE.md, BEST_PRACTICES.md, MISTAKES.md, TEMPLATES.md, and LEARNING_QUEUE.md."
+    source_pointer: "AGENT_KB_INDEX.md / Scaffold convention"
     confidence: high
-    label: raw_source
+    claim_label: raw_source
 
-  - id: C003
-    text: "LEARNING_QUEUE.md is explicitly candidate-only and is never runtime truth."
-    source: "AGENT_KB_INDEX.md / Scaffold convention; meta_detective/LEARNING_QUEUE.md / Purpose and Queue safeguards"
+  - id: A01-C003
+    claim: "LEARNING_QUEUE.md is explicitly candidate-only and is never runtime truth by placement alone."
+    source_pointer: "AGENT_KB_INDEX.md / Scaffold convention; Hygiene Clean status vocabulary"
     confidence: high
-    label: raw_source
+    claim_label: raw_source
 
-  - id: C004
-    text: "Agent KB roots encode owner and validator relationships rather than treating every role as self-validating."
-    source: "AGENT_KB_INDEX.md / Agent KB root map"
+  - id: A01-C004
+    claim: "ESSENCE.md is the compact activation and boundary surface: it states purpose, owns, does-not-own, read triggers, constraints, evidence status, owner, validator, source seed, and review horizon."
+    source_pointer: "alfred/ESSENCE.md; meta_ops/ESSENCE.md; meta_strategy/ESSENCE.md; meta_detective/ESSENCE.md"
     confidence: high
-    label: source_backed_summary
+    claim_label: source_backed_summary
 
-  - id: C005
-    text: "ESSENCE.md functions as the compact activation and boundary doctrine surface for an agent, while appendices hold deeper evidence, ranking, candidate detail, and anti-drift material where present."
-    source: "alfred/ESSENCE.md; special_ops__knowledge_bank/ESSENCE.md / Operating rule and Required local surfaces; special_ops__informatics_design/ESSENCE.md / Scaffold / appendix split"
+  - id: A01-C005
+    claim: "Appendices are the correct location for dense operational doctrine when detail would overload a compact role surface."
+    source_pointer: "meta_detective/APPENDIX_INTERNAL_MODES.md / Purpose, Status, Doctrine statement"
     confidence: high
-    label: source_backed_summary
+    claim_label: source_backed_summary
 
-  - id: C006
-    text: "The old system uses accepted appendix doctrine for detail that is too large or mode-specific for compact scaffold files, as shown by Meta Detective's APPENDIX_INTERNAL_MODES.md."
-    source: "meta_detective/APPENDIX_INTERNAL_MODES.md / Purpose, Status, Relationship to scaffold files"
+  - id: A01-C006
+    claim: "The strongest reusable architecture is not the old role roster; it is the durable pattern of compact activation surfaces, explicit negative ownership, candidate/canon separation, and owner-validator metadata."
+    source_pointer: "AGENT_KB_INDEX.md; all ESSENCE files read; meta_detective/APPENDIX_INTERNAL_MODES.md"
     confidence: high
-    label: source_backed_summary
+    claim_label: source_backed_summary
 
-  - id: C007
-    text: "The structure creates durable behavior across sessions by storing compact role boundaries, accepted practices, known mistakes, reusable templates, candidate queues, and owner/validator metadata in persistent files."
-    source: "AGENT_KB_INDEX.md; meta_detective/BEST_PRACTICES.md / Entry schema; meta_detective/MISTAKES.md / Entry schema; meta_detective/TEMPLATES.md / Template schema; meta_detective/LEARNING_QUEUE.md / Entry schema"
+  - id: A01-C007
+    claim: "Historical OpenClaw paths in the mirrored sources are evidence pointers only; they do not establish current Apex or Claude-native runtime authority."
+    source_pointer: "AGENT_KB_INDEX.md / Working surface pointers and Boundary note; old-agent semantic continuation report / historical path authority safety"
     confidence: high
-    label: source_backed_summary
-
-  - id: C008
-    text: "The old KB architecture intentionally separates source material, candidate material, accepted doctrine, and runtime truth to reduce accidental canonization."
-    source: "meta_detective/LEARNING_QUEUE.md / Purpose and Promotion route; special_ops__hygiene_clean/ESSENCE.md / Status vocabulary and Operating doctrine; special_ops__knowledge_bank/ESSENCE.md / Core constraints"
-    confidence: high
-    label: source_backed_summary
-
-  - id: C009
-    text: "The mirrored source corpus is already available inside the KB root and records an original_source_root plus mirrored_source_root, so Phase 1 can proceed from visible source corpus rather than blocking on the old local path."
-    source: "manifests/source-inventory.json / generated_at, original_source_root, mirrored_source_root"
-    confidence: high
-    label: raw_source
-
-  - id: C010
-    text: "Phase 0 navigation artifacts exist and classify source-priority candidates as deterministic navigation hints, not semantic authority rankings."
-    source: "manifests/phase0/source-priority-candidates.md / opening note"
-    confidence: high
-    label: raw_source
+    claim_label: source_backed_summary
 ```
 
 ## concepts_extracted
@@ -128,180 +113,100 @@ claims:
 concepts_extracted:
   - slug: five-file-agent-kb-scaffold
     label: "Five-file agent KB scaffold"
-    definition: "The durable agent KB shape built from ESSENCE, BEST_PRACTICES, MISTAKES, TEMPLATES, and LEARNING_QUEUE."
-    source: "AGENT_KB_INDEX.md / Scaffold convention"
+    definition: "Durable role doctrine stored as ESSENCE, BEST_PRACTICES, MISTAKES, TEMPLATES, and LEARNING_QUEUE."
     phase2_value: high
+    source_pointer: "AGENT_KB_INDEX.md / Scaffold convention"
 
   - slug: compact-essence-activation-surface
     label: "Compact ESSENCE activation surface"
-    definition: "ESSENCE.md stores accepted compact boundary doctrine, owns/does-not-own lists, read triggers, and core constraints."
-    source: "alfred/ESSENCE.md; meta_detective/ESSENCE.md; special_ops__hygiene_clean/ESSENCE.md"
+    definition: "A small, role-specific entrypoint that activates a boundary without pulling all evidence into the prompt."
     phase2_value: high
+    source_pointer: "role ESSENCE files"
+
+  - slug: owner-validator-agent-kb-model
+    label: "Owner/validator agent KB model"
+    definition: "A governance pattern where each durable role has an owner and a separate validator to avoid self-validation."
+    phase2_value: high
+    source_pointer: "AGENT_KB_INDEX.md / Agent KB root map"
 
   - slug: candidate-only-learning-queue
     label: "Candidate-only learning queue"
-    definition: "Learning queues capture useful future patterns but are not runtime truth until routed through owner/validator review and promotion."
-    source: "meta_detective/LEARNING_QUEUE.md / Purpose, Write permissions, Promotion route, Queue safeguards"
+    definition: "A capture surface for useful future lessons that cannot become runtime truth without promotion."
     phase2_value: high
-
-  - slug: owner-validator-agent-kb-model
-    label: "Owner/validator KB model"
-    definition: "Each role has a default owner and validator, preventing self-validation and clarifying escalation paths."
-    source: "AGENT_KB_INDEX.md / Agent KB root map"
-    phase2_value: high
-
-  - slug: scaffold-appendix-split
-    label: "Scaffold/appendix split"
-    definition: "Compact scaffold files stay navigational while appendices carry evidence, candidate ledgers, source manifests, rankings, examples, and QA traces."
-    source: "special_ops__knowledge_bank/ESSENCE.md / Required local surfaces; special_ops__informatics_design/ESSENCE.md / Scaffold / appendix split"
-    phase2_value: high
+    source_pointer: "AGENT_KB_INDEX.md / Scaffold convention; Hygiene Clean status vocabulary"
 
   - slug: accepted-appendix-doctrine
     label: "Accepted appendix doctrine"
-    definition: "A detailed appendix can become accepted operating doctrine without becoming a new agent, KB root, or runtime authority."
-    source: "meta_detective/APPENDIX_INTERNAL_MODES.md / Purpose and Status"
-    phase2_value: medium
+    definition: "Dense doctrine can be accepted as an appendix without becoming a new agent, KB root, config authority, or execution surface."
+    phase2_value: high
+    source_pointer: "meta_detective/APPENDIX_INTERNAL_MODES.md"
 ```
 
-## entities_or_roles_extracted
+## entities_extracted
 
 ```yaml
-entities_or_roles_extracted:
-  - id: alfred
-    type: agent_role
-    owns: [operator-facing intake, constraint capture, route brief framing, ambiguity clarification]
-    does_not_own: [execution control, final strategy ownership, adversarial validation, runtime law, config mutation]
-    source: "alfred/ESSENCE.md"
+entities_extracted:
+  - id: old_openclaw_agent_kb_system
+    type: historical_system
+    current_authority: evidence_only
+    source_pointer: "AGENT_KB_INDEX.md and mirrored source path structure"
 
-  - id: meta_ops
-    type: agent_role
-    owns: [orchestration, specialist activation, sequencing, bounded synthesis, validator routing, execution control]
-    does_not_own: [operator personal priorities, final strategy, adversarial validation, direct canon mutation, config authority]
-    source: "meta_ops/ESSENCE.md"
+  - id: reusable_scaffold_files
+    type: artifact_family
+    members: [ESSENCE.md, BEST_PRACTICES.md, MISTAKES.md, TEMPLATES.md, LEARNING_QUEUE.md]
+    source_pointer: "AGENT_KB_INDEX.md / Scaffold convention"
 
-  - id: meta_strategy
-    type: agent_role
-    owns: [option framing, scenario comparison, timing analysis, leverage analysis, recommendation packets]
-    does_not_own: [execution control, direct implementation, direct promotion, operator override, config authority]
-    source: "meta_strategy/ESSENCE.md"
-
-  - id: meta_detective
-    type: validator_role
-    owns: [adversarial validation, source authority challenge, contradiction surfacing, drift challenge, risk pressure, verdict packets]
-    does_not_own: [primary execution, patch application, direct implementation, orchestration control, direct promotion]
-    source: "meta_detective/ESSENCE.md"
-
-  - id: special_ops__knowledge_bank
-    type: specialist_role
-    owns: [KB source manifesting, candidate ledgering, appendix-first architecture, KB placement and lifecycle routing]
-    does_not_own: [final strategy, direct promotion approval, config mutation, adversarial validation ownership]
-    source: "special_ops__knowledge_bank/ESSENCE.md"
-
-  - id: special_ops__informatics_design
-    type: specialist_role
-    owns: [information architecture, taxonomy, terminology stability, chunking, appendix architecture, retrieval clarity]
-    does_not_own: [domain truth validation, strategic direction, total KB governance, promotion approval, orchestration control]
-    source: "special_ops__informatics_design/ESSENCE.md"
-
-  - id: special_ops__hygiene_clean
-    type: structural_validator_role
-    owns: [structural QA, pointer integrity, stale-state checks, closure evidence, drift detection]
-    does_not_own: [accepted-truth mutation, promotion approval, strategy authority, architecture design authority, config authority]
-    source: "special_ops__hygiene_clean/ESSENCE.md"
-
-  - id: special_ops__prompts_workflows
-    type: specialist_role
-    owns: [reusable prompt structures, workflow-stage patterns, promptflow skeletons, handoff templates]
-    does_not_own: [orchestration authority, model/config routing authority, KB placement authority, promotion approval]
-    source: "special_ops__prompts_workflows/ESSENCE.md"
-
-  - id: special_ops__ai_handling_routing
-    type: routing_specialist_role
-    owns: [advisory model/tool posture, source-authority routing checks, ambiguity and escalation posture, handoff readiness]
-    does_not_own: [runtime config mutation, provider-policy authority, all-agent orchestration authority, final approval]
-    source: "special_ops__ai_handling_routing/ESSENCE.md"
+  - id: compact_role_surfaces
+    type: artifact_family
+    members: [alfred/ESSENCE.md, meta_ops/ESSENCE.md, meta_strategy/ESSENCE.md, meta_detective/ESSENCE.md]
+    source_pointer: "role ESSENCE files"
 ```
 
 ## contradictions_or_tensions
 
 ```yaml
 contradictions_or_tensions:
-  - id: T001
-    text: "The root index names multiple special ops roots, but not every root was read end-to-end in this Phase 1 batch."
-    source: "AGENT_KB_INDEX.md / Agent KB root map"
+  - id: A01-T001
+    tension: "The five-file scaffold is reusable, but recreating every old role as a current permanent agent would create agent sprawl."
+    disposition: "Preserve as doctrine/page pattern; do not promote roster to current runtime authority."
     confidence: high
-    label: operator_question
 
-  - id: T002
-    text: "Learning queues can contain promoted trace records, but the operational doctrine must move to the promoted target file; this creates a necessary distinction between trace visibility and runtime authority."
-    source: "meta_detective/LEARNING_QUEUE.md / Purpose, DET-LQ-005, Promotion route, Queue safeguards"
-    confidence: high
-    label: source_backed_summary
-
-  - id: T003
-    text: "Appendix-backed detail increases durability and retrieval depth, but scaffold files must remain compact; Phase 2 should preserve this split instead of converting every appendix into front-page doctrine."
-    source: "special_ops__knowledge_bank/ESSENCE.md / Operating rule; special_ops__informatics_design/ESSENCE.md / Scaffold / appendix split"
-    confidence: high
-    label: source_backed_summary
-
-  - id: T004
-    text: "Some source roles are OpenClaw-specific. They are valuable as patterns, but current Apex/Claude-native synthesis must not preserve old runtime names as binding architecture by default."
-    source: "multiple ESSENCE files use OpenClaw/final-system paths and role names"
+  - id: A01-T002
+    tension: "Appendices provide valuable depth but can recreate source sprawl unless routed through index-first retrieval pages."
+    disposition: "Use adaptive ranked source sets and route-by-question sections in Phase 2 pages."
     confidence: medium
-    label: working_hypothesis
 ```
 
-## migration_notes
+## open_questions
 
 ```yaml
-migration_notes:
-  preserve:
-    - "Five-file scaffold as a reusable doctrine pattern for durable agents or durable capability lanes."
-    - "Candidate-only learning queues with owner, validator, score, overlap_check, and review_due."
-    - "Owner/validator split for every durable role-like knowledge surface."
-    - "Scaffold/appendix split for compression and retrieval efficiency."
-    - "Accepted appendix doctrine for large mode packs that should not become new agents."
-  adapt:
-    - "Map old managed/agent_kb roots into current Apex KB wiki concepts and entities rather than resurrecting old runtime folders."
-    - "Translate OpenClaw-specific path names into current Apex/Claude-native abstractions."
-    - "Treat Phase 0 priority candidates as navigation aids, not authority rankings."
-  deprecate_or_handle_carefully:
-    - "Any direct claim that storage alone creates accepted canon."
-    - "Any direct reuse of legacy runtime config or OpenClaw execution surfaces."
-    - "Any learning queue content used as runtime truth without promotion."
+open_questions:
+  - id: A01-Q001
+    question: "Which scaffold files should become reusable templates for Apex-native skills versus only historical wiki pages?"
+    blocker: false
+  - id: A01-Q002
+    question: "Should accepted appendix doctrine map to concept pages, checklists, subagents, or skill references in future implementation?"
+    blocker: false
 ```
 
-## proposed_phase2_targets
+## proposed_phase_2_wiki_targets
 
 ```yaml
-proposed_phase2_targets:
-  summaries:
-    - old-agent-kb-architecture
-    - source-candidate-canon-separation
-  concepts:
-    - five-file-agent-kb-scaffold
-    - compact-essence-activation-surface
-    - candidate-only-learning-queue
-    - owner-validator-agent-kb-model
-    - scaffold-appendix-split
-    - accepted-appendix-doctrine
-  entities:
-    - alfred
-    - meta-ops
-    - meta-strategy
-    - meta-detective
-    - special-ops-knowledge-bank
-    - special-ops-informatics-design
-    - special-ops-hygiene-clean
-    - special-ops-prompts-workflows
-    - special-ops-ai-handling-routing
+summaries:
+  - old-agent-kb-architecture
+  - reusable-old-agent-kb-patterns
+concepts:
+  - agent-doctrine-and-promotion-patterns
+  - migration-safety-patterns
+entities:
+  - reusable-artifact-families
 ```
 
-## operator_gate
+## phase_gate_statement
 
 ```yaml
-operator_gate:
-  phase2_allowed: false
+phase_2_gate:
   required_phrase: approve ingest
-  note: "Phase 1 analysis exists for operator review. Wiki synthesis is blocked until explicit approval."
+  status_for_this_rerun: approved
+  note: "Operator provided approval in the initiating request; Phase 2 may proceed after this replacement Phase 1 set exists."
 ```
