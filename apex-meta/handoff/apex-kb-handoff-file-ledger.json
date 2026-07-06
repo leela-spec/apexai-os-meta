@@ -1,0 +1,156 @@
+{
+  "artifact_type": "apex_kb_handoff_file_ledger",
+  "source_folder": "apex-meta/handoff/",
+  "generated_for": "future_apex_kb_planning_and_patch_runs",
+  "source_access": {
+    "status": "pass",
+    "method": "github_connector_search_and_fetch_file",
+    "repository": "leela-spec/apexai-os-meta",
+    "branch": "main",
+    "listed_or_discovered_files": [
+      "apex-meta/handoff/task_plan.md",
+      "apex-meta/handoff/findings.md",
+      "apex-meta/handoff/progress.md",
+      "apex-meta/handoff/next-session.md",
+      "apex-meta/handoff/narm-index-prep-handover.md",
+      "apex-meta/handoff/apex-kb-chat-drift-learning.okf.md",
+      "apex-meta/handoff/apex-kb-v2-planning-handover.md"
+    ],
+    "limitations": [
+      "GitHub connector search was used as the practical folder listing surface; a direct directory-list action was not available in this tool surface.",
+      "Tool and pattern status is based on the live handoff folder only unless a file explicitly points elsewhere.",
+      "Implementation work must live-verify scripts and contract files before patching."
+    ]
+  },
+  "authority_tiers": {
+    "P0_binding": "accepted decisions, current state locks, repo-backed execution audits, process rules",
+    "P1_operational": "handoffs, continuation packets, validation reports, domain project logs",
+    "P2_context": "research, exploratory architecture, older planning",
+    "P3_stale_or_contaminating": "superseded prompts, wrong assumptions, obsolete branch/process instructions"
+  },
+  "files": [
+    {
+      "path": "apex-meta/handoff/apex-kb-chat-drift-learning.okf.md",
+      "authority": "P0_binding",
+      "topics": ["process_drift", "codex_prompt_standard", "lifecycle_phase_preservation", "executor_routing", "no_option_sprawl"],
+      "key_claims": [
+        "Preserve global Apex KB lifecycle state before producing next-step artifacts.",
+        "Use complete execution packets for Codex-style work.",
+        "Keep deterministic and semantic executor responsibilities separate."
+      ],
+      "patch_relevance": "Binding process memory for future Apex KB planning and execution handoffs.",
+      "stale_risk": "low",
+      "read_priority": 1,
+      "currentness": "current_process_memory"
+    },
+    {
+      "path": "apex-meta/handoff/apex-kb-v2-planning-handover.md",
+      "authority": "P0_binding",
+      "topics": ["apex_kb_v2", "quality_command", "tier_policy", "source_set_plan", "coverage_report", "skill_compaction"],
+      "key_claims": [
+        "Apex KB V1 has execution proof and V2 should optimize value-to-overhead ratio.",
+        "High-priority V2 ideas include tier policy, deterministic quality checks, compact skill routing, source-set planning, page budgets, and query-eval packs.",
+        "Live repo verification is required before patching."
+      ],
+      "patch_relevance": "Primary Apex KB evolution planning file in the live handoff folder.",
+      "stale_risk": "medium_live_verification_required",
+      "read_priority": 2,
+      "currentness": "current_as_planning_handover"
+    },
+    {
+      "path": "apex-meta/handoff/narm-index-prep-handover.md",
+      "authority": "P1_operational",
+      "topics": ["narm_support_kb", "artifact_plan", "definitions_of_done", "workflow_prompts", "source_file_map"],
+      "key_claims": [
+        "Prepare the project artifacts before any final index-building pass.",
+        "Use repo-local preparation artifacts as the next domain-specific handoff output.",
+        "Preserve directness, evidence labels, and scope boundaries."
+      ],
+      "patch_relevance": "Highest-value domain-specific continuation handoff; not generic Apex KB architecture authority.",
+      "stale_risk": "low_for_domain_context_medium_for_generic_apex_kb",
+      "read_priority": 3,
+      "currentness": "current_for_pre_indexing"
+    },
+    {
+      "path": "apex-meta/handoff/next-session.md",
+      "authority": "P1_operational",
+      "topics": ["next_actions", "open_items", "risk_flags"],
+      "key_claims": [
+        "Points the next session to the detailed preparation handover.",
+        "Keeps unresolved destination and source-inspection questions visible.",
+        "Warns about process drift and output-quality risks."
+      ],
+      "patch_relevance": "Routing pointer for the domain-specific continuation.",
+      "stale_risk": "medium_high_partly_superseded",
+      "read_priority": 4,
+      "currentness": "partly_superseded_by_preparation_handover"
+    },
+    {
+      "path": "apex-meta/handoff/task_plan.md",
+      "authority": "P1_operational",
+      "topics": ["project_phases", "scope", "open_decisions", "risks"],
+      "key_claims": [
+        "Defines the project goal and phased plan.",
+        "Keeps destination, redaction, and dependency questions open.",
+        "Preserves scope limits for the project."
+      ],
+      "patch_relevance": "Domain plan reference; low relevance to generic Apex KB script patches.",
+      "stale_risk": "medium",
+      "read_priority": 5,
+      "currentness": "current_h6_plan"
+    },
+    {
+      "path": "apex-meta/handoff/findings.md",
+      "authority": "P1_operational",
+      "topics": ["durable_findings", "source_notes", "operator_validation"],
+      "key_claims": [
+        "Records durable findings and validation basis for the domain project.",
+        "Preserves source-note context for later index preparation.",
+        "Marks open questions around destination and redaction."
+      ],
+      "patch_relevance": "Domain source-custody seed; low relevance to generic Apex KB script patches.",
+      "stale_risk": "medium",
+      "read_priority": 6,
+      "currentness": "current_source_notes"
+    },
+    {
+      "path": "apex-meta/handoff/progress.md",
+      "authority": "P1_operational",
+      "topics": ["session_log", "handoff_artifacts", "next_route"],
+      "key_claims": [
+        "Records created handoff artifacts and project records.",
+        "States no existing task status was changed.",
+        "Routes dependency validation to the appropriate sync surface."
+      ],
+      "patch_relevance": "Historical session log; useful for reconstruction only.",
+      "stale_risk": "medium",
+      "read_priority": 7,
+      "currentness": "historical_session_log"
+    }
+  ],
+  "read_first": [
+    "apex-meta/handoff/apex-kb-chat-drift-learning.okf.md",
+    "apex-meta/handoff/apex-kb-v2-planning-handover.md",
+    "apex-meta/handoff/narm-index-prep-handover.md"
+  ],
+  "topic_routes": {
+    "current_state_locks": ["apex-meta/handoff/apex-kb-chat-drift-learning.okf.md", "apex-meta/handoff/apex-kb-v2-planning-handover.md"],
+    "deterministic_script_inefficiencies": ["apex-meta/handoff/apex-kb-v2-planning-handover.md"],
+    "lifecycle_prompt_flow_inefficiencies": ["apex-meta/handoff/apex-kb-chat-drift-learning.okf.md"],
+    "missing_high_impact_tools": ["apex-meta/handoff/apex-kb-v2-planning-handover.md", "apex-meta/handoff/apex-kb-chat-drift-learning.okf.md"],
+    "domain_project_indexing": ["apex-meta/handoff/narm-index-prep-handover.md", "apex-meta/handoff/task_plan.md", "apex-meta/handoff/findings.md", "apex-meta/handoff/progress.md", "apex-meta/handoff/next-session.md"]
+  },
+  "non_reopen_rules": [
+    "Do not relitigate deterministic-vs-LLM ownership split.",
+    "Do not rewind lifecycle phases without a proven missing artifact.",
+    "Do not produce partial Codex prompts when complete execution is required.",
+    "Do not use branches or PRs in Codex prompts unless explicitly requested.",
+    "Do not treat domain handoffs as generic Apex KB package authority.",
+    "Do not build final domain indexes before preparation artifacts exist."
+  ],
+  "generated_outputs": [
+    "apex-meta/handoff/apex-kb-handoff-folder-index.md",
+    "apex-meta/handoff/apex-kb-handoff-topic-map.okf.md",
+    "apex-meta/handoff/apex-kb-handoff-file-ledger.json"
+  ]
+}
