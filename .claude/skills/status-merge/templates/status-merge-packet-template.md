@@ -72,6 +72,7 @@ Use this section before accepted deltas. If any high-severity conflict exists, s
 conflict_notes:
   - conflict_id: conflict_<short_slug>
     severity: <high | medium | low | unknown>
+    conflict_type: <state_owner_unclear | competing_status_values | stale_vs_newer_evidence | duplicate_recap_candidate | project_identity_ambiguous | usage_summary_incomplete | next_action_conflict>
     conflict_summary: <what conflicts>
     source_refs:
       - <ref_id>
@@ -88,6 +89,7 @@ conflict_notes:
 #### Conflict: `<conflict_id>`
 
 - **Severity:** <high | medium | low | unknown>
+- **Type:** <conflict_type>
 - **What conflicts:** <plain-language summary>
 - **Evidence:** <source refs>
 - **Affected state:** <state refs>
@@ -99,213 +101,287 @@ conflict_notes:
 
 ## 4. Accepted Delta Candidates
 
-Accepted means accepted for merge proposal, not durable write. These entries may become durable only after operator review and owner-safe write handling.
+Accepted means accepted into this merge proposal only. It does not mean durable KB mutation unless the operator confirms and the write routes through `project-kb-manager`.
 
 ```yaml
 accepted_delta_candidates:
-  - candidate_id: accepted_delta_<short_slug>
-    source_ref: <flow_recap_packet_ref_or_other_evidence_ref>
-    delta_type: <project_status | milestone | next_action | blocker | consumed_recap | usage_context | other>
-    target_owner: <project-kb-manager | ProjectStatus | model-usage-log | status-merge | other>
-    target_ref: <existing_or_new_state_ref>
-    proposed_change_summary: <compact summary>
-    acceptance_basis: <why this candidate is accepted into the merge proposal>
-    evidence_refs:
-      - <ref_id>
-    confidence: <high | medium | low | unknown>
-    durable_write_status: proposal_only
+  - candidate_id: delta_<short_slug>
+    source_ref: <flow_recap_packet_ref_or_other_source>
+    delta_summary: <compact summary>
+    proposed_destination: <project_kb_manager_update_proposal | ProjectStatus_view_update_proposal | next_PreCapNextDay_context_seed | consumed_recap_register_view>
+    acceptance_basis: <evidence summary or operator note>
+    operator_confirmation_status: <confirmed | not_confirmed | not_required_for_low_risk_view_only>
+    project_kb_manager_write_boundary: proposal_only_until_confirmed
 ```
 
-### Accepted Candidate Cards
+### Accepted Delta Cards
 
 #### Accepted Candidate: `<candidate_id>`
 
-- **Target owner:** <owner>
-- **Target ref:** <ref>
-- **Change proposed:** <summary>
-- **Why accepted into packet:** <basis>
-- **Evidence:** <refs>
-- **Confidence:** <high | medium | low | unknown>
-- **Durable write status:** `proposal_only`
+- **Source:** <source ref>
+- **Delta:** <what changed>
+- **Why accepted into proposal:** <basis>
+- **Proposed destination:** <destination>
+- **Write status:** Proposal only unless confirmed through `project-kb-manager`.
+- **Next planning effect:** <effect on next_PreCapNextDay_input_context>
 
 ---
 
 ## 5. Rejected Delta Candidates
 
-Rejected means not included in the merge proposal. Preserve the rationale so future recap review does not re-open the same candidate without new evidence.
+Use this section for candidates that should not move forward because they are duplicate, unsupported, contradicted, out of scope, or owned by another package.
 
 ```yaml
 rejected_delta_candidates:
-  - candidate_id: rejected_delta_<short_slug>
-    source_ref: <flow_recap_packet_ref_or_other_evidence_ref>
-    rejection_reason: <duplicate | insufficient_evidence | out_of_scope | contradicted_by_state | wrong_owner | other>
+  - candidate_id: delta_<short_slug>
+    source_ref: <source ref>
+    delta_summary: <compact summary>
+    disposition: rejected
+    reason: <why rejected>
     evidence_refs:
       - <ref_id>
-    revisit_condition: <what would make it worth reconsidering, or null>
 ```
 
-### Rejected Candidate Cards
+### Rejected Delta Cards
 
 #### Rejected Candidate: `<candidate_id>`
 
-- **Reason:** <reason>
+- **Source:** <source ref>
+- **Delta:** <what was proposed>
+- **Reason rejected:** <reason>
 - **Evidence:** <refs>
-- **Revisit condition:** <condition or none>
+- **State impact:** No durable write. No next PreCap seed unless separately accepted elsewhere.
 
 ---
 
 ## 6. Deferred Delta Candidates
 
-Deferred means potentially useful but not safe or ready to merge now.
+Use this section for candidates that may become valid later but currently need more evidence, owner review, conflict resolution, or operator decision.
 
 ```yaml
 deferred_delta_candidates:
-  - candidate_id: deferred_delta_<short_slug>
-    source_ref: <flow_recap_packet_ref_or_other_evidence_ref>
-    deferral_reason: <needs_operator_decision | needs_state_owner | needs_evidence | blocked_by_conflict | timing | other>
-    needed_before_acceptance:
-      - <condition>
-    evidence_refs:
-      - <ref_id>
-    suggested_next_review: <next_status_merge | next_weekly_review | after_operator_decision | other>
+  - candidate_id: delta_<short_slug>
+    source_ref: <source ref>
+    delta_summary: <compact summary>
+    disposition: <deferred | duplicate | superseded | insufficient_evidence>
+    reason: <why deferred>
+    unblock_condition: <what would make this usable>
+    revisit_context: <next session / next PreCap / operator review / never>
 ```
 
-### Deferred Candidate Cards
+### Deferred Delta Cards
 
 #### Deferred Candidate: `<candidate_id>`
 
-- **Why deferred:** <reason>
-- **Needed before acceptance:** <conditions>
-- **Evidence:** <refs>
-- **Suggested next review:** <review point>
+- **Source:** <source ref>
+- **Delta:** <what was proposed>
+- **Reason deferred:** <reason>
+- **Unblock condition:** <needed evidence or decision>
+- **Revisit context:** <where it should be reconsidered>
 
 ---
 
-## 7. Proposed Project KB Update
+## 7. Combined Rejected or Deferred Register
 
-This section is a proposal for `project-kb-manager`, not a direct write. Do not include fields outside the durable schema owner’s allowed shape.
+The contract-level `status_merge_packet` field is `rejected_or_deferred_delta_candidates`. This compact register may combine the detailed rejected and deferred cards above.
+
+```yaml
+rejected_or_deferred_delta_candidates:
+  - candidate_id: <delta_id>
+    source_ref: <source ref>
+    delta_summary: <compact summary>
+    disposition: <rejected | deferred | duplicate | superseded | insufficient_evidence>
+    reason: <compact reason>
+```
+
+---
+
+## 8. Proposed Project KB Update
+
+This section is a proposal for `project-kb-manager`, not a direct write. Leave blocked or conflicting changes visible.
 
 ```yaml
 proposed_project_kb_update:
-  write_boundary_owner: project-kb-manager
-  write_status: proposal_only
-  operator_confirmation_required: true
-  proposed_updates:
-    - update_id: proposed_kb_update_<short_slug>
-      target_record_ref: <record_ref_or_new_candidate_ref>
-      update_kind: <create | update | append_progress_log | mark_consumed_recap | other>
-      proposed_change_summary: <summary>
-      accepted_delta_refs:
-        - <accepted_delta_id>
-      conflict_refs:
-        - <conflict_id_or_null>
-      evidence_refs:
+  proposal_id: project_kb_update_proposal_<short_slug>
+  durable_write_owner: project-kb-manager
+  target_project_refs:
+    - <project_ref>
+  proposed_changes_summary:
+    - <compact change proposal>
+  blocked_changes:
+    - blocked_change_id: <blocked_change_id>
+      reason: <conflict | missing owner | missing evidence | operator decision required>
+      source_refs:
         - <ref_id>
-      safe_to_apply_without_operator: false
+  operator_gate_status: <ready_for_operator_review | confirmed_for_project_kb_manager | blocked_by_conflict | blocked_by_missing_state_owner>
 ```
 
-### Project KB Write Boundary Card
+### Project KB Update Review Card
 
-- **Boundary owner:** `project-kb-manager`
-- **Packet status:** proposal only
-- **Operator confirmation required:** yes
-- **Direct write allowed here:** no
-- **Unsafe if:** conflicts unresolved, owner missing, evidence missing, schema mismatch, or operator has not approved.
+- **Durable write owner:** `project-kb-manager`
+- **Proposed records affected:** <project refs>
+- **Changes ready for review:** <short list>
+- **Changes blocked:** <short list>
+- **Operator gate:** <status>
+- **Explicit warning:** Do not directly edit project KB durable records from this packet.
 
 ---
 
-## 8. Updated All-Project Status Packet View
+## 9. Updated All-Project Status Packet View
 
-This is a merge-result view for review. It must not redefine or replace `current_project_status_overview` unless the owning skill/process explicitly accepts it.
+This is a merge view/proposal for operator review. It does not redefine `current_project_status_overview` and does not replace `ProjectStatus`.
 
 ```yaml
 updated_all_project_status_packet:
-  view_status: <proposal_view | operator_confirmed_view | blocked>
-  owner_boundary_note: >
-    This is a StatusMerge review view, not a durable ProjectStatus schema
-    replacement and not a project KB write.
-  project_focus_summary: <compact summary>
-  changed_refs:
-    - <state_ref_or_candidate_ref>
-  unchanged_refs:
-    - <state_ref>
-  blocked_refs:
-    - <state_ref_or_candidate_ref>
-  confidence: <high | medium | low | unknown>
+  view_id: updated_all_project_status_packet_<YYYY_MM_DD>_<short_slug>
+  source_status_merge_packet_ref: <merge_packet_id>
+  accepted_delta_register_view:
+    - <candidate_id>
+  consumed_recap_candidate_list:
+    - recap_ref: <flow_recap_packet_ref>
+      disposition: <accepted | partially_accepted | rejected | deferred | conflict_review_needed>
+  project_status_summary:
+    - project_ref: <project_ref>
+      status_view: <compact current status after proposed merge>
+      source_refs:
+        - <ref_id>
+  unresolved_conflicts:
+    - <conflict_id>
+```
+
+### Status View Cards
+
+#### Project: `<project_ref>`
+
+- **Status view:** <compact status after proposed merge>
+- **Accepted deltas included:** <candidate ids>
+- **Conflicts still open:** <conflict ids or none>
+- **Durable write status:** Proposal/view only unless accepted through owner boundary.
+
+---
+
+## 10. Consumed Recap Candidate List
+
+This is a view of recap consumption for merge review. If durable consumed-recap registry updates are needed, route them through `project-kb-manager`.
+
+```yaml
+consumed_recap_candidate_list:
+  - recap_ref: <flow_recap_packet_ref>
+    disposition: <accepted | partially_accepted | rejected | deferred | conflict_review_needed>
+    accepted_candidate_ids:
+      - <candidate_id>
+    rejected_or_deferred_candidate_ids:
+      - <candidate_id>
+    conflict_ids:
+      - <conflict_id>
+    registry_update_status: <proposal_only | confirmed_for_project_kb_manager | not_required>
 ```
 
 ---
 
-## 9. Next PreCapNextDay Input Context
+## 11. Next PreCapNextDay Input Context
 
-This section is the compact downstream seed for PreCapNextDay. It is not a daily plan and must not auto-trigger PreCapNextDay.
+This is a compact seed for the next PreCapNextDay run, not the next-day plan itself.
 
 ```yaml
 next_PreCapNextDay_input_context:
-  context_id: next_PreCapNextDay_input_context_<YYYY_MM_DD>_<short_slug>
+  context_id: next_precap_context_<YYYY_MM_DD>_<short_slug>
   created_or_updated_at: <YYYY-MM-DD>
   source_status_merge_packet_ref: <merge_packet_id>
   updated_project_focus:
-    focus_status: <updated_from_accepted_deltas | unchanged | partial | blocked_by_conflict | unknown>
-    focus_summary: <compact planning seed summary>
-    project_refs:
-      - <project_ref>
-    change_basis: <accepted_delta_candidates | operator_review | previous_state_only | conflict_review_only | insufficient_evidence>
-  active_next_actions:
-    - action_id: action_<short_slug>
-      action_summary: <candidate next action>
+    - focus_id: focus_<short_slug>
+      project_ref: <project_ref>
+      focus_summary: <compact focus>
       source_refs:
         - <ref_id>
-      suggested_owner: <operator | PreCapNextDay | project-kb-manager | ProjectStatus | status-merge | unknown>
-      planning_relevance: <candidate_for_next_flow | supporting_context | followup_after_operator_decision | blocked>
-      readiness: <ready | needs_operator_decision | needs_evidence | blocked | deferred>
+      status: <proposed_new_focus | continued_focus | reduced_focus | paused_focus | conflict_review_needed>
+  active_next_actions:
+    - action_id: action_<short_slug>
+      project_ref: <project_ref>
+      action_summary: <compact next action candidate>
+      action_status: <ready_for_precap_consideration | blocked_by_operator_decision | blocked_by_missing_evidence | deferred | conflict_review_needed>
+      source_refs:
+        - <ref_id>
   blockers:
     - blocker_id: blocker_<short_slug>
-      blocker_summary: <blocker summary>
-      affected_refs:
+      blocker_summary: <compact blocker>
+      affected_project_refs:
+        - <project_ref>
+      source_refs:
         - <ref_id>
-      severity: <high | medium | low | unknown>
-      proposed_unblock_path: <operator action or evidence needed>
+      resolution_needed: <operator_decision | project_kb_manager_update | missing_evidence | conflict_resolution | no_action_required>
   unresolved_operator_decisions:
     - decision_id: decision_<short_slug>
-      decision_summary: <decision needed>
+      decision_summary: <operator decision needed>
       options:
         - <option>
-      needed_before: <next_PreCapNextDay | project_kb_manager_write | ProjectStatus_refresh | future_weekly_plan | not_blocking>
-      evidence_refs:
+      source_refs:
         - <ref_id>
+      impact_if_unresolved: <blocks_next_precap | limits_next_precap_confidence | blocks_project_kb_write | informational_only>
   usage_summary_ref: <usage_summary_ref_or_null>
   evidence_refs:
     - <ref_id>
-  confidence: <high | medium | low | unknown>
+  confidence:
+    level: <high | medium | low | blocked>
+    rationale: <compact rationale>
+    limiting_factors:
+      - <factor>
   validation_status: <valid | valid_with_warnings | operator_review_recommended | blocked_by_conflict | blocked_by_missing_state_owner>
 ```
 
+### Next PreCap Context Card
+
+- **Primary focus for next PreCapNextDay:** <focus summary>
+- **Ready actions:** <short list>
+- **Blocked actions:** <short list>
+- **Operator decisions carried forward:** <short list>
+- **Usage context:** <usage summary ref or missing>
+- **Confidence:** <level and rationale>
+
 ---
 
-## 10. Final Validation Gate
+## 12. Evidence and Traceability
 
 ```yaml
-status_merge_packet_completion_gate:
-  source_flow_recap_refs_present: <true | false>
-  source_usage_summary_refs_present_or_gap_recorded: <true | false>
-  previous_state_refs_present: <true | false>
-  accepted_delta_candidates_reviewed: <true | false>
-  rejected_delta_candidates_reviewed: <true | false>
-  deferred_delta_candidates_reviewed: <true | false>
-  conflict_notes_prominent: <true | false>
-  proposed_project_kb_update_is_proposal_only: <true | false>
-  project_kb_manager_boundary_preserved: <true | false>
-  updated_all_project_status_packet_is_view_only: <true | false>
-  next_PreCapNextDay_input_context_present: <true | false>
-  no_direct_project_kb_write: <true | false>
-  no_automatic_status_overwrite: <true | false>
-  no_runtime_trigger_created: <true | false>
-  validation_status_allowed_value: <true | false>
+evidence_refs:
+  - ref_id: <source_ref>
+    source_type: <flow_recap_packet | usage_summary | previous_state | operator_note | project_kb_record | ProjectStatus_view | apex_orchestration_state_packet>
+    relevance: <why this evidence matters>
+    confidence: <high | medium | low | unknown>
 ```
 
-### Result Recommendation
+### Evidence Notes
 
-- **Recommended packet status:** <valid | valid_with_warnings | operator_review_recommended | blocked_by_conflict | blocked_by_missing_state_owner>
-- **Operator action:** <accept proposal | review conflicts | defer | block | request owner-safe project-kb-manager write>
-- **Next handoff action:** <use context as PreCapNextDay seed | hold until conflict resolved | hold until state owner clarified>
+- **FlowRecap evidence:** <refs and compact summary>
+- **Usage evidence:** <refs and compact summary, or missing>
+- **Previous state evidence:** <refs and compact summary>
+- **Operator notes:** <refs and compact summary, if any>
+
+---
+
+## 13. Validation Checklist
+
+```yaml
+validation_checklist:
+  required_fields_present: <true | false>
+  source_flow_recap_refs_present: <true | false>
+  previous_state_refs_present: <true | false>
+  conflicts_reviewed_before_accepted_deltas: <true | false>
+  accepted_rejected_deferred_conflicting_deltas_separated: <true | false>
+  project_kb_manager_boundary_explicit: <true | false>
+  all_state_changes_marked_as_proposal_unless_confirmed: <true | false>
+  no_direct_project_record_mutation: true
+  no_status_overwrite: true
+  no_runtime_created: true
+  no_scheduler_created: true
+  no_agent_created: true
+  no_calendar_write_created: true
+  next_PreCapNextDay_input_context_included: <true | false>
+  validation_status: <valid | valid_with_warnings | operator_review_recommended | blocked_by_conflict | blocked_by_missing_state_owner>
+```
+
+### Completion Statement
+
+```text
+This status_merge_packet is an operator-facing merge proposal. Durable project KB updates are not performed here and must route through project-kb-manager after operator confirmation. Conflicts and deferred deltas remain visible for review before the next PreCapNextDay run.
+```
