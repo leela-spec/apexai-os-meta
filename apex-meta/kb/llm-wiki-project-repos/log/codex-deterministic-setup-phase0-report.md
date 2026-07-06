@@ -1,0 +1,279 @@
+# Codex Deterministic Setup Phase 0 Report
+
+## Commands Run
+- `git checkout main`
+- `git pull --ff-only origin main`
+- `git status --short`
+- `python apex-meta/scripts/apex_kb.py --kb-root "apex-meta/kb/llm-wiki-project-repos" --allow-write --json scaffold --title "LLM-Wiki Project Repositories"`
+- `python apex-meta/scripts/apex_kb.py --kb-root "apex-meta/kb/llm-wiki-project-repos" --json health`
+- `python apex-meta/scripts/apex_kb.py --kb-root "apex-meta/kb/llm-wiki-project-repos" --json status`
+- `python apex-meta/scripts/apex_kb.py --kb-root "apex-meta/kb/llm-wiki-project-repos" --allow-write --json source-intake --source-path <each readable source file> --source-id <root-relative slug> --title <root-relative path> --source-type ref --storage-mode copy_into_kb`
+- `python apex-meta/scripts/apex_kb.py --kb-root "apex-meta/kb/llm-wiki-project-repos" --allow-write --json hash --path "apex-meta/kb/llm-wiki-project-repos"`
+- `python apex-meta/scripts/apex_kb.py --kb-root "apex-meta/kb/llm-wiki-project-repos" --json preflight`
+- `python apex-meta/scripts/apex_kb.py --kb-root "apex-meta/kb/llm-wiki-project-repos" --allow-write --json phase0`
+- `python apex-meta/scripts/apex_kb.py --kb-root "apex-meta/kb/llm-wiki-project-repos" --json lint`
+- `python apex-meta/scripts/apex_kb.py --kb-root "apex-meta/kb/llm-wiki-project-repos" --json status`
+
+## Source Roots Discovered
+- `source-knowledge/ProjectRepos/llm-wiki` (102 manifest source)
+- `source-knowledge/ProjectRepos/llm-wiki-skill-main` (0 manifest sources)
+- `source-knowledge/ProjectRepos/llm-wiki-main` (0 manifest sources)
+
+## Source Files Intaken
+Total manifest sources: `102`.
+
+- `source-knowledge/ProjectRepos/llm-wiki/llm-wiki.md` -> `raw/refs/llm-wiki.md` (`llm-wiki-llm-wiki-md`)
+- `source-knowledge/ProjectRepos/llm-wiki-skill-main/.gitignore` -> `raw/refs/.gitignore` (`llm-wiki-skill-main-gitignore`)
+- `source-knowledge/ProjectRepos/llm-wiki-skill-main/audit-shared/package-lock.json` -> `raw/refs/package-lock.json` (`llm-wiki-skill-main-audit-shared-package-lock-json`)
+- `source-knowledge/ProjectRepos/llm-wiki-skill-main/audit-shared/package.json` -> `raw/refs/package.json` (`llm-wiki-skill-main-audit-shared-package-json`)
+- `source-knowledge/ProjectRepos/llm-wiki-skill-main/audit-shared/src/anchor.ts` -> `raw/refs/anchor.ts` (`llm-wiki-skill-main-audit-shared-src-anchor-ts`)
+- `source-knowledge/ProjectRepos/llm-wiki-skill-main/audit-shared/src/id.ts` -> `raw/refs/id.ts` (`llm-wiki-skill-main-audit-shared-src-id-ts`)
+- `source-knowledge/ProjectRepos/llm-wiki-skill-main/audit-shared/src/index.ts` -> `raw/refs/index.ts` (`llm-wiki-skill-main-audit-shared-src-index-ts`)
+- `source-knowledge/ProjectRepos/llm-wiki-skill-main/audit-shared/src/schema.ts` -> `raw/refs/schema.ts` (`llm-wiki-skill-main-audit-shared-src-schema-ts`)
+- `source-knowledge/ProjectRepos/llm-wiki-skill-main/audit-shared/src/serialize.ts` -> `raw/refs/serialize.ts` (`llm-wiki-skill-main-audit-shared-src-serialize-ts`)
+- `source-knowledge/ProjectRepos/llm-wiki-skill-main/audit-shared/tsconfig.json` -> `raw/refs/tsconfig.json` (`llm-wiki-skill-main-audit-shared-tsconfig-json`)
+- `source-knowledge/ProjectRepos/llm-wiki-skill-main/llm-wiki/references/article-guide.md` -> `raw/refs/article-guide.md` (`llm-wiki-skill-main-llm-wiki-references-article-guide-md`)
+- `source-knowledge/ProjectRepos/llm-wiki-skill-main/llm-wiki/references/audit-guide.md` -> `raw/refs/audit-guide.md` (`llm-wiki-skill-main-llm-wiki-references-audit-guide-md`)
+- `source-knowledge/ProjectRepos/llm-wiki-skill-main/llm-wiki/references/log-guide.md` -> `raw/refs/log-guide.md` (`llm-wiki-skill-main-llm-wiki-references-log-guide-md`)
+- `source-knowledge/ProjectRepos/llm-wiki-skill-main/llm-wiki/references/schema-guide.md` -> `raw/refs/schema-guide.md` (`llm-wiki-skill-main-llm-wiki-references-schema-guide-md`)
+- `source-knowledge/ProjectRepos/llm-wiki-skill-main/llm-wiki/references/tooling-tips.md` -> `raw/refs/tooling-tips.md` (`llm-wiki-skill-main-llm-wiki-references-tooling-tips-md`)
+- `source-knowledge/ProjectRepos/llm-wiki-skill-main/llm-wiki/scripts/audit_review.py` -> `raw/refs/audit_review.py` (`llm-wiki-skill-main-llm-wiki-scripts-audit-review-py`)
+- `source-knowledge/ProjectRepos/llm-wiki-skill-main/llm-wiki/scripts/lint_wiki.py` -> `raw/refs/lint_wiki.py` (`llm-wiki-skill-main-llm-wiki-scripts-lint-wiki-py`)
+- `source-knowledge/ProjectRepos/llm-wiki-skill-main/llm-wiki/scripts/scaffold.py` -> `raw/refs/scaffold.py` (`llm-wiki-skill-main-llm-wiki-scripts-scaffold-py`)
+- `source-knowledge/ProjectRepos/llm-wiki-skill-main/llm-wiki/SKILL.md` -> `raw/refs/SKILL.md` (`llm-wiki-skill-main-llm-wiki-skill-md`)
+- `source-knowledge/ProjectRepos/llm-wiki-skill-main/plugins/obsidian-audit/esbuild.config.mjs` -> `raw/refs/esbuild.config.mjs` (`llm-wiki-skill-main-plugins-obsidian-audit-esbuild-config-mjs`)
+- `source-knowledge/ProjectRepos/llm-wiki-skill-main/plugins/obsidian-audit/manifest.json` -> `raw/refs/manifest.json` (`llm-wiki-skill-main-plugins-obsidian-audit-manifest-json`)
+- `source-knowledge/ProjectRepos/llm-wiki-skill-main/plugins/obsidian-audit/package-lock.json` -> `raw/refs/package-lock.json` (`llm-wiki-skill-main-plugins-obsidian-audit-package-lock-json`)
+- `source-knowledge/ProjectRepos/llm-wiki-skill-main/plugins/obsidian-audit/package.json` -> `raw/refs/package.json` (`llm-wiki-skill-main-plugins-obsidian-audit-package-json`)
+- `source-knowledge/ProjectRepos/llm-wiki-skill-main/plugins/obsidian-audit/scripts/link.mjs` -> `raw/refs/link.mjs` (`llm-wiki-skill-main-plugins-obsidian-audit-scripts-link-mjs`)
+- `source-knowledge/ProjectRepos/llm-wiki-skill-main/plugins/obsidian-audit/src/feedback-modal.ts` -> `raw/refs/feedback-modal.ts` (`llm-wiki-skill-main-plugins-obsidian-audit-src-feedback-modal-ts`)
+- `source-knowledge/ProjectRepos/llm-wiki-skill-main/plugins/obsidian-audit/src/main.ts` -> `raw/refs/main.ts` (`llm-wiki-skill-main-plugins-obsidian-audit-src-main-ts`)
+- `source-knowledge/ProjectRepos/llm-wiki-skill-main/plugins/obsidian-audit/src/settings.ts` -> `raw/refs/settings.ts` (`llm-wiki-skill-main-plugins-obsidian-audit-src-settings-ts`)
+- `source-knowledge/ProjectRepos/llm-wiki-skill-main/plugins/obsidian-audit/src/writer.ts` -> `raw/refs/writer.ts` (`llm-wiki-skill-main-plugins-obsidian-audit-src-writer-ts`)
+- `source-knowledge/ProjectRepos/llm-wiki-skill-main/plugins/obsidian-audit/styles.css` -> `raw/refs/styles.css` (`llm-wiki-skill-main-plugins-obsidian-audit-styles-css`)
+- `source-knowledge/ProjectRepos/llm-wiki-skill-main/plugins/obsidian-audit/tsconfig.json` -> `raw/refs/tsconfig.json` (`llm-wiki-skill-main-plugins-obsidian-audit-tsconfig-json`)
+- `source-knowledge/ProjectRepos/llm-wiki-skill-main/README.md` -> `raw/refs/README.md` (`llm-wiki-skill-main-readme-md`)
+- `source-knowledge/ProjectRepos/llm-wiki-skill-main/web/build-client.mjs` -> `raw/refs/build-client.mjs` (`llm-wiki-skill-main-web-build-client-mjs`)
+- `source-knowledge/ProjectRepos/llm-wiki-skill-main/web/client/feedback.ts` -> `raw/refs/feedback.ts` (`llm-wiki-skill-main-web-client-feedback-ts`)
+- `source-knowledge/ProjectRepos/llm-wiki-skill-main/web/client/graph.ts` -> `raw/refs/graph.ts` (`llm-wiki-skill-main-web-client-graph-ts`)
+- `source-knowledge/ProjectRepos/llm-wiki-skill-main/web/client/index.html` -> `raw/refs/index.html` (`llm-wiki-skill-main-web-client-index-html`)
+- `source-knowledge/ProjectRepos/llm-wiki-skill-main/web/client/main.ts` -> `raw/refs/main.ts` (`llm-wiki-skill-main-web-client-main-ts`)
+- `source-knowledge/ProjectRepos/llm-wiki-skill-main/web/client/particles.ts` -> `raw/refs/particles.ts` (`llm-wiki-skill-main-web-client-particles-ts`)
+- `source-knowledge/ProjectRepos/llm-wiki-skill-main/web/client/styles.css` -> `raw/refs/styles.css` (`llm-wiki-skill-main-web-client-styles-css`)
+- `source-knowledge/ProjectRepos/llm-wiki-skill-main/web/client/tree.ts` -> `raw/refs/tree.ts` (`llm-wiki-skill-main-web-client-tree-ts`)
+- `source-knowledge/ProjectRepos/llm-wiki-skill-main/web/package-lock.json` -> `raw/refs/package-lock.json` (`llm-wiki-skill-main-web-package-lock-json`)
+- `source-knowledge/ProjectRepos/llm-wiki-skill-main/web/package.json` -> `raw/refs/package.json` (`llm-wiki-skill-main-web-package-json`)
+- `source-knowledge/ProjectRepos/llm-wiki-skill-main/web/server/config.ts` -> `raw/refs/config.ts` (`llm-wiki-skill-main-web-server-config-ts`)
+- `source-knowledge/ProjectRepos/llm-wiki-skill-main/web/server/index.ts` -> `raw/refs/index.ts` (`llm-wiki-skill-main-web-server-index-ts`)
+- `source-knowledge/ProjectRepos/llm-wiki-skill-main/web/server/render/markdown.ts` -> `raw/refs/markdown.ts` (`llm-wiki-skill-main-web-server-render-markdown-ts`)
+- `source-knowledge/ProjectRepos/llm-wiki-skill-main/web/server/render/wikilinks.ts` -> `raw/refs/wikilinks.ts` (`llm-wiki-skill-main-web-server-render-wikilinks-ts`)
+- `source-knowledge/ProjectRepos/llm-wiki-skill-main/web/server/routes/audit.ts` -> `raw/refs/audit.ts` (`llm-wiki-skill-main-web-server-routes-audit-ts`)
+- `source-knowledge/ProjectRepos/llm-wiki-skill-main/web/server/routes/graph.ts` -> `raw/refs/graph.ts` (`llm-wiki-skill-main-web-server-routes-graph-ts`)
+- `source-knowledge/ProjectRepos/llm-wiki-skill-main/web/server/routes/pages.ts` -> `raw/refs/pages.ts` (`llm-wiki-skill-main-web-server-routes-pages-ts`)
+- `source-knowledge/ProjectRepos/llm-wiki-skill-main/web/server/routes/tree.ts` -> `raw/refs/tree.ts` (`llm-wiki-skill-main-web-server-routes-tree-ts`)
+- `source-knowledge/ProjectRepos/llm-wiki-skill-main/web/tsconfig.json` -> `raw/refs/tsconfig.json` (`llm-wiki-skill-main-web-tsconfig-json`)
+- `source-knowledge/ProjectRepos/llm-wiki-main/.editorconfig` -> `raw/refs/.editorconfig` (`llm-wiki-main-editorconfig`)
+- `source-knowledge/ProjectRepos/llm-wiki-main/.githooks/pre-commit` -> `raw/refs/pre-commit` (`llm-wiki-main-githooks-pre-commit`)
+- `source-knowledge/ProjectRepos/llm-wiki-main/.github/FUNDING.yml` -> `raw/refs/FUNDING.yml` (`llm-wiki-main-github-funding-yml`)
+- `source-knowledge/ProjectRepos/llm-wiki-main/.github/ISSUE_TEMPLATE/bug_report.md` -> `raw/refs/bug_report.md` (`llm-wiki-main-github-issue-template-bug-report-md`)
+- `source-knowledge/ProjectRepos/llm-wiki-main/.github/ISSUE_TEMPLATE/feature_request.md` -> `raw/refs/feature_request.md` (`llm-wiki-main-github-issue-template-feature-request-md`)
+- `source-knowledge/ProjectRepos/llm-wiki-main/.github/PULL_REQUEST_TEMPLATE.md` -> `raw/refs/PULL_REQUEST_TEMPLATE.md` (`llm-wiki-main-github-pull-request-template-md`)
+- `source-knowledge/ProjectRepos/llm-wiki-main/.github/workflows/ci.yml` -> `raw/refs/ci.yml` (`llm-wiki-main-github-workflows-ci-yml`)
+- `source-knowledge/ProjectRepos/llm-wiki-main/.gitignore` -> `raw/refs/.gitignore` (`llm-wiki-main-gitignore`)
+- `source-knowledge/ProjectRepos/llm-wiki-main/.raw/greek-olympians.md` -> `raw/refs/greek-olympians.md` (`llm-wiki-main-raw-greek-olympians-md`)
+- `source-knowledge/ProjectRepos/llm-wiki-main/.raw/perseus-medusa.md` -> `raw/refs/perseus-medusa.md` (`llm-wiki-main-raw-perseus-medusa-md`)
+- `source-knowledge/ProjectRepos/llm-wiki-main/CHANGELOG.md` -> `raw/refs/CHANGELOG.md` (`llm-wiki-main-changelog-md`)
+- `source-knowledge/ProjectRepos/llm-wiki-main/CODE_OF_CONDUCT.md` -> `raw/refs/CODE_OF_CONDUCT.md` (`llm-wiki-main-code-of-conduct-md`)
+- `source-knowledge/ProjectRepos/llm-wiki-main/CONTRIBUTING.md` -> `raw/refs/CONTRIBUTING.md` (`llm-wiki-main-contributing-md`)
+- `source-knowledge/ProjectRepos/llm-wiki-main/FAQ.md` -> `raw/refs/FAQ.md` (`llm-wiki-main-faq-md`)
+- `source-knowledge/ProjectRepos/llm-wiki-main/LICENSE` -> `raw/refs/LICENSE` (`llm-wiki-main-license`)
+- `source-knowledge/ProjectRepos/llm-wiki-main/llm-wiki/commands/wiki-graph.md` -> `raw/refs/wiki-graph.md` (`llm-wiki-main-llm-wiki-commands-wiki-graph-md`)
+- `source-knowledge/ProjectRepos/llm-wiki-main/llm-wiki/commands/wiki-ingest.md` -> `raw/refs/wiki-ingest.md` (`llm-wiki-main-llm-wiki-commands-wiki-ingest-md`)
+- `source-knowledge/ProjectRepos/llm-wiki-main/llm-wiki/commands/wiki-lint.md` -> `raw/refs/wiki-lint.md` (`llm-wiki-main-llm-wiki-commands-wiki-lint-md`)
+- `source-knowledge/ProjectRepos/llm-wiki-main/llm-wiki/commands/wiki-query.md` -> `raw/refs/wiki-query.md` (`llm-wiki-main-llm-wiki-commands-wiki-query-md`)
+- `source-knowledge/ProjectRepos/llm-wiki-main/llm-wiki/commands/wiki-review.md` -> `raw/refs/wiki-review.md` (`llm-wiki-main-llm-wiki-commands-wiki-review-md`)
+- `source-knowledge/ProjectRepos/llm-wiki-main/llm-wiki/commands/wiki-save.md` -> `raw/refs/wiki-save.md` (`llm-wiki-main-llm-wiki-commands-wiki-save-md`)
+- `source-knowledge/ProjectRepos/llm-wiki-main/llm-wiki/hooks/session-start.sh` -> `raw/refs/session-start.sh` (`llm-wiki-main-llm-wiki-hooks-session-start-sh`)
+- `source-knowledge/ProjectRepos/llm-wiki-main/llm-wiki/hooks/session-stop.sh` -> `raw/refs/session-stop.sh` (`llm-wiki-main-llm-wiki-hooks-session-stop-sh`)
+- `source-knowledge/ProjectRepos/llm-wiki-main/llm-wiki/install.sh` -> `raw/refs/install.sh` (`llm-wiki-main-llm-wiki-install-sh`)
+- `source-knowledge/ProjectRepos/llm-wiki-main/llm-wiki/scripts/_utils.sh` -> `raw/refs/_utils.sh` (`llm-wiki-main-llm-wiki-scripts-utils-sh`)
+- `source-knowledge/ProjectRepos/llm-wiki-main/llm-wiki/scripts/check-stale.sh` -> `raw/refs/check-stale.sh` (`llm-wiki-main-llm-wiki-scripts-check-stale-sh`)
+- `source-knowledge/ProjectRepos/llm-wiki-main/llm-wiki/scripts/find-broken-links.sh` -> `raw/refs/find-broken-links.sh` (`llm-wiki-main-llm-wiki-scripts-find-broken-links-sh`)
+- `source-knowledge/ProjectRepos/llm-wiki-main/llm-wiki/scripts/find-orphans.sh` -> `raw/refs/find-orphans.sh` (`llm-wiki-main-llm-wiki-scripts-find-orphans-sh`)
+- `source-knowledge/ProjectRepos/llm-wiki-main/llm-wiki/scripts/hash-files.sh` -> `raw/refs/hash-files.sh` (`llm-wiki-main-llm-wiki-scripts-hash-files-sh`)
+- `source-knowledge/ProjectRepos/llm-wiki-main/llm-wiki/scripts/init-wiki.sh` -> `raw/refs/init-wiki.sh` (`llm-wiki-main-llm-wiki-scripts-init-wiki-sh`)
+- `source-knowledge/ProjectRepos/llm-wiki-main/llm-wiki/scripts/setup-project.sh` -> `raw/refs/setup-project.sh` (`llm-wiki-main-llm-wiki-scripts-setup-project-sh`)
+- `source-knowledge/ProjectRepos/llm-wiki-main/llm-wiki/scripts/validate-frontmatter.sh` -> `raw/refs/validate-frontmatter.sh` (`llm-wiki-main-llm-wiki-scripts-validate-frontmatter-sh`)
+- `source-knowledge/ProjectRepos/llm-wiki-main/llm-wiki/SKILL.md` -> `raw/refs/SKILL.md` (`llm-wiki-main-llm-wiki-skill-md`)
+- `source-knowledge/ProjectRepos/llm-wiki-main/llm-wiki/templates/article.md` -> `raw/refs/article.md` (`llm-wiki-main-llm-wiki-templates-article-md`)
+- `source-knowledge/ProjectRepos/llm-wiki-main/llm-wiki/templates/concept.md` -> `raw/refs/concept.md` (`llm-wiki-main-llm-wiki-templates-concept-md`)
+- `source-knowledge/ProjectRepos/llm-wiki-main/llm-wiki/templates/person.md` -> `raw/refs/person.md` (`llm-wiki-main-llm-wiki-templates-person-md`)
+- `source-knowledge/ProjectRepos/llm-wiki-main/llm-wiki/templates/synthesis.md` -> `raw/refs/synthesis.md` (`llm-wiki-main-llm-wiki-templates-synthesis-md`)
+- `source-knowledge/ProjectRepos/llm-wiki-main/llm-wiki/WIKI.md` -> `raw/refs/WIKI.md` (`llm-wiki-main-llm-wiki-wiki-md`)
+- `source-knowledge/ProjectRepos/llm-wiki-main/llm-wiki/WIKI_SCHEMA.md` -> `raw/refs/WIKI_SCHEMA.md` (`llm-wiki-main-llm-wiki-wiki-schema-md`)
+- `source-knowledge/ProjectRepos/llm-wiki-main/llm-wiki/workflows/graph.md` -> `raw/refs/graph.md` (`llm-wiki-main-llm-wiki-workflows-graph-md`)
+- `source-knowledge/ProjectRepos/llm-wiki-main/llm-wiki/workflows/ingest.md` -> `raw/refs/ingest.md` (`llm-wiki-main-llm-wiki-workflows-ingest-md`)
+- `source-knowledge/ProjectRepos/llm-wiki-main/llm-wiki/workflows/lint.md` -> `raw/refs/lint.md` (`llm-wiki-main-llm-wiki-workflows-lint-md`)
+- `source-knowledge/ProjectRepos/llm-wiki-main/llm-wiki/workflows/query.md` -> `raw/refs/query.md` (`llm-wiki-main-llm-wiki-workflows-query-md`)
+- `source-knowledge/ProjectRepos/llm-wiki-main/llm-wiki/workflows/review.md` -> `raw/refs/review.md` (`llm-wiki-main-llm-wiki-workflows-review-md`)
+- `source-knowledge/ProjectRepos/llm-wiki-main/llm-wiki/workflows/save-synthesis.md` -> `raw/refs/save-synthesis.md` (`llm-wiki-main-llm-wiki-workflows-save-synthesis-md`)
+- `source-knowledge/ProjectRepos/llm-wiki-main/package.json` -> `raw/refs/package.json` (`llm-wiki-main-package-json`)
+- `source-knowledge/ProjectRepos/llm-wiki-main/quickstart.sh` -> `raw/refs/quickstart.sh` (`llm-wiki-main-quickstart-sh`)
+- `source-knowledge/ProjectRepos/llm-wiki-main/README.md` -> `raw/refs/README.md` (`llm-wiki-main-readme-md`)
+- `source-knowledge/ProjectRepos/llm-wiki-main/scripts/ci-local.sh` -> `raw/refs/ci-local.sh` (`llm-wiki-main-scripts-ci-local-sh`)
+- `source-knowledge/ProjectRepos/llm-wiki-main/SECURITY.md` -> `raw/refs/SECURITY.md` (`llm-wiki-main-security-md`)
+- `source-knowledge/ProjectRepos/llm-wiki-main/SUPPORT.md` -> `raw/refs/SUPPORT.md` (`llm-wiki-main-support-md`)
+- `source-knowledge/ProjectRepos/llm-wiki-main/uninstall.sh` -> `raw/refs/uninstall.sh` (`llm-wiki-main-uninstall-sh`)
+
+## Source Storage Mode Used
+- `copy_into_kb`
+- Source type: `ref`
+- Dependency/build directories excluded during enumeration where applicable: `.git`, `node_modules`, `dist`, `build`, `.next`, `.venv`, `__pycache__`, `.pytest_cache`, `coverage`.
+- One identical duplicate source (`source-knowledge/ProjectRepos/llm-wiki-main/llm-wiki.md`) was detected by the helper as already represented by `raw/refs/llm-wiki.md`; the helper did not add a second manifest row for that identical hash.
+- Some basename collisions were skipped by the helper copy layer because `source-intake` stores file inputs by basename under `raw/refs`; original source paths and stable source ids preserve custody in `manifests/source-manifest.json`.
+
+## Source Manifest Status
+- Path: `apex-meta/kb/llm-wiki-project-repos/manifests/source-manifest.json`
+- Source count: `102`
+- Storage modes present: `copy_into_kb`
+- Statuses present: `active`
+
+## Hash Result
+- Command status: `ok`
+- Hash algorithm: `sha256-tree`
+- Hash before Phase 0: `96d6b4c7e8a160ae480d355b154f093742e397859616d5aaba754e2d0bb9973b`
+
+## Preflight Result
+- Status: `ok`
+- KB root exists: `true`
+- KB schema exists: `true`
+- Source manifest exists: `true`
+- Index freshness: `fresh`
+
+## Phase 0 Artifacts Created
+- `apex-meta/kb/llm-wiki-project-repos/manifests/phase0/corpus-profile.md`
+- `apex-meta/kb/llm-wiki-project-repos/manifests/phase0/frontmatter-map.json`
+- `apex-meta/kb/llm-wiki-project-repos/manifests/phase0/heading-map.json`
+- `apex-meta/kb/llm-wiki-project-repos/manifests/phase0/keyword-hits.ndjson`
+- `apex-meta/kb/llm-wiki-project-repos/manifests/phase0/markdown-link-map.json`
+- `apex-meta/kb/llm-wiki-project-repos/manifests/phase0/phase0-navigation-report.md`
+- `apex-meta/kb/llm-wiki-project-repos/manifests/phase0/source-priority-candidates.md`
+- `apex-meta/kb/llm-wiki-project-repos/manifests/phase0/topic-file-map.json`
+
+## Lint Result
+- Status: `pass`
+- Issue count: `0`
+
+## Status Result
+- KB exists: `true`
+- Source count: `102`
+- Wiki page count: `1`
+- Phase 0 artifacts present: `true`
+- Search index present: `false`
+- Audit item count: `0`
+- Index status: `fresh`
+
+## Exact Changed Files
+- `apex-meta/kb/llm-wiki-project-repos/README.md`
+- `apex-meta/kb/llm-wiki-project-repos/kb-schema.md`
+- `apex-meta/kb/llm-wiki-project-repos/log/codex-deterministic-setup-phase0-report.md`
+- `apex-meta/kb/llm-wiki-project-repos/manifests/phase0/corpus-profile.md`
+- `apex-meta/kb/llm-wiki-project-repos/manifests/phase0/frontmatter-map.json`
+- `apex-meta/kb/llm-wiki-project-repos/manifests/phase0/heading-map.json`
+- `apex-meta/kb/llm-wiki-project-repos/manifests/phase0/keyword-hits.ndjson`
+- `apex-meta/kb/llm-wiki-project-repos/manifests/phase0/markdown-link-map.json`
+- `apex-meta/kb/llm-wiki-project-repos/manifests/phase0/phase0-navigation-report.md`
+- `apex-meta/kb/llm-wiki-project-repos/manifests/phase0/source-priority-candidates.md`
+- `apex-meta/kb/llm-wiki-project-repos/manifests/phase0/topic-file-map.json`
+- `apex-meta/kb/llm-wiki-project-repos/manifests/source-manifest.json`
+- `apex-meta/kb/llm-wiki-project-repos/raw/refs/.editorconfig`
+- `apex-meta/kb/llm-wiki-project-repos/raw/refs/.gitignore`
+- `apex-meta/kb/llm-wiki-project-repos/raw/refs/CHANGELOG.md`
+- `apex-meta/kb/llm-wiki-project-repos/raw/refs/CODE_OF_CONDUCT.md`
+- `apex-meta/kb/llm-wiki-project-repos/raw/refs/CONTRIBUTING.md`
+- `apex-meta/kb/llm-wiki-project-repos/raw/refs/FAQ.md`
+- `apex-meta/kb/llm-wiki-project-repos/raw/refs/FUNDING.yml`
+- `apex-meta/kb/llm-wiki-project-repos/raw/refs/LICENSE`
+- `apex-meta/kb/llm-wiki-project-repos/raw/refs/PULL_REQUEST_TEMPLATE.md`
+- `apex-meta/kb/llm-wiki-project-repos/raw/refs/README.md`
+- `apex-meta/kb/llm-wiki-project-repos/raw/refs/SECURITY.md`
+- `apex-meta/kb/llm-wiki-project-repos/raw/refs/SKILL.md`
+- `apex-meta/kb/llm-wiki-project-repos/raw/refs/SUPPORT.md`
+- `apex-meta/kb/llm-wiki-project-repos/raw/refs/WIKI.md`
+- `apex-meta/kb/llm-wiki-project-repos/raw/refs/WIKI_SCHEMA.md`
+- `apex-meta/kb/llm-wiki-project-repos/raw/refs/_utils.sh`
+- `apex-meta/kb/llm-wiki-project-repos/raw/refs/anchor.ts`
+- `apex-meta/kb/llm-wiki-project-repos/raw/refs/article-guide.md`
+- `apex-meta/kb/llm-wiki-project-repos/raw/refs/article.md`
+- `apex-meta/kb/llm-wiki-project-repos/raw/refs/audit-guide.md`
+- `apex-meta/kb/llm-wiki-project-repos/raw/refs/audit.ts`
+- `apex-meta/kb/llm-wiki-project-repos/raw/refs/audit_review.py`
+- `apex-meta/kb/llm-wiki-project-repos/raw/refs/bug_report.md`
+- `apex-meta/kb/llm-wiki-project-repos/raw/refs/build-client.mjs`
+- `apex-meta/kb/llm-wiki-project-repos/raw/refs/check-stale.sh`
+- `apex-meta/kb/llm-wiki-project-repos/raw/refs/ci-local.sh`
+- `apex-meta/kb/llm-wiki-project-repos/raw/refs/ci.yml`
+- `apex-meta/kb/llm-wiki-project-repos/raw/refs/concept.md`
+- `apex-meta/kb/llm-wiki-project-repos/raw/refs/config.ts`
+- `apex-meta/kb/llm-wiki-project-repos/raw/refs/esbuild.config.mjs`
+- `apex-meta/kb/llm-wiki-project-repos/raw/refs/feature_request.md`
+- `apex-meta/kb/llm-wiki-project-repos/raw/refs/feedback-modal.ts`
+- `apex-meta/kb/llm-wiki-project-repos/raw/refs/feedback.ts`
+- `apex-meta/kb/llm-wiki-project-repos/raw/refs/find-broken-links.sh`
+- `apex-meta/kb/llm-wiki-project-repos/raw/refs/find-orphans.sh`
+- `apex-meta/kb/llm-wiki-project-repos/raw/refs/graph.md`
+- `apex-meta/kb/llm-wiki-project-repos/raw/refs/graph.ts`
+- `apex-meta/kb/llm-wiki-project-repos/raw/refs/greek-olympians.md`
+- `apex-meta/kb/llm-wiki-project-repos/raw/refs/hash-files.sh`
+- `apex-meta/kb/llm-wiki-project-repos/raw/refs/id.ts`
+- `apex-meta/kb/llm-wiki-project-repos/raw/refs/index.html`
+- `apex-meta/kb/llm-wiki-project-repos/raw/refs/index.ts`
+- `apex-meta/kb/llm-wiki-project-repos/raw/refs/ingest.md`
+- `apex-meta/kb/llm-wiki-project-repos/raw/refs/init-wiki.sh`
+- `apex-meta/kb/llm-wiki-project-repos/raw/refs/install.sh`
+- `apex-meta/kb/llm-wiki-project-repos/raw/refs/link.mjs`
+- `apex-meta/kb/llm-wiki-project-repos/raw/refs/lint.md`
+- `apex-meta/kb/llm-wiki-project-repos/raw/refs/lint_wiki.py`
+- `apex-meta/kb/llm-wiki-project-repos/raw/refs/llm-wiki.md`
+- `apex-meta/kb/llm-wiki-project-repos/raw/refs/log-guide.md`
+- `apex-meta/kb/llm-wiki-project-repos/raw/refs/main.ts`
+- `apex-meta/kb/llm-wiki-project-repos/raw/refs/manifest.json`
+- `apex-meta/kb/llm-wiki-project-repos/raw/refs/markdown.ts`
+- `apex-meta/kb/llm-wiki-project-repos/raw/refs/package-lock.json`
+- `apex-meta/kb/llm-wiki-project-repos/raw/refs/package.json`
+- `apex-meta/kb/llm-wiki-project-repos/raw/refs/pages.ts`
+- `apex-meta/kb/llm-wiki-project-repos/raw/refs/particles.ts`
+- `apex-meta/kb/llm-wiki-project-repos/raw/refs/perseus-medusa.md`
+- `apex-meta/kb/llm-wiki-project-repos/raw/refs/person.md`
+- `apex-meta/kb/llm-wiki-project-repos/raw/refs/pre-commit`
+- `apex-meta/kb/llm-wiki-project-repos/raw/refs/query.md`
+- `apex-meta/kb/llm-wiki-project-repos/raw/refs/quickstart.sh`
+- `apex-meta/kb/llm-wiki-project-repos/raw/refs/review.md`
+- `apex-meta/kb/llm-wiki-project-repos/raw/refs/save-synthesis.md`
+- `apex-meta/kb/llm-wiki-project-repos/raw/refs/scaffold.py`
+- `apex-meta/kb/llm-wiki-project-repos/raw/refs/schema-guide.md`
+- `apex-meta/kb/llm-wiki-project-repos/raw/refs/schema.ts`
+- `apex-meta/kb/llm-wiki-project-repos/raw/refs/serialize.ts`
+- `apex-meta/kb/llm-wiki-project-repos/raw/refs/session-start.sh`
+- `apex-meta/kb/llm-wiki-project-repos/raw/refs/session-stop.sh`
+- `apex-meta/kb/llm-wiki-project-repos/raw/refs/settings.ts`
+- `apex-meta/kb/llm-wiki-project-repos/raw/refs/setup-project.sh`
+- `apex-meta/kb/llm-wiki-project-repos/raw/refs/styles.css`
+- `apex-meta/kb/llm-wiki-project-repos/raw/refs/synthesis.md`
+- `apex-meta/kb/llm-wiki-project-repos/raw/refs/tooling-tips.md`
+- `apex-meta/kb/llm-wiki-project-repos/raw/refs/tree.ts`
+- `apex-meta/kb/llm-wiki-project-repos/raw/refs/tsconfig.json`
+- `apex-meta/kb/llm-wiki-project-repos/raw/refs/uninstall.sh`
+- `apex-meta/kb/llm-wiki-project-repos/raw/refs/validate-frontmatter.sh`
+- `apex-meta/kb/llm-wiki-project-repos/raw/refs/wiki-graph.md`
+- `apex-meta/kb/llm-wiki-project-repos/raw/refs/wiki-ingest.md`
+- `apex-meta/kb/llm-wiki-project-repos/raw/refs/wiki-lint.md`
+- `apex-meta/kb/llm-wiki-project-repos/raw/refs/wiki-query.md`
+- `apex-meta/kb/llm-wiki-project-repos/raw/refs/wiki-review.md`
+- `apex-meta/kb/llm-wiki-project-repos/raw/refs/wiki-save.md`
+- `apex-meta/kb/llm-wiki-project-repos/raw/refs/wikilinks.ts`
+- `apex-meta/kb/llm-wiki-project-repos/raw/refs/writer.ts`
+- `apex-meta/kb/llm-wiki-project-repos/wiki/index.md`
+
+## Blockers
+- None.

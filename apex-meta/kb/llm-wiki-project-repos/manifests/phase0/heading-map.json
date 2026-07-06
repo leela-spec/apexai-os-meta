@@ -1,0 +1,2304 @@
+[
+  {
+    "h1_title": "Wiki Article Writing Guide",
+    "headings": [
+      {
+        "level": 1,
+        "line": 1,
+        "text": "Wiki Article Writing Guide"
+      },
+      {
+        "level": 2,
+        "line": 5,
+        "text": "Length targets"
+      },
+      {
+        "level": 2,
+        "line": 17,
+        "text": "Divide and conquer — when to split"
+      },
+      {
+        "level": 2,
+        "line": 57,
+        "text": "Concept page structure"
+      },
+      {
+        "level": 2,
+        "line": 105,
+        "text": "Entity page structure"
+      },
+      {
+        "level": 2,
+        "line": 135,
+        "text": "Summary page structure"
+      },
+      {
+        "level": 2,
+        "line": 174,
+        "text": "Diagrams — always mermaid"
+      },
+      {
+        "level": 2,
+        "line": 210,
+        "text": "Formulas — always KaTeX"
+      },
+      {
+        "level": 2,
+        "line": 223,
+        "text": "Wikilink rules"
+      },
+      {
+        "level": 2,
+        "line": 231,
+        "text": "Handling contradictions between sources"
+      },
+      {
+        "level": 2,
+        "line": 245,
+        "text": "Incorporating audit feedback"
+      }
+    ],
+    "parser_warnings": [],
+    "path": "raw/refs/article-guide.md",
+    "source_type_guess": "ref"
+  },
+  {
+    "h1_title": "{Title / 标题}",
+    "headings": [
+      {
+        "level": 1,
+        "line": 11,
+        "text": "{Title / 标题}"
+      },
+      {
+        "level": 2,
+        "line": 13,
+        "text": "Summary / 摘要"
+      },
+      {
+        "level": 2,
+        "line": 16,
+        "text": "Content / 内容"
+      },
+      {
+        "level": 2,
+        "line": 19,
+        "text": "Key Takeaways / 关键收获"
+      },
+      {
+        "level": 2,
+        "line": 23,
+        "text": "Related / 关联"
+      }
+    ],
+    "parser_warnings": [],
+    "path": "raw/refs/article.md",
+    "source_type_guess": "ref"
+  },
+  {
+    "h1_title": "Audit Guide — human feedback on wiki content",
+    "headings": [
+      {
+        "level": 1,
+        "line": 1,
+        "text": "Audit Guide — human feedback on wiki content"
+      },
+      {
+        "level": 2,
+        "line": 5,
+        "text": "Why it exists"
+      },
+      {
+        "level": 2,
+        "line": 9,
+        "text": "Directory layout"
+      },
+      {
+        "level": 2,
+        "line": 23,
+        "text": "File format"
+      },
+      {
+        "level": 3,
+        "line": 52,
+        "text": "Frontmatter fields"
+      },
+      {
+        "level": 3,
+        "line": 68,
+        "text": "Severity semantics"
+      },
+      {
+        "level": 2,
+        "line": 77,
+        "text": "Anchor strategy"
+      },
+      {
+        "level": 2,
+        "line": 95,
+        "text": "Processing workflow (the `audit` op)"
+      },
+      {
+        "level": 2,
+        "line": 110,
+        "text": "Resolution section format"
+      },
+      {
+        "level": 2,
+        "line": 129,
+        "text": "Tooling"
+      }
+    ],
+    "parser_warnings": [],
+    "path": "raw/refs/audit-guide.md",
+    "source_type_guess": "ref"
+  },
+  {
+    "h1_title": null,
+    "headings": [],
+    "parser_warnings": [],
+    "path": "raw/refs/audit_review.py",
+    "source_type_guess": "ref"
+  },
+  {
+    "h1_title": null,
+    "headings": [
+      {
+        "level": 2,
+        "line": 9,
+        "text": "Description"
+      },
+      {
+        "level": 2,
+        "line": 13,
+        "text": "Steps to Reproduce"
+      },
+      {
+        "level": 2,
+        "line": 19,
+        "text": "Expected Behavior"
+      },
+      {
+        "level": 2,
+        "line": 23,
+        "text": "Actual Behavior"
+      },
+      {
+        "level": 2,
+        "line": 27,
+        "text": "Environment"
+      },
+      {
+        "level": 2,
+        "line": 34,
+        "text": "Additional Context"
+      }
+    ],
+    "parser_warnings": [],
+    "path": "raw/refs/bug_report.md",
+    "source_type_guess": "ref"
+  },
+  {
+    "h1_title": "Changelog",
+    "headings": [
+      {
+        "level": 1,
+        "line": 1,
+        "text": "Changelog"
+      },
+      {
+        "level": 2,
+        "line": 8,
+        "text": "[0.1.0] — 2026-05-03"
+      },
+      {
+        "level": 3,
+        "line": 10,
+        "text": "Added"
+      },
+      {
+        "level": 3,
+        "line": 33,
+        "text": "Fixed"
+      }
+    ],
+    "parser_warnings": [],
+    "path": "raw/refs/CHANGELOG.md",
+    "source_type_guess": "ref"
+  },
+  {
+    "h1_title": null,
+    "headings": [],
+    "parser_warnings": [],
+    "path": "raw/refs/ci.yml",
+    "source_type_guess": "ref"
+  },
+  {
+    "h1_title": "Contributor Covenant Code of Conduct",
+    "headings": [
+      {
+        "level": 1,
+        "line": 1,
+        "text": "Contributor Covenant Code of Conduct"
+      },
+      {
+        "level": 2,
+        "line": 3,
+        "text": "Our Pledge"
+      },
+      {
+        "level": 2,
+        "line": 15,
+        "text": "Our Standards"
+      },
+      {
+        "level": 2,
+        "line": 37,
+        "text": "Enforcement Responsibilities"
+      },
+      {
+        "level": 2,
+        "line": 44,
+        "text": "Scope"
+      },
+      {
+        "level": 2,
+        "line": 49,
+        "text": "Enforcement"
+      },
+      {
+        "level": 2,
+        "line": 56,
+        "text": "Attribution"
+      }
+    ],
+    "parser_warnings": [],
+    "path": "raw/refs/CODE_OF_CONDUCT.md",
+    "source_type_guess": "ref"
+  },
+  {
+    "h1_title": "{Title / 标题}",
+    "headings": [
+      {
+        "level": 1,
+        "line": 12,
+        "text": "{Title / 标题}"
+      },
+      {
+        "level": 2,
+        "line": 14,
+        "text": "Definition / 定义"
+      },
+      {
+        "level": 2,
+        "line": 17,
+        "text": "Key Properties / 关键特性"
+      },
+      {
+        "level": 2,
+        "line": 21,
+        "text": "Examples / 示例"
+      },
+      {
+        "level": 2,
+        "line": 24,
+        "text": "Related Concepts / 相关概念"
+      },
+      {
+        "level": 2,
+        "line": 28,
+        "text": "References / 参考资料"
+      }
+    ],
+    "parser_warnings": [],
+    "path": "raw/refs/concept.md",
+    "source_type_guess": "ref"
+  },
+  {
+    "h1_title": "Contributing to LLM Wiki",
+    "headings": [
+      {
+        "level": 1,
+        "line": 1,
+        "text": "Contributing to LLM Wiki"
+      },
+      {
+        "level": 2,
+        "line": 6,
+        "text": "Code of Conduct"
+      },
+      {
+        "level": 2,
+        "line": 10,
+        "text": "How to Contribute"
+      },
+      {
+        "level": 3,
+        "line": 12,
+        "text": "Reporting Bugs"
+      },
+      {
+        "level": 3,
+        "line": 18,
+        "text": "Suggesting Features"
+      },
+      {
+        "level": 3,
+        "line": 24,
+        "text": "Pull Requests"
+      },
+      {
+        "level": 3,
+        "line": 56,
+        "text": "Development Setup"
+      },
+      {
+        "level": 2,
+        "line": 66,
+        "text": "Project Structure"
+      },
+      {
+        "level": 2,
+        "line": 81,
+        "text": "Design Principles"
+      },
+      {
+        "level": 2,
+        "line": 94,
+        "text": "Good First Issues"
+      },
+      {
+        "level": 2,
+        "line": 106,
+        "text": "Questions?"
+      }
+    ],
+    "parser_warnings": [],
+    "path": "raw/refs/CONTRIBUTING.md",
+    "source_type_guess": "ref"
+  },
+  {
+    "h1_title": "Frequently Asked Questions",
+    "headings": [
+      {
+        "level": 1,
+        "line": 1,
+        "text": "Frequently Asked Questions"
+      },
+      {
+        "level": 2,
+        "line": 3,
+        "text": "Installation"
+      },
+      {
+        "level": 3,
+        "line": 5,
+        "text": "How do I install LLM Wiki?"
+      },
+      {
+        "level": 3,
+        "line": 19,
+        "text": "How do I uninstall?"
+      },
+      {
+        "level": 3,
+        "line": 27,
+        "text": "Does LLM Wiki work on macOS?"
+      },
+      {
+        "level": 3,
+        "line": 35,
+        "text": "Does it work on Windows?"
+      },
+      {
+        "level": 2,
+        "line": 41,
+        "text": "Usage"
+      },
+      {
+        "level": 3,
+        "line": 43,
+        "text": "How do I start building a wiki?"
+      },
+      {
+        "level": 3,
+        "line": 49,
+        "text": "Do I need to manually run `/wiki-query`?"
+      },
+      {
+        "level": 3,
+        "line": 53,
+        "text": "What file formats can I ingest?"
+      },
+      {
+        "level": 3,
+        "line": 57,
+        "text": "How large can my source files be?"
+      },
+      {
+        "level": 3,
+        "line": 61,
+        "text": "How do I handle knowledge that contradicts existing wiki pages?"
+      },
+      {
+        "level": 2,
+        "line": 67,
+        "text": "Configuration"
+      },
+      {
+        "level": 3,
+        "line": 69,
+        "text": "Where are configuration settings stored?"
+      },
+      {
+        "level": 3,
+        "line": 78,
+        "text": "How do I change the wiki root directory?"
+      },
+      {
+        "level": 3,
+        "line": 86,
+        "text": "Can I use multiple wikis in different projects?"
+      },
+      {
+        "level": 2,
+        "line": 92,
+        "text": "Troubleshooting"
+      },
+      {
+        "level": 3,
+        "line": 94,
+        "text": "\"Wiki not found\" or \"No index.md\""
+      },
+      {
+        "level": 3,
+        "line": 102,
+        "text": "Skill commands not working"
+      },
+      {
+        "level": 3,
+        "line": 111,
+        "text": "Shell scripts fail with \"command not found\""
+      },
+      {
+        "level": 3,
+        "line": 121,
+        "text": "Index shows stale data"
+      },
+      {
+        "level": 3,
+        "line": 125,
+        "text": "How do I fix broken wikilinks?"
+      },
+      {
+        "level": 2,
+        "line": 131,
+        "text": "Design"
+      },
+      {
+        "level": 3,
+        "line": 133,
+        "text": "How is this different from RAG?"
+      },
+      {
+        "level": 3,
+        "line": 142,
+        "text": "Why Bash scripts instead of Python/Node.js?"
+      },
+      {
+        "level": 3,
+        "line": 146,
+        "text": "Can I contribute new page types or workflows?"
+      }
+    ],
+    "parser_warnings": [],
+    "path": "raw/refs/FAQ.md",
+    "source_type_guess": "ref"
+  },
+  {
+    "h1_title": null,
+    "headings": [
+      {
+        "level": 2,
+        "line": 9,
+        "text": "Problem Statement"
+      },
+      {
+        "level": 2,
+        "line": 13,
+        "text": "Proposed Solution"
+      },
+      {
+        "level": 2,
+        "line": 17,
+        "text": "Alternatives Considered"
+      },
+      {
+        "level": 2,
+        "line": 21,
+        "text": "Use Case"
+      },
+      {
+        "level": 2,
+        "line": 25,
+        "text": "Would you be willing to contribute this feature?"
+      }
+    ],
+    "parser_warnings": [],
+    "path": "raw/refs/feature_request.md",
+    "source_type_guess": "ref"
+  },
+  {
+    "h1_title": "Funding for LLM Wiki",
+    "headings": [
+      {
+        "level": 1,
+        "line": 1,
+        "text": "Funding for LLM Wiki"
+      },
+      {
+        "level": 1,
+        "line": 5,
+        "text": "Other Ways to Support"
+      }
+    ],
+    "parser_warnings": [],
+    "path": "raw/refs/FUNDING.yml",
+    "source_type_guess": "ref"
+  },
+  {
+    "h1_title": "/wiki-graph — Knowledge Graph Visualization",
+    "headings": [
+      {
+        "level": 1,
+        "line": 1,
+        "text": "/wiki-graph — Knowledge Graph Visualization"
+      },
+      {
+        "level": 2,
+        "line": 9,
+        "text": "Procedure"
+      },
+      {
+        "level": 3,
+        "line": 11,
+        "text": "Step 1: Extract Graph Data"
+      },
+      {
+        "level": 3,
+        "line": 28,
+        "text": "Step 2: Compute Derived Metrics"
+      },
+      {
+        "level": 3,
+        "line": 32,
+        "text": "Step 3: Write graph.json"
+      },
+      {
+        "level": 3,
+        "line": 36,
+        "text": "Step 4: Generate graph.html"
+      },
+      {
+        "level": 3,
+        "line": 48,
+        "text": "Step 5: Present"
+      },
+      {
+        "level": 2,
+        "line": 60,
+        "text": "Edge Cases"
+      }
+    ],
+    "parser_warnings": [],
+    "path": "raw/refs/graph.md",
+    "source_type_guess": "ref"
+  },
+  {
+    "h1_title": "The Twelve Olympians: An Overview of Greek Mythology's Core Deities",
+    "headings": [
+      {
+        "level": 1,
+        "line": 1,
+        "text": "The Twelve Olympians: An Overview of Greek Mythology's Core Deities"
+      },
+      {
+        "level": 2,
+        "line": 5,
+        "text": "Zeus — King of the Gods"
+      },
+      {
+        "level": 2,
+        "line": 11,
+        "text": "Hera — Queen of the Gods"
+      },
+      {
+        "level": 2,
+        "line": 15,
+        "text": "Poseidon — God of the Sea"
+      },
+      {
+        "level": 2,
+        "line": 19,
+        "text": "Demeter — Goddess of Agriculture"
+      },
+      {
+        "level": 2,
+        "line": 23,
+        "text": "Athena — Goddess of Wisdom and War Strategy"
+      },
+      {
+        "level": 2,
+        "line": 27,
+        "text": "Apollo — God of Music, Arts, Prophecy, and Healing"
+      },
+      {
+        "level": 2,
+        "line": 31,
+        "text": "Artemis — Goddess of the Hunt and Wilderness"
+      },
+      {
+        "level": 2,
+        "line": 35,
+        "text": "Ares — God of War"
+      },
+      {
+        "level": 2,
+        "line": 39,
+        "text": "Aphrodite — Goddess of Love and Beauty"
+      },
+      {
+        "level": 2,
+        "line": 43,
+        "text": "Hephaestus — God of Fire and Metalworking"
+      },
+      {
+        "level": 2,
+        "line": 47,
+        "text": "Hermes — Messenger of the Gods"
+      },
+      {
+        "level": 2,
+        "line": 51,
+        "text": "Dionysus — God of Wine, Theater, and Ecstasy"
+      },
+      {
+        "level": 2,
+        "line": 55,
+        "text": "The Olympian Family Tree"
+      }
+    ],
+    "parser_warnings": [],
+    "path": "raw/refs/greek-olympians.md",
+    "source_type_guess": "ref"
+  },
+  {
+    "h1_title": "/wiki-ingest — Two-Phase Source Ingestion",
+    "headings": [
+      {
+        "level": 1,
+        "line": 1,
+        "text": "/wiki-ingest — Two-Phase Source Ingestion"
+      },
+      {
+        "level": 2,
+        "line": 9,
+        "text": "Design Rationale"
+      },
+      {
+        "level": 2,
+        "line": 20,
+        "text": "Pre-Flight"
+      },
+      {
+        "level": 3,
+        "line": 22,
+        "text": "Step 0: Resolve Wiki Root"
+      },
+      {
+        "level": 3,
+        "line": 30,
+        "text": "Step 1: Identify and Hash the Source"
+      },
+      {
+        "level": 3,
+        "line": 44,
+        "text": "Step 2: Check if Already Ingested"
+      },
+      {
+        "level": 2,
+        "line": 57,
+        "text": "Phase 1 — Analysis"
+      },
+      {
+        "level": 3,
+        "line": 59,
+        "text": "Step 3: Read Context"
+      },
+      {
+        "level": 3,
+        "line": 72,
+        "text": "Step 4: Read the Source Content"
+      },
+      {
+        "level": 3,
+        "line": 80,
+        "text": "Step 5: Detect Language"
+      },
+      {
+        "level": 3,
+        "line": 92,
+        "text": "Step 6: Extract Key Elements"
+      },
+      {
+        "level": 3,
+        "line": 118,
+        "text": "Step 7: Detect Contradictions"
+      },
+      {
+        "level": 3,
+        "line": 127,
+        "text": "Step 8: Write Phase 1 Analysis"
+      },
+      {
+        "level": 3,
+        "line": 168,
+        "text": "Step 9: Present Analysis for Review"
+      },
+      {
+        "level": 2,
+        "line": 183,
+        "text": "Phase 2 — Generation"
+      },
+      {
+        "level": 3,
+        "line": 185,
+        "text": "Step 10: Create/Update Article Page"
+      },
+      {
+        "level": 3,
+        "line": 203,
+        "text": "Step 11: Create/Update Concept Pages"
+      },
+      {
+        "level": 3,
+        "line": 226,
+        "text": "Step 12: Create/Update Person Pages"
+      },
+      {
+        "level": 3,
+        "line": 240,
+        "text": "Step 13: Cross-Link All Pages"
+      },
+      {
+        "level": 3,
+        "line": 249,
+        "text": "Step 14: Add Contradiction Callouts"
+      },
+      {
+        "level": 3,
+        "line": 271,
+        "text": "Step 15: Regenerate Index"
+      },
+      {
+        "level": 3,
+        "line": 287,
+        "text": "Step 16: Write Sentinel + Update Manifest"
+      },
+      {
+        "level": 3,
+        "line": 307,
+        "text": "Step 17: Report Summary"
+      },
+      {
+        "level": 2,
+        "line": 337,
+        "text": "Edge Cases"
+      },
+      {
+        "level": 3,
+        "line": 339,
+        "text": "Very Large Sources (>15,000 words)"
+      },
+      {
+        "level": 3,
+        "line": 345,
+        "text": "Source in an Unsupported Format"
+      },
+      {
+        "level": 3,
+        "line": 351,
+        "text": "Source Already Partially Ingested"
+      },
+      {
+        "level": 3,
+        "line": 357,
+        "text": "Nested Directory Sources"
+      },
+      {
+        "level": 3,
+        "line": 362,
+        "text": "Conflicting with Existing Pages"
+      },
+      {
+        "level": 3,
+        "line": 368,
+        "text": "Rate Limiting / Token Budget"
+      }
+    ],
+    "parser_warnings": [],
+    "path": "raw/refs/ingest.md",
+    "source_type_guess": "ref"
+  },
+  {
+    "h1_title": "/wiki-lint — Wiki Health Check",
+    "headings": [
+      {
+        "level": 1,
+        "line": 1,
+        "text": "/wiki-lint — Wiki Health Check"
+      },
+      {
+        "level": 2,
+        "line": 11,
+        "text": "Design Rationale"
+      },
+      {
+        "level": 2,
+        "line": 22,
+        "text": "Quick Lint (Default, --quick)"
+      },
+      {
+        "level": 3,
+        "line": 26,
+        "text": "Step Q1: Validate Frontmatter"
+      },
+      {
+        "level": 3,
+        "line": 44,
+        "text": "Step Q2: Find Broken Wikilinks"
+      },
+      {
+        "level": 3,
+        "line": 61,
+        "text": "Step Q3: Find Orphan Pages"
+      },
+      {
+        "level": 3,
+        "line": 76,
+        "text": "Step Q4: Check Index Freshness"
+      },
+      {
+        "level": 3,
+        "line": 91,
+        "text": "Step Q5: Naming Convention Check"
+      },
+      {
+        "level": 2,
+        "line": 114,
+        "text": "Quick Lint Report"
+      },
+      {
+        "level": 2,
+        "line": 145,
+        "text": "Full Lint (--full)"
+      },
+      {
+        "level": 3,
+        "line": 155,
+        "text": "Step F1: Run Quick Lint First"
+      },
+      {
+        "level": 3,
+        "line": 159,
+        "text": "Step F2: Contradiction Sweep"
+      },
+      {
+        "level": 3,
+        "line": 178,
+        "text": "Step F3: Quality Analysis"
+      },
+      {
+        "level": 3,
+        "line": 206,
+        "text": "Step F4: Language Consistency"
+      },
+      {
+        "level": 3,
+        "line": 214,
+        "text": "Step F5: Drift Detection"
+      },
+      {
+        "level": 3,
+        "line": 221,
+        "text": "Step F6: Knowledge Gap Analysis"
+      },
+      {
+        "level": 3,
+        "line": 233,
+        "text": "Step F7: Add to Review Queue"
+      },
+      {
+        "level": 2,
+        "line": 251,
+        "text": "Full Lint Report"
+      },
+      {
+        "level": 2,
+        "line": 298,
+        "text": "Edge Cases"
+      },
+      {
+        "level": 3,
+        "line": 300,
+        "text": "Very Large Wiki (>100 pages)"
+      },
+      {
+        "level": 3,
+        "line": 306,
+        "text": "Wiki Has Errors (Quick Lint Fails)"
+      },
+      {
+        "level": 3,
+        "line": 311,
+        "text": "Newly Initialized Wiki (0 Pages)"
+      },
+      {
+        "level": 3,
+        "line": 316,
+        "text": "Contradiction That Can't Be Resolved"
+      },
+      {
+        "level": 3,
+        "line": 322,
+        "text": "External Links Broken (URLs)"
+      }
+    ],
+    "parser_warnings": [],
+    "path": "raw/refs/lint.md",
+    "source_type_guess": "ref"
+  },
+  {
+    "h1_title": "Required audit frontmatter fields",
+    "headings": [
+      {
+        "level": 1,
+        "line": 36,
+        "text": "Required audit frontmatter fields"
+      }
+    ],
+    "parser_warnings": [],
+    "path": "raw/refs/lint_wiki.py",
+    "source_type_guess": "ref"
+  },
+  {
+    "h1_title": "LLM Wiki",
+    "headings": [
+      {
+        "level": 1,
+        "line": 1,
+        "text": "LLM Wiki"
+      },
+      {
+        "level": 2,
+        "line": 7,
+        "text": "The core idea"
+      },
+      {
+        "level": 2,
+        "line": 25,
+        "text": "Architecture"
+      },
+      {
+        "level": 2,
+        "line": 35,
+        "text": "Operations"
+      },
+      {
+        "level": 2,
+        "line": 43,
+        "text": "Indexing and logging"
+      },
+      {
+        "level": 2,
+        "line": 51,
+        "text": "Optional: CLI tools"
+      },
+      {
+        "level": 2,
+        "line": 55,
+        "text": "Tips and tricks"
+      },
+      {
+        "level": 2,
+        "line": 64,
+        "text": "Why this works"
+      },
+      {
+        "level": 2,
+        "line": 73,
+        "text": "Note"
+      }
+    ],
+    "parser_warnings": [],
+    "path": "raw/refs/llm-wiki.md",
+    "source_type_guess": "ref"
+  },
+  {
+    "h1_title": "Log Guide — the `log/` folder",
+    "headings": [
+      {
+        "level": 1,
+        "line": 1,
+        "text": "Log Guide — the `log/` folder"
+      },
+      {
+        "level": 2,
+        "line": 5,
+        "text": "File naming"
+      },
+      {
+        "level": 2,
+        "line": 11,
+        "text": "File format"
+      },
+      {
+        "level": 2,
+        "line": 40,
+        "text": "Ops allowed in the log"
+      },
+      {
+        "level": 2,
+        "line": 53,
+        "text": "Quick grep"
+      },
+      {
+        "level": 2,
+        "line": 69,
+        "text": "Migration from single-file `log.md`"
+      },
+      {
+        "level": 2,
+        "line": 80,
+        "text": "What not to put in the log"
+      }
+    ],
+    "parser_warnings": [],
+    "path": "raw/refs/log-guide.md",
+    "source_type_guess": "ref"
+  },
+  {
+    "h1_title": null,
+    "headings": [],
+    "parser_warnings": [],
+    "path": "raw/refs/manifest.json",
+    "source_type_guess": "ref"
+  },
+  {
+    "h1_title": null,
+    "headings": [],
+    "parser_warnings": [],
+    "path": "raw/refs/package-lock.json",
+    "source_type_guess": "ref"
+  },
+  {
+    "h1_title": null,
+    "headings": [],
+    "parser_warnings": [],
+    "path": "raw/refs/package.json",
+    "source_type_guess": "ref"
+  },
+  {
+    "h1_title": "Perseus and Medusa: A Greek Myth of Heroes, Monsters, and Divine Intervention",
+    "headings": [
+      {
+        "level": 1,
+        "line": 1,
+        "text": "Perseus and Medusa: A Greek Myth of Heroes, Monsters, and Divine Intervention"
+      },
+      {
+        "level": 2,
+        "line": 5,
+        "text": "Perseus: The Son of Zeus"
+      },
+      {
+        "level": 2,
+        "line": 11,
+        "text": "The Gorgon Medusa"
+      },
+      {
+        "level": 3,
+        "line": 15,
+        "text": "Version A: The Punishment Narrative"
+      },
+      {
+        "level": 3,
+        "line": 23,
+        "text": "Version B: The Hubris Narrative"
+      },
+      {
+        "level": 3,
+        "line": 29,
+        "text": "The Contradiction"
+      },
+      {
+        "level": 2,
+        "line": 33,
+        "text": "Divine Assistance"
+      },
+      {
+        "level": 2,
+        "line": 39,
+        "text": "The Slaying"
+      },
+      {
+        "level": 2,
+        "line": 45,
+        "text": "The Aftermath"
+      }
+    ],
+    "parser_warnings": [],
+    "path": "raw/refs/perseus-medusa.md",
+    "source_type_guess": "ref"
+  },
+  {
+    "h1_title": "{Full Name}",
+    "headings": [
+      {
+        "level": 1,
+        "line": 12,
+        "text": "{Full Name}"
+      },
+      {
+        "level": 2,
+        "line": 14,
+        "text": "Bio / 简介"
+      },
+      {
+        "level": 2,
+        "line": 17,
+        "text": "Key Contributions / 主要贡献"
+      },
+      {
+        "level": 2,
+        "line": 21,
+        "text": "Related Work / 相关工作"
+      },
+      {
+        "level": 2,
+        "line": 26,
+        "text": "Links / 链接"
+      }
+    ],
+    "parser_warnings": [],
+    "path": "raw/refs/person.md",
+    "source_type_guess": "ref"
+  },
+  {
+    "h1_title": null,
+    "headings": [
+      {
+        "level": 2,
+        "line": 1,
+        "text": "Description"
+      },
+      {
+        "level": 2,
+        "line": 5,
+        "text": "Type of Change"
+      },
+      {
+        "level": 2,
+        "line": 13,
+        "text": "Related Issue"
+      },
+      {
+        "level": 2,
+        "line": 17,
+        "text": "Testing"
+      },
+      {
+        "level": 2,
+        "line": 31,
+        "text": "Checklist"
+      }
+    ],
+    "parser_warnings": [],
+    "path": "raw/refs/PULL_REQUEST_TEMPLATE.md",
+    "source_type_guess": "ref"
+  },
+  {
+    "h1_title": "/wiki-query — Index-First Knowledge Retrieval",
+    "headings": [
+      {
+        "level": 1,
+        "line": 1,
+        "text": "/wiki-query — Index-First Knowledge Retrieval"
+      },
+      {
+        "level": 2,
+        "line": 9,
+        "text": "Design Rationale"
+      },
+      {
+        "level": 2,
+        "line": 20,
+        "text": "Procedure"
+      },
+      {
+        "level": 3,
+        "line": 22,
+        "text": "Step 0: Resolve Wiki Root"
+      },
+      {
+        "level": 3,
+        "line": 26,
+        "text": "Step 1: Read the Index"
+      },
+      {
+        "level": 3,
+        "line": 41,
+        "text": "Step 2: (Optional) Check Hot Cache"
+      },
+      {
+        "level": 3,
+        "line": 48,
+        "text": "Step 3: Detect Query Language"
+      },
+      {
+        "level": 3,
+        "line": 56,
+        "text": "Step 4: Identify Relevant Pages"
+      },
+      {
+        "level": 3,
+        "line": 77,
+        "text": "Step 5: Read the Selected Pages"
+      },
+      {
+        "level": 3,
+        "line": 92,
+        "text": "Step 6: Synthesize the Answer"
+      },
+      {
+        "level": 3,
+        "line": 106,
+        "text": "Step 7: Format the Response"
+      },
+      {
+        "level": 3,
+        "line": 150,
+        "text": "Step 8: Offer to Save"
+      },
+      {
+        "level": 2,
+        "line": 160,
+        "text": "Edge Cases"
+      },
+      {
+        "level": 3,
+        "line": 162,
+        "text": "No Relevant Pages Found"
+      },
+      {
+        "level": 3,
+        "line": 169,
+        "text": "Index Is Empty (Brand New Wiki)"
+      },
+      {
+        "level": 3,
+        "line": 174,
+        "text": "Query Is Ambiguous"
+      },
+      {
+        "level": 3,
+        "line": 179,
+        "text": "Contradictions Found"
+      },
+      {
+        "level": 3,
+        "line": 185,
+        "text": "Very Broad Question (\"Tell me about AI\")"
+      },
+      {
+        "level": 3,
+        "line": 190,
+        "text": "Question in Different Language Than Wiki Content"
+      }
+    ],
+    "parser_warnings": [],
+    "path": "raw/refs/query.md",
+    "source_type_guess": "ref"
+  },
+  {
+    "h1_title": "llm-wiki",
+    "headings": [
+      {
+        "level": 1,
+        "line": 1,
+        "text": "llm-wiki"
+      },
+      {
+        "level": 2,
+        "line": 10,
+        "text": "What this is"
+      },
+      {
+        "level": 2,
+        "line": 24,
+        "text": "Install"
+      },
+      {
+        "level": 2,
+        "line": 35,
+        "text": "Quick start"
+      },
+      {
+        "level": 2,
+        "line": 56,
+        "text": "Repo contents"
+      },
+      {
+        "level": 2,
+        "line": 80,
+        "text": "Running the web viewer"
+      },
+      {
+        "level": 2,
+        "line": 93,
+        "text": "Building the Obsidian plugin"
+      },
+      {
+        "level": 2,
+        "line": 104,
+        "text": "Use cases"
+      },
+      {
+        "level": 2,
+        "line": 111,
+        "text": "Related work"
+      },
+      {
+        "level": 2,
+        "line": 118,
+        "text": "License"
+      }
+    ],
+    "parser_warnings": [],
+    "path": "raw/refs/README.md",
+    "source_type_guess": "ref"
+  },
+  {
+    "h1_title": "/wiki-review — Process the Review Queue",
+    "headings": [
+      {
+        "level": 1,
+        "line": 1,
+        "text": "/wiki-review — Process the Review Queue"
+      },
+      {
+        "level": 2,
+        "line": 9,
+        "text": "Procedure"
+      },
+      {
+        "level": 3,
+        "line": 11,
+        "text": "Step 1: Read Review Queue"
+      },
+      {
+        "level": 3,
+        "line": 19,
+        "text": "Step 2: Show Overview"
+      },
+      {
+        "level": 3,
+        "line": 27,
+        "text": "Step 3: Process Items One at a Time"
+      },
+      {
+        "level": 3,
+        "line": 36,
+        "text": "Step 4: Apply Resolution"
+      },
+      {
+        "level": 3,
+        "line": 45,
+        "text": "Step 5: Update review.json"
+      },
+      {
+        "level": 3,
+        "line": 49,
+        "text": "Step 6: Show Summary"
+      },
+      {
+        "level": 2,
+        "line": 58,
+        "text": "Common Resolution Patterns"
+      },
+      {
+        "level": 2,
+        "line": 68,
+        "text": "Edge Cases"
+      }
+    ],
+    "parser_warnings": [],
+    "path": "raw/refs/review.md",
+    "source_type_guess": "ref"
+  },
+  {
+    "h1_title": "/wiki-save — Save Answer as Synthesis Page",
+    "headings": [
+      {
+        "level": 1,
+        "line": 1,
+        "text": "/wiki-save — Save Answer as Synthesis Page"
+      },
+      {
+        "level": 2,
+        "line": 9,
+        "text": "Procedure"
+      },
+      {
+        "level": 3,
+        "line": 11,
+        "text": "Step 1: Collect Context"
+      },
+      {
+        "level": 3,
+        "line": 26,
+        "text": "Step 2: Derive Slug and Filename"
+      },
+      {
+        "level": 3,
+        "line": 36,
+        "text": "Step 3: Read Template"
+      },
+      {
+        "level": 3,
+        "line": 40,
+        "text": "Step 4: Determine Language"
+      },
+      {
+        "level": 3,
+        "line": 44,
+        "text": "Step 5: Write the Synthesis Page"
+      },
+      {
+        "level": 3,
+        "line": 65,
+        "text": "Step 6: Cross-Link"
+      },
+      {
+        "level": 3,
+        "line": 71,
+        "text": "Step 7: Update Graph"
+      },
+      {
+        "level": 3,
+        "line": 75,
+        "text": "Step 8: Regenerate Index"
+      },
+      {
+        "level": 3,
+        "line": 79,
+        "text": "Step 9: Confirm"
+      },
+      {
+        "level": 2,
+        "line": 91,
+        "text": "Edge Cases"
+      }
+    ],
+    "parser_warnings": [],
+    "path": "raw/refs/save-synthesis.md",
+    "source_type_guess": "ref"
+  },
+  {
+    "h1_title": null,
+    "headings": [
+      {
+        "level": 2,
+        "line": 73,
+        "text": "Scope"
+      },
+      {
+        "level": 2,
+        "line": 81,
+        "text": "Operations"
+      },
+      {
+        "level": 2,
+        "line": 86,
+        "text": "Naming conventions"
+      },
+      {
+        "level": 3,
+        "line": 95,
+        "text": "Diagrams and formulas"
+      },
+      {
+        "level": 3,
+        "line": 99,
+        "text": "Raw file policy"
+      },
+      {
+        "level": 2,
+        "line": 103,
+        "text": "Current articles"
+      },
+      {
+        "level": 3,
+        "line": 107,
+        "text": "Concepts"
+      },
+      {
+        "level": 3,
+        "line": 110,
+        "text": "Entities"
+      },
+      {
+        "level": 3,
+        "line": 113,
+        "text": "Summaries"
+      },
+      {
+        "level": 2,
+        "line": 116,
+        "text": "Open research questions"
+      },
+      {
+        "level": 2,
+        "line": 121,
+        "text": "Research gaps"
+      },
+      {
+        "level": 2,
+        "line": 126,
+        "text": "Audit backlog"
+      },
+      {
+        "level": 2,
+        "line": 130,
+        "text": "Notes for the LLM"
+      },
+      {
+        "level": 2,
+        "line": 143,
+        "text": "[{now_hm}] scaffold | Initialized {title} knowledge base"
+      },
+      {
+        "level": 2,
+        "line": 156,
+        "text": "🔖 Navigation"
+      },
+      {
+        "level": 2,
+        "line": 159,
+        "text": "Concepts"
+      },
+      {
+        "level": 2,
+        "line": 163,
+        "text": "Entities"
+      },
+      {
+        "level": 2,
+        "line": 167,
+        "text": "Summaries (chronological)"
+      },
+      {
+        "level": 2,
+        "line": 171,
+        "text": "Open Questions"
+      }
+    ],
+    "parser_warnings": [],
+    "path": "raw/refs/scaffold.py",
+    "source_type_guess": "ref"
+  },
+  {
+    "h1_title": "CLAUDE.md Schema Guide",
+    "headings": [
+      {
+        "level": 1,
+        "line": 1,
+        "text": "CLAUDE.md Schema Guide"
+      },
+      {
+        "level": 2,
+        "line": 5,
+        "text": "Why it matters"
+      },
+      {
+        "level": 2,
+        "line": 11,
+        "text": "Full template"
+      },
+      {
+        "level": 2,
+        "line": 100,
+        "text": "What makes a good schema"
+      },
+      {
+        "level": 2,
+        "line": 112,
+        "text": "Update cadence"
+      }
+    ],
+    "parser_warnings": [],
+    "path": "raw/refs/schema-guide.md",
+    "source_type_guess": "ref"
+  },
+  {
+    "h1_title": "Security Policy",
+    "headings": [
+      {
+        "level": 1,
+        "line": 1,
+        "text": "Security Policy"
+      },
+      {
+        "level": 2,
+        "line": 3,
+        "text": "Reporting a Vulnerability"
+      },
+      {
+        "level": 2,
+        "line": 22,
+        "text": "Scope"
+      },
+      {
+        "level": 2,
+        "line": 31,
+        "text": "Out of Scope"
+      },
+      {
+        "level": 2,
+        "line": 37,
+        "text": "Supported Versions"
+      },
+      {
+        "level": 2,
+        "line": 46,
+        "text": "Disclosure Policy"
+      }
+    ],
+    "parser_warnings": [],
+    "path": "raw/refs/SECURITY.md",
+    "source_type_guess": "ref"
+  },
+  {
+    "h1_title": "LLM Wiki — Karpathy Knowledge Base Pattern",
+    "headings": [
+      {
+        "level": 1,
+        "line": 19,
+        "text": "LLM Wiki — Karpathy Knowledge Base Pattern"
+      },
+      {
+        "level": 2,
+        "line": 24,
+        "text": "Core idea"
+      },
+      {
+        "level": 2,
+        "line": 33,
+        "text": "Directory layout"
+      },
+      {
+        "level": 2,
+        "line": 60,
+        "text": "Core principles"
+      },
+      {
+        "level": 3,
+        "line": 64,
+        "text": "1. Divide and conquer"
+      },
+      {
+        "level": 3,
+        "line": 88,
+        "text": "2. Mermaid for diagrams, KaTeX for formulas"
+      },
+      {
+        "level": 3,
+        "line": 103,
+        "text": "3. Raw file policy"
+      },
+      {
+        "level": 3,
+        "line": 122,
+        "text": "4. Audit is the human feedback surface"
+      },
+      {
+        "level": 2,
+        "line": 134,
+        "text": "The five operations"
+      },
+      {
+        "level": 3,
+        "line": 138,
+        "text": "1. `compile`"
+      },
+      {
+        "level": 3,
+        "line": 151,
+        "text": "2. `ingest`"
+      },
+      {
+        "level": 3,
+        "line": 168,
+        "text": "3. `query`"
+      },
+      {
+        "level": 3,
+        "line": 181,
+        "text": "4. `lint`"
+      },
+      {
+        "level": 3,
+        "line": 200,
+        "text": "5. `audit`"
+      },
+      {
+        "level": 2,
+        "line": 231,
+        "text": "Tooling"
+      },
+      {
+        "level": 2,
+        "line": 245,
+        "text": "Starting a new wiki"
+      },
+      {
+        "level": 2,
+        "line": 260,
+        "text": "`wiki/index.md` format"
+      },
+      {
+        "level": 2,
+        "line": 297,
+        "text": "`log/` format"
+      },
+      {
+        "level": 2,
+        "line": 307,
+        "text": "Use cases"
+      },
+      {
+        "level": 2,
+        "line": 314,
+        "text": "References"
+      }
+    ],
+    "parser_warnings": [],
+    "path": "raw/refs/SKILL.md",
+    "source_type_guess": "ref"
+  },
+  {
+    "h1_title": "Support",
+    "headings": [
+      {
+        "level": 1,
+        "line": 1,
+        "text": "Support"
+      },
+      {
+        "level": 2,
+        "line": 3,
+        "text": "Getting Help"
+      },
+      {
+        "level": 3,
+        "line": 5,
+        "text": "Documentation"
+      },
+      {
+        "level": 3,
+        "line": 12,
+        "text": "Community"
+      },
+      {
+        "level": 3,
+        "line": 19,
+        "text": "Common Issues"
+      },
+      {
+        "level": 4,
+        "line": 21,
+        "text": "\"Wiki not found\" or \"No index.md\""
+      },
+      {
+        "level": 4,
+        "line": 29,
+        "text": "Skill commands not working"
+      },
+      {
+        "level": 4,
+        "line": 37,
+        "text": "Shell scripts fail with \"command not found\""
+      },
+      {
+        "level": 3,
+        "line": 51,
+        "text": "Still Stuck?"
+      }
+    ],
+    "parser_warnings": [],
+    "path": "raw/refs/SUPPORT.md",
+    "source_type_guess": "ref"
+  },
+  {
+    "h1_title": "{Title / 标题}",
+    "headings": [
+      {
+        "level": 1,
+        "line": 14,
+        "text": "{Title / 标题}"
+      },
+      {
+        "level": 2,
+        "line": 16,
+        "text": "Question / 问题"
+      },
+      {
+        "level": 2,
+        "line": 20,
+        "text": "Answer / 回答"
+      },
+      {
+        "level": 2,
+        "line": 23,
+        "text": "Evidence / 证据"
+      },
+      {
+        "level": 2,
+        "line": 29,
+        "text": "Contradictions / 矛盾"
+      },
+      {
+        "level": 2,
+        "line": 39,
+        "text": "Gaps / 知识缺口"
+      },
+      {
+        "level": 2,
+        "line": 43,
+        "text": "Confidence / 置信度: {high|medium|low}"
+      }
+    ],
+    "parser_warnings": [],
+    "path": "raw/refs/synthesis.md",
+    "source_type_guess": "ref"
+  },
+  {
+    "h1_title": "Tooling Tips",
+    "headings": [
+      {
+        "level": 1,
+        "line": 1,
+        "text": "Tooling Tips"
+      },
+      {
+        "level": 2,
+        "line": 5,
+        "text": "Obsidian setup"
+      },
+      {
+        "level": 3,
+        "line": 7,
+        "text": "Essential settings"
+      },
+      {
+        "level": 3,
+        "line": 13,
+        "text": "Plugins to install"
+      },
+      {
+        "level": 3,
+        "line": 20,
+        "text": "Graph view"
+      },
+      {
+        "level": 2,
+        "line": 27,
+        "text": "Audit plugin — `plugins/obsidian-audit/`"
+      },
+      {
+        "level": 2,
+        "line": 54,
+        "text": "Web viewer — `web/`"
+      },
+      {
+        "level": 2,
+        "line": 73,
+        "text": "Obsidian Web Clipper usage"
+      },
+      {
+        "level": 2,
+        "line": 81,
+        "text": "qmd (optional, for large wikis)"
+      },
+      {
+        "level": 2,
+        "line": 94,
+        "text": "Marp — generating slide decks from wiki content"
+      },
+      {
+        "level": 2,
+        "line": 113,
+        "text": "Generating charts"
+      },
+      {
+        "level": 2,
+        "line": 126,
+        "text": "Git workflow"
+      },
+      {
+        "level": 2,
+        "line": 141,
+        "text": "Interactive HTML outputs"
+      }
+    ],
+    "parser_warnings": [],
+    "path": "raw/refs/tooling-tips.md",
+    "source_type_guess": "ref"
+  },
+  {
+    "h1_title": null,
+    "headings": [],
+    "parser_warnings": [],
+    "path": "raw/refs/tsconfig.json",
+    "source_type_guess": "ref"
+  },
+  {
+    "h1_title": "Generate Knowledge Graph",
+    "headings": [
+      {
+        "level": 1,
+        "line": 5,
+        "text": "Generate Knowledge Graph"
+      },
+      {
+        "level": 2,
+        "line": 9,
+        "text": "Procedure"
+      }
+    ],
+    "parser_warnings": [],
+    "path": "raw/refs/wiki-graph.md",
+    "source_type_guess": "ref"
+  },
+  {
+    "h1_title": "Ingest a Source into the Wiki",
+    "headings": [
+      {
+        "level": 1,
+        "line": 6,
+        "text": "Ingest a Source into the Wiki"
+      },
+      {
+        "level": 2,
+        "line": 10,
+        "text": "Key Paths"
+      },
+      {
+        "level": 2,
+        "line": 16,
+        "text": "Procedure"
+      },
+      {
+        "level": 3,
+        "line": 18,
+        "text": "1. Verify wiki exists"
+      },
+      {
+        "level": 3,
+        "line": 22,
+        "text": "2. Identify and hash the source"
+      },
+      {
+        "level": 3,
+        "line": 27,
+        "text": "3. Check if already ingested"
+      },
+      {
+        "level": 3,
+        "line": 31,
+        "text": "4. Load the full workflow"
+      }
+    ],
+    "parser_warnings": [],
+    "path": "raw/refs/wiki-ingest.md",
+    "source_type_guess": "ref"
+  },
+  {
+    "h1_title": "Wiki Health Check",
+    "headings": [
+      {
+        "level": 1,
+        "line": 6,
+        "text": "Wiki Health Check"
+      },
+      {
+        "level": 2,
+        "line": 10,
+        "text": "Quick Mode (bash scripts, zero LLM cost)"
+      },
+      {
+        "level": 2,
+        "line": 19,
+        "text": "Full Mode (LLM semantic analysis)"
+      }
+    ],
+    "parser_warnings": [],
+    "path": "raw/refs/wiki-lint.md",
+    "source_type_guess": "ref"
+  },
+  {
+    "h1_title": "Query the Wiki",
+    "headings": [
+      {
+        "level": 1,
+        "line": 6,
+        "text": "Query the Wiki"
+      },
+      {
+        "level": 2,
+        "line": 10,
+        "text": "Procedure"
+      },
+      {
+        "level": 3,
+        "line": 12,
+        "text": "1. Find wiki root"
+      },
+      {
+        "level": 3,
+        "line": 16,
+        "text": "2. Read the index"
+      },
+      {
+        "level": 3,
+        "line": 20,
+        "text": "3. Match query to pages"
+      },
+      {
+        "level": 3,
+        "line": 24,
+        "text": "4. Read pages and synthesize"
+      },
+      {
+        "level": 3,
+        "line": 35,
+        "text": "5. Offer to save"
+      },
+      {
+        "level": 3,
+        "line": 39,
+        "text": "Full workflow"
+      }
+    ],
+    "parser_warnings": [],
+    "path": "raw/refs/wiki-query.md",
+    "source_type_guess": "ref"
+  },
+  {
+    "h1_title": "Process Review Queue",
+    "headings": [
+      {
+        "level": 1,
+        "line": 5,
+        "text": "Process Review Queue"
+      },
+      {
+        "level": 2,
+        "line": 9,
+        "text": "Procedure"
+      }
+    ],
+    "parser_warnings": [],
+    "path": "raw/refs/wiki-review.md",
+    "source_type_guess": "ref"
+  },
+  {
+    "h1_title": "Save Answer as Synthesis Page",
+    "headings": [
+      {
+        "level": 1,
+        "line": 5,
+        "text": "Save Answer as Synthesis Page"
+      },
+      {
+        "level": 2,
+        "line": 11,
+        "text": "Procedure"
+      }
+    ],
+    "parser_warnings": [],
+    "path": "raw/refs/wiki-save.md",
+    "source_type_guess": "ref"
+  },
+  {
+    "h1_title": "LLM Wiki",
+    "headings": [
+      {
+        "level": 1,
+        "line": 1,
+        "text": "LLM Wiki"
+      },
+      {
+        "level": 2,
+        "line": 5,
+        "text": "Rules"
+      },
+      {
+        "level": 3,
+        "line": 7,
+        "text": "1. Check the wiki before answering"
+      },
+      {
+        "level": 3,
+        "line": 11,
+        "text": "2. How to consult the wiki"
+      },
+      {
+        "level": 3,
+        "line": 21,
+        "text": "3. When the wiki lacks knowledge"
+      },
+      {
+        "level": 3,
+        "line": 27,
+        "text": "4. After modifying wiki pages"
+      },
+      {
+        "level": 2,
+        "line": 32,
+        "text": "Key Paths"
+      },
+      {
+        "level": 2,
+        "line": 42,
+        "text": "Slash Commands"
+      }
+    ],
+    "parser_warnings": [],
+    "path": "raw/refs/WIKI.md",
+    "source_type_guess": "ref"
+  },
+  {
+    "h1_title": "WIKI_SCHEMA.md — LLM Wiki Schema Reference",
+    "headings": [
+      {
+        "level": 1,
+        "line": 1,
+        "text": "WIKI_SCHEMA.md — LLM Wiki Schema Reference"
+      },
+      {
+        "level": 2,
+        "line": 14,
+        "text": "Page Types Overview"
+      },
+      {
+        "level": 2,
+        "line": 25,
+        "text": "1. Concept Page (`type: concept`)"
+      },
+      {
+        "level": 2,
+        "line": 84,
+        "text": "2. Article Page (`type: article`)"
+      },
+      {
+        "level": 2,
+        "line": 138,
+        "text": "3. Person Page (`type: person`)"
+      },
+      {
+        "level": 2,
+        "line": 195,
+        "text": "4. Synthesis Page (`type: synthesis`)"
+      },
+      {
+        "level": 2,
+        "line": 261,
+        "text": "Cross-Referencing Conventions"
+      },
+      {
+        "level": 3,
+        "line": 263,
+        "text": "Wikilinks"
+      },
+      {
+        "level": 3,
+        "line": 270,
+        "text": "Rules for Wikilinks"
+      },
+      {
+        "level": 3,
+        "line": 277,
+        "text": "Contradiction Callouts"
+      },
+      {
+        "level": 2,
+        "line": 296,
+        "text": "Index Format"
+      },
+      {
+        "level": 2,
+        "line": 325,
+        "text": "Naming Conventions"
+      },
+      {
+        "level": 3,
+        "line": 335,
+        "text": "Slug Derivation"
+      },
+      {
+        "level": 2,
+        "line": 347,
+        "text": "Language Handling"
+      },
+      {
+        "level": 3,
+        "line": 349,
+        "text": "Page Language (`language` field)"
+      },
+      {
+        "level": 3,
+        "line": 355,
+        "text": "Source Language Detection (during ingest)"
+      },
+      {
+        "level": 3,
+        "line": 362,
+        "text": "Bilingual Page Convention"
+      },
+      {
+        "level": 3,
+        "line": 370,
+        "text": "Query Language Matching"
+      },
+      {
+        "level": 2,
+        "line": 381,
+        "text": "Health Check Categories"
+      },
+      {
+        "level": 3,
+        "line": 383,
+        "text": "Structural (Quick Lint — bash-assisted, zero cost)"
+      },
+      {
+        "level": 3,
+        "line": 392,
+        "text": "Semantic (Full Lint — LLM-intensive, token cost)"
+      }
+    ],
+    "parser_warnings": [],
+    "path": "raw/refs/WIKI_SCHEMA.md",
+    "source_type_guess": "ref"
+  }
+]

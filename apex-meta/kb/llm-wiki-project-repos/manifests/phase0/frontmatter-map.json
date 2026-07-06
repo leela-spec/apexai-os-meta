@@ -1,0 +1,345 @@
+[
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "raw/refs/article-guide.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": true,
+    "parse_status": "parsed",
+    "path": "raw/refs/article.md",
+    "raw_field_keys": [
+      "created",
+      "language",
+      "modified",
+      "summary",
+      "tags",
+      "title",
+      "type"
+    ]
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "raw/refs/audit-guide.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "raw/refs/audit_review.py",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": true,
+    "parse_status": "parsed",
+    "path": "raw/refs/bug_report.md",
+    "raw_field_keys": [
+      "about",
+      "assignees",
+      "labels",
+      "name",
+      "title"
+    ]
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "raw/refs/CHANGELOG.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "raw/refs/ci.yml",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "raw/refs/CODE_OF_CONDUCT.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": true,
+    "parse_status": "parsed",
+    "path": "raw/refs/concept.md",
+    "raw_field_keys": [
+      "aliases",
+      "created",
+      "language",
+      "modified",
+      "summary",
+      "tags",
+      "title",
+      "type"
+    ]
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "raw/refs/CONTRIBUTING.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "raw/refs/FAQ.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": true,
+    "parse_status": "parsed",
+    "path": "raw/refs/feature_request.md",
+    "raw_field_keys": [
+      "about",
+      "assignees",
+      "labels",
+      "name",
+      "title"
+    ]
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "raw/refs/FUNDING.yml",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "raw/refs/graph.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "raw/refs/greek-olympians.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "raw/refs/ingest.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "raw/refs/lint.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "raw/refs/lint_wiki.py",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "raw/refs/llm-wiki.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "raw/refs/log-guide.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "raw/refs/manifest.json",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "raw/refs/package-lock.json",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "raw/refs/package.json",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "raw/refs/perseus-medusa.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": true,
+    "parse_status": "parsed",
+    "path": "raw/refs/person.md",
+    "raw_field_keys": [
+      "aliases",
+      "created",
+      "language",
+      "modified",
+      "summary",
+      "tags",
+      "title",
+      "type"
+    ]
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "raw/refs/PULL_REQUEST_TEMPLATE.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "raw/refs/query.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "raw/refs/README.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "raw/refs/review.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "raw/refs/save-synthesis.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "raw/refs/scaffold.py",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "raw/refs/schema-guide.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "raw/refs/SECURITY.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": true,
+    "parse_status": "parsed",
+    "path": "raw/refs/SKILL.md",
+    "raw_field_keys": [
+      "description",
+      "name"
+    ]
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "raw/refs/SUPPORT.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": true,
+    "parse_status": "parsed",
+    "path": "raw/refs/synthesis.md",
+    "raw_field_keys": [
+      "based_on",
+      "confidence",
+      "created",
+      "language",
+      "modified",
+      "query",
+      "summary",
+      "tags",
+      "title",
+      "type"
+    ]
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "raw/refs/tooling-tips.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "raw/refs/tsconfig.json",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": true,
+    "parse_status": "parsed",
+    "path": "raw/refs/wiki-graph.md",
+    "raw_field_keys": [
+      "description"
+    ]
+  },
+  {
+    "has_frontmatter": true,
+    "parse_status": "parsed",
+    "path": "raw/refs/wiki-ingest.md",
+    "raw_field_keys": [
+      "argument-hint",
+      "description"
+    ]
+  },
+  {
+    "has_frontmatter": true,
+    "parse_status": "parsed",
+    "path": "raw/refs/wiki-lint.md",
+    "raw_field_keys": [
+      "argument-hint",
+      "description"
+    ]
+  },
+  {
+    "has_frontmatter": true,
+    "parse_status": "parsed",
+    "path": "raw/refs/wiki-query.md",
+    "raw_field_keys": [
+      "argument-hint",
+      "description"
+    ]
+  },
+  {
+    "has_frontmatter": true,
+    "parse_status": "parsed",
+    "path": "raw/refs/wiki-review.md",
+    "raw_field_keys": [
+      "description"
+    ]
+  },
+  {
+    "has_frontmatter": true,
+    "parse_status": "parsed",
+    "path": "raw/refs/wiki-save.md",
+    "raw_field_keys": [
+      "description"
+    ]
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "raw/refs/WIKI.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "raw/refs/WIKI_SCHEMA.md",
+    "raw_field_keys": []
+  }
+]

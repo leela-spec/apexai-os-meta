@@ -1,0 +1,710 @@
+[
+  {
+    "markdown_links": [],
+    "path": "raw/refs/article-guide.md",
+    "wikilinks": [
+      {
+        "alias": null,
+        "line": 55,
+        "raw": "[[Page#Section]]",
+        "target": "Page#Section"
+      },
+      {
+        "alias": "Foo",
+        "line": 228,
+        "raw": "[[concepts/Foo/index|Foo]]",
+        "target": "concepts/Foo/index"
+      },
+      {
+        "alias": null,
+        "line": 241,
+        "raw": "[[summaries/source-a]]",
+        "target": "summaries/source-a"
+      },
+      {
+        "alias": null,
+        "line": 241,
+        "raw": "[[summaries/source-b]]",
+        "target": "summaries/source-b"
+      }
+    ]
+  },
+  {
+    "markdown_links": [],
+    "path": "raw/refs/article.md",
+    "wikilinks": [
+      {
+        "alias": null,
+        "line": 25,
+        "raw": "[[related-slug]]",
+        "target": "related-slug"
+      }
+    ]
+  },
+  {
+    "markdown_links": [],
+    "path": "raw/refs/audit-guide.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "raw/refs/audit_review.py",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "raw/refs/bug_report.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [
+      {
+        "line": 5,
+        "normalized_target": "https://keepachangelog.com/en/1.0.0/",
+        "target": "https://keepachangelog.com/en/1.0.0/",
+        "target_type": "absolute_url",
+        "text": "Keep a Changelog"
+      },
+      {
+        "line": 6,
+        "normalized_target": "https://semver.org/spec/v2.0.0.html",
+        "target": "https://semver.org/spec/v2.0.0.html",
+        "target_type": "absolute_url",
+        "text": "Semantic Versioning"
+      }
+    ],
+    "path": "raw/refs/CHANGELOG.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "raw/refs/ci.yml",
+    "wikilinks": [
+      {
+        "alias": null,
+        "line": 69,
+        "raw": "[[other-page]]",
+        "target": "other-page"
+      },
+      {
+        "alias": null,
+        "line": 83,
+        "raw": "[[test-concept]]",
+        "target": "test-concept"
+      }
+    ]
+  },
+  {
+    "markdown_links": [
+      {
+        "line": 53,
+        "normalized_target": "https://github.com/6eanut/llm-wiki/discussions",
+        "target": "https://github.com/6eanut/llm-wiki/discussions",
+        "target_type": "absolute_url",
+        "text": "GitHub Discussions"
+      }
+    ],
+    "path": "raw/refs/CODE_OF_CONDUCT.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "raw/refs/concept.md",
+    "wikilinks": [
+      {
+        "alias": null,
+        "line": 26,
+        "raw": "[[related-slug]]",
+        "target": "related-slug"
+      }
+    ]
+  },
+  {
+    "markdown_links": [
+      {
+        "line": 8,
+        "normalized_target": "CODE_OF_CONDUCT.md",
+        "target": "CODE_OF_CONDUCT.md",
+        "target_type": "relative_file",
+        "text": "Contributor Covenant Code of Conduct"
+      },
+      {
+        "line": 14,
+        "normalized_target": "../../issues",
+        "target": "../../issues",
+        "target_type": "relative_file",
+        "text": "existing issues"
+      },
+      {
+        "line": 20,
+        "normalized_target": "../../issues",
+        "target": "../../issues",
+        "target_type": "relative_file",
+        "text": "existing issues"
+      },
+      {
+        "line": 96,
+        "normalized_target": "../../labels/good%20first%20issue",
+        "target": "../../labels/good%20first%20issue",
+        "target_type": "relative_file",
+        "text": "`good first issue`"
+      },
+      {
+        "line": 108,
+        "normalized_target": "../../discussions",
+        "target": "../../discussions",
+        "target_type": "relative_file",
+        "text": "GitHub Discussion"
+      }
+    ],
+    "path": "raw/refs/CONTRIBUTING.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [
+      {
+        "line": 17,
+        "normalized_target": "README.md",
+        "target": "README.md#manual-setup",
+        "target_type": "relative_file",
+        "text": "README.md"
+      },
+      {
+        "line": 135,
+        "normalized_target": "README.md",
+        "target": "README.md#compared-to-rag",
+        "target_type": "relative_file",
+        "text": "README.md"
+      },
+      {
+        "line": 148,
+        "normalized_target": "CONTRIBUTING.md",
+        "target": "CONTRIBUTING.md",
+        "target_type": "relative_file",
+        "text": "CONTRIBUTING.md"
+      }
+    ],
+    "path": "raw/refs/FAQ.md",
+    "wikilinks": [
+      {
+        "alias": null,
+        "line": 127,
+        "raw": "[[wikilinks]]",
+        "target": "wikilinks"
+      },
+      {
+        "alias": null,
+        "line": 138,
+        "raw": "[[wikilinks]]",
+        "target": "wikilinks"
+      }
+    ]
+  },
+  {
+    "markdown_links": [],
+    "path": "raw/refs/feature_request.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "raw/refs/FUNDING.yml",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "raw/refs/graph.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "raw/refs/greek-olympians.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "raw/refs/ingest.md",
+    "wikilinks": [
+      {
+        "alias": null,
+        "line": 201,
+        "raw": "[[wikilinks]]",
+        "target": "wikilinks"
+      },
+      {
+        "alias": null,
+        "line": 213,
+        "raw": "[[wikilinks]]",
+        "target": "wikilinks"
+      },
+      {
+        "alias": null,
+        "line": 222,
+        "raw": "[[source]]",
+        "target": "source"
+      },
+      {
+        "alias": null,
+        "line": 224,
+        "raw": "[[wikilinks]]",
+        "target": "wikilinks"
+      },
+      {
+        "alias": null,
+        "line": 245,
+        "raw": "[[wikilink]]",
+        "target": "wikilink"
+      }
+    ]
+  },
+  {
+    "markdown_links": [],
+    "path": "raw/refs/lint.md",
+    "wikilinks": [
+      {
+        "alias": null,
+        "line": 52,
+        "raw": "[[target]]",
+        "target": "target"
+      },
+      {
+        "alias": null,
+        "line": 53,
+        "raw": "[[alt-name]]",
+        "target": "alt-name"
+      },
+      {
+        "alias": null,
+        "line": 69,
+        "raw": "[[wikilink]]",
+        "target": "wikilink"
+      }
+    ]
+  },
+  {
+    "markdown_links": [],
+    "path": "raw/refs/lint_wiki.py",
+    "wikilinks": [
+      {
+        "alias": null,
+        "line": 12,
+        "raw": "[[Target]]",
+        "target": "Target"
+      },
+      {
+        "alias": null,
+        "line": 139,
+        "raw": "[[{link}]]",
+        "target": "{link}"
+      },
+      {
+        "alias": null,
+        "line": 165,
+        "raw": "[[{p.stem}]]",
+        "target": "{p.stem}"
+      },
+      {
+        "alias": null,
+        "line": 192,
+        "raw": "[[{link}]]",
+        "target": "{link}"
+      }
+    ]
+  },
+  {
+    "markdown_links": [
+      {
+        "line": 21,
+        "normalized_target": "https://tolkiengateway.net/wiki/Main_Page",
+        "target": "https://tolkiengateway.net/wiki/Main_Page",
+        "target_type": "absolute_url",
+        "text": "Tolkien Gateway"
+      },
+      {
+        "line": 53,
+        "normalized_target": "https://github.com/tobi/qmd",
+        "target": "https://github.com/tobi/qmd",
+        "target_type": "absolute_url",
+        "text": "qmd"
+      }
+    ],
+    "path": "raw/refs/llm-wiki.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "raw/refs/log-guide.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "raw/refs/manifest.json",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "raw/refs/package-lock.json",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "raw/refs/package.json",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "raw/refs/perseus-medusa.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "raw/refs/person.md",
+    "wikilinks": [
+      {
+        "alias": null,
+        "line": 23,
+        "raw": "[[related-concept]]",
+        "target": "related-concept"
+      },
+      {
+        "alias": null,
+        "line": 24,
+        "raw": "[[related-person]]",
+        "target": "related-person"
+      }
+    ]
+  },
+  {
+    "markdown_links": [
+      {
+        "line": 33,
+        "normalized_target": "./CONTRIBUTING.md",
+        "target": "./CONTRIBUTING.md",
+        "target_type": "relative_file",
+        "text": "CONTRIBUTING"
+      },
+      {
+        "line": 34,
+        "normalized_target": "https://www.conventionalcommits.org/",
+        "target": "https://www.conventionalcommits.org/",
+        "target_type": "absolute_url",
+        "text": "Conventional Commits"
+      }
+    ],
+    "path": "raw/refs/PULL_REQUEST_TEMPLATE.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "raw/refs/query.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [
+      {
+        "line": 8,
+        "normalized_target": "https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f",
+        "target": "https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f",
+        "target_type": "absolute_url",
+        "text": "Andrej Karpathy's llm-wiki Gist"
+      },
+      {
+        "line": 113,
+        "normalized_target": "https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f",
+        "target": "https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f",
+        "target_type": "absolute_url",
+        "text": "Karpathy's original Gist"
+      },
+      {
+        "line": 114,
+        "normalized_target": "https://github.com/pedronauck/skills/tree/main/skills/karpathy-kb",
+        "target": "https://github.com/pedronauck/skills/tree/main/skills/karpathy-kb",
+        "target_type": "absolute_url",
+        "text": "pedronauck/skills karpathy-kb"
+      },
+      {
+        "line": 115,
+        "normalized_target": "https://github.com/Astro-Han/karpathy-llm-wiki",
+        "target": "https://github.com/Astro-Han/karpathy-llm-wiki",
+        "target_type": "absolute_url",
+        "text": "Astro-Han/karpathy-llm-wiki"
+      },
+      {
+        "line": 116,
+        "normalized_target": "https://github.com/tobi/qmd",
+        "target": "https://github.com/tobi/qmd",
+        "target_type": "absolute_url",
+        "text": "qmd"
+      }
+    ],
+    "path": "raw/refs/README.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "raw/refs/review.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "raw/refs/save-synthesis.md",
+    "wikilinks": [
+      {
+        "alias": null,
+        "line": 67,
+        "raw": "[[wikilinks]]",
+        "target": "wikilinks"
+      }
+    ]
+  },
+  {
+    "markdown_links": [],
+    "path": "raw/refs/scaffold.py",
+    "wikilinks": [
+      {
+        "alias": null,
+        "line": 157,
+        "raw": "[[#Concepts]]",
+        "target": "#Concepts"
+      },
+      {
+        "alias": null,
+        "line": 157,
+        "raw": "[[#Entities]]",
+        "target": "#Entities"
+      },
+      {
+        "alias": null,
+        "line": 157,
+        "raw": "[[#Summaries]]",
+        "target": "#Summaries"
+      },
+      {
+        "alias": null,
+        "line": 157,
+        "raw": "[[#Open Questions]]",
+        "target": "#Open Questions"
+      }
+    ]
+  },
+  {
+    "markdown_links": [],
+    "path": "raw/refs/schema-guide.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [
+      {
+        "line": 7,
+        "normalized_target": "https://github.com/6eanut/llm-wiki/security/advisories/new",
+        "target": "https://github.com/6eanut/llm-wiki/security/advisories/new",
+        "target_type": "absolute_url",
+        "text": "GitHub Security Advisory"
+      }
+    ],
+    "path": "raw/refs/SECURITY.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [
+      {
+        "line": 22,
+        "normalized_target": "https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f",
+        "target": "https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f",
+        "target_type": "absolute_url",
+        "text": "Karpathy's llm-wiki Gist"
+      },
+      {
+        "line": 235,
+        "normalized_target": "https://obsidian.md",
+        "target": "https://obsidian.md",
+        "target_type": "absolute_url",
+        "text": "Obsidian"
+      },
+      {
+        "line": 241,
+        "normalized_target": "https://github.com/tobi/qmd",
+        "target": "https://github.com/tobi/qmd",
+        "target_type": "absolute_url",
+        "text": "qmd"
+      }
+    ],
+    "path": "raw/refs/SKILL.md",
+    "wikilinks": [
+      {
+        "alias": null,
+        "line": 118,
+        "raw": "[[raw/refs/<slug>]]",
+        "target": "raw/refs/<slug>"
+      },
+      {
+        "alias": null,
+        "line": 176,
+        "raw": "[[Page Name]]",
+        "target": "Page Name"
+      },
+      {
+        "alias": null,
+        "line": 190,
+        "raw": "[[Target]]",
+        "target": "Target"
+      },
+      {
+        "alias": null,
+        "line": 193,
+        "raw": "[[X]]",
+        "target": "X"
+      }
+    ]
+  },
+  {
+    "markdown_links": [
+      {
+        "line": 7,
+        "normalized_target": "README.md",
+        "target": "README.md",
+        "target_type": "relative_file",
+        "text": "README"
+      },
+      {
+        "line": 8,
+        "normalized_target": "CONTRIBUTING.md",
+        "target": "CONTRIBUTING.md",
+        "target_type": "relative_file",
+        "text": "CONTRIBUTING"
+      },
+      {
+        "line": 9,
+        "normalized_target": "FAQ.md",
+        "target": "FAQ.md",
+        "target_type": "relative_file",
+        "text": "FAQ"
+      },
+      {
+        "line": 10,
+        "normalized_target": "llm-wiki/WIKI_SCHEMA.md",
+        "target": "llm-wiki/WIKI_SCHEMA.md",
+        "target_type": "relative_file",
+        "text": "WIKI_SCHEMA"
+      },
+      {
+        "line": 14,
+        "normalized_target": "../../discussions",
+        "target": "../../discussions",
+        "target_type": "relative_file",
+        "text": "GitHub Discussions"
+      },
+      {
+        "line": 15,
+        "normalized_target": "../../issues",
+        "target": "../../issues",
+        "target_type": "relative_file",
+        "text": "GitHub Issues"
+      },
+      {
+        "line": 53,
+        "normalized_target": "../../discussions",
+        "target": "../../discussions",
+        "target_type": "relative_file",
+        "text": "GitHub Discussion"
+      }
+    ],
+    "path": "raw/refs/SUPPORT.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "raw/refs/synthesis.md",
+    "wikilinks": [
+      {
+        "alias": null,
+        "line": 27,
+        "raw": "[[slug]]",
+        "target": "slug"
+      },
+      {
+        "alias": null,
+        "line": 35,
+        "raw": "[[page-a]]",
+        "target": "page-a"
+      },
+      {
+        "alias": null,
+        "line": 36,
+        "raw": "[[page-b]]",
+        "target": "page-b"
+      }
+    ]
+  },
+  {
+    "markdown_links": [
+      {
+        "line": 75,
+        "normalized_target": "https://obsidian.md/clipper",
+        "target": "https://obsidian.md/clipper",
+        "target_type": "absolute_url",
+        "text": "obsidian.md/clipper"
+      },
+      {
+        "line": 83,
+        "normalized_target": "https://github.com/tobi/qmd",
+        "target": "https://github.com/tobi/qmd",
+        "target_type": "absolute_url",
+        "text": "qmd"
+      }
+    ],
+    "path": "raw/refs/tooling-tips.md",
+    "wikilinks": [
+      {
+        "alias": null,
+        "line": 124,
+        "raw": "[[my-analysis.png]]",
+        "target": "my-analysis.png"
+      }
+    ]
+  },
+  {
+    "markdown_links": [],
+    "path": "raw/refs/tsconfig.json",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "raw/refs/wiki-graph.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "raw/refs/wiki-ingest.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "raw/refs/wiki-lint.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "raw/refs/wiki-query.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "raw/refs/wiki-review.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "raw/refs/wiki-save.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "raw/refs/WIKI.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "raw/refs/WIKI_SCHEMA.md",
+    "wikilinks": []
+  }
+]

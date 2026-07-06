@@ -1,0 +1,317 @@
+{"keyword": "wiki/index", "line": 49, "path": "raw/refs/article-guide.md", "query_group": "apex_kb", "snippet": "4. Update `wiki/index.md` to show the hierarchy with indented bullets under the folder-split entry."}
+{"keyword": "wiki/index", "line": 185, "path": "raw/refs/article-guide.md", "query_group": "apex_kb", "snippet": "concept --> index[wiki/index.md]"}
+{"keyword": "wiki/index", "line": 227, "path": "raw/refs/article-guide.md", "query_group": "apex_kb", "snippet": "3. **Link concepts that exist** — check `wiki/index.md` before creating a new link target."}
+{"keyword": "contradiction", "line": 231, "path": "raw/refs/article-guide.md", "query_group": "ingest", "snippet": "## Handling contradictions between sources"}
+{"keyword": "claude", "line": 237, "path": "raw/refs/article-guide.md", "query_group": "skill_design", "snippet": "3. Add to the article's \"Open questions\" section **and** the wiki's `CLAUDE.md` research questions."}
+{"keyword": "contradiction", "line": 238, "path": "raw/refs/article-guide.md", "query_group": "ingest", "snippet": "4. Do NOT silently pick one — contradictions are valuable signal."}
+{"keyword": "contradiction", "line": 243, "path": "raw/refs/article-guide.md", "query_group": "ingest", "snippet": "If a human later files an `audit` comment resolving the contradiction, update the article and move the audit to `audit/resolved/` with a resolution note."}
+{"keyword": "claude", "line": 13, "path": "raw/refs/audit-guide.md", "query_group": "skill_design", "snippet": "├── 20260409-143022-claude-code-size.md    ← open feedback"}
+{"keyword": "claude", "line": 30, "path": "raw/refs/audit-guide.md", "query_group": "skill_design", "snippet": "target: tech/Claude_Code.md"}
+{"keyword": "skill", "line": 97, "path": "raw/refs/audit-guide.md", "query_group": "skill_design", "snippet": "See `SKILL.md` → \"The five operations\" → `audit` for the canonical version. In short:"}
+{"keyword": "skill.md", "line": 97, "path": "raw/refs/audit-guide.md", "query_group": "skill_design", "snippet": "See `SKILL.md` → \"The five operations\" → `audit` for the canonical version. In short:"}
+{"keyword": "contradiction", "line": 108, "path": "raw/refs/audit-guide.md", "query_group": "ingest", "snippet": "3. If an audit is deferred (e.g., unresolvable contradiction), leave the file in `audit/` and add the question to `CLAUDE.md` \"Open research questions\" with a reference to the audit id."}
+{"keyword": "claude", "line": 108, "path": "raw/refs/audit-guide.md", "query_group": "skill_design", "snippet": "3. If an audit is deferred (e.g., unresolvable contradiction), leave the file in `audit/` and add the question to `CLAUDE.md` \"Open research questions\" with a reference to the audit id."}
+{"keyword": "claude", "line": 117, "path": "raw/refs/audit-guide.md", "query_group": "skill_design", "snippet": "Updated: tech/Claude_Code.md lines 47–48."}
+{"keyword": "claude", "line": 127, "path": "raw/refs/audit-guide.md", "query_group": "skill_design", "snippet": "For `rejected` audits: explain **why** — most often \"out of scope per CLAUDE.md\" or \"contradicts more authoritative source X\". Rejected audits still move to `resolved/` so they're not processed again, but they remain vis"}
+{"keyword": "claude", "line": 30, "path": "raw/refs/bug_report.md", "query_group": "skill_design", "snippet": "- **Claude Code version**: [e.g. 2.1.118]"}
+{"keyword": "skill", "line": 12, "path": "raw/refs/CHANGELOG.md", "query_group": "skill_design", "snippet": "- Initial release of LLM Wiki skill for Claude Code"}
+{"keyword": "claude", "line": 12, "path": "raw/refs/CHANGELOG.md", "query_group": "skill_design", "snippet": "- Initial release of LLM Wiki skill for Claude Code"}
+{"keyword": "query", "line": 14, "path": "raw/refs/CHANGELOG.md", "query_group": "retrieval", "snippet": "- Index-first knowledge retrieval (`/wiki-query`) for O(1) lookup"}
+{"keyword": "contradiction", "line": 18, "path": "raw/refs/CHANGELOG.md", "query_group": "ingest", "snippet": "- Review queue processing (`/wiki-review`) for contradiction/quality management"}
+{"keyword": "skill", "line": 3, "path": "raw/refs/CONTRIBUTING.md", "query_group": "skill_design", "snippet": "Thanks for your interest in contributing! LLM Wiki is a Claude Code skill that builds persistent,"}
+{"keyword": "claude", "line": 3, "path": "raw/refs/CONTRIBUTING.md", "query_group": "skill_design", "snippet": "Thanks for your interest in contributing! LLM Wiki is a Claude Code skill that builds persistent,"}
+{"keyword": "claude", "line": 16, "path": "raw/refs/CONTRIBUTING.md", "query_group": "skill_design", "snippet": "3. Include: steps to reproduce, expected vs actual behavior, environment (OS, Claude Code version)"}
+{"keyword": "skill", "line": 44, "path": "raw/refs/CONTRIBUTING.md", "query_group": "skill_design", "snippet": "# Install the skill"}
+{"keyword": "skill", "line": 47, "path": "raw/refs/CONTRIBUTING.md", "query_group": "skill_design", "snippet": "~/.claude/skills/llm-wiki/scripts/setup-project.sh /tmp/test-wiki"}
+{"keyword": "claude", "line": 47, "path": "raw/refs/CONTRIBUTING.md", "query_group": "skill_design", "snippet": "~/.claude/skills/llm-wiki/scripts/setup-project.sh /tmp/test-wiki"}
+{"keyword": "skill", "line": 49, "path": "raw/refs/CONTRIBUTING.md", "query_group": "skill_design", "snippet": "~/.claude/skills/llm-wiki/scripts/validate-frontmatter.sh /tmp/test-wiki"}
+{"keyword": "claude", "line": 49, "path": "raw/refs/CONTRIBUTING.md", "query_group": "skill_design", "snippet": "~/.claude/skills/llm-wiki/scripts/validate-frontmatter.sh /tmp/test-wiki"}
+{"keyword": "skill", "line": 50, "path": "raw/refs/CONTRIBUTING.md", "query_group": "skill_design", "snippet": "~/.claude/skills/llm-wiki/scripts/find-broken-links.sh /tmp/test-wiki"}
+{"keyword": "claude", "line": 50, "path": "raw/refs/CONTRIBUTING.md", "query_group": "skill_design", "snippet": "~/.claude/skills/llm-wiki/scripts/find-broken-links.sh /tmp/test-wiki"}
+{"keyword": "skill", "line": 54, "path": "raw/refs/CONTRIBUTING.md", "query_group": "skill_design", "snippet": "6. **Update relevant docs**: workflows, SKILL.md, README if behavior changes"}
+{"keyword": "skill.md", "line": 54, "path": "raw/refs/CONTRIBUTING.md", "query_group": "skill_design", "snippet": "6. **Update relevant docs**: workflows, SKILL.md, README if behavior changes"}
+{"keyword": "skill", "line": 64, "path": "raw/refs/CONTRIBUTING.md", "query_group": "skill_design", "snippet": "The skill files are plain text markdown and bash scripts — no build step, no language runtime needed."}
+{"keyword": "skill", "line": 70, "path": "raw/refs/CONTRIBUTING.md", "query_group": "skill_design", "snippet": "├── SKILL.md              # Skill manifest (read by Claude Code)"}
+{"keyword": "skill.md", "line": 70, "path": "raw/refs/CONTRIBUTING.md", "query_group": "skill_design", "snippet": "├── SKILL.md              # Skill manifest (read by Claude Code)"}
+{"keyword": "claude", "line": 70, "path": "raw/refs/CONTRIBUTING.md", "query_group": "skill_design", "snippet": "├── SKILL.md              # Skill manifest (read by Claude Code)"}
+{"keyword": "claude", "line": 72, "path": "raw/refs/CONTRIBUTING.md", "query_group": "skill_design", "snippet": "├── WIKI.md               # CLAUDE.md template for projects"}
+{"keyword": "claude", "line": 85, "path": "raw/refs/CONTRIBUTING.md", "query_group": "skill_design", "snippet": "- **LLM is the runtime**: All content work (extraction, synthesis, cross-referencing) is done by Claude."}
+{"keyword": "phase 1", "line": 91, "path": "raw/refs/CONTRIBUTING.md", "query_group": "ingest", "snippet": "- **Two-phase ingest**: Phase 1 (analysis / what to extract) is always separated from Phase 2"}
+{"keyword": "phase 2", "line": 91, "path": "raw/refs/CONTRIBUTING.md", "query_group": "ingest", "snippet": "- **Two-phase ingest**: Phase 1 (analysis / what to extract) is always separated from Phase 2"}
+{"keyword": "skill", "line": 25, "path": "raw/refs/FAQ.md", "query_group": "skill_design", "snippet": "This removes the global skill installation and all slash commands. Your project wiki directories are preserved."}
+{"keyword": "claude", "line": 46, "path": "raw/refs/FAQ.md", "query_group": "skill_design", "snippet": "2. Run `/wiki-ingest .raw/your-file.md` in Claude Code"}
+{"keyword": "query", "line": 49, "path": "raw/refs/FAQ.md", "query_group": "retrieval", "snippet": "### Do I need to manually run `/wiki-query`?"}
+{"keyword": "query", "line": 51, "path": "raw/refs/FAQ.md", "query_group": "retrieval", "snippet": "No. Once the skill is installed and CLAUDE.md is set up, Claude automatically checks the wiki before answering factual questions. You only need `/wiki-query` for explicit wiki-only searches."}
+{"keyword": "skill", "line": 51, "path": "raw/refs/FAQ.md", "query_group": "skill_design", "snippet": "No. Once the skill is installed and CLAUDE.md is set up, Claude automatically checks the wiki before answering factual questions. You only need `/wiki-query` for explicit wiki-only searches."}
+{"keyword": "claude", "line": 51, "path": "raw/refs/FAQ.md", "query_group": "skill_design", "snippet": "No. Once the skill is installed and CLAUDE.md is set up, Claude automatically checks the wiki before answering factual questions. You only need `/wiki-query` for explicit wiki-only searches."}
+{"keyword": "contradiction", "line": 63, "path": "raw/refs/FAQ.md", "query_group": "ingest", "snippet": "The ingest workflow automatically detects contradictions and adds callout blocks. You can also use the review queue (`/wiki-review`) to manually reconcile conflicts."}
+{"keyword": "query", "line": 75, "path": "raw/refs/FAQ.md", "query_group": "retrieval", "snippet": "- Query settings (max pages to read, language matching)"}
+{"keyword": "claude", "line": 80, "path": "raw/refs/FAQ.md", "query_group": "skill_design", "snippet": "Set the `LLM_WIKI_ROOT` environment variable before starting Claude Code:"}
+{"keyword": "skill", "line": 88, "path": "raw/refs/FAQ.md", "query_group": "skill_design", "snippet": "Yes. Each project has its own `wiki/` directory with its own `.llm-wiki/` configuration. The skill is installed globally but reads project-local wiki data."}
+{"keyword": "skill", "line": 99, "path": "raw/refs/FAQ.md", "query_group": "skill_design", "snippet": "~/.claude/skills/llm-wiki/scripts/setup-project.sh ./wiki"}
+{"keyword": "claude", "line": 99, "path": "raw/refs/FAQ.md", "query_group": "skill_design", "snippet": "~/.claude/skills/llm-wiki/scripts/setup-project.sh ./wiki"}
+{"keyword": "skill", "line": 102, "path": "raw/refs/FAQ.md", "query_group": "skill_design", "snippet": "### Skill commands not working"}
+{"keyword": "skill", "line": 104, "path": "raw/refs/FAQ.md", "query_group": "skill_design", "snippet": "Reinstall the skill:"}
+{"keyword": "query", "line": 137, "path": "raw/refs/FAQ.md", "query_group": "retrieval", "snippet": "- Knowledge is persisted as structured wiki pages, not re-derived per query"}
+{"keyword": "contradiction", "line": 139, "path": "raw/refs/FAQ.md", "query_group": "ingest", "snippet": "- Contradictions are explicitly detected and flagged"}
+{"keyword": "claude", "line": 144, "path": "raw/refs/FAQ.md", "query_group": "skill_design", "snippet": "Bash is used only for deterministic operations (hashing, file listing, grep). The LLM (Claude) is the runtime for all content work. This means zero external runtime dependencies."}
+{"keyword": "skill", "line": 5, "path": "raw/refs/graph.md", "query_group": "skill_design", "snippet": "**Invoked by**: `/wiki-graph` → SKILL.md routes here"}
+{"keyword": "skill.md", "line": 5, "path": "raw/refs/graph.md", "query_group": "skill_design", "snippet": "**Invoked by**: `/wiki-graph` → SKILL.md routes here"}
+{"keyword": "skill", "line": 33, "path": "raw/refs/greek-olympians.md", "query_group": "skill_design", "snippet": "Artemis is Apollo's twin sister, goddess of the hunt, wilderness, wild animals, childbirth, and the moon. She is a skilled archer who roams forests with a band of nymphs. Artemis fiercely guards her virginity and punishe"}
+{"keyword": "skill", "line": 45, "path": "raw/refs/greek-olympians.md", "query_group": "skill_design", "snippet": "Hephaestus is the god of fire, blacksmiths, craftsmen, and volcanoes. He was born lame — some myths say Hera threw him from Olympus in disgust, while others say Zeus threw him down after he sided with Hera in an argument"}
+{"keyword": "skill", "line": 5, "path": "raw/refs/ingest.md", "query_group": "skill_design", "snippet": "**Invoked by**: `/wiki-ingest <file|URL>` → SKILL.md routes here"}
+{"keyword": "skill.md", "line": 5, "path": "raw/refs/ingest.md", "query_group": "skill_design", "snippet": "**Invoked by**: `/wiki-ingest <file|URL>` → SKILL.md routes here"}
+{"keyword": "phase 1", "line": 15, "path": "raw/refs/ingest.md", "query_group": "ingest", "snippet": "- The contradiction detection step (Phase 1, step 7) is the single most valuable quality lever — it catches inconsistent claims across pages before they become entrenched."}
+{"keyword": "contradiction", "line": 15, "path": "raw/refs/ingest.md", "query_group": "ingest", "snippet": "- The contradiction detection step (Phase 1, step 7) is the single most valuable quality lever — it catches inconsistent claims across pages before they become entrenched."}
+{"keyword": "skill", "line": 24, "path": "raw/refs/ingest.md", "query_group": "skill_design", "snippet": "Determine the wiki root (from `SKILL.md` resolution rules):"}
+{"keyword": "skill.md", "line": 24, "path": "raw/refs/ingest.md", "query_group": "skill_design", "snippet": "Determine the wiki root (from `SKILL.md` resolution rules):"}
+{"keyword": "phase 1", "line": 57, "path": "raw/refs/ingest.md", "query_group": "ingest", "snippet": "## Phase 1 — Analysis"}
+{"keyword": "skill", "line": 63, "path": "raw/refs/ingest.md", "query_group": "skill_design", "snippet": "1. **`WIKI_SCHEMA.md`** (skill-level) — page types, field definitions, conventions"}
+{"keyword": "skill", "line": 64, "path": "raw/refs/ingest.md", "query_group": "skill_design", "snippet": "- Path: `~/.claude/skills/llm-wiki/WIKI_SCHEMA.md`"}
+{"keyword": "claude", "line": 64, "path": "raw/refs/ingest.md", "query_group": "skill_design", "snippet": "- Path: `~/.claude/skills/llm-wiki/WIKI_SCHEMA.md`"}
+{"keyword": "wiki/index", "line": 66, "path": "raw/refs/ingest.md", "query_group": "apex_kb", "snippet": "2. **`.llm-wiki/index.md`** (project-level) — all existing pages, tags, summaries"}
+{"keyword": "wiki/index", "line": 67, "path": "raw/refs/ingest.md", "query_group": "apex_kb", "snippet": "- Path: `$WIKI_ROOT/.llm-wiki/index.md`"}
+{"keyword": "contradiction", "line": 118, "path": "raw/refs/ingest.md", "query_group": "ingest", "snippet": "### Step 7: Detect Contradictions"}
+{"keyword": "contradiction", "line": 124, "path": "raw/refs/ingest.md", "query_group": "ingest", "snippet": "- Flag any direct contradictions (two pages saying different things about the same fact)"}
+{"keyword": "contradiction", "line": 125, "path": "raw/refs/ingest.md", "query_group": "ingest", "snippet": "- Flag any indirect contradictions (different interpretations or frameworks)"}
+{"keyword": "phase 1", "line": 127, "path": "raw/refs/ingest.md", "query_group": "ingest", "snippet": "### Step 8: Write Phase 1 Analysis"}
+{"keyword": "contradiction", "line": 156, "path": "raw/refs/ingest.md", "query_group": "ingest", "snippet": "## Contradictions Detected / 检测到的矛盾"}
+{"keyword": "contradiction", "line": 174, "path": "raw/refs/ingest.md", "query_group": "ingest", "snippet": "- Any contradictions found"}
+{"keyword": "phase 2", "line": 177, "path": "raw/refs/ingest.md", "query_group": "ingest", "snippet": "**If `require_review: true` in config:** Wait for user approval before proceeding to Phase 2."}
+{"keyword": "phase 2", "line": 183, "path": "raw/refs/ingest.md", "query_group": "ingest", "snippet": "## Phase 2 — Generation"}
+{"keyword": "skill", "line": 189, "path": "raw/refs/ingest.md", "query_group": "skill_design", "snippet": "1. Read `templates/article.md` from the skill directory"}
+{"keyword": "phase 1", "line": 205, "path": "raw/refs/ingest.md", "query_group": "ingest", "snippet": "For each concept identified in Phase 1:"}
+{"keyword": "phase 1", "line": 228, "path": "raw/refs/ingest.md", "query_group": "ingest", "snippet": "For each person identified in Phase 1:"}
+{"keyword": "contradiction", "line": 249, "path": "raw/refs/ingest.md", "query_group": "ingest", "snippet": "### Step 14: Add Contradiction Callouts"}
+{"keyword": "phase 1", "line": 251, "path": "raw/refs/ingest.md", "query_group": "ingest", "snippet": "For each contradiction found in Phase 1:"}
+{"keyword": "contradiction", "line": 251, "path": "raw/refs/ingest.md", "query_group": "ingest", "snippet": "For each contradiction found in Phase 1:"}
+{"keyword": "contradiction", "line": 253, "path": "raw/refs/ingest.md", "query_group": "ingest", "snippet": "1. Add a contradiction callout block on both conflicting pages"}
+{"keyword": "contradiction", "line": 257, "path": "raw/refs/ingest.md", "query_group": "ingest", "snippet": "> ⚠️ **Contradiction / 矛盾**: [description]"}
+{"keyword": "contradiction", "line": 268, "path": "raw/refs/ingest.md", "query_group": "ingest", "snippet": "{\"type\": \"contradiction\", \"pages\": [\"page-a\", \"page-b\"], \"description\": \"...\", \"detected\": \"YYYY-MM-DD\"}"}
+{"keyword": "wiki/index", "line": 285, "path": "raw/refs/ingest.md", "query_group": "apex_kb", "snippet": "6. Write to `$WIKI_ROOT/.llm-wiki/index.md`"}
+{"keyword": "contradiction", "line": 327, "path": "raw/refs/ingest.md", "query_group": "ingest", "snippet": "## Contradictions / 矛盾"}
+{"keyword": "contradiction", "line": 328, "path": "raw/refs/ingest.md", "query_group": "ingest", "snippet": "{count} new contradictions flagged — run /wiki-lint to review"}
+{"keyword": "query", "line": 332, "path": "raw/refs/ingest.md", "query_group": "retrieval", "snippet": "- Use /wiki-query to test the new knowledge"}
+{"keyword": "contradiction", "line": 365, "path": "raw/refs/ingest.md", "query_group": "ingest", "snippet": "- If a new claim directly contradicts an existing claim, add contradiction callouts to BOTH pages."}
+{"keyword": "phase 1", "line": 372, "path": "raw/refs/ingest.md", "query_group": "ingest", "snippet": "- If interrupted, the sentinel file won't exist yet, so the source will be re-processed — Phase 1 analysis will be cached in `inbox/`"}
+{"keyword": "skill", "line": 5, "path": "raw/refs/lint.md", "query_group": "skill_design", "snippet": "**Invoked by**: `/wiki-lint [--quick|--full]` → SKILL.md routes here"}
+{"keyword": "skill.md", "line": 5, "path": "raw/refs/lint.md", "query_group": "skill_design", "snippet": "**Invoked by**: `/wiki-lint [--quick|--full]` → SKILL.md routes here"}
+{"keyword": "contradiction", "line": 15, "path": "raw/refs/lint.md", "query_group": "ingest", "snippet": "- Separating \"quick\" (bash) from \"full\" (LLM) lint is a cost optimization: structural checks like frontmatter validation and broken links run in milliseconds via grep/sed, while semantic checks like contradiction detecti"}
+{"keyword": "query", "line": 42, "path": "raw/refs/lint.md", "query_group": "retrieval", "snippet": "**Severity:** ❌ ERROR — invalid frontmatter breaks index generation and query"}
+{"keyword": "query", "line": 89, "path": "raw/refs/lint.md", "query_group": "retrieval", "snippet": "**Severity:** ⚠️ WARNING — stale index means `/wiki-query` may miss recent pages"}
+{"keyword": "contradiction", "line": 159, "path": "raw/refs/lint.md", "query_group": "ingest", "snippet": "### Step F2: Contradiction Sweep"}
+{"keyword": "contradiction", "line": 164, "path": "raw/refs/lint.md", "query_group": "ingest", "snippet": "- Same topic, different values → contradiction"}
+{"keyword": "contradiction", "line": 165, "path": "raw/refs/lint.md", "query_group": "ingest", "snippet": "- Same topic, different interpretations → potential contradiction"}
+{"keyword": "contradiction", "line": 167, "path": "raw/refs/lint.md", "query_group": "ingest", "snippet": "4. For each contradiction found:"}
+{"keyword": "contradiction", "line": 168, "path": "raw/refs/lint.md", "query_group": "ingest", "snippet": "- Verify it's a real contradiction (not different contexts)"}
+{"keyword": "contradiction", "line": 172, "path": "raw/refs/lint.md", "query_group": "ingest", "snippet": "**Focus on high-impact contradictions:**"}
+{"keyword": "contradiction", "line": 239, "path": "raw/refs/lint.md", "query_group": "ingest", "snippet": "\"type\": \"quality|contradiction|staleness|gap\","}
+{"keyword": "contradiction", "line": 259, "path": "raw/refs/lint.md", "query_group": "ingest", "snippet": "## Contradictions / 矛盾 ({N})"}
+{"keyword": "contradiction", "line": 316, "path": "raw/refs/lint.md", "query_group": "ingest", "snippet": "### Contradiction That Can't Be Resolved"}
+{"keyword": "contradiction", "line": 318, "path": "raw/refs/lint.md", "query_group": "ingest", "snippet": "- Mark both pages with the contradiction callout"}
+{"keyword": "wiki/index", "line": 14, "path": "raw/refs/lint_wiki.py", "query_group": "apex_kb", "snippet": "3. Missing index entries — wiki pages not listed in wiki/index.md"}
+{"keyword": "wiki/index", "line": 176, "path": "raw/refs/lint_wiki.py", "query_group": "apex_kb", "snippet": "print(\"⚠️  wiki/index.md not found — skipping index check\")"}
+{"keyword": "claude", "line": 5, "path": "raw/refs/llm-wiki.md", "query_group": "skill_design", "snippet": "This is an idea file, it is designed to be copy pasted to your own LLM Agent (e.g. OpenAI Codex, Claude Code, OpenCode / Pi, or etc.). Its goal is to communicate the high level idea, but your agent will build out the spe"}
+{"keyword": "query", "line": 9, "path": "raw/refs/llm-wiki.md", "query_group": "retrieval", "snippet": "Most people's experience with LLMs and documents looks like RAG: you upload a collection of files, the LLM retrieves relevant chunks at query time, and generates an answer. This works, but the LLM is rediscovering knowle"}
+{"keyword": "query", "line": 11, "path": "raw/refs/llm-wiki.md", "query_group": "retrieval", "snippet": "The idea here is different. Instead of just retrieving from raw documents at query time, the LLM **incrementally builds and maintains a persistent wiki** — a structured, interlinked collection of markdown files that sits"}
+{"keyword": "contradiction", "line": 13, "path": "raw/refs/llm-wiki.md", "query_group": "ingest", "snippet": "This is the key difference: **the wiki is a persistent, compounding artifact.** The cross-references are already there. The contradictions have already been flagged. The synthesis already reflects everything you've read."}
+{"keyword": "claude", "line": 33, "path": "raw/refs/llm-wiki.md", "query_group": "skill_design", "snippet": "**The schema** — a document (e.g. CLAUDE.md for Claude Code or AGENTS.md for Codex) that tells the LLM how the wiki is structured, what the conventions are, and what workflows to follow when ingesting sources, answering "}
+{"keyword": "query", "line": 39, "path": "raw/refs/llm-wiki.md", "query_group": "retrieval", "snippet": "**Query.** You ask questions against the wiki. The LLM searches for relevant pages, reads them, and synthesizes an answer with citations. Answers can take different forms depending on the question — a markdown page, a co"}
+{"keyword": "contradiction", "line": 41, "path": "raw/refs/llm-wiki.md", "query_group": "ingest", "snippet": "**Lint.** Periodically, ask the LLM to health-check the wiki. Look for: contradictions between pages, stale claims that newer sources have superseded, orphan pages with no inbound links, important concepts mentioned but "}
+{"keyword": "query", "line": 47, "path": "raw/refs/llm-wiki.md", "query_group": "retrieval", "snippet": "**index.md** is content-oriented. It's a catalog of everything in the wiki — each page listed with a link, a one-line summary, and optionally metadata like date or source count. Organized by category (entities, concepts,"}
+{"keyword": "bm25", "line": 53, "path": "raw/refs/llm-wiki.md", "query_group": "retrieval", "snippet": "At some point you may want to build small tools that help the LLM operate on the wiki more efficiently. A search engine over the wiki pages is the most obvious one — at small scale the index file is enough, but as the wi"}
+{"keyword": "claude", "line": 26, "path": "raw/refs/log-guide.md", "query_group": "skill_design", "snippet": "- Target: tech/Claude_Code.md"}
+{"keyword": "claude", "line": 31, "path": "raw/refs/log-guide.md", "query_group": "skill_design", "snippet": "- [[Claude Code Architecture]] → [[tech/claude-code/Claude_Code_Architecture]] in 2 files"}
+{"keyword": "claude", "line": 44, "path": "raw/refs/log-guide.md", "query_group": "skill_design", "snippet": "| `compile`  | Structural edits, splits, merges, index rebuild | `## [10:00] compile \\| split Claude Code page into 7 sub-pages` |"}
+{"keyword": "query", "line": 46, "path": "raw/refs/log-guide.md", "query_group": "retrieval", "snippet": "| `query`    | Question answered, output file written | `## [11:20] query \\| rag-vs-llm-wiki-tradeoffs` |"}
+{"keyword": "query", "line": 47, "path": "raw/refs/log-guide.md", "query_group": "retrieval", "snippet": "| `promote`  | Output promoted to `wiki/concepts/` | `## [11:35] promote \\| RAG vs LLM Wiki (from query)` |"}
+{"keyword": "claude", "line": 50, "path": "raw/refs/log-guide.md", "query_group": "skill_design", "snippet": "| `split`    | A single page split into a folder | `## [10:00] split \\| Claude Code → claude-code/` |"}
+{"keyword": "claude", "line": 66, "path": "raw/refs/log-guide.md", "query_group": "skill_design", "snippet": "grep -rl \"Claude_Code\" log/"}
+{"keyword": "skill", "line": 71, "path": "raw/refs/log-guide.md", "query_group": "skill_design", "snippet": "If you have an existing `log.md` (from the v1 skill), convert it:"}
+{"keyword": "skill", "line": 78, "path": "raw/refs/log-guide.md", "query_group": "skill_design", "snippet": "This is a one-time manual operation; the skill doesn't automate it."}
+{"keyword": "claude", "line": 83, "path": "raw/refs/log-guide.md", "query_group": "skill_design", "snippet": "- **Long rationale**: put design decisions and rationale in `CLAUDE.md` \"Notes for the LLM\", not in the log."}
+{"keyword": "contradiction", "line": 29, "path": "raw/refs/perseus-medusa.md", "query_group": "ingest", "snippet": "### The Contradiction"}
+{"keyword": "contradiction", "line": 31, "path": "raw/refs/perseus-medusa.md", "query_group": "ingest", "snippet": "These two versions present fundamentally different moral frameworks. Version A depicts Medusa as an innocent victim of divine injustice — assaulted, then punished by a goddess who should have protected her. Version B por"}
+{"keyword": "query", "line": 1, "path": "raw/refs/query.md", "query_group": "retrieval", "snippet": "# /wiki-query — Index-First Knowledge Retrieval"}
+{"keyword": "query", "line": 5, "path": "raw/refs/query.md", "query_group": "retrieval", "snippet": "**Invoked by**: `/wiki-query <question>` → SKILL.md routes here"}
+{"keyword": "skill", "line": 5, "path": "raw/refs/query.md", "query_group": "skill_design", "snippet": "**Invoked by**: `/wiki-query <question>` → SKILL.md routes here"}
+{"keyword": "skill.md", "line": 5, "path": "raw/refs/query.md", "query_group": "skill_design", "snippet": "**Invoked by**: `/wiki-query <question>` → SKILL.md routes here"}
+{"keyword": "query", "line": 13, "path": "raw/refs/query.md", "query_group": "retrieval", "snippet": "- The \"index-first\" pattern is the key optimization: instead of reading every potentially-relevant page (O(n) reads), you read a single index file (O(1)) to narrow down to ~3-5 pages. This keeps query latency low even as"}
+{"keyword": "wiki/index", "line": 28, "path": "raw/refs/query.md", "query_group": "apex_kb", "snippet": "Read `$WIKI_ROOT/.llm-wiki/index.md`."}
+{"keyword": "query", "line": 48, "path": "raw/refs/query.md", "query_group": "retrieval", "snippet": "### Step 3: Detect Query Language"}
+{"keyword": "query", "line": 50, "path": "raw/refs/query.md", "query_group": "retrieval", "snippet": "Analyze the query text:"}
+{"keyword": "query", "line": 52, "path": "raw/refs/query.md", "query_group": "retrieval", "snippet": "- `>70% CJK` → query language is `zh`"}
+{"keyword": "query", "line": 53, "path": "raw/refs/query.md", "query_group": "retrieval", "snippet": "- `>70% Latin` → query language is `en`"}
+{"keyword": "query", "line": 58, "path": "raw/refs/query.md", "query_group": "retrieval", "snippet": "From the index, find pages relevant to the query:"}
+{"keyword": "query", "line": 60, "path": "raw/refs/query.md", "query_group": "retrieval", "snippet": "1. **Tag matching**: Match query terms against tag names"}
+{"keyword": "query", "line": 66, "path": "raw/refs/query.md", "query_group": "retrieval", "snippet": "- Prefer pages whose `language` matches the query language"}
+{"keyword": "query", "line": 81, "path": "raw/refs/query.md", "query_group": "retrieval", "snippet": "- Extract all factual claims relevant to the query"}
+{"keyword": "query", "line": 87, "path": "raw/refs/query.md", "query_group": "retrieval", "snippet": "- Key claims relevant to the query"}
+{"keyword": "contradiction", "line": 90, "path": "raw/refs/query.md", "query_group": "ingest", "snippet": "- Any contradiction callouts present"}
+{"keyword": "contradiction", "line": 101, "path": "raw/refs/query.md", "query_group": "ingest", "snippet": "- Presence of contradictions"}
+{"keyword": "contradiction", "line": 103, "path": "raw/refs/query.md", "query_group": "ingest", "snippet": "4. **Contradictions**: If pages disagree, present both sides explicitly"}
+{"keyword": "contradiction", "line": 122, "path": "raw/refs/query.md", "query_group": "ingest", "snippet": "## Contradictions / 矛盾"}
+{"keyword": "query", "line": 174, "path": "raw/refs/query.md", "query_group": "retrieval", "snippet": "### Query Is Ambiguous"}
+{"keyword": "contradiction", "line": 179, "path": "raw/refs/query.md", "query_group": "ingest", "snippet": "### Contradictions Found"}
+{"keyword": "contradiction", "line": 181, "path": "raw/refs/query.md", "query_group": "ingest", "snippet": "- Always present contradictions transparently"}
+{"keyword": "contradiction", "line": 182, "path": "raw/refs/query.md", "query_group": "ingest", "snippet": "- If you can resolve the contradiction from the evidence (one page is more recent / better sourced), say so"}
+{"keyword": "skill", "line": 3, "path": "raw/refs/README.md", "query_group": "skill_design", "snippet": "**An OpenClaw / Codex Agent Skill for building Karpathy-style LLM knowledge bases.**"}
+{"keyword": "skill", "line": 5, "path": "raw/refs/README.md", "query_group": "skill_design", "snippet": "> Experimental skill — will iterate over time."}
+{"keyword": "query", "line": 12, "path": "raw/refs/README.md", "query_group": "retrieval", "snippet": "Instead of RAG (re-retrieving raw docs on every query), this pattern has the LLM **compile** raw sources into a persistent, cross-linked Markdown wiki. Every `compile`, `ingest`, `query`, `lint`, and `audit` pass makes t"}
+{"keyword": "skill", "line": 17, "path": "raw/refs/README.md", "query_group": "skill_design", "snippet": "The skill comes with two companion tools in this repo:"}
+{"keyword": "skill", "line": 27, "path": "raw/refs/README.md", "query_group": "skill_design", "snippet": "# Copy the skill into your agent's skills directory"}
+{"keyword": "skill", "line": 28, "path": "raw/refs/README.md", "query_group": "skill_design", "snippet": "cp -r llm-wiki/ ~/.claude/skills/llm-wiki/"}
+{"keyword": "claude", "line": 28, "path": "raw/refs/README.md", "query_group": "skill_design", "snippet": "cp -r llm-wiki/ ~/.claude/skills/llm-wiki/"}
+{"keyword": "skill", "line": 30, "path": "raw/refs/README.md", "query_group": "skill_design", "snippet": "cp -r llm-wiki/ ~/.codex/skills/llm-wiki/"}
+{"keyword": "skill", "line": 33, "path": "raw/refs/README.md", "query_group": "skill_design", "snippet": "Then reference it in your agent config, or simply paste `llm-wiki/SKILL.md` into your agent context."}
+{"keyword": "skill.md", "line": 33, "path": "raw/refs/README.md", "query_group": "skill_design", "snippet": "Then reference it in your agent config, or simply paste `llm-wiki/SKILL.md` into your agent context."}
+{"keyword": "skill", "line": 59, "path": "raw/refs/README.md", "query_group": "skill_design", "snippet": "llm-wiki-skill/"}
+{"keyword": "skill", "line": 60, "path": "raw/refs/README.md", "query_group": "skill_design", "snippet": "├── llm-wiki/                    ← The skill"}
+{"keyword": "skill", "line": 61, "path": "raw/refs/README.md", "query_group": "skill_design", "snippet": "│   ├── SKILL.md                 ← Main skill file (read by agent)"}
+{"keyword": "skill.md", "line": 61, "path": "raw/refs/README.md", "query_group": "skill_design", "snippet": "│   ├── SKILL.md                 ← Main skill file (read by agent)"}
+{"keyword": "claude", "line": 63, "path": "raw/refs/README.md", "query_group": "skill_design", "snippet": "│   │   ├── schema-guide.md      ← CLAUDE.md schema template"}
+{"keyword": "skill", "line": 114, "path": "raw/refs/README.md", "query_group": "skill_design", "snippet": "- [pedronauck/skills karpathy-kb](https://github.com/pedronauck/skills/tree/main/skills/karpathy-kb) — full Obsidian vault integration"}
+{"keyword": "contradiction", "line": 3, "path": "raw/refs/review.md", "query_group": "ingest", "snippet": "**Purpose**: Walk through `review.json` items needing human attention — contradictions, quality issues, stale pages, knowledge gaps."}
+{"keyword": "skill", "line": 5, "path": "raw/refs/review.md", "query_group": "skill_design", "snippet": "**Invoked by**: `/wiki-review` → SKILL.md routes here"}
+{"keyword": "skill.md", "line": 5, "path": "raw/refs/review.md", "query_group": "skill_design", "snippet": "**Invoked by**: `/wiki-review` → SKILL.md routes here"}
+{"keyword": "contradiction", "line": 16, "path": "raw/refs/review.md", "query_group": "ingest", "snippet": "{\"pending\": [{\"id\": \"...\", \"type\": \"contradiction|quality|staleness|gap|naming\", \"pages\": [\"slug\"], \"description\": \"...\", \"severity\": \"error|warning|info\", \"detected\": \"YYYY-MM-DD\", \"context\": \"...\"}]}"}
+{"keyword": "contradiction", "line": 38, "path": "raw/refs/review.md", "query_group": "ingest", "snippet": "- **Resolve contradiction**: fix less-reliable page, or add context note; remove callout"}
+{"keyword": "contradiction", "line": 60, "path": "raw/refs/review.md", "query_group": "ingest", "snippet": "- **One page clearly wrong**: Correct it with dated note; remove contradiction callout"}
+{"keyword": "query", "line": 3, "path": "raw/refs/save-synthesis.md", "query_group": "retrieval", "snippet": "**Purpose**: Persist a query answer (from `/wiki-query` or any Q&A exchange) as a permanent synthesis page in the wiki. This is how the wiki compounds — good answers become part of the knowledge base."}
+{"keyword": "query", "line": 5, "path": "raw/refs/save-synthesis.md", "query_group": "retrieval", "snippet": "**Invoked by**: `/wiki-save` (after a query) or user saying \"save\" → SKILL.md routes here"}
+{"keyword": "skill", "line": 5, "path": "raw/refs/save-synthesis.md", "query_group": "skill_design", "snippet": "**Invoked by**: `/wiki-save` (after a query) or user saying \"save\" → SKILL.md routes here"}
+{"keyword": "skill.md", "line": 5, "path": "raw/refs/save-synthesis.md", "query_group": "skill_design", "snippet": "**Invoked by**: `/wiki-save` (after a query) or user saying \"save\" → SKILL.md routes here"}
+{"keyword": "query", "line": 17, "path": "raw/refs/save-synthesis.md", "query_group": "retrieval", "snippet": "| Question | The original query text | Yes |"}
+{"keyword": "query", "line": 19, "path": "raw/refs/save-synthesis.md", "query_group": "retrieval", "snippet": "| Evidence | Pages consulted during query | Recommended |"}
+{"keyword": "contradiction", "line": 20, "path": "raw/refs/save-synthesis.md", "query_group": "ingest", "snippet": "| Contradictions | Any contradictions found | If applicable |"}
+{"keyword": "query", "line": 24, "path": "raw/refs/save-synthesis.md", "query_group": "retrieval", "snippet": "If there was no recent query: ask \"What question and answer should I save?\""}
+{"keyword": "skill", "line": 38, "path": "raw/refs/save-synthesis.md", "query_group": "skill_design", "snippet": "Read `templates/synthesis.md` from the skill directory."}
+{"keyword": "query", "line": 57, "path": "raw/refs/save-synthesis.md", "query_group": "retrieval", "snippet": "query: \"{Exact original question}\""}
+{"keyword": "contradiction", "line": 63, "path": "raw/refs/save-synthesis.md", "query_group": "ingest", "snippet": "Body: Question / 问题 → Answer / 回答 → Evidence / 证据 (table) → Contradictions / 矛盾 → Gaps / 知识缺口 → Confidence / 置信度"}
+{"keyword": "query", "line": 96, "path": "raw/refs/save-synthesis.md", "query_group": "retrieval", "snippet": "- **No recent query**: Ask user to describe Q&A pair"}
+{"keyword": "claude", "line": 13, "path": "raw/refs/scaffold.py", "query_group": "skill_design", "snippet": "├── CLAUDE.md          (schema template)"}
+{"keyword": "claude", "line": 67, "path": "raw/refs/scaffold.py", "query_group": "skill_design", "snippet": "# CLAUDE.md"}
+{"keyword": "claude", "line": 68, "path": "raw/refs/scaffold.py", "query_group": "skill_design", "snippet": "claude_md = f\"\"\"# {title} Knowledge Base"}
+{"keyword": "wiki/index", "line": 70, "path": "raw/refs/scaffold.py", "query_group": "apex_kb", "snippet": "> Schema document — read at the start of every session together with `wiki/index.md`."}
+{"keyword": "query", "line": 83, "path": "raw/refs/scaffold.py", "query_group": "retrieval", "snippet": "This wiki follows the llm-wiki skill's five operations: `compile`, `ingest`, `query`, `lint`, `audit`."}
+{"keyword": "skill", "line": 83, "path": "raw/refs/scaffold.py", "query_group": "skill_design", "snippet": "This wiki follows the llm-wiki skill's five operations: `compile`, `ingest`, `query`, `lint`, `audit`."}
+{"keyword": "contradiction", "line": 135, "path": "raw/refs/scaffold.py", "query_group": "ingest", "snippet": "- Handling contradictions: state both, cite each, add to Open Research Questions."}
+{"keyword": "claude", "line": 137, "path": "raw/refs/scaffold.py", "query_group": "skill_design", "snippet": "_write(root, \"CLAUDE.md\", claude_md)"}
+{"keyword": "claude", "line": 138, "path": "raw/refs/scaffold.py", "query_group": "skill_design", "snippet": "print(\"✓ Created CLAUDE.md\")"}
+{"keyword": "claude", "line": 145, "path": "raw/refs/scaffold.py", "query_group": "skill_design", "snippet": "- Created CLAUDE.md schema template"}
+{"keyword": "wiki/index", "line": 146, "path": "raw/refs/scaffold.py", "query_group": "apex_kb", "snippet": "- Created wiki/index.md category skeleton"}
+{"keyword": "wiki/index", "line": 151, "path": "raw/refs/scaffold.py", "query_group": "apex_kb", "snippet": "# wiki/index.md"}
+{"keyword": "wiki/index", "line": 175, "path": "raw/refs/scaffold.py", "query_group": "apex_kb", "snippet": "_write(root, \"wiki/index.md\", index_md)"}
+{"keyword": "wiki/index", "line": 176, "path": "raw/refs/scaffold.py", "query_group": "apex_kb", "snippet": "print(\"✓ Created wiki/index.md\")"}
+{"keyword": "claude", "line": 182, "path": "raw/refs/scaffold.py", "query_group": "skill_design", "snippet": "1. Fill in CLAUDE.md — define scope and naming conventions"}
+{"keyword": "claude", "line": 1, "path": "raw/refs/schema-guide.md", "query_group": "skill_design", "snippet": "# CLAUDE.md Schema Guide"}
+{"keyword": "wiki/index", "line": 3, "path": "raw/refs/schema-guide.md", "query_group": "apex_kb", "snippet": "`CLAUDE.md` (also read as `AGENTS.md` by some tools) is the **schema document** for a wiki topic. It tells the LLM agent the scope, conventions, current state, and open questions — every session should start by reading i"}
+{"keyword": "claude", "line": 3, "path": "raw/refs/schema-guide.md", "query_group": "skill_design", "snippet": "`CLAUDE.md` (also read as `AGENTS.md` by some tools) is the **schema document** for a wiki topic. It tells the LLM agent the scope, conventions, current state, and open questions — every session should start by reading i"}
+{"keyword": "wiki/index", "line": 16, "path": "raw/refs/schema-guide.md", "query_group": "apex_kb", "snippet": "> Schema document — read at the start of every session together with wiki/index.md."}
+{"keyword": "query", "line": 28, "path": "raw/refs/schema-guide.md", "query_group": "retrieval", "snippet": "This wiki follows the llm-wiki skill's five operations: `compile`, `ingest`, `query`, `lint`, `audit`."}
+{"keyword": "skill", "line": 28, "path": "raw/refs/schema-guide.md", "query_group": "skill_design", "snippet": "This wiki follows the llm-wiki skill's five operations: `compile`, `ingest`, `query`, `lint`, `audit`."}
+{"keyword": "query", "line": 80, "path": "raw/refs/schema-guide.md", "query_group": "retrieval", "snippet": "- <Questions that should drive future ingest/query work>"}
+{"keyword": "contradiction", "line": 82, "path": "raw/refs/schema-guide.md", "query_group": "ingest", "snippet": "- <Contradictions or gaps noticed between articles>"}
+{"keyword": "contradiction", "line": 97, "path": "raw/refs/schema-guide.md", "query_group": "ingest", "snippet": "<Any special instructions: tone, depth level, language (zh/en), how to handle contradictions, etc.>"}
+{"keyword": "skill", "line": 33, "path": "raw/refs/SECURITY.md", "query_group": "skill_design", "snippet": "- Issues in user-generated wiki content (the skill processes user-provided files)"}
+{"keyword": "skill", "line": 21, "path": "raw/refs/SKILL.md", "query_group": "skill_design", "snippet": "> **Experimental skill — iterating.**"}
+{"keyword": "query", "line": 26, "path": "raw/refs/SKILL.md", "query_group": "retrieval", "snippet": "Instead of RAG (re-retrieving raw docs on every query), the LLM **compiles** raw sources into a persistent, cross-linked wiki. Every ingest, query, lint, and audit pass makes the wiki richer. Knowledge compounds — and th"}
+{"keyword": "wiki/index", "line": 31, "path": "raw/refs/SKILL.md", "query_group": "apex_kb", "snippet": "The wiki is a living artifact with **five operations** — `compile`, `ingest`, `query`, `lint`, `audit`. Every session starts by reading `CLAUDE.md` and `wiki/index.md`."}
+{"keyword": "query", "line": 31, "path": "raw/refs/SKILL.md", "query_group": "retrieval", "snippet": "The wiki is a living artifact with **five operations** — `compile`, `ingest`, `query`, `lint`, `audit`. Every session starts by reading `CLAUDE.md` and `wiki/index.md`."}
+{"keyword": "claude", "line": 31, "path": "raw/refs/SKILL.md", "query_group": "skill_design", "snippet": "The wiki is a living artifact with **five operations** — `compile`, `ingest`, `query`, `lint`, `audit`. Every session starts by reading `CLAUDE.md` and `wiki/index.md`."}
+{"keyword": "claude", "line": 37, "path": "raw/refs/SKILL.md", "query_group": "skill_design", "snippet": "├── CLAUDE.md          ← Schema: scope, conventions, current articles, gaps"}
+{"keyword": "claude", "line": 42, "path": "raw/refs/SKILL.md", "query_group": "skill_design", "snippet": "│   ├── 20260409-143022-claude-code-size.md"}
+{"keyword": "query", "line": 55, "path": "raw/refs/SKILL.md", "query_group": "retrieval", "snippet": "└── queries/       ← Query answers (promote durable ones to wiki/)"}
+{"keyword": "claude", "line": 58, "path": "raw/refs/SKILL.md", "query_group": "skill_design", "snippet": "`CLAUDE.md` is the **schema file** — the single most important configuration. It tells the LLM the wiki's scope, naming conventions, current article list, open questions, and research gaps. Read `references/schema-guide."}
+{"keyword": "wiki/index", "line": 71, "path": "raw/refs/SKILL.md", "query_group": "apex_kb", "snippet": "- In `wiki/index.md`, show the hierarchy via indented bullets"}
+{"keyword": "claude", "line": 75, "path": "raw/refs/SKILL.md", "query_group": "skill_design", "snippet": "wiki/tech/claude-code/"}
+{"keyword": "claude", "line": 77, "path": "raw/refs/SKILL.md", "query_group": "skill_design", "snippet": "├── Claude_Code_Architecture.md"}
+{"keyword": "claude", "line": 78, "path": "raw/refs/SKILL.md", "query_group": "skill_design", "snippet": "├── Claude_Code_Agent_Framework.md"}
+{"keyword": "claude", "line": 79, "path": "raw/refs/SKILL.md", "query_group": "skill_design", "snippet": "├── Claude_Code_Bridge_System.md"}
+{"keyword": "query", "line": 80, "path": "raw/refs/SKILL.md", "query_group": "retrieval", "snippet": "├── Claude_Code_Query_Engine.md"}
+{"keyword": "claude", "line": 80, "path": "raw/refs/SKILL.md", "query_group": "skill_design", "snippet": "├── Claude_Code_Query_Engine.md"}
+{"keyword": "skill", "line": 81, "path": "raw/refs/SKILL.md", "query_group": "skill_design", "snippet": "├── Claude_Code_Skills_Plugins.md"}
+{"keyword": "claude", "line": 81, "path": "raw/refs/SKILL.md", "query_group": "skill_design", "snippet": "├── Claude_Code_Skills_Plugins.md"}
+{"keyword": "claude", "line": 82, "path": "raw/refs/SKILL.md", "query_group": "skill_design", "snippet": "├── Claude_Code_State_Management.md"}
+{"keyword": "claude", "line": 83, "path": "raw/refs/SKILL.md", "query_group": "skill_design", "snippet": "└── Claude_Code_Tool_System.md"}
+{"keyword": "wiki/index", "line": 145, "path": "raw/refs/SKILL.md", "query_group": "apex_kb", "snippet": "1. Read `CLAUDE.md`, `wiki/index.md`, and every file in the target subtree."}
+{"keyword": "claude", "line": 145, "path": "raw/refs/SKILL.md", "query_group": "skill_design", "snippet": "1. Read `CLAUDE.md`, `wiki/index.md`, and every file in the target subtree."}
+{"keyword": "wiki/index", "line": 148, "path": "raw/refs/SKILL.md", "query_group": "apex_kb", "snippet": "4. Regenerate `wiki/index.md` so every page is listed exactly once."}
+{"keyword": "wiki/index", "line": 165, "path": "raw/refs/SKILL.md", "query_group": "apex_kb", "snippet": "6. Update `wiki/index.md` so the new pages appear under the right category."}
+{"keyword": "query", "line": 168, "path": "raw/refs/SKILL.md", "query_group": "retrieval", "snippet": "### 3. `query`"}
+{"keyword": "wiki/index", "line": 173, "path": "raw/refs/SKILL.md", "query_group": "apex_kb", "snippet": "1. Read `wiki/index.md`. Scan for relevant pages by category."}
+{"keyword": "query", "line": 179, "path": "raw/refs/SKILL.md", "query_group": "retrieval", "snippet": "7. Log: `## [HH:MM] query | <question-slug>` (and a separate `## [HH:MM] promote | ...` line if promoted)."}
+{"keyword": "wiki/index", "line": 192, "path": "raw/refs/SKILL.md", "query_group": "apex_kb", "snippet": "- **Missing index entries** — pages not listed in `wiki/index.md`"}
+{"keyword": "claude", "line": 211, "path": "raw/refs/SKILL.md", "query_group": "skill_design", "snippet": "- **Defer**: add to `CLAUDE.md` \"Open research questions\" and leave the audit in place with a comment."}
+{"keyword": "claude", "line": 218, "path": "raw/refs/SKILL.md", "query_group": "skill_design", "snippet": "Updated: tech/Claude_Code.md lines 47–48."}
+{"keyword": "wiki/index", "line": 251, "path": "raw/refs/SKILL.md", "query_group": "apex_kb", "snippet": "Creates the full tree (including `log/<today>.md`, `audit/`, `audit/resolved/`), a blank `CLAUDE.md` based on the new template, and a blank `wiki/index.md` with the recommended category layout."}
+{"keyword": "claude", "line": 251, "path": "raw/refs/SKILL.md", "query_group": "skill_design", "snippet": "Creates the full tree (including `log/<today>.md`, `audit/`, `audit/resolved/`), a blank `CLAUDE.md` based on the new template, and a blank `wiki/index.md` with the recommended category layout."}
+{"keyword": "claude", "line": 254, "path": "raw/refs/SKILL.md", "query_group": "skill_design", "snippet": "1. Fill in `CLAUDE.md` — define scope, naming conventions, initial research questions."}
+{"keyword": "wiki/index", "line": 260, "path": "raw/refs/SKILL.md", "query_group": "apex_kb", "snippet": "## `wiki/index.md` format"}
+{"keyword": "claude", "line": 295, "path": "raw/refs/SKILL.md", "query_group": "skill_design", "snippet": "- `index.md` + `CLAUDE.md` together are what the AI reads at session start."}
+{"keyword": "query", "line": 303, "path": "raw/refs/SKILL.md", "query_group": "retrieval", "snippet": "- Ops: `compile`, `ingest`, `query`, `lint`, `audit`, `promote`, `split`, `scaffold`"}
+{"keyword": "claude", "line": 316, "path": "raw/refs/SKILL.md", "query_group": "skill_design", "snippet": "- `references/schema-guide.md` — What to put in `CLAUDE.md`"}
+{"keyword": "skill", "line": 26, "path": "raw/refs/SUPPORT.md", "query_group": "skill_design", "snippet": "~/.claude/skills/llm-wiki/scripts/setup-project.sh ./wiki"}
+{"keyword": "claude", "line": 26, "path": "raw/refs/SUPPORT.md", "query_group": "skill_design", "snippet": "~/.claude/skills/llm-wiki/scripts/setup-project.sh ./wiki"}
+{"keyword": "skill", "line": 29, "path": "raw/refs/SUPPORT.md", "query_group": "skill_design", "snippet": "#### Skill commands not working"}
+{"keyword": "skill", "line": 31, "path": "raw/refs/SUPPORT.md", "query_group": "skill_design", "snippet": "Make sure the skill is installed globally:"}
+{"keyword": "claude", "line": 58, "path": "raw/refs/SUPPORT.md", "query_group": "skill_design", "snippet": "- Your OS and Claude Code version"}
+{"keyword": "query", "line": 9, "path": "raw/refs/synthesis.md", "query_group": "retrieval", "snippet": "query: \"\""}
+{"keyword": "contradiction", "line": 29, "path": "raw/refs/synthesis.md", "query_group": "ingest", "snippet": "## Contradictions / 矛盾"}
+{"keyword": "contradiction", "line": 30, "path": "raw/refs/synthesis.md", "query_group": "ingest", "snippet": "<!-- If any contradictions were found, use this format:"}
+{"keyword": "contradiction", "line": 31, "path": "raw/refs/synthesis.md", "query_group": "ingest", "snippet": "> ⚠️ **Contradiction / 矛盾**: [description]"}
+{"keyword": "query", "line": 17, "path": "raw/refs/tooling-tips.md", "query_group": "retrieval", "snippet": "- **Dataview** (optional) — query frontmatter fields; build dynamic tables of articles by tag, date, source count."}
+{"keyword": "wiki/index", "line": 66, "path": "raw/refs/tooling-tips.md", "query_group": "apex_kb", "snippet": "- Left sidebar: navigation tree built from `wiki/index.md`."}
+{"keyword": "wiki/index", "line": 83, "path": "raw/refs/tooling-tips.md", "query_group": "apex_kb", "snippet": "[qmd](https://github.com/tobi/qmd) is a local semantic search engine for Markdown files with BM25 + vector hybrid search. Useful when the wiki grows beyond ~100 pages and `wiki/index.md` scanning becomes slow."}
+{"keyword": "bm25", "line": 83, "path": "raw/refs/tooling-tips.md", "query_group": "retrieval", "snippet": "[qmd](https://github.com/tobi/qmd) is a local semantic search engine for Markdown files with BM25 + vector hybrid search. Useful when the wiki grows beyond ~100 pages and `wiki/index.md` scanning becomes slow."}
+{"keyword": "query", "line": 89, "path": "raw/refs/tooling-tips.md", "query_group": "retrieval", "snippet": "qmd query \"what are the tradeoffs of RAG vs wiki\" --collection my-wiki"}
+{"keyword": "skill", "line": 11, "path": "raw/refs/wiki-graph.md", "query_group": "skill_design", "snippet": "Use `Skill(\"llm-wiki\")` → `workflows/graph.md` for the full procedure:"}
+{"keyword": "skill", "line": 14, "path": "raw/refs/wiki-ingest.md", "query_group": "skill_design", "snippet": "- Skill directory: `~/.claude/skills/llm-wiki/`"}
+{"keyword": "claude", "line": 14, "path": "raw/refs/wiki-ingest.md", "query_group": "skill_design", "snippet": "- Skill directory: `~/.claude/skills/llm-wiki/`"}
+{"keyword": "wiki/index", "line": 20, "path": "raw/refs/wiki-ingest.md", "query_group": "apex_kb", "snippet": "Check `./wiki/.llm-wiki/index.md`. If not found, offer to run init-wiki.sh."}
+{"keyword": "skill", "line": 24, "path": "raw/refs/wiki-ingest.md", "query_group": "skill_design", "snippet": "- If file path: run `~/.claude/skills/llm-wiki/scripts/hash-files.sh <path>`"}
+{"keyword": "claude", "line": 24, "path": "raw/refs/wiki-ingest.md", "query_group": "skill_design", "snippet": "- If file path: run `~/.claude/skills/llm-wiki/scripts/hash-files.sh <path>`"}
+{"keyword": "skill", "line": 33, "path": "raw/refs/wiki-ingest.md", "query_group": "skill_design", "snippet": "Use `Skill(\"llm-wiki\")` to load the complete ingestion procedure from `workflows/ingest.md`, which covers:"}
+{"keyword": "contradiction", "line": 37, "path": "raw/refs/wiki-ingest.md", "query_group": "ingest", "snippet": "- Contradiction detection"}
+{"keyword": "skill", "line": 12, "path": "raw/refs/wiki-lint.md", "query_group": "skill_design", "snippet": "Run these scripts from `~/.claude/skills/llm-wiki/scripts/`:"}
+{"keyword": "claude", "line": 12, "path": "raw/refs/wiki-lint.md", "query_group": "skill_design", "snippet": "Run these scripts from `~/.claude/skills/llm-wiki/scripts/`:"}
+{"keyword": "skill", "line": 21, "path": "raw/refs/wiki-lint.md", "query_group": "skill_design", "snippet": "Use `Skill(\"llm-wiki\")` → `workflows/lint.md` for:"}
+{"keyword": "contradiction", "line": 23, "path": "raw/refs/wiki-lint.md", "query_group": "ingest", "snippet": "- Contradiction detection between pages"}
+{"keyword": "query", "line": 6, "path": "raw/refs/wiki-query.md", "query_group": "retrieval", "snippet": "# Query the Wiki"}
+{"keyword": "query", "line": 8, "path": "raw/refs/wiki-query.md", "query_group": "retrieval", "snippet": "The user asked: `/wiki-query $ARGUMENTS`"}
+{"keyword": "wiki/index", "line": 18, "path": "raw/refs/wiki-query.md", "query_group": "apex_kb", "snippet": "Read `./wiki/.llm-wiki/index.md` for the full page catalog (tags, titles, summaries, types)."}
+{"keyword": "query", "line": 20, "path": "raw/refs/wiki-query.md", "query_group": "retrieval", "snippet": "### 3. Match query to pages"}
+{"keyword": "contradiction", "line": 31, "path": "raw/refs/wiki-query.md", "query_group": "ingest", "snippet": "- Contradictions (if any)"}
+{"keyword": "query", "line": 41, "path": "raw/refs/wiki-query.md", "query_group": "retrieval", "snippet": "Use `Skill(\"llm-wiki\")` → `workflows/query.md` for the complete procedure."}
+{"keyword": "skill", "line": 41, "path": "raw/refs/wiki-query.md", "query_group": "skill_design", "snippet": "Use `Skill(\"llm-wiki\")` → `workflows/query.md` for the complete procedure."}
+{"keyword": "contradiction", "line": 2, "path": "raw/refs/wiki-review.md", "query_group": "ingest", "snippet": "description: Walk through the review queue — contradictions, stale pages, knowledge gaps"}
+{"keyword": "skill", "line": 11, "path": "raw/refs/wiki-review.md", "query_group": "skill_design", "snippet": "Use `Skill(\"llm-wiki\")` → `workflows/review.md` for the full procedure:"}
+{"keyword": "skill", "line": 13, "path": "raw/refs/wiki-save.md", "query_group": "skill_design", "snippet": "Use `Skill(\"llm-wiki\")` → `workflows/save-synthesis.md` for the full procedure:"}
+{"keyword": "query", "line": 15, "path": "raw/refs/wiki-save.md", "query_group": "retrieval", "snippet": "1. Identify the query and answer from conversation context"}
+{"keyword": "query", "line": 3, "path": "raw/refs/WIKI.md", "query_group": "retrieval", "snippet": "This project uses an **LLM Wiki** at `./wiki/` — a persistent, interlinked knowledge base. Knowledge is compiled once and kept current, not re-derived on every query."}
+{"keyword": "wiki/index", "line": 14, "path": "raw/refs/WIKI.md", "query_group": "apex_kb", "snippet": "1. Read ./wiki/.llm-wiki/index.md  (full page catalog with tags, titles, summaries)"}
+{"keyword": "query", "line": 15, "path": "raw/refs/WIKI.md", "query_group": "retrieval", "snippet": "2. Match the query against tags, titles, and summaries"}
+{"keyword": "contradiction", "line": 18, "path": "raw/refs/WIKI.md", "query_group": "ingest", "snippet": "5. Note confidence, contradictions, and knowledge gaps"}
+{"keyword": "skill", "line": 24, "path": "raw/refs/WIKI.md", "query_group": "skill_design", "snippet": "- Suggest: \"Drop source files in ./.raw/ and I'll ingest them with the wiki skill\""}
+{"keyword": "wiki/index", "line": 29, "path": "raw/refs/WIKI.md", "query_group": "apex_kb", "snippet": "- Regenerate the index (read all pages, extract frontmatter, write to `.llm-wiki/index.md`)"}
+{"keyword": "skill", "line": 30, "path": "raw/refs/WIKI.md", "query_group": "skill_design", "snippet": "- Run `~/.claude/skills/llm-wiki/scripts/` checks if needed"}
+{"keyword": "claude", "line": 30, "path": "raw/refs/WIKI.md", "query_group": "skill_design", "snippet": "- Run `~/.claude/skills/llm-wiki/scripts/` checks if needed"}
+{"keyword": "wiki/index", "line": 37, "path": "raw/refs/WIKI.md", "query_group": "apex_kb", "snippet": "| `./wiki/.llm-wiki/index.md` | Auto-generated page catalog |"}
+{"keyword": "skill", "line": 44, "path": "raw/refs/WIKI.md", "query_group": "skill_design", "snippet": "Use the Skill tool: `Skill(\"llm-wiki\")` for advanced operations:"}
+{"keyword": "query", "line": 48, "path": "raw/refs/WIKI.md", "query_group": "retrieval", "snippet": "- `/wiki-query <question>` — Formal query"}
+{"keyword": "contradiction", "line": 10, "path": "raw/refs/WIKI_SCHEMA.md", "query_group": "ingest", "snippet": "- How to format cross-references, contradictions, and evidence"}
+{"keyword": "query", "line": 21, "path": "raw/refs/WIKI_SCHEMA.md", "query_group": "retrieval", "snippet": "| `synthesis` | `synth-{YYYY-MM-DD}-{slug}.md` | Saved query answer — a synthesized page from existing knowledge |"}
+{"keyword": "query", "line": 197, "path": "raw/refs/WIKI_SCHEMA.md", "query_group": "retrieval", "snippet": "**Purpose**: A saved query answer — synthesized from existing wiki pages. These are the \"compounding\" part of the wiki: explorations that become permanent knowledge."}
+{"keyword": "query", "line": 214, "path": "raw/refs/WIKI_SCHEMA.md", "query_group": "retrieval", "snippet": "query: \"\"                           # The original question asked"}
+{"keyword": "contradiction", "line": 223, "path": "raw/refs/WIKI_SCHEMA.md", "query_group": "ingest", "snippet": "contradictions_found: []            # Slugs of pages with contradictory info"}
+{"keyword": "contradiction", "line": 244, "path": "raw/refs/WIKI_SCHEMA.md", "query_group": "ingest", "snippet": "## Contradictions / 矛盾"}
+{"keyword": "contradiction", "line": 245, "path": "raw/refs/WIKI_SCHEMA.md", "query_group": "ingest", "snippet": "> ⚠️ **Contradiction / 矛盾**: [description]"}
+{"keyword": "contradiction", "line": 277, "path": "raw/refs/WIKI_SCHEMA.md", "query_group": "ingest", "snippet": "### Contradiction Callouts"}
+{"keyword": "contradiction", "line": 279, "path": "raw/refs/WIKI_SCHEMA.md", "query_group": "ingest", "snippet": "When a contradiction is detected between pages, format as:"}
+{"keyword": "contradiction", "line": 282, "path": "raw/refs/WIKI_SCHEMA.md", "query_group": "ingest", "snippet": "> ⚠️ **Contradiction / 矛盾**: [description of what conflicts]"}
+{"keyword": "contradiction", "line": 292, "path": "raw/refs/WIKI_SCHEMA.md", "query_group": "ingest", "snippet": "Place contradiction callouts on **both** conflicting pages."}
+{"keyword": "wiki/index", "line": 298, "path": "raw/refs/WIKI_SCHEMA.md", "query_group": "apex_kb", "snippet": "The index at `.llm-wiki/index.md` is **auto-generated** and follows this format:"}
+{"keyword": "query", "line": 370, "path": "raw/refs/WIKI_SCHEMA.md", "query_group": "retrieval", "snippet": "### Query Language Matching"}
+{"keyword": "query", "line": 372, "path": "raw/refs/WIKI_SCHEMA.md", "query_group": "retrieval", "snippet": "When answering a query:"}
+{"keyword": "query", "line": 374, "path": "raw/refs/WIKI_SCHEMA.md", "query_group": "retrieval", "snippet": "- Detect the query language"}
+{"keyword": "contradiction", "line": 396, "path": "raw/refs/WIKI_SCHEMA.md", "query_group": "ingest", "snippet": "| Contradictions between pages | ❌ Error |"}
