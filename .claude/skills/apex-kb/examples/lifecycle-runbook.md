@@ -28,6 +28,13 @@ Generate or update summary, concept, and entity pages. Include source pointers, 
 
 Run deterministic index rebuild, lint, and retrieval index build. Treat stale indexes as derived-state problems, not source truth problems.
 
+Write-enabled deterministic commands must pass `--allow-write` as a global flag before the subcommand:
+
+```bash
+python apex-meta/scripts/apex_kb.py --kb-root apex-meta/kb/<kb-slug>/ --allow-write index
+python apex-meta/scripts/apex_kb_retrieval.py --kb-root apex-meta/kb/<kb-slug>/ --allow-write build-index
+```
+
 ## 8. Query
 
 Read `wiki/index.md` first, retrieve only the smallest sufficient evidence set, synthesize from compiled pages, and save query outputs when reusable.

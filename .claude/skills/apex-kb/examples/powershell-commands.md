@@ -7,6 +7,9 @@ cd C:\GitDev\apexai-os-meta
 # Choose one KB root. Do not rely on a silent default.
 $KB="apex-meta/kb/<kb-slug>"
 
+# Write-enabled commands use `--allow-write` as a global flag before the subcommand.
+# Do not put `--allow-write` after the subcommand.
+
 # 1. Scaffold preview, then write.
 python apex-meta/scripts/apex_kb.py --kb-root $KB --json scaffold --title "<Topic Title>"
 python apex-meta/scripts/apex_kb.py --kb-root $KB --allow-write --json scaffold --title "<Topic Title>"

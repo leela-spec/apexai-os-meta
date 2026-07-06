@@ -4,8 +4,8 @@
 
 ```yaml
 script_policy:
-  invocation_pattern: python apex-meta/scripts/apex_kb.py --kb-root apex-meta/kb/<kb-slug>/ <subcommand>
-  retrieval_invocation_pattern: python apex-meta/scripts/apex_kb_retrieval.py --kb-root apex-meta/kb/<kb-slug>/ <subcommand>
+  invocation_pattern: python apex-meta/scripts/apex_kb.py --kb-root apex-meta/kb/<kb-slug>/ [global flags] <subcommand>
+  retrieval_invocation_pattern: python apex-meta/scripts/apex_kb_retrieval.py --kb-root apex-meta/kb/<kb-slug>/ [global flags] <subcommand>
   kb_root_required: true
   no_silent_default_kb: true
   network_access: forbidden
@@ -17,6 +17,15 @@ script_policy:
   destructive_canonical_writes: forbidden
   optional_runtime_detection: [git, rg, sqlite3_fts5, markdown-it-py, python-frontmatter, PyYAML]
 ```
+
+`--allow-write` is a global CLI flag. Put it before the subcommand:
+
+```bash
+python apex-meta/scripts/apex_kb.py --kb-root apex-meta/kb/<kb-slug>/ --allow-write index
+python apex-meta/scripts/apex_kb_retrieval.py --kb-root apex-meta/kb/<kb-slug>/ --allow-write build-index
+```
+
+Do not place `--allow-write` after the subcommand; the current CLI rejects that shape.
 
 ## `apex_kb.py` commands
 
