@@ -1,0 +1,37 @@
+diff --git a/.claude/skills/apex-kb/SKILL.md b/.claude/skills/apex-kb/SKILL.md
+index 5b85c1b..f1d3f4b 100644
+--- a/.claude/skills/apex-kb/SKILL.md
++++ b/.claude/skills/apex-kb/SKILL.md
+@@ -5,7 +5,7 @@ description: >
+   run deterministic corpus intelligence, perform two-phase ingest, compile wiki
+   pages, query, retrieve, lint, audit, or maintain a durable Apex knowledge base
+   under apex-meta/kb/<kb-slug>/. Produces source-preserving KB artifacts,
+-  Phase 1 ingest analysis, operator-gated Phase 2 wiki pages, deterministic
++  Phase 1 ingest analysis, operator-gated Phase 2 wiki pages that implement an adaptive page value contract (Adaptive Ranked Source Set, Macro / Meso / Micro synthesis, Key Claims with source pointers, Routes Here, and Uncertainty / Raw Source Triggers), deterministic
+   indexes, local retrieval outputs, query packets, lint reports, and audit flags.
+   Does not plan projects, mutate task/session/sync state, rank next tasks,
+   rebuild task registries, contact external services, or write outside the KB root.
+@@ -94,7 +94,7 @@ Read supporting files only when needed:
+ 4. Run Phase 0 before LLM ingest when corpus navigation is needed. Phase 0 may create only deterministic artifacts under `manifests/phase0/`.
+ 5. In Phase 1, create source-grounded semantic analysis under `ingest-analysis/` and halt. Do not generate wiki pages yet.
+ 6. Proceed to Phase 2 only after the operator provides the exact phrase `approve ingest`. In normal mode this must be a separate operator turn after Phase 1 exists.
+-7. In Phase 2, draft or update `wiki/summaries/`, `wiki/concepts/`, `wiki/entities/`, audit items, and semantic index sections. Every claim needs source pointers, confidence, and claim labels.
++7. In Phase 2, draft or update `wiki/summaries/`, `wiki/concepts/`, and `wiki/entities/` pages and any audit or semantic index sections. Compiled pages **must** implement the Phase 2 page value contract: include an Adaptive Ranked Source Set, Macro / Meso / Micro synthesis, Key Claims with source pointers and labels, Routes Here, and Uncertainty / Raw Source Triggers. Every claim still needs a source pointer, confidence, and claim label.
+ 8. Rebuild deterministic index sections and retrieval indexes after wiki updates. Use `apex_kb_retrieval.py` for `build-index`, `stale`, `query`, `export`, and `clear-index`.
+ 9. Answer queries index-first. Read `wiki/index.md`, retrieve the smallest sufficient page set, synthesize from compiled wiki pages, and save query packets when reuse is useful.
+ 10. Keep lint/audit maintenance read-only unless the operator explicitly asks for a deterministic write inside the KB root.
+@@ -150,7 +150,7 @@ stale_retrieval_index:
+   behavior: report_stale_and_rebuild_before_reliance
+ 
+ contradiction_detected:
+-  behavior: expose_as_contradiction_or_audit_item
++  behavior: expose_as_uncertainty_trigger_or_audit_item
+ 
+ request_mutates_plan_sync_session:
+   behavior: refuse_in_apex_kb_and_handoff_read_only_evidence_packet
+@@ -158,4 +158,4 @@ request_mutates_plan_sync_session:
+ 
+ ## Completion gate
+ 
+-The skill is complete only when the requested mode has produced the correct artifact, source custody is preserved, deterministic/semantic ownership was respected, no outside-KB mutation occurred, confidence and claim labels are not conflated, and unresolved contradictions/open questions remain visible.
++The skill is complete only when the requested mode has produced the correct artifact, source custody is preserved, deterministic/semantic ownership was respected, no outside-KB mutation occurred, confidence and claim labels are not conflated, and unresolved uncertainties/raw source triggers remain visible.

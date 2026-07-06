@@ -1,0 +1,22 @@
+diff --git a/.claude/skills/apex-kb/references/lifecycle-state-machine.md b/.claude/skills/apex-kb/references/lifecycle-state-machine.md
+index 955d367..cd5aea3 100644
+--- a/.claude/skills/apex-kb/references/lifecycle-state-machine.md
++++ b/.claude/skills/apex-kb/references/lifecycle-state-machine.md
+@@ -36,7 +36,7 @@ states:
+     failure: halt
+ 
+   S6_phase2_ready:
+-    goal: compiled wiki pages with source pointers, confidence, claim labels, contradictions, questions
++    goal: compiled wiki pages implementing the Phase 2 page value contract (Adaptive Ranked Source Set, Macro / Meso / Micro synthesis, Key Claims with pointers, Routes Here, Uncertainty / Raw Source Triggers) along with source pointers, confidence, and claim labels
+     llm_outputs:
+       - wiki/summaries/*.md
+       - wiki/concepts/*.md
+@@ -65,7 +65,7 @@ states:
+     success: S10_maintenance_ready
+ 
+   S10_maintenance_ready:
+-    goal: expose health, audit items, contradictions, repair actions
++    goal: expose health, audit items, uncertainties, repair actions
+     python_commands:
+       - apex_kb.py lint
+       - apex_kb.py audit

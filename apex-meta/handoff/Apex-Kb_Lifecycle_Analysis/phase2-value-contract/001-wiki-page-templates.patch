@@ -1,0 +1,218 @@
+diff --git a/.claude/skills/apex-kb/templates/wiki-page-templates.md b/.claude/skills/apex-kb/templates/wiki-page-templates.md
+index fcdc6ce..be2f046 100644
+--- a/.claude/skills/apex-kb/templates/wiki-page-templates.md
++++ b/.claude/skills/apex-kb/templates/wiki-page-templates.md
+@@ -58,6 +58,34 @@ clarifies: []
+ limits: []
+ ```
+ 
++## Adaptive Ranked Source Set
++
++```yaml
++adaptive_ranked_sources:
++  # Provide a ranked list of sources supporting this summary.
++  # Scale the number of sources with KB size, topic breadth, and source diversity.
++  # Each entry should include a rationale for its rank and coverage description.
++  - source_id: "<source-id>"
++    rationale: "<why this source is ranked here relative to others>"
++    coverage: "<brief description of what the source covers>"
++```
++
++## Macro / Meso / Micro
++
++```markdown
++### Macro
++
++<High-level synthesis across all relevant sources.>
++
++### Meso
++
++<Medium-level synthesis capturing key patterns or themes.>
++
++### Micro
++
++<Specific details anchored to source pointers.>
++```
++
+ ## Key Claims
+ 
+ ```yaml
+@@ -70,16 +98,27 @@ key_claims:
+     used_in_pages: []
+ ```
+ 
+-## Contradictions
++## Routes Here
+ 
+ ```yaml
+-contradictions: []
++routes:
++  # Describe how a user or question might arrive at this page and where it may lead next.
++  - question: "<example question that leads here>"
++    leads_to: "<target page path>"
++    rationale: "<why this route exists>"
++  - related_page: "<kb-slug>/concepts/<concept>.md"
++    relation: "<relation description>"
+ ```
+ 
+-## Open Questions
++## Uncertainty / Raw Source Triggers
+ 
+ ```yaml
+-open_questions: []
++uncertainty_triggers:
++  # Consolidate contradictions, open questions, and reasons to revisit the raw source.
++  - id: U001
++    description: "<contradiction, open question, or uncertainty>"
++    source_pointer: "<pointer>"
++    proposed_handling: "<audit_item | planning_task_candidate | revisit_source | leave_as_gap | ask_operator>"
+ ```
+ ```
+ 
+@@ -119,11 +158,53 @@ review_flags: []
+ rules: []
+ ```
+ 
+-## Relationships
++## Adaptive Ranked Source Set
+ 
+ ```yaml
+-related_concepts: []
+-related_entities: []
++adaptive_ranked_sources:
++  # Ranked list of sources supporting this concept.
++  # Scale the number of sources with KB size, topic breadth, and source diversity.
++  - source_id: "<source-id>"
++    rationale: "<why this source is ranked here>"
++    coverage: "<brief description of the source's coverage>"
++```
++
++## Macro / Meso / Micro
++
++```markdown
++### Macro
++
++<High-level synthesis of the concept across all sources.>
++
++### Meso
++
++<Medium-level synthesis capturing patterns or themes.>
++
++### Micro
++
++<Specific details anchored to source pointers.>
++```
++
++## Key Claims
++
++```yaml
++key_claims:
++  - claim_id: C001
++    claim: "<specific claim>"
++    source_pointer: "<pointer>"
++    confidence: "high | medium | low"
++    claim_label: "source_backed_summary"
++```
++
++## Routes Here
++
++```yaml
++routes:
++  - question: "<example question that leads here>"
++    leads_to: "<target page path>"
++    rationale: "<why this route exists>"
++  - related_page: "<kb-slug>/entities/<entity>.md"
++    relation: "<relation description>"
+ ```
+ 
+ ## Evidence
+@@ -135,11 +216,14 @@ evidence:
+     supports: "<claim or section>"
+ ```
+ 
+-## Contradictions and Open Questions
++## Uncertainty / Raw Source Triggers
+ 
+ ```yaml
+-contradictions: []
+-open_questions: []
++uncertainty_triggers:
++  - id: U001
++    description: "<contradiction, open question, or uncertainty>"
++    source_pointer: "<pointer>"
++    proposed_handling: "<audit_item | planning_task_candidate | revisit_source | leave_as_gap | ask_operator>"
+ ```
+ ```
+ 
+@@ -182,10 +266,53 @@ entity:
+ 
+ <Summary grounded in source pointers.>
+ 
+-## Known Relationships
++## Adaptive Ranked Source Set
++
++```yaml
++adaptive_ranked_sources:
++  # Ranked list of sources supporting this entity.
++  # Scale the number of sources with KB size, topic breadth, and source diversity.
++  - source_id: "<source-id>"
++    rationale: "<why this source is ranked here>"
++    coverage: "<brief description of the source's coverage>"
++```
++
++## Macro / Meso / Micro
++
++```markdown
++### Macro
++
++<High-level synthesis of the entity across all sources.>
++
++### Meso
++
++<Medium-level synthesis capturing patterns or themes.>
++
++### Micro
++
++<Specific details anchored to source pointers.>
++```
++
++## Key Claims
+ 
+ ```yaml
+-relationships: []
++key_claims:
++  - claim_id: C001
++    claim: "<specific claim>"
++    source_pointer: "<pointer>"
++    confidence: "high | medium | low"
++    claim_label: "source_backed_summary"
++```
++
++## Routes Here
++
++```yaml
++routes:
++  - question: "<example question that leads here>"
++    leads_to: "<target page path>"
++    rationale: "<why this route exists>"
++  - related_page: "<kb-slug>/summaries/<summary>.md"
++    relation: "<relation description>"
+ ```
+ 
+ ## Evidence
+@@ -194,9 +321,13 @@ relationships: []
+ evidence: []
+ ```
+ 
+-## Open Questions
++## Uncertainty / Raw Source Triggers
+ 
+ ```yaml
+-open_questions: []
++uncertainty_triggers:
++  - id: U001
++    description: "<contradiction, open question, or uncertainty>"
++    source_pointer: "<pointer>"
++    proposed_handling: "<audit_item | planning_task_candidate | revisit_source | leave_as_gap | ask_operator>"
+ ```
+ ```

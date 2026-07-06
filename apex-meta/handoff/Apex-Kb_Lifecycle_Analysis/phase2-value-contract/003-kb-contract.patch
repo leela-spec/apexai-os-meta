@@ -1,0 +1,23 @@
+diff --git a/.claude/skills/apex-kb/references/kb-contract.md b/.claude/skills/apex-kb/references/kb-contract.md
+index 46beb17..f826e04 100644
+--- a/.claude/skills/apex-kb/references/kb-contract.md
++++ b/.claude/skills/apex-kb/references/kb-contract.md
+@@ -112,6 +112,18 @@ status_allowed: [draft, active, needs_review, deprecated, superseded]
+ 
+ Do not place claim-label values in the confidence field.
+ 
++## Page value contract for Phase 2 compiled pages
++
++Phase 2 wiki compile introduces an adaptive page‑level value contract for summary, concept, and entity pages. In addition to the required frontmatter above, compiled pages **must** include the following narrative sections using the exact headings listed:
++
++- **Adaptive Ranked Source Set** – a list of sources ranked by relevance and diversity to the page's scope. The number of sources should scale with KB size, topic breadth, and source diversity. Each entry must include a rationale for its rank and a brief description of coverage. Do **not** impose a fixed 2–5 source cap. A source cluster map may optionally be provided in future iterations but is not required.
++- **Macro / Meso / Micro** – a three‑layer synthesis. Macro describes high‑level themes across all sources; Meso captures mid‑level patterns; Micro provides specific details anchored by source pointers.
++- **Key Claims** – specific claims supported by source pointers. Each claim must include an id, description, pointer, confidence, and claim label. This section remains required.
++- **Routes Here** – navigational cues that help users and LLMs route queries to this page. Include route‑by‑question examples and cross‑links to related pages. This integrated routing list replaces prior “Relationships” or “Known Relationships” sections.
++- **Uncertainty / Raw Source Triggers** – consolidate contradictions, open questions, and any situation that requires revisiting raw sources. Each item must describe the uncertainty, provide a source pointer, and suggest how it should be handled (e.g., audit item, planning task candidate, revisit source, leave as gap, ask operator).
++
++Compiled pages may include additional sections if useful, but must not include any page‑level score metric or impose a rigid 20‑field schema. The goal is to adapt the depth and breadth of each section to the KB context while preserving source grounding and operator oversight.
++
+ ## Boundary contract
+ 
+ Apex KB may expose read-only evidence packets to Apex Plan, Apex Sync, Apex Session, PreCap, FlowRecap, APSU/status-merge, and personal orchestration. It must not mutate their files or redefine their ownership. Knowledge gaps may be offered as planning candidates, but task creation and status mutation belong outside Apex KB.
