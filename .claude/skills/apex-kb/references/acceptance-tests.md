@@ -89,6 +89,55 @@ status: "active"
 # Retrieval
 
 SQLite FTS5 and BM25 provide local lexical retrieval over compiled KB pages. Search indexes are derived artifacts.
+
+## Adaptive Ranked Source Set
+
+```yaml
+adaptive_ranked_sources:
+  - source_id: "smoke-source"
+    rationale: "only source in this smoke test"
+    coverage: "describes retrieval features"
+```
+
+## Macro / Meso / Micro
+
+### Macro
+
+<High-level retrieval summary.>
+
+### Meso
+
+<Mid-level retrieval patterns.>
+
+### Micro
+
+<Specific details anchored to source lines.>
+
+## Key Claims
+
+```yaml
+key_claims:
+  - claim_id: C001
+    claim: "SQLite FTS5 and BM25 provide local lexical retrieval over compiled KB pages"
+    source_pointer: "<pointer>"
+    confidence: "high"
+    claim_label: "source_backed_summary"
+```
+
+## Routes Here
+
+```yaml
+routes:
+  - question: "How does retrieval work?"
+    leads_to: "apex-kb-smoke/wiki/concepts/retrieval.md"
+    rationale: "describes retrieval"
+```
+
+## Uncertainty / Raw Source Triggers
+
+```yaml
+uncertainty_triggers: []
+```
 "@ | Set-Content -Encoding UTF8 "$KB/wiki/concepts/retrieval.md"
 python apex-meta/scripts/apex_kb.py --kb-root $KB --allow-write --json index
 python apex-meta/scripts/apex_kb_retrieval.py --kb-root $KB --allow-write --json build-index

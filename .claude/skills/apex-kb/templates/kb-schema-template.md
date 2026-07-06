@@ -17,8 +17,7 @@ kb_schema:
     - concepts
     - entities
     - summaries
-    - contradictions
-    - open_questions
+    - uncertainty_raw_source_triggers
   kb_language_policy:
     primary_language: english
     preserve_source_language_when_relevant: true
@@ -26,6 +25,6 @@ kb_schema:
   kb_operator_review_policy:
     ingest_phase_2_requires_phrase: "approve ingest"
     same_prompt_approval_allowed_normal_mode: false
-    contradiction_handling: "expose, do not silently resolve"
+    uncertainty_handling: "expose, do not silently resolve"
     uncertain_authority_handling: "mark unclear and ask operator"
 ```

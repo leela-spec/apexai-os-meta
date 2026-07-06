@@ -25,7 +25,7 @@ knowledge_states:
     meaning: "Possible lesson, pattern, claim, or artifact not yet validated."
     may_drive_runtime: false
   reviewed_candidate:
-    meaning: "Candidate checked for source support, contradiction, and target-surface fit."
+    meaning: "Candidate checked for source support, contradictions or uncertainties, and target-surface fit."
     may_drive_runtime: false
   accepted_doctrine:
     meaning: "Source-backed or operator-approved guidance stored in wiki, reference, workflow, or skill form."

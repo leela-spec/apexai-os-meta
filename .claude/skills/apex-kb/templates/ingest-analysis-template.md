@@ -91,14 +91,15 @@ key_claims:
     claim_label: "source_backed_summary"
 ```
 
-## 7. Contradictions and Open Questions
+## 7. Uncertainty / Raw Source Triggers
 
 ```yaml
-contradictions: []
-open_questions:
-  - question_id: Q001
-    question: "<question>"
-    proposed_handling: "audit_item | planning_task_candidate | leave_as_gap | ask_operator"
+uncertainty_triggers:
+  # Consolidate contradictions, open questions, and reasons to revisit the raw source.
+  - id: U001
+    description: "<contradiction, open question, or uncertainty>"
+    source_pointer: "<heading/page/line/passage>"
+    proposed_handling: "audit_item | planning_task_candidate | revisit_source | leave_as_gap | ask_operator"
 ```
 
 ## 8. Proposed Phase 2 Changes

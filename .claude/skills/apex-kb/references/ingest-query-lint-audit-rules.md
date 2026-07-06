@@ -7,7 +7,7 @@ source_grounding:
   raw_source_or_pointer_required: true
   generated_pages_require_source_pointers: true
   missing_source_rule: never infer source contents
-  contradiction_rule: expose contradictions instead of silently resolving
+  contradiction_rule: expose contradictions and uncertainties instead of silently resolving
 
 phase_boundaries:
   phase0_must_not_create:
@@ -46,11 +46,11 @@ Python may create only deterministic artifacts under `manifests/phase0/`:
 
 ### Phase 1
 
-LLM writes one analysis under `ingest-analysis/<source-slug>.analysis.md`. It must include source identity, source summary, extraction candidates, concept/entity candidates, key claims, contradictions, proposed wiki changes, and open questions. It must halt with `operator_review_needed`.
+LLM writes one analysis under `ingest-analysis/<source-slug>.analysis.md`. It must include source identity, source summary, extraction candidates, concept/entity candidates, key claims, uncertainty/raw source triggers, and proposed wiki changes. It must halt with `operator_review_needed`.
 
 ### Phase 2
 
-Requires exact phrase `approve ingest`. Allowed outputs are compiled wiki pages, manifest semantic updates, deterministic index updates, audit items, and logs. Contradictions and low-confidence claims must remain visible.
+Requires exact phrase `approve ingest`. Allowed outputs are compiled wiki pages, manifest semantic updates, deterministic index updates, audit items, and logs. Compiled wiki pages must implement the Phase 2 page value contract, including the sections Adaptive Ranked Source Set, Macro / Meso / Micro, Key Claims, Routes Here, and Uncertainty / Raw Source Triggers. Uncertainties and low-confidence claims must remain visible.
 
 ## Query rules
 
