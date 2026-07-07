@@ -54,12 +54,87 @@ These artifacts may look like patches, but they are not reliable patch packs.
 ## Non-Negotiable Rule
 
 ```text
-Patch packs must be created and validated in a real local Git clone.
+Patch packs must be created and validated with real Git operations against exact baseline file contents.
 ```
 
-Do not use GitHub connector excerpts, copied file snippets, memory, or synthetic patch simulation as the final source of truth.
+The Git workspace can be:
+
+```yaml
+valid_git_workspaces:
+  local_user_clone:
+    example: C:\GitDev\apexai-os-meta
+    best_for: final apply, commit, push
+
+  remote_agent_scratch_repo:
+    example: ChatGPT Agent Mode sandbox
+    requirements:
+      - fetch exact live target file contents
+      - preserve exact repo-relative paths
+      - initialize a temporary Git repository
+      - commit the baseline files
+      - edit files in that Git repository
+      - generate patches with git diff
+      - validate patches with git apply --check in that scratch repository
+      - record live blob hashes or baseline hashes
+    best_for: creating downloadable patch packs when direct push is unavailable
+```
+
+Do not use copied snippets, memory, connector excerpts alone, or synthetic patch simulation as the final source of truth.
 
 Those can help plan the change, but they cannot certify a patch pack.
+
+## Environment Gate
+
+Before doing anything else, identify what kind of AI environment is running.
+
+```yaml
+environment_gate:
+  local_codex_with_user_repo:
+    has_real_filesystem_path_to_user_repo: true
+    can_run_git: true
+    can_read_and_write_repo_files: true
+    allowed_work:
+      - create_patch_pack
+      - validate_patch_pack
+      - repair_patch_pack
+      - apply_commit_push
+
+  remote_agent_with_scratch_git:
+    has_user_repo_path: false
+    can_run_git_in_sandbox: true
+    can_fetch_exact_live_files: true
+    can_create_temp_git_repo: true
+    allowed_work:
+      - create_patch_pack
+      - validate_patch_pack_in_scratch_repo
+      - export_patch_pack_archive
+    forbidden_claims:
+      - "applied to user's local clone"
+      - "pushed to origin/main"
+
+  plain_remote_chat_or_connector_only:
+    has_user_repo_path: false
+    can_run_git_in_sandbox: false
+    allowed_work:
+      - explain_process
+      - draft_operator_handoff
+      - inspect_provided_text
+    forbidden_claims:
+      - "patch pack is ready"
+      - "git apply check passed"
+      - "old blobs match local repo"
+      - "safe to apply"
+```
+
+If the AI is not running inside the local clone, it must stop before patch creation or validation and say:
+
+```text
+I cannot certify this patch pack unless I can either:
+1. run in the real local clone, or
+2. create a scratch Git repository from exact live target files and validate there.
+```
+
+This is not optional. The smooth process can be reproduced by remote Agent Mode, but not by a plain chat that only sees pasted text or connector excerpts.
 
 ## Roles
 
@@ -69,14 +144,19 @@ There are two different AI jobs. Do not mix them up.
 roles:
   patch_creator:
     job: create a Git-native patch pack
+    required_environment:
+      - local_codex_with_user_repo
+      - remote_agent_with_scratch_git
     must_use:
-      - real local clone
+      - real Git workspace
+      - exact baseline file contents
       - git diff
       - git apply --check
       - disposable apply validation
 
   patch_executor:
     job: apply an already validated patch pack
+    required_environment: local_codex_with_user_repo
     must_use:
       - git apply --check
       - git apply
@@ -85,6 +165,54 @@ roles:
 ```
 
 If the patch executor discovers the pack was not properly created, the executor must stop or switch to an explicit repair workflow. It must not pretend the pack is executor-ready.
+
+## What The Working Process Actually Was
+
+The working process was not merely a natural-language prompt. It also was not necessarily your physical local clone.
+
+The successful ChatGPT Agent Mode run appears to have worked because it had an execution sandbox and used exact live files plus Git-style validation to produce a patch archive.
+
+It had these concrete ingredients:
+
+```yaml
+working_process:
+  git_workspace_available: true
+  exact_live_target_files_available: true
+  actual_patch_files_available: true
+  patch_to_target_map_checked: true
+  old_blob_or_live_file_match_checked: true
+  deterministic_script_created_or_used: true
+  script_attempt_order:
+    - git_apply_check_and_apply
+    - git_apply_whitespace_tolerant_modes
+    - git_apply_3way_when_blob_data_available
+    - deterministic_python_hunk_fallback
+  scope_checks_after_apply: true
+  marker_checks_after_apply: true
+  commit_push_only_after_validation: true
+```
+
+The working process cannot be reproduced by asking a non-local AI to "do the same thing" unless that AI can actually run Git in a sandbox and build patches from exact live file contents.
+
+## Common Reproduction Failure
+
+This is the most common failed reproduction pattern:
+
+```yaml
+failed_reproduction:
+  user_intent: "do it the same way"
+  ai_environment: plain_remote_chat_or_connector_only
+  ai_action: writes_more_instructions
+  missing_step: no_local_git_validation
+  result: not_the_same_process
+```
+
+Correct response:
+
+```text
+Do not create another theoretical handoff as if validation happened.
+Either run in local Codex, or use Agent Mode to create a scratch Git repo from exact live files and validate there.
+```
 
 ## Required Patch Pack Creation Process
 
