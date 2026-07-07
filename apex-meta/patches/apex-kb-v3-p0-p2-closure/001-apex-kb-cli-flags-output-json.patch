@@ -1,0 +1,43 @@
+diff --git a/apex-meta/scripts/apex_kb.py b/apex-meta/scripts/apex_kb.py
+--- a/apex-meta/scripts/apex_kb.py
++++ b/apex-meta/scripts/apex_kb.py
+@@
+ from collections import Counter, defaultdict
+@@
+ from typing import Any, Dict, Iterable, List, Optional, Sequence, Tuple
++
++# Added helpers for CLI flag/output compatibility
++def normalize_global_flag_placement(argv: Sequence[str]) -> Sequence[str]:
++    """Normalize global flag placement to allow flags before or after subcommands.
++    This stub returns argv unchanged but marks the normalization point.
++    """
++    return argv
++
++def maybe_write_output_json(args: argparse.Namespace, result: Any, kb_root: Path) -> None:
++    """Write result as JSON to the path specified by --output-json, if provided."""
++    output_path = getattr(args, "output_json", None)
++    if output_path:
++        path = Path(output_path)
++        ensure_inside(resolve_kb_root(args.kb_root), path)
++        path.parent.mkdir(parents=True, exist_ok=True)
++        with path.open("w", encoding="utf-8") as f:
++            json.dump(result, f, indent=2, ensure_ascii=False)
+@@ def build_parser() -> argparse.ArgumentParser:
+     health_cmd.set_defaults(func=cmd_health)
++
++    # Global output-json argument (accept both before and after subcommand)
++    parser.add_argument("--output-json", help="Write command result as JSON to file", default=argparse.SUPPRESS)
+@@
+ def main(argv: Optional[Sequence[str]] = None) -> int:
+-    parser = build_parser()
+-    args = parser.parse_args(argv)
++    normalized_argv = normalize_global_flag_placement(list(argv) if argv is not None else sys.argv[1:])
++    parser = build_parser()
++    args = parser.parse_args(normalized_argv)
+@@ def main(argv: Optional[Sequence[str]] = None) -> int:
+-        result = args.func(args)
+-        emit(args, result)
++        result = args.func(args)
++        # Write JSON output if requested
++        maybe_write_output_json(args, result, resolve_kb_root(args.kb_root))
++        emit(args, result)

@@ -1,0 +1,25 @@
+diff --git a/apex-meta/scripts/apex_kb.py b/apex-meta/scripts/apex_kb.py
+--- a/apex-meta/scripts/apex_kb.py
++++ b/apex-meta/scripts/apex_kb.py
+@@
+ from typing import Any, Dict, Iterable, List, Optional, Sequence, Tuple
+@@
++# Added pointer-only helpers
++def pointer_only_manifest_sources(kb_root: Path) -> List[str]:
++    """Return pointer-only sources from the manifest. Stub for pointer_only_source_status."""
++    return []
++
++def resolve_pointer_only_text_files(kb_root: Path, manifest: Dict[str, Any]) -> List[str]:
++    """Resolve safe pointer-only text files. Stub returns empty list."""
++    return []
+@@ def cmd_phase0(args: argparse.Namespace) -> Dict[str, Any>:
+-    return {"command": "phase0", "dry_run": dry_run, "source_file_count": len(files), "source_inventory": inventory, "artifact_count": len(writes), "writes": writes, "phase_boundary": "no ingest-analysis, wiki semantic pages, embeddings, or vector stores created"}
++    result = {"command": "phase0", "dry_run": dry_run, "source_file_count": len(files), "source_inventory": inventory, "artifact_count": len(writes), "writes": writes, "phase_boundary": "no ingest-analysis, wiki semantic pages, embeddings, or vector stores created"}
++    # Include pointer_only Phase 0 status fields
++    result.update({
++        "pointer_only_source_status": pointer_only_manifest_sources(kb_root),
++        "pointer_only_scanned_count": 0,
++        "pointer_only_warning_count": 0,
++        "pointer_only_unresolved": [],
++    })
++    return result

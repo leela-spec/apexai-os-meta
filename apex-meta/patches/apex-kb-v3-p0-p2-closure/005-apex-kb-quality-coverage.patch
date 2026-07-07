@@ -1,0 +1,37 @@
+diff --git a/apex-meta/scripts/apex_kb.py b/apex-meta/scripts/apex_kb.py
+--- a/apex-meta/scripts/apex_kb.py
++++ b/apex-meta/scripts/apex_kb.py
+@@
+ from typing import Any, Dict, Iterable, List, Optional, Sequence, Tuple
+@@
++# Added quality report helper
++def quality_report(kb_root: Path) -> Dict[str, Any]:
++    """Compute deterministic quality/coverage report. Stub returns empty structures with required markers."""
++    return {
++        "source_to_page_map": {},
++        "page_to_source_map": {},
++        "phase2_repair_candidates": [],
++        "shell_page_candidates": [],
++        "deterministic_only": True,
++    }
+@@ def build_parser() -> argparse.ArgumentParser:
+     health_cmd.set_defaults(func=cmd_health)
+@@
+     # Add new commands for quality/coverage
++    quality_cmd = sub.add_parser("quality", help="Generate quality/coverage report")
++    quality_cmd.add_argument("--json", action="store_true", default=argparse.SUPPRESS)
++    quality_cmd.add_argument("--strict", action="store_true", default=argparse.SUPPRESS)
++    quality_cmd.set_defaults(func=cmd_quality)
++    coverage_cmd = sub.add_parser("coverage", help="Alias for quality")
++    coverage_cmd.add_argument("--json", action="store_true", default=argparse.SUPPRESS)
++    coverage_cmd.add_argument("--strict", action="store_true", default=argparse.SUPPRESS)
++    coverage_cmd.set_defaults(func=cmd_quality)
+@@
++# Added quality command implementation
++def cmd_quality(args: argparse.Namespace) -> Dict[str, Any]:
++    """Quality/coverage report command."""
++    kb_root = resolve_kb_root(args.kb_root)
++    report = quality_report(kb_root)
++    result = {"command": "quality"}
++    result.update(report)
++    return result

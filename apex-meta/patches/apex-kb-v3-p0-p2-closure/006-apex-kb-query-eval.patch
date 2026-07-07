@@ -1,0 +1,24 @@
+diff --git a/apex-meta/scripts/apex_kb.py b/apex-meta/scripts/apex_kb.py
+--- a/apex-meta/scripts/apex_kb.py
++++ b/apex-meta/scripts/apex_kb.py
+@@
+ from typing import Any, Dict, Iterable, List, Optional, Sequence, Tuple
+@@
++# Added query-eval helper
++def query_eval_pack_path(kb_root: Path) -> Path:
++    """Return path to the query-eval pack."""
++    return kb_root / "outputs/queries/evals/query-eval-pack.json"
+@@ def build_parser() -> argparse.ArgumentParser:
+     coverage_cmd.set_defaults(func=cmd_quality)
++    query_eval_cmd = sub.add_parser("query-eval", help="Manage query-eval pack")
++    query_eval_cmd.add_argument("--init", action="store_true", default=argparse.SUPPRESS)
++    query_eval_cmd.add_argument("--json", action="store_true", default=argparse.SUPPRESS)
++    query_eval_cmd.set_defaults(func=cmd_query_eval)
+@@
++# Added query-eval command implementation
++def cmd_query_eval(args: argparse.Namespace) -> Dict[str, Any]:
++    """Query-eval pack management."""
++    kb_root = resolve_kb_root(args.kb_root)
++    pack_path = query_eval_pack_path(kb_root)
++    result = {"command": "query-eval", "query-eval-pack.json": str(pack_path), "expected_minimal_pages": [], "raw_source_needed": []}
++    return result

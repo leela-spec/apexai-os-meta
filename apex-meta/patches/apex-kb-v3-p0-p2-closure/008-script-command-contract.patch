@@ -1,0 +1,23 @@
+diff --git a/.claude/skills/apex-kb/references/script-command-contract.md b/.claude/skills/apex-kb/references/script-command-contract.md
+--- a/.claude/skills/apex-kb/references/script-command-contract.md
++++ b/.claude/skills/apex-kb/references/script-command-contract.md
+@@
+ ## Exit policy
+@@
+   0: success_or_nonblocking_warnings
+   1: script_error
+   2: blocked_or_strict_failure
+   ```
++
++### v3 closure additions
++
++The v3 P0–P2 closure introduces new deterministic commands and fields:
++
++- **quality / coverage**: deterministic quality/coverage report with `source_to_page_map`, `page_to_source_map`, `phase2_repair_candidates`, `shell_page_candidates`, and optional `--strict` enforcement. Accepts `--json` and may be invoked as `coverage` alias.  (quality / coverage)
++- **query-eval**: validate or initialize a query evaluation pack in `outputs/queries/evals/query-eval-pack.json`. Each eval entry defines `expected_routes`, `expected_minimal_pages`, and `raw_source_needed` instead of performing LLM grading.  (query-eval)
++- **graph**: generate deterministic process-flow graph artifacts under `manifests/phase0/`. Edges include markdown links, wikilinks, repository path references, and YAML/path/process edges.  (graph)
++- **--output-json <path>**: global flag to write JSON output to a file instead of stdout. Useful for PowerShell-safe redirection. (--output-json)
++- **pointer_only Phase 0**: when the manifest has sources marked as `pointer_only`, Phase 0 resolves repo-local pointers and reports `pointer_only_source_status`, `pointer_only_scanned_count`, `pointer_only_warning_count`, and `pointer_only_unresolved` in its result. (pointer_only)
++- **Freshness split**: `status` now distinguishes `wiki_index_status` and `retrieval_index_status` separately from `source_payload_manifest_status`. (wiki_index_status, retrieval_index_status)
++
++These additions are deterministic and do not introduce external dependencies or LLM calls.

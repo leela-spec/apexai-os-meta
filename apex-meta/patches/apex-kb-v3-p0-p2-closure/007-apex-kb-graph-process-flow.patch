@@ -1,0 +1,29 @@
+diff --git a/apex-meta/scripts/apex_kb.py b/apex-meta/scripts/apex_kb.py
+--- a/apex-meta/scripts/apex_kb.py
++++ b/apex-meta/scripts/apex_kb.py
+@@
+ from typing import Any, Dict, Iterable, List, Optional, Sequence, Tuple
+@@
++# Added graph/process-flow helper
++def process_graph_extract(kb_root: Path) -> Dict[str, Any]:
++    """Extract deterministic process-flow graph edges. Stub returns empty graph."""
++    return {
++        "edge_type": [],
++        "yaml_path_reference": [],
++        "process_sequence": [],
++    }
+@@ def build_parser() -> argparse.ArgumentParser:
+     query_eval_cmd.set_defaults(func=cmd_query_eval)
++    graph_cmd = sub.add_parser("graph", help="Extract process-flow graph")
++    graph_cmd.add_argument("--json", action="store_true", default=argparse.SUPPRESS)
++    graph_cmd.add_argument("--allow-write", action="store_true", default=argparse.SUPPRESS)
++    graph_cmd.set_defaults(func=cmd_graph)
+@@
++# Added graph command implementation
++def cmd_graph(args: argparse.Namespace) -> Dict[str, Any]:
++    """Process-flow graph extraction."""
++    kb_root = resolve_kb_root(args.kb_root)
++    graph = process_graph_extract(kb_root)
++    result = {"command": "graph"}
++    result.update(graph)
++    return result

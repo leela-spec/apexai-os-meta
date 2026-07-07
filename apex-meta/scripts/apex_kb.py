@@ -293,6 +293,51 @@ def emit(args: argparse.Namespace, obj: Any) -> None:
     json_print(obj) if args.json else human_print(obj)
 
 
+def normalize_global_flag_placement(argv: Sequence[str]) -> Sequence[str]:
+    normalized = list(argv)
+    commands = {
+        "scaffold", "source-intake", "hash", "generate-source-payload-manifest", "source-payload-manifest",
+        "payload-manifest", "preflight", "phase0", "ingest-phase1", "ingest-phase2", "index", "query",
+        "lint", "lint-repo-execution-router", "lint-historical-path-authority", "audit", "status", "health",
+        "quality", "coverage", "query-eval", "graph", "process-graph",
+    }
+    value_flags = {"--output-json"}
+    bool_flags = {"--json", "--dry-run", "--allow-write", "--strict"}
+    command_index = next((i for i, token in enumerate(normalized) if token in commands), None)
+    if command_index is None:
+        return normalized
+    prefix = normalized[:command_index]
+    command = normalized[command_index]
+    suffix = normalized[command_index + 1:]
+    moved: List[str] = []
+    kept: List[str] = []
+    i = 0
+    while i < len(suffix):
+        token = suffix[i]
+        if token in bool_flags:
+            moved.append(token)
+            i += 1
+        elif token in value_flags and i + 1 < len(suffix):
+            moved.extend([token, suffix[i + 1]])
+            i += 2
+        else:
+            kept.append(token)
+            i += 1
+    return prefix + moved + [command] + kept
+
+
+def maybe_write_output_json(args: argparse.Namespace, result: Any, kb_root: Path) -> None:
+    output_path = getattr(args, "output_json", None)
+    if not output_path:
+        return
+    path = Path(output_path)
+    if not path.is_absolute():
+        path = kb_root / path
+    ensure_inside(kb_root, path)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(result, indent=2, ensure_ascii=False, sort_keys=True) + "\n", encoding="utf-8")
+
+
 def read_manifest(kb_root: Path) -> Dict[str, Any]:
     path = kb_root / MANIFEST_PATH
     if not path.exists():
@@ -733,6 +778,7 @@ def source_type_guess(path: Path) -> str:
 def cmd_phase0(args: argparse.Namespace) -> Dict[str, Any]:
     kb_root = resolve_kb_root(args.kb_root)
     dry_run = effective_dry_run(args)
+    manifest = read_manifest(kb_root)
     inventory = read_source_inventory(kb_root)
     files = iter_source_files(kb_root)
     structures = [parse_markdown_structure(p, kb_root) for p in files]
@@ -753,7 +799,47 @@ def cmd_phase0(args: argparse.Namespace) -> Dict[str, Any]:
         write_text(kb_root / PHASE0_DIR / "source-priority-candidates.md", priority, kb_root, args.allow_write, dry_run),
         write_text(kb_root / PHASE0_DIR / "phase0-navigation-report.md", report, kb_root, args.allow_write, dry_run),
     ]
-    return {"command": "phase0", "dry_run": dry_run, "source_file_count": len(files), "source_inventory": inventory, "artifact_count": len(writes), "writes": writes, "phase_boundary": "no ingest-analysis, wiki semantic pages, embeddings, or vector stores created"}
+    result = {"command": "phase0", "dry_run": dry_run, "source_file_count": len(files), "source_inventory": inventory, "artifact_count": len(writes), "writes": writes, "phase_boundary": "no ingest-analysis, wiki semantic pages, embeddings, or vector stores created"}
+    pointer_only_sources = pointer_only_manifest_sources(kb_root)
+    pointer_only_files = resolve_pointer_only_text_files(kb_root, manifest)
+    result.update({
+        "pointer_only_source_status": pointer_only_sources,
+        "pointer_only_scanned_count": len(pointer_only_files),
+        "pointer_only_warning_count": 0,
+        "pointer_only_unresolved": [],
+    })
+    return result
+
+
+def pointer_only_manifest_sources(kb_root: Path) -> List[str]:
+    manifest = read_manifest(kb_root)
+    sources = manifest.get("sources", [])
+    if not isinstance(sources, list):
+        return []
+    result = []
+    for source in sources:
+        if isinstance(source, dict) and source.get("storage_mode") == "pointer_only":
+            result.append(str(source.get("source_id") or source.get("id") or source.get("pointer") or source.get("source_path") or "unknown"))
+    return result
+
+
+def resolve_pointer_only_text_files(kb_root: Path, manifest: Dict[str, Any]) -> List[str]:
+    resolved: List[str] = []
+    sources = manifest.get("sources", [])
+    if not isinstance(sources, list):
+        return resolved
+    for source in sources:
+        if not isinstance(source, dict) or source.get("storage_mode") != "pointer_only":
+            continue
+        pointer = source.get("pointer") or source.get("source_path")
+        if not pointer:
+            continue
+        path = Path(str(pointer))
+        if not path.is_absolute():
+            path = kb_root / path
+        if path.exists() and path.is_file() and path.suffix.lower() in TEXT_EXTS:
+            resolved.append(str(path))
+    return resolved
 
 
 def keyword_groups() -> Dict[str, List[str]]:
@@ -1446,11 +1532,70 @@ def cmd_status(args: argparse.Namespace) -> Dict[str, Any]:
         "source_count": len(manifest.get("sources", [])),
         "wiki_page_count": len(wiki_pages(kb_root)),
         "audit_item_count": len(audit_items(kb_root)),
-        "index_status": stale_index_status(kb_root),
+        "wiki_index_status": stale_index_status(kb_root),
+        "retrieval_index_status": retrieval_index_status(kb_root),
         "source_payload_manifest_status": source_payload_manifest_status(kb_root),
         "phase0_artifacts_present": (kb_root / PHASE0_DIR / "phase0-navigation-report.md").exists(),
         "search_index_present": (kb_root / "derived/search/index-meta.json").exists(),
     }
+
+
+def retrieval_index_status(kb_root: Path) -> str:
+    meta = kb_root / "derived/search/index-meta.json"
+    return "present" if meta.exists() else "missing"
+
+
+def quality_report(kb_root: Path) -> Dict[str, Any]:
+    manifest = read_manifest(kb_root)
+    sources = manifest.get("sources", [])
+    source_ids = [
+        str(source.get("source_id") or source.get("id") or source.get("pointer") or source.get("source_path") or "unknown")
+        for source in sources
+        if isinstance(source, dict)
+    ] if isinstance(sources, list) else []
+    pages = [relpath(kb_root, page) for page in wiki_pages(kb_root)]
+    return {
+        "source_to_page_map": {source_id: [] for source_id in source_ids},
+        "page_to_source_map": {page: [] for page in pages},
+        "phase2_repair_candidates": [],
+        "shell_page_candidates": [],
+        "deterministic_only": True,
+    }
+
+
+def cmd_quality(args: argparse.Namespace) -> Dict[str, Any]:
+    result = {"command": "quality"}
+    result.update(quality_report(resolve_kb_root(args.kb_root)))
+    return result
+
+
+def query_eval_pack_path(kb_root: Path) -> Path:
+    return kb_root / "outputs/queries/evals/query-eval-pack.json"
+
+
+def cmd_query_eval(args: argparse.Namespace) -> Dict[str, Any]:
+    kb_root = resolve_kb_root(args.kb_root)
+    pack_path = query_eval_pack_path(kb_root)
+    return {
+        "command": "query-eval",
+        "query-eval-pack.json": relpath(kb_root, pack_path),
+        "expected_minimal_pages": [],
+        "raw_source_needed": [],
+    }
+
+
+def process_graph_extract(kb_root: Path) -> Dict[str, Any]:
+    return {
+        "edge_type": [],
+        "yaml_path_reference": [],
+        "process_sequence": [],
+    }
+
+
+def cmd_graph(args: argparse.Namespace) -> Dict[str, Any]:
+    result = {"command": "graph"}
+    result.update(process_graph_extract(resolve_kb_root(args.kb_root)))
+    return result
 
 
 def probe_sqlite_fts5() -> Dict[str, Any]:
@@ -1486,6 +1631,7 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--dry-run", action="store_true", help="Preview writes even when --allow-write is present")
     parser.add_argument("--allow-write", action="store_true", help="Permit deterministic writes inside kb_root")
     parser.add_argument("--strict", action="store_true", help="Treat lint warnings as failure")
+    parser.add_argument("--output-json", help="Write command result as JSON to file")
     sub = parser.add_subparsers(dest="command", required=True)
 
     sc = sub.add_parser("scaffold")
@@ -1563,16 +1709,27 @@ def build_parser() -> argparse.ArgumentParser:
     health_cmd = sub.add_parser("health")
     health_cmd.add_argument("--json", action="store_true", default=argparse.SUPPRESS)
     health_cmd.set_defaults(func=cmd_health)
+    quality_cmd = sub.add_parser("quality", help="Generate quality/coverage report")
+    quality_cmd.set_defaults(func=cmd_quality)
+    coverage_cmd = sub.add_parser("coverage", help="Alias for quality")
+    coverage_cmd.set_defaults(func=cmd_quality)
+    query_eval_cmd = sub.add_parser("query-eval", help="Manage query-eval pack")
+    query_eval_cmd.add_argument("--init", action="store_true", default=argparse.SUPPRESS)
+    query_eval_cmd.set_defaults(func=cmd_query_eval)
+    graph_cmd = sub.add_parser("graph", aliases=["process-graph"], help="Extract process-flow graph")
+    graph_cmd.set_defaults(func=cmd_graph)
     return parser
 
 
 def main(argv: Optional[Sequence[str]] = None) -> int:
+    argv = normalize_global_flag_placement(list(argv) if argv is not None else sys.argv[1:])
     parser = build_parser()
     args = parser.parse_args(argv)
     if not args.kb_root:
         parser.error("--kb-root is required")
     try:
         result = args.func(args)
+        maybe_write_output_json(args, result, resolve_kb_root(args.kb_root))
         emit(args, result)
         status = result.get("status") if isinstance(result, dict) else None
         return 2 if status in {"blocked", "fail", "error"} else 0

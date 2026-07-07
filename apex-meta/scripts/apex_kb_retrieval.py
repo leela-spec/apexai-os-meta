@@ -128,6 +128,46 @@ def emit(args: argparse.Namespace, obj: Any) -> None:
         human_print(obj)
 
 
+def normalize_global_flag_placement(argv: Sequence[str]) -> Sequence[str]:
+    normalized = list(argv)
+    commands = {"health", "build-index", "stale", "query", "export", "clear-index"}
+    value_flags = {"--output-json"}
+    bool_flags = {"--json", "--dry-run", "--allow-write"}
+    command_index = next((i for i, token in enumerate(normalized) if token in commands), None)
+    if command_index is None:
+        return normalized
+    prefix = normalized[:command_index]
+    command = normalized[command_index]
+    suffix = normalized[command_index + 1:]
+    moved: List[str] = []
+    kept: List[str] = []
+    i = 0
+    while i < len(suffix):
+        token = suffix[i]
+        if token in bool_flags:
+            moved.append(token)
+            i += 1
+        elif token in value_flags and i + 1 < len(suffix):
+            moved.extend([token, suffix[i + 1]])
+            i += 2
+        else:
+            kept.append(token)
+            i += 1
+    return prefix + moved + [command] + kept
+
+
+def maybe_write_output_json(args: argparse.Namespace, result: Any, kb_root: Path) -> None:
+    output_path = getattr(args, "output_json", None)
+    if not output_path:
+        return
+    path = Path(output_path)
+    if not path.is_absolute():
+        path = kb_root / path
+    ensure_inside(kb_root, path)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(result, indent=2, ensure_ascii=False, sort_keys=True) + "\n", encoding="utf-8")
+
+
 def detect_optional_modules() -> Dict[str, bool]:
     return {
         "markdown_it": importlib.util.find_spec("markdown_it") is not None,
@@ -712,6 +752,7 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--json", action="store_true", help="Emit machine-readable JSON")
     parser.add_argument("--allow-write", action="store_true", help="Permit deterministic writes inside kb_root")
     parser.add_argument("--dry-run", action="store_true", help="Preview writes even when --allow-write is present")
+    parser.add_argument("--output-json", help="Write command result as JSON to file")
     sub = parser.add_subparsers(dest="command", required=True)
 
     sub.add_parser("health", help="Probe sqlite3/FTS5 and optional modules").set_defaults(func=cmd_health)
@@ -738,10 +779,12 @@ def build_parser() -> argparse.ArgumentParser:
 
 
 def main(argv: Optional[Sequence[str]] = None) -> int:
+    argv = normalize_global_flag_placement(list(argv) if argv is not None else sys.argv[1:])
     parser = build_parser()
     args = parser.parse_args(argv)
     try:
         result = args.func(args)
+        maybe_write_output_json(args, result, resolve_kb_root(args.kb_root))
         emit(args, result)
         status = result.get("status") if isinstance(result, dict) else None
         if status in {"blocked", "error"}:
