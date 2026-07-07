@@ -1,0 +1,365 @@
+{
+  "package_id": "apex-kb-v3-repair-patch-plan",
+  "version": "0.1",
+  "created_for_repo": "leela-spec/apexai-os-meta",
+  "branch": "main",
+  "suspect_commit": "0c747db4",
+  "mode": "patch_plan_only",
+  "package_root": "apex-meta/handoff/Apex-Kb_Lifecycle_Analysis/NextFinalization/apex-kb-v3-repair-patch-plan/",
+  "patch_pack_root_for_later_builder": "apex-meta/patches/apex-kb-v3-repair/",
+  "max_plan_file_bytes": 12288,
+  "batch_size_ceiling": 12,
+  "global_rules_file": "00-global-rules.md",
+  "files": [
+    {
+      "path": "00-global-rules.md",
+      "target_repo_path": null,
+      "feature": "global_rules",
+      "status": "PLAN_ONLY",
+      "batch": 0,
+      "depends_on": [],
+      "byte_estimate": 1800,
+      "source_evidence": [
+        "S01",
+        "S02",
+        "S04"
+      ]
+    },
+    {
+      "path": "01-read-verification-ledger.md",
+      "target_repo_path": null,
+      "feature": "read_verification",
+      "status": "PLAN_ONLY",
+      "batch": 0,
+      "depends_on": [],
+      "byte_estimate": 4300,
+      "source_evidence": [
+        "S01",
+        "S02",
+        "S03",
+        "S04",
+        "S05",
+        "S06"
+      ]
+    },
+    {
+      "path": "02-current-state-audit.md",
+      "target_repo_path": null,
+      "feature": "current_state_audit",
+      "status": "PLAN_ONLY",
+      "batch": 0,
+      "depends_on": [
+        "01-read-verification-ledger.md"
+      ],
+      "byte_estimate": 3600,
+      "source_evidence": [
+        "S01",
+        "S02",
+        "S03"
+      ]
+    },
+    {
+      "path": "03-target-file-map.md",
+      "target_repo_path": null,
+      "feature": "target_file_map",
+      "status": "PLAN_ONLY",
+      "batch": 0,
+      "depends_on": [
+        "02-current-state-audit.md"
+      ],
+      "byte_estimate": 2600,
+      "source_evidence": [
+        "S02",
+        "S04"
+      ]
+    },
+    {
+      "path": "04-feature-repair-index.md",
+      "target_repo_path": null,
+      "feature": "feature_repair_index",
+      "status": "PLAN_ONLY",
+      "batch": 0,
+      "depends_on": [
+        "02-current-state-audit.md"
+      ],
+      "byte_estimate": 2300,
+      "source_evidence": [
+        "S01",
+        "S03"
+      ]
+    },
+    {
+      "path": "05-agent-mode-patch-pack-builder-contract.md",
+      "target_repo_path": null,
+      "feature": "agent_mode_builder_contract",
+      "status": "PLAN_ONLY",
+      "batch": 0,
+      "depends_on": [
+        "00-global-rules.md"
+      ],
+      "byte_estimate": 3200,
+      "source_evidence": [
+        "S04"
+      ]
+    },
+    {
+      "path": "06-validation-contract.md",
+      "target_repo_path": null,
+      "feature": "validation_contract",
+      "status": "PLAN_ONLY",
+      "batch": 0,
+      "depends_on": [
+        "04-feature-repair-index.md"
+      ],
+      "byte_estimate": 3300,
+      "source_evidence": [
+        "S03",
+        "S04"
+      ]
+    },
+    {
+      "path": "07-codex-applier-contract.md",
+      "target_repo_path": null,
+      "feature": "codex_applier_contract",
+      "status": "PLAN_ONLY",
+      "batch": 0,
+      "depends_on": [
+        "06-validation-contract.md"
+      ],
+      "byte_estimate": 2200,
+      "source_evidence": [
+        "S04",
+        "S06"
+      ]
+    },
+    {
+      "path": "08-risk-and-rollback-policy.md",
+      "target_repo_path": null,
+      "feature": "risk_rollback",
+      "status": "PLAN_ONLY",
+      "batch": 0,
+      "depends_on": [
+        "02-current-state-audit.md"
+      ],
+      "byte_estimate": 2600,
+      "source_evidence": [
+        "S02",
+        "S03"
+      ]
+    },
+    {
+      "path": "09-final-execution-order.md",
+      "target_repo_path": null,
+      "feature": "execution_order",
+      "status": "PLAN_ONLY",
+      "batch": 0,
+      "depends_on": [
+        "03-target-file-map.md",
+        "06-validation-contract.md"
+      ],
+      "byte_estimate": 1800,
+      "source_evidence": [
+        "S04"
+      ]
+    },
+    {
+      "path": "targets/001-apex-kb-py-pointer-only-phase0.md",
+      "target_repo_path": "apex-meta/scripts/apex_kb.py",
+      "feature": "pointer_only_phase0",
+      "status": "REPLACE_STUB",
+      "batch": 1,
+      "depends_on": [],
+      "byte_estimate": 4700,
+      "source_evidence": [
+        "S01",
+        "S02",
+        "S03",
+        "S06"
+      ]
+    },
+    {
+      "path": "targets/002-apex-kb-py-quality-coverage.md",
+      "target_repo_path": "apex-meta/scripts/apex_kb.py",
+      "feature": "quality_coverage",
+      "status": "REPLACE_STUB",
+      "batch": 1,
+      "depends_on": [],
+      "byte_estimate": 4600,
+      "source_evidence": [
+        "S01",
+        "S03",
+        "S05"
+      ]
+    },
+    {
+      "path": "targets/003-apex-kb-py-query-eval.md",
+      "target_repo_path": "apex-meta/scripts/apex_kb.py",
+      "feature": "query_eval",
+      "status": "REPLACE_STUB",
+      "batch": 1,
+      "depends_on": [],
+      "byte_estimate": 4100,
+      "source_evidence": [
+        "S01",
+        "S03"
+      ]
+    },
+    {
+      "path": "targets/004-apex-kb-py-graph-process-flow.md",
+      "target_repo_path": "apex-meta/scripts/apex_kb.py",
+      "feature": "graph_process_flow",
+      "status": "REPLACE_STUB",
+      "batch": 1,
+      "depends_on": [],
+      "byte_estimate": 5000,
+      "source_evidence": [
+        "S01",
+        "S03"
+      ]
+    },
+    {
+      "path": "targets/005-apex-kb-py-status-freshness.md",
+      "target_repo_path": "apex-meta/scripts/apex_kb.py",
+      "feature": "status_freshness_split",
+      "status": "REPAIR_PARTIAL",
+      "batch": 1,
+      "depends_on": [],
+      "byte_estimate": 3200,
+      "source_evidence": [
+        "S01",
+        "S06"
+      ]
+    },
+    {
+      "path": "targets/006-apex-kb-py-cli-output-json.md",
+      "target_repo_path": "apex-meta/scripts/apex_kb.py",
+      "feature": "cli_output_json",
+      "status": "KEEP_REAL",
+      "batch": 1,
+      "depends_on": [],
+      "byte_estimate": 3000,
+      "source_evidence": [
+        "S01",
+        "S06"
+      ]
+    },
+    {
+      "path": "targets/007-apex-kb-retrieval-cli-output-json.md",
+      "target_repo_path": "apex-meta/scripts/apex_kb_retrieval.py",
+      "feature": "retrieval_cli_output_json",
+      "status": "KEEP_REAL",
+      "batch": 1,
+      "depends_on": [],
+      "byte_estimate": 3000,
+      "source_evidence": [
+        "S01",
+        "S06"
+      ]
+    },
+    {
+      "path": "targets/008-script-command-contract.md",
+      "target_repo_path": ".claude/skills/apex-kb/references/script-command-contract.md",
+      "feature": "script_command_contract_alignment",
+      "status": "DOCS_ONLY_REPAIR",
+      "batch": 1,
+      "depends_on": [
+        "targets/001-apex-kb-py-pointer-only-phase0.md",
+        "targets/002-apex-kb-py-quality-coverage.md",
+        "targets/003-apex-kb-py-query-eval.md",
+        "targets/004-apex-kb-py-graph-process-flow.md"
+      ],
+      "byte_estimate": 3300,
+      "source_evidence": [
+        "S02",
+        "S03"
+      ]
+    },
+    {
+      "path": "targets/009-kb-contract-doc-alignment.md",
+      "target_repo_path": ".claude/skills/apex-kb/references/kb-contract.md",
+      "feature": "kb_contract_alignment",
+      "status": "DOCS_ONLY_REPAIR",
+      "batch": 1,
+      "depends_on": [
+        "targets/001-apex-kb-py-pointer-only-phase0.md"
+      ],
+      "byte_estimate": 2800,
+      "source_evidence": [
+        "S05"
+      ]
+    },
+    {
+      "path": "targets/010-acceptance-tests.md",
+      "target_repo_path": ".claude/skills/apex-kb/references/acceptance-tests.md",
+      "feature": "acceptance_tests",
+      "status": "DOCS_ONLY_REPAIR",
+      "batch": 1,
+      "depends_on": [
+        "targets/001-apex-kb-py-pointer-only-phase0.md",
+        "targets/002-apex-kb-py-quality-coverage.md",
+        "targets/003-apex-kb-py-query-eval.md",
+        "targets/004-apex-kb-py-graph-process-flow.md"
+      ],
+      "byte_estimate": 3300,
+      "source_evidence": [
+        "S03",
+        "S04"
+      ]
+    },
+    {
+      "path": "targets/011-phase2-value-contract-alignment.md",
+      "target_repo_path": ".claude/skills/apex-kb/references/ingest-query-lint-audit-rules.md",
+      "feature": "phase2_value_contract_alignment",
+      "status": "DOCS_ONLY_REPAIR",
+      "batch": 1,
+      "depends_on": [
+        "targets/002-apex-kb-py-quality-coverage.md",
+        "targets/003-apex-kb-py-query-eval.md",
+        "targets/004-apex-kb-py-graph-process-flow.md"
+      ],
+      "byte_estimate": 3000,
+      "source_evidence": [
+        "S05"
+      ]
+    },
+    {
+      "path": "targets/012-package-manifest-plan-ledger.md",
+      "target_repo_path": ".claude/skills/apex-kb/package-manifest.md",
+      "feature": "package_manifest_plan_ledger",
+      "status": "DOCS_ONLY_REPAIR",
+      "batch": 1,
+      "depends_on": [],
+      "byte_estimate": 2600,
+      "source_evidence": [
+        "S04"
+      ]
+    }
+  ],
+  "batches": [
+    {
+      "batch": 1,
+      "file_count": 12,
+      "paths": [
+        "targets/001-apex-kb-py-pointer-only-phase0.md",
+        "targets/002-apex-kb-py-quality-coverage.md",
+        "targets/003-apex-kb-py-query-eval.md",
+        "targets/004-apex-kb-py-graph-process-flow.md",
+        "targets/005-apex-kb-py-status-freshness.md",
+        "targets/006-apex-kb-py-cli-output-json.md",
+        "targets/007-apex-kb-retrieval-cli-output-json.md",
+        "targets/008-script-command-contract.md",
+        "targets/009-kb-contract-doc-alignment.md",
+        "targets/010-acceptance-tests.md",
+        "targets/011-phase2-value-contract-alignment.md",
+        "targets/012-package-manifest-plan-ledger.md"
+      ]
+    }
+  ],
+  "verification": {
+    "source_access_checked": true,
+    "live_repo_access_checked": true,
+    "no_file_over_size_ceiling": true,
+    "no_cross_file_narrative_dependencies": true,
+    "no_live_splitting_used": true
+  }
+}
