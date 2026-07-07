@@ -3,77 +3,57 @@ title: "Reusable Artifact Families"
 page_type: entity
 kb_slug: "old-apex-full-orchestration-agent-kb"
 entity_slug: "reusable-artifact-families"
-entity_type: "artifact"
 source_refs:
-  - source_id: "batch04-reusable-patterns-and-migration"
+  - source_id: "phase1-rerun-batch04"
     source_path: "apex-meta/kb/old-apex-full-orchestration-agent-kb/ingest-analysis/batch04-reusable-patterns-and-migration.analysis.md"
-    source_hash: "NA"
-    source_pointer: "entities_or_roles_extracted; migration_notes"
+    source_pointer: "entities_extracted"
     source_storage_mode: "copy_into_kb"
-created_at: "2026-07-03T00:00:00Z"
-updated_at: "2026-07-03T00:00:00Z"
+updated_at: "2026-07-06T22:45:00+02:00"
 confidence: "high"
 claim_label: "source_backed_summary"
 status: "active"
-related_concepts:
-  - reusable-agent-doctrine-scaffold
-  - phase-gated-knowledge-promotion
-  - appendix-first-evidence-architecture
-review_flags: []
 ---
 
 # Reusable Artifact Families
 
-## Identity
+## Adaptive Ranked Source Set
 
 ```yaml
-entity:
-  label: "Reusable Artifact Families"
-  type: "artifact_family"
-  aliases:
-    - "old scaffold artifacts"
-    - "old validation artifacts"
+ranked_source_set:
+  tier_1:
+    - source: "AGENT_KB_INDEX.md"
+      supports: "scaffold file family"
+    - source: "batch04-reusable-patterns-and-migration.analysis.md"
+      supports: "migration classification"
 ```
 
-## Source-Grounded Summary
+## Macro Synthesis
 
-The old agent KB contains artifact families that are reusable as patterns: scaffold files, appendices, learning queues, validation templates, and failure patterns. Their migration status differs by family. Scaffold files are preserved as role-doctrine patterns. Appendices are preserved as deep evidence or concept layers. Learning queues are preserved only as candidate capture. Validation templates can become checklists or operator gates. Mistakes files can become anti-pattern pages.
+The reusable artifact families are compact doctrine files, appendices, candidate queues, template files, and completion reports. Their value is repeatable structure.
 
-## Known Relationships
+## Meso Synthesis
+
+The families separate compact orientation from detailed evidence and future candidate capture. This prevents small entry files from becoming too large while keeping deeper sources discoverable.
+
+## Micro Synthesis
 
 ```yaml
-relationships:
-  - subject: reusable_scaffold_files
-    relationship: "preserve_as_pattern"
+artifact_families:
+  scaffold_files:
     members: [ESSENCE.md, BEST_PRACTICES.md, MISTAKES.md, TEMPLATES.md, LEARNING_QUEUE.md]
-  - subject: appendices
-    relationship: "preserve_as_deep_evidence_or_concept_layer_pattern"
-  - subject: learning_queue
-    relationship: "preserve_as_candidate_capture_only"
-  - subject: validation_templates
-    relationship: "preserve_as_checklists_or_operator_gates"
-  - subject: failure_patterns
-    relationship: "preserve_as_anti_pattern_pages"
+    source_pointer: "AGENT_KB_INDEX.md / Scaffold convention"
+  appendices:
+    role: "dense detail and supporting evidence"
+    source_pointer: "meta_detective/APPENDIX_INTERNAL_MODES.md"
+  candidate_queues:
+    role: "future learning that is not accepted truth yet"
+    source_pointer: "AGENT_KB_INDEX.md / LEARNING_QUEUE convention"
 ```
 
-## Evidence
+## Routes Here
 
-```yaml
-evidence:
-  - source_id: batch04-reusable-patterns-and-migration
-    source_pointer: "entities_or_roles_extracted / reusable_scaffold_files"
-    supports: "Five scaffold files as reusable artifact family."
-  - source_id: batch04-reusable-patterns-and-migration
-    source_pointer: "entities_or_roles_extracted / learning_queue"
-    supports: "Learning queue as candidate capture only."
-  - source_id: batch04-reusable-patterns-and-migration
-    source_pointer: "entities_or_roles_extracted / validation_templates and failure_patterns"
-    supports: "Templates and mistakes files as reusable checklists/gates/anti-patterns."
-```
+Use this page when choosing whether information belongs in a compact file, appendix, concept page, report, or candidate queue.
 
-## Open Questions
+## Uncertainty / Raw Source Triggers
 
-```yaml
-open_questions:
-  - "Which artifact families should be converted into first-class templates in the current Apex KB package?"
-```
+Reopen raw template files before creating new package standards.
