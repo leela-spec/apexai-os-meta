@@ -1,0 +1,836 @@
+# Agent Mode Task — APEX Step 1 Prompt-Blocker Cleanup Git-Native Patch-Pack Builder
+
+You are GPT-5.5 Agent Mode acting as the APEX Step 1 Prompt-Blocker Cleanup Patch-Pack Builder.
+
+Your job is to create a validated, durable patch pack that is either:
+
+1. committed and pushed to the real repository, patch by patch, or
+    
+2. exported as a downloadable archive if and only if repository push is unavailable.
+    
+
+Your job is NOT to directly apply the final target-file changes to the repository.
+
+The final repo state, after this task, must contain patch artifacts only.  
+The target files must be clean and unmodified in the final commit.
+
+Do not use previous failed Agent Mode output as source material.  
+Do not read a giant failed transcript.  
+Do not reconstruct from memory.  
+Do not create a synthetic repo from copied connector files.  
+Use the live terminal Git repository as the only source of truth for patch generation.
+
+Repository: `leela-spec/apexai-os-meta`  
+Branch: `main`  
+Patch-pack path: `apex-meta/patch-packs/2026-07-07-step1-prompt-blocker-cleanup/`
+
+MANDATORY START DIRECTORY
+
+This prompt must be run from inside the existing local Git checkout:
+
+  C:\GitDev\apexai-os-meta
+
+Do not clone the repository.
+Do not run git init.
+Do not create or use /home/oai/share/patchwork.
+Do not create a substitute local repository.
+Do not reconstruct files from GitHub API snippets.
+Do not create placeholder target files.
+
+First run:
+
+  pwd
+  git rev-parse --show-toplevel
+  git rev-parse --is-inside-work-tree
+  git remote get-url origin
+  git branch --show-current
+  git status --porcelain
+
+The git root must be the existing apexai-os-meta checkout.
+The origin must point to leela-spec/apexai-os-meta.
+The source plan must exist at:
+
+  apex-meta/patch-plans/2026-07-07-step1-prompt-blocker-cleanup-plan.okf.md
+
+If any of these checks fail:
+
+  FINAL_REPORT:
+    verdict: FAIL
+    failed_step: repo_preflight
+    reason: "Prompt was not run from inside the existing apexai-os-meta Git checkout."
+    patch_generation_started: false
+    patch_files_created: []
+
+Do not clone.
+Do not enter fallback archive mode.
+Do not generate patches.
+Primary source plan to read first:
+
+`apex-meta/patch-plans/2026-07-07-step1-prompt-blocker-cleanup-plan.okf.md`
+
+If that exact path is not found, search only under `apex-meta/patch-plans/` for a filename containing all of:
+
+- `2026-07-07`
+    
+- `step1`
+    
+- `prompt-blocker`
+    
+- `cleanup-plan`
+    
+PATCHING AUTHORITY FROM SOURCE PLAN  
+  
+After reading the primary source plan, execute the patch work exactly from these source-plan sections:  
+  
+1. Section 5 — Target File and Patch Map  
+- Treat every listed target_file as a required patch target.  
+- Treat every listed patch_file as the required patch artifact path.  
+- Create one Git-generated patch per target file.  
+- Do not skip any target unless the source plan says the file is optional or the file is absent and the plan says create_if_missing.  
+  
+2. Section 6 — Improvement Matrix  
+- Use B1 through B6 as the semantic batch plan.  
+- For each batch, implement the desired_state items.  
+- Respect every forbidden item.  
+- Run the high_impact_extra_checks before finalizing each affected patch.  
+  
+3. Section 7 — Per-Target Contracts  
+- For each patch ID, apply the required_changes for that exact target file.  
+- Verify all required_markers for that target.  
+- Verify all forbidden_markers are absent for that target.  
+- Use the acceptance field as the semantic done condition.  
+  
+Do not merely create patch files from the target list.  
+Each patch must implement the corresponding B1–B6 batch intent and the per-target required_changes from the source plan.
+
+Also read if available:
+
+- `Blockers.md`
+    
+  
+
+If the source plan is not readable, stop with:
+
+```yaml
+SOURCE_ACCESS_FAILED:
+  missing:
+    - "apex-meta/patch-plans/2026-07-07-step1-prompt-blocker-cleanup-plan.okf.md"
+  action_needed: "Mount project source or confirm the source-plan path."
+```
+
+Target files for patch generation:
+
+```yaml
+001:
+  target_file: .claude/Claude.md
+  patch_file: apex-meta/patch-packs/2026-07-07-step1-prompt-blocker-cleanup/001-root-claude-loop-source-authority.patch
+
+002:
+  target_file: .claude/skills/PrecapNextDay/Skill_precap-next-day.md
+  patch_file: apex-meta/patch-packs/2026-07-07-step1-prompt-blocker-cleanup/002-precap-next-day-entrypoint-unfence.patch
+
+003:
+  target_file: .claude/skills/PrecapWeek/Skill_Precap-Week.md
+  patch_file: apex-meta/patch-packs/2026-07-07-step1-prompt-blocker-cleanup/003-precap-week-entrypoint-readable.patch
+
+004:
+  target_file: .claude/skills/PrecapWeek/package-manifest.md
+  patch_file: apex-meta/patch-packs/2026-07-07-step1-prompt-blocker-cleanup/004-precap-week-manifest-actual-paths.patch
+
+005:
+  target_file: .claude/skills/PrecapWeek/references/calendar-planning-guidance.md
+  patch_file: apex-meta/patch-packs/2026-07-07-step1-prompt-blocker-cleanup/005-precap-week-calendar-guidance.patch
+
+006:
+  target_file: .claude/skills/PrecapWeek/references/weekly-plan-output-contract.md
+  patch_file: apex-meta/patch-packs/2026-07-07-step1-prompt-blocker-cleanup/006-precap-week-output-contract.patch
+
+007:
+  target_file: .claude/skills/PrecapWeek/references/weekly-blueprint-standard.md
+  patch_file: apex-meta/patch-packs/2026-07-07-step1-prompt-blocker-cleanup/007-precap-week-blueprint-standard.patch
+
+008:
+  target_file: .claude/skills/PrecapWeek/references/weekly-blueprint-meeting-example.md
+  patch_file: apex-meta/patch-packs/2026-07-07-step1-prompt-blocker-cleanup/008-precap-week-meeting-example.patch
+
+009:
+  target_file: .claude/skills/PrecapWeek/references/validation-checklist.md
+  patch_file: apex-meta/patch-packs/2026-07-07-step1-prompt-blocker-cleanup/009-precap-week-validation-checklist.patch
+
+010:
+  target_file: .claude/skills/PrecapNextDay/precap-next-day-package-manifest.md
+  patch_file: apex-meta/patch-packs/2026-07-07-step1-prompt-blocker-cleanup/010-precap-next-day-path-policy.patch
+
+011:
+  target_file: .claude/skills/PrecapNextDay/references/operator-output-format-design.md
+  patch_file: apex-meta/patch-packs/2026-07-07-step1-prompt-blocker-cleanup/011-operator-output-design-result-card-policy.patch
+
+012:
+  target_file: .claude/skills/PrecapNextDay/templates/next-day-plan-operator-template.md
+  patch_file: apex-meta/patch-packs/2026-07-07-step1-prompt-blocker-cleanup/012-next-day-plan-result-card.patch
+
+013:
+  target_file: .claude/skills/PrecapNextDay/references/prompt-engineering-dependency-contract.md
+  patch_file: apex-meta/patch-packs/2026-07-07-step1-prompt-blocker-cleanup/013-prompt-engineering-path-bridge.patch
+
+014:
+  target_file: .claude/skills/PrecapNextDay/references/usage-tracking-dependency-contract.md
+  patch_file: apex-meta/patch-packs/2026-07-07-step1-prompt-blocker-cleanup/014-usage-tracking-path-bridge.patch
+
+015:
+  target_file: .claude/skills/PrecapNextDay/references/workflow-process-validation-contract.md
+  patch_file: apex-meta/patch-packs/2026-07-07-step1-prompt-blocker-cleanup/015-workflow-process-path-bridge.patch
+
+016:
+  target_file: .claude/skills/ProjectStatus/package-manifest.md
+  patch_file: apex-meta/patch-packs/2026-07-07-step1-prompt-blocker-cleanup/016-projectstatus-manifest-actual-paths.patch
+
+017:
+  target_file: .claude/skills/AIRouting/ai-routing-and-usage-tracking-SKILL.md
+  patch_file: apex-meta/patch-packs/2026-07-07-step1-prompt-blocker-cleanup/017-airouting-entrypoint-residue-removal.patch
+
+018:
+  target_file: .claude/skills/AIRouting/ai-routing-and-usage-tracking-package-manifest.md
+  patch_file: apex-meta/patch-packs/2026-07-07-step1-prompt-blocker-cleanup/018-airouting-manifest-residue-and-paths.patch
+
+019:
+  target_file: .claude/skills/raw-flow-dump-normalize/SKILL.md
+  patch_file: apex-meta/patch-packs/2026-07-07-step1-prompt-blocker-cleanup/019-raw-flow-run-completion-gate.patch
+
+020:
+  target_file: .claude/skills/status-merge/SKILL.md
+  patch_file: apex-meta/patch-packs/2026-07-07-step1-prompt-blocker-cleanup/020-status-merge-run-completion-gate.patch
+
+021:
+  target_file: .claude/skills/project-kb-manager/SKILL.md
+  patch_file: apex-meta/patch-packs/2026-07-07-step1-prompt-blocker-cleanup/021-project-kb-manager-state-handoff-exposure.patch
+
+022:
+  target_file: .claude/skills/model-usage-log/templates/model-usage-delta-template.md
+  patch_file: apex-meta/patch-packs/2026-07-07-step1-prompt-blocker-cleanup/022-model-usage-learning-card.patch
+```
+
+Allowed patch-pack outputs:
+
+```text
+apex-meta/patch-packs/2026-07-07-step1-prompt-blocker-cleanup/000-patch-manifest.md
+apex-meta/patch-packs/2026-07-07-step1-prompt-blocker-cleanup/001-root-claude-loop-source-authority.patch
+apex-meta/patch-packs/2026-07-07-step1-prompt-blocker-cleanup/002-precap-next-day-entrypoint-unfence.patch
+apex-meta/patch-packs/2026-07-07-step1-prompt-blocker-cleanup/003-precap-week-entrypoint-readable.patch
+apex-meta/patch-packs/2026-07-07-step1-prompt-blocker-cleanup/004-precap-week-manifest-actual-paths.patch
+apex-meta/patch-packs/2026-07-07-step1-prompt-blocker-cleanup/005-precap-week-calendar-guidance.patch
+apex-meta/patch-packs/2026-07-07-step1-prompt-blocker-cleanup/006-precap-week-output-contract.patch
+apex-meta/patch-packs/2026-07-07-step1-prompt-blocker-cleanup/007-precap-week-blueprint-standard.patch
+apex-meta/patch-packs/2026-07-07-step1-prompt-blocker-cleanup/008-precap-week-meeting-example.patch
+apex-meta/patch-packs/2026-07-07-step1-prompt-blocker-cleanup/009-precap-week-validation-checklist.patch
+apex-meta/patch-packs/2026-07-07-step1-prompt-blocker-cleanup/010-precap-next-day-path-policy.patch
+apex-meta/patch-packs/2026-07-07-step1-prompt-blocker-cleanup/011-operator-output-design-result-card-policy.patch
+apex-meta/patch-packs/2026-07-07-step1-prompt-blocker-cleanup/012-next-day-plan-result-card.patch
+apex-meta/patch-packs/2026-07-07-step1-prompt-blocker-cleanup/013-prompt-engineering-path-bridge.patch
+apex-meta/patch-packs/2026-07-07-step1-prompt-blocker-cleanup/014-usage-tracking-path-bridge.patch
+apex-meta/patch-packs/2026-07-07-step1-prompt-blocker-cleanup/015-workflow-process-path-bridge.patch
+apex-meta/patch-packs/2026-07-07-step1-prompt-blocker-cleanup/016-projectstatus-manifest-actual-paths.patch
+apex-meta/patch-packs/2026-07-07-step1-prompt-blocker-cleanup/017-airouting-entrypoint-residue-removal.patch
+apex-meta/patch-packs/2026-07-07-step1-prompt-blocker-cleanup/018-airouting-manifest-residue-and-paths.patch
+apex-meta/patch-packs/2026-07-07-step1-prompt-blocker-cleanup/019-raw-flow-run-completion-gate.patch
+apex-meta/patch-packs/2026-07-07-step1-prompt-blocker-cleanup/020-status-merge-run-completion-gate.patch
+apex-meta/patch-packs/2026-07-07-step1-prompt-blocker-cleanup/021-project-kb-manager-state-handoff-exposure.patch
+apex-meta/patch-packs/2026-07-07-step1-prompt-blocker-cleanup/022-model-usage-learning-card.patch
+apex-meta/patch-packs/2026-07-07-step1-prompt-blocker-cleanup/999-codex-apply-handoff.md
+apex-meta/patch-packs/2026-07-07-step1-prompt-blocker-cleanup/validation-report.md
+```
+
+Hard forbidden files and folders:
+
+```text
+state/
+.claude/kb/
+source-knowledge/
+ApexDefinition&OldVersions/
+.github/workflows/
+scripts/
+derived/
+outputs/
+raw/
+sources/
+```
+
+Required Step 1 cleanup changes:
+
+- Use the primary source plan as the exact semantic authority.
+    
+- Fix all blockers identified in the source plan.
+    
+- Create exactly one patch per target file.
+    
+- Keep every patch scoped to exactly one target file.
+    
+- Use `git diff` only.
+    
+- Do not hand-write patch hunks.
+    
+- Do not manually repair hunk headers.
+    
+- Do not directly apply the final implementation changes.
+    
+- Keep target files clean and unmodified in the final repo state.
+    
+- Commit and push patch-pack artifacts only.
+    
+- Do not edit files outside the target-file list.
+    
+- Do not touch forbidden files or folders.
+    
+- Do not run APEX work.
+    
+- Do not run PreCapWeek, PreCapNextDay, FlowRecap, status-merge, or project-kb-manager as workflows.
+    
+- Do not create calendar events.
+    
+- Do not mutate durable project state.
+    
+
+PRE-FLIGHT: repository and persistence checks
+
+Run:
+
+```bash
+git rev-parse --show-toplevel
+git rev-parse --is-inside-work-tree
+git remote get-url origin
+git branch --show-current
+git status --porcelain
+```
+
+Then run:
+
+```bash
+git ls-remote --heads origin main
+```
+
+Rules:
+
+1. If this is not the real cloned Git worktree for `leela-spec/apexai-os-meta`, stop with `FAIL`.
+    
+2. If origin is missing, stop with `FAIL`. Do not enter fallback archive mode.
+    
+3. If origin does not point to `leela-spec/apexai-os-meta`, stop with `FAIL`.
+    
+4. If the current branch is not `main`, run `git checkout main`.
+    
+5. Run `git pull --ff-only origin main`.
+    
+6. If `git pull` fails, stop with `FAIL`. Do not enter fallback archive mode.
+    
+7. If the primary source plan is not readable, stop with `FAIL`. Do not create patches.
+    
+8. If an existing target file is missing, stop with `FAIL`. Only targets marked `create_if_missing` in the source plan may be created.
+    
+9. If unrelated dirty files overlap target files, forbidden paths, or the patch-pack path, stop.
+    
+10. If unrelated dirty files exist elsewhere, report them but continue only if they do not overlap the task.
+    
+
+Create the patch-pack directory:
+
+```bash
+mkdir -p apex-meta/patch-packs/2026-07-07-step1-prompt-blocker-cleanup
+```
+
+Read first:
+
+- the primary source plan
+    
+- every target file listed above
+    
+If the primary source plan cannot be read, stop with `FAIL`.  
+If any existing target file cannot be read from the real repo, stop with `FAIL`.  
+Do not create placeholder files.  
+Do not generate patches from invented baseline content.
+
+
+Before editing, create an internal file-change map for all 22 patches by reading:  
+- Section 5 Target File and Patch Map  
+- Section 6 Improvement Matrix  
+- Section 7 Per-Target Contracts  
+  
+For each patch ID, the internal map must include:  
+- target_file  
+- patch_file  
+- batch_id  
+- blocker_id  
+- required_changes  
+- required_markers  
+- forbidden_markers  
+- acceptance condition  
+  
+Do not commit this internal map unless summarized inside 000-patch-manifest.md.
+
+PATCH GENERATION DOCTRINE
+
+- Generate patches with `git diff` only.
+    
+- Do not hand-write unified diff hunks.
+    
+- Do not manually edit hunk headers.
+    
+- Do not use zero-context diffs.
+    
+- Do not normalize line endings across whole files.
+    
+- Do not run formatters.
+    
+- Do not rewrite unrelated sections.
+    
+- Generate one patch file per target file.
+    
+- Each patch file must touch exactly one target file.
+    
+- After each patch file is generated, immediately revert the real target file.
+    
+- After each patch file validates, commit and push that patch file only before moving to the next patch.
+    
+- If push fails, do not claim success. Go to FALLBACK ARCHIVE MODE.
+    
+
+PER-PATCH CHECKPOINT PROCEDURE
+
+For each patch 001 through 022, do exactly this sequence.
+
+A. Confirm clean target:
+
+For existing tracked files:  
+  
+git checkout -- <target-file>  
+git status --porcelain -- <target-file>  
+  
+The status command must print nothing.  
+  
+For new files that do not yet exist:  
+  
+test ! -e <target-file>  
+mkdir -p "$(dirname "<target-file>")"  
+  
+Do not run `git checkout -- <target-file>` for a new untracked file that does not yet exist.
+
+B. Modify only `<target-file>` according to the source plan.
+
+C. Generate the patch:
+  
+For existing tracked files:  
+  
+git diff --no-ext-diff -- <target-file> > <patch-file>  
+  
+For newly created files:  
+  
+git add -N <target-file>  
+git diff --no-ext-diff -- <target-file> > <patch-file>  
+git reset -- <target-file>
+
+D. Validate patch file existence:
+
+```bash
+test -s <patch-file>
+```
+
+E. Validate single-file scope:
+
+```bash
+grep '^diff --git ' <patch-file>
+```
+
+This must print exactly one line, and that line must reference only `<target-file>`.
+
+F. Revert the real target file before apply-check:
+
+For existing files:
+
+```bash
+git checkout -- <target-file>
+git status --porcelain -- <target-file>
+```
+
+For new files:  
+  
+git reset -- <target-file> || true  
+rm -f <target-file>  
+git status --porcelain -- <target-file>  
+  
+The status command must print nothing.
+
+G. Validate that the patch applies to clean main:
+
+```bash
+git apply --check <patch-file>
+```
+
+H. Temporarily apply the patch and run patch-specific sanity checks:
+
+```bash
+git apply <patch-file>
+git diff --name-only
+```
+
+The diff must contain only `<target-file>`.
+
+Then verify the required and forbidden markers for that target file exactly as specified in the primary source plan.
+
+I. Revert target again:
+
+For existing files:
+
+```bash
+git checkout -- <target-file>
+git status --porcelain -- <target-file>
+```
+
+For new files:
+
+```bash
+rm -f <target-file>
+git status --porcelain -- <target-file>
+```
+
+The status command must print nothing.
+
+J. Commit and push this patch artifact only:
+
+```bash
+git add <patch-file>
+git diff --cached --name-only
+```
+
+The staged diff must list only `<patch-file>`.
+
+Then:
+
+```bash
+git commit -m "Add Step 1 prompt blocker cleanup patch <NNN>"
+git push origin main
+```
+
+If `git push` fails, stop normal repo mode and go to FALLBACK ARCHIVE MODE.
+
+CUMULATIVE VALIDATION AFTER 001-022 ARE PUSHED
+
+From clean main, run:
+
+```bash
+git pull --ff-only origin main
+git status --porcelain
+```
+
+Then check every patch:
+
+```bash
+for p in apex-meta/patch-packs/2026-07-07-step1-prompt-blocker-cleanup/[0-9][0-9][0-9]-*.patch; do git apply --check "$p" || exit 1; done
+```
+
+Apply all patches in numeric order:
+
+```bash
+for p in apex-meta/patch-packs/2026-07-07-step1-prompt-blocker-cleanup/[0-9][0-9][0-9]-*.patch; do git apply "$p" || exit 1; done
+```
+
+Run marker validations exactly as specified in the primary source plan.
+
+Check changed files:
+
+```bash
+git diff --name-only
+```
+
+The changed files must be only the 22 target files listed above.  
+No forbidden files may appear.
+
+Revert cumulative target-file changes:
+
+```bash
+git checkout -- .claude/Claude.md
+git checkout -- .claude/skills/PrecapNextDay/Skill_precap-next-day.md
+git checkout -- .claude/skills/PrecapWeek/Skill_Precap-Week.md
+git checkout -- .claude/skills/PrecapWeek/package-manifest.md
+git checkout -- .claude/skills/PrecapNextDay/precap-next-day-package-manifest.md
+git checkout -- .claude/skills/PrecapNextDay/references/operator-output-format-design.md
+git checkout -- .claude/skills/PrecapNextDay/templates/next-day-plan-operator-template.md
+git checkout -- .claude/skills/PrecapNextDay/references/prompt-engineering-dependency-contract.md
+git checkout -- .claude/skills/PrecapNextDay/references/usage-tracking-dependency-contract.md
+git checkout -- .claude/skills/PrecapNextDay/references/workflow-process-validation-contract.md
+git checkout -- .claude/skills/ProjectStatus/package-manifest.md
+git checkout -- .claude/skills/AIRouting/ai-routing-and-usage-tracking-SKILL.md
+git checkout -- .claude/skills/AIRouting/ai-routing-and-usage-tracking-package-manifest.md
+git checkout -- .claude/skills/raw-flow-dump-normalize/SKILL.md
+git checkout -- .claude/skills/status-merge/SKILL.md
+git checkout -- .claude/skills/project-kb-manager/SKILL.md
+git checkout -- .claude/skills/model-usage-log/templates/model-usage-delta-template.md
+rm -f .claude/skills/PrecapWeek/references/calendar-planning-guidance.md
+rm -f .claude/skills/PrecapWeek/references/weekly-plan-output-contract.md
+rm -f .claude/skills/PrecapWeek/references/weekly-blueprint-standard.md
+rm -f .claude/skills/PrecapWeek/references/weekly-blueprint-meeting-example.md
+rm -f .claude/skills/PrecapWeek/references/validation-checklist.md
+git status --porcelain
+```
+
+Target files must be clean and absent from final builder changes.
+
+CREATE AND COMMIT MANIFEST
+
+Create:
+
+```text
+apex-meta/patch-packs/2026-07-07-step1-prompt-blocker-cleanup/000-patch-manifest.md
+```
+
+Manifest must include:
+
+- repository and branch
+    
+- source plan file read
+    
+- optional guide files read or not found
+    
+- exact target files read
+    
+- exact patch files created
+    
+- patch-to-target map
+    
+- purpose of each patch
+    
+- individual validation command per patch
+    
+- cumulative validation commands
+    
+- marker validation results
+    
+- forbidden files/folders
+    
+- statement that target files were reverted and are not modified in the patch-pack commit
+    
+- commit SHAs for patch artifact commits if available
+    
+
+Commit and push manifest only:
+
+```bash
+git add apex-meta/patch-packs/2026-07-07-step1-prompt-blocker-cleanup/000-patch-manifest.md
+git diff --cached --name-only
+git commit -m "Add Step 1 prompt blocker cleanup patch manifest"
+git push origin main
+```
+
+CREATE AND COMMIT CODEX APPLY HANDOFF
+
+Create:
+
+```text
+apex-meta/patch-packs/2026-07-07-step1-prompt-blocker-cleanup/999-codex-apply-handoff.md
+```
+
+It must be a deterministic command prompt for Codex that says:
+
+- repo: `leela-spec/apexai-os-meta`
+    
+- branch: `main`
+    
+- work directly on `main`
+    
+- do not create branch
+    
+- do not open PR
+    
+- run `git checkout main`
+    
+- run `git pull --ff-only origin main`
+    
+- run `git apply --check` for each patch in numeric order
+    
+- run `git apply` for each patch in numeric order
+    
+- run marker validations from the manifest/source plan
+    
+- verify only the 22 target files changed
+    
+- verify forbidden files were not touched
+    
+- commit and push target-file changes
+    
+
+Commit and push handoff only:
+
+```bash
+git add apex-meta/patch-packs/2026-07-07-step1-prompt-blocker-cleanup/999-codex-apply-handoff.md
+git diff --cached --name-only
+git commit -m "Add Codex handoff for Step 1 prompt blocker cleanup patches"
+git push origin main
+```
+
+CREATE AND COMMIT VALIDATION REPORT
+
+Create:
+
+```text
+apex-meta/patch-packs/2026-07-07-step1-prompt-blocker-cleanup/validation-report.md
+```
+
+It must include:
+
+- preflight result
+    
+- per-patch validation result
+    
+- cumulative validation result
+    
+- changed-file scope result
+    
+- required marker result
+    
+- forbidden marker result
+    
+- final repo cleanliness result
+    
+
+Commit and push validation report only:
+
+```bash
+git add apex-meta/patch-packs/2026-07-07-step1-prompt-blocker-cleanup/validation-report.md
+git diff --cached --name-only
+git commit -m "Add validation report for Step 1 prompt blocker cleanup patch pack"
+git push origin main
+```
+
+FINAL REPO CHECK
+
+Run:
+
+```bash
+git status --porcelain
+git log --oneline -n 30
+```
+
+Final status must be clean.
+
+FALLBACK ARCHIVE MODE
+
+Use this only if all real patch artifacts were generated and validated from the real cloned repo, but repository push is unavailable.
+
+Fallback archive mode is forbidden when the repo clone, origin, source plan, or existing target files are missing. In those cases, stop with `FAIL` and create no patch artifacts.
+
+Rules:
+
+- Do not claim repo delivery.
+    
+- Do not create or use a synthetic repo as if it were the real repo.
+    
+- Do not create placeholder source files or placeholder patches.
+    
+- Only archive patches that were generated with `git diff` from the real cloned repository.
+    
+- Validate every patch with `git apply --check`; if validation cannot run, stop with `FAIL`.
+    
+- Create `000-patch-manifest.md`, `999-codex-apply-handoff.md`, and `validation-report.md` locally.
+    
+- Create an archive named `step1-prompt-blocker-cleanup-patch-pack.zip`.
+    
+
+Preferred archive output paths:
+
+1. `/mnt/data/step1-prompt-blocker-cleanup-patch-pack.zip` if `/mnt/data` exists.
+    
+2. `./step1-prompt-blocker-cleanup-patch-pack.zip` otherwise.
+    
+
+Archive must contain:
+
+- `000-patch-manifest.md`
+    
+- all generated `.patch` files
+    
+- `999-codex-apply-handoff.md`
+    
+- `validation-report.md`
+    
+- `FALLBACK-REPORT.md` explaining exactly why repo push was unavailable
+    
+
+In fallback mode final report verdict must be:
+
+```yaml
+PARTIAL_ARTIFACT_EXPORT
+```
+
+Do not report `pushed_patch_artifacts_to_main: true` in fallback mode.
+
+FINAL REPORT FORMAT
+
+Return exactly:
+
+```yaml
+FINAL_REPORT:
+  verdict: PASS|PARTIAL_ARTIFACT_EXPORT|FAIL
+  repo: leela-spec/apexai-os-meta
+  branch: main
+  normal_repo_mode_used: true|false
+  origin_verified: true|false
+  pushed_patch_artifacts_to_main: true|false
+  patch_pack_path: "apex-meta/patch-packs/2026-07-07-step1-prompt-blocker-cleanup/"
+  source_plan_read: true|false
+  source_plan_path: "apex-meta/patch-plans/2026-07-07-step1-prompt-blocker-cleanup-plan.okf.md"
+  patch_files_created:
+    - "apex-meta/patch-packs/2026-07-07-step1-prompt-blocker-cleanup/001-root-claude-loop-source-authority.patch"
+    - "apex-meta/patch-packs/2026-07-07-step1-prompt-blocker-cleanup/002-precap-next-day-entrypoint-unfence.patch"
+    - "apex-meta/patch-packs/2026-07-07-step1-prompt-blocker-cleanup/003-precap-week-entrypoint-readable.patch"
+    - "apex-meta/patch-packs/2026-07-07-step1-prompt-blocker-cleanup/004-precap-week-manifest-actual-paths.patch"
+    - "apex-meta/patch-packs/2026-07-07-step1-prompt-blocker-cleanup/005-precap-week-calendar-guidance.patch"
+    - "apex-meta/patch-packs/2026-07-07-step1-prompt-blocker-cleanup/006-precap-week-output-contract.patch"
+    - "apex-meta/patch-packs/2026-07-07-step1-prompt-blocker-cleanup/007-precap-week-blueprint-standard.patch"
+    - "apex-meta/patch-packs/2026-07-07-step1-prompt-blocker-cleanup/008-precap-week-meeting-example.patch"
+    - "apex-meta/patch-packs/2026-07-07-step1-prompt-blocker-cleanup/009-precap-week-validation-checklist.patch"
+    - "apex-meta/patch-packs/2026-07-07-step1-prompt-blocker-cleanup/010-precap-next-day-path-policy.patch"
+    - "apex-meta/patch-packs/2026-07-07-step1-prompt-blocker-cleanup/011-operator-output-design-result-card-policy.patch"
+    - "apex-meta/patch-packs/2026-07-07-step1-prompt-blocker-cleanup/012-next-day-plan-result-card.patch"
+    - "apex-meta/patch-packs/2026-07-07-step1-prompt-blocker-cleanup/013-prompt-engineering-path-bridge.patch"
+    - "apex-meta/patch-packs/2026-07-07-step1-prompt-blocker-cleanup/014-usage-tracking-path-bridge.patch"
+    - "apex-meta/patch-packs/2026-07-07-step1-prompt-blocker-cleanup/015-workflow-process-path-bridge.patch"
+    - "apex-meta/patch-packs/2026-07-07-step1-prompt-blocker-cleanup/016-projectstatus-manifest-actual-paths.patch"
+    - "apex-meta/patch-packs/2026-07-07-step1-prompt-blocker-cleanup/017-airouting-entrypoint-residue-removal.patch"
+    - "apex-meta/patch-packs/2026-07-07-step1-prompt-blocker-cleanup/018-airouting-manifest-residue-and-paths.patch"
+    - "apex-meta/patch-packs/2026-07-07-step1-prompt-blocker-cleanup/019-raw-flow-run-completion-gate.patch"
+    - "apex-meta/patch-packs/2026-07-07-step1-prompt-blocker-cleanup/020-status-merge-run-completion-gate.patch"
+    - "apex-meta/patch-packs/2026-07-07-step1-prompt-blocker-cleanup/021-project-kb-manager-state-handoff-exposure.patch"
+    - "apex-meta/patch-packs/2026-07-07-step1-prompt-blocker-cleanup/022-model-usage-learning-card.patch"
+  individual_patch_commits:
+    "001": "<sha-or-NA>"
+    "002": "<sha-or-NA>"
+    "003": "<sha-or-NA>"
+    "004": "<sha-or-NA>"
+    "005": "<sha-or-NA>"
+    "006": "<sha-or-NA>"
+    "007": "<sha-or-NA>"
+    "008": "<sha-or-NA>"
+    "009": "<sha-or-NA>"
+    "010": "<sha-or-NA>"
+    "011": "<sha-or-NA>"
+    "012": "<sha-or-NA>"
+    "013": "<sha-or-NA>"
+    "014": "<sha-or-NA>"
+    "015": "<sha-or-NA>"
+    "016": "<sha-or-NA>"
+    "017": "<sha-or-NA>"
+    "018": "<sha-or-NA>"
+    "019": "<sha-or-NA>"
+    "020": "<sha-or-NA>"
+    "021": "<sha-or-NA>"
+    "022": "<sha-or-NA>"
+  manifest_commit_sha: "<sha-or-NA>"
+  handoff_commit_sha: "<sha-or-NA>"
+  validation_report_commit_sha: "<sha-or-NA>"
+  each_patch_git_apply_check: PASS|FAIL
+  cumulative_patch_check: PASS|FAIL
+  cumulative_marker_validation: PASS|FAIL
+  target_files_modified_by_patch_pack_commits: false
+  final_repo_status_clean: true|false
+  forbidden_files_touched: false
+  fallback_archive: "<path-or-NA>"
+  failure_reason: "<reason-or-NA>"
+```
