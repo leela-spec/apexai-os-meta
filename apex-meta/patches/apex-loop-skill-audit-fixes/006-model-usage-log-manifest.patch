@@ -1,0 +1,50 @@
+diff --git a/.claude/skills/model-usage-log/package-manifest.md b/.claude/skills/model-usage-log/package-manifest.md
+index 9e4b1c7a..f95655ae 100644
+--- a/.claude/skills/model-usage-log/package-manifest.md
++++ b/.claude/skills/model-usage-log/package-manifest.md
+@@ -5,7 +5,7 @@ package_manifest:
+   package_name: model-usage-log
+   package_path: ".claude/skills/model-usage-log/"
+   package_type: claude_skill_minimal_interface_package
+-  status: draft_reference_package
++  status: interface_package_present
+   primary_role: >
+     Capture compact post-execution model/surface usage deltas and roll them up
+     into advisory usage summaries for future APEX planning.
+@@ -68,7 +68,7 @@ package_manifest:
+ files:
+   - path: ".claude/skills/model-usage-log/SKILL.md"
+     role: skill_entrypoint
+-    status: planned
++    status: created
+     required: true
+     notes: >
+       Minimal invocation contract and procedure. Must keep package advisory and
+@@ -142,13 +142,15 @@ source_inspection_register:
+ 
+   source_gaps:
+     - expected_path: ".claude/skills/flow-recap/references/flow-recap-packet-contract.md"
+-      status: not_found
++      status: present
+       package_behavior: reference_flow_recap_artifact_names_without_redefining_schema
++      resolution: resolved_by_live_main_inspection
+     - expected_path: ".claude/skills/flow-recap/references/project-status-delta-contract.md"
+-      status: not_found
++      status: present
+       package_behavior: do_not_define_project_status_delta
++      resolution: resolved_by_live_main_inspection
+     - expected_path: ".claude/skills/AIRouting/package-manifest.md"
+-      status: not_found
++      status: alternate_path_inspected
+       alternate_inspected: ".claude/skills/AIRouting/ai-routing-and-usage-tracking-package-manifest.md"
+ ```
+ 
+@@ -176,7 +178,7 @@ completion_gates:
+   entrypoint_exists:
+     path: ".claude/skills/model-usage-log/SKILL.md"
+     required_before_package_complete: true
+-    current_status: pending
++    current_status: present
+   model_usage_delta_contract_exists: true
+   usage_summary_contract_exists: true
+   model_usage_delta_template_exists: true

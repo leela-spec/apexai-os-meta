@@ -1,0 +1,59 @@
+diff --git a/.claude/skills/flow-recap/examples/apex-minimal-flow-recap-example.md b/.claude/skills/flow-recap/examples/apex-minimal-flow-recap-example.md
+index ca0a940c..5fe5e970 100644
+--- a/.claude/skills/flow-recap/examples/apex-minimal-flow-recap-example.md
++++ b/.claude/skills/flow-recap/examples/apex-minimal-flow-recap-example.md
+@@ -74,7 +74,7 @@ synthetic_normalized_raw_flow_dump:
+       flow_recap_packet ownership, candidate status delta boundaries, model
+       usage candidate boundaries, and no-runtime rules.
+     uncertainty_notes:
+-      - skipped-flow-marker-contract.md was missing during source inspection.
++      - skipped_flow_marker_ref is supported as an optional reference input through raw-flow-dump-normalize.
+   produced_outputs:
+     - output_label: flow-recap-packet-contract.md
+       change_type: created
+@@ -84,10 +84,10 @@ synthetic_normalized_raw_flow_dump:
+       status: made
+       evidence_ref: .claude/skills/flow-recap/references/flow-recap-packet-contract.md
+   blockers_or_failures:
+-    - blocker_summary: skipped-flow-marker-contract.md is missing and must remain an optional source gap.
+-      status: open
++    - blocker_summary: No skipped-flow marker blocker remains; skipped_flow_marker_ref stays optional for skipped or blocked flows.
++      status: resolved
+   open_questions:
+-    - Should skipped-flow-marker-contract.md be created later by raw-flow-dump-normalize?
++    - Should future examples include a skipped_flow_marker_ref case in addition to completed-flow cases?
+   model_usage_notes:
+     - surface: ChatGPT
+       model_or_mode: unspecified
+@@ -154,7 +154,7 @@ evidence_summary:
+ 
+ **Evidence gaps or conflicts:**
+ 
+-- `.claude/skills/raw-flow-dump-normalize/references/skipped-flow-marker-contract.md` was not found.
++- `.claude/skills/raw-flow-dump-normalize/references/skipped-flow-marker-contract.md` is available as the optional skipped_flow_marker_ref authority.
+ - This example is synthetic and should not be treated as proof of actual operator project work.
+ 
+ ---
+@@ -183,11 +183,11 @@ evidence_summary:
+ 
+ **Blockers / failures:**
+ 
+-- Missing skipped-flow marker contract means skipped-flow references remain optional in this package.
++- No skipped-flow marker blocker remains. `skipped_flow_marker_ref` remains optional because completed flows do not require it.
+ 
+ **Unresolved questions:**
+ 
+-- Should `raw-flow-dump-normalize` own and later create `skipped-flow-marker-contract.md`?
++- Should a later synthetic example demonstrate a skipped flow with `skipped_flow_marker_ref` populated?
+ - Should `model-usage-log` define the final usage delta schema before FlowRecap examples are expanded?
+ 
+ ---
+@@ -273,7 +273,7 @@ The packet contract references `candidate_project_status_delta`, so a dedicated
+ - Candidate project status delta requires operator validation before any durable state update.
+ - Model usage delta candidate requires validation by the future `model-usage-log` owner.
+ - Example uses synthetic evidence and must not be treated as actual project execution history.
+-- Missing skipped-flow marker contract remains a source gap.
++- `skipped_flow_marker_ref` support exists but remains optional for this completed-flow synthetic example.
+ 
+ ---
+ 

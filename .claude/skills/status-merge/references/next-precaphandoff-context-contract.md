@@ -108,11 +108,11 @@ source_authority:
 
   source_gap_register:
     - path: .claude/skills/flow-recap/references/project-status-delta-contract.md
-      status: missing
+      status: present
       handling: Use flow_recap_packet candidate_project_status_delta references only; do not define a separate durable delta schema here.
     - path: .claude/skills/model-usage-log/references/usage-summary-contract.md
-      status: missing
-      handling: Keep usage_summary_ref reference-only until the usage summary contract exists.
+      status: present
+      handling: Keep usage_summary_ref Reference only; the usage summary schema remains owned by model-usage-log.
 ```
 
 ## Schema: next_PreCapNextDay_input_context

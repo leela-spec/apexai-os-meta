@@ -11,7 +11,7 @@ status_merge_packet_contract:
     Define the minimal operator-gated interface for reconciling validated
     FlowRecap candidate deltas, usage summaries, and previous state references
     into merge proposals, conflict notes, proposed project-kb-manager updates,
-    an updated all-project status packet view, and the next PreCapNextDay input
+    an updated all-project status packet proposal/view, and the next PreCapNextDay input
     context. This contract does not create runtime execution, bypass
     project-kb-manager, or perform automatic durable state overwrite.
 
@@ -77,7 +77,7 @@ source_authority:
   inspected_sources:
     - path: .claude/Claude.md
       status: inspected
-      relevant_finding: StatusMerge is listed as missing, writes updated_all_project_status_packet behind operator gate G5, and repo rules forbid automatic state overwrite and batch writes without confirmation.
+      relevant_finding: StatusMerge was formerly indexed as missing; its status output is proposal/view only behind operator gate G5, and repo rules forbid automatic state overwrite and batch writes without confirmation.
     - path: .claude/skills/project-kb-manager/SKILL.md
       status: inspected
       relevant_finding: project-kb-manager owns durable project KB updates and next PreCap context when updates occur.
@@ -108,11 +108,11 @@ source_authority:
 
   source_gap_register:
     - path: .claude/skills/flow-recap/references/project-status-delta-contract.md
-      status: missing
-      handling: Treat project_status_delta content as candidate fields from flow_recap_packet until the dedicated delta contract exists.
+      status: present
+      handling: Treat project_status_delta content as candidate refs from flow_recap_packet without redefining schema.
     - path: .claude/skills/model-usage-log/references/usage-summary-contract.md
-      status: missing
-      handling: Treat source_usage_summary_refs as optional/empty or externally supplied refs until usage-summary-contract exists.
+      status: present
+      handling: Treat source_usage_summary_refs as reference-only; usage_summary schema remains externally owned.
 ```
 
 ## Schema: status_merge_packet
@@ -132,7 +132,7 @@ status_merge_packet:
     - rejected_or_deferred_delta_candidates
     - conflict_notes
     - proposed_project_kb_update
-    - updated_all_project_status_packet
+    - updated_all_project_status_packet_proposal
     - next_PreCapNextDay_input_context
     - operator_review_flags
     - validation_status
@@ -217,7 +217,7 @@ status_merge_packet:
       durable_write_owner: project-kb-manager
       note: Proposal only. Direct project record mutation is forbidden here.
 
-    updated_all_project_status_packet:
+    updated_all_project_status_packet_proposal:
       type: object_ref
       ref: updated_all_project_status_packet_view
       required: true

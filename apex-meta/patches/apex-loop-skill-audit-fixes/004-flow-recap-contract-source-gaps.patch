@@ -1,0 +1,24 @@
+diff --git a/.claude/skills/flow-recap/references/flow-recap-packet-contract.md b/.claude/skills/flow-recap/references/flow-recap-packet-contract.md
+index ce8cd760..8ec1715d 100644
+--- a/.claude/skills/flow-recap/references/flow-recap-packet-contract.md
++++ b/.claude/skills/flow-recap/references/flow-recap-packet-contract.md
+@@ -109,8 +109,8 @@ source_authority:
+       relevant_finding: YAML must remain parseable with 2-space indentation and skill procedures should stay coarse-grained.
+   source_gap_register:
+     - path: .claude/skills/raw-flow-dump-normalize/references/skipped-flow-marker-contract.md
+-      status: missing
+-      handling: Treat skipped_flow_marker_ref as optional until the skipped-flow marker contract exists.
++      status: inspected
++      handling: Treat skipped_flow_marker_ref as an optional reference input. Reference the skipped-flow marker contract without redefining schema.
+     - path: .claude/skills/PrecapNextDay/precap-next-day-package-manifest.md
+       status: not_reinspected_in_this_file_creation_step
+       handling: Known package map exists from prior PreCap work, but this first FlowRecap contract does not depend on manifest internals.
+@@ -183,7 +183,7 @@ flow_recap_packet:
+       type: object_ref
+       ref: skipped_flow_marker
+       required: false
+-      note: Optional until skipped-flow marker contract exists.
++      note: Optional reference. skipped_flow_marker schema is owned by raw-flow-dump-normalize.
+ 
+     recap_status:
+       type: string

@@ -49,7 +49,7 @@ package_manifest:
 
   file_list:
     - path: ".claude/skills/raw-flow-dump-normalize/SKILL.md"
-      status: pending
+      status: created
       purpose: "Skill entrypoint, trigger, procedure, boundaries, supporting files, failure modes, output requirements, and completion gate."
       read_when: "skill_invocation_or_entrypoint_review"
     - path: ".claude/skills/raw-flow-dump-normalize/references/raw-flow-dump-contract.md"
@@ -132,7 +132,7 @@ package_manifest:
     template_created: true
     apex_minimal_example_created: true
     manifest_created: true
-    SKILL_md_created_with_valid_frontmatter: false
+    SKILL_md_created_with_valid_frontmatter: true
     no_runtime_or_automation_created: true
     no_FlowRecap_or_status_merge_output_created: true
     downstream_flow_recap_input_is_clear: true

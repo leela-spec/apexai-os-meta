@@ -93,17 +93,18 @@ source_inspection_register:
         gate requirements.
 
 source_gap_register:
-  missing_or_not_at_requested_path:
+  inspected_or_resolved:
     - path: ".claude/skills/flow-recap/references/flow-recap-packet-contract.md"
-      impact: >
-        ModelUsageLog must treat flow_recap_packet references as opaque source
-        references until the FlowRecap package contract exists.
-      degraded_behavior: use_source_flow_recap_refs_without_redefining_schema
+      status: present
+      handling: >
+        ModelUsageLog references flow_recap_packet artifacts without redefining schema.
     - path: ".claude/skills/flow-recap/references/project-status-delta-contract.md"
-      impact: >
-        ModelUsageLog must not infer or define project_status_delta fields.
-      degraded_behavior: omit_project_status_delta_schema_dependencies
+      status: present
+      handling: >
+        ModelUsageLog may preserve project_status_delta refs when supplied, without redefining schema.
+  alternate_path_notes:
     - path: ".claude/skills/AIRouting/package-manifest.md"
+      status: alternate_path_inspected
       impact: >
         Requested manifest path is absent; alternate AIRouting manifest was
         inspected at ai-routing-and-usage-tracking-package-manifest.md.

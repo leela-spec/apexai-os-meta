@@ -5,7 +5,7 @@ package_manifest:
   package_name: status-merge
   package_path: .claude/skills/status-merge/
   package_role: minimal_interface_package
-  lifecycle_status: interface_package_ready_for_skill_entrypoint
+  lifecycle_status: interface_package_present
   created_for: APEX orchestration loop
   artifact_family:
     - status_merge_packet
@@ -89,8 +89,8 @@ files:
 
   - path: .claude/skills/status-merge/SKILL.md
     role: skill_entrypoint
-    status: pending
-    commit: null
+    status: created
+    commit: live_main_entrypoint_present
     loaded_by_default: true
     read_when:
       - invoking_status_merge_skill
@@ -181,7 +181,7 @@ source_authority_register:
 ```yaml
 source_gap_register:
   - path: .claude/skills/flow-recap/references/project-status-delta-contract.md
-    status: missing
+    status: present
     impact: medium
     handling: >
       StatusMerge uses candidate_project_status_delta references from
@@ -189,7 +189,7 @@ source_gap_register:
       delta schema.
 
   - path: .claude/skills/model-usage-log/references/usage-summary-contract.md
-    status: missing
+    status: present
     impact: medium
     handling: >
       StatusMerge keeps usage summaries as opaque source_usage_summary_refs and
@@ -280,7 +280,7 @@ completion_gate_snapshot:
   template_created: true
   apex_minimal_example_created: true
   manifest_created: true
-  SKILL_md_created_with_valid_frontmatter: false
+  SKILL_md_created_with_valid_frontmatter: true
   project_kb_manager_boundary_preserved: true
   conflicts_are_surfaced_before_acceptance: true
   no_automatic_status_overwrite_created: true

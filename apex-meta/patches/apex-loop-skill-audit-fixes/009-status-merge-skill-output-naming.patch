@@ -1,0 +1,40 @@
+diff --git a/.claude/skills/status-merge/SKILL.md b/.claude/skills/status-merge/SKILL.md
+index e5a7413f..228c92fc 100644
+--- a/.claude/skills/status-merge/SKILL.md
++++ b/.claude/skills/status-merge/SKILL.md
+@@ -54,10 +54,14 @@ outputs:
+     - rejected_or_deferred_delta_candidates
+     - conflict_notes
+     - proposed_project_kb_update
+-    - updated_all_project_status_packet
++    - updated_all_project_status_packet_proposal
+     - next_PreCapNextDay_input_context
+     - operator_review_flags
+     - validation_status
++  compatibility_note: >
++    If older documents use updated_all_project_status_packet, interpret it here
++    only as a proposal/view, never as accepted durable project state. Durable
++    writes remain project-kb-manager owned and operator-gated.
+ ```
+ 
+ ## Procedure
+@@ -70,7 +74,7 @@ outputs:
+ 
+ 4. **Surface conflicts before acceptance.** Put conflicts and operator decisions before accepted deltas. If a conflict blocks safe interpretation or owner routing, mark the packet `blocked_by_conflict` or `operator_review_recommended`.
+ 
+-5. **Draft proposal-only state views.** Produce `proposed_project_kb_update` and `updated_all_project_status_packet` as review/proposal views only. Durable project KB writes remain `project-kb-manager` owned and operator-gated.
++5. **Draft proposal-only state views.** Produce `proposed_project_kb_update` and `updated_all_project_status_packet_proposal` as review/proposal views only. Durable project KB writes remain `project-kb-manager` owned and operator-gated.
+ 
+ 6. **Prepare next planning seed.** Produce `next_PreCapNextDay_input_context` as compact context for later daily planning. Do not create a `next_day_plan` and do not trigger PreCapNextDay.
+ 
+@@ -124,8 +128,8 @@ failure_modes:
+   - trigger: Missing usage-summary or project-status-delta contract is filled by inference.
+     correction: Record a source gap and keep external schema refs opaque.
+ 
+-  - trigger: updated_all_project_status_packet replaces ProjectStatus output.
+-    correction: Mark it as a review view only and preserve ProjectStatus ownership.
++  - trigger: Legacy all-project status naming is used without proposal/view qualification.
++    correction: Use updated_all_project_status_packet_proposal or an explicit compatibility note that says proposal/view only and not accepted durable state.
+ 
+   - trigger: Runtime, scheduler, cron, agent, or auto-trigger behavior is introduced.
+     correction: Remove runtime behavior; this package is an interface-only skill.

@@ -50,8 +50,8 @@ synthetic_usage_summary:
   ref_id: usage_summary_2026_07_06_status_merge_minimal
   artifact_name: usage_summary
   source_note: >
-    Synthetic opaque reference only. This example does not define or validate the
-    usage_summary schema because that schema belongs outside status-merge.
+    Synthetic opaque reference only. This example treats usage_summary as an
+    external reference and does not define or validate external usage fields.
   status: opaque_reference_only
 ```
 
@@ -126,39 +126,39 @@ operator_review_flags:
 
 ```yaml
 conflict_notes:
-  - conflict_id: conflict_usage_summary_contract_missing
+  - conflict_id: conflict_operator_confirmation_required
     severity: medium
-    conflict_type: usage_summary_incomplete
+    conflict_type: state_owner_unclear
     conflict_summary: >
-      The status-merge package can reference usage summaries, but the dedicated
-      usage-summary contract was not available during source inspection.
+      The synthetic candidate delta is acceptable as a proposal only, but durable
+      project state cannot change until the operator confirms project-kb-manager
+      should record it.
     source_refs:
       - usage_summary_2026_07_06_status_merge_minimal
-      - source_gap:.claude/skills/model-usage-log/references/usage-summary-contract.md
+      - project_kb_record_apex_status_merge_skill_package
     affected_state_refs:
       - status_merge_packet_2026_07_06_apex_minimal_example
     required_operator_decision: >
-      Decide whether an opaque usage_summary_ref is sufficient for this package
-      stage or whether model-usage-log must first publish its usage-summary
-      contract.
+      Confirm whether the synthetic accepted delta should be sent to
+      project-kb-manager as a durable update proposal.
     proposed_resolution: >
-      Keep usage_summary_ref as opaque reference-only and do not define the
-      usage_summary schema inside status-merge.
+      Keep the merge output as proposal only until the operator explicitly routes
+      the accepted candidate to project-kb-manager.
     blocks_project_kb_write: false
     blocks_next_PreCapNextDay_context: false
 ```
 
 ### Conflict Card
 
-#### Conflict: `conflict_usage_summary_contract_missing`
+#### Conflict: `conflict_operator_confirmation_required`
 
 - **Severity:** Medium
-- **Type:** `usage_summary_incomplete`
-- **What conflicts:** Usage summaries are referenced, but their source contract is missing.
-- **Evidence:** Synthetic usage ref plus recorded source gap.
+- **Type:** `state_owner_unclear`
+- **What conflicts:** The delta is usable as a proposal, but durable state ownership still requires operator confirmation.
+- **Evidence:** Synthetic usage ref plus project-kb-manager state boundary.
 - **Affected state:** StatusMerge output can remain valid with warning/operator review.
-- **Operator decision needed:** Accept opaque reference-only handling or block until the usage contract exists.
-- **Proposed resolution:** Keep usage context reference-only in this package.
+- **Operator decision needed:** Confirm whether to route the proposal to project-kb-manager.
+- **Proposed resolution:** Keep the packet proposal only until confirmed.
 - **Blocks:** Neither project KB write nor next PreCap context in this example.
 
 ---
@@ -197,24 +197,24 @@ accepted_delta_candidates:
 
 ```yaml
 rejected_or_deferred_delta_candidates:
-  - candidate_id: candidate_delta_usage_summary_schema_embed
-    source_ref: usage_summary_2026_07_06_status_merge_minimal
+  - candidate_id: candidate_delta_direct_project_kb_write
+    source_ref: project_kb_record_apex_status_merge_skill_package
     delta_summary: >
-      Embed or recreate usage_summary schema fields inside status-merge.
+      Write the accepted candidate directly into durable project KB state from status-merge.
     disposition: deferred
     reason: >
-      The usage summary schema is outside status-merge ownership and its source
-      contract is missing. StatusMerge must keep usage references opaque.
+      Durable project state remains owned by project-kb-manager and requires
+      explicit operator confirmation before any write path.
 ```
 
 ### Deferred Candidate Card
 
-#### Deferred Candidate: `candidate_delta_usage_summary_schema_embed`
+#### Deferred Candidate: `candidate_delta_direct_project_kb_write`
 
-- **Source:** `usage_summary_2026_07_06_status_merge_minimal`
-- **Delta:** Define usage summary schema inside status-merge.
-- **Reason deferred:** Wrong ownership and missing source authority.
-- **Unblock condition:** model-usage-log publishes the usage-summary contract, after which StatusMerge may reference it but still not own it.
+- **Source:** `project_kb_record_apex_status_merge_skill_package`
+- **Delta:** Write durable state directly from status-merge.
+- **Reason deferred:** Wrong owner and no explicit operator routing confirmation.
+- **Unblock condition:** Operator confirms project-kb-manager should process the proposal.
 - **Revisit context:** Package audit or model-usage-log integration review.
 
 ---
@@ -234,13 +234,13 @@ proposed_project_kb_update:
       Record that status-merge now has packet contract, next PreCap handoff
       context contract, and operator-facing packet template drafted.
     - >
-      Record that usage_summary remains reference-only because its source
-      contract is missing.
+      Preserve the accepted delta as proposal only until project-kb-manager
+      receives explicit operator confirmation.
   blocked_changes:
-    - blocked_change_id: blocked_usage_summary_schema_embedding
-      reason: missing evidence and wrong state owner
+    - blocked_change_id: blocked_direct_project_kb_write
+      reason: wrong state owner and missing operator routing confirmation
       source_refs:
-        - source_gap:.claude/skills/model-usage-log/references/usage-summary-contract.md
+        - conflict_operator_confirmation_required
   operator_gate_status: ready_for_operator_review
 ```
 
@@ -249,7 +249,7 @@ proposed_project_kb_update:
 - **Durable write owner:** `project-kb-manager`
 - **Proposed records affected:** `apex_status_merge_skill_package`
 - **Changes ready for review:** Package status can reflect the created interface files.
-- **Changes blocked:** Embedding usage_summary schema.
+- **Changes blocked:** Direct durable project KB mutation from status-merge.
 - **Operator gate:** `ready_for_operator_review`
 - **Explicit warning:** Do not directly edit project KB durable records from this example.
 
@@ -278,7 +278,7 @@ updated_all_project_status_packet:
         - commit:772d4d56243ebc95c2f10aba3e722c6e19b0e0e3
         - commit:bb795f81bb30049668104839144fb550ee5cbcc0
   unresolved_conflicts:
-    - conflict_usage_summary_contract_missing
+    - conflict_operator_confirmation_required
 ```
 
 ---
@@ -307,21 +307,21 @@ next_PreCapNextDay_input_context:
       source_refs:
         - candidate_delta_status_merge_contract_done
   blockers:
-    - blocker_id: blocker_usage_summary_contract_missing
-      blocker_summary: Dedicated usage-summary contract is missing, so usage remains opaque reference-only.
+    - blocker_id: blocker_operator_confirmation_required
+      blocker_summary: Durable KB update cannot occur until the operator confirms project-kb-manager should process the proposal.
       affected_project_refs:
         - apex_status_merge_skill_package
       source_refs:
-        - conflict_usage_summary_contract_missing
-      resolution_needed: missing_evidence
+        - conflict_operator_confirmation_required
+      resolution_needed: operator_decision
   unresolved_operator_decisions:
-    - decision_id: decision_accept_opaque_usage_summary_ref
-      decision_summary: Accept opaque usage_summary_ref handling for this interface-only package stage.
+    - decision_id: decision_confirm_project_kb_manager_update
+      decision_summary: Confirm whether the synthetic accepted delta should become a project-kb-manager update proposal.
       options:
-        - accept_reference_only_usage_summary
-        - block_until_usage_summary_contract_exists
+        - confirm_project_kb_manager_update_proposal
+        - keep_delta_as_proposal_only
       source_refs:
-        - conflict_usage_summary_contract_missing
+        - conflict_operator_confirmation_required
       impact_if_unresolved: limits_next_precap_confidence
   usage_summary_ref: usage_summary_2026_07_06_status_merge_minimal
   evidence_refs:
@@ -331,10 +331,10 @@ next_PreCapNextDay_input_context:
   confidence:
     level: medium
     rationale: >
-      The package boundary is clear and the accepted delta is supported, but one
-      upstream usage-summary contract is missing.
+      The package boundary is clear and the accepted delta is supported, but
+      durable state routing still requires operator confirmation.
     limiting_factors:
-      - missing_usage_summary_contract
+      - operator_confirmation_required
   validation_status: operator_review_recommended
 ```
 
@@ -342,10 +342,10 @@ next_PreCapNextDay_input_context:
 
 - **Primary focus for next PreCapNextDay:** Complete package manifest and SKILL.md while preserving boundaries.
 - **Ready actions:** Create remaining package files in sequence.
-- **Blocked actions:** Do not embed usage_summary schema inside status-merge.
-- **Operator decisions carried forward:** Whether opaque usage_summary_ref is sufficient for this stage.
+- **Blocked actions:** Do not mutate durable project KB state directly from status-merge.
+- **Operator decisions carried forward:** Whether project-kb-manager should process the proposal.
 - **Usage context:** `usage_summary_2026_07_06_status_merge_minimal`
-- **Confidence:** Medium, because one source contract is missing.
+- **Confidence:** Medium, because operator confirmation is still required.
 
 ---
 

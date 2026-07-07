@@ -1,0 +1,59 @@
+diff --git a/.claude/Claude.md b/.claude/Claude.md
+index 341995a8..e9c96bb5 100644
+--- a/.claude/Claude.md
++++ b/.claude/Claude.md
+@@ -63,32 +63,32 @@ skills:
+     status: present
+   FlowRecap:
+     trigger_phrase: "run flow-recap"
+-    skill_path: .claude/skills/flow-recap/Skill_flow-recap.md
++    skill_path: .claude/skills/flow-recap/SKILL.md
+     input_artifact: flow_packet_plus_raw_flow_dump
+     output_artifact: flow_recap_packet
+     operator_gate: G4
+-    status: missing
++    status: present
+   StatusMerge:
+     trigger_phrase: "run status-merge"
+-    skill_path: .claude/skills/status-merge/Skill_status-merge.md
++    skill_path: .claude/skills/status-merge/SKILL.md
+     input_artifact: flow_recap_packets_plus_apex_project_status
+-    output_artifact: updated_all_project_status_packet
++    output_artifact: status_merge_packet
+     operator_gate: G5
+-    status: missing
++    status: present
+   RawFlowDumpNormalize:
+     trigger_phrase: "run raw-flow-dump-normalize"
+-    skill_path: .claude/skills/raw-flow-dump-normalize/Skill_raw-flow-dump-normalize.md
++    skill_path: .claude/skills/raw-flow-dump-normalize/SKILL.md
+     input_artifact: raw_operator_input
+-    output_artifact: raw_flow_dump
++    output_artifact: normalized_raw_flow_dump_or_skipped_flow_marker
+     operator_gate: none
+-    status: missing
++    status: present
+   ModelUsageLog:
+     trigger_phrase: "run model-usage-log"
+-    skill_path: .claude/skills/model-usage-log/Skill_model-usage-log.md
++    skill_path: .claude/skills/model-usage-log/SKILL.md
+     input_artifact: flow_recap_packet
+     output_artifact: model_usage_delta
+     operator_gate: none
+-    status: missing
++    status: present
+ 
+ # Section 5 — Artifact Paths
+ 
+@@ -126,7 +126,10 @@ session_startup:
+ 
+ ## 7c. Missing input handling
+ 
+-If a required input artifact is missing when a skill is triggered, halt, report which file is missing, and ask Marco to provide it before proceeding.
++Missing-input handling is skill-specific.
++
++- If the invoked skill contract marks an input as hard-required, halt, report the missing file or artifact, and ask Marco to provide it before proceeding.
++- If the invoked skill allows degraded or bootstrap mode, continue only within that skill's degraded-mode rules, mark low confidence, and surface operator review flags.
+ 
+ ## 7d. Output write behavior
+ 

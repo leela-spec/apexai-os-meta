@@ -6,7 +6,7 @@ package_manifest:
   package_path: .claude/skills/flow-recap/
   package_role: minimal_interface_for_post_flow_recap
   primary_artifact: flow_recap_packet
-  status: interface_package_in_progress
+  status: interface_package_present
   read_when:
     - operator_inspects_package_structure
     - validating_flow_recap_package_files
@@ -14,8 +14,10 @@ package_manifest:
 
   source_authority_summary:
     inspected_or_gap_recorded: true
-    missing_sources_recorded:
-      - .claude/skills/raw-flow-dump-normalize/references/skipped-flow-marker-contract.md
+    resolved_sources:
+      - path: .claude/skills/raw-flow-dump-normalize/references/skipped-flow-marker-contract.md
+        status: inspected
+        handling: skipped_flow_marker_ref remains optional input
 
   package_boundaries:
     owns:
@@ -59,7 +61,7 @@ package_manifest:
 ```yaml
 file_list:
   - path: .claude/skills/flow-recap/SKILL.md
-    status: pending
+    status: created
     purpose: Skill entrypoint, trigger conditions, procedure, boundaries, supporting-file map, failure modes, output requirements, and completion gate.
     read_when:
       - skill_invocation
@@ -156,23 +158,19 @@ completion_status:
   template_created: true
   apex_minimal_example_created: true
   manifest_created: true
-  SKILL_md_created_with_valid_frontmatter: false
+  SKILL_md_created_with_valid_frontmatter: true
   candidate_deltas_not_treated_as_accepted_state: true
   model_usage_candidate_not_treated_as_final_usage_log: true
   no_runtime_or_automation_created: true
   downstream_status_merge_and_model_usage_inputs_are_clear: true
 ```
 
-## Remaining Build Step
+## Package Ready Note
 
 ```yaml
-remaining_build_step:
-  next_file: .claude/skills/flow-recap/SKILL.md
-  reason: Final entrypoint is still needed to make the package invokable.
-  required_frontmatter:
-    allowed_fields_only:
-      - name
-      - description
-    name: flow-recap
-    description_must_start_with: Use this skill when
+package_ready_note:
+  entrypoint_present: true
+  package_invokable: true
+  candidate_deltas_not_treated_as_accepted_state: true
+  remaining_action: apply_patch_pack_review_only
 ```
