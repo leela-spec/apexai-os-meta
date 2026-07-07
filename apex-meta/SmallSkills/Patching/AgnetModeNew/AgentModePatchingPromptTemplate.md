@@ -2,13 +2,15 @@
 
 ```okf
 okf_document:
-  id: agent_mode_patching_prompt_template_v1
-  title: Agent Mode Patching Prompt Template
+  id: agent_mode_patching_prompt_template_v2
+  title: Agent Mode Patching Prompt Template v2
   status: reusable_template
   purpose: >
     Reusable neutral template for future Agent Mode, patch-pack, and repo-edit
     workflows without inheriting old patch counts, target maps, marker strings,
-    or environment assumptions.
+    or environment assumptions. Version 2 adds executor-gate, mission-preservation,
+    repair-coverage, and patch-grouping fields so the worker cannot fix the last
+    failure by forgetting the actual task.
 ```
 
 ## 0. Template Use Rules
@@ -38,6 +40,10 @@ rewrite_every_run:
   - <VALIDATION_COMMANDS>
   - <OUTPUT_ARTIFACTS>
   - <FINAL_REPORT_SCHEMA>
+  - <EXECUTOR_GATE_REQUIREMENT>
+  - <REPAIR_AREAS_OR_DELIVERABLE_COVERAGE>
+  - <PATCH_GROUPING_RULE>
+  - <INVALID_HISTORICAL_ARTIFACTS>
 ```
 
 ---
@@ -58,7 +64,39 @@ mission:
 
 Do not build anything outside the declared output mode.
 
+Do not let executor-access checks replace the declared mission.
+
 Do not import target files, patch counts, marker checks, or failure details from previous runs.
+
+## 1.1 Mission Preservation Lock
+
+Fill this section whenever the task has multiple repair areas, deliverables, or source-plan targets.
+
+```yaml
+mission_preservation_lock:
+  declared_deliverables:
+<REPAIR_AREAS_OR_DELIVERABLE_COVERAGE>
+  rule: >
+    Every declared deliverable must be completed, explicitly omitted with a reason,
+    or marked failed. Executor preflight is a gate, not a deliverable.
+  forbidden_completion_patterns:
+    - "PASS after access check only"
+    - "dropping repair areas after adding a new guard"
+    - "replacing the landed source plan with a newly invented plan"
+```
+
+## 1.2 Invalid Historical Artifacts
+
+Fill this section when prior failed patch packs, transcripts, or examples exist.
+
+```yaml
+invalid_historical_artifacts:
+<INVALID_HISTORICAL_ARTIFACTS>
+handling_rules:
+  - "read only if the source plan names them as evidence"
+  - "do not copy patch hunks, target maps, or marker checks from them"
+  - "never use failed patch files as implementation authority"
+```
 
 ## 2. Invariant Rules
 
@@ -80,7 +118,36 @@ invariant_rules:
 
 ## 3. Environment Mode Selection
 
-Choose exactly one mode after preflight.
+Choose exactly one mode after preflight. If the task requires live Git and the
+preflight fails, stop immediately with WRONG_EXECUTOR. Do not search for the repo
+or switch into API reconstruction.
+
+```yaml
+executor_gate:
+  required_when: "<EXECUTOR_GATE_REQUIREMENT>"
+  live_git_one_shot_checks:
+    - "git rev-parse --show-toplevel"
+    - "git rev-parse --is-inside-work-tree"
+    - "git remote get-url origin"
+    - "git branch --show-current"
+  required_result:
+    inside_work_tree: true
+    origin_contains: "<REPO>"
+    branch: "<BRANCH>"
+  if_failed:
+    verdict: WRONG_EXECUTOR
+    patch_generation_started: false
+    pushed: false
+  forbidden_recovery:
+    - "find / -name <repo>"
+    - "inspect /home/oai/share, /workspace, /mnt/data, or /tmp as fallback"
+    - "git clone"
+    - "git init"
+    - "GitHub/API baseline reconstruction"
+```
+
+Use `api_mirror` only when the prompt explicitly authorizes mirror mode. Do not
+automatically reinterpret a Git-native task as API mirror mode.
 
 ```yaml
 environment_mode_selection:
@@ -134,6 +201,12 @@ run_parameters:
 <TARGET_FILES>
   forbidden_paths:
 <FORBIDDEN_PATHS>
+  patch_grouping_rule:
+<PATCH_GROUPING_RULE>
+  invalid_historical_artifacts:
+<INVALID_HISTORICAL_ARTIFACTS>
+  deliverable_coverage:
+<REPAIR_AREAS_OR_DELIVERABLE_COVERAGE>
   required_changes:
 <REQUIRED_CHANGES>
   required_markers:
@@ -174,7 +247,7 @@ patch_pack_mode:
     - "start from declared environment mode"
     - "read source plan"
     - "read current target files"
-    - "for each target file, modify only that file"
+    - "for each repo target path, modify only that path and include all same-file repair areas in one patch unless the source plan explicitly requires an ordered same-file patch stack"
     - "generate patch artifact with environment-appropriate method"
     - "validate each patch"
     - "validate cumulative application when live Git worktree exists"
@@ -186,6 +259,15 @@ patch_pack_mode:
     - "grep '^diff --git ' <patch-file>"
     - "git apply --check <patch-file>"
     - "git apply --check all patches in order"
+  required_manifest_fields:
+    - "patch_file"
+    - "target_file"
+    - "repair_areas_or_deliverables_covered"
+    - "omitted_repair_areas_with_reason"
+  forbidden:
+    - "one patch per feature when multiple features modify the same file and the source plan does not require that split"
+    - "PASS_WITH_WORKAROUNDS"
+    - "marker-only behavior proof for executable changes"
 ```
 
 ### 6.2 Direct Repo Edit Mode
@@ -234,6 +316,8 @@ validation:
 
 Do not treat marker presence as behavior proof when executable code changes.
 
+If the task has declared repair areas, validation must include a coverage ledger.
+
 ## 8. Output Artifacts
 
 ```yaml
@@ -249,7 +333,7 @@ Use this schema unless the run defines a stricter one.
 
 ```yaml
 FINAL_REPORT:
-  verdict: "PASS | PARTIAL | FAIL"
+  verdict: "PASS | PARTIAL | FAIL | WRONG_EXECUTOR"
   environment_mode: "live_git_worktree | api_mirror | blocked"
   repo: "<REPO>"
   branch: "<BRANCH>"
@@ -259,11 +343,27 @@ FINAL_REPORT:
       - "<path>"
   outputs_created:
     - "<path>"
+  executor_gate:
+    required: true|false
+    result: "PASS | WRONG_EXECUTOR | NA"
+  deliverable_coverage:
+    declared:
+      - "<deliverable_or_repair_area>"
+    completed:
+      - "<deliverable_or_repair_area>"
+    omitted:
+      - name: "<deliverable_or_repair_area>"
+        reason: "<reason>"
   validation:
     mechanical_validation: "PASS | FAIL | NA"
     changed_file_scope: "PASS | FAIL | NA"
     required_markers: "PASS | FAIL | NA"
     forbidden_markers: "PASS | FAIL | NA"
+    behavior_checks: "PASS | FAIL | NA"
+  patch_grouping:
+    rule: "<PATCH_GROUPING_RULE>"
+    exceptions:
+      - "<only-if-used>"
   persistence:
     committed: true|false
     sha: "<sha-or-NA>"
@@ -287,6 +387,10 @@ anti_drift_check:
   no_old_environment_assumption_is_default: true
   all_run_parameters_rewritten: true
   examples_marked_example_only: true
+  executor_gate_does_not_replace_mission: true
+  deliverable_coverage_complete_or_explained: true
+  same_target_repairs_grouped_unless_exception: true
+  invalid_historical_artifacts_not_used_as_authority: true
   placeholders_present_only_in_template: true
 ```
 

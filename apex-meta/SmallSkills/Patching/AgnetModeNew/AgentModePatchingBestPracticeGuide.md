@@ -2,9 +2,12 @@
 
 ```okf
 okf_document:
-  id: agent_mode_patching_best_practice_guide_v1
-  status: neutral_general_process_standard
-  purpose: reusable guide for Agent Mode patch-pack and repo-edit workflows
+  id: agent_mode_patching_best_practice_guide_v2
+  status: neutral_general_process_standard_with_failure_learning
+  purpose: >
+    reusable guide for Agent Mode patch-pack and repo-edit workflows that
+    preserves accumulated failure findings without letting the last failure mode
+    erase the mission, payload, or proven execution model
 ```
 
 ## 1. Executive Verdict
@@ -15,6 +18,64 @@ verdict:
   definition: concrete details from one run became false global doctrine
   durable_fix: separate invariants, environment modes, run parameters, and examples
   pass_rule: no PASS without source access, complete outputs, validation evidence, and persistence evidence
+  v2_correction: executor guards must prevent wrong-runtime waste without narrowing the mission
+```
+
+## 1.1 V2 Failure-Learning Addendum
+
+```okf
+v2_failure_learning:
+  core_problem: >
+    Previous prompts overcorrected to the most recent failure and forgot older
+    accepted findings. A valid process guide must preserve the full finding set,
+    not merely patch the last observed error.
+  wrong_executor_guard:
+    rule: >
+      If a live terminal Git worktree is required, verify it once and stop with
+      WRONG_EXECUTOR when absent. Do not search the filesystem, clone, initialize
+      synthetic repos, or reconstruct baselines from connector/API snippets.
+    prevents:
+      - generic Agent Mode container wasting a run by searching /home/oai/share
+      - API/connector reconstruction being mislabeled as Git-native
+      - synthetic repo validation against fake baselines
+  mission_preservation_guard:
+    rule: >
+      Executor checks are gates, not the task. After the gate passes, the worker
+      must still implement every declared repair area or output an explicit
+      omitted-repair ledger.
+    prevents:
+      - narrowing the prompt to git preflight
+      - dropping repair payload after adding environment checks
+      - treating access validation as progress
+  source_plan_supremacy:
+    rule: >
+      A landed source-plan package overrides ad-hoc prompt memory. The prompt
+      should wrap the plan with execution rules; it must not re-author the plan.
+    prevents:
+      - architecture rediscovery
+      - stale prompt lists overriding the package manifest
+      - repeated debate of already-accepted decisions
+```
+
+## 1.2 Best Incorporation Strategy
+
+```okf
+best_way_to_incorporate_findings:
+  do_not_depend_on_chat_memory: true
+  durable_carriers:
+    - guide_file_v2
+    - prompt_template_v2
+    - patch_script_or_apply_handoff
+    - source_plan_manifest
+  required_mechanism:
+    - encode findings as executable gates and report fields
+    - require coverage ledgers for every declared repair area
+    - classify old examples as example_only or anti_pattern
+    - use scripts/patches where possible instead of prose-only correction
+  operator_rule: >
+    When the same failure repeats, patch the process artifacts first. Do not run
+    another live execution prompt until the process artifacts encode the missing
+    guard.
 ```
 
 ## 2. Core Distinction: Invariants vs Environment Modes vs Run Parameters
@@ -71,6 +132,26 @@ run_parameters_must_be_fresh:
 | api_mirror | no worktree, but full files can be fetched and mode is authorized | full-file mirror; archive/export; connector-written docs | Git-native PASS; pushed claim without connector commit | stale-baseline warning; live revalidation needed |
 | blocked | no reliable source access | stop and report | patch generation; invented files | SOURCE_ACCESS_FAILED |
 
+```okf
+wrong_executor_gate:
+  use_when: "task explicitly requires live terminal Git worktree"
+  one_shot_checks:
+    - git rev-parse --show-toplevel
+    - git rev-parse --is-inside-work-tree
+    - git remote get-url origin
+    - git branch --show-current
+  if_failed:
+    verdict: WRONG_EXECUTOR
+    patch_generation_started: false
+    allowed_next_actions: ["report only"]
+  forbidden_recovery:
+    - find / -name repo
+    - inspect /home/oai/share or /workspace as a fallback
+    - git clone
+    - git init
+    - GitHub/API baseline reconstruction
+```
+
 ## 5. Source Access and Read Verification
 
 ```okf
@@ -104,6 +185,32 @@ live_git_patch_contract:
     - synthetic repo baselines
     - snippet-assembled patches
     - PASS_WITH_WORKAROUNDS when git apply fails
+```
+
+## 6.1 Patch Grouping Rule
+
+```okf
+patch_grouping_rule:
+  default: one_git_generated_patch_per_repo_target_path
+  rationale: >
+    A single target file may carry multiple repair areas. Splitting those into
+    separate feature patches against the same baseline often creates cumulative
+    hunk failures or ordering fragility.
+  apply:
+    - merge all changes for the same repo target path into one patch
+    - list every repair area covered by that patch in the manifest
+    - only split same-file patches when the source plan explicitly requires an ordered stack
+  examples:
+    good:
+      apex-meta/scripts/apex_kb.py: [pointer_only_phase0, quality_coverage, query_eval, graph_process_flow, status_freshness_split]
+    bad:
+      - 003-pointer-only.patch against apex_kb.py
+      - 005-quality.patch against the same original apex_kb.py baseline
+      - 006-query-eval.patch against the same original apex_kb.py baseline
+  manifest_required_fields:
+    - patch_file
+    - target_file
+    - repair_areas_covered
 ```
 
 ## 7. Anti-Fabrication and Partial Completion Rules
@@ -158,6 +265,26 @@ exclude: [old_failure_transcripts, old_patch_counts, old_target_maps_as_defaults
 | universal forbidden paths | false blockers | make them run parameters |
 | unrelated dirty-tree hard stop | wasted cycles | block overlapping paths only |
 
+## 10.1 V2 Drift Guards
+
+| drift | symptom | guard |
+|---|---|---|
+| last_failure_tunnel_vision | prompt only prevents latest failure | include mission/payload coverage ledger |
+| executor_guard_replaces_task | final output is only WRONG_EXECUTOR logic | executor gate is section 0, not mission |
+| plan_reauthoring | assistant rewrites accepted plan from memory | read and obey source-plan manifest |
+| same-file_patch_fragmentation | many patches touch same file and collide | one patch per repo target path |
+| stale_patch_artifact_reuse | old failed patches copied as source | mark historical patches invalid unless source plan says otherwise |
+| dirty_tree_overblocking | unrelated local files stop run | block only overlapping target/forbidden paths |
+
+```okf
+v2_pass_rule:
+  PASS_requires:
+    - executor gate passed or non-git mode explicitly authorized
+    - all declared repair areas PASS or have explicit omitted reason
+    - patch grouping follows one-patch-per-target-path rule
+    - final state contains only allowed artifacts in builder mode
+```
+
 ## 11. Minimal Final Report Schema
 
 ```yaml
@@ -179,6 +306,22 @@ FINAL_REPORT:
   validation:
     mechanical_validation: PASS | FAIL | NA
     anti_drift_check: PASS | FAIL
+  coverage:
+    declared_repair_areas:
+      - <repair_area>
+    covered_repair_areas:
+      - <repair_area>
+    omitted_repair_areas:
+      - repair: <repair_area>
+        reason: <reason>
+  executor_gate:
+    required: true|false
+    result: PASS | WRONG_EXECUTOR | NA
+  patch_grouping:
+    rule: one_patch_per_repo_target_path
+    exceptions:
+      - target: <path>
+        reason: <only_if_needed>
   persistence:
     committed: true
     sha: <sha-or-NA>
@@ -223,6 +366,10 @@ anti_drift_check:
   no_old_environment_assumption_as_universal: PASS
   every_principle_labeled: PASS
   prompt_template_uses_placeholders: PASS
+  executor_gate_does_not_replace_mission: PASS
+  declared_repair_areas_have_coverage: PASS
+  same_target_repairs_grouped: PASS
+  old_failed_patch_artifacts_marked_invalid: PASS
   source_index_marks_examples_and_antipatterns: PASS
   result: PASS
 ```
