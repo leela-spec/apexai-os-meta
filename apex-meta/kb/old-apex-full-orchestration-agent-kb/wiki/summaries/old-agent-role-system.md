@@ -4,94 +4,82 @@ page_type: summary
 kb_slug: "old-apex-full-orchestration-agent-kb"
 summary_slug: "old-agent-role-system"
 source_refs:
-  - source_id: "batch02-agent-roles-and-doctrine"
+  - source_id: "phase1-rerun-batch02"
     source_path: "apex-meta/kb/old-apex-full-orchestration-agent-kb/ingest-analysis/batch02-agent-roles-and-doctrine.analysis.md"
-    source_hash: "NA"
-    source_pointer: "source_grounded_claims C001-C013; entities_or_roles_extracted"
+    source_pointer: "source_grounded_claims A02-C001-A02-C009"
     source_storage_mode: "copy_into_kb"
-created_at: "2026-07-03T00:00:00Z"
-updated_at: "2026-07-03T00:00:00Z"
+updated_at: "2026-07-06T22:45:00+02:00"
 confidence: "high"
 claim_label: "source_backed_summary"
 status: "active"
-related_concepts:
-  - persistent-agent-role
-  - internal-mode-not-agent
-  - negative-ownership-boundary
-  - validator-like-role
-  - specialist-lane
-related_entities:
-  - alfred
-  - meta-ops
-  - meta-strategy
-  - meta-detective
-  - special-ops-knowledge-bank
-  - special-ops-informatics-design
-  - special-ops-hygiene-clean
-  - special-ops-prompts-workflows
-  - special-ops-ai-handling-routing
-review_flags:
-  - "Historical role roster is evidence, not automatic current runtime architecture."
 ---
 
 # Old Agent Role System
 
-## Core Summary
-
-The old role system is built around persistent role boundaries, specialist lanes, validator lanes, and internal modes. The indexed first-wave roles include Alfred, Meta Ops, Meta Strategy, Meta Detective, Knowledge Bank, Informatics Design, Prompts Workflows, AI Handling Routing, and Hygiene Clean.
-
-Each role carries both positive ownership and negative ownership. The negative boundaries are a central anti-drift mechanism: roles are defined as much by what they must not own as by what they can do. Meta Detective and Hygiene Clean are validator-like lanes; Meta Ops is executor/orchestration-like; Meta Strategy is strategy/recommendation-like; the Special Ops roles are specialist lanes.
-
-Meta Detective internal modes are not separate agents. They are validation lenses inside one adversarial validator role and should not automatically become permanent agents or separate KB roots.
-
-## What This Adds
+## Adaptive Ranked Source Set
 
 ```yaml
-adds:
-  - "A role taxonomy for historical Apex orchestration behavior."
-  - "A persistent-role versus internal-mode distinction."
-  - "A durable negative-ownership boundary pattern."
-clarifies:
-  - "Validator-like roles check, route, and escalate without implementing their own fixes."
-  - "Specialist lanes are bounded capability surfaces, not global authority surfaces."
-limits:
-  - "This page preserves the old role system as source-backed doctrine evidence; it does not authorize current runtime agent creation."
+ranked_source_set:
+  tier_1:
+    - source: "AGENT_KB_INDEX.md"
+      supports: "role roster, owner-validator map, working-surface boundaries"
+      reopen_raw_source_when: "mapping old roles to current Apex responsibilities"
+    - source: "batch02-agent-roles-and-doctrine.analysis.md"
+      supports: "rerun role claims, concepts, entities, tensions"
+      reopen_raw_source_when: "checking claim-to-role alignment"
+  tier_2:
+    - source: "alfred/ESSENCE.md"
+      supports: "intake boundary"
+    - source: "meta_ops/ESSENCE.md"
+      supports: "orchestration boundary"
+    - source: "meta_strategy/ESSENCE.md"
+      supports: "recommendation boundary"
+    - source: "meta_detective/ESSENCE.md"
+      supports: "validation boundary"
+    - source: "special_ops__ai_handling_routing/ESSENCE.md"
+      supports: "routing boundary"
+    - source: "special_ops__hygiene_clean/ESSENCE.md"
+      supports: "structural QA boundary"
 ```
 
-## Key Claims
+## Macro Synthesis
+
+The old role system is a boundary map. It is useful for designing role separation, but it is not a direct plan for current Apex roles.
+
+## Meso Synthesis
+
+The system separates intake, orchestration, strategy, validation, routing, structural QA, KB lifecycle, information architecture, and prompt/workflow design. Each lane includes both positive ownership and explicit non-ownership. The non-ownership fields are load-bearing because they prevent role drift.
+
+## Micro Synthesis
 
 ```yaml
-key_claims:
-  - claim_id: C001
-    claim: "The first-wave role set is explicitly indexed."
-    source_pointer: "batch02-agent-roles-and-doctrine.analysis.md / C001"
+micro_claims:
+  - claim_id: OKB-ROLE-001
+    claim: "Alfred owns intake and route framing, but not later system control."
+    source_pointer: "alfred/ESSENCE.md / Owns and Does not own"
     confidence: high
     claim_label: raw_source
-    used_in_pages: [entities/old-agent-roles.md]
-  - claim_id: C006
-    claim: "Meta Detective internal modes are selection lenses inside one validator agent, not separate agents."
-    source_pointer: "batch02-agent-roles-and-doctrine.analysis.md / C006"
+  - claim_id: OKB-ROLE-002
+    claim: "Meta Ops owns orchestration and sequencing, but not validation or direct canon mutation."
+    source_pointer: "meta_ops/ESSENCE.md / Owns and Does not own"
     confidence: high
     claim_label: raw_source
-    used_in_pages: [entities/meta-detective-internal-modes.md]
-  - claim_id: C012
-    claim: "Negative ownership boundaries are as important as positive capabilities."
-    source_pointer: "batch02-agent-roles-and-doctrine.analysis.md / C012"
+  - claim_id: OKB-ROLE-003
+    claim: "Meta Detective validates and challenges, but does not implement fixes or mutate accepted truth."
+    source_pointer: "meta_detective/ESSENCE.md / Agent boundary and Core constraints"
     confidence: high
-    claim_label: source_backed_summary
-    used_in_pages: [concepts/migration-safety-patterns.md]
+    claim_label: raw_source
+  - claim_id: OKB-ROLE-004
+    claim: "Internal modes are lenses inside Meta Detective, not separate agents."
+    source_pointer: "meta_detective/APPENDIX_INTERNAL_MODES.md / Doctrine statement"
+    confidence: high
+    claim_label: raw_source
 ```
 
-## Contradictions
+## Routes Here
 
-```yaml
-contradictions:
-  - "The old role taxonomy is useful evidence but should not automatically become the current Apex/Claude-native permanent agent set."
-```
+Use this page for questions about role separation, old role names, whether a capability should be a role or checklist, or how owner/validator relationships were modeled.
 
-## Open Questions
+## Uncertainty / Raw Source Triggers
 
-```yaml
-open_questions:
-  - "Which old roles should remain wiki doctrine only, and which should become current skills, workflows, or subagents?"
-```
+Reopen raw role files before turning any old role into a current Apex skill, workflow, subagent, or other active surface. Role names remain historical evidence unless current authority is separately established.
