@@ -1,0 +1,40 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Deterministic Patch Fixture",
+  "type": "object",
+  "properties": {
+    "description": {
+      "type": "string",
+      "description": "Human‑readable description of the fixture."
+    },
+    "steps": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "mode": {
+            "type": "string",
+            "enum": ["inspect", "extract_span", "replace_once", "replace_heading_section", "front_matter_set", "validate_scope", "diff"],
+            "description": "Executor mode for this step."
+          },
+          "target_file": {
+            "type": "string",
+            "description": "Relative path to the file to operate on."
+          },
+          "old_text": { "type": "string" },
+          "new_text": { "type": "string" },
+          "heading": { "type": "string" },
+          "new_section": { "type": "string" },
+          "front_matter": { "type": "object" },
+          "expected_output": { "type": "string" },
+          "expected_diff": { "type": "string" }
+        },
+        "required": ["mode", "target_file"],
+        "additionalProperties": false
+      },
+      "description": "Ordered list of steps to run."
+    }
+  },
+  "required": ["description", "steps"],
+  "additionalProperties": false
+}
