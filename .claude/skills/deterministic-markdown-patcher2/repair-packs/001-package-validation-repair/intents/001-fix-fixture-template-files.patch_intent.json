@@ -1,0 +1,43 @@
+{
+  "schema_version": "patch_intent.v1",
+  "intents": [
+    {
+      "intent_id": "fix_fixture_template_files",
+      "operation": "replace-once",
+      "target": {
+        "target_file_guess": ".claude/skills/deterministic-markdown-patcher2/templates/fixture_spec.template.json",
+        "frontmatter_required": false
+      },
+      "hints": {
+        "nearby_phrases": [
+          "\"files\": ["
+        ],
+        "symbol_or_section_names": [
+          "fixture_spec files array"
+        ]
+      },
+      "replacement": {
+        "content": "\"files\": [\n    {\n      \"path\": \"patch_intent.json\",\n      \"content\": \"{\\n  \\\"schema_version\\\": \\\"patch_intent.v1\\\",\\n  \\\"intents\\\": [\\n    {\\n      \\\"intent_id\\\": \\\"replace_current_behavior\\\",\\n      \\\"operation\\\": \\\"replace-heading-section\\\",\\n      \\\"target\\\": {\\n        \\\"target_file_guess\\\": \\\"docs/example.md\\\",\\n        \\\"heading_path\\\": [\\n          \\\"Example\\\",\\n          \\\"Current Behavior\\\"\\n        ],\\n        \\\"frontmatter_required\\\": false\\n      },\\n      \\\"replacement\\\": {\\n        \\\"content\\\": \\\"updated behavior\\\\n\\\",\\n        \\\"content_role\\\": \\\"section_body\\\",\\n        \\\"preserve_surrounding_formatting\\\": true\\n      },\\n      \\\"validation\\\": {\\n        \\\"expected_phrases\\\": [\\n          \\\"updated behavior\\\"\\n        ],\\n        \\\"forbidden_phrases\\\": [\\n          \\\"current behavior\\\"\\n        ]\\n      },\\n      \\\"safety\\\": {\\n        \\\"require_unique_match\\\": true,\\n        \\\"fail_on_ambiguity\\\": true,\\n        \\\"allow_full_file_rewrite\\\": false,\\n        \\\"max_files_touched\\\": 1\\n      },\\n      \\\"notes\\\": \\\"Fixture-owned sample intent; created by fixture_spec.template.json so fixture_runner.py can execute commands without missing files.\\\"\\n    }\\n  ]\\n}\\n\"\n    },\n    {\n      \"path\": \"patch_policy.json\",\n      \"content\": \"{\\n  \\\"schema_version\\\": \\\"patch_policy.v1\\\",\\n  \\\"path_allowlist\\\": [\\n    \\\"docs/example.md\\\"\\n  ],\\n  \\\"protected_paths\\\": [],\\n  \\\"report_directory\\\": \\\"reports\\\",\\n  \\\"allowed_operations\\\": [\\n    \\\"replace-heading-section\\\"\\n  ],\\n  \\\"validation_commands\\\": [],\\n  \\\"full_file_rewrite\\\": false\\n}\\n\"\n    },",
+        "content_role": "span_replacement",
+        "preserve_surrounding_formatting": true
+      },
+      "validation": {
+        "expected_phrases": [
+          "\"path\": \"patch_intent.json\"",
+          "\"path\": \"patch_policy.json\"",
+          "Fixture-owned sample intent"
+        ],
+        "forbidden_phrases": [
+          "\"files\": [\n    {\n      \"path\": \"docs/example.md\""
+        ]
+      },
+      "safety": {
+        "require_unique_match": true,
+        "fail_on_ambiguity": true,
+        "allow_full_file_rewrite": false,
+        "max_files_touched": 1
+      },
+      "notes": "Insert fixture-owned patch_intent.json and patch_policy.json file entries before the existing docs/example.md entry. fixture_runner.py only creates files declared in files[]."
+    }
+  ]
+}
