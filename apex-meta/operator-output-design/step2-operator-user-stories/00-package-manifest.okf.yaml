@@ -1,0 +1,78 @@
+document:
+  id: apex-step2-operator-user-stories-manifest
+  title: APEX Step 2 Operator User Story Definition Manifest
+  status: verified_by_operator
+  created_date: 2026-07-10
+  repository: leela-spec/apexai-os-meta
+  branch: main
+  package_path: apex-meta/operator-output-design/step2-operator-user-stories/
+  purpose: >
+    Store the Step 2 operator-user-story decisions as small, machine-readable,
+    iterative source files for later output-design work.
+
+scope:
+  includes:
+    - verified macro loop decisions
+    - verified operator value language
+    - verified skill-level operator user stories
+    - locked output jobs
+    - confirmed output design principles
+    - Step 3 handoff brief
+  excludes:
+    - repo runtime implementation
+    - skill package mutation
+    - template rewrite
+    - Deep Research execution
+    - calendar writes
+    - FlowRecap execution
+    - status merge execution
+
+source_context:
+  conversation_source: APEX Step 2 Operator User Story Definition
+  verified_by: Marco
+  verification_method: iterative_keep_all_rounds
+  verification_rounds:
+    - round_1_macro_loop
+    - round_2_operator_value_language
+    - round_3_planning_side_user_stories
+    - round_4_execution_and_recap_user_stories
+    - round_5_status_learning_user_stories
+
+files:
+  - path: 01-verification-decisions.okf.yaml
+    role: operator_verification_log
+    read_when:
+      - checking_what_marco_confirmed
+      - resuming_step2
+  - path: 02-macro-loop-and-value-frame.okf.yaml
+    role: macro_loop_and_value_language
+    read_when:
+      - defining_design_principles
+      - checking_operator_value
+  - path: 03-planning-side-user-stories.okf.yaml
+    role: planning_side_skill_stories
+    read_when:
+      - designing_project_state_or_precap_outputs
+  - path: 04-execution-recap-user-stories.okf.yaml
+    role: execution_recap_skill_stories
+    read_when:
+      - designing_flow_cards_prompt_packs_or_recap_outputs
+  - path: 05-status-learning-user-stories.okf.yaml
+    role: status_learning_skill_stories
+    read_when:
+      - designing_usage_status_kb_or_routing_outputs
+  - path: 06-output-jobs-and-artifact-family.okf.yaml
+    role: locked_output_jobs
+    read_when:
+      - creating_operator_output_template_family
+  - path: 07-step3-handoff-brief.okf.md
+    role: next_step_handoff
+    read_when:
+      - starting_step3_output_design_principles
+
+iteration_policy:
+  file_size_rule: keep_each_file_small_enough_for_manual_review
+  update_style: append_versioned_sections_or_patch_specific_keys
+  machine_readability_rule: use_parseable_yaml_for_decisions_and_story_records
+  human_readability_rule: short_labels_and_compact_descriptions
+  no_silent_mutation_rule: durable_state_changes_remain_candidate_until_operator_approved
