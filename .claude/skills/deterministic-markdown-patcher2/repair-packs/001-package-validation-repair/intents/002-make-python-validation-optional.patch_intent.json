@@ -1,0 +1,41 @@
+{
+  "schema_version": "patch_intent.v1",
+  "intents": [
+    {
+      "intent_id": "make_python_validation_optional",
+      "operation": "replace-once",
+      "target": {
+        "target_file_guess": ".claude/skills/deterministic-markdown-patcher2/templates/patch_policy.template.json",
+        "frontmatter_required": false
+      },
+      "hints": {
+        "nearby_phrases": [
+          "\"required\": true"
+        ],
+        "symbol_or_section_names": [
+          "json_parse_templates validation command"
+        ]
+      },
+      "replacement": {
+        "content": "\"required\": false",
+        "content_role": "span_replacement",
+        "preserve_surrounding_formatting": true
+      },
+      "validation": {
+        "expected_phrases": [
+          "\"required\": false"
+        ],
+        "forbidden_phrases": [
+          "\"required\": true"
+        ]
+      },
+      "safety": {
+        "require_unique_match": true,
+        "fail_on_ambiguity": true,
+        "allow_full_file_rewrite": false,
+        "max_files_touched": 1
+      },
+      "notes": "The template currently marks a Python validation command as required, but patch_executor.py rejects validation subprocesses except git, rg, and yq. This repair makes the example command non-blocking without widening executor subprocess policy."
+    }
+  ]
+}
