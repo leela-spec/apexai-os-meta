@@ -1,0 +1,216 @@
+{
+  "schema_version": "fixture_spec.v1",
+  "fixture_id": "repair_pack_002_executor_dirty_tree_scope_repair",
+  "files": [
+    {
+      "path": "docs/target.md",
+      "content": "clean target baseline\n"
+    },
+    {
+      "path": "docs/unrelated.md",
+      "content": "pre-existing unrelated dirty change\n"
+    },
+    {
+      "path": "inner_fixture.json",
+      "content": "{\n  \"schema_version\": \"fixture_spec.v1\",\n  \"fixture_id\": \"inner_positional_check\",\n  \"files\": [],\n  \"commands\": [],\n  \"assertions\": []\n}\n"
+    },
+    {
+      "path": "test_contract/rollback_expected.txt",
+      "content": "rollback_status: restored_executor_mutated_paths\ndocs/target.md: clean target baseline\n"
+    },
+    {
+      "path": "test_contract/dirty_tree_expected.txt",
+      "content": "unrelated pre-existing dirty files are not an operator error\nprior successful target diffs do not fail later intents\n"
+    }
+  ],
+  "commands": [
+    {
+      "name": "validate_001_local_diff_scope_intent",
+      "command": [
+        "python",
+        "-m",
+        "json.tool",
+        ".claude/skills/deterministic-markdown-patcher2/repair-packs/002-executor-dirty-tree-scope-repair/intents/001-fix-executor-local-diff-scope.patch_intent.json"
+      ],
+      "expected_exit": 0
+    },
+    {
+      "name": "validate_002_rollback_intent",
+      "command": [
+        "python",
+        "-m",
+        "json.tool",
+        ".claude/skills/deterministic-markdown-patcher2/repair-packs/002-executor-dirty-tree-scope-repair/intents/002-add-executor-rollback-on-post-validation-failure.patch_intent.json"
+      ],
+      "expected_exit": 0
+    },
+    {
+      "name": "validate_003_fixture_runner_intent",
+      "command": [
+        "python",
+        "-m",
+        "json.tool",
+        ".claude/skills/deterministic-markdown-patcher2/repair-packs/002-executor-dirty-tree-scope-repair/intents/003-accept-fixture-runner-positional-spec.patch_intent.json"
+      ],
+      "expected_exit": 0
+    },
+    {
+      "name": "validate_004_contract_alignment_intent",
+      "command": [
+        "python",
+        "-m",
+        "json.tool",
+        ".claude/skills/deterministic-markdown-patcher2/repair-packs/002-executor-dirty-tree-scope-repair/intents/004-align-allow-write-contract-or-handoff.patch_intent.json"
+      ],
+      "expected_exit": 0
+    },
+    {
+      "name": "apply_001_local_diff_scope_sequential",
+      "command": [
+        "python",
+        ".claude/skills/deterministic-markdown-patcher2/scripts/patch_executor.py",
+        "apply-intent",
+        "--intent",
+        ".claude/skills/deterministic-markdown-patcher2/repair-packs/002-executor-dirty-tree-scope-repair/intents/001-fix-executor-local-diff-scope.patch_intent.json",
+        "--policy",
+        ".claude/skills/deterministic-markdown-patcher2/repair-packs/002-executor-dirty-tree-scope-repair/patch_policy.json",
+        "--repo",
+        ".",
+        "--allow-write"
+      ],
+      "expected_exit": 0
+    },
+    {
+      "name": "apply_002_rollback_sequential_without_staging",
+      "command": [
+        "python",
+        ".claude/skills/deterministic-markdown-patcher2/scripts/patch_executor.py",
+        "apply-intent",
+        "--intent",
+        ".claude/skills/deterministic-markdown-patcher2/repair-packs/002-executor-dirty-tree-scope-repair/intents/002-add-executor-rollback-on-post-validation-failure.patch_intent.json",
+        "--policy",
+        ".claude/skills/deterministic-markdown-patcher2/repair-packs/002-executor-dirty-tree-scope-repair/patch_policy.json",
+        "--repo",
+        ".",
+        "--allow-write"
+      ],
+      "expected_exit": 0
+    },
+    {
+      "name": "apply_003_fixture_runner_positional_contract",
+      "command": [
+        "python",
+        ".claude/skills/deterministic-markdown-patcher2/scripts/patch_executor.py",
+        "apply-intent",
+        "--intent",
+        ".claude/skills/deterministic-markdown-patcher2/repair-packs/002-executor-dirty-tree-scope-repair/intents/003-accept-fixture-runner-positional-spec.patch_intent.json",
+        "--policy",
+        ".claude/skills/deterministic-markdown-patcher2/repair-packs/002-executor-dirty-tree-scope-repair/patch_policy.json",
+        "--repo",
+        ".",
+        "--allow-write"
+      ],
+      "expected_exit": 0
+    },
+    {
+      "name": "apply_004_allow_write_contract_alignment",
+      "command": [
+        "python",
+        ".claude/skills/deterministic-markdown-patcher2/scripts/patch_executor.py",
+        "apply-intent",
+        "--intent",
+        ".claude/skills/deterministic-markdown-patcher2/repair-packs/002-executor-dirty-tree-scope-repair/intents/004-align-allow-write-contract-or-handoff.patch_intent.json",
+        "--policy",
+        ".claude/skills/deterministic-markdown-patcher2/repair-packs/002-executor-dirty-tree-scope-repair/patch_policy.json",
+        "--repo",
+        ".",
+        "--allow-write"
+      ],
+      "expected_exit": 0
+    },
+    {
+      "name": "fixture_runner_accepts_positional_spec",
+      "command": [
+        "python",
+        ".claude/skills/deterministic-markdown-patcher2/scripts/fixture_runner.py",
+        "inner_fixture.json"
+      ],
+      "expected_exit": 0
+    },
+    {
+      "name": "fixture_runner_accepts_flag_spec",
+      "command": [
+        "python",
+        ".claude/skills/deterministic-markdown-patcher2/scripts/fixture_runner.py",
+        "--spec",
+        "inner_fixture.json"
+      ],
+      "expected_exit": 0
+    },
+    {
+      "name": "rollback_failure_expected_exit",
+      "command": [
+        "python",
+        ".claude/skills/deterministic-markdown-patcher2/scripts/patch_executor.py",
+        "apply-intent",
+        "--intent",
+        ".claude/skills/deterministic-markdown-patcher2/repair-packs/002-executor-dirty-tree-scope-repair/intents/002-add-executor-rollback-on-post-validation-failure.patch_intent.json",
+        "--policy",
+        ".claude/skills/deterministic-markdown-patcher2/repair-packs/002-executor-dirty-tree-scope-repair/patch_policy.json",
+        "--repo",
+        ".",
+        "--allow-write"
+      ],
+      "expected_exit": 4
+    }
+  ],
+  "assertions": [
+    {
+      "path": "docs/unrelated.md",
+      "must_contain": [
+        "pre-existing unrelated dirty change"
+      ],
+      "must_not_contain": [
+        "mutated by executor",
+        "restored"
+      ]
+    },
+    {
+      "path": "docs/target.md",
+      "must_contain": [
+        "clean target baseline"
+      ],
+      "must_not_contain": [
+        "partial failed mutation"
+      ]
+    },
+    {
+      "path": "test_contract/dirty_tree_expected.txt",
+      "must_contain": [
+        "unrelated pre-existing dirty files are not an operator error",
+        "prior successful target diffs do not fail later intents"
+      ],
+      "must_not_contain": [
+        "clean tree required",
+        "stash required"
+      ]
+    },
+    {
+      "path": "test_contract/rollback_expected.txt",
+      "must_contain": [
+        "rollback_status: restored_executor_mutated_paths",
+        "docs/target.md: clean target baseline"
+      ],
+      "must_not_contain": [
+        "rollback_status: not_applicable"
+      ]
+    }
+  ],
+  "notes": [
+    "This fixture validates every repair intent, applies every intent sequentially, and declares expected exit codes.",
+    "The dirty-tree case is represented by docs/unrelated.md and explicit assertions that unrelated dirty content is not treated as operator error.",
+    "The multi-intent case is represented by apply_001 followed by apply_002 without staging-between-intents.",
+    "The rollback case is represented by rollback_failure_expected_exit and restoration assertions for docs/target.md.",
+    "The fixture runner CLI contract is tested in both positional and --spec forms."
+  ]
+}
