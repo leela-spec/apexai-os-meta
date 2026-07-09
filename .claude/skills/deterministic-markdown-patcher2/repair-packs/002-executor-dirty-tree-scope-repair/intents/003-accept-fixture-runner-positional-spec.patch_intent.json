@@ -1,0 +1,46 @@
+{
+  "schema_version": "patch_intent.v1",
+  "intents": [
+    {
+      "intent_id": "accept_fixture_runner_positional_spec",
+      "operation": "replace-once",
+      "target": {
+        "target_file_guess": ".claude/skills/deterministic-markdown-patcher2/scripts/fixture_runner.py",
+        "frontmatter_required": false
+      },
+      "hints": {
+        "symbol_or_section_names": [
+          "main",
+          "argparse fixture spec parser"
+        ],
+        "nearby_phrases": [
+          "def main(argv: list[str] | None = None) -> int:",
+          "parser.add_argument(\"--spec\")",
+          "--spec is required unless --self-test is used"
+        ]
+      },
+      "replacement": {
+        "content": "def main(argv: list[str] | None = None) -> int:\n    parser = argparse.ArgumentParser(description=\"Run deterministic patcher fixtures\")\n    parser.add_argument(\"spec_path\", nargs=\"?\")\n    parser.add_argument(\"--self-test\", action=\"store_true\")\n    parser.add_argument(\"--spec\")\n    args = parser.parse_args(argv)\n    if args.self_test:\n        return self_test()\n    spec_value = args.spec or args.spec_path\n    if not spec_value:\n        return fail(\"fixture spec is required as positional path or --spec unless --self-test is used\")\n    return run_spec(Path(spec_value))",
+        "content_role": "generated_block",
+        "preserve_surrounding_formatting": true
+      },
+      "validation": {
+        "expected_phrases": [
+          "parser.add_argument(\"spec_path\", nargs=\"?\")",
+          "spec_value = args.spec or args.spec_path",
+          "fixture spec is required as positional path or --spec"
+        ],
+        "forbidden_phrases": [
+          "--spec is required unless --self-test is used"
+        ]
+      },
+      "safety": {
+        "require_unique_match": true,
+        "fail_on_ambiguity": true,
+        "allow_full_file_rewrite": false,
+        "max_files_touched": 1
+      },
+      "notes": "Replace the main function only. Keep --spec compatible and add positional fixture spec support."
+    }
+  ]
+}
