@@ -7,15 +7,16 @@ kb_slug: claude-code-orchestration-design
 run_id: max-run-20260709
 phase: ingest_phase_1_analysis
 batch: 01-skill-package-and-apex-kb-contracts
-status: new_parallel_compile
-created_at: 2026-07-09T00:00:00Z
+status: new_parallel_compile_updated
+created_at: 2026-07-10T00:00:00Z
 source_policy: source_preserving
 legacy_output_policy: old_pages_for_comparison_only
+baseline_warning: source-payload-manifest exists but is empty in GitHub main connector read
 ```
 
 ## Source Scope
 
-This batch covers the Apex KB skill package, its data/page contracts, ingest/query/lint/retrieval rules, and official Claude Code skill package mechanics. It does not treat legacy wiki pages as authority.
+This batch covers the Apex KB skill package, source/page contracts, ingest/query/lint/retrieval rules, wiki page templates, runbook policy, and official Claude Code skill mechanics. It treats raw sources and package contracts as authority, deterministic artifacts as routing evidence, and old Phase 1/wiki pages as comparison material only.
 
 ## Source Files Read
 
@@ -28,12 +29,16 @@ sources_read:
   - .claude/skills/apex-kb/templates/ingest-analysis-template.md
   - .claude/skills/apex-kb/templates/wiki-page-templates.md
   - .claude/skills/apex-kb/examples/lifecycle-runbook.md
-  - apex-meta/kb/claude-code-orchestration-design/raw/source-groups/claude-orchestration-agents/raw/refs/orchestration-agents-in-cc/primary-code-claude-com-docs-en-skills.md.md
-  - apex-meta/kb/claude-code-orchestration-design/raw/source-groups/claude-orchestration-agents/raw/notes/SubskillsVsAgents_CC.md
   - apex-meta/kb/claude-code-orchestration-design/manifests/source-manifest.json
+  - apex-meta/kb/claude-code-orchestration-design/manifests/source-payload-manifest.json
   - apex-meta/kb/claude-code-orchestration-design/manifests/phase0/corpus-profile.md
   - apex-meta/kb/claude-code-orchestration-design/manifests/phase0/source-priority-candidates.md
-  - apex-meta/kb/claude-code-orchestration-design/log/max-update-run-gate-20260709.md
+  - apex-meta/kb/claude-code-orchestration-design/manifests/phase0/process-flow-graph-summary.md
+  - apex-meta/kb/claude-code-orchestration-design/outputs/queries/evals/query-eval-pack.json
+  - apex-meta/kb/claude-code-orchestration-design/raw/source-groups/claude-orchestration-agents/raw/refs/orchestration-agents-in-cc/primary-code-claude-com-docs-en-skills.md.md
+  - apex-meta/kb/claude-code-orchestration-design/raw/source-groups/claude-orchestration-agents/raw/notes/SubskillsVsAgents_CC.md
+  - apex-meta/kb/claude-code-orchestration-design/ingest-analysis/phase1-completion-report.md
+  - apex-meta/kb/claude-code-orchestration-design/wiki/index.md
 ```
 
 ## Source-Grounded Claims
@@ -41,12 +46,12 @@ sources_read:
 ```yaml
 claims:
   - id: P1-SKILL-001
-    claim: "Apex KB owns semantic Phase 1 analysis and Phase 2 wiki drafting, while deterministic scripts own scaffold, hashing, Phase 0 maps, indexes, lint, status, and retrieval artifacts."
+    claim: "Apex KB separates deterministic script ownership from LLM semantic ownership."
     source: .claude/skills/apex-kb/SKILL.md
     confidence: high
     claim_label: source_backed_summary
   - id: P1-SKILL-002
-    claim: "The execution surface policy preserves current assistant/chat LLM as the default semantic owner and reserves Agent Mode or Codex for deterministic execution, validation, Git-native patching, and commit/push surfaces unless the operator overrides it."
+    claim: "The execution surface policy keeps the current assistant/chat LLM as default semantic owner and reserves Agent Mode or Codex for deterministic execution, validation, Git-native patching, and commit/push surfaces unless the operator explicitly overrides semantic delegation."
     source: .claude/skills/apex-kb/SKILL.md
     confidence: high
     claim_label: source_backed_summary
@@ -56,12 +61,22 @@ claims:
     confidence: high
     claim_label: source_backed_summary
   - id: P1-SKILL-004
-    claim: "Claude Code skills are directory-based SKILL.md packages whose description drives invocation; supporting files enable progressive disclosure rather than loading every reference by default."
-    source: apex-meta/kb/claude-code-orchestration-design/raw/source-groups/claude-orchestration-agents/raw/refs/orchestration-agents-in-cc/primary-code-claude-com-docs-en-skills.md.md
+    claim: "The source-payload manifest path exists but connector-read content is empty, so payload custody freshness is not proven for this run."
+    source: apex-meta/kb/claude-code-orchestration-design/manifests/source-payload-manifest.json
     confidence: high
     claim_label: source_backed_summary
   - id: P1-SKILL-005
-    claim: "The term subskill is not supported as an official skill architecture; sibling skills, companion files, references, scripts, assets, and templates are the safer vocabulary."
+    claim: "Phase 0 scanned 1,732 files and supports clustered routing rather than all-file semantic reading."
+    source: apex-meta/kb/claude-code-orchestration-design/manifests/phase0/corpus-profile.md
+    confidence: high
+    claim_label: source_backed_summary
+  - id: P1-SKILL-006
+    claim: "Claude Code skills are SKILL.md packages whose description drives invocation; supporting files provide progressive disclosure."
+    source: apex-meta/kb/claude-code-orchestration-design/raw/source-groups/claude-orchestration-agents/raw/refs/orchestration-agents-in-cc/primary-code-claude-com-docs-en-skills.md.md
+    confidence: high
+    claim_label: source_backed_summary
+  - id: P1-SKILL-007
+    claim: "Subskill is not a safe canonical architecture term in the reviewed sources; sibling skills and companion files are safer."
     source: apex-meta/kb/claude-code-orchestration-design/raw/source-groups/claude-orchestration-agents/raw/notes/SubskillsVsAgents_CC.md
     confidence: medium
     claim_label: source_backed_summary
@@ -74,8 +89,8 @@ concepts:
   - source-preserving-kb-compile
   - phase2-value-contract
   - current-assistant-semantic-owner
-  - skill-boundary
   - old-output-comparison-policy
+  - skill-boundary
   - source-custody-before-semantics
   - progressive-disclosure-resource
 ```
@@ -94,17 +109,18 @@ entities:
 ```yaml
 tensions:
   - id: T-SKILL-001
-    tension: "The user prompt states the improved deterministic baseline is complete, but committed main still lacks the required source-payload manifest, query-eval pack, and process graph artifacts in connector reads."
+    tension: "The operator reports the deterministic baseline as pushed; connector reads confirm graph summary and query-eval pack are present, but the source-payload manifest content is empty."
     sources:
-      - apex-meta/kb/claude-code-orchestration-design/log/max-update-run-gate-20260709.md
       - apex-meta/kb/claude-code-orchestration-design/manifests/source-payload-manifest.json
-    handling: "Expose as a source gap; do not infer missing artifact content."
+      - apex-meta/kb/claude-code-orchestration-design/manifests/phase0/process-flow-graph-summary.md
+      - apex-meta/kb/claude-code-orchestration-design/outputs/queries/evals/query-eval-pack.json
+    handling: "Proceed with explicit warning; require terminal postflight to repair or verify payload custody."
   - id: T-SKILL-002
     tension: "Legacy Phase 1 used a separate operator gate while current v3 semantic compile policy allows continuous Phase 1 to Phase 2 when selected output tier includes wiki output."
     sources:
       - apex-meta/kb/claude-code-orchestration-design/ingest-analysis/phase1-completion-report.md
       - .claude/skills/apex-kb/SKILL.md
-    handling: "Preserve current v3 policy for max-run outputs; treat old gate as historical."
+    handling: "Use current max-run compile policy; treat old gate as historical."
 ```
 
 ## Open Questions
@@ -112,11 +128,11 @@ tensions:
 ```yaml
 open_questions:
   - id: O-SKILL-001
-    question: "Was the deterministic baseline rerun committed after max-update-run-gate-20260709, or did it remain local/unpushed?"
-    source: apex-meta/kb/claude-code-orchestration-design/log/max-update-run-gate-20260709.md
+    question: "Why did the committed source-payload-manifest path contain empty content after the deterministic rerun commit?"
+    source: apex-meta/kb/claude-code-orchestration-design/manifests/source-payload-manifest.json
   - id: O-SKILL-002
-    question: "Should strict Agent Skills open-standard requirements or Claude Code's pragmatic SKILL.md behavior be treated as primary when they diverge?"
-    source: apex-meta/kb/claude-code-orchestration-design/ingest-analysis/phase1-completion-report.md
+    question: "Should strict Agent Skills open-standard requirements or Claude Code pragmatic SKILL.md behavior be primary when they diverge?"
+    source: apex-meta/kb/claude-code-orchestration-design/raw/source-groups/claude-orchestration-agents/raw/notes/SubskillsVsAgents_CC.md
 ```
 
 ## Phase 2 Candidates
@@ -140,8 +156,10 @@ phase2_candidates:
 
 ```yaml
 source_gaps:
-  - missing_committed_source_payload_manifest
-  - missing_committed_query_eval_pack
-  - missing_committed_process_flow_graph_summary
-  - source-payload custody should be reopened before deterministic postflight claims are treated as fresh
+  - id: G-SKILL-001
+    trigger: "Reopen deterministic source custody if source-payload-manifest remains empty after terminal postflight."
+    source: apex-meta/kb/claude-code-orchestration-design/manifests/source-payload-manifest.json
+  - id: G-SKILL-002
+    trigger: "Reopen old-output comparison after max-run pages are indexed and linted."
+    source: apex-meta/kb/claude-code-orchestration-design/wiki/index.md
 ```
