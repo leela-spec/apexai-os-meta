@@ -209,14 +209,16 @@ def self_test() -> int:
 
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description="Run deterministic patcher fixtures")
+    parser.add_argument("spec_path", nargs="?")
     parser.add_argument("--self-test", action="store_true")
     parser.add_argument("--spec")
     args = parser.parse_args(argv)
     if args.self_test:
         return self_test()
-    if not args.spec:
-        return fail("--spec is required unless --self-test is used")
-    return run_spec(Path(args.spec))
+    spec_value = args.spec or args.spec_path
+    if not spec_value:
+        return fail("fixture spec is required as positional path or --spec unless --self-test is used")
+    return run_spec(Path(spec_value))
 
 
 if __name__ == "__main__":

@@ -618,15 +618,23 @@ def changed_paths(repo: Path) -> list[str]:
     return [line.strip().replace("\\", "/") for line in result["stdout"].splitlines() if line.strip()]
 
 
-def verify_diff_scope(repo: Path, policy: dict[str, Any], allowed: list[str]) -> None:
+def verify_diff_scope(repo: Path, policy: dict[str, Any], allowed: list[str], baseline_paths: list[str] | None = None) -> None:
     if not is_git_repo(repo):
         return
     allowed_set = set(allowed)
+    baseline_set = set(baseline_paths or [])
+    current_set = set(changed_paths(repo))
+    newly_changed = sorted(current_set - baseline_set)
     bad = []
-    for path in changed_paths(repo):
+    for path in newly_changed:
         if path not in allowed_set:
             bad.append(path)
             continue
+        try:
+            require_path_allowed(policy, path)
+        except PatchError:
+            bad.append(path)
+    for path in sorted(allowed_set):
         try:
             require_path_allowed(policy, path)
         except PatchError:
@@ -641,7 +649,7 @@ def verify_diff_scope(repo: Path, policy: dict[str, Any], allowed: list[str]) ->
         )
 
 
-def run_validation(repo: Path, policy: dict[str, Any], intent: dict[str, Any], allowed: list[str]) -> list[dict[str, Any]]:
+def run_validation(repo: Path, policy: dict[str, Any], intent: dict[str, Any], allowed: list[str], baseline_paths: list[str] | None = None) -> list[dict[str, Any]]:
     results: list[dict[str, Any]] = []
     rel, path = safe_target(repo, policy, intent["target"])
     text = path.read_text(encoding="utf-8")
@@ -683,7 +691,7 @@ def run_validation(repo: Path, policy: dict[str, Any], intent: dict[str, Any], a
         results.append(result)
         if command.get("required", True) and proc.returncode != 0:
             raise PatchError("validation failed", code=4, mode="validation failed", field="validation_commands", candidates=[result])
-    verify_diff_scope(repo, policy, allowed or [rel])
+    verify_diff_scope(repo, policy, allowed or [rel], baseline_paths=baseline_paths)
     return results
 
 
@@ -739,7 +747,7 @@ def failure(command: str, err: PatchError, args: argparse.Namespace, policy: dic
         "message": str(err),
         "governing_field": err.field,
         "candidates": err.candidates,
-        "rollback_status": "not_applicable",
+        "rollback_status": getattr(err, "rollback_status", "not_applicable"),
     }
     kind = "ambiguity" if err.mode in {"zero target matches", "multiple target matches", "duplicate/ambiguous heading path"} else "failure"
     if err.mode == "validation failed":
@@ -754,7 +762,9 @@ def apply_intent(repo: Path, policy: dict[str, Any], intent: dict[str, Any], arg
     if op not in MUTATION_OPS:
         raise PatchError("validation failed: apply-intent requires a mutation operation", code=2, mode="validation failed", field="operation")
     rel, path = safe_target(repo, policy, intent["target"])
-    before = path.read_text(encoding="utf-8") if path.exists() else None
+    baseline_paths = changed_paths(repo) if is_git_repo(repo) else []
+    before_by_path: dict[str, str | None] = {rel: path.read_text(encoding="utf-8") if path.exists() else None}
+    mutation_started = False
     try:
         if op == "replace-once":
             result = replace_once(repo, policy, intent, args)
@@ -762,13 +772,35 @@ def apply_intent(repo: Path, policy: dict[str, Any], intent: dict[str, Any], arg
             result = replace_heading_section(repo, policy, intent, args)
         else:
             result = frontmatter_set(repo, policy, intent, args)
-        validations = run_validation(repo, policy, intent, result["changed_paths"])
+        mutation_started = True
+        for changed in result.get("changed_paths", []):
+            if changed not in before_by_path:
+                changed_path = (repo / changed).resolve()
+                before_by_path[changed] = changed_path.read_text(encoding="utf-8") if changed_path.exists() else None
+        validations = run_validation(repo, policy, intent, result["changed_paths"], baseline_paths=baseline_paths)
         diff = git_diff(repo, result["changed_paths"]) if is_git_repo(repo) else {"stdout": "", "exit_code": 0}
         return {**result, "validation_results": validations, "git_diff": diff.get("stdout", "")}
     except PatchError as exc:
-        if before is not None and exc.code in {4, 5}:
-            path.write_text(before, encoding="utf-8", newline="")
+        if mutation_started:
+            restore_executor_mutated_paths(repo, before_by_path)
+            setattr(exc, "rollback_status", "restored_executor_mutated_paths")
         raise
+    except Exception as exc:
+        if mutation_started:
+            restore_executor_mutated_paths(repo, before_by_path)
+        wrapped = PatchError(f"validation failed: {exc}", code=4, mode="validation failed")
+        setattr(wrapped, "rollback_status", "restored_executor_mutated_paths" if mutation_started else "not_applicable")
+        raise wrapped
+
+
+def restore_executor_mutated_paths(repo: Path, before_by_path: dict[str, str | None]) -> None:
+    for rel, content in before_by_path.items():
+        path = repo / rel
+        if content is None:
+            if path.exists():
+                path.unlink()
+        else:
+            path.write_text(content, encoding="utf-8", newline="")
 
 
 def command_main(command: str, args: argparse.Namespace) -> int:
