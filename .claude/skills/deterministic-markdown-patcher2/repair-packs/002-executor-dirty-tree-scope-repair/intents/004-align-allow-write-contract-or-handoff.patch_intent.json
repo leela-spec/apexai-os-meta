@@ -1,0 +1,49 @@
+{
+  "schema_version": "patch_intent.v1",
+  "intents": [
+    {
+      "intent_id": "align_executor_contract_allow_write_dirty_reports",
+      "operation": "replace-heading-section",
+      "target": {
+        "target_file_guess": ".claude/skills/deterministic-markdown-patcher2/references/executor-contract.md",
+        "heading_path": [
+          "Executor Contract",
+          "CLI Contract"
+        ],
+        "frontmatter_required": false
+      },
+      "hints": {
+        "symbol_or_section_names": [
+          "CLI Contract",
+          "apply-intent",
+          "allow-write"
+        ],
+        "nearby_phrases": [
+          "python <executor> <command> --intent <patch_intent.json> --policy <patch_policy.json> --repo <repo-root> --report-dir <report-dir>",
+          "`apply-intent` | Apply one bounded mutation only after live target uniqueness is proven."
+        ]
+      },
+      "replacement": {
+        "content": "The approved executor should expose one entrypoint named by the operator or repository policy. The canonical invocation shape is:\n\n```text\npython <executor> <command> --intent <patch_intent.json> --policy <patch_policy.json> --repo <repo-root> --report-dir <report-dir> [--allow-write]\n```\n\nSupported command roles:\n\n| Command | Required behavior |\n|---|---|\n| `inspect` | Read target files and report candidates without writing. |\n| `locate` | Resolve candidate spans, heading sections, or frontmatter blocks and fail on ambiguity. |\n| `extract-span` | Copy exact live text selected by the executor into a report for review. |\n| `validate-intent` | Validate schema, policy, operation, and path scope before mutation. |\n| `apply-intent` | Apply one bounded mutation only after live target uniqueness is proven; this command must be invoked with `--allow-write`. |\n| `diff` | Emit git-generated diff proof after mutation. |\n\nDirty-tree rule: unrelated pre-existing dirty files are not an operator error. Mutation scope is evaluated against the executor-local baseline captured at the start of the current run plus the current intent's declared changed paths.\n\nReport rule: executor reports are runtime artifacts under the policy report directory. Do not commit report files unless the operator explicitly stages them as intentional repair evidence.",
+        "content_role": "section_body",
+        "preserve_surrounding_formatting": true
+      },
+      "validation": {
+        "expected_phrases": [
+          "[--allow-write]",
+          "apply-intent` | Apply one bounded mutation only after live target uniqueness is proven; this command must be invoked with `--allow-write`.",
+          "unrelated pre-existing dirty files are not an operator error",
+          "reports are runtime artifacts"
+        ],
+        "forbidden_phrases": []
+      },
+      "safety": {
+        "require_unique_match": true,
+        "fail_on_ambiguity": true,
+        "allow_full_file_rewrite": false,
+        "max_files_touched": 1
+      },
+      "notes": "Align documentation only. This records the --allow-write mutation contract, dirty-tree non-error rule, and report-artifact policy without redesigning the CLI."
+    }
+  ]
+}
