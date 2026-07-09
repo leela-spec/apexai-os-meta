@@ -1,0 +1,45 @@
+{
+  "schema_version": "patch_intent.v1",
+  "intents": [
+    {
+      "intent_id": "example_replace_section",
+      "operation": "replace-heading-section",
+      "target": {
+        "target_file_guess": "docs/example.md",
+        "heading_path": [
+          "Example",
+          "Current Behavior"
+        ],
+        "frontmatter_required": false
+      },
+      "hints": {
+        "nearby_phrases": [
+          "This section describes the current behavior."
+        ],
+        "symbol_or_section_names": [
+          "Current Behavior"
+        ]
+      },
+      "replacement": {
+        "content": "This section describes the updated behavior.\n",
+        "content_role": "section_body",
+        "preserve_surrounding_formatting": true
+      },
+      "validation": {
+        "expected_phrases": [
+          "updated behavior"
+        ],
+        "forbidden_phrases": [
+          "current behavior"
+        ]
+      },
+      "safety": {
+        "require_unique_match": true,
+        "fail_on_ambiguity": true,
+        "allow_full_file_rewrite": false,
+        "max_files_touched": 1
+      },
+      "notes": "Executor must resolve the exact live heading section before mutation."
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "schema_version": "patch_policy.v1",
+  "path_allowlist": [
+    "docs/**/*.md",
+    ".claude/skills/example-skill/**/*.md",
+    ".claude/skills/example-skill/**/*.json"
+  ],
+  "protected_paths": [
+    ".git/**",
+    "node_modules/**"
+  ],
+  "report_directory": "reports/deterministic-patches",
+  "allowed_operations": [
+    "inspect",
+    "locate",
+    "extract-span",
+    "replace-heading-section",
+    "frontmatter-set",
+    "diff",
+    "validate-intent",
+    "apply-intent"
+  ],
+  "validation_commands": [
+    {
+      "name": "json_parse_templates",
+      "command": [
+        "python",
+        "-m",
+        "json.tool",
+        "templates/patch_intent.template.json"
+      ],
+      "timeout_seconds": 30,
+      "required": true
+    }
+  ],
+  "full_file_rewrite": false
+}

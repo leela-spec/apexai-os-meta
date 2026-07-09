@@ -1,0 +1,21 @@
+interface:
+  display_name: Deterministic Markdown Patcher 2
+  short_description: Create semantic patch intents and route Markdown or config edits through deterministic executors.
+  icon: file-text
+  accent_color: slate
+routing:
+  skill_name: deterministic-markdown-patcher2
+  primary_inputs:
+    - natural_language_change_request
+    - patch_intent_json
+    - patch_policy_json
+    - executor_report_json
+  primary_outputs:
+    - patch_intent_json
+    - patch_policy_json
+    - executor_report_json
+instructions:
+  - Use SKILL.md as the control plane.
+  - Load reference files only when their read_when condition applies.
+  - Do not mutate Markdown or config files directly when an approved executor is available.
+  - Do not treat AI-authored unified diffs, line numbers, or old_text as executable patch input.

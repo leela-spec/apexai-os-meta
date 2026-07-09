@@ -1,0 +1,52 @@
+{
+  "schema_version": "fixture_spec.v1",
+  "fixture_id": "example_heading_replacement_fixture",
+  "files": [
+    {
+      "path": "docs/example.md",
+      "content": "# Example\n\n## Current Behavior\n\nThis section describes the current behavior.\n"
+    }
+  ],
+  "intent_file": "patch_intent.json",
+  "policy_file": "patch_policy.json",
+  "commands": [
+    {
+      "name": "validate_intent",
+      "command": [
+        "python",
+        "scripts/patch_executor.py",
+        "validate-intent",
+        "--intent",
+        "patch_intent.json",
+        "--policy",
+        "patch_policy.json"
+      ],
+      "expected_exit": 0
+    },
+    {
+      "name": "apply_intent",
+      "command": [
+        "python",
+        "scripts/patch_executor.py",
+        "apply-intent",
+        "--intent",
+        "patch_intent.json",
+        "--policy",
+        "patch_policy.json",
+        "--allow-write"
+      ],
+      "expected_exit": 0
+    }
+  ],
+  "assertions": [
+    {
+      "path": "docs/example.md",
+      "must_contain": [
+        "updated behavior"
+      ],
+      "must_not_contain": [
+        "current behavior"
+      ]
+    }
+  ]
+}
