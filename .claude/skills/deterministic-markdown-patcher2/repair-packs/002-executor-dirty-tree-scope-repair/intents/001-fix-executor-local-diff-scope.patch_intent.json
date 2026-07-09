@@ -1,0 +1,47 @@
+{
+  "schema_version": "patch_intent.v1",
+  "intents": [
+    {
+      "intent_id": "fix_executor_local_diff_scope",
+      "operation": "replace-once",
+      "target": {
+        "target_file_guess": ".claude/skills/deterministic-markdown-patcher2/scripts/patch_executor.py",
+        "frontmatter_required": false
+      },
+      "hints": {
+        "symbol_or_section_names": [
+          "changed_paths",
+          "verify_diff_scope",
+          "run_validation"
+        ],
+        "nearby_phrases": [
+          "def verify_diff_scope(repo: Path, policy: dict[str, Any], allowed: list[str]) -> None:",
+          "for path in changed_paths(repo):",
+          "verify_diff_scope(repo, policy, allowed or [rel])"
+        ]
+      },
+      "replacement": {
+        "content": "def changed_paths(repo: Path) -> list[str]:\n    result = run_subprocess([\"git\", \"diff\", \"--name-only\"], repo)\n    if result[\"exit_code\"] != 0:\n        return []\n    return [line.strip().replace(\"\\\\\", \"/\") for line in result[\"stdout\"].splitlines() if line.strip()]\n\n\ndef verify_diff_scope(repo: Path, policy: dict[str, Any], allowed: list[str], baseline_paths: list[str] | None = None) -> None:\n    if not is_git_repo(repo):\n        return\n    allowed_set = set(allowed)\n    baseline_set = set(baseline_paths or [])\n    current_set = set(changed_paths(repo))\n    newly_changed = sorted(current_set - baseline_set)\n    bad = []\n    for path in newly_changed:\n        if path not in allowed_set:\n            bad.append(path)\n            continue\n        try:\n            require_path_allowed(policy, path)\n        except PatchError:\n            bad.append(path)\n    for path in sorted(allowed_set):\n        try:\n            require_path_allowed(policy, path)\n        except PatchError:\n            bad.append(path)\n    if bad:\n        raise PatchError(\n            \"diff touches unallowed path\",\n            code=5,\n            mode=\"diff touches unallowed path\",\n            field=\"git diff\",\n            candidates=[{\"path\": p} for p in bad],\n        )\n\n\ndef run_validation(repo: Path, policy: dict[str, Any], intent: dict[str, Any], allowed: list[str], baseline_paths: list[str] | None = None) -> list[dict[str, Any]]:\n    results: list[dict[str, Any]] = []\n    rel, path = safe_target(repo, policy, intent[\"target\"])\n    text = path.read_text(encoding=\"utf-8\")\n    for phrase in intent.get(\"validation\", {}).get(\"expected_phrases\", []):\n        ok = phrase in text\n        results.append({\"type\": \"expected_phrase\", \"phrase\": phrase, \"passed\": ok})\n        if not ok:\n            raise PatchError(\"validation failed\", code=4, mode=\"validation failed\", field=\"validation.expected_phrases\")\n    for phrase in intent.get(\"validation\", {}).get(\"forbidden_phrases\", []):\n        ok = phrase not in text\n        results.append({\"type\": \"forbidden_phrase\", \"phrase\": phrase, \"passed\": ok})\n        if not ok:\n            raise PatchError(\"validation failed\", code=4, mode=\"validation failed\", field=\"validation.forbidden_phrases\")\n    for command in policy.get(\"validation_commands\", []):\n        if command[\"command\"][0] not in {\"git\", \"rg\", \"yq\"}:\n            result = {\n                \"type\": \"command\",\n                \"name\": command.get(\"name\", command[\"command\"][0]),\n                \"command\": command[\"command\"],\n                \"exit_code\": 2,\n                \"stdout\": \"\",\n                \"stderr\": \"validation command rejected: subprocess is restricted to git, rg, yq\",\n                \"passed\": False,\n            }\n            results.append(result)\n            if command.get(\"required\", True):\n                raise PatchError(\"validation failed\", code=4, mode=\"validation failed\", field=\"validation_commands\", candidates=[result])\n            continue\n        proc = subprocess.run(command[\"command\"], cwd=str(repo), text=True, capture_output=True, timeout=command[\"timeout_seconds\"], shell=False)\n        result = {\n            \"type\": \"command\",\n            \"name\": command.get(\"name\", command[\"command\"][0]),\n            \"command\": command[\"command\"],\n            \"exit_code\": proc.returncode,\n            \"stdout\": proc.stdout,\n            \"stderr\": proc.stderr,\n            \"passed\": proc.returncode == 0,\n        }\n        results.append(result)\n        if command.get(\"required\", True) and proc.returncode != 0:\n            raise PatchError(\"validation failed\", code=4, mode=\"validation failed\", field=\"validation_commands\", candidates=[result])\n    verify_diff_scope(repo, policy, allowed or [rel], baseline_paths=baseline_paths)\n    return results",
+        "content_role": "generated_block",
+        "preserve_surrounding_formatting": true
+      },
+      "validation": {
+        "expected_phrases": [
+          "baseline_paths: list[str] | None = None",
+          "newly_changed = sorted(current_set - baseline_set)",
+          "baseline_paths=baseline_paths"
+        ],
+        "forbidden_phrases": [
+          "for path in changed_paths(repo):"
+        ]
+      },
+      "safety": {
+        "require_unique_match": true,
+        "fail_on_ambiguity": true,
+        "allow_full_file_rewrite": false,
+        "max_files_touched": 1
+      },
+      "notes": "Replace the contiguous helper block containing changed_paths, verify_diff_scope, and run_validation. The executor must compare the current diff against an execution-local baseline so unrelated pre-existing dirty files and successful previous intent diffs do not fail later intents."
+    }
+  ]
+}
