@@ -1,0 +1,48 @@
+{
+  "schema_version": "patch_intent.v1",
+  "intents": [
+    {
+      "intent_id": "add_executor_post_validation_rollback",
+      "operation": "replace-once",
+      "target": {
+        "target_file_guess": ".claude/skills/deterministic-markdown-patcher2/scripts/patch_executor.py",
+        "frontmatter_required": false
+      },
+      "hints": {
+        "symbol_or_section_names": [
+          "failure",
+          "apply_intent",
+          "restore_executor_mutated_paths"
+        ],
+        "nearby_phrases": [
+          "def failure(command: str, err: PatchError, args: argparse.Namespace, policy: dict[str, Any] | None = None) -> int:",
+          "def apply_intent(repo: Path, policy: dict[str, Any], intent: dict[str, Any], args: argparse.Namespace) -> dict[str, Any]:",
+          "rollback_status"
+        ]
+      },
+      "replacement": {
+        "content": "def failure(command: str, err: PatchError, args: argparse.Namespace, policy: dict[str, Any] | None = None) -> int:\n    out = {\n        \"status\": \"FAIL\",\n        \"command\": command,\n        \"timestamp\": now(),\n        \"failure_mode\": err.mode,\n        \"message\": str(err),\n        \"governing_field\": err.field,\n        \"candidates\": err.candidates,\n        \"rollback_status\": getattr(err, \"rollback_status\", \"not_applicable\"),\n    }\n    kind = \"ambiguity\" if err.mode in {\"zero target matches\", \"multiple target matches\", \"duplicate/ambiguous heading path\"} else \"failure\"\n    if err.mode == \"validation failed\":\n        kind = \"validation\"\n    write_report(args, policy, kind, out)\n    emit(out)\n    return err.code\n\n\ndef apply_intent(repo: Path, policy: dict[str, Any], intent: dict[str, Any], args: argparse.Namespace) -> dict[str, Any]:\n    op = intent[\"operation\"]\n    if op not in MUTATION_OPS:\n        raise PatchError(\"validation failed: apply-intent requires a mutation operation\", code=2, mode=\"validation failed\", field=\"operation\")\n    rel, path = safe_target(repo, policy, intent[\"target\"])\n    baseline_paths = changed_paths(repo) if is_git_repo(repo) else []\n    before_by_path: dict[str, str | None] = {rel: path.read_text(encoding=\"utf-8\") if path.exists() else None}\n    mutation_started = False\n    try:\n        if op == \"replace-once\":\n            result = replace_once(repo, policy, intent, args)\n        elif op == \"replace-heading-section\":\n            result = replace_heading_section(repo, policy, intent, args)\n        else:\n            result = frontmatter_set(repo, policy, intent, args)\n        mutation_started = True\n        for changed in result.get(\"changed_paths\", []):\n            if changed not in before_by_path:\n                changed_path = (repo / changed).resolve()\n                before_by_path[changed] = changed_path.read_text(encoding=\"utf-8\") if changed_path.exists() else None\n        validations = run_validation(repo, policy, intent, result[\"changed_paths\"], baseline_paths=baseline_paths)\n        diff = git_diff(repo, result[\"changed_paths\"]) if is_git_repo(repo) else {\"stdout\": \"\", \"exit_code\": 0}\n        return {**result, \"validation_results\": validations, \"git_diff\": diff.get(\"stdout\", \"\")}\n    except PatchError as exc:\n        if mutation_started:\n            restore_executor_mutated_paths(repo, before_by_path)\n            setattr(exc, \"rollback_status\", \"restored_executor_mutated_paths\")\n        raise\n    except Exception as exc:\n        if mutation_started:\n            restore_executor_mutated_paths(repo, before_by_path)\n        wrapped = PatchError(f\"validation failed: {exc}\", code=4, mode=\"validation failed\")\n        setattr(wrapped, \"rollback_status\", \"restored_executor_mutated_paths\" if mutation_started else \"not_applicable\")\n        raise wrapped\n\n\ndef restore_executor_mutated_paths(repo: Path, before_by_path: dict[str, str | None]) -> None:\n    for rel, content in before_by_path.items():\n        path = repo / rel\n        if content is None:\n            if path.exists():\n                path.unlink()\n        else:\n            path.write_text(content, encoding=\"utf-8\", newline=\"\")",
+        "content_role": "generated_block",
+        "preserve_surrounding_formatting": true
+      },
+      "validation": {
+        "expected_phrases": [
+          "restore_executor_mutated_paths",
+          "rollback_status\", getattr(err, \"rollback_status\"",
+          "baseline_paths = changed_paths(repo)"
+        ],
+        "forbidden_phrases": [
+          "rollback_status\": \"not_applicable\"",
+          "if before is not None and exc.code in {4, 5}:"
+        ]
+      },
+      "safety": {
+        "require_unique_match": true,
+        "fail_on_ambiguity": true,
+        "allow_full_file_rewrite": false,
+        "max_files_touched": 1
+      },
+      "notes": "Replace the contiguous failure/apply_intent block. Any post-mutation PatchError or unexpected exception must restore executor-mutated paths before reporting failure."
+    }
+  ]
+}
