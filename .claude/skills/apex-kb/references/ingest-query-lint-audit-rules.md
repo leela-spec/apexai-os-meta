@@ -47,6 +47,8 @@ Python may create only deterministic artifacts under `manifests/phase0/`. Phase 
 - `source-priority-candidates.md`
 - `phase0-navigation-report.md`
 
+`graph` extracts deterministic process-flow/navigation edges (markdown links, wikilinks, repository path references, YAML path references, process-sequence markers) and, with `--allow-write`, writes `manifests/phase0/process-flow-graph.json`. It is a Phase 0 navigation artifact, not a semantic inference step — it must never fail on an empty KB, and must report zero edges truthfully rather than guessing.
+
 ### Phase 1
 
 LLM writes one analysis under `ingest-analysis/<source-slug>.analysis.md`. It must include source identity, source summary, extraction candidates, concept/entity candidates, key claims, uncertainty/raw source triggers, and proposed wiki changes. It must halt with `operator_review_needed`.
@@ -64,6 +66,14 @@ When the selected output tier includes wiki output, Phase 2 follows Phase 1 in t
 5. Cite page paths and source pointers.
 6. Save a query packet under `outputs/queries/` when the answer is reusable or operator requests it.
 7. Query mode is read-only with respect to Plan/Sync/Session/personal orchestration.
+
+### Query-eval pack
+
+`query-eval` validates or initializes `outputs/queries/evals/query-eval-pack.json`. Each entry defines `expected_routes`, `expected_minimal_pages`, and `raw_source_needed` for a query. The script validates pack schema only — it never grades answer quality and never runs an LLM eval.
+
+## Quality / coverage rules
+
+`quality` (alias `coverage`) reports `source_to_page_map`, `page_to_source_map`, pages missing `source_refs`, pages missing Phase 2 value sections, and structural repair/shell-page candidates. All checks are deterministic and structural — no LLM grading, no `page_value_score`. Findings are report-only by default; `--strict` turns repair candidates into a blocking failure.
 
 ## Lint rules
 

@@ -1,0 +1,60 @@
+diff --git a/.claude/skills/apex-kb/references/acceptance-tests.md b/.claude/skills/apex-kb/references/acceptance-tests.md
+index bed057d3..2923eedc 100644
+--- a/.claude/skills/apex-kb/references/acceptance-tests.md
++++ b/.claude/skills/apex-kb/references/acceptance-tests.md
+@@ -155,6 +155,55 @@ Pass criteria:
+ - Query returns the retrieval page.
+ - Saved query packet appears under `outputs/queries/`.
+ 
++## v3 repair fixtures (pointer_only, quality/coverage, query-eval, graph, retrieval freshness)
++
++```powershell
++$KB2="apex-meta/kb/apex-kb-v3-repair-smoke"
++New-Item -ItemType Directory -Force -Path "$KB2/manifests","$KB2/external-pointers","$KB2/wiki" | Out-Null
++@"
++{
++  "schema_version": "1.0",
++  "kb_slug": "apex-kb-v3-repair-smoke",
++  "sources": [
++    {"source_id": "ptr-good", "source_storage_mode": "pointer_only", "source_path": "external-pointers/pointer-source.md"},
++    {"source_id": "ptr-missing", "source_storage_mode": "pointer_only", "source_path": "external-pointers/does-not-exist.md"}
++  ]
++}
++"@ | Set-Content -Encoding UTF8 "$KB2/manifests/source-manifest.json"
++"# Pointer Source`n`nResolved only through pointer_only Phase 0 scanning." | Set-Content -Encoding UTF8 "$KB2/external-pointers/pointer-source.md"
++@"
++---
++title: "Shell Page"
++page_type: concept
++kb_slug: "apex-kb-v3-repair-smoke"
++source_refs: []
++created_at: "2026-07-09T00:00:00Z"
++updated_at: "2026-07-09T00:00:00Z"
++confidence: "unknown"
++claim_label: "working_hypothesis"
++status: "draft"
++---
++# Shell Page
++
++Nothing much here.
++"@ | Set-Content -Encoding UTF8 "$KB2/wiki/shell-page.md"
++python apex-meta/scripts/apex_kb.py --kb-root $KB2 --allow-write --json phase0
++python apex-meta/scripts/apex_kb.py --kb-root $KB2 --json quality
++python apex-meta/scripts/apex_kb.py --kb-root $KB2 query-eval --init --json
++python apex-meta/scripts/apex_kb.py --kb-root $KB2 --allow-write query-eval --init --json
++python apex-meta/scripts/apex_kb.py --kb-root $KB2 --allow-write --json graph
++python apex-meta/scripts/apex_kb.py --kb-root $KB2 --json status
++```
++
++Pass criteria:
++
++- `phase0` reports `pointer_only_scanned_count: 1` and `manifests/phase0/heading-map.json` includes `external-pointers/pointer-source.md`.
++- `phase0` reports `ptr-missing` inside `pointer_only_unresolved` with a non-empty `reason`, and `pointer_only_warning_count` is not `0`.
++- `quality` reports `wiki/shell-page.md` under both `pages_without_source_refs` and `shell_page_candidates`, derived from structural checks only (no LLM grading, no `page_value_score`).
++- `query-eval --init` without `--allow-write` returns `status: "planned"` and creates no file; with `--allow-write` it creates a valid `outputs/queries/evals/query-eval-pack.json`, and immediately re-running `query-eval` reports `issue_count: 0`.
++- `graph` reports `edge_count` greater than 0 whenever an edge-bearing file exists in the KB, and truthfully reports `edge_count: 0` (never fails) for an empty KB; `--allow-write` writes `manifests/phase0/process-flow-graph.json`.
++- `status` reports `retrieval_index_status` as one of `missing`/`unknown`/`stale`/`fresh` based on an actual hash comparison against `derived/search/index-meta.json`, never merely on file presence.
++
+ ## Maintenance
+ 
+ ```powershell

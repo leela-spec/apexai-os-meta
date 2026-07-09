@@ -65,7 +65,9 @@ required_directories:
 source_storage_modes:
   pointer_only:
     use_when: source already exists durably in repository or stable local path
-    required_fields: [source_path, source_hash, source_storage_mode]
+    required_fields: [source_path, source_storage_mode]
+    optional_fields: [source_hash]
+    when_unhashable: record no_hash_reason instead of source_hash
   copy_into_kb:
     use_when: source is uploaded, external, temporary, or not otherwise durable
     required_fields: [source_path, copied_to, source_hash, source_storage_mode]
@@ -89,6 +91,7 @@ Rules:
 - Payload groups are folder-derived by default: first-level folders under `raw/`; files directly under `raw/` use group `root`.
 - Optional group maps must be explicit JSON. Do not infer deterministic groups from filenames or LLM semantic decisions.
 - Do not add an external BagIt dependency; the Apex-native ledger uses Python stdlib hashing.
+- Phase 0 resolves `pointer_only` sources that are safe local text files (kb-root-relative or repo-local, never a network URL) and includes them in corpus-navigation scanning; pointers that cannot be safely resolved are reported as unresolved rather than silently dropped.
 
 ## Page contract
 
