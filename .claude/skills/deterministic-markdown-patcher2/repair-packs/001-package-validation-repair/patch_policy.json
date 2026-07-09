@@ -1,0 +1,18 @@
+{
+  "schema_version": "patch_policy.v1",
+  "path_allowlist": [
+    ".claude/skills/deterministic-markdown-patcher2/**/*.md",
+    ".claude/skills/deterministic-markdown-patcher2/**/*.json",
+    ".claude/skills/deterministic-markdown-patcher2/**/*.yaml",
+    ".claude/skills/deterministic-markdown-patcher2/**/*.py"
+  ],
+  "protected_paths": [
+    ".claude/skills/deterministic-markdown-patcher2/repair-packs/001-package-validation-repair/**"
+  ],
+  "report_directory": ".claude/skills/deterministic-markdown-patcher2/repair-packs/001-package-validation-repair/reports",
+  "allowed_operations": [
+    "replace-once"
+  ],
+  "validation_commands": [],
+  "full_file_rewrite": false
+}
