@@ -57,6 +57,20 @@ semantic_compile_policy:
     - phase1_only
     - operator_explicit_stop_before_wiki
   legacy_explicit_gate_phrase: approve ingest
+
+execution_surface_policy:
+  default_semantic_execution_surface: current_assistant_chat_llm
+  external_agent_or_codex_role: deterministic_executor_only_by_default
+  use_external_agent_or_codex_for:
+    - live_worktree_script_execution
+    - git_native_patch_application
+    - deterministic_postflight_validation
+    - commit_and_push_when_connector_or_local_git_is_required
+  do_not_use_external_agent_or_codex_for:
+    - phase_1_semantic_analysis_by_default
+    - phase_2_wiki_drafting_by_default
+    - LLM_owned_synthesis_when_current_assistant_can_perform_it
+  semantic_delegation_requires: explicit_operator_override
 boundary:
   must_not_mutate:
     - apex-plan files
@@ -109,15 +123,16 @@ Read supporting files only when needed:
 
 1. Resolve exactly one `--kb-root`. Never hardcode `claude-skill-design`; treat it only as a possible test KB slug.
 2. Select a run profile and output tier before intake.
-3. Run deterministic checks through `apex-meta/scripts/apex_kb.py` for scaffold, hash, source-intake, generate-source-payload-manifest, preflight, phase0, index, lint, audit, status, and health.
-4. Preserve source custody before semantic work: raw source, durable pointer, storage mode, source hash or no-hash reason, source manifest entry, and source payload manifest.
-5. Run `generate-source-payload-manifest` after source intake and before Phase 0. It is an Apex-native BagIt-style ledger using stdlib hashing only; it does not replace `source-manifest.json`.
-6. Run Phase 0 before LLM ingest when corpus navigation is needed. Phase 0 may create only deterministic artifacts under `manifests/phase0/`.
-7. When the selected output tier includes wiki output, Phase 1 semantic analysis and Phase 2 wiki compile are one continuous semantic compile by default. Stop after Phase 1 only for `analysis_only`, `phase1_only`, or `operator_explicit_stop_before_wiki` safe modes.
-8. In Phase 2, draft or update `wiki/summaries/`, `wiki/concepts/`, and `wiki/entities/` pages and any audit or semantic index sections. Compiled pages **must** implement the Phase 2 page value contract: include an Adaptive Ranked Source Set, Macro / Meso / Micro synthesis, Key Claims with source pointers and labels, Routes Here, and Uncertainty / Raw Source Reopen Triggers. Every claim still needs a source pointer, confidence, and claim label.
-9. Rebuild deterministic index sections and retrieval indexes after wiki updates. Use `apex_kb_retrieval.py` for `build-index`, `stale`, `query`, `export`, and `clear-index`.
-10. Answer queries index-first. Read `wiki/index.md`, retrieve the smallest sufficient page set, synthesize from compiled wiki pages, and save query packets when reuse is useful.
-11. Keep lint/audit maintenance read-only unless the operator explicitly asks for a deterministic write inside the KB root.
+3. Keep LLM-owned semantic work in the current assistant/chat LLM by default. Use Agent Mode, Codex, or local executors only for deterministic script execution, Git-native patch/application work, validation, and commit/push operations unless the operator explicitly delegates semantic drafting.
+4. Run deterministic checks through `apex-meta/scripts/apex_kb.py` for scaffold, hash, source-intake, generate-source-payload-manifest, preflight, phase0, index, lint, audit, status, and health.
+5. Preserve source custody before semantic work: raw source, durable pointer, storage mode, source hash or no-hash reason, source manifest entry, and source payload manifest.
+6. Run `generate-source-payload-manifest` after source intake and before Phase 0. It is an Apex-native BagIt-style ledger using stdlib hashing only; it does not replace `source-manifest.json`.
+7. Run Phase 0 before LLM ingest when corpus navigation is needed. Phase 0 may create only deterministic artifacts under `manifests/phase0/`.
+8. When the selected output tier includes wiki output, Phase 1 semantic analysis and Phase 2 wiki compile are one continuous semantic compile by default. Stop after Phase 1 only for `analysis_only`, `phase1_only`, or `operator_explicit_stop_before_wiki` safe modes.
+9. In Phase 2, draft or update `wiki/summaries/`, `wiki/concepts/`, and `wiki/entities/` pages and any audit or semantic index sections. Compiled pages **must** implement the Phase 2 page value contract: include an Adaptive Ranked Source Set, Macro / Meso / Micro synthesis, Key Claims with source pointers and labels, Routes Here, and Uncertainty / Raw Source Reopen Triggers. Every claim still needs a source pointer, confidence, and claim label.
+10. Rebuild deterministic index sections and retrieval indexes after wiki updates. Use `apex_kb_retrieval.py` for `build-index`, `stale`, `query`, `export`, and `clear-index`.
+11. Answer queries index-first. Read `wiki/index.md`, retrieve the smallest sufficient page set, synthesize from compiled wiki pages, and save query packets when reuse is useful.
+12. Keep lint/audit maintenance read-only unless the operator explicitly asks for a deterministic write inside the KB root.
 
 ## Deterministic versus LLM ownership
 
