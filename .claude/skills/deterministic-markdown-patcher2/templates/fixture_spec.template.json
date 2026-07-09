@@ -3,6 +3,14 @@
   "fixture_id": "example_heading_replacement_fixture",
   "files": [
     {
+      "path": "patch_intent.json",
+      "content": "{\n  \"schema_version\": \"patch_intent.v1\",\n  \"intents\": [\n    {\n      \"intent_id\": \"replace_current_behavior\",\n      \"operation\": \"replace-heading-section\",\n      \"target\": {\n        \"target_file_guess\": \"docs/example.md\",\n        \"heading_path\": [\n          \"Example\",\n          \"Current Behavior\"\n        ],\n        \"frontmatter_required\": false\n      },\n      \"replacement\": {\n        \"content\": \"updated behavior\\n\",\n        \"content_role\": \"section_body\",\n        \"preserve_surrounding_formatting\": true\n      },\n      \"validation\": {\n        \"expected_phrases\": [\n          \"updated behavior\"\n        ],\n        \"forbidden_phrases\": [\n          \"current behavior\"\n        ]\n      },\n      \"safety\": {\n        \"require_unique_match\": true,\n        \"fail_on_ambiguity\": true,\n        \"allow_full_file_rewrite\": false,\n        \"max_files_touched\": 1\n      },\n      \"notes\": \"Fixture-owned sample intent; created by fixture_spec.template.json so fixture_runner.py can execute commands without missing files.\"\n    }\n  ]\n}\n"
+    },
+    {
+      "path": "patch_policy.json",
+      "content": "{\n  \"schema_version\": \"patch_policy.v1\",\n  \"path_allowlist\": [\n    \"docs/example.md\"\n  ],\n  \"protected_paths\": [],\n  \"report_directory\": \"reports\",\n  \"allowed_operations\": [\n    \"replace-heading-section\"\n  ],\n  \"validation_commands\": [],\n  \"full_file_rewrite\": false\n}\n"
+    },
+    {
       "path": "docs/example.md",
       "content": "# Example\n\n## Current Behavior\n\nThis section describes the current behavior.\n"
     }

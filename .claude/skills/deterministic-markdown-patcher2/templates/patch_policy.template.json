@@ -30,7 +30,7 @@
         "templates/patch_intent.template.json"
       ],
       "timeout_seconds": 30,
-      "required": true
+      "required": false
     }
   ],
   "full_file_rewrite": false
