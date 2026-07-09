@@ -1,0 +1,76 @@
+{
+  "schema": "apex.query_eval_pack.v1",
+  "kb_slug": "claude-code-orchestration-design",
+  "run_id": "max-run-20260709",
+  "status": "new_parallel_compile",
+  "baseline_warning": "source-payload-manifest exists but connector-read content is empty; terminal postflight required before query_ready closure",
+  "queries": [
+    {
+      "query": "When should Claude Code use skills, hooks, plugins, subagents, or MCP?",
+      "expected_routes": [
+        "wiki/summaries/max-run-20260709/claude-code-mechanism-decision-model.md",
+        "wiki/summaries/max-run-20260709/skill-hook-plugin-mcp-boundaries.md"
+      ],
+      "expected_minimal_pages": [
+        "wiki/concepts/max-run-20260709/skill-boundary.md",
+        "wiki/concepts/max-run-20260709/hook-vs-skill-instruction.md",
+        "wiki/concepts/max-run-20260709/mcp-allowlist-and-injection-risk.md",
+        "wiki/concepts/max-run-20260709/persistent-agent-vs-ephemeral-subagent.md"
+      ],
+      "raw_source_needed": false
+    },
+    {
+      "query": "What is the safest minimal Claude orchestration architecture?",
+      "expected_routes": [
+        "wiki/summaries/max-run-20260709/minimal-claude-orchestration-architecture.md"
+      ],
+      "expected_minimal_pages": [
+        "wiki/summaries/max-run-20260709/deterministic-vs-llm-execution-model.md"
+      ],
+      "raw_source_needed": false
+    },
+    {
+      "query": "When should Agent/Codex be used versus current assistant LLM?",
+      "expected_routes": [
+        "wiki/summaries/max-run-20260709/deterministic-vs-llm-execution-model.md"
+      ],
+      "expected_minimal_pages": [
+        "wiki/concepts/max-run-20260709/deterministic-executor-only-boundary.md",
+        "wiki/concepts/max-run-20260709/current-assistant-semantic-owner.md"
+      ],
+      "raw_source_needed": false
+    },
+    {
+      "query": "What are the risks of MCP and plugin surfaces?",
+      "expected_routes": [
+        "wiki/concepts/max-run-20260709/mcp-allowlist-and-injection-risk.md"
+      ],
+      "expected_minimal_pages": [
+        "wiki/entities/max-run-20260709/mcp.md",
+        "wiki/entities/max-run-20260709/claude-code-plugins.md"
+      ],
+      "raw_source_needed": false
+    },
+    {
+      "query": "How should source-preserving agent memory be structured?",
+      "expected_routes": [
+        "wiki/summaries/max-run-20260709/apex-kb-as-source-preserving-agent-memory.md"
+      ],
+      "expected_minimal_pages": [
+        "wiki/concepts/max-run-20260709/source-preserving-kb-compile.md",
+        "wiki/entities/max-run-20260709/apex-kb.md"
+      ],
+      "raw_source_needed": false
+    },
+    {
+      "query": "How should old wiki outputs be compared to new max-run outputs?",
+      "expected_routes": [
+        "wiki/concepts/max-run-20260709/old-output-comparison-policy.md"
+      ],
+      "expected_minimal_pages": [
+        "wiki/summaries/max-run-20260709/failure-analysis-and-feedback-loop.md"
+      ],
+      "raw_source_needed": false
+    }
+  ]
+}
