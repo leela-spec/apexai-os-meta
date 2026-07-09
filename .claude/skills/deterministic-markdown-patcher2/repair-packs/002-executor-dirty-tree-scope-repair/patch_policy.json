@@ -1,0 +1,20 @@
+{
+  "schema_version": "patch_policy.v1",
+  "path_allowlist": [
+    ".claude/skills/deterministic-markdown-patcher2/scripts/patch_executor.py",
+    ".claude/skills/deterministic-markdown-patcher2/scripts/fixture_runner.py",
+    ".claude/skills/deterministic-markdown-patcher2/references/executor-contract.md",
+    ".claude/skills/deterministic-markdown-patcher2/references/failure-modes.md",
+    ".claude/skills/deterministic-markdown-patcher2/templates/fixture_spec.template.json"
+  ],
+  "protected_paths": [
+    ".claude/skills/deterministic-markdown-patcher2/repair-packs/002-executor-dirty-tree-scope-repair/**"
+  ],
+  "report_directory": ".claude/skills/deterministic-markdown-patcher2/repair-packs/002-executor-dirty-tree-scope-repair/reports",
+  "allowed_operations": [
+    "replace-once",
+    "replace-heading-section"
+  ],
+  "validation_commands": [],
+  "full_file_rewrite": false
+}
