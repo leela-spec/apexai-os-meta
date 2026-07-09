@@ -1,0 +1,112 @@
+{
+  "schema_version": "fixture_spec.v1",
+  "fixture_id": "repair_pack_001_package_validation_repair",
+  "files": [
+    {
+      "path": ".claude/skills/deterministic-markdown-patcher2/templates/fixture_spec.template.json",
+      "content": "{\n  \"schema_version\": \"fixture_spec.v1\",\n  \"fixture_id\": \"example_heading_replacement_fixture\",\n  \"files\": [\n    {\n      \"path\": \"docs/example.md\",\n      \"content\": \"# Example\\\\n\\\\n## Current Behavior\\\\n\\\\nold\\\\n\"\n    }\n  ],\n  \"commands\": [],\n  \"assertions\": []\n}\n"
+    },
+    {
+      "path": ".claude/skills/deterministic-markdown-patcher2/templates/patch_policy.template.json",
+      "content": "{\n  \"schema_version\": \"patch_policy.v1\",\n  \"validation_commands\": [\n    {\n      \"name\": \"json_parse_templates\",\n      \"command\": [\n        \"python\",\n        \"-m\",\n        \"json.tool\",\n        \"templates/patch_intent.template.json\"\n      ],\n      \"timeout_seconds\": 30,\n      \"required\": true\n    }\n  ],\n  \"path_allowlist\": [\n    \"docs/**/*.md\"\n  ],\n  \"report_directory\": \"reports\",\n  \"allowed_operations\": [\n    \"replace-once\"\n  ],\n  \"full_file_rewrite\": false\n}\n"
+    },
+    {
+      "path": "patch_policy.json",
+      "content": "{\n  \"schema_version\": \"patch_policy.v1\",\n  \"path_allowlist\": [\n    \".claude/skills/deterministic-markdown-patcher2/**/*.md\",\n    \".claude/skills/deterministic-markdown-patcher2/**/*.json\",\n    \".claude/skills/deterministic-markdown-patcher2/**/*.yaml\",\n    \".claude/skills/deterministic-markdown-patcher2/**/*.py\"\n  ],\n  \"protected_paths\": [\n    \".claude/skills/deterministic-markdown-patcher2/repair-packs/001-package-validation-repair/**\"\n  ],\n  \"report_directory\": \".claude/skills/deterministic-markdown-patcher2/repair-packs/001-package-validation-repair/reports\",\n  \"allowed_operations\": [\n    \"replace-once\"\n  ],\n  \"validation_commands\": [],\n  \"full_file_rewrite\": false\n}\n"
+    },
+    {
+      "path": "intents/001-fix-fixture-template-files.patch_intent.json",
+      "content": "{\n  \"schema_version\": \"patch_intent.v1\",\n  \"intents\": [\n    {\n      \"intent_id\": \"fix_fixture_template_files\",\n      \"operation\": \"replace-once\",\n      \"target\": {\n        \"target_file_guess\": \".claude/skills/deterministic-markdown-patcher2/templates/fixture_spec.template.json\",\n        \"frontmatter_required\": false\n      },\n      \"hints\": {\n        \"nearby_phrases\": [\n          \"\\\"files\\\": [\"\n        ],\n        \"symbol_or_section_names\": [\n          \"fixture_spec files array\"\n        ]\n      },\n      \"replacement\": {\n        \"content\": \"\\\"files\\\": [\\n    {\\n      \\\"path\\\": \\\"patch_intent.json\\\",\\n      \\\"content\\\": \\\"Fixture-owned sample intent\\\"\\n    },\\n    {\\n      \\\"path\\\": \\\"patch_policy.json\\\",\\n      \\\"content\\\": \\\"{}\\\"\\n    },\",\n        \"content_role\": \"span_replacement\",\n        \"preserve_surrounding_formatting\": true\n      },\n      \"validation\": {\n        \"expected_phrases\": [\n          \"\\\"path\\\": \\\"patch_intent.json\\\"\",\n          \"\\\"path\\\": \\\"patch_policy.json\\\"\",\n          \"Fixture-owned sample intent\"\n        ],\n        \"forbidden_phrases\": [\n          \"\\\"files\\\": [\\n    {\\n      \\\"path\\\": \\\"docs/example.md\\\"\"\n        ]\n      },\n      \"safety\": {\n        \"require_unique_match\": true,\n        \"fail_on_ambiguity\": true,\n        \"allow_full_file_rewrite\": false,\n        \"max_files_touched\": 1\n      },\n      \"notes\": \"Fixture representative for inserting patch_intent.json and patch_policy.json file entries before docs/example.md.\"\n    }\n  ]\n}\n"
+    },
+    {
+      "path": "intents/002-make-python-validation-optional.patch_intent.json",
+      "content": "{\n  \"schema_version\": \"patch_intent.v1\",\n  \"intents\": [\n    {\n      \"intent_id\": \"make_python_validation_optional\",\n      \"operation\": \"replace-once\",\n      \"target\": {\n        \"target_file_guess\": \".claude/skills/deterministic-markdown-patcher2/templates/patch_policy.template.json\",\n        \"frontmatter_required\": false\n      },\n      \"hints\": {\n        \"nearby_phrases\": [\n          \"\\\"required\\\": true\"\n        ],\n        \"symbol_or_section_names\": [\n          \"json_parse_templates validation command\"\n        ]\n      },\n      \"replacement\": {\n        \"content\": \"\\\"required\\\": false\",\n        \"content_role\": \"span_replacement\",\n        \"preserve_surrounding_formatting\": true\n      },\n      \"validation\": {\n        \"expected_phrases\": [\n          \"\\\"required\\\": false\"\n        ],\n        \"forbidden_phrases\": [\n          \"\\\"required\\\": true\"\n        ]\n      },\n      \"safety\": {\n        \"require_unique_match\": true,\n        \"fail_on_ambiguity\": true,\n        \"allow_full_file_rewrite\": false,\n        \"max_files_touched\": 1\n      },\n      \"notes\": \"The template currently marks a Python validation command as required, but patch_executor.py rejects validation subprocesses except git, rg, and yq. This repair makes the example command non-blocking without widening executor subprocess policy.\"\n    }\n  ]\n}\n"
+    }
+  ],
+  "commands": [
+    {
+      "name": "validate_001",
+      "command": [
+        "python",
+        "scripts/patch_executor.py",
+        "validate-intent",
+        "--intent",
+        "intents/001-fix-fixture-template-files.patch_intent.json",
+        "--policy",
+        "patch_policy.json",
+        "--repo",
+        "."
+      ],
+      "expected_exit": 0
+    },
+    {
+      "name": "apply_001",
+      "command": [
+        "python",
+        "scripts/patch_executor.py",
+        "apply-intent",
+        "--intent",
+        "intents/001-fix-fixture-template-files.patch_intent.json",
+        "--policy",
+        "patch_policy.json",
+        "--repo",
+        ".",
+        "--allow-write"
+      ],
+      "expected_exit": 0
+    },
+    {
+      "name": "validate_002",
+      "command": [
+        "python",
+        "scripts/patch_executor.py",
+        "validate-intent",
+        "--intent",
+        "intents/002-make-python-validation-optional.patch_intent.json",
+        "--policy",
+        "patch_policy.json",
+        "--repo",
+        "."
+      ],
+      "expected_exit": 0
+    },
+    {
+      "name": "apply_002",
+      "command": [
+        "python",
+        "scripts/patch_executor.py",
+        "apply-intent",
+        "--intent",
+        "intents/002-make-python-validation-optional.patch_intent.json",
+        "--policy",
+        "patch_policy.json",
+        "--repo",
+        ".",
+        "--allow-write"
+      ],
+      "expected_exit": 0
+    }
+  ],
+  "assertions": [
+    {
+      "path": ".claude/skills/deterministic-markdown-patcher2/templates/fixture_spec.template.json",
+      "must_contain": [
+        "\"path\": \"patch_intent.json\"",
+        "\"path\": \"patch_policy.json\"",
+        "Fixture-owned sample intent"
+      ],
+      "must_not_contain": [
+        "\"files\": [\n    {\n      \"path\": \"docs/example.md\""
+      ]
+    },
+    {
+      "path": ".claude/skills/deterministic-markdown-patcher2/templates/patch_policy.template.json",
+      "must_contain": [
+        "\"required\": false"
+      ],
+      "must_not_contain": [
+        "\"required\": true"
+      ]
+    }
+  ]
+}
