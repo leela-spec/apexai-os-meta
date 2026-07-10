@@ -1,0 +1,135 @@
+document:
+  id: apex-step3-operator-output-design-principles
+  title: APEX Step 3 Operator Output Design Principles
+  status: verified_by_operator
+  created_date: 2026-07-10
+  repository: leela-spec/apexai-os-meta
+  branch: main
+  package_path: apex-meta/operator-output-design/step3-output-design-system/
+  source_step: step2_operator_user_stories
+  verification:
+    verified_by: Marco
+    decision: keep_all
+    verification_date: 2026-07-10
+
+scope:
+  owns:
+    - operator_facing_presentation_principles
+    - human_machine_layering_rules
+    - result_card_first_rules
+    - operator_decision_language
+    - presentation_resilience_rules
+  must_not_own:
+    - domain_artifact_schemas
+    - runtime_execution
+    - skill_package_mutation
+    - calendar_writes
+    - FlowRecap_execution
+    - project_state_merge
+
+locked_foundations:
+  first_10_seconds:
+    every_primary_output_must_answer:
+      - what_changed_or_current_state
+      - what_next
+      - what_needs_review
+  result_card_first: true
+  human_first_machine_second: true
+  cards_short_lists_and_compact_summaries_primary: true
+  wide_tables_not_primary: true
+  no_silent_mutation: true
+  resilient_partial_context: true
+
+principles:
+  D1_decision_before_detail:
+    rule: >
+      Put the information required for an operator decision before background,
+      schema, provenance, validation, and implementation details.
+
+  D2_first_screen_contract:
+    first_screen_must_show:
+      - result_or_current_state
+      - exact_next_action
+      - operator_review_needed
+      - blocker_or_warning_when_present
+    target_read_time: ten_seconds_or_less
+
+  D3_result_card_first:
+    rule: >
+      Every primary output starts with one compact result card. The result card
+      summarizes the value created by the run, not whether internal validation
+      machinery executed successfully.
+
+  D4_progressive_disclosure:
+    layer_order:
+      1: operator_result_card
+      2: action_or_decision_section
+      3: concise_supporting_context
+      4: provenance_and_confidence
+      5: compact_machine_handoff
+      6: detailed_validation_only_when_needed
+
+  D5_one_primary_job:
+    rule: >
+      Each artifact has one dominant operator job and one dominant primary
+      question. Secondary information must not compete with that job.
+
+  D6_actionable_language:
+    rule: >
+      Use direct operator language such as approve, execute, edit, reject,
+      defer, clarify, skip, mark blocked, use as context, or send downstream.
+    avoid:
+      - passive_validation_only_language
+      - technical_status_without_operator_consequence
+
+  D7_candidate_state_visibility:
+    rule: >
+      Any proposed durable change must visibly state whether it is candidate,
+      accepted, rejected, deferred, conflicting, or unresolved.
+
+  D8_uncertainty_without_paralysis:
+    rule: >
+      Missing or unreliable context lowers confidence and creates a visible
+      review flag. It does not silently become certainty and does not block a
+      useful degraded output unless safe interpretation is impossible.
+
+  D9_provenance_on_demand:
+    rule: >
+      Show enough source information to establish trust, but keep full source
+      inventories behind a concise provenance section unless they affect the
+      operator decision.
+
+  D10_minimum_machine_payload:
+    rule: >
+      Include only the machine-readable fields required by the next consumer.
+      Reference the owning contract rather than reproducing its schema.
+
+  D11_no_duplicate_surfaces:
+    rule: >
+      Human and machine layers may describe the same outcome, but the machine
+      block must not duplicate the full human-facing output word for word.
+
+  D12_value_over_build_status:
+    rule: >
+      Completion and package-build checks may remain available for technical
+      auditing, but they must never replace the operator-facing result.
+
+presentation_defaults:
+  preferred:
+    - compact_result_cards
+    - short_labeled_lines
+    - concise_bullets
+    - small_single_purpose_sections
+  conditional:
+    - narrow_comparison_tables
+  avoid_as_primary_surface:
+    - wide_markdown_tables
+    - raw_schema_field_lists
+    - repeated_metadata
+    - implementation_noise
+    - validation_noise_before_operator_value
+
+schema_authority_rule:
+  existing_skill_contracts_remain_authoritative: true
+  step3_defines_presentation_not_domain_schema: true
+  reference_contracts_instead_of_copying: true
