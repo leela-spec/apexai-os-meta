@@ -1,0 +1,177 @@
+document:
+  id: apex-step3-round3-execution-evidence-handoff-design
+  title: APEX Step 3 Round 3 Execution Evidence Handoff Design
+  status: validated_design_source
+  created_date: 2026-07-10
+  repository: leela-spec/apexai-os-meta
+  branch: main
+  package_path: apex-meta/operator-output-design/step3-output-design-system/
+  covers_output_job: J6_Execution_Evidence_Handoff
+  source_authorities:
+    - 01-operator-output-design-principles.okf.yaml
+    - 02-shared-card-and-brief-anatomy.okf.yaml
+    - 03-planning-artifact-designs.okf.yaml
+    - PreRound3Decisions.md
+
+scope:
+  purpose: >
+    Define the conditional evidence-preparation handoff between operator
+    execution and FlowRecap. Allow small structured evidence to pass directly and
+    require normalization only when raw material is fragmented, ambiguous,
+    conflicting, or too large for reliable recap interpretation.
+  owns:
+    - evidence_handoff_routing_decision
+    - normalized_execution_evidence_presentation
+    - readiness_for_FlowRecap_status
+  does_not_own:
+    - FlowRecap_result
+    - next_step_proposal
+    - project_status_delta
+    - model_usage_delta
+    - accepted_project_state
+    - durable_state_mutation
+
+J6_execution_evidence_handoff:
+  priority: conditional
+  role: evidence_filtering_before_FlowRecap
+  primary_question: >
+    Is the available execution evidence already clear enough for FlowRecap, or
+    must it be normalized first so evidence and interpretation remain separate?
+  default_behavior:
+    simple_evidence: pass_structured_evidence_directly_to_FlowRecap
+    complex_evidence: normalize_messy_evidence_before_FlowRecap
+  operator_surface:
+    simple_case: inline_or_existing_structured_evidence
+    complex_case: compact_normalized_handoff
+    standalone_large_card_required: false
+
+evidence_handoff_decision:
+  direct_to_FlowRecap_when:
+    - evidence_is_small
+    - evidence_is_already_structured
+    - outputs_are_clear
+    - decisions_and_blockers_are_explicit
+    - planned_vs_actual_is_clear
+    - source_artifacts_are_identifiable
+    - no_material_conflict_exists
+  normalize_first_when:
+    - several_chats_or_tools_were_used
+    - evidence_is_long_or_fragmented
+    - planned_vs_actual_is_unclear
+    - outputs_are_distributed
+    - decisions_are_buried
+    - evidence_conflicts
+    - important_material_exists_only_in_chat_text
+    - source_material_would_overload_FlowRecap
+    - failures_or_model_usage_notes_need_separation
+  insufficient_evidence_when:
+    - completion_state_cannot_be_determined
+    - claimed_outputs_have_no_identifiable_source
+    - material_conflicts_cannot_be_separated_from_fact
+    - required_operator_context_is_missing
+  decision_rule: >
+    Use the lightest handoff that preserves evidence quality. Do not normalize
+    merely to satisfy a fixed process step.
+
+execution_evidence_handoff:
+  role: minimal_visible_handoff
+  fields:
+    flow_id: "<flow>"
+    completion_state: "<completed|partial|blocked|skipped>"
+    what_was_planned:
+      - "<item>"
+    what_actually_happened:
+      - "<item>"
+    outputs:
+      - "<artifact ref>"
+    decisions:
+      - "<decision>"
+    blockers:
+      - "<blocker>"
+    unresolved_questions:
+      - "<question>"
+    source_refs:
+      - "<source>"
+    readiness: "<ready_for_FlowRecap|review_needed|insufficient_evidence>"
+  optional_fields:
+    changed_scope:
+      - "<change>"
+    failed_attempts:
+      - "<failure evidence ref>"
+    usage_evidence_refs:
+      - "<usage evidence ref>"
+
+simple_case_example:
+  flow_id: F1
+  completion_state: completed
+  what_was_planned:
+    - draft_output_contract
+  what_actually_happened:
+    - output_contract_drafted
+  outputs:
+    - path/to/output-contract.md
+  decisions:
+    - keep_three_sprint_structure
+  blockers: []
+  unresolved_questions: []
+  source_refs:
+    - output_contract_file
+  readiness: ready_for_FlowRecap
+  routing: direct_to_FlowRecap
+
+complex_case_example:
+  trigger_summary:
+    - three_chats_used
+    - one_code_run_used
+    - outputs_distributed_across_two_files
+    - goal_changed_during_execution
+    - failed_patch_exists
+  normalization_result:
+    flow_id: F2
+    completion_state: partial
+    what_was_planned:
+      - build_contract
+      - build_template
+      - validate_example
+    what_actually_happened:
+      - contract_drafted
+      - template_partially_drafted
+      - example_validation_deferred
+    outputs:
+      - contract.md
+      - template.md
+      - failed_patch.diff
+    decisions:
+      - prompt_pack_should_be_reference_only
+    blockers:
+      - example_data_missing
+    unresolved_questions:
+      - whether_to_keep_separate_skip_marker
+    source_refs:
+      - chat_1
+      - chat_2
+      - code_run
+    readiness: ready_for_FlowRecap
+  routing: normalize_then_send_to_FlowRecap
+
+interpretation_boundary:
+  evidence_handoff_answers: What evidence exists and how is it organized?
+  FlowRecap_answers: What does the evidence mean for the project?
+  evidence_handoff_must_not_add:
+    - recommended_next_step
+    - candidate_or_accepted_project_status_change
+    - recap_judgment
+    - inferred_success_not_supported_by_evidence
+    - accepted_usage_delta
+
+acceptance_checks:
+  normalization_is_conditional: true
+  simple_structured_evidence_can_go_directly_to_FlowRecap: true
+  complex_evidence_has_concrete_normalization_criteria: true
+  minimal_visible_handoff_is_defined: true
+  evidence_and_interpretation_remain_separate: true
+  FlowRecap_result_is_not_created: true
+  next_step_proposal_is_not_created: true
+  project_or_usage_delta_is_not_created: true
+  accepted_project_state_is_not_created: true
+  readiness_for_FlowRecap_is_visible: true
