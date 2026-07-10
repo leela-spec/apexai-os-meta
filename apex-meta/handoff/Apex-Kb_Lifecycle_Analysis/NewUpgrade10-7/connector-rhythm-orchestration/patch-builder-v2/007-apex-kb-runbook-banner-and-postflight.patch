@@ -1,0 +1,21 @@
+*** Begin Patch
+*** Update File: .claude/skills/apex-kb/examples/lifecycle-runbook.md
+@@ # Apex KB Lifecycle Runbook
+ # Apex KB Lifecycle Runbook
+ 
++> EXAMPLE ONLY — This runbook illustrates a terminal-backed execution sequence. It is not the universal Apex KB procedure and does not apply to connector-only semantic authoring. Follow the execution-surface router in SKILL.md first.
++
+ ## A. Prepare
+@@ ## C. Postflight
+ ## C. Postflight
+ 
+-Run deterministic index rebuild, retrieval index build/stale check, lint, audit, status, and quality / coverage reporting. Treat stale indexes as derived-state problems, not source truth problems. Missing Phase 2 value-contract sections should be reported before they become hard failures.
++Use `postflight` as the preferred bounded completion interface:
++
++```powershell
++python apex-meta/scripts/apex_kb.py --kb-root $KB --json postflight
++python apex-meta/scripts/apex_kb.py --kb-root $KB --allow-write --json postflight
++```
++
++The default invocation is preview-only and returns `planned`; it does not certify deterministic evidence. `--allow-write` is required for derived writes and for a passing deterministic postflight result. Individual index, retrieval, lint, quality, audit, status, and stale commands remain available as diagnostic or maintenance interfaces. Treat stale indexes as derived-state problems, not source-truth problems.
+*** End Patch
