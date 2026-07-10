@@ -1,0 +1,104 @@
+document:
+  id: apex-step2-execution-recap-user-stories
+  status: verified_by_operator
+  created_date: 2026-07-10
+  role: execution_recap_skill_stories
+
+user_stories:
+  flow_packet_execution_card:
+    story: >
+      As Marco, I want each planned flow reduced to one clear execution card, so
+      that I know the goal, expected output, constraints, capture rules, and
+      review gate before I start.
+    verified_by_marco: true
+    success_card:
+      shows:
+        - flow_goal
+        - why_this_now
+        - exact_next_action
+        - expected_output
+        - required_inputs
+        - capture_rule
+        - done_definition
+        - stop_or_review_conditions
+      operator_decision:
+        - execute_now
+        - edit_scope
+        - defer
+        - mark_blocked
+        - skip_with_reason
+    design_notes:
+      - The flow card is the smallest executable planning surface.
+      - It should prevent rereading the whole day plan before acting.
+
+  flow_prompt_pack:
+    story: >
+      As Marco, I want ready-to-copy prompt packs per flow, so that execution
+      starts from validated instructions instead of me rebuilding prompts from
+      plan fragments.
+    verified_by_marco: true
+    success_card:
+      shows:
+        - prompt_purpose
+        - target_tool_or_surface
+        - copyable_prompt
+        - expected_return_artifact
+        - capture_instruction
+        - model_or_usage_hint_if_available
+        - review_warning_if_prompt_is_degraded
+      operator_decision:
+        - use_prompt
+        - edit_prompt
+        - split_prompt
+        - discard_prompt
+    design_notes:
+      - Prompt packs should be copyable and execution-ready.
+      - Degraded prompts should be visibly marked before use.
+
+  raw_flow_dump_normalize:
+    story: >
+      As Marco, I want messy execution evidence normalized into a clean raw flow
+      dump or skip marker, so that FlowRecap can work from evidence without me
+      manually cleaning every chat fragment.
+    verified_by_marco: true
+    success_card:
+      shows:
+        - source_flow_reference
+        - normalized_evidence_summary
+        - included_artifacts
+        - missing_or_unclear_evidence
+        - skipped_flow_marker_if_applicable
+        - readiness_for_flow_recap
+      operator_decision:
+        - send_to_flow_recap
+        - add_missing_evidence
+        - mark_as_skipped
+        - reject_normalization
+    design_notes:
+      - Normalization prepares evidence; it does not produce FlowRecap itself.
+      - Missing evidence should remain visible.
+
+  flow_recap:
+    story: >
+      As Marco, I want each completed, partial, blocked, or skipped flow turned
+      into a compact recap packet, so that I can review what happened, what
+      changed, what should update state, and what the next step is.
+    verified_by_marco: true
+    success_card:
+      shows:
+        - planned_vs_actual
+        - outcome_summary
+        - produced_artifacts
+        - candidate_status_delta
+        - candidate_usage_delta
+        - next_step_proposal
+        - review_flags
+      operator_decision:
+        - accept_recap
+        - edit_recap
+        - reject_candidate_delta
+        - send_to_status_merge
+        - request_more_evidence
+    design_notes:
+      - FlowRecap produces candidate state and usage deltas only.
+      - Durable changes require later approval through merge / KB update.
