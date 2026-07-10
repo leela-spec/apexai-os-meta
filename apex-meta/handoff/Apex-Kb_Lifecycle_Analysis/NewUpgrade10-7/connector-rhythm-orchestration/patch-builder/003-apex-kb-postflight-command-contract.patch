@@ -1,0 +1,50 @@
+diff --git a/.claude/skills/apex-kb/references/script-command-contract.md b/.claude/skills/apex-kb/references/script-command-contract.md
+--- a/.claude/skills/apex-kb/references/script-command-contract.md
++++ b/.claude/skills/apex-kb/references/script-command-contract.md
+@@ -47,6 +47,7 @@ Post-subcommand placement is accepted for these boolean global flags. Options w
+ | `audit` | no | Python | list/group audit items |
+ | `status` | no | Python | lifecycle status summary |
+ | `health` | no | Python | runtime/tool/FTS5 probe |
++| `postflight` | yes, derived only | Python | bounded seven-stage deterministic completion aggregate |
+@@ -115,3 +116,38 @@ These additions are deterministic and do not introduce external dependencies or
+ ## Postflight evidence contract
+ 
+ `quality --strict --json` must emit page-level measurements and reason-coded repair candidates. A successful postflight records exact commands, command status, output paths, retrieval freshness, and remaining candidates. File read-back or required-heading presence is not execution proof. Connector-only runs may report `compiled_unvalidated`; they may not report `query_ready`.
++
++## `postflight` command
++
++`postflight` is the preferred bounded terminal completion interface. It delegates existing implementations in this fixed order:
++
++1. wiki index
++2. retrieval build
++3. lint strict
++4. quality strict
++5. audit
++6. status
++7. retrieval stale
++
++The command resolves one KB root and propagates it to every delegate. Every delegate result is preserved under `steps[].result`.
++
++```yaml
++postflight_contract:
++  schema: apex.kb.postflight.v1
++  default_mode:
++    status: planned
++    evidence_complete: false
++    writes: none
++  allow_write_mode:
++    pass_requires:
++      - every blocking stage passes
++      - retrieval stale result proves fresh
++  blocking_stages: [wiki_index, retrieval_build, lint_strict, quality_strict, status, retrieval_stale]
++  nonblocking_stages: [audit]
++  dependency_rule: skip retrieval acceptance checks after wiki-index or retrieval-build failure
++  exit_codes:
++    planned_or_pass: 0
++    internal_error: 1
++    fail: 2
++```
++
++`--allow-write --dry-run` remains planned and performs no writes. Lint and quality failures do not prevent safe diagnostics such as audit and status from running. The command does not add retries, scheduling, persisted orchestration state, dynamic graphs, rollback, semantic review, query evaluation, ranking changes, commit, or push.
++
++The connector checklist is preventive authoring guidance only. Terminal `quality --strict` remains the authoritative deterministic quality gate.
