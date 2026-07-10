@@ -1,0 +1,89 @@
+document:
+  id: apex-step3-round5-cross-artifact-relationships
+  title: APEX Step 3 Round 5 Cross-Artifact Relationships
+  status: validated_design_source
+  created_date: 2026-07-11
+  repository: leela-spec/apexai-os-meta
+  branch: main
+  package_path: apex-meta/operator-output-design/step3-output-design-system/
+  covers:
+    - J7_to_J9
+    - J9_to_J10
+    - J9_to_J11
+    - J8_to_J12
+    - J11_to_J12
+    - J12_to_J4_and_J5
+  verification:
+    verified_by: Marco
+    decision: keep
+    verification_date: 2026-07-11
+
+J7_to_J9:
+  provides:
+    - candidate_project_status_delta_ref
+    - evidence_refs
+    - confidence
+    - conflicts
+    - operator_review_flags
+  J9_adds:
+    - review_decision
+    - conflict_resolution
+    - merge_proposal
+  ownership_rule: J7_interprets_execution_J9_reviews_candidate_state
+
+J9_to_J10:
+  condition: accepted_change_contains_durable_project_knowledge
+  provides:
+    - accepted_change_ref
+    - provenance
+    - KB_update_candidate
+  J10_adds:
+    - target_KB_location
+    - knowledge_change_type
+    - update_execution_decision
+  ownership_rule: J9_accepts_for_merge_J10_prepares_or_executes_KB_write
+
+J9_to_J11:
+  condition: state_change_has_been_durably_merged
+  provides:
+    - accepted_status_ref
+    - effective_change
+  rule: approved_for_merge_is_not_yet_overview_truth
+
+J8_to_J12:
+  provides:
+    - advisory_route_signal
+    - task_context
+    - outcome_quality
+    - confidence
+    - evidence_ref
+  rule: usage_learning_never_overrides_routing_automatically
+
+J11_to_J12:
+  provides:
+    - active_project_context
+    - current_priority_or_blocker
+    - relevant_constraints
+  rule: overview_context_is_not_a_route_decision
+
+J12_to_J4_and_J5:
+  condition: route_is_operator_approved
+  provides:
+    - approved_route_ref
+    - selected_surface_or_model
+    - constraints
+  rule: J12_does_not_create_execution_cards_or_prompts
+
+acceptance_checks:
+  J7_to_J9_defined: true
+  J9_to_J10_defined: true
+  J9_to_J11_defined: true
+  J8_to_J12_defined: true
+  J11_to_J12_defined: true
+  J12_to_J4_and_J5_defined: true
+  candidate_and_accepted_state_separated: true
+  approved_for_merge_and_merged_separated: true
+  usage_learning_and_routing_decision_separated: true
+  overview_context_and_route_decision_separated: true
+  route_approval_and_execution_artifacts_separated: true
+  no_schema_redefinition: true
