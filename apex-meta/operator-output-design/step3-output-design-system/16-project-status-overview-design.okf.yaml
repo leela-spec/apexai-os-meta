@@ -1,0 +1,123 @@
+document:
+  id: apex-step3-round5-project-status-overview-design
+  title: APEX Step 3 Round 5 Project Status Overview Design
+  status: validated_design_source
+  created_date: 2026-07-11
+  repository: leela-spec/apexai-os-meta
+  branch: main
+  package_path: apex-meta/operator-output-design/step3-output-design-system/
+  covers_output_job: J11_Project_Status_Overview
+  verification:
+    verified_by: Marco
+    decision: keep
+    verification_date: 2026-07-11
+
+scope:
+  owns:
+    - approved_J11_operator_presentation_design
+    - compact_cross_project_attention_surface
+    - freshness_and_review_visibility
+    - degraded_presentation_behavior
+    - minimal_machine_handoff_projection
+  must_not_own:
+    - durable_project_database
+    - candidate_state_acceptance
+    - status_merge_execution
+    - invented_project_status
+    - project_record_schema
+
+J11:
+  output_job: Show the cross-project active landscape.
+  artifact: Project_Status_Overview
+  primary_question: >
+    What is active across projects, what is blocked, what requires review, and
+    what should happen next?
+
+first_screen_card:
+  title: Project Status Overview
+  shows:
+    - active_project_count
+    - blocked_or_at_risk_count
+    - review_needed_count
+    - stale_or_missing_count
+    - highest_priority_next_action
+  primary_layout: compact_project_cards_or_short_rows
+  avoid: wide_default_table
+
+essential_sections:
+  - active_projects_or_workstreams
+  - cross_project_attention_summary
+  - stale_missing_or_conflicting_status
+  - compact_machine_handoff
+
+project_item_view:
+  required:
+    - project_name
+    - accepted_status
+    - blocker_or_risk
+    - next_action
+    - review_needed
+    - freshness_or_staleness
+    - drilldown_ref
+
+operator_actions:
+  - open_project
+  - review_blocker
+  - review_stale_status
+  - use_as_context
+  - request_refresh
+  - no_action
+
+boundary:
+  may:
+    - aggregate_accepted_project_status
+    - flag_stale_missing_or_conflicting_status
+    - provide_cross_project_navigation
+  must_not:
+    - accept_candidate_updates
+    - perform_status_merge
+    - become_full_project_database_dump
+    - invent_status_for_missing_projects
+
+degraded_behavior:
+  missing_project_status:
+    display: status_missing
+    action: provide_refresh_or_source_reference
+  stale_status:
+    display: stale_with_last_known_date
+    action: lower_context_confidence
+  conflicting_accepted_sources:
+    display: conflict_requires_review
+    action: show_refs_without_selecting_truth
+  no_active_projects:
+    display: no_active_status_available
+    action: do_not_invent_work
+  partial_overview:
+    display: partial_coverage
+    action: identify_omitted_or_unknown_projects
+
+compact_machine_handoff:
+  role: secondary_minimum_projection
+  required:
+    - overview_ref
+    - active_project_refs
+    - accepted_status_refs
+    - blocker_refs
+    - next_action_refs
+    - review_needed_refs
+    - freshness_status
+    - relevant_constraints
+  contract_references:
+    - .claude/skills/ProjectStatus/references/project-status-overview-contract.md
+  schema_redefinition: false
+
+acceptance_checks:
+  overview_is_scannable_without_wide_table: true
+  only_accepted_status_is_presented_as_current_truth: true
+  blockers_next_actions_and_review_needs_are_visible: true
+  freshness_is_visible_per_project_when_material: true
+  missing_status_is_not_invented: true
+  candidate_updates_are_not_accepted: true
+  drilldown_references_replace_database_duplication: true
+  machine_handoff_contains_only_cross_project_context_minimum: true
+  no_schema_redefinition: true
