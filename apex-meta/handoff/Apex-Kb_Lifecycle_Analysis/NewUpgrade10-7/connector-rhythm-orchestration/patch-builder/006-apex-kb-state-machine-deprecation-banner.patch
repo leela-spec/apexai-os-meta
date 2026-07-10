@@ -1,0 +1,10 @@
+diff --git a/.claude/skills/apex-kb/references/lifecycle-state-machine.md b/.claude/skills/apex-kb/references/lifecycle-state-machine.md
+--- a/.claude/skills/apex-kb/references/lifecycle-state-machine.md
++++ b/.claude/skills/apex-kb/references/lifecycle-state-machine.md
+@@ -1,5 +1,7 @@
+ # Apex KB Lifecycle State Machine
+ 
++> DEPRECATED REFERENCE — SKILL.md is the sole operational lifecycle authority. This file is retained for historical/reference purposes only. Executors must not derive independent completion states, transitions, or required procedures from it.
++
+ ```yaml
+ states:
