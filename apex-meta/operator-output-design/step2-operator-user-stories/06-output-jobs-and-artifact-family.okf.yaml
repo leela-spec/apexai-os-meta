@@ -1,0 +1,104 @@
+document:
+  id: apex-step2-output-jobs-and-artifact-family
+  status: verified_by_operator
+  created_date: 2026-07-10
+  role: locked_output_jobs
+
+locked_output_jobs:
+  J1:
+    output_job: Show accepted current project reality before planning.
+    human_facing_artifact: Project State Success Card
+    source_story: project_state_context
+  J2:
+    output_job: Turn state into weekly direction.
+    human_facing_artifact: Weekly Command Brief
+    source_story: precap_week
+  J3:
+    output_job: Turn weekly/state context into tomorrow's executable plan.
+    human_facing_artifact: Tomorrow Action Brief
+    source_story: precap_next_day
+  J4:
+    output_job: Make each planned flow directly executable.
+    human_facing_artifact: Flow Execution Card
+    source_story: flow_packet_execution_card
+  J5:
+    output_job: Provide ready-to-copy prompts per flow.
+    human_facing_artifact: Flow Prompt Pack
+    source_story: flow_prompt_pack
+  J6:
+    output_job: Normalize messy execution evidence.
+    human_facing_artifact: Raw Flow Dump / Skip Marker Card
+    source_story: raw_flow_dump_normalize
+  J7:
+    output_job: Convert execution into reviewable memory.
+    human_facing_artifact: FlowRecap Result Card
+    source_story: flow_recap
+  J8:
+    output_job: Capture planned-vs-actual AI usage lightly.
+    human_facing_artifact: Usage Learning Card
+    source_story: model_usage_log
+  J9:
+    output_job: Review candidate state changes before durable merge.
+    human_facing_artifact: Status Merge Decision Card
+    source_story: status_merge_APSU
+  J10:
+    output_job: Store accepted project memory compactly.
+    human_facing_artifact: Project KB Update Card
+    source_story: project_kb_manager
+  J11:
+    output_job: Show cross-project active landscape.
+    human_facing_artifact: Project Status Overview
+    source_story: project_status_overview
+  J12:
+    output_job: Recommend tool/model route before execution.
+    human_facing_artifact: AI Routing Card
+    source_story: ai_routing
+
+artifact_family:
+  project_and_planning:
+    - Project State Success Card
+    - Weekly Command Brief
+    - Tomorrow Action Brief
+  execution:
+    - Flow Execution Card
+    - Flow Prompt Pack
+    - Raw Flow Dump / Skip Marker Card
+  recap_and_learning:
+    - FlowRecap Result Card
+    - Usage Learning Card
+  state_and_routing:
+    - Status Merge Decision Card
+    - Project KB Update Card
+    - Project Status Overview
+    - AI Routing Card
+
+confirmed_design_principles:
+  P1_first_10_seconds:
+    output_must_answer:
+      - what_changed
+      - what_next
+      - what_needs_review
+  P2_result_card_first:
+    rule: Every skill output starts with a compact success/result card.
+  P3_human_first_machine_second:
+    rule: Use cards, short lists, and compact summaries before schema blocks.
+  P4_operator_decision_language:
+    rule: >
+      Review gates must be phrased as approve, edit, reject, defer, clarify,
+      execute, skip, or mark blocked.
+  P5_no_silent_mutation:
+    rule: Any durable state change must be visible as a candidate or accepted change.
+  P6_resilient_partial_context:
+    rule: >
+      Missing, stale, or conflicting inputs become confidence/review flags, not
+      invented certainty.
+
+use_in_step3:
+  primary_use: >
+    Convert this artifact family into operator-facing output design principles,
+    reusable card/brief patterns, and template acceptance criteria.
+  do_not_use_for:
+    - runtime implementation
+    - calendar writes
+    - automatic state merge
+    - replacing existing skill package contracts
