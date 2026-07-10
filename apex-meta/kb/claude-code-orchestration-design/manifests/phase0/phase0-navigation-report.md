@@ -1,6 +1,6 @@
 # Phase 0 Navigation Report
 
-Generated: `2026-07-10T15:26:57Z`
+Generated: `2026-07-10T21:12:30Z`
 KB root: `C:\GitDev\apexai-os-meta\apex-meta\kb\claude-code-orchestration-design`
 Files scanned: `1732`
 
@@ -10,8 +10,8 @@ Files scanned: `1732`
 - `heading-map.json`
 - `markdown-link-map.json`
 - `frontmatter-map.json`
-- `keyword-hits.ndjson`
-- `topic-file-map.json`
+- `term-frequency.json`
+- `topic-source-rankings.json`
 - `source-priority-candidates.md`
 - `phase0-navigation-report.md`
 

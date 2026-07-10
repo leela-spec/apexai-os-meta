@@ -19,6 +19,7 @@ canonical:
   - kb-schema.md
   - manifests/source-manifest.json
   - manifests/source-payload-manifest.json
+  - manifests/topic-registry.json
   - ingest-analysis/
   - wiki/
   - audit/
@@ -122,11 +123,27 @@ status_allowed: [draft, active, needs_review, deprecated, superseded]
 
 Do not place claim-label values in the confidence field.
 
+## Page type definitions
+
+These three page types are not interchangeable labels on the same generic template -- each answers a different kind of question, and the difference determines how much synthesis a page needs.
+
+- **entity** -- one specific named thing: a tool, a standard, a runtime mechanism. Narrow, single identity. Its job is to say what this specific thing is *in this project's usage* and point precisely to where it is discussed, not to restate what the thing generically is (any LLM already knows what a subagent is; it does not already know how this repo constrains or uses one).
+- **concept** -- one specific rule, pattern, or distinction. Narrow-to-medium scope, defines a single idea clearly, may be source-backed or a documented behavioral inference.
+- **summary** -- a topic-level synthesis answering a specific important question, drawing on multiple concepts, entities, and sources. This is the page type for cross-cutting topics identified in the Step 0 / post-Phase-0 topic interview (see `SKILL.md`), and it carries a stronger bar than entity/concept: more ranked sources, more key claims, and explicit coverage of the topic's real sub-questions, not a single generic paragraph.
+
+### Entity and concept content shape
+
+An entity or concept page's Adaptive Ranked Source Set (below) should be populated primarily from `manifests/phase0/topic-source-rankings.json` when that topic has a registry entry -- a deterministic, hit-count-ranked list of raw files, computed by script, never invented by the LLM. The LLM's own prose contribution should be a short delta only: what does *this project specifically* decide, constrain, or use differently from generic public knowledge of the term. If there is no real project-specific delta, the page is honestly just the ranked pointer list with a one-line note that no project-specific constraint was found -- that is a valid, complete page, not a failure. A page that restates generic public knowledge of the term instead of this delta is exactly the failure mode this contract exists to prevent.
+
+## Topic registry
+
+`manifests/topic-registry.json` holds one entry per topic the KB should have a summary page for: `name`, `slug`, `page_type` (almost always `summary`), `keywords` (the input to `rank_topic_sources()` -- never a ranking result itself), `source` (`operator` from the Step 0 interview, or `llm_proposed` from the post-Phase-0 review of `term-frequency.json`), `status` (`not_started`/`draft`/`complete`), and `target_page`. It is operator/LLM-authored input, not a deterministic output -- never write ranking results into it, and never compute its `keywords` field from anything other than the interview or the LLM's own topic proposal. Registry completeness is reported by `status`/`quality` but is not currently a `quality --strict` gate.
+
 ## Page value contract for Phase 2 compiled pages
 
 Phase 2 wiki compile introduces an adaptive page‑level value contract for summary, concept, and entity pages. In addition to the required frontmatter above, compiled pages **must** include the following narrative sections using the exact headings listed:
 
-- **Adaptive Ranked Source Set** – a list of sources ranked by relevance and diversity to the page's scope. The number of sources should scale with KB size, topic breadth, and source diversity. Each entry must include a rationale for its rank and a brief description of coverage. Do **not** impose a fixed 2–5 source cap. A source cluster map may optionally be provided in future iterations but is not required.
+- **Adaptive Ranked Source Set** – a list of sources ranked by relevance and diversity to the page's scope. The number of sources should scale with KB size, topic breadth, and source diversity. Each entry must include a rationale for its rank and a brief description of coverage. Do **not** impose a fixed 2–5 source cap. For a page tied to a topic registry entry, populate this from `topic-source-rankings.json`'s ranked list rather than from LLM judgment (see Page type definitions above). A source cluster map may optionally be provided in future iterations but is not required.
 - **Macro / Meso / Micro** – a three‑layer synthesis. Macro describes high‑level themes across all sources; Meso captures mid‑level patterns; Micro provides specific details anchored by source pointers.
 - **Key Claims** – specific claims supported by source pointers. Each claim must include an id, description, pointer, confidence, and claim label. This section remains required.
 - **Routes Here** – navigational cues that help users and LLMs route queries to this page. Include route‑by‑question examples and cross‑links to related pages. This integrated routing list replaces prior “Relationships” or “Known Relationships” sections.

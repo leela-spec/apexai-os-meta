@@ -258,3 +258,33 @@ Pass criteria:
 The runtime registry, connector checklist in `SKILL.md`, and fixture expectations must contain the same eleven reason-code concepts exactly once.
 
 Run postflight in dry-run and write modes and verify the exact schema, seven-stage order, preserved delegate results, dependency skipping, audit nonblocking behavior, and exit codes 0/1/2 for planned/pass, internal error, and blocking failure.
+
+## Generic term-frequency domain-agnosticism fixture
+
+Build a small synthetic raw corpus with vocabulary from an unrelated domain (e.g. cooking: "sourdough", "starter", "fermentation", "pasta", "dough") -- no Apex/skill/Claude-orchestration terms anywhere in it. Run `phase0 --allow-write`.
+
+Pass criteria:
+- `manifests/phase0/term-frequency.json` is produced and its top-ranked terms are exclusively domain terms from the synthetic corpus;
+- no term from any prior hardcoded keyword bucket (`apex kb`, `flowrecap`, `skill.md`, `orchestration_boundary`, etc.) appears anywhere in the output;
+- this proves the mechanism carries no hardcoded domain knowledge and produces the same kind of result regardless of what the KB is actually about.
+
+## Registry-driven topic ranking fixture
+
+Add `manifests/topic-registry.json` to the same synthetic corpus with two topics, each with a distinct `keywords` list drawn from the corpus vocabulary. Run `phase0 --allow-write` again.
+
+Pass criteria:
+- `topic_registry_entries` in the `phase0` result equals the number of registry entries;
+- `manifests/phase0/topic-source-rankings.json` contains one entry per topic slug, each with a `ranked_sources` list ordered by descending `hit_count`;
+- a file containing more of a topic's keywords ranks above a file containing fewer, by direct count;
+- regenerating `wiki/index.md` produces a "Topic Guides" section listing both topics by name, status, and source, ahead of the alphabetical Concept/Entity/Summary buckets;
+- a KB with no registry file produces neither a `topic-source-rankings.json` ranking entry nor a Topic Guides section -- absence is a valid, non-blocking state.
+
+## Per-page compile-check-retry loop fixture
+
+Draft one summary page known to be thin (e.g. a single generic claim, file-level-only pointer) against a real or synthetic KB. Run `quality --strict --json` immediately per the Procedure's per-page loop in `SKILL.md`.
+
+Pass criteria:
+- the thin page is named in `phase2_repair_candidates` with its actual reason codes on the first check;
+- redrafting using those exact reason codes and rechecking clears the page within the 2-retry bound described in `SKILL.md`;
+- a page deliberately left thin through both retries is not silently accepted -- it must be flagged as an audit item with residual reason codes and the batch capped at `partial`, never promoted to a passing state;
+- `phase2_repair_candidates`/`shell_page_candidates` empty for a page is required for that page to count as done; heading presence alone (`missing_phase2_value_sections` empty) is confirmed insufficient by re-running this fixture with a page that has every heading but fails on `thin_macro_meso_micro` or `single_claim_summary` instead.

@@ -1,0 +1,302 @@
+[
+  {
+    "term": "file",
+    "count": 9472,
+    "file_count": 906
+  },
+  {
+    "term": "claude",
+    "count": 8326,
+    "file_count": 503
+  },
+  {
+    "term": "use",
+    "count": 8232,
+    "file_count": 1084
+  },
+  {
+    "term": "https",
+    "count": 7602,
+    "file_count": 692
+  },
+  {
+    "term": "agent",
+    "count": 6887,
+    "file_count": 697
+  },
+  {
+    "term": "com",
+    "count": 6756,
+    "file_count": 643
+  },
+  {
+    "term": "name",
+    "count": 6688,
+    "file_count": 976
+  },
+  {
+    "term": "skill",
+    "count": 6628,
+    "file_count": 592
+  },
+  {
+    "term": "code",
+    "count": 6132,
+    "file_count": 784
+  },
+  {
+    "term": "type",
+    "count": 5124,
+    "file_count": 784
+  },
+  {
+    "term": "prompt",
+    "count": 5108,
+    "file_count": 498
+  },
+  {
+    "term": "output",
+    "count": 5056,
+    "file_count": 773
+  },
+  {
+    "term": "path",
+    "count": 5025,
+    "file_count": 615
+  },
+  {
+    "term": "user",
+    "count": 4748,
+    "file_count": 749
+  },
+  {
+    "term": "model",
+    "count": 4605,
+    "file_count": 493
+  },
+  {
+    "term": "text",
+    "count": 4595,
+    "file_count": 782
+  },
+  {
+    "term": "files",
+    "count": 4299,
+    "file_count": 746
+  },
+  {
+    "term": "skills",
+    "count": 4286,
+    "file_count": 402
+  },
+  {
+    "term": "content",
+    "count": 3926,
+    "file_count": 726
+  },
+  {
+    "term": "run",
+    "count": 3733,
+    "file_count": 716
+  },
+  {
+    "term": "context",
+    "count": 3719,
+    "file_count": 651
+  },
+  {
+    "term": "tool",
+    "count": 3684,
+    "file_count": 400
+  },
+  {
+    "term": "source",
+    "count": 3594,
+    "file_count": 715
+  },
+  {
+    "term": "true",
+    "count": 3456,
+    "file_count": 476
+  },
+  {
+    "term": "new",
+    "count": 3377,
+    "file_count": 715
+  },
+  {
+    "term": "description",
+    "count": 3303,
+    "file_count": 857
+  },
+  {
+    "term": "self",
+    "count": 3043,
+    "file_count": 115
+  },
+  {
+    "term": "promptquorum",
+    "count": 3039,
+    "file_count": 70
+  },
+  {
+    "term": "workflow",
+    "count": 2977,
+    "file_count": 559
+  },
+  {
+    "term": "www",
+    "count": 2962,
+    "file_count": 201
+  },
+  {
+    "term": "json",
+    "count": 2960,
+    "file_count": 386
+  },
+  {
+    "term": "return",
+    "count": 2952,
+    "file_count": 420
+  },
+  {
+    "term": "action",
+    "count": 2911,
+    "file_count": 351
+  },
+  {
+    "term": "task",
+    "count": 2869,
+    "file_count": 466
+  },
+  {
+    "term": "session",
+    "count": 2829,
+    "file_count": 298
+  },
+  {
+    "term": "create",
+    "count": 2815,
+    "file_count": 583
+  },
+  {
+    "term": "add",
+    "count": 2803,
+    "file_count": 617
+  },
+  {
+    "term": "agents",
+    "count": 2779,
+    "file_count": 383
+  },
+  {
+    "term": "api",
+    "count": 2700,
+    "file_count": 482
+  },
+  {
+    "term": "one",
+    "count": 2646,
+    "file_count": 688
+  },
+  {
+    "term": "before",
+    "count": 2643,
+    "file_count": 664
+  },
+  {
+    "term": "anthropic",
+    "count": 2610,
+    "file_count": 295
+  },
+  {
+    "term": "test",
+    "count": 2576,
+    "file_count": 380
+  },
+  {
+    "term": "docs",
+    "count": 2544,
+    "file_count": 458
+  },
+  {
+    "term": "github",
+    "count": 2535,
+    "file_count": 475
+  },
+  {
+    "term": "complete",
+    "count": 2513,
+    "file_count": 499
+  },
+  {
+    "term": "step",
+    "count": 2492,
+    "file_count": 419
+  },
+  {
+    "term": "required",
+    "count": 2354,
+    "file_count": 536
+  },
+  {
+    "term": "tools",
+    "count": 2339,
+    "file_count": 445
+  },
+  {
+    "term": "work",
+    "count": 2322,
+    "file_count": 476
+  },
+  {
+    "term": "tokens",
+    "count": 2314,
+    "file_count": 286
+  },
+  {
+    "term": "error",
+    "count": 2305,
+    "file_count": 476
+  },
+  {
+    "term": "input",
+    "count": 2273,
+    "file_count": 491
+  },
+  {
+    "term": "read",
+    "count": 2265,
+    "file_count": 587
+  },
+  {
+    "term": "check",
+    "count": 2252,
+    "file_count": 510
+  },
+  {
+    "term": "mcp",
+    "count": 2235,
+    "file_count": 190
+  },
+  {
+    "term": "project",
+    "count": 2227,
+    "file_count": 464
+  },
+  {
+    "term": "status",
+    "count": 2227,
+    "file_count": 389
+  },
+  {
+    "term": "xml",
+    "count": 2225,
+    "file_count": 144
+  },
+  {
+    "term": "default",
+    "count": 2213,
+    "file_count": 470
+  }
+]

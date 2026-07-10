@@ -4,9 +4,16 @@
 kb_slug: claude-code-orchestration-design
 kb_root: apex-meta/kb/claude-code-orchestration-design
 report_created_at: 2026-07-10
+report_updated_at: 2026-07-10T20:30:00Z
 predecessor_handover: log/handover-agent-run-20260710.md
 run_mode: terminal_backed_autonomous_after_manual_permission_mode_disabled
-final_status: fail
+update_reason: >
+  Operator explicitly instructed that the deterministic-only pass was
+  insufficient and that this run must also perform the LLM-owned Phase 2
+  wiki-drafting step (SKILL.md: llm_owns.phase_2_wiki_drafting) rather than
+  stopping at validation. Section 9 below documents that pass and its
+  verified effect on the gates below.
+final_status: fail_narrowed_to_max_run_20260709_only
 compile_claimable: false
 validation_claimable: false
 evidence_complete: false
@@ -263,7 +270,94 @@ artifacts:
     action: created (this report)
 ```
 
-## 8. Operator decisions required before this KB can claim query_ready
+## 9. Phase 2 wiki-drafting pass (added after operator instruction)
+
+The initial pass through this report (sections 1-8) treated the 73 empty
+non-max-run pages as an already-known, out-of-scope legacy condition and
+stopped at deterministic validation. The operator correctly pointed out that
+`SKILL.md`'s `llm_owns: phase_2_wiki_drafting` makes authoring those pages
+this assistant's job, not an optional extra — the deterministic scripts
+were never going to write semantic content themselves. This section records
+that follow-up work.
+
+```yaml
+phase2_authoring_pass:
+  method: >
+    9 parallel subagents, each assigned a cluster of 7-9 pages, each required
+    to read the actual Phase 1 batch files (ingest-analysis/phase1-batch01
+    through 04), the specialized-index compile plan, the operator decision
+    log, and the completion report before writing -- grounding every Key
+    Claim in a real claim ID (e.g. B01-C001) or concepts_extracted/
+    entities_extracted entry, and explicitly downgrading confidence to
+    medium/working_hypothesis (rather than high/source_backed_summary)
+    wherever content was synthesized from the specialized-index question
+    framework instead of quoting a direct Phase 1 claim.
+  pages_authored: 73
+  pages_touched_outside_assignment: 0
+  honesty_notes:
+    - scheduler.md and scheduler-boundary-and-deferment.md were correctly
+      left thin/low-confidence -- Phase 1 never deep-dived scheduling, and
+      the agents said so explicitly instead of inventing scheduler mechanics.
+    - the persistent/production-agent-roster cluster (persistent-agent-boundary,
+      production-agent-readiness-gate, production-agent-roster-candidate-boundary,
+      productive-agent-redundancy, production-agent-readiness-and-roster-boundary)
+      was correctly framed as an open architectural question per the compile
+      plan, not resolved doctrine.
+    - wiki/entities/claude-code-subagents.md (the one page that survived the
+      earlier B2 false-negative narrowing, R03 verdict semantic_partial) was
+      specifically re-verified by its assigned agent as now genuinely strong:
+      full Macro/Meso/Micro narrative, 4 real Key Claims, Evidence, Routes
+      Here, and Uncertainty triggers pulled from actual open questions.
+```
+
+### 9.1 Verified before/after (rerun of the full deterministic pipeline)
+
+```yaml
+before_after:
+  quality_strict:
+    before: {status: fail, issue_count: 89}
+    after: {status: fail, issue_count: 16}
+    note: all 16 remaining issues are exclusively in wiki/*/max-run-20260709/ -- zero non-max-run pages remain flagged
+  lint_strict:
+    before: {status: fail, issue_count: 440, report_only: 365, blocking: 75}
+    after: {status: fail, issue_count: 76, report_only: 0, blocking: 75}
+    note: >
+      report_only page_value_contract issues dropped from 365 to 0 -- every
+      one of them was a non-max-run page, now cleared. The 75 blocking
+      frontmatter issues are unchanged because they belong exclusively to
+      the 25 max-run-20260709/ pages, which this run still does not modify
+      without explicit operator instruction (see F1 / OD1 below). One
+      residual orphan-link issue exists for a pre-existing, previously
+      uncommitted-to-this-run trial-20260710-status-merge/ page pair
+      (confirmed via git log to predate this session -- not introduced by
+      the authoring pass).
+  index_and_retrieval:
+    wiki_page_count: 101 (was reported as 99 earlier in this same log; the
+      2-page difference is wiki/*/trial-20260710-status-merge/*.md, which
+      were already committed before this session and were picked up once
+      wiki/index.md was rebuilt against current disk state)
+    retrieval_stale_check: fresh, 0 added/deleted/modified
+  postflight_allow_write:
+    before: {status: fail, evidence_complete: false}
+    after: {status: fail, evidence_complete: false}
+    note: >
+      Still fails -- and correctly so. lint_strict and quality_strict are
+      still blocking steps, and both still fail because of the 25
+      max-run-20260709/ pages' frontmatter defect (F1) and the same pages'
+      remaining shell-page flags. This is the accurate state: the
+      non-max-run backlog is closed; the max-run-20260709/ backlog is
+      untouched pending an explicit operator decision (OD1).
+```
+
+### 9.2 What this changes about the operator decisions in section 8
+
+OD3 (fate of the 73 empty legacy pages) is **resolved** -- they are authored
+now, not backfilled-later or archived. OD1 (max-run-20260709/ frontmatter
+patch) is now the *only* remaining blocker standing between this KB and a
+clean `quality --strict` / `lint --strict` pass. OD2 (query-eval-pack target
+queries) and OD4/OD5 are unchanged and still open.
+
+## 10. Operator decisions required before this KB can claim query_ready
 
 ```yaml
 operator_decisions_needed:

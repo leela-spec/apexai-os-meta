@@ -197,6 +197,24 @@ Connector read-back proves file content only. It never proves Python execution, 
 
 Follow only the selected route. The connector route uses the bounded whole-file semantic-authoring sequence above. The terminal-backed route follows the referenced command, retrieval, acceptance-test, and runbook contracts. Neither route may weaken the existing lifecycle, output tiers, ownership model, semantic acceptance requirement, or completion labels.
 
+### Step 0 — Topic interview (before scaffold or source intake)
+
+Before creating or adding sources to a KB, ask the operator to name target topics and open questions this KB should be able to answer. This is purely declarative -- no corpus exists yet. Write each named topic to `manifests/topic-registry.json` with `source: operator`, `status: not_started`, and a starter `keywords` list. An empty or absent registry is a valid state; it never blocks scaffold or intake.
+
+After Phase 0 produces `manifests/phase0/term-frequency.json` (deterministic, domain-agnostic word counts -- no hardcoded topic strings), review it and propose additional topics evidenced by real counts from this corpus. Append proposals to the same registry with `source: llm_proposed`. Never blend proposed topic names into the deterministic ranking outputs themselves: the registry only ever holds topic names and keyword lists; `manifests/phase0/topic-source-rankings.json` (Phase 0's output, computed from those keywords) is the only place ranked results live, and it is always machine-written, never edited by hand.
+
+### Phase 2 compile: per-page draft, check, retry, escalate
+
+Compile one page or a small batch (2-3 pages) at a time, never the whole file list in one pass.
+
+1. Draft the page against the page value contract. For a `summary` page tied to a registry topic, populate its Adaptive Ranked Source Set directly from that topic's entry in `topic-source-rankings.json` -- real ranked files and real hit counts, not invented ones.
+2. Immediately validate. Terminal route: run `quality --strict --json` on the KB. Connector route: run the precheck against `connector_precheck_reason_concepts` above.
+3. If the page is named in `phase2_repair_candidates` / `shell_page_candidates` (or fails the connector precheck), redraft using the exact reason codes returned. Up to 2 redraft attempts total.
+4. If it still fails after 2 redrafts, do not silently accept it and do not silently drop it: record it as an audit item under `audit/` with its path and residual reason codes, and cap that batch's completion state at `partial`.
+5. Advance to the next page or batch only once the current one has zero repair reasons or has been explicitly escalated per step 4.
+
+"Done" for a Phase 2 batch means `phase2_repair_candidates` and `shell_page_candidates` are empty for every page in it. Heading presence alone (`missing_phase2_value_sections` empty) is not sufficient -- the engine measures section depth, claim count, and pointer specificity, and a batch is not done until those pass too.
+
 ## Deterministic versus LLM ownership
 
 ```yaml
@@ -208,7 +226,8 @@ python_owns:
   - source_storage_mode_recording
   - corpus_profile
   - heading_link_frontmatter_maps
-  - keyword_hit_maps
+  - generic_term_frequency
+  - registry_driven_topic_source_ranking
   - deterministic_index_sections
   - frontmatter_validation
   - link_orphan_stale_checks
@@ -253,8 +272,13 @@ contradiction_detected:
 
 request_mutates_plan_sync_session:
   behavior: refuse_in_apex_kb_and_handoff_read_only_evidence_packet
+
+phase2_page_fails_quality_after_retries:
+  behavior: flag_as_audit_repair_candidate
+  state_cap: partial
+  rule: never_promote_to_query_ready_and_never_silently_drop
 ```
 
 ## Completion gate
 
-The skill is complete only when the requested mode has produced the correct artifact and every required gate has evidence. `compiled_unvalidated` and `partial` are valid truthful outcomes, not success aliases. `query_ready` requires a passing deterministic postflight, fresh retrieval, and bounded semantic acceptance. Repair loops must be candidate-driven: patch only pages named by reason-coded findings, then rerun the failed checks.
+The skill is complete only when the requested mode has produced the correct artifact and every required gate has evidence. `compiled_unvalidated` and `partial` are valid truthful outcomes, not success aliases. `query_ready` requires a passing deterministic postflight, fresh retrieval, and bounded semantic acceptance. Repair loops must be candidate-driven: patch only pages named by reason-coded findings, then rerun the failed checks. A page that still fails after two redraft attempts is escalated to an audit item, never silently accepted or silently dropped.

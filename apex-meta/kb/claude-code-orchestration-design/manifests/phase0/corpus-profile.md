@@ -1,6 +1,6 @@
 # Phase 0 Corpus Profile
 
-Generated: `2026-07-10T15:26:52Z`
+Generated: `2026-07-10T21:12:18Z`
 
 ## source_inventory_status
 
@@ -89,10 +89,37 @@ Generated: `2026-07-10T15:26:52Z`
 
 - `unclosed_code_fence`: 9
 
-## keyword_hit_summary
+## generic_term_frequency
 
-- `apex_kb`: 43
-- `ingest`: 402
-- `orchestration_boundary`: 265
-- `retrieval`: 733
-- `skill_design`: 18713
+Domain-agnostic word counts across this corpus (standard English stopwords filtered only; no hardcoded topic assumptions).
+
+- `file`: 9472 hits across 906 files
+- `claude`: 8326 hits across 503 files
+- `use`: 8232 hits across 1084 files
+- `https`: 7602 hits across 692 files
+- `agent`: 6887 hits across 697 files
+- `com`: 6756 hits across 643 files
+- `name`: 6688 hits across 976 files
+- `skill`: 6628 hits across 592 files
+- `code`: 6132 hits across 784 files
+- `type`: 5124 hits across 784 files
+- `prompt`: 5108 hits across 498 files
+- `output`: 5056 hits across 773 files
+- `path`: 5025 hits across 615 files
+- `user`: 4748 hits across 749 files
+- `model`: 4605 hits across 493 files
+- `text`: 4595 hits across 782 files
+- `files`: 4299 hits across 746 files
+- `skills`: 4286 hits across 402 files
+- `content`: 3926 hits across 726 files
+- `run`: 3733 hits across 716 files
+- `context`: 3719 hits across 651 files
+- `tool`: 3684 hits across 400 files
+- `source`: 3594 hits across 715 files
+- `true`: 3456 hits across 476 files
+- `new`: 3377 hits across 715 files
+- `description`: 3303 hits across 857 files
+- `self`: 3043 hits across 115 files
+- `promptquorum`: 3039 hits across 70 files
+- `workflow`: 2977 hits across 559 files
+- `www`: 2962 hits across 201 files

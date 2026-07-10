@@ -1,0 +1,1012 @@
+{
+  "agent-skill-orchestration-resilient-workflows": {
+    "keywords": [
+      "orchestration",
+      "resilient",
+      "workflow",
+      "subagent",
+      "skill.md",
+      "handoff"
+    ],
+    "name": "Agent and skill orchestration for resilient workflows",
+    "ranked_sources": [
+      {
+        "hit_count": 236,
+        "path": "raw/source-groups/claude-orchestration-agents/raw/refs/orchestration-agents-in-cc/primary-code-claude-com-docs-en-sub-agents.md.md",
+        "sample": {
+          "line": 5,
+          "snippet": "# Create custom subagents"
+        }
+      },
+      {
+        "hit_count": 221,
+        "path": "raw/source-groups/claude-orchestration-agents/raw/repos/first-batch-to-clone/shanraisshan__claude-code-best-practice/changelog/best-practice/concepts/changelog.md",
+        "sample": {
+          "line": 96,
+          "snippet": "| 3 | LOW | Naming | \"Sub-Agents\" in README vs \"subagents\" (one word) in official docs — cosmetic inconsistency | ✅ COMPLETE (renamed to \"Subagents\" in CONCEPTS table) |"
+        }
+      },
+      {
+        "hit_count": 89,
+        "path": "raw/source-groups/claude-orchestration-agents/raw/refs/orchestration-agents-in-cc/primary-code-claude-com-docs-en-workflows.md.md",
+        "sample": {
+          "line": 5,
+          "snippet": "# Orchestrate subagents at scale with dynamic workflows"
+        }
+      },
+      {
+        "hit_count": 83,
+        "path": "raw/source-groups/claude-orchestration-agents/raw/refs/orchestration-agents-in-cc/primary-code-claude-com-docs-en-agent-sdk-subagents.md.md",
+        "sample": {
+          "line": 5,
+          "snippet": "# Subagents in the SDK"
+        }
+      },
+      {
+        "hit_count": 74,
+        "path": "raw/source-groups/prompt-engineer-research-base/raw/refs/old-prompt-workflow-kb/appendices/CODEX_APPLY_PLAN_PROMPTS_WORKFLOWS_AGGRESSIVE_P1_PATCHSET.md",
+        "sample": {
+          "line": 1,
+          "snippet": "# CODEX_APPLY_PLAN_PROMPTS_WORKFLOWS_AGGRESSIVE_P1_PATCHSET"
+        }
+      },
+      {
+        "hit_count": 71,
+        "path": "raw/source-groups/claude-orchestration-agents/raw/repos/first-batch-to-clone/shanraisshan__claude-code-best-practice/README.md",
+        "sample": {
+          "line": 6,
+          "snippet": "[![Best Practice](!/tags/best-practice.svg)](best-practice/) [![Implemented](!/tags/implemented.svg)](implementation/) [![Orchestration Workflow](!/tags/orchestration-workflow.svg)](orchestration-workflow/orchestration-w"
+        }
+      },
+      {
+        "hit_count": 66,
+        "path": "raw/source-groups/claude-orchestration-agents/raw/refs/orchestration-agents-in-cc/primary-code-claude-com-docs-en-hooks.md.md",
+        "sample": {
+          "line": 21,
+          "snippet": "<img src=\"https://mintcdn.com/claude-code/uLsR38F1U_5zPppm/images/hooks-lifecycle.svg?fit=max&auto=format&n=uLsR38F1U_5zPppm&q=85&s=fbdbd78ad9f474da7d344879341341f0\" alt=\"Hook lifecycle diagram showing optional Setup fee"
+        }
+      },
+      {
+        "hit_count": 65,
+        "path": "raw/source-groups/prompt-engineer-research-base/raw/refs/old-prompt-workflow-kb/appendices/APPENDIX_KB_CONSTANT_FAILURE_SOURCE_NOTES.md",
+        "sample": {
+          "line": 10,
+          "snippet": "owner: special_ops__prompts_workflows"
+        }
+      },
+      {
+        "hit_count": 59,
+        "path": "raw/source-groups/prompt-engineer-research-base/raw/refs/old-prompt-workflow-kb/appendices/APPENDIX_KB_EXTERNAL_CLAIM_VERIFICATION.md",
+        "sample": {
+          "line": 10,
+          "snippet": "owner: special_ops__prompts_workflows"
+        }
+      },
+      {
+        "hit_count": 55,
+        "path": "raw/source-groups/prompt-engineer-research-base/raw/refs/old-prompt-workflow-kb/appendices/APPENDIX_KB_RUNTIME_TEMPLATE_CATALOG.md",
+        "sample": {
+          "line": 10,
+          "snippet": "owner: special_ops__prompts_workflows"
+        }
+      },
+      {
+        "hit_count": 54,
+        "path": "raw/source-groups/claude-orchestration-agents/raw/refs/orchestration-agents-in-cc/primary-code-claude-com-docs-en-claude-directory.md.md",
+        "sample": {
+          "line": 7,
+          "snippet": "> Where Claude Code reads CLAUDE.md, settings.json, hooks, skills, commands, subagents, workflows, rules, and auto memory. Explore the .claude directory in your project and ~/.claude in your home directory."
+        }
+      },
+      {
+        "hit_count": 53,
+        "path": "raw/source-groups/claude-orchestration-agents/raw/notes/OrchestrationAgentsInCC_RepoResearch_CC.md",
+        "sample": {
+          "line": 1,
+          "snippet": "# Research Report: Star-Rated Execution-Agent & Orchestration Repos for Apex"
+        }
+      },
+      {
+        "hit_count": 53,
+        "path": "raw/source-groups/claude-orchestration-agents/raw/refs/orchestration-agents-in-cc/primary-code-claude-com-docs-en-skills.md.md",
+        "sample": {
+          "line": 9,
+          "snippet": "Skills extend what Claude can do. Create a `SKILL.md` file with instructions, and Claude adds it to its toolkit. Claude uses skills when relevant, or you can invoke one directly with `/skill-name`."
+        }
+      },
+      {
+        "hit_count": 51,
+        "path": "raw/source-groups/claude-orchestration-agents/raw/refs/orchestration-agents-in-cc/primary-code-claude-com-docs-en-features-overview.md.md",
+        "sample": {
+          "line": 7,
+          "snippet": "> Understand when to use CLAUDE.md, Skills, subagents, hooks, MCP, and plugins."
+        }
+      },
+      {
+        "hit_count": 50,
+        "path": "raw/source-groups/claude-orchestration-agents/raw/refs/orchestration-agents-in-cc/repo-example-raw-githubusercontent-com-FlorianBruniaux-claude-code-ultimate-guide-main-guide-workflows-agent-teams.md.md",
+        "sample": {
+          "line": 2,
+          "snippet": "title: \"Agent Teams Workflow\""
+        }
+      },
+      {
+        "hit_count": 49,
+        "path": "raw/source-groups/_source-acquisitions/skill-best-practices-official-2026-06-23/raw/official-pdfs/anthropic-complete-guide-to-building-skills-for-claude.md",
+        "sample": {
+          "line": 23,
+          "snippet": "A skill is a set of instructions - packaged as a simple folder - that teaches Claude how to handle specific tasks or workflows. Skills are one of the most powerful ways to customize Claude for your specific needs. Instea"
+        }
+      },
+      {
+        "hit_count": 49,
+        "path": "raw/source-groups/claude-orchestration-agents/raw/notes/OrchestrationAgentsInCC_RepoResearch_IT3_GPT.md",
+        "sample": {
+          "line": 15,
+          "snippet": "|4|Should BMAD be copied structurally or studied as workflow grammar?|BMAD is strong but can overfit Apex toward agile-dev methodology.|A: copy wholesale / B: study + adapt / C: avoid|**B**|High|Current main tree/stats v"
+        }
+      },
+      {
+        "hit_count": 49,
+        "path": "raw/source-groups/claude-skill-design/sources/curated/official-pdfs/anthropic-complete-guide-to-building-skills-for-claude.md",
+        "sample": {
+          "line": 23,
+          "snippet": "A skill is a set of instructions - packaged as a simple folder - that teaches Claude how to handle specific tasks or workflows. Skills are one of the most powerful ways to customize Claude for your specific needs. Instea"
+        }
+      },
+      {
+        "hit_count": 46,
+        "path": "raw/source-groups/prompt-engineer-research-base/raw/refs/old-prompt-workflow-kb/appendices/KBAudit/DR_GEM_ AgtnticAIFailure&ExtractionLEdger.md",
+        "sample": {
+          "line": 3,
+          "snippet": "- rank: 1 id: \"FM_UNTYPED_BOUNDARY_STATE_CORRUPTION\" name: \"untyped_boundary_causes_state_corruption\" source_ids: failure_class: \"untyped_boundary_failure\" caused_by: root_problem: > Multi-agent workflows fundamentally d"
+        }
+      },
+      {
+        "hit_count": 45,
+        "path": "raw/source-groups/claude-orchestration-agents/raw/refs/orchestration-layer-research/code-claude-com-skills.md",
+        "sample": {
+          "line": 6,
+          "snippet": "Skills extend what Claude can do. Create a `SKILL.md` file with instructions, and Claude adds it to its toolkit. Claude uses skills when relevant, or you can invoke one directly with `/skill-name`.Create a skill when you"
+        }
+      },
+      {
+        "hit_count": 45,
+        "path": "raw/source-groups/claude-orchestration-agents/raw/repos/first-batch-to-clone/bmad-code-org__BMAD-METHOD/docs/how-to/expand-bmad-for-your-org.md",
+        "sample": {
+          "line": 3,
+          "snippet": "description: Six customization patterns that reshape BMad without forking — agent-wide rules, workflow conventions, external publishing, template swaps, agent roster changes, and advanced integration patterns"
+        }
+      },
+      {
+        "hit_count": 43,
+        "path": "raw/source-groups/claude-orchestration-agents/raw/repos/first-batch-to-clone/bmad-code-org__BMAD-METHOD/docs/fr/how-to/expand-bmad-for-your-org.md",
+        "sample": {
+          "line": 3,
+          "snippet": "description: Six patterns de personnalisation qui remodèlent BMad sans créer de fork — règles applicables aux agents, conventions de workflow, publication externe, remplacements de templates, modifications du registre de"
+        }
+      },
+      {
+        "hit_count": 43,
+        "path": "raw/source-groups/prompt-engineer-research-base/raw/refs/old-prompt-workflow-kb/appendices/APPENDIX_KB_REGRESSION_EXAMPLES_AGENT_DRIFT.md",
+        "sample": {
+          "line": 10,
+          "snippet": "owner: special_ops__prompts_workflows"
+        }
+      },
+      {
+        "hit_count": 40,
+        "path": "raw/source-groups/claude-orchestration-agents/raw/refs/orchestration-agents-in-cc/primary-code-claude-com-docs-en-best-practices.md.md",
+        "sample": {
+          "line": 48,
+          "snippet": "* **By a second opinion**: a [verification subagent](/en/sub-agents) or a [dynamic workflow](/en/workflows) that checks its own findings has a fresh model try to refute the result, so the agent doing the work isn't the o"
+        }
+      },
+      {
+        "hit_count": 39,
+        "path": "raw/source-groups/claude-orchestration-agents/raw/notes/SubskillsVsAgents_gem.md",
+        "sample": {
+          "line": 20,
+          "snippet": "The Agent Skills Open Standard (co-authored and heavily promoted by Anthropic for Claude Code, Claude Desktop, and the Claude API) establishes a clear, portable, three-tier architecture for packaging procedural intellige"
+        }
+      },
+      {
+        "hit_count": 39,
+        "path": "raw/source-groups/claude-orchestration-agents/raw/repos/first-batch-to-clone/bmad-code-org__BMAD-METHOD/tools/skill-validator.md",
+        "sample": {
+          "line": 31,
+          "snippet": "- **Skill directory**: the folder containing `SKILL.md` and all supporting files."
+        }
+      },
+      {
+        "hit_count": 35,
+        "path": "raw/source-groups/prompt-engineer-research-base/raw/refs/old-prompt-workflow-kb/appendices/APPENDIX_KB_CONSTANT_FRAME_PROCESS_CLOSE_REPORT.md",
+        "sample": {
+          "line": 7,
+          "snippet": "owner: special_ops__prompts_workflows"
+        }
+      },
+      {
+        "hit_count": 34,
+        "path": "raw/source-groups/claude-orchestration-agents/raw/notes/SubskillsVsAgents_CC.md",
+        "sample": {
+          "line": 13,
+          "snippet": "`can_we_define_canonical_skill_package_architecture: yes can_we_define_canonical_subskills: no can_we_define_modular_package_best_practices: yes should_final_kb_use_term_subskill: no recommended_safe_terms:   - companion"
+        }
+      },
+      {
+        "hit_count": 34,
+        "path": "raw/source-groups/claude-orchestration-agents/raw/repos/first-batch-to-clone/bmad-code-org__BMAD-METHOD/src/bmm-skills/1-analysis/bmad-document-project/workflows/full-scan-instructions.md",
+        "sample": {
+          "line": 3,
+          "snippet": "<workflow>"
+        }
+      },
+      {
+        "hit_count": 34,
+        "path": "raw/source-groups/claude-orchestration-agents/raw/repos/first-batch-to-clone/shanraisshan__claude-code-best-practice/.claude/agents/presentation-claude-gemini.md",
+        "sample": {
+          "line": 43,
+          "snippet": "- `orchestration` (Day 2, Level 6, 100%, yellow)"
+        }
+      }
+    ]
+  },
+  "agent-vs-subagent-vs-skill": {
+    "keywords": [
+      "subagent",
+      "sub-agent",
+      "skill.md",
+      "agent skills",
+      "persistent agent"
+    ],
+    "name": "When to use agent vs subagent vs skill",
+    "ranked_sources": [
+      {
+        "hit_count": 231,
+        "path": "raw/source-groups/claude-orchestration-agents/raw/refs/orchestration-agents-in-cc/primary-code-claude-com-docs-en-sub-agents.md.md",
+        "sample": {
+          "line": 5,
+          "snippet": "# Create custom subagents"
+        }
+      },
+      {
+        "hit_count": 83,
+        "path": "raw/source-groups/claude-orchestration-agents/raw/refs/orchestration-agents-in-cc/primary-code-claude-com-docs-en-agent-sdk-subagents.md.md",
+        "sample": {
+          "line": 5,
+          "snippet": "# Subagents in the SDK"
+        }
+      },
+      {
+        "hit_count": 69,
+        "path": "raw/source-groups/claude-orchestration-agents/raw/refs/orchestration-agents-in-cc/primary-code-claude-com-docs-en-hooks.md.md",
+        "sample": {
+          "line": 21,
+          "snippet": "<img src=\"https://mintcdn.com/claude-code/uLsR38F1U_5zPppm/images/hooks-lifecycle.svg?fit=max&auto=format&n=uLsR38F1U_5zPppm&q=85&s=fbdbd78ad9f474da7d344879341341f0\" alt=\"Hook lifecycle diagram showing optional Setup fee"
+        }
+      },
+      {
+        "hit_count": 54,
+        "path": "raw/source-groups/claude-orchestration-agents/raw/refs/orchestration-agents-in-cc/primary-code-claude-com-docs-en-skills.md.md",
+        "sample": {
+          "line": 9,
+          "snippet": "Skills extend what Claude can do. Create a `SKILL.md` file with instructions, and Claude adds it to its toolkit. Claude uses skills when relevant, or you can invoke one directly with `/skill-name`."
+        }
+      },
+      {
+        "hit_count": 46,
+        "path": "raw/source-groups/claude-orchestration-agents/raw/refs/orchestration-agents-in-cc/primary-code-claude-com-docs-en-claude-directory.md.md",
+        "sample": {
+          "line": 7,
+          "snippet": "> Where Claude Code reads CLAUDE.md, settings.json, hooks, skills, commands, subagents, workflows, rules, and auto memory. Explore the .claude directory in your project and ~/.claude in your home directory."
+        }
+      },
+      {
+        "hit_count": 45,
+        "path": "raw/source-groups/claude-orchestration-agents/raw/refs/orchestration-layer-research/code-claude-com-skills.md",
+        "sample": {
+          "line": 6,
+          "snippet": "Skills extend what Claude can do. Create a `SKILL.md` file with instructions, and Claude adds it to its toolkit. Claude uses skills when relevant, or you can invoke one directly with `/skill-name`.Create a skill when you"
+        }
+      },
+      {
+        "hit_count": 40,
+        "path": "raw/source-groups/claude-orchestration-agents/raw/notes/SubskillsVsAgents_gem.md",
+        "sample": {
+          "line": 20,
+          "snippet": "The Agent Skills Open Standard (co-authored and heavily promoted by Anthropic for Claude Code, Claude Desktop, and the Claude API) establishes a clear, portable, three-tier architecture for packaging procedural intellige"
+        }
+      },
+      {
+        "hit_count": 38,
+        "path": "raw/source-groups/claude-orchestration-agents/raw/repos/first-batch-to-clone/bmad-code-org__BMAD-METHOD/tools/docs/native-skills-migration-checklist.md",
+        "sample": {
+          "line": 5,
+          "snippet": "Scope: migrate the BMAD-supported platforms that fully support the Agent Skills standard from legacy installer outputs to native skills output."
+        }
+      },
+      {
+        "hit_count": 35,
+        "path": "raw/source-groups/claude-orchestration-agents/raw/refs/orchestration-agents-in-cc/primary-code-claude-com-docs-en-features-overview.md.md",
+        "sample": {
+          "line": 7,
+          "snippet": "> Understand when to use CLAUDE.md, Skills, subagents, hooks, MCP, and plugins."
+        }
+      },
+      {
+        "hit_count": 34,
+        "path": "raw/source-groups/claude-orchestration-agents/raw/refs/orchestration-agents-in-cc/repo-example-raw-githubusercontent-com-FlorianBruniaux-claude-code-ultimate-guide-main-guide-workflows-agent-teams.md.md",
+        "sample": {
+          "line": 16,
+          "snippet": "**Prerequisites**: Opus 4.6 model, understanding of [Sub-Agents](#split-role-sub-agents), familiarity with Task Tool"
+        }
+      },
+      {
+        "hit_count": 29,
+        "path": "raw/source-groups/claude-orchestration-agents/raw/refs/orchestration-agents-in-cc/primary-code-claude-com-docs-en-plugins-reference.md.md",
+        "sample": {
+          "line": 23,
+          "snippet": "**Location**: `skills/` or `commands/` directory in plugin root, or a single `SKILL.md` file at the plugin root"
+        }
+      },
+      {
+        "hit_count": 28,
+        "path": "raw/source-groups/claude-orchestration-agents/raw/notes/SubskillsVsAgents_CC.md",
+        "sample": {
+          "line": 15,
+          "snippet": "The official Agent Skills specification at [agentskills.io/specification](https://agentskills.io/specification) is concrete, authoritative, and sufficient to define macro/meso/micro architecture. \"Subskill\" is **not** an"
+        }
+      },
+      {
+        "hit_count": 28,
+        "path": "raw/source-groups/claude-orchestration-agents/raw/refs/orchestration-agents-in-cc/secondary-code-claude-com-docs-en-agent-view.md.md",
+        "sample": {
+          "line": 19,
+          "snippet": "To compare agent view with subagents, agent teams, and worktrees, see [Run agents in parallel](/en/agents)."
+        }
+      },
+      {
+        "hit_count": 27,
+        "path": "raw/source-groups/claude-orchestration-agents/raw/refs/orchestration-agents-in-cc/primary-code-claude-com-docs-en-best-practices.md.md",
+        "sample": {
+          "line": 48,
+          "snippet": "* **By a second opinion**: a [verification subagent](/en/sub-agents) or a [dynamic workflow](/en/workflows) that checks its own findings has a fresh model try to refute the result, so the agent doing the work isn't the o"
+        }
+      },
+      {
+        "hit_count": 26,
+        "path": "raw/source-groups/claude-orchestration-agents/raw/refs/orchestration-layer-research/platform-claude-com-overview.md",
+        "sample": {
+          "line": 1,
+          "snippet": "Title: Agent Skills"
+        }
+      },
+      {
+        "hit_count": 25,
+        "path": "raw/source-groups/_source-acquisitions/skill-best-practices-official-2026-06-23/raw/official-repos/agentskills-agentskills/docs/client-implementation/adding-skills-support.mdx",
+        "sample": {
+          "line": 4,
+          "snippet": "description: \"A guide for adding Agent Skills support to an AI agent or development tool.\""
+        }
+      },
+      {
+        "hit_count": 25,
+        "path": "raw/source-groups/claude-orchestration-agents/raw/notes/OrchestrationAgentsInCC_Research_CC.md",
+        "sample": {
+          "line": 5,
+          "snippet": "## Rating Table — Claude Skill/Subagent Orchestration Sources"
+        }
+      },
+      {
+        "hit_count": 25,
+        "path": "raw/source-groups/claude-orchestration-agents/raw/repos/first-batch-to-clone/bmad-code-org__BMAD-METHOD/tools/skill-validator.md",
+        "sample": {
+          "line": 3,
+          "snippet": "An LLM-readable validation prompt for skills following the Agent Skills open standard."
+        }
+      },
+      {
+        "hit_count": 25,
+        "path": "raw/source-groups/claude-skill-design/sources/curated/official-repos/agentskills-agentskills/docs/client-implementation/adding-skills-support.mdx",
+        "sample": {
+          "line": 4,
+          "snippet": "description: \"A guide for adding Agent Skills support to an AI agent or development tool.\""
+        }
+      },
+      {
+        "hit_count": 23,
+        "path": "raw/source-groups/claude-orchestration-agents/raw/repos/first-batch-to-clone/shanraisshan__claude-code-best-practice/CLAUDE.md",
+        "sample": {
+          "line": 7,
+          "snippet": "This is a best practices repository for Claude Code configuration, demonstrating patterns for skills, subagents, hooks, and commands. It serves as a reference implementation rather than an application codebase."
+        }
+      },
+      {
+        "hit_count": 22,
+        "path": "raw/source-groups/_source-acquisitions/skill-best-practices-official-2026-06-23/raw/official-repos/anthropics-skills/skills/skill-creator/SKILL.md",
+        "sample": {
+          "line": 60,
+          "snippet": "Check available MCPs - if useful for research (searching docs, finding similar skills, looking up best practices), research in parallel via subagents if available, otherwise inline. Come prepared with context to reduce b"
+        }
+      },
+      {
+        "hit_count": 22,
+        "path": "raw/source-groups/_source-acquisitions/skill-best-practices-official-2026-06-23/raw/repo-extracts/anthropics-skills__skills__skill-creator__SKILL.md",
+        "sample": {
+          "line": 60,
+          "snippet": "Check available MCPs - if useful for research (searching docs, finding similar skills, looking up best practices), research in parallel via subagents if available, otherwise inline. Come prepared with context to reduce b"
+        }
+      },
+      {
+        "hit_count": 22,
+        "path": "raw/source-groups/claude-orchestration-agents/raw/refs/orchestration-agents-in-cc/primary-code-claude-com-docs-en-agent-sdk-skills.md.md",
+        "sample": {
+          "line": 5,
+          "snippet": "# Agent Skills in the SDK"
+        }
+      },
+      {
+        "hit_count": 22,
+        "path": "raw/source-groups/claude-orchestration-agents/raw/repos/first-batch-to-clone/shanraisshan__claude-code-best-practice/.claude/hooks/HOOKS-README.md",
+        "sample": {
+          "line": 16,
+          "snippet": "| 8 | `SubagentStart` | Runs when subagent tasks start | `async`, `timeout: 5000`, `agent_id`, `agent_type` |"
+        }
+      },
+      {
+        "hit_count": 22,
+        "path": "raw/source-groups/claude-skill-design/sources/curated/official-repos/anthropics-skills/skills/skill-creator/SKILL.md",
+        "sample": {
+          "line": 60,
+          "snippet": "Check available MCPs - if useful for research (searching docs, finding similar skills, looking up best practices), research in parallel via subagents if available, otherwise inline. Come prepared with context to reduce b"
+        }
+      },
+      {
+        "hit_count": 22,
+        "path": "raw/source-groups/claude-skill-design/sources/curated/repo-extracts/anthropics-skills__skills__skill-creator__SKILL.md",
+        "sample": {
+          "line": 60,
+          "snippet": "Check available MCPs - if useful for research (searching docs, finding similar skills, looking up best practices), research in parallel via subagents if available, otherwise inline. Come prepared with context to reduce b"
+        }
+      },
+      {
+        "hit_count": 22,
+        "path": "raw/source-groups/claude-skill-design/sources/operator-supplied/notes/ClaudeSetupGeneral.md",
+        "sample": {
+          "line": 24,
+          "snippet": "- 30–40 files organized as: meta-agents, sub-agents, routines/process specs, workflow examples, process ranking"
+        }
+      },
+      {
+        "hit_count": 21,
+        "path": "raw/source-groups/claude-orchestration-agents/raw/refs/orchestration-agents-in-cc/external-learn-microsoft-com-skills.md",
+        "sample": {
+          "line": 1,
+          "snippet": "Title: Agent Skills"
+        }
+      },
+      {
+        "hit_count": 21,
+        "path": "raw/source-groups/claude-orchestration-agents/raw/refs/orchestration-agents-in-cc/primary-code-claude-com-docs-en-agent-teams.md.md",
+        "sample": {
+          "line": 15,
+          "snippet": "Unlike [subagents](/en/sub-agents), which run within a single session and can only report back to the main agent, you can also interact with individual teammates directly without going through the lead."
+        }
+      },
+      {
+        "hit_count": 21,
+        "path": "raw/source-groups/claude-orchestration-agents/raw/refs/orchestration-agents-in-cc/primary-code-claude-com-docs-en-agents.md.md",
+        "sample": {
+          "line": 7,
+          "snippet": "> Compare the ways Claude Code can take on multiple tasks at once: subagents, agent view, agent teams, and dynamic workflows."
+        }
+      }
+    ]
+  },
+  "informatics-design-formats-practice-guide": {
+    "keywords": [
+      "progressive disclosure",
+      "frontmatter",
+      "yaml",
+      "token efficiency",
+      "context compaction"
+    ],
+    "name": "Informatics design, formats, and practice guide",
+    "ranked_sources": [
+      {
+        "hit_count": 77,
+        "path": "raw/source-groups/claude-orchestration-agents/raw/repos/first-batch-to-clone/shanraisshan__claude-code-best-practice/changelog/best-practice/claude-subagents/changelog.md",
+        "sample": {
+          "line": 17,
+          "snippet": "| 1 | HIGH | Agents Table | Add `workflow-changelog-claude-agents-frontmatter-agent` to Agents in This Repository table | ✅ COMPLETE (added with model: opus, inherits all tools, no skills/memory) |"
+        }
+      },
+      {
+        "hit_count": 60,
+        "path": "raw/source-groups/claude-orchestration-agents/raw/repos/first-batch-to-clone/shanraisshan__claude-code-best-practice/changelog/best-practice/claude-skills/changelog.md",
+        "sample": {
+          "line": 31,
+          "snippet": "No drift detected — frontmatter fields (10) and bundled skills (5) are fully synchronized with official docs."
+        }
+      },
+      {
+        "hit_count": 56,
+        "path": "raw/source-groups/claude-skill-design/sources/operator-supplied/notes/Claude_Skill_Package_BestPractice_Handover.md",
+        "sample": {
+          "line": 24,
+          "snippet": "```yaml"
+        }
+      },
+      {
+        "hit_count": 48,
+        "path": "raw/source-groups/claude-skill-design/sources/operator-supplied/notes/Claude_Skill_PromptFlow_Design_Guidance_v1.md",
+        "sample": {
+          "line": 8,
+          "snippet": "```yaml"
+        }
+      },
+      {
+        "hit_count": 46,
+        "path": "raw/source-groups/prompt-engineer-research-base/raw/refs/old-prompt-workflow-kb/appendices/KBAudit/KB_Audit_v2 (1).md",
+        "sample": {
+          "line": 11,
+          "snippet": "- \"Markdown + YAML-frontmatter KB files only\""
+        }
+      },
+      {
+        "hit_count": 45,
+        "path": "raw/source-groups/claude-orchestration-agents/raw/repos/first-batch-to-clone/bmad-code-org__BMAD-METHOD/tools/skill-validator.md",
+        "sample": {
+          "line": 37,
+          "snippet": "- **Intra-skill path variable**: a frontmatter variable whose value is a path to another file within the same skill — this is an anti-pattern."
+        }
+      },
+      {
+        "hit_count": 45,
+        "path": "raw/source-groups/prompt-engineer-research-base/raw/refs/old-prompt-workflow-kb/appendices/NewResearchBecauseOfConstantFailure/Recap&ProcessImprovs/CompletlyLost/ConstructionGuide_From_KB_Audit_V2.md",
+        "sample": {
+          "line": 4,
+          "snippet": "companion_file: \"transformation_guide.yaml\""
+        }
+      },
+      {
+        "hit_count": 44,
+        "path": "raw/source-groups/prompt-engineer-research-base/raw/refs/old-prompt-workflow-kb/appendices/NewResearchBecauseOfConstantFailure/Recap&ProcessImprovs/KB_Audit_v2.md",
+        "sample": {
+          "line": 11,
+          "snippet": "- \"Markdown + YAML-frontmatter KB files only\""
+        }
+      },
+      {
+        "hit_count": 43,
+        "path": "raw/source-groups/claude-orchestration-agents/raw/repos/first-batch-to-clone/shanraisshan__claude-code-best-practice/changelog/best-practice/claude-commands/changelog.md",
+        "sample": {
+          "line": 17,
+          "snippet": "| 1 | HIGH | New Field | Add `name` to frontmatter table — display name for the skill | ❌ INVALID (skill-only field, not applicable to commands frontmatter) |"
+        }
+      },
+      {
+        "hit_count": 42,
+        "path": "raw/source-groups/prompt-engineer-research-base/raw/refs/old-prompt-workflow-kb/appendices/KBAudit/KB_AUDIT_V2_NEW_FILE_REWRITE_PROCESS.md",
+        "sample": {
+          "line": 33,
+          "snippet": "```yaml"
+        }
+      },
+      {
+        "hit_count": 40,
+        "path": "raw/source-groups/claude-orchestration-agents/raw/refs/orchestration-agents-in-cc/primary-code-claude-com-docs-en-skills.md.md",
+        "sample": {
+          "line": 16,
+          "snippet": "**Custom commands have been merged into skills.** A file at `.claude/commands/deploy.md` and a skill at `.claude/skills/deploy/SKILL.md` both create `/deploy` and work the same way. Your existing `.claude/commands/` file"
+        }
+      },
+      {
+        "hit_count": 40,
+        "path": "raw/source-groups/prompt-engineer-research-base/raw/refs/old-prompt-workflow-kb/appendices/KBAudit/DRPrompt4INf&KBRedesign_v2.md",
+        "sample": {
+          "line": 110,
+          "snippet": "```yaml"
+        }
+      },
+      {
+        "hit_count": 40,
+        "path": "raw/source-groups/prompt-engineer-research-base/raw/refs/old-prompt-workflow-kb/appendices/KBAudit/TASK-001_create-dr-inf-kb-prompt-v2.patch.md",
+        "sample": {
+          "line": 113,
+          "snippet": "```yaml"
+        }
+      },
+      {
+        "hit_count": 39,
+        "path": "raw/source-groups/prompt-engineer-research-base/raw/refs/old-prompt-workflow-kb/appendices/KBAudit/KB_AUDIT_V2_SCAFFOLD_REWRITE_PROCESS.md",
+        "sample": {
+          "line": 35,
+          "snippet": "```yaml"
+        }
+      },
+      {
+        "hit_count": 38,
+        "path": "raw/source-groups/claude-orchestration-agents/raw/notes/SubskillsVsAgents_gem.md",
+        "sample": {
+          "line": 5,
+          "snippet": "YAML"
+        }
+      },
+      {
+        "hit_count": 37,
+        "path": "raw/source-groups/claude-orchestration-agents/raw/refs/orchestration-agents-in-cc/primary-code-claude-com-docs-en-sub-agents.md.md",
+        "sample": {
+          "line": 88,
+          "snippet": "Subagents are defined in Markdown files with YAML frontmatter. You can [create them manually](#write-subagent-files) or use the `/agents` command."
+        }
+      },
+      {
+        "hit_count": 37,
+        "path": "raw/source-groups/prompt-engineer-research-base/raw/refs/old-prompt-workflow-kb/appendices/APPENDIX_KB_REGRESSION_EXAMPLES_AGENT_DRIFT.md",
+        "sample": {
+          "line": 42,
+          "snippet": "```yaml"
+        }
+      },
+      {
+        "hit_count": 37,
+        "path": "raw/source-groups/prompt-engineer-research-base/raw/refs/old-prompt-workflow-kb/appendices/KBAudit/DRPrompt4INf&KBRedesign.md",
+        "sample": {
+          "line": 109,
+          "snippet": "```yaml"
+        }
+      },
+      {
+        "hit_count": 33,
+        "path": "raw/source-groups/prompt-engineer-research-base/raw/refs/old-prompt-workflow-kb/appendices/NewResearchBecauseOfConstantFailure/NewFinals/construction_guide.md",
+        "sample": {
+          "line": 9,
+          "snippet": "target_use: \"building Markdown + YAML-frontmatter KB files loaded as context into agent sessions\""
+        }
+      },
+      {
+        "hit_count": 33,
+        "path": "raw/source-groups/prompt-engineer-research-base/raw/refs/old-prompt-workflow-kb/appendices/NewResearchBecauseOfConstantFailure/Recap&ProcessImprovs/ClaudeChatHistory4PromptflowsNodrift.md",
+        "sample": {
+          "line": 461,
+          "snippet": "Section 7's `preimage_checked_scaffold_mutation_process` YAML is comprehensive but at 15 steps is close to the complexity ceiling. The steps `verify_old_text_occurs_exactly_once` and `halt_on_zero_or_multiple_matches` ar"
+        }
+      },
+      {
+        "hit_count": 33,
+        "path": "raw/source-groups/prompt-engineer-research-base/raw/refs/old-prompt-workflow-kb/appendices/NewResearchBecauseOfConstantFailure/Recap&ProcessImprovs/CompletlyLost/construction_guide_V2.md",
+        "sample": {
+          "line": 9,
+          "snippet": "target_use: \"building Markdown + YAML-frontmatter KB files loaded as context into agent sessions\""
+        }
+      },
+      {
+        "hit_count": 32,
+        "path": "raw/source-groups/prompt-engineer-research-base/raw/refs/old-prompt-workflow-kb/appendices/KBAudit/KB_AUDIT_V2_UPDATE_PIPELINE.md",
+        "sample": {
+          "line": 27,
+          "snippet": "```yaml"
+        }
+      },
+      {
+        "hit_count": 29,
+        "path": "raw/source-groups/_source-acquisitions/skill-best-practices-official-2026-06-23/raw/official-pdfs/anthropic-complete-guide-to-building-skills-for-claude.md",
+        "sample": {
+          "line": 71,
+          "snippet": "- SKILL.md (required): Instructions in Markdown with YAML frontmatter"
+        }
+      },
+      {
+        "hit_count": 29,
+        "path": "raw/source-groups/claude-orchestration-agents/raw/refs/orchestration-agents-in-cc/external-learn-microsoft-com-skills.md",
+        "sample": {
+          "line": 8,
+          "snippet": "[Agent Skills](https://agentskills.io/) are portable packages of instructions, scripts, and resources that give agents specialized capabilities and domain expertise. Skills follow an open specification and implement a pr"
+        }
+      },
+      {
+        "hit_count": 29,
+        "path": "raw/source-groups/claude-orchestration-agents/raw/refs/orchestration-layer-research/learn-microsoft-com-skills.md",
+        "sample": {
+          "line": 8,
+          "snippet": "[Agent Skills](https://agentskills.io/) are portable packages of instructions, scripts, and resources that give agents specialized capabilities and domain expertise. Skills follow an open specification and implement a pr"
+        }
+      },
+      {
+        "hit_count": 29,
+        "path": "raw/source-groups/claude-orchestration-agents/raw/repos/first-batch-to-read-only/hesreallyhim__awesome-claude-code/docs/README-GENERATION.md",
+        "sample": {
+          "line": 10,
+          "snippet": "- **`acc-config.yaml`** - Global configuration (root style, style selector settings)"
+        }
+      },
+      {
+        "hit_count": 29,
+        "path": "raw/source-groups/claude-skill-design/sources/curated/official-pdfs/anthropic-complete-guide-to-building-skills-for-claude.md",
+        "sample": {
+          "line": 71,
+          "snippet": "- SKILL.md (required): Instructions in Markdown with YAML frontmatter"
+        }
+      },
+      {
+        "hit_count": 29,
+        "path": "raw/source-groups/prompt-engineer-research-base/raw/refs/old-prompt-workflow-kb/appendices/NewResearchBecauseOfConstantFailure/Recap&ProcessImprovs/ImrpovementsClaude.md",
+        "sample": {
+          "line": 1,
+          "snippet": "Now I have the evidence base needed. The key external findings are hard numbers: frontier models hit a 68% accuracy cliff under high instruction density, instruction-following success rate for 10 simultaneous instruction"
+        }
+      },
+      {
+        "hit_count": 27,
+        "path": "raw/source-groups/prompt-engineer-research-base/raw/refs/old-prompt-workflow-kb/appendices/KBAudit/ThinkingProcessTestRunDR.md",
+        "sample": {
+          "line": 10,
+          "snippet": "Used the attached prompt’s output contract and applied the YAML-first / critical-first `KB_Audit_v2` style rules ."
+        }
+      },
+      {
+        "hit_count": 26,
+        "path": "raw/source-groups/_source-acquisitions/skill-best-practices-official-2026-06-23/raw/official-repos/agentskills-agentskills/docs/client-implementation/adding-skills-support.mdx",
+        "sample": {
+          "line": 16,
+          "snippet": "**Prerequisites**: Familiarity with the [Agent Skills specification](/specification), which defines the `SKILL.md` file format, frontmatter fields, and directory conventions."
+        }
+      }
+    ]
+  },
+  "skill-agent-evolution-and-learning": {
+    "keywords": [
+      "skill-creator",
+      "benchmark",
+      "iterative",
+      "learning queue",
+      "candidate",
+      "rewrite"
+    ],
+    "name": "Skill and agent evolution and learning",
+    "ranked_sources": [
+      {
+        "hit_count": 69,
+        "path": "raw/source-groups/prompt-engineer-research-base/raw/refs/old-prompt-workflow-kb/appendices/APPENDIX_KB_RUNTIME_TEMPLATE_CATALOG.md",
+        "sample": {
+          "line": 88,
+          "snippet": "| `NewResearchBecauseOfConstantFailure/00_PROJECT_BOOTSTRAP.md` | Hand-authored project bootstrap template. | `scaffold_candidate` | Candidate-only project opener/bootstrap template after deduplication. |"
+        }
+      },
+      {
+        "hit_count": 69,
+        "path": "raw/source-groups/prompt-engineer-research-base/raw/refs/old-prompt-workflow-kb/appendices/KBAudit/KB_AUDIT_V2_NEW_FILE_REWRITE_PROCESS.md",
+        "sample": {
+          "line": 2,
+          "snippet": "class: kb_audit_v2_new_file_rewrite_process"
+        }
+      },
+      {
+        "hit_count": 42,
+        "path": "raw/source-groups/_source-acquisitions/skill-best-practices-official-2026-06-23/raw/official-repos/anthropics-skills/skills/skill-creator/scripts/aggregate_benchmark.py",
+        "sample": {
+          "line": 3,
+          "snippet": "Aggregate individual run results into benchmark summary statistics."
+        }
+      },
+      {
+        "hit_count": 42,
+        "path": "raw/source-groups/claude-skill-design/sources/curated/official-repos/anthropics-skills/skills/skill-creator/scripts/aggregate_benchmark.py",
+        "sample": {
+          "line": 3,
+          "snippet": "Aggregate individual run results into benchmark summary statistics."
+        }
+      },
+      {
+        "hit_count": 42,
+        "path": "raw/source-groups/prompt-engineer-research-base/raw/refs/old-prompt-workflow-kb/appendices/APPENDIX_KB_EXTERNAL_CLAIM_VERIFICATION.md",
+        "sample": {
+          "line": 78,
+          "snippet": "| `appendices/APPENDIX_KB_RUNTIME_TEMPLATE_CATALOG.md` | Generated/hand-authored template reconciliation and runtime-template boundaries. | `accepted_for_template_boundary` | `verified_with_source` for local catalog boun"
+        }
+      },
+      {
+        "hit_count": 37,
+        "path": "raw/source-groups/claude-orchestration-agents/raw/repos/first-batch-to-read-only/Aider-AI__aider/benchmark/README.md",
+        "sample": {
+          "line": 2,
+          "snippet": "# Aider benchmark harness"
+        }
+      },
+      {
+        "hit_count": 30,
+        "path": "raw/source-groups/prompt-engineer-research-base/raw/refs/old-prompt-workflow-kb/appendices/APPENDIX_KB_CONSTANT_FAILURE_INTEGRATION_RANKING.md",
+        "sample": {
+          "line": 42,
+          "snippet": "1. scaffold candidates,"
+        }
+      },
+      {
+        "hit_count": 28,
+        "path": "raw/source-groups/_source-acquisitions/skill-best-practices-official-2026-06-23/raw/official-repos/anthropics-skills/skills/skill-creator/eval-viewer/generate_review.py",
+        "sample": {
+          "line": 91,
+          "snippet": "for candidate in [run_dir / \"eval_metadata.json\", run_dir.parent / \"eval_metadata.json\"]:"
+        }
+      },
+      {
+        "hit_count": 28,
+        "path": "raw/source-groups/claude-orchestration-agents/raw/repos/first-batch-to-read-only/Aider-AI__aider/aider/website/docs/benchmarks.md",
+        "sample": {
+          "line": 2,
+          "snippet": "title: GPT code editing benchmarks"
+        }
+      },
+      {
+        "hit_count": 28,
+        "path": "raw/source-groups/claude-skill-design/sources/curated/official-repos/anthropics-skills/skills/skill-creator/eval-viewer/generate_review.py",
+        "sample": {
+          "line": 91,
+          "snippet": "for candidate in [run_dir / \"eval_metadata.json\", run_dir.parent / \"eval_metadata.json\"]:"
+        }
+      },
+      {
+        "hit_count": 25,
+        "path": "raw/source-groups/prompt-engineer-research-base/raw/refs/old-prompt-workflow-kb/LEARNING_QUEUE.md",
+        "sample": {
+          "line": 5,
+          "snippet": "Candidate-only capture surface for Prompts Workflows learning. This file is never runtime truth."
+        }
+      },
+      {
+        "hit_count": 25,
+        "path": "raw/source-groups/prompt-engineer-research-base/raw/refs/old-prompt-workflow-kb/appendices/APPENDIX_KB_QA_AND_NEXT_RESEARCH_PLAN.md",
+        "sample": {
+          "line": 7,
+          "snippet": "purpose: capture Prompts Workflows KB gap analysis, F5 scaffold promotion candidates, and future improvement research backlog"
+        }
+      },
+      {
+        "hit_count": 25,
+        "path": "raw/source-groups/prompt-engineer-research-base/raw/refs/old-prompt-workflow-kb/appendices/rewrite_candidates/REWRITE-02_MISTAKES.v2.md",
+        "sample": {
+          "line": 5,
+          "snippet": "version: \"2.0-candidate\""
+        }
+      },
+      {
+        "hit_count": 24,
+        "path": "raw/source-groups/claude-orchestration-agents/raw/repos/first-batch-to-read-only/Aider-AI__aider/aider/website/docs/unified-diffs.md",
+        "sample": {
+          "line": 4,
+          "snippet": "highlight_image: /assets/benchmarks-udiff.jpg"
+        }
+      },
+      {
+        "hit_count": 20,
+        "path": "raw/source-groups/prompt-engineer-research-base/raw/refs/old-prompt-workflow-kb/appendices/APPENDIX_KB_CONSTANT_FRAME_PROCESS_CLOSE_REPORT.md",
+        "sample": {
+          "line": 26,
+          "snippet": "It verifies what was produced, what was scaffold-promoted, what remains candidate-only, what remains future research, and whether the process respected the constant-frame controls declared in `PROMPTFLOW_CONSTANT_FRAME_C"
+        }
+      },
+      {
+        "hit_count": 20,
+        "path": "raw/source-groups/prompt-engineer-research-base/raw/refs/old-prompt-workflow-kb/appendices/NewResearchBecauseOfConstantFailure/Recap&ProcessImprovs/Audit&Q&A.md",
+        "sample": {
+          "line": 7,
+          "snippet": "I have the Meta Detective frame: it validates and challenges, requires evidence before approval, separates candidate/canon states, and must not patch while auditing. I’m now checking the process files and commit chain di"
+        }
+      },
+      {
+        "hit_count": 19,
+        "path": "raw/source-groups/_source-acquisitions/skill-best-practices-official-2026-06-23/raw/official-repos/anthropics-skills/skills/skill-creator/SKILL.md",
+        "sample": {
+          "line": 2,
+          "snippet": "name: skill-creator"
+        }
+      },
+      {
+        "hit_count": 19,
+        "path": "raw/source-groups/_source-acquisitions/skill-best-practices-official-2026-06-23/raw/repo-extracts/anthropics-skills__skills__skill-creator__SKILL.md",
+        "sample": {
+          "line": 2,
+          "snippet": "name: skill-creator"
+        }
+      },
+      {
+        "hit_count": 19,
+        "path": "raw/source-groups/claude-skill-design/sources/curated/official-repos/anthropics-skills/skills/skill-creator/SKILL.md",
+        "sample": {
+          "line": 2,
+          "snippet": "name: skill-creator"
+        }
+      },
+      {
+        "hit_count": 19,
+        "path": "raw/source-groups/claude-skill-design/sources/curated/repo-extracts/anthropics-skills__skills__skill-creator__SKILL.md",
+        "sample": {
+          "line": 2,
+          "snippet": "name: skill-creator"
+        }
+      },
+      {
+        "hit_count": 18,
+        "path": "raw/source-groups/prompt-engineer-research-base/raw/refs/old-prompt-workflow-kb/appendices/APPENDIX_KB_CONSTANT_FAILURE_SOURCE_NOTES.md",
+        "sample": {
+          "line": 89,
+          "snippet": "| `scaffold_candidate` | Compact reusable rule or template candidate, not yet promoted. | Requires later scaffold task and appendix evidence. |"
+        }
+      },
+      {
+        "hit_count": 17,
+        "path": "raw/source-groups/_source-acquisitions/skill-best-practices-official-2026-06-23/raw/official-pdfs/anthropic-complete-guide-to-building-skills-for-claude.md",
+        "sample": {
+          "line": 31,
+          "snippet": "What you'll get out of this guide: By the end, you'll be able to build a functional skill in a single sitting. Expect about 15-30 minutes to build and test your first working skill using the skill-creator."
+        }
+      },
+      {
+        "hit_count": 17,
+        "path": "raw/source-groups/claude-orchestration-agents/raw/repos/first-batch-to-read-only/Aider-AI__aider/aider/website/docs/benchmarks-1106.md",
+        "sample": {
+          "line": 2,
+          "snippet": "title: Code editing benchmarks for OpenAI's \"1106\" models"
+        }
+      },
+      {
+        "hit_count": 17,
+        "path": "raw/source-groups/claude-skill-design/sources/curated/official-pdfs/anthropic-complete-guide-to-building-skills-for-claude.md",
+        "sample": {
+          "line": 31,
+          "snippet": "What you'll get out of this guide: By the end, you'll be able to build a functional skill in a single sitting. Expect about 15-30 minutes to build and test your first working skill using the skill-creator."
+        }
+      },
+      {
+        "hit_count": 16,
+        "path": "raw/source-groups/prompt-engineer-research-base/raw/refs/old-prompt-workflow-kb/appendices/APPENDIX_KB_CANDIDATE_LEDGER.md",
+        "sample": {
+          "line": 1,
+          "snippet": "# APPENDIX_KB_CANDIDATE_LEDGER"
+        }
+      },
+      {
+        "hit_count": 15,
+        "path": "raw/source-groups/claude-orchestration-agents/raw/refs/orchestration-agents-in-cc/repo-example-raw-githubusercontent-com-FlorianBruniaux-claude-code-ultimate-guide-main-guide-workflows-agent-teams.md.md",
+        "sample": {
+          "line": 104,
+          "snippet": "- **2x candidate conversions** through automated workflows"
+        }
+      },
+      {
+        "hit_count": 14,
+        "path": "raw/source-groups/claude-orchestration-agents/raw/repos/first-batch-to-read-only/Aider-AI__aider/aider/website/docs/benchmarks-speed-1106.md",
+        "sample": {
+          "line": 2,
+          "snippet": "title: Speed benchmarks of GPT-4 Turbo and gpt-3.5-turbo-1106"
+        }
+      },
+      {
+        "hit_count": 14,
+        "path": "raw/source-groups/prompt-engineer-research-base/raw/refs/old-prompt-workflow-kb/NewResearchBlueprints/Quantum-PE/fundamentals/open-source-vs-proprietary-llms.md",
+        "sample": {
+          "line": 60,
+          "snippet": "On many tasks, yes. The performance gap has narrowed to 7–8 percentage points on reasoning benchmarks (MMLU). On classification, summarization, and domain-specific tasks, open-weights models like LLaMA 3.1 70B now match "
+        }
+      },
+      {
+        "hit_count": 14,
+        "path": "raw/source-groups/prompt-engineer-research-base/raw/refs/old-prompt-workflow-kb/appendices/rewrite_candidates/REWRITE-01_BEST_PRACTICES.v2.md",
+        "sample": {
+          "line": 5,
+          "snippet": "version: \"2.0-candidate\""
+        }
+      },
+      {
+        "hit_count": 13,
+        "path": "raw/source-groups/prompt-engineer-research-base/raw/refs/current-promptengineer-package/prompt-learning-feedback-contract.md",
+        "sample": {
+          "line": 23,
+          "snippet": "- prompt_pattern_update_candidate"
+        }
+      }
+    ]
+  }
+}

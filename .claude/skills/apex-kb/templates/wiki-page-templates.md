@@ -7,6 +7,7 @@
 - Do not require a separate source cluster map on every page.
 - Do not add a `page_value_score` metric.
 - Prefer warnings/reporting for missing value sections before hard failures.
+- **Entity and concept pages are not miniature encyclopedias.** Their Adaptive Ranked Source Set should come from `manifests/phase0/topic-source-rankings.json` when a registry entry exists for that topic (real, script-computed hit-count ranking, never invented). Their prose should be a short delta: what this project specifically decides or constrains about the term, not a restatement of what the term generically is. See `references/kb-contract.md` -> Page type definitions.
 
 ## Shared frontmatter
 
@@ -158,7 +159,7 @@ review_flags: []
 
 ## Definition
 
-<Definition grounded in cited source pointers.>
+<Definition grounded in cited source pointers. If this concept has a topic-registry entry, lead with the project-specific delta -- what this project decides or constrains -- not a generic restatement of the term.>
 
 ## Operating Rules
 
@@ -170,8 +171,9 @@ rules: []
 
 ```yaml
 adaptive_ranked_sources:
-  # Ranked list of sources supporting this concept.
-  # Scale the number of sources with KB size, topic breadth, and source diversity.
+  # Populate from manifests/phase0/topic-source-rankings.json when this concept has a
+  # registry entry -- real hit-count-ranked files, computed by script. Only fall back to
+  # LLM-judged ranking when no registry entry exists for this topic.
   - source_id: "<source-id>"
     rationale: "<why this source is ranked here>"
     coverage: "<brief description of the source's coverage>"
@@ -272,14 +274,15 @@ entity:
 
 ## Source-Grounded Summary
 
-<Summary grounded in source pointers.>
+<Summary grounded in source pointers. If this entity has a topic-registry entry, lead with the project-specific delta -- what this project decides, constrains, or uses differently -- not a generic restatement of what the entity is.>
 
 ## Adaptive Ranked Source Set
 
 ```yaml
 adaptive_ranked_sources:
-  # Ranked list of sources supporting this entity.
-  # Scale the number of sources with KB size, topic breadth, and source diversity.
+  # Populate from manifests/phase0/topic-source-rankings.json when this entity has a
+  # registry entry -- real hit-count-ranked files, computed by script. Only fall back to
+  # LLM-judged ranking when no registry entry exists for this topic.
   - source_id: "<source-id>"
     rationale: "<why this source is ranked here>"
     coverage: "<brief description of the source's coverage>"

@@ -1,0 +1,62 @@
+{
+  "topics": [
+    {
+      "name": "Agent and skill orchestration for resilient workflows",
+      "slug": "agent-skill-orchestration-resilient-workflows",
+      "keywords": [
+        "orchestration",
+        "resilient",
+        "workflow",
+        "subagent",
+        "skill.md",
+        "handoff"
+      ],
+      "source": "operator",
+      "status": "complete",
+      "target_page": "wiki/summaries/agent-skill-orchestration-resilient-workflows.md"
+    },
+    {
+      "name": "When to use agent vs subagent vs skill",
+      "slug": "agent-vs-subagent-vs-skill",
+      "keywords": [
+        "subagent",
+        "sub-agent",
+        "skill.md",
+        "agent skills",
+        "persistent agent"
+      ],
+      "source": "operator",
+      "status": "complete",
+      "target_page": "wiki/summaries/agent-vs-subagent-vs-skill.md"
+    },
+    {
+      "name": "Informatics design, formats, and practice guide",
+      "slug": "informatics-design-formats-practice-guide",
+      "keywords": [
+        "progressive disclosure",
+        "frontmatter",
+        "yaml",
+        "token efficiency",
+        "context compaction"
+      ],
+      "source": "operator",
+      "status": "complete",
+      "target_page": "wiki/summaries/informatics-design-formats-practice-guide.md"
+    },
+    {
+      "name": "Skill and agent evolution and learning",
+      "slug": "skill-agent-evolution-and-learning",
+      "keywords": [
+        "skill-creator",
+        "benchmark",
+        "iterative",
+        "learning queue",
+        "candidate",
+        "rewrite"
+      ],
+      "source": "operator",
+      "status": "complete",
+      "target_page": "wiki/summaries/skill-agent-evolution-and-learning.md"
+    }
+  ]
+}

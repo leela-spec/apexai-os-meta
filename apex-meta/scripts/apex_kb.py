@@ -805,17 +805,19 @@ def cmd_phase0(args: argparse.Namespace) -> Dict[str, Any]:
     heading_map = [{"path": r["path"], "source_type_guess": r["source_type_guess"], "h1_title": r["h1_title"], "headings": r["headings"], "parser_warnings": r["parser_warnings"]} for r in structures]
     link_map = [{"path": r["path"], "markdown_links": r["markdown_links"], "wikilinks": r["wikilinks"]} for r in structures]
     frontmatter_map = [{"path": r["path"], **r["frontmatter"]} for r in structures]
-    keyword_hits, topic_map = keyword_artifacts(kb_root, scanned_files)
-    profile = corpus_profile(kb_root, scanned_files, structures, keyword_hits, inventory)
-    priority = priority_candidates(kb_root, scanned_files, structures, keyword_hits)
+    term_freq, file_hit_totals = generic_term_frequency(kb_root, scanned_files)
+    topic_registry = load_topic_registry(kb_root)
+    topic_rankings = rank_topic_sources(kb_root, scanned_files, topic_registry)
+    profile = corpus_profile(kb_root, scanned_files, structures, term_freq, inventory)
+    priority = priority_candidates(kb_root, scanned_files, structures, file_hit_totals)
     report = phase0_report(kb_root, scanned_files, structures)
     writes = [
         write_text(kb_root / PHASE0_DIR / "corpus-profile.md", profile, kb_root, args.allow_write, dry_run),
         write_text(kb_root / PHASE0_DIR / "heading-map.json", json.dumps(heading_map, indent=2, ensure_ascii=False, sort_keys=True) + "\n", kb_root, args.allow_write, dry_run),
         write_text(kb_root / PHASE0_DIR / "markdown-link-map.json", json.dumps(link_map, indent=2, ensure_ascii=False, sort_keys=True) + "\n", kb_root, args.allow_write, dry_run),
         write_text(kb_root / PHASE0_DIR / "frontmatter-map.json", json.dumps(frontmatter_map, indent=2, ensure_ascii=False, sort_keys=True) + "\n", kb_root, args.allow_write, dry_run),
-        write_text(kb_root / PHASE0_DIR / "keyword-hits.ndjson", "".join(json.dumps(h, ensure_ascii=False, sort_keys=True) + "\n" for h in keyword_hits), kb_root, args.allow_write, dry_run),
-        write_text(kb_root / PHASE0_DIR / "topic-file-map.json", json.dumps(topic_map, indent=2, ensure_ascii=False, sort_keys=True) + "\n", kb_root, args.allow_write, dry_run),
+        write_text(kb_root / PHASE0_DIR / "term-frequency.json", json.dumps(term_freq, indent=2, ensure_ascii=False) + "\n", kb_root, args.allow_write, dry_run),
+        write_text(kb_root / PHASE0_DIR / "topic-source-rankings.json", json.dumps(topic_rankings, indent=2, ensure_ascii=False, sort_keys=True) + "\n", kb_root, args.allow_write, dry_run),
         write_text(kb_root / PHASE0_DIR / "source-priority-candidates.md", priority, kb_root, args.allow_write, dry_run),
         write_text(kb_root / PHASE0_DIR / "phase0-navigation-report.md", report, kb_root, args.allow_write, dry_run),
     ]
@@ -833,6 +835,7 @@ def cmd_phase0(args: argparse.Namespace) -> Dict[str, Any]:
         "pointer_only_scanned_count": len(pointer_files),
         "pointer_only_warning_count": warning_count,
         "pointer_only_unresolved": unresolved,
+        "topic_registry_entries": len(topic_registry),
     }
     return result
 
@@ -940,36 +943,93 @@ def resolve_pointer_only_text_files(kb_root: Path, manifest: Dict[str, Any]) -> 
     return [s["resolved_path"] for s in pointer_only_source_status(kb_root, manifest) if s["status"] == "resolved"]
 
 
-def keyword_groups() -> Dict[str, List[str]]:
-    return {
-        "apex_kb": ["apex kb", "source manifest", "kb-schema", "ingest-analysis", "wiki/index"],
-        "ingest": ["phase 1", "phase 2", "approve ingest", "operator gate", "contradiction"],
-        "retrieval": ["fts5", "bm25", "sqlite", "query", "search index"],
-        "skill_design": ["skill", "skill.md", "claude", "agent skills"],
-        "orchestration_boundary": ["apex plan", "apex sync", "apex session", "precap", "flowrecap"],
-    }
+STOPWORDS = frozenset({
+    "the", "a", "an", "and", "or", "but", "if", "then", "else", "for", "of", "in", "on", "at", "to",
+    "from", "by", "with", "as", "is", "are", "was", "were", "be", "been", "being", "this", "that",
+    "these", "those", "it", "its", "you", "your", "we", "our", "they", "their", "he", "she", "his",
+    "her", "not", "no", "yes", "do", "does", "did", "can", "could", "should", "would", "will", "shall",
+    "may", "might", "must", "have", "has", "had", "i", "me", "my", "so", "such", "than", "too", "very",
+    "just", "about", "into", "over", "under", "between", "through", "up", "down", "out", "off", "again",
+    "further", "once", "here", "there", "when", "where", "why", "how", "all", "any", "both", "each",
+    "few", "more", "most", "other", "some", "only", "own", "same", "which", "who", "whom", "what",
+})
 
 
-def keyword_artifacts(kb_root: Path, files: List[Path]) -> Tuple[List[Dict[str, Any]], Dict[str, List[str]]]:
-    hits: List[Dict[str, Any]] = []
-    topic_files: Dict[str, set] = {k: set() for k in keyword_groups()}
+def _tokenize_words(text: str) -> List[str]:
+    return re.findall(r"[A-Za-z][A-Za-z0-9'-]{1,}", text.lower())
+
+
+def generic_term_frequency(kb_root: Path, files: List[Path], top_n: int = 60) -> Tuple[List[Dict[str, Any]], Dict[str, int]]:
+    """Domain-agnostic term frequency across the raw corpus. Filters only a small
+    standard English stopword list -- no hardcoded topic/domain strings, so this
+    runs identically regardless of what a given KB is actually about."""
+    term_counts: Counter = Counter()
+    term_files: Dict[str, set] = defaultdict(set)
+    file_hit_totals: Counter = Counter()
     for path in files:
         try:
-            lines = read_text(path).splitlines()
+            text = read_text(path)
         except Exception:
             continue
-        for idx, line in enumerate(lines, start=1):
-            low = line.lower()
-            for group, keywords in keyword_groups().items():
+        rel = relpath(kb_root, path)
+        words = _tokenize_words(text)
+        significant = [w for w in words if w not in STOPWORDS and len(w) > 2]
+        if not significant:
+            continue
+        file_hit_totals[rel] += len(significant)
+        for w in significant:
+            term_counts[w] += 1
+            term_files[w].add(rel)
+    ranked = [{"term": term, "count": count, "file_count": len(term_files[term])} for term, count in term_counts.most_common(top_n)]
+    return ranked, dict(file_hit_totals)
+
+
+def load_topic_registry(kb_root: Path) -> List[Dict[str, Any]]:
+    path = kb_root / "manifests" / "topic-registry.json"
+    if not path.exists():
+        return []
+    try:
+        data = json.loads(read_text(path))
+    except Exception:
+        return []
+    entries = data.get("topics") if isinstance(data, dict) else data
+    return entries if isinstance(entries, list) else []
+
+
+def rank_topic_sources(kb_root: Path, files: List[Path], registry: List[Dict[str, Any]]) -> Dict[str, Any]:
+    """Registry-driven, targeted ranking. Keywords come from the registry (operator-
+    or LLM-specified during the topic interview) -- this function only counts and
+    ranks; it never invents or interprets keywords itself."""
+    results: Dict[str, Any] = {}
+    for entry in registry:
+        slug = str(entry.get("slug") or slugify(str(entry.get("name", "unnamed"))))
+        keywords = [str(k).lower() for k in entry.get("keywords", []) if str(k).strip()]
+        if not keywords:
+            results[slug] = {"name": entry.get("name"), "keywords": [], "ranked_sources": []}
+            continue
+        file_hits: List[Dict[str, Any]] = []
+        for path in files:
+            try:
+                lines = read_text(path).splitlines()
+            except Exception:
+                continue
+            hit_count = 0
+            sample_snippet = None
+            for idx, line in enumerate(lines, start=1):
+                low = line.lower()
                 for kw in keywords:
-                    if kw.lower() in low:
-                        record = {"query_group": group, "keyword": kw, "path": relpath(kb_root, path), "line": idx, "snippet": line.strip()[:220]}
-                        hits.append(record)
-                        topic_files[group].add(record["path"])
-    return hits, {k: sorted(v) for k, v in topic_files.items()}
+                    if kw in low:
+                        hit_count += 1
+                        if sample_snippet is None:
+                            sample_snippet = {"line": idx, "snippet": line.strip()[:220]}
+            if hit_count:
+                file_hits.append({"path": relpath(kb_root, path), "hit_count": hit_count, "sample": sample_snippet})
+        file_hits.sort(key=lambda r: (-r["hit_count"], r["path"]))
+        results[slug] = {"name": entry.get("name"), "keywords": keywords, "ranked_sources": file_hits[:30]}
+    return results
 
 
-def corpus_profile(kb_root: Path, files: List[Path], structures: List[Dict[str, Any]], hits: List[Dict[str, Any]], inventory: Optional[Dict[str, Any]] = None) -> str:
+def corpus_profile(kb_root: Path, files: List[Path], structures: List[Dict[str, Any]], term_freq: List[Dict[str, Any]], inventory: Optional[Dict[str, Any]] = None) -> str:
     ext_counts = Counter(p.suffix.lower() or "[none]" for p in files)
     sizes = [(relpath(kb_root, p), p.stat().st_size) for p in files]
     sizes.sort(key=lambda x: x[1], reverse=True)
@@ -1020,24 +1080,22 @@ def corpus_profile(kb_root: Path, files: List[Path], structures: List[Dict[str, 
             lines.append(f"- `{warning}`: {count}")
     else:
         lines.append("- none detected")
-    lines.extend(["", "## keyword_hit_summary", ""])
-    hit_counts = Counter(h["query_group"] for h in hits)
-    for group, count in sorted(hit_counts.items()):
-        lines.append(f"- `{group}`: {count}")
+    lines.extend(["", "## generic_term_frequency", "", "Domain-agnostic word counts across this corpus (standard English stopwords filtered only; no hardcoded topic assumptions).", ""])
+    for row in term_freq[:30]:
+        lines.append(f"- `{row['term']}`: {row['count']} hits across {row['file_count']} files")
     return "\n".join(lines) + "\n"
 
 
-def priority_candidates(kb_root: Path, files: List[Path], structures: List[Dict[str, Any]], hits: List[Dict[str, Any]]) -> str:
-    hit_by_path = Counter(h["path"] for h in hits)
+def priority_candidates(kb_root: Path, files: List[Path], structures: List[Dict[str, Any]], file_hit_totals: Dict[str, int]) -> str:
     rows = []
     struct_by_path = {s["path"]: s for s in structures}
     for p in files:
         rel = relpath(kb_root, p)
         s = struct_by_path.get(rel, {})
-        score = hit_by_path[rel] * 3 + len(s.get("headings", [])) + min(p.stat().st_size // 20000, 5)
-        rows.append((score, rel, p.stat().st_size, len(s.get("headings", [])), hit_by_path[rel]))
+        score = file_hit_totals.get(rel, 0) // 50 + len(s.get("headings", [])) + min(p.stat().st_size // 20000, 5)
+        rows.append((score, rel, p.stat().st_size, len(s.get("headings", [])), file_hit_totals.get(rel, 0)))
     rows.sort(key=lambda x: (-x[0], x[1]))
-    lines = ["# Source Priority Candidates", "", "These candidates are deterministic navigation hints, not semantic authority rankings.", "", "| score | path | bytes | headings | keyword_hits |", "|---:|---|---:|---:|---:|"]
+    lines = ["# Source Priority Candidates", "", "These candidates are deterministic navigation hints, not semantic authority rankings.", "", "| score | path | bytes | headings | term_hits |", "|---:|---|---:|---:|---:|"]
     for score, rel, size, headings, hit_count in rows[:50]:
         lines.append(f"| {score} | `{rel}` | {size} | {headings} | {hit_count} |")
     return "\n".join(lines) + "\n"
@@ -1056,8 +1114,8 @@ Files scanned: `{len(files)}`
 - `heading-map.json`
 - `markdown-link-map.json`
 - `frontmatter-map.json`
-- `keyword-hits.ndjson`
-- `topic-file-map.json`
+- `term-frequency.json`
+- `topic-source-rankings.json`
 - `source-priority-candidates.md`
 - `phase0-navigation-report.md`
 
@@ -1147,6 +1205,25 @@ def page_row(kb_root: Path, path: Path) -> Dict[str, Any]:
     return {"rel_path": relpath(kb_root, path), "title": str(title), "page_type": str(meta.get("page_type", "unknown")), "status": str(meta.get("status", "unknown")), "confidence": str(meta.get("confidence", "unknown"))}
 
 
+def topic_guides_lines(kb_root: Path) -> List[str]:
+    registry = load_topic_registry(kb_root)
+    if not registry:
+        return []
+    lines = ["## Topic Guides", ""]
+    for entry in sorted(registry, key=lambda e: str(e.get("name", ""))):
+        name = entry.get("name", "Untitled topic")
+        target = entry.get("target_page")
+        status = entry.get("status", "not_started")
+        source = entry.get("source", "unknown")
+        if target:
+            rel_link = str(target).replace("wiki/", "", 1)
+            lines.append(f"- [{name}]({rel_link}) - `{status}` / `{source}`")
+        else:
+            lines.append(f"- {name} - `{status}` / `{source}` (no page yet)")
+    lines.append("")
+    return lines
+
+
 def machine_index_section(kb_root: Path) -> str:
     pages = [p for p in wiki_pages(kb_root) if p.name != "index.md"]
     by_type: Dict[str, List[Dict[str, Any]]] = defaultdict(list)
@@ -1154,6 +1231,7 @@ def machine_index_section(kb_root: Path) -> str:
         row = page_row(kb_root, p)
         by_type[row["page_type"]].append(row)
     lines = [AUTO_BEGIN, "", f"Generated: `{utc_now()}`", "", f"Compiled page count: `{len(pages)}`", ""]
+    lines.extend(topic_guides_lines(kb_root))
     for page_type in sorted(by_type):
         lines.append(f"## {page_type.title()} Pages")
         lines.append("")
