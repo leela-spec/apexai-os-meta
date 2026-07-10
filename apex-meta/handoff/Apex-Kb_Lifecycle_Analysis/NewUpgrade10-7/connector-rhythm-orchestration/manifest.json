@@ -1,0 +1,17 @@
+{
+  "package_id": "apex-kb-connector-rhythm-orchestration",
+  "version": "0.1",
+  "repo": "leela-spec/apexai-os-meta",
+  "branch": "main",
+  "status": "wave_1_patch_draft_research_gated",
+  "files": [
+    "00-orchestrator-design-note.md",
+    "01-research-commission-r06-checklist-equivalence.md",
+    "02-research-commission-r07-postflight-aggregation.md",
+    "03-implementation-plan.md",
+    "patches/001-skill-capability-router.patch",
+    "patches/002-lifecycle-state-machine-deprecation.patch",
+    "patches/003-lifecycle-runbook-example-only.patch",
+    "999-verification-handoff.md"
+  ]
+}

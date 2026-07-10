@@ -1,0 +1,89 @@
+--- a/.claude/skills/apex-kb/SKILL.md	2026-07-10 11:24:58.440592681 +0000
++++ b/.claude/skills/apex-kb/SKILL.md	2026-07-10 11:24:58.452619962 +0000
+@@ -1,3 +1,86 @@
+ # Apex KB
+ 
++## Capability-first execution router
++
++Choose one path before reading the rest of this skill.
++
++### Connector-only semantic compiler
++
++Use this path when you can read and write repository files but cannot run terminal Python.
++
++```yaml
++connector_only:
++  role: whole_artifact_semantic_author
++  may_read:
++    - operator-selected source files or source slices
++    - references/kb-contract.md
++    - templates/ingest-analysis-template.md
++    - templates/wiki-page-templates.md
++  may_create_or_fully_rewrite:
++    - ingest-analysis/*.md
++    - wiki/summaries/*.md
++    - wiki/concepts/*.md
++    - wiki/entities/*.md
++    - log/connector-compile-*.json
++  must_not:
++    - partially edit an existing file
++    - append to or hand-maintain wiki/index.md
++    - update source manifests, hashes, ledgers, or audit registries
++    - touch manifests/phase0/, derived/search/, or outputs/queries/
++    - claim deterministic validation
++  maximum_state: compiled_unvalidated
++```
++
++Compile one page per context window. For each page:
++
++1. Read only the source slice, the canonical page contract, and the relevant page template.
++2. Author one complete new page or one complete whole-file rewrite.
++3. Re-read that page and fail the self-check if any item below is true.
++4. Write the page only after the self-check passes.
++5. Record the page and self-check result in one whole-file connector compile manifest.
++6. Move to the next page only after the current page is complete. Do not batch multiple pages into one drafting pass.
++
++Connector authoring self-check:
++
++- no placeholder or template text remains;
++- `source_refs` is present and usable;
++- all Phase 2 value-contract sections are present;
++- summary pages contain at least two specific key claims unless the page is explicitly a valid narrow exception;
++- concept pages do not collapse to one thin claim;
++- Macro, Meso, and Micro each contain substantive, non-placeholder content;
++- concept Micro content contains concrete evidence rather than generic restatement;
++- every key claim has a source pointer;
++- at least one real query route is present;
++- broad summary pages use more than one source when the deterministic profile requires source breadth.
++
++These checks mirror the current terminal quality reason codes, but they do not certify the page. `apex_kb.py quality --strict` remains authoritative. If the terminal result disagrees, the terminal result controls and the checklist must be reconciled in the same repair.
++
++The connector compile manifest is a single JSON file under `log/` containing:
++
++```yaml
++required_fields:
++  run_id: string
++  executor_surface: connector_only
++  deterministic_steps_executed: []
++  state: compiled_unvalidated
++  pages:
++    - path: repo_relative_path
++      operation: create | full_rewrite
++      self_check: pass | fail
++      failed_checks: []
++  terminal_handoff_required: true
++  required_terminal_actions:
++    - rebuild wiki index
++    - rebuild retrieval index
++    - run lint --strict
++    - run quality --strict
++    - run status and stale checks
++```
++
++If no terminal executor is available, stop at `compiled_unvalidated`. The KB is not `query_ready`, regardless of connector read-back or self-check results.
++
++### Terminal-capable executor
++
++Use the operating contract and procedure below. Terminal validation is required for any state above `compiled_unvalidated`.
++
+ ## Operating contract
