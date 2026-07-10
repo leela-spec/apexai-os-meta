@@ -9,15 +9,8 @@
         "frontmatter_required": false
       },
       "hints": {
-        "symbol_or_section_names": [
-          "failure",
-          "apply_intent",
-          "restore_executor_mutated_paths"
-        ],
         "nearby_phrases": [
-          "def failure(command: str, err: PatchError, args: argparse.Namespace, policy: dict[str, Any] | None = None) -> int:",
-          "def apply_intent(repo: Path, policy: dict[str, Any], intent: dict[str, Any], args: argparse.Namespace) -> dict[str, Any]:",
-          "rollback_status"
+          "def failure(command: str, err: PatchError, args: argparse.Namespace, policy: dict[str, Any] | None = None) -> int:\n    out = {\n        \"status\": \"FAIL\",\n        \"command\": command,\n        \"timestamp\": now(),\n        \"failure_mode\": err.mode,\n        \"message\": str(err),\n        \"governing_field\": err.field,\n        \"candidates\": err.candidates,\n        \"rollback_status\": \"not_applicable\",\n    }\n    kind = \"ambiguity\" if err.mode in {\"zero target matches\", \"multiple target matches\", \"duplicate/ambiguous heading path\"} else \"failure\"\n    if err.mode == \"validation failed\":\n        kind = \"validation\"\n    write_report(args, policy, kind, out)\n    emit(out)\n    return err.code\n\n\ndef apply_intent(repo: Path, policy: dict[str, Any], intent: dict[str, Any], args: argparse.Namespace) -> dict[str, Any]:\n    op = intent[\"operation\"]\n    if op not in MUTATION_OPS:\n        raise PatchError(\"validation failed: apply-intent requires a mutation operation\", code=2, mode=\"validation failed\", field=\"operation\")\n    rel, path = safe_target(repo, policy, intent[\"target\"])\n    before = path.read_text(encoding=\"utf-8\") if path.exists() else None\n    try:\n        if op == \"replace-once\":\n            result = replace_once(repo, policy, intent, args)\n        elif op == \"replace-heading-section\":\n            result = replace_heading_section(repo, policy, intent, args)\n        else:\n            result = frontmatter_set(repo, policy, intent, args)\n        validations = run_validation(repo, policy, intent, result[\"changed_paths\"])\n        diff = git_diff(repo, result[\"changed_paths\"]) if is_git_repo(repo) else {\"stdout\": \"\", \"exit_code\": 0}\n        return {**result, \"validation_results\": validations, \"git_diff\": diff.get(\"stdout\", \"\")}\n    except PatchError as exc:\n        if before is not None and exc.code in {4, 5}:\n            path.write_text(before, encoding=\"utf-8\", newline=\"\")\n        raise"
         ]
       },
       "replacement": {
@@ -28,7 +21,7 @@
       "validation": {
         "expected_phrases": [
           "restore_executor_mutated_paths",
-          "rollback_status\", getattr(err, \"rollback_status\"",
+          "\"rollback_status\": getattr(err, \"rollback_status\"",
           "baseline_paths = changed_paths(repo)"
         ],
         "forbidden_phrases": [

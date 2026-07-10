@@ -6,10 +6,11 @@ Define the boundary between planner output and deterministic mutation. The plann
 
 ## CLI Contract
 
+
 The approved executor should expose one entrypoint named by the operator or repository policy. The canonical invocation shape is:
 
 ```text
-python <executor> <command> --intent <patch_intent.json> --policy <patch_policy.json> --repo <repo-root> --report-dir <report-dir>
+python <executor> <command> --intent <patch_intent.json> --policy <patch_policy.json> --repo <repo-root> --report-dir <report-dir> [--allow-write]
 ```
 
 Supported command roles:
@@ -20,9 +21,12 @@ Supported command roles:
 | `locate` | Resolve candidate spans, heading sections, or frontmatter blocks and fail on ambiguity. |
 | `extract-span` | Copy exact live text selected by the executor into a report for review. |
 | `validate-intent` | Validate schema, policy, operation, and path scope before mutation. |
-| `apply-intent` | Apply one bounded mutation only after live target uniqueness is proven. |
+| `apply-intent` | Apply one bounded mutation only after live target uniqueness is proven; this command must be invoked with `--allow-write`. |
 | `diff` | Emit git-generated diff proof after mutation. |
 
+Dirty-tree rule: unrelated pre-existing dirty files are not an operator error. Mutation scope is evaluated against the executor-local baseline captured at the start of the current run plus the current intent's declared changed paths.
+
+Report rule: executor reports are runtime artifacts under the policy report directory. Do not commit report files unless the operator explicitly stages them as intentional repair evidence.
 ## Inputs
 
 The executor receives `patch_intent.json`, `patch_policy.json`, a repository root, and a report directory. It may receive natural-language notes only as non-executable report context. It must ignore line numbers, AI-authored old text, and AI-authored unified diff hunks as mutation instructions.

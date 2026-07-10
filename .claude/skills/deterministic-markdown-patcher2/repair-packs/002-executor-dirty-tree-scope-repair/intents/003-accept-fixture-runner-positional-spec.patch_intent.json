@@ -9,14 +9,8 @@
         "frontmatter_required": false
       },
       "hints": {
-        "symbol_or_section_names": [
-          "main",
-          "argparse fixture spec parser"
-        ],
         "nearby_phrases": [
-          "def main(argv: list[str] | None = None) -> int:",
-          "parser.add_argument(\"--spec\")",
-          "--spec is required unless --self-test is used"
+          "def main(argv: list[str] | None = None) -> int:\r\n    parser = argparse.ArgumentParser(description=\"Run deterministic patcher fixtures\")\r\n    parser.add_argument(\"--self-test\", action=\"store_true\")\r\n    parser.add_argument(\"--spec\")\r\n    args = parser.parse_args(argv)\r\n    if args.self_test:\r\n        return self_test()\r\n    if not args.spec:\r\n        return fail(\"--spec is required unless --self-test is used\")\r\n    return run_spec(Path(args.spec))"
         ]
       },
       "replacement": {
