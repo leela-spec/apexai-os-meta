@@ -552,6 +552,39 @@ def duplicate_hashes(manifest: Dict[str, Any], source_hash: Optional[str]) -> Li
 def cmd_source_intake(args: argparse.Namespace) -> Dict[str, Any]:
     kb_root = resolve_kb_root(args.kb_root)
     dry_run = effective_dry_run(args)
+    if args.source_root:
+        root = Path(args.source_root).expanduser().resolve()
+        if not root.is_dir():
+            return {"command": "source-intake", "status": "blocked", "reason": "--source-root must be an existing directory", "source_root": str(root)}
+        manifest = read_manifest(kb_root)
+        existing = {s.get("source_id"): s for s in manifest.get("sources", []) if isinstance(s, dict)}
+        existing = {k: v for k, v in existing.items() if Path(str(v.get("original_source_path", ""))).resolve() != root}
+        results = []
+        eligible = sorted((p for p in root.rglob("*") if p.is_file() and p.suffix.lower() in TEXT_EXTS), key=lambda p: p.as_posix().lower())
+        for path in eligible:
+            rel = path.relative_to(root).as_posix()
+            source_id = "source-" + hashlib.sha256(rel.encode("utf-8")).hexdigest()[:16]
+            dest = kb_root / "raw" / "other" / Path(rel)
+            copy_result = copy_file(path, dest, kb_root, args.allow_write, dry_run)
+            entry = {
+                "source_id": source_id,
+                "title": rel,
+                "source_type": "other",
+                "source_storage_mode": "copy_into_kb",
+                "source_path": relpath(kb_root, dest),
+                "original_source_path": str(path),
+                "source_hash": hash_path(path).get("source_hash") or "NA",
+                "hash_algorithm": "sha256-file",
+                "no_hash_reason": "NA",
+                "ingest_status": "source_intake_only",
+                "status": "active",
+                "added_at": existing.get(source_id, {}).get("added_at", utc_now()),
+            }
+            existing[source_id] = entry
+            results.append({"source_id": source_id, "source_path": rel, "copy": copy_result})
+        manifest["sources"] = [existing[k] for k in sorted(existing)]
+        write = write_text(kb_root / MANIFEST_PATH, manifest_text(manifest), kb_root, args.allow_write, dry_run)
+        return {"command": "source-intake", "dry_run": dry_run, "status": "ok", "source_root": str(root), "file_count": len(eligible), "results": results, "manifest_write": write}
     src = Path(args.source_path).expanduser().resolve() if args.source_path else None
     source_id = args.source_id or slugify(Path(args.source_path).stem if args.source_path else args.pointer or "source")
     storage_mode = args.storage_mode
@@ -1713,6 +1746,7 @@ def cmd_status(args: argparse.Namespace) -> Dict[str, Any]:
         "source_payload_manifest_status": source_payload_manifest_status(kb_root),
         "phase0_artifacts_present": (kb_root / PHASE0_DIR / "phase0-navigation-report.md").exists(),
         "search_index_present": (kb_root / "derived/search/index-meta.json").exists(),
+        "topic_registry_summary": topic_registry_summary(kb_root),
     }
 
 
@@ -1956,6 +1990,12 @@ def quality_report(kb_root: Path) -> Dict[str, Any]:
     }
 
 
+def topic_registry_summary(kb_root: Path) -> Dict[str, Any]:
+    registry = load_topic_registry(kb_root)
+    by_status: Counter = Counter(str(e.get("status", "unknown")) for e in registry)
+    return {"entries": len(registry), "by_status": dict(by_status)}
+
+
 def cmd_quality(args: argparse.Namespace) -> Dict[str, Any]:
     kb_root = resolve_kb_root(args.kb_root)
     report = quality_report(kb_root)
@@ -1967,6 +2007,7 @@ def cmd_quality(args: argparse.Namespace) -> Dict[str, Any]:
     else:
         result["status"] = "ok"
     result["issue_count"] = len(report["phase2_repair_candidates"])
+    result["topic_registry_summary"] = topic_registry_summary(kb_root)
     return result
 
 
@@ -2266,6 +2307,49 @@ def probe_sqlite_fts5() -> Dict[str, Any]:
     return result
 
 
+def audit_repair_candidate_body(kb_slug: str, target_rel: str, reasons: List[str]) -> str:
+    reasons_yaml = "\n".join(f"  - {r}" for r in reasons) or "  - unspecified"
+    return f"""---
+title: "Repair candidate: {target_rel}"
+page_type: audit_item
+kb_slug: "{kb_slug}"
+source_refs: []
+created_at: "{utc_now()}"
+updated_at: "{utc_now()}"
+confidence: "unknown"
+claim_label: "source_backed_summary"
+status: "needs_review"
+---
+
+# Repair candidate: {target_rel}
+
+```yaml
+target_page: "{target_rel}"
+residual_reasons:
+{reasons_yaml}
+retries_exhausted: true
+completion_state_cap: partial
+```
+
+This page failed `quality --strict` after the bounded 2-redraft Phase 2 compile loop (see `SKILL.md`). It must not be promoted to `query_ready` until these reasons are resolved; move this file to `audit/resolved/` once fixed.
+"""
+
+
+def cmd_flag_repair_candidate(args: argparse.Namespace) -> Dict[str, Any]:
+    kb_root = resolve_kb_root(args.kb_root)
+    dry_run = effective_dry_run(args)
+    if not args.path:
+        return {"command": "flag-repair-candidate", "status": "blocked", "reason": "--path is required"}
+    reasons = [r.strip() for r in (args.reasons or "").split(",") if r.strip()]
+    if not reasons:
+        return {"command": "flag-repair-candidate", "status": "blocked", "reason": "--reasons is required (comma-separated reason codes)"}
+    slug = slugify(Path(args.path).stem)
+    audit_path = kb_root / "audit" / f"repair-candidate-{slug}.md"
+    body = audit_repair_candidate_body(kb_root.name, args.path, reasons)
+    write = write_text(audit_path, body, kb_root, args.allow_write, dry_run)
+    return {"command": "flag-repair-candidate", "dry_run": dry_run, "status": "flagged", "target_page": args.path, "reasons": reasons, "audit_write": write, "completion_state_cap": "partial"}
+
+
 def cmd_health(args: argparse.Namespace) -> Dict[str, Any]:
     return {
         "command": "health",
@@ -2275,19 +2359,6 @@ def cmd_health(args: argparse.Namespace) -> Dict[str, Any]:
         "sqlite": probe_sqlite_fts5(),
         "network_required": False,
         "shell_out_used": False,
-    }
-
-
-def build_parser() -> argparse.ArgumentParser:
-    kb_root = resolve_kb_root(args.kb_root)
-    return {
-        "command": "health",
-        "kb_root": str(kb_root),
-        "kb_root_exists": kb_root.exists(),
-        "python_version": sys.version.split()[0],
-        "tools": detect_tools(),
-        "optional_modules": detect_optional_modules(),
-        "sqlite": probe_fts5(),
     }
 
 
@@ -2447,6 +2518,7 @@ def build_parser() -> argparse.ArgumentParser:
 
     si = sub.add_parser("source-intake")
     si.add_argument("--source-path")
+    si.add_argument("--source-root", help="Recursively intake eligible files from a source directory")
     si.add_argument("--pointer")
     si.add_argument("--source-id")
     si.add_argument("--title")
@@ -2508,6 +2580,11 @@ def build_parser() -> argparse.ArgumentParser:
     audit_cmd = sub.add_parser("audit")
     audit_cmd.add_argument("--json", action="store_true", default=argparse.SUPPRESS)
     audit_cmd.set_defaults(func=cmd_audit)
+    frc = sub.add_parser("flag-repair-candidate", help="Write an audit item for a page that failed quality after the bounded retry loop")
+    frc.add_argument("--path", required=True, help="KB-relative path of the page that failed, e.g. wiki/summaries/x.md")
+    frc.add_argument("--reasons", required=True, help="Comma-separated residual reason codes from quality --strict")
+    frc.add_argument("--json", action="store_true", default=argparse.SUPPRESS)
+    frc.set_defaults(func=cmd_flag_repair_candidate)
     status_cmd = sub.add_parser("status")
     status_cmd.add_argument("--json", action="store_true", default=argparse.SUPPRESS)
     status_cmd.set_defaults(func=cmd_status)

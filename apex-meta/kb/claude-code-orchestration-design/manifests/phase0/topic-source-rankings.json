@@ -252,6 +252,257 @@
       }
     ]
   },
+  "agent-teams": {
+    "keywords": [
+      "agent teams",
+      "lead agent",
+      "peer session",
+      "teammate"
+    ],
+    "name": "Agent Teams",
+    "ranked_sources": [
+      {
+        "hit_count": 142,
+        "path": "raw/source-groups/claude-orchestration-agents/raw/refs/orchestration-agents-in-cc/primary-code-claude-com-docs-en-agent-teams.md.md",
+        "sample": {
+          "line": 10,
+          "snippet": "Agent teams are experimental and disabled by default. Enable them by adding `CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS` to your [settings.json](/en/settings) or environment. Without that variable, no team is set up at session"
+        }
+      },
+      {
+        "hit_count": 82,
+        "path": "raw/source-groups/claude-orchestration-agents/raw/refs/orchestration-agents-in-cc/repo-example-raw-githubusercontent-com-FlorianBruniaux-claude-code-ultimate-guide-main-guide-workflows-agent-teams.md.md",
+        "sample": {
+          "line": 2,
+          "snippet": "title: \"Agent Teams Workflow\""
+        }
+      },
+      {
+        "hit_count": 33,
+        "path": "raw/source-groups/claude-orchestration-agents/raw/refs/orchestration-agents-in-cc/primary-code-claude-com-docs-en-hooks.md.md",
+        "sample": {
+          "line": 21,
+          "snippet": "<img src=\"https://mintcdn.com/claude-code/uLsR38F1U_5zPppm/images/hooks-lifecycle.svg?fit=max&auto=format&n=uLsR38F1U_5zPppm&q=85&s=fbdbd78ad9f474da7d344879341341f0\" alt=\"Hook lifecycle diagram showing optional Setup fee"
+        }
+      },
+      {
+        "hit_count": 17,
+        "path": "raw/source-groups/claude-orchestration-agents/raw/repos/first-batch-to-clone/shanraisshan__claude-code-best-practice/changelog/best-practice/concepts/changelog.md",
+        "sample": {
+          "line": 20,
+          "snippet": "| 2 | HIGH | Missing Concept | Add Agent Teams row to CONCEPTS table | ✅ COMPLETE (row added with ~\\/\\.claude\\/teams\\/ location) |"
+        }
+      },
+      {
+        "hit_count": 13,
+        "path": "raw/source-groups/claude-orchestration-agents/raw/repos/first-batch-to-clone/shanraisshan__claude-code-best-practice/.claude/hooks/HOOKS-README.md",
+        "sample": {
+          "line": 23,
+          "snippet": "| 15 | `TeammateIdle` | Runs when a teammate agent becomes idle (experimental agent teams) | `async`, `timeout: 5000`, `teammate_name`, `team_name` |"
+        }
+      },
+      {
+        "hit_count": 11,
+        "path": "raw/source-groups/claude-orchestration-agents/raw/refs/orchestration-agents-in-cc/primary-code-claude-com-docs-en-features-overview.md.md",
+        "sample": {
+          "line": 26,
+          "snippet": "* **[Agent teams](/en/agent-teams)** coordinate multiple independent sessions with shared tasks and peer-to-peer messaging"
+        }
+      },
+      {
+        "hit_count": 9,
+        "path": "raw/source-groups/claude-orchestration-agents/raw/refs/orchestration-agents-in-cc/primary-code-claude-com-docs-en-agents.md.md",
+        "sample": {
+          "line": 7,
+          "snippet": "> Compare the ways Claude Code can take on multiple tasks at once: subagents, agent view, agent teams, and dynamic workflows."
+        }
+      },
+      {
+        "hit_count": 9,
+        "path": "raw/source-groups/claude-orchestration-agents/raw/refs/orchestration-agents-in-cc/secondary-code-claude-com-docs-en-costs.md.md",
+        "sample": {
+          "line": 73,
+          "snippet": "[Agent teams](/en/agent-teams) spawn multiple Claude Code instances, each with its own context window. Token usage scales with the number of active teammates and how long each one runs."
+        }
+      },
+      {
+        "hit_count": 9,
+        "path": "raw/source-groups/claude-orchestration-agents/raw/repos/first-batch-to-clone/shanraisshan__claude-code-best-practice/changelog/best-practice/claude-settings/changelog.md",
+        "sample": {
+          "line": 17,
+          "snippet": "| 1 | HIGH | Missing Settings | Add 13 non-hook missing settings keys (`$schema`, `availableModels`, `fastModePerSessionOptIn`, `teammateMode`, `prefersReducedMotion`, `sandbox.filesystem.*`, `sandbox.network.allowManage"
+        }
+      },
+      {
+        "hit_count": 8,
+        "path": "raw/source-groups/claude-orchestration-agents/raw/refs/orchestration-agents-in-cc/primary-code-claude-com-docs-en-workflows.md.md",
+        "sample": {
+          "line": 21,
+          "snippet": "[Subagents](/en/sub-agents), [skills](/en/skills), [agent teams](/en/agent-teams), and workflows can all run a multi-step task. The difference is who holds the plan:"
+        }
+      },
+      {
+        "hit_count": 6,
+        "path": "raw/source-groups/claude-orchestration-agents/raw/repos/first-batch-to-clone/shanraisshan__claude-code-best-practice/implementation/claude-agent-teams-implementation.md",
+        "sample": {
+          "line": 1,
+          "snippet": "# Agent Teams Implementation"
+        }
+      },
+      {
+        "hit_count": 5,
+        "path": "raw/source-groups/claude-orchestration-agents/raw/refs/orchestration-agents-in-cc/primary-code-claude-com-docs-en-sub-agents.md.md",
+        "sample": {
+          "line": 14,
+          "snippet": "Subagents work within a single session. To run many independent sessions in parallel and monitor them from one place, see [background agents](/en/agent-view). For sessions that communicate with each other, see [agent tea"
+        }
+      },
+      {
+        "hit_count": 5,
+        "path": "raw/source-groups/claude-orchestration-agents/raw/repos/first-batch-to-clone/shanraisshan__claude-code-best-practice/best-practice/claude-settings.md",
+        "sample": {
+          "line": 652,
+          "snippet": "| `teammateMode` | string | `\"auto\"` | How [agent team](https://code.claude.com/docs/en/agent-teams) teammates display: `\"auto\"` (picks split panes in tmux or iTerm2, in-process otherwise), `\"in-process\"`, `\"tmux\"`, or `"
+        }
+      },
+      {
+        "hit_count": 4,
+        "path": "raw/source-groups/claude-orchestration-agents/raw/refs/orchestration-agents-in-cc/secondary-code-claude-com-docs-en-agent-view.md.md",
+        "sample": {
+          "line": 19,
+          "snippet": "To compare agent view with subagents, agent teams, and worktrees, see [Run agents in parallel](/en/agents)."
+        }
+      },
+      {
+        "hit_count": 4,
+        "path": "raw/source-groups/prompt-engineer-research-base/raw/refs/old-prompt-workflow-kb/appendices/KBAudit/DR_GEM_ AgtnticAIFailure&ExtractionLEdger.md",
+        "sample": {
+          "line": 159,
+          "snippet": "- rank: 4 id: \"FM_DISOBEY_ROLE_SPECIFICATION\" name: \"role_boundary_and_consensus_drift\" source_ids: failure_class: \"role_boundary_drift\" caused_by: root_problem: > Agents autonomously violate their defined operational pe"
+        }
+      },
+      {
+        "hit_count": 3,
+        "path": "raw/source-groups/claude-orchestration-agents/raw/repos/first-batch-to-clone/shanraisshan__claude-code-best-practice/README.md",
+        "sample": {
+          "line": 70,
+          "snippet": "| [**Agent Teams**](https://code.claude.com/docs/en/agent-teams) ![beta](!/tags/beta.svg) | built-in (env var) | [![Best Practice](!/tags/best-practice.svg)](https://x.com/bcherny/status/2019472394696683904) [![Implement"
+        }
+      },
+      {
+        "hit_count": 2,
+        "path": "raw/source-groups/claude-orchestration-agents/raw/notes/OrchestrationAgentsInCC_Research_gem.md",
+        "sample": {
+          "line": 52,
+          "snippet": "- **Structural Integrity Key**: `.claude/tasks/` lockfile allocations, `.claude/rules/`, `.claude/skills/`, `.claude/commands/`, `.claude/agents/`, `.claude/agent-memory/`, `CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1`, `team"
+        }
+      },
+      {
+        "hit_count": 2,
+        "path": "raw/source-groups/claude-orchestration-agents/raw/repos/first-batch-to-clone/shanraisshan__claude-code-best-practice/.claude/agents/workflows/best-practice/workflow-concepts-agent.md",
+        "sample": {
+          "line": 53,
+          "snippet": "| `reports/claude-global-vs-project-settings.md` | Features listed here (Tasks, Agent Teams, etc.) that may be missing from CONCEPTS |"
+        }
+      },
+      {
+        "hit_count": 2,
+        "path": "raw/source-groups/claude-orchestration-agents/raw/repos/first-batch-to-clone/shanraisshan__claude-code-best-practice/.claude/settings.json",
+        "sample": {
+          "line": 310,
+          "snippet": "\"TeammateIdle\": ["
+        }
+      },
+      {
+        "hit_count": 2,
+        "path": "raw/source-groups/claude-orchestration-agents/raw/repos/first-batch-to-clone/shanraisshan__claude-code-best-practice/.claude/skills/presentation/vibe-to-agentic-framework/SKILL.md",
+        "sample": {
+          "line": 27,
+          "snippet": "| Pro | 4 | Deep green (`hsl(120, 70%, 45%)`) | 100% | Full agentic engineering, multi-agent teams |"
+        }
+      },
+      {
+        "hit_count": 2,
+        "path": "raw/source-groups/claude-orchestration-agents/raw/repos/first-batch-to-clone/shanraisshan__claude-code-best-practice/best-practice/claude-cli-startup-flags.md",
+        "sample": {
+          "line": 106,
+          "snippet": "| `--teammate-mode <MODE>` | | Set agent team display: `auto`, `in-process`, `tmux` |"
+        }
+      },
+      {
+        "hit_count": 1,
+        "path": "raw/source-groups/_source-acquisitions/skill-best-practices-official-2026-06-23/raw/official-repos/anthropics-skills/skills/internal-comms/examples/3p-updates.md",
+        "sample": {
+          "line": 2,
+          "snippet": "You are being asked to write a 3P update. 3P updates stand for \"Progress, Plans, Problems.\" The main audience is for executives, leadership, other teammates, etc. They're meant to be very succinct and to-the-point: think"
+        }
+      },
+      {
+        "hit_count": 1,
+        "path": "raw/source-groups/claude-orchestration-agents/raw/notes/OrchestrationAgentsInCC_Research_CC.md",
+        "sample": {
+          "line": 14,
+          "snippet": "|[https://code.claude.com/docs/en/agent-teams.md](https://code.claude.com/docs/en/agent-teams.md)|Official Anthropic Doc|5|5|3|`curl -sL https://code.claude.com/docs/en/agent-teams.md`|**Multi-agent team orchestration sp"
+        }
+      },
+      {
+        "hit_count": 1,
+        "path": "raw/source-groups/claude-orchestration-agents/raw/refs/orchestration-agents-in-cc/primary-code-claude-com-code.claude.com-docs-llms.txt.txt",
+        "sample": {
+          "line": 41,
+          "snippet": "- [Run agents in parallel](https://code.claude.com/docs/en/agents.md): Compare the ways Claude Code can take on multiple tasks at once: subagents, agent view, agent teams, and dynamic workflows."
+        }
+      },
+      {
+        "hit_count": 1,
+        "path": "raw/source-groups/claude-orchestration-agents/raw/refs/orchestration-agents-in-cc/primary-code-claude-com-docs-en-best-practices.md.md",
+        "sample": {
+          "line": 493,
+          "snippet": "* [Agent teams](/en/agent-teams): automated coordination of multiple sessions with shared tasks, messaging, and a team lead"
+        }
+      },
+      {
+        "hit_count": 1,
+        "path": "raw/source-groups/claude-orchestration-agents/raw/refs/orchestration-agents-in-cc/primary-code-claude-com-docs-en-plugins-reference.md.md",
+        "sample": {
+          "line": 133,
+          "snippet": "| `TeammateIdle`        | When an [agent team](/en/agent-teams) teammate is about to go idle                                                                                     |"
+        }
+      },
+      {
+        "hit_count": 1,
+        "path": "raw/source-groups/claude-orchestration-agents/raw/refs/orchestration-agents-in-cc/primary-code-claude-com-docs-en-plugins.md.md",
+        "sample": {
+          "line": 20,
+          "snippet": "| **Plugins** (self-contained directories with skills, agents, hooks, or a `.claude-plugin/plugin.json` manifest) | `/plugin-name:hello` | Sharing with teammates, distributing to community, versioned releases, reusable a"
+        }
+      },
+      {
+        "hit_count": 1,
+        "path": "raw/source-groups/claude-orchestration-agents/raw/repos/first-batch-to-clone/bmad-code-org__BMAD-METHOD/docs/explanation/named-agents.md",
+        "sample": {
+          "line": 92,
+          "snippet": "Most AI assistants today are either menus or prompts, and both shift cognitive load onto the user. Named agents plus customizable skills let you talk to a teammate who already knows the work, and let your organization sh"
+        }
+      },
+      {
+        "hit_count": 1,
+        "path": "raw/source-groups/claude-orchestration-agents/raw/repos/first-batch-to-clone/shanraisshan__claude-code-best-practice/.claude/commands/workflows/best-practice/workflow-concepts.md",
+        "sample": {
+          "line": 46,
+          "snippet": "> - **Agent Teams** — multi-agent coordination"
+        }
+      },
+      {
+        "hit_count": 1,
+        "path": "raw/source-groups/claude-orchestration-agents/raw/repos/first-batch-to-clone/shanraisshan__claude-code-best-practice/.claude/hooks/config/hooks-config.json",
+        "sample": {
+          "line": 18,
+          "snippet": "\"disableTeammateIdleHook\": false,"
+        }
+      }
+    ]
+  },
   "agent-vs-subagent-vs-skill": {
     "keywords": [
       "subagent",

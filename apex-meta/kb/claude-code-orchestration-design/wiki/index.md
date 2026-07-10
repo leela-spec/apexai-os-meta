@@ -2,12 +2,13 @@ test
 
 <!-- BEGIN AUTO-GENERATED INDEX -->
 
-Generated: `2026-07-10T21:18:28Z`
+Generated: `2026-07-10T21:56:21Z`
 
-Compiled page count: `104`
+Compiled page count: `105`
 
 ## Topic Guides
 
+- [Agent Teams](entities/agent-teams.md) - `complete` / `operator`
 - [Agent and skill orchestration for resilient workflows](summaries/agent-skill-orchestration-resilient-workflows.md) - `complete` / `operator`
 - [Informatics design, formats, and practice guide](summaries/informatics-design-formats-practice-guide.md) - `complete` / `operator`
 - [Skill and agent evolution and learning](summaries/skill-agent-evolution-and-learning.md) - `complete` / `operator`
@@ -82,6 +83,7 @@ Compiled page count: `104`
 ## Entity Pages
 
 - [Agent Skills Standard](entities/agent-skills-standard.md) - `active` / `high`
+- [Agent Teams](entities/agent-teams.md) - `active` / `high`
 - [Aider](entities/aider.md) - `active` / `medium`
 - [BMAD-METHOD](entities/bmad-method.md) - `active` / `medium`
 - [Claude Code Hooks](entities/claude-code-hooks.md) - `active` / `high`

@@ -1,6 +1,6 @@
 {
   "backend": "sqlite_fts5",
-  "chunk_count": 1152,
+  "chunk_count": 1164,
   "files": {
     "wiki/concepts/agent-learning-queue-candidate-only.md": {
       "hash": "c106029dc0ab109d095c74cc583367f931bd6e2db7d5fa4b214c63efe813a465",
@@ -258,6 +258,10 @@
       "hash": "0a71f4d1b77f6773c0bb7660dfacf78a37808a39f811a36aa3ce4f5d30798b3c",
       "mtime": 1783714708.1168
     },
+    "wiki/entities/agent-teams.md": {
+      "hash": "a498cdb1013ffe3af176e191b5295efe09d387e55ba7edb676c2219b97974dae",
+      "mtime": 1783720514.780843
+    },
     "wiki/entities/aider.md": {
       "hash": "15f2b8b06fdf3fc99c49c29a0f40bb085744ff59acdaf0c89d9b415df43fc90d",
       "mtime": 1783714709.0318723
@@ -419,9 +423,9 @@
       "mtime": 1783714868.522929
     }
   },
-  "generated_at": "2026-07-10T21:18:46Z",
+  "generated_at": "2026-07-10T21:56:28Z",
   "kb_slug": "claude-code-orchestration-design",
-  "page_count": 104,
+  "page_count": 105,
   "policy": "derived_rebuildable_not_canonical",
   "schema_version": "1.0"
 }

@@ -57,6 +57,20 @@
       "source": "operator",
       "status": "complete",
       "target_page": "wiki/summaries/skill-agent-evolution-and-learning.md"
+    },
+    {
+      "name": "Agent Teams",
+      "slug": "agent-teams",
+      "page_type": "entity",
+      "keywords": [
+        "agent teams",
+        "lead agent",
+        "peer session",
+        "teammate"
+      ],
+      "source": "operator",
+      "status": "complete",
+      "target_page": "wiki/entities/agent-teams.md"
     }
   ]
 }
