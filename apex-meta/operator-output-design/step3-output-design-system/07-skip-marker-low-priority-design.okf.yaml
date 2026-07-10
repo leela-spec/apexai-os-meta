@@ -1,0 +1,91 @@
+document:
+  id: apex-step3-round3-skip-marker-low-priority-design
+  title: APEX Step 3 Round 3 Skip Marker Low-Priority Design
+  status: validated_design_source
+  created_date: 2026-07-10
+  repository: leela-spec/apexai-os-meta
+  branch: main
+  package_path: apex-meta/operator-output-design/step3-output-design-system/
+  covers_output_job: J6_skip_marker_subcase
+  source_authorities:
+    - 01-operator-output-design-principles.okf.yaml
+    - 02-shared-card-and-brief-anatomy.okf.yaml
+    - 03-planning-artifact-designs.okf.yaml
+    - 06-execution-evidence-handoff-design.okf.yaml
+    - PreRound3Decisions.md
+
+scope:
+  purpose: >
+    Define the smallest useful record for a planned flow that was not executed.
+    Preserve the reason for non-execution without creating a large operator card
+    or a parallel recap workflow.
+  owns:
+    - minimal_skipped_flow_record
+    - skip_reason_visibility
+    - downstream_handling_label
+  does_not_own:
+    - full_execution_evidence_handoff
+    - FlowRecap_result
+    - next_step_proposal
+    - project_status_delta
+    - large_operator_workflow
+
+skip_marker:
+  priority: low
+  role: minimal_record_for_unexecuted_planned_flow
+  standalone_card_required: false
+  operator_surface: inline_status_or_tiny_machine_record
+  create_only_when:
+    - planned_flow_was_not_executed
+    - downstream_cycle_needs_to_know_why
+  do_not_create_when:
+    - flow_was_never_planned
+    - omission_is_already_unambiguously_recorded_in_the_parent_plan
+    - completion_state_is_partial_or_blocked_and_execution_evidence_exists
+
+minimal_shape:
+  skipped_flow:
+    flow_id: F3
+    reason: missing_required_input
+    handling: defer_to_next_planning_cycle
+
+allowed_reason_examples:
+  - missing_required_input
+  - operator_deferred
+  - capacity_exhausted
+  - dependency_not_ready
+  - priority_changed
+  - duplicate_or_no_longer_needed
+
+allowed_handling_examples:
+  - defer_to_next_planning_cycle
+  - return_to_weekly_review
+  - close_without_replanning
+  - wait_for_dependency
+  - request_operator_decision
+
+presentation_rules:
+  result_card_not_required: true
+  one_to_three_lines_preferred: true
+  wide_table_forbidden: true
+  copied_flow_context_forbidden: true
+  copied_sprint_plan_forbidden: true
+  explanation_must_be_specific_enough_for_downstream_use: true
+
+relationship_to_execution_evidence_handoff:
+  skipped_flow_is_valid_completion_state: true
+  skip_marker_may_be_embedded_in_parent_handoff: true
+  separate_file_is_optional: true
+  escalation_to_full_handoff_when:
+    - partial_execution_occurred
+    - artifacts_or_decisions_were_created_before_skip
+    - blocker_evidence_needs_preservation
+
+acceptance_checks:
+  skip_marker_is_low_priority: true
+  standalone_card_is_not_required: true
+  minimal_machine_readable_shape_is_defined: true
+  reason_and_handling_are_visible: true
+  full_flow_context_is_not_repeated: true
+  partial_or_blocked_execution_is_not_misclassified_as_skipped: true
+  FlowRecap_and_state_delta_are_not_created: true
