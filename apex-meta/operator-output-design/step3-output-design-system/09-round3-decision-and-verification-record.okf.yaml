@@ -1,0 +1,143 @@
+document:
+  id: apex-step3-round3-decision-and-verification-record
+  title: APEX Step 3 Round 3 Decision and Verification Record
+  status: verified_by_operator
+  created_date: 2026-07-10
+  repository: leela-spec/apexai-os-meta
+  branch: main
+  package_path: apex-meta/operator-output-design/step3-output-design-system/
+  record_type: decision_and_verification_record
+
+validation_authority:
+  validated_by: Marco
+  validation_state: accepted
+  source_record: PreRound3Decisions.md
+  accepted_architecture:
+    J4: Flow_Execution_Card_is_primary_operator_workspace
+    J5: one_simple_prompt_file_per_prompt_plus_lightweight_index
+    J6: conditional_execution_evidence_handoff_before_FlowRecap
+    skip_marker: low_priority_minimal_record
+
+rejected_earlier_design:
+  description: >
+    Three large repetitive operator-facing documents for Flow Execution Card,
+    Flow Prompt Pack, and Raw Flow Dump Card.
+  rejected_because:
+    - repeated_flow_context_and_sprint_plans
+    - repeated_expected_outputs_and_execution_order
+    - duplicated_or_blurred_AI_Routing_ownership
+    - duplicated_or_blurred_Prompt_Engineering_ownership
+    - forced_evidence_normalization_for_simple_flows
+    - created_unnecessary_operator_friction
+
+accepted_simplified_architecture:
+  J4_Flow_Execution_Card:
+    priority: primary
+    decision: keep_full_three_sprint_execution_workspace
+    key_properties:
+      - complete_flow_context
+      - sprint_tasks_inputs_outputs_and_conditions
+      - direct_relative_prompt_file_links
+      - visible_file_path_fallback
+  J5_Prompt_Files_and_Index:
+    priority: supporting
+    decision: replace_large_prompt_pack_with_simple_files_and_mapping
+    key_properties:
+      - one_simple_file_per_prompt
+      - lightweight_sprint_to_prompt_mapping
+      - target_surface_and_routing_reference
+      - no_repeated_flow_plan
+  J6_Execution_Evidence_Handoff:
+    priority: conditional
+    decision: normalize_only_when_evidence_complexity_requires_it
+    key_properties:
+      - simple_evidence_goes_directly_to_FlowRecap
+      - messy_evidence_is_normalized_first
+      - no_recap_interpretation_or_state_delta
+  skip_marker:
+    priority: low
+    decision: use_inline_or_tiny_machine_record
+    key_properties:
+      - reason
+      - handling
+      - no_large_standalone_card
+
+ownership_decisions:
+  Flow_Execution_Card_owns:
+    - what_work_to_do
+    - sprint_structure
+    - task_sequence
+    - expected_outputs
+    - prompt_file_links
+  Prompt_Engineering_owns:
+    - final_prompt_content
+    - prompt_quality
+    - provider_prompt_style
+  AI_Routing_owns:
+    - recommended_surface
+    - model_or_tool_recommendation
+    - usage_and_scarcity_advice
+  Execution_Evidence_Handoff_owns:
+    - evidence_organization
+    - readiness_for_FlowRecap
+  FlowRecap_owns:
+    - recap_interpretation
+    - next_step_proposal
+    - candidate_project_status_delta
+    - candidate_model_usage_delta
+
+verified_files:
+  - path: 04-flow-execution-card-design.okf.yaml
+    role: J4_primary_workspace_design
+  - path: 05-prompt-file-and-index-design.okf.yaml
+    role: J5_lightweight_prompt_access_design
+  - path: 06-execution-evidence-handoff-design.okf.yaml
+    role: J6_conditional_evidence_preparation_design
+  - path: 07-skip-marker-low-priority-design.okf.yaml
+    role: minimal_skip_marker_design
+  - path: 08-round3-cross-artifact-relationship.okf.yaml
+    role: cross_artifact_relationship_and_non_duplication
+
+verification_checklist:
+  file_04:
+    focused_on_J4_only: true
+    primary_workspace_is_explicit: true
+    full_three_sprint_depth_preserved: true
+    direct_prompt_links_defined: true
+    schema_authority_not_replaced: true
+  file_05:
+    focused_on_J5_only: true
+    one_simple_file_per_prompt_defined: true
+    prompt_index_is_lightweight: true
+    flow_plan_not_repeated: true
+    Prompt_Engineering_and_AI_Routing_ownership_preserved: true
+  file_06:
+    focused_on_J6_only: true
+    simple_and_complex_decision_criteria_are_concrete: true
+    normalization_is_conditional: true
+    minimal_handoff_is_defined: true
+    FlowRecap_outputs_are_excluded: true
+  file_07:
+    low_priority_is_explicit: true
+    standalone_card_not_required: true
+    minimal_shape_is_defined: true
+    large_workflow_not_created: true
+  file_08:
+    operator_visible_sequence_is_defined: true
+    minimal_downstream_handoffs_are_defined: true
+    non_duplication_rules_are_explicit: true
+    all_ownership_boundaries_are_preserved: true
+
+round_3_completion:
+  all_required_design_files_present: true
+  rejected_large_repetitive_prompt_pack_not_restored: true
+  flow_execution_card_is_primary_workspace: true
+  direct_prompt_file_links_defined: true
+  prompt_index_is_lightweight: true
+  evidence_normalization_is_conditional: true
+  FlowRecap_is_not_duplicated: true
+  skip_marker_is_low_priority_and_minimal: true
+  package_manifest_update_deferred: true
+  runtime_implementation_created: false
+  prompt_example_files_created: false
+  next_round_ready: true
