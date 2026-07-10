@@ -1,0 +1,144 @@
+document:
+  id: apex-step3-round3-prompt-file-and-index-design
+  title: APEX Step 3 Round 3 Prompt File and Index Design
+  status: validated_design_source
+  created_date: 2026-07-10
+  repository: leela-spec/apexai-os-meta
+  branch: main
+  package_path: apex-meta/operator-output-design/step3-output-design-system/
+  covers_output_job: J5_Prompt_Files_and_Index
+  source_authorities:
+    - 01-operator-output-design-principles.okf.yaml
+    - 02-shared-card-and-brief-anatomy.okf.yaml
+    - 03-planning-artifact-designs.okf.yaml
+    - 04-flow-execution-card-design.okf.yaml
+    - PreRound3Decisions.md
+
+scope:
+  purpose: >
+    Define a lightweight prompt access layer made of one simple file per prompt
+    plus a minimal sprint-to-prompt index. Replace the rejected large repetitive
+    operator-facing Flow Prompt Pack without changing prompt, routing, or flow
+    schema ownership.
+  owns:
+    - prompt_file_presentation_pattern
+    - sprint_to_prompt_file_mapping
+    - direct_relative_link_behavior
+    - degraded_or_missing_prompt_flags
+  does_not_own:
+    - full_flow_context
+    - full_sprint_plan
+    - project_state
+    - expected_outputs_owned_by_flow_execution_card
+    - final_prompt_doctrine
+    - provider_prompt_style
+    - AI_routing_reasoning
+
+prompt_file:
+  role: directly_openable_execution_asset
+  one_file_per_prompt: true
+  required_visible_content:
+    - title
+    - recommended_surface
+    - prompt_body
+  optional_visible_content:
+    - use_when
+    - expected_return_artifact_label
+    - degraded_warning
+    - routing_ref
+  minimal_shape:
+    title: "<prompt title>"
+    recommended_surface: "<surface>"
+    prompt_body: "<full copyable prompt>"
+  content_authority:
+    final_prompt_content_owner: Prompt_Engineering
+    routing_recommendation_owner: AI_Routing
+    prompt_file_role: present_final_content_and_references
+
+physical_pattern:
+  flows:
+    - flows/F1-flow-execution-card.md
+  prompts:
+    - prompts/F1-S1-research-prompt.md
+    - prompts/F1-S2-synthesis-prompt.md
+    - prompts/F1-S3-validation-handoff-prompt.md
+  rule: >
+    The Flow Execution Card links directly to the prompt files. The index is
+    optional for operator navigation and useful as a compact machine map.
+
+prompt_index:
+  priority: supporting
+  role: lightweight_prompt_access_map
+  standalone_operator_document_required: false
+  may_be:
+    - tiny_separate_file
+    - compact_machine_block_at_end_of_flow_card
+  required:
+    - flow_id
+    - sprint_prompts
+  sprint_prompt_entry:
+    required:
+      - title
+      - file
+      - target_surface
+      - routing_ref
+      - use_when
+      - degraded_flag
+  example:
+    flow_id: F1
+    sprint_prompts:
+      S1:
+        - title: F1 S1 Research Prompt
+          file: ../prompts/F1-S1-research-prompt.md
+          target_surface: ChatGPT_Deep_Research
+          routing_ref: "<AI Routing reference>"
+          use_when: source_mapping_is_needed
+          degraded_flag: false
+
+link_behavior:
+  direct_relative_links_from_flow_card: true
+  visible_file_path_as_fallback: true
+  expected_viewers:
+    - GitHub
+    - compatible_Markdown_viewer
+  compatibility_rule: >
+    When a viewer does not render a clickable relative link, the prompt file path
+    remains visible and copyable.
+
+must_not_repeat:
+  - full_flow_context
+  - full_sprint_plan
+  - project_state
+  - expected_outputs_already_owned_by_flow_execution_card
+  - execution_order
+  - AI_routing_reasoning
+  - provider_prompt_doctrine
+  - copied_prompt_packet_schema
+
+relationship_to_J4:
+  J4_owns:
+    - work_context
+    - sprint_tasks
+    - dependencies
+    - expected_outputs
+    - done_and_review_conditions
+    - direct_prompt_links
+  J5_owns:
+    - prompt_files
+    - sprint_to_prompt_file_mapping
+    - prompt_availability_flags
+    - routing_references
+  non_duplication_rule: >
+    J5 identifies and opens the prompt needed by J4. It does not restate the work
+    plan that explains why the prompt is being used.
+
+acceptance_checks:
+  one_simple_file_per_prompt_is_defined: true
+  prompt_index_is_lightweight: true
+  direct_relative_link_behavior_is_defined: true
+  visible_path_fallback_is_defined: true
+  full_flow_and_sprint_context_are_not_repeated: true
+  Prompt_Engineering_ownership_is_preserved: true
+  AI_Routing_ownership_is_preserved: true
+  degraded_or_missing_prompt_state_is_visible: true
+  existing_contracts_remain_schema_authority: true
