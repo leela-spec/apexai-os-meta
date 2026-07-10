@@ -18,6 +18,7 @@ scope:
     - locked output jobs
     - confirmed output design principles
     - Step 3 handoff brief
+    - full Step 3 next-chat handover prompt
   excludes:
     - repo runtime implementation
     - skill package mutation
@@ -66,9 +67,14 @@ files:
     read_when:
       - creating_operator_output_template_family
   - path: 07-step3-handoff-brief.okf.md
-    role: next_step_handoff
+    role: next_step_source_brief
     read_when:
-      - starting_step3_output_design_principles
+      - checking_step3_scope_and_locked_rules
+  - path: 08-step3-next-chat-handover.okf.md
+    role: ready_to_run_next_chat_handover
+    read_when:
+      - starting_step3_in_a_new_chat
+      - continuing_operator_output_design_iteratively
 
 iteration_policy:
   file_size_rule: keep_each_file_small_enough_for_manual_review
