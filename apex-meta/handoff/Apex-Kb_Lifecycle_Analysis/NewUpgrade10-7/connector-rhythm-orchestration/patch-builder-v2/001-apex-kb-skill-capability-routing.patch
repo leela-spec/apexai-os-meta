@@ -1,0 +1,77 @@
+*** Begin Patch
+*** Update File: .claude/skills/apex-kb/SKILL.md
+@@ # Apex KB
+ # Apex KB
+ 
++## Execution-surface router
++
++Ask exactly one question before procedure or file navigation:
++
++> Can the executor run repository Python commands in a live worktree and capture the command, exit status, stdout, and stderr?
++
++```yaml
++execution_route:
++  terminal_backed:
++    when: yes
++    authority: deterministic execution and validation
++    preferred_completion_interface: postflight
++  connector_only:
++    when: no, but complete repository-file reads and whole-file writes are available
++    authority: bounded semantic authoring only
++    completion_cap: compiled_unvalidated
++  unsupported:
++    when: neither terminal execution nor reliable whole-file read/write is available
++    behavior: stop without claiming compile or validation
++```
++
++### Connector-only semantic authoring route
++
++Allowed work is limited to complete new semantic files or complete rewrites of explicitly owned semantic files. Partial edits, appends, machine-maintained sections, `wiki/index.md`, manifests, hashes, derived indexes, deterministic commands, and certification are prohibited.
++
++Use one semantic page per context window. For each page: read a bounded source set, author the complete page, reread the complete candidate, run the preventive checklist below, write the whole file, read back stored content, and add one entry to `log/connector-compile-<run-id>.json`. That log is a complete new handoff file, not a deterministic certificate.
++
++```yaml
++connector_precheck_reason_concepts:
++  - missing_source_refs
++  - missing_phase2_value_sections
++  - placeholder_text
++  - no_key_claims
++  - claim_pointer_coverage_below_100_percent
++  - single_claim_summary
++  - single_claim_concept_thin
++  - concept_micro_not_evidenced
++  - thin_macro_meso_micro
++  - summary_source_breadth_below_profile
++  - no_query_routes
++```
++
++The checklist is preventive only. Terminal `quality --strict` remains authoritative. Connector readback proves stored content only. The route stops at `compiled_unvalidated`.
++
++### Terminal-backed route
++
++Use the existing command contract, retrieval contract, acceptance tests, and lifecycle runbook rather than duplicating command sequences here. After the runtime change is applied, use `postflight` as the preferred bounded deterministic completion interface. Preserve bounded semantic acceptance as a separate required gate for `query_ready`.
++
+ ## Operating contract
+@@ ## File navigation
+ ## File navigation
+ 
++Select the execution route above before opening terminal-oriented references.
++
+ Read supporting files only when needed:
+@@ ## Procedure
+ ## Procedure
+ 
+-1. Resolve exactly one `--kb-root`. Never hardcode `claude-skill-design`; treat it only as a possible test KB slug.
+-2. Select a run profile and output tier before intake.
+-3. Keep LLM-owned semantic work in the current assistant/chat LLM by default. Use Agent Mode, Codex, or local executors only for deterministic script execution, Git-native patch/application work, validation, and commit/push operations unless the operator explicitly delegates semantic drafting.
+-4. Run deterministic checks through `apex-meta/scripts/apex_kb.py` for scaffold, hash, source-intake, generate-source-payload-manifest, preflight, phase0, index, lint, audit, status, and health.
+-5. Preserve source custody before semantic work: raw source, durable pointer, storage mode, source hash or no-hash reason, source manifest entry, and source payload manifest.
+-6. Run `generate-source-payload-manifest` after source intake and before Phase 0. It is an Apex-native BagIt-style ledger using stdlib hashing only; it does not replace `source-manifest.json`.
+-7. Run Phase 0 before LLM ingest when corpus navigation is needed. Phase 0 may create only deterministic artifacts under `manifests/phase0/`.
+-8. When the selected output tier includes wiki output, Phase 1 semantic analysis and Phase 2 wiki compile are one continuous semantic compile by default. Stop after Phase 1 only for `analysis_only`, `phase1_only`, or `operator_explicit_stop_before_wiki` safe modes.
+-9. In Phase 2, draft or update `wiki/summaries/`, `wiki/concepts/`, and `wiki/entities/` pages and any audit or semantic index sections. Compiled pages **must** implement the Phase 2 page value contract: include an Adaptive Ranked Source Set, Macro / Meso / Micro synthesis, Key Claims with source pointers and labels, Routes Here, and Uncertainty / Raw Source Reopen Triggers. Every claim still needs a source pointer, confidence, and claim label.
+-10. Rebuild deterministic index sections and retrieval indexes after wiki updates. Use `apex_kb_retrieval.py` for `build-index`, `stale`, `query`, `export`, and `clear-index`.
+-11. Answer queries index-first. Read `wiki/index.md`, retrieve the smallest sufficient page set, synthesize from compiled wiki pages, and save query packets when reuse is useful.
+-12. Keep lint/audit maintenance read-only unless the operator explicitly asks for a deterministic write inside the KB root.
++Follow only the selected route. The connector route uses the bounded whole-file semantic-authoring sequence above. The terminal-backed route follows the referenced command, retrieval, acceptance-test, and runbook contracts. Neither route may weaken the existing lifecycle, output tiers, ownership model, semantic acceptance requirement, or completion labels.
+*** End Patch
