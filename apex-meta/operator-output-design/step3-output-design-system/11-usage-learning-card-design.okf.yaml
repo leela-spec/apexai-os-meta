@@ -1,0 +1,169 @@
+document:
+  id: apex-step3-round4-usage-learning-card-design
+  title: APEX Step 3 Round 4 Usage Learning Card Design
+  status: validated_design_source
+  created_date: 2026-07-10
+  repository: leela-spec/apexai-os-meta
+  branch: main
+  package_path: apex-meta/operator-output-design/step3-output-design-system/
+  covers_output_job: J8_Usage_Learning_Card
+  verification:
+    verified_by: Marco
+    decision: keep
+    verification_date: 2026-07-10
+
+scope:
+  owns:
+    - approved_J8_operator_presentation_design
+    - lightweight_planned_vs_actual_usage_view
+    - evidence_bound_learning_signal_presentation
+    - advisory_future_routing_hint
+    - minimal_machine_handoff_projection
+  must_not_own:
+    - model_usage_delta_schema
+    - usage_summary_schema
+    - AIRouting_schema
+    - quota_or_pricing_truth
+    - project_status_mutation
+    - runtime_metering
+    - automatic_route_change
+
+J8:
+  output_job: Capture planned-vs-actual AI usage lightly.
+  artifact: Usage_Learning_Card
+  primary_question: >
+    What route was planned, what was actually used, how useful was it, and what
+    lightweight reuse or avoidance signal should future planning receive?
+
+result_card:
+  required:
+    - result
+    - planned_vs_actual
+    - learning_signal
+    - future_routing_hint
+    - operator_action
+  conditional:
+    - confidence
+    - sourced_scarcity_or_cost_note
+    - evidence_warning
+  result_examples:
+    - meaningful_learning
+    - insufficient_data
+    - operator_review_needed
+
+essential_sections:
+  - planned_surface_or_model
+  - actual_surface_or_model
+  - actual_usage_evidence_status
+  - usage_purpose
+  - planned_vs_actual_comparison
+  - outcome_quality_signal
+  - reuse_or_avoid_signal
+  - future_routing_hint
+  - sourced_resource_note_when_available
+  - confidence
+  - operator_actions
+  - downstream_handoff
+  - compact_machine_handoff
+
+planned_vs_actual_comparison_values:
+  - matched_plan
+  - cheaper_or_lighter_than_planned
+  - heavier_or_scarcer_than_planned
+  - different_route_used
+  - planned_but_not_executed
+  - executed_without_plan
+  - insufficient_data
+
+allowed_route_signals:
+  exact_one_required: true
+  values:
+    - reuse_route
+    - avoid_route
+    - use_only_for_high_value_tasks
+    - insufficient_data
+    - operator_review_needed
+  new_signal_values_forbidden: true
+
+outcome_quality:
+  allowed_examples:
+    - useful
+    - mixed
+    - poor
+    - unknown
+  rule: >
+    This is a lightweight observation for a comparable task context, not a
+    general model benchmark.
+
+future_routing_hint:
+  advisory_only: true
+  may_state:
+    - short_route_advice
+    - comparable_task_context
+  must_not:
+    - change_routing_automatically
+    - overwrite_AIRouting
+    - mutate_surface_inventory
+    - mutate_quota_maps
+
+resource_note_policy:
+  show_only_when_explicitly_sourced: true
+  unsupported_claims_forbidden:
+    - exact_cost
+    - exact_token_count
+    - remaining_quota
+    - current_provider_limit
+    - current_pricing_truth
+
+operator_actions:
+  - accept_usage_learning
+  - correct_actual_surface_or_model
+  - change_learning_signal
+  - ignore_for_future_routing
+  - request_evidence_review
+  - no_action
+
+no_meaningful_learning_case:
+  result: insufficient_data
+  future_routing_hint: none
+  operator_action: no_action
+  confidence: low
+
+J8_exclusions:
+  - full_usage_ledger_as_primary_view
+  - quota_dashboard
+  - large_per_prompt_usage_table
+  - repeated_FlowRecap
+  - repeated_AIRouting_reasoning
+  - automatic_route_change
+  - mandatory_logging_for_every_minor_interaction
+
+usage_learning_card_handoff:
+  role: secondary_minimum_projection
+  required:
+    - source_flow_recap_ref
+    - model_usage_delta_ref
+    - comparison
+    - route_signal
+    - confidence
+    - future_routing_hint
+    - operator_review_needed
+  contract_references:
+    - .claude/skills/model-usage-log/references/model-usage-delta-contract.md
+    - .claude/skills/model-usage-log/references/usage-summary-contract.md
+  schema_redefinition: false
+
+acceptance_checks:
+  result_card_first: true
+  planned_and_actual_usage_visible: true
+  actual_usage_grounded_in_evidence_or_marked_unknown: true
+  exactly_one_allowed_route_signal_used: true
+  outcome_quality_is_qualitative_and_evidence_bound: true
+  missing_evidence_supports_insufficient_data: true
+  no_meaningful_learning_case_supported: true
+  exact_cost_token_or_quota_claims_require_source: true
+  future_routing_hint_is_advisory: true
+  AIRouting_is_not_replaced: true
+  FlowRecap_is_not_repeated: true
+  project_status_is_not_mutated: true
+  compact_machine_handoff_secondary: true
