@@ -1,0 +1,8 @@
+--- a/.claude/skills/apex-kb/examples/lifecycle-runbook.md	2026-07-10 11:24:58.554549989 +0000
++++ b/.claude/skills/apex-kb/examples/lifecycle-runbook.md	2026-07-10 11:24:58.565245779 +0000
+@@ -1,3 +1,5 @@
+ # Apex KB Lifecycle Runbook
+ 
++> **Example only.** This runbook illustrates a terminal-capable lifecycle. It is not execution authority and does not apply to connector-only semantic compilation. Use `.claude/skills/apex-kb/SKILL.md` for current routing and completion-state rules.
++
+ ## A. Prepare

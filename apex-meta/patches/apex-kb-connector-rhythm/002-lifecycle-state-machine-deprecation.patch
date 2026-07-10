@@ -1,0 +1,8 @@
+--- a/.claude/skills/apex-kb/references/lifecycle-state-machine.md	2026-07-10 11:24:58.498104464 +0000
++++ b/.claude/skills/apex-kb/references/lifecycle-state-machine.md	2026-07-10 11:24:58.512876608 +0000
+@@ -1,3 +1,5 @@
+ # Apex KB Lifecycle State Machine
+ 
++> **Deprecated execution authority.** This file is retained as historical lifecycle detail only. Use `.claude/skills/apex-kb/SKILL.md` as the current execution router and authority. Do not require connector-only executors to read or follow this state machine.
++
+ ```yaml
