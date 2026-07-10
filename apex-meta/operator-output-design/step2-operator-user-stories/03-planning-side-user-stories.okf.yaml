@@ -1,0 +1,77 @@
+document:
+  id: apex-step2-planning-side-user-stories
+  status: verified_by_operator
+  created_date: 2026-07-10
+  role: planning_side_skill_stories
+
+user_stories:
+  project_state_context:
+    story: >
+      As Marco, I want a compact, trustworthy state packet before weekly or daily
+      planning, so that Claude plans from current accepted project reality instead
+      of stale memory or invented context.
+    verified_by_marco: true
+    success_card:
+      shows:
+        - current_focus
+        - active_projects
+        - blockers
+        - stale_or_low_confidence_items
+        - candidate_inputs_for_week_or_day
+        - review_flags
+      operator_decision:
+        - use_as_context
+        - edit_context
+        - mark_stale
+        - reject_context
+    design_notes:
+      - The state packet is a planning input, not the full project database.
+      - Missing or stale state becomes a review flag, not invented certainty.
+
+  precap_week:
+    story: >
+      As Marco, I want a weekly command brief that turns accepted project state
+      into a realistic weekly direction, so that the week has priorities,
+      constraints, and a first seed for tomorrow without pretending to execute work.
+    verified_by_marco: true
+    success_card:
+      shows:
+        - weekly_theme
+        - priority_candidates
+        - constraints
+        - risks_or_blockers
+        - first_precap_next_day_seed
+        - open_review_questions
+      operator_decision:
+        - approve_week_frame
+        - edit_priorities
+        - defer_items
+        - request_daily_seed_only
+    design_notes:
+      - Weekly output should be a command brief, not a detailed daily plan.
+      - Weekly output should seed PreCapNextDay without executing work.
+
+  precap_next_day:
+    story: >
+      As Marco, I want a tomorrow action brief that shows the exact flows,
+      prompts, capture instructions, and review gates for the next day, so that I
+      can start executing without reconstructing the plan from scattered context.
+    verified_by_marco: true
+    success_card:
+      shows:
+        - tomorrow_focus
+        - planned_flows
+        - fixed_flows_planned_compressed_skipped_or_omitted
+        - generated_flow_packets
+        - generated_prompt_packs
+        - capture_instructions
+        - review_flags
+      operator_decision:
+        - run_as_planned
+        - edit_flow_order
+        - remove_or_compress_flow
+        - regenerate_prompt_pack
+        - mark_plan_not_ready
+    design_notes:
+      - PreCapNextDay is a daily planning view, not a project management system.
+      - It must expose review gates before execution.
