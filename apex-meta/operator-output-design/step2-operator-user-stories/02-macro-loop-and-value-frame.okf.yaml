@@ -1,0 +1,74 @@
+document:
+  id: apex-step2-macro-loop-and-value-frame
+  status: verified_by_operator
+  created_date: 2026-07-10
+  role: macro_loop_and_value_language
+
+macro_loop:
+  M1_core_loop:
+    statement: >
+      APEX Step 2 keeps the loop project state context -> PreCapWeek ->
+      PreCapNextDay -> Marco executes planned flow -> raw flow dump normalize ->
+      FlowRecap -> ModelUsageLog -> StatusMerge / project KB -> next PreCapNextDay.
+    decision: keep
+    verified_by_marco: true
+
+  M2_project_state_as_step_0:
+    statement: >
+      A compact project state / KB context packet belongs before weekly and daily
+      planning so planning does not invent current project reality.
+    decision: keep
+    verified_by_marco: true
+
+  M3_claude_skill_only_manual_operator_execution:
+    statement: >
+      Current mechanism remains Claude skill-only and manual-operator execution;
+      no runtime, no agents, no automatic scheduling, no automatic calendar writes,
+      and no silent state mutation.
+    decision: keep
+    verified_by_marco: true
+
+operator_value_language:
+  V1:
+    label: clarity_momentum_reduced_rereading_no_silent_mutation
+    statement: >
+      Main emotional value is clarity, momentum, reduced re-reading, and
+      confidence that state is not silently mutated.
+    decision: keep
+    verified_by_marco: true
+  V2:
+    label: first_10_seconds
+    statement: >
+      Every operator-facing output should answer in the first 10 seconds: what
+      changed, what next, and what needs review.
+    decision: keep
+    verified_by_marco: true
+  V3:
+    label: result_success_card_at_top
+    statement: >
+      Every skill should have an explicit result / success card at the top,
+      separate from schema or completion-gate blocks.
+    decision: keep
+    verified_by_marco: true
+  V4:
+    label: cards_short_lists_compact_summaries
+    statement: >
+      Machine-readable blocks should exist, but the human interface should use
+      cards, short lists, and compact summaries rather than wide schema tables as
+      the primary view.
+    decision: keep
+    verified_by_marco: true
+  V5:
+    label: review_gates_as_operator_decisions
+    statement: >
+      Review gates should feel like operator decisions, not validation noise:
+      approve, edit, reject, defer, clarify, execute, skip, or mark blocked.
+    decision: keep
+    verified_by_marco: true
+
+design_implications:
+  - Put the operator result card before detailed machine blocks.
+  - Prefer card/list layouts over wide tables for primary human view.
+  - Mark missing, stale, or conflicting inputs as review flags.
+  - Keep machine-readable payloads compact and downstream-oriented.
+  - Treat durable updates as candidate changes until explicitly accepted.
