@@ -1,0 +1,15 @@
+*** Begin Patch
+*** Update File: .claude/skills/apex-kb/package-manifest.md
+@@ ## Inventory
+ | `references/script-command-contract.md` | Deterministic script command contract |
+ | `references/ingest-query-lint-audit-rules.md` | Operational rules for ingest/query/lint/audit |
+ | `references/retrieval-contract.md` | Retrieval, index, stale, and query-output contract |
+-| `references/lifecycle-state-machine.md` | Full lifecycle state machine |
++| `references/lifecycle-state-machine.md` | Deprecated historical/reference state model; `SKILL.md` remains operational authority |
+ | `references/acceptance-tests.md` | Local command-level tests |
+@@ ## Inventory
+ | `templates/source-manifest-template.json` | Starter source manifest |
+ | `examples/powershell-commands.md` | PowerShell local commands |
+-| `examples/lifecycle-runbook.md` | Operator lifecycle runbook |
++| `examples/lifecycle-runbook.md` | Example-only terminal-backed lifecycle sequence |
+*** End Patch
