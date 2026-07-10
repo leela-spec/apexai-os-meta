@@ -1,0 +1,219 @@
+document:
+  id: apex-step3-round3-cross-artifact-relationship
+  title: APEX Step 3 Round 3 Cross-Artifact Relationship
+  status: validated_design_source
+  created_date: 2026-07-10
+  repository: leela-spec/apexai-os-meta
+  branch: main
+  package_path: apex-meta/operator-output-design/step3-output-design-system/
+  source_authorities:
+    - 01-operator-output-design-principles.okf.yaml
+    - 02-shared-card-and-brief-anatomy.okf.yaml
+    - 03-planning-artifact-designs.okf.yaml
+    - 04-flow-execution-card-design.okf.yaml
+    - 05-prompt-file-and-index-design.okf.yaml
+    - 06-execution-evidence-handoff-design.okf.yaml
+    - 07-skip-marker-low-priority-design.okf.yaml
+    - PreRound3Decisions.md
+
+scope:
+  purpose: >
+    Connect the Round 3 execution, prompt-access, evidence-preparation, and recap
+    surfaces while preserving the ownership of Prompt Engineering, AI Routing,
+    FlowRecap, and existing domain contracts.
+  owns:
+    - operator_visible_cross_artifact_sequence
+    - minimal_downstream_handoffs
+    - cross_artifact_non_duplication_rules
+  does_not_own:
+    - underlying_domain_schemas
+    - prompt_doctrine
+    - routing_logic
+    - FlowRecap_interpretation
+    - durable_project_state
+
+operator_visible_sequence:
+  diagram:
+    - PreCap_Next_Day_Brief
+    - Flow_Execution_Card
+    - direct_prompt_file_links
+    - operator_execution
+    - structured_execution_evidence
+    - conditional_normalization
+    - FlowRecap
+  flow_text: >
+    PreCap Next Day Brief -> Flow Execution Card -> direct prompt files -> operator
+    execution -> structured evidence -> direct FlowRecap when simple, or evidence
+    normalization then FlowRecap when complex.
+
+artifact_relationships:
+  PreCap_Next_Day_Brief:
+    role: day_level_plan_and_flow_overview
+    hands_to: Flow_Execution_Card
+    minimal_handoff:
+      - flow_id
+      - project
+      - flow_title
+      - flow_status
+      - weekly_priority_trace
+      - flow_card_ref
+    must_not_repeat: full_flow_execution_detail
+
+  Flow_Execution_Card:
+    role: primary_operator_execution_workspace
+    owns_visible:
+      - full_flow_context
+      - three_sprint_plan
+      - tasks
+      - inputs
+      - dependencies
+      - expected_outputs
+      - done_conditions
+      - stop_or_review_conditions
+      - direct_prompt_file_links
+    references:
+      - project_state_source
+      - weekly_plan_source
+      - prompt_files
+      - AI_Routing_result
+    hands_to:
+      - operator_execution
+      - execution_evidence_capture
+
+  Prompt_Files:
+    role: directly_openable_execution_assets
+    content_owner: Prompt_Engineering
+    contain:
+      - title
+      - recommended_surface
+      - full_copyable_prompt
+    must_not_repeat:
+      - full_flow_context
+      - sprint_plan
+      - project_state
+      - routing_reasoning
+
+  Prompt_Index:
+    role: optional_lightweight_prompt_map
+    contains:
+      - flow_id
+      - sprint_to_prompt_file_mapping
+      - target_surface
+      - routing_ref
+      - use_when
+      - degraded_flag
+    prominent_standalone_operator_document_required: false
+
+  AI_Routing:
+    role: advisory_model_and_tool_recommendation_owner
+    provides:
+      - recommended_surface
+      - model_or_tool_recommendation
+      - usage_and_scarcity_advice
+      - routing_reference
+    visible_in_flow_card_as: concise_recommendation_plus_reference
+    must_not_be_recreated_by:
+      - Flow_Execution_Card
+      - Prompt_Index
+      - Prompt_File
+
+  Prompt_Engineering:
+    role: final_prompt_content_and_quality_owner
+    provides:
+      - final_prompt_content
+      - prompt_quality
+      - provider_prompt_style
+    output_surface: Prompt_File
+    must_not_be_recreated_by:
+      - Flow_Execution_Card
+      - Prompt_Index
+
+  Execution_Evidence_Handoff:
+    role: conditional_evidence_preparation
+    simple_case: pass_structured_evidence_directly_to_FlowRecap
+    complex_case: normalize_messy_evidence_then_send_to_FlowRecap
+    hands_to: FlowRecap
+    minimal_handoff:
+      - flow_id
+      - completion_state
+      - what_was_planned
+      - what_actually_happened
+      - outputs
+      - decisions
+      - blockers
+      - unresolved_questions
+      - source_refs
+      - readiness
+
+  Skip_Marker:
+    role: minimal_unexecuted_flow_record
+    use_when: planned_flow_was_not_executed
+    may_be_embedded_in: Execution_Evidence_Handoff
+    standalone_card_required: false
+
+  FlowRecap:
+    role: recap_interpretation_and_candidate_change_owner
+    consumes:
+      - original_flow_context_or_reference
+      - direct_structured_evidence_or_normalized_handoff
+    creates:
+      - interpreted_flow_result
+      - next_step_proposal
+      - candidate_project_status_delta
+      - candidate_model_usage_delta
+    Round3_files_must_not_create_these_outputs: true
+
+minimal_downstream_handoffs:
+  day_brief_to_flow_card:
+    required:
+      - flow_card_ref
+      - flow_identity
+      - priority_trace
+  flow_card_to_prompt_file:
+    required:
+      - direct_relative_file_link
+      - visible_file_path
+      - target_surface
+      - routing_ref
+  execution_to_FlowRecap:
+    required:
+      - evidence_or_handoff_ref
+      - completion_state
+      - readiness
+  complex_evidence_to_normalization:
+    required:
+      - source_refs
+      - normalization_reason
+      - flow_id
+
+non_duplication_rules:
+  project_state_is_referenced_not_reprinted: true
+  weekly_priority_is_traced_not_rebuilt: true
+  flow_plan_exists_primarily_in_flow_execution_card: true
+  prompt_content_exists_in_prompt_files: true
+  prompt_index_is_mapping_only: true
+  routing_reasoning_exists_only_with_AI_Routing: true
+  prompt_doctrine_exists_only_with_Prompt_Engineering: true
+  evidence_handoff_does_not_interpret_project_meaning: true
+  FlowRecap_does_not_need_to_reread_large_raw_material_when_normalization_is_required: true
+  existing_contracts_remain_schema_authority: true
+
+operator_experience_rules:
+  one_primary_workspace_per_flow: true
+  one_click_or_direct_path_to_each_prompt: true
+  no_mandatory_large_prompt_pack: true
+  no_mandatory_raw_dump_card_for_simple_execution: true
+  review_flags_appear_only_where_they_change_action: true
+  machine_payloads_follow_human_layer: true
+
+acceptance_checks:
+  J4_J5_J6_and_skip_marker_relationship_is_explicit: true
+  PreCap_Next_Day_to_Flow_Execution_Card_handoff_is_defined: true
+  direct_prompt_file_links_are_primary_access_method: true
+  Prompt_Engineering_ownership_is_preserved: true
+  AI_Routing_ownership_is_preserved: true
+  evidence_normalization_is_conditional: true
+  FlowRecap_remains_interpretation_owner: true
+  minimal_downstream_handoffs_are_defined: true
+  cross_artifact_duplication_is_forbidden: true
+  operator_relationship_matches_validated_Round3_architecture: true
