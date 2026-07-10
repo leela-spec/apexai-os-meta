@@ -1,0 +1,153 @@
+diff --git a/apex-meta/scripts/apex_kb.py b/apex-meta/scripts/apex_kb.py
+--- a/apex-meta/scripts/apex_kb.py
++++ b/apex-meta/scripts/apex_kb.py
+@@ -49,6 +49,20 @@ PAGE_TYPE_ALLOWED = {"summary", "concept", "entity", "index", "query_output", "audit_item"}
+ PHASE2_VALUE_HEADINGS = [
+@@
+ ]
++QUALITY_REASON_CODES = (
++    "missing_source_refs",
++    "missing_phase2_value_sections",
++    "placeholder_text",
++    "no_key_claims",
++    "claim_pointer_coverage_below_100_percent",
++    "single_claim_summary",
++    "single_claim_concept_thin",
++    "concept_micro_not_evidenced",
++    "thin_macro_meso_micro",
++    "summary_source_breadth_below_profile",
++    "no_query_routes",
++)
++QUALITY_REASON = {code: code for code in QUALITY_REASON_CODES}
+@@ -300,7 +314,7 @@ def normalize_global_flag_placement(argv: Sequence[str]) -> Sequence[str]:
+-        "quality", "coverage", "query-eval", "graph", "process-graph",
++        "quality", "coverage", "query-eval", "graph", "process-graph", "postflight",
+@@ -1778,31 +1792,31 @@ def _quality_page_metrics(kb_root: Path, page: Path) -> Dict[str, Any]:
+-            reasons.append("missing_source_refs")
++            reasons.append(QUALITY_REASON["missing_source_refs"])
+@@
+-            reasons.append("missing_phase2_value_sections")
++            reasons.append(QUALITY_REASON["missing_phase2_value_sections"])
+@@
+-            reasons.append("placeholder_text")
++            reasons.append(QUALITY_REASON["placeholder_text"])
+@@
+-            reasons.append("no_key_claims")
++            reasons.append(QUALITY_REASON["no_key_claims"])
+@@
+-                reasons.append("claim_pointer_coverage_below_100_percent")
++                reasons.append(QUALITY_REASON["claim_pointer_coverage_below_100_percent"])
+@@
+-                reasons.append("single_claim_summary")
++                reasons.append(QUALITY_REASON["single_claim_summary"])
+@@
+-                reasons.append("single_claim_concept_thin")
++                reasons.append(QUALITY_REASON["single_claim_concept_thin"])
+@@
+-            reasons.append("concept_micro_not_evidenced")
++            reasons.append(QUALITY_REASON["concept_micro_not_evidenced"])
+@@
+-            reasons.append("thin_macro_meso_micro")
++            reasons.append(QUALITY_REASON["thin_macro_meso_micro"])
+@@
+-            reasons.append("summary_source_breadth_below_profile")
++            reasons.append(QUALITY_REASON["summary_source_breadth_below_profile"])
+@@
+-            reasons.append("no_query_routes")
++            reasons.append(QUALITY_REASON["no_query_routes"])
+@@ -2195,6 +2209,119 @@ def cmd_health(args: argparse.Namespace) -> Dict[str, Any]:
+     }
+ 
++
++POSTFLIGHT_SCHEMA = "apex.kb.postflight.v1"
++
++
++def _postflight_args(args: argparse.Namespace, **overrides: Any) -> argparse.Namespace:
++    values = vars(args).copy()
++    values.update(overrides)
++    return argparse.Namespace(**values)
++
++
++def _postflight_step(name: str, blocking: bool, result: Dict[str, Any], skipped: bool = False, reason: Optional[str] = None) -> Dict[str, Any]:
++    step = {"name": name, "blocking": blocking, "skipped": skipped, "result": result}
++    if reason:
++        step["reason"] = reason
++    return step
++
++
++def cmd_postflight(args: argparse.Namespace) -> Dict[str, Any]:
++    kb_root = resolve_kb_root(args.kb_root)
++    dry_run = effective_dry_run(args)
++    steps: List[Dict[str, Any]] = []
++    blocking_failed = False
++
++    index_result = cmd_index(_postflight_args(args, kb_root=str(kb_root)))
++    steps.append(_postflight_step("wiki_index", True, index_result))
++    index_failed = index_result.get("status") in {"blocked", "fail", "error"}
++    blocking_failed = blocking_failed or index_failed
++
++    retrieval_build_failed = False
++    retrieval_module: Any = None
++    try:
++        script_dir = Path(__file__).resolve().parent
++        if str(script_dir) not in sys.path:
++            sys.path.insert(0, str(script_dir))
++        import apex_kb_retrieval as retrieval_module  # type: ignore
++        retrieval_build = retrieval_module.cmd_build_index(_postflight_args(args, kb_root=str(kb_root)))
++    except Exception as exc:
++        retrieval_build = {"command": "build-index", "status": "error", "error": str(exc)}
++    retrieval_build_failed = retrieval_build.get("status") in {"blocked", "fail", "error"}
++    steps.append(_postflight_step("retrieval_build", True, retrieval_build))
++    blocking_failed = blocking_failed or retrieval_build_failed
++
++    lint_result = cmd_lint(_postflight_args(args, strict=True, kb_root=str(kb_root)))
++    steps.append(_postflight_step("lint_strict", True, lint_result))
++    blocking_failed = blocking_failed or lint_result.get("status") == "fail"
++
++    quality_result = cmd_quality(_postflight_args(args, strict=True, kb_root=str(kb_root)))
++    steps.append(_postflight_step("quality_strict", True, quality_result))
++    blocking_failed = blocking_failed or quality_result.get("status") == "fail"
++
++    audit_result = cmd_audit(_postflight_args(args, kb_root=str(kb_root)))
++    steps.append(_postflight_step("audit", False, audit_result))
++
++    status_result = cmd_status(_postflight_args(args, kb_root=str(kb_root)))
++    steps.append(_postflight_step("status", True, status_result))
++
++    if index_failed or retrieval_build_failed or retrieval_module is None:
++        stale_result = {"command": "stale", "status": "skipped"}
++        steps.append(_postflight_step("retrieval_stale", True, stale_result, True, "dependent index or retrieval build failed"))
++        blocking_failed = True
++        retrieval_fresh = False
++    else:
++        try:
++            stale_result = retrieval_module.cmd_stale(_postflight_args(args, kb_root=str(kb_root)))
++        except Exception as exc:
++            stale_result = {"command": "stale", "status": "error", "error": str(exc)}
++        steps.append(_postflight_step("retrieval_stale", True, stale_result))
++        retrieval_fresh = stale_result.get("stale") is False or stale_result.get("status") == "fresh"
++        blocking_failed = blocking_failed or not retrieval_fresh
++
++    if dry_run:
++        status = "planned"
++        evidence_complete = False
++    else:
++        status = "fail" if blocking_failed else "pass"
++        evidence_complete = not blocking_failed and retrieval_fresh
++    return {
++        "schema": POSTFLIGHT_SCHEMA,
++        "command": "postflight",
++        "kb_root": str(kb_root),
++        "dry_run": dry_run,
++        "status": status,
++        "evidence_complete": evidence_complete,
++        "steps": steps,
++    }
++
+ 
+ def build_parser() -> argparse.ArgumentParser:
+@@ -2288,6 +2415,7 @@ def build_parser() -> argparse.ArgumentParser:
+     graph_cmd = sub.add_parser("graph", aliases=["process-graph"], help="Extract process-flow graph")
+     graph_cmd.set_defaults(func=cmd_graph)
++    sub.add_parser("postflight", help="Run the bounded seven-stage deterministic completion aggregate").set_defaults(func=cmd_postflight)
+     return parser
