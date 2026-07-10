@@ -1,0 +1,81 @@
+document:
+  id: apex-future-deterministic-output-validation
+  title: Deferred Deterministic Output Validation Candidate
+  status: deferred_low_priority_candidate
+  created_date: 2026-07-10
+  repository: leela-spec/apexai-os-meta
+  branch: main
+  source_context:
+    - APEX Deep Research synthesis
+    - Marco review of research-derived decisions
+  purpose: >
+    Preserve a bounded future skill or tooling candidate for deterministic checks
+    without making it part of the current Step 3 operator-output design work.
+
+decision:
+  priority: low
+  implement_now: false
+  create_skill_now: false
+  operator_reason: >
+    AI-authored artifacts may repeatedly fail strict deterministic checks, creating
+    correction loops with little operator value. Feasibility must be demonstrated
+    on stable real templates before a skill is justified.
+
+feasible_future_scope:
+  allowed_checks_only:
+    - referenced_file_exists
+    - required_heading_or_key_is_present
+    - relative_link_resolves
+    - manifest_lists_existing_file
+    - candidate_state_label_is_present_when_required
+    - forbidden_mutation_claim_is_absent
+  explicitly_not_in_scope:
+    - judging_semantic_quality
+    - deciding_priorities
+    - interpreting evidence
+    - approving_candidate_changes
+    - applying_status_or_KB_mutations
+    - repeatedly rewriting_an_artifact_until_all_checks_pass
+
+anti_loop_rules:
+  validator_may_report_only: true
+  validator_must_not_auto_rewrite: true
+  maximum_automatic_recheck_count: 1
+  unresolved_failure_becomes_operator_warning: true
+  noncritical_failure_must_not_block_useful_output: true
+  existing_skill_contracts_remain_authority: true
+
+feasibility_gate_before_reopening:
+  prerequisites:
+    - operator_templates_are_stable
+    - at_least_three_real_outputs_exist_for_testing
+    - checks_can_be_derived_from_existing_contracts_without_new_schema
+    - false_positive_rate_is_acceptably_low
+    - checks_save_more_review_time_than_they_create
+  proof_required:
+    - manual_pilot_on_real_outputs
+    - list_of_checks_that_pass_consistently
+    - list_of_checks_that_create_correction_loops
+    - keep_remove_decision_per_check
+
+related_deferred_decisions:
+  stale_approval_after_material_candidate_change:
+    status: deferred_non_priority
+    default_direction: invalidate_when_material_change_is_later_formalized
+    note: >
+      Sensible in principle, but too detailed for the current operator-output
+      design stage and correctable manually by the operator.
+  generated_HTML_view:
+    status: deferred
+    default_direction: markdown_remains_primary_until_templates_are_stable
+
+reopen_when:
+  - Step_3_templates_have_been_operator_tested
+  - deterministic_checks_are_needed_by_multiple_artifacts
+  - a_small_non_mutating_pilot_can_be_run_without_creating_an_auto_fix_loop
+
+current_consequence:
+  - no_change_to_Step_3_priority
+  - no_validator_skill_created
+  - no_runtime_or_script_created
+  - continue_operator_output_design_rounds
