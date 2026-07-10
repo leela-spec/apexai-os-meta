@@ -23,8 +23,9 @@ kb_schema:
     preserve_source_language_when_relevant: true
     translation_requires_label: true
   kb_operator_review_policy:
-    ingest_phase_2_requires_phrase: "approve ingest"
-    same_prompt_approval_allowed_normal_mode: false
+    phase_1_to_phase_2_default: continuous_when_selected_output_tier_includes_wiki
+    explicit_stop_modes: [analysis_only, phase1_only, operator_explicit_stop_before_wiki]
+    legacy_explicit_gate_phrase: "approve ingest"
     uncertainty_handling: "expose, do not silently resolve"
     uncertain_authority_handling: "mark unclear and ask operator"
 ```

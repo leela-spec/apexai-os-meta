@@ -109,3 +109,8 @@ The v3 P0-P2 closure introduces new deterministic commands and fields:
 - **Freshness split**: `status` now distinguishes `wiki_index_status` and `retrieval_index_status` separately from `source_payload_manifest_status`. (wiki_index_status, retrieval_index_status)
 
 These additions are deterministic and do not introduce external dependencies or LLM calls.
+
+## Postflight evidence contract
+
+`quality --strict --json` must emit page-level measurements and reason-coded repair candidates. A successful postflight records exact commands, command status, output paths, retrieval freshness, and remaining candidates. File read-back or required-heading presence is not execution proof. Connector-only runs may report `compiled_unvalidated`; they may not report `query_ready`.
+

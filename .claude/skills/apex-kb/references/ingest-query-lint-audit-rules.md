@@ -103,3 +103,8 @@ Semantic review flags:
 ## Audit rules
 
 Audit items live under `audit/`; resolved items move to `audit/resolved/`. Audit mode lists and groups items, but does not silently accept, reject, or resolve them. Valid actions are `accept`, `partial`, `reject`, `defer`, and `needs_operator_review`.
+
+## Phase 2 acceptance and repair loop
+
+After wiki drafting, deterministic quality/lint runs first. Then a bounded independent semantic review checks target-query usefulness, claim specificity, source support, distinct Macro/Meso/Micro value, uncertainty preservation, routes, and raw-source reopen triggers. Verdicts are `semantic_pass`, `semantic_partial`, `semantic_fail`, or `insufficient_evidence`. Only reason-coded failed candidates are repaired; the failed gates are then rerun. Headings, source counts, length, or the drafting model's self-report cannot independently produce a pass.
+

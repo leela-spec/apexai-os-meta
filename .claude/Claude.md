@@ -1,137 +1,62 @@
 # FILE: CLAUDE.md
 
-# Section 1 — System Identity
+## identity
+Apex: Claude-native orchestration system for Marco. Plans → Marco executes → evidence becomes durable project state.
 
-Apex is a v0.1 Claude-native orchestration system for Marco. It creates structured plans, lets Marco execute the work, then converts execution evidence into durable project state.
+## core_loop
+1. PreCapWeek → weekly_plan_packet (gate G1: always required)
+2. PreCapNextDay → next_day_plan (gate G2: always required)
+3. OperatorExecutesPlannedFlow → raw_flow_dump_or_skipped_flow_marker (gate G3: always required)
+4. FlowRecap → flow_recap_packet (gate G4: next-step + status-delta required)
+5. APSU → updated_all_project_status_packet (gate G5: only conflicts/high-impact/ambiguity)
+6. next PreCapNextDay → next_day_plan (manual trigger + validation)
 
-# Section 2 — Core Loop
+## skills
+| name | trigger phrase | path | in → out | gate |
+|---|---|---|---|---|
+| PrecapNextDay | "run precap-next-day" | .claude/skills/PrecapNextDay/Skill_precap-next-day.md | best_available_context → next_day_plan | G2 |
+| PrecapWeek | "run precap-week" | .claude/skills/PrecapWeek/Skill_Precap-Week.md | weekly_intent → precap_week_output | G1 |
+| ProjectStatus | "run project-status-overview" | .claude/skills/ProjectStatus/project-status-overview_SKILL_v3.md | manual_notes → current_project_status_overview | none |
+| AIRouting | "run ai-routing-and-usage-tracking" | .claude/skills/AIRouting/ai-routing-and-usage-tracking-SKILL.md | operator_task → routing_recommendation_packet | none |
+| PromptEngineer | "run prompt-engineering" | .claude/skills/PromptEngineer/SKILL_prompt-engineering.md | operator_task → prompt_packet | none |
+| WorkflowProcesses | "run workflow-process-design" | .claude/skills/Workflow&Processes/workflow-process-design-SKILL.md | operator_task → workflow_process_validation_summary | none |
+| FlowRecap | "run flow-recap" | .claude/skills/flow-recap/SKILL.md | flow_packet_plus_raw_flow_dump → flow_recap_packet | G4 |
+| StatusMerge | "run status-merge" | .claude/skills/status-merge/SKILL.md | flow_recap_packets_plus_apex_project_status → status_merge_packet | G5 |
+| RawFlowDumpNormalize | "run raw-flow-dump-normalize" | .claude/skills/raw-flow-dump-normalize/SKILL.md | raw_operator_input → normalized_raw_flow_dump_or_skipped_flow_marker | none |
+| ModelUsageLog | "run model-usage-log" | .claude/skills/model-usage-log/SKILL.md | flow_recap_packet → model_usage_delta | none |
 
-```
-core_loop:  1:    process: PreCapWeek    writes: weekly_plan_packet    gate: weekly_plan_operator_approval  2:    process: PreCapNextDay    writes: next_day_plan    gate: next_day_plan_operator_approval  3:    process: OperatorExecutesPlannedFlow    writes: raw_flow_dump_or_skipped_flow_marker    gate: flow_completion_state_confirmation  4:    process: FlowRecap    writes: flow_recap_packet    gate: next_step_and_status_delta_validation  5:    process: APSU    writes: updated_all_project_status_packet    gate: only_conflicts_or_high_impact_changes  6:    process: next_PreCapNextDay    writes: next_day_plan    gate: operator_manual_trigger_and_validation
-```
+All 9 skills above are `present` as of last check. If a `Read` on a `skill_path` fails, treat that skill as missing and report it.
 
-# Section 3 — Operator Gates
+## artifact_paths
+- apex_project_status: state/apex-project-status.md
+- consumed_recap_registry: state/consumed-recap-registry.md
+- weekly_plan_packets: artifacts/weekly-plans/
+- next_day_plans: artifacts/next-day-plans/
+- flow_packets: artifacts/flow-packets/
+- flow_recap_packets: artifacts/flow-recap-packets/
 
-```
-operator_gates:  G1: {position: after_PreCapWeek, strictness: always_required}  G2: {position: after_PreCapNextDay, strictness: always_required}  G3: {position: after_operator_executes_flow, strictness: always_required}  G4: {position: during_FlowRecap, strictness: next_step_and_status_delta_required}  G5: {position: during_APSU, strictness: only_conflicts_high_impact_or_ambiguity}
-```
+## session_startup
+1. Read this file + state/apex-project-status.md.
+2. Confirm skill status (present/missing) against the table above.
+3. Do not execute anything until Marco issues a trigger phrase.
 
-# Section 4 — Skill Index
+## exclude_from_context
+Never read/edit unless the operator explicitly asks for skill conversion or backup recovery:
+- .repair-backups/**
+- _recovery_backup_before_apex_package_restore/**
+- _restore_staging_apex_packages/**
+- _verification/**
+- _reports/**
+- validation-reports/**
+- source-knowledge/** (large cloned external repos; write is forbidden outright, see constraints)
 
-skills:
-  PrecapNextDay:
-    trigger_phrase: "run precap-next-day"
-    skill_path: .claude/skills/PrecapNextDay/Skill_precap-next-day.md
-    input_artifact: best_available_context
-    output_artifact: next_day_plan
-    operator_gate: G2
-    status: present
-  PrecapWeek:
-    trigger_phrase: "run precap-week"
-    skill_path: .claude/skills/PrecapWeek/Skill_Precap-Week.md
-    input_artifact: weekly_intent
-    output_artifact: precap_week_output
-    operator_gate: G1
-    status: present
-  ProjectStatus:
-    trigger_phrase: "run project-status-overview"
-    skill_path: .claude/skills/ProjectStatus/project-status-overview_SKILL_v3.md
-    input_artifact: manual_notes
-    output_artifact: current_project_status_overview
-    operator_gate: none
-    status: present
-  AIRouting:
-    trigger_phrase: "run ai-routing-and-usage-tracking"
-    skill_path: .claude/skills/AIRouting/ai-routing-and-usage-tracking-SKILL.md
-    input_artifact: operator_task
-    output_artifact: routing_recommendation_packet
-    operator_gate: none
-    status: present
-  PromptEngineer:
-    trigger_phrase: "run prompt-engineering"
-    skill_path: .claude/skills/PromptEngineer/SKILL_prompt-engineering.md
-    input_artifact: operator_task
-    output_artifact: prompt_packet
-    operator_gate: none
-    status: present
-  WorkflowProcesses:
-    trigger_phrase: "run workflow-process-design"
-    skill_path: .claude/skills/Workflow&Processes/workflow-process-design-SKILL.md
-    input_artifact: operator_task
-    output_artifact: workflow_process_validation_summary
-    operator_gate: none
-    status: present
-  FlowRecap:
-    trigger_phrase: "run flow-recap"
-    skill_path: .claude/skills/flow-recap/SKILL.md
-    input_artifact: flow_packet_plus_raw_flow_dump
-    output_artifact: flow_recap_packet
-    operator_gate: G4
-    status: present
-  StatusMerge:
-    trigger_phrase: "run status-merge"
-    skill_path: .claude/skills/status-merge/SKILL.md
-    input_artifact: flow_recap_packets_plus_apex_project_status
-    output_artifact: status_merge_packet
-    operator_gate: G5
-    status: present
-  RawFlowDumpNormalize:
-    trigger_phrase: "run raw-flow-dump-normalize"
-    skill_path: .claude/skills/raw-flow-dump-normalize/SKILL.md
-    input_artifact: raw_operator_input
-    output_artifact: normalized_raw_flow_dump_or_skipped_flow_marker
-    operator_gate: none
-    status: present
-  ModelUsageLog:
-    trigger_phrase: "run model-usage-log"
-    skill_path: .claude/skills/model-usage-log/SKILL.md
-    input_artifact: flow_recap_packet
-    output_artifact: model_usage_delta
-    operator_gate: none
-    status: present
-
-# Section 5 — Artifact Paths
-
-```
-artifact_paths:  apex_project_status: state/apex-project-status.md  consumed_recap_registry: state/consumed-recap-registry.md  weekly_plan_packets: artifacts/weekly-plans/  next_day_plans: artifacts/next-day-plans/  flow_packets: artifacts/flow-packets/  flow_recap_packets: artifacts/flow-recap-packets/
-```
-
-# Section 6 — Session Startup Protocol
-
-session_startup:
-  1: Read CLAUDE.md.
-  2: Read state/apex-project-status.md.
-  3: Confirm skill status — present vs missing — from Section 4.
-  4: Do not execute anything until Marco issues a trigger phrase.
-
-# Section 7 — Claude Behavior Rules
-
-## 7a. Allowed actions
-
-- Read active skill files under .claude/skills/.
-- Read state and artifacts needed for a triggered skill.
-- Produce one requested output artifact.
-- Report missing inputs and conflicts.
-
-## 7b. Forbidden actions
-
-- Do not write files into source-knowledge/.
-- Do not auto-trigger any skill without operator instruction.
-- Do not create cron jobs or schedulers.
-- Do not create Kanban tasks or calendar events automatically.
-- Do not overwrite state/ files — append or flag conflicts only.
-- Do not load files from source-knowledge/ unless operator requests skill conversion.
-- Do not batch-write multiple output files without operator confirmation.
-- Do not use the terms listed in Section 8.
-
-## 7c. Missing input handling
-
-Missing-input handling is skill-specific.
-
-- If the invoked skill contract marks an input as hard-required, halt, report the missing file or artifact, and ask Marco to provide it before proceeding.
-- If the invoked skill allows degraded or bootstrap mode, continue only within that skill's degraded-mode rules, mark low confidence, and surface operator review flags.
-
-## 7d. Output write behavior
-
-Write the file, then report done in one summary line.
-
+## constraints
+- Read only active skill files under .claude/skills/ and the state/artifacts needed for the triggered skill.
+- Never write into source-knowledge/; never load from it unless operator requests skill conversion.
+- Never auto-trigger a skill without operator instruction.
+- Never create cron jobs, schedulers, Kanban tasks, or calendar events automatically.
+- Never overwrite state/ files — append or flag conflicts only.
+- Never batch-write multiple output files without operator confirmation.
+- On hard-required missing input: halt, report what's missing, ask Marco before proceeding.
+- On degraded-mode-allowed missing input: continue within that skill's degraded rules, mark low confidence, surface operator review flags.
+- After writing an output file: report done in one summary line, no extra narration.

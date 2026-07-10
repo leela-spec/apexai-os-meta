@@ -88,7 +88,7 @@ boundary:
 operator_flow:
   A_prepare: repo / KB preflight, scaffold, path validation, run profile selection
   B_ingest_and_compile: source intake, source payload manifest, Phase 0, semantic analysis, and wiki compile when selected output tier requires it
-  C_postflight: index rebuild, retrieval rebuild, lint, audit, status, quality / coverage report
+  C_postflight: capability-checked index rebuild, retrieval rebuild, strict lint/quality, bounded semantic acceptance, and evidence packet
   D_query_or_maintain: query packets, stale checks, source drift checks, repair backlog
 
 output_tiers:
@@ -96,7 +96,7 @@ output_tiers:
   analysis_only: semantic analysis, no wiki pages
   compiled_minimal: small high-value wiki with index and patch backlog
   compiled_full: full summaries/concepts/entities
-  query_ready: compiled wiki plus postflight, retrieval, quality/query checks
+  query_ready: compiled wiki plus successful deterministic postflight and semantic acceptance
 ```
 
 ## File navigation
@@ -118,6 +118,30 @@ Read supporting files only when needed:
 | Starter source manifest | `templates/source-manifest-template.json` |
 | Local commands | `examples/powershell-commands.md` |
 | Operator runbook | `examples/lifecycle-runbook.md` |
+
+
+## Capability precheck and truthful state cap
+
+Before procedure steps that require Python, retrieval rebuild, or Git, record whether the active executor can run terminal commands and capture their outputs.
+
+```yaml
+capability_precheck:
+  terminal_execution: supported | unsupported
+  python_execution: supported | unsupported
+  retrieval_rebuild: supported | unsupported
+  git_diff_and_commit: supported | unsupported
+
+completion_state_cap:
+  semantic_pages_written_without_postflight: compiled_unvalidated
+  deterministic_postflight_failed: partial
+  required_semantic_review_missing: partial
+  query_ready_requires:
+    - deterministic_postflight_pass
+    - retrieval_fresh
+    - semantic_acceptance_pass
+```
+
+Connector read-back proves file content only. It never proves Python execution, index freshness, lint, quality, or query readiness.
 
 ## Procedure
 
@@ -194,4 +218,4 @@ request_mutates_plan_sync_session:
 
 ## Completion gate
 
-The skill is complete only when the requested mode has produced the correct artifact, source custody is preserved, deterministic/semantic ownership was respected, no outside-KB mutation occurred, confidence and claim labels are not conflated, and unresolved uncertainties/raw source triggers remain visible.
+The skill is complete only when the requested mode has produced the correct artifact and every required gate has evidence. `compiled_unvalidated` and `partial` are valid truthful outcomes, not success aliases. `query_ready` requires a passing deterministic postflight, fresh retrieval, and bounded semantic acceptance. Repair loops must be candidate-driven: patch only pages named by reason-coded findings, then rerun the failed checks.

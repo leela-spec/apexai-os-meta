@@ -1701,29 +1701,124 @@ def extract_source_refs(meta: Dict[str, Any]) -> List[str]:
 
 
 VALUE_PAGE_TYPES = {"summary", "concept", "entity"}
-SHELL_PAGE_MIN_WORDS = 40
-SHELL_PAGE_MIN_CHARS = 200
-_FENCED_CODE_RE = re.compile(r"```.*?```", re.DOTALL)
+SECTION_WORD_FLOOR = 20
 
 
-def missing_value_headings(body: str) -> List[str]:
+def _quality_section(body: str, heading: str, level: str = "##") -> str:
+    """Extract the text of one heading section up to the next heading at the same level."""
+    pattern = re.compile(rf"^{re.escape(level)}\s+{re.escape(heading)}\s*$", re.MULTILINE | re.IGNORECASE)
+    match = pattern.search(body)
+    if not match:
+        return ""
+    tail = body[match.end():]
+    next_heading = re.search(rf"^{re.escape(level)}\s+", tail, re.MULTILINE)
+    return tail[:next_heading.start()] if next_heading else tail
+
+
+def _quality_words(text: str) -> int:
+    text = re.sub(r"```.*?```", " ", text or "", flags=re.DOTALL)
+    text = re.sub(r"`[^`]+`", " ", text)
+    return len(re.findall(r"\b[\w'-]+\b", text, flags=re.UNICODE))
+
+
+def _pointer_specificity(body: str) -> Dict[str, int]:
+    """Classify claim source pointers as file/section/line-or-span specific.
+
+    Directory- or file-relative pointers with no section/line suffix are
+    file-level; a section/heading suffix is section-level; a line or span
+    reference is the most specific.
+    """
+    pointers = re.findall(r"(?:source_pointer|pointer)\s*:\s*['\"]?([^\n'\"]+)", body or "", flags=re.IGNORECASE)
+    result = {"file_level": 0, "section_level": 0, "line_or_span_level": 0}
+    for pointer in pointers:
+        if re.search(r"(?:L\d+|lines?\s*\d+|:\d+(?:-\d+)?)", pointer, flags=re.IGNORECASE):
+            result["line_or_span_level"] += 1
+        elif re.search(r"(?:#|§|heading|section)", pointer, flags=re.IGNORECASE):
+            result["section_level"] += 1
+        else:
+            result["file_level"] += 1
+    return result
+
+
+def _quality_page_metrics(kb_root: Path, page: Path) -> Dict[str, Any]:
+    """Deterministic, reason-coded page measurements: per-section narrative
+    word counts, key-claim count, claim-to-pointer coverage, pointer
+    specificity, ranked-source count, route count, and placeholder
+    detection. No page-value score is computed; reasons stay separate and
+    inspectable."""
+    raw = read_text(page)
+    meta, body, frontmatter_status = parse_frontmatter(raw)
+    meta = meta if isinstance(meta, dict) else {}
     body = body or ""
-    return [h for h in PHASE2_VALUE_HEADINGS if not has_markdown_heading(body, h)]
+    page_type = str(meta.get("page_type") or "unknown")
 
+    sections = {heading: _quality_section(body, heading) for heading in PHASE2_VALUE_HEADINGS}
+    macro_block = sections.get("Macro / Meso / Micro", "")
+    section_words = {heading: _quality_words(text) for heading, text in sections.items()}
+    section_words.update({
+        "Macro": _quality_words(_quality_section(macro_block, "Macro", level="###")),
+        "Meso": _quality_words(_quality_section(macro_block, "Meso", level="###")),
+        "Micro": _quality_words(_quality_section(macro_block, "Micro", level="###")),
+    })
 
-def is_shell_page_candidate(source_refs: List[str], body: str, missing_headings: List[str]) -> bool:
-    """Structural heuristic only: no scoring, no semantic judgment. A page is a
-    shell candidate when its narrative body is thin (below fixed word/char
-    thresholds) AND it is missing at least one structural anchor (source
-    refs, Key Claims, or Macro/Meso/Micro)."""
-    stripped = _FENCED_CODE_RE.sub("", body or "")
-    word_count = len(stripped.split())
-    char_count = len(stripped.strip())
-    low_density = word_count < SHELL_PAGE_MIN_WORDS or char_count < SHELL_PAGE_MIN_CHARS
-    no_source_refs = not source_refs
-    missing_key_claims = "Key Claims" in missing_headings
-    missing_macro = "Macro / Meso / Micro" in missing_headings
-    return low_density and (no_source_refs or missing_key_claims or missing_macro)
+    refs = extract_source_refs(meta)
+    key_claims = len(re.findall(r"(?:^|\n)\s*-\s+(?:claim_id\s*:|claim\s*:)", sections.get("Key Claims", ""), flags=re.IGNORECASE))
+    ranked_sources = len(re.findall(r"(?:^|\n)\s*-\s+(?:rank\s*:|source\s*:|source_id\s*:|source_path\s*:)", sections.get("Adaptive Ranked Source Set", ""), flags=re.IGNORECASE))
+    routes = len(re.findall(r"(?:^|\n)\s*-\s+(?:question\s*:|leads_to\s*:)", sections.get("Routes Here", ""), flags=re.IGNORECASE))
+    uncertainty_items = len(re.findall(r"(?:^|\n)\s*-\s+id\s*:", sections.get("Uncertainty / Raw Source Reopen Triggers", ""), flags=re.IGNORECASE))
+    pointer_specificity = _pointer_specificity(sections.get("Key Claims", ""))
+    pointer_count = sum(pointer_specificity.values())
+    placeholders = sorted(set(re.findall(r"<[^>]{3,80}>|\b(?:TODO|TBD|LLM must fill)\b", body, flags=re.IGNORECASE)))
+    missing_headings = [h for h in PHASE2_VALUE_HEADINGS if not has_markdown_heading(body, h)]
+
+    reasons: List[str] = []
+    if page_type in VALUE_PAGE_TYPES:
+        if not refs:
+            reasons.append("missing_source_refs")
+        if missing_headings:
+            reasons.append("missing_phase2_value_sections")
+        if placeholders:
+            reasons.append("placeholder_text")
+        all_layers_thin = all(section_words.get(name, 0) < SECTION_WORD_FLOOR for name in ("Macro", "Meso", "Micro"))
+        if key_claims == 0:
+            reasons.append("no_key_claims")
+        else:
+            if pointer_count < key_claims:
+                reasons.append("claim_pointer_coverage_below_100_percent")
+            if page_type == "summary" and key_claims < 2:
+                reasons.append("single_claim_summary")
+            elif page_type == "concept" and key_claims < 2 and all_layers_thin:
+                reasons.append("single_claim_concept_thin")
+        specific_pointer_count = pointer_specificity["section_level"] + pointer_specificity["line_or_span_level"]
+        if page_type == "concept" and section_words.get("Micro", 0) < SECTION_WORD_FLOOR and specific_pointer_count == 0:
+            reasons.append("concept_micro_not_evidenced")
+        # Narrow named entities may validly be concise with one claim and one
+        # source (kb-contract.md concise_policy) - only flag entities for a
+        # missing claim outright, never for thin/single-claim synthesis depth.
+        if all_layers_thin and page_type != "entity":
+            reasons.append("thin_macro_meso_micro")
+        if page_type == "summary" and ranked_sources < 2:
+            reasons.append("summary_source_breadth_below_profile")
+        if routes == 0:
+            reasons.append("no_query_routes")
+
+    return {
+        "path": relpath(kb_root, page),
+        "page_type": page_type,
+        "frontmatter_status": frontmatter_status,
+        "source_refs": refs,
+        "narrative_word_count": _quality_words(body),
+        "section_word_counts": section_words,
+        "ranked_source_count": ranked_sources,
+        "key_claim_count": key_claims,
+        "source_pointer_count": pointer_count,
+        "pointer_specificity": pointer_specificity,
+        "route_count": routes,
+        "uncertainty_item_count": uncertainty_items,
+        "placeholder_text": placeholders,
+        "missing_phase2_value_sections": missing_headings,
+        "repair_reasons": sorted(set(reasons)),
+    }
 
 
 def quality_report(kb_root: Path) -> Dict[str, Any]:
@@ -1733,54 +1828,45 @@ def quality_report(kb_root: Path) -> Dict[str, Any]:
     manifest_ids = manifest_source_ids(sources)
     manifest_id_set = set(manifest_ids)
 
-    page_to_source_map: Dict[str, List[str]] = {}
+    metrics = [_quality_page_metrics(kb_root, page_path) for page_path in wiki_pages(kb_root)]
+
+    page_to_source_map: Dict[str, List[str]] = {item["path"]: item["source_refs"] for item in metrics}
     source_to_page_map: Dict[str, List[str]] = {sid: [] for sid in manifest_ids}
     unmanifested_source_refs: Dict[str, List[str]] = {}
-    pages_without_source_refs: List[str] = []
-    pages_missing_phase2_value_sections: Dict[str, List[str]] = {}
-    phase2_repair_candidates: List[str] = []
-    shell_page_candidates: List[str] = []
-
-    for page_path in wiki_pages(kb_root):
-        rel = relpath(kb_root, page_path)
-        text = read_text(page_path)
-        meta, body, _fm_status = parse_frontmatter(text)
-        meta = meta if isinstance(meta, dict) else {}
-        body = body or ""
-
-        refs = extract_source_refs(meta)
-        page_to_source_map[rel] = refs
-        if not refs:
-            pages_without_source_refs.append(rel)
+    for page, refs in page_to_source_map.items():
         for ref in refs:
             if ref in manifest_id_set:
-                source_to_page_map.setdefault(ref, []).append(rel)
+                source_to_page_map.setdefault(ref, []).append(page)
             else:
-                unmanifested_source_refs.setdefault(ref, []).append(rel)
-
-        page_type = meta.get("page_type")
-        is_value_page = page_type in VALUE_PAGE_TYPES
-        missing_headings = missing_value_headings(body) if is_value_page else []
-        if missing_headings:
-            pages_missing_phase2_value_sections[rel] = missing_headings
-
-        if is_value_page and (missing_headings or not refs):
-            phase2_repair_candidates.append(rel)
-
-        if is_shell_page_candidate(refs, body, missing_headings):
-            shell_page_candidates.append(rel)
+                unmanifested_source_refs.setdefault(ref, []).append(page)
 
     manifest_sources_without_pages = sorted(sid for sid, pgs in source_to_page_map.items() if not pgs)
+    pages_without_source_refs = sorted(
+        item["path"] for item in metrics
+        if item["page_type"] in VALUE_PAGE_TYPES and not item["source_refs"]
+    )
+    pages_missing_phase2_value_sections = {
+        item["path"]: item["missing_phase2_value_sections"]
+        for item in metrics if item["missing_phase2_value_sections"]
+    }
+
+    candidates = sorted(
+        ({"path": item["path"], "reasons": item["repair_reasons"]} for item in metrics if item["repair_reasons"]),
+        key=lambda c: c["path"],
+    )
+    shell_reasons = {"placeholder_text", "no_key_claims", "thin_macro_meso_micro", "single_claim_summary", "single_claim_concept_thin", "concept_micro_not_evidenced"}
+    shell_page_candidates = [c for c in candidates if shell_reasons.intersection(c["reasons"])]
 
     return {
-        "source_to_page_map": source_to_page_map,
+        "source_to_page_map": {key: sorted(value) for key, value in sorted(source_to_page_map.items())},
         "page_to_source_map": page_to_source_map,
         "unmanifested_source_refs": unmanifested_source_refs,
         "manifest_sources_without_pages": manifest_sources_without_pages,
-        "pages_without_source_refs": sorted(pages_without_source_refs),
+        "pages_without_source_refs": pages_without_source_refs,
         "pages_missing_phase2_value_sections": pages_missing_phase2_value_sections,
-        "phase2_repair_candidates": sorted(set(phase2_repair_candidates)),
-        "shell_page_candidates": sorted(set(shell_page_candidates)),
+        "phase2_repair_candidates": candidates,
+        "shell_page_candidates": shell_page_candidates,
+        "page_metrics": metrics,
         "deterministic_only": True,
     }
 
@@ -1790,11 +1876,12 @@ def cmd_quality(args: argparse.Namespace) -> Dict[str, Any]:
     report = quality_report(kb_root)
     result = {"command": "quality"}
     result.update(report)
+    has_candidates = bool(report["phase2_repair_candidates"] or report["shell_page_candidates"])
     if getattr(args, "strict", False):
-        has_candidates = bool(report["phase2_repair_candidates"] or report["shell_page_candidates"])
         result["status"] = "fail" if has_candidates else "ok"
     else:
         result["status"] = "ok"
+    result["issue_count"] = len(report["phase2_repair_candidates"])
     return result
 
 

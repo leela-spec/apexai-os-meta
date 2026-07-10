@@ -238,3 +238,16 @@ Pass criteria:
 - Lint passes or reports only intentional test issues.
 - Audit lists open audit items without mutating them.
 - Stale status is `fresh` after rebuild.
+
+## Phase 2 thin-but-structurally-complete regression fixtures
+
+Create four pages: (1) all headings with one generic claim and one file-level pointer, (2) placeholder text under every heading, (3) a valid narrow entity with claim-specific pointers, and (4) a strong multi-source concept. Run `quality --strict --json`.
+
+Pass criteria:
+- fixtures 1 and 2 appear in `phase2_repair_candidates` with reason codes;
+- fixture 3 (narrow named entity, one claim, one source, section-level pointer) does not fail solely for being concise;
+- fixture 4 (multi-source concept, two claims each with a section-level pointer) passes with no repair reasons;
+- a claim with no pointer at all produces `claim_pointer_coverage_below_100_percent`; a claim with only a file-level pointer is reported via `pointer_specificity` but does not block on its own;
+- `--strict` exits nonzero when repair candidates remain;
+- after repairing candidates, rerun quality, lint, retrieval stale, and the bounded semantic acceptance check.
+

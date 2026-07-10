@@ -92,3 +92,8 @@ Apex KB does not own project planning, task status mutation, exact next-task ran
 ## Executability note
 
 The skill folder is not executable by itself. It requires the repo-level scripts at `apex-meta/scripts/apex_kb.py` and `apex-meta/scripts/apex_kb_retrieval.py` for deterministic lifecycle, validation, and retrieval operations.
+
+## Lifecycle authority
+
+`SKILL.md` is the single operational lifecycle authority. `references/lifecycle-state-machine.md` is retained only as deprecated historical/reference material and must not introduce independent completion states or transitions. Runtime command behavior remains authoritative in the scripts and command contract.
+
