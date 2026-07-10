@@ -1,0 +1,180 @@
+document:
+  id: apex-step3-round3-flow-execution-card-design
+  title: APEX Step 3 Round 3 Flow Execution Card Design
+  status: validated_design_source
+  created_date: 2026-07-10
+  repository: leela-spec/apexai-os-meta
+  branch: main
+  package_path: apex-meta/operator-output-design/step3-output-design-system/
+  covers_output_job: J4_Flow_Execution_Card
+  source_authorities:
+    - 01-operator-output-design-principles.okf.yaml
+    - 02-shared-card-and-brief-anatomy.okf.yaml
+    - 03-planning-artifact-designs.okf.yaml
+    - PreRound3Decisions.md
+
+scope:
+  purpose: >
+    Define the Flow Execution Card as the primary operator workspace for one
+    planned flow. Preserve complete flow context and full three-sprint execution
+    detail while linking directly to prompt files and referencing, rather than
+    duplicating, externally owned prompt and routing content.
+  owns:
+    - operator_visible_flow_execution_workspace
+    - full_flow_context_presentation
+    - three_sprint_execution_presentation
+    - direct_prompt_file_link_behavior
+    - flow_level_done_and_review_conditions
+  does_not_own:
+    - flow_packet_schema
+    - final_prompt_content
+    - provider_prompt_style
+    - model_or_tool_routing_reasoning
+    - FlowRecap_interpretation
+    - durable_project_state
+
+flow_execution_card:
+  priority: primary
+  role: complete_operator_execution_workspace
+  primary_question: >
+    What must the operator do for this flow, in what sprint sequence, with which
+    inputs and prompts, and under which done or review conditions?
+
+  result_card:
+    position: first
+    required:
+      - flow_title
+      - project
+      - readiness
+      - goals
+      - expected_outputs
+      - next_operator_action
+      - review_needed
+    conditional:
+      - blocker_or_warning
+      - confidence
+      - degraded_prompt_status
+
+  operator_actions:
+    allowed:
+      - execute_next_sprint
+      - open_prompt_file
+      - edit_scope
+      - reorder_sprints_when_dependencies_allow
+      - defer
+      - mark_blocked
+      - skip_with_reason
+      - request_review
+
+  flow_context:
+    required:
+      - why_today
+      - weekly_priority_advanced
+      - project_state_signal
+      - available_inputs
+      - missing_inputs
+      - dependencies
+    presentation_rule: >
+      Show enough context to execute and judge the flow without reproducing the
+      full project-state packet or weekly plan.
+
+  sprints:
+    count_for_full_flow: 3
+    S1:
+      role: first_work_sprint
+      required:
+        - goal
+        - tasks
+        - inputs
+        - prompt_links
+        - expected_outputs
+        - done_when
+        - stop_or_review_conditions
+    S2:
+      role: second_work_or_deepening_sprint
+      required:
+        - goal
+        - tasks
+        - dependency_on_S1
+        - inputs
+        - prompt_links
+        - expected_outputs
+        - done_when
+        - stop_or_review_conditions
+    S3:
+      role: capture_and_handoff_sprint
+      required:
+        - capture_goal
+        - evidence_tasks
+        - decision_recording
+        - handoff_preparation
+        - optional_prompt_links
+        - done_when
+
+  end_of_flow:
+    required:
+      - planned_outputs_check
+      - actual_completion_state_placeholder
+      - evidence_capture_expectation
+      - downstream_handoff_target
+    note: >
+      The card prepares execution and evidence capture. It does not create the
+      FlowRecap result or accept project-state changes.
+
+direct_prompt_links:
+  policy:
+    direct_relative_links_required_when_prompt_exists: true
+    visible_file_path_required_as_fallback: true
+    prompt_content_embedded_in_card_by_default: false
+    full_prompt_index_embedded_by_default: false
+  markdown_example: "[Open S1 research prompt](../prompts/F1-S1-research-prompt.md)"
+  okf_example:
+    prompt:
+      title: F1 S1 Research Prompt
+      file: ../prompts/F1-S1-research-prompt.md
+      target_surface: ChatGPT_Deep_Research
+      routing_ref: "<AI Routing reference>"
+  compatibility_note: >
+    Relative links normally work in GitHub and compatible Markdown viewers. If a
+    viewer does not make the link clickable, the visible relative path remains
+    the operator fallback.
+
+reference_instead_of_repeat:
+  project_state:
+    show: concise_flow_relevant_signal
+    reference: project_state_source_ref
+  weekly_plan:
+    show: weekly_priority_advanced
+    reference: weekly_plan_source_ref
+  prompts:
+    show: direct_prompt_file_link_and_short_label
+    reference: prompt_file
+  AI_routing:
+    show: recommended_surface_for_convenience
+    reference: routing_ref
+    do_not_repeat: routing_reasoning
+  prompt_engineering:
+    show: prompt_readiness_or_degraded_flag
+    reference: prompt_file_or_prompt_quality_ref
+    do_not_repeat: prompt_doctrine
+
+presentation_rules:
+  result_card_first: true
+  human_layer_before_machine_layer: true
+  full_three_sprint_depth_preserved: true
+  cards_and_short_sections_preferred: true
+  wide_tables_not_primary: true
+  machine_handoff_minimal: true
+  existing_flow_contract_remains_schema_authority: true
+
+acceptance_checks:
+  J4_is_primary_operator_workspace: true
+  result_card_appears_first: true
+  full_flow_context_is_available: true
+  all_three_sprints_are_preserved_for_full_flows: true
+  sprint_tasks_inputs_outputs_and_conditions_are_visible: true
+  direct_relative_prompt_links_are_defined: true
+  visible_file_paths_provide_link_fallback: true
+  prompt_content_and_routing_reasoning_are_not_duplicated: true
+  FlowRecap_and_durable_state_are_not_created: true
+  existing_contracts_remain_schema_authority: true
