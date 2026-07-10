@@ -1,0 +1,117 @@
+document:
+  id: apex-step2-status-learning-user-stories
+  status: verified_by_operator
+  created_date: 2026-07-10
+  role: status_learning_skill_stories
+
+user_stories:
+  model_usage_log:
+    story: >
+      As Marco, I want planned-vs-actual AI/tool usage captured lightly after
+      work, so that future planning learns which surfaces were useful, expensive,
+      scarce, or avoidable without turning usage tracking into bureaucracy.
+    verified_by_marco: true
+    success_card:
+      shows:
+        - planned_surface_or_model
+        - actual_surface_or_model
+        - usage_reason
+        - outcome_quality_signal
+        - reuse_or_avoid_signal
+        - scarcity_or_cost_warning_if_relevant
+        - future_routing_hint
+      operator_decision:
+        - accept_usage_note
+        - correct_actual_surface
+        - mark_reuse
+        - mark_avoid
+        - ignore_for_future_routing
+
+  status_merge_APSU:
+    story: >
+      As Marco, I want candidate status changes from FlowRecap reviewed before
+      they become durable project state, so that the system can update itself
+      without silently overwriting my project reality.
+    verified_by_marco: true
+    success_card:
+      shows:
+        - proposed_state_changes
+        - conflicts
+        - high_impact_changes
+        - accepted_low_risk_changes
+        - rejected_or_deferred_changes
+        - next_precap_context
+      operator_decision:
+        - approve_merge
+        - approve_low_risk_only
+        - edit_change
+        - reject_change
+        - defer_conflict
+
+  project_kb_manager:
+    story: >
+      As Marco, I want accepted project state, artifacts, decisions, and next
+      planning context stored compactly, so that weekly and daily planning can
+      reuse real project memory instead of chat memory.
+    verified_by_marco: true
+    success_card:
+      shows:
+        - updated_project_records
+        - accepted_decisions
+        - artifact_refs
+        - stale_or_unverified_items
+        - next_precap_context
+        - source_confidence
+      operator_decision:
+        - accept_kb_update
+        - edit_record
+        - mark_unverified
+        - archive_stale_item
+        - request_source_check
+
+  project_status_overview:
+    story: >
+      As Marco, I want a compact cross-project status overview with ranked tasks
+      and unresolved items, so that I can see the active landscape without
+      reading the full project database.
+    verified_by_marco: true
+    success_card:
+      shows:
+        - active_projects
+        - task_and_subtask_status
+        - ranked_next_candidates
+        - blocked_items
+        - unassigned_items
+        - review_flags
+      operator_decision:
+        - use_for_planning
+        - reprioritize
+        - assign_unassigned_item
+        - mark_blocked
+        - request_project_record_update
+
+  ai_routing:
+    story: >
+      As Marco, I want AI/tool routing recommendations before execution, so that
+      prompts are matched to the right surface without wasting scarce models or
+      over-optimizing cost at the expense of quality.
+    verified_by_marco: true
+    success_card:
+      shows:
+        - recommended_surface
+        - reason
+        - cost_or_scarcity_signal
+        - quality_or_fit_signal
+        - fallback_surface
+        - usage_tracking_tags
+      operator_decision:
+        - use_recommendation
+        - override_surface
+        - mark_surface_unavailable
+        - request_cheaper_route
+        - request_stronger_route
+
+design_notes:
+  - Learning and status outputs should remain lightweight and operator-reviewable.
+  - Status merge and KB update must expose candidate versus accepted changes.
+  - Routing is advisory unless the operator accepts or overrides it.
