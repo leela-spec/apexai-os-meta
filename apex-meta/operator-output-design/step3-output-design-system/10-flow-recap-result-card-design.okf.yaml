@@ -1,0 +1,205 @@
+document:
+  id: apex-step3-round4-flow-recap-result-card-design
+  title: APEX Step 3 Round 4 FlowRecap Result Card Design
+  status: validated_design_source
+  created_date: 2026-07-10
+  repository: leela-spec/apexai-os-meta
+  branch: main
+  package_path: apex-meta/operator-output-design/step3-output-design-system/
+  covers_output_job: J7_FlowRecap_Result_Card
+  verification:
+    verified_by: Marco
+    decision: keep_with_boundary_tightening
+    verification_date: 2026-07-10
+
+scope:
+  owns:
+    - approved_J7_operator_presentation_design
+    - result_card_and_section_order
+    - operator_actions
+    - degraded_presentation_behavior
+    - minimal_machine_handoff_projection
+  must_not_own:
+    - flow_recap_packet_schema
+    - candidate_project_status_delta_schema
+    - model_usage_delta_schema
+    - usage_summary_schema
+    - accepted_project_state
+    - durable_project_KB_updates
+    - runtime_execution
+    - calendar_writes
+
+J7:
+  output_job: Convert execution into reviewable memory.
+  artifact: FlowRecap_Result_Card
+  primary_question: >
+    What happened in this flow, what evidence supports it, what candidate
+    changes follow, and what must Marco review before anything moves downstream?
+
+result_card:
+  required:
+    - result_state
+    - what_changed
+    - next_action
+    - review_needed
+  conditional:
+    - material_evidence_gap
+    - candidate_state_warning
+    - low_or_material_confidence
+  result_state_examples:
+    - completed
+    - partially_completed
+    - blocked
+    - skipped
+    - abandoned
+    - unknown
+  boundary: >
+    The result card describes the flow result. It must not become a
+    completion-gate or package-validation summary.
+
+essential_sections:
+  - planned_vs_actual
+  - outcome_and_artifacts
+  - decisions
+  - blockers_or_failures
+  - unresolved_questions
+  - candidate_project_status_delta
+  - advisory_usage_evidence_reference
+  - evidence_and_confidence
+  - downstream_handoffs
+  - compact_machine_handoff
+
+section_design:
+  planned_vs_actual:
+    purpose: Compare compact planned intent with evidence-supported actual work and variance.
+    must_not: Repeat the full Flow Execution Card.
+  outcome_and_artifacts:
+    purpose: Separate completed outcomes, incomplete scope, and created or changed artifact references.
+  decisions:
+    purpose: Show made, proposed, deferred, or operator-validation-needed decisions separately.
+  blockers_or_failures:
+    purpose: Show evidence-grounded blockers or failures without blending them into outcomes.
+  unresolved_questions:
+    purpose: Preserve unanswered questions explicitly.
+  candidate_project_status_delta:
+    purpose: Present one concise candidate change or no_state_change.
+  advisory_usage_evidence_reference:
+    purpose: Expose usage evidence and a candidate reference only.
+  evidence_and_confidence:
+    purpose: Separate evidence status, supporting refs, gaps, conflicts, and confidence.
+  downstream_handoffs:
+    purpose: Show candidate destinations and one proposed next step without performing downstream work.
+  compact_machine_handoff:
+    purpose: Carry only the downstream minimum and remain secondary to the human view.
+
+candidate_state_boundary:
+  candidate_project_status_delta_is_not_accepted_state: true
+  operator_review_required_by_default: true
+  approval_in_J7_means: approve_for_downstream_review
+  approval_in_J7_does_not_mean:
+    - durable_status_written
+    - project_KB_updated
+    - status_merge_completed
+  downstream_acceptance_owners:
+    - status-merge
+    - project-kb-manager_when_appropriate
+  required_visible_language:
+    - candidate
+    - proposed
+    - no_state_change_proposed
+    - ready_for_downstream_review
+  forbidden_unaccepted_language:
+    - project_status_updated
+
+usage_candidate_summary:
+  fields:
+    - evidence_found
+    - observed_surface_or_model_when_evidenced
+    - usage_purpose
+    - model_usage_delta_candidate_ref
+    - confidence
+    - handoff_status
+
+J7_usage_exclusions:
+  - calculate_final_route_learning
+  - finalize_model_usage_delta
+  - create_usage_summary
+  - change_AIRouting
+  - claim_unsourced_cost_token_or_quota_data
+  - duplicate_the_full_Usage_Learning_Card
+
+degraded_behavior:
+  partial_evidence:
+    result: partial_or_low_confidence_recap
+    action: identify_unsupported_conclusions
+  conflicting_evidence:
+    result: preserve_conflict
+    action: add_operator_review_flag
+  missing_minimum_evidence:
+    result: blocked_or_unknown
+    action: request_one_exact_missing_evidence_item
+  no_supported_status_change:
+    result: no_state_change
+  no_usage_evidence:
+    result: usage_candidate_absent_or_unknown
+  skipped_flow:
+    result: show_reason_and_handling_without_fabricated_work
+
+operator_actions:
+  - approve_candidate_for_downstream_review
+  - edit_candidate
+  - reject_candidate
+  - defer_pending_evidence
+  - request_more_evidence
+  - send_usage_candidate_to_model_usage_log
+  - no_action
+
+flow_recap_result_handoff:
+  role: secondary_minimum_projection
+  required:
+    - flow_recap_packet_ref
+    - flow_result
+    - evidence_status
+    - candidate_project_status_delta_ref_or_no_state_change
+    - model_usage_delta_candidate_ref_or_none
+    - next_step_proposal_ref
+    - operator_review_flags
+    - confidence
+  contract_references:
+    - .claude/skills/flow-recap/references/flow-recap-packet-contract.md
+    - .claude/skills/flow-recap/references/project-status-delta-contract.md
+  schema_redefinition: false
+
+acceptance_checks:
+  result_card_first: true
+  flow_result_not_completion_gate_result: true
+  planned_vs_actual_visible: true
+  outputs_decisions_blockers_and_questions_separated: true
+  candidate_status_change_visibly_not_accepted: true
+  status_acceptance_owner_preserved: true
+  usage_output_is_candidate_reference_only: true
+  next_step_is_not_next_day_plan: true
+  evidence_and_interpretation_separated: true
+  missing_evidence_degrades_confidence: true
+  compact_machine_handoff_secondary: true
+  no_schema_redefinition: true
+
+locked_design_principles:
+  - result_or_success_card_first
+  - usefulness_within_first_ten_seconds
+  - show_what_changed_or_current_state
+  - show_exact_next_action
+  - show_what_needs_review
+  - human_readable_view_before_machine_detail
+  - cards_short_lists_and_compact_sections
+  - wide_tables_not_primary
+  - progressive_disclosure
+  - one_primary_operator_job_per_artifact
+  - no_silent_durable_state_mutation
+  - candidate_state_visibly_separate_from_accepted_state
+  - explicit_operator_approval_for_durable_changes
+  - provenance_compact_by_default
+  - confidence_visible_only_when_material
+  - minimum_machine_payload
+  - references_instead_of_duplicated_context
+  - existing_skill_contracts_remain_schema_authority
