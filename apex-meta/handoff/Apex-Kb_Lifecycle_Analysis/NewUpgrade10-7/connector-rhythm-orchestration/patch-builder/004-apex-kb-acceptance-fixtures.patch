@@ -1,0 +1,75 @@
+diff --git a/.claude/skills/apex-kb/references/acceptance-tests.md b/.claude/skills/apex-kb/references/acceptance-tests.md
+--- a/.claude/skills/apex-kb/references/acceptance-tests.md
++++ b/.claude/skills/apex-kb/references/acceptance-tests.md
+@@ -252,3 +252,71 @@ Pass criteria:
+ - a claim with no pointer at all produces `claim_pointer_coverage_below_100_percent`; a claim with only a file-level pointer is reported via `pointer_specificity` but does not block on its own;
+ - `--strict` exits nonzero when repair candidates remain;
+ - after repairing candidates, rerun quality, lint, retrieval stale, and the bounded semantic acceptance check.
++
++## Connector checklist and postflight regression fixtures
++
++The runtime registry, connector checklist in `SKILL.md`, and fixture expectations must contain the same eleven reason-code concepts exactly once:
++
++```text
++missing_source_refs
++missing_phase2_value_sections
++placeholder_text
++no_key_claims
++claim_pointer_coverage_below_100_percent
++single_claim_summary
++single_claim_concept_thin
++concept_micro_not_evidenced
++thin_macro_meso_micro
++summary_source_breadth_below_profile
++no_query_routes
++```
++
++Create deterministic pages that isolate every reason code, plus:
++
++- one passing multi-source concept page;
++- one valid concise narrow-entity page with one claim and a section-level pointer;
++- one page proving each claim has a pointer;
++- one page proving all required query routes are present.
++
++Pass criteria:
++
++- every reason code is emitted by at least one fixture and only for its documented trigger;
++- the passing multi-source page has no repair reasons;
++- the concise narrow entity is not rejected solely for brevity;
++- runtime registry, connector checklist, and fixture expectation sets are equal.
++
++Run postflight in these modes:
++
++```powershell
++python apex-meta/scripts/apex_kb.py --kb-root $KB --json postflight
++python apex-meta/scripts/apex_kb.py --kb-root $KB --allow-write --dry-run --json postflight
++python apex-meta/scripts/apex_kb.py --kb-root $KB --allow-write --json postflight
++```
++
++Add isolated fixtures for:
++
++- successful write mode;
++- lint strict failure;
++- quality strict failure;
++- retrieval-build failure;
++- missing retrieval metadata;
++- unreadable retrieval metadata;
++- shared KB-root propagation across every step;
++- output path safety;
++- direct `index`, retrieval `build-index`, `lint --strict`, `quality --strict`, `audit`, `status`, and retrieval `stale` regressions.
++
++Postflight pass criteria:
++
++- schema is exactly `apex.kb.postflight.v1`;
++- stage order is exactly wiki index, retrieval build, lint strict, quality strict, audit, status, retrieval stale;
++- every stage preserves its delegate result under `steps[].result`;
++- audit is nonblocking;
++- lint and quality failure still permit safe diagnostic stages;
++- retrieval stale is skipped after wiki-index or retrieval-build failure;
++- default dry-run and `--allow-write --dry-run` return `status: planned`, `evidence_complete: false`, exit `0`, and write nothing;
++- successful `--allow-write` returns `status: pass`, `evidence_complete: true`, and exit `0` only when all blocking stages pass and retrieval is fresh;
++- blocking failure returns `status: fail` and exit `2`;
++- internal error exits `1`;
++- every delegate receives the same resolved KB root;
++- direct commands retain their pre-postflight behavior;
++- no external dependency, LLM grading, subjective prose judgment, or new universal word threshold is introduced.
