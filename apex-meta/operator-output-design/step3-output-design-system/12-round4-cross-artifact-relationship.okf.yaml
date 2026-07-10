@@ -1,0 +1,117 @@
+document:
+  id: apex-step3-round4-cross-artifact-relationship
+  title: APEX Step 3 Round 4 Cross-Artifact Relationship
+  status: validated_design_source
+  created_date: 2026-07-10
+  repository: leela-spec/apexai-os-meta
+  branch: main
+  package_path: apex-meta/operator-output-design/step3-output-design-system/
+  covers:
+    - J6_to_J7
+    - J7_to_J8
+    - J7_to_J9
+    - J8_to_J12_AIRouting
+    - J8_to_PreCapNextDay
+  verification:
+    verified_by: Marco
+    decision: keep
+    verification_date: 2026-07-10
+
+J6_to_J7:
+  J6_provides:
+    - flow_id
+    - completion_state
+    - planned_work
+    - actual_work
+    - outputs
+    - decisions
+    - blockers
+    - unresolved_questions
+    - evidence_refs
+    - readiness
+    - optional_usage_evidence_refs
+  J7_adds:
+    - recap_interpretation
+    - candidate_project_status_delta
+    - model_usage_delta_candidate
+    - next_step_proposal
+    - operator_review_flags
+  boundary:
+    J6_answers: What evidence exists and how is it organized?
+    J7_answers: What does the evidence mean for the project?
+
+J7_to_J8:
+  required_handoff:
+    - source_flow_recap_ref
+    - model_usage_delta_candidate_ref_or_inline_candidate
+    - actual_usage_evidence
+    - usage_purpose
+    - confidence
+  optional_when_available:
+    - planned_usage_ref
+    - observed_surface_or_model
+    - prompt_ref
+    - routing_ref
+    - sourced_scarcity_note
+  J8_interprets:
+    - planned_vs_actual_comparison
+    - one_allowed_route_signal
+    - outcome_quality_signal
+    - future_routing_hint
+  non_duplication_rule: >
+    J7 exposes usage evidence and candidate capture. J8 owns the lightweight
+    learning conclusion.
+
+J7_to_J9:
+  J7_provides:
+    - candidate_project_status_delta
+    - evidence_refs
+    - confidence
+    - conflicts
+    - operator_review_flags
+  J9_owns:
+    - candidate_change_review
+    - conflict_resolution_presentation
+    - approval_rejection_or_deferral
+    - merge_proposal
+  J7_must_not:
+    - accept_the_change
+    - mutate_project_state
+    - create_updated_all_project_status
+  boundary_note: >
+    This file defines only the handoff boundary and does not design J9 itself.
+
+J8_downstream:
+  to_J12_AIRouting:
+    provides:
+      - route_signal
+      - similar_task_context
+      - outcome_quality
+      - confidence
+      - evidence_ref
+    does_not:
+      - override_routing
+      - change_inventory
+      - change_quota_maps
+  to_PreCapNextDay:
+    provides:
+      - compact_usage_learning_ref
+      - reusable_or_avoid_signal
+      - high_value_only_signal
+      - sourced_scarcity_note_when_available
+    does_not:
+      - create_next_day_plan
+      - select_the_route
+      - require_usage_logging_for_minor_interactions
+
+acceptance_checks:
+  J6_to_J7_defined: true
+  J7_to_J8_defined: true
+  J7_to_J9_defined: true
+  J8_to_AIRouting_defined: true
+  J8_to_PreCapNextDay_defined: true
+  evidence_and_interpretation_separated: true
+  usage_evidence_and_usage_learning_separated: true
+  candidate_and_accepted_state_separated: true
+  no_downstream_owner_replaced: true
+  no_schema_redefinition: true

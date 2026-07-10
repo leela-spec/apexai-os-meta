@@ -1,0 +1,77 @@
+document:
+  id: apex-step3-round4-decision-and-verification-record
+  title: APEX Step 3 Round 4 Decision and Verification Record
+  status: verified_by_operator
+  created_date: 2026-07-10
+  repository: leela-spec/apexai-os-meta
+  branch: main
+  package_path: apex-meta/operator-output-design/step3-output-design-system/
+  record_type: decision_and_verification_record
+
+validation_authority:
+  validated_by: Marco
+  validation_state: accepted
+  verification_date: 2026-07-10
+
+accepted_architecture:
+  J7:
+    artifact: FlowRecap_Result_Card
+    decision: keep_with_boundary_tightening
+    role: recap_interpretation_and_candidate_handoff
+  J8:
+    artifact: Usage_Learning_Card
+    decision: keep
+    role: lightweight_post_execution_usage_learning
+  cross_artifact_relationship:
+    decision: keep
+
+accepted_corrections:
+  - remove_full_J8_interpretation_from_J7
+  - keep_only_usage_evidence_and_candidate_reference_in_J7
+  - never_treat_checked_example_boxes_as_operator_approval
+  - never_label_unauthorized_examples_operator_validated
+  - reduce_machine_handoffs_to_downstream_minimum
+  - preserve_contract_fields_by_reference_instead_of_visual_duplication
+
+unauthorized_material_record:
+  template_commit: 973a137766304c0905d2085635812244ceab0e07
+  example_commit: 443c15b43f960eec6552f34deeae1bdd470a688e
+  treated_as_operator_acceptance: false
+  template_or_example_modified_in_round_4: false
+
+verified_files:
+  - path: 10-flow-recap-result-card-design.okf.yaml
+    role: approved_J7_operator_presentation_design
+  - path: 11-usage-learning-card-design.okf.yaml
+    role: approved_J8_operator_presentation_design
+  - path: 12-round4-cross-artifact-relationship.okf.yaml
+    role: approved_J7_J8_and_downstream_relationships
+  - path: 13-round4-decision-and-verification-record.okf.yaml
+    role: operator_approval_and_completion_record
+
+round_4_completion:
+  J7_design_file_created: true
+  J8_design_file_created: true
+  cross_artifact_file_created: true
+  decision_record_created: true
+  Step_2_user_stories_preserved: true
+  Round_1_to_Round_3_decisions_preserved: true
+  skill_contract_authority_preserved: true
+  candidate_status_boundary_preserved: true
+  usage_learning_boundary_preserved: true
+  allowed_route_signals_preserved: true
+  missing_usage_evidence_behavior_defined: true
+  no_meaningful_learning_case_supported: true
+  unauthorized_material_not_treated_as_approved: true
+  flow_recap_template_modified: false
+  flow_recap_example_modified: false
+  skill_contract_modified: false
+  runtime_created: false
+  script_created: false
+  calendar_write_created: false
+  durable_state_mutated: false
+  round_4_status: complete
+  next_round_ready: true
+
+next_round_boundary:
+  next_round_ready_does_not_authorize_starting_round_5: true
