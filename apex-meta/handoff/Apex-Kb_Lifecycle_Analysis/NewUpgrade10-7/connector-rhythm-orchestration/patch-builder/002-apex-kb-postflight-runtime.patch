@@ -1,9 +1,14 @@
 diff --git a/apex-meta/scripts/apex_kb.py b/apex-meta/scripts/apex_kb.py
 --- a/apex-meta/scripts/apex_kb.py
 +++ b/apex-meta/scripts/apex_kb.py
-@@ -49,6 +49,20 @@ PAGE_TYPE_ALLOWED = {"summary", "concept", "entity", "index", "query_output", "audit_item"}
+@@ -49,8 +49,22 @@ STATUS_ALLOWED = {"draft", "active", "needs_review", "deprecated", "superseded"}
+ PAGE_TYPE_ALLOWED = {"summary", "concept", "entity", "index", "query_output", "audit_item"}
  PHASE2_VALUE_HEADINGS = [
-@@
+     "Adaptive Ranked Source Set",
+     "Macro / Meso / Micro",
+     "Key Claims",
+     "Routes Here",
+     "Uncertainty / Raw Source Reopen Triggers",
  ]
 +QUALITY_REASON_CODES = (
 +    "missing_source_refs",
@@ -19,46 +24,58 @@ diff --git a/apex-meta/scripts/apex_kb.py b/apex-meta/scripts/apex_kb.py
 +    "no_query_routes",
 +)
 +QUALITY_REASON = {code: code for code in QUALITY_REASON_CODES}
-@@ -300,7 +314,7 @@ def normalize_global_flag_placement(argv: Sequence[str]) -> Sequence[str]:
+@@ -301,4 +315,4 @@ def normalize_global_flag_placement(argv: Sequence[str]) -> Sequence[str]:
+         "scaffold", "source-intake", "hash", "generate-source-payload-manifest", "source-payload-manifest",
+         "payload-manifest", "preflight", "phase0", "ingest-phase1", "ingest-phase2", "index", "query",
+         "lint", "lint-repo-execution-router", "lint-historical-path-authority", "audit", "status", "health",
 -        "quality", "coverage", "query-eval", "graph", "process-graph",
 +        "quality", "coverage", "query-eval", "graph", "process-graph", "postflight",
-@@ -1778,31 +1792,31 @@ def _quality_page_metrics(kb_root: Path, page: Path) -> Dict[str, Any]:
+@@ -1777,29 +1791,29 @@ def _quality_page_metrics(kb_root: Path, page: Path) -> Dict[str, Any]:
+     reasons: List[str] = []
+     if page_type in VALUE_PAGE_TYPES:
+         if not refs:
 -            reasons.append("missing_source_refs")
 +            reasons.append(QUALITY_REASON["missing_source_refs"])
-@@
+         if missing_headings:
 -            reasons.append("missing_phase2_value_sections")
 +            reasons.append(QUALITY_REASON["missing_phase2_value_sections"])
-@@
+         if placeholders:
 -            reasons.append("placeholder_text")
 +            reasons.append(QUALITY_REASON["placeholder_text"])
-@@
+         all_layers_thin = all(section_words.get(name, 0) < SECTION_WORD_FLOOR for name in ("Macro", "Meso", "Micro"))
+         if key_claims == 0:
 -            reasons.append("no_key_claims")
 +            reasons.append(QUALITY_REASON["no_key_claims"])
-@@
+         else:
+             if pointer_count < key_claims:
 -                reasons.append("claim_pointer_coverage_below_100_percent")
 +                reasons.append(QUALITY_REASON["claim_pointer_coverage_below_100_percent"])
-@@
+             if page_type == "summary" and key_claims < 2:
 -                reasons.append("single_claim_summary")
 +                reasons.append(QUALITY_REASON["single_claim_summary"])
-@@
+             elif page_type == "concept" and key_claims < 2 and all_layers_thin:
 -                reasons.append("single_claim_concept_thin")
 +                reasons.append(QUALITY_REASON["single_claim_concept_thin"])
-@@
+         specific_pointer_count = pointer_specificity["section_level"] + pointer_specificity["line_or_span_level"]
+         if page_type == "concept" and section_words.get("Micro", 0) < SECTION_WORD_FLOOR and specific_pointer_count == 0:
 -            reasons.append("concept_micro_not_evidenced")
 +            reasons.append(QUALITY_REASON["concept_micro_not_evidenced"])
-@@
+         # Narrow named entities may validly be concise with one claim and one
+         # source (kb-contract.md concise_policy) - only flag entities for a
+         # missing claim outright, never for thin/single-claim synthesis depth.
+         if all_layers_thin and page_type != "entity":
 -            reasons.append("thin_macro_meso_micro")
 +            reasons.append(QUALITY_REASON["thin_macro_meso_micro"])
-@@
+         if page_type == "summary" and ranked_sources < 2:
 -            reasons.append("summary_source_breadth_below_profile")
 +            reasons.append(QUALITY_REASON["summary_source_breadth_below_profile"])
-@@
+         if routes == 0:
 -            reasons.append("no_query_routes")
 +            reasons.append(QUALITY_REASON["no_query_routes"])
-@@ -2195,6 +2209,119 @@ def cmd_health(args: argparse.Namespace) -> Dict[str, Any]:
+@@ -2217,4 +2231,87 @@ def cmd_health(args: argparse.Namespace) -> Dict[str, Any]:
      }
  
-+
+ 
 +POSTFLIGHT_SCHEMA = "apex.kb.postflight.v1"
 +
 +
@@ -86,7 +103,6 @@ diff --git a/apex-meta/scripts/apex_kb.py b/apex-meta/scripts/apex_kb.py
 +    index_failed = index_result.get("status") in {"blocked", "fail", "error"}
 +    blocking_failed = blocking_failed or index_failed
 +
-+    retrieval_build_failed = False
 +    retrieval_module: Any = None
 +    try:
 +        script_dir = Path(__file__).resolve().parent
@@ -144,9 +160,9 @@ diff --git a/apex-meta/scripts/apex_kb.py b/apex-meta/scripts/apex_kb.py
 +        "steps": steps,
 +    }
 +
- 
++
  def build_parser() -> argparse.ArgumentParser:
-@@ -2288,6 +2415,7 @@ def build_parser() -> argparse.ArgumentParser:
+@@ -2290,3 +2387,4 @@ def build_parser() -> argparse.ArgumentParser:
      graph_cmd = sub.add_parser("graph", aliases=["process-graph"], help="Extract process-flow graph")
      graph_cmd.set_defaults(func=cmd_graph)
 +    sub.add_parser("postflight", help="Run the bounded seven-stage deterministic completion aggregate").set_defaults(func=cmd_postflight)
