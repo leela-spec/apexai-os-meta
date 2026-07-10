@@ -1,0 +1,135 @@
+document:
+  id: apex-step3-round5-ai-routing-card-design
+  title: APEX Step 3 Round 5 AI Routing Card Design
+  status: validated_design_source
+  created_date: 2026-07-11
+  repository: leela-spec/apexai-os-meta
+  branch: main
+  package_path: apex-meta/operator-output-design/step3-output-design-system/
+  covers_output_job: J12_AI_Routing_Card
+  verification:
+    verified_by: Marco
+    decision: keep
+    verification_date: 2026-07-11
+
+scope:
+  owns:
+    - approved_J12_operator_presentation_design
+    - advisory_route_recommendation_surface
+    - tradeoff_and_override_visibility
+    - degraded_presentation_behavior
+    - minimal_machine_handoff_projection
+  must_not_own:
+    - routing_decision_schema
+    - prompt_execution
+    - flow_plan_creation
+    - prompt_pack_generation
+    - automatic_routing_rule_mutation
+    - current_cost_quota_or_product_limit_truth
+
+J12:
+  output_job: Recommend tool or model route before execution.
+  artifact: AI_Routing_Card
+  primary_question: >
+    What route is recommended for this task, why, what alternatives exist, and
+    what must the operator approve or override?
+
+first_screen_card:
+  title: AI Routing
+  shows:
+    - task_context
+    - recommended_route
+    - short_rationale
+    - important_constraints
+    - confidence_or_warning
+    - material_alternatives
+    - operator_approval_needed
+    - exact_next_action
+
+essential_sections:
+  - task_context
+  - recommended_route
+  - short_rationale
+  - important_constraints
+  - alternatives_when_material
+  - evidence_and_confidence
+  - operator_override_note
+  - compact_machine_handoff
+
+recommended_route_view:
+  includes:
+    - selected_surface_or_model_class
+    - fallback_route_when_material
+
+alternative_view:
+  show_only_when_material: true
+  per_alternative:
+    - route
+    - main_tradeoff
+
+operator_actions:
+  - approve_route
+  - choose_alternative
+  - override_route
+  - request_clarification
+  - defer
+  - no_route_needed
+
+boundary:
+  may:
+    - recommend_surface_model_or_execution_route
+    - use_J8_learning_as_advisory_evidence
+    - use_J11_project_context
+    - expose_tradeoffs_and_constraints
+  must_not:
+    - execute_route
+    - create_flow_plan
+    - generate_prompt_pack
+    - overwrite_routing_rules_automatically
+    - invent_current_cost_quota_or_product_limits
+
+degraded_behavior:
+  insufficient_task_context:
+    result: clarification_needed
+    action: state_one_missing_routing_input
+  missing_surface_inventory:
+    result: low_confidence_abstract_route
+    action: use_stable_surface_class_only
+  missing_quota_or_cost_evidence:
+    result: route_without_current_resource_claim
+    action: mark_resource_constraint_unknown
+  conflicting_advisory_learning:
+    result: operator_review_needed
+    action: show_conflict_without_automatic_override
+  no_special_route_required:
+    result: no_route_needed
+    action: avoid_creating_unnecessary_routing_work
+
+compact_machine_handoff:
+  role: secondary_minimum_projection
+  required:
+    - routing_recommendation_ref
+    - task_context_ref
+    - recommended_route
+    - selected_surface_or_model
+    - fallback_route
+    - constraints
+    - evidence_refs
+    - confidence
+    - operator_decision
+    - operator_review_flags
+  contract_references:
+    - .claude/skills/ai-routing-and-usage-tracking/references/routing-recommendation-packet-contract.md
+  schema_redefinition: false
+
+acceptance_checks:
+  first_screen_answers_route_reason_alternatives_and_approval: true
+  recommendation_is_advisory_until_operator_decision: true
+  J8_learning_does_not_override_routing: true
+  J11_context_does_not_become_route_decision: true
+  alternatives_appear_only_when_material: true
+  current_cost_quota_and_product_claims_require_evidence: true
+  route_is_not_executed: true
+  plan_and_prompt_owners_are_preserved: true
+  machine_handoff_contains_only_execution_route_minimum: true
+  no_schema_redefinition: true
