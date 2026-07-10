@@ -1,0 +1,10 @@
+*** Begin Patch
+*** Update File: .claude/skills/apex-kb/references/lifecycle-state-machine.md
+@@ # Apex KB Lifecycle State Machine
+ # Apex KB Lifecycle State Machine
+ 
++> DEPRECATED REFERENCE — SKILL.md is the sole operational lifecycle authority. This file is retained for historical/reference purposes only. Executors must not derive independent completion states, transitions, or required procedures from it.
++
+ ```yaml
+ states:
+*** End Patch
