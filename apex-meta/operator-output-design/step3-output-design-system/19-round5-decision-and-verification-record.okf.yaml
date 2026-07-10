@@ -1,0 +1,85 @@
+document:
+  id: apex-step3-round5-decision-and-verification-record
+  title: APEX Step 3 Round 5 Decision and Verification Record
+  status: verified_by_operator
+  created_date: 2026-07-11
+  repository: leela-spec/apexai-os-meta
+  branch: main
+  package_path: apex-meta/operator-output-design/step3-output-design-system/
+  record_type: decision_and_verification_record
+
+validation_authority:
+  validated_by: Marco
+  validation_state: accepted
+  verification_date: 2026-07-11
+  source_review_draft: Round5Draft.md
+
+accepted_architecture:
+  J9:
+    artifact: Status_Merge_Decision_Card
+    decision: keep
+    role: candidate_state_review_and_merge_proposal
+  J10:
+    artifact: Project_KB_Update_Card
+    decision: keep
+    role: accepted_project_memory_update_preparation_and_execution_gate
+  J11:
+    artifact: Project_Status_Overview
+    decision: keep
+    role: compact_cross_project_accepted_status_view
+  J12:
+    artifact: AI_Routing_Card
+    decision: keep
+    role: advisory_pre_execution_route_recommendation
+  cross_artifact_relationships:
+    decision: keep
+
+accepted_boundaries:
+  - candidate_state_is_not_accepted_state
+  - approved_for_merge_is_not_merged
+  - status_merge_does_not_update_project_KB_directly
+  - project_KB_update_requires_accepted_input_and_provenance
+  - project_status_overview_uses_accepted_status_only
+  - missing_project_status_is_not_invented
+  - usage_learning_is_advisory_to_AI_routing
+  - project_overview_context_is_not_a_route_decision
+  - AI_routing_does_not_execute_or_create_J4_or_J5
+  - existing_skill_contracts_remain_schema_authority
+
+verified_files:
+  - path: 14-status-merge-decision-card-design.okf.yaml
+    role: approved_J9_operator_presentation_design
+  - path: 15-project-kb-update-card-design.okf.yaml
+    role: approved_J10_operator_presentation_design
+  - path: 16-project-status-overview-design.okf.yaml
+    role: approved_J11_operator_presentation_design
+  - path: 17-ai-routing-card-design.okf.yaml
+    role: approved_J12_operator_presentation_design
+  - path: 18-round5-cross-artifact-relationships.okf.yaml
+    role: approved_Round5_handoff_relationships
+  - path: 19-round5-decision-and-verification-record.okf.yaml
+    role: operator_approval_and_completion_record
+
+round_5_completion:
+  J9_design_file_created: true
+  J10_design_file_created: true
+  J11_design_file_created: true
+  J12_design_file_created: true
+  cross_artifact_relationship_file_created: true
+  decision_record_created: true
+  Round_1_to_Round_4_decisions_preserved: true
+  skill_contract_authority_preserved: true
+  candidate_status_boundary_preserved: true
+  durable_KB_write_boundary_preserved: true
+  accepted_overview_truth_boundary_preserved: true
+  advisory_routing_boundary_preserved: true
+  no_runtime_created: true
+  no_script_created: true
+  no_calendar_write_created: true
+  no_durable_project_state_mutated: true
+  no_skill_contract_modified: true
+  round_5_status: complete
+  next_round_ready: true
+
+next_round_boundary:
+  next_round_ready_does_not_authorize_starting_round_6: true
