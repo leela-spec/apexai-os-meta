@@ -1,0 +1,186 @@
+document:
+  id: apex-step3-shared-card-and-brief-anatomy
+  title: APEX Step 3 Shared Card and Brief Anatomy
+  status: verified_by_operator
+  created_date: 2026-07-10
+  repository: leela-spec/apexai-os-meta
+  branch: main
+  package_path: apex-meta/operator-output-design/step3-output-design-system/
+  source_step: step2_operator_user_stories
+  verification:
+    verified_by: Marco
+    decision: keep_all
+    verification_date: 2026-07-10
+
+scope:
+  purpose: >
+    Define the reusable operator-facing anatomy shared by the twelve locked APEX
+    output artifacts without redefining their domain schemas.
+  applies_to:
+    - Project_State_Success_Card
+    - Weekly_Command_Brief
+    - Tomorrow_Action_Brief
+    - Flow_Execution_Card
+    - Flow_Prompt_Pack
+    - Raw_Flow_Dump_or_Skip_Marker_Card
+    - FlowRecap_Result_Card
+    - Usage_Learning_Card
+    - Status_Merge_Decision_Card
+    - Project_KB_Update_Card
+    - Project_Status_Overview
+    - AI_Routing_Card
+
+shared_anatomy:
+  layer_1_result_card:
+    position: first
+    required:
+      title:
+        purpose: identify_the_artifact_in_operator_language
+      result_state:
+        purpose: answer_what_changed_or_what_is_ready
+        allowed_examples:
+          - ready
+          - ready_with_review
+          - partial
+          - blocked
+          - skipped
+          - no_change
+          - proposal_only
+      outcome:
+        purpose: summarize_value_created_in_one_to_three_sentences
+      next_action:
+        purpose: state_the_single_best_next_operator_action
+      review_needed:
+        purpose: identify_the_most_important_decision_or_state_none
+    conditional:
+      blocker_or_warning:
+        show_when: it_changes_the_next_action_or_operator_decision
+      confidence:
+        show_when: below_high_or_materially_relevant
+      durable_change_status:
+        show_when: artifact_contains_candidate_or_accepted_state_change
+
+  layer_2_operator_action_block:
+    rule: expose_only_actions_valid_for_the_artifact
+    preferred_action_vocabulary:
+      - approve
+      - execute
+      - use_as_context
+      - edit
+      - reject
+      - defer
+      - clarify
+      - skip
+      - mark_blocked
+      - send_downstream
+      - request_more_evidence
+    artifact_specific_language_required: true
+
+  layer_3_essential_content:
+    rule: >
+      Include only the human-visible fields needed to understand the result,
+      make the decision, or execute the next action.
+    preferred_presentation:
+      - short_labeled_lines
+      - compact_bullets
+      - small_single_purpose_cards
+    conditional_presentation:
+      - narrow_comparison_table
+    avoid:
+      - full_schema_field_listing
+      - wide_multi_column_table
+      - repeated_metadata
+
+  layer_4_risks_gaps_and_review_flags:
+    each_flag_must_state:
+      - issue
+      - why_it_matters
+      - operator_action_needed
+    classifications:
+      - missing_context
+      - stale_context
+      - conflicting_context
+      - low_confidence
+      - blocked
+      - degraded_output
+      - candidate_state_change
+      - source_gap
+
+  layer_5_provenance_and_confidence:
+    default_visibility: compact
+    show:
+      - main_sources_used
+      - freshness_status
+      - confidence
+      - consequential_assumptions
+    hide_by_default:
+      - full_source_inventory
+      - internal_identifiers
+      - irrelevant_timestamps
+      - schema_validation_trace
+
+  layer_6_downstream_handoff:
+    human_line:
+      format: "Ready for: <next skill or operator step>"
+    machine_block:
+      required_when:
+        - downstream_skill_consumes_artifact
+        - structured_state_must_be_preserved
+      must_include:
+        - artifact_type_or_reference
+        - state_classification
+        - confidence_or_review_status_when_relevant
+        - downstream_required_fields_by_reference
+      must_not_include:
+        - copied_full_authoritative_schema
+        - duplicated_full_human_narrative
+
+human_machine_layering:
+  human_layer:
+    role: decision_and_action_interface
+    must_answer:
+      - what_happened_or_is_ready
+      - what_should_the_operator_do_next
+      - what_needs_attention
+    style:
+      - plain_operator_language
+      - compact
+      - action_oriented
+      - visibly_uncertain_when_needed
+
+  machine_layer:
+    role: downstream_handoff_and_state_preservation
+    position: after_human_layer
+    visibility: secondary_or_collapsible
+    content_rule: minimum_sufficient_payload
+    authority_rule: reference_existing_contracts
+    state_rule: preserve_candidate_vs_accepted_status
+    confidence_rule: preserve_freshness_confidence_and_gaps
+
+  validation_layer:
+    role: technical_assurance
+    position: last_or_on_demand
+    show_prominently_only_when:
+      - validation_failure_changes_operator_action
+      - boundary_violation_exists
+      - output_is_blocked
+
+progressive_disclosure_order:
+  1: result_card
+  2: operator_actions
+  3: essential_content
+  4: risks_and_review_flags
+  5: provenance_and_confidence
+  6: downstream_machine_handoff
+  7: technical_validation_when_needed
+
+acceptance_checks:
+  result_card_appears_first: true
+  first_screen_answers_locked_questions: true
+  operator_actions_are_artifact_specific: true
+  candidate_vs_accepted_state_is_visible: true
+  missing_or_conflicting_context_is_visible: true
+  provenance_is_compact_by_default: true
+  machine_payload_is_secondary: true
+  authoritative_domain_schema_is_not_redefined: true
+  wide_tables_are_not_primary: true
