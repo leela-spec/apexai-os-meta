@@ -1,11 +1,46 @@
 {
   "aggregate": {
-    "file_count": 2642,
+    "file_count": 2647,
     "level": 1,
-    "sha256": "0ccb5d5c881153d253f48411d45027a606ee006b6420f5d881f5cf8d8ecdc6eb",
+    "sha256": "0eecb21a458560373b8f41d1d2824db6e4643c9a8ddc28589caa88a4f5d01a29",
     "total_size_bytes": 389803331
   },
   "files": [
+    {
+      "group": "articles",
+      "path": "raw/articles/.gitkeep",
+      "raw_relative_path": "articles/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0
+    },
+    {
+      "group": "notes",
+      "path": "raw/notes/.gitkeep",
+      "raw_relative_path": "notes/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0
+    },
+    {
+      "group": "other",
+      "path": "raw/other/.gitkeep",
+      "raw_relative_path": "other/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0
+    },
+    {
+      "group": "papers",
+      "path": "raw/papers/.gitkeep",
+      "raw_relative_path": "papers/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0
+    },
+    {
+      "group": "refs",
+      "path": "raw/refs/.gitkeep",
+      "raw_relative_path": "refs/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0
+    },
     {
       "group": "source-groups",
       "path": "raw/source-groups/_source-acquisitions/skill-best-practices-official-2026-06-23/README.md",
@@ -18512,6 +18547,61 @@
   "payload_root": "C:/GitDev/apexai-os-meta/apex-meta/kb/claude-code-orchestration-design/raw",
   "schema": "apex.source_payload_manifest.v1",
   "source_groups": [
+    {
+      "file_count": 1,
+      "files": [
+        "raw/articles/.gitkeep"
+      ],
+      "folder": "raw/articles",
+      "group_id": "articles",
+      "level": 2,
+      "sha256": "0d99b16e19df36c642fa1a78e5cc04d00826527b5d7b588433604a007c98ab72",
+      "total_size_bytes": 0
+    },
+    {
+      "file_count": 1,
+      "files": [
+        "raw/notes/.gitkeep"
+      ],
+      "folder": "raw/notes",
+      "group_id": "notes",
+      "level": 2,
+      "sha256": "cbeead825092a4404b3ea9d7fe6acba3fe155510abb11118121da0dbdc77ddb9",
+      "total_size_bytes": 0
+    },
+    {
+      "file_count": 1,
+      "files": [
+        "raw/other/.gitkeep"
+      ],
+      "folder": "raw/other",
+      "group_id": "other",
+      "level": 2,
+      "sha256": "0de6cac452348fcf4f2f0ad97c606160ccd042c2713abb1b1284d04bbab39723",
+      "total_size_bytes": 0
+    },
+    {
+      "file_count": 1,
+      "files": [
+        "raw/papers/.gitkeep"
+      ],
+      "folder": "raw/papers",
+      "group_id": "papers",
+      "level": 2,
+      "sha256": "9665c522afa523a4fe68857c70455ab0b645de1acc57c8285f1fcdf2acc64b29",
+      "total_size_bytes": 0
+    },
+    {
+      "file_count": 1,
+      "files": [
+        "raw/refs/.gitkeep"
+      ],
+      "folder": "raw/refs",
+      "group_id": "refs",
+      "level": 2,
+      "sha256": "4cfdc795b3c0a2e41f13932e2fe6f23e3e7bc4db8bdfbff580fa4c619c60b275",
+      "total_size_bytes": 0
+    },
     {
       "file_count": 2642,
       "files": [

@@ -251,3 +251,10 @@ Pass criteria:
 - `--strict` exits nonzero when repair candidates remain;
 - after repairing candidates, rerun quality, lint, retrieval stale, and the bounded semantic acceptance check.
 
+# Apex KB Acceptance Tests
+
+## Connector checklist and postflight regression fixtures
+
+The runtime registry, connector checklist in `SKILL.md`, and fixture expectations must contain the same eleven reason-code concepts exactly once.
+
+Run postflight in dry-run and write modes and verify the exact schema, seven-stage order, preserved delegate results, dependency skipping, audit nonblocking behavior, and exit codes 0/1/2 for planned/pass, internal error, and blocking failure.

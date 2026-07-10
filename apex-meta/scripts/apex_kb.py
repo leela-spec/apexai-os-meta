@@ -52,6 +52,13 @@ PHASE2_VALUE_HEADINGS = [
     "Routes Here",
     "Uncertainty / Raw Source Reopen Triggers",
 ]
+QUALITY_REASON_CODES = (
+    "missing_source_refs", "missing_phase2_value_sections", "placeholder_text",
+    "no_key_claims", "claim_pointer_coverage_below_100_percent", "single_claim_summary",
+    "single_claim_concept_thin", "concept_micro_not_evidenced", "thin_macro_meso_micro",
+    "summary_source_breadth_below_profile", "no_query_routes",
+)
+QUALITY_REASON = {code: code for code in QUALITY_REASON_CODES}
 TEXT_EXTS = {".md", ".mdx", ".txt", ".yaml", ".yml", ".json", ".csv", ".py", ".toml"}
 HANDOVER_TEXT_EXTS = {".md", ".markdown", ".txt", ".yaml", ".yml"}
 RAW_SUBDIRS = ["raw/articles", "raw/papers", "raw/notes", "raw/refs", "raw/other"]
@@ -299,7 +306,7 @@ def normalize_global_flag_placement(argv: Sequence[str]) -> Sequence[str]:
         "scaffold", "source-intake", "hash", "generate-source-payload-manifest", "source-payload-manifest",
         "payload-manifest", "preflight", "phase0", "ingest-phase1", "ingest-phase2", "index", "query",
         "lint", "lint-repo-execution-router", "lint-historical-path-authority", "audit", "status", "health",
-        "quality", "coverage", "query-eval", "graph", "process-graph",
+        "quality", "coverage", "query-eval", "graph", "process-graph", "postflight",
     }
     value_flags = {"--output-json"}
     bool_flags = {"--json", "--dry-run", "--allow-write", "--strict"}
@@ -2194,6 +2201,157 @@ def cmd_health(args: argparse.Namespace) -> Dict[str, Any]:
 
 
 def build_parser() -> argparse.ArgumentParser:
+    kb_root = resolve_kb_root(args.kb_root)
+    return {
+        "command": "health",
+        "kb_root": str(kb_root),
+        "kb_root_exists": kb_root.exists(),
+        "python_version": sys.version.split()[0],
+        "tools": detect_tools(),
+        "optional_modules": detect_optional_modules(),
+        "sqlite": probe_fts5(),
+    }
+
+
+POSTFLIGHT_SCHEMA = "apex.kb.postflight.v1"
+
+
+def _postflight_args(args: argparse.Namespace, **overrides: Any) -> argparse.Namespace:
+    values = vars(args).copy()
+    values.update(overrides)
+    return argparse.Namespace(**values)
+
+
+def _postflight_step(
+    name: str,
+    blocking: bool,
+    result: Dict[str, Any],
+    *,
+    skipped: bool = False,
+    reason: Optional[str] = None,
+) -> Dict[str, Any]:
+    step: Dict[str, Any] = {
+        "name": name,
+        "blocking": blocking,
+        "skipped": skipped,
+        "result": result,
+    }
+    if reason is not None:
+        step["reason"] = reason
+    return step
+
+
+def _postflight_failed(result: Dict[str, Any]) -> bool:
+    return result.get("status") in {"blocked", "fail", "error", "internal_error"}
+
+
+def _postflight_call(name: str, func: Any, call_args: argparse.Namespace) -> Tuple[Dict[str, Any], bool]:
+    try:
+        result = func(call_args)
+        if not isinstance(result, dict):
+            return {"command": name, "status": "internal_error", "error": "delegate returned non-object result"}, True
+        return result, False
+    except Exception as exc:
+        return {"command": name, "status": "internal_error", "error": str(exc)}, True
+
+
+def _postflight_retrieval_module() -> Any:
+    script_dir = Path(__file__).resolve().parent
+    if str(script_dir) not in sys.path:
+        sys.path.insert(0, str(script_dir))
+    import apex_kb_retrieval  # type: ignore
+
+    return apex_kb_retrieval
+
+
+def cmd_postflight(args: argparse.Namespace) -> Dict[str, Any]:
+    kb_root = resolve_kb_root(args.kb_root)
+    dry_run = effective_dry_run(args)
+    shared = _postflight_args(args, kb_root=str(kb_root))
+    strict_shared = _postflight_args(args, kb_root=str(kb_root), strict=True)
+    steps: List[Dict[str, Any]] = []
+    blocking_failed = False
+    internal_error = False
+
+    index_result, index_internal = _postflight_call("index", cmd_index, shared)
+    steps.append(_postflight_step("wiki_index", True, index_result))
+    index_failed = _postflight_failed(index_result)
+    blocking_failed = blocking_failed or index_failed
+    internal_error = internal_error or index_internal
+
+    retrieval_module: Any = None
+    try:
+        retrieval_module = _postflight_retrieval_module()
+        retrieval_result, retrieval_internal = _postflight_call("build-index", retrieval_module.cmd_build_index, shared)
+    except Exception as exc:
+        retrieval_result = {"command": "build-index", "status": "internal_error", "error": str(exc)}
+        retrieval_internal = True
+    steps.append(_postflight_step("retrieval_build", True, retrieval_result))
+    retrieval_failed = _postflight_failed(retrieval_result)
+    blocking_failed = blocking_failed or retrieval_failed
+    internal_error = internal_error or retrieval_internal
+
+    lint_result, lint_internal = _postflight_call("lint", cmd_lint, strict_shared)
+    steps.append(_postflight_step("lint_strict", True, lint_result))
+    blocking_failed = blocking_failed or _postflight_failed(lint_result)
+    internal_error = internal_error or lint_internal
+
+    quality_result, quality_internal = _postflight_call("quality", cmd_quality, strict_shared)
+    steps.append(_postflight_step("quality_strict", True, quality_result))
+    blocking_failed = blocking_failed or _postflight_failed(quality_result)
+    internal_error = internal_error or quality_internal
+
+    audit_result, audit_internal = _postflight_call("audit", cmd_audit, shared)
+    steps.append(_postflight_step("audit", False, audit_result))
+    internal_error = internal_error or audit_internal
+
+    status_result, status_internal = _postflight_call("status", cmd_status, shared)
+    steps.append(_postflight_step("status", True, status_result))
+    blocking_failed = blocking_failed or _postflight_failed(status_result)
+    internal_error = internal_error or status_internal
+
+    retrieval_fresh = False
+    if index_failed or retrieval_failed or retrieval_module is None:
+        stale_result = {"command": "stale", "status": "skipped"}
+        steps.append(
+            _postflight_step(
+                "retrieval_stale",
+                True,
+                stale_result,
+                skipped=True,
+                reason="dependent wiki index or retrieval build failed",
+            )
+        )
+        blocking_failed = True
+    else:
+        stale_result, stale_internal = _postflight_call("stale", retrieval_module.cmd_stale, shared)
+        steps.append(_postflight_step("retrieval_stale", True, stale_result))
+        retrieval_fresh = stale_result.get("status") == "fresh"
+        blocking_failed = blocking_failed or not retrieval_fresh
+        internal_error = internal_error or stale_internal
+
+    if dry_run:
+        status = "planned"
+        evidence_complete = False
+    elif internal_error:
+        status = "internal_error"
+        evidence_complete = False
+    else:
+        status = "fail" if blocking_failed else "pass"
+        evidence_complete = not blocking_failed and retrieval_fresh
+
+    return {
+        "schema": POSTFLIGHT_SCHEMA,
+        "command": "postflight",
+        "kb_root": str(kb_root),
+        "dry_run": dry_run,
+        "status": status,
+        "evidence_complete": evidence_complete,
+        "steps": steps,
+    }
+
+
+def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description="Apex KB deterministic lifecycle helper")
     parser.add_argument("--kb-root", help="Path to one KB root, e.g. apex-meta/kb/<kb-slug>/")
     parser.add_argument("--json", action="store_true")
@@ -2287,6 +2445,7 @@ def build_parser() -> argparse.ArgumentParser:
     query_eval_cmd.set_defaults(func=cmd_query_eval)
     graph_cmd = sub.add_parser("graph", aliases=["process-graph"], help="Extract process-flow graph")
     graph_cmd.set_defaults(func=cmd_graph)
+    sub.add_parser("postflight", help="Run the bounded seven-stage deterministic completion aggregate").set_defaults(func=cmd_postflight)
     return parser
 
 
@@ -2301,6 +2460,8 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
         maybe_write_output_json(args, result, resolve_kb_root(args.kb_root))
         emit(args, result)
         status = result.get("status") if isinstance(result, dict) else None
+        if status == "internal_error":
+            return 1
         return 2 if status in {"blocked", "fail", "error"} else 0
     except SystemExit:
         raise

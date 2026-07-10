@@ -24,9 +24,9 @@ status: "active"
 
 <!-- BEGIN AUTO-GENERATED INDEX -->
 
-Generated: `2026-07-09T21:53:23Z`
+Generated: `2026-07-10T19:31:53Z`
 
-Compiled page count: `73`
+Compiled page count: `98`
 
 ## Concept Pages
 
@@ -49,6 +49,16 @@ Compiled page count: `73`
 - [Handoff Stop Conditions](concepts/handoff-stop-conditions.md) - `active` / `high`
 - [Hook vs Skill Instruction](concepts/hook-vs-skill-instruction.md) - `active` / `high`
 - [Low-Token Handoff Design](concepts/low-token-handoff-design.md) - `active` / `high`
+- [Current Assistant Semantic Owner](concepts/max-run-20260709/current-assistant-semantic-owner.md) - `new_parallel_compile` / `high`
+- [Deterministic Executor Only Boundary](concepts/max-run-20260709/deterministic-executor-only-boundary.md) - `new_parallel_compile` / `high`
+- [Hook vs Skill Instruction](concepts/max-run-20260709/hook-vs-skill-instruction.md) - `new_parallel_compile` / `high`
+- [Low-Token Handoff Design](concepts/max-run-20260709/low-token-handoff-design.md) - `new_parallel_compile` / `high`
+- [MCP Allowlist and Injection Risk](concepts/max-run-20260709/mcp-allowlist-and-injection-risk.md) - `new_parallel_compile` / `high`
+- [Old Output Comparison Policy](concepts/max-run-20260709/old-output-comparison-policy.md) - `new_parallel_compile` / `high`
+- [Persistent Agent vs Ephemeral Subagent](concepts/max-run-20260709/persistent-agent-vs-ephemeral-subagent.md) - `new_parallel_compile` / `high`
+- [Phase 2 Value Contract](concepts/max-run-20260709/phase2-value-contract.md) - `new_parallel_compile` / `high`
+- [Skill Boundary](concepts/max-run-20260709/skill-boundary.md) - `new_parallel_compile` / `high`
+- [Source-Preserving KB Compile](concepts/max-run-20260709/source-preserving-kb-compile.md) - `new_parallel_compile` / `high`
 - [MCP Allowlist and Injection Risk](concepts/mcp-allowlist-and-injection-risk.md) - `needs_review` / `high`
 - [MCP Config Boundary](concepts/mcp-config-boundary.md) - `active` / `high`
 - [MCP Decision Model](concepts/mcp-decision-model.md) - `active` / `high`
@@ -94,6 +104,13 @@ Compiled page count: `73`
 - [Claude Code Subagents](entities/claude-code-subagents.md) - `active` / `high`
 - [Claude Code Workflows](entities/claude-code-workflows.md) - `active` / `medium`
 - [Claude Code](entities/claude-code.md) - `active` / `high`
+- [Apex KB](entities/max-run-20260709/apex-kb.md) - `new_parallel_compile` / `high`
+- [Claude Code Hooks](entities/max-run-20260709/claude-code-hooks.md) - `new_parallel_compile` / `high`
+- [Claude Code Plugins](entities/max-run-20260709/claude-code-plugins.md) - `new_parallel_compile` / `high`
+- [Claude Code Skills](entities/max-run-20260709/claude-code-skills.md) - `new_parallel_compile` / `high`
+- [Claude Code Subagents](entities/max-run-20260709/claude-code-subagents.md) - `new_parallel_compile` / `high`
+- [Claude Code](entities/max-run-20260709/claude-code.md) - `new_parallel_compile` / `high`
+- [Model Context Protocol](entities/max-run-20260709/mcp.md) - `new_parallel_compile` / `high`
 - [Model Context Protocol](entities/mcp.md) - `active` / `high`
 - [Scheduler](entities/scheduler.md) - `needs_review` / `medium`
 - [SWE-agent](entities/swe-agent.md) - `active` / `medium`
@@ -102,6 +119,14 @@ Compiled page count: `73`
 
 - [Agent Handoff and Contract System](summaries/agent-handoff-and-contract-system.md) - `active` / `high`
 - [Claude Mechanism Decision Model](summaries/claude-mechanism-decision-model.md) - `active` / `high`
+- [Apex KB as Source-Preserving Agent Memory](summaries/max-run-20260709/apex-kb-as-source-preserving-agent-memory.md) - `new_parallel_compile` / `high`
+- [Claude Code Mechanism Decision Model](summaries/max-run-20260709/claude-code-mechanism-decision-model.md) - `new_parallel_compile` / `high`
+- [Deterministic vs LLM Execution Model](summaries/max-run-20260709/deterministic-vs-llm-execution-model.md) - `new_parallel_compile` / `high`
+- [Failure Analysis and Feedback Loop](summaries/max-run-20260709/failure-analysis-and-feedback-loop.md) - `new_parallel_compile` / `high`
+- [Minimal Claude Orchestration Architecture](summaries/max-run-20260709/minimal-claude-orchestration-architecture.md) - `new_parallel_compile` / `high`
+- [Production Agent Readiness and Risk Model](summaries/max-run-20260709/production-agent-readiness-and-risk-model.md) - `new_parallel_compile` / `medium`
+- [Skill, Hook, Plugin, and MCP Boundaries](summaries/max-run-20260709/skill-hook-plugin-mcp-boundaries.md) - `new_parallel_compile` / `high`
+- [Subscription, Seat, Terminal, and Machine Model](summaries/max-run-20260709/subscription-seat-terminal-machine-model.md) - `new_parallel_compile` / `medium`
 - [MCP Configuration and Trust Boundary](summaries/mcp-configuration-and-trust-boundary.md) - `active` / `high`
 - [Minimal Claude Orchestration Architecture](summaries/minimal-claude-orchestration-architecture.md) - `active` / `high`
 - [Production Agent Readiness and Roster Boundary](summaries/production-agent-readiness-and-roster-boundary.md) - `needs_review` / `medium`

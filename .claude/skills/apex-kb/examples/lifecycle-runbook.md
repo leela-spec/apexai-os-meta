@@ -25,8 +25,14 @@ When the output tier includes wiki pages, Phase 1 analysis and Phase 2 wiki comp
 
 ## C. Postflight
 
-Run deterministic index rebuild, retrieval index build/stale check, lint, audit, status, and quality / coverage reporting. Treat stale indexes as derived-state problems, not source truth problems. Missing Phase 2 value-contract sections should be reported before they become hard failures.
+Use `postflight` as the preferred bounded completion interface:
+
+```powershell
+python apex-meta/scripts/apex_kb.py --kb-root $KB --json postflight
+python apex-meta/scripts/apex_kb.py --kb-root $KB --allow-write --json postflight
+```
 
 ## D. Query or maintain
 
 Read `wiki/index.md` first, retrieve only the smallest sufficient evidence set, synthesize from compiled pages, and save query outputs when reusable. Run `lint`, `audit`, `status`, and `health` for maintenance. List repair actions, but do not mutate Apex Plan, Apex Sync, Apex Session, PreCap, FlowRecap, APSU, or personal orchestration artifacts from Apex KB.
+> EXAMPLE ONLY — This runbook illustrates a terminal-backed execution sequence. Follow the execution-surface router in `SKILL.md` first.

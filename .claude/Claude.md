@@ -51,6 +51,7 @@ Never read/edit unless the operator explicitly asks for skill conversion or back
 - source-knowledge/** (large cloned external repos; write is forbidden outright, see constraints)
 
 ## constraints
+- Autonomous override: when Marco explicitly requests a full run without approval gates (e.g. "no manual", "no approval", "run to completion autonomously", "don't ask for permission"), skip per-step and batch-write confirmations for that explicitly requested run. Still halt and report on: missing required source material, an unsafe write condition, or a failed required gate — per the invoked skill's own failure-behavior contract (e.g. `.claude/skills/apex-kb/SKILL.md`).
 - Read only active skill files under .claude/skills/ and the state/artifacts needed for the triggered skill.
 - Never write into source-knowledge/; never load from it unless operator requests skill conversion.
 - Never auto-trigger a skill without operator instruction.

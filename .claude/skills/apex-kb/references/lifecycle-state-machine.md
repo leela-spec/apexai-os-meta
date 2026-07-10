@@ -103,3 +103,4 @@ operator_flow:
   kb_to_apex_sync_registry_rebuild: blocked
   kb_to_apex_session_handoff_write: blocked
 ```
+> DEPRECATED REFERENCE — `SKILL.md` is the sole operational lifecycle authority. This file is retained for historical/reference purposes only.

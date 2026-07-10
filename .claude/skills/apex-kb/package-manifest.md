@@ -29,7 +29,7 @@ package_manifest:
 | `references/script-command-contract.md` | Deterministic script command contract |
 | `references/ingest-query-lint-audit-rules.md` | Operational rules for ingest/query/lint/audit |
 | `references/retrieval-contract.md` | Retrieval, index, stale, and query-output contract |
-| `references/lifecycle-state-machine.md` | Full lifecycle state machine |
+| `references/lifecycle-state-machine.md` | Deprecated historical/reference state model; `SKILL.md` remains operational authority |
 | `references/acceptance-tests.md` | Local command-level tests |
 | `references/knowledge-promotion-rules.md` | Source/candidate/doctrine/runtime promotion gate rules |
 | `references/repo-execution-router-lint-spec.md` | Future deterministic lint spec for repo execution route contracts |
@@ -40,7 +40,7 @@ package_manifest:
 | `templates/kb-schema-template.md` | Starter `kb-schema.md` |
 | `templates/source-manifest-template.json` | Starter source manifest |
 | `examples/powershell-commands.md` | PowerShell local commands |
-| `examples/lifecycle-runbook.md` | Operator lifecycle runbook |
+| `examples/lifecycle-runbook.md` | Example-only terminal-backed lifecycle sequence |
 
 ## Canonical runtime KB paths
 

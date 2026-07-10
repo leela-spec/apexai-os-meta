@@ -1,6 +1,6 @@
 {
   "backend": "sqlite_fts5",
-  "chunk_count": 73,
+  "chunk_count": 298,
   "files": {
     "wiki/concepts/agent-learning-queue-candidate-only.md": {
       "hash": "0581a1a9ab86de3a56d1129053faced3a763bd1043fc10be65b8ca65f1a0917b",
@@ -77,6 +77,46 @@
     "wiki/concepts/low-token-handoff-design.md": {
       "hash": "994566eb2cd2c115d80b3a5c6cab171c22bbea4fb7fc2ff625bcec152ef731af",
       "mtime": 1783076977.1990762
+    },
+    "wiki/concepts/max-run-20260709/current-assistant-semantic-owner.md": {
+      "hash": "c3fee49e1e76205b31e106467ed46d125a09b1373eb25450fe135deb234e3f5c",
+      "mtime": 1783667843.511663
+    },
+    "wiki/concepts/max-run-20260709/deterministic-executor-only-boundary.md": {
+      "hash": "2fb4938e52d20aaa71ed5175eae6ba1dae96dc0c17c830fe0940ac6a1aa38ffd",
+      "mtime": 1783667843.5146532
+    },
+    "wiki/concepts/max-run-20260709/hook-vs-skill-instruction.md": {
+      "hash": "95560cdcbc7608cbb7884e5e411a545bb638b38bdb81a277970da981a80e7a67",
+      "mtime": 1783667843.5419848
+    },
+    "wiki/concepts/max-run-20260709/low-token-handoff-design.md": {
+      "hash": "ad41483582d610c3c43d86d6a61355d4837a4b1eea598b37b2c5f8c30e3da5ff",
+      "mtime": 1783667843.5474846
+    },
+    "wiki/concepts/max-run-20260709/mcp-allowlist-and-injection-risk.md": {
+      "hash": "d0b688e8169c37a76d61cdcb1982bde577050551c71de40f00f77f37035deef6",
+      "mtime": 1783667843.5484889
+    },
+    "wiki/concepts/max-run-20260709/old-output-comparison-policy.md": {
+      "hash": "13e62715b867e594da1de7f2e61464b78cc382426d46484266488a4338f2c802",
+      "mtime": 1783667843.5534768
+    },
+    "wiki/concepts/max-run-20260709/persistent-agent-vs-ephemeral-subagent.md": {
+      "hash": "a8d10b01fd6736f670f79c0edd25cc1506d7d9e0bc8247924e3a25442a8030c6",
+      "mtime": 1783667843.5560129
+    },
+    "wiki/concepts/max-run-20260709/phase2-value-contract.md": {
+      "hash": "31c8a3656f81bf1b5b44efabfe739a092bac8c75398bd88a218acde3deed9dc9",
+      "mtime": 1783667843.558527
+    },
+    "wiki/concepts/max-run-20260709/skill-boundary.md": {
+      "hash": "956acf5fd490b50823158c4d42faa3b3da1d43d6afa9caab7effd3f4920153e0",
+      "mtime": 1783667843.5595238
+    },
+    "wiki/concepts/max-run-20260709/source-preserving-kb-compile.md": {
+      "hash": "35d5dd1dc2eae729b0b2a94db1ffdc496994dfa3ccaaf5717e8efbb988cf6051",
+      "mtime": 1783667843.563514
     },
     "wiki/concepts/mcp-allowlist-and-injection-risk.md": {
       "hash": "3b4cfa7336b9466fd0575c6d6751ede077680e431aabf35305ac47fadb87c77e",
@@ -246,6 +286,34 @@
       "hash": "3bbd10cfeb5ebe86652938b39296062bc11dbdb488abc83ba27ab54d1af0497a",
       "mtime": 1783076977.270854
     },
+    "wiki/entities/max-run-20260709/apex-kb.md": {
+      "hash": "37ca7966b680173d3fe14d963ea77a2e016e2c9ed28ec07c3ea034ad83c26b07",
+      "mtime": 1783667843.5676599
+    },
+    "wiki/entities/max-run-20260709/claude-code-hooks.md": {
+      "hash": "8dd3012511afeb9e3bce184a782c658588d770d6404a5e2e457aec9d454e2da2",
+      "mtime": 1783667843.569663
+    },
+    "wiki/entities/max-run-20260709/claude-code-plugins.md": {
+      "hash": "0ccb23c55edb1363c273506ba499cd55542389466c15ac6f6ff9984aba60993a",
+      "mtime": 1783667843.5716584
+    },
+    "wiki/entities/max-run-20260709/claude-code-skills.md": {
+      "hash": "501a8a64b61525ed0115274b6f8e31b6640c62181d608084bd639c408b3beab2",
+      "mtime": 1783667843.5731611
+    },
+    "wiki/entities/max-run-20260709/claude-code-subagents.md": {
+      "hash": "ba56692a314898d12744541ec917210af7b60ea34be5da21e78f31fd44b4fc59",
+      "mtime": 1783667843.5746698
+    },
+    "wiki/entities/max-run-20260709/claude-code.md": {
+      "hash": "034681ef6fefbfde58b0c05ac44f8340942c27dcaffaaef0845923edd074b27d",
+      "mtime": 1783667843.5766885
+    },
+    "wiki/entities/max-run-20260709/mcp.md": {
+      "hash": "68bba6362705ca52f89370450affddf265bcad933a55aec20bea1de030a0724d",
+      "mtime": 1783667843.578689
+    },
     "wiki/entities/mcp.md": {
       "hash": "3550294e1b571a4326433b57d410ea090ddf6ecc0a943d838ff41502ed6c4892",
       "mtime": 1783076977.270854
@@ -265,6 +333,38 @@
     "wiki/summaries/claude-mechanism-decision-model.md": {
       "hash": "03ece33f8978869c90144bdd6a4eb43d571a09ed40f3deeae8e973eff8dda7f2",
       "mtime": 1783076977.2819707
+    },
+    "wiki/summaries/max-run-20260709/apex-kb-as-source-preserving-agent-memory.md": {
+      "hash": "9904371e56fc9831e64a4841e7126766b3c42f84e7414977c97ad8877e5ea648",
+      "mtime": 1783667843.580683
+    },
+    "wiki/summaries/max-run-20260709/claude-code-mechanism-decision-model.md": {
+      "hash": "7c4306f9f8918844d790921b2da8d0881b6e26012fc4f54ba9f7aaa163d07b42",
+      "mtime": 1783667843.5816803
+    },
+    "wiki/summaries/max-run-20260709/deterministic-vs-llm-execution-model.md": {
+      "hash": "ae2d3eb062038df0f0d33db9ff24cf05fd30931885e665f7b3ddf37ceebddbb8",
+      "mtime": 1783667843.583685
+    },
+    "wiki/summaries/max-run-20260709/failure-analysis-and-feedback-loop.md": {
+      "hash": "12d87550cec23390a251b4d4481602b5244f48abed0a589d1fffd4087c461602",
+      "mtime": 1783667843.5861845
+    },
+    "wiki/summaries/max-run-20260709/minimal-claude-orchestration-architecture.md": {
+      "hash": "2bacdebc3a0631bfbf59b44899204e83ef0f0b6daddf7cede49d7e9dff3bba68",
+      "mtime": 1783667843.5876944
+    },
+    "wiki/summaries/max-run-20260709/production-agent-readiness-and-risk-model.md": {
+      "hash": "ff3825fdc93073043844c0280d5936867edcdbffb6ac3ff2fb7f954cb7c9bc0e",
+      "mtime": 1783667843.5886989
+    },
+    "wiki/summaries/max-run-20260709/skill-hook-plugin-mcp-boundaries.md": {
+      "hash": "d70f8bd69f76f66322b858140e7f5254839383859e13c679fe21aa612cc9ef4e",
+      "mtime": 1783667843.589696
+    },
+    "wiki/summaries/max-run-20260709/subscription-seat-terminal-machine-model.md": {
+      "hash": "fecd16f36b60f313a51c1eec29262179de9be054f0adfbaa922f7264a30a99bc",
+      "mtime": 1783667843.591691
     },
     "wiki/summaries/mcp-configuration-and-trust-boundary.md": {
       "hash": "964ae4aa32d6a04393a39f80fc24956c53e009042ff0ccf842875252c3c11fb4",
@@ -295,9 +395,9 @@
       "mtime": 1783076977.2969363
     }
   },
-  "generated_at": "2026-07-09T21:53:24Z",
+  "generated_at": "2026-07-10T19:31:54Z",
   "kb_slug": "claude-code-orchestration-design",
-  "page_count": 73,
+  "page_count": 98,
   "policy": "derived_rebuildable_not_canonical",
   "schema_version": "1.0"
 }
