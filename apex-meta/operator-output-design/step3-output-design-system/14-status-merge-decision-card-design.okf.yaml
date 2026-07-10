@@ -1,0 +1,124 @@
+document:
+  id: apex-step3-round5-status-merge-decision-card-design
+  title: APEX Step 3 Round 5 Status Merge Decision Card Design
+  status: validated_design_source
+  created_date: 2026-07-11
+  repository: leela-spec/apexai-os-meta
+  branch: main
+  package_path: apex-meta/operator-output-design/step3-output-design-system/
+  covers_output_job: J9_Status_Merge_Decision_Card
+  verification:
+    verified_by: Marco
+    decision: keep
+    verification_date: 2026-07-11
+
+scope:
+  owns:
+    - approved_J9_operator_presentation_design
+    - candidate_change_review_surface
+    - decision_state_visibility
+    - degraded_presentation_behavior
+    - minimal_machine_handoff_projection
+  must_not_own:
+    - candidate_project_status_delta_schema
+    - durable_project_state
+    - project_KB_update_execution
+    - FlowRecap_output_schema
+    - runtime_execution
+
+J9:
+  output_job: Review candidate state changes before durable merge.
+  artifact: Status_Merge_Decision_Card
+  primary_question: >
+    What candidate state change is being reviewed, what evidence supports it,
+    and should it be approved, edited, rejected, deferred, or left unresolved?
+
+first_screen_card:
+  title: Status Merge Decision
+  shows:
+    - candidate_change
+    - current_accepted_state
+    - proposed_difference
+    - evidence_strength
+    - conflicts_or_review_warning
+    - current_decision_state
+    - exact_next_action
+  state_language:
+    - candidate
+    - approved_for_merge
+    - rejected
+    - deferred
+    - unresolved
+    - merged
+  critical_rule: approved_for_merge_is_not_merged
+
+essential_sections:
+  - current_accepted_state_summary
+  - proposed_change_summary
+  - evidence_and_conflicts
+  - confidence_or_review_warning
+  - durable_effect_if_approved
+  - compact_machine_handoff
+
+operator_actions:
+  - approve_for_merge
+  - edit_change
+  - reject_change
+  - defer_change
+  - request_more_evidence
+  - leave_unresolved
+
+boundary:
+  may:
+    - review_candidate_change
+    - resolve_or_expose_conflicts
+    - classify_review_decision
+    - create_merge_proposal
+  must_not:
+    - silently_mutate_state
+    - claim_merge_before_execution
+    - update_project_KB_directly
+    - reproduce_full_FlowRecap
+
+degraded_behavior:
+  missing_previous_state:
+    result: unresolved
+    action: request_or_reference_current_accepted_state
+  weak_evidence:
+    result: candidate_with_review_warning
+    action: lower_confidence_and_block_approval_when_material
+  conflicting_evidence:
+    result: unresolved
+    action: preserve_conflict_and_require_operator_resolution
+  safe_review_but_write_owner_missing:
+    result: approved_for_merge
+    action: retain_proposal_without_claiming_merge
+  merge_execution_unconfirmed:
+    result: approved_for_merge
+    action: do_not_display_merged
+
+compact_machine_handoff:
+  role: secondary_minimum_projection
+  required:
+    - candidate_project_status_delta_ref
+    - previous_state_ref
+    - review_decision
+    - conflict_resolution
+    - merge_proposal_ref
+    - evidence_refs
+    - confidence
+    - operator_review_flags
+  contract_references:
+    - .claude/skills/status-merge/references/status-merge-packet-contract.md
+  schema_redefinition: false
+
+acceptance_checks:
+  first_screen_answers_change_evidence_and_decision: true
+  current_and_candidate_state_are_separate: true
+  conflicts_appear_before_approval: true
+  approved_for_merge_is_not_merged: true
+  merge_proposal_is_not_durable_state: true
+  project_KB_write_owner_is_preserved: true
+  evidence_and_confidence_are_visible_when_material: true
+  machine_handoff_contains_only_merge_minimum: true
+  no_schema_redefinition: true
