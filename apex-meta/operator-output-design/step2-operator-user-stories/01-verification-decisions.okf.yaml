@@ -1,0 +1,93 @@
+document:
+  id: apex-step2-verification-decisions
+  status: verified_by_operator
+  created_date: 2026-07-10
+  owner: Marco
+  role: operator_verification_log
+
+verification_summary:
+  macro_loop: verified
+  value_language: verified
+  planning_side_skills: verified
+  execution_and_recap_skills: verified
+  status_learning_skills: verified
+  final_status: locked_for_step3
+
+rounds:
+  round_1_macro_loop:
+    M1_core_loop:
+      decision: keep
+      verified_by_marco: true
+    M2_project_state_as_step_0:
+      decision: keep
+      verified_by_marco: true
+    M3_claude_skill_only_manual_operator_execution:
+      decision: keep
+      verified_by_marco: true
+
+  round_2_operator_value_language:
+    V1_clarity_momentum_reduced_rereading_no_silent_mutation:
+      decision: keep
+      verified_by_marco: true
+    V2_first_10_seconds_what_changed_what_next_what_needs_review:
+      decision: keep
+      verified_by_marco: true
+    V3_result_success_card_at_top:
+      decision: keep
+      verified_by_marco: true
+    V4_cards_short_lists_compact_summaries_over_wide_tables:
+      decision: keep
+      verified_by_marco: true
+    V5_review_gates_as_operator_decisions:
+      decision: keep
+      verified_by_marco: true
+
+  round_3_planning_side_user_stories:
+    project_state_context:
+      decision: keep
+      verified_by_marco: true
+    precap_week:
+      decision: keep
+      verified_by_marco: true
+    precap_next_day:
+      decision: keep
+      verified_by_marco: true
+
+  round_4_execution_and_recap_user_stories:
+    flow_packet_execution_card:
+      decision: keep
+      verified_by_marco: true
+    flow_prompt_pack:
+      decision: keep
+      verified_by_marco: true
+    raw_flow_dump_normalize:
+      decision: keep
+      verified_by_marco: true
+    flow_recap:
+      decision: keep
+      verified_by_marco: true
+
+  round_5_status_learning_user_stories:
+    model_usage_log:
+      decision: keep
+      verified_by_marco: true
+    status_merge_APSU:
+      decision: keep
+      verified_by_marco: true
+    project_kb_manager:
+      decision: keep
+      verified_by_marco: true
+    project_status_overview:
+      decision: keep
+      verified_by_marco: true
+    ai_routing:
+      decision: keep
+      verified_by_marco: true
+
+lock_rule:
+  meaning: >
+    These decisions are accepted as Step 2 source authority for the next output
+    design step unless Marco explicitly reopens a decision.
+  reopen_instruction: >
+    To reopen, add a new versioned section with the changed decision and reason;
+    do not silently overwrite the verified records above.
