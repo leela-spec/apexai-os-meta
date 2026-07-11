@@ -1,75 +1,79 @@
 {
   "backend": "sqlite_fts5",
-  "chunk_count": 164,
+  "chunk_count": 180,
   "files": {
     "wiki/audit/high-impact-conflict-register.md": {
-      "hash": "4bed12a8154f77e58a2a547810dcc42b54bf12f4235986029ee6197f43033835",
-      "mtime": 1783721014.2419827
+      "hash": "74210e2debaa411fa0466b6c545e6db0e8651bc90d05777c8845a246160c5a3a",
+      "mtime": 1783759222.612477
     },
     "wiki/concepts/macro-meso-micro-synthesis-loop.md": {
-      "hash": "647679e8986d771c1afcd4506d6f0f52402bcb874f4cb50020e8c1e804c7fd01",
-      "mtime": 1783721240.7087078
+      "hash": "460a533fb3afdb7adbd370f5bce4ac4708d69a88f5092c50e23ae7a3605973ce",
+      "mtime": 1783759222.614483
     },
     "wiki/concepts/source-authority-routing.md": {
-      "hash": "a6436459920bf1235b136ff07b7204cce4191bc5674a191635bf9c8e6c0e6e22",
-      "mtime": 1783721240.7087078
+      "hash": "c8915de9fdac33788dff7efa79cabc43cd303f5c43fc63cdc1818ec5c376b9aa",
+      "mtime": 1783759222.6164904
     },
     "wiki/entities/alfred.md": {
-      "hash": "bbd7f78b5eff6e7617ea441a3beec639c988994f99e8a4cb9b58323bd90e5ad7",
-      "mtime": 1783721145.6848247
+      "hash": "4a22c2b29e099057181e6b390942c5ac4fef8b47c0c77baa6cc4341c029f15a1",
+      "mtime": 1783759222.6205037
     },
     "wiki/entities/first-wave-agent-roster.md": {
-      "hash": "efbc7186de010f86880d6423ca60527b3d1c8c085a6bf7817dcddb053fdfd382",
-      "mtime": 1783721014.2358305
+      "hash": "5cbe1a67de62b5147c975dfac18273d1a4ce50da799ab4053ccb2af934d634c3",
+      "mtime": 1783759222.6205037
     },
     "wiki/entities/meta-detective.md": {
-      "hash": "9c345fd45fc2862cd507cba5f9e3ac6183bb150d97f1a09df120568fdfd345ca",
-      "mtime": 1783721145.6896214
+      "hash": "98a7ec366ef5283f27f0a6025b54b8e0177c0d21ce149b7c7f121e586b04eeac",
+      "mtime": 1783759222.624259
     },
     "wiki/entities/meta-ops.md": {
-      "hash": "3d19f74c3f2ab5cc248ca3cf9939deedfb9ce0866fe0a635aa5d2a951a59cf22",
-      "mtime": 1783721145.6859174
+      "hash": "e434a09f45858bf29c16f419adda11d8da172b839e580cc7eaf49ac1b6ef5372",
+      "mtime": 1783769870.988787
     },
     "wiki/entities/meta-strategy.md": {
-      "hash": "7bd7849431a09e566493b7adfa69f4dd6ca3a284fa4f65408e5e6402ef7bfcab",
-      "mtime": 1783721145.6873233
+      "hash": "8f70fb9a2fb9988b8f86e81020809adcaab9b3584ad3c5e5b21e84700c556e2b",
+      "mtime": 1783759222.6275682
     },
     "wiki/entities/special-ops-ai-handling-routing.md": {
-      "hash": "61d326ad2f619c3acd40b2fdbeb9286c2596751a752514504e769e478df56108",
-      "mtime": 1783721145.6938908
+      "hash": "bf39eb3cef22b411801407c76b6ae226d488bc673f33a73ea1c3d42cc04ab2c5",
+      "mtime": 1783759222.629575
     },
     "wiki/entities/special-ops-hygiene-clean.md": {
-      "hash": "003992e7f8f4b951bc0240221acb90efa3ec9795d4fd00dce26f412fb53671f5",
-      "mtime": 1783721145.6948888
+      "hash": "e6482d8a2af1f98a5954920e30f0ac7349234d54a8d63c6f8456bef3f7c801b9",
+      "mtime": 1783759222.629575
     },
     "wiki/entities/special-ops-informatics-design.md": {
-      "hash": "f8f09c89793cd258b5e30625e33149fc4f64f0d797bc6168f72e03be5921ca6e",
-      "mtime": 1783721145.6918905
+      "hash": "fda0a9f0dab9530ebd2fe08d3744bc3bda4ea68e6eecdd9791ac20ae57c69409",
+      "mtime": 1783759222.6315818
     },
     "wiki/entities/special-ops-knowledge-bank.md": {
-      "hash": "d129d7ae53aae58058d9a91ae3658447d74e5e105ef986134ea8f86032f6b325",
-      "mtime": 1783721145.6906042
+      "hash": "dd1ad195d71994a65c2c42559c35a921f26d4269a40d6bf96f5af033028001bf",
+      "mtime": 1783759222.6335878
     },
     "wiki/entities/special-ops-prompts-workflows.md": {
-      "hash": "e87ea7117c8bf3585a8770fd53c6e875861e5761ff1f5da8c927cdb7f0a07f64",
-      "mtime": 1783721145.692894
+      "hash": "efb66923bd1bd640764405ebad8ae92f991187eae682f3acca05914a3a509e4f",
+      "mtime": 1783759222.635594
     },
     "wiki/summaries/agent-architecture.md": {
-      "hash": "a4a039842a0ad63ce061b485cec8fa9474fc72dcee46693902c805305e4dfbb3",
-      "mtime": 1783720933.0403085
+      "hash": "23337e9821706e6f33b3a7f0c8e82fb6771c1ac5907e9061214e77063edd74f0",
+      "mtime": 1783759222.6420221
+    },
+    "wiki/summaries/claude-orchestration-implementation-brief.md": {
+      "hash": "37ccdb936c962d61369391aaea050670d81b07ccac35d8cb894f09db6ab45fa1",
+      "mtime": 1783769851.7576206
     },
     "wiki/summaries/failure-patterns-and-conflicts.md": {
-      "hash": "19a093a1c8ee2927787043ea9e3517018ff16018e2a28b36ed603ebd9023ba30",
-      "mtime": 1783720981.8232882
+      "hash": "1672fb951b5ce9afc92e398f4c04ddc41d6d804e10540aaf98124fcd30ceeb50",
+      "mtime": 1783759222.6436732
     },
     "wiki/summaries/resilient-iterative-orchestration.md": {
-      "hash": "54a1a2610aedebdb115081a1abe4b3daedfff784da0212223376f974bb13c019",
-      "mtime": 1783720981.8212936
+      "hash": "9922f87b52b50c2d1ab122f83845e9e5f6ccc4b65ffe693ee9c0c75f5fcdcb04",
+      "mtime": 1783759222.647688
     }
   },
-  "generated_at": "2026-07-10T22:09:03Z",
+  "generated_at": "2026-07-11T11:42:04Z",
   "kb_slug": "old-apex-full-orchestration-agent-kb-v2",
-  "page_count": 16,
+  "page_count": 17,
   "policy": "derived_rebuildable_not_canonical",
   "schema_version": "1.0"
 }

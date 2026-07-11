@@ -1,91 +1,49 @@
 {
   "unnamed": {
     "keywords": [
-      "failure",
-      "mistake",
-      "audit",
-      "log",
-      "research",
-      "drift",
-      "recovery",
-      "validation"
+      "hermes",
+      "skills",
+      "delegation",
+      "provider",
+      "runtime",
+      "blueprint"
     ],
     "name": null,
     "ranked_sources": [
       {
-        "hit_count": 362,
-        "path": "raw/other/managed/agent_kb/meta_detective/appendices/Failures/FAILURE_AND_ANTI_DRIFT_LEDGER.md",
+        "hit_count": 425,
+        "path": "raw/other/docs/HermesResearch/hermes-docs/integrations/providers.md",
         "sample": {
           "line": 1,
-          "snippet": "# Failure And Anti-Drift Ledger"
+          "snippet": "Title: AI Providers | Hermes Agent"
         }
       },
       {
-        "hit_count": 237,
-        "path": "raw/other/managed/agent_kb/special_ops__prompts_workflows/appendices/APPENDIX_KB_REGRESSION_EXAMPLES_AGENT_DRIFT.md",
-        "sample": {
-          "line": 3,
-          "snippet": "role: REGRESSION_EXAMPLES_AGENT_DRIFT"
-        }
-      },
-      {
-        "hit_count": 190,
-        "path": "raw/other/managed/agent_kb/special_ops__prompts_workflows/appendices/APPENDIX_KB_CONSTANT_FAILURE_SOURCE_NOTES.md",
-        "sample": {
-          "line": 3,
-          "snippet": "role: CONSTANT_FAILURE_SOURCE_NOTES"
-        }
-      },
-      {
-        "hit_count": 179,
-        "path": "raw/other/managed/agent_kb/meta_detective/appendices/Research4AgenticOrchestration/Prep4DR_Prompt_Gem.md",
-        "sample": {
-          "line": 5,
-          "snippet": "You want **a Gemini Deep Research / Deep Research Max prompt**, not the final research output yet."
-        }
-      },
-      {
-        "hit_count": 175,
-        "path": "raw/other/managed/agent_kb/meta_detective/appendices/Research4AgenticOrchestration/Studies/Why Do Multi-Agent LLM Systems Fail.md",
-        "sample": {
-          "line": 10,
-          "snippet": "Despite enthusiasm for Multi-Agent LLM Systems (MAS), their performance gains on popular benchmarks are often minimal. This gap highlights a critical need for a principled understanding of why MAS fail. Addressing this q"
-        }
-      },
-      {
-        "hit_count": 170,
-        "path": "raw/other/managed/agent_kb/special_ops__prompts_workflows/appendices/APPENDIX_KB_RUNTIME_TEMPLATE_CATALOG.md",
-        "sample": {
-          "line": 3,
-          "snippet": "role: RUNTIME_TEMPLATE_CATALOG"
-        }
-      },
-      {
-        "hit_count": 150,
+        "hit_count": 378,
         "path": "raw/other/docs/HermesResearch/hermes-docs/reference/cli-commands.md",
         "sample": {
-          "line": 3,
-          "snippet": "URL Source: https://hermes-agent.nousresearch.com/docs/reference/cli-commands"
+          "line": 1,
+          "snippet": "Title: CLI Commands Reference | Hermes Agent"
         }
       },
       {
-        "hit_count": 135,
+        "hit_count": 322,
         "path": "raw/other/docs/HermesResearch/hermes-docs/user-guide/configuration.md",
         "sample": {
-          "line": 3,
-          "snippet": "URL Source: https://hermes-agent.nousresearch.com/docs/user-guide/configuration"
+          "line": 1,
+          "snippet": "Title: Configuration | Hermes Agent"
         }
       },
       {
-        "hit_count": 135,
-        "path": "raw/other/managed/agent_kb/special_ops__prompts_workflows/appendices/KBAudit/DR_GEM_ AgtnticAIFailure&ExtractionLEdger.md",
+        "hit_count": 280,
+        "path": "raw/other/docs/HermesResearch/hermes-docs/user-guide/features/skills.md",
         "sample": {
           "line": 1,
-          "snippet": "ranked_failure_modes:"
+          "snippet": "Title: Skills System | Hermes Agent"
         }
       },
       {
-        "hit_count": 134,
+        "hit_count": 224,
         "path": "raw/other/docs/HermesResearch/hermes-docs/reference/skills-catalog.md",
         "sample": {
           "line": 1,
@@ -93,7 +51,7 @@
         }
       },
       {
-        "hit_count": 133,
+        "hit_count": 222,
         "path": "raw/other/docs/HermesResearch/hermes-docs/reference/optional-skills-catalog.md",
         "sample": {
           "line": 1,
@@ -101,155 +59,195 @@
         }
       },
       {
-        "hit_count": 129,
-        "path": "raw/other/docs/HermesResearch/hermes-docs/user-guide/features/hooks.md",
+        "hit_count": 216,
+        "path": "raw/other/docs/HermesResearch/hermes-docs/reference/faq.md",
         "sample": {
-          "line": 3,
-          "snippet": "URL Source: https://hermes-agent.nousresearch.com/docs/user-guide/features/hooks"
+          "line": 1,
+          "snippet": "Title: FAQ & Troubleshooting | Hermes Agent"
         }
       },
       {
-        "hit_count": 125,
-        "path": "raw/other/managed/agent_kb/special_ops__prompts_workflows/PROMPTFLOW_CONSTANT_FRAME_CONTROLLED_KB_INTEGRATION.md",
+        "hit_count": 198,
+        "path": "raw/other/docs/HermesResearch/hermes-docs/reference/environment-variables.md",
         "sample": {
-          "line": 16,
-          "snippet": "source_root: OpenClaw/07_finalopenclawsystem/managed/agent_kb/special_ops__prompts_workflows/NewResearchBecauseOfConstantFailure/"
+          "line": 1,
+          "snippet": "Title: Environment Variables | Hermes Agent"
         }
       },
       {
-        "hit_count": 125,
-        "path": "raw/other/managed/agent_kb/special_ops__prompts_workflows/appendices/NewResearchBecauseOfConstantFailure/Recap&ProcessImprovs/PROMPTFLOW_CONSTANT_FRAME_CONTROLLED_KB_INTEGRATION.md",
+        "hit_count": 190,
+        "path": "raw/other/docs/HermesResearch/hermes-docs/getting-started/nix-setup.md",
         "sample": {
-          "line": 16,
-          "snippet": "source_root: OpenClaw/07_finalopenclawsystem/managed/agent_kb/special_ops__prompts_workflows/NewResearchBecauseOfConstantFailure/"
+          "line": 1,
+          "snippet": "Title: Nix & NixOS Setup | Hermes Agent"
         }
       },
       {
-        "hit_count": 123,
-        "path": "raw/other/managed/agent_kb/meta_detective/appendices/architectural_failures/AGENTIC_ORCHESTRATION_RESEARCH_INTAKE_INDEX.md",
-        "sample": {
-          "line": 3,
-          "snippet": "role: META_DETECTIVE_ARCHITECTURAL_FAILURE_RESEARCH_INTAKE"
-        }
-      },
-      {
-        "hit_count": 119,
-        "path": "raw/other/managed/agent_kb/special_ops__prompts_workflows/appendices/APPENDIX_KB_EXTERNAL_CLAIM_VERIFICATION.md",
-        "sample": {
-          "line": 7,
-          "snippet": "purpose: create a future-research verification ledger for external model and platform behavior claims"
-        }
-      },
-      {
-        "hit_count": 115,
+        "hit_count": 176,
         "path": "raw/other/docs/HermesResearch/hermes-docs/user-guide/messaging/telegram.md",
         "sample": {
-          "line": 3,
-          "snippet": "URL Source: https://hermes-agent.nousresearch.com/docs/user-guide/messaging/telegram"
+          "line": 1,
+          "snippet": "Title: Telegram | Hermes Agent"
+        }
+      },
+      {
+        "hit_count": 168,
+        "path": "raw/other/docs/HermesResearch/hermes-docs/guides/build-a-hermes-plugin.md",
+        "sample": {
+          "line": 1,
+          "snippet": "Title: Build a Hermes Plugin | Hermes Agent"
+        }
+      },
+      {
+        "hit_count": 166,
+        "path": "raw/other/docs/HermesResearch/hermes-docs/user-guide/docker.md",
+        "sample": {
+          "line": 1,
+          "snippet": "Title: Docker | Hermes Agent"
+        }
+      },
+      {
+        "hit_count": 154,
+        "path": "raw/other/docs/HermesResearch/hermes-docs/user-guide/features/tts.md",
+        "sample": {
+          "line": 1,
+          "snippet": "Title: Voice & TTS | Hermes Agent"
+        }
+      },
+      {
+        "hit_count": 142,
+        "path": "raw/other/docs/HermesResearch/hermes-docs/user-guide/features/kanban.md",
+        "sample": {
+          "line": 1,
+          "snippet": "Title: Kanban (Multi-Agent Board) | Hermes Agent"
+        }
+      },
+      {
+        "hit_count": 140,
+        "path": "raw/other/docs/HermesResearch/hermes-docs/user-guide/features/fallback-providers.md",
+        "sample": {
+          "line": 1,
+          "snippet": "Title: Fallback Providers | Hermes Agent"
+        }
+      },
+      {
+        "hit_count": 140,
+        "path": "raw/other/docs/HermesResearch/hermes-docs/user-guide/features/mcp.md",
+        "sample": {
+          "line": 1,
+          "snippet": "Title: MCP (Model Context Protocol) | Hermes Agent"
+        }
+      },
+      {
+        "hit_count": 137,
+        "path": "raw/other/docs/HermesResearch/hermes-docs/user-guide/features/hooks.md",
+        "sample": {
+          "line": 1,
+          "snippet": "Title: Event Hooks | Hermes Agent"
+        }
+      },
+      {
+        "hit_count": 133,
+        "path": "raw/other/managed/agent_kb/special_ops__ai_handling_routing/appendices/NewAppendices/APPENDIX_KB_SOURCE_NOTES.md",
+        "sample": {
+          "line": 23,
+          "snippet": "|Source limits|What each source cannot decide|Runtime behavior or provider policy|"
+        }
+      },
+      {
+        "hit_count": 124,
+        "path": "raw/other/docs/HermesResearch/hermes-docs/getting-started/quickstart.md",
+        "sample": {
+          "line": 1,
+          "snippet": "Title: Quickstart | Hermes Agent"
+        }
+      },
+      {
+        "hit_count": 122,
+        "path": "raw/other/docs/HermesResearch/hermes-docs/INDEX.txt",
+        "sample": {
+          "line": 1,
+          "snippet": "# Hermes Agent"
+        }
+      },
+      {
+        "hit_count": 122,
+        "path": "raw/other/docs/HermesResearch/hermes-docs/user-guide/messaging/discord.md",
+        "sample": {
+          "line": 1,
+          "snippet": "Title: Discord | Hermes Agent"
+        }
+      },
+      {
+        "hit_count": 121,
+        "path": "raw/other/docs/HermesResearch/hermes-docs/user-guide/features/plugins.md",
+        "sample": {
+          "line": 1,
+          "snippet": "Title: Plugins | Hermes Agent"
+        }
+      },
+      {
+        "hit_count": 117,
+        "path": "raw/other/docs/HermesResearch/hermes-docs/user-guide/features/memory-providers.md",
+        "sample": {
+          "line": 1,
+          "snippet": "Title: Memory Providers | Hermes Agent"
+        }
+      },
+      {
+        "hit_count": 116,
+        "path": "raw/other/docs/HermesResearch/hermes-docs/user-guide/features/browser.md",
+        "sample": {
+          "line": 1,
+          "snippet": "Title: Browser Automation | Hermes Agent"
+        }
+      },
+      {
+        "hit_count": 113,
+        "path": "raw/other/docs/HermesResearch/hermes-docs/user-guide/features/cron.md",
+        "sample": {
+          "line": 1,
+          "snippet": "Title: Scheduled Tasks (Cron) | Hermes Agent"
         }
       },
       {
         "hit_count": 109,
-        "path": "raw/other/managed/agent_kb/special_ops__prompts_workflows/appendices/NewResearchBecauseOfConstantFailure/Recap&ProcessImprovs/ClaudeChatHistory4PromptflowsNodrift.md",
+        "path": "raw/other/docs/HermesResearch/hermes-docs/user-guide/messaging/matrix.md",
         "sample": {
           "line": 1,
-          "snippet": "You can get robust, low-drift patching from a browser‑based GPT 5.5 + GitHub connector by moving away from unified diffs and standard “contents” writes, and instead combining search/replace edit blocks with Git’s tree/co"
+          "snippet": "Title: Matrix | Hermes Agent"
         }
       },
       {
-        "hit_count": 106,
-        "path": "raw/other/docs/HermesResearch/hermes-docs/INDEX.txt",
+        "hit_count": 104,
+        "path": "raw/other/docs/HermesResearch/hermes-docs/user-guide/security.md",
         "sample": {
-          "line": 3,
-          "snippet": "> The self-improving AI agent built by Nous Research. A terminal-native autonomous coding and task agent with persistent memory, agent-created skills, and a messaging gateway that lives on 21+ messaging platforms — 19 na"
+          "line": 1,
+          "snippet": "Title: Security | Hermes Agent"
         }
       },
       {
-        "hit_count": 105,
-        "path": "raw/other/docs/HermesResearch/hermes-docs/user-guide/docker.md",
+        "hit_count": 100,
+        "path": "raw/other/docs/HermesResearch/hermes-docs/getting-started/learning-path.md",
         "sample": {
-          "line": 3,
-          "snippet": "URL Source: https://hermes-agent.nousresearch.com/docs/user-guide/docker"
+          "line": 1,
+          "snippet": "Title: Learning Path | Hermes Agent"
         }
       },
       {
-        "hit_count": 103,
-        "path": "raw/other/managed/agent_kb/meta_detective/appendices/Research4AgenticOrchestration/Studies/EAGER Efficient Failure Management for Multi-Agent Systems with Reasoning Trace Representation.md",
+        "hit_count": 100,
+        "path": "raw/other/docs/HermesResearch/hermes-docs/guides/work-with-skills.md",
         "sample": {
-          "line": 3,
-          "snippet": "Large Language Models (LLM)-based Multi-Agent Systems (MASs) have emerged as a new paradigm in software system design, increasingly demonstrating strong reasoning and collaboration capabilities. As these systems become m"
-        }
-      },
-      {
-        "hit_count": 102,
-        "path": "raw/other/docs/HermesResearch/hermes-docs/guides/build-a-hermes-plugin.md",
-        "sample": {
-          "line": 3,
-          "snippet": "URL Source: https://hermes-agent.nousresearch.com/docs/guides/build-a-hermes-plugin"
-        }
-      },
-      {
-        "hit_count": 102,
-        "path": "raw/other/docs/HermesResearch/hermes-docs/user-guide/features/kanban.md",
-        "sample": {
-          "line": 3,
-          "snippet": "URL Source: https://hermes-agent.nousresearch.com/docs/user-guide/features/kanban"
-        }
-      },
-      {
-        "hit_count": 99,
-        "path": "raw/other/docs/HermesResearch/hermes-docs/integrations/providers.md",
-        "sample": {
-          "line": 3,
-          "snippet": "URL Source: https://hermes-agent.nousresearch.com/docs/integrations/providers"
+          "line": 1,
+          "snippet": "Title: Working with Skills | Hermes Agent"
         }
       },
       {
         "hit_count": 97,
-        "path": "raw/other/docs/HermesResearch/hermes-docs/reference/faq.md",
+        "path": "raw/other/docs/HermesResearch/hermes-docs/guides/use-voice-mode-with-hermes.md",
         "sample": {
-          "line": 3,
-          "snippet": "URL Source: https://hermes-agent.nousresearch.com/docs/reference/faq"
-        }
-      },
-      {
-        "hit_count": 97,
-        "path": "raw/other/managed/agent_kb/special_ops__ai_handling_routing/appendices/NewAppendices/APPENDIX_KB_QA_AND_NEXT_RESEARCH_PLAN.md",
-        "sample": {
-          "line": 2,
-          "snippet": "role: AUDIT"
-        }
-      },
-      {
-        "hit_count": 95,
-        "path": "raw/other/managed/agent_kb/special_ops__prompts_workflows/appendices/rewrite_candidates/REWRITE-02_MISTAKES.v2.md",
-        "sample": {
-          "line": 2,
-          "snippet": "class: special_ops_prompts_workflows_mistakes"
-        }
-      },
-      {
-        "hit_count": 90,
-        "path": "raw/other/managed/agent_kb/special_ops__ai_handling_routing/appendices/NewAppendices/APPENDIX_KB_SOURCE_NOTES.md",
-        "sample": {
-          "line": 38,
-          "snippet": "|`SN-BND-006`|Candidate evidence remains candidate evidence.|Use candidate sources only with explicit caveat.|Treat `LEARNING_QUEUE.md`, candidate ledgers, or research-result files as settled routing doctrine.|accepted|"
-        }
-      },
-      {
-        "hit_count": 84,
-        "path": "raw/other/docs/HermesResearch/hermes-docs/user-guide/features/mcp.md",
-        "sample": {
-          "line": 3,
-          "snippet": "URL Source: https://hermes-agent.nousresearch.com/docs/user-guide/features/mcp"
-        }
-      },
-      {
-        "hit_count": 83,
-        "path": "raw/other/managed/agent_kb/special_ops__prompts_workflows/appendices/APPENDIX_KB_EXECUTION_CONTROL_CONTRACTS.md",
-        "sample": {
-          "line": 14,
-          "snippet": "source_root: OpenClaw/07_finalopenclawsystem/managed/agent_kb/special_ops__prompts_workflows/NewResearchBecauseOfConstantFailure/"
+          "line": 1,
+          "snippet": "Title: Use Voice Mode with Hermes | Hermes Agent"
         }
       }
     ]
