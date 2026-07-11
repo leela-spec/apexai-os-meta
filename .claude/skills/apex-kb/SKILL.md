@@ -161,6 +161,7 @@ Read supporting files only when needed:
 | Retrieval engine rules | `references/retrieval-contract.md` |
 | State transitions and gates | `references/lifecycle-state-machine.md` |
 | Acceptance checks | `references/acceptance-tests.md` |
+| Known failure modes and pre-run checks | `references/known-failure-modes.md` |
 | Phase 1 analysis shape | `templates/ingest-analysis-template.md` |
 | Phase 2 wiki page shape | `templates/wiki-page-templates.md` |
 | Query packet shape | `templates/query-output-template.md` |
