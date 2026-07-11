@@ -138,17 +138,16 @@ package_manifest:
     downstream_flow_recap_input_is_clear: true
 ```
 
-
 ## Promoted Operator Templates
 
 ```yaml
 operator_templates:
   - artifact_id: J6
     path: .claude/skills/raw-flow-dump-normalize/templates/execution-evidence-handoff-template.md
-    purpose: Retained Step 4 operator template
+    purpose: Operator-facing presentation template
     read_when: operator_requests_template
   - artifact_id: J6a
     path: .claude/skills/raw-flow-dump-normalize/templates/skip-marker-template.md
-    purpose: Retained Step 4 operator template
+    purpose: Operator-facing presentation template
     read_when: operator_requests_template
 ```

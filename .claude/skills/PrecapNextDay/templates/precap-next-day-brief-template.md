@@ -111,4 +111,4 @@ template_authority:
     - ".claude/skills/PrecapNextDay/references/flow-packet-contract.md"
 ```
 
-Example: [J03 PreCap Next Day Brief](../examples/master-of-arts-example-fragments.md#j03-precap-next-day-brief)
+Example: [J03 PreCap Next Day Brief](../../../../apex-meta/operator-output-design/step4-operator-template-system/examples/master-of-arts-example-fragments.md)

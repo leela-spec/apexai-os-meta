@@ -102,4 +102,4 @@ template_authority:
     - ".claude/skills/model-usage-log/references/usage-summary-contract.md"
 ```
 
-Example: [J08 Usage Learning Card](../examples/master-of-arts-example-fragments.md#j08-usage-learning-card)
+Example: [J08 Usage Learning Card](../../../../apex-meta/operator-output-design/step4-operator-template-system/examples/master-of-arts-example-fragments.md)

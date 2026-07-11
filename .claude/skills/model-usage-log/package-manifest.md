@@ -190,13 +190,12 @@ completion_gates:
   no_project_management_schema_replacement: true
 ```
 
-
 ## Promoted Operator Templates
 
 ```yaml
 operator_templates:
   - artifact_id: J8
     path: .claude/skills/model-usage-log/templates/usage-learning-card-template.md
-    purpose: Retained Step 4 operator template
+    purpose: Operator-facing presentation template
     read_when: operator_requests_template
 ```

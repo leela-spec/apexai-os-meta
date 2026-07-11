@@ -442,6 +442,6 @@ The `precap-week` skill package file set is complete:
 operator_templates:
   - artifact_id: J2
     path: .claude/skills/PrecapWeek/weekly-command-brief-template.md
-    purpose: Retained Step 4 operator template
+    purpose: Operator-facing presentation template
     read_when: operator_requests_template
 ```

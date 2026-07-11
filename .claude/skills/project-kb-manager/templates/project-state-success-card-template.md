@@ -101,4 +101,4 @@ template_authority:
   source_gap: "Dedicated live project-state-success owner entrypoint was not verified; do not infer additional schema."
 ```
 
-Example: [J01 Project State Success Card](../examples/master-of-arts-example-fragments.md#j01-project-state-success-card)
+Example: [J01 Project State Success Card](../../../../apex-meta/operator-output-design/step4-operator-template-system/examples/master-of-arts-example-fragments.md)

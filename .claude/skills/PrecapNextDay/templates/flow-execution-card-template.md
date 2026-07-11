@@ -210,4 +210,4 @@ template_authority:
     - ".claude/skills/PrecapNextDay/references/daily-plan-output-contract.md"
 ```
 
-Example: [J04 Flow Execution Card](../examples/master-of-arts-example-fragments.md#j04-flow-execution-card)
+Example: [J04 Flow Execution Card](../../../../apex-meta/operator-output-design/step4-operator-template-system/examples/master-of-arts-example-fragments.md)

@@ -104,21 +104,20 @@ package_manifest:
 
 Note: this manifest reflects the repo's current CamelCase package path. A later package-normalization pass can move files to the canonical lowercase path and rename the entrypoint to `SKILL.md`.
 
-
 ## Promoted Operator Templates
 
 ```yaml
 operator_templates:
   - artifact_id: J3
     path: .claude/skills/PrecapNextDay/templates/precap-next-day-brief-template.md
-    purpose: Retained Step 4 operator template
+    purpose: Operator-facing presentation template
     read_when: operator_requests_template
   - artifact_id: J4
     path: .claude/skills/PrecapNextDay/templates/flow-execution-card-template.md
-    purpose: Retained Step 4 operator template
+    purpose: Operator-facing presentation template
     read_when: operator_requests_template
   - artifact_id: J5
     path: .claude/skills/PrecapNextDay/templates/prompt-files-and-index-template.md
-    purpose: Retained Step 4 operator template
+    purpose: Operator-facing presentation template
     read_when: operator_requests_template
 ```

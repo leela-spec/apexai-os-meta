@@ -114,4 +114,4 @@ template_authority:
     - ".claude/skills/ProjectStatus/project-status-overview-contract_v2_fixed.md"
 ```
 
-Example: [J11 Project Status Overview](../examples/master-of-arts-example-fragments.md#j11-project-status-overview)
+Example: [J11 Project Status Overview](../../../apex-meta/operator-output-design/step4-operator-template-system/examples/master-of-arts-example-fragments.md)

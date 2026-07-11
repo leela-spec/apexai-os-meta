@@ -126,4 +126,4 @@ template_authority:
     - ".claude/skills/project-kb-manager/references/write-rules.md"
 ```
 
-Example: [J10 Project KB Update Card](../examples/master-of-arts-example-fragments.md#j10-project-kb-update-card)
+Example: [J10 Project KB Update Card](../../../../apex-meta/operator-output-design/step4-operator-template-system/examples/master-of-arts-example-fragments.md)

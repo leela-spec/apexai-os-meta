@@ -1,0 +1,5 @@
+patch_pack:
+  patches:
+    - patches/01-fix-promoted-example-links.patch
+    - patches/02-consolidate-owner-manifests.patch
+    - patches/03-replace-activation-report.patch

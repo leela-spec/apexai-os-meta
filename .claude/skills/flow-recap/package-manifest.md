@@ -175,13 +175,12 @@ package_ready_note:
   remaining_action: apply_patch_pack_review_only
 ```
 
-
 ## Promoted Operator Templates
 
 ```yaml
 operator_templates:
   - artifact_id: J7
     path: .claude/skills/flow-recap/templates/flowrecap-result-card-template.md
-    purpose: Retained Step 4 operator template
+    purpose: Operator-facing presentation template
     read_when: operator_requests_template
 ```
