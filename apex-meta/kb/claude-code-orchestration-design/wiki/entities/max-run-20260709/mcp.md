@@ -3,7 +3,9 @@ title: "Model Context Protocol"
 page_type: entity
 kb_slug: claude-code-orchestration-design
 run_id: max-run-20260709
-status: new_parallel_compile
+status: needs_review
+created_at: "2026-07-09"
+updated_at: "2026-07-11"
 source_policy: source_preserving
 legacy_output_policy: old_pages_for_comparison_only
 confidence: high

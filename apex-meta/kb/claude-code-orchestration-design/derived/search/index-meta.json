@@ -4,426 +4,426 @@
   "files": {
     "wiki/concepts/agent-learning-queue-candidate-only.md": {
       "hash": "c106029dc0ab109d095c74cc583367f931bd6e2db7d5fa4b214c63efe813a465",
-      "mtime": 1783714693.4491372
+      "mtime": 1783760521.0449872
     },
     "wiki/concepts/agent-specific-knowledge-base.md": {
       "hash": "3144dd2a9a7106763f23b25560f2eb2c385422ffdeeb505e52672a91d55a9f9a",
-      "mtime": 1783714507.5269003
+      "mtime": 1783760521.04515
     },
     "wiki/concepts/candidate-is-not-accepted-truth.md": {
       "hash": "6d5f0dccdaa51aee32644f21bf418a8405c420593e7c316614afc58656bc9d31",
-      "mtime": 1783714727.6650763
+      "mtime": 1783760521.04515
     },
     "wiki/concepts/compact-activation-file.md": {
       "hash": "eb610ade8966ca900ec6204241b0396f58f17e9e028a7b4595e046c302f39f73",
-      "mtime": 1783714546.7357264
+      "mtime": 1783760521.04515
     },
     "wiki/concepts/compact-activation-seed.md": {
       "hash": "00ad4883e527c7ea475ef5bae203a7243a47b576558c7dc5e2561498e0007e97",
-      "mtime": 1783714581.1939054
+      "mtime": 1783760521.04515
     },
     "wiki/concepts/compiled-kb-before-raw-source.md": {
       "hash": "5de22ad9ae5be070036693fcd89dc17e1cb2db90e392da99eee27538cc1cfc61",
-      "mtime": 1783715000.3557384
+      "mtime": 1783760521.04515
     },
     "wiki/concepts/current-state-vs-target-state.md": {
       "hash": "518540f64f075381c3d8e24ea621b5c7830052d1df387796696cbb596b25b2f8",
-      "mtime": 1783714753.921668
+      "mtime": 1783760521.04515
     },
     "wiki/concepts/deterministic-read-side-report.md": {
       "hash": "f189981e14ad491a9bc8b607b60ec4b905209d064ebe9960333ba581600c7d0f",
-      "mtime": 1783714691.6206505
+      "mtime": 1783760521.04515
     },
     "wiki/concepts/deterministic-script-boundary.md": {
       "hash": "6893e93c04c56a6ce6c2592e53d46b9b7d13858f220ce3e8c1a51a4772d36e63",
-      "mtime": 1783714788.692806
+      "mtime": 1783760521.04515
     },
     "wiki/concepts/dry-run-first-state-policy.md": {
       "hash": "5bc39d70b127273ddd6ac8bca0e5a3c8a77ec9ca104cf81072720a63fd0916ca",
-      "mtime": 1783714829.537089
+      "mtime": 1783760521.04515
     },
     "wiki/concepts/ephemeral-subagent-boundary.md": {
       "hash": "63e83300a5d9a2f8238ebd6e8b84ffb5aac4c65768af7ef3181b3777fee082c1",
-      "mtime": 1783714472.3576038
+      "mtime": 1783760521.04515
     },
     "wiki/concepts/evd-imp-rsk-thresholds.md": {
       "hash": "0837fa2da6a7698ec5dfdfbc9f96f08bff6e797ba6f8871d95a4eaad729da4a0",
-      "mtime": 1783714798.0486522
+      "mtime": 1783760521.04515
     },
     "wiki/concepts/file-state-over-chat-state.md": {
       "hash": "f5e3a01a824489953d26c5effc9f6b9b65eedacae9f96b7e5717aeb26282674c",
-      "mtime": 1783714826.6853006
+      "mtime": 1783760521.04515
     },
     "wiki/concepts/flow-packet.md": {
       "hash": "f2131620171d7b5897f8d524c657905449a5c2a3aa11be667c165092dbe54a53",
-      "mtime": 1783714857.0822814
+      "mtime": 1783760521.04515
     },
     "wiki/concepts/flow-recap-packet.md": {
       "hash": "d1ba9753bf39692e9c00f97a757fd56b38828b05e08b512dd76df1562fb656b6",
-      "mtime": 1783714883.997867
+      "mtime": 1783760521.04515
     },
     "wiki/concepts/gated-write-side-mutation.md": {
       "hash": "27adc42deb5c2239b3d29516dc14b91f10b3260b2aca3264b7d96a542dd6b5a1",
-      "mtime": 1783714916.3617232
+      "mtime": 1783760521.04515
     },
     "wiki/concepts/handoff-stop-conditions.md": {
       "hash": "2a33e6639f349a9b9994a5f4a25257f6c073c25a2edb80c38850e6ad5790bcc0",
-      "mtime": 1783714624.2705712
+      "mtime": 1783760521.04515
     },
     "wiki/concepts/hook-vs-skill-instruction.md": {
       "hash": "faaf0cae83e0e827ed8ee207966b6f79fd839d623a75404772a6a7c0238a7e3c",
-      "mtime": 1783714509.6204436
+      "mtime": 1783760521.04515
     },
     "wiki/concepts/low-token-handoff-design.md": {
       "hash": "44e4474c28215dbec1ddb8627a3755d613f5cfa160a7ec4ee9d052b8eb6e25de",
-      "mtime": 1783714683.4680107
+      "mtime": 1783760521.04515
     },
     "wiki/concepts/max-run-20260709/current-assistant-semantic-owner.md": {
-      "hash": "c3fee49e1e76205b31e106467ed46d125a09b1373eb25450fe135deb234e3f5c",
-      "mtime": 1783667843.511663
+      "hash": "255f4b5c87b2a51ab7e5c3e0562232c7782e81d87094eff09229fe712b5e4d3a",
+      "mtime": 1783768939.7249005
     },
     "wiki/concepts/max-run-20260709/deterministic-executor-only-boundary.md": {
-      "hash": "2fb4938e52d20aaa71ed5175eae6ba1dae96dc0c17c830fe0940ac6a1aa38ffd",
-      "mtime": 1783667843.5146532
+      "hash": "68bf44329b3e0426a13a55cb86870749e326f48d240381204956afe5649f5430",
+      "mtime": 1783768939.7250462
     },
     "wiki/concepts/max-run-20260709/hook-vs-skill-instruction.md": {
-      "hash": "95560cdcbc7608cbb7884e5e411a545bb638b38bdb81a277970da981a80e7a67",
-      "mtime": 1783667843.5419848
+      "hash": "68e8d96e0d8f6bf34ac1cd261a7b81c8ad1fafc602c7acf41fc00abcca8baa5e",
+      "mtime": 1783768939.725153
     },
     "wiki/concepts/max-run-20260709/low-token-handoff-design.md": {
-      "hash": "ad41483582d610c3c43d86d6a61355d4837a4b1eea598b37b2c5f8c30e3da5ff",
-      "mtime": 1783667843.5474846
+      "hash": "d4065518252e5a911d8acb6aa69f358fba745cd8036c5b8b16d539720ee80589",
+      "mtime": 1783768939.725256
     },
     "wiki/concepts/max-run-20260709/mcp-allowlist-and-injection-risk.md": {
-      "hash": "d0b688e8169c37a76d61cdcb1982bde577050551c71de40f00f77f37035deef6",
-      "mtime": 1783667843.5484889
+      "hash": "a2aef52389ed15254898dd6e32e8cd175c48039abd4366d6cf0c6db11a6c686b",
+      "mtime": 1783768939.7253547
     },
     "wiki/concepts/max-run-20260709/old-output-comparison-policy.md": {
-      "hash": "13e62715b867e594da1de7f2e61464b78cc382426d46484266488a4338f2c802",
-      "mtime": 1783667843.5534768
+      "hash": "ee8cf828363239aea5098531bb1d2bd16d3aa07560e9cf143db28496c25bcea7",
+      "mtime": 1783768939.7254531
     },
     "wiki/concepts/max-run-20260709/persistent-agent-vs-ephemeral-subagent.md": {
-      "hash": "a8d10b01fd6736f670f79c0edd25cc1506d7d9e0bc8247924e3a25442a8030c6",
-      "mtime": 1783667843.5560129
+      "hash": "0ff7ace3c5574c5e3c0974e5168033b759d119d3d847debffaa062433afc2a13",
+      "mtime": 1783768939.725548
     },
     "wiki/concepts/max-run-20260709/phase2-value-contract.md": {
-      "hash": "31c8a3656f81bf1b5b44efabfe739a092bac8c75398bd88a218acde3deed9dc9",
-      "mtime": 1783667843.558527
+      "hash": "d0b8ed72af592735e1d4b85ba83ae2f934176f6853f4e6761fa756984e638a12",
+      "mtime": 1783768939.7256465
     },
     "wiki/concepts/max-run-20260709/skill-boundary.md": {
-      "hash": "956acf5fd490b50823158c4d42faa3b3da1d43d6afa9caab7effd3f4920153e0",
-      "mtime": 1783667843.5595238
+      "hash": "61563485f0a4bca9f9a2e3d2d6b52a03103826ce1a1a8958c0f9452d99256862",
+      "mtime": 1783768939.7257457
     },
     "wiki/concepts/max-run-20260709/source-preserving-kb-compile.md": {
-      "hash": "35d5dd1dc2eae729b0b2a94db1ffdc496994dfa3ccaaf5717e8efbb988cf6051",
-      "mtime": 1783667843.563514
+      "hash": "d8eb1447c5b6fadc12dfb2a640b056566bec67afd9fe4b889ba2925ac9b967dd",
+      "mtime": 1783768939.7258635
     },
     "wiki/concepts/mcp-allowlist-and-injection-risk.md": {
       "hash": "c9b5f5af851e2581ab7ab360327ec174545fc02a656f87f5dbfe99ea81f5a63d",
-      "mtime": 1783714546.7357264
+      "mtime": 1783760521.047647
     },
     "wiki/concepts/mcp-config-boundary.md": {
       "hash": "6e4ff96cee82cd98a401d3857e83a708d7933aa5a6f3ce051bcf4ef17c9e900e",
-      "mtime": 1783714579.9399426
+      "mtime": 1783760521.047647
     },
     "wiki/concepts/mcp-decision-model.md": {
       "hash": "7d0fa4e4f4c3b1afbb3a0a8f5953b4b16d0b00c2fa1110899f5169518b56ba7e",
-      "mtime": 1783714615.0834703
+      "mtime": 1783760521.047647
     },
     "wiki/concepts/mechanism-ladder.md": {
       "hash": "f06d86af327d81d7126762809e8cc7e0b315daea0346818f614a124e240b9a48",
-      "mtime": 1783714651.92869
+      "mtime": 1783760521.047647
     },
     "wiki/concepts/next-cycle-context.md": {
       "hash": "113b779a2fc207d20d77f7f35323a2cece4562ec0da2f4ac42c66e578ea68147",
-      "mtime": 1783714656.8607366
+      "mtime": 1783760521.047647
     },
     "wiki/concepts/next-day-plan.md": {
       "hash": "0c629fe5b509d4a83e904c01dc56fc988a85d3af3ba7022e4fe41bc1704b7d84",
-      "mtime": 1783714685.1886075
+      "mtime": 1783760521.047647
     },
     "wiki/concepts/operator-confirmed-mutation.md": {
       "hash": "f1e5849afd1f93f891568d71973300edeac2cc84a30292c449eb2b64b2aaccd8",
-      "mtime": 1783714715.7350743
+      "mtime": 1783760521.047647
     },
     "wiki/concepts/owner-validator-split.md": {
       "hash": "ab52594564f5496542b176996d24d855b0a333c6efa958e9503181fb4043a729",
-      "mtime": 1783714575.7747996
+      "mtime": 1783760521.047647
     },
     "wiki/concepts/packet-size-budget.md": {
       "hash": "13a8cc2a77c1c9ecfa5dcb40c15f041a73f25dc09aaf072ad9c1e2922811e32a",
-      "mtime": 1783714747.0424361
+      "mtime": 1783760521.047647
     },
     "wiki/concepts/persistent-agent-boundary.md": {
       "hash": "9695a38f605cd3f014cc7e5275bda8212e348adfeb8ae3750746956fad7de4d9",
-      "mtime": 1783714868.8054106
+      "mtime": 1783760521.047647
     },
     "wiki/concepts/persistent-agent-vs-ephemeral-subagent.md": {
       "hash": "167f27ea337408c814b309d51955e217803ce18c6428b3c3c5b2649d5b6b8f58",
-      "mtime": 1783714688.896165
+      "mtime": 1783760521.047647
     },
     "wiki/concepts/plugin-deferment-rule.md": {
       "hash": "3aa31784f61fbdfd0d8a23c463703cc010e93378cc1254404643c9efdb1940d5",
-      "mtime": 1783714723.0305367
+      "mtime": 1783760521.047647
     },
     "wiki/concepts/production-agent-readiness-gate.md": {
       "hash": "cf2b8320c18ed8641f7c3feca1431a1e7e97c6a3a34df22fcc406d674b8994a5",
-      "mtime": 1783714901.5520122
+      "mtime": 1783760521.047647
     },
     "wiki/concepts/production-agent-roster-candidate-boundary.md": {
       "hash": "1d2ad9880d4164b29fc722d04a46e68509b8cca5be1b37ff2897a3a4ce793e10",
-      "mtime": 1783714931.223001
+      "mtime": 1783760521.047647
     },
     "wiki/concepts/productive-agent-redundancy.md": {
       "hash": "829774581b5f6443cc1011aceb990d4be930113dfc4b0936f208652f5b7b9bb1",
-      "mtime": 1783714964.0242677
+      "mtime": 1783760521.047647
     },
     "wiki/concepts/progressive-disclosure-for-agent-kbs.md": {
       "hash": "01ee1804d21038e053e47a03c686aa614441f226ba8723c956cb8142e46510b1",
-      "mtime": 1783714612.551059
+      "mtime": 1783760521.047647
     },
     "wiki/concepts/raw-flow-dump.md": {
       "hash": "d4d0e33884cfe3fb1b3da79283afc9413f75aaf5c14118f281e5201a4960151d",
-      "mtime": 1783714781.6816874
+      "mtime": 1783760521.047647
     },
     "wiki/concepts/refs-not-copies.md": {
       "hash": "4a4fa468412a083838cf67c83799101f9c69b96cf23338250a40b201ae7d1f15",
-      "mtime": 1783714815.498386
+      "mtime": 1783760521.047647
     },
     "wiki/concepts/role-boundary-and-non-ownership.md": {
       "hash": "125c78a023a30b42d8c8611de7a19b9e01121d033455f38d75800cc3d9721c51",
-      "mtime": 1783714848.9867039
+      "mtime": 1783760521.047647
     },
     "wiki/concepts/scheduler-boundary.md": {
       "hash": "b5cb74accd4e380c99224a143675543ca61085ccb374f2f6d8137589adbd313b",
-      "mtime": 1783714611.98376
+      "mtime": 1783760521.047647
     },
     "wiki/concepts/scheduler-deferment-rule.md": {
       "hash": "772afc14d7000f537a03c2c40a46688c9ac263ef5eac42fd8e6c11c73b5f5d14",
-      "mtime": 1783714645.949376
+      "mtime": 1783760521.047647
     },
     "wiki/concepts/semantic-planning-layer.md": {
       "hash": "ee2310e5bcecad3056006cf7a664e949105aa0429f31e2a509a110980fb23ba2",
-      "mtime": 1783714705.4097364
+      "mtime": 1783760521.0512064
     },
     "wiki/concepts/session-memory-and-next-context.md": {
       "hash": "8bf7c9d5e0c3db09d810032f651714d954a612a1ab777bfb9a9a993334d94b6b",
-      "mtime": 1783714734.9523556
+      "mtime": 1783760521.0512064
     },
     "wiki/concepts/skill-boundary.md": {
       "hash": "5f9e4e6bd85ee04bc4f4ce6398a9c734b0f56c14d947c925aedb75afcf3b198b",
-      "mtime": 1783714645.964769
+      "mtime": 1783760521.0512064
     },
     "wiki/concepts/standard-handoff-packet.md": {
       "hash": "123fdc7df89b7fa396abb7d4d87a70dab0bc682f85daac3820c3ee60ec235cd8",
-      "mtime": 1783714766.518748
+      "mtime": 1783760521.0512064
     },
     "wiki/concepts/state-delta-preservation.md": {
       "hash": "2aa6952948a78d812df287762dda82258ae47585ea134e5a376a14828636a239",
-      "mtime": 1783714793.674782
+      "mtime": 1783760521.0512064
     },
     "wiki/concepts/status-merge-packet.md": {
       "hash": "e17e23af9b5cb0653acdad06dec6f8a8178e631132863659dcc956ac41261c46",
-      "mtime": 1783714821.2402225
+      "mtime": 1783760521.0512064
     },
     "wiki/concepts/stop-condition-as-context-saver.md": {
       "hash": "e52bd28761f5e107e6d0cc83f40d946fd1431b944aa4ca064c7781022773a3c7",
-      "mtime": 1783714848.9877
+      "mtime": 1783760521.0512064
     },
     "wiki/concepts/trial-20260710-status-merge/proposal-only-state-transition.md": {
-      "hash": "898bb6cff2314bd6b262bc909b25aaecd80c25a53c70bb1752d8c8bd2d9e261f",
-      "mtime": 1783712622.9338882
+      "hash": "af3221b9916aa38cee70e25e02c1869a4db10cbabbcf1fa4207c4a2247ee5c30",
+      "mtime": 1783760521.0512064
     },
     "wiki/concepts/validator-as-non-executor.md": {
       "hash": "c4c358adea57f85d354ea576cd0d1f9cce83d77b2e2c7d8c72cbd041e691a92f",
-      "mtime": 1783714683.470003
+      "mtime": 1783760521.0512064
     },
     "wiki/concepts/weekly-plan-packet.md": {
       "hash": "b1290cec3c957a472a0ec80c5d83afa68c2c6977af6233721dfcc738ecf49763",
-      "mtime": 1783714875.2162876
+      "mtime": 1783760521.0512064
     },
     "wiki/concepts/weekly-routine-workflow-case.md": {
       "hash": "b9d1f46850937f5f4aa907e91767bcf3dd4a5dd225a517e6b83e8326096bde15",
-      "mtime": 1783714912.6588826
+      "mtime": 1783760521.0512064
     },
     "wiki/concepts/workflow-boundary.md": {
       "hash": "0b3cfee6d00363eb2e2ab7508b28527cd18fe7a69adbbfd388dae24c94bd14d8",
-      "mtime": 1783714746.82268
+      "mtime": 1783760521.0512064
     },
     "wiki/concepts/yaml-first-artifact-design.md": {
       "hash": "05d164f549d1ba72b6eed25fd22ca9683a328195b5a701edc367a1a93895bcb6",
-      "mtime": 1783714789.4673078
+      "mtime": 1783760521.0512064
     },
     "wiki/entities/agent-skills-standard.md": {
       "hash": "0a71f4d1b77f6773c0bb7660dfacf78a37808a39f811a36aa3ce4f5d30798b3c",
-      "mtime": 1783714708.1168
+      "mtime": 1783760521.0512064
     },
     "wiki/entities/agent-teams.md": {
       "hash": "a498cdb1013ffe3af176e191b5295efe09d387e55ba7edb676c2219b97974dae",
-      "mtime": 1783720514.780843
+      "mtime": 1783760521.0541646
     },
     "wiki/entities/aider.md": {
       "hash": "15f2b8b06fdf3fc99c49c29a0f40bb085744ff59acdaf0c89d9b415df43fc90d",
-      "mtime": 1783714709.0318723
+      "mtime": 1783760521.0541646
     },
     "wiki/entities/bmad-method.md": {
       "hash": "bd8964f1c42d3b3556efdd525d43142e899e261d84f3665ff3ffc20291f023ab",
-      "mtime": 1783714731.660112
+      "mtime": 1783760521.0541646
     },
     "wiki/entities/claude-code-hooks.md": {
       "hash": "18c76984373bd1a81717453eef84a2dc73f6a9fcd0ab57d7d4a8e734341016b8",
-      "mtime": 1783714752.1056948
+      "mtime": 1783760521.0541646
     },
     "wiki/entities/claude-code-plugins.md": {
       "hash": "30e04b7e064588ac6ca051db90e2f5f38c51bc8974c47c0bf4d8190593310d83",
-      "mtime": 1783714502.8872187
+      "mtime": 1783760521.0541646
     },
     "wiki/entities/claude-code-skills.md": {
       "hash": "6757dfa89fe7f8cc6c8be7e0b15b7bf8f52ec2f4cfafcaff67bce3c46e728e66",
-      "mtime": 1783714531.289495
+      "mtime": 1783760521.0541646
     },
     "wiki/entities/claude-code-subagents.md": {
       "hash": "5575bce4f9e54f81585a87d66275e53a51c67d3a2535abe0b4eb2d081d3d8eac",
-      "mtime": 1783714563.5899556
+      "mtime": 1783760521.0541646
     },
     "wiki/entities/claude-code-workflows.md": {
       "hash": "3d7caf959d8e24bec06d6525ec0d4dd681b82ddeeba09580d8f95b3ee4bc914f",
-      "mtime": 1783714603.1595068
+      "mtime": 1783760521.0541646
     },
     "wiki/entities/claude-code.md": {
       "hash": "385256d6d8562b2c698205d87fcff37fb745535cd5e0e73d59ac2ff100bd3048",
-      "mtime": 1783714732.724967
+      "mtime": 1783760521.0541646
     },
     "wiki/entities/max-run-20260709/apex-kb.md": {
-      "hash": "37ca7966b680173d3fe14d963ea77a2e016e2c9ed28ec07c3ea034ad83c26b07",
-      "mtime": 1783667843.5676599
+      "hash": "685346dc7b6febc3eeb1b04011a3d9846d749f1c1b196bfa285148390b9dd6df",
+      "mtime": 1783768939.7259598
     },
     "wiki/entities/max-run-20260709/claude-code-hooks.md": {
-      "hash": "8dd3012511afeb9e3bce184a782c658588d770d6404a5e2e457aec9d454e2da2",
-      "mtime": 1783667843.569663
+      "hash": "2297c9f860abf25bed808f122de9a70f3fb53989f56bec236c8368a5e5684804",
+      "mtime": 1783768939.726053
     },
     "wiki/entities/max-run-20260709/claude-code-plugins.md": {
-      "hash": "0ccb23c55edb1363c273506ba499cd55542389466c15ac6f6ff9984aba60993a",
-      "mtime": 1783667843.5716584
+      "hash": "e8c74c726d0a5f33a956238df9d717b4e4f2a77418cdd7bd2b9baf375fbff648",
+      "mtime": 1783768939.7261446
     },
     "wiki/entities/max-run-20260709/claude-code-skills.md": {
-      "hash": "501a8a64b61525ed0115274b6f8e31b6640c62181d608084bd639c408b3beab2",
-      "mtime": 1783667843.5731611
+      "hash": "ec98b01bf5fbd0c4a583d95c409c620c02cb0a834eed9cb02cf1f7917d0810ee",
+      "mtime": 1783768939.7262352
     },
     "wiki/entities/max-run-20260709/claude-code-subagents.md": {
-      "hash": "ba56692a314898d12744541ec917210af7b60ea34be5da21e78f31fd44b4fc59",
-      "mtime": 1783667843.5746698
+      "hash": "9a397ccf596a07a70d8faea2853bdb82cac67d175963ff427b046cb8e684cf11",
+      "mtime": 1783768939.7263253
     },
     "wiki/entities/max-run-20260709/claude-code.md": {
-      "hash": "034681ef6fefbfde58b0c05ac44f8340942c27dcaffaaef0845923edd074b27d",
-      "mtime": 1783667843.5766885
+      "hash": "0c52fa3a78428f387bd61a7acc6ec3aac5a20f5df0f956184b4b5f038660b153",
+      "mtime": 1783768939.7264159
     },
     "wiki/entities/max-run-20260709/mcp.md": {
-      "hash": "68bba6362705ca52f89370450affddf265bcad933a55aec20bea1de030a0724d",
-      "mtime": 1783667843.578689
+      "hash": "353e6d6bdc127bd7cf4ada15953477aefb807648606ee9c731cd72ab869a33c9",
+      "mtime": 1783768939.7265074
     },
     "wiki/entities/mcp.md": {
       "hash": "b8dfc5d21fc01ea4d12a97c705f80827fe523748011f707ebf238ac6ea1d77db",
-      "mtime": 1783714632.97037
+      "mtime": 1783760521.0561337
     },
     "wiki/entities/scheduler.md": {
       "hash": "c0d5d3ec7b6ebcae0cce16f23eba9ad947ed0d24fffaf82b9afa156edf085231",
-      "mtime": 1783714802.2036202
+      "mtime": 1783760521.0561337
     },
     "wiki/entities/swe-agent.md": {
       "hash": "8db379666f16073960ed5ae138c47fbd46074488c7c65bb04d02509b7c2fa416",
-      "mtime": 1783714751.8664043
+      "mtime": 1783760521.0561337
     },
     "wiki/summaries/agent-handoff-and-contract-system.md": {
       "hash": "719a91c53517ecd89fc2db1ee2e02581b33d8cdb5b57046fc1ba244d8a49c9a7",
-      "mtime": 1783714734.9284043
+      "mtime": 1783760521.0561337
     },
     "wiki/summaries/agent-skill-orchestration-resilient-workflows.md": {
       "hash": "bf26560693e5f229c20bee97e99dcdc26676f71a9d7e7fe5668053f337a388ca",
-      "mtime": 1783718137.2282822
+      "mtime": 1783760521.0572948
     },
     "wiki/summaries/agent-vs-subagent-vs-skill.md": {
       "hash": "88bff520dcaa7be82cfbe20eabddfe6f105bd3dc26212ea6f39dbb13ea9c0ca1",
-      "mtime": 1783718082.1343734
+      "mtime": 1783760521.0572948
     },
     "wiki/summaries/claude-mechanism-decision-model.md": {
       "hash": "3235aca48aa227cc85e707a9e70ae0cd7e3f7b5e06b7781ed6e47a3beec031ab",
-      "mtime": 1783714673.0620484
+      "mtime": 1783760521.0572948
     },
     "wiki/summaries/informatics-design-formats-practice-guide.md": {
       "hash": "e2c71ce2da0453cbd884dedb5c69f3b1f9eb481d85213a990bf250cb8d6e292f",
-      "mtime": 1783718211.4520226
+      "mtime": 1783760521.0572948
     },
     "wiki/summaries/max-run-20260709/apex-kb-as-source-preserving-agent-memory.md": {
-      "hash": "9904371e56fc9831e64a4841e7126766b3c42f84e7414977c97ad8877e5ea648",
-      "mtime": 1783667843.580683
+      "hash": "4d9b9eed3317a5fc23edb167182d2b35adbae39736ada4715f736e28fd574e50",
+      "mtime": 1783768939.726599
     },
     "wiki/summaries/max-run-20260709/claude-code-mechanism-decision-model.md": {
-      "hash": "7c4306f9f8918844d790921b2da8d0881b6e26012fc4f54ba9f7aaa163d07b42",
-      "mtime": 1783667843.5816803
+      "hash": "86c322cf5cf47aa912cbb4fdf7e9f37d3c8fd17f6d2c0ba2321bb5a5c41d2281",
+      "mtime": 1783768939.7267792
     },
     "wiki/summaries/max-run-20260709/deterministic-vs-llm-execution-model.md": {
-      "hash": "ae2d3eb062038df0f0d33db9ff24cf05fd30931885e665f7b3ddf37ceebddbb8",
-      "mtime": 1783667843.583685
+      "hash": "60383bbfba3ec2378e60dc5857005fdade3d4686190e5f667bbfde063dfb7133",
+      "mtime": 1783768939.7268975
     },
     "wiki/summaries/max-run-20260709/failure-analysis-and-feedback-loop.md": {
-      "hash": "12d87550cec23390a251b4d4481602b5244f48abed0a589d1fffd4087c461602",
-      "mtime": 1783667843.5861845
+      "hash": "ef856d7d2eee3e779e176d20efcdc586fbb38aafc25e2684a4ca3053e96156ef",
+      "mtime": 1783768939.7269573
     },
     "wiki/summaries/max-run-20260709/minimal-claude-orchestration-architecture.md": {
-      "hash": "2bacdebc3a0631bfbf59b44899204e83ef0f0b6daddf7cede49d7e9dff3bba68",
-      "mtime": 1783667843.5876944
+      "hash": "5746fb11c6e6f1837efd8a899477328d1ae086bee07832a804574bacb32af2d0",
+      "mtime": 1783768939.7270584
     },
     "wiki/summaries/max-run-20260709/production-agent-readiness-and-risk-model.md": {
-      "hash": "ff3825fdc93073043844c0280d5936867edcdbffb6ac3ff2fb7f954cb7c9bc0e",
-      "mtime": 1783667843.5886989
+      "hash": "75bbc68087344f49a3e2bb1e5ae741b9daf15b7f232aa639f84eb2bded0639cf",
+      "mtime": 1783768939.7271605
     },
     "wiki/summaries/max-run-20260709/skill-hook-plugin-mcp-boundaries.md": {
-      "hash": "d70f8bd69f76f66322b858140e7f5254839383859e13c679fe21aa612cc9ef4e",
-      "mtime": 1783667843.589696
+      "hash": "7015f0708c3d6a561ad1162459a583c15d57016c167f752192e9a33c9f3b5159",
+      "mtime": 1783768939.7272515
     },
     "wiki/summaries/max-run-20260709/subscription-seat-terminal-machine-model.md": {
-      "hash": "fecd16f36b60f313a51c1eec29262179de9be054f0adfbaa922f7264a30a99bc",
-      "mtime": 1783667843.591691
+      "hash": "d5eee820423b6a20b7b46f68fcf9fa1062b2eb5fb92a1e71c349b128fe07e406",
+      "mtime": 1783768939.727343
     },
     "wiki/summaries/mcp-configuration-and-trust-boundary.md": {
       "hash": "94f016983e37cff89b4184bdcd1f566f17df3ef90da0196ebd47a1ae658e7814",
-      "mtime": 1783714706.929915
+      "mtime": 1783760521.0578737
     },
     "wiki/summaries/minimal-claude-orchestration-architecture.md": {
       "hash": "0b8e73133b1c57367d61669b878a3bcda8c7342f90a0cf212f3193f31bd050e3",
-      "mtime": 1783714747.6488125
+      "mtime": 1783760521.0578737
     },
     "wiki/summaries/production-agent-readiness-and-roster-boundary.md": {
       "hash": "934a51a7061c12bd1397fc1281cf69b2ea57d09685b60f067afbf88356358411",
-      "mtime": 1783714772.0115955
+      "mtime": 1783760521.0578737
     },
     "wiki/summaries/project-execution-state-safety-model.md": {
       "hash": "9a4ebff7ae970d244cb9913102e53cdbfb448d62da2d75cf471de5560e318302",
-      "mtime": 1783714818.6290672
+      "mtime": 1783760521.0578737
     },
     "wiki/summaries/scheduler-boundary-and-deferment.md": {
       "hash": "21a118cb17c867ce30345a6f2ad65bfb001303e2f7aa9373c2dcfa9da70c3ba7",
-      "mtime": 1783714853.042035
+      "mtime": 1783760521.0578737
     },
     "wiki/summaries/skill-agent-evolution-and-learning.md": {
       "hash": "bda20a9b04dcac3176a456cb63384350496160bcc95f175ce07ebbe6c79397c6",
-      "mtime": 1783718280.1435492
+      "mtime": 1783760521.0578737
     },
     "wiki/summaries/token-efficient-information-design.md": {
       "hash": "523b8707c08c1ec352c47d523f69b392772f15cd94699c55b6b88851a6364acf",
-      "mtime": 1783714777.4266856
+      "mtime": 1783760521.0578737
     },
     "wiki/summaries/trial-20260710-status-merge/status-merge-flow.md": {
-      "hash": "cbdcda7770f0a61292d7d087fb0a65cc3024ef22edd74d072b6db32942ef3e51",
-      "mtime": 1783712622.9498966
+      "hash": "460ea74de5d5f447fb4be603ea2d3a0ccec7076fb3c06050752bd78126d4bdab",
+      "mtime": 1783760521.0578737
     },
     "wiki/summaries/weekly-routine-as-orchestration-case-study.md": {
       "hash": "38a5e9f8284becbdcd4f5130dc13e0f9b9d2b4e270414ac3af10c1ed09c2b2bf",
-      "mtime": 1783714868.522929
+      "mtime": 1783760521.0578737
     }
   },
-  "generated_at": "2026-07-10T21:56:28Z",
+  "generated_at": "2026-07-11T11:22:28Z",
   "kb_slug": "claude-code-orchestration-design",
   "page_count": 105,
   "policy": "derived_rebuildable_not_canonical",
