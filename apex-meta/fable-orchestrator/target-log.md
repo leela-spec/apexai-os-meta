@@ -4,6 +4,28 @@ purpose: "The overarching mission and its milestone breakdown. Update at the sta
 created: 2026-07-11
 ---
 
+```okf
+document:
+  id: fable-orchestrator-target-log
+  title: Target Log
+  status: active
+  created_date: 2026-07-11
+  repository: leela-spec/apexai-os-meta
+  branch: main
+  package_path: apex-meta/fable-orchestrator/
+
+scope:
+  owns:
+    - overarching_target_statement
+    - six_milestone_breakdown
+    - current_target_pointer
+    - session_log
+  must_not_own:
+    - user_stories_content
+    - discovery_findings_content
+    - build_execution
+```
+
 # Target Log
 
 ## Overarching target
@@ -12,20 +34,18 @@ Create the final orchestration system, merging the old Apex agent-swarm system a
 
 ## Milestones
 
-1. **Understand intent across every version** — read across `operator-research-orchestration-20260711`, `old-apex-full-orchestration-agent-kb`(+`-v2`), `apex-plan-sync-session-workflow-v2`: what each was trying to build, the biggest decisions each made, where they overlap, what patterns repeat. Gate: operator verifies.
-2. **Understand resilience best-practice** — go into `claude-code-orchestration-design`'s skill-package pages for what makes a multi-agent system resilient; produce prompts for external models where the KB itself is thin. Gate: operator verifies.
-3. **Evaluate soundness/impact/resilience of what already exists** — assess the old Apex 9-agent/BUILD-VERIFY-LOCK model and the `apex-plan`/`sync`/`session` boundary against milestone 2's best practice. Gate: operator verifies.
-4. **Resolve the open architecture questions** (`apex-meta/handoff/agent-skill-system-research/design-lock-qa.md`) — using milestones 1–3 as evidence, not assumption.
+1. **Understand intent across every version.** The four versions in scope: `operator-research-orchestration-20260711` (the original operator-research KB that started this initiative), `old-apex-full-orchestration-agent-kb` (v1 — the compiled, do-not-delete role-doctrine corpus, cited as `source_doctrine` elsewhere in this system), `old-apex-full-orchestration-agent-kb-v2` (the 9-agent-roster / BUILD-VERIFY-LOCK iteration), and `apex-plan-sync-session-workflow-v2` (the current three-package `apex-plan`/`apex-sync`/`apex-session` system). For each: what it was trying to build, the biggest decisions it made, where it overlaps with the others, what patterns repeat across all four. Artifact: `discovery-notes.md`. Gate: operator verifies.
+2. **Understand resilience best-practice — through `claude-code-orchestration-design`.** Concretely: read its mechanism-ladder page (`wiki/summaries/minimal-claude-orchestration-architecture.md` — smallest sufficient mechanism before escalating), its resilience page (`wiki/summaries/agent-skill-orchestration-resilient-workflows.md` — resilience is about *where the plan/state lives*, not which agent runs it), and its deterministic/LLM-split page (`wiki/summaries/apex-application-orchestration-patterns.md`). Extract the concrete resilience dimensions this KB uses (mechanism-ladder position, state-holding location, presence/absence of adversarial cross-check, role-vs-state permission separation, context-budget handling) so milestone 3 has something specific to score against. Where the KB itself is thin on a specific question, produce a prompt for an external model (per `fable-execution-best-practices.md`'s model-routing table) instead of guessing. Artifact: `discovery-notes.md` §4. Gate: operator verifies.
+3. **Evaluate soundness/impact/resilience of what already exists — against milestone 2's dimensions, specifically.** "What exists": the old Apex v2's 9-agent roster + BUILD/VERIFY/LOCK state machine, and the current `apex-plan`/`apex-sync`/`apex-session` three-package boundary. How: score each system's *actual* mechanisms against each resilience dimension milestone 2 produced (not a general impression) — where does each system hold its state/plan, does either have an adversarial cross-check step, is permission modeled by role or by state, how is context budget handled — citing milestone 1's findings as evidence, not assumption. Output: a explicit per-dimension comparison, not a prose verdict. Gate: operator verifies.
+4. **Resolve the 8 open architecture questions in `design-lock-qa.md`** — Q1 topology (single-agent/workflow/multi-agent), Q2 how the in-scope systems relate (merge/layer/supersede), Q3 skill-file granularity, Q4 how subagents get spawned/scoped, Q5 the shared state/handoff schema, Q6 where operator-approval gates live, Q7 drift-control mechanism, Q8 the fate of the old KB's 9-agent roster/state-machine. Each question lists its own candidate directions and blast radius in that file — milestones 1–3 supply the evidence to actually decide between them; the operator's noted starting hypotheses are explicitly marked there as things to verify, not locked answers.
 5. **Draft the target architecture** — only after 1–4 are verified.
 6. **Build it** — the actual construction, Codex for execution, per `build-plan.md`.
 
 ## Current target
 
-Milestone 1 is underway: `prompts/phase1-user-stories-prompt.md` produces real workflow records feeding milestone 1, and `user-stories.md` has an anticipated first draft.
+- **`APEX_Orchestration_User_Stories/`** — 7 complete, source-grounded stories (US-SEQ-01, US-MEDIA-01, US-LEELA-01, US-WORKSHOP-01, US-IDEA-01, US-OFFER-01, US-COMP-01) with a package manifest and connection ledger. This is **input material** for milestone 1 (and later milestone 5's architecture draft) — not the final deliverable of this initiative; the final deliverable is the built orchestration system itself (milestone 6).
+- **`discovery-notes.md`** — durable artifact for milestone 1 (and seeding milestone 2): first research pass across all four source materials is written and cited, but **not yet operator-verified**. See its "Open items for the operator" section, including a real discrepancy found about v2's actual compile state.
 
 ## Log
 
-- 2026-07-11: Phase 0 lock attempted as a real test run. Found `design-lock-qa.md` had zero operator-confirmed answers (only recommended defaults); the `decisions.md` format precedent (`harmonization/decisions.md`) cited an out-of-scope external corpus (`source-knowledge/`) that shouldn't be borrowed here; no schema existed yet for `user-stories.md`/`simulations/` records.
-- 2026-07-11: A claim that the branch `claude/code-orchestration-design-kb-qdipjj` didn't exist was wrong — `git branch -a` was checked without `git fetch origin` first. After fetching, the branch was confirmed real, with real commits (frontmatter fix on the 25 `max-run-20260709` pages, 7 new high-value wiki pages, a bytecode-cache sync). That branch was the operator's correct working branch for the KB task.
-- 2026-07-11: That branch was fast-forward merged into `main` and pushed.
-- 2026-07-11: The overarching target and 6-milestone breakdown above were agreed with the operator, replacing the earlier, narrower framing that only covered this folder's own file cleanup.
+Fable can enter logs for changes here

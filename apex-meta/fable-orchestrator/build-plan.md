@@ -22,7 +22,7 @@ Milestones 1–5 (understand intent, understand resilience best-practice, evalua
 ```yaml
 workflow_and_simulation:
   goal: >
-    For each user story in user-stories.md, draft the concrete workflow per process-blueprint.md,
+    For each user story in APEX_Orchestration_User_Stories/user-stories.md, draft the concrete workflow per process-blueprint.md,
     run it once for real against real content, record pass/partial/fail.
   output: apex-meta/fable-orchestrator/simulations/ (one file per story)
   gate: a workflow isn't adopted until its simulation record exists and passed.
@@ -32,7 +32,7 @@ build:
   method: Codex for pure execution (apex-meta/CODEX_EXECUTION_STANDARD.md), Fable for judgment.
 
 regression:
-  goal: Re-run user-stories.md whenever the KB/skills/scaffolding change.
+  goal: Re-run APEX_Orchestration_User_Stories/user-stories.md whenever the KB/skills/scaffolding change.
 ```
 
 ## What counts as a "simulation"
@@ -61,7 +61,7 @@ simulation_definition:
 ```yaml
 target_and_milestones: apex-meta/fable-orchestrator/target-log.md
 decisions: apex-meta/fable-orchestrator/decisions.md
-user_stories: apex-meta/fable-orchestrator/user-stories.md
+user_stories: apex-meta/fable-orchestrator/APEX_Orchestration_User_Stories/user-stories.md
 simulation_records: apex-meta/fable-orchestrator/simulations/    # not yet created
 kb_authoring_status: apex-meta/kb/claude-code-orchestration-design/log/lifecycle-completion-report-20260710.md
 kb_open_work: apex-meta/handoff/Apex-Kb_Lifecycle_Analysis/orchestrator-education-targeting-handover.md
