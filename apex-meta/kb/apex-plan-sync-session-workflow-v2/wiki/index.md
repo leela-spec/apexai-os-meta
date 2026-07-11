@@ -166,7 +166,7 @@ Run `lint --strict`, `audit`, `index --allow-write`, `postflight --allow-write`,
 
 <!-- BEGIN AUTO-GENERATED INDEX -->
 
-Generated: `2026-07-11T09:57:18Z`
+Generated: `2026-07-11T10:00:31Z`
 
 Compiled page count: `10`
 
