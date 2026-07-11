@@ -1,0 +1,101 @@
+diff --git a/apex-meta/operator-output-design/step3-output-design-system/17-ai-routing-card-design.okf.yaml b/apex-meta/operator-output-design/step3-output-design-system/17-ai-routing-card-design.okf.yaml
+index 54ee9fc..0000000 100644
+--- a/apex-meta/operator-output-design/step3-output-design-system/17-ai-routing-card-design.okf.yaml
++++ b/apex-meta/operator-output-design/step3-output-design-system/17-ai-routing-card-design.okf.yaml
+@@ -58,10 +58,19 @@ essential_sections:
+   - operator_override_note
+   - compact_machine_handoff
+ 
+ recommended_route_view:
+-  includes:
+-    - selected_surface_or_model_class
+-    - fallback_route_when_material
++  required:
++    - selected_surface_class
++    - fallback_surface
++  optional:
++    - verified_model_ref
++    - fallback_route_when_material
++  route_identity_policy:
++    stable_surface_class_is_default: true
++    exact_model_without_current_verification: forbidden
++    verified_model_ref_requires:
++      - current_verification_evidence
++      - verification_date_or_window
++      - source_ref
++    final_model_mapping_status: deferred
+ 
+ alternative_view:
+   show_only_when_material: true
+@@ -79,16 +88,19 @@ operator_actions:
+ 
+ boundary:
+   may:
+-    - recommend_surface_model_or_execution_route
++    - recommend_stable_surface_class_or_execution_route
++    - expose_verified_model_ref_when_current_verification_exists
+     - use_J8_learning_as_advisory_evidence
+     - use_J11_project_context
+     - expose_tradeoffs_and_constraints
+   must_not:
+     - execute_route
+     - create_flow_plan
+     - generate_prompt_pack
+     - overwrite_routing_rules_automatically
+     - invent_current_cost_quota_or_product_limits
++    - present_unverified_exact_model_as_current_route_truth
++    - finalize_volatile_provider_or_model_mapping
+ 
+ degraded_behavior:
+   insufficient_task_context:
+@@ -97,6 +109,12 @@ degraded_behavior:
+   missing_surface_inventory:
+     result: low_confidence_abstract_route
+     action: use_stable_surface_class_only
++  exact_model_requested_without_current_verification:
++    result: stable_surface_class_with_verification_warning
++    action: omit_exact_model_and_request_current_verification
++  verified_model_reference_stale_or_incomplete:
++    result: stable_surface_class_only
++    action: remove_verified_model_ref_until_evidence_is_current_and_complete
+   missing_quota_or_cost_evidence:
+     result: route_without_current_resource_claim
+     action: mark_resource_constraint_unknown
+@@ -112,16 +130,20 @@ compact_machine_handoff:
+   required:
+     - routing_recommendation_ref
+     - task_context_ref
+     - recommended_route
+-    - selected_surface_or_model
++    - selected_surface_class
+     - fallback_route
+     - constraints
+     - evidence_refs
+     - confidence
+     - operator_decision
+     - operator_review_flags
++  optional:
++    verified_model_ref:
++      include_only_when: current_verification_evidence_is_present
++      must_preserve:
++        - verification_date_or_window
++        - source_ref
+   contract_references:
+-    - .claude/skills/ai-routing-and-usage-tracking/references/routing-recommendation-packet-contract.md
++    - .claude/skills/AIRouting/routing-recommendation-packet-contract.md
+   schema_redefinition: false
+ 
+ acceptance_checks:
+@@ -131,7 +153,11 @@ acceptance_checks:
+   J11_context_does_not_become_route_decision: true
+   alternatives_appear_only_when_material: true
+   current_cost_quota_and_product_claims_require_evidence: true
++  selected_surface_class_is_required: true
++  stable_surface_class_is_default_route_identity: true
++  exact_model_requires_current_verification: true
++  verified_model_ref_is_optional_and_evidence_bound: true
+   route_is_not_executed: true
+   plan_and_prompt_owners_are_preserved: true
+   machine_handoff_contains_only_execution_route_minimum: true
++  live_AIRouting_contract_path_is_used: true
+   no_schema_redefinition: true
