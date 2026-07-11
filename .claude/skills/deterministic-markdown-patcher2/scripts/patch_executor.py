@@ -416,6 +416,23 @@ def resolve_heading(text: str, heading_path: Any) -> dict[str, Any]:
             field="target.heading_path",
         )
     matches = [h for h in scan_headings(text) if h["path"] == heading_path]
+    if not matches and len(heading_path) == 1:
+        key = heading_path[0]
+        yaml_matches = list(re.finditer(rf"(?m)^{re.escape(key)}:\s*$", text))
+        for match in yaml_matches:
+            end = len(text)
+            next_key = re.search(r"(?m)^\S[^:\n]*:\s*(?:#.*)?$", text[match.end():])
+            if next_key:
+                end = match.end() + next_key.start()
+            matches.append({
+                "level": 1,
+                "title": key,
+                "path": [key],
+                "start": match.start(),
+                "body_start": match.end(),
+                "end": end,
+                "yaml_section": True,
+            })
     if len(matches) == 0:
         raise PatchError("zero target matches", code=3, mode="zero target matches", field="target.heading_path")
     if len(matches) > 1:
@@ -515,10 +532,12 @@ def replace_heading_section(repo: Path, policy: dict[str, Any], intent: dict[str
     text, _ = read_text(path)
     h = resolve_heading(text, intent["target"].get("heading_path"))
     replacement = intent["replacement"]["content"]
-    if replacement and not replacement.startswith(("\n", "\r\n")):
+    if replacement and not h.get("yaml_section") and not replacement.startswith(("\n", "\r\n")):
         replacement = "\n\n" + replacement
-    if replacement and not replacement.endswith(("\n", "\r\n")):
-        replacement += "\n"
+    if replacement:
+        separator = "\n\n" if h.get("yaml_section") else "\n"
+        if not replacement.endswith(separator):
+            replacement = replacement.rstrip("\r\n") + separator
     new_text = text[: h["body_start"]] + replacement + text[h["end"] :]
     write_text_preserve(path, new_text)
     return {"changed_paths": [rel], "resolved_target": {"path": rel, "kind": "heading_section", "heading_path": h["path"], "start": h["body_start"], "end": h["end"]}}

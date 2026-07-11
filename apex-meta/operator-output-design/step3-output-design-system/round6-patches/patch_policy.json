@@ -1,0 +1,17 @@
+{
+  "schema_version": "patch_policy.v1",
+  "path_allowlist": [
+    "apex-meta/operator-output-design/step3-output-design-system/02-shared-card-and-brief-anatomy.okf.yaml",
+    "apex-meta/operator-output-design/step3-output-design-system/03-planning-artifact-designs.okf.yaml",
+    "apex-meta/operator-output-design/step3-output-design-system/14-status-merge-decision-card-design.okf.yaml",
+    "apex-meta/operator-output-design/step3-output-design-system/15-project-kb-update-card-design.okf.yaml"
+    ,"apex-meta/operator-output-design/step3-output-design-system/18-round5-cross-artifact-relationships.okf.yaml",
+    "apex-meta/operator-output-design/step3-output-design-system/16-project-status-overview-design.okf.yaml",
+    "apex-meta/operator-output-design/step3-output-design-system/17-ai-routing-card-design.okf.yaml"
+  ],
+  "protected_paths": [],
+  "report_directory": "apex-meta/operator-output-design/step3-output-design-system/round6-patches/reports",
+  "allowed_operations": ["replace-once", "replace-heading-section", "apply-intent", "diff", "validate-intent", "locate", "inspect", "extract-span"],
+  "validation_commands": [],
+  "full_file_rewrite": false
+}

@@ -1,0 +1,41 @@
+{
+  "schema_version": "patch_intent.v1",
+  "intents": [
+    {
+      "intent_id": "j3-role",
+      "operation": "replace-once",
+      "target": {"target_file_guess": "apex-meta/operator-output-design/step3-output-design-system/03-planning-artifact-designs.okf.yaml"},
+      "hints": {"nearby_phrases": ["role: detailed_next_day_execution_plan"]},
+      "replacement": {"content": "role: compact_day_level_three_sprint_outline", "content_role": "span_replacement"},
+      "validation": {"expected_phrases": ["compact_day_level_three_sprint_outline"], "forbidden_phrases": ["detailed_next_day_execution_plan"]},
+      "safety": {"require_unique_match": true, "fail_on_ambiguity": true, "allow_full_file_rewrite": false, "max_files_touched": 1}
+    },
+    {
+      "intent_id": "j3-sprint-key",
+      "operation": "replace-once",
+      "target": {"target_file_guess": "apex-meta/operator-output-design/step3-output-design-system/03-planning-artifact-designs.okf.yaml"},
+      "hints": {"nearby_phrases": ["full_flow_sprint_plan:"]},
+      "replacement": {"content": "day_level_three_sprint_outline:", "content_role": "span_replacement"},
+      "validation": {"expected_phrases": ["day_level_three_sprint_outline:"], "forbidden_phrases": ["full_flow_sprint_plan:"]},
+      "safety": {"require_unique_match": true, "fail_on_ambiguity": true, "allow_full_file_rewrite": false, "max_files_touched": 1}
+    },
+    {
+      "intent_id": "j3-action",
+      "operation": "replace-once",
+      "target": {"target_file_guess": "apex-meta/operator-output-design/step3-output-design-system/03-planning-artifact-designs.okf.yaml"},
+      "hints": {"nearby_phrases": ["execute_first_sprint"]},
+      "replacement": {"content": "open_first_flow_execution_card", "content_role": "span_replacement"},
+      "validation": {"expected_phrases": ["open_first_flow_execution_card"], "forbidden_phrases": ["execute_first_sprint"]},
+      "safety": {"require_unique_match": true, "fail_on_ambiguity": true, "allow_full_file_rewrite": false, "max_files_touched": 1}
+    },
+    {
+      "intent_id": "j3-acceptance",
+      "operation": "replace-once",
+      "target": {"target_file_guess": "apex-meta/operator-output-design/step3-output-design-system/03-planning-artifact-designs.okf.yaml"},
+      "hints": {"nearby_phrases": ["J3_three_sprints_preserved_per_full_flow: true"]},
+      "replacement": {"content": "J3_three_sprints_preserved_per_full_flow: true\n  J3_summarizes_and_J4_owns_complete_execution_depth: true", "content_role": "span_replacement"},
+      "validation": {"expected_phrases": ["J3_summarizes_and_J4_owns_complete_execution_depth: true"]},
+      "safety": {"require_unique_match": true, "fail_on_ambiguity": true, "allow_full_file_rewrite": false, "max_files_touched": 1}
+    }
+  ]
+}

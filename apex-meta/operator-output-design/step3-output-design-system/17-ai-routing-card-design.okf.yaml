@@ -58,7 +58,17 @@ essential_sections:
 
 recommended_route_view:
   includes:
-    - selected_surface_or_model_class
+    - selected_surface_class
+    - fallback_route_when_material
+    - verified_model_ref_when_available
+  exact_model_rule:
+    exact_model_requires:
+      - current_verification_evidence
+      - verification_date_or_window
+      - verification_source_ref
+    final_model_mapping: deferred
+  includes:
+    - selected_surface_class
     - fallback_route_when_material
 
 alternative_view:
@@ -104,6 +114,11 @@ degraded_behavior:
   no_special_route_required:
     result: no_route_needed
     action: avoid_creating_unnecessary_routing_work
+  stale_or_missing_model_verification:
+    result: stable_surface_class_only
+    action: omit_exact_model_and_mark_verification_required
+    result: no_route_needed
+    action: avoid_creating_unnecessary_routing_work
 
 compact_machine_handoff:
   role: secondary_minimum_projection
@@ -111,7 +126,8 @@ compact_machine_handoff:
     - routing_recommendation_ref
     - task_context_ref
     - recommended_route
-    - selected_surface_or_model
+    - selected_surface_class
+    - verified_model_ref_when_verified
     - fallback_route
     - constraints
     - evidence_refs
@@ -119,7 +135,7 @@ compact_machine_handoff:
     - operator_decision
     - operator_review_flags
   contract_references:
-    - .claude/skills/ai-routing-and-usage-tracking/references/routing-recommendation-packet-contract.md
+    - .claude/skills/AIRouting/routing-recommendation-packet-contract.md
   schema_redefinition: false
 
 acceptance_checks:
@@ -129,6 +145,9 @@ acceptance_checks:
   J11_context_does_not_become_route_decision: true
   alternatives_appear_only_when_material: true
   current_cost_quota_and_product_claims_require_evidence: true
+  exact_model_requires_current_verification: true
+  unverified_exact_model_is_not_route_truth: true
+  final_model_mapping_remains_deferred: true
   route_is_not_executed: true
   plan_and_prompt_owners_are_preserved: true
   machine_handoff_contains_only_execution_route_minimum: true

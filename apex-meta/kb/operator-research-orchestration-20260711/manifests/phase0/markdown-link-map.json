@@ -1,0 +1,393 @@
+[
+  {
+    "markdown_links": [],
+    "path": "raw/notes/Apex Hermes Claude Build Pack.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "raw/notes/Apex&HermesArchitectrueGuidacne.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "raw/notes/apex_hermes_orchestration_decisions_v0_1.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "raw/notes/Apex_Hermes_Workflow_Example_Database_Master_of_Arts_v0_1 (1).md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "raw/notes/ApexAgent&WorkflowsNonAccurate.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "raw/notes/ArchitectureCheckClaudeVsHermesVsGPT.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "raw/notes/DR_Apex_Plan.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "raw/notes/DR_APEX_PM_KB_PD_Gem.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "raw/notes/DR_APEX_PM_KB_PD_GPT.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "raw/notes/DR_APEX_PM_KB_PD_Perp.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "raw/notes/DR_ApexOrchestrationClaude.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [
+      {
+        "line": 19,
+        "normalized_target": "https://www.designcouncil.org.uk/resources/the-double-diamond/?utm_source=chatgpt.com \"The Double Diamond - Design Council\"",
+        "target": "https://www.designcouncil.org.uk/resources/the-double-diamond/?utm_source=chatgpt.com \"The Double Diamond - Design Council\"",
+        "target_type": "absolute_url",
+        "text": "designcouncil.org.uk"
+      }
+    ],
+    "path": "raw/notes/ProcessRanking_GPT&MasterOA.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "raw/notes/Prompt Flow_Create Claude-Native Apex Alfred Orchestration Predefinition Files.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [
+      {
+        "line": 4,
+        "normalized_target": "C:/GitDev/OpenClaw/OpenClaw/07_finalopenclawsystem/docs/PROCESS_BLUEPRINT_SYSTEM.md",
+        "target": "C:/GitDev/OpenClaw/OpenClaw/07_finalopenclawsystem/docs/PROCESS_BLUEPRINT_SYSTEM.md",
+        "target_type": "relative_file",
+        "text": "PROCESS_BLUEPRINT_SYSTEM.md"
+      },
+      {
+        "line": 7,
+        "normalized_target": "C:/GitDev/OpenClaw/OpenClaw/07_finalopenclawsystem/docs/PROJECT_ROUTING.md",
+        "target": "C:/GitDev/OpenClaw/OpenClaw/07_finalopenclawsystem/docs/PROJECT_ROUTING.md",
+        "target_type": "relative_file",
+        "text": "PROJECT_ROUTING.md"
+      },
+      {
+        "line": 10,
+        "normalized_target": "C:/GitDev/OpenClaw/OpenClaw/07_finalopenclawsystem/managed/processes/HOLDING_ORCHESTRATION_FLOW.md",
+        "target": "C:/GitDev/OpenClaw/OpenClaw/07_finalopenclawsystem/managed/processes/HOLDING_ORCHESTRATION_FLOW.md",
+        "target_type": "relative_file",
+        "text": "HOLDING_ORCHESTRATION_FLOW.md"
+      },
+      {
+        "line": 13,
+        "normalized_target": "C:/GitDev/OpenClaw/OpenClaw/07_finalopenclawsystem/managed/processes/AGENT_HANDOFF_CONTRACTS.md",
+        "target": "C:/GitDev/OpenClaw/OpenClaw/07_finalopenclawsystem/managed/processes/AGENT_HANDOFF_CONTRACTS.md",
+        "target_type": "relative_file",
+        "text": "AGENT_HANDOFF_CONTRACTS.md"
+      },
+      {
+        "line": 16,
+        "normalized_target": "C:/GitDev/OpenClaw/OpenClaw/07_finalopenclawsystem/managed/processes/DEEP_RESEARCH_TO_PATCHSPEC_WORKFLOW.md",
+        "target": "C:/GitDev/OpenClaw/OpenClaw/07_finalopenclawsystem/managed/processes/DEEP_RESEARCH_TO_PATCHSPEC_WORKFLOW.md",
+        "target_type": "relative_file",
+        "text": "DEEP_RESEARCH_TO_PATCHSPEC_WORKFLOW.md"
+      },
+      {
+        "line": 19,
+        "normalized_target": "C:/GitDev/OpenClaw/OpenClaw/07_finalopenclawsystem/managed/rituals/BOOTSTRAP.md",
+        "target": "C:/GitDev/OpenClaw/OpenClaw/07_finalopenclawsystem/managed/rituals/BOOTSTRAP.md",
+        "target_type": "relative_file",
+        "text": "BOOTSTRAP.md"
+      },
+      {
+        "line": 22,
+        "normalized_target": "C:/GitDev/OpenClaw/OpenClaw/07_finalopenclawsystem/managed/rituals/CHECKLISTS.md",
+        "target": "C:/GitDev/OpenClaw/OpenClaw/07_finalopenclawsystem/managed/rituals/CHECKLISTS.md",
+        "target_type": "relative_file",
+        "text": "CHECKLISTS.md"
+      },
+      {
+        "line": 25,
+        "normalized_target": "C:/GitDev/OpenClaw/OpenClaw/07_finalopenclawsystem/managed/rituals/HEARTBEAT.md",
+        "target": "C:/GitDev/OpenClaw/OpenClaw/07_finalopenclawsystem/managed/rituals/HEARTBEAT.md",
+        "target_type": "relative_file",
+        "text": "HEARTBEAT.md"
+      },
+      {
+        "line": 28,
+        "normalized_target": "C:/GitDev/OpenClaw/OpenClaw/07_finalopenclawsystem/managed/rituals/SESSION_EXPORT_PROTOCOL.md",
+        "target": "C:/GitDev/OpenClaw/OpenClaw/07_finalopenclawsystem/managed/rituals/SESSION_EXPORT_PROTOCOL.md",
+        "target_type": "relative_file",
+        "text": "SESSION_EXPORT_PROTOCOL.md"
+      },
+      {
+        "line": 31,
+        "normalized_target": "C:/GitDev/OpenClaw/OpenClaw/07_finalopenclawsystem/managed/rituals/NIGHT_PLANNING_PROTOCOL.md",
+        "target": "C:/GitDev/OpenClaw/OpenClaw/07_finalopenclawsystem/managed/rituals/NIGHT_PLANNING_PROTOCOL.md",
+        "target_type": "relative_file",
+        "text": "NIGHT_PLANNING_PROTOCOL.md"
+      },
+      {
+        "line": 35,
+        "normalized_target": "C:/GitDev/OpenClaw/OpenClaw/07_finalopenclawsystem/managed/rules/PROMOTION_PROTOCOL.md",
+        "target": "C:/GitDev/OpenClaw/OpenClaw/07_finalopenclawsystem/managed/rules/PROMOTION_PROTOCOL.md",
+        "target_type": "relative_file",
+        "text": "PROMOTION_PROTOCOL.md"
+      },
+      {
+        "line": 38,
+        "normalized_target": "C:/GitDev/OpenClaw/OpenClaw/07_finalopenclawsystem/managed/rules/QA_HYGIENE_PROTOCOL.md",
+        "target": "C:/GitDev/OpenClaw/OpenClaw/07_finalopenclawsystem/managed/rules/QA_HYGIENE_PROTOCOL.md",
+        "target_type": "relative_file",
+        "text": "QA_HYGIENE_PROTOCOL.md"
+      },
+      {
+        "line": 41,
+        "normalized_target": "C:/GitDev/OpenClaw/OpenClaw/07_finalopenclawsystem/managed/rules/PROJECT_INTERFACE_CONTRACT.md",
+        "target": "C:/GitDev/OpenClaw/OpenClaw/07_finalopenclawsystem/managed/rules/PROJECT_INTERFACE_CONTRACT.md",
+        "target_type": "relative_file",
+        "text": "PROJECT_INTERFACE_CONTRACT.md"
+      },
+      {
+        "line": 44,
+        "normalized_target": "C:/GitDev/OpenClaw/OpenClaw/07_finalopenclawsystem/managed/knowledge/AGENT_KB_LANES.md",
+        "target": "C:/GitDev/OpenClaw/OpenClaw/07_finalopenclawsystem/managed/knowledge/AGENT_KB_LANES.md",
+        "target_type": "relative_file",
+        "text": "AGENT_KB_LANES.md"
+      },
+      {
+        "line": 47,
+        "normalized_target": "C:/GitDev/OpenClaw/OpenClaw/07_finalopenclawsystem/managed/knowledge/KB_STARTING_SOURCE_MAP.md",
+        "target": "C:/GitDev/OpenClaw/OpenClaw/07_finalopenclawsystem/managed/knowledge/KB_STARTING_SOURCE_MAP.md",
+        "target_type": "relative_file",
+        "text": "KB_STARTING_SOURCE_MAP.md"
+      },
+      {
+        "line": 50,
+        "normalized_target": "C:/GitDev/OpenClaw/OpenClaw/07_finalopenclawsystem/managed/knowledge/KB_PROMOTION_LEDGER_TEMPLATE.md",
+        "target": "C:/GitDev/OpenClaw/OpenClaw/07_finalopenclawsystem/managed/knowledge/KB_PROMOTION_LEDGER_TEMPLATE.md",
+        "target_type": "relative_file",
+        "text": "KB_PROMOTION_LEDGER_TEMPLATE.md"
+      },
+      {
+        "line": 54,
+        "normalized_target": "C:/GitDev/OpenClaw/OpenClaw/07_finalopenclawsystem/managed/agent_kb/special_ops__prompts_workflows/PROMPTFLOW_KB_BASE_BUILD.md",
+        "target": "C:/GitDev/OpenClaw/OpenClaw/07_finalopenclawsystem/managed/agent_kb/special_ops__prompts_workflows/PROMPTFLOW_KB_BASE_BUILD.md",
+        "target_type": "relative_file",
+        "text": "PROMPTFLOW_KB_BASE_BUILD.md"
+      },
+      {
+        "line": 57,
+        "normalized_target": "C:/GitDev/OpenClaw/OpenClaw/07_finalopenclawsystem/managed/agent_kb/special_ops__prompts_workflows/PROMPTFLOW_CONSTANT_FRAME_CONTROLLED_KB_INTEGRATION.md",
+        "target": "C:/GitDev/OpenClaw/OpenClaw/07_finalopenclawsystem/managed/agent_kb/special_ops__prompts_workflows/PROMPTFLOW_CONSTANT_FRAME_CONTROLLED_KB_INTEGRATION.md",
+        "target_type": "relative_file",
+        "text": "PROMPTFLOW_CONSTANT_FRAME_CONTROLLED_KB_INTEGRATION.md"
+      },
+      {
+        "line": 60,
+        "normalized_target": "C:/GitDev/OpenClaw/OpenClaw/07_finalopenclawsystem/managed/agent_kb/special_ops__prompts_workflows/TEMPLATES.md",
+        "target": "C:/GitDev/OpenClaw/OpenClaw/07_finalopenclawsystem/managed/agent_kb/special_ops__prompts_workflows/TEMPLATES.md",
+        "target_type": "relative_file",
+        "text": "TEMPLATES.md"
+      },
+      {
+        "line": 63,
+        "normalized_target": "C:/GitDev/OpenClaw/OpenClaw/07_finalopenclawsystem/managed/agent_kb/special_ops__hygiene_clean/PROMPTFLOW_KB_BASE_BUILD.md",
+        "target": "C:/GitDev/OpenClaw/OpenClaw/07_finalopenclawsystem/managed/agent_kb/special_ops__hygiene_clean/PROMPTFLOW_KB_BASE_BUILD.md",
+        "target_type": "relative_file",
+        "text": "PROMPTFLOW_KB_BASE_BUILD.md"
+      },
+      {
+        "line": 67,
+        "normalized_target": "C:/GitDev/OpenClaw/OpenClaw/07_finalopenclawsystem/docs/working/ZERO_DRIFT_DIFF_APPLICATION_PROCESS_GUIDE_V5.yaml",
+        "target": "C:/GitDev/OpenClaw/OpenClaw/07_finalopenclawsystem/docs/working/ZERO_DRIFT_DIFF_APPLICATION_PROCESS_GUIDE_V5.yaml",
+        "target_type": "relative_file",
+        "text": "ZERO_DRIFT_DIFF_APPLICATION_PROCESS_GUIDE_V5.yaml"
+      },
+      {
+        "line": 70,
+        "normalized_target": "C:/GitDev/OpenClaw/OpenClaw/07_finalopenclawsystem/docs/working/META_DETECTIVE_WATCHDOG_QA_HYGIENE_EXECUTION_PLAN.md",
+        "target": "C:/GitDev/OpenClaw/OpenClaw/07_finalopenclawsystem/docs/working/META_DETECTIVE_WATCHDOG_QA_HYGIENE_EXECUTION_PLAN.md",
+        "target_type": "relative_file",
+        "text": "META_DETECTIVE_WATCHDOG_QA_HYGIENE_EXECUTION_PLAN.md"
+      },
+      {
+        "line": 73,
+        "normalized_target": "C:/GitDev/OpenClaw/OpenClaw/07_finalopenclawsystem/docs/working/META_DETECTIVE_WATCHDOG_QA_HYGIENE_PER_TARGET_DIFF_HANDOVER.md",
+        "target": "C:/GitDev/OpenClaw/OpenClaw/07_finalopenclawsystem/docs/working/META_DETECTIVE_WATCHDOG_QA_HYGIENE_PER_TARGET_DIFF_HANDOVER.md",
+        "target_type": "relative_file",
+        "text": "META_DETECTIVE_WATCHDOG_QA_HYGIENE_PER_TARGET_DIFF_HANDOVER.md"
+      }
+    ],
+    "path": "raw/notes/SourceIndexAgentInteraction07OC.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [
+      {
+        "line": 6,
+        "normalized_target": "C:/GitDev/apexai-os-meta/agent_kb_source_indexes/CreatingAlfred/PromptFlowToCreateKB4Alfred2.md",
+        "target": "C:/GitDev/apexai-os-meta/agent_kb_source_indexes/CreatingAlfred/PromptFlowToCreateKB4Alfred2.md",
+        "target_type": "relative_file",
+        "text": "PromptFlowToCreateKB4Alfred2.md"
+      },
+      {
+        "line": 7,
+        "normalized_target": "C:/GitDev/apexai-os-meta/agent_kb_source_indexes/CreatingAlfred/NewPromptPlan.md",
+        "target": "C:/GitDev/apexai-os-meta/agent_kb_source_indexes/CreatingAlfred/NewPromptPlan.md",
+        "target_type": "relative_file",
+        "text": "NewPromptPlan.md"
+      },
+      {
+        "line": 8,
+        "normalized_target": "C:/GitDev/apexai-os-meta/agent_kb_source_indexes/CreatingAlfred/NewPromptFlow2.md",
+        "target": "C:/GitDev/apexai-os-meta/agent_kb_source_indexes/CreatingAlfred/NewPromptFlow2.md",
+        "target_type": "relative_file",
+        "text": "NewPromptFlow2.md"
+      },
+      {
+        "line": 9,
+        "normalized_target": "C:/GitDev/apexai-os-meta/agent_kb_source_indexes/CreatingAlfred/NewIntegration.md",
+        "target": "C:/GitDev/apexai-os-meta/agent_kb_source_indexes/CreatingAlfred/NewIntegration.md",
+        "target_type": "relative_file",
+        "text": "NewIntegration.md"
+      },
+      {
+        "line": 10,
+        "normalized_target": "C:/GitDev/apexai-os-meta/agent_kb_source_indexes/CreatingAlfred/PromptFLowValidation.md",
+        "target": "C:/GitDev/apexai-os-meta/agent_kb_source_indexes/CreatingAlfred/PromptFLowValidation.md",
+        "target_type": "relative_file",
+        "text": "PromptFLowValidation.md"
+      },
+      {
+        "line": 11,
+        "normalized_target": "C:/GitDev/apexai-os-meta/agent_kb_source_indexes/CreatingAlfred/promptflowChatHistory4Validation.md",
+        "target": "C:/GitDev/apexai-os-meta/agent_kb_source_indexes/CreatingAlfred/promptflowChatHistory4Validation.md",
+        "target_type": "relative_file",
+        "text": "promptflowChatHistory4Validation.md"
+      },
+      {
+        "line": 12,
+        "normalized_target": "C:/GitDev/apexai-os-meta/agent_kb_source_indexes/CreatingAlfred/ChatHistorxSoFar.md",
+        "target": "C:/GitDev/apexai-os-meta/agent_kb_source_indexes/CreatingAlfred/ChatHistorxSoFar.md",
+        "target_type": "relative_file",
+        "text": "ChatHistorxSoFar.md"
+      },
+      {
+        "line": 13,
+        "normalized_target": "C:/GitDev/apexai-os-meta/agent_kb_source_indexes/CreatingAlfred/ChatHistorxSoFar2.md",
+        "target": "C:/GitDev/apexai-os-meta/agent_kb_source_indexes/CreatingAlfred/ChatHistorxSoFar2.md",
+        "target_type": "relative_file",
+        "text": "ChatHistorxSoFar2.md"
+      },
+      {
+        "line": 18,
+        "normalized_target": "C:/GitDev/apexai-os-meta/agent_kb_source_indexes/CreatingAlfred/INtegratingLeelaSequencing/ChatsoFar.md",
+        "target": "C:/GitDev/apexai-os-meta/agent_kb_source_indexes/CreatingAlfred/INtegratingLeelaSequencing/ChatsoFar.md",
+        "target_type": "relative_file",
+        "text": "INtegratingLeelaSequencing/ChatsoFar.md"
+      },
+      {
+        "line": 19,
+        "normalized_target": "C:/GitDev/apexai-os-meta/agent_kb_source_indexes/CreatingAlfred/INtegratingLeelaSequencing/PF4Apex&Alfred.md",
+        "target": "C:/GitDev/apexai-os-meta/agent_kb_source_indexes/CreatingAlfred/INtegratingLeelaSequencing/PF4Apex&Alfred.md",
+        "target_type": "relative_file",
+        "text": "INtegratingLeelaSequencing/PF4Apex&Alfred.md"
+      },
+      {
+        "line": 20,
+        "normalized_target": "C:/GitDev/apexai-os-meta/agent_kb_source_indexes/CreatingAlfred/INtegratingLeelaSequencing/HandoffsFormats&Variables.md",
+        "target": "C:/GitDev/apexai-os-meta/agent_kb_source_indexes/CreatingAlfred/INtegratingLeelaSequencing/HandoffsFormats&Variables.md",
+        "target_type": "relative_file",
+        "text": "INtegratingLeelaSequencing/HandoffsFormats&Variables.md"
+      },
+      {
+        "line": 21,
+        "normalized_target": "C:/GitDev/apexai-os-meta/agent_kb_source_indexes/CreatingAlfred/INtegratingLeelaSequencing/Handover&ChatInititation.md",
+        "target": "C:/GitDev/apexai-os-meta/agent_kb_source_indexes/CreatingAlfred/INtegratingLeelaSequencing/Handover&ChatInititation.md",
+        "target_type": "relative_file",
+        "text": "INtegratingLeelaSequencing/Handover&ChatInititation.md"
+      },
+      {
+        "line": 22,
+        "normalized_target": "C:/GitDev/apexai-os-meta/agent_kb_source_indexes/CreatingAlfred/INtegratingLeelaSequencing/CodexInstrucitons.md",
+        "target": "C:/GitDev/apexai-os-meta/agent_kb_source_indexes/CreatingAlfred/INtegratingLeelaSequencing/CodexInstrucitons.md",
+        "target_type": "relative_file",
+        "text": "INtegratingLeelaSequencing/CodexInstrucitons.md"
+      },
+      {
+        "line": 23,
+        "normalized_target": "C:/GitDev/apexai-os-meta/agent_kb_source_indexes/CreatingAlfred/INtegratingLeelaSequencing/CreatedFiles.md",
+        "target": "C:/GitDev/apexai-os-meta/agent_kb_source_indexes/CreatingAlfred/INtegratingLeelaSequencing/CreatedFiles.md",
+        "target_type": "relative_file",
+        "text": "INtegratingLeelaSequencing/CreatedFiles.md"
+      },
+      {
+        "line": 24,
+        "normalized_target": "C:/GitDev/apexai-os-meta/agent_kb_source_indexes/CreatingAlfred/INtegratingLeelaSequencing/Variables&Metrics.md",
+        "target": "C:/GitDev/apexai-os-meta/agent_kb_source_indexes/CreatingAlfred/INtegratingLeelaSequencing/Variables&Metrics.md",
+        "target_type": "relative_file",
+        "text": "INtegratingLeelaSequencing/Variables&Metrics.md"
+      },
+      {
+        "line": 25,
+        "normalized_target": "C:/GitDev/apexai-os-meta/agent_kb_source_indexes/CreatingAlfred/INtegratingLeelaSequencing/Variables&Metrics_Claude.md",
+        "target": "C:/GitDev/apexai-os-meta/agent_kb_source_indexes/CreatingAlfred/INtegratingLeelaSequencing/Variables&Metrics_Claude.md",
+        "target_type": "relative_file",
+        "text": "INtegratingLeelaSequencing/Variables&Metrics_Claude.md"
+      },
+      {
+        "line": 26,
+        "normalized_target": "C:/GitDev/apexai-os-meta/agent_kb_source_indexes/CreatingAlfred/INtegratingLeelaSequencing/Variables&Metrics_GEM.md",
+        "target": "C:/GitDev/apexai-os-meta/agent_kb_source_indexes/CreatingAlfred/INtegratingLeelaSequencing/Variables&Metrics_GEM.md",
+        "target_type": "relative_file",
+        "text": "INtegratingLeelaSequencing/Variables&Metrics_GEM.md"
+      },
+      {
+        "line": 31,
+        "normalized_target": "C:/GitDev/apexai-os-meta/agent_kb_source_indexes/CreatingAlfred/NewPromptFLow.md",
+        "target": "C:/GitDev/apexai-os-meta/agent_kb_source_indexes/CreatingAlfred/NewPromptFLow.md",
+        "target_type": "relative_file",
+        "text": "NewPromptFLow.md"
+      },
+      {
+        "line": 32,
+        "normalized_target": "C:/GitDev/apexai-os-meta/agent_kb_source_indexes/CreatingAlfred/INtegratingLeelaSequencing/Untitled.md",
+        "target": "C:/GitDev/apexai-os-meta/agent_kb_source_indexes/CreatingAlfred/INtegratingLeelaSequencing/Untitled.md",
+        "target_type": "relative_file",
+        "text": "INtegratingLeelaSequencing/Untitled.md"
+      },
+      {
+        "line": 33,
+        "normalized_target": "C:/GitDev/apexai-os-meta/agent_kb_source_indexes/CreatingAlfred/INtegratingLeelaSequencing/Untitled%201.md",
+        "target": "C:/GitDev/apexai-os-meta/agent_kb_source_indexes/CreatingAlfred/INtegratingLeelaSequencing/Untitled%201.md",
+        "target_type": "relative_file",
+        "text": "INtegratingLeelaSequencing/Untitled 1.md"
+      }
+    ],
+    "path": "raw/notes/SourceIndexAgentInteractionAlfred.md",
+    "wikilinks": []
+  },
+  {
+    "markdown_links": [],
+    "path": "raw/notes/SourceIndexProjectGPT.md",
+    "wikilinks": []
+  }
+]

@@ -1,414 +1,171 @@
 document:
-  id: apex-step3-round6-canonical-artifact-family-and-lifecycle-map
-  title: APEX Step 3 Canonical Artifact Family and Lifecycle Map
-  status: proposed_round6_canonical_projection
+  id: apex-step3-canonical-artifact-family-and-lifecycle-map
+  title: APEX Canonical J1-J12 Artifact Family and Lifecycle Map
+  status: verified_navigation_projection
   created_date: 2026-07-11
   repository: leela-spec/apexai-os-meta
   branch: main
   package_path: apex-meta/operator-output-design/step3-output-design-system/
-  source_round: step3_round6
 
-scope:
-  purpose: >
-    Provide one complete operator-facing projection of the twelve locked artifact
-    jobs, their ownership boundaries, and the minimum lifecycle relationships
-    between them without replacing the round-specific relationship authorities.
-  owns:
-    - canonical_J1_to_J12_artifact_index
-    - canonical_operator_visible_lifecycle_projection
-    - minimum_cross_artifact_handoff_map
-    - lifecycle_boundary_summary
-  does_not_own:
-    - underlying_domain_schemas
-    - runtime_orchestration
-    - prompt_content
-    - routing_logic
-    - durable_project_state
-    - round_specific_design_history
+purpose: >
+  Provide one navigable projection of the twelve artifact jobs and their
+  lifecycle handoffs without replacing round-level design authorities.
 
-source_authority_policy:
-  canonical_projection_owner: 21-canonical-artifact-family-and-lifecycle-map.okf.yaml
-  local_relationship_authorities:
-    planning:
-      - 03-planning-artifact-designs.okf.yaml
-    execution_and_evidence:
-      - 08-round3-cross-artifact-relationship.okf.yaml
-    recap_and_learning:
-      - 12-round4-cross-artifact-relationship.okf.yaml
-    state_and_routing:
-      - 18-round5-cross-artifact-relationships.okf.yaml
-  state_translation_authority:
-    - 20-round6-cross-cutting-consistency-resolution.okf.yaml
-  rule: >
-    This file is the complete navigation and lifecycle projection. Local files
-    remain authoritative for the detailed relationships created and validated in
-    their own rounds.
-
-artifact_family:
+artifacts:
   J1:
     artifact: Project_State_Success_Card
-    job: expose_relevant_project_state_and_success_context
-    role: planning_input_not_plan
-    primary_owner: project_state_source
-    hands_to:
-      - J2
-      - J3
-    must_not:
-      - create_weekly_plan
-      - create_next_day_plan
-
+    job: establish_safe_project_state_for_planning
+    role: planning_state_input
+    owner: project-state-success
+    inputs: project_sources_and_recent_evidence
+    outputs: accepted_project_state_context
+    must_not_own: weekly_direction_or_execution_plan
   J2:
     artifact: Weekly_Command_Brief
-    job: define_cross_project_week_direction_and_work_plan
-    role: weekly_planning_surface
-    primary_owner: weekly_planning
-    receives_from:
-      - J1
-    hands_to:
-      - J3
-    must_not:
-      - become_daily_execution_workspace
-      - duplicate_project_state_database
-
+    job: turn_state_into_weekly_direction
+    role: weekly_work_plan
+    owner: precap-week
+    inputs: J1_project_state_and_week_context
+    outputs: weekly_priorities_and_work_plan
+    must_not_own: next_day_execution_detail
   J3:
     artifact: PreCap_Next_Day_Brief
-    job: define_compact_day_level_flow_and_three_sprint_outline
-    role: next_day_planning_and_sequence_surface
-    primary_owner: PreCapNextDay
-    receives_from:
-      - J1
-      - J2
-      - J8_when_relevant
-    hands_to:
-      - J4
-    must_not:
-      - duplicate_complete_flow_execution_depth
-      - execute_work
-
+    job: turn_weekly_and_state_context_into_next_day_outline
+    role: compact_three_sprint_day_outline
+    owner: precap-next-day
+    inputs: J1_state_and_J2_weekly_direction
+    outputs: day_level_flow_and_sprint_summary
+    must_not_own: complete_execution_depth
   J4:
     artifact: Flow_Execution_Card
-    job: provide_complete_operator_execution_workspace_for_one_flow
-    role: primary_flow_execution_workspace
-    primary_owner: flow_execution_design
-    receives_from:
-      - J3
-      - J12_when_operator_approved
-    references:
-      - J5
-    hands_to:
-      - operator_execution
-      - J6
-    must_not:
-      - recreate_prompt_content
-      - recreate_routing_reasoning
-
+    job: make_one_planned_flow_directly_executable
+    role: complete_execution_workspace
+    owner: flow-execution-card
+    inputs: J3_flow_ref_and_J12_approved_route_when_present
+    outputs: full_sprint_execution_context
+    must_not_own: final_prompt_content_or_durable_status
   J5:
-    artifact: Prompt_Files_and_Index
-    job: provide_directly_openable_prompt_assets_and_lightweight_mapping
-    role: prompt_access_surface
-    primary_owner: Prompt_Engineering
-    receives_from:
-      - J4_context
-      - J12_when_operator_approved
-    hands_to:
-      - operator_execution
-    must_not:
-      - duplicate_flow_plan
-      - duplicate_project_state
-      - own_routing_logic
-
+    artifact: Flow_Prompt_Pack
+    job: provide_direct_prompt_access_for_execution
+    role: prompt_file_projection
+    owner: prompt-engineering
+    inputs: J4_execution_context
+    outputs: prompt_files_and_index
+    must_not_own: route_decision_or_project_plan
   J6:
     artifact: Execution_Evidence_Handoff
-    job: organize_execution_evidence_for_recap
-    role: evidence_preparation_surface
-    primary_owner: execution_evidence_handoff
-    receives_from:
-      - J4_and_operator_execution
-    hands_to:
-      - J7
-    conditional_subcase:
-      artifact: Skip_Marker
-      use_when: planned_flow_was_not_executed
-      standalone_card_required: false
-    must_not:
-      - interpret_project_meaning
-      - accept_candidate_state
-
+    job: organize_evidence_after_execution
+    role: evidence_handoff
+    owner: execution-evidence
+    inputs: operator_execution_results
+    outputs: organized_execution_evidence
+    must_not_own: interpretation_of_project_state
   J7:
     artifact: FlowRecap_Result_Card
-    job: interpret_flow_results_and_propose_candidate_changes
-    role: recap_interpretation_surface
-    primary_owner: FlowRecap
-    receives_from:
-      - J6
-    hands_to:
-      - J8
-      - J9
-    must_not:
-      - accept_candidate_project_state
-      - write_project_KB
-
+    job: interpret_execution_evidence
+    role: result_and_candidate_state_interpretation
+    owner: flow-recap
+    inputs: J6_evidence_handoff
+    outputs: execution_result_and_candidate_status_delta
+    must_not_own: durable_merge
   J8:
     artifact: Usage_Learning_Card
-    job: convert_usage_evidence_into_lightweight_advisory_learning
-    role: usage_learning_surface
-    primary_owner: usage_learning
-    receives_from:
-      - J7
-    hands_to:
-      - J12
-      - J3_when_relevant
-    must_not:
-      - override_routing
-      - create_next_day_plan
-
+    job: capture_reusable_usage_learning
+    role: advisory_learning_signal
+    owner: usage-learning
+    inputs: J7_result_and_usage_delta
+    outputs: advisory_routing_evidence
+    must_not_own: automatic_route_override
   J9:
     artifact: Status_Merge_Decision_Card
-    job: review_candidate_state_changes_before_durable_merge
-    role: candidate_state_review_surface
-    primary_owner: status-merge
-    receives_from:
-      - J7
-    hands_to:
-      - J10
-    must_not:
-      - write_durable_project_state
-      - claim_merged_without_durable_write_confirmation
-
+    job: review_candidate_state_before_merge
+    role: merge_review_and_approval
+    owner: status-merge
+    inputs: J7_candidate_status_delta
+    outputs: approved_change_for_KB_update
+    must_not_own: confirmed_durable_write
   J10:
     artifact: Project_KB_Update_Card
-    job: prepare_execute_and_confirm_accepted_project_memory_updates
-    role: durable_KB_write_surface
-    primary_owner: project-kb-manager
-    receives_from:
-      - J9
-    hands_to:
-      - J11_when_write_is_confirmed
-    must_not:
-      - accept_candidate_state
-      - present_prepared_write_as_durable_truth
-
+    job: prepare_or_execute_project_KB_update
+    role: durable_write_boundary
+    owner: project-kb-manager
+    inputs: J9_approved_change
+    outputs: durable_update_result_and_freshness
+    must_not_own: unconfirmed_overview_truth
   J11:
     artifact: Project_Status_Overview
-    job: show_confirmed_cross_project_status_and_ranked_attention
-    role: compact_cross_project_truth_projection
-    primary_owner: ProjectStatus
-    receives_from:
-      - durable_project_sources
-      - J10_confirmed_update_result
-    hands_to:
-      - J12
-      - operator_navigation
-    must_not:
-      - accept_candidate_updates
-      - create_workstreams
-      - invent_missing_status
-
+    job: show_confirmed_cross_project_active_landscape
+    role: accepted_overview_truth_projection
+    owner: project-status-overview
+    inputs: J10_confirmed_durable_update_result
+    outputs: accepted_status_and_freshness_context
+    must_not_own: candidate_acceptance_or_status_merge
   J12:
     artifact: AI_Routing_Card
-    job: recommend_stable_AI_surface_route_before_execution
-    role: advisory_routing_surface
-    primary_owner: AIRouting
-    receives_from:
-      - J8
-      - J11
-    hands_to:
-      - J4_when_operator_approved
-      - J5_when_operator_approved
-    must_not:
-      - execute_route
-      - create_flow_plan
-      - generate_prompt_files
-      - use_unverified_exact_model_as_route_truth
+    job: recommend_route_before_execution
+    role: advisory_routing_decision
+    owner: ai-routing-and-usage-tracking
+    inputs: J8_learning_and_J11_project_context
+    outputs: operator_approved_route_context
+    must_not_own: automatic_execution_or_final_volatile_model_truth
 
-canonical_operator_lifecycle:
+lifecycles:
   planning:
-    sequence:
-      - J1
-      - J2
-      - J3
-    boundary: project_state_to_week_plan_to_day_outline
-
+    sequence: J1 -> J2 -> J3
   execution:
-    sequence:
-      - J3
-      - J4
-      - J5
-      - operator_execution
-      - J6
-    boundary: day_outline_to_execution_workspace_to_evidence
-
+    sequence: J3 -> J4 -> J5 -> operator_execution -> J6
   recap_and_learning:
-    sequence:
-      - J6
-      - J7
-      - J8
-    boundary: evidence_to_interpretation_to_advisory_learning
-
+    sequence: J6 -> J7 -> J8
   durable_state:
-    sequence:
-      - J7
-      - J9
-      - J10
-      - J11
-    boundary: candidate_to_review_to_confirmed_write_to_overview_truth
-
+    sequence: J7 -> J9 -> J10 -> J11
   routing:
-    sequence:
-      - J8
-      - J11
-      - J12
-      - J4_and_J5_when_operator_approved
-    boundary: advisory_learning_and_project_context_to_approved_execution_route
+    sequence: J8 + J11 -> J12 -> J4/J5_after_operator_approval
 
 minimum_handoffs:
-  J1_to_J2:
-    provides:
-      - project_state_refs
-      - success_context
-      - constraints
-    rule: project_state_is_referenced_not_reprinted
+  J1_to_J2: project_state_context
+  J2_to_J3: weekly_direction_and_priorities
+  J3_to_J4: summarized_flow_and_sprint_refs
+  J4_to_J5: execution_prompt_requirements
+  execution_to_J6: evidence_and_execution_record
+  J6_to_J7: organized_evidence
+  J7_to_J9: candidate_state_and_evidence
+  J9_to_J10: approved_change_for_KB_write
+  J10_to_J11: confirmed_durable_result_ref_and_freshness
+  J8_to_J12: advisory_usage_learning
+  J11_to_J12: current_project_context
+  J12_to_J4_J5: operator_approved_route
 
-  J2_to_J3:
-    provides:
-      - weekly_priority_trace
-      - represented_projects
-      - weekly_constraints
-    rule: weekly_direction_is_carried_forward_not_rebuilt
+state_boundaries:
+  candidate_to_approval: J7_proposes_and_J9_reviews
+  approval_to_confirmed_write: J9_approval_requires_J10_execution
+  confirmed_write_to_overview_truth: J10_result_required_before_J11_projection
+  learning_to_route: J8_is_advisory_and_J12_requires_operator_decision
+  route_to_execution: J12_approved_route_enters_J4_and_J5
 
-  J3_to_J4:
-    provides:
-      - flow_identity
-      - sprint_outline
-      - sequence
-      - expected_output_summary
-      - flow_execution_card_ref
-    rule: J3_summarizes_J4_owns_complete_execution_depth
+local_relationship_authorities:
+  planning:
+    - 03-planning-artifact-designs.okf.yaml
+  execution_and_evidence:
+    - 08-round3-cross-artifact-relationship.okf.yaml
+  recap_and_learning:
+    - 12-round4-cross-artifact-relationship.okf.yaml
+  state_and_routing:
+    - 18-round5-cross-artifact-relationships.okf.yaml
+  authority_rule: this_file_is_navigation_projection_not_replacement_authority
 
-  J4_to_J5:
-    provides:
-      - direct_prompt_file_links
-      - target_surface_ref
-      - routing_ref
-    rule: prompt_content_remains_J5_owned
-
-  execution_to_J6:
-    provides:
-      - flow_id
-      - planned_work
-      - actual_work
-      - outputs
-      - decisions
-      - blockers
-      - unresolved_questions
-      - source_refs
-      - readiness
-    rule: evidence_is_organized_not_interpreted
-
-  J6_to_J7:
-    provides:
-      - structured_evidence_or_handoff_ref
-      - completion_state
-      - readiness
-    rule: J6_organizes_evidence_J7_interprets_meaning
-
-  J7_to_J8:
-    provides:
-      - model_usage_delta_candidate_ref_or_inline_candidate
-      - actual_usage_evidence
-      - usage_purpose
-      - confidence
-    rule: J8_owns_learning_conclusion
-
-  J7_to_J9:
-    provides:
-      - candidate_project_status_delta_ref
-      - evidence_refs
-      - confidence
-      - conflicts
-      - operator_review_flags
-    rule: J7_proposes_J9_reviews
-
-  J9_to_J10:
-    condition: accepted_change_contains_durable_project_knowledge
-    provides:
-      - accepted_change_ref
-      - provenance
-      - KB_update_candidate
-    rule: approval_is_write_input_not_write_confirmation
-
-  J10_to_J11:
-    condition: durable_KB_update_executed_and_confirmed
-    provides:
-      - durable_update_result_ref
-      - accepted_status_ref
-      - effective_change
-      - updated_freshness
-    rule: confirmed_durable_write_only_becomes_overview_truth
-
-  J8_to_J12:
-    provides:
-      - advisory_route_signal
-      - task_context
-      - outcome_quality
-      - confidence
-      - evidence_ref
-    rule: learning_never_overrides_routing_automatically
-
-  J11_to_J12:
-    provides:
-      - active_project_context
-      - ranked_priority_or_blocker
-      - relevant_constraints
-    rule: overview_context_is_not_route_decision
-
-  J12_to_J4_and_J5:
-    condition: route_is_operator_approved
-    provides:
-      - approved_route_ref
-      - selected_surface_class
-      - optional_verified_model_ref
-      - constraints
-    rule: J12_does_not_create_execution_cards_or_prompts
-
-lifecycle_translation_rules:
-  authority: 20-round6-cross-cutting-consistency-resolution.okf.yaml
-  preserve:
-    - candidate_vs_accepted
-    - approved_vs_executed
-    - prepared_vs_confirmed_write
-    - advisory_vs_operator_approved_route
-    - stale_missing_or_conflicting_truth_visibility
-  forbidden_shortcuts:
-    - completed_flow_to_merged_project_state
-    - approved_for_merge_to_confirmed_write
-    - prepared_KB_update_to_overview_truth
-    - usage_learning_to_automatic_route_override
-    - route_recommendation_to_automatic_execution
-
-non_duplication_rules:
-  project_state_is_referenced_not_reprinted: true
-  weekly_direction_is_traced_not_rebuilt: true
-  complete_flow_execution_depth_exists_in_J4: true
-  prompt_content_exists_in_J5: true
-  evidence_handoff_does_not_interpret_project_meaning: true
-  recap_candidate_state_is_not_durable_state: true
-  durable_write_confirmation_exists_in_J10: true
-  overview_truth_projection_exists_in_J11: true
-  routing_reasoning_exists_with_J12: true
-  domain_contracts_remain_schema_authority: true
+forbidden_shortcuts:
+  - J3_summary_to_full_execution_without_J4
+  - J6_evidence_to_project_state_without_J7
+  - J7_candidate_to_merged_state_without_J9
+  - J9_approval_to_confirmed_write_without_J10
+  - J10_prepared_update_to_J11_truth
+  - J8_learning_to_automatic_route
+  - J12_recommendation_to_execution_without_operator_approval
 
 acceptance_checks:
-  all_J1_to_J12_artifacts_are_indexed: true
-  planning_execution_recap_state_and_routing_lifecycles_are_visible: true
-  local_relationship_authorities_are_preserved: true
-  J3_and_J4_depth_are_separated: true
-  J6_and_J7_evidence_interpretation_boundary_is_preserved: true
-  J7_candidate_state_is_not_durable_state: true
-  J9_approval_is_not_confirmed_write: true
-  J10_confirmed_write_is_required_for_new_J11_truth: true
-  J8_learning_is_advisory_only: true
-  J12_route_requires_operator_approval_before_execution_handoff: true
-  selected_surface_class_is_default_route_identity: true
-  no_universal_state_enum_is_created: true
-  no_domain_schema_redefinition: true
+  all_twelve_artifacts_are_mapped: true
+  planning_execution_recap_durable_and_routing_lifecycles_are_present: true
+  minimum_handoffs_are_explicit: true
+  candidate_approval_write_and_overview_boundaries_are_explicit: true
+  local_round_authorities_are_preserved: true
+  navigation_projection_does_not_replace_detail_authorities: true

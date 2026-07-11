@@ -1,0 +1,35 @@
+{
+  "backend": "sqlite_fts5",
+  "chunk_count": 66,
+  "files": {
+    "wiki/summaries/claude-native-apex-orchestration.md": {
+      "hash": "54bdc742e17a0a5c198f16312b5cce0d28444ab4f0084ab1b4c741cfa0e8edbc",
+      "mtime": 1783762323.7894826
+    },
+    "wiki/summaries/core-pattern-convergence.md": {
+      "hash": "aea1b90f1023d6e1949b3134807be77a67fc408d24efc3ee2644e03c3906d272",
+      "mtime": 1783762323.7894826
+    },
+    "wiki/summaries/defining-pattern-and-decision-ranking.md": {
+      "hash": "b03bc4bc27e3b7981d0fac581d9c823c76b46bdb9ac5a8e8710ef777573ca3d5",
+      "mtime": 1783763068.7571783
+    },
+    "wiki/summaries/operational-meta-agent-workflow.md": {
+      "hash": "8e0c16c184b42c81247a4b6b857297b73f3bf8a7249b29c4a5a790908ced202d",
+      "mtime": 1783762435.8710496
+    },
+    "wiki/summaries/orchestration-alternatives-by-use-case.md": {
+      "hash": "17e48451086be30b2123600be8d7265f6721cfeff04ea42e7fa2c38478e11e40",
+      "mtime": 1783763068.7558959
+    },
+    "wiki/summaries/source-authority-and-connection-map.md": {
+      "hash": "ebde9793699d044c46de0d1fc5027c9a24f5c4409e19d87362b26ee76e3214e4",
+      "mtime": 1783762396.078637
+    }
+  },
+  "generated_at": "2026-07-11T09:44:38Z",
+  "kb_slug": "operator-research-orchestration-20260711",
+  "page_count": 6,
+  "policy": "derived_rebuildable_not_canonical",
+  "schema_version": "1.0"
+}

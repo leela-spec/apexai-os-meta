@@ -1,0 +1,32 @@
+{
+  "schema_version": "patch_intent.v1",
+  "intents": [
+    {
+      "intent_id": "shared-card-precap-name",
+      "operation": "replace-once",
+      "target": {"target_file_guess": "apex-meta/operator-output-design/step3-output-design-system/02-shared-card-and-brief-anatomy.okf.yaml"},
+      "hints": {"nearby_phrases": ["Tomorrow_Action_Brief"]},
+      "replacement": {"content": "PreCap_Next_Day_Brief", "content_role": "span_replacement"},
+      "validation": {"expected_phrases": ["PreCap_Next_Day_Brief"], "forbidden_phrases": ["Tomorrow_Action_Brief"]},
+      "safety": {"require_unique_match": true, "fail_on_ambiguity": true, "allow_full_file_rewrite": false, "max_files_touched": 1}
+    },
+    {
+      "intent_id": "shared-card-prompt-files-name",
+      "operation": "replace-once",
+      "target": {"target_file_guess": "apex-meta/operator-output-design/step3-output-design-system/02-shared-card-and-brief-anatomy.okf.yaml"},
+      "hints": {"nearby_phrases": ["Flow_Prompt_Pack"]},
+      "replacement": {"content": "Prompt_Files_and_Index", "content_role": "span_replacement"},
+      "validation": {"expected_phrases": ["Prompt_Files_and_Index"], "forbidden_phrases": ["Flow_Prompt_Pack"]},
+      "safety": {"require_unique_match": true, "fail_on_ambiguity": true, "allow_full_file_rewrite": false, "max_files_touched": 1}
+    },
+    {
+      "intent_id": "shared-card-evidence-name",
+      "operation": "replace-once",
+      "target": {"target_file_guess": "apex-meta/operator-output-design/step3-output-design-system/02-shared-card-and-brief-anatomy.okf.yaml"},
+      "hints": {"nearby_phrases": ["Raw_Flow_Dump_or_Skip_Marker_Card"]},
+      "replacement": {"content": "Execution_Evidence_Handoff\n    - Skip_Marker_as_minimal_subcase", "content_role": "span_replacement"},
+      "validation": {"expected_phrases": ["Execution_Evidence_Handoff", "Skip_Marker_as_minimal_subcase"], "forbidden_phrases": ["Raw_Flow_Dump_or_Skip_Marker_Card"]},
+      "safety": {"require_unique_match": true, "fail_on_ambiguity": true, "allow_full_file_rewrite": false, "max_files_touched": 1}
+    }
+  ]
+}

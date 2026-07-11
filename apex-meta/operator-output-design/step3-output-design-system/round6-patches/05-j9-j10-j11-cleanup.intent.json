@@ -1,0 +1,14 @@
+{
+  "schema_version": "patch_intent.v1",
+  "intents": [
+    {
+      "intent_id": "remove-superseded-j9-j11-body",
+      "operation": "replace-once",
+      "target": {"target_file_guess": "apex-meta/operator-output-design/step3-output-design-system/18-round5-cross-artifact-relationships.okf.yaml"},
+      "hints": {"nearby_phrases": ["  condition: state_change_has_been_durably_merged"]},
+      "replacement": {"content": "  # superseded direct J9_to_J11 route removed; J10_to_J11 is authoritative", "content_role": "span_replacement"},
+      "validation": {"expected_phrases": ["J10_to_J11:", "J10_to_J11_defined: true"], "forbidden_phrases": ["state_change_has_been_durably_merged", "approved_for_merge_is_not_yet_overview_truth"]},
+      "safety": {"require_unique_match": true, "fail_on_ambiguity": true, "allow_full_file_rewrite": false, "max_files_touched": 1}
+    }
+  ]
+}

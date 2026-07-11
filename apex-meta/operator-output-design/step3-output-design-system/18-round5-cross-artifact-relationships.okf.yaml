@@ -9,7 +9,7 @@ document:
   covers:
     - J7_to_J9
     - J9_to_J10
-    - J9_to_J11
+    - J10_to_J11
     - J8_to_J12
     - J11_to_J12
     - J12_to_J4_and_J5
@@ -43,7 +43,17 @@ J9_to_J10:
     - update_execution_decision
   ownership_rule: J9_accepts_for_merge_J10_prepares_or_executes_KB_write
 
-J9_to_J11:
+J10_to_J11:
+  condition: durable_KB_update_executed_and_confirmed
+  provides:
+    - durable_update_result_ref
+    - accepted_status_ref
+    - effective_change
+    - updated_freshness
+  rule: >
+    J11_projects_only_confirmed_durable_state. J9 approval alone, prepared or
+    awaiting-confirmation updates, executed claims without durable_update_result_ref,
+    and skipped or blocked writes cannot become overview truth.
   condition: state_change_has_been_durably_merged
   provides:
     - accepted_status_ref
@@ -77,7 +87,8 @@ J12_to_J4_and_J5:
 acceptance_checks:
   J7_to_J9_defined: true
   J9_to_J10_defined: true
-  J9_to_J11_defined: true
+  J10_to_J11_defined: true
+  confirmed_durable_update_evidence_required: true
   J8_to_J12_defined: true
   J11_to_J12_defined: true
   J12_to_J4_and_J5_defined: true

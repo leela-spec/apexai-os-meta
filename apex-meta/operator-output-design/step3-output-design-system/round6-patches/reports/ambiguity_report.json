@@ -1,0 +1,10 @@
+{
+  "candidates": [],
+  "command": "replace-once",
+  "failure_mode": "zero target matches",
+  "governing_field": "",
+  "message": "zero target matches",
+  "rollback_status": "not_applicable",
+  "status": "FAIL",
+  "timestamp": "2026-07-11T08:49:58Z"
+}

@@ -1,0 +1,160 @@
+{
+  "aggregate": {
+    "file_count": 16,
+    "level": 1,
+    "sha256": "ce538445ec482e01f86557fc3a774f32e319ef1b2aa672e1ab64ae899f9c7b85",
+    "total_size_bytes": 616317
+  },
+  "files": [
+    {
+      "group": "notes",
+      "path": "raw/notes/Apex Hermes Claude Build Pack.md",
+      "raw_relative_path": "notes/Apex Hermes Claude Build Pack.md",
+      "sha256": "8e5454f2c211fc705e7635a855c80252f410b5602bb85b5e3b64754fe7cc228b",
+      "size_bytes": 55511
+    },
+    {
+      "group": "notes",
+      "path": "raw/notes/Apex&HermesArchitectrueGuidacne.md",
+      "raw_relative_path": "notes/Apex&HermesArchitectrueGuidacne.md",
+      "sha256": "92f68d9257c7adb74ffcb7d76e66b9b33e5f257a843b1a880c3c885df9f735cb",
+      "size_bytes": 38324
+    },
+    {
+      "group": "notes",
+      "path": "raw/notes/ApexAgent&WorkflowsNonAccurate.md",
+      "raw_relative_path": "notes/ApexAgent&WorkflowsNonAccurate.md",
+      "sha256": "8746bfaecf494e6610712d22ca650f88bc32c16c2076b632dda08e1f5afb9ba9",
+      "size_bytes": 35711
+    },
+    {
+      "group": "notes",
+      "path": "raw/notes/Apex_Hermes_Workflow_Example_Database_Master_of_Arts_v0_1 (1).md",
+      "raw_relative_path": "notes/Apex_Hermes_Workflow_Example_Database_Master_of_Arts_v0_1 (1).md",
+      "sha256": "c238f6a8944fc9ba535ee4268cc54ff1ddf5af5981760f7a8b42d72f36d92ecb",
+      "size_bytes": 80407
+    },
+    {
+      "group": "notes",
+      "path": "raw/notes/ArchitectureCheckClaudeVsHermesVsGPT.md",
+      "raw_relative_path": "notes/ArchitectureCheckClaudeVsHermesVsGPT.md",
+      "sha256": "d836353a9c23908a2f2bd02480a985536feec7c0990eb16a816cf74600a08b92",
+      "size_bytes": 69642
+    },
+    {
+      "group": "notes",
+      "path": "raw/notes/DR_APEX_PM_KB_PD_GPT.md",
+      "raw_relative_path": "notes/DR_APEX_PM_KB_PD_GPT.md",
+      "sha256": "f7c8d832f457aa26680e7ba730b56b7d4fb042ee8f74193a4c5e563d25a35e1f",
+      "size_bytes": 35006
+    },
+    {
+      "group": "notes",
+      "path": "raw/notes/DR_APEX_PM_KB_PD_Gem.md",
+      "raw_relative_path": "notes/DR_APEX_PM_KB_PD_Gem.md",
+      "sha256": "e0fce96fe0b4cf8b9d3bb5b55a26eb16715d890e04e1d71b490e38359936713b",
+      "size_bytes": 69939
+    },
+    {
+      "group": "notes",
+      "path": "raw/notes/DR_APEX_PM_KB_PD_Perp.md",
+      "raw_relative_path": "notes/DR_APEX_PM_KB_PD_Perp.md",
+      "sha256": "35f36817476ade273cf09545ea082b4478e5ea12e3cb0e9db50672b11dee8124",
+      "size_bytes": 33100
+    },
+    {
+      "group": "notes",
+      "path": "raw/notes/DR_ApexOrchestrationClaude.md",
+      "raw_relative_path": "notes/DR_ApexOrchestrationClaude.md",
+      "sha256": "6a4e36fd6dd33c0765bc9406017ef823016c1706d7b1869bbac815cc4083b54c",
+      "size_bytes": 48548
+    },
+    {
+      "group": "notes",
+      "path": "raw/notes/DR_Apex_Plan.md",
+      "raw_relative_path": "notes/DR_Apex_Plan.md",
+      "sha256": "a2e1e4cc0080f89fe8025bdec80f68d4b573c61ba9933b0d0e86304bd3a1dada",
+      "size_bytes": 30153
+    },
+    {
+      "group": "notes",
+      "path": "raw/notes/ProcessRanking_GPT&MasterOA.md",
+      "raw_relative_path": "notes/ProcessRanking_GPT&MasterOA.md",
+      "sha256": "dad2945d9131a8502c6631198e0366f09bd41cc93d8c29ca3a8af5088e019161",
+      "size_bytes": 14678
+    },
+    {
+      "group": "notes",
+      "path": "raw/notes/Prompt Flow_Create Claude-Native Apex Alfred Orchestration Predefinition Files.md",
+      "raw_relative_path": "notes/Prompt Flow_Create Claude-Native Apex Alfred Orchestration Predefinition Files.md",
+      "sha256": "0801f3f37f5337df5ec7828fcbe98237dda3071259bc0149b84a4fdcf0fb407c",
+      "size_bytes": 22189
+    },
+    {
+      "group": "notes",
+      "path": "raw/notes/SourceIndexAgentInteraction07OC.md",
+      "raw_relative_path": "notes/SourceIndexAgentInteraction07OC.md",
+      "sha256": "83f7636308ee1dda4fdf9de17ac501b6b95c48566b9585c0d65aa14f46885b4c",
+      "size_bytes": 6356
+    },
+    {
+      "group": "notes",
+      "path": "raw/notes/SourceIndexAgentInteractionAlfred.md",
+      "raw_relative_path": "notes/SourceIndexAgentInteractionAlfred.md",
+      "sha256": "36698ea97d0c904492fd95e20fcbbd9a709f2843c5bb9375272dd95f2a672d91",
+      "size_bytes": 6513
+    },
+    {
+      "group": "notes",
+      "path": "raw/notes/SourceIndexProjectGPT.md",
+      "raw_relative_path": "notes/SourceIndexProjectGPT.md",
+      "sha256": "a67cb787047219430768c7cbe35051e2107c35a852d210c5133ff5b38dc754a0",
+      "size_bytes": 46098
+    },
+    {
+      "group": "notes",
+      "path": "raw/notes/apex_hermes_orchestration_decisions_v0_1.md",
+      "raw_relative_path": "notes/apex_hermes_orchestration_decisions_v0_1.md",
+      "sha256": "fd02b1cccb4f98930c8d8d8d92d9e613c8ae978bd54b6e4a2c0d475b823ee716",
+      "size_bytes": 24142
+    }
+  ],
+  "grouping": {
+    "default": "first-level folder under raw/",
+    "root_group": "files directly under raw/"
+  },
+  "hash_algorithm": "sha256",
+  "kb_root": "C:/GitDev/apexai-os-meta/apex-meta/kb/operator-research-orchestration-20260711",
+  "kb_slug": "operator-research-orchestration-20260711",
+  "manifest_version": "1.0",
+  "payload_root": "C:/GitDev/apexai-os-meta/apex-meta/kb/operator-research-orchestration-20260711/raw",
+  "schema": "apex.source_payload_manifest.v1",
+  "source_groups": [
+    {
+      "file_count": 16,
+      "files": [
+        "raw/notes/Apex Hermes Claude Build Pack.md",
+        "raw/notes/Apex&HermesArchitectrueGuidacne.md",
+        "raw/notes/ApexAgent&WorkflowsNonAccurate.md",
+        "raw/notes/Apex_Hermes_Workflow_Example_Database_Master_of_Arts_v0_1 (1).md",
+        "raw/notes/ArchitectureCheckClaudeVsHermesVsGPT.md",
+        "raw/notes/DR_APEX_PM_KB_PD_GPT.md",
+        "raw/notes/DR_APEX_PM_KB_PD_Gem.md",
+        "raw/notes/DR_APEX_PM_KB_PD_Perp.md",
+        "raw/notes/DR_ApexOrchestrationClaude.md",
+        "raw/notes/DR_Apex_Plan.md",
+        "raw/notes/ProcessRanking_GPT&MasterOA.md",
+        "raw/notes/Prompt Flow_Create Claude-Native Apex Alfred Orchestration Predefinition Files.md",
+        "raw/notes/SourceIndexAgentInteraction07OC.md",
+        "raw/notes/SourceIndexAgentInteractionAlfred.md",
+        "raw/notes/SourceIndexProjectGPT.md",
+        "raw/notes/apex_hermes_orchestration_decisions_v0_1.md"
+      ],
+      "folder": "raw/notes",
+      "group_id": "notes",
+      "level": 2,
+      "sha256": "ce538445ec482e01f86557fc3a774f32e319ef1b2aa672e1ab64ae899f9c7b85",
+      "total_size_bytes": 616317
+    }
+  ]
+}

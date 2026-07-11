@@ -1,0 +1,2429 @@
+{
+  "deterministic_only": true,
+  "edge_count": 302,
+  "edges": [
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 11,
+      "raw": "- `manifests/phase0/` stores deterministic navigation artifacts.",
+      "source_path": "README.md",
+      "target": "manifests/phase0"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 10,
+      "raw": "- `manifests/source-manifest.json` records source custody and hashes.",
+      "source_path": "README.md",
+      "target": "manifests/source-manifest.json"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "process_sequence",
+      "line": 38,
+      "raw": "The order below is the one most strongly supported by the evidence and by Claude Code’s own extension hierarchy. The central principle is: **define the narrowest durable contracts first, then let Clau",
+      "source_path": "raw/notes/Apex Alfred Orchestration Realization in Claude.md",
+      "target": "AGENTS.md->CLAUDE.md"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "process_sequence",
+      "line": 38,
+      "raw": "The order below is the one most strongly supported by the evidence and by Claude Code’s own extension hierarchy. The central principle is: **define the narrowest durable contracts first, then let Clau",
+      "source_path": "raw/notes/Apex Alfred Orchestration Realization in Claude.md",
+      "target": "settings->schemas"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "process_sequence",
+      "line": 38,
+      "raw": "The order below is the one most strongly supported by the evidence and by Claude Code’s own extension hierarchy. The central principle is: **define the narrowest durable contracts first, then let Clau",
+      "source_path": "raw/notes/Apex Alfred Orchestration Realization in Claude.md",
+      "target": "skill->CI"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "process_sequence",
+      "line": 38,
+      "raw": "The order below is the one most strongly supported by the evidence and by Claude Code’s own extension hierarchy. The central principle is: **define the narrowest durable contracts first, then let Clau",
+      "source_path": "raw/notes/Apex Alfred Orchestration Realization in Claude.md",
+      "target": "skills->board"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "process_sequence",
+      "line": 38,
+      "raw": "The order below is the one most strongly supported by the evidence and by Claude Code’s own extension hierarchy. The central principle is: **define the narrowest durable contracts first, then let Clau",
+      "source_path": "raw/notes/Apex Alfred Orchestration Realization in Claude.md",
+      "target": "workflows->first"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 19,
+      "raw": "| Claude Code Docs — Explore the `.claude` directory | `https://code.claude.com/docs/en/claude-directory` | Undated live doc | Official Anthropic file-layout reference. | `.claude/skills/`, `.claude/a",
+      "source_path": "raw/notes/Apex Alfred Orchestration Realization in Claude.md",
+      "target": ".claude/agents"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 312,
+      "raw": "| Role procedure package | `.claude/skills/*`, `.claude/agents/*`, `evals/*` | Reusable packet triage, prioritization, packaging, and validation procedures, plus role-specific subagent definitions. c",
+      "source_path": "raw/notes/Apex Alfred Orchestration Realization in Claude.md",
+      "target": ".claude/agents"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 360,
+      "raw": "| Claude subagents + skills only | `CLAUDE.md`, `.claude/skills/`, `.claude/agents/` | Main session delegates isolated workers and gets summaries back | Lowest orchestration overhead; strong context h",
+      "source_path": "raw/notes/Apex Alfred Orchestration Realization in Claude.md",
+      "target": ".claude/agents"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 383,
+      "raw": "- `.claude/agents/meta_detective_controller.md`",
+      "source_path": "raw/notes/Apex Alfred Orchestration Realization in Claude.md",
+      "target": ".claude/agents/meta_detective_controller.md"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 309,
+      "raw": "| Core operating contract | `AGENTS.md`, `CLAUDE.md`, `.claude/rules/*.md` | Accurate role prompts, profile-specific handoff language, project-native task phrasing, and non-conflicting standing instru",
+      "source_path": "raw/notes/Apex Alfred Orchestration Realization in Claude.md",
+      "target": ".claude/rules"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 102,
+      "raw": "**Step 3: `.claude/settings.json`**",
+      "source_path": "raw/notes/Apex Alfred Orchestration Realization in Claude.md",
+      "target": ".claude/settings.json"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 136,
+      "raw": "One Anthropic-specific nuance belongs in your implementation notes: **project-level** `.claude/settings.json` cannot grant repository-wide `auto` mode, because Anthropic ignores that setting there to ",
+      "source_path": "raw/notes/Apex Alfred Orchestration Realization in Claude.md",
+      "target": ".claude/settings.json"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 310,
+      "raw": "| Safety and execution policy | `.claude/settings.json`, hook stubs, secret deny rules | Safer skills and workflows that respect protected paths, verification gates, and environment boundaries. cite",
+      "source_path": "raw/notes/Apex Alfred Orchestration Realization in Claude.md",
+      "target": ".claude/settings.json"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 378,
+      "raw": "Create `.claude/settings.json` with deny rules for secrets and runtime state, plus hook stubs for completion checks. Add one shell script stub such as `scripts/check-task-completion.sh`. The artifacts",
+      "source_path": "raw/notes/Apex Alfred Orchestration Realization in Claude.md",
+      "target": ".claude/settings.json"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 19,
+      "raw": "| Claude Code Docs — Explore the `.claude` directory | `https://code.claude.com/docs/en/claude-directory` | Undated live doc | Official Anthropic file-layout reference. | `.claude/skills/`, `.claude/a",
+      "source_path": "raw/notes/Apex Alfred Orchestration Realization in Claude.md",
+      "target": ".claude/skills"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 175,
+      "raw": "**What it is.** Reusable procedural units in `.claude/skills/<name>/SKILL.md`. Anthropic and the Agent Skills standard agree that skills are the right place for reusable knowledge and workflows, while",
+      "source_path": "raw/notes/Apex Alfred Orchestration Realization in Claude.md",
+      "target": ".claude/skills"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 312,
+      "raw": "| Role procedure package | `.claude/skills/*`, `.claude/agents/*`, `evals/*` | Reusable packet triage, prioritization, packaging, and validation procedures, plus role-specific subagent definitions. c",
+      "source_path": "raw/notes/Apex Alfred Orchestration Realization in Claude.md",
+      "target": ".claude/skills"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 360,
+      "raw": "| Claude subagents + skills only | `CLAUDE.md`, `.claude/skills/`, `.claude/agents/` | Main session delegates isolated workers and gets summaries back | Lowest orchestration overhead; strong context h",
+      "source_path": "raw/notes/Apex Alfred Orchestration Realization in Claude.md",
+      "target": ".claude/skills"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 382,
+      "raw": "- `.claude/skills/validate-and-advance/SKILL.md`",
+      "source_path": "raw/notes/Apex Alfred Orchestration Realization in Claude.md",
+      "target": ".claude/skills/validate-and-advance/SKILL.md"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 19,
+      "raw": "| Claude Code Docs — Explore the `.claude` directory | `https://code.claude.com/docs/en/claude-directory` | Undated live doc | Official Anthropic file-layout reference. | `.claude/skills/`, `.claude/a",
+      "source_path": "raw/notes/Apex Alfred Orchestration Realization in Claude.md",
+      "target": ".claude/workflows"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 20,
+      "raw": "| Claude Code Docs — Dynamic Workflows | `https://code.claude.com/docs/en/workflows` | Undated live doc; requires v2.1.154+ | Official Anthropic documentation for script-based orchestration. | Dynamic",
+      "source_path": "raw/notes/Apex Alfred Orchestration Realization in Claude.md",
+      "target": ".claude/workflows"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 230,
+      "raw": "**What it is.** The repeatable orchestration logic. In 2026, the strongest native Claude format is now `.claude/workflows/*.js`, because Anthropic’s dynamic workflows move orchestration into executabl",
+      "source_path": "raw/notes/Apex Alfred Orchestration Realization in Claude.md",
+      "target": ".claude/workflows"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 313,
+      "raw": "| Native orchestration package | `.claude/workflows/*.js`, `state/tasks.json`, `state/packets/*` | Repeatable multi-agent fan-out and cross-check workflows that can be rerun, paused, inspected, and la",
+      "source_path": "raw/notes/Apex Alfred Orchestration Realization in Claude.md",
+      "target": ".claude/workflows"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 318,
+      "raw": "The short version is: the **four-profile topology is good**, the **Claude-first artifact layer is good**, the **task board plus handoff packets model is good**, but the **scheduler row needs correctio",
+      "source_path": "raw/notes/Apex Alfred Orchestration Realization in Claude.md",
+      "target": ".claude/workflows"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 324,
+      "raw": "| `meta_operations` | Workflow / packaging | Workflows are now a native Claude artifact in `.claude/workflows/`; reusable procedures belong in skills, while orchestration logic belongs in workflow scr",
+      "source_path": "raw/notes/Apex Alfred Orchestration Realization in Claude.md",
+      "target": ".claude/workflows"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 329,
+      "raw": "| Workflow definitions | Abstract workflow layer | Claude Code now has native dynamic workflows living in `.claude/workflows/`, and they materially improve reproducibility and scale. | **Change recomm",
+      "source_path": "raw/notes/Apex Alfred Orchestration Realization in Claude.md",
+      "target": ".claude/workflows"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 362,
+      "raw": "| Claude Dynamic Workflows | `.claude/workflows/*.js` | Scripted orchestration with background run management | Best native Claude option for repeatability and large fan-out; orchestration becomes cod",
+      "source_path": "raw/notes/Apex Alfred Orchestration Realization in Claude.md",
+      "target": ".claude/workflows"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 242,
+      "raw": "// .claude/workflows/intake_to_strategy.js",
+      "source_path": "raw/notes/Apex Alfred Orchestration Realization in Claude.md",
+      "target": ".claude/workflows/intake_to_strategy.js"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "yaml_path_reference",
+      "line": 61,
+      "raw": "intended_future_file: 00_SYSTEM_INTENT.md",
+      "source_path": "raw/notes/Apex Hermes Claude Build Pack.md",
+      "target": "00_SYSTEM_INTENT.md"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "yaml_path_reference",
+      "line": 210,
+      "raw": "intended_future_file: 01_SOURCE_MAP.md",
+      "source_path": "raw/notes/Apex Hermes Claude Build Pack.md",
+      "target": "01_SOURCE_MAP.md"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "yaml_path_reference",
+      "line": 425,
+      "raw": "intended_future_file: 02_DECISION_REGISTER.md",
+      "source_path": "raw/notes/Apex Hermes Claude Build Pack.md",
+      "target": "02_DECISION_REGISTER.md"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "yaml_path_reference",
+      "line": 599,
+      "raw": "intended_future_file: 03_ARTIFACT_CONTRACT_REGISTRY.md",
+      "source_path": "raw/notes/Apex Hermes Claude Build Pack.md",
+      "target": "03_ARTIFACT_CONTRACT_REGISTRY.md"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "yaml_path_reference",
+      "line": 937,
+      "raw": "intended_future_file: 04_TARGET_FILE_TREE_PROPOSAL.md",
+      "source_path": "raw/notes/Apex Hermes Claude Build Pack.md",
+      "target": "04_TARGET_FILE_TREE_PROPOSAL.md"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "yaml_path_reference",
+      "line": 1108,
+      "raw": "intended_future_file: 05_BUILD_QUESTIONS.md",
+      "source_path": "raw/notes/Apex Hermes Claude Build Pack.md",
+      "target": "05_BUILD_QUESTIONS.md"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "yaml_path_reference",
+      "line": 270,
+      "raw": "- source_name_or_category: Apex/Hermes decision records",
+      "source_path": "raw/notes/Apex Hermes Claude Build Pack.md",
+      "target": "Apex/Hermes"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "yaml_path_reference",
+      "line": 322,
+      "raw": "- source_name_or_category: validation/review notes",
+      "source_path": "raw/notes/Apex Hermes Claude Build Pack.md",
+      "target": "validation/review"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "process_sequence",
+      "line": 154,
+      "raw": "| 38  | **Pattern Learning**                         | Repeated behavior detected                  | Pattern Agent → KBOps         | Candidate patterns                      | Cron + Curator      |",
+      "source_path": "raw/notes/ApexAgent&WorkflowsNonAccurate.md",
+      "target": "Agent->KBOps"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "process_sequence",
+      "line": 122,
+      "raw": "|11|**Recurring Checklist**|Periodic maintenance|Checklist Agent → QA|Foundation/safety/interface checks|Cron Worker|",
+      "source_path": "raw/notes/ApexAgent&WorkflowsNonAccurate.md",
+      "target": "Agent->QA"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "process_sequence",
+      "line": 160,
+      "raw": "| 44  | **Leela Sequencing Support**                 | Leela project day/workflow planning         | Alfred → Board Builder        | Sequenced project packets               | Skill               |",
+      "source_path": "raw/notes/ApexAgent&WorkflowsNonAccurate.md",
+      "target": "Alfred->Board"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "process_sequence",
+      "line": 149,
+      "raw": "| 33  | **Craft Flow Handoff**                       | Operator selects session                    | Alfred → Craft Flow Planner   | Session-start handoff                   | Skill               |",
+      "source_path": "raw/notes/ApexAgent&WorkflowsNonAccurate.md",
+      "target": "Alfred->Craft"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "process_sequence",
+      "line": 161,
+      "raw": "| 45  | **Operator Feedback Capture**                | Session recap includes what worked/failed   | Alfred → Pattern Agent        | Workflow improvement candidates         | Memory + Curator    |",
+      "source_path": "raw/notes/ApexAgent&WorkflowsNonAccurate.md",
+      "target": "Alfred->Pattern"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "process_sequence",
+      "line": 112,
+      "raw": "|1|**Bounded Intake**|New broad task|Alfred → Router → Orchestrator|Normalized intake packet|Skill + Profile|",
+      "source_path": "raw/notes/ApexAgent&WorkflowsNonAccurate.md",
+      "target": "Alfred->Router"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "process_sequence",
+      "line": 113,
+      "raw": "|2|**Keep-Local vs Delegate Routing**|Task might be simple or multi-agent|Alfred → Router|Local/delegate/board decision|Routing Skill|",
+      "source_path": "raw/notes/ApexAgent&WorkflowsNonAccurate.md",
+      "target": "Alfred->Router"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "process_sequence",
+      "line": 144,
+      "raw": "| 28  | **Extended KB Audit**                        | Duplicate/appendix/redirect decision needed | Auditor → KBOps               | Keep/redirect/delete/appendix decisions | Skill               |",
+      "source_path": "raw/notes/ApexAgent&WorkflowsNonAccurate.md",
+      "target": "Auditor->KBOps"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "process_sequence",
+      "line": 143,
+      "raw": "| 27  | **KB Consolidation**                         | Recovery files need merging                 | KB Builder → KBOps            | Canonical five-file scaffold            | Skill               |",
+      "source_path": "raw/notes/ApexAgent&WorkflowsNonAccurate.md",
+      "target": "Builder->KBOps"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "process_sequence",
+      "line": 150,
+      "raw": "| 34  | **Four-Flow Day Assignment**                 | Day planning                                | Board Builder → Operator      | Flow ID / lane allocation               | Skill               |",
+      "source_path": "raw/notes/ApexAgent&WorkflowsNonAccurate.md",
+      "target": "Builder->Operator"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "process_sequence",
+      "line": 142,
+      "raw": "| 26  | **Alfred KB Build**                          | Build/rebuild Alfred KB from sources        | KB Builder → Validator        | One agent KB scaffold                   | Skill               |",
+      "source_path": "raw/notes/ApexAgent&WorkflowsNonAccurate.md",
+      "target": "Builder->Validator"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "process_sequence",
+      "line": 127,
+      "raw": "|16|**QA Hygiene Protocol**|Structural or content risk|Hygiene Clean → Detective|QA findings, closure rules|QA Skill|",
+      "source_path": "raw/notes/ApexAgent&WorkflowsNonAccurate.md",
+      "target": "Clean->Detective"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "process_sequence",
+      "line": 136,
+      "raw": "|25|**Overlap Validation**|Role boundaries blur|Detective → Governance|Required cross-check / stop condition|Skill|",
+      "source_path": "raw/notes/ApexAgent&WorkflowsNonAccurate.md",
+      "target": "Detective->Governance"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "process_sequence",
+      "line": 135,
+      "raw": "|24|**Watchdog QA/Hygiene**|Drift or stale state suspected|Detective → Hygiene|Watchdog report|Cron + QA Skill|",
+      "source_path": "raw/notes/ApexAgent&WorkflowsNonAccurate.md",
+      "target": "Detective->Hygiene"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "process_sequence",
+      "line": 120,
+      "raw": "|9|**No-Drift Diff Validation**|Patch applied|Executor → Validator|Pass/fail report|Validation Skill|",
+      "source_path": "raw/notes/ApexAgent&WorkflowsNonAccurate.md",
+      "target": "Executor->Validator"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "process_sequence",
+      "line": 157,
+      "raw": "| 41  | **Codex Diff Application**                   | Target-locked unified diff needed           | Codex Executor → Validator    | Applied diff + validation               | Kanban Worker       |",
+      "source_path": "raw/notes/ApexAgent&WorkflowsNonAccurate.md",
+      "target": "Executor->Validator"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "process_sequence",
+      "line": 123,
+      "raw": "|12|**Heartbeat Maintenance**|Ongoing continuity check|Heartbeat → Memory/KBOps|Continuity and maintenance signals|Cron Worker|",
+      "source_path": "raw/notes/ApexAgent&WorkflowsNonAccurate.md",
+      "target": "Heartbeat->Memory/KBOps"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "process_sequence",
+      "line": 126,
+      "raw": "|15|**Promotion Protocol**|Candidate truth/process change|KBOps → Detective → Reviewer|Promotion/rejection record|Skill + Review Card|",
+      "source_path": "raw/notes/ApexAgent&WorkflowsNonAccurate.md",
+      "target": "KBOps->Detective"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "process_sequence",
+      "line": 130,
+      "raw": "|19|**Source Routing Workflow**|Multiple sources conflict|KBOps → Detective|Authority-order decision|Skill|",
+      "source_path": "raw/notes/ApexAgent&WorkflowsNonAccurate.md",
+      "target": "KBOps->Detective"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "process_sequence",
+      "line": 129,
+      "raw": "|18|**KB Placement Workflow**|New reusable knowledge|KBOps → Informatics → Detective|Correct KB lane/placement|Skill|",
+      "source_path": "raw/notes/ApexAgent&WorkflowsNonAccurate.md",
+      "target": "KBOps->Informatics"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "process_sequence",
+      "line": 145,
+      "raw": "| 29  | **Scaffold Integration**                     | Templates/routing/metrics cleanup           | KBOps → Informatics           | Integrated scaffold without duplicates  | Skill               |",
+      "source_path": "raw/notes/ApexAgent&WorkflowsNonAccurate.md",
+      "target": "KBOps->Informatics"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "process_sequence",
+      "line": 133,
+      "raw": "|22|**Constant-Frame Integration**|High precision KB integration|Prompt/Workflow Ops → Validator|Atomic frame, gate check, HALT/CLARIFY|Skill|",
+      "source_path": "raw/notes/ApexAgent&WorkflowsNonAccurate.md",
+      "target": "Ops->Validator"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "process_sequence",
+      "line": 114,
+      "raw": "|3|**Holding Activation Flow**|Multi-agent task|Orchestrator → specialists|Smallest activation set|Orchestrator Profile|",
+      "source_path": "raw/notes/ApexAgent&WorkflowsNonAccurate.md",
+      "target": "Orchestrator->specialists"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "process_sequence",
+      "line": 147,
+      "raw": "| 31  | **Daily Command Board Generation**           | Start of day                                | Night Planner → Board Builder | Daily board                             | Cron + Skill        |",
+      "source_path": "raw/notes/ApexAgent&WorkflowsNonAccurate.md",
+      "target": "Planner->Board"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "process_sequence",
+      "line": 116,
+      "raw": "|5|**Receiver Disposition**|Handoff arrives|Receiver → Validator|Accept/reject/revise/hold/escalate|Skill + Kanban status|",
+      "source_path": "raw/notes/ApexAgent&WorkflowsNonAccurate.md",
+      "target": "Receiver->Validator"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "process_sequence",
+      "line": 118,
+      "raw": "|7|**Deep Research to Patchspec**|Source-grounded implementation needed|Researcher → Patchspec Writer → Executor|Patchspec|Skill + Kanban chain|",
+      "source_path": "raw/notes/ApexAgent&WorkflowsNonAccurate.md",
+      "target": "Researcher->Patchspec"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "process_sequence",
+      "line": 117,
+      "raw": "|6|**Validation Banding**|Risk/impact/evidence scoring needed|Router → Detective|Low/material/high-control posture|QA Skill|",
+      "source_path": "raw/notes/ApexAgent&WorkflowsNonAccurate.md",
+      "target": "Router->Detective"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "process_sequence",
+      "line": 159,
+      "raw": "| 43  | **Routing Architecture / State-Delta-Trace** | Workflow design task                        | Router → Metrics Tracker      | Routing + state delta model             | Skill               |",
+      "source_path": "raw/notes/ApexAgent&WorkflowsNonAccurate.md",
+      "target": "Router->Metrics"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "process_sequence",
+      "line": 128,
+      "raw": "|17|**Project Interface Entry**|Project-specific work starts|Project Router → Project Interface|State/interface/truth separation|Context File + Skill|",
+      "source_path": "raw/notes/ApexAgent&WorkflowsNonAccurate.md",
+      "target": "Router->Project"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "process_sequence",
+      "line": 115,
+      "raw": "|4|**Structured Handoff**|Agent lane boundary reached|Sender → Receiver → Validator|Handoff packet|Handoff Skill|",
+      "source_path": "raw/notes/ApexAgent&WorkflowsNonAccurate.md",
+      "target": "Sender->Receiver"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "process_sequence",
+      "line": 158,
+      "raw": "| 42  | **Source-Authority Validation**              | Patch/source mismatch suspected             | Validator → Detective         | Source authority verdict                | Skill               |",
+      "source_path": "raw/notes/ApexAgent&WorkflowsNonAccurate.md",
+      "target": "Validator->Detective"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "process_sequence",
+      "line": 118,
+      "raw": "|7|**Deep Research to Patchspec**|Source-grounded implementation needed|Researcher → Patchspec Writer → Executor|Patchspec|Skill + Kanban chain|",
+      "source_path": "raw/notes/ApexAgent&WorkflowsNonAccurate.md",
+      "target": "Writer->Executor"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "process_sequence",
+      "line": 119,
+      "raw": "|8|**Executor Handoff**|Patchspec ready|Patchspec Writer → Executor|Target-locked execution task|Kanban card|",
+      "source_path": "raw/notes/ApexAgent&WorkflowsNonAccurate.md",
+      "target": "Writer->Executor"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "process_sequence",
+      "line": 30,
+      "raw": "10. **Kampfkunst Technik Analyse:** Best source for embodied technique analysis -> drill/protocol/media output workflow.",
+      "source_path": "raw/notes/Apex_Hermes_Workflow_Example_Database_Master_of_Arts_v0_1 (1).md",
+      "target": "analysis->drill/protocol/media"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "yaml_path_reference",
+      "line": 39,
+      "raw": "source_name: Prompt4WorkflowDBExtraction.md",
+      "source_path": "raw/notes/Apex_Hermes_Workflow_Example_Database_Master_of_Arts_v0_1 (1).md",
+      "target": "Prompt4WorkflowDBExtraction.md"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "process_sequence",
+      "line": 595,
+      "raw": "`Morning: open apex-orchestration in Claude Code   → run /daily-planning skill  → it reads all three project status files  → produces today's F1-F4 plan F1 session: cd project-leela && claude   → isol",
+      "source_path": "raw/notes/ArchitectureCheckClaudeVsHermesVsGPT.md",
+      "target": "Code->run"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "process_sequence",
+      "line": 20,
+      "raw": "|Laptop|Human dev + frontier model work|Feature branches → push → PR|",
+      "source_path": "raw/notes/ArchitectureCheckClaudeVsHermesVsGPT.md",
+      "target": "branches->push"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "process_sequence",
+      "line": 595,
+      "raw": "`Morning: open apex-orchestration in Claude Code   → run /daily-planning skill  → it reads all three project status files  → produces today's F1-F4 plan F1 session: cd project-leela && claude   → isol",
+      "source_path": "raw/notes/ArchitectureCheckClaudeVsHermesVsGPT.md",
+      "target": "claude->isolated"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "process_sequence",
+      "line": 595,
+      "raw": "`Morning: open apex-orchestration in Claude Code   → run /daily-planning skill  → it reads all three project status files  → produces today's F1-F4 plan F1 session: cd project-leela && claude   → isol",
+      "source_path": "raw/notes/ArchitectureCheckClaudeVsHermesVsGPT.md",
+      "target": "claude->run"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "process_sequence",
+      "line": 595,
+      "raw": "`Morning: open apex-orchestration in Claude Code   → run /daily-planning skill  → it reads all three project status files  → produces today's F1-F4 plan F1 session: cd project-leela && claude   → isol",
+      "source_path": "raw/notes/ArchitectureCheckClaudeVsHermesVsGPT.md",
+      "target": "context->writes"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "process_sequence",
+      "line": 595,
+      "raw": "`Morning: open apex-orchestration in Claude Code   → run /daily-planning skill  → it reads all three project status files  → produces today's F1-F4 plan F1 session: cd project-leela && claude   → isol",
+      "source_path": "raw/notes/ArchitectureCheckClaudeVsHermesVsGPT.md",
+      "target": "files->produces"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "process_sequence",
+      "line": 595,
+      "raw": "`Morning: open apex-orchestration in Claude Code   → run /daily-planning skill  → it reads all three project status files  → produces today's F1-F4 plan F1 session: cd project-leela && claude   → isol",
+      "source_path": "raw/notes/ArchitectureCheckClaudeVsHermesVsGPT.md",
+      "target": "independently->never"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "process_sequence",
+      "line": 21,
+      "raw": "|Hetzner VPS|Automation reads/writes|`bot/auto` branch only → push → PR (never `main` directly)|",
+      "source_path": "raw/notes/ArchitectureCheckClaudeVsHermesVsGPT.md",
+      "target": "only->push"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "process_sequence",
+      "line": 243,
+      "raw": "Your system is a **planning → execution → recap → status-merge → next-planning loop** across 3 projects (Leela, MasterOfArts, Investment/Apex), running 4 daily flows (F1–F4) with 3 sprints each. The a",
+      "source_path": "raw/notes/ArchitectureCheckClaudeVsHermesVsGPT.md",
+      "target": "planning->execution"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "process_sequence",
+      "line": 595,
+      "raw": "`Morning: open apex-orchestration in Claude Code   → run /daily-planning skill  → it reads all three project status files  → produces today's F1-F4 plan F1 session: cd project-leela && claude   → isol",
+      "source_path": "raw/notes/ArchitectureCheckClaudeVsHermesVsGPT.md",
+      "target": "project->updates"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "process_sequence",
+      "line": 585,
+      "raw": "`project-investment/.apex/learning/outbox/   → you review → \"this is investment-specific\" → stays there  → you review → \"this is a general writing pattern\" → copy to apex-orchestration/learnings/`",
+      "source_path": "raw/notes/ArchitectureCheckClaudeVsHermesVsGPT.md",
+      "target": "project-investment/.apex/learning/outbox/->you"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "process_sequence",
+      "line": 547,
+      "raw": "`# Working on Leela today: cd ~/repos/project-leela claude   # loads project-leela/CLAUDE.md → knows it's Flutter/app dev # Working on MasterOfArts: cd ~/repos/project-masterofarts claude   # loads pr",
+      "source_path": "raw/notes/ArchitectureCheckClaudeVsHermesVsGPT.md",
+      "target": "project-leela/CLAUDE.md->knows"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "process_sequence",
+      "line": 547,
+      "raw": "`# Working on Leela today: cd ~/repos/project-leela claude   # loads project-leela/CLAUDE.md → knows it's Flutter/app dev # Working on MasterOfArts: cd ~/repos/project-masterofarts claude   # loads pr",
+      "source_path": "raw/notes/ArchitectureCheckClaudeVsHermesVsGPT.md",
+      "target": "project-masterofarts/CLAUDE.md->knows"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "process_sequence",
+      "line": 243,
+      "raw": "Your system is a **planning → execution → recap → status-merge → next-planning loop** across 3 projects (Leela, MasterOfArts, Investment/Apex), running 4 daily flows (F1–F4) with 3 sprints each. The a",
+      "source_path": "raw/notes/ArchitectureCheckClaudeVsHermesVsGPT.md",
+      "target": "recap->status-merge"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "process_sequence",
+      "line": 595,
+      "raw": "`Morning: open apex-orchestration in Claude Code   → run /daily-planning skill  → it reads all three project status files  → produces today's F1-F4 plan F1 session: cd project-leela && claude   → isol",
+      "source_path": "raw/notes/ArchitectureCheckClaudeVsHermesVsGPT.md",
+      "target": "skill->it"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "process_sequence",
+      "line": 595,
+      "raw": "`Morning: open apex-orchestration in Claude Code   → run /daily-planning skill  → it reads all three project status files  → produces today's F1-F4 plan F1 session: cd project-leela && claude   → isol",
+      "source_path": "raw/notes/ArchitectureCheckClaudeVsHermesVsGPT.md",
+      "target": "skills->reads"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "process_sequence",
+      "line": 585,
+      "raw": "`project-investment/.apex/learning/outbox/   → you review → \"this is investment-specific\" → stays there  → you review → \"this is a general writing pattern\" → copy to apex-orchestration/learnings/`",
+      "source_path": "raw/notes/ArchitectureCheckClaudeVsHermesVsGPT.md",
+      "target": "there->you"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "process_sequence",
+      "line": 225,
+      "raw": "`VPS clock ticks → Hermes daemon wakes up (0 tokens)   → Hermes runs its scheduled prompt (tokens used here)  → Hermes executes git pull / git push as tool calls (0 tokens)  → Hermes goes back to slee",
+      "source_path": "raw/notes/ArchitectureCheckClaudeVsHermesVsGPT.md",
+      "target": "ticks->Hermes"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "process_sequence",
+      "line": 397,
+      "raw": "|PM2|S1 CCPM|Epic → numbered task files|No|ADAPT|2|",
+      "source_path": "raw/notes/DR_APEX_PM_KB_PD_GPT.md",
+      "target": "Epic->numbered"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "process_sequence",
+      "line": 45,
+      "raw": "**Evidence:** Backlog example task file exposes a simple fielded record with `id`, `title`, `status`, `created_date`, `updated_date`, `dependencies`, and `priority`, showing the practical viability of",
+      "source_path": "raw/notes/DR_APEX_PM_KB_PD_GPT.md",
+      "target": "PRD->Epic"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 255,
+      "raw": "**Evidence:** llm-wiki’s query workflow reads the index first, then candidate pages, then synthesizes an answer and can file it back into `wiki/synthesis/`; exact file URL: `https://github.com/praneyb",
+      "source_path": "raw/notes/DR_APEX_PM_KB_PD_GPT.md",
+      "target": "wiki/synthesis"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 348,
+      "raw": "|B|S8 llm-wiki|File synthesized recommendation into `wiki/synthesis/`|Med|Low|Low|No|Yes|",
+      "source_path": "raw/notes/DR_APEX_PM_KB_PD_GPT.md",
+      "target": "wiki/synthesis"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "process_sequence",
+      "line": 3,
+      "raw": "Stage 1 -> Stage 2",
+      "source_path": "raw/notes/DR_APEX_PM_KB_PD_Gem.md",
+      "target": "Foundational Source Repositories->Process Options and Evaluation"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "process_sequence",
+      "line": 446,
+      "raw": "Furthermore, **KB2: Extract state deltas** lacks a fully portable execution script. While OpenClaw perfectly demonstrates the abstract pattern of LLM → JSON → Deterministic Router, the exact schema ma",
+      "source_path": "raw/notes/DR_APEX_PM_KB_PD_Gem.md",
+      "target": "LLM->JSON"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "process_sequence",
+      "line": 97,
+      "raw": "Stage 2 -> Stage 3",
+      "source_path": "raw/notes/DR_APEX_PM_KB_PD_Gem.md",
+      "target": "Process Options and Evaluation->Sub-Skill Grouping Analysis"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "process_sequence",
+      "line": 414,
+      "raw": "Stage 3 -> Stage 4",
+      "source_path": "raw/notes/DR_APEX_PM_KB_PD_Gem.md",
+      "target": "Sub-Skill Grouping Analysis->Final Summary Table"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 51,
+      "raw": "The `llm-wiki-plugin` provides an autonomous, self-maintaining markdown knowledge base architecture. A search targeting `llm-wiki claude skill github` identified the Python index-build script `wiki_se",
+      "source_path": "raw/notes/DR_APEX_PM_KB_PD_Gem.md",
+      "target": "wiki/index.md"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 283,
+      "raw": "|Python Sharding||Python reconstructs `wiki/index.md` from all sub-files, sharding if over 300 lines.|Low|Medium|Medium|Yes|Yes|",
+      "source_path": "raw/notes/DR_APEX_PM_KB_PD_Gem.md",
+      "target": "wiki/index.md"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 51,
+      "raw": "The `llm-wiki-plugin` provides an autonomous, self-maintaining markdown knowledge base architecture. A search targeting `llm-wiki claude skill github` identified the Python index-build script `wiki_se",
+      "source_path": "raw/notes/DR_APEX_PM_KB_PD_Gem.md",
+      "target": "wiki/indexes"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "process_sequence",
+      "line": 187,
+      "raw": "|1. Epic → numbered task files|CCPM structure|Use `Structure — Break Down an Epic`: read `.claude/epics/<name>/epic.md`, analyze for parallelism, and create numbered task files `001.md`, `002.md`, etc",
+      "source_path": "raw/notes/DR_APEX_PM_KB_PD_Perp.md",
+      "target": "Epic->numbered"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "process_sequence",
+      "line": 37,
+      "raw": "**Epic → task decomposition and task schema**",
+      "source_path": "raw/notes/DR_APEX_PM_KB_PD_Perp.md",
+      "target": "Epic->task"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "process_sequence",
+      "line": 482,
+      "raw": "|PM1|Capture project|CCPM|Plan phase: PRD + epic capture in `.claude/epics/<name>/epic.md` guided by SKILL.|No|ADAPT – keep PRD→epic flow, adapt fields/paths|27|",
+      "source_path": "raw/notes/DR_APEX_PM_KB_PD_Perp.md",
+      "target": "PRD->epic"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "process_sequence",
+      "line": 456,
+      "raw": "- **KB2 Extract state deltas** (narrative → structured patches).",
+      "source_path": "raw/notes/DR_APEX_PM_KB_PD_Perp.md",
+      "target": "narrative->structured"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "process_sequence",
+      "line": 108,
+      "raw": "- `GitHubSource.fetch` downloads all files under a skill directory, requiring `SKILL.md` to exist, returning a `SkillBundle` with `files` (relative path → content) and `trust_level` derived from the h",
+      "source_path": "raw/notes/DR_APEX_PM_KB_PD_Perp.md",
+      "target": "path->content"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 39,
+      "raw": "- CCPM’s “Structure” phase converts an epic at `.claude/epics/<name>/epic.md` into **numbered task files** `001.md`, `002.md`, etc. in the same directory.",
+      "source_path": "raw/notes/DR_APEX_PM_KB_PD_Perp.md",
+      "target": ".claude/epics"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 176,
+      "raw": "|1. PRD + epic via Plan phase|CCPM SKILL|Use Plan phase (“Capture requirements”) to guide writing a PRD and converting it into a technical epic file under `.claude/epics/<name>/epic.md`, following con",
+      "source_path": "raw/notes/DR_APEX_PM_KB_PD_Perp.md",
+      "target": ".claude/epics"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 187,
+      "raw": "|1. Epic → numbered task files|CCPM structure|Use `Structure — Break Down an Epic`: read `.claude/epics/<name>/epic.md`, analyze for parallelism, and create numbered task files `001.md`, `002.md`, etc",
+      "source_path": "raw/notes/DR_APEX_PM_KB_PD_Perp.md",
+      "target": ".claude/epics"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 209,
+      "raw": "|1. Scripted `next.sh` over task DAG|CCPM track|`next.sh` script, run as `bash references/scripts/next.sh`, “Shows highest‑priority open tasks with no blocking dependencies.” It operates on task front",
+      "source_path": "raw/notes/DR_APEX_PM_KB_PD_Perp.md",
+      "target": ".claude/epics"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 397,
+      "raw": "- Shared context: `.claude/epics/<name>/epic.md` and numbered task files in the same directory; fields `name`, `status`, `created`, `updated`, `github`, `depends_on`, `parallel`, `conflicts_with`, plu",
+      "source_path": "raw/notes/DR_APEX_PM_KB_PD_Perp.md",
+      "target": ".claude/epics"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 441,
+      "raw": "- **Cluster 1:** CCPM’s decomposition patterns (`structure.md`) are directly reusable as a base SKILL for Apex, with minimal adaptation to path conventions (still `.claude/epics/...`).",
+      "source_path": "raw/notes/DR_APEX_PM_KB_PD_Perp.md",
+      "target": ".claude/epics"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 482,
+      "raw": "|PM1|Capture project|CCPM|Plan phase: PRD + epic capture in `.claude/epics/<name>/epic.md` guided by SKILL.|No|ADAPT – keep PRD→epic flow, adapt fields/paths|27|",
+      "source_path": "raw/notes/DR_APEX_PM_KB_PD_Perp.md",
+      "target": ".claude/epics"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "process_sequence",
+      "line": 38,
+      "raw": "The order below is the one most strongly supported by the evidence and by Claude Code’s own extension hierarchy. The central principle is: **define the narrowest durable contracts first, then let Clau",
+      "source_path": "raw/notes/DR_ApexOrchestrationClaude.md",
+      "target": "AGENTS.md->CLAUDE.md"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "process_sequence",
+      "line": 38,
+      "raw": "The order below is the one most strongly supported by the evidence and by Claude Code’s own extension hierarchy. The central principle is: **define the narrowest durable contracts first, then let Clau",
+      "source_path": "raw/notes/DR_ApexOrchestrationClaude.md",
+      "target": "settings->schemas"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "process_sequence",
+      "line": 38,
+      "raw": "The order below is the one most strongly supported by the evidence and by Claude Code’s own extension hierarchy. The central principle is: **define the narrowest durable contracts first, then let Clau",
+      "source_path": "raw/notes/DR_ApexOrchestrationClaude.md",
+      "target": "skill->CI"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "process_sequence",
+      "line": 38,
+      "raw": "The order below is the one most strongly supported by the evidence and by Claude Code’s own extension hierarchy. The central principle is: **define the narrowest durable contracts first, then let Clau",
+      "source_path": "raw/notes/DR_ApexOrchestrationClaude.md",
+      "target": "skills->board"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "process_sequence",
+      "line": 38,
+      "raw": "The order below is the one most strongly supported by the evidence and by Claude Code’s own extension hierarchy. The central principle is: **define the narrowest durable contracts first, then let Clau",
+      "source_path": "raw/notes/DR_ApexOrchestrationClaude.md",
+      "target": "workflows->first"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 19,
+      "raw": "| Claude Code Docs — Explore the `.claude` directory | `https://code.claude.com/docs/en/claude-directory` | Undated live doc | Official Anthropic file-layout reference. | `.claude/skills/`, `.claude/a",
+      "source_path": "raw/notes/DR_ApexOrchestrationClaude.md",
+      "target": ".claude/agents"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 312,
+      "raw": "| Role procedure package | `.claude/skills/*`, `.claude/agents/*`, `evals/*` | Reusable packet triage, prioritization, packaging, and validation procedures, plus role-specific subagent definitions. c",
+      "source_path": "raw/notes/DR_ApexOrchestrationClaude.md",
+      "target": ".claude/agents"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 360,
+      "raw": "| Claude subagents + skills only | `CLAUDE.md`, `.claude/skills/`, `.claude/agents/` | Main session delegates isolated workers and gets summaries back | Lowest orchestration overhead; strong context h",
+      "source_path": "raw/notes/DR_ApexOrchestrationClaude.md",
+      "target": ".claude/agents"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 383,
+      "raw": "- `.claude/agents/meta_detective_controller.md`",
+      "source_path": "raw/notes/DR_ApexOrchestrationClaude.md",
+      "target": ".claude/agents/meta_detective_controller.md"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 309,
+      "raw": "| Core operating contract | `AGENTS.md`, `CLAUDE.md`, `.claude/rules/*.md` | Accurate role prompts, profile-specific handoff language, project-native task phrasing, and non-conflicting standing instru",
+      "source_path": "raw/notes/DR_ApexOrchestrationClaude.md",
+      "target": ".claude/rules"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 102,
+      "raw": "**Step 3: `.claude/settings.json`**",
+      "source_path": "raw/notes/DR_ApexOrchestrationClaude.md",
+      "target": ".claude/settings.json"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 136,
+      "raw": "One Anthropic-specific nuance belongs in your implementation notes: **project-level** `.claude/settings.json` cannot grant repository-wide `auto` mode, because Anthropic ignores that setting there to ",
+      "source_path": "raw/notes/DR_ApexOrchestrationClaude.md",
+      "target": ".claude/settings.json"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 310,
+      "raw": "| Safety and execution policy | `.claude/settings.json`, hook stubs, secret deny rules | Safer skills and workflows that respect protected paths, verification gates, and environment boundaries. cite",
+      "source_path": "raw/notes/DR_ApexOrchestrationClaude.md",
+      "target": ".claude/settings.json"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 378,
+      "raw": "Create `.claude/settings.json` with deny rules for secrets and runtime state, plus hook stubs for completion checks. Add one shell script stub such as `scripts/check-task-completion.sh`. The artifacts",
+      "source_path": "raw/notes/DR_ApexOrchestrationClaude.md",
+      "target": ".claude/settings.json"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 19,
+      "raw": "| Claude Code Docs — Explore the `.claude` directory | `https://code.claude.com/docs/en/claude-directory` | Undated live doc | Official Anthropic file-layout reference. | `.claude/skills/`, `.claude/a",
+      "source_path": "raw/notes/DR_ApexOrchestrationClaude.md",
+      "target": ".claude/skills"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 175,
+      "raw": "**What it is.** Reusable procedural units in `.claude/skills/<name>/SKILL.md`. Anthropic and the Agent Skills standard agree that skills are the right place for reusable knowledge and workflows, while",
+      "source_path": "raw/notes/DR_ApexOrchestrationClaude.md",
+      "target": ".claude/skills"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 312,
+      "raw": "| Role procedure package | `.claude/skills/*`, `.claude/agents/*`, `evals/*` | Reusable packet triage, prioritization, packaging, and validation procedures, plus role-specific subagent definitions. c",
+      "source_path": "raw/notes/DR_ApexOrchestrationClaude.md",
+      "target": ".claude/skills"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 360,
+      "raw": "| Claude subagents + skills only | `CLAUDE.md`, `.claude/skills/`, `.claude/agents/` | Main session delegates isolated workers and gets summaries back | Lowest orchestration overhead; strong context h",
+      "source_path": "raw/notes/DR_ApexOrchestrationClaude.md",
+      "target": ".claude/skills"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 382,
+      "raw": "- `.claude/skills/validate-and-advance/SKILL.md`",
+      "source_path": "raw/notes/DR_ApexOrchestrationClaude.md",
+      "target": ".claude/skills/validate-and-advance/SKILL.md"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 19,
+      "raw": "| Claude Code Docs — Explore the `.claude` directory | `https://code.claude.com/docs/en/claude-directory` | Undated live doc | Official Anthropic file-layout reference. | `.claude/skills/`, `.claude/a",
+      "source_path": "raw/notes/DR_ApexOrchestrationClaude.md",
+      "target": ".claude/workflows"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 20,
+      "raw": "| Claude Code Docs — Dynamic Workflows | `https://code.claude.com/docs/en/workflows` | Undated live doc; requires v2.1.154+ | Official Anthropic documentation for script-based orchestration. | Dynamic",
+      "source_path": "raw/notes/DR_ApexOrchestrationClaude.md",
+      "target": ".claude/workflows"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 230,
+      "raw": "**What it is.** The repeatable orchestration logic. In 2026, the strongest native Claude format is now `.claude/workflows/*.js`, because Anthropic’s dynamic workflows move orchestration into executabl",
+      "source_path": "raw/notes/DR_ApexOrchestrationClaude.md",
+      "target": ".claude/workflows"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 313,
+      "raw": "| Native orchestration package | `.claude/workflows/*.js`, `state/tasks.json`, `state/packets/*` | Repeatable multi-agent fan-out and cross-check workflows that can be rerun, paused, inspected, and la",
+      "source_path": "raw/notes/DR_ApexOrchestrationClaude.md",
+      "target": ".claude/workflows"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 318,
+      "raw": "The short version is: the **four-profile topology is good**, the **Claude-first artifact layer is good**, the **task board plus handoff packets model is good**, but the **scheduler row needs correctio",
+      "source_path": "raw/notes/DR_ApexOrchestrationClaude.md",
+      "target": ".claude/workflows"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 324,
+      "raw": "| `meta_operations` | Workflow / packaging | Workflows are now a native Claude artifact in `.claude/workflows/`; reusable procedures belong in skills, while orchestration logic belongs in workflow scr",
+      "source_path": "raw/notes/DR_ApexOrchestrationClaude.md",
+      "target": ".claude/workflows"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 329,
+      "raw": "| Workflow definitions | Abstract workflow layer | Claude Code now has native dynamic workflows living in `.claude/workflows/`, and they materially improve reproducibility and scale. | **Change recomm",
+      "source_path": "raw/notes/DR_ApexOrchestrationClaude.md",
+      "target": ".claude/workflows"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 362,
+      "raw": "| Claude Dynamic Workflows | `.claude/workflows/*.js` | Scripted orchestration with background run management | Best native Claude option for repeatability and large fan-out; orchestration becomes cod",
+      "source_path": "raw/notes/DR_ApexOrchestrationClaude.md",
+      "target": ".claude/workflows"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 242,
+      "raw": "// .claude/workflows/intake_to_strategy.js",
+      "source_path": "raw/notes/DR_ApexOrchestrationClaude.md",
+      "target": ".claude/workflows/intake_to_strategy.js"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 91,
+      "raw": "- `.claude/skills/`",
+      "source_path": "raw/notes/DR_Apex_Plan.md",
+      "target": ".claude/skills"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 192,
+      "raw": "- Preserves H2 canonical paths, including `scripts/` and `.claude/skills/`.",
+      "source_path": "raw/notes/DR_Apex_Plan.md",
+      "target": ".claude/skills"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 957,
+      "raw": "- `.claude/skills/`",
+      "source_path": "raw/notes/DR_Apex_Plan.md",
+      "target": ".claude/skills"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 917,
+      "raw": "- `root`: `.claude/skills/apex-plan/`",
+      "source_path": "raw/notes/DR_Apex_Plan.md",
+      "target": ".claude/skills/apex-plan"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 9,
+      "raw": "**File One — `.claude/skills/apex-plan/SKILL.md`**",
+      "source_path": "raw/notes/DR_Apex_Plan.md",
+      "target": ".claude/skills/apex-plan/SKILL.md"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 918,
+      "raw": "- `entrypoint`: `.claude/skills/apex-plan/SKILL.md`",
+      "source_path": "raw/notes/DR_Apex_Plan.md",
+      "target": ".claude/skills/apex-plan/SKILL.md"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 1003,
+      "raw": "- `.claude/skills/apex-plan/SKILL.md`",
+      "source_path": "raw/notes/DR_Apex_Plan.md",
+      "target": ".claude/skills/apex-plan/SKILL.md"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 905,
+      "raw": "**File Seven — `.claude/skills/apex-plan/package-manifest.md`**",
+      "source_path": "raw/notes/DR_Apex_Plan.md",
+      "target": ".claude/skills/apex-plan/package-manifest.md"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 1009,
+      "raw": "- `.claude/skills/apex-plan/package-manifest.md`",
+      "source_path": "raw/notes/DR_Apex_Plan.md",
+      "target": ".claude/skills/apex-plan/package-manifest.md"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 532,
+      "raw": "**File Four — `.claude/skills/apex-plan/references/dependency-and-priority-rules.md`**",
+      "source_path": "raw/notes/DR_Apex_Plan.md",
+      "target": ".claude/skills/apex-plan/references/dependency-and-priority-rules.md"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 1006,
+      "raw": "- `.claude/skills/apex-plan/references/dependency-and-priority-rules.md`",
+      "source_path": "raw/notes/DR_Apex_Plan.md",
+      "target": ".claude/skills/apex-plan/references/dependency-and-priority-rules.md"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 671,
+      "raw": "**File Five — `.claude/skills/apex-plan/references/operator-gate.md`**",
+      "source_path": "raw/notes/DR_Apex_Plan.md",
+      "target": ".claude/skills/apex-plan/references/operator-gate.md"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 1007,
+      "raw": "- `.claude/skills/apex-plan/references/operator-gate.md`",
+      "source_path": "raw/notes/DR_Apex_Plan.md",
+      "target": ".claude/skills/apex-plan/references/operator-gate.md"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 201,
+      "raw": "**File Two — `.claude/skills/apex-plan/references/planning-contract.md`**",
+      "source_path": "raw/notes/DR_Apex_Plan.md",
+      "target": ".claude/skills/apex-plan/references/planning-contract.md"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 1004,
+      "raw": "- `.claude/skills/apex-plan/references/planning-contract.md`",
+      "source_path": "raw/notes/DR_Apex_Plan.md",
+      "target": ".claude/skills/apex-plan/references/planning-contract.md"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 781,
+      "raw": "**File Six — `.claude/skills/apex-plan/references/source-basis.md`**",
+      "source_path": "raw/notes/DR_Apex_Plan.md",
+      "target": ".claude/skills/apex-plan/references/source-basis.md"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 1008,
+      "raw": "- `.claude/skills/apex-plan/references/source-basis.md`",
+      "source_path": "raw/notes/DR_Apex_Plan.md",
+      "target": ".claude/skills/apex-plan/references/source-basis.md"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 383,
+      "raw": "**File Three — `.claude/skills/apex-plan/references/task-decomposition-rules.md`**",
+      "source_path": "raw/notes/DR_Apex_Plan.md",
+      "target": ".claude/skills/apex-plan/references/task-decomposition-rules.md"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 1005,
+      "raw": "- `.claude/skills/apex-plan/references/task-decomposition-rules.md`",
+      "source_path": "raw/notes/DR_Apex_Plan.md",
+      "target": ".claude/skills/apex-plan/references/task-decomposition-rules.md"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 87,
+      "raw": "- `apex-meta/epics/`",
+      "source_path": "raw/notes/DR_Apex_Plan.md",
+      "target": "apex-meta/epics"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 953,
+      "raw": "- `apex-meta/epics/`",
+      "source_path": "raw/notes/DR_Apex_Plan.md",
+      "target": "apex-meta/epics"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 88,
+      "raw": "- `apex-meta/handoff/`",
+      "source_path": "raw/notes/DR_Apex_Plan.md",
+      "target": "apex-meta/handoff"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 954,
+      "raw": "- `apex-meta/handoff/`",
+      "source_path": "raw/notes/DR_Apex_Plan.md",
+      "target": "apex-meta/handoff"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 86,
+      "raw": "- `apex-meta/harmonization/`",
+      "source_path": "raw/notes/DR_Apex_Plan.md",
+      "target": "apex-meta/harmonization"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 952,
+      "raw": "- `apex-meta/harmonization/`",
+      "source_path": "raw/notes/DR_Apex_Plan.md",
+      "target": "apex-meta/harmonization"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 89,
+      "raw": "- `apex-meta/registry/`",
+      "source_path": "raw/notes/DR_Apex_Plan.md",
+      "target": "apex-meta/registry"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 955,
+      "raw": "- `apex-meta/registry/`",
+      "source_path": "raw/notes/DR_Apex_Plan.md",
+      "target": "apex-meta/registry"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "markdown_link",
+      "line": 19,
+      "raw": "[designcouncil.org.uk](https://www.designcouncil.org.uk/resources/the-double-diamond/?utm_source=chatgpt.com \"The Double Diamond - Design Council\")",
+      "source_path": "raw/notes/ProcessRanking_GPT&MasterOA.md",
+      "target": "https://www.designcouncil.org.uk/resources/the-double-diamond/?utm_source=chatgpt.com \"The Double Diamond - Design Council\""
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "process_sequence",
+      "line": 223,
+      "raw": "This gives you a balanced system: **create**, **extract**, **frame**, **handoff**, **orchestrate**, **risk-check**, **system-design**, **iterate**, and **verify**. It avoids the trap you named: five v",
+      "source_path": "raw/notes/ProcessRanking_GPT&MasterOA.md",
+      "target": "chunk->fill"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "process_sequence",
+      "line": 27,
+      "raw": "|**1**|`PRC-CORE-001` Goal-to-Verified-Artifact Loop|The universal kernel: intake → goal contract → source map → brainstorm → skeleton → fill → verify → revise → learn.|Almost everything: guides, work",
+      "source_path": "raw/notes/ProcessRanking_GPT&MasterOA.md",
+      "target": "contract->source"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "process_sequence",
+      "line": 105,
+      "raw": "**Example:** raw note → idea database entry → concept options → workshop outline → verified working artifact.",
+      "source_path": "raw/notes/ProcessRanking_GPT&MasterOA.md",
+      "target": "entry->concept"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "process_sequence",
+      "line": 27,
+      "raw": "|**1**|`PRC-CORE-001` Goal-to-Verified-Artifact Loop|The universal kernel: intake → goal contract → source map → brainstorm → skeleton → fill → verify → revise → learn.|Almost everything: guides, work",
+      "source_path": "raw/notes/ProcessRanking_GPT&MasterOA.md",
+      "target": "intake->goal"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "process_sequence",
+      "line": 27,
+      "raw": "|**1**|`PRC-CORE-001` Goal-to-Verified-Artifact Loop|The universal kernel: intake → goal contract → source map → brainstorm → skeleton → fill → verify → revise → learn.|Almost everything: guides, work",
+      "source_path": "raw/notes/ProcessRanking_GPT&MasterOA.md",
+      "target": "map->brainstorm"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "process_sequence",
+      "line": 105,
+      "raw": "**Example:** raw note → idea database entry → concept options → workshop outline → verified working artifact.",
+      "source_path": "raw/notes/ProcessRanking_GPT&MasterOA.md",
+      "target": "note->idea"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "process_sequence",
+      "line": 105,
+      "raw": "**Example:** raw note → idea database entry → concept options → workshop outline → verified working artifact.",
+      "source_path": "raw/notes/ProcessRanking_GPT&MasterOA.md",
+      "target": "options->workshop"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "process_sequence",
+      "line": 105,
+      "raw": "**Example:** raw note → idea database entry → concept options → workshop outline → verified working artifact.",
+      "source_path": "raw/notes/ProcessRanking_GPT&MasterOA.md",
+      "target": "outline->verified"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "process_sequence",
+      "line": 27,
+      "raw": "|**1**|`PRC-CORE-001` Goal-to-Verified-Artifact Loop|The universal kernel: intake → goal contract → source map → brainstorm → skeleton → fill → verify → revise → learn.|Almost everything: guides, work",
+      "source_path": "raw/notes/ProcessRanking_GPT&MasterOA.md",
+      "target": "skeleton->fill"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "process_sequence",
+      "line": 30,
+      "raw": "|**4**|`PRC-HANDOFF-001` Handoff With Guardrails|Critical because many workflows move between chats, profiles, or future agents.|Dating-agent handover, specialized agent packets, workshop strategy → o",
+      "source_path": "raw/notes/ProcessRanking_GPT&MasterOA.md",
+      "target": "strategy->operations"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "process_sequence",
+      "line": 27,
+      "raw": "|**1**|`PRC-CORE-001` Goal-to-Verified-Artifact Loop|The universal kernel: intake → goal contract → source map → brainstorm → skeleton → fill → verify → revise → learn.|Almost everything: guides, work",
+      "source_path": "raw/notes/ProcessRanking_GPT&MasterOA.md",
+      "target": "verify->revise"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 26,
+      "raw": "- `.claude/agents/*.md`",
+      "source_path": "raw/notes/Prompt Flow_Create Claude-Native Apex Alfred Orchestration Predefinition Files.md",
+      "target": ".claude/agents"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 471,
+      "raw": "- Explain that durable role definitions live in `.claude/agents/`.",
+      "source_path": "raw/notes/Prompt Flow_Create Claude-Native Apex Alfred Orchestration Predefinition Files.md",
+      "target": ".claude/agents"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 132,
+      "raw": "2. `.claude/agents/alfred.md`",
+      "source_path": "raw/notes/Prompt Flow_Create Claude-Native Apex Alfred Orchestration Predefinition Files.md",
+      "target": ".claude/agents/alfred.md"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 502,
+      "raw": "Create File 2: `.claude/agents/alfred.md`.",
+      "source_path": "raw/notes/Prompt Flow_Create Claude-Native Apex Alfred Orchestration Predefinition Files.md",
+      "target": ".claude/agents/alfred.md"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 504,
+      "raw": "### 2. `.claude/agents/alfred.md`",
+      "source_path": "raw/notes/Prompt Flow_Create Claude-Native Apex Alfred Orchestration Predefinition Files.md",
+      "target": ".claude/agents/alfred.md"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 1039,
+      "raw": "2. `.claude/agents/alfred.md`",
+      "source_path": "raw/notes/Prompt Flow_Create Claude-Native Apex Alfred Orchestration Predefinition Files.md",
+      "target": ".claude/agents/alfred.md"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 138,
+      "raw": "5. `.claude/agents/meta_detective_controller.md`",
+      "source_path": "raw/notes/Prompt Flow_Create Claude-Native Apex Alfred Orchestration Predefinition Files.md",
+      "target": ".claude/agents/meta_detective_controller.md"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 577,
+      "raw": "Create File 5: `.claude/agents/meta_detective_controller.md`.",
+      "source_path": "raw/notes/Prompt Flow_Create Claude-Native Apex Alfred Orchestration Predefinition Files.md",
+      "target": ".claude/agents/meta_detective_controller.md"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 579,
+      "raw": "### 5. `.claude/agents/meta_detective_controller.md`",
+      "source_path": "raw/notes/Prompt Flow_Create Claude-Native Apex Alfred Orchestration Predefinition Files.md",
+      "target": ".claude/agents/meta_detective_controller.md"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 1042,
+      "raw": "5. `.claude/agents/meta_detective_controller.md`",
+      "source_path": "raw/notes/Prompt Flow_Create Claude-Native Apex Alfred Orchestration Predefinition Files.md",
+      "target": ".claude/agents/meta_detective_controller.md"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 136,
+      "raw": "4. `.claude/agents/meta_operations.md`",
+      "source_path": "raw/notes/Prompt Flow_Create Claude-Native Apex Alfred Orchestration Predefinition Files.md",
+      "target": ".claude/agents/meta_operations.md"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 552,
+      "raw": "Create File 4: `.claude/agents/meta_operations.md`.",
+      "source_path": "raw/notes/Prompt Flow_Create Claude-Native Apex Alfred Orchestration Predefinition Files.md",
+      "target": ".claude/agents/meta_operations.md"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 554,
+      "raw": "### 4. `.claude/agents/meta_operations.md`",
+      "source_path": "raw/notes/Prompt Flow_Create Claude-Native Apex Alfred Orchestration Predefinition Files.md",
+      "target": ".claude/agents/meta_operations.md"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 1041,
+      "raw": "4. `.claude/agents/meta_operations.md`",
+      "source_path": "raw/notes/Prompt Flow_Create Claude-Native Apex Alfred Orchestration Predefinition Files.md",
+      "target": ".claude/agents/meta_operations.md"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 134,
+      "raw": "3. `.claude/agents/meta_strategist.md`",
+      "source_path": "raw/notes/Prompt Flow_Create Claude-Native Apex Alfred Orchestration Predefinition Files.md",
+      "target": ".claude/agents/meta_strategist.md"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 527,
+      "raw": "Create File 3: `.claude/agents/meta_strategist.md`.",
+      "source_path": "raw/notes/Prompt Flow_Create Claude-Native Apex Alfred Orchestration Predefinition Files.md",
+      "target": ".claude/agents/meta_strategist.md"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 529,
+      "raw": "### 3. `.claude/agents/meta_strategist.md`",
+      "source_path": "raw/notes/Prompt Flow_Create Claude-Native Apex Alfred Orchestration Predefinition Files.md",
+      "target": ".claude/agents/meta_strategist.md"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 1040,
+      "raw": "3. `.claude/agents/meta_strategist.md`",
+      "source_path": "raw/notes/Prompt Flow_Create Claude-Native Apex Alfred Orchestration Predefinition Files.md",
+      "target": ".claude/agents/meta_strategist.md"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 35,
+      "raw": "- `.claude/settings.json`",
+      "source_path": "raw/notes/Prompt Flow_Create Claude-Native Apex Alfred Orchestration Predefinition Files.md",
+      "target": ".claude/settings.json"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 28,
+      "raw": "- `.claude/skills/*/SKILL.md`",
+      "source_path": "raw/notes/Prompt Flow_Create Claude-Native Apex Alfred Orchestration Predefinition Files.md",
+      "target": ".claude/skills"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 80,
+      "raw": "|Hermes skill|Claude Code skill in `.claude/skills/<name>/SKILL.md`|",
+      "source_path": "raw/notes/Prompt Flow_Create Claude-Native Apex Alfred Orchestration Predefinition Files.md",
+      "target": ".claude/skills"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 321,
+      "raw": "`.claude/skills/<skill-name>/SKILL.md`",
+      "source_path": "raw/notes/Prompt Flow_Create Claude-Native Apex Alfred Orchestration Predefinition Files.md",
+      "target": ".claude/skills"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 467,
+      "raw": "- Explain that detailed procedures live in `.claude/skills/`.",
+      "source_path": "raw/notes/Prompt Flow_Create Claude-Native Apex Alfred Orchestration Predefinition Files.md",
+      "target": ".claude/skills"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 140,
+      "raw": "6. `.claude/skills/alfred-intake-router/SKILL.md`",
+      "source_path": "raw/notes/Prompt Flow_Create Claude-Native Apex Alfred Orchestration Predefinition Files.md",
+      "target": ".claude/skills/alfred-intake-router/SKILL.md"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 602,
+      "raw": "Create File 6: `.claude/skills/alfred-intake-router/SKILL.md`.",
+      "source_path": "raw/notes/Prompt Flow_Create Claude-Native Apex Alfred Orchestration Predefinition Files.md",
+      "target": ".claude/skills/alfred-intake-router/SKILL.md"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 604,
+      "raw": "### 6. `.claude/skills/alfred-intake-router/SKILL.md`",
+      "source_path": "raw/notes/Prompt Flow_Create Claude-Native Apex Alfred Orchestration Predefinition Files.md",
+      "target": ".claude/skills/alfred-intake-router/SKILL.md"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 1043,
+      "raw": "6. `.claude/skills/alfred-intake-router/SKILL.md`",
+      "source_path": "raw/notes/Prompt Flow_Create Claude-Native Apex Alfred Orchestration Predefinition Files.md",
+      "target": ".claude/skills/alfred-intake-router/SKILL.md"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 148,
+      "raw": "10. `.claude/skills/detective-validation-gate/SKILL.md`",
+      "source_path": "raw/notes/Prompt Flow_Create Claude-Native Apex Alfred Orchestration Predefinition Files.md",
+      "target": ".claude/skills/detective-validation-gate/SKILL.md"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 745,
+      "raw": "Create File 10: `.claude/skills/detective-validation-gate/SKILL.md`.",
+      "source_path": "raw/notes/Prompt Flow_Create Claude-Native Apex Alfred Orchestration Predefinition Files.md",
+      "target": ".claude/skills/detective-validation-gate/SKILL.md"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 747,
+      "raw": "### 10. `.claude/skills/detective-validation-gate/SKILL.md`",
+      "source_path": "raw/notes/Prompt Flow_Create Claude-Native Apex Alfred Orchestration Predefinition Files.md",
+      "target": ".claude/skills/detective-validation-gate/SKILL.md"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 1047,
+      "raw": "10. `.claude/skills/detective-validation-gate/SKILL.md`",
+      "source_path": "raw/notes/Prompt Flow_Create Claude-Native Apex Alfred Orchestration Predefinition Files.md",
+      "target": ".claude/skills/detective-validation-gate/SKILL.md"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 146,
+      "raw": "9. `.claude/skills/goal-skeleton-fill-verify-loop/SKILL.md`",
+      "source_path": "raw/notes/Prompt Flow_Create Claude-Native Apex Alfred Orchestration Predefinition Files.md",
+      "target": ".claude/skills/goal-skeleton-fill-verify-loop/SKILL.md"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 709,
+      "raw": "Create File 9: `.claude/skills/goal-skeleton-fill-verify-loop/SKILL.md`.",
+      "source_path": "raw/notes/Prompt Flow_Create Claude-Native Apex Alfred Orchestration Predefinition Files.md",
+      "target": ".claude/skills/goal-skeleton-fill-verify-loop/SKILL.md"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 711,
+      "raw": "### 9. `.claude/skills/goal-skeleton-fill-verify-loop/SKILL.md`",
+      "source_path": "raw/notes/Prompt Flow_Create Claude-Native Apex Alfred Orchestration Predefinition Files.md",
+      "target": ".claude/skills/goal-skeleton-fill-verify-loop/SKILL.md"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 1046,
+      "raw": "9. `.claude/skills/goal-skeleton-fill-verify-loop/SKILL.md`",
+      "source_path": "raw/notes/Prompt Flow_Create Claude-Native Apex Alfred Orchestration Predefinition Files.md",
+      "target": ".claude/skills/goal-skeleton-fill-verify-loop/SKILL.md"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 142,
+      "raw": "7. `.claude/skills/handoff-packet-writer/SKILL.md`",
+      "source_path": "raw/notes/Prompt Flow_Create Claude-Native Apex Alfred Orchestration Predefinition Files.md",
+      "target": ".claude/skills/handoff-packet-writer/SKILL.md"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 637,
+      "raw": "Create File 7: `.claude/skills/handoff-packet-writer/SKILL.md`.",
+      "source_path": "raw/notes/Prompt Flow_Create Claude-Native Apex Alfred Orchestration Predefinition Files.md",
+      "target": ".claude/skills/handoff-packet-writer/SKILL.md"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 639,
+      "raw": "### 7. `.claude/skills/handoff-packet-writer/SKILL.md`",
+      "source_path": "raw/notes/Prompt Flow_Create Claude-Native Apex Alfred Orchestration Predefinition Files.md",
+      "target": ".claude/skills/handoff-packet-writer/SKILL.md"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 1044,
+      "raw": "7. `.claude/skills/handoff-packet-writer/SKILL.md`",
+      "source_path": "raw/notes/Prompt Flow_Create Claude-Native Apex Alfred Orchestration Predefinition Files.md",
+      "target": ".claude/skills/handoff-packet-writer/SKILL.md"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 144,
+      "raw": "8. `.claude/skills/source-constraint-map/SKILL.md`",
+      "source_path": "raw/notes/Prompt Flow_Create Claude-Native Apex Alfred Orchestration Predefinition Files.md",
+      "target": ".claude/skills/source-constraint-map/SKILL.md"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 686,
+      "raw": "Create File 8: `.claude/skills/source-constraint-map/SKILL.md`.",
+      "source_path": "raw/notes/Prompt Flow_Create Claude-Native Apex Alfred Orchestration Predefinition Files.md",
+      "target": ".claude/skills/source-constraint-map/SKILL.md"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 688,
+      "raw": "### 8. `.claude/skills/source-constraint-map/SKILL.md`",
+      "source_path": "raw/notes/Prompt Flow_Create Claude-Native Apex Alfred Orchestration Predefinition Files.md",
+      "target": ".claude/skills/source-constraint-map/SKILL.md"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 1045,
+      "raw": "8. `.claude/skills/source-constraint-map/SKILL.md`",
+      "source_path": "raw/notes/Prompt Flow_Create Claude-Native Apex Alfred Orchestration Predefinition Files.md",
+      "target": ".claude/skills/source-constraint-map/SKILL.md"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 150,
+      "raw": "11. `.claude/skills/workflow-normalizer/SKILL.md`",
+      "source_path": "raw/notes/Prompt Flow_Create Claude-Native Apex Alfred Orchestration Predefinition Files.md",
+      "target": ".claude/skills/workflow-normalizer/SKILL.md"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 789,
+      "raw": "Create File 11: `.claude/skills/workflow-normalizer/SKILL.md`.",
+      "source_path": "raw/notes/Prompt Flow_Create Claude-Native Apex Alfred Orchestration Predefinition Files.md",
+      "target": ".claude/skills/workflow-normalizer/SKILL.md"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 791,
+      "raw": "### 11. `.claude/skills/workflow-normalizer/SKILL.md`",
+      "source_path": "raw/notes/Prompt Flow_Create Claude-Native Apex Alfred Orchestration Predefinition Files.md",
+      "target": ".claude/skills/workflow-normalizer/SKILL.md"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 1048,
+      "raw": "11. `.claude/skills/workflow-normalizer/SKILL.md`",
+      "source_path": "raw/notes/Prompt Flow_Create Claude-Native Apex Alfred Orchestration Predefinition Files.md",
+      "target": ".claude/skills/workflow-normalizer/SKILL.md"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 30,
+      "raw": "- `.claude/workflows/*.md`",
+      "source_path": "raw/notes/Prompt Flow_Create Claude-Native Apex Alfred Orchestration Predefinition Files.md",
+      "target": ".claude/workflows"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 81,
+      "raw": "|Kanban graph|Claude workflow spec in `.claude/workflows/*.md`|",
+      "source_path": "raw/notes/Prompt Flow_Create Claude-Native Apex Alfred Orchestration Predefinition Files.md",
+      "target": ".claude/workflows"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 434,
+      "raw": "A workflow must describe how Claude should later turn it into `.claude/workflows/*.js`, but it must not generate JavaScript yet.",
+      "source_path": "raw/notes/Prompt Flow_Create Claude-Native Apex Alfred Orchestration Predefinition Files.md",
+      "target": ".claude/workflows"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 469,
+      "raw": "- Explain that orchestration specs live in `.claude/workflows/`.",
+      "source_path": "raw/notes/Prompt Flow_Create Claude-Native Apex Alfred Orchestration Predefinition Files.md",
+      "target": ".claude/workflows"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 154,
+      "raw": "13. `.claude/workflows/handoff_to_strategy.md`",
+      "source_path": "raw/notes/Prompt Flow_Create Claude-Native Apex Alfred Orchestration Predefinition Files.md",
+      "target": ".claude/workflows/handoff_to_strategy.md"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 853,
+      "raw": "Create File 13: `.claude/workflows/handoff_to_strategy.md`.",
+      "source_path": "raw/notes/Prompt Flow_Create Claude-Native Apex Alfred Orchestration Predefinition Files.md",
+      "target": ".claude/workflows/handoff_to_strategy.md"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 855,
+      "raw": "### 13. `.claude/workflows/handoff_to_strategy.md`",
+      "source_path": "raw/notes/Prompt Flow_Create Claude-Native Apex Alfred Orchestration Predefinition Files.md",
+      "target": ".claude/workflows/handoff_to_strategy.md"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 1050,
+      "raw": "13. `.claude/workflows/handoff_to_strategy.md`",
+      "source_path": "raw/notes/Prompt Flow_Create Claude-Native Apex Alfred Orchestration Predefinition Files.md",
+      "target": ".claude/workflows/handoff_to_strategy.md"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 152,
+      "raw": "12. `.claude/workflows/intake_to_handoff.md`",
+      "source_path": "raw/notes/Prompt Flow_Create Claude-Native Apex Alfred Orchestration Predefinition Files.md",
+      "target": ".claude/workflows/intake_to_handoff.md"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 820,
+      "raw": "Create File 12: `.claude/workflows/intake_to_handoff.md`.",
+      "source_path": "raw/notes/Prompt Flow_Create Claude-Native Apex Alfred Orchestration Predefinition Files.md",
+      "target": ".claude/workflows/intake_to_handoff.md"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 822,
+      "raw": "### 12. `.claude/workflows/intake_to_handoff.md`",
+      "source_path": "raw/notes/Prompt Flow_Create Claude-Native Apex Alfred Orchestration Predefinition Files.md",
+      "target": ".claude/workflows/intake_to_handoff.md"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 1049,
+      "raw": "12. `.claude/workflows/intake_to_handoff.md`",
+      "source_path": "raw/notes/Prompt Flow_Create Claude-Native Apex Alfred Orchestration Predefinition Files.md",
+      "target": ".claude/workflows/intake_to_handoff.md"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 158,
+      "raw": "15. `.claude/workflows/operations_to_detective_validation.md`",
+      "source_path": "raw/notes/Prompt Flow_Create Claude-Native Apex Alfred Orchestration Predefinition Files.md",
+      "target": ".claude/workflows/operations_to_detective_validation.md"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 913,
+      "raw": "Create File 15: `.claude/workflows/operations_to_detective_validation.md`.",
+      "source_path": "raw/notes/Prompt Flow_Create Claude-Native Apex Alfred Orchestration Predefinition Files.md",
+      "target": ".claude/workflows/operations_to_detective_validation.md"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 915,
+      "raw": "### 15. `.claude/workflows/operations_to_detective_validation.md`",
+      "source_path": "raw/notes/Prompt Flow_Create Claude-Native Apex Alfred Orchestration Predefinition Files.md",
+      "target": ".claude/workflows/operations_to_detective_validation.md"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 1052,
+      "raw": "15. `.claude/workflows/operations_to_detective_validation.md`",
+      "source_path": "raw/notes/Prompt Flow_Create Claude-Native Apex Alfred Orchestration Predefinition Files.md",
+      "target": ".claude/workflows/operations_to_detective_validation.md"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 156,
+      "raw": "14. `.claude/workflows/strategy_to_operations.md`",
+      "source_path": "raw/notes/Prompt Flow_Create Claude-Native Apex Alfred Orchestration Predefinition Files.md",
+      "target": ".claude/workflows/strategy_to_operations.md"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 884,
+      "raw": "Create File 14: `.claude/workflows/strategy_to_operations.md`.",
+      "source_path": "raw/notes/Prompt Flow_Create Claude-Native Apex Alfred Orchestration Predefinition Files.md",
+      "target": ".claude/workflows/strategy_to_operations.md"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 886,
+      "raw": "### 14. `.claude/workflows/strategy_to_operations.md`",
+      "source_path": "raw/notes/Prompt Flow_Create Claude-Native Apex Alfred Orchestration Predefinition Files.md",
+      "target": ".claude/workflows/strategy_to_operations.md"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 1051,
+      "raw": "14. `.claude/workflows/strategy_to_operations.md`",
+      "source_path": "raw/notes/Prompt Flow_Create Claude-Native Apex Alfred Orchestration Predefinition Files.md",
+      "target": ".claude/workflows/strategy_to_operations.md"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 160,
+      "raw": "16. `.claude/workflows/validated_file_creation_loop.md`",
+      "source_path": "raw/notes/Prompt Flow_Create Claude-Native Apex Alfred Orchestration Predefinition Files.md",
+      "target": ".claude/workflows/validated_file_creation_loop.md"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 944,
+      "raw": "Create File 16: `.claude/workflows/validated_file_creation_loop.md`.",
+      "source_path": "raw/notes/Prompt Flow_Create Claude-Native Apex Alfred Orchestration Predefinition Files.md",
+      "target": ".claude/workflows/validated_file_creation_loop.md"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 946,
+      "raw": "### 16. `.claude/workflows/validated_file_creation_loop.md`",
+      "source_path": "raw/notes/Prompt Flow_Create Claude-Native Apex Alfred Orchestration Predefinition Files.md",
+      "target": ".claude/workflows/validated_file_creation_loop.md"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 1053,
+      "raw": "16. `.claude/workflows/validated_file_creation_loop.md`",
+      "source_path": "raw/notes/Prompt Flow_Create Claude-Native Apex Alfred Orchestration Predefinition Files.md",
+      "target": ".claude/workflows/validated_file_creation_loop.md"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 162,
+      "raw": "17. `.claude/workflows/workflow_index.md`",
+      "source_path": "raw/notes/Prompt Flow_Create Claude-Native Apex Alfred Orchestration Predefinition Files.md",
+      "target": ".claude/workflows/workflow_index.md"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 971,
+      "raw": "Create File 17: `.claude/workflows/workflow_index.md`.",
+      "source_path": "raw/notes/Prompt Flow_Create Claude-Native Apex Alfred Orchestration Predefinition Files.md",
+      "target": ".claude/workflows/workflow_index.md"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 973,
+      "raw": "### 17. `.claude/workflows/workflow_index.md`",
+      "source_path": "raw/notes/Prompt Flow_Create Claude-Native Apex Alfred Orchestration Predefinition Files.md",
+      "target": ".claude/workflows/workflow_index.md"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "repo_path_reference",
+      "line": 1054,
+      "raw": "17. `.claude/workflows/workflow_index.md`",
+      "source_path": "raw/notes/Prompt Flow_Create Claude-Native Apex Alfred Orchestration Predefinition Files.md",
+      "target": ".claude/workflows/workflow_index.md"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "markdown_link",
+      "line": 4,
+      "raw": "[PROCESS_BLUEPRINT_SYSTEM.md](C:/GitDev/OpenClaw/OpenClaw/07_finalopenclawsystem/docs/PROCESS_BLUEPRINT_SYSTEM.md)",
+      "source_path": "raw/notes/SourceIndexAgentInteraction07OC.md",
+      "target": "C:/GitDev/OpenClaw/OpenClaw/07_finalopenclawsystem/docs/PROCESS_BLUEPRINT_SYSTEM.md"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "markdown_link",
+      "line": 7,
+      "raw": "[PROJECT_ROUTING.md](C:/GitDev/OpenClaw/OpenClaw/07_finalopenclawsystem/docs/PROJECT_ROUTING.md)",
+      "source_path": "raw/notes/SourceIndexAgentInteraction07OC.md",
+      "target": "C:/GitDev/OpenClaw/OpenClaw/07_finalopenclawsystem/docs/PROJECT_ROUTING.md"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "markdown_link",
+      "line": 70,
+      "raw": "[META_DETECTIVE_WATCHDOG_QA_HYGIENE_EXECUTION_PLAN.md](C:/GitDev/OpenClaw/OpenClaw/07_finalopenclawsystem/docs/working/META_DETECTIVE_WATCHDOG_QA_HYGIENE_EXECUTION_PLAN.md)",
+      "source_path": "raw/notes/SourceIndexAgentInteraction07OC.md",
+      "target": "C:/GitDev/OpenClaw/OpenClaw/07_finalopenclawsystem/docs/working/META_DETECTIVE_WATCHDOG_QA_HYGIENE_EXECUTION_PLAN.md"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "markdown_link",
+      "line": 73,
+      "raw": "[META_DETECTIVE_WATCHDOG_QA_HYGIENE_PER_TARGET_DIFF_HANDOVER.md](C:/GitDev/OpenClaw/OpenClaw/07_finalopenclawsystem/docs/working/META_DETECTIVE_WATCHDOG_QA_HYGIENE_PER_TARGET_DIFF_HANDOVER.md)",
+      "source_path": "raw/notes/SourceIndexAgentInteraction07OC.md",
+      "target": "C:/GitDev/OpenClaw/OpenClaw/07_finalopenclawsystem/docs/working/META_DETECTIVE_WATCHDOG_QA_HYGIENE_PER_TARGET_DIFF_HANDOVER.md"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "markdown_link",
+      "line": 67,
+      "raw": "[ZERO_DRIFT_DIFF_APPLICATION_PROCESS_GUIDE_V5.yaml](C:/GitDev/OpenClaw/OpenClaw/07_finalopenclawsystem/docs/working/ZERO_DRIFT_DIFF_APPLICATION_PROCESS_GUIDE_V5.yaml)",
+      "source_path": "raw/notes/SourceIndexAgentInteraction07OC.md",
+      "target": "C:/GitDev/OpenClaw/OpenClaw/07_finalopenclawsystem/docs/working/ZERO_DRIFT_DIFF_APPLICATION_PROCESS_GUIDE_V5.yaml"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "markdown_link",
+      "line": 63,
+      "raw": "[PROMPTFLOW_KB_BASE_BUILD.md](C:/GitDev/OpenClaw/OpenClaw/07_finalopenclawsystem/managed/agent_kb/special_ops__hygiene_clean/PROMPTFLOW_KB_BASE_BUILD.md)",
+      "source_path": "raw/notes/SourceIndexAgentInteraction07OC.md",
+      "target": "C:/GitDev/OpenClaw/OpenClaw/07_finalopenclawsystem/managed/agent_kb/special_ops__hygiene_clean/PROMPTFLOW_KB_BASE_BUILD.md"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "markdown_link",
+      "line": 57,
+      "raw": "[PROMPTFLOW_CONSTANT_FRAME_CONTROLLED_KB_INTEGRATION.md](C:/GitDev/OpenClaw/OpenClaw/07_finalopenclawsystem/managed/agent_kb/special_ops__prompts_workflows/PROMPTFLOW_CONSTANT_FRAME_CONTROLLED_KB_INTE",
+      "source_path": "raw/notes/SourceIndexAgentInteraction07OC.md",
+      "target": "C:/GitDev/OpenClaw/OpenClaw/07_finalopenclawsystem/managed/agent_kb/special_ops__prompts_workflows/PROMPTFLOW_CONSTANT_FRAME_CONTROLLED_KB_INTEGRATION.md"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "markdown_link",
+      "line": 54,
+      "raw": "[PROMPTFLOW_KB_BASE_BUILD.md](C:/GitDev/OpenClaw/OpenClaw/07_finalopenclawsystem/managed/agent_kb/special_ops__prompts_workflows/PROMPTFLOW_KB_BASE_BUILD.md)",
+      "source_path": "raw/notes/SourceIndexAgentInteraction07OC.md",
+      "target": "C:/GitDev/OpenClaw/OpenClaw/07_finalopenclawsystem/managed/agent_kb/special_ops__prompts_workflows/PROMPTFLOW_KB_BASE_BUILD.md"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "markdown_link",
+      "line": 60,
+      "raw": "[TEMPLATES.md](C:/GitDev/OpenClaw/OpenClaw/07_finalopenclawsystem/managed/agent_kb/special_ops__prompts_workflows/TEMPLATES.md)",
+      "source_path": "raw/notes/SourceIndexAgentInteraction07OC.md",
+      "target": "C:/GitDev/OpenClaw/OpenClaw/07_finalopenclawsystem/managed/agent_kb/special_ops__prompts_workflows/TEMPLATES.md"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "markdown_link",
+      "line": 44,
+      "raw": "[AGENT_KB_LANES.md](C:/GitDev/OpenClaw/OpenClaw/07_finalopenclawsystem/managed/knowledge/AGENT_KB_LANES.md)",
+      "source_path": "raw/notes/SourceIndexAgentInteraction07OC.md",
+      "target": "C:/GitDev/OpenClaw/OpenClaw/07_finalopenclawsystem/managed/knowledge/AGENT_KB_LANES.md"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "markdown_link",
+      "line": 50,
+      "raw": "[KB_PROMOTION_LEDGER_TEMPLATE.md](C:/GitDev/OpenClaw/OpenClaw/07_finalopenclawsystem/managed/knowledge/KB_PROMOTION_LEDGER_TEMPLATE.md)",
+      "source_path": "raw/notes/SourceIndexAgentInteraction07OC.md",
+      "target": "C:/GitDev/OpenClaw/OpenClaw/07_finalopenclawsystem/managed/knowledge/KB_PROMOTION_LEDGER_TEMPLATE.md"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "markdown_link",
+      "line": 47,
+      "raw": "[KB_STARTING_SOURCE_MAP.md](C:/GitDev/OpenClaw/OpenClaw/07_finalopenclawsystem/managed/knowledge/KB_STARTING_SOURCE_MAP.md)",
+      "source_path": "raw/notes/SourceIndexAgentInteraction07OC.md",
+      "target": "C:/GitDev/OpenClaw/OpenClaw/07_finalopenclawsystem/managed/knowledge/KB_STARTING_SOURCE_MAP.md"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "markdown_link",
+      "line": 13,
+      "raw": "[AGENT_HANDOFF_CONTRACTS.md](C:/GitDev/OpenClaw/OpenClaw/07_finalopenclawsystem/managed/processes/AGENT_HANDOFF_CONTRACTS.md)",
+      "source_path": "raw/notes/SourceIndexAgentInteraction07OC.md",
+      "target": "C:/GitDev/OpenClaw/OpenClaw/07_finalopenclawsystem/managed/processes/AGENT_HANDOFF_CONTRACTS.md"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "markdown_link",
+      "line": 16,
+      "raw": "[DEEP_RESEARCH_TO_PATCHSPEC_WORKFLOW.md](C:/GitDev/OpenClaw/OpenClaw/07_finalopenclawsystem/managed/processes/DEEP_RESEARCH_TO_PATCHSPEC_WORKFLOW.md)",
+      "source_path": "raw/notes/SourceIndexAgentInteraction07OC.md",
+      "target": "C:/GitDev/OpenClaw/OpenClaw/07_finalopenclawsystem/managed/processes/DEEP_RESEARCH_TO_PATCHSPEC_WORKFLOW.md"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "markdown_link",
+      "line": 10,
+      "raw": "[HOLDING_ORCHESTRATION_FLOW.md](C:/GitDev/OpenClaw/OpenClaw/07_finalopenclawsystem/managed/processes/HOLDING_ORCHESTRATION_FLOW.md)",
+      "source_path": "raw/notes/SourceIndexAgentInteraction07OC.md",
+      "target": "C:/GitDev/OpenClaw/OpenClaw/07_finalopenclawsystem/managed/processes/HOLDING_ORCHESTRATION_FLOW.md"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "markdown_link",
+      "line": 19,
+      "raw": "[BOOTSTRAP.md](C:/GitDev/OpenClaw/OpenClaw/07_finalopenclawsystem/managed/rituals/BOOTSTRAP.md)",
+      "source_path": "raw/notes/SourceIndexAgentInteraction07OC.md",
+      "target": "C:/GitDev/OpenClaw/OpenClaw/07_finalopenclawsystem/managed/rituals/BOOTSTRAP.md"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "markdown_link",
+      "line": 22,
+      "raw": "[CHECKLISTS.md](C:/GitDev/OpenClaw/OpenClaw/07_finalopenclawsystem/managed/rituals/CHECKLISTS.md)",
+      "source_path": "raw/notes/SourceIndexAgentInteraction07OC.md",
+      "target": "C:/GitDev/OpenClaw/OpenClaw/07_finalopenclawsystem/managed/rituals/CHECKLISTS.md"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "markdown_link",
+      "line": 25,
+      "raw": "[HEARTBEAT.md](C:/GitDev/OpenClaw/OpenClaw/07_finalopenclawsystem/managed/rituals/HEARTBEAT.md)",
+      "source_path": "raw/notes/SourceIndexAgentInteraction07OC.md",
+      "target": "C:/GitDev/OpenClaw/OpenClaw/07_finalopenclawsystem/managed/rituals/HEARTBEAT.md"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "markdown_link",
+      "line": 31,
+      "raw": "[NIGHT_PLANNING_PROTOCOL.md](C:/GitDev/OpenClaw/OpenClaw/07_finalopenclawsystem/managed/rituals/NIGHT_PLANNING_PROTOCOL.md)",
+      "source_path": "raw/notes/SourceIndexAgentInteraction07OC.md",
+      "target": "C:/GitDev/OpenClaw/OpenClaw/07_finalopenclawsystem/managed/rituals/NIGHT_PLANNING_PROTOCOL.md"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "markdown_link",
+      "line": 28,
+      "raw": "[SESSION_EXPORT_PROTOCOL.md](C:/GitDev/OpenClaw/OpenClaw/07_finalopenclawsystem/managed/rituals/SESSION_EXPORT_PROTOCOL.md)",
+      "source_path": "raw/notes/SourceIndexAgentInteraction07OC.md",
+      "target": "C:/GitDev/OpenClaw/OpenClaw/07_finalopenclawsystem/managed/rituals/SESSION_EXPORT_PROTOCOL.md"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "markdown_link",
+      "line": 41,
+      "raw": "[PROJECT_INTERFACE_CONTRACT.md](C:/GitDev/OpenClaw/OpenClaw/07_finalopenclawsystem/managed/rules/PROJECT_INTERFACE_CONTRACT.md)",
+      "source_path": "raw/notes/SourceIndexAgentInteraction07OC.md",
+      "target": "C:/GitDev/OpenClaw/OpenClaw/07_finalopenclawsystem/managed/rules/PROJECT_INTERFACE_CONTRACT.md"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "markdown_link",
+      "line": 35,
+      "raw": "[PROMOTION_PROTOCOL.md](C:/GitDev/OpenClaw/OpenClaw/07_finalopenclawsystem/managed/rules/PROMOTION_PROTOCOL.md)",
+      "source_path": "raw/notes/SourceIndexAgentInteraction07OC.md",
+      "target": "C:/GitDev/OpenClaw/OpenClaw/07_finalopenclawsystem/managed/rules/PROMOTION_PROTOCOL.md"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "markdown_link",
+      "line": 38,
+      "raw": "[QA_HYGIENE_PROTOCOL.md](C:/GitDev/OpenClaw/OpenClaw/07_finalopenclawsystem/managed/rules/QA_HYGIENE_PROTOCOL.md)",
+      "source_path": "raw/notes/SourceIndexAgentInteraction07OC.md",
+      "target": "C:/GitDev/OpenClaw/OpenClaw/07_finalopenclawsystem/managed/rules/QA_HYGIENE_PROTOCOL.md"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "markdown_link",
+      "line": 12,
+      "raw": "[ChatHistorxSoFar.md](C:/GitDev/apexai-os-meta/agent_kb_source_indexes/CreatingAlfred/ChatHistorxSoFar.md)",
+      "source_path": "raw/notes/SourceIndexAgentInteractionAlfred.md",
+      "target": "C:/GitDev/apexai-os-meta/agent_kb_source_indexes/CreatingAlfred/ChatHistorxSoFar.md"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "markdown_link",
+      "line": 13,
+      "raw": "[ChatHistorxSoFar2.md](C:/GitDev/apexai-os-meta/agent_kb_source_indexes/CreatingAlfred/ChatHistorxSoFar2.md)",
+      "source_path": "raw/notes/SourceIndexAgentInteractionAlfred.md",
+      "target": "C:/GitDev/apexai-os-meta/agent_kb_source_indexes/CreatingAlfred/ChatHistorxSoFar2.md"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "markdown_link",
+      "line": 18,
+      "raw": "[INtegratingLeelaSequencing/ChatsoFar.md](C:/GitDev/apexai-os-meta/agent_kb_source_indexes/CreatingAlfred/INtegratingLeelaSequencing/ChatsoFar.md)",
+      "source_path": "raw/notes/SourceIndexAgentInteractionAlfred.md",
+      "target": "C:/GitDev/apexai-os-meta/agent_kb_source_indexes/CreatingAlfred/INtegratingLeelaSequencing/ChatsoFar.md"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "markdown_link",
+      "line": 22,
+      "raw": "[INtegratingLeelaSequencing/CodexInstrucitons.md](C:/GitDev/apexai-os-meta/agent_kb_source_indexes/CreatingAlfred/INtegratingLeelaSequencing/CodexInstrucitons.md)",
+      "source_path": "raw/notes/SourceIndexAgentInteractionAlfred.md",
+      "target": "C:/GitDev/apexai-os-meta/agent_kb_source_indexes/CreatingAlfred/INtegratingLeelaSequencing/CodexInstrucitons.md"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "markdown_link",
+      "line": 23,
+      "raw": "[INtegratingLeelaSequencing/CreatedFiles.md](C:/GitDev/apexai-os-meta/agent_kb_source_indexes/CreatingAlfred/INtegratingLeelaSequencing/CreatedFiles.md)",
+      "source_path": "raw/notes/SourceIndexAgentInteractionAlfred.md",
+      "target": "C:/GitDev/apexai-os-meta/agent_kb_source_indexes/CreatingAlfred/INtegratingLeelaSequencing/CreatedFiles.md"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "markdown_link",
+      "line": 20,
+      "raw": "[INtegratingLeelaSequencing/HandoffsFormats&Variables.md](C:/GitDev/apexai-os-meta/agent_kb_source_indexes/CreatingAlfred/INtegratingLeelaSequencing/HandoffsFormats&Variables.md)",
+      "source_path": "raw/notes/SourceIndexAgentInteractionAlfred.md",
+      "target": "C:/GitDev/apexai-os-meta/agent_kb_source_indexes/CreatingAlfred/INtegratingLeelaSequencing/HandoffsFormats&Variables.md"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "markdown_link",
+      "line": 21,
+      "raw": "[INtegratingLeelaSequencing/Handover&ChatInititation.md](C:/GitDev/apexai-os-meta/agent_kb_source_indexes/CreatingAlfred/INtegratingLeelaSequencing/Handover&ChatInititation.md)",
+      "source_path": "raw/notes/SourceIndexAgentInteractionAlfred.md",
+      "target": "C:/GitDev/apexai-os-meta/agent_kb_source_indexes/CreatingAlfred/INtegratingLeelaSequencing/Handover&ChatInititation.md"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "markdown_link",
+      "line": 19,
+      "raw": "[INtegratingLeelaSequencing/PF4Apex&Alfred.md](C:/GitDev/apexai-os-meta/agent_kb_source_indexes/CreatingAlfred/INtegratingLeelaSequencing/PF4Apex&Alfred.md)",
+      "source_path": "raw/notes/SourceIndexAgentInteractionAlfred.md",
+      "target": "C:/GitDev/apexai-os-meta/agent_kb_source_indexes/CreatingAlfred/INtegratingLeelaSequencing/PF4Apex&Alfred.md"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "markdown_link",
+      "line": 33,
+      "raw": "[INtegratingLeelaSequencing/Untitled 1.md](C:/GitDev/apexai-os-meta/agent_kb_source_indexes/CreatingAlfred/INtegratingLeelaSequencing/Untitled%201.md)",
+      "source_path": "raw/notes/SourceIndexAgentInteractionAlfred.md",
+      "target": "C:/GitDev/apexai-os-meta/agent_kb_source_indexes/CreatingAlfred/INtegratingLeelaSequencing/Untitled%201.md"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "markdown_link",
+      "line": 32,
+      "raw": "[INtegratingLeelaSequencing/Untitled.md](C:/GitDev/apexai-os-meta/agent_kb_source_indexes/CreatingAlfred/INtegratingLeelaSequencing/Untitled.md)",
+      "source_path": "raw/notes/SourceIndexAgentInteractionAlfred.md",
+      "target": "C:/GitDev/apexai-os-meta/agent_kb_source_indexes/CreatingAlfred/INtegratingLeelaSequencing/Untitled.md"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "markdown_link",
+      "line": 24,
+      "raw": "[INtegratingLeelaSequencing/Variables&Metrics.md](C:/GitDev/apexai-os-meta/agent_kb_source_indexes/CreatingAlfred/INtegratingLeelaSequencing/Variables&Metrics.md)",
+      "source_path": "raw/notes/SourceIndexAgentInteractionAlfred.md",
+      "target": "C:/GitDev/apexai-os-meta/agent_kb_source_indexes/CreatingAlfred/INtegratingLeelaSequencing/Variables&Metrics.md"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "markdown_link",
+      "line": 25,
+      "raw": "[INtegratingLeelaSequencing/Variables&Metrics_Claude.md](C:/GitDev/apexai-os-meta/agent_kb_source_indexes/CreatingAlfred/INtegratingLeelaSequencing/Variables&Metrics_Claude.md)",
+      "source_path": "raw/notes/SourceIndexAgentInteractionAlfred.md",
+      "target": "C:/GitDev/apexai-os-meta/agent_kb_source_indexes/CreatingAlfred/INtegratingLeelaSequencing/Variables&Metrics_Claude.md"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "markdown_link",
+      "line": 26,
+      "raw": "[INtegratingLeelaSequencing/Variables&Metrics_GEM.md](C:/GitDev/apexai-os-meta/agent_kb_source_indexes/CreatingAlfred/INtegratingLeelaSequencing/Variables&Metrics_GEM.md)",
+      "source_path": "raw/notes/SourceIndexAgentInteractionAlfred.md",
+      "target": "C:/GitDev/apexai-os-meta/agent_kb_source_indexes/CreatingAlfred/INtegratingLeelaSequencing/Variables&Metrics_GEM.md"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "markdown_link",
+      "line": 9,
+      "raw": "[NewIntegration.md](C:/GitDev/apexai-os-meta/agent_kb_source_indexes/CreatingAlfred/NewIntegration.md)",
+      "source_path": "raw/notes/SourceIndexAgentInteractionAlfred.md",
+      "target": "C:/GitDev/apexai-os-meta/agent_kb_source_indexes/CreatingAlfred/NewIntegration.md"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "markdown_link",
+      "line": 31,
+      "raw": "[NewPromptFLow.md](C:/GitDev/apexai-os-meta/agent_kb_source_indexes/CreatingAlfred/NewPromptFLow.md)",
+      "source_path": "raw/notes/SourceIndexAgentInteractionAlfred.md",
+      "target": "C:/GitDev/apexai-os-meta/agent_kb_source_indexes/CreatingAlfred/NewPromptFLow.md"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "markdown_link",
+      "line": 8,
+      "raw": "[NewPromptFlow2.md](C:/GitDev/apexai-os-meta/agent_kb_source_indexes/CreatingAlfred/NewPromptFlow2.md)",
+      "source_path": "raw/notes/SourceIndexAgentInteractionAlfred.md",
+      "target": "C:/GitDev/apexai-os-meta/agent_kb_source_indexes/CreatingAlfred/NewPromptFlow2.md"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "markdown_link",
+      "line": 7,
+      "raw": "[NewPromptPlan.md](C:/GitDev/apexai-os-meta/agent_kb_source_indexes/CreatingAlfred/NewPromptPlan.md)",
+      "source_path": "raw/notes/SourceIndexAgentInteractionAlfred.md",
+      "target": "C:/GitDev/apexai-os-meta/agent_kb_source_indexes/CreatingAlfred/NewPromptPlan.md"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "markdown_link",
+      "line": 10,
+      "raw": "[PromptFLowValidation.md](C:/GitDev/apexai-os-meta/agent_kb_source_indexes/CreatingAlfred/PromptFLowValidation.md)",
+      "source_path": "raw/notes/SourceIndexAgentInteractionAlfred.md",
+      "target": "C:/GitDev/apexai-os-meta/agent_kb_source_indexes/CreatingAlfred/PromptFLowValidation.md"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "markdown_link",
+      "line": 6,
+      "raw": "[PromptFlowToCreateKB4Alfred2.md](C:/GitDev/apexai-os-meta/agent_kb_source_indexes/CreatingAlfred/PromptFlowToCreateKB4Alfred2.md)",
+      "source_path": "raw/notes/SourceIndexAgentInteractionAlfred.md",
+      "target": "C:/GitDev/apexai-os-meta/agent_kb_source_indexes/CreatingAlfred/PromptFlowToCreateKB4Alfred2.md"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "markdown_link",
+      "line": 11,
+      "raw": "[promptflowChatHistory4Validation.md](C:/GitDev/apexai-os-meta/agent_kb_source_indexes/CreatingAlfred/promptflowChatHistory4Validation.md)",
+      "source_path": "raw/notes/SourceIndexAgentInteractionAlfred.md",
+      "target": "C:/GitDev/apexai-os-meta/agent_kb_source_indexes/CreatingAlfred/promptflowChatHistory4Validation.md"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "process_sequence",
+      "line": 14,
+      "raw": "| `BuildORCHESTRATIONSYSTEMINHERMESAGENT_Claude.md`                     | Prior orchestration research              | Project resource                        | Most directly relevant orchestration rep",
+      "source_path": "raw/notes/SourceIndexProjectGPT.md",
+      "target": "files->skills"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "process_sequence",
+      "line": 14,
+      "raw": "| `BuildORCHESTRATIONSYSTEMINHERMESAGENT_Claude.md`                     | Prior orchestration research              | Project resource                        | Most directly relevant orchestration rep",
+      "source_path": "raw/notes/SourceIndexProjectGPT.md",
+      "target": "profiles->delegation/Kanban"
+    },
+    {
+      "confidence": "deterministic",
+      "edge_type": "yaml_path_reference",
+      "line": 796,
+      "raw": "primary_openclaw_root_confirmed: OpenClaw/07_finalopenclawsystem",
+      "source_path": "raw/notes/SourceIndexProjectGPT.md",
+      "target": "OpenClaw/07_finalopenclawsystem"
+    }
+  ],
+  "edges_by_type": {
+    "markdown_link": 44,
+    "process_sequence": 86,
+    "repo_path_reference": 162,
+    "wikilink": 0,
+    "yaml_path_reference": 10
+  }
+}

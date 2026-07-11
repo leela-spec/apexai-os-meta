@@ -1,194 +1,75 @@
 document:
   id: apex-step3-round6-decision-and-verification-record
   title: APEX Step 3 Round 6 Decision and Verification Record
-  status: round6_design_reconciliation_verified
+  status: closeout_record
   created_date: 2026-07-11
   repository: leela-spec/apexai-os-meta
   branch: main
   package_path: apex-meta/operator-output-design/step3-output-design-system/
-  record_type: decision_and_verification_record
 
-validation_authority:
-  operator_instruction: continue
-  interpreted_scope:
-    - authorize_next_bounded_closeout_iteration
-    - preserve_patch_artifact_only_mode
-  does_not_authorize:
-    - apply_patches_to_source_designs
-    - modify_skill_contracts
-    - create_runtime_implementation
-    - mutate_durable_project_state
-  repository_evidence:
-    manifest_ref: 00-package-manifest.okf.yaml
-    state_resolution_ref: 20-round6-cross-cutting-consistency-resolution.okf.yaml
-    lifecycle_map_ref: 21-canonical-artifact-family-and-lifecycle-map.okf.yaml
+round6_scope:
+  purpose: record_design_decisions_patch_artifacts_and_application_boundary
+  completion_layer: design_and_patch_artifact_layer
 
-round_6_purpose:
-  summary: >
-    Reconcile cross-round naming, depth, durable-state, overview, and routing
-    inconsistencies while preserving operator-verified source designs as unchanged
-    files until explicit patch-application authorization is given.
-  operating_mode: create_new_files_and_patch_artifacts_only
+verified_files:
+  - 00-package-manifest.okf.yaml
+  - 20-round6-cross-cutting-consistency-resolution.okf.yaml
+  - 21-canonical-artifact-family-and-lifecycle-map.okf.yaml
+  - 22-round6-decision-and-verification-record.okf.yaml
 
-verified_new_files:
-  - path: 20-round6-cross-cutting-consistency-resolution.okf.yaml
-    role: state_vocabulary_and_cross_artifact_translation_authority
-    blob_sha: bbcda32f21307ce2e02600ee4aeb1f9e2af012ce
-    verification:
-      domain_state_ownership_preserved: true
-      universal_state_enum_not_created: true
-      candidate_approval_write_and_truth_separated: true
-      no_domain_schema_redefinition: true
-  - path: 21-canonical-artifact-family-and-lifecycle-map.okf.yaml
-    role: canonical_J1_to_J12_navigation_and_lifecycle_projection
-    blob_sha: 71a0a35b80c557f66bd8dea06065160a635abcd7
-    verification:
-      all_J1_to_J12_artifacts_indexed: true
-      local_relationship_authorities_preserved: true
-      canonical_lifecycles_visible: true
-      ownership_and_non_duplication_boundaries_preserved: true
-      no_domain_schema_redefinition: true
-  - path: 00-package-manifest.okf.yaml
-    role: package_inventory_authority
-    blob_sha: 79a427d9c7cbb3f02adb0cbf2699edd7778ce153
-    verification:
-      files_01_to_21_indexed: true
-      patch_registry_present: true
-      applied_and_unapplied_states_distinguished: true
-      external_contract_paths_recorded: true
+patch_artifacts:
+  registered:
+    - 01-shared-card-canonical-names.patch
+    - 02-j3-j4-depth-separation.patch
+    - 03-j9-durable-merge-confirmation.patch
+    - 04-j10-durable-update-result.patch
+    - 05-j9-j10-j11-confirmed-truth-path.patch
+    - 06-j11-project-status-contract-alignment.patch
+    - 07-j12-routing-contract-alignment.patch
+  artifact_state:
+    missing_from_current_workspace: true
+    available_reconstructed_intents: true
 
-verified_patch_artifacts:
-  application_status: not_applied_to_source_designs
-  patches:
-    - id: R6_P01
-      path: round6-patches/01-shared-card-canonical-names.patch
-      commit: f7894054f358db3dbd6683649265bb4a85ca883e
-      target: 02-shared-card-and-brief-anatomy.okf.yaml
-      decision: retain_for_later_application
-      purpose: replace_superseded_artifact_labels
-    - id: R6_P02
-      path: round6-patches/02-j3-j4-depth-separation.patch
-      commit: c4f5d5a23267b5aaf52bea84ae31f11294a79283
-      target: 03-planning-artifact-designs.okf.yaml
-      decision: retain_for_later_application
-      purpose: separate_day_outline_from_complete_execution_depth
-    - id: R6_P03
-      path: round6-patches/03-j9-durable-merge-confirmation.patch
-      commit: 26bde1e8540327ae46038692753e0b26820fced9
-      target: 14-status-merge-decision-card-design.okf.yaml
-      decision: retain_for_later_application
-      purpose: require_durable_confirmation_before_merged_display
-    - id: R6_P04
-      path: round6-patches/04-j10-durable-update-result.patch
-      commit: b07cc5e0796fcdea5fe1a2926b14fd84e67bc635
-      target: 15-project-kb-update-card-design.okf.yaml
-      decision: retain_for_later_application
-      purpose: expose_write_execution_result_and_confirmation
-    - id: R6_P05
-      path: round6-patches/05-j9-j10-j11-confirmed-truth-path.patch
-      commit: a2b1e7dc0680f7364e8efd1fc6929e7abadd0635
-      target: 18-round5-cross-artifact-relationships.okf.yaml
-      decision: retain_for_later_application
-      purpose: route_new_overview_truth_through_confirmed_J10_write
-    - id: R6_P06
-      path: round6-patches/06-j11-project-status-contract-alignment.patch
-      commit: ab494e0d66ec59e792584ff280275532319ab1b8
-      target: 16-project-status-overview-design.okf.yaml
-      decision: retain_for_later_application
-      purpose: align_J11_with_live_ProjectStatus_contract
-    - id: R6_P07
-      path: round6-patches/07-j12-routing-contract-alignment.patch
-      commit: 782a5ec465c3a8d36d6dce7d29772375709947fd
-      target: 17-ai-routing-card-design.okf.yaml
-      decision: retain_for_later_application
-      purpose: align_J12_with_stable_surface_class_policy
+patch_application:
+  status: explicit_authorization_required_for_future_application
+  authorization_boundary: >
+    Authorization to create this closeout record does not authorize applying
+    additional patches to source designs, skill contracts, runtime files,
+    calendars, or durable project state.
+  current_workspace_reconciliation:
+    source_design_files_modified_before_this_record: true
+    previously_applied_design_targets:
+      - 02-shared-card-and-brief-anatomy.okf.yaml
+      - 03-planning-artifact-designs.okf.yaml
+      - 14-status-merge-decision-card-design.okf.yaml
+      - 15-project-kb-update-card-design.okf.yaml
+      - 16-project-status-overview-design.okf.yaml
+      - 17-ai-routing-card-design.okf.yaml
+      - 18-round5-cross-artifact-relationships.okf.yaml
+    additional_executor_support_modified: true
+    no_new_patch_application_performed_for_this_record: true
 
-accepted_round_6_resolutions:
-  canonical_names:
-    - PreCap_Next_Day_Brief
-    - Prompt_Files_and_Index
-    - Execution_Evidence_Handoff
-    - Skip_Marker_as_conditional_subcase
-  planning_depth:
-    J3: compact_day_level_three_sprint_outline
-    J4: complete_flow_execution_depth
-  durable_state_path:
-    sequence:
-      - J7_candidate_change
-      - J9_review_and_approval
-      - J10_confirmed_durable_write
-      - J11_overview_truth_projection
-    rules:
-      approval_is_not_write_confirmation: true
-      prepared_write_is_not_current_truth: true
-      durable_update_result_ref_required_for_new_overview_truth: true
-  project_status_alignment:
-    hierarchy: project_task_subtask
-    workstreams_forbidden: true
-    ranked_task_view_required: true
-    unassigned_is_temporary: true
-  routing_alignment:
-    stable_surface_class_is_default_identity: true
-    exact_model_requires_current_verification: true
-    routing_recommendation_is_not_execution: true
-  state_vocabulary:
-    universal_state_enum_created: false
-    domain_owned_states_preserved: true
+state_claims:
+  design_files_20_21_22_are_verified_or_recorded: true
+  round6_intended_patch_set_is_registered: true
+  source_designs_are_not_uniformly_unmodified_in_current_workspace: true
+  skill_contracts_unmodified_by_this_record: true
+  runtime_files_unmodified_by_this_record: true
+  calendar_unmodified_by_this_record: true
+  durable_project_state_unmodified_by_this_record: true
 
-source_integrity:
-  source_design_files_modified_in_round_6: false
-  patch_artifacts_applied: false
-  skill_contracts_modified: false
-  runtime_files_created_or_modified: false
-  calendar_writes_created: false
-  durable_project_state_mutated: false
-  drift_check:
-    live_GitHub_source_SHAs_match_pre_patch_versions: true
-    files_20_and_21_match_created_versions: true
-    local_uncommitted_state_visible_to_GitHub: false
-
-round_6_completion:
-  design_reconciliation_complete: true
-  canonical_artifact_family_defined: true
-  canonical_lifecycle_projection_defined: true
-  state_translation_rules_defined: true
-  patch_artifacts_created_and_verified: true
-  patch_application_complete: false
-  operator_verification_record_created: true
-  templates_created: false
-  runtime_created: false
-  round_6_status: complete_at_design_and_patch_artifact_layer
-
-remaining_gate:
-  patch_application:
-    status: explicit_authorization_required
-    required_before:
-      - treating_source_designs_as_post_round6_corrected
-      - implementing_templates_against_patched_source_text_without_overlay
-    safe_alternative_before_application: >
-      Step 4 handoff may reference this record, files 20 and 21, and the seven
-      patch artifacts as the intended target state, but must label source patches
-      as pending and must not silently assume they were applied.
-
-next_stage:
-  authorized_bounded_artifact:
-    path: 23-step4-template-implementation-handoff.okf.md
-    purpose: prepare_template_implementation_without_creating_templates_or_runtime
-  still_prohibited:
-    - apply_patches_without_explicit_authorization
-    - create_runtime_workflows
-    - create_autonomous_agents_or_schedulers
-    - execute_prompts
-    - mutate_calendar
-    - mutate_durable_project_state
+step4_boundary:
+  may_use_as_intended_target_state:
+    - 20-round6-cross-cutting-consistency-resolution.okf.yaml
+    - 21-canonical-artifact-family-and-lifecycle-map.okf.yaml
+    - 22-round6-decision-and-verification-record.okf.yaml
+    - round6-patch-artifacts
+  must_not_assume: >
+    Any source design state beyond the explicitly recorded current-workspace
+    modifications is complete or authorized for further mutation.
 
 acceptance_checks:
-  new_round6_files_verified: true
-  all_seven_patch_artifacts_recorded: true
-  patch_artifacts_and_applied_source_state_distinguished: true
-  no_false_claim_of_patch_application: true
-  source_integrity_preserved: true
-  canonical_name_depth_state_overview_and_routing_resolutions_recorded: true
-  Step_4_handoff_boundary_defined: true
-  no_domain_schema_redefinition: true
-  no_runtime_or_durable_state_mutation: true
+  closeout_record_exists: true
+  patch_application_boundary_is_explicit: true
+  current_workspace_conflict_is_disclosed: true
+  no_additional_patch_application_performed: true

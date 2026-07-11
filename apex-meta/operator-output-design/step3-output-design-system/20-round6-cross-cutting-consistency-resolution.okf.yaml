@@ -1,176 +1,90 @@
 document:
   id: apex-step3-round6-cross-cutting-consistency-resolution
   title: APEX Step 3 Round 6 Cross-Cutting Consistency Resolution
-  status: proposed_round6_resolution
+  status: verified_design_resolution
   created_date: 2026-07-11
   repository: leela-spec/apexai-os-meta
   branch: main
   package_path: apex-meta/operator-output-design/step3-output-design-system/
-  source_round: step3_round6
-
-scope:
-  purpose: >
-    Resolve cross-round state-language consistency without collapsing distinct
-    artifact domains into one universal status enum.
-  covers:
-    - shared_result_state_examples
-    - J7_flow_result_state
-    - J9_status_review_state
-    - J10_project_KB_write_state
-    - J11_overview_truth_state
-    - J12_routing_decision_state
-  must_not:
-    - redefine_domain_contract_enums
-    - make_candidate_state_equal_durable_state
-    - make_prepared_write_equal_executed_write
-    - make_advisory_route_equal_executed_route
 
 resolution:
   universal_state_enum:
     allowed: false
-    reason: >
-      The artifacts describe different lifecycle domains. Shared presentation
-      examples, flow outcomes, review decisions, durable writes, overview truth,
-      and routing recommendations must retain their own contract-owned values.
+  principle: >
+    Lifecycle concepts remain distinct where different artifacts own their
+    meaning; shared vocabulary must not collapse domain boundaries.
 
-  shared_lifecycle_concepts:
-    result_or_execution_state:
-      purpose: describe what happened in an execution or operator-facing result
-      examples_are_not_global_enum: true
-    candidate_state:
-      purpose: mark a proposed change that is not yet accepted durable truth
-    approval_state:
-      purpose: record an operator or review decision without implying execution
-    durable_write_state:
-      purpose: distinguish prepared, attempted, skipped, blocked, or confirmed writes
-    overview_truth_state:
-      purpose: show only accepted and sufficiently fresh durable project status
-    routing_decision_state:
-      purpose: preserve advisory recommendation, operator decision, and execution separation
+state_vocabulary:
+  execution_result_state:
+    owner: J7_FlowRecap_Result_Card
+    meaning: outcome_of_executed_flow_work
+  candidate_state:
+    owner: J7_FlowRecap_Result_Card
+    meaning: proposed_project_status_change_before_merge_review
+  approval_state:
+    owner: J9_Status_Merge_Decision_Card
+    meaning: operator_review_and_merge_decision
+  durable_write_state:
+    owner: J10_Project_KB_Update_Card
+    meaning: KB_write_preparation_execution_and_result_evidence
+  overview_truth_state:
+    owner: J11_Project_Status_Overview
+    meaning: confirmed_accepted_project_state_with_freshness
+  routing_decision_state:
+    owner: J12_AI_Routing_Card
+    meaning: advisory_route_recommendation_and_operator_route_decision
 
-state_ownership:
-  shared_result_card:
-    authority: 02-shared-card-and-brief-anatomy.okf.yaml
-    owns: presentation_examples_only
-    rule: allowed_examples_must_not_be_treated_as_universal_allowed_values
+domain_ownership:
+  J7:
+    owns: flow_result_states
+  J9:
+    owns: merge_review_states
+  J10:
+    owns: KB_write_status_and_result_evidence
+  J11:
+    owns: accepted_overview_truth_and_freshness
+  J12:
+    owns: advisory_routing_and_operator_route_decisions
 
-  J7_flow_result:
-    authority:
-      design: 10-flow-recap-result-card-design.okf.yaml
-      domain_contract: flow-recap_contract
-    owns:
-      - completed
-      - partially_completed
-      - blocked
-      - skipped
-      - abandoned
-      - unknown
-    boundary: flow_result_state_does_not_accept_or_write_project_state
-
-  J9_status_review:
-    authority:
-      design: 14-status-merge-decision-card-design.okf.yaml
-      domain_contract: status-merge_contract
-    owns:
-      - candidate
-      - approved_for_merge
-      - rejected
-      - deferred
-      - unresolved
-      - merged
-    boundary_rules:
-      approved_for_merge_is_not_merged: true
-      merged_requires_confirmed_durable_write: true
-
-  J10_project_KB_write:
-    authority:
-      design: 15-project-kb-update-card-design.okf.yaml
-      domain_contract: project-kb-manager_contract
-    owns:
-      - knowledge_change_type
-      - write_execution_status
-      - durable_update_result_ref
-    boundary_rules:
-      accepted_input_is_not_executed_write: true
-      prepared_or_awaiting_confirmation_is_not_durable_truth: true
-      executed_write_requires_update_result_evidence: true
-
-  J11_overview_truth:
-    authority:
-      design: 16-project-status-overview-design.okf.yaml
-      domain_contract: ProjectStatus_contract
-    owns:
-      - accepted_status_projection
-      - freshness_or_staleness
-      - missing_or_conflicting_status_display
-    boundary_rules:
-      candidate_updates_are_not_current_truth: true
-      confirmed_durable_state_is_required_for_new_truth: true
-      stale_missing_or_conflicting_state_remains_visible: true
-
-  J12_routing_decision:
-    authority:
-      design: 17-ai-routing-card-design.okf.yaml
-      domain_contract: AIRouting_contract
-    owns:
-      - advisory_recommendation_state
-      - operator_route_decision
-      - routing_validation_status
-    boundary_rules:
-      recommendation_is_not_execution: true
-      operator_choice_remains_authoritative: true
-      exact_model_claim_requires_current_verification: true
-
-cross_artifact_translation_rules:
+translations:
   J7_to_J9:
-    input_state: candidate_project_status_delta
-    translation: execution_result_to_review_candidate
-    forbidden_translation: completed_flow_to_merged_project_state
-
+    input_state: flow_result
+    output_role: candidate_review
   J9_to_J10:
-    input_state: approved_for_merge
-    translation: approved_change_to_KB_write_input
-    forbidden_translation: approval_to_confirmed_write
-
+    input_state: approved_change
+    output_role: KB_write_input
   J10_to_J11:
-    input_state: confirmed_durable_update_result
-    translation: durable_write_result_to_overview_truth_projection
-    forbidden_translation:
-      - prepared_update_to_current_truth
-      - blocked_update_to_effective_change
-      - skipped_update_to_effective_change
-
+    input_state: confirmed_durable_result
+    output_role: overview_truth
   J8_to_J12:
-    input_state: advisory_usage_learning
-    translation: evidence_signal_to_route_recommendation_context
-    forbidden_translation: learning_signal_to_automatic_route_override
-
-  J12_to_execution_artifacts:
+    input_state: usage_learning
+    output_role: advisory_routing_evidence
+  J12_to_execution:
     input_state: operator_approved_route
-    translation: approved_route_to_execution_context
-    forbidden_translation: recommendation_to_automatic_execution
+    output_role: execution_context
 
-handoff_requirements:
-  preserve:
-    - source_artifact_ref
-    - source_domain_state
-    - target_domain_state
-    - evidence_or_confirmation_ref_when_required
-    - confidence_or_review_flag_when_material
-  never:
-    - normalize_distinct_domain_states_into_one_global_status
-    - drop_candidate_vs_accepted_distinction
-    - drop_prepared_vs_executed_distinction
-    - drop_advisory_vs_operator_approved_distinction
+forbidden_shortcuts:
+  - completed_flow_to_merged_project_state
+  - approval_to_confirmed_write
+  - prepared_update_to_overview_truth
+  - recommendation_to_automatic_execution
+  - skipped_or_blocked_write_to_effective_change
+  - unverified_exact_model_to_route_truth
+
+boundary_rules:
+  J7_does_not_claim_durable_merge: true
+  J9_approval_is_not_durable_write_confirmation: true
+  J10_result_reference_is_required_for_confirmed_write: true
+  J11_projects_only_confirmed_durable_state: true
+  J12_recommendation_requires_operator_route_decision_before_execution: true
+  state_names_are_not_interchangeable_across_domains: true
 
 acceptance_checks:
-  universal_enum_not_created: true
-  shared_examples_remain_non_authoritative: true
-  J7_flow_outcome_values_remain_flow_owned: true
-  J9_review_values_remain_status_merge_owned: true
-  J10_write_state_remains_project_KB_manager_owned: true
-  J11_truth_projection_remains_ProjectStatus_owned: true
-  J12_route_state_remains_AIRouting_owned: true
-  candidate_approval_write_and_truth_are_separate: true
-  cross_artifact_translations_are_explicit: true
-  no_domain_schema_redefinition: true
+  universal_state_enum_is_rejected: true
+  execution_result_and_candidate_states_are_separate: true
+  approval_and_durable_write_states_are_separate: true
+  durable_write_and_overview_truth_states_are_separate: true
+  routing_decision_state_is_advisory_until_operator_approved: true
+  all_required_translations_are_explicit: true
+  forbidden_shortcuts_are_explicit: true
+  domain_state_authorities_are_preserved: true

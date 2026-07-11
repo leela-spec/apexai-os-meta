@@ -1,0 +1,1608 @@
+[
+  {
+    "h1_title": "Apex/Hermes Claude  Build Pack — Macro Document v0.1",
+    "headings": [
+      {
+        "level": 1,
+        "line": 1,
+        "text": "Apex/Hermes Claude  Build Pack — Macro Document v0.1"
+      },
+      {
+        "level": 2,
+        "line": 5,
+        "text": "0. Document Control"
+      },
+      {
+        "level": 2,
+        "line": 57,
+        "text": "1. 00_SYSTEM_INTENT.md"
+      },
+      {
+        "level": 2,
+        "line": 206,
+        "text": "2. 01_SOURCE_MAP.md"
+      },
+      {
+        "level": 2,
+        "line": 421,
+        "text": "3. 02_DECISION_REGISTER.md"
+      },
+      {
+        "level": 2,
+        "line": 595,
+        "text": "4. 03_ARTIFACT_CONTRACT_REGISTRY.md"
+      },
+      {
+        "level": 2,
+        "line": 933,
+        "text": "5. 04_TARGET_FILE_TREE_PROPOSAL.md"
+      },
+      {
+        "level": 2,
+        "line": 1104,
+        "text": "6. 05_BUILD_QUESTIONS.md"
+      },
+      {
+        "level": 2,
+        "line": 1295,
+        "text": "7. 06_CLAUDE__BUILD_PROMPT.md"
+      },
+      {
+        "level": 2,
+        "line": 1511,
+        "text": "8. Acceptance Checks"
+      },
+      {
+        "level": 2,
+        "line": 1572,
+        "text": "9. Non-Goals / Forbidden Actions"
+      }
+    ],
+    "parser_warnings": [],
+    "path": "raw/notes/Apex Hermes Claude Build Pack.md",
+    "source_type_guess": "note"
+  },
+  {
+    "h1_title": "Apex/Hermes System Seed v0.1 — Macro/Meso Architecture",
+    "headings": [
+      {
+        "level": 1,
+        "line": 1,
+        "text": "Apex/Hermes System Seed v0.1 — Macro/Meso Architecture"
+      },
+      {
+        "level": 2,
+        "line": 3,
+        "text": "0. Status"
+      },
+      {
+        "level": 1,
+        "line": 43,
+        "text": "1. System Interpretation"
+      },
+      {
+        "level": 1,
+        "line": 73,
+        "text": "2. Fixed Profile Architecture"
+      },
+      {
+        "level": 1,
+        "line": 208,
+        "text": "3. SOUL.md Information Requirements"
+      },
+      {
+        "level": 1,
+        "line": 296,
+        "text": "4. Profile Context / AGENTS.md Information Requirements"
+      },
+      {
+        "level": 1,
+        "line": 351,
+        "text": "5. Macro Workflow Layer"
+      },
+      {
+        "level": 1,
+        "line": 411,
+        "text": "6. Meso Workflow Layer"
+      },
+      {
+        "level": 1,
+        "line": 468,
+        "text": "7. Core Routine Layer"
+      },
+      {
+        "level": 1,
+        "line": 606,
+        "text": "8. Skill Candidate Layer"
+      },
+      {
+        "level": 1,
+        "line": 699,
+        "text": "9. Workflow-Skill Candidate Layer"
+      },
+      {
+        "level": 1,
+        "line": 755,
+        "text": "10. Kanban Candidate Layer"
+      },
+      {
+        "level": 1,
+        "line": 830,
+        "text": "11. Cron Candidate Layer"
+      },
+      {
+        "level": 1,
+        "line": 910,
+        "text": "12. Delegation Candidate Layer"
+      },
+      {
+        "level": 1,
+        "line": 944,
+        "text": "13. Initial File / Folder Implications"
+      },
+      {
+        "level": 1,
+        "line": 1002,
+        "text": "14. Validation Rules for This Seed"
+      },
+      {
+        "level": 1,
+        "line": 1042,
+        "text": "15. Gaps / Decisions Needed Before Micro-Level Implementation"
+      },
+      {
+        "level": 1,
+        "line": 1073,
+        "text": "16. Recommended Evolution Process From Here"
+      },
+      {
+        "level": 1,
+        "line": 1131,
+        "text": "17. Recommended First Implementation Slice"
+      },
+      {
+        "level": 1,
+        "line": 1169,
+        "text": "18. Working Conclusion"
+      }
+    ],
+    "parser_warnings": [],
+    "path": "raw/notes/Apex&HermesArchitectrueGuidacne.md",
+    "source_type_guess": "note"
+  },
+  {
+    "h1_title": "Apex Hermes Orchestration Decisions v0.1",
+    "headings": [
+      {
+        "level": 1,
+        "line": 1,
+        "text": "Apex Hermes Orchestration Decisions v0.1"
+      }
+    ],
+    "parser_warnings": [],
+    "path": "raw/notes/apex_hermes_orchestration_decisions_v0_1.md",
+    "source_type_guess": "note"
+  },
+  {
+    "h1_title": "Apex/Hermes Workflow Example Database v0.1",
+    "headings": [
+      {
+        "level": 1,
+        "line": 1,
+        "text": "Apex/Hermes Workflow Example Database v0.1"
+      },
+      {
+        "level": 2,
+        "line": 9,
+        "text": "1. Source Scan Summary"
+      },
+      {
+        "level": 3,
+        "line": 11,
+        "text": "Inspected / used sources"
+      },
+      {
+        "level": 3,
+        "line": 19,
+        "text": "Best workflow-bearing chats / sources to process next, in order"
+      },
+      {
+        "level": 2,
+        "line": 34,
+        "text": "2. Source Map"
+      },
+      {
+        "level": 2,
+        "line": 111,
+        "text": "3. Workflow Long List"
+      },
+      {
+        "level": 2,
+        "line": 165,
+        "text": "4. Workflow Short List"
+      },
+      {
+        "level": 2,
+        "line": 222,
+        "text": "5. Workflow Taxonomy"
+      },
+      {
+        "level": 2,
+        "line": 277,
+        "text": "6. Workflow Records"
+      },
+      {
+        "level": 2,
+        "line": 961,
+        "text": "7. Routine / Procedure Catalogue"
+      },
+      {
+        "level": 2,
+        "line": 989,
+        "text": "8. Profile Ownership Map"
+      },
+      {
+        "level": 2,
+        "line": 1020,
+        "text": "9. I/O Mechanism Map"
+      },
+      {
+        "level": 2,
+        "line": 1115,
+        "text": "10. Skill / Workflow Skill / Kanban / Cron Candidate Map"
+      },
+      {
+        "level": 2,
+        "line": 1163,
+        "text": "11. Gaps / Open Questions"
+      },
+      {
+        "level": 2,
+        "line": 1205,
+        "text": "12. Next Prompts"
+      }
+    ],
+    "parser_warnings": [],
+    "path": "raw/notes/Apex_Hermes_Workflow_Example_Database_Master_of_Arts_v0_1 (1).md",
+    "source_type_guess": "note"
+  },
+  {
+    "h1_title": "1. Source Scan Summary",
+    "headings": [
+      {
+        "level": 1,
+        "line": 1,
+        "text": "1. Source Scan Summary"
+      },
+      {
+        "level": 1,
+        "line": 25,
+        "text": "2. Extracted Agent / Role Catalogue"
+      },
+      {
+        "level": 1,
+        "line": 66,
+        "text": "3. Agent Interaction Map"
+      },
+      {
+        "level": 1,
+        "line": 106,
+        "text": "4. Concrete Workflow Catalogue"
+      },
+      {
+        "level": 2,
+        "line": 108,
+        "text": "A. OpenCLAW-derived workflows"
+      },
+      {
+        "level": 2,
+        "line": 138,
+        "text": "B. Alfred-derived workflows"
+      },
+      {
+        "level": 1,
+        "line": 167,
+        "text": "5. Hermes Translation Map"
+      },
+      {
+        "level": 1,
+        "line": 192,
+        "text": "6. Candidate Hermes Skill Backlog"
+      },
+      {
+        "level": 1,
+        "line": 219,
+        "text": "7. Priority Build Order for Later Translation"
+      },
+      {
+        "level": 1,
+        "line": 232,
+        "text": "8. Key Extraction Conclusions"
+      }
+    ],
+    "parser_warnings": [],
+    "path": "raw/notes/ApexAgent&WorkflowsNonAccurate.md",
+    "source_type_guess": "note"
+  },
+  {
+    "h1_title": "prompt",
+    "headings": [
+      {
+        "level": 1,
+        "line": 3,
+        "text": "prompt"
+      },
+      {
+        "level": 2,
+        "line": 13,
+        "text": "1. Architecture Overview"
+      },
+      {
+        "level": 2,
+        "line": 33,
+        "text": "2. Sync Workflows"
+      },
+      {
+        "level": 2,
+        "line": 35,
+        "text": "Daily Laptop Development"
+      },
+      {
+        "level": 2,
+        "line": 54,
+        "text": "Automation on VPS"
+      },
+      {
+        "level": 2,
+        "line": 72,
+        "text": "Adding a New Project Repo"
+      },
+      {
+        "level": 2,
+        "line": 89,
+        "text": "3. Pitfalls & Best Practices"
+      },
+      {
+        "level": 2,
+        "line": 122,
+        "text": "4. Recommended Default Pattern"
+      },
+      {
+        "level": 2,
+        "line": 151,
+        "text": "How the VPS Repo Works"
+      },
+      {
+        "level": 2,
+        "line": 155,
+        "text": "The Token Question"
+      },
+      {
+        "level": 2,
+        "line": 172,
+        "text": "Practically Speaking"
+      },
+      {
+        "level": 2,
+        "line": 195,
+        "text": "Nothing \"Outside\" Needs to Trigger It"
+      },
+      {
+        "level": 2,
+        "line": 201,
+        "text": "Hermes Has Its Own Built-In Cron"
+      },
+      {
+        "level": 2,
+        "line": 221,
+        "text": "The Mental Model"
+      },
+      {
+        "level": 1,
+        "line": 239,
+        "text": "Full Architecture Analysis: Claude Code vs Hermes vs Hybrid"
+      },
+      {
+        "level": 2,
+        "line": 247,
+        "text": "The Core Question: Do You Even Need Hermes?"
+      },
+      {
+        "level": 2,
+        "line": 253,
+        "text": "Option A — Claude Code Only (No VPS, No Hermes)"
+      },
+      {
+        "level": 2,
+        "line": 257,
+        "text": "What Claude Code Can Actually Do"
+      },
+      {
+        "level": 2,
+        "line": 272,
+        "text": "What Claude Code Cannot Do"
+      },
+      {
+        "level": 2,
+        "line": 283,
+        "text": "Cost Model"
+      },
+      {
+        "level": 2,
+        "line": 292,
+        "text": "Pros & Cons"
+      },
+      {
+        "level": 2,
+        "line": 310,
+        "text": "Option B — Hermes on VPS Only (No Claude Code)"
+      },
+      {
+        "level": 2,
+        "line": 314,
+        "text": "What Hermes Can Actually Do"
+      },
+      {
+        "level": 2,
+        "line": 329,
+        "text": "What Hermes Cannot Do Well"
+      },
+      {
+        "level": 2,
+        "line": 338,
+        "text": "Cost Model"
+      },
+      {
+        "level": 2,
+        "line": 364,
+        "text": "Option C — Hybrid: Claude Code (Day) + Hermes (Night/Infrastructure) ← Recommended"
+      },
+      {
+        "level": 2,
+        "line": 368,
+        "text": "How the Responsibilities Split"
+      },
+      {
+        "level": 2,
+        "line": 374,
+        "text": "Cost & Effort Profile"
+      },
+      {
+        "level": 2,
+        "line": 388,
+        "text": "The Process Skills Problem (All Options Face This)"
+      },
+      {
+        "level": 2,
+        "line": 396,
+        "text": "Recommended Build Order"
+      },
+      {
+        "level": 2,
+        "line": 404,
+        "text": "Rate Limits on Claude Subscription"
+      },
+      {
+        "level": 2,
+        "line": 410,
+        "text": "The Simplest Possible Answer"
+      },
+      {
+        "level": 2,
+        "line": 431,
+        "text": "The Patching Problem: Claude Code vs GPT/Codex"
+      },
+      {
+        "level": 2,
+        "line": 441,
+        "text": "Claude Pro vs Max: The Token Reality"
+      },
+      {
+        "level": 2,
+        "line": 470,
+        "text": "The Self-Learning Loop: Can Claude Code Do What Hermes Does?"
+      },
+      {
+        "level": 2,
+        "line": 478,
+        "text": "What This Means For Your Decision"
+      },
+      {
+        "level": 2,
+        "line": 527,
+        "text": "The Core Design Principle"
+      },
+      {
+        "level": 2,
+        "line": 533,
+        "text": "The Three-Layer Structure"
+      },
+      {
+        "level": 2,
+        "line": 541,
+        "text": "How Claude Code Stays Isolated Per Project"
+      },
+      {
+        "level": 2,
+        "line": 553,
+        "text": "The CLAUDE.md Pattern Per Project"
+      },
+      {
+        "level": 2,
+        "line": 572,
+        "text": "How Learning Stays Separated"
+      },
+      {
+        "level": 2,
+        "line": 589,
+        "text": "The Single Daily Driver Pattern"
+      },
+      {
+        "level": 2,
+        "line": 599,
+        "text": "The One Rule That Prevents Contamination"
+      }
+    ],
+    "parser_warnings": [],
+    "path": "raw/notes/ArchitectureCheckClaudeVsHermesVsGPT.md",
+    "source_type_guess": "note"
+  },
+  {
+    "h1_title": "`apex-plan` Skill Package Proposal",
+    "headings": [
+      {
+        "level": 1,
+        "line": 1,
+        "text": "`apex-plan` Skill Package Proposal"
+      },
+      {
+        "level": 2,
+        "line": 3,
+        "text": "Package Summary"
+      },
+      {
+        "level": 2,
+        "line": 7,
+        "text": "Generated Files"
+      },
+      {
+        "level": 3,
+        "line": 188,
+        "text": "Validation Checklist"
+      },
+      {
+        "level": 3,
+        "line": 197,
+        "text": "Source-Basis Note"
+      },
+      {
+        "level": 3,
+        "line": 372,
+        "text": "Validation Checklist"
+      },
+      {
+        "level": 3,
+        "line": 379,
+        "text": "Source-Basis Note"
+      },
+      {
+        "level": 3,
+        "line": 521,
+        "text": "Validation Checklist"
+      },
+      {
+        "level": 3,
+        "line": 528,
+        "text": "Source-Basis Note"
+      },
+      {
+        "level": 3,
+        "line": 660,
+        "text": "Validation Checklist"
+      },
+      {
+        "level": 3,
+        "line": 667,
+        "text": "Source-Basis Note"
+      },
+      {
+        "level": 3,
+        "line": 770,
+        "text": "Validation Checklist"
+      },
+      {
+        "level": 3,
+        "line": 777,
+        "text": "Source-Basis Note"
+      },
+      {
+        "level": 3,
+        "line": 894,
+        "text": "Validation Checklist"
+      },
+      {
+        "level": 3,
+        "line": 901,
+        "text": "Source-Basis Note"
+      },
+      {
+        "level": 3,
+        "line": 1012,
+        "text": "Validation Checklist"
+      },
+      {
+        "level": 3,
+        "line": 1019,
+        "text": "Source-Basis Note"
+      },
+      {
+        "level": 2,
+        "line": 1023,
+        "text": "Package-Level Validation"
+      },
+      {
+        "level": 2,
+        "line": 1049,
+        "text": "Next Step"
+      }
+    ],
+    "parser_warnings": [],
+    "path": "raw/notes/DR_Apex_Plan.md",
+    "source_type_guess": "note"
+  },
+  {
+    "h1_title": "APEX PM/KB/PD — Execution Options Research",
+    "headings": [
+      {
+        "level": 1,
+        "line": 1,
+        "text": "APEX PM/KB/PD — Execution Options Research"
+      },
+      {
+        "level": 2,
+        "line": 3,
+        "text": "Phase 1: Foundational Source Repositories"
+      },
+      {
+        "level": 3,
+        "line": 7,
+        "text": "CCPM (Critical Chain Project Management)"
+      },
+      {
+        "level": 3,
+        "line": 13,
+        "text": "Backlog.md"
+      },
+      {
+        "level": 3,
+        "line": 19,
+        "text": "Task Master AI"
+      },
+      {
+        "level": 3,
+        "line": 25,
+        "text": "GSD Core"
+      },
+      {
+        "level": 3,
+        "line": 31,
+        "text": "planning-with-files"
+      },
+      {
+        "level": 3,
+        "line": 37,
+        "text": "OpenClaw TaskFlow"
+      },
+      {
+        "level": 3,
+        "line": 43,
+        "text": "CrewAI design-task"
+      },
+      {
+        "level": 3,
+        "line": 49,
+        "text": "llm-wiki"
+      },
+      {
+        "level": 3,
+        "line": 55,
+        "text": "kanban-skill"
+      },
+      {
+        "level": 3,
+        "line": 61,
+        "text": "pm-skills"
+      },
+      {
+        "level": 3,
+        "line": 67,
+        "text": "swarmvault"
+      },
+      {
+        "level": 3,
+        "line": 73,
+        "text": "Imprint"
+      },
+      {
+        "level": 3,
+        "line": 79,
+        "text": "Hermes-agent"
+      },
+      {
+        "level": 3,
+        "line": 85,
+        "text": "LangGraph"
+      },
+      {
+        "level": 3,
+        "line": 91,
+        "text": "Process Framework Patterns"
+      },
+      {
+        "level": 2,
+        "line": 97,
+        "text": "Phase 2: Process Options and Evaluation"
+      },
+      {
+        "level": 3,
+        "line": 101,
+        "text": "Project Management (PM)"
+      },
+      {
+        "level": 3,
+        "line": 228,
+        "text": "Knowledge Base Management (KB)"
+      },
+      {
+        "level": 3,
+        "line": 322,
+        "text": "Product Management (PD)"
+      },
+      {
+        "level": 2,
+        "line": 414,
+        "text": "Phase 3: Sub-Skill Grouping Analysis"
+      },
+      {
+        "level": 3,
+        "line": 418,
+        "text": "First: Natural Groupings"
+      },
+      {
+        "level": 3,
+        "line": 429,
+        "text": "Second: Implementation Architecture per Grouping"
+      },
+      {
+        "level": 3,
+        "line": 440,
+        "text": "Third: Unviable Patterns and Scratch Builds"
+      },
+      {
+        "level": 2,
+        "line": 448,
+        "text": "Phase 4: Final Summary Table"
+      }
+    ],
+    "parser_warnings": [],
+    "path": "raw/notes/DR_APEX_PM_KB_PD_Gem.md",
+    "source_type_guess": "note"
+  },
+  {
+    "h1_title": "APEX Execution Options Research",
+    "headings": [
+      {
+        "level": 1,
+        "line": 1,
+        "text": "APEX Execution Options Research"
+      },
+      {
+        "level": 2,
+        "line": 3,
+        "text": "Scope and method"
+      },
+      {
+        "level": 2,
+        "line": 9,
+        "text": "Source coverage and closest reusable patterns"
+      },
+      {
+        "level": 2,
+        "line": 29,
+        "text": "Project management execution options"
+      },
+      {
+        "level": 3,
+        "line": 31,
+        "text": "Capture project"
+      },
+      {
+        "level": 3,
+        "line": 47,
+        "text": "Decompose project"
+      },
+      {
+        "level": 3,
+        "line": 63,
+        "text": "Assign dependencies"
+      },
+      {
+        "level": 3,
+        "line": 79,
+        "text": "Compute next action"
+      },
+      {
+        "level": 3,
+        "line": 95,
+        "text": "Detect blockers"
+      },
+      {
+        "level": 3,
+        "line": 111,
+        "text": "Update status"
+      },
+      {
+        "level": 3,
+        "line": 127,
+        "text": "Detect stall"
+      },
+      {
+        "level": 3,
+        "line": 143,
+        "text": "Generate work registry"
+      },
+      {
+        "level": 2,
+        "line": 159,
+        "text": "Knowledge base management execution options"
+      },
+      {
+        "level": 3,
+        "line": 161,
+        "text": "Write session progress"
+      },
+      {
+        "level": 3,
+        "line": 177,
+        "text": "Extract state deltas"
+      },
+      {
+        "level": 3,
+        "line": 193,
+        "text": "Maintain entity files"
+      },
+      {
+        "level": 3,
+        "line": 209,
+        "text": "Rebuild index"
+      },
+      {
+        "level": 3,
+        "line": 225,
+        "text": "Detect drift"
+      },
+      {
+        "level": 3,
+        "line": 241,
+        "text": "Produce next-session context"
+      },
+      {
+        "level": 2,
+        "line": 257,
+        "text": "Product management execution options"
+      },
+      {
+        "level": 3,
+        "line": 259,
+        "text": "Score priority"
+      },
+      {
+        "level": 3,
+        "line": 275,
+        "text": "Score urgency"
+      },
+      {
+        "level": 3,
+        "line": 291,
+        "text": "Compute unlock depth"
+      },
+      {
+        "level": 3,
+        "line": 307,
+        "text": "Synthesize focus recommendation"
+      },
+      {
+        "level": 3,
+        "line": 323,
+        "text": "Validate with operator"
+      },
+      {
+        "level": 3,
+        "line": 339,
+        "text": "Feed planning layer"
+      },
+      {
+        "level": 2,
+        "line": 355,
+        "text": "Sub-skill groupings, closest public matches, and final summary"
+      },
+      {
+        "level": 3,
+        "line": 357,
+        "text": "Natural sub-skill groupings"
+      },
+      {
+        "level": 3,
+        "line": 367,
+        "text": "Per-group fit"
+      },
+      {
+        "level": 3,
+        "line": 376,
+        "text": "Closest public matches for the private PRC patterns"
+      },
+      {
+        "level": 3,
+        "line": 388,
+        "text": "Processes with no strong public implementation pattern"
+      },
+      {
+        "level": 3,
+        "line": 392,
+        "text": "Final summary table"
+      },
+      {
+        "level": 3,
+        "line": 417,
+        "text": "Open questions and limitations"
+      }
+    ],
+    "parser_warnings": [],
+    "path": "raw/notes/DR_APEX_PM_KB_PD_GPT.md",
+    "source_type_guess": "note"
+  },
+  {
+    "h1_title": null,
+    "headings": [
+      {
+        "level": 2,
+        "line": 8,
+        "text": "0. Scope status (this pass)"
+      },
+      {
+        "level": 2,
+        "line": 33,
+        "text": "1. Evidence extracts (used for all options)"
+      },
+      {
+        "level": 2,
+        "line": 35,
+        "text": "1.1 CCPM: structure & tracking"
+      },
+      {
+        "level": 2,
+        "line": 96,
+        "text": "1.2 Hermes-agent: SKILL metadata, trust, and governance"
+      },
+      {
+        "level": 2,
+        "line": 145,
+        "text": "2. Per‑process options (from S1 + S13 only)"
+      },
+      {
+        "level": 2,
+        "line": 149,
+        "text": "Legend"
+      },
+      {
+        "level": 2,
+        "line": 170,
+        "text": "PM1 — Capture project"
+      },
+      {
+        "level": 2,
+        "line": 181,
+        "text": "PM2 — Decompose project"
+      },
+      {
+        "level": 2,
+        "line": 192,
+        "text": "PM3 — Assign dependencies"
+      },
+      {
+        "level": 2,
+        "line": 203,
+        "text": "PM4 — Compute next action"
+      },
+      {
+        "level": 2,
+        "line": 214,
+        "text": "PM5 — Detect blockers"
+      },
+      {
+        "level": 2,
+        "line": 225,
+        "text": "PM6 — Update status"
+      },
+      {
+        "level": 2,
+        "line": 236,
+        "text": "PM7 — Detect stall"
+      },
+      {
+        "level": 2,
+        "line": 247,
+        "text": "PM8 — Generate work registry"
+      },
+      {
+        "level": 2,
+        "line": 258,
+        "text": "KB1 — Write session progress"
+      },
+      {
+        "level": 2,
+        "line": 270,
+        "text": "KB2 — Extract state deltas"
+      },
+      {
+        "level": 2,
+        "line": 279,
+        "text": "KB3 — Maintain entity files"
+      },
+      {
+        "level": 2,
+        "line": 289,
+        "text": "KB4 — Rebuild index"
+      },
+      {
+        "level": 2,
+        "line": 300,
+        "text": "KB5 — Detect drift"
+      },
+      {
+        "level": 2,
+        "line": 309,
+        "text": "KB6 — Produce next-session context"
+      },
+      {
+        "level": 2,
+        "line": 320,
+        "text": "PD1 — Score priority"
+      },
+      {
+        "level": 2,
+        "line": 331,
+        "text": "PD2 — Score urgency"
+      },
+      {
+        "level": 2,
+        "line": 340,
+        "text": "PD3 — Compute unlock depth"
+      },
+      {
+        "level": 2,
+        "line": 351,
+        "text": "PD4 — Synthesize focus recommendation"
+      },
+      {
+        "level": 2,
+        "line": 363,
+        "text": "PD5 — Validate with operator"
+      },
+      {
+        "level": 2,
+        "line": 376,
+        "text": "PD6 — Feed planning layer"
+      },
+      {
+        "level": 2,
+        "line": 387,
+        "text": "3. Sub‑skill grouping (based on S1 + S13 only)"
+      },
+      {
+        "level": 2,
+        "line": 389,
+        "text": "3.1 Natural clusters"
+      },
+      {
+        "level": 2,
+        "line": 418,
+        "text": "3.2 Implementation modality per cluster"
+      },
+      {
+        "level": 2,
+        "line": 439,
+        "text": "3.3 Reuse of open‑source SKILLs (from S1/S13 only)"
+      },
+      {
+        "level": 2,
+        "line": 452,
+        "text": "4. Processes lacking any viable pattern in this pass"
+      },
+      {
+        "level": 2,
+        "line": 473,
+        "text": "5. Interim summary table (S1 + S13 only)"
+      }
+    ],
+    "parser_warnings": [],
+    "path": "raw/notes/DR_APEX_PM_KB_PD_Perp.md",
+    "source_type_guess": "note"
+  },
+  {
+    "h1_title": "Apex Alfred Orchestration Research Reference",
+    "headings": [
+      {
+        "level": 1,
+        "line": 1,
+        "text": "Apex Alfred Orchestration Research Reference"
+      },
+      {
+        "level": 2,
+        "line": 9,
+        "text": "Validated Source List"
+      },
+      {
+        "level": 2,
+        "line": 36,
+        "text": "Step-by-Step Build Order"
+      },
+      {
+        "level": 2,
+        "line": 303,
+        "text": "Pre-Definition Packages"
+      },
+      {
+        "level": 2,
+        "line": 316,
+        "text": "Architecture Validation"
+      },
+      {
+        "level": 2,
+        "line": 335,
+        "text": "Known Failure Modes"
+      },
+      {
+        "level": 2,
+        "line": 353,
+        "text": "Comparison Between Apex Alfred and Comparable Approaches"
+      },
+      {
+        "level": 2,
+        "line": 369,
+        "text": "Recommended Immediate Actions"
+      },
+      {
+        "level": 3,
+        "line": 398,
+        "text": "Open questions and limitations"
+      }
+    ],
+    "parser_warnings": [],
+    "path": "raw/notes/DR_ApexOrchestrationClaude.md",
+    "source_type_guess": "note"
+  },
+  {
+    "h1_title": "Ranking: processes most useful for automating the Master of Arts workflow examples",
+    "headings": [
+      {
+        "level": 1,
+        "line": 1,
+        "text": "Ranking: processes most useful for automating the Master of Arts workflow examples"
+      },
+      {
+        "level": 2,
+        "line": 7,
+        "text": "Selection logic"
+      },
+      {
+        "level": 1,
+        "line": 23,
+        "text": "Top 10 process portfolio"
+      },
+      {
+        "level": 1,
+        "line": 42,
+        "text": "Why these ten beat the raw top-scored list"
+      },
+      {
+        "level": 1,
+        "line": 50,
+        "text": "Ranking 11–20: important but not core-first"
+      },
+      {
+        "level": 1,
+        "line": 67,
+        "text": "Processes I would deliberately **not** prioritize now"
+      },
+      {
+        "level": 1,
+        "line": 79,
+        "text": "Best supplemental relationships"
+      },
+      {
+        "level": 2,
+        "line": 81,
+        "text": "A. Master creation stack"
+      },
+      {
+        "level": 2,
+        "line": 107,
+        "text": "B. Durable orchestration stack"
+      },
+      {
+        "level": 2,
+        "line": 133,
+        "text": "C. Workshop-production stack"
+      },
+      {
+        "level": 2,
+        "line": 156,
+        "text": "D. Operating-cycle stack"
+      },
+      {
+        "level": 2,
+        "line": 180,
+        "text": "E. Knowledge-bank stack"
+      },
+      {
+        "level": 1,
+        "line": 206,
+        "text": "Recommended “minimal complete process library”"
+      }
+    ],
+    "parser_warnings": [],
+    "path": "raw/notes/ProcessRanking_GPT&MasterOA.md",
+    "source_type_guess": "note"
+  },
+  {
+    "h1_title": "Prompt Flow: Create Claude-Native Apex Alfred Orchestration Predefinition Files",
+    "headings": [
+      {
+        "level": 1,
+        "line": 1,
+        "text": "Prompt Flow: Create Claude-Native Apex Alfred Orchestration Predefinition Files"
+      },
+      {
+        "level": 2,
+        "line": 3,
+        "text": "Role"
+      },
+      {
+        "level": 2,
+        "line": 20,
+        "text": "Hard Scope"
+      },
+      {
+        "level": 2,
+        "line": 70,
+        "text": "Translation Rule"
+      },
+      {
+        "level": 2,
+        "line": 90,
+        "text": "Global Output Contract"
+      },
+      {
+        "level": 2,
+        "line": 126,
+        "text": "Fixed File Sequence"
+      },
+      {
+        "level": 2,
+        "line": 167,
+        "text": "Global Architecture Constraints"
+      },
+      {
+        "level": 3,
+        "line": 184,
+        "text": "Alfred"
+      },
+      {
+        "level": 3,
+        "line": 214,
+        "text": "meta_strategist"
+      },
+      {
+        "level": 3,
+        "line": 244,
+        "text": "meta_operations"
+      },
+      {
+        "level": 3,
+        "line": 270,
+        "text": "meta_detective_controller"
+      },
+      {
+        "level": 2,
+        "line": 300,
+        "text": "Global Permanent-Agent Rule"
+      },
+      {
+        "level": 2,
+        "line": 317,
+        "text": "Global Skill Rules"
+      },
+      {
+        "level": 2,
+        "line": 366,
+        "text": "Global Agent File Rules"
+      },
+      {
+        "level": 2,
+        "line": 404,
+        "text": "Global Workflow Rules"
+      },
+      {
+        "level": 2,
+        "line": 438,
+        "text": "File 1 Prompt"
+      },
+      {
+        "level": 2,
+        "line": 455,
+        "text": "File-by-File Requirements"
+      },
+      {
+        "level": 3,
+        "line": 457,
+        "text": "1. `CLAUDE.md`"
+      },
+      {
+        "level": 3,
+        "line": 504,
+        "text": "2. `.claude/agents/alfred.md`"
+      },
+      {
+        "level": 3,
+        "line": 529,
+        "text": "3. `.claude/agents/meta_strategist.md`"
+      },
+      {
+        "level": 3,
+        "line": 554,
+        "text": "4. `.claude/agents/meta_operations.md`"
+      },
+      {
+        "level": 3,
+        "line": 579,
+        "text": "5. `.claude/agents/meta_detective_controller.md`"
+      },
+      {
+        "level": 3,
+        "line": 604,
+        "text": "6. `.claude/skills/alfred-intake-router/SKILL.md`"
+      },
+      {
+        "level": 3,
+        "line": 639,
+        "text": "7. `.claude/skills/handoff-packet-writer/SKILL.md`"
+      },
+      {
+        "level": 3,
+        "line": 688,
+        "text": "8. `.claude/skills/source-constraint-map/SKILL.md`"
+      },
+      {
+        "level": 3,
+        "line": 711,
+        "text": "9. `.claude/skills/goal-skeleton-fill-verify-loop/SKILL.md`"
+      },
+      {
+        "level": 3,
+        "line": 747,
+        "text": "10. `.claude/skills/detective-validation-gate/SKILL.md`"
+      },
+      {
+        "level": 3,
+        "line": 791,
+        "text": "11. `.claude/skills/workflow-normalizer/SKILL.md`"
+      },
+      {
+        "level": 3,
+        "line": 822,
+        "text": "12. `.claude/workflows/intake_to_handoff.md`"
+      },
+      {
+        "level": 3,
+        "line": 855,
+        "text": "13. `.claude/workflows/handoff_to_strategy.md`"
+      },
+      {
+        "level": 3,
+        "line": 886,
+        "text": "14. `.claude/workflows/strategy_to_operations.md`"
+      },
+      {
+        "level": 3,
+        "line": 915,
+        "text": "15. `.claude/workflows/operations_to_detective_validation.md`"
+      },
+      {
+        "level": 3,
+        "line": 946,
+        "text": "16. `.claude/workflows/validated_file_creation_loop.md`"
+      },
+      {
+        "level": 3,
+        "line": 973,
+        "text": "17. `.claude/workflows/workflow_index.md`"
+      },
+      {
+        "level": 2,
+        "line": 1002,
+        "text": "Continuous Prompt Template"
+      },
+      {
+        "level": 2,
+        "line": 1019,
+        "text": "Failure Handling"
+      },
+      {
+        "level": 2,
+        "line": 1029,
+        "text": "Final Completion Message"
+      }
+    ],
+    "parser_warnings": [],
+    "path": "raw/notes/Prompt Flow_Create Claude-Native Apex Alfred Orchestration Predefinition Files.md",
+    "source_type_guess": "note"
+  },
+  {
+    "h1_title": null,
+    "headings": [],
+    "parser_warnings": [],
+    "path": "raw/notes/SourceIndexAgentInteraction07OC.md",
+    "source_type_guess": "note"
+  },
+  {
+    "h1_title": null,
+    "headings": [],
+    "parser_warnings": [],
+    "path": "raw/notes/SourceIndexAgentInteractionAlfred.md",
+    "source_type_guess": "note"
+  },
+  {
+    "h1_title": "Source Index for Hermes/OpenCLAW Personal Orchestration System",
+    "headings": [
+      {
+        "level": 1,
+        "line": 1,
+        "text": "Source Index for Hermes/OpenCLAW Personal Orchestration System"
+      },
+      {
+        "level": 2,
+        "line": 3,
+        "text": "1. Source Inventory"
+      },
+      {
+        "level": 3,
+        "line": 5,
+        "text": "A. Uploaded Project Resource Files"
+      },
+      {
+        "level": 3,
+        "line": 32,
+        "text": "B. GitHub / Repo Sources"
+      },
+      {
+        "level": 2,
+        "line": 59,
+        "text": "2. Source Lookup Map"
+      },
+      {
+        "level": 2,
+        "line": 231,
+        "text": "3. Q&A Decision Flow"
+      },
+      {
+        "level": 3,
+        "line": 233,
+        "text": "Phase 1 — System Goal Definition"
+      },
+      {
+        "level": 3,
+        "line": 261,
+        "text": "Phase 2 — Operator Model"
+      },
+      {
+        "level": 3,
+        "line": 288,
+        "text": "Phase 3 — Day Shift / Night Shift Loop"
+      },
+      {
+        "level": 3,
+        "line": 343,
+        "text": "Phase 4 — Agent/Profile Architecture"
+      },
+      {
+        "level": 3,
+        "line": 393,
+        "text": "Phase 5 — Workflow Routing"
+      },
+      {
+        "level": 3,
+        "line": 444,
+        "text": "Phase 6 — OpenCLAW Integration"
+      },
+      {
+        "level": 3,
+        "line": 487,
+        "text": "Phase 7 — Skill System Design"
+      },
+      {
+        "level": 3,
+        "line": 520,
+        "text": "Phase 8 — Memory and Context Architecture"
+      },
+      {
+        "level": 3,
+        "line": 569,
+        "text": "Phase 9 — Automation and Cron"
+      },
+      {
+        "level": 3,
+        "line": 606,
+        "text": "Phase 10 — Governance and Safety"
+      },
+      {
+        "level": 2,
+        "line": 638,
+        "text": "4. First Questions to Ask the Operator"
+      },
+      {
+        "level": 2,
+        "line": 665,
+        "text": "5. Proposed Workflow for Designing the Hermes System"
+      },
+      {
+        "level": 3,
+        "line": 737,
+        "text": "Immediate next-session prompt"
+      },
+      {
+        "level": 2,
+        "line": 765,
+        "text": "6. Assumptions"
+      },
+      {
+        "level": 2,
+        "line": 810,
+        "text": "7. Open Questions"
+      },
+      {
+        "level": 3,
+        "line": 812,
+        "text": "A. Source Authority"
+      },
+      {
+        "level": 3,
+        "line": 821,
+        "text": "B. System Scope"
+      },
+      {
+        "level": 3,
+        "line": 830,
+        "text": "C. Operator Model"
+      },
+      {
+        "level": 3,
+        "line": 839,
+        "text": "D. Skill Governance"
+      },
+      {
+        "level": 3,
+        "line": 848,
+        "text": "E. Memory / Context"
+      },
+      {
+        "level": 3,
+        "line": 857,
+        "text": "F. OpenCLAW Translation"
+      }
+    ],
+    "parser_warnings": [],
+    "path": "raw/notes/SourceIndexProjectGPT.md",
+    "source_type_guess": "note"
+  }
+]

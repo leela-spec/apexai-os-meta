@@ -1,0 +1,59 @@
+{
+  "schema_version": "patch_intent.v1",
+  "intents": [
+    {
+      "intent_id": "j12-selected-surface-class",
+      "operation": "replace-once",
+      "target": {"target_file_guess": "apex-meta/operator-output-design/step3-output-design-system/17-ai-routing-card-design.okf.yaml"},
+      "hints": {"nearby_phrases": ["selected_surface_or_model_class"]},
+      "replacement": {"content": "selected_surface_class", "content_role": "span_replacement"},
+      "validation": {"expected_phrases": ["selected_surface_class"], "forbidden_phrases": ["selected_surface_or_model_class"]},
+      "safety": {"require_unique_match": true, "fail_on_ambiguity": true, "allow_full_file_rewrite": false, "max_files_touched": 1}
+    },
+    {
+      "intent_id": "j12-route-verification-fields",
+      "operation": "replace-once",
+      "target": {"target_file_guess": "apex-meta/operator-output-design/step3-output-design-system/17-ai-routing-card-design.okf.yaml"},
+      "hints": {"nearby_phrases": ["recommended_route_view:"]},
+      "replacement": {"content": "recommended_route_view:\n  includes:\n    - selected_surface_class\n    - fallback_route_when_material\n    - verified_model_ref_when_available\n  exact_model_rule:\n    exact_model_requires:\n      - current_verification_evidence\n      - verification_date_or_window\n      - verification_source_ref\n    final_model_mapping: deferred", "content_role": "span_replacement"},
+      "validation": {"expected_phrases": ["verified_model_ref_when_available", "current_verification_evidence", "verification_source_ref", "final_model_mapping: deferred"]},
+      "safety": {"require_unique_match": true, "fail_on_ambiguity": true, "allow_full_file_rewrite": false, "max_files_touched": 1}
+    },
+    {
+      "intent_id": "j12-verification-degraded-behavior",
+      "operation": "replace-once",
+      "target": {"target_file_guess": "apex-meta/operator-output-design/step3-output-design-system/17-ai-routing-card-design.okf.yaml"},
+      "hints": {"nearby_phrases": ["  no_special_route_required:"]},
+      "replacement": {"content": "  no_special_route_required:\n    result: no_route_needed\n    action: avoid_creating_unnecessary_routing_work\n  stale_or_missing_model_verification:\n    result: stable_surface_class_only\n    action: omit_exact_model_and_mark_verification_required", "content_role": "span_replacement"},
+      "validation": {"expected_phrases": ["stale_or_missing_model_verification:", "omit_exact_model_and_mark_verification_required"]},
+      "safety": {"require_unique_match": true, "fail_on_ambiguity": true, "allow_full_file_rewrite": false, "max_files_touched": 1}
+    },
+    {
+      "intent_id": "j12-machine-handoff-fields",
+      "operation": "replace-once",
+      "target": {"target_file_guess": "apex-meta/operator-output-design/step3-output-design-system/17-ai-routing-card-design.okf.yaml"},
+      "hints": {"nearby_phrases": ["    - selected_surface_or_model"]},
+      "replacement": {"content": "    - selected_surface_class\n    - verified_model_ref_when_verified", "content_role": "span_replacement"},
+      "validation": {"expected_phrases": ["selected_surface_class", "verified_model_ref_when_verified"], "forbidden_phrases": ["selected_surface_or_model"]},
+      "safety": {"require_unique_match": true, "fail_on_ambiguity": true, "allow_full_file_rewrite": false, "max_files_touched": 1}
+    },
+    {
+      "intent_id": "j12-contract-reference",
+      "operation": "replace-once",
+      "target": {"target_file_guess": "apex-meta/operator-output-design/step3-output-design-system/17-ai-routing-card-design.okf.yaml"},
+      "hints": {"nearby_phrases": [".claude/skills/ai-routing-and-usage-tracking/references/routing-recommendation-packet-contract.md"]},
+      "replacement": {"content": ".claude/skills/AIRouting/routing-recommendation-packet-contract.md", "content_role": "span_replacement"},
+      "validation": {"expected_phrases": ["skills/AIRouting/routing-recommendation-packet-contract.md"], "forbidden_phrases": ["skills/ai-routing-and-usage-tracking/references/routing-recommendation-packet-contract.md"]},
+      "safety": {"require_unique_match": true, "fail_on_ambiguity": true, "allow_full_file_rewrite": false, "max_files_touched": 1}
+    },
+    {
+      "intent_id": "j12-acceptance-verification",
+      "operation": "replace-once",
+      "target": {"target_file_guess": "apex-meta/operator-output-design/step3-output-design-system/17-ai-routing-card-design.okf.yaml"},
+      "hints": {"nearby_phrases": ["  current_cost_quota_and_product_claims_require_evidence: true"]},
+      "replacement": {"content": "  current_cost_quota_and_product_claims_require_evidence: true\n  exact_model_requires_current_verification: true\n  unverified_exact_model_is_not_route_truth: true\n  final_model_mapping_remains_deferred: true", "content_role": "span_replacement"},
+      "validation": {"expected_phrases": ["exact_model_requires_current_verification: true", "unverified_exact_model_is_not_route_truth: true", "final_model_mapping_remains_deferred: true"]},
+      "safety": {"require_unique_match": true, "fail_on_ambiguity": true, "allow_full_file_rewrite": false, "max_files_touched": 1}
+    }
+  ]
+}

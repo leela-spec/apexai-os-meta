@@ -1,0 +1,50 @@
+{
+  "schema_version": "patch_intent.v1",
+  "intents": [
+    {
+      "intent_id": "j9-critical-durable-rule",
+      "operation": "replace-once",
+      "target": {"target_file_guess": "apex-meta/operator-output-design/step3-output-design-system/14-status-merge-decision-card-design.okf.yaml"},
+      "hints": {"nearby_phrases": ["critical_rule: approved_for_merge_is_not_merged"]},
+      "replacement": {"content": "critical_rules:\n    approved_for_merge_is_not_merged: true\n    merged_display_requires_durable_write_confirmation_ref: true\n    without_durable_confirmation: approved_for_merge\n  conditional_confirmation:\n    durable_write_confirmation_ref:\n      show_when: current_decision_state_is_merged", "content_role": "span_replacement"},
+      "validation": {"expected_phrases": ["merged_display_requires_durable_write_confirmation_ref: true", "durable_write_confirmation_ref:"]},
+      "safety": {"require_unique_match": true, "fail_on_ambiguity": true, "allow_full_file_rewrite": false, "max_files_touched": 1}
+    },
+    {
+      "intent_id": "j9-degraded-confirmation",
+      "operation": "replace-once",
+      "target": {"target_file_guess": "apex-meta/operator-output-design/step3-output-design-system/14-status-merge-decision-card-design.okf.yaml"},
+      "hints": {"nearby_phrases": ["merge_execution_unconfirmed:"]},
+      "replacement": {"content": "durable_write_confirmation_missing:", "content_role": "span_replacement"},
+      "validation": {"expected_phrases": ["durable_write_confirmation_missing:"], "forbidden_phrases": ["merge_execution_unconfirmed:"]},
+      "safety": {"require_unique_match": true, "fail_on_ambiguity": true, "allow_full_file_rewrite": false, "max_files_touched": 1}
+    },
+    {
+      "intent_id": "j9-degraded-action",
+      "operation": "replace-once",
+      "target": {"target_file_guess": "apex-meta/operator-output-design/step3-output-design-system/14-status-merge-decision-card-design.okf.yaml"},
+      "hints": {"nearby_phrases": ["action: do_not_display_merged"]},
+      "replacement": {"content": "action: do_not_display_merged_until_durable_write_confirmation_ref_exists", "content_role": "span_replacement"},
+      "validation": {"expected_phrases": ["do_not_display_merged_until_durable_write_confirmation_ref_exists"], "forbidden_phrases": ["action: do_not_display_merged"]},
+      "safety": {"require_unique_match": true, "fail_on_ambiguity": true, "allow_full_file_rewrite": false, "max_files_touched": 1}
+    },
+    {
+      "intent_id": "j9-handoff-confirmation",
+      "operation": "replace-once",
+      "target": {"target_file_guess": "apex-meta/operator-output-design/step3-output-design-system/14-status-merge-decision-card-design.okf.yaml"},
+      "hints": {"nearby_phrases": ["    - operator_review_flags"]},
+      "replacement": {"content": "    - operator_review_flags\n  conditional:\n    durable_write_confirmation_ref:\n      required_when: review_decision_is_merged", "content_role": "span_replacement"},
+      "validation": {"expected_phrases": ["required_when: review_decision_is_merged"]},
+      "safety": {"require_unique_match": true, "fail_on_ambiguity": true, "allow_full_file_rewrite": false, "max_files_touched": 1}
+    },
+    {
+      "intent_id": "j9-acceptance",
+      "operation": "replace-once",
+      "target": {"target_file_guess": "apex-meta/operator-output-design/step3-output-design-system/14-status-merge-decision-card-design.okf.yaml"},
+      "hints": {"nearby_phrases": ["merge_proposal_is_not_durable_state: true"]},
+      "replacement": {"content": "merge_proposal_is_not_durable_state: true\n  merged_display_requires_durable_write_confirmation_ref: true", "content_role": "span_replacement"},
+      "validation": {"expected_phrases": ["merged_display_requires_durable_write_confirmation_ref: true"]},
+      "safety": {"require_unique_match": true, "fail_on_ambiguity": true, "allow_full_file_rewrite": false, "max_files_touched": 1}
+    }
+  ]
+}

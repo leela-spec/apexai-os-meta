@@ -1,0 +1,59 @@
+{
+  "schema_version": "patch_intent.v1",
+  "intents": [
+    {
+      "intent_id": "j11-project-task-section",
+      "operation": "replace-once",
+      "target": {"target_file_guess": "apex-meta/operator-output-design/step3-output-design-system/16-project-status-overview-design.okf.yaml"},
+      "hints": {"nearby_phrases": ["active_projects_or_workstreams"]},
+      "replacement": {"content": "project_sections", "content_role": "span_replacement"},
+      "validation": {"expected_phrases": ["  - project_sections"], "forbidden_phrases": ["active_projects_or_workstreams", "workstream"]},
+      "safety": {"require_unique_match": true, "fail_on_ambiguity": true, "allow_full_file_rewrite": false, "max_files_touched": 1}
+    },
+    {
+      "intent_id": "j11-project-task-subtask-view",
+      "operation": "replace-once",
+      "target": {"target_file_guess": "apex-meta/operator-output-design/step3-output-design-system/16-project-status-overview-design.okf.yaml"},
+      "hints": {"nearby_phrases": ["project_item_view:"]},
+      "replacement": {"content": "project_task_subtask_view:\n  hierarchy:\n    - project\n    - task\n    - subtask\n  forbidden_layers:\n    - workstream\n  required:\n    - project_name\n    - tasks\n  task_fields:\n    - task_label\n    - task_name\n    - rating\n    - subtasks\n  subtask_fields:\n    - subtask_label\n    - subtask_name\n    - rating", "content_role": "span_replacement"},
+      "validation": {"expected_phrases": ["project_task_subtask_view:", "subtask_fields:", "workstream"], "forbidden_phrases": ["project_item_view:"]},
+      "safety": {"require_unique_match": true, "fail_on_ambiguity": true, "allow_full_file_rewrite": false, "max_files_touched": 1}
+    },
+    {
+      "intent_id": "j11-ranked-task-view",
+      "operation": "replace-once",
+      "target": {"target_file_guess": "apex-meta/operator-output-design/step3-output-design-system/16-project-status-overview-design.okf.yaml"},
+      "hints": {"nearby_phrases": ["operator_actions:"]},
+      "replacement": {"content": "ranked_task_view:\n  required: true\n  ranking_order:\n    - manual_override\n    - deadline\n    - priority\n    - urgency\n  rating_format: \"[priority/urgency/date]\"\n  ranking_basis_visible: true\n\noperator_actions:", "content_role": "span_replacement"},
+      "validation": {"expected_phrases": ["ranked_task_view:", "manual_override", "deadline", "rating_format: \"[priority/urgency/date]\""]},
+      "safety": {"require_unique_match": true, "fail_on_ambiguity": true, "allow_full_file_rewrite": false, "max_files_touched": 1}
+    },
+    {
+      "intent_id": "j11-unassigned-and-validation",
+      "operation": "replace-once",
+      "target": {"target_file_guess": "apex-meta/operator-output-design/step3-output-design-system/16-project-status-overview-design.okf.yaml"},
+      "hints": {"nearby_phrases": ["boundary:"]},
+      "replacement": {"content": "unassigned:\n  required_when: unresolved_incoming_material_exists\n  temporary: true\n  remove_after_assignment: true\n\noperator_validation:\n  required: false\n  include_only_relevant_flags: true\n\nboundary:", "content_role": "span_replacement"},
+      "validation": {"expected_phrases": ["unassigned:", "temporary: true", "operator_validation:", "include_only_relevant_flags: true"]},
+      "safety": {"require_unique_match": true, "fail_on_ambiguity": true, "allow_full_file_rewrite": false, "max_files_touched": 1}
+    },
+    {
+      "intent_id": "j11-contract-reference",
+      "operation": "replace-once",
+      "target": {"target_file_guess": "apex-meta/operator-output-design/step3-output-design-system/16-project-status-overview-design.okf.yaml"},
+      "hints": {"nearby_phrases": [".claude/skills/ProjectStatus/references/project-status-overview-contract.md"]},
+      "replacement": {"content": ".claude/skills/ProjectStatus/project-status-overview-contract_v2_fixed.md", "content_role": "span_replacement"},
+      "validation": {"expected_phrases": ["project-status-overview-contract_v2_fixed.md"], "forbidden_phrases": ["references/project-status-overview-contract.md"]},
+      "safety": {"require_unique_match": true, "fail_on_ambiguity": true, "allow_full_file_rewrite": false, "max_files_touched": 1}
+    },
+    {
+      "intent_id": "j11-acceptance-alignment",
+      "operation": "replace-once",
+      "target": {"target_file_guess": "apex-meta/operator-output-design/step3-output-design-system/16-project-status-overview-design.okf.yaml"},
+      "hints": {"nearby_phrases": ["  no_schema_redefinition: true"]},
+      "replacement": {"content": "  hierarchy_is_project_task_subtask: true\n  no_workstreams: true\n  ranked_task_view_present: true\n  manual_override_preserved: true\n  unassigned_items_are_temporary: true\n  operator_review_flags_present_when_needed: true\n  no_schema_redefinition: true", "content_role": "span_replacement"},
+      "validation": {"expected_phrases": ["hierarchy_is_project_task_subtask: true", "no_workstreams: true", "ranked_task_view_present: true"]},
+      "safety": {"require_unique_match": true, "fail_on_ambiguity": true, "allow_full_file_rewrite": false, "max_files_touched": 1}
+    }
+  ]
+}

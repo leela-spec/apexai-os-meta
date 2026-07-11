@@ -1,0 +1,16 @@
+{
+  "changed_paths": [
+    "apex-meta/operator-output-design/step3-output-design-system/17-ai-routing-card-design.okf.yaml"
+  ],
+  "command": "replace-once",
+  "resolved_target": {
+    "end": 4355,
+    "kind": "phrase",
+    "path": "apex-meta/operator-output-design/step3-output-design-system/17-ai-routing-card-design.okf.yaml",
+    "phrase": "  current_cost_quota_and_product_claims_require_evidence: true",
+    "preview": "  current_cost_quota_and_product_claims_require_evidence: true",
+    "start": 4293
+  },
+  "status": "PASS",
+  "timestamp": "2026-07-11T09:03:30Z"
+}

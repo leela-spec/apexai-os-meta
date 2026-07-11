@@ -1,0 +1,24 @@
+{
+  "schema_version": "patch_intent.v1",
+  "intents": [
+    {
+      "intent_id": "j3-j4-depth-separation-yaml",
+      "operation": "replace-heading-section",
+      "target": {
+        "target_file_guess": "apex-meta/operator-output-design/step3-output-design-system/03-planning-artifact-designs.okf.yaml",
+        "heading_path": ["J3_PreCap_Next_Day_Brief"]
+      },
+      "replacement": {
+        "content_role": "section_body",
+        "preserve_surrounding_formatting": true,
+        "content": "  operator_name: PreCap Next Day Brief\n  previous_operator_label_rejected: Tomorrow Action Brief\n  produced_by: precap-next-day\n  machine_artifact: next_day_plan\n  primary_question: >\n    What should happen on the next execution day, across which projects, flows,\n    and sprints, and what must be reviewed before execution starts?\n  role: compact_day_level_three_sprint_outline\n\n  result_card:\n    required:\n      - result_state\n      - day_direction_summary\n      - represented_flow_counts\n      - total_sprints_planned\n      - key_expected_outputs\n      - next_operator_action\n      - review_needed\n    summary_depth: two_to_five_sentences_when_needed\n\n  day_strategy:\n    fields:\n      - primary_day_outcomes\n      - projects_touched\n      - reason_for_each_project\n      - intended_day_progress\n      - continuity_from_week\n      - capacity_assumptions\n      - fixed_constraints\n\n  flow_overview:\n    one_entry_per_represented_flow: true\n    supported_states:\n      - planned\n      - compressed\n      - skipped\n      - blocked\n      - omitted\n    fields:\n      - flow_id\n      - project\n      - flow_title\n      - flow_status\n      - why_this_flow_today\n      - connection_to_weekly_priority\n      - flow_goals\n      - expected_flow_outputs\n      - available_context\n      - missing_context\n      - dependencies\n      - review_flags\n\n  day_level_three_sprint_outline:\n    required_for_each_full_active_flow: true\n    sprint_count: 3\n    depth_rule: >\n      Keep all three sprints visible at day level, but place complete tasks,\n      inputs, prompt links, dependencies, done conditions, and stop or review\n      conditions in the referenced Flow Execution Card.\n\n    S1:\n      role: first_work_sprint\n      fields:\n        - goal\n        - short_intent\n        - expected_output_summary\n        - flow_execution_card_ref\n\n    S2:\n      role: second_work_or_deepening_sprint\n      fields:\n        - goal\n        - short_intent\n        - dependency_summary\n        - expected_output_summary\n        - flow_execution_card_ref\n\n    S3:\n      role: recap_capture_handoff_sprint\n      fields:\n        - goal\n        - short_intent\n        - expected_handoff_summary\n        - flow_execution_card_ref\n\n  execution_sequence:\n    purpose: show_actual_order_across_flows_and_sprints\n    fields:\n      - order\n      - flow\n      - sprint\n      - reason_for_order\n    allowed_patterns:\n      - complete_one_flow_before_next\n      - interleave_flows\n      - compress_sprint_with_reason\n\n  planning_context_used:\n    fields:\n      - project_manager_inputs_per_project\n      - weekly_plan_inputs\n      - recent_execution_inputs\n      - ignored_or_deferred_signals_with_reason\n    purpose: make_planning_rationale_visible\n\n  expected_end_of_day:\n    fields:\n      - project_progress\n      - expected_changes\n      - expected_artifacts\n      - decisions_expected\n      - evidence_to_capture\n      - handoffs_prepared\n\n  operator_actions:\n    - approve_day\n    - open_first_flow_execution_card\n    - reorder_flows_or_sprints\n    - edit_flow_scope\n    - compress_flow_with_reason\n    - defer_flow\n    - mark_flow_blocked\n    - approve_calendar_request_when_separate_gate_exists\n\n  primary_view_excludes:\n    - complete_sprint_task_and_input_detail\n    - full_prompt_link_sets_and_prompt_text\n    - detailed_done_and_stop_conditions\n    - FlowRecap_results\n    - durable_status_mutation\n    - copied_contract_schemas"
+      },
+      "validation": {
+        "expected_phrases": ["role: compact_day_level_three_sprint_outline", "sprint_count: 3", "flow_execution_card_ref", "open_first_flow_execution_card"],
+        "forbidden_phrases": ["role: detailed_next_day_execution_plan", "execute_first_sprint", "add_or_remove_tasks", "full_prompt_text_when_direct_prompt_pack_ref_exists"],
+        "commands": ["rg -n J3_PreCap_Next_Day_Brief apex-meta/operator-output-design/step3-output-design-system/03-planning-artifact-designs.okf.yaml"]
+      },
+      "safety": {"require_unique_match": true, "fail_on_ambiguity": true, "allow_full_file_rewrite": false, "max_files_touched": 1}
+    }
+  ]
+}

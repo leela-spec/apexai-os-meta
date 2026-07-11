@@ -1,0 +1,32 @@
+{
+  "schema_version": "patch_intent.v1",
+  "intents": [
+    {
+      "intent_id": "j9-j10-j11-covers-route",
+      "operation": "replace-once",
+      "target": {"target_file_guess": "apex-meta/operator-output-design/step3-output-design-system/18-round5-cross-artifact-relationships.okf.yaml"},
+      "hints": {"nearby_phrases": ["    - J9_to_J11"]},
+      "replacement": {"content": "    - J10_to_J11", "content_role": "span_replacement"},
+      "validation": {"expected_phrases": ["    - J10_to_J11"], "forbidden_phrases": ["    - J9_to_J11"]},
+      "safety": {"require_unique_match": true, "fail_on_ambiguity": true, "allow_full_file_rewrite": false, "max_files_touched": 1}
+    },
+    {
+      "intent_id": "j10-j11-confirmed-truth-gate",
+      "operation": "replace-once",
+      "target": {"target_file_guess": "apex-meta/operator-output-design/step3-output-design-system/18-round5-cross-artifact-relationships.okf.yaml"},
+      "hints": {"nearby_phrases": ["J9_to_J11:"]},
+      "replacement": {"content": "J10_to_J11:\n  condition: durable_KB_update_executed_and_confirmed\n  provides:\n    - durable_update_result_ref\n    - accepted_status_ref\n    - effective_change\n    - updated_freshness\n  rule: >\n    J11_projects_only_confirmed_durable_state. J9 approval alone, prepared or\n    awaiting-confirmation updates, executed claims without durable_update_result_ref,\n    and skipped or blocked writes cannot become overview truth.", "content_role": "span_replacement"},
+      "validation": {"expected_phrases": ["J10_to_J11:", "durable_KB_update_executed_and_confirmed", "updated_freshness", "J11_projects_only_confirmed_durable_state"], "forbidden_phrases": ["J9_to_J11:"]},
+      "safety": {"require_unique_match": true, "fail_on_ambiguity": true, "allow_full_file_rewrite": false, "max_files_touched": 1}
+    },
+    {
+      "intent_id": "j10-j11-acceptance",
+      "operation": "replace-once",
+      "target": {"target_file_guess": "apex-meta/operator-output-design/step3-output-design-system/18-round5-cross-artifact-relationships.okf.yaml"},
+      "hints": {"nearby_phrases": ["  J9_to_J11_defined: true"]},
+      "replacement": {"content": "  J10_to_J11_defined: true\n  confirmed_durable_update_evidence_required: true", "content_role": "span_replacement"},
+      "validation": {"expected_phrases": ["J10_to_J11_defined: true", "confirmed_durable_update_evidence_required: true"], "forbidden_phrases": ["J9_to_J11_defined: true"]},
+      "safety": {"require_unique_match": true, "fail_on_ambiguity": true, "allow_full_file_rewrite": false, "max_files_touched": 1}
+    }
+  ]
+}

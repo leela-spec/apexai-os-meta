@@ -1,0 +1,39 @@
+{
+  "topics": [
+    {
+      "topic_id": "claude-native-apex-orchestration",
+      "title": "Claude-native Apex orchestration: canonical design, implementation guidance, and constraints",
+      "source": "operator",
+      "status": "complete",
+      "keywords": ["claude", "apex", "alfred", "orchestration", "implementation", "native"]
+    },
+    {
+      "topic_id": "core-pattern-overlap",
+      "title": "Repeated core patterns across processes, designs, agents, workflows, and decisions",
+      "source": "operator",
+      "status": "complete",
+      "keywords": ["pattern", "process", "design", "agent", "workflow", "decision", "repeat"]
+    },
+    {
+      "topic_id": "orchestration-alternatives-by-use-case",
+      "title": "Orchestration alternatives ranked by use case",
+      "source": "operator",
+      "status": "complete",
+      "keywords": ["architecture", "alternative", "use case", "ranking", "comparison", "workflow"]
+    },
+    {
+      "topic_id": "operational-meta-agent-workflow",
+      "title": "PM/KB/PD operational meta-agent workflow",
+      "source": "operator",
+      "status": "complete",
+      "keywords": ["pm", "kb", "pd", "metaops", "operational", "workflow", "agent"]
+    },
+    {
+      "topic_id": "historical-architecture-evidence",
+      "title": "Historical architecture evidence translated into Claude-native implementation decisions",
+      "source": "operator",
+      "status": "complete",
+      "keywords": ["claude", "hermes", "gpt", "gem", "architecture", "migration", "implementation", "decision"]
+    }
+  ]
+}

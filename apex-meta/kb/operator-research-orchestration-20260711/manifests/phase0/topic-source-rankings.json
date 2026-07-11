@@ -1,0 +1,137 @@
+{
+  "unnamed": {
+    "keywords": [
+      "claude",
+      "hermes",
+      "gpt",
+      "gem",
+      "architecture",
+      "migration",
+      "implementation",
+      "decision"
+    ],
+    "name": null,
+    "ranked_sources": [
+      {
+        "hit_count": 202,
+        "path": "raw/notes/Apex Hermes Claude Build Pack.md",
+        "sample": {
+          "line": 1,
+          "snippet": "# Apex/Hermes Claude  Build Pack — Macro Document v0.1"
+        }
+      },
+      {
+        "hit_count": 192,
+        "path": "raw/notes/SourceIndexProjectGPT.md",
+        "sample": {
+          "line": 1,
+          "snippet": "# Source Index for Hermes/OpenCLAW Personal Orchestration System"
+        }
+      },
+      {
+        "hit_count": 138,
+        "path": "raw/notes/ArchitectureCheckClaudeVsHermesVsGPT.md",
+        "sample": {
+          "line": 5,
+          "snippet": "You are Claude Sonnet inextended thinking mode.Use deep internal reasoning, but only show me a clean, concise answer. Role Act as asenior software architect and DevOps engineer.Your task is to help me design a simple but"
+        }
+      },
+      {
+        "hit_count": 136,
+        "path": "raw/notes/Prompt Flow_Create Claude-Native Apex Alfred Orchestration Predefinition Files.md",
+        "sample": {
+          "line": 1,
+          "snippet": "# Prompt Flow: Create Claude-Native Apex Alfred Orchestration Predefinition Files"
+        }
+      },
+      {
+        "hit_count": 127,
+        "path": "raw/notes/DR_APEX_PM_KB_PD_Gem.md",
+        "sample": {
+          "line": 5,
+          "snippet": "The orchestration of autonomous AI agents within a static, local-file repository requires a fundamental split between deterministic state management and probabilistic reasoning. An analysis of fifteen leading implementat"
+        }
+      },
+      {
+        "hit_count": 98,
+        "path": "raw/notes/DR_ApexOrchestrationClaude.md",
+        "sample": {
+          "line": 5,
+          "snippet": "Two findings materially affect the implementation plan. First, your **four permanent profiles** are directionally aligned with current Claude Code practice, but the research strongly suggests keeping those roles as the *"
+        }
+      },
+      {
+        "hit_count": 88,
+        "path": "raw/notes/Apex_Hermes_Workflow_Example_Database_Master_of_Arts_v0_1 (1).md",
+        "sample": {
+          "line": 1,
+          "snippet": "# Apex/Hermes Workflow Example Database v0.1"
+        }
+      },
+      {
+        "hit_count": 76,
+        "path": "raw/notes/Apex&HermesArchitectrueGuidacne.md",
+        "sample": {
+          "line": 1,
+          "snippet": "# Apex/Hermes System Seed v0.1 — Macro/Meso Architecture"
+        }
+      },
+      {
+        "hit_count": 70,
+        "path": "raw/notes/ApexAgent&WorkflowsNonAccurate.md",
+        "sample": {
+          "line": 15,
+          "snippet": "- OpenCLAW `special_ops` as final implementation architecture where superseded by Hermes, but **kept as source for workflow logic**."
+        }
+      },
+      {
+        "hit_count": 68,
+        "path": "raw/notes/apex_hermes_orchestration_decisions_v0_1.md",
+        "sample": {
+          "line": 1,
+          "snippet": "# Apex Hermes Orchestration Decisions v0.1"
+        }
+      },
+      {
+        "hit_count": 60,
+        "path": "raw/notes/DR_APEX_PM_KB_PD_Perp.md",
+        "sample": {
+          "line": 3,
+          "snippet": "In this pass I was only able to analyze two sources in depth: CCPM (S1) and Hermes-agent’s skills hub/guard (S13)."
+        }
+      },
+      {
+        "hit_count": 53,
+        "path": "raw/notes/DR_APEX_PM_KB_PD_GPT.md",
+        "sample": {
+          "line": 5,
+          "snippet": "This report does **not** propose an architecture and does **not** decide what to build. It compares execution patterns already present in public implementations that are closest to the Apex processes you listed, with emp"
+        }
+      },
+      {
+        "hit_count": 34,
+        "path": "raw/notes/DR_Apex_Plan.md",
+        "sample": {
+          "line": 5,
+          "snippet": "This package defines a Claude-native, planning-only skill for Apex. It captures intent, decomposes work into epics and task candidates, proposes `depends_on`, suggests H1 status plus H7 priority and urgency, and prepares"
+        }
+      },
+      {
+        "hit_count": 16,
+        "path": "raw/notes/ProcessRanking_GPT&MasterOA.md",
+        "sample": {
+          "line": 3,
+          "snippet": "**Main conclusion:** the best “top 10” is not the ten highest raw process scores. It is the ten-process **coverage set** that can automate the widest range of your Master of Arts workflows: idea capture, project prioriti"
+        }
+      },
+      {
+        "hit_count": 10,
+        "path": "raw/notes/SourceIndexAgentInteractionAlfred.md",
+        "sample": {
+          "line": 8,
+          "snippet": "| [NewPromptFlow2.md](C:/GitDev/apexai-os-meta/agent_kb_source_indexes/CreatingAlfred/NewPromptFlow2.md) | Extended KB architecture design and staged prompt flow. | Extended KB audit, redirect/delete/appendix decision wo"
+        }
+      }
+    ]
+  }
+}

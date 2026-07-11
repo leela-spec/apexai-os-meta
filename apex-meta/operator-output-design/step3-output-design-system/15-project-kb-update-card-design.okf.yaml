@@ -42,8 +42,12 @@ first_screen_card:
     - change_type
     - replaced_or_preserved_knowledge
     - provenance
-    - execution_decision
+    - write_execution_status
+    - effective_change
+    - updated_freshness
+    - durable_update_result_ref_when_executed
     - exact_next_action
+  critical_rule: prepared_or_approved_update_is_not_confirmed_durable_change
 
 essential_sections:
   - accepted_input_reference
@@ -52,10 +56,32 @@ essential_sections:
   - change_type
   - existing_knowledge_effect
   - provenance
-  - durable_effect_if_executed
+  - write_execution_status
+  - effective_change
+  - updated_freshness
+  - durable_update_result_reference
+  - compact_machine_handoff
   - compact_machine_handoff
 
+write_result_projection:
+  confirmation_source: project_kb_manager_update_result
+  write_execution_status:
+    allowed:
+      - prepared
+      - awaiting_confirmation
+      - executed
+      - partially_executed
+      - skipped
+      - blocked
+  durable_update_result_ref:
+    required_when: write_execution_status_is_executed_or_partially_executed
+  effective_change:
+    purpose: summarize_files_changed_records_skipped_and_flags_raised
+  updated_freshness:
+    purpose: expose_post_write_recency_or_stale_write_status
+
 change_types:
+
   allowed:
     - add
     - correct
@@ -109,6 +135,15 @@ degraded_behavior:
   no_durable_knowledge:
     change_type: no_update
     action: close_without_KB_mutation
+  stale_write_attempt:
+    write_execution_status: blocked
+    action: preserve_existing_record_and_request_fresher_dated_evidence
+  duplicate_recap_merge:
+    write_execution_status: skipped
+    action: expose_previously_consumed_recap_and_do_not_claim_effective_change
+  write_result_missing_after_execution_claim:
+    write_execution_status: awaiting_confirmation
+    action: do_not_expose_confirmed_durable_effect
 
 compact_machine_handoff:
   role: secondary_minimum_projection
@@ -120,7 +155,16 @@ compact_machine_handoff:
     - provenance_refs
     - superseded_knowledge_refs
     - update_execution_decision
+    - write_execution_status
+    - effective_change
+    - updated_freshness
     - operator_review_flags
+  conditional:
+    durable_update_result_ref:
+      required_when: write_execution_status_is_executed_or_partially_executed
+  downstream_truth_rule: >
+    Only an executed or partially executed update with a durable_update_result_ref
+    may provide confirmed durable change to Project Status Overview.
   contract_references:
     - .claude/skills/project-kb-manager/references/project-schema.md
     - .claude/skills/project-kb-manager/references/write-rules.md
@@ -134,5 +178,8 @@ acceptance_checks:
   provenance_supports_the_update: true
   unverified_inference_is_not_stored_as_fact: true
   execution_decision_is_separate_from_preparation: true
+  durable_update_result_ref_confirms_executed_write: true
+  effective_change_and_freshness_are_visible_after_write: true
+  prepared_update_is_not_overview_truth: true
   machine_handoff_contains_only_update_minimum: true
   no_schema_redefinition: true

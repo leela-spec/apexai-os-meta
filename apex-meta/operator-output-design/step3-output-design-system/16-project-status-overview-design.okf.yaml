@@ -45,12 +45,30 @@ first_screen_card:
   avoid: wide_default_table
 
 essential_sections:
-  - active_projects_or_workstreams
+  - project_sections
   - cross_project_attention_summary
   - stale_missing_or_conflicting_status
   - compact_machine_handoff
 
-project_item_view:
+project_task_subtask_view:
+  hierarchy:
+    - project
+    - task
+    - subtask
+  forbidden_layers:
+    - workstream
+  required:
+    - project_name
+    - tasks
+  task_fields:
+    - task_label
+    - task_name
+    - rating
+    - subtasks
+  subtask_fields:
+    - subtask_label
+    - subtask_name
+    - rating
   required:
     - project_name
     - accepted_status
@@ -60,6 +78,16 @@ project_item_view:
     - freshness_or_staleness
     - drilldown_ref
 
+ranked_task_view:
+  required: true
+  ranking_order:
+    - manual_override
+    - deadline
+    - priority
+    - urgency
+  rating_format: "[priority/urgency/date]"
+  ranking_basis_visible: true
+
 operator_actions:
   - open_project
   - review_blocker
@@ -67,6 +95,15 @@ operator_actions:
   - use_as_context
   - request_refresh
   - no_action
+
+unassigned:
+  required_when: unresolved_incoming_material_exists
+  temporary: true
+  remove_after_assignment: true
+
+operator_validation:
+  required: false
+  include_only_relevant_flags: true
 
 boundary:
   may:
@@ -108,7 +145,7 @@ compact_machine_handoff:
     - freshness_status
     - relevant_constraints
   contract_references:
-    - .claude/skills/ProjectStatus/references/project-status-overview-contract.md
+    - .claude/skills/ProjectStatus/project-status-overview-contract_v2_fixed.md
   schema_redefinition: false
 
 acceptance_checks:
@@ -120,4 +157,10 @@ acceptance_checks:
   candidate_updates_are_not_accepted: true
   drilldown_references_replace_database_duplication: true
   machine_handoff_contains_only_cross_project_context_minimum: true
+  hierarchy_is_project_task_subtask: true
+  no_workstreams: true
+  ranked_task_view_present: true
+  manual_override_preserved: true
+  unassigned_items_are_temporary: true
+  operator_review_flags_present_when_needed: true
   no_schema_redefinition: true

@@ -1,0 +1,50 @@
+{
+  "schema_version": "patch_intent.v1",
+  "intents": [
+    {
+      "intent_id": "j10-first-screen-fields",
+      "operation": "replace-once",
+      "target": {"target_file_guess": "apex-meta/operator-output-design/step3-output-design-system/15-project-kb-update-card-design.okf.yaml"},
+      "hints": {"nearby_phrases": ["    - execution_decision"]},
+      "replacement": {"content": "    - write_execution_status\n    - effective_change\n    - updated_freshness\n    - durable_update_result_ref_when_executed", "content_role": "span_replacement"},
+      "validation": {"expected_phrases": ["write_execution_status", "durable_update_result_ref_when_executed"], "forbidden_phrases": ["    - execution_decision"]},
+      "safety": {"require_unique_match": true, "fail_on_ambiguity": true, "allow_full_file_rewrite": false, "max_files_touched": 1}
+    },
+    {
+      "intent_id": "j10-critical-rule",
+      "operation": "replace-once",
+      "target": {"target_file_guess": "apex-meta/operator-output-design/step3-output-design-system/15-project-kb-update-card-design.okf.yaml"},
+      "hints": {"nearby_phrases": ["    - exact_next_action"]},
+      "replacement": {"content": "    - exact_next_action\n  critical_rule: prepared_or_approved_update_is_not_confirmed_durable_change", "content_role": "span_replacement"},
+      "validation": {"expected_phrases": ["prepared_or_approved_update_is_not_confirmed_durable_change"]},
+      "safety": {"require_unique_match": true, "fail_on_ambiguity": true, "allow_full_file_rewrite": false, "max_files_touched": 1}
+    },
+    {
+      "intent_id": "j10-essential-fields",
+      "operation": "replace-once",
+      "target": {"target_file_guess": "apex-meta/operator-output-design/step3-output-design-system/15-project-kb-update-card-design.okf.yaml"},
+      "hints": {"nearby_phrases": ["  - durable_effect_if_executed"]},
+      "replacement": {"content": "  - write_execution_status\n  - effective_change\n  - updated_freshness\n  - durable_update_result_reference\n  - compact_machine_handoff", "content_role": "span_replacement"},
+      "validation": {"expected_phrases": ["durable_update_result_reference"], "forbidden_phrases": ["durable_effect_if_executed"]},
+      "safety": {"require_unique_match": true, "fail_on_ambiguity": true, "allow_full_file_rewrite": false, "max_files_touched": 1}
+    },
+    {
+      "intent_id": "j10-write-projection",
+      "operation": "replace-once",
+      "target": {"target_file_guess": "apex-meta/operator-output-design/step3-output-design-system/15-project-kb-update-card-design.okf.yaml"},
+      "hints": {"nearby_phrases": ["change_types:"]},
+      "replacement": {"content": "write_result_projection:\n  confirmation_source: project_kb_manager_update_result\n  write_execution_status:\n    allowed:\n      - prepared\n      - awaiting_confirmation\n      - executed\n      - partially_executed\n      - skipped\n      - blocked\n  durable_update_result_ref:\n    required_when: write_execution_status_is_executed_or_partially_executed\n  effective_change:\n    purpose: summarize_files_changed_records_skipped_and_flags_raised\n  updated_freshness:\n    purpose: expose_post_write_recency_or_stale_write_status\n\nchange_types:\n", "content_role": "span_replacement"},
+      "validation": {"expected_phrases": ["confirmation_source: project_kb_manager_update_result", "partially_executed"]},
+      "safety": {"require_unique_match": true, "fail_on_ambiguity": true, "allow_full_file_rewrite": false, "max_files_touched": 1}
+    },
+    {
+      "intent_id": "j10-downstream-rule",
+      "operation": "replace-once",
+      "target": {"target_file_guess": "apex-meta/operator-output-design/step3-output-design-system/15-project-kb-update-card-design.okf.yaml"},
+      "hints": {"nearby_phrases": ["    - operator_review_flags"]},
+      "replacement": {"content": "    - write_execution_status\n    - effective_change\n    - updated_freshness\n    - operator_review_flags\n  conditional:\n    durable_update_result_ref:\n      required_when: write_execution_status_is_executed_or_partially_executed\n  downstream_truth_rule: >\n    Only an executed or partially executed update with a durable_update_result_ref\n    may provide confirmed durable change to Project Status Overview.", "content_role": "span_replacement"},
+      "validation": {"expected_phrases": ["downstream_truth_rule:", "Project Status Overview"]},
+      "safety": {"require_unique_match": true, "fail_on_ambiguity": true, "allow_full_file_rewrite": false, "max_files_touched": 1}
+    }
+  ]
+}
