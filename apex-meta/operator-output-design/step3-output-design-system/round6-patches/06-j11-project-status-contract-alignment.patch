@@ -1,0 +1,119 @@
+diff --git a/apex-meta/operator-output-design/step3-output-design-system/16-project-status-overview-design.okf.yaml b/apex-meta/operator-output-design/step3-output-design-system/16-project-status-overview-design.okf.yaml
+index 486b3b3..0000000 100644
+--- a/apex-meta/operator-output-design/step3-output-design-system/16-project-status-overview-design.okf.yaml
++++ b/apex-meta/operator-output-design/step3-output-design-system/16-project-status-overview-design.okf.yaml
+@@ -38,6 +38,7 @@ first_screen_card:
+   title: Project Status Overview
+   shows:
+     - active_project_count
++    - ranked_task_attention
+     - blocked_or_at_risk_count
+     - review_needed_count
+     - stale_or_missing_count
+@@ -47,20 +48,39 @@ first_screen_card:
+   avoid: wide_default_table
+ 
+ essential_sections:
+-  - active_projects_or_workstreams
++  - project_task_subtask_projection
++  - ranked_task_attention
+   - cross_project_attention_summary
+   - stale_missing_or_conflicting_status
++  - unassigned_when_unresolved
++  - operator_validation_when_relevant
+   - compact_machine_handoff
+ 
+ project_item_view:
+   required:
+     - project_name
+-    - accepted_status
+-    - blocker_or_risk
+-    - next_action
+-    - review_needed
+-    - freshness_or_staleness
++    - tasks
+     - drilldown_ref
++  hierarchy:
++    allowed_levels:
++      - project
++      - task
++      - subtask
++    forbidden_levels:
++      - workstream
++  task_and_subtask_fields:
++    required:
++      - compact_label
++      - human_readable_name
++      - priority_urgency_date_rating
++    conditional:
++      - blocker_when_source_supported
++      - source_note_when_useful
++
++ranked_task_attention:
++  required: true
++  rating_format: "[priority/urgency/date]"
++  ranking_order:
++    - manual_override_if_present
++    - deadline_first
++    - priority_second
++    - urgency_third
++  NA_date_rule: no_known_fixed_deadline_not_low_importance
++
++conditional_sections:
++  unassigned:
++    include_only_when: unresolved_incoming_items_exist
++    remove_when: item_is_assigned_to_project
++  operator_validation:
++    include_only_relevant_flags: true
+ 
+ operator_actions:
+   - open_project
+@@ -75,11 +95,14 @@ boundary:
+   may:
+     - aggregate_accepted_project_status
++    - normalize_to_project_task_subtask
++    - rank_tasks_by_live_ProjectStatus_rules
+     - flag_stale_missing_or_conflicting_status
+     - provide_cross_project_navigation
+   must_not:
+     - accept_candidate_updates
+     - perform_status_merge
++    - create_workstreams
+     - become_full_project_database_dump
+     - invent_status_for_missing_projects
+@@ -102,15 +125,20 @@ compact_machine_handoff:
+   role: secondary_minimum_projection
+   required:
+     - overview_ref
+-    - active_project_refs
++    - project_task_subtask_refs
++    - ranked_task_refs
+     - accepted_status_refs
+     - blocker_refs
+-    - next_action_refs
+-    - review_needed_refs
+     - freshness_status
+     - relevant_constraints
++  conditional:
++    unassigned_refs:
++      include_only_when: unresolved_items_exist
++    operator_validation_flags:
++      include_only_when: relevant_flags_exist
+   contract_references:
+-    - .claude/skills/ProjectStatus/references/project-status-overview-contract.md
++    - .claude/skills/ProjectStatus/project-status-overview-contract_v2_fixed.md
+   schema_redefinition: false
+ 
+ acceptance_checks:
+@@ -121,5 +149,11 @@ acceptance_checks:
+   missing_status_is_not_invented: true
+   candidate_updates_are_not_accepted: true
+   drilldown_references_replace_database_duplication: true
++  hierarchy_is_project_task_subtask: true
++  no_workstreams: true
++  ratings_use_priority_urgency_date: true
++  ranked_task_view_present: true
++  unassigned_is_temporary_and_conditional: true
++  operator_validation_flags_are_conditional: true
+   machine_handoff_contains_only_cross_project_context_minimum: true
+   no_schema_redefinition: true
