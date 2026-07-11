@@ -1,4 +1,3 @@
-```markdown
 ---
 name: precap-next-day
 description: Use this skill when the operator asks to create, compile, or review a resilient next-day orchestration plan from partial planning, project, recap, calendar, prompt, workflow, or usage context. Produces next_day_plan-centered planning artifacts. Does not execute project work, run FlowRecap, merge status, or require complete inputs.
@@ -190,4 +189,3 @@ completion_gate:
   FlowRecap_handoff_exists_without_running_FlowRecap: true
   missing_inputs_are_review_flags_not_blockers: true
   no_project_execution_FlowRecap_output_or_status_merge_created: true
-```

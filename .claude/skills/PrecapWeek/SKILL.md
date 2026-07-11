@@ -1,11 +1,7 @@
-## name: precap-week  
-description: >  
-Use this skill when the operator asks to plan the upcoming workweek from  
-weekly intent, detailed project-state inputs, compact project-status overview  
-signals, calendar constraints, and the weekday blueprint. Produces a validated  
-precap_week_output and first_precap_next_day_seed. Does not create the  
-detailed next-day plan, prompt packets, project execution, status merge, or  
-calendar events.
+---
+name: precap-week
+description: Use this skill when the operator asks to plan the upcoming workweek from weekly intent, detailed project-state inputs, compact project-status overview signals, calendar constraints, and the weekday blueprint. Produces a validated precap_week_output and first_precap_next_day_seed. Does not create the detailed next-day plan, prompt packets, project execution, status merge, or calendar events.
+---
 
 # PreCap Week
 

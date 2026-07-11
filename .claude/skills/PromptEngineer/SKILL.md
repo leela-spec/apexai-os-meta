@@ -1,6 +1,7 @@
-## name: prompt-engineering  
-description: >  
-Use this skill when the operator asks to generate, evaluate, or improve finalized copy-paste prompts for AI work. Accepts operator tasks, source context, workflow context, expected output types, routing notes, and prompt feedback. Produces prompt_packet, prompt_sequence, final_copy_paste_prompt, and prompt_quality_review outputs. Does not create daily plans, execute project work, run FlowRecap, or merge project status.
+---
+name: prompt-engineering
+description: Use this skill when the operator asks to generate, evaluate, or improve finalized copy-paste prompts for AI work. Accepts operator tasks, source context, workflow context, expected output types, routing notes, and prompt feedback. Produces prompt_packet, prompt_sequence, final_copy_paste_prompt, and prompt_quality_review outputs. Does not create daily plans, execute project work, run FlowRecap, or merge project status.
+---
 
 # Prompt Engineering
 

@@ -10,6 +10,21 @@ maintenance: "Keep index paths and authority notes synchronized with the reposit
 
 Use this file as the stable entrypoint for the repository's weekly orchestration knowledge domain.
 
+## Finalized architecture (read first for execution)
+
+The weekly orchestration flow is finalized at all three design levels under `architecture/`:
+
+```yaml
+architecture_package:
+  macro: architecture/01-macro-architecture-decision.md   # locked topology, agent/skill ownership, permission + review model
+  meso: architecture/02-meso-file-map.md                  # complete execution-surface file inventory + write matrix
+  micro: architecture/03-execution-trace-verification.md  # real dry-run trace + file-level verification record
+runtime_entrypoint: ../../../.claude/skills/weekly-orchestrator/SKILL.md
+agent_layer: ../../../.claude/agents/
+```
+
+For running or auditing the loop, the runtime entrypoint and `.claude/CLAUDE.md` are authoritative; this KB package records the design and its evidence.
+
 ## Default retrieval order
 
 ```yaml

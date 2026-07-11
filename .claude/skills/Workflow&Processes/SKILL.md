@@ -1,6 +1,3 @@
-# FILE: .claude/skills/workflow-process-design/SKILL.md
-
-````markdown id="wpd1k4"
 ---
 name: workflow-process-design
 description: >
@@ -261,7 +258,6 @@ completion_gate:
   operator_review_flags_present_when_confidence_is_limited: true
   package_boundaries_preserved: true
 ```
-````
 
 ---
 

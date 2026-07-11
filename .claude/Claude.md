@@ -14,18 +14,32 @@ Apex: Claude-native orchestration system for Marco. Plans → Marco executes →
 ## skills
 | name | trigger phrase | path | in → out | gate |
 |---|---|---|---|---|
-| PrecapNextDay | "run precap-next-day" | .claude/skills/PrecapNextDay/Skill_precap-next-day.md | best_available_context → next_day_plan | G2 |
-| PrecapWeek | "run precap-week" | .claude/skills/PrecapWeek/Skill_Precap-Week.md | weekly_intent → precap_week_output | G1 |
-| ProjectStatus | "run project-status-overview" | .claude/skills/ProjectStatus/project-status-overview_SKILL_v3.md | manual_notes → current_project_status_overview | none |
-| AIRouting | "run ai-routing-and-usage-tracking" | .claude/skills/AIRouting/ai-routing-and-usage-tracking-SKILL.md | operator_task → routing_recommendation_packet | none |
-| PromptEngineer | "run prompt-engineering" | .claude/skills/PromptEngineer/SKILL_prompt-engineering.md | operator_task → prompt_packet | none |
-| WorkflowProcesses | "run workflow-process-design" | .claude/skills/Workflow&Processes/workflow-process-design-SKILL.md | operator_task → workflow_process_validation_summary | none |
+| PrecapNextDay | "run precap-next-day" | .claude/skills/PrecapNextDay/SKILL.md | best_available_context → next_day_plan | G2 |
+| PrecapWeek | "run precap-week" | .claude/skills/PrecapWeek/SKILL.md | weekly_intent → precap_week_output | G1 |
+| ProjectStatus | "run project-status-overview" | .claude/skills/ProjectStatus/SKILL.md | manual_notes → current_project_status_overview | none |
+| AIRouting | "run ai-routing-and-usage-tracking" | .claude/skills/AIRouting/SKILL.md | operator_task → routing_recommendation_packet | none |
+| PromptEngineer | "run prompt-engineering" | .claude/skills/PromptEngineer/SKILL.md | operator_task → prompt_packet | none |
+| WorkflowProcesses | "run workflow-process-design" | .claude/skills/Workflow&Processes/SKILL.md | operator_task → workflow_process_validation_summary | none |
 | FlowRecap | "run flow-recap" | .claude/skills/flow-recap/SKILL.md | flow_packet_plus_raw_flow_dump → flow_recap_packet | G4 |
 | StatusMerge | "run status-merge" | .claude/skills/status-merge/SKILL.md | flow_recap_packets_plus_apex_project_status → status_merge_packet | G5 |
 | RawFlowDumpNormalize | "run raw-flow-dump-normalize" | .claude/skills/raw-flow-dump-normalize/SKILL.md | raw_operator_input → normalized_raw_flow_dump_or_skipped_flow_marker | none |
 | ModelUsageLog | "run model-usage-log" | .claude/skills/model-usage-log/SKILL.md | flow_recap_packet → model_usage_delta | none |
+| WeeklyOrchestrator | "run weekly-orchestrator" | .claude/skills/weekly-orchestrator/SKILL.md | loop_position_plus_operator_trigger → stage_dispatch_and_gated_writes | G1–G5 holder |
 
-All 9 skills above are `present` as of last check. If a `Read` on a `skill_path` fails, treat that skill as missing and report it.
+All 11 skills above are `present` with canonical `SKILL.md` entrypoints as of last check. If a `Read` on a `skill_path` fails, treat that skill as missing and report it.
+
+## agents
+Stage subagents under `.claude/agents/` run each loop stage in an isolated context with its owning skill preloaded (`skills:` frontmatter). The main thread (WeeklyOrchestrator skill) dispatches them, holds gates, and owns the single durable write path. Ownership matrix + rationale: `apex-meta/kb/Weekly-Orchestrator/architecture/01-macro-architecture-decision.md`. Packet envelope + gate primitive: `.claude/skills/weekly-orchestrator/references/handoff-schema.md`. Terms: `apex-meta/GLOSSARY.md`.
+
+| agent | stage | preloads | gate |
+|---|---|---|---|
+| apex-precap-week | weekly plan | PrecapWeek | G1 |
+| apex-precap-next-day | daily plan + flow/prompt packs | PrecapNextDay | G2 |
+| apex-evidence-normalize | evidence intake | raw-flow-dump-normalize | G3 capture |
+| apex-flow-recap | recap + usage delta | flow-recap, model-usage-log | G4 |
+| apex-status-merge | merge proposal | status-merge | G5 |
+| apex-project-status | confirmed overview | ProjectStatus | none |
+| apex-review-validity / apex-review-alignment | dual-blind review of consequential packets | — | review |
 
 ## artifact_paths
 - apex_project_status: state/apex-project-status.md

@@ -1,5 +1,3 @@
-# FILE: .claude/skills/ai-routing-and-usage-tracking/SKILL.md
-
 ---
 name: ai-routing-and-usage-tracking
 description: >
