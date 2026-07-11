@@ -1,0 +1,302 @@
+[
+  {
+    "term": "source",
+    "count": 389,
+    "file_count": 28
+  },
+  {
+    "term": "true",
+    "count": 295,
+    "file_count": 18
+  },
+  {
+    "term": "task",
+    "count": 293,
+    "file_count": 28
+  },
+  {
+    "term": "meta",
+    "count": 232,
+    "file_count": 5
+  },
+  {
+    "term": "status",
+    "count": 226,
+    "file_count": 23
+  },
+  {
+    "term": "skill",
+    "count": 222,
+    "file_count": 15
+  },
+  {
+    "term": "name",
+    "count": 199,
+    "file_count": 20
+  },
+  {
+    "term": "validation",
+    "count": 186,
+    "file_count": 23
+  },
+  {
+    "term": "operator",
+    "count": 179,
+    "file_count": 22
+  },
+  {
+    "term": "workflow",
+    "count": 176,
+    "file_count": 2
+  },
+  {
+    "term": "output",
+    "count": 166,
+    "file_count": 14
+  },
+  {
+    "term": "review",
+    "count": 162,
+    "file_count": 21
+  },
+  {
+    "term": "apex",
+    "count": 161,
+    "file_count": 24
+  },
+  {
+    "term": "required",
+    "count": 160,
+    "file_count": 22
+  },
+  {
+    "term": "session",
+    "count": 158,
+    "file_count": 21
+  },
+  {
+    "term": "raw",
+    "count": 141,
+    "file_count": 12
+  },
+  {
+    "term": "operations",
+    "count": 138,
+    "file_count": 5
+  },
+  {
+    "term": "registry",
+    "count": 137,
+    "file_count": 19
+  },
+  {
+    "term": "references",
+    "count": 133,
+    "file_count": 15
+  },
+  {
+    "term": "skills",
+    "count": 133,
+    "file_count": 14
+  },
+  {
+    "term": "likely",
+    "count": 131,
+    "file_count": 1
+  },
+  {
+    "term": "next",
+    "count": 130,
+    "file_count": 25
+  },
+  {
+    "term": "project",
+    "count": 127,
+    "file_count": 15
+  },
+  {
+    "term": "write",
+    "count": 126,
+    "file_count": 23
+  },
+  {
+    "term": "claude",
+    "count": 126,
+    "file_count": 12
+  },
+  {
+    "term": "yaml",
+    "count": 126,
+    "file_count": 22
+  },
+  {
+    "term": "input",
+    "count": 119,
+    "file_count": 11
+  },
+  {
+    "term": "action",
+    "count": 118,
+    "file_count": 13
+  },
+  {
+    "term": "packet",
+    "count": 118,
+    "file_count": 5
+  },
+  {
+    "term": "context",
+    "count": 116,
+    "file_count": 15
+  },
+  {
+    "term": "dependency",
+    "count": 114,
+    "file_count": 19
+  },
+  {
+    "term": "record",
+    "count": 113,
+    "file_count": 15
+  },
+  {
+    "term": "mutation",
+    "count": 108,
+    "file_count": 16
+  },
+  {
+    "term": "path",
+    "count": 107,
+    "file_count": 21
+  },
+  {
+    "term": "priority",
+    "count": 106,
+    "file_count": 19
+  },
+  {
+    "term": "handoff",
+    "count": 104,
+    "file_count": 22
+  },
+  {
+    "term": "package",
+    "count": 103,
+    "file_count": 17
+  },
+  {
+    "term": "files",
+    "count": 102,
+    "file_count": 21
+  },
+  {
+    "term": "step",
+    "count": 102,
+    "file_count": 11
+  },
+  {
+    "term": "reason",
+    "count": 99,
+    "file_count": 9
+  },
+  {
+    "term": "type",
+    "count": 99,
+    "file_count": 10
+  },
+  {
+    "term": "user",
+    "count": 99,
+    "file_count": 9
+  },
+  {
+    "term": "use",
+    "count": 98,
+    "file_count": 17
+  },
+  {
+    "term": "missing",
+    "count": 95,
+    "file_count": 15
+  },
+  {
+    "term": "kanban",
+    "count": 95,
+    "file_count": 5
+  },
+  {
+    "term": "apex-plan",
+    "count": 93,
+    "file_count": 13
+  },
+  {
+    "term": "file",
+    "count": 91,
+    "file_count": 24
+  },
+  {
+    "term": "report",
+    "count": 91,
+    "file_count": 12
+  },
+  {
+    "term": "exact",
+    "count": 89,
+    "file_count": 15
+  },
+  {
+    "term": "plan",
+    "count": 89,
+    "file_count": 19
+  },
+  {
+    "term": "false",
+    "count": 88,
+    "file_count": 10
+  },
+  {
+    "term": "workshop",
+    "count": 87,
+    "file_count": 2
+  },
+  {
+    "term": "sync",
+    "count": 86,
+    "file_count": 20
+  },
+  {
+    "term": "apex-sync",
+    "count": 85,
+    "file_count": 15
+  },
+  {
+    "term": "final",
+    "count": 82,
+    "file_count": 16
+  },
+  {
+    "term": "mechanism",
+    "count": 80,
+    "file_count": 2
+  },
+  {
+    "term": "records",
+    "count": 79,
+    "file_count": 15
+  },
+  {
+    "term": "flags",
+    "count": 78,
+    "file_count": 19
+  },
+  {
+    "term": "entity",
+    "count": 78,
+    "file_count": 11
+  },
+  {
+    "term": "owner",
+    "count": 77,
+    "file_count": 5
+  }
+]

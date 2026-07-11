@@ -1,0 +1,39 @@
+{
+  "topics": [
+    {
+      "slug": "apex-plan-contract",
+      "name": "apex-plan skill: capture, decomposition, dependency/priority rationale, and its does-not boundary",
+      "source": "operator",
+      "status": "not_started",
+      "keywords": ["plan", "epic", "task", "decomposition", "dependency", "priority", "urgency", "cluster", "focus"]
+    },
+    {
+      "slug": "apex-sync-contract",
+      "name": "apex-sync skill: deterministic read-side computation via apex_sync.py, and its does-not boundary",
+      "source": "operator",
+      "status": "not_started",
+      "keywords": ["sync", "registry", "drift", "blocker", "score", "stale", "unlock", "urgency"]
+    },
+    {
+      "slug": "apex-session-contract",
+      "name": "apex-session skill: session state mutation, handoff, and its does-not boundary",
+      "source": "operator",
+      "status": "not_started",
+      "keywords": ["session", "handoff", "mutation", "gate", "state", "delta", "entity", "progress"]
+    },
+    {
+      "slug": "plan-sync-session-interconnection",
+      "name": "How apex-plan, apex-sync, and apex-session hand off work to each other and stay isolated-but-overlapping",
+      "source": "operator",
+      "status": "not_started",
+      "keywords": ["handoff", "boundary", "gate", "mutate", "routing", "three-package", "operator-gated", "proposal"]
+    },
+    {
+      "slug": "master-of-arts-workflow-research",
+      "name": "Master of Arts workflow example database and process ranking research (Hermes/Alfred lineage)",
+      "source": "operator",
+      "status": "not_started",
+      "keywords": ["master of arts", "workflow", "process", "ranking", "hermes", "database", "example", "portfolio"]
+    }
+  ]
+}

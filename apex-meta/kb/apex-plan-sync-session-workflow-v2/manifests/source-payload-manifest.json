@@ -1,0 +1,310 @@
+{
+  "aggregate": {
+    "file_count": 31,
+    "level": 1,
+    "sha256": "29c286b843e9f6f3b361a287400c6e2beb6c3a47a2ed4693fd92cf54007183f1",
+    "total_size_bytes": 233479
+  },
+  "files": [
+    {
+      "group": "notes",
+      "path": "raw/notes/NEXT STEPS, IMPROVEMENTS, AND HARMONIZATION NOTES.md",
+      "raw_relative_path": "notes/NEXT STEPS, IMPROVEMENTS, AND HARMONIZATION NOTES.md",
+      "sha256": "210759e44766c3f18fae14525697f087a0b13c675b1c4135e3f227afc6ef8c5b",
+      "size_bytes": 668
+    },
+    {
+      "group": "notes",
+      "path": "raw/notes/SKILL.md",
+      "raw_relative_path": "notes/SKILL.md",
+      "sha256": "698848fede4076f10bf3cca2e03d16ffbb9497e9fc9f8d03a851869a54af5b14",
+      "size_bytes": 8458
+    },
+    {
+      "group": "notes",
+      "path": "raw/notes/apex-sync-final-extraction-report.md",
+      "raw_relative_path": "notes/apex-sync-final-extraction-report.md",
+      "sha256": "578325a8737967493b9f0e9f4f11dfe7df8bc5f5d3045c811c6a402ea8a5d98f",
+      "size_bytes": 2514
+    },
+    {
+      "group": "notes",
+      "path": "raw/notes/package-manifest.md",
+      "raw_relative_path": "notes/package-manifest.md",
+      "sha256": "ffa7b3213ca5008e51cb5f3159ebe2ff6e015c4f865317b0f80f3f69722673ff",
+      "size_bytes": 6686
+    },
+    {
+      "group": "notes",
+      "path": "raw/notes/registry-and-drift-rules.md",
+      "raw_relative_path": "notes/registry-and-drift-rules.md",
+      "sha256": "9916e0324e446b63156e1f07f21332d47d9d2ca8c9fd2a55c317496a274995b4",
+      "size_bytes": 5360
+    },
+    {
+      "group": "notes",
+      "path": "raw/notes/scoring-and-focus-rules.md",
+      "raw_relative_path": "notes/scoring-and-focus-rules.md",
+      "sha256": "6df707394b0443282d10f1b699dbca3a28bc812dea5639dc76a1abc989b02425",
+      "size_bytes": 5244
+    },
+    {
+      "group": "notes",
+      "path": "raw/notes/script-command-contract.md",
+      "raw_relative_path": "notes/script-command-contract.md",
+      "sha256": "ca11d205b22817dbe9dd34353a2ec3e944ee0c5c35e312b291daa11a962e2d6f",
+      "size_bytes": 6363
+    },
+    {
+      "group": "notes",
+      "path": "raw/notes/sync-cluster-contract.md",
+      "raw_relative_path": "notes/sync-cluster-contract.md",
+      "sha256": "82bee71a2177026b3ff1f43443ebdbff88f24018fb4a0e87f70ff3ba7ce734a1",
+      "size_bytes": 6141
+    },
+    {
+      "group": "other",
+      "path": "raw/other/SKILL.md",
+      "raw_relative_path": "other/SKILL.md",
+      "sha256": "a83172f1d3f075273ca05a7e91254ed65ef77294a7519f74e94267c1ff3629cf",
+      "size_bytes": 9219
+    },
+    {
+      "group": "other",
+      "path": "raw/other/decomposition-and-dependency-rules.md",
+      "raw_relative_path": "other/decomposition-and-dependency-rules.md",
+      "sha256": "d5794042467c1db18f0d4620c68ff105d22c5e1a1f605c5ca4830d63d27aac6c",
+      "size_bytes": 4309
+    },
+    {
+      "group": "other",
+      "path": "raw/other/epic-template.md",
+      "raw_relative_path": "other/epic-template.md",
+      "sha256": "d2c9610fdd42187728e9de29a6e025f944b0970e90bac5baf8fab74d8c1376cb",
+      "size_bytes": 1769
+    },
+    {
+      "group": "other",
+      "path": "raw/other/extraction-report.md",
+      "raw_relative_path": "other/extraction-report.md",
+      "sha256": "0d51cf31efeb325b787a564a6aae8596fa728c98a278d8b62d054a3055da2343",
+      "size_bytes": 8471
+    },
+    {
+      "group": "other",
+      "path": "raw/other/package-manifest.md",
+      "raw_relative_path": "other/package-manifest.md",
+      "sha256": "b67bbfb44d21e9ba216f5290bc5bb3ddfeb5346aeabf74fac3a76755a343f08e",
+      "size_bytes": 3260
+    },
+    {
+      "group": "other",
+      "path": "raw/other/plan-cluster-contract.md",
+      "raw_relative_path": "other/plan-cluster-contract.md",
+      "sha256": "eb3ee56d1d4245876015c379401f34bab61b985a38322e031f0311b964ee6004",
+      "size_bytes": 4829
+    },
+    {
+      "group": "other",
+      "path": "raw/other/priority-urgency-focus-policy.md",
+      "raw_relative_path": "other/priority-urgency-focus-policy.md",
+      "sha256": "e0562ae86ae8db20136304043b2d8c6da1776f8f2a09ef2271a6a23d38de911d",
+      "size_bytes": 4321
+    },
+    {
+      "group": "other",
+      "path": "raw/other/task-record-contract.md",
+      "raw_relative_path": "other/task-record-contract.md",
+      "sha256": "e6e8ab725558fb42611d1d2f952d5b94ba79215d8fb4bd27bb9a0ccd54e94be5",
+      "size_bytes": 4192
+    },
+    {
+      "group": "other",
+      "path": "raw/other/task-template.md",
+      "raw_relative_path": "other/task-template.md",
+      "sha256": "2866d8f016ea1ecd25ca0c152945841b4f208c6ae35cb77213fcfaffb6e41b63",
+      "size_bytes": 1021
+    },
+    {
+      "group": "papers",
+      "path": "raw/papers/Apex_Hermes_Workflow_Example_Database_Master_of_Arts_v0_1 (1).md",
+      "raw_relative_path": "papers/Apex_Hermes_Workflow_Example_Database_Master_of_Arts_v0_1 (1).md",
+      "sha256": "35af64d7dd9dc2b713430d6bf9dc57b1deaaab60454febfadfaafd6054677f9c",
+      "size_bytes": 79164
+    },
+    {
+      "group": "papers",
+      "path": "raw/papers/ProcessRanking_GPT&MasterOA.md",
+      "raw_relative_path": "papers/ProcessRanking_GPT&MasterOA.md",
+      "sha256": "2f5c385c982d7765f2445206866c1dc60094d83402a981c99c2af44bf0e850fa",
+      "size_bytes": 14456
+    },
+    {
+      "group": "refs",
+      "path": "raw/refs/NEXT STEPS, IMPROVEMENTS, AND HARMONIZATION NOTES.md",
+      "raw_relative_path": "refs/NEXT STEPS, IMPROVEMENTS, AND HARMONIZATION NOTES.md",
+      "sha256": "dc9a35056bdf7f7a608375650bf3c947979696709265957f57508b2d0d91a8f4",
+      "size_bytes": 2184
+    },
+    {
+      "group": "refs",
+      "path": "raw/refs/SKILL.md",
+      "raw_relative_path": "refs/SKILL.md",
+      "sha256": "c45445a3499990275483e0103b7cfc7c1e5b35e7ed0c3ab48d3556fb6902537c",
+      "size_bytes": 11420
+    },
+    {
+      "group": "refs",
+      "path": "raw/refs/apex-session-final-extraction-report.md",
+      "raw_relative_path": "refs/apex-session-final-extraction-report.md",
+      "sha256": "498aad8d4865f777acfd58ca0e8e8481c3ae92c6f64d21609568379f9e208eb8",
+      "size_bytes": 3381
+    },
+    {
+      "group": "refs",
+      "path": "raw/refs/findings.md",
+      "raw_relative_path": "refs/findings.md",
+      "sha256": "be6c7c14ffe26906a14fed377650f4a11652b98bf92d6b81d2bab1f6e62597cf",
+      "size_bytes": 329
+    },
+    {
+      "group": "refs",
+      "path": "raw/refs/handoff-and-next-session-contract.md",
+      "raw_relative_path": "refs/handoff-and-next-session-contract.md",
+      "sha256": "b16dca886f0bb3915e779890e415ed8cc7f6ae03c7e379df96068693090e35d3",
+      "size_bytes": 6486
+    },
+    {
+      "group": "refs",
+      "path": "raw/refs/mutation-gate-rules.md",
+      "raw_relative_path": "refs/mutation-gate-rules.md",
+      "sha256": "20d2c9181164788815c4bf92e76491f1240d95b48758b8a028228f14acdbd9ed",
+      "size_bytes": 8054
+    },
+    {
+      "group": "refs",
+      "path": "raw/refs/next-session.md",
+      "raw_relative_path": "refs/next-session.md",
+      "sha256": "b4c84b846fc24c782f21b3c349b07fc4143a2e4c18249b5ed197aa2fc0ecc4f6",
+      "size_bytes": 184
+    },
+    {
+      "group": "refs",
+      "path": "raw/refs/package-manifest.md",
+      "raw_relative_path": "refs/package-manifest.md",
+      "sha256": "ef2ef2a1d8919a58a34c04a06a982bad00ee960909f0eb82647fc5b5e1463c7b",
+      "size_bytes": 9068
+    },
+    {
+      "group": "refs",
+      "path": "raw/refs/progress.md",
+      "raw_relative_path": "refs/progress.md",
+      "sha256": "b64572b42cfb023c3c46f8ca51446c2fb6137fe163cc644ee8c92d22e313033c",
+      "size_bytes": 636
+    },
+    {
+      "group": "refs",
+      "path": "raw/refs/session-cluster-contract.md",
+      "raw_relative_path": "refs/session-cluster-contract.md",
+      "sha256": "ec87cfeff4df968cebd652706923125d4941d5ea5b250e87526884c30abfb3b0",
+      "size_bytes": 7733
+    },
+    {
+      "group": "refs",
+      "path": "raw/refs/state-delta-and-entity-rules.md",
+      "raw_relative_path": "refs/state-delta-and-entity-rules.md",
+      "sha256": "6b2101477ec3cd53cb4018007ad0866eec2d39c8a02987746c720b34750662d9",
+      "size_bytes": 7318
+    },
+    {
+      "group": "refs",
+      "path": "raw/refs/task_plan.md",
+      "raw_relative_path": "refs/task_plan.md",
+      "sha256": "3114de334722c5b361b768cf8a9baf07f34d061118f04037e4a07eedf01572bb",
+      "size_bytes": 241
+    }
+  ],
+  "grouping": {
+    "default": "first-level folder under raw/",
+    "root_group": "files directly under raw/"
+  },
+  "hash_algorithm": "sha256",
+  "kb_root": "/home/user/apexai-os-meta/apex-meta/kb/apex-plan-sync-session-workflow-v2",
+  "kb_slug": "apex-plan-sync-session-workflow-v2",
+  "manifest_version": "1.0",
+  "payload_root": "/home/user/apexai-os-meta/apex-meta/kb/apex-plan-sync-session-workflow-v2/raw",
+  "schema": "apex.source_payload_manifest.v1",
+  "source_groups": [
+    {
+      "file_count": 8,
+      "files": [
+        "raw/notes/NEXT STEPS, IMPROVEMENTS, AND HARMONIZATION NOTES.md",
+        "raw/notes/SKILL.md",
+        "raw/notes/apex-sync-final-extraction-report.md",
+        "raw/notes/package-manifest.md",
+        "raw/notes/registry-and-drift-rules.md",
+        "raw/notes/scoring-and-focus-rules.md",
+        "raw/notes/script-command-contract.md",
+        "raw/notes/sync-cluster-contract.md"
+      ],
+      "folder": "raw/notes",
+      "group_id": "notes",
+      "level": 2,
+      "sha256": "0cf9293c0af17aaa6edf2d70bbf5a6e35f9fc1e51a31da1bee4861b33c7aa0be",
+      "total_size_bytes": 41434
+    },
+    {
+      "file_count": 9,
+      "files": [
+        "raw/other/SKILL.md",
+        "raw/other/decomposition-and-dependency-rules.md",
+        "raw/other/epic-template.md",
+        "raw/other/extraction-report.md",
+        "raw/other/package-manifest.md",
+        "raw/other/plan-cluster-contract.md",
+        "raw/other/priority-urgency-focus-policy.md",
+        "raw/other/task-record-contract.md",
+        "raw/other/task-template.md"
+      ],
+      "folder": "raw/other",
+      "group_id": "other",
+      "level": 2,
+      "sha256": "8b2836636205a9b965724cbadb3b9b07b132e0fc2318e09ff8847a29fc58733b",
+      "total_size_bytes": 41391
+    },
+    {
+      "file_count": 2,
+      "files": [
+        "raw/papers/Apex_Hermes_Workflow_Example_Database_Master_of_Arts_v0_1 (1).md",
+        "raw/papers/ProcessRanking_GPT&MasterOA.md"
+      ],
+      "folder": "raw/papers",
+      "group_id": "papers",
+      "level": 2,
+      "sha256": "283b463a44d8fd3fec780e3aa6d04917a86ccc5040bd6342ffeabc08a161b5ad",
+      "total_size_bytes": 93620
+    },
+    {
+      "file_count": 12,
+      "files": [
+        "raw/refs/NEXT STEPS, IMPROVEMENTS, AND HARMONIZATION NOTES.md",
+        "raw/refs/SKILL.md",
+        "raw/refs/apex-session-final-extraction-report.md",
+        "raw/refs/findings.md",
+        "raw/refs/handoff-and-next-session-contract.md",
+        "raw/refs/mutation-gate-rules.md",
+        "raw/refs/next-session.md",
+        "raw/refs/package-manifest.md",
+        "raw/refs/progress.md",
+        "raw/refs/session-cluster-contract.md",
+        "raw/refs/state-delta-and-entity-rules.md",
+        "raw/refs/task_plan.md"
+      ],
+      "folder": "raw/refs",
+      "group_id": "refs",
+      "level": 2,
+      "sha256": "a520a13af16b2d776f3a78dc4e59fcf4fe625261798bf26e7e0e8e3636a05b07",
+      "total_size_bytes": 57034
+    }
+  ]
+}

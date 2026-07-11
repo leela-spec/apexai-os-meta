@@ -1,8 +1,8 @@
 # Phase 0 Navigation Report
 
-Generated: `2026-07-03T11:24:55Z`
-KB root: `C:\GitDev\apexai-os-meta\apex-meta\kb\apex-plan-sync-session-workflow-v2`
-Files scanned: `0`
+Generated: `2026-07-11T09:35:26Z`
+KB root: `/home/user/apexai-os-meta/apex-meta/kb/apex-plan-sync-session-workflow-v2`
+Files scanned: `31`
 
 ## Artifacts
 
@@ -10,8 +10,8 @@ Files scanned: `0`
 - `heading-map.json`
 - `markdown-link-map.json`
 - `frontmatter-map.json`
-- `keyword-hits.ndjson`
-- `topic-file-map.json`
+- `term-frequency.json`
+- `topic-source-rankings.json`
 - `source-priority-candidates.md`
 - `phase0-navigation-report.md`
 

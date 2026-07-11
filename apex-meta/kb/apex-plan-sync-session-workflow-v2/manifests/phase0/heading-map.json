@@ -1,1 +1,1415 @@
-[]
+[
+  {
+    "h1_title": "NEXT STEPS, IMPROVEMENTS, AND HARMONIZATION NOTES",
+    "headings": [
+      {
+        "level": 1,
+        "line": 1,
+        "text": "NEXT STEPS, IMPROVEMENTS, AND HARMONIZATION NOTES"
+      }
+    ],
+    "parser_warnings": [],
+    "path": "raw/notes/NEXT STEPS, IMPROVEMENTS, AND HARMONIZATION NOTES.md",
+    "source_type_guess": "note"
+  },
+  {
+    "h1_title": "Apex Sync",
+    "headings": [
+      {
+        "level": 1,
+        "line": 12,
+        "text": "Apex Sync"
+      },
+      {
+        "level": 2,
+        "line": 14,
+        "text": "Objective"
+      },
+      {
+        "level": 2,
+        "line": 25,
+        "text": "Accepted Inputs"
+      },
+      {
+        "level": 2,
+        "line": 43,
+        "text": "Required Outputs"
+      },
+      {
+        "level": 2,
+        "line": 65,
+        "text": "Supporting File Navigation"
+      },
+      {
+        "level": 2,
+        "line": 78,
+        "text": "Canonical Command Policy"
+      },
+      {
+        "level": 2,
+        "line": 111,
+        "text": "Procedure"
+      },
+      {
+        "level": 2,
+        "line": 153,
+        "text": "Validation Rules"
+      },
+      {
+        "level": 2,
+        "line": 177,
+        "text": "Failure Modes"
+      },
+      {
+        "level": 2,
+        "line": 193,
+        "text": "Completion Gate"
+      }
+    ],
+    "parser_warnings": [],
+    "path": "raw/notes/SKILL.md",
+    "source_type_guess": "note"
+  },
+  {
+    "h1_title": "apex-sync Final Variant Extraction Report",
+    "headings": [
+      {
+        "level": 1,
+        "line": 1,
+        "text": "apex-sync Final Variant Extraction Report"
+      },
+      {
+        "level": 2,
+        "line": 5,
+        "text": "Source"
+      },
+      {
+        "level": 2,
+        "line": 11,
+        "text": "Extracted Files"
+      },
+      {
+        "level": 2,
+        "line": 63,
+        "text": "Conflicts"
+      }
+    ],
+    "parser_warnings": [],
+    "path": "raw/notes/apex-sync-final-extraction-report.md",
+    "source_type_guess": "note"
+  },
+  {
+    "h1_title": "Apex Sync Package Manifest",
+    "headings": [
+      {
+        "level": 1,
+        "line": 1,
+        "text": "Apex Sync Package Manifest"
+      },
+      {
+        "level": 2,
+        "line": 3,
+        "text": "package_name"
+      },
+      {
+        "level": 2,
+        "line": 9,
+        "text": "package_path"
+      },
+      {
+        "level": 2,
+        "line": 16,
+        "text": "package_status"
+      },
+      {
+        "level": 2,
+        "line": 22,
+        "text": "exact_file_index"
+      },
+      {
+        "level": 2,
+        "line": 50,
+        "text": "file_purpose_map"
+      },
+      {
+        "level": 2,
+        "line": 62,
+        "text": "source_basis_map"
+      },
+      {
+        "level": 2,
+        "line": 76,
+        "text": "read_order"
+      },
+      {
+        "level": 2,
+        "line": 88,
+        "text": "package_invariants"
+      },
+      {
+        "level": 2,
+        "line": 115,
+        "text": "validation_checklist"
+      },
+      {
+        "level": 2,
+        "line": 140,
+        "text": "forbidden_claims"
+      },
+      {
+        "level": 2,
+        "line": 150,
+        "text": "backup_and_application_notes"
+      }
+    ],
+    "parser_warnings": [],
+    "path": "raw/notes/package-manifest.md",
+    "source_type_guess": "note"
+  },
+  {
+    "h1_title": "Registry and Drift Rules",
+    "headings": [
+      {
+        "level": 1,
+        "line": 1,
+        "text": "Registry and Drift Rules"
+      },
+      {
+        "level": 2,
+        "line": 3,
+        "text": "purpose"
+      },
+      {
+        "level": 2,
+        "line": 11,
+        "text": "task_file_discovery"
+      },
+      {
+        "level": 2,
+        "line": 28,
+        "text": "task_frontmatter_validation"
+      },
+      {
+        "level": 2,
+        "line": 75,
+        "text": "registry_schema"
+      },
+      {
+        "level": 2,
+        "line": 108,
+        "text": "registry_rebuild_rules"
+      },
+      {
+        "level": 2,
+        "line": 139,
+        "text": "drift_detection_rules"
+      },
+      {
+        "level": 2,
+        "line": 165,
+        "text": "malformed_task_file_policy"
+      },
+      {
+        "level": 2,
+        "line": 179,
+        "text": "dry_run_default"
+      },
+      {
+        "level": 2,
+        "line": 196,
+        "text": "explicit_non_dry_run_write_gate"
+      },
+      {
+        "level": 2,
+        "line": 210,
+        "text": "only_allowed_write_path"
+      },
+      {
+        "level": 2,
+        "line": 224,
+        "text": "final_registry_report_contract"
+      }
+    ],
+    "parser_warnings": [],
+    "path": "raw/notes/registry-and-drift-rules.md",
+    "source_type_guess": "note"
+  },
+  {
+    "h1_title": "Scoring and Focus Rules",
+    "headings": [
+      {
+        "level": 1,
+        "line": 1,
+        "text": "Scoring and Focus Rules"
+      },
+      {
+        "level": 2,
+        "line": 3,
+        "text": "purpose"
+      },
+      {
+        "level": 2,
+        "line": 12,
+        "text": "H7_priority_score"
+      },
+      {
+        "level": 2,
+        "line": 32,
+        "text": "H7_urgency_score"
+      },
+      {
+        "level": 2,
+        "line": 51,
+        "text": "dependency_satisfied_actionability"
+      },
+      {
+        "level": 2,
+        "line": 78,
+        "text": "blocker_semantics"
+      },
+      {
+        "level": 2,
+        "line": 97,
+        "text": "stale_task_semantics"
+      },
+      {
+        "level": 2,
+        "line": 123,
+        "text": "unlock_depth_policy"
+      },
+      {
+        "level": 2,
+        "line": 156,
+        "text": "focus_candidate_sort_policy"
+      },
+      {
+        "level": 2,
+        "line": 175,
+        "text": "score_report_schema"
+      },
+      {
+        "level": 2,
+        "line": 205,
+        "text": "focus_candidate_report_schema"
+      },
+      {
+        "level": 2,
+        "line": 222,
+        "text": "no_planning_recommendation_boundary"
+      }
+    ],
+    "parser_warnings": [],
+    "path": "raw/notes/scoring-and-focus-rules.md",
+    "source_type_guess": "note"
+  },
+  {
+    "h1_title": "Script Command Contract",
+    "headings": [
+      {
+        "level": 1,
+        "line": 1,
+        "text": "Script Command Contract"
+      },
+      {
+        "level": 2,
+        "line": 3,
+        "text": "canonical_command"
+      },
+      {
+        "level": 2,
+        "line": 20,
+        "text": "global_flags"
+      },
+      {
+        "level": 2,
+        "line": 39,
+        "text": "subcommands"
+      },
+      {
+        "level": 2,
+        "line": 50,
+        "text": "next_command_contract"
+      },
+      {
+        "level": 2,
+        "line": 73,
+        "text": "blockers_command_contract"
+      },
+      {
+        "level": 2,
+        "line": 94,
+        "text": "registry_command_contract"
+      },
+      {
+        "level": 2,
+        "line": 122,
+        "text": "stall_command_contract"
+      },
+      {
+        "level": 2,
+        "line": 147,
+        "text": "drift_command_contract"
+      },
+      {
+        "level": 2,
+        "line": 168,
+        "text": "score_command_contract"
+      },
+      {
+        "level": 2,
+        "line": 195,
+        "text": "exit_code_policy"
+      },
+      {
+        "level": 2,
+        "line": 211,
+        "text": "json_output_policy"
+      },
+      {
+        "level": 2,
+        "line": 226,
+        "text": "dry_run_policy"
+      },
+      {
+        "level": 2,
+        "line": 249,
+        "text": "no_shell_out_policy"
+      }
+    ],
+    "parser_warnings": [],
+    "path": "raw/notes/script-command-contract.md",
+    "source_type_guess": "note"
+  },
+  {
+    "h1_title": "Sync Cluster Contract",
+    "headings": [
+      {
+        "level": 1,
+        "line": 1,
+        "text": "Sync Cluster Contract"
+      },
+      {
+        "level": 2,
+        "line": 3,
+        "text": "package_role"
+      },
+      {
+        "level": 2,
+        "line": 23,
+        "text": "B_SYNC_process_scope"
+      },
+      {
+        "level": 2,
+        "line": 43,
+        "text": "owned_processes"
+      },
+      {
+        "level": 2,
+        "line": 60,
+        "text": "excluded_processes"
+      },
+      {
+        "level": 2,
+        "line": 76,
+        "text": "cross_package_routing"
+      },
+      {
+        "level": 2,
+        "line": 92,
+        "text": "read_side_only_policy"
+      },
+      {
+        "level": 2,
+        "line": 115,
+        "text": "registry_write_exception"
+      },
+      {
+        "level": 2,
+        "line": 138,
+        "text": "custom_python_caveats"
+      },
+      {
+        "level": 2,
+        "line": 161,
+        "text": "final_acceptance_invariants"
+      }
+    ],
+    "parser_warnings": [],
+    "path": "raw/notes/sync-cluster-contract.md",
+    "source_type_guess": "note"
+  },
+  {
+    "h1_title": "Apex Plan",
+    "headings": [
+      {
+        "level": 1,
+        "line": 7,
+        "text": "Apex Plan"
+      },
+      {
+        "level": 2,
+        "line": 9,
+        "text": "Skill Contract"
+      },
+      {
+        "level": 2,
+        "line": 93,
+        "text": "Supporting Files"
+      },
+      {
+        "level": 2,
+        "line": 139,
+        "text": "Procedure"
+      },
+      {
+        "level": 2,
+        "line": 155,
+        "text": "Failure Modes"
+      },
+      {
+        "level": 2,
+        "line": 192,
+        "text": "Output Requirements"
+      },
+      {
+        "level": 2,
+        "line": 251,
+        "text": "Completion Gate"
+      }
+    ],
+    "parser_warnings": [],
+    "path": "raw/other/SKILL.md",
+    "source_type_guess": "other"
+  },
+  {
+    "h1_title": "Decomposition and Dependency Rules",
+    "headings": [
+      {
+        "level": 1,
+        "line": 1,
+        "text": "Decomposition and Dependency Rules"
+      },
+      {
+        "level": 2,
+        "line": 22,
+        "text": "1. Decomposition Rules"
+      },
+      {
+        "level": 2,
+        "line": 51,
+        "text": "2. Dependency Proposal Rules"
+      },
+      {
+        "level": 2,
+        "line": 76,
+        "text": "3. Circular Dependency Risk"
+      },
+      {
+        "level": 2,
+        "line": 97,
+        "text": "4. Dependency Plan Schema"
+      },
+      {
+        "level": 2,
+        "line": 139,
+        "text": "5. Non-Goals"
+      }
+    ],
+    "parser_warnings": [],
+    "path": "raw/other/decomposition-and-dependency-rules.md",
+    "source_type_guess": "other"
+  },
+  {
+    "h1_title": "Epic Template",
+    "headings": [
+      {
+        "level": 1,
+        "line": 1,
+        "text": "Epic Template"
+      }
+    ],
+    "parser_warnings": [],
+    "path": "raw/other/epic-template.md",
+    "source_type_guess": "other"
+  },
+  {
+    "h1_title": "apex-plan Extraction Report",
+    "headings": [
+      {
+        "level": 1,
+        "line": 1,
+        "text": "apex-plan Extraction Report"
+      },
+      {
+        "level": 2,
+        "line": 5,
+        "text": "Sources"
+      },
+      {
+        "level": 2,
+        "line": 14,
+        "text": "Extracted Blocks"
+      },
+      {
+        "level": 2,
+        "line": 73,
+        "text": "Actions"
+      },
+      {
+        "level": 2,
+        "line": 142,
+        "text": "Conflicts"
+      }
+    ],
+    "parser_warnings": [],
+    "path": "raw/other/extraction-report.md",
+    "source_type_guess": "other"
+  },
+  {
+    "h1_title": "Apex Plan Package Manifest",
+    "headings": [
+      {
+        "level": 1,
+        "line": 1,
+        "text": "Apex Plan Package Manifest"
+      }
+    ],
+    "parser_warnings": [],
+    "path": "raw/other/package-manifest.md",
+    "source_type_guess": "other"
+  },
+  {
+    "h1_title": "Plan Cluster Contract",
+    "headings": [
+      {
+        "level": 1,
+        "line": 1,
+        "text": "Plan Cluster Contract"
+      },
+      {
+        "level": 2,
+        "line": 36,
+        "text": "1. Preserved Mapping"
+      },
+      {
+        "level": 2,
+        "line": 60,
+        "text": "2. Process Scope"
+      },
+      {
+        "level": 2,
+        "line": 105,
+        "text": "3. Record Purposes"
+      },
+      {
+        "level": 2,
+        "line": 124,
+        "text": "4. Handoff Request Contract"
+      },
+      {
+        "level": 2,
+        "line": 149,
+        "text": "5. Non-Goals"
+      }
+    ],
+    "parser_warnings": [],
+    "path": "raw/other/plan-cluster-contract.md",
+    "source_type_guess": "other"
+  },
+  {
+    "h1_title": "Priority, Urgency, and Focus Policy",
+    "headings": [
+      {
+        "level": 1,
+        "line": 1,
+        "text": "Priority, Urgency, and Focus Policy"
+      },
+      {
+        "level": 2,
+        "line": 16,
+        "text": "1. Priority Policy"
+      },
+      {
+        "level": 2,
+        "line": 44,
+        "text": "2. Urgency Policy"
+      },
+      {
+        "level": 2,
+        "line": 68,
+        "text": "3. Provisional Focus Recommendation"
+      },
+      {
+        "level": 2,
+        "line": 113,
+        "text": "4. Handoff Rules"
+      },
+      {
+        "level": 2,
+        "line": 134,
+        "text": "5. Non-Goals"
+      }
+    ],
+    "parser_warnings": [],
+    "path": "raw/other/priority-urgency-focus-policy.md",
+    "source_type_guess": "other"
+  },
+  {
+    "h1_title": "Task Record Contract",
+    "headings": [
+      {
+        "level": 1,
+        "line": 1,
+        "text": "Task Record Contract"
+      },
+      {
+        "level": 2,
+        "line": 27,
+        "text": "1. Field Definitions"
+      },
+      {
+        "level": 2,
+        "line": 109,
+        "text": "2. Actionability Rule"
+      },
+      {
+        "level": 2,
+        "line": 119,
+        "text": "3. Review Flags"
+      },
+      {
+        "level": 2,
+        "line": 141,
+        "text": "4. Mutation Boundary"
+      },
+      {
+        "level": 2,
+        "line": 165,
+        "text": "5. Non-Goals"
+      }
+    ],
+    "parser_warnings": [],
+    "path": "raw/other/task-record-contract.md",
+    "source_type_guess": "other"
+  },
+  {
+    "h1_title": "Task Template",
+    "headings": [
+      {
+        "level": 1,
+        "line": 1,
+        "text": "Task Template"
+      }
+    ],
+    "parser_warnings": [],
+    "path": "raw/other/task-template.md",
+    "source_type_guess": "other"
+  },
+  {
+    "h1_title": "Apex/Hermes Workflow Example Database v0.1",
+    "headings": [
+      {
+        "level": 1,
+        "line": 1,
+        "text": "Apex/Hermes Workflow Example Database v0.1"
+      },
+      {
+        "level": 2,
+        "line": 9,
+        "text": "1. Source Scan Summary"
+      },
+      {
+        "level": 3,
+        "line": 11,
+        "text": "Inspected / used sources"
+      },
+      {
+        "level": 3,
+        "line": 19,
+        "text": "Best workflow-bearing chats / sources to process next, in order"
+      },
+      {
+        "level": 2,
+        "line": 34,
+        "text": "2. Source Map"
+      },
+      {
+        "level": 2,
+        "line": 111,
+        "text": "3. Workflow Long List"
+      },
+      {
+        "level": 2,
+        "line": 165,
+        "text": "4. Workflow Short List"
+      },
+      {
+        "level": 2,
+        "line": 222,
+        "text": "5. Workflow Taxonomy"
+      },
+      {
+        "level": 2,
+        "line": 277,
+        "text": "6. Workflow Records"
+      },
+      {
+        "level": 2,
+        "line": 961,
+        "text": "7. Routine / Procedure Catalogue"
+      },
+      {
+        "level": 2,
+        "line": 989,
+        "text": "8. Profile Ownership Map"
+      },
+      {
+        "level": 2,
+        "line": 1020,
+        "text": "9. I/O Mechanism Map"
+      },
+      {
+        "level": 2,
+        "line": 1115,
+        "text": "10. Skill / Workflow Skill / Kanban / Cron Candidate Map"
+      },
+      {
+        "level": 2,
+        "line": 1163,
+        "text": "11. Gaps / Open Questions"
+      },
+      {
+        "level": 2,
+        "line": 1205,
+        "text": "12. Next Prompts"
+      }
+    ],
+    "parser_warnings": [],
+    "path": "raw/papers/Apex_Hermes_Workflow_Example_Database_Master_of_Arts_v0_1 (1).md",
+    "source_type_guess": "paper"
+  },
+  {
+    "h1_title": "Ranking: processes most useful for automating the Master of Arts workflow examples",
+    "headings": [
+      {
+        "level": 1,
+        "line": 1,
+        "text": "Ranking: processes most useful for automating the Master of Arts workflow examples"
+      },
+      {
+        "level": 2,
+        "line": 7,
+        "text": "Selection logic"
+      },
+      {
+        "level": 1,
+        "line": 23,
+        "text": "Top 10 process portfolio"
+      },
+      {
+        "level": 1,
+        "line": 42,
+        "text": "Why these ten beat the raw top-scored list"
+      },
+      {
+        "level": 1,
+        "line": 50,
+        "text": "Ranking 11–20: important but not core-first"
+      },
+      {
+        "level": 1,
+        "line": 67,
+        "text": "Processes I would deliberately **not** prioritize now"
+      },
+      {
+        "level": 1,
+        "line": 79,
+        "text": "Best supplemental relationships"
+      },
+      {
+        "level": 2,
+        "line": 81,
+        "text": "A. Master creation stack"
+      },
+      {
+        "level": 2,
+        "line": 107,
+        "text": "B. Durable orchestration stack"
+      },
+      {
+        "level": 2,
+        "line": 133,
+        "text": "C. Workshop-production stack"
+      },
+      {
+        "level": 2,
+        "line": 156,
+        "text": "D. Operating-cycle stack"
+      },
+      {
+        "level": 2,
+        "line": 180,
+        "text": "E. Knowledge-bank stack"
+      },
+      {
+        "level": 1,
+        "line": 206,
+        "text": "Recommended “minimal complete process library”"
+      }
+    ],
+    "parser_warnings": [],
+    "path": "raw/papers/ProcessRanking_GPT&MasterOA.md",
+    "source_type_guess": "paper"
+  },
+  {
+    "h1_title": "NEXT STEPS, IMPROVEMENTS, AND HARMONIZATION NOTES",
+    "headings": [
+      {
+        "level": 1,
+        "line": 1,
+        "text": "NEXT STEPS, IMPROVEMENTS, AND HARMONIZATION NOTES"
+      },
+      {
+        "level": 1,
+        "line": 11,
+        "text": "VALIDATION REPORT"
+      }
+    ],
+    "parser_warnings": [],
+    "path": "raw/refs/NEXT STEPS, IMPROVEMENTS, AND HARMONIZATION NOTES.md",
+    "source_type_guess": "ref"
+  },
+  {
+    "h1_title": "Apex Session",
+    "headings": [
+      {
+        "level": 1,
+        "line": 12,
+        "text": "Apex Session"
+      },
+      {
+        "level": 2,
+        "line": 14,
+        "text": "Objective"
+      },
+      {
+        "level": 2,
+        "line": 18,
+        "text": "Skill Contract"
+      },
+      {
+        "level": 2,
+        "line": 69,
+        "text": "Accepted Inputs"
+      },
+      {
+        "level": 2,
+        "line": 107,
+        "text": "Final Outputs"
+      },
+      {
+        "level": 2,
+        "line": 129,
+        "text": "Supporting File Navigation"
+      },
+      {
+        "level": 2,
+        "line": 186,
+        "text": "Procedure"
+      },
+      {
+        "level": 2,
+        "line": 210,
+        "text": "Validation Rules"
+      },
+      {
+        "level": 2,
+        "line": 264,
+        "text": "Failure Modes"
+      },
+      {
+        "level": 2,
+        "line": 301,
+        "text": "Completion Gate"
+      }
+    ],
+    "parser_warnings": [],
+    "path": "raw/refs/SKILL.md",
+    "source_type_guess": "ref"
+  },
+  {
+    "h1_title": "apex-session Final Variant Extraction Report",
+    "headings": [
+      {
+        "level": 1,
+        "line": 1,
+        "text": "apex-session Final Variant Extraction Report"
+      },
+      {
+        "level": 2,
+        "line": 5,
+        "text": "Source"
+      },
+      {
+        "level": 2,
+        "line": 11,
+        "text": "Extracted Files"
+      },
+      {
+        "level": 2,
+        "line": 74,
+        "text": "Conflicts"
+      }
+    ],
+    "parser_warnings": [],
+    "path": "raw/refs/apex-session-final-extraction-report.md",
+    "source_type_guess": "ref"
+  },
+  {
+    "h1_title": "Durable Findings",
+    "headings": [
+      {
+        "level": 1,
+        "line": 1,
+        "text": "Durable Findings"
+      },
+      {
+        "level": 1,
+        "line": 5,
+        "text": "Decisions Made"
+      },
+      {
+        "level": 1,
+        "line": 9,
+        "text": "Source Notes"
+      },
+      {
+        "level": 1,
+        "line": 14,
+        "text": "Open Questions"
+      },
+      {
+        "level": 1,
+        "line": 18,
+        "text": "Operator Validations"
+      }
+    ],
+    "parser_warnings": [],
+    "path": "raw/refs/findings.md",
+    "source_type_guess": "ref"
+  },
+  {
+    "h1_title": "Handoff and Next Session Contract",
+    "headings": [
+      {
+        "level": 1,
+        "line": 1,
+        "text": "Handoff and Next Session Contract"
+      },
+      {
+        "level": 2,
+        "line": 3,
+        "text": "H6_file_set"
+      },
+      {
+        "level": 2,
+        "line": 24,
+        "text": "task_plan_contract"
+      },
+      {
+        "level": 2,
+        "line": 53,
+        "text": "findings_contract"
+      },
+      {
+        "level": 2,
+        "line": 78,
+        "text": "progress_contract"
+      },
+      {
+        "level": 2,
+        "line": 104,
+        "text": "next_session_contract"
+      },
+      {
+        "level": 2,
+        "line": 131,
+        "text": "required_next_session_sections"
+      },
+      {
+        "level": 2,
+        "line": 155,
+        "text": "read_before_decide_rule"
+      },
+      {
+        "level": 2,
+        "line": 180,
+        "text": "planning_layer_feed_contract"
+      },
+      {
+        "level": 2,
+        "line": 213,
+        "text": "missing_context_behavior"
+      },
+      {
+        "level": 2,
+        "line": 237,
+        "text": "final_handoff_acceptance_checks"
+      }
+    ],
+    "parser_warnings": [],
+    "path": "raw/refs/handoff-and-next-session-contract.md",
+    "source_type_guess": "ref"
+  },
+  {
+    "h1_title": "Mutation Gate Rules",
+    "headings": [
+      {
+        "level": 1,
+        "line": 1,
+        "text": "Mutation Gate Rules"
+      },
+      {
+        "level": 2,
+        "line": 3,
+        "text": "purpose"
+      },
+      {
+        "level": 2,
+        "line": 27,
+        "text": "H1_status_validation"
+      },
+      {
+        "level": 2,
+        "line": 54,
+        "text": "status_mutation_record_schema"
+      },
+      {
+        "level": 2,
+        "line": 114,
+        "text": "before_after_preview_schema"
+      },
+      {
+        "level": 2,
+        "line": 150,
+        "text": "operator_validation_record_schema"
+      },
+      {
+        "level": 2,
+        "line": 186,
+        "text": "create_vs_update_distinction"
+      },
+      {
+        "level": 2,
+        "line": 217,
+        "text": "confirmation_gate"
+      },
+      {
+        "level": 2,
+        "line": 251,
+        "text": "invalid_mutation_rejection"
+      },
+      {
+        "level": 2,
+        "line": 274,
+        "text": "final_mutation_output_contract"
+      }
+    ],
+    "parser_warnings": [],
+    "path": "raw/refs/mutation-gate-rules.md",
+    "source_type_guess": "ref"
+  },
+  {
+    "h1_title": "Current Step",
+    "headings": [
+      {
+        "level": 1,
+        "line": 1,
+        "text": "Current Step"
+      },
+      {
+        "level": 1,
+        "line": 5,
+        "text": "Open Items"
+      },
+      {
+        "level": 1,
+        "line": 9,
+        "text": "Risks"
+      },
+      {
+        "level": 1,
+        "line": 13,
+        "text": "Decisions Made"
+      },
+      {
+        "level": 1,
+        "line": 17,
+        "text": "Next Actions"
+      }
+    ],
+    "parser_warnings": [],
+    "path": "raw/refs/next-session.md",
+    "source_type_guess": "ref"
+  },
+  {
+    "h1_title": "Apex Session Package Manifest",
+    "headings": [
+      {
+        "level": 1,
+        "line": 1,
+        "text": "Apex Session Package Manifest"
+      },
+      {
+        "level": 2,
+        "line": 3,
+        "text": "package_name"
+      },
+      {
+        "level": 2,
+        "line": 9,
+        "text": "package_path"
+      },
+      {
+        "level": 2,
+        "line": 15,
+        "text": "package_status"
+      },
+      {
+        "level": 2,
+        "line": 21,
+        "text": "exact_file_index"
+      },
+      {
+        "level": 2,
+        "line": 50,
+        "text": "file_purpose_map"
+      },
+      {
+        "level": 2,
+        "line": 114,
+        "text": "source_basis_map"
+      },
+      {
+        "level": 2,
+        "line": 191,
+        "text": "read_order"
+      },
+      {
+        "level": 2,
+        "line": 226,
+        "text": "package_invariants"
+      },
+      {
+        "level": 2,
+        "line": 261,
+        "text": "validation_checklist"
+      },
+      {
+        "level": 2,
+        "line": 315,
+        "text": "forbidden_claims"
+      }
+    ],
+    "parser_warnings": [],
+    "path": "raw/refs/package-manifest.md",
+    "source_type_guess": "ref"
+  },
+  {
+    "h1_title": "Session Log",
+    "headings": [
+      {
+        "level": 1,
+        "line": 1,
+        "text": "Session Log"
+      },
+      {
+        "level": 1,
+        "line": 5,
+        "text": "Actions Taken"
+      },
+      {
+        "level": 1,
+        "line": 9,
+        "text": "Status Mutations"
+      },
+      {
+        "level": 1,
+        "line": 20,
+        "text": "State Deltas"
+      },
+      {
+        "level": 1,
+        "line": 26,
+        "text": "Errors or Review Flags"
+      },
+      {
+        "level": 1,
+        "line": 30,
+        "text": "Next Step"
+      }
+    ],
+    "parser_warnings": [],
+    "path": "raw/refs/progress.md",
+    "source_type_guess": "ref"
+  },
+  {
+    "h1_title": "Session Cluster Contract",
+    "headings": [
+      {
+        "level": 1,
+        "line": 1,
+        "text": "Session Cluster Contract"
+      },
+      {
+        "level": 2,
+        "line": 3,
+        "text": "package_role"
+      },
+      {
+        "level": 2,
+        "line": 39,
+        "text": "C_SESSION_process_scope"
+      },
+      {
+        "level": 2,
+        "line": 77,
+        "text": "owned_processes"
+      },
+      {
+        "level": 2,
+        "line": 134,
+        "text": "excluded_processes"
+      },
+      {
+        "level": 2,
+        "line": 168,
+        "text": "cross_package_routing"
+      },
+      {
+        "level": 2,
+        "line": 212,
+        "text": "PD3_unlock_depth_boundary"
+      },
+      {
+        "level": 2,
+        "line": 236,
+        "text": "script_and_write_exclusions"
+      },
+      {
+        "level": 2,
+        "line": 269,
+        "text": "final_acceptance_invariants"
+      }
+    ],
+    "parser_warnings": [],
+    "path": "raw/refs/session-cluster-contract.md",
+    "source_type_guess": "ref"
+  },
+  {
+    "h1_title": "State Delta and Entity Rules",
+    "headings": [
+      {
+        "level": 1,
+        "line": 1,
+        "text": "State Delta and Entity Rules"
+      },
+      {
+        "level": 2,
+        "line": 3,
+        "text": "purpose"
+      },
+      {
+        "level": 2,
+        "line": 20,
+        "text": "state_delta_summary_schema"
+      },
+      {
+        "level": 2,
+        "line": 61,
+        "text": "entity_update_record_schema"
+      },
+      {
+        "level": 2,
+        "line": 103,
+        "text": "raw_source_preservation_policy"
+      },
+      {
+        "level": 2,
+        "line": 131,
+        "text": "raw_source_path_policy"
+      },
+      {
+        "level": 2,
+        "line": 153,
+        "text": "source_conflict_policy"
+      },
+      {
+        "level": 2,
+        "line": 176,
+        "text": "duplicate_entity_risk_policy"
+      },
+      {
+        "level": 2,
+        "line": 197,
+        "text": "durable_findings_policy"
+      },
+      {
+        "level": 2,
+        "line": 220,
+        "text": "planning_feed_policy"
+      },
+      {
+        "level": 2,
+        "line": 251,
+        "text": "failure_modes"
+      }
+    ],
+    "parser_warnings": [],
+    "path": "raw/refs/state-delta-and-entity-rules.md",
+    "source_type_guess": "ref"
+  },
+  {
+    "h1_title": "Goal",
+    "headings": [
+      {
+        "level": 1,
+        "line": 1,
+        "text": "Goal"
+      },
+      {
+        "level": 1,
+        "line": 5,
+        "text": "Current Step"
+      },
+      {
+        "level": 1,
+        "line": 9,
+        "text": "Phases"
+      },
+      {
+        "level": 1,
+        "line": 13,
+        "text": "Decisions"
+      },
+      {
+        "level": 1,
+        "line": 17,
+        "text": "Open Items"
+      },
+      {
+        "level": 1,
+        "line": 21,
+        "text": "Risks"
+      },
+      {
+        "level": 1,
+        "line": 25,
+        "text": "Next Actions"
+      }
+    ],
+    "parser_warnings": [],
+    "path": "raw/refs/task_plan.md",
+    "source_type_guess": "ref"
+  }
+]

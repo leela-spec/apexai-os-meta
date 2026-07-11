@@ -1,0 +1,1086 @@
+{
+  "apex-plan-contract": {
+    "keywords": [
+      "plan",
+      "epic",
+      "task",
+      "decomposition",
+      "dependency",
+      "priority",
+      "urgency",
+      "cluster",
+      "focus"
+    ],
+    "name": "apex-plan skill: capture, decomposition, dependency/priority rationale, and its does-not boundary",
+    "ranked_sources": [
+      {
+        "hit_count": 120,
+        "path": "raw/other/SKILL.md",
+        "sample": {
+          "line": 2,
+          "snippet": "name: apex-plan"
+        }
+      },
+      {
+        "hit_count": 105,
+        "path": "raw/other/extraction-report.md",
+        "sample": {
+          "line": 1,
+          "snippet": "# apex-plan Extraction Report"
+        }
+      },
+      {
+        "hit_count": 74,
+        "path": "raw/notes/scoring-and-focus-rules.md",
+        "sample": {
+          "line": 1,
+          "snippet": "# Scoring and Focus Rules"
+        }
+      },
+      {
+        "hit_count": 71,
+        "path": "raw/other/priority-urgency-focus-policy.md",
+        "sample": {
+          "line": 1,
+          "snippet": "# Priority, Urgency, and Focus Policy"
+        }
+      },
+      {
+        "hit_count": 63,
+        "path": "raw/other/plan-cluster-contract.md",
+        "sample": {
+          "line": 1,
+          "snippet": "# Plan Cluster Contract"
+        }
+      },
+      {
+        "hit_count": 58,
+        "path": "raw/other/decomposition-and-dependency-rules.md",
+        "sample": {
+          "line": 1,
+          "snippet": "# Decomposition and Dependency Rules"
+        }
+      },
+      {
+        "hit_count": 54,
+        "path": "raw/notes/SKILL.md",
+        "sample": {
+          "line": 5,
+          "snippet": "synchronization reports: next actions, blockers, stale tasks, registry"
+        }
+      },
+      {
+        "hit_count": 50,
+        "path": "raw/papers/Apex_Hermes_Workflow_Example_Database_Master_of_Arts_v0_1 (1).md",
+        "sample": {
+          "line": 25,
+          "snippet": "5. **Audio to Idea Database:** Best source for raw-idea ingestion, clustering, tags, project mapping, and next-action extraction."
+        }
+      },
+      {
+        "hit_count": 48,
+        "path": "raw/refs/SKILL.md",
+        "sample": {
+          "line": 6,
+          "snippet": "source references, or prepare next-session context from task/session evidence."
+        }
+      },
+      {
+        "hit_count": 46,
+        "path": "raw/other/package-manifest.md",
+        "sample": {
+          "line": 1,
+          "snippet": "# Apex Plan Package Manifest"
+        }
+      },
+      {
+        "hit_count": 46,
+        "path": "raw/refs/session-cluster-contract.md",
+        "sample": {
+          "line": 1,
+          "snippet": "# Session Cluster Contract"
+        }
+      },
+      {
+        "hit_count": 42,
+        "path": "raw/refs/package-manifest.md",
+        "sample": {
+          "line": 28,
+          "snippet": "- references/session-cluster-contract.md"
+        }
+      },
+      {
+        "hit_count": 40,
+        "path": "raw/other/task-record-contract.md",
+        "sample": {
+          "line": 1,
+          "snippet": "# Task Record Contract"
+        }
+      },
+      {
+        "hit_count": 39,
+        "path": "raw/notes/sync-cluster-contract.md",
+        "sample": {
+          "line": 1,
+          "snippet": "# Sync Cluster Contract"
+        }
+      },
+      {
+        "hit_count": 37,
+        "path": "raw/notes/registry-and-drift-rules.md",
+        "sample": {
+          "line": 7,
+          "snippet": "The registry is a deterministic compact index of Apex task files. It is"
+        }
+      },
+      {
+        "hit_count": 33,
+        "path": "raw/notes/script-command-contract.md",
+        "sample": {
+          "line": 26,
+          "snippet": "| `--root .` | Recommended | `.` | Repository root containing `apex-meta/epics/`. |"
+        }
+      },
+      {
+        "hit_count": 30,
+        "path": "raw/refs/handoff-and-next-session-contract.md",
+        "sample": {
+          "line": 9,
+          "snippet": "- task_plan.md"
+        }
+      },
+      {
+        "hit_count": 27,
+        "path": "raw/notes/package-manifest.md",
+        "sample": {
+          "line": 27,
+          "snippet": "- .claude/skills/apex-sync/references/sync-cluster-contract.md"
+        }
+      },
+      {
+        "hit_count": 22,
+        "path": "raw/other/epic-template.md",
+        "sample": {
+          "line": 1,
+          "snippet": "# Epic Template"
+        }
+      },
+      {
+        "hit_count": 21,
+        "path": "raw/refs/state-delta-and-entity-rules.md",
+        "sample": {
+          "line": 12,
+          "snippet": "conflicts and duplicate entity risks, and prepares clean planning_feed"
+        }
+      },
+      {
+        "hit_count": 17,
+        "path": "raw/refs/mutation-gate-rules.md",
+        "sample": {
+          "line": 20,
+          "snippet": "CrewAI_task_py_SUBSTITUTE:"
+        }
+      },
+      {
+        "hit_count": 13,
+        "path": "raw/other/task-template.md",
+        "sample": {
+          "line": 1,
+          "snippet": "# Task Template"
+        }
+      },
+      {
+        "hit_count": 12,
+        "path": "raw/papers/ProcessRanking_GPT&MasterOA.md",
+        "sample": {
+          "line": 15,
+          "snippet": "|**Hermes fit**|Whether it maps cleanly to Skill, Kanban, Cron, `delegate_task`, or context files.|"
+        }
+      },
+      {
+        "hit_count": 7,
+        "path": "raw/refs/NEXT STEPS, IMPROVEMENTS, AND HARMONIZATION NOTES.md",
+        "sample": {
+          "line": 5,
+          "snippet": "Suggested manual tests: missing confirmation, ambiguous status delta, uncertain entity update, duplicate entity risk, next-session context generation, and planning_layer_feed generation."
+        }
+      },
+      {
+        "hit_count": 7,
+        "path": "raw/refs/apex-session-final-extraction-report.md",
+        "sample": {
+          "line": 7,
+          "snippet": "- path: `FutureDevelopments&Research/ProjectMM&Task&KB/DeepResearch-File&Process/3rdIteration_ProThinking/ProFinal_apex-session_skillpack_fullanswer_v2.md`"
+        }
+      },
+      {
+        "hit_count": 5,
+        "path": "raw/notes/apex-sync-final-extraction-report.md",
+        "sample": {
+          "line": 7,
+          "snippet": "- path: `FutureDevelopments&Research/ProjectMM&Task&KB/DeepResearch-File&Process/3rdIteration_ProThinking/Prothinking_Apex_synch_fullresponse.md`"
+        }
+      },
+      {
+        "hit_count": 2,
+        "path": "raw/notes/NEXT STEPS, IMPROVEMENTS, AND HARMONIZATION NOTES.md",
+        "sample": {
+          "line": 5,
+          "snippet": "The main future improvement is to add repository-local manual tests after these files are installed: create three small task files under `apex-meta/epics/manual-test/`, run every subcommand with `--json`, and compare out"
+        }
+      },
+      {
+        "hit_count": 2,
+        "path": "raw/refs/progress.md",
+        "sample": {
+          "line": 11,
+          "snippet": "- task_id: USER_INPUT_REQUIRED"
+        }
+      }
+    ]
+  },
+  "apex-session-contract": {
+    "keywords": [
+      "session",
+      "handoff",
+      "mutation",
+      "gate",
+      "state",
+      "delta",
+      "entity",
+      "progress"
+    ],
+    "name": "apex-session skill: session state mutation, handoff, and its does-not boundary",
+    "ranked_sources": [
+      {
+        "hit_count": 131,
+        "path": "raw/refs/SKILL.md",
+        "sample": {
+          "line": 2,
+          "snippet": "name: apex-session"
+        }
+      },
+      {
+        "hit_count": 119,
+        "path": "raw/refs/package-manifest.md",
+        "sample": {
+          "line": 1,
+          "snippet": "# Apex Session Package Manifest"
+        }
+      },
+      {
+        "hit_count": 94,
+        "path": "raw/refs/session-cluster-contract.md",
+        "sample": {
+          "line": 1,
+          "snippet": "# Session Cluster Contract"
+        }
+      },
+      {
+        "hit_count": 79,
+        "path": "raw/papers/Apex_Hermes_Workflow_Example_Database_Master_of_Arts_v0_1 (1).md",
+        "sample": {
+          "line": 24,
+          "snippet": "4. **Peaceful Warrior / Superhero Training:** Best source for workshop creation, facilitation logic, child safety, and embodied progression."
+        }
+      },
+      {
+        "hit_count": 65,
+        "path": "raw/refs/state-delta-and-entity-rules.md",
+        "sample": {
+          "line": 1,
+          "snippet": "# State Delta and Entity Rules"
+        }
+      },
+      {
+        "hit_count": 56,
+        "path": "raw/refs/handoff-and-next-session-contract.md",
+        "sample": {
+          "line": 1,
+          "snippet": "# Handoff and Next Session Contract"
+        }
+      },
+      {
+        "hit_count": 53,
+        "path": "raw/refs/mutation-gate-rules.md",
+        "sample": {
+          "line": 1,
+          "snippet": "# Mutation Gate Rules"
+        }
+      },
+      {
+        "hit_count": 51,
+        "path": "raw/other/SKILL.md",
+        "sample": {
+          "line": 4,
+          "snippet": "Use this skill when the operator asks to capture a project, create a new epic/task plan, decompose work, propose dependencies, assign priority/due-date rationale, or draft a provisional focus recommendation. Accepts oper"
+        }
+      },
+      {
+        "hit_count": 37,
+        "path": "raw/refs/apex-session-final-extraction-report.md",
+        "sample": {
+          "line": 1,
+          "snippet": "# apex-session Final Variant Extraction Report"
+        }
+      },
+      {
+        "hit_count": 36,
+        "path": "raw/notes/sync-cluster-contract.md",
+        "sample": {
+          "line": 33,
+          "snippet": "task_file_mutation_allowed: false"
+        }
+      },
+      {
+        "hit_count": 26,
+        "path": "raw/other/plan-cluster-contract.md",
+        "sample": {
+          "line": 11,
+          "snippet": "explains priority and urgency policy, and emits operator-gated handoff"
+        }
+      },
+      {
+        "hit_count": 20,
+        "path": "raw/papers/ProcessRanking_GPT&MasterOA.md",
+        "sample": {
+          "line": 3,
+          "snippet": "**Main conclusion:** the best “top 10” is not the ten highest raw process scores. It is the ten-process **coverage set** that can automate the widest range of your Master of Arts workflows: idea capture, project prioriti"
+        }
+      },
+      {
+        "hit_count": 19,
+        "path": "raw/notes/SKILL.md",
+        "sample": {
+          "line": 8,
+          "snippet": "capture projects, decompose work, mutate task status, author handoff files,"
+        }
+      },
+      {
+        "hit_count": 15,
+        "path": "raw/other/task-record-contract.md",
+        "sample": {
+          "line": 10,
+          "snippet": "task records for operator review; apex-session owns confirmed durable writes"
+        }
+      },
+      {
+        "hit_count": 15,
+        "path": "raw/refs/NEXT STEPS, IMPROVEMENTS, AND HARMONIZATION NOTES.md",
+        "sample": {
+          "line": 3,
+          "snippet": "Review the package in four passes. First, verify the mutation gate wording: every mutation must remain a proposal until `confirmation_token` is exactly `CONFIRM`, `CONFIRM WRITE`, or `CONFIRM MUTATION`. Second, verify th"
+        }
+      },
+      {
+        "hit_count": 11,
+        "path": "raw/notes/package-manifest.md",
+        "sample": {
+          "line": 54,
+          "snippet": "| `SKILL.md` | Skill entrypoint, routing description, objective, accepted inputs, required outputs, procedure, validation rules, failure modes, and completion gate. |"
+        }
+      },
+      {
+        "hit_count": 11,
+        "path": "raw/notes/registry-and-drift-rules.md",
+        "sample": {
+          "line": 9,
+          "snippet": "session narrative, status mutation file, or handoff file."
+        }
+      },
+      {
+        "hit_count": 10,
+        "path": "raw/other/package-manifest.md",
+        "sample": {
+          "line": 7,
+          "snippet": "package_role: no_script_operator_gated_project_planning"
+        }
+      },
+      {
+        "hit_count": 6,
+        "path": "raw/other/extraction-report.md",
+        "sample": {
+          "line": 32,
+          "snippet": "- `dr` -> `.claude/skills/apex-plan/references/operator-gate.dr.md`"
+        }
+      },
+      {
+        "hit_count": 6,
+        "path": "raw/refs/progress.md",
+        "sample": {
+          "line": 1,
+          "snippet": "# Session Log"
+        }
+      },
+      {
+        "hit_count": 5,
+        "path": "raw/other/epic-template.md",
+        "sample": {
+          "line": 55,
+          "snippet": "apex_sync_handoff_requests:"
+        }
+      },
+      {
+        "hit_count": 5,
+        "path": "raw/other/priority-urgency-focus-policy.md",
+        "sample": {
+          "line": 98,
+          "snippet": "handoff_needed:"
+        }
+      },
+      {
+        "hit_count": 4,
+        "path": "raw/notes/script-command-contract.md",
+        "sample": {
+          "line": 65,
+          "snippet": "- Select candidates whose status is `open` or `in-progress`."
+        }
+      },
+      {
+        "hit_count": 4,
+        "path": "raw/other/decomposition-and-dependency-rules.md",
+        "sample": {
+          "line": 58,
+          "snippet": "- \"The operator explicitly states a prerequisite relationship.\""
+        }
+      },
+      {
+        "hit_count": 4,
+        "path": "raw/other/task-template.md",
+        "sample": {
+          "line": 32,
+          "snippet": "<Explain proposed depends_on relationships or state that there are none.>"
+        }
+      },
+      {
+        "hit_count": 2,
+        "path": "raw/notes/scoring-and-focus-rules.md",
+        "sample": {
+          "line": 60,
+          "snippet": "- in-progress"
+        }
+      }
+    ]
+  },
+  "apex-sync-contract": {
+    "keywords": [
+      "sync",
+      "registry",
+      "drift",
+      "blocker",
+      "score",
+      "stale",
+      "unlock",
+      "urgency"
+    ],
+    "name": "apex-sync skill: deterministic read-side computation via apex_sync.py, and its does-not boundary",
+    "ranked_sources": [
+      {
+        "hit_count": 71,
+        "path": "raw/notes/SKILL.md",
+        "sample": {
+          "line": 2,
+          "snippet": "name: apex-sync"
+        }
+      },
+      {
+        "hit_count": 67,
+        "path": "raw/notes/script-command-contract.md",
+        "sample": {
+          "line": 8,
+          "snippet": "python scripts/apex_sync.py <subcommand> --root . --json --dry-run true"
+        }
+      },
+      {
+        "hit_count": 64,
+        "path": "raw/notes/package-manifest.md",
+        "sample": {
+          "line": 1,
+          "snippet": "# Apex Sync Package Manifest"
+        }
+      },
+      {
+        "hit_count": 59,
+        "path": "raw/notes/sync-cluster-contract.md",
+        "sample": {
+          "line": 1,
+          "snippet": "# Sync Cluster Contract"
+        }
+      },
+      {
+        "hit_count": 51,
+        "path": "raw/notes/scoring-and-focus-rules.md",
+        "sample": {
+          "line": 6,
+          "snippet": "`apex-sync`."
+        }
+      },
+      {
+        "hit_count": 48,
+        "path": "raw/notes/registry-and-drift-rules.md",
+        "sample": {
+          "line": 1,
+          "snippet": "# Registry and Drift Rules"
+        }
+      },
+      {
+        "hit_count": 37,
+        "path": "raw/other/SKILL.md",
+        "sample": {
+          "line": 4,
+          "snippet": "Use this skill when the operator asks to capture a project, create a new epic/task plan, decompose work, propose dependencies, assign priority/due-date rationale, or draft a provisional focus recommendation. Accepts oper"
+        }
+      },
+      {
+        "hit_count": 37,
+        "path": "raw/refs/session-cluster-contract.md",
+        "sample": {
+          "line": 32,
+          "snippet": "registry_root: apex-meta/registry/"
+        }
+      },
+      {
+        "hit_count": 29,
+        "path": "raw/other/priority-urgency-focus-policy.md",
+        "sample": {
+          "line": 1,
+          "snippet": "# Priority, Urgency, and Focus Policy"
+        }
+      },
+      {
+        "hit_count": 25,
+        "path": "raw/refs/SKILL.md",
+        "sample": {
+          "line": 8,
+          "snippet": "tasks, scan blockers, rebuild registries, compute scores, run scripts, or"
+        }
+      },
+      {
+        "hit_count": 23,
+        "path": "raw/other/plan-cluster-contract.md",
+        "sample": {
+          "line": 11,
+          "snippet": "explains priority and urgency policy, and emits operator-gated handoff"
+        }
+      },
+      {
+        "hit_count": 21,
+        "path": "raw/notes/apex-sync-final-extraction-report.md",
+        "sample": {
+          "line": 1,
+          "snippet": "# apex-sync Final Variant Extraction Report"
+        }
+      },
+      {
+        "hit_count": 15,
+        "path": "raw/papers/Apex_Hermes_Workflow_Example_Database_Master_of_Arts_v0_1 (1).md",
+        "sample": {
+          "line": 116,
+          "snippet": "- {id: L02, name: architecture_decision_capture, source: S01, likely_level: meso, likely_owner: meta_strategist, likely_mechanism: skill, keep_reason: Prevents drift in profile/system design.}"
+        }
+      },
+      {
+        "hit_count": 13,
+        "path": "raw/refs/handoff-and-next-session-contract.md",
+        "sample": {
+          "line": 50,
+          "snippet": "- avoid_exact_rank_or_score_computation"
+        }
+      },
+      {
+        "hit_count": 13,
+        "path": "raw/refs/package-manifest.md",
+        "sample": {
+          "line": 253,
+          "snippet": "no_apex_sync_scope: true"
+        }
+      },
+      {
+        "hit_count": 13,
+        "path": "raw/refs/state-delta-and-entity-rules.md",
+        "sample": {
+          "line": 49,
+          "snippet": "- scope_drift"
+        }
+      },
+      {
+        "hit_count": 9,
+        "path": "raw/other/task-record-contract.md",
+        "sample": {
+          "line": 61,
+          "snippet": "rule: \"Apex Plan may assign priority with rationale; exact ranking belongs to apex-sync.\""
+        }
+      },
+      {
+        "hit_count": 8,
+        "path": "raw/other/decomposition-and-dependency-rules.md",
+        "sample": {
+          "line": 19,
+          "snippet": "validation_owner: apex-sync"
+        }
+      },
+      {
+        "hit_count": 8,
+        "path": "raw/papers/ProcessRanking_GPT&MasterOA.md",
+        "sample": {
+          "line": 3,
+          "snippet": "**Main conclusion:** the best “top 10” is not the ten highest raw process scores. It is the ten-process **coverage set** that can automate the widest range of your Master of Arts workflows: idea capture, project prioriti"
+        }
+      },
+      {
+        "hit_count": 7,
+        "path": "raw/other/package-manifest.md",
+        "sample": {
+          "line": 39,
+          "snippet": "- path: \".claude/skills/apex-plan/references/priority-urgency-focus-policy.md\""
+        }
+      },
+      {
+        "hit_count": 6,
+        "path": "raw/refs/NEXT STEPS, IMPROVEMENTS, AND HARMONIZATION NOTES.md",
+        "sample": {
+          "line": 7,
+          "snippet": "Harmonize against `apex-plan` by checking that apex-plan creates proposed task records, owns decomposition and rationale, and leaves confirmed state-delta capture to apex-session. Harmonize against `apex-sync` by checkin"
+        }
+      },
+      {
+        "hit_count": 4,
+        "path": "raw/refs/mutation-gate-rules.md",
+        "sample": {
+          "line": 103,
+          "snippet": "- scope_drift"
+        }
+      },
+      {
+        "hit_count": 3,
+        "path": "raw/other/epic-template.md",
+        "sample": {
+          "line": 55,
+          "snippet": "apex_sync_handoff_requests:"
+        }
+      },
+      {
+        "hit_count": 2,
+        "path": "raw/notes/NEXT STEPS, IMPROVEMENTS, AND HARMONIZATION NOTES.md",
+        "sample": {
+          "line": 3,
+          "snippet": "The package is ready to paste into the target repository as chat-output file blocks. The only executable file is `apex-meta/scripts/apex_sync.py`; it is standard-library-only, read-only by default, and writes only `apex-"
+        }
+      },
+      {
+        "hit_count": 2,
+        "path": "raw/other/extraction-report.md",
+        "sample": {
+          "line": 84,
+          "snippet": "- `write` `.claude/skills/apex-plan/references/priority-urgency-focus-policy.v1.md`"
+        }
+      },
+      {
+        "hit_count": 2,
+        "path": "raw/other/task-template.md",
+        "sample": {
+          "line": 34,
+          "snippet": "## Priority and Urgency Rationale"
+        }
+      }
+    ]
+  },
+  "master-of-arts-workflow-research": {
+    "keywords": [
+      "master of arts",
+      "workflow",
+      "process",
+      "ranking",
+      "hermes",
+      "database",
+      "example",
+      "portfolio"
+    ],
+    "name": "Master of Arts workflow example database and process ranking research (Hermes/Alfred lineage)",
+    "ranked_sources": [
+      {
+        "hit_count": 336,
+        "path": "raw/papers/Apex_Hermes_Workflow_Example_Database_Master_of_Arts_v0_1 (1).md",
+        "sample": {
+          "line": 1,
+          "snippet": "# Apex/Hermes Workflow Example Database v0.1"
+        }
+      },
+      {
+        "hit_count": 85,
+        "path": "raw/papers/ProcessRanking_GPT&MasterOA.md",
+        "sample": {
+          "line": 1,
+          "snippet": "# Ranking: processes most useful for automating the Master of Arts workflow examples"
+        }
+      },
+      {
+        "hit_count": 9,
+        "path": "raw/refs/session-cluster-contract.md",
+        "sample": {
+          "line": 39,
+          "snippet": "## C_SESSION_process_scope"
+        }
+      },
+      {
+        "hit_count": 8,
+        "path": "raw/notes/sync-cluster-contract.md",
+        "sample": {
+          "line": 23,
+          "snippet": "## B_SYNC_process_scope"
+        }
+      },
+      {
+        "hit_count": 8,
+        "path": "raw/refs/package-manifest.md",
+        "sample": {
+          "line": 45,
+          "snippet": "- examples/"
+        }
+      },
+      {
+        "hit_count": 6,
+        "path": "raw/other/SKILL.md",
+        "sample": {
+          "line": 24,
+          "snippet": "process_scope:"
+        }
+      },
+      {
+        "hit_count": 5,
+        "path": "raw/notes/script-command-contract.md",
+        "sample": {
+          "line": 128,
+          "snippet": "Optional deterministic test example:"
+        }
+      },
+      {
+        "hit_count": 5,
+        "path": "raw/refs/state-delta-and-entity-rules.md",
+        "sample": {
+          "line": 13,
+          "snippet": "material without computing final ranking or rebuilding indexes."
+        }
+      },
+      {
+        "hit_count": 4,
+        "path": "raw/other/plan-cluster-contract.md",
+        "sample": {
+          "line": 12,
+          "snippet": "requests without computing deterministic rankings or mutating durable state."
+        }
+      },
+      {
+        "hit_count": 3,
+        "path": "raw/other/priority-urgency-focus-policy.md",
+        "sample": {
+          "line": 9,
+          "snippet": "provisional focus rationale without computing exact deterministic ranking."
+        }
+      },
+      {
+        "hit_count": 3,
+        "path": "raw/refs/SKILL.md",
+        "sample": {
+          "line": 188,
+          "snippet": "1. **Classify the request.** Decide whether the operator is asking for session update, handoff creation, state delta extraction, entity update records, status mutation validation, or next-session context. If the request "
+        }
+      },
+      {
+        "hit_count": 2,
+        "path": "raw/other/extraction-report.md",
+        "sample": {
+          "line": 7,
+          "snippet": "- `dr`: `FutureDevelopments&Research/ProjectMM&Task&KB/DeepResearch-File&Process/3rdIteration_ProThinking/DR_Apex_Plan.md`"
+        }
+      },
+      {
+        "hit_count": 2,
+        "path": "raw/refs/handoff-and-next-session-contract.md",
+        "sample": {
+          "line": 152,
+          "snippet": "must_capture: actions for the next session or planning layer without final ranking"
+        }
+      },
+      {
+        "hit_count": 1,
+        "path": "raw/notes/SKILL.md",
+        "sample": {
+          "line": 181,
+          "snippet": "| `malformed_frontmatter` | A task file lacks valid YAML-like frontmatter. | Report the file and continue processing other valid task files. |"
+        }
+      },
+      {
+        "hit_count": 1,
+        "path": "raw/notes/apex-sync-final-extraction-report.md",
+        "sample": {
+          "line": 7,
+          "snippet": "- path: `FutureDevelopments&Research/ProjectMM&Task&KB/DeepResearch-File&Process/3rdIteration_ProThinking/Prothinking_Apex_synch_fullresponse.md`"
+        }
+      },
+      {
+        "hit_count": 1,
+        "path": "raw/notes/package-manifest.md",
+        "sample": {
+          "line": 55,
+          "snippet": "| `references/sync-cluster-contract.md` | B_SYNC package boundary, owned/excluded processes, routing, read-side policy, registry write exception, and custom Python caveats. |"
+        }
+      },
+      {
+        "hit_count": 1,
+        "path": "raw/notes/scoring-and-focus-rules.md",
+        "sample": {
+          "line": 137,
+          "snippet": "Example:"
+        }
+      },
+      {
+        "hit_count": 1,
+        "path": "raw/other/package-manifest.md",
+        "sample": {
+          "line": 19,
+          "snippet": "purpose: \"Canonical scope, cluster mapping, process ownership, durable paths, and handoff boundaries.\""
+        }
+      },
+      {
+        "hit_count": 1,
+        "path": "raw/other/task-record-contract.md",
+        "sample": {
+          "line": 61,
+          "snippet": "rule: \"Apex Plan may assign priority with rationale; exact ranking belongs to apex-sync.\""
+        }
+      },
+      {
+        "hit_count": 1,
+        "path": "raw/refs/apex-session-final-extraction-report.md",
+        "sample": {
+          "line": 7,
+          "snippet": "- path: `FutureDevelopments&Research/ProjectMM&Task&KB/DeepResearch-File&Process/3rdIteration_ProThinking/ProFinal_apex-session_skillpack_fullanswer_v2.md`"
+        }
+      },
+      {
+        "hit_count": 1,
+        "path": "raw/refs/mutation-gate-rules.md",
+        "sample": {
+          "line": 224,
+          "snippet": "consequential_mutation_examples:"
+        }
+      }
+    ]
+  },
+  "plan-sync-session-interconnection": {
+    "keywords": [
+      "handoff",
+      "boundary",
+      "gate",
+      "mutate",
+      "routing",
+      "three-package",
+      "operator-gated",
+      "proposal"
+    ],
+    "name": "How apex-plan, apex-sync, and apex-session hand off work to each other and stay isolated-but-overlapping",
+    "ranked_sources": [
+      {
+        "hit_count": 72,
+        "path": "raw/papers/Apex_Hermes_Workflow_Example_Database_Master_of_Arts_v0_1 (1).md",
+        "sample": {
+          "line": 26,
+          "snippet": "6. **Master Of Arts Meta:** Best source for project portfolio routing, prioritization, output matrices, and business/content strategy."
+        }
+      },
+      {
+        "hit_count": 31,
+        "path": "raw/other/SKILL.md",
+        "sample": {
+          "line": 4,
+          "snippet": "Use this skill when the operator asks to capture a project, create a new epic/task plan, decompose work, propose dependencies, assign priority/due-date rationale, or draft a provisional focus recommendation. Accepts oper"
+        }
+      },
+      {
+        "hit_count": 31,
+        "path": "raw/refs/package-manifest.md",
+        "sample": {
+          "line": 29,
+          "snippet": "- references/mutation-gate-rules.md"
+        }
+      },
+      {
+        "hit_count": 23,
+        "path": "raw/refs/SKILL.md",
+        "sample": {
+          "line": 5,
+          "snippet": "status changes, produce handoff files, extract state deltas, preserve raw"
+        }
+      },
+      {
+        "hit_count": 20,
+        "path": "raw/papers/ProcessRanking_GPT&MasterOA.md",
+        "sample": {
+          "line": 3,
+          "snippet": "**Main conclusion:** the best “top 10” is not the ten highest raw process scores. It is the ten-process **coverage set** that can automate the widest range of your Master of Arts workflows: idea capture, project prioriti"
+        }
+      },
+      {
+        "hit_count": 18,
+        "path": "raw/refs/session-cluster-contract.md",
+        "sample": {
+          "line": 11,
+          "snippet": "Produce final Apex session artifacts, gated mutation records, state deltas,"
+        }
+      },
+      {
+        "hit_count": 16,
+        "path": "raw/notes/sync-cluster-contract.md",
+        "sample": {
+          "line": 34,
+          "snippet": "handoff_file_mutation_allowed: false"
+        }
+      },
+      {
+        "hit_count": 15,
+        "path": "raw/other/plan-cluster-contract.md",
+        "sample": {
+          "line": 9,
+          "snippet": "Define the canonical no-script planning boundary for Apex Plan. Apex Plan"
+        }
+      },
+      {
+        "hit_count": 14,
+        "path": "raw/notes/SKILL.md",
+        "sample": {
+          "line": 8,
+          "snippet": "capture projects, decompose work, mutate task status, author handoff files,"
+        }
+      },
+      {
+        "hit_count": 11,
+        "path": "raw/notes/package-manifest.md",
+        "sample": {
+          "line": 54,
+          "snippet": "| `SKILL.md` | Skill entrypoint, routing description, objective, accepted inputs, required outputs, procedure, validation rules, failure modes, and completion gate. |"
+        }
+      },
+      {
+        "hit_count": 11,
+        "path": "raw/other/package-manifest.md",
+        "sample": {
+          "line": 7,
+          "snippet": "package_role: no_script_operator_gated_project_planning"
+        }
+      },
+      {
+        "hit_count": 7,
+        "path": "raw/refs/mutation-gate-rules.md",
+        "sample": {
+          "line": 1,
+          "snippet": "# Mutation Gate Rules"
+        }
+      },
+      {
+        "hit_count": 6,
+        "path": "raw/notes/registry-and-drift-rules.md",
+        "sample": {
+          "line": 9,
+          "snippet": "session narrative, status mutation file, or handoff file."
+        }
+      },
+      {
+        "hit_count": 6,
+        "path": "raw/other/decomposition-and-dependency-rules.md",
+        "sample": {
+          "line": 5,
+          "snippet": "file_role: decomposition_and_dependency_proposal_policy"
+        }
+      },
+      {
+        "hit_count": 6,
+        "path": "raw/other/extraction-report.md",
+        "sample": {
+          "line": 32,
+          "snippet": "- `dr` -> `.claude/skills/apex-plan/references/operator-gate.dr.md`"
+        }
+      },
+      {
+        "hit_count": 6,
+        "path": "raw/refs/handoff-and-next-session-contract.md",
+        "sample": {
+          "line": 1,
+          "snippet": "# Handoff and Next Session Contract"
+        }
+      },
+      {
+        "hit_count": 5,
+        "path": "raw/notes/script-command-contract.md",
+        "sample": {
+          "line": 71,
+          "snippet": "- Never mutate task files."
+        }
+      },
+      {
+        "hit_count": 5,
+        "path": "raw/other/priority-urgency-focus-policy.md",
+        "sample": {
+          "line": 11,
+          "snippet": "computation_boundary:"
+        }
+      },
+      {
+        "hit_count": 5,
+        "path": "raw/refs/NEXT STEPS, IMPROVEMENTS, AND HARMONIZATION NOTES.md",
+        "sample": {
+          "line": 3,
+          "snippet": "Review the package in four passes. First, verify the mutation gate wording: every mutation must remain a proposal until `confirmation_token` is exactly `CONFIRM`, `CONFIRM WRITE`, or `CONFIRM MUTATION`. Second, verify th"
+        }
+      },
+      {
+        "hit_count": 4,
+        "path": "raw/notes/scoring-and-focus-rules.md",
+        "sample": {
+          "line": 30,
+          "snippet": "- Priority scoring does not mutate task frontmatter."
+        }
+      },
+      {
+        "hit_count": 4,
+        "path": "raw/other/epic-template.md",
+        "sample": {
+          "line": 55,
+          "snippet": "apex_sync_handoff_requests:"
+        }
+      },
+      {
+        "hit_count": 4,
+        "path": "raw/other/task-record-contract.md",
+        "sample": {
+          "line": 141,
+          "snippet": "## 4. Mutation Boundary"
+        }
+      },
+      {
+        "hit_count": 4,
+        "path": "raw/refs/apex-session-final-extraction-report.md",
+        "sample": {
+          "line": 25,
+          "snippet": "- `.claude/skills/apex-session/references/mutation-gate-rules.final.md`"
+        }
+      },
+      {
+        "hit_count": 2,
+        "path": "raw/other/task-template.md",
+        "sample": {
+          "line": 45,
+          "snippet": "## Handoff Requests"
+        }
+      },
+      {
+        "hit_count": 2,
+        "path": "raw/refs/state-delta-and-entity-rules.md",
+        "sample": {
+          "line": 139,
+          "snippet": "- prior_handoff_path"
+        }
+      }
+    ]
+  }
+}

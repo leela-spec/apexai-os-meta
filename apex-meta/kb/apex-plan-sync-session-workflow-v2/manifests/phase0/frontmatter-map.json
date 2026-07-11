@@ -1,1 +1,197 @@
-[]
+[
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "raw/notes/NEXT STEPS, IMPROVEMENTS, AND HARMONIZATION NOTES.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": true,
+    "parse_status": "parsed",
+    "path": "raw/notes/SKILL.md",
+    "raw_field_keys": [
+      "description",
+      "name"
+    ]
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "raw/notes/apex-sync-final-extraction-report.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "raw/notes/package-manifest.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "raw/notes/registry-and-drift-rules.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "raw/notes/scoring-and-focus-rules.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "raw/notes/script-command-contract.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "raw/notes/sync-cluster-contract.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": true,
+    "parse_status": "parsed",
+    "path": "raw/other/SKILL.md",
+    "raw_field_keys": [
+      "description",
+      "name"
+    ]
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "raw/other/decomposition-and-dependency-rules.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "raw/other/epic-template.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "raw/other/extraction-report.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "raw/other/package-manifest.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "raw/other/plan-cluster-contract.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "raw/other/priority-urgency-focus-policy.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "raw/other/task-record-contract.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "raw/other/task-template.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "raw/papers/Apex_Hermes_Workflow_Example_Database_Master_of_Arts_v0_1 (1).md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "raw/papers/ProcessRanking_GPT&MasterOA.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "raw/refs/NEXT STEPS, IMPROVEMENTS, AND HARMONIZATION NOTES.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": true,
+    "parse_status": "parsed",
+    "path": "raw/refs/SKILL.md",
+    "raw_field_keys": [
+      "description",
+      "name"
+    ]
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "raw/refs/apex-session-final-extraction-report.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "raw/refs/findings.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "raw/refs/handoff-and-next-session-contract.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "raw/refs/mutation-gate-rules.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "raw/refs/next-session.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "raw/refs/package-manifest.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "raw/refs/progress.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "raw/refs/session-cluster-contract.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "raw/refs/state-delta-and-entity-rules.md",
+    "raw_field_keys": []
+  },
+  {
+    "has_frontmatter": false,
+    "parse_status": "missing",
+    "path": "raw/refs/task_plan.md",
+    "raw_field_keys": []
+  }
+]
