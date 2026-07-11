@@ -1,0 +1,51 @@
+{
+  "backend": "sqlite_fts5",
+  "chunk_count": 118,
+  "files": {
+    "wiki/concepts/isolation-with-overlap.md": {
+      "hash": "14132bf8c2f64e487d770c7e532e5fb1e642f2f08c384829d578cfbbeb0802c7",
+      "mtime": 1783763537.399525
+    },
+    "wiki/concepts/master-of-arts-workflow-research.md": {
+      "hash": "b4b536d38460e7250ee9692f5a14c7f28dd25e73edf6b8f4e6f1412977eb7eba",
+      "mtime": 1783763630.9395256
+    },
+    "wiki/concepts/operator-gated-phase-boundary.md": {
+      "hash": "a70070c1a261ee233ee48c8441001708504d896c3db19725017c305142f984a6",
+      "mtime": 1783763486.6155245
+    },
+    "wiki/concepts/proposal-computation-mutation-split.md": {
+      "hash": "57992166385eafd90ac14e661f2e47976ebcca76f06aa02c9b896e33b8e8a85c",
+      "mtime": 1783763449.3315244
+    },
+    "wiki/concepts/three-package-boundary.md": {
+      "hash": "30d24bc7279b09a78720bed02bd70759f82a2a5765d6ca1eb37b85a62d5fed5b",
+      "mtime": 1783763412.927524
+    },
+    "wiki/entities/apex-plan.md": {
+      "hash": "5ae56bcf028a7a239bf322b8e9bc310cf54df1f14eb78d17801c92534ec85976",
+      "mtime": 1783763223.823523
+    },
+    "wiki/entities/apex-session.md": {
+      "hash": "6def6c74cc42b0bd3527296cc0c4c6e49fdb466c8775da0ddfcd1ca7d774be89",
+      "mtime": 1783763352.699524
+    },
+    "wiki/entities/apex-sync.md": {
+      "hash": "47f7622d92b18c28f937b46e1024305c8569aad1265367471d2521b1126cb284",
+      "mtime": 1783763310.0075235
+    },
+    "wiki/summaries/apex-plan-sync-session-workflow-summary.md": {
+      "hash": "aa159fcf16b112e213c3cf1f5831085cd025f255d6339d3c10de548b5e14dbb6",
+      "mtime": 1783763671.8075259
+    },
+    "wiki/summaries/master-of-arts-workflow-research-summary.md": {
+      "hash": "ba2ac35456fa6479488880bcf685e9344b98becb97c0af0ef91a7366dabd47ea",
+      "mtime": 1783763701.039526
+    }
+  },
+  "generated_at": "2026-07-11T09:57:18Z",
+  "kb_slug": "apex-plan-sync-session-workflow-v2",
+  "page_count": 10,
+  "policy": "derived_rebuildable_not_canonical",
+  "schema_version": "1.0"
+}

@@ -1,6 +1,6 @@
 # Phase 0 Navigation Report
 
-Generated: `2026-07-11T09:35:26Z`
+Generated: `2026-07-11T09:56:37Z`
 KB root: `/home/user/apexai-os-meta/apex-meta/kb/apex-plan-sync-session-workflow-v2`
 Files scanned: `31`
 

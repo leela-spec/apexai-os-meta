@@ -1,11 +1,18 @@
 {
   "aggregate": {
-    "file_count": 31,
+    "file_count": 32,
     "level": 1,
-    "sha256": "29c286b843e9f6f3b361a287400c6e2beb6c3a47a2ed4693fd92cf54007183f1",
+    "sha256": "b38af503b55453ddeab6cdd8e78b850939cc91fd1acead0310748f760c2156b5",
     "total_size_bytes": 233479
   },
   "files": [
+    {
+      "group": "articles",
+      "path": "raw/articles/.gitkeep",
+      "raw_relative_path": "articles/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0
+    },
     {
       "group": "notes",
       "path": "raw/notes/NEXT STEPS, IMPROVEMENTS, AND HARMONIZATION NOTES.md",
@@ -235,6 +242,17 @@
   "payload_root": "/home/user/apexai-os-meta/apex-meta/kb/apex-plan-sync-session-workflow-v2/raw",
   "schema": "apex.source_payload_manifest.v1",
   "source_groups": [
+    {
+      "file_count": 1,
+      "files": [
+        "raw/articles/.gitkeep"
+      ],
+      "folder": "raw/articles",
+      "group_id": "articles",
+      "level": 2,
+      "sha256": "0d99b16e19df36c642fa1a78e5cc04d00826527b5d7b588433604a007c98ab72",
+      "total_size_bytes": 0
+    },
     {
       "file_count": 8,
       "files": [

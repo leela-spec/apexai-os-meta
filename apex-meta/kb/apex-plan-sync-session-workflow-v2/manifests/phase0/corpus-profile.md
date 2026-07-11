@@ -1,6 +1,6 @@
 # Phase 0 Corpus Profile
 
-Generated: `2026-07-11T09:35:26Z`
+Generated: `2026-07-11T09:56:37Z`
 
 ## source_inventory_status
 
