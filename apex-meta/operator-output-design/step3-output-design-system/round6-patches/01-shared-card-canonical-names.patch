@@ -1,0 +1,19 @@
+diff --git a/apex-meta/operator-output-design/step3-output-design-system/02-shared-card-and-brief-anatomy.okf.yaml b/apex-meta/operator-output-design/step3-output-design-system/02-shared-card-and-brief-anatomy.okf.yaml
+index 8eb4174..0000000 100644
+--- a/apex-meta/operator-output-design/step3-output-design-system/02-shared-card-and-brief-anatomy.okf.yaml
++++ b/apex-meta/operator-output-design/step3-output-design-system/02-shared-card-and-brief-anatomy.okf.yaml
+@@ -21,10 +21,11 @@ scope:
+   applies_to:
+     - Project_State_Success_Card
+     - Weekly_Command_Brief
+-    - Tomorrow_Action_Brief
++    - PreCap_Next_Day_Brief
+     - Flow_Execution_Card
+-    - Flow_Prompt_Pack
+-    - Raw_Flow_Dump_or_Skip_Marker_Card
++    - Prompt_Files_and_Index
++    - Execution_Evidence_Handoff
++    - Skip_Marker_as_minimal_subcase
+     - FlowRecap_Result_Card
+     - Usage_Learning_Card
+     - Status_Merge_Decision_Card
