@@ -42,10 +42,11 @@ Read this before starting any large orchestration-design task in this repo. It t
 
 | Path | Purpose |
 |---|---|
-| `fable-orchestrator/` | **New** — this initiative's decision-lock folder (process blueprint Q&A, execution best practices for the Fable+external-model orchestration model). See its own `README.md`. |
+| `orchestration/` | **THE final orchestration system package** (built 2026-07-11): 00-START-HERE, ARCHITECTURE, GLOSSARY, shared schemas (handoff-packet, authority-state, review-verdict), workflows (orchestrator-run, detective-review), user-stories (regression suite, moved here from fable-orchestrator), simulations. The 7 agent definitions live in `.claude/agents/` (alfred, meta-strategy, meta-ops, meta-detective, knowledge-bank, informatics-design, prompts-workflows). Start at `apex-meta/orchestration/00-START-HERE.md`. |
+| `fable-orchestrator/` | This initiative's decision-lock folder — now the **audit trail** of how `orchestration/` was decided (milestone 1–4 artifacts, design-lock answers, implementation plan, external-research records). See its own `README.md`. |
 
 ## 5. Known overlaps / open questions to resolve before treating any KB as sole authority
 
 1. ~~`old-apex-full-orchestration-agent-kb` vs. `old-apex-full-orchestration-agent-kb-v2` — relationship unconfirmed~~ **Resolved 2026-07-11**: different scope, not a fork/duplicate; non-v2 is older but independently load-bearing (cited as `source_doctrine` by two live skill spec files) — see §1 notes above. Keep both.
 2. `llm-wiki-project-repos/` vs. `claude-code-orchestration-design/raw/source-groups/claude-orchestration-agents/` — both cover downloaded practitioner repos; possible duplicate corpus.
-3. Terminology drift across KBs (e.g. "role" vs. "state" as the unit of permission, "agent" as ephemeral subagent vs. persistent identity) — already flagged in `agent-skill-system-research/design-lock-qa.md` Q7; no glossary file has been created yet.
+3. ~~Terminology drift across KBs — no glossary file has been created yet.~~ **Resolved 2026-07-11**: `apex-meta/orchestration/GLOSSARY.md` is the terminology authority (role/state, agent, candidate/verified, packet, workflow/skill, validation/approval, consequential).

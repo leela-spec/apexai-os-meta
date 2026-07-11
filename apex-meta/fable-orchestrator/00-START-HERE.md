@@ -15,7 +15,7 @@ reading_order:
   5: {file: build-plan.md, why: "how milestones 1-5 lead into build, flowchart, worked example, where logs live", weight: medium}
   6: {file: "apex-meta/handoff/agent-skill-system-research/design-lock-qa.md", why: "the concrete open architecture questions (milestone 4)", weight: medium}
   7: {file: discovery-notes.md, why: "milestone 1/2 source understanding — seeded, not yet operator-verified", weight: medium}
-  8: {file: "APEX_Orchestration_User_Stories/user-stories.md", why: "the real, complete user-stories input (7 stories) — see also its package-manifest.yaml and connection ledger", weight: medium}
+  8: {file: "apex-meta/orchestration/user-stories/user-stories.md", why: "the real, complete user-stories input (7 stories) — see also its package-manifest.yaml and connection ledger", weight: medium}
   9: {file: fable-execution-best-practices.md, why: "detailed rules — model routing, context-budget guardrails. Pull up per-section when a phase needs it, not all at once.", weight: large, read_style: reference_not_cover_to_cover}
 ```
 
