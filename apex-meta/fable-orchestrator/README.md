@@ -2,16 +2,22 @@
 title: "Fable Orchestrator Initiative"
 purpose: "Lock the decisions and process for the final Claude-Code multi-agent orchestration build, run by Claude Fable 5 as the orchestrating brain, with heavy reasoning/execution outsourced to external models."
 created: 2026-07-11
-status: decisions_not_yet_locked
+status: decisions_locked
 ---
 
 # Fable Orchestrator Initiative
 
-## What this folder is
+## The core problem
 
-This is the decision-lock and process-definition folder for the initiative to build **the final agent orchestration system in Claude Code** in this repo (`apexai-os-meta`), reconciling the multiple existing orchestration KBs/systems (see `apex-meta/ORCHESTRATION-SYSTEMS-INDEX.md`) into one working multi-agent build.
+Fable's central job is to deeply understand the systems being merged — not assume, actually understand — before deciding how to merge them:
 
-The operating model, as stated by the operator:
+- **`apex-plan` / `apex-sync` / `apex-session`** — the three-package planning/computation/mutation system, real skill contracts, real current behavior.
+- **The old Apex agent-swarm system** (`old-apex-full-orchestration-agent-kb` + `-v2`) — its role model, handoff rules, and failure-mode lessons.
+- **`claude-code-orchestration-design`** — the best-practice reference KB guiding how the two above should actually come together in Claude Code.
+
+The concrete open architecture questions this understanding must resolve are in `apex-meta/handoff/agent-skill-system-research/design-lock-qa.md` (topology, how the systems relate, subagent scoping, and more). Fable answers those from real evidence in the three sources above — not from a pre-picked default.
+
+## Operating model
 
 - **Claude Fable 5** is the orchestrator, running inside Claude Code. It holds the context, makes decisions, writes/moves files directly, and authors prompts for other models.
 - **Heavy reasoning/research** (deep research, pro-thinking analysis) is outsourced to external frontier models via hand-authored prompts the operator copies in and results the operator copies back: ChatGPT (deep research / pro-thinking), Gemini (deep research / pro-thinking — standard research use only), Perplexity (has a working GitHub connector, so it's the one reliable option for live-repo-file research).
@@ -20,15 +26,8 @@ The operating model, as stated by the operator:
 
 ## Files here
 
-- `process-blueprint-qa.md` — decision-forcing Q&A over `apex-meta/kb/old-apex-full-orchestration-agent-kb-v2/OperatorResearch/ProcessRanking_GPT&MasterOA.md`, to pick which of its ranked processes/stacks become the actual blueprint for this build.
-- `fable-execution-best-practices.md` — token-efficient, machine-readable operating doc for the Fable-run session itself: how to author prompts for each external model, how to integrate results, and real-world execution discipline (grounded in current web research on Fable 5's own capabilities and multi-model delegation practice).
-- `decisions.md` — **not created yet.** Once `process-blueprint-qa.md` is answered, lock the answers here, following the same locked-decision format as `apex-meta/harmonization/decisions.md`.
+See `00-START-HERE.md` for the full index and reading order.
 
 ## Sequencing
 
-1. Answer `process-blueprint-qa.md`.
-2. Lock answers into `decisions.md`.
-3. Use `fable-execution-best-practices.md` as the standing operating doc for the actual Fable-led run.
-4. Begin the real reconciliation/build work across the systems named in `apex-meta/ORCHESTRATION-SYSTEMS-INDEX.md`.
-
-Do not skip straight to step 4 without steps 1–2 — the whole point of this folder is to avoid re-deciding the same architecture questions mid-run.
+Decisions are locked (`decisions.md`) and the execution flow is defined (`process-blueprint.md`, `build-plan.md`). Begin the real reconciliation/build work across the systems named above and in `apex-meta/ORCHESTRATION-SYSTEMS-INDEX.md`, using `fable-execution-best-practices.md` as on-demand reference during the run.

@@ -1,31 +1,31 @@
 ---
 title: "Target Log"
-purpose: "State the current target before starting work, so a session doesn't drift into scope it wasn't asked for. Update at the start of each work session, not mid-session."
+purpose: "The overarching mission and its milestone breakdown. Update at the start of each work session, not mid-session."
 created: 2026-07-11
 ---
 
 # Target Log
 
-## Current target (as of 2026-07-11, this entry)
+## Overarching target
 
-Resolve the confusion from the last exchange, put both open Q&A files directly in front of the operator for their own review, and open (not execute) a drift-audit task. Nothing else.
+Create the final orchestration system, merging the old Apex agent-swarm system and the new `apex-plan`/`apex-sync`/`apex-session` system into one coherent whole — where Fable itself evaluates the soundness, impact, resilience, and intent of each system's workflows and agents, supported by external research where the reasoning is heavy, verified by the operator at each milestone.
 
-**In scope right now:**
-- Clarify: why `decisions.md`/`user-stories.md`/`simulations/` don't exist yet (expected, not lost work).
-- Clarify: why the branch from the earlier illustrative transcript doesn't exist (that transcript never touched this repo).
-- Clarify: what `max-run-20260709/skill-boundary.md` actually is (a real, already-documented file, not noise).
-- Clarify: current branch, and that nothing has been committed or pushed this session.
-- Hand `design-lock-qa.md` and `process-blueprint-qa.md` to the operator directly for their own read-through.
-- Open a tracked task for drift-auditing (see below) — create the task, do not run the audit in this same turn.
+## Milestones
 
-**Explicitly out of scope right now (do not drift into these):**
-- Designing the `user-stories.md`/`simulations/` schema — operator is researching this themselves.
-- Touching `source-knowledge/` in any way — confirmed out of scope, was only mentioned once as an analogy and should not have been.
-- Branch cleanup — real issue (many stale branches exist), but destructive and not this turn's ask; needs its own explicit decision later.
-- Actually running the drift audit — only the task gets created now.
-- Any new KB authoring, Phase 1 user stories, or build work — Phase 0 still isn't locked.
+1. **Understand intent across every version** — read across `operator-research-orchestration-20260711`, `old-apex-full-orchestration-agent-kb`(+`-v2`), `apex-plan-sync-session-workflow-v2`: what each was trying to build, the biggest decisions each made, where they overlap, what patterns repeat. Gate: operator verifies.
+2. **Understand resilience best-practice** — go into `claude-code-orchestration-design`'s skill-package pages for what makes a multi-agent system resilient; produce prompts for external models where the KB itself is thin. Gate: operator verifies.
+3. **Evaluate soundness/impact/resilience of what already exists** — assess the old Apex 9-agent/BUILD-VERIFY-LOCK model and the `apex-plan`/`sync`/`session` boundary against milestone 2's best practice. Gate: operator verifies.
+4. **Resolve the open architecture questions** (`apex-meta/handoff/agent-skill-system-research/design-lock-qa.md`) — using milestones 1–3 as evidence, not assumption.
+5. **Draft the target architecture** — only after 1–4 are verified.
+6. **Build it** — the actual construction, Codex for execution, per `build-plan.md`.
+
+## Current target
+
+Milestone 1 is underway: `prompts/phase1-user-stories-prompt.md` produces real workflow records feeding milestone 1, and `user-stories.md` has an anticipated first draft.
 
 ## Log
 
-- 2026-07-11: Attempted Phase 0 lock as a real test run (not just planning). Found: `design-lock-qa.md` has zero operator-confirmed answers (only RECOMMENDED flags); `decisions.md` format precedent (`harmonization/decisions.md`) cites an out-of-scope external corpus (`source-knowledge/`) that should not be borrowed here; no schema exists yet for `user-stories.md`/`simulations/` records. Operator flagged: this session was over-explaining/wandering rather than staying on the one open ask — this log exists to prevent a repeat.
-- 2026-07-11 (correction): The claim above about `claude/code-orchestration-design-kb-qdipjj` not existing was **wrong**. Root cause: `git branch -a` was checked without `git fetch origin` first, so an un-fetched remote branch read as "doesn't exist." After fetching, the branch is confirmed real, on `origin`, with real commits: `f4729cc0` (frontmatter fix on the 25 max-run-20260709 pages), `2d47cb52` (7 new high-value wiki pages authored for the KB's target orchestrator areas), `2f645d02` (bytecode cache sync). This branch was the operator's actual working branch for the KB task per their own prior instruction — pushing there, not `main`, was correct, not a mistake. Consequence: meaningful KB-authoring work overlapping `build-plan-recommendation.md` Phase 1 may already exist on that branch — not yet reconciled with what this session has been treating as current KB state. Flagged for follow-up, not acted on yet — stays out of scope for this turn per the log above.
+- 2026-07-11: Phase 0 lock attempted as a real test run. Found `design-lock-qa.md` had zero operator-confirmed answers (only recommended defaults); the `decisions.md` format precedent (`harmonization/decisions.md`) cited an out-of-scope external corpus (`source-knowledge/`) that shouldn't be borrowed here; no schema existed yet for `user-stories.md`/`simulations/` records.
+- 2026-07-11: A claim that the branch `claude/code-orchestration-design-kb-qdipjj` didn't exist was wrong — `git branch -a` was checked without `git fetch origin` first. After fetching, the branch was confirmed real, with real commits (frontmatter fix on the 25 `max-run-20260709` pages, 7 new high-value wiki pages, a bytecode-cache sync). That branch was the operator's correct working branch for the KB task.
+- 2026-07-11: That branch was fast-forward merged into `main` and pushed.
+- 2026-07-11: The overarching target and 6-milestone breakdown above were agreed with the operator, replacing the earlier, narrower framing that only covered this folder's own file cleanup.
