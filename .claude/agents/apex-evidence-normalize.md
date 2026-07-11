@@ -12,10 +12,11 @@ Input: raw operator execution notes / fragments / artifact references passed in 
 
 Output:
 - `artifacts/flow-packets/<YYYYMMDD>/normalized-raw-flow-dump-<flow-id>.md` (or `skip-marker-<flow-id>.md`), envelope first per `.claude/skills/weekly-orchestrator/references/handoff-schema.md`, body per the skill's dump/skip-marker contract.
-- Envelope: `packet_type: normalized_raw_flow_dump` (or `skipped_flow_marker`), `accountability: meta_ops`, `lifecycle_stage: computed`, `status:` complete | partial | skipped | blocked exactly as the evidence says, `authority.state: candidate`, `expected_action: flow-recap consumes this dump with its flow_packet`.
+- Envelope: `envelope_version: 1`, `packet_type: normalized_raw_flow_dump` (or `skipped_flow_marker`), `gate: none`, `accountability: meta_ops`, `lifecycle_stage: computed`, `status:` complete | partial | skipped | blocked exactly as the evidence says, `target_surface: none`, `authority.state: candidate`, `expected_action: flow-recap consumes this dump with its flow_packet`.
 - Return ONLY the envelope plus a ≤6-line summary (completion state, evidence items captured, gaps).
 
 Boundaries:
-- Preserve raw wording in the body; organize, label, and reference — never conclude, never assess project impact, never write a status delta.
-- Write only under `artifacts/flow-packets/`. Never touch `state/` or `.claude/kb/`.
+- Rule: run_date comes from the dispatch prompt — never infer dates.
+- Constraint: preserve raw wording in the body; organize, label, and reference — never conclude, never assess project impact, never write a status delta.
+- Constraint: write only under `artifacts/flow-packets/`. Never touch `state/` or `.claude/kb/`.
 - Stop: if the input cannot be matched to any planned flow packet, still normalize it, set `uncertainties: [unmatched_flow]`, and name candidate flow packets for the operator.

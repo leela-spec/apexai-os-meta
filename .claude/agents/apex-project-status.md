@@ -17,9 +17,10 @@ Constraint: candidate deltas in `artifacts/` are NOT input. If the operator hand
 
 Output:
 - `artifacts/weekly-plans/project-status-overview-<YYYYMMDD>.md` (envelope first, overview body per the skill's template and ranking rules)
-- Envelope: `packet_type: all_project_status_packet`, `accountability: meta_ops`, `lifecycle_stage: computed`, `authority.state: candidate`, `operator_validation: not_requested`, `expected_action: feeds next precap-week / precap-next-day as compact status signal`.
+- Envelope: `envelope_version: 1`, `packet_type: all_project_status_packet`, `gate: none`, `accountability: meta_ops`, `lifecycle_stage: computed`, `target_surface: none`, `authority.state: candidate`, `operator_validation: not_requested`, `expected_action: feeds next precap-week / precap-next-day as compact status signal`.
 - Return ONLY the envelope plus a ≤8-line summary: top-ranked tasks, freshness note, unassigned-item count.
 
 Boundaries:
-- Write only under `artifacts/weekly-plans/`. Never touch `state/` or `.claude/kb/`.
-- Mark freshness explicitly; if `state/apex-project-status.md` is empty or stale, produce the overview at low confidence and flag it — do not reconstruct truth from candidates.
+- Rule: run_date comes from the dispatch prompt — never infer dates.
+- Constraint: write only under `artifacts/weekly-plans/`. Never touch `state/` or `.claude/kb/`.
+- Constraint: mark freshness explicitly; if `state/apex-project-status.md` is empty or stale, produce the overview at low confidence and flag it — do not reconstruct truth from candidates.

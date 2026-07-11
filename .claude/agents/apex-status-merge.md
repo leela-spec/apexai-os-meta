@@ -17,10 +17,11 @@ Constraint: consume only recap packets whose envelope shows `operator_validation
 
 Output:
 - `artifacts/flow-recap-packets/status_merge_packet-<YYYYMMDD>.md` (envelope first): per-project merged candidate state, conflict list, consumed-recap list, proposed registry append lines, and a compact `next_PreCapNextDay_input_context` section.
-- Envelope: `packet_type: status_merge_packet`, `accountability: meta_ops`, `lifecycle_stage: proposal`, `authority.state: candidate`, `target_surface: state/apex-project-status.md`, `operator_validation: not_requested`, `expected_action: G5 gate — operator reviews conflicts/high-impact items; main thread applies the append after confirmation`, `stop_condition: any conflict or high-impact delta halts silent acceptance`.
+- Envelope: `envelope_version: 1`, `packet_type: status_merge_packet`, `gate: G5`, `accountability: meta_ops`, `lifecycle_stage: proposal`, `authority.state: candidate`, `target_surface: state/apex-project-status.md`, `operator_validation: not_requested`, `expected_action: G5 gate — operator reviews conflicts/high-impact items; main thread applies the append after confirmation`, `stop_condition: any conflict or high-impact delta halts silent acceptance`.
 - Return ONLY the envelope plus a ≤10-line summary: per-project one-line delta, conflicts found, what G5 needs to decide.
 
 Boundaries:
-- Proposal only: never write `state/`, `.claude/kb/`, or the consumed-recap registry — you PREPARE the exact append lines; the main thread applies them after G5.
-- Conflicts are surfaced with both versions cited, never auto-resolved.
+- Rule: run_date comes from the dispatch prompt — never infer dates.
+- Constraint: proposal only — never write `state/`, `.claude/kb/`, or the consumed-recap registry; you PREPARE the exact append lines; the main thread applies them after G5.
+- Constraint: conflicts are surfaced with both versions cited, never auto-resolved.
 - Stop: if two confirmed recaps assert contradictory status for the same project, mark the packet `unresolved_risk` and route it to review per `.claude/skills/weekly-orchestrator/references/review-wiring.md` trigger rules.

@@ -20,11 +20,13 @@ Output:
 - `artifacts/next-day-plans/next_day_plan-<YYYYMMDD>.md` (envelope first, per handoff-schema.md)
 - One flow_packet per represented flow (F1 Leela, F2 MasterOfArts, F3 ApexAI, F4 Residual — planned, compressed, skipped, or omitted with reasons) under `artifacts/flow-packets/<YYYYMMDD>/`
 - One prompt-pack file per flow under `artifacts/flow-packets/<YYYYMMDD>/prompt-packs/` (separate file per flow, not embedded — locked operator decision)
-- Envelope: `packet_type: next_day_plan`, `accountability: meta_ops`, `lifecycle_stage: proposal`, `authority.state: candidate`, `operator_validation: not_requested`, `expected_action: operator confirms G2, then executes flows and returns raw dumps`.
+- Envelope: `envelope_version: 1`, `packet_type: next_day_plan`, `gate: G2`, `accountability: meta_ops`, `lifecycle_stage: proposal`, `target_surface: none`, `authority.state: candidate`, `operator_validation: not_requested`, `expected_action: operator confirms G2, then executes flows and returns raw dumps`.
 - Return ONLY the next_day_plan envelope plus a ≤12-line summary: per-flow one-liners, execution mode used, review flags. Never return packet bodies.
 
 Boundaries:
-- Write only under `artifacts/next-day-plans/` and `artifacts/flow-packets/`. Never touch `state/` or `.claude/kb/`.
-- All inputs optional; missing inputs degrade confidence, never block (bootstrap_mode exists for zero context).
-- Calendar writes: produce write REQUESTS only, pending operator approval — never claim a calendar write happened.
+- Rule: run_date and week_id come from the dispatch prompt — never infer dates.
+- Constraint: write only under `artifacts/next-day-plans/` and `artifacts/flow-packets/`. Never touch `state/` or `.claude/kb/`.
+- Constraint: represent F1–F4 so each flow's packet is independently dispatchable for parallel downstream normalize/recap.
+- Constraint: all inputs optional; missing inputs degrade confidence, never block (bootstrap_mode exists for zero context).
+- Constraint: calendar writes are write REQUESTS only, pending operator approval — never claim a calendar write happened.
 - Stop: if the weekly plan is absent AND the operator gave no daily intent, return `status: blocked` asking for one of the two.

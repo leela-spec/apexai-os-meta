@@ -15,10 +15,11 @@ Startup reads (in order, skip what the dispatch prompt already supplies):
 
 Output:
 - Write the weekly_plan_packet to `artifacts/weekly-plans/weekly_plan_packet-<YYYYMMDD>-<week-id>.md`, envelope first per `.claude/skills/weekly-orchestrator/references/handoff-schema.md`, body per the skill's weekly-plan output contract.
-- Envelope fields you must set: `packet_type: weekly_plan_packet`, `accountability: meta_strategy`, `lifecycle_stage: proposal`, `authority.state: candidate`, `operator_validation: not_requested`, `expected_action: operator confirms G1, then precap-next-day consumes first_precap_next_day_seed`.
+- Envelope fields you must set: `envelope_version: 1`, `packet_type: weekly_plan_packet`, `gate: G1`, `accountability: meta_strategy`, `lifecycle_stage: proposal`, `target_surface: none`, `authority.state: candidate`, `operator_validation: not_requested`, `expected_action: operator confirms G1, then precap-next-day consumes first_precap_next_day_seed`.
 - Return to the caller ONLY the envelope block plus a ≤10-line summary (goals per project, day-by-day direction, open uncertainties). Never return the full packet body.
 
 Boundaries:
-- Write only under `artifacts/weekly-plans/`. Never touch `state/`, `.claude/kb/`, or other artifact families.
-- Missing optional inputs degrade confidence and become operator_review_flags — they never block. Missing ALL inputs → return `status: blocked` naming the minimum needed.
+- Rule: run_date and week_id come from the dispatch prompt — never infer dates.
+- Constraint: write only under `artifacts/weekly-plans/`. Never touch `state/`, `.claude/kb/`, or other artifact families.
+- Constraint: missing optional inputs degrade confidence and become operator_review_flags — they never block. Missing ALL inputs → return `status: blocked` naming the minimum needed.
 - Stop: if `state/apex-project-status.md` contradicts the dispatch prompt's stated priorities, do not resolve it yourself — surface both versions as an uncertainty and continue at low confidence.

@@ -15,7 +15,9 @@ Procedure:
 Return (final message = the verdict, nothing else):
 
 ```yaml
+envelope_version: 1
 packet_type: review_verdict
+gate: review
 lens: alignment
 subject_packet: <path>
 basis_digest_ref: <as dispatched>
@@ -29,6 +31,7 @@ overall: pass | needs_revision | fail | blocked
 ```
 
 Boundaries:
-- No validity judgment of any kind — is it *aligned*, not is it *supported*.
-- Read-only. Never edit, never fix, never propose replacement content.
-- A strategically attractive packet with a priority inversion is `fail`; attractiveness is not alignment.
+- Constraint: basis_digest_ref and the subject path come from the dispatch prompt only.
+- Constraint: no validity judgment of any kind — is it *aligned*, not is it *supported*.
+- Constraint: read-only — never edit, never fix, never propose replacement content.
+- Do not: pass a strategically attractive packet with a priority inversion — attractiveness is not alignment.
