@@ -1,0 +1,50 @@
+diff --git a/apex-meta/operator-output-design/step3-output-design-system/14-status-merge-decision-card-design.okf.yaml b/apex-meta/operator-output-design/step3-output-design-system/14-status-merge-decision-card-design.okf.yaml
+index 9bc4a94..0000000 100644
+--- a/apex-meta/operator-output-design/step3-output-design-system/14-status-merge-decision-card-design.okf.yaml
++++ b/apex-meta/operator-output-design/step3-output-design-system/14-status-merge-decision-card-design.okf.yaml
+@@ -52,7 +52,12 @@ first_screen_card:
+     - deferred
+     - unresolved
+     - merged
+-  critical_rule: approved_for_merge_is_not_merged
++  critical_rules:
++    approved_for_merge_is_not_merged: true
++    merged_display_requires_durable_write_confirmation_ref: true
++    without_durable_confirmation: approved_for_merge
++  conditional_confirmation:
++    durable_write_confirmation_ref:
++      show_when: current_decision_state_is_merged
+ 
+ essential_sections:
+   - current_accepted_state_summary
+@@ -95,9 +100,9 @@ degraded_behavior:
+   safe_review_but_write_owner_missing:
+     result: approved_for_merge
+     action: retain_proposal_without_claiming_merge
+-  merge_execution_unconfirmed:
++  durable_write_confirmation_missing:
+     result: approved_for_merge
+-    action: do_not_display_merged
++    action: do_not_display_merged_until_durable_write_confirmation_ref_exists
+ 
+ compact_machine_handoff:
+   role: secondary_minimum_projection
+@@ -109,6 +114,9 @@ compact_machine_handoff:
+     - merge_proposal_ref
+     - evidence_refs
+     - confidence
+     - operator_review_flags
++  conditional:
++    durable_write_confirmation_ref:
++      required_when: review_decision_is_merged
+   contract_references:
+     - .claude/skills/status-merge/references/status-merge-packet-contract.md
+   schema_redefinition: false
+@@ -120,6 +128,7 @@ acceptance_checks:
+   conflicts_appear_before_approval: true
+   approved_for_merge_is_not_merged: true
+   merge_proposal_is_not_durable_state: true
++  merged_display_requires_durable_write_confirmation_ref: true
+   project_KB_write_owner_is_preserved: true
+   evidence_and_confidence_are_visible_when_material: true
+   machine_handoff_contains_only_merge_minimum: true
