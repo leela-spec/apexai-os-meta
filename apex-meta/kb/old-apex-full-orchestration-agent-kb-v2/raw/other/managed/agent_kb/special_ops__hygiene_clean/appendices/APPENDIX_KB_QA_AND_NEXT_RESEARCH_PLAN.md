@@ -1,0 +1,142 @@
+# APPENDIX_KB_QA_AND_NEXT_RESEARCH_PLAN
+
+## Purpose
+
+Permanent QA and next-research appendix for the `special_ops__hygiene_clean` KB.
+
+This appendix records second-pass quality status, approved improvement candidates, non-blocking backlog, deferred research, and the recommended scaffold patch sequence.
+
+It is an appendix trace surface. It does not promote candidate content into runtime truth.
+
+## QA header
+
+| Field | Value |
+|---|---|
+| repo | `leela-spec/MasterOfArts` |
+| branch | `main` |
+| target_root | `OpenClaw/07_finalopenclawsystem/managed/agent_kb/special_ops__hygiene_clean/` |
+| source_authority | `target_kb_folder_only` |
+| input_window | local Hygiene Clean KB scaffold, local appendices, approved `ChangesHygiene.md` matrix |
+| generated_for | approved Hygiene Clean KB scaffold update |
+| status | `qa_appendix_created` |
+
+## Surfaces checked
+
+| Surface | Role | Current QA use |
+|---|---|---|
+| `ESSENCE.md` | compact activation, role boundary, status/routing map | add status vocabulary, read-budget profiles, compact KB map, routing boundary summary |
+| `BEST_PRACTICES.md` | compact hygiene rules | add Hygiene-to-Night routing practice while preserving existing rules |
+| `MISTAKES.md` | reusable failure patterns | preserve existing patterns; no new patch required in this pass |
+| `TEMPLATES.md` | audit, finding, closure, source, ranking, evidence templates | add chooser, severity crib, closure checklist, trace/source-note/config-impact fields |
+| `LEARNING_QUEUE.md` | candidate-only learning queue | normalize status vocabulary and point realization trace to candidate ledger |
+| `appendices/APPENDIX_KB_SOURCE_MANIFEST.md` | source coverage, gap risk, authority risk | add update authority, source notes, source-gap severity, conflict-watch register |
+| `appendices/APPENDIX_KB_INFORMATION_RANKING_LEDGER.md` | ranked information units | no direct patch in this pass |
+| `appendices/APPENDIX_KB_CANDIDATE_LEDGER.md` | candidate pool and scoring basis | add realization trace and status-after-build columns |
+| `appendices/APPENDIX_KB_ANTI_DRIFT_EVIDENCE.md` | anti-drift evidence | no direct patch in this pass |
+| `appendices/ChangesHygiene.md` | approved decision matrix | local approval source for this update pass |
+
+## Functional readiness
+
+| Capability | Current status | Target status after patch pass | Notes |
+|---|---|---|---|
+| activation | usable | improved | `ESSENCE.md` gains read profiles and compact need-to-file map |
+| role boundary | usable | improved | status and routing boundaries become more explicit |
+| source provenance | usable | improved | source manifest gains current update authority and source-note registers |
+| candidate handling | usable | improved | candidate ledger gains realized-as traceability |
+| template execution | usable | improved | template chooser, severity crib, and closure checklist reduce ad hoc forms |
+| closure discipline | usable | improved | closure validity checklist makes closure evidence checks explicit |
+| research backlog | partial | improved | deferred items remain visible rather than silently dropped |
+
+## Findings
+
+| finding_id | finding_class | severity | affected_surface | description | evidence_refs | required_action | hold_or_escalation_needed |
+|---|---|---|---|---|---|---|---|
+| HYG-QA-001 | traceability_gap | P2 | `APPENDIX_KB_CANDIDATE_LEDGER.md` | Candidate rows do not yet record exact scaffold or appendix realization. | `HYG-UPD-008`, `HC-CAND-016` | Add realization trace fields and status-after-build columns. | false |
+| HYG-QA-002 | template_gap | P2 | `TEMPLATES.md` | Multiple useful templates exist, but no chooser table or local severity crib guides fast use. | `HYG-UPD-005`, `HYG-UPD-006` | Add template chooser and severity crib. | false |
+| HYG-QA-003 | closure_gap | P2 | `TEMPLATES.md` | Closure template exists, but closure validity criteria are not visible as a checklist. | `HYG-UPD-007` | Add closure validity checklist. | false |
+| HYG-QA-004 | source_note_gap | P2 | `APPENDIX_KB_SOURCE_MANIFEST.md` | Source notes and conflict-watch decisions are not yet represented as local registers. | `HYG-UPD-010` | Add Source Notes and Conflict Watch registers to source manifest. | false |
+| HYG-QA-005 | activation_gap | P2 | `ESSENCE.md` | Cold-start read-budget profiles and compact need-to-file map are missing. | `HYG-UPD-003`, `HYG-UPD-004` | Add read-budget profiles and compact KB map. | false |
+
+## Holds and escalations
+
+| Item | Status | Reason |
+|---|---|---|
+| P0 findings | none | No critical governance failure identified inside approved Hygiene Clean KB update scope. |
+| P1 findings | none | No high-risk integrity issue requiring hold was identified inside approved Hygiene Clean KB update scope. |
+| Hold required | no | All findings are non-blocking scaffold and appendix quality improvements. |
+| Escalation required | no | Approved matrix provides sufficient local decision basis for patch design. |
+
+## Hygiene backlog
+
+| backlog_id | priority | item | target | status |
+|---|---|---|---|---|
+| HYG-BL-001 | P2 | Add runtime examples for finding classification, closure, source-gap handling, and rewrite-drift detection. | future examples appendix or `TEMPLATES.md` | deferred |
+| HYG-BL-002 | P2 | Consider machine-readable JSON/YAML sidecars for ledgers. | future sidecars | deferred |
+| HYG-BL-003 | P2 | Decide whether source notes need a standalone appendix after manifest section exists. | possible `APPENDIX_KB_SOURCE_NOTES.md` | deferred |
+| HYG-BL-004 | P2 | Decide whether closure records should become standalone artifacts or remain table rows. | future QA/research pass | deferred |
+| HYG-BL-005 | P2 | Research whether source gaps should use QA `P0` to `P3` or separate source-risk labels. | source manifest / QA appendix | deferred |
+| HYG-BL-006 | P3 | Define redundancy discipline for repeated rules and source anchors. | future QA appendix | deferred |
+| HYG-BL-007 | P3 | Audit hidden law risk in prompt-template placement. | future backlog | deferred |
+| HYG-BL-008 | P3 | Defer governed Markdown sentence strictness to Informatics-owned review. | future backlog | deferred |
+| HYG-BL-009 | P3 | Defer variant comparison appendix until material source disagreement appears. | possible future appendix | deferred |
+
+## Rejected or out-of-scope items
+
+| item_id | item | disposition | reason |
+|---|---|---|---|
+| HYG-UPD-023 | Provider/model matrix freshness | rejected for current Hygiene KB content | Hygiene may audit freshness markers elsewhere, but it does not own provider/model recommendations. |
+
+## Approved integration map
+
+| candidate_id | target | integration handling |
+|---|---|---|
+| HYG-UPD-001 | `APPENDIX_KB_QA_AND_NEXT_RESEARCH_PLAN.md` | create this appendix |
+| HYG-UPD-002 | `ESSENCE.md`, `LEARNING_QUEUE.md`, `APPENDIX_KB_CANDIDATE_LEDGER.md` | normalize status vocabulary |
+| HYG-UPD-003 | `ESSENCE.md` | add read-budget profiles |
+| HYG-UPD-004 | `ESSENCE.md` | add compact KB map |
+| HYG-UPD-005 | `TEMPLATES.md` | add template chooser table |
+| HYG-UPD-006 | `TEMPLATES.md` | add severity crib |
+| HYG-UPD-007 | `TEMPLATES.md` | add closure validity checklist |
+| HYG-UPD-008 | `APPENDIX_KB_CANDIDATE_LEDGER.md`, `TEMPLATES.md` | add candidate realization traceability |
+| HYG-UPD-009 | `APPENDIX_KB_SOURCE_MANIFEST.md` | add source-gap severity markers |
+| HYG-UPD-010 | `APPENDIX_KB_SOURCE_MANIFEST.md`, `TEMPLATES.md` | add Source Notes register and source-note row |
+| HYG-UPD-011 | `ESSENCE.md`, `BEST_PRACTICES.md` | add Hygiene-to-Night routing guidance |
+| HYG-UPD-012 | `ESSENCE.md`, `TEMPLATES.md` | add cross-agent ownership/routing check |
+| HYG-UPD-013 | `TEMPLATES.md` | add config-impact review missing as audit trigger |
+| HC-CAND-001 | `BEST_PRACTICES.md`, `ESSENCE.md` | preserve and status-normalize authority / verification gate |
+| HC-CAND-002 | `TEMPLATES.md` | represent universal audit checks as template-level utility |
+| HC-CAND-003 | `ESSENCE.md` | preserve retrieval clarity, low ambiguity, handoff reliability, auditability |
+| HC-CAND-004 | `ESSENCE.md` | preserve role boundary |
+| HC-CAND-005 | `BEST_PRACTICES.md`, `TEMPLATES.md` | preserve execution-mode lock |
+| HC-CAND-006 | `BEST_PRACTICES.md` | preserve one-file-at-a-time rule |
+| HC-CAND-007 | `MISTAKES.md`, `APPENDIX_KB_CANDIDATE_LEDGER.md` | preserve mistake pattern and add realization trace |
+| HC-CAND-008 | `MISTAKES.md`, `APPENDIX_KB_CANDIDATE_LEDGER.md` | preserve mistake pattern and add realization trace |
+| HC-CAND-009 | `BEST_PRACTICES.md`, `TEMPLATES.md` | preserve process-gate rule and add preflight proof hooks |
+| HC-CAND-010 | `MISTAKES.md`, `APPENDIX_KB_CANDIDATE_LEDGER.md` | preserve topology-drift pattern and add realization trace |
+| HC-CAND-011 | `TEMPLATES.md` | add exact-preservation validation fields |
+| HC-CAND-012 | `APPENDIX_KB_CANDIDATE_LEDGER.md` | keep candidate / defer scaffold integration |
+| HC-CAND-013 | `TEMPLATES.md`, `APPENDIX_KB_SOURCE_MANIFEST.md` | add source manifest row and local source-note handling |
+| HC-CAND-014 | `ESSENCE.md`, `LEARNING_QUEUE.md` | preserve evidence-not-truth boundary |
+| HC-CAND-015 | `ESSENCE.md`, `LEARNING_QUEUE.md` | preserve candidate-not-truth boundary |
+| HC-CAND-016 | `APPENDIX_KB_CANDIDATE_LEDGER.md` | add trace/status fields |
+
+## Recommended patch sequence
+
+| Step | Target | Reason |
+|---:|---|---|
+| 1 | `appendices/APPENDIX_KB_QA_AND_NEXT_RESEARCH_PLAN.md` | create trace appendix before scaffold edits |
+| 2 | `ESSENCE.md` | update activation, status, read profiles, and routing map |
+| 3 | `BEST_PRACTICES.md` | add routing practice while preserving compact rule surface |
+| 4 | `TEMPLATES.md` | add chooser, severity, closure, trace, source-note, and config-impact templates |
+| 5 | `LEARNING_QUEUE.md` | align queue statuses with vocabulary and trace boundaries |
+| 6 | `appendices/APPENDIX_KB_CANDIDATE_LEDGER.md` | add candidate realization lineage |
+| 7 | `appendices/APPENDIX_KB_SOURCE_MANIFEST.md` | add update authority, source notes, severity markers, and conflict watch |
+
+## Verification notes
+
+- **Finding count:** 5.
+- **Highest severity:** `P2`.
+- **P0/P1 hidden finding check:** none identified in the approved local update scope.
+- **Candidate deletion check:** no candidate is deleted; deferred and rejected items remain explicitly dispositioned.
+- **Scaffold evidence-sprawl check:** detailed QA and backlog material is hosted here rather than in scaffold files.
+- **Runtime-truth check:** this appendix does not promote KB candidates into runtime truth.

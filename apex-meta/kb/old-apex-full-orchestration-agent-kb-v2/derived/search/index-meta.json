@@ -1,0 +1,75 @@
+{
+  "backend": "sqlite_fts5",
+  "chunk_count": 164,
+  "files": {
+    "wiki/audit/high-impact-conflict-register.md": {
+      "hash": "4bed12a8154f77e58a2a547810dcc42b54bf12f4235986029ee6197f43033835",
+      "mtime": 1783721014.2419827
+    },
+    "wiki/concepts/macro-meso-micro-synthesis-loop.md": {
+      "hash": "647679e8986d771c1afcd4506d6f0f52402bcb874f4cb50020e8c1e804c7fd01",
+      "mtime": 1783721240.7087078
+    },
+    "wiki/concepts/source-authority-routing.md": {
+      "hash": "a6436459920bf1235b136ff07b7204cce4191bc5674a191635bf9c8e6c0e6e22",
+      "mtime": 1783721240.7087078
+    },
+    "wiki/entities/alfred.md": {
+      "hash": "bbd7f78b5eff6e7617ea441a3beec639c988994f99e8a4cb9b58323bd90e5ad7",
+      "mtime": 1783721145.6848247
+    },
+    "wiki/entities/first-wave-agent-roster.md": {
+      "hash": "efbc7186de010f86880d6423ca60527b3d1c8c085a6bf7817dcddb053fdfd382",
+      "mtime": 1783721014.2358305
+    },
+    "wiki/entities/meta-detective.md": {
+      "hash": "9c345fd45fc2862cd507cba5f9e3ac6183bb150d97f1a09df120568fdfd345ca",
+      "mtime": 1783721145.6896214
+    },
+    "wiki/entities/meta-ops.md": {
+      "hash": "3d19f74c3f2ab5cc248ca3cf9939deedfb9ce0866fe0a635aa5d2a951a59cf22",
+      "mtime": 1783721145.6859174
+    },
+    "wiki/entities/meta-strategy.md": {
+      "hash": "7bd7849431a09e566493b7adfa69f4dd6ca3a284fa4f65408e5e6402ef7bfcab",
+      "mtime": 1783721145.6873233
+    },
+    "wiki/entities/special-ops-ai-handling-routing.md": {
+      "hash": "61d326ad2f619c3acd40b2fdbeb9286c2596751a752514504e769e478df56108",
+      "mtime": 1783721145.6938908
+    },
+    "wiki/entities/special-ops-hygiene-clean.md": {
+      "hash": "003992e7f8f4b951bc0240221acb90efa3ec9795d4fd00dce26f412fb53671f5",
+      "mtime": 1783721145.6948888
+    },
+    "wiki/entities/special-ops-informatics-design.md": {
+      "hash": "f8f09c89793cd258b5e30625e33149fc4f64f0d797bc6168f72e03be5921ca6e",
+      "mtime": 1783721145.6918905
+    },
+    "wiki/entities/special-ops-knowledge-bank.md": {
+      "hash": "d129d7ae53aae58058d9a91ae3658447d74e5e105ef986134ea8f86032f6b325",
+      "mtime": 1783721145.6906042
+    },
+    "wiki/entities/special-ops-prompts-workflows.md": {
+      "hash": "e87ea7117c8bf3585a8770fd53c6e875861e5761ff1f5da8c927cdb7f0a07f64",
+      "mtime": 1783721145.692894
+    },
+    "wiki/summaries/agent-architecture.md": {
+      "hash": "a4a039842a0ad63ce061b485cec8fa9474fc72dcee46693902c805305e4dfbb3",
+      "mtime": 1783720933.0403085
+    },
+    "wiki/summaries/failure-patterns-and-conflicts.md": {
+      "hash": "19a093a1c8ee2927787043ea9e3517018ff16018e2a28b36ed603ebd9023ba30",
+      "mtime": 1783720981.8232882
+    },
+    "wiki/summaries/resilient-iterative-orchestration.md": {
+      "hash": "54a1a2610aedebdb115081a1abe4b3daedfff784da0212223376f974bb13c019",
+      "mtime": 1783720981.8212936
+    }
+  },
+  "generated_at": "2026-07-10T22:09:03Z",
+  "kb_slug": "old-apex-full-orchestration-agent-kb-v2",
+  "page_count": 16,
+  "policy": "derived_rebuildable_not_canonical",
+  "schema_version": "1.0"
+}

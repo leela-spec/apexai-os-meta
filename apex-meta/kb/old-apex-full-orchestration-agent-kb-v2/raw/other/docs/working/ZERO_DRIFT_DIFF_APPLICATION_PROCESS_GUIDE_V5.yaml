@@ -1,0 +1,292 @@
+schema_version: '1.0'
+process_id: zero_drift_diff_application_v5
+status: machine_readable_connector_only_batch_validation_process
+artifact_type: yaml_only
+repo: leela-spec/MasterOfArts
+path: OpenClaw/07_finalopenclawsystem/docs/working/ZERO_DRIFT_DIFF_APPLICATION_PROCESS_GUIDE_V5.yaml
+supersedes:
+- OpenClaw/07_finalopenclawsystem/docs/working/ZERO_DRIFT_DIFF_APPLICATION_PROCESS_GUIDE_V4.yaml
+revision_reason:
+- V4 over-validates after each file by requiring repeated branch-vs-main comparison.
+- Repeated branch-vs-main checks prove only changed-file inventory, not per-file no-drift correctness.
+- The required proof is batch content validation after all patched files are created.
+- The efficient process is patch all allowlisted files first, then validate actual updated files against original main files plus intended unified diff changes.
+target_log:
+- target_id: TGT-001
+  target: machine_readable_only
+  status: active
+  rule: The process artifact must be structured YAML only, not a human prose guide.
+- target_id: TGT-002
+  target: connector_only_execution
+  status: active
+  rule: Use only ChatGPT browser plus GitHub connector operations.
+- target_id: TGT-003
+  target: batch_patch_then_validate
+  status: active
+  rule: Patch all allowlisted target files first, then run validation across the created updated files.
+- target_id: TGT-004
+  target: no_repeated_inventory_validation
+  status: active
+  rule: Do not run branch-vs-main validation after every target file unless a connector error or suspicious unexpected state occurs.
+- target_id: TGT-005
+  target: content_no_drift_validation
+  status: active
+  rule: Validate each updated branch file against original main file plus intended unified diff changes.
+truth_model:
+  patch_validation_equation: actual_branch_file_after_all_patches == original_main_file + intended_unified_diff_for_that_file
+  inventory_validation_equation: final_branch_changed_files == target_file_allowlist + explicitly_allowed_artifacts
+  main_update_equation: main_after_merge == validated_branch_tree
+  primary_validation: content_no_drift_validation
+  secondary_validation: final_changed_file_inventory_validation
+  disallowed_truth_sources:
+  - model_memory
+  - inferred_improvements
+  - stylistic_rewriting
+  - unrelated_repo_state
+  - local_git_checkout
+  - local_shell_commands
+  - git_apply
+  - offline_repo_clone
+allowed_connector_actions:
+- get_repo
+- compare_commits
+- create_branch
+- fetch_file
+- update_file
+- create_file
+- create_pull_request
+- get_pr_info
+- merge_pull_request
+forbidden_actions:
+- rewrite_target_files_on_main
+- reconstruct_files_from_memory
+- apply_diff_second_time_directly_to_main
+- use_update_file_for_each_target_file_on_main
+- merge_without_expected_head_sha
+- resolve_conflicts_by_model_rewrite
+- introduce_local_git_checkout
+- introduce_local_shell_commands
+- introduce_git_apply
+- introduce_offline_repo_clone
+- ask_user_before_creating_work_branch_when_task_already_requests_patch_application
+- compare_branch_against_main_after_every_file_as_default_validation
+- treat_changed_file_inventory_as_proof_of_content_no_drift
+process:
+  preflight:
+  - step_id: P01
+    action: confirm_connector_repo_access
+    connector_action: get_repo
+    input:
+      repository_full_name: owner/repo
+    output: repo_metadata
+    pass_condition: repo_metadata_available
+  - step_id: P02
+    action: resolve_current_main
+    connector_action: compare_commits
+    input:
+      base: main
+      head: main
+    output: current_main_sha_or_ref_metadata
+    pass_condition: main_reference_resolves
+  - step_id: P03
+    action: create_work_branch_from_current_main
+    connector_action: create_branch
+    input:
+      branch_name: patch/<specific-topic>
+      sha: <current_main_sha>
+    output: work_branch
+    pass_condition: branch_created_from_current_main_sha
+  - step_id: P04
+    action: build_target_file_allowlist_from_uploaded_diff_artifacts
+    connector_action: none
+    input:
+      source_instruction_files: <uploaded_diff_or_patchspec_files>
+    output:
+    - target_file_allowlist
+    - intended_diff_by_file
+    - explicit_source_corrections
+    pass_condition: target_file_allowlist_is_complete
+  batch_patch_phase:
+    rule: Patch all allowlisted files before running validation.
+    per_file_actions:
+    - step_id: B01
+      action: fetch_target_file_from_work_branch
+      connector_action: fetch_file
+      input:
+        path: <target_file>
+        ref: <work_branch>
+      output: branch_file_before_update
+      pass_condition: target_file_content_available
+    - step_id: B02
+      action: construct_updated_file_from_fetched_content_and_intended_diff
+      connector_action: none
+      input:
+      - branch_file_before_update
+      - intended_diff_by_file.<target_file>
+      - explicit_source_corrections
+      output: expected_branch_file_after_update
+      pass_condition: only_intended_diff_regions_changed_in_constructed_content
+    - step_id: B03
+      action: update_one_target_file_on_work_branch
+      connector_action: update_file
+      input:
+        path: <target_file>
+        content: <expected_branch_file_after_update>
+        branch: <work_branch>
+      output: commit_sha
+      pass_condition: file_updated_on_work_branch_only
+    no_default_validation_between_files:
+      rule: After B03, proceed to the next target file without branch-vs-main validation.
+      exception_conditions:
+      - update_file_error
+      - fetched_file_missing
+      - target_path_mismatch
+      - suspected_wrong_branch
+      - suspected_unexpected_file_surface
+  batch_validation_phase:
+    rule: Validate after all target files are patched.
+    content_validation_loop:
+    - step_id: C01
+      action: fetch_original_main_file
+      connector_action: fetch_file
+      input:
+        path: <target_file>
+        ref: main
+      output: original_main_file
+      pass_condition: original_main_file_available
+    - step_id: C02
+      action: fetch_actual_updated_branch_file
+      connector_action: fetch_file
+      input:
+        path: <target_file>
+        ref: <work_branch>
+      output: actual_branch_file
+      pass_condition: actual_branch_file_available
+    - step_id: C03
+      action: construct_expected_file_for_validation
+      connector_action: none
+      input:
+      - original_main_file
+      - intended_diff_by_file.<target_file>
+      - explicit_source_corrections
+      output: expected_branch_file
+      pass_condition: expected_file_constructed_from_original_plus_intended_diff_only
+    - step_id: C04
+      action: compare_actual_to_expected
+      connector_action: none
+      input:
+      - expected_branch_file
+      - actual_branch_file
+      output:
+      - match_boolean
+      - first_unexpected_difference
+      pass_condition: match_boolean_true
+    inventory_validation:
+    - step_id: I01
+      action: compare_final_work_branch_against_main
+      connector_action: compare_commits
+      input:
+        base: main
+        head: <work_branch>
+      output: final_compare_result
+      pass_condition: changed_files_equal_target_file_allowlist_plus_explicit_allowed_artifacts
+    - step_id: I02
+      action: verify_no_unexpected_file_surface
+      connector_action: none
+      input: final_compare_result
+      output: unexpected_file_report
+      pass_condition: no_unexpected_added_deleted_renamed_or_modified_files
+  report_phase:
+  - step_id: R01
+    action: report_batch_validation_result
+    connector_action: none
+    output:
+    - work_branch
+    - target_file_allowlist
+    - commit_shas
+    - per_file_content_validation_status
+    - final_inventory_validation_status
+    - deviations
+    - unresolved_risks
+    pass_condition: report_includes_content_validation_not_only_inventory_validation
+  merge_gate:
+  - step_id: G01
+    action: stop_before_merge_unless_explicit_user_approval
+    connector_action: none
+    pass_condition: no_pr_or_merge_until_user_explicitly_requests_main_update
+  main_update_after_user_approval:
+  - step_id: M01
+    action: pin_validated_branch_head_sha
+    connector_action: compare_commits
+    input:
+      base: main
+      head: <validated_branch>
+    output: validated_head_sha
+    pass_condition: validated_head_sha_recorded_after_batch_validation_passes
+  - step_id: M02
+    action: create_pull_request
+    connector_action: create_pull_request
+    input:
+      head_branch: <validated_branch>
+      base_branch: main
+    output: pull_request_number
+    pass_condition: pull_request_created
+  - step_id: M03
+    action: confirm_pull_request_head
+    connector_action: get_pr_info
+    input:
+      pr_number: <pull_request_number>
+    output: pull_request_metadata
+    pass_condition: pull_request_head_sha_equals_validated_head_sha
+  - step_id: M04
+    action: merge_with_expected_head_sha
+    connector_action: merge_pull_request
+    input:
+      pr_number: <pull_request_number>
+      expected_head_sha: <validated_head_sha>
+      merge_method: merge
+    output: merge_result
+    pass_condition: merge_result_merged_true
+  - step_id: M05
+    action: confirm_pr_closed_and_merged
+    connector_action: get_pr_info
+    input:
+      pr_number: <pull_request_number>
+    output: post_merge_pr_metadata
+    pass_condition: state_closed_and_merged_true
+validation_record_schema:
+  batch_validation:
+    work_branch: string
+    target_file_allowlist: list
+    files:
+    - path: string
+      original_main_ref: main
+      actual_branch_ref: string
+      intended_diff_source: string
+      content_validation_status: pass|fail|partial
+      first_unexpected_difference: string|null
+      commit_sha: string|null
+      deviations: list
+      unresolved_risk: string|null
+    inventory_validation:
+      status: pass|fail|partial
+      unexpected_files: list
+stop_conditions:
+- target_file_not_found_and_no_explicit_fallback
+- patch_requires_guessing_intent
+- source_diff_contains_ambiguous_or_conflicting_instructions
+- model_rewrites_file_beyond_diff_scope
+- content_validation_fails_for_any_target_file
+- actual_branch_file_differs_from_original_main_plus_intended_diff
+- final_inventory_validation_shows_unexpected_files
+- branch_head_sha_differs_from_validated_head_sha_before_merge
+- pull_request_not_mergeable
+- github_rejects_expected_head_sha
+- merge_requires_manual_conflict_resolution
+- any_step_introduces_local_git_or_git_apply_or_offline_clone
+machine_readability_validation:
+  format: yaml
+  contains_markdown_headings: false
+  contains_fenced_code_blocks: false
+  contains_freeform_human_sections: false
+  parse_requirement: YAML parser must load this file as one mapping object.

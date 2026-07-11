@@ -1,0 +1,22 @@
+# Phase 0 Navigation Report
+
+Generated: `2026-07-10T22:09:01Z`
+KB root: `C:\GitDev\apexai-os-meta\apex-meta\kb\old-apex-full-orchestration-agent-kb-v2`
+Files scanned: `418`
+
+## Artifacts
+
+- `corpus-profile.md`
+- `heading-map.json`
+- `markdown-link-map.json`
+- `frontmatter-map.json`
+- `term-frequency.json`
+- `topic-source-rankings.json`
+- `source-priority-candidates.md`
+- `phase0-navigation-report.md`
+
+## Boundary
+
+This Phase 0 run created deterministic navigation artifacts only. It did not
+create Phase 1 semantic analysis, Phase 2 wiki pages, embeddings, vector stores,
+Plan/Sync/Session state, PreCap outputs, FlowRecap outputs, or APSU outputs.

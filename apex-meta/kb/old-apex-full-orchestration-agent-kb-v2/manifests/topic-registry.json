@@ -1,0 +1,25 @@
+{
+  "topics": [
+    {
+      "topic_id": "agent-architecture",
+      "title": "Agent architecture, foundations, skills, isolation, overlap, redundancy, and routing",
+      "source": "operator",
+      "status": "compiled",
+      "keywords": ["agent", "role", "skill", "foundation", "overlap", "routing", "handoff", "validator"]
+    },
+    {
+      "topic_id": "resilient-iterative-workflows",
+      "title": "Resilient iterative workflows from macro to meso to micro and back upward",
+      "source": "operator",
+      "status": "compiled",
+      "keywords": ["workflow", "macro", "meso", "micro", "iteration", "orchestration", "sequence", "coordination"]
+    },
+    {
+      "topic_id": "failure-evidence-and-recovery",
+      "title": "Failure patterns, logs, audits, research, anti-drift, and recovery",
+      "source": "operator",
+      "status": "compiled",
+      "keywords": ["failure", "mistake", "audit", "log", "research", "drift", "recovery", "validation"]
+    }
+  ]
+}

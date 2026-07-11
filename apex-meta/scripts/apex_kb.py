@@ -1763,7 +1763,9 @@ def retrieval_index_status(kb_root: Path) -> str:
     files = meta.get("files")
     if not isinstance(files, dict):
         return "unknown"
-    current = {relpath(kb_root, page): sha256_file(page) for page in wiki_pages(kb_root)}
+    # Retrieval intentionally excludes the machine-maintained wiki index;
+    # status must compare the same page set as the retrieval builder.
+    current = {relpath(kb_root, page): sha256_file(page) for page in wiki_pages(kb_root) if page.name != "index.md"}
     if set(files) != set(current):
         return "stale"
     for rel, current_hash in current.items():

@@ -1,0 +1,302 @@
+[
+  {
+    "term": "https",
+    "count": 5090,
+    "file_count": 123
+  },
+  {
+    "term": "com",
+    "count": 4158,
+    "file_count": 125
+  },
+  {
+    "term": "source",
+    "count": 4038,
+    "file_count": 313
+  },
+  {
+    "term": "file",
+    "count": 3982,
+    "file_count": 327
+  },
+  {
+    "term": "hermes",
+    "count": 3949,
+    "file_count": 97
+  },
+  {
+    "term": "agent",
+    "count": 3949,
+    "file_count": 319
+  },
+  {
+    "term": "docs",
+    "count": 3741,
+    "file_count": 157
+  },
+  {
+    "term": "hermes-agent",
+    "count": 3498,
+    "file_count": 94
+  },
+  {
+    "term": "nousresearch",
+    "count": 3339,
+    "file_count": 90
+  },
+  {
+    "term": "appendix",
+    "count": 3075,
+    "file_count": 153
+  },
+  {
+    "term": "model",
+    "count": 2760,
+    "file_count": 233
+  },
+  {
+    "term": "evidence",
+    "count": 2494,
+    "file_count": 215
+  },
+  {
+    "term": "ops",
+    "count": 2466,
+    "file_count": 200
+  },
+  {
+    "term": "direct",
+    "count": 2434,
+    "file_count": 170
+  },
+  {
+    "term": "link",
+    "count": 2271,
+    "file_count": 100
+  },
+  {
+    "term": "use",
+    "count": 2264,
+    "file_count": 304
+  },
+  {
+    "term": "user-guide",
+    "count": 2139,
+    "file_count": 78
+  },
+  {
+    "term": "target",
+    "count": 2094,
+    "file_count": 246
+  },
+  {
+    "term": "task",
+    "count": 2091,
+    "file_count": 218
+  },
+  {
+    "term": "patch",
+    "count": 2028,
+    "file_count": 192
+  },
+  {
+    "term": "special",
+    "count": 1925,
+    "file_count": 183
+  },
+  {
+    "term": "candidate",
+    "count": 1836,
+    "file_count": 179
+  },
+  {
+    "term": "files",
+    "count": 1760,
+    "file_count": 280
+  },
+  {
+    "term": "required",
+    "count": 1759,
+    "file_count": 222
+  },
+  {
+    "term": "context",
+    "count": 1751,
+    "file_count": 227
+  },
+  {
+    "term": "output",
+    "count": 1725,
+    "file_count": 240
+  },
+  {
+    "term": "scaffold",
+    "count": 1694,
+    "file_count": 139
+  },
+  {
+    "term": "path",
+    "count": 1639,
+    "file_count": 269
+  },
+  {
+    "term": "yaml",
+    "count": 1623,
+    "file_count": 221
+  },
+  {
+    "term": "failure",
+    "count": 1569,
+    "file_count": 219
+  },
+  {
+    "term": "meta",
+    "count": 1532,
+    "file_count": 157
+  },
+  {
+    "term": "api",
+    "count": 1526,
+    "file_count": 152
+  },
+  {
+    "term": "status",
+    "count": 1503,
+    "file_count": 258
+  },
+  {
+    "term": "current",
+    "count": 1497,
+    "file_count": 224
+  },
+  {
+    "term": "one",
+    "count": 1489,
+    "file_count": 267
+  },
+  {
+    "term": "research",
+    "count": 1489,
+    "file_count": 192
+  },
+  {
+    "term": "managed",
+    "count": 1460,
+    "file_count": 150
+  },
+  {
+    "term": "openclaw",
+    "count": 1446,
+    "file_count": 163
+  },
+  {
+    "term": "rule",
+    "count": 1403,
+    "file_count": 181
+  },
+  {
+    "term": "validation",
+    "count": 1400,
+    "file_count": 238
+  },
+  {
+    "term": "tool",
+    "count": 1391,
+    "file_count": 161
+  },
+  {
+    "term": "check",
+    "count": 1380,
+    "file_count": 253
+  },
+  {
+    "term": "execution",
+    "count": 1374,
+    "file_count": 217
+  },
+  {
+    "term": "prompt",
+    "count": 1367,
+    "file_count": 198
+  },
+  {
+    "term": "true",
+    "count": 1347,
+    "file_count": 168
+  },
+  {
+    "term": "config",
+    "count": 1339,
+    "file_count": 191
+  },
+  {
+    "term": "authority",
+    "count": 1334,
+    "file_count": 181
+  },
+  {
+    "term": "session",
+    "count": 1327,
+    "file_count": 132
+  },
+  {
+    "term": "routing",
+    "count": 1315,
+    "file_count": 154
+  },
+  {
+    "term": "state",
+    "count": 1315,
+    "file_count": 230
+  },
+  {
+    "term": "before",
+    "count": 1310,
+    "file_count": 274
+  },
+  {
+    "term": "provider",
+    "count": 1303,
+    "file_count": 96
+  },
+  {
+    "term": "accepted",
+    "count": 1291,
+    "file_count": 204
+  },
+  {
+    "term": "name",
+    "count": 1242,
+    "file_count": 158
+  },
+  {
+    "term": "mode",
+    "count": 1230,
+    "file_count": 211
+  },
+  {
+    "term": "content",
+    "count": 1218,
+    "file_count": 249
+  },
+  {
+    "term": "run",
+    "count": 1206,
+    "file_count": 189
+  },
+  {
+    "term": "rules",
+    "count": 1200,
+    "file_count": 190
+  },
+  {
+    "term": "appendices",
+    "count": 1199,
+    "file_count": 123
+  },
+  {
+    "term": "pass",
+    "count": 1187,
+    "file_count": 184
+  }
+]
