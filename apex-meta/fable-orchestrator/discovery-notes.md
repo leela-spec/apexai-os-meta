@@ -82,7 +82,7 @@ Meta Detective's five "modes" (evidence_source_verifier, contradiction_logic_aud
 
 ## 2. Old orchestration system — v2 (`old-apex-full-orchestration-agent-kb-v2`)
 
-**Status correction:** earlier assumed "Phase 1 only, no Phase 2 wiki." **Wrong** — `wiki/index.md` shows 17 compiled Phase 2 pages already exist (entities, concepts, summaries, 1 audit page), alongside the three `ingest-analysis/phase1-*.md` files. Treat this as a live discrepancy to resolve with the operator, not settled fact either way.
+**Status correction (resolved 2026-07-11 with direct file evidence):** the "Phase 1 only, no Phase 2 wiki" framing was stale. `wiki/index.md` (auto-generated 2026-07-11T11:42:03Z) states "Compiled page count: 17", and 19 compiled page files actually exist on disk across audit/concepts/entities/summaries (the index undercounts by 2 — `explicit-handoff-continuity.md` and `role-state-permission-separation.md` exist but aren't enumerated; 6 "Untitled topic" placeholders remain). So: Phase 2 compilation is real but incomplete, alongside the three `ingest-analysis/phase1-*.md` files. `ORCHESTRATION-SYSTEMS-INDEX.md`'s row was corrected the same day. Remaining operator question is narrower: whether the 17-19 compiled pages are treated as authoritative or as needing an audit pass given the undercount/placeholders.
 
 **What v2 changed vs. the original:** per the source's own "Self-check" section (`raw/other/managed/rules/AGENT_SWARM_INTERACTION_CANON.md`, ~L464-521) — **preserved** the hybrid semantic-role + operational-state model, six-role taxonomy, and three-state permission model; **tightened** `*_vNext` filename dependencies into final-system sibling paths; replaced `AGENT_INSTRUCTION_BLOCK_vNext.md` with a compact `managed/rules/AGENTS.base.md` anchor; pushed QA/escalation/promotion/file-grammar detail to sibling files instead of duplicating it; dropped advisory/transitional sections not tied to governing law. **Unresolved:** whether `PROMOTER` stays a role vs. becomes a governed mode; whether `VERIFIER`/`AUDITOR` should merge.
 
@@ -134,6 +134,6 @@ Meta Detective's five "modes" (evidence_source_verifier, contradiction_logic_aud
 
 ## Open items for the operator
 
-1. Resolve the v1/v2 "Phase 2 already compiled" discrepancy (§2) — was the "Phase 1 only" framing in `target-log.md`/prior conversation simply wrong, or is there a reason to treat the Phase 2 pages as not-yet-authoritative?
+1. ~~Resolve the v1/v2 "Phase 2 already compiled" discrepancy (§2)~~ **Resolved 2026-07-11** — the "Phase 1 only" framing was simply stale (see §2 status correction). Narrower remaining question: are v2's compiled pages authoritative as-is, or do the index undercount + 6 placeholder topics warrant an audit pass before citing them as settled?
 2. Decide whether `PROMOTER`/`VERIFIER`/`AUDITOR` role questions (v1 and v2 both flag variants of this) should be folded into milestone 3's soundness evaluation or milestone 4's architecture questions.
 3. Nothing here has been operator-verified yet — this is a first research pass, not a locked understanding.
