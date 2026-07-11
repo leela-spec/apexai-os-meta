@@ -2,16 +2,23 @@ test
 
 <!-- BEGIN AUTO-GENERATED INDEX -->
 
-Generated: `2026-07-11T11:22:28Z`
+Generated: `2026-07-11T11:49:21Z`
 
-Compiled page count: `105`
+Compiled page count: `112`
 
 ## Topic Guides
 
 - [Agent Teams](entities/agent-teams.md) - `complete` / `operator`
 - [Agent and skill orchestration for resilient workflows](summaries/agent-skill-orchestration-resilient-workflows.md) - `complete` / `operator`
+- [Agent and subagent design patterns](summaries/agent-subagent-design-patterns.md) - `not_started` / `llm_proposed`
+- [Apex application of orchestration patterns](summaries/apex-application-orchestration-patterns.md) - `not_started` / `llm_proposed`
+- [Commands, hooks, rules, and memory interaction model](summaries/commands-hooks-rules-memory-model.md) - `not_started` / `llm_proposed`
+- [External practitioner repo orchestration patterns](summaries/external-repo-orchestration-patterns.md) - `not_started` / `llm_proposed`
 - [Informatics design, formats, and practice guide](summaries/informatics-design-formats-practice-guide.md) - `complete` / `operator`
+- [Named orchestration workflow patterns](summaries/named-orchestration-workflow-patterns.md) - `not_started` / `llm_proposed`
+- [Prompt pack and artifact contract design](summaries/prompt-pack-and-artifact-contract-design.md) - `not_started` / `llm_proposed`
 - [Skill and agent evolution and learning](summaries/skill-agent-evolution-and-learning.md) - `complete` / `operator`
+- [Skill package design contract](summaries/skill-package-design-contract.md) - `not_started` / `llm_proposed`
 - [When to use agent vs subagent vs skill](summaries/agent-vs-subagent-vs-skill.md) - `complete` / `operator`
 
 ## Concept Pages
@@ -107,8 +114,12 @@ Compiled page count: `105`
 
 - [Agent Handoff and Contract System](summaries/agent-handoff-and-contract-system.md) - `active` / `high`
 - [Agent and Skill Orchestration for Resilient Workflows](summaries/agent-skill-orchestration-resilient-workflows.md) - `active` / `high`
+- [Agent and Subagent Design Patterns](summaries/agent-subagent-design-patterns.md) - `active` / `high`
 - [Agent vs Subagent vs Skill](summaries/agent-vs-subagent-vs-skill.md) - `active` / `high`
+- [Apex Application of Orchestration Patterns](summaries/apex-application-orchestration-patterns.md) - `active` / `medium`
 - [Claude Mechanism Decision Model](summaries/claude-mechanism-decision-model.md) - `active` / `high`
+- [Commands, Hooks, Rules, and Memory Interaction Model](summaries/commands-hooks-rules-memory-model.md) - `active` / `high`
+- [External Practitioner Repo Orchestration Patterns](summaries/external-repo-orchestration-patterns.md) - `active` / `medium`
 - [Informatics Design, Formats, and Practice Guide](summaries/informatics-design-formats-practice-guide.md) - `active` / `high`
 - [Apex KB as Source-Preserving Agent Memory](summaries/max-run-20260709/apex-kb-as-source-preserving-agent-memory.md) - `needs_review` / `high`
 - [Claude Code Mechanism Decision Model](summaries/max-run-20260709/claude-code-mechanism-decision-model.md) - `needs_review` / `high`
@@ -120,10 +131,13 @@ Compiled page count: `105`
 - [Subscription, Seat, Terminal, and Machine Model](summaries/max-run-20260709/subscription-seat-terminal-machine-model.md) - `needs_review` / `medium`
 - [MCP Configuration and Trust Boundary](summaries/mcp-configuration-and-trust-boundary.md) - `active` / `high`
 - [Minimal Claude Orchestration Architecture](summaries/minimal-claude-orchestration-architecture.md) - `active` / `high`
+- [Named Orchestration Workflow Patterns](summaries/named-orchestration-workflow-patterns.md) - `needs_review` / `medium`
 - [Production Agent Readiness and Roster Boundary](summaries/production-agent-readiness-and-roster-boundary.md) - `needs_review` / `medium`
 - [Project Execution State Safety Model](summaries/project-execution-state-safety-model.md) - `active` / `high`
+- [Prompt Pack and Artifact Contract Design](summaries/prompt-pack-and-artifact-contract-design.md) - `active` / `high`
 - [Scheduler Boundary and Deferment](summaries/scheduler-boundary-and-deferment.md) - `needs_review` / `low`
 - [Skill and Agent Evolution and Learning](summaries/skill-agent-evolution-and-learning.md) - `active` / `high`
+- [Skill Package Design Contract](summaries/skill-package-design-contract.md) - `active` / `high`
 - [Token-Efficient Information Design](summaries/token-efficient-information-design.md) - `active` / `high`
 - [StatusMerge Flow](summaries/trial-20260710-status-merge/status-merge-flow.md) - `needs_review` / `high`
 - [Weekly Routine as Orchestration Case Study](summaries/weekly-routine-as-orchestration-case-study.md) - `active` / `medium`

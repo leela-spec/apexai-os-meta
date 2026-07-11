@@ -1,7 +1,7 @@
 # Phase 0 Navigation Report
 
-Generated: `2026-07-10T22:00:33Z`
-KB root: `C:\GitDev\apexai-os-meta\apex-meta\kb\claude-code-orchestration-design`
+Generated: `2026-07-11T11:36:43Z`
+KB root: `/home/user/apexai-os-meta/apex-meta/kb/claude-code-orchestration-design`
 Files scanned: `1732`
 
 ## Artifacts

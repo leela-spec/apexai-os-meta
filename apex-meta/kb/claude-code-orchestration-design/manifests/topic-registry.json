@@ -71,6 +71,113 @@
       "source": "operator",
       "status": "complete",
       "target_page": "wiki/entities/agent-teams.md"
+    },
+    {
+      "name": "Agent and subagent design patterns",
+      "slug": "agent-subagent-design-patterns",
+      "keywords": [
+        "subagent",
+        "sub-agent",
+        "context isolation",
+        "tool restriction",
+        "ephemeral",
+        "persistent agent",
+        "delegation"
+      ],
+      "source": "llm_proposed",
+      "status": "not_started",
+      "target_page": "wiki/summaries/agent-subagent-design-patterns.md"
+    },
+    {
+      "name": "Skill package design contract",
+      "slug": "skill-package-design-contract",
+      "keywords": [
+        "SKILL.md",
+        "frontmatter",
+        "progressive disclosure",
+        "skill package",
+        "description field",
+        "skill granularity"
+      ],
+      "source": "llm_proposed",
+      "status": "not_started",
+      "target_page": "wiki/summaries/skill-package-design-contract.md"
+    },
+    {
+      "name": "Named orchestration workflow patterns",
+      "slug": "named-orchestration-workflow-patterns",
+      "keywords": [
+        "workflow",
+        "orchestrator-workers",
+        "evaluator-optimizer",
+        "routing",
+        "parallelization",
+        "prompt chaining",
+        "augmented llm"
+      ],
+      "source": "llm_proposed",
+      "status": "not_started",
+      "target_page": "wiki/summaries/named-orchestration-workflow-patterns.md"
+    },
+    {
+      "name": "Commands, hooks, rules, and memory interaction model",
+      "slug": "commands-hooks-rules-memory-model",
+      "keywords": [
+        "slash command",
+        "hook",
+        "CLAUDE.md",
+        "memory",
+        "settings.json",
+        "permission"
+      ],
+      "source": "llm_proposed",
+      "status": "not_started",
+      "target_page": "wiki/summaries/commands-hooks-rules-memory-model.md"
+    },
+    {
+      "name": "Prompt pack and artifact contract design",
+      "slug": "prompt-pack-and-artifact-contract-design",
+      "keywords": [
+        "artifact contract",
+        "handoff packet",
+        "structured output",
+        "prompt pack",
+        "schema",
+        "contract"
+      ],
+      "source": "llm_proposed",
+      "status": "not_started",
+      "target_page": "wiki/summaries/prompt-pack-and-artifact-contract-design.md"
+    },
+    {
+      "name": "External practitioner repo orchestration patterns",
+      "slug": "external-repo-orchestration-patterns",
+      "keywords": [
+        "BMAD",
+        "aider",
+        "SWE-agent",
+        "practitioner repo",
+        "awesome-claude-code",
+        "personal-os"
+      ],
+      "source": "llm_proposed",
+      "status": "not_started",
+      "target_page": "wiki/summaries/external-repo-orchestration-patterns.md"
+    },
+    {
+      "name": "Apex application of orchestration patterns",
+      "slug": "apex-application-orchestration-patterns",
+      "keywords": [
+        "apex-kb",
+        "apex-plan",
+        "apex-sync",
+        "apex-session",
+        "flow recap",
+        "status merge"
+      ],
+      "source": "llm_proposed",
+      "status": "not_started",
+      "target_page": "wiki/summaries/apex-application-orchestration-patterns.md"
     }
   ]
 }

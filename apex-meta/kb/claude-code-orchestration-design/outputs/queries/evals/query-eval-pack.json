@@ -1,5 +1,96 @@
 {
   "kb_slug": "claude-code-orchestration-design",
-  "queries": [],
+  "queries": [
+    {
+      "query": "How do I restrict which tools or MCP servers a subagent can call, and can it spawn its own subagents?",
+      "expected_routes": [
+        "wiki/summaries/agent-subagent-design-patterns.md"
+      ],
+      "expected_minimal_pages": [
+        "wiki/summaries/agent-subagent-design-patterns.md",
+        "wiki/entities/claude-code-subagents.md"
+      ],
+      "raw_source_needed": [
+        "raw/source-groups/claude-orchestration-agents/raw/refs/orchestration-agents-in-cc/primary-code-claude-com-docs-en-sub-agents.md.md"
+      ]
+    },
+    {
+      "query": "What are the required frontmatter fields for a SKILL.md, and when should I split a skill into multiple files or references/?",
+      "expected_routes": [
+        "wiki/summaries/skill-package-design-contract.md"
+      ],
+      "expected_minimal_pages": [
+        "wiki/summaries/skill-package-design-contract.md"
+      ],
+      "raw_source_needed": [
+        "raw/source-groups/_source-acquisitions/skill-best-practices-official-2026-06-23/raw/official-pdfs/anthropic-complete-guide-to-building-skills-for-claude.md"
+      ]
+    },
+    {
+      "query": "What named workflow shapes (chaining, routing, parallelization, orchestrator-workers, evaluator-optimizer) show up in real Claude Code or practitioner-repo configurations, and where does that taxonomy actually come from?",
+      "expected_routes": [
+        "wiki/summaries/named-orchestration-workflow-patterns.md"
+      ],
+      "expected_minimal_pages": [
+        "wiki/summaries/named-orchestration-workflow-patterns.md",
+        "wiki/summaries/external-repo-orchestration-patterns.md"
+      ],
+      "raw_source_needed": [
+        "raw/source-groups/claude-orchestration-agents/raw/repos/first-batch-to-clone/shanraisshan__claude-code-best-practice/.claude/commands/workflows/best-practice/workflow-concepts.md",
+        "raw/source-groups/claude-orchestration-agents/raw/refs/orchestration-agents-in-cc/secondary-anthropic-com-engineering.md"
+      ]
+    },
+    {
+      "query": "How do slash commands, hooks, CLAUDE.md/rules, and memory actually interact -- e.g. what event fires when a rules file loads, or when a slash command is typed directly?",
+      "expected_routes": [
+        "wiki/summaries/commands-hooks-rules-memory-model.md"
+      ],
+      "expected_minimal_pages": [
+        "wiki/summaries/commands-hooks-rules-memory-model.md",
+        "wiki/entities/claude-code-hooks.md"
+      ],
+      "raw_source_needed": [
+        "raw/source-groups/claude-orchestration-agents/raw/refs/orchestration-agents-in-cc/primary-code-claude-com-docs-en-hooks.md.md"
+      ]
+    },
+    {
+      "query": "How should I design a handoff packet or artifact contract file so it doesn't duplicate a schema that another file already owns?",
+      "expected_routes": [
+        "wiki/summaries/prompt-pack-and-artifact-contract-design.md"
+      ],
+      "expected_minimal_pages": [
+        "wiki/summaries/prompt-pack-and-artifact-contract-design.md",
+        "wiki/concepts/standard-handoff-packet.md"
+      ],
+      "raw_source_needed": [
+        "raw/source-groups/claude-skill-design/sources/operator-supplied/notes/Claude_Skill_Package_BestPractice_Handover.md",
+        "raw/source-groups/prompt-engineer-research-base/raw/refs/current-promptengineer-package/prompt-engineering-dependency-contract.md"
+      ]
+    },
+    {
+      "query": "What orchestration lessons can I actually take from BMAD-METHOD, Aider, or personal-os without adopting their whole framework?",
+      "expected_routes": [
+        "wiki/summaries/external-repo-orchestration-patterns.md"
+      ],
+      "expected_minimal_pages": [
+        "wiki/summaries/external-repo-orchestration-patterns.md"
+      ],
+      "raw_source_needed": [
+        "raw/source-groups/claude-orchestration-agents/raw/notes/OrchestrationAgentsInCC_RepoResearch_CC.md"
+      ]
+    },
+    {
+      "query": "Where did Apex's own KB/Sync/Plan/Session skill split come from, and did the original design mapping actually get built?",
+      "expected_routes": [
+        "wiki/summaries/apex-application-orchestration-patterns.md"
+      ],
+      "expected_minimal_pages": [
+        "wiki/summaries/apex-application-orchestration-patterns.md"
+      ],
+      "raw_source_needed": [
+        "raw/source-groups/claude-orchestration-agents/raw/notes/OrchestrationAgentsInCC_RepoResearch_CC.md"
+      ]
+    }
+  ],
   "schema": "apex.query_eval_pack.v1"
 }

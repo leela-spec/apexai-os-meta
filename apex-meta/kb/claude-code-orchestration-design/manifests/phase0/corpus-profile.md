@@ -1,6 +1,6 @@
 # Phase 0 Corpus Profile
 
-Generated: `2026-07-10T22:00:27Z`
+Generated: `2026-07-11T11:36:43Z`
 
 ## source_inventory_status
 
@@ -13,7 +13,7 @@ Generated: `2026-07-10T22:00:27Z`
 
 - Source roots scanned: `sources/`, `raw/`
 - Files scanned: `1732`
-- Total bytes: `14611395`
+- Total bytes: `14316275`
 
 ## file_count_by_extension
 
@@ -28,26 +28,26 @@ Generated: `2026-07-10T22:00:27Z`
 
 ## largest_files
 
-- `raw/source-groups/claude-orchestration-agents/raw/refs/orchestration-agents-in-cc/primary-code-claude-com-docs-en-hooks.md.md`: 221768 bytes
-- `raw/source-groups/claude-orchestration-agents/raw/repos/first-batch-to-clone/shanraisshan__claude-code-best-practice/changelog/best-practice/concepts/changelog.md`: 196076 bytes
-- `raw/source-groups/claude-orchestration-agents/raw/repos/first-batch-to-clone/shanraisshan__claude-code-best-practice/changelog/best-practice/claude-settings/changelog.md`: 166216 bytes
-- `raw/source-groups/_source-acquisitions/skill-best-practices-official-2026-06-23/raw/official-repos/anthropics-skills/skills/claude-api/shared/model-migration.md`: 119964 bytes
-- `raw/source-groups/claude-skill-design/sources/curated/official-repos/anthropics-skills/skills/claude-api/shared/model-migration.md`: 119964 bytes
-- `raw/source-groups/claude-orchestration-agents/raw/repos/first-batch-to-clone/shanraisshan__claude-code-best-practice/best-practice/claude-settings.md`: 116174 bytes
-- `raw/source-groups/prompt-engineer-research-base/raw/refs/old-prompt-workflow-kb/appendices/NewResearchBecauseOfConstantFailure/Recap&ProcessImprovs/ClaudeChatHistory4PromptflowsNodrift.md`: 106156 bytes
-- `raw/source-groups/claude-orchestration-agents/raw/repos/first-batch-to-read-only/Aider-AI__aider/aider/website/docs/config/adv-model-settings.md`: 91831 bytes
-- `raw/source-groups/claude-orchestration-agents/raw/refs/orchestration-agents-in-cc/primary-code-claude-com-docs-en-claude-directory.md.md`: 85252 bytes
-- `raw/source-groups/claude-orchestration-agents/raw/refs/orchestration-agents-in-cc/primary-code-claude-com-docs-en-plugins-reference.md.md`: 80915 bytes
-- `raw/source-groups/claude-orchestration-agents/raw/refs/orchestration-agents-in-cc/repo-example-raw-githubusercontent-com-FlorianBruniaux-claude-code-ultimate-guide-main-guide-workflows-agent-teams.md.md`: 77631 bytes
-- `raw/source-groups/prompt-engineer-research-base/raw/refs/old-prompt-workflow-kb/appendices/KBAudit/DR_GEM_ AgtnticAIFailure&ExtractionLEdger.md`: 77217 bytes
-- `raw/source-groups/claude-orchestration-agents/raw/repos/first-batch-to-clone/shanraisshan__claude-code-best-practice/README.md`: 77065 bytes
-- `raw/source-groups/claude-orchestration-agents/raw/refs/orchestration-agents-in-cc/secondary-code-claude-com-docs-en-agent-view.md.md`: 75050 bytes
-- `raw/source-groups/prompt-engineer-research-base/raw/refs/old-prompt-workflow-kb/appendices/KBAudit/ThinkingProcessTestRunDR.md`: 73868 bytes
-- `raw/source-groups/claude-orchestration-agents/raw/refs/orchestration-agents-in-cc/primary-code-claude-com-docs-en-sub-agents.md.md`: 71442 bytes
-- `raw/source-groups/claude-orchestration-agents/raw/repos/first-batch-to-clone/shanraisshan__claude-code-best-practice/.claude/agents/presentation-claude-gemini.md`: 67399 bytes
-- `raw/source-groups/claude-orchestration-agents/raw/repos/first-batch-to-clone/bmad-code-org__BMAD-METHOD/src/bmm-skills/4-implementation/bmad-retrospective/SKILL.md`: 67048 bytes
-- `raw/source-groups/claude-orchestration-agents/raw/refs/orchestration-agents-in-cc/primary-code-claude-com-docs-en-skills.md.md`: 63620 bytes
-- `raw/source-groups/claude-orchestration-agents/raw/refs/orchestration-agents-in-cc/secondary-code-claude-com-docs-en-mcp.md.md`: 58740 bytes
+- `raw/source-groups/claude-orchestration-agents/raw/refs/orchestration-agents-in-cc/primary-code-claude-com-docs-en-hooks.md.md`: 218706 bytes
+- `raw/source-groups/claude-orchestration-agents/raw/repos/first-batch-to-clone/shanraisshan__claude-code-best-practice/changelog/best-practice/concepts/changelog.md`: 194935 bytes
+- `raw/source-groups/claude-orchestration-agents/raw/repos/first-batch-to-clone/shanraisshan__claude-code-best-practice/changelog/best-practice/claude-settings/changelog.md`: 165239 bytes
+- `raw/source-groups/_source-acquisitions/skill-best-practices-official-2026-06-23/raw/official-repos/anthropics-skills/skills/claude-api/shared/model-migration.md`: 118829 bytes
+- `raw/source-groups/claude-skill-design/sources/curated/official-repos/anthropics-skills/skills/claude-api/shared/model-migration.md`: 118829 bytes
+- `raw/source-groups/claude-orchestration-agents/raw/repos/first-batch-to-clone/shanraisshan__claude-code-best-practice/best-practice/claude-settings.md`: 114897 bytes
+- `raw/source-groups/prompt-engineer-research-base/raw/refs/old-prompt-workflow-kb/appendices/NewResearchBecauseOfConstantFailure/Recap&ProcessImprovs/ClaudeChatHistory4PromptflowsNodrift.md`: 105332 bytes
+- `raw/source-groups/claude-orchestration-agents/raw/repos/first-batch-to-read-only/Aider-AI__aider/aider/website/docs/config/adv-model-settings.md`: 88400 bytes
+- `raw/source-groups/claude-orchestration-agents/raw/refs/orchestration-agents-in-cc/primary-code-claude-com-docs-en-claude-directory.md.md`: 83641 bytes
+- `raw/source-groups/claude-orchestration-agents/raw/refs/orchestration-agents-in-cc/primary-code-claude-com-docs-en-plugins-reference.md.md`: 79682 bytes
+- `raw/source-groups/claude-orchestration-agents/raw/repos/first-batch-to-clone/shanraisshan__claude-code-best-practice/README.md`: 76469 bytes
+- `raw/source-groups/prompt-engineer-research-base/raw/refs/old-prompt-workflow-kb/appendices/KBAudit/DR_GEM_ AgtnticAIFailure&ExtractionLEdger.md`: 76264 bytes
+- `raw/source-groups/claude-orchestration-agents/raw/refs/orchestration-agents-in-cc/repo-example-raw-githubusercontent-com-FlorianBruniaux-claude-code-ultimate-guide-main-guide-workflows-agent-teams.md.md`: 75687 bytes
+- `raw/source-groups/claude-orchestration-agents/raw/refs/orchestration-agents-in-cc/secondary-code-claude-com-docs-en-agent-view.md.md`: 74431 bytes
+- `raw/source-groups/prompt-engineer-research-base/raw/refs/old-prompt-workflow-kb/appendices/KBAudit/ThinkingProcessTestRunDR.md`: 73566 bytes
+- `raw/source-groups/claude-orchestration-agents/raw/refs/orchestration-agents-in-cc/primary-code-claude-com-docs-en-sub-agents.md.md`: 70320 bytes
+- `raw/source-groups/claude-orchestration-agents/raw/repos/first-batch-to-clone/shanraisshan__claude-code-best-practice/.claude/agents/presentation-claude-gemini.md`: 67213 bytes
+- `raw/source-groups/claude-orchestration-agents/raw/repos/first-batch-to-clone/bmad-code-org__BMAD-METHOD/src/bmm-skills/4-implementation/bmad-retrospective/SKILL.md`: 65521 bytes
+- `raw/source-groups/claude-orchestration-agents/raw/refs/orchestration-agents-in-cc/primary-code-claude-com-docs-en-skills.md.md`: 62762 bytes
+- `raw/source-groups/claude-orchestration-agents/raw/refs/orchestration-agents-in-cc/secondary-code-claude-com-docs-en-mcp.md.md`: 57593 bytes
 
 ## likely_generated_or_noise_files
 
@@ -68,13 +68,13 @@ Generated: `2026-07-10T22:00:27Z`
 - `raw/source-groups/_source-acquisitions/skill-best-practices-official-2026-06-23/raw/official-pdfs/anthropic-complete-guide-to-building-skills-for-claude.md.meta.md`, `raw/source-groups/claude-skill-design/sources/curated/official-pdfs/anthropic-complete-guide-to-building-skills-for-claude.md.meta.md`
 - `raw/source-groups/_source-acquisitions/skill-best-practices-official-2026-06-23/raw/official-repos/agentskills-agentskills/.claude/settings.json`, `raw/source-groups/claude-skill-design/sources/curated/official-repos/agentskills-agentskills/.claude/settings.json`
 - `raw/source-groups/_source-acquisitions/skill-best-practices-official-2026-06-23/raw/official-repos/agentskills-agentskills/CONTRIBUTING.md`, `raw/source-groups/claude-skill-design/sources/curated/official-repos/agentskills-agentskills/CONTRIBUTING.md`
+- `raw/source-groups/_source-acquisitions/skill-best-practices-official-2026-06-23/raw/official-repos/agentskills-agentskills/README.md`, `raw/source-groups/claude-orchestration-agents/raw/refs/orchestration-agents-in-cc/repo-example-raw-githubusercontent-com-agentskills-agentskills-main-README.md.md`, `raw/source-groups/claude-skill-design/sources/curated/official-repos/agentskills-agentskills/README.md`
 - `raw/source-groups/_source-acquisitions/skill-best-practices-official-2026-06-23/raw/official-repos/agentskills-agentskills/docs/CLAUDE.md`, `raw/source-groups/claude-skill-design/sources/curated/official-repos/agentskills-agentskills/docs/CLAUDE.md`
+- `raw/source-groups/_source-acquisitions/skill-best-practices-official-2026-06-23/raw/official-repos/agentskills-agentskills/docs/README.md`, `raw/source-groups/claude-skill-design/sources/curated/official-repos/agentskills-agentskills/docs/README.md`
 - `raw/source-groups/_source-acquisitions/skill-best-practices-official-2026-06-23/raw/official-repos/agentskills-agentskills/docs/client-implementation/adding-skills-support.mdx`, `raw/source-groups/claude-skill-design/sources/curated/official-repos/agentskills-agentskills/docs/client-implementation/adding-skills-support.mdx`
 - `raw/source-groups/_source-acquisitions/skill-best-practices-official-2026-06-23/raw/official-repos/agentskills-agentskills/docs/clients.mdx`, `raw/source-groups/claude-skill-design/sources/curated/official-repos/agentskills-agentskills/docs/clients.mdx`
 - `raw/source-groups/_source-acquisitions/skill-best-practices-official-2026-06-23/raw/official-repos/agentskills-agentskills/docs/docs.json`, `raw/source-groups/claude-skill-design/sources/curated/official-repos/agentskills-agentskills/docs/docs.json`
 - `raw/source-groups/_source-acquisitions/skill-best-practices-official-2026-06-23/raw/official-repos/agentskills-agentskills/docs/home.mdx`, `raw/source-groups/claude-skill-design/sources/curated/official-repos/agentskills-agentskills/docs/home.mdx`
-- `raw/source-groups/_source-acquisitions/skill-best-practices-official-2026-06-23/raw/official-repos/agentskills-agentskills/docs/README.md`, `raw/source-groups/claude-skill-design/sources/curated/official-repos/agentskills-agentskills/docs/README.md`
-- `raw/source-groups/_source-acquisitions/skill-best-practices-official-2026-06-23/raw/official-repos/agentskills-agentskills/docs/skill-creation/best-practices.mdx`, `raw/source-groups/claude-skill-design/sources/curated/official-repos/agentskills-agentskills/docs/skill-creation/best-practices.mdx`
 
 ## source_group_summary
 

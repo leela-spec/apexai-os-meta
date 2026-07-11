@@ -1,6 +1,6 @@
 {
   "backend": "sqlite_fts5",
-  "chunk_count": 1164,
+  "chunk_count": 1241,
   "files": {
     "wiki/concepts/agent-learning-queue-candidate-only.md": {
       "hash": "c106029dc0ab109d095c74cc583367f931bd6e2db7d5fa4b214c63efe813a465",
@@ -342,13 +342,29 @@
       "hash": "bf26560693e5f229c20bee97e99dcdc26676f71a9d7e7fe5668053f337a388ca",
       "mtime": 1783760521.0572948
     },
+    "wiki/summaries/agent-subagent-design-patterns.md": {
+      "hash": "b3c50b6efd7bd8bf2077f74de986ce9bec96d52714f905e14e8aba600cdb96a8",
+      "mtime": 1783769956.7488644
+    },
     "wiki/summaries/agent-vs-subagent-vs-skill.md": {
       "hash": "88bff520dcaa7be82cfbe20eabddfe6f105bd3dc26212ea6f39dbb13ea9c0ca1",
       "mtime": 1783760521.0572948
     },
+    "wiki/summaries/apex-application-orchestration-patterns.md": {
+      "hash": "8af273085fd3c83dc42688dd77b0418d1fa476df2e729623e880d5bbd0d84db7",
+      "mtime": 1783770472.6088526
+    },
     "wiki/summaries/claude-mechanism-decision-model.md": {
       "hash": "3235aca48aa227cc85e707a9e70ae0cd7e3f7b5e06b7781ed6e47a3beec031ab",
       "mtime": 1783760521.0572948
+    },
+    "wiki/summaries/commands-hooks-rules-memory-model.md": {
+      "hash": "d9561a35574732b0cd57434c5c8a796e6559f3acaaba6d8447db44df0b74a350",
+      "mtime": 1783770222.1048582
+    },
+    "wiki/summaries/external-repo-orchestration-patterns.md": {
+      "hash": "efe6977173535eaddf8522fb599fee085d5be9b57dc9e969d261e6e25f08ec30",
+      "mtime": 1783770416.5688539
     },
     "wiki/summaries/informatics-design-formats-practice-guide.md": {
       "hash": "e2c71ce2da0453cbd884dedb5c69f3b1f9eb481d85213a990bf250cb8d6e292f",
@@ -394,6 +410,10 @@
       "hash": "0b8e73133b1c57367d61669b878a3bcda8c7342f90a0cf212f3193f31bd050e3",
       "mtime": 1783760521.0578737
     },
+    "wiki/summaries/named-orchestration-workflow-patterns.md": {
+      "hash": "1122e08d9733546c339509dd9ae68b1f2d310f1c25ee62a8acc6771ca56b0b8c",
+      "mtime": 1783770107.0648608
+    },
     "wiki/summaries/production-agent-readiness-and-roster-boundary.md": {
       "hash": "934a51a7061c12bd1397fc1281cf69b2ea57d09685b60f067afbf88356358411",
       "mtime": 1783760521.0578737
@@ -402,6 +422,10 @@
       "hash": "9a4ebff7ae970d244cb9913102e53cdbfb448d62da2d75cf471de5560e318302",
       "mtime": 1783760521.0578737
     },
+    "wiki/summaries/prompt-pack-and-artifact-contract-design.md": {
+      "hash": "a1ea3abea21f07f75200189bab8711afafa480e123ccce6bd9009023a8ee4884",
+      "mtime": 1783770320.845131
+    },
     "wiki/summaries/scheduler-boundary-and-deferment.md": {
       "hash": "21a118cb17c867ce30345a6f2ad65bfb001303e2f7aa9373c2dcfa9da70c3ba7",
       "mtime": 1783760521.0578737
@@ -409,6 +433,10 @@
     "wiki/summaries/skill-agent-evolution-and-learning.md": {
       "hash": "bda20a9b04dcac3176a456cb63384350496160bcc95f175ce07ebbe6c79397c6",
       "mtime": 1783760521.0578737
+    },
+    "wiki/summaries/skill-package-design-contract.md": {
+      "hash": "d902f871d905f6f922fac51ce9484f7421c9f30d56eb3cf23e33f8e2c9489210",
+      "mtime": 1783770027.7608628
     },
     "wiki/summaries/token-efficient-information-design.md": {
       "hash": "523b8707c08c1ec352c47d523f69b392772f15cd94699c55b6b88851a6364acf",
@@ -423,9 +451,9 @@
       "mtime": 1783760521.0578737
     }
   },
-  "generated_at": "2026-07-11T11:22:28Z",
+  "generated_at": "2026-07-11T11:49:21Z",
   "kb_slug": "claude-code-orchestration-design",
-  "page_count": 105,
+  "page_count": 112,
   "policy": "derived_rebuildable_not_canonical",
   "schema_version": "1.0"
 }
