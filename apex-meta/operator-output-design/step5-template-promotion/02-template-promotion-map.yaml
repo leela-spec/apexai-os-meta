@@ -56,7 +56,7 @@ template_promotion:
     entrypoint_update_required: false
   - artifact_id: J6
     source_path: apex-meta\operator-output-design\step4-operator-template-system\templates/J06-execution-evidence-handoff.md
-    source_sha256: "a54614f30594fc30df3f9e616faf33389fec171fa1b75715499b57dd1ebbec71"
+    source_sha256: "04d82f854acb689b161af0fe8d3073bb2556e8c1aaf984e2fa96e5e412843af3"
     owner_package: raw-flow-dump-normalize
     target_path: .claude/skills/raw-flow-dump-normalize/templates/execution-evidence-handoff-template.md
     target_operation: add_new_file
@@ -67,7 +67,7 @@ template_promotion:
     entrypoint_update_required: false
   - artifact_id: J6a
     source_path: apex-meta\operator-output-design\step4-operator-template-system\templates/J06a-skip-marker.md
-    source_sha256: "9a7b0d794264575221cb170b2438d7e5c06d5572856f6fef81d94590fb574f6c"
+    source_sha256: "8d47cb97e6a0c4f24699eca1e500e789c20400c6bd888f800982c3f69fa2ddaf"
     owner_package: raw-flow-dump-normalize
     target_path: .claude/skills/raw-flow-dump-normalize/templates/skip-marker-template.md
     target_operation: add_new_file

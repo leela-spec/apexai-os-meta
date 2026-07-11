@@ -1,0 +1,12 @@
+transitions:
+  - {from: accepted_before, to: J1, evidence: 02-accepted-state-before.md}
+  - {from: J1, to: J2, evidence: J1-project-state-success-card.md}
+  - {from: J2, to: J3, evidence: J2-weekly-command-brief.md}
+  - {from: J3, to: J4_J5, evidence: J3-precap-next-day-brief.md}
+  - {from: operator_execution, to: J6, evidence: synthetic-operator-execution-evidence.md}
+  - {from: J6, to: J7, evidence: J6-execution-evidence-handoff.md}
+  - {from: J7_candidate, to: J9_decision, evidence: J9-status-merge-decision-card.md}
+  - {from: J9_approval, to: J10_confirmed_write, evidence: J10-project-kb-update-card.md}
+  - {from: J10, to: J11, evidence: 16-confirmed-state-after.md}
+  - {from: J11_J8, to: J12_advice, evidence: J12-ai-routing-card.md}
+  - {from: J11, to: next_cycle, evidence: next-cycle-context.md}

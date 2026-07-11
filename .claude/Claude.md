@@ -28,15 +28,17 @@ Apex: Claude-native orchestration system for Marco. Plans → Marco executes →
 All 9 skills above are `present` as of last check. If a `Read` on a `skill_path` fails, treat that skill as missing and report it.
 
 ## artifact_paths
-- apex_project_status: state/apex-project-status.md
-- consumed_recap_registry: state/consumed-recap-registry.md
+- apex_project_registry: .claude/kb/registry.md
+- project_records: .claude/kb/projects/
+- consumed_recap_registry: .claude/kb/consumed-recap-registry.md
+- next_precap_context: .claude/kb/next-precap-context.md (created only by a confirmed update)
 - weekly_plan_packets: artifacts/weekly-plans/
 - next_day_plans: artifacts/next-day-plans/
 - flow_packets: artifacts/flow-packets/
 - flow_recap_packets: artifacts/flow-recap-packets/
 
 ## session_startup
-1. Read this file + state/apex-project-status.md.
+1. Read this file + .claude/kb/registry.md; load the relevant project record when present.
 2. Confirm skill status (present/missing) against the table above.
 3. Do not execute anything until Marco issues a trigger phrase.
 

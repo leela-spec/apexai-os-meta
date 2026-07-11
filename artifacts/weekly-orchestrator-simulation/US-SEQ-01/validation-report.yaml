@@ -1,0 +1,7 @@
+validation_records:
+  - {input: 00-fixture-manifest.yaml, output: fixture, assertion: synthetic_state_is_isolated, expected: no_real_state_write, actual: no_real_state_write, evidence_path: 00-fixture-manifest.yaml, verdict: pass}
+  - {input: J6-execution-evidence-handoff.md, output: J7-flowrecap-result-card.md, assertion: evidence_precedes_interpretation, expected: candidate_only, actual: candidate_only, evidence_path: J7-flowrecap-result-card.md, verdict: pass}
+  - {input: J7-flowrecap-result-card.md, output: J11-project-status-overview.md, assertion: candidate_not_accepted_before_J10, expected: J10_required, actual: J10_confirmed_ref_present, evidence_path: J10-project-kb-update-card.md, verdict: pass}
+  - {input: J7-flowrecap-result-card.md, output: 16-confirmed-state-after.md, assertion: recap_idempotency, expected: one_consumption, actual: one_consumption, evidence_path: 16-confirmed-state-after.md, verdict: pass}
+  - {input: 16-confirmed-state-after.md, output: next-cycle-precap-next-day.md, assertion: next_cycle_uses_confirmed_state, expected: confirmed_status, actual: pilot_protocol_candidate_ready, evidence_path: next-cycle-precap-next-day.md, verdict: pass}
+  - {input: J8-usage-learning-card.md, output: J12-ai-routing-card.md, assertion: routing_is_advisory, expected: operator_decision, actual: approved_synthetic, evidence_path: J12-ai-routing-card.md, verdict: pass}
