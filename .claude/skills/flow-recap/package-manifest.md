@@ -174,3 +174,14 @@ package_ready_note:
   candidate_deltas_not_treated_as_accepted_state: true
   remaining_action: apply_patch_pack_review_only
 ```
+
+
+## Promoted Operator Templates
+
+```yaml
+operator_templates:
+  - artifact_id: J7
+    path: .claude/skills/flow-recap/templates/flowrecap-result-card-template.md
+    purpose: Retained Step 4 operator template
+    read_when: operator_requests_template
+```

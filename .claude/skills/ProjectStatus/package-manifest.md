@@ -75,3 +75,14 @@ package_manifest:
     no_next_day_plan: true
     no_status_merge: true
 ```
+
+
+## Promoted Operator Templates
+
+```yaml
+operator_templates:
+  - artifact_id: J11
+    path: .claude/skills/ProjectStatus/project-status-overview-template.md
+    purpose: Retained Step 4 operator template
+    read_when: operator_requests_template
+```

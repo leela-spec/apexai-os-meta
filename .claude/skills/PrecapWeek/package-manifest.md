@@ -435,3 +435,13 @@ The `precap-week` skill package file set is complete:
     weekly-blueprint-meeting-example.md
     validation-checklist.md
 ```
+
+## Promoted Operator Templates
+
+```yaml
+operator_templates:
+  - artifact_id: J2
+    path: .claude/skills/PrecapWeek/weekly-command-brief-template.md
+    purpose: Retained Step 4 operator template
+    read_when: operator_requests_template
+```

@@ -1,0 +1,289 @@
+diff --git a/.claude/skills/project-kb-manager/templates/project-state-success-card-template.md b/.claude/skills/project-kb-manager/templates/project-state-success-card-template.md
+new file mode 100644
+index 00000000..ddea3606
+--- /dev/null
++++ b/.claude/skills/project-kb-manager/templates/project-state-success-card-template.md
+@@ -0,0 +1,104 @@
++# Project State Success Card - {{PORTFOLIO_OR_SCOPE}}
++
++> **Planning readiness:** {{USABLE_FOR_WEEKLY_PLANNING | USABLE_FOR_NEXT_DAY_PLANNING | REVIEW_NEEDED | BLOCKED}}  
++> **Outcome:** {{ONE_TO_THREE_SENTENCE_PORTFOLIO_STATE_SUMMARY}}  
++> **Next action:** {{USE_AS_CONTEXT | EDIT_CONTEXT | REQUEST_EVIDENCE | MARK_STALE | REJECT_CONTEXT}}  
++> **Review needed:** {{HIGHEST_IMPACT_REVIEW_QUESTION_OR_NONE}}  
++> **Warning:** {{MATERIAL_STALE_CONFLICTING_OR_MISSING_CONTEXT_OR_REMOVE_LINE}}
++
++## Operator decision
++
++- [ ] Use this state as context for weekly planning.
++- [ ] Use this state as context for next-day planning.
++- [ ] Edit the identified project context before planning.
++- [ ] Request the exact missing evidence named below.
++- [ ] Mark the affected project state stale or reject it.
++
++**Decision or instruction:** {{OPERATOR_DECISION_OR_PENDING}}
++
++## Portfolio snapshot
++
++**State as of:** {{DATE_TIME_OR_SOURCE_FRESHNESS_POINT}}  
++**Projects represented:** {{COUNT}}  
++**Ready for planning:** {{COUNT_OR_NAMES}}  
++**Blocked or review-needed:** {{COUNT_OR_NAMES}}  
++**Main planning constraint:** {{CONSTRAINT_OR_NONE}}
++
++## Project - {{PROJECT_NAME}} (repeat per represented project)
++
++**Current phase:** {{CURRENT_PHASE}}  
++**Current goal:** {{CURRENT_GOAL}}  
++**Planning status:** {{USABLE | REVIEW_NEEDED | BLOCKED | STALE}}  
++**Accepted priorities:**
++
++- {{ACCEPTED_PRIORITY}}
++
++**Active work:**
++
++- {{ACTIVE_WORK_ITEM_OR_WORKSTREAM_SUMMARY}}
++
++**Next-action candidates:**
++
++- {{CANDIDATE_ACTION_WITHOUT_COMMITTING_THE_WEEK_OR_DAY}}
++
++**Blockers:** {{BLOCKERS_OR_NONE}}  
++**Stale or conflicting information:** {{ISSUE_OR_NONE}}  
++**Important artifact references:**
++
++- [{{DESCRIPTIVE_ARTIFACT_LABEL}}]({{RELATIVE_OR_CANONICAL_REF}}) - `{{VISIBLE_REF_OR_PATH}}`
++
++## Planning handoff
++
++**Safe context to carry forward:**
++
++- {{CONFIRMED_PROJECT_SIGNAL}}
++
++**Do not carry forward without review:**
++
++- {{STALE_CONFLICTING_OR_UNSUPPORTED_SIGNAL_OR_NONE}}
++
++**Ready for:** {{WEEKLY_COMMAND_BRIEF | PRECAP_NEXT_DAY_BRIEF | REVIEW_BEFORE_PLANNING}}
++
++## Review flags (include when material)
++
++### {{FLAG_TITLE}}
++
++- **Issue:** {{MISSING_STALE_CONFLICTING_OR_LOW_CONFIDENCE_CONTEXT}}
++- **Why it matters:** {{EFFECT_ON_PLANNING}}
++- **Operator action:** {{ONE_RESOLVING_ACTION}}
++
++## Provenance and confidence
++
++**Main sources:** {{DECISIVE_PROJECT_STATE_REFS}}  
++**Freshness:** {{CURRENT | MIXED | STALE | UNKNOWN_WITH_DETAIL}}  
++**Confidence:** {{HIGH | MEDIUM | LOW_AND_WHY}}  
++**Consequential assumptions:** {{ASSUMPTIONS_OR_NONE}}
++
++## Compact downstream handoff
++
++```yaml
++presentation_handoff:
++  artifact_type: "Project_State_Success_Card"
++  artifact_ref: "{{ARTIFACT_REF}}"
++  planning_readiness: "{{PLANNING_READINESS}}"
++  represented_projects:
++    - project_ref: "{{PROJECT_REF}}"
++      project_state_ref: "{{PROJECT_STATE_REF}}"
++      review_status: "{{REVIEW_STATUS}}"
++  freshness: "{{FRESHNESS_STATUS}}"
++  next_consumer: "{{WEEKLY_COMMAND_BRIEF_OR_PRECAP_NEXT_DAY_BRIEF_OR_OPERATOR_REVIEW}}"
++```
++
++## Template authority
++
++```yaml
++template_authority:
++  source_design_ref: "apex-meta/operator-output-design/step3-output-design-system/03-planning-artifact-designs.okf.yaml"
++  round6_overlay_intent_ref: null
++  overlay_application_status: "not_applicable_to_this_template"
++  domain_contract_refs:
++    - ".claude/skills/project-kb-manager/references/apex-orchestration-state-packet-contract.md"
++  source_gap: "Dedicated live project-state-success owner entrypoint was not verified; do not infer additional schema."
++```
++
++Example: [J01 Project State Success Card](../examples/master-of-arts-example-fragments.md#j01-project-state-success-card)
+diff --git a/.claude/skills/PrecapWeek/weekly-command-brief-template.md b/.claude/skills/PrecapWeek/weekly-command-brief-template.md
+new file mode 100644
+index 00000000..2287aad8
+--- /dev/null
++++ b/.claude/skills/PrecapWeek/weekly-command-brief-template.md
+@@ -0,0 +1,133 @@
++# Weekly Command Brief - {{WEEK_OR_DATE_RANGE}}
++
++> **Weekly state:** {{READY | READY_WITH_REVIEW | PARTIAL | BLOCKED}}  
++> **Direction:** {{TWO_TO_FIVE_SENTENCE_PORTFOLIO_DIRECTION}}  
++> **Next action:** {{APPROVE_WEEK | EDIT_PRIORITIES | REDUCE_SCOPE | RESOLVE_CONSTRAINT | REJECT_DIRECTION}}  
++> **Review needed:** {{HIGHEST_IMPACT_WEEKLY_DECISION_OR_NONE}}  
++> **Scope:** {{ACTIVE_PROJECT_COUNT}} projects; {{MAJOR_OUTCOME_COUNT}} major outcomes
++
++## Operator decision
++
++- [ ] Approve the week as the planning basis.
++- [ ] Edit project priorities or planned work.
++- [ ] Reduce scope or defer a named outcome.
++- [ ] Resolve a capacity, dependency, or decision constraint.
++- [ ] Reject and reframe the weekly direction.
++
++**Decision or instruction:** {{OPERATOR_DECISION_OR_PENDING}}
++
++## Weekly direction
++
++**Weekly intent:** {{WHAT_THE_PORTFOLIO_SHOULD_ACCOMPLISH}}  
++**Success at week end:**
++
++- {{MAJOR_CROSS_PROJECT_OUTCOME}}
++
++**Capacity and constraints:**
++
++- {{AVAILABLE_CAPACITY_OR_FIXED_CONSTRAINT}}
++
++**Major operator decisions:**
++
++- {{DECISION_NEEDED_OR_NONE}}
++
++## Project - {{PROJECT_NAME}} (repeat per active project)
++
++**Weekly target:** {{PROJECT_LEVEL_TARGET}}  
++**Why this week:** {{TIMING_OR_LEVERAGE_REASON}}  
++**Success evidence:** {{WHAT_WILL_DEMONSTRATE_PROGRESS}}
++
++### Priorities and desired results
++
++1. **{{PRIORITY}}** - {{DESIRED_RESULT}}
++
++### Planned work
++
++- **Work item:** {{ACTIONABLE_WORK_ITEM}}
++  - Expected output: {{OUTPUT_OR_ARTIFACT}}
++  - Owner or executor: {{OWNER_OR_OPERATOR}}
++  - Dependency: {{DEPENDENCY_OR_NONE}}
++  - Candidate day: {{DAY_OR_UNASSIGNED}}
++
++### Blockers, risks, and decisions
++
++- **Blocker or risk:** {{ITEM_OR_NONE}}
++- **Decision needed:** {{DECISION_OR_NONE}}
++- **Response this week:** {{MITIGATION_OR_OPERATOR_ACTION}}
++
++### Expected outputs
++
++- [{{OUTPUT_LABEL}}]({{OUTPUT_REF_OR_PLANNED_PATH}}) - `{{VISIBLE_REF_OR_PATH}}`
++
++## Cross-project sequence
++
++**Must happen first:**
++
++1. {{PRECEDING_WORK_AND_REASON}}
++
++**Can run in parallel:**
++
++- {{PARALLEL_WORK}}
++
++**Should not compete for the same capacity:**
++
++- {{COMPETING_WORK_OR_NONE}}
++
++**Deliberately deferred:**
++
++- {{DEFERRED_ITEM_AND_REASON_OR_NONE}}
++
++## Daily seed map (include when useful; not a frozen day plan)
++
++- **{{WEEKDAY}}:** {{CANDIDATE_PROJECTS_AND_LIKELY_OUTCOME}}
++  - Dependency or constraint: {{SUMMARY_OR_NONE}}
++
++Final day-level planning remains owned by the PreCap Next Day Brief.
++
++## Review flags (include when material)
++
++### {{FLAG_TITLE}}
++
++- **Issue:** {{ISSUE}}
++- **Why it matters this week:** {{IMPACT}}
++- **Operator action:** {{RESOLUTION}}
++
++## Provenance and confidence
++
++**Project-state input:** [{{J1_LABEL}}]({{J1_REF}}) - `{{J1_VISIBLE_REF}}`  
++**Other decisive sources:** {{SOURCE_REFS_OR_NONE}}  
++**Freshness:** {{FRESHNESS_STATUS}}  
++**Confidence:** {{HIGH | MEDIUM | LOW_AND_WHY}}  
++**Assumptions:** {{ASSUMPTIONS_OR_NONE}}
++
++## Compact downstream handoff
++
++```yaml
++presentation_handoff:
++  artifact_type: "Weekly_Command_Brief"
++  artifact_ref: "{{ARTIFACT_REF}}"
++  week: "{{WEEK_OR_DATE_RANGE}}"
++  result_state: "{{RESULT_STATE}}"
++  weekly_intent: "{{WEEKLY_INTENT_SUMMARY}}"
++  project_priority_refs:
++    - project_ref: "{{PROJECT_REF}}"
++      priority_ref: "{{PRIORITY_REF}}"
++  fixed_constraints:
++    - "{{CONSTRAINT}}"
++  review_status: "{{REVIEW_STATUS}}"
++  next_consumer: "PreCap_Next_Day_Brief"
++```
++
++## Template authority
++
++```yaml
++template_authority:
++  source_design_ref: "apex-meta/operator-output-design/step3-output-design-system/03-planning-artifact-designs.okf.yaml"
++  round6_overlay_intent_ref: null
++  overlay_application_status: "not_applicable_to_this_template"
++  domain_contract_refs:
++    - ".claude/skills/PrecapWeek/Skill_Precap-Week.md"
++  source_gap: ".claude/skills/PrecapWeek/references/weekly-plan-output-contract.md was referenced by the live skill but not retrievable from main during research."
++```
++
++Example: [J02 Weekly Command Brief](../examples/master-of-arts-example-fragments.md#j02-weekly-command-brief)
+diff --git a/.claude/skills/project-kb-manager/package-manifest.md b/.claude/skills/project-kb-manager/package-manifest.md
+index 5b395c0b..e8a6bf1f 100644
+--- a/.claude/skills/project-kb-manager/package-manifest.md
++++ b/.claude/skills/project-kb-manager/package-manifest.md
+@@ -83,3 +83,14 @@ operator_templates:
+     purpose: Retained Step 4 operator template
+     read_when: operator_requests_template
+ ```
++
++
++## Promoted Operator Templates
++
++```yaml
++operator_templates:
++  - artifact_id: J1
++    path: .claude/skills/project-kb-manager/templates/project-state-success-card-template.md
++    purpose: Retained Step 4 operator template
++    read_when: operator_requests_template
++```
+diff --git a/.claude/skills/PrecapWeek/package-manifest.md b/.claude/skills/PrecapWeek/package-manifest.md
+index 9f8b06c6..88cefcc7 100644
+--- a/.claude/skills/PrecapWeek/package-manifest.md
++++ b/.claude/skills/PrecapWeek/package-manifest.md
+@@ -434,4 +434,14 @@ The `precap-week` skill package file set is complete:
+     weekly-blueprint-standard.md
+     weekly-blueprint-meeting-example.md
+     validation-checklist.md
+-```
+\ No newline at end of file
++```
++
++## Promoted Operator Templates
++
++```yaml
++operator_templates:
++  - artifact_id: J2
++    path: .claude/skills/PrecapWeek/weekly-command-brief-template.md
++    purpose: Retained Step 4 operator template
++    read_when: operator_requests_template
++```

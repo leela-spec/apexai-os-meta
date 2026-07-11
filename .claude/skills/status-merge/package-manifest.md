@@ -286,3 +286,14 @@ completion_gate_snapshot:
   no_automatic_status_overwrite_created: true
   next_PreCapNextDay_input_context_is_clear: true
 ```
+
+
+## Promoted Operator Templates
+
+```yaml
+operator_templates:
+  - artifact_id: J9
+    path: .claude/skills/status-merge/templates/status-merge-decision-card-template.md
+    purpose: Retained Step 4 operator template
+    read_when: operator_requests_template
+```

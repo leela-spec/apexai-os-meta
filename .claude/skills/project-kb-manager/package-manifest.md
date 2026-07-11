@@ -72,3 +72,25 @@ package_manifest:
     progress_log_is_append_only: true
     operator_review_needed_cleared_only_by_operator: true
 ```
+
+
+## Promoted Operator Templates
+
+```yaml
+operator_templates:
+  - artifact_id: J10
+    path: .claude/skills/project-kb-manager/templates/project-kb-update-card-template.md
+    purpose: Retained Step 4 operator template
+    read_when: operator_requests_template
+```
+
+
+## Promoted Operator Templates
+
+```yaml
+operator_templates:
+  - artifact_id: J1
+    path: .claude/skills/project-kb-manager/templates/project-state-success-card-template.md
+    purpose: Retained Step 4 operator template
+    read_when: operator_requests_template
+```

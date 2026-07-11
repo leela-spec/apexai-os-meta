@@ -1,0 +1,144 @@
+template_promotion:
+  - artifact_id: J1
+    source_path: apex-meta\operator-output-design\step4-operator-template-system\templates/J01-project-state-success-card.md
+    source_sha256: "c4b8b8144fff2ac97f511382d80d4f1d2087d15d51ced8c87db347c87aac517f"
+    owner_package: project-kb-manager
+    target_path: .claude/skills/project-kb-manager/templates/project-state-success-card-template.md
+    target_operation: add_new_file
+    target_exists_before: false
+    owning_entrypoint: .claude/skills/project-kb-manager/SKILL.md
+    owning_manifest: .claude/skills/project-kb-manager/package-manifest.md
+    manifest_update_required: true
+    entrypoint_update_required: false
+  - artifact_id: J2
+    source_path: apex-meta\operator-output-design\step4-operator-template-system\templates/J02-weekly-command-brief.md
+    source_sha256: "91a91dd0b3abd69408a472a3c0f1b61e723eee43252b99955c491d6819fa75d5"
+    owner_package: PrecapWeek
+    target_path: .claude/skills/PrecapWeek/weekly-command-brief-template.md
+    target_operation: add_new_file
+    target_exists_before: false
+    owning_entrypoint: .claude/skills/PrecapWeek/Skill_Precap-Week.md
+    owning_manifest: .claude/skills/PrecapWeek/package-manifest.md
+    manifest_update_required: true
+    entrypoint_update_required: false
+  - artifact_id: J3
+    source_path: apex-meta\operator-output-design\step4-operator-template-system\templates/J03-precap-next-day-brief.md
+    source_sha256: "788139b56b739ff80e81b2975bdf1a3c68b1301c85f425e99e0c9f8f0c38ce32"
+    owner_package: PrecapNextDay
+    target_path: .claude/skills/PrecapNextDay/templates/precap-next-day-brief-template.md
+    target_operation: add_new_file
+    target_exists_before: false
+    owning_entrypoint: .claude/skills/PrecapNextDay/Skill_precap-next-day.md
+    owning_manifest: .claude/skills/PrecapNextDay/precap-next-day-package-manifest.md
+    manifest_update_required: true
+    entrypoint_update_required: false
+  - artifact_id: J4
+    source_path: apex-meta\operator-output-design\step4-operator-template-system\templates/J04-flow-execution-card.md
+    source_sha256: "8fa8807dd82d4633fc43bdb49fd818846aa5f0f894626cafe77d9d2a70fae43f"
+    owner_package: PrecapNextDay
+    target_path: .claude/skills/PrecapNextDay/templates/flow-execution-card-template.md
+    target_operation: add_new_file
+    target_exists_before: false
+    owning_entrypoint: .claude/skills/PrecapNextDay/Skill_precap-next-day.md
+    owning_manifest: .claude/skills/PrecapNextDay/precap-next-day-package-manifest.md
+    manifest_update_required: true
+    entrypoint_update_required: false
+  - artifact_id: J5
+    source_path: apex-meta\operator-output-design\step4-operator-template-system\templates/J05-prompt-files-and-index.md
+    source_sha256: "e2549af986f44dfa2eb087eeeaaa06547497e9369e1e3b8705e7cc455b7cacce"
+    owner_package: PrecapNextDay
+    target_path: .claude/skills/PrecapNextDay/templates/prompt-files-and-index-template.md
+    target_operation: add_new_file
+    target_exists_before: false
+    owning_entrypoint: .claude/skills/PrecapNextDay/Skill_precap-next-day.md
+    owning_manifest: .claude/skills/PrecapNextDay/precap-next-day-package-manifest.md
+    manifest_update_required: true
+    entrypoint_update_required: false
+  - artifact_id: J6
+    source_path: apex-meta\operator-output-design\step4-operator-template-system\templates/J06-execution-evidence-handoff.md
+    source_sha256: "a54614f30594fc30df3f9e616faf33389fec171fa1b75715499b57dd1ebbec71"
+    owner_package: raw-flow-dump-normalize
+    target_path: .claude/skills/raw-flow-dump-normalize/templates/execution-evidence-handoff-template.md
+    target_operation: add_new_file
+    target_exists_before: false
+    owning_entrypoint: .claude/skills/raw-flow-dump-normalize/SKILL.md
+    owning_manifest: .claude/skills/raw-flow-dump-normalize/package-manifest.md
+    manifest_update_required: true
+    entrypoint_update_required: false
+  - artifact_id: J6a
+    source_path: apex-meta\operator-output-design\step4-operator-template-system\templates/J06a-skip-marker.md
+    source_sha256: "9a7b0d794264575221cb170b2438d7e5c06d5572856f6fef81d94590fb574f6c"
+    owner_package: raw-flow-dump-normalize
+    target_path: .claude/skills/raw-flow-dump-normalize/templates/skip-marker-template.md
+    target_operation: add_new_file
+    target_exists_before: false
+    owning_entrypoint: .claude/skills/raw-flow-dump-normalize/SKILL.md
+    owning_manifest: .claude/skills/raw-flow-dump-normalize/package-manifest.md
+    manifest_update_required: true
+    entrypoint_update_required: false
+  - artifact_id: J7
+    source_path: apex-meta\operator-output-design\step4-operator-template-system\templates/J07-flowrecap-result-card.md
+    source_sha256: "66009b3b468f2116f5769fe778bba10fdd4f275f775a77cbcca0d2519dda7df1"
+    owner_package: flow-recap
+    target_path: .claude/skills/flow-recap/templates/flowrecap-result-card-template.md
+    target_operation: add_new_file
+    target_exists_before: false
+    owning_entrypoint: .claude/skills/flow-recap/SKILL.md
+    owning_manifest: .claude/skills/flow-recap/package-manifest.md
+    manifest_update_required: true
+    entrypoint_update_required: false
+  - artifact_id: J8
+    source_path: apex-meta\operator-output-design\step4-operator-template-system\templates/J08-usage-learning-card.md
+    source_sha256: "b73f95d43e8b9ec44478e3e554964d612e6c17e725228382b473a055f11a79b9"
+    owner_package: model-usage-log
+    target_path: .claude/skills/model-usage-log/templates/usage-learning-card-template.md
+    target_operation: add_new_file
+    target_exists_before: false
+    owning_entrypoint: .claude/skills/model-usage-log/SKILL.md
+    owning_manifest: .claude/skills/model-usage-log/package-manifest.md
+    manifest_update_required: true
+    entrypoint_update_required: false
+  - artifact_id: J9
+    source_path: apex-meta\operator-output-design\step4-operator-template-system\templates/J09-status-merge-decision-card.md
+    source_sha256: "42d27fc25e0e972c359f339db7b57eaa14ae32246672ac014e77cc7e38b40209"
+    owner_package: status-merge
+    target_path: .claude/skills/status-merge/templates/status-merge-decision-card-template.md
+    target_operation: add_new_file
+    target_exists_before: false
+    owning_entrypoint: .claude/skills/status-merge/SKILL.md
+    owning_manifest: .claude/skills/status-merge/package-manifest.md
+    manifest_update_required: true
+    entrypoint_update_required: false
+  - artifact_id: J10
+    source_path: apex-meta\operator-output-design\step4-operator-template-system\templates/J10-project-kb-update-card.md
+    source_sha256: "32fcab2e2b2b6ed759ea747b6e01e20101c95a8350576d937d1d61760b3bb0b8"
+    owner_package: project-kb-manager
+    target_path: .claude/skills/project-kb-manager/templates/project-kb-update-card-template.md
+    target_operation: add_new_file
+    target_exists_before: false
+    owning_entrypoint: .claude/skills/project-kb-manager/SKILL.md
+    owning_manifest: .claude/skills/project-kb-manager/package-manifest.md
+    manifest_update_required: true
+    entrypoint_update_required: false
+  - artifact_id: J11
+    source_path: apex-meta\operator-output-design\step4-operator-template-system\templates/J11-project-status-overview.md
+    source_sha256: "53c2065873d253bdf651e8c42c9f9d9acce769294981af39568b6222f03ed328"
+    owner_package: ProjectStatus
+    target_path: .claude/skills/ProjectStatus/project-status-overview-template.md
+    target_operation: add_new_file
+    target_exists_before: false
+    owning_entrypoint: .claude/skills/ProjectStatus/project-status-overview_SKILL_v3.md
+    owning_manifest: .claude/skills/ProjectStatus/package-manifest.md
+    manifest_update_required: true
+    entrypoint_update_required: false
+  - artifact_id: J12
+    source_path: apex-meta\operator-output-design\step4-operator-template-system\templates/J12-ai-routing-card.md
+    source_sha256: "5077d787b7ae10bc98983cd1273d7353efdf585c203bd2cf9fa6e4fcd72c3381"
+    owner_package: AIRouting
+    target_path: .claude/skills/AIRouting/ai-routing-card-template.md
+    target_operation: add_new_file
+    target_exists_before: false
+    owning_entrypoint: .claude/skills/AIRouting/ai-routing-and-usage-tracking-SKILL.md
+    owning_manifest: .claude/skills/AIRouting/ai-routing-and-usage-tracking-package-manifest.md
+    manifest_update_required: true
+    entrypoint_update_required: false
