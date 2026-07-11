@@ -68,12 +68,12 @@ Partial. Token-efficiency is "the test each rung must pass before being adopted"
 
 ### Thin dimensions → routed to external research (per model-routing table)
 
-Per milestone 2's own rule ("where the KB itself is thin on a specific question, produce a prompt for an external model instead of guessing"), these four go to external models — prompts in `prompts/` (authored this session):
+Per milestone 2's own rule ("where the KB itself is thin on a specific question, produce a prompt for an external model instead of guessing") — but filtered by decisions.md D2 (no ceremony): only the thin dimensions where research can actually change a build decision get a deep-research run. Prompts in `prompts/external-research-pack-20260711.md` (v2):
 
-1. Role-vs-state permission separation in agent orchestration (D4) — ChatGPT deep research.
-2. In-run operator-gate / human-approval checkpoint patterns (D6) — ChatGPT or Gemini.
-3. Concrete adversarial cross-check wiring (D3 mechanics) — Gemini deep research.
-4. Persistent-agent escalation criteria (ladder rung 5, deferred as U001 in the KB) — ChatGPT pro-thinking.
+1. **P1 — role-vs-state permission separation (D4)** — GPT-5.6 high-reasoning deep research. Can flip Q8's "no state machine" if it finds a real failure role-partitioning can't prevent. **High value.**
+2. **P2 — adversarial cross-check wiring (D3 mechanics)** — GPT-5.6 high-reasoning deep research. Governs the one component built from scratch; can change the reviewer design if same-family LLM review proves unreliable. **High value.**
+3. **P3 — operator-gate patterns (D6) + persistent-agent escalation** — optional/confirmatory, folded together. D6 already has the only *implemented* mechanism in scope, so research here confirms rather than decides. **Low value; skippable.**
+4. **P4 — matrix self-verification** — Perplexity GitHub connector, adversarially audits this file's own citations. Utility, not research.
 
 ## 2. Per-dimension scoring (milestone 3)
 

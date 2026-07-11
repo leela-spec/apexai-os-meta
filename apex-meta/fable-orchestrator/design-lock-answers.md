@@ -137,7 +137,7 @@ The three coupled questions resolve to one coherent picture: durable **accountab
 
 ## External-research dependencies (do not block the gate, sharpen it)
 
-Four prompts authored in `prompts/` (per the model-routing table) cover the dimensions the reference KB is thin on: role-vs-state permission separation (Q8 row 3), in-run operator-gate patterns (Q6), adversarial cross-check wiring mechanics (Q8 row 4), persistent-agent escalation criteria (Q1). Their results can refine field names and wiring at milestone 5 but are not expected to flip any B-direction answer — each answer above already stands on in-repo evidence.
+See `prompts/external-research-pack-20260711.md` (v2). Only two questions get a real deep-research run, because only two can actually flip a decision: **P1 role-vs-state permission** (could move Q8 from "no state machine" to "minimal state field" if it produces a concrete failure the role-boundary + write-gate can't prevent) and **P2 adversarial-review wiring** (could move Q8's Detective translation from "one subagent" to "different-model / N-of-M judge" if same-family LLM review proves unreliable — this is the one component we build from scratch). Both are framed adversarially, to break the B-answer rather than confirm it, with an explicit decision-change bar. The former v1 prompts on operator-gate patterns and persistent-agent escalation were confirmatory (they could not overturn Q6/Q1, which already rest on the only implemented mechanism in scope and on a deferred question) — folded into one optional P3, safe to skip. P4 is a lean Perplexity verification of the evaluation matrix's own citations, not research.
 
 ## Operator gate
 
