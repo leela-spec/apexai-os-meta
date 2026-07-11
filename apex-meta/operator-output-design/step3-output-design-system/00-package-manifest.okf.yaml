@@ -1,0 +1,318 @@
+document:
+  id: apex-step3-operator-output-design-package-manifest
+  title: APEX Step 3 Operator Output Design System Package Manifest
+  status: proposed_round6_manifest
+  created_date: 2026-07-11
+  repository: leela-spec/apexai-os-meta
+  branch: main
+  package_path: apex-meta/operator-output-design/step3-output-design-system/
+  record_type: package_manifest
+
+package_identity:
+  package_name: step3-output-design-system
+  purpose: >
+    Define the operator-facing presentation system for the twelve locked APEX
+    output jobs J1-J12, including shared anatomy, artifact-specific designs,
+    minimum cross-artifact handoffs, lifecycle boundaries, and decision records.
+  design_layer: operator_facing_presentation_and_handoff
+  schema_authority: existing_skill_and_reference_contracts
+  runtime_role: none
+
+scope:
+  owns:
+    - operator_output_design_principles
+    - shared_card_and_brief_anatomy
+    - J1_to_J12_operator_artifact_designs
+    - minimum_cross_artifact_relationships
+    - canonical_artifact_and_lifecycle_projection
+    - round_decision_and_verification_records
+  must_not_own:
+    - underlying_domain_schemas
+    - runtime_execution
+    - autonomous_orchestration
+    - calendar_writes
+    - prompt_execution
+    - durable_project_state_outside_owner_skills
+
+current_status:
+  completed_rounds:
+    - round_1_and_2_foundations
+    - round_3_execution_prompt_and_evidence_design
+    - round_4_recap_and_usage_learning_design
+    - round_5_state_overview_and_routing_design
+  round_6_status: in_progress_iterative_reconciliation
+  operator_verified_source_files: 01_to_19
+  round_6_new_files_present:
+    - 20-round6-cross-cutting-consistency-resolution.okf.yaml
+    - 21-canonical-artifact-family-and-lifecycle-map.okf.yaml
+  round_6_patch_artifacts_present:
+    - round6-patches/01-shared-card-canonical-names.patch
+    - round6-patches/02-j3-j4-depth-separation.patch
+    - round6-patches/03-j9-durable-merge-confirmation.patch
+    - round6-patches/04-j10-durable-update-result.patch
+    - round6-patches/05-j9-j10-j11-confirmed-truth-path.patch
+    - round6-patches/06-j11-project-status-contract-alignment.patch
+    - round6-patches/07-j12-routing-contract-alignment.patch
+  source_design_files_patched_in_place: false
+  runtime_files_modified: false
+
+read_order:
+  - 00-package-manifest.okf.yaml
+  - 01-operator-output-design-principles.okf.yaml
+  - 02-shared-card-and-brief-anatomy.okf.yaml
+  - 03-planning-artifact-designs.okf.yaml
+  - 04-flow-execution-card-design.okf.yaml
+  - 05-prompt-file-and-index-design.okf.yaml
+  - 06-execution-evidence-handoff-design.okf.yaml
+  - 07-skip-marker-low-priority-design.okf.yaml
+  - 08-round3-cross-artifact-relationship.okf.yaml
+  - 09-round3-decision-and-verification-record.okf.yaml
+  - 10-flow-recap-result-card-design.okf.yaml
+  - 11-usage-learning-card-design.okf.yaml
+  - 12-round4-cross-artifact-relationship.okf.yaml
+  - 13-round4-decision-and-verification-record.okf.yaml
+  - 14-status-merge-decision-card-design.okf.yaml
+  - 15-project-kb-update-card-design.okf.yaml
+  - 16-project-status-overview-design.okf.yaml
+  - 17-ai-routing-card-design.okf.yaml
+  - 18-round5-cross-artifact-relationships.okf.yaml
+  - 19-round5-decision-and-verification-record.okf.yaml
+  - 20-round6-cross-cutting-consistency-resolution.okf.yaml
+  - 21-canonical-artifact-family-and-lifecycle-map.okf.yaml
+
+file_index:
+  foundations:
+    - path: 01-operator-output-design-principles.okf.yaml
+      role: package_design_principles
+      status: operator_verified
+    - path: 02-shared-card-and-brief-anatomy.okf.yaml
+      role: shared_operator_output_anatomy
+      status: operator_verified_patch_pending
+  planning:
+    - path: 03-planning-artifact-designs.okf.yaml
+      role: J1_J2_J3_designs_and_planning_relationship
+      status: operator_verified_patch_pending
+  execution_prompt_and_evidence:
+    - path: 04-flow-execution-card-design.okf.yaml
+      role: J4_primary_execution_workspace_design
+      status: operator_verified
+    - path: 05-prompt-file-and-index-design.okf.yaml
+      role: J5_prompt_access_design
+      status: operator_verified
+    - path: 06-execution-evidence-handoff-design.okf.yaml
+      role: J6_conditional_evidence_handoff_design
+      status: operator_verified
+    - path: 07-skip-marker-low-priority-design.okf.yaml
+      role: minimal_skip_marker_design
+      status: operator_verified
+    - path: 08-round3-cross-artifact-relationship.okf.yaml
+      role: execution_prompt_evidence_relationship_authority
+      status: operator_verified
+    - path: 09-round3-decision-and-verification-record.okf.yaml
+      role: round_3_acceptance_record
+      status: operator_verified
+  recap_and_learning:
+    - path: 10-flow-recap-result-card-design.okf.yaml
+      role: J7_recap_result_design
+      status: operator_verified
+    - path: 11-usage-learning-card-design.okf.yaml
+      role: J8_usage_learning_design
+      status: operator_verified
+    - path: 12-round4-cross-artifact-relationship.okf.yaml
+      role: recap_learning_relationship_authority
+      status: operator_verified
+    - path: 13-round4-decision-and-verification-record.okf.yaml
+      role: round_4_acceptance_record
+      status: operator_verified
+  durable_state_overview_and_routing:
+    - path: 14-status-merge-decision-card-design.okf.yaml
+      role: J9_candidate_state_review_design
+      status: operator_verified_patch_pending
+    - path: 15-project-kb-update-card-design.okf.yaml
+      role: J10_durable_KB_update_design
+      status: operator_verified_patch_pending
+    - path: 16-project-status-overview-design.okf.yaml
+      role: J11_cross_project_overview_design
+      status: operator_verified_patch_pending
+    - path: 17-ai-routing-card-design.okf.yaml
+      role: J12_advisory_routing_design
+      status: operator_verified_patch_pending
+    - path: 18-round5-cross-artifact-relationships.okf.yaml
+      role: state_overview_routing_relationship_authority
+      status: operator_verified_patch_pending
+    - path: 19-round5-decision-and-verification-record.okf.yaml
+      role: round_5_acceptance_record
+      status: operator_verified
+  round_6_reconciliation:
+    - path: 20-round6-cross-cutting-consistency-resolution.okf.yaml
+      role: state_vocabulary_and_translation_resolution
+      status: proposed_round6_resolution
+    - path: 21-canonical-artifact-family-and-lifecycle-map.okf.yaml
+      role: canonical_J1_to_J12_navigation_and_lifecycle_projection
+      status: proposed_round6_canonical_projection
+
+artifact_job_ownership:
+  J1:
+    artifact: Project_State_Success_Card
+    owner: project_state_source
+  J2:
+    artifact: Weekly_Command_Brief
+    owner: weekly_planning
+  J3:
+    artifact: PreCap_Next_Day_Brief
+    owner: PreCapNextDay
+  J4:
+    artifact: Flow_Execution_Card
+    owner: flow_execution_design
+  J5:
+    artifact: Prompt_Files_and_Index
+    owner: Prompt_Engineering
+  J6:
+    artifact: Execution_Evidence_Handoff
+    owner: execution_evidence_handoff
+    conditional_subcase: Skip_Marker
+  J7:
+    artifact: FlowRecap_Result_Card
+    owner: FlowRecap
+  J8:
+    artifact: Usage_Learning_Card
+    owner: usage_learning
+  J9:
+    artifact: Status_Merge_Decision_Card
+    owner: status-merge
+  J10:
+    artifact: Project_KB_Update_Card
+    owner: project-kb-manager
+  J11:
+    artifact: Project_Status_Overview
+    owner: ProjectStatus
+  J12:
+    artifact: AI_Routing_Card
+    owner: AIRouting
+
+canonical_names:
+  active:
+    - Project_State_Success_Card
+    - Weekly_Command_Brief
+    - PreCap_Next_Day_Brief
+    - Flow_Execution_Card
+    - Prompt_Files_and_Index
+    - Execution_Evidence_Handoff
+    - Skip_Marker
+    - FlowRecap_Result_Card
+    - Usage_Learning_Card
+    - Status_Merge_Decision_Card
+    - Project_KB_Update_Card
+    - Project_Status_Overview
+    - AI_Routing_Card
+  superseded_labels:
+    Tomorrow_Action_Brief: PreCap_Next_Day_Brief
+    Flow_Prompt_Pack: Prompt_Files_and_Index
+    Raw_Flow_Dump_or_Skip_Marker_Card: Execution_Evidence_Handoff_with_optional_Skip_Marker
+
+relationship_authority:
+  canonical_projection:
+    path: 21-canonical-artifact-family-and-lifecycle-map.okf.yaml
+    role: complete_J1_to_J12_navigation_and_minimum_lifecycle_map
+  local_relationship_files:
+    - path: 03-planning-artifact-designs.okf.yaml
+      scope: J1_to_J2_to_J3_to_J4_planning_sequence
+    - path: 08-round3-cross-artifact-relationship.okf.yaml
+      scope: J3_to_J7_execution_prompt_and_evidence
+    - path: 12-round4-cross-artifact-relationship.okf.yaml
+      scope: J6_to_J9_recap_learning_and_candidate_handoffs
+    - path: 18-round5-cross-artifact-relationships.okf.yaml
+      scope: J7_to_J12_state_overview_and_routing
+  state_translation_authority:
+    path: 20-round6-cross-cutting-consistency-resolution.okf.yaml
+
+external_contract_authorities:
+  principles:
+    existing_skill_contracts_remain_authoritative: true
+    presentation_files_must_not_redefine_domain_schema: true
+  key_live_paths:
+    status_merge: .claude/skills/status-merge/SKILL.md
+    project_kb_manager: .claude/skills/project-kb-manager/SKILL.md
+    project_kb_write_rules: .claude/skills/project-kb-manager/references/write-rules.md
+    ProjectStatus_entrypoint: .claude/skills/ProjectStatus/project-status-overview_SKILL_v3.md
+    ProjectStatus_contract: .claude/skills/ProjectStatus/project-status-overview-contract_v2_fixed.md
+    AIRouting_entrypoint: .claude/skills/AIRouting/ai-routing-and-usage-tracking-SKILL.md
+    AIRouting_recommendation_contract: .claude/skills/AIRouting/routing-recommendation-packet-contract.md
+
+round_6_patch_registry:
+  application_status: not_applied_to_source_designs
+  patches:
+    - id: R6_P01
+      path: round6-patches/01-shared-card-canonical-names.patch
+      target: 02-shared-card-and-brief-anatomy.okf.yaml
+      purpose: replace_superseded_artifact_labels
+    - id: R6_P02
+      path: round6-patches/02-j3-j4-depth-separation.patch
+      target: 03-planning-artifact-designs.okf.yaml
+      purpose: separate_day_outline_from_full_execution_depth
+    - id: R6_P03
+      path: round6-patches/03-j9-durable-merge-confirmation.patch
+      target: 14-status-merge-decision-card-design.okf.yaml
+      purpose: require_confirmation_before_merged_display
+    - id: R6_P04
+      path: round6-patches/04-j10-durable-update-result.patch
+      target: 15-project-kb-update-card-design.okf.yaml
+      purpose: expose_write_result_and_durable_confirmation
+    - id: R6_P05
+      path: round6-patches/05-j9-j10-j11-confirmed-truth-path.patch
+      target: 18-round5-cross-artifact-relationships.okf.yaml
+      purpose: route_new_overview_truth_through_confirmed_J10_write
+    - id: R6_P06
+      path: round6-patches/06-j11-project-status-contract-alignment.patch
+      target: 16-project-status-overview-design.okf.yaml
+      purpose: align_J11_with_live_ProjectStatus_contract
+    - id: R6_P07
+      path: round6-patches/07-j12-routing-contract-alignment.patch
+      target: 17-ai-routing-card-design.okf.yaml
+      purpose: align_J12_with_stable_surface_class_policy
+
+implementation_readiness:
+  presentation_architecture_complete: true
+  canonical_artifact_family_defined: true
+  canonical_lifecycle_projection_defined: true
+  state_translation_rules_defined: true
+  patch_artifacts_created: true
+  patch_artifacts_applied: false
+  round_6_operator_verification_record_created: false
+  Step_4_handoff_created: false
+  templates_created: false
+  runtime_created: false
+
+planned_files:
+  - path: 22-round6-decision-and-verification-record.okf.yaml
+    create_when: all_accepted_round6_patches_and_new_files_are_verified
+  - path: 23-step4-template-implementation-handoff.okf.md
+    create_when: round6_decision_record_is_complete
+
+next_stage:
+  immediate:
+    - verify_manifest_against_live_package_inventory
+    - decide_whether_round6_patch_artifacts_are_to_be_applied
+    - create_round6_decision_and_verification_record_after_validation
+  after_round_6_completion:
+    - create_bounded_Step_4_template_implementation_handoff
+  prohibited_before_authorization:
+    - create_runtime_workflows
+    - create_autonomous_agents_or_schedulers
+    - mutate_calendar
+    - execute_prompts
+    - mutate_durable_project_state
+
+acceptance_checks:
+  package_identity_present: true
+  complete_file_index_01_to_21_present: true
+  J1_to_J12_ownership_present: true
+  canonical_names_and_superseded_labels_present: true
+  local_and_canonical_relationship_authorities_distinguished: true
+  external_contract_paths_recorded: true
+  patch_registry_present: true
+  applied_and_unapplied_states_distinguished: true
+  implementation_readiness_visible: true
+  planned_round6_closeout_files_visible: true
+  no_domain_schema_redefinition: true
+  no_runtime_or_state_mutation: true
