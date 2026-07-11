@@ -3,7 +3,7 @@ title: "Fable Execution Best Practices"
 purpose: "Machine-readable operating doc for a Claude Fable 5 session acting as orchestrator over external heavy-reasoning models and Codex execution."
 created: 2026-07-11
 grounded_in: "Live web research (2026-07-11) + apex-meta/CODEX_EXECUTION_STANDARD.md (existing, do not duplicate)"
-status: draft — pending answers in process-blueprint-qa.md
+status: finalized_input
 ---
 
 # Fable Execution Best Practices
@@ -84,7 +84,7 @@ gemini_specific_rule: "Ask for research AND the written output in the same promp
 perplexity_specific_rule: "When the question needs live repo truth (not general practice), explicitly invoke the GitHub connector context and name the exact repo/path — don't rely on it inferring which repo you mean."
 ```
 
-## 4. Mandatory verification step (non-negotiable — see process-blueprint-qa.md Q5)
+## 4. Mandatory verification step (non-negotiable)
 
 ```yaml
 verification_contract:
@@ -134,7 +134,7 @@ rules:
     Do not treat "it'll compact when needed" as a safe default for a build spanning a genuinely
     large multi-KB corpus.
   hard_checkpoint_per_phase: >
-    At the start of each phase in build-plan-recommendation.md §2, Fable should note its own
+    At the start of each phase in build-plan.md, Fable should note its own
     context usage if the harness surfaces it, and treat a session that's already heavily loaded
     before starting a new phase as a signal to close out and hand off via a written state file
     (decisions.md / user-stories.md / simulation record) rather than pushing forward in the same
@@ -161,28 +161,16 @@ non_negotiable_rule: >
   the work — do not let a Q&A round or a maintenance pass become the whole session's output.
 ```
 
-## 8. Never delete a KB or file on "looks old/superseded" alone — check citation dependents first
+## 8. Never delete a KB or file on "looks old/superseded" alone
 
 ```yaml
-incident: >
-  On 2026-07-11, the operator asked to delete apex-meta/kb/old-apex-full-orchestration-agent-kb/
-  (no -v2) on the assumption that it must be older, duplicate content superseded by
-  old-apex-full-orchestration-agent-kb-v2/. Git history confirmed it WAS older (59 commits since
-  2026-07-02, vs. -v2's 3 commits, all from today) — but a grep for the bare path string, run
-  before deleting, found it is NOT a duplicate: it covers a different subject (old agent-KB
-  architecture, migration/execution-safety doctrine, historical-path-authority patterns), and two
-  LIVE skill spec files cite specific pages of it by path as their source_doctrine:
-  .claude/skills/apex-kb/references/historical-path-authority-lint-spec.md and
-  .claude/skills/apex-kb/references/repo-execution-router-lint-spec.md. Deleting it would have
-  left those specs citing evidence that no longer exists. The operator was informed and chose to
-  keep everything as-is.
 rule: >
   Before deleting ANY file or KB in this repo — even one that git history confirms is "the older
   one" or that a plausible story says is superseded — grep the whole repo for its bare path/name
   first. "Older" and "duplicate" are different claims; only the second one justifies deletion.
   If anything outside the target (especially a live skill/reference file) cites it by path as a
   source or dependency, stop and report the finding before acting, even if the operator already
-  gave a delete instruction — the instruction was based on an assumption that may not hold once
-  you actually check.
+  gave a delete instruction — the instruction may be based on an assumption that doesn't hold
+  once you actually check.
 applies_to: "Any Fable session doing repo cleanup, KB reconciliation, or dedup work under this initiative."
 ```
