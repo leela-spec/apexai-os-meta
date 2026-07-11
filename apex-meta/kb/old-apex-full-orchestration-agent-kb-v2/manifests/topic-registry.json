@@ -20,6 +20,27 @@
       "source": "operator",
       "status": "compiled",
       "keywords": ["failure", "mistake", "audit", "log", "research", "drift", "recovery", "validation"]
+    },
+    {
+      "topic_id": "claude-orchestration-implementation",
+      "title": "Claude orchestration implementation decisions, boundaries, and reusable workflow patterns",
+      "source": "operator",
+      "status": "not_started",
+      "keywords": ["Claude", "orchestration", "implementation", "role", "state", "handoff", "verification"]
+    },
+    {
+      "topic_id": "system-2-phase1-fallback",
+      "title": "System 2 knowledge route using Phase 1 analysis until compiled wiki coverage exists",
+      "source": "operator",
+      "status": "not_started",
+      "keywords": ["System 2", "phase1", "ingest-analysis", "fallback", "wiki", "evidence"]
+    },
+    {
+      "topic_id": "hermes-historical-blueprint",
+      "title": "Hermes historical blueprint evidence and runtime-boundary comparison",
+      "source": "llm_proposed",
+      "status": "not_started",
+      "keywords": ["Hermes", "skills", "delegation", "provider", "runtime", "blueprint"]
     }
   ]
 }

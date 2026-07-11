@@ -1,28 +1,31 @@
 ---
-title: "Old Apex Full Orchestration System v2 Index"
+title: "Old Apex Full Orchestration Agent Kb V2 Index"
 page_type: index
 kb_slug: "old-apex-full-orchestration-agent-kb-v2"
 source_refs: []
-created_at: "2026-07-10T21:54:38Z"
-updated_at: "2026-07-10T21:54:38Z"
+created_at: "2026-07-11T11:38:43Z"
+updated_at: "2026-07-11T11:38:43Z"
 confidence: "unknown"
 claim_label: "source_backed_summary"
 status: "active"
 ---
 
-# Old Apex Full Orchestration System v2 Index
+# Old Apex Full Orchestration Agent Kb V2 Index
 
 <!-- BEGIN AUTO-GENERATED INDEX -->
 
-Generated: `2026-07-10T22:09:02Z`
+Generated: `2026-07-11T11:42:03Z`
 
-Compiled page count: `16`
+Compiled page count: `17`
 
 ## Topic Guides
 
 - Untitled topic - `compiled` / `operator` (no page yet)
 - Untitled topic - `compiled` / `operator` (no page yet)
 - Untitled topic - `compiled` / `operator` (no page yet)
+- Untitled topic - `not_started` / `operator` (no page yet)
+- Untitled topic - `not_started` / `operator` (no page yet)
+- Untitled topic - `not_started` / `llm_proposed` (no page yet)
 
 ## Audit_Item Pages
 
@@ -38,7 +41,7 @@ Compiled page count: `16`
 - [Alfred](entities/alfred.md) - `active` / `high`
 - [First-Wave Agent Roster](entities/first-wave-agent-roster.md) - `active` / `high`
 - [Meta Detective](entities/meta-detective.md) - `active` / `high`
-- [Meta Ops](entities/meta-ops.md) - `active` / `high`
+- [Meta Ops: Operational Meta-Agent Layer](entities/meta-ops.md) - `active` / `mixed`
 - [Meta Strategy](entities/meta-strategy.md) - `active` / `high`
 - [Special Ops AI Handling and Routing](entities/special-ops-ai-handling-routing.md) - `active` / `high`
 - [Special Ops Hygiene Clean](entities/special-ops-hygiene-clean.md) - `active` / `high`
@@ -49,6 +52,7 @@ Compiled page count: `16`
 ## Summary Pages
 
 - [Agent Architecture, Isolation, and Intentional Overlap](summaries/agent-architecture.md) - `active` / `high`
+- [Claude Orchestration Implementation Brief](summaries/claude-orchestration-implementation-brief.md) - `active` / `mixed`
 - [Failure Patterns and Highest-Impact Conflicts](summaries/failure-patterns-and-conflicts.md) - `active` / `mixed`
 - [Resilient Iterative Orchestration](summaries/resilient-iterative-orchestration.md) - `active` / `mixed`
 

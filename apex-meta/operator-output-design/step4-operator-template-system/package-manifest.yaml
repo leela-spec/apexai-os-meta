@@ -1,0 +1,179 @@
+package:
+  name: "APEX_Operator_Template_System"
+  version: "1.0.0"
+  generated_on: "2026-07-11"
+  format: "Markdown templates with compact YAML handoffs"
+  purpose: >
+    Provide the production-ready operator-facing template family for the twelve
+    accepted APEX output jobs plus the conditional J6 Skip Marker, together with
+    research, design decisions, examples, and cross-template validation.
+
+repository_basis:
+  full_name: "leela-spec/apexai-os-meta"
+  branch: "main"
+  access: "read_only"
+  authority: "live_repository"
+  repository_mutation_performed: false
+  primary_design_package: "apex-meta/operator-output-design/step3-output-design-system/"
+
+package_scope:
+  template_count: 13
+  primary_jobs: 12
+  conditional_subcases: 1
+  creates_runtime_behavior: false
+  replaces_domain_contracts: false
+  performs_state_mutation: false
+
+files:
+  orientation:
+    - "00_README.md"
+    - "03_TEMPLATE_FAMILY_OVERVIEW.md"
+  research_and_decisions:
+    - "01_RESEARCH_FINDINGS.md"
+    - "02_DESIGN_DECISION_MATRIX.md"
+  templates:
+    - "templates/J01-project-state-success-card.md"
+    - "templates/J02-weekly-command-brief.md"
+    - "templates/J03-precap-next-day-brief.md"
+    - "templates/J04-flow-execution-card.md"
+    - "templates/J05-prompt-files-and-index.md"
+    - "templates/J06-execution-evidence-handoff.md"
+    - "templates/J06a-skip-marker.md"
+    - "templates/J07-flowrecap-result-card.md"
+    - "templates/J08-usage-learning-card.md"
+    - "templates/J09-status-merge-decision-card.md"
+    - "templates/J10-project-kb-update-card.md"
+    - "templates/J11-project-status-overview.md"
+    - "templates/J12-ai-routing-card.md"
+  examples:
+    - "examples/master-of-arts-example-fragments.md"
+  validation:
+    - "validation/template-family-review.md"
+  manifest:
+    - "package-manifest.yaml"
+
+artifact_index:
+  J1:
+    canonical_name: "Project_State_Success_Card"
+    template: "templates/J01-project-state-success-card.md"
+    dominant_job: "Establish project reality that is safe and useful for planning."
+    downstream: "J2 or J3"
+  J2:
+    canonical_name: "Weekly_Command_Brief"
+    template: "templates/J02-weekly-command-brief.md"
+    dominant_job: "Turn accepted project context into weekly direction and project-level work."
+    downstream: "J3"
+  J3:
+    canonical_name: "PreCap_Next_Day_Brief"
+    template: "templates/J03-precap-next-day-brief.md"
+    dominant_job: "Present a compact next-day outline with visible three-sprint flow summaries."
+    downstream: "J4"
+  J4:
+    canonical_name: "Flow_Execution_Card"
+    template: "templates/J04-flow-execution-card.md"
+    dominant_job: "Make one flow directly executable in a complete three-sprint workspace."
+    downstream: "J5, operator execution, and J6"
+  J5:
+    canonical_name: "Prompt_Files_and_Index"
+    template: "templates/J05-prompt-files-and-index.md"
+    dominant_job: "Provide direct prompt-file access and a lightweight prompt index."
+    downstream: "operator execution"
+  J6:
+    canonical_name: "Execution_Evidence_Handoff"
+    template: "templates/J06-execution-evidence-handoff.md"
+    dominant_job: "Organize execution evidence without interpreting project meaning."
+    downstream: "J7"
+  J6a:
+    canonical_name: "Skip_Marker"
+    template: "templates/J06a-skip-marker.md"
+    dominant_job: "Record why a planned flow was not executed and how it should be handled."
+    downstream: "next planning review or J7 when appropriate"
+    conditional: true
+  J7:
+    canonical_name: "FlowRecap_Result_Card"
+    template: "templates/J07-flowrecap-result-card.md"
+    dominant_job: "Interpret execution evidence and expose candidate-only state changes."
+    downstream: "J8 and J9"
+  J8:
+    canonical_name: "Usage_Learning_Card"
+    template: "templates/J08-usage-learning-card.md"
+    dominant_job: "Capture evidence-bound planned-versus-actual usage learning."
+    downstream: "J12"
+  J9:
+    canonical_name: "Status_Merge_Decision_Card"
+    template: "templates/J09-status-merge-decision-card.md"
+    dominant_job: "Record operator disposition of candidate project-state changes."
+    downstream: "J10"
+  J10:
+    canonical_name: "Project_KB_Update_Card"
+    template: "templates/J10-project-kb-update-card.md"
+    dominant_job: "Expose the prepared or actual durable KB write and its verified result."
+    downstream: "J11 only after confirmed durable effect"
+  J11:
+    canonical_name: "Project_Status_Overview"
+    template: "templates/J11-project-status-overview.md"
+    dominant_job: "Project confirmed accepted truth across active projects."
+    downstream: "J2, J3, and J12"
+  J12:
+    canonical_name: "AI_Routing_Card"
+    template: "templates/J12-ai-routing-card.md"
+    dominant_job: "Recommend a route and record the separate operator route decision."
+    downstream: "J4 and J5 only after operator approval"
+
+lifecycle:
+  planning: "J1 -> J2 -> J3"
+  execution: "J3 -> J4 -> J5 -> operator execution -> J6"
+  recap_and_learning: "J6 -> J7 -> J8"
+  durable_state: "J7 -> J9 -> J10 -> J11"
+  routing: "J8 + J11 -> J12 -> J4/J5 after operator approval"
+
+state_boundary_policy:
+  universal_state_enum: false
+  required_distinctions:
+    - "J7 flow result and candidate project-state change"
+    - "J9 operator merge decision"
+    - "J10 durable write attempt and result evidence"
+    - "J11 confirmed accepted overview truth"
+    - "J12 recommendation and operator route decision"
+  forbidden_shortcuts:
+    - "J6 evidence directly becoming project-state interpretation"
+    - "J7 candidate directly becoming merged state"
+    - "J9 approval being presented as a confirmed write"
+    - "J10 prepared update being presented as J11 truth"
+    - "J8 learning automatically overriding a route"
+    - "J12 recommendation authorizing execution without operator approval"
+
+placeholder_policy:
+  syntax: "{{UPPER_SNAKE_CASE}}"
+  optional_sections: "Explicitly labeled with include/remove instructions"
+  repeated_sections: "Explicitly labeled as repeatable"
+  fictional_examples_separated: true
+
+validation:
+  report: "validation/template-family-review.md"
+  required_checks:
+    - "all expected files present"
+    - "YAML blocks parse"
+    - "internal relative links resolve"
+    - "primary result cards appear first"
+    - "J3 remains materially lighter than J4"
+    - "artifact ownership and state-transition boundaries hold"
+    - "example anchors cover J1-J12 and J6a"
+    - "repository and runtime remain unmodified"
+
+known_source_limitations:
+  - >
+    A dedicated live project-state-success owner entrypoint was not verified;
+    J1 therefore projects the accepted Step 3 design and compact state-handoff
+    contract without inventing additional schema.
+  - >
+    PreCapWeek references a weekly-plan-output contract that was not retrievable
+    from main during research; J2 remains a presentation template, not a schema.
+  - >
+    The expected Prompt Engineering entrypoint was not verified; J5 treats final
+    prompt doctrine as externally owned and uses the live prompt-pack dependency
+    contract only for boundary preservation.
+  - >
+    Round 6 records a mixed overlay/application state. This package applies the
+    verified intended presentation guidance without applying repository patches
+    or claiming that source files were uniformly patched.

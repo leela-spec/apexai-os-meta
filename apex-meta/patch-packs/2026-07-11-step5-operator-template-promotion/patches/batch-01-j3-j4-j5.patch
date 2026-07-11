@@ -1,0 +1,467 @@
+diff --git a/.claude/skills/PrecapNextDay/templates/precap-next-day-brief-template.md b/.claude/skills/PrecapNextDay/templates/precap-next-day-brief-template.md
+new file mode 100644
+index 00000000..bf8d7143
+--- /dev/null
++++ b/.claude/skills/PrecapNextDay/templates/precap-next-day-brief-template.md
+@@ -0,0 +1,114 @@
++# PreCap Next Day Brief - {{EXECUTION_DATE}}
++
++> **Day state:** {{READY | READY_WITH_REVIEW | PARTIAL | BLOCKED}}  
++> **Day direction:** {{TWO_TO_FIVE_SENTENCE_DAY_SUMMARY}}  
++> **Next action:** {{APPROVE_DAY | OPEN_FIRST_FLOW_CARD | REORDER | EDIT_SCOPE | DEFER_FLOW}}  
++> **Review needed:** {{MOST_IMPORTANT_PRE_EXECUTION_DECISION_OR_NONE}}  
++> **Plan size:** {{FLOW_COUNT}} flows; {{TOTAL_SPRINT_COUNT}} visible sprints
++
++## Approve or change the day
++
++- [ ] Approve the day outline.
++- [ ] Open the first Flow Execution Card.
++- [ ] Reorder flows or sprint sequence.
++- [ ] Edit, compress, defer, or block a named flow with a reason.
++
++**Decision or instruction:** {{OPERATOR_DECISION_OR_PENDING}}
++
++## Day frame
++
++**Primary day outcomes:**
++
++- {{DAY_OUTCOME}}
++
++**Projects touched and why:**
++
++- **{{PROJECT}}:** {{WHY_THIS_PROJECT_TODAY}}
++
++**Continuity from the week:** {{WEEKLY_PRIORITY_TRACE_SUMMARY}}  
++**Capacity assumption:** {{CAPACITY_ASSUMPTION}}  
++**Fixed constraints:** {{CONSTRAINTS_OR_NONE}}
++
++## Flow {{ORDER}} - {{FLOW_TITLE}} (repeat per represented flow)
++
++**Flow ID:** `{{FLOW_ID}}`  
++**Project:** {{PROJECT}}  
++**Status:** {{PLANNED | COMPRESSED | SKIPPED | BLOCKED | OMITTED}}  
++**Why today:** {{SHORT_REASON}}  
++**Weekly priority advanced:** {{PRIORITY_TRACE}}  
++**Expected flow output:** {{OUTPUT_SUMMARY}}  
++**Open full workspace:** [Open Flow Execution Card]({{FLOW_EXECUTION_CARD_REF}}) - `{{FLOW_EXECUTION_CARD_REF}}`
++
++- **S1 - {{S1_GOAL}}:** {{S1_SHORT_INTENT}} -> {{S1_EXPECTED_OUTPUT_SUMMARY}}
++- **S2 - {{S2_GOAL}}:** {{S2_SHORT_INTENT}}; dependency cue: {{S2_DEPENDENCY_SUMMARY}} -> {{S2_EXPECTED_OUTPUT_SUMMARY}}
++- **S3 - {{S3_GOAL}}:** {{S3_CAPTURE_OR_HANDOFF_INTENT}} -> {{S3_EXPECTED_HANDOFF_SUMMARY}}
++
++**Review flag:** {{FLOW_LEVEL_REVIEW_FLAG_OR_NONE}}
++
++## Cross-flow execution order
++
++1. `{{FLOW_ID}} / {{SPRINT}}` - {{WHY_THIS_POSITION}}
++
++## Expected end of day
++
++**Project progress expected:**
++
++- {{EXPECTED_PROJECT_PROGRESS}}
++
++**Artifacts or decisions expected:**
++
++- {{EXPECTED_ARTIFACT_OR_DECISION}}
++
++**Evidence and handoffs to prepare:**
++
++- {{EVIDENCE_OR_HANDOFF_SUMMARY}}
++
++## Review flags (include when material)
++
++### {{FLAG_TITLE}}
++
++- **Issue:** {{MISSING_CONTEXT_BLOCKER_OR_CONFLICT}}
++- **Why it matters before execution:** {{IMPACT}}
++- **Operator action:** {{RESOLUTION}}
++
++## Planning context used
++
++**Project-state source:** [{{J1_LABEL}}]({{J1_REF}}) - `{{J1_VISIBLE_REF}}`  
++**Weekly source:** [{{J2_LABEL}}]({{J2_REF}}) - `{{J2_VISIBLE_REF}}`  
++**Recent execution signal:** {{RECENT_EXECUTION_REF_OR_NONE}}  
++**Deferred or ignored signal:** {{SIGNAL_AND_REASON_OR_NONE}}  
++**Confidence:** {{HIGH | MEDIUM | LOW_AND_WHY}}
++
++## Compact downstream handoff
++
++```yaml
++presentation_handoff:
++  artifact_type: "PreCap_Next_Day_Brief"
++  artifact_ref: "{{ARTIFACT_REF}}"
++  execution_date: "{{EXECUTION_DATE}}"
++  result_state: "{{DAY_STATE}}"
++  ordered_flows:
++    - order: "{{ORDER}}"
++      flow_id: "{{FLOW_ID}}"
++      project_ref: "{{PROJECT_REF}}"
++      flow_status: "{{FLOW_STATUS}}"
++      weekly_priority_ref: "{{WEEKLY_PRIORITY_REF}}"
++      flow_execution_card_ref: "{{FLOW_EXECUTION_CARD_REF}}"
++  review_status: "{{REVIEW_STATUS}}"
++  next_consumer: "Flow_Execution_Card"
++```
++
++## Template authority
++
++```yaml
++template_authority:
++  source_design_ref: "apex-meta/operator-output-design/step3-output-design-system/03-planning-artifact-designs.okf.yaml"
++  round6_overlay_intent_ref: "round6-patches/02-j3-j4-depth-separation.patch"
++  overlay_application_status: "intended_guidance_not_applied_by_this_package"
++  domain_contract_refs:
++    - ".claude/skills/PrecapNextDay/Skill_precap-next-day.md"
++    - ".claude/skills/PrecapNextDay/references/daily-plan-output-contract.md"
++    - ".claude/skills/PrecapNextDay/references/flow-packet-contract.md"
++```
++
++Example: [J03 PreCap Next Day Brief](../examples/master-of-arts-example-fragments.md#j03-precap-next-day-brief)
+diff --git a/.claude/skills/PrecapNextDay/templates/flow-execution-card-template.md b/.claude/skills/PrecapNextDay/templates/flow-execution-card-template.md
+new file mode 100644
+index 00000000..dfa11ed3
+--- /dev/null
++++ b/.claude/skills/PrecapNextDay/templates/flow-execution-card-template.md
+@@ -0,0 +1,213 @@
++# Flow Execution Card - {{FLOW_TITLE}}
++
++> **Readiness:** {{READY | READY_WITH_REVIEW | PARTIAL_CONTEXT | BLOCKED}}  
++> **Outcome target:** {{FLOW_GOALS_AND_EXPECTED_OUTPUTS_IN_ONE_TO_THREE_SENTENCES}}  
++> **Next action:** {{EXECUTE_NEXT_SPRINT | OPEN_PROMPT_FILE | RESOLVE_REVIEW | EDIT_SCOPE | DEFER}}  
++> **Review needed:** {{MOST_IMPORTANT_EXECUTION_DECISION_OR_NONE}}  
++> **Warning:** {{BLOCKER_DEGRADED_PROMPT_OR_MISSING_INPUT_OR_REMOVE_LINE}}
++
++## Start or resume here
++
++**Current sprint:** {{S1 | S2 | S3 | FLOW_COMPLETE | NOT_STARTED}}  
++**Current status:** {{NOT_STARTED | IN_PROGRESS | WAITING | BLOCKED | COMPLETE}}  
++**Exact next operator step:** {{ONE_CONCRETE_ACTION}}  
++**Last confirmed checkpoint:** {{CHECKPOINT_OR_NONE}}
++
++## Operator controls
++
++- [ ] Execute the next sprint.
++- [ ] Open the named prompt file.
++- [ ] Edit scope or reorder only where dependencies allow.
++- [ ] Request review, defer, mark blocked, or skip with a reason.
++
++**Operator instruction:** {{INSTRUCTION_OR_PENDING}}
++
++## Flow identity and context
++
++**Flow ID:** `{{FLOW_ID}}`  
++**Project:** {{PROJECT}}  
++**Why today:** {{WHY_THIS_FLOW_IS_SCHEDULED}}  
++**Weekly priority advanced:** {{WEEKLY_PRIORITY_SUMMARY}}  
++**Project-state signal:** {{FLOW_RELEVANT_CONFIRMED_STATE}}  
++**Approved route:** {{OPERATOR_APPROVED_ROUTE_OR_NOT_PROVIDED}}  
++**Routing reference:** [{{ROUTING_LABEL}}]({{ROUTING_REF}}) - `{{ROUTING_REF}}`
++
++### Goals
++
++- {{FLOW_GOAL}}
++
++### Expected outputs
++
++- {{EXPECTED_OUTPUT_WITH_DESTINATION_OR_REF}}
++
++## Inputs and dependencies
++
++### Available inputs
++
++- [{{INPUT_LABEL}}]({{INPUT_REF}}) - `{{INPUT_REF}}`
++
++### Missing inputs (include when material)
++
++- {{MISSING_INPUT}} - resolution: {{HOW_TO_RESOLVE}}
++
++### Flow dependencies
++
++- **Depends on:** {{UPSTREAM_DEPENDENCY_OR_NONE}}
++- **Required before:** {{DOWNSTREAM_CONSTRAINT_OR_NONE}}
++- **External gate:** {{OPERATOR_OR_PROFESSIONAL_GATE_OR_NONE}}
++
++## S1 - {{S1_GOAL}}
++
++**Sprint status:** {{NOT_STARTED | IN_PROGRESS | WAITING | BLOCKED | COMPLETE}}
++
++### Tasks
++
++1. {{S1_TASK}}
++
++### Inputs
++
++- [{{S1_INPUT_LABEL}}]({{S1_INPUT_REF}}) - `{{S1_INPUT_REF}}`
++
++### Prompt access
++
++- [Open S1 prompt file]({{S1_PROMPT_FILE}}) - `{{S1_PROMPT_FILE}}`
++- **Recommended surface:** {{S1_TARGET_SURFACE}}
++- **Routing reference:** `{{S1_ROUTING_REF}}`
++- **Prompt readiness:** {{READY | DEGRADED | MISSING | NOT_REQUIRED}}
++
++### Expected outputs
++
++- {{S1_EXPECTED_OUTPUT}}
++
++### Done when
++
++- {{S1_EVIDENCE_BASED_DONE_CONDITION}}
++
++### Stop or review conditions
++
++- {{S1_STOP_REVIEW_CONDITION_OR_NONE}}
++
++### Evidence to retain
++
++- {{S1_EVIDENCE_ITEM_OR_REF}}
++
++## S2 - {{S2_GOAL}}
++
++**Sprint status:** {{NOT_STARTED | IN_PROGRESS | WAITING | BLOCKED | COMPLETE}}  
++**Dependency on S1:** {{S1_OUTPUT_OR_DECISION_REQUIRED}}
++
++### Tasks
++
++1. {{S2_TASK}}
++
++### Inputs
++
++- [{{S2_INPUT_LABEL}}]({{S2_INPUT_REF}}) - `{{S2_INPUT_REF}}`
++
++### Prompt access
++
++- [Open S2 prompt file]({{S2_PROMPT_FILE}}) - `{{S2_PROMPT_FILE}}`
++- **Recommended surface:** {{S2_TARGET_SURFACE}}
++- **Routing reference:** `{{S2_ROUTING_REF}}`
++- **Prompt readiness:** {{READY | DEGRADED | MISSING | NOT_REQUIRED}}
++
++### Expected outputs
++
++- {{S2_EXPECTED_OUTPUT}}
++
++### Done when
++
++- {{S2_EVIDENCE_BASED_DONE_CONDITION}}
++
++### Stop or review conditions
++
++- {{S2_STOP_REVIEW_CONDITION_OR_NONE}}
++
++### Evidence to retain
++
++- {{S2_EVIDENCE_ITEM_OR_REF}}
++
++## S3 - Capture, decision, and handoff
++
++**Sprint status:** {{NOT_STARTED | IN_PROGRESS | WAITING | BLOCKED | COMPLETE}}  
++**Capture goal:** {{WHAT_MUST_BE_PRESERVED_FOR_RECAP_AND_HANDOFF}}
++
++### Evidence tasks
++
++1. {{EVIDENCE_CAPTURE_TASK}}
++
++### Decisions to record
++
++- {{DECISION_OR_NONE}}
++
++### Handoff preparation
++
++- {{HANDOFF_TASK_AND_TARGET}}
++
++### Optional prompt access
++
++- [Open S3 prompt file]({{S3_PROMPT_FILE}}) - `{{S3_PROMPT_FILE}}`
++
++### Done when
++
++- {{S3_CAPTURE_AND_HANDOFF_DONE_CONDITION}}
++
++## End-of-flow check
++
++- [ ] Planned outputs are checked against actual outputs.
++- [ ] Actual completion state is recorded: {{COMPLETED | PARTIAL | BLOCKED | SKIPPED | UNKNOWN}}.
++- [ ] Evidence references are identifiable.
++- [ ] Decisions, blockers, and unresolved questions are separated.
++- [ ] Evidence is ready for J6 or the exact missing item is named.
++
++**Actual completion state:** {{COMPLETION_STATE_OR_PENDING}}  
++**Evidence handoff target:** [{{J6_LABEL}}]({{J6_REF}}) - `{{J6_REF}}`  
++**End-of-flow review:** {{REVIEW_OR_NONE}}
++
++## Material review flags (include when needed)
++
++### {{FLAG_TITLE}}
++
++- **Issue:** {{ISSUE}}
++- **Why it matters to execution:** {{IMPACT}}
++- **Operator action:** {{RESOLUTION}}
++
++## Provenance and confidence
++
++**Day-plan reference:** [{{J3_LABEL}}]({{J3_REF}}) - `{{J3_REF}}`  
++**Project-state reference:** `{{PROJECT_STATE_REF}}`  
++**Weekly-plan reference:** `{{WEEKLY_PLAN_REF}}`  
++**Input freshness:** {{FRESHNESS_STATUS}}  
++**Confidence:** {{HIGH | MEDIUM | LOW_AND_WHY}}  
++**Consequential assumptions:** {{ASSUMPTIONS_OR_NONE}}
++
++## Compact downstream handoff
++
++```yaml
++presentation_handoff:
++  artifact_type: "Flow_Execution_Card"
++  artifact_ref: "{{ARTIFACT_REF}}"
++  flow_id: "{{FLOW_ID}}"
++  project_ref: "{{PROJECT_REF}}"
++  readiness: "{{READINESS}}"
++  current_sprint: "{{CURRENT_SPRINT}}"
++  prompt_index_ref: "{{PROMPT_INDEX_REF}}"
++  approved_route_ref: "{{APPROVED_ROUTE_REF_OR_NONE}}"
++  evidence_handoff_ref: "{{EVIDENCE_HANDOFF_REF_OR_PENDING}}"
++  review_status: "{{REVIEW_STATUS}}"
++  next_consumer: "{{PROMPT_FILES_AND_INDEX_OR_OPERATOR_EXECUTION_OR_EXECUTION_EVIDENCE_HANDOFF}}"
++```
++
++## Template authority
++
++```yaml
++template_authority:
++  source_design_ref: "apex-meta/operator-output-design/step3-output-design-system/04-flow-execution-card-design.okf.yaml"
++  round6_overlay_intent_ref: null
++  overlay_application_status: "not_applicable_to_this_template"
++  domain_contract_refs:
++    - ".claude/skills/PrecapNextDay/references/flow-packet-contract.md"
++    - ".claude/skills/PrecapNextDay/references/daily-plan-output-contract.md"
++```
++
++Example: [J04 Flow Execution Card](../examples/master-of-arts-example-fragments.md#j04-flow-execution-card)
+diff --git a/.claude/skills/PrecapNextDay/templates/prompt-files-and-index-template.md b/.claude/skills/PrecapNextDay/templates/prompt-files-and-index-template.md
+new file mode 100644
+index 00000000..80728d03
+--- /dev/null
++++ b/.claude/skills/PrecapNextDay/templates/prompt-files-and-index-template.md
+@@ -0,0 +1,95 @@
++# Prompt Files and Index - {{FLOW_OR_PACKAGE_LABEL}}
++
++> **Prompt access state:** {{READY | READY_WITH_DEGRADED_ITEMS | PARTIAL | BLOCKED}}  
++> **Outcome:** {{PROMPT_FILES_AVAILABLE_AND_MISSING_IN_ONE_TO_THREE_SENTENCES}}  
++> **Next action:** {{OPEN_NEXT_PROMPT | FIX_DEGRADED_PROMPT | CONFIRM_ROUTE | RETURN_TO_FLOW_CARD}}  
++> **Review needed:** {{PROMPT_OR_ROUTE_DECISION_OR_NONE}}
++
++## Operator actions
++
++- [ ] Open the prompt file required by the active sprint.
++- [ ] Fix a missing or degraded prompt before execution.
++- [ ] Confirm the referenced route when approval is still pending.
++- [ ] Return to the Flow Execution Card for work context.
++
++**Flow Execution Card:** [Open execution workspace]({{FLOW_EXECUTION_CARD_REF}}) - `{{FLOW_EXECUTION_CARD_REF}}`
++
++## Prompt index
++
++### Flow `{{FLOW_ID}}` (repeat per flow when the index covers more than one)
++
++| Sprint | Prompt file | Recommended surface | Use when | Status |
++|---|---|---|---|---|
++| `{{SPRINT_ID}}` | [{{PROMPT_TITLE}}]({{PROMPT_FILE_REF}})<br>`{{PROMPT_FILE_REF}}` | {{TARGET_SURFACE}} | {{SHORT_USE_WHEN}} | {{READY | DEGRADED | MISSING | NOT_REQUIRED}} |
++
++**Routing reference:** [{{ROUTING_LABEL}}]({{ROUTING_REF}}) - `{{ROUTING_REF}}`
++
++## Missing or degraded prompt items (include when material)
++
++### {{PROMPT_TITLE_OR_SPRINT}}
++
++- **Issue:** {{MISSING_CONTENT_STALE_ROUTE_OR_QUALITY_GAP}}
++- **Execution impact:** {{WHAT_CANNOT_SAFELY_PROCEED}}
++- **Required action:** {{FIX_OR_REVIEW_ACTION}}
++
++## Reusable single-prompt-file template
++
++Copy this block into one file per prompt. The prompt file presents final prompt content; it does not restate the flow plan or routing analysis.
++
++```markdown
++# {{PROMPT_TITLE}}
++
++**Recommended surface:** {{STABLE_SURFACE_OR_VERIFIED_MODEL}}  
++**Use when:** {{TRIGGER_OR_SPRINT_NEED}}  
++**Expected return artifact:** {{RETURN_ARTIFACT_LABEL}}  
++**Routing reference:** [{{ROUTING_LABEL}}]({{ROUTING_REF}}) - `{{ROUTING_REF}}`
++
++> **Degraded warning:** {{WARNING_OR_REMOVE_LINE}}
++
++## Prompt
++
++{{FULL_COPYABLE_PROMPT_BODY}}
++```
++
++## Prompt-file quality check
++
++- [ ] The prompt states the task and desired return clearly.
++- [ ] Required context and hard constraints appear once.
++- [ ] Approval, stop, or review boundaries are explicit when consequential.
++- [ ] The prompt does not request private chain-of-thought.
++- [ ] The prompt file does not duplicate J4 tasks, dependencies, or execution sequence.
++- [ ] The recommended surface is backed by a routing reference or marked unverified.
++
++## Compact downstream handoff
++
++```yaml
++presentation_handoff:
++  artifact_type: "Prompt_Files_and_Index"
++  artifact_ref: "{{ARTIFACT_REF}}"
++  flow_id: "{{FLOW_ID}}"
++  prompt_files:
++    - sprint: "{{SPRINT_ID}}"
++      title: "{{PROMPT_TITLE}}"
++      file: "{{PROMPT_FILE_REF}}"
++      target_surface: "{{TARGET_SURFACE}}"
++      routing_ref: "{{ROUTING_REF}}"
++      use_when: "{{SHORT_USE_WHEN}}"
++      degraded_flag: "{{TRUE_OR_FALSE}}"
++  review_status: "{{REVIEW_STATUS}}"
++  next_consumer: "operator_execution"
++```
++
++## Template authority
++
++```yaml
++template_authority:
++  source_design_ref: "apex-meta/operator-output-design/step3-output-design-system/05-prompt-file-and-index-design.okf.yaml"
++  round6_overlay_intent_ref: "canonical_name_projection_from_00-package-manifest.okf.yaml"
++  overlay_application_status: "presentation_name_used_without_repository_mutation"
++  domain_contract_refs:
++    - ".claude/skills/PrecapNextDay/references/flow-prompt-pack-contract.md"
++    - ".claude/skills/AIRouting/routing-recommendation-packet-contract.md"
++  source_gap: "Expected Prompt Engineering entrypoint was not verified; final prompt doctrine remains externally owned."
++```
++
++Example: [J05 Prompt Files and Index](../examples/master-of-arts-example-fragments.md#j05-prompt-files-and-index)
+diff --git a/.claude/skills/PrecapNextDay/precap-next-day-package-manifest.md b/.claude/skills/PrecapNextDay/precap-next-day-package-manifest.md
+index eb0508e8..67282fdf 100644
+--- a/.claude/skills/PrecapNextDay/precap-next-day-package-manifest.md
++++ b/.claude/skills/PrecapNextDay/precap-next-day-package-manifest.md
+@@ -103,3 +103,22 @@ package_manifest:
+ ```
+ 
+ Note: this manifest reflects the repo's current CamelCase package path. A later package-normalization pass can move files to the canonical lowercase path and rename the entrypoint to `SKILL.md`.
++
++
++## Promoted Operator Templates
++
++```yaml
++operator_templates:
++  - artifact_id: J3
++    path: .claude/skills/PrecapNextDay/templates/precap-next-day-brief-template.md
++    purpose: Retained Step 4 operator template
++    read_when: operator_requests_template
++  - artifact_id: J4
++    path: .claude/skills/PrecapNextDay/templates/flow-execution-card-template.md
++    purpose: Retained Step 4 operator template
++    read_when: operator_requests_template
++  - artifact_id: J5
++    path: .claude/skills/PrecapNextDay/templates/prompt-files-and-index-template.md
++    purpose: Retained Step 4 operator template
++    read_when: operator_requests_template
++```

@@ -1,0 +1,15 @@
+patch_pack:
+  source_templates: 13
+  batches:
+    - file: patches/batch-01-j3-j4-j5.patch
+      artifacts: [J3, J4, J5]
+    - file: patches/batch-02-j6-j6a.patch
+      artifacts: [J6, J6a]
+    - file: patches/batch-03-j7-j8.patch
+      artifacts: [J7, J8]
+    - file: patches/batch-04-j9-j10.patch
+      artifacts: [J9, J10]
+    - file: patches/batch-05-j11-j12.patch
+      artifacts: [J11, J12]
+    - file: patches/batch-06-j1-j2.patch
+      artifacts: [J1, J2]
