@@ -22,6 +22,8 @@ skill_contract:
     flow_recap:         {agent: apex-flow-recap,          gate: G4, trigger: "normalized dump + flow packet ready"}
     status_merge:       {agent: apex-status-merge,        gate: G5, trigger: "run status-merge | once daily | manual"}
     project_status:     {agent: apex-project-status,      gate: none, trigger: "run project-status-overview | after confirmed merge"}
+    project_planning:   {agent: apex-plan-ops,             gate: none, trigger: "run apex-plan | operator asks to capture/decompose a project"}
+    deterministic_sync: {agent: apex-sync-ops,             gate: none, trigger: "run apex-sync | approved plan packet requests validation/computation"}
     review:             {agents: [apex-review-validity, apex-review-alignment], trigger: consequential_packet_per_review_wiring}
   references:
     - {path: references/handoff-schema.md, read_when: [producing_or_checking_any_packet_envelope, applying_gates, canon_write_requested]}
@@ -40,6 +42,7 @@ skill_contract:
 4. **Trigger review when consequential.** Apply the trigger test in `references/review-wiring.md`. If triggered: freeze digest, dispatch both reviewers in parallel with blind packets, aggregate deterministically, update `authority.state` accordingly. On reviewer criterion-level disagreement: present both verdicts to the operator; never tiebreak.
 5. **Hold the gate.** Present the stage summary and the exact gate question to the operator; record the answer by updating the packet's `operator_validation` field and gate date. Gate passage lives in the packet file, never only in chat.
 6. **Apply durable writes (single write path).** Only after G5 confirmation of a status_merge_packet: append its prepared lines to `state/apex-project-status.md` and `state/consumed-recap-registry.md` (append or flag conflicts — never rewrite history), then confirm fetch-back: re-read the appended section and cite it in one line. Every authoritative input must be `authority.state: verified` or explicitly operator-waived in the same confirmation.
+   - Plan/sync write path: on operator confirmation of an apex_plan_packet, the main thread materializes its proposed epic/task records under `apex-meta/epics/` per the apex-plan task-record contract, then dispatches apex-sync-ops for dependency validation; the registry non-dry-run write (`python scripts/apex_sync.py registry --root . --json --dry-run false`, touches only `apex-meta/registry/index.md`) runs in the main thread only, after the operator confirms the drift preview. apex-session's mutation-gate rules (`.claude/skills/apex-session/references/mutation-gate-rules.md`) govern every status mutation record.
 7. **Advance.** Report the next stage and its trigger in one line. Never auto-trigger the next planning stage — the loop advances on operator trigger (or within an explicitly requested autonomous run).
 
 ## Failure behavior

@@ -88,3 +88,21 @@ finding_that_drove_P01:
     "durable surface this packet proposes to affect" — fixed in handoff-schema field_rules + all agent
     envelope instructions (patch wave 1).
 ```
+
+```yaml
+behavioral_tests_meta_ops_integration:              # executed 2026-07-12
+  T3_apex-sync-ops:
+    dispatch: next + blockers subcommands, run_date passed in dispatch
+    result: pass — envelope correct, raw JSON reports preserved unaltered, dry-run kept, zero files
+      written, authority.state verified on exit 0 + empty review_flags; 8 real task files computed,
+      1 actionable candidate, 7 blocked via depends_on chains
+    cost: {subagent_tokens: 51872, tool_uses: 4}
+  T4_apex-plan-ops:
+    dispatch: capture project orchestrator-regression-suite (build-plan regression goal), run_date passed
+    result: pass — full envelope, target_surface none, 5 proposed task records with dependency plan,
+      no state mutated, exact ranking correctly routed to apex-sync; surfaced real finding —
+      apex-meta/registry/index.md does not exist (id-space unreadable)
+    cost: {subagent_tokens: 68122, tool_uses: 11}
+    output: apex-meta/handoff/plan-packets/apex_plan_packet-20260712-orchestrator-regression-suite.md
+      (kept — real pending proposal, operator_validation not_requested)
+```

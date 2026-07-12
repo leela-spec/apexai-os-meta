@@ -39,6 +39,8 @@ Stage subagents under `.claude/agents/` run each loop stage in an isolated conte
 | apex-flow-recap | recap + usage delta | flow-recap, model-usage-log | G4 |
 | apex-status-merge | merge proposal | status-merge | G5 |
 | apex-project-status | confirmed overview | ProjectStatus | none |
+| apex-plan-ops | project planning proposal | apex-plan | operator gate in packet |
+| apex-sync-ops | deterministic sync reports (dry-run) | apex-sync | none |
 | apex-review-validity / apex-review-alignment | dual-blind review of consequential packets | — | review |
 
 ## artifact_paths

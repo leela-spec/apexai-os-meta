@@ -9,7 +9,7 @@ Applies when: any stage agent returns output to the orchestrator, and any stage 
 ```yaml
 handoff_envelope:
   envelope_version: 1
-  packet_type: weekly_plan_packet | next_day_plan | flow_packet | prompt_pack | normalized_raw_flow_dump | skipped_flow_marker | flow_recap_packet | model_usage_delta | status_merge_packet | all_project_status_packet | review_verdict | stage_agent_return
+  packet_type: weekly_plan_packet | next_day_plan | flow_packet | prompt_pack | normalized_raw_flow_dump | skipped_flow_marker | flow_recap_packet | model_usage_delta | status_merge_packet | all_project_status_packet | apex_plan_packet | sync_report | review_verdict | stage_agent_return
   gate: G1 | G2 | G3 | G4 | G5 | review | none
   packet_id: "<packet_type>-<YYYYMMDD>-<short-slug>"
   produced_by: <stage_agent_name_or_skill_name>
@@ -34,8 +34,8 @@ handoff_envelope:
 ## field_rules
 
 - Rule: dates, week ids, and packet_id date segments always come from the orchestrator dispatch prompt; stage agents never infer the current date.
-- Rule: correct `target_surface` per packet_type — weekly_plan_packet / next_day_plan / flow_packet / prompt_pack / normalized_raw_flow_dump / skipped_flow_marker / model_usage_delta / all_project_status_packet / review_verdict: `none`; flow_recap_packet: `state/apex-project-status.md (via status-merge only)`; status_merge_packet: `state/apex-project-status.md`.
-- Rule: `gate` per packet_type — weekly_plan_packet: G1; next_day_plan: G2; normalized_raw_flow_dump / skipped_flow_marker: G3; flow_recap_packet: G4; status_merge_packet: G5; review_verdict: review; all others: none.
+- Rule: correct `target_surface` per packet_type — weekly_plan_packet / next_day_plan / flow_packet / prompt_pack / normalized_raw_flow_dump / skipped_flow_marker / model_usage_delta / all_project_status_packet / apex_plan_packet / sync_report / review_verdict: `none`; flow_recap_packet: `state/apex-project-status.md (via status-merge only)`; status_merge_packet: `state/apex-project-status.md`.
+- Rule: `gate` per packet_type — weekly_plan_packet: G1; next_day_plan: G2; normalized_raw_flow_dump / skipped_flow_marker: G3; flow_recap_packet: G4; status_merge_packet: G5; review_verdict: review; all others (incl. apex_plan_packet, sync_report): none.
 - Rule: `lifecycle_stage` and `authority.state` are distinct axes. `lifecycle_stage` says where the packet sits in the loop; `authority.state` says whether it may be treated as authoritative input by a downstream stage.
 - Rule: on creation and on any content or declared-evidence change: `authority.state: candidate`, `basis_digest: null`, `verification_ref: null`.
 - Rule: `candidate → verified` only when `verification_ref` resolves to an independent review artifact with a pass verdict, the reviewer run differs from the creator run, and the review's basis_digest equals the packet's current digest. See `review-wiring.md`.

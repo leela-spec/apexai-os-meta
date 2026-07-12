@@ -25,6 +25,8 @@ agents:
   - .claude/agents/apex-project-status.md
   - .claude/agents/apex-review-validity.md
   - .claude/agents/apex-review-alignment.md
+  - .claude/agents/apex-plan-ops.md
+  - .claude/agents/apex-sync-ops.md
 ```
 
 ## skill layer (owned bases; canonical SKILL.md entrypoints)
@@ -42,7 +44,11 @@ dependency_skills:                                     # invoked via Skill tool 
   - .claude/skills/PromptEngineer/SKILL.md
   - .claude/skills/AIRouting/SKILL.md
   - .claude/skills/Workflow&Processes/SKILL.md
-connected_later_out_of_scope: [apex-kb, apex-sync, apex-session, apex-plan, project-kb-manager]
+meta_ops_support_capabilities:                         # three-package system integrated per Q2-B
+  - .claude/skills/apex-plan/SKILL.md                  # preloaded by .claude/agents/apex-plan-ops.md
+  - .claude/skills/apex-sync/SKILL.md                  # preloaded by .claude/agents/apex-sync-ops.md (dry-run only)
+  - .claude/skills/apex-session/SKILL.md               # mutation-gate contract realized by the main-thread write path
+connected_later_out_of_scope: [apex-kb, project-kb-manager]
 ```
 
 Each skill package keeps its `references/` (read_when-gated), `templates/` (J1–J12 promoted cards), and `examples/` in place — declared ownership by agent preload, no folder moves.
