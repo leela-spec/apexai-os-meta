@@ -15,3 +15,13 @@ artifact_lock:
   author_identity: withheld_from_reviewers
   verdicts_bind_to: sha256, not filename
 ```
+
+```yaml
+artifact_lock_v2:
+  artifact:
+    path: apex-meta/orchestration/simulations/US-IDEA-01-20260711/01-candidate-entry.v2.md
+    version: 2
+    sha256: "cd83e576d8e5b2caac3f8d40c11bc6d33482a669a50ed8c80be062ec05a13d54"
+  change_basis: "revision order in 07-review-decision.md; deterministic diff = exactly L47-L48 pointer corrections; recorded in 07"
+  re_review_scope: "C4 only (diff-proven no adjacent change)"
+```
