@@ -17,7 +17,7 @@ Procedure:
 
 Output:
 - `artifacts/flow-recap-packets/flow_recap_packet-<YYYYMMDD>-<flow-id>.md` (envelope first; model_usage_delta as a labeled section inside, per the skills' contracts)
-- Envelope: `envelope_version: 1`, `packet_type: flow_recap_packet`, `gate: G4`, `accountability: meta_ops`, `lifecycle_stage: proposal`, `authority.state: candidate`, `operator_validation: not_requested`, `expected_action: operator confirms G4 (next_step_proposal + status delta), then status-merge consumes`, `target_surface: state/apex-project-status.md (via status-merge only)`.
+- Envelope: `envelope_version: 1`, `packet_type: flow_recap_packet`, `gate: G4`, `accountability: meta_ops`, `lifecycle_stage: proposal`, `authority.state: candidate`, `operator_validation: not_requested`, `expected_action: operator confirms G4 (next_step_proposal + status delta), then status-merge consumes`, `target_surface: none`.
 - Return ONLY the envelope plus a ≤10-line summary: result vs plan, the candidate delta in one line per project, the proposed next step, review flags.
 
 Boundaries:

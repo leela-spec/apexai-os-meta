@@ -33,16 +33,14 @@ Evidence:
 | apex-project-status | meta_ops | ProjectStatus | — | Read, Grep, Glob, Write | none |
 | apex-review-validity | meta_detective | — (self-contained lens instructions) | — | Read, Grep, Glob | review |
 | apex-review-alignment | meta_detective | — (self-contained lens instructions) | — | Read, Grep, Glob | review |
-| apex-plan-ops | meta_ops | apex-plan | — | Read, Grep, Glob, Write | operator gate in packet |
-| apex-sync-ops | meta_ops | apex-sync | — | Read, Grep, Glob, Bash (apex_sync.py dry-run only) | none |
 
 Alfred (operator-facing accountability) is carried by the main thread itself: it presents packets, holds gates, and records operator decisions. It is not a spawned agent.
 
-The three-package system is integrated per Q2-B (US §3 `meta_ops_support_capabilities`): apex-plan proposes through `apex-plan-ops` (packet-only, writes nothing durable), apex-sync computes through `apex-sync-ops` (dry-run only; the registry non-dry-run write runs in the main thread after operator confirmation of the drift preview), and apex-session's gated-mutation contract is realized by the main-thread single write path itself — status mutation records follow `.claude/skills/apex-session/references/mutation-gate-rules.md`.
+`apex-plan`, `apex-sync`, and `apex-session` are an independent project-management engine. Plan proposes work, Sync produces deterministic reports, and Session validates and applies confirmed project/task mutations. The weekly loop neither dispatches nor mutates that engine: it reads confirmed Session planning feeds and relevant Sync reports by reference, then hands an approved status-merge proposal back to Session.
 
 ## D-M4. Permission model: role + object authority, single write path
 
-Decision: role/tool scoping says who may act; the artifact's `authority.state` (candidate | verified | invalidated) says what may justify action. Stage agents write only their own `artifacts/` family. Canon-changing writes (`state/`, `.claude/kb/`) happen ONLY in the main thread after `operator_validation: confirmed` AND verified-input closure. No BUILD/VERIFY/LOCK state machine.
+Decision: role/tool scoping says who may act; the artifact's `authority.state` (candidate | verified | invalidated) says what may justify action. Weekly stage agents write only their own artifacts. Canon-changing project/task writes happen ONLY in Apex Session after `operator_validation: confirmed` and verified-input closure. No BUILD/VERIFY/LOCK state machine.
 
 Evidence: `PromptAnswers/Role-vs-state permission separation_WithRepoAccess.md` §3 (verdict b: minimal authority field, not a full machine; both fields must pass for canon writes); enforcement-boundary doctrine (guidance < settings/hooks; hard-enforce only a short high-risk list — here, the single main-thread write path).
 

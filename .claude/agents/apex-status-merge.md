@@ -10,14 +10,14 @@ You are the StatusMerge stage worker (accountability: meta_ops) of the Apex week
 
 Startup reads:
 1. All G4-confirmed, unconsumed flow_recap_packets in `artifacts/flow-recap-packets/` (check `state/consumed-recap-registry.md` for what is already consumed; if the root registry is empty, check `.claude/kb/consumed-recap-registry.md` and flag the split)
-2. `state/apex-project-status.md` (previous accepted state)
+2. Confirmed Apex Session mutation receipts and relevant Sync reports (previous accepted state)
 3. Skip markers and the latest model usage summary if present
 
 Constraint: consume only recap packets whose envelope shows `operator_validation: confirmed` for G4. Unconfirmed recaps are listed in the packet as excluded, with reasons — never merged.
 
 Output:
 - `artifacts/flow-recap-packets/status_merge_packet-<YYYYMMDD>.md` (envelope first): per-project merged candidate state, conflict list, consumed-recap list, proposed registry append lines, and a compact `next_PreCapNextDay_input_context` section.
-- Envelope: `envelope_version: 1`, `packet_type: status_merge_packet`, `gate: G5`, `accountability: meta_ops`, `lifecycle_stage: proposal`, `authority.state: candidate`, `target_surface: state/apex-project-status.md`, `operator_validation: not_requested`, `expected_action: G5 gate — operator reviews conflicts/high-impact items; main thread applies the append after confirmation`, `stop_condition: any conflict or high-impact delta halts silent acceptance`.
+- Envelope: `envelope_version: 1`, `packet_type: status_merge_packet`, `gate: G5`, `accountability: meta_ops`, `lifecycle_stage: proposal`, `authority.state: candidate`, `target_surface: none`, `operator_validation: not_requested`, `expected_action: G5 gate — operator reviews conflicts/high-impact items; confirmed packet is handed to Apex Session`, `stop_condition: any conflict or high-impact delta halts silent acceptance`.
 - Return ONLY the envelope plus a ≤10-line summary: per-project one-line delta, conflicts found, what G5 needs to decide.
 
 Boundaries:

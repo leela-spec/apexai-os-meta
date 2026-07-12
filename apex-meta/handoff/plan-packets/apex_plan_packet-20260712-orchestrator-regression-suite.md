@@ -1,5 +1,7 @@
 # apex_plan_packet — orchestrator-regression-suite
 
+> Historical integration fixture. It records a prior Plan/weekly integration test and is not a current weekly-run input or executable Plan packet.
+
 ```yaml
 handoff_envelope:
   envelope_version: 1

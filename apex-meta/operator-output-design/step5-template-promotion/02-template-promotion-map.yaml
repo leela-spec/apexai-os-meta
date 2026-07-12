@@ -12,23 +12,23 @@ template_promotion:
     entrypoint_update_required: false
   - artifact_id: J2
     source_path: apex-meta\operator-output-design\step4-operator-template-system\templates/J02-weekly-command-brief.md
-    source_sha256: "91a91dd0b3abd69408a472a3c0f1b61e723eee43252b99955c491d6819fa75d5"
+    source_sha256: "d11bb0eaf2d209b1df42f0b046a0e3909dafb24be7ca6d4cefda49be5e4c4454"
     owner_package: PrecapWeek
     target_path: .claude/skills/PrecapWeek/weekly-command-brief-template.md
     target_operation: add_new_file
     target_exists_before: false
-    owning_entrypoint: .claude/skills/PrecapWeek/Skill_Precap-Week.md
+    owning_entrypoint: .claude/skills/PrecapWeek/SKILL.md
     owning_manifest: .claude/skills/PrecapWeek/package-manifest.md
     manifest_update_required: true
     entrypoint_update_required: false
   - artifact_id: J3
     source_path: apex-meta\operator-output-design\step4-operator-template-system\templates/J03-precap-next-day-brief.md
-    source_sha256: "788139b56b739ff80e81b2975bdf1a3c68b1301c85f425e99e0c9f8f0c38ce32"
+    source_sha256: "29b845494efd719ab6af7707260dccaba54b851a6cb0078ed0beff4b00a161c5"
     owner_package: PrecapNextDay
     target_path: .claude/skills/PrecapNextDay/templates/precap-next-day-brief-template.md
     target_operation: add_new_file
     target_exists_before: false
-    owning_entrypoint: .claude/skills/PrecapNextDay/Skill_precap-next-day.md
+    owning_entrypoint: .claude/skills/PrecapNextDay/SKILL.md
     owning_manifest: .claude/skills/PrecapNextDay/precap-next-day-package-manifest.md
     manifest_update_required: true
     entrypoint_update_required: false
@@ -39,7 +39,7 @@ template_promotion:
     target_path: .claude/skills/PrecapNextDay/templates/flow-execution-card-template.md
     target_operation: add_new_file
     target_exists_before: false
-    owning_entrypoint: .claude/skills/PrecapNextDay/Skill_precap-next-day.md
+    owning_entrypoint: .claude/skills/PrecapNextDay/SKILL.md
     owning_manifest: .claude/skills/PrecapNextDay/precap-next-day-package-manifest.md
     manifest_update_required: true
     entrypoint_update_required: false
@@ -50,7 +50,7 @@ template_promotion:
     target_path: .claude/skills/PrecapNextDay/templates/prompt-files-and-index-template.md
     target_operation: add_new_file
     target_exists_before: false
-    owning_entrypoint: .claude/skills/PrecapNextDay/Skill_precap-next-day.md
+    owning_entrypoint: .claude/skills/PrecapNextDay/SKILL.md
     owning_manifest: .claude/skills/PrecapNextDay/precap-next-day-package-manifest.md
     manifest_update_required: true
     entrypoint_update_required: false
@@ -100,7 +100,7 @@ template_promotion:
     entrypoint_update_required: false
   - artifact_id: J9
     source_path: apex-meta\operator-output-design\step4-operator-template-system\templates/J09-status-merge-decision-card.md
-    source_sha256: "42d27fc25e0e972c359f339db7b57eaa14ae32246672ac014e77cc7e38b40209"
+    source_sha256: "0792f10caf9ef527769f2b412871cd98e4916fb9a56ec4a8ee4d1ade8faa895b"
     owner_package: status-merge
     target_path: .claude/skills/status-merge/templates/status-merge-decision-card-template.md
     target_operation: add_new_file
@@ -111,34 +111,34 @@ template_promotion:
     entrypoint_update_required: false
   - artifact_id: J10
     source_path: apex-meta\operator-output-design\step4-operator-template-system\templates/J10-project-kb-update-card.md
-    source_sha256: "32fcab2e2b2b6ed759ea747b6e01e20101c95a8350576d937d1d61760b3bb0b8"
-    owner_package: project-kb-manager
-    target_path: .claude/skills/project-kb-manager/templates/project-kb-update-card-template.md
+    source_sha256: "d6c4c28cadbe820a22c8fa63ec663077769c12b6c9ba4e49243ccdf3f6cf3e6c"
+    owner_package: apex-session
+    target_path: .claude/skills/apex-session/templates/project-state-update-receipt-template.md
     target_operation: add_new_file
     target_exists_before: false
-    owning_entrypoint: .claude/skills/project-kb-manager/SKILL.md
-    owning_manifest: .claude/skills/project-kb-manager/package-manifest.md
+    owning_entrypoint: .claude/skills/apex-session/SKILL.md
+    owning_manifest: .claude/skills/apex-session/package-manifest.md
     manifest_update_required: true
     entrypoint_update_required: false
   - artifact_id: J11
     source_path: apex-meta\operator-output-design\step4-operator-template-system\templates/J11-project-status-overview.md
-    source_sha256: "53c2065873d253bdf651e8c42c9f9d9acce769294981af39568b6222f03ed328"
+    source_sha256: "4041bcce4da51af2156f9c3d956253dc2f140e6f4f123e851895c146d3ab4045"
     owner_package: ProjectStatus
     target_path: .claude/skills/ProjectStatus/project-status-overview-template.md
     target_operation: add_new_file
     target_exists_before: false
-    owning_entrypoint: .claude/skills/ProjectStatus/project-status-overview_SKILL_v3.md
+    owning_entrypoint: .claude/skills/ProjectStatus/SKILL.md
     owning_manifest: .claude/skills/ProjectStatus/package-manifest.md
     manifest_update_required: true
     entrypoint_update_required: false
   - artifact_id: J12
     source_path: apex-meta\operator-output-design\step4-operator-template-system\templates/J12-ai-routing-card.md
-    source_sha256: "5077d787b7ae10bc98983cd1273d7353efdf585c203bd2cf9fa6e4fcd72c3381"
+    source_sha256: "653f68addc8143ac922d21c92e73570d85e35e7e3df2e942b2305c32fc4672e7"
     owner_package: AIRouting
     target_path: .claude/skills/AIRouting/ai-routing-card-template.md
     target_operation: add_new_file
     target_exists_before: false
-    owning_entrypoint: .claude/skills/AIRouting/ai-routing-and-usage-tracking-SKILL.md
+    owning_entrypoint: .claude/skills/AIRouting/SKILL.md
     owning_manifest: .claude/skills/AIRouting/ai-routing-and-usage-tracking-package-manifest.md
     manifest_update_required: true
     entrypoint_update_required: false

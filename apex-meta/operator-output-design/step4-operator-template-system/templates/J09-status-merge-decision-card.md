@@ -1,12 +1,12 @@
 # Status Merge Decision Card - {{PROJECT_OR_CANDIDATE_LABEL}}
 
-> **Merge decision state:** {{PENDING_REVIEW | APPROVED_FOR_KB_WRITE | REJECTED | DEFERRED | UNRESOLVED}}  
+> **Merge decision state:** {{PENDING_REVIEW | APPROVED_FOR_SESSION_MUTATION | REJECTED | DEFERRED | UNRESOLVED}}
 > **Decision summary:** {{WHAT_THE_CANDIDATE_WOULD_CHANGE}}  
-> **Next action:** {{APPROVE_FOR_MERGE | EDIT | REJECT | DEFER | REQUEST_EVIDENCE | SEND_TO_KB_UPDATE}}  
+> **Next action:** {{APPROVE_FOR_MERGE | EDIT | REJECT | DEFER | REQUEST_EVIDENCE | SEND_TO_SESSION_MUTATION}}
 > **Review needed:** {{CONFLICT_OR_OPERATOR_DECISION_OR_NONE}}  
 > **Durable write:** {{NOT_PERFORMED_HERE | J10_REFERENCE_AVAILABLE}}
 
-> **Boundary:** This card records the operator merge decision only. Approval permits J10 to perform the owning KB operation; J10 alone reports the write result, and J11 alone projects confirmed accepted truth.
+> **Boundary:** This card records the operator merge decision only. Approval permits Apex Session to perform the owning project-state mutation; J10 alone reports the write result, and J11 alone projects confirmed accepted truth.
 
 ## Operator merge decision
 
@@ -57,7 +57,7 @@
 
 **Approval state:** {{APPROVED_FOR_MERGE | NOT_APPROVED}}  
 **Approved value:** {{APPROVED_VALUE_OR_NONE}}  
-**Target destination:** {{KB_TARGET_OR_UNRESOLVED}}  
+**Target destination:** {{SESSION_MUTATION_TARGET_OR_UNRESOLVED}}
 **Required provenance to retain:** {{SOURCE_REFS}}  
 **Operator conditions:** {{CONDITIONS_OR_NONE}}
 
@@ -80,7 +80,7 @@ presentation_handoff:
   approved_change_ref: "{{APPROVED_CHANGE_REF_OR_NONE}}"
   operator_decision_ref: "{{OPERATOR_DECISION_REF}}"
   review_status: "{{REVIEW_STATUS}}"
-  next_consumer: "{{PROJECT_KB_UPDATE_CARD_OR_OPERATOR_REVIEW_OR_NONE}}"
+  next_consumer: "{{PROJECT_STATE_UPDATE_RECEIPT_OR_OPERATOR_REVIEW_OR_NONE}}"
 ```
 
 ## Template authority

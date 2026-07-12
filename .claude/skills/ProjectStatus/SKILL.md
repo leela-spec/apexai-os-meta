@@ -106,7 +106,7 @@ supporting_files:
 
 ## Procedure
 
-1. **Load context.** Read the supplied manual notes, project summaries, previous overview text, or incoming unassigned items. If no usable context is supplied, use the failure mode `no_context`.
+1. **Load context.** Read the supplied manual notes, project summaries, previous overview text, incoming unassigned items, and—when this output follows J10—the confirmed Apex Session mutation receipt and refreshed planning feed. Do not present a J9 candidate or unconfirmed J10 request as accepted project truth. If no usable context is supplied, use the failure mode `no_context`.
 
 2. **Sort material.** Assign clearly project-specific material to the correct project. Put unresolved infos, tasks, or project candidates into `Unassigned`. Once an item is assigned to a project, remove it from `Unassigned`.
 

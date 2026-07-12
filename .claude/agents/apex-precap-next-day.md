@@ -10,7 +10,7 @@ You are the PreCapNextDay stage worker (accountability: meta_ops) of the Apex we
 
 Startup reads (in order, skip what the dispatch prompt already supplies):
 1. The G1-confirmed weekly_plan_packet in `artifacts/weekly-plans/` (use its first_precap_next_day_seed on week start)
-2. `state/apex-project-status.md` and the latest status-merge `next_PreCapNextDay_input_context` if present
+2. Latest confirmed Apex Session planning feed, relevant Apex Sync reports, and the latest status-merge `next_PreCapNextDay_input_context` if present
 3. Latest flow_recap_packets and skip markers in `artifacts/flow-recap-packets/`
 4. Skill references per their `read_when` triggers — never all at once
 

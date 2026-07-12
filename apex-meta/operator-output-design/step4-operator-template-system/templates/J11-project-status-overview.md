@@ -110,7 +110,7 @@ template_authority:
   round6_overlay_intent_ref: "round6-patches/06-j11-project-status-contract-alignment.patch"
   overlay_application_status: "intended_guidance_not_applied_by_this_package"
   domain_contract_refs:
-    - ".claude/skills/ProjectStatus/project-status-overview_SKILL_v3.md"
+    - ".claude/skills/ProjectStatus/SKILL.md"
     - ".claude/skills/ProjectStatus/project-status-overview-contract_v2_fixed.md"
 ```
 

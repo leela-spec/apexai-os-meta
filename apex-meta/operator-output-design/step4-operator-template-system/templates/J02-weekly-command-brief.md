@@ -126,7 +126,7 @@ template_authority:
   round6_overlay_intent_ref: null
   overlay_application_status: "not_applicable_to_this_template"
   domain_contract_refs:
-    - ".claude/skills/PrecapWeek/Skill_Precap-Week.md"
+    - ".claude/skills/PrecapWeek/SKILL.md"
   source_gap: ".claude/skills/PrecapWeek/references/weekly-plan-output-contract.md was referenced by the live skill but not retrievable from main during research."
 ```
 

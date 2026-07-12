@@ -1,5 +1,7 @@
 # Weekly Orchestrator — Execution Trace + Verification Record
 
+> Historical record: this trace documents the 2026-07-11/12 configuration in which weekly routing absorbed Plan/Sync wrappers and a main-thread state write. It is retained as evidence, not as the current operating contract. The current contract keeps Plan/Sync/Session independent and routes weekly inputs and approved feedback through their native Session/Sync handoffs.
+
 Status: real checks executed 2026-07-11 against the live repo (per `apex-meta/fable-orchestrator/build-plan.md` simulation definition: actual attempt, actual result, honest verdict — not a hypothetical walkthrough).
 
 ## 1. Automated file-level verification (executed)

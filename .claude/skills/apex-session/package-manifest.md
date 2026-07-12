@@ -33,9 +33,12 @@ exact_file_index:
     - templates/findings.md
     - templates/progress.md
     - templates/next-session.md
+    - templates/project-state-update-receipt-template.md
     - package-manifest.md
+    - NEXT STEPS, IMPROVEMENTS, AND HARMONIZATION NOTES.md
+    - apex-session-final-extraction-report.md
 
-  exact_file_count: 10
+  exact_file_count: 13
 
   excluded_directories:
     - scripts/
@@ -103,12 +106,24 @@ file_purpose_map:
     role: H6_template
     purpose: next-session artifact template with exact sections.
 
+  templates/project-state-update-receipt-template.md:
+    role: J10_confirmed_project_state_receipt
+    purpose: Confirms an approved Apex Session project-state mutation and its refreshed planning feed.
+
   package-manifest.md:
     role: package_index_and_validation_summary
     purpose: >
       Defines package status, exact file index, file purpose map, source basis,
       read order, package invariants, validation checklist, and forbidden
       claims.
+
+  NEXT STEPS, IMPROVEMENTS, AND HARMONIZATION NOTES.md:
+    role: historical_harmonization_notes
+    purpose: Historical package research; not part of normal skill activation.
+
+  apex-session-final-extraction-report.md:
+    role: historical_extraction_report
+    purpose: Historical package provenance; not part of normal skill activation.
 ~~~
 
 ## source_basis_map
@@ -181,6 +196,11 @@ source_basis_map:
       - planning-with-files SKILL.md
       - planning-with-files docs/quickstart.md
 
+  templates/project-state-update-receipt-template.md:
+    sources:
+      - apex-meta/operator-output-design/step4-operator-template-system/templates/J10-project-kb-update-card.md
+      - apex-meta/operator-output-design/step5-template-promotion/02-template-promotion-map.yaml
+
   package-manifest.md:
     sources:
       - .claude/skills/apex-session/package-manifest.md
@@ -216,6 +236,12 @@ read_order:
     - templates/progress.md
     - templates/next-session.md
 
+  confirmed_project_state_receipt:
+    - SKILL.md
+    - references/mutation-gate-rules.md
+    - templates/project-state-update-receipt-template.md
+    - references/handoff-and-next-session-contract.md
+
   state_delta_or_entity_request:
     - SKILL.md
     - references/state-delta-and-entity-rules.md
@@ -228,7 +254,7 @@ read_order:
 ~~~yaml
 package_invariants:
   package_status: final_canonical_v1
-  exact_file_count: 10
+  exact_file_count: 13
   C_SESSION_only: true
   H1_status_enum_exact:
     - open
@@ -263,7 +289,7 @@ package_invariants:
 ~~~yaml
 validation_checklist:
   file_inventory:
-    exact_file_count_is_10: true
+    exact_file_count_is_13: true
     exact_tree_match: true
     no_extra_generated_directories: true
 

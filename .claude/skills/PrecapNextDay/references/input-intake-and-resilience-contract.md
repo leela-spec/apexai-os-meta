@@ -45,6 +45,28 @@ input_intake_and_resilience_contract:
     do_not_block_daily_plan_generation_only_because_inputs_are_incomplete: true
     mark_low_confidence_when_context_is_thin: true
     surface_conflicts_before_using_conflicted_inputs: true
+    project_engine_context_preferred: true
+```
+
+## Project Engine Context
+
+```yaml
+project_engine_context:
+  preferred_inputs:
+    - confirmed_apex_session_planning_feed_ref
+    - confirmed_apex_session_next_session_ref
+    - apex_sync_next_action_report_ref
+    - apex_sync_blocker_report_ref
+  optional_inputs:
+    - apex_sync_drift_report_ref
+    - apex_sync_focus_candidate_report_ref
+    - project_kb_context_ref
+  authority_order:
+    - confirmed_session_mutation_and_planning_feed
+    - current_sync_reports
+    - confirmed_weekly_artifacts
+    - project_kb_background_context
+  missing_behavior: mark_project_engine_context_missing_and_continue_degraded
 ```
 
 ## Schema: input_intake_context

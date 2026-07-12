@@ -21,9 +21,7 @@ skill_contract:
     evidence_normalize: {agent: apex-evidence-normalize,  gate: none, trigger: "raw evidence arrives"}
     flow_recap:         {agent: apex-flow-recap,          gate: G4, trigger: "normalized dump + flow packet ready"}
     status_merge:       {agent: apex-status-merge,        gate: G5, trigger: "run status-merge | once daily | manual"}
-    project_status:     {agent: apex-project-status,      gate: none, trigger: "run project-status-overview | after confirmed merge"}
-    project_planning:   {agent: apex-plan-ops,             gate: none, trigger: "run apex-plan | operator asks to capture/decompose a project"}
-    deterministic_sync: {agent: apex-sync-ops,             gate: none, trigger: "run apex-sync | approved plan packet requests validation/computation"}
+    project_status:     {agent: apex-project-status,      gate: none, trigger: "run project-status-overview | after confirmed Session mutation"}
     review:             {agents: [apex-review-validity, apex-review-alignment], trigger: consequential_packet_per_review_wiring}
   references:
     - {path: references/handoff-schema.md, read_when: [producing_or_checking_any_packet_envelope, applying_gates, canon_write_requested]}
@@ -39,21 +37,20 @@ skill_contract:
 
 ## Procedure
 
-1. **Locate the loop.** Read `state/apex-project-status.md` and list the newest files in `artifacts/weekly-plans/`, `artifacts/next-day-plans/`, `artifacts/flow-packets/`, `artifacts/flow-recap-packets/`. The newest confirmed packet determines the current stage; report loop position in ≤5 lines before dispatching anything.
+1. **Locate the loop.** Read the latest confirmed Session planning feed and relevant Sync reports, then list the newest files in `artifacts/weekly-plans/`, `artifacts/next-day-plans/`, `artifacts/flow-packets/`, and `artifacts/flow-recap-packets/`. The newest confirmed packet determines the current stage; report loop position in ≤5 lines before dispatching anything.
 2. **Dispatch a stage.** Invoke the stage's subagent with a dispatch prompt containing exactly: the input packet paths, the operator's stage-specific intent, any confirmed constraints, and always `run_date` (YYYYMMDD) plus, for planning stages, `week_id` — agents cannot determine dates themselves. Do not paste packet contents — paths only (refs not copies).
    - Parallel dispatch: evidence_normalize and flow_recap invocations for different flows of the same day are independent — dispatch them concurrently (one subagent per flow). Review lens pairs always run in parallel. Planning stages and status_merge never run concurrently with each other.
 3. **Receive the return.** A stage return is the handoff envelope + short summary. Validate the envelope against `references/handoff-schema.md` (all required fields present, `expected_action` and `stop_condition` non-empty, `target_surface` correct per field_rules). An invalid envelope goes back to the same agent once with the named gaps; a second failure halts the stage and reports.
 4. **Trigger review when consequential.** Apply the trigger test in `references/review-wiring.md`. If triggered: freeze digest, dispatch both reviewers in parallel with blind packets, aggregate deterministically, update `authority.state` accordingly. On reviewer criterion-level disagreement: present both verdicts to the operator; never tiebreak.
 5. **Hold the gate.** Present the stage summary and the exact gate question to the operator; record the answer by updating the packet's `operator_validation` field and gate date. Gate passage lives in the packet file, never only in chat.
-6. **Apply durable writes (single write path).** Only after G5 confirmation of a status_merge_packet: append its prepared lines to `state/apex-project-status.md` and `state/consumed-recap-registry.md` (append or flag conflicts — never rewrite history), then confirm fetch-back: re-read the appended section and cite it in one line. Every authoritative input must be `authority.state: verified` or explicitly operator-waived in the same confirmation.
-   - Plan/sync write path: on operator confirmation of an apex_plan_packet, the main thread materializes its proposed epic/task records under `apex-meta/epics/` per the apex-plan task-record contract, then dispatches apex-sync-ops for dependency validation; the registry non-dry-run write (`python scripts/apex_sync.py registry --root . --json --dry-run false`, touches only `apex-meta/registry/index.md`) runs in the main thread only, after the operator confirms the drift preview. apex-session's mutation-gate rules (`.claude/skills/apex-session/references/mutation-gate-rules.md`) govern every status mutation record.
+6. **Route confirmed changes.** After G5 confirmation, hand the approved status_merge_packet and its evidence references to `apex-session`. Session alone validates and applies the project/task mutation, produces the mutation receipt, and refreshes the planning feed. Do not write `state/` files or project-task records from this skill.
 7. **Advance.** Report the next stage and its trigger in one line. Never auto-trigger the next planning stage — the loop advances on operator trigger (or within an explicitly requested autonomous run).
 
 ## Failure behavior
 
 failure_modes:
   stage_agent_returns_blocked: report the named missing inputs, offer the skill's degraded mode if it has one, continue with the next independent stage if any.
-  state_files_empty_or_stale: continue in degraded mode at low confidence; flag G01 split-state issue (`.claude/kb/` vs `state/`) to the operator; never reconstruct accepted truth from candidates.
+  project_engine_context_missing: continue in degraded mode at low confidence; flag missing Session or Sync context to the operator; never reconstruct accepted truth from candidates.
   envelope_invalid_twice: halt that stage, keep its output as `invalidated`, report.
   operator_absent_in_autonomous_run: produce all packets with `operator_validation: not_requested`, batch-present gates at run end; never fabricate confirmation; never apply canon writes.
   unsafe_write_condition: halt and report — this overrides any autonomous-run instruction.

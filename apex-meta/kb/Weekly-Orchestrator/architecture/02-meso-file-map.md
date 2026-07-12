@@ -7,7 +7,7 @@ Rule: this is the complete file inventory of the execution-ready weekly orchestr
 ```yaml
 control_plane:
   root_instruction: .claude/CLAUDE.md                                   # identity, core_loop, skills table, agents table, constraints
-  orchestrator_skill: .claude/skills/weekly-orchestrator/SKILL.md      # stage routing, gate holding, single write path
+  orchestrator_skill: .claude/skills/weekly-orchestrator/SKILL.md      # stage routing, gate holding, project-engine handoffs
   handoff_schema: .claude/skills/weekly-orchestrator/references/handoff-schema.md   # one envelope for every packet + gate primitive + authority object
   review_wiring: .claude/skills/weekly-orchestrator/references/review-wiring.md     # dual-blind review procedure + deterministic aggregation
   glossary: apex-meta/GLOSSARY.md                                       # canonical meaning for drifted terms
@@ -25,8 +25,6 @@ agents:
   - .claude/agents/apex-project-status.md
   - .claude/agents/apex-review-validity.md
   - .claude/agents/apex-review-alignment.md
-  - .claude/agents/apex-plan-ops.md
-  - .claude/agents/apex-sync-ops.md
 ```
 
 ## skill layer (owned bases; canonical SKILL.md entrypoints)
@@ -44,11 +42,11 @@ dependency_skills:                                     # invoked via Skill tool 
   - .claude/skills/PromptEngineer/SKILL.md
   - .claude/skills/AIRouting/SKILL.md
   - .claude/skills/Workflow&Processes/SKILL.md
-meta_ops_support_capabilities:                         # three-package system integrated per Q2-B
-  - .claude/skills/apex-plan/SKILL.md                  # preloaded by .claude/agents/apex-plan-ops.md
-  - .claude/skills/apex-sync/SKILL.md                  # preloaded by .claude/agents/apex-sync-ops.md (dry-run only)
-  - .claude/skills/apex-session/SKILL.md               # mutation-gate contract realized by the main-thread write path
-connected_later_out_of_scope: [apex-kb, project-kb-manager]
+external_project_engine:
+  - .claude/skills/apex-plan/SKILL.md                  # project proposal capability; independently invoked
+  - .claude/skills/apex-sync/SKILL.md                  # deterministic project reports; independently invoked
+  - .claude/skills/apex-session/SKILL.md               # confirmed project/task mutation and planning-feed owner
+optional_knowledge_context: [project-kb-manager]
 ```
 
 Each skill package keeps its `references/` (read_when-gated), `templates/` (J1–J12 promoted cards), and `examples/` in place — declared ownership by agent preload, no folder moves.
@@ -56,16 +54,16 @@ Each skill package keeps its `references/` (read_when-gated), `templates/` (J1�
 ## state and artifact layer (where resilience lives)
 
 ```yaml
-durable_state:                       # canon; single write path; append-or-flag only
-  - state/apex-project-status.md
-  - state/consumed-recap-registry.md
+project_engine_state:                # canonical project/task state; Apex Session writes after approval
+  - apex-meta/handoff/               # confirmed H6 artifacts and planning feed
+  - apex-meta/registry/              # Apex Sync report outputs when produced
 artifact_families:                   # proposals/computed packets; stage agents write here only
   weekly_plans: artifacts/weekly-plans/            # weekly_plan_packet, project-status-overview
   next_day_plans: artifacts/next-day-plans/        # next_day_plan
   flow_packets: artifacts/flow-packets/<YYYYMMDD>/ # flow packets, prompt-packs/, normalized dumps, skip markers
   flow_recap_packets: artifacts/flow-recap-packets/ # recap packets, status_merge_packet
   reviews: artifacts/reviews/                       # review verdict artifacts
-known_issue_G01: ".claude/kb/ holds a parallel registry used by project-kb-manager; the split is flagged by apex-status-merge until the later apex-kb connection resolves it."
+knowledge_context: ".claude/kb/ may be read as supporting knowledge but does not override confirmed Session or Sync output."
 ```
 
 ## write-permission matrix
@@ -73,7 +71,7 @@ known_issue_G01: ".claude/kb/ holds a parallel registry used by project-kb-manag
 | surface | who writes | condition |
 |---|---|---|
 | `artifacts/<own family>/` | the producing stage agent | always allowed within its family |
-| `state/*` | main thread only | G5 `operator_validation: confirmed` + verified-input closure; append or flag |
-| `.claude/kb/*` | out of scope this build | later apex-kb/project-kb connection |
+| project/task state | Apex Session | confirmed J9 proposal + operator validation + verified-input closure |
+| `.claude/kb/*` | project-kb-manager when invoked | supporting knowledge only; never weekly project-state canon |
 | `.claude/skills/`, `.claude/agents/`, control plane | operator-directed sessions only | never during loop runs |
 | reviewers | nothing | read-only |

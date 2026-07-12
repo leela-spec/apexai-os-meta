@@ -125,7 +125,7 @@ template_authority:
   round6_overlay_intent_ref: "round6-patches/07-j12-routing-contract-alignment.patch"
   overlay_application_status: "intended_guidance_not_applied_by_this_package"
   domain_contract_refs:
-    - ".claude/skills/AIRouting/ai-routing-and-usage-tracking-SKILL.md"
+    - ".claude/skills/AIRouting/SKILL.md"
     - ".claude/skills/AIRouting/routing-recommendation-packet-contract.md"
 ```
 
