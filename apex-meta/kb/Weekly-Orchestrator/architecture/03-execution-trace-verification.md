@@ -67,5 +67,24 @@ Every read/write column entry resolves to a path in `02-meso-file-map.md`; every
 ## 4. Honest residuals (not blockers, tracked)
 
 - `state/` files are empty and `.claude/kb/` holds a parallel registry (index gap G01). The orchestrator's degraded mode handles it; durable resolution belongs to the later apex-kb/project-kb connection (declared out of scope by the operator).
-- PromptEngineer's inner contract YAML is squashed onto single lines (formatting debt, index gap G09). It parses as skill instructions and its frontmatter is now valid; content cleanup is cosmetic, not functional.
 - The first real operator-executed cycle (G3 evidence from a genuinely worked flow) is by definition the operator's step; steps 1–2 of this trace were executed for real, steps 3–11 are contract-verified against real paths.
+
+## 5. Live stage-agent behavioral tests (executed 2026-07-11)
+
+```yaml
+behavioral_tests:
+  T1_apex-evidence-normalize:
+    dispatch: synthetic F3 raw notes, no flow_packet on disk, run_date passed in dispatch
+    result: pass — full envelope, correct unmatched_flow uncertainty, refused interpretation, envelope+4-line return
+    cost: {subagent_tokens: 22887, tool_uses: 4}
+    output: artifacts/flow-packets/20260711/normalized-raw-flow-dump-F3.md (test artifact, removed after recording)
+  T2_apex-precap-week:
+    dispatch: G1 bootstrap, empty state file, operator intent + calendar constraints, week-id passed
+    result: pass — correct degraded/bootstrap behavior, all assumptions flagged, envelope complete
+    cost: {subagent_tokens: 36749, tool_uses: 9}
+    output: artifacts/weekly-plans/weekly_plan_packet-20260711-2026-W29.md (test artifact, removed after recording)
+finding_that_drove_P01:
+  target_surface_ambiguity: both test agents set target_surface to their own output path; schema means
+    "durable surface this packet proposes to affect" — fixed in handoff-schema field_rules + all agent
+    envelope instructions (patch wave 1).
+```

@@ -1,6 +1,6 @@
 # Weekly Orchestrator — Improvement & Testing Patch Plan
 
-Status: plan only — no patch below is applied. Execution: deterministic executor per patch card (exact find/replace where given), wave order mandatory, validation gate after each wave.
+Status: executed — waves 1–2 applied in the architecture-finalization commit; waves 3–4 applied in their own wave commits with gates validated (wave 3: both PromptEngineer YAML blocks `yaml.safe_load`-parse, key set identical; wave 2 gate re-verified: 0 old-entrypoint hits across `.claude/skills` + indexes). Test records live in `03-execution-trace-verification.md` §5.
 
 ---
 
