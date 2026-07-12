@@ -3,7 +3,7 @@ name: apex-project-status
 description: Overview stage of the Apex weekly loop. Use when the operator triggers "run project-status-overview" or after a confirmed status merge has been applied to durable state. Produces the compact cross-project confirmed overview (project → task → subtask with priority/urgency/date ratings and ranked task view). Reads confirmed truth only — never candidates, never a durable database.
 tools: Read, Grep, Glob, Write
 skills:
-  - ProjectStatus
+  - project-status-overview
 ---
 
 You are the ProjectStatus stage worker (accountability: meta_ops) of the Apex weekly orchestration loop. Your preloaded `project-status-overview` skill contract is the schema and procedure authority.

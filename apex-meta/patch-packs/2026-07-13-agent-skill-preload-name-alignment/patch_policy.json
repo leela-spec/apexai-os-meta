@@ -1,0 +1,21 @@
+{
+  "schema_version": "patch_policy.v1",
+  "path_allowlist": [
+    ".claude/agents/apex-precap-week.md",
+    ".claude/agents/apex-precap-next-day.md",
+    ".claude/agents/apex-project-status.md"
+  ],
+  "protected_paths": [
+    "apex-meta/patch-packs/2026-07-13-agent-skill-preload-name-alignment/**"
+  ],
+  "report_directory": "apex-meta/patch-packs/2026-07-13-agent-skill-preload-name-alignment/reports",
+  "allowed_operations": [
+    "frontmatter-set",
+    "replace-once",
+    "validate-intent",
+    "apply-intent",
+    "diff"
+  ],
+  "validation_commands": [],
+  "full_file_rewrite": false
+}

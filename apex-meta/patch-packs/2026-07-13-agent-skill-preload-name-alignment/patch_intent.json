@@ -1,0 +1,62 @@
+{
+  "schema_version": "patch_intent.v1",
+  "intents": [
+    {
+      "intent_id": "precap-week-canonical-skill-name",
+      "operation": "frontmatter-set",
+      "target": {
+        "target_file_guess": ".claude/agents/apex-precap-week.md",
+        "frontmatter_required": true
+      },
+      "hints": {
+        "frontmatter_keys": ["skills"],
+        "nearby_phrases": ["Your preloaded `precap-week` skill contract"]
+      },
+      "frontmatter": {"set": {"skills": ["precap-week"]}},
+      "validation": {
+        "expected_phrases": ["- precap-week", "Your preloaded `precap-week` skill contract"],
+        "forbidden_phrases": ["- PrecapWeek"]
+      },
+      "safety": {"require_unique_match": true, "fail_on_ambiguity": true, "allow_full_file_rewrite": false, "max_files_touched": 1},
+      "notes": "Align the preloaded skill identifier with .claude/skills/PrecapWeek/SKILL.md frontmatter name."
+    },
+    {
+      "intent_id": "precap-next-day-canonical-skill-name",
+      "operation": "frontmatter-set",
+      "target": {
+        "target_file_guess": ".claude/agents/apex-precap-next-day.md",
+        "frontmatter_required": true
+      },
+      "hints": {
+        "frontmatter_keys": ["skills"],
+        "nearby_phrases": ["Your preloaded `precap-next-day` skill contract"]
+      },
+      "frontmatter": {"set": {"skills": ["precap-next-day"]}},
+      "validation": {
+        "expected_phrases": ["- precap-next-day", "Your preloaded `precap-next-day` skill contract"],
+        "forbidden_phrases": ["- PrecapNextDay"]
+      },
+      "safety": {"require_unique_match": true, "fail_on_ambiguity": true, "allow_full_file_rewrite": false, "max_files_touched": 1},
+      "notes": "Align the preloaded skill identifier with .claude/skills/PrecapNextDay/SKILL.md frontmatter name."
+    },
+    {
+      "intent_id": "project-status-canonical-skill-name",
+      "operation": "frontmatter-set",
+      "target": {
+        "target_file_guess": ".claude/agents/apex-project-status.md",
+        "frontmatter_required": true
+      },
+      "hints": {
+        "frontmatter_keys": ["skills"],
+        "nearby_phrases": ["Your preloaded `project-status-overview` skill contract"]
+      },
+      "frontmatter": {"set": {"skills": ["project-status-overview"]}},
+      "validation": {
+        "expected_phrases": ["- project-status-overview", "Your preloaded `project-status-overview` skill contract"],
+        "forbidden_phrases": ["- ProjectStatus"]
+      },
+      "safety": {"require_unique_match": true, "fail_on_ambiguity": true, "allow_full_file_rewrite": false, "max_files_touched": 1},
+      "notes": "Align the preloaded skill identifier with .claude/skills/ProjectStatus/SKILL.md frontmatter name."
+    }
+  ]
+}

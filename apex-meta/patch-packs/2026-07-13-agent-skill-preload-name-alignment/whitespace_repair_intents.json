@@ -1,0 +1,35 @@
+{
+  "schema_version": "patch_intent.v1",
+  "intents": [
+    {
+      "intent_id": "trim-precap-week-skills-key",
+      "operation": "replace-once",
+      "target": {"target_file_guess": ".claude/agents/apex-precap-week.md"},
+      "hints": {"nearby_phrases": ["skills: \n"]},
+      "replacement": {"content": "skills:\n", "content_role": "span_replacement", "preserve_surrounding_formatting": true},
+      "validation": {"expected_phrases": ["skills:\n  - precap-week"], "forbidden_phrases": ["skills: \n"]},
+      "safety": {"require_unique_match": true, "fail_on_ambiguity": true, "allow_full_file_rewrite": false, "max_files_touched": 1},
+      "notes": "Remove executor-introduced trailing whitespace from the skills key."
+    },
+    {
+      "intent_id": "trim-precap-next-day-skills-key",
+      "operation": "replace-once",
+      "target": {"target_file_guess": ".claude/agents/apex-precap-next-day.md"},
+      "hints": {"nearby_phrases": ["skills: \n"]},
+      "replacement": {"content": "skills:\n", "content_role": "span_replacement", "preserve_surrounding_formatting": true},
+      "validation": {"expected_phrases": ["skills:\n  - precap-next-day"], "forbidden_phrases": ["skills: \n"]},
+      "safety": {"require_unique_match": true, "fail_on_ambiguity": true, "allow_full_file_rewrite": false, "max_files_touched": 1},
+      "notes": "Remove executor-introduced trailing whitespace from the skills key."
+    },
+    {
+      "intent_id": "trim-project-status-skills-key",
+      "operation": "replace-once",
+      "target": {"target_file_guess": ".claude/agents/apex-project-status.md"},
+      "hints": {"nearby_phrases": ["skills: \n"]},
+      "replacement": {"content": "skills:\n", "content_role": "span_replacement", "preserve_surrounding_formatting": true},
+      "validation": {"expected_phrases": ["skills:\n  - project-status-overview"], "forbidden_phrases": ["skills: \n"]},
+      "safety": {"require_unique_match": true, "fail_on_ambiguity": true, "allow_full_file_rewrite": false, "max_files_touched": 1},
+      "notes": "Remove executor-introduced trailing whitespace from the skills key."
+    }
+  ]
+}
