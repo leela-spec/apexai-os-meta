@@ -32,7 +32,7 @@ scope:
 Evidence keys used below:
 - **EM** = `evaluation-matrix.md` (milestone 2 dimensions + milestone 3 scoring, all file-cited)
 - **DN** = `discovery-notes.md` (milestone 1 source understanding)
-- **US** = `APEX_Orchestration_User_Stories/user-stories.md` (esp. §3 shared context, §6 coverage matrix, §7 "Implications for Fable")
+- **US** = `apex-meta/orchestration/user-stories/user-stories.md` (esp. §3 shared context, §6 coverage matrix, §7 "Implications for Fable")
 - **BPR** = `apex-meta/handoff/agent-skill-system-research/best-practice-report.md`
 
 ---

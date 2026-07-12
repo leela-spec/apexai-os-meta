@@ -34,6 +34,20 @@ weekly_orchestrator:
   may_be_used_as_fable_completion_evidence: false
   may_be_modified_by_this_plan: false
   exception: "Only an explicit later operator instruction naming a weekly path can reopen it."
+
+workflow_and_simulation:
+  goal: >
+    For each user story in apex-meta/orchestration/user-stories/user-stories.md, draft the concrete workflow per process-blueprint.md,
+    run it once for real against real content, record pass/partial/fail.
+  output: apex-meta/orchestration/simulations/ (one file per story)
+  gate: a workflow isn't adopted until its simulation record exists and passed.
+
+build:
+  goal: Implement the actual skills/subagents/scaffolding, using verified workflows as spec.
+  method: Codex for pure execution (apex-meta/CODEX_EXECUTION_STANDARD.md), Fable for judgment.
+
+regression:
+  goal: Re-run apex-meta/orchestration/user-stories/user-stories.md whenever the KB/skills/scaffolding change.
 ```
 
 Do not execute or continue the Weekly Orchestrator P01–P30 patch plan. Do not run G1–G5 weekly planning. Do not treat weekly stage agents as the final Fable role architecture. A useful pattern may be translated into the Fable system, but the source path stays unchanged and the translated ownership is explicit.
@@ -348,6 +362,18 @@ simulation_record:
   defects_found: required
   result: pass | partial | fail
   evidence_paths: required
+```
+
+Reference paths:
+
+```yaml
+target_and_milestones: apex-meta/fable-orchestrator/target-log.md
+decisions: apex-meta/fable-orchestrator/decisions.md
+user_stories: apex-meta/orchestration/user-stories/user-stories.md
+simulation_records: apex-meta/orchestration/simulations/
+kb_authoring_status: apex-meta/kb/claude-code-orchestration-design/log/lifecycle-completion-report-20260710.md
+kb_open_work: apex-meta/handoff/Apex-Kb_Lifecycle_Analysis/orchestrator-education-targeting-handover.md
+repo_wide_map: apex-meta/ORCHESTRATION-SYSTEMS-INDEX.md
 ```
 
 Gate per story:

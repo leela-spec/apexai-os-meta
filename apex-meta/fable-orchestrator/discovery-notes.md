@@ -2,7 +2,7 @@
 title: "Discovery Notes"
 purpose: >
   Durable, citable understanding of the target and its four source materials,
-  built in parallel with APEX_Orchestration_User_Stories/user-stories.md (a separate, already-complete input, not something this file replaces). Recheck
+  built in parallel with apex-meta/orchestration/user-stories/user-stories.md (a separate, already-complete input, not something this file replaces). Recheck
   and update each section as milestone work in target-log.md progresses —
   do not treat any section here as final until the operator has verified it.
 status: "seeded from a first research pass — not yet operator-verified"
@@ -47,7 +47,7 @@ Six milestones (full detail, incl. named sources/dimensions/questions: `apex-met
 5. Draft the target architecture.
 6. Build it (Codex, per `build-plan.md`).
 
-`APEX_Orchestration_User_Stories/` (7 complete stories, manifest, connection ledger) is **input material** for milestone 1 and later milestone 5 — not this initiative's final deliverable. Separate track from this file.
+`apex-meta/orchestration/user-stories/` (7 complete stories, manifest, connection ledger) is **input material** for milestone 1 and later milestone 5 — not this initiative's final deliverable. Separate track from this file.
 
 ---
 

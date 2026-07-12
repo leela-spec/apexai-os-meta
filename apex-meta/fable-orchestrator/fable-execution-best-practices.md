@@ -77,6 +77,7 @@ universal_deep_research_prompt_frame:
   output_format: "Specify exact structure wanted back (e.g. 'ranked table with source citation per row', 'YAML decision list'), so the pasted-back result slots into this repo's existing doc conventions with minimal reformatting."
   source_instruction: "Always require inline citations/links — unverified claims from external models are not to be trusted at face value (see §4)."
   specificity_rule: "Vagueness produces vague research. State the exact repo path, KB name, or decision this prompt's output will feed into."
+  repo_identity_rule: "Any prompt delegating research about THIS repo's systems must carry the repo's identity into the question: name the orchestration system under design, name the exact folders where its parts are defined, and name the specific KB(s) that already hold the information (e.g. apex-meta/kb/claude-code-orchestration-design). Otherwise answers come back as generic web research needing full re-grounding before they can be trusted. Highest burden on early/architecture-phase prompts. (Operator lesson, US-IDEA-01: apex-meta/orchestration/simulations/US-IDEA-01-20260711/01-candidate-entry.v2.md, review-verified, operator-accepted 2026-07-12.)"
 source: "https://phrasly.ai/blog/best-prompts-for-gemini-ai/ ; https://findskill.ai/skills/productivity/deep-research-prompt-framework/ (2026)"
 
 gemini_specific_rule: "Ask for research AND the written output in the same prompt — do not split into a research turn and a writing turn."

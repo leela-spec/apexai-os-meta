@@ -1,6 +1,6 @@
 ---
 title: "Fable-Mode Handover — Discovery Continuation"
-purpose: "Self-contained prompt to hand to a Claude session in Fable mode to continue and verify the discovery track (milestones 1-2), independent of the separate APEX_Orchestration_User_Stories/ track."
+purpose: "Self-contained prompt to hand to a Claude session in Fable mode to continue and verify the discovery track (milestones 1-2), independent of the separate apex-meta/orchestration/user-stories/ track."
 created: 2026-07-11
 ---
 
@@ -10,7 +10,7 @@ Read first, in this order: `apex-meta/fable-orchestrator/README.md` (the core pr
 
 **Context:** `discovery-notes.md` was seeded by four parallel research reads (one per source: old orchestration v1, old orchestration v2, `apex-plan-sync-session-workflow-v2`, `claude-code-orchestration-design`). It is real, cited findings — not placeholder scaffolding — but it has not been checked against the raw sources by you or the operator yet. Treat every claim in it as a hypothesis to verify, not settled fact.
 
-`APEX_Orchestration_User_Stories/` (7 complete stories, package manifest, connection ledger) is **input material** for milestone 1 and later milestone 5 — not this initiative's final deliverable (the final deliverable is the built orchestration system, milestone 6). It is a separate, already-finished track — read it for context if useful, but it is not your job here and not something to reopen or re-verify.
+`apex-meta/orchestration/user-stories/` (7 complete stories, package manifest, connection ledger) is **input material** for milestone 1 and later milestone 5 — not this initiative's final deliverable (the final deliverable is the built orchestration system, milestone 6). It is a separate, already-finished track — read it for context if useful, but it is not your job here and not something to reopen or re-verify.
 
 **Your task:**
 
