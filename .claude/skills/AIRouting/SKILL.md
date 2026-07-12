@@ -116,6 +116,12 @@ skill_contract:
 
 ```yaml
 supporting_files:
+  - path: old-apex-routing-doctrine.md
+    read_when:
+      - forming_routing_recommendation
+      - checking_routing_failure_modes
+      - operator_requests_routing_doctrine
+
   - path: references/AI-surface-inventory-contract.md
     read_when:
       - AI_surface_inventory_missing

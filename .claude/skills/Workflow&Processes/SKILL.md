@@ -104,6 +104,12 @@ skill_contract:
 
 ```yaml
 supporting_files:
+  - path: old-apex-workflow-doctrine.md
+    read_when:
+      - validating_workflow_structure
+      - designing_stage_gates_or_handoffs
+      - checking_workflow_failure_modes
+
   - path: references/workflow-stage-taxonomy.md
     read_when:
       - classifying_workflow_stage

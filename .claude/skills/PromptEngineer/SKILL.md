@@ -83,6 +83,12 @@ skill_contract:
 
 ```yaml
 supporting_files:
+  - path: references/old-apex-prompting-doctrine.md
+    read_when:
+      - designing_prompt_packet
+      - writing_final_copy_paste_prompt
+      - checking_prompt_failure_modes
+
   - path: references/prompt-packet-contract.md
     read_when:
       - creating_prompt_packet

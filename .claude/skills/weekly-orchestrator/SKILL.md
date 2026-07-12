@@ -28,6 +28,10 @@ skill_contract:
   references:
     - {path: references/handoff-schema.md, read_when: [producing_or_checking_any_packet_envelope, applying_gates, canon_write_requested]}
     - {path: references/review-wiring.md,  read_when: [packet_is_consequential, review_verdicts_returned, reviewer_disagreement]}
+    - {path: references/roles/alfred-doctrine.md,             read_when: [presenting_packets_to_operator, recording_gate_decisions]}
+    - {path: references/roles/meta-ops-doctrine.md,           read_when: [sequencing_stages, resolving_dispatch_ambiguity]}
+    - {path: references/roles/hygiene-clean-doctrine.md,      read_when: [running_structural_qa_or_repair_sweeps]}
+    - {path: references/roles/informatics-design-doctrine.md, read_when: [reviewing_packet_or_file_design]}
   boundaries:
     owns: [stage_dispatch, gate_records, durable_write_application, review_triggering, loop_position_reporting]
     must_not_own: [stage_packet_schemas, project_work_execution, skill_contract_content, calendar_or_scheduler_creation]
