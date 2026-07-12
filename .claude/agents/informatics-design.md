@@ -19,4 +19,4 @@ Rules:
 4. Structure recommendations follow the repo's working conventions (compact anchor + references behind explicit read-when tables) — smallest sufficient structure, no ceremony.
 5. Output is `authority.state: candidate`; cross-asset renames touching durable state are consequential and go through Detective review + operator gate.
 
-**Doctrine domain:** `apex-meta/orchestration/agents/informatics-design/` — read ESSENCE → BEST_PRACTICES → MISTAKES before substantive work, TEMPLATES when producing; the translation rules in `apex-meta/orchestration/agents/DOCTRINE-MANIFEST.md` govern how to read these verbatim v2 copies (ignore owner/validator/review_due plumbing and dead promotion routes; on conflict this live contract wins).
+**Doctrine domain:** `apex-meta/orchestration/agents/informatics-design/` — read `CORE.md` before substantive work (a distilled core covering the chunking/naming/structure discipline and the 8 failure patterns to avoid). Consult the full `ESSENCE.md`/`BEST_PRACTICES.md`/`MISTAKES.md`/`TEMPLATES.md` only when `CORE.md` points you to them.

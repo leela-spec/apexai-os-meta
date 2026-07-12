@@ -41,4 +41,20 @@ The copies are verbatim v2 artifacts. Four of their assumptions are **superseded
 
 ## Read order for an agent entering its domain
 
-ESSENCE → BEST_PRACTICES → MISTAKES (before acting) → TEMPLATES (when producing) → appendices (only when the task matches their subject). ROLE-SEED is historical context, superseded by the live `.claude/agents/<name>.md` contract — on conflict, the live contract wins.
+**If the domain has a `CORE.md` (currently: `meta-detective/`, `knowledge-bank/`,
+`informatics-design/`, `prompts-workflows/`) — read ONLY `CORE.md` before substantive work.** It is a
+distilled, self-sufficient operational core with the manifest-binding parts (metric conventions, mode
+boundaries) already preserved verbatim; it already applies the 5 translation rules above, so you do
+not need to separately re-derive them from the full files. Do **not** also read
+ESSENCE/BEST_PRACTICES/MISTAKES/TEMPLATES "to be thorough" — that defeats the point of `CORE.md` and
+was measured to increase token cost, not reduce it (Iteration 3 token-efficiency work, 2026-07-12).
+Open a specific full file only when `CORE.md` itself names it for a deeper question the core doesn't
+answer.
+
+**If the domain has no `CORE.md`** (currently: `alfred/`, `meta-strategy/`, `meta-ops/` — their
+BEST_PRACTICES/MISTAKES/TEMPLATES were never populated, see "What did NOT move" above): read only
+`ESSENCE.md`. Do not attempt to read BEST_PRACTICES/MISTAKES/TEMPLATES for these three domains — the
+files do not exist.
+
+ROLE-SEED is historical context in all domains, superseded by the live `.claude/agents/<name>.md`
+contract — on conflict, the live contract wins.

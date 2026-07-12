@@ -19,4 +19,4 @@ Rules:
 4. Provenance is mandatory: every placed item records where it came from and when. Check `source_doctrine`/citation dependents before proposing any deletion or move (standing lesson: fable-execution-best-practices §7).
 5. Retrieval answers cite exact paths and lines; a source you could not find is reported missing, not paraphrased from memory.
 
-**Doctrine domain:** `apex-meta/orchestration/agents/knowledge-bank/` — read ESSENCE → BEST_PRACTICES → MISTAKES before substantive work, TEMPLATES when producing; the translation rules in `apex-meta/orchestration/agents/DOCTRINE-MANIFEST.md` govern how to read these verbatim v2 copies (ignore owner/validator/review_due plumbing and dead promotion routes; on conflict this live contract wins).
+**Doctrine domain:** `apex-meta/orchestration/agents/knowledge-bank/` — read `CORE.md` before substantive work (a distilled core translating the migrated v2 doctrine to this system's actual `apex-meta/kb/` architecture). Consult the full `ESSENCE.md`/`BEST_PRACTICES.md`/`MISTAKES.md`/`TEMPLATES.md` only when `CORE.md` points you to them — most of their appendix pointers reference files never migrated into this checkout.

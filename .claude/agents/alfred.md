@@ -22,4 +22,4 @@ Rules:
 3. Ambiguity in operator intent is surfaced as an `uncertainties` entry, not silently resolved.
 4. You never mark anything `confirmed` yourself — you record what the operator said; apex-session writes the confirmed state.
 
-**Doctrine domain:** `apex-meta/orchestration/agents/alfred/` — read ESSENCE → BEST_PRACTICES → MISTAKES before substantive work, TEMPLATES when producing; the translation rules in `apex-meta/orchestration/agents/DOCTRINE-MANIFEST.md` govern how to read these verbatim v2 copies (ignore owner/validator/review_due plumbing and dead promotion routes; on conflict this live contract wins).
+**Doctrine domain:** `apex-meta/orchestration/agents/alfred/` — read `ESSENCE.md` before substantive work (this role has no populated BEST_PRACTICES/MISTAKES/TEMPLATES; `ROLE-SEED.md` is historical, superseded by this live contract on any conflict).

@@ -9,6 +9,39 @@ Operator gate answers just collected (recorded as `operator_validation: confirme
 - **G2 = approve registry write** → `apex_sync.py registry --dry-run false` authorized (preview + drift already on record).
 - **Push target = `main`** (the operator merged `claude/fable-orchestrator-setup-9pc5pu` into `main` on 2026-07-12 to keep one working surface; commit to `main` after each iteration, no other branches).
 
+## Doctrine efficiency work (done 2026-07-12, before Iteration 4) — see plan `this-sounds-like-a-scalable-cherny`
+
+Executed Fixes 1+2+3 from the approved efficiency plan, ahead of Iteration 4:
+- **Fix 1 (done):** `CORE.md` created for the 4 populated roles (`meta-detective`, `knowledge-bank`,
+  `informatics-design`, `prompts-workflows`) — distilled operational cores replacing a fresh full
+  doctrine re-read every spawn. Measured: 2,935 → 326 lines (~89% reduction) across the four chains,
+  with the manifest-binding parts (1-100 metric convention, 5-mode boundaries) preserved verbatim.
+  `.claude/agents/<role>.md` doctrine-read lines updated to point at `CORE.md` first.
+- **Fix 2 (done):** repaired the 404 — `alfred`/`meta-strategy`/`meta-ops` were instructed to read
+  BEST_PRACTICES/MISTAKES files that were never populated (SKIP-ped in migration). Runtime `.md`
+  files now correctly point at `ESSENCE.md` only for these three thin roles.
+- **Fix 3 (done):** added optional `sources_excerpt` field to `handoff-packet.schema.md` — lets a
+  packet author who already has a source file open pass pre-extracted cited lines to a reviewer,
+  without removing the reviewer's full-file access or carrying any producer rationale (independence
+  invariants unaffected; regression-tested against `orchestration_check.py` and existing fixtures).
+- **Root-cause fix (found during verification):** `DOCTRINE-MANIFEST.md`'s own central "read order"
+  rule still said the old ESSENCE→BEST_PRACTICES→MISTAKES→TEMPLATES chain, and since the runtime
+  contract also tells agents to consult that manifest for translation rules, it was overriding the new
+  `CORE.md`-first pointer. Fixed the manifest's read-order section to say CORE.md-first explicitly.
+
+**Verification status — honest, not fully closed:** file/path/schema checks all pass (zero 404s,
+regression suite green, doctrine size reduction confirmed on disk). The live behavioral A/B re-test
+(re-running US-SEQ-01's stage-2 assumption-check against the same frozen v1 memo) was inconclusive on
+the token-savings claim specifically: two consecutive spawns in *this* session — one before and one
+after the `DOCTRINE-MANIFEST.md` fix — both still read the full ESSENCE/BEST_PRACTICES/MISTAKES chain
+and never opened `CORE.md`, despite the on-disk runtime file being confirmed correct. Likely cause:
+Claude Code appears to snapshot a custom subagent's system prompt when its type first becomes
+available in a session, so mid-session edits to `.claude/agents/*.md` may not take effect for spawns
+in that same session. **Next verification step: re-run the same US-SEQ-01 stage-2 A/B test in a fresh
+session** (e.g., when Iteration 4 begins) and confirm token count drops meaningfully below the
+82,839-token baseline with `CORE.md` actually being the file opened. Content quality was not in
+question either way — both re-test runs still independently caught the same substantive defects.
+
 ## Model routing per iteration (operator switches models manually between iterations)
 
 The operator runs Claude Code interactively and pays per token/model tier. Iterations differ sharply in how much genuine judgment vs. mechanical execution they require, so each is assigned the cheapest model that won't compromise the review/contract guarantees this system exists to prove. **The agent must stop at the end of every iteration, commit, and tell the operator exactly which model to select next before continuing** — never assume the operator has already switched.
