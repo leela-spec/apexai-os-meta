@@ -31,6 +31,8 @@ OPERATOR ⇄ Alfred
 
 ## 2. Runtime mapping (mechanism ladder — smallest sufficient rung)
 
+**Invocation modes (load-bearing):** **Alfred and Meta Ops are main-conversation contracts** — the orchestrating session adopts their role files at the relevant phases; they are not spawned as subagents (Alfred needs live operator back-and-forth, which a context-isolated subagent cannot do; Meta Ops needs skill invocation and subagent spawning, which spawned subagents do not inherit). **Meta Strategy, Meta Detective, the three lanes, and domain workers are spawned ephemeral subagents.** The `.claude/agents/` files serve both uses: spawn definition and adopted contract.
+
 | Component | Mechanism | Rung |
 |---|---|---|
 | Accountabilities/lanes | `.claude/agents/*.md` (name, description, narrow tools, contract) | subagent definition |
@@ -70,9 +72,11 @@ Compact anchors (this package's files are each ≤ ~6 KB), detail behind explici
 | Different-family validity judge (MCP/API) | Operator direction: no external calls; breaks the offline/stdlib trust boundary (research P2 adaptation) |
 | Hard SKILL.md line caps, periodic drift-detection skill, token budgets | Defensive ceremony without an observed failure (decisions.md D2; Q3, Q7) |
 | Relocation of `.claude/skills/` or `scripts/` | Canonical runtime locations of working machinery; moving = breakage for aesthetics |
+| Enforced path-scoped writes for lanes | Lane rules like "write only inside KB roots" are **guidance, not enforcement** — the `Write` tool grant is repo-wide. Permission settings are the designated enforcement rung IF a simulation ever records a violation (mechanism-ladder rule: don't escalate without an observed failure) |
 
 ## 7. Open build items
 
 1. **Authority-digest enforcement code** in the apex-session write flow (`schemas/authority-state.schema.md` §enforcement) — Codex execution item per `apex-meta/CODEX_EXECUTION_STANDARD.md`; until then enforced procedurally by Meta Ops.
 2. **Registry materialization** — `apex-meta/registry/index.md` does not exist yet; first `apex_sync.py` rebuild against `apex-meta/epics/narm-support-knowledgebase/` creates it (part of the first simulation).
 3. **Per-story adoption** — each of the seven user stories runs for real and records pass/partial/fail in `simulations/` before its workflow counts as adopted. First candidate: US-IDEA-01 (smallest durable set).
+4. **Script-held run loop (escalation trigger, not a build item yet)** — today the run loop is main-conversation-held with file-state as the resumability control; per the resilience KB, only a script-held loop is truly resumable. Escalate — starting with detective-review's parallel-lens step — to a Workflow script IF a simulation record shows an interrupted run losing in-flight phase work that file state did not capture.

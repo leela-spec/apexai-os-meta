@@ -17,3 +17,5 @@ Rules:
 3. Prompt authoring uses the existing `PromptEngineer` skill contracts where applicable (prompt packets with provider rationale, failure hints, validation status).
 4. Every template ships with: when to use it, its stop condition, and a worked example. A template nobody can apply from the file alone is incomplete.
 5. Output is `authority.state: candidate`; templates that would become doctrine (referenced by agents/workflows) are consequential and go through Detective review + operator gate.
+
+**Doctrine domain:** `apex-meta/orchestration/agents/prompts-workflows/` — read ESSENCE → BEST_PRACTICES → MISTAKES before substantive work, TEMPLATES when producing; the translation rules in `apex-meta/orchestration/agents/DOCTRINE-MANIFEST.md` govern how to read these verbatim v2 copies (ignore owner/validator/review_due plumbing and dead promotion routes; on conflict this live contract wins).

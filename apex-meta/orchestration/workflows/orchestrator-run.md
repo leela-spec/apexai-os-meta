@@ -9,6 +9,8 @@ created: 2026-07-11
 
 # Orchestrator Run Loop
 
+**Invocation modes:** Alfred and Meta Ops phases are executed by the **main conversation adopting those role contracts** (they need operator dialogue, skill invocation, and subagent spawning — capabilities a spawned subagent does not have). Meta Strategy, Meta Detective, lanes, and workers are **spawned ephemeral subagents**.
+
 ## Invariants (break any of these = the run is invalid)
 
 1. **State lives in files**, never in a context window. Plan, packets, verdicts, deltas — all on disk before the turn ends. (Resilience = where the plan lives.)

@@ -12,6 +12,8 @@ created: 2026-07-11
 
 **When required:** any artifact whose acceptance triggers durable mutation, public output, spend, safety-relevant instruction, or doctrine change (the user-stories "consequential output" rule). Not required for low-consequence intermediates — the milestone rule applies the full loop only where consequence lives.
 
+**Invocation note:** Meta Ops steps here run in the main conversation (adopted contract); the two lens reviews are spawned `meta-detective` subagents — the main conversation spawns them, since spawned subagents cannot spawn further agents.
+
 ## Steps
 
 1. **Freeze the subject** (Meta Ops). Record the artifact's version + sha256 in a lock note; all verdicts bind to the hash. No review against a mutable path.
