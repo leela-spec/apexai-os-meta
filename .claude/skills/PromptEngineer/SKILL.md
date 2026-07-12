@@ -7,14 +7,137 @@ description: Use this skill when the operator asks to generate, evaluate, or imp
 
 ## Skill Contract
 
-```
-skill_contract:  primary_output: prompt_packet  output_role: finalized_copy_paste_prompt_generator  accepted_inputs:    - operator_task    - source_context    - project_context    - workflow_context    - flow_packet    - sprint_goal    - expected_output_type    - routing_decision    - usage_tracking_tags    - prompt_result_feedback  produced_outputs:    - prompt_packet    - prompt_sequence    - final_copy_paste_prompt    - prompt_quality_review    - operator_review_flags  prompt_packet_must_include:    - prompt_task_type    - workflow_stage    - process_stage    - expected_output_type    - provider_target    - provider_rationale    - prompt_design_rationale    - final_copy_paste_prompt    - prompt_failure_hints    - prompt_learning_hints    - usage_tracking_tags    - validation_status  provider_targets:    allowed:      - ChatGPT      - Claude      - Gemini      - OpenRouter_later      - provider_unspecified  validation_status:    allowed:      - valid      - valid_with_warnings      - operator_review_recommended      - low_confidence_auto_generated      - blocked_by_missing_operator_decision  boundaries:    must_do:      - generate_finalized_copy_paste_prompts      - support_provider_specific_prompting      - include_short_provider_rationale      - include_short_prompt_design_rationale      - include_prompt_failure_hints      - include_prompt_learning_hints      - separate_start_prompts_from_follow_up_prompts      - use_prompt_task_taxonomy      - use_iteration_loop_patterns      - expose_prompt_quality_validation      - interface_with_workflow_process_design      - interface_with_ai_routing_and_usage_tracking    must_not_create:      - daily_plan      - project_execution      - FlowRecap_output      - project_status_merge      - final_OpenRouter_model_mapping      - mandatory_machine_readable_capture_block_inside_every_prompt      - multiple_parallel_prompt_systems_by_default
+```yaml
+skill_contract:
+  primary_output: prompt_packet
+  output_role: finalized_copy_paste_prompt_generator
+  accepted_inputs:
+    - operator_task
+    - source_context
+    - project_context
+    - workflow_context
+    - flow_packet
+    - sprint_goal
+    - expected_output_type
+    - routing_decision
+    - usage_tracking_tags
+    - prompt_result_feedback
+  produced_outputs:
+    - prompt_packet
+    - prompt_sequence
+    - final_copy_paste_prompt
+    - prompt_quality_review
+    - operator_review_flags
+  prompt_packet_must_include:
+    - prompt_task_type
+    - workflow_stage
+    - process_stage
+    - expected_output_type
+    - provider_target
+    - provider_rationale
+    - prompt_design_rationale
+    - final_copy_paste_prompt
+    - prompt_failure_hints
+    - prompt_learning_hints
+    - usage_tracking_tags
+    - validation_status
+  provider_targets:
+    allowed:
+      - ChatGPT
+      - Claude
+      - Gemini
+      - OpenRouter_later
+      - provider_unspecified
+  validation_status:
+    allowed:
+      - valid
+      - valid_with_warnings
+      - operator_review_recommended
+      - low_confidence_auto_generated
+      - blocked_by_missing_operator_decision
+  boundaries:
+    must_do:
+      - generate_finalized_copy_paste_prompts
+      - support_provider_specific_prompting
+      - include_short_provider_rationale
+      - include_short_prompt_design_rationale
+      - include_prompt_failure_hints
+      - include_prompt_learning_hints
+      - separate_start_prompts_from_follow_up_prompts
+      - use_prompt_task_taxonomy
+      - use_iteration_loop_patterns
+      - expose_prompt_quality_validation
+      - interface_with_workflow_process_design
+      - interface_with_ai_routing_and_usage_tracking
+    must_not_create:
+      - daily_plan
+      - project_execution
+      - FlowRecap_output
+      - project_status_merge
+      - final_OpenRouter_model_mapping
+      - mandatory_machine_readable_capture_block_inside_every_prompt
+      - multiple_parallel_prompt_systems_by_default
 ```
 
 ## Supporting Files
 
-```
-supporting_files:  - path: references/prompt-packet-contract.md    read_when:      - creating_prompt_packet      - validating_prompt_sequence      - separating_start_and_follow_up_prompts  - path: references/prompt-task-taxonomy.md    read_when:      - classifying_prompt_task      - selecting_prompt_pattern      - matching_task_to_expected_output  - path: references/iteration-loop-patterns.md    read_when:      - selecting_iteration_loop      - adding_follow_up_prompts      - defining_stop_conditions  - path: references/provider-style-contract-chatgpt.md    read_when:      - provider_target_is_ChatGPT      - deep_research_prompt_needed      - agent_run_prompt_needed  - path: references/provider-style-contract-claude.md    read_when:      - provider_target_is_Claude      - Claude_Code_file_generation_prompt_needed      - Claude_extended_thinking_prompt_needed  - path: references/provider-style-contract-gemini.md    read_when:      - provider_target_is_Gemini      - long_context_digest_prompt_needed      - broad_document_comparison_needed  - path: references/provider-style-contract-openrouter-todo.md    read_when:      - provider_target_is_OpenRouter_later      - API_low_reasoning_placeholder_needed      - OpenRouter_boundary_check_needed  - path: references/prompt-quality-validation.md    read_when:      - validating_prompt_quality      - assigning_validation_status      - creating_prompt_quality_review  - path: references/prompt-learning-feedback-contract.md    read_when:      - processing_prompt_result_feedback      - capturing_failed_prompt_learning      - preparing_pattern_update_candidate  - path: examples/starter-prompt-pack-example.md    read_when:      - operator_requests_example      - running_starter_manual_test      - calibrating_prompt_pack_shape  - path: package-manifest.md    read_when:      - operator_inspects_package_structure      - validating_package_files      - checking_dependency_map
+```yaml
+supporting_files:
+  - path: references/prompt-packet-contract.md
+    read_when:
+      - creating_prompt_packet
+      - validating_prompt_sequence
+      - separating_start_and_follow_up_prompts
+  - path: references/prompt-task-taxonomy.md
+    read_when:
+      - classifying_prompt_task
+      - selecting_prompt_pattern
+      - matching_task_to_expected_output
+  - path: references/iteration-loop-patterns.md
+    read_when:
+      - selecting_iteration_loop
+      - adding_follow_up_prompts
+      - defining_stop_conditions
+  - path: references/provider-style-contract-chatgpt.md
+    read_when:
+      - provider_target_is_ChatGPT
+      - deep_research_prompt_needed
+      - agent_run_prompt_needed
+  - path: references/provider-style-contract-claude.md
+    read_when:
+      - provider_target_is_Claude
+      - Claude_Code_file_generation_prompt_needed
+      - Claude_extended_thinking_prompt_needed
+  - path: references/provider-style-contract-gemini.md
+    read_when:
+      - provider_target_is_Gemini
+      - long_context_digest_prompt_needed
+      - broad_document_comparison_needed
+  - path: references/provider-style-contract-openrouter-todo.md
+    read_when:
+      - provider_target_is_OpenRouter_later
+      - API_low_reasoning_placeholder_needed
+      - OpenRouter_boundary_check_needed
+  - path: references/prompt-quality-validation.md
+    read_when:
+      - validating_prompt_quality
+      - assigning_validation_status
+      - creating_prompt_quality_review
+  - path: references/prompt-learning-feedback-contract.md
+    read_when:
+      - processing_prompt_result_feedback
+      - capturing_failed_prompt_learning
+      - preparing_pattern_update_candidate
+  - path: examples/starter-prompt-pack-example.md
+    read_when:
+      - operator_requests_example
+      - running_starter_manual_test
+      - calibrating_prompt_pack_shape
+  - path: package-manifest.md
+    read_when:
+      - operator_inspects_package_structure
+      - validating_package_files
+      - checking_dependency_map
 ```
 
 ## Procedure

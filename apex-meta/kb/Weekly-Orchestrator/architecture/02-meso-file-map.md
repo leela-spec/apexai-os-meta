@@ -31,17 +31,17 @@ agents:
 
 ```yaml
 weekly_loop_skills:
-  - .claude/skills/PrecapWeek/SKILL.md                 # was Skill_Precap-Week.md; frontmatter repaired
-  - .claude/skills/PrecapNextDay/SKILL.md              # was Skill_precap-next-day.md; wrapper fence removed
+  - .claude/skills/PrecapWeek/SKILL.md
+  - .claude/skills/PrecapNextDay/SKILL.md
   - .claude/skills/raw-flow-dump-normalize/SKILL.md
   - .claude/skills/flow-recap/SKILL.md
   - .claude/skills/model-usage-log/SKILL.md
   - .claude/skills/status-merge/SKILL.md
-  - .claude/skills/ProjectStatus/SKILL.md              # was project-status-overview_SKILL_v3.md
+  - .claude/skills/ProjectStatus/SKILL.md
 dependency_skills:                                     # invoked via Skill tool by apex-precap-next-day when needed
-  - .claude/skills/PromptEngineer/SKILL.md             # was SKILL_prompt-engineering.md; frontmatter repaired
-  - .claude/skills/AIRouting/SKILL.md                  # was ai-routing-and-usage-tracking-SKILL.md; header stripped
-  - .claude/skills/Workflow&Processes/SKILL.md         # was workflow-process-design-SKILL.md; fences stripped
+  - .claude/skills/PromptEngineer/SKILL.md
+  - .claude/skills/AIRouting/SKILL.md
+  - .claude/skills/Workflow&Processes/SKILL.md
 connected_later_out_of_scope: [apex-kb, apex-sync, apex-session, apex-plan, project-kb-manager]
 ```
 
