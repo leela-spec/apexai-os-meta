@@ -2,7 +2,7 @@
 title: "Build Plan"
 purpose: "How the 6 milestones in target-log.md lead into actual construction, and how that's verified."
 created: 2026-07-11
-status: finalized_input
+status: closure_verified
 ---
 
 # Build Plan
@@ -62,13 +62,17 @@ simulation_definition:
 target_and_milestones: apex-meta/fable-orchestrator/target-log.md
 decisions: apex-meta/fable-orchestrator/decisions.md
 user_stories: apex-meta/fable-orchestrator/APEX_Orchestration_User_Stories/user-stories.md
-simulation_records: apex-meta/fable-orchestrator/simulations/    # not yet created
+simulation_records: apex-meta/fable-orchestrator/simulations/weekly-loop-20260713-F3.md
 kb_authoring_status: apex-meta/kb/claude-code-orchestration-design/log/lifecycle-completion-report-20260710.md
 kb_open_work: apex-meta/handoff/Apex-Kb_Lifecycle_Analysis/orchestrator-education-targeting-handover.md
 repo_wide_map: apex-meta/ORCHESTRATION-SYSTEMS-INDEX.md
 ```
 
-## Still genuinely open
+## Closure status
+
+The live weekly-loop control plane is verified in `simulations/weekly-loop-20260713-F3.md`. It uses real G1/G2 packets, captures G3 execution evidence, produces a candidate-only G4 recap, and confirms that G5 cannot consume an unconfirmed recap or mutate durable state. User-story project runs remain separately operator-directed and require their own evidence.
+
+## Historical open questions (superseded)
 
 1. `simulations/` doesn't exist yet — no story has been run as a real session.
 2. The `max-run-20260709/` vs. root wiki-page duplication in `claude-code-orchestration-design` is deferred, not fixed.

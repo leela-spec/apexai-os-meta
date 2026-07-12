@@ -8,7 +8,7 @@ created: 2026-07-11
 document:
   id: fable-orchestrator-target-log
   title: Target Log
-  status: active
+  status: closure_verified
   created_date: 2026-07-11
   repository: leela-spec/apexai-os-meta
   branch: main
@@ -41,7 +41,11 @@ Create the final orchestration system, merging the old Apex agent-swarm system a
 5. **Draft the target architecture** — only after 1–4 are verified.
 6. **Build it** — the actual construction, Codex for execution, per `build-plan.md`.
 
-## Current target
+## Completed scope
+
+The final orchestration system is built and closure-verified. Its live control plane consists of the weekly orchestrator, ten stage/review agents, eleven skill entrypoints, shared handoff and gate contracts, dual-lens review wiring, the project glossary, Meta Ops integration of `apex-plan`/`apex-sync`, and migrated old-Apex role doctrine. The system-level execution record is `simulations/weekly-loop-20260713-F3.md`.
+
+## Historical target state
 
 - **`APEX_Orchestration_User_Stories/`** — 7 complete, source-grounded stories (US-SEQ-01, US-MEDIA-01, US-LEELA-01, US-WORKSHOP-01, US-IDEA-01, US-OFFER-01, US-COMP-01) with a package manifest and connection ledger. This is **input material** for milestone 1 (and later milestone 5's architecture draft) — not the final deliverable of this initiative; the final deliverable is the built orchestration system itself (milestone 6).
 - **`discovery-notes.md`** — durable artifact for milestone 1 (and seeding milestone 2): first research pass across all four source materials is written and cited, but **not yet operator-verified**. See its "Open items for the operator" section, including a real discrepancy found about v2's actual compile state.

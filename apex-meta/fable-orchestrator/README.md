@@ -2,7 +2,7 @@
 title: "Fable Orchestrator Initiative"
 purpose: "Lock the decisions and process for the final Claude-Code multi-agent orchestration build, run by Claude Fable 5 as the orchestrating brain, with heavy reasoning/execution outsourced to external models."
 created: 2026-07-11
-status: decisions_locked
+status: built_and_closure_verified
 ---
 
 # Fable Orchestrator Initiative
@@ -28,6 +28,10 @@ The concrete open architecture questions this understanding must resolve are in 
 
 See `00-START-HERE.md` for the full index and reading order.
 
-## Sequencing
+## Current system
+
+The reconciliation and build are complete in the live control plane. The system is documented in `apex-meta/kb/Weekly-Orchestrator/architecture/`, operated through `.claude/skills/weekly-orchestrator/`, and closure-verified in `simulations/weekly-loop-20260713-F3.md`. The historical source systems remain evidence and doctrine sources, not runtime specifications.
+
+## Historical sequencing
 
 Decisions are locked (`decisions.md`) and the execution flow is defined (`process-blueprint.md`, `build-plan.md`). Begin the real reconciliation/build work across the systems named above and in `apex-meta/ORCHESTRATION-SYSTEMS-INDEX.md`, using `fable-execution-best-practices.md` as on-demand reference during the run.
