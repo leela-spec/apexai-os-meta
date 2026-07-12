@@ -7,7 +7,21 @@ The uploaded build-plan (M0–M9) is a recovery plan written for a chat that los
 Operator gate answers just collected (recorded as `operator_validation: confirmed` this turn):
 - **G1 = accept + write lesson** → US-IDEA-01 stage 6 mutation is authorized (one numbered lesson into `fable-execution-best-practices.md`, bounded).
 - **G2 = approve registry write** → `apex_sync.py registry --dry-run false` authorized (preview + drift already on record).
-- **Push target = branch only** (`claude/fable-orchestrator-setup-9pc5pu`), commit+push after each iteration. No pushes to main.
+- **Push target = `main`** (the operator merged `claude/fable-orchestrator-setup-9pc5pu` into `main` on 2026-07-12 to keep one working surface; commit to `main` after each iteration, no other branches).
+
+## Model routing per iteration (operator switches models manually between iterations)
+
+The operator runs Claude Code interactively and pays per token/model tier. Iterations differ sharply in how much genuine judgment vs. mechanical execution they require, so each is assigned the cheapest model that won't compromise the review/contract guarantees this system exists to prove. **The agent must stop at the end of every iteration, commit, and tell the operator exactly which model to select next before continuing** — never assume the operator has already switched.
+
+| Iteration | Work | Recommended model | Mode | Why |
+|---|---|---|---|---|
+| 1 | Close US-IDEA-01 stage 6 + M0 manifest | **Sonnet 5** | standard | One bounded content write + running an existing script + an inventory file. No open judgment calls. |
+| 2 | `orchestration_check.py` + negative fixtures + small schemas | **Sonnet 5** | standard | Deterministic script authoring mirroring an existing convention (`apex_sync.py`); fixtures are enumerated, not discovered. |
+| 3–6 | The six story simulations (core work: live agent dispatch, meta-strategy/meta-detective judgment, cross-asset consistency, catching real contract defects) | **Opus 4.8** | high (xhigh for US-WORKSHOP-01's safety-boundary story and US-COMP-01's compliance/external-authority story) | This is where the system's actual claims get tested. Under-thinking here reproduces the exact failure this system was built to prevent: a reviewer or worker silently smoothing over a defect instead of routing it back. Not a cost-saving target. |
+| 7 | Resilience/efficiency evaluation, token measurement, KB audit re-score | **Sonnet 5** for gathering the recorded token/tool-call numbers and running the remaining behavioral probes; **Opus 4.8 (high)** only for the repair/escalation judgment calls and any high-cost-stage optimization decision | mixed — switch mid-iteration if needed, and say so when stopping | Data collection is mechanical; deciding what a contradictory-return or reviewer-disagreement probe *means* is not. |
+| 8 | Final truth + acceptance report, Definition-of-Done | **Opus 4.8** | high | Synthesis across the whole system with real stakes (the acceptance claims must be evidence-backed, not optimistic). Cheapest place to under-invest is also the place a wrong verdict costs the most to unwind. |
+
+Stop-and-switch protocol: after each iteration's commit, the agent reports what was done, then states plainly: *"Iteration N done and committed. Select model **X** before continuing to Iteration N+1."* It does not start the next iteration in the same turn even if the operator hasn't responded yet.
 
 ## Validation of the uploaded plan (what's already DONE — will not redo)
 
