@@ -90,11 +90,13 @@ def scalar_in(blob, key):
 
 
 def sha256_of(path):
-    h = hashlib.sha256()
+    # Normalize CRLF -> LF before hashing: git stores LF, but a Windows checkout
+    # with core.autocrlf=true rewrites working-tree line endings to CRLF, which
+    # would otherwise make every previously-verified digest spuriously mismatch
+    # on this platform alone (checkout artifact, not a content change).
     with open(path, "rb") as fh:
-        for chunk in iter(lambda: fh.read(65536), b""):
-            h.update(chunk)
-    return h.hexdigest()
+        raw = fh.read()
+    return hashlib.sha256(raw.replace(b"\r\n", b"\n")).hexdigest()
 
 
 def norm_sha(value):
@@ -242,7 +244,7 @@ def main(argv=None):
     else:
         print(f"{args.cmd}: {'PASS' if not violations else 'FAIL'}")
         for v in violations:
-            print(f"  ✗ {v}")
+            print(f"  - {v}")
     return 0 if not violations else 1
 
 
