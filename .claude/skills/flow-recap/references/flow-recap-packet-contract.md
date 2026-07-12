@@ -77,7 +77,7 @@ source_authority:
     - path: .claude/Claude.md
       status: inspected
       relevant_finding: FlowRecap is listed as missing and should write flow_recap_packet behind operator gate G4.
-    - path: .claude/skills/PrecapNextDay/Skill_precap-next-day.md
+    - path: .claude/skills/PrecapNextDay/SKILL.md
       status: inspected
       relevant_finding: PreCapNextDay prepares FlowRecap handoff context but must not run FlowRecap or create FlowRecap outputs.
     - path: .claude/skills/PrecapNextDay/references/flow-packet-contract.md

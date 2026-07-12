@@ -106,7 +106,7 @@ template_authority:
   round6_overlay_intent_ref: "round6-patches/02-j3-j4-depth-separation.patch"
   overlay_application_status: "intended_guidance_not_applied_by_this_package"
   domain_contract_refs:
-    - ".claude/skills/PrecapNextDay/Skill_precap-next-day.md"
+    - ".claude/skills/PrecapNextDay/SKILL.md"
     - ".claude/skills/PrecapNextDay/references/daily-plan-output-contract.md"
     - ".claude/skills/PrecapNextDay/references/flow-packet-contract.md"
 ```

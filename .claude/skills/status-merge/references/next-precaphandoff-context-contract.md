@@ -84,7 +84,7 @@ source_authority:
       relevant_finding: >
         apex_orchestration_state_packet is a compact handoff view that may be
         referenced, not redefined or overwritten by this package.
-    - path: .claude/skills/ProjectStatus/project-status-overview_SKILL_v3.md
+    - path: .claude/skills/ProjectStatus/SKILL.md
       status: inspected
       relevant_finding: >
         ProjectStatus owns current_project_status_overview and does not own

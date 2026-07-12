@@ -18,7 +18,7 @@ raw_flow_dump_contract:
       - path: ".claude/Claude.md"
         status: inspected
         role: repo_level_loop_and_missing_skill_index
-      - path: ".claude/skills/PrecapNextDay/Skill_precap-next-day.md"
+      - path: ".claude/skills/PrecapNextDay/SKILL.md"
         status: inspected
         role: upstream_planning_boundary_and_raw_capture_preparation
       - path: ".claude/skills/PrecapNextDay/precap-next-day-package-manifest.md"

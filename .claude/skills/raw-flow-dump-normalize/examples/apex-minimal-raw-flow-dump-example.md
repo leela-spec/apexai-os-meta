@@ -29,7 +29,7 @@ raw_flow_dump_metadata:
 
 - **source_flow_packet_ref:** `flow_packet_2026-07-06_F3_APEX_raw_dump_interface`
 - **flow_prompt_pack_ref:** `flow_prompt_pack_2026-07-06_F3_APEX_raw_dump_interface`
-- **other sources:** `.claude/Claude.md`, `.claude/skills/PrecapNextDay/Skill_precap-next-day.md`, PrecapNextDay reference contracts
+- **other sources:** `.claude/Claude.md`, `.claude/skills/PrecapNextDay/SKILL.md`, PrecapNextDay reference contracts
 - **source gaps:** Claude skill best-practice guide was requested as repo source but not found at the tested root path.
 
 ## 3. Raw Evidence

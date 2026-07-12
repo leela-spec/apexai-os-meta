@@ -140,7 +140,7 @@ source_authority_register:
         - uses_refs_short_digests_confidence_notes_and_review_flags
         - avoids_full_database_exposure
 
-    - path: .claude/skills/ProjectStatus/project-status-overview_SKILL_v3.md
+    - path: .claude/skills/ProjectStatus/SKILL.md
       status: inspected
       relevance:
         - owns_current_project_status_overview

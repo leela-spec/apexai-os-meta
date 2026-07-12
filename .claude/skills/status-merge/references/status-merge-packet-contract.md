@@ -90,7 +90,7 @@ source_authority:
     - path: .claude/skills/project-kb-manager/templates/apex-orchestration-state-packet-template.md
       status: inspected
       relevant_finding: state handoff templates use refs, short digests, confidence notes, and operator review flags instead of full database exposure.
-    - path: .claude/skills/ProjectStatus/project-status-overview_SKILL_v3.md
+    - path: .claude/skills/ProjectStatus/SKILL.md
       status: inspected
       relevant_finding: ProjectStatus owns current_project_status_overview and explicitly must not create status merges or detailed databases.
     - path: .claude/skills/flow-recap/references/flow-recap-packet-contract.md

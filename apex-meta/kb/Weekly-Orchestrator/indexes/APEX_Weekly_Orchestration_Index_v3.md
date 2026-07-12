@@ -269,7 +269,7 @@ Current data warning: only the registry and consumed-recap registry were verifie
 #### `.claude/skills/PrecapWeek/`
 
 ```text
-Skill_Precap-Week.md
+SKILL.md
 package-manifest.md
 weekly-command-brief-template.md                       # J2
 references/calendar-planning-guidance.md               # declared
@@ -288,7 +288,7 @@ Use the entrypoint and J2 template now. Treat the missing weekly output contract
 Control and contracts:
 
 ```text
-Skill_precap-next-day.md
+SKILL.md
 precap-next-day-package-manifest.md
 references/input-intake-and-resilience-contract.md
 references/daily-plan-output-contract.md
@@ -378,7 +378,7 @@ examples/apex-minimal-status-merge-example.md
 #### `.claude/skills/ProjectStatus/`
 
 ```text
-project-status-overview_SKILL_v3.md
+SKILL.md
 package-manifest.md
 project-status-overview-contract_v2_fixed.md
 ranking-and-validation-rules*.md
@@ -390,7 +390,7 @@ starter-manual-test-overview*.md
 #### `.claude/skills/AIRouting/`
 
 ```text
-ai-routing-and-usage-tracking-SKILL.md
+SKILL.md
 ai-routing-and-usage-tracking-package-manifest.md
 routing-recommendation-packet-contract.md
 AI-surface-inventory-contract.md
@@ -408,7 +408,7 @@ ai-routing-card-template.md                             # J12
 #### `.claude/skills/PromptEngineer/`
 
 ```text
-SKILL_prompt-engineering.md
+SKILL.md
 package-manifest.md
 references/prompt-packet-contract.md
 references/prompt-task-taxonomy.md
@@ -425,7 +425,7 @@ examples/starter-prompt-pack-example.md
 #### `.claude/skills/Workflow&Processes/`
 
 ```text
-workflow-process-design-SKILL.md
+SKILL.md
 workflow-process-design-package-manifest.md
 workflow-stage-taxonomy.md
 process-stage-taxonomy.md

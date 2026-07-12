@@ -127,7 +127,7 @@ source_inspection_register:
     - path: ".claude/skills/PrecapNextDay/references/flow-prompt-pack-contract.md"
       relevance: flow_prompt_pack_boundary
       status: inspected
-    - path: ".claude/skills/AIRouting/ai-routing-and-usage-tracking-SKILL.md"
+    - path: ".claude/skills/AIRouting/SKILL.md"
       relevance: AIRouting_boundary
       status: inspected
     - path: ".claude/skills/AIRouting/ai-routing-and-usage-tracking-package-manifest.md"

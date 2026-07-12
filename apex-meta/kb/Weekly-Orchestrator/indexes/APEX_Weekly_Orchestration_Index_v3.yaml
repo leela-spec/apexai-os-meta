@@ -89,14 +89,14 @@ retrieval_profiles:
   current_weekly_loop:
     - ".claude/Claude.md"
     - ".claude/skills/project-kb-manager/SKILL.md"
-    - ".claude/skills/PrecapWeek/Skill_Precap-Week.md"
-    - ".claude/skills/PrecapNextDay/Skill_precap-next-day.md"
+    - ".claude/skills/PrecapWeek/SKILL.md"
+    - ".claude/skills/PrecapNextDay/SKILL.md"
     - ".claude/skills/raw-flow-dump-normalize/SKILL.md"
     - ".claude/skills/flow-recap/SKILL.md"
     - ".claude/skills/model-usage-log/SKILL.md"
     - ".claude/skills/status-merge/SKILL.md"
-    - ".claude/skills/ProjectStatus/project-status-overview_SKILL_v3.md"
-    - ".claude/skills/AIRouting/ai-routing-and-usage-tracking-SKILL.md"
+    - ".claude/skills/ProjectStatus/SKILL.md"
+    - ".claude/skills/AIRouting/SKILL.md"
   operator_template_owner_resolution:
     - "apex-meta/operator-output-design/step6-activation-validation/00-activation-validation-report.okf.md"
     - "apex-meta/operator-output-design/step5-template-promotion/02-template-promotion-map.yaml"

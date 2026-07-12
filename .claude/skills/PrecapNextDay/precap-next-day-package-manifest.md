@@ -14,7 +14,7 @@ package_manifest:
     - validating_package_files
 
   file_list:
-    - path: ".claude/skills/PrecapNextDay/Skill_precap-next-day.md"
+    - path: ".claude/skills/PrecapNextDay/SKILL.md"
       purpose: "Current skill entrypoint file in repo; later normalization to SKILL.md is pending."
       read_when: "skill_invocation_or_entrypoint_review"
     - path: ".claude/skills/PrecapNextDay/references/input-intake-and-resilience-contract.md"

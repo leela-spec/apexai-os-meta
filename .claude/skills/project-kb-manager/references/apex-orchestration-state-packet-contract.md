@@ -130,10 +130,10 @@ source_package_map:
     apex-session: .claude/skills/apex-session/apex-session-final-extraction-report.md
     project-kb-manager: .claude/skills/project-kb-manager/SKILL.md
     project-schema: .claude/skills/project-kb-manager/references/project-schema.md
-    ProjectStatus: .claude/skills/ProjectStatus/project-status-overview_SKILL_v3.md
+    ProjectStatus: .claude/skills/ProjectStatus/SKILL.md
     apex-kb: .claude/skills/apex-kb/SKILL.md
-    PreCapWeek: .claude/skills/PrecapWeek/Skill_Precap-Week.md
-    PreCapNextDay: .claude/skills/PrecapNextDay/Skill_precap-next-day.md
+    PreCapWeek: .claude/skills/PrecapWeek/SKILL.md
+    PreCapNextDay: .claude/skills/PrecapNextDay/SKILL.md
 ```
 
 ## Schema: apex_orchestration_state_packet

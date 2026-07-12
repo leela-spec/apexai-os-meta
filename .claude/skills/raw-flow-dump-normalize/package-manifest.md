@@ -17,7 +17,7 @@ package_manifest:
     inspected_sources:
       - path: ".claude/Claude.md"
         role: repo-level loop, skill status, and missing RawFlowDumpNormalize entry
-      - path: ".claude/skills/PrecapNextDay/Skill_precap-next-day.md"
+      - path: ".claude/skills/PrecapNextDay/SKILL.md"
         role: upstream daily planner boundary and raw capture preparation
       - path: ".claude/skills/PrecapNextDay/precap-next-day-package-manifest.md"
         role: PreCap package boundary and current path policy

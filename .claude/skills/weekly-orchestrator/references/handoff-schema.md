@@ -35,6 +35,7 @@ handoff_envelope:
 
 - Rule: dates, week ids, and packet_id date segments always come from the orchestrator dispatch prompt; stage agents never infer the current date.
 - Rule: correct `target_surface` per packet_type — weekly_plan_packet / next_day_plan / flow_packet / prompt_pack / normalized_raw_flow_dump / skipped_flow_marker / model_usage_delta / all_project_status_packet / review_verdict: `none`; flow_recap_packet: `state/apex-project-status.md (via status-merge only)`; status_merge_packet: `state/apex-project-status.md`.
+- Rule: `gate` per packet_type — weekly_plan_packet: G1; next_day_plan: G2; normalized_raw_flow_dump / skipped_flow_marker: G3; flow_recap_packet: G4; status_merge_packet: G5; review_verdict: review; all others: none.
 - Rule: `lifecycle_stage` and `authority.state` are distinct axes. `lifecycle_stage` says where the packet sits in the loop; `authority.state` says whether it may be treated as authoritative input by a downstream stage.
 - Rule: on creation and on any content or declared-evidence change: `authority.state: candidate`, `basis_digest: null`, `verification_ref: null`.
 - Rule: `candidate → verified` only when `verification_ref` resolves to an independent review artifact with a pass verdict, the reviewer run differs from the creator run, and the review's basis_digest equals the packet's current digest. See `review-wiring.md`.

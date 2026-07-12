@@ -12,7 +12,7 @@ Input: raw operator execution notes / fragments / artifact references passed in 
 
 Output:
 - `artifacts/flow-packets/<YYYYMMDD>/normalized-raw-flow-dump-<flow-id>.md` (or `skip-marker-<flow-id>.md`), envelope first per `.claude/skills/weekly-orchestrator/references/handoff-schema.md`, body per the skill's dump/skip-marker contract.
-- Envelope: `envelope_version: 1`, `packet_type: normalized_raw_flow_dump` (or `skipped_flow_marker`), `gate: none`, `accountability: meta_ops`, `lifecycle_stage: computed`, `status:` complete | partial | skipped | blocked exactly as the evidence says, `target_surface: none`, `authority.state: candidate`, `expected_action: flow-recap consumes this dump with its flow_packet`.
+- Envelope: `envelope_version: 1`, `packet_type: normalized_raw_flow_dump` (or `skipped_flow_marker`), `gate: G3`, `accountability: meta_ops`, `lifecycle_stage: computed`, `status:` complete | partial | skipped | blocked exactly as the evidence says, `target_surface: none`, `authority.state: candidate`, `expected_action: flow-recap consumes this dump with its flow_packet`.
 - Return ONLY the envelope plus a ≤6-line summary (completion state, evidence items captured, gaps).
 
 Boundaries:

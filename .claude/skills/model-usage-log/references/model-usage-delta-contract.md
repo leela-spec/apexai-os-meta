@@ -69,7 +69,7 @@ source_inspection_register:
         Confirms flow_prompt_pack owns routing_usage_summary and FlowRecap
         preparation references while not owning usage_delta, routing schemas, or
         quota maps.
-    - path: ".claude/skills/AIRouting/ai-routing-and-usage-tracking-SKILL.md"
+    - path: ".claude/skills/AIRouting/SKILL.md"
       status: present
       relevance: >
         Confirms AIRouting owns routing_decision, planned_usage_budget,
