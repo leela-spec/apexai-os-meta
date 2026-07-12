@@ -17,11 +17,61 @@ The operator runs Claude Code interactively and pays per token/model tier. Itera
 |---|---|---|---|---|
 | 1 | Close US-IDEA-01 stage 6 + M0 manifest | **Sonnet 5** | standard | One bounded content write + running an existing script + an inventory file. No open judgment calls. |
 | 2 | `orchestration_check.py` + negative fixtures + small schemas | **Sonnet 5** | standard | Deterministic script authoring mirroring an existing convention (`apex_sync.py`); fixtures are enumerated, not discovered. |
-| 3–6 | The six story simulations (core work: live agent dispatch, meta-strategy/meta-detective judgment, cross-asset consistency, catching real contract defects) | **Opus 4.8** | high (xhigh for US-WORKSHOP-01's safety-boundary story and US-COMP-01's compliance/external-authority story) | This is where the system's actual claims get tested. Under-thinking here reproduces the exact failure this system was built to prevent: a reviewer or worker silently smoothing over a defect instead of routing it back. Not a cost-saving target. |
+| 3–6 | The six story simulations (core work: live agent dispatch, meta-strategy/meta-detective judgment, cross-asset consistency, catching real contract defects) | **Opus 4.8** | **per-role split, not blanket high** (see "Per-role effort split" below); xhigh for US-WORKSHOP-01's safety-boundary review and US-COMP-01's compliance/external-authority review specifically | This is where the system's actual claims get tested. Under-thinking the *review* passes reproduces the exact failure this system was built to prevent — a reviewer silently smoothing over a defect instead of routing it back. But not every spawn in a story is a review pass; blanket-high was measured as real waste in Iteration 3 (see below). |
 | 7 | Resilience/efficiency evaluation, token measurement, KB audit re-score | **Sonnet 5** for gathering the recorded token/tool-call numbers and running the remaining behavioral probes; **Opus 4.8 (high)** only for the repair/escalation judgment calls and any high-cost-stage optimization decision | mixed — switch mid-iteration if needed, and say so when stopping | Data collection is mechanical; deciding what a contradictory-return or reviewer-disagreement probe *means* is not. |
 | 8 | Final truth + acceptance report, Definition-of-Done | **Opus 4.8** | high | Synthesis across the whole system with real stakes (the acceptance claims must be evidence-backed, not optimistic). Cheapest place to under-invest is also the place a wrong verdict costs the most to unwind. |
 
 Stop-and-switch protocol: after each iteration's commit, the agent reports what was done, then states plainly: *"Iteration N done and committed. Select model **X** before continuing to Iteration N+1."* It does not start the next iteration in the same turn even if the operator hasn't responded yet.
+
+### Token-efficiency learning from Iteration 3 (US-SEQ-01) — candidate, operator-reviewed, applies starting Iteration 4
+
+**Status: candidate learning, not yet promoted into `fable-execution-best-practices.md`** (per the
+system's own rule — after-action learning stays candidate until independently reviewed and
+operator-accepted; no agent rewrites its own doctrine). Recorded here in the operative plan because
+the operator asked for it directly and it governs *how* the remaining iterations run, not a canon
+doctrine change.
+
+**Measured cost, US-SEQ-01 stage 2 alone:** ~172K tokens / ~10.5 min across 3 spawns (detective
+assumption-check 82,839 tok, strategy correction 47,466 tok, scoped re-review 41,434 tok) — for ONE
+story's stage 2, before the heavier fan-out stories (US-MEDIA-01 alone: 4 domain workers + 2
+specialists). Blanket "Opus high for every spawn" does not scale to the remaining 5 stories.
+
+**Root cause of the cost (not the effort setting):**
+1. Every spawn is a fresh isolated context, so both `meta-detective` spawns in US-SEQ-01 independently
+   re-read the *same* ~95KB of source KB files (Hermes DB + ProcessRanking) from scratch — no sharing
+   across spawns.
+2. `meta-detective`'s doctrine chain (ESSENCE+BEST_PRACTICES+MISTAKES+TEMPLATES,
+   `apex-meta/orchestration/agents/meta-detective/`) is ~1,150 lines, also re-read fresh on every
+   spawn, every story — it does not change between spawns within a run.
+3. The `review_verdict` schema's three prose fields per criterion (`falsification_attempt`,
+   `evidence_refs`, `reasoning_summary`) are output-token-heavy even for a narrow, already-scoped
+   re-review.
+
+**Per-role effort split (replaces blanket "high" for Iterations 4-6):**
+
+| Role / stage | Effort | Why |
+|---|---|---|
+| meta-strategy — macro framing (drafting theses/options) | **medium** | Generative, not adversarial; rigor is supplied downstream by review, not by self-checking. |
+| meta-detective — first-pass assumption-check / validity / alignment | **high** | This is where subtle overstatement gets caught (US-SEQ-01's C3: conflating "the act of writing a positioning doc" with "the specific positioning content" — a genuinely subtle distinction a shallower pass plausibly misses). Do not cut here. |
+| meta-strategy / domain worker — applying routed corrections | **medium** | Bounded, specified fixes; care in re-verifying anchors against source matters more than reasoning depth. |
+| meta-detective — scoped re-review (named criteria only) | **high**, but keep the *scope* narrow | Last gate before `authority: verified`; keep effort, don't keep breadth. |
+| domain workers (coaching-method, pilot-design, media, script, offer-copy, etc. — Iterations 4-6) | **medium** | Narrow, source-grounded production tasks, not adversarial judgment. |
+| US-WORKSHOP-01 safety review, US-COMP-01 compliance/external-authority review | **xhigh** | Unchanged — genuinely high-stakes, narrow-scope reviews where the cost is justified. |
+
+**Process changes to reduce redundant re-reads (apply starting Iteration 4, not retroactive to
+already-committed Iteration 3 work):**
+- Where a story's stage reviews the same source material across multiple spawns (e.g. assumption-check
+  → re-review), give the agent a **pre-extracted excerpt pack** (the specific cited lines ± a few lines
+  of context) instead of pointing it at the full source file to re-open from scratch each time. Full-file
+  access stays available if the agent needs to verify something outside the excerpt — this is a default,
+  not a hard restriction.
+- Keep re-reviews criterion-scoped (already the design, per `detective-review.md` step 8) and keep the
+  verdict schema's fuller three-block-per-criterion shape for stage-6 dual-lens milestone reviews;
+  lighter stage-2-style checks may compress `falsification_attempt` + `reasoning_summary` into one field.
+
+**What NOT to change:** the review loop itself, the blind/parallel protocol, the diff-proof requirement
+for corrections, or the operator-gate boundary. The cost lesson is about redundant context and
+effort-per-role, not about reviewing less rigorously.
 
 ## Validation of the uploaded plan (what's already DONE — will not redo)
 
