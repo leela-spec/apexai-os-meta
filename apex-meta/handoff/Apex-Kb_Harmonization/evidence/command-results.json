@@ -1,0 +1,72 @@
+[
+    {
+        "index":  1,
+        "command":  "python apex-meta/scripts/apex_kb.py --kb-root apex-meta/kb/old-apex-full-orchestration-agent-kb health --json",
+        "exit_code":  0,
+        "stdout":  "C:\\Users\\gehm7\\AppData\\Local\\Temp\\apex-kb-harmonization-f3586741-91ff-42a6-8786-8a05a901896a\\cmd_01.stdout",
+        "stderr":  "C:\\Users\\gehm7\\AppData\\Local\\Temp\\apex-kb-harmonization-f3586741-91ff-42a6-8786-8a05a901896a\\cmd_01.stderr"
+    },
+    {
+        "index":  2,
+        "command":  "python apex-meta/scripts/apex_kb.py --kb-root apex-meta/kb/old-apex-full-orchestration-agent-kb status --json",
+        "exit_code":  0,
+        "stdout":  "C:\\Users\\gehm7\\AppData\\Local\\Temp\\apex-kb-harmonization-f3586741-91ff-42a6-8786-8a05a901896a\\cmd_02.stdout",
+        "stderr":  "C:\\Users\\gehm7\\AppData\\Local\\Temp\\apex-kb-harmonization-f3586741-91ff-42a6-8786-8a05a901896a\\cmd_02.stderr"
+    },
+    {
+        "index":  3,
+        "command":  "python apex-meta/scripts/apex_kb.py --kb-root apex-meta/kb/old-apex-full-orchestration-agent-kb lint --strict --json",
+        "exit_code":  2,
+        "stdout":  "C:\\Users\\gehm7\\AppData\\Local\\Temp\\apex-kb-harmonization-f3586741-91ff-42a6-8786-8a05a901896a\\cmd_03.stdout",
+        "stderr":  "C:\\Users\\gehm7\\AppData\\Local\\Temp\\apex-kb-harmonization-f3586741-91ff-42a6-8786-8a05a901896a\\cmd_03.stderr"
+    },
+    {
+        "index":  4,
+        "command":  "python apex-meta/scripts/apex_kb.py --kb-root apex-meta/kb/old-apex-full-orchestration-agent-kb audit --json",
+        "exit_code":  0,
+        "stdout":  "C:\\Users\\gehm7\\AppData\\Local\\Temp\\apex-kb-harmonization-f3586741-91ff-42a6-8786-8a05a901896a\\cmd_04.stdout",
+        "stderr":  "C:\\Users\\gehm7\\AppData\\Local\\Temp\\apex-kb-harmonization-f3586741-91ff-42a6-8786-8a05a901896a\\cmd_04.stderr"
+    },
+    {
+        "index":  5,
+        "command":  "python apex-meta/scripts/apex_kb_retrieval.py --kb-root apex-meta/kb/old-apex-full-orchestration-agent-kb stale --json",
+        "exit_code":  0,
+        "stdout":  "C:\\Users\\gehm7\\AppData\\Local\\Temp\\apex-kb-harmonization-f3586741-91ff-42a6-8786-8a05a901896a\\cmd_05.stdout",
+        "stderr":  "C:\\Users\\gehm7\\AppData\\Local\\Temp\\apex-kb-harmonization-f3586741-91ff-42a6-8786-8a05a901896a\\cmd_05.stderr"
+    },
+    {
+        "index":  6,
+        "command":  "python apex-meta/scripts/apex_kb.py --kb-root apex-meta/kb/old-apex-full-orchestration-agent-kb-v2 health --json",
+        "exit_code":  0,
+        "stdout":  "C:\\Users\\gehm7\\AppData\\Local\\Temp\\apex-kb-harmonization-f3586741-91ff-42a6-8786-8a05a901896a\\cmd_06.stdout",
+        "stderr":  "C:\\Users\\gehm7\\AppData\\Local\\Temp\\apex-kb-harmonization-f3586741-91ff-42a6-8786-8a05a901896a\\cmd_06.stderr"
+    },
+    {
+        "index":  7,
+        "command":  "python apex-meta/scripts/apex_kb.py --kb-root apex-meta/kb/old-apex-full-orchestration-agent-kb-v2 status --json",
+        "exit_code":  0,
+        "stdout":  "C:\\Users\\gehm7\\AppData\\Local\\Temp\\apex-kb-harmonization-f3586741-91ff-42a6-8786-8a05a901896a\\cmd_07.stdout",
+        "stderr":  "C:\\Users\\gehm7\\AppData\\Local\\Temp\\apex-kb-harmonization-f3586741-91ff-42a6-8786-8a05a901896a\\cmd_07.stderr"
+    },
+    {
+        "index":  8,
+        "command":  "python apex-meta/scripts/apex_kb.py --kb-root apex-meta/kb/old-apex-full-orchestration-agent-kb-v2 lint --strict --json",
+        "exit_code":  2,
+        "stdout":  "C:\\Users\\gehm7\\AppData\\Local\\Temp\\apex-kb-harmonization-f3586741-91ff-42a6-8786-8a05a901896a\\cmd_08.stdout",
+        "stderr":  "C:\\Users\\gehm7\\AppData\\Local\\Temp\\apex-kb-harmonization-f3586741-91ff-42a6-8786-8a05a901896a\\cmd_08.stderr"
+    },
+    {
+        "index":  9,
+        "command":  "python apex-meta/scripts/apex_kb.py --kb-root apex-meta/kb/old-apex-full-orchestration-agent-kb-v2 audit --json",
+        "exit_code":  0,
+        "stdout":  "C:\\Users\\gehm7\\AppData\\Local\\Temp\\apex-kb-harmonization-f3586741-91ff-42a6-8786-8a05a901896a\\cmd_09.stdout",
+        "stderr":  "C:\\Users\\gehm7\\AppData\\Local\\Temp\\apex-kb-harmonization-f3586741-91ff-42a6-8786-8a05a901896a\\cmd_09.stderr"
+    },
+    {
+        "index":  10,
+        "command":  "python apex-meta/scripts/apex_kb_retrieval.py --kb-root apex-meta/kb/old-apex-full-orchestration-agent-kb-v2 stale --json",
+        "exit_code":  0,
+        "stdout":  "C:\\Users\\gehm7\\AppData\\Local\\Temp\\apex-kb-harmonization-f3586741-91ff-42a6-8786-8a05a901896a\\cmd_10.stdout",
+        "stderr":  "C:\\Users\\gehm7\\AppData\\Local\\Temp\\apex-kb-harmonization-f3586741-91ff-42a6-8786-8a05a901896a\\cmd_10.stderr"
+    }
+]
