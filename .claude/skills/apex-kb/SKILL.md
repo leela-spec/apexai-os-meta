@@ -4,7 +4,7 @@ description: >
   Use this skill when the operator asks to scaffold, intake sources, hash sources,
   run deterministic corpus intelligence, perform two-phase ingest, compile wiki
   pages, query, retrieve, lint, audit, or maintain a durable Apex knowledge base
-  under apex-meta/kb/<kb-slug>/. Produces source-preserving KB artifacts,
+  under apex-meta/kb/[kb-slug]/. Produces source-preserving KB artifacts,
   Phase 1 ingest analysis, operator-gated Phase 2 wiki pages that implement an adaptive page value contract (Adaptive Ranked Source Set, Macro / Meso / Micro synthesis, Key Claims with source pointers, Routes Here, and Uncertainty / Raw Source Triggers), deterministic
   indexes, local retrieval outputs, query packets, lint reports, and audit flags.
   Does not plan projects, mutate task/session/sync state, rank next tasks,
@@ -36,27 +36,20 @@ execution_route:
 
 ### Connector-only semantic authoring route
 
-Allowed work is limited to complete new semantic files or complete rewrites of explicitly owned semantic files. Partial edits, appends, machine-maintained sections, `wiki/index.md`, manifests, hashes, derived indexes, deterministic commands, and certification are prohibited.
 
-Use one semantic page per context window. For each page: read a bounded source set, author the complete page, reread the complete candidate, run the preventive checklist below, write the whole file, read back stored content, and add one entry to `log/connector-compile-<run-id>.json`. That log is a complete new handoff file, not a deterministic certificate.
+Allowed work is limited to complete semantic files or complete rewrites of explicitly owned semantic files. Partial edits, appends, machine-maintained sections, `wiki/index.md`, manifests, hashes, derived indexes, deterministic commands, and certification are prohibited.
 
-```yaml
-connector_precheck_reason_concepts:
-  - missing_source_refs
-  - missing_phase2_value_sections
-  - placeholder_text
-  - no_key_claims
-  - claim_pointer_coverage_below_100_percent
-  - single_claim_summary
-  - single_claim_concept_thin
-  - concept_micro_not_evidenced
-  - thin_macro_meso_micro
-  - summary_source_breadth_below_profile
-  - no_query_routes
-```
+Read the repository-local `semantic-contract/` before Phase 1. An account-level Skill is optional; missing Skill availability is never a stop condition. Use `references/browser-git-connector-semantic-runbook.md` when preparing repository-local instructions.
 
-The checklist is preventive only. Terminal `quality --strict` remains authoritative. Connector readback proves stored content only. The route stops at `compiled_unvalidated`.
+Work one topic per context. Before selecting sources, lock stable target questions, priorities, answer requirements, and expected page routes in the topic registry. Treat Phase 0 rankings as candidate navigation only. Maintain `log/semantic-runs/<run-id>/topics/<topic-slug>.json` after every source and before context ends.
 
+Continue reading while a known readable canonical source can answer an unresolved critical or routine question. Unopened sources are not evidence and must not appear in Adaptive Ranked Source Sets. Connector cost, source length, context pressure, or write friction may force `partial`; they never lower completion criteria.
+
+For each source, read the complete source or every relevant section, write and reread Phase 1, and dispose every concept/entity candidate. Choose page topology by recurring retrieval value and duplication reduction. Write and reread complete answer-bearing Phase 2 pages. Boundary notices and readable-source reopen triggers cannot satisfy target questions.
+
+Run page-only query and claim-entailment acceptance in a fresh context that did not receive drafting rationale or self-assessment. Record the result under `audit/semantic-acceptance/<run-id>/<topic-slug>.json`. Only `semantic_pass` for every in-scope topic permits `compiled_unvalidated`; otherwise report `partial` or `analysis_complete_unvalidated`.
+
+The route never runs Python, shell, scaffold, intake, hashing, manifest updates, Phase 0, index/retrieval rebuild, lint, quality, or postflight, and never claims `query_ready`.
 ### Terminal-backed route
 
 Use the existing command contract, retrieval contract, acceptance tests, and lifecycle runbook rather than duplicating command sequences here. After the runtime change is applied, use `postflight` as the preferred bounded deterministic completion interface. Preserve bounded semantic acceptance as a separate required gate for `query_ready`.
@@ -132,22 +125,32 @@ boundary:
 
 ## Operator-facing v3 lifecycle and output tiers
 
+
+The lifecycle and state labels are defined by `references/semantic-value-contract.md`.
+
 ```yaml
 operator_flow:
-  A_prepare: repo / KB preflight, scaffold, path validation, run profile selection
-  B_ingest_and_compile: source intake, source payload manifest, Phase 0, semantic analysis, and wiki compile when selected output tier requires it
-  C_postflight: capability-checked index rebuild, retrieval rebuild, strict lint/quality, bounded semantic acceptance, and evidence packet
-  D_query_or_maintain: query packets, stale checks, source drift checks, repair backlog
+  A_prepare: repo / KB preflight, target-query lock, scaffold, path validation, run profile selection
+  B_ingest_and_compile: source intake, source payload manifest, Phase 0, evidence-led semantic analysis, and answer-bearing wiki compile
+  C_semantic_acceptance: clean-context page-only query and claim-entailment evaluation
+  D_postflight: capability-checked index rebuild, retrieval rebuild, strict lint/quality, acceptance-artifact validation, and evidence packet
+  E_query_or_maintain: query packets, stale checks, source drift checks, repair backlog
 
 output_tiers:
   source_only: custody and manifests only
   analysis_only: semantic analysis, no wiki pages
-  compiled_minimal: small high-value wiki with index and patch backlog
-  compiled_full: full summaries/concepts/entities
-  query_ready: compiled wiki plus successful deterministic postflight and semantic acceptance
-```
+  compiled_minimal: minimum useful page topology with complete priority-query value
+  compiled_full: complete priority-query value plus independently useful summaries/concepts/entities
+  query_ready: accepted compiled wiki plus successful deterministic postflight and fresh retrieval
 
+truthful_states:
+  analysis_complete_unvalidated: Phase 1 complete without accepted Phase 2
+  partial: material query, evidence, architecture, disposition, or acceptance gaps remain
+  compiled_unvalidated: critical/routine queries and sampled claims pass semantic acceptance; deterministic postflight pending
+  query_ready: semantic acceptance and deterministic postflight pass; retrieval fresh
+```
 ## File navigation
+
 
 Select the execution route above before opening terminal-oriented references.
 
@@ -155,12 +158,13 @@ Read supporting files only when needed:
 
 | Need | File |
 |---|---|
+| Completion target, registry v2, ledger, traceability, semantic acceptance | `references/semantic-value-contract.md` |
+| Browser/Git-connector workflow and evaluator prompts | `references/browser-git-connector-semantic-runbook.md` |
 | Data layout, canonical/derived rules, page and manifest constraints | `references/kb-contract.md` |
 | Python command surface and write policy | `references/script-command-contract.md` |
 | Ingest, query, lint, audit behavior | `references/ingest-query-lint-audit-rules.md` |
 | Retrieval engine rules | `references/retrieval-contract.md` |
-| State transitions and gates | `references/lifecycle-state-machine.md` |
-| Acceptance checks | `references/acceptance-tests.md` |
+| Acceptance checks and fixtures | `references/acceptance-tests.md` |
 | KB doctrine distilled from the old-apex knowledge-bank role | `references/old-apex-knowledge-bank-doctrine.md` |
 | Phase 1 analysis shape | `templates/ingest-analysis-template.md` |
 | Phase 2 wiki page shape | `templates/wiki-page-templates.md` |
@@ -170,10 +174,11 @@ Read supporting files only when needed:
 | Local commands | `examples/powershell-commands.md` |
 | Operator runbook | `examples/lifecycle-runbook.md` |
 
-
+Do not use deprecated `references/lifecycle-state-machine.md` as operational authority.
 ## Capability precheck and truthful state cap
 
-Before procedure steps that require Python, retrieval rebuild, or Git, record whether the active executor can run terminal commands and capture their outputs.
+
+Before procedure steps that require Python, retrieval rebuild, Git, or semantic evaluation, record whether the active executor can perform them and capture evidence.
 
 ```yaml
 capability_precheck:
@@ -181,41 +186,47 @@ capability_precheck:
   python_execution: supported | unsupported
   retrieval_rebuild: supported | unsupported
   git_diff_and_commit: supported | unsupported
+  independent_semantic_evaluator: supported | unsupported
 
 completion_state_cap:
-  semantic_pages_written_without_postflight: compiled_unvalidated
+  phase1_complete_without_phase2_acceptance: analysis_complete_unvalidated
+  material_gap_or_missing_acceptance: partial
+  semantic_acceptance_pass_without_postflight: compiled_unvalidated
   deterministic_postflight_failed: partial
-  required_semantic_review_missing: partial
   query_ready_requires:
+    - semantic_acceptance_pass
     - deterministic_postflight_pass
     - retrieval_fresh
-    - semantic_acceptance_pass
 ```
 
-Connector read-back proves file content only. It never proves Python execution, index freshness, lint, quality, or query readiness.
-
+Connector readback proves stored content only. It never proves semantic usefulness, source entailment, Python execution, index freshness, lint, quality, or query readiness.
 ## Procedure
 
 Follow only the selected route. The connector route uses the bounded whole-file semantic-authoring sequence above. The terminal-backed route follows the referenced command, retrieval, acceptance-test, and runbook contracts. Neither route may weaken the existing lifecycle, output tiers, ownership model, semantic acceptance requirement, or completion labels.
 
 ### Step 0 — Topic interview (before scaffold or source intake)
 
-Before creating or adding sources to a KB, ask the operator to name target topics and open questions this KB should be able to answer. This is purely declarative -- no corpus exists yet. Write each named topic to `manifests/topic-registry.json` with `source: operator`, `status: not_started`, and a starter `keywords` list. An empty or absent registry is a valid state; it never blocks scaffold or intake.
 
-After Phase 0 produces `manifests/phase0/term-frequency.json` (deterministic, domain-agnostic word counts -- no hardcoded topic strings), review it and propose additional topics evidenced by real counts from this corpus. Append proposals to the same registry with `source: llm_proposed`. Never blend proposed topic names into the deterministic ranking outputs themselves: the registry only ever holds topic names and keyword lists; `manifests/phase0/topic-source-rankings.json` (Phase 0's output, computed from those keywords) is the only place ranked results live, and it is always machine-written, never edited by hand.
+Before creating or adding sources, ask which important questions future AIs must answer. For each topic, lock stable query IDs, question text, priority, answer requirements, and expected page route in `manifests/topic-registry.json`. Keywords support deterministic ranking but never define semantic completion.
 
+An absent registry remains valid for scaffold, intake, `source_only`, and early `analysis_only`. Any compiled tier requires target queries for every in-scope topic. Broad topics must cover material definitions, structure, workflow, ownership, rules, relationships, current versus proposed state, examples, and edge cases where applicable.
+
+After Phase 0, review `term-frequency.json` and propose additional topics from real corpus evidence. Keep proposals in the registry and rankings in `topic-source-rankings.json`. Before semantic work, create the per-topic ledger required by `references/semantic-value-contract.md`.
 ### Phase 2 compile: per-page draft, check, retry, escalate
 
-Compile one page or a small batch (2-3 pages) at a time, never the whole file list in one pass.
 
-1. Draft the page against the page value contract. For a `summary` page tied to a registry topic, populate its Adaptive Ranked Source Set directly from that topic's entry in `topic-source-rankings.json` -- real ranked files and real hit counts, not invented ones.
-2. Immediately validate. Terminal route: run `quality --strict --json` on the KB. Connector route: run the precheck against `connector_precheck_reason_concepts` above.
-3. If the page is named in `phase2_repair_candidates` / `shell_page_candidates` (or fails the connector precheck), redraft using the exact reason codes returned. Up to 2 redraft attempts total.
-4. If it still fails after 2 redrafts, do not silently accept it and do not silently drop it: record it as an audit item under `audit/` with its path and residual reason codes, and cap that batch's completion state at `partial`.
-5. Advance to the next page or batch only once the current one has zero repair reasons or has been explicitly escalated per step 4.
+Compile one topic at a time after its critical evidence coverage is resolved.
 
-"Done" for a Phase 2 batch means `phase2_repair_candidates` and `shell_page_candidates` are empty for every page in it. Heading presence alone (`missing_phase2_value_sections` empty) is not sufficient -- the engine measures section depth, claim count, and pointer specificity, and a batch is not done until those pass too.
+1. Confirm every target query has an answer requirement and expected page route.
+2. Use Phase 0 rankings only to locate candidates. Record candidate rank, authority, availability, read status, reviewed passages, supported query IDs, analysis reference, claim use, and next action in the topic ledger.
+3. Continue source reading while a known readable canonical source could answer an unresolved critical/routine query. Never put an unopened source in frontmatter or Adaptive Ranked Source Set.
+4. Complete Phase 1 query linkage and give every concept/entity candidate a promotion disposition.
+5. Choose the minimum useful page topology. A summary must answer broad target questions directly. Promote concept/entity pages when they answer recurring independent questions or remove repeated project-specific definitions.
+6. Draft and reread complete v2 pages. Run deterministic `quality --strict --json` only on the terminal route; repair reason-coded wiring failures without treating a pass as semantic proof.
+7. Run page-only query and claim-entailment acceptance in a clean context. Record reason-coded acceptance artifacts. Repair only failed queries/claims and reevaluate in a fresh context.
+8. If any critical/routine query is partial, not answerable, blocked by readable evidence, or missing acceptance, record `partial`. If Phase 1 is complete but Phase 2 is not accepted, record `analysis_complete_unvalidated`.
 
+A page is semantically complete only when its declared questions are directly answerable and sampled material claims are supported. Headings, counts, length, rankings, and drafter self-review are never sufficient.
 ## Deterministic versus LLM ownership
 
 ```yaml
@@ -282,4 +293,9 @@ phase2_page_fails_quality_after_retries:
 
 ## Completion gate
 
-The skill is complete only when the requested mode has produced the correct artifact and every required gate has evidence. `compiled_unvalidated` and `partial` are valid truthful outcomes, not success aliases. `query_ready` requires a passing deterministic postflight, fresh retrieval, and bounded semantic acceptance. Repair loops must be candidate-driven: patch only pages named by reason-coded findings, then rerun the failed checks. A page that still fails after two redraft attempts is escalated to an audit item, never silently accepted or silently dropped.
+
+The requested mode is complete only when its artifact and every applicable gate have evidence. Completion reports lead with target-query coverage, reviewed/materially-used source coverage, semantic verdicts, and unresolved blockers; artifact counts are secondary.
+
+`analysis_complete_unvalidated`, `partial`, and `compiled_unvalidated` are truthful states, not success aliases. `compiled_unvalidated` requires clean-context `semantic_pass` for every in-scope topic. `query_ready` additionally requires passing deterministic postflight and fresh retrieval.
+
+Never declare completion while a known readable canonical source is named only as a reopen trigger for an unresolved critical/routine query, an unopened source is represented as evidence, a Phase 1 concept/entity candidate lacks disposition, or an acceptance artifact is missing/incomplete. Repair loops remain reason-coded and candidate-driven.

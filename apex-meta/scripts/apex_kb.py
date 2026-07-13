@@ -43,9 +43,20 @@ SOURCE_INVENTORY_CSV = Path("manifests/source-inventory.csv")
 WIKI_REQUIRED_FIELDS = ["title", "page_type", "kb_slug", "source_refs", "created_at", "updated_at", "confidence", "claim_label", "status"]
 CONFIDENCE_ALLOWED = {"high", "medium", "low", "mixed", "unknown"}
 CLAIM_LABEL_ALLOWED = {"raw_source", "source_backed_summary", "behavioral_inference", "working_hypothesis", "operator_question", "practitioner_question"}
-STATUS_ALLOWED = {"draft", "active", "needs_review", "deprecated", "superseded"}
+STATUS_ALLOWED = {
+    "draft",
+    "active",
+    "needs_review",
+    "analysis_complete_unvalidated",
+    "partial",
+    "compiled_unvalidated",
+    "query_ready",
+    "deprecated",
+    "superseded",
+}
 PAGE_TYPE_ALLOWED = {"summary", "concept", "entity", "index", "query_output", "audit_item"}
 PHASE2_VALUE_HEADINGS = [
+    "Target Questions Answered",
     "Adaptive Ranked Source Set",
     "Macro / Meso / Micro",
     "Key Claims",
@@ -57,6 +68,12 @@ QUALITY_REASON_CODES = (
     "no_key_claims", "claim_pointer_coverage_below_100_percent", "single_claim_summary",
     "single_claim_concept_thin", "concept_micro_not_evidenced", "thin_macro_meso_micro",
     "summary_source_breadth_below_profile", "no_query_routes",
+    "missing_target_queries", "unknown_target_query_id", "target_query_route_missing",
+    "ranked_source_not_in_source_refs", "ranked_source_not_analyzed",
+    "ranked_source_without_claim_use", "source_ref_without_phase1_evidence",
+    "candidate_promotion_disposition_missing", "readable_unopened_source_blocks_completion",
+    "semantic_acceptance_missing", "semantic_acceptance_incomplete",
+    "topic_status_inconsistent", "legacy_semantic_contract",
 )
 QUALITY_REASON = {code: code for code in QUALITY_REASON_CODES}
 TEXT_EXTS = {".md", ".mdx", ".txt", ".yaml", ".yml", ".json", ".csv", ".py", ".toml"}
@@ -64,6 +81,9 @@ HANDOVER_TEXT_EXTS = {".md", ".markdown", ".txt", ".yaml", ".yml"}
 RAW_SUBDIRS = ["raw/articles", "raw/papers", "raw/notes", "raw/refs", "raw/other"]
 REQUIRED_DIRS = RAW_SUBDIRS + ["ingest-analysis", "wiki/concepts", "wiki/entities", "wiki/summaries", "manifests", "manifests/phase0", "derived/search", "audit/resolved", "outputs/queries", "log"]
 REQUIRED_FILES = ["README.md", "kb-schema.md", "wiki/index.md", "manifests/source-manifest.json"]
+SEMANTIC_CONTRACT_VERSION = "2"
+SEMANTIC_ACCEPTANCE_SCHEMA = "apex.kb.semantic-acceptance.v1"
+SEMANTIC_RUN_LEDGER_SCHEMA = "apex.kb.semantic-run-ledger.v1"
 REPO_ROUTE_REQUIRED_FIELDS = [
     "repository",
     "branch",
@@ -306,7 +326,7 @@ def normalize_global_flag_placement(argv: Sequence[str]) -> Sequence[str]:
         "scaffold", "source-intake", "hash", "generate-source-payload-manifest", "source-payload-manifest",
         "payload-manifest", "preflight", "phase0", "ingest-phase1", "ingest-phase2", "index", "query",
         "lint", "lint-repo-execution-router", "lint-historical-path-authority", "audit", "status", "health",
-        "quality", "coverage", "query-eval", "graph", "process-graph", "postflight",
+        "quality", "coverage", "query-eval", "semantic-acceptance-status", "graph", "process-graph", "postflight",
     }
     value_flags = {"--output-json"}
     bool_flags = {"--json", "--dry-run", "--allow-write", "--strict"}
@@ -514,6 +534,24 @@ No LLM summary has been approved yet.
 """
 
 
+def repository_semantic_contract_dir() -> Path:
+    return Path(__file__).resolve().parents[2] / ".claude" / "skills" / "apex-kb" / "assets" / "repository-semantic-contract"
+
+
+def scaffold_semantic_contract(kb_root: Path, allow_write: bool, dry_run: bool) -> List[Dict[str, Any]]:
+    source_dir = repository_semantic_contract_dir()
+    if not source_dir.is_dir():
+        return [{"status": "missing_package_assets", "source": str(source_dir)}]
+    results: List[Dict[str, Any]] = []
+    generated_from_templates = {"phase1-analysis-template.md", "phase2-wiki-page-templates.md"}
+    for source in sorted(path for path in source_dir.iterdir() if path.is_file() and path.name not in generated_from_templates):
+        results.append(copy_file(source, kb_root / "semantic-contract" / source.name, kb_root, allow_write, dry_run))
+    package_root = source_dir.parents[1]
+    results.append(copy_file(package_root / "templates" / "ingest-analysis-template.md", kb_root / "semantic-contract" / "phase1-analysis-template.md", kb_root, allow_write, dry_run))
+    results.append(copy_file(package_root / "templates" / "wiki-page-templates.md", kb_root / "semantic-contract" / "phase2-wiki-page-templates.md", kb_root, allow_write, dry_run))
+    return results
+
+
 def cmd_scaffold(args: argparse.Namespace) -> Dict[str, Any]:
     kb_root = resolve_kb_root(args.kb_root)
     dry_run = effective_dry_run(args)
@@ -532,7 +570,8 @@ def cmd_scaffold(args: argparse.Namespace) -> Dict[str, Any]:
         write_text(kb_root / "wiki/index.md", starter_index(kb_root.name, title), kb_root, args.allow_write, dry_run),
         write_text(kb_root / MANIFEST_PATH, manifest_text(default_manifest(kb_root.name)), kb_root, args.allow_write, dry_run),
     ]
-    return {"command": "scaffold", "kb_root": str(kb_root), "dry_run": dry_run, "directories": dir_results, "writes": writes}
+    semantic_contract = scaffold_semantic_contract(kb_root, args.allow_write, dry_run)
+    return {"command": "scaffold", "kb_root": str(kb_root), "dry_run": dry_run, "directories": dir_results, "writes": writes, "semantic_contract": semantic_contract}
 
 
 def source_type_dir(source_type: str) -> str:
@@ -1027,6 +1066,26 @@ def load_topic_registry(kb_root: Path) -> List[Dict[str, Any]]:
         return []
     entries = data.get("topics") if isinstance(data, dict) else data
     return entries if isinstance(entries, list) else []
+
+
+def registry_query_map(kb_root: Path) -> Dict[str, Dict[str, Any]]:
+    result: Dict[str, Dict[str, Any]] = {}
+    for topic in load_topic_registry(kb_root):
+        if not isinstance(topic, dict):
+            continue
+        topic_slug = str(topic.get("slug") or slugify(str(topic.get("name", "topic"))))
+        for query in topic.get("target_queries", []):
+            if not isinstance(query, dict):
+                continue
+            query_id = str(query.get("query_id") or "").strip()
+            if query_id:
+                result[query_id] = {**query, "topic_slug": topic_slug, "topic_status": topic.get("status")}
+    return result
+
+
+def topic_queries(topic: Dict[str, Any]) -> List[Dict[str, Any]]:
+    value = topic.get("target_queries", []) if isinstance(topic, dict) else []
+    return [entry for entry in value if isinstance(entry, dict)] if isinstance(value, list) else []
 
 
 def rank_topic_sources(kb_root: Path, files: List[Path], registry: List[Dict[str, Any]]) -> Dict[str, Any]:
@@ -1731,6 +1790,82 @@ def cmd_audit(args: argparse.Namespace) -> Dict[str, Any]:
     return {"command": "audit", "item_count": len(items), "groups": dict(groups), "mutations": False}
 
 
+def semantic_acceptance_status(kb_root: Path) -> Dict[str, Any]:
+    root = kb_root / "audit" / "semantic-acceptance"
+    registry = load_topic_registry(kb_root)
+    required_topics = {
+        str(topic.get("slug") or slugify(str(topic.get("name", "topic")))): topic
+        for topic in registry
+        if isinstance(topic, dict) and any(str(query.get("priority")) in {"critical", "routine"} for query in topic_queries(topic))
+    }
+    files = sorted(root.rglob("*.json")) if root.exists() else []
+    topic_verdicts: Dict[str, str] = {}
+    issues: List[Dict[str, Any]] = []
+    query_map = registry_query_map(kb_root)
+
+    for path in files:
+        rel = relpath(kb_root, path)
+        try:
+            artifact = json.loads(read_text(path))
+        except (OSError, json.JSONDecodeError) as exc:
+            issues.append({"path": rel, "issue": "invalid_json", "detail": str(exc)})
+            continue
+        if not isinstance(artifact, dict) or artifact.get("schema") != SEMANTIC_ACCEPTANCE_SCHEMA:
+            issues.append({"path": rel, "issue": "invalid_schema"})
+            continue
+        topic_slug = str(artifact.get("topic_slug") or "").strip()
+        if not topic_slug:
+            issues.append({"path": rel, "issue": "missing_topic_slug"})
+            continue
+        query_results = artifact.get("query_results")
+        claim_reviews = artifact.get("claim_reviews")
+        verdict = str(artifact.get("verdict") or "")
+        if not isinstance(query_results, list) or not isinstance(claim_reviews, list) or verdict not in {"semantic_pass", "semantic_partial", "semantic_fail", "insufficient_evidence"}:
+            issues.append({"path": rel, "topic_slug": topic_slug, "issue": "incomplete_artifact"})
+            topic_verdicts[topic_slug] = "semantic_partial"
+            continue
+        results_by_id = {str(item.get("query_id")): item for item in query_results if isinstance(item, dict)}
+        for query_id, query in query_map.items():
+            if query.get("topic_slug") != topic_slug or str(query.get("priority")) not in {"critical", "routine"}:
+                continue
+            item = results_by_id.get(query_id)
+            if not item:
+                issues.append({"path": rel, "topic_slug": topic_slug, "query_id": query_id, "issue": "missing_query_result"})
+            elif item.get("result") != "answerable":
+                issues.append({"path": rel, "topic_slug": topic_slug, "query_id": query_id, "issue": "priority_query_not_answerable", "result": item.get("result")})
+            for pointer in item.get("page_pointers", []) if isinstance(item, dict) else []:
+                page_rel = str(pointer).split("#", 1)[0]
+                if page_rel and not (kb_root / page_rel).exists():
+                    issues.append({"path": rel, "topic_slug": topic_slug, "query_id": query_id, "issue": "page_pointer_missing", "pointer": pointer})
+        if not claim_reviews:
+            issues.append({"path": rel, "topic_slug": topic_slug, "issue": "missing_claim_reviews"})
+        elif any(not isinstance(item, dict) or item.get("result") != "supported" for item in claim_reviews):
+            issues.append({"path": rel, "topic_slug": topic_slug, "issue": "claim_not_supported"})
+        topic_issues = [issue for issue in issues if issue.get("topic_slug") == topic_slug]
+        topic_verdicts[topic_slug] = verdict if not topic_issues else ("semantic_fail" if verdict == "semantic_fail" else "semantic_partial")
+
+    missing_topics = sorted(set(required_topics) - set(topic_verdicts))
+    for topic_slug in missing_topics:
+        issues.append({"topic_slug": topic_slug, "issue": "missing_acceptance_artifact"})
+
+    if not files:
+        status = "missing"
+    elif any(verdict == "semantic_fail" for verdict in topic_verdicts.values()):
+        status = "fail"
+    elif issues or missing_topics or any(topic_verdicts.get(topic) != "semantic_pass" for topic in required_topics):
+        status = "partial"
+    else:
+        status = "pass"
+    return {"status": status, "schema": SEMANTIC_ACCEPTANCE_SCHEMA, "required_topics": sorted(required_topics), "topics": topic_verdicts, "artifact_count": len(files), "issues": issues}
+
+
+def cmd_semantic_acceptance_status(args: argparse.Namespace) -> Dict[str, Any]:
+    kb_root = resolve_kb_root(args.kb_root)
+    result = {"command": "semantic-acceptance-status"}
+    result.update(semantic_acceptance_status(kb_root))
+    return result
+
+
 def cmd_status(args: argparse.Namespace) -> Dict[str, Any]:
     kb_root = resolve_kb_root(args.kb_root)
     manifest = read_manifest(kb_root)
@@ -1747,6 +1882,8 @@ def cmd_status(args: argparse.Namespace) -> Dict[str, Any]:
         "phase0_artifacts_present": (kb_root / PHASE0_DIR / "phase0-navigation-report.md").exists(),
         "search_index_present": (kb_root / "derived/search/index-meta.json").exists(),
         "topic_registry_summary": topic_registry_summary(kb_root),
+        "semantic_contract_status": "current" if (kb_root / "semantic-contract" / "semantic-execution-contract.md").exists() else "legacy_missing_repository_contract",
+        "semantic_acceptance_status": semantic_acceptance_status(kb_root),
     }
 
 
@@ -1825,6 +1962,46 @@ VALUE_PAGE_TYPES = {"summary", "concept", "entity"}
 SECTION_WORD_FLOOR = 20
 
 
+def _frontmatter_scalar_list(raw: str, field: str) -> List[str]:
+    lines = raw.splitlines()
+    if not lines or lines[0].strip().lstrip("\ufeff") != "---":
+        return []
+    end = next((index for index, line in enumerate(lines[1:], start=1) if line.strip().lstrip("\ufeff") == "---"), None)
+    if end is None:
+        return []
+    front = "\n".join(lines[1:end])
+    inline = re.search(rf"(?m)^{re.escape(field)}:\s*\[([^\]]*)\]\s*$", front)
+    if inline:
+        return [strip_scalar(item.strip()) for item in inline.group(1).split(",") if item.strip()]
+    block = re.search(rf"(?m)^{re.escape(field)}:[ \t]*$\n((?:[ \t]*-[ \t]+.*\n?)*)", front)
+    if not block:
+        return []
+    return [str(strip_scalar(item.strip())) for item in re.findall(r"(?m)^[ \t]*-[ \t]+(.+?)[ \t]*$", block.group(1))]
+
+
+def _analysis_files(kb_root: Path) -> List[Path]:
+    root = kb_root / "ingest-analysis"
+    return sorted(path for path in root.rglob("*.md") if path.is_file()) if root.exists() else []
+
+
+def _source_has_analysis(kb_root: Path, source: str) -> bool:
+    needle = source.strip()
+    if not needle:
+        return False
+    return any(needle in read_text(path) for path in _analysis_files(kb_root))
+
+
+def candidate_disposition_findings(kb_root: Path) -> List[Dict[str, Any]]:
+    findings: List[Dict[str, Any]] = []
+    for path in _analysis_files(kb_root):
+        text = read_text(path)
+        candidates = len(re.findall(r"(?m)^\s*-\s+(?:concept_slug|entity_slug):", text))
+        dispositions = len(re.findall(r"(?m)^\s+disposition:\s*(?:promote|embed_in_summary|defer_blocked|reject_no_independent_value)\s*$", text))
+        if candidates > dispositions:
+            findings.append({"path": relpath(kb_root, path), "reason": "candidate_promotion_disposition_missing", "candidate_count": candidates, "disposition_count": dispositions})
+    return findings
+
+
 def _quality_section(body: str, heading: str, level: str = "##") -> str:
     """Extract the text of one heading section up to the next heading at the same level."""
     pattern = re.compile(rf"^{re.escape(level)}\s+{re.escape(heading)}\s*$", re.MULTILINE | re.IGNORECASE)
@@ -1858,6 +2035,13 @@ def _pointer_specificity(body: str) -> Dict[str, int]:
             result["section_level"] += 1
         else:
             result["file_level"] += 1
+    # Human-readable v2 claims may carry resolved evidence inline in
+    # parenthetical source-and-section form rather than YAML pointer keys.
+    result["section_level"] += len(re.findall(
+        r"\((?:LOCAL-|SRC-)[A-Za-z0-9._-]+,\s*[^)]+\)",
+        body or "",
+        flags=re.IGNORECASE,
+    ))
     return result
 
 
@@ -1872,6 +2056,10 @@ def _quality_page_metrics(kb_root: Path, page: Path) -> Dict[str, Any]:
     meta = meta if isinstance(meta, dict) else {}
     body = body or ""
     page_type = str(meta.get("page_type") or "unknown")
+    contract_version = str(meta.get("semantic_contract_version") or "")
+    is_v2_contract = contract_version in {SEMANTIC_CONTRACT_VERSION, "2.0"}
+    target_query_ids = [str(item) for item in _frontmatter_scalar_list(raw, "target_query_ids")]
+    known_queries = registry_query_map(kb_root)
 
     sections = {heading: _quality_section(body, heading) for heading in PHASE2_VALUE_HEADINGS}
     macro_block = sections.get("Macro / Meso / Micro", "")
@@ -1883,9 +2071,20 @@ def _quality_page_metrics(kb_root: Path, page: Path) -> Dict[str, Any]:
     })
 
     refs = extract_source_refs(meta)
-    key_claims = len(re.findall(r"(?:^|\n)\s*-\s+(?:claim_id\s*:|claim\s*:)", sections.get("Key Claims", ""), flags=re.IGNORECASE))
-    ranked_sources = len(re.findall(r"(?:^|\n)\s*-\s+(?:rank\s*:|source\s*:|source_id\s*:|source_path\s*:)", sections.get("Adaptive Ranked Source Set", ""), flags=re.IGNORECASE))
-    routes = len(re.findall(r"(?:^|\n)\s*-\s+(?:question\s*:|leads_to\s*:)", sections.get("Routes Here", ""), flags=re.IGNORECASE))
+    key_claims = len(re.findall(
+        r"(?:^|\n)\s*-\s+(?:(?:claim_id|claim)\s*:|\*\*[A-Za-z0-9][A-Za-z0-9._-]*:\*\*)",
+        sections.get("Key Claims", ""),
+        flags=re.IGNORECASE,
+    ))
+    ranked_sources = len(re.findall(
+        r"(?:^|\n)\s*-\s+(?:(?:rank|source|source_id|source_path)\s*:|\*\*[^*]+\*\*)",
+        sections.get("Adaptive Ranked Source Set", ""),
+        flags=re.IGNORECASE,
+    ))
+    routes_section = sections.get("Routes Here", "")
+    routes = len(re.findall(r"(?:^|\n)\s*-\s+(?:question\s*:|leads_to\s*:)", routes_section, flags=re.IGNORECASE))
+    if routes == 0:
+        routes = len(re.findall(r"\[[^\]]+\]\([^)]+\.md(?:#[^)]+)?\)", routes_section))
     uncertainty_items = len(re.findall(r"(?:^|\n)\s*-\s+id\s*:", sections.get("Uncertainty / Raw Source Reopen Triggers", ""), flags=re.IGNORECASE))
     pointer_specificity = _pointer_specificity(sections.get("Key Claims", ""))
     pointer_count = sum(pointer_specificity.values())
@@ -1894,6 +2093,20 @@ def _quality_page_metrics(kb_root: Path, page: Path) -> Dict[str, Any]:
 
     reasons: List[str] = []
     if page_type in VALUE_PAGE_TYPES:
+        if not is_v2_contract:
+            reasons.append("legacy_semantic_contract")
+        if is_v2_contract and not target_query_ids:
+            reasons.append("missing_target_queries")
+        if any(query_id not in known_queries for query_id in target_query_ids):
+            reasons.append("unknown_target_query_id")
+        if target_query_ids and not all(query_id in sections.get("Target Questions Answered", "") for query_id in target_query_ids):
+            reasons.append("target_query_route_missing")
+        for query_id in target_query_ids:
+            expected_page = str(known_queries.get(query_id, {}).get("expected_page") or "").split("#", 1)[0]
+            # The registry route is the primary answer page. Concepts and entities
+            # may materially support the same query without replacing that route.
+            if expected_page and not (kb_root / expected_page).exists():
+                reasons.append("target_query_route_missing")
         if not refs:
             reasons.append("missing_source_refs")
         if missing_headings:
@@ -1908,24 +2121,45 @@ def _quality_page_metrics(kb_root: Path, page: Path) -> Dict[str, Any]:
                 reasons.append("claim_pointer_coverage_below_100_percent")
             if page_type == "summary" and key_claims < 2:
                 reasons.append("single_claim_summary")
-            elif page_type == "concept" and key_claims < 2 and all_layers_thin:
+            elif not is_v2_contract and page_type == "concept" and key_claims < 2 and all_layers_thin:
                 reasons.append("single_claim_concept_thin")
         specific_pointer_count = pointer_specificity["section_level"] + pointer_specificity["line_or_span_level"]
-        if page_type == "concept" and section_words.get("Micro", 0) < SECTION_WORD_FLOOR and specific_pointer_count == 0:
+        if not is_v2_contract and page_type == "concept" and section_words.get("Micro", 0) < SECTION_WORD_FLOOR and specific_pointer_count == 0:
             reasons.append("concept_micro_not_evidenced")
         # Narrow named entities may validly be concise with one claim and one
         # source (kb-contract.md concise_policy) - only flag entities for a
         # missing claim outright, never for thin/single-claim synthesis depth.
-        if all_layers_thin and page_type != "entity":
+        if not is_v2_contract and all_layers_thin and page_type != "entity":
             reasons.append("thin_macro_meso_micro")
-        if page_type == "summary" and ranked_sources < 2:
+        if not is_v2_contract and page_type == "summary" and ranked_sources < 2:
             reasons.append("summary_source_breadth_below_profile")
         if routes == 0:
             reasons.append("no_query_routes")
+        if re.search(r"availability_class:\s*[\"']?readable_unopened", sections.get("Uncertainty / Raw Source Reopen Triggers", ""), flags=re.IGNORECASE) and re.search(r"completion_effect:\s*[\"']?blocks_priority_query", sections.get("Uncertainty / Raw Source Reopen Triggers", ""), flags=re.IGNORECASE):
+            reasons.append("readable_unopened_source_blocks_completion")
+
+        ranked = sections.get("Adaptive Ranked Source Set", "")
+        ranked_ids = [value.strip() for value in re.findall(r"(?m)^\s+-\s+(?:source_id|source_path):\s*[\"']?([^\n\"']+)", ranked)]
+        ranked_ids.extend(value.strip() for value in re.findall(r"(?m)^\s*-\s+\*\*([^*]+)\*\*", ranked))
+        for source in ranked_ids:
+            if source not in refs:
+                reasons.append("ranked_source_not_in_source_refs")
+            if not _source_has_analysis(kb_root, source):
+                reasons.append("ranked_source_not_analyzed")
+        if ranked_ids and not (
+            re.search(r"(?m)^\s+claim_ids:\s*(?:\[(?!\s*\])|$)", ranked)
+            or re.search(r"(?i)\bclaims?\s+[A-Za-z0-9]", ranked)
+            or re.search(r"\b[A-Z][A-Z0-9]+(?:-V\d+)?-C\d+\b", ranked)
+        ):
+            reasons.append("ranked_source_without_claim_use")
+        if any(not _source_has_analysis(kb_root, source) for source in refs):
+            reasons.append("source_ref_without_phase1_evidence")
 
     return {
         "path": relpath(kb_root, page),
         "page_type": page_type,
+        "semantic_contract_version": contract_version or None,
+        "target_query_ids": target_query_ids,
         "frontmatter_status": frontmatter_status,
         "source_refs": refs,
         "narrative_word_count": _quality_words(body),
@@ -1977,6 +2211,20 @@ def quality_report(kb_root: Path) -> Dict[str, Any]:
     )
     shell_reasons = {"placeholder_text", "no_key_claims", "thin_macro_meso_micro", "single_claim_summary", "single_claim_concept_thin", "concept_micro_not_evidenced"}
     shell_page_candidates = [c for c in candidates if shell_reasons.intersection(c["reasons"])]
+    acceptance = semantic_acceptance_status(kb_root)
+    disposition_findings = candidate_disposition_findings(kb_root)
+    global_findings: List[Dict[str, Any]] = list(disposition_findings)
+    has_compiled_value_pages = any(item.get("page_type") in VALUE_PAGE_TYPES for item in metrics)
+    if has_compiled_value_pages and acceptance["status"] == "missing":
+        global_findings.append({"reason": "semantic_acceptance_missing"})
+    elif has_compiled_value_pages and acceptance["status"] != "pass":
+        global_findings.append({"reason": "semantic_acceptance_incomplete", "status": acceptance["status"]})
+    for topic in load_topic_registry(kb_root):
+        if not isinstance(topic, dict):
+            continue
+        queries = topic_queries(topic)
+        if topic.get("status") == "complete" and (not queries or acceptance["topics"].get(str(topic.get("slug"))) != "semantic_pass"):
+            global_findings.append({"reason": "topic_status_inconsistent", "topic": topic.get("slug")})
 
     return {
         "source_to_page_map": {key: sorted(value) for key, value in sorted(source_to_page_map.items())},
@@ -1987,6 +2235,8 @@ def quality_report(kb_root: Path) -> Dict[str, Any]:
         "pages_missing_phase2_value_sections": pages_missing_phase2_value_sections,
         "phase2_repair_candidates": candidates,
         "shell_page_candidates": shell_page_candidates,
+        "global_findings": global_findings,
+        "semantic_acceptance_status": acceptance,
         "page_metrics": metrics,
         "deterministic_only": True,
     }
@@ -1995,7 +2245,9 @@ def quality_report(kb_root: Path) -> Dict[str, Any]:
 def topic_registry_summary(kb_root: Path) -> Dict[str, Any]:
     registry = load_topic_registry(kb_root)
     by_status: Counter = Counter(str(e.get("status", "unknown")) for e in registry)
-    return {"entries": len(registry), "by_status": dict(by_status)}
+    query_count = sum(len(topic_queries(entry)) for entry in registry if isinstance(entry, dict))
+    priority_count: Counter = Counter(str(query.get("priority", "unknown")) for entry in registry if isinstance(entry, dict) for query in topic_queries(entry))
+    return {"entries": len(registry), "by_status": dict(by_status), "target_query_count": query_count, "target_queries_by_priority": dict(priority_count)}
 
 
 def cmd_quality(args: argparse.Namespace) -> Dict[str, Any]:
@@ -2003,17 +2255,18 @@ def cmd_quality(args: argparse.Namespace) -> Dict[str, Any]:
     report = quality_report(kb_root)
     result = {"command": "quality"}
     result.update(report)
-    has_candidates = bool(report["phase2_repair_candidates"] or report["shell_page_candidates"])
+    has_candidates = bool(report["phase2_repair_candidates"] or report["shell_page_candidates"] or report["global_findings"])
     if getattr(args, "strict", False):
         result["status"] = "fail" if has_candidates else "ok"
     else:
         result["status"] = "ok"
-    result["issue_count"] = len(report["phase2_repair_candidates"])
+    result["issue_count"] = len(report["phase2_repair_candidates"]) + len(report["global_findings"])
     result["topic_registry_summary"] = topic_registry_summary(kb_root)
     return result
 
 
-QUERY_EVAL_SCHEMA = "apex.query_eval_pack.v1"
+QUERY_EVAL_SCHEMA_V1 = "apex.query_eval_pack.v1"
+QUERY_EVAL_SCHEMA = "apex.query_eval_pack.v2"
 QUERY_EVAL_LIST_FIELDS = ("expected_routes", "expected_minimal_pages", "raw_source_needed")
 
 
@@ -2025,8 +2278,9 @@ def validate_query_eval_pack(pack: Any) -> List[Dict[str, str]]:
     issues: List[Dict[str, str]] = []
     if not isinstance(pack, dict):
         return [{"field": "<root>", "message": "pack must be a JSON object"}]
-    if pack.get("schema") != QUERY_EVAL_SCHEMA:
-        issues.append({"field": "schema", "message": f"expected {QUERY_EVAL_SCHEMA!r}, got {pack.get('schema')!r}"})
+    schema = pack.get("schema")
+    if schema not in {QUERY_EVAL_SCHEMA, QUERY_EVAL_SCHEMA_V1}:
+        issues.append({"field": "schema", "message": f"expected {QUERY_EVAL_SCHEMA!r} or legacy {QUERY_EVAL_SCHEMA_V1!r}, got {schema!r}"})
     kb_slug = pack.get("kb_slug")
     if not isinstance(kb_slug, str) or not kb_slug.strip():
         issues.append({"field": "kb_slug", "message": "kb_slug must be a non-empty string"})
@@ -2048,6 +2302,10 @@ def validate_query_eval_pack(pack: Any) -> List[Dict[str, str]]:
                 issues.append({"field": f"{prefix}.{field}", "message": f"{field} must be a list if present"})
             elif not all(isinstance(x, str) for x in val):
                 issues.append({"field": f"{prefix}.{field}", "message": f"{field} entries must be strings"})
+        if schema == QUERY_EVAL_SCHEMA:
+            for field in ("query_id", "priority", "answer_requirements", "expected_routes", "expected_raw_source_requirement"):
+                if field not in entry:
+                    issues.append({"field": f"{prefix}.{field}", "message": f"{field} is required for v2"})
     return issues
 
 
@@ -2082,6 +2340,8 @@ def cmd_query_eval(args: argparse.Namespace) -> Dict[str, Any]:
                         if isinstance(item, str) and item not in agg[field]:
                             agg[field].append(item)
         result.update({"status": "ok" if not issues else "invalid", "issue_count": len(issues), "issues": issues, "query_count": len(queries)})
+        result["schema"] = pack.get("schema")
+        result["migration_required"] = pack.get("schema") == QUERY_EVAL_SCHEMA_V1
         for field in QUERY_EVAL_LIST_FIELDS:
             result[field] = sorted(agg[field])
         return result
@@ -2098,9 +2358,25 @@ def cmd_query_eval(args: argparse.Namespace) -> Dict[str, Any]:
         result.update(empty_agg)
         return result
 
-    initial_pack = {"schema": QUERY_EVAL_SCHEMA, "kb_slug": kb_root.name, "queries": []}
+    initial_queries: List[Dict[str, Any]] = []
+    for topic in load_topic_registry(kb_root):
+        if not isinstance(topic, dict):
+            continue
+        for query in topic_queries(topic):
+            expected_page = str(query.get("expected_page") or topic.get("target_page") or "").strip()
+            initial_queries.append({
+                "query_id": str(query.get("query_id") or ""),
+                "query": str(query.get("question") or ""),
+                "priority": str(query.get("priority") or "supporting"),
+                "answer_requirements": [str(item) for item in query.get("answer_requirements", [])],
+                "expected_routes": [expected_page] if expected_page else [],
+                "expected_minimal_pages": [expected_page] if expected_page else [],
+                "raw_source_needed": [],
+                "expected_raw_source_requirement": "not_required",
+            })
+    initial_pack = {"schema": QUERY_EVAL_SCHEMA, "kb_slug": kb_root.name, "queries": initial_queries}
     write_result = write_text(pack_path, json.dumps(initial_pack, indent=2, ensure_ascii=False, sort_keys=True) + "\n", kb_root, args.allow_write, dry_run)
-    result.update({"status": "initialized", "write_result": write_result, "issue_count": 0, "issues": [], "query_count": 0})
+    result.update({"status": "initialized", "schema": QUERY_EVAL_SCHEMA, "write_result": write_result, "issue_count": 0, "issues": [], "query_count": len(initial_queries)})
     result.update(empty_agg)
     return result
 
@@ -2452,6 +2728,12 @@ def cmd_postflight(args: argparse.Namespace) -> Dict[str, Any]:
     blocking_failed = blocking_failed or _postflight_failed(quality_result)
     internal_error = internal_error or quality_internal
 
+    semantic_result, semantic_internal = _postflight_call("semantic-acceptance-status", cmd_semantic_acceptance_status, shared)
+    steps.append(_postflight_step("semantic_acceptance", True, semantic_result))
+    semantic_pass = semantic_result.get("status") == "pass"
+    blocking_failed = blocking_failed or not semantic_pass
+    internal_error = internal_error or semantic_internal
+
     audit_result, audit_internal = _postflight_call("audit", cmd_audit, shared)
     steps.append(_postflight_step("audit", False, audit_result))
     internal_error = internal_error or audit_internal
@@ -2498,6 +2780,7 @@ def cmd_postflight(args: argparse.Namespace) -> Dict[str, Any]:
         "dry_run": dry_run,
         "status": status,
         "evidence_complete": evidence_complete,
+        "semantic_acceptance": semantic_result.get("status"),
         "steps": steps,
     }
 
@@ -2600,9 +2883,11 @@ def build_parser() -> argparse.ArgumentParser:
     query_eval_cmd = sub.add_parser("query-eval", help="Manage query-eval pack")
     query_eval_cmd.add_argument("--init", action="store_true", default=argparse.SUPPRESS)
     query_eval_cmd.set_defaults(func=cmd_query_eval)
+    semantic_cmd = sub.add_parser("semantic-acceptance-status", help="Validate repository-authored semantic acceptance artifacts without running an LLM")
+    semantic_cmd.set_defaults(func=cmd_semantic_acceptance_status)
     graph_cmd = sub.add_parser("graph", aliases=["process-graph"], help="Extract process-flow graph")
     graph_cmd.set_defaults(func=cmd_graph)
-    sub.add_parser("postflight", help="Run the bounded seven-stage deterministic completion aggregate").set_defaults(func=cmd_postflight)
+    sub.add_parser("postflight", help="Run the bounded deterministic completion aggregate, including semantic-acceptance status").set_defaults(func=cmd_postflight)
     return parser
 
 

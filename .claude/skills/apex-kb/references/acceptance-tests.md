@@ -105,15 +105,15 @@ adaptive_ranked_sources:
 
 ### Macro
 
-<High-level retrieval summary.>
+Compiled wiki pages are the primary retrieval layer; local indexes remain derived and rebuildable from those pages.
 
 ### Meso
 
-<Mid-level retrieval patterns.>
+The retrieval flow indexes compiled Markdown, applies local lexical ranking, and returns cited page routes before raw-source reopening.
 
 ### Micro
 
-<Specific details anchored to source lines.>
+The smoke source names SQLite FTS5 and BM25 in its only paragraph, which supports the local lexical retrieval claim.
 
 ## Key Claims
 
@@ -121,7 +121,7 @@ adaptive_ranked_sources:
 key_claims:
   - claim_id: C001
     claim: "SQLite FTS5 and BM25 provide local lexical retrieval over compiled KB pages"
-    source_pointer: "<pointer>"
+    source_pointer: "raw/notes/smoke-source.md#Smoke Source paragraph 1"
     confidence: "high"
     claim_label: "source_backed_summary"
 ```
@@ -241,24 +241,36 @@ Pass criteria:
 
 ## Phase 2 thin-but-structurally-complete regression fixtures
 
-Create four pages: (1) all headings with one generic claim and one file-level pointer, (2) placeholder text under every heading, (3) a valid narrow entity with claim-specific pointers, and (4) a strong multi-source concept. Run `quality --strict --json`.
 
-Pass criteria:
-- fixtures 1 and 2 appear in `phase2_repair_candidates` with reason codes;
-- fixture 3 (narrow named entity, one claim, one source, section-level pointer) does not fail solely for being concise;
-- fixture 4 (multi-source concept, two claims each with a section-level pointer) passes with no repair reasons;
-- a claim with no pointer at all produces `claim_pointer_coverage_below_100_percent`; a claim with only a file-level pointer is reported via `pointer_specificity` but does not block on its own;
-- `--strict` exits nonzero when repair candidates remain;
-- after repairing candidates, rerun quality, lint, retrieval stale, and the bounded semantic acceptance check.
+Create fixtures that separate structural validity from semantic value:
 
+1. Valid v2 summary with locked queries, reviewed/materially-used sources, linked claims, accepted routes, and semantic pass.
+2. Every heading/multiple claims/routes/ranked sources but no target queries.
+3. Unopened source represented as evidence.
+4. Readable canonical source deferred through a reopen trigger.
+5. Missing concept/entity disposition.
+6. Source reference without Phase 1 evidence/use.
+7. Missing or incomplete semantic acceptance.
+8. Topic complete despite failed acceptance.
+9. Legacy v1 compatibility without query-ready promotion.
+10. Query-eval v2 initialization from registry.
+11. Deterministic structural pass that still refuses semantic/query-ready promotion.
+
+Pass only when reason-coded wiring checks behave as specified. Placeholder-positive examples are forbidden; length, headings, and counts are never semantic authority.
 # Apex KB Acceptance Tests
 
 ## Connector checklist and postflight regression fixtures
 
-The runtime registry, connector checklist in `SKILL.md`, and fixture expectations must contain the same eleven reason-code concepts exactly once.
 
-Run postflight in dry-run and write modes and verify the exact schema, seven-stage order, preserved delegate results, dependency skipping, audit nonblocking behavior, and exit codes 0/1/2 for planned/pass, internal error, and blocking failure.
+Verify the browser/Git-connector package and deterministic boundary:
 
+- New scaffold writes all repository-local `semantic-contract/` assets.
+- Existing KB without those assets reports `legacy_semantic_contract` or a migration warning rather than crashing.
+- Connector prompts lock target questions, distinguish candidate/reviewed/used sources, require whole-file read/write/readback, persist ledgers, prohibit artifact-count completion and self-certification, and stop at `compiled_unvalidated`.
+- `semantic-acceptance-status` validates artifacts and returns only `missing`, `partial`, `pass`, or `fail`; it never runs an LLM.
+- Postflight includes semantic acceptance as a blocking stage, preserves delegate results, and uses exit codes 0/1/2 for success/planned, internal error, and blocking failure.
+
+The runtime and fixture expectations must recognize these reason codes: `missing_target_queries`, `unknown_target_query_id`, `target_query_route_missing`, `ranked_source_not_in_source_refs`, `ranked_source_not_analyzed`, `ranked_source_without_claim_use`, `source_ref_without_phase1_evidence`, `candidate_promotion_disposition_missing`, `readable_unopened_source_blocks_completion`, `semantic_acceptance_missing`, `semantic_acceptance_incomplete`, `topic_status_inconsistent`, and `legacy_semantic_contract`.
 ## Generic term-frequency domain-agnosticism fixture
 
 Build a small synthetic raw corpus with vocabulary from an unrelated domain (e.g. cooking: "sourdough", "starter", "fermentation", "pasta", "dough") -- no Apex/skill/Claude-orchestration terms anywhere in it. Run `phase0 --allow-write`.

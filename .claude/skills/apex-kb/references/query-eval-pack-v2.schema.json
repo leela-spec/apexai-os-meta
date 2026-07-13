@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "apex.query_eval_pack.v2",
+  "type": "object",
+  "required": ["schema", "kb_slug", "queries"],
+  "properties": {
+    "schema": {"const": "apex.query_eval_pack.v2"},
+    "kb_slug": {"type": "string", "minLength": 1},
+    "queries": {"type": "array", "items": {"type": "object", "required": ["query_id", "query", "priority", "answer_requirements", "expected_routes", "expected_raw_source_requirement"], "properties": {"query_id": {"type": "string"}, "query": {"type": "string"}, "priority": {"enum": ["critical", "routine", "supporting"]}, "answer_requirements": {"type": "array", "items": {"type": "string"}}, "expected_routes": {"type": "array", "items": {"type": "string"}}, "expected_raw_source_requirement": {"enum": ["not_required", "required_only_for_exception", "required"]}}, "additionalProperties": true}}
+  },
+  "additionalProperties": true
+}

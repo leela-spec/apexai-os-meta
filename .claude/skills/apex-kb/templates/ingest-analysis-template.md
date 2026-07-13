@@ -26,33 +26,47 @@ semantic_compile_policy:
 
 # Phase 1 Ingest Analysis - <source title>
 
-## 1. Source Identity
+
+## 1. Source Identity and Read Record
 
 ```yaml
 source_identity:
   title: "<explicit title or filename>"
   author_or_origin: "<known or unknown>"
   publication_or_creation_date: "YYYY-MM-DD | YYYY-MM | YYYY | unknown"
-  source_authority_level: "primary | secondary | tertiary | unclear"
-  source_authority_rationale: "<source-grounded rationale>"
-  source_scope: "<what the source covers>"
-  source_limitations:
-    - "<limitation or uncertainty>"
+  authority_class: "canonical_specification | implementation_evidence | current_contract | user_story_or_example | historical | proposal | secondary | unknown"
+  authority_rationale: "<source-grounded rationale>"
+  scope: "<what the source covers>"
+  limitations: []
+source_read:
+  read_status: "complete | targeted | blocked"
+  reviewed_passages: []
+  unavailable_reason: "<reason or NA>"
 ```
 
-## 2. Source Summary
+## 2. Target-Query Coverage
+
+```yaml
+target_query_coverage:
+  - query_id: "<stable query id>"
+    outcome: "answered | partial | contradicted | blocked | not_covered"
+    answer_or_finding: "<source-grounded result>"
+    source_pointers: []
+    additional_evidence_required: []
+topic_completion_effect: "supports | partial | blocks"
+```
+
+## 3. Source Summary
 
 ```yaml
 source_summary:
   one_sentence_core: "<central contribution>"
-  compact_summary: "<3-7 sentence source-grounded summary>"
-  relevant_to_kb_because:
-    - "<reason>"
-  likely_not_relevant_for:
-    - "<scope limit>"
+  compact_summary: "<source-grounded summary>"
+  relevant_to_kb_because: []
+  likely_not_relevant_for: []
 ```
 
-## 3. Extraction Candidates
+## 4. Extraction Candidates
 
 ```yaml
 extraction_candidates:
@@ -64,62 +78,83 @@ extraction_candidates:
   reusable_processes: []
 ```
 
-## 4. Concept Candidates
+## 5. Concept Candidates
 
 ```yaml
 concept_candidates:
   - concept_slug: "<kebab-case>"
     concept_label: "<label>"
-    source_pointer: "<heading/page/line/passage>"
+    source_pointer: "<exact pointer>"
     summary: "<source-grounded candidate>"
     confidence: "high | medium | low"
+    disposition: "promote | embed_in_summary | defer_blocked | reject_no_independent_value"
+    disposition_rationale: "<retrieval-value rationale>"
+    target_query_ids: []
+    destination_page: "<wiki path or NA>"
 ```
 
-## 5. Entity Candidates
+## 6. Entity Candidates
 
 ```yaml
 entity_candidates:
   - entity_slug: "<kebab-case>"
     entity_label: "<label>"
     entity_type: "person | organization | tool | project | artifact | other"
-    source_pointer: "<heading/page/line/passage>"
+    source_pointer: "<exact pointer>"
     summary: "<source-grounded candidate>"
     confidence: "high | medium | low"
+    disposition: "promote | embed_in_summary | defer_blocked | reject_no_independent_value"
+    disposition_rationale: "<retrieval-value rationale>"
+    target_query_ids: []
+    destination_page: "<wiki path or NA>"
 ```
 
-## 6. Key Claims
+## 7. Key Claims
 
 ```yaml
 key_claims:
   - claim_id: C001
     claim: "<specific claim>"
     source_pointer: "<heading/page/line/passage>"
+    target_query_ids: []
     confidence: "high | medium | low"
     claim_label: "source_backed_summary"
 ```
 
-## 7. Uncertainty / Raw Source Triggers
+## 8. Uncertainty / Raw Source Triggers
 
 ```yaml
 uncertainty_triggers:
-  # Consolidate contradictions, open questions, and reasons to revisit the raw source.
   - id: U001
-    description: "<contradiction, open question, or uncertainty>"
-    source_pointer: "<heading/page/line/passage>"
+    description: "<conflict, gap, or uncertainty>"
+    source_pointer: "<pointer>"
+    availability_class: "evidence_unavailable | evidence_conflict | future_change | readable_unopened"
+    completion_effect: "none | supporting_gap | blocks_priority_query"
+    affected_query_ids: []
     proposed_handling: "audit_item | planning_task_candidate | revisit_source | leave_as_gap | ask_operator"
 ```
 
-## 8. Proposed Phase 2 Changes
+## 9. Proposed Phase 2 Changes
 
 ```yaml
 proposed_wiki_pages:
   summaries: []
   concepts: []
   entities: []
+page_architecture_rationale: "<answer coverage and duplication rationale>"
 audit_items: []
 manifest_updates: []
 ```
 
-## 9. Compile Decision
+## 10. Compile Decision
 
-If the selected output tier is `analysis_only` or the safe mode is `phase1_only` / `operator_explicit_stop_before_wiki`, stop here. Otherwise continue into Phase 2 wiki compile and produce pages that implement the adaptive page value contract.
+```yaml
+compile_decision:
+  status: operator_review_needed
+  phase_2_ready: true | false
+  unresolved_priority_query_ids: []
+  additional_sources_to_read: []
+  truthful_state_if_stopped: "analysis_complete_unvalidated | partial"
+```
+
+Stop for `analysis_only` or an explicit safe mode. Otherwise continue only when critical evidence coverage is resolved; Phase 2 must follow the v2 page and semantic-acceptance contracts.

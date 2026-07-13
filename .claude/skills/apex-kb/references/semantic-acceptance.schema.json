@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "apex.kb.semantic-acceptance.v1",
+  "type": "object",
+  "required": ["schema", "run_id", "topic_slug", "semantic_contract_version", "evaluator_context", "query_results", "claim_reviews", "repairs", "verdict"],
+  "properties": {
+    "schema": {"const": "apex.kb.semantic-acceptance.v1"},
+    "run_id": {"type": "string", "minLength": 1},
+    "topic_slug": {"type": "string", "minLength": 1},
+    "semantic_contract_version": {"const": "2"},
+    "evaluator_context": {"type": "string", "minLength": 1},
+    "query_results": {"type": "array", "items": {"type": "object", "required": ["query_id", "result", "page_pointers"], "properties": {"query_id": {"type": "string"}, "result": {"enum": ["answerable", "partial", "not_answerable", "blocked"]}, "page_pointers": {"type": "array", "items": {"type": "string"}}, "missing_requirements": {"type": "array", "items": {"type": "string"}}}, "additionalProperties": true}},
+    "claim_reviews": {"type": "array", "items": {"type": "object", "required": ["claim_id", "result", "page_pointer", "source_pointer"], "properties": {"claim_id": {"type": "string"}, "result": {"enum": ["supported", "partially_supported", "contradicted", "unresolvable"]}, "page_pointer": {"type": "string"}, "source_pointer": {"type": "string"}}, "additionalProperties": true}},
+    "repairs": {"type": "array", "items": {"type": "object", "required": ["reason", "target"], "properties": {"reason": {"type": "string"}, "target": {"type": "string"}}, "additionalProperties": true}},
+    "verdict": {"enum": ["semantic_pass", "semantic_partial", "semantic_fail", "insufficient_evidence"]}
+  },
+  "additionalProperties": true
+}

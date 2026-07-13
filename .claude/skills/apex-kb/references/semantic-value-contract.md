@@ -1,0 +1,55 @@
+# Semantic Value Contract
+
+## Completion target
+
+Compiled pages are complete only when a future AI can answer every locked critical and routine target query from compiled pages and precise source pointers without reopening a known readable canonical source for routine work. `compiled_minimal` means the minimum useful page topology; it never means shallow content.
+
+Phase 0 rankings are navigation candidates. Rank, hit count, filename, and prior summaries do not prove authority, complete reading, material use, or topic coverage.
+
+## Truthful states
+
+| State | Meaning |
+|---|---|
+| `analysis_complete_unvalidated` | Required Phase 1 analyses exist, but Phase 2 semantic acceptance is absent. |
+| `partial` | A material query, evidence, page-architecture, candidate-disposition, or acceptance gap remains. |
+| `compiled_unvalidated` | Every critical and routine query has an accepted compiled route and sampled material claims are supported; deterministic postflight has not completed. |
+| `query_ready` | Semantic acceptance passes, deterministic postflight passes, and retrieval is fresh. |
+
+Connector cost, source length, context pressure, or write friction may force `partial`; they never lower these gates.
+
+## Topic registry v2
+
+Each compiled in-scope topic requires `target_queries`:
+
+```yaml
+target_queries:
+  - query_id: "<stable-topic-query-id>"
+    question: "<question future AIs must answer>"
+    priority: "critical | routine | supporting"
+    answer_requirements: []
+    expected_page: "wiki/<type>/<slug>.md"
+```
+
+Query count is adaptive. Broad topics cover definitions, structure, workflow, ownership, rules, relationships, present versus proposed state, examples, and edge cases where material. `source_only` and early `analysis_only` may omit queries. A compiled topic may be `complete` only when every critical and routine query has an existing accepted page route.
+
+## Semantic run ledger
+
+Maintain one JSON ledger per topic at `log/semantic-runs/<run-id>/topics/<topic-slug>.json`, conforming to `semantic-run-ledger.schema.json`. Record target-query status; each candidate's Phase 0 rank, duplicate state, authority, availability, read status, passages reviewed, analysis reference, supported queries, claim/page use, and next action; page-topology decisions; every concept/entity disposition; and completion blockers.
+
+`read_status` is `complete`, `targeted`, `blocked`, or `unopened`. Targeted reading is valid only when the relevant sections and remaining query coverage are explicit. An unopened source never appears as evidence. A known readable canonical source that could answer a critical or routine unresolved query is a continuation condition and blocks completion.
+
+## Phase 1 and Phase 2 traceability
+
+Phase 1 records which target queries the source answers, partially answers, contradicts, blocks, or does not cover, plus additional evidence required and the source's topic completion effect (`supports`, `partial`, or `blocks`). Every concept/entity candidate receives exactly one disposition: `promote`, `embed_in_summary`, `defer_blocked`, or `reject_no_independent_value`, with rationale, affected query IDs, and destination when applicable.
+
+V2 summary, concept, and entity pages declare `semantic_contract_version`, `semantic_run_id`, and `target_query_ids`. Their `Target Questions Answered` section gives direct answer routes. Their Adaptive Ranked Source Set contains only sources actually reviewed and materially used, with analysis references, supported query IDs, claim IDs, rationale, and coverage. Unread candidates stay only in the ledger.
+
+Do not duplicate frontmatter claims or source lists in prose merely to satisfy parsing. Do not use a boundary-only orientation page to satisfy a broad topic. A concept/entity page exists only when it has independent project-specific retrieval value; otherwise preserve the rejection disposition.
+
+## Semantic acceptance
+
+Run acceptance in a clean context that receives compiled pages, target questions, and resolved evidence passages, but not drafting rationale or self-assessment. Write one artifact per topic at `audit/semantic-acceptance/<run-id>/<topic-slug>.json`, conforming to `semantic-acceptance.schema.json`.
+
+Page-only query results are `answerable`, `partial`, `not_answerable`, or `blocked`. Claim-entailment results are `supported`, `partially_supported`, `contradicted`, or `unresolvable`. Final verdicts are `semantic_pass`, `semantic_partial`, `semantic_fail`, or `insufficient_evidence`.
+
+`semantic_pass` requires every critical and routine query to be answerable and every independently sampled material claim to be supported. Numeric averages, headings, file counts, word counts, source counts, and drafter self-report are not acceptance authority.

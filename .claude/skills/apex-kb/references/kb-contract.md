@@ -133,24 +133,40 @@ These three page types are not interchangeable labels on the same generic templa
 
 ### Entity and concept content shape
 
-An entity or concept page's Adaptive Ranked Source Set (below) should be populated primarily from `manifests/phase0/topic-source-rankings.json` when that topic has a registry entry -- a deterministic, hit-count-ranked list of raw files, computed by script, never invented by the LLM. The LLM's own prose contribution should be a short delta only: what does *this project specifically* decide, constrain, or use differently from generic public knowledge of the term. If there is no real project-specific delta, the page is honestly just the ranked pointer list with a one-line note that no project-specific constraint was found -- that is a valid, complete page, not a failure. A page that restates generic public knowledge of the term instead of this delta is exactly the failure mode this contract exists to prevent.
 
+Create an entity or concept page only when it has independent project-specific retrieval value: stable fields, rules, lifecycle, relationships, repeated direct queries, or a definition reused across pages. Populate its Adaptive Ranked Source Set only with sources actually reviewed and materially used. Phase 0 rank may be recorded, but rank never substitutes for reading or evidence use.
+
+If no independent value exists, do not create a pointer-only page. Record `embed_in_summary` or `reject_no_independent_value` in the Phase 1 candidate disposition and topic ledger. Generic public knowledge and ranked pointer lists are never complete project knowledge.
 ## Topic registry
 
-`manifests/topic-registry.json` holds one entry per topic the KB should have a summary page for: `name`, `slug`, `page_type` (almost always `summary`), `keywords` (the input to `rank_topic_sources()` -- never a ranking result itself), `source` (`operator` from the Step 0 interview, or `llm_proposed` from the post-Phase-0 review of `term-frequency.json`), `status` (`not_started`/`draft`/`complete`), and `target_page`. It is operator/LLM-authored input, not a deterministic output -- never write ranking results into it, and never compute its `keywords` field from anything other than the interview or the LLM's own topic proposal. Registry completeness is reported by `status`/`quality` but is not currently a `quality --strict` gate.
 
+`manifests/topic-registry.json` is operator/LLM-authored input. Each topic retains `name`, `slug`, `page_type`, `keywords`, `source`, `status`, and `target_page`, and v2 compiled topics add:
+
+```yaml
+target_queries:
+  - query_id: "<stable-topic-query-id>"
+    question: "<future-AI question>"
+    priority: "critical | routine | supporting"
+    answer_requirements: []
+    expected_page: "wiki/<type>/<slug>.md"
+```
+
+Keep ranking results out of the registry. Empty queries are valid for `source_only` and early `analysis_only`. Every compiled topic requires target queries. `status: complete` is valid only when all critical/routine queries have existing accepted routes and the topic semantic-acceptance artifact is `semantic_pass`.
+
+Maintain the machine-readable topic ledger at `log/semantic-runs/<run-id>/topics/<topic-slug>.json`. It records query status, candidate/read/use distinctions, exact reviewed passages, authority and availability, analyses, pages/claims using each source, unanswered questions, next actions, page decisions, candidate dispositions, and blockers. See `references/semantic-value-contract.md` and `references/semantic-run-ledger.schema.json`.
 ## Page value contract for Phase 2 compiled pages
 
-Phase 2 wiki compile introduces an adaptive page‑level value contract for summary, concept, and entity pages. In addition to the required frontmatter above, compiled pages **must** include the following narrative sections using the exact headings listed:
 
-- **Adaptive Ranked Source Set** – a list of sources ranked by relevance and diversity to the page's scope. The number of sources should scale with KB size, topic breadth, and source diversity. Each entry must include a rationale for its rank and a brief description of coverage. Do **not** impose a fixed 2–5 source cap. For a page tied to a topic registry entry, populate this from `topic-source-rankings.json`'s ranked list rather than from LLM judgment (see Page type definitions above). A source cluster map may optionally be provided in future iterations but is not required.
-- **Macro / Meso / Micro** – a three‑layer synthesis. Macro describes high‑level themes across all sources; Meso captures mid‑level patterns; Micro provides specific details anchored by source pointers.
-- **Key Claims** – specific claims supported by source pointers. Each claim must include an id, description, pointer, confidence, and claim label. This section remains required.
-- **Routes Here** – navigational cues that help users and LLMs route queries to this page. Include route‑by‑question examples and cross‑links to related pages. This integrated routing list replaces prior “Relationships” or “Known Relationships” sections.
-- **Uncertainty / Raw Source Reopen Triggers** – consolidate contradictions, open questions, and any situation that requires revisiting raw sources. Each item must describe the uncertainty, provide a source pointer, and suggest how it should be handled (e.g., audit item, planning task candidate, revisit source, leave as gap, ask operator).
+Phase 2 pages implement semantic contract v2. In addition to required frontmatter, summary, concept, and entity pages declare `semantic_contract_version: "2"`, `semantic_run_id`, and `target_query_ids`, and use these exact sections:
 
-Compiled pages may include additional sections if useful, but must not include any page‑level score metric or impose a rigid 20‑field schema. The goal is to adapt the depth and breadth of each section to the KB context while preserving source grounding and operator oversight.
+- **Target Questions Answered** — map each declared query ID to a direct answer and page section/route. A declared query cannot be satisfied only by an uncertainty notice.
+- **Adaptive Ranked Source Set** — include only sources actually reviewed and materially used. Each entry records source ID/path, original Phase 0 rank when available, Phase 1 analysis reference, reviewed status, supported query IDs, claim IDs, rationale, and coverage. Unreviewed candidates remain only in the topic ledger.
+- **Macro / Meso / Micro** — Macro supplies cross-source framing, Meso supplies rules/workflows/relationships, and Micro supplies exact fields, formulas, examples, edge cases, and source pointers needed by target queries.
+- **Key Claims** — record specific claims with IDs, exact source pointers, confidence, and claim labels. Do not duplicate the same list in frontmatter and prose.
+- **Routes Here** — route target and related questions to answer-bearing sections/pages.
+- **Uncertainty / Raw Source Reopen Triggers** — preserve conflicts and gaps. Classify each trigger as `evidence_unavailable`, `evidence_conflict`, `future_change`, or `readable_unopened`, and record completion effect. `readable_unopened` blocks critical/routine completion.
 
+Depth and source count are adaptive to answer requirements. Boundary-only orientation cannot satisfy a broad domain topic. `compiled_minimal` minimizes page topology, not content or evidence coverage. Pages may add useful sections but never use a numeric page-value score as semantic authority.
 ## Boundary contract
 
 Apex KB may expose read-only evidence packets to Apex Plan, Apex Sync, Apex Session, PreCap, FlowRecap, APSU/status-merge, and personal orchestration. It must not mutate their files or redefine their ownership. Knowledge gaps may be offered as planning candidates, but task creation and status mutation belong outside Apex KB.

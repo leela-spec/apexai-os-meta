@@ -21,27 +21,34 @@ package_manifest:
 
 ## Inventory
 
+
 | Path | Role |
 |---|---|
 | `SKILL.md` | Skill entrypoint and operating procedure |
 | `package-manifest.md` | Package inventory and scope |
+| `references/semantic-value-contract.md` | Completion target, registry v2, ledger, traceability, and acceptance contract |
+| `references/browser-git-connector-semantic-runbook.md` | Connector-only compilation and clean-context evaluator workflow |
+| `references/topic-registry-v2.schema.json` | Topic target-query schema |
+| `references/semantic-run-ledger.schema.json` | Per-topic semantic progress/source-use schema |
+| `references/semantic-acceptance.schema.json` | Independent semantic acceptance schema |
+| `references/query-eval-pack-v2.schema.json` | Query-eval v2 schema |
+| `assets/repository-semantic-contract/` | Repository-local semantic authority copied by scaffold |
 | `references/kb-contract.md` | KB data, source, page, and boundary contract |
 | `references/script-command-contract.md` | Deterministic script command contract |
 | `references/ingest-query-lint-audit-rules.md` | Operational rules for ingest/query/lint/audit |
 | `references/retrieval-contract.md` | Retrieval, index, stale, and query-output contract |
-| `references/lifecycle-state-machine.md` | Deprecated historical/reference state model; `SKILL.md` remains operational authority |
-| `references/acceptance-tests.md` | Local command-level tests |
+| `references/lifecycle-state-machine.md` | Deprecated historical reference; never operational authority |
+| `references/acceptance-tests.md` | Local command-level and semantic-wiring fixtures |
 | `references/knowledge-promotion-rules.md` | Source/candidate/doctrine/runtime promotion gate rules |
-| `references/repo-execution-router-lint-spec.md` | Future deterministic lint spec for repo execution route contracts |
-| `references/historical-path-authority-lint-spec.md` | Future deterministic lint spec for legacy path/current authority separation |
-| `templates/ingest-analysis-template.md` | Phase 1 LLM analysis template |
-| `templates/wiki-page-templates.md` | Phase 2 wiki page templates |
+| `references/repo-execution-router-lint-spec.md` | Repo execution route lint spec |
+| `references/historical-path-authority-lint-spec.md` | Legacy path/current authority lint spec |
+| `templates/ingest-analysis-template.md` | Phase 1 query-linked analysis template |
+| `templates/wiki-page-templates.md` | Phase 2 v2 answer-bearing page templates |
 | `templates/query-output-template.md` | Query packet template |
 | `templates/kb-schema-template.md` | Starter `kb-schema.md` |
 | `templates/source-manifest-template.json` | Starter source manifest |
 | `examples/powershell-commands.md` | PowerShell local commands |
 | `examples/lifecycle-runbook.md` | Example-only terminal-backed lifecycle sequence |
-
 ## Canonical runtime KB paths
 
 ```yaml

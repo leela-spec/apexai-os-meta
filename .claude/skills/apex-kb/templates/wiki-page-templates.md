@@ -2,20 +2,25 @@
 
 ## Phase 2 adaptive page value rules
 
-- Use the exact required headings: Adaptive Ranked Source Set, Macro / Meso / Micro, Key Claims, Routes Here, and Uncertainty / Raw Source Reopen Triggers.
-- Do not impose a fixed source count. Carry every materially relevant Phase 1 source for broad pages; narrow pages may need only one or a few sources.
-- Do not require a separate source cluster map on every page.
-- Do not add a `page_value_score` metric.
-- Prefer warnings/reporting for missing value sections before hard failures.
-- **Entity and concept pages are not miniature encyclopedias.** Their Adaptive Ranked Source Set should come from `manifests/phase0/topic-source-rankings.json` when a registry entry exists for that topic (real, script-computed hit-count ranking, never invented). Their prose should be a short delta: what this project specifically decides or constrains about the term, not a restatement of what the term generically is. See `references/kb-contract.md` -> Page type definitions.
 
+- Use the exact required headings: Target Questions Answered, Adaptive Ranked Source Set, Macro / Meso / Micro, Key Claims, Routes Here, and Uncertainty / Raw Source Reopen Triggers.
+- Declare only target-query IDs this page directly answers. A broad page must answer the material sub-questions, not merely state boundaries.
+- Include only sources actually reviewed and materially used. Preserve unopened candidates in the topic ledger, never in page evidence.
+- Scale sources and depth to answer requirements. `compiled_minimal` minimizes topology, not content.
+- Do not duplicate frontmatter claims/source lists in prose or add numeric page-value scores.
+- Create concept/entity pages only for independent project-specific retrieval value; otherwise preserve an embed/reject disposition.
+- Run clean-context page-only and claim-entailment acceptance before `compiled_unvalidated`.
 ## Shared frontmatter
+
 
 ```yaml
 required_fields:
   title: "<page title>"
   page_type: "summary | concept | entity | index | query_output | audit_item"
   kb_slug: "<kb-slug>"
+  semantic_contract_version: "2"
+  semantic_run_id: "<run-id>"
+  target_query_ids: []
   source_refs:
     - source_id: "<source-id>"
       source_path: "<raw/source/path/or/pointer>"
@@ -28,7 +33,6 @@ required_fields:
   claim_label: "raw_source | source_backed_summary | behavioral_inference | working_hypothesis | operator_question | practitioner_question"
   status: "draft | active | needs_review | deprecated | superseded"
 ```
-
 ## Summary page
 
 ```markdown
@@ -37,6 +41,9 @@ title: "<Source or Topic Summary>"
 page_type: summary
 kb_slug: "<kb-slug>"
 summary_slug: "<summary-slug>"
+semantic_contract_version: "2"
+semantic_run_id: "<run-id>"
+target_query_ids: []
 source_refs:
   - source_id: "<source-id>"
     source_path: "<path>"
@@ -57,7 +64,16 @@ review_flags: []
 
 ## Core Summary
 
-<Source-grounded summary. Do not generalize beyond evidence.>
+<Direct source-grounded synthesis that answers the declared target questions.>
+
+## Target Questions Answered
+
+```yaml
+target_questions_answered:
+  - query_id: "<stable query id>"
+    direct_answer: "<answer sufficient for compiled-first retrieval>"
+    answer_section: "<this page heading or related page>"
+```
 
 ## What This Adds
 
@@ -71,12 +87,16 @@ limits: []
 
 ```yaml
 adaptive_ranked_sources:
-  # Provide a ranked list of sources supporting this summary.
-  # Scale the number of sources with KB size, topic breadth, and source diversity.
-  # Each entry should include a rationale for its rank and coverage description.
+  # Include only sources actually reviewed and materially used.
   - source_id: "<source-id>"
-    rationale: "<why this source is ranked here relative to others>"
-    coverage: "<brief description of what the source covers>"
+    source_path: "<path>"
+    phase0_rank: 1 | NA
+    analysis_ref: "ingest-analysis/<source>.analysis.md"
+    reviewed_status: "complete | targeted"
+    supported_query_ids: []
+    claim_ids: []
+    rationale: "<authority and relevance>"
+    coverage: "<material contribution>"
 ```
 
 ## Macro / Meso / Micro
@@ -139,6 +159,9 @@ title: "<Concept Label>"
 page_type: concept
 kb_slug: "<kb-slug>"
 concept_slug: "<concept-slug>"
+semantic_contract_version: "2"
+semantic_run_id: "<run-id>"
+target_query_ids: []
 source_refs:
   - source_id: "<source-id>"
     source_path: "<path>"
@@ -159,7 +182,16 @@ review_flags: []
 
 ## Definition
 
-<Definition grounded in cited source pointers. If this concept has a topic-registry entry, lead with the project-specific delta -- what this project decides or constrains -- not a generic restatement of the term.>
+<Project-specific definition and operating consequences grounded in exact source pointers.>
+
+## Target Questions Answered
+
+```yaml
+target_questions_answered:
+  - query_id: "<stable query id>"
+    direct_answer: "<answer sufficient for compiled-first retrieval>"
+    answer_section: "<this page heading or related page>"
+```
 
 ## Operating Rules
 
@@ -171,12 +203,16 @@ rules: []
 
 ```yaml
 adaptive_ranked_sources:
-  # Populate from manifests/phase0/topic-source-rankings.json when this concept has a
-  # registry entry -- real hit-count-ranked files, computed by script. Only fall back to
-  # LLM-judged ranking when no registry entry exists for this topic.
+  # Include only sources actually reviewed and materially used.
   - source_id: "<source-id>"
-    rationale: "<why this source is ranked here>"
-    coverage: "<brief description of the source's coverage>"
+    source_path: "<path>"
+    phase0_rank: 1 | NA
+    analysis_ref: "ingest-analysis/<source>.analysis.md"
+    reviewed_status: "complete | targeted"
+    supported_query_ids: []
+    claim_ids: []
+    rationale: "<authority and relevance>"
+    coverage: "<material contribution>"
 ```
 
 ## Macro / Meso / Micro
@@ -245,6 +281,9 @@ title: "<Entity Label>"
 page_type: entity
 kb_slug: "<kb-slug>"
 entity_slug: "<entity-slug>"
+semantic_contract_version: "2"
+semantic_run_id: "<run-id>"
+target_query_ids: []
 entity_type: "person | organization | tool | project | artifact | source | other"
 source_refs:
   - source_id: "<source-id>"
@@ -274,18 +313,31 @@ entity:
 
 ## Source-Grounded Summary
 
-<Summary grounded in source pointers. If this entity has a topic-registry entry, lead with the project-specific delta -- what this project decides, constrains, or uses differently -- not a generic restatement of what the entity is.>
+<Project-specific identity, fields, rules, lifecycle, and relationships grounded in exact source pointers.>
+
+## Target Questions Answered
+
+```yaml
+target_questions_answered:
+  - query_id: "<stable query id>"
+    direct_answer: "<answer sufficient for compiled-first retrieval>"
+    answer_section: "<this page heading or related page>"
+```
 
 ## Adaptive Ranked Source Set
 
 ```yaml
 adaptive_ranked_sources:
-  # Populate from manifests/phase0/topic-source-rankings.json when this entity has a
-  # registry entry -- real hit-count-ranked files, computed by script. Only fall back to
-  # LLM-judged ranking when no registry entry exists for this topic.
+  # Include only sources actually reviewed and materially used.
   - source_id: "<source-id>"
-    rationale: "<why this source is ranked here>"
-    coverage: "<brief description of the source's coverage>"
+    source_path: "<path>"
+    phase0_rank: 1 | NA
+    analysis_ref: "ingest-analysis/<source>.analysis.md"
+    reviewed_status: "complete | targeted"
+    supported_query_ids: []
+    claim_ids: []
+    rationale: "<authority and relevance>"
+    coverage: "<material contribution>"
 ```
 
 ## Macro / Meso / Micro

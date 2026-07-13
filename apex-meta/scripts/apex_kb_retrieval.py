@@ -779,6 +779,13 @@ def build_parser() -> argparse.ArgumentParser:
 
 
 def main(argv: Optional[Sequence[str]] = None) -> int:
+    # Windows PowerShell commonly exposes a legacy console code page. Query
+    # results are UTF-8 repository content and must remain printable when they
+    # contain symbols such as Δ or typographic punctuation.
+    if hasattr(sys.stdout, "reconfigure"):
+        sys.stdout.reconfigure(encoding="utf-8")
+    if hasattr(sys.stderr, "reconfigure"):
+        sys.stderr.reconfigure(encoding="utf-8")
     argv = normalize_global_flag_placement(list(argv) if argv is not None else sys.argv[1:])
     parser = build_parser()
     args = parser.parse_args(argv)

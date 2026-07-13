@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "apex.kb.semantic-run-ledger.v1",
+  "type": "object",
+  "required": ["schema", "run_id", "topic_slug", "target_queries", "sources", "page_decisions", "candidate_dispositions", "completion_blockers"],
+  "properties": {
+    "schema": {"const": "apex.kb.semantic-run-ledger.v1"},
+    "run_id": {"type": "string", "minLength": 1},
+    "topic_slug": {"type": "string", "minLength": 1},
+    "target_queries": {"type": "array", "items": {"type": "object", "required": ["query_id", "status"], "properties": {"query_id": {"type": "string"}, "status": {"enum": ["answered", "partial", "blocked", "unanswered"]}, "next_action": {"type": "string"}}, "additionalProperties": true}},
+    "sources": {"type": "array", "items": {"type": "object", "required": ["source", "authority_class", "availability", "read_status", "query_ids_supported", "claim_ids_used"], "properties": {"source": {"type": "string"}, "phase0_rank": {"type": ["integer", "null"]}, "duplicate_status": {"enum": ["unique", "duplicate", "possible_duplicate", "unknown"]}, "authority_class": {"enum": ["canonical_specification", "implementation_evidence", "current_contract", "user_story_or_example", "historical", "proposal", "secondary", "unknown"]}, "availability": {"enum": ["readable", "unavailable", "unknown"]}, "read_status": {"enum": ["complete", "targeted", "blocked", "unopened"]}, "reviewed_passages": {"type": "array", "items": {"type": "string"}}, "analysis_ref": {"type": ["string", "null"]}, "query_ids_supported": {"type": "array", "items": {"type": "string"}}, "claim_ids_used": {"type": "array", "items": {"type": "string"}}, "pages_used_in": {"type": "array", "items": {"type": "string"}}, "next_action": {"type": "string"}}, "additionalProperties": true}},
+    "page_decisions": {"type": "array", "items": {"type": "object"}},
+    "candidate_dispositions": {"type": "array", "items": {"type": "object", "required": ["candidate", "kind", "disposition", "rationale", "query_ids"], "properties": {"candidate": {"type": "string"}, "kind": {"enum": ["concept", "entity"]}, "disposition": {"enum": ["promote", "embed_in_summary", "defer_blocked", "reject_no_independent_value"]}, "rationale": {"type": "string"}, "query_ids": {"type": "array", "items": {"type": "string"}}, "destination_page": {"type": ["string", "null"]}}, "additionalProperties": true}},
+    "completion_blockers": {"type": "array", "items": {"type": "string"}}
+  },
+  "additionalProperties": true
+}

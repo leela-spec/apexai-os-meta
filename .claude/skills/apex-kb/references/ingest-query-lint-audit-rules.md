@@ -51,12 +51,16 @@ Python may create only deterministic artifacts under `manifests/phase0/`. Phase 
 
 ### Phase 1
 
-LLM writes one analysis under `ingest-analysis/<source-slug>.analysis.md`. It must include source identity, source summary, extraction candidates, concept/entity candidates, key claims, uncertainty/raw source triggers, and proposed wiki changes. It must halt with `operator_review_needed`.
 
+LLM writes one source analysis under `ingest-analysis/<source-slug>.analysis.md`. In addition to source identity, summary, extraction candidates, concepts/entities, claims, uncertainty, and proposed changes, it records source read status/passages, authority, target-query outcomes, additional evidence required, and topic completion effect.
+
+Every concept/entity candidate receives exactly one disposition: `promote`, `embed_in_summary`, `defer_blocked`, or `reject_no_independent_value`, with rationale, affected query IDs, and destination when applicable. Phase 1 ends at `operator_review_needed`; Phase 1 alone is `analysis_complete_unvalidated`.
 ### Phase 2
 
-When the selected output tier includes wiki output, Phase 2 follows Phase 1 in the same semantic compile by default. It halts only for `analysis_only`, `phase1_only`, or `operator_explicit_stop_before_wiki`. Compiled wiki pages must implement the Phase 2 page value contract, including the sections Adaptive Ranked Source Set, Macro / Meso / Micro, Key Claims, Routes Here, and Uncertainty / Raw Source Reopen Triggers. Uncertainties and low-confidence claims must remain visible.
 
+When the selected output tier includes wiki output, Phase 2 follows Phase 1 unless a safe stop mode applies. Source selection continues until locked critical/routine questions are covered or evidence is genuinely unavailable. Rankings nominate candidates only. A readable known source that can answer an unresolved priority query blocks completion.
+
+Pages implement semantic contract v2, answer declared target queries directly, use only reviewed/materially-used evidence, preserve contradictions, and expose classified reopen triggers. Run clean-context page-only and claim-entailment acceptance before `compiled_unvalidated`. Connector constraints may produce `partial`; they never reduce semantic requirements.
 ## Query rules
 
 1. Read `wiki/index.md` first.
@@ -69,12 +73,14 @@ When the selected output tier includes wiki output, Phase 2 follows Phase 1 in t
 
 ### Query-eval pack
 
-`query-eval` validates or initializes `outputs/queries/evals/query-eval-pack.json`. Each entry defines `expected_routes`, `expected_minimal_pages`, and `raw_source_needed` for a query. The script validates pack schema only — it never grades answer quality and never runs an LLM eval.
 
+`query-eval` reads v1 packs for compatibility and initializes `apex.query_eval_pack.v2` from registry target queries when present. Each v2 entry records query ID, priority, answer requirements, expected routes, and expected raw-source requirement. The command validates structure and route references only; it never runs an LLM or grades answer meaning. Legacy v1 packs receive a migration report.
 ## Quality / coverage rules
 
-`quality` (alias `coverage`) reports `source_to_page_map`, `page_to_source_map`, pages missing `source_refs`, pages missing Phase 2 value sections, and structural repair/shell-page candidates. All checks are deterministic and structural — no LLM grading, no `page_value_score`. Findings are report-only by default; `--strict` turns repair candidates into a blocking failure.
 
+`quality` (alias `coverage`) reports structural page metrics and v2 contract wiring. Strict v2 findings include missing/unknown target-query IDs, absent routes, ranked/reference/analysis/use inconsistencies, missing candidate dispositions, readable unopened blockers, missing/incomplete semantic acceptance, inconsistent topic status, and legacy semantic contracts.
+
+These checks are deterministic and reason-coded. They validate declared interfaces and evidence wiring; they never infer semantic meaning. A structural pass cannot create `semantic_pass`.
 ## Lint rules
 
 Deterministic lint checks:
@@ -106,5 +112,9 @@ Audit items live under `audit/`; resolved items move to `audit/resolved/`. Audit
 
 ## Phase 2 acceptance and repair loop
 
-After wiki drafting, deterministic quality/lint runs first. Then a bounded independent semantic review checks target-query usefulness, claim specificity, source support, distinct Macro/Meso/Micro value, uncertainty preservation, routes, and raw-source reopen triggers. Verdicts are `semantic_pass`, `semantic_partial`, `semantic_fail`, or `insufficient_evidence`. Only reason-coded failed candidates are repaired; the failed gates are then rerun. Headings, source counts, length, or the drafting model's self-report cannot independently produce a pass.
 
+After deterministic wiring checks, a clean-context evaluator answers every target query using compiled pages first and independently checks material claims against resolved source passages. Store one artifact per topic under `audit/semantic-acceptance/<run-id>/<topic-slug>.json`.
+
+Query results are `answerable`, `partial`, `not_answerable`, or `blocked`. Claim results are `supported`, `partially_supported`, `contradicted`, or `unresolvable`. Final verdicts are `semantic_pass`, `semantic_partial`, `semantic_fail`, or `insufficient_evidence`.
+
+Every critical/routine query must be answerable and every sampled material claim supported for `semantic_pass`. No numeric average, headings, counts, length, rankings, or drafter self-report can establish acceptance. Repair only reason-coded failures and reevaluate in a fresh context.

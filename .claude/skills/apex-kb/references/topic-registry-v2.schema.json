@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "apex.kb.topic-registry.v2",
+  "type": "object",
+  "required": ["topics"],
+  "properties": {
+    "schema": {
+      "enum": ["apex.kb.topic-registry.v2", "2"]
+    },
+    "topics": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "slug", "status", "target_page"],
+        "properties": {
+          "name": {"type": "string"},
+          "slug": {"type": "string"},
+          "status": {"enum": ["not_started", "draft", "complete"]},
+          "target_page": {"type": "string"},
+          "keywords": {
+            "type": "array",
+            "items": {"type": "string"}
+          },
+          "target_queries": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["query_id", "question", "priority", "answer_requirements", "expected_page"],
+              "properties": {
+                "query_id": {"type": "string"},
+                "question": {"type": "string"},
+                "priority": {"enum": ["critical", "routine", "supporting"]},
+                "answer_requirements": {
+                  "type": "array",
+                  "items": {"type": "string"}
+                },
+                "expected_page": {"type": "string"}
+              },
+              "additionalProperties": true
+            }
+          }
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "additionalProperties": true
+}
