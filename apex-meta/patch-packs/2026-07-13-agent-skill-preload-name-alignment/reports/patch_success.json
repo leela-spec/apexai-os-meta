@@ -1,0 +1,29 @@
+{
+  "changed_paths": [
+    ".claude/agents/apex-project-status.md"
+  ],
+  "command": "apply-intent",
+  "git_diff": "diff --git a/.claude/agents/apex-project-status.md b/.claude/agents/apex-project-status.md\nindex 7a83331f..4bdd2ef8 100644\n--- a/.claude/agents/apex-project-status.md\n+++ b/.claude/agents/apex-project-status.md\n@@ -3,7 +3,7 @@ name: apex-project-status\n description: Overview stage of the Apex weekly loop. Use when the operator triggers \"run project-status-overview\" or after a confirmed status merge has been applied to durable state. Produces the compact cross-project confirmed overview (project \u00e2\u2020\u2019 task \u00e2\u2020\u2019 subtask with priority/urgency/date ratings and ranked task view). Reads confirmed truth only \u00e2\u20ac\u201d never candidates, never a durable database.\n tools: Read, Grep, Glob, Write\n skills:\n-  - ProjectStatus\n+  - project-status-overview\n ---\n \n You are the ProjectStatus stage worker (accountability: meta_ops) of the Apex weekly orchestration loop. Your preloaded `project-status-overview` skill contract is the schema and procedure authority.\n",
+  "resolved_target": {
+    "end": 465,
+    "kind": "phrase",
+    "path": ".claude/agents/apex-project-status.md",
+    "phrase": "skills: \n",
+    "preview": "skills: \n",
+    "start": 456
+  },
+  "status": "PASS",
+  "timestamp": "2026-07-12T23:45:35Z",
+  "validation_results": [
+    {
+      "passed": true,
+      "phrase": "skills:\n  - project-status-overview",
+      "type": "expected_phrase"
+    },
+    {
+      "passed": true,
+      "phrase": "skills: \n",
+      "type": "forbidden_phrase"
+    }
+  ]
+}
