@@ -126,7 +126,18 @@ def ensure_inside(root: Path, path: Path) -> None:
 
 
 def relpath(root: Path, path: Path) -> str:
-    return path.resolve().relative_to(root.resolve()).as_posix()
+    resolved = path.resolve()
+    try:
+        return resolved.relative_to(root.resolve()).as_posix()
+    except ValueError:
+        # Repository-pointer mode keeps canonical files in the Leela worktree;
+        # expose portable repository-relative paths instead of copying them.
+        current = resolved
+        while current != current.parent:
+            if (current / ".git").exists():
+                return resolved.relative_to(current).as_posix()
+            current = current.parent
+        raise
 
 
 def read_text(path: Path) -> str:
@@ -698,6 +709,21 @@ def cmd_preflight(args: argparse.Namespace) -> Dict[str, Any]:
 
 
 def iter_source_files(kb_root: Path) -> List[Path]:
+    scope_path = kb_root / "manifests" / "corpus-scope.json"
+    if scope_path.exists():
+        try:
+            scope = json.loads(read_text(scope_path))
+        except (OSError, json.JSONDecodeError):
+            scope = {}
+        if scope.get("source_mode") == "repository_pointers":
+            repo_root = find_repo_root(kb_root)
+            source_root = repo_root / str(scope.get("repository_source_root", "")) if repo_root else None
+            files: List[Path] = []
+            for folder in scope.get("included_folders", []):
+                root = source_root / str(folder) if source_root else None
+                if root and root.exists():
+                    files.extend(p for p in sorted(root.rglob("*")) if p.is_file() and p.suffix.lower() in TEXT_EXTS)
+            return files
     roots = [kb_root / "sources", kb_root / "raw"]
     excluded_parts = {"manifests", "wiki", "ingest-analysis", "derived", "outputs", "audit", "log"}
     files: List[Path] = []
@@ -1142,6 +1168,25 @@ def _normal_version_name(value: str) -> str:
 
 
 def _corpus_map_source_records(kb_root: Path) -> List[Dict[str, Any]]:
+    if (kb_root / "manifests" / "corpus-scope.json").exists():
+        try:
+            scope = json.loads(read_text(kb_root / "manifests" / "corpus-scope.json"))
+        except (OSError, json.JSONDecodeError):
+            scope = {}
+        if scope.get("source_mode") == "repository_pointers":
+            records = []
+            repo_root = find_repo_root(kb_root)
+            source_root = repo_root / str(scope.get("repository_source_root", "")) if repo_root else None
+            all_paths: List[Path] = []
+            for folder in scope.get("included_folders", []):
+                root = source_root / str(folder) if source_root else None
+                if root and root.exists():
+                    all_paths.extend(p for p in sorted(root.rglob("*")) if p.is_file())
+            for path in all_paths:
+                digest = sha256_file(path)
+                records.append({"source_id": "src-" + digest[:16], "path": relpath(kb_root, path), "sha256": digest,
+                    "size_bytes": path.stat().st_size, "group": path.parent.name, "path_obj": path})
+            return sorted(records, key=lambda row: row["path"])
     payload_path = kb_root / SOURCE_PAYLOAD_MANIFEST_PATH
     payload = json.loads(read_text(payload_path)) if payload_path.exists() else {}
     records: List[Dict[str, Any]] = []
