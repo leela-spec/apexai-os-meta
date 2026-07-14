@@ -25,6 +25,7 @@ import os
 import re
 import shutil
 import sys
+import zipfile
 from collections import Counter, defaultdict
 from datetime import datetime, timezone
 from pathlib import Path
@@ -74,6 +75,9 @@ QUALITY_REASON_CODES = (
     "candidate_promotion_disposition_missing", "readable_unopened_source_blocks_completion",
     "semantic_acceptance_missing", "semantic_acceptance_incomplete",
     "topic_status_inconsistent", "legacy_semantic_contract",
+    "candidate_missing_from_atlas", "unknown_candidate_id", "atlas_candidate_duplicate",
+    "atlas_missing_content_snapshot", "atlas_missing_evidence_pointer", "atlas_source_unopened",
+    "material_source_without_phase1_evidence", "target_source_map_atlas_out_of_sync",
 )
 QUALITY_REASON = {code: code for code in QUALITY_REASON_CODES}
 TEXT_EXTS = {".md", ".mdx", ".txt", ".yaml", ".yml", ".json", ".csv", ".py", ".toml"}
@@ -326,7 +330,7 @@ def normalize_global_flag_placement(argv: Sequence[str]) -> Sequence[str]:
         "scaffold", "source-intake", "hash", "generate-source-payload-manifest", "source-payload-manifest",
         "payload-manifest", "preflight", "phase0", "ingest-phase1", "ingest-phase2", "index", "query",
         "lint", "lint-repo-execution-router", "lint-historical-path-authority", "audit", "status", "health",
-        "quality", "coverage", "query-eval", "semantic-acceptance-status", "graph", "process-graph", "postflight",
+        "quality", "coverage", "query-eval", "semantic-acceptance-status", "graph", "process-graph", "corpus-map", "extract-nonmarkdown", "postflight",
     }
     value_flags = {"--output-json"}
     bool_flags = {"--json", "--dry-run", "--allow-write", "--strict"}
@@ -1096,6 +1100,9 @@ def rank_topic_sources(kb_root: Path, files: List[Path], registry: List[Dict[str
     for entry in registry:
         slug = str(entry.get("slug") or slugify(str(entry.get("name", "unnamed"))))
         keywords = [str(k).lower() for k in entry.get("keywords", []) if str(k).strip()]
+        for field in ("primary_phrases", "aliases", "supporting_terms", "feature_cooccurrence_terms"):
+            keywords.extend(str(k).lower() for k in entry.get(field, []) if str(k).strip())
+        keywords = list(dict.fromkeys(keywords))
         if not keywords:
             results[slug] = {"name": entry.get("name"), "keywords": [], "ranked_sources": []}
             continue
@@ -1117,8 +1124,195 @@ def rank_topic_sources(kb_root: Path, files: List[Path], registry: List[Dict[str
             if hit_count:
                 file_hits.append({"path": relpath(kb_root, path), "hit_count": hit_count, "sample": sample_snippet})
         file_hits.sort(key=lambda r: (-r["hit_count"], r["path"]))
-        results[slug] = {"name": entry.get("name"), "keywords": keywords, "ranked_sources": file_hits[:30]}
+        results[slug] = {"name": entry.get("name"), "keywords": keywords, "ranked_sources": file_hits}
     return results
+
+
+def _corpus_map_terms(topic: Dict[str, Any]) -> List[str]:
+    values: List[str] = []
+    for field in ("keywords", "primary_phrases", "aliases", "supporting_terms", "feature_cooccurrence_terms"):
+        values.extend(str(v).strip().lower() for v in topic.get(field, []) if str(v).strip())
+    return list(dict.fromkeys(values))
+
+
+def _normal_version_name(value: str) -> str:
+    value = value.lower()
+    value = re.sub(r"\b(v(?:ersion)?\s*\d+(?:\.\d+)?|\d{1,2}[-_.]\d{1,2}[-_.]\d{2,4}|new|old|update(?:d)?|archiv(?:e)?)\b", " ", value)
+    return re.sub(r"[^a-z0-9]+", " ", value).strip()
+
+
+def _corpus_map_source_records(kb_root: Path) -> List[Dict[str, Any]]:
+    payload_path = kb_root / SOURCE_PAYLOAD_MANIFEST_PATH
+    payload = json.loads(read_text(payload_path)) if payload_path.exists() else {}
+    records: List[Dict[str, Any]] = []
+    for row in payload.get("files", []) if isinstance(payload, dict) else []:
+        if not isinstance(row, dict) or not row.get("path"):
+            continue
+        path = kb_root / str(row["path"])
+        path_text = str(row["path"])
+        records.append({
+            "source_id": "src-" + str(row.get("sha256", sha256_file(path) if path.exists() else path_text))[:16],
+            "path": path_text.replace("\\", "/"), "sha256": row.get("sha256"), "size_bytes": row.get("size_bytes"),
+            "group": row.get("group"), "path_obj": path,
+        })
+    return sorted(records, key=lambda row: row["path"])
+
+
+def build_corpus_map(kb_root: Path) -> Tuple[Dict[str, Any], Dict[str, Any], Dict[str, Any], str]:
+    """Build exhaustive deterministic candidate navigation.  It deliberately
+    records signals and folder priority hints, never semantic authority."""
+    registry = load_topic_registry(kb_root)
+    records = _corpus_map_source_records(kb_root)
+    by_hash: Dict[str, List[str]] = defaultdict(list)
+    by_version: Dict[str, List[str]] = defaultdict(list)
+    structures: Dict[str, Dict[str, Any]] = {}
+    postings: Dict[str, Any] = {"schema": "apex.kb.source-postings.v1", "sources": []}
+    for record in records:
+        path = record["path_obj"]
+        suffix = path.suffix.lower()
+        text = ""
+        structure: Dict[str, Any] = {}
+        if suffix in TEXT_EXTS and path.exists():
+            text = read_text(path)
+            if suffix in {".md", ".mdx"}:
+                structure = parse_markdown_structure(path, kb_root)
+        record["text"] = text
+        record["structure"] = structure
+        if record.get("sha256"):
+            by_hash[str(record["sha256"])].append(record["path"])
+        by_version[_normal_version_name(path.stem)].append(record["path"])
+        postings["sources"].append({
+            "source_id": record["source_id"], "path": record["path"], "sha256": record.get("sha256"),
+            "text_readable": suffix in TEXT_EXTS, "headings": structure.get("headings", []),
+            "links": structure.get("markdown_links", []) + structure.get("wikilinks", []),
+        })
+    duplicates = {digest: paths for digest, paths in sorted(by_hash.items()) if len(paths) > 1}
+    families = [{"normalized_name": name, "paths": paths, "evidence": "normalized filename/version tokens", "authority": "unresolved"}
+                for name, paths in sorted(by_version.items()) if name and len(paths) > 1]
+    family_map = {path: family for family in families for path in family["paths"]}
+    topic_map: Dict[str, Any] = {"schema": "apex.kb.topic-source-map.v1", "topics": []}
+    nav_lines = ["# Topic Navigation", "", "Compact projection of exhaustive `topic-source-map.json`; classifications are navigation hints, not authority.", ""]
+    for topic in registry:
+        slug = str(topic.get("slug") or slugify(str(topic.get("name", "topic"))))
+        terms = _corpus_map_terms(topic)
+        candidates: List[Dict[str, Any]] = []
+        for record in records:
+            path = record["path"]
+            file_name = Path(path).name.lower()
+            body = record["text"].lower()
+            headings = "\n".join(h.get("text", "") for h in record["structure"].get("headings", [])).lower()
+            link_text = "\n".join(str(v) for v in record["structure"].get("markdown_links", [])).lower()
+            signals = {"path": [term for term in terms if term in path.lower()], "filename": [term for term in terms if term in file_name],
+                       "heading": [term for term in terms if term in headings], "body": [term for term in terms if term in body],
+                       "link": [term for term in terms if term in link_text]}
+            hit_count = sum(len(v) for v in signals.values())
+            duplicate_of = duplicates.get(record.get("sha256"), []) if record.get("sha256") else []
+            if len(duplicate_of) > 1:
+                classification = "exact_duplicate"
+            elif signals["heading"] or signals["filename"]:
+                classification = "direct"
+            elif len(signals["body"]) >= 2:
+                classification = "dense"
+            elif signals["body"]:
+                classification = "contextual"
+            elif signals["link"]:
+                classification = "linked"
+            else:
+                classification = "contextual"
+            candidate_id = "cand-" + hashlib.sha256((slug + "\0" + path).encode("utf-8")).hexdigest()[:16]
+            candidates.append({"candidate_id": candidate_id, "source_id": record["source_id"], "path": path,
+                "sha256": record.get("sha256"), "classification": classification, "signal_evidence": signals,
+                "folder_priority_hint": record.get("group"), "exact_duplicate_paths": duplicate_of,
+                "possible_version_family": family_map.get(path), "text_readable": bool(record["text"]),
+                "content_pointer": {"path": path, "headings": record["structure"].get("headings", [])}})
+        candidates.sort(key=lambda row: (-sum(len(v) for v in row["signal_evidence"].values()), row["path"]))
+        topic_map["topics"].append({"slug": slug, "name": topic.get("name"), "discovery_terms": terms, "candidate_count": len(candidates), "candidates": candidates})
+        nav_lines.extend([f"## {topic.get('name', slug)}", "", f"- Exhaustive candidates: `{len(candidates)}`", "", "| classification | path | signals |", "|---|---|---:|"])
+        for candidate in candidates:
+            count = sum(len(v) for v in candidate["signal_evidence"].values())
+            if count or candidate["classification"] == "exact_duplicate":
+                nav_lines.append(f"| {candidate['classification']} | `{candidate['path']}` | {count} |")
+        nav_lines.append("")
+    family_doc = {"schema": "apex.kb.duplicate-and-version-families.v1", "exact_duplicate_groups":
+                  [{"sha256": digest, "paths": paths} for digest, paths in duplicates.items()], "possible_version_families": families}
+    return postings, family_doc, topic_map, "\n".join(nav_lines) + "\n"
+
+
+def cmd_corpus_map(args: argparse.Namespace) -> Dict[str, Any]:
+    kb_root = resolve_kb_root(args.kb_root)
+    postings, families, topic_map, navigation = build_corpus_map(kb_root)
+    dry_run = effective_dry_run(args)
+    writes = [
+        write_text(kb_root / PHASE0_DIR / "source-postings.json", json.dumps(postings, indent=2, ensure_ascii=False, sort_keys=True) + "\n", kb_root, args.allow_write, dry_run),
+        write_text(kb_root / PHASE0_DIR / "duplicate-and-version-families.json", json.dumps(families, indent=2, ensure_ascii=False, sort_keys=True) + "\n", kb_root, args.allow_write, dry_run),
+        write_text(kb_root / PHASE0_DIR / "topic-source-map.json", json.dumps(topic_map, indent=2, ensure_ascii=False, sort_keys=True) + "\n", kb_root, args.allow_write, dry_run),
+        write_text(kb_root / PHASE0_DIR / "topic-navigation.md", navigation, kb_root, args.allow_write, dry_run),
+    ]
+    return {"command": "corpus-map", "dry_run": dry_run, "writes": writes, "source_count": len(postings["sources"]),
+            "topic_candidate_counts": {t["slug"]: t["candidate_count"] for t in topic_map["topics"]}}
+
+
+def _extract_nonmarkdown_text(path: Path) -> Tuple[Optional[str], str]:
+    suffix = path.suffix.lower()
+    try:
+        if suffix == ".xlsx":
+            from openpyxl import load_workbook
+            book = load_workbook(path, read_only=True, data_only=False)
+            lines = []
+            for sheet in book.worksheets:
+                lines.append(f"# Sheet: {sheet.title} ({sheet.max_row}x{sheet.max_column})")
+                for row in sheet.iter_rows(values_only=False):
+                    values = [str(cell.value) for cell in row if cell.value is not None]
+                    if values:
+                        lines.append(" | ".join(values))
+            return "\n".join(lines) + "\n", "extracted"
+        if suffix == ".docx":
+            from docx import Document
+            doc = Document(path)
+            lines = [p.text for p in doc.paragraphs if p.text.strip()]
+            for table in doc.tables:
+                for row in table.rows:
+                    lines.append(" | ".join(cell.text.strip() for cell in row.cells))
+            return "\n".join(lines) + "\n", "extracted"
+        if suffix == ".pptx":
+            from pptx import Presentation
+            deck = Presentation(path)
+            lines = []
+            for index, slide in enumerate(deck.slides, 1):
+                lines.append(f"# Slide {index}")
+                lines.extend(shape.text for shape in slide.shapes if hasattr(shape, "text") and shape.text.strip())
+            return "\n".join(lines) + "\n", "extracted"
+        if suffix == ".pdf":
+            from pypdf import PdfReader
+            return "\n".join(page.extract_text() or "" for page in PdfReader(path).pages) + "\n", "extracted"
+        if suffix == ".zip":
+            with zipfile.ZipFile(path) as archive:
+                return "\n".join(info.filename for info in archive.infolist()) + "\n", "inventory_only"
+        if suffix == ".7z":
+            return None, "blocked_unreadable"
+    except Exception as exc:
+        return None, f"blocked_unreadable:{type(exc).__name__}"
+    return None, "not_applicable"
+
+
+def cmd_extract_nonmarkdown(args: argparse.Namespace) -> Dict[str, Any]:
+    kb_root = resolve_kb_root(args.kb_root)
+    dry_run = effective_dry_run(args)
+    rows, writes = [], []
+    for record in _corpus_map_source_records(kb_root):
+        path = record["path_obj"]
+        if path.suffix.lower() in TEXT_EXTS:
+            continue
+        text, status = _extract_nonmarkdown_text(path)
+        out_path = kb_root / "derived" / "extracted" / (str(record.get("sha256") or hashlib.sha256(record["path"].encode()).hexdigest()) + ".txt")
+        row = {"source_path": record["path"], "sha256": record.get("sha256"), "status": status, "extracted_path": None}
+        if text is not None:
+            writes.append(write_text(out_path, text, kb_root, args.allow_write, dry_run))
+            row["extracted_path"] = relpath(kb_root, out_path)
+        rows.append(row)
+    manifest_path = kb_root / "derived" / "extracted" / "manifest.json"
+    writes.append(write_text(manifest_path, json.dumps({"schema": "apex.kb.extracted-source-manifest.v1", "entries": rows}, indent=2, ensure_ascii=False, sort_keys=True) + "\n", kb_root, args.allow_write, dry_run))
+    return {"command": "extract-nonmarkdown", "dry_run": dry_run, "entry_count": len(rows), "writes": writes}
 
 
 def corpus_profile(kb_root: Path, files: List[Path], structures: List[Dict[str, Any]], term_freq: List[Dict[str, Any]], inventory: Optional[Dict[str, Any]] = None) -> str:
@@ -1819,6 +2013,7 @@ def semantic_acceptance_status(kb_root: Path) -> Dict[str, Any]:
             continue
         query_results = artifact.get("query_results")
         claim_reviews = artifact.get("claim_reviews")
+        discovery = artifact.get("discovery_acceptance")
         verdict = str(artifact.get("verdict") or "")
         if not isinstance(query_results, list) or not isinstance(claim_reviews, list) or verdict not in {"semantic_pass", "semantic_partial", "semantic_fail", "insufficient_evidence"}:
             issues.append({"path": rel, "topic_slug": topic_slug, "issue": "incomplete_artifact"})
@@ -1841,6 +2036,18 @@ def semantic_acceptance_status(kb_root: Path) -> Dict[str, Any]:
             issues.append({"path": rel, "topic_slug": topic_slug, "issue": "missing_claim_reviews"})
         elif any(not isinstance(item, dict) or item.get("result") != "supported" for item in claim_reviews):
             issues.append({"path": rel, "topic_slug": topic_slug, "issue": "claim_not_supported"})
+        map_path = kb_root / PHASE0_DIR / "topic-source-map.json"
+        if map_path.exists():
+            if not isinstance(discovery, dict) or discovery.get("result") != "supported":
+                issues.append({"path": rel, "topic_slug": topic_slug, "issue": "discovery_acceptance_incomplete"})
+            else:
+                try:
+                    mapped = json.loads(read_text(map_path))
+                    expected = next((len(t.get("candidates", [])) for t in mapped.get("topics", []) if t.get("slug") == topic_slug), None)
+                    if expected is not None and discovery.get("candidate_count") != expected:
+                        issues.append({"path": rel, "topic_slug": topic_slug, "issue": "discovery_candidate_count_mismatch"})
+                except (OSError, json.JSONDecodeError):
+                    issues.append({"path": rel, "topic_slug": topic_slug, "issue": "discovery_map_unreadable"})
         topic_issues = [issue for issue in issues if issue.get("topic_slug") == topic_slug]
         topic_verdicts[topic_slug] = verdict if not topic_issues else ("semantic_fail" if verdict == "semantic_fail" else "semantic_partial")
 
@@ -2176,6 +2383,60 @@ def _quality_page_metrics(kb_root: Path, page: Path) -> Dict[str, Any]:
     }
 
 
+ATLAS_DISPOSITIONS = {"material_source", "context_source", "exact_duplicate_reused", "historical_or_superseded", "irrelevant_after_review", "blocked_unreadable"}
+
+
+def _atlas_blocks(text: str) -> Dict[str, str]:
+    """The atlas contract uses one `### Candidate <id>` section per candidate.
+    Keeping parsing deliberately small makes missing or copied rows visible rather
+    than treating bibliography-like text as an atlas."""
+    blocks: Dict[str, str] = {}
+    matches = list(re.finditer(r"(?m)^###\s+Candidate\s+([A-Za-z0-9-]+)\s*$", text))
+    for idx, match in enumerate(matches):
+        blocks[match.group(1)] = text[match.end():matches[idx + 1].start() if idx + 1 < len(matches) else len(text)]
+    return blocks
+
+
+def atlas_consistency_findings(kb_root: Path) -> List[Dict[str, Any]]:
+    map_path = kb_root / PHASE0_DIR / "topic-source-map.json"
+    if not map_path.exists():
+        return []
+    try:
+        topic_map = json.loads(read_text(map_path))
+    except (OSError, json.JSONDecodeError):
+        return [{"reason": "target_source_map_atlas_out_of_sync", "detail": "invalid_topic_source_map"}]
+    findings: List[Dict[str, Any]] = []
+    analyses = "\n".join(read_text(p) for p in (kb_root / "ingest-analysis").glob("*.md")) if (kb_root / "ingest-analysis").exists() else ""
+    for topic in topic_map.get("topics", []) if isinstance(topic_map, dict) else []:
+        slug = str(topic.get("slug", ""))
+        atlas_path = kb_root / "wiki" / "summaries" / f"{slug}-source-atlas.md"
+        expected = {str(c.get("candidate_id")): c for c in topic.get("candidates", []) if isinstance(c, dict)}
+        if not atlas_path.exists():
+            findings.extend({"reason": "candidate_missing_from_atlas", "topic": slug, "candidate_id": cid} for cid in expected)
+            continue
+        blocks = _atlas_blocks(read_text(atlas_path))
+        for candidate_id in sorted(set(blocks) - set(expected)):
+            findings.append({"reason": "unknown_candidate_id", "topic": slug, "candidate_id": candidate_id})
+        for candidate_id, candidate in expected.items():
+            block = blocks.get(candidate_id)
+            if block is None:
+                findings.append({"reason": "candidate_missing_from_atlas", "topic": slug, "candidate_id": candidate_id})
+                continue
+            disposition = re.search(r"(?im)^[-*]\s*Disposition:\s*`?([a-z_]+)`?\s*$", block)
+            if not disposition or disposition.group(1) not in ATLAS_DISPOSITIONS:
+                findings.append({"reason": "target_source_map_atlas_out_of_sync", "topic": slug, "candidate_id": candidate_id, "detail": "invalid_disposition"})
+                continue
+            if not re.search(r"(?im)^[-*]\s*Content snapshot:\s*\S", block):
+                findings.append({"reason": "atlas_missing_content_snapshot", "topic": slug, "candidate_id": candidate_id})
+            if not re.search(r"(?im)^[-*]\s*Evidence pointer:\s*\S", block):
+                findings.append({"reason": "atlas_missing_evidence_pointer", "topic": slug, "candidate_id": candidate_id})
+            if disposition.group(1) == "material_source" and str(candidate.get("source_id", "")) not in analyses and str(candidate.get("path", "")) not in analyses:
+                findings.append({"reason": "material_source_without_phase1_evidence", "topic": slug, "candidate_id": candidate_id})
+            if disposition.group(1) == "material_source" and not candidate.get("text_readable"):
+                findings.append({"reason": "atlas_source_unopened", "topic": slug, "candidate_id": candidate_id})
+    return findings
+
+
 def quality_report(kb_root: Path) -> Dict[str, Any]:
     manifest = read_manifest(kb_root)
     sources = manifest.get("sources", [])
@@ -2214,6 +2475,7 @@ def quality_report(kb_root: Path) -> Dict[str, Any]:
     acceptance = semantic_acceptance_status(kb_root)
     disposition_findings = candidate_disposition_findings(kb_root)
     global_findings: List[Dict[str, Any]] = list(disposition_findings)
+    global_findings.extend(atlas_consistency_findings(kb_root))
     has_compiled_value_pages = any(item.get("page_type") in VALUE_PAGE_TYPES for item in metrics)
     if has_compiled_value_pages and acceptance["status"] == "missing":
         global_findings.append({"reason": "semantic_acceptance_missing"})
@@ -2829,6 +3091,8 @@ def build_parser() -> argparse.ArgumentParser:
     pf.set_defaults(func=cmd_preflight)
 
     sub.add_parser("phase0").set_defaults(func=cmd_phase0)
+    sub.add_parser("corpus-map", help="Build exhaustive topic candidate maps and duplicate/version navigation artifacts").set_defaults(func=cmd_corpus_map)
+    sub.add_parser("extract-nonmarkdown", help="Extract bounded text or archive inventories from supported non-Markdown files").set_defaults(func=cmd_extract_nonmarkdown)
 
     ip1 = sub.add_parser("ingest-phase1")
     ip1.add_argument("--source-path", required=True)
