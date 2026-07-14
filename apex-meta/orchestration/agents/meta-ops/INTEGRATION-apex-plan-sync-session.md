@@ -1,18 +1,21 @@
 ---
-title: "Meta Ops ⇄ apex-plan / apex-sync / apex-session Integration Contract"
+title: "Multi-Agent Orchestration ⇄ Plan-Sync-Session Backbone Integration Contract"
 purpose: >
-  The binding contract for how the Meta Ops accountability invokes the three-package
-  mutation backbone: exact triggers, exact commands, dry-run rules, and how each
-  skill's inputs/outputs map onto the shared handoff-packet schema. This is the Q2
-  "layering" made operational — the skills are Meta Ops support capabilities,
-  not peer systems.
+  The binding contract for how Meta Ops uses the shared Plan-Sync-Session Backbone inside
+  an active Multi-Agent Orchestration run: routing, commands, dry-run rules, packet mapping,
+  and confirmed mutation. The backbone remains shared APEX OS infrastructure, not a peer or
+  third orchestration system.
 created: 2026-07-11
 source: >
   .claude/skills/apex-plan|apex-sync|apex-session/SKILL.md; scripts/apex_sync.py --help;
   apex-meta/orchestration/user-stories/user-stories.md §3 meta_ops_support_capabilities.
 ---
 
-# Meta Ops ⇄ Three-Package Integration Contract
+# Multi-Agent Orchestration ⇄ Plan-Sync-Session Backbone
+
+## APEX OS scope
+
+This contract applies only after Multi-Agent Orchestration has been explicitly activated. It does not activate the run, govern the Weekly Orchestrator, or transfer authority merely because both systems use backbone artifacts.
 
 ## Routing rule (which skill, when)
 
@@ -24,7 +27,7 @@ source: >
 
 A request spanning two boundaries is split into two packets — never handled by one skill leaking into the other's scope.
 
-## Loop-phase binding (orchestrator-run.md)
+## Multi-Agent Orchestration phase binding
 
 | Phase | Skill | Exact mechanism | Packet result |
 |---|---|---|---|
@@ -33,6 +36,10 @@ A request spanning two boundaries is split into two packets — never handled by
 | 4b. Registry rebuild | apex-sync | **two-step, always**: (1) `registry --json` preview + `drift --json` report → operator sees delta; (2) only after gate: `registry --dry-run false` | write step requires `operator_validation: confirmed` in the covering packet |
 | 9. Confirmed mutation | apex-session | Skill invocation: status mutation records with `before_after_preview`, H1 enum validation, `operator_validation` recorded | `lifecycle_stage: confirmed` — the ONLY producer of confirmed |
 | 10. Close | apex-session | H6 handoff artifact + state delta + next-session context | `confirmed` H6 under `apex-meta/handoff/` |
+
+## Weekly Orchestrator relationship
+
+Weekly Orchestrator uses the same backbone without entering this workflow: it reads the confirmed Session planning feed and relevant Sync reports, and routes approved project or task changes through `apex-session`. It does not treat `apex-plan` as an implicit weekly stage and does not activate Multi-Agent Orchestration. Any cross-system transfer uses explicit operator instruction, an explicit handoff packet, or a confirmed durable-artifact reference.
 
 ## Hard rules (violating any = invalid run)
 

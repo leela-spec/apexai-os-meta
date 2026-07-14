@@ -1,15 +1,21 @@
 ---
-title: "Orchestrator Run Loop (macro → meso → micro)"
+title: "Multi-Agent Orchestration Run (macro → meso → micro)"
 purpose: >
-  The canonical run loop every user story instantiates — the Meta Ops workflow-backbone
-  contract. State always in files; subagents ephemeral; one mutation surface; one gate
-  primitive; Detective review before consequence.
+  The canonical operator-triggered Multi-Agent Orchestration run. State remains in files;
+  Alfred and Meta Ops are main-conversation contracts; bounded roles are spawned only when
+  routed; the shared backbone provides proposal, computation, confirmed mutation, and closure.
 created: 2026-07-11
 ---
 
-# Orchestrator Run Loop
+# Multi-Agent Orchestration Run
 
-**Invocation modes:** Alfred and Meta Ops phases are executed by the **main conversation adopting those role contracts** (they need operator dialogue, skill invocation, and subagent spawning — capabilities a spawned subagent does not have). Meta Strategy, Meta Detective, lanes, and workers are **spawned ephemeral subagents**.
+## Entry condition and run boundary
+
+Start this workflow only when the operator explicitly requests a Multi-Agent Orchestration run or explicitly routes a bounded problem into it. Do not start it by default, because Weekly Orchestrator is running, or because an agent definition is available.
+
+A run begins with phase 1 intake for the named operator objective. It ends after phase 10 produces the file-backed state delta, next-session packet, and candidate learning queue, or earlier with an explicit hold/stop packet. Inputs or outputs crossing to Weekly Orchestrator require explicit operator instruction, an explicit handoff packet, or a confirmed durable-artifact reference.
+
+**Invocation modes:** Alfred and Meta Ops phases are executed by the **main conversation adopting those role contracts** so operator dialogue, gate records, integration state, and run continuity stay in one thread. Meta Strategy, Meta Detective, lanes, and workers are **spawned ephemeral subagents only when this active workflow routes a bounded packet to them**.
 
 ## Invariants (break any of these = the run is invalid)
 
@@ -35,6 +41,8 @@ created: 2026-07-11
 | 10. Close | **Meta Ops** | `apex-session` | state delta + next-session packet + candidate learning queue |
 
 Phases 3–7 iterate per batch. The **milestone rule** governs depth: full loop for consequential outputs; low-consequence intermediates may collapse phases 5–7 into direct Meta Ops work — but never phase 8–9's gate.
+
+Completion is recorded in files, not inferred from a quiet conversation. Phase 10 must name the run's final state, unresolved items, durable output references, and any explicit handoff destination. A reference made available to Weekly Orchestrator is a transfer artifact, not an instruction to activate that system.
 
 ## Failure & repair behavior
 

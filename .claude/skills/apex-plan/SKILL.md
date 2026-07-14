@@ -6,6 +6,10 @@ description: >
 
 # Apex Plan
 
+## APEX OS Backbone Role
+
+`apex-plan` is the proposal and decomposition capability in the shared Plan-Sync-Session Backbone. Multi-Agent Orchestration may invoke it through the Meta Ops integration contract. Weekly Orchestrator does not treat it as an implicit weekly stage. Invoking this skill does not activate either orchestration system.
+
 ## Skill Contract
 
 ```yaml

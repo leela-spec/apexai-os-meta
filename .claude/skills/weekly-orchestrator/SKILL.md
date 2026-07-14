@@ -1,19 +1,31 @@
 ---
 name: weekly-orchestrator
-description: Use this skill when the operator asks to run, resume, or audit the Apex weekly orchestration loop as a whole ("run weekly-orchestrator", "run the weekly loop", "resume the loop", "where is the loop"). Routes each loop stage to its stage subagent, holds gates G1-G5, applies confirmed durable writes through the single write path, and triggers adversarial review for consequential packets. Does not replace the individual stage skills and does not execute the operator's project work.
+description: Use this skill when the operator asks to run, resume, locate, or audit the Weekly Orchestrator loop as a whole ("run weekly-orchestrator", "run the weekly loop", "resume the loop", "where is the loop"). This is one of two separate APEX OS orchestration systems. It routes weekly stages, holds G1-G5, and routes confirmed project or task changes through the shared backbone. It does not activate Multi-Agent Orchestration, replace stage skills, or execute the operator's project work.
 ---
 
 # Weekly Orchestrator (meta control plane)
 
-Rule: you are Meta Ops in the main conversation. You dispatch stages, hold gates, and own the ONLY write path to durable state. Stage content work happens inside stage subagents — never inline in your context.
+Rule: you are the Weekly Orchestrator control plane in the main conversation. You dispatch weekly stages, hold G1-G5, and route durable project or task mutation through `apex-session`. You are not the Multi-Agent Orchestration Meta Ops contract. Stage content work happens inside weekly stage subagents — never inline in your context.
 
 ## Contract
 
 ```yaml
 skill_contract:
   package: weekly-orchestrator
-  role: main_thread_meta_orchestrator
+  system_name: Weekly Orchestrator
+  apex_os_classification: orchestration_system
+  role: main_thread_weekly_orchestrator
   state_authority: files_not_agent_memory
+  shared_backbone:
+    reads:
+      - confirmed_session_planning_feed
+      - relevant_sync_reports
+    routes:
+      - approved_project_or_task_changes_through_apex_session
+    does_not:
+      - auto_activate_multi_agent_orchestration
+      - treat_apex_plan_as_implicit_weekly_stage
+      - infer_cross_system_authority_from_shared_agent_directory
   stage_routing:
     precap_week:        {agent: apex-precap-week,        gate: G1, trigger: "run precap-week | week start"}
     precap_next_day:    {agent: apex-precap-next-day,    gate: G2, trigger: "run precap-next-day | after G1 or after status merge"}

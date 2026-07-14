@@ -1,83 +1,86 @@
-# CURRENT-SYSTEM-MANIFEST — the resolvable current truth of the Fable orchestration system.
-# Regenerate at each milestone close (M9 regenerates fully). Every path below must resolve
-# in the current checkout; anything that does not is a defect, not history.
+# CURRENT-SYSTEM-MANIFEST — stable live map for Multi-Agent Orchestration inside APEX OS.
+# Resolve branch, revision, and checkout root at execution or audit time; do not embed stale
+# workspace metadata as system truth. Every path classified live must resolve in the checkout.
 
 manifest:
-  generated: 2026-07-12
-  branch: claude/fable-orchestrator-setup-9pc5pu
-  head_at_generation: 11316abe   # pre-Iteration-1 commit; final regen at M9
-  worktree_root: /home/user/apexai-os-meta
+  canonical_name: "Multi-Agent Orchestration"
+  parent_system: "APEX OS"
+  classification: "orchestration_system"
+  activation: "explicit_operator_request_only"
+  source_revision: "resolve_at_read_time"
 
-system_package:   # classification: reuse = live current truth
-  entrypoint:            { path: apex-meta/orchestration/00-START-HERE.md, class: reuse }
-  architecture:          { path: apex-meta/orchestration/ARCHITECTURE.md, class: reuse }
-  glossary:              { path: apex-meta/orchestration/GLOSSARY.md, class: reuse }
+multi_agent_orchestration:
+  entrypoint: { path: apex-meta/orchestration/00-START-HERE.md, class: live }
+  architecture: { path: apex-meta/orchestration/ARCHITECTURE.md, class: live }
+  glossary: { path: apex-meta/orchestration/GLOSSARY.md, class: live }
   schemas:
-    - { path: apex-meta/orchestration/schemas/handoff-packet.schema.md, class: reuse }
-    - { path: apex-meta/orchestration/schemas/authority-state.schema.md, class: reuse, note: "DL-1 sidecar pattern applies (see US-IDEA-01 record)" }
-    - { path: apex-meta/orchestration/schemas/review-verdict.schema.md, class: reuse }
+    - { path: apex-meta/orchestration/schemas/handoff-packet.schema.md, class: live }
+    - { path: apex-meta/orchestration/schemas/authority-state.schema.md, class: live }
+    - { path: apex-meta/orchestration/schemas/review-verdict.schema.md, class: live }
   workflows:
-    - { path: apex-meta/orchestration/workflows/orchestrator-run.md, class: reuse }
-    - { path: apex-meta/orchestration/workflows/detective-review.md, class: reuse, note: "includes correction-and-revalidation (steps 6-9); no separate file by design" }
+    - { path: apex-meta/orchestration/workflows/orchestrator-run.md, class: live }
+    - { path: apex-meta/orchestration/workflows/detective-review.md, class: live }
   doctrine:
-    manifest: { path: apex-meta/orchestration/agents/DOCTRINE-MANIFEST.md, class: reuse }
+    manifest: { path: apex-meta/orchestration/agents/DOCTRINE-MANIFEST.md, class: live }
     domains:
       - apex-meta/orchestration/agents/alfred/
       - apex-meta/orchestration/agents/meta-strategy/
-      - apex-meta/orchestration/agents/meta-ops/     # + INTEGRATION-apex-plan-sync-session.md
+      - apex-meta/orchestration/agents/meta-ops/
       - apex-meta/orchestration/agents/meta-detective/
       - apex-meta/orchestration/agents/knowledge-bank/
       - apex-meta/orchestration/agents/informatics-design/
       - apex-meta/orchestration/agents/prompts-workflows/
-  regression_corpus: { path: apex-meta/orchestration/user-stories/, class: reuse, note: "7 stories; moved from fable-orchestrator via git mv" }
-  simulations:
-    - { path: apex-meta/orchestration/simulations/US-IDEA-01-20260711/, class: reuse, verdict: pass_full }
-    - { path: apex-meta/orchestration/simulations/US-IDEA-01-20260711.md, class: reuse }
-    - { path: apex-meta/orchestration/simulations/system-audit-vs-orchestration-design-kb-20260711.md, class: reuse }
+  regression_corpus: { path: apex-meta/orchestration/user-stories/, class: supporting }
+  simulations: { path: apex-meta/orchestration/simulations/, class: supporting }
 
 runtime_surfaces:
-  agents_dir: .claude/agents/    # 7 definitions; alfred + meta-ops = main-conversation contracts, rest spawnable
+  agents_dir:
+    path: .claude/agents/
+    classification: shared_runtime_location_not_shared_orchestration
   agent_definitions:
-    - { name: alfred, mode: main_conversation_contract }
-    - { name: meta-strategy, mode: spawned, live_dispatch_evidence: pending_us_seq_01 }
-    - { name: meta-ops, mode: main_conversation_contract }
-    - { name: meta-detective, mode: spawned, live_dispatch_evidence: "US-IDEA-01 x3 (2 lenses + scoped re-review)" }
-    - { name: knowledge-bank, mode: spawned, live_dispatch_evidence: "US-IDEA-01 placement" }
-    - { name: informatics-design, mode: spawned, live_dispatch_evidence: pending_us_media_01 }
-    - { name: prompts-workflows, mode: spawned, live_dispatch_evidence: pending_us_seq_01 }
-  mutation_backbone:   # class: reuse — canonical runtime locations, deliberately not moved
-    - .claude/skills/apex-plan/
-    - .claude/skills/apex-sync/
-    - .claude/skills/apex-session/
-    - .claude/skills/apex-kb/
+    - { name: alfred, system: multi_agent_orchestration, mode: main_conversation_contract }
+    - { name: meta-strategy, system: multi_agent_orchestration, mode: spawned_when_routed }
+    - { name: meta-ops, system: multi_agent_orchestration, mode: main_conversation_contract }
+    - { name: meta-detective, system: multi_agent_orchestration, mode: spawned_when_routed }
+    - { name: knowledge-bank, system: multi_agent_orchestration, mode: spawned_when_routed }
+    - { name: informatics-design, system: multi_agent_orchestration, mode: spawned_when_routed }
+    - { name: prompts-workflows, system: multi_agent_orchestration, mode: spawned_when_routed }
   deterministic_compute:
-    - { path: scripts/apex_sync.py, class: reuse, behavioral_evidence: "US-IDEA-01 registry preview/drift/write" }
+    - { path: scripts/apex_sync.py, class: live, policy: dry_run_first }
   detective_support_skill: .claude/skills/source-authority-and-verdict-packet/
   routing_doctrine_reference: .claude/skills/AIRouting/references/legacy-v2-doctrine/
 
+shared_backbone:
+  canonical_name: "Plan-Sync-Session Backbone"
+  classification: "shared_capability_backbone_not_orchestration_system"
+  packages:
+    - { path: .claude/skills/apex-plan/, role: proposal_and_decomposition }
+    - { path: .claude/skills/apex-sync/, role: deterministic_computation }
+    - { path: .claude/skills/apex-session/, role: confirmed_mutation_and_closure }
+  multi_agent_integration: apex-meta/orchestration/agents/meta-ops/INTEGRATION-apex-plan-sync-session.md
+
+supporting_capabilities:
+  - { path: .claude/skills/apex-kb/, role: kb_lifecycle }
+
 durable_state:
-  registry: { path: apex-meta/registry/index.md, status: materialized_20260712, tasks: 8 }
+  registry: apex-meta/registry/index.md
   epics: apex-meta/epics/
   handoff: apex-meta/handoff/
 
-historical:   # class: historical — audit trail / evidence, never current truth
-  - { path: apex-meta/fable-orchestrator/, note: "initiative decision record (milestones 1-4, plans, prompt answers)" }
-  - { path: apex-meta/kb/old-apex-full-orchestration-agent-kb-v2/, note: "source corpus for doctrine; verbatim originals of the 39 moved copies" }
-  - { path: apex-meta/kb/old-apex-full-orchestration-agent-kb/, note: "do-not-delete, source_doctrine dependents" }
+separate_orchestration_system:
+  canonical_name: "Weekly Orchestrator"
+  runtime_entrypoint: .claude/skills/weekly-orchestrator/SKILL.md
+  design_kb: apex-meta/kb/Weekly-Orchestrator/
+  relationship:
+    - "does_not_auto_activate_multi_agent_orchestration"
+    - "is_not_absorbed_by_multi_agent_orchestration"
+    - "cross_system_transfer_requires_explicit_instruction_packet_or_confirmed_artifact"
 
-weekly_out_of_scope:   # contamination boundary per build-plan; read-only, never Fable evidence
-  - apex-meta/kb/Weekly-Orchestrator/
-  - .claude/skills/weekly-orchestrator/
-  - artifacts/weekly-plans/
-  - artifacts/next-day-plans/
-  - artifacts/flow-packets/
-  - artifacts/flow-recap-packets/
+historical:
+  - { path: apex-meta/fable-orchestrator/, note: "design initiative and audit trail; former working name, not live system name" }
+  - { path: apex-meta/kb/old-apex-full-orchestration-agent-kb-v2/, note: "source doctrine corpus, not runtime" }
+  - { path: apex-meta/kb/old-apex-full-orchestration-agent-kb/, note: "source-doctrine dependents; not runtime" }
 
-unavailable_claimed_history: []   # all claimed commits from this workstream resolve on the branch
-
-pending_build_items:   # tracked; regenerated at M9
-  - "scripts/orchestration_check.py + tests/negative fixtures (Iteration 2)"
-  - "schemas/run-record.schema.md, workflows/operator-gate.md (Iteration 2)"
-  - "six story simulations: SEQ, MEDIA, LEELA, WORKSHOP, OFFER, COMP (Iterations 3-6)"
-  - "tests/token-and-context-evaluation.md + remaining M8 probes (Iteration 7)"
-  - "authority-digest enforcement inside apex-session flow (Codex item, ARCHITECTURE §7.1)"
+open_items:
+  authority: apex-meta/orchestration/ARCHITECTURE.md
+  rule: "Do not infer completion, branch, commit, simulation, or validation status from this manifest."

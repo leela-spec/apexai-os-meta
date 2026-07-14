@@ -11,6 +11,10 @@ description: >
 
 # Apex Session
 
+## APEX OS Backbone Role
+
+`apex-session` is the confirmed-mutation and closure capability in the shared Plan-Sync-Session Backbone. Multi-Agent Orchestration uses it for gated mutation and run closure; Weekly Orchestrator routes approved project or task changes through it and reads its confirmed planning feed. Session artifacts do not auto-activate either orchestration system.
+
 ## Objective
 
 `apex-session` converts current task/session evidence into final H6 handoff artifacts, gated status mutation records, state delta summaries, entity update records, and clean next-session context. It reads operator instructions, task evidence, handoff notes, raw source references, prior session material, and unresolved context. It validates all status movement against the H1 status enum and records operator validation before treating consequential mutations as confirmed. It preserves raw source references and unresolved context instead of silently rewriting or resolving them. It does not rank tasks, scan blockers, rebuild registries, compute scores, run scripts, perform calendar work, or decompose new work.

@@ -1,13 +1,29 @@
 ---
-title: "Orchestration Systems Index — apexai-os-meta"
-purpose: "Single map of every orchestration-relevant KB, handoff cluster, skill, and support folder in this repo, so a new orchestrator run doesn't have to rediscover the repo from scratch."
+title: "APEX OS Orchestration Systems Index — apexai-os-meta"
+purpose: "Canonical map of the two APEX OS orchestration systems, their entrypoints, the shared Plan-Sync-Session Backbone, and supporting design evidence."
 created: 2026-07-11
-maintenance: "Update this file whenever a KB is merged, superseded, or created. Do not let it drift silently — a stale index is worse than no index."
+maintenance: "Update this file whenever a live entrypoint, system boundary, backbone package, or authority classification changes."
 ---
 
-# Orchestration Systems Index
+# APEX OS Orchestration Systems Index
 
-Read this before starting any large orchestration-design task in this repo. It tells you what exists, what's live, what's superseded, and where to go for what.
+APEX OS has exactly two orchestration systems and one shared capability backbone:
+
+```text
+APEX OS
+├── Weekly Orchestrator
+│   └── .claude/skills/weekly-orchestrator/SKILL.md
+├── Multi-Agent Orchestration
+│   └── apex-meta/orchestration/00-START-HERE.md
+└── Plan-Sync-Session Backbone
+    ├── .claude/skills/apex-plan/SKILL.md
+    ├── .claude/skills/apex-sync/SKILL.md
+    └── .claude/skills/apex-session/SKILL.md
+```
+
+The backbone is shared infrastructure, not a third orchestration system. Neither orchestration system absorbs or automatically activates the other. Cross-system transfer requires explicit operator instruction, an explicit handoff packet, or a confirmed durable-artifact reference.
+
+The compact APEX OS activation router is `.claude/CLAUDE.md`. Use this index for navigation and classification, not as a substitute for a live entrypoint.
 
 ## 1. Knowledge bases (`apex-meta/kb/`)
 
@@ -30,20 +46,21 @@ Read this before starting any large orchestration-design task in this repo. It t
 |---|---|
 | `agent-skill-system-research/` | `best-practice-report.md` + `design-lock-qa.md` — synthesis of the three orchestration KBs (`operator-research-orchestration-20260711`, `old-apex-full-orchestration-agent-kb-v2`, `apex-plan-sync-session-workflow-v2`) against current Anthropic/MCP best-practice docs, plus an 8-question design-lock Q&A. **Read this first** for the unification decisions already made. |
 
-## 3. Core skills (`.claude/skills/`)
+## 3. Shared backbone and supporting skills (`.claude/skills/`)
 
-| Skill | Role |
+| Skill or package | Classification and role |
 |---|---|
-| `apex-plan`, `apex-sync`, `apex-session` | The three-package planning/computation/mutation boundary (see `apex-plan-sync-session-workflow-v2` KB above). |
-| `ProjectStatus`, `AIRouting`, `PromptEngineer`, `Workflow&Processes` | Standalone operator-facing skills, no hard gate. |
-| `deterministic-file-promotion`, `deterministic-markdown-patcher`, `deterministic-markdown-patcher2`, `project-kb-manager`, `prompt-engineering-patterns`, `source-authority-and-verdict-packet` | Supporting deterministic/authoring tools used by the above. |
+| `apex-plan`, `apex-sync`, `apex-session` | **Plan-Sync-Session Backbone** — shared capability backbone for proposal/decomposition, deterministic computation, and confirmed mutation/closure. It is not a third orchestration system. |
+| `weekly-orchestrator` | Runtime entrypoint for the separate **Weekly Orchestrator** system. |
+| `ProjectStatus`, `AIRouting`, `PromptEngineer`, `Workflow&Processes` | Standalone operator-facing capabilities; their presence does not activate either orchestration system. |
+| `deterministic-file-promotion`, `deterministic-markdown-patcher`, `deterministic-markdown-patcher2`, `project-kb-manager`, `prompt-engineering-patterns`, `source-authority-and-verdict-packet`, `apex-kb` | Supporting deterministic, authoring, review, or KB-lifecycle capabilities. |
 
 ## 4. Other relevant `apex-meta/` locations
 
 | Path | Purpose |
 |---|---|
-| `orchestration/` | **THE final orchestration system package** (built 2026-07-11): 00-START-HERE, ARCHITECTURE, GLOSSARY, shared schemas (handoff-packet, authority-state, review-verdict), workflows (orchestrator-run, detective-review), user-stories (regression suite, moved here from fable-orchestrator), simulations. The 7 agent definitions live in `.claude/agents/` (alfred, meta-strategy, meta-ops, meta-detective, knowledge-bank, informatics-design, prompts-workflows). Start at `apex-meta/orchestration/00-START-HERE.md`. |
-| `fable-orchestrator/` | This initiative's decision-lock folder — now the **audit trail** of how `orchestration/` was decided (milestone 1–4 artifacts, design-lock answers, implementation plan, external-research records). See its own `README.md`. |
+| `orchestration/` | Live **Multi-Agent Orchestration** package, one of the two APEX OS orchestration systems: 00-START-HERE, ARCHITECTURE, GLOSSARY, shared packet/authority/review schemas, orchestrator and Detective workflows, user stories, and simulations. Its seven role definitions live in the shared runtime location `.claude/agents/` but belong to Multi-Agent Orchestration only when an active run adopts or routes them. Start at `apex-meta/orchestration/00-START-HERE.md`. |
+| `fable-orchestrator/` | Historical decision-lock and audit-trail folder for the initiative that produced Multi-Agent Orchestration. **Fable Orchestrator is a former working name, not the live system name.** See its own `README.md`. |
 
 ## 5. Known overlaps / open questions to resolve before treating any KB as sole authority
 

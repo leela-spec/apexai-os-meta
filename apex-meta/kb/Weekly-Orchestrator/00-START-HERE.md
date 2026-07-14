@@ -20,10 +20,13 @@ architecture_package:
   meso: architecture/02-meso-file-map.md                  # complete execution-surface file inventory + write matrix
   micro: architecture/03-execution-trace-verification.md  # real dry-run trace + file-level verification record
 runtime_entrypoint: ../../../.claude/skills/weekly-orchestrator/SKILL.md
-agent_layer: ../../../.claude/agents/
+apex_os_router: ../../../.claude/CLAUDE.md
+agent_runtime_location: ../../../.claude/agents/
 ```
 
-For running or auditing the loop, the runtime entrypoint and `.claude/CLAUDE.md` are authoritative; this KB package records the design and its evidence.
+Weekly Orchestrator is one of two separate orchestration systems inside APEX OS. For running or auditing its loop, the runtime entrypoint and `.claude/CLAUDE.md` are authoritative; this KB package records the design and evidence.
+
+The shared `.claude/agents/` location does not make Multi-Agent Orchestration roles part of the weekly loop. Weekly Orchestrator uses only the stage contracts routed by its own runtime entrypoint. It neither activates nor is absorbed by Multi-Agent Orchestration.
 
 ## Default retrieval order
 
@@ -38,9 +41,21 @@ research_sources:
   load_policy: targeted_only
 
 live_implementation:
-  root_instruction: ../../../.claude/Claude.md
+  apex_os_router: ../../../.claude/CLAUDE.md
+  weekly_runtime_entrypoint: ../../../.claude/skills/weekly-orchestrator/SKILL.md
   skills_root: ../../../.claude/skills/
   operator_output_design: ../../operator-output-design/
+
+system_separation:
+  multi_agent_entrypoint: ../../orchestration/00-START-HERE.md
+  automatic_cross_activation: false
+  transfer_requires:
+    - explicit_operator_instruction
+    - explicit_handoff_packet
+    - confirmed_durable_artifact_reference
+  note: >
+    A transferred artifact supplies input only. The receiving orchestration
+    system still requires its own activation condition.
 
 index_policy:
   role: navigation_and_retrieval

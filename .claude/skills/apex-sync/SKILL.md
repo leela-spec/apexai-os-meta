@@ -11,6 +11,10 @@ description: >
 
 # Apex Sync
 
+## APEX OS Backbone Role
+
+`apex-sync` is the deterministic-computation capability in the shared Plan-Sync-Session Backbone. Multi-Agent Orchestration may invoke it through Meta Ops; Weekly Orchestrator may read relevant confirmed reports by reference. Running or reading a Sync report does not activate either orchestration system.
+
 ## Objective
 
 `apex-sync` computes deterministic read-side synchronization reports over Apex

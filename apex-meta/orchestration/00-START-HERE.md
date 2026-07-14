@@ -1,18 +1,22 @@
 ---
-title: "APEX Orchestration System — Start Here"
+title: "Multi-Agent Orchestration — Start Here"
 purpose: >
-  Entry point to the final orchestration system: what it is, the five invariants,
-  the read order, and where everything lives. This package is the MAP AND LAW;
-  the machinery it governs stays in its canonical runtime locations
-  (.claude/skills/, .claude/agents/, scripts/).
+  Entry point to Multi-Agent Orchestration inside APEX OS: activation boundary,
+  invariants, read order, and runtime locations. This package is the system map
+  and law; its machinery stays in the canonical .claude/skills/, .claude/agents/,
+  scripts/, and apex-meta/orchestration/ locations.
 created: 2026-07-11
 ---
 
-# APEX Orchestration System
+# Multi-Agent Orchestration
 
-The unified orchestration system merging the old Apex agent-swarm doctrine (translated) with the running `apex-plan`/`apex-sync`/`apex-session` mutation backbone (kept in place). Decided through `apex-meta/fable-orchestrator/` (milestones 1–4: discovery, resilience dimensions, evaluation matrix, design-lock answers); assembled per its `implementation-plan.md`.
+Multi-Agent Orchestration is one of two orchestration systems inside APEX OS. It is the live package developed under the former working name Fable Orchestrator. Activate it only when the operator explicitly requests a Multi-Agent Orchestration run or explicitly routes a bounded problem into this system.
 
-**One sentence:** the operator talks to Alfred; Meta Ops runs the file-backed workflow using the three apex skills for plan/compute/mutate; Meta Strategy sets direction; Meta Detective independently reviews consequential artifacts through two blind lenses; every durable mutation passes the single operator gate carrying the shared handoff schema and the artifact-authority field.
+It does not include or replace the Weekly Orchestrator. A Weekly Orchestrator run does not activate this system, and this system does not absorb the weekly loop. Cross-system input is accepted only through explicit operator instruction, an explicit handoff packet, or a confirmed durable-artifact reference.
+
+The system translates the old Apex agent-swarm doctrine without reviving an always-on swarm. It uses the shared Plan-Sync-Session Backbone in place: `apex-plan` proposes, `apex-sync` computes, and `apex-session` applies confirmed mutations and closes the run.
+
+**One sentence:** in an explicitly started Multi-Agent Orchestration run, the operator talks to Alfred; Meta Ops runs the file-backed workflow through the shared backbone; Meta Strategy sets direction; Meta Detective independently reviews consequential artifacts through two blind lenses; and every durable mutation passes the operator gate with the shared handoff schema and artifact-authority fields.
 
 ## The five invariants
 
@@ -36,9 +40,12 @@ The unified orchestration system merging the old Apex agent-swarm doctrine (tran
 
 | Surface | Location |
 |---|---|
-| Accountabilities & lanes (7 definitions) | `.claude/agents/` — alfred, meta-strategy, meta-ops, meta-detective, knowledge-bank, informatics-design, prompts-workflows |
-| Mutation backbone | `.claude/skills/apex-plan`, `apex-sync`, `apex-session` (+ `apex-kb` for KB lifecycle) |
+| APEX OS activation router | `.claude/CLAUDE.md` |
+| Multi-Agent accountabilities & lanes (7 definitions) | `.claude/agents/` — alfred, meta-strategy, meta-ops, meta-detective, knowledge-bank, informatics-design, prompts-workflows |
+| Shared Plan-Sync-Session Backbone | `.claude/skills/apex-plan`, `.claude/skills/apex-sync`, `.claude/skills/apex-session` |
+| Supporting KB lifecycle capability | `.claude/skills/apex-kb` |
 | Deterministic compute | `scripts/apex_sync.py` (stdlib-only, dry-run-first) |
 | Detective's validation skill | `.claude/skills/source-authority-and-verdict-packet` |
-| How this system was decided (audit trail) | `apex-meta/fable-orchestrator/` |
+| Separate Weekly Orchestrator entrypoint | `.claude/skills/weekly-orchestrator/SKILL.md` |
+| Historical design audit trail | `apex-meta/fable-orchestrator/` |
 | Repo-wide map | `apex-meta/ORCHESTRATION-SYSTEMS-INDEX.md` |

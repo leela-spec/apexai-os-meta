@@ -1,21 +1,27 @@
 ---
-title: "APEX Orchestration System — Architecture"
+title: "Multi-Agent Orchestration — Architecture"
 purpose: >
-  The milestone-5 target architecture, assembled: topology, runtime mapping, component
-  wiring, permission model, and the explicit record of what was deliberately not built.
-  Every decision here traces to apex-meta/fable-orchestrator/design-lock-answers.md
-  (Q1–Q8) and its research-integration note.
+  The live Multi-Agent Orchestration architecture inside APEX OS: activation and scope,
+  topology, runtime mapping, component wiring, permission model, and the explicit record
+  of what was deliberately not built. Design history remains in
+  apex-meta/fable-orchestrator/design-lock-answers.md and its research-integration note.
 created: 2026-07-11
-status: "built this session; per-story adoption gated on simulations/ records"
+status: "live architecture; per-story adoption remains governed by simulations/ records"
 ---
 
-# Architecture
+# Multi-Agent Orchestration Architecture
+
+## Scope and activation
+
+This architecture governs Multi-Agent Orchestration only. Start it only after an explicit operator request for a Multi-Agent Orchestration run or an explicit operator route of a bounded problem into this system. It is not the default APEX OS mode.
+
+The Weekly Orchestrator is a separate APEX OS orchestration system and is not included in this topology. A shared `.claude/agents/` location does not create shared orchestration. Cross-system transfer requires explicit operator instruction, an explicit handoff packet, or a confirmed durable-artifact reference.
 
 ## 1. Topology (Q1, Q2)
 
-Workflow backbone + ephemeral tool-scoped subagents. Four durable **accountabilities** — Alfred (operator interface), Meta Strategy (macro direction), Meta Ops (meso workflow + mutation backbone), Meta Detective (independent review) — plus three **specialist lanes** (Knowledge Bank, Informatics Design, Prompts & Workflows) and unbounded one-off **domain workers**. All are ephemeral invocations of named definitions; none holds state between runs — state is in files.
+File-backed workflow + tool-scoped subagents. Four durable **accountabilities** — Alfred (operator interface), Meta Strategy (macro direction), Meta Ops (meso workflow + shared-backbone integration), Meta Detective (independent review) — plus three **specialist lanes** (Knowledge Bank, Informatics Design, Prompts & Workflows) and unbounded one-off **domain workers**. The definitions are durable; role adoption and spawned workers are run-scoped. None holds authoritative state between runs — state is in files.
 
-The three-package system is the mutation backbone, layered under Meta Ops: `apex-plan` proposes, `apex-sync` computes deterministically, `apex-session` mutates behind the operator gate. The old Apex v2 swarm is translated (its invariants survive as fields, workflows, and law), not revived (no 9 always-on agents, no BUILD/VERIFY/LOCK engine).
+The Plan-Sync-Session Backbone is shared APEX OS infrastructure, not a third orchestration system and not owned by Multi-Agent Orchestration. Inside an active run, Meta Ops uses it as follows: `apex-plan` proposes and decomposes, `apex-sync` computes deterministically, and `apex-session` applies confirmed mutation and closure. The old Apex v2 swarm is translated (its invariants survive as fields, workflows, and law), not revived (no 9 always-on agents, no BUILD/VERIFY/LOCK engine).
 
 ```
 OPERATOR ⇄ Alfred
@@ -31,7 +37,7 @@ OPERATOR ⇄ Alfred
 
 ## 2. Runtime mapping (mechanism ladder — smallest sufficient rung)
 
-**Invocation modes (load-bearing):** **Alfred and Meta Ops are main-conversation contracts** — the orchestrating session adopts their role files at the relevant phases; they are not spawned as subagents (Alfred needs live operator back-and-forth, which a context-isolated subagent cannot do; Meta Ops needs skill invocation and subagent spawning, which spawned subagents do not inherit). **Meta Strategy, Meta Detective, the three lanes, and domain workers are spawned ephemeral subagents.** The `.claude/agents/` files serve both uses: spawn definition and adopted contract.
+**Invocation modes (load-bearing):** **Alfred and Meta Ops are main-conversation contracts** adopted only inside an explicitly started Multi-Agent Orchestration run. Alfred remains in the main conversation for live operator dialogue and exact decision capture. Meta Ops remains there to hold the complete run sequence, gate records, integration state, and closure across phases. **Meta Strategy, Meta Detective, the three lanes, and domain workers are spawned only when the active workflow routes a bounded packet to them.** Custom subagent skills and delegation capabilities are explicit runtime configuration, not an activation signal; the presence of a file under `.claude/agents/` never makes a role global or always active.
 
 | Component | Mechanism | Rung |
 |---|---|---|
@@ -67,16 +73,17 @@ Compact anchors (this package's files are each ≤ ~6 KB), detail behind explici
 
 | Not built | Why |
 |---|---|
-| Always-on named agents / cross-session agent memory | No durable-identity need demonstrated; user stories route to accountabilities without it (Q1) |
+| Always-on named agents / cross-session agent memory | No durable-identity need demonstrated; user stories route to run-scoped accountabilities without it (Q1) |
+| Weekly Orchestrator absorption or automatic cross-activation | Weekly Orchestrator is a separate APEX OS system with its own entrypoint and loop; transfer occurs only through explicit instruction or durable handoff artifacts. |
 | BUILD/VERIFY/LOCK state engine | The three state axes above cover the demonstrated failure classes; a full machine is disproportionate (Q8, research P1) |
 | Different-family validity judge (MCP/API) | Operator direction: no external calls; breaks the offline/stdlib trust boundary (research P2 adaptation) |
 | Hard SKILL.md line caps, periodic drift-detection skill, token budgets | Defensive ceremony without an observed failure (decisions.md D2; Q3, Q7) |
 | Relocation of `.claude/skills/` or `scripts/` | Canonical runtime locations of working machinery; moving = breakage for aesthetics |
 | Enforced path-scoped writes for lanes | Lane rules like "write only inside KB roots" are **guidance, not enforcement** — the `Write` tool grant is repo-wide. Permission settings are the designated enforcement rung IF a simulation ever records a violation (mechanism-ladder rule: don't escalate without an observed failure) |
 
-## 7. Open build items
+## 7. Current build status and open items
 
-1. **Authority-digest enforcement code** in the apex-session write flow (`schemas/authority-state.schema.md` §enforcement) — Codex execution item per `apex-meta/CODEX_EXECUTION_STANDARD.md`; until then enforced procedurally by Meta Ops.
-2. **Registry materialization** — `apex-meta/registry/index.md` does not exist yet; first `apex_sync.py` rebuild against `apex-meta/epics/narm-support-knowledgebase/` creates it (part of the first simulation).
-3. **Per-story adoption** — each of the seven user stories runs for real and records pass/partial/fail in `simulations/` before its workflow counts as adopted. First candidate: US-IDEA-01 (smallest durable set).
-4. **Script-held run loop (escalation trigger, not a build item yet)** — today the run loop is main-conversation-held with file-state as the resumability control; per the resilience KB, only a script-held loop is truly resumable. Escalate — starting with detective-review's parallel-lens step — to a Workflow script IF a simulation record shows an interrupted run losing in-flight phase work that file state did not capture.
+1. **Registry materialized.** `apex-meta/registry/index.md` exists and is maintained through the `apex-sync` registry path. Its presence does not authorize an unreviewed write.
+2. **Authority-digest enforcement code remains open** in the apex-session write flow (`schemas/authority-state.schema.md` §enforcement) — Codex execution item per `apex-meta/CODEX_EXECUTION_STANDARD.md`; until then enforced procedurally by Meta Ops.
+3. **Per-story adoption remains evidence-gated.** Each user story records pass/partial/fail in `simulations/` before its workflow counts as adopted; do not infer current adoption from this architecture file.
+4. **Script-held run loop remains an escalation trigger, not a default build item.** The run loop is main-conversation-held with file state as the resumability control. Escalate to a Workflow script only if a simulation records lost in-flight phase work that durable file state did not capture.
