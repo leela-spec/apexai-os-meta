@@ -1,13 +1,26 @@
 # Apex KB Lifecycle Component and Value Map
 
-## Rating method
+## Seed-map status and required research scoring
 
-Scores are rough hypotheses for Deep Research to verify.
+This file is a seed component inventory, not a final lifecycle map. Deep Research must verify definitions, add missing components, merge duplicates, regroup the lifecycle, and replace all provisional recommendations and ratings.
 
-- **Token efficiency, value, resilience:** 1 = poor, 5 = excellent.
-- **Setup cost, management cost:** 1 = low, 5 = high.
-- A high-cost component is not rejected automatically; it must earn the cost through measurable downstream savings or integrity.
-- `Current` means present on `origin/main` at `d72f07f7b598`; `partial` means the mechanism exists but not at the required capability.
+Any numeric cells retained below are historical seed hypotheses only. They are not valid final scores and must not be copied into the research output.
+
+Deep Research must score every material component on separate 1–100 dimensions:
+
+- target contribution;
+- current mismatch;
+- achievable knowledge-value gain;
+- token-saving potential;
+- deterministic leverage;
+- downstream leverage;
+- failure severity;
+- resilience contribution;
+- implementation cost;
+- recurring token/compute/maintenance cost;
+- evidence confidence.
+
+Use `unverified` when current implementation evidence is unavailable. A high-cost component is rejected only when it creates insufficient target value relative to its cost and complexity. Valuable capabilities remain designed and may be configurable. `Current` in the rows below refers only to the recorded implementation snapshot; Deep Research must verify current `main`.
 
 ## Macro lifecycle
 
@@ -38,7 +51,7 @@ Scores are rough hypotheses for Deep Research to verify.
 | B06 | Field-separated topic matching | path/name/title/H1/heading/body/link signals → candidate rows → LLM navigation | missing; substring count only | 5 | 5 | 5 | 3 | 2 | **Replace current ranking.** Preserve every signal, not one score. |
 | B07 | Candidate classes | deterministic signals → direct/section-primary/dense/contextual/linked/duplicate → read order | missing | 5 | 5 | 4 | 2 | 2 | **Add.** Classes are navigation labels, not semantic truth. |
 | B08 | Lifecycle/authority hints | configured path rules/dates/Git history → current/prototype/historical/implementation hints → LLM review | missing | 5 | 5 | 3 | 2 | 2 | **Add with strict wording.** Hints must show their rule/evidence. |
-| B09 | Explicit link/process graph | links/YAML paths/manifests/arrows → graph edges/hubs → contextual candidates | current as optional graph, partial coverage | 4 | 3 | 4 | 3 | 2 | **Keep optional V1.5.** Useful for cross-feature routes; not required for basic topic maps. |
+| B09 | Explicit link/process graph | links/YAML paths/manifests/arrows → graph edges/hubs → contextual candidates | current as optional graph, partial coverage | 4 | 3 | 4 | 3 | 2 | **Seed hypothesis: configurable or evidence-probe required.** Assess its target value, dependencies, and activation criteria; do not assign it to a later product version. |
 | B10 | Exhaustive machine topic map | all B-stage signals → every candidate row → semantic classifier | missing; current top 30 | 5 | 5 | 5 | 3 | 1 | **Add as canonical derived artifact.** Never top-N truncate this set. |
 | B11 | Compact topic navigation view | machine map → direct/core/context/duplicate read order → LLM startup | missing | 5 | 5 | 4 | 2 | 1 | **Add.** This is the bounded view that saves LLM tokens. |
 | B12 | Populated navigation report | all topic maps/profile/warnings → read-first batches and gaps → operator/semantic route | shell only | 5 | 5 | 4 | 2 | 1 | **Implement research contract.** Remove if it merely repeats artifact names. |
@@ -47,7 +60,7 @@ Scores are rough hypotheses for Deep Research to verify.
 | C03 | Freshness/authority judgment | deterministic hints + source content → current/prototype/historical/proposal/implementation assessment → synthesis | current conceptually | 3 | 5 | 3 | 1 | 2 | **Keep LLM-owned.** Cite evidence and confidence. |
 | C04 | Contradiction/supersession analysis | source claims + dates/version evidence → preserved relationships → dossier/atlas | current | 3 | 5 | 4 | 2 | 2 | **Keep.** Never infer solely from filenames or dates. |
 | C05 | Target-query coverage | questions + reviewed evidence → answered/partial/blocked → source continuation/page plan | current v2 | 4 | 5 | 5 | 2 | 2 | **Keep.** Add source-atlas questions to broad concept targets. |
-| C06 | Page-topology decision | recurring questions/duplication → dossier/subpages/atlas → Phase 2 | current v2 | 4 | 4 | 4 | 1 | 2 | **Simplify.** Minimum page count, complete answer and source coverage. |
+| C06 | Page-topology decision | recurring questions/duplication → dossier/subpages/atlas → Phase 2 | current v2 | 4 | 4 | 4 | 1 | 2 | **Seed hypothesis: change.** Derive page topology from question, retrieval, maintenance, and source-coverage boundaries rather than a product-minimum target. |
 | C07 | Concept dossier drafting | topic analysis/capsules → Macro/Meso/Micro answer page → future AI/query evaluator | current template, output unreliable | 3 | 5 | 3 | 1 | 2 | **Redesign around direct knowledge.** Avoid repetitive governance blocks. |
 | C08 | Complete source atlas | candidate dispositions → per-file snapshot/value/freshness/pointers → future AI/source navigator | missing | 5 | 5 | 5 | 2 | 2 | **Add.** Embed only for small candidate sets; otherwise separate page. |
 | C09 | Cross-page linking/index proposal | dossier relationships → routes/page catalog candidates → deterministic indexer | current | 4 | 4 | 4 | 1 | 2 | **Keep.** Deterministic index rebuild owns final catalog. |
@@ -67,6 +80,15 @@ Scores are rough hypotheses for Deep Research to verify.
 | F04 | Staleness/impact analysis | changed hashes + source/page dependencies → affected topics/pages → bounded recompile | partial | 5 | 5 | 5 | 3 | 2 | **Add as core incremental value.** |
 | F05 | Postflight/status | semantic acceptance + deterministic freshness/quality → truthful state → consumers | current v2 | 5 | 5 | 5 | 2 | 1 | **Keep.** Refuse `query_ready` when either gate is stale. |
 | F06 | Orchestration consumption | compact cited packets → Plan/Session/Sync reads → task reasoning | boundary defined | 5 | 4 | 4 | 1 | 1 | **Keep read-only boundary.** KB must not mutate orchestration state. |
+| G01 | Source-access and evidence-mode handling | repository identity + route probes + Project Sources → selected evidence mode → all research modules | missing | unscored | unscored | unscored | unscored | unscored | **Deep Research must design.** Continue useful research without fabricating current implementation facts. |
+| G02 | Durable concept-to-source map | deterministic candidates + semantic dispositions → reusable documentary map → future AI, audits, maintenance | partial/missing | unscored | unscored | unscored | unscored | unscored | **Deep Research must design as core product value.** |
+| G03 | Configurable execution profiles | independent capability axes + operator choices → one run profile → deterministic and semantic executors | missing | unscored | unscored | unscored | unscored | unscored | **Deep Research must design.** Configuration changes execution scope, not architecture completeness. |
+| G04 | Codex/browser/runtime orchestration | scope answers + machine outputs → bounded save batches → semantic artifacts + verified repository changes | missing | unscored | unscored | unscored | unscored | unscored | **Deep Research must design.** Codex orchestrates; ChatGPT web performs semantic work; runtime performs observable machine work. |
+| G05 | Save-batch semantics | coherent concept/source group + context-aware completion → persisted batch record → next orchestration step | missing | unscored | unscored | unscored | unscored | unscored | **Deep Research must define value, boundaries, and evidence needed.** |
+| G06 | Claude skill/orchestration micro-design guidance | file/script recommendation + relevant compiled guidance → implementation record → implementation agent | missing | unscored | unscored | unscored | unscored | unscored | **Deep Research must require for every micro design.** |
+| G07 | Project Source fallback | uploaded package/repository snapshot → bounded evidence set → architecture research | missing | unscored | unscored | unscored | unscored | unscored | **Deep Research must design.** Snapshot limitations remain explicit. |
+| G08 | Implementation-evidence gap handling | unavailable current files → `unverified` findings + later verification list → implementation handoff | missing | unscored | unscored | unscored | unscored | unscored | **Deep Research must design.** |
+| G09 | Guardrail-value test | proposed gate/ledger/evaluator → demonstrated failure or repeat-work analysis → keep/remove decision | partial | unscored | unscored | unscored | unscored | unscored | **Deep Research must apply.** No generic process theater. |
 
 ## Tool and implementation option map
 
@@ -74,7 +96,7 @@ Scores are rough hypotheses for Deep Research to verify.
 |---|---|---:|---:|---:|---:|---:|---|
 | `git ls-files` / filesystem walk | exhaustive path baseline | 5 | 5 | 5 | 1 | 1 | Core; choose behavior based on scoped tracked/untracked policy. |
 | `rg` | fast exact searches and implementation diagnostics | 5 | 4 | 5 | 1 | 1 | Core operator tool; script should not depend on shelling out when Python can scan deterministically. |
-| Python state-machine Markdown parser | headings, links, fences, frontmatter boundaries, line spans | 5 | 5 | 4 | 2 | 2 | Core V1 from parser research. |
+| Python state-machine Markdown parser | headings, links, fences, frontmatter boundaries, line spans | 5 | 5 | 4 | 2 | 2 | Seed final-architecture candidate from parser research; verify against fixtures and alternatives. |
 | `markdown-it-py` | token-boundary validation for complex Markdown | 4 | 3 | 5 | 2 | 2 | Optional when fixtures expose real parser failures. |
 | `python-frontmatter` / PyYAML | robust metadata parsing | 4 | 4 | 5 | 2 | 2 | Prefer over broad regex if existing frontmatter needs full YAML. No invented stdlib-only restriction. |
 | DOCX/PPTX/XLSX/PDF extractors | deterministic visibility for non-Markdown sources | 4 | 4 | 3 | 3 | 3 | Capability probe; each format needs pointer fixtures and blocked status. |
@@ -82,10 +104,10 @@ Scores are rough hypotheses for Deep Research to verify.
 | Explicit graph extractor | cross-feature/path/process navigation | 4 | 3 | 4 | 3 | 2 | Optional once topic-map value is proven; no semantic graph invention. |
 | `fd` | convenient file discovery | 4 | 2 | 5 | 2 | 1 | Not required when inventory walker/`rg --files` exists. |
 | `tokei` or `scc` | corpus code/line statistics | 4 | 2 | 5 | 2 | 1 | Choose at most one only if stats drive a decision. |
-| `cloc` | older line statistics | 3 | 1 | 4 | 2 | 2 | Defer/reject; duplicates lighter tools. |
-| Node `remark/unified` | high-fidelity Markdown/MDX AST | 3 | 3 | 5 | 4 | 4 | Defer until Python parser fails material fixtures. |
-| MkDocs/mdBook/Docusaurus | publishing and browser search | 2 | 1 | 3 | 4 | 4 | Reject from core lifecycle; publishing is a separate product. |
-| qmd/vector/hybrid retrieval | semantic recall beyond lexical terms | 3 | 3 | 3 | 4 | 4 | Defer until measured query failures survive aliases/tags/BM25. |
+| `cloc` | older line statistics | 3 | 1 | 4 | 2 | 2 | Seed hypothesis: reject if it adds no distinct decision value; otherwise define a configuration or evidence probe. |
+| Node `remark/unified` | high-fidelity Markdown/MDX AST | 3 | 3 | 5 | 4 | 4 | Seed hypothesis: `requires_evidence_probe` against material Markdown/MDX fixtures. |
+| MkDocs/mdBook/Docusaurus | publishing and browser search | 2 | 1 | 3 | 4 | 4 | Seed hypothesis: reject from the Apex KB product if publishing creates insufficient KB value; state the reasoning. |
+| qmd/vector/hybrid retrieval | semantic recall beyond lexical terms | 3 | 3 | 3 | 4 | 4 | Seed hypothesis: `requires_evidence_probe` using measured failures that survive aliases, metadata, and lexical retrieval. |
 | Obsidian plugin / web viewer | human browsing and anchored feedback | 3 | 3 | 3 | 4 | 4 | Optional UI; preserve simple audit-file protocol without requiring it. |
 
 ## LLM instruction pattern map
@@ -119,3 +141,5 @@ Every stage must make the next stage cheaper and more reliable:
 10. Change detection uses hashes/dependencies to reprocess only affected capsules, topics, and pages.
 
 If an artifact has no identified consumer, does not prevent a demonstrated failure, and does not reduce repeat work, it should be removed from the mandatory path.
+
+Deep Research must return the verified and updated Lifecycle Component and Value Map immediately after the Target Lock. It must not preserve these seed scores, groupings, or dispositions merely because they appear in this file.

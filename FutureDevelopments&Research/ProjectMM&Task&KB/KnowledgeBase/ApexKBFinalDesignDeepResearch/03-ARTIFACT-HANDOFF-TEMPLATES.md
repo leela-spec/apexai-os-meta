@@ -1,6 +1,6 @@
 # Artifact and Handoff Templates
 
-These are rough interfaces for Deep Research to test, simplify, and finalize. They intentionally show the value-bearing fields, not a final schema commitment.
+These are illustrative research interfaces for Deep Research to test, correct, simplify, expand, or reject. They show possible value-bearing relationships and must not be treated as finalized schemas, field contracts, filenames, or implementation commitments. Every retained field and artifact requires an identified consumer, demonstrated value, and relevant micro-design evidence.
 
 ## Artifact chain
 
@@ -29,7 +29,7 @@ Purpose: make “whole corpus” testable and prevent silent omission or recursi
 
 ```json
 {
-  "schema": "apex.kb.corpus-scope.v1",
+  "schema": "apex.kb.corpus-scope.design-candidate",
   "source_roots": ["LeelaAppDevelopment"],
   "exclusions": [
     {
@@ -70,7 +70,7 @@ Purpose: combine future-AI questions with deterministic concept vocabulary.
 
 ```json
 {
-  "schema": "apex.kb.topic-registry.v3-candidate",
+  "schema": "apex.kb.topic-registry.design-candidate",
   "topics": [
     {
       "topic_id": "skill-tree",
@@ -327,7 +327,7 @@ Purpose: compile a unique source once and reuse its evidence across topics.
 ---
 source_id: src-...
 source_hash: sha256:...
-semantic_contract_version: "candidate-v3"
+semantic_contract_version: "design-candidate"
 read_mode: complete
 reviewed_spans: ["1-812"]
 authority_assessment: current_specification
@@ -470,7 +470,7 @@ Atlas acceptance:
 
 ```json
 {
-  "schema": "apex.kb.semantic-acceptance.vNext-candidate",
+  "schema": "apex.kb.semantic-acceptance.design-candidate",
   "run_id": "...",
   "topic_id": "skill-tree",
   "contract_version": "...",
@@ -549,14 +549,126 @@ Routine queries should report `raw_source_reopen_status: not_required`. Reopen i
 }
 ```
 
-## Interface minimization test
+## 18. Module Output Record
 
-For every proposed field, Deep Research must identify:
+Use this as a research-output checklist, not a final storage schema:
+
+```yaml
+module_id:
+target_contribution:
+current_behavior:
+current_mismatch:
+evidence_status:
+focused_questions: []
+sources_read: []
+llm_wiki_mechanisms_consulted: []
+claude_micro_design_sources_consulted: []
+final_strategy:
+submodules: []
+inputs: []
+outputs: []
+consumers: []
+interconnections: []
+implementation_order: []
+tests_and_fixtures: []
+configuration_effects: []
+remaining_unverified_facts: []
+```
+
+## 19. File and Script Design Record
+
+For every affected current or proposed file, script, template, workflow, reference, hook, manifest, or generated artifact, provide:
+
+```yaml
+repository_relative_path:
+artifact_type:
+purpose:
+owner:
+status: canonical | generated | derived | temporary
+current_behavior:
+current_mismatch:
+final_responsibilities: []
+non_responsibilities: []
+inputs: []
+outputs: []
+consumers: []
+required_sections_or_interfaces: []
+control_flow: []
+deterministic_semantic_boundary:
+relationships: []
+progressive_disclosure_behavior:
+micro_design_evidence: []
+migration_behavior:
+tests_and_fixtures: []
+failure_behavior:
+token_and_maintenance_cost:
+risks: []
+disposition:
+rationale:
+```
+
+This record is implementation guidance. It must not contain the complete replacement file or finished code.
+
+## 20. Configuration Axis Record
+
+```yaml
+axis_id:
+purpose:
+allowed_values: []
+default:
+activation_criteria:
+dependencies: []
+effect_on_outputs: []
+effect_on_cost:
+effect_on_completeness:
+incompatible_combinations: []
+operator_decision_needed:
+```
+
+Configuration controls execution scope inside one complete architecture. It does not create separate product versions.
+
+## 21. Source-Access Evidence Record
+
+```yaml
+repository_identity:
+route_attempts: []
+selected_route:
+evidence_mode: full_repository_evidence | project_source_repository_snapshot | architecture_research_without_apex_implementation
+current_main_commit:
+available_sources: []
+unavailable_sources: []
+snapshot_limitations: []
+unverified_implementation_facts: []
+```
+
+## 22. Browser Semantic Task-Packet Design Record
+
+```yaml
+save_batch_id:
+concept_or_source_group:
+input_artifacts: []
+whole_files_to_read: []
+semantic_outputs_expected: []
+allowed_write_scope: []
+completion_definition:
+actual_model_or_mode:
+blocked_or_partial_behavior:
+next_deterministic_actions: []
+```
+
+A save batch is a coherent, context-aware completed Apex KB unit, not an arbitrary partial draft.
+
+## Interface value test
+
+For every proposed artifact, field, instruction, gate, evaluator, or handoff, Deep Research must identify:
 
 1. which downstream consumer reads it;
 2. which demonstrated failure it prevents or which repeat work it removes;
 3. whether it can be derived instead of authored by the LLM;
 4. whether it duplicates information elsewhere;
-5. whether omission would make a pass/fail decision ambiguous.
+5. whether omission would make a product decision or truthful state ambiguous;
+6. which LLM-Wiki mechanism supports the pattern;
+7. which Claude skill/orchestration source supports its micro design;
+8. its recurring token, compute, and maintenance cost.
 
-Fields that fail this test should not be mandatory.
+Items that fail this test should not be mandatory. Durable source maps and source atlases require lossless candidate reconciliation, blocked-source visibility, exact pointers, and future-AI usability; they are core product outputs rather than optional reports.

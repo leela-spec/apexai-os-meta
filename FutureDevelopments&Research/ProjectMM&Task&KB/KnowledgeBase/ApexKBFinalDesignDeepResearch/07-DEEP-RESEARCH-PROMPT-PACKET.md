@@ -3,350 +3,316 @@
 ## Packet metadata
 
 ```yaml
-packet_id: apex-kb-final-design-deep-research-v1
+packet_id: apex-kb-final-architecture-deep-research
 primary_task_type: research
 secondary_task_types:
+  - repository_and_snapshot_evidence_analysis
   - long_context_digestion
-  - workflow_extraction
-  - synthesis
-  - planning
-expected_output_type: decision_complete_architecture_and_implementation_plan
+  - workflow_and_micro_design_extraction
+  - architecture_synthesis
+  - implementation_planning
+expected_output_type: decision_complete_final_architecture_and_detailed_implementation_guidance
 provider_target: ChatGPT Deep Research
-provider_rationale: >-
-  The task requires a source-led comparison of a live repository implementation,
-  extensive local research, multiple blueprint repositories, and a small amount of
-  current official technical verification. It benefits from long-context source
-  synthesis and citations, but it does not require code mutation.
-iteration_loop: research_synthesize_decide
-follow_up_loop: generate_critique_revise
+run_model: one_prompt_one_coherent_run
+operator_pauses_during_run: false
+code_or_repository_mutation: false
+source_access_fallbacks:
+  - github_app_or_connector
+  - public_github_main
+  - raw_github_main
+  - uploaded_project_sources
+  - architecture_research_without_apex_implementation
 ```
 
 ## Clean copy-paste prompt
 
 ```text
-You are a senior knowledge-system architect conducting a repository-grounded Deep Research run.
+You are a senior knowledge-system architect conducting one coherent Deep Research run to define the final Apex KB architecture and detailed implementation guidance.
 
-Your task is to produce the final, decision-complete architecture and implementation plan for Apex KB. Do not write or patch repository files. Do not redesign unrelated Apex orchestration. Do not inspect or require a second repository. Work only from the `apexai-os-meta` repository connected to this chat plus narrowly necessary current primary-source web documentation.
+Do not write repository patches, finished scripts, complete replacement files, or falsely finalized contracts. Produce enough module-level and file/script-level detail that implementation agents can execute the design without rediscovering the architecture.
 
-MISSION
+NON-NEGOTIABLE PRODUCT TARGET
 
-Define the smallest resilient lifecycle that combines deterministic whole-corpus indexing with LLM semantic judgment so Apex KB creates durable, high-value knowledge rather than shallow summaries.
+Design one final multifunctional Apex KB architecture that:
 
-The locked product target is:
+1. deterministically inventories every configured source or explicitly excludes it with a reason;
+2. creates durable concept-to-source intelligence showing where each concept is discussed and why each file was surfaced;
+3. preserves current, historical, prototype, implementation, contextual, duplicate, superseded, incidental, blocked, and irrelevant-after-review source relationships;
+4. uses scripts for observable repeatable work and LLM judgment only for meaning, authority, contradiction, synthesis, and other semantic decisions;
+5. compiles durable Macro, Meso, and Micro knowledge that creates more value than rereading raw sources;
+6. creates a durable concept dossier and durable source atlas or equivalent lossless source-map surface for every configured concept;
+7. makes future AI queries faster, cheaper, more complete, and easier to verify;
+8. supports incremental maintenance without rereading unchanged evidence unnecessarily;
+9. supports configurable execution profiles inside the same architecture;
+10. supports a future low-token Codex orchestration loop that delegates semantic work to ChatGPT web in the strongest suitable available reasoning mode;
+11. removes redundant instructions, duplicate metadata, and guardrails that neither prevent a demonstrated failure nor eliminate repeat work;
+12. remains honest when evidence or tooling is unavailable.
 
-1. Deterministically inventory every in-scope file or explicitly exclude it with a reason.
-2. For every configured concept/topic, expose every deterministic candidate file and the exact reasons it matched: path, filename, title/frontmatter, H1, headings, body, links, co-occurrence, duplicates, and date/version signals where available.
-3. Use those maps to let an LLM read core evidence efficiently, classify every candidate, preserve versions and contradictions, and reuse unchanged source understanding.
-4. Compile a useful concept dossier that answers important questions at Macro, Meso, and Micro levels.
-5. Compile a source atlas that lists every concept candidate with an individual content snapshot, individual value, freshness/authority assessment, duplicate/supersession relationship, review status, and exact relevant pointers.
-6. Prove in a fresh context that future AIs can answer routine concept and source-location questions from compiled pages without reopening readable raw sources.
-7. Build deterministic index/retrieval/postflight only after semantic acceptance.
-8. Keep the normal LLM route short and simple enough that most context and output tokens are spent reading evidence and writing the actual wiki.
+The source map and source atlas are durable product outputs, not disposable preprocessing.
 
-The final design must create more value than simply letting an AI read the small set of sources again. File counts, headings, word counts, source counts, commits, and self-reported rereads are never proof of semantic value.
+KNOWN FAILURE MODE — INCOMPLETE VERSION DRIFT
 
-SOURCE BOUNDARY AND READING ORDER
+Do not reinterpret `efficient`, `bounded`, `prioritized`, `iterative`, `configurable`, or `token-saving` as permission to design a lightweight, minimal, preliminary, V1, V1.5, later-completed, deferred, or partially functional product.
 
-Use repository-relative paths only.
+- Prioritization controls research order.
+- Configuration controls execution scope.
+- Neither reduces, postpones, or fragments the final architecture.
 
-Stage 1 — Read the prepared evidence package completely, in order:
+Allowed dispositions are `keep`, `change`, `add`, `merge`, `remove`, `configurable`, `reject`, and `requires_evidence_probe`.
 
-- `FutureDevelopments&Research/ProjectMM&Task&KB/KnowledgeBase/ApexKBFinalDesignDeepResearch/00-START-HERE.md`
-- `FutureDevelopments&Research/ProjectMM&Task&KB/KnowledgeBase/ApexKBFinalDesignDeepResearch/01-CURRENT-APEX-KB-FAILURE-ANALYSIS.md`
-- `FutureDevelopments&Research/ProjectMM&Task&KB/KnowledgeBase/ApexKBFinalDesignDeepResearch/02-LIFECYCLE-COMPONENT-VALUE-MAP.md`
-- `FutureDevelopments&Research/ProjectMM&Task&KB/KnowledgeBase/ApexKBFinalDesignDeepResearch/03-ARTIFACT-HANDOFF-TEMPLATES.md`
-- `FutureDevelopments&Research/ProjectMM&Task&KB/KnowledgeBase/ApexKBFinalDesignDeepResearch/04-Apex-KB-Current-Research-Index.md`
-- `FutureDevelopments&Research/ProjectMM&Task&KB/KnowledgeBase/ApexKBFinalDesignDeepResearch/05-Apex_KB_Current_Research_Index.machine-readable.yaml.md`
-- `FutureDevelopments&Research/ProjectMM&Task&KB/KnowledgeBase/ApexKBFinalDesignDeepResearch/06-LLM-WIKI-REPOSITORY-GUIDE.md`
+Reject a capability only when it creates insufficient target value relative to its cost and complexity. Difficulty alone is not sufficient. Technical schema versions may exist only as compatibility identifiers and may not imply product maturity.
 
-Stage 2 — Deep-read every P0 source from the new index. Inspect the current Apex KB implementation on current `main`, especially:
+REPOSITORY IDENTITY
 
-- `.claude/skills/apex-kb/SKILL.md`
-- `.claude/skills/apex-kb/references/semantic-value-contract.md`
-- `.claude/skills/apex-kb/templates/ingest-analysis-template.md`
-- `.claude/skills/apex-kb/templates/wiki-page-templates.md`
-- `apex-meta/scripts/apex_kb.py`
-- `apex-meta/scripts/apex_kb_retrieval.py`
+```yaml
+repository_owner: leela-spec
+repository_name: apexai-os-meta
+repository_full_name: leela-spec/apexai-os-meta
+branch: main
+research_package_root: FutureDevelopments&Research/ProjectMM&Task&KB/KnowledgeBase/ApexKBFinalDesignDeepResearch
+path_style: repository_relative
+```
 
-Do not rely on a local-checkout commit statement when the connected repository shows a newer main branch. Record the exact commit inspected.
+Use repository-relative paths after this block. They are logical provenance identities, not requirements for the physical layout of Google Drive or Project Sources: do not require a physical `apexai-os-meta` wrapper folder or a physical `source-knowledge` wrapper folder. Accepted representations include the `KnowledgeBase`, `apex-kb`, and `claude-code-orchestration-design` Drive roots, the three standalone `llm-wiki`, `llm-wiki-main`, and `llm-wiki-skill-main` Drive roots, and uploaded Project Sources containing Git snapshots or missing implementation files. Do not use local-checkout assumptions. Resolve and record the current `main` commit when repository access works; a commit named in an older file is only a snapshot. For every source read, record the displayed source route actually opened alongside the inferred repository-relative identity, and do not count two representations of the same file as independent evidence.
 
-Stage 3 — Read the P1 source spine completely. It contains executed deterministic research and the three LLM-Wiki blueprint sources.
+SOURCE-ACCESS PROBE AND EVIDENCE MODES
 
-Stage 4 — Read P2 sources only for decisions still unresolved after Stages 1–3. Use P3 only to resolve provenance or a specific disagreement. Do not reread every historical report equally.
+Before substantive research, attempt to open completely:
 
-Do not read, cite, or use as design evidence:
+1. `FutureDevelopments&Research/ProjectMM&Task&KB/KnowledgeBase/ApexKBFinalDesignDeepResearch/00-START-HERE.md`
+2. `FutureDevelopments&Research/ProjectMM&Task&KB/KnowledgeBase/ApexKBFinalDesignDeepResearch/02-LIFECYCLE-COMPONENT-VALUE-MAP.md`
+3. `.claude/skills/apex-kb/SKILL.md`
 
-- `FutureDevelopments&Research/ProjectMM&Task&KB/KnowledgeBase/Failed_Prompts/`
-- `FutureDevelopments&Research/ProjectMM&Task&KB/KnowledgeBase/FailedKBCreation/`
-- standalone failed prompt drafts, chat histories, or superseded draft plans
+Try routes in this order:
 
-If current external facts are material—for example SQLite FTS5 behavior, supported parser libraries, or current Claude Code skill loading—verify them using official primary documentation. External web research is validation, not the source of the Apex product target. Clearly separate repository evidence, external evidence, inference, and recommendation.
+1. enabled GitHub app or connector;
+2. public GitHub pages for `leela-spec/apexai-os-meta` on `main`;
+3. raw GitHub files for the same repository and branch;
+4. uploaded Project Sources containing the package and selected repository files.
 
-CORE RESEARCH QUESTIONS
+Do not attempt local paths. Select one evidence mode:
 
-Answer all of these:
+- `full_repository_evidence` — current package and implementation are reliably accessible;
+- `project_source_repository_snapshot` — GitHub routes fail but uploaded files provide a bounded repository snapshot;
+- `architecture_research_without_apex_implementation` — no reliable current Apex implementation evidence is available.
 
-1. What value and artifact chain did the Phase 0 and orchestration research actually intend at Macro, Meso, and Micro levels?
-2. What does current `apex_kb.py` implement for each intended artifact, and where does it diverge? Inspect code, not only contracts.
-3. Does current Phase 0 reliably expose every file that can matter to a concept? Test the ranking design for ambiguous supporting terms, dedicated filenames, headings, long generic files, duplicates, versions, dates, graph links, and candidates beyond rank 30.
-4. Which deterministic artifacts make LLM reading materially cheaper, and which artifacts merely add process or duplicate information?
-5. What exact handoff should each deterministic artifact provide to the next LLM step?
-6. What semantic work should be reusable by source hash, and what must remain topic-specific?
-7. What is the leanest reliable way to classify every candidate while reading core/current sources fully and contextual sources only where justified?
-8. What exact information must a concept dossier contain? What belongs in a separate source atlas? When may the atlas be embedded?
-9. How should freshness, authority, current/prototype/historical/proposal/implementation status, contradiction, duplication, and supersession be assessed without inferring truth from paths or dates alone?
-10. Which semantic v2 safeguards added on current main should be preserved, simplified, expanded, or removed?
-11. Does the current semantic ledger/template/runbook impose more authored fields and context than their downstream value justifies? Trace every mandatory field to a consumer and demonstrated failure.
-12. How should page-only query acceptance, claim entailment, topic-map completeness, and source-atlas completeness combine without creating a new bureaucracy?
-13. How should wiki index, chunk retrieval, FTS5/BM25, fallback retrieval, query packets, lint, audit, staleness, and postflight consume accepted compiled pages?
-14. How should a changed source deterministically identify affected capsules, topics, dossiers, atlases, and acceptance artifacts so unchanged evidence is not reread?
-15. Which mechanisms from each LLM-Wiki repository create the same target value, which are missing, and which would be costly distractions?
-16. What exact short instruction flow should a terminal agent and a browser/Git-connector AI follow? How many files and approximate instruction tokens are loaded before topic evidence?
-17. Which optional tools—markdown-it-py, YAML libraries, graph extraction, DOCX/PPTX/XLSX/PDF extraction, qmd/vector retrieval, Obsidian/web UI, static-site systems—belong in the core, capability-gated extension, later optimization, or reject list?
-18. What fixture and hard canary prove that the lifecycle creates an answer-bearing dossier and a complete source atlas rather than a rewrite of a few sources?
+Do not abort in the third mode. Continue with the available package, self-created research, LLM-Wiki sources, Claude skill/orchestration sources, official primary web documentation, and primary tool/library repositories. Mark current implementation facts and current-mismatch scores as `unverified`, list what must later be checked, and do not lower the target.
+
+EVIDENCE CLASSES
+
+Separate operator target, verified current implementation facts, Project Source snapshot facts, existing Apex research intent, LLM-Wiki blueprint evidence, Claude skill/orchestration evidence, external primary evidence, inference, and recommendation.
+
+MANDATORY SOURCE FAMILIES
+
+1. Read package files `00`–`06` in numeric order. Treat file `02` as a seed hypothesis that this run must update.
+2. When available, inspect the current Apex skill, references, templates, runtime scripts, tests, fixtures, manifests, and runbooks. Inspect code behavior, not only prose.
+3. For every lifecycle module, consult relevant LLM-Wiki mechanisms and concrete files/scripts/workflows. State what Apex should copy, adapt, combine, configure, reject, or probe.
+4. For every micro recommendation about a skill file, reference, template, workflow, script, hook, agent, browser handoff, loading, or recovery, consult relevant Claude skill/orchestration design evidence from the indexes, including compiled informatics, resilient-workflow, agent/subagent, mechanism-choice, commands/hooks/rules/memory, and Apex orchestration pages.
+5. Use current official primary web documentation when unstable external facts materially affect a decision.
+
+Do not use `Failed_Prompts/`, `FailedKBCreation/`, standalone prompt drafts, chat histories, or superseded draft plans as design authority.
+
+ONE COHERENT PRIORITY-DRIVEN RESEARCH SEQUENCE
+
+Do not use one flat global question checklist and do not pause for operator approval.
+
+Step 1 — Target Lock
+
+Make the first substantive output the complete target: future-AI jobs, durable dossier, durable source map/atlas, deterministic versus semantic ownership, token/value requirements, configurable-mode principles, measurable success, non-success proxies, and known failure modes.
+
+Step 2 — Verify and update the Lifecycle Component and Value Map
+
+Use file `02` only as a seed. Verify every component; correct definitions; add missing components; merge duplicates; identify ownership, dependencies, producers, consumers, and interconnections; compare with current Apex when evidence permits; score on 1–100 dimensions; assign a justified disposition; and place each component in a research group. Do not inherit current scores, groupings, or recommendations.
+
+Step 3 — Group the lifecycle
+
+Create coherent groups based on dependencies, source overlap, and decision boundaries. Include target/scope/custody, deterministic corpus intelligence, durable source maps and atlases, semantic compilation, acceptance, retrieval, maintenance, configurable profiles, Codex/browser/runtime orchestration, and skill/package micro design where supported by evidence.
+
+Step 4 — Rank groups
+
+Research highest-value mismatches first using:
+
+```text
+current Apex mismatch × achievable product-value gain × downstream lifecycle leverage
+```
+
+When implementation evidence is unavailable, use target contribution, failure severity, and downstream leverage and mark mismatch `unverified`.
+
+Step 5 — Research each group iteratively inside this same run
+
+For each group: state target contribution; identify current mismatch or unverified facts; derive only the questions needed for that group; select a focused source bundle; compare Apex, LLM-Wiki, Claude skill/orchestration design, and current primary evidence; design modules and submodules; specify implementation guidance and interconnections; create file/script design records; update remaining priorities; then continue to the next group.
+
+Grouping prevents context mixing. It does not create separate Deep Research runs or operator checkpoints.
 
 DESIGN DISCIPLINE
 
-- Preserve the deterministic/LLM boundary: scripts report observable file facts; LLMs judge meaning, authority, contradictions, and synthesis.
-- Preserve current semantic v2 improvements unless repository evidence shows a simpler mechanism achieves the same protection.
-- Treat Phase 0 rankings as navigation only. Do not let any score, path, filename, date, or prior summary establish semantic authority.
-- Keep the exhaustive machine candidate set separate from the compact LLM read view. A compact view may be bounded; the authoritative candidate set may not be silently top-N truncated.
-- Do not solve missing value with fixed word counts, claim counts, source counts, page counts, or more required headings.
-- Do not add an artifact, field, gate, tool, or instruction unless you identify its consumer, the demonstrated failure it prevents or repeat work it removes, and its recurring token/maintenance cost.
-- Prefer derived fields over LLM-authored duplicate metadata.
-- Prefer one short startup contract and progressive disclosure over loading the whole skill package.
-- Keep optional publishing, UI, graph, vector, and heavy-parser systems outside the minimum critical path unless evidence proves they are needed.
-- Do not expose hidden chain-of-thought. Provide an evidence ledger, concise decision rationales, alternatives, and tradeoffs.
-- Do not use Leela as the design subject. The known failed build is only a negative acceptance case: the final lifecycle must make that shallow outcome impossible to report as complete.
+- Scripts report observable facts; LLMs judge meaning, authority, contradiction, and synthesis; the orchestrator coordinates without duplicating semantic work.
+- Keep exhaustive machine candidate sets separate from compact navigation projections; no top-N view may replace the authoritative set.
+- Preserve durable per-concept source maps and atlases with every candidate reconciled, exact pointers, blocked visibility, individual value, and relationships.
+- Do not use counts, headings, fields, pages, or self-reported reads as semantic proof.
+- Do not add an artifact, field, gate, evaluator, tool, or instruction without naming its consumer, demonstrated failure prevented or repeat work removed, and recurring cost.
+- Prefer derived fields and progressive disclosure over LLM-authored duplicate metadata and always-loaded contracts.
+- Assess graph, extraction, parser, UI, vector, and publishing capabilities by target value. Use `configurable`, `reject`, or `requires_evidence_probe`; complexity alone does not justify omission.
+- Do not expose hidden chain-of-thought. Provide cited evidence, decision rationales, alternatives, uncertainty, and tradeoffs.
+- Leela is a negative acceptance case, not the design subject.
 
-RATING METHOD
+SCORING — 1 TO 100
 
-For every material component, tool, script, artifact, and LLM instruction, give:
+Score each material component, module, tool, script, artifact, and LLM instruction separately on:
 
-- status: keep | change | add | merge | delete | capability-gate | defer | reject;
-- token efficiency: 1–5, where 5 is best;
-- value created: 1–5, where 5 is highest;
-- resilience: 1–5, where 5 is strongest;
-- setup cost: 1–5, where 5 is most expensive;
-- recurring management cost: 1–5, where 5 is most expensive;
-- evidence and concise rationale;
-- exact producer, input, output, consumer, validation, and failure behavior.
+- target contribution;
+- current mismatch;
+- achievable knowledge-value gain;
+- token-saving potential;
+- deterministic leverage;
+- downstream leverage;
+- failure severity if absent or wrong;
+- resilience contribution;
+- implementation cost;
+- recurring token/compute/maintenance cost;
+- evidence confidence.
 
-Do not average these scores into one authority number. State tradeoffs.
+Use `unverified` instead of inventing a current-mismatch score. A transparent sequencing score is allowed only if the formula and dimensional tradeoffs remain visible.
 
-REQUIRED OUTPUT
+CONFIGURABLE EXECUTION-PROFILE STRATEGY
 
-Return exactly these sections:
+Design independent axes for source formats, corpus-priority coverage, topic coverage, semantic depth, full versus targeted reading, atlas depth, duplicate/version handling, graph extraction, external verification, acceptance depth, build/rebuild/update/repair mode, and terminal/connector/browser execution surface. Propose named profiles and defaults for operator consultation after the run. Do not create maturity-version tracks.
 
-# 0. Executive decision
+FUTURE CODEX / CHATGPT WEB / RUNTIME ORCHESTRATION
 
-- Final architecture in no more than 15 decisive bullets.
-- The minimum critical path.
-- Optional/capability-gated path.
-- The single biggest current failure and the single most important fix.
+Design this as part of the final architecture, not as the method of this research run:
 
-# 1. Evidence and implementation truth ledger
+- Codex/orchestrator: necessary scope/profile Q&A, deterministic commands, bounded task packets, changed-path verification, Git operations, coordination; no deep corpus synthesis.
+- ChatGPT web in the strongest suitable available reasoning mode: whole-file reading, semantic judgment, Phase 1/2 knowledge writing, semantic evaluation; no local lifecycle commands or Git pushes.
+- Deterministic runtime: inventory, hashes, extraction status, Phase 0 maps, structural validation, retrieval rebuild, observable postflight; no semantic truth judgments.
 
-- Exact repository commit inspected.
-- Every P0/P1 file read and any unavailable file.
-- Repository facts versus research intent versus blueprint evidence versus inference.
-- Contradictions between the two priority research documents, current contracts, and current code.
+Do not hard-code a model marketing label. Record the actual model/mode used at execution. Define a save batch as one coherent context-aware completed KB unit, such as one concept plus its source atlas or one tightly related source group. Add only validation or recovery mechanisms whose value is demonstrated.
 
-# 2. Product target and acceptance lock
+MODULE OUTPUT CONTRACT
 
-- Exact future-AI jobs the KB must perform.
-- Macro/Meso/Micro dossier contract.
-- Complete source-atlas contract.
-- Measurable success and explicit non-success proxies.
+For every group provide purpose/value, current mismatch, focused questions and sources, final strategy, module/submodule boundaries, owners, inputs, operations, outputs, consumers, failure behavior, implementation order, migration, interfaces, tests, creation guidance, interconnections, configuration effects, and all affected file/script records.
 
-# 3. Final lifecycle and handoff map
+For every file, script, template, workflow, reference, hook, manifest, or generated artifact provide repository-relative path, purpose, owner/status, current mismatch, final responsibilities/non-responsibilities, inputs/outputs/consumers, required sections or interfaces, control flow, deterministic/semantic boundary, relationships, progressive-disclosure behavior, Claude micro-design evidence, migration, tests, failure behavior, token/maintenance cost, risks, disposition, and rationale. Do not write the complete file or code.
 
-For every stage from scope to incremental maintenance, provide:
+REQUIRED FINAL REPORT — FIRST HALF
 
-- owner;
-- inputs;
-- operation;
-- exact artifact/output;
-- next consumer;
-- deterministic validation;
-- semantic validation;
-- stop/fallback behavior;
-- ratings and disposition.
+Return the report in this order.
 
-Include one end-to-end flow diagram and one compact table. Do not replace the detailed map with a high-level outline.
+# 1. Target Lock
 
-# 4. Deterministic corpus-intelligence design
+Define the complete measurable product target, future-AI jobs, durable concept dossier, durable source map/atlas, ownership boundaries, configurable-mode principles, value/token requirements, success conditions, non-success proxies, and failure-mode prohibitions.
 
-Specify exact final contracts for:
+# 2. Evidence Mode and Source Truth
 
-- corpus scope and exclusions;
-- inventory/hashes/extraction status;
-- heading and section spans;
-- field-separated term postings;
-- topic vocabulary and ambiguous supporting terms;
-- duplicate and possible version families;
-- lifecycle/authority hints;
-- graph contribution if retained;
-- exhaustive topic map;
-- compact topic navigation view;
-- populated Phase 0 report or its justified deletion;
-- deterministic rerun, completeness, and fixture tests.
+Record route attempts, selected evidence mode, current `main` commit when available, available/unavailable sources, snapshot limitations, evidence classes, unverified implementation facts, and substitutions. For every source used, record the displayed source route actually opened, the inferred repository-relative identity when reliable, and its completeness/duplicate status; do not count duplicate representations of the same file as independent corroboration.
 
-Show how each intended Phase 0 research artifact maps to keep/change/merge/delete in the final runtime. Resolve the current `keyword-hits.ndjson` / `topic-file-map.json` versus `term-frequency.json` / `topic-source-rankings.json` drift.
+# 3. Verified and Updated Lifecycle Component and Value Map
 
-# 5. Lean semantic compilation design
+Return the corrected complete map immediately after the Target Lock and evidence truth: added/merged/removed/configurable/rejected/probe-required components, 1–100 scores, ownership, dependencies, research groups, and current mismatch or `unverified` status.
 
-Specify:
+# 4. Research Grouping and Priority Order
 
-- source-hash capsule interface and invalidation;
-- topic candidate-disposition interface;
-- full versus targeted read rules;
-- authority/freshness/contradiction/supersession judgment;
-- concept dossier structure;
-- source-atlas structure and every-candidate reconciliation;
-- page topology rules;
-- fresh-context evaluation;
-- truthful states.
+Show groups, why each is coherent, its focused source bundle, priority dimensions/formula, and sequence.
 
-Give a field-level keep/change/delete table for the current Phase 1 template, Phase 2 templates, semantic run ledger, semantic acceptance artifact, and browser runbook. Remove any field with no justified consumer.
+# 5 onward. Priority-Ordered Module Research
 
-# 6. Simple AI instruction flows
+Provide one complete module report per group using the Module Output Contract. Include deterministic corpus intelligence, durable source maps/atlases, semantic compilation, acceptance, retrieval/query, maintenance, configurable profiles, Codex/browser/runtime orchestration, and package/file/script micro design where supported by evidence.
 
-Provide two concise, directly usable flows:
+Do not demand falsely finalized field-level contracts. Specify required behavior, interfaces, consumers, validation, migration, and creation guidance at implementation-ready design depth.
 
-1. terminal-backed semantic compiler;
-2. browser/Git-connector semantic compiler with no account Skill requirement.
+REQUIRED FINAL REPORT — SECOND HALF
 
-For each, state:
+# Configurable Apex KB Execution Profiles
 
-- startup files in exact order;
-- approximate startup instruction tokens;
-- one-topic work unit;
-- interruption recovery state;
-- fresh evaluator handoff;
-- deterministic handoff;
-- what the AI must never do.
+Define independent configuration axes, named profiles, defaults, activation criteria, dependencies, consequences, costs, and genuine decisions for later operator consultation. Distinguish `rejected`, `configurable`, and `requires_evidence_probe`.
 
-The browser flow must be achievable through one repository connector and complete whole-file reads/writes. It must report partial rather than lower quality when constraints block the target.
+# Codex / ChatGPT Web / Deterministic Runtime Orchestration
 
-# 7. Retrieval, query, and maintenance design
+Define responsibilities, task-packet structure, save batches, whole-file read/write expectations, allowed write scope, handoffs, Git ownership, failure behavior, demonstrated validation needs, token implications, and the actual-model/mode record.
 
-- Keep/change assessment of current retrieval runtime.
-- Index and source-atlas chunking.
-- FTS5 probe and lexical fallback.
-- page-first versus raw verification behavior.
-- saved synthesis promotion.
-- structural lint, semantic audit, staleness, incremental impact, and postflight.
-- why retrieval cannot certify page quality.
+# Durable Source-Map and Index Design
 
-# 8. File-by-file implementation plan
+Specify exhaustive machine candidate maps, compact navigation projections, durable source atlases, individual file snapshots/value, freshness/authority/lifecycle/contradiction/duplicate/supersession relationships, exact pointers, blocked visibility, audit/failure-diagnosis use, retrieval behavior, invalidation, and future-AI navigation.
 
-Give the exact final file tree and, for every current Apex KB file/runtime file affected:
+# Final File and Script Implementation Plan
 
-- keep/change/merge/delete/add;
-- exact section or interface to change;
-- dependency order;
-- migration/compatibility behavior;
-- tests;
-- risk.
+Provide the proposed final tree and a File and Script Design Record for every affected existing or proposed artifact. Include dependency order, migration, compatibility, tests, fixtures, and micro-design evidence. Do not include code or complete replacement files.
 
-Separate minimum-critical-path implementation from optional later work. No code or full file contents.
+# Cost, Token, and Complexity Audit
 
-# 9. Fixtures and hard canary
+Show one-time and recurring costs, token drivers, deterministic savings, fields/files/gates to remove or merge, and the value required to justify high-cost capabilities.
 
-Define a multi-file fixture containing:
+# Implementation Acceptance Model
 
-- current specification;
-- older conflicting specification;
-- prototype;
-- implementation evidence;
-- exact duplicate;
-- possible version;
-- contextual cross-feature source;
-- incidental high-keyword-noise file;
-- relevant candidate beyond rank 30;
-- unsupported/unreadable file.
+Define measurable product acceptance, deterministic checks, semantic checks whose value is demonstrated, durable source-map completeness, fixtures, real-corpus canaries, and truthful partial/blocked states.
 
-Then define a hard real-corpus concept canary. It passes only when every candidate is visible and dispositioned, core/current sources are read, the dossier answers all priority questions, the atlas explains every candidate, retrieval returns answer-bearing sections, sampled claims are entailed, and measured total future-query work is lower than raw-source rereading.
+# Research Confidence and Future Investigation
 
-# 10. Cost, token, and overengineering audit
-
-- Estimated one-time setup cost and recurring cost by phase.
-- Estimated LLM input/output token drivers, not false precision.
-- Which deterministic artifacts save the most semantic tokens.
-- Which current instructions/artifacts should be deleted or merged because they consume context without creating value.
-- Maximum recommended ordinary startup package and rationale.
-- A “do not build yet” list.
-
-# 11. Decision register and residual uncertainties
-
-- Locked decisions.
-- Alternatives considered and rejected.
-- Capability probes required before implementation.
-- Genuine operator decisions only; do not list questions that repository evidence can resolve.
-
-# 12. Implementation-ready acceptance checklist
-
-Provide a concise checklist that an implementation agent can use to determine whether the design has been implemented without rediscovering the architecture.
+This is the last report section only. Include trusted findings, verified current implementation facts, limited-evidence findings, unvalidated hypotheses, remaining gaps, possible future research, named technical probes, what worked well, weak sources or approaches, and what implementation agents must verify. Do not interrupt the run with these questions earlier.
 
 VALIDATION BEFORE RETURNING
 
-Before finalizing, verify all of the following:
+Verify that:
 
-- Every material component in `02-LIFECYCLE-COMPONENT-VALUE-MAP.md` has a final disposition.
-- Every intended artifact in the two P0 research documents maps to a final producer and consumer or an explicit deletion rationale.
-- Every major script/process from all three LLM-Wiki sources is copied, adapted, capability-gated, deferred, or rejected with evidence.
-- Current code behavior is distinguished from contract claims.
-- The final design includes exhaustive candidate visibility and a source atlas, not only target-query answerability.
-- The minimum critical path is simpler than the current semantic route in authored fields and startup context unless a measured integrity requirement justifies otherwise.
-- No deterministic metric is presented as proof of semantic meaning.
-- No optional UI, vector, graph, or publishing system is smuggled into V1 without evidence.
-- The output is decision-complete enough for an implementation agent and contains no placeholder sections.
+- the first substantive section is the Target Lock;
+- file `02` was verified, corrected, expanded, rescored, and regrouped by this run;
+- every material component has a justified disposition;
+- no valuable capability was omitted merely because it was difficult or expensive;
+- no V1/V1.5/minimal/deferred product architecture remains;
+- configuration is not confused with product incompleteness;
+- every module used focused sources inside the same run;
+- LLM-Wiki evidence was consulted for every module;
+- Claude skill/orchestration evidence supports every micro file/workflow recommendation;
+- current code is distinguished from research intent when accessible;
+- fallback modes remain honest and useful;
+- durable source maps and atlases are core outputs;
+- all repository paths are relative after the identity block;
+- the report contains no patches, finished scripts, complete replacement files, or unsupported claims;
+- the design is detailed enough for implementation without architecture rediscovery;
+- the final section records confidence, gaps, probes, and future research.
 
-STOP CONDITIONS
-
-If any P0 source or current implementation file is inaccessible, continue with accessible evidence but mark the exact decision that remains unverified. Do not fabricate repository behavior. Do not stop merely because an optional historical/P2/P3 source is unavailable. Do not patch files, commit, push, or execute the Apex lifecycle.
+If repository evidence is inaccessible, continue in the selected fallback mode. Do not fabricate implementation facts, do not lower the target, and do not stop merely because optional historical material is unavailable. Do not patch, commit, push, or execute Apex KB.
 ```
 
 ## Failure and learning hints
 
 | Likely failure | Correction built into the prompt |
 |---|---|
-| Repeats the Leela failure analysis instead of redesigning Apex KB | Explicit one-repository scope and Leela-only negative-case boundary. |
-| Reads every historical file and burns context | P0/P1 complete spine, P2 conditional, P3 provenance only, failed folders excluded. |
-| Returns another high-level architecture outline | Exact output requires producer/input/output/consumer/validation/failure and file-by-file implementation plan. |
-| Adds more ledgers/gates/templates | Every field/artifact must name its consumer, prevented failure, savings, and cost; deletion/merge table required. |
-| Treats target queries as the entire product | Source-coverage query, exhaustive topic map, and source-atlas acceptance are mandatory. |
-| Treats deterministic score as authority | Explicit navigation-only boundary and field-separated evidence. |
-| Copies all LLM-Wiki features | Copy/adapt/gate/defer/reject disposition and do-not-build list required. |
-| Confuses current code with research intent | Evidence ledger and explicit code inspection required. |
-| Produces code instead of a design | No patches or full file contents; implementation-ready interfaces and plan only. |
+| Reintroduces incomplete maturity versions | Binding incomplete-version-drift prohibition; configuration controls run scope. |
+| Wastes the run when GitHub access fails | Project Source and architecture-only evidence modes continue useful research. |
+| Loads every source into every decision | Priority-ordered modules use focused source bundles in one coherent run. |
+| Returns another high-level outline | Module and file/script records require implementation-ready creation guidance. |
+| Adds process theater | Every artifact, field, gate, or evaluator must prevent a demonstrated failure or remove repeat work. |
+| Treats target queries as the whole product | Durable exhaustive source maps and source atlases are locked core outputs. |
+| Uses deterministic scores as authority | Scores guide research and routing only; semantic authority remains LLM-owned and evidence-based. |
+| Copies LLM-Wiki indiscriminately | Every module compares copy, adapt, combine, configurable, reject, and probe-required options. |
+| Produces weak micro file designs | Claude skill/orchestration evidence is mandatory for every micro recommendation. |
+| Confuses current code with research intent | Evidence modes and classes separate current facts, snapshots, research intent, inference, and recommendation. |
+| Produces code instead of design | The prompt prohibits patches, complete files, finished scripts, and falsely finalized contracts. |
 
 ## Prompt quality review
 
 ```yaml
-validation_status: ready
-provider_fit:
-  deep_research_scope_defined: true
-  repository_source_priority_defined: true
-  external_source_boundary_defined: true
-  facts_assumptions_recommendations_separated: true
-  citations_required: true
-  date_sensitive_claims_flagged: true
-output_contract:
-  exact_sections: true
-  implementation_ready: true
-  no_chain_of_thought_request: true
-  no_code_mutation: true
-context_efficiency:
-  progressive_disclosure: true
-  failed_sources_excluded: true
-  historical_sources_conditional: true
-  anti_overengineering_test: true
-target_integrity:
-  whole_corpus_visibility: true
-  macro_meso_micro_dossier: true
-  complete_source_atlas: true
-  current_code_reconciliation: true
-  semantic_and_deterministic_gates_separated: true
+validation_status: ready_after_package_patch
+run_integrity:
+  one_prompt_one_run: true
+  operator_pauses: false
+  target_lock_first: true
+  component_map_updated_by_research: true
+source_integrity:
+  canonical_repository_identity: true
+  local_paths_prohibited: true
+  fallback_modes_defined: true
+  architecture_only_mode_continues: true
+research_integrity:
+  priority_driven_module_loop: true
+  scores_1_to_100: true
+  llm_wiki_per_module: true
+  claude_micro_design_evidence: true
+output_integrity:
+  durable_source_map_core: true
+  configurable_profiles_required: true
+  codex_browser_runtime_design_required: true
+  implementation_guidance_without_code: true
+  confidence_and_future_research_last: true
 ```

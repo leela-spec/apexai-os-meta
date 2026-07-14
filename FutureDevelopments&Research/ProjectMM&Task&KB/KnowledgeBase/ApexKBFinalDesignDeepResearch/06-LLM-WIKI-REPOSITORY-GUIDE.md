@@ -14,6 +14,34 @@ Their strongest mechanisms are complementary:
 
 None provides the complete Apex target by itself: exhaustive deterministic concept-to-file discovery, explicit freshness/authority/version assessment, and a per-concept atlas describing every relevant file.
 
+## Source representation rule
+
+The repository-style names in this guide (`source-knowledge/ProjectRepos/llm-wiki`, `llm-wiki-main`, `llm-wiki-skill-main`) are logical provenance identities. The research run may read the three source families directly from standalone roots named `llm-wiki`, `llm-wiki-main`, and `llm-wiki-skill-main`. It must not require a physical `source-knowledge/ProjectRepos/` wrapper in Google Drive or Project Sources.
+
+When a standalone representation is read, record both:
+
+- the displayed source route actually opened; and
+- the inferred repository-relative identity used by this guide.
+
+Do not count standalone and repository-shaped copies of the same file as separate evidence.
+
+## Recurring module-consultation rule
+
+LLM-Wiki evidence is not a one-time comparison chapter. Every lifecycle module must identify the relevant LLM-Wiki mechanisms, the concrete files/scripts/workflows that demonstrate them, what Apex should copy or adapt, and what is missing relative to the final target.
+
+Every micro recommendation about SKILL.md, references, templates, workflows, scripts, hooks, agents, loading, browser handoffs, or recovery must also consult the relevant Claude skill/orchestration design evidence indexed in files `04` and `05`.
+
+Use these dispositions:
+
+- `copy` — mechanism already fits the Apex target;
+- `adapt` — preserve value while changing interfaces or ownership;
+- `combine` — multiple sources jointly provide the target behavior;
+- `configurable` — valuable and fully designed, selectable per execution;
+- `reject` — insufficient target value relative to cost, with explicit reasoning;
+- `requires_evidence_probe` — a named technical fact must be tested before implementation choice.
+
+Do not use later-version or deferred-product labels.
+
 ## 1. `source-knowledge/ProjectRepos/llm-wiki`
 
 ### What it is
@@ -166,15 +194,17 @@ A richer typed wiki package with Python scaffold/lint/audit scripts, hierarchica
 - no page-only and claim-entailment acceptance;
 - UI, graph, mermaid, and KaTeX rules add optional context that should not burden basic compilation.
 
-## Comparative rating
+## Comparative assessment seed
 
-| Source | Token efficiency | Product value | Resilience | Setup cost | Management cost | Best use |
-|---|---:|---:|---:|---:|---:|---|
-| Original `llm-wiki.md` | 5 | 5 | 3 | 1 | 1 | Lock the product and compounding behavior. |
-| `llm-wiki-main` | 4 | 4 | 4 | 3 | 3 | Hash/idempotency, workflows, index-first query, deterministic health. |
-| `llm-wiki-skill-main` | 3 | 5 | 4 | 4 | 4 | Typed hierarchy, source summaries, compile/audit model, Python scripts. |
-| Current Apex KB v2 | 3 | 4 | 5 | 4 | 4 | Source custody, target-query semantic gates, deterministic postflight/retrieval. |
-| Required final Apex design | target 5 | target 5 | target 5 | target 3 | target 2 | Combine only the mechanisms that reduce repeat reading or prove handoff integrity. |
+The table below must be rebuilt by Deep Research using separate 1–100 dimensions for target contribution, achievable value, token savings, resilience, implementation cost, recurring cost, and evidence confidence. Do not reuse the former 1–5 ratings.
+
+| Source | Strongest evidenced contribution | Main limitation relative to Apex | Required module use |
+|---|---|---|---|
+| Original `llm-wiki.md` | Compounding persistent-wiki product target | Abstract; lacks deterministic discovery and acceptance implementation | Product value and source-to-many-pages reasoning |
+| `llm-wiki-main` | Hashing, workflow routing, two-phase ingest, index-first query, deterministic health | Flat/source-serial tendencies and incomplete concept candidate mapping | Workflow, script, state, and query patterns |
+| `llm-wiki-skill-main` | Typed hierarchy, source summaries, compile/audit model, Python utilities | No exhaustive deterministic candidate map or authority/version model | Page topology, audit, source-summary, and Python patterns |
+| Current Apex implementation | Source custody, deterministic runtime, semantic stopping rules, retrieval | Must be verified on current `main`; known source-map and atlas gaps | Current mismatch and migration analysis |
+| Required final Apex design | Complete durable source intelligence plus high-value compiled knowledge | Must be designed and justified by the research run | Integrated final architecture |
 
 ## Missing capability matrix
 
@@ -197,13 +227,16 @@ A richer typed wiki package with Python scaffold/lint/audit scripts, hierarchica
 
 ## Final synthesis guidance
 
-The Deep Research design should not “combine everything.” It should combine only these proven value mechanisms:
+The Deep Research design should not combine mechanisms indiscriminately. For every module it must preserve only value that advances the locked target and must state the producer, consumer, failure prevented, repeat work removed, and recurring cost.
 
-1. original compounding wiki target;
+Recurring evidence families include:
+
+1. the original compounding wiki target;
 2. Apex source custody, deterministic validation, and semantic acceptance;
 3. `llm-wiki-main` hashing/idempotency and progressive workflow disclosure;
 4. `llm-wiki-skill-main` typed concept/source structures and audit protocol;
-5. the Phase 0 research's deterministic structure/topic navigation;
-6. the operator's locked concept dossier plus complete source-atlas target.
+5. Phase 0 deterministic structure and topic navigation;
+6. the locked concept dossier plus durable complete source-atlas target;
+7. Claude skill/orchestration evidence for actual file, workflow, script, agent, and loading patterns.
 
-Static-site publishing, optional viewers, Obsidian plugins, vector search, Node AST stacks, and global graphs must remain outside the minimum critical path until a measured failure requires them.
+Static-site publishing, viewers, Obsidian plugins, vector search, Node AST stacks, global graphs, and other high-cost capabilities must receive an evidence-based `configurable`, `reject`, or `requires_evidence_probe` disposition. Complexity alone is not grounds for exclusion; insufficient target value relative to cost is.

@@ -1,25 +1,94 @@
 # Apex KB Current Research Index — Machine Readable
 
-The YAML block is the routing authority for the final-design Deep Research run. Paths are repository-relative and contain no local-drive dependency.
+The YAML block is the machine-readable routing authority for the final-design Deep Research run. It must express the same identity, evidence modes, module routing, and exclusions as file `04`. All repository paths are relative to the declared repository identity.
 
 ```yaml
-schema: apex.kb.final-design-research-index.v1
-snapshot:
-  date: "2026-07-14"
-  implementation_commit: "d72f07f7b598"
-  implementation_branch: "main"
-  research_root: "FutureDevelopments&Research/ProjectMM&Task&KB/KnowledgeBase"
-  blueprint_root: "source-knowledge/ProjectRepos"
+schema: apex.kb.final-design-research-index
+repository_identity:
+  owner: leela-spec
+  name: apexai-os-meta
+  full_name: leela-spec/apexai-os-meta
+  branch: main
+  package_root: "FutureDevelopments&Research/ProjectMM&Task&KB/KnowledgeBase/ApexKBFinalDesignDeepResearch"
+  path_style: repository_relative
+current_main_resolution:
+  resolve_at_run_start: true
+  record_commit: true
+  fixed_commit_is_current_authority: false
+research_roots:
+  package: "FutureDevelopments&Research/ProjectMM&Task&KB/KnowledgeBase/ApexKBFinalDesignDeepResearch"
+  knowledge_base: "FutureDevelopments&Research/ProjectMM&Task&KB/KnowledgeBase"
+  blueprints: "source-knowledge/ProjectRepos"
+source_access_contract:
+  path_semantics: logical_repository_identity
+  physical_wrapper_directories_required: false
+  preferred_routes:
+    - uploaded_project_sources
+    - designated_google_drive_source_roots
+    - official_primary_web_documentation
+    - explicitly_authorized_github_read_for_specific_gap
+  google_drive_source_roots:
+    research_and_indexes:
+      displayed_root: "KnowledgeBase"
+      important_child: "ApexKBFinalDesignDeepResearch"
+      logical_prefix: "FutureDevelopments&Research/ProjectMM&Task&KB/KnowledgeBase"
+    apex_kb_skill:
+      displayed_root: "apex-kb"
+      logical_prefix: ".claude/skills/apex-kb"
+    orchestration_design:
+      displayed_root: "claude-code-orchestration-design"
+      logical_prefix: null
+      identity: standalone_source_corpus
+    llm_wiki_original:
+      displayed_root: "llm-wiki"
+      logical_prefix: "source-knowledge/ProjectRepos/llm-wiki"
+    llm_wiki_operational:
+      displayed_root: "llm-wiki-main"
+      logical_prefix: "source-knowledge/ProjectRepos/llm-wiki-main"
+    llm_wiki_skill:
+      displayed_root: "llm-wiki-skill-main"
+      logical_prefix: "source-knowledge/ProjectRepos/llm-wiki-skill-main"
+  project_sources_role:
+    - git_snapshot_files
+    - implementation_files_missing_from_drive
+    - repository_level_configuration
+  rules:
+    - "Do not require a physical apexai-os-meta source root."
+    - "Do not require a physical source-knowledge source root."
+    - "Record displayed source route and logical identity separately."
+    - "Treat Drive and Project Source copies as snapshots unless freshness is established."
+    - "Do not count duplicate representations as independent evidence."
 mission: >-
-  Define the smallest resilient Apex KB lifecycle that deterministically maps the
-  complete scoped corpus and lets an LLM compile a Macro/Meso/Micro concept dossier
-  plus a complete per-source atlas that materially reduces future AI reading.
+  Define one final multifunctional Apex KB architecture that deterministically maps
+  the configured corpus, preserves durable concept-to-source intelligence, compiles
+  Macro/Meso/Micro knowledge and source atlases, supports configurable execution
+  profiles, and materially reduces future AI reading and repeated semantic work.
+source_access_routes:
+  - github_app_or_connector
+  - public_github_main
+  - raw_github_main
+  - uploaded_project_sources
+  - architecture_research_without_apex_implementation
+evidence_modes:
+  full_repository_evidence:
+    implementation_mismatch_allowed: true
+  project_source_repository_snapshot:
+    record_snapshot_limitations: true
+  architecture_research_without_apex_implementation:
+    current_mismatch_value: unverified
+    continue_research: true
+project_source_fallback:
+  preserve_repository_relative_identity: true
+  never_infer_current_main_from_snapshot: true
 authority_order:
-  - operator_target_in_00_start_here
-  - current_main_implementation
+  - operator_target_in_00_start_here_and_07_prompt
+  - verified_current_main_implementation
+  - explicitly_labeled_project_source_snapshot
   - explicit_phase0_and_integration_decisions
   - executed_research_reports
-  - local_blueprint_implementations
+  - llm_wiki_blueprint_implementations
+  - claude_skill_and_orchestration_design_evidence
+  - external_primary_sources
   - older_research_and_feedback
 excluded_roots:
   - path: "FutureDevelopments&Research/ProjectMM&Task&KB/KnowledgeBase/Failed_Prompts"
@@ -31,11 +100,11 @@ excluded_source_classes:
   - chat_history
   - superseded_draft_plan
   - failed_generation_output
-priority_definitions:
-  P0: "complete read; binding decision or current implementation truth"
-  P1: "complete read; executed research or direct implementation blueprint"
-  P2: "targeted read for a named decision"
-  P3: "provenance/reference only"
+routing_classes:
+  shared_authority: "complete at run start when available"
+  module_bundle: "complete or targeted inside the active module"
+  provenance: "targeted only for disagreement or omitted design recovery"
+  excluded: "do not read"
 sources:
   - id: R001
     path: "FutureDevelopments&Research/ProjectMM&Task&KB/KnowledgeBase/Apex Phase 0 Corpus Intelligence Implementation Decision.md"
@@ -101,14 +170,14 @@ sources:
     priority: P1
     read_mode: complete
     role: deterministic_tool_value_audit
-    use_for: [minimal_tool_stack, setup_cost, token_savings, deferrals]
+    use_for: [deterministic_tool_options, setup_cost, token_savings, configurable_reject_or_probe_decisions]
     caveat: "Runtime checks were not the operator Windows environment."
   - id: R006
     path: "FutureDevelopments&Research/ProjectMM&Task&KB/KnowledgeBase/DeterministicPhaseResearch/Apex Link Graph and Process-Flow Representability Audit.md"
     priority: P1
     read_mode: complete
     role: graph_and_process_edge_audit
-    use_for: [path_edges, yaml_edges, process_edges, graph_optionality]
+    use_for: [path_edges, yaml_edges, process_edges, graph_value_configuration_and_probe_criteria]
   - id: B001
     path: "source-knowledge/ProjectRepos/llm-wiki/llm-wiki.md"
     priority: P1
@@ -251,7 +320,7 @@ sources:
     priority: P2
     read_mode: targeted
     role: simple_scaffold_blueprint
-    use_for: [tree_creation, minimal_bootstrap]
+    use_for: [tree_creation, deterministic_bootstrap_simplification]
   - id: H001
     path: "FutureDevelopments&Research/ProjectMM&Task&KB/KnowledgeBase/Apex_KB_Project_Resource_Index.machine-readable.yaml.md"
     priority: P3
@@ -335,19 +404,53 @@ sources:
     role: provider_option_snapshot
     use_for: [provider_vocabulary_only]
     caveat: "Provider scores are unstable."
-decision_routes:
-  deterministic_phase0:
-    start: [R001, R002, I002]
-    expand: [R004, R005, R006, R007, R008]
-  semantic_compilation:
-    start: [I001, I003, I004, I005, B001, B003, B005, B006]
-    validate_against: [R003]
-  retrieval:
-    start: [I006, I007]
-    expand: [R012, R013, R014, R015]
-  token_and_instruction_efficiency:
-    start: [R002, B002, B004, B005]
-    inspect_current: [I001, I004, I005]
+shared_authority_sources:
+  package: [00, 01, 02, 03, 04, 05, 06, 07]
+  current_apex_when_available: [I001, I002, I003, I004, I005, I006, I007]
+module_source_bundles:
+  deterministic_corpus_intelligence:
+    apex: [R001, R002, I002]
+    research: [R004, R005, R006, R007, R008, R009, R010, R011]
+    llm_wiki: [B001, B002, B003, B005]
+    micro_design: [CD001, CD002, CD003]
+  semantic_compilation_and_source_atlas:
+    apex: [I001, I003, I004, I005]
+    research: [R002, R003]
+    llm_wiki: [B001, B003, B005, B006, B008, B009]
+    micro_design: [CD001, CD002, CD004, CD005]
+  retrieval_query_and_maintenance:
+    apex: [I006, I007]
+    research: [R012, R013, R014, R015, R016]
+    llm_wiki: [B004, B007, B008, B010]
+    micro_design: [CD001, CD002, CD005]
+  configurable_profiles_and_orchestration:
+    apex: [I001, I002, I003]
+    research: [R002, R003, R005, R006]
+    llm_wiki: [B002, B003, B004, B005]
+    micro_design: [CD001, CD002, CD003, CD004, CD005, CD006]
+micro_design_sources:
+  - id: CD001
+    path: "apex-meta/kb/claude-code-orchestration-design/wiki/summaries/informatics-design-formats-practice-guide.md"
+    use_for: [file_structure, field_design, micro_creation_patterns]
+  - id: CD002
+    path: "apex-meta/kb/claude-code-orchestration-design/wiki/summaries/agent-skill-orchestration-resilient-workflows.md"
+    use_for: [workflow_ownership, resilience, recovery]
+  - id: CD003
+    path: "apex-meta/kb/claude-code-orchestration-design/wiki/summaries/agent-subagent-design-patterns.md"
+    use_for: [agent_subagent_boundaries]
+  - id: CD004
+    path: "apex-meta/kb/claude-code-orchestration-design/wiki/summaries/agent-vs-subagent-vs-skill.md"
+    use_for: [mechanism_choice]
+  - id: CD005
+    path: "apex-meta/kb/claude-code-orchestration-design/wiki/summaries/commands-hooks-rules-memory-model.md"
+    use_for: [commands_hooks_rules_memory]
+  - id: CD006
+    path: "apex-meta/kb/claude-code-orchestration-design/wiki/summaries/apex-application-orchestration-patterns.md"
+    use_for: [apex_orchestration_integration]
+external_primary_source_rules:
+  use_when: "an unstable external fact materially affects a decision"
+  prefer: [official_documentation, official_specification, primary_repository]
+  separate_fact_inference_recommendation: true
 required_reconciliation:
   - "intended_phase0_artifacts_vs_current_runtime_outputs"
   - "complete_candidate_map_vs_top30_ranking"
@@ -355,4 +458,9 @@ required_reconciliation:
   - "blueprint_compounding_value_vs_current_one_summary_per_topic_behavior"
   - "mandatory_instruction_context_vs_tokens_left_for_source_reading_and_writing"
   - "semantic_acceptance_vs_discovery_and_atlas_acceptance"
+  - "one_final_architecture_vs_v1_v1_5_deferred_drift"
+  - "configuration_axes_vs_separate_product_versions"
+  - "github_route_failure_vs_project_source_and_architecture_only_modes"
+  - "codex_browser_runtime_ownership_and_save_batches"
+  - "micro_file_design_vs_claude_skill_orchestration_evidence"
 ```

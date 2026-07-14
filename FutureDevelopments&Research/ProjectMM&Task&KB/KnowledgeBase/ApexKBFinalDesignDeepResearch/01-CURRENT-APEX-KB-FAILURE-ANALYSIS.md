@@ -4,7 +4,7 @@
 
 The Apex KB architecture has the right high-level separation—raw evidence, deterministic structure, LLM synthesis, and derived retrieval—but the live lifecycle does not yet produce the corpus intelligence the operator intended.
 
-Remote main at `d72f07f7b598` materially improves semantic stopping rules: it locks target queries, distinguishes candidate/read/used sources, prohibits unopened evidence, requires concept/entity disposition, and adds independent semantic acceptance. Those changes should be preserved.
+The implementation snapshot at commit `d72f07f7b598` materially improves semantic stopping rules: it locks target queries, distinguishes candidate/read/used sources, prohibits unopened evidence, requires concept/entity disposition, and adds independent semantic acceptance. Deep Research must resolve current `main` at run start and verify whether these behaviors still exist before treating them as current implementation facts.
 
 They do not repair the upstream deterministic source map. The LLM is still routed by a thin substring ranking and an empty navigation report, then asked to compensate through more semantic process and bookkeeping. This can produce a semantically accepted answer set while still failing the broader product: a concept-level map of the whole corpus, its versions, source roles, and individual file value.
 
@@ -43,15 +43,20 @@ The deterministic layer should make the LLM's reading selective and informed. It
 | F09 | Phase 0 has no freshness, lifecycle, or authority-hint configuration. | New/current, prototype, historical, archive, implementation, and proposal files are not distinguished before reading. | No corresponding runtime fields. | Define deterministic hints as evidence signals, with LLM authority judgment retained. |
 | F10 | Phase 0 parses Markdown structure but not a full concept-to-source atlas. | The LLM cannot see all files that cover a concept and why without repeating corpus searches. | Current artifacts and schemas. | Make exhaustive per-topic maps a first-class output. |
 | F11 | Semantic v2 starts with target queries and a per-topic ledger, but the ledger is populated after a candidate ranking that may already be incomplete. | Better stopping rules cannot recover sources hidden by weak discovery. | `semantic-value-contract.md` and Phase 0 runtime. | Couple semantic coverage to exhaustive deterministic candidate visibility. |
-| F12 | Semantic v2 optimizes for answer-bearing pages, not necessarily a complete source atlas. | A future AI may answer predefined questions but still cannot inspect the concept's full documentary history and source value efficiently. | Current Phase 2 template has used sources only; unopened candidates stay in the ledger. | Decide a lean, queryable atlas format covering every candidate without treating all as evidence. |
+| F12 | Semantic v2 optimizes for answer-bearing pages, not necessarily a complete source atlas. | A future AI may answer predefined questions but still cannot inspect the concept's full documentary history and source value efficiently. | Current Phase 2 template has used sources only; unopened candidates stay in the ledger. | Decide a durable, queryable atlas format covering every candidate without treating all as evidence. |
 | F13 | Source analyses are path/slug files rather than a clearly reusable content-hash capsule layer. | Shared and duplicate sources can be reread across topics or copies. | Phase 1 template and current paths. | Define hash-keyed reusable source capsules plus topic-specific dispositions. |
 | F14 | The templates require repeated YAML blocks and many governance fields. | Traceability is useful, but instruction and writing overhead can displace source reading and actual knowledge. | Current Phase 1/2 templates and connector audit. | Minimize mandatory semantic fields to those that create retrieval or handoff value. |
 | F15 | Deterministic quality still checks structural proxies and declared wiring. | It can detect missing contracts, not whether the whole corpus was mapped or the page is useful. | Current quality contract and prior structural pass. | Keep structural checks honest; make semantic tests and corpus coverage separately mandatory. |
 | F16 | Retrieval correctly indexes compiled page chunks and supports FTS5 fallback. | Retrieval faithfully amplifies whatever the wiki contains; it cannot repair omitted knowledge. | `apex_kb_retrieval.py` and `retrieval-contract.md`. | Gate index/postflight on semantic and source-atlas acceptance. |
+| F17 | Prior research and implementation planning used V1/V1.5/defer language. | Valuable capabilities could be treated as unspecified future work and never executed, even when the operator requested the complete system. | Prior Phase 0 and lifecycle research terminology. | Design one final architecture; use configuration for run scope and `requires_evidence_probe` for unresolved technical facts. |
+| F18 | Research access assumed a working repository route. | A Deep Research run can lose current-state evidence or fail after consuming its research opportunity. | Connector access history and operator feedback. | Define GitHub app → public GitHub → raw GitHub → Project Sources → architecture-only evidence modes. |
+| F19 | Capabilities were split across versions rather than represented as switches inside one system. | Non-Markdown extraction, source-priority coverage, semantic depth, graph work, and acceptance depth can disappear from later execution. | Prior mode/version behavior. | Define independent configuration axes and named profiles inside one final architecture. |
+| F20 | Codex, ChatGPT web, and deterministic runtime ownership is not fully designed. | Orchestrators may duplicate semantic work, browser models may be asked to perform local actions, and completion may rely on unsupported claims. | Operator target and current process gap. | Design a low-token Codex orchestration loop with bounded semantic save batches and explicit ownership. |
+| F21 | Micro file and script recommendations are not systematically grounded in Claude skill/orchestration design evidence. | Correct macro architecture can still produce weak SKILL.md, workflow, script, template, loading, or handoff patterns. | Current research routing gap. | Require relevant Claude skill/orchestration evidence for every micro design record. |
 
-## What remote main fixed and what remains
+## What the recorded implementation snapshot fixed and what remains
 
-| Area | Fixed at `d72f07f7b598` | Still unresolved |
+| Area | Verified in snapshot `d72f07f7b598` | Still unresolved or requiring current-`main` verification |
 |---|---|---|
 | Completion definition | `compiled_minimal` means minimum page topology, not shallow content. | No explicit whole-corpus concept/source-atlas completion requirement. |
 | Query target | Critical/routine target queries are locked before semantic compilation. | Query design can omit documentary-history and all-source-map questions. |
@@ -71,8 +76,12 @@ The deterministic layer should make the LLM's reading selective and informed. It
 6. Templates and deterministic checks made the resulting files look complete.
 7. Retrieval returned the shallow compiled pages efficiently.
 8. Later Apex skills then treated those pages as knowledge, propagating the original omissions.
+9. Version-stage language made complete capabilities appear optional or indefinitely postponed.
+10. Missing execution-profile architecture fragmented source formats, source priorities, and semantic depth across separate versions.
+11. Single-route repository assumptions made the research process fragile when connector access failed.
+12. Missing micro-design source routing allowed file-level recommendations to drift from proven Claude skill/orchestration patterns.
 
-## Lean improvement hypotheses for Deep Research to test
+## Priority improvement hypotheses for Deep Research to test
 
 | Hypothesis | Expected value | Main risk |
 |---|---|---|
