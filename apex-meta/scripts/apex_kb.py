@@ -24,6 +24,7 @@ import json
 import os
 import re
 import shutil
+import subprocess
 import sys
 from collections import Counter, defaultdict
 from datetime import datetime, timezone
@@ -77,26 +78,12 @@ QUALITY_REASON_CODES = (
 )
 QUALITY_REASON = {code: code for code in QUALITY_REASON_CODES}
 TEXT_EXTS = {".md", ".mdx", ".txt", ".yaml", ".yml", ".json", ".csv", ".py", ".toml"}
-HANDOVER_TEXT_EXTS = {".md", ".markdown", ".txt", ".yaml", ".yml"}
 RAW_SUBDIRS = ["raw/articles", "raw/papers", "raw/notes", "raw/refs", "raw/other"]
 REQUIRED_DIRS = RAW_SUBDIRS + ["ingest-analysis", "wiki/concepts", "wiki/entities", "wiki/summaries", "manifests", "manifests/phase0", "derived/search", "audit/resolved", "outputs/queries", "log"]
 REQUIRED_FILES = ["README.md", "kb-schema.md", "wiki/index.md", "manifests/source-manifest.json"]
 SEMANTIC_CONTRACT_VERSION = "2"
 SEMANTIC_ACCEPTANCE_SCHEMA = "apex.kb.semantic-acceptance.v1"
 SEMANTIC_RUN_LEDGER_SCHEMA = "apex.kb.semantic-run-ledger.v1"
-REPO_ROUTE_REQUIRED_FIELDS = [
-    "repository",
-    "branch",
-    "exact_target_paths",
-    "operation_class",
-    "allowed_actions",
-    "forbidden_actions",
-    "pre_write_checks",
-    "post_write_checks",
-    "stop_conditions",
-    "commit_strategy",
-]
-OPERATION_CLASS_ALLOWED = {"create", "update", "delete", "rename", "generated_output", "config_change"}
 
 
 def utc_now() -> str:
@@ -325,7 +312,7 @@ def normalize_global_flag_placement(argv: Sequence[str]) -> Sequence[str]:
     commands = {
         "scaffold", "source-intake", "hash", "generate-source-payload-manifest", "source-payload-manifest",
         "payload-manifest", "preflight", "phase0", "ingest-phase1", "ingest-phase2", "index", "query",
-        "lint", "lint-repo-execution-router", "lint-historical-path-authority", "audit", "status", "health",
+        "lint", "audit", "status", "health",
         "quality", "coverage", "query-eval", "semantic-acceptance-status", "graph", "process-graph", "postflight",
     }
     value_flags = {"--output-json"}
@@ -693,7 +680,7 @@ def cmd_preflight(args: argparse.Namespace) -> Dict[str, Any]:
     return {"command": "preflight", "status": status, "kb_root": str(kb_root), "checks": checks}
 
 
-def iter_source_files(kb_root: Path) -> List[Path]:
+def _iter_kb_files(kb_root: Path, suffix_filter: Optional[set]) -> List[Path]:
     roots = [kb_root / "sources", kb_root / "raw"]
     excluded_parts = {"manifests", "wiki", "ingest-analysis", "derived", "outputs", "audit", "log"}
     files: List[Path] = []
@@ -706,10 +693,24 @@ def iter_source_files(kb_root: Path) -> List[Path]:
                 except ValueError:
                     rel_parts = set()
                 resolved = p.resolve()
-                if p.is_file() and p.suffix.lower() in TEXT_EXTS and not (rel_parts & excluded_parts) and resolved not in seen:
-                    files.append(p)
-                    seen.add(resolved)
+                if not p.is_file() or (rel_parts & excluded_parts) or resolved in seen:
+                    continue
+                if suffix_filter is not None and p.suffix.lower() not in suffix_filter:
+                    continue
+                files.append(p)
+                seen.add(resolved)
     return files
+
+
+def iter_source_files(kb_root: Path) -> List[Path]:
+    return _iter_kb_files(kb_root, TEXT_EXTS)
+
+
+def iter_all_source_files(kb_root: Path) -> List[Path]:
+    """Every file under sources/raw regardless of extension -- including
+    non-text/binary files, so they remain visible in source-facts.json instead
+    of silently vanishing from scope."""
+    return _iter_kb_files(kb_root, None)
 
 
 def read_source_inventory(kb_root: Path) -> Dict[str, Any]:
@@ -804,17 +805,34 @@ def parse_markdown_structure(path: Path, kb_root: Path) -> Dict[str, Any]:
                 links.append({"text": lm.group(1), "target": target, "line": idx, "target_type": link_target_type(target), "normalized_target": normalize_link_target(target)})
             for wm in re.finditer(r"\[\[([^\]|]+)(?:\|([^\]]+))?\]\]", line):
                 wikilinks.append({"raw": wm.group(0), "target": wm.group(1).strip(), "alias": (wm.group(2) or "").strip() or None, "line": idx})
+    section_spans = section_spans_from_headings(headings, len(lines))
     return {
         "path": relpath(kb_root, path),
         "source_type_guess": source_type_guess(path),
         "h1_title": next((h["text"] for h in headings if h["level"] == 1), None),
         "headings": headings,
+        "section_spans": section_spans,
         "markdown_links": links,
         "wikilinks": wikilinks,
         "code_blocks": code_blocks,
         "frontmatter": {"has_frontmatter": bool(meta), "raw_field_keys": sorted(meta.keys()), "parse_status": fm_status},
         "parser_warnings": (["unclosed_code_fence"] if in_fence else []),
     }
+
+
+def section_spans_from_headings(headings: List[Dict[str, Any]], total_lines: int) -> List[Dict[str, Any]]:
+    """A heading's span runs to the line before the next heading of the same or
+    shallower level (or end of file). Gives every candidate a stable line range
+    to point at instead of just a single heading line."""
+    spans = []
+    for i, h in enumerate(headings):
+        end_line = total_lines
+        for later in headings[i + 1:]:
+            if later["level"] <= h["level"]:
+                end_line = later["line"] - 1
+                break
+        spans.append({"heading": h["text"], "level": h["level"], "start_line": h["line"], "end_line": max(end_line, h["line"])})
+    return spans
 
 
 def link_target_type(target: str) -> str:
@@ -854,12 +872,212 @@ def source_type_guess(path: Path) -> str:
     return "other"
 
 
+def source_id_for(rel_path: str) -> str:
+    return "src-" + hashlib.sha256(rel_path.encode("utf-8")).hexdigest()[:16]
+
+
+def compute_hash_groups(kb_root: Path, files: List[Path]) -> Dict[str, List[str]]:
+    """Exact-content hash groups (path -> sha256 -> siblings). Free -- reuses
+    the same hash-then-group approach corpus_profile already did inline, but
+    exposes it so rank_topic_sources and source-facts can collapse duplicates
+    without rereading files."""
+    groups: Dict[str, List[str]] = defaultdict(list)
+    for p in files:
+        try:
+            groups[sha256_file(p)].append(relpath(kb_root, p))
+        except Exception:
+            continue
+    return groups
+
+
+def normalize_text_for_dedupe(text: str) -> str:
+    return re.sub(r"\s+", " ", text).strip().lower()
+
+
+def normalized_duplicate_groups(kb_root: Path, files: List[Path]) -> List[List[str]]:
+    """Near-duplicate detection: same text once whitespace/case differences are
+    collapsed. Conservative -- only exact matches after normalization, never a
+    fuzzy/similarity score."""
+    buckets: Dict[str, List[str]] = defaultdict(list)
+    for p in files:
+        try:
+            text = read_text(p)
+        except Exception:
+            continue
+        norm_hash = hashlib.sha256(normalize_text_for_dedupe(text).encode("utf-8")).hexdigest()
+        buckets[norm_hash].append(relpath(kb_root, p))
+    return [sorted(v) for v in buckets.values() if len(v) > 1]
+
+
+VERSION_TOKEN_RE = re.compile(r"(?i)[-_ ]?(v\d+|version\d+|night\d+|draft\d*|final|old|new|copy\d*|\(\d+\))(?=\.[a-z0-9]+$|[-_ ]|$)")
+
+
+def version_family_candidates(kb_root: Path, files: List[Path]) -> List[Dict[str, Any]]:
+    """Conservative possible-version-family grouping: same folder, same
+    extension, same filename once a version-ish token (v2, Night4, draft,
+    old/new/final, copy, "(2)") is stripped. Never auto-resolves supersession --
+    only the LLM decides that; this is discovery evidence only."""
+    groups: Dict[str, List[str]] = defaultdict(list)
+    for p in files:
+        stem = VERSION_TOKEN_RE.sub("", p.stem).strip("-_ ").lower()
+        stem = re.sub(r"\s+", " ", stem)
+        if not stem:
+            continue
+        key = f"{p.parent.as_posix()}::{stem}{p.suffix.lower()}"
+        groups[key].append(relpath(kb_root, p))
+    families = []
+    for key, members in sorted(groups.items()):
+        if len(members) > 1:
+            families.append({"possible_family_key": key.split("::", 1)[1], "members": sorted(members), "confidence": "possible", "method": "filename_token"})
+    return families
+
+
+def git_last_change_map(kb_root: Path) -> Tuple[Dict[str, str], bool]:
+    """Best-effort last-change date per kb-root-relative path from Git history,
+    scoped to this kb_root's subtree. Read-only; never writes, never shells to
+    anything but `git log`. Returns ({}, False) when no repo root is found or
+    Git is unavailable/fails -- callers must fall back to file mtime."""
+    repo_root = find_repo_root(kb_root)
+    if repo_root is None:
+        return {}, False
+    try:
+        kb_rel = kb_root.resolve().relative_to(repo_root.resolve()).as_posix()
+    except ValueError:
+        kb_rel = "."
+    try:
+        result = subprocess.run(
+            ["git", "-C", str(repo_root), "log", "--format=COMMIT\t%cI", "--name-only", "--", kb_rel],
+            capture_output=True, text=True, timeout=30, encoding="utf-8", errors="replace",
+        )
+    except (OSError, subprocess.SubprocessError, ValueError):
+        return {}, False
+    if result.returncode != 0:
+        return {}, False
+    prefix = "" if kb_rel in ("", ".") else kb_rel.rstrip("/") + "/"
+    mapping: Dict[str, str] = {}
+    current_date: Optional[str] = None
+    for line in result.stdout.splitlines():
+        if line.startswith("COMMIT\t"):
+            current_date = line.split("\t", 1)[1]
+            continue
+        if not line.strip() or current_date is None:
+            continue
+        repo_rel = line.strip().replace("\\", "/")
+        if prefix and not repo_rel.startswith(prefix):
+            continue
+        rel = repo_rel[len(prefix):] if prefix else repo_rel
+        if rel not in mapping:
+            mapping[rel] = current_date
+    return mapping, True
+
+
+def build_source_facts(
+    kb_root: Path,
+    all_files: List[Path],
+    text_files: List[Path],
+    hash_groups: Dict[str, List[str]],
+    git_map: Dict[str, str],
+    git_available: bool,
+) -> List[Dict[str, Any]]:
+    """One row per scanned file, including non-text/unreadable ones -- the L1
+    custody fact sheet. Never silently drops a file: blocked_reason names why a
+    file has no headings/text when it doesn't."""
+    text_set = {p.resolve() for p in text_files}
+    facts: List[Dict[str, Any]] = []
+    for p in all_files:
+        rel = relpath(kb_root, p)
+        text_readable = p.resolve() in text_set
+        sha, size, readable = None, None, True
+        try:
+            size = p.stat().st_size
+            sha = sha256_file(p)
+        except Exception:
+            readable = False
+        blocked_reason = None
+        if not readable:
+            blocked_reason = "unreadable"
+        elif not text_readable:
+            blocked_reason = "non_text"
+        frontmatter_date = None
+        if text_readable:
+            try:
+                meta, _body, _fm_status = parse_frontmatter(read_text(p))
+                for key in ("date", "updated_at", "created_at"):
+                    if meta.get(key):
+                        frontmatter_date = str(meta[key])
+                        break
+            except Exception:
+                pass
+        last_change, last_change_source = None, None
+        if git_available and rel in git_map:
+            last_change, last_change_source = git_map[rel], "git"
+        elif frontmatter_date:
+            last_change, last_change_source = frontmatter_date, "frontmatter"
+        elif readable:
+            try:
+                last_change = datetime.fromtimestamp(p.stat().st_mtime, tz=timezone.utc).date().isoformat()
+                last_change_source = "mtime"
+            except Exception:
+                pass
+        dup_group = hash_groups.get(sha, []) if sha else []
+        facts.append({
+            "source_id": source_id_for(rel),
+            "path": rel,
+            "sha256": sha,
+            "size_bytes": size,
+            "text_readable": text_readable,
+            "blocked_reason": blocked_reason,
+            "last_change": last_change,
+            "last_change_source": last_change_source,
+            "frontmatter_date": frontmatter_date,
+            "exact_duplicate_group_size": len(dup_group),
+        })
+    return facts
+
+
+def load_analysis_config(kb_root: Path) -> Dict[str, Any]:
+    path = kb_root / "manifests" / "analysis-config.json"
+    defaults = {"signals": {"freshness": "auto", "duplicate_collapse": "auto", "negative_terms": "auto", "reference_graph": "off"}, "gap_cut": {"method": "elbow", "min_tier": "body_weak"}}
+    if not path.exists():
+        return defaults
+    try:
+        loaded = json.loads(read_text(path))
+    except Exception:
+        return defaults
+    signals = {**defaults["signals"], **(loaded.get("signals") or {})}
+    gap_cut = {**defaults["gap_cut"], **(loaded.get("gap_cut") or {})}
+    return {"signals": signals, "gap_cut": gap_cut}
+
+
+def resolve_signal_activation(config: Dict[str, Any], availability: Dict[str, Any]) -> Dict[str, bool]:
+    """`auto` resolves from measured corpus evidence, never a guess: a signal
+    only turns on when the corpus-profile availability report shows material
+    for it. `on`/`off` always override."""
+    signals = config.get("signals", {})
+
+    def resolve(name: str, auto_condition: bool) -> bool:
+        value = signals.get(name, "auto")
+        if value == "on":
+            return True
+        if value == "off":
+            return False
+        return bool(auto_condition)
+
+    return {
+        "freshness": resolve("freshness", availability.get("git_history") or availability.get("frontmatter_dates")),
+        "duplicate_collapse": resolve("duplicate_collapse", (availability.get("exact_duplicates", 0) > 0) or (availability.get("normalized_duplicates", 0) > 0)),
+        "negative_terms": resolve("negative_terms", availability.get("negative_terms_declared", False)),
+        "reference_graph": resolve("reference_graph", availability.get("link_density", 0.0) >= 0.3),
+    }
+
+
 def cmd_phase0(args: argparse.Namespace) -> Dict[str, Any]:
     kb_root = resolve_kb_root(args.kb_root)
     dry_run = effective_dry_run(args)
     manifest = read_manifest(kb_root)
     inventory = read_source_inventory(kb_root)
     files = iter_source_files(kb_root)
+    all_files = iter_all_source_files(kb_root)
     seen_resolved = {os.path.normcase(str(p.resolve())) for p in files}
     pointer_statuses = pointer_only_source_status(kb_root, manifest)
     pointer_files: List[Path] = []
@@ -873,14 +1091,47 @@ def cmd_phase0(args: argparse.Namespace) -> Dict[str, Any]:
         seen_resolved.add(key)
         pointer_files.append(resolved_path)
     scanned_files = files + pointer_files
+    all_scanned_files = all_files + pointer_files
     structures = [parse_markdown_structure(p, kb_root) for p in scanned_files]
     heading_map = [{"path": r["path"], "source_type_guess": r["source_type_guess"], "h1_title": r["h1_title"], "headings": r["headings"], "parser_warnings": r["parser_warnings"]} for r in structures]
     link_map = [{"path": r["path"], "markdown_links": r["markdown_links"], "wikilinks": r["wikilinks"]} for r in structures]
     frontmatter_map = [{"path": r["path"], **r["frontmatter"]} for r in structures]
     term_freq, file_hit_totals = generic_term_frequency(kb_root, scanned_files)
     topic_registry = load_topic_registry(kb_root)
-    topic_rankings = rank_topic_sources(kb_root, scanned_files, topic_registry)
-    profile = corpus_profile(kb_root, scanned_files, structures, term_freq, inventory)
+
+    # L1 facts: exact/normalized duplicates, possible version families, Git-or-
+    # mtime freshness, and a custody row for every scanned file (incl. non-text).
+    hash_groups = compute_hash_groups(kb_root, all_scanned_files)
+    normalized_dupe_groups = normalized_duplicate_groups(kb_root, scanned_files)
+    version_families = version_family_candidates(kb_root, all_scanned_files)
+    git_map, git_available = git_last_change_map(kb_root)
+    source_facts = build_source_facts(kb_root, all_scanned_files, scanned_files, hash_groups, git_map, git_available)
+    blocked_counts = {
+        "non_text": sum(1 for f in source_facts if f["blocked_reason"] == "non_text"),
+        "unreadable": sum(1 for f in source_facts if f["blocked_reason"] == "unreadable"),
+    }
+
+    analysis_config = load_analysis_config(kb_root)
+    signal_availability = {
+        "git_history": git_available,
+        "frontmatter_dates": any(f["last_change_source"] == "frontmatter" for f in source_facts),
+        "exact_duplicates": sum(1 for v in hash_groups.values() if len(v) > 1),
+        "normalized_duplicates": len(normalized_dupe_groups),
+        "version_families": len(version_families),
+        "link_density": round(sum(len(s.get("markdown_links", [])) + len(s.get("wikilinks", [])) for s in structures) / len(structures), 3) if structures else 0.0,
+        "negative_terms_declared": any(bool(t.get("negative_terms") or t.get("ambiguous_terms")) for t in topic_registry if isinstance(t, dict)),
+        "generic_high_freq_terms": [row["term"] for row in term_freq[:10]],
+    }
+    resolved_signals = resolve_signal_activation(analysis_config, signal_availability)
+    reverse_links = build_reverse_link_index(structures)
+
+    # L2: exhaustive, tiered, field-separated ranking -- no top-N truncation.
+    topic_rankings = rank_topic_sources(kb_root, scanned_files, topic_registry, structures, source_facts, hash_groups, reverse_links, resolved_signals)
+    # L3: bounded per-topic work pack, concentrated from the exhaustive ranking.
+    workpacks = [build_topic_workpack(entry, topic_rankings[str(entry.get("slug") or slugify(str(entry.get("name", "unnamed"))))])
+                 for entry in topic_registry if isinstance(entry, dict)]
+
+    profile = corpus_profile(kb_root, scanned_files, structures, term_freq, inventory, hash_groups, normalized_dupe_groups, version_families, signal_availability, blocked_counts)
     priority = priority_candidates(kb_root, scanned_files, structures, file_hit_totals)
     report = phase0_report(kb_root, scanned_files, structures)
     writes = [
@@ -892,7 +1143,11 @@ def cmd_phase0(args: argparse.Namespace) -> Dict[str, Any]:
         write_text(kb_root / PHASE0_DIR / "topic-source-rankings.json", json.dumps(topic_rankings, indent=2, ensure_ascii=False, sort_keys=True) + "\n", kb_root, args.allow_write, dry_run),
         write_text(kb_root / PHASE0_DIR / "source-priority-candidates.md", priority, kb_root, args.allow_write, dry_run),
         write_text(kb_root / PHASE0_DIR / "phase0-navigation-report.md", report, kb_root, args.allow_write, dry_run),
+        write_text(kb_root / PHASE0_DIR / "source-facts.json", json.dumps(source_facts, indent=2, ensure_ascii=False, sort_keys=True) + "\n", kb_root, args.allow_write, dry_run),
     ]
+    for wp in workpacks:
+        writes.append(write_text(kb_root / PHASE0_DIR / "work-packs" / f"{wp['slug']}.md", wp["markdown"], kb_root, args.allow_write, dry_run))
+        writes.append(write_text(kb_root / PHASE0_DIR / "work-packs" / f"{wp['slug']}.json", json.dumps(wp["json"], indent=2, ensure_ascii=False, sort_keys=True) + "\n", kb_root, args.allow_write, dry_run))
     warning_count = sum(1 for s in pointer_statuses if s["status"] != "resolved")
     unresolved = [s for s in pointer_statuses if s["status"] != "resolved"]
     result = {
@@ -908,6 +1163,10 @@ def cmd_phase0(args: argparse.Namespace) -> Dict[str, Any]:
         "pointer_only_warning_count": warning_count,
         "pointer_only_unresolved": unresolved,
         "topic_registry_entries": len(topic_registry),
+        "signal_availability": signal_availability,
+        "resolved_signals": resolved_signals,
+        "work_pack_count": len(workpacks),
+        "blocked_file_counts": blocked_counts,
     }
     return result
 
@@ -1088,40 +1347,435 @@ def topic_queries(topic: Dict[str, Any]) -> List[Dict[str, Any]]:
     return [entry for entry in value if isinstance(entry, dict)] if isinstance(value, list) else []
 
 
-def rank_topic_sources(kb_root: Path, files: List[Path], registry: List[Dict[str, Any]]) -> Dict[str, Any]:
-    """Registry-driven, targeted ranking. Keywords come from the registry (operator-
-    or LLM-specified during the topic interview) -- this function only counts and
-    ranks; it never invents or interprets keywords itself."""
+def build_reverse_link_index(structures: List[Dict[str, Any]]) -> Dict[str, set]:
+    """path -> set of paths that link to it, via relative markdown links only
+    (absolute URLs/anchors/wikilinks carry no reliable cross-file signal in a
+    raw, non-wiki corpus). Feeds the optional reference_graph signal; never
+    required for tiering or scoring when that signal is off."""
+    known_paths = {s["path"] for s in structures}
+    reverse: Dict[str, set] = defaultdict(set)
+    for s in structures:
+        source_path = s["path"]
+        source_dir = Path(source_path).parent
+        for link in s.get("markdown_links", []):
+            if link.get("target_type") != "relative_file":
+                continue
+            target = link.get("normalized_target")
+            if not target:
+                continue
+            candidate = target.lstrip("/") if target.startswith("/") else (source_dir / target).as_posix()
+            candidate = os.path.normpath(candidate).replace("\\", "/")
+            if candidate in known_paths:
+                reverse[candidate].add(source_path)
+    return reverse
+
+
+TOPIC_SOURCE_RANKINGS_SCHEMA = "apex.kb.topic-source-rankings.v2"
+TIER_BASE_SCORE = {"filename": 100.0, "h1": 80.0, "heading": 60.0, "body_strong": 30.0, "body_weak": 10.0}
+TIER_RANK = {"filename": 0, "h1": 1, "heading": 2, "body_strong": 3, "body_weak": 4}
+
+
+def _topic_vocabulary(entry: Dict[str, Any]) -> Dict[str, List[str]]:
+    phrases = [str(x) for x in entry.get("phrases", []) if str(x).strip()]
+    aliases = [str(x) for x in entry.get("aliases", []) if str(x).strip()]
+    supporting = [str(x) for x in entry.get("supporting_terms", []) if str(x).strip()]
+    if not phrases and not aliases and not supporting:
+        # Back-compat: legacy registries only had `keywords`. Read them as
+        # supporting_terms rather than inventing a phrase tier they never had.
+        supporting = [str(x) for x in entry.get("keywords", []) if str(x).strip()]
+    negative = [str(x) for x in entry.get("negative_terms", []) if str(x).strip()]
+    ambiguous = [str(x) for x in entry.get("ambiguous_terms", []) if str(x).strip()]
+    return {"phrases": phrases, "aliases": aliases, "supporting_terms": supporting, "negative_terms": negative, "ambiguous_terms": ambiguous}
+
+
+def section_for_line(section_spans: List[Dict[str, Any]], line_no: int) -> Optional[str]:
+    """The deepest heading whose span contains line_no. Spans are in document
+    order, so the LAST containing span is the most specific (a nested
+    subheading's span is a subset of its parent's and appears after it)."""
+    best = None
+    for span in section_spans:
+        if span["start_line"] <= line_no <= span["end_line"]:
+            best = span["heading"]
+    return best
+
+
+def elbow_cut_index(scores: List[float]) -> int:
+    """Where the score sequence (already sorted descending) drops sharply.
+    Returns len(scores) -- include everything -- unless a real relative gap
+    (>=15%) is found; this is a shape-detection threshold for whether a cut is
+    justified at all, never a fixed count of items to keep."""
+    n = len(scores)
+    if n <= 1:
+        return n
+    best_gap, best_idx = -1.0, n
+    for i in range(n - 1):
+        denom = scores[i] if scores[i] > 0 else 1.0
+        gap = (scores[i] - scores[i + 1]) / denom
+        if gap > best_gap:
+            best_gap, best_idx = gap, i + 1
+    if best_gap < 0.15:
+        return n
+    return max(best_idx, 1)
+
+
+def _candidate_pointer(field: str, line: int, section_spans: List[Dict[str, Any]], snippet: str) -> Dict[str, Any]:
+    span = None
+    for s in section_spans:
+        if s["start_line"] <= line <= s["end_line"]:
+            span = [s["start_line"], s["end_line"]]
+    return {"field": field, "line": line, "section_span": span, "snippet": snippet[:220]}
+
+
+def rank_topic_sources(
+    kb_root: Path,
+    files: List[Path],
+    registry: List[Dict[str, Any]],
+    structures: List[Dict[str, Any]],
+    source_facts: List[Dict[str, Any]],
+    hash_groups: Dict[str, List[str]],
+    reverse_links: Dict[str, set],
+    resolved_signals: Dict[str, bool],
+) -> Dict[str, Any]:
+    """Exhaustive, field-separated, tiered ranking per registry topic. Never
+    truncates the candidate set -- every signal-bearing source gets a row with
+    an inspectable `why` and at least one pointer. Concentration for the
+    semantic step happens separately (gap_cut/held_in_custody), not by
+    removing rows here. Rankings remain navigation candidates only: rank never
+    proves authority, complete reading, or material use."""
+    struct_by_path = {s["path"]: s for s in structures}
+    facts_by_path = {f["path"]: f for f in source_facts}
+    all_rels = [relpath(kb_root, p) for p in files]
     results: Dict[str, Any] = {}
+
     for entry in registry:
         slug = str(entry.get("slug") or slugify(str(entry.get("name", "unnamed"))))
-        keywords = [str(k).lower() for k in entry.get("keywords", []) if str(k).strip()]
-        if not keywords:
-            results[slug] = {"name": entry.get("name"), "keywords": [], "ranked_sources": []}
+        vocab = _topic_vocabulary(entry)
+        phrases, aliases, supporting = vocab["phrases"], vocab["aliases"], vocab["supporting_terms"]
+        negative, ambiguous = vocab["negative_terms"], vocab["ambiguous_terms"]
+        strong_terms = phrases + aliases
+        name_supporting_terms = strong_terms + supporting
+        empty_gap_cut = {"method": "elbow", "tier_boundary": "body_weak", "included_count": 0, "held_in_custody_count": 0}
+        if not name_supporting_terms:
+            results[slug] = {
+                "schema": TOPIC_SOURCE_RANKINGS_SCHEMA, "name": entry.get("name"), "vocabulary": vocab,
+                "signals_active": resolved_signals, "considered_source_count": len(files), "candidate_count": 0,
+                "candidates": [], "gap_cut": empty_gap_cut, "held_in_custody": [], "zero_signal_custody": sorted(all_rels),
+            }
             continue
-        file_hits: List[Dict[str, Any]] = []
+
+        partial: List[Dict[str, Any]] = []
         for path in files:
+            rel = relpath(kb_root, path)
+            struct = struct_by_path.get(rel, {})
             try:
-                lines = read_text(path).splitlines()
+                text = read_text(path)
             except Exception:
                 continue
-            hit_count = 0
-            sample_snippet = None
+            low_full = text.lower()
+            filename_low = path.name.lower()
+            h1_low = (struct.get("h1_title") or "").lower()
+            headings = struct.get("headings", [])
+            section_spans = struct.get("section_spans", [])
+
+            filename_hit = list(dict.fromkeys(t for t in name_supporting_terms if t.lower() in filename_low))
+            h1_hit = list(dict.fromkeys(t for t in name_supporting_terms if h1_low and t.lower() in h1_low))
+            heading_hit: List[str] = []
+            heading_line = None
+            for h in headings:
+                htext_low = h["text"].lower()
+                for t in name_supporting_terms:
+                    if t.lower() in htext_low and t not in heading_hit:
+                        heading_hit.append(t)
+                        if heading_line is None:
+                            heading_line = h["line"]
+
+            lines = text.splitlines()
+            body_hit_count = 0
+            body_hit_sections: List[str] = []
+            co_occurring: set = set()
+            has_supporting_body = False
+            body_term_hits: set = set()
+            first_body_line, first_body_snippet = None, ""
             for idx, line in enumerate(lines, start=1):
-                low = line.lower()
-                for kw in keywords:
-                    if kw in low:
-                        hit_count += 1
-                        if sample_snippet is None:
-                            sample_snippet = {"line": idx, "snippet": line.strip()[:220]}
-            if hit_count:
-                file_hits.append({"path": relpath(kb_root, path), "hit_count": hit_count, "sample": sample_snippet})
-        file_hits.sort(key=lambda r: (-r["hit_count"], r["path"]))
-        results[slug] = {"name": entry.get("name"), "keywords": keywords, "ranked_sources": file_hits[:30]}
+                low_line = line.lower()
+                line_terms = [t for t in name_supporting_terms if t.lower() in low_line]
+                if line_terms:
+                    body_hit_count += len(line_terms)
+                    body_term_hits.update(line_terms)
+                    if first_body_line is None:
+                        first_body_line, first_body_snippet = idx, line.strip()
+                    sec = section_for_line(section_spans, idx)
+                    if sec and sec not in body_hit_sections:
+                        body_hit_sections.append(sec)
+                    if len(line_terms) > 1:
+                        co_occurring.update(line_terms)
+                    if any(t in supporting for t in line_terms):
+                        has_supporting_body = True
+
+            strong_body_hit = bool(strong_terms) and any(t.lower() in low_full for t in strong_terms)
+            negative_ambiguous_lower = {t.lower() for t in negative + ambiguous}
+            # True only when every body-term hit in this file is itself a
+            # negative/ambiguous term -- i.e. there is no "clean" supporting-term
+            # hit anywhere to ground it. A phrase/alias match already took the
+            # strong_body_hit branch above and never reaches this suppression.
+            all_body_hits_are_negative_only = bool(body_term_hits) and all(t.lower() in negative_ambiguous_lower for t in body_term_hits)
+
+            if filename_hit:
+                tier, pointer = "filename", _candidate_pointer("filename", 1, section_spans, path.name)
+            elif h1_hit:
+                h1_line = next((h["line"] for h in headings if h.get("level") == 1), 1)
+                pointer = _candidate_pointer("h1", h1_line, section_spans, struct.get("h1_title") or "")
+                tier = "h1"
+            elif heading_hit:
+                tier, pointer = "heading", _candidate_pointer("heading", heading_line or 1, section_spans, heading_hit[0])
+            elif strong_body_hit:
+                tier = "body_strong"
+                pointer = _candidate_pointer("body", first_body_line or 1, section_spans, first_body_snippet)
+            elif has_supporting_body:
+                tier = "body_strong" if (co_occurring or len(body_hit_sections) > 1) else "body_weak"
+                pointer = _candidate_pointer("body", first_body_line or 1, section_spans, first_body_snippet)
+            else:
+                tier, pointer = None, None
+
+            negative_suppressed = False
+            if tier == "body_weak" and all_body_hits_are_negative_only and not co_occurring:
+                # Only a body-only, single-section, no-co-occurrence match can be
+                # suppressed by a negative/ambiguous term. Filename/H1/heading/
+                # phrase evidence never reaches this branch.
+                negative_suppressed = resolved_signals.get("negative_terms", False)
+                if negative_suppressed:
+                    tier, pointer = None, None
+
+            if tier is None:
+                continue
+
+            partial.append({
+                "path": rel,
+                "source_id": source_id_for(rel),
+                "sha256": facts_by_path.get(rel, {}).get("sha256"),
+                "tier": tier,
+                "why": {
+                    "filename_hit": filename_hit, "h1_hit": h1_hit, "heading_hit": heading_hit,
+                    "body_hit_count": body_hit_count, "body_hit_sections": body_hit_sections,
+                    "co_occurring_terms": sorted(co_occurring), "negative_suppressed": negative_suppressed,
+                },
+                "pointers": [pointer] if pointer else [],
+            })
+
+        # Reference-graph rescue: a file with zero term-based signal can still
+        # surface if it is linked from this topic's strong-tier sources -- but
+        # only when the signal is active; it never removes a term-based match.
+        strong_paths = {c["path"] for c in partial if c["tier"] in ("filename", "h1", "heading")}
+        if resolved_signals.get("reference_graph"):
+            already = {c["path"] for c in partial}
+            for path in files:
+                rel = relpath(kb_root, path)
+                if rel in already:
+                    continue
+                linkers = reverse_links.get(rel, set()) & strong_paths
+                if linkers:
+                    partial.append({
+                        "path": rel, "source_id": source_id_for(rel), "sha256": facts_by_path.get(rel, {}).get("sha256"),
+                        "tier": "body_weak",
+                        "why": {"filename_hit": [], "h1_hit": [], "heading_hit": [], "body_hit_count": 0,
+                                "body_hit_sections": [], "co_occurring_terms": [], "negative_suppressed": False},
+                        "pointers": [{"field": "link", "line": 1, "section_span": None, "snippet": f"linked from {len(linkers)} strong-tier source(s) for this topic"}],
+                    })
+
+        # Freshness boost (relative to this topic's own candidate set -- never
+        # an absolute date constant) and reference-graph score boost.
+        dated = sorted(facts_by_path.get(c["path"], {}).get("last_change") for c in partial if facts_by_path.get(c["path"], {}).get("last_change"))
+        median_date = dated[len(dated) // 2] if dated else None
+        for c in partial:
+            fact = facts_by_path.get(c["path"], {})
+            boost = 0.0
+            if resolved_signals.get("freshness"):
+                lc = fact.get("last_change")
+                if lc:
+                    fboost = 2.0 + (3.0 if median_date and lc > median_date else 0.0)
+                    c["why"]["freshness"] = {"last_change": lc, "source": fact.get("last_change_source") or "none", "boost": fboost}
+                    boost += fboost
+                else:
+                    c["why"]["freshness"] = {"last_change": None, "source": "none", "boost": 0.0}
+            else:
+                c["why"]["freshness"] = None
+            if resolved_signals.get("reference_graph"):
+                lfs = len(reverse_links.get(c["path"], set()) & strong_paths)
+                c["why"]["linked_from_strong"] = lfs
+                boost += min(lfs, 5) * 2.0
+            else:
+                c["why"]["linked_from_strong"] = 0
+            if c["why"]["co_occurring_terms"]:
+                boost += 5.0
+            c["score"] = round(TIER_BASE_SCORE[c["tier"]] + boost, 2)
+
+        # Duplicate collapse (evidence-gated): annotate, never remove a row.
+        if resolved_signals.get("duplicate_collapse"):
+            by_sha: Dict[str, List[Dict[str, Any]]] = defaultdict(list)
+            for c in partial:
+                if c["sha256"]:
+                    by_sha[c["sha256"]].append(c)
+            for sha, members in by_sha.items():
+                if len(members) < 2:
+                    continue
+                members.sort(key=lambda c: (TIER_RANK[c["tier"]], -c["score"], c["path"]))
+                representative = members[0]["path"]
+                for m in members[1:]:
+                    m["duplicate_of"] = representative
+        for c in partial:
+            c.setdefault("duplicate_of", None)
+
+        partial.sort(key=lambda c: (TIER_RANK[c["tier"]], -c["score"], c["path"]))
+        always_include = [c for c in partial if c["tier"] in ("filename", "h1", "heading")]
+        body_pool = [c for c in partial if c["tier"] in ("body_strong", "body_weak")]
+        cut_idx = elbow_cut_index([c["score"] for c in body_pool])
+        held = body_pool[cut_idx:]
+        candidate_paths = {c["path"] for c in partial}
+        zero_signal_custody = sorted(rel for rel in all_rels if rel not in candidate_paths)
+
+        results[slug] = {
+            "schema": TOPIC_SOURCE_RANKINGS_SCHEMA,
+            "name": entry.get("name"),
+            "vocabulary": vocab,
+            "signals_active": resolved_signals,
+            "considered_source_count": len(files),
+            "candidate_count": len(partial),
+            "candidates": partial,
+            "gap_cut": {"method": "elbow", "tier_boundary": "body_weak", "included_count": len(always_include) + cut_idx, "held_in_custody_count": len(held)},
+            "held_in_custody": [c["source_id"] for c in held],
+            "zero_signal_custody": zero_signal_custody,
+        }
     return results
 
 
-def corpus_profile(kb_root: Path, files: List[Path], structures: List[Dict[str, Any]], term_freq: List[Dict[str, Any]], inventory: Optional[Dict[str, Any]] = None) -> str:
+TOPIC_WORK_PACK_SCHEMA = "apex.kb.topic-work-pack.v1"
+CONTINUE_BY_GAP_INSTRUCTION = (
+    "Read the concentrated candidates above first. Pull the next held_in_custody source "
+    "(see topic-source-rankings.json for this topic) only if a critical or routine target "
+    "question is still unresolved after reading the concentrated set. Stop when every "
+    "critical/routine question is resolved, or no further readable source remains. Never "
+    "stop merely because a fixed number of sources was read, and never continue merely "
+    "because more candidates exist."
+)
+
+
+def build_topic_workpack(entry: Dict[str, Any], ranking: Dict[str, Any]) -> Dict[str, Any]:
+    """The bounded L3 packet for one topic: filename/H1/heading tiers in full
+    plus the elbow-selected portion of the body tiers, duplicates collapsed to
+    one representative. Derived entirely from `ranking` -- never a second
+    source of truth for source facts."""
+    slug = str(entry.get("slug") or slugify(str(entry.get("name", "unnamed"))))
+    name = entry.get("name") or slug
+    target_queries = [
+        {
+            "query_id": q.get("query_id"), "question": q.get("question"), "priority": q.get("priority"),
+            "answer_requirements": q.get("answer_requirements", []), "expected_page": q.get("expected_page"),
+        }
+        for q in topic_queries(entry)
+    ]
+    candidates = ranking.get("candidates", [])
+    held = set(ranking.get("held_in_custody", []))
+    concentrated_all = [c for c in candidates if c["source_id"] not in held]
+    representatives = [c for c in concentrated_all if not c.get("duplicate_of")]
+    rep_paths = {c["path"] for c in representatives}
+    dup_map: Dict[str, List[str]] = defaultdict(list)
+    standalone_dupes = []
+    for c in concentrated_all:
+        if c.get("duplicate_of"):
+            if c["duplicate_of"] in rep_paths:
+                dup_map[c["duplicate_of"]].append(c["source_id"])
+            else:
+                # Representative itself wasn't concentrated -- keep this one
+                # standalone rather than silently losing it.
+                standalone_dupes.append(c)
+    concentrated = sorted(representatives + standalone_dupes, key=lambda c: (TIER_RANK[c["tier"]], -c["score"], c["path"]))
+
+    json_candidates = [
+        {
+            "source_id": c["source_id"], "path": c["path"], "tier": c["tier"],
+            "why": c["why"], "pointers": c["pointers"],
+            "duplicates_of_this": sorted(dup_map.get(c["path"], [])),
+        }
+        for c in concentrated
+    ]
+    disclosure = {
+        "candidate_count": ranking.get("candidate_count", 0),
+        "concentrated_count": len(json_candidates),
+        "held_in_custody_count": len(held),
+        "zero_signal_custody_count": len(ranking.get("zero_signal_custody", [])),
+        "rankings_ref": "manifests/phase0/topic-source-rankings.json",
+    }
+    payload = {
+        "schema": TOPIC_WORK_PACK_SCHEMA, "topic_slug": slug, "topic_name": name,
+        "target_queries": target_queries, "concentrated_candidates": json_candidates,
+        "continue_by_gap": CONTINUE_BY_GAP_INSTRUCTION, "disclosure": disclosure,
+    }
+    return {"slug": slug, "json": payload, "markdown": render_topic_workpack_markdown(name, slug, target_queries, json_candidates, disclosure)}
+
+
+def render_topic_workpack_markdown(name: str, slug: str, target_queries: List[Dict[str, Any]], candidates: List[Dict[str, Any]], disclosure: Dict[str, Any]) -> str:
+    lines = [f"# Topic Work Pack - {name}", "", f"Generated: `{utc_now()}`", f"Topic slug: `{slug}`", "Rankings reference: `manifests/phase0/topic-source-rankings.json`", "", "## Target Questions", ""]
+    if target_queries:
+        for q in target_queries:
+            lines.append(f"- `{q['query_id']}` (`{q['priority']}`): {q['question']}")
+            reqs = q.get("answer_requirements") or []
+            lines.append(f"  - answer requirements: {', '.join(reqs) if reqs else 'none recorded'}")
+            lines.append(f"  - expected page: `{q.get('expected_page') or 'NA'}`")
+    else:
+        lines.append("- none recorded -- compiled tiers require target queries per `references/semantic-value-contract.md`.")
+    lines.extend(["", "## Concentrated Candidates", ""])
+    tier_titles = {"filename": "Filename matches", "h1": "H1 matches", "heading": "Heading matches", "body_strong": "Body matches (concentrated)", "body_weak": "Body matches (concentrated)"}
+    grouped: Dict[str, List[Dict[str, Any]]] = defaultdict(list)
+    for c in candidates:
+        grouped[c["tier"]].append(c)
+    seen_titles: set = set()
+    for tier in ("filename", "h1", "heading", "body_strong", "body_weak"):
+        rows = grouped.get(tier, [])
+        if not rows:
+            continue
+        title = tier_titles[tier]
+        if title not in seen_titles:
+            lines.extend([f"### {title}", ""])
+            seen_titles.add(title)
+        for c in rows:
+            why = c["why"]
+            why_bits = []
+            if why.get("filename_hit"):
+                why_bits.append(f"filename hit on \"{why['filename_hit'][0]}\"")
+            if why.get("h1_hit"):
+                why_bits.append(f"H1 hit on \"{why['h1_hit'][0]}\"")
+            if why.get("heading_hit"):
+                why_bits.append(f"heading hit on \"{why['heading_hit'][0]}\"")
+            if why.get("body_hit_count"):
+                why_bits.append(f"{why['body_hit_count']} body hit(s)")
+            if why.get("linked_from_strong"):
+                why_bits.append(f"linked from {why['linked_from_strong']} strong source(s)")
+            lines.append(f"- `{c['path']}` (`{c['source_id']}`) -- why: {'; '.join(why_bits) if why_bits else 'signal recorded'}")
+            for p in c["pointers"]:
+                span = f" section {p['section_span'][0]}-{p['section_span'][1]}" if p.get("section_span") else ""
+                lines.append(f"  - pointers: `{p['field']}:{p['line']}`{span}: \"{p.get('snippet', '')}\"")
+            if c.get("duplicates_of_this"):
+                lines.append(f"  - duplicates of this source: {', '.join(f'`{d}`' for d in c['duplicates_of_this'])}")
+        lines.append("")
+    lines.extend(["## Continue By Gap", "", CONTINUE_BY_GAP_INSTRUCTION, "", "## Disclosure", ""])
+    for key in ("candidate_count", "concentrated_count", "held_in_custody_count", "zero_signal_custody_count"):
+        lines.append(f"- {key}: `{disclosure[key]}`")
+    lines.append(f"- full candidate set and custody paths: `{disclosure['rankings_ref']}`")
+    return "\n".join(lines) + "\n"
+
+
+def corpus_profile(
+    kb_root: Path,
+    files: List[Path],
+    structures: List[Dict[str, Any]],
+    term_freq: List[Dict[str, Any]],
+    inventory: Optional[Dict[str, Any]] = None,
+    hash_groups: Optional[Dict[str, List[str]]] = None,
+    normalized_dupe_groups: Optional[List[List[str]]] = None,
+    version_families: Optional[List[Dict[str, Any]]] = None,
+    signal_availability: Optional[Dict[str, Any]] = None,
+    blocked_counts: Optional[Dict[str, int]] = None,
+) -> str:
     ext_counts = Counter(p.suffix.lower() or "[none]" for p in files)
     sizes = [(relpath(kb_root, p), p.stat().st_size) for p in files]
     sizes.sort(key=lambda x: x[1], reverse=True)
@@ -1149,17 +1803,29 @@ def corpus_profile(kb_root: Path, files: List[Path], structures: List[Dict[str, 
         lines.append(f"- `{path}`: {size} bytes")
     lines.extend(["", "## likely_generated_or_noise_files", ""])
     lines.extend([f"- `{p}`" for p in noise[:50]] or ["- none detected"])
+    lines.extend(["", "## non_text_and_blocked_files", "", "See `source-facts.json` for the full per-file custody record -- every scanned file is inventoried here, including these.", ""])
+    if blocked_counts:
+        lines.append(f"- non_text: `{blocked_counts.get('non_text', 0)}`")
+        lines.append(f"- unreadable: `{blocked_counts.get('unreadable', 0)}`")
+    else:
+        lines.append("- none detected")
     lines.extend(["", "## duplicate_hash_groups", ""])
-    by_hash: Dict[str, List[str]] = defaultdict(list)
-    for p in files:
-        try:
-            by_hash[sha256_file(p)].append(relpath(kb_root, p))
-        except Exception:
-            pass
-    dupes = [v for v in by_hash.values() if len(v) > 1]
+    dupes = [v for v in (hash_groups or {}).values() if len(v) > 1]
     if dupes:
         for group in dupes[:20]:
             lines.append("- " + ", ".join(f"`{x}`" for x in group))
+    else:
+        lines.append("- none detected")
+    lines.extend(["", "## normalized_text_duplicate_groups", "", "Same text once whitespace/case differences are collapsed -- not exact-hash duplicates.", ""])
+    if normalized_dupe_groups:
+        for group in normalized_dupe_groups[:20]:
+            lines.append("- " + ", ".join(f"`{x}`" for x in group))
+    else:
+        lines.append("- none detected")
+    lines.extend(["", "## version_family_candidates", "", "Conservative filename-token grouping (v2, Night4, draft, old/new/final, copy, \"(2)\"). Discovery evidence only -- never auto-resolved supersession.", ""])
+    if version_families:
+        for fam in version_families[:20]:
+            lines.append(f"- `{fam['possible_family_key']}`: " + ", ".join(f"`{m}`" for m in fam["members"]))
     else:
         lines.append("- none detected")
     lines.extend(["", "## source_group_summary", ""])
@@ -1175,6 +1841,15 @@ def corpus_profile(kb_root: Path, files: List[Path], structures: List[Dict[str, 
     lines.extend(["", "## generic_term_frequency", "", "Domain-agnostic word counts across this corpus (standard English stopwords filtered only; no hardcoded topic assumptions).", ""])
     for row in term_freq[:30]:
         lines.append(f"- `{row['term']}`: {row['count']} hits across {row['file_count']} files")
+    lines.extend(["", "## optional_signal_availability", "", "Governs which optional Phase 0 signals auto-activate for topic ranking (see `manifests/analysis-config.json`). A signal only turns on when the corpus shows material for it -- never a guess.", ""])
+    if signal_availability:
+        for key in ("git_history", "frontmatter_dates", "exact_duplicates", "normalized_duplicates", "version_families", "link_density", "negative_terms_declared"):
+            if key in signal_availability:
+                lines.append(f"- `{key}`: `{signal_availability[key]}`")
+        if signal_availability.get("generic_high_freq_terms"):
+            lines.append(f"- `generic_high_freq_terms`: " + ", ".join(f"`{t}`" for t in signal_availability["generic_high_freq_terms"]))
+    else:
+        lines.append("- not_computed")
     return "\n".join(lines) + "\n"
 
 
@@ -1504,269 +2179,6 @@ def cmd_lint(args: argparse.Namespace) -> Dict[str, Any]:
     blocking_issues = [issue for issue in issues if issue.get("severity") != "report_only"]
     severity = "fail" if blocking_issues and args.strict else "warn" if issues else "pass"
     return {"command": "lint", "status": severity, "issue_count": len(issues), "report_only_count": report_only_count, "issues": issues, "deterministic_only": True}
-
-
-def route_contract_files(target: Path) -> List[Path]:
-    if target.is_file():
-        return [target]
-    if target.is_dir():
-        return sorted(p for p in target.rglob("*") if p.is_file() and (p.suffix.lower() in HANDOVER_TEXT_EXTS or not p.suffix))
-    raise FileNotFoundError(f"target not found: {target}")
-
-
-def route_field_present(text: str, field: str) -> bool:
-    pattern = rf"(?im)^\s*(?:[-*]\s*)?(?:{re.escape(field)})\s*:"
-    return re.search(pattern, text) is not None
-
-
-def route_field_values(text: str, field: str) -> List[str]:
-    pattern = rf"(?im)^\s*(?:[-*]\s*)?{re.escape(field)}\s*:\s*(.+?)\s*$"
-    return [m.group(1).strip().strip("\"'") for m in re.finditer(pattern, text)]
-
-
-def route_field_has_list_items(text: str, field: str) -> bool:
-    lines = text.splitlines()
-    for idx, line in enumerate(lines):
-        if re.match(rf"(?i)^\s*(?:[-*]\s*)?{re.escape(field)}\s*:\s*(.*)$", line):
-            value = line.split(":", 1)[1].strip()
-            if value and value not in {"[]", "{}", "null", "None", "~"}:
-                return True
-            base_indent = len(line) - len(line.lstrip())
-            for child in lines[idx + 1:]:
-                if not child.strip():
-                    continue
-                indent = len(child) - len(child.lstrip())
-                if indent <= base_indent:
-                    return False
-                if re.match(r"^\s*-\s+\S+", child):
-                    return True
-            return False
-    return False
-
-
-def detect_validator_executor_collapse(text: str) -> bool:
-    normalized = re.sub(r"[\s_-]+", "_", text.lower())
-    explicit_flags = [
-        "validator_executor_collapse:_true",
-        "same_actor_validates_executes_approves:_true",
-        "same_actor_validate_execute_approve:_true",
-        "same_actor:_validator_executor_final_approver",
-    ]
-    if any(flag in normalized for flag in explicit_flags):
-        return True
-    high_risk = bool(re.search(r"(?im)^\s*(?:risk|risk_level|operation_risk)\s*:\s*(high|critical)\b", text))
-    same_actor = bool(re.search(r"(?im)^\s*(?:same_actor|single_actor|operator_override)\s*:\s*(true|yes|none)\b", text))
-    role_collapse_words = all(word in normalized for word in ["validator", "executor"]) and any(word in normalized for word in ["final_approver", "self_approve", "self_approval"])
-    return high_risk and (same_actor or role_collapse_words)
-
-
-def lint_repo_execution_router_file(kb_root: Path, path: Path) -> Dict[str, Any]:
-    text = read_text(path)
-    findings: List[Dict[str, Any]] = []
-
-    for field in ["repository", "branch", "exact_target_paths", "operation_class", "pre_write_checks", "stop_conditions", "commit_strategy"]:
-        if not route_field_present(text, field):
-            issue = f"missing_{field}"
-            severity = "fail" if field in {"exact_target_paths", "operation_class"} else "warning"
-            findings.append({"type": "repo_execution_router", "issue": issue, "severity": severity, "message": f"Missing required route contract field: {field}"})
-
-    if not route_field_has_list_items(text, "exact_target_paths"):
-        findings.append({
-            "type": "repo_execution_router",
-            "issue": "missing_exact_target_paths",
-            "severity": "fail",
-            "message": "Repo-affecting work must list exact repo-relative target paths before writes.",
-        })
-
-    operation_values = route_field_values(text, "operation_class")
-    if operation_values and operation_values[0] not in OPERATION_CLASS_ALLOWED:
-        findings.append({
-            "type": "repo_execution_router",
-            "issue": "invalid_operation_class",
-            "severity": "fail",
-            "message": "Operation class is required: create, update, delete, rename, generated_output, or config_change.",
-            "value": operation_values[0],
-        })
-
-    if not route_field_present(text, "allowed_actions") or not route_field_present(text, "forbidden_actions"):
-        findings.append({
-            "type": "repo_execution_router",
-            "issue": "missing_allowed_or_forbidden_actions",
-            "severity": "warning",
-            "message": "Allowed and forbidden actions should be explicit to prevent advisory routing collapse.",
-        })
-
-    if not route_field_present(text, "post_write_checks") or not route_field_has_list_items(text, "post_write_checks"):
-        findings.append({
-            "type": "repo_execution_router",
-            "issue": "missing_post_write_checks",
-            "severity": "warning",
-            "message": "Post-write read-back or deterministic check is required for medium/high-risk work.",
-        })
-
-    if detect_validator_executor_collapse(text):
-        findings.append({
-            "type": "repo_execution_router",
-            "issue": "validator_executor_collapse",
-            "severity": "fail",
-            "message": "High-risk work cannot rely on the same actor to validate, execute, and final-approve without explicit operator override.",
-        })
-
-    try:
-        file_path = relpath(kb_root, path)
-    except ValueError:
-        file_path = str(path)
-    return {"path": file_path, "finding_count": len(findings), "findings": findings}
-
-
-def cmd_lint_repo_execution_router(args: argparse.Namespace) -> Dict[str, Any]:
-    kb_root = resolve_kb_root(args.kb_root)
-    target = Path(args.target).expanduser().resolve()
-    files = route_contract_files(target)
-    results = [lint_repo_execution_router_file(kb_root, p) for p in files]
-    findings = [finding for result in results for finding in result["findings"]]
-    fail_count = sum(1 for finding in findings if finding.get("severity") == "fail")
-    warning_count = sum(1 for finding in findings if finding.get("severity") == "warning")
-    status = "fail" if fail_count or (warning_count and args.strict) else "warn" if warning_count else "pass"
-    return {
-        "command": "lint-repo-execution-router",
-        "status": status,
-        "target": str(target),
-        "file_count": len(files),
-        "finding_count": len(findings),
-        "fail_count": fail_count,
-        "warning_count": warning_count,
-        "results": results,
-        "deterministic_only": True,
-    }
-
-
-def line_number_for_offset(text: str, offset: int) -> int:
-    return text.count("\n", 0, offset) + 1
-
-
-def historical_path_entries(text: str) -> List[Dict[str, Any]]:
-    entries: List[Dict[str, Any]] = []
-    lines = text.splitlines()
-    current: Optional[Dict[str, Any]] = None
-    for idx, line in enumerate(lines, start=1):
-        old_path = re.match(r"^\s*-\s+old_path\s*:\s*(.+?)\s*$", line)
-        if old_path:
-            if current:
-                entries.append(current)
-            current = {"old_path": old_path.group(1).strip().strip("\"'"), "line": idx}
-            continue
-        if current:
-            field = re.match(r"^\s+(status|current_path)\s*:\s*(.+?)\s*$", line)
-            if field:
-                current[field.group(1)] = field.group(2).strip().strip("\"'")
-            elif re.match(r"^\S", line) or re.match(r"^\s*-\s+\S", line):
-                entries.append(current)
-                current = None
-    if current:
-        entries.append(current)
-    return entries
-
-
-def add_historical_finding(findings: List[Dict[str, Any]], issue: str, severity: str, message: str, line: Optional[int] = None, value: Optional[str] = None) -> None:
-    finding: Dict[str, Any] = {"type": "historical_path_authority", "issue": issue, "severity": severity, "message": message}
-    if line is not None:
-        finding["line"] = line
-    if value is not None:
-        finding["value"] = value
-    findings.append(finding)
-
-
-def lint_historical_path_authority_file(kb_root: Path, path: Path) -> Dict[str, Any]:
-    text = read_text(path)
-    low = text.lower()
-    findings: List[Dict[str, Any]] = []
-    canonical_values = route_field_values(text, "canonical_current_path")
-    canonical_current_path = canonical_values[0] if canonical_values else ""
-    entries = historical_path_entries(text)
-
-    for entry in entries:
-        line = int(entry.get("line", 1))
-        status = str(entry.get("status", "")).lower()
-        current_path = str(entry.get("current_path", ""))
-        old_path = str(entry.get("old_path", ""))
-        if status in {"active", "current", "runtime_authority", "config_authority"}:
-            add_historical_finding(
-                findings,
-                "historical_path_used_as_current_target",
-                "fail",
-                "Historical path appears to be used as current implementation target.",
-                line,
-                old_path,
-            )
-        if status not in {"superseded", "deprecated", "historical", "legacy", "source_trace"}:
-            add_historical_finding(findings, "unmarked_legacy_path", "warning", "Legacy path appears without historical-source marker.", line, old_path)
-        if not current_path:
-            add_historical_finding(findings, "missing_current_path", "fail", "Historical path entry must point to a current path.", line, old_path)
-        if current_path and canonical_current_path and current_path != canonical_current_path:
-            add_historical_finding(findings, "current_path_mismatch", "fail", "Historical path current_path must match canonical_current_path.", line, current_path)
-
-    if entries and not canonical_current_path:
-        add_historical_finding(findings, "missing_canonical_current_path", "fail", "Historical path mappings require canonical_current_path.")
-
-    legacy_patterns = [
-        r"\bOpenClaw\b",
-        r"\bold OpenClaw\b",
-        r"\blegacy runtime\b",
-        r"\b[A-Za-z]:\\",
-        r"\blocal Windows path\b",
-    ]
-    historical_context = "historical_source_evidence" in text or "historical_paths:" in text or "deprecated_appendix" in text or "migration_risk_note" in text
-    for pattern in legacy_patterns:
-        for match in re.finditer(pattern, text):
-            if not historical_context:
-                add_historical_finding(
-                    findings,
-                    "unmarked_legacy_path",
-                    "warning",
-                    "Legacy path appears without historical-source marker.",
-                    line_number_for_offset(text, match.start()),
-                    match.group(0),
-                )
-
-    current_authority_near_legacy = bool(re.search(r"(?is)(write to|update|replace|runtime authority|config authority).{0,120}(OpenClaw|old OpenClaw|legacy runtime|[A-Za-z]:\\)", text))
-    if current_authority_near_legacy:
-        add_historical_finding(findings, "historical_path_used_as_current_target", "fail", "Historical path appears to be used as current implementation target.")
-
-    if re.search(r"\b(provider|model|cost|performance)\b", low) and re.search(r"\b(current|runtime|authority|policy)\b", low) and "current verification" not in low:
-        add_historical_finding(findings, "stale_provider_or_model_claim", "warning", "Provider/model/cost/performance claim requires current verification.")
-
-    old_role_current = bool(re.search(r"(?is)(old agent role|meta detective|meta ops|meta strategy|special ops).{0,120}(current agent|current skill|runtime role|promote|promoted)", text))
-    if old_role_current and "operator decision" not in low:
-        add_historical_finding(findings, "old_role_promoted_without_decision", "fail", "Old role name appears promoted into current agent/skill without recorded operator decision.")
-
-    try:
-        file_path = relpath(kb_root, path)
-    except ValueError:
-        file_path = str(path)
-    return {"path": file_path, "finding_count": len(findings), "findings": findings}
-
-
-def cmd_lint_historical_path_authority(args: argparse.Namespace) -> Dict[str, Any]:
-    kb_root = resolve_kb_root(args.kb_root)
-    target = Path(args.target).expanduser().resolve()
-    files = route_contract_files(target)
-    results = [lint_historical_path_authority_file(kb_root, p) for p in files]
-    findings = [finding for result in results for finding in result["findings"]]
-    fail_count = sum(1 for finding in findings if finding.get("severity") == "fail")
-    warning_count = sum(1 for finding in findings if finding.get("severity") == "warning")
-    status = "fail" if fail_count or (warning_count and args.strict) else "warn" if warning_count else "pass"
-    return {
-        "command": "lint-historical-path-authority",
-        "status": status,
-        "target": str(target),
-        "file_count": len(files),
-        "finding_count": len(findings),
-        "fail_count": fail_count,
-        "warning_count": warning_count,
-        "results": results,
-        "deterministic_only": True,
-    }
 
 
 def audit_items(kb_root: Path) -> List[Dict[str, Any]]:
@@ -2852,16 +3264,6 @@ def build_parser() -> argparse.ArgumentParser:
     lint_cmd.add_argument("--json", action="store_true", default=argparse.SUPPRESS)
     lint_cmd.add_argument("--strict", action="store_true", default=argparse.SUPPRESS)
     lint_cmd.set_defaults(func=cmd_lint)
-    router_lint = sub.add_parser("lint-repo-execution-router")
-    router_lint.add_argument("--target", required=True, help="Markdown/YAML handover file or directory to lint")
-    router_lint.add_argument("--json", action="store_true", default=argparse.SUPPRESS)
-    router_lint.add_argument("--strict", action="store_true", default=argparse.SUPPRESS)
-    router_lint.set_defaults(func=cmd_lint_repo_execution_router)
-    historical_lint = sub.add_parser("lint-historical-path-authority")
-    historical_lint.add_argument("--target", required=True, help="Markdown/YAML file or directory to lint")
-    historical_lint.add_argument("--json", action="store_true", default=argparse.SUPPRESS)
-    historical_lint.add_argument("--strict", action="store_true", default=argparse.SUPPRESS)
-    historical_lint.set_defaults(func=cmd_lint_historical_path_authority)
     audit_cmd = sub.add_parser("audit")
     audit_cmd.add_argument("--json", action="store_true", default=argparse.SUPPRESS)
     audit_cmd.set_defaults(func=cmd_audit)

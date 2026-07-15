@@ -28,23 +28,24 @@ package_manifest:
 | `package-manifest.md` | Package inventory and scope |
 | `references/semantic-value-contract.md` | Completion target, registry v2, ledger, traceability, and acceptance contract |
 | `references/browser-git-connector-semantic-runbook.md` | Connector-only compilation and clean-context evaluator workflow |
-| `references/topic-registry-v2.schema.json` | Topic target-query schema |
+| `references/topic-registry-v2.schema.json` | Topic target-query and vocabulary schema |
 | `references/semantic-run-ledger.schema.json` | Per-topic semantic progress/source-use schema |
 | `references/semantic-acceptance.schema.json` | Independent semantic acceptance schema |
 | `references/query-eval-pack-v2.schema.json` | Query-eval v2 schema |
+| `references/analysis-config.schema.json` | Optional per-KB Phase 0 signal activation (`auto\|on\|off`) |
+| `references/topic-source-rankings.schema.json` | Exhaustive, tiered, field-separated Phase 0 ranking schema |
+| `references/topic-work-pack.schema.json` | Bounded per-topic semantic-input (work pack) schema |
 | `assets/repository-semantic-contract/` | Repository-local semantic authority copied by scaffold |
 | `references/kb-contract.md` | KB data, source, page, and boundary contract |
 | `references/script-command-contract.md` | Deterministic script command contract |
 | `references/ingest-query-lint-audit-rules.md` | Operational rules for ingest/query/lint/audit |
 | `references/retrieval-contract.md` | Retrieval, index, stale, and query-output contract |
-| `references/lifecycle-state-machine.md` | Deprecated historical reference; never operational authority |
 | `references/acceptance-tests.md` | Local command-level and semantic-wiring fixtures |
 | `references/knowledge-promotion-rules.md` | Source/candidate/doctrine/runtime promotion gate rules |
-| `references/repo-execution-router-lint-spec.md` | Repo execution route lint spec |
-| `references/historical-path-authority-lint-spec.md` | Legacy path/current authority lint spec |
 | `templates/ingest-analysis-template.md` | Phase 1 query-linked analysis template |
 | `templates/wiki-page-templates.md` | Phase 2 v2 answer-bearing page templates |
 | `templates/query-output-template.md` | Query packet template |
+| `templates/topic-work-pack-template.md` | Topic work pack (bounded L3 semantic input) shape |
 | `templates/kb-schema-template.md` | Starter `kb-schema.md` |
 | `templates/source-manifest-template.json` | Starter source manifest |
 | `examples/powershell-commands.md` | PowerShell local commands |
@@ -102,5 +103,5 @@ The skill folder is not executable by itself. It requires the repo-level scripts
 
 ## Lifecycle authority
 
-`SKILL.md` is the single operational lifecycle authority. `references/lifecycle-state-machine.md` is retained only as deprecated historical/reference material and must not introduce independent completion states or transitions. Runtime command behavior remains authoritative in the scripts and command contract.
+`SKILL.md` is the single operational lifecycle authority. The deprecated `references/lifecycle-state-machine.md` and the two unexecuted `references/repo-execution-router-lint-spec.md` / `references/historical-path-authority-lint-spec.md` files (and their `lint-repo-execution-router` / `lint-historical-path-authority` commands) were removed after a repository search found no active consumer; their content and history remain in Git. Runtime command behavior remains authoritative in the scripts and command contract.
 

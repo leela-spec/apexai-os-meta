@@ -282,14 +282,18 @@ Pass criteria:
 
 ## Registry-driven topic ranking fixture
 
-Add `manifests/topic-registry.json` to the same synthetic corpus with two topics, each with a distinct `keywords` list drawn from the corpus vocabulary. Run `phase0 --allow-write` again.
+Add `manifests/topic-registry.json` to the same synthetic corpus with two topics, each with a distinct `keywords` (or `phrases`/`supporting_terms`) list drawn from the corpus vocabulary. Run `phase0 --allow-write` again.
 
 Pass criteria:
 - `topic_registry_entries` in the `phase0` result equals the number of registry entries;
-- `manifests/phase0/topic-source-rankings.json` contains one entry per topic slug, each with a `ranked_sources` list ordered by descending `hit_count`;
-- a file containing more of a topic's keywords ranks above a file containing fewer, by direct count;
+- `manifests/phase0/topic-source-rankings.json` contains one entry per topic slug (`schema: apex.kb.topic-source-rankings.v2`), each with an exhaustive `candidates` list -- no top-N truncation, so a corpus with more than 30 signal-bearing files retains all of them;
+- every candidate has a `tier` (`filename | h1 | heading | body_strong | body_weak`) and a `why` object naming the exact field(s)/line(s) that matched, plus a `pointers` array with at least one field/line/section-span entry;
+- a filename/H1/heading match always outranks a body-only match, regardless of body hit count;
+- a topic's `negative_terms` never suppress a filename, H1, heading, or phrase/alias match -- only a body-only/supporting-term match with no other qualifying signal;
+- `held_in_custody` and `zero_signal_custody` together account for every scanned source not selected by `gap_cut` -- nothing is silently dropped;
+- `manifests/phase0/work-packs/<topic-slug>.md` (+ `.json`) is produced for each registry topic and discloses `candidate_count`, `held_in_custody` count, and `zero_signal_custody` count in its footer;
 - regenerating `wiki/index.md` produces a "Topic Guides" section listing both topics by name, status, and source, ahead of the alphabetical Concept/Entity/Summary buckets;
-- a KB with no registry file produces neither a `topic-source-rankings.json` ranking entry nor a Topic Guides section -- absence is a valid, non-blocking state.
+- a KB with no registry file produces neither a `topic-source-rankings.json` ranking entry, nor a work pack, nor a Topic Guides section -- absence is a valid, non-blocking state.
 
 ## Per-page compile-check-retry loop fixture
 

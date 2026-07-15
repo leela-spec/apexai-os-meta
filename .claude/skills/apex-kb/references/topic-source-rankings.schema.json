@@ -1,0 +1,118 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "apex.kb.topic-source-rankings.v2",
+  "type": "object",
+  "description": "manifests/phase0/topic-source-rankings.json. Top-level keys are topic slugs (one entry per manifests/topic-registry.json topic); each value is this per-topic ranking object. The candidate list is exhaustive over every signal-bearing source for that topic -- there is no top-N truncation. Selection for the bounded per-topic work pack (L3) is a separate, disclosed concentration step (gap_cut/held_in_custody) layered on top of this exhaustive set, never a replacement for it.",
+  "additionalProperties": {
+    "type": "object",
+    "required": ["schema", "name", "vocabulary", "signals_active", "considered_source_count", "candidate_count", "candidates", "gap_cut", "held_in_custody", "zero_signal_custody"],
+    "properties": {
+      "schema": {"const": "apex.kb.topic-source-rankings.v2"},
+      "name": {"type": "string"},
+      "vocabulary": {
+        "type": "object",
+        "properties": {
+          "phrases": {"type": "array", "items": {"type": "string"}},
+          "aliases": {"type": "array", "items": {"type": "string"}},
+          "supporting_terms": {"type": "array", "items": {"type": "string"}},
+          "negative_terms": {"type": "array", "items": {"type": "string"}},
+          "ambiguous_terms": {"type": "array", "items": {"type": "string"}}
+        },
+        "additionalProperties": false
+      },
+      "signals_active": {
+        "type": "object",
+        "properties": {
+          "freshness": {"type": "boolean"},
+          "duplicate_collapse": {"type": "boolean"},
+          "negative_terms": {"type": "boolean"},
+          "reference_graph": {"type": "boolean"}
+        },
+        "additionalProperties": false
+      },
+      "considered_source_count": {"type": "integer", "minimum": 0},
+      "candidate_count": {
+        "type": "integer",
+        "minimum": 0,
+        "description": "Number of entries in `candidates`. Equals the count of scanned sources with at least one surviving signal. Never capped."
+      },
+      "candidates": {
+        "type": "array",
+        "description": "Exhaustive -- one entry per signal-bearing source for this topic, sorted by tier then score. No top-N slicing.",
+        "items": {
+          "type": "object",
+          "required": ["source_id", "path", "sha256", "tier", "score", "why", "pointers"],
+          "properties": {
+            "source_id": {"type": "string"},
+            "path": {"type": "string"},
+            "sha256": {"type": "string"},
+            "tier": {"enum": ["filename", "h1", "heading", "body_strong", "body_weak"]},
+            "score": {"type": "number"},
+            "duplicate_of": {"type": ["string", "null"]},
+            "why": {
+              "type": "object",
+              "description": "Inspectable reasons for this candidate's tier/score -- never a bare number.",
+              "properties": {
+                "filename_hit": {"type": "array", "items": {"type": "string"}},
+                "h1_hit": {"type": "array", "items": {"type": "string"}},
+                "heading_hit": {"type": "array", "items": {"type": "string"}},
+                "body_hit_count": {"type": "integer", "minimum": 0},
+                "body_hit_sections": {"type": "array", "items": {"type": "string"}},
+                "co_occurring_terms": {"type": "array", "items": {"type": "string"}},
+                "negative_suppressed": {"type": "boolean"},
+                "freshness": {
+                  "type": ["object", "null"],
+                  "properties": {
+                    "last_change": {"type": ["string", "null"]},
+                    "source": {"enum": ["git", "mtime", "frontmatter", "none"]},
+                    "boost": {"type": "number"}
+                  }
+                },
+                "linked_from_strong": {"type": "integer", "minimum": 0}
+              },
+              "additionalProperties": false
+            },
+            "pointers": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "object",
+                "required": ["field", "line"],
+                "properties": {
+                  "field": {"enum": ["filename", "h1", "heading", "body", "link"]},
+                  "line": {"type": "integer"},
+                  "section_span": {"type": ["array", "null"], "items": {"type": "integer"}, "minItems": 2, "maxItems": 2},
+                  "snippet": {"type": "string"}
+                },
+                "additionalProperties": false
+              }
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "gap_cut": {
+        "type": "object",
+        "required": ["method", "tier_boundary", "included_count", "held_in_custody_count"],
+        "properties": {
+          "method": {"const": "elbow"},
+          "tier_boundary": {"type": "string"},
+          "included_count": {"type": "integer", "minimum": 0},
+          "held_in_custody_count": {"type": "integer", "minimum": 0}
+        },
+        "additionalProperties": false
+      },
+      "held_in_custody": {
+        "type": "array",
+        "description": "source_ids present in `candidates` but not selected by gap_cut for the work pack. Full candidate data remains visible in `candidates` -- this array only marks the concentration decision.",
+        "items": {"type": "string"}
+      },
+      "zero_signal_custody": {
+        "type": "array",
+        "description": "Paths of scanned sources with no surviving signal for this topic. Listed for custody/completeness; never sent to the semantic step.",
+        "items": {"type": "string"}
+      }
+    },
+    "additionalProperties": false
+  }
+}

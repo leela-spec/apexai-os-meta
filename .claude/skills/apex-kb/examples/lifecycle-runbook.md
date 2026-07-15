@@ -16,7 +16,7 @@ output_tiers:
 ## B. Ingest and compile
 
 
-Add sources through `source-intake`, generate the payload manifest, and run Phase 0. Treat Phase 0 rankings as navigation candidates only.
+Add sources through `source-intake`, generate the payload manifest, and run Phase 0. Treat Phase 0 rankings as navigation candidates only, and start semantic reading from that topic's `manifests/phase0/work-packs/<topic-slug>.md` -- the bounded, concentrated set -- not the full exhaustive ranking map.
 
 For each topic, maintain its semantic ledger. Continue reading canonical sources until critical/routine target queries are covered or evidence is genuinely unavailable. Complete query-linked Phase 1 analyses and dispose every concept/entity candidate. Draft the minimum answer-bearing page topology and include only reviewed, materially used evidence.
 

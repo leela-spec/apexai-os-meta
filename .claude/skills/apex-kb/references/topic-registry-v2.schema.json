@@ -21,6 +21,31 @@
             "type": "array",
             "items": {"type": "string"}
           },
+          "phrases": {
+            "type": "array",
+            "items": {"type": "string"},
+            "description": "Multi-word strong-signal phrases. A phrase match in filename/H1/heading is never suppressed by a negative term."
+          },
+          "aliases": {
+            "type": "array",
+            "items": {"type": "string"},
+            "description": "Alternate names for the same topic; scored identically to phrases."
+          },
+          "supporting_terms": {
+            "type": "array",
+            "items": {"type": "string"},
+            "description": "Weaker single-term signals. Back-compat: when phrases/aliases are absent, legacy keywords are read as supporting_terms."
+          },
+          "negative_terms": {
+            "type": "array",
+            "items": {"type": "string"},
+            "description": "Terms that suppress a body-only/supporting-term match for this topic. Never suppresses a filename, H1, heading, phrase, or alias hit."
+          },
+          "ambiguous_terms": {
+            "type": "array",
+            "items": {"type": "string"},
+            "description": "Terms that are common/generic in this corpus; matches on these alone do not establish a body-strong tier without co-occurrence."
+          },
           "target_queries": {
             "type": "array",
             "items": {

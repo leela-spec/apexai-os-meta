@@ -142,6 +142,8 @@ If no independent value exists, do not create a pointer-only page. Record `embed
 
 `manifests/topic-registry.json` is operator/LLM-authored input. Each topic retains `name`, `slug`, `page_type`, `keywords`, `source`, `status`, and `target_page`, and v2 compiled topics add:
 
+Optional vocabulary fields sharpen Phase 0 routing without changing semantic authority: `phrases` and `aliases` (strong multi-word/alternate-name signals -- a match in filename/H1/heading is never suppressed), `supporting_terms` (weaker single-term signals; legacy `keywords` are read as `supporting_terms` when `phrases`/`aliases` are absent), `negative_terms` (suppress a body-only match only), and `ambiguous_terms` (common/generic terms that require co-occurrence to count as a strong body signal). See `references/topic-registry-v2.schema.json` and `references/topic-source-rankings.schema.json`.
+
 ```yaml
 target_queries:
   - query_id: "<stable-topic-query-id>"

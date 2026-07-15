@@ -169,12 +169,12 @@ Read supporting files only when needed:
 | Phase 1 analysis shape | `templates/ingest-analysis-template.md` |
 | Phase 2 wiki page shape | `templates/wiki-page-templates.md` |
 | Query packet shape | `templates/query-output-template.md` |
+| Topic work pack shape (bounded semantic input) | `templates/topic-work-pack-template.md` |
 | Starter KB schema | `templates/kb-schema-template.md` |
 | Starter source manifest | `templates/source-manifest-template.json` |
 | Local commands | `examples/powershell-commands.md` |
 | Operator runbook | `examples/lifecycle-runbook.md` |
 
-Do not use deprecated `references/lifecycle-state-machine.md` as operational authority.
 ## Capability precheck and truthful state cap
 
 
@@ -207,11 +207,11 @@ Follow only the selected route. The connector route uses the bounded whole-file 
 ### Step 0 — Topic interview (before scaffold or source intake)
 
 
-Before creating or adding sources, ask which important questions future AIs must answer. For each topic, lock stable query IDs, question text, priority, answer requirements, and expected page route in `manifests/topic-registry.json`. Keywords support deterministic ranking but never define semantic completion.
+Before creating or adding sources, ask which important questions future AIs must answer. For each topic, lock stable query IDs, question text, priority, answer requirements, and expected page route in `manifests/topic-registry.json`. Also record vocabulary where it sharpens routing: `phrases`/`aliases` (strong signals), `supporting_terms` (weaker; legacy `keywords` are read this way), `negative_terms` (suppress body-only false matches), `ambiguous_terms` (require co-occurrence). Vocabulary supports deterministic ranking but never defines semantic completion.
 
 An absent registry remains valid for scaffold, intake, `source_only`, and early `analysis_only`. Any compiled tier requires target queries for every in-scope topic. Broad topics must cover material definitions, structure, workflow, ownership, rules, relationships, current versus proposed state, examples, and edge cases where applicable.
 
-After Phase 0, review `term-frequency.json` and propose additional topics from real corpus evidence. Keep proposals in the registry and rankings in `topic-source-rankings.json`. Before semantic work, create the per-topic ledger required by `references/semantic-value-contract.md`.
+After Phase 0, review `term-frequency.json` and propose additional topics from real corpus evidence. Keep proposals in the registry; Phase 0 emits the exhaustive, tiered rankings in `topic-source-rankings.json` and a concentrated per-topic work pack in `manifests/phase0/work-packs/<topic-slug>.md`. Start semantic reading from the work pack, not the full ranking map. Before semantic work, create the per-topic ledger required by `references/semantic-value-contract.md`.
 ### Phase 2 compile: per-page draft, check, retry, escalate
 
 

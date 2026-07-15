@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "apex.kb.topic-work-pack.v1",
+  "type": "object",
+  "description": "manifests/phase0/work-packs/<topic-slug>.json -- the bounded L3 packet handed to the semantic step. Derived entirely from topic-source-rankings.json's exhaustive candidate set for this topic; never hand-authored, never a second source of truth for source facts. Concentration is by whole tier plus an elbow cut on the body tiers, never a fixed count.",
+  "required": ["schema", "topic_slug", "topic_name", "target_queries", "concentrated_candidates", "continue_by_gap", "disclosure"],
+  "properties": {
+    "schema": {"const": "apex.kb.topic-work-pack.v1"},
+    "topic_slug": {"type": "string"},
+    "topic_name": {"type": "string"},
+    "target_queries": {
+      "type": "array",
+      "description": "Copied from manifests/topic-registry.json for this topic. Registry remains the owner; this is a convenience projection.",
+      "items": {
+        "type": "object",
+        "required": ["query_id", "question", "priority"],
+        "properties": {
+          "query_id": {"type": "string"},
+          "question": {"type": "string"},
+          "priority": {"enum": ["critical", "routine", "supporting"]},
+          "answer_requirements": {"type": "array", "items": {"type": "string"}},
+          "expected_page": {"type": "string"}
+        }
+      }
+    },
+    "concentrated_candidates": {
+      "type": "array",
+      "description": "The filename/h1/heading tiers in full, plus the elbow-selected portion of body_strong/body_weak. Duplicates collapsed to one representative.",
+      "items": {
+        "type": "object",
+        "required": ["source_id", "path", "tier", "why", "pointers"],
+        "properties": {
+          "source_id": {"type": "string"},
+          "path": {"type": "string"},
+          "tier": {"enum": ["filename", "h1", "heading", "body_strong", "body_weak"]},
+          "why": {"type": "object"},
+          "pointers": {"type": "array"},
+          "duplicates_of_this": {"type": "array", "items": {"type": "string"}, "description": "Other source_ids that are exact/normalized duplicates of this representative."}
+        }
+      }
+    },
+    "continue_by_gap": {
+      "type": "string",
+      "description": "Fixed instruction: read the concentrated set first; pull the next held_in_custody source only if a critical/routine target query is still unresolved; stop when resolved or no further readable source remains. Never a fixed page/source count."
+    },
+    "disclosure": {
+      "type": "object",
+      "required": ["candidate_count", "concentrated_count", "held_in_custody_count", "zero_signal_custody_count", "rankings_ref"],
+      "description": "Counts must reconcile with topic-source-rankings.json for this topic so the work pack can never silently narrow what the reader believes was considered.",
+      "properties": {
+        "candidate_count": {"type": "integer", "minimum": 0},
+        "concentrated_count": {"type": "integer", "minimum": 0},
+        "held_in_custody_count": {"type": "integer", "minimum": 0},
+        "zero_signal_custody_count": {"type": "integer", "minimum": 0},
+        "rankings_ref": {"type": "string"}
+      }
+    }
+  },
+  "additionalProperties": false
+}

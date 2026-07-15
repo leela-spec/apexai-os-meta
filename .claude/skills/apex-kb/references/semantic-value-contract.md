@@ -32,6 +32,35 @@ target_queries:
 
 Query count is adaptive. Broad topics cover definitions, structure, workflow, ownership, rules, relationships, present versus proposed state, examples, and edge cases where material. `source_only` and early `analysis_only` may omit queries. A compiled topic may be `complete` only when every critical and routine query has an existing accepted page route.
 
+Optional vocabulary sharpens deterministic routing without changing semantic authority: `phrases`/`aliases` are strong signals (a filename/H1/heading match on one of these is never suppressed); `supporting_terms` are weaker single-term signals (legacy `keywords` are read as `supporting_terms` when `phrases`/`aliases` are absent); `negative_terms` suppress a body-only match only; `ambiguous_terms` require co-occurrence with another configured term to count as a strong body signal.
+
+## Phase 0 funnel and the topic work pack
+
+Phase 0 is a progressive funnel, not a single ranking step. Each layer reduces what the next layer
+must handle, so that only a concentrated tip is ever semantic-review input:
+
+1. **Per-file facts** (`heading-map.json`, `source-facts.json`) -- headings, section spans, size,
+   hash, and (where available) freshness and duplicate/version-family membership. Free; every file
+   is inventoried, including non-text/unreadable ones.
+2. **Ranked routing** (`topic-source-rankings.json`) -- an *exhaustive*, field-separated ranking per
+   topic: `filename > h1 > heading > body_strong > body_weak` tiers, each candidate carrying an
+   inspectable `why` (exactly which field/line matched) and at least one pointer. There is no top-N
+   truncation here: a real corpus with more than 30 signal-bearing files for one topic keeps all of
+   them, each with a reason. Rankings remain navigation candidates only, exactly as above -- rank
+   never proves authority, complete reading, or material use.
+3. **Concentration into a work pack** (`work-packs/<topic-slug>.md`/`.json`) -- the filename/H1/
+   heading tiers in full, plus an elbow cut (natural score gap, never a fixed count) on the body
+   tiers, with duplicates collapsed to one representative. Everything not concentrated remains
+   visible in `held_in_custody` (signal-bearing, not sent) and `zero_signal_custody` (no signal) --
+   nothing is deleted or hidden, only deferred.
+
+The semantic step's default input is the topic's work pack, not the full ranking map and never the
+raw corpus. Its stop condition is unchanged from the existing rule below: continue reading while a
+known readable canonical source (starting with `held_in_custody`, in tier order) could resolve an
+unresolved critical or routine target query; stop once every critical/routine query is resolved or
+no further readable source remains. The count of files read is never a completion criterion in
+either direction -- reading is gated by unresolved questions, not by a target number of sources.
+
 ## Semantic run ledger
 
 Maintain one JSON ledger per topic at `log/semantic-runs/<run-id>/topics/<topic-slug>.json`, conforming to `semantic-run-ledger.schema.json`. Record target-query status; each candidate's Phase 0 rank, duplicate state, authority, availability, read status, passages reviewed, analysis reference, supported queries, claim/page use, and next action; page-topology decisions; every concept/entity disposition; and completion blockers.

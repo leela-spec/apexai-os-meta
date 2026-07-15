@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "apex.kb.analysis-config.v1",
+  "type": "object",
+  "description": "Optional per-KB override for which optional Phase 0 signals run. Absence is valid: every signal defaults to 'auto', resolved from the corpus-profile optional_signal_availability report. This file never changes tier boundaries, gap-cut method, or removes the no-truncation guarantee -- it only turns evidence-gated signals on or off.",
+  "required": ["schema"],
+  "properties": {
+    "schema": {"const": "apex.kb.analysis-config.v1"},
+    "signals": {
+      "type": "object",
+      "description": "Each signal is 'auto' (on iff corpus-profile.optional_signal_availability reports material for it), 'on' (force), or 'off' (force).",
+      "properties": {
+        "freshness": {"enum": ["auto", "on", "off"], "default": "auto"},
+        "duplicate_collapse": {"enum": ["auto", "on", "off"], "default": "auto"},
+        "negative_terms": {"enum": ["auto", "on", "off"], "default": "auto"},
+        "reference_graph": {"enum": ["auto", "on", "off"], "default": "off"}
+      },
+      "additionalProperties": false
+    },
+    "gap_cut": {
+      "type": "object",
+      "description": "Governs L3 concentration into the per-topic work pack. Never a fixed count: filename/h1/heading tiers are always fully included; only the body tiers are subject to the elbow cut.",
+      "properties": {
+        "method": {"const": "elbow"},
+        "min_tier": {"enum": ["filename", "h1", "heading", "body_strong", "body_weak"], "default": "body_weak"}
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

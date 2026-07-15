@@ -23,6 +23,9 @@ python apex-meta/scripts/apex_kb.py --kb-root $KB --allow-write --json source-in
 python apex-meta/scripts/apex_kb.py --kb-root $KB --json preflight --source-path "path\to\source.md"
 python apex-meta/scripts/apex_kb.py --kb-root $KB generate-source-payload-manifest --allow-write --json
 python apex-meta/scripts/apex_kb.py --kb-root $KB phase0 --allow-write --json
+# Phase 0 also writes manifests/phase0/topic-source-rankings.json (exhaustive, tiered, no top-N
+# cutoff) and manifests/phase0/work-packs/<topic-slug>.md (the bounded semantic input for that
+# topic). Start semantic reading from the work pack, not the full ranking map.
 
 # 4. Phase 1 shell. LLM fills semantic analysis and stops.
 python apex-meta/scripts/apex_kb.py --kb-root $KB --allow-write --json ingest-phase1 --source-path "path\to\source.md" --source-slug "<source-slug>"
