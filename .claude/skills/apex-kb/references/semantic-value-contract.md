@@ -17,9 +17,61 @@ Phase 0 rankings are navigation candidates. Rank, hit count, filename, and prior
 
 Connector cost, source length, context pressure, or write friction may force `partial`; they never lower these gates.
 
+## Intake and intent lock (Step 0)
+
+Every run begins with the Step 0 intake defined in `SKILL.md`: capture the operator's intent,
+identity, source locus, success definition, and recommended mode; validate each locked topic with
+`topic-sanity-check` as an input; read the whole understanding back; and record the operator's
+explicit confirmation. Nothing that scaffolds, registers sources, runs Phase 0, or commits may run
+until the intent record shows confirmation. The record lives at `manifests/run-intent.md`:
+
+```yaml
+run_id: "<stable-run-id>"
+kb_root: "apex-meta/kb/<kb-slug>/"
+kb_slug: "<kb-slug>"
+mode: "new_kb | extend_kb"
+operator_intent: "<job to be done, operator's words>"
+kb_identity: "<this KB is about X>"
+source_locus: "<where the real material lives>"
+out_of_scope: []
+success_definition: "<what the chosen tier means for this KB>"
+output_tier: "source_only | analysis_only | compiled_minimal | compiled_full | query_ready"
+output_tier_rationale: "<one line, from operator_intent>"
+execution_route: "terminal_backed | connector_only"
+corpus_breadth: "narrow"                 # default; broad requires a reason
+broad_breadth_reason: "<required only when broad>"
+topic_slugs: []
+topic_sanity_check:                       # per topic
+  "<topic-slug>":
+    verdict: "scope_evidence_found | scope_evidence_absent"
+    recommendation: "proceed | stop_and_confirm_topic_with_operator"
+    source: "terminal | manual"
+operator_confirmed: false                 # flips true ONLY after the Step 0d read-back approval
+operator_confirmation_quote: "<operator's verbatim affirmative>"
+confirmed_at: "YYYY-MM-DDTHH:MM:SSZ"
+```
+
+Downstream steps accept the run only when `operator_confirmed: true` and
+`operator_confirmation_quote` is non-empty. The executor recommends `output_tier`,
+`execution_route`, and `corpus_breadth` from the stated intent and the operator accepts or
+overrides them in the read-back — recommend-then-confirm, never a silent choice.
+
 ## Topic-lock mismatch is not a source-access blocker
 
-Before writing any audit item that claims "no local source establishes this subject," validate that claim against the KB's own scope evidence: run `topic-sanity-check` (or its manual equivalent) and record the result. A literal keyword search returning zero hits is not sufficient on its own - a topic derived from a misreading of the operator's request will also return zero hits for its own (wrong) vocabulary, and that is a topic-lock error, not proof the subject lacks material. Do not check a freshly-scaffolded KB's own `kb-schema.md` or `README.md` for corroboration: those are written by the same step that locked the topic, so they confirm nothing independently. If the topic's strong terms (phrases/aliases) have zero correspondence to the KB's own path, sibling topics, and a light filename sample, stop and get the operator to confirm the intended subject before writing a blocker audit item, before scaffold/source-intake/Phase 0, and before any commit or push. See the `topic_vocabulary_mismatches_kb_scope_evidence` failure-behavior entry in `SKILL.md`.
+`topic-sanity-check` is a Step 0c **validation input to the read-back, not a standalone stop.**
+Before writing any audit item that claims "no local source establishes this subject," validate that
+claim against the KB's own scope evidence and surface the result in the Step 0d read-back. A literal
+keyword search returning zero hits is not sufficient on its own - a topic derived from a misreading
+of the operator's request will also return zero hits for its own (wrong) vocabulary, and that is a
+topic-lock error, not proof the subject lacks material. Do not treat a freshly-scaffolded KB's own
+`kb-schema.md`/`README.md` or the KB's own generated output as corroboration: those are written by
+the same run that locked the topic, so they confirm nothing independently. When the topic's strong
+terms (phrases/aliases) have zero correspondence to the KB's own path, sibling topics, and a light
+filename sample, the read-back must surface `scope_evidence_absent` prominently — but the
+enforcement point is the operator's Step 0d confirmation, not the verdict alone. Never write a
+blocker audit item, scaffold/intake/Phase 0, or commit/push a mismatched topic ahead of that
+confirmation. See the `topic_vocabulary_mismatches_kb_scope_evidence` failure-behavior entry in
+`SKILL.md`.
 
 ## Topic registry v2
 

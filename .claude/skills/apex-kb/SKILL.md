@@ -34,6 +34,8 @@ execution_route:
     behavior: stop without claiming compile or validation
 ```
 
+This router's answer, together with the `capability_precheck` below, fills the `execution_route` slot of the Step 0 intake record (`manifests/run-intent.md`); it is not a separate question asked again later.
+
 ### Connector-only semantic authoring route
 
 
@@ -64,11 +66,13 @@ one_kb_root_per_invocation: true
 required_global_argument: --kb-root apex-meta/kb/<kb-slug>/
 
 owned_lifecycle:
+  - intake_and_intent_lock
+  - operator_intent_gate
   - scaffold
   - source_intake
   - deterministic_corpus_intelligence
   - ingest_phase_1_analysis
-  - operator_gate
+  - operator_phase2_gate
   - ingest_phase_2_wiki_compile
   - deterministic_index_validation
   - local_retrieval
@@ -78,6 +82,7 @@ owned_lifecycle:
 canonical_paths:
   - raw/
   - kb-schema.md
+  - manifests/run-intent.md
   - manifests/source-manifest.json
   - manifests/source-payload-manifest.json
   - ingest-analysis/
@@ -204,18 +209,40 @@ Connector readback proves stored content only. It never proves semantic usefulne
 
 Follow only the selected route. The connector route uses the bounded whole-file semantic-authoring sequence above. The terminal-backed route follows the referenced command, retrieval, acceptance-test, and runbook contracts. Neither route may weaken the existing lifecycle, output tiers, ownership model, semantic acceptance requirement, or completion labels.
 
-### Step 0 — Topic interview (before scaffold or source intake)
+### Step 0 — Intake and intent lock (before scaffold, source intake, or Phase 0)
 
+Nothing that registers sources, runs Phase 0, writes wiki pages, or commits may run until this
+step ends in a recorded operator confirmation (creating the empty KB skeleton is permitted as
+pre-gate setup — see 0d). This is the single point where the executor's whole understanding of
+the run is read back and approved — it exists because a run that silently locks a misread
+subject can otherwise burn a full corpus intake and Phase 0 before anyone notices. This step
+runs on every run, new KB or extending an existing one. It never re-runs for read-only work
+(`query`, `retrieve`, `lint`, `audit`, `status`, `health`) or for repeated commands within a
+run already confirmed for this `run_id`.
 
-Before creating or adding sources, ask which important questions future AIs must answer. For each topic, lock stable query IDs, question text, priority, answer requirements, and expected page route in `manifests/topic-registry.json`. Also record vocabulary where it sharpens routing: `phrases`/`aliases` (strong signals), `supporting_terms` (weaker; legacy `keywords` are read this way), `negative_terms` (suppress body-only false matches), `ambiguous_terms` (require co-occurrence). Vocabulary supports deterministic ranking but never defines semantic completion.
+**0a — Intake Q&A.** In one conversational pass (not a form — fill every slot you can from the
+operator's first message, and ask follow-ups only for slots left genuinely unresolved),
+establish and record each intent-record slot below from the operator's own answers. Never
+substitute an assumption or an inference from a filename, path, or prior summary for an answer;
+if a slot is ambiguous, ask. The slots (see `references/semantic-value-contract.md` for the
+`manifests/run-intent.md` schema):
 
-**Step 0.5 — Topic-scope sanity check (mandatory, before scaffold, source intake, or Phase 0 — never after).** A locked topic is a guess about what the operator meant until it is cheaply checked against evidence. Before any scaffold, source-intake, or Phase 0 command runs for a newly locked topic, run `topic-sanity-check` (terminal-backed route) or its manual equivalent (connector route: check the topic's phrases/aliases against the KB root's own path, sibling registry topics, and a light sample of nearby filenames — never against a freshly-written kb-schema.md/README.md, which are self-authored by the same step that locked the topic and so are circular, not independent evidence). If the topic's strong terms (phrases/aliases, never a single generic supporting_term alone) have zero correspondence to that evidence, this is a **topic-lock mismatch, not a source-access blocker**: stop and get the operator to confirm the intended subject before any write. Do not substitute assumption for confirmation, and do not proceed to full-corpus registration "to see" — see the `topic_vocabulary_mismatches_kb_scope_evidence` failure-behavior entry below. This check is deliberately cheap (bounded file count, filenames only) precisely so it runs before, not instead of, an expensive step.
+- `operator_intent` — the job to be done, in the operator's words.
+- `kb_identity` — one line: "this KB is about `<kb_identity>`."
+- `source_locus` — where the real source material actually lives, and what is explicitly out of scope.
+- `success_definition` — what the chosen output tier means for this specific KB.
+- `output_tier`, `execution_route`, `corpus_breadth` — proposed by the executor in 0d, confirmed by the operator.
+- `topic_slugs` — the registry topics this run will build (from 0b).
 
-**Source-intake breadth defaults to narrow.** Registering the entire repository as pointer-only sources for a single topic request is not the default — it requires either an explicit operator instruction to index broadly, or a documented reason recorded in `log/run-profile.md`. Prefer the smallest root that plausibly contains the named subject's material; widen only when the topic-scope sanity check or the operator says to.
+**0b — Topic interview.** For each topic, lock stable query IDs, question text, priority, answer requirements, and expected page route in `manifests/topic-registry.json`. Also record vocabulary where it sharpens routing: `phrases`/`aliases` (strong signals), `supporting_terms` (weaker; legacy `keywords` are read this way), `negative_terms` (suppress body-only false matches), `ambiguous_terms` (require co-occurrence). Vocabulary supports deterministic ranking but never defines semantic completion. An absent registry remains valid for scaffold, intake, `source_only`, and early `analysis_only`. Any compiled tier requires target queries for every in-scope topic. Broad topics must cover material definitions, structure, workflow, ownership, rules, relationships, current versus proposed state, examples, and edge cases where applicable.
 
-An absent registry remains valid for scaffold, intake, `source_only`, and early `analysis_only`. Any compiled tier requires target queries for every in-scope topic. Broad topics must cover material definitions, structure, workflow, ownership, rules, relationships, current versus proposed state, examples, and edge cases where applicable.
+**0c — Topic-scope validation input.** For each locked topic run `topic-sanity-check` (terminal-backed route) or its manual equivalent (connector route: check the topic's `phrases`/`aliases` against the KB root's own path, sibling registry topics, and a light sample of nearby filenames — never against a freshly-written `kb-schema.md`/`README.md` or the KB's own generated output, which are self-authored by the same run and so are circular, not independent evidence; a single generic `supporting_term` never counts alone). This is a **validation input to the 0d read-back, not a standalone stop.** Record each topic's verdict in `manifests/run-intent.md`. A `scope_evidence_absent` verdict must be surfaced prominently in the read-back, but the enforcement point is the operator's confirmation in 0d, not the verdict itself.
 
-After Phase 0, review `term-frequency.json` and propose additional topics from real corpus evidence. Keep proposals in the registry; Phase 0 emits the exhaustive, tiered rankings in `topic-source-rankings.json` and a concentrated per-topic work pack in `manifests/phase0/work-packs/<topic-slug>.md`. Start semantic reading from the work pack, not the full ranking map. Before semantic work, create the per-topic ledger required by `references/semantic-value-contract.md`.
+**0d — Read-back and operator intent gate (mandatory).** Emit ONE compact read-back (roughly eight lines) that states: `kb_identity`; mode (new_kb / extend_kb); `source_locus` and out-of-scope; the executor's **recommended** `output_tier`, `execution_route`, and `corpus_breadth`, each with a one-line reason drawn from `operator_intent` (recommend from intent, never silently choose — the operator accepts or overrides); the `topic_slugs`; and the per-topic 0c verdict. End with an explicit ask: "Reply to confirm before I intake sources / run Phase 0." On the operator's affirmative, write `manifests/run-intent.md` with `operator_confirmed: true` and the operator's verbatim affirmative in `operator_confirmation_quote`. **No `source-intake`, `phase0`, wiki writing, or commit/push runs until that record shows `operator_confirmed: true` for this `run_id`.** Creating the empty KB skeleton with `scaffold` (and writing `run-intent.md`/`topic-registry.json` themselves) is permitted as pre-gate setup — it registers no sources and runs no corpus analysis — but the expensive, hard-to-reverse steps stay behind the gate. On the connector route the read-back is authored in chat and `run-intent.md` is written as a complete whole file (this operator-authored markdown is an allowed connector-route write, like `log/semantic-runs/.../*.json`); the gate is the operator's chat confirmation. This intake gate is distinct from and earlier than the Phase 2 `approve ingest` gate; use a plain recorded affirmative here, no approval-phrase machinery.
+
+**Source-intake breadth defaults to narrow.** Registering the entire repository as pointer-only sources for a single topic request is not the default — it requires either an explicit operator instruction to index broadly, or a `broad_breadth_reason` recorded in `manifests/run-intent.md` and confirmed in 0d. Prefer the smallest root that plausibly contains the named subject's material; never auto-widen to full-corpus "to see."
+
+After Phase 0, review `term-frequency.json` and propose additional topics from real corpus evidence. A newly proposed topic re-enters at 0b–0d before it is built. Phase 0 emits the exhaustive, tiered rankings in `topic-source-rankings.json` and a concentrated per-topic work pack in `manifests/phase0/work-packs/<topic-slug>.md`. Start semantic reading from the work pack, not the full ranking map. Before semantic work, create the per-topic ledger required by `references/semantic-value-contract.md`.
 ### Phase 2 compile: per-page draft, check, retry, escalate
 
 
@@ -277,11 +304,11 @@ missing_source:
   rule: never infer source contents from filename, title, memory, or summary
 
 topic_vocabulary_mismatches_kb_scope_evidence:
-  behavior: stop_and_confirm_topic_before_any_write
-  rule: never run scaffold, source_intake, or phase0 for a newly locked topic whose phrases/aliases have zero correspondence to the KB's own scope evidence (path components, sibling registry topics, a light filename sample) without explicit operator confirmation
-  detection: topic-sanity-check (terminal-backed) or its manual equivalent (connector route)
+  behavior: surface_in_step_0d_readback_and_require_operator_confirmation
+  rule: a Step 0c `scope_evidence_absent` verdict (topic phrases/aliases have zero correspondence to the KB's own scope evidence - path components, sibling registry topics, a light filename sample) is surfaced prominently in the Step 0d read-back; the enforcement point is the operator's confirmation, not the verdict
+  detection: topic-sanity-check (terminal-backed) or its manual equivalent (connector route), run as a Step 0c validation input
   never_treat_as: source_access_blocker
-  rationale: a topic name derived from a misread of the operator's request is a topic-lock error, not evidence the subject lacks local material; conflating the two burns a full corpus intake and Phase 0 run on the wrong subject before anyone notices
+  rationale: a topic name derived from a misread of the operator's request is a topic-lock error, not evidence the subject lacks local material; conflating the two, or proceeding without the Step 0d confirmation, burns a full corpus intake and Phase 0 run on the wrong subject before anyone notices
 
 phase2_stop_requested:
   behavior: stop_after_phase1

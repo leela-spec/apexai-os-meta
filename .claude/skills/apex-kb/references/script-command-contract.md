@@ -36,7 +36,7 @@ Post-subcommand placement is accepted for these boolean global flags. Options wi
 | `hash` | no | Python | SHA-256 file or deterministic directory hash |
 | `generate-source-payload-manifest` | yes | Python | write `manifests/source-payload-manifest.json` with per-file, group, and root SHA-256 payload custody |
 | `preflight` | no | Python | validate source, manifest, duplicate hash, existing analysis, index freshness |
-| `topic-sanity-check` | no | Python | mandatory Step 0.5 gate: check a newly locked topic's phrases/aliases against KB-scope evidence (path, sibling topics, a filename sample) before scaffold/source-intake/phase0; never writes |
+| `topic-sanity-check` | no | Python | Step 0c validation input: check a newly locked topic's phrases/aliases against KB-scope evidence (path, sibling topics, a filename sample); its verdict feeds the Step 0d operator read-back and is not a standalone stop; never writes |
 | `phase0` | yes | Python | deterministic corpus navigation artifacts under `manifests/phase0/` |
 | `ingest-phase1` | optional shell only | Python+LLM | create/append the topic-scoped Phase 1 shell at `ingest-analysis/<topic-slug>.analysis.md` (one file per topic, never per source); LLM fills semantics and halts |
 | `ingest-phase2` | no in script | LLM | validate `approve ingest` gate; LLM drafts pages |

@@ -11,21 +11,27 @@ $KB="apex-meta/kb/<kb-slug>"
 # PowerShell examples remain supported.
 # `--allow-write`, `--json`, `--dry-run`, and `--strict` may be placed before or after the subcommand.
 
-# 1. Scaffold preview, then write.
+# 0. Step 0 - Intake and intent lock (see SKILL.md). Do this BEFORE the expensive steps.
+#    0a Intake Q&A (chat): operator_intent, kb_identity, source_locus + out-of-scope,
+#       success_definition. 0b lock topic-registry.json. Then create the empty skeleton
+#       (cheap, registers no sources) so the manifests dir exists:
 python apex-meta/scripts/apex_kb.py --kb-root $KB --json scaffold --title "<Topic Title>"
 python apex-meta/scripts/apex_kb.py --kb-root $KB --allow-write --json scaffold --title "<Topic Title>"
 
-# 2. Topic-scope sanity check - run BEFORE source intake or Phase 0, never after.
-# Never proceed to intake/Phase0 when this reports scope_evidence_absent without
-# operator confirmation of the intended subject; that is a topic-lock mismatch,
-# not a source-access blocker.
+# 1. 0c Topic-scope validation input - feeds the 0d read-back, not a standalone stop.
 python apex-meta/scripts/apex_kb.py --kb-root $KB --json topic-sanity-check --topic-slug "<topic-slug>"
 
-# 3. Source intake.
+# 2. 0d Read-back + operator confirmation (chat), then record it. The read-back states
+#    kb_identity, mode, source_locus/out-of-scope, RECOMMENDED tier/route/breadth (one-line
+#    why each), topic_slugs, and the 0c verdict. Only after the operator's explicit "yes",
+#    write manifests/run-intent.md with operator_confirmed: true and the verbatim affirmative.
+#    NOTHING below runs until manifests/run-intent.md shows operator_confirmed: true.
+
+# 3. Source intake (gated on operator_confirmed: true). Breadth defaults to narrow.
 python apex-meta/scripts/apex_kb.py --kb-root $KB --json hash --path "path\to\source.md"
 python apex-meta/scripts/apex_kb.py --kb-root $KB --allow-write --json source-intake --source-path "path\to\source.md" --source-type note --storage-mode copy_into_kb --source-id "<source-id>"
 
-# 4. Deterministic preflight, payload manifest, and Phase 0.
+# 4. Deterministic preflight, payload manifest, and Phase 0 (gated on operator_confirmed: true).
 python apex-meta/scripts/apex_kb.py --kb-root $KB --json preflight --source-path "path\to\source.md"
 python apex-meta/scripts/apex_kb.py --kb-root $KB generate-source-payload-manifest --allow-write --json
 python apex-meta/scripts/apex_kb.py --kb-root $KB phase0 --allow-write --json
