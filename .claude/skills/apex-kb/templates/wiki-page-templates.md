@@ -27,12 +27,20 @@ required_fields:
       source_hash: "<sha256-or-NA>"
       source_pointer: "<heading/page/line/passage reference>"
       source_storage_mode: "pointer_only | copy_into_kb | snapshot_copy"
+      claims: []                    # claim IDs (C001...) from this source's Phase 1 record,
+                                     # carried forward for claim-level provenance. Additive only.
   created_at: "YYYY-MM-DDTHH:MM:SSZ"
   updated_at: "YYYY-MM-DDTHH:MM:SSZ"
   confidence: "high | medium | low | mixed | unknown"
   claim_label: "raw_source | source_backed_summary | behavioral_inference | working_hypothesis | operator_question | practitioner_question"
   status: "draft | active | needs_review | deprecated | superseded"
 ```
+
+`related_concepts` (summary, concept, entity pages) and `related_entities` (summary, concept
+pages) are not in `required_fields` above, but every page type that declares them must populate
+them from the matching Phase 1 topic file's Concept/Entity Candidate Shortlist - copy
+`concept_slug`/`entity_slug` values directly, do not leave them `[]` when a shortlist exists and
+do not re-infer relations the Phase 1 file already resolved.
 ## Summary page
 
 ```markdown
@@ -50,6 +58,7 @@ source_refs:
     source_hash: "<sha256-or-NA>"
     source_pointer: "<pointer>"
     source_storage_mode: "pointer_only | copy_into_kb | snapshot_copy"
+    claims: []
 created_at: "YYYY-MM-DDTHH:MM:SSZ"
 updated_at: "YYYY-MM-DDTHH:MM:SSZ"
 confidence: "high | medium | low | mixed | unknown"
@@ -91,7 +100,7 @@ adaptive_ranked_sources:
   - source_id: "<source-id>"
     source_path: "<path>"
     phase0_rank: 1 | NA
-    analysis_ref: "ingest-analysis/<source>.analysis.md"
+    analysis_ref: "ingest-analysis/<topic-slug>.analysis.md"
     reviewed_status: "complete | targeted"
     supported_query_ids: []
     claim_ids: []
@@ -101,18 +110,27 @@ adaptive_ranked_sources:
 
 ## Macro / Meso / Micro
 
+Each layer is a distinct scale, not a restatement. Target 3-5 sentences per layer (a 20-word
+floor per layer is enforced on v2 pages) - enough to be a complete standalone thought at that
+scale, never padded. Fold a one-line execution-flow chain into Micro instead of giving it a
+separate heading (a new heading is a new retrieval chunk; the chain does not earn one).
+
 ```markdown
 ### Macro
 
-<High-level synthesis across all relevant sources.>
+<Why - the architectural context this page's subject lives in, the problem it solves, and the
+design decision/value gained. 3-5 sentences.>
 
 ### Meso
 
-<Medium-level synthesis capturing key patterns or themes.>
+<What it is - the feature/service/screen/model itself: its components, internal structure,
+data shape, and connections to peer concepts. 3-5 sentences.>
 
 ### Micro
 
-<Specific details anchored to source pointers.>
+<How - the concrete execution path: trigger, ordered steps, outcome, key error paths or
+preconditions. Include one inline flow chain, e.g. `TriggerEvent -> StepA -> StepB -> Outcome`.
+3-6 sentences.>
 ```
 
 ## Key Claims
@@ -123,8 +141,24 @@ key_claims:
     claim: "<specific claim>"
     source_pointer: "<pointer>"
     confidence: "high | medium | low"
+    state: "present | proposed | open"
     claim_label: "source_backed_summary"
     used_in_pages: []
+```
+
+## Connection Map
+
+Optional. Include this section only when the topic has 3 or more directional edges to peer
+summary pages - below that, fold the one or two edges into `Routes Here` instead and omit this
+heading entirely (an unused heading still costs a retrieval chunk). This section is not part of
+the six required Phase 2 value headings and is never required by the quality checker.
+
+```yaml
+edges:
+  - direction: "inbound | outbound"
+    peer: "<peer-topic-slug>"
+    what_flows: "<data | event | control, <= 8 words>"
+    contract: "<interface description, <= 15 words>"
 ```
 
 ## Routes Here
@@ -168,6 +202,7 @@ source_refs:
     source_hash: "<sha256-or-NA>"
     source_pointer: "<pointer>"
     source_storage_mode: "pointer_only | copy_into_kb | snapshot_copy"
+    claims: []
 created_at: "YYYY-MM-DDTHH:MM:SSZ"
 updated_at: "YYYY-MM-DDTHH:MM:SSZ"
 confidence: "high | medium | low | mixed | unknown"
@@ -207,7 +242,7 @@ adaptive_ranked_sources:
   - source_id: "<source-id>"
     source_path: "<path>"
     phase0_rank: 1 | NA
-    analysis_ref: "ingest-analysis/<source>.analysis.md"
+    analysis_ref: "ingest-analysis/<topic-slug>.analysis.md"
     reviewed_status: "complete | targeted"
     supported_query_ids: []
     claim_ids: []
@@ -217,18 +252,23 @@ adaptive_ranked_sources:
 
 ## Macro / Meso / Micro
 
+Same three scales as a summary page, scoped to this concept. Target 3-5 sentences per layer
+(20-word floor per layer on v2 pages).
+
 ```markdown
 ### Macro
 
-<High-level synthesis of the concept across all sources.>
+<Why - the architectural reason this concept exists and what problem it addresses. 3-5 sentences.>
 
 ### Meso
 
-<Medium-level synthesis capturing patterns or themes.>
+<What it is - the concept's structure, boundaries, and how it relates to peer concepts/entities.
+3-5 sentences.>
 
 ### Micro
 
-<Specific details anchored to source pointers.>
+<How - the concrete rule or mechanism, anchored to source pointers. Include an inline chain if
+the concept has an execution order. 3-6 sentences.>
 ```
 
 ## Key Claims
@@ -239,6 +279,7 @@ key_claims:
     claim: "<specific claim>"
     source_pointer: "<pointer>"
     confidence: "high | medium | low"
+    state: "present | proposed | open"
     claim_label: "source_backed_summary"
 ```
 
@@ -291,6 +332,7 @@ source_refs:
     source_hash: "<sha256-or-NA>"
     source_pointer: "<pointer>"
     source_storage_mode: "pointer_only | copy_into_kb | snapshot_copy"
+    claims: []
 created_at: "YYYY-MM-DDTHH:MM:SSZ"
 updated_at: "YYYY-MM-DDTHH:MM:SSZ"
 confidence: "high | medium | low | mixed | unknown"
@@ -332,7 +374,7 @@ adaptive_ranked_sources:
   - source_id: "<source-id>"
     source_path: "<path>"
     phase0_rank: 1 | NA
-    analysis_ref: "ingest-analysis/<source>.analysis.md"
+    analysis_ref: "ingest-analysis/<topic-slug>.analysis.md"
     reviewed_status: "complete | targeted"
     supported_query_ids: []
     claim_ids: []
@@ -342,18 +384,23 @@ adaptive_ranked_sources:
 
 ## Macro / Meso / Micro
 
+Same three scales as a summary page, scoped to this entity. Narrow named entities may stay
+concise (kb-contract.md concise_policy) but each layer must still be a real sentence, not a
+placeholder - target 3-5 sentences per layer (20-word floor per layer on v2 pages).
+
 ```markdown
 ### Macro
 
-<High-level synthesis of the entity across all sources.>
+<Why - the architectural reason this entity exists in the system. 3-5 sentences.>
 
 ### Meso
 
-<Medium-level synthesis capturing patterns or themes.>
+<What it is - the entity's structure, fields, or states, and its relationships to peer
+concepts/entities. 3-5 sentences.>
 
 ### Micro
 
-<Specific details anchored to source pointers.>
+<How - its concrete lifecycle or behavior, anchored to source pointers. 3-6 sentences.>
 ```
 
 ## Key Claims
@@ -364,6 +411,7 @@ key_claims:
     claim: "<specific claim>"
     source_pointer: "<pointer>"
     confidence: "high | medium | low"
+    state: "present | proposed | open"
     claim_label: "source_backed_summary"
 ```
 

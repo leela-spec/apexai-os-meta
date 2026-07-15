@@ -5,7 +5,7 @@ description: >
   run deterministic corpus intelligence, perform two-phase ingest, compile wiki
   pages, query, retrieve, lint, audit, or maintain a durable Apex knowledge base
   under apex-meta/kb/[kb-slug]/. Produces source-preserving KB artifacts,
-  Phase 1 ingest analysis, operator-gated Phase 2 wiki pages that implement an adaptive page value contract (Adaptive Ranked Source Set, Macro / Meso / Micro synthesis, Key Claims with source pointers, Routes Here, and Uncertainty / Raw Source Triggers), deterministic
+  one topic-scoped Phase 1 ingest analysis per registry topic, operator-gated Phase 2 wiki pages that implement an adaptive page value contract (Adaptive Ranked Source Set, Macro / Meso / Micro synthesis defined as Why / What-it-is / How, Key Claims with source pointers and a present/proposed/open state, Routes Here, and Uncertainty / Raw Source Triggers), deterministic
   indexes, local retrieval outputs, query packets, lint reports, and audit flags.
   Does not plan projects, mutate task/session/sync state, rank next tasks,
   rebuild task registries, contact external services, or write outside the KB root.

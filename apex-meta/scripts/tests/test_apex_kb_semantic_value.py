@@ -228,6 +228,46 @@ The exact fixture field and rule are supported by source-1 section Contract and 
         self.write_acceptance(verdict="semantic_partial", query_result="partial")
         self.assertEqual(apex_kb.semantic_acceptance_status(self.kb)["status"], "partial")
 
+    def test_v2_page_with_thin_macro_meso_micro_is_reason_coded(self):
+        page = self.write_page(contract="2")
+        text = page.read_text(encoding="utf-8")
+        text = text.replace(
+            "### Macro\n"
+            "The contract governs the domain with source-grounded constraints and durable routes for future retrieval.\n"
+            "### Meso\n"
+            "Fields and rules are linked into one workflow and retain their authority boundary across related operations.\n"
+            "### Micro\n"
+            "The exact fixture field and rule are supported by source-1 section Contract and its resolved evidence passage.",
+            "### Macro\nToo short.\n### Meso\nToo short.\n### Micro\nToo short.",
+        )
+        page.write_text(text, encoding="utf-8")
+        metrics = apex_kb._quality_page_metrics(self.kb, page)
+        self.assertIn("thin_macro_meso_micro", metrics["repair_reasons"])
+
+    def test_v2_page_with_rich_macro_meso_micro_is_not_flagged_thin(self):
+        page = self.write_page(contract="2")
+        text = page.read_text(encoding="utf-8")
+        text = text.replace(
+            "### Macro\n"
+            "The contract governs the domain with source-grounded constraints and durable routes for future retrieval.\n"
+            "### Meso\n"
+            "Fields and rules are linked into one workflow and retain their authority boundary across related operations.\n"
+            "### Micro\n"
+            "The exact fixture field and rule are supported by source-1 section Contract and its resolved evidence passage.",
+            "### Macro\n"
+            "The contract governs the domain with source-grounded constraints and durable routes for future retrieval, "
+            "and it exists so that downstream teams never have to re-derive these boundaries from the raw source again.\n"
+            "### Meso\n"
+            "Fields and rules are linked into one workflow and retain their authority boundary across related operations, "
+            "spanning intake, validation, and the retrieval layer that other pages depend on for consistent answers.\n"
+            "### Micro\n"
+            "The exact fixture field and rule are supported by source-1 section Contract and its resolved evidence passage, "
+            "walked in order from intake through validation to the final recorded outcome for this fixture case.",
+        )
+        page.write_text(text, encoding="utf-8")
+        metrics = apex_kb._quality_page_metrics(self.kb, page)
+        self.assertNotIn("thin_macro_meso_micro", metrics["repair_reasons"])
+
     def test_missing_candidate_disposition_is_detected(self):
         (self.kb / "ingest-analysis" / "candidate.analysis.md").write_text(
             "# Analysis\n\nconcept_candidates:\n  - concept_slug: missing-disposition\n",

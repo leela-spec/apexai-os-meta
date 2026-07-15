@@ -1,7 +1,21 @@
 # Phase 1 Analysis Contract
 
-Every analysis records source identity and payload/source references; authority and limitations; source summary; extraction candidates; concepts; entities; key claims with exact pointers; uncertainty triggers; proposed Phase 2 changes; compile decision; and `operator_review_needed`.
+One analysis file exists per registry topic (`ingest-analysis/<topic-slug>.analysis.md`), not
+one per source - it carries every source accepted for that topic. This file has exactly one
+reader class: the Phase 2 synthesis LLM and the operator during review; no deterministic tool
+parses it, so structure for LLM synthesis and provenance fidelity, not for a parser.
 
-Also record target-query linkage, read status and reviewed passages, questions answered/partial/contradicted/blocked/not covered, additional evidence required, and topic completion effect. Give every concept/entity candidate one disposition: `promote`, `embed_in_summary`, `defer_blocked`, or `reject_no_independent_value`, with rationale, query IDs, and destination page when applicable.
+Each file records: a ranked Source Inventory (rejected/held sources get one row and nothing
+more); a per-source record for every accepted source (identity, target-query coverage, summary,
+extraction candidates, key claims with a `present | proposed | open` state tag, concept/entity
+candidates, uncertainty triggers); a Cross-Source Synthesis Notes block for the Phase 2 LLM
+(conflicts, authority-wins, what was discarded); and deduplicated Concept/Entity Candidate
+Shortlist tables the Phase 2 LLM copies directly into `related_concepts`/`related_entities`.
 
-Use the authoritative complete template copied from the Apex package when present. Do not remove any established Phase 1 section.
+Give every concept/entity candidate one disposition: `promote`, `embed_in_summary`,
+`defer_blocked`, or `reject_no_independent_value`, with rationale, query IDs, and destination
+page when applicable. Keep `concept_slug:`/`entity_slug:`/`disposition:` on their own lines
+exactly as the template shows - deterministic lint greps these keys verbatim.
+
+Use the authoritative complete template copied from the Apex package
+(`templates/ingest-analysis-template.md`) when present. Do not remove any established section.

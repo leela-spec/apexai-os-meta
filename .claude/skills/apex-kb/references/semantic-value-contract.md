@@ -69,9 +69,57 @@ Maintain one JSON ledger per topic at `log/semantic-runs/<run-id>/topics/<topic-
 
 ## Phase 1 and Phase 2 traceability
 
-Phase 1 records which target queries the source answers, partially answers, contradicts, blocks, or does not cover, plus additional evidence required and the source's topic completion effect (`supports`, `partial`, or `blocks`). Every concept/entity candidate receives exactly one disposition: `promote`, `embed_in_summary`, `defer_blocked`, or `reject_no_independent_value`, with rationale, affected query IDs, and destination when applicable.
+Phase 1 is topic-scoped: one file per registry topic (`ingest-analysis/<topic-slug>.analysis.md`),
+carrying every source accepted for that topic, not one file per source. This file has exactly
+one reader class -- the Phase 2 synthesis LLM and the operator during review -- no deterministic
+tool parses its body, so it is structured for LLM synthesis and provenance fidelity (a ranked
+Source Inventory, per-source YAML records, a Cross-Source Synthesis Notes block positioned last
+in the file for end-of-context weight, and deduplicated Concept/Entity Candidate Shortlists),
+never for a machine parser.
+
+Phase 1 records which target queries the source answers, partially answers, contradicts, blocks, or does not cover, plus additional evidence required and the source's topic completion effect (`supports`, `partial`, or `blocks`). Every key claim carries a `state: present | proposed | open` tag. Every concept/entity candidate receives exactly one disposition: `promote`, `embed_in_summary`, `defer_blocked`, or `reject_no_independent_value`, with rationale, affected query IDs, and destination when applicable.
+
+### Phase 1 -> Phase 2 orchestration contract
+
+Phase 1 collapses N sources into one topic; Phase 2 must preserve provenance without
+re-ingesting source files. What Phase 1 must carry so Phase 2 synthesis is faithful and cheap:
+
+- Claim IDs (`C001`, `C002`, ...) scoped per source within the topic, each with a `state` tag --
+  Phase 2 inherits `state` unchanged into its Key Claims, never re-derives it.
+- The Concept/Entity Candidate Shortlist tables -- Phase 2 copies `concept_slug`/`entity_slug`
+  values directly into `related_concepts`/`related_entities` frontmatter, zero inference cost.
+- The Cross-Source Synthesis Notes -- the Phase 2 LLM reads this first to resolve conflicts
+  before drafting Macro/Meso/Micro; it is not copied verbatim.
+- Per-source hash/pointer -- Phase 2 `source_refs` stays in object form (`source_id`,
+  `source_path`, `source_hash`, `source_pointer`) with an added `claims:` sub-key listing that
+  source's claim IDs. Never flatten `source_refs` to bare strings; that discards the hash.
+
+What Phase 1 must not carry, to prevent duplication in Phase 2: full source text or excerpts
+(already in the raw source), Phase 2 narrative prose (the Phase 2 LLM generates it from the
+synthesis notes), or retrieval/index metadata (Phase 2 only).
 
 V2 summary, concept, and entity pages declare `semantic_contract_version`, `semantic_run_id`, and `target_query_ids`. Their `Target Questions Answered` section gives direct answer routes. Their Adaptive Ranked Source Set contains only sources actually reviewed and materially used, with analysis references, supported query IDs, claim IDs, rationale, and coverage. Unread candidates stay only in the ledger.
+
+### Macro / Meso / Micro definition
+
+Each layer is a distinct scale, not a restatement, and must be a complete standalone thought at
+that scale (target 3-5 sentences; a 20-word floor per layer applies on v2 pages):
+
+- **Macro -- Why.** The architectural context the subject lives in, the problem it solves, and
+  the design decision/value gained.
+- **Meso -- What it is.** The feature/service/screen/model itself: components, internal
+  structure, data shape, connections to peer concepts.
+- **Micro -- How.** The concrete execution path -- trigger, ordered steps, outcome, key error
+  paths or preconditions -- with one inline flow chain (e.g. `Trigger -> StepA -> StepB ->
+  Outcome`) folded in rather than given its own heading.
+
+### Connection Map
+
+An optional `## Connection Map` section (directional edges to peer summary pages: `direction`,
+`peer`, `what_flows`, `contract`) may follow Routes Here only when a topic has 3 or more edges.
+Below that threshold, fold the edge(s) into Routes Here and omit the heading -- an unused
+heading still costs a retrieval chunk. It is not one of the six required Phase 2 value headings
+and is never required by the quality checker.
 
 Do not duplicate frontmatter claims or source lists in prose merely to satisfy parsing. Do not use a boundary-only orientation page to satisfy a broad topic. A concept/entity page exists only when it has independent project-specific retrieval value; otherwise preserve the rejection disposition.
 

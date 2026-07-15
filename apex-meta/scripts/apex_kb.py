@@ -666,7 +666,7 @@ def cmd_preflight(args: argparse.Namespace) -> Dict[str, Any]:
         source_hash = h.get("source_hash")
         source_exists = h.get("exists")
         source_slug = slugify(Path(args.source_path).stem)
-        existing_analysis = [relpath(kb_root, p) for p in (kb_root / "ingest-analysis").glob(f"{source_slug}*.analysis.md")] if (kb_root / "ingest-analysis").exists() else []
+        existing_analysis = _phase1_analysis_files_referencing_source(kb_root, source_slug)
     checks = {
         "kb_root_exists": kb_root.exists(),
         "kb_schema_exists": (kb_root / "kb-schema.md").exists(),
@@ -1894,28 +1894,104 @@ Plan/Sync/Session state, PreCap outputs, FlowRecap outputs, or APSU outputs.
 """
 
 
+PHASE1_INVENTORY_BEGIN = "<!-- BEGIN SOURCE INVENTORY -->"
+PHASE1_INVENTORY_END = "<!-- END SOURCE INVENTORY -->"
+PHASE1_RECORDS_BEGIN = "<!-- BEGIN PER-SOURCE RECORDS -->"
+PHASE1_RECORDS_END = "<!-- END PER-SOURCE RECORDS -->"
+
+
 def cmd_ingest_phase1(args: argparse.Namespace) -> Dict[str, Any]:
+    """Scaffold or extend one topic-scoped Phase 1 shell at
+    ingest-analysis/<topic-slug>.analysis.md. One file exists per registry
+    topic (never one per source): a first invocation for a topic creates the
+    shell with this source as its only inventory row and record; a later
+    invocation for the same topic-slug with a different source appends a new
+    inventory row and a new per-source record block to the existing file,
+    leaving already-present sections untouched. Re-running with a source_id
+    already present in the file is a no-op (already_present: true)."""
     kb_root = resolve_kb_root(args.kb_root)
     dry_run = effective_dry_run(args)
     if not args.source_path:
         return {"command": "ingest-phase1", "status": "blocked", "reason": "--source-path is required"}
+    if not args.topic_slug:
+        return {"command": "ingest-phase1", "status": "blocked", "reason": "--topic-slug is required"}
     src = Path(args.source_path).expanduser().resolve()
     h = hash_path(src)
-    source_slug = args.source_slug or slugify(src.stem)
-    path = kb_root / "ingest-analysis" / f"{source_slug}.analysis.md"
-    text = ingest_analysis_shell(kb_root.name, source_slug, args.source_path, h)
+    source_id = args.source_slug or slugify(src.stem)
+    topic_slug = args.topic_slug
+    path = kb_root / "ingest-analysis" / f"{topic_slug}.analysis.md"
+    existing = read_text(path) if path.exists() else None
+    already_present = existing is not None and _phase1_topic_shell_has_source(existing, source_id)
+    if already_present:
+        text = existing
+    elif existing is None:
+        text = ingest_analysis_topic_shell(kb_root.name, topic_slug, source_id, args.source_path, h)
+    else:
+        text = _phase1_append_source_to_topic_shell(existing, source_id, args.source_path, h)
     write = write_text(path, text, kb_root, args.allow_write, dry_run)
-    return {"command": "ingest-phase1", "status": "operator_review_needed", "dry_run": dry_run, "analysis_shell": write, "required_halt": True, "phase_2_requires": PHASE2_APPROVAL, "semantic_note": "Shell only; LLM must fill semantic sections from the source."}
+    return {
+        "command": "ingest-phase1",
+        "status": "operator_review_needed",
+        "dry_run": dry_run,
+        "topic_slug": topic_slug,
+        "source_id": source_id,
+        "already_present": already_present,
+        "analysis_shell": write,
+        "required_halt": True,
+        "phase_2_requires": PHASE2_APPROVAL,
+        "semantic_note": "Shell only; LLM must fill semantic sections from the source.",
+    }
 
 
-def ingest_analysis_shell(kb_slug: str, source_slug: str, source_path: str, h: Dict[str, Any]) -> str:
+def _phase1_topic_shell_has_source(text: str, source_id: str) -> bool:
+    return bool(re.search(rf"(?m)^### {re.escape(source_id)} - authority:", text))
+
+
+def _phase1_source_inventory_row(source_id: str, source_path: str, h: Dict[str, Any]) -> str:
+    hash_prefix = str(h.get("source_hash") or "NA")[:8]
+    return f"| unranked | {source_id} | {source_path} | unclear | unknown | accepted | {hash_prefix} |"
+
+
+def _phase1_source_record_block(source_id: str, source_path: str, h: Dict[str, Any]) -> str:
+    return f"""### {source_id} - authority: unclear
+
+```yaml
+source_identity:
+  title: "LLM must fill from source evidence only"
+  authority_rationale: "LLM must fill from source evidence only"
+  scope: "LLM must fill from source evidence only"
+  limitations: []
+  read_status: "LLM must fill: complete | targeted | blocked"
+  reviewed_passages: []
+
+target_query_coverage: []
+topic_completion_effect: "LLM must fill: supports | partial | blocks"
+
+source_summary:
+  one_sentence_core: "LLM must fill from source evidence only"
+  relevant_to_kb_because: []
+  likely_not_relevant_for: []
+
+key_claims: []
+concept_candidates: []
+entity_candidates: []
+uncertainty_triggers: []
+```
+
+<!-- source_hash: {h.get('source_hash') or 'NA'} ({h.get('hash_algorithm') or 'NA'}) -->
+"""
+
+
+def ingest_analysis_topic_shell(kb_slug: str, topic_slug: str, source_id: str, source_path: str, h: Dict[str, Any]) -> str:
+    """One Phase 1 file per topic (never per source) - see
+    references/semantic-value-contract.md and templates/ingest-analysis-template.md."""
+    row = _phase1_source_inventory_row(source_id, source_path, h)
+    record = _phase1_source_record_block(source_id, source_path, h)
     return f"""---
-analysis_id: "{kb_slug}-{source_slug}-analysis"
+analysis_id: "{kb_slug}-{topic_slug}-analysis"
 kb_slug: "{kb_slug}"
-source_slug: "{source_slug}"
-source_path: "{source_path}"
-source_hash: "{h.get('source_hash') or 'NA'}"
-hash_algorithm: "{h.get('hash_algorithm') or 'NA'}"
+topic_slug: "{topic_slug}"
+source_count: 1
 created_at: "{utc_now()}"
 created_by: "apex-kb"
 phase: ingest_phase_1
@@ -1923,23 +1999,64 @@ status: operator_review_needed
 required_confirmation_phrase: "approve ingest"
 ---
 
-# Phase 1 Ingest Analysis - {source_slug}
+# Phase 1 Ingest Analysis - {topic_slug}
 
-## Source Identity
+One file exists per topic, carrying every source accepted for it - never one file per source.
+LLM must fill every section below from source evidence only; do not infer from filenames or
+prior summaries. No wiki pages may be generated until the operator replies in a separate turn
+with: `approve ingest`.
 
-LLM must fill from source evidence only.
+## 1. Source Inventory
 
-## Source Summary
+{PHASE1_INVENTORY_BEGIN}
+| rank | source_id | source_path | authority | recency | disposition | hash_prefix |
+|------|-----------|--------------|-----------|---------|-------------|-------------|
+{row}
+{PHASE1_INVENTORY_END}
 
-LLM must fill from source evidence only.
+## 2. Per-Source Records (accepted sources only)
 
-## Extraction Candidates
+{PHASE1_RECORDS_BEGIN}
+{record}
+{PHASE1_RECORDS_END}
 
-LLM must list candidate definitions, processes, concepts, entities, claims, contradictions, and open questions.
+## 3. Cross-Source Synthesis Notes
 
-## Proposed Wiki Changes
+LLM must fill: conflicts between sources, which claim wins by authority, which claims survived
+reconciliation and which were discarded and why, and outstanding topic-completion blockers.
+Reference claim IDs and source_ids inline.
 
-No wiki pages may be generated until the operator replies in a separate turn with: `approve ingest`.
+## 4. Concept Candidate Shortlist
+
+| concept_slug | concept_label | source_ids | disposition |
+|---|---|---|---|
+
+## 5. Entity Candidate Shortlist
+
+| entity_slug | entity_label | entity_type | source_ids |
+|---|---|---|---|
+
+## 6. Proposed Phase 2 Changes
+
+```yaml
+proposed_wiki_pages:
+  summaries: []
+  concepts: []
+  entities: []
+audit_items: []
+manifest_updates: []
+```
+
+## 7. Compile Decision
+
+```yaml
+compile_decision:
+  status: operator_review_needed
+  phase_2_ready: false
+  unresolved_priority_query_ids: []
+  additional_sources_to_read: []
+  truthful_state_if_stopped: "analysis_complete_unvalidated"
+```
 
 ## Operator Gate
 
@@ -1948,6 +2065,19 @@ phase_2_allowed: false
 required_confirmation_phrase: "approve ingest"
 ```
 """
+
+
+def _phase1_append_source_to_topic_shell(existing: str, source_id: str, source_path: str, h: Dict[str, Any]) -> str:
+    row = _phase1_source_inventory_row(source_id, source_path, h)
+    record = _phase1_source_record_block(source_id, source_path, h)
+    text = existing
+    if PHASE1_INVENTORY_END in text:
+        text = text.replace(PHASE1_INVENTORY_END, f"{row}\n{PHASE1_INVENTORY_END}", 1)
+    if PHASE1_RECORDS_END in text:
+        text = text.replace(PHASE1_RECORDS_END, f"{record}\n{PHASE1_RECORDS_END}", 1)
+    count = len(re.findall(r"(?m)^### \S+ - authority:", text))
+    text = re.sub(r'(?m)^source_count: \d+$', f"source_count: {count}", text, count=1)
+    return text
 
 
 def cmd_ingest_phase2(args: argparse.Namespace) -> Dict[str, Any]:
@@ -2403,6 +2533,20 @@ def _source_has_analysis(kb_root: Path, source: str) -> bool:
     return any(needle in read_text(path) for path in _analysis_files(kb_root))
 
 
+def _phase1_analysis_files_referencing_source(kb_root: Path, source_slug: str) -> List[str]:
+    """Find ingest-analysis files that already cover source_slug, under either shape:
+    a topic-scoped file with a `### <source_slug> - authority:` per-source record, or a
+    legacy pre-migration file named `<source_slug>.analysis.md` / `<source_slug>*.analysis.md`."""
+    if not source_slug:
+        return []
+    heading_pattern = re.compile(rf"(?m)^### {re.escape(source_slug)}\b.*-\s*authority:")
+    found: List[Path] = []
+    for path in _analysis_files(kb_root):
+        if heading_pattern.search(read_text(path)) or path.name.startswith(f"{source_slug}."):
+            found.append(path)
+    return [relpath(kb_root, p) for p in found]
+
+
 def candidate_disposition_findings(kb_root: Path) -> List[Dict[str, Any]]:
     findings: List[Dict[str, Any]] = []
     for path in _analysis_files(kb_root):
@@ -2541,7 +2685,12 @@ def _quality_page_metrics(kb_root: Path, page: Path) -> Dict[str, Any]:
         # Narrow named entities may validly be concise with one claim and one
         # source (kb-contract.md concise_policy) - only flag entities for a
         # missing claim outright, never for thin/single-claim synthesis depth.
-        if not is_v2_contract and all_layers_thin and page_type != "entity":
+        # Unlike the legacy-only checks above, the Macro/Meso/Micro word floor
+        # applies on v2 pages too: v2's Why/What/How semantic (see
+        # semantic-value-contract.md) has a defined content target, so
+        # thinness is a real defect there, not an artifact of the old
+        # undefined-semantic contract this guard originally protected against.
+        if all_layers_thin and page_type != "entity":
             reasons.append("thin_macro_meso_micro")
         if not is_v2_contract and page_type == "summary" and ranked_sources < 2:
             reasons.append("summary_source_breadth_below_profile")
@@ -3244,7 +3393,8 @@ def build_parser() -> argparse.ArgumentParser:
 
     ip1 = sub.add_parser("ingest-phase1")
     ip1.add_argument("--source-path", required=True)
-    ip1.add_argument("--source-slug")
+    ip1.add_argument("--topic-slug", required=True, help="Registry topic slug; matches wiki/summaries/<topic-slug>.md")
+    ip1.add_argument("--source-slug", help="This source's source_id within the topic file; defaults to a slug of the filename")
     ip1.set_defaults(func=cmd_ingest_phase1)
 
     ip2 = sub.add_parser("ingest-phase2")

@@ -1,19 +1,8 @@
 ---
-analysis_id: "<kb-slug>-<source-slug>-analysis"
+analysis_id: "<kb-slug>-<topic-slug>-analysis"
 kb_slug: "<kb-slug>"
-source_slug: "<source-slug>"
-run_profile:
-  output_tier: "source_only | analysis_only | compiled_minimal | compiled_full | query_ready"
-  safe_mode: "none | phase1_only | operator_explicit_stop_before_wiki"
-source_payload_manifest_ref:
-  path: "manifests/source-payload-manifest.json"
-  status_at_analysis_time: "fresh | missing | stale | not_checked"
-source_ref:
-  source_path: "<raw/source/path/or/pointer>"
-  source_type: "article | paper | note | ref | other"
-  source_hash: "<sha256-or-NA>"
-  hash_algorithm: "sha256 | sha256-tree | NA"
-  no_hash_reason: "NA | pointer_only | source_unavailable | other"
+topic_slug: "<topic-slug>"
+source_count: <accepted-source-count>
 created_at: "YYYY-MM-DDTHH:MM:SSZ"
 created_by: "apex-kb"
 phase: ingest_phase_1
@@ -24,29 +13,44 @@ semantic_compile_policy:
   optional_resume_phrase: "approve ingest"
 ---
 
-# Phase 1 Ingest Analysis - <source title>
+# Phase 1 Analysis - <topic title>
 
+One Phase 1 file exists per registry topic, matching `wiki/summaries/<topic-slug>.md`
+one-to-one. It carries every source accepted for the topic, not one file per source.
+This file has exactly one reader class: the Phase 2 synthesis LLM (plus the operator during
+review) - no deterministic tool parses these YAML/table bodies, so structure for LLM synthesis
+and provenance fidelity, not for a machine parser. Read each raw source before writing its
+record; do not infer content from a filename or prior summary.
 
-## 1. Source Identity and Read Record
+## 1. Source Inventory
+
+List every source considered for this topic, ranked by authority/relevance. Rejected or
+held-back sources get exactly this one row and nothing else below - no per-source record, no
+tokens spent past this table.
+
+| rank | source_id | source_path | authority | recency | disposition | hash_prefix |
+|------|-----------|--------------|-----------|---------|-------------|-------------|
+| 1 | `<source-id>` | `<raw/source/path>` | primary \| secondary \| tertiary \| unclear | `<YYYY-Qn or unknown>` | accepted | `<sha256 prefix>` |
+| 2 | `<source-id>` | `<raw/source/path>` | ... | ... | rejected: `<reason>` | - |
+
+## 2. Per-Source Records (accepted sources only)
+
+Repeat this block once per accepted source. Keep `concept_slug:` / `entity_slug:` /
+`disposition:` on their own lines exactly as shown - deterministic lint greps these keys.
+
+### `<source_id>` - authority: `<primary|secondary|tertiary|unclear>`
 
 ```yaml
 source_identity:
   title: "<explicit title or filename>"
   author_or_origin: "<known or unknown>"
   publication_or_creation_date: "YYYY-MM-DD | YYYY-MM | YYYY | unknown"
-  authority_class: "canonical_specification | implementation_evidence | current_contract | user_story_or_example | historical | proposal | secondary | unknown"
   authority_rationale: "<source-grounded rationale>"
   scope: "<what the source covers>"
   limitations: []
-source_read:
   read_status: "complete | targeted | blocked"
   reviewed_passages: []
-  unavailable_reason: "<reason or NA>"
-```
 
-## 2. Target-Query Coverage
-
-```yaml
 target_query_coverage:
   - query_id: "<stable query id>"
     outcome: "answered | partial | contradicted | blocked | not_covered"
@@ -54,21 +58,12 @@ target_query_coverage:
     source_pointers: []
     additional_evidence_required: []
 topic_completion_effect: "supports | partial | blocks"
-```
 
-## 3. Source Summary
-
-```yaml
 source_summary:
   one_sentence_core: "<central contribution>"
-  compact_summary: "<source-grounded summary>"
   relevant_to_kb_because: []
   likely_not_relevant_for: []
-```
 
-## 4. Extraction Candidates
-
-```yaml
 extraction_candidates:
   high_value_sections:
     - section_ref: "<heading/page/line/passage>"
@@ -76,26 +71,27 @@ extraction_candidates:
       extraction_priority: "high | medium | low"
   reusable_definitions: []
   reusable_processes: []
-```
 
-## 5. Concept Candidates
+key_claims:
+  - claim_id: C001
+    claim: "<specific claim>"
+    source_pointer: "<heading/page/line/passage>"
+    target_query_ids: []
+    confidence: "high | medium | low"
+    state: "present | proposed | open"
+    claim_label: "source_backed_summary"
 
-```yaml
 concept_candidates:
   - concept_slug: "<kebab-case>"
     concept_label: "<label>"
     source_pointer: "<exact pointer>"
     summary: "<source-grounded candidate>"
     confidence: "high | medium | low"
-    disposition: "promote | embed_in_summary | defer_blocked | reject_no_independent_value"
+    disposition: promote
     disposition_rationale: "<retrieval-value rationale>"
     target_query_ids: []
     destination_page: "<wiki path or NA>"
-```
 
-## 6. Entity Candidates
-
-```yaml
 entity_candidates:
   - entity_slug: "<kebab-case>"
     entity_label: "<label>"
@@ -103,27 +99,11 @@ entity_candidates:
     source_pointer: "<exact pointer>"
     summary: "<source-grounded candidate>"
     confidence: "high | medium | low"
-    disposition: "promote | embed_in_summary | defer_blocked | reject_no_independent_value"
+    disposition: promote
     disposition_rationale: "<retrieval-value rationale>"
     target_query_ids: []
     destination_page: "<wiki path or NA>"
-```
 
-## 7. Key Claims
-
-```yaml
-key_claims:
-  - claim_id: C001
-    claim: "<specific claim>"
-    source_pointer: "<heading/page/line/passage>"
-    target_query_ids: []
-    confidence: "high | medium | low"
-    claim_label: "source_backed_summary"
-```
-
-## 8. Uncertainty / Raw Source Triggers
-
-```yaml
 uncertainty_triggers:
   - id: U001
     description: "<conflict, gap, or uncertainty>"
@@ -131,10 +111,41 @@ uncertainty_triggers:
     availability_class: "evidence_unavailable | evidence_conflict | future_change | readable_unopened"
     completion_effect: "none | supporting_gap | blocks_priority_query"
     affected_query_ids: []
+    severity: "blocking | notable | minor"
     proposed_handling: "audit_item | planning_task_candidate | revisit_source | leave_as_gap | ask_operator"
 ```
 
-## 9. Proposed Phase 2 Changes
+The `disposition:` line must read exactly `promote`, `embed_in_summary`, `defer_blocked`, or
+`reject_no_independent_value` with nothing appended - deterministic lint matches the full line.
+The `state:` field on each claim answers the operator's present-vs-proposed-vs-open question and
+carries forward unchanged into the Phase 2 Key Claims table - never re-derive it there.
+
+## 3. Cross-Source Synthesis Notes
+
+200-400 words, written for the Phase 2 LLM, placed last so it lands at the end of this file's
+context (the position an LLM reader weighs most before drafting). Explicitly name: conflicts
+between sources, which claim wins by authority, which claims survived reconciliation and which
+were discarded and why, and outstanding topic-completion blockers. Reference claim IDs
+(`C001`, `C002`, ...) and `source_id`s inline rather than restating full claims.
+
+## 4. Concept Candidate Shortlist
+
+Deduplicated across every accepted source in this topic. The Phase 2 LLM copies `concept_slug`
+values directly into the wiki page's `related_concepts` frontmatter - no re-inference needed.
+
+| concept_slug | concept_label | source_ids | disposition |
+|---|---|---|---|
+| `<slug>` | `<label>` | `<source-id>, <source-id>` | promote \| embed_in_summary \| defer_blocked \| reject_no_independent_value |
+
+## 5. Entity Candidate Shortlist
+
+Deduplicated. The Phase 2 LLM copies `entity_slug` values directly into `related_entities`.
+
+| entity_slug | entity_label | entity_type | source_ids |
+|---|---|---|---|
+| `<slug>` | `<label>` | `<type>` | `<source-id>` |
+
+## 6. Proposed Phase 2 Changes
 
 ```yaml
 proposed_wiki_pages:
@@ -146,7 +157,7 @@ audit_items: []
 manifest_updates: []
 ```
 
-## 10. Compile Decision
+## 7. Compile Decision
 
 ```yaml
 compile_decision:
@@ -157,4 +168,6 @@ compile_decision:
   truthful_state_if_stopped: "analysis_complete_unvalidated | partial"
 ```
 
-Stop for `analysis_only` or an explicit safe mode. Otherwise continue only when critical evidence coverage is resolved; Phase 2 must follow the v2 page and semantic-acceptance contracts.
+Stop for `analysis_only` or an explicit safe mode. Otherwise continue only when critical
+evidence coverage is resolved for every accepted source in this topic; Phase 2 must follow the
+v2 page and semantic-acceptance contracts.
