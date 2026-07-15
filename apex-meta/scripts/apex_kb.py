@@ -311,7 +311,7 @@ def normalize_global_flag_placement(argv: Sequence[str]) -> Sequence[str]:
     normalized = list(argv)
     commands = {
         "scaffold", "source-intake", "hash", "generate-source-payload-manifest", "source-payload-manifest",
-        "payload-manifest", "preflight", "phase0", "ingest-phase1", "ingest-phase2", "index", "query",
+        "payload-manifest", "preflight", "topic-sanity-check", "phase0", "ingest-phase1", "ingest-phase2", "index", "query",
         "lint", "audit", "status", "health",
         "quality", "coverage", "query-eval", "semantic-acceptance-status", "graph", "process-graph", "postflight",
     }
@@ -678,6 +678,175 @@ def cmd_preflight(args: argparse.Namespace) -> Dict[str, Any]:
     }
     status = "ok" if checks["kb_root_exists"] and checks["kb_schema_exists"] and checks["source_manifest_exists"] else "blocked"
     return {"command": "preflight", "status": status, "kb_root": str(kb_root), "checks": checks}
+
+
+def cmd_topic_sanity_check(args: argparse.Namespace) -> Dict[str, Any]:
+    """Cheap, read-only, bounded-cost gate against locking the wrong topic and
+    then burning a full corpus intake + Phase 0 run on it. Run this BEFORE
+    scaffold, source-intake, or phase0 for any newly locked topic - never
+    after. It never reads full file contents, and never registers, hashes,
+    scaffolds, or writes anything.
+
+    It deliberately does NOT check kb-schema.md or README.md: those are
+    written by the same scaffold step that locks the topic, so on a fresh KB
+    they are self-authored, circular confirmation of whatever topic name the
+    executor already typed in - not independent evidence. (This is exactly
+    how the incident this check exists to prevent slipped through once
+    already: the KB itself was titled after the wrong topic, so checking the
+    KB's own title "confirmed" it.)
+
+    Evidence is split into strong terms (phrases, aliases, the full topic
+    name as one phrase) and weak terms (supporting_terms). Only a strong-term
+    match, or two-or-more DISTINCT weak terms co-occurring in the same
+    filename, counts as scope evidence - a single generic supporting_term
+    (e.g. "process", "app") must never carry a verdict alone, mirroring why
+    the registry's own vocabulary spec places such words in `ambiguous_terms`
+    and requires co-occurrence before they count as a signal.
+
+    Evidence sources: the KB root's own path components (up to 3 parents),
+    sibling registry topics' strong terms, and a filename-only scan capped at
+    --search-cap files (default 2000) under --search-root (default: the KB
+    root's parent directory, since a KB is conventionally nested one level
+    under the material it indexes).
+
+    If the topic's strong-term vocabulary has zero correspondence to all of
+    that evidence, this is a topic-lock mismatch, not a source-access
+    blocker: stop and get the operator to confirm the intended subject
+    before any scaffold/intake/Phase 0 write, per the failure-behavior entry
+    `topic_vocabulary_mismatches_kb_scope_evidence` in SKILL.md."""
+    kb_root = resolve_kb_root(args.kb_root)
+    strong_terms: List[str] = []
+    weak_terms: List[str] = []
+    topic_slug = args.topic_slug
+    registry = load_topic_registry(kb_root)
+    matched_topic = None
+    if topic_slug:
+        for topic in registry:
+            if not isinstance(topic, dict):
+                continue
+            slug = str(topic.get("slug") or slugify(str(topic.get("name", "topic"))))
+            if slug == topic_slug:
+                matched_topic = topic
+                for value in (topic.get("phrases") or []) + (topic.get("aliases") or []):
+                    if isinstance(value, str) and value.strip():
+                        strong_terms.append(value.strip())
+                for value in topic.get("supporting_terms") or []:
+                    if isinstance(value, str) and value.strip():
+                        weak_terms.append(value.strip())
+                # The full name is one coarse phrase-level signal; splitting it into
+                # individual generic words (e.g. "app", "process") would reintroduce
+                # exactly the ambiguous-single-word false positives the registry's own
+                # `ambiguous_terms` category exists to guard against.
+                name = str(topic.get("name") or "").strip()
+                if name:
+                    strong_terms.append(name)
+                break
+    for phrase in args.phrase or []:
+        if phrase and phrase.strip():
+            strong_terms.append(phrase.strip())
+    strong_terms = sorted({t.lower() for t in strong_terms if t})
+    weak_terms = sorted({t.lower() for t in weak_terms if t and t.lower() not in strong_terms})
+    if not strong_terms and not weak_terms:
+        return {"command": "topic-sanity-check", "status": "blocked", "reason": "no topic terms: pass --topic-slug for a registered topic or --phrase (repeatable) for one not yet registered"}
+
+    def _strong_hits(text: str) -> List[str]:
+        low = text.lower()
+        return [t for t in strong_terms if t in low]
+
+    def _weak_cooccurrence_hit(text: str) -> bool:
+        low = text.lower()
+        return sum(1 for t in weak_terms if t in low) >= 2
+
+    path_components = [kb_root.name] + [p.name for p in list(kb_root.parents)[:3]]
+    path_hits = sorted({t for component in path_components for t in _strong_hits(component)})
+
+    sibling_hits: List[str] = []
+    for topic in registry:
+        if not isinstance(topic, dict) or topic is matched_topic:
+            continue
+        label_parts = [str(topic.get("name", "")), str(topic.get("slug", ""))]
+        label_parts.extend(v for v in (topic.get("phrases") or []) if isinstance(v, str))
+        label_parts.extend(v for v in (topic.get("aliases") or []) if isinstance(v, str))
+        sibling_hits.extend(_strong_hits(" ".join(label_parts)))
+    sibling_hits = sorted(set(sibling_hits))
+
+    search_root = Path(args.search_root).expanduser().resolve() if args.search_root else kb_root.parent
+    search_cap = args.search_cap or 2000
+    strong_hit_paths: List[str] = []
+    weak_cooccurrence_paths: List[str] = []
+    scanned_count = 0
+    capped = False
+    kb_root_resolved = kb_root.resolve()
+    if search_root.exists():
+        for path in search_root.rglob("*"):
+            if scanned_count >= search_cap:
+                capped = True
+                break
+            if not path.is_file():
+                continue
+            # Anything already inside kb_root is this KB's own generated output
+            # (audit items, work packs, manifests) - it is written by the very
+            # run being gated, so it can never be independent evidence that the
+            # topic is real. Excluding it is what stops a KB from "confirming"
+            # its own wrong topic after the fact, the same way kb-schema.md and
+            # README.md are excluded above.
+            try:
+                path.resolve().relative_to(kb_root_resolved)
+                continue
+            except ValueError:
+                pass
+            scanned_count += 1
+            if _strong_hits(path.name):
+                if len(strong_hit_paths) < 20:
+                    strong_hit_paths.append(str(path))
+            elif _weak_cooccurrence_hit(path.name):
+                if len(weak_cooccurrence_paths) < 20:
+                    weak_cooccurrence_paths.append(str(path))
+
+    evidence = {
+        "strong_terms": strong_terms,
+        "weak_terms": weak_terms,
+        "path_components_checked": path_components,
+        "path_component_hits": path_hits,
+        "sibling_topic_strong_hits": sibling_hits,
+        "filename_scan": {
+            "search_root": str(search_root),
+            "scanned_count": scanned_count,
+            "capped": capped,
+            "strong_hit_count": len(strong_hit_paths),
+            "strong_hit_paths_sample": strong_hit_paths,
+            "weak_cooccurrence_hit_count": len(weak_cooccurrence_paths),
+            "weak_cooccurrence_paths_sample": weak_cooccurrence_paths,
+            "note": "weak_cooccurrence hits are reported for transparency only and never count toward the verdict - two generic supporting_terms co-occurring in a filename (e.g. \"process\"+\"screen\") is still too weak to trust alone.",
+        },
+    }
+    # Weak-term co-occurrence is deliberately excluded from the verdict sum: it
+    # is reported above for transparency, but generic supporting_terms are too
+    # unreliable to independently justify "proceed" - the asymmetric cost of a
+    # false "proceed" (a burned full-corpus run) far outweighs the cost of an
+    # unnecessary operator confirmation.
+    total_reliable_hits = len(path_hits) + len(sibling_hits) + len(strong_hit_paths)
+    verdict = "scope_evidence_found" if total_reliable_hits > 0 else "scope_evidence_absent"
+    recommendation = "proceed" if total_reliable_hits > 0 else "stop_and_confirm_topic_with_operator"
+    message = (
+        f"Topic strong terms {strong_terms} have {total_reliable_hits} corresponding hit(s) across KB-scope evidence."
+        if total_reliable_hits > 0
+        else f"Topic strong terms {strong_terms} have ZERO correspondence to this KB's own scope evidence "
+             f"(path, sibling topics, {scanned_count} filenames under {search_root}, excluding the KB's own "
+             "generated output), and weak supporting "
+             "terms alone never count. This is a topic-lock mismatch, not a source-access blocker - stop "
+             "and confirm the intended subject with the operator before any scaffold, source-intake, or "
+             "Phase 0 write."
+    )
+    return {
+        "command": "topic-sanity-check",
+        "status": "ok",
+        "topic_slug": topic_slug,
+        "evidence": evidence,
+        "verdict": verdict,
+        "recommendation": recommendation,
+        "message": message,
+    }
 
 
 def _iter_kb_files(kb_root: Path, suffix_filter: Optional[set]) -> List[Path]:
@@ -3388,6 +3557,13 @@ def build_parser() -> argparse.ArgumentParser:
     pf = sub.add_parser("preflight")
     pf.add_argument("--source-path")
     pf.set_defaults(func=cmd_preflight)
+
+    tsc = sub.add_parser("topic-sanity-check")
+    tsc.add_argument("--topic-slug", help="Registered topic slug to check")
+    tsc.add_argument("--phrase", action="append", help="Additional topic phrase/alias to check; repeatable. Required if --topic-slug is not yet registered.")
+    tsc.add_argument("--search-root", help="Root for the bounded filename scan; defaults to the KB root's parent directory")
+    tsc.add_argument("--search-cap", type=int, help="Max files visited by the filename scan; default 2000")
+    tsc.set_defaults(func=cmd_topic_sanity_check)
 
     sub.add_parser("phase0").set_defaults(func=cmd_phase0)
 

@@ -209,6 +209,10 @@ Follow only the selected route. The connector route uses the bounded whole-file 
 
 Before creating or adding sources, ask which important questions future AIs must answer. For each topic, lock stable query IDs, question text, priority, answer requirements, and expected page route in `manifests/topic-registry.json`. Also record vocabulary where it sharpens routing: `phrases`/`aliases` (strong signals), `supporting_terms` (weaker; legacy `keywords` are read this way), `negative_terms` (suppress body-only false matches), `ambiguous_terms` (require co-occurrence). Vocabulary supports deterministic ranking but never defines semantic completion.
 
+**Step 0.5 — Topic-scope sanity check (mandatory, before scaffold, source intake, or Phase 0 — never after).** A locked topic is a guess about what the operator meant until it is cheaply checked against evidence. Before any scaffold, source-intake, or Phase 0 command runs for a newly locked topic, run `topic-sanity-check` (terminal-backed route) or its manual equivalent (connector route: check the topic's phrases/aliases against the KB root's own path, sibling registry topics, and a light sample of nearby filenames — never against a freshly-written kb-schema.md/README.md, which are self-authored by the same step that locked the topic and so are circular, not independent evidence). If the topic's strong terms (phrases/aliases, never a single generic supporting_term alone) have zero correspondence to that evidence, this is a **topic-lock mismatch, not a source-access blocker**: stop and get the operator to confirm the intended subject before any write. Do not substitute assumption for confirmation, and do not proceed to full-corpus registration "to see" — see the `topic_vocabulary_mismatches_kb_scope_evidence` failure-behavior entry below. This check is deliberately cheap (bounded file count, filenames only) precisely so it runs before, not instead of, an expensive step.
+
+**Source-intake breadth defaults to narrow.** Registering the entire repository as pointer-only sources for a single topic request is not the default — it requires either an explicit operator instruction to index broadly, or a documented reason recorded in `log/run-profile.md`. Prefer the smallest root that plausibly contains the named subject's material; widen only when the topic-scope sanity check or the operator says to.
+
 An absent registry remains valid for scaffold, intake, `source_only`, and early `analysis_only`. Any compiled tier requires target queries for every in-scope topic. Broad topics must cover material definitions, structure, workflow, ownership, rules, relationships, current versus proposed state, examples, and edge cases where applicable.
 
 After Phase 0, review `term-frequency.json` and propose additional topics from real corpus evidence. Keep proposals in the registry; Phase 0 emits the exhaustive, tiered rankings in `topic-source-rankings.json` and a concentrated per-topic work pack in `manifests/phase0/work-packs/<topic-slug>.md`. Start semantic reading from the work pack, not the full ranking map. Before semantic work, create the per-topic ledger required by `references/semantic-value-contract.md`.
@@ -271,6 +275,13 @@ missing_kb_root:
 missing_source:
   behavior: stop
   rule: never infer source contents from filename, title, memory, or summary
+
+topic_vocabulary_mismatches_kb_scope_evidence:
+  behavior: stop_and_confirm_topic_before_any_write
+  rule: never run scaffold, source_intake, or phase0 for a newly locked topic whose phrases/aliases have zero correspondence to the KB's own scope evidence (path components, sibling registry topics, a light filename sample) without explicit operator confirmation
+  detection: topic-sanity-check (terminal-backed) or its manual equivalent (connector route)
+  never_treat_as: source_access_blocker
+  rationale: a topic name derived from a misread of the operator's request is a topic-lock error, not evidence the subject lacks local material; conflating the two burns a full corpus intake and Phase 0 run on the wrong subject before anyone notices
 
 phase2_stop_requested:
   behavior: stop_after_phase1

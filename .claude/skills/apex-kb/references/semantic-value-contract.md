@@ -17,6 +17,10 @@ Phase 0 rankings are navigation candidates. Rank, hit count, filename, and prior
 
 Connector cost, source length, context pressure, or write friction may force `partial`; they never lower these gates.
 
+## Topic-lock mismatch is not a source-access blocker
+
+Before writing any audit item that claims "no local source establishes this subject," validate that claim against the KB's own scope evidence: run `topic-sanity-check` (or its manual equivalent) and record the result. A literal keyword search returning zero hits is not sufficient on its own - a topic derived from a misreading of the operator's request will also return zero hits for its own (wrong) vocabulary, and that is a topic-lock error, not proof the subject lacks material. Do not check a freshly-scaffolded KB's own `kb-schema.md` or `README.md` for corroboration: those are written by the same step that locked the topic, so they confirm nothing independently. If the topic's strong terms (phrases/aliases) have zero correspondence to the KB's own path, sibling topics, and a light filename sample, stop and get the operator to confirm the intended subject before writing a blocker audit item, before scaffold/source-intake/Phase 0, and before any commit or push. See the `topic_vocabulary_mismatches_kb_scope_evidence` failure-behavior entry in `SKILL.md`.
+
 ## Topic registry v2
 
 Each compiled in-scope topic requires `target_queries`:

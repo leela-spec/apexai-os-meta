@@ -15,11 +15,17 @@ $KB="apex-meta/kb/<kb-slug>"
 python apex-meta/scripts/apex_kb.py --kb-root $KB --json scaffold --title "<Topic Title>"
 python apex-meta/scripts/apex_kb.py --kb-root $KB --allow-write --json scaffold --title "<Topic Title>"
 
-# 2. Source intake.
+# 2. Topic-scope sanity check - run BEFORE source intake or Phase 0, never after.
+# Never proceed to intake/Phase0 when this reports scope_evidence_absent without
+# operator confirmation of the intended subject; that is a topic-lock mismatch,
+# not a source-access blocker.
+python apex-meta/scripts/apex_kb.py --kb-root $KB --json topic-sanity-check --topic-slug "<topic-slug>"
+
+# 3. Source intake.
 python apex-meta/scripts/apex_kb.py --kb-root $KB --json hash --path "path\to\source.md"
 python apex-meta/scripts/apex_kb.py --kb-root $KB --allow-write --json source-intake --source-path "path\to\source.md" --source-type note --storage-mode copy_into_kb --source-id "<source-id>"
 
-# 3. Deterministic preflight, payload manifest, and Phase 0.
+# 4. Deterministic preflight, payload manifest, and Phase 0.
 python apex-meta/scripts/apex_kb.py --kb-root $KB --json preflight --source-path "path\to\source.md"
 python apex-meta/scripts/apex_kb.py --kb-root $KB generate-source-payload-manifest --allow-write --json
 python apex-meta/scripts/apex_kb.py --kb-root $KB phase0 --allow-write --json
@@ -27,20 +33,22 @@ python apex-meta/scripts/apex_kb.py --kb-root $KB phase0 --allow-write --json
 # cutoff) and manifests/phase0/work-packs/<topic-slug>.md (the bounded semantic input for that
 # topic). Start semantic reading from the work pack, not the full ranking map.
 
-# 4. Phase 1 shell. LLM fills semantic analysis and stops.
-python apex-meta/scripts/apex_kb.py --kb-root $KB --allow-write --json ingest-phase1 --source-path "path\to\source.md" --source-slug "<source-slug>"
+# 5. Phase 1 shell - one file per topic (never per source). LLM fills semantic
+# analysis and stops. Run again with a different --source-path/--source-slug
+# under the same --topic-slug to append that source's record to the same file.
+python apex-meta/scripts/apex_kb.py --kb-root $KB --allow-write --json ingest-phase1 --source-path "path\to\source.md" --topic-slug "<topic-slug>" --source-slug "<source-id>"
 
-# 5. Phase 2 gate validation. Wiki drafting is LLM-owned after approval.
-python apex-meta/scripts/apex_kb.py --kb-root $KB --json ingest-phase2 --analysis "<source-slug>.analysis.md" --approval-phrase "approve ingest"
+# 6. Phase 2 gate validation. Wiki drafting is LLM-owned after approval.
+python apex-meta/scripts/apex_kb.py --kb-root $KB --json ingest-phase2 --analysis "<topic-slug>.analysis.md" --approval-phrase "approve ingest"
 
-# 6. Index and retrieval.
+# 7. Index and retrieval.
 python apex-meta/scripts/apex_kb.py --kb-root $KB --allow-write --json index
 python apex-meta/scripts/apex_kb_retrieval.py --kb-root $KB --json health
 python apex-meta/scripts/apex_kb_retrieval.py --kb-root $KB --allow-write --json build-index
 python apex-meta/scripts/apex_kb_retrieval.py --kb-root $KB --json stale
 python apex-meta/scripts/apex_kb_retrieval.py --kb-root $KB --allow-write --json query --query "<query>" --limit 8 --save
 
-# 7. Maintenance.
+# 8. Maintenance.
 python apex-meta/scripts/apex_kb.py --kb-root $KB --json lint --strict
 python apex-meta/scripts/apex_kb.py --kb-root $KB --json audit
 python apex-meta/scripts/apex_kb.py --kb-root $KB --json status
