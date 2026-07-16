@@ -509,6 +509,9 @@ def _intent_from_args(args: argparse.Namespace, kb_root: Path) -> Dict[str, Any]
     source_roots = list(dict.fromkeys(str(item) for item in (args.source_root or [])))
     source_inputs = _parse_source_specs(args.source_spec or [])
     topic_slugs = list(dict.fromkeys(_slug(item) for item in (args.topic_slug or [])))
+    phase1_min_coverage = getattr(args, "phase1_min_coverage", None)
+    if phase1_min_coverage is None:
+        phase1_min_coverage = 0.6
     now = utc_now()
     return {
         "schema": RUN_INTENT_SCHEMA,
@@ -529,6 +532,7 @@ def _intent_from_args(args: argparse.Namespace, kb_root: Path) -> Dict[str, Any]
         "execution_route": args.execution_route,
         "corpus_breadth": args.corpus_breadth,
         "broad_breadth_reason": args.broad_breadth_reason,
+        "phase1_min_coverage": phase1_min_coverage,
         "topic_slugs": topic_slugs,
         "topic_sanity_check": {},
         "operator_confirmed": False,
@@ -561,6 +565,7 @@ def _initial_state(intent: Dict[str, Any], kb_root: Path, title: Optional[str]) 
         "execution_route": intent["execution_route"],
         "topics": topics,
         "output_tier": intent["output_tier"],
+        "phase1_min_coverage": intent.get("phase1_min_coverage", 0.6),
         "operator_confirmation": {"confirmed": False, "quote": "", "confirmed_at": None},
         "current_stage": stage,
         "completed_stages": [],
@@ -1411,6 +1416,18 @@ def _phase1_validation(state: MutableMapping[str, Any], kb_root: Path, slug: str
         rel_output = output.relative_to(kb_root).as_posix()
         if any(item.get("path") == rel_output for item in findings if isinstance(item, dict)):
             return ControlError("candidate_disposition_missing", "Phase 1 candidate disposition is incomplete", paths=[rel_output])
+    ranked = len(_candidate_inputs(kb_root, slug))
+    opened = len(set(re.findall(r"(?m)^### (\S+) - authority:", text)))
+    floor = float(state.get("phase1_min_coverage") or 0.6)
+    coverage = (opened / ranked) if ranked else 1.0
+    if ranked and coverage < floor:
+        return ControlError(
+            "phase1_source_coverage_below_floor",
+            f"{opened}/{ranked} work-pack concentrated-candidate sources analyzed "
+            f"(coverage {coverage:.2f}, floor {floor:.2f}); open more ranked sources or "
+            f"record them as rejected in the Source Inventory before completing this topic",
+            paths=[rel_or_abs(kb_root, output)],
+        )
     workpack_json, workpack_md = _workpack_paths(slug)
     record_fingerprint(state, kb_root, kb_root / workpack_json, f"phase1:{slug}")
     record_fingerprint(state, kb_root, kb_root / workpack_md, f"phase1:{slug}")
@@ -2119,6 +2136,94 @@ def control_git_state(args: argparse.Namespace) -> Dict[str, Any]:
     )
 
 
+def cmd_doctor(args: argparse.Namespace) -> Dict[str, Any]:
+    """Read-only self-check of the apex-kb skill package's own internal consistency - not a
+    specific KB instance. Never touches --kb-root; catches the class of bug where the skill
+    package itself ships internally inconsistent documentation or code."""
+    root = repository_root()
+    skill = skill_root()
+    checks: List[Dict[str, Any]] = []
+
+    def add_check(name: str, ok: bool, detail: str = "") -> None:
+        checks.append({"check": name, "status": "ok" if ok else "fail", "detail": detail})
+
+    schema_dir = skill / "references"
+    schema_files = sorted(schema_dir.glob("*.schema.json")) if schema_dir.exists() else []
+    for schema_file in schema_files:
+        try:
+            value = json.loads(schema_file.read_text(encoding="utf-8-sig"))
+            add_check(f"schema_parses:{schema_file.name}", isinstance(value, dict), "" if isinstance(value, dict) else "schema root is not an object")
+        except json.JSONDecodeError as exc:
+            add_check(f"schema_parses:{schema_file.name}", False, str(exc))
+
+    template_dir = skill / "templates"
+    schema_names = {schema_file.name for schema_file in schema_files}
+    template_files = sorted(template_dir.glob("*.md")) if template_dir.exists() else []
+    referenced_missing: List[str] = []
+    for template_file in template_files:
+        text = template_file.read_text(encoding="utf-8-sig")
+        for match in re.finditer(r"([\w.-]+\.schema\.json)", text):
+            name = match.group(1)
+            if name not in schema_names:
+                referenced_missing.append(f"{template_file.name} -> {name}")
+    add_check("template_schema_refs_exist", not referenced_missing, "; ".join(referenced_missing))
+
+    def _canonical_block(text: str, key: str) -> Optional[List[str]]:
+        match = re.search(rf"{key}:\n((?:  - .+\n)+)", text)
+        if not match:
+            return None
+        return [line.strip("- ").strip() for line in match.group(1).splitlines() if line.strip()]
+
+    skill_md_text = (skill / "SKILL.md").read_text(encoding="utf-8-sig")
+    kb_contract_text = (skill / "references" / "kb-contract.md").read_text(encoding="utf-8-sig")
+    skill_paths = _canonical_block(skill_md_text, "canonical_paths")
+    contract_paths = _canonical_block(kb_contract_text, "canonical")
+    if skill_paths is None or contract_paths is None:
+        add_check("canonical_paths_match", False, "could not locate a canonical_paths block in SKILL.md and/or kb-contract.md")
+    else:
+        missing_from_contract = sorted(set(skill_paths) - set(contract_paths))
+        missing_from_skill = sorted(set(contract_paths) - set(skill_paths))
+        detail_parts = []
+        if missing_from_contract:
+            detail_parts.append(f"in SKILL.md only: {missing_from_contract}")
+        if missing_from_skill:
+            detail_parts.append(f"in kb-contract.md only: {missing_from_skill}")
+        add_check("canonical_paths_match", not detail_parts, "; ".join(detail_parts))
+
+    test_dir = root / "apex-meta" / "scripts" / "tests"
+    control_tests = sorted(test_dir.glob("test_apex_kb_control*.py")) if test_dir.exists() else []
+    add_check("control_test_discovery_path_resolves", len(control_tests) >= 2, f"found {len(control_tests)} at {test_dir}")
+
+    control_path = Path(__file__).resolve()
+    try:
+        compile(control_path.read_text(encoding="utf-8-sig"), str(control_path), "exec")
+        add_check("control_module_compiles", True)
+    except SyntaxError as exc:
+        add_check("control_module_compiles", False, str(exc))
+
+    parser_for_check = argparse.ArgumentParser()
+    configure_parser(parser_for_check)
+    actions_choices: List[str] = []
+    for action in parser_for_check._actions:
+        if isinstance(action, argparse._SubParsersAction):
+            actions_choices = sorted(action.choices.keys())
+            break
+    dispatch_source = control_path.read_text(encoding="utf-8-sig")
+    missing_dispatch = [name for name in actions_choices if f'action == "{name}"' not in dispatch_source]
+    add_check("every_control_action_has_dispatch_branch", not missing_dispatch, f"missing: {missing_dispatch}" if missing_dispatch else "")
+
+    all_ok = all(item["status"] == "ok" for item in checks)
+    return stage_result(
+        "doctor",
+        "doctor",
+        "ok" if all_ok else "failed",
+        reason_code=None if all_ok else "doctor_check_failed",
+        artifact={"checks": checks},
+        next_stage=None,
+        operator_action=None if all_ok else "Fix the failing skill-package consistency check(s) listed in artifact.checks",
+    )
+
+
 # ---------------------------------------------------------------------------
 # Parser integration, dispatch, and direct-command guard
 # ---------------------------------------------------------------------------
@@ -2142,6 +2247,13 @@ def configure_parser(parser: argparse.ArgumentParser) -> None:
     init.add_argument("--execution-route", choices=EXECUTION_ROUTES, required=True)
     init.add_argument("--corpus-breadth", choices=["narrow", "broad"], default="narrow")
     init.add_argument("--broad-breadth-reason")
+    init.add_argument(
+        "--phase1-min-coverage",
+        type=float,
+        default=0.6,
+        help="Minimum ratio (0-1) of a topic's work-pack concentrated-candidate sources that "
+        "must have a per-source analysis record before that topic's phase1 stage completes",
+    )
     init.add_argument("--topic-slug", action="append", default=[])
     init.add_argument("--target-repository", required=True)
     init.add_argument("--target-commit")
@@ -2161,6 +2273,8 @@ def configure_parser(parser: argparse.ArgumentParser) -> None:
     git_state = actions.add_parser("git-state", help="Classify Git/worktree state without mutating it")
     git_state.add_argument("--repo-root")
 
+    actions.add_parser("doctor", help="Validate skill-package internal consistency (independent of any specific KB)")
+
 
 def dispatch(args: argparse.Namespace, core: Mapping[str, Any]) -> Dict[str, Any]:
     try:
@@ -2179,6 +2293,8 @@ def dispatch(args: argparse.Namespace, core: Mapping[str, Any]) -> Dict[str, Any
             return control_reconcile(args, core)
         if action == "git-state":
             return control_git_state(args)
+        if action == "doctor":
+            return cmd_doctor(args)
         raise ControlError("unknown_control_action", f"Unknown control action: {action}")
     except ControlError as exc:
         run_id = "unknown"

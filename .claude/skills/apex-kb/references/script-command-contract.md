@@ -71,6 +71,7 @@ python apex-meta/scripts/apex_kb.py --kb-root apex-meta/kb/<kb-slug>/ control <a
 | `run` | yes with `--allow-write` | execute exactly one legal deterministic stage in-process or render exactly one semantic packet |
 | `reconcile` | yes only when accepting a detected input change | resume from repository files, validate packet output, classify drift, and invalidate only affected downstream stages |
 | `git-state` | no | classify branch, HEAD, upstream, ahead/behind, dirty/untracked/conflicted counts, and in-progress operations without mutation |
+| `doctor` | no | validate the apex-kb skill package's own internal consistency (schemas parse, template schema references exist, `SKILL.md`/`kb-contract.md` canonical paths agree, control test files are discoverable, `apex_kb_control.py` compiles, every parser action has a dispatch branch) - independent of any specific KB |
 
 The compact result for every action conforms to `apex.kb.stage-result.v1`. A controlled KB has `manifests/run-state.json`; direct low-level mutation commands are blocked for that KB so state cannot drift. Legacy KBs without run state keep their existing low-level command behavior.
 

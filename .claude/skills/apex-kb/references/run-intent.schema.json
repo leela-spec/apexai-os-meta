@@ -75,6 +75,7 @@
     },
     "corpus_breadth": {"enum": ["narrow", "broad"]},
     "broad_breadth_reason": {"type": ["string", "null"]},
+    "phase1_min_coverage": {"type": ["number", "null"], "minimum": 0, "maximum": 1},
     "topic_slugs": {
       "type": "array",
       "items": {"type": "string", "minLength": 1},

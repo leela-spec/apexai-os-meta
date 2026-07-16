@@ -61,6 +61,7 @@
         "query_ready"
       ]
     },
+    "phase1_min_coverage": {"type": ["number", "null"], "minimum": 0, "maximum": 1},
     "operator_confirmation": {"$ref": "#/$defs/operator_confirmation"},
     "current_stage": {"type": "string", "minLength": 1},
     "completed_stages": {

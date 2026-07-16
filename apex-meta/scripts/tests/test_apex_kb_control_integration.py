@@ -45,6 +45,12 @@ class ApexKbControlIntegrationTests(unittest.TestCase):
         self.assertEqual(parsed.command, "control")
         self.assertEqual(parsed.control_action, "next")
 
+    def test_control_doctor_passes_on_the_real_skill_package(self):
+        args = argparse.Namespace(kb_root="apex-meta/kb/nonexistent-doctor-fixture", control_action="doctor")
+        result = self.control.cmd_doctor(args)
+        failing = [item for item in result["artifact"]["checks"] if item["status"] != "ok"]
+        self.assertEqual(result["status"], "ok", failing)
+
     def test_source_root_intake_keeps_unsupported_files_visible(self):
         with tempfile.TemporaryDirectory() as td:
             root = Path(td)

@@ -1,0 +1,43 @@
+{
+  "inspected_commit": "878839459ff8430c8bbfd3e8c52a4753794f1c56",
+  "repository": "leela-spec/apexai-os-meta",
+  "modules": [
+    {
+      "id": "N1",
+      "name": "phase1-coverage-gate",
+      "depends_on": []
+    },
+    {
+      "id": "N2",
+      "name": "doc-schema-example-test",
+      "depends_on": []
+    },
+    {
+      "id": "N3",
+      "name": "control-doctor",
+      "depends_on": []
+    }
+  ],
+  "existing_files_patched": [
+    ".claude/skills/apex-kb/references/run-intent.schema.json",
+    ".claude/skills/apex-kb/references/run-state.schema.json",
+    ".claude/skills/apex-kb/references/acceptance-tests.md",
+    ".claude/skills/apex-kb/SKILL.md",
+    ".claude/skills/apex-kb/references/script-command-contract.md",
+    "apex-meta/scripts/apex_kb_control.py"
+  ],
+  "new_files": [
+    "apex-meta/scripts/tests/test_doc_schema_examples.py"
+  ],
+  "patch_order": [
+    "patches/N1-phase1-coverage-gate.exact-match.md",
+    "patches/N2-doc-schema-example-test.exact-match.md",
+    "patches/N3-control-doctor.exact-match.md"
+  ],
+  "artifact_sha256": {
+    "patches/N1-phase1-coverage-gate.exact-match.md": "61b729401c9bf51fcf9e291837434e619b8ecd4e3c0dc1cb9081087bfe96909f",
+    "patches/N2-doc-schema-example-test.exact-match.md": "7e38fdcc41dc5b209ebfef144c14587f1faae42bd68d8ae775cf3fcb54b36f15",
+    "patches/N3-control-doctor.exact-match.md": "7229ef8f1e78a3e5b0a838df6cf4e6d1f694ba8b821337ec3e7c14a6f9893e11",
+    "new-files/apex-meta/scripts/tests/test_doc_schema_examples.py": "3c327ec3a3ed862a5244e3c4a281c318f28a1ed1888851c7d91d39b434a22026"
+  }
+}

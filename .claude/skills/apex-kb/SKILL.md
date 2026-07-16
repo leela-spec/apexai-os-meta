@@ -96,6 +96,7 @@ canonical_paths:
   - audit/
   - log/
   - log/runs/<run-id>/packets/
+  - log/runs/<run-id>/stage-results/
 
 derived_paths:
   - manifests/phase0/

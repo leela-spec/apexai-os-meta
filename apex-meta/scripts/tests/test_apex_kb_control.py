@@ -252,7 +252,7 @@ class ApexKbControlTests(unittest.TestCase):
         analysis = self.kb / "ingest-analysis/topic-a.analysis.md"
         analysis.parent.mkdir(parents=True, exist_ok=True)
         analysis.write_text(
-            """---\nstatus: analysis_complete\n---\n# Topic A Analysis\n\n## Compile Decision\n\n```yaml\nphase_2_ready: true\nproposed_wiki_pages:\n  - wiki/summaries/topic-a.md\n```\n\n## Candidate Dispositions\n\n- destination_page: wiki/summaries/topic-a.md\n""",
+            """---\nstatus: analysis_complete\n---\n# Topic A Analysis\n\n### source-1 - authority: primary\n\nAnalyzed the fixture's single work-pack candidate.\n\n## Compile Decision\n\n```yaml\nphase_2_ready: true\nproposed_wiki_pages:\n  - wiki/summaries/topic-a.md\n```\n\n## Candidate Dispositions\n\n- destination_page: wiki/summaries/topic-a.md\n""",
             encoding="utf-8",
         )
         ledger = self.kb / "log/semantic-runs/run-001/topics/topic-a.json"
@@ -348,6 +348,40 @@ class ApexKbControlTests(unittest.TestCase):
         wrong.write_text("not the exact path", encoding="utf-8")
         result = control.control_reconcile(self.args(control_action="reconcile"), self.core.mapping())
         self.assertEqual(result["reason_code"], "output_wrong_path")
+
+    def test_phase1_below_coverage_floor_is_blocked_not_completed(self):
+        # Reproduces the confirmed incident pattern: a topic "completed" while analyzing far
+        # fewer sources than its own work pack ranked as candidates (opened=0, ranked=1 here).
+        self.run_until_phase1_packet()
+        analysis = self.kb / "ingest-analysis/topic-a.analysis.md"
+        analysis.parent.mkdir(parents=True, exist_ok=True)
+        analysis.write_text(
+            "---\nstatus: analysis_complete\n---\n# Topic A Analysis\n\n## Compile Decision\n\n"
+            "```yaml\nphase_2_ready: true\nproposed_wiki_pages:\n  - wiki/summaries/topic-a.md\n```\n\n"
+            "## Candidate Dispositions\n\n- destination_page: wiki/summaries/topic-a.md\n",
+            encoding="utf-8",
+        )
+        ledger = self.kb / "log/semantic-runs/run-001/topics/topic-a.json"
+        ledger.parent.mkdir(parents=True, exist_ok=True)
+        ledger.write_text(
+            json.dumps(
+                {
+                    "schema": "apex.kb.semantic-run-ledger.v1",
+                    "run_id": "run-001",
+                    "topic_slug": "topic-a",
+                    "target_queries": [{"query_id": "q1", "status": "answered"}],
+                    "sources": [],
+                    "page_decisions": [],
+                    "candidate_dispositions": [],
+                    "completion_blockers": [],
+                }
+            ),
+            encoding="utf-8",
+        )
+        result = control.control_reconcile(self.args(control_action="reconcile"), self.core.mapping())
+        self.assertEqual(result["reason_code"], "phase1_source_coverage_below_floor")
+        reloaded = control.load_state(self.kb)
+        self.assertNotIn("phase1:topic-a", reloaded["completed_stages"])
 
     def test_independent_semantic_acceptance_is_mandatory(self):
         self.run_until_phase1_packet()
