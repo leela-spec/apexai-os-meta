@@ -1,0 +1,963 @@
+From https://github.com/leela-spec/apexai-os-meta
+ * branch              main       -> FETCH_HEAD
+Already up to date.
+---leela---
+From https://github.com/leela-spec/leela
+ * branch            main       -> FETCH_HEAD
+   8708774..9ef27bb  main       -> origin/main
+Updating 8f7631a..9ef27bb
+Fast-forward
+ .../LeelaApp-Index-KB-Wiki/HANDOVER_LLM_PHASES.md  |      8 +-
+ .../algorithm.json                                 |     23 +
+ .../epic-and-content-data.json                     |     22 +
+ .../feature-interconnections-user-flows.json       |     23 +
+ .../path.json                                      |     22 +
+ .../rhythm.json                                    |     23 +
+ .../sequencing.json                                |     22 +
+ .../skill-tree.json                                |     22 +
+ .../stats.json                                     |     23 +
+ .../user-stories.json                              |     32 +
+ .../ingest-analysis/algorithm.analysis.md          |     83 +
+ .../epic-and-content-data.analysis.md              |    100 +
+ ...feature-interconnections-user-flows.analysis.md |    100 +
+ .../ingest-analysis/path.analysis.md               |     76 +
+ .../ingest-analysis/rhythm.analysis.md             |    393 +-
+ .../ingest-analysis/sequencing.analysis.md         |     79 +
+ .../ingest-analysis/skill-tree.analysis.md         |     80 +
+ .../ingest-analysis/stats.analysis.md              |     81 +
+ .../ingest-analysis/user-stories.analysis.md       |    693 +
+ .../topics/algorithm.json                          |     35 +
+ .../topics/epic-and-content-data.json              |     37 +
+ .../feature-interconnections-user-flows.json       |     37 +
+ .../topics/path.json                               |     33 +
+ .../topics/rhythm.json                             |     35 +
+ .../topics/sequencing.json                         |     34 +
+ .../topics/skill-tree.json                         |     28 +
+ .../topics/stats.json                              |     34 +
+ .../topics/user-stories.json                       |    592 +
+ .../manifests/phase0/corpus-profile.md             |    221 +-
+ .../manifests/phase0/frontmatter-map.json          |   2623 +-
+ .../manifests/phase0/heading-map.json              |  83040 ++++++---
+ .../manifests/phase0/markdown-link-map.json        |  17045 +-
+ .../manifests/phase0/phase0-navigation-report.md   |      6 +-
+ .../manifests/phase0/source-facts.json             |   9374 +
+ .../manifests/phase0/source-priority-candidates.md |    100 +-
+ .../manifests/phase0/term-frequency.json           |    360 +-
+ .../manifests/phase0/topic-source-rankings.json    | 168685 +++++++++++++++++-
+ .../manifests/phase0/work-packs/algorithm.json     |  15547 ++
+ .../manifests/phase0/work-packs/algorithm.md       |    802 +
+ .../phase0/work-packs/epic-and-content-data.json   |  17108 ++
+ .../phase0/work-packs/epic-and-content-data.md     |    834 +
+ .../feature-interconnections-user-flows.json       |   9435 +
+ .../feature-interconnections-user-flows.md         |    542 +
+ .../manifests/phase0/work-packs/path.json          |  17655 ++
+ .../manifests/phase0/work-packs/path.md            |    850 +
+ .../manifests/phase0/work-packs/rhythm.json        |  12939 ++
+ .../manifests/phase0/work-packs/rhythm.md          |    693 +
+ .../manifests/phase0/work-packs/sequencing.json    |  17542 ++
+ .../manifests/phase0/work-packs/sequencing.md      |    813 +
+ .../manifests/phase0/work-packs/skill-tree.json    |  11409 ++
+ .../manifests/phase0/work-packs/skill-tree.md      |    615 +
+ .../manifests/phase0/work-packs/stats.json         |  10048 ++
+ .../manifests/phase0/work-packs/stats.md           |    569 +
+ .../manifests/phase0/work-packs/user-stories.json  |  12214 ++
+ .../manifests/phase0/work-packs/user-stories.md    |    657 +
+ .../LeelaApp-Index-KB-Wiki/manifests/run-intent.md |     47 +
+ .../manifests/source-manifest.json                 |  17426 +-
+ .../manifests/source-payload-manifest.json         |   3343 -
+ .../manifests/topic-registry.json                  |    315 +-
+ .../LeelaApp-Index-KB-Wiki/raw/articles/.gitkeep   |      1 -
+ .../LeelaApp-Index-KB-Wiki/raw/notes/.gitkeep      |      1 -
+ .../01_Features/101 - Chunks & Chunk Database.md   |    561 -
+ .../other/01_Features/101 Chunks & 102 Epics.md    |    798 -
+ .../102 - Epics (Database + Skill Tree).md         |    333 -
+ .../raw/other/01_Features/103 - Path.md            |    450 -
+ .../raw/other/01_Features/104 -Rhythm.md           |    393 -
+ .../105 - Sequencing & Sequencing Template.md      |    890 -
+ .../raw/other/01_Features/105 - Sequencing.md      |    425 -
+ .../raw/other/01_Features/106 - Algorithm.md       |    646 -
+ .../raw/other/01_Features/107 - Stats.md           |    676 -
+ .../raw/other/01_Features/108 - Sid.md             |    334 -
+ .../raw/other/01_Features/109 - Kharma.md          |    266 -
+ .../109 Kharma & 110 Community & Marketplace.md    |    513 -
+ .../01_Features/110 - Community & Marketplace.md   |    245 -
+ .../01_Features/Old 106 01 - Algorithm Code.md     |     36 -
+ .../raw/other/02_Interconnections/API Bridges.md   |      2 -
+ .../raw/other/02_Interconnections/Event Flows.md   |      2 -
+ .../02_Interconnections/Feature Dependencies.md    |      2 -
+ .../other/Leela Content/Chunk Catalogue New .csv   |     28 -
+ .../raw/other/Leela Content/Chunk catalogue.csv    |     52 -
+ .../other/Leela Content/Chunks/Chunk Cataloge.md   |    117 -
+ .../other/Leela Content/Chunks/Part 1 Chunks.md    |    798 -
+ .../Chunks/Part 4 Chunks Sequencing & Science.md   |    983 -
+ .../Chunks/part 2 chunks & Science.md              |    499 -
+ .../Chunks/part 3 chunks & science.md              |    306 -
+ ...ce - Builder, Settings, Details and Examples.md |    263 -
+ .../Sequence Instant Schema & Example.md           |    276 -
+ .../Data base & Templates/Sequence Template DR.md  |    159 -
+ .../Data base & Templates/Sequence Template.md     |    465 -
+ .../Principles, Guidelines & Science.md            |    149 -
+ .../Overarching/Routines for Human Optimization.md |    505 -
+ .../Leela Content/Sequences/A day of Sequences.md  |   2582 -
+ ... Flows \342\200\223 Holistic Work Sequences.md" |    315 -
+ .../other/Leela Content/Sequences/Daily Flows.md   |    678 -
+ .../raw/other/Leela Content/Sequences/Flows.md     |    993 -
+ .../Learn2Learn Epic - Use Cases and Sequences.md  |   1632 -
+ ...n Sequences, Epic, Chunks, Personas, Stories.md |    637 -
+ .../Sequences/Sequences Extraction 1.md            |    331 -
+ .../Leela Content/Sequences/Sequencing Info.md     |    171 -
+ .../Sequences/Sequnece Extraction 2.md             |    340 -
+ .../MVP, User Stories & Flows/.obsidian/app.json   |      1 -
+ .../.obsidian/appearance.json                      |      1 -
+ .../.obsidian/core-plugins.json                    |     33 -
+ .../.obsidian/workspace.json                       |    181 -
+ .../Leela MVP User Story & Flow Map.md             |    119 -
+ .../Leela User Story & Flow Map.md                 |    121 -
+ .../User Personas, Stories, Flows and MVP.md       |    400 -
+ .../user stories deep dive implementation specs.md |   1601 -
+ .../1x1 Chunk 3d endless knot tron style cube.png  |      3 -
+ .../Design, Gui, Ui/3x3 Endless Knot Block.png     |      3 -
+ .../Branding Endless Knot & Logo.png               |      3 -
+ .../Design, Gui, Ui/Chunk Info Card home small.png |      3 -
+ .../Example Patterns Flow Builder.png              |      3 -
+ .../Gemini_Generated_Image_5cm7u15cm7u15cm7.png    |      3 -
+ .../Design, Gui, Ui/Leela Design Foundations.md    |    412 -
+ .../Design, Gui, Ui/Multi epic Life .png           |      3 -
+ .../Session Info Card with legend.png              |      3 -
+ .../Design, Gui, Ui/Session Info Card.png          |      3 -
+ .../Design, Gui, Ui/Skill Tree Element Logic.png   |      3 -
+ .../Builder Step 1 Choose Slots 3 & 5.png"         |      3 -
+ .../Builder Step 2 Configure first Chunk Slot.png" |      3 -
+ .../Builder Step 3 - Three Chunks are defined.png" |      3 -
+ ...lder Step 4 - in total 3 reps of chunk set.png" |      3 -
+ ...ilder Step 5 - a break is added at the end.png" |      3 -
+ .../Chunk Info Card home small.png"                |      3 -
+ ...Chunk Switch Step 1 - User Clicks on Chunk.png" |      3 -
+ ...e user to change chunk or chunk dimensions.png" |      3 -
+ .../Design Example Figma.png"                      |      3 -
+ ...gle Flow Regen Dinner Cook TV Clean Listen.png" |      3 -
+ .../Element 2 - Rectangle Session & Flow.png"      |      3 -
+ ... One - A Chunk with Branch Symbol Physical.png" |      3 -
+ .../Example Patterns Flow Builder.png"             |      3 -
+ .../Guidance for Cube GUI UI.md"                   |    519 -
+ .../Leela Design Foundations.md"                   |    412 -
+ .../screens f\303\274r nowa/Picture1.png"          |      3 -
+ .../Possible next steps.md"                        |    242 -
+ .../Screenshot Sequence Webtool.png"               |      3 -
+ ...nt 3x3 + 1 Pattern plus visual guide lines.png" |      3 -
+ .../Sequence Element 3x3 + 1 Pattern.png"          |      3 -
+ .../Sequence Element 3x3 Pattern.png"              |      3 -
+ .../Session Info Card with legend.png"             |      3 -
+ .../screens f\303\274r nowa/Session Info Card.png" |      3 -
+ .../Epic Data (Backend)/Data Pack & SupaBase.md    |    182 -
+ .../Epic Data (Backend)/Data Pack Explanation.md   |    163 -
+ .../Epic Data (Backend)/chunk_dim.csv              |     53 -
+ .../Epic Data (Backend)/edge_fact.csv              |      1 -
+ .../Epic Data (Backend)/epic_block_dim.csv         |     36 -
+ .../Epic Data (Backend)/epic_dim.csv               |      2 -
+ .../Epic Data (Backend)/epic_node_fact.csv         |     53 -
+ .../Epic Data (Backend)/node_key_mapping.csv       |     53 -
+ .../path_user_natalia_seed_v1.json                 |    169 -
+ .../Epic Data (Backend)/set_fact.csv               |      3 -
+ .../Epic Data (Backend)/validation_report.md       |     42 -
+ .../Nowa Basic Files/D1 Data Models SSOT.md        |    148 -
+ .../Nowa Basic Files/D2 Data Connections SSOT.md   |    166 -
+ .../F0 Nowa Workspace and Git SSOT.md              |    139 -
+ .../L1 Global States and Functions SSOT.md         |    144 -
+ .../N1 Route and Parameter Contracts SSOT.md       |    143 -
+ .../Images, Wireframes, Screenshots.md             |    129 -
+ .../Nowa Build Process Standard for Leela.md       |    317 -
+ .../Nowa Handling New 01-26/Nowa Handoff v3.md     |   2967 -
+ .../Nowa Micro-Prompt Implementation Guide.md      |    450 -
+ .../Nowa Process, Documentation & such.md          |    827 -
+ .../Nowa plausibility & cross-chapter notes.md     |    239 -
+ .../Guides/Nowa Micro-Prompt Flow Guide v2 lean.md |    236 -
+ .../Guides/Specs & Build Pack Authoring Guide.md   |    550 -
+ .../Home Screen/Home Screen Specs & Doc vSpark.md  |    360 -
+ .../Home Screen/Home_Wireframes_vSpark.xlsx        |      3 -
+ .../Nowa Prompt Flow \342\200\224 Home Screen.md"  |    582 -
+ .../Home Screen/Possible New Home Spec.md          |    332 -
+ .../Home Screen/SBP SCR_Home_Today Build Pack.md   |    208 -
+ .../Path/Nowa Prompt Flow Path v5.md               |    472 -
+ ...\200\223 Specs & Docs (vSpark Prototype) v5.md" |    404 -
+ .../Path/Path_Wireframes_v5.xlsx                   |      3 -
+ .../Wireframes  & Specs/Path/SBP Path v5.md        |    358 -
+ .../Play & Sequences Wireframes v2.xlsx            |      3 -
+ .../SCR_SequenceRun - NowaPrompt Flow 1.md         |    756 -
+ .../SCR_SequenceRun - NowaPrompt Flow 2.md         |    627 -
+ .../Play Sequences/SCR_SequenceRun - SBP.md        |    501 -
+ .../SCR_SequenceRun Process How to 4 Andy.md       |    192 -
+ .../SCR_SequenceRun Specs & Docs new.md            |    408 -
+ ...e SequenceRun vMultiChunk (Session or Flow).jpg |      3 -
+ .../Wireframe SequenceRun vSingleChunk.jpg         |      3 -
+ .../Nowa Prompt Flow \342\200\224 Skill Tree.md"   |    473 -
+ ...BP \342\200\224 SCR_SkillTree Build Pack v1.md" |    524 -
+ .../Skill Tree/Skill Tree Specs v3.md              |    409 -
+ .../Skill Tree/SkillTree_Wireframes v5.xlsx        |      3 -
+ .../Skill Tree/SkillTree_Wireframes_vSparkV4.xlsx  |      3 -
+ .../L2L German & Others Epic Data Base.xlsx        |      3 -
+ .../L2L German ^0 Others Epic Data Base.csv        |     41 -
+ .../Nowa/Data & templates/L2L German Epic Data.csv |    155 -
+ .../Design Specs & Guidance/1 Chunk example.png    |      3 -
+ ...imple 2d lines endless knot tron style cube.png |      3 -
+ .../1x1 Chunk 3d endless knot tron style cube.png  |      3 -
+ .../2x2 Rubics Cube example.jpg                    |      3 -
+ .../2x2 cube gpt endless knot.png                  |      3 -
+ .../2x2 rubic cube not endless knot.png            |      3 -
+ .../3x3 Endless Knot Block.png                     |      3 -
+ ...ifferent Colors Tron LED Style Endless Knot.jpg |      3 -
+ .../Branding Endless Knot & Logo.png               |      3 -
+ .../Example Bundle Representation.png              |      3 -
+ .../Gemini_Generated_Image_5cm7u15cm7u15cm7.png    |      3 -
+ .../Leela Design Foundations.md                    |    412 -
+ .../Skill Tree Element Logic.png                   |      3 -
+ .../Tron styke endless knot.jpg                    |      3 -
+ .../complex 2x2 cube endless knot .png             |      3 -
+ ... cube with endless knot 3d visualization 2.webp |      3 -
+ ...x1 cube with endless knot 3d visualization.webp |      3 -
+ ...style led reference for endless knot cube 2.jpg |      3 -
+ ...tyle led reference for endless knot cube v3.jpg |      3 -
+ ...n style led reference for endless knot cube.jpg |      3 -
+ .../raw/other/Nowa/NOWA Handoff.md                 |   2716 -
+ .../Nowa Contract SSOTs/D1 Data Models SSOT.md     |    142 -
+ .../D2 Data Connections SSOT.md                    |    164 -
+ .../F0 Nowa Workspace and Git SSOT.md              |    139 -
+ .../L1 Global States and Functions SSOT.md         |    142 -
+ .../N1 Route and Parameter Contracts SSOT.md       |    137 -
+ .../other/Nowa/Nowa Essentials/guards_config.json  |     71 -
+ .../other/Nowa/Nowa Essentials/guards_helper.dart  |     60 -
+ .../other/Nowa/Nowa Essentials/leela_mvp_ddl.sql   |    499 -
+ .../Nowa/Nowa Essentials/leela_mvp_payloads.json   |     70 -
+ .../raw/other/Nowa/Nowa Essentials/sid_policy.json |     83 -
+ .../raw/other/Nowa/Nowa Handoff v2.md              |    918 -
+ ...Process to develop Nowa input from Blueprint.md |    328 -
+ .../other/Nowa/Prompting Library for Nowa v1.md    |     85 -
+ .../raw/other/Nowa/Universal Integration Guide.md  |    328 -
+ .../other/Nowa/Wireframes GPT/GPT Wireframes.md    |    487 -
+ .../Nowa/Wireframes GPT/Home Screen Specs & Doc.md |    506 -
+ .../Wireframes GPT/LeelaAPP_HomeScreen_v2.xlsx     |      3 -
+ ...en Library Leela \342\200\223 Universe v3.xlsx" |      3 -
+ .../Nowa/Wireframes GPT/Nowa Prompt Library.md     |     85 -
+ .../other/Nowa/Wireframes GPT/Path Specs & Docs.md |    285 -
+ .../other/Nowa/Wireframes GPT/Path Wireframe.xlsx  |      3 -
+ .../Play & Sequences Wireframes TBD.xlsx           |      3 -
+ .../Nowa/Wireframes GPT/Rhythm Specs & Docs.md     |    758 -
+ .../Nowa/Wireframes GPT/Ryhthm Wireframe.xlsx      |      3 -
+ ...thm Screen - Branch SCore Daytime and daily.png |      3 -
+ ...ythm Screen - List of Squences to plan with.png |      3 -
+ .../Rhythm Screen - Planned Squences.png           |      3 -
+ .../Rhythm Screen - Screen 2 Placing Epics.png     |      3 -
+ ...en - Week Blueprint Boundaries & Timefields.png |      3 -
+ .../Nowa/Wireframes GPT/Skill Tree Specs & Docs.md |    394 -
+ .../Nowa/Wireframes GPT/SkillTree_Wireframes.xlsx  |      3 -
+ .../raw/other/Prototyp Spark/.obsidian/app.json    |      9 -
+ .../other/Prototyp Spark/.obsidian/appearance.json |      1 -
+ .../Prototyp Spark/.obsidian/core-plugins.json     |     33 -
+ .../other/Prototyp Spark/.obsidian/workspace.json  |    224 -
+ .../D1 Data Models SSOT.md                         |    148 -
+ .../D2 Data Connections SSOT.md                    |    166 -
+ .../F0 Nowa Workspace and Git SSOT.md              |    139 -
+ .../L1 Global States and Functions SSOT.md         |    144 -
+ .../N1 Route and Parameter Contracts SSOT.md       |    143 -
+ .../1 Chunk example.png                            |      3 -
+ ...imple 2d lines endless knot tron style cube.png |      3 -
+ .../1x1 Chunk 3d endless knot tron style cube.png  |      3 -
+ .../2x2 Rubics Cube example.jpg                    |      3 -
+ .../2x2 cube gpt endless knot.png                  |      3 -
+ .../2x2 rubic cube not endless knot.png            |      3 -
+ .../3x3 Endless Knot Block.png                     |      3 -
+ ...ifferent Colors Tron LED Style Endless Knot.jpg |      3 -
+ .../Branding Endless Knot & Logo.png               |      3 -
+ .../Example Bundle Representation.png              |      3 -
+ .../Gemini_Generated_Image_5cm7u15cm7u15cm7.png    |      3 -
+ .../74bcda08-035a-480b-af74-80a4e4fd0dab.avif      |    Bin 21323 -> 0 bytes
+ .../Screenshot 2026-02-11 170404.png               |      3 -
+ ...er-interface-hud-elements-260nw-2492520433.webp |      3 -
+ .../General App UI/inline-04-o.avif                |    Bin 151969 -> 0 bytes
+ ...twitch-game-icons-buttons-260nw-2412342111.webp |      3 -
+ ...n style led reference for endless knot cube.jpg |      3 -
+ .../Multi Epic Life 2.jpg                          |      3 -
+ .../Multi epic Life .png                           |      3 -
+ .../Design Specs & Guidance, Gui; UI/Path 2.jpg    |      3 -
+ .../Design Specs & Guidance, Gui; UI/Path.jpg      |      3 -
+ .../Design Specs & Guidance, Gui; UI/Sequence.jpg  |      3 -
+ .../Skill Tree Element Logic.png                   |      3 -
+ .../Design Specs & Guidance, Gui; UI/Stats.jpg     |      3 -
+ .../Tron styke endless knot.jpg                    |      3 -
+ .../complex 2x2 cube endless knot .png             |      3 -
+ ... cube with endless knot 3d visualization 2.webp |      3 -
+ ...x1 cube with endless knot 3d visualization.webp |      3 -
+ .../Builder Step 1 Choose Slots 3 & 5.png"         |      3 -
+ .../Builder Step 2 Configure first Chunk Slot.png" |      3 -
+ .../Builder Step 3 - Three Chunks are defined.png" |      3 -
+ ...lder Step 4 - in total 3 reps of chunk set.png" |      3 -
+ ...ilder Step 5 - a break is added at the end.png" |      3 -
+ .../Chunk Info Card home small.png"                |      3 -
+ ...Chunk Switch Step 1 - User Clicks on Chunk.png" |      3 -
+ ...e user to change chunk or chunk dimensions.png" |      3 -
+ .../Design Example Figma.png"                      |      3 -
+ ...gle Flow Regen Dinner Cook TV Clean Listen.png" |      3 -
+ .../Element 2 - Rectangle Session & Flow.png"      |      3 -
+ ... One - A Chunk with Branch Symbol Physical.png" |      3 -
+ .../Example Patterns Flow Builder.png"             |      3 -
+ .../Guidance for Cube GUI UI.md"                   |    519 -
+ .../Leela Design Foundations.md"                   |    412 -
+ .../screens f\303\274r nowa/Picture1.png"          |      3 -
+ .../Possible next steps.md"                        |    242 -
+ .../Screenshot Sequence Webtool.png"               |      3 -
+ ...nt 3x3 + 1 Pattern plus visual guide lines.png" |      3 -
+ .../Sequence Element 3x3 + 1 Pattern.png"          |      3 -
+ .../Sequence Element 3x3 Pattern.png"              |      3 -
+ .../Session Info Card with legend.png"             |      3 -
+ .../screens f\303\274r nowa/Session Info Card.png" |      3 -
+ .../skill tree epic & block picker .png            |      3 -
+ ...style led reference for endless knot cube 2.jpg |      3 -
+ ...tyle led reference for endless knot cube v3.jpg |      3 -
+ ...n style led reference for endless knot cube.jpg |      3 -
+ .../Epic Data/Data Pack & SupaBase.md              |    182 -
+ .../Epic Data/Data Pack Explanation.md             |    163 -
+ .../other/Prototyp Spark/Epic Data/chunk_dim.csv   |     53 -
+ .../other/Prototyp Spark/Epic Data/edge_fact.csv   |      1 -
+ .../Prototyp Spark/Epic Data/epic_block_dim.csv    |     36 -
+ .../other/Prototyp Spark/Epic Data/epic_dim.csv    |      2 -
+ .../Prototyp Spark/Epic Data/epic_node_fact.csv    |     53 -
+ .../Prototyp Spark/Epic Data/node_key_mapping.csv  |     53 -
+ .../Epic Data/path_user_natalia_seed_v1.json       |    169 -
+ .../other/Prototyp Spark/Epic Data/set_fact.csv    |      3 -
+ .../Prototyp Spark/Epic Data/validation_report.md  |     42 -
+ .../Leela - Executive Product Brief.md             |    382 -
+ .../Leela - Executive Product Brief.pdf            |      3 -
+ .../Leela_Prototype_Process_and_2DO_Log_v4.md      |    506 -
+ .../raw/other/Prototyp Spark/Nowa Fail.md          |     30 -
+ ...Chat & Thinking Export - First Session 28.02.md |     89 -
+ ...Chat & Thinking Export - First Session 28.02.md |     14 -
+ .../Images, Wireframes, Screenshots.md             |    129 -
+ .../LessonsLearned from Nowa Failures GPT.md       |    453 -
+ .../Nowa Build Process Standard for Leela.md       |    317 -
+ .../Nowa Handling New 01-26/Nowa Handoff v3.md     |   2967 -
+ .../Nowa Micro-Prompt Implementation Guide.md      |    363 -
+ .../Nowa Process, Documentation & such.md          |    827 -
+ .../Nowa plausibility & cross-chapter notes.md     |    239 -
+ .../Update Spec & Build pack guide.md              |     60 -
+ .../Update prompt flow guide.md                    |     74 -
+ .../Nowa Process Questions & such.docx             |      3 -
+ ...342\200\231re Getting, What to Build (Nowa).md" |    182 -
+ .../other/Prototyp Spark/Prompts and Steps 1.md    |    410 -
+ .../Archiv/Home Screen vXYZ.xlsx                   |      3 -
+ .../Archiv/Nowa Micro-Prompt Flow Guide v2 lean.md |    236 -
+ ...\200\223 Specs & Docs (vSpark Prototype) v4.md" |    676 -
+ ...342\200\223 Specs & Docs (vSpark Prototype).md" |    659 -
+ .../Archiv/Play & Sequences Wireframes TBD.xlsx    |      3 -
+ ...342\200\223 Specs & Docs (vSpark Prototype).md" |    313 -
+ .../Guides/Archiv/Guide Update new.md              |    165 -
+ .../Guides/Archiv/Guide Update.md                  |    159 -
+ .../Archiv/Specs & Build Pack Authoring Guide 1.md |    554 -
+ .../Specs & Build Pack Authoring Guide v2.md       |    662 -
+ .../Guides/Archiv/Update Nowa Prompt Flow Guide.md |    242 -
+ .../Fuckups/Fuck up upadte priocess analysis.md    |    203 -
+ .../Wireframes  & Specs/Guides/Fuckups/Probelms.md |     20 -
+ .../Guides/GitHub Related/GitHub Codex & Docs.md   |    299 -
+ .../GitHub Codex Intro for new Chat.md             |    224 -
+ .../Guides/GitHub Related/Guide-Patch-Diff.md      |    470 -
+ .../GitHub Related/OLD Process-of-Git-Update.md    |    266 -
+ .../GitHub Related/Powershell & Local Run Leela.md |     50 -
+ .../Guides/Guide Nowa Micro-Prompt Flow v3.md      |    289 -
+ .../Guides/Guide Screen Build Pack (SBP).md        |    147 -
+ .../Guides/Guide Screen Specs.md                   |    385 -
+ .../Guides/Guide Update Process Instructions.md    |    209 -
+ .../Guides/Nowa Local Setup with Github.md         |     85 -
+ .../Guides/Process of Screen Doc Development.md    |    443 -
+ .../Home Screen/Home Screen Specs & Doc vSpark.md  |    360 -
+ .../Home Screen/Home_Wireframes_vSpark.xlsx        |      3 -
+ .../Nowa Prompt Flow \342\200\224 Home Screen.md"  |    582 -
+ .../Home Screen/Possible New Home Spec.md          |    332 -
+ .../Home Screen/SBP SCR_Home_Today Build Pack.md   |    208 -
+ .../Leela_Prototype_Process_and_2DO_Log_v4.md      |    505 -
+ .../Path/Nowa Prompt Flow Path v5.md               |    472 -
+ ...\200\223 Specs & Docs (vSpark Prototype) v5.md" |    404 -
+ .../Path/Path_Wireframes_vSparkV2.xlsx             |      3 -
+ .../Wireframes  & Specs/Path/SBP Path v5.md        |    358 -
+ .../Play & Sequences Wireframes v2.xlsx            |      3 -
+ .../SCR_PlayModeSelection Nowa Flow part 1.md      |    276 -
+ .../SCR_PlayModeSelection Nowa Flow part 2.md      |    353 -
+ .../PlaymodeSelection/SCR_PlayModeSelection SBP.md |    259 -
+ .../SCR_PlayModeSelection Specs & Docs.md          |    259 -
+ .../`SCR_PlayModeSelection Nowa Prompt Flow.md     |    640 -
+ .../SCR_SequenceFinished Specs & Docs.md           |    338 -
+ .../SCR_SequenceRun - NowaPrompt Flow 1.md         |    756 -
+ .../SCR_SequenceRun - NowaPrompt Flow 2.md         |    627 -
+ .../Play Sequences/SCR_SequenceRun - SBP.md        |    501 -
+ .../SCR_SequenceRun Process How to 4 Andy.md       |    192 -
+ .../SCR_SequenceRun Specs & Docs new.md            |    408 -
+ .../SCR_SequenceSelect Specs & Docs v2.md          |    321 -
+ .../SCR_SequenceSelect Specs & Docs.md             |    258 -
+ .../SequenceSelect/Update File SequenceSelect.md   |    194 -
+ .../Play Sequences/Update nowa flow.md             |    316 -
+ ...e SequenceRun vMultiChunk (Session or Flow).jpg |      3 -
+ .../Wireframe SequenceRun vSingleChunk.jpg         |      3 -
+ .../X Archiv/SCR Playmode first new.md             |    249 -
+ .../X Archiv/SCR Playmode second new.md            |     76 -
+ .../SCR_PlayModeSelection Specs & Docs new.md      |    193 -
+ .../X Archiv/SCR_PlayModeSelection Specs & Docs.md |    247 -
+ .../X Archiv/SCR_SequenceFinished Specs & Docs.md  |    338 -
+ .../X Archiv/SCR_SequenceRun Specs & Docs 1.md     |    406 -
+ .../X Archiv/SCR_SequenceRun Specs & Docs.md       |    519 -
+ .../X Archiv/SCR_SequenceSelect Specs & Docs.md    |    321 -
+ .../Play Sequences/X Archiv/update info.md         |    192 -
+ .../Play Sequences/playmodeselection.jpg           |      3 -
+ .../Play Sequences/update specs sequence select.md |    194 -
+ .../Rhythm/Wireframe Rhythm.xlsx                   |      3 -
+ .../Nowa Prompt Flow \342\200\224 Skill Tree.md"   |    473 -
+ ...BP \342\200\224 SCR_SkillTree Build Pack v1.md" |    524 -
+ .../Skill Tree/Skill Tree Specs v3.md              |    409 -
+ .../Skill Tree/SkillTree_Wireframes v5.xlsx        |      3 -
+ .../Skill Tree/SkillTree_Wireframes_vSparkV4.xlsx  |      3 -
+ .../Stats/Stats Wireframes.xlsx                    |      3 -
+ .../raw/other/Prototyp Spark/tst.txt               |    142 -
+ .../raw/other/Upgrades/.obsidian/app.json          |      1 -
+ .../raw/other/Upgrades/.obsidian/appearance.json   |      1 -
+ .../raw/other/Upgrades/.obsidian/core-plugins.json |     33 -
+ .../raw/other/Upgrades/.obsidian/workspace.json    |    201 -
+ .../Upgrades/IndexOfUptoDateFolders/Index1.md      |    120 -
+ .../Night4/1stContentDevelopmentProcessChat.md     |   3325 -
+ .../2ndContentDevelopmentProcessChat Rhythm.md     |    784 -
+ .../Night4/2ndContentDevelopmentProcessChat.md     |   1119 -
+ ...ailed screen briefs for top-priority screens.md |    218 -
+ .../NewLeela2NowaDeepResearchScreenDevelopment.md  |    813 -
+ ...200\221Star und Shared\342\200\221Contracts.md" |     91 -
+ ...\200\223 Specs & Docs (vSpark Prototype) v5.md" |    404 -
+ .../SCR_PlayModeSelection Specs & Docs.md          |    259 -
+ .../StatusQuo/SCR_SequenceRun Specs & Docs new.md  |    408 -
+ .../SCR_SequenceSelect Specs & Docs v2.md          |    321 -
+ .../Night4/StatusQuo/Skill Tree Specs v3.md        |    409 -
+ .../raw/other/Upgrades/Night4/Unbenannt.md         |    948 -
+ .../Night4/Updates new/Cross-FeatureContractsv2.7z |    Bin 62311 -> 0 bytes
+ .../Night4/Updates new/Cross-FeatureContractsv2.md |    182 -
+ .../other/Upgrades/Night4/Updates new/GapReport.md |    146 -
+ .../Night4/Updates new/General Updatev2.md         |    159 -
+ .../Night4/Updates new/Night4Extracted&Analyzed.md |   9365 -
+ .../Upgrades/Night4/Updates new/PathUpdatev2.md    |    175 -
+ .../Night4/Updates new/Rhythm SSOT Updatev2.md     |     71 -
+ .../Updates new/Rhythm_Feature_Screen_Spec.md      |    670 -
+ .../Night4/Updates new/Sequencing SSOT Updatev2.md |     65 -
+ .../Night4/Updates new/Skill Tree Update N4 v1.md  |    107 -
+ .../Upgrades/Night4/Updates new/updatesnew.zip     |      3 -
+ .../Leela_Prototype_Process_and_2DO_Log_v4.md      |    505 -
+ .../other/Upgrades/Night4/UpdatesOld/Upgrades 1.md |    444 -
+ .../other/Upgrades/Night4/UpdatesOld/Upgrades 2.md |    368 -
+ .../other/Upgrades/Night4/UpdatesOld/Upgrades 3.md |    441 -
+ .../raw/other/Upgrades/Night4/dr prompt.md         |    723 -
+ .../raw/other/Upgrades/Night4/statusquo.zip        |      3 -
+ .../raw/other/Upgrades/Night4/updatesnew.zip       |      3 -
+ .../raw/other/Upgrades/Night4/updatesold.zip       |      3 -
+ .../raw/other/Upgrades/Night42Nowa/How to.md       |      1 -
+ ...-format contract sheets for Wave-1 contracts.md |   1116 -
+ .../Night42Nowa/Intro/Contract Prompt Chunk 1.md   |    230 -
+ .../Night42Nowa/Intro/Contract Prompt Chunk 2.md   |    281 -
+ .../Night42Nowa/Intro/Contract Prompt Chunk 3.md   |    292 -
+ .../Night42Nowa/Intro/Contract Prompt Chunk 4.md   |    351 -
+ ...format contract sheets for Wave-1 contracts.txt |   1116 -
+ .../Intro/Intro to Contracts Chunks 1-4.md         |    272 -
+ .../North Star intro \342\200\224 iteration.md"    |      8 -
+ .../Spatial Skill Tree & path/ChatHandover.md      |    388 -
+ .../Internal Prompt Flow.md                        |    671 -
+ .../Spatial Skill Tree & Path - Prompt 0.md        |    264 -
+ .../Spatial Skill Tree & Path - Prompt 1.md        |    269 -
+ .../Spatial Skill Tree & Path - Prompt 2.md        |    287 -
+ .../Spatial Skill Tree & Path - Prompt 3.md        |    299 -
+ .../Spatial Skill Tree & Path - Prompt 4.md        |    295 -
+ .../Spatial Skill Tree & Path - Prompt 5.md        |    296 -
+ .../Spatial Skill Tree & Path - Prompt 6.md        |    298 -
+ .../Spatial Skill Tree & Path - Prompt 7.md        |    287 -
+ .../Upgrades/Updates 28-01-26/process basics.md    |     96 -
+ .../raw/other/Upgrades/Upgrades 1.md               |    444 -
+ .../raw/other/Upgrades/Upgrades 2.md               |    368 -
+ .../raw/other/Upgrades/Upgrades 3.md               |    441 -
+ .../LeelaApp-Index-KB-Wiki/raw/papers/.gitkeep     |      1 -
+ .../LeelaApp-Index-KB-Wiki/raw/refs/.gitkeep       |      1 -
+ .../semantic-contract/phase1-analysis-template.md  |      6 +-
+ .../phase2-wiki-page-templates.md                  |      4 +-
+ .../semantic-execution-contract.md                 |      2 +-
+ .../source-authority-and-contradictions.md         |      2 +-
+ .../wiki/concepts/active-run-surface-boundaries.md |    117 +
+ .../wiki/concepts/creator-pack-publishing.md       |    122 +
+ .../wiki/concepts/golden-paths.md                  |    134 +
+ .../wiki/concepts/kharma-consent-and-safety.md     |    128 +
+ .../wiki/concepts/offline-and-recovery-contract.md |    118 +
+ .../wiki/concepts/personas.md                      |    142 +
+ .../wiki/concepts/weekly-review-and-replan.md      |    123 +
+ .../wiki/summaries/algorithm.md                    |    153 +
+ .../summaries/cross-feature-interconnections.md    |    181 +-
+ .../wiki/summaries/epic-and-content-data.md        |    185 +-
+ .../LeelaApp-Index-KB-Wiki/wiki/summaries/path.md  |    146 +-
+ .../wiki/summaries/rhythm.md                       |    205 +-
+ .../wiki/summaries/sequencing-and-play.md          |    155 +-
+ .../wiki/summaries/skill-tree.md                   |    141 +-
+ .../wiki/summaries/stats-and-metrics.md            |    156 +-
+ .../wiki/summaries/user-stories.md                 |    235 +
+ 488 files changed, 400695 insertions(+), 144698 deletions(-)
+ create mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/audit/semantic-acceptance/semantic-2026-07-16-phase2-all-topics-01/algorithm.json
+ create mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/audit/semantic-acceptance/semantic-2026-07-16-phase2-all-topics-01/epic-and-content-data.json
+ create mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/audit/semantic-acceptance/semantic-2026-07-16-phase2-all-topics-01/feature-interconnections-user-flows.json
+ create mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/audit/semantic-acceptance/semantic-2026-07-16-phase2-all-topics-01/path.json
+ create mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/audit/semantic-acceptance/semantic-2026-07-16-phase2-all-topics-01/rhythm.json
+ create mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/audit/semantic-acceptance/semantic-2026-07-16-phase2-all-topics-01/sequencing.json
+ create mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/audit/semantic-acceptance/semantic-2026-07-16-phase2-all-topics-01/skill-tree.json
+ create mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/audit/semantic-acceptance/semantic-2026-07-16-phase2-all-topics-01/stats.json
+ create mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/audit/semantic-acceptance/semantic-2026-07-16-phase2-all-topics-01/user-stories.json
+ create mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/ingest-analysis/algorithm.analysis.md
+ create mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/ingest-analysis/epic-and-content-data.analysis.md
+ create mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/ingest-analysis/feature-interconnections-user-flows.analysis.md
+ create mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/ingest-analysis/path.analysis.md
+ create mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/ingest-analysis/sequencing.analysis.md
+ create mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/ingest-analysis/skill-tree.analysis.md
+ create mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/ingest-analysis/stats.analysis.md
+ create mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/ingest-analysis/user-stories.analysis.md
+ create mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/log/semantic-runs/semantic-2026-07-16-phase1-remaining-01/topics/algorithm.json
+ create mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/log/semantic-runs/semantic-2026-07-16-phase1-remaining-01/topics/epic-and-content-data.json
+ create mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/log/semantic-runs/semantic-2026-07-16-phase1-remaining-01/topics/feature-interconnections-user-flows.json
+ create mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/log/semantic-runs/semantic-2026-07-16-phase1-remaining-01/topics/path.json
+ create mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/log/semantic-runs/semantic-2026-07-16-phase1-remaining-01/topics/rhythm.json
+ create mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/log/semantic-runs/semantic-2026-07-16-phase1-remaining-01/topics/sequencing.json
+ create mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/log/semantic-runs/semantic-2026-07-16-phase1-remaining-01/topics/skill-tree.json
+ create mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/log/semantic-runs/semantic-2026-07-16-phase1-remaining-01/topics/stats.json
+ create mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/log/semantic-runs/semantic-2026-07-16-user-stories-01/topics/user-stories.json
+ create mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/manifests/phase0/source-facts.json
+ create mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/manifests/phase0/work-packs/algorithm.json
+ create mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/manifests/phase0/work-packs/algorithm.md
+ create mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/manifests/phase0/work-packs/epic-and-content-data.json
+ create mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/manifests/phase0/work-packs/epic-and-content-data.md
+ create mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/manifests/phase0/work-packs/feature-interconnections-user-flows.json
+ create mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/manifests/phase0/work-packs/feature-interconnections-user-flows.md
+ create mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/manifests/phase0/work-packs/path.json
+ create mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/manifests/phase0/work-packs/path.md
+ create mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/manifests/phase0/work-packs/rhythm.json
+ create mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/manifests/phase0/work-packs/rhythm.md
+ create mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/manifests/phase0/work-packs/sequencing.json
+ create mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/manifests/phase0/work-packs/sequencing.md
+ create mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/manifests/phase0/work-packs/skill-tree.json
+ create mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/manifests/phase0/work-packs/skill-tree.md
+ create mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/manifests/phase0/work-packs/stats.json
+ create mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/manifests/phase0/work-packs/stats.md
+ create mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/manifests/phase0/work-packs/user-stories.json
+ create mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/manifests/phase0/work-packs/user-stories.md
+ create mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/manifests/run-intent.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/manifests/source-payload-manifest.json
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/articles/.gitkeep
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/notes/.gitkeep
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/01_Features/101 - Chunks & Chunk Database.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/01_Features/101 Chunks & 102 Epics.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/01_Features/102 - Epics (Database + Skill Tree).md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/01_Features/103 - Path.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/01_Features/104 -Rhythm.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/01_Features/105 - Sequencing & Sequencing Template.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/01_Features/105 - Sequencing.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/01_Features/106 - Algorithm.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/01_Features/107 - Stats.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/01_Features/108 - Sid.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/01_Features/109 - Kharma.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/01_Features/109 Kharma & 110 Community & Marketplace.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/01_Features/110 - Community & Marketplace.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/01_Features/Old 106 01 - Algorithm Code.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/02_Interconnections/API Bridges.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/02_Interconnections/Event Flows.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/02_Interconnections/Feature Dependencies.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Leela Content/Chunk Catalogue New .csv
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Leela Content/Chunk catalogue.csv
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Leela Content/Chunks/Chunk Cataloge.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Leela Content/Chunks/Part 1 Chunks.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Leela Content/Chunks/Part 4 Chunks Sequencing & Science.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Leela Content/Chunks/part 2 chunks & Science.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Leela Content/Chunks/part 3 chunks & science.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Leela Content/Data base & Templates/Sequence - Builder, Settings, Details and Examples.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Leela Content/Data base & Templates/Sequence Instant Schema & Example.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Leela Content/Data base & Templates/Sequence Template DR.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Leela Content/Data base & Templates/Sequence Template.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Leela Content/Overarching/Principles, Guidelines & Science.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Leela Content/Overarching/Routines for Human Optimization.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Leela Content/Sequences/A day of Sequences.md
+ delete mode 100644 "LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Leela Content/Sequences/Craft Flows \342\200\223 Holistic Work Sequences.md"
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Leela Content/Sequences/Daily Flows.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Leela Content/Sequences/Flows.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Leela Content/Sequences/Learn2Learn Epic - Use Cases and Sequences.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Leela Content/Sequences/Learn2Learn Sequences, Epic, Chunks, Personas, Stories.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Leela Content/Sequences/Sequences Extraction 1.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Leela Content/Sequences/Sequencing Info.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Leela Content/Sequences/Sequnece Extraction 2.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/MVP, User Stories & Flows/.obsidian/app.json
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/MVP, User Stories & Flows/.obsidian/appearance.json
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/MVP, User Stories & Flows/.obsidian/core-plugins.json
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/MVP, User Stories & Flows/.obsidian/workspace.json
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/MVP, User Stories & Flows/Leela MVP User Story & Flow Map.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/MVP, User Stories & Flows/Leela User Story & Flow Map.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/MVP, User Stories & Flows/User Personas, Stories, Flows and MVP.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/MVP, User Stories & Flows/user stories deep dive implementation specs.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/New Leela Data/Design, Gui, Ui/1x1 Chunk 3d endless knot tron style cube.png
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/New Leela Data/Design, Gui, Ui/3x3 Endless Knot Block.png
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/New Leela Data/Design, Gui, Ui/Branding Endless Knot & Logo.png
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/New Leela Data/Design, Gui, Ui/Chunk Info Card home small.png
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/New Leela Data/Design, Gui, Ui/Example Patterns Flow Builder.png
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/New Leela Data/Design, Gui, Ui/Gemini_Generated_Image_5cm7u15cm7u15cm7.png
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/New Leela Data/Design, Gui, Ui/Leela Design Foundations.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/New Leela Data/Design, Gui, Ui/Multi epic Life .png
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/New Leela Data/Design, Gui, Ui/Session Info Card with legend.png
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/New Leela Data/Design, Gui, Ui/Session Info Card.png
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/New Leela Data/Design, Gui, Ui/Skill Tree Element Logic.png
+ delete mode 100644 "LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/New Leela Data/Design, Gui, Ui/screens f\303\274r nowa/Builder Step 1 Choose Slots 3 & 5.png"
+ delete mode 100644 "LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/New Leela Data/Design, Gui, Ui/screens f\303\274r nowa/Builder Step 2 Configure first Chunk Slot.png"
+ delete mode 100644 "LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/New Leela Data/Design, Gui, Ui/screens f\303\274r nowa/Builder Step 3 - Three Chunks are defined.png"
+ delete mode 100644 "LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/New Leela Data/Design, Gui, Ui/screens f\303\274r nowa/Builder Step 4 - in total 3 reps of chunk set.png"
+ delete mode 100644 "LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/New Leela Data/Design, Gui, Ui/screens f\303\274r nowa/Builder Step 5 - a break is added at the end.png"
+ delete mode 100644 "LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/New Leela Data/Design, Gui, Ui/screens f\303\274r nowa/Chunk Info Card home small.png"
+ delete mode 100644 "LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/New Leela Data/Design, Gui, Ui/screens f\303\274r nowa/Chunk Switch Step 1 - User Clicks on Chunk.png"
+ delete mode 100644 "LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/New Leela Data/Design, Gui, Ui/screens f\303\274r nowa/Chunk Switch Step 2 - Menu opens for the user to change chunk or chunk dimensions.png"
+ delete mode 100644 "LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/New Leela Data/Design, Gui, Ui/screens f\303\274r nowa/Design Example Figma.png"
+ delete mode 100644 "LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/New Leela Data/Design, Gui, Ui/screens f\303\274r nowa/Element 2 - Rectangle Flow Regen Dinner Cook TV Clean Listen.png"
+ delete mode 100644 "LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/New Leela Data/Design, Gui, Ui/screens f\303\274r nowa/Element 2 - Rectangle Session & Flow.png"
+ delete mode 100644 "LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/New Leela Data/Design, Gui, Ui/screens f\303\274r nowa/Element One - A Chunk with Branch Symbol Physical.png"
+ delete mode 100644 "LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/New Leela Data/Design, Gui, Ui/screens f\303\274r nowa/Example Patterns Flow Builder.png"
+ delete mode 100644 "LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/New Leela Data/Design, Gui, Ui/screens f\303\274r nowa/Guidance for Cube GUI UI.md"
+ delete mode 100644 "LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/New Leela Data/Design, Gui, Ui/screens f\303\274r nowa/Leela Design Foundations.md"
+ delete mode 100644 "LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/New Leela Data/Design, Gui, Ui/screens f\303\274r nowa/Picture1.png"
+ delete mode 100644 "LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/New Leela Data/Design, Gui, Ui/screens f\303\274r nowa/Possible next steps.md"
+ delete mode 100644 "LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/New Leela Data/Design, Gui, Ui/screens f\303\274r nowa/Screenshot Sequence Webtool.png"
+ delete mode 100644 "LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/New Leela Data/Design, Gui, Ui/screens f\303\274r nowa/Sequence Element 3x3 + 1 Pattern plus visual guide lines.png"
+ delete mode 100644 "LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/New Leela Data/Design, Gui, Ui/screens f\303\274r nowa/Sequence Element 3x3 + 1 Pattern.png"
+ delete mode 100644 "LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/New Leela Data/Design, Gui, Ui/screens f\303\274r nowa/Sequence Element 3x3 Pattern.png"
+ delete mode 100644 "LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/New Leela Data/Design, Gui, Ui/screens f\303\274r nowa/Session Info Card with legend.png"
+ delete mode 100644 "LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/New Leela Data/Design, Gui, Ui/screens f\303\274r nowa/Session Info Card.png"
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/New Leela Data/Epic Data (Backend)/Data Pack & SupaBase.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/New Leela Data/Epic Data (Backend)/Data Pack Explanation.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/New Leela Data/Epic Data (Backend)/chunk_dim.csv
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/New Leela Data/Epic Data (Backend)/edge_fact.csv
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/New Leela Data/Epic Data (Backend)/epic_block_dim.csv
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/New Leela Data/Epic Data (Backend)/epic_dim.csv
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/New Leela Data/Epic Data (Backend)/epic_node_fact.csv
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/New Leela Data/Epic Data (Backend)/node_key_mapping.csv
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/New Leela Data/Epic Data (Backend)/path_user_natalia_seed_v1.json
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/New Leela Data/Epic Data (Backend)/set_fact.csv
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/New Leela Data/Epic Data (Backend)/validation_report.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/New Leela Data/Nowa Basic Files/D1 Data Models SSOT.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/New Leela Data/Nowa Basic Files/D2 Data Connections SSOT.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/New Leela Data/Nowa Basic Files/F0 Nowa Workspace and Git SSOT.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/New Leela Data/Nowa Basic Files/L1 Global States and Functions SSOT.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/New Leela Data/Nowa Basic Files/N1 Route and Parameter Contracts SSOT.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/New Leela Data/Nowa Handling New 01-26/Images, Wireframes, Screenshots.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/New Leela Data/Nowa Handling New 01-26/Nowa Build Process Standard for Leela.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/New Leela Data/Nowa Handling New 01-26/Nowa Handoff v3.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/New Leela Data/Nowa Handling New 01-26/Nowa Micro-Prompt Implementation Guide.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/New Leela Data/Nowa Handling New 01-26/Nowa Process, Documentation & such.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/New Leela Data/Nowa Handling New 01-26/Nowa plausibility & cross-chapter notes.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/New Leela Data/Wireframes  & Specs/Guides/Nowa Micro-Prompt Flow Guide v2 lean.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/New Leela Data/Wireframes  & Specs/Guides/Specs & Build Pack Authoring Guide.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/New Leela Data/Wireframes  & Specs/Home Screen/Home Screen Specs & Doc vSpark.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/New Leela Data/Wireframes  & Specs/Home Screen/Home_Wireframes_vSpark.xlsx
+ delete mode 100644 "LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/New Leela Data/Wireframes  & Specs/Home Screen/Nowa Prompt Flow \342\200\224 Home Screen.md"
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/New Leela Data/Wireframes  & Specs/Home Screen/Possible New Home Spec.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/New Leela Data/Wireframes  & Specs/Home Screen/SBP SCR_Home_Today Build Pack.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/New Leela Data/Wireframes  & Specs/Path/Nowa Prompt Flow Path v5.md
+ delete mode 100644 "LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/New Leela Data/Wireframes  & Specs/Path/Path \342\200\223 Specs & Docs (vSpark Prototype) v5.md"
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/New Leela Data/Wireframes  & Specs/Path/Path_Wireframes_v5.xlsx
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/New Leela Data/Wireframes  & Specs/Path/SBP Path v5.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/New Leela Data/Wireframes  & Specs/Play Sequences/Play & Sequences Wireframes v2.xlsx
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/New Leela Data/Wireframes  & Specs/Play Sequences/SCR_SequenceRun - NowaPrompt Flow 1.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/New Leela Data/Wireframes  & Specs/Play Sequences/SCR_SequenceRun - NowaPrompt Flow 2.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/New Leela Data/Wireframes  & Specs/Play Sequences/SCR_SequenceRun - SBP.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/New Leela Data/Wireframes  & Specs/Play Sequences/SCR_SequenceRun Process How to 4 Andy.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/New Leela Data/Wireframes  & Specs/Play Sequences/SCR_SequenceRun Specs & Docs new.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/New Leela Data/Wireframes  & Specs/Play Sequences/Wireframe SequenceRun vMultiChunk (Session or Flow).jpg
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/New Leela Data/Wireframes  & Specs/Play Sequences/Wireframe SequenceRun vSingleChunk.jpg
+ delete mode 100644 "LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/New Leela Data/Wireframes  & Specs/Skill Tree/Nowa Prompt Flow \342\200\224 Skill Tree.md"
+ delete mode 100644 "LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/New Leela Data/Wireframes  & Specs/Skill Tree/SBP \342\200\224 SCR_SkillTree Build Pack v1.md"
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/New Leela Data/Wireframes  & Specs/Skill Tree/Skill Tree Specs v3.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/New Leela Data/Wireframes  & Specs/Skill Tree/SkillTree_Wireframes v5.xlsx
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/New Leela Data/Wireframes  & Specs/Skill Tree/SkillTree_Wireframes_vSparkV4.xlsx
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Nowa/Data & templates/Epic Data/L2L German & Others Epic Data Base.xlsx
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Nowa/Data & templates/Epic Data/L2L German ^0 Others Epic Data Base.csv
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Nowa/Data & templates/L2L German Epic Data.csv
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Nowa/Design Specs & Guidance/1 Chunk example.png
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Nowa/Design Specs & Guidance/1x1 Chunk 3d but with simple 2d lines endless knot tron style cube.png
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Nowa/Design Specs & Guidance/1x1 Chunk 3d endless knot tron style cube.png
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Nowa/Design Specs & Guidance/2x2 Rubics Cube example.jpg
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Nowa/Design Specs & Guidance/2x2 cube gpt endless knot.png
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Nowa/Design Specs & Guidance/2x2 rubic cube not endless knot.png
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Nowa/Design Specs & Guidance/3x3 Endless Knot Block.png
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Nowa/Design Specs & Guidance/3x3 Epic Visualization with different Colors Tron LED Style Endless Knot.jpg
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Nowa/Design Specs & Guidance/Branding Endless Knot & Logo.png
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Nowa/Design Specs & Guidance/Example Bundle Representation.png
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Nowa/Design Specs & Guidance/Gemini_Generated_Image_5cm7u15cm7u15cm7.png
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Nowa/Design Specs & Guidance/Leela Design Foundations.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Nowa/Design Specs & Guidance/Skill Tree Element Logic.png
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Nowa/Design Specs & Guidance/Tron styke endless knot.jpg
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Nowa/Design Specs & Guidance/complex 2x2 cube endless knot .png
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Nowa/Design Specs & Guidance/example 1x1 cube with endless knot 3d visualization 2.webp
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Nowa/Design Specs & Guidance/example 1x1 cube with endless knot 3d visualization.webp
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Nowa/Design Specs & Guidance/tron style led reference for endless knot cube 2.jpg
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Nowa/Design Specs & Guidance/tron style led reference for endless knot cube v3.jpg
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Nowa/Design Specs & Guidance/tron style led reference for endless knot cube.jpg
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Nowa/NOWA Handoff.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Nowa/Nowa Contract SSOTs/D1 Data Models SSOT.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Nowa/Nowa Contract SSOTs/D2 Data Connections SSOT.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Nowa/Nowa Contract SSOTs/F0 Nowa Workspace and Git SSOT.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Nowa/Nowa Contract SSOTs/L1 Global States and Functions SSOT.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Nowa/Nowa Contract SSOTs/N1 Route and Parameter Contracts SSOT.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Nowa/Nowa Essentials/guards_config.json
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Nowa/Nowa Essentials/guards_helper.dart
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Nowa/Nowa Essentials/leela_mvp_ddl.sql
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Nowa/Nowa Essentials/leela_mvp_payloads.json
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Nowa/Nowa Essentials/sid_policy.json
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Nowa/Nowa Handoff v2.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Nowa/Old Process to develop Nowa input from Blueprint.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Nowa/Prompting Library for Nowa v1.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Nowa/Universal Integration Guide.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Nowa/Wireframes GPT/GPT Wireframes.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Nowa/Wireframes GPT/Home Screen Specs & Doc.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Nowa/Wireframes GPT/LeelaAPP_HomeScreen_v2.xlsx
+ delete mode 100644 "LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Nowa/Wireframes GPT/Master Screen Library Leela \342\200\223 Universe v3.xlsx"
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Nowa/Wireframes GPT/Nowa Prompt Library.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Nowa/Wireframes GPT/Path Specs & Docs.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Nowa/Wireframes GPT/Path Wireframe.xlsx
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Nowa/Wireframes GPT/Play & Sequences Wireframes TBD.xlsx
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Nowa/Wireframes GPT/Rhythm Specs & Docs.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Nowa/Wireframes GPT/Ryhthm Wireframe.xlsx
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Nowa/Wireframes GPT/Rythm Screenshots/Rhythm Screen - Branch SCore Daytime and daily.png
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Nowa/Wireframes GPT/Rythm Screenshots/Rhythm Screen - List of Squences to plan with.png
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Nowa/Wireframes GPT/Rythm Screenshots/Rhythm Screen - Planned Squences.png
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Nowa/Wireframes GPT/Rythm Screenshots/Rhythm Screen - Screen 2 Placing Epics.png
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Nowa/Wireframes GPT/Rythm Screenshots/Rhythm Screen - Week Blueprint Boundaries & Timefields.png
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Nowa/Wireframes GPT/Skill Tree Specs & Docs.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Nowa/Wireframes GPT/SkillTree_Wireframes.xlsx
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/.obsidian/app.json
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/.obsidian/appearance.json
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/.obsidian/core-plugins.json
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/.obsidian/workspace.json
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Basic Docs for Nowa - Routes, Data Models etc/D1 Data Models SSOT.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Basic Docs for Nowa - Routes, Data Models etc/D2 Data Connections SSOT.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Basic Docs for Nowa - Routes, Data Models etc/F0 Nowa Workspace and Git SSOT.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Basic Docs for Nowa - Routes, Data Models etc/L1 Global States and Functions SSOT.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Basic Docs for Nowa - Routes, Data Models etc/N1 Route and Parameter Contracts SSOT.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Design Specs & Guidance, Gui; UI/1 Chunk example.png
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Design Specs & Guidance, Gui; UI/1x1 Chunk 3d but with simple 2d lines endless knot tron style cube.png
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Design Specs & Guidance, Gui; UI/1x1 Chunk 3d endless knot tron style cube.png
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Design Specs & Guidance, Gui; UI/2x2 Rubics Cube example.jpg
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Design Specs & Guidance, Gui; UI/2x2 cube gpt endless knot.png
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Design Specs & Guidance, Gui; UI/2x2 rubic cube not endless knot.png
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Design Specs & Guidance, Gui; UI/3x3 Endless Knot Block.png
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Design Specs & Guidance, Gui; UI/3x3 Epic Visualization with different Colors Tron LED Style Endless Knot.jpg
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Design Specs & Guidance, Gui; UI/Branding Endless Knot & Logo.png
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Design Specs & Guidance, Gui; UI/Example Bundle Representation.png
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Design Specs & Guidance, Gui; UI/Gemini_Generated_Image_5cm7u15cm7u15cm7.png
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Design Specs & Guidance, Gui; UI/General App UI/74bcda08-035a-480b-af74-80a4e4fd0dab.avif
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Design Specs & Guidance, Gui; UI/General App UI/Screenshot 2026-02-11 170404.png
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Design Specs & Guidance, Gui; UI/General App UI/digital-user-interface-hud-elements-260nw-2492520433.webp
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Design Specs & Guidance, Gui; UI/General App UI/inline-04-o.avif
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Design Specs & Guidance, Gui; UI/General App UI/stream-twitch-game-icons-buttons-260nw-2412342111.webp
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Design Specs & Guidance, Gui; UI/General App UI/tron style led reference for endless knot cube.jpg
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Design Specs & Guidance, Gui; UI/Multi Epic Life 2.jpg
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Design Specs & Guidance, Gui; UI/Multi epic Life .png
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Design Specs & Guidance, Gui; UI/Path 2.jpg
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Design Specs & Guidance, Gui; UI/Path.jpg
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Design Specs & Guidance, Gui; UI/Sequence.jpg
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Design Specs & Guidance, Gui; UI/Skill Tree Element Logic.png
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Design Specs & Guidance, Gui; UI/Stats.jpg
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Design Specs & Guidance, Gui; UI/Tron styke endless knot.jpg
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Design Specs & Guidance, Gui; UI/complex 2x2 cube endless knot .png
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Design Specs & Guidance, Gui; UI/example 1x1 cube with endless knot 3d visualization 2.webp
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Design Specs & Guidance, Gui; UI/example 1x1 cube with endless knot 3d visualization.webp
+ delete mode 100644 "LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Design Specs & Guidance, Gui; UI/screens f\303\274r nowa/Builder Step 1 Choose Slots 3 & 5.png"
+ delete mode 100644 "LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Design Specs & Guidance, Gui; UI/screens f\303\274r nowa/Builder Step 2 Configure first Chunk Slot.png"
+ delete mode 100644 "LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Design Specs & Guidance, Gui; UI/screens f\303\274r nowa/Builder Step 3 - Three Chunks are defined.png"
+ delete mode 100644 "LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Design Specs & Guidance, Gui; UI/screens f\303\274r nowa/Builder Step 4 - in total 3 reps of chunk set.png"
+ delete mode 100644 "LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Design Specs & Guidance, Gui; UI/screens f\303\274r nowa/Builder Step 5 - a break is added at the end.png"
+ delete mode 100644 "LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Design Specs & Guidance, Gui; UI/screens f\303\274r nowa/Chunk Info Card home small.png"
+ delete mode 100644 "LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Design Specs & Guidance, Gui; UI/screens f\303\274r nowa/Chunk Switch Step 1 - User Clicks on Chunk.png"
+ delete mode 100644 "LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Design Specs & Guidance, Gui; UI/screens f\303\274r nowa/Chunk Switch Step 2 - Menu opens for the user to change chunk or chunk dimensions.png"
+ delete mode 100644 "LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Design Specs & Guidance, Gui; UI/screens f\303\274r nowa/Design Example Figma.png"
+ delete mode 100644 "LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Design Specs & Guidance, Gui; UI/screens f\303\274r nowa/Element 2 - Rectangle Flow Regen Dinner Cook TV Clean Listen.png"
+ delete mode 100644 "LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Design Specs & Guidance, Gui; UI/screens f\303\274r nowa/Element 2 - Rectangle Session & Flow.png"
+ delete mode 100644 "LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Design Specs & Guidance, Gui; UI/screens f\303\274r nowa/Element One - A Chunk with Branch Symbol Physical.png"
+ delete mode 100644 "LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Design Specs & Guidance, Gui; UI/screens f\303\274r nowa/Example Patterns Flow Builder.png"
+ delete mode 100644 "LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Design Specs & Guidance, Gui; UI/screens f\303\274r nowa/Guidance for Cube GUI UI.md"
+ delete mode 100644 "LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Design Specs & Guidance, Gui; UI/screens f\303\274r nowa/Leela Design Foundations.md"
+ delete mode 100644 "LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Design Specs & Guidance, Gui; UI/screens f\303\274r nowa/Picture1.png"
+ delete mode 100644 "LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Design Specs & Guidance, Gui; UI/screens f\303\274r nowa/Possible next steps.md"
+ delete mode 100644 "LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Design Specs & Guidance, Gui; UI/screens f\303\274r nowa/Screenshot Sequence Webtool.png"
+ delete mode 100644 "LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Design Specs & Guidance, Gui; UI/screens f\303\274r nowa/Sequence Element 3x3 + 1 Pattern plus visual guide lines.png"
+ delete mode 100644 "LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Design Specs & Guidance, Gui; UI/screens f\303\274r nowa/Sequence Element 3x3 + 1 Pattern.png"
+ delete mode 100644 "LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Design Specs & Guidance, Gui; UI/screens f\303\274r nowa/Sequence Element 3x3 Pattern.png"
+ delete mode 100644 "LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Design Specs & Guidance, Gui; UI/screens f\303\274r nowa/Session Info Card with legend.png"
+ delete mode 100644 "LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Design Specs & Guidance, Gui; UI/screens f\303\274r nowa/Session Info Card.png"
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Design Specs & Guidance, Gui; UI/skill tree epic & block picker .png
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Design Specs & Guidance, Gui; UI/tron style led reference for endless knot cube 2.jpg
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Design Specs & Guidance, Gui; UI/tron style led reference for endless knot cube v3.jpg
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Design Specs & Guidance, Gui; UI/tron style led reference for endless knot cube.jpg
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Epic Data/Data Pack & SupaBase.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Epic Data/Data Pack Explanation.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Epic Data/chunk_dim.csv
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Epic Data/edge_fact.csv
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Epic Data/epic_block_dim.csv
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Epic Data/epic_dim.csv
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Epic Data/epic_node_fact.csv
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Epic Data/node_key_mapping.csv
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Epic Data/path_user_natalia_seed_v1.json
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Epic Data/set_fact.csv
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Epic Data/validation_report.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Leela - Executive Product Brief.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Leela - Executive Product Brief.pdf
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Leela_Prototype_Process_and_2DO_Log_v4.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Nowa Fail.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Nowa Handling New 01-26/1 - Nowa Chat & Thinking Export - First Session 28.02.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Nowa Handling New 01-26/2 - Nowa Chat & Thinking Export - First Session 28.02.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Nowa Handling New 01-26/Images, Wireframes, Screenshots.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Nowa Handling New 01-26/LessonsLearned from Nowa Failures GPT.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Nowa Handling New 01-26/Nowa Build Process Standard for Leela.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Nowa Handling New 01-26/Nowa Handoff v3.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Nowa Handling New 01-26/Nowa Micro-Prompt Implementation Guide.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Nowa Handling New 01-26/Nowa Process, Documentation & such.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Nowa Handling New 01-26/Nowa plausibility & cross-chapter notes.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Nowa Handling New 01-26/Updates to files 15-02-26/Update Spec & Build pack guide.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Nowa Handling New 01-26/Updates to files 15-02-26/Update prompt flow guide.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Nowa Process Questions & such.docx
+ delete mode 100644 "LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Programmer Intro \342\200\223 What You\342\200\231re Getting, What to Build (Nowa).md"
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Prompts and Steps 1.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Wireframes  & Specs/Archiv/Home Screen vXYZ.xlsx
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Wireframes  & Specs/Archiv/Nowa Micro-Prompt Flow Guide v2 lean.md
+ delete mode 100644 "LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Wireframes  & Specs/Archiv/Path \342\200\223 Specs & Docs (vSpark Prototype) v4.md"
+ delete mode 100644 "LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Wireframes  & Specs/Archiv/Path \342\200\223 Specs & Docs (vSpark Prototype).md"
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Wireframes  & Specs/Archiv/Play & Sequences Wireframes TBD.xlsx
+ delete mode 100644 "LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Wireframes  & Specs/Archiv/Skill Tree \342\200\223 Specs & Docs (vSpark Prototype).md"
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Wireframes  & Specs/Guides/Archiv/Guide Update new.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Wireframes  & Specs/Guides/Archiv/Guide Update.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Wireframes  & Specs/Guides/Archiv/Specs & Build Pack Authoring Guide 1.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Wireframes  & Specs/Guides/Archiv/Specs & Build Pack Authoring Guide v2.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Wireframes  & Specs/Guides/Archiv/Update Nowa Prompt Flow Guide.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Wireframes  & Specs/Guides/Fuckups/Fuck up upadte priocess analysis.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Wireframes  & Specs/Guides/Fuckups/Probelms.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Wireframes  & Specs/Guides/GitHub Related/GitHub Codex & Docs.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Wireframes  & Specs/Guides/GitHub Related/GitHub Codex Intro for new Chat.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Wireframes  & Specs/Guides/GitHub Related/Guide-Patch-Diff.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Wireframes  & Specs/Guides/GitHub Related/OLD Process-of-Git-Update.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Wireframes  & Specs/Guides/GitHub Related/Powershell & Local Run Leela.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Wireframes  & Specs/Guides/Guide Nowa Micro-Prompt Flow v3.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Wireframes  & Specs/Guides/Guide Screen Build Pack (SBP).md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Wireframes  & Specs/Guides/Guide Screen Specs.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Wireframes  & Specs/Guides/Guide Update Process Instructions.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Wireframes  & Specs/Guides/Nowa Local Setup with Github.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Wireframes  & Specs/Guides/Process of Screen Doc Development.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Wireframes  & Specs/Home Screen/Home Screen Specs & Doc vSpark.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Wireframes  & Specs/Home Screen/Home_Wireframes_vSpark.xlsx
+ delete mode 100644 "LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Wireframes  & Specs/Home Screen/Nowa Prompt Flow \342\200\224 Home Screen.md"
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Wireframes  & Specs/Home Screen/Possible New Home Spec.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Wireframes  & Specs/Home Screen/SBP SCR_Home_Today Build Pack.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Wireframes  & Specs/Leela_Prototype_Process_and_2DO_Log_v4.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Wireframes  & Specs/Path/Nowa Prompt Flow Path v5.md
+ delete mode 100644 "LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Wireframes  & Specs/Path/Path \342\200\223 Specs & Docs (vSpark Prototype) v5.md"
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Wireframes  & Specs/Path/Path_Wireframes_vSparkV2.xlsx
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Wireframes  & Specs/Path/SBP Path v5.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Wireframes  & Specs/Play Sequences/Play & Sequences Wireframes v2.xlsx
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Wireframes  & Specs/Play Sequences/PlaymodeSelection/SCR_PlayModeSelection Nowa Flow part 1.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Wireframes  & Specs/Play Sequences/PlaymodeSelection/SCR_PlayModeSelection Nowa Flow part 2.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Wireframes  & Specs/Play Sequences/PlaymodeSelection/SCR_PlayModeSelection SBP.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Wireframes  & Specs/Play Sequences/PlaymodeSelection/SCR_PlayModeSelection Specs & Docs.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Wireframes  & Specs/Play Sequences/PlaymodeSelection/`SCR_PlayModeSelection Nowa Prompt Flow.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Wireframes  & Specs/Play Sequences/SCR_SequenceFinished Specs & Docs.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Wireframes  & Specs/Play Sequences/SCR_SequenceRun - NowaPrompt Flow 1.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Wireframes  & Specs/Play Sequences/SCR_SequenceRun - NowaPrompt Flow 2.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Wireframes  & Specs/Play Sequences/SCR_SequenceRun - SBP.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Wireframes  & Specs/Play Sequences/SCR_SequenceRun Process How to 4 Andy.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Wireframes  & Specs/Play Sequences/SCR_SequenceRun Specs & Docs new.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Wireframes  & Specs/Play Sequences/SequenceSelect/SCR_SequenceSelect Specs & Docs v2.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Wireframes  & Specs/Play Sequences/SequenceSelect/SCR_SequenceSelect Specs & Docs.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Wireframes  & Specs/Play Sequences/SequenceSelect/Update File SequenceSelect.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Wireframes  & Specs/Play Sequences/Update nowa flow.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Wireframes  & Specs/Play Sequences/Wireframe SequenceRun vMultiChunk (Session or Flow).jpg
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Wireframes  & Specs/Play Sequences/Wireframe SequenceRun vSingleChunk.jpg
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Wireframes  & Specs/Play Sequences/X Archiv/SCR Playmode first new.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Wireframes  & Specs/Play Sequences/X Archiv/SCR Playmode second new.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Wireframes  & Specs/Play Sequences/X Archiv/SCR_PlayModeSelection Specs & Docs new.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Wireframes  & Specs/Play Sequences/X Archiv/SCR_PlayModeSelection Specs & Docs.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Wireframes  & Specs/Play Sequences/X Archiv/SCR_SequenceFinished Specs & Docs.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Wireframes  & Specs/Play Sequences/X Archiv/SCR_SequenceRun Specs & Docs 1.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Wireframes  & Specs/Play Sequences/X Archiv/SCR_SequenceRun Specs & Docs.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Wireframes  & Specs/Play Sequences/X Archiv/SCR_SequenceSelect Specs & Docs.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Wireframes  & Specs/Play Sequences/X Archiv/update info.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Wireframes  & Specs/Play Sequences/playmodeselection.jpg
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Wireframes  & Specs/Play Sequences/update specs sequence select.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Wireframes  & Specs/Rhythm/Wireframe Rhythm.xlsx
+ delete mode 100644 "LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Wireframes  & Specs/Skill Tree/Nowa Prompt Flow \342\200\224 Skill Tree.md"
+ delete mode 100644 "LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Wireframes  & Specs/Skill Tree/SBP \342\200\224 SCR_SkillTree Build Pack v1.md"
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Wireframes  & Specs/Skill Tree/Skill Tree Specs v3.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Wireframes  & Specs/Skill Tree/SkillTree_Wireframes v5.xlsx
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Wireframes  & Specs/Skill Tree/SkillTree_Wireframes_vSparkV4.xlsx
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/Wireframes  & Specs/Stats/Stats Wireframes.xlsx
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Prototyp Spark/tst.txt
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Upgrades/.obsidian/app.json
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Upgrades/.obsidian/appearance.json
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Upgrades/.obsidian/core-plugins.json
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Upgrades/.obsidian/workspace.json
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Upgrades/IndexOfUptoDateFolders/Index1.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Upgrades/Night4/1stContentDevelopmentProcessChat.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Upgrades/Night4/2ndContentDevelopmentProcessChat Rhythm.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Upgrades/Night4/2ndContentDevelopmentProcessChat.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Upgrades/Night4/Detailed screen briefs for top-priority screens.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Upgrades/Night4/NewLeela2NowaDeepResearchScreenDevelopment.md
+ delete mode 100644 "LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Upgrades/Night4/North\342\200\221Star und Shared\342\200\221Contracts.md"
+ delete mode 100644 "LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Upgrades/Night4/StatusQuo/Path \342\200\223 Specs & Docs (vSpark Prototype) v5.md"
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Upgrades/Night4/StatusQuo/SCR_PlayModeSelection Specs & Docs.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Upgrades/Night4/StatusQuo/SCR_SequenceRun Specs & Docs new.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Upgrades/Night4/StatusQuo/SCR_SequenceSelect Specs & Docs v2.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Upgrades/Night4/StatusQuo/Skill Tree Specs v3.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Upgrades/Night4/Unbenannt.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Upgrades/Night4/Updates new/Cross-FeatureContractsv2.7z
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Upgrades/Night4/Updates new/Cross-FeatureContractsv2.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Upgrades/Night4/Updates new/GapReport.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Upgrades/Night4/Updates new/General Updatev2.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Upgrades/Night4/Updates new/Night4Extracted&Analyzed.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Upgrades/Night4/Updates new/PathUpdatev2.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Upgrades/Night4/Updates new/Rhythm SSOT Updatev2.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Upgrades/Night4/Updates new/Rhythm_Feature_Screen_Spec.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Upgrades/Night4/Updates new/Sequencing SSOT Updatev2.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Upgrades/Night4/Updates new/Skill Tree Update N4 v1.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Upgrades/Night4/Updates new/updatesnew.zip
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Upgrades/Night4/UpdatesOld/Leela_Prototype_Process_and_2DO_Log_v4.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Upgrades/Night4/UpdatesOld/Upgrades 1.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Upgrades/Night4/UpdatesOld/Upgrades 2.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Upgrades/Night4/UpdatesOld/Upgrades 3.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Upgrades/Night4/dr prompt.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Upgrades/Night4/statusquo.zip
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Upgrades/Night4/updatesnew.zip
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Upgrades/Night4/updatesold.zip
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Upgrades/Night42Nowa/How to.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Upgrades/Night42Nowa/Intro/1. Full Nowa-format contract sheets for Wave-1 contracts.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Upgrades/Night42Nowa/Intro/Contract Prompt Chunk 1.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Upgrades/Night42Nowa/Intro/Contract Prompt Chunk 2.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Upgrades/Night42Nowa/Intro/Contract Prompt Chunk 3.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Upgrades/Night42Nowa/Intro/Contract Prompt Chunk 4.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Upgrades/Night42Nowa/Intro/Full Nowa-format contract sheets for Wave-1 contracts.txt
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Upgrades/Night42Nowa/Intro/Intro to Contracts Chunks 1-4.md
+ delete mode 100644 "LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Upgrades/Night42Nowa/Intro/North Star intro \342\200\224 iteration.md"
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Upgrades/Night42Nowa/Ux & Screen develiopment/Spatial Skill Tree & path/ChatHandover.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Upgrades/Night42Nowa/Ux & Screen develiopment/Spatial Skill Tree & path/Internal Prompt Flow.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Upgrades/Night42Nowa/Ux & Screen develiopment/Spatial Skill Tree & path/Spatial Skill Tree & Path - Prompt 0.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Upgrades/Night42Nowa/Ux & Screen develiopment/Spatial Skill Tree & path/Spatial Skill Tree & Path - Prompt 1.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Upgrades/Night42Nowa/Ux & Screen develiopment/Spatial Skill Tree & path/Spatial Skill Tree & Path - Prompt 2.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Upgrades/Night42Nowa/Ux & Screen develiopment/Spatial Skill Tree & path/Spatial Skill Tree & Path - Prompt 3.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Upgrades/Night42Nowa/Ux & Screen develiopment/Spatial Skill Tree & path/Spatial Skill Tree & Path - Prompt 4.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Upgrades/Night42Nowa/Ux & Screen develiopment/Spatial Skill Tree & path/Spatial Skill Tree & Path - Prompt 5.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Upgrades/Night42Nowa/Ux & Screen develiopment/Spatial Skill Tree & path/Spatial Skill Tree & Path - Prompt 6.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Upgrades/Night42Nowa/Ux & Screen develiopment/Spatial Skill Tree & path/Spatial Skill Tree & Path - Prompt 7.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Upgrades/Updates 28-01-26/process basics.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Upgrades/Upgrades 1.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Upgrades/Upgrades 2.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/other/Upgrades/Upgrades 3.md
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/papers/.gitkeep
+ delete mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/raw/refs/.gitkeep
+ create mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/wiki/concepts/active-run-surface-boundaries.md
+ create mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/wiki/concepts/creator-pack-publishing.md
+ create mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/wiki/concepts/golden-paths.md
+ create mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/wiki/concepts/kharma-consent-and-safety.md
+ create mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/wiki/concepts/offline-and-recovery-contract.md
+ create mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/wiki/concepts/personas.md
+ create mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/wiki/concepts/weekly-review-and-replan.md
+ create mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/wiki/summaries/algorithm.md
+ create mode 100644 LeelaAppDevelopment/LeelaApp-Index-KB-Wiki/wiki/summaries/user-stories.md
