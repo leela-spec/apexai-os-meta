@@ -54,7 +54,7 @@ Run page-only query and claim-entailment acceptance in a fresh context that did 
 The route never runs Python, shell, scaffold, intake, hashing, manifest updates, Phase 0, index/retrieval rebuild, lint, quality, or postflight, and never claims `query_ready`.
 ### Terminal-backed route
 
-Use the existing command contract, retrieval contract, acceptance tests, and lifecycle runbook rather than duplicating command sequences here. After the runtime change is applied, use `postflight` as the preferred bounded deterministic completion interface. Preserve bounded semantic acceptance as a separate required gate for `query_ready`.
+Use `apex_kb.py control` as the single operator lifecycle surface. `control init` creates the compact run configuration and machine state, `control run` executes exactly one legal deterministic stage or renders one semantic packet, `control next` derives the exact next command or short packet trigger, and `control reconcile` resumes from repository files and reason-codes drift. Direct low-level mutation commands remain available only for legacy KBs without `manifests/run-state.json`; a controlled run blocks them so state cannot drift. `postflight` remains the bounded deterministic completion aggregate and independent semantic acceptance remains mandatory for every compiled tier.
 
 ## Operating contract
 
@@ -67,28 +67,35 @@ required_global_argument: --kb-root apex-meta/kb/<kb-slug>/
 
 owned_lifecycle:
   - intake_and_intent_lock
-  - operator_intent_gate
+  - canonical_run_state_and_legal_transitions
+  - exact_next_command_derivation
   - scaffold
   - source_intake
   - deterministic_corpus_intelligence
+  - semantic_handoff_packet_rendering
   - ingest_phase_1_analysis
-  - operator_phase2_gate
   - ingest_phase_2_wiki_compile
+  - independent_semantic_acceptance
   - deterministic_index_validation
   - local_retrieval
   - query_packet_generation
   - lint_audit_maintenance
+  - read_only_git_state_classification
+  - file_based_recovery_and_input_drift_invalidation
 
 canonical_paths:
   - raw/
   - kb-schema.md
   - manifests/run-intent.md
+  - manifests/run-state.json
+  - manifests/topic-registry.json
   - manifests/source-manifest.json
   - manifests/source-payload-manifest.json
   - ingest-analysis/
   - wiki/
   - audit/
   - log/
+  - log/runs/<run-id>/packets/
 
 derived_paths:
   - manifests/phase0/
@@ -166,12 +173,14 @@ Read supporting files only when needed:
 | Completion target, registry v2, ledger, traceability, semantic acceptance | `references/semantic-value-contract.md` |
 | Browser/Git-connector workflow and evaluator prompts | `references/browser-git-connector-semantic-runbook.md` |
 | Data layout, canonical/derived rules, page and manifest constraints | `references/kb-contract.md` |
-| Python command surface and write policy | `references/script-command-contract.md` |
+| Python command surface, control plane, stage results, Git classification, and write policy | `references/script-command-contract.md` |
+| Canonical run intent/state, semantic packet, and Git-state schemas | `references/run-intent.schema.json`, `references/run-state.schema.json`, `references/stage-result.schema.json`, `references/semantic-handoff-packet.schema.json`, `references/git-state.schema.json` |
 | Ingest, query, lint, audit behavior | `references/ingest-query-lint-audit-rules.md` |
 | Retrieval engine rules | `references/retrieval-contract.md` |
 | Acceptance checks and fixtures | `references/acceptance-tests.md` |
 | KB doctrine distilled from the old-apex knowledge-bank role | `references/old-apex-knowledge-bank-doctrine.md` |
 | Phase 1 analysis shape | `templates/ingest-analysis-template.md` |
+| Run-specific semantic packet projection | `templates/semantic-handoff-packet-template.md` |
 | Phase 2 wiki page shape | `templates/wiki-page-templates.md` |
 | Query packet shape | `templates/query-output-template.md` |
 | Topic work pack shape (bounded semantic input) | `templates/topic-work-pack-template.md` |
@@ -190,6 +199,8 @@ capability_precheck:
   terminal_execution: supported | unsupported
   python_execution: supported | unsupported
   retrieval_rebuild: supported | unsupported
+  git_read_only_classification: supported | unsupported
+  target_commit_verification: supported | unsupported
   git_diff_and_commit: supported | unsupported
   independent_semantic_evaluator: supported | unsupported
 
@@ -210,6 +221,8 @@ Connector readback proves stored content only. It never proves semantic usefulne
 Follow only the selected route. The connector route uses the bounded whole-file semantic-authoring sequence above. The terminal-backed route follows the referenced command, retrieval, acceptance-test, and runbook contracts. Neither route may weaken the existing lifecycle, output tiers, ownership model, semantic acceptance requirement, or completion labels.
 
 ### Step 0 — Intake and intent lock (before scaffold, source intake, or Phase 0)
+
+On the terminal-backed route, `apex_kb.py control` is the executable owner of this step. Treat the detailed questions below as inputs to `control init`, not as permission to assemble lifecycle state in chat. Author or update `manifests/topic-registry.json` first, run `control init`, then use `control run` to create the compact readback and `control confirm --confirmation-quote <verbatim affirmative>` to unlock the run. After confirmation, obey only `control next`, `control run`, and `control reconcile`; never choose a low-level mutation command freehand. On a connector-only semantic handoff, the rendered packet file is authoritative and the stable chat trigger is one line pointing to that packet.
 
 Nothing that registers sources, runs Phase 0, writes wiki pages, or commits may run until this
 step ends in a recorded operator confirmation (creating the empty KB skeleton is permitted as
@@ -312,8 +325,26 @@ topic_vocabulary_mismatches_kb_scope_evidence:
 
 phase2_stop_requested:
   behavior: stop_after_phase1
-  applies_to: [analysis_only, phase1_only, operator_explicit_stop_before_wiki]
-  optional_legacy_phrase: approve ingest
+  applies_to: [analysis_only, operator_explicit_stop_before_wiki]
+  legacy_direct_command_phrase: approve ingest
+
+control_input_changed:
+  behavior: block_and_report_earliest_affected_stage
+  next_action: run_control_reconcile_with_operator_review_then_explicit_accept_input_change
+  rule: never silently overwrite recorded fingerprints or preserve downstream completion after an upstream change
+
+control_packet_input_changed:
+  behavior: reject_semantic_output_and_render_a_fresh_packet_after_reconciliation
+  rule: chat continuity or executor self-report cannot override a changed packet input
+
+git_conflict_or_operation_in_progress:
+  behavior: block_with_read_only_classification
+  rule: never fetch, pull, reset, stash, merge, rebase, cherry-pick, revert, commit, or push
+
+target_commit_mismatch:
+  behavior: block_before_stage_execution
+  rule: the configured target commit is a reproducibility guard, not permission to move HEAD
+
 stale_retrieval_index:
   behavior: report_stale_and_rebuild_before_reliance
 

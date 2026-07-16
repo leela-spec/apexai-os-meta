@@ -28,11 +28,11 @@ phase_boundaries:
 
 ### Source intake
 
-1. Select storage mode: `pointer_only`, `copy_into_kb`, or `snapshot_copy`.
-2. Hash source before ingest, or record `no_hash_reason`.
-3. Update `manifests/source-manifest.json` with deterministic source-reference custody fields.
+1. Select storage mode: `pointer_only`, `copy_into_kb`, or `snapshot_copy`, or use the control plane's exact `--source-root` command for a confirmed bounded root.
+2. Hash source before ingest, or record `no_hash_reason`. A recursive source root inventories every file, including unsupported/non-text files; later extraction status may be blocked but custody may not silently omit it.
+3. Update `manifests/source-manifest.json` with deterministic source-reference custody fields. Re-running one source-root intake replaces the entries owned by that root so deleted files do not survive as stale custody records.
 4. Run `generate-source-payload-manifest` after source intake to write `manifests/source-payload-manifest.json`.
-5. Stop if a duplicate source hash exists unless the operator explicitly requests a version or duplicate.
+5. Stop with a reason code if a source ID or duplicate source hash already exists unless the operator explicitly requests a version or duplicate. Never return `ok` without recording the source.
 
 ### Phase 0
 
@@ -42,25 +42,30 @@ Python may create only deterministic artifacts under `manifests/phase0/`. Phase 
 - `heading-map.json`
 - `markdown-link-map.json`
 - `frontmatter-map.json`
-- `keyword-hits.ndjson`
-- `topic-file-map.json`
+- `source-facts.json`
+- `term-frequency.json`
+- `topic-source-rankings.json`
+- `work-packs/<topic-slug>.json`
+- `work-packs/<topic-slug>.md`
 - `source-priority-candidates.md`
 - `phase0-navigation-report.md`
+
+`topic-source-rankings.json` is the exhaustive machine candidate/custody set. A topic work pack is the bounded semantic projection. Neither is a second registry, an authority decision, or semantic acceptance. The control plane validates these exact paths and fingerprints them before rendering semantic packets.
 
 `graph` extracts deterministic process-flow/navigation edges (markdown links, wikilinks, repository path references, YAML path references, process-sequence markers) and, with `--allow-write`, writes `manifests/phase0/process-flow-graph.json`. It is a Phase 0 navigation artifact, not a semantic inference step — it must never fail on an empty KB, and must report zero edges truthfully rather than guessing.
 
 ### Phase 1
 
 
-LLM writes one source analysis under `ingest-analysis/<source-slug>.analysis.md`. In addition to source identity, summary, extraction candidates, concepts/entities, claims, uncertainty, and proposed changes, it records source read status/passages, authority, target-query outcomes, additional evidence required, and topic completion effect.
+LLM writes one topic-scoped analysis under `ingest-analysis/<topic-slug>.analysis.md`, containing every accepted source record for that topic. The exact input set, ledger path, output path, write allowlist, readback, and completion response come from the run-specific Phase 1 packet. In addition to source identity, summary, extraction candidates, concepts/entities, claims, uncertainty, and proposed changes, the analysis records source read status/passages, authority, target-query outcomes, additional evidence required, and topic completion effect.
 
-Every concept/entity candidate receives exactly one disposition: `promote`, `embed_in_summary`, `defer_blocked`, or `reject_no_independent_value`, with rationale, affected query IDs, and destination when applicable. Phase 1 ends at `operator_review_needed`; Phase 1 alone is `analysis_complete_unvalidated`.
+Every concept/entity candidate receives exactly one disposition: `promote`, `embed_in_summary`, `defer_blocked`, or `reject_no_independent_value`, with rationale, affected query IDs, and destination when applicable. Phase 1 alone is `analysis_complete_unvalidated`. For a compiled tier, successful deterministic reconciliation advances directly to the Phase 2 packet; there is no second free-form command decision and no mandatory legacy approval phrase.
 ### Phase 2
 
 
-When the selected output tier includes wiki output, Phase 2 follows Phase 1 unless a safe stop mode applies. Source selection continues until locked critical/routine questions are covered or evidence is genuinely unavailable. Rankings nominate candidates only. A readable known source that can answer an unresolved priority query blocks completion.
+When the selected output tier includes wiki output, Phase 2 follows Phase 1 unless a safe stop mode applies. The Phase 2 packet derives the exact expected page paths from the topic registry and validated Phase 1 page decisions; pages outside its allowlist are wrong-path output. Source selection continues until locked critical/routine questions are covered or evidence is genuinely unavailable. Rankings nominate candidates only. A readable known source that can answer an unresolved priority query blocks completion.
 
-Pages implement semantic contract v2, answer declared target queries directly, use only reviewed/materially-used evidence, preserve contradictions, and expose classified reopen triggers. Run clean-context page-only and claim-entailment acceptance before `compiled_unvalidated`. Connector constraints may produce `partial`; they never reduce semantic requirements.
+Pages implement semantic contract v2, answer declared target queries directly, use only reviewed/materially-used evidence, preserve contradictions, and expose classified reopen triggers. Structural/schema/path reconciliation proves only declared interface correctness. A separate clean-context page-only and claim-entailment packet must produce a valid `semantic-acceptance.schema.json` artifact before `compiled_unvalidated`. Connector constraints may produce `partial`; they never reduce semantic requirements.
 ## Query rules
 
 1. Read `wiki/index.md` first.

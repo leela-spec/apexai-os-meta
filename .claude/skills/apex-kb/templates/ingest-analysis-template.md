@@ -6,11 +6,12 @@ source_count: <accepted-source-count>
 created_at: "YYYY-MM-DDTHH:MM:SSZ"
 created_by: "apex-kb"
 phase: ingest_phase_1
-status: operator_review_needed
+status: analysis_complete
 semantic_compile_policy:
   phase_2_continues_when_output_tier_includes_wiki: true
-  stop_before_wiki_only_for: "analysis_only | phase1_only | operator_explicit_stop_before_wiki"
-  optional_resume_phrase: "approve ingest"
+  stop_before_wiki_only_for: "analysis_only | operator_explicit_stop_before_wiki"
+  next_stage_owner: "manifests/run-state.json"
+  handoff_owner: "log/runs/<run-id>/packets/phase2-<topic-slug>.json"
 ---
 
 # Phase 1 Analysis - <topic title>
@@ -161,13 +162,11 @@ manifest_updates: []
 
 ```yaml
 compile_decision:
-  status: operator_review_needed
+  status: analysis_complete | partial
   phase_2_ready: true | false
   unresolved_priority_query_ids: []
   additional_sources_to_read: []
   truthful_state_if_stopped: "analysis_complete_unvalidated | partial"
 ```
 
-Stop for `analysis_only` or an explicit safe mode. Otherwise continue only when critical
-evidence coverage is resolved for every accepted source in this topic; Phase 2 must follow the
-v2 page and semantic-acceptance contracts.
+Stop for `analysis_only`, an explicit safe mode, or a packet stop condition. Otherwise return the exact Phase 1 packet completion response. The deterministic control plane validates this file and the topic ledger, derives the Phase 2 packet, and remains the only owner of the next lifecycle stage. Phase 2 must follow the v2 page and semantic-acceptance contracts.

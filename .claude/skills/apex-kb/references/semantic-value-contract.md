@@ -17,44 +17,16 @@ Phase 0 rankings are navigation candidates. Rank, hit count, filename, and prior
 
 Connector cost, source length, context pressure, or write friction may force `partial`; they never lower these gates.
 
-## Intake and intent lock (Step 0)
+## Intake, intent lock, and machine state (Step 0)
 
-Every run begins with the Step 0 intake defined in `SKILL.md`: capture the operator's intent,
-identity, source locus, success definition, and recommended mode; validate each locked topic with
-`topic-sanity-check` as an input; read the whole understanding back; and record the operator's
-explicit confirmation. Nothing that scaffolds, registers sources, runs Phase 0, or commits may run
-until the intent record shows confirmation. The record lives at `manifests/run-intent.md`:
+Every controlled build run has two distinct canonical owners:
 
-```yaml
-run_id: "<stable-run-id>"
-kb_root: "apex-meta/kb/<kb-slug>/"
-kb_slug: "<kb-slug>"
-mode: "new_kb | extend_kb"
-operator_intent: "<job to be done, operator's words>"
-kb_identity: "<this KB is about X>"
-source_locus: "<where the real material lives>"
-out_of_scope: []
-success_definition: "<what the chosen tier means for this KB>"
-output_tier: "source_only | analysis_only | compiled_minimal | compiled_full | query_ready"
-output_tier_rationale: "<one line, from operator_intent>"
-execution_route: "terminal_backed | connector_only"
-corpus_breadth: "narrow"                 # default; broad requires a reason
-broad_breadth_reason: "<required only when broad>"
-topic_slugs: []
-topic_sanity_check:                       # per topic
-  "<topic-slug>":
-    verdict: "scope_evidence_found | scope_evidence_absent"
-    recommendation: "proceed | stop_and_confirm_topic_with_operator"
-    source: "terminal | manual"
-operator_confirmed: false                 # flips true ONLY after the Step 0d read-back approval
-operator_confirmation_quote: "<operator's verbatim affirmative>"
-confirmed_at: "YYYY-MM-DDTHH:MM:SSZ"
-```
+- `manifests/run-intent.md` is operator-owned configuration and confirmation. Its JSON-compatible YAML frontmatter conforms to `run-intent.schema.json`; the human body is explanatory only.
+- `manifests/run-state.json` is machine-owned progress. It conforms to `run-state.schema.json` and is the only owner of current stage, completed stages, reason-coded blocking state, next legal stage, artifact references, input fingerprints, and truthful completion state.
 
-Downstream steps accept the run only when `operator_confirmed: true` and
-`operator_confirmation_quote` is non-empty. The executor recommends `output_tier`,
-`execution_route`, and `corpus_breadth` from the stated intent and the operator accepts or
-overrides them in the read-back — recommend-then-confirm, never a silent choice.
+`control init` writes both files, `control run` renders the deterministic readback, and `control confirm` stores the operator's verbatim affirmative in both owners. A build run cannot intake sources or execute Phase 0 until the confirmation is recorded. The empty scaffold is the only permitted pre-confirmation lifecycle mutation. Topic definitions remain operator/LLM-authored in `manifests/topic-registry.json` and every requested topic must exist there before `control init`.
+
+The intent template is `templates/run-intent-template.md`; field authority is `run-intent.schema.json`. Do not restate or fork that schema in another runbook. The executor recommends `output_tier`, `execution_route`, and `corpus_breadth` from the stated intent and the operator accepts or overrides them in the readback. `control next` then derives every subsequent command or semantic packet trigger from `run-state.json`; chat memory is never a lifecycle dependency.
 
 ## Topic-lock mismatch is not a source-access blocker
 
@@ -116,6 +88,12 @@ known readable canonical source (starting with `held_in_custody`, in tier order)
 unresolved critical or routine target query; stop once every critical/routine query is resolved or
 no further readable source remains. The count of files read is never a completion criterion in
 either direction -- reading is gated by unresolved questions, not by a target number of sources.
+
+## Run-specific semantic packet authority
+
+Every semantic stage is rendered mechanically from canonical state, topic data, Phase 0 work packs, prior semantic artifacts, and the canonical templates/schemas. The JSON packet conforms to `semantic-handoff-packet.schema.json`; the Markdown projection uses `templates/semantic-handoff-packet-template.md`. Both live under `log/runs/<run-id>/packets/`.
+
+The packet owns exact inputs, exact output path, additional outputs, allowed and forbidden writes, stop and success conditions, required readback, input fingerprints, the stable one-line trigger, and the exact completion response. A semantic executor may exercise judgment only inside those boundaries. `control reconcile` rejects wrong-path output, unauthorized new wiki files, changed packet inputs, schema failures, incomplete candidate dispositions, failed semantic acceptance, and any attempt to infer the next stage from chat continuity.
 
 ## Semantic run ledger
 
@@ -185,4 +163,4 @@ Run acceptance in a clean context that receives compiled pages, target questions
 
 Page-only query results are `answerable`, `partial`, `not_answerable`, or `blocked`. Claim-entailment results are `supported`, `partially_supported`, `contradicted`, or `unresolvable`. Final verdicts are `semantic_pass`, `semantic_partial`, `semantic_fail`, or `insufficient_evidence`.
 
-`semantic_pass` requires every critical and routine query to be answerable and every independently sampled material claim to be supported. Numeric averages, headings, file counts, word counts, source counts, and drafter self-report are not acceptance authority.
+`semantic_pass` requires every critical and routine query to be answerable and every independently sampled material claim to be supported. Numeric averages, headings, file counts, word counts, source counts, and drafter self-report are not acceptance authority. The deterministic control plane validates schema, exact topic/run IDs, expected paths, query coverage declarations, claim-review shape, and packet custody; it can reject an invalid artifact but can never manufacture or override a semantic verdict.

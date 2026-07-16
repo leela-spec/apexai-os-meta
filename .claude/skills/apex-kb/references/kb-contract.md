@@ -17,6 +17,8 @@ data_root_contract:
 canonical:
   - raw/
   - kb-schema.md
+  - manifests/run-intent.md
+  - manifests/run-state.json
   - manifests/source-manifest.json
   - manifests/source-payload-manifest.json
   - manifests/topic-registry.json
@@ -24,6 +26,8 @@ canonical:
   - wiki/
   - audit/
   - log/
+  - log/runs/<run-id>/packets/
+  - log/runs/<run-id>/stage-results/
 
 derived_rebuildable:
   - manifests/phase0/
@@ -51,6 +55,9 @@ required_directories:
   wiki/concepts/: compiled concept pages
   wiki/entities/: compiled entity pages
   wiki/summaries/: compiled source/topic summaries
+  manifests/run-intent.md: operator-owned compact run configuration and confirmation
+  manifests/run-state.json: machine-owned lifecycle state, transitions, blockers, references, and fingerprints
+  manifests/topic-registry.json: operator/LLM-authored topics, vocabulary, target queries, and expected page routes
   manifests/source-manifest.json: source-reference custody manifest
   manifests/source-payload-manifest.json: deterministic raw-payload custody ledger
   manifests/phase0/: deterministic corpus intelligence
@@ -93,6 +100,9 @@ Rules:
 - Optional group maps must be explicit JSON. Do not infer deterministic groups from filenames or LLM semantic decisions.
 - Do not add an external BagIt dependency; the Apex-native ledger uses Python stdlib hashing.
 - Phase 0 resolves `pointer_only` sources that are safe local text files (kb-root-relative or repo-local, never a network URL) and includes them in corpus-navigation scanning; pointers that cannot be safely resolved are reported as unresolved rather than silently dropped.
+- Recursive `source-intake --source-root` records every file for custody, including non-text/unsupported files. Extraction support and semantic readability are separate facts; neither may silently delete a custody row.
+- `run-intent.schema.json`, `run-state.schema.json`, `stage-result.schema.json`, `semantic-handoff-packet.schema.json`, and `git-state.schema.json` are the single machine-shape owners. Markdown templates project those shapes for humans/LLMs and must not create a competing enum, path, or transition authority.
+- Topic registry `expected_page` values, Phase 1 page decisions, Phase 2 packet output paths, and semantic-acceptance topic paths must reconcile exactly before a stage advances.
 
 ## Page contract
 

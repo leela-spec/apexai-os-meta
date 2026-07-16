@@ -11,6 +11,26 @@ Pass criteria:
 - `apex-meta/scripts/apex_kb_retrieval.py` exists.
 - `python --version` is 3.10+.
 
+## Automated control-plane tests
+
+Run the existing and new tests from repository root after applying the patch pack:
+
+```powershell
+python -m unittest discover -s apex-meta/scripts/tests -p "test_apex_kb_control*.py" -v
+```
+
+Pass criteria:
+
+- canonical run intent/state schemas validate;
+- legal and illegal transitions are reason-coded;
+- exact next commands and semantic packet paths are stable on Windows paths;
+- interrupted deterministic stages rerun idempotently;
+- wrong-path output, unauthorized writes, schema failure, missing readback, missing acceptance, and input fingerprint drift block progression;
+- a new executor resumes from files only;
+- Git classification never mutates the repository;
+- direct low-level mutation remains compatible for legacy KBs and is blocked for a controlled KB;
+- the synthetic end-to-end fixture reaches `query_ready` only after independent acceptance and postflight.
+
 ## Command smoke tests
 
 ```powershell

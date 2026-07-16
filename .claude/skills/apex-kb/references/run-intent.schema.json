@@ -1,0 +1,117 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "apex.kb.run-intent.v1",
+  "type": "object",
+  "required": [
+    "schema",
+    "schema_version",
+    "run_id",
+    "kb_root",
+    "kb_slug",
+    "mode",
+    "operator_intent",
+    "kb_identity",
+    "source_locus",
+    "source_roots",
+    "source_inputs",
+    "out_of_scope",
+    "success_definition",
+    "output_tier",
+    "output_tier_rationale",
+    "execution_route",
+    "corpus_breadth",
+    "topic_slugs",
+    "topic_sanity_check",
+    "operator_confirmed",
+    "operator_confirmation_quote",
+    "confirmed_at",
+    "target_repository",
+    "target_commit",
+    "created_at",
+    "updated_at"
+  ],
+  "properties": {
+    "schema": {"const": "apex.kb.run-intent.v1"},
+    "schema_version": {"const": "1"},
+    "run_id": {"type": "string", "minLength": 1},
+    "kb_root": {"type": "string", "minLength": 1},
+    "kb_slug": {"type": "string", "minLength": 1},
+    "mode": {
+      "enum": [
+        "scaffold",
+        "ingest",
+        "compile"
+      ]
+    },
+    "operator_intent": {"type": "string", "minLength": 1},
+    "kb_identity": {"type": "string", "minLength": 1},
+    "source_locus": {"type": "string", "minLength": 1},
+    "source_roots": {
+      "type": "array",
+      "items": {"type": "string", "minLength": 1},
+      "uniqueItems": true
+    },
+    "source_inputs": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/source_input"}
+    },
+    "out_of_scope": {
+      "type": "array",
+      "items": {"type": "string", "minLength": 1}
+    },
+    "success_definition": {"type": "string", "minLength": 1},
+    "output_tier": {
+      "enum": [
+        "source_only",
+        "analysis_only",
+        "compiled_minimal",
+        "compiled_full",
+        "query_ready"
+      ]
+    },
+    "output_tier_rationale": {"type": "string", "minLength": 1},
+    "execution_route": {
+      "enum": ["terminal_backed", "connector_only", "unsupported"]
+    },
+    "corpus_breadth": {"enum": ["narrow", "broad"]},
+    "broad_breadth_reason": {"type": ["string", "null"]},
+    "topic_slugs": {
+      "type": "array",
+      "items": {"type": "string", "minLength": 1},
+      "uniqueItems": true
+    },
+    "topic_sanity_check": {
+      "type": "object",
+      "additionalProperties": {"type": "object"}
+    },
+    "operator_confirmed": {"type": "boolean"},
+    "operator_confirmation_quote": {"type": "string"},
+    "confirmed_at": {"type": ["string", "null"]},
+    "target_repository": {"type": "string", "minLength": 1},
+    "target_commit": {"type": ["string", "null"]},
+    "created_at": {"type": "string", "minLength": 1},
+    "updated_at": {"type": "string", "minLength": 1}
+  },
+  "$defs": {
+    "source_input": {
+      "type": "object",
+      "required": ["storage_mode", "source_type"],
+      "properties": {
+        "path": {"type": ["string", "null"]},
+        "pointer": {"type": ["string", "null"]},
+        "storage_mode": {
+          "enum": ["pointer_only", "copy_into_kb", "snapshot_copy"]
+        },
+        "source_type": {
+          "enum": ["article", "paper", "note", "ref", "other"]
+        },
+        "source_id": {"type": ["string", "null"]},
+        "title": {"type": ["string", "null"]},
+        "as_version": {"type": "boolean"},
+        "allow_duplicate": {"type": "boolean"}
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

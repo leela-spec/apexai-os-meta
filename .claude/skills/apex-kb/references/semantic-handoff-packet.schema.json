@@ -1,0 +1,86 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "apex.kb.semantic-handoff-packet.v1",
+  "type": "object",
+  "required": [
+    "schema",
+    "run_id",
+    "stage",
+    "topic_id",
+    "exact_input_files",
+    "canonical_template_or_schema_owner",
+    "exact_output_path",
+    "additional_output_paths",
+    "allowed_writes",
+    "forbidden_writes",
+    "stop_conditions",
+    "success_conditions",
+    "required_readback",
+    "completion_response",
+    "short_trigger",
+    "input_fingerprints"
+  ],
+  "properties": {
+    "schema": {"const": "apex.kb.semantic-handoff-packet.v1"},
+    "run_id": {"type": "string", "minLength": 1},
+    "stage": {"enum": ["phase1", "phase2", "semantic_acceptance"]},
+    "topic_id": {"type": "string", "minLength": 1},
+    "exact_input_files": {
+      "type": "array",
+      "items": {"type": "string", "minLength": 1},
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "canonical_template_or_schema_owner": {
+      "type": "array",
+      "items": {"type": "string", "minLength": 1},
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "exact_output_path": {"type": "string", "minLength": 1},
+    "additional_output_paths": {
+      "type": "array",
+      "items": {"type": "string", "minLength": 1},
+      "uniqueItems": true
+    },
+    "allowed_writes": {
+      "type": "array",
+      "items": {"type": "string", "minLength": 1},
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "forbidden_writes": {
+      "type": "array",
+      "items": {"type": "string", "minLength": 1},
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "stop_conditions": {
+      "type": "array",
+      "items": {"type": "string", "minLength": 1},
+      "minItems": 1
+    },
+    "success_conditions": {
+      "type": "array",
+      "items": {"type": "string", "minLength": 1},
+      "minItems": 1
+    },
+    "required_readback": {
+      "type": "array",
+      "items": {"type": "string", "minLength": 1},
+      "minItems": 1
+    },
+    "completion_response": {"type": "string", "minLength": 1},
+    "short_trigger": {"type": "string", "minLength": 1},
+    "input_fingerprints": {
+      "type": "object",
+      "additionalProperties": {"type": "string", "minLength": 1}
+    },
+    "preexisting_wiki_files": {
+      "type": "array",
+      "items": {"type": "string", "minLength": 1},
+      "uniqueItems": true
+    }
+  },
+  "additionalProperties": false
+}

@@ -2,30 +2,30 @@
 
 ## Capability boundary
 
-Use this route only when complete repository-file reads and reliable whole-file writes are available but terminal execution is not. Account-level Skills are optional. Repository-local `semantic-contract/` files are sufficient authority. Never run or claim scaffold, intake, hashing, manifest mutation, Phase 0 regeneration, index/retrieval rebuild, lint, quality, postflight, or deterministic validation from this route.
+Use this route only when complete repository-file reads and reliable whole-file writes are available but terminal execution is not. Account-level Skills are optional. A terminal-backed control executor must first render the exact run-specific packet under `log/runs/<run-id>/packets/`. The packet, its input fingerprints, and the repository-local `semantic-contract/` files are authority; chat prose is not. If no packet exists, stop with `needs_terminal_executor: semantic_packet_missing`. Never run or claim scaffold, intake, hashing, manifest mutation, Phase 0 regeneration, index/retrieval rebuild, lint, quality, postflight, or deterministic validation from this route.
 
 ## Startup target lock
 
-1. Read every repository-local semantic contract file, the topic registry, Phase 0 rankings, and any existing ledger for the selected topic.
-2. Confirm stable target-query IDs, priorities, answer requirements, and expected page routes before selecting sources.
-3. If a compiled topic has no target queries, stop semantic drafting and report `partial: missing_target_queries`.
+1. Read the packet Markdown and JSON named by the one-line trigger, then read every `exact_input_files` entry completely or by the exact section mode permitted by the packet.
+2. Verify the packet's `run_id`, `stage`, `topic_id`, exact output paths, write allowlist, stop conditions, and input fingerprints before writing.
+3. Confirm stable target-query IDs, priorities, answer requirements, and expected page routes from the packet inputs. If a compiled topic has no target queries, stop semantic drafting and report `partial: missing_target_queries`.
 
-## One-topic compilation
+## One-topic packet execution
 
-1. Use Phase 0 rankings only to nominate candidates.
-2. Prefer canonical specifications; then implementation evidence for current-state questions; current contracts/updates; user stories and examples; then historical or proposed material.
+1. Write only the packet's `allowed_writes`; never create a path merely because it appeared in chat or a prior run.
+2. Use Phase 0 rankings only to nominate candidates. Prefer canonical specifications; then implementation evidence for current-state questions; current contracts/updates; user stories and examples; then historical or proposed material.
 3. Open the complete source or every relevant section needed for the locked questions. Never infer from filenames, snippets, rankings, or prior summaries.
-4. Update the topic ledger after every source and before context ends. Distinguish `unopened`, `targeted`, `complete`, and `blocked`; distinguish candidate, reviewed, and materially used.
+4. Update the exact topic ledger after every source and before context ends. Distinguish `unopened`, `targeted`, `complete`, and `blocked`; distinguish candidate, reviewed, and materially used.
 5. Continue source reading while a known readable source can answer an unresolved critical/routine query.
-6. Write Phase 1 analysis with query linkage and explicit concept/entity dispositions. Read it back in full.
-7. Choose page topology by recurring retrieval value and duplication reduction. Draft complete answer-bearing pages, not boundary notices. Read every written page back in full.
+6. For Phase 1, write the exact topic analysis and ledger with query linkage and explicit concept/entity dispositions. For Phase 2, write only pages declared by the registry or Phase 1 analysis. For semantic acceptance, write only the independent verdict artifact.
+7. Read every `required_readback` file in full and check every packet `success_conditions` item before returning the exact `completion_response`.
 8. Classify reopen triggers as `evidence_unavailable`, `evidence_conflict`, `future_change`, or `readable_unopened`; the last blocks completion for critical/routine queries.
-9. Report `partial` if connector reliability, context, or evidence access prevents completion.
+9. Stop on every packet stop condition. Report truthful partial state when connector reliability, context, or evidence access prevents completion; never widen the write set or self-certify acceptance.
 
 ## Interrupted-context recovery prompt
 
 ```text
-Resume one Apex KB semantic topic from repository files only. Read the repository-local semantic contract, topic registry entry, complete topic ledger, referenced Phase 1 analyses, and current compiled pages. Treat the ledger as navigation, not evidence. Reopen every source whose exact passage is needed before making a claim. Continue from the first unresolved critical/routine query. Do not certify your own output or perform deterministic work.
+Resume one Apex KB semantic stage from repository files only. Read `manifests/run-state.json`, then open the packet referenced by its current stage under `log/runs/<run-id>/packets/`. Verify the packet input fingerprints and read only its exact inputs. Treat the ledger as navigation, not evidence. Reopen every source whose exact passage is needed before making a claim. Continue from the first unresolved critical/routine query, write only packet-allowed paths, perform every required readback, and return the packet completion response exactly. Do not certify your own output or perform deterministic work.
 ```
 
 ## Clean-context page-only evaluator prompt
@@ -42,4 +42,4 @@ Independently select at least two material claims from each page, or all claims 
 
 ## Deterministic handoff
 
-Provide the run ID, topic ledgers, created/updated Phase 1 and Phase 2 files, semantic-acceptance artifacts, unresolved blockers, and truthful state. Stop at `compiled_unvalidated`. A terminal-backed executor must validate schemas, lint/quality wiring, index/retrieval freshness, and postflight before `query_ready`.
+Return the packet's exact completion response after required readback. The terminal-backed executor then runs `control reconcile`, which validates exact paths, schemas, packet fingerprints, custody, independent acceptance, and the next legal transition from repository files. Connector execution stops at `compiled_unvalidated`; only a terminal-backed `control run` may execute postflight and promote the run to `query_ready`.

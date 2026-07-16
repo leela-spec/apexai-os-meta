@@ -123,7 +123,16 @@ def write_text(path: Path, text: str, kb_root: Path, allow_write: bool, dry_run:
     result = {"path": relpath(kb_root, path), "exists": exists, "changed": changed, "written": False}
     if changed and allow_write and not dry_run:
         path.parent.mkdir(parents=True, exist_ok=True)
-        path.write_text(text, encoding="utf-8", newline="\n")
+        temp = path.with_name(f".{path.name}.{os.getpid()}.tmp")
+        try:
+            with temp.open("w", encoding="utf-8", newline="\n") as handle:
+                handle.write(text)
+                handle.flush()
+                os.fsync(handle.fileno())
+            os.replace(temp, path)
+        finally:
+            if temp.exists():
+                temp.unlink()
         result["written"] = True
     return result
 
@@ -141,7 +150,13 @@ def copy_file(src: Path, dest: Path, kb_root: Path, allow_write: bool, dry_run: 
         return result
     if allow_write and not dry_run:
         dest.parent.mkdir(parents=True, exist_ok=True)
-        shutil.copy2(src, dest)
+        temp = dest.with_name(f".{dest.name}.{os.getpid()}.tmp")
+        try:
+            shutil.copy2(src, temp)
+            os.replace(temp, dest)
+        finally:
+            if temp.exists():
+                temp.unlink()
         result["written"] = True
     return result
 
@@ -310,7 +325,7 @@ def emit(args: argparse.Namespace, obj: Any) -> None:
 def normalize_global_flag_placement(argv: Sequence[str]) -> Sequence[str]:
     normalized = list(argv)
     commands = {
-        "scaffold", "source-intake", "hash", "generate-source-payload-manifest", "source-payload-manifest",
+        "control", "scaffold", "source-intake", "hash", "generate-source-payload-manifest", "source-payload-manifest",
         "payload-manifest", "preflight", "topic-sanity-check", "phase0", "ingest-phase1", "ingest-phase2", "index", "query",
         "lint", "audit", "status", "health",
         "quality", "coverage", "query-eval", "semantic-acceptance-status", "graph", "process-graph", "postflight",
@@ -447,17 +462,22 @@ This Apex KB root is a source-preserving knowledge base for `{kb_slug}`.
 Canonical paths:
 
 - `raw/` preserves source files or durable pointers.
-- `ingest-analysis/` stores Phase 1 LLM analysis before operator approval.
-- `wiki/` stores approved compiled KB pages.
+- `manifests/run-intent.md` stores operator-owned run configuration and confirmation.
+- `manifests/run-state.json` stores machine-owned lifecycle progress and legal transitions.
+- `manifests/topic-registry.json` stores operator/LLM-authored topic and target-query definitions.
 - `manifests/source-manifest.json` records source custody and hashes.
+- `ingest-analysis/` stores topic-scoped Phase 1 semantic analysis.
+- `wiki/` stores compiled KB pages.
+- `audit/semantic-acceptance/` stores independent semantic verdicts.
+- `log/runs/` stores stage results, readbacks, and authoritative semantic handoff packets.
+
+Derived paths:
+
 - `manifests/phase0/` stores deterministic navigation artifacts.
 - `derived/search/` stores rebuildable retrieval indexes.
-- `audit/` stores open and resolved review items.
 - `outputs/queries/` stores reusable cited query packets.
 
-Apex KB must not mutate Apex Plan, Apex Sync, Apex Session, PreCap, FlowRecap,
-APSU, or personal orchestration state. Other systems may consume KB outputs as
-read-only evidence packets.
+Use `python apex-meta/scripts/apex_kb.py --kb-root <this-root> control next` to derive the exact next action. Apex KB must not mutate Apex Plan, Apex Sync, Apex Session, PreCap, FlowRecap, APSU, or personal orchestration state. Other systems may consume KB outputs as read-only evidence packets.
 """
 
 
@@ -485,8 +505,10 @@ kb_schema:
     primary_language: english
     preserve_source_language_when_relevant: true
   kb_operator_review_policy:
-    ingest_phase_2_requires_phrase: "approve ingest"
-    same_prompt_approval_allowed: false
+    controlled_run_default: "continuous Phase 1 to Phase 2 when the selected output tier includes wiki output"
+    safe_stop_modes: [analysis_only, operator_explicit_stop_before_wiki]
+    legacy_direct_command_phrase: "approve ingest"
+    independent_semantic_acceptance_required_for_compiled_tiers: true
     contradiction_handling: "expose, do not silently resolve"
 ```
 """
@@ -584,9 +606,17 @@ def cmd_source_intake(args: argparse.Namespace) -> Dict[str, Any]:
             return {"command": "source-intake", "status": "blocked", "reason": "--source-root must be an existing directory", "source_root": str(root)}
         manifest = read_manifest(kb_root)
         existing = {s.get("source_id"): s for s in manifest.get("sources", []) if isinstance(s, dict)}
-        existing = {k: v for k, v in existing.items() if Path(str(v.get("original_source_path", ""))).resolve() != root}
+
+        def belongs_to_source_root(entry: Dict[str, Any]) -> bool:
+            try:
+                Path(str(entry.get("original_source_path", ""))).resolve().relative_to(root)
+                return True
+            except (OSError, ValueError):
+                return False
+
+        existing = {k: v for k, v in existing.items() if not belongs_to_source_root(v)}
         results = []
-        eligible = sorted((p for p in root.rglob("*") if p.is_file() and p.suffix.lower() in TEXT_EXTS), key=lambda p: p.as_posix().lower())
+        eligible = sorted((p for p in root.rglob("*") if p.is_file()), key=lambda p: p.as_posix().lower())
         for path in eligible:
             rel = path.relative_to(root).as_posix()
             source_id = "source-" + hashlib.sha256(rel.encode("utf-8")).hexdigest()[:16]
@@ -641,7 +671,9 @@ def cmd_source_intake(args: argparse.Namespace) -> Dict[str, Any]:
     }
     existing_ids = {s.get("source_id") for s in manifest.get("sources", []) if isinstance(s, dict)}
     dupes = duplicate_hashes(manifest, entry["source_hash"] if entry["source_hash"] != "NA" else None)
-    blocked = source_id in existing_ids and not args.as_version
+    source_id_blocked = source_id in existing_ids and not args.as_version
+    duplicate_blocked = bool(dupes) and not args.allow_duplicate and not args.as_version
+    blocked = source_id_blocked or duplicate_blocked
     if not blocked:
         if source_id in existing_ids:
             base = source_id
@@ -649,10 +681,10 @@ def cmd_source_intake(args: argparse.Namespace) -> Dict[str, Any]:
             while f"{base}-v{n}" in existing_ids:
                 n += 1
             entry["source_id"] = f"{base}-v{n}"
-        if not dupes or args.allow_duplicate:
-            manifest.setdefault("sources", []).append(entry)
+        manifest.setdefault("sources", []).append(entry)
     write = None if blocked else write_text(kb_root / MANIFEST_PATH, manifest_text(manifest), kb_root, args.allow_write, dry_run)
-    return {"command": "source-intake", "dry_run": dry_run, "status": "blocked" if blocked else "ok", "entry": entry, "duplicate_hash_candidates": dupes, "copies": copies, "manifest_write": write}
+    reason_code = "source_id_exists" if source_id_blocked else ("duplicate_source_hash" if duplicate_blocked else None)
+    return {"command": "source-intake", "dry_run": dry_run, "status": "blocked" if blocked else "ok", "reason_code": reason_code, "entry": entry, "duplicate_hash_candidates": dupes, "copies": copies, "manifest_write": write}
 
 
 def cmd_preflight(args: argparse.Namespace) -> Dict[str, Any]:
@@ -3421,6 +3453,23 @@ def _postflight_retrieval_module() -> Any:
     return apex_kb_retrieval
 
 
+_CONTROL_MODULE: Any = None
+
+
+def _control_module() -> Any:
+    global _CONTROL_MODULE
+    if _CONTROL_MODULE is not None:
+        return _CONTROL_MODULE
+    path = Path(__file__).resolve().with_name("apex_kb_control.py")
+    spec = importlib.util.spec_from_file_location("apex_kb_control", path)
+    if spec is None or spec.loader is None:
+        raise RuntimeError(f"Unable to load Apex KB control plane: {path}")
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    _CONTROL_MODULE = module
+    return module
+
+
 def cmd_postflight(args: argparse.Namespace) -> Dict[str, Any]:
     kb_root = resolve_kb_root(args.kb_root)
     dry_run = effective_dry_run(args)
@@ -3525,6 +3574,9 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--output-json", help="Write command result as JSON to file")
     sub = parser.add_subparsers(dest="command", required=True)
 
+    control_cmd = sub.add_parser("control", help="Canonical run-state, stage orchestration, semantic packets, recovery, and Git classification")
+    _control_module().configure_parser(control_cmd)
+
     sc = sub.add_parser("scaffold")
     sc.add_argument("--title")
     sc.add_argument("--topic-title")
@@ -3626,7 +3678,12 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     if not args.kb_root:
         parser.error("--kb-root is required")
     try:
-        result = args.func(args)
+        control = _control_module()
+        if args.command == "control":
+            result = control.dispatch(args, globals())
+        else:
+            guarded = control.guard_direct_command(args)
+            result = guarded if guarded is not None else args.func(args)
         maybe_write_output_json(args, result, resolve_kb_root(args.kb_root))
         emit(args, result)
         status = result.get("status") if isinstance(result, dict) else None

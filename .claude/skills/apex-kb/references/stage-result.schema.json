@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "apex.kb.stage-result.v1",
+  "type": "object",
+  "required": [
+    "schema",
+    "run_id",
+    "stage",
+    "status",
+    "reason_code",
+    "artifact",
+    "next_stage",
+    "operator_action"
+  ],
+  "properties": {
+    "schema": {"const": "apex.kb.stage-result.v1"},
+    "run_id": {"type": "string", "minLength": 1},
+    "stage": {"type": "string", "minLength": 1},
+    "status": {
+      "enum": [
+        "ok",
+        "blocked",
+        "needs_operator",
+        "needs_semantic_executor",
+        "failed"
+      ]
+    },
+    "reason_code": {"type": ["string", "null"]},
+    "artifact": {"type": ["string", "object", "null"]},
+    "next_stage": {"type": ["string", "null"]},
+    "operator_action": {"type": ["string", "null"]}
+  },
+  "additionalProperties": false
+}

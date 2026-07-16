@@ -1,0 +1,157 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "apex.kb.run-state.v1",
+  "type": "object",
+  "required": [
+    "schema",
+    "schema_version",
+    "run_id",
+    "kb_root",
+    "kb_title",
+    "mode",
+    "source_roots",
+    "source_inputs",
+    "target_repository",
+    "execution_route",
+    "topics",
+    "output_tier",
+    "operator_confirmation",
+    "current_stage",
+    "completed_stages",
+    "blocked_reason",
+    "next_legal_stage",
+    "artifact_references",
+    "input_fingerprints",
+    "truthful_state",
+    "revision",
+    "created_at",
+    "updated_at"
+  ],
+  "properties": {
+    "schema": {"const": "apex.kb.run-state.v1"},
+    "schema_version": {"const": "1"},
+    "run_id": {"type": "string", "minLength": 1},
+    "kb_root": {"type": "string", "minLength": 1},
+    "kb_title": {"type": "string"},
+    "mode": {"enum": ["scaffold", "ingest", "compile"]},
+    "source_roots": {
+      "type": "array",
+      "items": {"type": "string", "minLength": 1},
+      "uniqueItems": true
+    },
+    "source_inputs": {
+      "type": "array",
+      "items": {"type": "object"}
+    },
+    "target_repository": {"type": "string", "minLength": 1},
+    "target_commit": {"type": ["string", "null"]},
+    "execution_route": {
+      "enum": ["terminal_backed", "connector_only", "unsupported"]
+    },
+    "topics": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/topic_state"}
+    },
+    "output_tier": {
+      "enum": [
+        "source_only",
+        "analysis_only",
+        "compiled_minimal",
+        "compiled_full",
+        "query_ready"
+      ]
+    },
+    "operator_confirmation": {"$ref": "#/$defs/operator_confirmation"},
+    "current_stage": {"type": "string", "minLength": 1},
+    "completed_stages": {
+      "type": "array",
+      "items": {"type": "string", "minLength": 1},
+      "uniqueItems": true
+    },
+    "blocked_reason": {
+      "type": ["object", "null"],
+      "properties": {
+        "code": {"type": "string", "minLength": 1},
+        "message": {"type": "string", "minLength": 1},
+        "action": {"type": ["string", "null"]},
+        "paths": {
+          "type": "array",
+          "items": {"type": "string", "minLength": 1}
+        }
+      },
+      "required": ["code", "message", "action", "paths"],
+      "additionalProperties": false
+    },
+    "next_legal_stage": {"type": ["string", "null"]},
+    "artifact_references": {
+      "type": "object",
+      "additionalProperties": {"type": "string", "minLength": 1}
+    },
+    "input_fingerprints": {
+      "type": "object",
+      "additionalProperties": {"$ref": "#/$defs/fingerprint"}
+    },
+    "truthful_state": {
+      "enum": [
+        "initialized",
+        "partial",
+        "source_only_complete",
+        "analysis_complete_unvalidated",
+        "compiled_unvalidated",
+        "query_ready"
+      ]
+    },
+    "revision": {"type": "integer", "minimum": 1},
+    "created_at": {"type": "string", "minLength": 1},
+    "updated_at": {"type": "string", "minLength": 1}
+  },
+  "$defs": {
+    "topic_state": {
+      "type": "object",
+      "required": ["slug", "name", "expected_pages", "status"],
+      "properties": {
+        "slug": {"type": "string", "minLength": 1},
+        "name": {"type": "string", "minLength": 1},
+        "expected_pages": {
+          "type": "array",
+          "items": {"type": "string", "minLength": 1},
+          "uniqueItems": true
+        },
+        "status": {
+          "enum": [
+            "not_started",
+            "phase1_pending",
+            "phase1_complete",
+            "phase2_pending",
+            "phase2_complete",
+            "acceptance_pending",
+            "accepted",
+            "blocked"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "operator_confirmation": {
+      "type": "object",
+      "required": ["confirmed", "quote", "confirmed_at"],
+      "properties": {
+        "confirmed": {"type": "boolean"},
+        "quote": {"type": "string"},
+        "confirmed_at": {"type": ["string", "null"]}
+      },
+      "additionalProperties": false
+    },
+    "fingerprint": {
+      "type": "object",
+      "required": ["sha256", "invalidate_from", "recorded_at"],
+      "properties": {
+        "sha256": {"type": "string", "minLength": 1},
+        "invalidate_from": {"type": "string", "minLength": 1},
+        "recorded_at": {"type": "string", "minLength": 1}
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

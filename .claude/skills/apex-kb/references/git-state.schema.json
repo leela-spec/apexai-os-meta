@@ -1,0 +1,61 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "apex.kb.git-state.v1",
+  "type": "object",
+  "required": [
+    "schema",
+    "classification",
+    "repository_root",
+    "branch",
+    "head",
+    "upstream",
+    "ahead",
+    "behind",
+    "tracked_change_count",
+    "untracked_count",
+    "unmerged_count",
+    "operation",
+    "safe_for_kb_write",
+    "reason"
+  ],
+  "properties": {
+    "schema": {"const": "apex.kb.git-state.v1"},
+    "classification": {
+      "enum": [
+        "no_repository",
+        "git_unavailable",
+        "git_status_failed",
+        "rebase_in_progress",
+        "merge_in_progress",
+        "cherry_pick_in_progress",
+        "revert_in_progress",
+        "bisect_in_progress",
+        "conflicted",
+        "dirty",
+        "clean_diverged",
+        "clean_ahead",
+        "clean_behind",
+        "clean_synced",
+        "clean_no_upstream"
+      ]
+    },
+    "repository_root": {"type": ["string", "null"]},
+    "branch": {"type": ["string", "null"]},
+    "head": {"type": ["string", "null"]},
+    "upstream": {"type": ["string", "null"]},
+    "ahead": {"type": ["integer", "null"], "minimum": 0},
+    "behind": {"type": ["integer", "null"], "minimum": 0},
+    "tracked_change_count": {"type": "integer", "minimum": 0},
+    "untracked_count": {"type": "integer", "minimum": 0},
+    "unmerged_count": {"type": "integer", "minimum": 0},
+    "changed_paths": {
+      "type": "array",
+      "items": {"type": "string", "minLength": 1},
+      "uniqueItems": true
+    },
+    "operation": {"type": ["string", "null"]},
+    "safe_for_kb_write": {"type": "boolean"},
+    "reason": {"type": "string", "minLength": 1}
+  },
+  "additionalProperties": false
+}

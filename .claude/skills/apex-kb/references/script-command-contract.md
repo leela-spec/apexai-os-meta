@@ -9,7 +9,12 @@ script_policy:
   kb_root_required: true
   no_silent_default_kb: true
   network_access: forbidden
-  shell_out: forbidden
+  shell_out:
+    default: forbidden
+    read_only_exceptions:
+      phase0_freshness: "git -C <repo> log --format=COMMIT\t%cI --name-only -- <kb-path>"
+      control_classification: "git --no-optional-locks -C <repo> status --porcelain=v2 --branch --untracked-files=all"
+    prohibited_git_actions: [fetch, pull, reset, stash, merge, rebase, cherry-pick, revert, commit, push]
   required_dependency: Python standard library
   default_mode: dry_run
   writes_require: --allow-write
@@ -31,6 +36,7 @@ Post-subcommand placement is accepted for these boolean global flags. Options wi
 
 | Command | Writes possible | Owner | Role |
 |---|---:|---|---|
+| `control` | yes | Python | canonical run intent/state, legal transitions, exact next command, semantic packets, recovery, input invalidation, and read-only Git classification; delegates existing domain commands |
 | `scaffold` | yes | Python | create required KB skeleton and starter deterministic files |
 | `source-intake` | yes | Python | copy/pointer source custody and source manifest entry |
 | `hash` | no | Python | SHA-256 file or deterministic directory hash |
@@ -47,6 +53,30 @@ Post-subcommand placement is accepted for these boolean global flags. Options wi
 | `status` | no | Python | lifecycle status summary |
 | `health` | no | Python | runtime/tool/FTS5 probe |
 | `postflight` | yes, derived only | Python | bounded seven-stage deterministic completion aggregate |
+
+## `control` command
+
+`control` is a nested subcommand of the existing lifecycle CLI; it is not a second operator CLI and does not copy domain logic.
+
+```text
+python apex-meta/scripts/apex_kb.py --kb-root apex-meta/kb/<kb-slug>/ control <action> [flags]
+```
+
+| Action | Writes | Role |
+|---|---:|---|
+| `init` | yes with `--allow-write` | validate compact run configuration; create `manifests/run-intent.md` and `manifests/run-state.json`; render the first exact stage result |
+| `confirm` | yes with `--allow-write` | record the operator's verbatim Step 0 confirmation |
+| `status` | no | validate canonical intent/state, fingerprints, and next legal stage |
+| `next` | no | return the exact next PowerShell-safe command or one-line semantic packet trigger |
+| `run` | yes with `--allow-write` | execute exactly one legal deterministic stage in-process or render exactly one semantic packet |
+| `reconcile` | yes only when accepting a detected input change | resume from repository files, validate packet output, classify drift, and invalidate only affected downstream stages |
+| `git-state` | no | classify branch, HEAD, upstream, ahead/behind, dirty/untracked/conflicted counts, and in-progress operations without mutation |
+
+The compact result for every action conforms to `apex.kb.stage-result.v1`. A controlled KB has `manifests/run-state.json`; direct low-level mutation commands are blocked for that KB so state cannot drift. Legacy KBs without run state keep their existing low-level command behavior.
+
+Git policy is read-only classification. Dirty or untracked files remain visible and may be safe for bounded KB writes; unmerged paths, an in-progress merge/rebase/cherry-pick/revert/bisect, Git status failure, or a configured target-commit mismatch blocks the controlled stage. Apex KB never resolves, stashes, resets, or synchronizes operator work.
+
+Recovery policy is file-based. `control reconcile` checks canonical input fingerprints and run-specific packet fingerprints. A changed source, registry, work pack, analysis, page, schema, or template invalidates the earliest affected stage and its downstream completion records. The operator must explicitly pass `--accept-input-change` before new fingerprints replace recorded ones.
 
 ## Source payload manifest command
 
