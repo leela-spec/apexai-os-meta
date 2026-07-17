@@ -616,18 +616,25 @@ def cmd_source_intake(args: argparse.Namespace) -> Dict[str, Any]:
 
         existing = {k: v for k, v in existing.items() if not belongs_to_source_root(v)}
         results = []
+        root_storage_mode = args.storage_mode
+        root_source_type = args.source_type
         eligible = sorted((p for p in root.rglob("*") if p.is_file()), key=lambda p: p.as_posix().lower())
         for path in eligible:
             rel = path.relative_to(root).as_posix()
             source_id = "source-" + hashlib.sha256(rel.encode("utf-8")).hexdigest()[:16]
-            dest = kb_root / "raw" / "other" / Path(rel)
-            copy_result = copy_file(path, dest, kb_root, args.allow_write, dry_run)
+            copy_result = None
+            if root_storage_mode in {"copy_into_kb", "snapshot_copy"}:
+                dest = kb_root / "raw" / "other" / Path(rel)
+                copy_result = copy_file(path, dest, kb_root, args.allow_write, dry_run)
+                entry_source_path = relpath(kb_root, dest)
+            else:
+                entry_source_path = str(path)
             entry = {
                 "source_id": source_id,
                 "title": rel,
-                "source_type": "other",
-                "source_storage_mode": "copy_into_kb",
-                "source_path": relpath(kb_root, dest),
+                "source_type": root_source_type,
+                "source_storage_mode": root_storage_mode,
+                "source_path": entry_source_path,
                 "original_source_path": str(path),
                 "source_hash": hash_path(path).get("source_hash") or "NA",
                 "hash_algorithm": "sha256-file",
