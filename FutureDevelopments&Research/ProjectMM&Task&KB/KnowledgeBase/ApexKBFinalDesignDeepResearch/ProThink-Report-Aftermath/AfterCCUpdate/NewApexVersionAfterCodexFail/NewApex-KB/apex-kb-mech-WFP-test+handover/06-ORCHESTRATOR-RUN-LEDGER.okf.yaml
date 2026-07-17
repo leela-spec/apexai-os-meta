@@ -1,0 +1,68 @@
+schema: apex.kb.orchestrator-test-ledger.v1
+ledger_status: active
+run_id: null
+run_mode: pending_runtime_probe
+repository:
+  full_name: leela-spec/apexai-os-meta
+  branch: main
+  pack_commit: 4fddeab59a8e4d63a8efa347ec9b3d28f33f43c1
+  pack_root: FutureDevelopments&Research/ProjectMM&Task&KB/KnowledgeBase/ApexKBFinalDesignDeepResearch/ProThink-Report-Aftermath/AfterCCUpdate/NewApexVersionAfterCodexFail/NewApex-KB/apex-kb-mechanistic-workflow-pack
+configuration:
+  draft_path: null
+  locked_manifest_path: null
+  config_hash: null
+  manifest_revision: null
+  operator_confirmed: false
+  confirmation_quote: null
+primary_topic:
+  topic_id: null
+  name: null
+  locked_question_ids: []
+stages:
+  T00_runtime_probe:
+    status: pending
+    executor: codex
+    artifacts: []
+    reason_code: null
+  T01_operator_configuration:
+    status: pending
+    executor: orchestrator_operator
+    artifacts: []
+    reason_code: null
+  T02_preflight_and_lock:
+    status: pending
+    executor: codex
+    artifacts: []
+    reason_code: null
+  T03_phase0:
+    status: pending
+    executor: codex
+    artifacts: []
+    reason_code: null
+  T04_phase1:
+    status: pending
+    executor: gpt_phase1_plus_codex_reconcile
+    batches: []
+    artifacts: []
+    reason_code: null
+  T05_phase2:
+    status: pending
+    executor: gpt_phase2_plus_codex_reconcile
+    artifacts: []
+    reason_code: null
+  T06_semantic_acceptance:
+    status: pending
+    executor: gpt_acceptance
+    artifacts: []
+    verdict: null
+    reason_code: null
+  T07_postflight:
+    status: pending
+    executor: codex
+    artifacts: []
+    reason_code: null
+truthful_state: initialized
+current_blocker: null
+next_executor: codex
+next_action: Run the read-only v2 runtime probe.
+child_results: []
