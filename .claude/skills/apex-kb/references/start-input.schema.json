@@ -1,0 +1,159 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "apex.kb.start-input.v1",
+  "type": "object",
+  "required": [
+    "repository",
+    "source_folders",
+    "exclusions",
+    "kb_destination",
+    "topics",
+    "run_options"
+  ],
+  "properties": {
+    "repository": {
+      "type": "string",
+      "minLength": 3,
+      "pattern": "^[^/\\s]+/[^/\\s]+$"
+    },
+    "source_folders": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "exclusions": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/exclusion"
+      }
+    },
+    "kb_destination": {
+      "type": "object",
+      "required": ["folder"],
+      "properties": {
+        "folder": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "topics": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/topic"
+      }
+    },
+    "run_options": {
+      "$ref": "#/$defs/run_options"
+    }
+  },
+  "$defs": {
+    "exclusion": {
+      "type": "object",
+      "required": ["path", "reason"],
+      "properties": {
+        "path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "reason": {
+          "enum": [
+            "generated_output",
+            "duplicate_export",
+            "dependency",
+            "cache",
+            "archive",
+            "irrelevant",
+            "sensitive_out_of_scope",
+            "other"
+          ]
+        },
+        "note": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "topic": {
+      "type": "object",
+      "required": [
+        "name",
+        "phrases",
+        "ambiguous_or_negative_terms",
+        "questions"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "phrases": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "ambiguous_or_negative_terms": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "questions": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "run_options": {
+      "type": "object",
+      "required": [
+        "source_handling",
+        "detail",
+        "output",
+        "non_text",
+        "ai_help_after_preflight"
+      ],
+      "properties": {
+        "source_handling": {
+          "enum": ["pointer_only", "copy_into_kb", "snapshot_copy"]
+        },
+        "detail": {
+          "enum": ["quick", "standard", "deep"]
+        },
+        "output": {
+          "enum": ["analysis_only", "compiled_kb", "query_ready"]
+        },
+        "non_text": {
+          "enum": [
+            "inventory_and_report",
+            "extract_when_supported",
+            "block_on_unsupported"
+          ]
+        },
+        "ai_help_after_preflight": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}
