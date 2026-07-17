@@ -118,7 +118,7 @@ topics:
 run_options:
   # Keep exactly one value after each colon; delete the alternatives.
   source_handling: pointer_only / copy_into_kb / snapshot_copy
-  detail: quick / standard / deep
+  semantic_depth: quick / standard / deep
   output: analysis_only / compiled_kb / query_ready
   non_text: inventory_and_report / extract_when_supported / block_on_unsupported
   ai_help_after_preflight: false / true
@@ -131,9 +131,9 @@ run_options:
 | **Source handling** | `pointer_only` **default** | Sources remain in the repository | Stores paths, repository state, and hashes without duplicating files |
 |  | `copy_into_kb` | The generated KB must hold approved source copies | More storage and update management |
 |  | `snapshot_copy` | A fixed historical evidence set is required | Strongest reproducibility; highest storage cost |
-| **Run detail** | `quick` | The corpus is small and already understood | Inventory, formats, headings, and basic phrase matches |
-|  | `standard` **default** | Normal project or documentation KB | Structured topic matching, duplicates, dates when available, work packs, and statistics |
-|  | `deep` | The corpus is large, highly versioned, or relationship-heavy | Standard processing plus broader extraction and configured relationship analysis |
+| **Semantic depth** | `quick` | The semantic questions are narrow or a concise answer is sufficient | Uses the strongest evidence first, answers locked questions concisely, and avoids optional expansion |
+|  | `standard` **default** | Normal project or documentation KB | Reviews the complete bounded work pack with normal authority, contradiction, version, dossier, and source-atlas treatment |
+|  | `deep` | The topic is highly versioned, contradictory, or strategically important | Performs maximum bounded cross-source reconciliation, evolution analysis, uncertainty treatment, and richer Macro/Meso/Micro synthesis |
 | **Output** | `analysis_only` | You need deterministic maps and reviewed semantic analysis only | Stops before durable compiled pages |
 |  | `compiled_kb` | Future AIs should read durable dossiers and source atlases | Creates accepted compiled knowledge without requiring final retrieval |
 |  | `query_ready` **default** | The KB should be directly searchable after completion | Adds final validation and the retrieval index |

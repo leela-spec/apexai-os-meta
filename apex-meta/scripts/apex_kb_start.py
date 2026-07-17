@@ -29,13 +29,13 @@ try:
 except ImportError:  # pragma: no cover - explicit runtime blocker
     yaml = None
 
-START_SCHEMA = "apex.kb.start-input.v1"
+START_SCHEMA = "apex.kb.start-input.v2"
 OUTPUT_MAP = {
     "analysis_only": "analysis_only",
     "compiled_kb": "compiled_full",
     "query_ready": "query_ready",
 }
-DETAIL_COVERAGE = {"quick": 0.4, "standard": 0.6, "deep": 0.8}
+COMPAT_PHASE1_MIN_COVERAGE = 0.6
 EXAMPLE_MARKERS = (
     "velvet-vice",
     "bar-operations",
@@ -178,25 +178,66 @@ def resolve_primary_worktree(start: Path, repository: str, control: Any) -> Dict
             f"Configuration names {repository}, but primary worktree origin is {detected}",
             [str(primary)],
         )
+
+    synchronization: Dict[str, Any] = {
+        "fetch_attempted": True,
+        "fetch_status": "not_run",
+        "fast_forward_attempted": False,
+        "fast_forward_status": "not_needed",
+        "warning": None,
+    }
+    fetched = git(primary, "fetch", "--prune", "origin", "main")
+    if fetched.returncode:
+        synchronization["fetch_status"] = "failed_continue_local"
+        synchronization["warning"] = fetched.stderr.strip() or "git fetch failed; continuing with current local main"
+    else:
+        synchronization["fetch_status"] = "ok"
+        relation = git(primary, "rev-list", "--left-right", "--count", "HEAD...origin/main")
+        if relation.returncode == 0:
+            parts = relation.stdout.strip().split()
+            ahead = int(parts[0]) if len(parts) == 2 else 0
+            behind = int(parts[1]) if len(parts) == 2 else 0
+            synchronization["ahead"] = ahead
+            synchronization["behind"] = behind
+            if behind > 0 and ahead == 0:
+                synchronization["fast_forward_attempted"] = True
+                advanced = git(primary, "merge", "--ff-only", "origin/main")
+                if advanced.returncode:
+                    synchronization["fast_forward_status"] = "failed_continue_local"
+                    synchronization["warning"] = advanced.stderr.strip() or "Fast-forward failed; continuing with current local files"
+                else:
+                    synchronization["fast_forward_status"] = "ok"
+            elif ahead > 0 and behind > 0:
+                synchronization["fast_forward_status"] = "diverged_continue_local"
+                synchronization["warning"] = "Local main and origin/main diverged; Apex KB did not merge or rewrite local work"
+            elif ahead > 0:
+                synchronization["fast_forward_status"] = "local_ahead_continue_local"
+
     state = control.classify_git_state(primary)
     if not state.get("safe_for_kb_write"):
         raise StartError("primary_worktree_unsafe", str(state.get("reason")), state.get("changed_paths", []))
+    refreshed_head = git(primary, "rev-parse", "HEAD")
+    primary_head = refreshed_head.stdout.strip() if refreshed_head.returncode == 0 else worktrees[0].get("head") or state.get("head")
     return {
         "schema": "apex.kb.worktree-safety.v1",
-        "policy": "primary_main_only",
+        "policy": "primary_main_prefer_synchronized",
         "invoked_root": str(invoked),
         "primary_root": str(primary),
         "fallback_applied": invoked != primary,
         "primary_branch": branch,
-        "primary_head": worktrees[0].get("head") or state.get("head"),
+        "primary_head": primary_head,
         "worktree_count": len(worktrees),
         "ignored_worktrees": worktrees[1:],
         "git_state": state,
+        "synchronization": synchronization,
         "rules": [
             "never_create_worktree",
             "never_switch_branch",
             "never_mix_worktree_content",
-            "write_only_in_primary_main_worktree",
+            "prefer_fetch_and_fast_forward_only",
+            "dirty_and_untracked_files_are_informational",
+            "never_stash_reset_clean_merge_or_rebase_operator_work",
+            "write_only_to_the_configured_non_overlapping_kb_destination",
         ],
     }
 
@@ -320,8 +361,8 @@ def run(args: argparse.Namespace) -> Dict[str, Any]:
         "output_tier_rationale": f"Frontend selection {frontend_output} maps deterministically to {OUTPUT_MAP[frontend_output]}.",
         "execution_route": "terminal_backed",
         "corpus_breadth": "broad" if any(item in {".", "./"} for item in value["source_folders"]) else "narrow",
-        "phase1_min_coverage": DETAIL_COVERAGE[options["detail"]],
-        "detail_profile": options["detail"],
+        "phase1_min_coverage": COMPAT_PHASE1_MIN_COVERAGE,
+        "semantic_depth": options["semantic_depth"],
         "non_text_policy": options["non_text"],
         "source_storage_mode": options["source_handling"],
         "topic_slugs": topic_slugs,

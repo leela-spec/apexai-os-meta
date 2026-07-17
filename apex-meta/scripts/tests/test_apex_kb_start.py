@@ -18,8 +18,9 @@ class ApexKbStartTests(unittest.TestCase):
         self.assertEqual(start.OUTPUT_MAP["compiled_kb"], "compiled_full")
         self.assertEqual(start.OUTPUT_MAP["query_ready"], "query_ready")
 
-    def test_detail_profiles_have_explicit_coverage_floors(self):
-        self.assertEqual(start.DETAIL_COVERAGE, {"quick": 0.4, "standard": 0.6, "deep": 0.8})
+    def test_semantic_depth_does_not_reduce_deterministic_phase_capability(self):
+        self.assertEqual(start.COMPAT_PHASE1_MIN_COVERAGE, 0.6)
+        self.assertNotIn("DETAIL_COVERAGE", vars(start))
 
     def test_topic_registry_generates_machine_ids_and_multiple_queries(self):
         registry = start.topic_registry(

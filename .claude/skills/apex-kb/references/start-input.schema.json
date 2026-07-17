@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "apex.kb.start-input.v1",
+  "$id": "apex.kb.start-input.v2",
   "type": "object",
   "required": [
     "repository",
@@ -126,7 +126,7 @@
       "type": "object",
       "required": [
         "source_handling",
-        "detail",
+        "semantic_depth",
         "output",
         "non_text",
         "ai_help_after_preflight"
@@ -135,7 +135,7 @@
         "source_handling": {
           "enum": ["pointer_only", "copy_into_kb", "snapshot_copy"]
         },
-        "detail": {
+        "semantic_depth": {
           "enum": ["quick", "standard", "deep"]
         },
         "output": {

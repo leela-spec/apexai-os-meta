@@ -1,0 +1,17 @@
+{
+  "inspected_commit": "6fb56fa2a7e07e74b848b0fca9a94dacfae60777",
+  "modules": [{"id": "PHASE-0-SETUP-MINIMAL-LIVE-SLICE", "name": "phase-0-setup-minimal-live-slice", "depends_on": []}],
+  "existing_files_patched": [
+    ".claude/skills/apex-kb/references/start-input.schema.json",
+    "apex-meta/scripts/apex_kb_start.py",
+    "apex-meta/scripts/tests/test_apex_kb_start.py",
+    "apex-meta/scripts/apex_kb.py",
+    "FutureDevelopments&Research/ProjectMM&Task&KB/KnowledgeBase/ApexKBFinalDesignDeepResearch/ProThink-Report-Aftermath/AfterCCUpdate/NewApexVersionAfterCodexFail/NewApex-KB/apex-kb-mechanistic-workflow-pack/templates/start-qa-option-a-v3-example-guidance.md"
+  ],
+  "new_files": [],
+  "patch_order": ["patches/PHASE-0-SETUP-MINIMAL-LIVE-SLICE.exact-match.md"],
+  "artifact_sha256": {
+    "patches/PHASE-0-SETUP-MINIMAL-LIVE-SLICE.exact-match.md": "7a2af6d7632895446e9654c8d355737967549784768522bc1618c6c5f0280113",
+    "patches/PHASE-0-SEMANTIC-DEPTH-AND-GIT-SYNC.exact-match.md": "eba2b0fcaf8e0646bcd6e3f4fd682c843f0025a069b2cb0468f8d29b808c1caf"
+  }
+}

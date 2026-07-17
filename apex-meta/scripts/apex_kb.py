@@ -3461,6 +3461,7 @@ def _postflight_retrieval_module() -> Any:
 
 
 _CONTROL_MODULE: Any = None
+_START_MODULE: Any = None
 
 
 def _control_module() -> Any:
@@ -3475,6 +3476,24 @@ def _control_module() -> Any:
     spec.loader.exec_module(module)
     _CONTROL_MODULE = module
     return module
+
+
+def _start_module() -> Any:
+    global _START_MODULE
+    if _START_MODULE is not None:
+        return _START_MODULE
+    path = Path(__file__).resolve().with_name("apex_kb_start.py")
+    spec = importlib.util.spec_from_file_location("apex_kb_start", path)
+    if spec is None or spec.loader is None:
+        raise RuntimeError(f"Unable to load Apex KB Start frontend: {path}")
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    _START_MODULE = module
+    return module
+
+
+def cmd_start(args: argparse.Namespace) -> Dict[str, Any]:
+    return _start_module().run(args)
 
 
 def cmd_postflight(args: argparse.Namespace) -> Dict[str, Any]:
@@ -3584,6 +3603,11 @@ def build_parser() -> argparse.ArgumentParser:
     control_cmd = sub.add_parser("control", help="Canonical run-state, stage orchestration, semantic packets, recovery, and Git classification")
     _control_module().configure_parser(control_cmd)
 
+    start_cmd = sub.add_parser("start", help="Validate and preview or initialize one Apex KB Setup configuration")
+    start_cmd.add_argument("--config", required=True, help="Path to the operator Start YAML configuration")
+    start_cmd.add_argument("--repo-root", help="Repository checkout or linked-worktree path used for read-only topology discovery")
+    start_cmd.set_defaults(func=cmd_start)
+
     sc = sub.add_parser("scaffold")
     sc.add_argument("--title")
     sc.add_argument("--topic-title")
@@ -3682,16 +3706,19 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     argv = normalize_global_flag_placement(list(argv) if argv is not None else sys.argv[1:])
     parser = build_parser()
     args = parser.parse_args(argv)
-    if not args.kb_root:
+    if args.command != "start" and not args.kb_root:
         parser.error("--kb-root is required")
     try:
         control = _control_module()
-        if args.command == "control":
+        if args.command == "start":
+            result = args.func(args)
+        elif args.command == "control":
             result = control.dispatch(args, globals())
         else:
             guarded = control.guard_direct_command(args)
             result = guarded if guarded is not None else args.func(args)
-        maybe_write_output_json(args, result, resolve_kb_root(args.kb_root))
+        output_root = resolve_kb_root(args.kb_root) if args.kb_root else Path.cwd()
+        maybe_write_output_json(args, result, output_root)
         emit(args, result)
         status = result.get("status") if isinstance(result, dict) else None
         if status == "internal_error":
