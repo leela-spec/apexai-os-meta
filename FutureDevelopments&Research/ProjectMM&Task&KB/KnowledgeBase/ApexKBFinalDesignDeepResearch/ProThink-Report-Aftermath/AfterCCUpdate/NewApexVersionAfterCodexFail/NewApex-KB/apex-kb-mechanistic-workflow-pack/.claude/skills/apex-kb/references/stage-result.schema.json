@@ -1,0 +1,146 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "apex.kb.stage-result.v2",
+  "type": "object",
+  "required": [
+    "schema",
+    "run_id",
+    "config_hash",
+    "stage",
+    "status",
+    "reason_code",
+    "message",
+    "artifacts_consumed",
+    "artifacts_created",
+    "next_command",
+    "operator_action",
+    "semantic_task",
+    "errors"
+  ],
+  "properties": {
+    "schema": {
+      "const": "apex.kb.stage-result.v2"
+    },
+    "run_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "config_hash": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "pattern": "^sha256:[a-f0-9]{64}$"
+    },
+    "stage": {
+      "type": "string",
+      "minLength": 1
+    },
+    "status": {
+      "enum": [
+        "ok",
+        "needs_operator",
+        "needs_semantic_executor",
+        "blocked",
+        "failed",
+        "complete"
+      ]
+    },
+    "reason_code": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "message": {
+      "type": "string"
+    },
+    "artifacts_consumed": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "artifacts_created": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "next_command": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "operator_action": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "semantic_task": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "packet_path": {
+          "type": "string"
+        },
+        "prompt_template_path": {
+          "type": "string"
+        },
+        "instruction_file_path": {
+          "type": "string"
+        },
+        "batch_guide_path": {
+          "type": "string"
+        },
+        "completion_response": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "packet_path",
+        "prompt_template_path",
+        "instruction_file_path",
+        "batch_guide_path",
+        "completion_response"
+      ],
+      "additionalProperties": false
+    },
+    "errors": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "code",
+          "message"
+        ],
+        "properties": {
+          "code": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          },
+          "path": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "field": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

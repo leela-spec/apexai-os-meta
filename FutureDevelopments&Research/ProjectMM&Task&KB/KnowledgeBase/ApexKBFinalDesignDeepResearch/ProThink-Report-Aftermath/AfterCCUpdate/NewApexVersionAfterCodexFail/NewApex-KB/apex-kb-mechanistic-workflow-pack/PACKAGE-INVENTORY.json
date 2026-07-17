@@ -1,0 +1,156 @@
+{
+  "schema": "apex.kb.workflow-pack.inventory.v1",
+  "file_count": 30,
+  "files": [
+    {
+      "path": ".claude/skills/apex-kb/SKILL.md",
+      "bytes": 1600,
+      "sha256": "adc6218cd9ae26b4647a1e80fffaf7ba31b6cdb11406ddbb61368e02773aac76"
+    },
+    {
+      "path": ".claude/skills/apex-kb/examples/lifecycle-runbook.md",
+      "bytes": 1442,
+      "sha256": "1b15f53397cd5b4d452ed4ee2a7a611fdaa8021e7973a0475c4b83150d52c619"
+    },
+    {
+      "path": ".claude/skills/apex-kb/package-manifest.md",
+      "bytes": 1884,
+      "sha256": "27cb207f486f0f6c58b7da1377e3cdf24d99dbfe61365d557e91c94aa542af6e"
+    },
+    {
+      "path": ".claude/skills/apex-kb/references/acceptance-tests.md",
+      "bytes": 2307,
+      "sha256": "7ca471123e0d9ddb18e1e8fc184afd4a9fb1d959024e039c64cfdc021e962274"
+    },
+    {
+      "path": ".claude/skills/apex-kb/references/mechanistic-workflow-contract.okf.yaml",
+      "bytes": 7272,
+      "sha256": "b926cd2ddb027f13456e376097f2d09f8132dfa8b88d215bef8dcd2987ee8c7d"
+    },
+    {
+      "path": ".claude/skills/apex-kb/references/phase0-ranking-and-stats-contract.okf.md",
+      "bytes": 4537,
+      "sha256": "6ff84d57e59380af32ead065cb38a18caa691ef249516e0c5c70e4dd6c449658"
+    },
+    {
+      "path": ".claude/skills/apex-kb/references/phase0-stats.schema.json",
+      "bytes": 4780,
+      "sha256": "a1a022b8af999929ef38d28a2bccfc1cf384378262e11446833eb00e58bbe15d"
+    },
+    {
+      "path": ".claude/skills/apex-kb/references/preflight-report.schema.json",
+      "bytes": 2586,
+      "sha256": "f8ce89308692ca9ff44400012c828510ef67d35120d1750ac534bda7411b0b66"
+    },
+    {
+      "path": ".claude/skills/apex-kb/references/run-config.schema.json",
+      "bytes": 7415,
+      "sha256": "76723da235a4014b3abdd49561ce0a4644b6e8c03632f661d2c54985d80eb1b0"
+    },
+    {
+      "path": ".claude/skills/apex-kb/references/run-manifest.schema.json",
+      "bytes": 1634,
+      "sha256": "ec9cd2df098989f6f396a5798c987e92ef6e157987affc0c7f3754d9275fdfef"
+    },
+    {
+      "path": ".claude/skills/apex-kb/references/run-state.schema.json",
+      "bytes": 4844,
+      "sha256": "a1214fa33b3ac4325e292ca67d15a2048f3ac3ae30c7f6da3ce034ae58472554"
+    },
+    {
+      "path": ".claude/skills/apex-kb/references/script-command-contract.md",
+      "bytes": 2819,
+      "sha256": "d325e264d5c069cd77cfa55bdc7d98b7a362fd33d013a2c1a0ee3cfe99a800fa"
+    },
+    {
+      "path": ".claude/skills/apex-kb/references/semantic-batch-execution-guide.okf.md",
+      "bytes": 2420,
+      "sha256": "c45da09f156c938f367b349ab8ae26a47e3dd9c53bf418edcd5af80dab1e7bf3"
+    },
+    {
+      "path": ".claude/skills/apex-kb/references/semantic-handoff-packet.schema.json",
+      "bytes": 3100,
+      "sha256": "02edd6ac12020c4d53a13ce2aca639b0c4a203fbe8c24589f91dcd77c449b547"
+    },
+    {
+      "path": ".claude/skills/apex-kb/references/semantic-task-instructions.schema.json",
+      "bytes": 6460,
+      "sha256": "373560d8cc62ade114083c51c124dac37cb8acb3679783282209a3cfeed61b7c"
+    },
+    {
+      "path": ".claude/skills/apex-kb/references/semantic-value-contract.md",
+      "bytes": 3999,
+      "sha256": "d22151e467bc37ed696c72ecc0c5fadd431c6cb66fcc8ac23b16839410093c10"
+    },
+    {
+      "path": ".claude/skills/apex-kb/references/stage-result.schema.json",
+      "bytes": 2730,
+      "sha256": "a62e8393dbe66c54ab0184e08ccbae2b8e5b72d7d2a86e9f64a9d0a73f04538f"
+    },
+    {
+      "path": ".claude/skills/apex-kb/templates/ingest-analysis-template.md",
+      "bytes": 3525,
+      "sha256": "42f308d65e3ccbb85dd19007d4777637153c9c42d316d9f1e494562a4e4b7e5e"
+    },
+    {
+      "path": ".claude/skills/apex-kb/templates/phase0-stats-report.okf.md",
+      "bytes": 1781,
+      "sha256": "2fe744f390ad5ba28a62a2db2a65e7e4e07bbcd5dfd3958a521bb663238cf0e7"
+    },
+    {
+      "path": ".claude/skills/apex-kb/templates/phase1-prompt-template.okf.md",
+      "bytes": 1784,
+      "sha256": "3854dd6eb03960d1e2778c1010908b343125c064f16d59178df753f511edd017"
+    },
+    {
+      "path": ".claude/skills/apex-kb/templates/phase1-run-instructions.okf.yaml",
+      "bytes": 2833,
+      "sha256": "d407d7ba5e517a9f61fd02f5c0a7cba9bcb795d6654a4f4cfb520d8689b4ca04"
+    },
+    {
+      "path": ".claude/skills/apex-kb/templates/phase2-prompt-template.okf.md",
+      "bytes": 1688,
+      "sha256": "7e318eddfec34e9255f23b1dacd43b96e85acff07ac654b43db0edc705515ea9"
+    },
+    {
+      "path": ".claude/skills/apex-kb/templates/phase2-run-instructions.okf.yaml",
+      "bytes": 2690,
+      "sha256": "44950c6f2d2899205a84c0e20a2467afff69c2b3fdac8622b05f5b9458b71907"
+    },
+    {
+      "path": ".claude/skills/apex-kb/templates/run-config-template.okf.json",
+      "bytes": 1918,
+      "sha256": "70565937561f2c38b50c715b53242b213a3e20027fa19d3fc906895a2076be3a"
+    },
+    {
+      "path": ".claude/skills/apex-kb/templates/semantic-handoff-packet-template.md",
+      "bytes": 1392,
+      "sha256": "ab0867410942b861fdbf559224fc15652c27ae8396d86b79c4cb575b92d870db"
+    },
+    {
+      "path": ".claude/skills/apex-kb/templates/topic-registry-template.okf.json",
+      "bytes": 1672,
+      "sha256": "30a2910973c64f0a092cc3333ea7856827f9ba0c4b77c08b1797d21015fdc6c9"
+    },
+    {
+      "path": ".claude/skills/apex-kb/templates/welcome-intake.okf.md",
+      "bytes": 6477,
+      "sha256": "d04f494521fc6e8f35356c1fb405939592bc7b1dcdb35997f0c83709c4ed5a28"
+    },
+    {
+      "path": ".claude/skills/apex-kb/templates/wiki-page-templates.md",
+      "bytes": 3590,
+      "sha256": "085ff7794a35769874645a0ab0fb23c0794902a0bb22197f6e30697fb7b89b12"
+    },
+    {
+      "path": "IMPLEMENTATION-CHANGE-MANIFEST.okf.yaml",
+      "bytes": 6302,
+      "sha256": "f719d6629ed63c4439d17f80fb2a73a3cacf6c529e79ec501ab19a8c13eb1745"
+    },
+    {
+      "path": "README.md",
+      "bytes": 5544,
+      "sha256": "4b69a2fe851b747745eaae405d2a4bf2c11158722884b58c2674187328226d07"
+    }
+  ]
+}

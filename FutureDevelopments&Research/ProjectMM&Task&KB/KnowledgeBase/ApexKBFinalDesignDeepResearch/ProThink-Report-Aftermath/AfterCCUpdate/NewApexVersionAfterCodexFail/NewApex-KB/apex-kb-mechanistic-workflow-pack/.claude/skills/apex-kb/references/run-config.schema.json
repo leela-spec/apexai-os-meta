@@ -1,0 +1,344 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "apex.kb.run-config.v2",
+  "title": "Apex KB operator run configuration",
+  "type": "object",
+  "required": [
+    "schema",
+    "schema_version",
+    "config_revision",
+    "run_kind",
+    "kb",
+    "paths",
+    "intent",
+    "topic",
+    "source_handling",
+    "phase0",
+    "outputs",
+    "execution"
+  ],
+  "properties": {
+    "schema": {
+      "const": "apex.kb.run-config.v2"
+    },
+    "schema_version": {
+      "const": "2"
+    },
+    "config_revision": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "run_kind": {
+      "const": "new_kb",
+      "description": "Existing-KB updates use a future separate lifecycle."
+    },
+    "kb": {
+      "type": "object",
+      "required": [
+        "slug",
+        "title",
+        "identity"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "slug": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "identity": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "paths": {
+      "type": "object",
+      "required": [
+        "source_roots",
+        "kb_root",
+        "explicit_exclusions"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "source_roots": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "kb_root": {
+          "type": "string",
+          "minLength": 1
+        },
+        "explicit_exclusions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "path",
+              "reason"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "path": {
+                "type": "string",
+                "minLength": 1
+              },
+              "reason": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        }
+      }
+    },
+    "intent": {
+      "type": "object",
+      "required": [
+        "operator_intent",
+        "success_definition"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "operator_intent": {
+          "type": "string",
+          "minLength": 1
+        },
+        "success_definition": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "topic": {
+      "type": "object",
+      "required": [
+        "topic_id",
+        "name",
+        "topic_intent",
+        "phrases",
+        "aliases",
+        "supporting_terms",
+        "ambiguous_terms",
+        "negative_terms",
+        "priority_questions"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "topic_id": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "topic_intent": {
+          "type": "string",
+          "minLength": 1
+        },
+        "phrases": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "aliases": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "supporting_terms": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "ambiguous_terms": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "negative_terms": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "priority_questions": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/question"
+          }
+        }
+      }
+    },
+    "source_handling": {
+      "type": "object",
+      "required": [
+        "storage_mode",
+        "follow_symlinks",
+        "duplicate_policy"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "storage_mode": {
+          "enum": [
+            "pointer_only",
+            "copy_into_kb",
+            "snapshot_copy"
+          ]
+        },
+        "follow_symlinks": {
+          "type": "boolean"
+        },
+        "duplicate_policy": {
+          "const": "representative_plus_all_paths"
+        }
+      }
+    },
+    "phase0": {
+      "type": "object",
+      "required": [
+        "profile",
+        "git_dates",
+        "graph_signals",
+        "non_text_policy"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "profile": {
+          "enum": [
+            "quick",
+            "standard",
+            "deep"
+          ]
+        },
+        "git_dates": {
+          "enum": [
+            "off",
+            "when_available",
+            "required"
+          ]
+        },
+        "graph_signals": {
+          "enum": [
+            "off",
+            "links_only",
+            "full_process_edges"
+          ]
+        },
+        "non_text_policy": {
+          "const": "inventory_and_report"
+        }
+      }
+    },
+    "outputs": {
+      "type": "object",
+      "required": [
+        "tier",
+        "phase1_batching",
+        "phase2_topology"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "tier": {
+          "enum": [
+            "analysis_only",
+            "compiled_full",
+            "query_ready"
+          ]
+        },
+        "phase1_batching": {
+          "const": "bounded"
+        },
+        "phase2_topology": {
+          "const": "minimum_useful"
+        }
+      }
+    },
+    "execution": {
+      "type": "object",
+      "required": [
+        "route",
+        "show_success_validation_details",
+        "fail_closed"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "route": {
+          "enum": [
+            "terminal_backed",
+            "connector_only"
+          ]
+        },
+        "show_success_validation_details": {
+          "type": "boolean"
+        },
+        "fail_closed": {
+          "const": true
+        }
+      }
+    }
+  },
+  "$defs": {
+    "question": {
+      "type": "object",
+      "required": [
+        "query_id",
+        "question",
+        "priority",
+        "answer_requirements"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "query_id": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+        },
+        "question": {
+          "type": "string",
+          "minLength": 1
+        },
+        "priority": {
+          "enum": [
+            "critical",
+            "routine",
+            "supporting"
+          ]
+        },
+        "answer_requirements": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    }
+  },
+  "additionalProperties": false
+}

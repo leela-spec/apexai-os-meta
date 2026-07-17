@@ -1,0 +1,319 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "apex.kb.semantic-task-instructions.v2",
+  "type": "object",
+  "required": [
+    "schema",
+    "instruction_id",
+    "run_id",
+    "config_hash",
+    "stage",
+    "task_mode",
+    "topic",
+    "prompt_template",
+    "batch_guide",
+    "exact_inputs",
+    "questions",
+    "source_batch",
+    "allowed_writes",
+    "forbidden_writes",
+    "required_outputs",
+    "validation_contract",
+    "prior_validation_feedback",
+    "completion_response",
+    "input_fingerprints"
+  ],
+  "properties": {
+    "schema": {
+      "const": "apex.kb.semantic-task-instructions.v2"
+    },
+    "instruction_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "run_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "config_hash": {
+      "type": "string",
+      "pattern": "^sha256:[a-f0-9]{64}$"
+    },
+    "stage": {
+      "enum": [
+        "phase1",
+        "phase2"
+      ]
+    },
+    "task_mode": {
+      "enum": [
+        "analyze_batch",
+        "finalize_topic_analysis",
+        "compile_topic",
+        "repair_failed_checks"
+      ]
+    },
+    "topic": {
+      "type": "object",
+      "required": [
+        "topic_id",
+        "name",
+        "intent"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "topic_id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "intent": {
+          "type": "string"
+        }
+      }
+    },
+    "prompt_template": {
+      "type": "string",
+      "minLength": 1
+    },
+    "batch_guide": {
+      "type": "string",
+      "minLength": 1
+    },
+    "exact_inputs": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "string"
+      }
+    },
+    "questions": {
+      "type": "object",
+      "required": [
+        "operator_locked",
+        "standard_coverage",
+        "phase0_evidence_gaps"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "operator_locked": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/question"
+          }
+        },
+        "standard_coverage": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/question"
+          }
+        },
+        "phase0_evidence_gaps": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "query_id",
+              "gap"
+            ],
+            "properties": {
+              "query_id": {
+                "type": "string"
+              },
+              "gap": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": false
+          }
+        }
+      }
+    },
+    "source_batch": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/source"
+      }
+    },
+    "allowed_writes": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "string"
+      }
+    },
+    "forbidden_writes": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "string"
+      }
+    },
+    "required_outputs": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "path",
+          "purpose",
+          "format_owner"
+        ],
+        "properties": {
+          "path": {
+            "type": "string"
+          },
+          "purpose": {
+            "type": "string"
+          },
+          "format_owner": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "validation_contract": {
+      "type": "object",
+      "required": [
+        "checks",
+        "failure_behavior"
+      ],
+      "properties": {
+        "checks": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "failure_behavior": {
+          "const": "reason_coded_repair_only"
+        }
+      },
+      "additionalProperties": false
+    },
+    "prior_validation_feedback": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/feedback"
+      }
+    },
+    "completion_response": {
+      "type": "string",
+      "minLength": 1
+    },
+    "input_fingerprints": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string",
+        "minLength": 1
+      }
+    }
+  },
+  "$defs": {
+    "question": {
+      "type": "object",
+      "required": [
+        "query_id",
+        "question",
+        "priority",
+        "answer_requirements",
+        "origin"
+      ],
+      "properties": {
+        "query_id": {
+          "type": "string"
+        },
+        "question": {
+          "type": "string"
+        },
+        "priority": {
+          "enum": [
+            "critical",
+            "routine",
+            "supporting"
+          ]
+        },
+        "answer_requirements": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "origin": {
+          "enum": [
+            "operator_locked",
+            "fixed_standard_coverage"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "source": {
+      "type": "object",
+      "required": [
+        "source_id",
+        "path",
+        "why_surfaced",
+        "pointers",
+        "read_mode"
+      ],
+      "properties": {
+        "source_id": {
+          "type": "string"
+        },
+        "path": {
+          "type": "string"
+        },
+        "why_surfaced": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "pointers": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "read_mode": {
+          "enum": [
+            "complete",
+            "targeted"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "feedback": {
+      "type": "object",
+      "required": [
+        "code",
+        "message",
+        "repair_scope",
+        "affected_output"
+      ],
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        },
+        "repair_scope": {
+          "type": "string"
+        },
+        "affected_output": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

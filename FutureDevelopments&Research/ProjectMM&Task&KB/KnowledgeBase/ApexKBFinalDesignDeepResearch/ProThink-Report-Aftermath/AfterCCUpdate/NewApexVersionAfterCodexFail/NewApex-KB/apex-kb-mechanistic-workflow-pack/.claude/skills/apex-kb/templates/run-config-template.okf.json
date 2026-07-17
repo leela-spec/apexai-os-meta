@@ -1,0 +1,72 @@
+{
+  "schema": "apex.kb.run-config.v2",
+  "schema_version": "2",
+  "config_revision": 1,
+  "run_kind": "new_kb",
+  "kb": {
+    "slug": "replace-with-kb-slug",
+    "title": "Replace with human-readable KB title",
+    "identity": "This KB explains ..."
+  },
+  "paths": {
+    "source_roots": [
+      "repository-relative/or/absolute/source-folder"
+    ],
+    "kb_root": "apex-meta/kb/replace-with-kb-slug",
+    "explicit_exclusions": [
+      {
+        "path": "path/to/exclude",
+        "reason": "generated_output_or_out_of_scope"
+      }
+    ]
+  },
+  "intent": {
+    "operator_intent": "What this KB must make possible for future users or AIs.",
+    "success_definition": "What a successful final KB must answer or support."
+  },
+  "topic": {
+    "topic_id": "primary-topic",
+    "name": "Primary Topic",
+    "topic_intent": "What must be understood about this topic.",
+    "phrases": [
+      "strong exact phrase"
+    ],
+    "aliases": [],
+    "supporting_terms": [],
+    "ambiguous_terms": [],
+    "negative_terms": [],
+    "priority_questions": [
+      {
+        "query_id": "primary-topic-definition",
+        "question": "What is the current definition and scope of the topic?",
+        "priority": "critical",
+        "answer_requirements": [
+          "definition",
+          "scope",
+          "current versus proposed distinction"
+        ]
+      }
+    ]
+  },
+  "source_handling": {
+    "storage_mode": "pointer_only",
+    "follow_symlinks": false,
+    "duplicate_policy": "representative_plus_all_paths"
+  },
+  "phase0": {
+    "profile": "standard",
+    "git_dates": "when_available",
+    "graph_signals": "off",
+    "non_text_policy": "inventory_and_report"
+  },
+  "outputs": {
+    "tier": "query_ready",
+    "phase1_batching": "bounded",
+    "phase2_topology": "minimum_useful"
+  },
+  "execution": {
+    "route": "terminal_backed",
+    "show_success_validation_details": false,
+    "fail_closed": true
+  }
+}

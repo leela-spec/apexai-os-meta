@@ -1,0 +1,241 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "apex.kb.run-state.v2",
+  "type": "object",
+  "required": [
+    "schema",
+    "schema_version",
+    "run_id",
+    "kb_root",
+    "config_hash",
+    "manifest_revision",
+    "state",
+    "current_stage",
+    "completed_stages",
+    "blocked_reason",
+    "next_legal_stage",
+    "topics",
+    "artifact_references",
+    "input_fingerprints",
+    "truthful_state",
+    "revision",
+    "created_at",
+    "updated_at"
+  ],
+  "properties": {
+    "schema": {
+      "const": "apex.kb.run-state.v2"
+    },
+    "schema_version": {
+      "const": "2"
+    },
+    "run_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "kb_root": {
+      "type": "string",
+      "minLength": 1
+    },
+    "config_hash": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "pattern": "^sha256:[a-f0-9]{64}$"
+    },
+    "manifest_revision": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "minimum": 1
+    },
+    "state": {
+      "enum": [
+        "config_required",
+        "config_validated",
+        "preflight_ready",
+        "confirmation_required",
+        "manifest_locked",
+        "source_intake",
+        "phase0",
+        "phase1_pending",
+        "phase1_batch_pending",
+        "phase1_complete",
+        "phase2_pending",
+        "phase2_complete",
+        "acceptance_pending",
+        "accepted",
+        "postflight",
+        "complete",
+        "blocked"
+      ]
+    },
+    "current_stage": {
+      "type": "string",
+      "minLength": 1
+    },
+    "completed_stages": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string"
+      }
+    },
+    "blocked_reason": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        },
+        "operator_action": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "paths": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "invalidate_from": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "code",
+        "message",
+        "operator_action",
+        "paths",
+        "invalidate_from"
+      ],
+      "additionalProperties": false
+    },
+    "next_legal_stage": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "topics": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/topic_state"
+      }
+    },
+    "artifact_references": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "input_fingerprints": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/$defs/fingerprint"
+      }
+    },
+    "truthful_state": {
+      "enum": [
+        "initialized",
+        "partial",
+        "analysis_complete_unvalidated",
+        "compiled_unvalidated",
+        "query_ready"
+      ]
+    },
+    "revision": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "created_at": {
+      "type": "string"
+    },
+    "updated_at": {
+      "type": "string"
+    }
+  },
+  "$defs": {
+    "topic_state": {
+      "type": "object",
+      "required": [
+        "topic_id",
+        "status",
+        "phase1_batch_index",
+        "phase1_batches_completed",
+        "expected_outputs"
+      ],
+      "properties": {
+        "topic_id": {
+          "type": "string"
+        },
+        "status": {
+          "enum": [
+            "not_started",
+            "phase1_batch_pending",
+            "phase1_in_progress",
+            "phase1_complete",
+            "phase2_pending",
+            "phase2_complete",
+            "acceptance_pending",
+            "accepted",
+            "blocked"
+          ]
+        },
+        "phase1_batch_index": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "phase1_batches_completed": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "expected_outputs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        }
+      },
+      "additionalProperties": false
+    },
+    "fingerprint": {
+      "type": "object",
+      "required": [
+        "sha256",
+        "invalidate_from",
+        "recorded_at"
+      ],
+      "properties": {
+        "sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "invalidate_from": {
+          "type": "string"
+        },
+        "recorded_at": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

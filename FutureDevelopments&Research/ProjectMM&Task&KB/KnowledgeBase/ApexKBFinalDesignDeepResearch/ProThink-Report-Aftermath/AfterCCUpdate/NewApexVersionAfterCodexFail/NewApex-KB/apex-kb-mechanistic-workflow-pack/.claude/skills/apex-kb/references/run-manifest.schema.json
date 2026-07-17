@@ -1,0 +1,82 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "apex.kb.run-manifest.v2",
+  "type": "object",
+  "required": [
+    "schema",
+    "schema_version",
+    "run_id",
+    "manifest_revision",
+    "lock_status",
+    "config_hash",
+    "hash_algorithm",
+    "hash_scope",
+    "configuration",
+    "operator_confirmation",
+    "created_at",
+    "locked_at"
+  ],
+  "properties": {
+    "schema": {
+      "const": "apex.kb.run-manifest.v2"
+    },
+    "schema_version": {
+      "const": "2"
+    },
+    "run_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "manifest_revision": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "lock_status": {
+      "const": "locked"
+    },
+    "config_hash": {
+      "type": "string",
+      "pattern": "^sha256:[a-f0-9]{64}$"
+    },
+    "hash_algorithm": {
+      "const": "sha256"
+    },
+    "hash_scope": {
+      "const": "canonical_configuration_object_only"
+    },
+    "configuration": {
+      "$ref": "run-config.schema.json"
+    },
+    "operator_confirmation": {
+      "type": "object",
+      "required": [
+        "confirmed",
+        "quote",
+        "confirmed_at"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "confirmed": {
+          "const": true
+        },
+        "quote": {
+          "type": "string",
+          "minLength": 1
+        },
+        "confirmed_at": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "created_at": {
+      "type": "string",
+      "minLength": 1
+    },
+    "locked_at": {
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,70 @@
+schema: apex.kb.semantic-task-instructions.v2
+instruction_id: "<run-id>-phase1-<topic-id>-batch-001"
+run_id: "<run-id>"
+config_hash: "sha256:<64-hex>"
+stage: phase1
+task_mode: analyze_batch
+topic:
+  topic_id: "<topic-id>"
+  name: "<topic name>"
+  intent: "<operator-locked topic intent>"
+prompt_template: ".claude/skills/apex-kb/templates/phase1-prompt-template.okf.md"
+batch_guide: ".claude/skills/apex-kb/references/semantic-batch-execution-guide.okf.md"
+exact_inputs:
+  - "manifests/run-manifest.json"
+  - "manifests/topic-registry.json"
+  - "manifests/phase0/work-packs/<topic-id>.json"
+  - "manifests/phase0/phase0-stats.json"
+  - "log/semantic-runs/<run-id>/topics/<topic-id>.json"
+questions:
+  operator_locked:
+    - query_id: "<stable query id>"
+      question: "<operator-approved question>"
+      priority: critical
+      answer_requirements: ["<requirement>"]
+      origin: operator_locked
+  standard_coverage:
+    - query_id: "<topic-id>-source-landscape"
+      question: "Which candidate sources discuss this topic, what does each add, and how do they relate over time?"
+      priority: routine
+      answer_requirements: ["individual source value", "freshness and authority assessment", "duplicates and supersession", "exact pointers"]
+      origin: fixed_standard_coverage
+  phase0_evidence_gaps:
+    - query_id: "<query id or none>"
+      gap: "<Phase 0 found no strong candidate signal; investigate only within the assigned batch and report uncertainty>"
+source_batch:
+  - source_id: "<source id>"
+    path: "<exact source path>"
+    why_surfaced: ["filename phrase match", "H2 match at line 118"]
+    pointers: ["H2 line 118-203"]
+    read_mode: complete
+allowed_writes:
+  - "ingest-analysis/<topic-id>.analysis.md"
+  - "log/semantic-runs/<run-id>/topics/<topic-id>.json"
+forbidden_writes:
+  - "manifests/**"
+  - "wiki/**"
+  - "derived/**"
+  - ".claude/**"
+required_outputs:
+  - path: "ingest-analysis/<topic-id>.analysis.md"
+    purpose: "Cumulative topic-scoped Phase 1 analysis"
+    format_owner: ".claude/skills/apex-kb/templates/ingest-analysis-template.md"
+  - path: "log/semantic-runs/<run-id>/topics/<topic-id>.json"
+    purpose: "Machine progress and candidate disposition ledger"
+    format_owner: ".claude/skills/apex-kb/references/semantic-run-ledger.schema.json"
+validation_contract:
+  checks:
+    - exact_output_paths
+    - config_hash_unchanged
+    - input_fingerprints_unchanged
+    - all_batch_sources_dispositioned
+    - locked_question_status_recorded
+    - exact_source_pointers_present
+    - no_unauthorized_writes
+  failure_behavior: reason_coded_repair_only
+prior_validation_feedback: []
+completion_response: "APEX_KB_PHASE1_BATCH_COMPLETE <instruction-id>"
+input_fingerprints:
+  "manifests/run-manifest.json": "sha256:<hash>"
+  "manifests/phase0/work-packs/<topic-id>.json": "sha256:<hash>"

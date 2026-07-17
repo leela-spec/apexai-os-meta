@@ -1,0 +1,68 @@
+schema: apex.kb.semantic-task-instructions.v2
+instruction_id: "<run-id>-phase2-<topic-id>"
+run_id: "<run-id>"
+config_hash: "sha256:<64-hex>"
+stage: phase2
+task_mode: compile_topic
+topic:
+  topic_id: "<topic-id>"
+  name: "<topic name>"
+  intent: "<operator-locked topic intent>"
+prompt_template: ".claude/skills/apex-kb/templates/phase2-prompt-template.okf.md"
+batch_guide: ".claude/skills/apex-kb/references/semantic-batch-execution-guide.okf.md"
+exact_inputs:
+  - "manifests/run-manifest.json"
+  - "manifests/topic-registry.json"
+  - "ingest-analysis/<topic-id>.analysis.md"
+  - "log/semantic-runs/<run-id>/topics/<topic-id>.json"
+  - ".claude/skills/apex-kb/templates/wiki-page-templates.md"
+questions:
+  operator_locked:
+    - query_id: "<stable query id>"
+      question: "<operator-approved question>"
+      priority: critical
+      answer_requirements: ["<requirement>"]
+      origin: operator_locked
+  standard_coverage:
+    - query_id: "<topic-id>-source-landscape"
+      question: "Which sources define, revise, contradict, or contextualize this topic?"
+      priority: routine
+      answer_requirements: ["source atlas", "individual source value", "freshness/authority", "exact pointers"]
+      origin: fixed_standard_coverage
+  phase0_evidence_gaps: []
+source_batch: []
+allowed_writes:
+  - "wiki/summaries/<topic-id>.md"
+  - "wiki/summaries/<topic-id>-source-atlas.md"
+  - "wiki/concepts/<explicitly-approved-concept>.md"
+  - "wiki/entities/<explicitly-approved-entity>.md"
+forbidden_writes:
+  - "manifests/**"
+  - "ingest-analysis/**"
+  - "derived/**"
+  - ".claude/**"
+required_outputs:
+  - path: "wiki/summaries/<topic-id>.md"
+    purpose: "Answer-bearing Macro/Meso/Micro concept dossier"
+    format_owner: ".claude/skills/apex-kb/templates/wiki-page-templates.md"
+  - path: "wiki/summaries/<topic-id>-source-atlas.md"
+    purpose: "Candidate-source landscape and individual source value"
+    format_owner: ".claude/skills/apex-kb/templates/wiki-page-templates.md"
+validation_contract:
+  checks:
+    - exact_output_paths
+    - config_hash_unchanged
+    - input_fingerprints_unchanged
+    - no_unauthorized_writes
+    - every_critical_and_routine_question_has_direct_route
+    - macro_meso_micro_are_distinct_and_complete
+    - phase1_claim_ids_and_states_preserved
+    - source_refs_include_hash_and_pointer
+    - every_phase1_candidate_disposition_preserved
+    - no_unopened_source_represented_as_evidence
+  failure_behavior: reason_coded_repair_only
+prior_validation_feedback: []
+completion_response: "APEX_KB_PHASE2_COMPLETE <instruction-id>"
+input_fingerprints:
+  "manifests/run-manifest.json": "sha256:<hash>"
+  "ingest-analysis/<topic-id>.analysis.md": "sha256:<hash>"

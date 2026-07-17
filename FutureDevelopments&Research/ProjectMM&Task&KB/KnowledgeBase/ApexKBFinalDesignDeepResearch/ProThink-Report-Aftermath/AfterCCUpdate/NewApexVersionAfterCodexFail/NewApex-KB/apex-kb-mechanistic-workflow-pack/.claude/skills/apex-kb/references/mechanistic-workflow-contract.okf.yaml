@@ -1,0 +1,158 @@
+schema: apex.kb.mechanistic-workflow.v2
+status: final
+runtime_authorities:
+  configuration_draft: manifests/run-config.okf.json
+  locked_configuration: manifests/run-manifest.json
+  progress_state: manifests/run-state.json
+  next_action: stage-result.next_command
+  semantic_scope: generated_instruction_file
+  semantic_form: stable_prompt_template
+principles:
+  - no_lifecycle_state_in_chat_memory
+  - one_primary_topic_per_standard_new_kb_run
+  - successful_validation_is_compact
+  - failures_are_reason_coded
+  - no_ai_authored_commands
+  - no_ai_authored_run_prompts
+  - all_semantic_writes_are_allowlisted
+  - changed_locked_input_blocks_and_invalidates
+layer_storage_decision:
+  separate_layer_documents: rejected
+  reason: "Separate prose files would duplicate executable boundaries and create drift."
+  encoded_in:
+    - schemas
+    - script_input_output_contracts
+    - file_paths
+    - stage_state_machine
+    - allowed_and_forbidden_writes
+  single_human_map: references/mechanistic-workflow-contract.okf.yaml
+manifest_lock:
+  meaning_of_hash: "SHA-256 fingerprint of normalized configuration data."
+  meaning_of_lock: "Logical workflow lock after operator confirmation; not encryption or an OS file lock."
+  normalization: "UTF-8 JSON, object keys sorted, compact separators, configuration object only."
+  on_mismatch:
+    status: blocked
+    reason_code: MANIFEST_CONFIG_HASH_CHANGED
+    action: "Create and confirm a new manifest revision, then invalidate from the earliest affected stage."
+question_design:
+  operator_questions_locked_at_start: true
+  fixed_standard_coverage_matrix: true
+  phase0_may_add_evidence_gaps: true
+  phase0_or_ai_may_silently_replace_questions: false
+  new_target_question_requires_operator_confirmation: true
+  default_semantic_question_preflight: not_a_separate_ai_stage
+  rationale: "The start configuration locks intent and questions; Phase 0 enriches evidence routing without transferring prompt authorship to an AI."
+steps:
+  - id: S00
+    name: manual_activation
+    operator_surface: "/apex-kb start"
+    script: "apex_kb.py control start"
+    inputs: [optional_kb_root, optional_config_path]
+    outputs: [stage_result, fixed_welcome_message_or_config_status]
+    consumer: operator_or_thin_skill
+    ai_sees: "Only the stage-result and human message."
+    ai_action: "Relay verbatim; no lifecycle choice."
+  - id: S01
+    name: config_capture
+    script: "apex_kb.py control start --config <path>"
+    inputs: [manifests/run-config.okf.json, references/run-config.schema.json]
+    outputs: [config_validation_result]
+    consumer: preflight
+    ai_sees: "Errors only, or one-line schema pass."
+    ai_action: none
+  - id: S02
+    name: read_only_preflight
+    script: "apex_kb.py control preflight-config"
+    inputs: [validated_run_config, filesystem, runtime_capabilities, topic_vocabulary]
+    outputs: [manifests/preflight-report.okf.json, compact_readback]
+    consumer: operator_confirmation
+    ai_sees: "Compact recommendation/readback; details only for warning/failure."
+    ai_action: "Relay verbatim."
+  - id: S03
+    name: operator_confirmation
+    script: "apex_kb.py control confirm-config"
+    inputs: [preflight_report, verbatim_operator_confirmation]
+    outputs: [manifests/run-manifest.json, config_hash, manifests/run-state.json]
+    consumer: every_later_stage
+    ai_sees: "Exact confirmation command and result."
+    ai_action: "Do not paraphrase."
+  - id: S04
+    name: source_intake
+    script: "apex_kb.py control continue"
+    inputs: [locked_manifest, source_roots, storage_mode]
+    outputs: [source_manifest, source_payload_manifest]
+    consumer: phase0
+    ai_sees: nothing
+    ai_action: none
+  - id: S05
+    name: phase0_corpus_intelligence
+    script: "apex_kb.py phase0 via control plane"
+    inputs: [locked_manifest, topic_registry, source_manifest]
+    outputs:
+      - manifests/source-inventory.ndjson
+      - manifests/phase0/source-facts.json
+      - manifests/phase0/heading-map.json
+      - manifests/phase0/duplicate-map.json
+      - manifests/phase0/topic-source-rankings.json
+      - manifests/phase0/work-packs/<topic>.json
+      - manifests/phase0/phase0-stats.json
+      - manifests/phase0/phase0-stats.okf.md
+    consumer: phase1_instruction_generator
+    ai_sees: nothing
+    ai_action: none
+  - id: S06
+    name: phase1_instruction_generation
+    script: "apex_kb.py control render-semantic-instructions phase1"
+    inputs: [locked_manifest, topic_registry, phase0_work_pack, phase0_stats, prior_validation_feedback]
+    outputs: [log/runs/<run-id>/instructions/phase1-<topic>-<batch>.okf.yaml, semantic_handoff_packet]
+    consumer: bounded_semantic_executor
+    ai_sees: "Batch guide, stable Phase 1 prompt, one generated instruction file, and only the named source batch."
+    ai_action: "Analyze the named batch and write only allowlisted outputs."
+  - id: S07
+    name: phase1_reconcile_and_repeat
+    script: "apex_kb.py control reconcile"
+    inputs: [phase1_outputs, semantic_ledger, instruction_fingerprints]
+    outputs: [stage_result, next_batch_instructions_or_phase1_complete]
+    consumer: phase1_or_phase2_instruction_generator
+    ai_sees: "Only reason-coded repair feedback when blocked."
+    ai_action: "Repair named failures only."
+  - id: S08
+    name: phase2_instruction_generation
+    script: "apex_kb.py control render-semantic-instructions phase2"
+    inputs: [locked_manifest, validated_phase1, topic_registry, page_contract, prior_validation_feedback]
+    outputs: [log/runs/<run-id>/instructions/phase2-<topic>.okf.yaml, semantic_handoff_packet]
+    consumer: bounded_semantic_executor
+    ai_sees: "Batch guide, stable Phase 2 prompt, generated instructions, validated Phase 1."
+    ai_action: "Compile exact pages; no source rediscovery or lifecycle choice."
+  - id: S09
+    name: phase2_reconcile
+    script: "apex_kb.py control reconcile"
+    inputs: [phase2_outputs, instruction_fingerprints, write_allowlist]
+    outputs: [stage_result, validation_feedback_or_acceptance_packet]
+    consumer: repair_or_independent_acceptance
+    ai_sees: "Named validation failures only when repair is required."
+    ai_action: "Repair named failures only."
+  - id: S10
+    name: semantic_acceptance
+    script: "apex_kb.py control render-semantic-instructions semantic_acceptance"
+    inputs: [compiled_pages, locked_questions, resolved_evidence]
+    outputs: [audit/semantic-acceptance/<run-id>/<topic>.json]
+    consumer: control_reconcile
+    ai_sees: "Pages, questions, and evidence; never drafting rationale."
+    ai_action: "Independent evaluation only."
+  - id: S11
+    name: postflight_and_complete
+    script: "apex_kb.py control continue"
+    inputs: [accepted_pages, deterministic_artifacts, retrieval_state]
+    outputs: [postflight_report, completion_certificate]
+    consumer: operator
+    ai_sees: "Final result or exact blocker."
+    ai_action: "Relay verbatim."
+standard_flow_exclusions:
+  - automatic_additional_topic_selection
+  - existing_kb_incremental_update
+  - source_change_impact_refresh
+  - cross_topic_expansion_without_operator_confirmation
+future_todo:
+  id: APEX_KB_UPDATE_FLOW
+  purpose: "Integrate new content into an existing KB using diff, impact analysis, selective refresh, acceptance, and retrieval rebuild."

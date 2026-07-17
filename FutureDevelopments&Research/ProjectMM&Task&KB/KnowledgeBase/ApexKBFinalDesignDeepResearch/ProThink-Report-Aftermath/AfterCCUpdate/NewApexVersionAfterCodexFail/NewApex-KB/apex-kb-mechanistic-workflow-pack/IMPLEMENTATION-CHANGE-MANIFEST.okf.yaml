@@ -1,0 +1,93 @@
+schema: apex.kb.implementation-change-manifest.v2
+status: final
+evidence_snapshot:
+  repository: leela-spec/apexai-os-meta
+  branch: main
+  inspected_head: f1d5cd3ce2280c7801d19506c57539806719ab45
+objective: "Replace prose-driven activation and prompt formulation with a manual launcher, locked configuration, deterministic Phase 0, and generated semantic instructions."
+replace_files:
+  - path: .claude/skills/apex-kb/SKILL.md
+    reason: "Current file contains execution routing, intake Q&A, lifecycle doctrine, and semantic procedure; it must become a thin manual-only launcher."
+  - path: .claude/skills/apex-kb/references/run-intent.schema.json
+    replacement: .claude/skills/apex-kb/references/run-config.schema.json
+    migration: "Read v1 for old runs; new runs write v2 run-config and run-manifest."
+  - path: .claude/skills/apex-kb/references/stage-result.schema.json
+    replacement: .claude/skills/apex-kb/references/stage-result.schema.json
+    reason: "Add config hash, consumed/created artifacts, exact next command, semantic task references, and structured errors."
+  - path: .claude/skills/apex-kb/templates/semantic-handoff-packet-template.md
+    reason: "Point executors to stable prompt + generated instruction + batch guide; carry repair feedback."
+add_files:
+  - .claude/skills/apex-kb/references/run-config.schema.json
+  - .claude/skills/apex-kb/references/preflight-report.schema.json
+  - .claude/skills/apex-kb/references/run-manifest.schema.json
+  - .claude/skills/apex-kb/references/mechanistic-workflow-contract.okf.yaml
+  - .claude/skills/apex-kb/references/phase0-ranking-and-stats-contract.okf.md
+  - .claude/skills/apex-kb/references/phase0-stats.schema.json
+  - .claude/skills/apex-kb/references/semantic-task-instructions.schema.json
+  - .claude/skills/apex-kb/references/semantic-batch-execution-guide.okf.md
+  - .claude/skills/apex-kb/templates/welcome-intake.okf.md
+  - .claude/skills/apex-kb/templates/run-config-template.okf.json
+  - .claude/skills/apex-kb/templates/topic-registry-template.okf.json
+  - .claude/skills/apex-kb/templates/phase0-stats-report.okf.md
+  - .claude/skills/apex-kb/templates/phase1-prompt-template.okf.md
+  - .claude/skills/apex-kb/templates/phase1-run-instructions.okf.yaml
+  - .claude/skills/apex-kb/templates/phase2-prompt-template.okf.md
+  - .claude/skills/apex-kb/templates/phase2-run-instructions.okf.yaml
+code_changes_required:
+  - path: apex-meta/scripts/apex_kb.py
+    changes:
+      - "Add friendly control aliases: start, continue, status, repair."
+      - "Add control start behavior that renders the fixed welcome when no config exists."
+      - "Accept and validate run-config.okf.json; never ask intake questions in chat."
+      - "Add read-only preflight-config and compact ready-to-lock projection."
+      - "Compile confirmed config into run-manifest.json with canonical SHA-256 hash."
+      - "Upgrade Phase 0 ranking to field-separated exhaustive signals without top-N truncation."
+      - "Emit phase0-stats.json and phase0-stats.okf.md."
+      - "Generate Phase 1 and Phase 2 instruction files from templates, state, Phase 0, and validation feedback."
+  - path: apex-meta/scripts/apex_kb_control.py
+    changes:
+      - "Make new controlled runs begin at config_required rather than scaffold."
+      - "Store config_hash in run state and every stage result."
+      - "Block and invalidate on config-hash mismatch."
+      - "Support bounded Phase 1 batch iterations before phase1 completion."
+      - "Render semantic packets with prompt_template_path, instruction_file_path, and batch_guide_path."
+      - "Feed reason-coded reconcile failures into the next generated repair instruction file."
+      - "Do not auto-propose or auto-run additional topics after Phase 0."
+  - path: .claude/skills/apex-kb/references/run-state.schema.json
+    changes:
+      - "Add config_hash, manifest_revision, config_required/preflight/locked states, and phase1 batch progress."
+      - "Keep v1 migration support for in-flight legacy controlled runs."
+  - path: .claude/skills/apex-kb/references/semantic-handoff-packet.schema.json
+    changes:
+      - "Add prompt_template_path, instruction_file_path, batch_guide_path, task_mode, config_hash, required_outputs, and prior_validation_feedback."
+  - path: .claude/skills/apex-kb/references/semantic-value-contract.md
+    changes:
+      - "Replace conversational Step 0 intake with run-config -> read-only preflight -> operator confirmation -> locked manifest."
+      - "Remove instruction duplication now represented in schemas and generated files."
+      - "Remove automatic post-Phase-0 topic proposal from the standard flow."
+  - path: .claude/skills/apex-kb/templates/ingest-analysis-template.md
+    changes:
+      - "Support validated cumulative batch records and finalization without source-count completion rules."
+  - path: .claude/skills/apex-kb/templates/wiki-page-templates.md
+    changes:
+      - "Add/confirm a source-atlas page type that preserves every candidate's disposition and individual value."
+tests_required:
+  - "manual-only skill is invisible until /apex-kb invocation"
+  - "start without config emits fixed welcome and exact input template"
+  - "invalid config returns field-specific errors and performs no writes outside config diagnostics"
+  - "preflight performs no source intake or Phase 0 writes"
+  - "confirmation writes a locked manifest with reproducible config hash"
+  - "config change blocks the next stage and identifies earliest invalidated stage"
+  - "canonical Phase 0 ranking retains candidates beyond 30"
+  - "ranking rows preserve field/date/duplicate signals separately"
+  - "Phase 0 stats totals reconcile with inventory and rankings"
+  - "generated Phase 1/2 instructions validate against schema"
+  - "semantic executor cannot write outside allowlist"
+  - "reconcile failure appears in the next repair instruction"
+  - "standard new-KB flow never auto-adds another topic"
+explicit_non_goals:
+  - "Do not create a second orchestrator beside apex_kb_control.py."
+  - "Do not store layer doctrine in multiple prose files."
+  - "Do not make dates or deterministic scores semantic authority."
+  - "Do not treat structural validation as semantic acceptance."
+  - "Do not implement the existing-KB incremental update lifecycle in this patch."

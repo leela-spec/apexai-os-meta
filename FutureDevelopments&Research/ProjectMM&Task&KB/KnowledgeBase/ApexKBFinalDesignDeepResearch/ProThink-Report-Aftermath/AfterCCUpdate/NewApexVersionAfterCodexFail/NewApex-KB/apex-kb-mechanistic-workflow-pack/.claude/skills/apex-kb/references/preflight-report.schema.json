@@ -1,0 +1,137 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "apex.kb.preflight-report.v2",
+  "type": "object",
+  "required": [
+    "schema",
+    "config_revision",
+    "status",
+    "checks",
+    "recommendations",
+    "warnings",
+    "errors",
+    "ready_to_lock",
+    "human_summary"
+  ],
+  "properties": {
+    "schema": {
+      "const": "apex.kb.preflight-report.v2"
+    },
+    "config_revision": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "status": {
+      "enum": [
+        "pass",
+        "pass_with_warnings",
+        "fail"
+      ]
+    },
+    "checks": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/check"
+      }
+    },
+    "recommendations": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/recommendation"
+      }
+    },
+    "warnings": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/problem"
+      }
+    },
+    "errors": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/problem"
+      }
+    },
+    "ready_to_lock": {
+      "type": "boolean"
+    },
+    "human_summary": {
+      "type": "string"
+    }
+  },
+  "$defs": {
+    "check": {
+      "type": "object",
+      "required": [
+        "id",
+        "status",
+        "evidence"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "status": {
+          "enum": [
+            "pass",
+            "warning",
+            "fail",
+            "not_applicable"
+          ]
+        },
+        "evidence": {}
+      }
+    },
+    "recommendation": {
+      "type": "object",
+      "required": [
+        "field",
+        "recommended_value",
+        "reason",
+        "operator_may_override"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "field": {
+          "type": "string"
+        },
+        "recommended_value": {},
+        "reason": {
+          "type": "string"
+        },
+        "operator_may_override": {
+          "type": "boolean"
+        }
+      }
+    },
+    "problem": {
+      "type": "object",
+      "required": [
+        "code",
+        "message",
+        "field_or_path",
+        "operator_action"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        },
+        "field_or_path": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "operator_action": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "additionalProperties": false
+}

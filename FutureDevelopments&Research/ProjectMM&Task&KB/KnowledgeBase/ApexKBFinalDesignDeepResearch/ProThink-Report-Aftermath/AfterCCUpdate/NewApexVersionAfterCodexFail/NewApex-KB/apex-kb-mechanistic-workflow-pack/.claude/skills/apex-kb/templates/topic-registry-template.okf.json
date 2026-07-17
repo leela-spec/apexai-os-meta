@@ -1,0 +1,49 @@
+{
+  "schema": "apex.kb.topic-registry.v3",
+  "registry_revision": 1,
+  "run_kind": "new_kb",
+  "topics": [
+    {
+      "topic_id": "primary-topic",
+      "name": "Primary Topic",
+      "operator_intent": "What future users or AIs must understand and do with this topic.",
+      "phrases": [
+        "strong phrase"
+      ],
+      "aliases": [],
+      "supporting_terms": [],
+      "ambiguous_terms": [],
+      "negative_terms": [],
+      "target_queries": [
+        {
+          "query_id": "primary-topic-definition",
+          "question": "What is the current definition and scope?",
+          "priority": "critical",
+          "origin": "operator_locked",
+          "answer_requirements": [
+            "definition",
+            "scope",
+            "current versus proposed distinction"
+          ],
+          "expected_page": "wiki/summaries/primary-topic.md"
+        }
+      ],
+      "standard_coverage": {
+        "definition_and_scope": "required",
+        "structure_and_components": "required_when_material",
+        "workflow_and_execution": "required_when_material",
+        "ownership_and_boundaries": "required_when_material",
+        "rules_and_constraints": "required_when_material",
+        "relationships": "required_when_material",
+        "present_proposed_open_state": "required",
+        "examples_and_edge_cases": "required_when_material",
+        "source_landscape_and_history": "required"
+      },
+      "expected_outputs": {
+        "phase1_analysis": "ingest-analysis/primary-topic.analysis.md",
+        "summary_page": "wiki/summaries/primary-topic.md",
+        "source_atlas": "wiki/summaries/primary-topic-source-atlas.md"
+      }
+    }
+  ]
+}
