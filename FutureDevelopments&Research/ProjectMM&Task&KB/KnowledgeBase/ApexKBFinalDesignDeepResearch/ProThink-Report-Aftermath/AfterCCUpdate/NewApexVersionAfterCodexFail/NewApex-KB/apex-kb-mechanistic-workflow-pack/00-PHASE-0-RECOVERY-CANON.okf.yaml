@@ -1,0 +1,12 @@
+schema: apex.kb.phase0-recovery-canon.v1
+id: apex-kb-phase0-recovery-canon
+status: active_recovery_authority
+created_date: "2026-07-19"
+repository: leela-spec/apexai-os-meta
+branch: main
+audited_main_head_before_this_file: df04f6e6a9fc61f7bf5f3da5d9ebd8a9cc0c3569
+scope: new_kb_start_routing_and_first_leela_canary
+
+purpose: >-
+  Collapse the Phase 0 Start design, implementation evidence, failed handovers,
+  and recovery lessons into one machine-readable authority. This file exists
