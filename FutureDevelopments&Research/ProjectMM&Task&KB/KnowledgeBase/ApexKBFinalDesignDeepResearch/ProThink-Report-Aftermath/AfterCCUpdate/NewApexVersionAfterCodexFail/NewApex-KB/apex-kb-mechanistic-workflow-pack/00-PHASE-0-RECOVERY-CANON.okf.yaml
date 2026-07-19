@@ -4,9 +4,178 @@ status: active_recovery_authority
 created_date: "2026-07-19"
 repository: leela-spec/apexai-os-meta
 branch: main
-audited_main_head_before_this_file: df04f6e6a9fc61f7bf5f3da5d9ebd8a9cc0c3569
-scope: new_kb_start_routing_and_first_leela_canary
+audited_main_head_before_canon: df04f6e6a9fc61f7bf5f3da5d9ebd8a9cc0c3569
+scope: new_kb_start_routing_and_first_leela_phase0_setup_canary
 
 purpose: >-
-  Collapse the Phase 0 Start design, implementation evidence, failed handovers,
-  and recovery lessons into one machine-readable authority. This file exists
+  Replace the many overlapping Phase 0 Start design notes, patch proposals,
+  orchestration packs, and failed-test handovers with one compact recovery
+  authority. Historical files remain evidence only. This canon does not create
+  a new runtime layer, state ledger, simulation mode, or Q&A variant.
+
+authority:
+  recovery_instruction: this_file
+  live_behavior:
+    skill: .claude/skills/apex-kb/SKILL.md
+    cli: apex-meta/scripts/apex_kb.py
+    start_adapter: apex-meta/scripts/apex_kb_start.py
+    control_plane: apex-meta/scripts/apex_kb_control.py
+    schemas: .claude/skills/apex-kb/references/*.schema.json
+  rule: >-
+    A design, patch, commit, or handover is not implemented behavior. Only the
+    current live files plus executed tests and a fresh canary prove behavior.
+
+single_target:
+  invocation: "$apex-kb Create a new Apex KB from the Leela source corpus. Run only Phase 0 Setup and stop before deterministic corpus intelligence."
+  required_first_behavior: render_or_begin_the_fixed_start_configuration_flow
+  forbidden_first_behavior: "Can the executor run repository Python commands in a live worktree and capture the command, exit status, stdout, and stderr?"
+  completion: fresh_codex_canary_proves_the_required_first_behavior_and_phase0_setup_stops_at_its_boundary
+
+verdict:
+  core_architecture_problem: false
+  primary_problem: incomplete_vertical_integration_and_false_completion_claims
+  overengineering_confirmed: true
+  evidence:
+    - Start schema and adapter landed before live skill routing and package documentation.
+    - Five Q&A variants, an eight-file multi-chat orchestration pack, two overlapping patch files, multiple handovers, and a separate run ledger accumulated around one unfinished entrypoint.
+    - The live skill still asks the old capability question and routes new work to control init.
+    - The public Start wrapper, package manifest, command contract, runbook, examples, and acceptance tests remain inconsistent.
+  corrective_principle: close_one_observable_vertical_slice_before_designing_more_process
+
+current_live_state:
+  implemented:
+    - path: .claude/skills/apex-kb/references/start-input.schema.json
+      state: live
+      role: strict operator Start input v2
+    - path: apex-meta/scripts/apex_kb_start.py
+      state: live
+      role: parse, validate, derive fields, preview/write gate, create Start artifacts, delegate control init
+    - path: apex-meta/scripts/apex_kb.py
+      state: partial
+      role: exposes start with config and repo-root only
+    - path: apex-meta/scripts/tests/test_apex_kb_start.py
+      state: partial
+      role: helper-level tests only
+  unresolved:
+    - live SKILL.md still begins with the old capability router
+    - root AGENTS.md does not guarantee new-KB dispatch to Start
+    - Start wrapper does not expose or normalize all documented global flags through the public entrypoint
+    - package manifest does not inventory Start schema, adapter, workflow/template, or tests
+    - command contract omits Start and conflicts with Start Git and flag behavior
+    - lifecycle runbook and PowerShell examples still begin with manual topic-registry plus control init
+    - acceptance tests do not prove Start routing, wrapper flags, preview no-write behavior, or the first operator response
+    - no fresh Codex canary has proven the intended Start behavior
+
+minimal_repair_scope:
+  files_to_reconcile:
+    - AGENTS.md
+    - .claude/skills/apex-kb/SKILL.md
+    - .claude/skills/apex-kb/package-manifest.md
+    - .claude/skills/apex-kb/references/script-command-contract.md
+    - .claude/skills/apex-kb/references/acceptance-tests.md
+    - .claude/skills/apex-kb/examples/lifecycle-runbook.md
+    - .claude/skills/apex-kb/examples/powershell-commands.md
+    - apex-meta/scripts/apex_kb.py
+    - apex-meta/scripts/tests/test_apex_kb_start.py
+  optional_new_live_assets_only_if_consumed:
+    - .claude/skills/apex-kb/references/start-workflow.md
+    - .claude/skills/apex-kb/templates/start-config-template.yaml
+  forbidden_expansion:
+    - another architecture redesign
+    - another patch pack before editing current live files
+    - protocol simulation
+    - another orchestration ledger
+    - another Q&A version
+    - additional handover chains
+    - Phase 1, Phase 2, retrieval, or unrelated cleanup
+
+recovery_flow:
+  - id: R1
+    name: repair_live_vertical_slice
+    action: >-
+      Read current live targets, make the smallest coherent edits so a new-KB
+      request routes directly to Start, and keep control as the backend after
+      Start creates validated inputs.
+    exit_gate: all listed live authorities agree
+  - id: R2
+    name: prove_integration
+    commands:
+      - python -m unittest apex-meta/scripts/tests/test_apex_kb_start.py -v
+      - python -m unittest discover -s apex-meta/scripts/tests -p "test_apex_kb_control*.py" -v
+      - python apex-meta/scripts/apex_kb.py start --help
+    required_proofs:
+      - public Start help exposes config, repo-root, allow-write, dry-run, strict, json, and output-json as applicable
+      - documented flag placement works
+      - synthetic preview creates no KB files
+      - write mode requires explicit allow-write
+      - routing tests assert the old capability question is not the new-KB first response
+      - existing controlled KBs still use control next, run, and reconcile
+    exit_gate: all tests and proofs pass from one checkout
+  - id: R3
+    name: fresh_leela_phase0_setup_canary
+    prompt: "$apex-kb Create a new Apex KB from the Leela source corpus. Run only Phase 0 Setup and stop before deterministic corpus intelligence."
+    rules:
+      - use a fresh Codex conversation
+      - do not provide internal commands, expected artifact names, or this repair history
+      - answer only questions emitted by the live Start workflow
+      - confirm only after the generated readback is correct
+      - stop after Setup artifacts and before deterministic corpus intelligence
+    pass_requires:
+      - first response is the Start configuration flow
+      - old capability question is absent
+      - operator configuration is validated and read back
+      - no source mutation
+      - no deterministic corpus intelligence or semantic artifacts
+
+status_model:
+  allowed: [needs_repair, repair_tested, canary_proven, blocked]
+  current: needs_repair
+  rule: do_not_use_landed_complete_or_ready_without_the_corresponding_gate
+
+historical_source_index:
+  multi_chat_orchestration_pack:
+    disposition: superseded_for_phase0_recovery
+    reason: adds simulation, child-chat choreography, and a second run ledger before Start is functional
+    paths:
+      - apex-kb-mech-WFP-test+handover/README.md
+      - apex-kb-mech-WFP-test+handover/00-ORCHESTRATOR-CHAT-HANDOVER.md
+      - apex-kb-mech-WFP-test+handover/01-CODEX-RUNTIME-PROBE.md
+      - apex-kb-mech-WFP-test+handover/02-CODEX-DETERMINISTIC-PHASES.md
+      - apex-kb-mech-WFP-test+handover/03-GPT-PHASE1-SEMANTIC.md
+      - apex-kb-mech-WFP-test+handover/04-GPT-PHASE2-COMPILE.md
+      - apex-kb-mech-WFP-test+handover/05-GPT-INDEPENDENT-ACCEPTANCE.md
+      - apex-kb-mech-WFP-test+handover/06-ORCHESTRATOR-RUN-LEDGER.okf.yaml
+      - apex-kb-mech-WFP-test+handover/README.md duplicated under NewApexVersionAfterCodexFail/NewApex-KB/Untitled/apex-kb-test-run-orchestrator-handover/README.md
+  q_and_a_designs:
+    disposition: historical_design_evidence
+    selected_field_model: templates/start-qa-option-a-v3-example-guidance.md
+    rule: do_not_create_another_variant
+    paths:
+      - templates/start-qa-v3-draft.md
+      - templates/start-qa-v4-compact-draft.md
+      - templates/start-qa-option-a-final.md
+      - templates/start-qa-option-a-v2-feedback.md
+      - templates/start-qa-option-a-v3-example-guidance.md
+  design_and_audit_notes:
+    disposition: historical_evidence_not_runtime_authority
+    paths:
+      - PHASE-0-SETUP-DECISION-REGISTER.md
+      - PHASE-0-QA-FIELD-COMPATIBILITY-AND-SIMPLIFICATION-AUDIT.md
+      - PHASE-0-START-MAPPING-AND-WORKTREE-RESOLUTION.md
+      - PHASE-0-DOWNSTREAM-IMPACT-HANDOVER.md
+      - PHASE-0-DOWNSTREAM-HANDOVER-UPDATE-START-WRAPPER-FLAGS.md
+  patch_proposals:
+    disposition: stale_proposals_do_not_apply_blindly
+    rule: derive_the_smallest_patch_from_current_live_files
+    paths:
+      - patches/PHASE-0-SEMANTIC-DEPTH-AND-GIT-SYNC.exact-match.md
+      - patches/PHASE-0-SETUP-MINIMAL-LIVE-SLICE.exact-match.md
+      - package-manifest.json
+  failed_test_handovers:
+    disposition: superseded_by_this_canon_and_the_restart_handover
+    paths:
+      - PHASE-0-FIRST-REAL-TEST-HANDOVER.md
+      - PHASE-0-LIVE-TEST-CONTINUATION-HANDOVER.md
+      - PHASE-0-LIVE-TEST-FAILURE-LEARNING-EXTENSION.md
+
+next_document: 01-PHASE-0-RECOVERY-RESTART-HANDOVER.md
