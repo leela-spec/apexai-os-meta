@@ -3,7 +3,7 @@
 ## A. Prepare
 
 
-Author `manifests/topic-registry.json`, then run `control init` with the compact operator configuration. The control plane creates `manifests/run-intent.md` and `manifests/run-state.json`, executes only the empty scaffold before confirmation, runs topic sanity as part of `control run`, and writes `log/runs/<run-id>/operator-readback.md`. Read that file to the operator and use `control confirm` with the verbatim affirmative. No source intake, Phase 0, semantic packet, wiki write, or postflight may precede that state transition.
+For a new KB, fill `templates/start-config-template.yaml` and run `apex_kb.py start` first in preview mode, then with `--allow-write` only after the operator approves the exact derived configuration. Start creates the topic registry and delegates canonical initialization. The control plane then executes only the empty scaffold before confirmation, runs topic sanity as part of `control run`, and writes `log/runs/<run-id>/operator-readback.md`. Read that file to the operator and use `control confirm` with the verbatim affirmative. No source intake, Phase 0, semantic packet, wiki write, or postflight may precede that state transition. Existing controlled KBs resume from `manifests/run-state.json` through control.
 
 ```yaml
 output_tiers:

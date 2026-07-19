@@ -1,0 +1,24 @@
+repository: "<owner>/<repository>"
+
+source_folders:
+  - "<repository-relative-source-folder>"
+
+exclusions: []
+
+kb_destination:
+  folder: "apex-meta/kb/<kb-slug>"
+
+topics:
+  - name: "<topic name>"
+    phrases:
+      - "<strong topic phrase>"
+    ambiguous_or_negative_terms: []
+    questions:
+      - "<exact question the KB must answer>"
+
+run_options:
+  source_handling: pointer_only
+  semantic_depth: standard
+  output: analysis_only
+  non_text: inventory_and_report
+  ai_help_after_preflight: false

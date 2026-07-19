@@ -4,14 +4,22 @@
 # Repo root
 cd C:\GitDev\apexai-os-meta
 
-# Choose one KB root. Do not rely on a silent default.
+# New KB: copy and fill the Start template, then preview before authorizing writes.
+$START="tmp/apex-kb-start.yaml"
+Copy-Item ".claude/skills/apex-kb/templates/start-config-template.yaml" $START
+python apex-meta/scripts/apex_kb.py start --config $START --repo-root . --json
+# After reviewing and approving the exact preview:
+python apex-meta/scripts/apex_kb.py start --config $START --repo-root . --allow-write --json
+
+# Existing controlled KB: choose its KB root. Do not rely on a silent default.
 $KB="apex-meta/kb/<kb-slug>"
 
 # Git Bash is preferred for deterministic redirect/pipe-heavy validation when available.
 # PowerShell examples remain supported.
 # `--allow-write`, `--json`, `--dry-run`, and `--strict` may be placed before or after the subcommand.
 
-# 0. Author manifests/topic-registry.json first. Then create one controlled run.
+# Legacy/manual control initialization for an existing compatible workflow only.
+# Do not use this block to start a new KB; use the Start commands above.
 $RUN="<stable-run-id>"
 python apex-meta/scripts/apex_kb.py --kb-root $KB --allow-write --json control init `
   --run-id $RUN `

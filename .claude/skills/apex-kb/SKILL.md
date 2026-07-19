@@ -54,7 +54,9 @@ Run page-only query and claim-entailment acceptance in a fresh context that did 
 The route never runs Python, shell, scaffold, intake, hashing, manifest updates, Phase 0, index/retrieval rebuild, lint, quality, or postflight, and never claims `query_ready`.
 ### Terminal-backed route
 
-Use `apex_kb.py control` as the single operator lifecycle surface. `control init` creates the compact run configuration and machine state, `control run` executes exactly one legal deterministic stage or renders one semantic packet, `control next` derives the exact next command or short packet trigger, and `control reconcile` resumes from repository files and reason-codes drift. Direct low-level mutation commands remain available only for legacy KBs without `manifests/run-state.json`; a controlled run blocks them so state cannot drift. `postflight` remains the bounded deterministic completion aggregate and independent semantic acceptance remains mandatory for every compiled tier.
+For a **new KB, fresh Setup, or `/apex-kb start` request**, use `apex_kb.py start` as the only operator entrypoint and follow `references/start-workflow.md`. Start translates the compact operator configuration into the canonical control-plane inputs; never manually recreate its derived fields through `control init`.
+
+For an **existing controlled KB**, use `apex_kb.py control` as the lifecycle surface. `control run` executes exactly one legal deterministic stage or renders one semantic packet, `control next` derives the exact next command or short packet trigger, and `control reconcile` resumes from repository files and reason-codes drift. Direct low-level mutation commands remain available only for legacy KBs without `manifests/run-state.json`; a controlled run blocks them so state cannot drift. `postflight` remains the bounded deterministic completion aggregate and independent semantic acceptance remains mandatory for every compiled tier.
 
 ## Operating contract
 
@@ -174,6 +176,7 @@ Read supporting files only when needed:
 | Completion target, registry v2, ledger, traceability, semantic acceptance | `references/semantic-value-contract.md` |
 | Browser/Git-connector workflow and evaluator prompts | `references/browser-git-connector-semantic-runbook.md` |
 | Data layout, canonical/derived rules, page and manifest constraints | `references/kb-contract.md` |
+| New-KB Setup routing and Start preview/write sequence | `references/start-workflow.md` |
 | Python command surface, control plane, stage results, Git classification, and write policy | `references/script-command-contract.md` |
 | Canonical run intent/state, semantic packet, and Git-state schemas | `references/run-intent.schema.json`, `references/run-state.schema.json`, `references/stage-result.schema.json`, `references/semantic-handoff-packet.schema.json`, `references/git-state.schema.json` |
 | Ingest, query, lint, audit behavior | `references/ingest-query-lint-audit-rules.md` |
@@ -223,7 +226,7 @@ Follow only the selected route. The connector route uses the bounded whole-file 
 
 ### Step 0 — Intake and intent lock (before scaffold, source intake, or Phase 0)
 
-On the terminal-backed route, `apex_kb.py control` is the executable owner of this step. Treat the detailed questions below as inputs to `control init`, not as permission to assemble lifecycle state in chat. Author or update `manifests/topic-registry.json` first, run `control init`, then use `control run` to create the compact readback and `control confirm --confirmation-quote <verbatim affirmative>` to unlock the run. After confirmation, obey only `control next`, `control run`, and `control reconcile`; never choose a low-level mutation command freehand. On a connector-only semantic handoff, the rendered packet file is authoritative and the stable chat trigger is one line pointing to that packet.
+On the terminal-backed route, a new KB enters through `apex_kb.py start` and `references/start-workflow.md`. Start validates the compact operator YAML, writes the topic registry and Start records when authorized, and delegates canonical initialization to the control plane. Do not author `manifests/topic-registry.json` or invoke `control init` freehand for a new KB. After Start returns, obey only its `operator_action` and then `control next`, `control run`, and `control reconcile`. Existing controlled KBs resume directly through control. On a connector-only semantic handoff, the rendered packet file is authoritative and the stable chat trigger is one line pointing to that packet.
 
 Nothing that registers sources, runs Phase 0, writes wiki pages, or commits may run until this
 step ends in a recorded operator confirmation (creating the empty KB skeleton is permitted as

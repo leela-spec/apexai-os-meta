@@ -5,8 +5,10 @@
 ```yaml
 script_policy:
   invocation_pattern: python apex-meta/scripts/apex_kb.py --kb-root apex-meta/kb/<kb-slug>/ <subcommand> [flags] or [global flags] <subcommand>
+  start_invocation_pattern: python apex-meta/scripts/apex_kb.py start --config <start-config.yaml> --repo-root <repository-root> [--allow-write] [--dry-run] [--strict] [--json]
   retrieval_invocation_pattern: python apex-meta/scripts/apex_kb_retrieval.py --kb-root apex-meta/kb/<kb-slug>/ <subcommand> [flags] or [global flags] <subcommand>
   kb_root_required: true
+  kb_root_exception: start derives and validates kb_root from the Start configuration
   no_silent_default_kb: true
   network_access: forbidden
   shell_out:
@@ -36,6 +38,7 @@ Post-subcommand placement is accepted for these boolean global flags. Options wi
 
 | Command | Writes possible | Owner | Role |
 |---|---:|---|---|
+| `start` | yes with `--allow-write` | Python | validate compact new-KB operator YAML, resolve safe repository topology, derive canonical inputs, write Start/topic records, and delegate `control init` |
 | `control` | yes | Python | canonical run intent/state, legal transitions, exact next command, semantic packets, recovery, input invalidation, and read-only Git classification; delegates existing domain commands |
 | `scaffold` | yes | Python | create required KB skeleton and starter deterministic files |
 | `source-intake` | yes | Python | copy/pointer source custody and source manifest entry |

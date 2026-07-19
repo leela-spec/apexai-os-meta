@@ -8,6 +8,10 @@ Pass criteria:
 
 - Required skill package files exist.
 - `apex-meta/scripts/apex_kb.py` exists.
+- `apex-meta/scripts/apex_kb_start.py` exists.
+- `.claude/skills/apex-kb/references/start-workflow.md` exists.
+- `.claude/skills/apex-kb/templates/start-config-template.yaml` exists.
+- `AGENTS.md` dispatches Apex KB requests to `.claude/skills/apex-kb/SKILL.md`.
 - `apex-meta/scripts/apex_kb_retrieval.py` exists.
 - `python --version` is 3.10+.
 
@@ -30,6 +34,22 @@ Pass criteria:
 - Git classification never mutates the repository;
 - direct low-level mutation remains compatible for legacy KBs and is blocked for a controlled KB;
 - the synthetic end-to-end fixture reaches `query_ready` only after independent acceptance and postflight.
+
+## Start routing smoke test
+
+Copy `templates/start-config-template.yaml` to a temporary path, replace every placeholder with a tiny repository-local fixture, and run:
+
+```powershell
+python apex-meta/scripts/apex_kb.py start --config tmp/apex-kb-start-smoke.yaml --repo-root . --json
+```
+
+Pass criteria:
+
+- The skill and root `AGENTS.md` route a new-KB request to `start`, not freehand `control init`.
+- Preview mode creates no KB files.
+- The result exposes submitted values, derived values, worktree safety, intended KB root, and an operator action.
+- Repeating the identical command with `--allow-write` creates only the declared Setup/control artifacts below the configured non-overlapping KB destination.
+- The test stops before source intake or Phase 0 unless the operator explicitly continues after reviewing the readback.
 
 ## Command smoke tests
 

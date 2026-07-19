@@ -13,6 +13,20 @@ SPEC.loader.exec_module(start)
 
 
 class ApexKbStartTests(unittest.TestCase):
+    def test_skill_routes_new_kb_requests_through_public_start(self):
+        repo_root = SCRIPT.parents[2]
+        skill = (repo_root / ".claude/skills/apex-kb/SKILL.md").read_text(encoding="utf-8")
+        agents = (repo_root / "AGENTS.md").read_text(encoding="utf-8")
+        package = (repo_root / ".claude/skills/apex-kb/package-manifest.md").read_text(encoding="utf-8")
+        workflow = repo_root / ".claude/skills/apex-kb/references/start-workflow.md"
+        template = repo_root / ".claude/skills/apex-kb/templates/start-config-template.yaml"
+        self.assertIn("apex_kb.py start", skill)
+        self.assertIn("Do not author `manifests/topic-registry.json` or invoke `control init` freehand for a new KB", skill)
+        self.assertIn(".claude/skills/apex-kb/SKILL.md", agents)
+        self.assertIn("start_frontend: apex-meta/scripts/apex_kb_start.py", package)
+        self.assertTrue(workflow.is_file())
+        self.assertTrue(template.is_file())
+
     def test_output_mapping_is_explicit(self):
         self.assertEqual(start.OUTPUT_MAP["analysis_only"], "analysis_only")
         self.assertEqual(start.OUTPUT_MAP["compiled_kb"], "compiled_full")

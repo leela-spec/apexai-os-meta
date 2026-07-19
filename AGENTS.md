@@ -27,6 +27,12 @@
 - Current-truth: Keep working content limited to live guidance; place history in a dedicated log or memory.
 - No-changelog: Do not retain old errors, rejected options, prior versions, incident narratives, or "what changed" explanations in current-truth content.
 
+## Apex KB Dispatch
+- Trigger: Requests to create, start, set up, build, intake, compile, query, retrieve, audit, or maintain an Apex KB use the repository-local `.claude/skills/apex-kb/SKILL.md`.
+- New KB: For a new KB or Setup request, follow the skill's Start route. Do not manually construct `control init` arguments.
+- Existing KB: For an existing controlled KB, resume from `manifests/run-state.json` and use `control next`, `control run`, or `control reconcile` as directed by the skill.
+- Authority: Runtime results and canonical repository files override chat memory or generic agent habits.
+
 ## Scope
 - Rule: Keep actions tied to the user's stated target.
 - Rule: Do not expand the task into adjacent cleanup, redesign, or general hardening.

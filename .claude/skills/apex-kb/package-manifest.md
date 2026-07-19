@@ -8,6 +8,7 @@ package_manifest:
   data_root_template: apex-meta/kb/<kb-slug>/
   script_paths:
     lifecycle: apex-meta/scripts/apex_kb.py
+    start_frontend: apex-meta/scripts/apex_kb_start.py
     control_plane: apex-meta/scripts/apex_kb_control.py
     retrieval: apex-meta/scripts/apex_kb_retrieval.py
   runtime_policy:
@@ -29,6 +30,8 @@ package_manifest:
 |---|---|
 | `SKILL.md` | Skill entrypoint and operating procedure |
 | `package-manifest.md` | Package inventory and scope |
+| `references/start-input.schema.json` | Compact new-KB Start configuration schema |
+| `references/start-workflow.md` | New-KB Setup routing, preview, confirmation, and handoff sequence |
 | `references/run-intent.schema.json` | Operator-owned compact run configuration and confirmation schema |
 | `references/run-state.schema.json` | Machine-owned lifecycle state, transition, blocker, artifact, and fingerprint schema |
 | `references/stage-result.schema.json` | Compact result schema for every control action/stage |
@@ -50,6 +53,7 @@ package_manifest:
 | `references/retrieval-contract.md` | Retrieval, index, stale, and query-output contract |
 | `references/acceptance-tests.md` | Local command-level and semantic-wiring fixtures |
 | `references/knowledge-promotion-rules.md` | Source/candidate/doctrine/runtime promotion gate rules |
+| `templates/start-config-template.yaml` | Minimal operator-editable Start configuration |
 | `templates/run-intent-template.md` | Human projection for JSON-compatible run-intent frontmatter |
 | `templates/semantic-handoff-packet-template.md` | Human projection for run-specific semantic packets |
 | `templates/ingest-analysis-template.md` | Phase 1 query-linked analysis template |
@@ -120,7 +124,7 @@ Apex KB does not own project planning, task status mutation, exact next-task ran
 
 ## Executability note
 
-The skill folder is not executable by itself. It requires the repo-level scripts at `apex-meta/scripts/apex_kb.py`, `apex-meta/scripts/apex_kb_control.py`, and `apex-meta/scripts/apex_kb_retrieval.py`. Operators invoke only `apex_kb.py`; it delegates control state/transitions to `apex_kb_control.py` and retrieval to the existing retrieval engine.
+The skill folder is not executable by itself. It requires the repo-level scripts at `apex-meta/scripts/apex_kb.py`, `apex-meta/scripts/apex_kb_start.py`, `apex-meta/scripts/apex_kb_control.py`, and `apex-meta/scripts/apex_kb_retrieval.py`. Operators invoke only `apex_kb.py`; its `start` command delegates compact Setup translation to `apex_kb_start.py`, control state/transitions to `apex_kb_control.py`, and retrieval to the existing retrieval engine.
 
 ## Lifecycle authority
 
