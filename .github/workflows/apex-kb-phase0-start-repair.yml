@@ -59,6 +59,7 @@ jobs:
               'start.GitResult(0, "worktree /repo\\nHEAD abc123\\nbranch refs/heads/main\\n\\n", "")': 'subprocess.CompletedProcess([], 0, "worktree /repo\\nHEAD abc123\\nbranch refs/heads/main\\n\\n", "")',
               'start.GitResult(0, "https://github.com/test/fixture.git\\n", "")': 'subprocess.CompletedProcess([], 0, "https://github.com/test/fixture.git\\n", "")',
               'start.GitResult(0, "abc123\\n", "")': 'subprocess.CompletedProcess([], 0, "abc123\\n", "")',
+              '"    questions: [What is the fixture?]\\n"': '"    questions: [\\\"What is the fixture?\\\"]\\n"',
           }
           for old, new in replacements.items():
               if test_text.count(old) != 1:
