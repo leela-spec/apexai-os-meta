@@ -1,0 +1,19 @@
+repository: owner/repository
+source_folders:
+  - path/to/source-folder
+exclusions: []
+kb_destination:
+  folder: path/to/new-kb-root
+topics:
+  - name: Topic name
+    phrases:
+      - exact topic phrase
+    ambiguous_or_negative_terms: []
+    questions:
+      - What must the completed KB answer?
+run_options:
+  source_handling: pointer_only
+  semantic_depth: standard
+  output: analysis_only
+  non_text: inventory_and_report
+  ai_help_after_preflight: false
