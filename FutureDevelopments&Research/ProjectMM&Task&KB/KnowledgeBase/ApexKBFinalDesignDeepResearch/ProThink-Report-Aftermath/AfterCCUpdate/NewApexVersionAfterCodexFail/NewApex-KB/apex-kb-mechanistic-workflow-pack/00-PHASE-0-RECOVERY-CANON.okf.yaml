@@ -24,6 +24,18 @@ authority:
   rule: >-
     A design, patch, commit, or handover is not implemented behavior. Only the
     current live files plus executed tests and a fresh canary prove behavior.
+  patch_delivery_contract:
+    mode: exact_match_patch_pack_only
+    direct_connector_file_updates: forbidden
+    whole_file_replacement_for_existing_targets: forbidden
+    autonomous_branch_or_pr_creation: forbidden_without_operator_approval
+    requirements:
+      - read every live target completely before authoring its patch
+      - copy each old block byte-for-byte from the current live file
+      - keep one logical change per old/new block
+      - require exactly one old-block match
+      - treat every proposed block as unapplied until executor confirmation
+      - require operator review before deterministic application
 
 single_target:
   invocation: "$apex-kb Create a new Apex KB from the Leela source corpus. Run only Phase 0 Setup and stop before deterministic corpus intelligence."
@@ -82,7 +94,7 @@ minimal_repair_scope:
     - .claude/skills/apex-kb/templates/start-config-template.yaml
   forbidden_expansion:
     - another architecture redesign
-    - another patch pack before editing current live files
+    - direct editing of current live files before an operator-approved exact-match patch pack
     - protocol simulation
     - another orchestration ledger
     - another Q&A version

@@ -4,7 +4,7 @@
 
 Repair and prove the existing Apex KB **new-KB Start vertical slice**, then run the first real Leela **Phase 0 Setup** canary.
 
-Do not redesign Apex KB. Do not create another patch pack, orchestration system, simulation, run ledger, Q&A version, or handover chain.
+Do not redesign Apex KB. Create exactly one operator-reviewable exact-match patch pack for the unfinished live integration. Do not edit live files directly, create an unapproved branch or pull request, create another orchestration system, simulation, run ledger, Q&A version, or handover chain.
 
 ## Repository
 
@@ -59,9 +59,11 @@ FutureDevelopments&Research/ProjectMM&Task&KB/KnowledgeBase/ApexKBFinalDesignDee
 
 Do not create another Q&A variant.
 
-### 2. Repair only the unfinished integration
+### 2. Prepare and review the exact-match patch pack
 
-Make the smallest coherent live edits required so that:
+Do not modify repository files in the design/review chat. Copy exact current text from every live target and create one deterministic patch pack using literal `<file>`, `<old>`, and `<new>` blocks. The operator reviews and approves the pack before a separate deterministic executor applies it.
+
+After approval, make only the smallest coherent live edits required so that:
 
 1. root Codex guidance routes a new Apex KB request to the live Apex KB skill;
 2. the live skill routes a new KB to Start without asking the old capability question;
