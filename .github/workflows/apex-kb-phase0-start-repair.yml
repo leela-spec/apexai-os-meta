@@ -64,6 +64,11 @@ jobs:
               if test_text.count(old) != 1:
                   raise SystemExit(f"test anchor count for {old}: {test_text.count(old)}")
               test_text = test_text.replace(old, new, 1)
+          assertion = 'self.assertEqual(completed.returncode, 0, completed.stderr)'
+          test_text = test_text.replace(
+              assertion,
+              'self.assertEqual(completed.returncode, 0, f"{completed.stderr}\\nSTDOUT:\\n{completed.stdout}")',
+          )
           tests.write_text(test_text, encoding="utf-8", newline="\n")
           PY
 
@@ -97,9 +102,9 @@ jobs:
         if: github.event_name == 'push'
         shell: bash
         run: |
-          rm .github/workflows/apex-kb-phase0-start-repair.yml
+          rm -f .github/workflows/apex-kb-phase0-start-repair.yml start-test-result.txt
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add apex-meta/scripts/apex_kb.py apex-meta/scripts/tests/test_apex_kb_start.py .github/workflows/apex-kb-phase0-start-repair.yml
+          git add -A apex-meta/scripts/apex_kb.py apex-meta/scripts/tests/test_apex_kb_start.py .github/workflows/apex-kb-phase0-start-repair.yml start-test-result.txt
           git commit -m "Expose and verify the Apex KB Start CLI"
           git push origin HEAD:agent/apex-kb-phase0-start-repair
