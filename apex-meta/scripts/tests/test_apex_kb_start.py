@@ -1,15 +1,27 @@
 from __future__ import annotations
 
+import argparse
 import importlib.util
+import json
+import subprocess
+import sys
+import tempfile
 import unittest
 from pathlib import Path
+from unittest import mock
 
 
 SCRIPT = Path(__file__).resolve().parents[1] / "apex_kb_start.py"
+LIFECYCLE = SCRIPT.with_name("apex_kb.py")
 SPEC = importlib.util.spec_from_file_location("apex_kb_start_under_test", SCRIPT)
 assert SPEC and SPEC.loader
 start = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(start)
+
+LIFECYCLE_SPEC = importlib.util.spec_from_file_location("apex_kb_lifecycle_under_test", LIFECYCLE)
+assert LIFECYCLE_SPEC and LIFECYCLE_SPEC.loader
+lifecycle = importlib.util.module_from_spec(LIFECYCLE_SPEC)
+LIFECYCLE_SPEC.loader.exec_module(lifecycle)
 
 
 class ApexKbStartTests(unittest.TestCase):
@@ -65,6 +77,104 @@ class ApexKbStartTests(unittest.TestCase):
         with self.assertRaises(start.StartError) as raised:
             start.repo_path(Path.cwd(), "../outside", "source_folders")
         self.assertEqual(raised.exception.code, "start_path_invalid")
+
+    def test_worktree_resolution_is_read_only(self):
+        responses = {
+            ("rev-parse", "--show-toplevel"): start.GitResult(0, "/repo\n", ""),
+            ("worktree", "list", "--porcelain"): start.GitResult(0, "worktree /repo\nHEAD abc123\nbranch refs/heads/main\n\n", ""),
+            ("remote", "get-url", "origin"): start.GitResult(0, "https://github.com/test/fixture.git\n", ""),
+            ("rev-parse", "HEAD"): start.GitResult(0, "abc123\n", ""),
+        }
+        calls = []
+
+        def fake_git(_cwd, *args):
+            calls.append(args)
+            return responses[args]
+
+        control = mock.Mock()
+        control.classify_git_state.return_value = {
+            "safe_for_kb_write": True,
+            "head": "abc123",
+            "classification": "clean",
+            "changed_paths": [],
+        }
+        with mock.patch.object(start, "git", side_effect=fake_git):
+            result = start.resolve_primary_worktree(Path("/repo"), "test/fixture", control)
+        self.assertEqual(result["policy"], "primary_main_read_only")
+        self.assertEqual(result["primary_head"], "abc123")
+        self.assertFalse(any(call and call[0] in {"fetch", "pull", "merge"} for call in calls))
+
+    def test_global_flag_normalizer_recognizes_start(self):
+        normalized = list(
+            lifecycle.normalize_global_flag_placement(
+                ["start", "--config", "config.yaml", "--repo-root", "C:/repo", "--json", "--dry-run"]
+            )
+        )
+        self.assertEqual(normalized[:2], ["--json", "--dry-run"])
+        self.assertEqual(normalized[2], "start")
+
+    def test_public_start_help_exposes_documented_flags(self):
+        completed = subprocess.run(
+            [sys.executable, str(LIFECYCLE), "start", "--help"],
+            capture_output=True,
+            text=True,
+            check=False,
+        )
+        self.assertEqual(completed.returncode, 0, completed.stderr)
+        for flag in ("--config", "--repo-root", "--allow-write", "--dry-run", "--strict", "--json"):
+            self.assertIn(flag, completed.stdout)
+
+    @unittest.skipIf(start.yaml is None, "PyYAML unavailable")
+    def test_public_start_preview_accepts_post_subcommand_flags_and_writes_nothing(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            subprocess.run(["git", "init", "-b", "main", str(root)], check=True, capture_output=True, text=True)
+            subprocess.run(["git", "-C", str(root), "config", "user.email", "test@example.invalid"], check=True)
+            subprocess.run(["git", "-C", str(root), "config", "user.name", "Apex KB Test"], check=True)
+            subprocess.run(["git", "-C", str(root), "remote", "add", "origin", "https://github.com/test/fixture.git"], check=True)
+            (root / "sources").mkdir()
+            (root / "sources" / "source.md").write_text("# Fixture Source\n", encoding="utf-8")
+            subprocess.run(["git", "-C", str(root), "add", "."], check=True)
+            subprocess.run(["git", "-C", str(root), "commit", "-m", "fixture"], check=True, capture_output=True, text=True)
+            config = root / "start.yaml"
+            config.write_text(
+                "repository: test/fixture\n"
+                "source_folders:\n  - sources\n"
+                "exclusions: []\n"
+                "kb_destination:\n  folder: generated-kb\n"
+                "topics:\n"
+                "  - name: Fixture\n"
+                "    phrases: [fixture]\n"
+                "    ambiguous_or_negative_terms: []\n"
+                "    questions: [What is the fixture?]\n"
+                "run_options:\n"
+                "  source_handling: pointer_only\n"
+                "  semantic_depth: standard\n"
+                "  output: analysis_only\n"
+                "  non_text: inventory_and_report\n"
+                "  ai_help_after_preflight: false\n",
+                encoding="utf-8",
+            )
+            completed = subprocess.run(
+                [
+                    sys.executable,
+                    str(LIFECYCLE),
+                    "start",
+                    "--config",
+                    str(config),
+                    "--repo-root",
+                    str(root),
+                    "--json",
+                    "--dry-run",
+                ],
+                capture_output=True,
+                text=True,
+                check=False,
+            )
+            self.assertEqual(completed.returncode, 0, completed.stderr)
+            payload = json.loads(completed.stdout)
+            self.assertEqual(payload["status"], "planned")
+            self.assertFalse((root / "generated-kb").exists())
 
 
 if __name__ == "__main__":

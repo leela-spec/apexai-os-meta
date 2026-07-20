@@ -13,31 +13,63 @@ description: >
 
 # Apex KB
 
-## Execution-surface router
+## Lifecycle router
 
-Ask exactly one question before procedure or file navigation:
-
-> Can the executor run repository Python commands in a live worktree and capture the command, exit status, stdout, and stderr?
+Route by operator intent before asking about execution capabilities.
 
 ```yaml
-execution_route:
-  terminal_backed:
-    when: yes
-    authority: deterministic execution and validation
-    preferred_completion_interface: postflight
-  connector_only:
-    when: no, but complete repository-file reads and whole-file writes are available
-    authority: bounded semantic authoring only
-    completion_cap: compiled_unvalidated
-  unsupported:
-    when: neither terminal execution nor reliable whole-file read/write is available
-    behavior: stop without claiming compile or validation
+lifecycle_route:
+  new_kb:
+    when:
+      - create a new Apex KB
+      - build a KB from a source corpus
+      - initialize or start a KB without manifests/run-state.json
+    first_response:
+      - read references/start-workflow.md
+      - render templates/start-config-template.yaml
+      - preserve every value already supplied by the operator
+      - ask only for required Start fields that remain unresolved
+    public_command: >-
+      python apex-meta/scripts/apex_kb.py start --config <start-config.yaml>
+      --repo-root <repository-root> --json --dry-run
+    rule: never begin a normal new-KB request with the generic executor-capability question
+  existing_controlled_kb:
+    when: manifests/run-state.json exists
+    commands:
+      - control next
+      - control run
+      - control reconcile
+    rule: canonical run state chooses the next legal action
+  legacy_kb:
+    when: a KB exists without manifests/run-state.json
+    action: use the existing bounded legacy command or migrate deliberately
+  read_only:
+    when: query, retrieve, lint, audit, status, or health
+    action: use the existing read-only or derived-artifact command
 ```
 
-This router's answer, together with the `capability_precheck` below, fills the `execution_route` slot of the Step 0 intake record (`manifests/run-intent.md`); it is not a separate question asked again later.
+Start and deterministic preflight discover executable capabilities and return evidence. Do not ask the operator to attest to Python, terminal, Git, stdout, or stderr capture before presenting the Start workflow. If the active environment cannot execute Start, report that concrete limitation after the configuration is understood; do not substitute the old generic question.
+
+### New-KB route
+
+1. Render the live Start configuration template.
+2. Preserve all operator-provided repository, source, destination, topic, question, semantic-depth, output-tier, and non-text values.
+3. Ask only for required unresolved values.
+4. Run the public Start command in preview mode.
+5. Show the submitted and derived readback, warnings, blockers, target commit, and no-write status.
+6. Run write mode only after the operator confirms the readback.
+7. Stop after Setup when the operator requested Setup only. Do not run source intake or deterministic corpus intelligence.
+8. For later continuation, use only `control next`, `control run`, and `control reconcile`.
+
+### Existing controlled-KB route
+
+`apex_kb.py control` remains the executable lifecycle authority after Start initialization. `control next` derives the exact action, `control run` executes one legal deterministic stage or renders one semantic packet, and `control reconcile` resumes from repository files and reason-codes drift.
+
+### Connector-only boundary
+
+A connector-only environment may inspect files and prepare a complete Start configuration, but it must not claim that preview, initialization, tests, Phase 0, or postflight executed. It reports the exact terminal command required and stops at the truthful evidence boundary.
 
 ### Connector-only semantic authoring route
-
 
 Allowed work is limited to complete semantic files or complete rewrites of explicitly owned semantic files. Partial edits, appends, machine-maintained sections, `wiki/index.md`, manifests, hashes, derived indexes, deterministic commands, and certification are prohibited.
 
@@ -52,9 +84,6 @@ For each source, read the complete source or every relevant section, write and r
 Run page-only query and claim-entailment acceptance in a fresh context that did not receive drafting rationale or self-assessment. Record the result under `audit/semantic-acceptance/<run-id>/<topic-slug>.json`. Only `semantic_pass` for every in-scope topic permits `compiled_unvalidated`; otherwise report `partial` or `analysis_complete_unvalidated`.
 
 The route never runs Python, shell, scaffold, intake, hashing, manifest updates, Phase 0, index/retrieval rebuild, lint, quality, or postflight, and never claims `query_ready`.
-### Terminal-backed route
-
-Use `apex_kb.py control` as the single operator lifecycle surface. `control init` creates the compact run configuration and machine state, `control run` executes exactly one legal deterministic stage or renders one semantic packet, `control next` derives the exact next command or short packet trigger, and `control reconcile` resumes from repository files and reason-codes drift. Direct low-level mutation commands remain available only for legacy KBs without `manifests/run-state.json`; a controlled run blocks them so state cannot drift. `postflight` remains the bounded deterministic completion aggregate and independent semantic acceptance remains mandatory for every compiled tier.
 
 ## Operating contract
 
@@ -138,7 +167,6 @@ boundary:
 
 ## Operator-facing v3 lifecycle and output tiers
 
-
 The lifecycle and state labels are defined by `references/semantic-value-contract.md`.
 
 ```yaml
@@ -162,15 +190,15 @@ truthful_states:
   compiled_unvalidated: critical/routine queries and sampled claims pass semantic acceptance; deterministic postflight pending
   query_ready: semantic acceptance and deterministic postflight pass; retrieval fresh
 ```
+
 ## File navigation
-
-
-Select the execution route above before opening terminal-oriented references.
 
 Read supporting files only when needed:
 
 | Need | File |
 |---|---|
+| New-KB Start intake, preview, confirmation, and Setup boundary | `references/start-workflow.md` |
+| New-KB Start configuration | `templates/start-config-template.yaml` |
 | Completion target, registry v2, ledger, traceability, semantic acceptance | `references/semantic-value-contract.md` |
 | Browser/Git-connector workflow and evaluator prompts | `references/browser-git-connector-semantic-runbook.md` |
 | Data layout, canonical/derived rules, page and manifest constraints | `references/kb-contract.md` |
@@ -192,8 +220,7 @@ Read supporting files only when needed:
 
 ## Capability precheck and truthful state cap
 
-
-Before procedure steps that require Python, retrieval rebuild, Git, or semantic evaluation, record whether the active executor can perform them and capture evidence.
+Before procedure steps that require Python, retrieval rebuild, Git, or semantic evaluation, record whether the active executor can perform them and capture evidence. For a new KB, Start performs and reports this discovery after the operator configuration is known; it is not a preliminary operator questionnaire.
 
 ```yaml
 capability_precheck:
@@ -217,48 +244,24 @@ completion_state_cap:
 ```
 
 Connector readback proves stored content only. It never proves semantic usefulness, source entailment, Python execution, index freshness, lint, quality, or query readiness.
+
 ## Procedure
 
 Follow only the selected route. The connector route uses the bounded whole-file semantic-authoring sequence above. The terminal-backed route follows the referenced command, retrieval, acceptance-test, and runbook contracts. Neither route may weaken the existing lifecycle, output tiers, ownership model, semantic acceptance requirement, or completion labels.
 
-### Step 0 — Intake and intent lock (before scaffold, source intake, or Phase 0)
+### Step 0 — Intake and intent lock (before scaffold, source intake, or deterministic corpus intelligence)
 
-On the terminal-backed route, `apex_kb.py control` is the executable owner of this step. Treat the detailed questions below as inputs to `control init`, not as permission to assemble lifecycle state in chat. Author or update `manifests/topic-registry.json` first, run `control init`, then use `control run` to create the compact readback and `control confirm --confirmation-quote <verbatim affirmative>` to unlock the run. After confirmation, obey only `control next`, `control run`, and `control reconcile`; never choose a low-level mutation command freehand. On a connector-only semantic handoff, the rendered packet file is authoritative and the stable chat trigger is one line pointing to that packet.
+For a new KB, the public `apex_kb.py start` workflow owns Setup intake, schema validation, repository/source/destination checks, topic-registry derivation, preview readback, and delegation into the existing control plane. Use `references/start-workflow.md` and `templates/start-config-template.yaml`. Do not manually assemble `run-intent.md`, invoke `control init`, or choose low-level commands for a normal new-KB request.
 
-Nothing that registers sources, runs Phase 0, writes wiki pages, or commits may run until this
-step ends in a recorded operator confirmation (creating the empty KB skeleton is permitted as
-pre-gate setup — see 0d). This is the single point where the executor's whole understanding of
-the run is read back and approved — it exists because a run that silently locks a misread
-subject can otherwise burn a full corpus intake and Phase 0 before anyone notices. This step
-runs on every run, new KB or extending an existing one. It never re-runs for read-only work
-(`query`, `retrieve`, `lint`, `audit`, `status`, `health`) or for repeated commands within a
-run already confirmed for this `run_id`.
+Start must run in preview mode first. The preview performs no KB writes and returns the submitted configuration, deterministically derived fields, read-only repository/worktree evidence, warnings, blockers, configuration hash, and operator action. Only after the operator confirms that readback may Start be repeated with `--allow-write`.
 
-**0a — Intake Q&A.** In one conversational pass (not a form — fill every slot you can from the
-operator's first message, and ask follow-ups only for slots left genuinely unresolved),
-establish and record each intent-record slot below from the operator's own answers. Never
-substitute an assumption or an inference from a filename, path, or prior summary for an answer;
-if a slot is ambiguous, ask. The slots (see `references/semantic-value-contract.md` for the
-`manifests/run-intent.md` schema):
+Confirmed Start writes only Setup artifacts and initializes canonical state. When the operator requested Setup only, stop immediately after proving the Setup artifacts and next legal stage. Do not run scaffold, source intake, Phase 0, Phase 1, Phase 2, acceptance, retrieval, or postflight. For a later continuation, the existing control plane owns progression; obey only `control next`, `control run`, and `control reconcile`. Existing controlled KBs enter directly through that route and do not rerun Start.
 
-- `operator_intent` — the job to be done, in the operator's words.
-- `kb_identity` — one line: "this KB is about `<kb_identity>`."
-- `source_locus` — where the real source material actually lives, and what is explicitly out of scope.
-- `success_definition` — what the chosen output tier means for this specific KB.
-- `output_tier`, `execution_route`, `corpus_breadth` — proposed by the executor in 0d, confirmed by the operator.
-- `topic_slugs` — the registry topics this run will build (from 0b).
+**Source-intake breadth defaults to narrow.** Registering the entire repository as pointer-only sources for a single topic request is not the default — it requires either an explicit operator instruction to index broadly, or a `broad_breadth_reason` recorded in `manifests/run-intent.md` and confirmed in the operator readback. Prefer the smallest root that plausibly contains the named subject's material; never auto-widen to full-corpus "to see."
 
-**0b — Topic interview.** For each topic, lock stable query IDs, question text, priority, answer requirements, and expected page route in `manifests/topic-registry.json`. Also record vocabulary where it sharpens routing: `phrases`/`aliases` (strong signals), `supporting_terms` (weaker; legacy `keywords` are read this way), `negative_terms` (suppress body-only false matches), `ambiguous_terms` (require co-occurrence). Vocabulary supports deterministic ranking but never defines semantic completion. An absent registry remains valid for scaffold, intake, `source_only`, and early `analysis_only`. Any compiled tier requires target queries for every in-scope topic. Broad topics must cover material definitions, structure, workflow, ownership, rules, relationships, current versus proposed state, examples, and edge cases where applicable.
+After Phase 0, review `term-frequency.json` and propose additional topics from real corpus evidence. A newly proposed topic re-enters Setup confirmation before it is built. Phase 0 emits the exhaustive, tiered rankings in `topic-source-rankings.json` and a concentrated per-topic work pack in `manifests/phase0/work-packs/<topic-slug>.md`. Start semantic reading from the work pack, not the full ranking map. Before semantic work, create the per-topic ledger required by `references/semantic-value-contract.md`.
 
-**0c — Topic-scope validation input.** For each locked topic run `topic-sanity-check` (terminal-backed route) or its manual equivalent (connector route: check the topic's `phrases`/`aliases` against the KB root's own path, sibling registry topics, and a light sample of nearby filenames — never against a freshly-written `kb-schema.md`/`README.md` or the KB's own generated output, which are self-authored by the same run and so are circular, not independent evidence; a single generic `supporting_term` never counts alone). This is a **validation input to the 0d read-back, not a standalone stop.** Record each topic's verdict in `manifests/run-intent.md`. A `scope_evidence_absent` verdict must be surfaced prominently in the read-back, but the enforcement point is the operator's confirmation in 0d, not the verdict itself.
-
-**0d — Read-back and operator intent gate (mandatory).** Emit ONE compact read-back (roughly eight lines) that states: `kb_identity`; mode (new_kb / extend_kb); `source_locus` and out-of-scope; the executor's **recommended** `output_tier`, `execution_route`, and `corpus_breadth`, each with a one-line reason drawn from `operator_intent` (recommend from intent, never silently choose — the operator accepts or overrides); the `topic_slugs`; and the per-topic 0c verdict. End with an explicit ask: "Reply to confirm before I intake sources / run Phase 0." On the operator's affirmative, write `manifests/run-intent.md` with `operator_confirmed: true` and the operator's verbatim affirmative in `operator_confirmation_quote`. **No `source-intake`, `phase0`, wiki writing, or commit/push runs until that record shows `operator_confirmed: true` for this `run_id`.** Creating the empty KB skeleton with `scaffold` (and writing `run-intent.md`/`topic-registry.json` themselves) is permitted as pre-gate setup — it registers no sources and runs no corpus analysis — but the expensive, hard-to-reverse steps stay behind the gate. On the connector route the read-back is authored in chat and `run-intent.md` is written as a complete whole file (this operator-authored markdown is an allowed connector-route write, like `log/semantic-runs/.../*.json`); the gate is the operator's chat confirmation. This intake gate is distinct from and earlier than the Phase 2 `approve ingest` gate; use a plain recorded affirmative here, no approval-phrase machinery.
-
-**Source-intake breadth defaults to narrow.** Registering the entire repository as pointer-only sources for a single topic request is not the default — it requires either an explicit operator instruction to index broadly, or a `broad_breadth_reason` recorded in `manifests/run-intent.md` and confirmed in 0d. Prefer the smallest root that plausibly contains the named subject's material; never auto-widen to full-corpus "to see."
-
-After Phase 0, review `term-frequency.json` and propose additional topics from real corpus evidence. A newly proposed topic re-enters at 0b–0d before it is built. Phase 0 emits the exhaustive, tiered rankings in `topic-source-rankings.json` and a concentrated per-topic work pack in `manifests/phase0/work-packs/<topic-slug>.md`. Start semantic reading from the work pack, not the full ranking map. Before semantic work, create the per-topic ledger required by `references/semantic-value-contract.md`.
 ### Phase 2 compile: per-page draft, check, retry, escalate
-
 
 Compile one topic at a time after its critical evidence coverage is resolved.
 
@@ -272,6 +275,7 @@ Compile one topic at a time after its critical evidence coverage is resolved.
 8. If any critical/routine query is partial, not answerable, blocked by readable evidence, or missing acceptance, record `partial`. If Phase 1 is complete but Phase 2 is not accepted, record `analysis_complete_unvalidated`.
 
 A page is semantically complete only when its declared questions are directly answerable and sampled material claims are supported. Headings, counts, length, rankings, and drafter self-review are never sufficient.
+
 ## Deterministic versus LLM ownership
 
 ```yaml
@@ -318,11 +322,10 @@ missing_source:
   rule: never infer source contents from filename, title, memory, or summary
 
 topic_vocabulary_mismatches_kb_scope_evidence:
-  behavior: surface_in_step_0d_readback_and_require_operator_confirmation
-  rule: a Step 0c `scope_evidence_absent` verdict (topic phrases/aliases have zero correspondence to the KB's own scope evidence - path components, sibling registry topics, a light filename sample) is surfaced prominently in the Step 0d read-back; the enforcement point is the operator's confirmation, not the verdict
-  detection: topic-sanity-check (terminal-backed) or its manual equivalent (connector route), run as a Step 0c validation input
+  behavior: surface_in_setup_readback_and_require_operator_confirmation
+  rule: a `scope_evidence_absent` verdict is surfaced prominently in the readback; the enforcement point is the operator's confirmation, not the verdict
+  detection: topic-sanity-check or its Start-owned equivalent
   never_treat_as: source_access_blocker
-  rationale: a topic name derived from a misread of the operator's request is a topic-lock error, not evidence the subject lacks local material; conflating the two, or proceeding without the Step 0d confirmation, burns a full corpus intake and Phase 0 run on the wrong subject before anyone notices
 
 phase2_stop_requested:
   behavior: stop_after_phase1
@@ -362,7 +365,6 @@ phase2_page_fails_quality_after_retries:
 ```
 
 ## Completion gate
-
 
 The requested mode is complete only when its artifact and every applicable gate have evidence. Completion reports lead with target-query coverage, reviewed/materially-used source coverage, semantic verdicts, and unresolved blockers; artifact counts are secondary.
 

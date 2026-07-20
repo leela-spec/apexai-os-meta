@@ -8,6 +8,7 @@ package_manifest:
   data_root_template: apex-meta/kb/<kb-slug>/
   script_paths:
     lifecycle: apex-meta/scripts/apex_kb.py
+    start_frontend: apex-meta/scripts/apex_kb_start.py
     control_plane: apex-meta/scripts/apex_kb_control.py
     retrieval: apex-meta/scripts/apex_kb_retrieval.py
   runtime_policy:
@@ -16,7 +17,7 @@ package_manifest:
     network_access: forbidden
     shell_out:
       default: forbidden
-      read_only_exceptions: [phase0_git_history, control_git_status_classification]
+      read_only_exceptions: [phase0_git_history, start_git_topology, control_git_status_classification]
     default_mode: dry_run
     writes_require: --allow-write
     writes_outside_kb_root: forbidden
@@ -24,11 +25,13 @@ package_manifest:
 
 ## Inventory
 
-
 | Path | Role |
 |---|---|
 | `SKILL.md` | Skill entrypoint and operating procedure |
 | `package-manifest.md` | Package inventory and scope |
+| `references/start-workflow.md` | New-KB Start intake, preview, confirmation, and Setup stop boundary |
+| `references/start-input.schema.json` | Canonical operator-facing Start configuration schema |
+| `templates/start-config-template.yaml` | Schema-compatible new-KB Start configuration template |
 | `references/run-intent.schema.json` | Operator-owned compact run configuration and confirmation schema |
 | `references/run-state.schema.json` | Machine-owned lifecycle state, transition, blocker, artifact, and fingerprint schema |
 | `references/stage-result.schema.json` | Compact result schema for every control action/stage |
@@ -58,17 +61,22 @@ package_manifest:
 | `templates/topic-work-pack-template.md` | Topic work pack (bounded L3 semantic input) shape |
 | `templates/kb-schema-template.md` | Starter `kb-schema.md` |
 | `templates/source-manifest-template.json` | Starter source manifest |
-| `examples/powershell-commands.md` | PowerShell-first control-plane commands |
-| `examples/lifecycle-runbook.md` | Operator lifecycle, semantic handoff, recovery, and postflight sequence |
+| `examples/powershell-commands.md` | PowerShell-first Start and controlled-lifecycle commands |
+| `examples/lifecycle-runbook.md` | Operator Start, semantic handoff, recovery, and postflight sequence |
+| `../../../apex-meta/scripts/apex_kb_start.py` | Strict Start frontend delegated through the public lifecycle CLI |
 | `../../../apex-meta/scripts/apex_kb_control.py` | Delegated control implementation loaded by the existing lifecycle CLI |
+| `../../../apex-meta/scripts/tests/test_apex_kb_start.py` | Start mapping, wrapper flag, preview, and no-write regression fixtures |
 | `../../../apex-meta/scripts/tests/test_apex_kb_control.py` | Unit and synthetic lifecycle/recovery fixtures |
 | `../../../apex-meta/scripts/tests/test_apex_kb_control_integration.py` | Existing-CLI delegation and direct-command compatibility fixtures |
+
 ## Canonical runtime KB paths
 
 ```yaml
 required_runtime_paths:
   - README.md
   - kb-schema.md
+  - manifests/start-input.json
+  - manifests/worktree-safety.json
   - manifests/run-intent.md
   - manifests/run-state.json
   - manifests/topic-registry.json
@@ -98,6 +106,8 @@ required_runtime_paths:
 canonical_paths:
   - raw/
   - kb-schema.md
+  - manifests/start-input.json
+  - manifests/worktree-safety.json
   - manifests/run-intent.md
   - manifests/run-state.json
   - manifests/topic-registry.json
@@ -120,9 +130,8 @@ Apex KB does not own project planning, task status mutation, exact next-task ran
 
 ## Executability note
 
-The skill folder is not executable by itself. It requires the repo-level scripts at `apex-meta/scripts/apex_kb.py`, `apex-meta/scripts/apex_kb_control.py`, and `apex-meta/scripts/apex_kb_retrieval.py`. Operators invoke only `apex_kb.py`; it delegates control state/transitions to `apex_kb_control.py` and retrieval to the existing retrieval engine.
+The skill folder is not executable by itself. Operators invoke only `apex-meta/scripts/apex_kb.py`. For a new KB, its `start` subcommand delegates Setup validation and transformation to `apex_kb_start.py`, which then delegates confirmed initialization to `apex_kb_control.py`. Existing controlled KBs continue through the control actions. Retrieval remains delegated to `apex_kb_retrieval.py`.
 
 ## Lifecycle authority
 
-`SKILL.md` is the operator behavior and semantic-ownership authority. The JSON schemas are the machine-shape authorities. `apex_kb_control.py` is the executable owner of legal transitions, next-command derivation, stage results, semantic packet paths, recovery, and read-only Git classification; `apex_kb.py` and `apex_kb_retrieval.py` remain the existing domain/runtime owners. The deprecated `references/lifecycle-state-machine.md` and the two unexecuted lint-spec files remain removed; this design does not recreate a competing prose state machine.
-
+`SKILL.md` is the operator behavior and semantic-ownership authority. The JSON schemas are the machine-shape authorities. `apex_kb_start.py` owns new-KB Setup intake and preview. `apex_kb_control.py` is the executable owner of legal transitions, next-command derivation, stage results, semantic packet paths, recovery, and read-only Git classification; `apex_kb.py` and `apex_kb_retrieval.py` remain the existing domain/runtime owners. The deprecated `references/lifecycle-state-machine.md` and the two unexecuted lint-spec files remain removed; this design does not recreate a competing prose state machine.
