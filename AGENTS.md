@@ -31,3 +31,9 @@
 - Rule: Keep actions tied to the user's stated target.
 - Rule: Do not expand the task into adjacent cleanup, redesign, or general hardening.
 - Rule: Prefer one clear action over a long plan when the outcome is already obvious.
+
+## Apex KB Dispatch
+- New KB: When the operator asks to create, build, initialize, or start a new Apex KB, read `.claude/skills/apex-kb/SKILL.md` and use its Start workflow. Do not begin with the generic executor-capability question and do not manually select `control init`, `source-intake`, or `phase0`.
+- Public entrypoint: New-KB Setup uses `python apex-meta/scripts/apex_kb.py start --config <start-config.yaml> --repo-root <repository-root>` in preview mode first. Writes require explicit `--allow-write` after operator review.
+- Existing controlled KB: When `<kb-root>/manifests/run-state.json` exists, continue through `control next`, `control run`, or `control reconcile` as directed by canonical state.
+- Boundary: Start owns new-KB configuration, validation, preview, and initialization. It stops before deterministic corpus intelligence unless the operator explicitly requests later stages.
