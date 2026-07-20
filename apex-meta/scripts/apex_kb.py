@@ -325,7 +325,7 @@ def emit(args: argparse.Namespace, obj: Any) -> None:
 def normalize_global_flag_placement(argv: Sequence[str]) -> Sequence[str]:
     normalized = list(argv)
     commands = {
-        "control", "scaffold", "source-intake", "hash", "generate-source-payload-manifest", "source-payload-manifest",
+        "start", "control", "scaffold", "source-intake", "hash", "generate-source-payload-manifest", "source-payload-manifest",
         "payload-manifest", "preflight", "topic-sanity-check", "phase0", "ingest-phase1", "ingest-phase2", "index", "query",
         "lint", "audit", "status", "health",
         "quality", "coverage", "query-eval", "semantic-acceptance-status", "graph", "process-graph", "postflight",
@@ -3606,6 +3606,10 @@ def build_parser() -> argparse.ArgumentParser:
     start_cmd = sub.add_parser("start", help="Validate and preview or initialize one Apex KB Setup configuration")
     start_cmd.add_argument("--config", required=True, help="Path to the operator Start YAML configuration")
     start_cmd.add_argument("--repo-root", help="Repository checkout or linked-worktree path used for read-only topology discovery")
+    start_cmd.add_argument("--allow-write", action="store_true", default=argparse.SUPPRESS, help="Permit confirmed Setup writes")
+    start_cmd.add_argument("--dry-run", action="store_true", default=argparse.SUPPRESS, help="Preview only; create no KB files")
+    start_cmd.add_argument("--strict", action="store_true", default=argparse.SUPPRESS, help="Use strict validation")
+    start_cmd.add_argument("--json", action="store_true", default=argparse.SUPPRESS, help="Emit machine-readable JSON")
     start_cmd.set_defaults(func=cmd_start)
 
     sc = sub.add_parser("scaffold")

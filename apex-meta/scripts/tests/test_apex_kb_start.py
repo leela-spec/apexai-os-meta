@@ -80,10 +80,10 @@ class ApexKbStartTests(unittest.TestCase):
 
     def test_worktree_resolution_is_read_only(self):
         responses = {
-            ("rev-parse", "--show-toplevel"): start.GitResult(0, "/repo\n", ""),
-            ("worktree", "list", "--porcelain"): start.GitResult(0, "worktree /repo\nHEAD abc123\nbranch refs/heads/main\n\n", ""),
-            ("remote", "get-url", "origin"): start.GitResult(0, "https://github.com/test/fixture.git\n", ""),
-            ("rev-parse", "HEAD"): start.GitResult(0, "abc123\n", ""),
+            ("rev-parse", "--show-toplevel"): subprocess.CompletedProcess([], 0, "/repo\n", ""),
+            ("worktree", "list", "--porcelain"): subprocess.CompletedProcess([], 0, "worktree /repo\nHEAD abc123\nbranch refs/heads/main\n\n", ""),
+            ("remote", "get-url", "origin"): subprocess.CompletedProcess([], 0, "https://github.com/test/fixture.git\n", ""),
+            ("rev-parse", "HEAD"): subprocess.CompletedProcess([], 0, "abc123\n", ""),
         }
         calls = []
 
@@ -120,7 +120,7 @@ class ApexKbStartTests(unittest.TestCase):
             text=True,
             check=False,
         )
-        self.assertEqual(completed.returncode, 0, completed.stderr)
+        self.assertEqual(completed.returncode, 0, f"{completed.stderr}\nSTDOUT:\n{completed.stdout}")
         for flag in ("--config", "--repo-root", "--allow-write", "--dry-run", "--strict", "--json"):
             self.assertIn(flag, completed.stdout)
 
@@ -146,7 +146,7 @@ class ApexKbStartTests(unittest.TestCase):
                 "  - name: Fixture\n"
                 "    phrases: [fixture]\n"
                 "    ambiguous_or_negative_terms: []\n"
-                "    questions: [What is the fixture?]\n"
+                "    questions: [\"What is the fixture?\"]\n"
                 "run_options:\n"
                 "  source_handling: pointer_only\n"
                 "  semantic_depth: standard\n"
@@ -171,7 +171,7 @@ class ApexKbStartTests(unittest.TestCase):
                 text=True,
                 check=False,
             )
-            self.assertEqual(completed.returncode, 0, completed.stderr)
+            self.assertEqual(completed.returncode, 0, f"{completed.stderr}\nSTDOUT:\n{completed.stdout}")
             payload = json.loads(completed.stdout)
             self.assertEqual(payload["status"], "planned")
             self.assertFalse((root / "generated-kb").exists())
