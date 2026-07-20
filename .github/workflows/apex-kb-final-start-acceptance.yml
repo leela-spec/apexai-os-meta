@@ -1,3 +1,4 @@
+# Temporary branch verifier; removes itself after a successful run.
 name: Apex KB Final Start Acceptance
 
 on:
