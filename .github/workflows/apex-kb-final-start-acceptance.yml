@@ -1,0 +1,80 @@
+name: Apex KB Final Start Acceptance
+
+on:
+  push:
+    branches: [agent/apex-kb-phase0-start-repair]
+  pull_request:
+    branches: [main]
+    types: [synchronize]
+
+permissions:
+  contents: write
+
+jobs:
+  finalize:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: agent/apex-kb-phase0-start-repair
+          fetch-depth: 0
+
+      - name: Install Start acceptance section
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          path = Path('.claude/skills/apex-kb/references/acceptance-tests.md')
+          text = path.read_text(encoding='utf-8')
+          anchor = '# Apex KB Acceptance Tests\n\n'
+          section = '''# Apex KB Acceptance Tests
+
+## Start routing and public-wrapper tests
+
+Run from repository root:
+
+```powershell
+python -m unittest apex-meta/scripts/tests/test_apex_kb_start.py -v
+python -m unittest discover -s apex-meta/scripts/tests -p "test_apex_kb_control*.py" -v
+python apex-meta/scripts/apex_kb.py start --help
+```
+
+Pass criteria:
+
+- `start --help` lists `--config`, `--repo-root`, `--allow-write`, `--dry-run`, `--strict`, and `--json`.
+- The four boolean global flags work before or after `start`.
+- Public-wrapper preview returns a planned Start result and creates no KB destination or KB file.
+- Write mode remains unreachable without explicit `--allow-write`.
+- Start worktree discovery performs no fetch, pull, merge, branch switch, worktree creation, reset, stash, clean, rebase, commit, or push.
+- New-KB skill routing renders Start instead of the generic executor-capability question.
+- Existing controlled KBs continue through `control next`, `control run`, and `control reconcile`.
+- A Setup-only run stops before deterministic corpus intelligence.
+
+'''
+          if text.count(anchor) != 2:
+              raise SystemExit(f'expected two existing title anchors, found {text.count(anchor)}')
+          text = text.replace(anchor, section, 1)
+          path.write_text(text, encoding='utf-8', newline='\n')
+          PY
+
+      - name: Run Start tests
+        run: python -m unittest apex-meta/scripts/tests/test_apex_kb_start.py -v
+
+      - name: Run control-plane tests
+        run: python -m unittest discover -s apex-meta/scripts/tests -p "test_apex_kb_control*.py" -v
+
+      - name: Prove Start help
+        run: python apex-meta/scripts/apex_kb.py start --help
+
+      - name: Commit final acceptance and remove verifier
+        if: github.event_name == 'push'
+        shell: bash
+        run: |
+          rm .github/workflows/apex-kb-final-start-acceptance.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add .claude/skills/apex-kb/references/acceptance-tests.md .github/workflows/apex-kb-final-start-acceptance.yml
+          git commit -m "Document and verify Apex KB Start acceptance"
+          git push origin HEAD:agent/apex-kb-phase0-start-repair
