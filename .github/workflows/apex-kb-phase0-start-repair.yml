@@ -68,7 +68,24 @@ jobs:
           PY
 
       - name: Run Start tests
-        run: python -m unittest apex-meta/scripts/tests/test_apex_kb_start.py -v
+        id: start_tests
+        shell: bash
+        run: |
+          set +e
+          python -m unittest apex-meta/scripts/tests/test_apex_kb_start.py -v > start-test-result.txt 2>&1
+          status=$?
+          cat start-test-result.txt
+          exit $status
+
+      - name: Commit exact failure report
+        if: failure() && github.event_name == 'push'
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add start-test-result.txt
+          git commit -m "Record Apex KB Start test failure"
+          git push origin HEAD:agent/apex-kb-phase0-start-repair
 
       - name: Run control-plane tests
         run: python -m unittest discover -s apex-meta/scripts/tests -p "test_apex_kb_control*.py" -v
