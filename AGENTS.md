@@ -37,3 +37,10 @@
 - Rule: Keep actions tied to the user's stated target.
 - Rule: Do not expand the task into adjacent cleanup, redesign, or general hardening.
 - Rule: Prefer one clear action over a long plan when the outcome is already obvious.
+
+## Apex KB Patch Safety
+- Rule: For Apex KB implementation work, never edit repository files directly through a connector, whole-file replacement API, autonomous workflow, or unreviewed branch.
+- Rule: First read the complete live target files, then generate an operator-reviewable exact-match patch pack using literal `<file>`, `<old>`, and `<new>` blocks.
+- Rule: One change belongs in one block. Every `<old>` block must be copied byte-for-byte from the current live file and must match exactly once.
+- Rule: Do not create commits, branches, pull requests, or automation workflows until the operator explicitly approves the patch pack and authorizes deterministic application.
+- Rule: Never describe a proposed block as applied. Completion requires the executor's exact-match result plus the required test evidence.

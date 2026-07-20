@@ -6,8 +6,8 @@ worktree without mutating Git, derives the current control-plane inputs, writes
 Start/topic-registry artifacts, and delegates run initialization to
 apex_kb_control.py.
 
-This script never creates, switches, removes, prunes, or merges worktrees or
-branches. It never mixes evidence from multiple worktrees.
+This script never fetches, pulls, creates, switches, removes, prunes, or merges
+worktrees or branches. It never mixes evidence from multiple worktrees.
 """
 from __future__ import annotations
 
@@ -179,40 +179,6 @@ def resolve_primary_worktree(start: Path, repository: str, control: Any) -> Dict
             [str(primary)],
         )
 
-    synchronization: Dict[str, Any] = {
-        "fetch_attempted": True,
-        "fetch_status": "not_run",
-        "fast_forward_attempted": False,
-        "fast_forward_status": "not_needed",
-        "warning": None,
-    }
-    fetched = git(primary, "fetch", "--prune", "origin", "main")
-    if fetched.returncode:
-        synchronization["fetch_status"] = "failed_continue_local"
-        synchronization["warning"] = fetched.stderr.strip() or "git fetch failed; continuing with current local main"
-    else:
-        synchronization["fetch_status"] = "ok"
-        relation = git(primary, "rev-list", "--left-right", "--count", "HEAD...origin/main")
-        if relation.returncode == 0:
-            parts = relation.stdout.strip().split()
-            ahead = int(parts[0]) if len(parts) == 2 else 0
-            behind = int(parts[1]) if len(parts) == 2 else 0
-            synchronization["ahead"] = ahead
-            synchronization["behind"] = behind
-            if behind > 0 and ahead == 0:
-                synchronization["fast_forward_attempted"] = True
-                advanced = git(primary, "merge", "--ff-only", "origin/main")
-                if advanced.returncode:
-                    synchronization["fast_forward_status"] = "failed_continue_local"
-                    synchronization["warning"] = advanced.stderr.strip() or "Fast-forward failed; continuing with current local files"
-                else:
-                    synchronization["fast_forward_status"] = "ok"
-            elif ahead > 0 and behind > 0:
-                synchronization["fast_forward_status"] = "diverged_continue_local"
-                synchronization["warning"] = "Local main and origin/main diverged; Apex KB did not merge or rewrite local work"
-            elif ahead > 0:
-                synchronization["fast_forward_status"] = "local_ahead_continue_local"
-
     state = control.classify_git_state(primary)
     if not state.get("safe_for_kb_write"):
         raise StartError("primary_worktree_unsafe", str(state.get("reason")), state.get("changed_paths", []))
@@ -220,7 +186,7 @@ def resolve_primary_worktree(start: Path, repository: str, control: Any) -> Dict
     primary_head = refreshed_head.stdout.strip() if refreshed_head.returncode == 0 else worktrees[0].get("head") or state.get("head")
     return {
         "schema": "apex.kb.worktree-safety.v1",
-        "policy": "primary_main_prefer_synchronized",
+        "policy": "primary_main_read_only",
         "invoked_root": str(invoked),
         "primary_root": str(primary),
         "fallback_applied": invoked != primary,
@@ -229,13 +195,11 @@ def resolve_primary_worktree(start: Path, repository: str, control: Any) -> Dict
         "worktree_count": len(worktrees),
         "ignored_worktrees": worktrees[1:],
         "git_state": state,
-        "synchronization": synchronization,
         "rules": [
+            "never_fetch_or_pull",
             "never_create_worktree",
             "never_switch_branch",
             "never_mix_worktree_content",
-            "prefer_fetch_and_fast_forward_only",
-            "dirty_and_untracked_files_are_informational",
             "never_stash_reset_clean_merge_or_rebase_operator_work",
             "write_only_to_the_configured_non_overlapping_kb_destination",
         ],

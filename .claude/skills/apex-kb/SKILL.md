@@ -13,28 +13,35 @@ description: >
 
 # Apex KB
 
-## Execution-surface router
+## Lifecycle router
 
-Ask exactly one question before procedure or file navigation:
-
-> Can the executor run repository Python commands in a live worktree and capture the command, exit status, stdout, and stderr?
+Route by operator intent before asking about execution capabilities.
 
 ```yaml
-execution_route:
-  terminal_backed:
-    when: yes
-    authority: deterministic execution and validation
-    preferred_completion_interface: postflight
+lifecycle_route:
+  new_kb:
+    when:
+      - create a new Apex KB
+      - build a KB from a source corpus
+      - initialize or start a KB without manifests/run-state.json
+    first_behavior: render_or_begin_the_fixed_start_configuration_flow
+    public_command: >-
+      python apex-meta/scripts/apex_kb.py start --config <start-config.yaml>
+      --repo-root <repository-root> --json --dry-run
+    rule: never begin a normal new-KB request with the generic executor-capability question
+  existing_controlled_kb:
+    when: manifests/run-state.json exists
+    commands:
+      - control next
+      - control run
+      - control reconcile
+    rule: canonical run state chooses the next legal action
   connector_only:
-    when: no, but complete repository-file reads and whole-file writes are available
-    authority: bounded semantic authoring only
-    completion_cap: compiled_unvalidated
-  unsupported:
-    when: neither terminal execution nor reliable whole-file read/write is available
-    behavior: stop without claiming compile or validation
+    action: prepare the complete Start configuration and report the exact terminal command
+    completion_cap: configuration_prepared_unexecuted
 ```
 
-This router's answer, together with the `capability_precheck` below, fills the `execution_route` slot of the Step 0 intake record (`manifests/run-intent.md`); it is not a separate question asked again later.
+For a new KB, preserve every repository, source, destination, topic, target-question, exclusion, source-handling, semantic-depth, output-tier, and non-text value already supplied by the operator. Ask only for required Start fields that remain unresolved. Start preview discovers executable capabilities and returns concrete evidence; do not ask the operator to attest to Python, terminal, Git, stdout, or stderr capture before presenting the Start flow.
 
 ### Connector-only semantic authoring route
 
