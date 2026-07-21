@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://apex-kb.local/schemas/run-config.schema.json",
+  "title": "Apex KB run configuration",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["source", "destination", "topics", "run_options"],
+  "properties": {
+    "source": {
+      "type": "object", "additionalProperties": false,
+      "required": ["repository", "root", "folders"],
+      "properties": {
+        "repository": {"type": "string", "minLength": 3},
+        "root": {"type": "string", "minLength": 1},
+        "folders": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}}
+      }
+    },
+    "destination": {
+      "type": "object", "additionalProperties": false,
+      "required": ["repository", "root", "folder"],
+      "properties": {
+        "repository": {"type": "string", "minLength": 3},
+        "root": {"type": "string", "minLength": 1},
+        "folder": {"type": "string", "minLength": 1}
+      }
+    },
+    "exclusions": {
+      "type": "array", "default": [],
+      "items": {
+        "type": "object", "additionalProperties": false, "required": ["path", "reason"],
+        "properties": {"path": {"type": "string", "minLength": 1}, "reason": {"type": "string", "minLength": 1}}
+      }
+    },
+    "topics": {
+      "type": "array", "minItems": 1,
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["name", "phrases", "questions"],
+        "properties": {
+          "name": {"type": "string", "minLength": 1},
+          "phrases": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}},
+          "ambiguous_or_negative_terms": {"type": "array", "default": [], "items": {"type": "string", "minLength": 1}},
+          "questions": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 3}}
+        }
+      }
+    },
+    "run_options": {
+      "type": "object", "additionalProperties": false,
+      "required": ["source_handling", "semantic_depth", "output", "non_text", "ai_help_after_preflight"],
+      "properties": {
+        "source_handling": {"enum": ["pointer_only", "copy_into_kb", "snapshot_copy"]},
+        "semantic_depth": {"enum": ["quick", "standard", "deep"]},
+        "output": {"enum": ["analysis_only", "compiled_kb", "query_ready"]},
+        "non_text": {"enum": ["inventory_and_report", "extract_when_supported", "block_on_unsupported"]},
+        "ai_help_after_preflight": {"type": "boolean"}
+      }
+    }
+  }
+}
