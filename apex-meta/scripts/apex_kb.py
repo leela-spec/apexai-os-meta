@@ -109,7 +109,17 @@ def ensure_inside(root: Path, path: Path) -> None:
 
 
 def relpath(root: Path, path: Path) -> str:
-    return path.resolve().relative_to(root.resolve()).as_posix()
+    resolved = path.resolve()
+    try:
+        return resolved.relative_to(root.resolve()).as_posix()
+    except ValueError:
+        repository_root = find_repo_root(root)
+        if repository_root is not None:
+            try:
+                return "repo://" + resolved.relative_to(repository_root).as_posix()
+            except ValueError:
+                pass
+        return str(resolved)
 
 
 def read_text(path: Path) -> str:
