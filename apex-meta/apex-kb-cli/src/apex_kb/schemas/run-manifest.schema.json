@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://apex-kb.local/schemas/run-manifest.schema.json",
+  "type": "object", "additionalProperties": false,
+  "required": ["schema", "schema_version", "run_id", "config_hash", "created_at", "source", "destination", "exclusions", "topics", "run_options", "artifact_layout"],
+  "properties": {
+    "schema": {"const": "apex.kb.run-manifest.v1"},
+    "schema_version": {"const": 1},
+    "run_id": {"type": "string", "pattern": "^run-"},
+    "config_hash": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+    "created_at": {"type": "string"},
+    "source": {"type": "object"}, "destination": {"type": "object"},
+    "exclusions": {"type": "array"}, "topics": {"type": "array", "minItems": 1},
+    "run_options": {"type": "object"}, "artifact_layout": {"type": "object"}
+  }
+}
