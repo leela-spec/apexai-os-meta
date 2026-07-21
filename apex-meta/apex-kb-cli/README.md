@@ -10,11 +10,13 @@ From the repository root:
 python -m pip install -e ".\apex-meta\apex-kb-cli[test]"
 ```
 
-This installs:
+This installs the stable public executable:
 
 ```powershell
 apex-kb
 ```
+
+Legacy `apex_kb.py`, `apex_kb_start.py`, and `apex_kb_control.py` remain implementation donors and compatibility surfaces. They are not the normal operator interface or lifecycle authority.
 
 ## Start
 
@@ -81,6 +83,6 @@ The first continuation inventories sources. The second creates one portable sema
 
 ## V1 boundary
 
-Implemented: exact Start asset, separate source/destination roots, frozen manifest hash, atomic state, deterministic inventory, portable Phase 1 task packet, structural import, bounded repair instructions, resume/status, and structural postflight.
+Implemented: exact Start asset, separate source/destination roots, frozen manifest hash, atomic state, deterministic inventory, portable Phase 1 task packet, structural import, bounded repair instructions, resume/status, structural postflight, and a thin optional Skill launcher.
 
-Not yet implemented: full corpus-intelligence ranking, multi-topic scheduling, Phase 2 compilation, independent semantic acceptance execution, retrieval rebuild, maintenance/update runs, and optional thin Skill launcher.
+Not yet implemented: exhaustive field-separated corpus-intelligence ranking, multi-topic scheduling, Phase 2 compilation, independent semantic acceptance execution, retrieval rebuild, maintenance/update runs, copy/snapshot source modes, and non-text extraction.
