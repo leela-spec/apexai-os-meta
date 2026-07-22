@@ -1,12 +1,14 @@
 from __future__ import annotations
 
 import json
+import re
 from pathlib import Path
 from typing import Any
 
 from ..corpus import load_topic_map
 from ..errors import ApexKBError
 from ..io import atomic_json, atomic_text, load_json, schema, template, utc_now, validate_schema
+from .git_transport import local_prompt_path, publish_run_artifacts, reconcile_direct_main, repository_relative
 
 MATERIAL_DISPOSITIONS = {
     "core_current", "supporting_current", "implementation", "prototype", "historical", "contextual", "superseded",
@@ -57,20 +59,44 @@ def _write_packet(packet_dir: Path, task: dict[str, Any], allowlist: dict[str, A
     }
 
 
-def _evidence_entry(run_root: Path, candidate: dict[str, Any]) -> dict[str, Any]:
+def _destination_root(manifest: dict[str, Any]) -> Path:
+    return Path(manifest["destination"]["resolved_root"]).resolve()
+
+
+def _repository_path(path: Path, manifest: dict[str, Any]) -> str:
+    return repository_relative(path, _destination_root(manifest))
+
+
+def _evidence_entry(run_root: Path, manifest: dict[str, Any], candidate: dict[str, Any]) -> dict[str, Any]:
+    destination_repository = manifest["destination"]["repository"]
+    source_repository = manifest["source"]["repository"]
+    source_ref = manifest["source"].get("ref") or "main"
     capsule = run_root / "ingest-analysis" / "sources" / f"{candidate['content_hash']}.analysis.json"
-    evidence_path = candidate.get("derived_text_path")
-    if evidence_path:
-        evidence_path = str(run_root / evidence_path)
+
+    if candidate.get("derived_text_path"):
+        local_evidence = run_root / candidate["derived_text_path"]
+        read_repository = destination_repository
+        read_ref = "main"
+        read_path = _repository_path(local_evidence, manifest)
     elif candidate.get("custody_path"):
-        evidence_path = str(run_root / candidate["custody_path"])
+        local_evidence = run_root / candidate["custody_path"]
+        read_repository = destination_repository
+        read_ref = "main"
+        read_path = _repository_path(local_evidence, manifest)
     else:
-        evidence_path = candidate["absolute_path"]
-    record = {
+        local_evidence = Path(candidate["absolute_path"])
+        read_repository = source_repository
+        read_ref = source_ref
+        read_path = candidate["repository_path"]
+
+    return {
         "source_id": candidate["source_id"],
         "repository_path": candidate["repository_path"],
         "absolute_path": candidate["absolute_path"],
-        "evidence_path": evidence_path,
+        "evidence_path": str(local_evidence),
+        "read_repository": read_repository,
+        "read_ref": read_ref,
+        "read_path": read_path,
         "derived_text_path": candidate.get("derived_text_path"),
         "custody_path": candidate.get("custody_path"),
         "content_hash": candidate["content_hash"],
@@ -79,9 +105,55 @@ def _evidence_entry(run_root: Path, candidate: dict[str, Any]) -> dict[str, Any]
         "match_reasons": candidate["match_reasons"],
         "duplicate_relationships": candidate["duplicate_relationships"],
         "lifecycle_hints": candidate["lifecycle_hints"],
-        "reusable_capsule_path": str(capsule) if capsule.is_file() else None,
+        "reusable_capsule_path": _repository_path(capsule, manifest) if capsule.is_file() else None,
+        "reusable_capsule_repository": destination_repository if capsule.is_file() else None,
+        "reusable_capsule_ref": "main" if capsule.is_file() else None,
     }
-    return record
+
+
+def _phase1_output_contract(
+    run_root: Path,
+    manifest: dict[str, Any],
+    task_id: str,
+    topic_id: str,
+    sources: list[dict[str, Any]],
+) -> dict[str, Any]:
+    topic_json = _repository_path(run_root / "ingest-analysis" / "topics" / f"{topic_id}.analysis.json", manifest)
+    topic_markdown = _repository_path(run_root / "ingest-analysis" / "topics" / f"{topic_id}.analysis.md", manifest)
+    blocked_statuses = {"unsupported", "error", "metadata_only"}
+    required_hashes = sorted(
+        {
+            source["content_hash"]
+            for source in sources
+            if source["extraction_status"] not in blocked_statuses and not source.get("reusable_capsule_path")
+        }
+    )
+    capsules = []
+    for content_hash in required_hashes:
+        json_path = _repository_path(run_root / "ingest-analysis" / "sources" / f"{content_hash}.analysis.json", manifest)
+        markdown_path = _repository_path(run_root / "ingest-analysis" / "sources" / f"{content_hash}.analysis.md", manifest)
+        capsules.append({"content_hash": content_hash, "json": json_path, "markdown": markdown_path})
+    allowed = [topic_json, topic_markdown]
+    for item in capsules:
+        allowed.extend([item["json"], item["markdown"]])
+    return {
+        "topic_json": topic_json,
+        "topic_markdown": topic_markdown,
+        "capsules": capsules,
+        "required_hashes": required_hashes,
+        "allowed_paths": sorted(allowed),
+        "task_id": task_id,
+    }
+
+
+def _phase1_input_lines(input_paths: list[dict[str, Any]]) -> str:
+    lines = []
+    for index, item in enumerate(input_paths, 1):
+        role = item.get("role") or "input"
+        lines.append(
+            f"{index}. [{role}] `{item['repository']}` at `{item['ref']}`: `{item['path']}`"
+        )
+    return "\n".join(lines)
 
 
 def create_phase1_packet(run_root: Path, manifest: dict[str, Any], topic_id: str, attempt: int = 1, repair_context: dict[str, Any] | None = None) -> dict[str, Any]:
@@ -89,8 +161,45 @@ def create_phase1_packet(run_root: Path, manifest: dict[str, Any], topic_id: str
     topic_map = load_topic_map(run_root, topic_id)
     task_id = _task_id("phase1", topic_id, attempt)
     packet_dir = _packet_dir(run_root, manifest, task_id)
-    incoming = _incoming_path(run_root, manifest, task_id)
-    sources = [_evidence_entry(run_root, candidate) for candidate in topic_map["candidates"]]
+    packet_dir.mkdir(parents=True, exist_ok=True)
+    sources = [_evidence_entry(run_root, manifest, candidate) for candidate in topic_map["candidates"]]
+    outputs = _phase1_output_contract(run_root, manifest, task_id, topic_id, sources)
+    destination_repository = manifest["destination"]["repository"]
+    source_repository = manifest["source"]["repository"]
+    source_ref = manifest["source"].get("ref") or "main"
+
+    topic_map_json = _repository_path(run_root / "manifests" / "phase0" / "topic-maps" / f"{topic_id}.json", manifest)
+    topic_map_markdown = _repository_path(run_root / "manifests" / "phase0" / "topic-maps" / f"{topic_id}.md", manifest)
+    packet_task_path = _repository_path(packet_dir / "task.json", manifest)
+    packet_allowlist_path = _repository_path(packet_dir / "source-allowlist.json", manifest)
+    packet_schema_path = _repository_path(packet_dir / "output.schema.json", manifest)
+    input_paths = [
+        {"role": "task contract", "repository": destination_repository, "ref": "main", "path": packet_task_path},
+        {"role": "source allowlist", "repository": destination_repository, "ref": "main", "path": packet_allowlist_path},
+        {"role": "output schema", "repository": destination_repository, "ref": "main", "path": packet_schema_path},
+        {"role": "exhaustive topic map", "repository": destination_repository, "ref": "main", "path": topic_map_json},
+        {"role": "topic navigation view", "repository": destination_repository, "ref": "main", "path": topic_map_markdown},
+    ]
+    input_paths.extend(
+        {
+            "role": f"candidate source {source['source_id']}",
+            "repository": source["read_repository"],
+            "ref": source["read_ref"],
+            "path": source["read_path"],
+        }
+        for source in sources
+    )
+    input_paths.extend(
+        {
+            "role": f"reusable capsule {source['content_hash']}",
+            "repository": source["reusable_capsule_repository"],
+            "ref": source["reusable_capsule_ref"],
+            "path": source["reusable_capsule_path"],
+        }
+        for source in sources
+        if source.get("reusable_capsule_path")
+    )
+    commit_message = f"Compile Apex KB Phase 2A analysis for {topic_id} ({manifest['run_id']})"
     task = {
         "schema": "apex.kb.semantic-task.v2",
         "run_id": manifest["run_id"],
@@ -102,30 +211,93 @@ def create_phase1_packet(run_root: Path, manifest: dict[str, Any], topic_id: str
         "semantic_depth": manifest["run_options"]["semantic_depth"],
         "topic": topic,
         "target_queries": topic["target_queries"],
-        "topic_map_path": str(run_root / "manifests" / "phase0" / "topic-maps" / f"{topic_id}.json"),
+        "topic_map_path": topic_map_json,
         "candidate_count": topic_map["candidate_count"],
         "candidate_source_ids": [item["source_id"] for item in sources],
         "allowed_dispositions": sorted(VALID_DISPOSITIONS),
         "disposition_contract": "Every candidate exactly once; preserve current, implementation, prototype, historical, duplicate, superseded, incidental, irrelevant, and blocked distinctions.",
-        "source_allowlist_path": "source-allowlist.json",
+        "source_allowlist_path": packet_allowlist_path,
         "required_output_schema": "phase1-result.schema.json",
-        "allowed_output_paths": [str(incoming)],
-        "forbidden_writes": ["run-config.yaml", "run-manifest.json", "run-state.json", "manifests/**", "wiki/**", "derived/**", "source repository paths"],
+        "allowed_output_paths": outputs["allowed_paths"],
+        "forbidden_writes": [
+            _repository_path(run_root / "run-config.yaml", manifest),
+            _repository_path(run_root / "run-manifest.json", manifest),
+            _repository_path(run_root / "run-state.json", manifest),
+            _repository_path(run_root / "manifests", manifest) + "/**",
+            _repository_path(run_root / "wiki", manifest) + "/**",
+            _repository_path(run_root / "derived", manifest) + "/**",
+        ],
+        "destination_repository": destination_repository,
+        "destination_branch": "main",
+        "source_repository": source_repository,
+        "source_ref": source_ref,
+        "input_paths": input_paths,
+        "required_capsule_hashes": outputs["required_hashes"],
+        "topic_analysis_json": outputs["topic_json"],
+        "topic_analysis_markdown": outputs["topic_markdown"],
+        "commit_message": commit_message,
         "repair_context": repair_context,
         "created_at": utc_now(),
     }
     validate_schema(task, "semantic-task.schema.json")
+    atomic_json(packet_dir / "task.json", task)
+    atomic_json(packet_dir / "source-allowlist.json", {"schema": "apex.kb.source-allowlist.v2", "sources": sources})
+    atomic_json(packet_dir / "output.schema.json", schema("phase1-result.schema.json"))
+    atomic_text(packet_dir / "expected-output-paths.txt", "\n".join(outputs["allowed_paths"]) + "\n")
+
+    destination_root = _destination_root(manifest)
+    deterministic_commit = publish_run_artifacts(
+        destination_root,
+        run_root,
+        f"Publish Apex KB deterministic Phase 2A handoff for {topic_id} ({manifest['run_id']})",
+    )
+    source_repository_block = (
+        f"- Repository: {source_repository}\n- Ref: {source_ref}\n- Access: read-only evidence"
+        if source_repository != destination_repository or source_ref != "main"
+        else "- Same repository as the write target; source evidence paths are read-only."
+    )
+    questions = []
+    for item in topic["target_queries"]:
+        requirements = ", ".join(item.get("answer_requirements") or []) or "no additional requirement list"
+        questions.append(f"- `{item['query_id']}` [{item['priority']}]: {item['question']} (requirements: {requirements})")
     body = template("phase1-task.md").format(
+        destination_repository=destination_repository,
+        base_commit=deterministic_commit,
+        source_repository_block=source_repository_block,
         run_id=manifest["run_id"],
         config_hash=manifest["config_hash"],
         task_id=task_id,
         topic_id=topic_id,
         topic_name=topic["name"],
         candidate_count=topic_map["candidate_count"],
-        questions="\n".join(f"- `{item['query_id']}` [{item['priority']}]: {item['question']}" for item in topic["target_queries"]),
-        incoming=str(incoming),
+        inputs=_phase1_input_lines(input_paths),
+        questions="\n".join(questions),
+        outputs="\n".join(f"- `{path}`" for path in outputs["allowed_paths"]),
+        topic_analysis_json=outputs["topic_json"],
+        topic_analysis_markdown=outputs["topic_markdown"],
+        commit_message=commit_message,
     )
-    return _write_packet(packet_dir, task, {"schema": "apex.kb.source-allowlist.v2", "sources": sources}, "phase1-result.schema.json", body, incoming)
+    unresolved = sorted(set(re.findall(r"\{[A-Za-z0-9_]+\}", body)))
+    if unresolved:
+        raise ApexKBError("semantic_prompt_unresolved_placeholder", "Generated Phase 2A prompt contains unresolved placeholders", unresolved)
+    prompt_path = local_prompt_path(destination_root, manifest["run_id"], task_id)
+    atomic_text(prompt_path, body)
+    return {
+        "task_id": task_id,
+        "task_kind": "phase1",
+        "topic_id": topic_id,
+        "transport": "direct_main",
+        "packet_dir": str(packet_dir),
+        "prompt_path": str(prompt_path),
+        "destination_root": str(destination_root),
+        "destination_repository": destination_repository,
+        "branch": "main",
+        "base_commit": deterministic_commit,
+        "expected_output_paths": outputs["allowed_paths"],
+        "topic_analysis_json": outputs["topic_json"],
+        "topic_analysis_markdown": outputs["topic_markdown"],
+        "capsule_outputs": outputs["capsules"],
+    }
 
 
 def _validate_identity(value: dict[str, Any], manifest: dict[str, Any], task: dict[str, Any], phase: str) -> None:
@@ -252,84 +424,178 @@ def _phase1_markdown(value: dict[str, Any]) -> str:
     return "\n".join(lines) + "\n"
 
 
-def import_phase1_result(run_root: Path, manifest: dict[str, Any], active_task: dict[str, Any]) -> dict[str, Any]:
-    incoming = Path(active_task["incoming_path"])
-    packet_task = load_json(Path(active_task["packet_dir"]) / "task.json")
-    if not incoming.is_file():
-        raise ApexKBError("semantic_result_missing", f"Phase 1 result is not present: {incoming}", {"expected_path": str(incoming)})
-    try:
-        value = load_json(incoming)
-        validate_schema(value, "phase1-result.schema.json")
-        _validate_identity(value, manifest, packet_task, "phase1")
-        expected_ids = set(packet_task["candidate_source_ids"])
-        actual_ids = [item["source_id"] for item in value["source_reviews"]]
-        if set(actual_ids) != expected_ids or len(actual_ids) != len(set(actual_ids)):
-            raise ApexKBError("candidate_disposition_incomplete", "Phase 1 must disposition every candidate exactly once", {"missing": sorted(expected_ids - set(actual_ids)), "unexpected": sorted(set(actual_ids) - expected_ids), "duplicates": sorted({item for item in actual_ids if actual_ids.count(item) > 1})})
-        candidates = {item["source_id"]: item for item in load_topic_map(run_root, packet_task["topic_id"])["candidates"]}
-        for review in value["source_reviews"]:
-            if review["disposition"] not in VALID_DISPOSITIONS:
-                raise ApexKBError("source_disposition_invalid", f"Invalid disposition for {review['source_id']}: {review['disposition']}")
-            if review["read_status"] not in VALID_READ_STATUS:
-                raise ApexKBError("read_status_invalid", f"Invalid read status for {review['source_id']}: {review['read_status']}")
-            if review["content_hash"] != candidates[review["source_id"]]["content_hash"] or review["repository_path"] != candidates[review["source_id"]]["repository_path"]:
-                raise ApexKBError("source_review_identity_mismatch", f"Source identity mismatch for {review['source_id']}")
-            if review["read_status"] == "blocked" and review["disposition"] not in BLOCKED_DISPOSITIONS:
-                raise ApexKBError("blocked_source_disposition_invalid", f"Blocked source {review['source_id']} must use a blocked disposition")
-            if review["read_status"] != "blocked" and review["disposition"] in BLOCKED_DISPOSITIONS:
-                raise ApexKBError("blocked_source_read_status_invalid", f"Blocked disposition for {review['source_id']} requires read_status=blocked")
-            if review["read_status"] == "capsule_reused":
-                capsule_path = run_root / "ingest-analysis" / "sources" / f"{review['content_hash']}.analysis.json"
-                if not capsule_path.is_file():
-                    raise ApexKBError("reused_capsule_missing", f"Declared reusable capsule is missing for {review['source_id']}: {capsule_path}")
-        material_hashes = {item["content_hash"] for item in value["source_reviews"] if item["disposition"] in MATERIAL_DISPOSITIONS and item["read_status"] != "capsule_reused"}
-        review_by_hash = {item["content_hash"]: item for item in value["source_reviews"]}
-        capsule_hashes = [item["content_hash"] for item in value["source_capsules"]]
-        unexpected_capsules = sorted(set(capsule_hashes) - set(review_by_hash))
-        if not material_hashes.issubset(set(capsule_hashes)) or len(capsule_hashes) != len(set(capsule_hashes)) or unexpected_capsules:
-            raise ApexKBError("source_capsules_incomplete", "Every newly read material content hash requires exactly one source capsule and no unrelated capsule is allowed", {"missing": sorted(material_hashes - set(capsule_hashes)), "unexpected": unexpected_capsules})
-        for capsule in value["source_capsules"]:
-            review = review_by_hash[capsule["content_hash"]]
-            if capsule["source_id"] not in {item["source_id"] for item in value["source_reviews"] if item["content_hash"] == capsule["content_hash"]}:
-                raise ApexKBError("capsule_source_identity_mismatch", f"Capsule source ID is not a reviewed source for hash {capsule['content_hash']}")
-            candidate = candidates[capsule["source_id"]]
-            if capsule["repository_path"] != candidate["repository_path"]:
-                raise ApexKBError("capsule_source_identity_mismatch", f"Capsule path mismatch for {capsule['source_id']}")
-        expected_queries = {item["query_id"] for item in packet_task["target_queries"]}
-        actual_queries = [item["query_id"] for item in value["topic_analysis"]["target_answers"]]
-        if set(actual_queries) != expected_queries or len(actual_queries) != len(set(actual_queries)):
-            raise ApexKBError("target_answer_set_incomplete", "Phase 1 must address every locked target query exactly once", {"expected": sorted(expected_queries), "actual": actual_queries})
-    except ApexKBError as exc:
-        repair = _repair_file(incoming, packet_task, exc)
-        raise ApexKBError("semantic_result_invalid", exc.message, {"repair_instruction": str(repair), "validation": exc.details}) from exc
-    source_root = run_root / "ingest-analysis" / "sources"
-    source_root.mkdir(parents=True, exist_ok=True)
-    capsule_paths = []
+def _validate_phase1_value(
+    run_root: Path,
+    manifest: dict[str, Any],
+    packet_task: dict[str, Any],
+    value: dict[str, Any],
+) -> None:
+    validate_schema(value, "phase1-result.schema.json")
+    _validate_identity(value, manifest, packet_task, "phase1")
+    expected_ids = set(packet_task["candidate_source_ids"])
+    actual_ids = [item["source_id"] for item in value["source_reviews"]]
+    if set(actual_ids) != expected_ids or len(actual_ids) != len(set(actual_ids)):
+        raise ApexKBError(
+            "candidate_disposition_incomplete",
+            "Phase 1 must disposition every candidate exactly once",
+            {
+                "missing": sorted(expected_ids - set(actual_ids)),
+                "unexpected": sorted(set(actual_ids) - expected_ids),
+                "duplicates": sorted({item for item in actual_ids if actual_ids.count(item) > 1}),
+            },
+        )
+    candidates = {item["source_id"]: item for item in load_topic_map(run_root, packet_task["topic_id"])["candidates"]}
+    for review in value["source_reviews"]:
+        if review["disposition"] not in VALID_DISPOSITIONS:
+            raise ApexKBError("source_disposition_invalid", f"Invalid disposition for {review['source_id']}: {review['disposition']}")
+        if review["read_status"] not in VALID_READ_STATUS:
+            raise ApexKBError("read_status_invalid", f"Invalid read status for {review['source_id']}: {review['read_status']}")
+        candidate = candidates[review["source_id"]]
+        if review["content_hash"] != candidate["content_hash"] or review["repository_path"] != candidate["repository_path"]:
+            raise ApexKBError("source_review_identity_mismatch", f"Source identity mismatch for {review['source_id']}")
+        if review["read_status"] == "blocked" and review["disposition"] not in BLOCKED_DISPOSITIONS:
+            raise ApexKBError("blocked_source_disposition_invalid", f"Blocked source {review['source_id']} must use a blocked disposition")
+        if review["read_status"] != "blocked" and review["disposition"] in BLOCKED_DISPOSITIONS:
+            raise ApexKBError("blocked_source_read_status_invalid", f"Blocked disposition for {review['source_id']} requires read_status=blocked")
+        if review["read_status"] == "capsule_reused":
+            capsule_path = run_root / "ingest-analysis" / "sources" / f"{review['content_hash']}.analysis.json"
+            if not capsule_path.is_file():
+                raise ApexKBError("reused_capsule_missing", f"Declared reusable capsule is missing for {review['source_id']}: {capsule_path}")
+
+    expected_capsule_hashes = set(packet_task["required_capsule_hashes"])
+    capsule_hashes = [item["content_hash"] for item in value["source_capsules"]]
+    if set(capsule_hashes) != expected_capsule_hashes or len(capsule_hashes) != len(set(capsule_hashes)):
+        raise ApexKBError(
+            "source_capsules_incomplete",
+            "Phase 2A must write exactly one capsule for every declared new readable content hash.",
+            {
+                "missing": sorted(expected_capsule_hashes - set(capsule_hashes)),
+                "unexpected": sorted(set(capsule_hashes) - expected_capsule_hashes),
+                "duplicates": sorted({item for item in capsule_hashes if capsule_hashes.count(item) > 1}),
+            },
+        )
+    reviewed_by_hash: dict[str, list[dict[str, Any]]] = {}
+    for review in value["source_reviews"]:
+        reviewed_by_hash.setdefault(review["content_hash"], []).append(review)
     for capsule in value["source_capsules"]:
-        json_path = source_root / f"{capsule['content_hash']}.analysis.json"
-        markdown_path = source_root / f"{capsule['content_hash']}.analysis.md"
-        if json_path.is_file():
-            existing = load_json(json_path)
-            if existing["content_hash"] != capsule["content_hash"]:
-                raise ApexKBError("capsule_hash_collision", f"Existing capsule identity mismatch: {json_path}")
-        else:
-            atomic_json(json_path, capsule)
-            atomic_text(markdown_path, _capsule_markdown(capsule))
-        capsule_paths.extend([str(json_path.relative_to(run_root)), str(markdown_path.relative_to(run_root))])
-    topic_root = run_root / "ingest-analysis" / "topics"
-    json_path = topic_root / f"{packet_task['topic_id']}.analysis.json"
-    markdown_path = topic_root / f"{packet_task['topic_id']}.analysis.md"
-    atomic_json(json_path, value)
-    atomic_text(markdown_path, _phase1_markdown(value))
-    imported = run_root / manifest["artifact_layout"]["semantic_results"] / incoming.name
-    imported.parent.mkdir(parents=True, exist_ok=True)
-    atomic_json(imported, value)
+        reviews = reviewed_by_hash.get(capsule["content_hash"], [])
+        if capsule["source_id"] not in {item["source_id"] for item in reviews}:
+            raise ApexKBError("capsule_source_identity_mismatch", f"Capsule source ID is not reviewed for hash {capsule['content_hash']}")
+        candidate = candidates[capsule["source_id"]]
+        if capsule["repository_path"] != candidate["repository_path"]:
+            raise ApexKBError("capsule_source_identity_mismatch", f"Capsule path mismatch for {capsule['source_id']}")
+
+    expected_queries = {item["query_id"] for item in packet_task["target_queries"]}
+    actual_queries = [item["query_id"] for item in value["topic_analysis"]["target_answers"]]
+    if set(actual_queries) != expected_queries or len(actual_queries) != len(set(actual_queries)):
+        raise ApexKBError(
+            "target_answer_set_incomplete",
+            "Phase 1 must address every locked target query exactly once",
+            {"expected": sorted(expected_queries), "actual": actual_queries},
+        )
+
+
+def _require_nonempty_markdown(path: Path, required_headings: list[str]) -> None:
+    if not path.is_file():
+        raise ApexKBError("semantic_output_missing", f"Required semantic Markdown output is missing: {path}")
+    text = path.read_text(encoding="utf-8").strip()
+    if not text:
+        raise ApexKBError("semantic_output_empty", f"Required semantic Markdown output is empty: {path}")
+    missing = [heading for heading in required_headings if heading not in text]
+    if missing:
+        raise ApexKBError(
+            "semantic_markdown_contract_invalid",
+            f"Semantic Markdown output is missing required sections: {path}",
+            {"missing_headings": missing},
+        )
+
+
+
+def _direct_main_repair_file(
+    prompt_path: Path,
+    task: dict[str, Any],
+    error: ApexKBError,
+    expected_paths: list[str],
+) -> Path:
+    path = prompt_path.with_suffix(".repair.json")
+    atomic_json(
+        path,
+        {
+            "schema": "apex.kb.semantic-repair.v2",
+            "task_id": task["task_id"],
+            "topic_id": task["topic_id"],
+            "reason_code": error.code,
+            "message": "Repair only the declared Phase 2A output paths and commit the corrected exact path set directly to destination main.",
+            "validation_errors": error.details or [error.message],
+            "expected_paths": expected_paths,
+        },
+    )
+    return path
+
+def import_phase1_result(run_root: Path, manifest: dict[str, Any], active_task: dict[str, Any]) -> dict[str, Any]:
+    packet_task = load_json(Path(active_task["packet_dir"]) / "task.json")
+    destination_root = Path(active_task["destination_root"]).resolve()
+    try:
+        git_result = reconcile_direct_main(
+            destination_root,
+            active_task["base_commit"],
+            active_task["expected_output_paths"],
+        )
+        topic_json = destination_root / active_task["topic_analysis_json"]
+        if not topic_json.is_file():
+            raise ApexKBError("semantic_output_missing", f"Required Phase 2A topic analysis is missing: {topic_json}")
+        value = load_json(topic_json)
+        _validate_phase1_value(run_root, manifest, packet_task, value)
+        topic_markdown = destination_root / active_task["topic_analysis_markdown"]
+        _require_nonempty_markdown(
+            topic_markdown,
+            ["## Macro", "## Meso", "## Micro", "## Target answers", "## Candidate dispositions"],
+        )
+
+        capsule_by_hash = {item["content_hash"]: item for item in value["source_capsules"]}
+        capsule_paths: list[str] = []
+        for output in active_task["capsule_outputs"]:
+            json_path = destination_root / output["json"]
+            markdown_path = destination_root / output["markdown"]
+            if not json_path.is_file():
+                raise ApexKBError("semantic_output_missing", f"Required source capsule JSON is missing: {json_path}")
+            if load_json(json_path) != capsule_by_hash[output["content_hash"]]:
+                raise ApexKBError(
+                    "source_capsule_file_mismatch",
+                    f"Source capsule file does not match the topic result object: {json_path}",
+                )
+            _require_nonempty_markdown(markdown_path, ["## Summary", "## Key claims", "## Contributions", "## Pointers"])
+            capsule_paths.extend(
+                [str(json_path.relative_to(run_root)), str(markdown_path.relative_to(run_root))]
+            )
+    except ApexKBError as exc:
+        if exc.code == "semantic_result_pending":
+            raise
+        repair = _direct_main_repair_file(Path(active_task["prompt_path"]), packet_task, exc, active_task["expected_output_paths"])
+        raise ApexKBError(
+            "semantic_result_invalid",
+            exc.message,
+            {"repair_instruction": str(repair), "validation": exc.details},
+        ) from exc
+    except (OSError, ValueError, json.JSONDecodeError) as exc:
+        wrapped = ApexKBError("semantic_result_unreadable", "Phase 2A outputs could not be read", {"error": str(exc)})
+        repair = _direct_main_repair_file(Path(active_task["prompt_path"]), packet_task, wrapped, active_task["expected_output_paths"])
+        raise ApexKBError(
+            "semantic_result_invalid",
+            wrapped.message,
+            {"repair_instruction": str(repair), "validation": wrapped.details},
+        ) from exc
+
     return {
         "topic_id": packet_task["topic_id"],
-        "topic_analysis_path": str(json_path.relative_to(run_root)),
-        "topic_analysis_markdown": str(markdown_path.relative_to(run_root)),
+        "topic_analysis_path": str(topic_json.relative_to(run_root)),
+        "topic_analysis_markdown": str(topic_markdown.relative_to(run_root)),
         "capsule_paths": capsule_paths,
         "worker_context_id": value["worker_context_id"],
-        "imported_result": str(imported.relative_to(run_root)),
+        "imported_result": str(topic_json.relative_to(run_root)),
+        "base_commit": git_result["base_commit"],
+        "result_commit": git_result["result_commit"],
+        "changed_paths": git_result["changed_paths"],
     }
 
 

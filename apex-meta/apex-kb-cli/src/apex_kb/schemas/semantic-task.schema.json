@@ -1,13 +1,64 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "type": "object",
-  "required": ["schema", "run_id", "config_hash", "task_id", "task_kind", "topic_id", "attempt", "semantic_depth", "topic", "target_queries", "required_output_schema", "allowed_output_paths", "forbidden_writes", "created_at"],
+  "required": [
+    "schema",
+    "run_id",
+    "config_hash",
+    "task_id",
+    "task_kind",
+    "topic_id",
+    "attempt",
+    "semantic_depth",
+    "topic",
+    "target_queries",
+    "required_output_schema",
+    "allowed_output_paths",
+    "forbidden_writes",
+    "created_at"
+  ],
   "properties": {
-    "schema": {"const": "apex.kb.semantic-task.v2"}, "run_id": {"type": "string"}, "config_hash": {"type": "string"},
-    "task_id": {"type": "string"}, "task_kind": {"enum": ["phase1", "phase2", "acceptance"]}, "topic_id": {"type": "string"},
-    "attempt": {"type": "integer", "minimum": 1}, "semantic_depth": {"enum": ["quick", "standard", "deep"]}, "topic": {"type": "object"},
-    "target_queries": {"type": "array"}, "required_output_schema": {"type": "string"}, "allowed_output_paths": {"type": "array", "minItems": 1},
-    "forbidden_writes": {"type": "array"}, "created_at": {"type": "string"}
+    "schema": {"const": "apex.kb.semantic-task.v2"},
+    "run_id": {"type": "string"},
+    "config_hash": {"type": "string"},
+    "task_id": {"type": "string"},
+    "task_kind": {"enum": ["phase1", "phase2", "acceptance"]},
+    "topic_id": {"type": "string"},
+    "attempt": {"type": "integer", "minimum": 1},
+    "semantic_depth": {"enum": ["quick", "standard", "deep"]},
+    "topic": {"type": "object"},
+    "target_queries": {"type": "array"},
+    "required_output_schema": {"type": "string"},
+    "allowed_output_paths": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+    "forbidden_writes": {"type": "array", "items": {"type": "string"}},
+    "created_at": {"type": "string"},
+    "destination_repository": {"type": "string", "minLength": 3},
+    "destination_branch": {"const": "main"},
+    "source_repository": {"type": "string", "minLength": 3},
+    "source_ref": {"type": "string", "minLength": 1},
+    "input_paths": {"type": "array", "minItems": 1, "items": {"type": "object"}},
+    "required_capsule_hashes": {"type": "array", "items": {"type": "string"}},
+    "topic_analysis_json": {"type": "string"},
+    "topic_analysis_markdown": {"type": "string"},
+    "commit_message": {"type": "string", "minLength": 1}
   },
+  "allOf": [
+    {
+      "if": {"properties": {"task_kind": {"const": "phase1"}}},
+      "then": {
+        "required": [
+          "destination_repository",
+          "destination_branch",
+          "source_repository",
+          "source_ref",
+          "input_paths",
+          "required_capsule_hashes",
+          "topic_analysis_json",
+          "topic_analysis_markdown",
+          "commit_message"
+        ]
+      }
+    }
+  ],
   "additionalProperties": true
 }

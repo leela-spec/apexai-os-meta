@@ -193,6 +193,17 @@ def derive_next_action(manifest: dict[str, Any], state: dict[str, Any]) -> dict[
         return {"kind": "completed" if state["lifecycle_status"] != "blocked" else "blocked", "status": state["lifecycle_status"]}
     active = state.get("active_task")
     if active:
+        if active["task_kind"] == "phase1" and active.get("transport") == "direct_main":
+            return {
+                "kind": "semantic_reconcile",
+                "task_kind": active["task_kind"],
+                "topic_id": active["topic_id"],
+                "task_id": active["task_id"],
+                "packet_dir": active["packet_dir"],
+                "prompt_path": active["prompt_path"],
+                "base_commit": active["base_commit"],
+                "expected_output_paths": active["expected_output_paths"],
+            }
         incoming_exists = Path(active["incoming_path"]).is_file()
         return {
             "kind": "semantic_import" if incoming_exists else "semantic_wait",
@@ -228,10 +239,20 @@ def derive_next_action(manifest: dict[str, Any], state: dict[str, Any]) -> dict[
     raise ApexKBError("state_completion_mismatch", "Run has completed all stages but lifecycle_status is not terminal")
 
 def next_action_text(run_root: Path, action: dict[str, Any]) -> str:
+    if action["kind"] == "semantic_reconcile":
+        return (
+            f'Execute the complete Phase 2A browser prompt at "{action["prompt_path"]}". '
+            f'After the browser worker commits and pushes the declared outputs directly to destination main, '
+            f'run apex-kb continue --run-root "{run_root}"'
+        )
     if action["kind"] == "semantic_wait":
-        return f"Execute the bounded {action['task_kind']} packet at \"{action['packet_dir']}\", write the result to \"{action['incoming_path']}\", then run apex-kb continue --run-root \"{run_root}\""
+        return (
+            f'Execute the bounded {action["task_kind"]} packet at "{action["packet_dir"]}", '
+            f'write the result to "{action["incoming_path"]}", then run '
+            f'apex-kb continue --run-root "{run_root}"'
+        )
     if action["kind"] in {"semantic_import", "semantic_packet", "deterministic"}:
-        return f"apex-kb continue --run-root \"{run_root}\""
+        return f'apex-kb continue --run-root "{run_root}"'
     if action["kind"] == "blocked":
         return "Resolve the recorded blocker, then use apex-kb status or apex-kb update as appropriate."
     return "No further lifecycle action."
@@ -277,8 +298,14 @@ def _mark_pages_accepted(run_root: Path, manifest: dict[str, Any], topic_id: str
 
 def _semantic_stage_result(run_root: Path, manifest: dict[str, Any], active: dict[str, Any], result: dict[str, Any]) -> None:
     stage = f"{active['task_kind']}:{active['topic_id']}"
-    artifact_values = [value for key, value in result.items() if key.endswith("path") or key.endswith("markdown") or key == "imported_result"]
-    artifacts = [str(value) for value in artifact_values if isinstance(value, str)]
+    artifacts: list[str] = []
+    for key, value in result.items():
+        if not (key.endswith("path") or key.endswith("paths") or key.endswith("markdown") or key == "imported_result"):
+            continue
+        if isinstance(value, str):
+            artifacts.append(value)
+        elif isinstance(value, list):
+            artifacts.extend(str(item) for item in value if isinstance(item, str))
     stage_result = {
         "schema": "apex.kb.stage-result.v2",
         "run_id": manifest["run_id"],
@@ -289,7 +316,7 @@ def _semantic_stage_result(run_root: Path, manifest: dict[str, Any], active: dic
         "completed_at": utc_now(),
         "artifacts": artifacts,
         "reason_code": None,
-        "message": f"Imported validated {active['task_kind']} result for {active['topic_id']}.",
+        "message": f"Validated completed {active['task_kind']} result for {active['topic_id']}.",
         "metrics": {"task_id": active["task_id"], "topic_id": active["topic_id"]},
     }
     validate_schema(stage_result, "stage-result.schema.json")
@@ -516,6 +543,8 @@ def continue_once(run_root: Path) -> dict[str, Any]:
         return {"stage": "completed", "status": state["lifecycle_status"]}
     if action["kind"] == "blocked":
         raise ApexKBError("run_blocked", "Run is blocked", state["blockers"])
+    if action["kind"] == "semantic_reconcile":
+        return {"stage": f"{action['task_kind']}_import", "result": _import_active_task(run_root, manifest, state)}
     if action["kind"] == "semantic_wait":
         raise ApexKBError("semantic_result_pending", "A bounded semantic task is awaiting its declared result", action)
     if action["kind"] == "semantic_import":

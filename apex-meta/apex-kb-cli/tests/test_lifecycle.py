@@ -11,7 +11,7 @@ from apex_kb.io import load_json, template
 from apex_kb.lifecycle import continue_once, load_run, status_snapshot
 from apex_kb.retrieval import query_retrieval, retrieval_health
 
-from .helpers import initialize, satisfy_active_task
+from .helpers import commit_destination_paths, initialize, satisfy_active_task
 
 
 def drive(run_root: Path, max_steps: int = 80) -> None:
@@ -52,12 +52,14 @@ def test_analysis_only_skips_phase2_acceptance_and_retrieval(tmp_path: Path):
 def test_invalid_semantic_result_produces_bounded_repair_and_does_not_advance_state(tmp_path: Path):
     run_root, _, _ = initialize(tmp_path, output="analysis_only", include_formats=False)
     continue_once(run_root)  # corpus
-    continue_once(run_root)  # phase1 packet
+    continue_once(run_root)  # Phase 2A prompt and deterministic publication
     _, state = load_run(run_root)
+    active = state["active_task"]
     state_before = (run_root / "run-state.json").read_bytes()
-    incoming = Path(state["active_task"]["incoming_path"])
-    incoming.parent.mkdir(parents=True, exist_ok=True)
-    incoming.write_text("{}", encoding="utf-8")
+    satisfy_active_task(run_root)
+    topic_json = Path(active["destination_root"]) / active["topic_analysis_json"]
+    topic_json.write_text("{}", encoding="utf-8")
+    commit_destination_paths(run_root, [active["topic_analysis_json"]], "Corrupt Phase 2A result for validation test")
     try:
         continue_once(run_root)
     except Exception as exc:
@@ -65,7 +67,7 @@ def test_invalid_semantic_result_produces_bounded_repair_and_does_not_advance_st
     else:
         raise AssertionError("invalid result unexpectedly imported")
     assert (run_root / "run-state.json").read_bytes() == state_before
-    assert incoming.with_suffix(".repair.json").is_file()
+    assert Path(active["prompt_path"]).with_suffix(".repair.json").is_file()
 
 
 def test_fresh_acceptance_context_is_enforced(tmp_path: Path):

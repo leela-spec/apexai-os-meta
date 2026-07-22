@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import subprocess
 import zipfile
 from pathlib import Path
 from typing import Any
@@ -10,6 +11,7 @@ from pypdf import PdfWriter
 from apex_kb.config import normalize_config, preview_config
 from apex_kb.io import atomic_json, load_json
 from apex_kb.lifecycle import create_manifest, derive_next_action, initial_state, load_run, write_new_run
+from apex_kb.semantic.engine import _capsule_markdown, _phase1_markdown
 
 
 def write_docx(path: Path, text: str) -> None:
@@ -116,12 +118,46 @@ def default_topics() -> list[dict[str, Any]]:
     ]
 
 
+def _git(root: Path, *args: str) -> str:
+    result = subprocess.run(
+        ["git", "-C", str(root), *args],
+        check=True,
+        text=True,
+        capture_output=True,
+    )
+    return result.stdout.strip()
+
+
+def _initialize_destination_git(destination: Path) -> None:
+    origin = destination.parent / f"{destination.name}-origin.git"
+    subprocess.run(["git", "init", "--bare", str(origin)], check=True, text=True, capture_output=True)
+    _git(destination, "init", "-b", "main")
+    _git(destination, "config", "user.email", "apex-kb-tests@example.invalid")
+    _git(destination, "config", "user.name", "Apex KB Tests")
+    (destination / "README.md").write_text("# Apex KB test destination\n", encoding="utf-8")
+    _git(destination, "add", "README.md")
+    _git(destination, "commit", "-m", "Initialize test destination")
+    _git(destination, "remote", "add", "origin", str(origin))
+    _git(destination, "push", "-u", "origin", "main")
+
+
+def commit_destination_paths(run_root: Path, paths: list[str], message: str) -> str:
+    manifest, _ = load_run(run_root)
+    destination = Path(manifest["destination"]["resolved_root"])
+    _git(destination, "add", "--", *paths)
+    _git(destination, "commit", "-m", message, "--", *paths)
+    _git(destination, "push", "origin", "HEAD:main")
+    return _git(destination, "rev-parse", "HEAD")
+
+
+
 def make_workspace(tmp_path: Path, *, output: str = "query_ready", handling: str = "pointer_only", topics: list[dict[str, Any]] | None = None, include_formats: bool = True) -> tuple[Path, Path, dict[str, Any]]:
     source_repo = tmp_path / "leela"
     source = source_repo / "LeelaAppDevelopment"
     destination = tmp_path / "apex"
     source.mkdir(parents=True)
     destination.mkdir()
+    _initialize_destination_git(destination)
     (source / "01_Features").mkdir()
     (source / "01_Features" / "102 - Epics (Database + Skill Tree).md").write_text(
         "# Skill Tree\n\nThe current Skill Tree is a read-only graph of Epic, Block, and Chunk content.\n\n## Ownership\nIt navigates content but does not mutate it.\n",
@@ -205,7 +241,7 @@ def _phase1_result(run_root: Path, task: dict[str, Any], allowlist: dict[str, An
             "duplicate_or_supersession": None,
         }
         reviews.append(review)
-        if disposition == "core" and not reused and source["content_hash"] not in capsules_by_hash:
+        if not blocked and not reused and source["content_hash"] not in capsules_by_hash:
             capsules_by_hash[source["content_hash"]] = {
                 "schema": "apex.kb.source-capsule.v2",
                 "source_id": source["source_id"],
@@ -326,15 +362,36 @@ def satisfy_active_task(run_root: Path) -> dict[str, Any] | None:
     active = state.get("active_task")
     if not active:
         return None
-    incoming = Path(active["incoming_path"])
-    if incoming.is_file():
-        return None
     packet = Path(active["packet_dir"])
     task = load_json(packet / "task.json")
     allowlist = load_json(packet / "source-allowlist.json")
-    if active["task_kind"] == "phase1":
+    if active["task_kind"] == "phase1" and active.get("transport") == "direct_main":
         result = _phase1_result(run_root, task, allowlist)
-    elif active["task_kind"] == "phase2":
+        destination = Path(active["destination_root"])
+        topic_json = destination / active["topic_analysis_json"]
+        topic_markdown = destination / active["topic_analysis_markdown"]
+        atomic_json(topic_json, result)
+        topic_markdown.parent.mkdir(parents=True, exist_ok=True)
+        topic_markdown.write_text(_phase1_markdown(result), encoding="utf-8")
+        capsules = {item["content_hash"]: item for item in result["source_capsules"]}
+        for output in active["capsule_outputs"]:
+            capsule = capsules[output["content_hash"]]
+            json_path = destination / output["json"]
+            markdown_path = destination / output["markdown"]
+            atomic_json(json_path, capsule)
+            markdown_path.parent.mkdir(parents=True, exist_ok=True)
+            markdown_path.write_text(_capsule_markdown(capsule), encoding="utf-8")
+        commit_destination_paths(
+            run_root,
+            active["expected_output_paths"],
+            f"Complete test Phase 2A for {active['topic_id']}",
+        )
+        return result
+
+    incoming = Path(active["incoming_path"])
+    if incoming.is_file():
+        return None
+    if active["task_kind"] == "phase2":
         result = _phase2_result(run_root, task)
     else:
         result = _acceptance_result(task)

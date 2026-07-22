@@ -252,3 +252,42 @@ return_contract:
   - exact Leela Phase 2A canary procedure
   - apex.kb.orchestration-result.v1 envelope
 ```
+## Phase 2A direct-main implementation patch handoff
+
+This implementation patch replaces the local incoming-JSON Phase 2A transport with the selected repository round trip. It is an application change, not a simulation or test-only layer.
+
+### Implemented production path
+
+```text
+completed deterministic corpus intelligence
+→ commit and push the complete run tree to destination main
+→ record that commit as the Phase 2A base commit
+→ generate one complete browser prompt in the destination checkout's local Git metadata
+→ browser worker reads exact committed inputs and source evidence
+→ browser worker writes the exact canonical topic-analysis and source-capsule artifacts
+→ browser worker commits and pushes those exact paths to destination main
+→ apex-kb continue fetches and fast-forward reconciles main
+→ validate base ancestry, exact changed paths, Phase 1 schema, run/config/topic identity, candidate dispositions, target answers, capsule identity, and required Markdown artifacts
+→ mark Phase 2A complete and leave Phase 2B pending
+```
+
+### Files changed by the patch
+
+- `src/apex_kb/semantic/git_transport.py` — direct-main deterministic publication and semantic reconciliation.
+- `src/apex_kb/semantic/engine.py` — complete Phase 2A task construction, prompt generation, canonical output contract, and post-pull semantic validation.
+- `src/apex_kb/lifecycle.py` — routes active direct-main Phase 2A work to reconciliation instead of local-file polling.
+- `src/apex_kb/templates/phase1-task.md` — executable browser prompt rather than a local JSON instruction.
+- `src/apex_kb/schemas/semantic-task.schema.json` — requires the repository, input, output, capsule, and commit fields used by direct-main Phase 2A.
+- focused test fixtures and tests — exercise the same direct-main production functions.
+
+### Existing topology preserved
+
+The destination repository remains the only write repository and always uses `main`. The configured source repository remains read-only evidence when it differs from the destination repository. This is not a second publication workflow; it preserves the already-supported independent source/destination topology while keeping one exact write target.
+
+### Deliberately unchanged
+
+Phase 0 behavior, Phase 2B, acceptance, retrieval, updates, public commands, run-manifest schema, run-state schema, semantic branches, worktrees, clones, pull requests, provider adapters, and any additional state store are unchanged.
+
+### Completion evidence required locally
+
+The patch is complete only after the focused test suite passes and a real Leela Skill Tree Phase 2A canary produces a browser prompt with no unresolved runtime placeholders, lands the exact declared artifacts on destination `main`, and is accepted by `apex-kb continue` with Phase 2B remaining pending.
