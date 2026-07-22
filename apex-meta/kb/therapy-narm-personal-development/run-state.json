@@ -1,10 +1,10 @@
 {
   "active_task": {
-    "incoming_path": "C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\therapy-narm-personal-development\\runs\\run-20260722T183018661588Z-03d9cf49be\\incoming\\phase2-narm-personal-match-map-a01.json",
-    "packet_dir": "C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\therapy-narm-personal-development\\runs\\run-20260722T183018661588Z-03d9cf49be\\semantic-tasks\\phase2-narm-personal-match-map-a01",
-    "task_id": "phase2-narm-personal-match-map-a01",
+    "incoming_path": "C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\therapy-narm-personal-development\\runs\\run-20260722T183018661588Z-03d9cf49be\\incoming\\phase2-framework-integration-a01.json",
+    "packet_dir": "C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\therapy-narm-personal-development\\runs\\run-20260722T183018661588Z-03d9cf49be\\semantic-tasks\\phase2-framework-integration-a01",
+    "task_id": "phase2-framework-integration-a01",
     "task_kind": "phase2",
-    "topic_id": "narm-personal-match-map"
+    "topic_id": "framework-integration"
   },
   "blockers": [],
   "completed_stages": [
@@ -16,7 +16,8 @@
     "phase1:framework-integration",
     "phase1:methods-and-development-operating-system",
     "phase2:narm-model-and-core-needs",
-    "phase2:personal-pattern-map"
+    "phase2:personal-pattern-map",
+    "phase2:narm-personal-match-map"
   ],
   "completion": {
     "artifacts": {},
@@ -97,7 +98,7 @@
     },
     "status": "completed"
   },
-  "current_stage": "awaiting_phase2_narm-personal-match-map",
+  "current_stage": "awaiting_phase2_framework-integration",
   "history": [
     {
       "at": "2026-07-22T18:30:18Z",
@@ -406,6 +407,28 @@
         "topic_id": "narm-personal-match-map"
       },
       "event": "semantic_packet_created"
+    },
+    {
+      "at": "2026-07-22T21:37:22Z",
+      "details": {
+        "atlas_path": "wiki\\summaries\\narm-personal-match-map-source-atlas.md",
+        "dossier_path": "wiki\\concepts\\narm-personal-match-map.md",
+        "imported_result": "runs\\run-20260722T183018661588Z-03d9cf49be\\semantic-results\\phase2-narm-personal-match-map-a01.json",
+        "topic_id": "narm-personal-match-map",
+        "worker_context_id": "codex-phase2-narm-personal-match-20260722"
+      },
+      "event": "phase2_imported"
+    },
+    {
+      "at": "2026-07-22T21:37:22Z",
+      "details": {
+        "incoming_path": "C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\therapy-narm-personal-development\\runs\\run-20260722T183018661588Z-03d9cf49be\\incoming\\phase2-framework-integration-a01.json",
+        "packet_dir": "C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\therapy-narm-personal-development\\runs\\run-20260722T183018661588Z-03d9cf49be\\semantic-tasks\\phase2-framework-integration-a01",
+        "task_id": "phase2-framework-integration-a01",
+        "task_kind": "phase2",
+        "topic_id": "framework-integration"
+      },
+      "event": "semantic_packet_created"
     }
   ],
   "lifecycle_status": "running",
@@ -449,8 +472,8 @@
       },
       "phase2": {
         "artifacts": {},
-        "attempt": 0,
-        "status": "pending",
+        "attempt": 1,
+        "status": "awaiting_result",
         "worker_context_id": null
       },
       "topic_id": "framework-integration"
@@ -559,10 +582,16 @@
         "worker_context_id": "codex-phase1-narm-match-20260722T1903Z"
       },
       "phase2": {
-        "artifacts": {},
+        "artifacts": {
+          "atlas_path": "wiki\\summaries\\narm-personal-match-map-source-atlas.md",
+          "dossier_path": "wiki\\concepts\\narm-personal-match-map.md",
+          "imported_result": "runs\\run-20260722T183018661588Z-03d9cf49be\\semantic-results\\phase2-narm-personal-match-map-a01.json",
+          "topic_id": "narm-personal-match-map",
+          "worker_context_id": "codex-phase2-narm-personal-match-20260722"
+        },
         "attempt": 1,
-        "status": "awaiting_result",
-        "worker_context_id": null
+        "status": "completed",
+        "worker_context_id": "codex-phase2-narm-personal-match-20260722"
       },
       "topic_id": "narm-personal-match-map"
     },
@@ -608,5 +637,5 @@
       "topic_id": "personal-pattern-map"
     }
   },
-  "updated_at": "2026-07-22T21:35:33Z"
+  "updated_at": "2026-07-22T21:37:22Z"
 }

@@ -1,0 +1,172 @@
+{
+  "allowed_output_paths": [
+    "C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\therapy-narm-personal-development\\runs\\run-20260722T183018661588Z-03d9cf49be\\incoming\\phase2-framework-integration-a01.json"
+  ],
+  "atlas_contract": "The application generates the complete source atlas deterministically from Phase 1; the semantic worker must not reproduce it.",
+  "attempt": 1,
+  "candidate_count": 8,
+  "candidate_source_ids": [
+    "src-f79b4940a5971c09",
+    "src-f091a39587190b86",
+    "src-f7ded2930e8d80ad",
+    "src-9b22548c98e6481b",
+    "src-a4da7bd7f313ee9f",
+    "src-6a0cea0ce0c8e1ce",
+    "src-64864213292b5239",
+    "src-c2fb4d779264e00e"
+  ],
+  "config_hash": "03d9cf49be71c2b066ed7a1e774e4e24f12d05d2b9bc17c3de2a8d5b4bd4e390",
+  "context_contract": "Read only this topic's Phase 1 analysis and the source capsules listed by this packet; do not read another topic's Phase 1 analysis.",
+  "created_at": "2026-07-22T21:37:22Z",
+  "forbidden_writes": [
+    "run-config.yaml",
+    "run-manifest.json",
+    "run-state.json",
+    "manifests/**",
+    "derived/**",
+    "source repository paths"
+  ],
+  "page_value_contract": {
+    "macro": "Why this topic matters for the operator's stated outcome.",
+    "meso": "What the models, patterns, distinctions, and relationships are.",
+    "micro": "How to recognize, choose, and apply the practices safely.",
+    "required_sections": [
+      "page_purpose",
+      "adaptive_ranked_sources",
+      "route_by_question",
+      "source_boundaries",
+      "open_questions",
+      "raw_source_reopen_triggers"
+    ]
+  },
+  "phase1_analysis_path": "C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\therapy-narm-personal-development\\ingest-analysis\\topics\\framework-integration.analysis.json",
+  "repair_context": null,
+  "required_output_schema": "phase2-result.schema.json",
+  "required_routes": {
+    "dossier": "wiki/concepts/framework-integration.md",
+    "source_atlas": "wiki/summaries/framework-integration-source-atlas.md"
+  },
+  "run_id": "run-20260722T183018661588Z-03d9cf49be",
+  "schema": "apex.kb.semantic-task.v2",
+  "semantic_depth": "deep",
+  "source_capsule_paths": [
+    "C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\therapy-narm-personal-development\\ingest-analysis\\sources\\06d39530b31392f17873171f2781c4b50fa3e2efbd622aab9bb0c500c072acc7.analysis.json",
+    "C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\therapy-narm-personal-development\\ingest-analysis\\sources\\08876a237e47ce2fd75b5bf57a8ce0453915bcced09217eb897c97d6d5dca8a9.analysis.json",
+    "C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\therapy-narm-personal-development\\ingest-analysis\\sources\\3db22fd7f61b597a4c42d326374eb53bd9fb0cf3e1af600cc5c2149a885eaa53.analysis.json",
+    "C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\therapy-narm-personal-development\\ingest-analysis\\sources\\64a0dae9c1cbc3bba6bd0299e345a4863560c6bce22b60444755585d0e06e6cd.analysis.json",
+    "C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\therapy-narm-personal-development\\ingest-analysis\\sources\\9ff6117ec7addb4713172f09e4fd2dc8b34c42bc678d3ca55dc71410040f5175.analysis.json",
+    "C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\therapy-narm-personal-development\\ingest-analysis\\sources\\a87da7087b42f18d10314a07da33485a588ae8add44fbdb79b8ee7a0538eae33.analysis.json",
+    "C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\therapy-narm-personal-development\\ingest-analysis\\sources\\b2f3b75d5aab80d95c88b3b245478b15d9510637d41e63571f5619ccebf9a8b5.analysis.json",
+    "C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\therapy-narm-personal-development\\ingest-analysis\\sources\\ea19911591545b9ad39fb24e28356febb71a36efa991c8bbaaa8490cd80a3560.analysis.json"
+  ],
+  "target_queries": [
+    {
+      "answer_requirements": [
+        "Attribute each framework's claims to its own source.",
+        "State compatible mechanisms and practical overlaps.",
+        "Do not collapse distinct frameworks into one theory."
+      ],
+      "priority": "critical",
+      "query_id": "integration-q01",
+      "question": "Where do NARM, Jungian shadow work, Hawkins-style surrender, ACIM, and practical intention encoding complement one another?"
+    },
+    {
+      "answer_requirements": [
+        "Name specific risks.",
+        "Provide source-bounded guardrails.",
+        "Preserve the distinction between release, reconciliation, and renewed access."
+      ],
+      "priority": "critical",
+      "query_id": "integration-q02",
+      "question": "Where can these frameworks conflict, become unsafe, or lead to spiritual bypassing, forced positivity, denial of boundaries, or premature forgiveness?"
+    },
+    {
+      "answer_requirements": [
+        "Define the sequence as a reflective operating hypothesis.",
+        "State when to pause or seek professional support.",
+        "Cite the contributing framework sources."
+      ],
+      "priority": "routine",
+      "query_id": "integration-q03",
+      "question": "What integrated sequence can support anger, grief, discernment, boundary setting, surrender, and compassionate action without bypassing reality?"
+    }
+  ],
+  "task_id": "phase2-framework-integration-a01",
+  "task_kind": "phase2",
+  "topic": {
+    "aliases": [
+      "letting go",
+      "forgiveness",
+      "grievance release",
+      "spiritual release",
+      "practical intention encoding"
+    ],
+    "ambiguous_terms": [
+      "forgiveness",
+      "surrender",
+      "manifestation"
+    ],
+    "expected_routes": {
+      "dossier": "wiki/concepts/framework-integration.md",
+      "source_atlas": "wiki/summaries/framework-integration-source-atlas.md"
+    },
+    "name": "NARM, Jungian, Surrender, Hawkins, ACIM, and Practical-Method Integration",
+    "negative_terms": [
+      "spiritual bypassing",
+      "forced positivity",
+      "denial of facts"
+    ],
+    "primary_phrases": [
+      "Jung",
+      "surrender",
+      "Hawkins",
+      "ACIM",
+      "shadow work"
+    ],
+    "supporting_terms": [
+      "anger",
+      "grief",
+      "boundaries",
+      "non-attack",
+      "individuation",
+      "self-compassion",
+      "embodiment",
+      "ritual",
+      "action anchor"
+    ],
+    "target_queries": [
+      {
+        "answer_requirements": [
+          "Attribute each framework's claims to its own source.",
+          "State compatible mechanisms and practical overlaps.",
+          "Do not collapse distinct frameworks into one theory."
+        ],
+        "priority": "critical",
+        "query_id": "integration-q01",
+        "question": "Where do NARM, Jungian shadow work, Hawkins-style surrender, ACIM, and practical intention encoding complement one another?"
+      },
+      {
+        "answer_requirements": [
+          "Name specific risks.",
+          "Provide source-bounded guardrails.",
+          "Preserve the distinction between release, reconciliation, and renewed access."
+        ],
+        "priority": "critical",
+        "query_id": "integration-q02",
+        "question": "Where can these frameworks conflict, become unsafe, or lead to spiritual bypassing, forced positivity, denial of boundaries, or premature forgiveness?"
+      },
+      {
+        "answer_requirements": [
+          "Define the sequence as a reflective operating hypothesis.",
+          "State when to pause or seek professional support.",
+          "Cite the contributing framework sources."
+        ],
+        "priority": "routine",
+        "query_id": "integration-q03",
+        "question": "What integrated sequence can support anger, grief, discernment, boundary setting, surrender, and compassionate action without bypassing reality?"
+      }
+    ],
+    "topic_id": "framework-integration"
+  },
+  "topic_id": "framework-integration"
+}

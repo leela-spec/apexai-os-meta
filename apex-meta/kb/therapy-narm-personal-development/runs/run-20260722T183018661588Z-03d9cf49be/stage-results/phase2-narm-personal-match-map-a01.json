@@ -1,0 +1,20 @@
+{
+  "artifacts": [
+    "wiki\\concepts\\narm-personal-match-map.md",
+    "wiki\\summaries\\narm-personal-match-map-source-atlas.md",
+    "runs\\run-20260722T183018661588Z-03d9cf49be\\semantic-results\\phase2-narm-personal-match-map-a01.json"
+  ],
+  "completed_at": "2026-07-22T21:37:22Z",
+  "config_hash": "03d9cf49be71c2b066ed7a1e774e4e24f12d05d2b9bc17c3de2a8d5b4bd4e390",
+  "message": "Imported validated phase2 result for narm-personal-match-map.",
+  "metrics": {
+    "task_id": "phase2-narm-personal-match-map-a01",
+    "topic_id": "narm-personal-match-map"
+  },
+  "reason_code": null,
+  "run_id": "run-20260722T183018661588Z-03d9cf49be",
+  "schema": "apex.kb.stage-result.v2",
+  "stage": "phase2:narm-personal-match-map",
+  "started_at": "2026-07-22T21:37:22Z",
+  "status": "completed"
+}
