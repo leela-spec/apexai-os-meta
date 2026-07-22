@@ -1,10 +1,10 @@
 {
   "active_task": {
-    "incoming_path": "C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\therapy-narm-personal-development\\runs\\run-20260722T183018661588Z-03d9cf49be\\incoming\\phase2-framework-integration-a01.json",
-    "packet_dir": "C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\therapy-narm-personal-development\\runs\\run-20260722T183018661588Z-03d9cf49be\\semantic-tasks\\phase2-framework-integration-a01",
-    "task_id": "phase2-framework-integration-a01",
+    "incoming_path": "C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\therapy-narm-personal-development\\runs\\run-20260722T183018661588Z-03d9cf49be\\incoming\\phase2-methods-and-development-operating-system-a01.json",
+    "packet_dir": "C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\therapy-narm-personal-development\\runs\\run-20260722T183018661588Z-03d9cf49be\\semantic-tasks\\phase2-methods-and-development-operating-system-a01",
+    "task_id": "phase2-methods-and-development-operating-system-a01",
     "task_kind": "phase2",
-    "topic_id": "framework-integration"
+    "topic_id": "methods-and-development-operating-system"
   },
   "blockers": [],
   "completed_stages": [
@@ -17,7 +17,8 @@
     "phase1:methods-and-development-operating-system",
     "phase2:narm-model-and-core-needs",
     "phase2:personal-pattern-map",
-    "phase2:narm-personal-match-map"
+    "phase2:narm-personal-match-map",
+    "phase2:framework-integration"
   ],
   "completion": {
     "artifacts": {},
@@ -98,7 +99,7 @@
     },
     "status": "completed"
   },
-  "current_stage": "awaiting_phase2_framework-integration",
+  "current_stage": "awaiting_phase2_methods-and-development-operating-system",
   "history": [
     {
       "at": "2026-07-22T18:30:18Z",
@@ -429,6 +430,28 @@
         "topic_id": "framework-integration"
       },
       "event": "semantic_packet_created"
+    },
+    {
+      "at": "2026-07-22T21:39:35Z",
+      "details": {
+        "atlas_path": "wiki\\summaries\\framework-integration-source-atlas.md",
+        "dossier_path": "wiki\\concepts\\framework-integration.md",
+        "imported_result": "runs\\run-20260722T183018661588Z-03d9cf49be\\semantic-results\\phase2-framework-integration-a01.json",
+        "topic_id": "framework-integration",
+        "worker_context_id": "codex-phase2-framework-integration-20260722"
+      },
+      "event": "phase2_imported"
+    },
+    {
+      "at": "2026-07-22T21:39:36Z",
+      "details": {
+        "incoming_path": "C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\therapy-narm-personal-development\\runs\\run-20260722T183018661588Z-03d9cf49be\\incoming\\phase2-methods-and-development-operating-system-a01.json",
+        "packet_dir": "C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\therapy-narm-personal-development\\runs\\run-20260722T183018661588Z-03d9cf49be\\semantic-tasks\\phase2-methods-and-development-operating-system-a01",
+        "task_id": "phase2-methods-and-development-operating-system-a01",
+        "task_kind": "phase2",
+        "topic_id": "methods-and-development-operating-system"
+      },
+      "event": "semantic_packet_created"
     }
   ],
   "lifecycle_status": "running",
@@ -471,10 +494,16 @@
         "worker_context_id": "codex-phase1-integration-20260722T1920Z"
       },
       "phase2": {
-        "artifacts": {},
+        "artifacts": {
+          "atlas_path": "wiki\\summaries\\framework-integration-source-atlas.md",
+          "dossier_path": "wiki\\concepts\\framework-integration.md",
+          "imported_result": "runs\\run-20260722T183018661588Z-03d9cf49be\\semantic-results\\phase2-framework-integration-a01.json",
+          "topic_id": "framework-integration",
+          "worker_context_id": "codex-phase2-framework-integration-20260722"
+        },
         "attempt": 1,
-        "status": "awaiting_result",
-        "worker_context_id": null
+        "status": "completed",
+        "worker_context_id": "codex-phase2-framework-integration-20260722"
       },
       "topic_id": "framework-integration"
     },
@@ -502,8 +531,8 @@
       },
       "phase2": {
         "artifacts": {},
-        "attempt": 0,
-        "status": "pending",
+        "attempt": 1,
+        "status": "awaiting_result",
         "worker_context_id": null
       },
       "topic_id": "methods-and-development-operating-system"
@@ -637,5 +666,5 @@
       "topic_id": "personal-pattern-map"
     }
   },
-  "updated_at": "2026-07-22T21:37:22Z"
+  "updated_at": "2026-07-22T21:39:36Z"
 }

@@ -1,0 +1,251 @@
+{
+  "config_hash": "03d9cf49be71c2b066ed7a1e774e4e24f12d05d2b9bc17c3de2a8d5b4bd4e390",
+  "dossier": {
+    "adaptive_ranked_sources": [
+      {
+        "citations": [
+          {
+            "pointer": "line:283",
+            "source_id": "src-c2fb4d779264e00e"
+          },
+          {
+            "pointer": "line:479",
+            "source_id": "src-c2fb4d779264e00e"
+          }
+        ],
+        "rank": 1,
+        "source_id": "src-c2fb4d779264e00e",
+        "value": "Primary grounding for regulation, contact, titration, and trauma-work cautions."
+      },
+      {
+        "citations": [
+          {
+            "pointer": "line:424",
+            "source_id": "src-f091a39587190b86"
+          }
+        ],
+        "rank": 2,
+        "source_id": "src-f091a39587190b86",
+        "value": "Operator's explicit multi-framework process design and staged action logic."
+      },
+      {
+        "citations": [
+          {
+            "pointer": "line:678",
+            "source_id": "src-f7ded2930e8d80ad"
+          },
+          {
+            "pointer": "line:698",
+            "source_id": "src-f7ded2930e8d80ad"
+          }
+        ],
+        "rank": 3,
+        "source_id": "src-f7ded2930e8d80ad",
+        "value": "Safety, capacity, boundary, and professional-support constraints."
+      },
+      {
+        "citations": [
+          {
+            "pointer": "line:128",
+            "source_id": "src-f79b4940a5971c09"
+          },
+          {
+            "pointer": "line:162",
+            "source_id": "src-f79b4940a5971c09"
+          }
+        ],
+        "rank": 4,
+        "source_id": "src-f79b4940a5971c09",
+        "value": "Distinct surrender framework and exercises, retained as non-NARM practice material."
+      }
+    ],
+    "contradictions": [
+      "Spiritual release and trauma/boundary frames use different assumptions and cannot be merged as clinical evidence.",
+      "A meaning practice may encourage release while current reality still requires anger, distance, or firm boundaries."
+    ],
+    "evolution": [
+      "The corpus evolves from separate spiritual, psychological, and practical sources toward an operator-designed layered sequence; the synthesis remains personal and provisional."
+    ],
+    "executive_summary": "The frameworks can complement one another as separate layers: NARM for regulation, contact, and pacing; shadow reflection for inquiry into held-off affect and meaning; surrender or ACIM as voluntary internal release and meaning practices; intention encoding for a small concrete action. They are not one theory. Regulation and fact/boundary checking precede interpretation; internal release is separate from reconciliation and renewed access.",
+    "key_claims": [
+      {
+        "citations": [
+          {
+            "pointer": "line:424",
+            "source_id": "src-f091a39587190b86"
+          },
+          {
+            "pointer": "line:283",
+            "source_id": "src-c2fb4d779264e00e"
+          }
+        ],
+        "claim": "Safe integration treats the frameworks as separate layers rather than one clinical theory.",
+        "state": "present"
+      },
+      {
+        "citations": [
+          {
+            "pointer": "line:507",
+            "source_id": "src-9b22548c98e6481b"
+          },
+          {
+            "pointer": "line:678",
+            "source_id": "src-f7ded2930e8d80ad"
+          }
+        ],
+        "claim": "Internal release must remain separate from reconciliation and renewed access.",
+        "state": "present"
+      },
+      {
+        "citations": [
+          {
+            "pointer": "line:424",
+            "source_id": "src-f091a39587190b86"
+          },
+          {
+            "pointer": "line:509",
+            "source_id": "src-a4da7bd7f313ee9f"
+          }
+        ],
+        "claim": "The proposed seven-step sequence is a reflective operating hypothesis, not an efficacy claim.",
+        "state": "proposed"
+      }
+    ],
+    "macro": "Why it matters: multi-framework work can broaden choice, but it can also create spiritual bypass, forced positivity, premature forgiveness, or overactivation. A safe integration uses the framework suited to the current task while keeping real-world discernment, consent, boundaries, health care, and therapy authoritative where applicable.",
+    "meso": "What each layer contributes: NARM offers present-focused resource and somatic regulation; shadow work offers a question about disowned or protected experience; surrender/Hawkins and ACIM offer voluntary release or meaning frames; intention encoding converts a chosen value or boundary into action. Conflict appears when one layer invalidates another—for example, using surrender to deny injury or shadow language to dismiss protective anger.",
+    "micro": "How to sequence: pause and orient; identify facts, state, emotion, protection, need, and boundary; stabilize enough for choice; use grief or shadow inquiry only voluntarily and in tolerable doses; decide access separately from internal release; then encode one compassionate, concrete, reversible action and review its effect. Pause for overwhelming activation, safety risk, health concern, or inability to function and seek appropriate support.",
+    "open_questions": [
+      "Which layer helps which recurring state, and which reliably worsens it?",
+      "What signs show that inquiry is becoming bypass or overload?",
+      "Which parts should occur only with a therapist?"
+    ],
+    "page_purpose": "Define a bounded way to combine NARM, Jungian shadow reflection, Hawkins-style surrender, ACIM, and practical intention encoding while preserving each framework's authority, boundaries, risks, and appropriate use.",
+    "raw_source_reopen_triggers": [
+      "Reopen a framework source when a claim is being attributed across frameworks.",
+      "Reopen personal notes when reconciliation, forgiveness, boundary, or access wording materially affects a decision.",
+      "Pause self-guided work and seek appropriate help for overwhelming activation, safety risk, health concern, or sustained impaired functioning."
+    ],
+    "route": "wiki/concepts/framework-integration.md",
+    "route_by_question": [
+      {
+        "query_id": "integration-q01",
+        "route": "Current task → suitable framework layer → compatible overlap → non-equivalence boundary"
+      },
+      {
+        "query_id": "integration-q02",
+        "route": "Risk pattern → harm mechanism → boundary → pause/support condition"
+      },
+      {
+        "query_id": "integration-q03",
+        "route": "Regulate → facts/needs/boundary → paced inquiry → optional release → reversible action → review"
+      }
+    ],
+    "source_boundaries": [
+      "Each framework's claims remain attributed to its own source; conceptual overlap does not establish shared mechanism or efficacy.",
+      "Internal release does not imply forgiveness, reconciliation, consent, trust, or renewed relational access.",
+      "Personal process designs are operating hypotheses, not validated integrated treatment protocols.",
+      "Medical, safety, and severe-distress decisions remain outside spiritual or self-guided interpretation."
+    ],
+    "target_answers": [
+      {
+        "answer": "They complement one another only as distinct layers. NARM supplies present-focused regulation, contact, and titration. Shadow reflection asks what affect, need, or meaning may be held off. Hawkins-style surrender and ACIM can offer voluntary internal release or meaning practices. Practical intention encoding turns an already chosen value, boundary, or next step into a small action. The compatible sequence is regulation first, interpretation second, action third; none of these sources validates a unified theory.",
+        "citations": [
+          {
+            "pointer": "line:283",
+            "source_id": "src-c2fb4d779264e00e"
+          },
+          {
+            "pointer": "line:479",
+            "source_id": "src-c2fb4d779264e00e"
+          },
+          {
+            "pointer": "line:17",
+            "source_id": "src-64864213292b5239"
+          },
+          {
+            "pointer": "line:128",
+            "source_id": "src-f79b4940a5971c09"
+          },
+          {
+            "pointer": "line:605",
+            "source_id": "src-9b22548c98e6481b"
+          },
+          {
+            "pointer": "line:383",
+            "source_id": "src-a4da7bd7f313ee9f"
+          }
+        ],
+        "query_id": "integration-q01",
+        "question": "Where do NARM, Jungian shadow work, Hawkins-style surrender, ACIM, and practical intention encoding complement one another?"
+      },
+      {
+        "answer": "Risk appears when release language denies injury, demands forgiveness, suppresses protective anger, abandons discernment, or reopens access to unsafe people; when a shadow interpretation is treated as fact; or when intense practice outruns available capacity. Guardrails are to distinguish internal release from reconciliation and access, check facts and boundaries before spiritual interpretation, preserve uncertainty, use short paced practices, and seek qualified support when distress, safety, health, or functioning exceed self-guided work.",
+        "citations": [
+          {
+            "pointer": "line:678",
+            "source_id": "src-f7ded2930e8d80ad"
+          },
+          {
+            "pointer": "line:698",
+            "source_id": "src-f7ded2930e8d80ad"
+          },
+          {
+            "pointer": "line:507",
+            "source_id": "src-9b22548c98e6481b"
+          },
+          {
+            "pointer": "line:413",
+            "source_id": "src-c2fb4d779264e00e"
+          },
+          {
+            "pointer": "line:29",
+            "source_id": "src-6a0cea0ce0c8e1ce"
+          }
+        ],
+        "query_id": "integration-q02",
+        "question": "Where can these frameworks conflict, become unsafe, or lead to spiritual bypassing, forced positivity, denial of boundaries, or premature forgiveness?"
+      },
+      {
+        "answer": "Use this reflective hypothesis: 1) pause, orient, and regulate; 2) record facts, body state, emotion, protection, and need; 3) assess present safety and boundary; 4) allow brief, paced grief or shadow reflection if chosen; 5) decide whether an internal surrender practice is appropriate without altering the boundary; 6) choose one compassionate, concrete, reversible action; 7) review the impact. Pause and seek support when activation, risk, health concern, or impaired functioning is high.",
+        "citations": [
+          {
+            "pointer": "line:327",
+            "source_id": "src-c2fb4d779264e00e"
+          },
+          {
+            "pointer": "line:479",
+            "source_id": "src-c2fb4d779264e00e"
+          },
+          {
+            "pointer": "line:424",
+            "source_id": "src-f091a39587190b86"
+          },
+          {
+            "pointer": "line:162",
+            "source_id": "src-f79b4940a5971c09"
+          },
+          {
+            "pointer": "line:509",
+            "source_id": "src-a4da7bd7f313ee9f"
+          },
+          {
+            "pointer": "line:606",
+            "source_id": "src-f7ded2930e8d80ad"
+          }
+        ],
+        "query_id": "integration-q03",
+        "question": "What integrated sequence can support anger, grief, discernment, boundary setting, surrender, and compassionate action without bypassing reality?"
+      }
+    ],
+    "title": "Framework Integration Without Bypassing Reality",
+    "uncertainties": [
+      "The corpus does not establish efficacy, suitability, or dose for the integrated sequence."
+    ]
+  },
+  "phase": "phase2",
+  "run_id": "run-20260722T183018661588Z-03d9cf49be",
+  "schema": "apex.kb.phase2-result.v2",
+  "task_id": "phase2-framework-integration-a01",
+  "topic_id": "framework-integration",
+  "worker_context_id": "codex-phase2-framework-integration-20260722"
+}

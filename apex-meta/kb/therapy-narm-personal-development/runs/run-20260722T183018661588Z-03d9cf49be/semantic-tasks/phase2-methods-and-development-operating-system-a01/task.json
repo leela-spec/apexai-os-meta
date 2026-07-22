@@ -1,0 +1,193 @@
+{
+  "allowed_output_paths": [
+    "C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\therapy-narm-personal-development\\runs\\run-20260722T183018661588Z-03d9cf49be\\incoming\\phase2-methods-and-development-operating-system-a01.json"
+  ],
+  "atlas_contract": "The application generates the complete source atlas deterministically from Phase 1; the semantic worker must not reproduce it.",
+  "attempt": 1,
+  "candidate_count": 8,
+  "candidate_source_ids": [
+    "src-c2fb4d779264e00e",
+    "src-f7ded2930e8d80ad",
+    "src-9b22548c98e6481b",
+    "src-a4da7bd7f313ee9f",
+    "src-f091a39587190b86",
+    "src-f79b4940a5971c09",
+    "src-64864213292b5239",
+    "src-e4ba180903bfcd78"
+  ],
+  "config_hash": "03d9cf49be71c2b066ed7a1e774e4e24f12d05d2b9bc17c3de2a8d5b4bd4e390",
+  "context_contract": "Read only this topic's Phase 1 analysis and the source capsules listed by this packet; do not read another topic's Phase 1 analysis.",
+  "created_at": "2026-07-22T21:39:36Z",
+  "forbidden_writes": [
+    "run-config.yaml",
+    "run-manifest.json",
+    "run-state.json",
+    "manifests/**",
+    "derived/**",
+    "source repository paths"
+  ],
+  "page_value_contract": {
+    "macro": "Why this topic matters for the operator's stated outcome.",
+    "meso": "What the models, patterns, distinctions, and relationships are.",
+    "micro": "How to recognize, choose, and apply the practices safely.",
+    "required_sections": [
+      "page_purpose",
+      "adaptive_ranked_sources",
+      "route_by_question",
+      "source_boundaries",
+      "open_questions",
+      "raw_source_reopen_triggers"
+    ]
+  },
+  "phase1_analysis_path": "C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\therapy-narm-personal-development\\ingest-analysis\\topics\\methods-and-development-operating-system.analysis.json",
+  "repair_context": null,
+  "required_output_schema": "phase2-result.schema.json",
+  "required_routes": {
+    "dossier": "wiki/concepts/methods-and-development-operating-system.md",
+    "source_atlas": "wiki/summaries/methods-and-development-operating-system-source-atlas.md"
+  },
+  "run_id": "run-20260722T183018661588Z-03d9cf49be",
+  "schema": "apex.kb.semantic-task.v2",
+  "semantic_depth": "deep",
+  "source_capsule_paths": [
+    "C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\therapy-narm-personal-development\\ingest-analysis\\sources\\06d39530b31392f17873171f2781c4b50fa3e2efbd622aab9bb0c500c072acc7.analysis.json",
+    "C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\therapy-narm-personal-development\\ingest-analysis\\sources\\08876a237e47ce2fd75b5bf57a8ce0453915bcced09217eb897c97d6d5dca8a9.analysis.json",
+    "C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\therapy-narm-personal-development\\ingest-analysis\\sources\\3db22fd7f61b597a4c42d326374eb53bd9fb0cf3e1af600cc5c2149a885eaa53.analysis.json",
+    "C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\therapy-narm-personal-development\\ingest-analysis\\sources\\64a0dae9c1cbc3bba6bd0299e345a4863560c6bce22b60444755585d0e06e6cd.analysis.json",
+    "C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\therapy-narm-personal-development\\ingest-analysis\\sources\\9ff6117ec7addb4713172f09e4fd2dc8b34c42bc678d3ca55dc71410040f5175.analysis.json",
+    "C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\therapy-narm-personal-development\\ingest-analysis\\sources\\b2f3b75d5aab80d95c88b3b245478b15d9510637d41e63571f5619ccebf9a8b5.analysis.json",
+    "C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\therapy-narm-personal-development\\ingest-analysis\\sources\\e7f78ec45cd449e1d6344508b1af374aa9477a203c7385945e3c51284214912d.analysis.json",
+    "C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\therapy-narm-personal-development\\ingest-analysis\\sources\\ea19911591545b9ad39fb24e28356febb71a36efa991c8bbaaa8490cd80a3560.analysis.json"
+  ],
+  "target_queries": [
+    {
+      "answer_requirements": [
+        "Produce Tier 1, Tier 2, Tier 3, and practitioner-supported categories.",
+        "Include a reasoned score or ranking explanation.",
+        "State evidence source, personal match evidence, safety boundary, and energy/capacity implications for each method."
+      ],
+      "priority": "critical",
+      "query_id": "operating-q01",
+      "question": "Which methods are highest priority for the operator, ranked by source support, personal fit, safety, energy cost, and likely impact?"
+    },
+    {
+      "answer_requirements": [
+        "Include stabilization, orientation, fact-versus-interpretation separation, containment, and decision delay where supported.",
+        "Clearly state red flags and the boundary for urgent professional or emergency support.",
+        "Do not provide medical treatment instructions."
+      ],
+      "priority": "critical",
+      "query_id": "operating-q02",
+      "question": "What is the safest source-bounded protocol for acute emotional activation, high anger, grief, relational trigger, or urge to escalate?"
+    },
+    {
+      "answer_requirements": [
+        "Separate daily, weekly, therapy-preparation, and relationship-review routines.",
+        "Respect stated health and energy constraints.",
+        "Define observable signals that a practice is helping, neutral, overwhelming, or counterproductive."
+      ],
+      "priority": "critical",
+      "query_id": "operating-q03",
+      "question": "What daily and weekly low-load practices can support regulation, grief access, self-compassion, relationship discernment, and sustainable development?"
+    },
+    {
+      "answer_requirements": [
+        "Organize the path as stabilization, differentiation, integration, relational redesign, and longer-term development.",
+        "Include review points and uncertainty.",
+        "Do not represent the sequence as a guaranteed cure or substitute for therapy."
+      ],
+      "priority": "routine",
+      "query_id": "operating-q04",
+      "question": "What staged personal development path is best supported by the combined source material?"
+    }
+  ],
+  "task_id": "phase2-methods-and-development-operating-system-a01",
+  "task_kind": "phase2",
+  "topic": {
+    "aliases": [
+      "emergency protocol",
+      "anger grief protocol",
+      "therapy preparation",
+      "relationship decision",
+      "weekly review"
+    ],
+    "ambiguous_terms": [
+      "emergency",
+      "crisis",
+      "intervention"
+    ],
+    "expected_routes": {
+      "dossier": "wiki/concepts/methods-and-development-operating-system.md",
+      "source_atlas": "wiki/summaries/methods-and-development-operating-system-source-atlas.md"
+    },
+    "name": "High-Impact Methods, Emotional Protocols, and Personal Development Operating System",
+    "negative_terms": [
+      "medical emergency treatment",
+      "diagnosis",
+      "cure"
+    ],
+    "primary_phrases": [
+      "high impact routines",
+      "emotional activation",
+      "daily practice",
+      "personal development plan"
+    ],
+    "supporting_terms": [
+      "grounding",
+      "containment",
+      "orientation",
+      "titration",
+      "pendulation",
+      "self-compassion",
+      "staged trust",
+      "boundaries",
+      "reflection",
+      "action anchor",
+      "pacing"
+    ],
+    "target_queries": [
+      {
+        "answer_requirements": [
+          "Produce Tier 1, Tier 2, Tier 3, and practitioner-supported categories.",
+          "Include a reasoned score or ranking explanation.",
+          "State evidence source, personal match evidence, safety boundary, and energy/capacity implications for each method."
+        ],
+        "priority": "critical",
+        "query_id": "operating-q01",
+        "question": "Which methods are highest priority for the operator, ranked by source support, personal fit, safety, energy cost, and likely impact?"
+      },
+      {
+        "answer_requirements": [
+          "Include stabilization, orientation, fact-versus-interpretation separation, containment, and decision delay where supported.",
+          "Clearly state red flags and the boundary for urgent professional or emergency support.",
+          "Do not provide medical treatment instructions."
+        ],
+        "priority": "critical",
+        "query_id": "operating-q02",
+        "question": "What is the safest source-bounded protocol for acute emotional activation, high anger, grief, relational trigger, or urge to escalate?"
+      },
+      {
+        "answer_requirements": [
+          "Separate daily, weekly, therapy-preparation, and relationship-review routines.",
+          "Respect stated health and energy constraints.",
+          "Define observable signals that a practice is helping, neutral, overwhelming, or counterproductive."
+        ],
+        "priority": "critical",
+        "query_id": "operating-q03",
+        "question": "What daily and weekly low-load practices can support regulation, grief access, self-compassion, relationship discernment, and sustainable development?"
+      },
+      {
+        "answer_requirements": [
+          "Organize the path as stabilization, differentiation, integration, relational redesign, and longer-term development.",
+          "Include review points and uncertainty.",
+          "Do not represent the sequence as a guaranteed cure or substitute for therapy."
+        ],
+        "priority": "routine",
+        "query_id": "operating-q04",
+        "question": "What staged personal development path is best supported by the combined source material?"
+      }
+    ],
+    "topic_id": "methods-and-development-operating-system"
+  },
+  "topic_id": "methods-and-development-operating-system"
+}
