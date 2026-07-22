@@ -1,0 +1,367 @@
+{
+  "$defs": {
+    "atlas": {
+      "additionalProperties": false,
+      "properties": {
+        "entries": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "authority": {
+                "type": "string"
+              },
+              "content_snapshot": {
+                "type": "string"
+              },
+              "disposition": {
+                "type": "string"
+              },
+              "duplicate_or_supersession": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "freshness": {
+                "type": "string"
+              },
+              "individual_value": {
+                "type": "string"
+              },
+              "pointers": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "questions_supported": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "read_status": {
+                "type": "string"
+              },
+              "repository_path": {
+                "type": "string"
+              },
+              "source_id": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "source_id",
+              "repository_path",
+              "disposition",
+              "read_status",
+              "content_snapshot",
+              "individual_value",
+              "authority",
+              "freshness",
+              "duplicate_or_supersession",
+              "pointers",
+              "questions_supported"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "route": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "route",
+        "title",
+        "entries"
+      ],
+      "type": "object"
+    },
+    "citation": {
+      "additionalProperties": false,
+      "properties": {
+        "pointer": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "source_id": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "source_id",
+        "pointer"
+      ],
+      "type": "object"
+    },
+    "dossier": {
+      "additionalProperties": false,
+      "properties": {
+        "adaptive_ranked_sources": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "citations": {
+                "items": {
+                  "$ref": "#/$defs/citation"
+                },
+                "minItems": 1,
+                "type": "array"
+              },
+              "rank": {
+                "minimum": 1,
+                "type": "integer"
+              },
+              "source_id": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "value": {
+                "minLength": 1,
+                "type": "string"
+              }
+            },
+            "required": [
+              "rank",
+              "source_id",
+              "value",
+              "citations"
+            ],
+            "type": "object"
+          },
+          "minItems": 1,
+          "type": "array"
+        },
+        "contradictions": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "evolution": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "executive_summary": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "key_claims": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "citations": {
+                "items": {
+                  "$ref": "#/$defs/citation"
+                },
+                "minItems": 1,
+                "type": "array"
+              },
+              "claim": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "state": {
+                "enum": [
+                  "present",
+                  "proposed",
+                  "historical",
+                  "open",
+                  "contradicted"
+                ]
+              }
+            },
+            "required": [
+              "claim",
+              "state",
+              "citations"
+            ],
+            "type": "object"
+          },
+          "minItems": 1,
+          "type": "array"
+        },
+        "macro": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "meso": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "micro": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "open_questions": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "page_purpose": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "raw_source_reopen_triggers": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "minItems": 1,
+          "type": "array"
+        },
+        "route": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "route_by_question": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "query_id": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "route": {
+                "minLength": 1,
+                "type": "string"
+              }
+            },
+            "required": [
+              "query_id",
+              "route"
+            ],
+            "type": "object"
+          },
+          "minItems": 1,
+          "type": "array"
+        },
+        "source_boundaries": {
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "minItems": 1,
+          "type": "array"
+        },
+        "target_answers": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "answer": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "citations": {
+                "items": {
+                  "$ref": "#/$defs/citation"
+                },
+                "minItems": 1,
+                "type": "array"
+              },
+              "query_id": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "question": {
+                "minLength": 1,
+                "type": "string"
+              }
+            },
+            "required": [
+              "query_id",
+              "question",
+              "answer",
+              "citations"
+            ],
+            "type": "object"
+          },
+          "minItems": 1,
+          "type": "array"
+        },
+        "title": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "uncertainties": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "route",
+        "title",
+        "page_purpose",
+        "executive_summary",
+        "macro",
+        "meso",
+        "micro",
+        "adaptive_ranked_sources",
+        "route_by_question",
+        "source_boundaries",
+        "target_answers",
+        "key_claims",
+        "evolution",
+        "contradictions",
+        "uncertainties",
+        "open_questions",
+        "raw_source_reopen_triggers"
+      ],
+      "type": "object"
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "atlas": {
+      "$ref": "#/$defs/atlas"
+    },
+    "config_hash": {
+      "type": "string"
+    },
+    "dossier": {
+      "$ref": "#/$defs/dossier"
+    },
+    "phase": {
+      "const": "phase2"
+    },
+    "run_id": {
+      "type": "string"
+    },
+    "schema": {
+      "const": "apex.kb.phase2-result.v2"
+    },
+    "task_id": {
+      "type": "string"
+    },
+    "topic_id": {
+      "type": "string"
+    },
+    "worker_context_id": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema",
+    "run_id",
+    "config_hash",
+    "task_id",
+    "phase",
+    "topic_id",
+    "worker_context_id",
+    "dossier"
+  ],
+  "type": "object"
+}
