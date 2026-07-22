@@ -164,7 +164,7 @@ def test_analysis_only_to_query_ready_reuses_phase1_but_schedules_compilation(tm
     _, state = load_run(run_root)
     assert all(item["phase1"]["status"] == "reused" for item in state["topics"].values())
     assert all(item["phase2"]["status"] == "pending" for item in state["topics"].values())
-    assert all(item["acceptance"]["status"] == "pending" for item in state["topics"].values())
+    assert all(item["acceptance"]["status"] == "not_required" for item in state["topics"].values())
     drive(run_root)
     assert status_snapshot(run_root)["lifecycle_status"] == "query_ready"
 

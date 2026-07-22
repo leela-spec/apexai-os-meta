@@ -6,10 +6,12 @@ Task ID: `{task_id}`
 Topic: `{topic_name}` (`{topic_id}`)  
 Candidate count to preserve in the atlas: `{candidate_count}`
 
-Compile an answer-bearing Macro/Meso/Micro dossier at `{dossier}` and a complete source atlas at `{atlas}`. Macro, Meso, Micro, every locked answer, every material key claim, and every citation must be non-empty. Preserve every locked query ID and question verbatim. Cite only topic candidates reviewed in Phase 1, using source IDs and exact pointers preserved by that review. Use only validated Phase 1 analysis and reusable source capsules. Preserve present, proposed, historical, open, and contradicted states. The atlas must contain every deterministic candidate exactly once, including incidental, duplicate, historical, generated, blocked, and irrelevant-after-review dispositions.
+Compile an answer-bearing Macro/Meso/Micro dossier at `{dossier}`. Macro explains why the topic matters for the operator's outcome; Meso explains what the relevant models, patterns, distinctions, and relationships are; Micro explains how to recognize, choose, and apply practices safely. Every locked answer, material key claim, and citation must be non-empty. Preserve every locked query ID and question verbatim. Cite only topic candidates reviewed in Phase 1, using source IDs and exact pointers preserved by that review. Use only this topic's validated Phase 1 analysis and the source capsules listed in this packet. Do not read another topic's Phase 1 analysis. Preserve only evidence states actually supported by the sources; do not manufacture enum coverage.
 
-Return structured JSON; the application renders the Markdown pages deterministically. Write only to:
+Include page purpose, an adaptive ranked source set, routes by locked question, source boundaries, contradictions or tensions, uncertainty and open questions, raw-source reopen triggers, and material evolution. The application creates `{atlas}` deterministically from Phase 1; do not submit or copy the atlas.
+
+Return readable, indented structured JSON; the application renders the Markdown pages deterministically. Write only to:
 
 `{incoming}`
 
-Do not mutate manifests, run state, indexes, retrieval, or sources. Do not select the next lifecycle stage.
+Do not mutate manifests, run state, indexes, retrieval, or sources. After writing this result, the outer executor must run `apex-kb drive` again, report concise progress, and continue to the next topic without asking for approval. The application remains the sole authority that selects the next lifecycle stage.

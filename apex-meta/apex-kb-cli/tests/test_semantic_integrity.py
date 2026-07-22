@@ -6,7 +6,7 @@ import pytest
 
 from apex_kb.errors import ApexKBError
 from apex_kb.io import atomic_json, load_json
-from apex_kb.lifecycle import continue_once, load_run
+from apex_kb.lifecycle import configure_semantic_acceptance, continue_once, load_run
 
 from .helpers import _acceptance_result, _phase2_result, initialize, satisfy_active_task
 
@@ -26,13 +26,12 @@ def _submit_invalid(run_root: Path, state: dict, value: dict) -> dict:
     active = state["active_task"]
     incoming = Path(active["incoming_path"])
     atomic_json(incoming, value)
-    with pytest.raises(ApexKBError) as error:
-        continue_once(run_root)
-    assert error.value.code == "semantic_result_invalid"
+    result = continue_once(run_root)
+    assert result["stage"] == "semantic_repair"
     return load_json(incoming.with_suffix(".repair.json"))
 
 
-@pytest.mark.parametrize("case", ["empty_macro", "question_text", "source_id", "pointer", "atlas_pointer"])
+@pytest.mark.parametrize("case", ["empty_macro", "question_text", "source_id", "pointer"])
 def test_phase2_rejects_empty_content_and_unlocked_or_unreviewed_evidence(tmp_path: Path, case: str):
     run_root, _, _ = initialize(tmp_path, include_formats=False)
     _, state = _advance_to_task(run_root, "phase2")
@@ -47,20 +46,19 @@ def test_phase2_rejects_empty_content_and_unlocked_or_unreviewed_evidence(tmp_pa
         value["dossier"]["target_answers"][0]["citations"][0]["source_id"] = "src-0000000000000000"
     elif case == "pointer":
         value["dossier"]["target_answers"][0]["citations"][0]["pointer"] = "line:999999"
-    else:
-        value["atlas"]["entries"][0]["pointers"] = ["line:999999"]
     repair = _submit_invalid(run_root, state, value)
     assert repair["reason_code"] in {
         "schema_validation_failed",
         "target_question_text_mismatch",
         "citation_source_invalid",
         "citation_pointer_invalid",
-        "source_atlas_identity_mismatch",
     }
 
 
 def test_acceptance_packet_is_topic_scoped_and_states_independence_limit(tmp_path: Path):
     run_root, _, _ = initialize(tmp_path, include_formats=False)
+    _, state = load_run(run_root)
+    configure_semantic_acceptance(run_root, state, True)
     _, state = _advance_to_task(run_root, "acceptance")
     active = state["active_task"]
     task = load_json(Path(active["packet_dir"]) / "task.json")
@@ -82,6 +80,8 @@ def test_acceptance_packet_is_topic_scoped_and_states_independence_limit(tmp_pat
 @pytest.mark.parametrize("case", ["empty_claim_sample", "duplicate_question", "page_pointer", "evidence_pointer"])
 def test_acceptance_rejects_unproven_pass_and_out_of_packet_pointers(tmp_path: Path, case: str):
     run_root, _, _ = initialize(tmp_path, include_formats=False)
+    _, state = load_run(run_root)
+    configure_semantic_acceptance(run_root, state, True)
     _, state = _advance_to_task(run_root, "acceptance")
     active = state["active_task"]
     task = load_json(Path(active["packet_dir"]) / "task.json")

@@ -155,7 +155,7 @@ def test_phase0_and_retrieval_rebuilds_are_byte_identical(tmp_path: Path):
     db = query_root / "derived/search/search.sqlite"
     db_hash = sha256_file(db)
     page_hashes = {str(path.relative_to(query_root)): sha256_file(path) for path in (query_root / "wiki").rglob("*.md")}
-    accepted = [topic_id for topic_id, item in state["topics"].items() if item["acceptance"]["verdict"] == "semantic_pass"]
+    accepted = [topic_id for topic_id, item in state["topics"].items() if item["phase2"]["status"] in {"completed", "reused"}]
     build_retrieval(query_root, query_manifest, accepted)
     assert sha256_file(db) == db_hash
     assert {str(path.relative_to(query_root)): sha256_file(path) for path in (query_root / "wiki").rglob("*.md")} == page_hashes

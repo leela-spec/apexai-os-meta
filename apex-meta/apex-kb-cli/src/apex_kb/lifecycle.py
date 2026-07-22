@@ -89,7 +89,7 @@ def initial_state(manifest: dict[str, Any]) -> dict[str, Any]:
             "affected": True,
             "phase1": {"status": "pending", "attempt": 0, "artifacts": {}, "worker_context_id": None},
             "phase2": {"status": "not_required" if output == "analysis_only" else "pending", "attempt": 0, "artifacts": {}, "worker_context_id": None},
-            "acceptance": {"status": "not_required" if output == "analysis_only" else "pending", "attempt": 0, "verdict": None, "artifacts": {}, "evaluator_context_id": None},
+            "acceptance": {"status": "not_required", "attempt": 0, "verdict": None, "artifacts": {}, "evaluator_context_id": None},
         }
     state = {
         "schema": STATE_SCHEMA,
@@ -263,6 +263,30 @@ def _activate_packet(run_root: Path, manifest: dict[str, Any], state: dict[str, 
     return packet
 
 
+def _acceptance_enabled(state: dict[str, Any]) -> bool:
+    return any(item["acceptance"]["status"] != "not_required" for item in state["topics"].values())
+
+
+def _accepted_topic_ids(state: dict[str, Any]) -> list[str]:
+    if _acceptance_enabled(state):
+        return [topic_id for topic_id, item in state["topics"].items() if item["acceptance"].get("verdict") == "semantic_pass"]
+    return [topic_id for topic_id, item in state["topics"].items() if item["phase2"]["status"] in {"completed", "reused"}]
+
+
+def configure_semantic_acceptance(run_root: Path, state: dict[str, Any], enabled: bool) -> None:
+    changed = False
+    for item in state["topics"].values():
+        acceptance = item["acceptance"]
+        if acceptance["status"] in {"completed", "failed", "reused"}:
+            continue
+        target = "pending" if enabled and item["phase2"]["status"] != "not_required" else "not_required"
+        if acceptance["status"] != target:
+            acceptance["status"] = target
+            changed = True
+    if changed:
+        save_state(run_root, state, "semantic_acceptance_mode_configured", {"enabled": enabled})
+
+
 def _mark_pages_accepted(run_root: Path, manifest: dict[str, Any], topic_id: str) -> None:
     topic = next(item for item in manifest["topics"] if item["topic_id"] == topic_id)
     for route in topic["expected_routes"].values():
@@ -309,6 +333,8 @@ def _import_active_task(run_root: Path, manifest: dict[str, Any], state: dict[st
     elif active["task_kind"] == "phase2":
         result = import_phase2_result(run_root, manifest, active)
         topic_state["phase2"].update({"status": "completed", "artifacts": result, "worker_context_id": result["worker_context_id"]})
+        if topic_state["acceptance"]["status"] == "not_required":
+            _mark_pages_accepted(run_root, manifest, topic_id)
         event = "phase2_imported"
     elif active["task_kind"] == "acceptance":
         result = import_acceptance_result(run_root, manifest, active)
@@ -390,10 +416,7 @@ def _complete_run(run_root: Path, manifest: dict[str, Any], state: dict[str, Any
     retrieval = retrieval_health(run_root) if output == "query_ready" else {"not_required": True}
     if output == "query_ready" and not (state["retrieval"]["status"] == "completed" and retrieval.get("fresh") and retrieval.get("integrity_ok")):
         raise ApexKBError("completion_before_retrieval", "Query-ready completion requires a fresh, healthy derived retrieval index", retrieval)
-    accepted_topics = [
-        topic_id for topic_id, item in state["topics"].items()
-        if item["acceptance"].get("verdict") == "semantic_pass"
-    ]
+    accepted_topics = _accepted_topic_ids(state)
     completion_time = utc_now()
     certificate = {
         "schema": "apex.kb.completion.v2",
@@ -459,7 +482,7 @@ def _postflight(run_root: Path, manifest: dict[str, Any], state: dict[str, Any])
         "source_fresh": source["fresh"],
         "all_phase1_complete": all(item["phase1"]["status"] in {"completed", "reused"} for item in state["topics"].values()),
         "all_phase2_complete": output == "analysis_only" or all(item["phase2"]["status"] in {"completed", "reused"} for item in state["topics"].values()),
-        "all_semantic_acceptance_pass": output == "analysis_only" or (all(value == "semantic_pass" for value in acceptance.values()) and len(acceptance) == len(state["topics"])),
+        "all_semantic_acceptance_pass": output == "analysis_only" or not _acceptance_enabled(state) or (all(value == "semantic_pass" for value in acceptance.values()) and len(acceptance) == len(state["topics"])),
         "retrieval_deferred_until_postflight": output != "query_ready" or state["retrieval"]["status"] == "pending",
     }
     passed = all(checks.values())
@@ -519,7 +542,24 @@ def continue_once(run_root: Path) -> dict[str, Any]:
     if action["kind"] == "semantic_wait":
         raise ApexKBError("semantic_result_pending", "A bounded semantic task is awaiting its declared result", action)
     if action["kind"] == "semantic_import":
-        return {"stage": f"{action['task_kind']}_import", "result": _import_active_task(run_root, manifest, state)}
+        try:
+            return {"stage": f"{action['task_kind']}_import", "result": _import_active_task(run_root, manifest, state)}
+        except ApexKBError as exc:
+            if exc.code != "semantic_result_invalid":
+                raise
+            active = state["active_task"]
+            slot = state["topics"][active["topic_id"]][active["task_kind"]]
+            max_repairs = manifest["run_options"]["max_semantic_repairs"]
+            if slot["attempt"] >= max_repairs + 1:
+                state["lifecycle_status"] = "blocked"
+                state["blockers"].append({"code": "semantic_repairs_exhausted", "task_id": active["task_id"], "details": exc.details})
+            else:
+                slot["status"] = "needs_repair"
+                slot["repair_context"] = {"failed_task_id": active["task_id"], "error": exc.details}
+            state["active_task"] = None
+            state["current_stage"] = f"{active['task_kind']}_repair_required"
+            save_state(run_root, state, "semantic_repair_requested", {"task_id": active["task_id"], "details": exc.details})
+            return {"stage": "semantic_repair", "failed_task_id": active["task_id"], "repair": exc.details}
     if action["kind"] == "semantic_packet":
         packet = _activate_packet(run_root, manifest, state, action["task_kind"], action["topic_id"])
         return {"stage": f"{action['task_kind']}_packet", "packet": packet}
@@ -536,7 +576,7 @@ def continue_once(run_root: Path) -> dict[str, Any]:
     if stage == "retrieval":
         if state["postflight"]["status"] != "completed":
             raise ApexKBError("retrieval_before_postflight", "Retrieval cannot run before deterministic postflight passes")
-        accepted = [topic_id for topic_id, item in state["topics"].items() if item["acceptance"].get("verdict") == "semantic_pass"]
+        accepted = _accepted_topic_ids(state)
         result = build_retrieval(run_root, manifest, accepted)
         state["retrieval"].update({"status": "completed", "artifacts": result["manifest"]})
         state["current_stage"] = "retrieval_complete"
@@ -552,6 +592,19 @@ def continue_once(run_root: Path) -> dict[str, Any]:
         save_state(run_root, state, "completion_completed", completion["certificate"])
         return {"stage": stage, "result": completion}
     raise ApexKBError("illegal_next_stage", f"Unsupported deterministic stage: {stage}")
+
+
+def drive_until_boundary(run_root: Path, semantic_acceptance: bool = False, max_actions: int = 200) -> dict[str, Any]:
+    _, state = load_run(run_root)
+    configure_semantic_acceptance(run_root, state, semantic_acceptance)
+    executed = []
+    for _ in range(max_actions):
+        snapshot = status_snapshot(run_root)
+        action = snapshot["next_action"]
+        if action["kind"] in {"completed", "blocked", "semantic_wait"}:
+            return {"executed": executed, "status": snapshot}
+        executed.append(continue_once(run_root))
+    raise ApexKBError("drive_action_limit", "Drive reached its deterministic action limit", {"max_actions": max_actions})
 
 
 def status_snapshot(run_root: Path) -> dict[str, Any]:

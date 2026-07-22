@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "type": "object", "additionalProperties": false,
-  "required": ["schema", "run_id", "config_hash", "task_id", "phase", "topic_id", "worker_context_id", "dossier", "atlas"],
+  "required": ["schema", "run_id", "config_hash", "task_id", "phase", "topic_id", "worker_context_id", "dossier"],
   "properties": {
     "schema": {"const": "apex.kb.phase2-result.v2"}, "run_id": {"type": "string"}, "config_hash": {"type": "string"}, "task_id": {"type": "string"},
     "phase": {"const": "phase2"}, "topic_id": {"type": "string"}, "worker_context_id": {"type": "string", "minLength": 1},
@@ -11,12 +11,16 @@
     "citation": {"type": "object", "additionalProperties": false, "required": ["source_id", "pointer"], "properties": {"source_id": {"type": "string", "minLength": 1}, "pointer": {"type": "string", "minLength": 1}}},
     "dossier": {
       "type": "object", "additionalProperties": false,
-      "required": ["route", "title", "executive_summary", "macro", "meso", "micro", "target_answers", "key_claims", "evolution", "contradictions", "uncertainties"],
+      "required": ["route", "title", "page_purpose", "executive_summary", "macro", "meso", "micro", "adaptive_ranked_sources", "route_by_question", "source_boundaries", "target_answers", "key_claims", "evolution", "contradictions", "uncertainties", "open_questions", "raw_source_reopen_triggers"],
       "properties": {
-        "route": {"type": "string", "minLength": 1}, "title": {"type": "string", "minLength": 1}, "executive_summary": {"type": "string", "minLength": 1}, "macro": {"type": "string", "minLength": 1}, "meso": {"type": "string", "minLength": 1}, "micro": {"type": "string", "minLength": 1},
+        "route": {"type": "string", "minLength": 1}, "title": {"type": "string", "minLength": 1}, "page_purpose": {"type": "string", "minLength": 1}, "executive_summary": {"type": "string", "minLength": 1}, "macro": {"type": "string", "minLength": 1}, "meso": {"type": "string", "minLength": 1}, "micro": {"type": "string", "minLength": 1},
+        "adaptive_ranked_sources": {"type": "array", "minItems": 1, "items": {"type": "object", "additionalProperties": false, "required": ["rank", "source_id", "value", "citations"], "properties": {"rank": {"type": "integer", "minimum": 1}, "source_id": {"type": "string", "minLength": 1}, "value": {"type": "string", "minLength": 1}, "citations": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/citation"}}}}},
+        "route_by_question": {"type": "array", "minItems": 1, "items": {"type": "object", "additionalProperties": false, "required": ["query_id", "route"], "properties": {"query_id": {"type": "string", "minLength": 1}, "route": {"type": "string", "minLength": 1}}}},
+        "source_boundaries": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}},
         "target_answers": {"type": "array", "minItems": 1, "items": {"type": "object", "additionalProperties": false, "required": ["query_id", "question", "answer", "citations"], "properties": {"query_id": {"type": "string", "minLength": 1}, "question": {"type": "string", "minLength": 1}, "answer": {"type": "string", "minLength": 1}, "citations": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/citation"}}}}},
         "key_claims": {"type": "array", "minItems": 1, "items": {"type": "object", "additionalProperties": false, "required": ["claim", "state", "citations"], "properties": {"claim": {"type": "string", "minLength": 1}, "state": {"enum": ["present", "proposed", "historical", "open", "contradicted"]}, "citations": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/citation"}}}}},
-        "evolution": {"type": "array", "items": {"type": "string"}}, "contradictions": {"type": "array", "items": {"type": "string"}}, "uncertainties": {"type": "array", "items": {"type": "string"}}
+        "evolution": {"type": "array", "items": {"type": "string"}}, "contradictions": {"type": "array", "items": {"type": "string"}}, "uncertainties": {"type": "array", "items": {"type": "string"}},
+        "open_questions": {"type": "array", "items": {"type": "string", "minLength": 1}}, "raw_source_reopen_triggers": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}}
       }
     },
     "atlas": {

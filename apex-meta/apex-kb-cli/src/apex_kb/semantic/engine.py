@@ -298,6 +298,15 @@ def import_phase1_result(run_root: Path, manifest: dict[str, Any], active_task: 
         actual_queries = [item["query_id"] for item in value["topic_analysis"]["target_answers"]]
         if set(actual_queries) != expected_queries or len(actual_queries) != len(set(actual_queries)):
             raise ApexKBError("target_answer_set_incomplete", "Phase 1 must address every locked target query exactly once", {"expected": sorted(expected_queries), "actual": actual_queries})
+        review_by_id = {item["source_id"]: item for item in value["source_reviews"]}
+        for answer in value["topic_analysis"]["target_answers"]:
+            citations = []
+            for citation in answer["citations"]:
+                source_id, separator, pointer = citation.partition(":")
+                if not separator or not pointer:
+                    raise ApexKBError("phase1_citation_invalid", f"Phase 1 answer {answer['query_id']} has an invalid citation: {citation}")
+                citations.append({"source_id": source_id, "pointer": pointer})
+            _validate_citations(citations, review_by_id, f"Phase 1 answer {answer['query_id']}")
     except ApexKBError as exc:
         repair = _repair_file(incoming, packet_task, exc)
         raise ApexKBError("semantic_result_invalid", exc.message, {"repair_instruction": str(repair), "validation": exc.details}) from exc
@@ -361,6 +370,14 @@ def create_phase2_packet(run_root: Path, manifest: dict[str, Any], topic_id: str
         "candidate_source_ids": [item["source_id"] for item in topic_map["candidates"]],
         "phase1_analysis_path": str(analysis_path),
         "source_capsule_paths": sorted(capsule_paths),
+        "context_contract": "Read only this topic's Phase 1 analysis and the source capsules listed by this packet; do not read another topic's Phase 1 analysis.",
+        "page_value_contract": {
+            "macro": "Why this topic matters for the operator's stated outcome.",
+            "meso": "What the models, patterns, distinctions, and relationships are.",
+            "micro": "How to recognize, choose, and apply the practices safely.",
+            "required_sections": ["page_purpose", "adaptive_ranked_sources", "route_by_question", "source_boundaries", "open_questions", "raw_source_reopen_triggers"],
+        },
+        "atlas_contract": "The application generates the complete source atlas deterministically from Phase 1; the semantic worker must not reproduce it.",
         "required_routes": topic["expected_routes"],
         "required_output_schema": "phase2-result.schema.json",
         "allowed_output_paths": [str(incoming)],
@@ -375,6 +392,29 @@ def create_phase2_packet(run_root: Path, manifest: dict[str, Any], topic_id: str
         dossier=topic["expected_routes"]["dossier"], atlas=topic["expected_routes"]["source_atlas"], incoming=str(incoming),
     )
     return _write_packet(packet_dir, task, {"schema": "apex.kb.phase2-inputs.v2", "phase1_analysis": str(analysis_path), "source_capsules": sorted(capsule_paths)}, "phase2-result.schema.json", body, incoming)
+
+
+def _deterministic_atlas(task: dict[str, Any], phase1: dict[str, Any]) -> dict[str, Any]:
+    return {
+        "route": task["required_routes"]["source_atlas"],
+        "title": f"{task['topic']['name']} — Source Atlas",
+        "entries": [
+            {
+                "source_id": review["source_id"],
+                "repository_path": review["repository_path"],
+                "disposition": review["disposition"],
+                "read_status": review["read_status"],
+                "content_snapshot": review["summary"],
+                "individual_value": review["individual_value"],
+                "authority": review["authority"],
+                "freshness": review["freshness"],
+                "duplicate_or_supersession": review["duplicate_or_supersession"],
+                "pointers": review["pointers"],
+                "questions_supported": review["questions_supported"],
+            }
+            for review in phase1["source_reviews"]
+        ],
+    }
 
 
 def _citation_text(citations: list[dict[str, str]]) -> str:
@@ -393,6 +433,10 @@ def _render_dossier(value: dict[str, Any]) -> str:
         "---",
         "",
         f"# {dossier['title']}",
+        "",
+        "## Page purpose",
+        "",
+        dossier["page_purpose"],
         "",
         "## Executive summary",
         "",
@@ -415,15 +459,25 @@ def _render_dossier(value: dict[str, Any]) -> str:
     ]
     for answer in dossier["target_answers"]:
         lines.extend([f"### {answer['query_id']}: {answer['question']}", "", answer["answer"], "", f"Evidence: {_citation_text(answer['citations'])}", ""])
-    lines.extend(["## Key claims", ""])
+    lines.extend(["## Adaptive ranked source set", ""])
+    for source in dossier["adaptive_ranked_sources"]:
+        lines.append(f"{source['rank']}. `{source['source_id']}` — {source['value']} — {_citation_text(source['citations'])}")
+    lines.extend(["", "## Routes by question", ""])
+    for route in dossier["route_by_question"]:
+        lines.append(f"- `{route['query_id']}` — {route['route']}")
+    lines.extend(["", "## Source boundaries", ""])
+    lines.extend(f"- {item}" for item in dossier["source_boundaries"])
+    lines.extend(["", "## Key claims", ""])
     for claim in dossier["key_claims"]:
         lines.append(f"- **{claim['state']}** — {claim['claim']} — {_citation_text(claim['citations'])}")
     lines.extend(["", "## Evolution and versions", ""])
     lines.extend(f"- {item}" for item in dossier["evolution"] or ["No material evolution recorded."])
     lines.extend(["", "## Contradictions", ""])
     lines.extend(f"- {item}" for item in dossier["contradictions"] or ["None recorded."])
-    lines.extend(["", "## Uncertainty", ""])
-    lines.extend(f"- {item}" for item in dossier["uncertainties"] or ["None recorded."])
+    lines.extend(["", "## Uncertainty and open questions", ""])
+    lines.extend(f"- {item}" for item in dossier["uncertainties"] + dossier["open_questions"] or ["None recorded."])
+    lines.extend(["", "## Raw-source reopen triggers", ""])
+    lines.extend(f"- {item}" for item in dossier["raw_source_reopen_triggers"] or ["None recorded."])
     lines.extend(["", "## Routes", "", f"- Source atlas: `{value['atlas']['route']}`"])
     return "\n".join(lines) + "\n"
 
@@ -478,10 +532,6 @@ def import_phase2_result(run_root: Path, manifest: dict[str, Any], active_task: 
         answers = [item["query_id"] for item in value["dossier"]["target_answers"]]
         if set(answers) != expected_queries or len(answers) != len(set(answers)):
             raise ApexKBError("target_answer_set_incomplete", "Dossier must answer every locked target query exactly once", {"expected": sorted(expected_queries), "actual": answers})
-        expected_candidates = set(task["candidate_source_ids"])
-        atlas_ids = [item["source_id"] for item in value["atlas"]["entries"]]
-        if set(atlas_ids) != expected_candidates or len(atlas_ids) != len(set(atlas_ids)):
-            raise ApexKBError("source_atlas_incomplete", "Source atlas must preserve every Phase 0 candidate exactly once", {"missing": sorted(expected_candidates - set(atlas_ids)), "unexpected": sorted(set(atlas_ids) - expected_candidates)})
         phase1 = load_json(Path(task["phase1_analysis_path"]))
         review_by_id = {item["source_id"]: item for item in phase1["source_reviews"]}
         for answer in value["dossier"]["target_answers"]:
@@ -495,25 +545,16 @@ def import_phase2_result(run_root: Path, manifest: dict[str, Any], active_task: 
             _validate_citations(answer["citations"], review_by_id, f"Answer {answer['query_id']}")
         for index, claim in enumerate(value["dossier"]["key_claims"], 1):
             _validate_citations(claim["citations"], review_by_id, f"Key claim {index}")
-        for entry in value["atlas"]["entries"]:
-            review = review_by_id[entry["source_id"]]
-            for field in (
-                "repository_path", "disposition", "read_status", "individual_value", "authority", "freshness",
-                "duplicate_or_supersession", "pointers", "questions_supported",
-            ):
-                if entry[field] != review[field]:
-                    raise ApexKBError("source_atlas_identity_mismatch", f"Atlas {field} differs from Phase 1 for {entry['source_id']}")
-            if entry["content_snapshot"] != review["summary"]:
-                raise ApexKBError("source_atlas_identity_mismatch", f"Atlas content_snapshot differs from the Phase 1 summary for {entry['source_id']}")
-        if value["dossier"]["route"] != task["required_routes"]["dossier"] or value["atlas"]["route"] != task["required_routes"]["source_atlas"]:
-            raise ApexKBError("page_route_mismatch", "Phase 2 result does not use the required dossier and atlas routes")
+        if value["dossier"]["route"] != task["required_routes"]["dossier"]:
+            raise ApexKBError("page_route_mismatch", "Phase 2 result does not use the required dossier route")
     except ApexKBError as exc:
         repair = _repair_file(incoming, task, exc)
         raise ApexKBError("semantic_result_invalid", exc.message, {"repair_instruction": str(repair), "validation": exc.details}) from exc
+    rendered_value = {**value, "atlas": _deterministic_atlas(task, phase1)}
     dossier_path = run_root / value["dossier"]["route"]
-    atlas_path = run_root / value["atlas"]["route"]
-    atomic_text(dossier_path, _render_dossier(value))
-    atomic_text(atlas_path, _render_atlas(value))
+    atlas_path = run_root / rendered_value["atlas"]["route"]
+    atomic_text(dossier_path, _render_dossier(rendered_value))
+    atomic_text(atlas_path, _render_atlas(rendered_value))
     imported = run_root / manifest["artifact_layout"]["semantic_results"] / incoming.name
     imported.parent.mkdir(parents=True, exist_ok=True)
     atomic_json(imported, value)

@@ -14,6 +14,7 @@ from .io import load_yaml, template
 from .lifecycle import (
     continue_once,
     create_manifest,
+    drive_until_boundary,
     initial_state,
     initialize_update,
     load_run,
@@ -199,6 +200,21 @@ def continue_command(run_root: Path, json_output: bool) -> None:
         emit("continue", "ok", {"executed": result, "status": snapshot}, json_output=json_output)
     except ApexKBError as exc:
         abort("continue", exc, json_output)
+
+
+@cli.command()
+@click.option("--run-root", type=click.Path(path_type=Path, exists=True, file_okay=False), required=True)
+@click.option("--semantic-acceptance", is_flag=True, help="Enable the legacy independent semantic-acceptance pass.")
+@click.option("--max-actions", type=click.IntRange(1, 1000), default=200, show_default=True)
+@click.option("--json-output", is_flag=True)
+def drive(run_root: Path, semantic_acceptance: bool, max_actions: int, json_output: bool) -> None:
+    """Run deterministic actions until semantic work or terminal completion."""
+    root = run_root.resolve()
+    try:
+        result = drive_until_boundary(root, semantic_acceptance=semantic_acceptance, max_actions=max_actions)
+        emit("drive", "ok", result, json_output=json_output)
+    except ApexKBError as exc:
+        abort("drive", exc, json_output)
 
 
 @cli.command()

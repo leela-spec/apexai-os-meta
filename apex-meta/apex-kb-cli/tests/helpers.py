@@ -237,7 +237,7 @@ def _phase1_result(run_root: Path, task: dict[str, Any], allowlist: dict[str, An
             "meso": f"{task['topic']['name']} is a bounded project capability.",
             "micro": "The implementation is described by the reviewed source set.",
             "target_answers": [
-                {"query_id": item["query_id"], "answer": f"Answer for {item['question']}", "citations": [review["source_id"] for review in reviews if review["read_status"] != "blocked"][:2]}
+                {"query_id": item["query_id"], "answer": f"Answer for {item['question']}", "citations": [f"{review['source_id']}:{review['pointers'][0]}" for review in reviews if review["read_status"] != "blocked" and review["pointers"]][:2]}
                 for item in task["target_queries"]
             ],
             "contradictions": [],
@@ -260,10 +260,14 @@ def _phase2_result(run_root: Path, task: dict[str, Any]) -> dict[str, Any]:
         "dossier": {
             "route": task["required_routes"]["dossier"],
             "title": task["topic"]["name"],
+            "page_purpose": f"Answer the locked questions for {task['topic']['name']}.",
             "executive_summary": f"Accepted durable overview of {task['topic']['name']}.",
             "macro": analysis["topic_analysis"]["macro"],
             "meso": analysis["topic_analysis"]["meso"],
             "micro": analysis["topic_analysis"]["micro"],
+            "adaptive_ranked_sources": [{"rank": 1, "source_id": reviews[0]["source_id"], "value": "Primary reviewed evidence.", "citations": [{"source_id": reviews[0]["source_id"], "pointer": reviews[0]["pointers"][0]}]}],
+            "route_by_question": [{"query_id": item["query_id"], "route": f"Direct answers / {item['query_id']}"} for item in task["target_queries"]],
+            "source_boundaries": ["The page is limited to evidence preserved by this topic's Phase 1 review."],
             "target_answers": [
                 {
                     "query_id": item["query_id"],
@@ -277,26 +281,8 @@ def _phase2_result(run_root: Path, task: dict[str, Any]) -> dict[str, Any]:
             "evolution": ["Historical and current candidates are preserved in the source atlas."],
             "contradictions": analysis["topic_analysis"]["contradictions"],
             "uncertainties": analysis["topic_analysis"]["uncertainties"],
-        },
-        "atlas": {
-            "route": task["required_routes"]["source_atlas"],
-            "title": f"{task['topic']['name']} source atlas",
-            "entries": [
-                {
-                    "source_id": review["source_id"],
-                    "repository_path": review["repository_path"],
-                    "disposition": review["disposition"],
-                    "read_status": review["read_status"],
-                    "content_snapshot": review["summary"],
-                    "individual_value": review["individual_value"],
-                    "authority": review["authority"],
-                    "freshness": review["freshness"],
-                    "duplicate_or_supersession": review["duplicate_or_supersession"],
-                    "pointers": review["pointers"],
-                    "questions_supported": review["questions_supported"],
-                }
-                for review in reviews
-            ],
+            "open_questions": [],
+            "raw_source_reopen_triggers": ["Reopen raw sources when a claim needs a pointer not preserved by Phase 1."],
         },
     }
 
