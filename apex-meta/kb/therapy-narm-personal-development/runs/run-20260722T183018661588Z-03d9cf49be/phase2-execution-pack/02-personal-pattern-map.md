@@ -1,0 +1,3 @@
+# Topic 2 — Personal pattern map
+
+Run `apex-kb drive` to obtain the bounded Phase 2 packet for topic `personal-pattern-map`. Read only that packet's files, its declared Phase 1 analysis, and its declared capsules. Distinguish direct self-observation from interpretation, repeated pattern from one-off event, and urgent regulation needs from long-term development hypotheses. Answer every locked question and make the page useful for recognizing triggers, emotional escalation, protective responses, resources, and uncertainty without diagnosing. Validate, inspect the rendered dossier and deterministic atlas, commit only this topic's artifacts, push `main`, and continue immediately to topic 3.

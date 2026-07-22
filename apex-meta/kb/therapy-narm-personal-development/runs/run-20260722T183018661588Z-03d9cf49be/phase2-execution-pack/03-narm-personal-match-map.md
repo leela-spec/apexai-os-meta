@@ -1,0 +1,3 @@
+# Topic 3 — NARM-to-personal match map
+
+Run `apex-kb drive` to obtain the bounded Phase 2 packet for topic `narm-personal-match-map`. Read only that topic's packet-listed Phase 1 analysis and capsules. Map NARM concepts to the operator's recorded observations using graded, source-grounded matches: strong match, plausible hypothesis, weak/insufficient evidence, contradiction, and open question. Keep NARM theory, personal observation, and inference visibly separate. Rank matches by practical impact and evidential support, identify falsification/reopen triggers, answer every locked question, validate, inspect both rendered pages, commit only this topic's artifacts, push `main`, and continue immediately to topic 4.

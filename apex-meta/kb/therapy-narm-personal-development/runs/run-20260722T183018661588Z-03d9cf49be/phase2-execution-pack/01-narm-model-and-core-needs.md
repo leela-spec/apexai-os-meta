@@ -1,0 +1,3 @@
+# Topic 1 — NARM model and core needs
+
+Execute the active bounded Phase 2 packet for topic `narm-model-and-core-needs`. This is repair attempt `a02`; do not reuse the invalid `a01` output. Use only the packet-listed topic analysis and capsules. Build a source-grounded explanation of NARM's five core needs, survival adaptations, shame/disconnection dynamics, present-focused and somatic methods, and explicit limits on inferring a personal diagnosis. Answer every locked question verbatim and satisfy the complete page-value contract. Validate with `apex-kb drive`, inspect both rendered pages, commit only this topic's run/page artifacts, push `main`, then continue immediately to topic 2.

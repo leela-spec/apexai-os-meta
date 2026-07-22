@@ -1,8 +1,8 @@
 {
   "active_task": {
-    "incoming_path": "C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\therapy-narm-personal-development\\runs\\run-20260722T183018661588Z-03d9cf49be\\incoming\\phase2-narm-model-and-core-needs-a01.json",
-    "packet_dir": "C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\therapy-narm-personal-development\\runs\\run-20260722T183018661588Z-03d9cf49be\\semantic-tasks\\phase2-narm-model-and-core-needs-a01",
-    "task_id": "phase2-narm-model-and-core-needs-a01",
+    "incoming_path": "C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\therapy-narm-personal-development\\runs\\run-20260722T183018661588Z-03d9cf49be\\incoming\\phase2-narm-model-and-core-needs-a02.json",
+    "packet_dir": "C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\therapy-narm-personal-development\\runs\\run-20260722T183018661588Z-03d9cf49be\\semantic-tasks\\phase2-narm-model-and-core-needs-a02",
+    "task_id": "phase2-narm-model-and-core-needs-a02",
     "task_kind": "phase2",
     "topic_id": "narm-model-and-core-needs"
   },
@@ -324,6 +324,42 @@
         "topic_id": "narm-model-and-core-needs"
       },
       "event": "semantic_packet_created"
+    },
+    {
+      "at": "2026-07-22T21:30:33Z",
+      "details": {
+        "enabled": false
+      },
+      "event": "semantic_acceptance_mode_configured"
+    },
+    {
+      "at": "2026-07-22T21:30:33Z",
+      "details": {
+        "details": {
+          "repair_instruction": "C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\therapy-narm-personal-development\\runs\\run-20260722T183018661588Z-03d9cf49be\\incoming\\phase2-narm-model-and-core-needs-a01.repair.json",
+          "validation": [
+            "dossier: 'page_purpose' is a required property",
+            "dossier: 'adaptive_ranked_sources' is a required property",
+            "dossier: 'route_by_question' is a required property",
+            "dossier: 'source_boundaries' is a required property",
+            "dossier: 'open_questions' is a required property",
+            "dossier: 'raw_source_reopen_triggers' is a required property"
+          ]
+        },
+        "task_id": "phase2-narm-model-and-core-needs-a01"
+      },
+      "event": "semantic_repair_requested"
+    },
+    {
+      "at": "2026-07-22T21:30:34Z",
+      "details": {
+        "incoming_path": "C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\therapy-narm-personal-development\\runs\\run-20260722T183018661588Z-03d9cf49be\\incoming\\phase2-narm-model-and-core-needs-a02.json",
+        "packet_dir": "C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\therapy-narm-personal-development\\runs\\run-20260722T183018661588Z-03d9cf49be\\semantic-tasks\\phase2-narm-model-and-core-needs-a02",
+        "task_id": "phase2-narm-model-and-core-needs-a02",
+        "task_kind": "phase2",
+        "topic_id": "narm-model-and-core-needs"
+      },
+      "event": "semantic_packet_created"
     }
   ],
   "lifecycle_status": "running",
@@ -345,7 +381,7 @@
         "artifacts": {},
         "attempt": 0,
         "evaluator_context_id": null,
-        "status": "pending",
+        "status": "not_required",
         "verdict": null
       },
       "affected": true,
@@ -378,7 +414,7 @@
         "artifacts": {},
         "attempt": 0,
         "evaluator_context_id": null,
-        "status": "pending",
+        "status": "not_required",
         "verdict": null
       },
       "affected": true,
@@ -408,7 +444,7 @@
         "artifacts": {},
         "attempt": 0,
         "evaluator_context_id": null,
-        "status": "pending",
+        "status": "not_required",
         "verdict": null
       },
       "affected": true,
@@ -442,7 +478,7 @@
       },
       "phase2": {
         "artifacts": {},
-        "attempt": 1,
+        "attempt": 2,
         "status": "awaiting_result",
         "worker_context_id": null
       },
@@ -453,7 +489,7 @@
         "artifacts": {},
         "attempt": 0,
         "evaluator_context_id": null,
-        "status": "pending",
+        "status": "not_required",
         "verdict": null
       },
       "affected": true,
@@ -483,7 +519,7 @@
         "artifacts": {},
         "attempt": 0,
         "evaluator_context_id": null,
-        "status": "pending",
+        "status": "not_required",
         "verdict": null
       },
       "affected": true,
@@ -514,5 +550,5 @@
       "topic_id": "personal-pattern-map"
     }
   },
-  "updated_at": "2026-07-22T19:17:11Z"
+  "updated_at": "2026-07-22T21:30:34Z"
 }

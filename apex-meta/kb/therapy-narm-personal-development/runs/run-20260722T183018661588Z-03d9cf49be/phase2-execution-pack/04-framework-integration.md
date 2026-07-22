@@ -1,0 +1,3 @@
+# Topic 4 — Framework integration
+
+Run `apex-kb drive` to obtain the bounded Phase 2 packet for topic `framework-integration`. Read only its packet-listed Phase 1 analysis and capsules. Explain where NARM converges with, complements, or conflicts with the operator's existing Aysen, Jungian, somatic, and other recorded frameworks. Do not force equivalence between vocabularies. Rank integrations by evidence, usefulness, and risk; identify which framework is most suitable for which type of situation; preserve tensions and open questions; answer every locked question. Validate, inspect both pages, commit only this topic's artifacts, push `main`, and continue immediately to topic 5.

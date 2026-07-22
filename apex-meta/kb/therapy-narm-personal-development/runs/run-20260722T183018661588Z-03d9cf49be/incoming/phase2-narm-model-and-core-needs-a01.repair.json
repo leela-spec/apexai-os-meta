@@ -1,0 +1,16 @@
+{
+  "expected_path": "C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\therapy-narm-personal-development\\runs\\run-20260722T183018661588Z-03d9cf49be\\incoming\\phase2-narm-model-and-core-needs-a01.json",
+  "message": "Repair only the declared result file. Do not edit configuration, manifests, state, stage results, wiki pages, retrieval files, or sources.",
+  "reason_code": "schema_validation_failed",
+  "schema": "apex.kb.semantic-repair.v2",
+  "task_id": "phase2-narm-model-and-core-needs-a01",
+  "topic_id": "narm-model-and-core-needs",
+  "validation_errors": [
+    "dossier: 'page_purpose' is a required property",
+    "dossier: 'adaptive_ranked_sources' is a required property",
+    "dossier: 'route_by_question' is a required property",
+    "dossier: 'source_boundaries' is a required property",
+    "dossier: 'open_questions' is a required property",
+    "dossier: 'raw_source_reopen_triggers' is a required property"
+  ]
+}
