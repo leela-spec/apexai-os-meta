@@ -46,17 +46,30 @@ def _query(topic_slug: str, index: int, raw: Any) -> dict[str, Any]:
 
 
 def normalize_config(raw: Any) -> dict[str, Any]:
-    """Normalize the PR #10 v1 shape and the complete v2 shape into v2."""
+    """Normalize the selected operator Start shape and the canonical v2 shape into v2."""
     config = copy.deepcopy(ensure_object(raw, "configuration"))
     source = ensure_object(config.get("source"), "source")
-    destination = ensure_object(config.get("destination"), "destination")
+    target_raw = config.get("target")
+    destination_raw = config.get("destination")
+    if target_raw is not None and destination_raw is not None:
+        raise ApexKBError("destination_shape_ambiguous", "Use either target or destination, not both")
+    if target_raw is not None:
+        target = ensure_object(target_raw, "target")
+        destination = {
+            "repository": target.get("repository", ""),
+            "root": target.get("root", ""),
+            "folder": target.get("kb_folder", ""),
+        }
+    else:
+        destination = ensure_object(destination_raw, "destination")
+    kb = ensure_object(config.get("kb") or {}, "kb")
     normalized_topics: list[dict[str, Any]] = []
     for topic_index, topic_raw in enumerate(config.get("topics") or [], 1):
         topic = ensure_object(topic_raw, f"topics[{topic_index - 1}]")
         name = str(topic.get("name", "")).strip()
         if not name:
             raise ApexKBError("topic_name_missing", f"Topic {topic_index} has no name")
-        topic_id = str(topic.get("topic_id") or slugify(name))
+        topic_id = str(topic.get("topic_id") or topic.get("id") or slugify(name))
         primary = list(topic.get("primary_phrases") or topic.get("phrases") or [])
         aliases = list(topic.get("aliases") or [])
         supporting = list(topic.get("supporting_terms") or topic.get("keywords") or [])
@@ -82,25 +95,34 @@ def normalize_config(raw: Any) -> dict[str, Any]:
             }
         )
     options = ensure_object(config.get("run_options") or {}, "run_options")
+    destination_folder = str(destination.get("folder", "")).strip()
+    kb_id = str(kb.get("id") or slugify(Path(destination_folder).name or "knowledge-base"))
+    kb_title = str(kb.get("title") or kb_id.replace("-", " ").title())
     normalized = {
         "schema": "apex.kb.run-config.v2",
+        "kb": {
+            "id": kb_id,
+            "title": kb_title,
+            "purpose": str(kb.get("purpose", "")).strip(),
+        },
         "source": {
             "repository": str(source.get("repository", "")).strip(),
+            "ref": str(source.get("ref") or "main").strip(),
             "root": str(source.get("root", "")).strip(),
             "folders": list(source.get("folders") or []),
         },
         "destination": {
             "repository": str(destination.get("repository", "")).strip(),
             "root": str(destination.get("root", "")).strip(),
-            "folder": str(destination.get("folder", "")).strip(),
+            "folder": destination_folder,
         },
-        "exclusions": list(config.get("exclusions") or []),
+        "exclusions": list(config.get("exclusions") or source.get("exclusions") or []),
         "lifecycle_hint_rules": list(config.get("lifecycle_hint_rules") or []),
         "authority_hint_rules": list(config.get("authority_hint_rules") or []),
         "topics": normalized_topics,
         "run_options": {
             "source_handling": options.get("source_handling", "pointer_only"),
-            "semantic_depth": options.get("semantic_depth", "standard"),
+            "semantic_depth": options.get("semantic_depth") or options.get("detail") or "standard",
             "output": options.get("output", "query_ready"),
             "non_text": options.get("non_text", "inventory_and_report"),
             "git_metadata": bool(options.get("git_metadata", True)),
@@ -108,6 +130,7 @@ def normalize_config(raw: Any) -> dict[str, Any]:
             "ai_help_after_preflight": bool(options.get("ai_help_after_preflight", False)),
             "max_semantic_repairs": int(options.get("max_semantic_repairs", 2)),
         },
+        "special_constraints": [str(item).strip() for item in config.get("special_constraints") or [] if str(item).strip()],
     }
     validate_schema(normalized, "run-config.schema.json")
     topic_ids = [topic["topic_id"] for topic in normalized_topics]

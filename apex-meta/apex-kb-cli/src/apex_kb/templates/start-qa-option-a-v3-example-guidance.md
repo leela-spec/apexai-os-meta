@@ -1,10 +1,10 @@
-# Apex KB Start Q&A — Option A v3
+# Apex KB Start Q&A — Option A
 
 ```yaml
-schema: apex.kb.start-qa.option-a.v3
-status: operator_review_required
+schema: apex.kb.start-qa.option-a.v1
+status: selected_design
 scope: phase_0_setup_start_only
-layout: compact_markdown_with_guided_yaml
+layout: compact_markdown_with_yaml_configuration
 render_policy: fixed_verbatim
 runtime_authority: frontend_input_only
 creates_files_when_rendered: false
@@ -29,99 +29,54 @@ Nothing is copied, indexed, or written during this step.
 | Term | Meaning |
 |---|---|
 | **Source corpus** | Existing repository folders that Apex KB will inspect and index |
-| **KB destination** | The folder in the same repository where Apex KB will save generated manifests, indexes, analyses, compiled pages, and retrieval artifacts |
+| **KB destination** | The repository and folder where Apex KB will save generated manifests, indexes, analyses, compiled pages, and retrieval artifacts |
+| **Local clone root** | The absolute Windows path to an already available local repository clone; the CLI asks for it separately when it is not supplied in the configuration |
 
-The repository is stated once. Source folders and the KB destination are repository-relative paths inside it.
+Source folders and the KB destination folder are repository-relative paths. The source and destination may be the same repository or two different repositories.
 
-Apex KB uses `main` first. Other available branches or worktrees are inspected only when the selected source appears missing, contradictory, or clearly incomplete. Branch selection is not an operator field.
+Apex KB uses the configured source ref, normally `main`. The CLI does not invent another branch or worktree.
 
-## 1. Fill the run configuration
+## 1. Required run information
 
-The block is prefilled with a fictional example for **Velvet Vice**, a kinky cocktail bar with consent-based spanking sessions.
-
-**Before submitting:** replace every example value with your real values. Keep the field names and indentation. Empty optional lists should be written as `[]`; do not leave half-deleted bullets.
+Fill the block below. Keep repository folders repository-relative. The CLI asks for local clone roots separately when they are not already present.
 
 ```yaml
-repository: "velvet-vice/bar-operations"
-# EFFECT: Apex KB searches only this repository. It does not search unrelated repositories.
+kb:
+  id: ""
+  title: ""
+  purpose: ""
 
-source_folders:
-  # Add every repository folder that contains evidence for the KB.
-  # EFFECT: Files below these folders become eligible for inventory and topic matching.
-  # EFFECT: Files outside these folders are not searched unless the later preflight identifies a clear evidence gap and asks for review.
-  - "operations"
-  - "menus-and-cocktails"
-  - "consent-and-play-guidelines"
+source:
+  repository: "owner/repository"
+  ref: "main"
+  folders:
+    - "path/to/source-folder"
+  exclusions:
+    - path: "path/to/exclude"
+      reason: ""
 
-exclusions:
-  # Keep `exclusions: []` when nothing should be excluded.
-  # Each exclusion is a machine-readable path plus a stable reason code.
-  # EFFECT: Matching files remain visible in counts but are not opened or indexed as evidence.
-  - path: "operations/generated-reports"
-    reason: "generated_output"
-  - path: "menus-and-cocktails/archive/duplicate-exports"
-    reason: "duplicate_export"
-
-kb_destination:
-  # The generated Apex KB will live here. This folder must not overlap the source folders.
-  # EFFECT: Manifests, analyses, compiled pages, audits, and retrieval files are created below this path after confirmation.
-  folder: "apex-meta/kb/velvet-vice-operations"
+target:
+  repository: "owner/repository"
+  kb_folder: "path/to/knowledge-base"
 
 topics:
-  # Add one list item for every subject the completed KB must cover.
-  # Every topic keeps its phrases, negative terms, and questions together.
-
-  - name: "Cocktail program and service"
-    # EFFECT: Creates one topic route and later one bounded semantic workstream.
-
-    phrases:
-      # Strong names that may independently surface candidate files or sections.
-      # EFFECT: More precise phrases increase recall for this topic without broadly matching every bar-related file.
-      - "signature cocktail menu"
-      - "cocktail preparation standards"
-      - "responsible alcohol service"
-
-    ambiguous_or_negative_terms:
-      # Broad, obsolete, test, or unrelated language that should not count as strong evidence by itself.
-      # EFFECT: Reduces false positives; it does not automatically delete a file from review.
-      - "sample cocktail"
-      - "old menu"
-      - "staff party drinks"
-
+  - id: ""
+    name: ""
+    phrases: [""]
+    aliases: []
+    supporting_terms: []
+    ambiguous_or_negative_terms: []
     questions:
-      # Exact questions the compiled KB must answer and later acceptance must test.
-      # EFFECT: A query-ready run cannot pass if critical questions remain unanswered.
-      - "Which cocktails are currently offered and how are they prepared?"
-      - "Which service and intoxication-safety rules apply?"
-      - "Which menu files are current, historical, or conflicting?"
-
-  - name: "Consent-based spanking sessions"
-    # EFFECT: Creates a separate topic so consent rules are not diluted inside general venue operations.
-
-    phrases:
-      - "spanking session"
-      - "explicit consent protocol"
-      - "safe word procedure"
-      - "aftercare guidance"
-
-    ambiguous_or_negative_terms:
-      - "joke punishment"
-      - "disciplinary warning"
-      - "deprecated consent form"
-
-    questions:
-      - "How must guests and staff establish and withdraw consent?"
-      - "Which safety, hygiene, safe-word, and aftercare procedures apply?"
-      - "Who may facilitate a session and what conduct is prohibited?"
-      - "Which documents define the current process and which are obsolete?"
+      - ""
 
 run_options:
-  # Keep exactly one value after each colon; delete the alternatives.
-  source_handling: pointer_only / copy_into_kb / snapshot_copy
-  semantic_depth: quick / standard / deep
-  output: analysis_only / compiled_kb / query_ready
-  non_text: inventory_and_report / extract_when_supported / block_on_unsupported
-  ai_help_after_preflight: false / true
+  source_handling: pointer_only
+  semantic_depth: standard
+  output: query_ready
+  non_text: inventory_and_report
+  ai_help_after_preflight: false
+
+special_constraints: []
 ```
 
 ## 2. Option guide

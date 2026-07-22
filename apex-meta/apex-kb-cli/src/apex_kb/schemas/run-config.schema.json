@@ -18,6 +18,28 @@
     "schema": {
       "const": "apex.kb.run-config.v2"
     },
+    "kb": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "title",
+        "purpose"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "purpose": {
+          "type": "string"
+        }
+      }
+    },
     "source": {
       "type": "object",
       "additionalProperties": false,
@@ -30,6 +52,10 @@
         "repository": {
           "type": "string",
           "pattern": "^[^/\\s]+/[^/\\s]+$"
+        },
+        "ref": {
+          "type": "string",
+          "minLength": 1
         },
         "root": {
           "type": "string",
@@ -278,6 +304,13 @@
           "minimum": 0,
           "maximum": 10
         }
+      }
+    },
+    "special_constraints": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
       }
     },
     "lifecycle_hint_rules": {

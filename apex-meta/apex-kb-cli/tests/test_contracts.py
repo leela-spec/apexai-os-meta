@@ -5,7 +5,9 @@ import subprocess
 from pathlib import Path
 
 import pytest
+from click.testing import CliRunner
 
+from apex_kb.cli import cli
 from apex_kb.config import normalize_config, preview_config
 from apex_kb.corpus import build_corpus_intelligence
 from apex_kb.errors import ApexKBError
@@ -21,6 +23,68 @@ from apex_kb.retrieval import query_retrieval, retrieval_health
 
 from .helpers import default_topics, initialize, make_workspace, satisfy_active_task
 from .test_lifecycle import drive
+
+
+def test_selected_phase0_template_shape_initializes_through_public_cli(tmp_path: Path):
+    import yaml
+
+    source_root = tmp_path / "leela"
+    source_folder = source_root / "LeelaAppDevelopment"
+    destination_root = tmp_path / "apexai-os-meta"
+    source_folder.mkdir(parents=True)
+    destination_root.mkdir()
+    (source_folder / "skill-tree.md").write_text("# Skill Tree\n", encoding="utf-8")
+    operator_config = {
+        "kb": {"id": "leela-canary", "title": "Leela Canary", "purpose": "Compile durable Leela knowledge."},
+        "source": {
+            "repository": "leela-spec/leela",
+            "ref": "main",
+            "folders": ["LeelaAppDevelopment"],
+            "exclusions": [],
+        },
+        "target": {
+            "repository": "leela-spec/apexai-os-meta",
+            "kb_folder": "apex-meta/kb/leela-canary",
+        },
+        "topics": [
+            {
+                "id": "skill-tree",
+                "name": "Skill Tree",
+                "phrases": ["skill tree"],
+                "aliases": [],
+                "supporting_terms": ["epic", "block", "chunk"],
+                "ambiguous_or_negative_terms": ["tree"],
+                "questions": ["What is the current Skill Tree and what does it own?"],
+            }
+        ],
+        "run_options": {
+            "source_handling": "pointer_only",
+            "semantic_depth": "standard",
+            "output": "query_ready",
+            "non_text": "inventory_and_report",
+            "ai_help_after_preflight": False,
+        },
+        "special_constraints": ["Do not modify the source corpus."],
+    }
+    config_path = tmp_path / "start.yaml"
+    config_path.write_text(yaml.safe_dump(operator_config, sort_keys=False), encoding="utf-8")
+
+    result = CliRunner().invoke(
+        cli,
+        ["start", "--config", str(config_path), "--yes"],
+        input=f"{source_root}\n{destination_root}\n",
+    )
+
+    assert result.exit_code == 0, result.output
+    assert result.output.startswith("# Apex KB Start Q&A — Option A\n")
+    run_root = destination_root / "apex-meta/kb/leela-canary"
+    saved = load_yaml(run_root / "run-config.yaml")
+    assert saved["kb"] == operator_config["kb"]
+    assert saved["source"]["repository"] == "leela-spec/leela"
+    assert saved["source"]["ref"] == "main"
+    assert saved["destination"]["repository"] == "leela-spec/apexai-os-meta"
+    assert saved["topics"][0]["topic_id"] == "skill-tree"
+    assert saved["special_constraints"] == ["Do not modify the source corpus."]
 
 
 def test_block_on_unsupported_fails_closed_after_accountability_artifacts(tmp_path: Path):

@@ -53,21 +53,39 @@ def csv_prompt(label: str, default: list[str] | None = None) -> list[str]:
 
 def complete_missing(raw: dict[str, Any]) -> dict[str, Any]:
     config = dict(raw)
+    kb = config.setdefault("kb", {})
+    if not kb.get("id"):
+        kb["id"] = click.prompt("KB ID")
+    if not kb.get("title"):
+        kb["title"] = click.prompt("KB title")
+    if not kb.get("purpose"):
+        kb["purpose"] = click.prompt("KB purpose")
     source = config.setdefault("source", {})
     if not source.get("repository"):
         source["repository"] = click.prompt("Source repository (owner/name)")
+    source.setdefault("ref", "main")
     if not source.get("root"):
         source["root"] = click.prompt("Absolute source repository root")
     if not source.get("folders"):
         source["folders"] = csv_prompt("Source folders, comma-separated")
-    destination = config.setdefault("destination", {})
-    if not destination.get("repository"):
-        destination["repository"] = click.prompt("Destination repository (owner/name)")
-    if not destination.get("root"):
-        destination["root"] = click.prompt("Absolute destination repository root")
-    if not destination.get("folder"):
-        destination["folder"] = click.prompt("Destination folder, relative to destination root")
-    config.setdefault("exclusions", [])
+    if "destination" in config:
+        destination = config.setdefault("destination", {})
+        if not destination.get("repository"):
+            destination["repository"] = click.prompt("Destination repository (owner/name)")
+        if not destination.get("root"):
+            destination["root"] = click.prompt("Absolute destination repository root")
+        if not destination.get("folder"):
+            destination["folder"] = click.prompt("Destination folder, relative to destination root")
+    else:
+        target = config.setdefault("target", {})
+        if not target.get("repository"):
+            target["repository"] = click.prompt("Destination repository (owner/name)")
+        if not target.get("root"):
+            target["root"] = click.prompt("Absolute destination repository root")
+        if not target.get("kb_folder"):
+            target["kb_folder"] = click.prompt("Destination folder, relative to destination root")
+    if not source.get("exclusions") and "exclusions" not in config:
+        source["exclusions"] = []
     if not config.get("topics"):
         topic_name = click.prompt("First topic name")
         config["topics"] = [
@@ -81,7 +99,7 @@ def complete_missing(raw: dict[str, Any]) -> dict[str, Any]:
     options = config.setdefault("run_options", {})
     if not options.get("source_handling"):
         options["source_handling"] = click.prompt("Source handling", type=click.Choice(["pointer_only", "copy_into_kb", "snapshot_copy"]), default="pointer_only")
-    if not options.get("semantic_depth"):
+    if not (options.get("semantic_depth") or options.get("detail")):
         options["semantic_depth"] = click.prompt("Semantic depth", type=click.Choice(["quick", "standard", "deep"]), default="standard")
     if not options.get("output"):
         options["output"] = click.prompt("Output", type=click.Choice(["analysis_only", "compiled_kb", "query_ready"]), default="query_ready")
@@ -91,12 +109,13 @@ def complete_missing(raw: dict[str, Any]) -> dict[str, Any]:
     options.setdefault("graph_depth", "links")
     options.setdefault("ai_help_after_preflight", False)
     options.setdefault("max_semantic_repairs", 2)
+    config.setdefault("special_constraints", [])
     return config
 
 
 def reject_placeholders(value: Any) -> None:
     rendered = json.dumps(value, ensure_ascii=False).casefold()
-    markers = ["velvet-vice", "<owner>", "<repository", " / copy_into_kb", " / standard", " / query_ready", " / true"]
+    markers = ["velvet-vice", "owner/repository", "path/to/", "<owner>", "<repository", " / copy_into_kb", " / standard", " / query_ready", " / true"]
     found = [marker for marker in markers if marker in rendered]
     if found:
         raise ApexKBError("configuration_contains_placeholders", "Replace all example values and slash alternatives before starting", found)
