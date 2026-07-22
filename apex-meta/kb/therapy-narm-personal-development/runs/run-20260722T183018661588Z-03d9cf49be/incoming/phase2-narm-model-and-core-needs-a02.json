@@ -1,0 +1,97 @@
+{
+  "schema": "apex.kb.phase2-result.v2",
+  "run_id": "run-20260722T183018661588Z-03d9cf49be",
+  "config_hash": "03d9cf49be71c2b066ed7a1e774e4e24f12d05d2b9bc17c3de2a8d5b4bd4e390",
+  "task_id": "phase2-narm-model-and-core-needs-a02",
+  "phase": "phase2",
+  "topic_id": "narm-model-and-core-needs",
+  "worker_context_id": "codex-phase2-narm-core-a02-20260722",
+  "dossier": {
+    "route": "wiki/concepts/narm-model-and-core-needs.md",
+    "title": "NARM Model, Core Needs, Survival Adaptations, and Therapeutic Principles",
+    "page_purpose": "Provide a source-grounded NARM reference that can later be compared with personal observations without turning theory or self-report into a diagnosis. It defines the model, explains its methods and safety boundaries, and identifies which questions require raw-source or professional review.",
+    "executive_summary": "NARM frames developmental trauma around disruptions in contact, attunement, trust, autonomy, and love/sexuality, and around adaptive strategies that once protected connection or survival but may constrain present identity, regulation, and relationship. Its practical emphasis is resource-oriented and present-focused: notice contact and disconnection, track bodily organization, contain and titrate affect, and use existing adult capacities. This page is a theory and decision-support map; it does not establish that the operator has any survival style or diagnosis.",
+    "macro": "Why this matters: the operator wants to understand how NARM may explain recurring high-emotion and relational difficulties and which practices may help. NARM offers a coherent vocabulary for need, adaptation, shame, contact, and regulation while keeping attention on current resources. Used carefully, it can organize questions and experiments without reducing the person to pathology; used carelessly, it can become an unsupported label.",
+    "meso": "What the model says: five biologically grounded core needs—contact, attunement, trust, autonomy, and love/sexuality—are linked to capacities for embodied presence, being met, depending safely, self-direction, intimacy, and vitality. When early environments cannot support a need, NARM describes adaptive survival organization, including disconnection, shame-based identity, and counter-identification. Developmental trauma concerns organizing conditions across development and close relationships; shock trauma is organized around a discrete overwhelming event. These are model distinctions, not findings about this operator.",
+    "micro": "How to use it: begin with present-moment observation—What happens in the body, attention, impulse, and relationship as contact increases or decreases? Identify available resources before approaching disorganized material. Use grounding, orientation, containment, titration, pendulation, and small doses of contact; track whether activation becomes more organized or more overwhelming. Stop escalation, return to stabilization, and seek qualified support when affect cannot be contained, functioning deteriorates, risk rises, or trauma exploration repeatedly overwhelms available capacity.",
+    "adaptive_ranked_sources": [
+      {
+        "rank": 1,
+        "source_id": "src-c2fb4d779264e00e",
+        "value": "Primary authority for NARM definitions, core needs, trauma distinctions, somatic regulation, and cautions.",
+        "citations": [{"source_id": "src-c2fb4d779264e00e", "pointer": "line:181"}, {"source_id": "src-c2fb4d779264e00e", "pointer": "line:413"}]
+      },
+      {
+        "rank": 2,
+        "source_id": "src-f7ded2930e8d80ad",
+        "value": "Personal working formulation that supplies non-diagnostic application and professional-support boundaries.",
+        "citations": [{"source_id": "src-f7ded2930e8d80ad", "pointer": "line:698"}]
+      },
+      {
+        "rank": 3,
+        "source_id": "src-6a0cea0ce0c8e1ce",
+        "value": "Operator self-report defining goals and energy-sensitive constraints, not NARM theory.",
+        "citations": [{"source_id": "src-6a0cea0ce0c8e1ce", "pointer": "line:7"}]
+      }
+    ],
+    "route_by_question": [
+      {"query_id": "narm-q01", "route": "Core needs → adaptive survival organization → shame, disconnection, identity → non-diagnostic boundary"},
+      {"query_id": "narm-q02", "route": "Resource orientation → present contact → somatic tracking → containment/titration → safety escalation"},
+      {"query_id": "narm-q03", "route": "Discrete shock event versus development-shaping relational conditions → implications for pacing and focus"}
+    ],
+    "source_boundaries": [
+      "Only the configured NARM text is treated as authority for NARM theory; personal, spiritual, and integration notes are contextual evidence.",
+      "Self-report and working formulations can define goals or hypotheses but cannot establish a diagnosis, survival style, cause, or treatment suitability.",
+      "The primary source is German and book-derived; terminology and translations should be checked against raw text before publication outside this personal KB.",
+      "This page is educational and organizational, not emergency, medical, or psychotherapeutic care."
+    ],
+    "target_answers": [
+      {
+        "query_id": "narm-q01",
+        "question": "What are NARM's core needs, survival adaptations, and central developmental-trauma concepts?",
+        "answer": "The primary NARM source names contact, attunement, trust, autonomy, and love/sexuality as five core needs. It links their adequate support to adult capacities and describes survival adaptations when early fulfilment is disrupted. Central concepts include contact and disconnection, shame-based identification, defensive counter-identification, impaired self-regulation, and the persistence of past organization in present experience. These concepts describe NARM theory; they do not show that the operator has a particular structure, diagnosis, or developmental history.",
+        "citations": [{"source_id": "src-c2fb4d779264e00e", "pointer": "line:3"}, {"source_id": "src-c2fb4d779264e00e", "pointer": "line:181"}, {"source_id": "src-c2fb4d779264e00e", "pointer": "line:187"}, {"source_id": "src-c2fb4d779264e00e", "pointer": "line:507"}]
+      },
+      {
+        "query_id": "narm-q02",
+        "question": "Which NARM principles and methods address contact, disconnection, shame, regulation, and relational safety?",
+        "answer": "NARM is presented as resource-oriented, present-focused, relational, and somatically informed. Relevant methods include noticing contact and disconnection, somatic mindfulness, grounding and orientation, containment of affect, titration, pendulation, tracking nervous-system shifts, and approaching disorganized material through available organized adult capacities. Their purpose is not forced catharsis but increased capacity for contact, choice, regulation, and relational presence. If attention opens more activation than can be contained, the practical response is to reduce intensity, restore orientation and resources, and involve qualified professional support rather than press deeper.",
+        "citations": [{"source_id": "src-c2fb4d779264e00e", "pointer": "line:283"}, {"source_id": "src-c2fb4d779264e00e", "pointer": "line:313"}, {"source_id": "src-c2fb4d779264e00e", "pointer": "line:327"}, {"source_id": "src-c2fb4d779264e00e", "pointer": "line:403"}, {"source_id": "src-c2fb4d779264e00e", "pointer": "line:413"}, {"source_id": "src-c2fb4d779264e00e", "pointer": "line:479"}, {"source_id": "src-c2fb4d779264e00e", "pointer": "line:722"}, {"source_id": "src-f7ded2930e8d80ad", "pointer": "line:698"}]
+      },
+      {
+        "query_id": "narm-q03",
+        "question": "How does NARM distinguish developmental trauma from shock trauma, and why does that distinction matter here?",
+        "answer": "The source treats shock trauma as a response organized around a discrete, bounded overwhelming event, while developmental trauma concerns early conditions that shape later development, identity, regulation, contact, and relationship. Attachment trauma is located in close caregiving relationships. The distinction matters because a developmentally oriented approach examines current organization and relational capacity rather than assuming that revisiting one event is sufficient. Relevance to the operator remains provisional and belongs in careful reflection or qualified professional exploration.",
+        "citations": [{"source_id": "src-c2fb4d779264e00e", "pointer": "line:413"}, {"source_id": "src-c2fb4d779264e00e", "pointer": "line:3581"}, {"source_id": "src-c2fb4d779264e00e", "pointer": "line:3999"}, {"source_id": "src-c2fb4d779264e00e", "pointer": "line:4161"}, {"source_id": "src-6a0cea0ce0c8e1ce", "pointer": "line:7"}]
+      }
+    ],
+    "key_claims": [
+      {"claim": "NARM identifies five core needs: contact, attunement, trust, autonomy, and love/sexuality.", "state": "present", "citations": [{"source_id": "src-c2fb4d779264e00e", "pointer": "line:181"}]},
+      {"claim": "NARM emphasizes present resources and somatic regulation rather than forcing regression or catharsis.", "state": "present", "citations": [{"source_id": "src-c2fb4d779264e00e", "pointer": "line:283"}, {"source_id": "src-c2fb4d779264e00e", "pointer": "line:479"}]},
+      {"claim": "Applying a NARM survival-style label to the operator is currently unsupported.", "state": "open", "citations": [{"source_id": "src-f7ded2930e8d80ad", "pointer": "line:11"}, {"source_id": "src-9b22548c98e6481b", "pointer": "line:1"}]}
+    ],
+    "evolution": [
+      "The corpus moves from primary NARM theory to personal working formulations and later personal insights; later material can generate comparison hypotheses but does not supersede the theory source.",
+      "The corrected a02 result removes pointers not preserved by the Phase 1 review ledger and leaves atlas construction to the application."
+    ],
+    "contradictions": [
+      "NARM's psychotherapeutic assumptions are not interchangeable with surrender, ACIM, Jungian, CBT, or manifestation frameworks even when they use overlapping words such as attachment, shame, regulation, or release.",
+      "Personal formulations propose patterns while explicitly rejecting formal diagnosis; presenting those patterns as established NARM structures would contradict their evidence status."
+    ],
+    "uncertainties": [
+      "No independent clinical assessment is present.",
+      "The corpus does not establish frequency, severity, developmental cause, or generality for personal pattern hypotheses.",
+      "Some precise NARM terminology may require German-to-English translation review."
+    ],
+    "open_questions": [
+      "Which NARM concepts remain useful when tested against repeated observation over time rather than a single emotionally salient episode?",
+      "Which practices increase contact and choice without exceeding the operator's reported energy and regulation capacity?",
+      "Which personal hypotheses would a qualified NARM practitioner confirm, refine, or reject?"
+    ],
+    "raw_source_reopen_triggers": [
+      "Reopen the primary NARM source when a definition, translation, mechanism, or safety claim requires a pointer not preserved in Phase 1.",
+      "Reopen personal source notes when a later match map needs exact wording, chronology, frequency, exceptions, or context beyond the preserved summary.",
+      "Seek qualified professional review when a proposed practice repeatedly increases dysregulation, impairs functioning, raises safety concerns, or is being treated as diagnosis or medical advice."
+    ]
+  }
+}

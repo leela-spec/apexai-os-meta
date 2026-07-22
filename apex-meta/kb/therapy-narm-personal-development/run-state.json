@@ -1,10 +1,10 @@
 {
   "active_task": {
-    "incoming_path": "C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\therapy-narm-personal-development\\runs\\run-20260722T183018661588Z-03d9cf49be\\incoming\\phase2-narm-model-and-core-needs-a02.json",
-    "packet_dir": "C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\therapy-narm-personal-development\\runs\\run-20260722T183018661588Z-03d9cf49be\\semantic-tasks\\phase2-narm-model-and-core-needs-a02",
-    "task_id": "phase2-narm-model-and-core-needs-a02",
+    "incoming_path": "C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\therapy-narm-personal-development\\runs\\run-20260722T183018661588Z-03d9cf49be\\incoming\\phase2-personal-pattern-map-a01.json",
+    "packet_dir": "C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\therapy-narm-personal-development\\runs\\run-20260722T183018661588Z-03d9cf49be\\semantic-tasks\\phase2-personal-pattern-map-a01",
+    "task_id": "phase2-personal-pattern-map-a01",
     "task_kind": "phase2",
-    "topic_id": "narm-model-and-core-needs"
+    "topic_id": "personal-pattern-map"
   },
   "blockers": [],
   "completed_stages": [
@@ -14,7 +14,8 @@
     "phase1:personal-pattern-map",
     "phase1:narm-personal-match-map",
     "phase1:framework-integration",
-    "phase1:methods-and-development-operating-system"
+    "phase1:methods-and-development-operating-system",
+    "phase2:narm-model-and-core-needs"
   ],
   "completion": {
     "artifacts": {},
@@ -95,7 +96,7 @@
     },
     "status": "completed"
   },
-  "current_stage": "awaiting_phase2_narm-model-and-core-needs",
+  "current_stage": "awaiting_phase2_personal-pattern-map",
   "history": [
     {
       "at": "2026-07-22T18:30:18Z",
@@ -360,6 +361,28 @@
         "topic_id": "narm-model-and-core-needs"
       },
       "event": "semantic_packet_created"
+    },
+    {
+      "at": "2026-07-22T21:33:36Z",
+      "details": {
+        "atlas_path": "wiki\\summaries\\narm-model-and-core-needs-source-atlas.md",
+        "dossier_path": "wiki\\concepts\\narm-model-and-core-needs.md",
+        "imported_result": "runs\\run-20260722T183018661588Z-03d9cf49be\\semantic-results\\phase2-narm-model-and-core-needs-a02.json",
+        "topic_id": "narm-model-and-core-needs",
+        "worker_context_id": "codex-phase2-narm-core-a02-20260722"
+      },
+      "event": "phase2_imported"
+    },
+    {
+      "at": "2026-07-22T21:33:36Z",
+      "details": {
+        "incoming_path": "C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\therapy-narm-personal-development\\runs\\run-20260722T183018661588Z-03d9cf49be\\incoming\\phase2-personal-pattern-map-a01.json",
+        "packet_dir": "C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\therapy-narm-personal-development\\runs\\run-20260722T183018661588Z-03d9cf49be\\semantic-tasks\\phase2-personal-pattern-map-a01",
+        "task_id": "phase2-personal-pattern-map-a01",
+        "task_kind": "phase2",
+        "topic_id": "personal-pattern-map"
+      },
+      "event": "semantic_packet_created"
     }
   ],
   "lifecycle_status": "running",
@@ -477,10 +500,16 @@
         "worker_context_id": "codex-phase1-narm-20260722T1833Z"
       },
       "phase2": {
-        "artifacts": {},
+        "artifacts": {
+          "atlas_path": "wiki\\summaries\\narm-model-and-core-needs-source-atlas.md",
+          "dossier_path": "wiki\\concepts\\narm-model-and-core-needs.md",
+          "imported_result": "runs\\run-20260722T183018661588Z-03d9cf49be\\semantic-results\\phase2-narm-model-and-core-needs-a02.json",
+          "topic_id": "narm-model-and-core-needs",
+          "worker_context_id": "codex-phase2-narm-core-a02-20260722"
+        },
         "attempt": 2,
-        "status": "awaiting_result",
-        "worker_context_id": null
+        "status": "completed",
+        "worker_context_id": "codex-phase2-narm-core-a02-20260722"
       },
       "topic_id": "narm-model-and-core-needs"
     },
@@ -543,12 +572,12 @@
       },
       "phase2": {
         "artifacts": {},
-        "attempt": 0,
-        "status": "pending",
+        "attempt": 1,
+        "status": "awaiting_result",
         "worker_context_id": null
       },
       "topic_id": "personal-pattern-map"
     }
   },
-  "updated_at": "2026-07-22T21:30:34Z"
+  "updated_at": "2026-07-22T21:33:36Z"
 }
