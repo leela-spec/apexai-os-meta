@@ -1,0 +1,107 @@
+schema: apex.kb.cli-orchestration-state.v1
+updated_at: "2026-07-22"
+repository: leela-spec/apexai-os-meta
+branch: codex/apex-kb-cli-phase0-integration
+branch_head_before_orchestration_files: 93c6b5342c48fb1dd97688f47eeb3f3b24450677
+base_branch: main
+base_commit: 8d29bfa40f092ffaa24b3ae619a584ee76334986
+publication_status: pushed_branch_no_pr
+main_mutated: false
+
+branch_safety:
+  canonical_working_branch: codex/apex-kb-cli-phase0-integration
+  canonical_local_clone_from_patch_report: C:\GitDev\akb-ready
+  canonical_package_root: apex-meta/apex-kb-cli
+  forbidden_clone:
+    path: C:\GitDev\apexai-os-meta-apex-kb-cli-ready
+    reason: separate clone observed with 49358 staged deletions; quarantine and do not touch
+  do_not_assume_paths:
+    - C:\GitDev\apexai-os-meta\apex-meta\apex-kb-cli
+    - any unverified worktree or prepared release-candidate directory
+  prohibited_git_actions:
+    - git_add_all
+    - reset
+    - clean
+    - force_push
+    - destructive_checkout
+    - silent_stash
+    - automatic_merge_to_main
+    - create_worktree_without_operator_approval
+    - create_clone_without_operator_approval
+
+phase_status:
+  phase_0_setup:
+    status: integrated_and_focused_test_proven
+    evidence:
+      - selected compact Start template promoted
+      - operator-facing Start shape normalized into canonical v2
+      - focused Start contract test passed
+      - full suite passed: 50 tests
+      - compileall passed
+      - Start canary stopped at setup_confirmed
+    remaining:
+      - real operator usability review
+      - optional lightweight preflight/report refinement only when proven valuable
+  phase_1_deterministic:
+    status: substantially_implemented_not_real_canary_proven
+    evidence:
+      - exhaustive inventory and explicit exclusions
+      - format extraction and visibility
+      - heading/frontmatter/link maps
+      - field-separated postings
+      - duplicate and version-family candidates
+      - exhaustive topic maps and navigation report
+    remaining:
+      - verify complete real Leela Skill Tree output quality
+      - verify generated deterministic artifacts are the correct browser-agent inputs
+  phase_2_semantic:
+    status: implementation_drift
+    current_behavior: local semantic packet plus local incoming JSON import
+    selected_target: browser ChatGPT with GitHub repository access writes artifacts, commits, and pushes
+    highest_value_gap: repository-aware prompt generation and Git round trip
+  phase_3_finish:
+    status: mechanically_implemented_not_target_workflow_proven
+    current_capabilities:
+      - acceptance packet/import
+      - postflight
+      - SQLite FTS5 retrieval
+      - completion certificates
+    rule: do not expand before Phase 2 repository workflow is proven
+
+locked_next_iteration:
+  id: semantic-repository-handoff-gap-analysis
+  mode: read_only_research
+  primary_outcome: minimal implementation boundary for repository-aware browser Phase 2A and Phase 2B handoffs
+  must_read:
+    - apex-meta/apex-kb-cli/src/apex_kb/semantic/engine.py
+    - apex-meta/apex-kb-cli/src/apex_kb/lifecycle.py
+    - apex-meta/apex-kb-cli/src/apex_kb/templates/phase1-task.md
+    - apex-meta/apex-kb-cli/src/apex_kb/templates/phase2-task.md
+    - apex-meta/apex-kb-cli/src/apex_kb/schemas/semantic-task.schema.json
+    - selected semantic handoff templates in the mechanistic workflow pack
+  forbidden_scope:
+    - phase_0_redesign
+    - retrieval_changes
+    - update_changes
+    - linux
+    - provider_adapter_framework
+    - gui_or_tui
+    - new_state_database
+    - concurrency_framework
+    - acceptance_expansion
+
+truthful_completion_gate:
+  required_real_canary:
+    repository: leela-spec/leela
+    source_root: LeelaAppDevelopment
+    topic: Skill Tree
+    proof:
+      - deterministic artifacts generated locally
+      - Phase 2A browser prompt generated
+      - browser agent reads exact GitHub files and writes analysis artifacts
+      - browser agent commits and pushes
+      - local clone safely fast-forwards and validates
+      - Phase 2B browser prompt generated
+      - browser agent writes dossier and source atlas, commits, and pushes
+      - local clone pulls, validates, and enters Phase 3
+      - resulting dossier is materially more useful than rereading the small source set
