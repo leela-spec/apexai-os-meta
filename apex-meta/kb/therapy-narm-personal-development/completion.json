@@ -1,0 +1,74 @@
+{
+  "accepted_topics": [
+    "framework-integration",
+    "methods-and-development-operating-system",
+    "narm-model-and-core-needs",
+    "narm-personal-match-map",
+    "personal-pattern-map"
+  ],
+  "blockers": [],
+  "canonical_artifacts": {
+    "navigation_report": "manifests/phase0/phase0-navigation-report.md",
+    "run_config": "run-config.yaml",
+    "run_manifest": "run-manifest.json",
+    "run_state": "run-state.json",
+    "source_inventory": "manifests/source-inventory.ndjson",
+    "wiki_index": "wiki/index.md"
+  },
+  "completed_at": "2026-07-22T21:41:27Z",
+  "config_hash": "03d9cf49be71c2b066ed7a1e774e4e24f12d05d2b9bc17c3de2a8d5b4bd4e390",
+  "lifecycle_status": "query_ready",
+  "output": "query_ready",
+  "postflight": {
+    "report": "audit\\postflight\\run-20260722T183018661588Z-03d9cf49be.json"
+  },
+  "retrieval": {
+    "accepted_topics": [
+      "framework-integration",
+      "methods-and-development-operating-system",
+      "narm-model-and-core-needs",
+      "narm-personal-match-map",
+      "personal-pattern-map"
+    ],
+    "backend": "sqlite_fts5",
+    "built_at": "2026-07-22T18:30:18Z",
+    "canonical_markdown_preserved": true,
+    "chunk_count": 134,
+    "config_hash": "03d9cf49be71c2b066ed7a1e774e4e24f12d05d2b9bc17c3de2a8d5b4bd4e390",
+    "database_path": "derived/search/search.sqlite",
+    "database_sha256": "decfec6acab62bb9afb9d40a700bf9fef6e9e5380ce26177a756b057ef59c32e",
+    "derived_rebuildable": true,
+    "fts5": true,
+    "page_count": 10,
+    "page_hashes": {
+      "wiki/concepts/framework-integration.md": "29aaee81cec36006e687793d1ff5bee969ce78eec728f06465becb9fd73e3ade",
+      "wiki/concepts/methods-and-development-operating-system.md": "9c8aa1033a80a231bad1649f2b92b8e895b3b74d6e07373f594c0440cb94fc96",
+      "wiki/concepts/narm-model-and-core-needs.md": "4efa85029f5ed6e7d1fa44048e713075169eb186d515d08007d9ecb4908f3610",
+      "wiki/concepts/narm-personal-match-map.md": "25c83a0e431c6beb711b895de35aca369518a88444e434866bd34048ba4e1dda",
+      "wiki/concepts/personal-pattern-map.md": "c58351ff58af03ee59959861cbbb359aecea03acf827b75e05ef0ec5c9a512a1",
+      "wiki/summaries/framework-integration-source-atlas.md": "5e1dc9f2fb582857713d2c985f3ccda814ed5ab4c2c87b0a9f6393153de4d775",
+      "wiki/summaries/methods-and-development-operating-system-source-atlas.md": "7581345c409a7016e4d2fc7a7b8aad96029b3be3fb80fbaf83f7495a1f318e68",
+      "wiki/summaries/narm-model-and-core-needs-source-atlas.md": "4f74d8cfeed73f466f36a48b8ec1ce3597fce4fa12cbe8502fe9cc233df5e439",
+      "wiki/summaries/narm-personal-match-map-source-atlas.md": "25715f2f2277ce4aacae7a0dc8312181edec606393128de1d12a2a94b9cd9333",
+      "wiki/summaries/personal-pattern-map-source-atlas.md": "79dd022dd5b29b62c23c81fb71908b71e4269c5e923636119d635037c9bd41d1"
+    },
+    "run_id": "run-20260722T183018661588Z-03d9cf49be",
+    "schema": "apex.kb.retrieval-index.v2"
+  },
+  "run_id": "run-20260722T183018661588Z-03d9cf49be",
+  "run_kind": "new",
+  "schema": "apex.kb.completion.v2",
+  "source_integrity": {
+    "added": [],
+    "changed": [],
+    "checked_count": 10,
+    "current_count": 10,
+    "deleted": [],
+    "enumeration_errors": [],
+    "fresh": true,
+    "inventory_count": 10,
+    "missing": [],
+    "newly_unreadable": []
+  },
+  "source_repository_mutated": false
+}

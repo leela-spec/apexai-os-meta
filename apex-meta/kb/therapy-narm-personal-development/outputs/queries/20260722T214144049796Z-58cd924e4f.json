@@ -1,0 +1,136 @@
+{
+  "backend": "sqlite_fts5",
+  "config_hash": "03d9cf49be71c2b066ed7a1e774e4e24f12d05d2b9bc17c3de2a8d5b4bd4e390",
+  "created_at": "2026-07-22T21:41:44Z",
+  "index_database_sha256": "decfec6acab62bb9afb9d40a700bf9fef6e9e5380ce26177a756b057ef59c32e",
+  "index_manifest_path": "derived/search/index-manifest.json",
+  "output_paths": [
+    "outputs\\queries\\20260722T214144049796Z-58cd924e4f.json",
+    "outputs\\queries\\20260722T214144049796Z-58cd924e4f.md"
+  ],
+  "query": "highest leverage regulation trust grief",
+  "raw_source_reopen_guidance": "Use the accepted dossier and source atlas first. Reopen raw sources only when the answer is absent, acceptance marks insufficient evidence, or source drift invalidates the compiled pages.",
+  "result_count": 5,
+  "results": [
+    {
+      "chunk_id": "fa56c0cf63c64491f26d96b0",
+      "end_line": 50,
+      "evidence_pointer": "wiki/concepts/narm-personal-match-map.md#L45-L50",
+      "excerpt": " … high likely impact. 2. [Regulation] before consequential contact: high fit, low-to-moderate cost, high likely impact. 3. Small [trust]/contact experiments with consent … ",
+      "heading": "match-q03: What are the highest-leverage personal development targets suggested by the NARM-to-observation map?",
+      "heading_level": 3,
+      "page_hash": "25c83a0e431c6beb711b895de35aca369518a88444e434866bd34048ba4e1dda",
+      "page_type": "concept_dossier",
+      "path": "wiki/concepts/narm-personal-match-map.md",
+      "score": -12.516943678054679,
+      "source_atlas_path": "wiki/summaries/narm-personal-match-map-source-atlas.md",
+      "source_pointers": [
+        "src-6a0cea0ce0c8e1ce",
+        "src-9b22548c98e6481b",
+        "src-c2fb4d779264e00e",
+        "src-f091a39587190b86",
+        "src-f7ded2930e8d80ad"
+      ],
+      "start_line": 45,
+      "title": "NARM-to-Personal Observation Match Map",
+      "topic_id": "narm-personal-match-map"
+    },
+    {
+      "chunk_id": "e04979bc7d2bee7d1073293a",
+      "end_line": 76,
+      "evidence_pointer": "wiki/concepts/narm-personal-match-map.md#L71-L76",
+      "excerpt": "- **present** — Contact/[trust] and [regulation]/protective activation are the [highest]-correspondence exploration domains. — `src-c2fb4d779264e00e` line:403; `src-9b22548c98e6481b` line:9; `src-f7ded2930e8d80ad` line … ",
+      "heading": "Key claims",
+      "heading_level": 2,
+      "page_hash": "25c83a0e431c6beb711b895de35aca369518a88444e434866bd34048ba4e1dda",
+      "page_type": "concept_dossier",
+      "path": "wiki/concepts/narm-personal-match-map.md",
+      "score": -5.684850171551366,
+      "source_atlas_path": "wiki/summaries/narm-personal-match-map-source-atlas.md",
+      "source_pointers": [
+        "src-3850b185d1ea58dc",
+        "src-9b22548c98e6481b",
+        "src-c2fb4d779264e00e",
+        "src-f7ded2930e8d80ad"
+      ],
+      "start_line": 71,
+      "title": "NARM-to-Personal Observation Match Map",
+      "topic_id": "narm-personal-match-map"
+    },
+    {
+      "chunk_id": "b59c25dab8b4bfffead8f747",
+      "end_line": 83,
+      "evidence_pointer": "wiki/concepts/methods-and-development-operating-system.md#L78-L83",
+      "excerpt": "- **present** — Low-load [regulation] and delayed consequential action are the [highest]-priority methods. — `src-c2fb4d779264e00e` line:327; `src-f7ded2930e8d80ad` line:397\n- **proposed** — The daily … ",
+      "heading": "Key claims",
+      "heading_level": 2,
+      "page_hash": "9c8aa1033a80a231bad1649f2b92b8e895b3b74d6e07373f594c0440cb94fc96",
+      "page_type": "concept_dossier",
+      "path": "wiki/concepts/methods-and-development-operating-system.md",
+      "score": -5.555560591942505,
+      "source_atlas_path": "wiki/summaries/methods-and-development-operating-system-source-atlas.md",
+      "source_pointers": [
+        "src-64864213292b5239",
+        "src-a4da7bd7f313ee9f",
+        "src-c2fb4d779264e00e",
+        "src-f091a39587190b86",
+        "src-f7ded2930e8d80ad"
+      ],
+      "start_line": 78,
+      "title": "Low-Load Methods and Personal Development Operating System",
+      "topic_id": "methods-and-development-operating-system"
+    },
+    {
+      "chunk_id": "69fbf0270e1632ce820b513c",
+      "end_line": 38,
+      "evidence_pointer": "wiki/concepts/methods-and-development-operating-system.md#L33-L38",
+      "excerpt": " … Tier 3: (5) paced [grief] or shadow inquiry—medium support, higher emotional cost, stop on rising overwhelm. Optional adjunct: (6) surrender practice—contextual and … ",
+      "heading": "operating-q01: Which methods are highest priority for the operator, ranked by source support, personal fit, safety, energy cost, and likely impact?",
+      "heading_level": 3,
+      "page_hash": "9c8aa1033a80a231bad1649f2b92b8e895b3b74d6e07373f594c0440cb94fc96",
+      "page_type": "concept_dossier",
+      "path": "wiki/concepts/methods-and-development-operating-system.md",
+      "score": -5.329014159762779,
+      "source_atlas_path": "wiki/summaries/methods-and-development-operating-system-source-atlas.md",
+      "source_pointers": [
+        "src-a4da7bd7f313ee9f",
+        "src-c2fb4d779264e00e",
+        "src-f091a39587190b86",
+        "src-f7ded2930e8d80ad"
+      ],
+      "start_line": 33,
+      "title": "Low-Load Methods and Personal Development Operating System",
+      "topic_id": "methods-and-development-operating-system"
+    },
+    {
+      "chunk_id": "7f17a9b23d6ea163cd2c8a01",
+      "end_line": 14,
+      "evidence_pointer": "wiki/concepts/narm-personal-match-map.md#L11-L14",
+      "excerpt": "Compare NARM theory with documented personal observations using graded confidence and explicit evidence boundaries, then identify safe, high-[leverage] questions and development targets without … ",
+      "heading": "Page purpose",
+      "heading_level": 2,
+      "page_hash": "25c83a0e431c6beb711b895de35aca369518a88444e434866bd34048ba4e1dda",
+      "page_type": "concept_dossier",
+      "path": "wiki/concepts/narm-personal-match-map.md",
+      "score": -5.049552981791725,
+      "source_atlas_path": "wiki/summaries/narm-personal-match-map-source-atlas.md",
+      "source_pointers": [
+        "src-3850b185d1ea58dc",
+        "src-64864213292b5239",
+        "src-6a0cea0ce0c8e1ce",
+        "src-9b22548c98e6481b",
+        "src-c2fb4d779264e00e",
+        "src-e4ba180903bfcd78",
+        "src-f091a39587190b86",
+        "src-f7ded2930e8d80ad"
+      ],
+      "start_line": 11,
+      "title": "NARM-to-Personal Observation Match Map",
+      "topic_id": "narm-personal-match-map"
+    }
+  ],
+  "retrieval_fresh": true,
+  "run_id": "run-20260722T183018661588Z-03d9cf49be",
+  "schema": "apex.kb.query-result.v2",
+  "topic_id": null
+}

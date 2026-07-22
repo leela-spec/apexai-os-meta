@@ -1,0 +1,44 @@
+{
+  "artifacts": [
+    "derived\\search\\search.sqlite",
+    "derived/search/index-manifest.json",
+    "wiki/index.md"
+  ],
+  "completed_at": "2026-07-22T18:30:18Z",
+  "config_hash": "03d9cf49be71c2b066ed7a1e774e4e24f12d05d2b9bc17c3de2a8d5b4bd4e390",
+  "message": "Indexed 134 heading sections from 10 accepted pages.",
+  "metrics": {
+    "available": true,
+    "changed_pages": [],
+    "database_sha256_matches": true,
+    "deterministic_identity_matches": true,
+    "embedded_metadata": {
+      "backend": "sqlite_fts5",
+      "built_at": "2026-07-22T18:30:18Z",
+      "chunk_count": 134,
+      "config_hash": "03d9cf49be71c2b066ed7a1e774e4e24f12d05d2b9bc17c3de2a8d5b4bd4e390",
+      "page_count": 10,
+      "run_id": "run-20260722T183018661588Z-03d9cf49be",
+      "schema": "apex.kb.retrieval-index.v2"
+    },
+    "error": null,
+    "expected_row_count": 134,
+    "fresh": true,
+    "fts5_healthy": true,
+    "integrity_ok": true,
+    "metadata_matches": true,
+    "missing_pages": [],
+    "row_count": 134,
+    "run_identity_matches": true,
+    "sqlite_integrity_ok": true,
+    "sqlite_integrity_result": [
+      "ok"
+    ]
+  },
+  "reason_code": null,
+  "run_id": "run-20260722T183018661588Z-03d9cf49be",
+  "schema": "apex.kb.stage-result.v2",
+  "stage": "retrieval",
+  "started_at": "2026-07-22T18:30:18Z",
+  "status": "completed"
+}

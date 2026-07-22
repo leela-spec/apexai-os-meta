@@ -1,0 +1,21 @@
+{
+  "artifacts": [
+    "audit\\postflight\\run-20260722T183018661588Z-03d9cf49be.json"
+  ],
+  "completed_at": "2026-07-22T21:41:26Z",
+  "config_hash": "03d9cf49be71c2b066ed7a1e774e4e24f12d05d2b9bc17c3de2a8d5b4bd4e390",
+  "message": "Source freshness and semantic completion passed before retrieval.",
+  "metrics": {
+    "all_phase1_complete": true,
+    "all_phase2_complete": true,
+    "all_semantic_acceptance_pass": true,
+    "retrieval_deferred_until_postflight": true,
+    "source_fresh": true
+  },
+  "reason_code": null,
+  "run_id": "run-20260722T183018661588Z-03d9cf49be",
+  "schema": "apex.kb.stage-result.v2",
+  "stage": "postflight",
+  "started_at": "2026-07-22T21:41:26Z",
+  "status": "completed"
+}

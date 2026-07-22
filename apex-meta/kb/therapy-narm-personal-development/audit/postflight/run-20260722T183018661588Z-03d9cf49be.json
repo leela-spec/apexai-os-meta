@@ -1,0 +1,28 @@
+{
+  "acceptance_verdicts": {},
+  "checks": {
+    "all_phase1_complete": true,
+    "all_phase2_complete": true,
+    "all_semantic_acceptance_pass": true,
+    "retrieval_deferred_until_postflight": true,
+    "source_fresh": true
+  },
+  "completed_at": "2026-07-22T21:41:26Z",
+  "config_hash": "03d9cf49be71c2b066ed7a1e774e4e24f12d05d2b9bc17c3de2a8d5b4bd4e390",
+  "output": "query_ready",
+  "passed": true,
+  "run_id": "run-20260722T183018661588Z-03d9cf49be",
+  "schema": "apex.kb.postflight.v2",
+  "source_drift": {
+    "added": [],
+    "changed": [],
+    "checked_count": 10,
+    "current_count": 10,
+    "deleted": [],
+    "enumeration_errors": [],
+    "fresh": true,
+    "inventory_count": 10,
+    "missing": [],
+    "newly_unreadable": []
+  }
+}

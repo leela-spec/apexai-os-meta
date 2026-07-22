@@ -1,0 +1,19 @@
+{
+  "artifacts": [
+    "completion.json",
+    "audit\\completion\\run-20260722T183018661588Z-03d9cf49be.json"
+  ],
+  "completed_at": "2026-07-22T21:41:27Z",
+  "config_hash": "03d9cf49be71c2b066ed7a1e774e4e24f12d05d2b9bc17c3de2a8d5b4bd4e390",
+  "message": "Apex KB reached query_ready with durable completion evidence.",
+  "metrics": {
+    "accepted_topic_count": 5,
+    "output": "query_ready"
+  },
+  "reason_code": null,
+  "run_id": "run-20260722T183018661588Z-03d9cf49be",
+  "schema": "apex.kb.stage-result.v2",
+  "stage": "completion",
+  "started_at": "2026-07-22T21:41:27Z",
+  "status": "completed"
+}
