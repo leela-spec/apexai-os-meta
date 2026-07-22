@@ -1,0 +1,682 @@
+{
+  "schema": "apex.kb.source-allowlist.v2",
+  "sources": [
+    {
+      "absolute_path": "C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\therapy\\raw\\notes\\ET-Heller-NARM.md",
+      "candidate_class": "contextual",
+      "content_hash": "64a0dae9c1cbc3bba6bd0299e345a4863560c6bce22b60444755585d0e06e6cd",
+      "custody_path": null,
+      "derived_text_path": "runs\\run-20260722T183018661588Z-03d9cf49be\\extracted\\src-c2fb4d779264e00e.txt",
+      "duplicate_relationships": [],
+      "evidence_path": "C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\therapy-narm-personal-development\\runs\\run-20260722T183018661588Z-03d9cf49be\\extracted\\src-c2fb4d779264e00e.txt",
+      "extraction_status": "success",
+      "lifecycle_hints": [],
+      "match_reasons": [
+        {
+          "count": 16,
+          "field": "body",
+          "pointers": [
+            "line:283",
+            "line:313",
+            "line:431",
+            "line:774",
+            "line:3224",
+            "line:3567",
+            "line:3587",
+            "line:3997",
+            "line:4011",
+            "line:4067",
+            "line:4195",
+            "line:4745",
+            "line:4993",
+            "line:5169",
+            "line:5203"
+          ],
+          "score": 30,
+          "term": "containment",
+          "term_type": "supporting"
+        },
+        {
+          "count": 11,
+          "field": "body",
+          "pointers": [
+            "line:746",
+            "line:766",
+            "line:2091",
+            "line:2892",
+            "line:3224",
+            "line:3997",
+            "line:4067",
+            "line:4069",
+            "line:4117",
+            "line:5249"
+          ],
+          "score": 30,
+          "term": "titration",
+          "term_type": "supporting"
+        },
+        {
+          "count": 2,
+          "field": "heading",
+          "pointers": [
+            "line:3585",
+            "line:3999"
+          ],
+          "score": 24,
+          "term": "containment",
+          "term_type": "supporting"
+        },
+        {
+          "count": 2,
+          "field": "heading",
+          "pointers": [
+            "line:3581",
+            "line:4065"
+          ],
+          "score": 24,
+          "term": "titration",
+          "term_type": "supporting"
+        },
+        {
+          "count": 3,
+          "field": "identifier_co_occurrence",
+          "pointers": [
+            "body:line:3224",
+            "body:line:3997",
+            "body:line:4067"
+          ],
+          "score": 18,
+          "term": "<configured-identifiers>",
+          "term_type": "cooccurrence"
+        },
+        {
+          "count": 7,
+          "field": "body",
+          "pointers": [
+            "line:2828",
+            "line:4099",
+            "line:4531",
+            "line:4869",
+            "line:5125"
+          ],
+          "score": 0,
+          "term": "intervention",
+          "term_type": "ambiguous"
+        }
+      ],
+      "repository_path": "apex-meta/kb/therapy/raw/notes/ET-Heller-NARM.md",
+      "reusable_capsule_path": "C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\therapy-narm-personal-development\\ingest-analysis\\sources\\64a0dae9c1cbc3bba6bd0299e345a4863560c6bce22b60444755585d0e06e6cd.analysis.json",
+      "source_id": "src-c2fb4d779264e00e"
+    },
+    {
+      "absolute_path": "C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\therapy\\raw\\notes\\Psychological_Handover_Medical_Grade_v1.md",
+      "candidate_class": "contextual",
+      "content_hash": "ea19911591545b9ad39fb24e28356febb71a36efa991c8bbaaa8490cd80a3560",
+      "custody_path": null,
+      "derived_text_path": "runs\\run-20260722T183018661588Z-03d9cf49be\\extracted\\src-f7ded2930e8d80ad.txt",
+      "duplicate_relationships": [],
+      "evidence_path": "C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\therapy-narm-personal-development\\runs\\run-20260722T183018661588Z-03d9cf49be\\extracted\\src-f7ded2930e8d80ad.txt",
+      "extraction_status": "success",
+      "lifecycle_hints": [],
+      "match_reasons": [
+        {
+          "count": 4,
+          "field": "body",
+          "pointers": [
+            "line:222",
+            "line:283",
+            "line:354",
+            "line:357"
+          ],
+          "score": 12,
+          "term": "orientation",
+          "term_type": "supporting"
+        },
+        {
+          "count": 1,
+          "field": "heading",
+          "pointers": [
+            "line:606"
+          ],
+          "score": 12,
+          "term": "staged trust",
+          "term_type": "supporting"
+        },
+        {
+          "count": 3,
+          "field": "body",
+          "pointers": [
+            "line:383",
+            "line:686",
+            "line:712"
+          ],
+          "score": 9,
+          "term": "boundaries",
+          "term_type": "supporting"
+        },
+        {
+          "count": 3,
+          "field": "body",
+          "pointers": [
+            "line:7",
+            "line:358",
+            "line:702"
+          ],
+          "score": 9,
+          "term": "reflection",
+          "term_type": "supporting"
+        },
+        {
+          "count": 3,
+          "field": "body",
+          "pointers": [
+            "line:405",
+            "line:667",
+            "line:712"
+          ],
+          "score": 9,
+          "term": "staged trust",
+          "term_type": "supporting"
+        },
+        {
+          "count": 1,
+          "field": "identifier_co_occurrence",
+          "pointers": [
+            "body:line:712"
+          ],
+          "score": 6,
+          "term": "<configured-identifiers>",
+          "term_type": "cooccurrence"
+        },
+        {
+          "count": 1,
+          "field": "body",
+          "pointers": [
+            "line:28"
+          ],
+          "score": 3,
+          "term": "containment",
+          "term_type": "supporting"
+        },
+        {
+          "count": 1,
+          "field": "body",
+          "pointers": [
+            "line:415"
+          ],
+          "score": 3,
+          "term": "grounding",
+          "term_type": "supporting"
+        },
+        {
+          "count": 1,
+          "field": "body",
+          "pointers": [
+            "line:705"
+          ],
+          "score": 3,
+          "term": "pacing",
+          "term_type": "supporting"
+        },
+        {
+          "count": 1,
+          "field": "body",
+          "pointers": [
+            "line:706"
+          ],
+          "score": 0,
+          "term": "crisis",
+          "term_type": "ambiguous"
+        },
+        {
+          "count": 1,
+          "field": "body",
+          "pointers": [
+            "line:7"
+          ],
+          "score": 0,
+          "term": "emergency",
+          "term_type": "ambiguous"
+        },
+        {
+          "count": 1,
+          "field": "body",
+          "pointers": [
+            "line:5"
+          ],
+          "score": 0,
+          "term": "intervention",
+          "term_type": "ambiguous"
+        },
+        {
+          "count": 1,
+          "field": "heading",
+          "pointers": [
+            "line:466"
+          ],
+          "score": 0,
+          "term": "intervention",
+          "term_type": "ambiguous"
+        },
+        {
+          "count": 1,
+          "field": "body",
+          "pointers": [
+            "line:7"
+          ],
+          "score": -9,
+          "term": "diagnosis",
+          "term_type": "negative"
+        }
+      ],
+      "repository_path": "apex-meta/kb/therapy/raw/notes/Psychological_Handover_Medical_Grade_v1.md",
+      "reusable_capsule_path": "C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\therapy-narm-personal-development\\ingest-analysis\\sources\\ea19911591545b9ad39fb24e28356febb71a36efa991c8bbaaa8490cd80a3560.analysis.json",
+      "source_id": "src-f7ded2930e8d80ad"
+    },
+    {
+      "absolute_path": "C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\therapy\\raw\\notes\\PsychologicalHandover_ChatTherapeuticFramework_inACIM.md",
+      "candidate_class": "contextual",
+      "content_hash": "b2f3b75d5aab80d95c88b3b245478b15d9510637d41e63571f5619ccebf9a8b5",
+      "custody_path": null,
+      "derived_text_path": "runs\\run-20260722T183018661588Z-03d9cf49be\\extracted\\src-9b22548c98e6481b.txt",
+      "duplicate_relationships": [],
+      "evidence_path": "C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\therapy-narm-personal-development\\runs\\run-20260722T183018661588Z-03d9cf49be\\extracted\\src-9b22548c98e6481b.txt",
+      "extraction_status": "success",
+      "lifecycle_hints": [],
+      "match_reasons": [
+        {
+          "count": 6,
+          "field": "body",
+          "pointers": [
+            "line:20",
+            "line:69",
+            "line:455",
+            "line:549",
+            "line:612",
+            "line:623"
+          ],
+          "score": 18,
+          "term": "self-compassion",
+          "term_type": "supporting"
+        },
+        {
+          "count": 4,
+          "field": "body",
+          "pointers": [
+            "line:22",
+            "line:310",
+            "line:313",
+            "line:623"
+          ],
+          "score": 12,
+          "term": "boundaries",
+          "term_type": "supporting"
+        },
+        {
+          "count": 1,
+          "field": "heading",
+          "pointers": [
+            "line:572"
+          ],
+          "score": 12,
+          "term": "boundaries",
+          "term_type": "supporting"
+        },
+        {
+          "count": 1,
+          "field": "identifier_co_occurrence",
+          "pointers": [
+            "body:line:623"
+          ],
+          "score": 6,
+          "term": "<configured-identifiers>",
+          "term_type": "cooccurrence"
+        },
+        {
+          "count": 1,
+          "field": "body",
+          "pointers": [
+            "line:380"
+          ],
+          "score": 3,
+          "term": "reflection",
+          "term_type": "supporting"
+        },
+        {
+          "count": 1,
+          "field": "body",
+          "pointers": [
+            "line:481"
+          ],
+          "score": 3,
+          "term": "staged trust",
+          "term_type": "supporting"
+        },
+        {
+          "count": 1,
+          "field": "body",
+          "pointers": [
+            "line:75"
+          ],
+          "score": 0,
+          "term": "intervention",
+          "term_type": "ambiguous"
+        },
+        {
+          "count": 1,
+          "field": "h1",
+          "pointers": [
+            "h1"
+          ],
+          "score": 0,
+          "term": "intervention",
+          "term_type": "ambiguous"
+        },
+        {
+          "count": 5,
+          "field": "heading",
+          "pointers": [
+            "line:1",
+            "line:166",
+            "line:193",
+            "line:353",
+            "line:407"
+          ],
+          "score": 0,
+          "term": "intervention",
+          "term_type": "ambiguous"
+        },
+        {
+          "count": 2,
+          "field": "body",
+          "pointers": [
+            "line:4",
+            "line:440"
+          ],
+          "score": -18,
+          "term": "diagnosis",
+          "term_type": "negative"
+        }
+      ],
+      "repository_path": "apex-meta/kb/therapy/raw/notes/PsychologicalHandover_ChatTherapeuticFramework_inACIM.md",
+      "reusable_capsule_path": "C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\therapy-narm-personal-development\\ingest-analysis\\sources\\b2f3b75d5aab80d95c88b3b245478b15d9510637d41e63571f5619ccebf9a8b5.analysis.json",
+      "source_id": "src-9b22548c98e6481b"
+    },
+    {
+      "absolute_path": "C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\therapy\\raw\\notes\\ManifestationHowTo.md",
+      "candidate_class": "contextual",
+      "content_hash": "08876a237e47ce2fd75b5bf57a8ce0453915bcced09217eb897c97d6d5dca8a9",
+      "custody_path": null,
+      "derived_text_path": "runs\\run-20260722T183018661588Z-03d9cf49be\\extracted\\src-a4da7bd7f313ee9f.txt",
+      "duplicate_relationships": [],
+      "evidence_path": "C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\therapy-narm-personal-development\\runs\\run-20260722T183018661588Z-03d9cf49be\\extracted\\src-a4da7bd7f313ee9f.txt",
+      "extraction_status": "success",
+      "lifecycle_hints": [],
+      "match_reasons": [
+        {
+          "count": 5,
+          "field": "body",
+          "pointers": [
+            "line:204",
+            "line:477",
+            "line:493",
+            "line:527",
+            "line:604"
+          ],
+          "score": 15,
+          "term": "reflection",
+          "term_type": "supporting"
+        },
+        {
+          "count": 1,
+          "field": "heading",
+          "pointers": [
+            "line:269"
+          ],
+          "score": 12,
+          "term": "action anchor",
+          "term_type": "supporting"
+        },
+        {
+          "count": 1,
+          "field": "heading",
+          "pointers": [
+            "line:565"
+          ],
+          "score": 12,
+          "term": "reflection",
+          "term_type": "supporting"
+        },
+        {
+          "count": 2,
+          "field": "body",
+          "pointers": [
+            "line:62",
+            "line:431"
+          ],
+          "score": 0,
+          "term": "crisis",
+          "term_type": "ambiguous"
+        },
+        {
+          "count": 1,
+          "field": "heading",
+          "pointers": [
+            "line:429"
+          ],
+          "score": 0,
+          "term": "crisis",
+          "term_type": "ambiguous"
+        }
+      ],
+      "repository_path": "apex-meta/kb/therapy/raw/notes/ManifestationHowTo.md",
+      "reusable_capsule_path": "C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\therapy-narm-personal-development\\ingest-analysis\\sources\\08876a237e47ce2fd75b5bf57a8ce0453915bcced09217eb897c97d6d5dca8a9.analysis.json",
+      "source_id": "src-a4da7bd7f313ee9f"
+    },
+    {
+      "absolute_path": "C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\therapy\\raw\\notes\\MyTherapy.md",
+      "candidate_class": "contextual",
+      "content_hash": "3db22fd7f61b597a4c42d326374eb53bd9fb0cf3e1af600cc5c2149a885eaa53",
+      "custody_path": null,
+      "derived_text_path": "runs\\run-20260722T183018661588Z-03d9cf49be\\extracted\\src-f091a39587190b86.txt",
+      "duplicate_relationships": [],
+      "evidence_path": "C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\therapy-narm-personal-development\\runs\\run-20260722T183018661588Z-03d9cf49be\\extracted\\src-f091a39587190b86.txt",
+      "extraction_status": "success",
+      "lifecycle_hints": [],
+      "match_reasons": [
+        {
+          "count": 6,
+          "field": "body",
+          "pointers": [
+            "line:25",
+            "line:183",
+            "line:190",
+            "line:262",
+            "line:514",
+            "line:599"
+          ],
+          "score": 18,
+          "term": "boundaries",
+          "term_type": "supporting"
+        },
+        {
+          "count": 4,
+          "field": "body",
+          "pointers": [
+            "line:28",
+            "line:500",
+            "line:583",
+            "line:599"
+          ],
+          "score": 12,
+          "term": "staged trust",
+          "term_type": "supporting"
+        },
+        {
+          "count": 2,
+          "field": "body",
+          "pointers": [
+            "line:305",
+            "line:337"
+          ],
+          "score": 6,
+          "term": "reflection",
+          "term_type": "supporting"
+        },
+        {
+          "count": 1,
+          "field": "identifier_co_occurrence",
+          "pointers": [
+            "body:line:599"
+          ],
+          "score": 6,
+          "term": "<configured-identifiers>",
+          "term_type": "cooccurrence"
+        },
+        {
+          "count": 1,
+          "field": "body",
+          "pointers": [
+            "line:358"
+          ],
+          "score": 3,
+          "term": "grounding",
+          "term_type": "supporting"
+        },
+        {
+          "count": 1,
+          "field": "body",
+          "pointers": [
+            "line:291"
+          ],
+          "score": 3,
+          "term": "pacing",
+          "term_type": "supporting"
+        },
+        {
+          "count": 1,
+          "field": "body",
+          "pointers": [
+            "line:226"
+          ],
+          "score": 0,
+          "term": "intervention",
+          "term_type": "ambiguous"
+        },
+        {
+          "count": 1,
+          "field": "heading",
+          "pointers": [
+            "line:494"
+          ],
+          "score": -36,
+          "term": "diagnosis",
+          "term_type": "negative"
+        }
+      ],
+      "repository_path": "apex-meta/kb/therapy/raw/notes/MyTherapy.md",
+      "reusable_capsule_path": "C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\therapy-narm-personal-development\\ingest-analysis\\sources\\3db22fd7f61b597a4c42d326374eb53bd9fb0cf3e1af600cc5c2149a885eaa53.analysis.json",
+      "source_id": "src-f091a39587190b86"
+    },
+    {
+      "absolute_path": "C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\therapy\\raw\\notes\\Notion_Surrender_Page.md",
+      "candidate_class": "contextual",
+      "content_hash": "9ff6117ec7addb4713172f09e4fd2dc8b34c42bc678d3ca55dc71410040f5175",
+      "custody_path": null,
+      "derived_text_path": "runs\\run-20260722T183018661588Z-03d9cf49be\\extracted\\src-f79b4940a5971c09.txt",
+      "duplicate_relationships": [],
+      "evidence_path": "C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\therapy-narm-personal-development\\runs\\run-20260722T183018661588Z-03d9cf49be\\extracted\\src-f79b4940a5971c09.txt",
+      "extraction_status": "success",
+      "lifecycle_hints": [],
+      "match_reasons": [
+        {
+          "count": 4,
+          "field": "body",
+          "pointers": [
+            "line:237",
+            "line:271"
+          ],
+          "score": 12,
+          "term": "boundaries",
+          "term_type": "supporting"
+        },
+        {
+          "count": 1,
+          "field": "body",
+          "pointers": [
+            "line:17"
+          ],
+          "score": 3,
+          "term": "reflection",
+          "term_type": "supporting"
+        }
+      ],
+      "repository_path": "apex-meta/kb/therapy/raw/notes/Notion_Surrender_Page.md",
+      "reusable_capsule_path": "C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\therapy-narm-personal-development\\ingest-analysis\\sources\\9ff6117ec7addb4713172f09e4fd2dc8b34c42bc678d3ca55dc71410040f5175.analysis.json",
+      "source_id": "src-f79b4940a5971c09"
+    },
+    {
+      "absolute_path": "C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\therapy\\raw\\notes\\shadow_insight_v1.md",
+      "candidate_class": "incidental",
+      "content_hash": "06d39530b31392f17873171f2781c4b50fa3e2efbd622aab9bb0c500c072acc7",
+      "custody_path": null,
+      "derived_text_path": "runs\\run-20260722T183018661588Z-03d9cf49be\\extracted\\src-64864213292b5239.txt",
+      "duplicate_relationships": [],
+      "evidence_path": "C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\therapy-narm-personal-development\\runs\\run-20260722T183018661588Z-03d9cf49be\\extracted\\src-64864213292b5239.txt",
+      "extraction_status": "success",
+      "lifecycle_hints": [],
+      "match_reasons": [
+        {
+          "count": 2,
+          "field": "body",
+          "pointers": [
+            "line:13",
+            "line:24"
+          ],
+          "score": 6,
+          "term": "self-compassion",
+          "term_type": "supporting"
+        }
+      ],
+      "repository_path": "apex-meta/kb/therapy/raw/notes/shadow_insight_v1.md",
+      "reusable_capsule_path": "C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\therapy-narm-personal-development\\ingest-analysis\\sources\\06d39530b31392f17873171f2781c4b50fa3e2efbd622aab9bb0c500c072acc7.analysis.json",
+      "source_id": "src-64864213292b5239"
+    },
+    {
+      "absolute_path": "C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\therapy\\raw\\notes\\shadow_insight_v3.md",
+      "candidate_class": "incidental",
+      "content_hash": "e7f78ec45cd449e1d6344508b1af374aa9477a203c7385945e3c51284214912d",
+      "custody_path": null,
+      "derived_text_path": "runs\\run-20260722T183018661588Z-03d9cf49be\\extracted\\src-e4ba180903bfcd78.txt",
+      "duplicate_relationships": [],
+      "evidence_path": "C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\therapy-narm-personal-development\\runs\\run-20260722T183018661588Z-03d9cf49be\\extracted\\src-e4ba180903bfcd78.txt",
+      "extraction_status": "success",
+      "lifecycle_hints": [],
+      "match_reasons": [
+        {
+          "count": 1,
+          "field": "body",
+          "pointers": [
+            "line:141"
+          ],
+          "score": 3,
+          "term": "pacing",
+          "term_type": "supporting"
+        },
+        {
+          "count": 1,
+          "field": "body",
+          "pointers": [
+            "line:118"
+          ],
+          "score": 0,
+          "term": "emergency",
+          "term_type": "ambiguous"
+        }
+      ],
+      "repository_path": "apex-meta/kb/therapy/raw/notes/shadow_insight_v3.md",
+      "reusable_capsule_path": "C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\therapy-narm-personal-development\\ingest-analysis\\sources\\e7f78ec45cd449e1d6344508b1af374aa9477a203c7385945e3c51284214912d.analysis.json",
+      "source_id": "src-e4ba180903bfcd78"
+    }
+  ]
+}

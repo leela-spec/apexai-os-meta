@@ -1,0 +1,263 @@
+{
+  "$defs": {
+    "analysis": {
+      "additionalProperties": false,
+      "properties": {
+        "contradictions": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "macro": {
+          "type": "string"
+        },
+        "meso": {
+          "type": "string"
+        },
+        "micro": {
+          "type": "string"
+        },
+        "target_answers": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "answer": {
+                "type": "string"
+              },
+              "citations": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "query_id": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "query_id",
+              "answer",
+              "citations"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "uncertainties": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "macro",
+        "meso",
+        "micro",
+        "target_answers",
+        "contradictions",
+        "uncertainties"
+      ],
+      "type": "object"
+    },
+    "capsule": {
+      "additionalProperties": false,
+      "properties": {
+        "authority": {
+          "type": "string"
+        },
+        "content_hash": {
+          "type": "string"
+        },
+        "contradictions": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "contributions": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "freshness": {
+          "type": "string"
+        },
+        "key_claims": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "pointers": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "repository_path": {
+          "type": "string"
+        },
+        "schema": {
+          "const": "apex.kb.source-capsule.v2"
+        },
+        "source_id": {
+          "type": "string"
+        },
+        "summary": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "uncertainties": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "schema",
+        "source_id",
+        "repository_path",
+        "content_hash",
+        "title",
+        "summary",
+        "key_claims",
+        "contributions",
+        "contradictions",
+        "uncertainties",
+        "authority",
+        "freshness",
+        "pointers"
+      ],
+      "type": "object"
+    },
+    "review": {
+      "additionalProperties": false,
+      "properties": {
+        "authority": {
+          "type": "string"
+        },
+        "content_hash": {
+          "type": "string"
+        },
+        "disposition": {
+          "type": "string"
+        },
+        "duplicate_or_supersession": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "freshness": {
+          "type": "string"
+        },
+        "individual_value": {
+          "type": "string"
+        },
+        "pointers": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "questions_supported": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "read_status": {
+          "type": "string"
+        },
+        "repository_path": {
+          "type": "string"
+        },
+        "source_id": {
+          "type": "string"
+        },
+        "summary": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "source_id",
+        "repository_path",
+        "content_hash",
+        "read_status",
+        "disposition",
+        "summary",
+        "individual_value",
+        "authority",
+        "freshness",
+        "pointers",
+        "questions_supported",
+        "duplicate_or_supersession"
+      ],
+      "type": "object"
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "config_hash": {
+      "type": "string"
+    },
+    "phase": {
+      "const": "phase1"
+    },
+    "run_id": {
+      "type": "string"
+    },
+    "schema": {
+      "const": "apex.kb.phase1-result.v2"
+    },
+    "source_capsules": {
+      "items": {
+        "$ref": "#/$defs/capsule"
+      },
+      "type": "array"
+    },
+    "source_reviews": {
+      "items": {
+        "$ref": "#/$defs/review"
+      },
+      "type": "array"
+    },
+    "task_id": {
+      "type": "string"
+    },
+    "topic_analysis": {
+      "$ref": "#/$defs/analysis"
+    },
+    "topic_id": {
+      "type": "string"
+    },
+    "topic_name": {
+      "type": "string"
+    },
+    "worker_context_id": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema",
+    "run_id",
+    "config_hash",
+    "task_id",
+    "phase",
+    "topic_id",
+    "topic_name",
+    "worker_context_id",
+    "source_reviews",
+    "source_capsules",
+    "topic_analysis"
+  ],
+  "type": "object"
+}

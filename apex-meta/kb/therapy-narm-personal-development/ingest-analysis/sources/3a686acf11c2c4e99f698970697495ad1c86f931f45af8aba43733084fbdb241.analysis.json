@@ -1,0 +1,30 @@
+{
+  "authority": "Operator personal insight.",
+  "content_hash": "3a686acf11c2c4e99f698970697495ad1c86f931f45af8aba43733084fbdb241",
+  "contradictions": [],
+  "contributions": [
+    "Potential example for later NARM-to-observation comparison."
+  ],
+  "freshness": "v2 current selected source.",
+  "key_claims": [
+    "It frames its claims as unfolding insight.",
+    "It links presentation pressure with a wound around being seen, valued, chosen, or understood.",
+    "It supplies a personal hypothesis, not a NARM definition."
+  ],
+  "pointers": [
+    "line:7",
+    "line:20",
+    "line:31",
+    "line:54",
+    "line:122",
+    "line:134"
+  ],
+  "repository_path": "apex-meta/kb/therapy/raw/notes/shadow_insight_v2.md",
+  "schema": "apex.kb.source-capsule.v2",
+  "source_id": "src-3850b185d1ea58dc",
+  "summary": "An unfolding personal insight about recognition pressure, frustrated energy, defensive communication, hidden needs, autonomy, and trust.",
+  "title": "Shadow Insight v2",
+  "uncertainties": [
+    "The interpretation remains provisional and should not be classified as a survival style."
+  ]
+}

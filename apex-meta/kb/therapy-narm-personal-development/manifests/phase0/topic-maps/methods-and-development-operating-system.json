@@ -1,0 +1,1037 @@
+{
+  "candidate_count": 8,
+  "candidate_set_truncated": false,
+  "candidates": [
+    {
+      "absolute_path": "C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\therapy\\raw\\notes\\ET-Heller-NARM.md",
+      "authority_hints": [
+        {
+          "hint": "Primary theory source for NARM definitions, developmental-trauma concepts, core needs, survival adaptations, regulation, therapeutic stance, and methods. It is not evidence of a personal diagnosis.\n",
+          "path": "apex-meta/kb/therapy/raw/notes/ET-Heller-NARM.md",
+          "rule_id": "authority-hint-001",
+          "score": 95
+        }
+      ],
+      "candidate_class": "contextual",
+      "content_hash": "64a0dae9c1cbc3bba6bd0299e345a4863560c6bce22b60444755585d0e06e6cd",
+      "custody_path": null,
+      "derived_text_path": "runs\\run-20260722T183018661588Z-03d9cf49be\\extracted\\src-c2fb4d779264e00e.txt",
+      "duplicate_relationships": [],
+      "duplicate_representative_repository_path": "apex-meta/kb/therapy/raw/notes/ET-Heller-NARM.md",
+      "duplicate_representative_source_id": "src-c2fb4d779264e00e",
+      "extraction_error": null,
+      "extraction_status": "success",
+      "git_last_changed": {
+        "commit": "6e99ffdcee7eec2635b8a4850bd22fb46b59e10d",
+        "date": "2026-06-22T21:31:54+02:00"
+      },
+      "lifecycle_hint_evidence": [],
+      "lifecycle_hints": [],
+      "match_reasons": [
+        {
+          "count": 16,
+          "field": "body",
+          "pointers": [
+            "line:283",
+            "line:313",
+            "line:431",
+            "line:774",
+            "line:3224",
+            "line:3567",
+            "line:3587",
+            "line:3997",
+            "line:4011",
+            "line:4067",
+            "line:4195",
+            "line:4745",
+            "line:4993",
+            "line:5169",
+            "line:5203"
+          ],
+          "score": 30,
+          "term": "containment",
+          "term_type": "supporting"
+        },
+        {
+          "count": 11,
+          "field": "body",
+          "pointers": [
+            "line:746",
+            "line:766",
+            "line:2091",
+            "line:2892",
+            "line:3224",
+            "line:3997",
+            "line:4067",
+            "line:4069",
+            "line:4117",
+            "line:5249"
+          ],
+          "score": 30,
+          "term": "titration",
+          "term_type": "supporting"
+        },
+        {
+          "count": 2,
+          "field": "heading",
+          "pointers": [
+            "line:3585",
+            "line:3999"
+          ],
+          "score": 24,
+          "term": "containment",
+          "term_type": "supporting"
+        },
+        {
+          "count": 2,
+          "field": "heading",
+          "pointers": [
+            "line:3581",
+            "line:4065"
+          ],
+          "score": 24,
+          "term": "titration",
+          "term_type": "supporting"
+        },
+        {
+          "count": 3,
+          "field": "identifier_co_occurrence",
+          "pointers": [
+            "body:line:3224",
+            "body:line:3997",
+            "body:line:4067"
+          ],
+          "score": 18,
+          "term": "<configured-identifiers>",
+          "term_type": "cooccurrence"
+        },
+        {
+          "count": 7,
+          "field": "body",
+          "pointers": [
+            "line:2828",
+            "line:4099",
+            "line:4531",
+            "line:4869",
+            "line:5125"
+          ],
+          "score": 0,
+          "term": "intervention",
+          "term_type": "ambiguous"
+        }
+      ],
+      "phase0_semantic_claim": null,
+      "rank": 1,
+      "repository_path": "apex-meta/kb/therapy/raw/notes/ET-Heller-NARM.md",
+      "score": 221,
+      "score_vector": {
+        "class_order": 1,
+        "configured_authority_hint_score": 95,
+        "git_last_changed": {
+          "commit": "6e99ffdcee7eec2635b8a4850bd22fb46b59e10d",
+          "date": "2026-06-22T21:31:54+02:00"
+        },
+        "lexical_positive_score": 126,
+        "negative_penalty": 0,
+        "reason_count": 6,
+        "version_signals": []
+      },
+      "semantic_disposition": "pending",
+      "size_bytes": 787633,
+      "source_format": "text",
+      "source_id": "src-c2fb4d779264e00e",
+      "version_signals": []
+    },
+    {
+      "absolute_path": "C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\therapy\\raw\\notes\\Psychological_Handover_Medical_Grade_v1.md",
+      "authority_hints": [
+        {
+          "hint": "Primary personal working-formulation and support-boundary source. Treat all psychological statements as self-report or working hypotheses, not diagnosis.\n",
+          "path": "apex-meta/kb/therapy/raw/notes/Psychological_Handover_Medical_Grade_v1.md",
+          "rule_id": "authority-hint-002",
+          "score": 85
+        }
+      ],
+      "candidate_class": "contextual",
+      "content_hash": "ea19911591545b9ad39fb24e28356febb71a36efa991c8bbaaa8490cd80a3560",
+      "custody_path": null,
+      "derived_text_path": "runs\\run-20260722T183018661588Z-03d9cf49be\\extracted\\src-f7ded2930e8d80ad.txt",
+      "duplicate_relationships": [],
+      "duplicate_representative_repository_path": "apex-meta/kb/therapy/raw/notes/Psychological_Handover_Medical_Grade_v1.md",
+      "duplicate_representative_source_id": "src-f7ded2930e8d80ad",
+      "extraction_error": null,
+      "extraction_status": "success",
+      "git_last_changed": {
+        "commit": "6e99ffdcee7eec2635b8a4850bd22fb46b59e10d",
+        "date": "2026-06-22T21:31:54+02:00"
+      },
+      "lifecycle_hint_evidence": [],
+      "lifecycle_hints": [],
+      "match_reasons": [
+        {
+          "count": 4,
+          "field": "body",
+          "pointers": [
+            "line:222",
+            "line:283",
+            "line:354",
+            "line:357"
+          ],
+          "score": 12,
+          "term": "orientation",
+          "term_type": "supporting"
+        },
+        {
+          "count": 1,
+          "field": "heading",
+          "pointers": [
+            "line:606"
+          ],
+          "score": 12,
+          "term": "staged trust",
+          "term_type": "supporting"
+        },
+        {
+          "count": 3,
+          "field": "body",
+          "pointers": [
+            "line:383",
+            "line:686",
+            "line:712"
+          ],
+          "score": 9,
+          "term": "boundaries",
+          "term_type": "supporting"
+        },
+        {
+          "count": 3,
+          "field": "body",
+          "pointers": [
+            "line:7",
+            "line:358",
+            "line:702"
+          ],
+          "score": 9,
+          "term": "reflection",
+          "term_type": "supporting"
+        },
+        {
+          "count": 3,
+          "field": "body",
+          "pointers": [
+            "line:405",
+            "line:667",
+            "line:712"
+          ],
+          "score": 9,
+          "term": "staged trust",
+          "term_type": "supporting"
+        },
+        {
+          "count": 1,
+          "field": "identifier_co_occurrence",
+          "pointers": [
+            "body:line:712"
+          ],
+          "score": 6,
+          "term": "<configured-identifiers>",
+          "term_type": "cooccurrence"
+        },
+        {
+          "count": 1,
+          "field": "body",
+          "pointers": [
+            "line:28"
+          ],
+          "score": 3,
+          "term": "containment",
+          "term_type": "supporting"
+        },
+        {
+          "count": 1,
+          "field": "body",
+          "pointers": [
+            "line:415"
+          ],
+          "score": 3,
+          "term": "grounding",
+          "term_type": "supporting"
+        },
+        {
+          "count": 1,
+          "field": "body",
+          "pointers": [
+            "line:705"
+          ],
+          "score": 3,
+          "term": "pacing",
+          "term_type": "supporting"
+        },
+        {
+          "count": 1,
+          "field": "body",
+          "pointers": [
+            "line:706"
+          ],
+          "score": 0,
+          "term": "crisis",
+          "term_type": "ambiguous"
+        },
+        {
+          "count": 1,
+          "field": "body",
+          "pointers": [
+            "line:7"
+          ],
+          "score": 0,
+          "term": "emergency",
+          "term_type": "ambiguous"
+        },
+        {
+          "count": 1,
+          "field": "body",
+          "pointers": [
+            "line:5"
+          ],
+          "score": 0,
+          "term": "intervention",
+          "term_type": "ambiguous"
+        },
+        {
+          "count": 1,
+          "field": "heading",
+          "pointers": [
+            "line:466"
+          ],
+          "score": 0,
+          "term": "intervention",
+          "term_type": "ambiguous"
+        },
+        {
+          "count": 1,
+          "field": "body",
+          "pointers": [
+            "line:7"
+          ],
+          "score": -9,
+          "term": "diagnosis",
+          "term_type": "negative"
+        }
+      ],
+      "phase0_semantic_claim": null,
+      "rank": 2,
+      "repository_path": "apex-meta/kb/therapy/raw/notes/Psychological_Handover_Medical_Grade_v1.md",
+      "score": 142,
+      "score_vector": {
+        "class_order": 1,
+        "configured_authority_hint_score": 85,
+        "git_last_changed": {
+          "commit": "6e99ffdcee7eec2635b8a4850bd22fb46b59e10d",
+          "date": "2026-06-22T21:31:54+02:00"
+        },
+        "lexical_positive_score": 66,
+        "negative_penalty": 9,
+        "reason_count": 14,
+        "version_signals": []
+      },
+      "semantic_disposition": "pending",
+      "size_bytes": 24767,
+      "source_format": "text",
+      "source_id": "src-f7ded2930e8d80ad",
+      "version_signals": []
+    },
+    {
+      "absolute_path": "C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\therapy\\raw\\notes\\PsychologicalHandover_ChatTherapeuticFramework_inACIM.md",
+      "authority_hints": [
+        {
+          "hint": "Personal reflection and support-framework source. Preserve its stated caution that it is not a formal diagnosis.\n",
+          "path": "apex-meta/kb/therapy/raw/notes/PsychologicalHandover_ChatTherapeuticFramework_inACIM.md",
+          "rule_id": "authority-hint-003",
+          "score": 80
+        }
+      ],
+      "candidate_class": "contextual",
+      "content_hash": "b2f3b75d5aab80d95c88b3b245478b15d9510637d41e63571f5619ccebf9a8b5",
+      "custody_path": null,
+      "derived_text_path": "runs\\run-20260722T183018661588Z-03d9cf49be\\extracted\\src-9b22548c98e6481b.txt",
+      "duplicate_relationships": [],
+      "duplicate_representative_repository_path": "apex-meta/kb/therapy/raw/notes/PsychologicalHandover_ChatTherapeuticFramework_inACIM.md",
+      "duplicate_representative_source_id": "src-9b22548c98e6481b",
+      "extraction_error": null,
+      "extraction_status": "success",
+      "git_last_changed": {
+        "commit": "6e99ffdcee7eec2635b8a4850bd22fb46b59e10d",
+        "date": "2026-06-22T21:31:54+02:00"
+      },
+      "lifecycle_hint_evidence": [],
+      "lifecycle_hints": [],
+      "match_reasons": [
+        {
+          "count": 6,
+          "field": "body",
+          "pointers": [
+            "line:20",
+            "line:69",
+            "line:455",
+            "line:549",
+            "line:612",
+            "line:623"
+          ],
+          "score": 18,
+          "term": "self-compassion",
+          "term_type": "supporting"
+        },
+        {
+          "count": 4,
+          "field": "body",
+          "pointers": [
+            "line:22",
+            "line:310",
+            "line:313",
+            "line:623"
+          ],
+          "score": 12,
+          "term": "boundaries",
+          "term_type": "supporting"
+        },
+        {
+          "count": 1,
+          "field": "heading",
+          "pointers": [
+            "line:572"
+          ],
+          "score": 12,
+          "term": "boundaries",
+          "term_type": "supporting"
+        },
+        {
+          "count": 1,
+          "field": "identifier_co_occurrence",
+          "pointers": [
+            "body:line:623"
+          ],
+          "score": 6,
+          "term": "<configured-identifiers>",
+          "term_type": "cooccurrence"
+        },
+        {
+          "count": 1,
+          "field": "body",
+          "pointers": [
+            "line:380"
+          ],
+          "score": 3,
+          "term": "reflection",
+          "term_type": "supporting"
+        },
+        {
+          "count": 1,
+          "field": "body",
+          "pointers": [
+            "line:481"
+          ],
+          "score": 3,
+          "term": "staged trust",
+          "term_type": "supporting"
+        },
+        {
+          "count": 1,
+          "field": "body",
+          "pointers": [
+            "line:75"
+          ],
+          "score": 0,
+          "term": "intervention",
+          "term_type": "ambiguous"
+        },
+        {
+          "count": 1,
+          "field": "h1",
+          "pointers": [
+            "h1"
+          ],
+          "score": 0,
+          "term": "intervention",
+          "term_type": "ambiguous"
+        },
+        {
+          "count": 5,
+          "field": "heading",
+          "pointers": [
+            "line:1",
+            "line:166",
+            "line:193",
+            "line:353",
+            "line:407"
+          ],
+          "score": 0,
+          "term": "intervention",
+          "term_type": "ambiguous"
+        },
+        {
+          "count": 2,
+          "field": "body",
+          "pointers": [
+            "line:4",
+            "line:440"
+          ],
+          "score": -18,
+          "term": "diagnosis",
+          "term_type": "negative"
+        }
+      ],
+      "phase0_semantic_claim": null,
+      "rank": 3,
+      "repository_path": "apex-meta/kb/therapy/raw/notes/PsychologicalHandover_ChatTherapeuticFramework_inACIM.md",
+      "score": 116,
+      "score_vector": {
+        "class_order": 1,
+        "configured_authority_hint_score": 80,
+        "git_last_changed": {
+          "commit": "6e99ffdcee7eec2635b8a4850bd22fb46b59e10d",
+          "date": "2026-06-22T21:31:54+02:00"
+        },
+        "lexical_positive_score": 54,
+        "negative_penalty": 18,
+        "reason_count": 10,
+        "version_signals": []
+      },
+      "semantic_disposition": "pending",
+      "size_bytes": 18313,
+      "source_format": "text",
+      "source_id": "src-9b22548c98e6481b",
+      "version_signals": []
+    },
+    {
+      "absolute_path": "C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\therapy\\raw\\notes\\ManifestationHowTo.md",
+      "authority_hints": [
+        {
+          "hint": "Source for practical intention encoding and embodied practice design. Distinguish its design claims from established clinical evidence.\n",
+          "path": "apex-meta/kb/therapy/raw/notes/ManifestationHowTo.md",
+          "rule_id": "authority-hint-007",
+          "score": 60
+        }
+      ],
+      "candidate_class": "contextual",
+      "content_hash": "08876a237e47ce2fd75b5bf57a8ce0453915bcced09217eb897c97d6d5dca8a9",
+      "custody_path": null,
+      "derived_text_path": "runs\\run-20260722T183018661588Z-03d9cf49be\\extracted\\src-a4da7bd7f313ee9f.txt",
+      "duplicate_relationships": [],
+      "duplicate_representative_repository_path": "apex-meta/kb/therapy/raw/notes/ManifestationHowTo.md",
+      "duplicate_representative_source_id": "src-a4da7bd7f313ee9f",
+      "extraction_error": null,
+      "extraction_status": "success",
+      "git_last_changed": {
+        "commit": "6e99ffdcee7eec2635b8a4850bd22fb46b59e10d",
+        "date": "2026-06-22T21:31:54+02:00"
+      },
+      "lifecycle_hint_evidence": [],
+      "lifecycle_hints": [],
+      "match_reasons": [
+        {
+          "count": 5,
+          "field": "body",
+          "pointers": [
+            "line:204",
+            "line:477",
+            "line:493",
+            "line:527",
+            "line:604"
+          ],
+          "score": 15,
+          "term": "reflection",
+          "term_type": "supporting"
+        },
+        {
+          "count": 1,
+          "field": "heading",
+          "pointers": [
+            "line:269"
+          ],
+          "score": 12,
+          "term": "action anchor",
+          "term_type": "supporting"
+        },
+        {
+          "count": 1,
+          "field": "heading",
+          "pointers": [
+            "line:565"
+          ],
+          "score": 12,
+          "term": "reflection",
+          "term_type": "supporting"
+        },
+        {
+          "count": 2,
+          "field": "body",
+          "pointers": [
+            "line:62",
+            "line:431"
+          ],
+          "score": 0,
+          "term": "crisis",
+          "term_type": "ambiguous"
+        },
+        {
+          "count": 1,
+          "field": "heading",
+          "pointers": [
+            "line:429"
+          ],
+          "score": 0,
+          "term": "crisis",
+          "term_type": "ambiguous"
+        }
+      ],
+      "phase0_semantic_claim": null,
+      "rank": 4,
+      "repository_path": "apex-meta/kb/therapy/raw/notes/ManifestationHowTo.md",
+      "score": 99,
+      "score_vector": {
+        "class_order": 1,
+        "configured_authority_hint_score": 60,
+        "git_last_changed": {
+          "commit": "6e99ffdcee7eec2635b8a4850bd22fb46b59e10d",
+          "date": "2026-06-22T21:31:54+02:00"
+        },
+        "lexical_positive_score": 39,
+        "negative_penalty": 0,
+        "reason_count": 5,
+        "version_signals": []
+      },
+      "semantic_disposition": "pending",
+      "size_bytes": 13602,
+      "source_format": "text",
+      "source_id": "src-a4da7bd7f313ee9f",
+      "version_signals": []
+    },
+    {
+      "absolute_path": "C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\therapy\\raw\\notes\\MyTherapy.md",
+      "authority_hints": [
+        {
+          "hint": "Personal process-design source connecting betrayal, grief, anger, Jungian, Hawkins, ACIM, CBT, and practical-development ideas.\n",
+          "path": "apex-meta/kb/therapy/raw/notes/MyTherapy.md",
+          "rule_id": "authority-hint-004",
+          "score": 80
+        }
+      ],
+      "candidate_class": "contextual",
+      "content_hash": "3db22fd7f61b597a4c42d326374eb53bd9fb0cf3e1af600cc5c2149a885eaa53",
+      "custody_path": null,
+      "derived_text_path": "runs\\run-20260722T183018661588Z-03d9cf49be\\extracted\\src-f091a39587190b86.txt",
+      "duplicate_relationships": [],
+      "duplicate_representative_repository_path": "apex-meta/kb/therapy/raw/notes/MyTherapy.md",
+      "duplicate_representative_source_id": "src-f091a39587190b86",
+      "extraction_error": null,
+      "extraction_status": "success",
+      "git_last_changed": {
+        "commit": "6e99ffdcee7eec2635b8a4850bd22fb46b59e10d",
+        "date": "2026-06-22T21:31:54+02:00"
+      },
+      "lifecycle_hint_evidence": [],
+      "lifecycle_hints": [],
+      "match_reasons": [
+        {
+          "count": 6,
+          "field": "body",
+          "pointers": [
+            "line:25",
+            "line:183",
+            "line:190",
+            "line:262",
+            "line:514",
+            "line:599"
+          ],
+          "score": 18,
+          "term": "boundaries",
+          "term_type": "supporting"
+        },
+        {
+          "count": 4,
+          "field": "body",
+          "pointers": [
+            "line:28",
+            "line:500",
+            "line:583",
+            "line:599"
+          ],
+          "score": 12,
+          "term": "staged trust",
+          "term_type": "supporting"
+        },
+        {
+          "count": 2,
+          "field": "body",
+          "pointers": [
+            "line:305",
+            "line:337"
+          ],
+          "score": 6,
+          "term": "reflection",
+          "term_type": "supporting"
+        },
+        {
+          "count": 1,
+          "field": "identifier_co_occurrence",
+          "pointers": [
+            "body:line:599"
+          ],
+          "score": 6,
+          "term": "<configured-identifiers>",
+          "term_type": "cooccurrence"
+        },
+        {
+          "count": 1,
+          "field": "body",
+          "pointers": [
+            "line:358"
+          ],
+          "score": 3,
+          "term": "grounding",
+          "term_type": "supporting"
+        },
+        {
+          "count": 1,
+          "field": "body",
+          "pointers": [
+            "line:291"
+          ],
+          "score": 3,
+          "term": "pacing",
+          "term_type": "supporting"
+        },
+        {
+          "count": 1,
+          "field": "body",
+          "pointers": [
+            "line:226"
+          ],
+          "score": 0,
+          "term": "intervention",
+          "term_type": "ambiguous"
+        },
+        {
+          "count": 1,
+          "field": "heading",
+          "pointers": [
+            "line:494"
+          ],
+          "score": -36,
+          "term": "diagnosis",
+          "term_type": "negative"
+        }
+      ],
+      "phase0_semantic_claim": null,
+      "rank": 5,
+      "repository_path": "apex-meta/kb/therapy/raw/notes/MyTherapy.md",
+      "score": 92,
+      "score_vector": {
+        "class_order": 1,
+        "configured_authority_hint_score": 80,
+        "git_last_changed": {
+          "commit": "6e99ffdcee7eec2635b8a4850bd22fb46b59e10d",
+          "date": "2026-06-22T21:31:54+02:00"
+        },
+        "lexical_positive_score": 48,
+        "negative_penalty": 36,
+        "reason_count": 8,
+        "version_signals": []
+      },
+      "semantic_disposition": "pending",
+      "size_bytes": 19221,
+      "source_format": "text",
+      "source_id": "src-f091a39587190b86",
+      "version_signals": []
+    },
+    {
+      "absolute_path": "C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\therapy\\raw\\notes\\Notion_Surrender_Page.md",
+      "authority_hints": [
+        {
+          "hint": "Source for surrender and Hawkins-oriented practice material. Treat it as a framework source, not clinical evidence.\n",
+          "path": "apex-meta/kb/therapy/raw/notes/Notion_Surrender_Page.md",
+          "rule_id": "authority-hint-006",
+          "score": 65
+        }
+      ],
+      "candidate_class": "contextual",
+      "content_hash": "9ff6117ec7addb4713172f09e4fd2dc8b34c42bc678d3ca55dc71410040f5175",
+      "custody_path": null,
+      "derived_text_path": "runs\\run-20260722T183018661588Z-03d9cf49be\\extracted\\src-f79b4940a5971c09.txt",
+      "duplicate_relationships": [],
+      "duplicate_representative_repository_path": "apex-meta/kb/therapy/raw/notes/Notion_Surrender_Page.md",
+      "duplicate_representative_source_id": "src-f79b4940a5971c09",
+      "extraction_error": null,
+      "extraction_status": "success",
+      "git_last_changed": {
+        "commit": "6e99ffdcee7eec2635b8a4850bd22fb46b59e10d",
+        "date": "2026-06-22T21:31:54+02:00"
+      },
+      "lifecycle_hint_evidence": [],
+      "lifecycle_hints": [],
+      "match_reasons": [
+        {
+          "count": 4,
+          "field": "body",
+          "pointers": [
+            "line:237",
+            "line:271"
+          ],
+          "score": 12,
+          "term": "boundaries",
+          "term_type": "supporting"
+        },
+        {
+          "count": 1,
+          "field": "body",
+          "pointers": [
+            "line:17"
+          ],
+          "score": 3,
+          "term": "reflection",
+          "term_type": "supporting"
+        }
+      ],
+      "phase0_semantic_claim": null,
+      "rank": 6,
+      "repository_path": "apex-meta/kb/therapy/raw/notes/Notion_Surrender_Page.md",
+      "score": 80,
+      "score_vector": {
+        "class_order": 1,
+        "configured_authority_hint_score": 65,
+        "git_last_changed": {
+          "commit": "6e99ffdcee7eec2635b8a4850bd22fb46b59e10d",
+          "date": "2026-06-22T21:31:54+02:00"
+        },
+        "lexical_positive_score": 15,
+        "negative_penalty": 0,
+        "reason_count": 2,
+        "version_signals": []
+      },
+      "semantic_disposition": "pending",
+      "size_bytes": 27518,
+      "source_format": "text",
+      "source_id": "src-f79b4940a5971c09",
+      "version_signals": []
+    },
+    {
+      "absolute_path": "C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\therapy\\raw\\notes\\shadow_insight_v1.md",
+      "authority_hints": [
+        {
+          "hint": "Personal insight source; preserve its stated maturity as a fresh breakthrough.",
+          "path": "apex-meta/kb/therapy/raw/notes/shadow_insight_v1.md",
+          "rule_id": "authority-hint-008",
+          "score": 60
+        }
+      ],
+      "candidate_class": "incidental",
+      "content_hash": "06d39530b31392f17873171f2781c4b50fa3e2efbd622aab9bb0c500c072acc7",
+      "custody_path": null,
+      "derived_text_path": "runs\\run-20260722T183018661588Z-03d9cf49be\\extracted\\src-64864213292b5239.txt",
+      "duplicate_relationships": [],
+      "duplicate_representative_repository_path": "apex-meta/kb/therapy/raw/notes/shadow_insight_v1.md",
+      "duplicate_representative_source_id": "src-64864213292b5239",
+      "extraction_error": null,
+      "extraction_status": "success",
+      "git_last_changed": {
+        "commit": "6e99ffdcee7eec2635b8a4850bd22fb46b59e10d",
+        "date": "2026-06-22T21:31:54+02:00"
+      },
+      "lifecycle_hint_evidence": [],
+      "lifecycle_hints": [],
+      "match_reasons": [
+        {
+          "count": 2,
+          "field": "body",
+          "pointers": [
+            "line:13",
+            "line:24"
+          ],
+          "score": 6,
+          "term": "self-compassion",
+          "term_type": "supporting"
+        }
+      ],
+      "phase0_semantic_claim": null,
+      "rank": 7,
+      "repository_path": "apex-meta/kb/therapy/raw/notes/shadow_insight_v1.md",
+      "score": 66,
+      "score_vector": {
+        "class_order": 2,
+        "configured_authority_hint_score": 60,
+        "git_last_changed": {
+          "commit": "6e99ffdcee7eec2635b8a4850bd22fb46b59e10d",
+          "date": "2026-06-22T21:31:54+02:00"
+        },
+        "lexical_positive_score": 6,
+        "negative_penalty": 0,
+        "reason_count": 1,
+        "version_signals": []
+      },
+      "semantic_disposition": "pending",
+      "size_bytes": 1642,
+      "source_format": "text",
+      "source_id": "src-64864213292b5239",
+      "version_signals": []
+    },
+    {
+      "absolute_path": "C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\therapy\\raw\\notes\\shadow_insight_v3.md",
+      "authority_hints": [
+        {
+          "hint": "Personal insight source; preserve its stated maturity as unfolding pattern recognition.",
+          "path": "apex-meta/kb/therapy/raw/notes/shadow_insight_v3.md",
+          "rule_id": "authority-hint-010",
+          "score": 60
+        }
+      ],
+      "candidate_class": "incidental",
+      "content_hash": "e7f78ec45cd449e1d6344508b1af374aa9477a203c7385945e3c51284214912d",
+      "custody_path": null,
+      "derived_text_path": "runs\\run-20260722T183018661588Z-03d9cf49be\\extracted\\src-e4ba180903bfcd78.txt",
+      "duplicate_relationships": [],
+      "duplicate_representative_repository_path": "apex-meta/kb/therapy/raw/notes/shadow_insight_v3.md",
+      "duplicate_representative_source_id": "src-e4ba180903bfcd78",
+      "extraction_error": null,
+      "extraction_status": "success",
+      "git_last_changed": {
+        "commit": "6e99ffdcee7eec2635b8a4850bd22fb46b59e10d",
+        "date": "2026-06-22T21:31:54+02:00"
+      },
+      "lifecycle_hint_evidence": [],
+      "lifecycle_hints": [],
+      "match_reasons": [
+        {
+          "count": 1,
+          "field": "body",
+          "pointers": [
+            "line:141"
+          ],
+          "score": 3,
+          "term": "pacing",
+          "term_type": "supporting"
+        },
+        {
+          "count": 1,
+          "field": "body",
+          "pointers": [
+            "line:118"
+          ],
+          "score": 0,
+          "term": "emergency",
+          "term_type": "ambiguous"
+        }
+      ],
+      "phase0_semantic_claim": null,
+      "rank": 8,
+      "repository_path": "apex-meta/kb/therapy/raw/notes/shadow_insight_v3.md",
+      "score": 63,
+      "score_vector": {
+        "class_order": 2,
+        "configured_authority_hint_score": 60,
+        "git_last_changed": {
+          "commit": "6e99ffdcee7eec2635b8a4850bd22fb46b59e10d",
+          "date": "2026-06-22T21:31:54+02:00"
+        },
+        "lexical_positive_score": 3,
+        "negative_penalty": 0,
+        "reason_count": 2,
+        "version_signals": []
+      },
+      "semantic_disposition": "pending",
+      "size_bytes": 4161,
+      "source_format": "text",
+      "source_id": "src-e4ba180903bfcd78",
+      "version_signals": []
+    }
+  ],
+  "phase0_semantic_authority": false,
+  "schema": "apex.kb.topic-map.v2",
+  "suppressed_ambiguous_match_count": 0,
+  "suppressed_ambiguous_matches": [],
+  "topic": {
+    "aliases": [
+      "emergency protocol",
+      "anger grief protocol",
+      "therapy preparation",
+      "relationship decision",
+      "weekly review"
+    ],
+    "ambiguous_terms": [
+      "emergency",
+      "crisis",
+      "intervention"
+    ],
+    "expected_routes": {
+      "dossier": "wiki/concepts/methods-and-development-operating-system.md",
+      "source_atlas": "wiki/summaries/methods-and-development-operating-system-source-atlas.md"
+    },
+    "name": "High-Impact Methods, Emotional Protocols, and Personal Development Operating System",
+    "negative_terms": [
+      "medical emergency treatment",
+      "diagnosis",
+      "cure"
+    ],
+    "primary_phrases": [
+      "high impact routines",
+      "emotional activation",
+      "daily practice",
+      "personal development plan"
+    ],
+    "supporting_terms": [
+      "grounding",
+      "containment",
+      "orientation",
+      "titration",
+      "pendulation",
+      "self-compassion",
+      "staged trust",
+      "boundaries",
+      "reflection",
+      "action anchor",
+      "pacing"
+    ],
+    "target_queries": [
+      {
+        "answer_requirements": [
+          "Produce Tier 1, Tier 2, Tier 3, and practitioner-supported categories.",
+          "Include a reasoned score or ranking explanation.",
+          "State evidence source, personal match evidence, safety boundary, and energy/capacity implications for each method."
+        ],
+        "priority": "critical",
+        "query_id": "operating-q01",
+        "question": "Which methods are highest priority for the operator, ranked by source support, personal fit, safety, energy cost, and likely impact?"
+      },
+      {
+        "answer_requirements": [
+          "Include stabilization, orientation, fact-versus-interpretation separation, containment, and decision delay where supported.",
+          "Clearly state red flags and the boundary for urgent professional or emergency support.",
+          "Do not provide medical treatment instructions."
+        ],
+        "priority": "critical",
+        "query_id": "operating-q02",
+        "question": "What is the safest source-bounded protocol for acute emotional activation, high anger, grief, relational trigger, or urge to escalate?"
+      },
+      {
+        "answer_requirements": [
+          "Separate daily, weekly, therapy-preparation, and relationship-review routines.",
+          "Respect stated health and energy constraints.",
+          "Define observable signals that a practice is helping, neutral, overwhelming, or counterproductive."
+        ],
+        "priority": "critical",
+        "query_id": "operating-q03",
+        "question": "What daily and weekly low-load practices can support regulation, grief access, self-compassion, relationship discernment, and sustainable development?"
+      },
+      {
+        "answer_requirements": [
+          "Organize the path as stabilization, differentiation, integration, relational redesign, and longer-term development.",
+          "Include review points and uncertainty.",
+          "Do not represent the sequence as a guaranteed cure or substitute for therapy."
+        ],
+        "priority": "routine",
+        "query_id": "operating-q04",
+        "question": "What staged personal development path is best supported by the combined source material?"
+      }
+    ],
+    "topic_id": "methods-and-development-operating-system"
+  }
+}

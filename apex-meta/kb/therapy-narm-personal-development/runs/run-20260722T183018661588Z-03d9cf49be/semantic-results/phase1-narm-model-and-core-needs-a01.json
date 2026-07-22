@@ -1,0 +1,533 @@
+{
+  "config_hash": "03d9cf49be71c2b066ed7a1e774e4e24f12d05d2b9bc17c3de2a8d5b4bd4e390",
+  "phase": "phase1",
+  "run_id": "run-20260722T183018661588Z-03d9cf49be",
+  "schema": "apex.kb.phase1-result.v2",
+  "source_capsules": [
+    {
+      "authority": "Primary configured NARM theory source.",
+      "content_hash": "64a0dae9c1cbc3bba6bd0299e345a4863560c6bce22b60444755585d0e06e6cd",
+      "contradictions": [
+        "The source includes more than one book-derived section and repeated material; no conflicting definition was found in the reviewed passages."
+      ],
+      "contributions": [
+        "Defines NARM concepts and core needs.",
+        "Describes regulation-oriented methods and cautions.",
+        "Distinguishes developmental, shock, and attachment trauma in the source's own framework."
+      ],
+      "freshness": "Current configured source.",
+      "key_claims": [
+        "NARM identifies five core needs: contact, attunement, trust, autonomy, and love/sexuality.",
+        "When early needs are not adequately met, the source describes adaptive survival strategies that can distort present experience.",
+        "NARM emphasizes resources, present-moment contact, somatic mindfulness, containment, and titrated regulation rather than regression or catharsis."
+      ],
+      "pointers": [
+        "line:3",
+        "line:181",
+        "line:187",
+        "line:283",
+        "line:327",
+        "line:413",
+        "line:479",
+        "line:507",
+        "line:5583",
+        "line:5587"
+      ],
+      "repository_path": "apex-meta/kb/therapy/raw/notes/ET-Heller-NARM.md",
+      "schema": "apex.kb.source-capsule.v2",
+      "source_id": "src-c2fb4d779264e00e",
+      "summary": "Primary NARM source describing developmental-trauma work as resource-oriented, present-focused, somatically informed work on contact, vitality, regulation, core needs, adaptive survival structures, shame, and relational capacity.",
+      "title": "ET-Heller-NARM",
+      "uncertainties": [
+        "The source is German and book-derived; later translation should preserve terminology and avoid treating general theory as personal diagnosis."
+      ]
+    },
+    {
+      "authority": "Operator-related working formulation, not clinical diagnosis.",
+      "content_hash": "ea19911591545b9ad39fb24e28356febb71a36efa991c8bbaaa8490cd80a3560",
+      "contradictions": [],
+      "contributions": [
+        "Personal application context.",
+        "Safety and support-style context.",
+        "Later evidence for method ranking and therapy preparation."
+      ],
+      "freshness": "v1 source in the configured corpus.",
+      "key_claims": [
+        "The document frames its contents as support and working formulation rather than diagnosis.",
+        "It identifies regulation, trust, anger, grief, and staged relationship access as practical themes.",
+        "It contains explicit red flags and professional-care recommendations."
+      ],
+      "pointers": [
+        "line:11",
+        "line:92",
+        "line:397",
+        "line:519",
+        "line:606",
+        "line:678",
+        "line:698"
+      ],
+      "repository_path": "apex-meta/kb/therapy/raw/notes/Psychological_Handover_Medical_Grade_v1.md",
+      "schema": "apex.kb.source-capsule.v2",
+      "source_id": "src-f7ded2930e8d80ad",
+      "summary": "Personal working formulation and future-support handover that names presenting patterns, strengths, care boundaries, a NARM-informed therapeutic frame, practical protocols, and professional-care cautions.",
+      "title": "Psychological Handover Medical Grade v1",
+      "uncertainties": [
+        "Personal hypotheses must not be promoted to clinical facts."
+      ]
+    },
+    {
+      "authority": "Operator-related reflection source.",
+      "content_hash": "b2f3b75d5aab80d95c88b3b245478b15d9510637d41e63571f5619ccebf9a8b5",
+      "contradictions": [],
+      "contributions": [
+        "Personal context for later NARM match work.",
+        "Boundary against overclaiming clinical certainty."
+      ],
+      "freshness": "Current configured source.",
+      "key_claims": [
+        "The document explicitly says it is not a formal diagnosis.",
+        "It describes anger and analytic rumination as protective patterns in a personal formulation.",
+        "It names regulation, trust, attachment, and therapeutic-support priorities."
+      ],
+      "pointers": [
+        "line:1",
+        "line:9",
+        "line:28",
+        "line:56",
+        "line:458",
+        "line:507"
+      ],
+      "repository_path": "apex-meta/kb/therapy/raw/notes/PsychologicalHandover_ChatTherapeuticFramework_inACIM.md",
+      "schema": "apex.kb.source-capsule.v2",
+      "source_id": "src-9b22548c98e6481b",
+      "summary": "Personal non-diagnostic handover describing relational vigilance, anger, grief, protective analysis, and a wish to combine truth, boundaries, release, and compassionate support.",
+      "title": "Psychological Handover Chat Therapeutic Framework in ACIM",
+      "uncertainties": [
+        "The source is self-reflective and cannot establish NARM classifications."
+      ]
+    },
+    {
+      "authority": "Operator-related process-design source.",
+      "content_hash": "3db22fd7f61b597a4c42d326374eb53bd9fb0cf3e1af600cc5c2149a885eaa53",
+      "contradictions": [
+        "Its multi-framework synthesis should not be treated as a direct NARM claim."
+      ],
+      "contributions": [
+        "Context for later framework integration.",
+        "Candidate practices and sequence for later method ranking."
+      ],
+      "freshness": "Current configured source.",
+      "key_claims": [
+        "It separates ethical pain from trauma charge as a working distinction.",
+        "It describes anger, grief, trust, and regulation in a staged personal-development map.",
+        "It treats multiple frameworks as layers rather than as one validated clinical model."
+      ],
+      "pointers": [
+        "line:17",
+        "line:33",
+        "line:57",
+        "line:134",
+        "line:201",
+        "line:299",
+        "line:348"
+      ],
+      "repository_path": "apex-meta/kb/therapy/raw/notes/MyTherapy.md",
+      "schema": "apex.kb.source-capsule.v2",
+      "source_id": "src-f091a39587190b86",
+      "summary": "Personal macro strategy that connects ethical pain, trauma charge, Jungian shadow work, Hawkins, ACIM, CBT, practical intention encoding, regulation, staged trust, and spiritual release.",
+      "title": "MyTherapy",
+      "uncertainties": [
+        "The document is a personal process design, not independent clinical evidence."
+      ]
+    },
+    {
+      "authority": "Framework and practice source, not NARM authority.",
+      "content_hash": "9ff6117ec7addb4713172f09e4fd2dc8b34c42bc678d3ca55dc71410040f5175",
+      "contradictions": [
+        "It uses a spiritual framework whose assumptions differ from NARM's psychotherapeutic framing."
+      ],
+      "contributions": [
+        "Later framework-comparison evidence.",
+        "Potential practice context with separate safety review."
+      ],
+      "freshness": "Current configured source.",
+      "key_claims": [
+        "It describes a surrender framework and exercises.",
+        "It discusses guilt, connection, regulation, and attachment-related material.",
+        "It is distinct from NARM and must retain its own source attribution."
+      ],
+      "pointers": [
+        "line:50",
+        "line:102",
+        "line:128",
+        "line:162",
+        "line:188"
+      ],
+      "repository_path": "apex-meta/kb/therapy/raw/notes/Notion_Surrender_Page.md",
+      "schema": "apex.kb.source-capsule.v2",
+      "source_id": "src-f79b4940a5971c09",
+      "summary": "Framework and practice material on surrender, Hawkins-style letting go, principles, and skill-tree exercises.",
+      "title": "Notion Surrender Page",
+      "uncertainties": [
+        "No claim of clinical equivalence with NARM is supported by this source."
+      ]
+    },
+    {
+      "authority": "Operator self-report.",
+      "content_hash": "a87da7087b42f18d10314a07da33485a588ae8add44fbdb79b8ee7a0538eae33",
+      "contradictions": [],
+      "contributions": [
+        "Sets personal goals and energy-sensitive boundaries for later methods.",
+        "Supports no diagnosis or medical recommendation."
+      ],
+      "freshness": "Current configured source.",
+      "key_claims": [
+        "The source reports chronic constraints and capacity limits.",
+        "It requests self-regulation, release, anger and grief integration, and trauma-informed understanding.",
+        "It identifies NARM and several other frameworks as desired inputs."
+      ],
+      "pointers": [
+        "line:1",
+        "line:7",
+        "line:14",
+        "line:20",
+        "line:29"
+      ],
+      "repository_path": "apex-meta/kb/therapy/raw/notes/Anamesebogen.md",
+      "schema": "apex.kb.source-capsule.v2",
+      "source_id": "src-6a0cea0ce0c8e1ce",
+      "summary": "Self-reported intake material naming health and energy constraints, therapy goals, anger and grievance themes, strengths, and interest in NARM, surrender, ACIM, Jung, and concrete tools.",
+      "title": "Anamesebogen",
+      "uncertainties": [
+        "Health information is self-reported and must not be converted into medical guidance."
+      ]
+    },
+    {
+      "authority": "Operator personal insight.",
+      "content_hash": "3a686acf11c2c4e99f698970697495ad1c86f931f45af8aba43733084fbdb241",
+      "contradictions": [],
+      "contributions": [
+        "Potential example for later NARM-to-observation comparison."
+      ],
+      "freshness": "v2 current selected source.",
+      "key_claims": [
+        "It frames its claims as unfolding insight.",
+        "It links presentation pressure with a wound around being seen, valued, chosen, or understood.",
+        "It supplies a personal hypothesis, not a NARM definition."
+      ],
+      "pointers": [
+        "line:7",
+        "line:20",
+        "line:31",
+        "line:54",
+        "line:122",
+        "line:134"
+      ],
+      "repository_path": "apex-meta/kb/therapy/raw/notes/shadow_insight_v2.md",
+      "schema": "apex.kb.source-capsule.v2",
+      "source_id": "src-3850b185d1ea58dc",
+      "summary": "An unfolding personal insight about recognition pressure, frustrated energy, defensive communication, hidden needs, autonomy, and trust.",
+      "title": "Shadow Insight v2",
+      "uncertainties": [
+        "The interpretation remains provisional and should not be classified as a survival style."
+      ]
+    }
+  ],
+  "source_reviews": [
+    {
+      "authority": "Primary configured NARM theory source; German-language book-derived text.",
+      "content_hash": "64a0dae9c1cbc3bba6bd0299e345a4863560c6bce22b60444755585d0e06e6cd",
+      "disposition": "core_current",
+      "duplicate_or_supersession": null,
+      "freshness": "Current configured source; no competing NARM edition was supplied in this corpus.",
+      "individual_value": "Direct authority for all three locked NARM questions.",
+      "pointers": [
+        "line:3",
+        "line:181",
+        "line:187",
+        "line:283",
+        "line:313",
+        "line:327",
+        "line:403",
+        "line:413",
+        "line:479",
+        "line:507",
+        "line:722",
+        "line:3581",
+        "line:3999",
+        "line:4161"
+      ],
+      "questions_supported": [
+        "narm-q01",
+        "narm-q02",
+        "narm-q03"
+      ],
+      "read_status": "targeted",
+      "repository_path": "apex-meta/kb/therapy/raw/notes/ET-Heller-NARM.md",
+      "source_id": "src-c2fb4d779264e00e",
+      "summary": "Primary NARM theory source. It defines the five core needs, adaptive survival structures, shame and counter-identification dynamics, somatic attention, regulation, and the distinction between developmental and shock trauma."
+    },
+    {
+      "authority": "Operator-related working formulation and support handover; self-report and hypothesis only.",
+      "content_hash": "ea19911591545b9ad39fb24e28356febb71a36efa991c8bbaaa8490cd80a3560",
+      "disposition": "contextual",
+      "duplicate_or_supersession": null,
+      "freshness": "Version v1 in the configured source corpus.",
+      "individual_value": "Supplies provisional personal context for later application; it is not authority for NARM theory or diagnosis.",
+      "pointers": [
+        "line:11",
+        "line:92",
+        "line:187",
+        "line:254",
+        "line:397",
+        "line:466",
+        "line:519",
+        "line:606",
+        "line:698"
+      ],
+      "questions_supported": [
+        "narm-q01",
+        "narm-q02",
+        "narm-q03"
+      ],
+      "read_status": "targeted",
+      "repository_path": "apex-meta/kb/therapy/raw/notes/Psychological_Handover_Medical_Grade_v1.md",
+      "source_id": "src-f7ded2930e8d80ad",
+      "summary": "Personal working formulation that names a NARM-informed support frame, regulation and staged trust themes, while explicitly retaining professional-care and non-diagnostic boundaries."
+    },
+    {
+      "authority": "Operator-related reflection source; explicitly not a formal diagnosis.",
+      "content_hash": "b2f3b75d5aab80d95c88b3b245478b15d9510637d41e63571f5619ccebf9a8b5",
+      "disposition": "contextual",
+      "duplicate_or_supersession": null,
+      "freshness": "Current configured handover source.",
+      "individual_value": "Provides context for distinguishing later personal matches from direct NARM claims.",
+      "pointers": [
+        "line:1",
+        "line:9",
+        "line:28",
+        "line:56",
+        "line:458",
+        "line:481",
+        "line:507",
+        "line:516",
+        "line:605"
+      ],
+      "questions_supported": [
+        "narm-q01",
+        "narm-q02",
+        "narm-q03"
+      ],
+      "read_status": "targeted",
+      "repository_path": "apex-meta/kb/therapy/raw/notes/PsychologicalHandover_ChatTherapeuticFramework_inACIM.md",
+      "source_id": "src-9b22548c98e6481b",
+      "summary": "Personal non-diagnostic formulation of relational vigilance, anger, grief, boundaries, and a desired integration of psychological and spiritual support frames."
+    },
+    {
+      "authority": "Operator-related personal process-design and working-formulation source.",
+      "content_hash": "3db22fd7f61b597a4c42d326374eb53bd9fb0cf3e1af600cc5c2149a885eaa53",
+      "disposition": "contextual",
+      "duplicate_or_supersession": null,
+      "freshness": "Current configured source.",
+      "individual_value": "Useful later for integration and method ranking; it does not replace the NARM source for definitions.",
+      "pointers": [
+        "line:17",
+        "line:33",
+        "line:57",
+        "line:134",
+        "line:201",
+        "line:299",
+        "line:348",
+        "line:424",
+        "line:467",
+        "line:521"
+      ],
+      "questions_supported": [
+        "narm-q01",
+        "narm-q02",
+        "narm-q03"
+      ],
+      "read_status": "targeted",
+      "repository_path": "apex-meta/kb/therapy/raw/notes/MyTherapy.md",
+      "source_id": "src-f091a39587190b86",
+      "summary": "Personal process-design document that links betrayal-to-discernment, anger and grief, Jungian, Hawkins, ACIM, CBT, regulation, trust, and a staged treatment map."
+    },
+    {
+      "authority": "Framework and practice source, not clinical or NARM authority.",
+      "content_hash": "9ff6117ec7addb4713172f09e4fd2dc8b34c42bc678d3ca55dc71410040f5175",
+      "disposition": "contextual",
+      "duplicate_or_supersession": null,
+      "freshness": "Current configured source.",
+      "individual_value": "Relevant as a later comparison source and for guarding against conflating spiritual practice with NARM theory.",
+      "pointers": [
+        "line:3",
+        "line:27",
+        "line:50",
+        "line:102",
+        "line:128",
+        "line:162",
+        "line:188",
+        "line:273"
+      ],
+      "questions_supported": [
+        "narm-q01",
+        "narm-q02"
+      ],
+      "read_status": "targeted",
+      "repository_path": "apex-meta/kb/therapy/raw/notes/Notion_Surrender_Page.md",
+      "source_id": "src-f79b4940a5971c09",
+      "summary": "Hawkins-oriented surrender and skill-tree material with principles, practices, and exercises; it is a separate framework from NARM."
+    },
+    {
+      "authority": "Operator self-report only.",
+      "content_hash": "a87da7087b42f18d10314a07da33485a588ae8add44fbdb79b8ee7a0538eae33",
+      "disposition": "contextual",
+      "duplicate_or_supersession": null,
+      "freshness": "Current configured intake note.",
+      "individual_value": "Sets scope and capacity boundaries for later method selection without establishing medical or psychological conclusions.",
+      "pointers": [
+        "line:1",
+        "line:7",
+        "line:14",
+        "line:20",
+        "line:29",
+        "line:58",
+        "line:79"
+      ],
+      "questions_supported": [
+        "narm-q01",
+        "narm-q02",
+        "narm-q03"
+      ],
+      "read_status": "targeted",
+      "repository_path": "apex-meta/kb/therapy/raw/notes/Anamesebogen.md",
+      "source_id": "src-6a0cea0ce0c8e1ce",
+      "summary": "Self-reported therapy goals, health and energy constraints, anger and release themes, and interest in NARM, surrender, ACIM, Jung, and concrete tools."
+    },
+    {
+      "authority": "Operator personal insight marked as unfolding; not NARM theory.",
+      "content_hash": "3a686acf11c2c4e99f698970697495ad1c86f931f45af8aba43733084fbdb241",
+      "disposition": "contextual",
+      "duplicate_or_supersession": null,
+      "freshness": "Version v2; it follows an earlier shadow-insight version not selected for this topic packet.",
+      "individual_value": "Potential later example for distinguishing personal hypotheses from NARM-defined patterns.",
+      "pointers": [
+        "line:7",
+        "line:20",
+        "line:31",
+        "line:54",
+        "line:122",
+        "line:134",
+        "line:159"
+      ],
+      "questions_supported": [
+        "narm-q01",
+        "narm-q02"
+      ],
+      "read_status": "targeted",
+      "repository_path": "apex-meta/kb/therapy/raw/notes/shadow_insight_v2.md",
+      "source_id": "src-3850b185d1ea58dc",
+      "summary": "Personal unfolding insight about frustrated presentation energy, recognition needs, pressure, self-protection, autonomy, and trust."
+    },
+    {
+      "authority": "Operator-related design and practice source, not NARM authority.",
+      "content_hash": "08876a237e47ce2fd75b5bf57a8ce0453915bcced09217eb897c97d6d5dca8a9",
+      "disposition": "incidental",
+      "duplicate_or_supersession": null,
+      "freshness": "Current configured source.",
+      "individual_value": "Reserve for the later practical-method integration topic.",
+      "pointers": [
+        "line:15",
+        "line:227",
+        "line:279",
+        "line:383",
+        "line:481",
+        "line:509",
+        "line:570"
+      ],
+      "questions_supported": [],
+      "read_status": "targeted",
+      "repository_path": "apex-meta/kb/therapy/raw/notes/ManifestationHowTo.md",
+      "source_id": "src-a4da7bd7f313ee9f",
+      "summary": "Practical intention-encoding and Leela design material; it does not define NARM, developmental trauma, or NARM methods."
+    },
+    {
+      "authority": "Operator personal insight marked as unfolding pattern recognition.",
+      "content_hash": "e7f78ec45cd449e1d6344508b1af374aa9477a203c7385945e3c51284214912d",
+      "disposition": "incidental",
+      "duplicate_or_supersession": null,
+      "freshness": "Version v3; later than the earlier shadow-insight variants.",
+      "individual_value": "Reserve for later personal-pattern and methods topics.",
+      "pointers": [
+        "line:7",
+        "line:14",
+        "line:26",
+        "line:38",
+        "line:54",
+        "line:139"
+      ],
+      "questions_supported": [],
+      "read_status": "targeted",
+      "repository_path": "apex-meta/kb/therapy/raw/notes/shadow_insight_v3.md",
+      "source_id": "src-e4ba180903bfcd78",
+      "summary": "Personal unfolding insight about social exposure, fear, defensive presentation, and nervous-system activation; it is not direct evidence for NARM theory."
+    }
+  ],
+  "task_id": "phase1-narm-model-and-core-needs-a01",
+  "topic_analysis": {
+    "contradictions": [
+      "The NARM source is a psychotherapeutic theory source, while surrender, ACIM, Jungian, and personal documents use different assumptions and cannot be treated as interchangeable evidence.",
+      "Personal formulations describe possible patterns but repeatedly state that they are not formal diagnoses; they must not be promoted into NARM classifications without further evidence and professional context."
+    ],
+    "macro": "NARM is useful to this KB because it provides a theory-led, non-diagnostic language for examining how early relational conditions, core needs, bodily regulation, shame, contact, and adaptive strategies may shape present patterns. The primary source emphasizes resources, current functioning, and gradual regulation rather than reducing a person to symptoms or history.",
+    "meso": "The primary source names five core needs—contact, attunement, trust, autonomy, and love/sexuality—and describes adaptive survival structures when early need fulfilment is disrupted. It links contact, identity, self-regulation, shame, counter-identification, and relational capacity. Contextual personal sources may later be compared to these concepts, but they cannot establish a NARM classification or diagnosis.",
+    "micro": "For practice, the source emphasizes present-moment and somatic attention, resource orientation, noticing contact and disconnection, containment of affect, titration, orientation, grounding, pendulation, and using organized adult capacities rather than forcing regression or catharsis. The source itself cautions that trauma work can overwhelm or retraumatize when it is insufficiently titrated or resourced.",
+    "target_answers": [
+      {
+        "answer": "In the primary NARM source, the five core needs are contact, attunement, trust, autonomy, and love/sexuality. The text presents them as biologically grounded needs and linked adult capacities; when early fulfilment is disrupted, it describes adaptive survival strategies that can organize around shame, defensive counter-identification, disconnection, and distorted present experience. This is theory from the source, not evidence that any particular person has a given survival style.",
+        "citations": [
+          "src-c2fb4d779264e00e:line:3",
+          "src-c2fb4d779264e00e:line:181",
+          "src-c2fb4d779264e00e:line:187",
+          "src-c2fb4d779264e00e:line:335",
+          "src-c2fb4d779264e00e:line:507"
+        ],
+        "query_id": "narm-q01"
+      },
+      {
+        "answer": "The source describes a resource-oriented, present-focused, somatically informed approach: noticing contact and disconnection; somatic mindfulness; containment of affect; grounding and orientation; titration and pendulation; tracking nervous-system shifts; and using organized adult capacities to approach disorganized material gradually. It frames these as therapeutic methods and cautions that open attention or trauma work can overwhelm people when regulation is poor or work is not sufficiently titrated and resourced. Personal notes can identify questions or preferences for later work, but they do not independently validate a method's safety or suitability.",
+        "citations": [
+          "src-c2fb4d779264e00e:line:283",
+          "src-c2fb4d779264e00e:line:313",
+          "src-c2fb4d779264e00e:line:327",
+          "src-c2fb4d779264e00e:line:403",
+          "src-c2fb4d779264e00e:line:413",
+          "src-c2fb4d779264e00e:line:431",
+          "src-c2fb4d779264e00e:line:479",
+          "src-c2fb4d779264e00e:line:722",
+          "src-f7ded2930e8d80ad:line:698"
+        ],
+        "query_id": "narm-q02"
+      },
+      {
+        "answer": "The source contrasts shock trauma with developmental trauma: shock trauma is presented as a response to a discrete, bounded event, while developmental trauma concerns early experience that significantly affects subsequent development. It also describes attachment trauma as harm arising in close caregiving relationships. The distinction matters for the source's approach because it emphasizes early relational organization, core needs, identity, contact, and gradual regulation rather than only revisiting a single event. Any relevance to the operator remains a question for careful reflection or qualified professional exploration, not a conclusion from these materials.",
+        "citations": [
+          "src-c2fb4d779264e00e:line:287",
+          "src-c2fb4d779264e00e:line:413",
+          "src-c2fb4d779264e00e:line:5583",
+          "src-c2fb4d779264e00e:line:5587",
+          "src-6a0cea0ce0c8e1ce:line:7"
+        ],
+        "query_id": "narm-q03"
+      }
+    ],
+    "uncertainties": [
+      "The corpus does not contain an independent clinical assessment, so no personal survival-style classification is supported.",
+      "The primary NARM source is largely German and book-derived; terminology needs careful preservation in later compiled pages.",
+      "The source corpus contains several personal versions and working formulations; later topics must retain version and evidence-state distinctions."
+    ]
+  },
+  "topic_id": "narm-model-and-core-needs",
+  "topic_name": "NARM Model, Core Needs, Survival Adaptations, and Therapeutic Principles",
+  "worker_context_id": "codex-phase1-narm-20260722T1833Z"
+}

@@ -1,0 +1,20 @@
+{
+  "artifacts": [
+    "ingest-analysis\\topics\\narm-personal-match-map.analysis.json",
+    "ingest-analysis\\topics\\narm-personal-match-map.analysis.md",
+    "runs\\run-20260722T183018661588Z-03d9cf49be\\semantic-results\\phase1-narm-personal-match-map-a01.json"
+  ],
+  "completed_at": "2026-07-22T18:54:14Z",
+  "config_hash": "03d9cf49be71c2b066ed7a1e774e4e24f12d05d2b9bc17c3de2a8d5b4bd4e390",
+  "message": "Imported validated phase1 result for narm-personal-match-map.",
+  "metrics": {
+    "task_id": "phase1-narm-personal-match-map-a01",
+    "topic_id": "narm-personal-match-map"
+  },
+  "reason_code": null,
+  "run_id": "run-20260722T183018661588Z-03d9cf49be",
+  "schema": "apex.kb.stage-result.v2",
+  "stage": "phase1:narm-personal-match-map",
+  "started_at": "2026-07-22T18:54:14Z",
+  "status": "completed"
+}

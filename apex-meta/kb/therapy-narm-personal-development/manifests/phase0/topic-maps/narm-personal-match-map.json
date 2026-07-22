@@ -1,0 +1,1318 @@
+{
+  "candidate_count": 10,
+  "candidate_set_truncated": false,
+  "candidates": [
+    {
+      "absolute_path": "C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\therapy\\raw\\notes\\PsychologicalHandover_ChatTherapeuticFramework_inACIM.md",
+      "authority_hints": [
+        {
+          "hint": "Personal reflection and support-framework source. Preserve its stated caution that it is not a formal diagnosis.\n",
+          "path": "apex-meta/kb/therapy/raw/notes/PsychologicalHandover_ChatTherapeuticFramework_inACIM.md",
+          "rule_id": "authority-hint-003",
+          "score": 80
+        }
+      ],
+      "candidate_class": "contextual",
+      "content_hash": "b2f3b75d5aab80d95c88b3b245478b15d9510637d41e63571f5619ccebf9a8b5",
+      "custody_path": null,
+      "derived_text_path": "runs\\run-20260722T183018661588Z-03d9cf49be\\extracted\\src-9b22548c98e6481b.txt",
+      "duplicate_relationships": [],
+      "duplicate_representative_repository_path": "apex-meta/kb/therapy/raw/notes/PsychologicalHandover_ChatTherapeuticFramework_inACIM.md",
+      "duplicate_representative_source_id": "src-9b22548c98e6481b",
+      "extraction_error": null,
+      "extraction_status": "success",
+      "git_last_changed": {
+        "commit": "6e99ffdcee7eec2635b8a4850bd22fb46b59e10d",
+        "date": "2026-06-22T21:31:54+02:00"
+      },
+      "lifecycle_hint_evidence": [],
+      "lifecycle_hints": [],
+      "match_reasons": [
+        {
+          "count": 15,
+          "field": "identifier_co_occurrence",
+          "pointers": [
+            "heading:line:60",
+            "heading:line:560",
+            "body:line:11",
+            "body:line:20",
+            "body:line:29",
+            "body:line:43",
+            "body:line:63",
+            "body:line:72",
+            "body:line:77",
+            "body:line:219",
+            "body:line:361",
+            "body:line:513",
+            "body:line:514",
+            "body:line:561",
+            "body:line:623"
+          ],
+          "score": 60,
+          "term": "<configured-identifiers>",
+          "term_type": "cooccurrence"
+        },
+        {
+          "count": 23,
+          "field": "body",
+          "pointers": [
+            "line:11",
+            "line:19",
+            "line:40",
+            "line:43",
+            "line:45",
+            "line:56",
+            "line:63",
+            "line:66",
+            "line:68",
+            "line:72",
+            "line:75",
+            "line:77",
+            "line:347",
+            "line:361",
+            "line:395",
+            "line:398",
+            "line:449",
+            "line:476",
+            "line:514",
+            "line:561",
+            "line:619"
+          ],
+          "score": 30,
+          "term": "anger",
+          "term_type": "supporting"
+        },
+        {
+          "count": 12,
+          "field": "body",
+          "pointers": [
+            "line:11",
+            "line:29",
+            "line:43",
+            "line:219",
+            "line:227",
+            "line:246",
+            "line:300",
+            "line:341",
+            "line:454",
+            "line:513",
+            "line:539",
+            "line:623"
+          ],
+          "score": 30,
+          "term": "betrayal",
+          "term_type": "supporting"
+        },
+        {
+          "count": 10,
+          "field": "body",
+          "pointers": [
+            "line:11",
+            "line:20",
+            "line:29",
+            "line:43",
+            "line:219",
+            "line:220",
+            "line:247",
+            "line:508",
+            "line:513",
+            "line:623"
+          ],
+          "score": 30,
+          "term": "exclusion",
+          "term_type": "supporting"
+        },
+        {
+          "count": 16,
+          "field": "body",
+          "pointers": [
+            "line:20",
+            "line:63",
+            "line:67",
+            "line:69",
+            "line:72",
+            "line:77",
+            "line:276",
+            "line:292",
+            "line:361",
+            "line:399",
+            "line:450",
+            "line:477",
+            "line:514",
+            "line:561",
+            "line:612",
+            "line:629"
+          ],
+          "score": 30,
+          "term": "grief",
+          "term_type": "supporting"
+        },
+        {
+          "count": 2,
+          "field": "heading",
+          "pointers": [
+            "line:60",
+            "line:560"
+          ],
+          "score": 24,
+          "term": "anger",
+          "term_type": "supporting"
+        },
+        {
+          "count": 2,
+          "field": "heading",
+          "pointers": [
+            "line:60",
+            "line:560"
+          ],
+          "score": 24,
+          "term": "grief",
+          "term_type": "supporting"
+        },
+        {
+          "count": 7,
+          "field": "body",
+          "pointers": [
+            "line:14",
+            "line:236",
+            "line:313",
+            "line:402",
+            "line:481",
+            "line:487",
+            "line:605"
+          ],
+          "score": 21,
+          "term": "trust",
+          "term_type": "supporting"
+        },
+        {
+          "count": 1,
+          "field": "body",
+          "pointers": [
+            "line:483"
+          ],
+          "score": 15,
+          "term": "contact",
+          "term_type": "primary"
+        },
+        {
+          "count": 1,
+          "field": "heading",
+          "pointers": [
+            "line:178"
+          ],
+          "score": 12,
+          "term": "exclusion",
+          "term_type": "supporting"
+        },
+        {
+          "count": 1,
+          "field": "heading",
+          "pointers": [
+            "line:458"
+          ],
+          "score": 12,
+          "term": "regulation",
+          "term_type": "supporting"
+        },
+        {
+          "count": 1,
+          "field": "heading",
+          "pointers": [
+            "line:516"
+          ],
+          "score": 12,
+          "term": "shame",
+          "term_type": "supporting"
+        },
+        {
+          "count": 3,
+          "field": "body",
+          "pointers": [
+            "line:142",
+            "line:451",
+            "line:517"
+          ],
+          "score": 9,
+          "term": "shame",
+          "term_type": "supporting"
+        },
+        {
+          "count": 1,
+          "field": "body",
+          "pointers": [
+            "line:130"
+          ],
+          "score": 3,
+          "term": "autonomy",
+          "term_type": "supporting"
+        },
+        {
+          "count": 2,
+          "field": "body",
+          "pointers": [
+            "line:4",
+            "line:440"
+          ],
+          "score": -18,
+          "term": "diagnosis",
+          "term_type": "negative"
+        },
+        {
+          "count": 4,
+          "field": "body",
+          "pointers": [
+            "line:204",
+            "line:338",
+            "line:523",
+            "line:625"
+          ],
+          "score": -36,
+          "term": "certainty",
+          "term_type": "negative"
+        }
+      ],
+      "phase0_semantic_claim": null,
+      "rank": 1,
+      "repository_path": "apex-meta/kb/therapy/raw/notes/PsychologicalHandover_ChatTherapeuticFramework_inACIM.md",
+      "score": 338,
+      "score_vector": {
+        "class_order": 1,
+        "configured_authority_hint_score": 80,
+        "git_last_changed": {
+          "commit": "6e99ffdcee7eec2635b8a4850bd22fb46b59e10d",
+          "date": "2026-06-22T21:31:54+02:00"
+        },
+        "lexical_positive_score": 312,
+        "negative_penalty": 54,
+        "reason_count": 16,
+        "version_signals": []
+      },
+      "semantic_disposition": "pending",
+      "size_bytes": 18313,
+      "source_format": "text",
+      "source_id": "src-9b22548c98e6481b",
+      "version_signals": []
+    },
+    {
+      "absolute_path": "C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\therapy\\raw\\notes\\MyTherapy.md",
+      "authority_hints": [
+        {
+          "hint": "Personal process-design source connecting betrayal, grief, anger, Jungian, Hawkins, ACIM, CBT, and practical-development ideas.\n",
+          "path": "apex-meta/kb/therapy/raw/notes/MyTherapy.md",
+          "rule_id": "authority-hint-004",
+          "score": 80
+        }
+      ],
+      "candidate_class": "contextual",
+      "content_hash": "3db22fd7f61b597a4c42d326374eb53bd9fb0cf3e1af600cc5c2149a885eaa53",
+      "custody_path": null,
+      "derived_text_path": "runs\\run-20260722T183018661588Z-03d9cf49be\\extracted\\src-f091a39587190b86.txt",
+      "duplicate_relationships": [],
+      "duplicate_representative_repository_path": "apex-meta/kb/therapy/raw/notes/MyTherapy.md",
+      "duplicate_representative_source_id": "src-f091a39587190b86",
+      "extraction_error": null,
+      "extraction_status": "success",
+      "git_last_changed": {
+        "commit": "6e99ffdcee7eec2635b8a4850bd22fb46b59e10d",
+        "date": "2026-06-22T21:31:54+02:00"
+      },
+      "lifecycle_hint_evidence": [],
+      "lifecycle_hints": [],
+      "match_reasons": [
+        {
+          "count": 9,
+          "field": "identifier_co_occurrence",
+          "pointers": [
+            "body:line:5",
+            "body:line:23",
+            "body:line:25",
+            "body:line:71",
+            "body:line:140",
+            "body:line:155",
+            "body:line:211",
+            "body:line:500",
+            "body:line:599"
+          ],
+          "score": 54,
+          "term": "<configured-identifiers>",
+          "term_type": "cooccurrence"
+        },
+        {
+          "count": 3,
+          "field": "heading",
+          "pointers": [
+            "line:17",
+            "line:57",
+            "line:201"
+          ],
+          "score": 36,
+          "term": "betrayal",
+          "term_type": "supporting"
+        },
+        {
+          "count": 20,
+          "field": "body",
+          "pointers": [
+            "line:3",
+            "line:5",
+            "line:7",
+            "line:23",
+            "line:25",
+            "line:26",
+            "line:35",
+            "line:117",
+            "line:130",
+            "line:140",
+            "line:148",
+            "line:157",
+            "line:211",
+            "line:233",
+            "line:364",
+            "line:399",
+            "line:496",
+            "line:563",
+            "line:571"
+          ],
+          "score": 30,
+          "term": "anger",
+          "term_type": "supporting"
+        },
+        {
+          "count": 18,
+          "field": "body",
+          "pointers": [
+            "line:5",
+            "line:25",
+            "line:49",
+            "line:53",
+            "line:71",
+            "line:189",
+            "line:238",
+            "line:250",
+            "line:254",
+            "line:319",
+            "line:323",
+            "line:352",
+            "line:384",
+            "line:475",
+            "line:500",
+            "line:554",
+            "line:593"
+          ],
+          "score": 30,
+          "term": "betrayal",
+          "term_type": "supporting"
+        },
+        {
+          "count": 13,
+          "field": "body",
+          "pointers": [
+            "line:28",
+            "line:155",
+            "line:290",
+            "line:309",
+            "line:426",
+            "line:430",
+            "line:440",
+            "line:500",
+            "line:550",
+            "line:583",
+            "line:599"
+          ],
+          "score": 30,
+          "term": "trust",
+          "term_type": "supporting"
+        },
+        {
+          "count": 2,
+          "field": "heading",
+          "pointers": [
+            "line:134",
+            "line:397"
+          ],
+          "score": 24,
+          "term": "anger",
+          "term_type": "supporting"
+        },
+        {
+          "count": 7,
+          "field": "body",
+          "pointers": [
+            "line:104",
+            "line:123",
+            "line:140",
+            "line:155",
+            "line:211",
+            "line:500",
+            "line:599"
+          ],
+          "score": 21,
+          "term": "grief",
+          "term_type": "supporting"
+        },
+        {
+          "count": 1,
+          "field": "body",
+          "pointers": [
+            "line:436"
+          ],
+          "score": 15,
+          "term": "contact",
+          "term_type": "primary"
+        },
+        {
+          "count": 1,
+          "field": "h1",
+          "pointers": [
+            "h1"
+          ],
+          "score": 15,
+          "term": "betrayal",
+          "term_type": "supporting"
+        },
+        {
+          "count": 4,
+          "field": "body",
+          "pointers": [
+            "line:23",
+            "line:51",
+            "line:295",
+            "line:360"
+          ],
+          "score": 12,
+          "term": "regulation",
+          "term_type": "supporting"
+        },
+        {
+          "count": 1,
+          "field": "heading",
+          "pointers": [
+            "line:424"
+          ],
+          "score": 12,
+          "term": "trust",
+          "term_type": "supporting"
+        },
+        {
+          "count": 2,
+          "field": "body",
+          "pointers": [
+            "line:5",
+            "line:71"
+          ],
+          "score": 6,
+          "term": "exclusion",
+          "term_type": "supporting"
+        },
+        {
+          "count": 1,
+          "field": "body",
+          "pointers": [
+            "line:154"
+          ],
+          "score": 3,
+          "term": "shame",
+          "term_type": "supporting"
+        },
+        {
+          "count": 1,
+          "field": "heading",
+          "pointers": [
+            "line:494"
+          ],
+          "score": -36,
+          "term": "diagnosis",
+          "term_type": "negative"
+        }
+      ],
+      "phase0_semantic_claim": null,
+      "rank": 2,
+      "repository_path": "apex-meta/kb/therapy/raw/notes/MyTherapy.md",
+      "score": 332,
+      "score_vector": {
+        "class_order": 1,
+        "configured_authority_hint_score": 80,
+        "git_last_changed": {
+          "commit": "6e99ffdcee7eec2635b8a4850bd22fb46b59e10d",
+          "date": "2026-06-22T21:31:54+02:00"
+        },
+        "lexical_positive_score": 288,
+        "negative_penalty": 36,
+        "reason_count": 14,
+        "version_signals": []
+      },
+      "semantic_disposition": "pending",
+      "size_bytes": 19221,
+      "source_format": "text",
+      "source_id": "src-f091a39587190b86",
+      "version_signals": []
+    },
+    {
+      "absolute_path": "C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\therapy\\raw\\notes\\Psychological_Handover_Medical_Grade_v1.md",
+      "authority_hints": [
+        {
+          "hint": "Primary personal working-formulation and support-boundary source. Treat all psychological statements as self-report or working hypotheses, not diagnosis.\n",
+          "path": "apex-meta/kb/therapy/raw/notes/Psychological_Handover_Medical_Grade_v1.md",
+          "rule_id": "authority-hint-002",
+          "score": 85
+        }
+      ],
+      "candidate_class": "contextual",
+      "content_hash": "ea19911591545b9ad39fb24e28356febb71a36efa991c8bbaaa8490cd80a3560",
+      "custody_path": null,
+      "derived_text_path": "runs\\run-20260722T183018661588Z-03d9cf49be\\extracted\\src-f7ded2930e8d80ad.txt",
+      "duplicate_relationships": [],
+      "duplicate_representative_repository_path": "apex-meta/kb/therapy/raw/notes/Psychological_Handover_Medical_Grade_v1.md",
+      "duplicate_representative_source_id": "src-f7ded2930e8d80ad",
+      "extraction_error": null,
+      "extraction_status": "success",
+      "git_last_changed": {
+        "commit": "6e99ffdcee7eec2635b8a4850bd22fb46b59e10d",
+        "date": "2026-06-22T21:31:54+02:00"
+      },
+      "lifecycle_hint_evidence": [],
+      "lifecycle_hints": [],
+      "match_reasons": [
+        {
+          "count": 24,
+          "field": "body",
+          "pointers": [
+            "line:28",
+            "line:53",
+            "line:55",
+            "line:60",
+            "line:72",
+            "line:97",
+            "line:107",
+            "line:231",
+            "line:270",
+            "line:286",
+            "line:330",
+            "line:417",
+            "line:485",
+            "line:512",
+            "line:513",
+            "line:514",
+            "line:554",
+            "line:568",
+            "line:572",
+            "line:575",
+            "line:650",
+            "line:703",
+            "line:712"
+          ],
+          "score": 30,
+          "term": "anger",
+          "term_type": "supporting"
+        },
+        {
+          "count": 7,
+          "field": "body",
+          "pointers": [
+            "line:243",
+            "line:405",
+            "line:440",
+            "line:609",
+            "line:630",
+            "line:667",
+            "line:712"
+          ],
+          "score": 21,
+          "term": "trust",
+          "term_type": "supporting"
+        },
+        {
+          "count": 1,
+          "field": "body",
+          "pointers": [
+            "line:376"
+          ],
+          "score": 15,
+          "term": "contact",
+          "term_type": "primary"
+        },
+        {
+          "count": 4,
+          "field": "body",
+          "pointers": [
+            "line:405",
+            "line:484",
+            "line:702",
+            "line:712"
+          ],
+          "score": 12,
+          "term": "regulation",
+          "term_type": "supporting"
+        },
+        {
+          "count": 1,
+          "field": "heading",
+          "pointers": [
+            "line:551"
+          ],
+          "score": 12,
+          "term": "anger",
+          "term_type": "supporting"
+        },
+        {
+          "count": 1,
+          "field": "heading",
+          "pointers": [
+            "line:606"
+          ],
+          "score": 12,
+          "term": "trust",
+          "term_type": "supporting"
+        },
+        {
+          "count": 2,
+          "field": "identifier_co_occurrence",
+          "pointers": [
+            "body:line:405",
+            "body:line:712"
+          ],
+          "score": 12,
+          "term": "<configured-identifiers>",
+          "term_type": "cooccurrence"
+        },
+        {
+          "count": 3,
+          "field": "body",
+          "pointers": [
+            "line:321",
+            "line:401",
+            "line:405"
+          ],
+          "score": 9,
+          "term": "betrayal",
+          "term_type": "supporting"
+        },
+        {
+          "count": 1,
+          "field": "body",
+          "pointers": [
+            "line:115"
+          ],
+          "score": 3,
+          "term": "shame",
+          "term_type": "supporting"
+        },
+        {
+          "count": 1,
+          "field": "body",
+          "pointers": [
+            "line:688"
+          ],
+          "score": -9,
+          "term": "certainty",
+          "term_type": "negative"
+        },
+        {
+          "count": 1,
+          "field": "body",
+          "pointers": [
+            "line:7"
+          ],
+          "score": -9,
+          "term": "diagnosis",
+          "term_type": "negative"
+        }
+      ],
+      "phase0_semantic_claim": null,
+      "rank": 3,
+      "repository_path": "apex-meta/kb/therapy/raw/notes/Psychological_Handover_Medical_Grade_v1.md",
+      "score": 193,
+      "score_vector": {
+        "class_order": 1,
+        "configured_authority_hint_score": 85,
+        "git_last_changed": {
+          "commit": "6e99ffdcee7eec2635b8a4850bd22fb46b59e10d",
+          "date": "2026-06-22T21:31:54+02:00"
+        },
+        "lexical_positive_score": 126,
+        "negative_penalty": 18,
+        "reason_count": 11,
+        "version_signals": []
+      },
+      "semantic_disposition": "pending",
+      "size_bytes": 24767,
+      "source_format": "text",
+      "source_id": "src-f7ded2930e8d80ad",
+      "version_signals": []
+    },
+    {
+      "absolute_path": "C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\therapy\\raw\\notes\\shadow_insight_v1.md",
+      "authority_hints": [
+        {
+          "hint": "Personal insight source; preserve its stated maturity as a fresh breakthrough.",
+          "path": "apex-meta/kb/therapy/raw/notes/shadow_insight_v1.md",
+          "rule_id": "authority-hint-008",
+          "score": 60
+        }
+      ],
+      "candidate_class": "contextual",
+      "content_hash": "06d39530b31392f17873171f2781c4b50fa3e2efbd622aab9bb0c500c072acc7",
+      "custody_path": null,
+      "derived_text_path": "runs\\run-20260722T183018661588Z-03d9cf49be\\extracted\\src-64864213292b5239.txt",
+      "duplicate_relationships": [],
+      "duplicate_representative_repository_path": "apex-meta/kb/therapy/raw/notes/shadow_insight_v1.md",
+      "duplicate_representative_source_id": "src-64864213292b5239",
+      "extraction_error": null,
+      "extraction_status": "success",
+      "git_last_changed": {
+        "commit": "6e99ffdcee7eec2635b8a4850bd22fb46b59e10d",
+        "date": "2026-06-22T21:31:54+02:00"
+      },
+      "lifecycle_hint_evidence": [],
+      "lifecycle_hints": [],
+      "match_reasons": [
+        {
+          "count": 10,
+          "field": "body",
+          "pointers": [
+            "line:9",
+            "line:13",
+            "line:15",
+            "line:18",
+            "line:23",
+            "line:24",
+            "line:27",
+            "line:29",
+            "line:34",
+            "line:40"
+          ],
+          "score": 30,
+          "term": "grief",
+          "term_type": "supporting"
+        },
+        {
+          "count": 9,
+          "field": "body",
+          "pointers": [
+            "line:9",
+            "line:12",
+            "line:14",
+            "line:21",
+            "line:22",
+            "line:28",
+            "line:29",
+            "line:32",
+            "line:40"
+          ],
+          "score": 27,
+          "term": "anger",
+          "term_type": "supporting"
+        },
+        {
+          "count": 3,
+          "field": "identifier_co_occurrence",
+          "pointers": [
+            "body:line:9",
+            "body:line:29",
+            "body:line:40"
+          ],
+          "score": 18,
+          "term": "<configured-identifiers>",
+          "term_type": "cooccurrence"
+        }
+      ],
+      "phase0_semantic_claim": null,
+      "rank": 4,
+      "repository_path": "apex-meta/kb/therapy/raw/notes/shadow_insight_v1.md",
+      "score": 135,
+      "score_vector": {
+        "class_order": 1,
+        "configured_authority_hint_score": 60,
+        "git_last_changed": {
+          "commit": "6e99ffdcee7eec2635b8a4850bd22fb46b59e10d",
+          "date": "2026-06-22T21:31:54+02:00"
+        },
+        "lexical_positive_score": 75,
+        "negative_penalty": 0,
+        "reason_count": 3,
+        "version_signals": []
+      },
+      "semantic_disposition": "pending",
+      "size_bytes": 1642,
+      "source_format": "text",
+      "source_id": "src-64864213292b5239",
+      "version_signals": []
+    },
+    {
+      "absolute_path": "C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\therapy\\raw\\notes\\ET-Heller-NARM.md",
+      "authority_hints": [
+        {
+          "hint": "Primary theory source for NARM definitions, developmental-trauma concepts, core needs, survival adaptations, regulation, therapeutic stance, and methods. It is not evidence of a personal diagnosis.\n",
+          "path": "apex-meta/kb/therapy/raw/notes/ET-Heller-NARM.md",
+          "rule_id": "authority-hint-001",
+          "score": 95
+        }
+      ],
+      "candidate_class": "contextual",
+      "content_hash": "64a0dae9c1cbc3bba6bd0299e345a4863560c6bce22b60444755585d0e06e6cd",
+      "custody_path": null,
+      "derived_text_path": "runs\\run-20260722T183018661588Z-03d9cf49be\\extracted\\src-c2fb4d779264e00e.txt",
+      "duplicate_relationships": [],
+      "duplicate_representative_repository_path": "apex-meta/kb/therapy/raw/notes/ET-Heller-NARM.md",
+      "duplicate_representative_source_id": "src-c2fb4d779264e00e",
+      "extraction_error": null,
+      "extraction_status": "success",
+      "git_last_changed": {
+        "commit": "6e99ffdcee7eec2635b8a4850bd22fb46b59e10d",
+        "date": "2026-06-22T21:31:54+02:00"
+      },
+      "lifecycle_hint_evidence": [],
+      "lifecycle_hints": [],
+      "match_reasons": [
+        {
+          "count": 1,
+          "field": "body",
+          "pointers": [
+            "line:5097"
+          ],
+          "score": 15,
+          "term": "contact",
+          "term_type": "primary"
+        },
+        {
+          "count": 1,
+          "field": "body",
+          "pointers": [
+            "line:33"
+          ],
+          "score": 3,
+          "term": "regulation",
+          "term_type": "supporting"
+        }
+      ],
+      "phase0_semantic_claim": null,
+      "rank": 5,
+      "repository_path": "apex-meta/kb/therapy/raw/notes/ET-Heller-NARM.md",
+      "score": 113,
+      "score_vector": {
+        "class_order": 1,
+        "configured_authority_hint_score": 95,
+        "git_last_changed": {
+          "commit": "6e99ffdcee7eec2635b8a4850bd22fb46b59e10d",
+          "date": "2026-06-22T21:31:54+02:00"
+        },
+        "lexical_positive_score": 18,
+        "negative_penalty": 0,
+        "reason_count": 2,
+        "version_signals": []
+      },
+      "semantic_disposition": "pending",
+      "size_bytes": 787633,
+      "source_format": "text",
+      "source_id": "src-c2fb4d779264e00e",
+      "version_signals": []
+    },
+    {
+      "absolute_path": "C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\therapy\\raw\\notes\\Anamesebogen.md",
+      "authority_hints": [
+        {
+          "hint": "Operator self-report about goals, health constraints, energy limitations, and preferred therapeutic approaches. Do not infer medical diagnosis, treatment, prognosis, or exertion guidance.\n",
+          "path": "apex-meta/kb/therapy/raw/notes/Anamesebogen.md",
+          "rule_id": "authority-hint-005",
+          "score": 80
+        }
+      ],
+      "candidate_class": "contextual",
+      "content_hash": "a87da7087b42f18d10314a07da33485a588ae8add44fbdb79b8ee7a0538eae33",
+      "custody_path": null,
+      "derived_text_path": "runs\\run-20260722T183018661588Z-03d9cf49be\\extracted\\src-6a0cea0ce0c8e1ce.txt",
+      "duplicate_relationships": [],
+      "duplicate_representative_repository_path": "apex-meta/kb/therapy/raw/notes/Anamesebogen.md",
+      "duplicate_representative_source_id": "src-6a0cea0ce0c8e1ce",
+      "extraction_error": null,
+      "extraction_status": "success",
+      "git_last_changed": null,
+      "lifecycle_hint_evidence": [],
+      "lifecycle_hints": [],
+      "match_reasons": [
+        {
+          "count": 1,
+          "field": "body",
+          "pointers": [
+            "line:118"
+          ],
+          "score": 3,
+          "term": "betrayal",
+          "term_type": "supporting"
+        },
+        {
+          "count": 1,
+          "field": "body",
+          "pointers": [
+            "line:79"
+          ],
+          "score": 3,
+          "term": "regulation",
+          "term_type": "supporting"
+        }
+      ],
+      "phase0_semantic_claim": null,
+      "rank": 6,
+      "repository_path": "apex-meta/kb/therapy/raw/notes/Anamesebogen.md",
+      "score": 86,
+      "score_vector": {
+        "class_order": 1,
+        "configured_authority_hint_score": 80,
+        "git_last_changed": null,
+        "lexical_positive_score": 6,
+        "negative_penalty": 0,
+        "reason_count": 2,
+        "version_signals": []
+      },
+      "semantic_disposition": "pending",
+      "size_bytes": 5447,
+      "source_format": "text",
+      "source_id": "src-6a0cea0ce0c8e1ce",
+      "version_signals": []
+    },
+    {
+      "absolute_path": "C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\therapy\\raw\\notes\\Notion_Surrender_Page.md",
+      "authority_hints": [
+        {
+          "hint": "Source for surrender and Hawkins-oriented practice material. Treat it as a framework source, not clinical evidence.\n",
+          "path": "apex-meta/kb/therapy/raw/notes/Notion_Surrender_Page.md",
+          "rule_id": "authority-hint-006",
+          "score": 65
+        }
+      ],
+      "candidate_class": "contextual",
+      "content_hash": "9ff6117ec7addb4713172f09e4fd2dc8b34c42bc678d3ca55dc71410040f5175",
+      "custody_path": null,
+      "derived_text_path": "runs\\run-20260722T183018661588Z-03d9cf49be\\extracted\\src-f79b4940a5971c09.txt",
+      "duplicate_relationships": [],
+      "duplicate_representative_repository_path": "apex-meta/kb/therapy/raw/notes/Notion_Surrender_Page.md",
+      "duplicate_representative_source_id": "src-f79b4940a5971c09",
+      "extraction_error": null,
+      "extraction_status": "success",
+      "git_last_changed": {
+        "commit": "6e99ffdcee7eec2635b8a4850bd22fb46b59e10d",
+        "date": "2026-06-22T21:31:54+02:00"
+      },
+      "lifecycle_hint_evidence": [],
+      "lifecycle_hints": [],
+      "match_reasons": [
+        {
+          "count": 2,
+          "field": "body",
+          "pointers": [
+            "line:1",
+            "line:146"
+          ],
+          "score": 6,
+          "term": "connection",
+          "term_type": "supporting"
+        },
+        {
+          "count": 1,
+          "field": "body",
+          "pointers": [
+            "line:7"
+          ],
+          "score": 3,
+          "term": "regulation",
+          "term_type": "supporting"
+        },
+        {
+          "count": 1,
+          "field": "body",
+          "pointers": [
+            "line:200"
+          ],
+          "score": 3,
+          "term": "shame",
+          "term_type": "supporting"
+        }
+      ],
+      "phase0_semantic_claim": null,
+      "rank": 7,
+      "repository_path": "apex-meta/kb/therapy/raw/notes/Notion_Surrender_Page.md",
+      "score": 77,
+      "score_vector": {
+        "class_order": 1,
+        "configured_authority_hint_score": 65,
+        "git_last_changed": {
+          "commit": "6e99ffdcee7eec2635b8a4850bd22fb46b59e10d",
+          "date": "2026-06-22T21:31:54+02:00"
+        },
+        "lexical_positive_score": 12,
+        "negative_penalty": 0,
+        "reason_count": 3,
+        "version_signals": []
+      },
+      "semantic_disposition": "pending",
+      "size_bytes": 27518,
+      "source_format": "text",
+      "source_id": "src-f79b4940a5971c09",
+      "version_signals": []
+    },
+    {
+      "absolute_path": "C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\therapy\\raw\\notes\\shadow_insight_v2.md",
+      "authority_hints": [
+        {
+          "hint": "Personal insight source; preserve its stated maturity as an unfolding insight.",
+          "path": "apex-meta/kb/therapy/raw/notes/shadow_insight_v2.md",
+          "rule_id": "authority-hint-009",
+          "score": 60
+        }
+      ],
+      "candidate_class": "contextual",
+      "content_hash": "3a686acf11c2c4e99f698970697495ad1c86f931f45af8aba43733084fbdb241",
+      "custody_path": null,
+      "derived_text_path": "runs\\run-20260722T183018661588Z-03d9cf49be\\extracted\\src-3850b185d1ea58dc.txt",
+      "duplicate_relationships": [],
+      "duplicate_representative_repository_path": "apex-meta/kb/therapy/raw/notes/shadow_insight_v2.md",
+      "duplicate_representative_source_id": "src-3850b185d1ea58dc",
+      "extraction_error": null,
+      "extraction_status": "success",
+      "git_last_changed": {
+        "commit": "6e99ffdcee7eec2635b8a4850bd22fb46b59e10d",
+        "date": "2026-06-22T21:31:54+02:00"
+      },
+      "lifecycle_hint_evidence": [],
+      "lifecycle_hints": [],
+      "match_reasons": [
+        {
+          "count": 1,
+          "field": "body",
+          "pointers": [
+            "line:122"
+          ],
+          "score": 3,
+          "term": "autonomy",
+          "term_type": "supporting"
+        },
+        {
+          "count": 1,
+          "field": "body",
+          "pointers": [
+            "line:134"
+          ],
+          "score": 3,
+          "term": "trust",
+          "term_type": "supporting"
+        }
+      ],
+      "phase0_semantic_claim": null,
+      "rank": 8,
+      "repository_path": "apex-meta/kb/therapy/raw/notes/shadow_insight_v2.md",
+      "score": 66,
+      "score_vector": {
+        "class_order": 1,
+        "configured_authority_hint_score": 60,
+        "git_last_changed": {
+          "commit": "6e99ffdcee7eec2635b8a4850bd22fb46b59e10d",
+          "date": "2026-06-22T21:31:54+02:00"
+        },
+        "lexical_positive_score": 6,
+        "negative_penalty": 0,
+        "reason_count": 2,
+        "version_signals": []
+      },
+      "semantic_disposition": "pending",
+      "size_bytes": 4149,
+      "source_format": "text",
+      "source_id": "src-3850b185d1ea58dc",
+      "version_signals": []
+    },
+    {
+      "absolute_path": "C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\therapy\\raw\\notes\\ManifestationHowTo.md",
+      "authority_hints": [
+        {
+          "hint": "Source for practical intention encoding and embodied practice design. Distinguish its design claims from established clinical evidence.\n",
+          "path": "apex-meta/kb/therapy/raw/notes/ManifestationHowTo.md",
+          "rule_id": "authority-hint-007",
+          "score": 60
+        }
+      ],
+      "candidate_class": "incidental",
+      "content_hash": "08876a237e47ce2fd75b5bf57a8ce0453915bcced09217eb897c97d6d5dca8a9",
+      "custody_path": null,
+      "derived_text_path": "runs\\run-20260722T183018661588Z-03d9cf49be\\extracted\\src-a4da7bd7f313ee9f.txt",
+      "duplicate_relationships": [],
+      "duplicate_representative_repository_path": "apex-meta/kb/therapy/raw/notes/ManifestationHowTo.md",
+      "duplicate_representative_source_id": "src-a4da7bd7f313ee9f",
+      "extraction_error": null,
+      "extraction_status": "success",
+      "git_last_changed": {
+        "commit": "6e99ffdcee7eec2635b8a4850bd22fb46b59e10d",
+        "date": "2026-06-22T21:31:54+02:00"
+      },
+      "lifecycle_hint_evidence": [],
+      "lifecycle_hints": [],
+      "match_reasons": [
+        {
+          "count": 1,
+          "field": "heading",
+          "pointers": [
+            "line:570"
+          ],
+          "score": 12,
+          "term": "connection",
+          "term_type": "supporting"
+        }
+      ],
+      "phase0_semantic_claim": null,
+      "rank": 9,
+      "repository_path": "apex-meta/kb/therapy/raw/notes/ManifestationHowTo.md",
+      "score": 72,
+      "score_vector": {
+        "class_order": 2,
+        "configured_authority_hint_score": 60,
+        "git_last_changed": {
+          "commit": "6e99ffdcee7eec2635b8a4850bd22fb46b59e10d",
+          "date": "2026-06-22T21:31:54+02:00"
+        },
+        "lexical_positive_score": 12,
+        "negative_penalty": 0,
+        "reason_count": 1,
+        "version_signals": []
+      },
+      "semantic_disposition": "pending",
+      "size_bytes": 13602,
+      "source_format": "text",
+      "source_id": "src-a4da7bd7f313ee9f",
+      "version_signals": []
+    },
+    {
+      "absolute_path": "C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\therapy\\raw\\notes\\shadow_insight_v3.md",
+      "authority_hints": [
+        {
+          "hint": "Personal insight source; preserve its stated maturity as unfolding pattern recognition.",
+          "path": "apex-meta/kb/therapy/raw/notes/shadow_insight_v3.md",
+          "rule_id": "authority-hint-010",
+          "score": 60
+        }
+      ],
+      "candidate_class": "incidental",
+      "content_hash": "e7f78ec45cd449e1d6344508b1af374aa9477a203c7385945e3c51284214912d",
+      "custody_path": null,
+      "derived_text_path": "runs\\run-20260722T183018661588Z-03d9cf49be\\extracted\\src-e4ba180903bfcd78.txt",
+      "duplicate_relationships": [],
+      "duplicate_representative_repository_path": "apex-meta/kb/therapy/raw/notes/shadow_insight_v3.md",
+      "duplicate_representative_source_id": "src-e4ba180903bfcd78",
+      "extraction_error": null,
+      "extraction_status": "success",
+      "git_last_changed": {
+        "commit": "6e99ffdcee7eec2635b8a4850bd22fb46b59e10d",
+        "date": "2026-06-22T21:31:54+02:00"
+      },
+      "lifecycle_hint_evidence": [],
+      "lifecycle_hints": [],
+      "match_reasons": [
+        {
+          "count": 1,
+          "field": "body",
+          "pointers": [
+            "line:139"
+          ],
+          "score": 3,
+          "term": "regulation",
+          "term_type": "supporting"
+        }
+      ],
+      "phase0_semantic_claim": null,
+      "rank": 10,
+      "repository_path": "apex-meta/kb/therapy/raw/notes/shadow_insight_v3.md",
+      "score": 63,
+      "score_vector": {
+        "class_order": 2,
+        "configured_authority_hint_score": 60,
+        "git_last_changed": {
+          "commit": "6e99ffdcee7eec2635b8a4850bd22fb46b59e10d",
+          "date": "2026-06-22T21:31:54+02:00"
+        },
+        "lexical_positive_score": 3,
+        "negative_penalty": 0,
+        "reason_count": 1,
+        "version_signals": []
+      },
+      "semantic_disposition": "pending",
+      "size_bytes": 4161,
+      "source_format": "text",
+      "source_id": "src-e4ba180903bfcd78",
+      "version_signals": []
+    }
+  ],
+  "phase0_semantic_authority": false,
+  "schema": "apex.kb.topic-map.v2",
+  "suppressed_ambiguous_match_count": 0,
+  "suppressed_ambiguous_matches": [],
+  "topic": {
+    "aliases": [
+      "theory to self-observation",
+      "NARM formulation",
+      "pattern mapping"
+    ],
+    "ambiguous_terms": [
+      "survival style",
+      "attachment pattern",
+      "trauma response"
+    ],
+    "expected_routes": {
+      "dossier": "wiki/concepts/narm-personal-match-map.md",
+      "source_atlas": "wiki/summaries/narm-personal-match-map-source-atlas.md"
+    },
+    "name": "NARM-to-Personal Pattern Match Map",
+    "negative_terms": [
+      "diagnosis",
+      "cure",
+      "certainty"
+    ],
+    "primary_phrases": [
+      "NARM personal match",
+      "core needs",
+      "survival adaptation",
+      "contact"
+    ],
+    "supporting_terms": [
+      "betrayal",
+      "exclusion",
+      "anger",
+      "grief",
+      "shame",
+      "trust",
+      "autonomy",
+      "connection",
+      "regulation",
+      "relational safety"
+    ],
+    "target_queries": [
+      {
+        "answer_requirements": [
+          "Produce a match table with NARM concept, personal evidence, confidence level, uncertainty, and next question.",
+          "Use high only when multiple sources support the connection.",
+          "Never present a match as diagnosis or clinical certainty."
+        ],
+        "priority": "critical",
+        "query_id": "match-q01",
+        "question": "Which NARM concepts have high, medium, or low correspondence with the documented personal observations?"
+      },
+      {
+        "answer_requirements": [
+          "Distinguish direct evidence, behavioral inference, working hypothesis, and practitioner question.",
+          "Include counterevidence and unresolved ambiguity.",
+          "Identify which questions require professional exploration."
+        ],
+        "priority": "critical",
+        "query_id": "match-q02",
+        "question": "Which core needs, contact patterns, or survival adaptations are most useful hypotheses to explore with a therapist or through careful reflection?"
+      },
+      {
+        "answer_requirements": [
+          "Rank targets by evidence fit, personal relevance, safety, energy cost, and likely impact.",
+          "Do not promise cure or outcome certainty."
+        ],
+        "priority": "routine",
+        "query_id": "match-q03",
+        "question": "What are the highest-leverage personal development targets suggested by the NARM-to-observation map?"
+      }
+    ],
+    "topic_id": "narm-personal-match-map"
+  }
+}

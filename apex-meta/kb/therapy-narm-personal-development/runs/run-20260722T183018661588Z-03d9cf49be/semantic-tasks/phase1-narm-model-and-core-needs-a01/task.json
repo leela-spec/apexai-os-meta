@@ -1,0 +1,165 @@
+{
+  "allowed_dispositions": [
+    "blocked_unreadable",
+    "blocked_unsupported",
+    "contextual",
+    "contradictory",
+    "core",
+    "core_current",
+    "duplicate",
+    "duplicate_material",
+    "duplicate_nonmaterial",
+    "generated_noise",
+    "historical",
+    "implementation",
+    "incidental",
+    "irrelevant_after_review",
+    "prototype",
+    "superseded",
+    "supporting_current"
+  ],
+  "allowed_output_paths": [
+    "C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\therapy-narm-personal-development\\runs\\run-20260722T183018661588Z-03d9cf49be\\incoming\\phase1-narm-model-and-core-needs-a01.json"
+  ],
+  "attempt": 1,
+  "candidate_count": 9,
+  "candidate_source_ids": [
+    "src-c2fb4d779264e00e",
+    "src-f7ded2930e8d80ad",
+    "src-9b22548c98e6481b",
+    "src-f091a39587190b86",
+    "src-f79b4940a5971c09",
+    "src-6a0cea0ce0c8e1ce",
+    "src-3850b185d1ea58dc",
+    "src-a4da7bd7f313ee9f",
+    "src-e4ba180903bfcd78"
+  ],
+  "config_hash": "03d9cf49be71c2b066ed7a1e774e4e24f12d05d2b9bc17c3de2a8d5b4bd4e390",
+  "created_at": "2026-07-22T18:32:25Z",
+  "disposition_contract": "Every candidate exactly once; preserve current, implementation, prototype, historical, duplicate, superseded, incidental, irrelevant, and blocked distinctions.",
+  "forbidden_writes": [
+    "run-config.yaml",
+    "run-manifest.json",
+    "run-state.json",
+    "manifests/**",
+    "wiki/**",
+    "derived/**",
+    "source repository paths"
+  ],
+  "repair_context": null,
+  "required_output_schema": "phase1-result.schema.json",
+  "run_id": "run-20260722T183018661588Z-03d9cf49be",
+  "schema": "apex.kb.semantic-task.v2",
+  "semantic_depth": "deep",
+  "source_allowlist_path": "source-allowlist.json",
+  "target_queries": [
+    {
+      "answer_requirements": [
+        "Define each term from the NARM source with source pointers.",
+        "Distinguish theory statements from personal application.",
+        "Do not infer that the operator has a diagnosis or a particular survival style."
+      ],
+      "priority": "critical",
+      "query_id": "narm-q01",
+      "question": "What are NARM's core needs, survival adaptations, and central developmental-trauma concepts?"
+    },
+    {
+      "answer_requirements": [
+        "Name each method or principle.",
+        "Explain its stated purpose and mechanism.",
+        "State safety limits and when professional support is appropriate."
+      ],
+      "priority": "critical",
+      "query_id": "narm-q02",
+      "question": "Which NARM principles and methods address contact, disconnection, shame, regulation, and relational safety?"
+    },
+    {
+      "answer_requirements": [
+        "Use direct NARM source evidence.",
+        "Keep any personal relevance explicitly provisional."
+      ],
+      "priority": "routine",
+      "query_id": "narm-q03",
+      "question": "How does NARM distinguish developmental trauma from shock trauma, and why does that distinction matter here?"
+    }
+  ],
+  "task_id": "phase1-narm-model-and-core-needs-a01",
+  "task_kind": "phase1",
+  "topic": {
+    "aliases": [
+      "NeuroAffective Relational Model",
+      "relational trauma",
+      "developmental needs",
+      "survival adaptations"
+    ],
+    "ambiguous_terms": [
+      "trauma",
+      "attachment",
+      "regulation"
+    ],
+    "expected_routes": {
+      "dossier": "wiki/concepts/narm-model-and-core-needs.md",
+      "source_atlas": "wiki/summaries/narm-model-and-core-needs-source-atlas.md"
+    },
+    "name": "NARM Model, Core Needs, Survival Adaptations, and Therapeutic Principles",
+    "negative_terms": [
+      "diagnosis",
+      "cure"
+    ],
+    "primary_phrases": [
+      "NARM",
+      "developmental trauma",
+      "contact survival structure",
+      "core needs"
+    ],
+    "supporting_terms": [
+      "connection",
+      "attunement",
+      "trust",
+      "autonomy",
+      "love and sexuality",
+      "shame",
+      "guilt",
+      "contact",
+      "disconnection",
+      "regulation",
+      "titration",
+      "pendulation",
+      "containment"
+    ],
+    "target_queries": [
+      {
+        "answer_requirements": [
+          "Define each term from the NARM source with source pointers.",
+          "Distinguish theory statements from personal application.",
+          "Do not infer that the operator has a diagnosis or a particular survival style."
+        ],
+        "priority": "critical",
+        "query_id": "narm-q01",
+        "question": "What are NARM's core needs, survival adaptations, and central developmental-trauma concepts?"
+      },
+      {
+        "answer_requirements": [
+          "Name each method or principle.",
+          "Explain its stated purpose and mechanism.",
+          "State safety limits and when professional support is appropriate."
+        ],
+        "priority": "critical",
+        "query_id": "narm-q02",
+        "question": "Which NARM principles and methods address contact, disconnection, shame, regulation, and relational safety?"
+      },
+      {
+        "answer_requirements": [
+          "Use direct NARM source evidence.",
+          "Keep any personal relevance explicitly provisional."
+        ],
+        "priority": "routine",
+        "query_id": "narm-q03",
+        "question": "How does NARM distinguish developmental trauma from shock trauma, and why does that distinction matter here?"
+      }
+    ],
+    "topic_id": "narm-model-and-core-needs"
+  },
+  "topic_id": "narm-model-and-core-needs",
+  "topic_map_path": "C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\therapy-narm-personal-development\\manifests\\phase0\\topic-maps\\narm-model-and-core-needs.json"
+}

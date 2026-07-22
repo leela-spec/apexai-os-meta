@@ -1,0 +1,158 @@
+{
+  "allowed_output_paths": [
+    "C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\therapy-narm-personal-development\\runs\\run-20260722T183018661588Z-03d9cf49be\\incoming\\phase2-narm-model-and-core-needs-a01.json"
+  ],
+  "attempt": 1,
+  "candidate_count": 9,
+  "candidate_source_ids": [
+    "src-c2fb4d779264e00e",
+    "src-f7ded2930e8d80ad",
+    "src-9b22548c98e6481b",
+    "src-f091a39587190b86",
+    "src-f79b4940a5971c09",
+    "src-6a0cea0ce0c8e1ce",
+    "src-3850b185d1ea58dc",
+    "src-a4da7bd7f313ee9f",
+    "src-e4ba180903bfcd78"
+  ],
+  "config_hash": "03d9cf49be71c2b066ed7a1e774e4e24f12d05d2b9bc17c3de2a8d5b4bd4e390",
+  "created_at": "2026-07-22T19:17:11Z",
+  "forbidden_writes": [
+    "run-config.yaml",
+    "run-manifest.json",
+    "run-state.json",
+    "manifests/**",
+    "derived/**",
+    "source repository paths"
+  ],
+  "phase1_analysis_path": "C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\therapy-narm-personal-development\\ingest-analysis\\topics\\narm-model-and-core-needs.analysis.json",
+  "repair_context": null,
+  "required_output_schema": "phase2-result.schema.json",
+  "required_routes": {
+    "dossier": "wiki/concepts/narm-model-and-core-needs.md",
+    "source_atlas": "wiki/summaries/narm-model-and-core-needs-source-atlas.md"
+  },
+  "run_id": "run-20260722T183018661588Z-03d9cf49be",
+  "schema": "apex.kb.semantic-task.v2",
+  "semantic_depth": "deep",
+  "source_capsule_paths": [
+    "C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\therapy-narm-personal-development\\ingest-analysis\\sources\\08876a237e47ce2fd75b5bf57a8ce0453915bcced09217eb897c97d6d5dca8a9.analysis.json",
+    "C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\therapy-narm-personal-development\\ingest-analysis\\sources\\3a686acf11c2c4e99f698970697495ad1c86f931f45af8aba43733084fbdb241.analysis.json",
+    "C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\therapy-narm-personal-development\\ingest-analysis\\sources\\3db22fd7f61b597a4c42d326374eb53bd9fb0cf3e1af600cc5c2149a885eaa53.analysis.json",
+    "C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\therapy-narm-personal-development\\ingest-analysis\\sources\\64a0dae9c1cbc3bba6bd0299e345a4863560c6bce22b60444755585d0e06e6cd.analysis.json",
+    "C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\therapy-narm-personal-development\\ingest-analysis\\sources\\9ff6117ec7addb4713172f09e4fd2dc8b34c42bc678d3ca55dc71410040f5175.analysis.json",
+    "C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\therapy-narm-personal-development\\ingest-analysis\\sources\\a87da7087b42f18d10314a07da33485a588ae8add44fbdb79b8ee7a0538eae33.analysis.json",
+    "C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\therapy-narm-personal-development\\ingest-analysis\\sources\\b2f3b75d5aab80d95c88b3b245478b15d9510637d41e63571f5619ccebf9a8b5.analysis.json",
+    "C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\therapy-narm-personal-development\\ingest-analysis\\sources\\e7f78ec45cd449e1d6344508b1af374aa9477a203c7385945e3c51284214912d.analysis.json",
+    "C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\therapy-narm-personal-development\\ingest-analysis\\sources\\ea19911591545b9ad39fb24e28356febb71a36efa991c8bbaaa8490cd80a3560.analysis.json"
+  ],
+  "target_queries": [
+    {
+      "answer_requirements": [
+        "Define each term from the NARM source with source pointers.",
+        "Distinguish theory statements from personal application.",
+        "Do not infer that the operator has a diagnosis or a particular survival style."
+      ],
+      "priority": "critical",
+      "query_id": "narm-q01",
+      "question": "What are NARM's core needs, survival adaptations, and central developmental-trauma concepts?"
+    },
+    {
+      "answer_requirements": [
+        "Name each method or principle.",
+        "Explain its stated purpose and mechanism.",
+        "State safety limits and when professional support is appropriate."
+      ],
+      "priority": "critical",
+      "query_id": "narm-q02",
+      "question": "Which NARM principles and methods address contact, disconnection, shame, regulation, and relational safety?"
+    },
+    {
+      "answer_requirements": [
+        "Use direct NARM source evidence.",
+        "Keep any personal relevance explicitly provisional."
+      ],
+      "priority": "routine",
+      "query_id": "narm-q03",
+      "question": "How does NARM distinguish developmental trauma from shock trauma, and why does that distinction matter here?"
+    }
+  ],
+  "task_id": "phase2-narm-model-and-core-needs-a01",
+  "task_kind": "phase2",
+  "topic": {
+    "aliases": [
+      "NeuroAffective Relational Model",
+      "relational trauma",
+      "developmental needs",
+      "survival adaptations"
+    ],
+    "ambiguous_terms": [
+      "trauma",
+      "attachment",
+      "regulation"
+    ],
+    "expected_routes": {
+      "dossier": "wiki/concepts/narm-model-and-core-needs.md",
+      "source_atlas": "wiki/summaries/narm-model-and-core-needs-source-atlas.md"
+    },
+    "name": "NARM Model, Core Needs, Survival Adaptations, and Therapeutic Principles",
+    "negative_terms": [
+      "diagnosis",
+      "cure"
+    ],
+    "primary_phrases": [
+      "NARM",
+      "developmental trauma",
+      "contact survival structure",
+      "core needs"
+    ],
+    "supporting_terms": [
+      "connection",
+      "attunement",
+      "trust",
+      "autonomy",
+      "love and sexuality",
+      "shame",
+      "guilt",
+      "contact",
+      "disconnection",
+      "regulation",
+      "titration",
+      "pendulation",
+      "containment"
+    ],
+    "target_queries": [
+      {
+        "answer_requirements": [
+          "Define each term from the NARM source with source pointers.",
+          "Distinguish theory statements from personal application.",
+          "Do not infer that the operator has a diagnosis or a particular survival style."
+        ],
+        "priority": "critical",
+        "query_id": "narm-q01",
+        "question": "What are NARM's core needs, survival adaptations, and central developmental-trauma concepts?"
+      },
+      {
+        "answer_requirements": [
+          "Name each method or principle.",
+          "Explain its stated purpose and mechanism.",
+          "State safety limits and when professional support is appropriate."
+        ],
+        "priority": "critical",
+        "query_id": "narm-q02",
+        "question": "Which NARM principles and methods address contact, disconnection, shame, regulation, and relational safety?"
+      },
+      {
+        "answer_requirements": [
+          "Use direct NARM source evidence.",
+          "Keep any personal relevance explicitly provisional."
+        ],
+        "priority": "routine",
+        "query_id": "narm-q03",
+        "question": "How does NARM distinguish developmental trauma from shock trauma, and why does that distinction matter here?"
+      }
+    ],
+    "topic_id": "narm-model-and-core-needs"
+  },
+  "topic_id": "narm-model-and-core-needs"
+}

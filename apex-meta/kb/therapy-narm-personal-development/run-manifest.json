@@ -1,0 +1,567 @@
+{
+  "artifact_layout": {
+    "incoming": "runs/run-20260722T183018661588Z-03d9cf49be/incoming",
+    "logs": "runs/run-20260722T183018661588Z-03d9cf49be/logs",
+    "run_dir": "runs/run-20260722T183018661588Z-03d9cf49be",
+    "semantic_results": "runs/run-20260722T183018661588Z-03d9cf49be/semantic-results",
+    "semantic_tasks": "runs/run-20260722T183018661588Z-03d9cf49be/semantic-tasks",
+    "stage_results": "runs/run-20260722T183018661588Z-03d9cf49be/stage-results"
+  },
+  "authority_hint_rules": [
+    {
+      "hint": "Primary theory source for NARM definitions, developmental-trauma concepts, core needs, survival adaptations, regulation, therapeutic stance, and methods. It is not evidence of a personal diagnosis.\n",
+      "path": "apex-meta/kb/therapy/raw/notes/ET-Heller-NARM.md",
+      "score": 95
+    },
+    {
+      "hint": "Primary personal working-formulation and support-boundary source. Treat all psychological statements as self-report or working hypotheses, not diagnosis.\n",
+      "path": "apex-meta/kb/therapy/raw/notes/Psychological_Handover_Medical_Grade_v1.md",
+      "score": 85
+    },
+    {
+      "hint": "Personal reflection and support-framework source. Preserve its stated caution that it is not a formal diagnosis.\n",
+      "path": "apex-meta/kb/therapy/raw/notes/PsychologicalHandover_ChatTherapeuticFramework_inACIM.md",
+      "score": 80
+    },
+    {
+      "hint": "Personal process-design source connecting betrayal, grief, anger, Jungian, Hawkins, ACIM, CBT, and practical-development ideas.\n",
+      "path": "apex-meta/kb/therapy/raw/notes/MyTherapy.md",
+      "score": 80
+    },
+    {
+      "hint": "Operator self-report about goals, health constraints, energy limitations, and preferred therapeutic approaches. Do not infer medical diagnosis, treatment, prognosis, or exertion guidance.\n",
+      "path": "apex-meta/kb/therapy/raw/notes/Anamesebogen.md",
+      "score": 80
+    },
+    {
+      "hint": "Source for surrender and Hawkins-oriented practice material. Treat it as a framework source, not clinical evidence.\n",
+      "path": "apex-meta/kb/therapy/raw/notes/Notion_Surrender_Page.md",
+      "score": 65
+    },
+    {
+      "hint": "Source for practical intention encoding and embodied practice design. Distinguish its design claims from established clinical evidence.\n",
+      "path": "apex-meta/kb/therapy/raw/notes/ManifestationHowTo.md",
+      "score": 60
+    },
+    {
+      "hint": "Personal insight source; preserve its stated maturity as a fresh breakthrough.",
+      "path": "apex-meta/kb/therapy/raw/notes/shadow_insight_v1.md",
+      "score": 60
+    },
+    {
+      "hint": "Personal insight source; preserve its stated maturity as an unfolding insight.",
+      "path": "apex-meta/kb/therapy/raw/notes/shadow_insight_v2.md",
+      "score": 60
+    },
+    {
+      "hint": "Personal insight source; preserve its stated maturity as unfolding pattern recognition.",
+      "path": "apex-meta/kb/therapy/raw/notes/shadow_insight_v3.md",
+      "score": 60
+    }
+  ],
+  "config_hash": "03d9cf49be71c2b066ed7a1e774e4e24f12d05d2b9bc17c3de2a8d5b4bd4e390",
+  "corpus_scope": {
+    "authority_hint_rules": [
+      {
+        "hint": "Primary theory source for NARM definitions, developmental-trauma concepts, core needs, survival adaptations, regulation, therapeutic stance, and methods. It is not evidence of a personal diagnosis.\n",
+        "path": "apex-meta/kb/therapy/raw/notes/ET-Heller-NARM.md",
+        "score": 95
+      },
+      {
+        "hint": "Primary personal working-formulation and support-boundary source. Treat all psychological statements as self-report or working hypotheses, not diagnosis.\n",
+        "path": "apex-meta/kb/therapy/raw/notes/Psychological_Handover_Medical_Grade_v1.md",
+        "score": 85
+      },
+      {
+        "hint": "Personal reflection and support-framework source. Preserve its stated caution that it is not a formal diagnosis.\n",
+        "path": "apex-meta/kb/therapy/raw/notes/PsychologicalHandover_ChatTherapeuticFramework_inACIM.md",
+        "score": 80
+      },
+      {
+        "hint": "Personal process-design source connecting betrayal, grief, anger, Jungian, Hawkins, ACIM, CBT, and practical-development ideas.\n",
+        "path": "apex-meta/kb/therapy/raw/notes/MyTherapy.md",
+        "score": 80
+      },
+      {
+        "hint": "Operator self-report about goals, health constraints, energy limitations, and preferred therapeutic approaches. Do not infer medical diagnosis, treatment, prognosis, or exertion guidance.\n",
+        "path": "apex-meta/kb/therapy/raw/notes/Anamesebogen.md",
+        "score": 80
+      },
+      {
+        "hint": "Source for surrender and Hawkins-oriented practice material. Treat it as a framework source, not clinical evidence.\n",
+        "path": "apex-meta/kb/therapy/raw/notes/Notion_Surrender_Page.md",
+        "score": 65
+      },
+      {
+        "hint": "Source for practical intention encoding and embodied practice design. Distinguish its design claims from established clinical evidence.\n",
+        "path": "apex-meta/kb/therapy/raw/notes/ManifestationHowTo.md",
+        "score": 60
+      },
+      {
+        "hint": "Personal insight source; preserve its stated maturity as a fresh breakthrough.",
+        "path": "apex-meta/kb/therapy/raw/notes/shadow_insight_v1.md",
+        "score": 60
+      },
+      {
+        "hint": "Personal insight source; preserve its stated maturity as an unfolding insight.",
+        "path": "apex-meta/kb/therapy/raw/notes/shadow_insight_v2.md",
+        "score": 60
+      },
+      {
+        "hint": "Personal insight source; preserve its stated maturity as unfolding pattern recognition.",
+        "path": "apex-meta/kb/therapy/raw/notes/shadow_insight_v3.md",
+        "score": 60
+      }
+    ],
+    "exclusions": [],
+    "lifecycle_hint_rules": [],
+    "non_text_policy": "inventory_and_report",
+    "output_root_exclusion": "C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\therapy-narm-personal-development",
+    "source_handling": "pointer_only",
+    "source_roots": [
+      "apex-meta/kb/therapy/raw/notes"
+    ]
+  },
+  "created_at": "2026-07-22T18:30:18Z",
+  "destination": {
+    "folder": "apex-meta/kb/therapy-narm-personal-development",
+    "git": {
+      "available": true,
+      "branch": "main",
+      "dirty": true,
+      "error": null,
+      "head": "cee4f36bf52d105d633330513df5533b3e3a79cd",
+      "root": "C:\\GitDev\\apexai-os-meta"
+    },
+    "repository": "leela-spec/apexai-os-meta",
+    "resolved_root": "C:\\GitDev\\apexai-os-meta",
+    "resolved_run_root": "C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\therapy-narm-personal-development",
+    "root": "C:\\GitDev\\apexai-os-meta"
+  },
+  "exclusions": [],
+  "lifecycle_hint_rules": [],
+  "previous_run": null,
+  "run_id": "run-20260722T183018661588Z-03d9cf49be",
+  "run_kind": "new",
+  "run_options": {
+    "ai_help_after_preflight": true,
+    "git_metadata": true,
+    "graph_depth": "process",
+    "max_semantic_repairs": 3,
+    "non_text": "inventory_and_report",
+    "output": "query_ready",
+    "semantic_depth": "deep",
+    "source_handling": "pointer_only"
+  },
+  "schema": "apex.kb.run-manifest.v2",
+  "schema_version": 2,
+  "source": {
+    "folders": [
+      "apex-meta/kb/therapy/raw/notes"
+    ],
+    "git": {
+      "available": true,
+      "branch": "main",
+      "dirty": true,
+      "error": null,
+      "head": "cee4f36bf52d105d633330513df5533b3e3a79cd",
+      "root": "C:\\GitDev\\apexai-os-meta"
+    },
+    "ref": "main",
+    "repository": "leela-spec/apexai-os-meta",
+    "resolved_folders": [
+      {
+        "configured": "apex-meta/kb/therapy/raw/notes",
+        "resolved": "C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\therapy\\raw\\notes"
+      }
+    ],
+    "resolved_root": "C:\\GitDev\\apexai-os-meta",
+    "root": "C:\\GitDev\\apexai-os-meta"
+  },
+  "topics": [
+    {
+      "aliases": [
+        "NeuroAffective Relational Model",
+        "relational trauma",
+        "developmental needs",
+        "survival adaptations"
+      ],
+      "ambiguous_terms": [
+        "trauma",
+        "attachment",
+        "regulation"
+      ],
+      "expected_routes": {
+        "dossier": "wiki/concepts/narm-model-and-core-needs.md",
+        "source_atlas": "wiki/summaries/narm-model-and-core-needs-source-atlas.md"
+      },
+      "name": "NARM Model, Core Needs, Survival Adaptations, and Therapeutic Principles",
+      "negative_terms": [
+        "diagnosis",
+        "cure"
+      ],
+      "primary_phrases": [
+        "NARM",
+        "developmental trauma",
+        "contact survival structure",
+        "core needs"
+      ],
+      "supporting_terms": [
+        "connection",
+        "attunement",
+        "trust",
+        "autonomy",
+        "love and sexuality",
+        "shame",
+        "guilt",
+        "contact",
+        "disconnection",
+        "regulation",
+        "titration",
+        "pendulation",
+        "containment"
+      ],
+      "target_queries": [
+        {
+          "answer_requirements": [
+            "Define each term from the NARM source with source pointers.",
+            "Distinguish theory statements from personal application.",
+            "Do not infer that the operator has a diagnosis or a particular survival style."
+          ],
+          "priority": "critical",
+          "query_id": "narm-q01",
+          "question": "What are NARM's core needs, survival adaptations, and central developmental-trauma concepts?"
+        },
+        {
+          "answer_requirements": [
+            "Name each method or principle.",
+            "Explain its stated purpose and mechanism.",
+            "State safety limits and when professional support is appropriate."
+          ],
+          "priority": "critical",
+          "query_id": "narm-q02",
+          "question": "Which NARM principles and methods address contact, disconnection, shame, regulation, and relational safety?"
+        },
+        {
+          "answer_requirements": [
+            "Use direct NARM source evidence.",
+            "Keep any personal relevance explicitly provisional."
+          ],
+          "priority": "routine",
+          "query_id": "narm-q03",
+          "question": "How does NARM distinguish developmental trauma from shock trauma, and why does that distinction matter here?"
+        }
+      ],
+      "topic_id": "narm-model-and-core-needs"
+    },
+    {
+      "aliases": [
+        "moral injury",
+        "injustice rumination",
+        "responsibility inflation",
+        "relationship rupture",
+        "social exposure"
+      ],
+      "ambiguous_terms": [
+        "trauma",
+        "burnout",
+        "PTSD"
+      ],
+      "expected_routes": {
+        "dossier": "wiki/concepts/personal-pattern-map.md",
+        "source_atlas": "wiki/summaries/personal-pattern-map-source-atlas.md"
+      },
+      "name": "Personal Pattern Map, Strengths, Constraints, and Documented Observations",
+      "negative_terms": [
+        "diagnosis",
+        "personality disorder",
+        "cure"
+      ],
+      "primary_phrases": [
+        "betrayal",
+        "exclusion",
+        "anger",
+        "grief",
+        "relational vigilance"
+      ],
+      "supporting_terms": [
+        "mistrust",
+        "loneliness",
+        "self-compassion",
+        "shame",
+        "boundaries",
+        "trust",
+        "PEM",
+        "PESE",
+        "autonomic dysregulation",
+        "energy constraints"
+      ],
+      "target_queries": [
+        {
+          "answer_requirements": [
+            "Separate raw self-report from later interpretation.",
+            "Organize observations by trigger, emotion, protective response, cost, and stated need.",
+            "Preserve strengths and protective factors alongside difficulties."
+          ],
+          "priority": "critical",
+          "query_id": "personal-q01",
+          "question": "What recurring triggers, emotional sequences, and relational patterns are explicitly documented in the personal sources?"
+        },
+        {
+          "answer_requirements": [
+            "Cite each supporting personal source.",
+            "Label the conclusion as a source-backed personal pattern, not a diagnosis.",
+            "Note contradictions, exceptions, and open questions."
+          ],
+          "priority": "critical",
+          "query_id": "personal-q02",
+          "question": "What observations support the pattern that anger may protect grief, vulnerability, loneliness, or fear of exclusion?"
+        },
+        {
+          "answer_requirements": [
+            "Use only explicit self-reported constraints.",
+            "Do not provide medical diagnosis, treatment, prognosis, or exertion advice.",
+            "Identify low-load, pacing-sensitive design implications."
+          ],
+          "priority": "routine",
+          "query_id": "personal-q03",
+          "question": "What health, energy, and capacity constraints should shape any recommended routine or development plan?"
+        }
+      ],
+      "topic_id": "personal-pattern-map"
+    },
+    {
+      "aliases": [
+        "theory to self-observation",
+        "NARM formulation",
+        "pattern mapping"
+      ],
+      "ambiguous_terms": [
+        "survival style",
+        "attachment pattern",
+        "trauma response"
+      ],
+      "expected_routes": {
+        "dossier": "wiki/concepts/narm-personal-match-map.md",
+        "source_atlas": "wiki/summaries/narm-personal-match-map-source-atlas.md"
+      },
+      "name": "NARM-to-Personal Pattern Match Map",
+      "negative_terms": [
+        "diagnosis",
+        "cure",
+        "certainty"
+      ],
+      "primary_phrases": [
+        "NARM personal match",
+        "core needs",
+        "survival adaptation",
+        "contact"
+      ],
+      "supporting_terms": [
+        "betrayal",
+        "exclusion",
+        "anger",
+        "grief",
+        "shame",
+        "trust",
+        "autonomy",
+        "connection",
+        "regulation",
+        "relational safety"
+      ],
+      "target_queries": [
+        {
+          "answer_requirements": [
+            "Produce a match table with NARM concept, personal evidence, confidence level, uncertainty, and next question.",
+            "Use high only when multiple sources support the connection.",
+            "Never present a match as diagnosis or clinical certainty."
+          ],
+          "priority": "critical",
+          "query_id": "match-q01",
+          "question": "Which NARM concepts have high, medium, or low correspondence with the documented personal observations?"
+        },
+        {
+          "answer_requirements": [
+            "Distinguish direct evidence, behavioral inference, working hypothesis, and practitioner question.",
+            "Include counterevidence and unresolved ambiguity.",
+            "Identify which questions require professional exploration."
+          ],
+          "priority": "critical",
+          "query_id": "match-q02",
+          "question": "Which core needs, contact patterns, or survival adaptations are most useful hypotheses to explore with a therapist or through careful reflection?"
+        },
+        {
+          "answer_requirements": [
+            "Rank targets by evidence fit, personal relevance, safety, energy cost, and likely impact.",
+            "Do not promise cure or outcome certainty."
+          ],
+          "priority": "routine",
+          "query_id": "match-q03",
+          "question": "What are the highest-leverage personal development targets suggested by the NARM-to-observation map?"
+        }
+      ],
+      "topic_id": "narm-personal-match-map"
+    },
+    {
+      "aliases": [
+        "letting go",
+        "forgiveness",
+        "grievance release",
+        "spiritual release",
+        "practical intention encoding"
+      ],
+      "ambiguous_terms": [
+        "forgiveness",
+        "surrender",
+        "manifestation"
+      ],
+      "expected_routes": {
+        "dossier": "wiki/concepts/framework-integration.md",
+        "source_atlas": "wiki/summaries/framework-integration-source-atlas.md"
+      },
+      "name": "NARM, Jungian, Surrender, Hawkins, ACIM, and Practical-Method Integration",
+      "negative_terms": [
+        "spiritual bypassing",
+        "forced positivity",
+        "denial of facts"
+      ],
+      "primary_phrases": [
+        "Jung",
+        "surrender",
+        "Hawkins",
+        "ACIM",
+        "shadow work"
+      ],
+      "supporting_terms": [
+        "anger",
+        "grief",
+        "boundaries",
+        "non-attack",
+        "individuation",
+        "self-compassion",
+        "embodiment",
+        "ritual",
+        "action anchor"
+      ],
+      "target_queries": [
+        {
+          "answer_requirements": [
+            "Attribute each framework's claims to its own source.",
+            "State compatible mechanisms and practical overlaps.",
+            "Do not collapse distinct frameworks into one theory."
+          ],
+          "priority": "critical",
+          "query_id": "integration-q01",
+          "question": "Where do NARM, Jungian shadow work, Hawkins-style surrender, ACIM, and practical intention encoding complement one another?"
+        },
+        {
+          "answer_requirements": [
+            "Name specific risks.",
+            "Provide source-bounded guardrails.",
+            "Preserve the distinction between release, reconciliation, and renewed access."
+          ],
+          "priority": "critical",
+          "query_id": "integration-q02",
+          "question": "Where can these frameworks conflict, become unsafe, or lead to spiritual bypassing, forced positivity, denial of boundaries, or premature forgiveness?"
+        },
+        {
+          "answer_requirements": [
+            "Define the sequence as a reflective operating hypothesis.",
+            "State when to pause or seek professional support.",
+            "Cite the contributing framework sources."
+          ],
+          "priority": "routine",
+          "query_id": "integration-q03",
+          "question": "What integrated sequence can support anger, grief, discernment, boundary setting, surrender, and compassionate action without bypassing reality?"
+        }
+      ],
+      "topic_id": "framework-integration"
+    },
+    {
+      "aliases": [
+        "emergency protocol",
+        "anger grief protocol",
+        "therapy preparation",
+        "relationship decision",
+        "weekly review"
+      ],
+      "ambiguous_terms": [
+        "emergency",
+        "crisis",
+        "intervention"
+      ],
+      "expected_routes": {
+        "dossier": "wiki/concepts/methods-and-development-operating-system.md",
+        "source_atlas": "wiki/summaries/methods-and-development-operating-system-source-atlas.md"
+      },
+      "name": "High-Impact Methods, Emotional Protocols, and Personal Development Operating System",
+      "negative_terms": [
+        "medical emergency treatment",
+        "diagnosis",
+        "cure"
+      ],
+      "primary_phrases": [
+        "high impact routines",
+        "emotional activation",
+        "daily practice",
+        "personal development plan"
+      ],
+      "supporting_terms": [
+        "grounding",
+        "containment",
+        "orientation",
+        "titration",
+        "pendulation",
+        "self-compassion",
+        "staged trust",
+        "boundaries",
+        "reflection",
+        "action anchor",
+        "pacing"
+      ],
+      "target_queries": [
+        {
+          "answer_requirements": [
+            "Produce Tier 1, Tier 2, Tier 3, and practitioner-supported categories.",
+            "Include a reasoned score or ranking explanation.",
+            "State evidence source, personal match evidence, safety boundary, and energy/capacity implications for each method."
+          ],
+          "priority": "critical",
+          "query_id": "operating-q01",
+          "question": "Which methods are highest priority for the operator, ranked by source support, personal fit, safety, energy cost, and likely impact?"
+        },
+        {
+          "answer_requirements": [
+            "Include stabilization, orientation, fact-versus-interpretation separation, containment, and decision delay where supported.",
+            "Clearly state red flags and the boundary for urgent professional or emergency support.",
+            "Do not provide medical treatment instructions."
+          ],
+          "priority": "critical",
+          "query_id": "operating-q02",
+          "question": "What is the safest source-bounded protocol for acute emotional activation, high anger, grief, relational trigger, or urge to escalate?"
+        },
+        {
+          "answer_requirements": [
+            "Separate daily, weekly, therapy-preparation, and relationship-review routines.",
+            "Respect stated health and energy constraints.",
+            "Define observable signals that a practice is helping, neutral, overwhelming, or counterproductive."
+          ],
+          "priority": "critical",
+          "query_id": "operating-q03",
+          "question": "What daily and weekly low-load practices can support regulation, grief access, self-compassion, relationship discernment, and sustainable development?"
+        },
+        {
+          "answer_requirements": [
+            "Organize the path as stabilization, differentiation, integration, relational redesign, and longer-term development.",
+            "Include review points and uncertainty.",
+            "Do not represent the sequence as a guaranteed cure or substitute for therapy."
+          ],
+          "priority": "routine",
+          "query_id": "operating-q04",
+          "question": "What staged personal development path is best supported by the combined source material?"
+        }
+      ],
+      "topic_id": "methods-and-development-operating-system"
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "authority": "Framework and practice source, not NARM authority.",
+  "content_hash": "9ff6117ec7addb4713172f09e4fd2dc8b34c42bc678d3ca55dc71410040f5175",
+  "contradictions": [
+    "It uses a spiritual framework whose assumptions differ from NARM's psychotherapeutic framing."
+  ],
+  "contributions": [
+    "Later framework-comparison evidence.",
+    "Potential practice context with separate safety review."
+  ],
+  "freshness": "Current configured source.",
+  "key_claims": [
+    "It describes a surrender framework and exercises.",
+    "It discusses guilt, connection, regulation, and attachment-related material.",
+    "It is distinct from NARM and must retain its own source attribution."
+  ],
+  "pointers": [
+    "line:50",
+    "line:102",
+    "line:128",
+    "line:162",
+    "line:188"
+  ],
+  "repository_path": "apex-meta/kb/therapy/raw/notes/Notion_Surrender_Page.md",
+  "schema": "apex.kb.source-capsule.v2",
+  "source_id": "src-f79b4940a5971c09",
+  "summary": "Framework and practice material on surrender, Hawkins-style letting go, principles, and skill-tree exercises.",
+  "title": "Notion Surrender Page",
+  "uncertainties": [
+    "No claim of clinical equivalence with NARM is supported by this source."
+  ]
+}

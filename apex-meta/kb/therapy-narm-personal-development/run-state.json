@@ -1,0 +1,518 @@
+{
+  "active_task": {
+    "incoming_path": "C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\therapy-narm-personal-development\\runs\\run-20260722T183018661588Z-03d9cf49be\\incoming\\phase2-narm-model-and-core-needs-a01.json",
+    "packet_dir": "C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\therapy-narm-personal-development\\runs\\run-20260722T183018661588Z-03d9cf49be\\semantic-tasks\\phase2-narm-model-and-core-needs-a01",
+    "task_id": "phase2-narm-model-and-core-needs-a01",
+    "task_kind": "phase2",
+    "topic_id": "narm-model-and-core-needs"
+  },
+  "blockers": [],
+  "completed_stages": [
+    "setup_confirmed",
+    "corpus_intelligence",
+    "phase1:narm-model-and-core-needs",
+    "phase1:personal-pattern-map",
+    "phase1:narm-personal-match-map",
+    "phase1:framework-integration",
+    "phase1:methods-and-development-operating-system"
+  ],
+  "completion": {
+    "artifacts": {},
+    "status": "pending"
+  },
+  "config_hash": "03d9cf49be71c2b066ed7a1e774e4e24f12d05d2b9bc17c3de2a8d5b4bd4e390",
+  "corpus_intelligence": {
+    "artifacts": {
+      "artifacts": [
+        "manifests\\source-inventory.ndjson",
+        "runs\\run-20260722T183018661588Z-03d9cf49be\\manifests\\source-inventory.ndjson",
+        "manifests\\source-manifest.json",
+        "runs\\run-20260722T183018661588Z-03d9cf49be\\manifests\\source-manifest.json",
+        "manifests\\source-payload-manifest.json",
+        "runs\\run-20260722T183018661588Z-03d9cf49be\\manifests\\source-payload-manifest.json",
+        "manifests\\phase0\\structure-map.ndjson",
+        "runs\\run-20260722T183018661588Z-03d9cf49be\\manifests\\phase0\\structure-map.ndjson",
+        "manifests\\phase0\\term-postings.ndjson",
+        "runs\\run-20260722T183018661588Z-03d9cf49be\\manifests\\phase0\\term-postings.ndjson",
+        "manifests\\phase0\\duplicate-map.json",
+        "runs\\run-20260722T183018661588Z-03d9cf49be\\manifests\\phase0\\duplicate-map.json",
+        "manifests\\phase0\\link-graph.json",
+        "runs\\run-20260722T183018661588Z-03d9cf49be\\manifests\\phase0\\link-graph.json",
+        "manifests\\phase0\\heading-map.json",
+        "runs\\run-20260722T183018661588Z-03d9cf49be\\manifests\\phase0\\heading-map.json",
+        "manifests\\phase0\\markdown-link-map.json",
+        "runs\\run-20260722T183018661588Z-03d9cf49be\\manifests\\phase0\\markdown-link-map.json",
+        "manifests\\phase0\\frontmatter-map.json",
+        "runs\\run-20260722T183018661588Z-03d9cf49be\\manifests\\phase0\\frontmatter-map.json",
+        "manifests\\phase0\\corpus-profile.md",
+        "runs\\run-20260722T183018661588Z-03d9cf49be\\manifests\\phase0\\corpus-profile.md",
+        "manifests\\phase0\\topic-maps\\narm-model-and-core-needs.json",
+        "runs\\run-20260722T183018661588Z-03d9cf49be\\manifests\\phase0\\topic-maps\\narm-model-and-core-needs.json",
+        "manifests\\phase0\\topic-maps\\narm-model-and-core-needs.md",
+        "runs\\run-20260722T183018661588Z-03d9cf49be\\manifests\\phase0\\topic-maps\\narm-model-and-core-needs.md",
+        "manifests\\phase0\\topic-maps\\personal-pattern-map.json",
+        "runs\\run-20260722T183018661588Z-03d9cf49be\\manifests\\phase0\\topic-maps\\personal-pattern-map.json",
+        "manifests\\phase0\\topic-maps\\personal-pattern-map.md",
+        "runs\\run-20260722T183018661588Z-03d9cf49be\\manifests\\phase0\\topic-maps\\personal-pattern-map.md",
+        "manifests\\phase0\\topic-maps\\narm-personal-match-map.json",
+        "runs\\run-20260722T183018661588Z-03d9cf49be\\manifests\\phase0\\topic-maps\\narm-personal-match-map.json",
+        "manifests\\phase0\\topic-maps\\narm-personal-match-map.md",
+        "runs\\run-20260722T183018661588Z-03d9cf49be\\manifests\\phase0\\topic-maps\\narm-personal-match-map.md",
+        "manifests\\phase0\\topic-maps\\framework-integration.json",
+        "runs\\run-20260722T183018661588Z-03d9cf49be\\manifests\\phase0\\topic-maps\\framework-integration.json",
+        "manifests\\phase0\\topic-maps\\framework-integration.md",
+        "runs\\run-20260722T183018661588Z-03d9cf49be\\manifests\\phase0\\topic-maps\\framework-integration.md",
+        "manifests\\phase0\\topic-maps\\methods-and-development-operating-system.json",
+        "runs\\run-20260722T183018661588Z-03d9cf49be\\manifests\\phase0\\topic-maps\\methods-and-development-operating-system.json",
+        "manifests\\phase0\\topic-maps\\methods-and-development-operating-system.md",
+        "runs\\run-20260722T183018661588Z-03d9cf49be\\manifests\\phase0\\topic-maps\\methods-and-development-operating-system.md",
+        "manifests\\phase0\\phase0-navigation-report.md",
+        "runs\\run-20260722T183018661588Z-03d9cf49be\\manifests\\phase0\\phase0-navigation-report.md",
+        "manifests\\phase0\\phase0-stats.json",
+        "runs\\run-20260722T183018661588Z-03d9cf49be\\manifests\\phase0\\phase0-stats.json"
+      ],
+      "blocked_or_metadata_only_count": 0,
+      "candidate_sets_truncated": false,
+      "config_hash": "03d9cf49be71c2b066ed7a1e774e4e24f12d05d2b9bc17c3de2a8d5b4bd4e390",
+      "created_at": "2026-07-22T18:30:18Z",
+      "excluded_count": 0,
+      "file_count": 10,
+      "git_dated_file_count": 9,
+      "git_metadata_error": null,
+      "impact_report": null,
+      "included_count": 10,
+      "link_graph_edge_count": 13,
+      "run_id": "run-20260722T183018661588Z-03d9cf49be",
+      "schema": "apex.kb.phase0-summary.v2",
+      "topic_candidate_counts": {
+        "framework-integration": 8,
+        "methods-and-development-operating-system": 8,
+        "narm-model-and-core-needs": 9,
+        "narm-personal-match-map": 10,
+        "personal-pattern-map": 8
+      },
+      "total_bytes": 906453
+    },
+    "status": "completed"
+  },
+  "current_stage": "awaiting_phase2_narm-model-and-core-needs",
+  "history": [
+    {
+      "at": "2026-07-22T18:30:18Z",
+      "event": "setup_confirmed"
+    },
+    {
+      "at": "2026-07-22T18:32:15Z",
+      "details": {
+        "artifacts": [
+          "manifests\\source-inventory.ndjson",
+          "runs\\run-20260722T183018661588Z-03d9cf49be\\manifests\\source-inventory.ndjson",
+          "manifests\\source-manifest.json",
+          "runs\\run-20260722T183018661588Z-03d9cf49be\\manifests\\source-manifest.json",
+          "manifests\\source-payload-manifest.json",
+          "runs\\run-20260722T183018661588Z-03d9cf49be\\manifests\\source-payload-manifest.json",
+          "manifests\\phase0\\structure-map.ndjson",
+          "runs\\run-20260722T183018661588Z-03d9cf49be\\manifests\\phase0\\structure-map.ndjson",
+          "manifests\\phase0\\term-postings.ndjson",
+          "runs\\run-20260722T183018661588Z-03d9cf49be\\manifests\\phase0\\term-postings.ndjson",
+          "manifests\\phase0\\duplicate-map.json",
+          "runs\\run-20260722T183018661588Z-03d9cf49be\\manifests\\phase0\\duplicate-map.json",
+          "manifests\\phase0\\link-graph.json",
+          "runs\\run-20260722T183018661588Z-03d9cf49be\\manifests\\phase0\\link-graph.json",
+          "manifests\\phase0\\heading-map.json",
+          "runs\\run-20260722T183018661588Z-03d9cf49be\\manifests\\phase0\\heading-map.json",
+          "manifests\\phase0\\markdown-link-map.json",
+          "runs\\run-20260722T183018661588Z-03d9cf49be\\manifests\\phase0\\markdown-link-map.json",
+          "manifests\\phase0\\frontmatter-map.json",
+          "runs\\run-20260722T183018661588Z-03d9cf49be\\manifests\\phase0\\frontmatter-map.json",
+          "manifests\\phase0\\corpus-profile.md",
+          "runs\\run-20260722T183018661588Z-03d9cf49be\\manifests\\phase0\\corpus-profile.md",
+          "manifests\\phase0\\topic-maps\\narm-model-and-core-needs.json",
+          "runs\\run-20260722T183018661588Z-03d9cf49be\\manifests\\phase0\\topic-maps\\narm-model-and-core-needs.json",
+          "manifests\\phase0\\topic-maps\\narm-model-and-core-needs.md",
+          "runs\\run-20260722T183018661588Z-03d9cf49be\\manifests\\phase0\\topic-maps\\narm-model-and-core-needs.md",
+          "manifests\\phase0\\topic-maps\\personal-pattern-map.json",
+          "runs\\run-20260722T183018661588Z-03d9cf49be\\manifests\\phase0\\topic-maps\\personal-pattern-map.json",
+          "manifests\\phase0\\topic-maps\\personal-pattern-map.md",
+          "runs\\run-20260722T183018661588Z-03d9cf49be\\manifests\\phase0\\topic-maps\\personal-pattern-map.md",
+          "manifests\\phase0\\topic-maps\\narm-personal-match-map.json",
+          "runs\\run-20260722T183018661588Z-03d9cf49be\\manifests\\phase0\\topic-maps\\narm-personal-match-map.json",
+          "manifests\\phase0\\topic-maps\\narm-personal-match-map.md",
+          "runs\\run-20260722T183018661588Z-03d9cf49be\\manifests\\phase0\\topic-maps\\narm-personal-match-map.md",
+          "manifests\\phase0\\topic-maps\\framework-integration.json",
+          "runs\\run-20260722T183018661588Z-03d9cf49be\\manifests\\phase0\\topic-maps\\framework-integration.json",
+          "manifests\\phase0\\topic-maps\\framework-integration.md",
+          "runs\\run-20260722T183018661588Z-03d9cf49be\\manifests\\phase0\\topic-maps\\framework-integration.md",
+          "manifests\\phase0\\topic-maps\\methods-and-development-operating-system.json",
+          "runs\\run-20260722T183018661588Z-03d9cf49be\\manifests\\phase0\\topic-maps\\methods-and-development-operating-system.json",
+          "manifests\\phase0\\topic-maps\\methods-and-development-operating-system.md",
+          "runs\\run-20260722T183018661588Z-03d9cf49be\\manifests\\phase0\\topic-maps\\methods-and-development-operating-system.md",
+          "manifests\\phase0\\phase0-navigation-report.md",
+          "runs\\run-20260722T183018661588Z-03d9cf49be\\manifests\\phase0\\phase0-navigation-report.md",
+          "manifests\\phase0\\phase0-stats.json",
+          "runs\\run-20260722T183018661588Z-03d9cf49be\\manifests\\phase0\\phase0-stats.json"
+        ],
+        "blocked_or_metadata_only_count": 0,
+        "candidate_sets_truncated": false,
+        "config_hash": "03d9cf49be71c2b066ed7a1e774e4e24f12d05d2b9bc17c3de2a8d5b4bd4e390",
+        "created_at": "2026-07-22T18:30:18Z",
+        "excluded_count": 0,
+        "file_count": 10,
+        "git_dated_file_count": 9,
+        "git_metadata_error": null,
+        "impact_report": null,
+        "included_count": 10,
+        "link_graph_edge_count": 13,
+        "run_id": "run-20260722T183018661588Z-03d9cf49be",
+        "schema": "apex.kb.phase0-summary.v2",
+        "topic_candidate_counts": {
+          "framework-integration": 8,
+          "methods-and-development-operating-system": 8,
+          "narm-model-and-core-needs": 9,
+          "narm-personal-match-map": 10,
+          "personal-pattern-map": 8
+        },
+        "total_bytes": 906453
+      },
+      "event": "corpus_intelligence_completed"
+    },
+    {
+      "at": "2026-07-22T18:32:25Z",
+      "details": {
+        "incoming_path": "C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\therapy-narm-personal-development\\runs\\run-20260722T183018661588Z-03d9cf49be\\incoming\\phase1-narm-model-and-core-needs-a01.json",
+        "packet_dir": "C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\therapy-narm-personal-development\\runs\\run-20260722T183018661588Z-03d9cf49be\\semantic-tasks\\phase1-narm-model-and-core-needs-a01",
+        "task_id": "phase1-narm-model-and-core-needs-a01",
+        "task_kind": "phase1",
+        "topic_id": "narm-model-and-core-needs"
+      },
+      "event": "semantic_packet_created"
+    },
+    {
+      "at": "2026-07-22T18:35:51Z",
+      "details": {
+        "capsule_paths": [
+          "ingest-analysis\\sources\\64a0dae9c1cbc3bba6bd0299e345a4863560c6bce22b60444755585d0e06e6cd.analysis.json",
+          "ingest-analysis\\sources\\64a0dae9c1cbc3bba6bd0299e345a4863560c6bce22b60444755585d0e06e6cd.analysis.md",
+          "ingest-analysis\\sources\\ea19911591545b9ad39fb24e28356febb71a36efa991c8bbaaa8490cd80a3560.analysis.json",
+          "ingest-analysis\\sources\\ea19911591545b9ad39fb24e28356febb71a36efa991c8bbaaa8490cd80a3560.analysis.md",
+          "ingest-analysis\\sources\\b2f3b75d5aab80d95c88b3b245478b15d9510637d41e63571f5619ccebf9a8b5.analysis.json",
+          "ingest-analysis\\sources\\b2f3b75d5aab80d95c88b3b245478b15d9510637d41e63571f5619ccebf9a8b5.analysis.md",
+          "ingest-analysis\\sources\\3db22fd7f61b597a4c42d326374eb53bd9fb0cf3e1af600cc5c2149a885eaa53.analysis.json",
+          "ingest-analysis\\sources\\3db22fd7f61b597a4c42d326374eb53bd9fb0cf3e1af600cc5c2149a885eaa53.analysis.md",
+          "ingest-analysis\\sources\\9ff6117ec7addb4713172f09e4fd2dc8b34c42bc678d3ca55dc71410040f5175.analysis.json",
+          "ingest-analysis\\sources\\9ff6117ec7addb4713172f09e4fd2dc8b34c42bc678d3ca55dc71410040f5175.analysis.md",
+          "ingest-analysis\\sources\\a87da7087b42f18d10314a07da33485a588ae8add44fbdb79b8ee7a0538eae33.analysis.json",
+          "ingest-analysis\\sources\\a87da7087b42f18d10314a07da33485a588ae8add44fbdb79b8ee7a0538eae33.analysis.md",
+          "ingest-analysis\\sources\\3a686acf11c2c4e99f698970697495ad1c86f931f45af8aba43733084fbdb241.analysis.json",
+          "ingest-analysis\\sources\\3a686acf11c2c4e99f698970697495ad1c86f931f45af8aba43733084fbdb241.analysis.md"
+        ],
+        "imported_result": "runs\\run-20260722T183018661588Z-03d9cf49be\\semantic-results\\phase1-narm-model-and-core-needs-a01.json",
+        "topic_analysis_markdown": "ingest-analysis\\topics\\narm-model-and-core-needs.analysis.md",
+        "topic_analysis_path": "ingest-analysis\\topics\\narm-model-and-core-needs.analysis.json",
+        "topic_id": "narm-model-and-core-needs",
+        "worker_context_id": "codex-phase1-narm-20260722T1833Z"
+      },
+      "event": "phase1_imported"
+    },
+    {
+      "at": "2026-07-22T18:36:04Z",
+      "details": {
+        "incoming_path": "C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\therapy-narm-personal-development\\runs\\run-20260722T183018661588Z-03d9cf49be\\incoming\\phase1-personal-pattern-map-a01.json",
+        "packet_dir": "C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\therapy-narm-personal-development\\runs\\run-20260722T183018661588Z-03d9cf49be\\semantic-tasks\\phase1-personal-pattern-map-a01",
+        "task_id": "phase1-personal-pattern-map-a01",
+        "task_kind": "phase1",
+        "topic_id": "personal-pattern-map"
+      },
+      "event": "semantic_packet_created"
+    },
+    {
+      "at": "2026-07-22T18:52:03Z",
+      "details": {
+        "capsule_paths": [
+          "ingest-analysis\\sources\\06d39530b31392f17873171f2781c4b50fa3e2efbd622aab9bb0c500c072acc7.analysis.json",
+          "ingest-analysis\\sources\\06d39530b31392f17873171f2781c4b50fa3e2efbd622aab9bb0c500c072acc7.analysis.md",
+          "ingest-analysis\\sources\\e7f78ec45cd449e1d6344508b1af374aa9477a203c7385945e3c51284214912d.analysis.json",
+          "ingest-analysis\\sources\\e7f78ec45cd449e1d6344508b1af374aa9477a203c7385945e3c51284214912d.analysis.md"
+        ],
+        "imported_result": "runs\\run-20260722T183018661588Z-03d9cf49be\\semantic-results\\phase1-personal-pattern-map-a01.json",
+        "topic_analysis_markdown": "ingest-analysis\\topics\\personal-pattern-map.analysis.md",
+        "topic_analysis_path": "ingest-analysis\\topics\\personal-pattern-map.analysis.json",
+        "topic_id": "personal-pattern-map",
+        "worker_context_id": "codex-phase1-personal-pattern-map-20260722T1856Z"
+      },
+      "event": "phase1_imported"
+    },
+    {
+      "at": "2026-07-22T18:52:10Z",
+      "details": {
+        "incoming_path": "C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\therapy-narm-personal-development\\runs\\run-20260722T183018661588Z-03d9cf49be\\incoming\\phase1-narm-personal-match-map-a01.json",
+        "packet_dir": "C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\therapy-narm-personal-development\\runs\\run-20260722T183018661588Z-03d9cf49be\\semantic-tasks\\phase1-narm-personal-match-map-a01",
+        "task_id": "phase1-narm-personal-match-map-a01",
+        "task_kind": "phase1",
+        "topic_id": "narm-personal-match-map"
+      },
+      "event": "semantic_packet_created"
+    },
+    {
+      "at": "2026-07-22T18:54:14Z",
+      "details": {
+        "capsule_paths": [],
+        "imported_result": "runs\\run-20260722T183018661588Z-03d9cf49be\\semantic-results\\phase1-narm-personal-match-map-a01.json",
+        "topic_analysis_markdown": "ingest-analysis\\topics\\narm-personal-match-map.analysis.md",
+        "topic_analysis_path": "ingest-analysis\\topics\\narm-personal-match-map.analysis.json",
+        "topic_id": "narm-personal-match-map",
+        "worker_context_id": "codex-phase1-narm-match-20260722T1903Z"
+      },
+      "event": "phase1_imported"
+    },
+    {
+      "at": "2026-07-22T19:00:24Z",
+      "details": {
+        "incoming_path": "C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\therapy-narm-personal-development\\runs\\run-20260722T183018661588Z-03d9cf49be\\incoming\\phase1-framework-integration-a01.json",
+        "packet_dir": "C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\therapy-narm-personal-development\\runs\\run-20260722T183018661588Z-03d9cf49be\\semantic-tasks\\phase1-framework-integration-a01",
+        "task_id": "phase1-framework-integration-a01",
+        "task_kind": "phase1",
+        "topic_id": "framework-integration"
+      },
+      "event": "semantic_packet_created"
+    },
+    {
+      "at": "2026-07-22T19:15:56Z",
+      "details": {
+        "capsule_paths": [
+          "ingest-analysis\\sources\\08876a237e47ce2fd75b5bf57a8ce0453915bcced09217eb897c97d6d5dca8a9.analysis.json",
+          "ingest-analysis\\sources\\08876a237e47ce2fd75b5bf57a8ce0453915bcced09217eb897c97d6d5dca8a9.analysis.md"
+        ],
+        "imported_result": "runs\\run-20260722T183018661588Z-03d9cf49be\\semantic-results\\phase1-framework-integration-a01.json",
+        "topic_analysis_markdown": "ingest-analysis\\topics\\framework-integration.analysis.md",
+        "topic_analysis_path": "ingest-analysis\\topics\\framework-integration.analysis.json",
+        "topic_id": "framework-integration",
+        "worker_context_id": "codex-phase1-integration-20260722T1920Z"
+      },
+      "event": "phase1_imported"
+    },
+    {
+      "at": "2026-07-22T19:15:57Z",
+      "details": {
+        "incoming_path": "C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\therapy-narm-personal-development\\runs\\run-20260722T183018661588Z-03d9cf49be\\incoming\\phase1-methods-and-development-operating-system-a01.json",
+        "packet_dir": "C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\therapy-narm-personal-development\\runs\\run-20260722T183018661588Z-03d9cf49be\\semantic-tasks\\phase1-methods-and-development-operating-system-a01",
+        "task_id": "phase1-methods-and-development-operating-system-a01",
+        "task_kind": "phase1",
+        "topic_id": "methods-and-development-operating-system"
+      },
+      "event": "semantic_packet_created"
+    },
+    {
+      "at": "2026-07-22T19:17:09Z",
+      "details": {
+        "capsule_paths": [],
+        "imported_result": "runs\\run-20260722T183018661588Z-03d9cf49be\\semantic-results\\phase1-methods-and-development-operating-system-a01.json",
+        "topic_analysis_markdown": "ingest-analysis\\topics\\methods-and-development-operating-system.analysis.md",
+        "topic_analysis_path": "ingest-analysis\\topics\\methods-and-development-operating-system.analysis.json",
+        "topic_id": "methods-and-development-operating-system",
+        "worker_context_id": "codex-phase1-methods-20260722T1931Z"
+      },
+      "event": "phase1_imported"
+    },
+    {
+      "at": "2026-07-22T19:17:11Z",
+      "details": {
+        "incoming_path": "C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\therapy-narm-personal-development\\runs\\run-20260722T183018661588Z-03d9cf49be\\incoming\\phase2-narm-model-and-core-needs-a01.json",
+        "packet_dir": "C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\therapy-narm-personal-development\\runs\\run-20260722T183018661588Z-03d9cf49be\\semantic-tasks\\phase2-narm-model-and-core-needs-a01",
+        "task_id": "phase2-narm-model-and-core-needs-a01",
+        "task_kind": "phase2",
+        "topic_id": "narm-model-and-core-needs"
+      },
+      "event": "semantic_packet_created"
+    }
+  ],
+  "lifecycle_status": "running",
+  "postflight": {
+    "artifacts": {},
+    "status": "pending"
+  },
+  "retrieval": {
+    "artifacts": {},
+    "status": "pending"
+  },
+  "run_id": "run-20260722T183018661588Z-03d9cf49be",
+  "run_kind": "new",
+  "schema": "apex.kb.run-state.v2",
+  "schema_version": 2,
+  "topics": {
+    "framework-integration": {
+      "acceptance": {
+        "artifacts": {},
+        "attempt": 0,
+        "evaluator_context_id": null,
+        "status": "pending",
+        "verdict": null
+      },
+      "affected": true,
+      "phase1": {
+        "artifacts": {
+          "capsule_paths": [
+            "ingest-analysis\\sources\\08876a237e47ce2fd75b5bf57a8ce0453915bcced09217eb897c97d6d5dca8a9.analysis.json",
+            "ingest-analysis\\sources\\08876a237e47ce2fd75b5bf57a8ce0453915bcced09217eb897c97d6d5dca8a9.analysis.md"
+          ],
+          "imported_result": "runs\\run-20260722T183018661588Z-03d9cf49be\\semantic-results\\phase1-framework-integration-a01.json",
+          "topic_analysis_markdown": "ingest-analysis\\topics\\framework-integration.analysis.md",
+          "topic_analysis_path": "ingest-analysis\\topics\\framework-integration.analysis.json",
+          "topic_id": "framework-integration",
+          "worker_context_id": "codex-phase1-integration-20260722T1920Z"
+        },
+        "attempt": 1,
+        "status": "completed",
+        "worker_context_id": "codex-phase1-integration-20260722T1920Z"
+      },
+      "phase2": {
+        "artifacts": {},
+        "attempt": 0,
+        "status": "pending",
+        "worker_context_id": null
+      },
+      "topic_id": "framework-integration"
+    },
+    "methods-and-development-operating-system": {
+      "acceptance": {
+        "artifacts": {},
+        "attempt": 0,
+        "evaluator_context_id": null,
+        "status": "pending",
+        "verdict": null
+      },
+      "affected": true,
+      "phase1": {
+        "artifacts": {
+          "capsule_paths": [],
+          "imported_result": "runs\\run-20260722T183018661588Z-03d9cf49be\\semantic-results\\phase1-methods-and-development-operating-system-a01.json",
+          "topic_analysis_markdown": "ingest-analysis\\topics\\methods-and-development-operating-system.analysis.md",
+          "topic_analysis_path": "ingest-analysis\\topics\\methods-and-development-operating-system.analysis.json",
+          "topic_id": "methods-and-development-operating-system",
+          "worker_context_id": "codex-phase1-methods-20260722T1931Z"
+        },
+        "attempt": 1,
+        "status": "completed",
+        "worker_context_id": "codex-phase1-methods-20260722T1931Z"
+      },
+      "phase2": {
+        "artifacts": {},
+        "attempt": 0,
+        "status": "pending",
+        "worker_context_id": null
+      },
+      "topic_id": "methods-and-development-operating-system"
+    },
+    "narm-model-and-core-needs": {
+      "acceptance": {
+        "artifacts": {},
+        "attempt": 0,
+        "evaluator_context_id": null,
+        "status": "pending",
+        "verdict": null
+      },
+      "affected": true,
+      "phase1": {
+        "artifacts": {
+          "capsule_paths": [
+            "ingest-analysis\\sources\\64a0dae9c1cbc3bba6bd0299e345a4863560c6bce22b60444755585d0e06e6cd.analysis.json",
+            "ingest-analysis\\sources\\64a0dae9c1cbc3bba6bd0299e345a4863560c6bce22b60444755585d0e06e6cd.analysis.md",
+            "ingest-analysis\\sources\\ea19911591545b9ad39fb24e28356febb71a36efa991c8bbaaa8490cd80a3560.analysis.json",
+            "ingest-analysis\\sources\\ea19911591545b9ad39fb24e28356febb71a36efa991c8bbaaa8490cd80a3560.analysis.md",
+            "ingest-analysis\\sources\\b2f3b75d5aab80d95c88b3b245478b15d9510637d41e63571f5619ccebf9a8b5.analysis.json",
+            "ingest-analysis\\sources\\b2f3b75d5aab80d95c88b3b245478b15d9510637d41e63571f5619ccebf9a8b5.analysis.md",
+            "ingest-analysis\\sources\\3db22fd7f61b597a4c42d326374eb53bd9fb0cf3e1af600cc5c2149a885eaa53.analysis.json",
+            "ingest-analysis\\sources\\3db22fd7f61b597a4c42d326374eb53bd9fb0cf3e1af600cc5c2149a885eaa53.analysis.md",
+            "ingest-analysis\\sources\\9ff6117ec7addb4713172f09e4fd2dc8b34c42bc678d3ca55dc71410040f5175.analysis.json",
+            "ingest-analysis\\sources\\9ff6117ec7addb4713172f09e4fd2dc8b34c42bc678d3ca55dc71410040f5175.analysis.md",
+            "ingest-analysis\\sources\\a87da7087b42f18d10314a07da33485a588ae8add44fbdb79b8ee7a0538eae33.analysis.json",
+            "ingest-analysis\\sources\\a87da7087b42f18d10314a07da33485a588ae8add44fbdb79b8ee7a0538eae33.analysis.md",
+            "ingest-analysis\\sources\\3a686acf11c2c4e99f698970697495ad1c86f931f45af8aba43733084fbdb241.analysis.json",
+            "ingest-analysis\\sources\\3a686acf11c2c4e99f698970697495ad1c86f931f45af8aba43733084fbdb241.analysis.md"
+          ],
+          "imported_result": "runs\\run-20260722T183018661588Z-03d9cf49be\\semantic-results\\phase1-narm-model-and-core-needs-a01.json",
+          "topic_analysis_markdown": "ingest-analysis\\topics\\narm-model-and-core-needs.analysis.md",
+          "topic_analysis_path": "ingest-analysis\\topics\\narm-model-and-core-needs.analysis.json",
+          "topic_id": "narm-model-and-core-needs",
+          "worker_context_id": "codex-phase1-narm-20260722T1833Z"
+        },
+        "attempt": 1,
+        "status": "completed",
+        "worker_context_id": "codex-phase1-narm-20260722T1833Z"
+      },
+      "phase2": {
+        "artifacts": {},
+        "attempt": 1,
+        "status": "awaiting_result",
+        "worker_context_id": null
+      },
+      "topic_id": "narm-model-and-core-needs"
+    },
+    "narm-personal-match-map": {
+      "acceptance": {
+        "artifacts": {},
+        "attempt": 0,
+        "evaluator_context_id": null,
+        "status": "pending",
+        "verdict": null
+      },
+      "affected": true,
+      "phase1": {
+        "artifacts": {
+          "capsule_paths": [],
+          "imported_result": "runs\\run-20260722T183018661588Z-03d9cf49be\\semantic-results\\phase1-narm-personal-match-map-a01.json",
+          "topic_analysis_markdown": "ingest-analysis\\topics\\narm-personal-match-map.analysis.md",
+          "topic_analysis_path": "ingest-analysis\\topics\\narm-personal-match-map.analysis.json",
+          "topic_id": "narm-personal-match-map",
+          "worker_context_id": "codex-phase1-narm-match-20260722T1903Z"
+        },
+        "attempt": 1,
+        "status": "completed",
+        "worker_context_id": "codex-phase1-narm-match-20260722T1903Z"
+      },
+      "phase2": {
+        "artifacts": {},
+        "attempt": 0,
+        "status": "pending",
+        "worker_context_id": null
+      },
+      "topic_id": "narm-personal-match-map"
+    },
+    "personal-pattern-map": {
+      "acceptance": {
+        "artifacts": {},
+        "attempt": 0,
+        "evaluator_context_id": null,
+        "status": "pending",
+        "verdict": null
+      },
+      "affected": true,
+      "phase1": {
+        "artifacts": {
+          "capsule_paths": [
+            "ingest-analysis\\sources\\06d39530b31392f17873171f2781c4b50fa3e2efbd622aab9bb0c500c072acc7.analysis.json",
+            "ingest-analysis\\sources\\06d39530b31392f17873171f2781c4b50fa3e2efbd622aab9bb0c500c072acc7.analysis.md",
+            "ingest-analysis\\sources\\e7f78ec45cd449e1d6344508b1af374aa9477a203c7385945e3c51284214912d.analysis.json",
+            "ingest-analysis\\sources\\e7f78ec45cd449e1d6344508b1af374aa9477a203c7385945e3c51284214912d.analysis.md"
+          ],
+          "imported_result": "runs\\run-20260722T183018661588Z-03d9cf49be\\semantic-results\\phase1-personal-pattern-map-a01.json",
+          "topic_analysis_markdown": "ingest-analysis\\topics\\personal-pattern-map.analysis.md",
+          "topic_analysis_path": "ingest-analysis\\topics\\personal-pattern-map.analysis.json",
+          "topic_id": "personal-pattern-map",
+          "worker_context_id": "codex-phase1-personal-pattern-map-20260722T1856Z"
+        },
+        "attempt": 1,
+        "status": "completed",
+        "worker_context_id": "codex-phase1-personal-pattern-map-20260722T1856Z"
+      },
+      "phase2": {
+        "artifacts": {},
+        "attempt": 0,
+        "status": "pending",
+        "worker_context_id": null
+      },
+      "topic_id": "personal-pattern-map"
+    }
+  },
+  "updated_at": "2026-07-22T19:17:11Z"
+}

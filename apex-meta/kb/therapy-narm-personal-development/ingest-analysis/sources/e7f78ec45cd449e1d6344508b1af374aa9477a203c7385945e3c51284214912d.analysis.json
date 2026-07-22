@@ -1,0 +1,31 @@
+{
+  "authority": "Operator personal insight.",
+  "content_hash": "e7f78ec45cd449e1d6344508b1af374aa9477a203c7385945e3c51284214912d",
+  "contradictions": [],
+  "contributions": [
+    "Adds a contextual trigger-response example.",
+    "Supports preserving uncertainty and exceptions in the pattern map."
+  ],
+  "freshness": "Version v3 in configured corpus.",
+  "key_claims": [
+    "The note identifies social exposure and surprise as possible triggers.",
+    "It describes a defensive presentation as a possible protection around vulnerability.",
+    "It retains the status of unfolding pattern recognition."
+  ],
+  "pointers": [
+    "line:7",
+    "line:14",
+    "line:26",
+    "line:38",
+    "line:54",
+    "line:139"
+  ],
+  "repository_path": "apex-meta/kb/therapy/raw/notes/shadow_insight_v3.md",
+  "schema": "apex.kb.source-capsule.v2",
+  "source_id": "src-e4ba180903bfcd78",
+  "summary": "An unfolding personal note about social exposure, surprise, fear, vulnerability, defensive presentation, and nervous-system activation.",
+  "title": "Shadow Insight v3",
+  "uncertainties": [
+    "The note cannot establish frequency, cause, or generality of the proposed pattern."
+  ]
+}

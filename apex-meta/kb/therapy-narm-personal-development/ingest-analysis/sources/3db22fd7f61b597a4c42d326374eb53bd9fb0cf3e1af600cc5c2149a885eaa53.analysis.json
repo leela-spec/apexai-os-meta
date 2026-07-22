@@ -1,0 +1,34 @@
+{
+  "authority": "Operator-related process-design source.",
+  "content_hash": "3db22fd7f61b597a4c42d326374eb53bd9fb0cf3e1af600cc5c2149a885eaa53",
+  "contradictions": [
+    "Its multi-framework synthesis should not be treated as a direct NARM claim."
+  ],
+  "contributions": [
+    "Context for later framework integration.",
+    "Candidate practices and sequence for later method ranking."
+  ],
+  "freshness": "Current configured source.",
+  "key_claims": [
+    "It separates ethical pain from trauma charge as a working distinction.",
+    "It describes anger, grief, trust, and regulation in a staged personal-development map.",
+    "It treats multiple frameworks as layers rather than as one validated clinical model."
+  ],
+  "pointers": [
+    "line:17",
+    "line:33",
+    "line:57",
+    "line:134",
+    "line:201",
+    "line:299",
+    "line:348"
+  ],
+  "repository_path": "apex-meta/kb/therapy/raw/notes/MyTherapy.md",
+  "schema": "apex.kb.source-capsule.v2",
+  "source_id": "src-f091a39587190b86",
+  "summary": "Personal macro strategy that connects ethical pain, trauma charge, Jungian shadow work, Hawkins, ACIM, CBT, practical intention encoding, regulation, staged trust, and spiritual release.",
+  "title": "MyTherapy",
+  "uncertainties": [
+    "The document is a personal process design, not independent clinical evidence."
+  ]
+}

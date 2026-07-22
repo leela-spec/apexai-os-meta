@@ -1,0 +1,33 @@
+{
+  "authority": "Operator-related working formulation, not clinical diagnosis.",
+  "content_hash": "ea19911591545b9ad39fb24e28356febb71a36efa991c8bbaaa8490cd80a3560",
+  "contradictions": [],
+  "contributions": [
+    "Personal application context.",
+    "Safety and support-style context.",
+    "Later evidence for method ranking and therapy preparation."
+  ],
+  "freshness": "v1 source in the configured corpus.",
+  "key_claims": [
+    "The document frames its contents as support and working formulation rather than diagnosis.",
+    "It identifies regulation, trust, anger, grief, and staged relationship access as practical themes.",
+    "It contains explicit red flags and professional-care recommendations."
+  ],
+  "pointers": [
+    "line:11",
+    "line:92",
+    "line:397",
+    "line:519",
+    "line:606",
+    "line:678",
+    "line:698"
+  ],
+  "repository_path": "apex-meta/kb/therapy/raw/notes/Psychological_Handover_Medical_Grade_v1.md",
+  "schema": "apex.kb.source-capsule.v2",
+  "source_id": "src-f7ded2930e8d80ad",
+  "summary": "Personal working formulation and future-support handover that names presenting patterns, strengths, care boundaries, a NARM-informed therapeutic frame, practical protocols, and professional-care cautions.",
+  "title": "Psychological Handover Medical Grade v1",
+  "uncertainties": [
+    "Personal hypotheses must not be promoted to clinical facts."
+  ]
+}

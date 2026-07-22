@@ -1,0 +1,31 @@
+{
+  "authority": "Operator-related reflection source.",
+  "content_hash": "b2f3b75d5aab80d95c88b3b245478b15d9510637d41e63571f5619ccebf9a8b5",
+  "contradictions": [],
+  "contributions": [
+    "Personal context for later NARM match work.",
+    "Boundary against overclaiming clinical certainty."
+  ],
+  "freshness": "Current configured source.",
+  "key_claims": [
+    "The document explicitly says it is not a formal diagnosis.",
+    "It describes anger and analytic rumination as protective patterns in a personal formulation.",
+    "It names regulation, trust, attachment, and therapeutic-support priorities."
+  ],
+  "pointers": [
+    "line:1",
+    "line:9",
+    "line:28",
+    "line:56",
+    "line:458",
+    "line:507"
+  ],
+  "repository_path": "apex-meta/kb/therapy/raw/notes/PsychologicalHandover_ChatTherapeuticFramework_inACIM.md",
+  "schema": "apex.kb.source-capsule.v2",
+  "source_id": "src-9b22548c98e6481b",
+  "summary": "Personal non-diagnostic handover describing relational vigilance, anger, grief, protective analysis, and a wish to combine truth, boundaries, release, and compassionate support.",
+  "title": "Psychological Handover Chat Therapeutic Framework in ACIM",
+  "uncertainties": [
+    "The source is self-reflective and cannot establish NARM classifications."
+  ]
+}

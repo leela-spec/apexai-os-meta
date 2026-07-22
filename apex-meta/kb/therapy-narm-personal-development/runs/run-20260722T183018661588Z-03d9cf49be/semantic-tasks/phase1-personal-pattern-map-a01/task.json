@@ -1,0 +1,166 @@
+{
+  "allowed_dispositions": [
+    "blocked_unreadable",
+    "blocked_unsupported",
+    "contextual",
+    "contradictory",
+    "core",
+    "core_current",
+    "duplicate",
+    "duplicate_material",
+    "duplicate_nonmaterial",
+    "generated_noise",
+    "historical",
+    "implementation",
+    "incidental",
+    "irrelevant_after_review",
+    "prototype",
+    "superseded",
+    "supporting_current"
+  ],
+  "allowed_output_paths": [
+    "C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\therapy-narm-personal-development\\runs\\run-20260722T183018661588Z-03d9cf49be\\incoming\\phase1-personal-pattern-map-a01.json"
+  ],
+  "attempt": 1,
+  "candidate_count": 8,
+  "candidate_source_ids": [
+    "src-9b22548c98e6481b",
+    "src-f091a39587190b86",
+    "src-f7ded2930e8d80ad",
+    "src-64864213292b5239",
+    "src-6a0cea0ce0c8e1ce",
+    "src-e4ba180903bfcd78",
+    "src-f79b4940a5971c09",
+    "src-3850b185d1ea58dc"
+  ],
+  "config_hash": "03d9cf49be71c2b066ed7a1e774e4e24f12d05d2b9bc17c3de2a8d5b4bd4e390",
+  "created_at": "2026-07-22T18:36:04Z",
+  "disposition_contract": "Every candidate exactly once; preserve current, implementation, prototype, historical, duplicate, superseded, incidental, irrelevant, and blocked distinctions.",
+  "forbidden_writes": [
+    "run-config.yaml",
+    "run-manifest.json",
+    "run-state.json",
+    "manifests/**",
+    "wiki/**",
+    "derived/**",
+    "source repository paths"
+  ],
+  "repair_context": null,
+  "required_output_schema": "phase1-result.schema.json",
+  "run_id": "run-20260722T183018661588Z-03d9cf49be",
+  "schema": "apex.kb.semantic-task.v2",
+  "semantic_depth": "deep",
+  "source_allowlist_path": "source-allowlist.json",
+  "target_queries": [
+    {
+      "answer_requirements": [
+        "Separate raw self-report from later interpretation.",
+        "Organize observations by trigger, emotion, protective response, cost, and stated need.",
+        "Preserve strengths and protective factors alongside difficulties."
+      ],
+      "priority": "critical",
+      "query_id": "personal-q01",
+      "question": "What recurring triggers, emotional sequences, and relational patterns are explicitly documented in the personal sources?"
+    },
+    {
+      "answer_requirements": [
+        "Cite each supporting personal source.",
+        "Label the conclusion as a source-backed personal pattern, not a diagnosis.",
+        "Note contradictions, exceptions, and open questions."
+      ],
+      "priority": "critical",
+      "query_id": "personal-q02",
+      "question": "What observations support the pattern that anger may protect grief, vulnerability, loneliness, or fear of exclusion?"
+    },
+    {
+      "answer_requirements": [
+        "Use only explicit self-reported constraints.",
+        "Do not provide medical diagnosis, treatment, prognosis, or exertion advice.",
+        "Identify low-load, pacing-sensitive design implications."
+      ],
+      "priority": "routine",
+      "query_id": "personal-q03",
+      "question": "What health, energy, and capacity constraints should shape any recommended routine or development plan?"
+    }
+  ],
+  "task_id": "phase1-personal-pattern-map-a01",
+  "task_kind": "phase1",
+  "topic": {
+    "aliases": [
+      "moral injury",
+      "injustice rumination",
+      "responsibility inflation",
+      "relationship rupture",
+      "social exposure"
+    ],
+    "ambiguous_terms": [
+      "trauma",
+      "burnout",
+      "PTSD"
+    ],
+    "expected_routes": {
+      "dossier": "wiki/concepts/personal-pattern-map.md",
+      "source_atlas": "wiki/summaries/personal-pattern-map-source-atlas.md"
+    },
+    "name": "Personal Pattern Map, Strengths, Constraints, and Documented Observations",
+    "negative_terms": [
+      "diagnosis",
+      "personality disorder",
+      "cure"
+    ],
+    "primary_phrases": [
+      "betrayal",
+      "exclusion",
+      "anger",
+      "grief",
+      "relational vigilance"
+    ],
+    "supporting_terms": [
+      "mistrust",
+      "loneliness",
+      "self-compassion",
+      "shame",
+      "boundaries",
+      "trust",
+      "PEM",
+      "PESE",
+      "autonomic dysregulation",
+      "energy constraints"
+    ],
+    "target_queries": [
+      {
+        "answer_requirements": [
+          "Separate raw self-report from later interpretation.",
+          "Organize observations by trigger, emotion, protective response, cost, and stated need.",
+          "Preserve strengths and protective factors alongside difficulties."
+        ],
+        "priority": "critical",
+        "query_id": "personal-q01",
+        "question": "What recurring triggers, emotional sequences, and relational patterns are explicitly documented in the personal sources?"
+      },
+      {
+        "answer_requirements": [
+          "Cite each supporting personal source.",
+          "Label the conclusion as a source-backed personal pattern, not a diagnosis.",
+          "Note contradictions, exceptions, and open questions."
+        ],
+        "priority": "critical",
+        "query_id": "personal-q02",
+        "question": "What observations support the pattern that anger may protect grief, vulnerability, loneliness, or fear of exclusion?"
+      },
+      {
+        "answer_requirements": [
+          "Use only explicit self-reported constraints.",
+          "Do not provide medical diagnosis, treatment, prognosis, or exertion advice.",
+          "Identify low-load, pacing-sensitive design implications."
+        ],
+        "priority": "routine",
+        "query_id": "personal-q03",
+        "question": "What health, energy, and capacity constraints should shape any recommended routine or development plan?"
+      }
+    ],
+    "topic_id": "personal-pattern-map"
+  },
+  "topic_id": "personal-pattern-map",
+  "topic_map_path": "C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\therapy-narm-personal-development\\manifests\\phase0\\topic-maps\\personal-pattern-map.json"
+}

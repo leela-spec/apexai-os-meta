@@ -1,0 +1,20 @@
+{
+  "artifacts": [
+    "ingest-analysis\\topics\\methods-and-development-operating-system.analysis.json",
+    "ingest-analysis\\topics\\methods-and-development-operating-system.analysis.md",
+    "runs\\run-20260722T183018661588Z-03d9cf49be\\semantic-results\\phase1-methods-and-development-operating-system-a01.json"
+  ],
+  "completed_at": "2026-07-22T19:17:09Z",
+  "config_hash": "03d9cf49be71c2b066ed7a1e774e4e24f12d05d2b9bc17c3de2a8d5b4bd4e390",
+  "message": "Imported validated phase1 result for methods-and-development-operating-system.",
+  "metrics": {
+    "task_id": "phase1-methods-and-development-operating-system-a01",
+    "topic_id": "methods-and-development-operating-system"
+  },
+  "reason_code": null,
+  "run_id": "run-20260722T183018661588Z-03d9cf49be",
+  "schema": "apex.kb.stage-result.v2",
+  "stage": "phase1:methods-and-development-operating-system",
+  "started_at": "2026-07-22T19:17:09Z",
+  "status": "completed"
+}
