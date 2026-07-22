@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object", "additionalProperties": false,
+  "required": ["schema", "run_id", "config_hash", "task_id", "phase", "topic_id", "topic_name", "worker_context_id", "source_reviews", "source_capsules", "topic_analysis"],
+  "properties": {
+    "schema": {"const": "apex.kb.phase1-result.v2"}, "run_id": {"type": "string"}, "config_hash": {"type": "string"},
+    "task_id": {"type": "string"}, "phase": {"const": "phase1"}, "topic_id": {"type": "string"}, "topic_name": {"type": "string"},
+    "worker_context_id": {"type": "string", "minLength": 1},
+    "source_reviews": {"type": "array", "items": {"$ref": "#/$defs/review"}},
+    "source_capsules": {"type": "array", "items": {"$ref": "#/$defs/capsule"}},
+    "topic_analysis": {"$ref": "#/$defs/analysis"}
+  },
+  "$defs": {
+    "review": {
+      "type": "object", "additionalProperties": false,
+      "required": ["source_id", "repository_path", "content_hash", "read_status", "disposition", "summary", "individual_value", "authority", "freshness", "pointers", "questions_supported", "duplicate_or_supersession"],
+      "properties": {
+        "source_id": {"type": "string"}, "repository_path": {"type": "string"}, "content_hash": {"type": "string"},
+        "read_status": {"type": "string"}, "disposition": {"type": "string"}, "summary": {"type": "string"}, "individual_value": {"type": "string"},
+        "authority": {"type": "string"}, "freshness": {"type": "string"}, "pointers": {"type": "array", "items": {"type": "string"}},
+        "questions_supported": {"type": "array", "items": {"type": "string"}}, "duplicate_or_supersession": {"type": ["string", "null"]}
+      }
+    },
+    "capsule": {
+      "type": "object", "additionalProperties": false,
+      "required": ["schema", "source_id", "repository_path", "content_hash", "title", "summary", "key_claims", "contributions", "contradictions", "uncertainties", "authority", "freshness", "pointers"],
+      "properties": {
+        "schema": {"const": "apex.kb.source-capsule.v2"}, "source_id": {"type": "string"}, "repository_path": {"type": "string"}, "content_hash": {"type": "string"},
+        "title": {"type": "string"}, "summary": {"type": "string"}, "key_claims": {"type": "array", "items": {"type": "string"}},
+        "contributions": {"type": "array", "items": {"type": "string"}}, "contradictions": {"type": "array", "items": {"type": "string"}},
+        "uncertainties": {"type": "array", "items": {"type": "string"}}, "authority": {"type": "string"}, "freshness": {"type": "string"},
+        "pointers": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "analysis": {
+      "type": "object", "additionalProperties": false,
+      "required": ["macro", "meso", "micro", "target_answers", "contradictions", "uncertainties"],
+      "properties": {
+        "macro": {"type": "string"}, "meso": {"type": "string"}, "micro": {"type": "string"},
+        "target_answers": {"type": "array", "items": {"type": "object", "additionalProperties": false, "required": ["query_id", "answer", "citations"], "properties": {"query_id": {"type": "string"}, "answer": {"type": "string"}, "citations": {"type": "array", "items": {"type": "string"}}}}},
+        "contradictions": {"type": "array", "items": {"type": "string"}}, "uncertainties": {"type": "array", "items": {"type": "string"}}
+      }
+    }
+  }
+}

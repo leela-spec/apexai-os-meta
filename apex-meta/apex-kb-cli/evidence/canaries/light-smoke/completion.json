@@ -1,0 +1,58 @@
+{
+  "accepted_topics": [
+    "smoke-product"
+  ],
+  "blockers": [],
+  "canonical_artifacts": {
+    "navigation_report": "manifests/phase0/phase0-navigation-report.md",
+    "run_config": "run-config.yaml",
+    "run_manifest": "run-manifest.json",
+    "run_state": "run-state.json",
+    "source_inventory": "manifests/source-inventory.ndjson",
+    "wiki_index": "wiki/index.md"
+  },
+  "completed_at": "2026-07-21T19:18:53Z",
+  "config_hash": "1139cc3bc70950d4dc4f2cb5f65d93e219e9f07798e71149fc4a119d86ab394b",
+  "lifecycle_status": "query_ready",
+  "output": "query_ready",
+  "postflight": {
+    "report": "audit\\postflight\\run-20260721T190759972761Z-1139cc3bc7.json"
+  },
+  "retrieval": {
+    "accepted_topics": [
+      "smoke-product"
+    ],
+    "backend": "sqlite_fts5",
+    "built_at": "2026-07-21T19:07:59Z",
+    "canonical_markdown_preserved": true,
+    "chunk_count": 13,
+    "config_hash": "1139cc3bc70950d4dc4f2cb5f65d93e219e9f07798e71149fc4a119d86ab394b",
+    "database_path": "derived/search/search.sqlite",
+    "database_sha256": "78bb2c1d58c3c4c5a07762789b4785c316ce5109987e546845d1a6158186ca99",
+    "derived_rebuildable": true,
+    "fts5": true,
+    "page_count": 2,
+    "page_hashes": {
+      "wiki/concepts/smoke-product.md": "e9304c3cb7a6468a1724a83d25b3e476abe048706895098383be89efca7ab911",
+      "wiki/summaries/smoke-product-source-atlas.md": "8db5242c7ad2c4005715b0b12ce7847658f7609b69b9ffa1e5a8c5f877b9fa05"
+    },
+    "run_id": "run-20260721T190759972761Z-1139cc3bc7",
+    "schema": "apex.kb.retrieval-index.v2"
+  },
+  "run_id": "run-20260721T190759972761Z-1139cc3bc7",
+  "run_kind": "new",
+  "schema": "apex.kb.completion.v2",
+  "source_integrity": {
+    "added": [],
+    "changed": [],
+    "checked_count": 1,
+    "current_count": 1,
+    "deleted": [],
+    "enumeration_errors": [],
+    "fresh": true,
+    "inventory_count": 1,
+    "missing": [],
+    "newly_unreadable": []
+  },
+  "source_repository_mutated": false
+}

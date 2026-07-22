@@ -1,0 +1,77 @@
+{
+  "backend": "sqlite_fts5",
+  "config_hash": "1139cc3bc70950d4dc4f2cb5f65d93e219e9f07798e71149fc4a119d86ab394b",
+  "created_at": "2026-07-21T19:19:08Z",
+  "index_database_sha256": "78bb2c1d58c3c4c5a07762789b4785c316ce5109987e546845d1a6158186ca99",
+  "index_manifest_path": "derived/search/index-manifest.json",
+  "output_paths": [
+    "outputs\\queries\\20260721T191908224729Z-42aee72f3d.json",
+    "outputs\\queries\\20260721T191908224729Z-42aee72f3d.md"
+  ],
+  "query": "What does the Smoke Product own and not own?",
+  "raw_source_reopen_guidance": "Use the accepted dossier and source atlas first. Reopen raw sources only when the answer is absent, acceptance marks insufficient evidence, or source drift invalidates the compiled pages.",
+  "result_count": 3,
+  "results": [
+    {
+      "chunk_id": "8e4ce587d4e17aa697d7dcfc",
+      "end_line": 34,
+      "evidence_pointer": "wiki/concepts/smoke-product.md#L29-L34",
+      "excerpt": "[The] [Smoke] [Product] [owns] a catalog of named widgets [and] [the] Active or Retired status of each widget. It [does] [not] [own] purchasing, user … ",
+      "heading": "smoke-q01: What does the Smoke Product own and not own?",
+      "heading_level": 3,
+      "page_hash": "e9304c3cb7a6468a1724a83d25b3e476abe048706895098383be89efca7ab911",
+      "page_type": "concept_dossier",
+      "path": "wiki/concepts/smoke-product.md",
+      "score": -8.91778943141684,
+      "source_atlas_path": "wiki/summaries/smoke-product-source-atlas.md",
+      "source_pointers": [
+        "src-9e34a660c0bd5f65"
+      ],
+      "start_line": 29,
+      "title": "Smoke Product",
+      "topic_id": "smoke-product"
+    },
+    {
+      "chunk_id": "1810d1fe1c758b7d9ea169ea",
+      "end_line": 22,
+      "evidence_pointer": "wiki/concepts/smoke-product.md#L19-L22",
+      "excerpt": " … [product] [owns] a Catalog of named Widgets [and] [the] single Status assigned to each Widget, with Status limited to Active or Retired. It [does] … ",
+      "heading": "Meso — What it is",
+      "heading_level": 2,
+      "page_hash": "e9304c3cb7a6468a1724a83d25b3e476abe048706895098383be89efca7ab911",
+      "page_type": "concept_dossier",
+      "path": "wiki/concepts/smoke-product.md",
+      "score": -6.78332416788653,
+      "source_atlas_path": "wiki/summaries/smoke-product-source-atlas.md",
+      "source_pointers": [
+        "src-9e34a660c0bd5f65"
+      ],
+      "start_line": 19,
+      "title": "Smoke Product",
+      "topic_id": "smoke-product"
+    },
+    {
+      "chunk_id": "e8025e777e0e9690b3962eef",
+      "end_line": 46,
+      "evidence_pointer": "wiki/concepts/smoke-product.md#L41-L46",
+      "excerpt": "- **present** — [The] [Smoke] [Product] [owns] a catalog of named widgets [and] their Active or Retired status, but [not] purchasing, user accounts, billing, or deployment … ",
+      "heading": "Key claims",
+      "heading_level": 2,
+      "page_hash": "e9304c3cb7a6468a1724a83d25b3e476abe048706895098383be89efca7ab911",
+      "page_type": "concept_dossier",
+      "path": "wiki/concepts/smoke-product.md",
+      "score": -1.9684651992008526,
+      "source_atlas_path": "wiki/summaries/smoke-product-source-atlas.md",
+      "source_pointers": [
+        "src-9e34a660c0bd5f65"
+      ],
+      "start_line": 41,
+      "title": "Smoke Product",
+      "topic_id": "smoke-product"
+    }
+  ],
+  "retrieval_fresh": true,
+  "run_id": "run-20260721T190759972761Z-1139cc3bc7",
+  "schema": "apex.kb.query-result.v2",
+  "topic_id": null
+}

@@ -1,0 +1,4 @@
+include README.md
+recursive-include tests *.py
+recursive-include src/apex_kb/schemas *.json
+recursive-include src/apex_kb/templates *.md

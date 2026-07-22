@@ -1,0 +1,40 @@
+source:
+  repository: local/light-smoke-source
+  root: C:/GitDev/apex-kb-canaries
+  folders:
+    - light-smoke-source
+
+destination:
+  repository: local/apex-kb-canaries
+  root: C:/GitDev/apex-kb-canaries
+  folder: light-smoke-run
+
+exclusions: []
+
+topics:
+  - topic_id: smoke-product
+    name: Smoke Product
+    primary_phrases: [smoke product]
+    aliases: []
+    supporting_terms: [catalog, widget, status]
+    negative_terms: []
+    ambiguous_terms: []
+    target_queries:
+      - query_id: smoke-q01
+        priority: critical
+        question: What does the Smoke Product own and not own?
+        answer_requirements: [ownership, boundaries]
+      - query_id: smoke-q02
+        priority: routine
+        question: What are the current widget statuses and unresolved questions?
+        answer_requirements: [current state, uncertainty]
+
+run_options:
+  source_handling: pointer_only
+  semantic_depth: quick
+  output: query_ready
+  non_text: inventory_and_report
+  git_metadata: false
+  graph_depth: links
+  ai_help_after_preflight: false
+  max_semantic_repairs: 1

@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object", "additionalProperties": false,
+  "required": ["schema", "run_id", "config_hash", "task_id", "phase", "topic_id", "worker_context_id", "dossier", "atlas"],
+  "properties": {
+    "schema": {"const": "apex.kb.phase2-result.v2"}, "run_id": {"type": "string"}, "config_hash": {"type": "string"}, "task_id": {"type": "string"},
+    "phase": {"const": "phase2"}, "topic_id": {"type": "string"}, "worker_context_id": {"type": "string", "minLength": 1},
+    "dossier": {"$ref": "#/$defs/dossier"}, "atlas": {"$ref": "#/$defs/atlas"}
+  },
+  "$defs": {
+    "citation": {"type": "object", "additionalProperties": false, "required": ["source_id", "pointer"], "properties": {"source_id": {"type": "string", "minLength": 1}, "pointer": {"type": "string", "minLength": 1}}},
+    "dossier": {
+      "type": "object", "additionalProperties": false,
+      "required": ["route", "title", "executive_summary", "macro", "meso", "micro", "target_answers", "key_claims", "evolution", "contradictions", "uncertainties"],
+      "properties": {
+        "route": {"type": "string", "minLength": 1}, "title": {"type": "string", "minLength": 1}, "executive_summary": {"type": "string", "minLength": 1}, "macro": {"type": "string", "minLength": 1}, "meso": {"type": "string", "minLength": 1}, "micro": {"type": "string", "minLength": 1},
+        "target_answers": {"type": "array", "minItems": 1, "items": {"type": "object", "additionalProperties": false, "required": ["query_id", "question", "answer", "citations"], "properties": {"query_id": {"type": "string", "minLength": 1}, "question": {"type": "string", "minLength": 1}, "answer": {"type": "string", "minLength": 1}, "citations": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/citation"}}}}},
+        "key_claims": {"type": "array", "minItems": 1, "items": {"type": "object", "additionalProperties": false, "required": ["claim", "state", "citations"], "properties": {"claim": {"type": "string", "minLength": 1}, "state": {"enum": ["present", "proposed", "historical", "open", "contradicted"]}, "citations": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/citation"}}}}},
+        "evolution": {"type": "array", "items": {"type": "string"}}, "contradictions": {"type": "array", "items": {"type": "string"}}, "uncertainties": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "atlas": {
+      "type": "object", "additionalProperties": false,
+      "required": ["route", "title", "entries"],
+      "properties": {
+        "route": {"type": "string"}, "title": {"type": "string"},
+        "entries": {"type": "array", "items": {"type": "object", "additionalProperties": false, "required": ["source_id", "repository_path", "disposition", "read_status", "content_snapshot", "individual_value", "authority", "freshness", "duplicate_or_supersession", "pointers", "questions_supported"], "properties": {
+          "source_id": {"type": "string"}, "repository_path": {"type": "string"}, "disposition": {"type": "string"}, "read_status": {"type": "string"},
+          "content_snapshot": {"type": "string"}, "individual_value": {"type": "string"}, "authority": {"type": "string"}, "freshness": {"type": "string"},
+          "duplicate_or_supersession": {"type": ["string", "null"]}, "pointers": {"type": "array", "items": {"type": "string"}}, "questions_supported": {"type": "array", "items": {"type": "string"}}
+        }}}
+      }
+    }
+  }
+}

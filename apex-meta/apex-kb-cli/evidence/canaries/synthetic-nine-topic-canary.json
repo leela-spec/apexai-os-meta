@@ -1,0 +1,405 @@
+{
+  "all_queries_succeeded": true,
+  "canary_kind": "synthetic_scale_and_contract_canary",
+  "completion_evidence": {
+    "run-20260721T155610169022Z-b63ab8632f": "audit/completion/run-20260721T155610169022Z-b63ab8632f.json",
+    "run-20260721T155643297616Z-b63ab8632f-ub8632f": "audit/completion/run-20260721T155643297616Z-b63ab8632f-ub8632f.json",
+    "run-20260721T155906502346Z-b63ab8632f-ub8632f": "audit/completion/run-20260721T155906502346Z-b63ab8632f-ub8632f.json"
+  },
+  "final_completion": {
+    "accepted_topics": [
+      "algorithm",
+      "chunks",
+      "creator-onboarding",
+      "epics",
+      "path",
+      "rhythm",
+      "sequencing",
+      "skill-tree",
+      "stats"
+    ],
+    "blockers": [],
+    "canonical_artifacts": {
+      "navigation_report": "manifests/phase0/phase0-navigation-report.md",
+      "run_config": "run-config.yaml",
+      "run_manifest": "run-manifest.json",
+      "run_state": "run-state.json",
+      "source_inventory": "manifests/source-inventory.ndjson",
+      "wiki_index": "wiki/index.md"
+    },
+    "completed_at": "2026-07-21T15:59:06Z",
+    "config_hash": "b63ab8632ff58ceadcb9b484c3af84fb096e324f3719e907792b147404086d7a",
+    "lifecycle_status": "query_ready",
+    "output": "query_ready",
+    "postflight": {
+      "report": "audit/postflight/run-20260721T155906502346Z-b63ab8632f-ub8632f.json"
+    },
+    "retrieval": {
+      "accepted_topics": [
+        "algorithm",
+        "chunks",
+        "creator-onboarding",
+        "epics",
+        "path",
+        "rhythm",
+        "sequencing",
+        "skill-tree",
+        "stats"
+      ],
+      "backend": "sqlite_fts5",
+      "built_at": "2026-07-21T15:59:06Z",
+      "canonical_markdown_preserved": true,
+      "chunk_count": 184,
+      "config_hash": "b63ab8632ff58ceadcb9b484c3af84fb096e324f3719e907792b147404086d7a",
+      "database_path": "derived/search/search.sqlite",
+      "database_sha256": "8a89c6ce20d4ee037703fb268d0882651fdce4603f164f9046232c576c0ec3e3",
+      "derived_rebuildable": true,
+      "fts5": true,
+      "page_count": 18,
+      "page_hashes": {
+        "wiki/concepts/algorithm.md": "e6b62dfbf67ad63a81632d439f555245ee977d773308a5735577c8057953e3d9",
+        "wiki/concepts/chunks.md": "f5cf60e1781a52708b784ff08bb3f963f4733b4c241631be1ce1de5fc4b59da1",
+        "wiki/concepts/creator-onboarding.md": "0a9c5157c8b02d9af80fa801e0763d08f12a077c0bec7c1dcea99fa0c40fa773",
+        "wiki/concepts/epics.md": "ceee5892c4524b374593bd0324bd4cdcf1595b54f5ce4bd16249c2f94b2dfde7",
+        "wiki/concepts/path.md": "cf31a347403af09865e446ea0cbd242aa2215ab5f34c966f0b6e47ec873bbcd9",
+        "wiki/concepts/rhythm.md": "12af3a93d6855418c639406a64cbedbed8515f7e5ce0f62255d12e7603d22847",
+        "wiki/concepts/sequencing.md": "ee0380c3c0e1dba5952bfaf8a631e9344acd83d3d5dce7c23f2cc7e14ca9c2f3",
+        "wiki/concepts/skill-tree.md": "b0778a67f733e3d5295d407021d8948428d63a2faedcd977228103e15d8088ed",
+        "wiki/concepts/stats.md": "ca1aa6cd8f5997054fabf650889d501a7ecb8a8005054c94bd0c9f2e73ddc058",
+        "wiki/summaries/algorithm-source-atlas.md": "dcc36d845b6863e916eeee3d515046c97f051a7f0343f0fa5593d81de3715416",
+        "wiki/summaries/chunks-source-atlas.md": "a7f824db3c832b73dfd51dcda8253477b8c9cf063ffebdddbb5569be1eddb73f",
+        "wiki/summaries/creator-onboarding-source-atlas.md": "8ba404a6c50ca30a3959dcea25b16601f67674f5f93d76fd411218faadfd59f8",
+        "wiki/summaries/epics-source-atlas.md": "e0d516c6e454ca6d35005729a712d956cc381329808730c03cafc1d462ee0cf0",
+        "wiki/summaries/path-source-atlas.md": "3772e5024468ffb9f4aa048f251c2a0b57a791a2132a530425d338f3e8a5823e",
+        "wiki/summaries/rhythm-source-atlas.md": "04d3e25342dd94836ccd627ec7d2b7128b8f3acb6e1f3989c77994b0a4d54060",
+        "wiki/summaries/sequencing-source-atlas.md": "245a0ae364a4fdb89dd872e0369fcde57ab2dd2b5c87e415867f95e49711bbe1",
+        "wiki/summaries/skill-tree-source-atlas.md": "16f607a70a7f5ccf5b6192d509bb6b42e643e920c44e0e0dd5c60cfa978e4edc",
+        "wiki/summaries/stats-source-atlas.md": "81ec7ba0d5cc05560c7ca526e044d52094207abf28bfbc1f5a4635790a778dd6"
+      },
+      "run_id": "run-20260721T155906502346Z-b63ab8632f-ub8632f",
+      "schema": "apex.kb.retrieval-index.v2"
+    },
+    "run_id": "run-20260721T155906502346Z-b63ab8632f-ub8632f",
+    "run_kind": "update",
+    "schema": "apex.kb.completion.v2",
+    "source_repository_mutated": false
+  },
+  "package_artifact": "/mnt/data/work/apexai-os-meta/apex-meta/apex-kb-cli/dist/apex_kb-1.0.0-py3-none-any.whl",
+  "postflight_preceded_retrieval": true,
+  "run_chain": [
+    "run-20260721T155610169022Z-b63ab8632f",
+    "run-20260721T155643297616Z-b63ab8632f-ub8632f",
+    "run-20260721T155906502346Z-b63ab8632f-ub8632f"
+  ],
+  "schema": "apex.kb.product-canary.v1",
+  "semantic_claim_limit": "This canary proves lifecycle mechanics and contracts, not independent semantic quality.",
+  "semantic_executor": "deterministic_fixture_worker_for_packet_and_import_contract_validation",
+  "source_file_count": 650,
+  "source_repository_mutation_checks": {
+    "initial_run": {
+      "method": "pre/post complete source-tree SHA-256 map equality asserted by canary process",
+      "passed": true
+    },
+    "update1": {
+      "method": "pre/post complete source-tree SHA-256 map equality asserted before operator-originated update2 mutation",
+      "passed": true
+    },
+    "update2": {
+      "method": "pre/post complete source-tree SHA-256 map equality asserted by canary process",
+      "passed": true
+    }
+  },
+  "terminal_statuses": {
+    "run-20260721T155610169022Z-b63ab8632f": "query_ready",
+    "run-20260721T155643297616Z-b63ab8632f-ub8632f": "query_ready",
+    "run-20260721T155906502346Z-b63ab8632f-ub8632f": "query_ready"
+  },
+  "topic_count": 9,
+  "topic_summaries": {
+    "algorithm": {
+      "candidate_count": 4,
+      "candidate_set_truncated": false,
+      "index_database_sha256": "8a89c6ce20d4ee037703fb268d0882651fdce4603f164f9046232c576c0ec3e3",
+      "output_paths": [
+        "outputs/queries/20260721T160027430486Z-6ad76dcad2.json",
+        "outputs/queries/20260721T160027430486Z-6ad76dcad2.md"
+      ],
+      "result_count": 5,
+      "retrieval_fresh": true,
+      "sample_evidence_pointer": "wiki/concepts/algorithm.md#L49-L52"
+    },
+    "chunks": {
+      "candidate_count": 5,
+      "candidate_set_truncated": false,
+      "index_database_sha256": "8a89c6ce20d4ee037703fb268d0882651fdce4603f164f9046232c576c0ec3e3",
+      "output_paths": [
+        "outputs/queries/20260721T160026038885Z-fe180fe366.json",
+        "outputs/queries/20260721T160026038885Z-fe180fe366.md"
+      ],
+      "result_count": 5,
+      "retrieval_fresh": true,
+      "sample_evidence_pointer": "wiki/concepts/chunks.md#L49-L52"
+    },
+    "creator-onboarding": {
+      "candidate_count": 4,
+      "candidate_set_truncated": false,
+      "index_database_sha256": "8a89c6ce20d4ee037703fb268d0882651fdce4603f164f9046232c576c0ec3e3",
+      "output_paths": [
+        "outputs/queries/20260721T160027913432Z-b7b8f62f63.json",
+        "outputs/queries/20260721T160027913432Z-b7b8f62f63.md"
+      ],
+      "result_count": 5,
+      "retrieval_fresh": true,
+      "sample_evidence_pointer": "wiki/concepts/creator-onboarding.md#L49-L52"
+    },
+    "epics": {
+      "candidate_count": 16,
+      "candidate_set_truncated": false,
+      "index_database_sha256": "8a89c6ce20d4ee037703fb268d0882651fdce4603f164f9046232c576c0ec3e3",
+      "output_paths": [
+        "outputs/queries/20260721T160026266878Z-d9c0bed614.json",
+        "outputs/queries/20260721T160026266878Z-d9c0bed614.md"
+      ],
+      "result_count": 5,
+      "retrieval_fresh": true,
+      "sample_evidence_pointer": "wiki/concepts/epics.md#L49-L52"
+    },
+    "path": {
+      "candidate_count": 5,
+      "candidate_set_truncated": false,
+      "index_database_sha256": "8a89c6ce20d4ee037703fb268d0882651fdce4603f164f9046232c576c0ec3e3",
+      "output_paths": [
+        "outputs/queries/20260721T160026751110Z-645a993ff3.json",
+        "outputs/queries/20260721T160026751110Z-645a993ff3.md"
+      ],
+      "result_count": 5,
+      "retrieval_fresh": true,
+      "sample_evidence_pointer": "wiki/concepts/path.md#L49-L52"
+    },
+    "rhythm": {
+      "candidate_count": 4,
+      "candidate_set_truncated": false,
+      "index_database_sha256": "8a89c6ce20d4ee037703fb268d0882651fdce4603f164f9046232c576c0ec3e3",
+      "output_paths": [
+        "outputs/queries/20260721T160026978710Z-ff51509e33.json",
+        "outputs/queries/20260721T160026978710Z-ff51509e33.md"
+      ],
+      "result_count": 5,
+      "retrieval_fresh": true,
+      "sample_evidence_pointer": "wiki/concepts/rhythm.md#L49-L52"
+    },
+    "sequencing": {
+      "candidate_count": 10,
+      "candidate_set_truncated": false,
+      "index_database_sha256": "8a89c6ce20d4ee037703fb268d0882651fdce4603f164f9046232c576c0ec3e3",
+      "output_paths": [
+        "outputs/queries/20260721T160027200169Z-c62120c388.json",
+        "outputs/queries/20260721T160027200169Z-c62120c388.md"
+      ],
+      "result_count": 5,
+      "retrieval_fresh": true,
+      "sample_evidence_pointer": "wiki/concepts/sequencing.md#L49-L52"
+    },
+    "skill-tree": {
+      "candidate_count": 24,
+      "candidate_set_truncated": false,
+      "index_database_sha256": "8a89c6ce20d4ee037703fb268d0882651fdce4603f164f9046232c576c0ec3e3",
+      "output_paths": [
+        "outputs/queries/20260721T160026521940Z-77600bf618.json",
+        "outputs/queries/20260721T160026521940Z-77600bf618.md"
+      ],
+      "result_count": 5,
+      "retrieval_fresh": true,
+      "sample_evidence_pointer": "wiki/concepts/skill-tree.md#L49-L52"
+    },
+    "stats": {
+      "candidate_count": 4,
+      "candidate_set_truncated": false,
+      "index_database_sha256": "8a89c6ce20d4ee037703fb268d0882651fdce4603f164f9046232c576c0ec3e3",
+      "output_paths": [
+        "outputs/queries/20260721T160027649779Z-f3099d10a5.json",
+        "outputs/queries/20260721T160027649779Z-f3099d10a5.md"
+      ],
+      "result_count": 5,
+      "retrieval_fresh": true,
+      "sample_evidence_pointer": "wiki/concepts/stats.md#L49-L52"
+    }
+  },
+  "update1_impact": {
+    "added": [
+      "LeelaAppDevelopment/Moved/general-note-0000.md"
+    ],
+    "affected_topics": {
+      "algorithm": {
+        "affected": false,
+        "candidate_set_changed": false,
+        "changed_candidate_paths": [],
+        "topic_contract_changed": false
+      },
+      "chunks": {
+        "affected": false,
+        "candidate_set_changed": false,
+        "changed_candidate_paths": [],
+        "topic_contract_changed": false
+      },
+      "creator-onboarding": {
+        "affected": false,
+        "candidate_set_changed": false,
+        "changed_candidate_paths": [],
+        "topic_contract_changed": false
+      },
+      "epics": {
+        "affected": true,
+        "candidate_set_changed": false,
+        "changed_candidate_paths": [
+          "LeelaAppDevelopment/Current/skill-tree-current.md"
+        ],
+        "topic_contract_changed": false
+      },
+      "path": {
+        "affected": false,
+        "candidate_set_changed": false,
+        "changed_candidate_paths": [],
+        "topic_contract_changed": false
+      },
+      "rhythm": {
+        "affected": false,
+        "candidate_set_changed": false,
+        "changed_candidate_paths": [],
+        "topic_contract_changed": false
+      },
+      "sequencing": {
+        "affected": false,
+        "candidate_set_changed": false,
+        "changed_candidate_paths": [],
+        "topic_contract_changed": false
+      },
+      "skill-tree": {
+        "affected": true,
+        "candidate_set_changed": false,
+        "changed_candidate_paths": [
+          "LeelaAppDevelopment/Current/skill-tree-current.md"
+        ],
+        "topic_contract_changed": false
+      },
+      "stats": {
+        "affected": false,
+        "candidate_set_changed": false,
+        "changed_candidate_paths": [],
+        "topic_contract_changed": false
+      }
+    },
+    "changed": [
+      "LeelaAppDevelopment/Current/skill-tree-current.md"
+    ],
+    "content_identity_preserved_across_moves": true,
+    "deleted": [
+      "LeelaAppDevelopment/Noise/general-note-0000.md"
+    ],
+    "moved": [
+      {
+        "from": "LeelaAppDevelopment/Noise/general-note-0000.md",
+        "sha256": "aff14f6766a9eecfe8c1aa7cbe3ca7990b97f3595a29428011559ceac9b46fe4",
+        "to": "LeelaAppDevelopment/Moved/general-note-0000.md"
+      }
+    ],
+    "newly_unreadable": [],
+    "schema": "apex.kb.impact-report.v2",
+    "unchanged_capsules_reusable": true,
+    "unchanged_count": 648
+  },
+  "update2_exactly_one_affected_topic": [
+    "creator-onboarding"
+  ],
+  "update2_impact": {
+    "added": [
+      "LeelaAppDevelopment/Moved/general-note-0001.md"
+    ],
+    "affected_topics": {
+      "algorithm": {
+        "affected": false,
+        "candidate_set_changed": false,
+        "changed_candidate_paths": [],
+        "topic_contract_changed": false
+      },
+      "chunks": {
+        "affected": false,
+        "candidate_set_changed": false,
+        "changed_candidate_paths": [],
+        "topic_contract_changed": false
+      },
+      "creator-onboarding": {
+        "affected": true,
+        "candidate_set_changed": false,
+        "changed_candidate_paths": [
+          "LeelaAppDevelopment/Current/creator-onboarding-current.md"
+        ],
+        "topic_contract_changed": false
+      },
+      "epics": {
+        "affected": false,
+        "candidate_set_changed": false,
+        "changed_candidate_paths": [],
+        "topic_contract_changed": false
+      },
+      "path": {
+        "affected": false,
+        "candidate_set_changed": false,
+        "changed_candidate_paths": [],
+        "topic_contract_changed": false
+      },
+      "rhythm": {
+        "affected": false,
+        "candidate_set_changed": false,
+        "changed_candidate_paths": [],
+        "topic_contract_changed": false
+      },
+      "sequencing": {
+        "affected": false,
+        "candidate_set_changed": false,
+        "changed_candidate_paths": [],
+        "topic_contract_changed": false
+      },
+      "skill-tree": {
+        "affected": false,
+        "candidate_set_changed": false,
+        "changed_candidate_paths": [],
+        "topic_contract_changed": false
+      },
+      "stats": {
+        "affected": false,
+        "candidate_set_changed": false,
+        "changed_candidate_paths": [],
+        "topic_contract_changed": false
+      }
+    },
+    "changed": [
+      "LeelaAppDevelopment/Current/creator-onboarding-current.md"
+    ],
+    "content_identity_preserved_across_moves": true,
+    "deleted": [
+      "LeelaAppDevelopment/Noise/general-note-0001.md"
+    ],
+    "moved": [
+      {
+        "from": "LeelaAppDevelopment/Noise/general-note-0001.md",
+        "sha256": "29407aacc6c82f85ecd25d51867331e41e557ab7a7d17be154775d7a9ef32652",
+        "to": "LeelaAppDevelopment/Moved/general-note-0001.md"
+      }
+    ],
+    "newly_unreadable": [],
+    "schema": "apex.kb.impact-report.v2",
+    "unchanged_capsules_reusable": true,
+    "unchanged_count": 648
+  },
+  "update2_unaffected_topics_reused": [
+    "algorithm",
+    "chunks",
+    "epics",
+    "path",
+    "rhythm",
+    "sequencing",
+    "skill-tree",
+    "stats"
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "backend": "sqlite_fts5",
+  "config_hash": "1139cc3bc70950d4dc4f2cb5f65d93e219e9f07798e71149fc4a119d86ab394b",
+  "created_at": "2026-07-21T19:19:09Z",
+  "index_database_sha256": "78bb2c1d58c3c4c5a07762789b4785c316ce5109987e546845d1a6158186ca99",
+  "index_manifest_path": "derived/search/index-manifest.json",
+  "output_paths": [
+    "outputs\\queries\\20260721T191909409532Z-a0eec3bb2f.json",
+    "outputs\\queries\\20260721T191909409532Z-a0eec3bb2f.md"
+  ],
+  "query": "What are the current widget statuses and unresolved questions?",
+  "raw_source_reopen_guidance": "Use the accepted dossier and source atlas first. Reopen raw sources only when the answer is absent, acceptance marks insufficient evidence, or source drift invalidates the compiled pages.",
+  "result_count": 3,
+  "results": [
+    {
+      "chunk_id": "e91b1160d30c0315a7ee7fc0",
+      "end_line": 40,
+      "evidence_pointer": "wiki/concepts/smoke-product.md#L35-L40",
+      "excerpt": "[Widget] Alpha is [currently] Active [and] [Widget] Beta is [currently] Retired. [The] fixture reports no known contradictions or [unresolved] product [questions]. [The] evidence-level … ",
+      "heading": "smoke-q02: What are the current widget statuses and unresolved questions?",
+      "heading_level": 3,
+      "page_hash": "e9304c3cb7a6468a1724a83d25b3e476abe048706895098383be89efca7ab911",
+      "page_type": "concept_dossier",
+      "path": "wiki/concepts/smoke-product.md",
+      "score": -7.304070876115662,
+      "source_atlas_path": "wiki/summaries/smoke-product-source-atlas.md",
+      "source_pointers": [
+        "src-9e34a660c0bd5f65"
+      ],
+      "start_line": 35,
+      "title": "Smoke Product",
+      "topic_id": "smoke-product"
+    },
+    {
+      "chunk_id": "90d36b4790205eadb262e793",
+      "end_line": 58,
+      "evidence_pointer": "wiki/concepts/smoke-product.md#L55-L58",
+      "excerpt": "- No [unresolved] product [questions] [are] known according to [the] source; however, [the] source is undated [and] unversioned, so [the] temporal freshness of its [current] … ",
+      "heading": "Uncertainty",
+      "heading_level": 2,
+      "page_hash": "e9304c3cb7a6468a1724a83d25b3e476abe048706895098383be89efca7ab911",
+      "page_type": "concept_dossier",
+      "path": "wiki/concepts/smoke-product.md",
+      "score": -2.7350957976123933,
+      "source_atlas_path": "wiki/summaries/smoke-product-source-atlas.md",
+      "source_pointers": [
+        "src-9e34a660c0bd5f65"
+      ],
+      "start_line": 55,
+      "title": "Smoke Product",
+      "topic_id": "smoke-product"
+    },
+    {
+      "chunk_id": "1810d1fe1c758b7d9ea169ea",
+      "end_line": 22,
+      "evidence_pointer": "wiki/concepts/smoke-product.md#L19-L22",
+      "excerpt": "[The] product owns a Catalog of named [Widgets] [and] [the] single Status assigned to each [Widget], with Status limited to Active or Retired. It … ",
+      "heading": "Meso — What it is",
+      "heading_level": 2,
+      "page_hash": "e9304c3cb7a6468a1724a83d25b3e476abe048706895098383be89efca7ab911",
+      "page_type": "concept_dossier",
+      "path": "wiki/concepts/smoke-product.md",
+      "score": -1.7939002128200772,
+      "source_atlas_path": "wiki/summaries/smoke-product-source-atlas.md",
+      "source_pointers": [
+        "src-9e34a660c0bd5f65"
+      ],
+      "start_line": 19,
+      "title": "Smoke Product",
+      "topic_id": "smoke-product"
+    }
+  ],
+  "retrieval_fresh": true,
+  "run_id": "run-20260721T190759972761Z-1139cc3bc7",
+  "schema": "apex.kb.query-result.v2",
+  "topic_id": null
+}

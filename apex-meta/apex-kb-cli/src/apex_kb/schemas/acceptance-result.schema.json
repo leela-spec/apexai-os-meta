@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object", "additionalProperties": false,
+  "required": ["schema", "run_id", "config_hash", "task_id", "phase", "topic_id", "evaluator_context_id", "verdict", "question_evaluations", "claim_checks", "failed_items", "notes"],
+  "properties": {
+    "schema": {"const": "apex.kb.acceptance-result.v2"}, "run_id": {"type": "string"}, "config_hash": {"type": "string"}, "task_id": {"type": "string"},
+    "phase": {"const": "acceptance"}, "topic_id": {"type": "string"}, "evaluator_context_id": {"type": "string", "minLength": 1},
+    "verdict": {"enum": ["semantic_pass", "semantic_partial", "semantic_fail", "insufficient_evidence"]},
+    "question_evaluations": {"type": "array", "minItems": 1, "items": {"type": "object", "additionalProperties": false, "required": ["query_id", "verdict", "answer_summary", "page_pointers", "raw_source_required"], "properties": {
+      "query_id": {"type": "string", "minLength": 1}, "verdict": {"enum": ["pass", "partial", "fail", "insufficient_evidence"]}, "answer_summary": {"type": "string", "minLength": 1},
+      "page_pointers": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}}, "raw_source_required": {"type": "boolean"}
+    }}},
+    "claim_checks": {"type": "array", "items": {"type": "object", "additionalProperties": false, "required": ["claim", "verdict", "evidence_pointers"], "properties": {
+      "claim": {"type": "string", "minLength": 1}, "verdict": {"enum": ["pass", "partial", "fail", "insufficient_evidence"]}, "evidence_pointers": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}}
+    }}},
+    "failed_items": {"type": "array", "items": {"type": "string"}}, "notes": {"type": "array", "items": {"type": "string"}}
+  },
+  "allOf": [
+    {
+      "if": {"properties": {"verdict": {"const": "semantic_pass"}}, "required": ["verdict"]},
+      "then": {"properties": {"claim_checks": {"minItems": 1}}}
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "claim_checks": [
+    {
+      "claim": "The Smoke Product owns a catalog of named widgets and their Active or Retired status, but does not own purchasing, user accounts, billing, or deployment.",
+      "evidence_pointers": [
+        "C:\\GitDev\\apex-kb-canaries\\light-smoke-run\\ingest-analysis\\sources\\328e189b3cebb1e93d7163f649ca9405390e9108610c99d93bba8f654d39128c.analysis.json#/key_claims/1",
+        "C:\\GitDev\\apex-kb-canaries\\light-smoke-run\\ingest-analysis\\sources\\328e189b3cebb1e93d7163f649ca9405390e9108610c99d93bba8f654d39128c.analysis.json#/key_claims/2"
+      ],
+      "verdict": "pass"
+    },
+    {
+      "claim": "Widget Alpha is Active and Widget Beta is Retired, no contradictions or unresolved product questions are known, and temporal freshness cannot be independently established because the source is undated and unversioned.",
+      "evidence_pointers": [
+        "C:\\GitDev\\apex-kb-canaries\\light-smoke-run\\ingest-analysis\\sources\\328e189b3cebb1e93d7163f649ca9405390e9108610c99d93bba8f654d39128c.analysis.json#/key_claims/4",
+        "C:\\GitDev\\apex-kb-canaries\\light-smoke-run\\ingest-analysis\\sources\\328e189b3cebb1e93d7163f649ca9405390e9108610c99d93bba8f654d39128c.analysis.json#/key_claims/5",
+        "C:\\GitDev\\apex-kb-canaries\\light-smoke-run\\ingest-analysis\\sources\\328e189b3cebb1e93d7163f649ca9405390e9108610c99d93bba8f654d39128c.analysis.json#/uncertainties/0"
+      ],
+      "verdict": "pass"
+    },
+    {
+      "claim": "The supplied source is the canonical synthetic fixture for the Smoke Product lifecycle smoke test.",
+      "evidence_pointers": [
+        "C:\\GitDev\\apex-kb-canaries\\light-smoke-run\\ingest-analysis\\sources\\328e189b3cebb1e93d7163f649ca9405390e9108610c99d93bba8f654d39128c.analysis.json#/authority"
+      ],
+      "verdict": "pass"
+    },
+    {
+      "claim": "The fixture defines the Smoke Product's ownership boundary, the Catalog-Widget-Status relationship, and the current statuses of Widget Alpha and Widget Beta.",
+      "evidence_pointers": [
+        "C:\\GitDev\\apex-kb-canaries\\light-smoke-run\\ingest-analysis\\sources\\328e189b3cebb1e93d7163f649ca9405390e9108610c99d93bba8f654d39128c.analysis.json#/key_claims/1",
+        "C:\\GitDev\\apex-kb-canaries\\light-smoke-run\\ingest-analysis\\sources\\328e189b3cebb1e93d7163f649ca9405390e9108610c99d93bba8f654d39128c.analysis.json#/key_claims/3",
+        "C:\\GitDev\\apex-kb-canaries\\light-smoke-run\\ingest-analysis\\sources\\328e189b3cebb1e93d7163f649ca9405390e9108610c99d93bba8f654d39128c.analysis.json#/key_claims/4"
+      ],
+      "verdict": "pass"
+    }
+  ],
+  "config_hash": "1139cc3bc70950d4dc4f2cb5f65d93e219e9f07798e71149fc4a119d86ab394b",
+  "evaluator_context_id": "smoke-acceptance-independent-20260721",
+  "failed_items": [],
+  "notes": [
+    "Both critical and routine questions are directly answerable from the compiled concept page without raw-source access.",
+    "The claim sample includes two material claims from each compiled page and is fully supported by the packet-scoped evidence capsule.",
+    "The source is undated and unversioned; therefore the temporal freshness of the stated current widget statuses remains independently unverified."
+  ],
+  "phase": "acceptance",
+  "question_evaluations": [
+    {
+      "answer_summary": "The Smoke Product owns a catalog of named widgets and each widget's Active or Retired status. Purchasing, user accounts, billing, and deployment are outside its ownership boundary.",
+      "page_pointers": [
+        "C:\\GitDev\\apex-kb-canaries\\light-smoke-run\\wiki\\concepts\\smoke-product.md#smoke-q01-what-does-the-smoke-product-own-and-not-own"
+      ],
+      "query_id": "smoke-q01",
+      "raw_source_required": false,
+      "verdict": "pass"
+    },
+    {
+      "answer_summary": "Widget Alpha is Active and Widget Beta is Retired. The fixture reports no known contradictions or unresolved product questions, while explicitly preserving uncertainty that its undated, unversioned source cannot establish temporal freshness independently.",
+      "page_pointers": [
+        "C:\\GitDev\\apex-kb-canaries\\light-smoke-run\\wiki\\concepts\\smoke-product.md#smoke-q02-what-are-the-current-widget-statuses-and-unresolved-questions",
+        "C:\\GitDev\\apex-kb-canaries\\light-smoke-run\\wiki\\concepts\\smoke-product.md#uncertainty"
+      ],
+      "query_id": "smoke-q02",
+      "raw_source_required": false,
+      "verdict": "pass"
+    }
+  ],
+  "run_id": "run-20260721T190759972761Z-1139cc3bc7",
+  "schema": "apex.kb.acceptance-result.v2",
+  "task_id": "acceptance-smoke-product-a01",
+  "topic_id": "smoke-product",
+  "verdict": "semantic_pass"
+}

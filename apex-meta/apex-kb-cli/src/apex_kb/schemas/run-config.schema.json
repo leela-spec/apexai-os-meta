@@ -1,58 +1,339 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://apex-kb.local/schemas/run-config.schema.json",
-  "title": "Apex KB run configuration",
+  "title": "Apex KB run configuration v2",
   "type": "object",
   "additionalProperties": false,
-  "required": ["source", "destination", "topics", "run_options"],
+  "required": [
+    "schema",
+    "source",
+    "destination",
+    "exclusions",
+    "lifecycle_hint_rules",
+    "authority_hint_rules",
+    "topics",
+    "run_options"
+  ],
   "properties": {
+    "schema": {
+      "const": "apex.kb.run-config.v2"
+    },
     "source": {
-      "type": "object", "additionalProperties": false,
-      "required": ["repository", "root", "folders"],
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "repository",
+        "root",
+        "folders"
+      ],
       "properties": {
-        "repository": {"type": "string", "minLength": 3},
-        "root": {"type": "string", "minLength": 1},
-        "folders": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}}
+        "repository": {
+          "type": "string",
+          "pattern": "^[^/\\s]+/[^/\\s]+$"
+        },
+        "root": {
+          "type": "string",
+          "minLength": 1
+        },
+        "folders": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
       }
     },
     "destination": {
-      "type": "object", "additionalProperties": false,
-      "required": ["repository", "root", "folder"],
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "repository",
+        "root",
+        "folder"
+      ],
       "properties": {
-        "repository": {"type": "string", "minLength": 3},
-        "root": {"type": "string", "minLength": 1},
-        "folder": {"type": "string", "minLength": 1}
+        "repository": {
+          "type": "string",
+          "pattern": "^[^/\\s]+/[^/\\s]+$"
+        },
+        "root": {
+          "type": "string",
+          "minLength": 1
+        },
+        "folder": {
+          "type": "string",
+          "minLength": 1
+        }
       }
     },
     "exclusions": {
-      "type": "array", "default": [],
+      "type": "array",
       "items": {
-        "type": "object", "additionalProperties": false, "required": ["path", "reason"],
-        "properties": {"path": {"type": "string", "minLength": 1}, "reason": {"type": "string", "minLength": 1}}
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "path",
+          "reason"
+        ],
+        "properties": {
+          "path": {
+            "type": "string",
+            "minLength": 1
+          },
+          "reason": {
+            "type": "string",
+            "minLength": 1
+          },
+          "rule_id": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
       }
     },
     "topics": {
-      "type": "array", "minItems": 1,
+      "type": "array",
+      "minItems": 1,
       "items": {
-        "type": "object", "additionalProperties": false,
-        "required": ["name", "phrases", "questions"],
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "topic_id",
+          "name",
+          "primary_phrases",
+          "aliases",
+          "supporting_terms",
+          "negative_terms",
+          "ambiguous_terms",
+          "target_queries",
+          "expected_routes"
+        ],
         "properties": {
-          "name": {"type": "string", "minLength": 1},
-          "phrases": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}},
-          "ambiguous_or_negative_terms": {"type": "array", "default": [], "items": {"type": "string", "minLength": 1}},
-          "questions": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 3}}
+          "topic_id": {
+            "type": "string",
+            "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "primary_phrases": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "aliases": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "supporting_terms": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "negative_terms": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "ambiguous_terms": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "target_queries": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "query_id",
+                "priority",
+                "question",
+                "answer_requirements"
+              ],
+              "properties": {
+                "query_id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "priority": {
+                  "enum": [
+                    "critical",
+                    "routine",
+                    "optional"
+                  ]
+                },
+                "question": {
+                  "type": "string",
+                  "minLength": 3
+                },
+                "answer_requirements": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "expected_routes": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "dossier",
+              "source_atlas"
+            ],
+            "properties": {
+              "dossier": {
+                "type": "string",
+                "pattern": "^wiki/concepts/.+\\.md$"
+              },
+              "source_atlas": {
+                "type": "string",
+                "pattern": "^wiki/summaries/.+-source-atlas\\.md$"
+              }
+            }
+          }
         }
       }
     },
     "run_options": {
-      "type": "object", "additionalProperties": false,
-      "required": ["source_handling", "semantic_depth", "output", "non_text", "ai_help_after_preflight"],
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source_handling",
+        "semantic_depth",
+        "output",
+        "non_text",
+        "git_metadata",
+        "graph_depth",
+        "ai_help_after_preflight",
+        "max_semantic_repairs"
+      ],
       "properties": {
-        "source_handling": {"enum": ["pointer_only", "copy_into_kb", "snapshot_copy"]},
-        "semantic_depth": {"enum": ["quick", "standard", "deep"]},
-        "output": {"enum": ["analysis_only", "compiled_kb", "query_ready"]},
-        "non_text": {"enum": ["inventory_and_report", "extract_when_supported", "block_on_unsupported"]},
-        "ai_help_after_preflight": {"type": "boolean"}
+        "source_handling": {
+          "enum": [
+            "pointer_only",
+            "copy_into_kb",
+            "snapshot_copy"
+          ]
+        },
+        "semantic_depth": {
+          "enum": [
+            "quick",
+            "standard",
+            "deep"
+          ]
+        },
+        "output": {
+          "enum": [
+            "analysis_only",
+            "compiled_kb",
+            "query_ready"
+          ]
+        },
+        "non_text": {
+          "enum": [
+            "inventory_and_report",
+            "extract_when_supported",
+            "block_on_unsupported"
+          ]
+        },
+        "git_metadata": {
+          "type": "boolean"
+        },
+        "graph_depth": {
+          "enum": [
+            "none",
+            "links",
+            "process"
+          ]
+        },
+        "ai_help_after_preflight": {
+          "type": "boolean"
+        },
+        "max_semantic_repairs": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 10
+        }
+      }
+    },
+    "lifecycle_hint_rules": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "path",
+          "hint"
+        ],
+        "properties": {
+          "path": {
+            "type": "string",
+            "minLength": 1
+          },
+          "hint": {
+            "type": "string",
+            "minLength": 1
+          },
+          "rule_id": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "authority_hint_rules": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "path",
+          "hint",
+          "score"
+        ],
+        "properties": {
+          "path": {
+            "type": "string",
+            "minLength": 1
+          },
+          "hint": {
+            "type": "string",
+            "minLength": 1
+          },
+          "score": {
+            "type": "integer",
+            "minimum": -100,
+            "maximum": 100
+          },
+          "rule_id": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
       }
     }
   }

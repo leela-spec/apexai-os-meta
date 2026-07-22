@@ -1,0 +1,42 @@
+{
+  "canary_kind": "real_repository_connector_excerpt_projection",
+  "completion_path": "audit/completion/run-20260721T160211705031Z-b10c22aa66.json",
+  "connector_evidence_ranges": [
+    "source lines 1-180",
+    "source lines 181-335"
+  ],
+  "event_count": 28,
+  "full_real_corpus_blocker": "The execution container cannot clone the private repository, and the available GitHub connector exposes file fetch/search but no recursive directory/archive export into the container.",
+  "full_real_corpus_canary_status": "blocked_external_repository_export",
+  "lifecycle_status": "query_ready",
+  "projection_limit": "The local canary source contains verbatim selected sections fetched through the GitHub connector, not the complete byte-identical repository file.",
+  "queries": {
+    "epics": {
+      "result_count": 5,
+      "sample_pointer": "wiki/concepts/epics.md#L43-L46"
+    },
+    "path-handoff": {
+      "result_count": 5,
+      "sample_pointer": "wiki/concepts/path-handoff.md#L43-L46"
+    },
+    "sequencing-contract": {
+      "result_count": 5,
+      "sample_pointer": "wiki/concepts/sequencing-contract.md#L43-L46"
+    },
+    "skill-tree": {
+      "result_count": 5,
+      "sample_pointer": "wiki/concepts/skill-tree.md#L43-L46"
+    }
+  },
+  "run_id": "run-20260721T160211705031Z-b10c22aa66",
+  "schema": "apex.kb.product-canary.v1",
+  "semantic_claim_limit": "Compiled prose is fixture-generated and is not an independent semantic-quality verdict.",
+  "semantic_executor": "deterministic_fixture_worker_for_packet_and_import_contract_validation",
+  "source_blob_sha": "b5f0a6ce7cec7f71455446006a3c196765ee7979",
+  "source_file_count": 1,
+  "source_path": "LeelaAppDevelopment/01_Features/102 - Epics (Database + Skill Tree).md",
+  "source_ref": "main",
+  "source_repository": "leela-spec/leela",
+  "source_repository_unchanged": true,
+  "topic_count": 4
+}

@@ -1,0 +1,22 @@
+{
+  "schema": "apex.kb.light-smoke-summary.v1",
+  "run_id": "run-20260721T190759972761Z-1139cc3bc7",
+  "config_hash": "1139cc3bc70950d4dc4f2cb5f65d93e219e9f07798e71149fc4a119d86ab394b",
+  "source_file_count": 1,
+  "topic_count": 1,
+  "candidate_count": 1,
+  "target_query_count": 2,
+  "phase1_status": "completed",
+  "phase2_status": "completed",
+  "independent_acceptance": "semantic_pass",
+  "material_claim_checks": 4,
+  "postflight": "passed",
+  "retrieval": "fresh",
+  "retrieval_page_count": 2,
+  "retrieval_chunk_count": 13,
+  "retrieval_database_sha256": "78bb2c1d58c3c4c5a07762789b4785c316ce5109987e546845d1a6158186ca99",
+  "query_count": 2,
+  "queries_succeeded": 2,
+  "final_truthful_state": "query_ready",
+  "claim_limit": "This minimal synthetic canary proves lifecycle mechanics, fail-closed repairs, independent acceptance wiring, completion, retrieval, and query behavior. It does not prove semantic quality or coverage for the Leela corpus."
+}

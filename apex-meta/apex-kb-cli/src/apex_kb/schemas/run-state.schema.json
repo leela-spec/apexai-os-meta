@@ -1,1 +1,191 @@
-{"$schema":"https://json-schema.org/draft/2020-12/schema","type":"object","additionalProperties":false,"required":["schema","schema_version","run_id","config_hash","current_stage","completed_stages","blocked_reason","expected_semantic_result","next_legal_stage","artifact_references","updated_at"],"properties":{"schema":{"const":"apex.kb.run-state.v1"},"schema_version":{"const":1},"run_id":{"type":"string"},"config_hash":{"type":"string","pattern":"^[a-f0-9]{64}$"},"current_stage":{"type":"string"},"completed_stages":{"type":"array","items":{"type":"string"}},"blocked_reason":{"type":["string","null"]},"expected_semantic_result":{"type":["string","null"]},"next_legal_stage":{"enum":["inventory","semantic_packet","semantic_import","postflight","completed"]},"artifact_references":{"type":"object","additionalProperties":{"type":"string"}},"updated_at":{"type":"string"}}}
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "schema_version",
+    "run_id",
+    "config_hash",
+    "run_kind",
+    "lifecycle_status",
+    "current_stage",
+    "completed_stages",
+    "corpus_intelligence",
+    "topics",
+    "active_task",
+    "retrieval",
+    "postflight",
+    "completion",
+    "blockers",
+    "history",
+    "updated_at"
+  ],
+  "properties": {
+    "schema": {
+      "const": "apex.kb.run-state.v2"
+    },
+    "schema_version": {
+      "const": 2
+    },
+    "run_id": {
+      "type": "string"
+    },
+    "config_hash": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "run_kind": {
+      "enum": [
+        "new",
+        "update",
+        "migration"
+      ]
+    },
+    "lifecycle_status": {
+      "enum": [
+        "running",
+        "analysis_complete",
+        "compiled_accepted",
+        "query_ready",
+        "blocked"
+      ]
+    },
+    "current_stage": {
+      "type": "string"
+    },
+    "completed_stages": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "corpus_intelligence": {
+      "$ref": "#/$defs/status_slot"
+    },
+    "topics": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/$defs/topic_state"
+      }
+    },
+    "active_task": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "retrieval": {
+      "$ref": "#/$defs/status_slot"
+    },
+    "postflight": {
+      "$ref": "#/$defs/status_slot"
+    },
+    "blockers": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "history": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "updated_at": {
+      "type": "string"
+    },
+    "completion": {
+      "$ref": "#/$defs/status_slot"
+    }
+  },
+  "$defs": {
+    "status_slot": {
+      "type": "object",
+      "required": [
+        "status",
+        "artifacts"
+      ],
+      "properties": {
+        "status": {
+          "type": "string"
+        },
+        "artifacts": {
+          "type": "object"
+        }
+      },
+      "additionalProperties": true
+    },
+    "phase_slot": {
+      "type": "object",
+      "required": [
+        "status",
+        "attempt",
+        "artifacts"
+      ],
+      "properties": {
+        "status": {
+          "type": "string"
+        },
+        "attempt": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "artifacts": {
+          "type": "object"
+        },
+        "worker_context_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "evaluator_context_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "verdict": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "repair_context": {
+          "type": "object"
+        }
+      },
+      "additionalProperties": true
+    },
+    "topic_state": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "topic_id",
+        "affected",
+        "phase1",
+        "phase2",
+        "acceptance"
+      ],
+      "properties": {
+        "topic_id": {
+          "type": "string"
+        },
+        "affected": {
+          "type": "boolean"
+        },
+        "phase1": {
+          "$ref": "#/$defs/phase_slot"
+        },
+        "phase2": {
+          "$ref": "#/$defs/phase_slot"
+        },
+        "acceptance": {
+          "$ref": "#/$defs/phase_slot"
+        }
+      }
+    }
+  }
+}

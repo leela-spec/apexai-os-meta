@@ -1,16 +1,112 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://apex-kb.local/schemas/run-manifest.schema.json",
-  "type": "object", "additionalProperties": false,
-  "required": ["schema", "schema_version", "run_id", "config_hash", "created_at", "source", "destination", "exclusions", "topics", "run_options", "artifact_layout"],
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "schema_version",
+    "run_id",
+    "run_kind",
+    "config_hash",
+    "created_at",
+    "source",
+    "destination",
+    "exclusions",
+    "corpus_scope",
+    "lifecycle_hint_rules",
+    "authority_hint_rules",
+    "topics",
+    "run_options",
+    "artifact_layout",
+    "previous_run"
+  ],
   "properties": {
-    "schema": {"const": "apex.kb.run-manifest.v1"},
-    "schema_version": {"const": 1},
-    "run_id": {"type": "string", "pattern": "^run-"},
-    "config_hash": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
-    "created_at": {"type": "string"},
-    "source": {"type": "object"}, "destination": {"type": "object"},
-    "exclusions": {"type": "array"}, "topics": {"type": "array", "minItems": 1},
-    "run_options": {"type": "object"}, "artifact_layout": {"type": "object"}
+    "schema": {
+      "const": "apex.kb.run-manifest.v2"
+    },
+    "schema_version": {
+      "const": 2
+    },
+    "run_id": {
+      "type": "string",
+      "pattern": "^run-"
+    },
+    "run_kind": {
+      "enum": [
+        "new",
+        "update",
+        "migration"
+      ]
+    },
+    "config_hash": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "created_at": {
+      "type": "string"
+    },
+    "source": {
+      "type": "object"
+    },
+    "destination": {
+      "type": "object"
+    },
+    "exclusions": {
+      "type": "array"
+    },
+    "topics": {
+      "type": "array",
+      "minItems": 1
+    },
+    "run_options": {
+      "type": "object"
+    },
+    "artifact_layout": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "run_dir",
+        "stage_results",
+        "semantic_tasks",
+        "incoming",
+        "semantic_results",
+        "logs"
+      ],
+      "properties": {
+        "run_dir": {
+          "type": "string"
+        },
+        "stage_results": {
+          "type": "string"
+        },
+        "semantic_tasks": {
+          "type": "string"
+        },
+        "incoming": {
+          "type": "string"
+        },
+        "semantic_results": {
+          "type": "string"
+        },
+        "logs": {
+          "type": "string"
+        }
+      }
+    },
+    "previous_run": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "corpus_scope": {
+      "type": "object"
+    },
+    "lifecycle_hint_rules": {
+      "type": "array"
+    },
+    "authority_hint_rules": {
+      "type": "array"
+    }
   }
 }

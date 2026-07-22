@@ -1,1 +1,13 @@
-{"$schema":"https://json-schema.org/draft/2020-12/schema","type":"object","additionalProperties":false,"required":["schema","run_id","config_hash","task_id","phase","semantic_depth","topic","target_questions","source_allowlist_path","source_paths","stable_template","allowed_output_paths","forbidden_writes","required_return_structure","stop_conditions","incoming_path","imported_result_path","created_at"],"properties":{"schema":{"const":"apex.kb.semantic-task.v1"},"run_id":{"type":"string"},"config_hash":{"type":"string"},"task_id":{"type":"string"},"phase":{"type":"string"},"semantic_depth":{"enum":["quick","standard","deep"]},"topic":{"type":"object"},"target_questions":{"type":"array","items":{"type":"string"}},"source_allowlist_path":{"type":"string"},"source_paths":{"type":"array","items":{"type":"string"}},"stable_template":{"type":"string"},"allowed_output_paths":{"type":"array","items":{"type":"string"}},"forbidden_writes":{"type":"array","items":{"type":"string"}},"required_return_structure":{"type":"string"},"stop_conditions":{"type":"array","items":{"type":"string"}},"incoming_path":{"type":"string"},"imported_result_path":{"type":"string"},"created_at":{"type":"string"}}}
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": ["schema", "run_id", "config_hash", "task_id", "task_kind", "topic_id", "attempt", "semantic_depth", "topic", "target_queries", "required_output_schema", "allowed_output_paths", "forbidden_writes", "created_at"],
+  "properties": {
+    "schema": {"const": "apex.kb.semantic-task.v2"}, "run_id": {"type": "string"}, "config_hash": {"type": "string"},
+    "task_id": {"type": "string"}, "task_kind": {"enum": ["phase1", "phase2", "acceptance"]}, "topic_id": {"type": "string"},
+    "attempt": {"type": "integer", "minimum": 1}, "semantic_depth": {"enum": ["quick", "standard", "deep"]}, "topic": {"type": "object"},
+    "target_queries": {"type": "array"}, "required_output_schema": {"type": "string"}, "allowed_output_paths": {"type": "array", "minItems": 1},
+    "forbidden_writes": {"type": "array"}, "created_at": {"type": "string"}
+  },
+  "additionalProperties": true
+}
