@@ -295,7 +295,10 @@ def run(args: argparse.Namespace) -> Dict[str, Any]:
     validate_config(value, control)
     topology = resolve_primary_worktree(Path(args.repo_root or Path.cwd()).resolve(), value["repository"], control)
     root = Path(topology["primary_root"])
-    sources = [repo_path(root, item, "source_folders") for item in value["source_folders"]]
+    sources = [
+        Path(item).expanduser().resolve() if Path(item).is_absolute() else repo_path(root, item, "source_folders")
+        for item in value["source_folders"]
+    ]
     missing = [str(item) for item in sources if not item.is_dir()]
     if missing:
         raise StartError("source_folder_missing", "All source folders must exist", missing)
@@ -324,7 +327,7 @@ def run(args: argparse.Namespace) -> Dict[str, Any]:
         "output_tier": OUTPUT_MAP[frontend_output],
         "output_tier_rationale": f"Frontend selection {frontend_output} maps deterministically to {OUTPUT_MAP[frontend_output]}.",
         "execution_route": "terminal_backed",
-        "corpus_breadth": "broad" if any(item in {".", "./"} for item in value["source_folders"]) else "narrow",
+        "corpus_breadth": "broad" if len(value["source_folders"]) > 1 or any(item in {".", "./"} or Path(item).is_absolute() for item in value["source_folders"]) else "narrow",
         "phase1_min_coverage": COMPAT_PHASE1_MIN_COVERAGE,
         "semantic_depth": options["semantic_depth"],
         "non_text_policy": options["non_text"],

@@ -1,0 +1,66 @@
+repository: "leela-spec/leela"
+
+source_folders:
+  - "LeelaAppDevelopment/.obsidian"
+  - "LeelaAppDevelopment/00_Backbone"
+  - "LeelaAppDevelopment/01_Features"
+  - "LeelaAppDevelopment/02_Interconnections"
+  - "LeelaAppDevelopment/03_Privacy_Compliance"
+  - "LeelaAppDevelopment/04_Archive"
+  - "LeelaAppDevelopment/Concepts"
+  - "LeelaAppDevelopment/Creator Onboarding"
+  - "LeelaAppDevelopment/Design, Gui, Ui"
+  - "LeelaAppDevelopment/Leela_Data+Examples"
+  - "LeelaAppDevelopment/MVP, User Stories & Flows"
+  - "LeelaAppDevelopment/Nowa"
+  - "LeelaAppDevelopment/Process"
+  - "LeelaAppDevelopment/StatusQuo"
+
+exclusions: []
+
+kb_destination:
+  folder: "LeelaAppDevelopment/Leela KB Wiki"
+
+topics:
+  - name: "feature-system"
+    phrases:
+      - "epic"
+      - "skill tree"
+      - "path"
+      - "rhythm"
+      - "sequence"
+      - "algo"
+      - "stats"
+    ambiguous_or_negative_terms: []
+    questions:
+      - "What is each core feature?"
+      - "How do the core features interconnect?"
+
+  - name: "ecosystem-system"
+    phrases:
+      - "kharma"
+      - "marketplace"
+      - "community"
+    ambiguous_or_negative_terms: []
+    questions:
+      - "What is each ecosystem feature?"
+      - "How do kharma, marketplace, and community interconnect?"
+
+  - name: "users-and-value"
+    phrases:
+      - "creator"
+      - "consumer"
+      - "user story"
+      - "value"
+    ambiguous_or_negative_terms: []
+    questions:
+      - "What are the creator user stories?"
+      - "What are the consumer user stories?"
+      - "What value does Leela deliver?"
+
+run_options:
+  source_handling: pointer_only
+  semantic_depth: standard
+  output: compiled_kb
+  non_text: inventory_and_report
+  ai_help_after_preflight: false
