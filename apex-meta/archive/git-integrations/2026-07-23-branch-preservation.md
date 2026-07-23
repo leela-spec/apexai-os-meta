@@ -53,10 +53,14 @@ git show c9900103:.claude/skills/AIRouting/ai-routing-and-usage-tracking-package
 git show c9900103:apex-meta/operator-output-design/step6-activation-validation/00-activation-validation-report.okf.md
 ```
 
-## Remaining integration target
+### `codex/download-claude-orchestration-sources`
 
-The following local branch still contained commits not reachable from `main` at this point:
+- Branch tip: `28c2f701`
+- Unique commits retained: `17d4a5f0`, `cfdba974`, `28c2f701`
+- Merge commit: `9bd50f8e2096e71eaae20243bdc7e70fd5baa31b`
+- The merge was additive and conflict-free.
+- The complete downloaded research corpus, source metadata, manifests, reports, logs, and download scripts are now reachable from `main`.
 
-- `codex/download-claude-orchestration-sources` at `28c2f701`
+## Final reachability result
 
-This record must be updated after that merge. Branch names may remain as convenience references, but the merge commits -- not the continued existence of a local branch name -- are the durable preservation mechanism.
+All three local branches that were not initially merged into `main` are now ancestors of `main`. No local branch was deleted. Branch names remain as convenience references, but the explicit merge commits -- not the continued existence of a local branch name -- are the durable preservation mechanism.

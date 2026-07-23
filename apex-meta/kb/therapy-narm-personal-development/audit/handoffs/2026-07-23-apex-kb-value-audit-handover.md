@@ -8,7 +8,7 @@ Repository authority for the audit: the current `main`/`HEAD` after preservation
 
 Apex KB completion anchor: `98f78ff3cd1f3ec91434221e4b5b37c16b71ea6e`. This identifies the completed therapy/NARM KB run; later `main` commits may contain preserved operator material, therapy-source updates, or unrelated integrated work.
 
-Current run status:
+Run status recorded at the completion anchor:
 
 - Lifecycle: `query_ready`
 - Run ID: `run-20260722T183018661588Z-03d9cf49be`
@@ -18,6 +18,8 @@ Current run status:
 - Ten accepted pages indexed
 - 134 SQLite FTS5 retrieval chunks
 - Source inventory: 10 files, fresh, no additions/deletions/changes
+
+Post-completion source drift: commit `b314b6e9` later changed `apex-meta/kb/therapy/raw/notes/MyTherapy.md` and is now integrated into `main`. Therefore, the completion-anchor `query_ready` certificate is historical evidence, not proof that the current KB remains fresh against current sources. The audit must run the current drift/staleness checks and evaluate whether reconciliation or selective recompilation is required.
 - Retrieval: fresh; SQLite integrity `ok`; no blockers
 - CLI tests: 50 passed
 
