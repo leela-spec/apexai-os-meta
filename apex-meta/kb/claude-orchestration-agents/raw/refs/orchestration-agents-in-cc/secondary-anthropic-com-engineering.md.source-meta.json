@@ -1,0 +1,22 @@
+{
+  "source_url": "https://www.anthropic.com/engineering",
+  "original_url_text": "https://www.anthropic.com/engineering",
+  "capture_url": "https://r.jina.ai/https://www.anthropic.com/engineering",
+  "final_url": "https://r.jina.ai/https://www.anthropic.com/engineering",
+  "capture_method": "jina_markdown",
+  "tier": "secondary",
+  "title": "",
+  "target_component_type": "",
+  "structural_integrity_key": "",
+  "verification_method": "",
+  "evidence": null,
+  "impact": null,
+  "risk": null,
+  "origin": "generic_url",
+  "source_note": "apex-meta/kb/claude-orchestration-agents/raw/notes/OrchestrationAgentsInCC_Research_CC.md",
+  "source_line": 74,
+  "downloaded_at": "2026-07-01T09:45:34Z",
+  "content_type": "text/plain; charset=utf-8",
+  "bytes_written": 7989,
+  "sha256": "d6eca6e00b19f1fe6d1204c722d7ce112435d639216bbab0528679c67e7baa97"
+}

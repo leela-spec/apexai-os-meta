@@ -1,0 +1,22 @@
+{
+  "source_url": "https://agentskills.io/",
+  "original_url_text": "https://agentskills.io/",
+  "capture_url": "https://r.jina.ai/https://agentskills.io/",
+  "final_url": "https://r.jina.ai/https://agentskills.io/",
+  "capture_method": "jina_markdown",
+  "tier": "external",
+  "title": "https://agentskills.io",
+  "target_component_type": "Open Standard Site (third-party/referenced by Anthropic)",
+  "structural_integrity_key": "",
+  "verification_method": "",
+  "evidence": 3,
+  "impact": 4,
+  "risk": 5,
+  "origin": "rating_table",
+  "source_note": "apex-meta/kb/claude-orchestration-agents/raw/notes/OrchestrationAgentsInCC_Research_CC.md",
+  "source_line": 31,
+  "downloaded_at": "2026-07-01T09:45:31Z",
+  "content_type": "text/plain; charset=utf-8",
+  "bytes_written": 20906,
+  "sha256": "2af7f15db224c2587cbd0a4132d7283a7375bfa0dc5d217c852b39f847830ca7"
+}

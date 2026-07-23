@@ -1,0 +1,14 @@
+{
+  "source_url": "https://github.com/anthropics/skills/blob/main/spec/agent-skills-spec.md",
+  "original_url_text": "https://github.com/anthropics/skills/blob/main/spec/agent-skills-spec.md",
+  "capture_url": "https://raw.githubusercontent.com/anthropics/skills/main/spec/agent-skills-spec.md",
+  "capture_method": "github_raw",
+  "source_note": "apex-meta/kb/claude-orchestration-agents/raw/notes/SubskillsVsAgents_CC.md",
+  "source_line": 55,
+  "link_text": "[github",
+  "context": "Skills are portable across Claude.ai (paid), Claude Code (via `/plugin`), and the Anthropic API. The `compatibility` field (max 500 chars) signals environment requirements; omit for most skills.[[github](https://github.com/anthropics/skills/blob/main/spec/agent-skills-spec.md)]",
+  "downloaded_at": "2026-07-01T09:18:19Z",
+  "content_type": "text/plain; charset=utf-8",
+  "bytes_written": 87,
+  "sha256": "ff22f2be775f4b757c9a7a2df0421de4c94021d34d9382cea5dd567ff0cdad2c"
+}

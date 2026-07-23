@@ -1,0 +1,14 @@
+{
+  "source_url": "https://clauder-navi.com/en/claude-skills-rules",
+  "original_url_text": "https://clauder-navi.com/en/claude-skills-rules",
+  "capture_url": "https://r.jina.ai/https://clauder-navi.com/en/claude-skills-rules",
+  "capture_method": "jina_markdown",
+  "source_note": "apex-meta/kb/claude-orchestration-agents/raw/notes/SubskillsVsAgents_CC.md",
+  "source_line": 32,
+  "link_text": "[clauder-navi",
+  "context": "Activation is **description-match-driven**: Claude reads all skill `description` fields at startup and activates a skill when the task matches. The full SKILL.md body is then loaded. Scripts are **executed** (not loaded into context) — only the script's output consumes tokens.[[clauder-navi](https://clauder-navi.com/en/claude-skills-rules)]",
+  "downloaded_at": "2026-07-01T09:18:16Z",
+  "content_type": "text/plain; charset=utf-8",
+  "bytes_written": 10607,
+  "sha256": "08e0901947c7adea691808790b60a70044b31e3e9c6fb1c5d7f6762ff0cf8fee"
+}

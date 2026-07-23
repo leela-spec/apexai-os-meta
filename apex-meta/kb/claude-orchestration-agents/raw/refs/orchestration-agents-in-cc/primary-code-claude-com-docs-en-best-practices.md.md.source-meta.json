@@ -1,0 +1,22 @@
+{
+  "source_url": "https://code.claude.com/docs/en/best-practices.md",
+  "original_url_text": "https://code.claude.com/docs/en/best-practices.md",
+  "capture_url": "https://code.claude.com/docs/en/best-practices.md",
+  "final_url": "https://code.claude.com/docs/en/best-practices.md",
+  "capture_method": "direct",
+  "tier": "primary",
+  "title": "https://code.claude.com/docs/en/best-practices.md",
+  "target_component_type": "Official Anthropic Doc",
+  "structural_integrity_key": "",
+  "verification_method": "",
+  "evidence": 5,
+  "impact": 4,
+  "risk": 5,
+  "origin": "rating_table",
+  "source_note": "apex-meta/kb/claude-orchestration-agents/raw/notes/OrchestrationAgentsInCC_Research_CC.md",
+  "source_line": 23,
+  "downloaded_at": "2026-07-01T09:45:15Z",
+  "content_type": "text/markdown; charset=utf-8",
+  "bytes_written": 38855,
+  "sha256": "d762542534b391bde4df3ad61b5b91da73663bb6b5fb0b4a202d8bfda5e3d932"
+}

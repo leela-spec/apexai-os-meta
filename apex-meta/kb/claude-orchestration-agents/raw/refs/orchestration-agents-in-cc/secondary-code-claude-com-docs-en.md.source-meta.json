@@ -1,0 +1,22 @@
+{
+  "source_url": "https://code.claude.com/docs/en/",
+  "original_url_text": "https://code.claude.com/docs/en/",
+  "capture_url": "https://r.jina.ai/https://code.claude.com/docs/en/",
+  "final_url": "https://r.jina.ai/https://code.claude.com/docs/en/",
+  "capture_method": "jina_markdown",
+  "tier": "secondary",
+  "title": "",
+  "target_component_type": "",
+  "structural_integrity_key": "",
+  "verification_method": "",
+  "evidence": null,
+  "impact": null,
+  "risk": null,
+  "origin": "generic_url",
+  "source_note": "apex-meta/kb/claude-orchestration-agents/raw/notes/OrchestrationAgentsInCC_Research_CC.md",
+  "source_line": 55,
+  "downloaded_at": "2026-07-01T09:45:33Z",
+  "content_type": "text/plain; charset=utf-8",
+  "bytes_written": 7989,
+  "sha256": "ccc7d709a890dbd54a413cd180348a6cc503453dd35b020d7aa51b68ad53c4c5"
+}

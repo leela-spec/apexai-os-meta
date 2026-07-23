@@ -1,0 +1,24 @@
+{
+  "source_type": "github_repo",
+  "downloaded_at": "2026-07-01T10:42:04Z",
+  "repo": "bmad-code-org/BMAD-METHOD",
+  "url": "https://github.com/bmad-code-org/BMAD-METHOD.git",
+  "decision_group": "first_batch_to_clone",
+  "decision": "must_clone_and_study",
+  "priority": 1,
+  "why": "Workflow/team/orchestrator grammar source; adapt surgically, do not blindly copy.",
+  "include_paths": [
+    "README.md",
+    "LICENSE",
+    "AGENTS.md",
+    "docs/",
+    "src/",
+    "tools/",
+    "web-bundles/"
+  ],
+  "notes": "Old bmad-core path claims must be checked against the downloaded tree.",
+  "head": "67f4499e31304f3c889f88b833dbef49d432e07e",
+  "default_branch": "main",
+  "git_metadata_stripped": true,
+  "warning": "Do not run scripts from this downloaded repo without separate review."
+}

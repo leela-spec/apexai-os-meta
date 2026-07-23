@@ -1,0 +1,24 @@
+{
+  "source_type": "github_repo",
+  "downloaded_at": "2026-07-01T10:42:10Z",
+  "repo": "amanaiproduct/personal-os",
+  "url": "https://github.com/amanaiproduct/personal-os.git",
+  "decision_group": "first_batch_to_clone",
+  "decision": "clone_selectively",
+  "priority": 2,
+  "why": "Personal OS file grammar: GOALS.md, AGENTS.md, setup flow, templates, workspace.",
+  "include_paths": [
+    "README.md",
+    "LICENSE",
+    "GOALS.md",
+    "AGENTS.md",
+    "setup.sh",
+    "templates/",
+    "workspace/"
+  ],
+  "notes": "Low-noise personal orchestration reference. Do not run setup.sh automatically.",
+  "head": "34aa5918ea59bafdb664cca097b30a61001ab57a",
+  "default_branch": "main",
+  "git_metadata_stripped": true,
+  "warning": "Do not run scripts from this downloaded repo without separate review."
+}

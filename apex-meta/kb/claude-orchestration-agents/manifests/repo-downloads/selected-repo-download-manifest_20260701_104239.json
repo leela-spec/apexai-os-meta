@@ -1,0 +1,198 @@
+{
+  "generated_at": "2026-07-01T10:42:39Z",
+  "target_root": "C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\claude-orchestration-agents",
+  "parent_repo_root": "C:\\GitDev\\apexai-os-meta",
+  "git_version": "git version 2.52.0.windows.1",
+  "settings": {
+    "dry_run": false,
+    "force": true,
+    "update": false,
+    "sparse_checkout": true,
+    "keep_git": false,
+    "depth": 1,
+    "only_group": "all"
+  },
+  "results": [
+    {
+      "full_name": "shanraisshan/claude-code-best-practice",
+      "decision_group": "first_batch_to_clone",
+      "decision": "must_clone_and_study",
+      "priority": 1,
+      "url": "https://github.com/shanraisshan/claude-code-best-practice.git",
+      "target_path": "C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\claude-orchestration-agents\\raw\\repos\\first-batch-to-clone\\shanraisshan__claude-code-best-practice",
+      "status": "downloaded",
+      "head": "9a5e4033f924711c22e2044c546e1eb7208d1da0",
+      "default_branch": "main",
+      "sparse": true,
+      "git_dir_kept": false,
+      "file_count": 173,
+      "bytes_total": 11148676,
+      "include_paths": [
+        ".claude/",
+        "CLAUDE.md",
+        "README.md",
+        "LICENSE",
+        "best-practice/",
+        "implementation/",
+        "orchestration-workflow/"
+      ],
+      "missing_include_paths": [],
+      "error": null,
+      "notes": "Primary Claude-native layout source."
+    },
+    {
+      "full_name": "bmad-code-org/BMAD-METHOD",
+      "decision_group": "first_batch_to_clone",
+      "decision": "must_clone_and_study",
+      "priority": 1,
+      "url": "https://github.com/bmad-code-org/BMAD-METHOD.git",
+      "target_path": "C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\claude-orchestration-agents\\raw\\repos\\first-batch-to-clone\\bmad-code-org__BMAD-METHOD",
+      "status": "downloaded",
+      "head": "67f4499e31304f3c889f88b833dbef49d432e07e",
+      "default_branch": "main",
+      "sparse": true,
+      "git_dir_kept": false,
+      "file_count": 512,
+      "bytes_total": 3845536,
+      "include_paths": [
+        "README.md",
+        "LICENSE",
+        "AGENTS.md",
+        "docs/",
+        "src/",
+        "tools/",
+        "web-bundles/"
+      ],
+      "missing_include_paths": [],
+      "error": null,
+      "notes": "Old bmad-core path claims must be checked against the downloaded tree."
+    },
+    {
+      "full_name": "amanaiproduct/personal-os",
+      "decision_group": "first_batch_to_clone",
+      "decision": "clone_selectively",
+      "priority": 2,
+      "url": "https://github.com/amanaiproduct/personal-os.git",
+      "target_path": "C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\claude-orchestration-agents\\raw\\repos\\first-batch-to-clone\\amanaiproduct__personal-os",
+      "status": "downloaded",
+      "head": "34aa5918ea59bafdb664cca097b30a61001ab57a",
+      "default_branch": "main",
+      "sparse": true,
+      "git_dir_kept": false,
+      "file_count": 17,
+      "bytes_total": 61327,
+      "include_paths": [
+        "README.md",
+        "LICENSE",
+        "GOALS.md",
+        "AGENTS.md",
+        "setup.sh",
+        "templates/",
+        "workspace/"
+      ],
+      "missing_include_paths": [
+        "GOALS.md",
+        "templates/",
+        "workspace/"
+      ],
+      "error": null,
+      "notes": "Low-noise personal orchestration reference. Do not run setup.sh automatically."
+    },
+    {
+      "full_name": "iannuttall/claude-agents",
+      "decision_group": "first_batch_to_clone",
+      "decision": "clone_selectively",
+      "priority": 2,
+      "url": "https://github.com/iannuttall/claude-agents.git",
+      "target_path": "C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\claude-orchestration-agents\\raw\\repos\\first-batch-to-clone\\iannuttall__claude-agents",
+      "status": "downloaded",
+      "head": "f7df2c3e7395d163ad52d0793bac8fa7ce0d776a",
+      "default_branch": "main",
+      "sparse": true,
+      "git_dir_kept": false,
+      "file_count": 10,
+      "bytes_total": 43487,
+      "include_paths": [
+        "README.md",
+        "LICENSE",
+        "agents/"
+      ],
+      "missing_include_paths": [],
+      "error": null,
+      "notes": "Use as subagent formatting reference, not as a large permanent agent roster."
+    },
+    {
+      "full_name": "hesreallyhim/awesome-claude-code",
+      "decision_group": "first_batch_to_read_only",
+      "decision": "read_only_reference",
+      "priority": 2,
+      "url": "https://github.com/hesreallyhim/awesome-claude-code.git",
+      "target_path": "C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\claude-orchestration-agents\\raw\\repos\\first-batch-to-read-only\\hesreallyhim__awesome-claude-code",
+      "status": "downloaded",
+      "head": "29755104e1f15404f99db9e5f381e23960efc4a0",
+      "default_branch": "main",
+      "sparse": true,
+      "git_dir_kept": false,
+      "file_count": 26,
+      "bytes_total": 125899,
+      "include_paths": [
+        "README.md",
+        "LICENSE",
+        "docs/"
+      ],
+      "missing_include_paths": [],
+      "error": null,
+      "notes": "Do not ingest linked repos from this index without separate verification."
+    },
+    {
+      "full_name": "Aider-AI/aider",
+      "decision_group": "first_batch_to_read_only",
+      "decision": "read_only_reference",
+      "priority": 3,
+      "url": "https://github.com/Aider-AI/aider.git",
+      "target_path": "C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\claude-orchestration-agents\\raw\\repos\\first-batch-to-read-only\\Aider-AI__aider",
+      "status": "downloaded",
+      "head": "5dc9490bb35f9729ef2c95d00a19ccd30c26339c",
+      "default_branch": "main",
+      "sparse": true,
+      "git_dir_kept": false,
+      "file_count": 91,
+      "bytes_total": 494267,
+      "include_paths": [
+        "README.md",
+        "LICENSE",
+        "docs/",
+        "aider/repomap.py"
+      ],
+      "missing_include_paths": [
+        "LICENSE",
+        "docs/"
+      ],
+      "error": null,
+      "notes": "Read for repo-map / git-state concepts only. Avoid full codebase ingestion."
+    },
+    {
+      "full_name": "princeton-nlp/SWE-agent",
+      "decision_group": "first_batch_to_read_only",
+      "decision": "read_only_reference",
+      "priority": 3,
+      "url": "https://github.com/princeton-nlp/SWE-agent.git",
+      "target_path": "C:\\GitDev\\apexai-os-meta\\apex-meta\\kb\\claude-orchestration-agents\\raw\\repos\\first-batch-to-read-only\\princeton-nlp__SWE-agent",
+      "status": "downloaded",
+      "head": "d336402e7f7e21b6d6004436e24935aa203888e5",
+      "default_branch": "main",
+      "sparse": true,
+      "git_dir_kept": false,
+      "file_count": 103,
+      "bytes_total": 3416047,
+      "include_paths": [
+        "README.md",
+        "LICENSE",
+        "docs/"
+      ],
+      "missing_include_paths": [],
+      "error": null,
+      "notes": "Use conceptually. Original repo may be superseded by mini-SWE-agent for active development."
+    }
+  ]
+}
