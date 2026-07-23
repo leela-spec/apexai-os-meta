@@ -36,21 +36,21 @@ workflow_process_validation_contract:
 
   upstream_authority:
     workflow_process_design_package:
-      package_path: ".claude/skills/workflow-process-design/"
+      package_path: ".claude/skills/Workflow&Processes/"
       authoritative_files:
-        - path: ".claude/skills/workflow-process-design/references/workflow-stage-taxonomy.md"
+        - path: ".claude/skills/Workflow&Processes/workflow-stage-taxonomy.md"
           provides:
             - workflow_stage_taxonomy
-        - path: ".claude/skills/workflow-process-design/references/process-stage-taxonomy.md"
+        - path: ".claude/skills/Workflow&Processes/process-stage-taxonomy.md"
           provides:
             - process_stage_taxonomy
-        - path: ".claude/skills/workflow-process-design/references/expected-output-type-contract.md"
+        - path: ".claude/skills/Workflow&Processes/expected-output-type-contract.md"
           provides:
             - expected_output_type_contract
-        - path: ".claude/skills/workflow-process-design/references/prompt-process-alignment-validation.md"
+        - path: ".claude/skills/Workflow&Processes/prompt-process-alignment-validation.md"
           provides:
             - prompt_process_alignment_validation
-        - path: ".claude/skills/workflow-process-design/references/operator-validation-and-conflict-resolution.md"
+        - path: ".claude/skills/Workflow&Processes/operator-validation-and-conflict-resolution.md"
           provides:
             - operator_review_flags
             - conflict_resolution_card

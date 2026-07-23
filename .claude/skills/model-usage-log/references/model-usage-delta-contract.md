@@ -103,7 +103,7 @@ source_gap_register:
       handling: >
         ModelUsageLog may preserve project_status_delta refs when supplied, without redefining schema.
   alternate_path_notes:
-    - path: ".claude/skills/AIRouting/package-manifest.md"
+    - path: ".claude/skills/AIRouting/ai-routing-and-usage-tracking-package-manifest.md"
       status: alternate_path_inspected
       impact: >
         Requested manifest path is absent; alternate AIRouting manifest was

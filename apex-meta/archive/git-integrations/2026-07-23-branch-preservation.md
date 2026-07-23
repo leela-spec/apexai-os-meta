@@ -35,12 +35,28 @@ git show c87edfcb:.claude/skills/status-merge/package-manifest.md
 
 The branch-side status-merge manifest was not installed as current truth because it is an older verbose inventory, while `main` contains the newer compact live manifest and the promoted-template pointer. The historical inventory remains available through the retained parent commit.
 
-## Remaining integration targets
+### `codex/weekly-orchestrator-audit`
 
-The following local branches were identified as containing commits not yet reachable from `main` when this record was created:
+- Branch tip: `c9900103ae8a1c0886a032dbeac275e1c7f7aa5c`
+- Unique commit retained: `c9900103`
+- The branch is chronologically later than the activation-validation work and provides the US-SEQ-01 lifecycle fixture plus contract/path-drift corrections.
+- Current `main`'s newer two-orchestrator `.claude/Claude.md` remained current truth. The older weekly-only activation surface remains recoverable from `c9900103`.
+- The branch's compact `AIRouting`, `PrecapWeek`, and `ProjectStatus` manifests were selected because they use the live package names and paths and remove stale package-shape drift.
+- The audited evidence and skip-marker templates were selected because they avoid misleading live-example links.
+- The activation report preserves both evidence sets: detailed link/fixture counts from the activation branch and link-audit, lifecycle, and synthetic US-SEQ-01 results from the weekly audit.
 
-- `codex/weekly-orchestrator-audit` at `c9900103`
+Example recovery commands:
+
+```powershell
+git show c9900103:.claude/Claude.md
+git show c9900103:.claude/skills/AIRouting/ai-routing-and-usage-tracking-package-manifest.md
+git show c9900103:apex-meta/operator-output-design/step6-activation-validation/00-activation-validation-report.okf.md
+```
+
+## Remaining integration target
+
+The following local branch still contained commits not reachable from `main` at this point:
+
 - `codex/download-claude-orchestration-sources` at `28c2f701`
 
-This record must be updated after those merges. Branch names may remain as convenience references, but the merge commits—not the continued existence of a local branch name—are the durable preservation mechanism.
-
+This record must be updated after that merge. Branch names may remain as convenience references, but the merge commits -- not the continued existence of a local branch name -- are the durable preservation mechanism.

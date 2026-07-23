@@ -8,7 +8,7 @@
 **Next handling:** {{ACTIONABLE_HANDLING_SUMMARY}}  
 **Review:** {{OPERATOR_DECISION_OR_NONE}}
 
-Use the full [Execution Evidence Handoff](J06-execution-evidence-handoff.md) instead if any work was performed, an artifact or decision was created, or blocker evidence must be preserved.
+Use the full Execution Evidence Handoff instead if any work was performed, an artifact or decision was created, or blocker evidence must be preserved.
 
 ```yaml
 skipped_flow_marker:
@@ -44,4 +44,4 @@ template_authority:
     - ".claude/skills/PrecapNextDay/references/flow-packet-contract.md"
 ```
 
-Example: [J06a Skip Marker](../examples/master-of-arts-example-fragments.md#j06a-skip-marker)
+Example source is intentionally omitted from this live template; record only the skipped-flow facts supplied by the operator.

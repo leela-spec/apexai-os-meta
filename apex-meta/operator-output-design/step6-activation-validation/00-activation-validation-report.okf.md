@@ -7,6 +7,8 @@ activation_validation:
   owner_manifests_checked: 9
   broken_links_before_correction: 38
   broken_links_after_correction: 0
+  manifest_links_valid: true
+  scoped_local_link_audit: pass
   invocation_fixtures:
     expected: 13
     present: 13
@@ -14,6 +16,8 @@ activation_validation:
     failed: 0
   lifecycle_boundaries:
     passed: true
+  lifecycle_simulation: pass
+  synthetic_us_seq_01_simulation: pass
   contracts_changed: 0
   entrypoints_changed: 0
   runtime_changes: 0

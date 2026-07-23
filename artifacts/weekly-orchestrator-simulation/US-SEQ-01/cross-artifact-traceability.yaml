@@ -1,0 +1,7 @@
+traceability:
+  recap_id: recap-us-seq-01-f1
+  evidence_to_interpretation: [J6-execution-evidence-handoff.md, J7-flowrecap-result-card.md]
+  candidate_to_approval: [J7-flowrecap-result-card.md, J9-status-merge-decision-card.md]
+  approval_to_confirmed_write: [J9-status-merge-decision-card.md, J10-project-kb-update-card.md]
+  confirmed_write_to_overview: [J10-project-kb-update-card.md, J11-project-status-overview.md]
+  confirmed_overview_to_next_cycle: [J11-project-status-overview.md, next-cycle-precap-next-day.md]

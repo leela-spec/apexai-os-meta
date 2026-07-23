@@ -123,4 +123,4 @@ template_authority:
     - ".claude/skills/flow-recap/references/flow-recap-packet-contract.md"
 ```
 
-Example: [J06 Execution Evidence Handoff](../../../../apex-meta/operator-output-design/step4-operator-template-system/examples/master-of-arts-example-fragments.md)
+Example source is intentionally omitted from this live template; use the package contract and supplied evidence.
