@@ -95,4 +95,4 @@ template_authority:
     - ".claude/skills/status-merge/references/status-merge-packet-contract.md"
 ```
 
-Example: [J09 Status Merge Decision Card](../examples/master-of-arts-example-fragments.md#j09-status-merge-decision-card)
+Example: [J09 Status Merge Decision Card](../../../../apex-meta/operator-output-design/step4-operator-template-system/examples/master-of-arts-example-fragments.md)

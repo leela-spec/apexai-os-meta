@@ -44,4 +44,4 @@ template_authority:
     - ".claude/skills/PrecapNextDay/references/flow-packet-contract.md"
 ```
 
-Example: [J06a Skip Marker](../examples/master-of-arts-example-fragments.md#j06a-skip-marker)
+Example: [J06a Skip Marker](../../../../apex-meta/operator-output-design/step4-operator-template-system/examples/master-of-arts-example-fragments.md)

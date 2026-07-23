@@ -1,17 +1,24 @@
-# Step 6 Activation Validation Report
+# Activation Validation Report
 
 ```yaml
 activation_validation:
-  commit_under_test: "b078a873e174fd6e2ae0b30ec4343e9f74862b31"
+  commit_under_test: f4c81bf7fe5ad00b9bab6b83026071a7bb96d884
   promoted_templates_found: 13
-  manifest_links_valid: true
-  invocation_tests:
+  owner_manifests_checked: 9
+  broken_links_before_correction: 38
+  broken_links_after_correction: 0
+  invocation_fixtures:
+    expected: 13
+    present: 13
     passed: 13
     failed: 0
-  lifecycle_simulation: pass
-  contract_changes: 0
+  lifecycle_boundaries:
+    passed: true
+  contracts_changed: 0
+  entrypoints_changed: 0
   runtime_changes: 0
   durable_state_changes: 0
+  unrelated_agent_files_changed: 0
   unresolved_items: []
   verdict: active_and_ready
 ```

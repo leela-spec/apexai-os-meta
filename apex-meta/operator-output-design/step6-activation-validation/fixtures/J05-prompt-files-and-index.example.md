@@ -1,9 +1,15 @@
-# Prompt Files and Index - {{FLOW_OR_PACKAGE_LABEL}}
+---
+synthetic_validation_only: true
+artifact_id: J5
+mutation_performed: false
+---
 
-> **Prompt access state:** {{READY | READY_WITH_DEGRADED_ITEMS | PARTIAL | BLOCKED}}  
-> **Outcome:** {{PROMPT_FILES_AVAILABLE_AND_MISSING_IN_ONE_TO_THREE_SENTENCES}}  
-> **Next action:** {{OPEN_NEXT_PROMPT | FIX_DEGRADED_PROMPT | CONFIRM_ROUTE | RETURN_TO_FLOW_CARD}}  
-> **Review needed:** {{PROMPT_OR_ROUTE_DECISION_OR_NONE}}
+# Prompt Files and Index - synthetic_validation_only
+
+> **Prompt access state:** synthetic_validation_only  
+> **Outcome:** synthetic_validation_only  
+> **Next action:** synthetic_validation_only  
+> **Review needed:** synthetic_validation_only
 
 ## Operator actions
 
@@ -12,43 +18,43 @@
 - [ ] Confirm the referenced route when approval is still pending.
 - [ ] Return to the Flow Execution Card for work context.
 
-**Flow Execution Card:** [Open execution workspace]({{FLOW_EXECUTION_CARD_REF}}) - `{{FLOW_EXECUTION_CARD_REF}}`
+**Flow Execution Card:** [Open execution workspace](synthetic_validation_only) - `synthetic_validation_only`
 
 ## Prompt index
 
-### Flow `{{FLOW_ID}}` (repeat per flow when the index covers more than one)
+### Flow `synthetic_validation_only` (repeat per flow when the index covers more than one)
 
 | Sprint | Prompt file | Recommended surface | Use when | Status |
 |---|---|---|---|---|
-| `{{SPRINT_ID}}` | [{{PROMPT_TITLE}}]({{PROMPT_FILE_REF}})<br>`{{PROMPT_FILE_REF}}` | {{TARGET_SURFACE}} | {{SHORT_USE_WHEN}} | {{READY | DEGRADED | MISSING | NOT_REQUIRED}} |
+| `synthetic_validation_only` | [synthetic_validation_only](synthetic_validation_only)<br>`synthetic_validation_only` | synthetic_validation_only | synthetic_validation_only | synthetic_validation_only |
 
-**Routing reference:** [{{ROUTING_LABEL}}]({{ROUTING_REF}}) - `{{ROUTING_REF}}`
+**Routing reference:** [synthetic_validation_only](synthetic_validation_only) - `synthetic_validation_only`
 
 ## Missing or degraded prompt items (include when material)
 
-### {{PROMPT_TITLE_OR_SPRINT}}
+### synthetic_validation_only
 
-- **Issue:** {{MISSING_CONTENT_STALE_ROUTE_OR_QUALITY_GAP}}
-- **Execution impact:** {{WHAT_CANNOT_SAFELY_PROCEED}}
-- **Required action:** {{FIX_OR_REVIEW_ACTION}}
+- **Issue:** synthetic_validation_only
+- **Execution impact:** synthetic_validation_only
+- **Required action:** synthetic_validation_only
 
 ## Reusable single-prompt-file template
 
 Copy this block into one file per prompt. The prompt file presents final prompt content; it does not restate the flow plan or routing analysis.
 
 ```markdown
-# {{PROMPT_TITLE}}
+# synthetic_validation_only
 
-**Recommended surface:** {{STABLE_SURFACE_OR_VERIFIED_MODEL}}  
-**Use when:** {{TRIGGER_OR_SPRINT_NEED}}  
-**Expected return artifact:** {{RETURN_ARTIFACT_LABEL}}  
-**Routing reference:** [{{ROUTING_LABEL}}]({{ROUTING_REF}}) - `{{ROUTING_REF}}`
+**Recommended surface:** synthetic_validation_only  
+**Use when:** synthetic_validation_only  
+**Expected return artifact:** synthetic_validation_only  
+**Routing reference:** [synthetic_validation_only](synthetic_validation_only) - `synthetic_validation_only`
 
-> **Degraded warning:** {{WARNING_OR_REMOVE_LINE}}
+> **Degraded warning:** synthetic_validation_only
 
 ## Prompt
 
-{{FULL_COPYABLE_PROMPT_BODY}}
+synthetic_validation_only
 ```
 
 ## Prompt-file quality check
@@ -65,17 +71,17 @@ Copy this block into one file per prompt. The prompt file presents final prompt 
 ```yaml
 presentation_handoff:
   artifact_type: "Prompt_Files_and_Index"
-  artifact_ref: "{{ARTIFACT_REF}}"
-  flow_id: "{{FLOW_ID}}"
+  artifact_ref: "synthetic_validation_only"
+  flow_id: "synthetic_validation_only"
   prompt_files:
-    - sprint: "{{SPRINT_ID}}"
-      title: "{{PROMPT_TITLE}}"
-      file: "{{PROMPT_FILE_REF}}"
-      target_surface: "{{TARGET_SURFACE}}"
-      routing_ref: "{{ROUTING_REF}}"
-      use_when: "{{SHORT_USE_WHEN}}"
-      degraded_flag: "{{TRUE_OR_FALSE}}"
-  review_status: "{{REVIEW_STATUS}}"
+    - sprint: "synthetic_validation_only"
+      title: "synthetic_validation_only"
+      file: "synthetic_validation_only"
+      target_surface: "synthetic_validation_only"
+      routing_ref: "synthetic_validation_only"
+      use_when: "synthetic_validation_only"
+      degraded_flag: "synthetic_validation_only"
+  review_status: "synthetic_validation_only"
   next_consumer: "operator_execution"
 ```
 

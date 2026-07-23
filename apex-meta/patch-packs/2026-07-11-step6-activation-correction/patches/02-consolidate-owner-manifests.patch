@@ -1,0 +1,194 @@
+diff --git a/.claude/skills/AIRouting/ai-routing-and-usage-tracking-package-manifest.md b/.claude/skills/AIRouting/ai-routing-and-usage-tracking-package-manifest.md
+index 522db228..fe0c6b45 100644
+--- a/.claude/skills/AIRouting/ai-routing-and-usage-tracking-package-manifest.md
++++ b/.claude/skills/AIRouting/ai-routing-and-usage-tracking-package-manifest.md
+@@ -137,13 +137,12 @@ Paste this next:
+ > - [ ] Supporting file list uses read_when conditions.
+ > - [ ] Procedure is compact and action-grained.
+ 
+-
+ ## Promoted Operator Templates
+ 
+ ```yaml
+ operator_templates:
+   - artifact_id: J12
+     path: .claude/skills/AIRouting/ai-routing-card-template.md
+-    purpose: Retained Step 4 operator template
++    purpose: Operator-facing presentation template
+     read_when: operator_requests_template
+ ```
+diff --git a/.claude/skills/PrecapNextDay/precap-next-day-package-manifest.md b/.claude/skills/PrecapNextDay/precap-next-day-package-manifest.md
+index 67282fdf..663c0959 100644
+--- a/.claude/skills/PrecapNextDay/precap-next-day-package-manifest.md
++++ b/.claude/skills/PrecapNextDay/precap-next-day-package-manifest.md
+@@ -104,21 +104,20 @@ package_manifest:
+ 
+ Note: this manifest reflects the repo's current CamelCase package path. A later package-normalization pass can move files to the canonical lowercase path and rename the entrypoint to `SKILL.md`.
+ 
+-
+ ## Promoted Operator Templates
+ 
+ ```yaml
+ operator_templates:
+   - artifact_id: J3
+     path: .claude/skills/PrecapNextDay/templates/precap-next-day-brief-template.md
+-    purpose: Retained Step 4 operator template
++    purpose: Operator-facing presentation template
+     read_when: operator_requests_template
+   - artifact_id: J4
+     path: .claude/skills/PrecapNextDay/templates/flow-execution-card-template.md
+-    purpose: Retained Step 4 operator template
++    purpose: Operator-facing presentation template
+     read_when: operator_requests_template
+   - artifact_id: J5
+     path: .claude/skills/PrecapNextDay/templates/prompt-files-and-index-template.md
+-    purpose: Retained Step 4 operator template
++    purpose: Operator-facing presentation template
+     read_when: operator_requests_template
+ ```
+diff --git a/.claude/skills/PrecapWeek/package-manifest.md b/.claude/skills/PrecapWeek/package-manifest.md
+index 88cefcc7..c27b9601 100644
+--- a/.claude/skills/PrecapWeek/package-manifest.md
++++ b/.claude/skills/PrecapWeek/package-manifest.md
+@@ -442,6 +442,6 @@ The `precap-week` skill package file set is complete:
+ operator_templates:
+   - artifact_id: J2
+     path: .claude/skills/PrecapWeek/weekly-command-brief-template.md
+-    purpose: Retained Step 4 operator template
++    purpose: Operator-facing presentation template
+     read_when: operator_requests_template
+ ```
+diff --git a/.claude/skills/ProjectStatus/package-manifest.md b/.claude/skills/ProjectStatus/package-manifest.md
+index c3fa5483..d491eb4b 100644
+--- a/.claude/skills/ProjectStatus/package-manifest.md
++++ b/.claude/skills/ProjectStatus/package-manifest.md
+@@ -76,13 +76,12 @@ package_manifest:
+     no_status_merge: true
+ ```
+ 
+-
+ ## Promoted Operator Templates
+ 
+ ```yaml
+ operator_templates:
+   - artifact_id: J11
+     path: .claude/skills/ProjectStatus/project-status-overview-template.md
+-    purpose: Retained Step 4 operator template
++    purpose: Operator-facing presentation template
+     read_when: operator_requests_template
+ ```
+diff --git a/.claude/skills/flow-recap/package-manifest.md b/.claude/skills/flow-recap/package-manifest.md
+index f0d960c4..e268166b 100644
+--- a/.claude/skills/flow-recap/package-manifest.md
++++ b/.claude/skills/flow-recap/package-manifest.md
+@@ -175,13 +175,12 @@ package_ready_note:
+   remaining_action: apply_patch_pack_review_only
+ ```
+ 
+-
+ ## Promoted Operator Templates
+ 
+ ```yaml
+ operator_templates:
+   - artifact_id: J7
+     path: .claude/skills/flow-recap/templates/flowrecap-result-card-template.md
+-    purpose: Retained Step 4 operator template
++    purpose: Operator-facing presentation template
+     read_when: operator_requests_template
+ ```
+diff --git a/.claude/skills/model-usage-log/package-manifest.md b/.claude/skills/model-usage-log/package-manifest.md
+index ec29a0c7..690dc2f2 100644
+--- a/.claude/skills/model-usage-log/package-manifest.md
++++ b/.claude/skills/model-usage-log/package-manifest.md
+@@ -190,13 +190,12 @@ completion_gates:
+   no_project_management_schema_replacement: true
+ ```
+ 
+-
+ ## Promoted Operator Templates
+ 
+ ```yaml
+ operator_templates:
+   - artifact_id: J8
+     path: .claude/skills/model-usage-log/templates/usage-learning-card-template.md
+-    purpose: Retained Step 4 operator template
++    purpose: Operator-facing presentation template
+     read_when: operator_requests_template
+ ```
+diff --git a/.claude/skills/project-kb-manager/package-manifest.md b/.claude/skills/project-kb-manager/package-manifest.md
+index e8a6bf1f..d0310530 100644
+--- a/.claude/skills/project-kb-manager/package-manifest.md
++++ b/.claude/skills/project-kb-manager/package-manifest.md
+@@ -73,24 +73,16 @@ package_manifest:
+     operator_review_needed_cleared_only_by_operator: true
+ ```
+ 
+-
+-## Promoted Operator Templates
+-
+-```yaml
+-operator_templates:
+-  - artifact_id: J10
+-    path: .claude/skills/project-kb-manager/templates/project-kb-update-card-template.md
+-    purpose: Retained Step 4 operator template
+-    read_when: operator_requests_template
+-```
+-
+-
+ ## Promoted Operator Templates
+ 
+ ```yaml
+ operator_templates:
+   - artifact_id: J1
+     path: .claude/skills/project-kb-manager/templates/project-state-success-card-template.md
+-    purpose: Retained Step 4 operator template
++    purpose: Operator-facing presentation template
++    read_when: operator_requests_template
++  - artifact_id: J10
++    path: .claude/skills/project-kb-manager/templates/project-kb-update-card-template.md
++    purpose: Operator-facing presentation template
+     read_when: operator_requests_template
+ ```
+diff --git a/.claude/skills/raw-flow-dump-normalize/package-manifest.md b/.claude/skills/raw-flow-dump-normalize/package-manifest.md
+index f525009e..2b732217 100644
+--- a/.claude/skills/raw-flow-dump-normalize/package-manifest.md
++++ b/.claude/skills/raw-flow-dump-normalize/package-manifest.md
+@@ -138,17 +138,16 @@ package_manifest:
+     downstream_flow_recap_input_is_clear: true
+ ```
+ 
+-
+ ## Promoted Operator Templates
+ 
+ ```yaml
+ operator_templates:
+   - artifact_id: J6
+     path: .claude/skills/raw-flow-dump-normalize/templates/execution-evidence-handoff-template.md
+-    purpose: Retained Step 4 operator template
++    purpose: Operator-facing presentation template
+     read_when: operator_requests_template
+   - artifact_id: J6a
+     path: .claude/skills/raw-flow-dump-normalize/templates/skip-marker-template.md
+-    purpose: Retained Step 4 operator template
++    purpose: Operator-facing presentation template
+     read_when: operator_requests_template
+ ```
+diff --git a/.claude/skills/status-merge/package-manifest.md b/.claude/skills/status-merge/package-manifest.md
+index 1b61ca8c..d4291701 100644
+--- a/.claude/skills/status-merge/package-manifest.md
++++ b/.claude/skills/status-merge/package-manifest.md
+@@ -287,13 +287,12 @@ completion_gate_snapshot:
+   next_PreCapNextDay_input_context_is_clear: true
+ ```
+ 
+-
+ ## Promoted Operator Templates
+ 
+ ```yaml
+ operator_templates:
+   - artifact_id: J9
+     path: .claude/skills/status-merge/templates/status-merge-decision-card-template.md
+-    purpose: Retained Step 4 operator template
++    purpose: Operator-facing presentation template
+     read_when: operator_requests_template
+ ```

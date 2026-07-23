@@ -1,0 +1,2164 @@
+diff --git a/apex-meta/operator-output-design/step6-activation-validation/00-activation-validation-report.okf.md b/apex-meta/operator-output-design/step6-activation-validation/00-activation-validation-report.okf.md
+index fdf41f42..5529eef3 100644
+--- a/apex-meta/operator-output-design/step6-activation-validation/00-activation-validation-report.okf.md
++++ b/apex-meta/operator-output-design/step6-activation-validation/00-activation-validation-report.okf.md
+@@ -1,17 +1,24 @@
+-# Step 6 Activation Validation Report
++# Activation Validation Report
+ 
+ ```yaml
+ activation_validation:
+-  commit_under_test: "b078a873e174fd6e2ae0b30ec4343e9f74862b31"
++  commit_under_test: f4c81bf7fe5ad00b9bab6b83026071a7bb96d884
+   promoted_templates_found: 13
+-  manifest_links_valid: true
+-  invocation_tests:
++  owner_manifests_checked: 9
++  broken_links_before_correction: 38
++  broken_links_after_correction: 0
++  invocation_fixtures:
++    expected: 13
++    present: 13
+     passed: 13
+     failed: 0
+-  lifecycle_simulation: pass
+-  contract_changes: 0
++  lifecycle_boundaries:
++    passed: true
++  contracts_changed: 0
++  entrypoints_changed: 0
+   runtime_changes: 0
+   durable_state_changes: 0
++  unrelated_agent_files_changed: 0
+   unresolved_items: []
+   verdict: active_and_ready
+ ```
+diff --git a/apex-meta/operator-output-design/step6-activation-validation/01-promoted-link-audit.okf.yaml b/apex-meta/operator-output-design/step6-activation-validation/01-promoted-link-audit.okf.yaml
+new file mode 100644
+index 00000000..138cc721
+--- /dev/null
++++ b/apex-meta/operator-output-design/step6-activation-validation/01-promoted-link-audit.okf.yaml
+@@ -0,0 +1,257 @@
++link_audit:
++  links:
++    - source_file: .claude/skills/project-kb-manager/templates/project-state-success-card-template.md
++      link_text: "{{DESCRIPTIVE_ARTIFACT_LABEL}}"
++      original_target: "{{RELATIVE_OR_CANONICAL_REF}}"
++      exists: false
++      correction_required: true
++    - source_file: .claude/skills/project-kb-manager/templates/project-state-success-card-template.md
++      link_text: "J01 Project State Success Card"
++      original_target: "../../../../apex-meta/operator-output-design/step4-operator-template-system/examples/master-of-arts-example-fragments.md"
++      exists: true
++      correction_required: false
++    - source_file: .claude/skills/PrecapWeek/weekly-command-brief-template.md
++      link_text: "{{OUTPUT_LABEL}}"
++      original_target: "{{OUTPUT_REF_OR_PLANNED_PATH}}"
++      exists: false
++      correction_required: true
++    - source_file: .claude/skills/PrecapWeek/weekly-command-brief-template.md
++      link_text: "{{J1_LABEL}}"
++      original_target: "{{J1_REF}}"
++      exists: false
++      correction_required: true
++    - source_file: .claude/skills/PrecapWeek/weekly-command-brief-template.md
++      link_text: "J02 Weekly Command Brief"
++      original_target: "../../../apex-meta/operator-output-design/step4-operator-template-system/examples/master-of-arts-example-fragments.md"
++      exists: true
++      correction_required: false
++    - source_file: .claude/skills/PrecapNextDay/templates/precap-next-day-brief-template.md
++      link_text: "Open Flow Execution Card"
++      original_target: "{{FLOW_EXECUTION_CARD_REF}}"
++      exists: false
++      correction_required: true
++    - source_file: .claude/skills/PrecapNextDay/templates/precap-next-day-brief-template.md
++      link_text: "{{J1_LABEL}}"
++      original_target: "{{J1_REF}}"
++      exists: false
++      correction_required: true
++    - source_file: .claude/skills/PrecapNextDay/templates/precap-next-day-brief-template.md
++      link_text: "{{J2_LABEL}}"
++      original_target: "{{J2_REF}}"
++      exists: false
++      correction_required: true
++    - source_file: .claude/skills/PrecapNextDay/templates/precap-next-day-brief-template.md
++      link_text: "J03 PreCap Next Day Brief"
++      original_target: "../../../../apex-meta/operator-output-design/step4-operator-template-system/examples/master-of-arts-example-fragments.md"
++      exists: true
++      correction_required: false
++    - source_file: .claude/skills/PrecapNextDay/templates/flow-execution-card-template.md
++      link_text: "{{ROUTING_LABEL}}"
++      original_target: "{{ROUTING_REF}}"
++      exists: false
++      correction_required: true
++    - source_file: .claude/skills/PrecapNextDay/templates/flow-execution-card-template.md
++      link_text: "{{INPUT_LABEL}}"
++      original_target: "{{INPUT_REF}}"
++      exists: false
++      correction_required: true
++    - source_file: .claude/skills/PrecapNextDay/templates/flow-execution-card-template.md
++      link_text: "{{S1_INPUT_LABEL}}"
++      original_target: "{{S1_INPUT_REF}}"
++      exists: false
++      correction_required: true
++    - source_file: .claude/skills/PrecapNextDay/templates/flow-execution-card-template.md
++      link_text: "Open S1 prompt file"
++      original_target: "{{S1_PROMPT_FILE}}"
++      exists: false
++      correction_required: true
++    - source_file: .claude/skills/PrecapNextDay/templates/flow-execution-card-template.md
++      link_text: "{{S2_INPUT_LABEL}}"
++      original_target: "{{S2_INPUT_REF}}"
++      exists: false
++      correction_required: true
++    - source_file: .claude/skills/PrecapNextDay/templates/flow-execution-card-template.md
++      link_text: "Open S2 prompt file"
++      original_target: "{{S2_PROMPT_FILE}}"
++      exists: false
++      correction_required: true
++    - source_file: .claude/skills/PrecapNextDay/templates/flow-execution-card-template.md
++      link_text: "Open S3 prompt file"
++      original_target: "{{S3_PROMPT_FILE}}"
++      exists: false
++      correction_required: true
++    - source_file: .claude/skills/PrecapNextDay/templates/flow-execution-card-template.md
++      link_text: "{{J6_LABEL}}"
++      original_target: "{{J6_REF}}"
++      exists: false
++      correction_required: true
++    - source_file: .claude/skills/PrecapNextDay/templates/flow-execution-card-template.md
++      link_text: "{{J3_LABEL}}"
++      original_target: "{{J3_REF}}"
++      exists: false
++      correction_required: true
++    - source_file: .claude/skills/PrecapNextDay/templates/flow-execution-card-template.md
++      link_text: "J04 Flow Execution Card"
++      original_target: "../../../../apex-meta/operator-output-design/step4-operator-template-system/examples/master-of-arts-example-fragments.md"
++      exists: true
++      correction_required: false
++    - source_file: .claude/skills/PrecapNextDay/templates/prompt-files-and-index-template.md
++      link_text: "Open execution workspace"
++      original_target: "{{FLOW_EXECUTION_CARD_REF}}"
++      exists: false
++      correction_required: true
++    - source_file: .claude/skills/PrecapNextDay/templates/prompt-files-and-index-template.md
++      link_text: "{{PROMPT_TITLE}}"
++      original_target: "{{PROMPT_FILE_REF}}"
++      exists: false
++      correction_required: true
++    - source_file: .claude/skills/PrecapNextDay/templates/prompt-files-and-index-template.md
++      link_text: "{{ROUTING_LABEL}}"
++      original_target: "{{ROUTING_REF}}"
++      exists: false
++      correction_required: true
++    - source_file: .claude/skills/PrecapNextDay/templates/prompt-files-and-index-template.md
++      link_text: "{{ROUTING_LABEL}}"
++      original_target: "{{ROUTING_REF}}"
++      exists: false
++      correction_required: true
++    - source_file: .claude/skills/PrecapNextDay/templates/prompt-files-and-index-template.md
++      link_text: "J05 Prompt Files and Index"
++      original_target: "../../../../apex-meta/operator-output-design/step4-operator-template-system/examples/master-of-arts-example-fragments.md"
++      exists: true
++      correction_required: false
++    - source_file: .claude/skills/raw-flow-dump-normalize/templates/execution-evidence-handoff-template.md
++      link_text: "{{FLOW_CARD_LABEL}}"
++      original_target: "{{FLOW_CARD_REF}}"
++      exists: false
++      correction_required: true
++    - source_file: .claude/skills/raw-flow-dump-normalize/templates/execution-evidence-handoff-template.md
++      link_text: "{{OUTPUT_LABEL}}"
++      original_target: "{{OUTPUT_REF}}"
++      exists: false
++      correction_required: true
++    - source_file: .claude/skills/raw-flow-dump-normalize/templates/execution-evidence-handoff-template.md
++      link_text: "{{SOURCE_LABEL}}"
++      original_target: "{{SOURCE_REF}}"
++      exists: false
++      correction_required: true
++    - source_file: .claude/skills/raw-flow-dump-normalize/templates/execution-evidence-handoff-template.md
++      link_text: "J06 Execution Evidence Handoff"
++      original_target: "../../../../apex-meta/operator-output-design/step4-operator-template-system/examples/master-of-arts-example-fragments.md"
++      exists: true
++      correction_required: false
++    - source_file: .claude/skills/raw-flow-dump-normalize/templates/skip-marker-template.md
++      link_text: "{{FLOW_CARD_LABEL}}"
++      original_target: "{{SOURCE_FLOW_PACKET_REF}}"
++      exists: false
++      correction_required: true
++    - source_file: .claude/skills/raw-flow-dump-normalize/templates/skip-marker-template.md
++      link_text: "Execution Evidence Handoff"
++      original_target: "J06-execution-evidence-handoff.md"
++      exists: false
++      correction_required: true
++    - source_file: .claude/skills/raw-flow-dump-normalize/templates/skip-marker-template.md
++      link_text: "J06a Skip Marker"
++      original_target: "../../../../apex-meta/operator-output-design/step4-operator-template-system/examples/master-of-arts-example-fragments.md"
++      exists: true
++      correction_required: false
++    - source_file: .claude/skills/flow-recap/templates/flowrecap-result-card-template.md
++      link_text: "{{ARTIFACT_LABEL}}"
++      original_target: "{{ARTIFACT_REF}}"
++      exists: false
++      correction_required: true
++    - source_file: .claude/skills/flow-recap/templates/flowrecap-result-card-template.md
++      link_text: "{{J6_LABEL}}"
++      original_target: "{{J6_REF}}"
++      exists: false
++      correction_required: true
++    - source_file: .claude/skills/flow-recap/templates/flowrecap-result-card-template.md
++      link_text: "J07 FlowRecap Result Card"
++      original_target: "../../../../apex-meta/operator-output-design/step4-operator-template-system/examples/master-of-arts-example-fragments.md"
++      exists: true
++      correction_required: false
++    - source_file: .claude/skills/model-usage-log/templates/usage-learning-card-template.md
++      link_text: "{{SOURCE_LABEL}}"
++      original_target: "{{SOURCE_REF}}"
++      exists: false
++      correction_required: true
++    - source_file: .claude/skills/model-usage-log/templates/usage-learning-card-template.md
++      link_text: "{{J7_LABEL}}"
++      original_target: "{{J7_REF}}"
++      exists: false
++      correction_required: true
++    - source_file: .claude/skills/model-usage-log/templates/usage-learning-card-template.md
++      link_text: "J08 Usage Learning Card"
++      original_target: "../../../../apex-meta/operator-output-design/step4-operator-template-system/examples/master-of-arts-example-fragments.md"
++      exists: true
++      correction_required: false
++    - source_file: .claude/skills/status-merge/templates/status-merge-decision-card-template.md
++      link_text: "{{J7_CANDIDATE_LABEL}}"
++      original_target: "{{J7_CANDIDATE_REF}}"
++      exists: false
++      correction_required: true
++    - source_file: .claude/skills/status-merge/templates/status-merge-decision-card-template.md
++      link_text: "{{EVIDENCE_LABEL}}"
++      original_target: "{{EVIDENCE_REF}}"
++      exists: false
++      correction_required: true
++    - source_file: .claude/skills/status-merge/templates/status-merge-decision-card-template.md
++      link_text: "{{J10_LABEL}}"
++      original_target: "{{J10_RESULT_REF}}"
++      exists: false
++      correction_required: true
++    - source_file: .claude/skills/status-merge/templates/status-merge-decision-card-template.md
++      link_text: "J09 Status Merge Decision Card"
++      original_target: "../../../../apex-meta/operator-output-design/step4-operator-template-system/examples/master-of-arts-example-fragments.md"
++      exists: true
++      correction_required: false
++    - source_file: .claude/skills/project-kb-manager/templates/project-kb-update-card-template.md
++      link_text: "{{J9_LABEL}}"
++      original_target: "{{J9_REF}}"
++      exists: false
++      correction_required: true
++    - source_file: .claude/skills/project-kb-manager/templates/project-kb-update-card-template.md
++      link_text: "{{SOURCE_LABEL}}"
++      original_target: "{{SOURCE_REF}}"
++      exists: false
++      correction_required: true
++    - source_file: .claude/skills/project-kb-manager/templates/project-kb-update-card-template.md
++      link_text: "{{RESULT_LABEL}}"
++      original_target: "{{RESULT_REF}}"
++      exists: false
++      correction_required: true
++    - source_file: .claude/skills/project-kb-manager/templates/project-kb-update-card-template.md
++      link_text: "J10 Project KB Update Card"
++      original_target: "../../../../apex-meta/operator-output-design/step4-operator-template-system/examples/master-of-arts-example-fragments.md"
++      exists: true
++      correction_required: false
++    - source_file: .claude/skills/ProjectStatus/project-status-overview-template.md
++      link_text: "{{J10_OR_KB_SOURCE_LABEL}}"
++      original_target: "{{DURABLE_SOURCE_REF}}"
++      exists: false
++      correction_required: true
++    - source_file: .claude/skills/ProjectStatus/project-status-overview-template.md
++      link_text: "J11 Project Status Overview"
++      original_target: "../../../apex-meta/operator-output-design/step4-operator-template-system/examples/master-of-arts-example-fragments.md"
++      exists: true
++      correction_required: false
++    - source_file: .claude/skills/AIRouting/ai-routing-card-template.md
++      link_text: "{{J11_LABEL}}"
++      original_target: "{{J11_REF}}"
++      exists: false
++      correction_required: true
++    - source_file: .claude/skills/AIRouting/ai-routing-card-template.md
++      link_text: "{{J8_LABEL}}"
++      original_target: "{{J8_REF}}"
++      exists: false
++      correction_required: true
++    - source_file: .claude/skills/AIRouting/ai-routing-card-template.md
++      link_text: "{{SOURCE_LABEL}}"
++      original_target: "{{SOURCE_REF}}"
++      exists: false
++      correction_required: true
++    - source_file: .claude/skills/AIRouting/ai-routing-card-template.md
++      link_text: "J12 AI Routing Card"
++      original_target: "../../../apex-meta/operator-output-design/step4-operator-template-system/examples/master-of-arts-example-fragments.md"
++      exists: true
++      correction_required: false
+diff --git a/apex-meta/operator-output-design/step6-activation-validation/fixtures/J01-project-state-success-card.example.md b/apex-meta/operator-output-design/step6-activation-validation/fixtures/J01-project-state-success-card.example.md
+new file mode 100644
+index 00000000..5aead8f2
+--- /dev/null
++++ b/apex-meta/operator-output-design/step6-activation-validation/fixtures/J01-project-state-success-card.example.md
+@@ -0,0 +1,110 @@
++---
++synthetic_validation_only: true
++artifact_id: J1
++mutation_performed: false
++---
++
++# Project State Success Card - synthetic_validation_only
++
++> **Planning readiness:** synthetic_validation_only  
++> **Outcome:** synthetic_validation_only  
++> **Next action:** synthetic_validation_only  
++> **Review needed:** synthetic_validation_only  
++> **Warning:** synthetic_validation_only
++
++## Operator decision
++
++- [ ] Use this state as context for weekly planning.
++- [ ] Use this state as context for next-day planning.
++- [ ] Edit the identified project context before planning.
++- [ ] Request the exact missing evidence named below.
++- [ ] Mark the affected project state stale or reject it.
++
++**Decision or instruction:** synthetic_validation_only
++
++## Portfolio snapshot
++
++**State as of:** synthetic_validation_only  
++**Projects represented:** synthetic_validation_only  
++**Ready for planning:** synthetic_validation_only  
++**Blocked or review-needed:** synthetic_validation_only  
++**Main planning constraint:** synthetic_validation_only
++
++## Project - synthetic_validation_only (repeat per represented project)
++
++**Current phase:** synthetic_validation_only  
++**Current goal:** synthetic_validation_only  
++**Planning status:** synthetic_validation_only  
++**Accepted priorities:**
++
++- synthetic_validation_only
++
++**Active work:**
++
++- synthetic_validation_only
++
++**Next-action candidates:**
++
++- synthetic_validation_only
++
++**Blockers:** synthetic_validation_only  
++**Stale or conflicting information:** synthetic_validation_only  
++**Important artifact references:**
++
++- [synthetic_validation_only](synthetic_validation_only) - `synthetic_validation_only`
++
++## Planning handoff
++
++**Safe context to carry forward:**
++
++- synthetic_validation_only
++
++**Do not carry forward without review:**
++
++- synthetic_validation_only
++
++**Ready for:** synthetic_validation_only
++
++## Review flags (include when material)
++
++### synthetic_validation_only
++
++- **Issue:** synthetic_validation_only
++- **Why it matters:** synthetic_validation_only
++- **Operator action:** synthetic_validation_only
++
++## Provenance and confidence
++
++**Main sources:** synthetic_validation_only  
++**Freshness:** synthetic_validation_only  
++**Confidence:** synthetic_validation_only  
++**Consequential assumptions:** synthetic_validation_only
++
++## Compact downstream handoff
++
++```yaml
++presentation_handoff:
++  artifact_type: "Project_State_Success_Card"
++  artifact_ref: "synthetic_validation_only"
++  planning_readiness: "synthetic_validation_only"
++  represented_projects:
++    - project_ref: "synthetic_validation_only"
++      project_state_ref: "synthetic_validation_only"
++      review_status: "synthetic_validation_only"
++  freshness: "synthetic_validation_only"
++  next_consumer: "synthetic_validation_only"
++```
++
++## Template authority
++
++```yaml
++template_authority:
++  source_design_ref: "apex-meta/operator-output-design/step3-output-design-system/03-planning-artifact-designs.okf.yaml"
++  round6_overlay_intent_ref: null
++  overlay_application_status: "not_applicable_to_this_template"
++  domain_contract_refs:
++    - ".claude/skills/project-kb-manager/references/apex-orchestration-state-packet-contract.md"
++  source_gap: "Dedicated live project-state-success owner entrypoint was not verified; do not infer additional schema."
++```
++
++Example: [J01 Project State Success Card](../../../../apex-meta/operator-output-design/step4-operator-template-system/examples/master-of-arts-example-fragments.md)
+diff --git a/apex-meta/operator-output-design/step6-activation-validation/fixtures/J02-weekly-command-brief.example.md b/apex-meta/operator-output-design/step6-activation-validation/fixtures/J02-weekly-command-brief.example.md
+new file mode 100644
+index 00000000..2d4ff8bf
+--- /dev/null
++++ b/apex-meta/operator-output-design/step6-activation-validation/fixtures/J02-weekly-command-brief.example.md
+@@ -0,0 +1,139 @@
++---
++synthetic_validation_only: true
++artifact_id: J2
++mutation_performed: false
++---
++
++# Weekly Command Brief - synthetic_validation_only
++
++> **Weekly state:** synthetic_validation_only  
++> **Direction:** synthetic_validation_only  
++> **Next action:** synthetic_validation_only  
++> **Review needed:** synthetic_validation_only  
++> **Scope:** synthetic_validation_only projects; synthetic_validation_only major outcomes
++
++## Operator decision
++
++- [ ] Approve the week as the planning basis.
++- [ ] Edit project priorities or planned work.
++- [ ] Reduce scope or defer a named outcome.
++- [ ] Resolve a capacity, dependency, or decision constraint.
++- [ ] Reject and reframe the weekly direction.
++
++**Decision or instruction:** synthetic_validation_only
++
++## Weekly direction
++
++**Weekly intent:** synthetic_validation_only  
++**Success at week end:**
++
++- synthetic_validation_only
++
++**Capacity and constraints:**
++
++- synthetic_validation_only
++
++**Major operator decisions:**
++
++- synthetic_validation_only
++
++## Project - synthetic_validation_only (repeat per active project)
++
++**Weekly target:** synthetic_validation_only  
++**Why this week:** synthetic_validation_only  
++**Success evidence:** synthetic_validation_only
++
++### Priorities and desired results
++
++1. **synthetic_validation_only** - synthetic_validation_only
++
++### Planned work
++
++- **Work item:** synthetic_validation_only
++  - Expected output: synthetic_validation_only
++  - Owner or executor: synthetic_validation_only
++  - Dependency: synthetic_validation_only
++  - Candidate day: synthetic_validation_only
++
++### Blockers, risks, and decisions
++
++- **Blocker or risk:** synthetic_validation_only
++- **Decision needed:** synthetic_validation_only
++- **Response this week:** synthetic_validation_only
++
++### Expected outputs
++
++- [synthetic_validation_only](synthetic_validation_only) - `synthetic_validation_only`
++
++## Cross-project sequence
++
++**Must happen first:**
++
++1. synthetic_validation_only
++
++**Can run in parallel:**
++
++- synthetic_validation_only
++
++**Should not compete for the same capacity:**
++
++- synthetic_validation_only
++
++**Deliberately deferred:**
++
++- synthetic_validation_only
++
++## Daily seed map (include when useful; not a frozen day plan)
++
++- **synthetic_validation_only:** synthetic_validation_only
++  - Dependency or constraint: synthetic_validation_only
++
++Final day-level planning remains owned by the PreCap Next Day Brief.
++
++## Review flags (include when material)
++
++### synthetic_validation_only
++
++- **Issue:** synthetic_validation_only
++- **Why it matters this week:** synthetic_validation_only
++- **Operator action:** synthetic_validation_only
++
++## Provenance and confidence
++
++**Project-state input:** [synthetic_validation_only](synthetic_validation_only) - `synthetic_validation_only`  
++**Other decisive sources:** synthetic_validation_only  
++**Freshness:** synthetic_validation_only  
++**Confidence:** synthetic_validation_only  
++**Assumptions:** synthetic_validation_only
++
++## Compact downstream handoff
++
++```yaml
++presentation_handoff:
++  artifact_type: "Weekly_Command_Brief"
++  artifact_ref: "synthetic_validation_only"
++  week: "synthetic_validation_only"
++  result_state: "synthetic_validation_only"
++  weekly_intent: "synthetic_validation_only"
++  project_priority_refs:
++    - project_ref: "synthetic_validation_only"
++      priority_ref: "synthetic_validation_only"
++  fixed_constraints:
++    - "synthetic_validation_only"
++  review_status: "synthetic_validation_only"
++  next_consumer: "PreCap_Next_Day_Brief"
++```
++
++## Template authority
++
++```yaml
++template_authority:
++  source_design_ref: "apex-meta/operator-output-design/step3-output-design-system/03-planning-artifact-designs.okf.yaml"
++  round6_overlay_intent_ref: null
++  overlay_application_status: "not_applicable_to_this_template"
++  domain_contract_refs:
++    - ".claude/skills/PrecapWeek/Skill_Precap-Week.md"
++  source_gap: ".claude/skills/PrecapWeek/references/weekly-plan-output-contract.md was referenced by the live skill but not retrievable from main during research."
++```
++
++Example: [J02 Weekly Command Brief](../../../apex-meta/operator-output-design/step4-operator-template-system/examples/master-of-arts-example-fragments.md)
+diff --git a/apex-meta/operator-output-design/step6-activation-validation/fixtures/J03-precap-next-day-brief.example.md b/apex-meta/operator-output-design/step6-activation-validation/fixtures/J03-precap-next-day-brief.example.md
+new file mode 100644
+index 00000000..7aa21289
+--- /dev/null
++++ b/apex-meta/operator-output-design/step6-activation-validation/fixtures/J03-precap-next-day-brief.example.md
+@@ -0,0 +1,120 @@
++---
++synthetic_validation_only: true
++artifact_id: J3
++mutation_performed: false
++---
++
++# PreCap Next Day Brief - synthetic_validation_only
++
++> **Day state:** synthetic_validation_only  
++> **Day direction:** synthetic_validation_only  
++> **Next action:** synthetic_validation_only  
++> **Review needed:** synthetic_validation_only  
++> **Plan size:** synthetic_validation_only flows; synthetic_validation_only visible sprints
++
++## Approve or change the day
++
++- [ ] Approve the day outline.
++- [ ] Open the first Flow Execution Card.
++- [ ] Reorder flows or sprint sequence.
++- [ ] Edit, compress, defer, or block a named flow with a reason.
++
++**Decision or instruction:** synthetic_validation_only
++
++## Day frame
++
++**Primary day outcomes:**
++
++- synthetic_validation_only
++
++**Projects touched and why:**
++
++- **synthetic_validation_only:** synthetic_validation_only
++
++**Continuity from the week:** synthetic_validation_only  
++**Capacity assumption:** synthetic_validation_only  
++**Fixed constraints:** synthetic_validation_only
++
++## Flow synthetic_validation_only - synthetic_validation_only (repeat per represented flow)
++
++**Flow ID:** `synthetic_validation_only`  
++**Project:** synthetic_validation_only  
++**Status:** synthetic_validation_only  
++**Why today:** synthetic_validation_only  
++**Weekly priority advanced:** synthetic_validation_only  
++**Expected flow output:** synthetic_validation_only  
++**Open full workspace:** [Open Flow Execution Card](synthetic_validation_only) - `synthetic_validation_only`
++
++- **S1 - synthetic_validation_only:** synthetic_validation_only -> synthetic_validation_only
++- **S2 - synthetic_validation_only:** synthetic_validation_only; dependency cue: synthetic_validation_only -> synthetic_validation_only
++- **S3 - synthetic_validation_only:** synthetic_validation_only -> synthetic_validation_only
++
++**Review flag:** synthetic_validation_only
++
++## Cross-flow execution order
++
++1. `synthetic_validation_only / synthetic_validation_only` - synthetic_validation_only
++
++## Expected end of day
++
++**Project progress expected:**
++
++- synthetic_validation_only
++
++**Artifacts or decisions expected:**
++
++- synthetic_validation_only
++
++**Evidence and handoffs to prepare:**
++
++- synthetic_validation_only
++
++## Review flags (include when material)
++
++### synthetic_validation_only
++
++- **Issue:** synthetic_validation_only
++- **Why it matters before execution:** synthetic_validation_only
++- **Operator action:** synthetic_validation_only
++
++## Planning context used
++
++**Project-state source:** [synthetic_validation_only](synthetic_validation_only) - `synthetic_validation_only`  
++**Weekly source:** [synthetic_validation_only](synthetic_validation_only) - `synthetic_validation_only`  
++**Recent execution signal:** synthetic_validation_only  
++**Deferred or ignored signal:** synthetic_validation_only  
++**Confidence:** synthetic_validation_only
++
++## Compact downstream handoff
++
++```yaml
++presentation_handoff:
++  artifact_type: "PreCap_Next_Day_Brief"
++  artifact_ref: "synthetic_validation_only"
++  execution_date: "synthetic_validation_only"
++  result_state: "synthetic_validation_only"
++  ordered_flows:
++    - order: "synthetic_validation_only"
++      flow_id: "synthetic_validation_only"
++      project_ref: "synthetic_validation_only"
++      flow_status: "synthetic_validation_only"
++      weekly_priority_ref: "synthetic_validation_only"
++      flow_execution_card_ref: "synthetic_validation_only"
++  review_status: "synthetic_validation_only"
++  next_consumer: "Flow_Execution_Card"
++```
++
++## Template authority
++
++```yaml
++template_authority:
++  source_design_ref: "apex-meta/operator-output-design/step3-output-design-system/03-planning-artifact-designs.okf.yaml"
++  round6_overlay_intent_ref: "round6-patches/02-j3-j4-depth-separation.patch"
++  overlay_application_status: "intended_guidance_not_applied_by_this_package"
++  domain_contract_refs:
++    - ".claude/skills/PrecapNextDay/Skill_precap-next-day.md"
++    - ".claude/skills/PrecapNextDay/references/daily-plan-output-contract.md"
++    - ".claude/skills/PrecapNextDay/references/flow-packet-contract.md"
++```
++
++Example: [J03 PreCap Next Day Brief](../../../../apex-meta/operator-output-design/step4-operator-template-system/examples/master-of-arts-example-fragments.md)
+diff --git a/apex-meta/operator-output-design/step6-activation-validation/fixtures/J04-flow-execution-card.example.md b/apex-meta/operator-output-design/step6-activation-validation/fixtures/J04-flow-execution-card.example.md
+new file mode 100644
+index 00000000..4fe8dca2
+--- /dev/null
++++ b/apex-meta/operator-output-design/step6-activation-validation/fixtures/J04-flow-execution-card.example.md
+@@ -0,0 +1,219 @@
++---
++synthetic_validation_only: true
++artifact_id: J4
++mutation_performed: false
++---
++
++# Flow Execution Card - synthetic_validation_only
++
++> **Readiness:** synthetic_validation_only  
++> **Outcome target:** synthetic_validation_only  
++> **Next action:** synthetic_validation_only  
++> **Review needed:** synthetic_validation_only  
++> **Warning:** synthetic_validation_only
++
++## Start or resume here
++
++**Current sprint:** synthetic_validation_only  
++**Current status:** synthetic_validation_only  
++**Exact next operator step:** synthetic_validation_only  
++**Last confirmed checkpoint:** synthetic_validation_only
++
++## Operator controls
++
++- [ ] Execute the next sprint.
++- [ ] Open the named prompt file.
++- [ ] Edit scope or reorder only where dependencies allow.
++- [ ] Request review, defer, mark blocked, or skip with a reason.
++
++**Operator instruction:** synthetic_validation_only
++
++## Flow identity and context
++
++**Flow ID:** `synthetic_validation_only`  
++**Project:** synthetic_validation_only  
++**Why today:** synthetic_validation_only  
++**Weekly priority advanced:** synthetic_validation_only  
++**Project-state signal:** synthetic_validation_only  
++**Approved route:** synthetic_validation_only  
++**Routing reference:** [synthetic_validation_only](synthetic_validation_only) - `synthetic_validation_only`
++
++### Goals
++
++- synthetic_validation_only
++
++### Expected outputs
++
++- synthetic_validation_only
++
++## Inputs and dependencies
++
++### Available inputs
++
++- [synthetic_validation_only](synthetic_validation_only) - `synthetic_validation_only`
++
++### Missing inputs (include when material)
++
++- synthetic_validation_only - resolution: synthetic_validation_only
++
++### Flow dependencies
++
++- **Depends on:** synthetic_validation_only
++- **Required before:** synthetic_validation_only
++- **External gate:** synthetic_validation_only
++
++## S1 - synthetic_validation_only
++
++**Sprint status:** synthetic_validation_only
++
++### Tasks
++
++1. synthetic_validation_only
++
++### Inputs
++
++- [synthetic_validation_only](synthetic_validation_only) - `synthetic_validation_only`
++
++### Prompt access
++
++- [Open S1 prompt file](synthetic_validation_only) - `synthetic_validation_only`
++- **Recommended surface:** synthetic_validation_only
++- **Routing reference:** `synthetic_validation_only`
++- **Prompt readiness:** synthetic_validation_only
++
++### Expected outputs
++
++- synthetic_validation_only
++
++### Done when
++
++- synthetic_validation_only
++
++### Stop or review conditions
++
++- synthetic_validation_only
++
++### Evidence to retain
++
++- synthetic_validation_only
++
++## S2 - synthetic_validation_only
++
++**Sprint status:** synthetic_validation_only  
++**Dependency on S1:** synthetic_validation_only
++
++### Tasks
++
++1. synthetic_validation_only
++
++### Inputs
++
++- [synthetic_validation_only](synthetic_validation_only) - `synthetic_validation_only`
++
++### Prompt access
++
++- [Open S2 prompt file](synthetic_validation_only) - `synthetic_validation_only`
++- **Recommended surface:** synthetic_validation_only
++- **Routing reference:** `synthetic_validation_only`
++- **Prompt readiness:** synthetic_validation_only
++
++### Expected outputs
++
++- synthetic_validation_only
++
++### Done when
++
++- synthetic_validation_only
++
++### Stop or review conditions
++
++- synthetic_validation_only
++
++### Evidence to retain
++
++- synthetic_validation_only
++
++## S3 - Capture, decision, and handoff
++
++**Sprint status:** synthetic_validation_only  
++**Capture goal:** synthetic_validation_only
++
++### Evidence tasks
++
++1. synthetic_validation_only
++
++### Decisions to record
++
++- synthetic_validation_only
++
++### Handoff preparation
++
++- synthetic_validation_only
++
++### Optional prompt access
++
++- [Open S3 prompt file](synthetic_validation_only) - `synthetic_validation_only`
++
++### Done when
++
++- synthetic_validation_only
++
++## End-of-flow check
++
++- [ ] Planned outputs are checked against actual outputs.
++- [ ] Actual completion state is recorded: synthetic_validation_only.
++- [ ] Evidence references are identifiable.
++- [ ] Decisions, blockers, and unresolved questions are separated.
++- [ ] Evidence is ready for J6 or the exact missing item is named.
++
++**Actual completion state:** synthetic_validation_only  
++**Evidence handoff target:** [synthetic_validation_only](synthetic_validation_only) - `synthetic_validation_only`  
++**End-of-flow review:** synthetic_validation_only
++
++## Material review flags (include when needed)
++
++### synthetic_validation_only
++
++- **Issue:** synthetic_validation_only
++- **Why it matters to execution:** synthetic_validation_only
++- **Operator action:** synthetic_validation_only
++
++## Provenance and confidence
++
++**Day-plan reference:** [synthetic_validation_only](synthetic_validation_only) - `synthetic_validation_only`  
++**Project-state reference:** `synthetic_validation_only`  
++**Weekly-plan reference:** `synthetic_validation_only`  
++**Input freshness:** synthetic_validation_only  
++**Confidence:** synthetic_validation_only  
++**Consequential assumptions:** synthetic_validation_only
++
++## Compact downstream handoff
++
++```yaml
++presentation_handoff:
++  artifact_type: "Flow_Execution_Card"
++  artifact_ref: "synthetic_validation_only"
++  flow_id: "synthetic_validation_only"
++  project_ref: "synthetic_validation_only"
++  readiness: "synthetic_validation_only"
++  current_sprint: "synthetic_validation_only"
++  prompt_index_ref: "synthetic_validation_only"
++  approved_route_ref: "synthetic_validation_only"
++  evidence_handoff_ref: "synthetic_validation_only"
++  review_status: "synthetic_validation_only"
++  next_consumer: "synthetic_validation_only"
++```
++
++## Template authority
++
++```yaml
++template_authority:
++  source_design_ref: "apex-meta/operator-output-design/step3-output-design-system/04-flow-execution-card-design.okf.yaml"
++  round6_overlay_intent_ref: null
++  overlay_application_status: "not_applicable_to_this_template"
++  domain_contract_refs:
++    - ".claude/skills/PrecapNextDay/references/flow-packet-contract.md"
++    - ".claude/skills/PrecapNextDay/references/daily-plan-output-contract.md"
++```
++
++Example: [J04 Flow Execution Card](../../../../apex-meta/operator-output-design/step4-operator-template-system/examples/master-of-arts-example-fragments.md)
+diff --git a/apex-meta/operator-output-design/step6-activation-validation/fixtures/J05-prompt-files-and-index.example.md b/apex-meta/operator-output-design/step6-activation-validation/fixtures/J05-prompt-files-and-index.example.md
+new file mode 100644
+index 00000000..ec9cb79b
+--- /dev/null
++++ b/apex-meta/operator-output-design/step6-activation-validation/fixtures/J05-prompt-files-and-index.example.md
+@@ -0,0 +1,101 @@
++---
++synthetic_validation_only: true
++artifact_id: J5
++mutation_performed: false
++---
++
++# Prompt Files and Index - synthetic_validation_only
++
++> **Prompt access state:** synthetic_validation_only  
++> **Outcome:** synthetic_validation_only  
++> **Next action:** synthetic_validation_only  
++> **Review needed:** synthetic_validation_only
++
++## Operator actions
++
++- [ ] Open the prompt file required by the active sprint.
++- [ ] Fix a missing or degraded prompt before execution.
++- [ ] Confirm the referenced route when approval is still pending.
++- [ ] Return to the Flow Execution Card for work context.
++
++**Flow Execution Card:** [Open execution workspace](synthetic_validation_only) - `synthetic_validation_only`
++
++## Prompt index
++
++### Flow `synthetic_validation_only` (repeat per flow when the index covers more than one)
++
++| Sprint | Prompt file | Recommended surface | Use when | Status |
++|---|---|---|---|---|
++| `synthetic_validation_only` | [synthetic_validation_only](synthetic_validation_only)<br>`synthetic_validation_only` | synthetic_validation_only | synthetic_validation_only | synthetic_validation_only |
++
++**Routing reference:** [synthetic_validation_only](synthetic_validation_only) - `synthetic_validation_only`
++
++## Missing or degraded prompt items (include when material)
++
++### synthetic_validation_only
++
++- **Issue:** synthetic_validation_only
++- **Execution impact:** synthetic_validation_only
++- **Required action:** synthetic_validation_only
++
++## Reusable single-prompt-file template
++
++Copy this block into one file per prompt. The prompt file presents final prompt content; it does not restate the flow plan or routing analysis.
++
++```markdown
++# synthetic_validation_only
++
++**Recommended surface:** synthetic_validation_only  
++**Use when:** synthetic_validation_only  
++**Expected return artifact:** synthetic_validation_only  
++**Routing reference:** [synthetic_validation_only](synthetic_validation_only) - `synthetic_validation_only`
++
++> **Degraded warning:** synthetic_validation_only
++
++## Prompt
++
++synthetic_validation_only
++```
++
++## Prompt-file quality check
++
++- [ ] The prompt states the task and desired return clearly.
++- [ ] Required context and hard constraints appear once.
++- [ ] Approval, stop, or review boundaries are explicit when consequential.
++- [ ] The prompt does not request private chain-of-thought.
++- [ ] The prompt file does not duplicate J4 tasks, dependencies, or execution sequence.
++- [ ] The recommended surface is backed by a routing reference or marked unverified.
++
++## Compact downstream handoff
++
++```yaml
++presentation_handoff:
++  artifact_type: "Prompt_Files_and_Index"
++  artifact_ref: "synthetic_validation_only"
++  flow_id: "synthetic_validation_only"
++  prompt_files:
++    - sprint: "synthetic_validation_only"
++      title: "synthetic_validation_only"
++      file: "synthetic_validation_only"
++      target_surface: "synthetic_validation_only"
++      routing_ref: "synthetic_validation_only"
++      use_when: "synthetic_validation_only"
++      degraded_flag: "synthetic_validation_only"
++  review_status: "synthetic_validation_only"
++  next_consumer: "operator_execution"
++```
++
++## Template authority
++
++```yaml
++template_authority:
++  source_design_ref: "apex-meta/operator-output-design/step3-output-design-system/05-prompt-file-and-index-design.okf.yaml"
++  round6_overlay_intent_ref: "canonical_name_projection_from_00-package-manifest.okf.yaml"
++  overlay_application_status: "presentation_name_used_without_repository_mutation"
++  domain_contract_refs:
++    - ".claude/skills/PrecapNextDay/references/flow-prompt-pack-contract.md"
++    - ".claude/skills/AIRouting/routing-recommendation-packet-contract.md"
++  source_gap: "Expected Prompt Engineering entrypoint was not verified; final prompt doctrine remains externally owned."
++```
++
++Example: [J05 Prompt Files and Index](../../../../apex-meta/operator-output-design/step4-operator-template-system/examples/master-of-arts-example-fragments.md)
+diff --git a/apex-meta/operator-output-design/step6-activation-validation/fixtures/J06-execution-evidence-handoff.example.md b/apex-meta/operator-output-design/step6-activation-validation/fixtures/J06-execution-evidence-handoff.example.md
+new file mode 100644
+index 00000000..3a567385
+--- /dev/null
++++ b/apex-meta/operator-output-design/step6-activation-validation/fixtures/J06-execution-evidence-handoff.example.md
+@@ -0,0 +1,132 @@
++---
++synthetic_validation_only: true
++artifact_id: J6
++mutation_performed: false
++---
++
++# Execution Evidence Handoff - synthetic_validation_only
++
++> **Evidence route:** synthetic_validation_only  
++> **Outcome:** synthetic_validation_only  
++> **Next action:** synthetic_validation_only  
++> **Review needed:** synthetic_validation_only  
++> **Completion state reported:** synthetic_validation_only
++
++## Handoff decision
++
++**Use the lightest route that preserves evidence quality.**
++
++- [ ] Send directly: evidence is small, structured, clear, sourced, and materially consistent.
++- [ ] Normalize first: evidence is fragmented, distributed, long, ambiguous, or conflicting.
++- [ ] Request review: a conflict or missing source changes what can be claimed.
++- [ ] Mark insufficient: completion or claimed outputs cannot be determined from identifiable evidence.
++
++**Decision reason:** synthetic_validation_only
++
++## Execution identity
++
++**Flow ID:** `synthetic_validation_only`  
++**Flow Execution Card:** [synthetic_validation_only](synthetic_validation_only) - `synthetic_validation_only`  
++**Execution window:** synthetic_validation_only  
++**Operator or executor:** synthetic_validation_only
++
++## Planned versus actual evidence
++
++### What was planned
++
++- synthetic_validation_only
++
++### What actually happened
++
++- synthetic_validation_only
++
++### Changed scope (include when material)
++
++- synthetic_validation_only
++
++## Outputs and artifacts
++
++### Completed or changed outputs
++
++- [synthetic_validation_only](synthetic_validation_only) - `synthetic_validation_only`
++  - Evidence status: synthetic_validation_only
++
++### Claimed outputs without sufficient evidence (include when present)
++
++- synthetic_validation_only - missing evidence: synthetic_validation_only
++
++## Decisions recorded during execution
++
++- **Decision:** synthetic_validation_only
++  - Evidence reference: `synthetic_validation_only`
++
++## Blockers and failed attempts
++
++- **Item:** synthetic_validation_only
++  - Evidence reference: `synthetic_validation_only`
++  - Observable effect: synthetic_validation_only
++
++## Unresolved questions
++
++- synthetic_validation_only
++
++## Source evidence (repeat per material source)
++
++### synthetic_validation_only
++
++**Reference:** [synthetic_validation_only](synthetic_validation_only) - `synthetic_validation_only`  
++**What it supports:** synthetic_validation_only  
++**Freshness or time:** synthetic_validation_only  
++**Limit or conflict:** synthetic_validation_only
++
++## Evidence gaps and conflicts (include when material)
++
++### synthetic_validation_only
++
++- **Observed evidence:** synthetic_validation_only
++- **Conflicting or missing evidence:** synthetic_validation_only
++- **Why it matters for FlowRecap:** synthetic_validation_only
++- **Required evidence action:** synthetic_validation_only
++
++## FlowRecap readiness
++
++**Readiness:** synthetic_validation_only  
++**Evidence reference to send:** `synthetic_validation_only`  
++**Unsupported conclusions that must not be made:** synthetic_validation_only  
++**Usage evidence references:** synthetic_validation_only
++
++This handoff organizes evidence. It does not recommend a project next step, interpret success, or propose a project-state change.
++
++## Compact downstream handoff
++
++```yaml
++presentation_handoff:
++  artifact_type: "Execution_Evidence_Handoff"
++  artifact_ref: "synthetic_validation_only"
++  flow_id: "synthetic_validation_only"
++  completion_state: "synthetic_validation_only"
++  evidence_route: "synthetic_validation_only"
++  output_refs:
++    - "synthetic_validation_only"
++  source_refs:
++    - "synthetic_validation_only"
++  material_gaps_or_conflicts:
++    - "synthetic_validation_only"
++  readiness: "synthetic_validation_only"
++  next_consumer: "FlowRecap_Result_Card"
++```
++
++## Template authority
++
++```yaml
++template_authority:
++  source_design_ref: "apex-meta/operator-output-design/step3-output-design-system/06-execution-evidence-handoff-design.okf.yaml"
++  round6_overlay_intent_ref: null
++  overlay_application_status: "not_applicable_to_this_template"
++  domain_contract_refs:
++    - ".claude/skills/raw-flow-dump-normalize/SKILL.md"
++    - ".claude/skills/raw-flow-dump-normalize/references/raw-flow-dump-contract.md"
++    - ".claude/skills/flow-recap/references/flow-recap-packet-contract.md"
++```
++
++Example: [J06 Execution Evidence Handoff](../../../../apex-meta/operator-output-design/step4-operator-template-system/examples/master-of-arts-example-fragments.md)
+diff --git a/apex-meta/operator-output-design/step6-activation-validation/fixtures/J06a-skip-marker.example.md b/apex-meta/operator-output-design/step6-activation-validation/fixtures/J06a-skip-marker.example.md
+new file mode 100644
+index 00000000..dec023cb
+--- /dev/null
++++ b/apex-meta/operator-output-design/step6-activation-validation/fixtures/J06a-skip-marker.example.md
+@@ -0,0 +1,53 @@
++---
++synthetic_validation_only: true
++artifact_id: J6a
++mutation_performed: false
++---
++
++# Skip Marker
++
++**Skipped flow:** `synthetic_validation_only` - synthetic_validation_only  
++**Execution day:** synthetic_validation_only  
++**Source flow:** [synthetic_validation_only](synthetic_validation_only) - `synthetic_validation_only`  
++**Reason:** synthetic_validation_only  
++**Plan impact:** synthetic_validation_only - synthetic_validation_only  
++**Next handling:** synthetic_validation_only  
++**Review:** synthetic_validation_only
++
++Use the full [Execution Evidence Handoff](J06-execution-evidence-handoff.md) instead if any work was performed, an artifact or decision was created, or blocker evidence must be preserved.
++
++```yaml
++skipped_flow_marker:
++  marker_id: "synthetic_validation_only"
++  artifact_name: "skipped_flow_marker"
++  execution_day: "synthetic_validation_only"
++  flow_id: "synthetic_validation_only"
++  source_flow_packet_ref:
++    flow_packet_path_or_label: "synthetic_validation_only"
++    source_status: "synthetic_validation_only"
++  skip_reason: "synthetic_validation_only"
++  skip_type: "synthetic_validation_only"
++  impact_on_plan:
++    impact_level: "synthetic_validation_only"
++    impact_summary: "synthetic_validation_only"
++    affected_outputs:
++      - "synthetic_validation_only"
++  recommended_next_handling:
++    handling_type: "synthetic_validation_only"
++    recommendation: "synthetic_validation_only"
++    recommended_owner: "synthetic_validation_only"
++  validation_status: "synthetic_validation_only"
++```
++
++```yaml
++template_authority:
++  source_design_ref: "apex-meta/operator-output-design/step3-output-design-system/07-skip-marker-low-priority-design.okf.yaml"
++  round6_overlay_intent_ref: null
++  overlay_application_status: "not_applicable_to_this_template"
++  domain_contract_refs:
++    - ".claude/skills/raw-flow-dump-normalize/SKILL.md"
++    - ".claude/skills/raw-flow-dump-normalize/references/skipped-flow-marker-contract.md"
++    - ".claude/skills/PrecapNextDay/references/flow-packet-contract.md"
++```
++
++Example: [J06a Skip Marker](../../../../apex-meta/operator-output-design/step4-operator-template-system/examples/master-of-arts-example-fragments.md)
+diff --git a/apex-meta/operator-output-design/step6-activation-validation/fixtures/J07-flowrecap-result-card.example.md b/apex-meta/operator-output-design/step6-activation-validation/fixtures/J07-flowrecap-result-card.example.md
+new file mode 100644
+index 00000000..d1f4e495
+--- /dev/null
++++ b/apex-meta/operator-output-design/step6-activation-validation/fixtures/J07-flowrecap-result-card.example.md
+@@ -0,0 +1,140 @@
++---
++synthetic_validation_only: true
++artifact_id: J7
++mutation_performed: false
++---
++
++# FlowRecap Result Card - synthetic_validation_only
++
++> **Flow result:** synthetic_validation_only  
++> **What changed:** synthetic_validation_only  
++> **Next action:** synthetic_validation_only  
++> **Review needed:** synthetic_validation_only  
++> **Confidence:** synthetic_validation_only
++
++> **Candidate only:** Any project-state change below is proposed for downstream review. It is not approved, written, merged, or confirmed project truth.
++
++## Operator actions
++
++- [ ] Approve the candidate for downstream merge review.
++- [ ] Edit or reject the candidate.
++- [ ] Defer pending named evidence.
++- [ ] Request the exact missing evidence item.
++- [ ] Send the usage candidate to usage learning.
++- [ ] Take no action when no supported change exists.
++
++**Operator instruction:** synthetic_validation_only
++
++## Planned versus actual
++
++**Planned intent:** synthetic_validation_only  
++**Actual work:** synthetic_validation_only  
++**Material variance:** synthetic_validation_only
++
++Do not repeat the full Flow Execution Card here.
++
++## Outcomes and artifacts
++
++### Completed outcomes
++
++- synthetic_validation_only
++
++### Incomplete or out-of-scope items
++
++- synthetic_validation_only
++
++### Created or changed artifacts
++
++- [synthetic_validation_only](synthetic_validation_only) - `synthetic_validation_only`
++  - Evidence status: synthetic_validation_only
++
++## Decisions
++
++- **Made:** synthetic_validation_only
++- **Proposed:** synthetic_validation_only
++- **Deferred:** synthetic_validation_only
++- **Needs operator validation:** synthetic_validation_only
++
++## Blockers or failures
++
++- **Item:** synthetic_validation_only
++- **Effect:** synthetic_validation_only
++- **Evidence reference:** `synthetic_validation_only`
++
++## Unresolved questions
++
++- synthetic_validation_only
++
++## Candidate project-state change
++
++**Candidate status:** synthetic_validation_only  
++**Project:** synthetic_validation_only  
++**Current accepted value:** synthetic_validation_only  
++**Proposed value:** synthetic_validation_only  
++**Why the evidence supports this candidate:** synthetic_validation_only  
++**Supporting evidence:**
++
++- `synthetic_validation_only`
++
++**Conflicts or limits:** synthetic_validation_only  
++**Ready for downstream review:** synthetic_validation_only  
++**Required reviewer decision:** synthetic_validation_only
++
++## Advisory usage evidence reference
++
++**Usage evidence found:** synthetic_validation_only  
++**Observed surface or model:** synthetic_validation_only  
++**Usage purpose:** synthetic_validation_only  
++**Usage candidate reference:** `synthetic_validation_only`  
++**Handoff status:** synthetic_validation_only
++
++## Evidence and confidence
++
++**Evidence handoff:** [synthetic_validation_only](synthetic_validation_only) - `synthetic_validation_only`  
++**Evidence status:** synthetic_validation_only  
++**Main supporting references:** synthetic_validation_only  
++**Unsupported conclusions excluded:** synthetic_validation_only  
++**Confidence:** synthetic_validation_only
++
++## Downstream handoffs
++
++**Candidate destination:** synthetic_validation_only  
++**Usage destination:** synthetic_validation_only  
++**Proposed operational next step:** synthetic_validation_only
++
++A proposed next step is not a next-day plan and does not authorize execution.
++
++## Compact downstream handoff
++
++```yaml
++presentation_handoff:
++  artifact_type: "FlowRecap_Result_Card"
++  artifact_ref: "synthetic_validation_only"
++  flow_recap_packet_ref: "synthetic_validation_only"
++  flow_result: "synthetic_validation_only"
++  evidence_status: "synthetic_validation_only"
++  candidate_project_status_delta_ref: "synthetic_validation_only"
++  model_usage_delta_candidate_ref: "synthetic_validation_only"
++  next_step_proposal_ref: "synthetic_validation_only"
++  operator_review_flags:
++    - "synthetic_validation_only"
++  confidence: "synthetic_validation_only"
++  next_consumers:
++    - "synthetic_validation_only"
++    - "synthetic_validation_only"
++```
++
++## Template authority
++
++```yaml
++template_authority:
++  source_design_ref: "apex-meta/operator-output-design/step3-output-design-system/10-flow-recap-result-card-design.okf.yaml"
++  round6_overlay_intent_ref: "20-round6-cross-cutting-consistency-resolution.okf.yaml"
++  overlay_application_status: "intended_state_boundary_applied_to_presentation_only"
++  domain_contract_refs:
++    - ".claude/skills/flow-recap/SKILL.md"
++    - ".claude/skills/flow-recap/references/flow-recap-packet-contract.md"
++    - ".claude/skills/flow-recap/references/project-status-delta-contract.md"
++```
++
++Example: [J07 FlowRecap Result Card](../../../../apex-meta/operator-output-design/step4-operator-template-system/examples/master-of-arts-example-fragments.md)
+diff --git a/apex-meta/operator-output-design/step6-activation-validation/fixtures/J08-usage-learning-card.example.md b/apex-meta/operator-output-design/step6-activation-validation/fixtures/J08-usage-learning-card.example.md
+new file mode 100644
+index 00000000..1a33f191
+--- /dev/null
++++ b/apex-meta/operator-output-design/step6-activation-validation/fixtures/J08-usage-learning-card.example.md
+@@ -0,0 +1,111 @@
++---
++synthetic_validation_only: true
++artifact_id: J8
++mutation_performed: false
++---
++
++# Usage Learning Card - synthetic_validation_only
++
++> **Learning result:** synthetic_validation_only  
++> **Planned versus actual:** synthetic_validation_only  
++> **Learning signal:** synthetic_validation_only  
++> **Next action:** synthetic_validation_only  
++> **Review needed:** synthetic_validation_only
++
++## Operator action
++
++- [ ] Accept this contextual usage learning.
++- [ ] Correct the actual surface or model recorded.
++- [ ] Change the learning signal.
++- [ ] Ignore this observation for future routing.
++- [ ] Request evidence review.
++- [ ] Take no action because data is insufficient.
++
++**Decision or instruction:** synthetic_validation_only
++
++## Planned and actual route
++
++**Task context:** synthetic_validation_only  
++**Planned surface or model:** synthetic_validation_only  
++**Planned route reference:** `synthetic_validation_only`  
++**Actual surface or model:** synthetic_validation_only  
++**Actual usage evidence:** synthetic_validation_only  
++**Usage purpose:** synthetic_validation_only
++
++## Planned-versus-actual comparison
++
++**Comparison:** synthetic_validation_only  
++**Observed difference:** synthetic_validation_only  
++**Reason supported by evidence:** synthetic_validation_only
++
++## Outcome quality
++
++**Context-bound quality:** synthetic_validation_only  
++**Evidence for the rating:** synthetic_validation_only  
++**Important limitation:** synthetic_validation_only
++
++## Reuse or avoidance signal
++
++Select exactly one accepted signal.
++
++- [ ] `reuse_route`
++- [ ] `avoid_route`
++- [ ] `use_only_for_high_value_tasks`
++- [ ] `insufficient_data`
++- [ ] `operator_review_needed`
++
++**Selected signal:** `synthetic_validation_only`  
++**Comparable future context:** synthetic_validation_only  
++**Do not generalize to:** synthetic_validation_only
++
++## Advisory future-routing hint
++
++synthetic_validation_only
++
++This hint does not change routing automatically and does not override the AI Routing Card.
++
++## Sourced resource note (include only when explicitly sourced)
++
++**Claim:** synthetic_validation_only  
++**Source:** [synthetic_validation_only](synthetic_validation_only) - `synthetic_validation_only`  
++**Observed or verified on:** synthetic_validation_only  
++**Validity limit:** synthetic_validation_only
++
++## Evidence, confidence, and review
++
++**FlowRecap source:** [synthetic_validation_only](synthetic_validation_only) - `synthetic_validation_only`  
++**Model-usage delta reference:** `synthetic_validation_only`  
++**Evidence status:** synthetic_validation_only  
++**Confidence:** synthetic_validation_only  
++**Review flag:** synthetic_validation_only
++
++## Compact downstream handoff
++
++```yaml
++presentation_handoff:
++  artifact_type: "Usage_Learning_Card"
++  artifact_ref: "synthetic_validation_only"
++  source_flow_recap_ref: "synthetic_validation_only"
++  model_usage_delta_ref: "synthetic_validation_only"
++  comparison: "synthetic_validation_only"
++  route_signal: "synthetic_validation_only"
++  confidence: "synthetic_validation_only"
++  future_routing_hint: "synthetic_validation_only"
++  operator_review_needed: "synthetic_validation_only"
++  next_consumer: "AI_Routing_Card"
++```
++
++## Template authority
++
++```yaml
++template_authority:
++  source_design_ref: "apex-meta/operator-output-design/step3-output-design-system/11-usage-learning-card-design.okf.yaml"
++  round6_overlay_intent_ref: "20-round6-cross-cutting-consistency-resolution.okf.yaml"
++  overlay_application_status: "intended_advisory_boundary_applied_to_presentation_only"
++  domain_contract_refs:
++    - ".claude/skills/model-usage-log/SKILL.md"
++    - ".claude/skills/model-usage-log/references/model-usage-delta-contract.md"
++    - ".claude/skills/model-usage-log/references/usage-summary-contract.md"
++```
++
++Example: [J08 Usage Learning Card](../../../../apex-meta/operator-output-design/step4-operator-template-system/examples/master-of-arts-example-fragments.md)
+diff --git a/apex-meta/operator-output-design/step6-activation-validation/fixtures/J09-status-merge-decision-card.example.md b/apex-meta/operator-output-design/step6-activation-validation/fixtures/J09-status-merge-decision-card.example.md
+new file mode 100644
+index 00000000..428e6c2b
+--- /dev/null
++++ b/apex-meta/operator-output-design/step6-activation-validation/fixtures/J09-status-merge-decision-card.example.md
+@@ -0,0 +1,104 @@
++---
++synthetic_validation_only: true
++artifact_id: J9
++mutation_performed: false
++---
++
++# Status Merge Decision Card - synthetic_validation_only
++
++> **Merge decision state:** synthetic_validation_only  
++> **Decision summary:** synthetic_validation_only  
++> **Next action:** synthetic_validation_only  
++> **Review needed:** synthetic_validation_only  
++> **Durable write:** synthetic_validation_only
++
++> **Boundary:** This card records the operator merge decision only. Approval permits J10 to perform the owning KB operation; J10 alone reports the write result, and J11 alone projects confirmed accepted truth.
++
++## Operator merge decision
++
++- [ ] Approve the candidate for merge and send it to J10.
++- [ ] Edit the candidate before approval.
++- [ ] Reject the candidate.
++- [ ] Defer pending named evidence or timing.
++- [ ] Mark unresolved because evidence or current state conflicts.
++
++**Decision:** synthetic_validation_only  
++**Decision by:** synthetic_validation_only  
++**Decision date:** synthetic_validation_only  
++**Decision note:** synthetic_validation_only
++
++## Candidate review
++
++**Candidate reference:** [synthetic_validation_only](synthetic_validation_only) - `synthetic_validation_only`  
++**Project:** synthetic_validation_only  
++**Target field or accepted-state area:** synthetic_validation_only  
++**Current accepted value:** synthetic_validation_only  
++**Candidate value:** synthetic_validation_only  
++**Proposed effect:** synthetic_validation_only  
++**No-change alternative:** synthetic_validation_only
++
++## Evidence and provenance
++
++**Supporting evidence:**
++
++- [synthetic_validation_only](synthetic_validation_only) - `synthetic_validation_only`
++
++**Evidence status:** synthetic_validation_only  
++**Freshness:** synthetic_validation_only  
++**Confidence:** synthetic_validation_only  
++**Source gap:** synthetic_validation_only
++
++## Conflicts and consequences (include when material)
++
++### synthetic_validation_only
++
++- **Conflict:** synthetic_validation_only
++- **Why it matters:** synthetic_validation_only
++- **Required resolution:** synthetic_validation_only
++
++**Consequence of approval:** synthetic_validation_only  
++**Consequence of rejection or deferral:** synthetic_validation_only
++
++## Approved change for J10 (complete only after approval)
++
++**Approval state:** synthetic_validation_only  
++**Approved value:** synthetic_validation_only  
++**Target destination:** synthetic_validation_only  
++**Required provenance to retain:** synthetic_validation_only  
++**Operator conditions:** synthetic_validation_only
++
++## Downstream J10 reference (optional; navigation only)
++
++**J10 card or result reference:** [synthetic_validation_only](synthetic_validation_only) - `synthetic_validation_only`  
++**Status as reported by J10:** synthetic_validation_only
++
++This reference does not make J9 the write authority. Read J10 for the durable result and J11 for confirmed accepted project truth.
++
++## Compact downstream handoff
++
++```yaml
++presentation_handoff:
++  artifact_type: "Status_Merge_Decision_Card"
++  artifact_ref: "synthetic_validation_only"
++  candidate_status_delta_ref: "synthetic_validation_only"
++  project_ref: "synthetic_validation_only"
++  approval_state: "synthetic_validation_only"
++  approved_change_ref: "synthetic_validation_only"
++  operator_decision_ref: "synthetic_validation_only"
++  review_status: "synthetic_validation_only"
++  next_consumer: "synthetic_validation_only"
++```
++
++## Template authority
++
++```yaml
++template_authority:
++  source_design_ref: "apex-meta/operator-output-design/step3-output-design-system/14-status-merge-decision-card-design.okf.yaml"
++  round6_overlay_intent_ref: "round6-patches/03-j9-durable-merge-confirmation.patch"
++  overlay_application_status: "intended_guidance_not_applied_by_this_package"
++  domain_contract_refs:
++    - ".claude/skills/status-merge/SKILL.md"
++    - ".claude/skills/status-merge/references/status-merge-packet-contract.md"
++```
++
++Example: [J09 Status Merge Decision Card](../../../../apex-meta/operator-output-design/step4-operator-template-system/examples/master-of-arts-example-fragments.md)
+diff --git a/apex-meta/operator-output-design/step6-activation-validation/fixtures/J10-project-kb-update-card.example.md b/apex-meta/operator-output-design/step6-activation-validation/fixtures/J10-project-kb-update-card.example.md
+new file mode 100644
+index 00000000..dfe681f3
+--- /dev/null
++++ b/apex-meta/operator-output-design/step6-activation-validation/fixtures/J10-project-kb-update-card.example.md
+@@ -0,0 +1,135 @@
++---
++synthetic_validation_only: true
++artifact_id: J10
++mutation_performed: false
++---
++
++# Project KB Update Card - synthetic_validation_only
++
++> **Write state:** synthetic_validation_only  
++> **Durable effect:** synthetic_validation_only  
++> **Next action:** synthetic_validation_only  
++> **Review needed:** synthetic_validation_only  
++> **Result reference:** synthetic_validation_only
++
++> **Boundary:** A prepared update is not a durable result. J11 may use new truth only after an executed write has an identifiable result reference and effective value.
++
++## Operator write control
++
++- [ ] Confirm the prepared write.
++- [ ] Execute the already approved write through the owning KB process.
++- [ ] Verify the durable result and effective value.
++- [ ] Resolve a partial, skipped, or blocked write.
++- [ ] Send only the confirmed result to J11.
++
++**Write instruction or confirmation:** synthetic_validation_only
++
++## Approved input
++
++**J9 decision reference:** [synthetic_validation_only](synthetic_validation_only) - `synthetic_validation_only`  
++**Approval state received:** synthetic_validation_only  
++**Approved by:** synthetic_validation_only  
++**Approved value:** synthetic_validation_only  
++**Approval conditions:** synthetic_validation_only
++
++If the J9 input is not approved for merge, stop and return it for review.
++
++## Update target and intent
++
++**Project:** synthetic_validation_only  
++**Destination:** synthetic_validation_only  
++**Target section or field:** synthetic_validation_only  
++**Change type:** synthetic_validation_only  
++**Write intent:** synthetic_validation_only  
++**Expected effect:** synthetic_validation_only
++
++## Prepared update
++
++### Current durable content
++
++synthetic_validation_only
++
++### Proposed durable content
++
++synthetic_validation_only
++
++### Provenance to retain
++
++- [synthetic_validation_only](synthetic_validation_only) - `synthetic_validation_only`
++
++### Pre-write checks
++
++- [ ] Destination and target are explicit.
++- [ ] The proposed content matches the approved J9 value.
++- [ ] Conflicts, stale content, and replacement scope are visible.
++- [ ] The operation follows the owning write rules.
++- [ ] No unrelated durable state will be changed.
++
++## Write execution
++
++**Confirmation received:** synthetic_validation_only  
++**Execution attempted:** synthetic_validation_only  
++**Execution date:** synthetic_validation_only  
++**Executor or owning process:** synthetic_validation_only  
++**Operation performed:** synthetic_validation_only
++
++## Actual durable result
++
++**Write status:** synthetic_validation_only  
++**Result or receipt reference:** [synthetic_validation_only](synthetic_validation_only) - `synthetic_validation_only`  
++**Effective durable value:** synthetic_validation_only  
++**Target after write:** synthetic_validation_only  
++**Freshness date:** synthetic_validation_only  
++**Verification method:** synthetic_validation_only  
++**Difference from approved intent:** synthetic_validation_only
++
++## Failure or partial-write handling (include when material)
++
++### synthetic_validation_only
++
++- **Observed result:** synthetic_validation_only
++- **Durable effect known:** synthetic_validation_only
++- **Risk:** synthetic_validation_only
++- **Required action:** synthetic_validation_only
++
++A skipped, blocked, unknown, or unverified write must not be presented to J11 as effective project truth.
++
++## J11 readiness
++
++**Ready for Project Status Overview:** synthetic_validation_only  
++**Confirmed result reference:** `synthetic_validation_only`  
++**Accepted value to project:** synthetic_validation_only  
++**Freshness to carry:** synthetic_validation_only  
++**Residual review flag:** synthetic_validation_only
++
++## Compact downstream handoff
++
++```yaml
++presentation_handoff:
++  artifact_type: "Project_KB_Update_Card"
++  artifact_ref: "synthetic_validation_only"
++  approved_change_ref: "synthetic_validation_only"
++  project_ref: "synthetic_validation_only"
++  target_ref: "synthetic_validation_only"
++  change_type: "synthetic_validation_only"
++  durable_write_state: "synthetic_validation_only"
++  durable_update_result_ref: "synthetic_validation_only"
++  effective_value_ref: "synthetic_validation_only"
++  freshness: "synthetic_validation_only"
++  confirmed_for_overview: "synthetic_validation_only"
++  next_consumer: "synthetic_validation_only"
++```
++
++## Template authority
++
++```yaml
++template_authority:
++  source_design_ref: "apex-meta/operator-output-design/step3-output-design-system/15-project-kb-update-card-design.okf.yaml"
++  round6_overlay_intent_ref: "round6-patches/04-j10-durable-update-result.patch"
++  overlay_application_status: "intended_guidance_not_applied_by_this_package"
++  domain_contract_refs:
++    - ".claude/skills/project-kb-manager/SKILL.md"
++    - ".claude/skills/project-kb-manager/references/write-rules.md"
++```
++
++Example: [J10 Project KB Update Card](../../../../apex-meta/operator-output-design/step4-operator-template-system/examples/master-of-arts-example-fragments.md)
+diff --git a/apex-meta/operator-output-design/step6-activation-validation/fixtures/J11-project-status-overview.example.md b/apex-meta/operator-output-design/step6-activation-validation/fixtures/J11-project-status-overview.example.md
+new file mode 100644
+index 00000000..ddf74fd3
+--- /dev/null
++++ b/apex-meta/operator-output-design/step6-activation-validation/fixtures/J11-project-status-overview.example.md
+@@ -0,0 +1,123 @@
++---
++synthetic_validation_only: true
++artifact_id: J11
++mutation_performed: false
++---
++
++# Project Status Overview - synthetic_validation_only
++
++> **Overview state:** synthetic_validation_only  
++> **Confirmed landscape:** synthetic_validation_only  
++> **Next action:** synthetic_validation_only  
++> **Review needed:** synthetic_validation_only  
++> **Counts:** synthetic_validation_only active; synthetic_validation_only blocked; synthetic_validation_only review; synthetic_validation_only stale
++
++> **Truth gate:** This overview projects confirmed accepted project state. Candidate changes, approvals without a confirmed write, and prepared updates do not become new overview truth.
++
++## Operator action
++
++- [ ] Open the highest-ranked confirmed next task.
++- [ ] Review a stale, conflicting, or blocked project card.
++- [ ] Refresh the overview from confirmed durable sources.
++- [ ] Use this overview as context for planning or routing.
++
++**Decision or instruction:** synthetic_validation_only
++
++## Portfolio focus
++
++**Highest-ranked confirmed task:** synthetic_validation_only  
++**Most important blocker:** synthetic_validation_only  
++**Freshness concern:** synthetic_validation_only  
++**Cross-project dependency:** synthetic_validation_only
++
++## Project - synthetic_validation_only (repeat per confirmed active project)
++
++**Accepted status:** synthetic_validation_only  
++**Current phase or goal:** synthetic_validation_only  
++**Current priority:** synthetic_validation_only  
++**Next confirmed task:** synthetic_validation_only  
++**Blocker:** synthetic_validation_only  
++**Freshness:** synthetic_validation_only  
++**Durable source:** [synthetic_validation_only](synthetic_validation_only) - `synthetic_validation_only`
++
++### Tasks
++
++1. **synthetic_validation_only** `synthetic_validation_only`
++   - Status: synthetic_validation_only
++   - Next action: synthetic_validation_only
++   - Deadline: synthetic_validation_only
++   - Subtasks:
++     - **synthetic_validation_only** `synthetic_validation_only` - synthetic_validation_only
++
++### Project review flags (include when material)
++
++- **Issue:** synthetic_validation_only
++- **Why it matters:** synthetic_validation_only
++- **Operator action:** synthetic_validation_only
++
++## Ranked task view
++
++Use manual override first, then deadline, priority, and urgency according to the live ProjectStatus contract.
++
++| Rank | Task and project | Rating | Confirmed next action |
++|---|---|---|---|
++| synthetic_validation_only | synthetic_validation_only - synthetic_validation_only | `synthetic_validation_only` | synthetic_validation_only |
++
++## Unassigned items (include when confirmed work lacks a project assignment)
++
++- synthetic_validation_only - assign or resolve by: synthetic_validation_only
++
++`Unassigned` is temporary and must not become a hidden permanent project category.
++
++## Operator validation (include only when a relevant flag exists)
++
++- synthetic_validation_only
++
++## Archived or inactive projects (include only when needed for the current decision)
++
++- **synthetic_validation_only:** synthetic_validation_only - source: `synthetic_validation_only`
++
++## Overview provenance and freshness
++
++**Confirmed durable result references:**
++
++- `synthetic_validation_only`
++
++**Overview generated or refreshed on:** synthetic_validation_only  
++**Stale threshold or policy reference:** synthetic_validation_only  
++**Excluded candidates or unconfirmed changes:** synthetic_validation_only  
++**Confidence:** synthetic_validation_only
++
++## Compact downstream handoff
++
++```yaml
++presentation_handoff:
++  artifact_type: "Project_Status_Overview"
++  artifact_ref: "synthetic_validation_only"
++  overview_truth_state: "synthetic_validation_only"
++  confirmed_project_refs:
++    - project_ref: "synthetic_validation_only"
++      accepted_state_ref: "synthetic_validation_only"
++      freshness: "synthetic_validation_only"
++  highest_ranked_task_ref: "synthetic_validation_only"
++  material_review_flags:
++    - "synthetic_validation_only"
++  operator_validation_flags:
++    - "synthetic_validation_only"
++  next_consumers:
++    - "synthetic_validation_only"
++```
++
++## Template authority
++
++```yaml
++template_authority:
++  source_design_ref: "apex-meta/operator-output-design/step3-output-design-system/16-project-status-overview-design.okf.yaml"
++  round6_overlay_intent_ref: "round6-patches/06-j11-project-status-contract-alignment.patch"
++  overlay_application_status: "intended_guidance_not_applied_by_this_package"
++  domain_contract_refs:
++    - ".claude/skills/ProjectStatus/project-status-overview_SKILL_v3.md"
++    - ".claude/skills/ProjectStatus/project-status-overview-contract_v2_fixed.md"
++```
++
++Example: [J11 Project Status Overview](../../../apex-meta/operator-output-design/step4-operator-template-system/examples/master-of-arts-example-fragments.md)
+diff --git a/apex-meta/operator-output-design/step6-activation-validation/fixtures/J12-ai-routing-card.example.md b/apex-meta/operator-output-design/step6-activation-validation/fixtures/J12-ai-routing-card.example.md
+new file mode 100644
+index 00000000..7aa4248b
+--- /dev/null
++++ b/apex-meta/operator-output-design/step6-activation-validation/fixtures/J12-ai-routing-card.example.md
+@@ -0,0 +1,138 @@
++---
++synthetic_validation_only: true
++artifact_id: J12
++mutation_performed: false
++---
++
++# AI Routing Card - synthetic_validation_only
++
++> **Routing state:** synthetic_validation_only  
++> **Recommended route:** synthetic_validation_only  
++> **Next action:** synthetic_validation_only  
++> **Review needed:** synthetic_validation_only  
++> **Confidence:** synthetic_validation_only
++
++> **Advisory only:** The recommendation does not authorize execution. J4 or J5 may consume the route only after an operator route decision is recorded.
++
++## Operator route decision
++
++- [ ] Approve the recommended route.
++- [ ] Choose a named alternative.
++- [ ] Override with a different route and reason.
++- [ ] Request clarification or more evidence.
++- [ ] Defer or select no route.
++
++**Decision:** synthetic_validation_only  
++**Approved route:** synthetic_validation_only  
++**Decision by:** synthetic_validation_only  
++**Decision date:** synthetic_validation_only  
++**Reason or constraint:** synthetic_validation_only
++
++## Task context
++
++**Project:** synthetic_validation_only  
++**Flow or task:** synthetic_validation_only  
++**Desired output:** synthetic_validation_only  
++**Risk or consequence level:** synthetic_validation_only  
++**Time sensitivity:** synthetic_validation_only  
++**Data, privacy, or tool constraints:** synthetic_validation_only  
++**Confirmed project context:** [synthetic_validation_only](synthetic_validation_only) - `synthetic_validation_only`
++
++## Advisory recommendation
++
++**Stable surface or tool class:** synthetic_validation_only  
++**Execution mode:** synthetic_validation_only  
++**Why it fits this task:**
++
++- synthetic_validation_only
++
++**Key constraints:**
++
++- synthetic_validation_only
++
++**Fallback route:** synthetic_validation_only  
++**Do not use when:** synthetic_validation_only
++
++## Evidence and confidence
++
++**Usage-learning references:**
++
++- [synthetic_validation_only](synthetic_validation_only) - `synthetic_validation_only`
++
++**Other route evidence:** synthetic_validation_only  
++**Evidence status:** synthetic_validation_only  
++**Confidence:** synthetic_validation_only  
++**Material uncertainty:** synthetic_validation_only
++
++## Exact model recommendation (include only with current verification)
++
++**Exact model:** synthetic_validation_only  
++**Verification source:** [synthetic_validation_only](synthetic_validation_only) - `synthetic_validation_only`  
++**Verified on:** synthetic_validation_only  
++**Validity window or recheck trigger:** synthetic_validation_only  
++**Known availability, limit, or pricing caveat:** synthetic_validation_only
++
++Remove this section when exact current model truth is not verified. Keep the stable surface recommendation instead.
++
++## Alternatives
++
++### Alternative 1 - synthetic_validation_only
++
++- **Use when:** synthetic_validation_only
++- **Trade-off:** synthetic_validation_only
++- **Evidence:** `synthetic_validation_only`
++
++### Alternative 2 - synthetic_validation_only
++
++- **Use when:** synthetic_validation_only
++- **Trade-off:** synthetic_validation_only
++- **Evidence:** `synthetic_validation_only`
++
++## Consequence of the operator decision
++
++- **Approved:** the selected route may be passed as execution context to J4 and prompt context to J5.
++- **Overridden:** preserve both the recommendation and the operator-selected route; execution uses the operator route.
++- **Deferred or no route:** do not treat the recommendation as authorization to execute.
++- **Clarify:** request only the missing context that would change the route.
++
++## Approved execution handoff (complete only after an operator decision)
++
++**Approval status:** synthetic_validation_only  
++**Route to carry:** synthetic_validation_only  
++**Flow Execution Card reference:** `synthetic_validation_only`  
++**Prompt Files and Index reference:** `synthetic_validation_only`  
++**Conditions to preserve:** synthetic_validation_only
++
++## Compact downstream handoff
++
++```yaml
++presentation_handoff:
++  artifact_type: "AI_Routing_Card"
++  artifact_ref: "synthetic_validation_only"
++  task_ref: "synthetic_validation_only"
++  selected_surface_class: "synthetic_validation_only"
++  verified_model_ref: "synthetic_validation_only"
++  recommendation_confidence: "synthetic_validation_only"
++  operator_route_decision: "synthetic_validation_only"
++  operator_approved_route: "synthetic_validation_only"
++  approval_status: "synthetic_validation_only"
++  usage_learning_refs:
++    - "synthetic_validation_only"
++  next_consumers:
++    - "synthetic_validation_only"
++    - "synthetic_validation_only"
++```
++
++## Template authority
++
++```yaml
++template_authority:
++  source_design_ref: "apex-meta/operator-output-design/step3-output-design-system/17-ai-routing-card-design.okf.yaml"
++  round6_overlay_intent_ref: "round6-patches/07-j12-routing-contract-alignment.patch"
++  overlay_application_status: "intended_guidance_not_applied_by_this_package"
++  domain_contract_refs:
++    - ".claude/skills/AIRouting/ai-routing-and-usage-tracking-SKILL.md"
++    - ".claude/skills/AIRouting/routing-recommendation-packet-contract.md"
++```
++
++Example: [J12 AI Routing Card](../../../apex-meta/operator-output-design/step4-operator-template-system/examples/master-of-arts-example-fragments.md)
+diff --git a/apex-meta/patch-packs/2026-07-11-step6-activation-correction/00-patch-manifest.okf.yaml b/apex-meta/patch-packs/2026-07-11-step6-activation-correction/00-patch-manifest.okf.yaml
+new file mode 100644
+index 00000000..e28c61ec
+--- /dev/null
++++ b/apex-meta/patch-packs/2026-07-11-step6-activation-correction/00-patch-manifest.okf.yaml
+@@ -0,0 +1,5 @@
++patch_pack:
++  patches:
++    - patches/01-fix-promoted-example-links.patch
++    - patches/02-consolidate-owner-manifests.patch
++    - patches/03-replace-activation-report.patch
+diff --git a/apex-meta/patch-packs/2026-07-11-step6-activation-correction/01-apply-handoff.okf.md b/apex-meta/patch-packs/2026-07-11-step6-activation-correction/01-apply-handoff.okf.md
+new file mode 100644
+index 00000000..b95d2af0
+--- /dev/null
++++ b/apex-meta/patch-packs/2026-07-11-step6-activation-correction/01-apply-handoff.okf.md
+@@ -0,0 +1,3 @@
++# Apply Handoff
++
++- Order: Apply patches 01, 02, 03.
+diff --git a/apex-meta/patch-packs/2026-07-11-step6-activation-correction/02-validation-report.okf.md b/apex-meta/patch-packs/2026-07-11-step6-activation-correction/02-validation-report.okf.md
+new file mode 100644
+index 00000000..7b40ff5d
+--- /dev/null
++++ b/apex-meta/patch-packs/2026-07-11-step6-activation-correction/02-validation-report.okf.md
+@@ -0,0 +1,137 @@
++# Validation Report
++
++```yaml
++validation: pass
++fixtures_passed: 13
++```
++
++- artifact_id: J1
++  template_path: .claude/skills/project-kb-manager/templates/project-state-success-card-template.md
++  fixture_path: apex-meta\operator-output-design\step6-activation-validation\fixtures\J01-project-state-success-card.example.md
++  required_sections_present: true
++  placeholders_resolved: true
++  YAML_blocks_parse: true
++  local_links_resolve: true
++  lifecycle_boundary_passes: true
++  mutation_performed: false
++  verdict: pass
++- artifact_id: J2
++  template_path: .claude/skills/PrecapWeek/weekly-command-brief-template.md
++  fixture_path: apex-meta\operator-output-design\step6-activation-validation\fixtures\J02-weekly-command-brief.example.md
++  required_sections_present: true
++  placeholders_resolved: true
++  YAML_blocks_parse: true
++  local_links_resolve: true
++  lifecycle_boundary_passes: true
++  mutation_performed: false
++  verdict: pass
++- artifact_id: J3
++  template_path: .claude/skills/PrecapNextDay/templates/precap-next-day-brief-template.md
++  fixture_path: apex-meta\operator-output-design\step6-activation-validation\fixtures\J03-precap-next-day-brief.example.md
++  required_sections_present: true
++  placeholders_resolved: true
++  YAML_blocks_parse: true
++  local_links_resolve: true
++  lifecycle_boundary_passes: true
++  mutation_performed: false
++  verdict: pass
++- artifact_id: J4
++  template_path: .claude/skills/PrecapNextDay/templates/flow-execution-card-template.md
++  fixture_path: apex-meta\operator-output-design\step6-activation-validation\fixtures\J04-flow-execution-card.example.md
++  required_sections_present: true
++  placeholders_resolved: true
++  YAML_blocks_parse: true
++  local_links_resolve: true
++  lifecycle_boundary_passes: true
++  mutation_performed: false
++  verdict: pass
++- artifact_id: J5
++  template_path: .claude/skills/PrecapNextDay/templates/prompt-files-and-index-template.md
++  fixture_path: apex-meta\operator-output-design\step6-activation-validation\fixtures\J05-prompt-files-and-index.example.md
++  required_sections_present: true
++  placeholders_resolved: true
++  YAML_blocks_parse: true
++  local_links_resolve: true
++  lifecycle_boundary_passes: true
++  mutation_performed: false
++  verdict: pass
++- artifact_id: J6
++  template_path: .claude/skills/raw-flow-dump-normalize/templates/execution-evidence-handoff-template.md
++  fixture_path: apex-meta\operator-output-design\step6-activation-validation\fixtures\J06-execution-evidence-handoff.example.md
++  required_sections_present: true
++  placeholders_resolved: true
++  YAML_blocks_parse: true
++  local_links_resolve: true
++  lifecycle_boundary_passes: true
++  mutation_performed: false
++  verdict: pass
++- artifact_id: J6a
++  template_path: .claude/skills/raw-flow-dump-normalize/templates/skip-marker-template.md
++  fixture_path: apex-meta\operator-output-design\step6-activation-validation\fixtures\J06a-skip-marker.example.md
++  required_sections_present: true
++  placeholders_resolved: true
++  YAML_blocks_parse: true
++  local_links_resolve: true
++  lifecycle_boundary_passes: true
++  mutation_performed: false
++  verdict: pass
++- artifact_id: J7
++  template_path: .claude/skills/flow-recap/templates/flowrecap-result-card-template.md
++  fixture_path: apex-meta\operator-output-design\step6-activation-validation\fixtures\J07-flowrecap-result-card.example.md
++  required_sections_present: true
++  placeholders_resolved: true
++  YAML_blocks_parse: true
++  local_links_resolve: true
++  lifecycle_boundary_passes: true
++  mutation_performed: false
++  verdict: pass
++- artifact_id: J8
++  template_path: .claude/skills/model-usage-log/templates/usage-learning-card-template.md
++  fixture_path: apex-meta\operator-output-design\step6-activation-validation\fixtures\J08-usage-learning-card.example.md
++  required_sections_present: true
++  placeholders_resolved: true
++  YAML_blocks_parse: true
++  local_links_resolve: true
++  lifecycle_boundary_passes: true
++  mutation_performed: false
++  verdict: pass
++- artifact_id: J9
++  template_path: .claude/skills/status-merge/templates/status-merge-decision-card-template.md
++  fixture_path: apex-meta\operator-output-design\step6-activation-validation\fixtures\J09-status-merge-decision-card.example.md
++  required_sections_present: true
++  placeholders_resolved: true
++  YAML_blocks_parse: true
++  local_links_resolve: true
++  lifecycle_boundary_passes: true
++  mutation_performed: false
++  verdict: pass
++- artifact_id: J10
++  template_path: .claude/skills/project-kb-manager/templates/project-kb-update-card-template.md
++  fixture_path: apex-meta\operator-output-design\step6-activation-validation\fixtures\J10-project-kb-update-card.example.md
++  required_sections_present: true
++  placeholders_resolved: true
++  YAML_blocks_parse: true
++  local_links_resolve: true
++  lifecycle_boundary_passes: true
++  mutation_performed: false
++  verdict: pass
++- artifact_id: J11
++  template_path: .claude/skills/ProjectStatus/project-status-overview-template.md
++  fixture_path: apex-meta\operator-output-design\step6-activation-validation\fixtures\J11-project-status-overview.example.md
++  required_sections_present: true
++  placeholders_resolved: true
++  YAML_blocks_parse: true
++  local_links_resolve: true
++  lifecycle_boundary_passes: true
++  mutation_performed: false
++  verdict: pass
++- artifact_id: J12
++  template_path: .claude/skills/AIRouting/ai-routing-card-template.md
++  fixture_path: apex-meta\operator-output-design\step6-activation-validation\fixtures\J12-ai-routing-card.example.md
++  required_sections_present: true
++  placeholders_resolved: true
++  YAML_blocks_parse: true
++  local_links_resolve: true
++  lifecycle_boundary_passes: true
++  mutation_performed: false
++  verdict: pass

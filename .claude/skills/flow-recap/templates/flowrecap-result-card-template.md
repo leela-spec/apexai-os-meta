@@ -131,4 +131,4 @@ template_authority:
     - ".claude/skills/flow-recap/references/project-status-delta-contract.md"
 ```
 
-Example: [J07 FlowRecap Result Card](../examples/master-of-arts-example-fragments.md#j07-flowrecap-result-card)
+Example: [J07 FlowRecap Result Card](../../../../apex-meta/operator-output-design/step4-operator-template-system/examples/master-of-arts-example-fragments.md)

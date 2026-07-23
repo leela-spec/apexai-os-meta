@@ -129,4 +129,4 @@ template_authority:
     - ".claude/skills/AIRouting/routing-recommendation-packet-contract.md"
 ```
 
-Example: [J12 AI Routing Card](../examples/master-of-arts-example-fragments.md#j12-ai-routing-card)
+Example: [J12 AI Routing Card](../../../apex-meta/operator-output-design/step4-operator-template-system/examples/master-of-arts-example-fragments.md)

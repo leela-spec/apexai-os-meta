@@ -137,13 +137,12 @@ Paste this next:
 > - [ ] Supporting file list uses read_when conditions.
 > - [ ] Procedure is compact and action-grained.
 
-
 ## Promoted Operator Templates
 
 ```yaml
 operator_templates:
   - artifact_id: J12
     path: .claude/skills/AIRouting/ai-routing-card-template.md
-    purpose: Retained Step 4 operator template
+    purpose: Operator-facing presentation template
     read_when: operator_requests_template
 ```

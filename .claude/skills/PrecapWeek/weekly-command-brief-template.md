@@ -130,4 +130,4 @@ template_authority:
   source_gap: ".claude/skills/PrecapWeek/references/weekly-plan-output-contract.md was referenced by the live skill but not retrievable from main during research."
 ```
 
-Example: [J02 Weekly Command Brief](../examples/master-of-arts-example-fragments.md#j02-weekly-command-brief)
+Example: [J02 Weekly Command Brief](../../../apex-meta/operator-output-design/step4-operator-template-system/examples/master-of-arts-example-fragments.md)

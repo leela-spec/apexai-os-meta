@@ -1,0 +1,257 @@
+link_audit:
+  links:
+    - source_file: .claude/skills/project-kb-manager/templates/project-state-success-card-template.md
+      link_text: "{{DESCRIPTIVE_ARTIFACT_LABEL}}"
+      original_target: "{{RELATIVE_OR_CANONICAL_REF}}"
+      exists: false
+      correction_required: true
+    - source_file: .claude/skills/project-kb-manager/templates/project-state-success-card-template.md
+      link_text: "J01 Project State Success Card"
+      original_target: "../../../../apex-meta/operator-output-design/step4-operator-template-system/examples/master-of-arts-example-fragments.md"
+      exists: true
+      correction_required: false
+    - source_file: .claude/skills/PrecapWeek/weekly-command-brief-template.md
+      link_text: "{{OUTPUT_LABEL}}"
+      original_target: "{{OUTPUT_REF_OR_PLANNED_PATH}}"
+      exists: false
+      correction_required: true
+    - source_file: .claude/skills/PrecapWeek/weekly-command-brief-template.md
+      link_text: "{{J1_LABEL}}"
+      original_target: "{{J1_REF}}"
+      exists: false
+      correction_required: true
+    - source_file: .claude/skills/PrecapWeek/weekly-command-brief-template.md
+      link_text: "J02 Weekly Command Brief"
+      original_target: "../../../apex-meta/operator-output-design/step4-operator-template-system/examples/master-of-arts-example-fragments.md"
+      exists: true
+      correction_required: false
+    - source_file: .claude/skills/PrecapNextDay/templates/precap-next-day-brief-template.md
+      link_text: "Open Flow Execution Card"
+      original_target: "{{FLOW_EXECUTION_CARD_REF}}"
+      exists: false
+      correction_required: true
+    - source_file: .claude/skills/PrecapNextDay/templates/precap-next-day-brief-template.md
+      link_text: "{{J1_LABEL}}"
+      original_target: "{{J1_REF}}"
+      exists: false
+      correction_required: true
+    - source_file: .claude/skills/PrecapNextDay/templates/precap-next-day-brief-template.md
+      link_text: "{{J2_LABEL}}"
+      original_target: "{{J2_REF}}"
+      exists: false
+      correction_required: true
+    - source_file: .claude/skills/PrecapNextDay/templates/precap-next-day-brief-template.md
+      link_text: "J03 PreCap Next Day Brief"
+      original_target: "../../../../apex-meta/operator-output-design/step4-operator-template-system/examples/master-of-arts-example-fragments.md"
+      exists: true
+      correction_required: false
+    - source_file: .claude/skills/PrecapNextDay/templates/flow-execution-card-template.md
+      link_text: "{{ROUTING_LABEL}}"
+      original_target: "{{ROUTING_REF}}"
+      exists: false
+      correction_required: true
+    - source_file: .claude/skills/PrecapNextDay/templates/flow-execution-card-template.md
+      link_text: "{{INPUT_LABEL}}"
+      original_target: "{{INPUT_REF}}"
+      exists: false
+      correction_required: true
+    - source_file: .claude/skills/PrecapNextDay/templates/flow-execution-card-template.md
+      link_text: "{{S1_INPUT_LABEL}}"
+      original_target: "{{S1_INPUT_REF}}"
+      exists: false
+      correction_required: true
+    - source_file: .claude/skills/PrecapNextDay/templates/flow-execution-card-template.md
+      link_text: "Open S1 prompt file"
+      original_target: "{{S1_PROMPT_FILE}}"
+      exists: false
+      correction_required: true
+    - source_file: .claude/skills/PrecapNextDay/templates/flow-execution-card-template.md
+      link_text: "{{S2_INPUT_LABEL}}"
+      original_target: "{{S2_INPUT_REF}}"
+      exists: false
+      correction_required: true
+    - source_file: .claude/skills/PrecapNextDay/templates/flow-execution-card-template.md
+      link_text: "Open S2 prompt file"
+      original_target: "{{S2_PROMPT_FILE}}"
+      exists: false
+      correction_required: true
+    - source_file: .claude/skills/PrecapNextDay/templates/flow-execution-card-template.md
+      link_text: "Open S3 prompt file"
+      original_target: "{{S3_PROMPT_FILE}}"
+      exists: false
+      correction_required: true
+    - source_file: .claude/skills/PrecapNextDay/templates/flow-execution-card-template.md
+      link_text: "{{J6_LABEL}}"
+      original_target: "{{J6_REF}}"
+      exists: false
+      correction_required: true
+    - source_file: .claude/skills/PrecapNextDay/templates/flow-execution-card-template.md
+      link_text: "{{J3_LABEL}}"
+      original_target: "{{J3_REF}}"
+      exists: false
+      correction_required: true
+    - source_file: .claude/skills/PrecapNextDay/templates/flow-execution-card-template.md
+      link_text: "J04 Flow Execution Card"
+      original_target: "../../../../apex-meta/operator-output-design/step4-operator-template-system/examples/master-of-arts-example-fragments.md"
+      exists: true
+      correction_required: false
+    - source_file: .claude/skills/PrecapNextDay/templates/prompt-files-and-index-template.md
+      link_text: "Open execution workspace"
+      original_target: "{{FLOW_EXECUTION_CARD_REF}}"
+      exists: false
+      correction_required: true
+    - source_file: .claude/skills/PrecapNextDay/templates/prompt-files-and-index-template.md
+      link_text: "{{PROMPT_TITLE}}"
+      original_target: "{{PROMPT_FILE_REF}}"
+      exists: false
+      correction_required: true
+    - source_file: .claude/skills/PrecapNextDay/templates/prompt-files-and-index-template.md
+      link_text: "{{ROUTING_LABEL}}"
+      original_target: "{{ROUTING_REF}}"
+      exists: false
+      correction_required: true
+    - source_file: .claude/skills/PrecapNextDay/templates/prompt-files-and-index-template.md
+      link_text: "{{ROUTING_LABEL}}"
+      original_target: "{{ROUTING_REF}}"
+      exists: false
+      correction_required: true
+    - source_file: .claude/skills/PrecapNextDay/templates/prompt-files-and-index-template.md
+      link_text: "J05 Prompt Files and Index"
+      original_target: "../../../../apex-meta/operator-output-design/step4-operator-template-system/examples/master-of-arts-example-fragments.md"
+      exists: true
+      correction_required: false
+    - source_file: .claude/skills/raw-flow-dump-normalize/templates/execution-evidence-handoff-template.md
+      link_text: "{{FLOW_CARD_LABEL}}"
+      original_target: "{{FLOW_CARD_REF}}"
+      exists: false
+      correction_required: true
+    - source_file: .claude/skills/raw-flow-dump-normalize/templates/execution-evidence-handoff-template.md
+      link_text: "{{OUTPUT_LABEL}}"
+      original_target: "{{OUTPUT_REF}}"
+      exists: false
+      correction_required: true
+    - source_file: .claude/skills/raw-flow-dump-normalize/templates/execution-evidence-handoff-template.md
+      link_text: "{{SOURCE_LABEL}}"
+      original_target: "{{SOURCE_REF}}"
+      exists: false
+      correction_required: true
+    - source_file: .claude/skills/raw-flow-dump-normalize/templates/execution-evidence-handoff-template.md
+      link_text: "J06 Execution Evidence Handoff"
+      original_target: "../../../../apex-meta/operator-output-design/step4-operator-template-system/examples/master-of-arts-example-fragments.md"
+      exists: true
+      correction_required: false
+    - source_file: .claude/skills/raw-flow-dump-normalize/templates/skip-marker-template.md
+      link_text: "{{FLOW_CARD_LABEL}}"
+      original_target: "{{SOURCE_FLOW_PACKET_REF}}"
+      exists: false
+      correction_required: true
+    - source_file: .claude/skills/raw-flow-dump-normalize/templates/skip-marker-template.md
+      link_text: "Execution Evidence Handoff"
+      original_target: "J06-execution-evidence-handoff.md"
+      exists: false
+      correction_required: true
+    - source_file: .claude/skills/raw-flow-dump-normalize/templates/skip-marker-template.md
+      link_text: "J06a Skip Marker"
+      original_target: "../../../../apex-meta/operator-output-design/step4-operator-template-system/examples/master-of-arts-example-fragments.md"
+      exists: true
+      correction_required: false
+    - source_file: .claude/skills/flow-recap/templates/flowrecap-result-card-template.md
+      link_text: "{{ARTIFACT_LABEL}}"
+      original_target: "{{ARTIFACT_REF}}"
+      exists: false
+      correction_required: true
+    - source_file: .claude/skills/flow-recap/templates/flowrecap-result-card-template.md
+      link_text: "{{J6_LABEL}}"
+      original_target: "{{J6_REF}}"
+      exists: false
+      correction_required: true
+    - source_file: .claude/skills/flow-recap/templates/flowrecap-result-card-template.md
+      link_text: "J07 FlowRecap Result Card"
+      original_target: "../../../../apex-meta/operator-output-design/step4-operator-template-system/examples/master-of-arts-example-fragments.md"
+      exists: true
+      correction_required: false
+    - source_file: .claude/skills/model-usage-log/templates/usage-learning-card-template.md
+      link_text: "{{SOURCE_LABEL}}"
+      original_target: "{{SOURCE_REF}}"
+      exists: false
+      correction_required: true
+    - source_file: .claude/skills/model-usage-log/templates/usage-learning-card-template.md
+      link_text: "{{J7_LABEL}}"
+      original_target: "{{J7_REF}}"
+      exists: false
+      correction_required: true
+    - source_file: .claude/skills/model-usage-log/templates/usage-learning-card-template.md
+      link_text: "J08 Usage Learning Card"
+      original_target: "../../../../apex-meta/operator-output-design/step4-operator-template-system/examples/master-of-arts-example-fragments.md"
+      exists: true
+      correction_required: false
+    - source_file: .claude/skills/status-merge/templates/status-merge-decision-card-template.md
+      link_text: "{{J7_CANDIDATE_LABEL}}"
+      original_target: "{{J7_CANDIDATE_REF}}"
+      exists: false
+      correction_required: true
+    - source_file: .claude/skills/status-merge/templates/status-merge-decision-card-template.md
+      link_text: "{{EVIDENCE_LABEL}}"
+      original_target: "{{EVIDENCE_REF}}"
+      exists: false
+      correction_required: true
+    - source_file: .claude/skills/status-merge/templates/status-merge-decision-card-template.md
+      link_text: "{{J10_LABEL}}"
+      original_target: "{{J10_RESULT_REF}}"
+      exists: false
+      correction_required: true
+    - source_file: .claude/skills/status-merge/templates/status-merge-decision-card-template.md
+      link_text: "J09 Status Merge Decision Card"
+      original_target: "../../../../apex-meta/operator-output-design/step4-operator-template-system/examples/master-of-arts-example-fragments.md"
+      exists: true
+      correction_required: false
+    - source_file: .claude/skills/project-kb-manager/templates/project-kb-update-card-template.md
+      link_text: "{{J9_LABEL}}"
+      original_target: "{{J9_REF}}"
+      exists: false
+      correction_required: true
+    - source_file: .claude/skills/project-kb-manager/templates/project-kb-update-card-template.md
+      link_text: "{{SOURCE_LABEL}}"
+      original_target: "{{SOURCE_REF}}"
+      exists: false
+      correction_required: true
+    - source_file: .claude/skills/project-kb-manager/templates/project-kb-update-card-template.md
+      link_text: "{{RESULT_LABEL}}"
+      original_target: "{{RESULT_REF}}"
+      exists: false
+      correction_required: true
+    - source_file: .claude/skills/project-kb-manager/templates/project-kb-update-card-template.md
+      link_text: "J10 Project KB Update Card"
+      original_target: "../../../../apex-meta/operator-output-design/step4-operator-template-system/examples/master-of-arts-example-fragments.md"
+      exists: true
+      correction_required: false
+    - source_file: .claude/skills/ProjectStatus/project-status-overview-template.md
+      link_text: "{{J10_OR_KB_SOURCE_LABEL}}"
+      original_target: "{{DURABLE_SOURCE_REF}}"
+      exists: false
+      correction_required: true
+    - source_file: .claude/skills/ProjectStatus/project-status-overview-template.md
+      link_text: "J11 Project Status Overview"
+      original_target: "../../../apex-meta/operator-output-design/step4-operator-template-system/examples/master-of-arts-example-fragments.md"
+      exists: true
+      correction_required: false
+    - source_file: .claude/skills/AIRouting/ai-routing-card-template.md
+      link_text: "{{J11_LABEL}}"
+      original_target: "{{J11_REF}}"
+      exists: false
+      correction_required: true
+    - source_file: .claude/skills/AIRouting/ai-routing-card-template.md
+      link_text: "{{J8_LABEL}}"
+      original_target: "{{J8_REF}}"
+      exists: false
+      correction_required: true
+    - source_file: .claude/skills/AIRouting/ai-routing-card-template.md
+      link_text: "{{SOURCE_LABEL}}"
+      original_target: "{{SOURCE_REF}}"
+      exists: false
+      correction_required: true
+    - source_file: .claude/skills/AIRouting/ai-routing-card-template.md
+      link_text: "J12 AI Routing Card"
+      original_target: "../../../apex-meta/operator-output-design/step4-operator-template-system/examples/master-of-arts-example-fragments.md"
+      exists: true
+      correction_required: false

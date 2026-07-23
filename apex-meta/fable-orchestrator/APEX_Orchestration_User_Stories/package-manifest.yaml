@@ -1,0 +1,79 @@
+package:
+  name: APEX_Orchestration_User_Stories
+  version: "1.0"
+  status: final
+  created_on: "2026-07-11"
+  repository:
+    full_name: leela-spec/apexai-os-meta
+    branch: main
+    read_snapshot: f4c81bf7fe5ad00b9bab6b83026071a7bb96d884
+    access: read_only
+    modified: false
+  primary_artifact: user-stories.md
+  files:
+    - path: 00_INFORMATION_CONNECTION_LEDGER.md
+      purpose: "Compact map of source authority, role and skill findings, story connections, conflicts, and the missing governing-attachment issue."
+      status: final
+    - path: user-stories.md
+      purpose: "Seven complete, source-grounded APEX orchestration user stories in concise macro, meso, and selective micro OKF."
+      status: final
+    - path: 02_RESEARCH_AND_VALIDATION_NOTES.md
+      purpose: "Targeted current-practice improvements, major interpretations, portfolio validation, assumptions, and unresolved implementation boundaries."
+      status: final
+    - path: package-manifest.yaml
+      purpose: "Package inventory, provenance, status, source basis, and primary-artifact declaration."
+      status: final
+  source_basis:
+    operator:
+      - "Fixed portfolio, role boundaries, validation loop, acceptance criteria, exclusions, artifact shape, and final package instructions in the user request."
+      - "Named User Stories — Decision and Definition Log was not available; the request itself was used as the governing baseline."
+    current_fable:
+      - apex-meta/ORCHESTRATION-SYSTEMS-INDEX.md
+      - apex-meta/fable-orchestrator/README.md
+      - apex-meta/fable-orchestrator/decisions.md
+      - apex-meta/fable-orchestrator/process-blueprint.md
+      - apex-meta/fable-orchestrator/build-plan.md
+      - apex-meta/fable-orchestrator/target-log.md
+      - apex-meta/fable-orchestrator/fable-execution-best-practices.md
+      - apex-meta/fable-orchestrator/process-blueprint-qa.md
+      - apex-meta/handoff/agent-skill-system-research/design-lock-qa.md
+      - apex-meta/handoff/agent-skill-system-research/best-practice-report.md
+    knowledge_bases:
+      - apex-meta/kb/operator-research-orchestration-20260711/wiki/
+      - apex-meta/kb/old-apex-full-orchestration-agent-kb/wiki/
+      - apex-meta/kb/old-apex-full-orchestration-agent-kb-v2/wiki/
+      - apex-meta/kb/apex-plan-sync-session-workflow-v2/wiki/
+      - apex-meta/kb/claude-code-orchestration-design/wiki/
+    project_evidence:
+      - "apex-meta/kb/old-apex-full-orchestration-agent-kb-v2/OperatorResearch/AgnetFlows_Projects_Targets/Apex_Hermes_Workflow_Example_Database_Master_of_Arts_v0_1 (1).md"
+      - "apex-meta/kb/old-apex-full-orchestration-agent-kb-v2/OperatorResearch/AgnetFlows_Projects_Targets/ProcessRanking_GPT&MasterOA.md"
+      - "apex-meta/kb/old-apex-full-orchestration-agent-kb-v2/OperatorResearch/AgnetFlows_Projects_Targets/SourceIndexProjectGPT.md"
+    external_primary_sources:
+      - "Anthropic — Building effective agents"
+      - "Anthropic — Effective context engineering for AI agents"
+      - "Anthropic — Equipping agents for the real world with Agent Skills"
+      - "OpenAI — A practical guide to building agents"
+      - "OpenAI — Safety in building agents"
+      - "Model Context Protocol Specification 2025-11-25"
+      - "NIST AI Risk Management Framework and Generative AI Profile"
+      - "Microsoft HAX Guidelines for Human-AI Interaction"
+  validation:
+    exact_story_count: 7
+    fixed_story_ids:
+      - US-SEQ-01
+      - US-MEDIA-01
+      - US-LEELA-01
+      - US-WORKSHOP-01
+      - US-IDEA-01
+      - US-OFFER-01
+      - US-COMP-01
+    macro_present_for_each_story: true
+    meso_present_for_each_story: true
+    selective_micro_present_for_each_story: true
+    independent_validation_present_for_important_work: true
+    named_repair_routes_present: true
+    strategic_alignment_present_at_important_milestones: true
+    operator_gates_are_consequential: true
+    durable_continuity_present: true
+    plan_sync_session_treated_as_meta_ops_support: true
+    no_repository_write: true

@@ -1,0 +1,130 @@
+diff --git a/.claude/skills/AIRouting/ai-routing-card-template.md b/.claude/skills/AIRouting/ai-routing-card-template.md
+index f8fdcec4..949685f0 100644
+--- a/.claude/skills/AIRouting/ai-routing-card-template.md
++++ b/.claude/skills/AIRouting/ai-routing-card-template.md
+@@ -129,4 +129,4 @@ template_authority:
+     - ".claude/skills/AIRouting/routing-recommendation-packet-contract.md"
+ ```
+ 
+-Example: [J12 AI Routing Card](../examples/master-of-arts-example-fragments.md#j12-ai-routing-card)
++Example: [J12 AI Routing Card](../../../apex-meta/operator-output-design/step4-operator-template-system/examples/master-of-arts-example-fragments.md)
+diff --git a/.claude/skills/PrecapNextDay/templates/flow-execution-card-template.md b/.claude/skills/PrecapNextDay/templates/flow-execution-card-template.md
+index dfa11ed3..30972db8 100644
+--- a/.claude/skills/PrecapNextDay/templates/flow-execution-card-template.md
++++ b/.claude/skills/PrecapNextDay/templates/flow-execution-card-template.md
+@@ -210,4 +210,4 @@ template_authority:
+     - ".claude/skills/PrecapNextDay/references/daily-plan-output-contract.md"
+ ```
+ 
+-Example: [J04 Flow Execution Card](../examples/master-of-arts-example-fragments.md#j04-flow-execution-card)
++Example: [J04 Flow Execution Card](../../../../apex-meta/operator-output-design/step4-operator-template-system/examples/master-of-arts-example-fragments.md)
+diff --git a/.claude/skills/PrecapNextDay/templates/precap-next-day-brief-template.md b/.claude/skills/PrecapNextDay/templates/precap-next-day-brief-template.md
+index bf8d7143..570b4fff 100644
+--- a/.claude/skills/PrecapNextDay/templates/precap-next-day-brief-template.md
++++ b/.claude/skills/PrecapNextDay/templates/precap-next-day-brief-template.md
+@@ -111,4 +111,4 @@ template_authority:
+     - ".claude/skills/PrecapNextDay/references/flow-packet-contract.md"
+ ```
+ 
+-Example: [J03 PreCap Next Day Brief](../examples/master-of-arts-example-fragments.md#j03-precap-next-day-brief)
++Example: [J03 PreCap Next Day Brief](../../../../apex-meta/operator-output-design/step4-operator-template-system/examples/master-of-arts-example-fragments.md)
+diff --git a/.claude/skills/PrecapNextDay/templates/prompt-files-and-index-template.md b/.claude/skills/PrecapNextDay/templates/prompt-files-and-index-template.md
+index 80728d03..716ec586 100644
+--- a/.claude/skills/PrecapNextDay/templates/prompt-files-and-index-template.md
++++ b/.claude/skills/PrecapNextDay/templates/prompt-files-and-index-template.md
+@@ -92,4 +92,4 @@ template_authority:
+   source_gap: "Expected Prompt Engineering entrypoint was not verified; final prompt doctrine remains externally owned."
+ ```
+ 
+-Example: [J05 Prompt Files and Index](../examples/master-of-arts-example-fragments.md#j05-prompt-files-and-index)
++Example: [J05 Prompt Files and Index](../../../../apex-meta/operator-output-design/step4-operator-template-system/examples/master-of-arts-example-fragments.md)
+diff --git a/.claude/skills/PrecapWeek/weekly-command-brief-template.md b/.claude/skills/PrecapWeek/weekly-command-brief-template.md
+index 2287aad8..6296b409 100644
+--- a/.claude/skills/PrecapWeek/weekly-command-brief-template.md
++++ b/.claude/skills/PrecapWeek/weekly-command-brief-template.md
+@@ -130,4 +130,4 @@ template_authority:
+   source_gap: ".claude/skills/PrecapWeek/references/weekly-plan-output-contract.md was referenced by the live skill but not retrievable from main during research."
+ ```
+ 
+-Example: [J02 Weekly Command Brief](../examples/master-of-arts-example-fragments.md#j02-weekly-command-brief)
++Example: [J02 Weekly Command Brief](../../../apex-meta/operator-output-design/step4-operator-template-system/examples/master-of-arts-example-fragments.md)
+diff --git a/.claude/skills/ProjectStatus/project-status-overview-template.md b/.claude/skills/ProjectStatus/project-status-overview-template.md
+index ee7b5f67..98c8cef7 100644
+--- a/.claude/skills/ProjectStatus/project-status-overview-template.md
++++ b/.claude/skills/ProjectStatus/project-status-overview-template.md
+@@ -114,4 +114,4 @@ template_authority:
+     - ".claude/skills/ProjectStatus/project-status-overview-contract_v2_fixed.md"
+ ```
+ 
+-Example: [J11 Project Status Overview](../examples/master-of-arts-example-fragments.md#j11-project-status-overview)
++Example: [J11 Project Status Overview](../../../apex-meta/operator-output-design/step4-operator-template-system/examples/master-of-arts-example-fragments.md)
+diff --git a/.claude/skills/flow-recap/templates/flowrecap-result-card-template.md b/.claude/skills/flow-recap/templates/flowrecap-result-card-template.md
+index e3503816..13cf7f5c 100644
+--- a/.claude/skills/flow-recap/templates/flowrecap-result-card-template.md
++++ b/.claude/skills/flow-recap/templates/flowrecap-result-card-template.md
+@@ -131,4 +131,4 @@ template_authority:
+     - ".claude/skills/flow-recap/references/project-status-delta-contract.md"
+ ```
+ 
+-Example: [J07 FlowRecap Result Card](../examples/master-of-arts-example-fragments.md#j07-flowrecap-result-card)
++Example: [J07 FlowRecap Result Card](../../../../apex-meta/operator-output-design/step4-operator-template-system/examples/master-of-arts-example-fragments.md)
+diff --git a/.claude/skills/model-usage-log/templates/usage-learning-card-template.md b/.claude/skills/model-usage-log/templates/usage-learning-card-template.md
+index 1965bf4c..82edd24b 100644
+--- a/.claude/skills/model-usage-log/templates/usage-learning-card-template.md
++++ b/.claude/skills/model-usage-log/templates/usage-learning-card-template.md
+@@ -102,4 +102,4 @@ template_authority:
+     - ".claude/skills/model-usage-log/references/usage-summary-contract.md"
+ ```
+ 
+-Example: [J08 Usage Learning Card](../examples/master-of-arts-example-fragments.md#j08-usage-learning-card)
++Example: [J08 Usage Learning Card](../../../../apex-meta/operator-output-design/step4-operator-template-system/examples/master-of-arts-example-fragments.md)
+diff --git a/.claude/skills/project-kb-manager/templates/project-kb-update-card-template.md b/.claude/skills/project-kb-manager/templates/project-kb-update-card-template.md
+index 5f7e67f7..7228faef 100644
+--- a/.claude/skills/project-kb-manager/templates/project-kb-update-card-template.md
++++ b/.claude/skills/project-kb-manager/templates/project-kb-update-card-template.md
+@@ -126,4 +126,4 @@ template_authority:
+     - ".claude/skills/project-kb-manager/references/write-rules.md"
+ ```
+ 
+-Example: [J10 Project KB Update Card](../examples/master-of-arts-example-fragments.md#j10-project-kb-update-card)
++Example: [J10 Project KB Update Card](../../../../apex-meta/operator-output-design/step4-operator-template-system/examples/master-of-arts-example-fragments.md)
+diff --git a/.claude/skills/project-kb-manager/templates/project-state-success-card-template.md b/.claude/skills/project-kb-manager/templates/project-state-success-card-template.md
+index ddea3606..fe1065fb 100644
+--- a/.claude/skills/project-kb-manager/templates/project-state-success-card-template.md
++++ b/.claude/skills/project-kb-manager/templates/project-state-success-card-template.md
+@@ -101,4 +101,4 @@ template_authority:
+   source_gap: "Dedicated live project-state-success owner entrypoint was not verified; do not infer additional schema."
+ ```
+ 
+-Example: [J01 Project State Success Card](../examples/master-of-arts-example-fragments.md#j01-project-state-success-card)
++Example: [J01 Project State Success Card](../../../../apex-meta/operator-output-design/step4-operator-template-system/examples/master-of-arts-example-fragments.md)
+diff --git a/.claude/skills/raw-flow-dump-normalize/templates/execution-evidence-handoff-template.md b/.claude/skills/raw-flow-dump-normalize/templates/execution-evidence-handoff-template.md
+index bedfdf7c..71d35efd 100644
+--- a/.claude/skills/raw-flow-dump-normalize/templates/execution-evidence-handoff-template.md
++++ b/.claude/skills/raw-flow-dump-normalize/templates/execution-evidence-handoff-template.md
+@@ -123,4 +123,4 @@ template_authority:
+     - ".claude/skills/flow-recap/references/flow-recap-packet-contract.md"
+ ```
+ 
+-Example: [J06 Execution Evidence Handoff](../examples/master-of-arts-example-fragments.md#j06-execution-evidence-handoff)
++Example: [J06 Execution Evidence Handoff](../../../../apex-meta/operator-output-design/step4-operator-template-system/examples/master-of-arts-example-fragments.md)
+diff --git a/.claude/skills/raw-flow-dump-normalize/templates/skip-marker-template.md b/.claude/skills/raw-flow-dump-normalize/templates/skip-marker-template.md
+index 57ddb720..e8b3935b 100644
+--- a/.claude/skills/raw-flow-dump-normalize/templates/skip-marker-template.md
++++ b/.claude/skills/raw-flow-dump-normalize/templates/skip-marker-template.md
+@@ -44,4 +44,4 @@ template_authority:
+     - ".claude/skills/PrecapNextDay/references/flow-packet-contract.md"
+ ```
+ 
+-Example: [J06a Skip Marker](../examples/master-of-arts-example-fragments.md#j06a-skip-marker)
++Example: [J06a Skip Marker](../../../../apex-meta/operator-output-design/step4-operator-template-system/examples/master-of-arts-example-fragments.md)
+diff --git a/.claude/skills/status-merge/templates/status-merge-decision-card-template.md b/.claude/skills/status-merge/templates/status-merge-decision-card-template.md
+index ebd867fb..ad9cc4e5 100644
+--- a/.claude/skills/status-merge/templates/status-merge-decision-card-template.md
++++ b/.claude/skills/status-merge/templates/status-merge-decision-card-template.md
+@@ -95,4 +95,4 @@ template_authority:
+     - ".claude/skills/status-merge/references/status-merge-packet-contract.md"
+ ```
+ 
+-Example: [J09 Status Merge Decision Card](../examples/master-of-arts-example-fragments.md#j09-status-merge-decision-card)
++Example: [J09 Status Merge Decision Card](../../../../apex-meta/operator-output-design/step4-operator-template-system/examples/master-of-arts-example-fragments.md)
