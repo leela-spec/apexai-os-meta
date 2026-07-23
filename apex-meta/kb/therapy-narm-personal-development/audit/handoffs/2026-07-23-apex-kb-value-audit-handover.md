@@ -150,45 +150,108 @@ The Apex KB should create a deterministic plus semantic knowledge system that gi
    - modern LLM wiki and repository-knowledge systems;
    - current agentic retrieval architectures using hybrid lexical/vector search, reranking, contextual retrieval, graph retrieval, GraphRAG, knowledge graphs, memory layers, provenance, and incremental indexing;
    - the AI-agent system called “Odyssey,” specifically its vector retrieval, graph/database management, and agent workflow. First identify the exact Odyssey product/project intended; if multiple systems share the name, state the ambiguity and compare only evidence-backed candidates.
-10. Cite every external comparison with links and dates. Separate verified product capability from inference or marketing claims.
-11. Keep all private therapy material local. Do not send raw or compiled personal content to external services while researching or benchmarking.
-12. Treat the master capability/value decision matrix below as the audit's core delivery. The narrative, verdict, backlog, and implementation plan must derive from its evidence rather than being independent opinion.
+10. Resolve the exact identities of the operator's named comparison targets "Audysorce" and "Inspector Graph database" before scoring them. Search for spelling variants and state the selected product, repository, version, and evidence. If either identity remains ambiguous, show the plausible candidates and mark its score cells `N/E` rather than inventing a comparison.
+11. Cite every external comparison with links and dates. Separate verified product capability from inference or marketing claims.
+12. Keep all private therapy material local. Do not send raw or compiled personal content to external services while researching or benchmarking.
+13. Treat the master capability/value decision matrix below as the audit's core delivery. The narrative, verdict, backlog, and implementation plan must derive from its evidence rather than being independent opinion.
 
-### Core delivery: master capability/value decision matrix
+### Core delivery: unified 1-100 step/output/capability/competitor matrix
 
-Build one master matrix with one row per atomic capability. Do not collapse a pipeline or technology family into a single row. At minimum, create separate rows for operator-intent capture, topic/query locking, source custody, pointer-only sources, hashing, extraction, source authority, deterministic corpus profiling, source ranking, bounded topic packets, Phase 1 analysis, Phase 2 synthesis, claim provenance, uncertainty, semantic acceptance, deterministic quality checks, lifecycle state, drift detection, incremental recompilation, FTS5 indexing, lexical retrieval, metadata filtering, vector retrieval, reranking, contextual retrieval, entity extraction, typed graph relationships, graph traversal, multi-hop retrieval, query-packet construction, token budgeting, future-agent context injection, privacy, observability, repair, packaging, and Git publication.
+Build one master matrix with one row for every distinct Apex KB CLI step, transition, operator interaction, and output artifact. Also include one row for every material retrieval or knowledge-management capability offered by a comparison system even when Apex does not currently provide it. Do not collapse a lifecycle phase, technology family, or collection of outputs into one row.
 
-For every row, provide these columns:
+At minimum, create separate rows for:
 
-1. **Atomic capability** - the smallest independently useful function being evaluated.
-2. **Operator job and intended value** - what problem it solves and why it matters to a non-programmer using future AI turns.
-3. **Apex KB claim** - what the current contracts, CLI, or documentation say it provides.
-4. **Implementation evidence** - exact code, command, schema, test, artifact, and commit evidence.
-5. **Observed therapy-run result** - what the completed KB actually demonstrates, including a concrete example or failure.
-6. **Realization status** - `absent`, `prototype`, `partial`, `realized`, or `proven`; never infer realization from file presence.
-7. **Safety and integrity status** - `unsafe`, `conditional`, or `safe`, with the failure mode, guard, privacy boundary, and evidence.
-8. **Quality score** - 0-5, with a short evidence-based justification.
-9. **Token/value economics** - context tokens, latency, operator effort, maintenance cost, and net information value where measurable.
-10. **Modern LLM-wiki baseline** - which current LLM wiki or repository-knowledge projects provide the capability, how they implement it, and whether their result is stronger, equivalent, weaker, or merely different.
-11. **Agent-memory baseline** - what modern durable agent memory can provide at this micro-capability level, including temporal state, personalization, consolidation, forgetting, and context injection where relevant.
-12. **Vector-retrieval baseline** - the precise value embeddings, hybrid search, metadata filters, reranking, or contextual retrieval can add for this row, not a generic argument for vectors.
-13. **Graph-retrieval baseline** - the precise value typed entities, relationships, provenance edges, communities, traversal, or GraphRAG can add for this row, not a generic argument for graphs.
-14. **Odyssey evidence** - the corresponding capability of the correctly identified Odyssey system, or `not evidenced`.
-15. **Capability gap** - exactly what Apex lacks, underperforms, or does better.
-16. **Operator decision** - `retain`, `improve`, `add now`, `experiment`, `defer`, or `reject`.
-17. **Incremental value if adopted** - the concrete improvement to answer quality, safety, token efficiency, resilience, or operator simplicity.
-18. **Cost and risk if adopted** - implementation complexity, runtime cost, privacy exposure, maintenance burden, failure surface, and lock-in.
-19. **Exact Apex integration point** - command, module, schema, lifecycle stage, artifact, retrieval step, or agent interface that would change.
-20. **Measurable acceptance criterion** - benchmark, threshold, test corpus, query set, safety check, and rollback trigger.
-21. **Priority and dependency order** - when it should be implemented and what must precede it.
+- installation and command discovery;
+- `start`, intake questions, read-back, and operator confirmation;
+- KB scaffold and folder topology;
+- source registration, pointer-only custody, hashing, extraction, payload manifests, and authority metadata;
+- topic registry, locked questions, topic sanity checks, deterministic corpus profile, term frequency, source rankings, and bounded topic work packets;
+- semantic handoff packets, Phase 1 analysis and each Phase 1 output type;
+- Phase 2 synthesis and each dossier, summary, concept, entity, source-atlas, claim, route, uncertainty, and reopen-trigger output;
+- semantic acceptance, deterministic quality checks, lifecycle state, reason-coded blockers, repair packets, and postflight certificate;
+- SQLite/FTS5 index, lexical retrieval, query packets, token budgets, and future-agent context delivery;
+- source drift, stale-state detection, reconciliation, incremental update, selective recompilation, observability, packaging, and Git publication;
+- capabilities absent from Apex but offered by a comparison system, including metadata filtering, embeddings, hybrid retrieval, reranking, contextual retrieval, durable agent memory, entity extraction, typed graph relationships, graph traversal, multi-hop retrieval, GraphRAG, temporal state, consolidation, and forgetting.
+
+The systems must appear in the same matrix, not in separate narrative tables. Include system blocks for:
+
+1. Apex KB CLI as claimed by its current contract.
+2. Apex KB CLI as actually demonstrated by code, tests, and the therapy run.
+3. The exact product identified from "Audysorce."
+4. The exact product identified from "Inspector Graph database."
+5. The correctly identified Odyssey system.
+6. At least three representative modern LLM-wiki or repository-knowledge projects, named individually.
+7. A representative best-practice durable agent-memory system.
+8. A representative best-practice hybrid/vector retrieval stack.
+9. A representative best-practice graph or GraphRAG stack.
+
+For every row, begin with these shared identity columns:
+
+- **Step/output/capability**
+- **Lifecycle stage**
+- **Operator-visible output**
+- **Operator job and intended value**
+- **Apex implementation and artifact evidence**
+- **Observed therapy-run evidence**
+
+Then repeat the same scoring block for every compared system. Every numeric score uses 1-100:
+
+- **Availability/completeness** - 1 means effectively absent; 100 means complete and production-usable.
+- **Operator impact** - expected positive effect on answer quality, resilience, time, or decision quality.
+- **Realized value** - demonstrated outcome rather than promised potential.
+- **Semantic/output quality**
+- **Retrieval precision**
+- **Retrieval recall**
+- **Holistic and multi-hop value**
+- **Token efficiency**
+- **Reliability and reproducibility**
+- **Safety and integrity**
+- **Privacy/local-control value**
+- **Non-programmer usability**
+- **Observability and repairability**
+- **Setup burden** - 1 means negligible burden; 100 means extremely expensive or difficult. This is a negative metric.
+- **Ongoing maintenance burden** - 1 means negligible burden; 100 means extremely expensive or difficult. This is a negative metric.
+- **Evidence confidence** - confidence that the preceding scores are supported by code, tests, primary documentation, or reproduced behavior.
+- **Overall net value** - weighted benefit after setup, maintenance, privacy, and failure costs.
+
+Alongside each system block, include concise text cells for:
+
+- implementation mechanism;
+- evidence and source date;
+- important limitation or failure mode;
+- raw setup estimate in time and money where evidence permits;
+- raw recurring maintenance estimate in time and money where evidence permits.
+
+End every row with these Apex decision columns:
+
+- **Current Apex gap or advantage**
+- **Operator decision** - `retain`, `improve`, `install/integrate now`, `experiment`, `defer`, or `reject`.
+- **Incremental operator value if adopted** - scored 1-100 and explained concretely.
+- **Implementation complexity** - scored 1-100, where 100 is hardest.
+- **Implementation risk** - scored 1-100, where 100 is riskiest.
+- **Exact Apex integration point**
+- **Measurable acceptance criterion**
+- **Priority** - 1-100, where 100 is most urgent and valuable.
+- **Dependency order**
+
+Use one scoring rubric across all systems:
+
+- 1-20: absent, unusable, or negligible value;
+- 21-40: weak or early;
+- 41-60: functional but materially limited;
+- 61-80: strong and dependable;
+- 81-90: excellent or competitive best practice;
+- 91-100: exceptional, independently evidenced, and difficult to improve materially.
+
+Use `N/E` instead of a numeric score when the product identity or evidence is insufficient. Never convert marketing language into a high score. Every score must have a short evidence note, and materially close scores must use the same benchmark, query set, corpus, and definition. Show both burden scores and raw estimates so high cost cannot be mistaken for high value.
 
 For each capability, explicitly distinguish promised value, implemented mechanism, demonstrated result, safely demonstrated result, competitor parity or advantage, and whether adopting the competitor mechanism would create meaningful incremental operator value.
 
 Use `not measured`, `not evidenced`, and `not applicable` rather than optimistic inference. A competitor feature is not a recommendation merely because it exists. Recommend it only when the matrix shows a material operator use case, a measurable expected gain, and acceptable safety and complexity.
 
-After the atomic rows, include a compact roll-up using the existing 0-5 dimensions below. Do not let a roll-up score hide a missing atomic capability.
+After the atomic rows, include a compact roll-up using the same 1-100 scale and dimensions below. Score every comparison system with the same dimensions, not only Apex. Do not let a roll-up score hide a missing step, output, or capability.
 
-Score Apex KB from 0–5 with evidence for:
+Score every compared system from 1-100 with evidence for:
 
 - target-question answer quality;
 - semantic depth and reasoning;
@@ -210,7 +273,7 @@ Score Apex KB from 0–5 with evidence for:
 - future-agent usability;
 - practical positive value for the operator.
 
-For each dimension report: current evidence, score, strongest value, concrete failure mode, comparison baseline, and recommended change.
+For each dimension report: current evidence, score, strongest value, concrete failure mode, comparison baseline, and recommended change. Include a weighted total, but show the weights and never let the total replace the individual scores.
 
 ### Questions that must be answered
 
@@ -231,6 +294,9 @@ For each dimension report: current evidence, score, strongest value, concrete fa
 15. Which memory, vector, graph, wiki, or Odyssey capabilities are genuinely additive, and which would duplicate existing value or add unjustified complexity?
 16. What should the operator retain, improve, add now, experiment with, defer, or reject, and what value does each decision produce?
 17. What exact sequence moves Apex KB from its current maturity level to the recommended target while preserving source integrity, privacy, token efficiency, and non-programmer usability?
+18. For every Apex CLI step and produced output, what is its impact, realized value, safety, setup burden, maintenance burden, and net value on the shared 1-100 scale?
+19. For the same row and same metrics, how do the identified "Audysorce," "Inspector Graph database," Odyssey, named LLM wikis, agent memory, vector retrieval, and graph retrieval systems score?
+20. Which missing components should actually be installed or integrated, in what order, and which attractive competitor features should explicitly not be adopted?
 
 ### Required deliverables
 
@@ -246,7 +312,7 @@ Produce:
 
 Additionally, the deliverables must contain:
 
-- **Atomic master capability/value matrix** - use all 21 required columns and make every later recommendation traceable to a row, observed evidence, expected incremental value, exact integration point, and measurable acceptance criterion.
+- **Unified 1-100 step/output/competitor matrix** - place every Apex step and output in the same matrix as every competitor system, repeat the identical score block for each system, and make every later recommendation traceable to observed evidence, expected incremental value, burden, risk, exact integration point, and measurable acceptance criterion.
 - **CLI/code maturity report** - command/lifecycle architecture, schemas, semantic boundaries, validation gaps, packaging, update/recovery, observability, publication, and test adequacy.
 - **Residual interaction-failure analysis** - reproduce or verify each unresolved chat failure, identify its root owner, and state the product-level prevention.
 - **Future-agent integration contract** - define the exact tool/API/skill, retrieval policy, authority rules, context budget, evidence packet, and answer contract that make Apex KB the default knowledge source for future AI turns.
@@ -257,4 +323,4 @@ Do not implement changes during this audit. First produce the evidence-backed re
 
 ### Suggested activation message
 
-`Audit the completed Apex KB using C:\GitDev\apexai-os-meta\apex-meta\kb\therapy-narm-personal-development\audit\handoffs\2026-07-23-apex-kb-value-audit-handover.md. Treat CLI/code maturity, unresolved operator-experience failures from the originating chat, and the actual therapy KB output as three equal audit pillars. Make the required atomic capability/value decision matrix the core delivery, comparing Apex KB with modern LLM wikis, agent memory, vector/hybrid retrieval, graph retrieval, and the correctly identified Odyssey system. Execute the full audit in one go, including current internet research, an operator evolution and decision guide, and a detailed phased implementation plan. Do not implement changes yet.`
+`Audit the completed Apex KB using C:\GitDev\apexai-os-meta\apex-meta\kb\therapy-narm-personal-development\audit\handoffs\2026-07-23-apex-kb-value-audit-handover.md. Treat CLI/code maturity, unresolved operator-experience failures from the originating chat, and the actual therapy KB output as three equal audit pillars. The central output must be one unified matrix with a separate row for every Apex KB CLI step, transition, operator interaction, output artifact, and material missing competitor capability. Put Apex and every comparison system in that same matrix and apply the identical 1-100 scoring block to each: availability, impact, realized value, quality, retrieval, holistic value, token efficiency, reliability, safety, privacy, usability, observability, setup burden, maintenance burden, evidence confidence, and overall net value. Resolve the exact products meant by Audysorce and Inspector Graph database before scoring; also compare the correctly identified Odyssey system, at least three named modern LLM wikis, durable agent memory, hybrid/vector retrieval, and graph/GraphRAG. End each row with the Apex gap, retain/improve/install/experiment/defer/reject decision, incremental value, complexity, risk, integration point, acceptance test, priority, and dependency order. Execute the full audit in one go with current internet research, then provide a concrete operator guide showing what is already good, what is missing, what should be installed or integrated, in what order, and why. Do not implement changes yet.`
