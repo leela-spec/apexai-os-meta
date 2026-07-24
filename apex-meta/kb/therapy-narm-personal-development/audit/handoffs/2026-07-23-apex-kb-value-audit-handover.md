@@ -134,9 +134,17 @@ Start comparison research with:
 
 The indexed projects are `llm-wiki`, `llm-wiki-main`, and `llm-wiki-skill-main`; score them individually. Treat the local summary as navigation and prior analysis, not unquestioned authority. Its own integrity review reports flattened-basename custody collisions, stale Phase 0 coverage, and an off-target `KB_v3` subtree. Verify material claims against the source manifest, raw evidence, and current upstream primary sources before scoring.
 
-Named external competitor:
+Named external competitors:
 
 - [Odysseus AI](https://odysseusai.dev/) - a free, open-source, self-hosted AI workspace designed to run locally through Docker and local model engines such as Ollama. Audit its persistent-memory architecture, including vector embeddings such as ChromaDB and structured recall for user preferences, project details, and cross-session context. Verify these claims against current primary documentation and code before assigning scores.
+- [AsyncFuncAI/deepwiki-open](https://github.com/AsyncFuncAI/deepwiki-open) - audit its repository ingestion, structure analysis, embeddings/RAG, generated wiki, Mermaid diagrams, interactive Q&A/MCP exposure, local or Docker operation, model-provider support, update behavior, and suitability beyond source-code repositories.
+- [VectifyAI/OpenKB](https://github.com/VectifyAI/OpenKB) - audit its document/session ingestion, structured interlinked wiki compilation, PageIndex/RAG behavior, source support, local operation, update behavior, and fit for personal document knowledge bases.
+
+Local candidate note:
+
+`C:\GitDev\apexai-os-meta\apex-meta\kb\therapy-narm-personal-development\audit\handoffs\NewProjects.md`
+
+Treat this note as candidate navigation only. Verify all capability, popularity, license, architecture, setup, and cost claims against current official repositories and documentation before scoring.
 
 ## Prompt for the next agent
 
@@ -145,6 +153,8 @@ You are conducting an adversarial product-value, operator-experience, and archit
 ### Operator intent
 
 The Apex KB should create a deterministic plus semantic knowledge system that gives future AI turns and predefined topics highly accurate, high-reasoning, high-value, token-efficient, simple-but-holistic, source-resilient information. It should reduce repeated raw-corpus reading while preserving enough provenance, uncertainty, contradiction, authority, and raw-source reopening logic to avoid confident distortion. It should create exceptionally positive practical value for the operator, especially for understanding NARM, personal observations, framework integration, acute high-emotion situations, daily practices, method selection, and long-term development.
+
+The operator has already spent more than one month developing Apex KB CLI and currently perceives that it may still deliver too little practical value. Do not treat that sunk effort as a reason to continue. The audit must determine whether the cheapest high-value forward path is to continue developing Apex, freeze it, replace it with an existing project, or retain only its strongest deterministic/source-integrity components around a competitor's wiki/retrieval engine.
 
 ### Execution requirements
 
@@ -167,10 +177,13 @@ The Apex KB should create a deterministic plus semantic knowledge system that gi
    - the three locally indexed projects `llm-wiki`, `llm-wiki-main`, and `llm-wiki-skill-main`, using `C:\GitDev\apexai-os-meta\apex-meta\kb\llm-wiki-project-repos` as the source-preserving starting point and current upstream repositories as the freshness authority;
    - current agentic retrieval architectures using hybrid lexical/vector search, reranking, contextual retrieval, graph retrieval, GraphRAG, knowledge graphs, memory layers, provenance, and incremental indexing;
    - [Odysseus AI](https://odysseusai.dev/), specifically its self-hosted/local deployment, Docker and Ollama integration, persistent cross-session memory, vector embeddings/ChromaDB, structured recall, preference and project-context retention, privacy model, database management, and agent workflow.
+   - [AsyncFuncAI/deepwiki-open](https://github.com/AsyncFuncAI/deepwiki-open), specifically its ingestion/generation pipeline, embeddings/RAG, diagrams, Q&A/MCP interface, update model, deployment burden, and fit for therapy/document corpora rather than only code repositories;
+   - [VectifyAI/OpenKB](https://github.com/VectifyAI/OpenKB), specifically its document/session ingestion, structured wiki model, PageIndex/RAG retrieval, local deployment, update model, provenance, and fit for this operator's personal knowledge use case.
 10. Verify Odysseus AI's claimed capabilities against current official documentation and source code. Distinguish architecture that is actually implemented from positioning language, and test or document evidence for persistence, recall quality, local control, setup, maintenance, and failure behavior.
-11. Cite every external comparison with links, repository identities, versions or commits, and dates. Separate verified product capability from inference or marketing claims.
-12. Keep all private therapy material local. Do not send raw or compiled personal content to external services while researching or benchmarking.
-13. Treat the master capability/value decision matrix below as the audit's core delivery. The narrative, verdict, backlog, and implementation plan must derive from its evidence rather than being independent opinion.
+11. Produce a forward-looking build-versus-adopt analysis for five options: continue Apex development, freeze Apex as-is, replace Apex with deepwiki-open, replace Apex with OpenKB, or build a hybrid that retains only Apex's proven source-integrity/governance value. Estimate migration/setup effort, operator hours, cash cost, 12-month maintenance, privacy risk, switching cost, expected time-to-value, and expected net value. Treat the month already spent as sunk cost.
+12. Cite every external comparison with links, repository identities, versions or commits, and dates. Separate verified product capability from inference or marketing claims.
+13. Keep all private therapy material local. Do not send raw or compiled personal content to external services while researching or benchmarking.
+14. Treat the master capability/value decision matrix below as the audit's core delivery. The narrative, verdict, backlog, and implementation plan must derive from its evidence rather than being independent opinion.
 
 ### Core delivery: unified 1-100 step/output/capability/competitor matrix
 
@@ -198,9 +211,11 @@ The systems must appear in the same matrix, not in separate narrative tables. In
 4. The locally indexed `llm-wiki` project.
 5. The locally indexed `llm-wiki-main` project.
 6. The locally indexed `llm-wiki-skill-main` project.
-7. A representative best-practice durable agent-memory system when it adds a material capability not already represented by Odysseus AI.
-8. A representative best-practice hybrid/vector retrieval stack.
-9. A representative best-practice graph or GraphRAG stack.
+7. `AsyncFuncAI/deepwiki-open`.
+8. `VectifyAI/OpenKB`.
+9. A representative best-practice durable agent-memory system when it adds a material capability not already represented by Odysseus AI.
+10. A representative best-practice hybrid/vector retrieval stack.
+11. A representative best-practice graph or GraphRAG stack.
 
 For every row, begin with these shared identity columns:
 
@@ -312,8 +327,10 @@ For each dimension report: current evidence, score, strongest value, concrete fa
 16. What should the operator retain, improve, add now, experiment with, defer, or reject, and what value does each decision produce?
 17. What exact sequence moves Apex KB from its current maturity level to the recommended target while preserving source integrity, privacy, token efficiency, and non-programmer usability?
 18. For every Apex CLI step and produced output, what is its impact, realized value, safety, setup burden, maintenance burden, and net value on the shared 1-100 scale?
-19. For the same row and same metrics, how do Odysseus AI, `llm-wiki`, `llm-wiki-main`, `llm-wiki-skill-main`, agent memory, vector retrieval, and graph retrieval systems score?
+19. For the same row and same metrics, how do Odysseus AI, `llm-wiki`, `llm-wiki-main`, `llm-wiki-skill-main`, `deepwiki-open`, `OpenKB`, agent memory, vector retrieval, and graph retrieval systems score?
 20. Which missing components should actually be installed or integrated, in what order, and which attractive competitor features should explicitly not be adopted?
+21. Is it cheaper and more valuable from today forward to continue developing Apex KB CLI, freeze it, replace it with deepwiki-open or OpenKB, or use a hybrid? Give one recommended option and quantify the decision.
+22. What unique Apex value would be lost in a replacement, can that value be retained cheaply as a thin source-integrity layer, and how quickly could the operator reach materially better day-to-day value?
 
 ### Required deliverables
 
@@ -321,7 +338,7 @@ Produce:
 
 1. **Executive verdict** — direct assessment of current value and whether `query_ready` is semantically deserved.
 2. **Actual status** — deterministic state, semantic state, retrieval state, contract divergences, and known defects.
-3. **Evidence-backed benchmark matrix** — Apex KB versus Odysseus AI, the three locally indexed LLM-wiki projects, and modern hybrid/vector/graph retrieval.
+3. **Evidence-backed benchmark matrix** — Apex KB versus Odysseus AI, deepwiki-open, OpenKB, the three locally indexed LLM-wiki projects, and modern hybrid/vector/graph retrieval.
 4. **Therapy-KB test report** — query results, claim checks, raw-source checks, token-efficiency findings, and concrete examples of strong and weak outputs.
 5. **Ranked improvement backlog** — impact, evidence, risk, complexity, dependency, and measurable success criterion.
 6. **Recommended target architecture** — clearly assign deterministic code, semantic model, retrieval engine, graph/database, evaluator, and operator responsibilities.
@@ -334,10 +351,11 @@ Additionally, the deliverables must contain:
 - **Residual interaction-failure analysis** - reproduce or verify each unresolved chat failure, identify its root owner, and state the product-level prevention.
 - **Future-agent integration contract** - define the exact tool/API/skill, retrieval policy, authority rules, context budget, evidence packet, and answer contract that make Apex KB the default knowledge source for future AI turns.
 - **Operator evolution and decision guide** - explain in plain language how far Apex KB has evolved, what value is already dependable, where it is below, equal to, or above current alternatives, what should happen next, why, and what the operator will gain from each step.
+- **Build-versus-adopt recommendation** - compare continue, freeze, deepwiki-open replacement, OpenKB replacement, and hybrid options using forward-looking setup/migration cost, operator hours, 12-month ownership cost, privacy, capability loss, time-to-value, and expected net value. Give one primary recommendation, one fallback, and explicit stop conditions for further Apex development.
 - **Phased implementation plan** - separate immediate integrity fixes, short-term retrieval/value improvements, and optional scale features. Do not recommend vectors or graphs without a measured use case and benchmark.
 
 Do not implement changes during this audit. First produce the evidence-backed report and plan. Preserve unrelated dirty/untracked files; create no worktree, branch, stash, reset, or cleanup.
 
 ### Suggested activation message
 
-`Audit the completed Apex KB using C:\GitDev\apexai-os-meta\apex-meta\kb\therapy-narm-personal-development\audit\handoffs\2026-07-23-apex-kb-value-audit-handover.md. Treat CLI/code maturity, unresolved operator-experience failures from the originating chat, and the actual therapy KB output as three equal audit pillars. The central output must be one unified matrix with a separate row for every Apex KB CLI step, transition, operator interaction, output artifact, and material missing competitor capability. Put Apex and every comparison system in that same matrix and apply the identical 1-100 scoring block to each: availability, impact, realized value, quality, retrieval, holistic value, token efficiency, reliability, safety, privacy, usability, observability, setup burden, maintenance burden, evidence confidence, and overall net value. Compare Apex directly with Odysseus AI at https://odysseusai.dev/ and with the three projects indexed in C:\GitDev\apexai-os-meta\apex-meta\kb\llm-wiki-project-repos: llm-wiki, llm-wiki-main, and llm-wiki-skill-main. For Odysseus AI, verify self-hosting, Docker/Ollama operation, persistent cross-session memory, vector embeddings/ChromaDB, structured recall, privacy, setup, maintenance, and failure behavior against current primary sources. For the LLM-wiki projects, begin with the local KB but verify scores against its manifest/raw evidence and current upstream repositories; do not rely on its off-target KB_v3 subtree. End each row with the Apex gap, retain/improve/install/experiment/defer/reject decision, incremental value, complexity, risk, integration point, acceptance test, priority, and dependency order. Execute the full audit in one go with current internet research, then provide a concrete operator guide showing what is already good, what is missing, what should be installed or integrated, in what order, and why. Do not implement changes yet.`
+`Audit the completed Apex KB using C:\GitDev\apexai-os-meta\apex-meta\kb\therapy-narm-personal-development\audit\handoffs\2026-07-23-apex-kb-value-audit-handover.md. Treat CLI/code maturity, unresolved operator-experience failures from the originating chat, and the actual therapy KB output as three equal audit pillars. The central output must be one unified matrix with a separate row for every Apex KB CLI step, transition, operator interaction, output artifact, and material missing competitor capability. Put Apex and every comparison system in that same matrix and apply the identical 1-100 scoring block to each: availability, impact, realized value, quality, retrieval, holistic value, token efficiency, reliability, safety, privacy, usability, observability, setup burden, maintenance burden, evidence confidence, and overall net value. Compare Apex directly with Odysseus AI at https://odysseusai.dev/, AsyncFuncAI/deepwiki-open, VectifyAI/OpenKB, and the three projects indexed in C:\GitDev\apexai-os-meta\apex-meta\kb\llm-wiki-project-repos: llm-wiki, llm-wiki-main, and llm-wiki-skill-main. Use C:\GitDev\apexai-os-meta\apex-meta\kb\therapy-narm-personal-development\audit\handoffs\NewProjects.md as candidate navigation for deepwiki-open and OpenKB, but verify every score against current primary sources. For Odysseus AI, verify self-hosting, Docker/Ollama operation, persistent cross-session memory, vector embeddings/ChromaDB, structured recall, privacy, setup, maintenance, and failure behavior. For the LLM-wiki projects, verify scores against the local manifest/raw evidence and current upstream repositories; do not rely on the off-target KB_v3 subtree. End each row with the Apex gap, retain/improve/install/experiment/defer/reject decision, incremental value, complexity, risk, integration point, acceptance test, priority, and dependency order. The operator has already spent more than one month developing Apex and still perceives low practical value; treat that effort as sunk cost. Give a quantified build-versus-adopt recommendation comparing continued Apex development, freezing Apex, replacing it with deepwiki-open, replacing it with OpenKB, and a thin Apex-integrity-layer hybrid. Include operator hours, migration/setup cost, 12-month maintenance, privacy, capability loss, time-to-value, one primary recommendation, one fallback, and stop conditions for further Apex development. Execute the full audit in one go with current internet research. Do not implement changes yet.`
