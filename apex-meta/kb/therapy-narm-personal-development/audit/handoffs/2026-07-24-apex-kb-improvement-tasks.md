@@ -13,8 +13,15 @@
 **Realms (fixed vocabulary — never conflate):** ① Apex KB **CLI** (the `apex-kb` exe, sole authority) · ② semantic **worker** (AI filling one packet) · ③ Apex KB **skill** (`.claude/skills/apex-kb/`, the manual) · ④ Apex KB **operator agent** (new `.claude/agents/apex-kb-operator.md`).
 
 **Priority / dependency order (revised per operator feedback):**
-`B1` (fix the manual) → **`A0` (research better prompts — KEY)** → `A1` (rewrite templates) → `A2` (schema floors) → `A3` (cross-links) → **`P1` (self-sufficient packets)** → `B2`,`B3` (tell the truth) → `AG1` (operator agent) → `B4` (pointer-resolve guard, lightweight) → `A4` (optional bounded acceptance — **not** core) → `C1`,`C2` → `C3` (gated). All implementation packets are `[DET]`; only the therapy-KB re-drafted **content** (packet R2) is `[SEM]`.
-**What moved up:** prompt/template optimization (A0/A1) and self-sufficient packets (P1) are now top infrastructure work. **What moved down:** LLM-based acceptance (A4) is demoted below the infrastructure and truth fixes.
+`B1` (fix the manual) → **`A0` (research better prompts — KEY)** → `A1` (rewrite templates) → `A2` (schema floors) → `A3` (cross-links) → **`P1` (self-sufficient packets)** → `B2`,`B3` (tell the truth) → `AG1` (operator agent) → `O1` (progress/blocker visibility) → `C1`,`C2` (query value) → `B4` (pointer-resolve guard, lightweight) → `PK1` (clean install/paths) → `S1` (11th source) → `A4` (optional bounded acceptance — **not** core) → `C3` (gated). All implementation packets are `[DET]`; only the therapy-KB re-drafted **content** (packet R2) is `[SEM]`.
+**What moved up:** prompt/template optimization (A0/A1) and self-sufficient packets (P1) are now top infrastructure work. **What moved down:** LLM-based acceptance (A4) is demoted below the infrastructure and truth fixes. **Nothing was deleted** — every guardrail/quality check remains available; only A4's *priority* dropped.
+
+**Coverage check — every high-impact item is targeted (packet → what it increases):**
+| Value-increasing (build a better KB) | Trust/usability | Deterministic guardrail (kept, not over-invested) | Retrieval/agent value |
+|---|---|---|---|
+| **A0** research prompts · **A1** rewrite prompts · **A3** cross-links/indexing · **P1** self-sufficient packets | **B1** fix the manual · **B2** honest state · **B3** visible drift · **O1** progress/blocker visibility · **PK1** clean install/portable paths · **S1** index the 11th source | **A2** schema floors · **B4** pointers resolve to real lines · *A4 optional answerability* | **AG1** operator agent · **C1** clean/ranked query · **C2** future-agent contract · **C3** reranker (gated) |
+
+This is the complete set — the four value-increasing infrastructure tasks (A0/A1/A3/P1) plus the operator agent (AG1) and the future-agent contract (C2) are the highest-leverage new work; guardrails are present but deliberately lightweight.
 
 ---
 
@@ -200,6 +207,25 @@ Never edit run-config, manifests, run-state, stage results, wiki pages, retrieva
 **Why:** best-practice evidence shows reranking is the cheapest, still-local retrieval-precision upgrade (embeddings/graph are not justified here). Only adopt if it beats the FTS5 baseline on a golden set.
 **Prerequisite:** build the golden-query/answer-quality benchmark (residual #13) first; adopt C3 only if it measurably wins.
 **Dependency:** benchmark. **Effort:** M–L.
+
+---
+
+## GROUP D — Remaining value/quality items (from the audit backlog; previously omitted)
+
+### O1 `[DET]` · realm ① — Operator-visible progress + plain-language blockers
+**Why (process→value):** a direct fix for the month-long "is it working or just stuck?" confusion. `status` today only enumerates state; it never says how far along a run is or whether it is *working vs waiting on you*.
+**Files & exact changes:** `lifecycle.py status_snapshot` + `cli.py status` — add a `progress` block (`topics_accepted N/5`, `current: waiting_for_semantic_packet|running|blocked|complete`) and a `blocker_explained` block that maps each reason code to `{component, invariant it protects, consequence of bypassing, safe resolution}` in plain English.
+**Acceptance test:** `apex-kb status` shows `3/5 accepted, waiting on your Phase-2 draft for topic 4`; a blocked run prints a human-readable cause+fix. **Effort:** M. **Value: high (operator experience).**
+
+### PK1 `[DET]` · realm ① — Clean-install robustness + portable stored paths
+**Why (process→value):** on a fresh machine `doctor` crashed (pypdf→cryptography→`cffi`), and durable JSON stores Windows `\\` paths that break on other systems. Fixes make the tool install and run anywhere.
+**Files & exact changes:** `pyproject.toml` — move `pypdf` to an optional `[project.optional-dependencies] pdf = [...]` extra (or guard the import so `doctor` degrades gracefully instead of a hard crash). In `io.py`/state writers — normalize stored paths to forward slashes (`as_posix()`), so `completion.json`/`run-state.json`/inventory are portable.
+**Acceptance test:** clean-box `pip install` + `apex-kb doctor` succeed without extra system deps; `grep -c '\\\\' completion.json run-state.json` = 0 after a fresh run. **Effort:** S–M. **Value: medium (portability/trust).**
+
+### S1 `[DET]` · realm ① — Index the 11th source (or record its exclusion)
+**Why (process→value):** `Integrierte Psychologiekarte & OS.md` (62 KB) is present in raw notes but **not** in the index, with no exclusion reason — silent coverage loss.
+**Files & exact changes:** either add it to the configured source folders so it is inventoried/indexed, or record an explicit `exclusion_reason` in `source-inventory.ndjson`. Decide per its relevance to the five topics.
+**Acceptance test:** the source is either indexed (appears in `source-inventory.ndjson` as `included`) or carries a non-null `exclusion_reason`. **Effort:** S. **Value: medium (completeness).**
 
 ---
 
