@@ -2,6 +2,30 @@
 
 **Purpose.** Ready-to-dispatch implementation tasks derived from the approved plan. Each packet is self-contained: exact files, precise change, acceptance test, dependency, and a **type label** so you route it to the right executor.
 
+## IMPLEMENTATION STATUS — 2026-07-24 (Phase 1 execution)
+
+Implemented and verified (50/50 CLI tests green; therapy KB untouched; scratch/fixture verification only):
+
+| Packet | Status | Where |
+|---|---|---|
+| **B1** skill reconcile | ✅ done | `.claude/skills/apex-kb/{SKILL.md,package-manifest.md,references/*}` |
+| **AG1** operator agent | ✅ done | `.claude/agents/apex-kb-operator.md` |
+| **A0** prompt research | ✅ done | `apex-kb-cli/docs/prompt-design-notes.md` |
+| **A1** richer prompts | ✅ done | `templates/phase1-task.md`, `phase2-task.md`, `semantic/engine.py` contracts |
+| **A3** cross-links | ✅ done | `schemas/phase2-result.schema.json` (`related_pages`), `semantic/engine.py` renderer |
+| **B2** honest acceptance state | ✅ done | `lifecycle.py` `_postflight` |
+| **B3** portable drift + surfaced | ✅ done | `corpus/engine.py` `check_source_drift`, `lifecycle.py` `status_snapshot` |
+| **O1** progress + blockers | ✅ done | `lifecycle.py` `status_snapshot` |
+| **C1** clean/ranked query | ✅ done | `retrieval/engine.py` |
+| **C2** future-agent contract | ✅ done | `retrieval/engine.py`, `SKILL.md` |
+| **PK1** pypdf optional | ✅ done | `pyproject.toml` |
+
+Remaining Phase-1 packets (retained, NOT dropped — need fixture-aware work or are therapy-specific):
+- **A2** hard schema floors — deferred: blunt `minItems` is unsafe (irrelevant/blocked sources legitimately have 0 pointers; a valid topic may have few claims). The correct form is a *coverage cross-check* (each ranked source carries all Phase-1 pointers) that needs test-fixture updates to land without false rejections. A1's prompts already demand coverage; this adds deterministic enforcement.
+- **B4** canonical pointer ledger + resolve-to-real-line — deferred: reconciling capsule↔review ledgers and rejecting pointers that don't resolve requires updating test fixtures and carries re-import risk; implement as a careful, fixture-backed change (or first as a non-fatal `pointer_health` probe in doctor).
+- **S1** index the 11th source — reframed: the therapy-specific indexing is Phase-2 (KB work, out of scope now); the CLI-level value (surface un-inventoried files in source folders) is already covered by B3's `added` drift detection.
+
+
 ---
 
 ## SCOPE OF THIS EXECUTION (read first)
