@@ -54,19 +54,21 @@ The account skill `.claude/skills/apex-kb/` **documents the legacy surface** (`r
 - `MyTherapy.md` was **598 lines at the anchor, 456 now** (−142). Dossier/atlas pointers such as `line:500`, `line:599` now point to deleted or shifted content. A reopen-trigger following them lands wrong. Nothing surfaces this.
 - **Drift detection is non-portable:** `check_source_drift` stats `record["absolute_path"]` (`corpus/engine.py:1042`), which are Windows `C:\GitDev\…` paths captured at build time, and re-enumerates from a Windows `resolved_root`. On any non-origin machine every file reports missing/drifted. `status`/`doctor` never call it after completion; drift is only re-checked inside `continue`'s postflight.
 
-### 2.6 Known defects (verified this audit)
-| # | Defect | Evidence |
-|---|---|---|
-| D1 | Postflight asserts `all_semantic_acceptance_pass:true` with empty `acceptance_verdicts` | `audit/postflight/…json` |
-| D2 | Account skill documents legacy `apex_kb.py control`, omits `query/drive/doctor/update`, requires mandatory acceptance | `.claude/skills/apex-kb/**` |
-| D3 | Source drift present but invisible; `doctor` says `fresh:true`; pointers now stale (598→456 lines) | hashes + `wc -l` + `corpus/engine.py:1023` |
-| D4 | Drift check bound to Windows absolute paths → unusable off-origin | `corpus/engine.py:1042` |
-| D5 | Query `excerpt` wraps matched terms in `[brackets]`, mangling displayed paths/text (stored pages are clean) | `retrieval/engine.py:369`; grep of stored pages |
-| D6 | Source-atlas boilerplate chunk ("This atlas preserves all N…") ranks #1 for broad queries | live query suite |
-| D7 | `pypdf` is a *required* dep but its `cryptography`→`cffi` path import-fails on a clean box; `doctor` crashed with a Rust panic until `cffi` installed | live install; `cli.py:278` |
-| D8 | Windows backslash paths baked into durable JSON (`completion.json`, inventory `derived_text_path`) | `completion.json`, `source-inventory.ndjson` |
-| D9 | Capsule and review pointer ledgers disagree; no single canonical pointer truth | see §5.3 |
-| — | **Not** reproduced: mojibake. Current compiled pages, `completion.json`, and the handover file are **clean** (0 mojibake sequences). The handover's mojibake (residual #16) appears remediated in final artifacts. | grep scan |
+### 2.6 Known defects (verified this audit) — with Phase-1 remediation status
+> **Update 2026-07-24 (post-Phase-1):** the "Status" column reflects the CLI-infrastructure fixes shipped this session (commits `30182952 → 99cdde17`, 54/54 tests green). See §15 for the re-score.
+
+| # | Defect | Evidence | Status |
+|---|---|---|---|
+| D1 | Postflight asserts `all_semantic_acceptance_pass:true` with empty `acceptance_verdicts` | `audit/postflight/…json` | ✅ fixed (B2): honest `semantic_acceptance`/`semantically_accepted`; gate renamed `acceptance_gate_satisfied` |
+| D2 | Account skill documents legacy `apex_kb.py control`, omits `query/drive/doctor/update`, requires mandatory acceptance | `.claude/skills/apex-kb/**` | ✅ fixed (B1): skill lists all 7 commands; legacy surface removed/bannered |
+| D3 | Source drift present but invisible; `doctor` says `fresh:true`; pointers now stale (598→456 lines) | hashes + `wc -l` + `corpus/engine.py:1023` | ✅ fixed (B3): `status`/`doctor` surface a live `source_drift` block; `pointer_health` probe flags stale pointers |
+| D4 | Drift check bound to Windows absolute paths → unusable off-origin | `corpus/engine.py:1042` | ✅ fixed (B3): portable repo-root + repository_path fallback |
+| D5 | Query `excerpt` wraps matched terms in `[brackets]`, mangling displayed paths/text (stored pages are clean) | `retrieval/engine.py:369`; grep of stored pages | ✅ fixed (C1): empty snippet markers (clean excerpts) |
+| D6 | Source-atlas boilerplate chunk ("This atlas preserves all N…") ranks #1 for broad queries | live query suite | ✅ fixed (C1): atlas rows carry a small ranking penalty so answer chunks lead |
+| D7 | `pypdf` is a *required* dep but its `cryptography`→`cffi` path import-fails on a clean box; `doctor` crashed with a Rust panic until `cffi` installed | live install; `cli.py:278` | ✅ fixed (PK1): `pypdf` moved to an optional extra; PDF degrades gracefully |
+| D8 | Windows backslash paths baked into durable JSON (`completion.json`, inventory `derived_text_path`) | `completion.json`, `source-inventory.ndjson` | ◐ partially addressed: drift/probe read backslash paths portably (normalize on read); write-time `as_posix()` normalization remains a small follow-up |
+| D9 | Capsule and review pointer ledgers disagree; no single canonical pointer truth | see §5.3 | ✅ fixed (B4): review is the one canonical ledger; capsule pointers may not exceed it (`capsule_pointer_not_in_review`) |
+| — | **Not** reproduced: mojibake. Current compiled pages, `completion.json`, and the handover file are **clean** (0 mojibake sequences). The handover's mojibake (residual #16) appears remediated in final artifacts. | grep scan | — |
 
 ---
 
@@ -437,3 +439,46 @@ After these, you have a system that is genuinely best-in-class *for your private
 ---
 
 *Prepared under the three-pillar mandate. All scores carry evidence notes; `N/E` used where product identity or evidence was insufficient. No KB/CLI/source changes were made during this audit.*
+
+---
+
+## 15. Post-Phase-1 re-score (2026-07-24) — Apex CLI + skill + operator agent
+
+After the audit, a **Phase-1 CLI-infrastructure** pass shipped (commits `30182952 → 99cdde17`; **54/54 tests green**; therapy KB untouched, verified on scratch/fixture KBs). "Apex" is now the triple **① CLI + ③ reconciled skill + ④ `apex-kb-operator` agent**, not the CLI alone. This section re-scores only what changed; competitor scores are unchanged (their code did not change), so the comparison baseline in §6/§7 still holds — Apex simply moved on the axes below.
+
+**Honesty rule applied:** ✅ = *verified* this session (code + tests + reproduced behavior). ◑ = *expected but not yet measured* — improvement is in the mechanism/design but proving it needs the Phase-2 benchmark (`D-BENCH`). Nothing below claims a measured retrieval/answer-quality gain, because that benchmark does not exist yet.
+
+### 15.1 Roll-up delta (Part C dimensions that moved; 1–100)
+| Dimension | Pre (APX demonstrated) | Post-Phase-1 | Basis | Verified? |
+|---|---|---|---|---|
+| Uncertainty/refusal & **integrity** | 82 | **88** | B2 honest state; A2 ranked-source/route gates; B4 canonical ledger | ✅ |
+| Source entailment / pointer precision | 62 | **72** | B4 one-ledger + `capsule_pointer_not_in_review`; `pointer_health` probe surfaces unresolved pointers | ✅ (mechanism) |
+| Deterministic reproducibility | 85 | **86** | unchanged core + new gates are deterministic | ✅ |
+| Incremental updates & drift | 45 | **60** | B3 portable drift, surfaced in status/doctor | ✅ |
+| Repairability & observability | 45 | **68** | O1 progress + plain-language blockers; `pointer_health` | ✅ |
+| Retrieval precision | 60 | **68** | C1 answer-chunk-first ranking + clean excerpts (heuristic, not yet benchmarked) | ◑ |
+| Future-agent usability | 35 | **70** | B1 skill exposes `query`; AG1 operator agent; C2 query contract (policy/budget/answer-contract) | ✅ |
+| Non-programmer usability | 45 | **62** | B1 + AG1 give a one-agent "drive it" path with plain-language progress/blockers | ✅ |
+| Target-question answer quality | 72 | **72 (→ ↑ potential)** | A1 richer prompts + A3 cross-links change *future* output; existing pages unchanged until a re-compile | ◑ unmeasured |
+| Semantic depth & reasoning | 70 | **70 (→ ↑ potential)** | same — gated on D-R1/D-R2 + D-BENCH | ◑ unmeasured |
+| Practical operator value (this use case) | 68 | **74** | trust (honest state), findability (skill+query), portability | ✅ |
+
+**Weighted total (same weights as §7 Part C):** APX ≈ **63 → ~69**. The gain is concentrated in *integrity, observability, portability, and future-agent usability* — the trust-and-usability failures from the originating chat — **not** in measured retrieval/answer quality, which is deliberately still marked unproven.
+
+### 15.2 Part-B capability movers (Apex column)
+| Capability | Pre | Post | Note |
+|---|---|---|---|
+| Independent semantic acceptance | 15 | 15 | unchanged (A4 kept opt-in by design; not a core gate) |
+| Interlinked concept/entity wiki | 60 | **70 (◑)** | A3 `related_pages` field + renderer; realized only after a re-compile |
+| Source-change detection (portable) | 35 | **70** | B3 portable + surfaced |
+| Future-agent query contract/skill | 25 | **75** | B1 + C2 |
+| Non-programmer usability | 45 | **62** | B1 + AG1 |
+| Provenance citations on pages | 78 | **82** | A2 ranked-source citation validation + B4 ledger |
+
+### 15.3 Where Apex now stands vs competitors (re-comparison)
+- **vs the three llm-wiki projects:** Apex's structural lead **widened**. It already had the only queryable index; it now adds honest state, portable drift detection, a plain-language operator agent, and a future-agent query contract — none of which the llm-wiki projects have. llm-wiki-main still leads only on hash-idempotent *ingest* (a reuse candidate), and llm-wiki-skill-main still leads on *human-audit provenance* (a future experiment).
+- **vs OpenKB (nearest twin):** the **usability/trust/future-agent gap closed** in Apex's favor (honest state, portable drift, query contract, operator agent). The **semantic-depth/entity gap** is now *addressed in design* (A1 coverage prompts + A3 cross-links) but **not yet proven** — OpenKB's reasoning-retrieval + entity pages remain a real, measured strength until Apex runs `D-R1/D-R2` and `D-BENCH`. Build-vs-adopt verdict is **unchanged**: the thin-integrity hybrid is on track; the OpenKB fallback trigger is "Phase-2 benchmark shows Apex answer/retrieval quality still underperforms."
+- **vs vector/rerank & GraphRAG best practice:** unchanged and still deferred — the cheapest measured upgrade (a local reranker, `D-C3`) stays gated on `D-BENCH`; embeddings/graph remain unjustified at this corpus size.
+
+### 15.4 What is still NOT proven (kept honest)
+Measured retrieval precision/recall, answer quality, claim entailment, and token-savings — all require the **Phase-2 `D-BENCH`** benchmark, which is deferred. The richer pages (A1/A3) exist only as *prompt/schema capability* until a KB is re-compiled (`D-R1/D-R2`) in the operator's unlimited-token chat. `query_ready` still does not imply independent semantic acceptance (A4 is opt-in). See `apex-meta/apex-kb-cli/docs/PROJECT-STATUS.md` for the roadmap and the KB-quality test plan.

@@ -162,6 +162,51 @@ Three surgical changes were applied (the actionable, revised packet list lives i
 
 **Revised priority order:** B1 → **A0 → A1 → A2 → A3 → P1** → B2 → B3 → AG1 → O1 → C1 → C2 → B4 → PK1 → S1 → *A4 (optional)* → C3. Implementation steps from the approved plan are preserved, only reprioritized.
 
+---
+
+## Session-close export task (2026-07-24)
+
+### Context
+Phase 1 is implemented (13/14 packets + the `pointer_health` probe; 54/54 tests green; commits `30182952 → 99cdde17`). The operator now wants to close the chat and **export/consolidate all knowledge** so future runs can use it. Three deliverables, all documentation (no code changes):
+
+1. **Update the value-audit report** with a competitor refresh and a **post-Phase-1 re-score** of Apex (CLI + skill + operator agent).
+2. **Create a project status-quo + roadmap/tests-to-come doc.**
+3. **Export + index** all knowledge artifacts into the project folder for future discovery.
+
+### Decision (stated, not asked)
+Consolidate the forward knowledge under `apex-meta/apex-kb-cli/docs/` (where the plan, task packets, and prompt-notes already live). Keep the historical **value-audit report in place** at `apex-meta/kb/therapy-narm-personal-development/audit/reports/2026-07-24-apex-kb-value-audit.md` (it audits that KB's output) and link it from the index. No therapy-KB content is touched.
+
+### Deliverable 1 — Update the value-audit report (edit in place)
+Append a new section **"§15 Post-Phase-1 re-score (2026-07-24)"** to `2026-07-24-apex-kb-value-audit.md`:
+- A **delta table**: for each roll-up dimension the Phase-1 work touched, show *Apex-demonstrated (pre)* → *Apex-demonstrated (post-Phase-1)* with a one-line evidence note tied to the packet (B1/AG1/A0/A1/A3/B2/B3/O1/C1/C2/A2/B4). Expected movers: honest-state/integrity (B2/A2/B4), portability/reliability (B3/PK1), observability/repairability (O1, `pointer_health`), future-agent usability (C2), non-programmer usability (B1 skill + AG1 agent), retrieval precision (C1 ranking/clean excerpts), semantic-output *potential* (A1/A3 — mark **not yet measured**, gated on D-BENCH).
+- **Honesty rule:** distinguish *verified* gains (state honesty, portability, observability, query cleanliness, deterministic gates, contract/skill) from *expected-but-unmeasured* gains (richer pages, retrieval precision/recall) that need the Phase-2 benchmark.
+- A short **competitor re-comparison note**: competitor scores are unchanged (their code didn't change); restate where Apex now stands relative to OpenKB (nearest twin) and the llm-wiki projects after Phase 1 — Apex's lead on determinism/privacy/queryable-index widened via honest state + portable drift + future-agent contract; the semantic-depth gap vs OpenKB is *addressed in design* (A1/A3) but not yet *proven* (needs D-BENCH).
+- Update the report's **Actual status** defect list (§2.6) to mark D1/D2/D3/D4/D5/D6/D7/D8/D9 as fixed-in-Phase-1 where true (with the fixing packet), keeping the ones still open (measured retrieval, KB re-compile) honest.
+
+### Deliverable 2 — `apex-meta/apex-kb-cli/docs/PROJECT-STATUS.md` (new)
+- **Status quo:** maturity-by-layer table *updated for Phase 1* (orchestration/corpus reliable; validation now reliable incl. ranked-source/route/ledger gates; acceptance still opt-in prototype; retrieval functional + cleaner + future-agent contract; observability now functional via progress/blockers/`pointer_health`; packaging functional/portable). One-paragraph plain-language "where the project is."
+- **What Phase 1 delivered** (the 13 packets + probe, each one line, with the commit range).
+- **Verified state:** 54/54 tests; therapy KB untouched; scratch/fixture verification.
+- **Roadmap / what's next:** Phase 2 (D-BENCH golden-query/answer-quality/entailment/token-savings benchmark → D-C3 reranker gated on it → D-R1/D-R2 richer KB re-compile in the operator's unlimited-token chat), plus S1 (index the 11th source), and the optional path to make `pointer_health` a gate once formats are proven.
+- **Tests to come:** enumerate the missing benchmarks (golden query set, answer-quality rubric, claim-entailment, retrieval precision/recall, token-savings, multi-hop, raw-reopen) as the KB-quality test plan — explicitly the "how we test the KB" work deferred earlier.
+
+### Deliverable 3 — `apex-meta/apex-kb-cli/docs/KNOWLEDGE-INDEX.md` (new)
+A single indexed table future runs read first. Rows (path · type · one-line purpose · date), grouped:
+- **This-session knowledge:** value-audit report + its handover; improvement plan; task packets (with Phase-1 status + deferred Phase-2); prompt-design notes; PROJECT-STATUS.
+- **CLI reference docs (existing):** ARCHITECTURE, OPERATOR-GUIDE, SEMANTIC-WORKER-GUIDE, TESTING-AND-CANARY, MIGRATION-AND-LEGACY, IMPLEMENTATION-HANDOVER, README.
+- **Runtime artifacts:** the `apex-kb-operator` agent (`.claude/agents/apex-kb-operator.md`) and the reconciled skill (`.claude/skills/apex-kb/`).
+- A short **"future-agent start here"** note: read KNOWLEDGE-INDEX → PROJECT-STATUS → task packets; use the `apex-kb` skill / `apex-kb-operator` agent to drive the CLI; the CLI is sole authority.
+
+### Files touched
+- Edit in place: `apex-meta/kb/therapy-narm-personal-development/audit/reports/2026-07-24-apex-kb-value-audit.md`
+- New: `apex-meta/apex-kb-cli/docs/PROJECT-STATUS.md`, `apex-meta/apex-kb-cli/docs/KNOWLEDGE-INDEX.md`
+
+### Verification
+- No code changes → re-run `python3 -m pytest -q` once to confirm still **54/54** (sanity; docs shouldn't affect it).
+- Grep KNOWLEDGE-INDEX paths exist on disk (every linked file resolves).
+- Confirm the audit report's §15 delta table lists each Phase-1 packet and marks unmeasured gains as unmeasured.
+- Commit + push to `claude/apex-kb-audit-mz3hre`; verify local == remote; clear build byproducts so the tree is clean.
+
 **Coverage completeness (2nd feedback pass).** After the operator flagged over-correction, three high-value backlog items that had been left out of the packet list were added so the set is complete: **O1** (operator-visible progress + plain-language blockers — fixes the "is it working or stuck?" confusion), **PK1** (clean-install robustness: pypdf optional + portable forward-slash paths), and **S1** (index the un-indexed 11th source or record its exclusion). Nothing was deleted in the anti-overengineering pass; only A4's priority dropped. The complete high-impact set: value/infrastructure = A0,A1,A3,P1; agent/retrieval value = AG1,C1,C2,C3; trust/usability = B1,B2,B3,O1,PK1,S1; lightweight deterministic guardrails = A2,B4 (+optional A4).
 
 ## Revision 2 — scope correction (2026-07-24)
