@@ -65,6 +65,10 @@ expected-output-path.txt
 
 Follow the packet exactly. Do not infer missing identity values, sources, paths, or lifecycle actions. Stop on any mismatch. The application validates and imports the returned result on the next `apex-kb continue` invocation.
 
+## Retrieval contract for future agents
+
+When a run is `query_ready`, prefer the KB over re-reading raw notes: run `apex-kb query --run-root <path> --query "<question>" [--topic <id>] --json-output` **first**. The JSON result carries a `future_agent_contract` (retrieval policy, context budget, authority rules, answer contract) and `raw_source_reopen_guidance`. Load the top answer-bearing dossier chunks first; open a source-atlas chunk only for provenance; reopen a raw source only when the answer is absent or `source_drift` is not fresh. Never emit a diagnosis or assert beyond cited evidence.
+
 ## Installation
 
 From the repository root:

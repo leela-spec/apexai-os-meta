@@ -1020,26 +1020,71 @@ def load_topic_map(run_root: Path, topic_id: str) -> dict[str, Any]:
     return value
 
 
+def _discover_repo_root(run_root: Path) -> Path | None:
+    """Walk up from the run root to the repository root (the dir containing .git)."""
+    for candidate in [run_root, *run_root.parents]:
+        if (candidate / ".git").exists():
+            return candidate
+    return None
+
+
+def _resolve_source_path(record: dict[str, Any], repo_root: Path | None) -> Path | None:
+    """Resolve a source's on-disk path portably.
+
+    Prefer the recorded absolute path (correct on the machine that built the run);
+    fall back to repo_root + repository_path so drift detection works on any machine.
+    """
+    candidates: list[Path] = []
+    abs_path = record.get("absolute_path")
+    if abs_path:
+        candidates.append(Path(abs_path))
+    if repo_root is not None and record.get("repository_path"):
+        candidates.append(repo_root / record["repository_path"])
+    for candidate in candidates:
+        if candidate.exists():
+            return candidate
+    return candidates[0] if candidates else None
+
+
 def check_source_drift(run_root: Path, manifest: dict[str, Any]) -> dict[str, Any]:
     inventory_path = run_root / "manifests" / "source-inventory.ndjson"
     inventory = {record["repository_path"]: record for record in iter_ndjson(inventory_path)}
+    repo_root = _discover_repo_root(run_root)
     source_root = Path(manifest["source"]["resolved_root"])
     enumeration_errors: list[dict[str, str]] = []
-    current_paths = {
-        safe_relative(path.resolve(), source_root): path
-        for _configured, path in _iter_files(
-            source_root,
-            manifest["source"]["resolved_folders"],
-            enumeration_errors,
-        )
-    }
-    added = sorted(set(current_paths) - set(inventory))
+    current_paths: dict[str, Path] = {}
+    portable_resolution = False
+    if source_root.exists():
+        current_paths = {
+            safe_relative(path.resolve(), source_root): path
+            for _configured, path in _iter_files(
+                source_root,
+                manifest["source"]["resolved_folders"],
+                enumeration_errors,
+            )
+        }
+    elif repo_root is not None:
+        # Portable enumeration: the recorded source root does not exist on this machine
+        # (e.g. a run built elsewhere). Re-derive from repo_root + repo-relative source folders.
+        portable_resolution = True
+        folders = sorted({rec.get("source_folder") for rec in inventory.values() if rec.get("source_folder")})
+        for folder in folders:
+            base = repo_root / folder
+            if not base.exists():
+                continue
+            for path in base.rglob("*"):
+                if path.is_file():
+                    current_paths[safe_relative(path.resolve(), repo_root)] = path
+    added = sorted(set(current_paths) - set(inventory)) if current_paths else []
     changed: list[dict[str, Any]] = []
     missing: list[str] = []
     newly_unreadable: list[str] = []
     checked_count = 0
     for record in inventory.values():
-        path = Path(record["absolute_path"])
+        path = _resolve_source_path(record, repo_root)
+        if path is None:
+            missing.append(record["repository_path"])
+            continue
         try:
             file_stat = path.stat()
         except FileNotFoundError:
@@ -1067,6 +1112,7 @@ def check_source_drift(run_root: Path, manifest: dict[str, Any]) -> dict[str, An
     fresh = not (added or changed or missing or newly_unreadable or enumeration_errors)
     return {
         "fresh": fresh,
+        "portable_resolution": portable_resolution,
         "inventory_count": len(inventory),
         "current_count": len(current_paths),
         "checked_count": checked_count,

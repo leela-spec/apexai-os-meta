@@ -478,11 +478,23 @@ def _postflight(run_root: Path, manifest: dict[str, Any], state: dict[str, Any])
         for topic_id, topic_state in state["topics"].items()
         if topic_state["acceptance"]["status"] != "not_required"
     }
+    acceptance_enabled = _acceptance_enabled(state)
+    all_topics_accepted = bool(acceptance) and all(value == "semantic_pass" for value in acceptance.values()) and len(acceptance) == len(state["topics"])
+    semantically_accepted = output != "analysis_only" and acceptance_enabled and all_topics_accepted
+    if output == "analysis_only":
+        semantic_acceptance = "not_required"
+    elif not acceptance_enabled:
+        semantic_acceptance = "disabled"
+    elif all_topics_accepted:
+        semantic_acceptance = "passed"
+    else:
+        semantic_acceptance = "incomplete"
     checks = {
         "source_fresh": source["fresh"],
         "all_phase1_complete": all(item["phase1"]["status"] in {"completed", "reused"} for item in state["topics"].values()),
         "all_phase2_complete": output == "analysis_only" or all(item["phase2"]["status"] in {"completed", "reused"} for item in state["topics"].values()),
-        "all_semantic_acceptance_pass": output == "analysis_only" or not _acceptance_enabled(state) or (all(value == "semantic_pass" for value in acceptance.values()) and len(acceptance) == len(state["topics"])),
+        # Gate (does NOT claim quality): satisfied when acceptance is not required/disabled, or when every topic passed.
+        "acceptance_gate_satisfied": output == "analysis_only" or not acceptance_enabled or all_topics_accepted,
         "retrieval_deferred_until_postflight": output != "query_ready" or state["retrieval"]["status"] == "pending",
     }
     passed = all(checks.values())
@@ -496,6 +508,9 @@ def _postflight(run_root: Path, manifest: dict[str, Any], state: dict[str, Any])
         "passed": passed,
         "checks": checks,
         "source_drift": source,
+        # Honest, non-gating quality signals: "disabled" means no independent evaluator ran.
+        "semantic_acceptance": semantic_acceptance,
+        "semantically_accepted": semantically_accepted,
         "acceptance_verdicts": acceptance,
     }
     path = run_root / "audit" / "postflight" / f"{manifest['run_id']}.json"
@@ -607,6 +622,64 @@ def drive_until_boundary(run_root: Path, semantic_acceptance: bool = False, max_
     raise ApexKBError("drive_action_limit", "Drive reached its deterministic action limit", {"max_actions": max_actions})
 
 
+BLOCKER_EXPLANATIONS = {
+    "postflight_failed": {
+        "component": "deterministic postflight",
+        "invariant": "sources are fresh and all phases are complete before retrieval/completion",
+        "consequence": "compiling or serving a KB that is incomplete or built against changed sources",
+        "resolution": "resolve the failing checks (rebuild affected topics or refresh sources), then re-run drive",
+    },
+    "completion_source_drift": {
+        "component": "completion certifier",
+        "invariant": "the compiled KB matches the exact sources it was built from",
+        "consequence": "certifying a KB whose sources changed after it was built (stale provenance)",
+        "resolution": "run apex-kb update to selectively recompile affected topics",
+    },
+    "config_drift": {
+        "component": "run loader",
+        "invariant": "run-config.yaml matches the frozen manifest hash",
+        "consequence": "silently changing the run definition mid-flight",
+        "resolution": "restore the config or start a new run/update",
+    },
+    "semantic_result_invalid": {
+        "component": "semantic import validator",
+        "invariant": "a returned semantic result matches its packet schema, identity, and citation ledger",
+        "consequence": "importing malformed or mis-cited content into the KB",
+        "resolution": "repair only the numbered result file the CLI created, then re-run drive",
+    },
+}
+
+
+def _explain_blocker(blocker: dict[str, Any]) -> dict[str, Any]:
+    code = blocker.get("code", "unknown")
+    detail = BLOCKER_EXPLANATIONS.get(
+        code,
+        {
+            "component": "Apex KB CLI",
+            "invariant": "a deterministic safety or completeness rule",
+            "consequence": "proceeding past a rule the CLI protects",
+            "resolution": "read the blocker detail and re-run the derived next action",
+        },
+    )
+    return {"code": code, **detail, "detail": blocker}
+
+
+def _progress(state: dict[str, Any], action: dict[str, Any]) -> dict[str, Any]:
+    topics = state["topics"]
+    phase1_done = [tid for tid, ts in topics.items() if ts["phase1"]["status"] in {"completed", "reused"}]
+    phase2_done = [tid for tid, ts in topics.items() if ts["phase2"]["status"] in {"completed", "reused"}]
+    accepted = _accepted_topic_ids(state)
+    activity = {"semantic_wait": "waiting_on_semantic_worker", "blocked": "blocked", "completed": "complete"}.get(action["kind"], "working")
+    return {
+        "topics_total": len(topics),
+        "phase1_complete": len(phase1_done),
+        "phase2_complete": len(phase2_done),
+        "topics_accepted": len(accepted),
+        "activity": activity,
+        "waiting_on_you": action["kind"] == "semantic_wait",
+    }
+
+
 def status_snapshot(run_root: Path) -> dict[str, Any]:
     schema_name = inspect_run_schema(run_root)
     if schema_name != MANIFEST_SCHEMA:
@@ -621,6 +694,10 @@ def status_snapshot(run_root: Path) -> dict[str, Any]:
         }
     manifest, state = load_run(run_root)
     action = derive_next_action(manifest, state)
+    try:
+        source_drift = check_source_drift(run_root, manifest)
+    except Exception as exc:  # status must never fail because of a drift probe
+        source_drift = {"error": str(exc), "fresh": None}
     return {
         "schema": "apex.kb.status.v2",
         "run_root": str(run_root),
@@ -630,12 +707,15 @@ def status_snapshot(run_root: Path) -> dict[str, Any]:
         "lifecycle_status": state["lifecycle_status"],
         "current_stage": state["current_stage"],
         "completed_stages": state["completed_stages"],
+        "progress": _progress(state, action),
         "topics": state["topics"],
         "active_task": state["active_task"],
         "retrieval": state["retrieval"],
         "postflight": state["postflight"],
         "completion": state["completion"],
+        "source_drift": source_drift,
         "blockers": state["blockers"],
+        "blockers_explained": [_explain_blocker(b) for b in state["blockers"]],
         "next_action": action,
         "exact_next_action": next_action_text(run_root, action),
     }

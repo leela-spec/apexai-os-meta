@@ -14,11 +14,13 @@ dependencies = [
   "click>=8.1,<9",
   "jsonschema>=4.23,<5",
   "PyYAML>=6.0,<7",
-  "pypdf>=5.9,<7",
 ]
 
 [project.optional-dependencies]
-test = ["pytest>=8.2,<9"]
+# PDF extraction is optional; without it PDF sources degrade to "unsupported"
+# instead of the CLI failing to import on a clean machine.
+pdf = ["pypdf>=5.9,<7"]
+test = ["pytest>=8.2,<9", "pypdf>=5.9,<7"]
 
 [project.scripts]
 apex-kb = "apex_kb.cli:main"

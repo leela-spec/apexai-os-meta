@@ -366,7 +366,7 @@ def query_retrieval(run_root: Path, query: str, limit: int = 8, allow_stale: boo
     sql = """
         SELECT chunk_id, path, topic_id, page_type, start_line, end_line, heading_level,
                page_hash, source_pointers, title, heading,
-               snippet(chunks_fts, 11, '[', ']', ' … ', 24) AS excerpt,
+               snippet(chunks_fts, 11, '', '', ' … ', 24) AS excerpt,
                bm25(chunks_fts, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 4.0, 3.0, 1.0, 0.0) AS score
         FROM chunks_fts
         WHERE chunks_fts MATCH ?
@@ -375,7 +375,9 @@ def query_retrieval(run_root: Path, query: str, limit: int = 8, allow_stale: boo
     if topic_id:
         sql += " AND topic_id = ?"
         parameters.append(topic_id)
-    sql += " ORDER BY score, path, start_line LIMIT ?"
+    # Answer-bearing dossier chunks should surface before source-atlas provenance/boilerplate.
+    # bm25 returns negative (lower = better), so add a small positive penalty to atlas rows.
+    sql += " ORDER BY score + (CASE WHEN page_type = 'source_atlas' THEN 2.0 ELSE 0.0 END), path, start_line LIMIT ?"
     parameters.append(max(1, min(limit, 100)))
     connection = sqlite3.connect(f"file:{db_path}?mode=ro", uri=True)
     connection.row_factory = sqlite3.Row
@@ -406,6 +408,13 @@ def query_retrieval(run_root: Path, query: str, limit: int = 8, allow_stale: boo
         "retrieval_fresh": health["fresh"],
         "result_count": len(rows),
         "raw_source_reopen_guidance": "Use the accepted dossier and source atlas first. Reopen raw sources only when the answer is absent, acceptance marks insufficient evidence, or source drift invalidates the compiled pages.",
+        "future_agent_contract": {
+            "retrieval_policy": "Query this KB before reading raw notes. Load the top answer-bearing dossier chunks first; load a source-atlas chunk only when provenance or authority is in question.",
+            "context_budget": "Prefer <= 5 chunks (~4k tokens of evidence) before considering a raw-source reopen; the full compiled KB is a fraction of the raw corpus.",
+            "authority_rules": "Honor each page's Source-boundaries section; never emit a diagnosis or assert beyond cited evidence; treat low-confidence/open items as such.",
+            "answer_contract": "Answer from cited dossier claims; state confidence and uncertainty from the dossier; if source_drift is not fresh, mark the answer provisional and prefer the changed source.",
+            "freshness": {"retrieval_fresh": health["fresh"]},
+        },
         "results": rows,
     }
     output_root = run_root / "outputs" / "queries"
