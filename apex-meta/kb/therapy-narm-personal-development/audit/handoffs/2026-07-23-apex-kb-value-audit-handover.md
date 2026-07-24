@@ -121,6 +121,23 @@ CLI implementation:
 - `C:\GitDev\apexai-os-meta\apex-meta\apex-kb-cli\src\apex_kb\retrieval\`
 - `C:\GitDev\apexai-os-meta\apex-meta\apex-kb-cli\tests\`
 
+Mandatory local LLM-wiki comparison KB:
+
+`C:\GitDev\apexai-os-meta\apex-meta\kb\llm-wiki-project-repos`
+
+Start comparison research with:
+
+- `wiki\summaries\whole-corpus-llm-wiki-repository-capability-analysis.md`
+- `manifests\source-manifest.json`
+- `manifests\phase0\`
+- `raw\refs\`
+
+The indexed projects are `llm-wiki`, `llm-wiki-main`, and `llm-wiki-skill-main`; score them individually. Treat the local summary as navigation and prior analysis, not unquestioned authority. Its own integrity review reports flattened-basename custody collisions, stale Phase 0 coverage, and an off-target `KB_v3` subtree. Verify material claims against the source manifest, raw evidence, and current upstream primary sources before scoring.
+
+Named external competitor:
+
+- [Odysseus AI](https://odysseusai.dev/) - a free, open-source, self-hosted AI workspace designed to run locally through Docker and local model engines such as Ollama. Audit its persistent-memory architecture, including vector embeddings such as ChromaDB and structured recall for user preferences, project details, and cross-session context. Verify these claims against current primary documentation and code before assigning scores.
+
 ## Prompt for the next agent
 
 You are conducting an adversarial product-value, operator-experience, and architecture audit of the Apex KB CLI and its completed therapy/NARM knowledge base. Treat the three audit pillars in this handover as equally mandatory. Do not assume that `query_ready`, passing schemas, page counts, or successful retrieval prove semantic usefulness.
@@ -147,11 +164,11 @@ The Apex KB should create a deterministic plus semantic knowledge system that gi
 7. Reproduce representative operator-experience failures: semantic boundaries, invalid results, stale/conflicting instructions, omitted pushes, context continuation, update/drift, and clean installation. Identify whether code, skills, packets, or agent discretion own each failure.
 8. Inspect information architecture, page granularity, duplication, retrieval chunking, ranking quality, citation usability, update/drift behavior, deterministic reproducibility, repair behavior, context isolation, packaging, publication state, and future-agent integration.
 9. Investigate current external systems on the internet using current, primary sources where possible. Compare Apex KB with:
-   - modern LLM wiki and repository-knowledge systems;
+   - the three locally indexed projects `llm-wiki`, `llm-wiki-main`, and `llm-wiki-skill-main`, using `C:\GitDev\apexai-os-meta\apex-meta\kb\llm-wiki-project-repos` as the source-preserving starting point and current upstream repositories as the freshness authority;
    - current agentic retrieval architectures using hybrid lexical/vector search, reranking, contextual retrieval, graph retrieval, GraphRAG, knowledge graphs, memory layers, provenance, and incremental indexing;
-   - the AI-agent system called “Odyssey,” specifically its vector retrieval, graph/database management, and agent workflow. First identify the exact Odyssey product/project intended; if multiple systems share the name, state the ambiguity and compare only evidence-backed candidates.
-10. Resolve the exact identities of the operator's named comparison targets "Audysorce" and "Inspector Graph database" before scoring them. Search for spelling variants and state the selected product, repository, version, and evidence. If either identity remains ambiguous, show the plausible candidates and mark its score cells `N/E` rather than inventing a comparison.
-11. Cite every external comparison with links and dates. Separate verified product capability from inference or marketing claims.
+   - [Odysseus AI](https://odysseusai.dev/), specifically its self-hosted/local deployment, Docker and Ollama integration, persistent cross-session memory, vector embeddings/ChromaDB, structured recall, preference and project-context retention, privacy model, database management, and agent workflow.
+10. Verify Odysseus AI's claimed capabilities against current official documentation and source code. Distinguish architecture that is actually implemented from positioning language, and test or document evidence for persistence, recall quality, local control, setup, maintenance, and failure behavior.
+11. Cite every external comparison with links, repository identities, versions or commits, and dates. Separate verified product capability from inference or marketing claims.
 12. Keep all private therapy material local. Do not send raw or compiled personal content to external services while researching or benchmarking.
 13. Treat the master capability/value decision matrix below as the audit's core delivery. The narrative, verdict, backlog, and implementation plan must derive from its evidence rather than being independent opinion.
 
@@ -177,11 +194,11 @@ The systems must appear in the same matrix, not in separate narrative tables. In
 
 1. Apex KB CLI as claimed by its current contract.
 2. Apex KB CLI as actually demonstrated by code, tests, and the therapy run.
-3. The exact product identified from "Audysorce."
-4. The exact product identified from "Inspector Graph database."
-5. The correctly identified Odyssey system.
-6. At least three representative modern LLM-wiki or repository-knowledge projects, named individually.
-7. A representative best-practice durable agent-memory system.
+3. Odysseus AI from `https://odysseusai.dev/`, using current official documentation and source code.
+4. The locally indexed `llm-wiki` project.
+5. The locally indexed `llm-wiki-main` project.
+6. The locally indexed `llm-wiki-skill-main` project.
+7. A representative best-practice durable agent-memory system when it adds a material capability not already represented by Odysseus AI.
 8. A representative best-practice hybrid/vector retrieval stack.
 9. A representative best-practice graph or GraphRAG stack.
 
@@ -285,17 +302,17 @@ For each dimension report: current evidence, score, strongest value, concrete fa
 6. Would vector or graph retrieval improve this small KB now, or add complexity without measurable value?
 7. Is disabling independent semantic acceptance by default justified, or does it create an integrity gap? Propose the simplest high-value acceptance architecture.
 8. Are there encoding/rendering defects, stale contract references, misleading state labels, or divergence between the account skill and installed CLI?
-9. What capabilities of modern LLM wikis and the identified Odyssey system are genuinely superior, inferior, or irrelevant to Apex KB's local, source-preserving purpose?
+9. What capabilities of Odysseus AI and the three locally indexed LLM-wiki projects are genuinely superior, inferior, or irrelevant to Apex KB's local, source-preserving purpose?
 10. What is the smallest architecture that could make Apex KB meaningfully best-in-class for the operator's actual use?
 11. Which chat failures are still structurally possible, who owns each failure, and what product change removes reliance on perfect agent behavior?
 12. What exact future-agent interface will make the KB the default, token-budgeted source of context rather than an optional folder the AI may ignore?
 13. At what maturity stage is Apex KB today for each lifecycle and retrieval layer: concept, prototype, functional, reliable, competitive, or best-in-class?
 14. Which competitor capabilities already exist in Apex KB, and are they realized equally well, more safely, and with equal or better operator value?
-15. Which memory, vector, graph, wiki, or Odyssey capabilities are genuinely additive, and which would duplicate existing value or add unjustified complexity?
+15. Which Odysseus AI memory, vector, structured-recall, graph, or LLM-wiki capabilities are genuinely additive, and which would duplicate existing value or add unjustified complexity?
 16. What should the operator retain, improve, add now, experiment with, defer, or reject, and what value does each decision produce?
 17. What exact sequence moves Apex KB from its current maturity level to the recommended target while preserving source integrity, privacy, token efficiency, and non-programmer usability?
 18. For every Apex CLI step and produced output, what is its impact, realized value, safety, setup burden, maintenance burden, and net value on the shared 1-100 scale?
-19. For the same row and same metrics, how do the identified "Audysorce," "Inspector Graph database," Odyssey, named LLM wikis, agent memory, vector retrieval, and graph retrieval systems score?
+19. For the same row and same metrics, how do Odysseus AI, `llm-wiki`, `llm-wiki-main`, `llm-wiki-skill-main`, agent memory, vector retrieval, and graph retrieval systems score?
 20. Which missing components should actually be installed or integrated, in what order, and which attractive competitor features should explicitly not be adopted?
 
 ### Required deliverables
@@ -304,7 +321,7 @@ Produce:
 
 1. **Executive verdict** — direct assessment of current value and whether `query_ready` is semantically deserved.
 2. **Actual status** — deterministic state, semantic state, retrieval state, contract divergences, and known defects.
-3. **Evidence-backed benchmark matrix** — Apex KB versus modern LLM wikis, modern hybrid/vector/graph retrieval, and the correctly identified Odyssey system.
+3. **Evidence-backed benchmark matrix** — Apex KB versus Odysseus AI, the three locally indexed LLM-wiki projects, and modern hybrid/vector/graph retrieval.
 4. **Therapy-KB test report** — query results, claim checks, raw-source checks, token-efficiency findings, and concrete examples of strong and weak outputs.
 5. **Ranked improvement backlog** — impact, evidence, risk, complexity, dependency, and measurable success criterion.
 6. **Recommended target architecture** — clearly assign deterministic code, semantic model, retrieval engine, graph/database, evaluator, and operator responsibilities.
@@ -323,4 +340,4 @@ Do not implement changes during this audit. First produce the evidence-backed re
 
 ### Suggested activation message
 
-`Audit the completed Apex KB using C:\GitDev\apexai-os-meta\apex-meta\kb\therapy-narm-personal-development\audit\handoffs\2026-07-23-apex-kb-value-audit-handover.md. Treat CLI/code maturity, unresolved operator-experience failures from the originating chat, and the actual therapy KB output as three equal audit pillars. The central output must be one unified matrix with a separate row for every Apex KB CLI step, transition, operator interaction, output artifact, and material missing competitor capability. Put Apex and every comparison system in that same matrix and apply the identical 1-100 scoring block to each: availability, impact, realized value, quality, retrieval, holistic value, token efficiency, reliability, safety, privacy, usability, observability, setup burden, maintenance burden, evidence confidence, and overall net value. Resolve the exact products meant by Audysorce and Inspector Graph database before scoring; also compare the correctly identified Odyssey system, at least three named modern LLM wikis, durable agent memory, hybrid/vector retrieval, and graph/GraphRAG. End each row with the Apex gap, retain/improve/install/experiment/defer/reject decision, incremental value, complexity, risk, integration point, acceptance test, priority, and dependency order. Execute the full audit in one go with current internet research, then provide a concrete operator guide showing what is already good, what is missing, what should be installed or integrated, in what order, and why. Do not implement changes yet.`
+`Audit the completed Apex KB using C:\GitDev\apexai-os-meta\apex-meta\kb\therapy-narm-personal-development\audit\handoffs\2026-07-23-apex-kb-value-audit-handover.md. Treat CLI/code maturity, unresolved operator-experience failures from the originating chat, and the actual therapy KB output as three equal audit pillars. The central output must be one unified matrix with a separate row for every Apex KB CLI step, transition, operator interaction, output artifact, and material missing competitor capability. Put Apex and every comparison system in that same matrix and apply the identical 1-100 scoring block to each: availability, impact, realized value, quality, retrieval, holistic value, token efficiency, reliability, safety, privacy, usability, observability, setup burden, maintenance burden, evidence confidence, and overall net value. Compare Apex directly with Odysseus AI at https://odysseusai.dev/ and with the three projects indexed in C:\GitDev\apexai-os-meta\apex-meta\kb\llm-wiki-project-repos: llm-wiki, llm-wiki-main, and llm-wiki-skill-main. For Odysseus AI, verify self-hosting, Docker/Ollama operation, persistent cross-session memory, vector embeddings/ChromaDB, structured recall, privacy, setup, maintenance, and failure behavior against current primary sources. For the LLM-wiki projects, begin with the local KB but verify scores against its manifest/raw evidence and current upstream repositories; do not rely on its off-target KB_v3 subtree. End each row with the Apex gap, retain/improve/install/experiment/defer/reject decision, incremental value, complexity, risk, integration point, acceptance test, priority, and dependency order. Execute the full audit in one go with current internet research, then provide a concrete operator guide showing what is already good, what is missing, what should be installed or integrated, in what order, and why. Do not implement changes yet.`
