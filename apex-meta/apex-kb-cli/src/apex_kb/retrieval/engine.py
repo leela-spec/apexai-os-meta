@@ -9,9 +9,10 @@ from pathlib import Path
 from typing import Any
 
 from ..errors import ApexKBError
-from ..io import atomic_json, atomic_text, canonical_hash, load_json, sha256_file, utc_now, utc_stamp, validate_schema
+from ..io import atomic_json, atomic_text, canonical_hash, iter_ndjson, load_json, sha256_file, utc_now, utc_stamp, validate_schema
 
 INDEX_SCHEMA = "apex.kb.retrieval-index.v2"
+POINTER_LINE_RE = re.compile(r"(?:line:|#L)(\d+)")
 HEADING_RE = re.compile(r"^(#{1,6})\s+(.+?)\s*#*\s*$")
 TOKEN_RE = re.compile(r"[^\W_]+(?:[-'][^\W_]+)*", re.UNICODE)
 SOURCE_ID_RE = re.compile(r"\bsrc-[a-f0-9]{16}\b")
@@ -343,6 +344,84 @@ def retrieval_health(run_root: Path) -> dict[str, Any]:
         "expected_row_count": index.get("chunk_count"),
         "error": error,
     }
+
+
+def pointer_health(run_root: Path) -> dict[str, Any]:
+    """Read-only diagnostic: do compiled dossier citation pointers resolve to real, non-blank source lines?
+
+    Non-fatal — never raises; returns a summary so `doctor` can surface silently stale provenance
+    (e.g. after source drift) without blocking the lifecycle. Non-line pointers are counted as
+    unparseable, not failures.
+    """
+    summary: dict[str, Any] = {
+        "available": False, "checked": 0, "resolved": 0,
+        "unresolved": [], "blank_line": [], "unparseable": 0, "error": None,
+    }
+    try:
+        manifest_path = run_root / "run-manifest.json"
+        inv_path = run_root / "manifests" / "source-inventory.ndjson"
+        if not manifest_path.is_file() or not inv_path.is_file():
+            return summary
+        manifest = load_json(manifest_path)
+        derived_by_source = {rec["source_id"]: rec.get("derived_text_path") for rec in iter_ndjson(inv_path)}
+        results_root = run_root / manifest.get("artifact_layout", {}).get("semantic_results", "")
+        if not results_root.is_dir():
+            return summary
+        text_cache: dict[str, Any] = {}
+
+        def _lines(source_id: str):
+            if source_id in text_cache:
+                return text_cache[source_id]
+            lines = None
+            dtp = derived_by_source.get(source_id)
+            if dtp:
+                path = run_root / str(dtp).replace("\\", "/")
+                if path.is_file():
+                    try:
+                        lines = path.read_text(encoding="utf-8", errors="replace").splitlines()
+                    except OSError:
+                        lines = None
+            text_cache[source_id] = lines
+            return lines
+
+        def _citations(dossier: dict[str, Any]):
+            for answer in dossier.get("target_answers", []):
+                yield from answer.get("citations", [])
+            for claim in dossier.get("key_claims", []):
+                yield from claim.get("citations", [])
+            for src in dossier.get("adaptive_ranked_sources", []):
+                yield from src.get("citations", [])
+
+        summary["available"] = True
+        for result_path in sorted(results_root.glob("phase2-*.json")):
+            try:
+                value = load_json(result_path)
+            except (OSError, ValueError):
+                continue
+            dossier = value.get("dossier") or {}
+            for citation in _citations(dossier):
+                source_id = citation.get("source_id")
+                pointer = str(citation.get("pointer", ""))
+                summary["checked"] += 1
+                match = POINTER_LINE_RE.search(pointer)
+                if not match:
+                    summary["unparseable"] += 1
+                    continue
+                lines = _lines(source_id)
+                line_no = int(match.group(1))
+                where = f"{source_id}:{pointer}"
+                if lines is None or line_no < 1 or line_no > len(lines):
+                    summary["unresolved"].append(where)
+                elif not lines[line_no - 1].strip():
+                    summary["blank_line"].append(where)
+                else:
+                    summary["resolved"] += 1
+    except Exception as exc:  # noqa: BLE001 - doctor probe must never raise
+        summary["error"] = str(exc)
+    summary["unresolved"] = sorted(set(summary["unresolved"]))[:50]
+    summary["blank_line"] = sorted(set(summary["blank_line"]))[:50]
+    summary["fresh"] = summary["available"] and not summary["unresolved"] and not summary["blank_line"]
+    return summary
 
 
 def _fts_query(text: str) -> str:

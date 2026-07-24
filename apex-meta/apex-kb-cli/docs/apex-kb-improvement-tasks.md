@@ -26,9 +26,12 @@ Implemented and verified (50/50 CLI tests green; therapy KB untouched; scratch/f
 - A2: ranked-source citations are now validated against the Phase-1 ledger (was schema-only), and `route_by_question` must route every locked query exactly once. Rather than blunt `minItems` (unsafe: irrelevant/blocked sources legitimately have 0 pointers), coverage of *richness* is driven by the A1 prompts; these gates enforce *correctness*.
 - B4: capsule pointers may no longer exceed the Phase-1 review ledger for the same source (`capsule_pointer_not_in_review`) — the review is the one canonical ledger, ending the capsule-vs-review divergence.
 
+- **B4 resolve-to-real-line** — ✅ done: implemented as a *non-fatal* `pointer_health` probe surfaced in `doctor` (`retrieval/engine.py`; counts dossier citation pointers that don't resolve to a real, non-blank source line; non-line pointers counted as unparseable, never a false reject). Fixture-tested.
+
 Remaining (retained, NOT dropped):
-- **B4 resolve-to-real-line** — optional follow-up: implement as a *non-fatal* `pointer_health` probe in `doctor` (counts dossier pointers that don't resolve to a real, non-blank source line) rather than a hard gate, to avoid false rejections; pointer formats vary, so it needs fixture-backed care.
 - **S1** index the 11th source — reframed: therapy-specific indexing is Phase-2 (KB work, out of scope now); the CLI-level value (surface un-inventoried files) is already covered by B3's `added` drift detection.
+
+**Phase 1 is complete** (13/14 packets done + the B4 probe; S1 reframed to Phase 2). 54/54 tests green.
 
 
 ---

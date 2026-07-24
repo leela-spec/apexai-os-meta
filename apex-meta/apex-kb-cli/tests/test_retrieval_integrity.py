@@ -91,3 +91,30 @@ def test_retrieval_rebuild_has_deterministic_database_identity(tmp_path: Path):
     second = build_retrieval(run_root, manifest, ["skill-tree"])["manifest"]["database_sha256"]
 
     assert second == first
+
+
+def test_pointer_health_probe_is_well_formed_and_non_fatal(tmp_path: Path):
+    from apex_kb.lifecycle import continue_once, load_run
+    from apex_kb.retrieval import pointer_health
+
+    from .helpers import initialize, satisfy_active_task
+
+    # Non-fatal on a path with no run.
+    empty = pointer_health(tmp_path / "does-not-exist")
+    assert empty["available"] is False and empty["error"] is None
+
+    run_root, _, _ = initialize(tmp_path, include_formats=False)
+    for _ in range(120):
+        _, state = load_run(run_root)
+        if state["lifecycle_status"] == "query_ready":
+            break
+        satisfy_active_task(run_root)
+        continue_once(run_root)
+    _, state = load_run(run_root)
+    assert state["lifecycle_status"] == "query_ready"
+
+    health = pointer_health(run_root)
+    assert health["available"] is True
+    assert health["error"] is None
+    assert isinstance(health["fresh"], bool)
+    assert health["checked"] >= 1

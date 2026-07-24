@@ -22,7 +22,7 @@ from .lifecycle import (
     status_snapshot,
     write_new_run,
 )
-from .retrieval import query_retrieval, retrieval_health
+from .retrieval import pointer_health, query_retrieval, retrieval_health
 
 
 def emit(command: str, status: str, data: Any = None, error: ApexKBError | None = None, json_output: bool = False) -> None:
@@ -284,6 +284,7 @@ def doctor(run_root: Path | None, json_output: bool) -> None:
         if run_root:
             data["run_status"] = status_snapshot(run_root.resolve())
             data["retrieval_health"] = retrieval_health(run_root.resolve())
+            data["pointer_health"] = pointer_health(run_root.resolve())
         emit("doctor", "ok", data, json_output=json_output)
     except (ApexKBError, sqlite3.Error) as exc:
         if isinstance(exc, ApexKBError):
