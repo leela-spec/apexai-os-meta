@@ -163,3 +163,12 @@ Three surgical changes were applied (the actionable, revised packet list lives i
 **Revised priority order:** B1 → **A0 → A1 → A2 → A3 → P1** → B2 → B3 → AG1 → O1 → C1 → C2 → B4 → PK1 → S1 → *A4 (optional)* → C3. Implementation steps from the approved plan are preserved, only reprioritized.
 
 **Coverage completeness (2nd feedback pass).** After the operator flagged over-correction, three high-value backlog items that had been left out of the packet list were added so the set is complete: **O1** (operator-visible progress + plain-language blockers — fixes the "is it working or stuck?" confusion), **PK1** (clean-install robustness: pypdf optional + portable forward-slash paths), and **S1** (index the un-indexed 11th source or record its exclusion). Nothing was deleted in the anti-overengineering pass; only A4's priority dropped. The complete high-impact set: value/infrastructure = A0,A1,A3,P1; agent/retrieval value = AG1,C1,C2,C3; trust/usability = B1,B2,B3,O1,PK1,S1; lightweight deterministic guardrails = A2,B4 (+optional A4).
+
+## Revision 2 — scope correction (2026-07-24)
+
+Operator clarified the scope of *this* execution and warned against dropping items when priorities shift:
+- **In scope now = Apex KB *CLI infrastructure* only:** better the CLI, reconcile the skill + build the operator agent (atone for prior drift), and add value via better prompt/task templates + self-sufficient packets. Verify on **scratch/fixture KBs**.
+- **Deferred to a later, separate execution (RETAINED, not dropped) = anything that tests/fixes/re-compiles/benchmarks the therapy KB:** `D-BENCH` (golden-query/answer-quality benchmark = "how we test the KB"), `D-C3` (former C3 reranker, gated on the benchmark), `D-R1`/`D-R2` (KB re-compile). Parked in a "Phase 2 — Deferred" section.
+- **Do not touch the therapy KB now** — no fixing files, no re-running previously-produced files, no queries/tests against it. Therapy-file mentions in the audit report are past diagnostic evidence only; fixes are made to the CLI/skill/agent.
+- **Nothing dropped.** Reprioritization only moves items between Phase 1 (now) and Phase 2 (deferred).
+- The forward-looking plan + task packets were relocated out of `kb/therapy-narm-personal-development/…` to `apex-meta/apex-kb-cli/docs/` so they read as CLI work, not KB work. The historical value-audit report stays where it is.

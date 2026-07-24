@@ -2,6 +2,21 @@
 
 **Purpose.** Ready-to-dispatch implementation tasks derived from the approved plan. Each packet is self-contained: exact files, precise change, acceptance test, dependency, and a **type label** so you route it to the right executor.
 
+---
+
+## SCOPE OF THIS EXECUTION (read first)
+
+**In scope now — Apex KB *CLI infrastructure* only:**
+1. **Better the Apex KB CLI** (fix its defects; make it more performant/valuable).
+2. **Create the skill/agent to run the CLI** (reconcile the thin skill ③ + build the operator agent ④) to atone for the prior drift failures.
+3. **Derive more value via better prompt/task templates** (the core value lever) + self-sufficient packets.
+
+**Deferred to a LATER, separate execution — RETAINED, NOT dropped:** anything that *tests, fixes, re-compiles, or benchmarks the actual therapy knowledge base or its files.* Per operator: *"After you have done all that, we can think about how we test the knowledge base."* These items live in **Phase 2 — Deferred** at the bottom of this file so nothing is lost, but **none of it is done in this execution.**
+
+**Two hard rules for this execution:**
+- **Do not touch the therapy KB** — no fixing its files, no re-running previously-produced files, no queries/tests against it. It is only referenced (in the audit report) as *past diagnostic evidence* for why the CLI needs better prompts; the fixes here are made to the **CLI/skill/agent**, and are verified on **scratch/fixture KBs**, never the therapy KB.
+- **Nothing is dropped.** Reprioritizing does not remove items; deferred work is explicitly parked in Phase 2.
+
 **Two executor types (per your token model):**
 - **`[DET]` Deterministic** — mechanical code/doc/schema edits and CLI runs. **No LLM semantic drafting; cheap.** Any coding agent or a local runner can do these. Running `apex-kb` commands costs **zero model tokens**.
 - **`[SEM]` Semantic** — token-expensive drafting of KB content, run by your unlimited-token agent in a separate chat. **Hard requirement (operator):** the packet the CLI emits and commits to `main` must be **100% self-sufficient** — it already contains every path, every allowed source (with the exact pointers/excerpts to use), the output schema, the exact output path, *and* best-practice authoring instructions for a full-value semantic file. **The external agent adds no information, paths, or files — it only writes the semantic prose into the pre-defined blanks.** If the external agent has to hunt for a path or a source, the packet is defective (that is a `[DET]` packet-emission bug, see **P1**).
@@ -13,13 +28,14 @@
 **Realms (fixed vocabulary — never conflate):** ① Apex KB **CLI** (the `apex-kb` exe, sole authority) · ② semantic **worker** (AI filling one packet) · ③ Apex KB **skill** (`.claude/skills/apex-kb/`, the manual) · ④ Apex KB **operator agent** (new `.claude/agents/apex-kb-operator.md`).
 
 **Priority / dependency order (revised per operator feedback):**
-`B1` (fix the manual) → **`A0` (research better prompts — KEY)** → `A1` (rewrite templates) → `A2` (schema floors) → `A3` (cross-links) → **`P1` (self-sufficient packets)** → `B2`,`B3` (tell the truth) → `AG1` (operator agent) → `O1` (progress/blocker visibility) → `C1`,`C2` (query value) → `B4` (pointer-resolve guard, lightweight) → `PK1` (clean install/paths) → `S1` (11th source) → `A4` (optional bounded acceptance — **not** core) → `C3` (gated). All implementation packets are `[DET]`; only the therapy-KB re-drafted **content** (packet R2) is `[SEM]`.
+**Phase 1 (this execution — CLI + skill/agent + prompts):** `B1` (fix the manual) → **`A0` (research better prompts — KEY)** → `A1` (rewrite templates) → `A2` (schema floors) → `A3` (cross-links) → **`P1` (self-sufficient packets)** → `B2`,`B3` (tell the truth) → `AG1` (operator agent) → `O1` (progress/blocker visibility) → `C1`,`C2` (query value) → `B4` (pointer-resolve guard, lightweight) → `PK1` (clean install/paths) → `S1` (11th source) → `A4` (optional bounded acceptance — **not** core). Every Phase-1 packet is `[DET]` and verified on scratch/fixture KBs.
+**Phase 2 (deferred, retained — KB testing/re-compile):** `D-BENCH` → `D-C3` (former C3 reranker) → `D-R1` → `D-R2` (`[SEM]`). Not done in this execution.
 **What moved up:** prompt/template optimization (A0/A1) and self-sufficient packets (P1) are now top infrastructure work. **What moved down:** LLM-based acceptance (A4) is demoted below the infrastructure and truth fixes. **Nothing was deleted** — every guardrail/quality check remains available; only A4's *priority* dropped.
 
 **Coverage check — every high-impact item is targeted (packet → what it increases):**
 | Value-increasing (build a better KB) | Trust/usability | Deterministic guardrail (kept, not over-invested) | Retrieval/agent value |
 |---|---|---|---|
-| **A0** research prompts · **A1** rewrite prompts · **A3** cross-links/indexing · **P1** self-sufficient packets | **B1** fix the manual · **B2** honest state · **B3** visible drift · **O1** progress/blocker visibility · **PK1** clean install/portable paths · **S1** index the 11th source | **A2** schema floors · **B4** pointers resolve to real lines · *A4 optional answerability* | **AG1** operator agent · **C1** clean/ranked query · **C2** future-agent contract · **C3** reranker (gated) |
+| **A0** research prompts · **A1** rewrite prompts · **A3** cross-links/indexing · **P1** self-sufficient packets | **B1** fix the manual · **B2** honest state · **B3** visible drift · **O1** progress/blocker visibility · **PK1** clean install/portable paths · **S1** index the 11th source | **A2** schema floors · **B4** pointers resolve to real lines · *A4 optional answerability* | **AG1** operator agent · **C1** clean/ranked query · **C2** future-agent contract · *(D-C3 reranker → Phase 2)* |
 
 This is the complete set — the four value-increasing infrastructure tasks (A0/A1/A3/P1) plus the operator agent (AG1) and the future-agent contract (C2) are the highest-leverage new work; guardrails are present but deliberately lightweight.
 
@@ -66,7 +82,7 @@ This is the complete set — the four value-increasing infrastructure tasks (A0/
 - `apex-meta/apex-kb-cli/src/apex_kb/corpus/engine.py` `check_source_drift` (~line 1023): stop using `record["absolute_path"]`; resolve each source from `manifest source resolved_root + repository_path` (repo-relative), so it works on any machine. When building the inventory, store **repo-relative** paths (or store both and prefer relative).
 - `apex-meta/apex-kb-cli/src/apex_kb/lifecycle.py` `status_snapshot` and `cli.py doctor`: call `check_source_drift` and include a `source_drift` block (`fresh`, `changed`, `added`, `deleted`) in `status`/`doctor` output.
 
-**Acceptance test:** on the current repo (where `MyTherapy.md` drifted 598→456 lines), `apex-kb doctor --run-root <therapy-kb>` reports the changed/deleted sources instead of `fresh:true`. Add a test that mutates a source hash and asserts `doctor` flags it.
+**Acceptance test:** on a **scratch fixture KB**, build it, then mutate/delete a source file and confirm `apex-kb doctor` reports the change instead of `fresh:true`; add a unit test in `tests/` that mutates a fixture source hash and asserts `doctor`/`status` flags drift. (Do **not** run this against the therapy KB.)
 **Dependency:** none. **Effort:** M.
 
 ---
@@ -135,7 +151,7 @@ Never edit run-config, manifests, run-state, stage results, wiki pages, retrieva
 - `apex-meta/apex-kb-cli/src/apex_kb/templates/phase2-task.md` line 9 — change "citation must be non-empty" expectations to: *"Each ranked source must carry **all** pointers preserved for it in Phase 1. Enumerate **every** material key claim (not a sample). Each direct answer must cite every supporting pointer. Write Macro/Meso/Micro as substantive paragraphs (≥3 sentences each), not one-liners. Add a Related-pages section linking every related topic."* (plus any richer A0 language)
 - Mirror the same wording in the injected contracts in `semantic/engine.py` (`page_value_contract` ~374-379 and the phase-1 disposition contract ~109).
 
-**Acceptance test:** re-emit a Phase 2 packet (packet R1) and confirm the `TASK.md` now contains the coverage + related-pages language. Full validation is via A2 + the R re-run diff.
+**Acceptance test:** on a **scratch fixture KB**, run the CLI to emit a Phase 2 packet and confirm its `TASK.md` now contains the coverage + related-pages language; add a `tests/` assertion on the rendered template text. (Actual richer *content* is validated later in Phase 2, not here.)
 **Dependency:** A0. **Effort:** M. **Priority: high (core value).**
 
 ---
@@ -203,10 +219,8 @@ Never edit run-config, manifests, run-state, stage results, wiki pages, retrieva
 **Acceptance test:** `query` output and `wiki/index.md` both state: search-first, ≤5 answer chunks, reopen-raw-only-if-drift/absent.
 **Dependency:** B1. **Effort:** M.
 
-### C3 `[DET]` · realm ① — Local reranker over FTS5 top-K (**gated on a benchmark**)
-**Why:** best-practice evidence shows reranking is the cheapest, still-local retrieval-precision upgrade (embeddings/graph are not justified here). Only adopt if it beats the FTS5 baseline on a golden set.
-**Prerequisite:** build the golden-query/answer-quality benchmark (residual #13) first; adopt C3 only if it measurably wins.
-**Dependency:** benchmark. **Effort:** M–L.
+### C3 — Local reranker over FTS5 top-K → **moved to Phase 2 (deferred), retained as `D-C3`.**
+Its adoption decision requires the KB benchmark, which is KB-testing work — so it is parked in Phase 2 below, not dropped.
 
 ---
 
@@ -229,15 +243,22 @@ Never edit run-config, manifests, run-state, stage results, wiki pages, retrieva
 
 ---
 
-## THERAPY-KB RE-COMPILE (the only `[SEM]` work)
+## PHASE 2 — DEFERRED (KB testing / re-compile — **NOT this execution; retained, not dropped**)
 
-### R1 `[DET]` — Emit fresh richer packets
-After A1–A3 land, run (zero model tokens): `apex-kb update --run-root <therapy-kb>` (or a fresh `start`) then `apex-kb drive --json-output` until it stops at each Phase-2 semantic boundary. This produces new packets under `runs/<run-id>/…` and an execution pack like the existing `phase2-execution-pack/`.
+Everything here is parked until the Phase-1 CLI-infrastructure work above is done. Per operator: *"After you have done all that, we can think about how we test the knowledge base."* Do **not** start any of this now, and do **not** touch the therapy KB in this execution.
 
-### R2 `[SEM]` — Hand the self-sufficient execution pack to your unlimited-token agent
-Because of **P1**, each emitted packet is already complete — give it (`TASK.md`, `task.json`, `source-allowlist.json`, `output.schema.json`, `expected-output-path.txt`, plus the resolved source material) to the `apex-kb-operator` agent (AG1) in your unlimited chat. **The agent adds nothing — no paths, no files, no extra sources — it only drafts the richer dossier JSON into the declared output path.** Then `apex-kb drive` (DET) imports/validates. (Only if you explicitly opted into A4 do you also run its answerability check in a **separate fresh context**; it is not required.)
-**Acceptance test:** diff old vs new `narm-model-and-core-needs.md` — ranked source #2 now carries all 9 pointers; key-claims ≥ the floor; a `## Related pages` section is present; `doctor` fresh; postflight honest. The external agent needed nothing beyond the packet.
+### D-BENCH `[DET]` — Golden-query / answer-quality benchmark ("how we test the KB")
+Build a golden query set + expected-answer rubric + claim-entailment set + token-savings measurement (audit residual #13). Foundation for any KB-quality claim; gates `D-C3`. **Deferred.**
+
+### D-C3 `[DET]` · realm ① — Local reranker over FTS5 top-K (**gated on `D-BENCH`**)
+Best-practice evidence shows reranking is the cheapest, still-local retrieval-precision upgrade (embeddings/graph are not justified here). Adopt only if it beats the FTS5 baseline on the golden set. **Deferred.** *(Former C3 — retained.)*
+
+### D-R1 `[DET]` — Emit fresh richer packets for an existing KB
+Once A0/A1/A2/A3/P1 have landed, `apex-kb update` + `apex-kb drive --json-output` emits new, richer, self-sufficient packets (zero model tokens). **Deferred** — run only when you choose to rebuild a KB later.
+
+### D-R2 `[SEM]` — Re-draft richer content via the unlimited-token agent
+Because of **P1**, each emitted packet is complete — hand it to the `apex-kb-operator` agent (AG1) in your unlimited chat; it adds nothing and only drafts the dossier JSON into the declared path; then `apex-kb drive` imports/validates. **Deferred** — the only `[SEM]` step, belonging to the later KB-testing phase.
 
 ---
 
-*All implementation packets (B*, A*, C*, AG1, R1) are deterministic and token-free to run. Only R2 (and, if chosen, A4's acceptance pass) is semantic — route those to the unlimited-token agent. The CLI (①) remains sole authority throughout.*
+*Phase-1 packets (B1–B4, A0–A4, P1, AG1, O1, PK1, S1, C1, C2) are all deterministic, token-free, and verified on **scratch/fixture KBs** — the therapy KB is never touched in this execution. All `[SEM]` work and KB-content testing live in the deferred Phase 2. The CLI (①) remains sole authority throughout. **Nothing from earlier drafts was removed — items only moved between Phase 1 (now) and Phase 2 (deferred).***
