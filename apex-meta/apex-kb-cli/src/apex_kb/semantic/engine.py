@@ -106,7 +106,7 @@ def create_phase1_packet(run_root: Path, manifest: dict[str, Any], topic_id: str
         "candidate_count": topic_map["candidate_count"],
         "candidate_source_ids": [item["source_id"] for item in sources],
         "allowed_dispositions": sorted(VALID_DISPOSITIONS),
-        "disposition_contract": "Every candidate exactly once; preserve current, implementation, prototype, historical, duplicate, superseded, incidental, irrelevant, and blocked distinctions.",
+        "disposition_contract": "Every candidate exactly once; preserve current, implementation, prototype, historical, duplicate, superseded, incidental, irrelevant, and blocked distinctions. Coverage: record ALL material pointers and EVERY distinct key claim per source, and cite every supporting pointer per answer — not a sample.",
         "source_allowlist_path": "source-allowlist.json",
         "required_output_schema": "phase1-result.schema.json",
         "allowed_output_paths": [str(incoming)],
@@ -372,10 +372,11 @@ def create_phase2_packet(run_root: Path, manifest: dict[str, Any], topic_id: str
         "source_capsule_paths": sorted(capsule_paths),
         "context_contract": "Read only this topic's Phase 1 analysis and the source capsules listed by this packet; do not read another topic's Phase 1 analysis.",
         "page_value_contract": {
-            "macro": "Why this topic matters for the operator's stated outcome.",
-            "meso": "What the models, patterns, distinctions, and relationships are.",
-            "micro": "How to recognize, choose, and apply the practices safely.",
-            "required_sections": ["page_purpose", "adaptive_ranked_sources", "route_by_question", "source_boundaries", "open_questions", "raw_source_reopen_triggers"],
+            "macro": "Why this topic matters for the operator's stated outcome (>= 3 sentences).",
+            "meso": "What the models, patterns, distinctions, and relationships are (>= 3 sentences).",
+            "micro": "How to recognize, choose, and apply the practices safely (>= 3 sentences).",
+            "coverage": "Each ranked source carries ALL pointers Phase 1 preserved for it; enumerate EVERY material key claim; every answer cites every supporting pointer.",
+            "required_sections": ["page_purpose", "adaptive_ranked_sources", "route_by_question", "source_boundaries", "open_questions", "raw_source_reopen_triggers", "related_pages"],
         },
         "atlas_contract": "The application generates the complete source atlas deterministically from Phase 1; the semantic worker must not reproduce it.",
         "required_routes": topic["expected_routes"],
@@ -478,6 +479,10 @@ def _render_dossier(value: dict[str, Any]) -> str:
     lines.extend(f"- {item}" for item in dossier["uncertainties"] + dossier["open_questions"] or ["None recorded."])
     lines.extend(["", "## Raw-source reopen triggers", ""])
     lines.extend(f"- {item}" for item in dossier["raw_source_reopen_triggers"] or ["None recorded."])
+    related = dossier.get("related_pages") or []
+    if related:
+        lines.extend(["", "## Related pages", ""])
+        lines.extend(f"- [{item['topic_id']}]({item['topic_id']}.md) — {item['relation']}" for item in related)
     lines.extend(["", "## Routes", "", f"- Source atlas: `{value['atlas']['route']}`"])
     return "\n".join(lines) + "\n"
 

@@ -1,10 +1,11 @@
 ---
 name: apex-kb
 description: >
-  Optional launcher for the installed Apex KB Python CLI. Use only to invoke
-  apex-kb start, apex-kb status, apex-kb continue, or to execute one explicit
-  semantic task packet produced by the application. The Python application is
-  the sole lifecycle authority.
+  Optional launcher for the installed Apex KB Python CLI. Use to invoke the
+  public commands apex-kb start, status, continue, drive, query, doctor, and
+  update, or to execute one explicit semantic task packet produced by the
+  application. apex-kb query is the compiled-KB retrieval interface. The Python
+  application is the sole lifecycle authority.
 ---
 
 # Apex KB CLI Launcher
@@ -13,17 +14,23 @@ Apex KB is an installable, local, manifest-driven Python application. This Skill
 
 ## Allowed actions
 
-1. Invoke exactly the operator-requested public command:
+1. Invoke exactly the operator-requested public command. The full surface is:
 
-```powershell
-apex-kb start
-apex-kb status --run-root <path>
-apex-kb continue --run-root <path>
+```bash
+apex-kb start                                   # render template, confirm, scaffold a new run
+apex-kb status   --run-root <path>              # read-only reconstructed status
+apex-kb continue --run-root <path>              # perform exactly one legal lifecycle action
+apex-kb drive    --run-root <path>              # run deterministic actions to the next semantic/terminal boundary
+apex-kb query    --run-root <path> --query "<text>" [--topic <id>] [--limit N]   # search the compiled KB (retrieval)
+apex-kb doctor   --run-root <path>              # read-only runtime/health probe
+apex-kb update   --run-root <path>              # controlled incremental run / selective invalidation
 ```
+
+Prefer `--json-output` on every command for a machine-readable envelope.
 
 2. Display the application output without replacing it with an alternate workflow explanation.
 3. When the operator explicitly supplies a generated semantic task packet, read that packet and perform only its bounded semantic assignment.
-4. Write the semantic result only to the packet's declared incoming path.
+4. Write the semantic result only to the packet's declared incoming/expected-output path.
 
 ## Binding boundary
 
@@ -42,7 +49,7 @@ The Skill must not:
 
 ## Public flow
 
-For a new run, invoke `apex-kb start`. For an existing run, invoke `apex-kb status` or `apex-kb continue` with the operator's run root. The application validates durable files and derives the only legal next action.
+For a new run, invoke `apex-kb start`. For an existing run, invoke `apex-kb status` (read-only) or advance it with `apex-kb continue` (one action) or `apex-kb drive` (runs deterministic actions to the next semantic or terminal boundary), passing the operator's run root. Once the run reaches `query_ready`, use `apex-kb query` to retrieve compiled answers; use `apex-kb doctor` for a health probe and `apex-kb update` for a controlled incremental rebuild. The application validates durable files and derives the only legal next action; the skill never chooses stages itself.
 
 ## Semantic packet flow
 

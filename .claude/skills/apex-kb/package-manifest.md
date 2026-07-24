@@ -6,21 +6,18 @@ package_manifest:
   package_path: .claude/skills/apex-kb/
   package_role: durable_knowledge_base_compiler
   data_root_template: apex-meta/kb/<kb-slug>/
-  script_paths:
-    lifecycle: apex-meta/scripts/apex_kb.py
-    start_frontend: apex-meta/scripts/apex_kb_start.py
-    control_plane: apex-meta/scripts/apex_kb_control.py
-    retrieval: apex-meta/scripts/apex_kb_retrieval.py
+  installed_cli:
+    entry_point: apex-kb            # console script -> apex_kb.cli:main
+    package_path: apex-meta/apex-kb-cli
+    commands: [start, status, continue, drive, query, doctor, update]
+    machine_output: --json-output
   runtime_policy:
     python_version_floor: "3.10"
-    required_dependency: Python standard library
+    dependencies: [click, jsonschema, PyYAML, pypdf]
     network_access: forbidden
-    shell_out:
-      default: forbidden
-      read_only_exceptions: [phase0_git_history, control_git_status_classification]
-    default_mode: dry_run
-    writes_require: --allow-write
-    writes_outside_kb_root: forbidden
+    default_mode: read_only
+    writes_require: explicit lifecycle action (continue/drive/update) or --yes on update
+    writes_outside_run_root: forbidden
 ```
 
 ## Inventory
@@ -64,9 +61,10 @@ package_manifest:
 | `templates/source-manifest-template.json` | Starter source manifest |
 | `examples/powershell-commands.md` | PowerShell-first control-plane commands |
 | `examples/lifecycle-runbook.md` | Operator lifecycle, semantic handoff, recovery, and postflight sequence |
-| `../../../apex-meta/scripts/apex_kb_control.py` | Delegated control implementation loaded by the existing lifecycle CLI |
-| `../../../apex-meta/scripts/tests/test_apex_kb_control.py` | Unit and synthetic lifecycle/recovery fixtures |
-| `../../../apex-meta/scripts/tests/test_apex_kb_control_integration.py` | Existing-CLI delegation and direct-command compatibility fixtures |
+| `../../../apex-meta/apex-kb-cli/` | The installed `apex-kb` CLI package (sole lifecycle authority) |
+| `../../../apex-meta/apex-kb-cli/tests/` | CLI unit/integration/contract test suite |
+
+> Note: several `references/*` files (e.g. `script-command-contract.md`, `acceptance-tests.md`) still describe the **superseded** legacy `apex_kb.py control` surface. They are retained only as history; the installed `apex-kb` CLI is authoritative, and independent semantic acceptance is disabled by default.
 ## Canonical runtime KB paths
 
 ```yaml
@@ -124,9 +122,9 @@ Apex KB does not own project planning, task status mutation, exact next-task ran
 
 ## Executability note
 
-The skill folder is not executable by itself. It requires the repo-level scripts at `apex-meta/scripts/apex_kb.py`, `apex-meta/scripts/apex_kb_start.py`, `apex-meta/scripts/apex_kb_control.py`, and `apex-meta/scripts/apex_kb_retrieval.py`. Operators invoke only `apex_kb.py`; its `start` command delegates compact Setup translation to `apex_kb_start.py`, control state/transitions to `apex_kb_control.py`, and retrieval to the existing retrieval engine.
+The skill folder is not executable by itself. It is a thin launcher around the **installed `apex-kb` CLI** (`apex-meta/apex-kb-cli`, console entry point `apex_kb.cli:main`). Install with `python -m pip install -e ".\apex-meta\apex-kb-cli[test]"`, then operators invoke the public commands `apex-kb start|status|continue|drive|query|doctor|update`. Deleting this skill must not affect direct CLI operation.
 
 ## Lifecycle authority
 
-`SKILL.md` is the operator behavior and semantic-ownership authority. The JSON schemas are the machine-shape authorities. `apex_kb_control.py` is the executable owner of legal transitions, next-command derivation, stage results, semantic packet paths, recovery, and read-only Git classification; `apex_kb.py` and `apex_kb_retrieval.py` remain the existing domain/runtime owners. The deprecated `references/lifecycle-state-machine.md` and the two unexecuted lint-spec files remain removed; this design does not recreate a competing prose state machine.
+The **installed `apex-kb` CLI** is the sole lifecycle authority: it derives legal transitions, the next action, stage results, semantic-packet paths, retrieval, recovery, and read-only Git classification. `SKILL.md` is only the operator-behavior launcher; the JSON schemas under `references/` are shape references. The legacy `apex-meta/scripts/apex_kb*.py` surface is superseded and must not be treated as the operator workflow.
 

@@ -20,7 +20,8 @@
         "target_answers": {"type": "array", "minItems": 1, "items": {"type": "object", "additionalProperties": false, "required": ["query_id", "question", "answer", "citations"], "properties": {"query_id": {"type": "string", "minLength": 1}, "question": {"type": "string", "minLength": 1}, "answer": {"type": "string", "minLength": 1}, "citations": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/citation"}}}}},
         "key_claims": {"type": "array", "minItems": 1, "items": {"type": "object", "additionalProperties": false, "required": ["claim", "state", "citations"], "properties": {"claim": {"type": "string", "minLength": 1}, "state": {"enum": ["present", "proposed", "historical", "open", "contradicted"]}, "citations": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/citation"}}}}},
         "evolution": {"type": "array", "items": {"type": "string"}}, "contradictions": {"type": "array", "items": {"type": "string"}}, "uncertainties": {"type": "array", "items": {"type": "string"}},
-        "open_questions": {"type": "array", "items": {"type": "string", "minLength": 1}}, "raw_source_reopen_triggers": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}}
+        "open_questions": {"type": "array", "items": {"type": "string", "minLength": 1}}, "raw_source_reopen_triggers": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}},
+        "related_pages": {"type": "array", "items": {"type": "object", "additionalProperties": false, "required": ["topic_id", "relation"], "properties": {"topic_id": {"type": "string", "minLength": 1}, "relation": {"type": "string", "minLength": 1}}}}
       }
     },
     "atlas": {

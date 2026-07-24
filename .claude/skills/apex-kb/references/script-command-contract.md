@@ -1,5 +1,7 @@
 # Apex KB Script Command Contract
 
+> **SUPERSEDED (historical).** This file describes the legacy `python apex-meta/scripts/apex_kb.py … control …` surface, which is **no longer the operator workflow**. The authoritative interface is the installed `apex-kb` CLI (`start/status/continue/drive/query/doctor/update`). See `SKILL.md`. Kept only for history.
+
 ## Shared policy
 
 ```yaml

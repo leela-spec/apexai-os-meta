@@ -1,5 +1,7 @@
 # Apex KB Acceptance Tests
 
+> **SUPERSEDED (historical).** These fixtures target the legacy `apex_kb.py control` surface and assert *mandatory* independent acceptance. The installed `apex-kb` CLI is authoritative and **acceptance is disabled by default**. The live test suite is `apex-meta/apex-kb-cli/tests/`. Kept only for history.
+
 Run from repository root. Replace `<kb-slug>` with a test slug such as `apex-kb-smoke`.
 
 ## Precheck
