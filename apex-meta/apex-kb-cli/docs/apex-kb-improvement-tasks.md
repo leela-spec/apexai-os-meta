@@ -19,11 +19,16 @@ Implemented and verified (50/50 CLI tests green; therapy KB untouched; scratch/f
 | **C1** clean/ranked query | ✅ done | `retrieval/engine.py` |
 | **C2** future-agent contract | ✅ done | `retrieval/engine.py`, `SKILL.md` |
 | **PK1** pypdf optional | ✅ done | `pyproject.toml` |
+| **A2** deterministic coverage gates | ✅ done | `semantic/engine.py` `import_phase2_result` |
+| **B4** canonical ledger consistency | ✅ done | `semantic/engine.py` `import_phase1_result` |
 
-Remaining Phase-1 packets (retained, NOT dropped — need fixture-aware work or are therapy-specific):
-- **A2** hard schema floors — deferred: blunt `minItems` is unsafe (irrelevant/blocked sources legitimately have 0 pointers; a valid topic may have few claims). The correct form is a *coverage cross-check* (each ranked source carries all Phase-1 pointers) that needs test-fixture updates to land without false rejections. A1's prompts already demand coverage; this adds deterministic enforcement.
-- **B4** canonical pointer ledger + resolve-to-real-line — deferred: reconciling capsule↔review ledgers and rejecting pointers that don't resolve requires updating test fixtures and carries re-import risk; implement as a careful, fixture-backed change (or first as a non-fatal `pointer_health` probe in doctor).
-- **S1** index the 11th source — reframed: the therapy-specific indexing is Phase-2 (KB work, out of scope now); the CLI-level value (surface un-inventoried files in source folders) is already covered by B3's `added` drift detection.
+**A2/B4 scope landed (safe, correctness-only gates — reject invalid/incomplete structure, never legitimate thin content; 3 negative tests added, 53/53 green):**
+- A2: ranked-source citations are now validated against the Phase-1 ledger (was schema-only), and `route_by_question` must route every locked query exactly once. Rather than blunt `minItems` (unsafe: irrelevant/blocked sources legitimately have 0 pointers), coverage of *richness* is driven by the A1 prompts; these gates enforce *correctness*.
+- B4: capsule pointers may no longer exceed the Phase-1 review ledger for the same source (`capsule_pointer_not_in_review`) — the review is the one canonical ledger, ending the capsule-vs-review divergence.
+
+Remaining (retained, NOT dropped):
+- **B4 resolve-to-real-line** — optional follow-up: implement as a *non-fatal* `pointer_health` probe in `doctor` (counts dossier pointers that don't resolve to a real, non-blank source line) rather than a hard gate, to avoid false rejections; pointer formats vary, so it needs fixture-backed care.
+- **S1** index the 11th source — reframed: therapy-specific indexing is Phase-2 (KB work, out of scope now); the CLI-level value (surface un-inventoried files) is already covered by B3's `added` drift detection.
 
 
 ---

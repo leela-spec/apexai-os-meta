@@ -294,6 +294,15 @@ def import_phase1_result(run_root: Path, manifest: dict[str, Any], active_task: 
             candidate = candidates[capsule["source_id"]]
             if capsule["repository_path"] != candidate["repository_path"]:
                 raise ApexKBError("capsule_source_identity_mismatch", f"Capsule path mismatch for {capsule['source_id']}")
+            # Canonical ledger: the review is authoritative. A capsule may not preserve pointers
+            # the review ledger dropped (prevents the capsule-vs-review divergence audit finding).
+            capsule_only = sorted(set(capsule["pointers"]) - set(review["pointers"]))
+            if capsule_only:
+                raise ApexKBError(
+                    "capsule_pointer_not_in_review",
+                    f"Capsule preserves pointers absent from the Phase 1 review ledger for {capsule['source_id']}",
+                    {"capsule_only": capsule_only, "review_pointers": review["pointers"]},
+                )
         expected_queries = {item["query_id"] for item in packet_task["target_queries"]}
         actual_queries = [item["query_id"] for item in value["topic_analysis"]["target_answers"]]
         if set(actual_queries) != expected_queries or len(actual_queries) != len(set(actual_queries)):
@@ -550,6 +559,17 @@ def import_phase2_result(run_root: Path, manifest: dict[str, Any], active_task: 
             _validate_citations(answer["citations"], review_by_id, f"Answer {answer['query_id']}")
         for index, claim in enumerate(value["dossier"]["key_claims"], 1):
             _validate_citations(claim["citations"], review_by_id, f"Key claim {index}")
+        # Ranked-source citations must resolve against the Phase 1 ledger too (was schema-only).
+        for source in value["dossier"]["adaptive_ranked_sources"]:
+            _validate_citations(source["citations"], review_by_id, f"Ranked source {source['source_id']}")
+        # Route coverage: every locked query is routed exactly once (was unchecked).
+        route_ids = [item["query_id"] for item in value["dossier"]["route_by_question"]]
+        if set(route_ids) != expected_queries or len(route_ids) != len(set(route_ids)):
+            raise ApexKBError(
+                "route_coverage_incomplete",
+                "route_by_question must route every locked target query exactly once",
+                {"expected": sorted(expected_queries), "actual": route_ids},
+            )
         if value["dossier"]["route"] != task["required_routes"]["dossier"]:
             raise ApexKBError("page_route_mismatch", "Phase 2 result does not use the required dossier route")
     except ApexKBError as exc:

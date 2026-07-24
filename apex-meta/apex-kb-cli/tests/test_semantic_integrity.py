@@ -8,7 +8,7 @@ from apex_kb.errors import ApexKBError
 from apex_kb.io import atomic_json, load_json
 from apex_kb.lifecycle import configure_semantic_acceptance, continue_once, load_run
 
-from .helpers import _acceptance_result, _phase2_result, initialize, satisfy_active_task
+from .helpers import _acceptance_result, _phase1_result, _phase2_result, initialize, satisfy_active_task
 
 
 def _advance_to_task(run_root: Path, task_kind: str) -> tuple[dict, dict]:
@@ -75,6 +75,34 @@ def test_acceptance_packet_is_topic_scoped_and_states_independence_limit(tmp_pat
     assert "genuinely independent fresh evaluator context" in task["fresh_context_contract"]
     packet = load_json(Path(active["packet_dir"]) / "source-allowlist.json")
     assert packet["resolved_evidence"] == expected
+
+
+@pytest.mark.parametrize("case", ["ranked_source_pointer", "route_coverage"])
+def test_phase2_rejects_uncited_ranked_sources_and_incomplete_routes(tmp_path: Path, case: str):
+    run_root, _, _ = initialize(tmp_path, include_formats=False)
+    _, state = _advance_to_task(run_root, "phase2")
+    active = state["active_task"]
+    task = load_json(Path(active["packet_dir"]) / "task.json")
+    value = _phase2_result(run_root, task)
+    if case == "ranked_source_pointer":
+        value["dossier"]["adaptive_ranked_sources"][0]["citations"][0]["pointer"] = "line:999999"
+    else:
+        value["dossier"]["route_by_question"][0]["query_id"] = "not-a-real-query"
+    repair = _submit_invalid(run_root, state, value)
+    assert repair["reason_code"] in {"citation_pointer_invalid", "route_coverage_incomplete", "schema_validation_failed"}
+
+
+def test_phase1_rejects_capsule_pointer_absent_from_review(tmp_path: Path):
+    run_root, _, _ = initialize(tmp_path, include_formats=False)
+    _, state = _advance_to_task(run_root, "phase1")
+    active = state["active_task"]
+    task = load_json(Path(active["packet_dir"]) / "task.json")
+    allowlist = load_json(Path(active["packet_dir"]) / "source-allowlist.json")
+    value = _phase1_result(run_root, task, allowlist)
+    assert value["source_capsules"], "fixture must produce at least one capsule"
+    value["source_capsules"][0]["pointers"] = list(value["source_capsules"][0]["pointers"]) + ["line:999999"]
+    repair = _submit_invalid(run_root, state, value)
+    assert repair["reason_code"] in {"capsule_pointer_not_in_review", "schema_validation_failed"}
 
 
 @pytest.mark.parametrize("case", ["empty_claim_sample", "duplicate_question", "page_pointer", "evidence_pointer"])
