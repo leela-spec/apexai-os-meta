@@ -41,6 +41,53 @@ def _incoming_path(run_root: Path, manifest: dict[str, Any], task_id: str) -> Pa
     return run_root / manifest["artifact_layout"]["incoming"] / f"{task_id}.json"
 
 
+CANDIDATE_CLASS_ORDER = {"core": 0, "contextual": 1, "incidental": 2, "blocked": 3}
+
+
+def select_candidates(candidates: list[dict[str, Any]], run_options: dict[str, Any]) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
+    """Split Phase 0 candidates into the Phase 1 work pack and an explicit excluded list.
+
+    Phase 0 already ranks every candidate (weighted filename/path/heading/body evidence x term
+    type) and classifies it core/contextual/incidental/blocked, sorted best-first. None of that
+    bounded the Phase 1 work pack before this: every candidate scoring above zero — including a
+    single body-only mention of one supporting term — became a mandatory disposition. On a real
+    corpus that produced work packs far past any worker's usable context, which is the practical
+    cause of thin, averaged semantic output.
+
+    This applies the ranking that already exists as a bound. Nothing is dropped silently: every
+    excluded candidate is returned with its rank, score, class, and the rule that excluded it, and
+    is written to the packet so an operator can see exactly what was set aside and raise the cap.
+
+    Blocked candidates are never class-filtered — an extraction failure must stay visible rather
+    than disappear because its text could not be scored.
+    """
+    floor = CANDIDATE_CLASS_ORDER.get(str(run_options.get("min_candidate_class") or "incidental"), 2)
+    cap = run_options.get("max_candidates_per_topic")
+
+    kept: list[dict[str, Any]] = []
+    excluded: list[dict[str, Any]] = []
+    for candidate in candidates:  # already sorted by (class_order, -score, path)
+        candidate_class = candidate.get("candidate_class", "incidental")
+        if candidate_class != "blocked" and CANDIDATE_CLASS_ORDER.get(candidate_class, 2) > floor:
+            excluded.append({**_exclusion_stub(candidate), "excluded_by": "min_candidate_class", "rule_detail": f"class {candidate_class!r} ranks below configured floor {run_options.get('min_candidate_class', 'incidental')!r}"})
+            continue
+        if cap is not None and len([item for item in kept if item.get("candidate_class") != "blocked"]) >= int(cap) and candidate_class != "blocked":
+            excluded.append({**_exclusion_stub(candidate), "excluded_by": "max_candidates_per_topic", "rule_detail": f"rank {candidate.get('rank')} exceeds configured cap {cap}"})
+            continue
+        kept.append(candidate)
+    return kept, excluded
+
+
+def _exclusion_stub(candidate: dict[str, Any]) -> dict[str, Any]:
+    return {
+        "source_id": candidate["source_id"],
+        "repository_path": candidate["repository_path"],
+        "rank": candidate.get("rank"),
+        "score": candidate.get("score"),
+        "candidate_class": candidate.get("candidate_class"),
+    }
+
+
 def _write_packet(packet_dir: Path, task: dict[str, Any], allowlist: dict[str, Any], schema_name: str, task_md: str, incoming: Path) -> dict[str, Any]:
     packet_dir.mkdir(parents=True, exist_ok=True)
     atomic_json(packet_dir / "task.json", task)
@@ -90,7 +137,8 @@ def create_phase1_packet(run_root: Path, manifest: dict[str, Any], topic_id: str
     task_id = _task_id("phase1", topic_id, attempt)
     packet_dir = _packet_dir(run_root, manifest, task_id)
     incoming = _incoming_path(run_root, manifest, task_id)
-    sources = [_evidence_entry(run_root, candidate) for candidate in topic_map["candidates"]]
+    selected, excluded = select_candidates(topic_map["candidates"], manifest["run_options"])
+    sources = [_evidence_entry(run_root, candidate) for candidate in selected]
     task = {
         "schema": "apex.kb.semantic-task.v2",
         "run_id": manifest["run_id"],
@@ -103,10 +151,17 @@ def create_phase1_packet(run_root: Path, manifest: dict[str, Any], topic_id: str
         "topic": topic,
         "target_queries": topic["target_queries"],
         "topic_map_path": str(run_root / "manifests" / "phase0" / "topic-maps" / f"{topic_id}.json"),
-        "candidate_count": topic_map["candidate_count"],
+        "candidate_count": len(sources),
+        "phase0_candidate_count": topic_map["candidate_count"],
+        "excluded_candidate_count": len(excluded),
+        "candidate_selection": {
+            "min_candidate_class": manifest["run_options"].get("min_candidate_class", "incidental"),
+            "max_candidates_per_topic": manifest["run_options"].get("max_candidates_per_topic"),
+            "excluded_candidates_path": "excluded-candidates.json" if excluded else None,
+        },
         "candidate_source_ids": [item["source_id"] for item in sources],
         "allowed_dispositions": sorted(VALID_DISPOSITIONS),
-        "disposition_contract": "Every candidate exactly once; preserve current, implementation, prototype, historical, duplicate, superseded, incidental, irrelevant, and blocked distinctions. Coverage: record ALL material pointers and EVERY distinct key claim per source, and cite every supporting pointer per answer — not a sample.",
+        "disposition_contract": "Every candidate exactly once; preserve current, implementation, prototype, historical, duplicate, superseded, incidental, irrelevant, and blocked distinctions. Coverage: record ALL material pointers and EVERY distinct key claim per source, and cite every supporting pointer per answer — not a sample. Disposition exactly the candidates listed in source-allowlist.json; if excluded-candidates.json is present those sources were bounded out of this work pack by the configured selection policy, are NOT yours to disposition, and must not be cited as evidence.",
         "source_allowlist_path": "source-allowlist.json",
         "required_output_schema": "phase1-result.schema.json",
         "allowed_output_paths": [str(incoming)],
@@ -121,11 +176,32 @@ def create_phase1_packet(run_root: Path, manifest: dict[str, Any], topic_id: str
         task_id=task_id,
         topic_id=topic_id,
         topic_name=topic["name"],
-        candidate_count=topic_map["candidate_count"],
+        candidate_count=len(sources),
         questions="\n".join(f"- `{item['query_id']}` [{item['priority']}]: {item['question']}" for item in topic["target_queries"]),
         incoming=str(incoming),
     )
-    return _write_packet(packet_dir, task, {"schema": "apex.kb.source-allowlist.v2", "sources": sources}, "phase1-result.schema.json", body, incoming)
+    if excluded:
+        body += (
+            f"\n\n## Bounded work pack\n\n"
+            f"Phase 0 ranked {topic_map['candidate_count']} candidates for this topic. "
+            f"{len(sources)} are in your allowlist; {len(excluded)} were bounded out by the configured "
+            f"selection policy and are listed in `excluded-candidates.json` with their rank, score, class, "
+            f"and the rule that excluded them. Disposition only the allowlist. Do not cite an excluded "
+            f"source. If answering a locked question genuinely requires one, say so explicitly in "
+            f"`open_questions` rather than reaching outside the pack.\n"
+        )
+    result = _write_packet(packet_dir, task, {"schema": "apex.kb.source-allowlist.v2", "sources": sources}, "phase1-result.schema.json", body, incoming)
+    if excluded:
+        atomic_json(packet_dir / "excluded-candidates.json", {
+            "schema": "apex.kb.excluded-candidates.v1",
+            "topic_id": topic_id,
+            "phase0_candidate_count": topic_map["candidate_count"],
+            "selected_count": len(sources),
+            "excluded_count": len(excluded),
+            "selection": task["candidate_selection"],
+            "excluded": excluded,
+        })
+    return result
 
 
 def _validate_identity(value: dict[str, Any], manifest: dict[str, Any], task: dict[str, Any], phase: str) -> None:

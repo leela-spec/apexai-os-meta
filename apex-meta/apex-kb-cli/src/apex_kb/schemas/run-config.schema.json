@@ -303,6 +303,22 @@
           "type": "integer",
           "minimum": 0,
           "maximum": 10
+        },
+        "max_candidates_per_topic": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 1,
+          "description": "Optional cap on how many ranked candidates enter a topic's Phase 1 work pack. Absent/null = no cap (prior behaviour). Excluded candidates are recorded explicitly in the task packet's excluded-candidates.json, never silently dropped."
+        },
+        "min_candidate_class": {
+          "enum": [
+            "core",
+            "contextual",
+            "incidental"
+          ],
+          "description": "Lowest Phase 0 candidate class allowed into a topic's Phase 1 work pack. 'incidental' (default) admits all classes = prior behaviour. 'contextual' drops body-only incidental matches; 'core' keeps only path/filename/title/heading hits on primary or alias terms. Blocked candidates are always retained so extraction failures stay visible."
         }
       }
     },

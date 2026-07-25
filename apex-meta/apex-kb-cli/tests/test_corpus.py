@@ -104,3 +104,38 @@ def test_source_drift_detects_complete_tree_changes_without_crashing(tmp_path: P
         "LeelaAppDevelopment/01_Features/102 - Epics (Database + Skill Tree).md"
     ]
     assert report["newly_unreadable"] == ["LeelaAppDevelopment/Archive/Skill Tree v1.md"]
+
+
+def test_unquoted_yaml_frontmatter_date_does_not_abort_the_corpus_stage(tmp_path: Path):
+    """Regression: an unquoted frontmatter date crashed the whole deterministic stage.
+
+    `yaml.safe_load` parses `timestamp: 2026-07-25` into a `datetime.date`, which is not
+    JSON-encodable. The object survived inside the record's `frontmatter` mapping and only blew
+    up at artifact-write time (`atomic_ndjson` -> `json.dumps`), losing all extraction work for
+    the run. A corpus is operator-supplied, so an ordinary unquoted date must never abort a stage.
+    """
+    topic = default_topics()[0]
+    run_root, source_repo, _ = initialize(tmp_path, output="analysis_only", topics=[topic], include_formats=False)
+    dated = source_repo / "LeelaAppDevelopment" / "Dated"
+    dated.mkdir()
+    (dated / "skill-tree-dated.md").write_text(
+        "---\n"
+        "title: Skill Tree Dated\n"
+        "timestamp: 2026-07-25\n"          # unquoted date -> datetime.date
+        "reviewed_at: 2026-07-25 09:30:00\n"  # unquoted datetime
+        "---\n"
+        "# Skill Tree Dated\nSkill Tree Epic Block Chunk.\n",
+        encoding="utf-8",
+    )
+    manifest, _ = load_run(run_root)
+
+    result = build_corpus_intelligence(run_root, manifest)  # must not raise TypeError
+
+    rows = {row["repository_path"]: row for row in iter_ndjson(run_root / "manifests/source-inventory.ndjson")}
+    assert "LeelaAppDevelopment/Dated/skill-tree-dated.md" in rows
+    structures = load_json(run_root / "manifests/phase0/frontmatter-map.json")
+    entry = next(item for item in structures["records"] if item["repository_path"].endswith("skill-tree-dated.md"))
+    # Normalized at parse time to stable ISO text, not left as a Python date object.
+    assert entry["frontmatter"]["timestamp"] == "2026-07-25"
+    assert entry["frontmatter"]["reviewed_at"].startswith("2026-07-25T09:30:00")
+    assert result["topic_maps"]["skill-tree"]["candidate_count"] >= 1

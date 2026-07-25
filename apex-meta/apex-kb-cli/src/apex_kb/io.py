@@ -5,9 +5,10 @@ import json
 import os
 import re
 import tempfile
-from datetime import datetime, timezone
+from datetime import date, datetime, time, timezone
+from decimal import Decimal
 from importlib import resources
-from pathlib import Path
+from pathlib import Path, PurePath
 from typing import Any, Iterable
 
 import yaml
@@ -29,7 +30,9 @@ def slugify(value: str) -> str:
 
 
 def canonical_json(value: Any) -> bytes:
-    return json.dumps(value, ensure_ascii=False, sort_keys=True, separators=(",", ":")).encode("utf-8")
+    # `default=json_default` keeps hashing alive for the same non-JSON YAML scalars the
+    # writers tolerate; without it a single unquoted frontmatter date breaks hashing too.
+    return json.dumps(value, ensure_ascii=False, sort_keys=True, separators=(",", ":"), default=json_default).encode("utf-8")
 
 
 def canonical_hash(value: Any) -> str:
@@ -80,8 +83,35 @@ def atomic_bytes(path: Path, value: bytes) -> None:
             pass
 
 
+def json_default(value: Any) -> Any:
+    """Deterministically coerce values `json` cannot encode natively.
+
+    Why this exists: `yaml.safe_load` parses an *unquoted* frontmatter scalar such as
+    `timestamp: 2026-07-25` into a `datetime.date`. That object rides inside a source record's
+    `frontmatter` mapping and only fails much later, at artifact-write time, aborting an entire
+    deterministic stage after all the expensive extraction work is already done. A corpus is
+    operator-supplied and may legitimately contain any YAML scalar, so the writers must never be
+    the component that fails.
+
+    Conversions are stable across runs (ISO-8601 for temporal types, sorted for sets) so artifact
+    content hashes stay reproducible.
+    """
+    if isinstance(value, (datetime, date, time)):
+        return value.isoformat()
+    if isinstance(value, Decimal):
+        return format(value, "f")
+    if isinstance(value, (set, frozenset)):
+        return sorted(item if isinstance(item, (str, int, float, bool, type(None))) else json_default(item) for item in value)
+    if isinstance(value, (bytes, bytearray)):
+        return value.decode("utf-8", errors="replace")
+    if isinstance(value, PurePath):
+        return value.as_posix()
+    # Last resort: never let an unforeseen type abort a long deterministic run.
+    return str(value)
+
+
 def atomic_json(path: Path, value: Any) -> None:
-    atomic_text(path, json.dumps(value, indent=2, ensure_ascii=False, sort_keys=True) + "\n")
+    atomic_text(path, json.dumps(value, indent=2, ensure_ascii=False, sort_keys=True, default=json_default) + "\n")
 
 
 def atomic_yaml(path: Path, value: Any) -> None:
@@ -123,7 +153,7 @@ def iter_ndjson(path: Path) -> Iterable[dict[str, Any]]:
 
 
 def atomic_ndjson(path: Path, rows: Iterable[dict[str, Any]]) -> None:
-    atomic_text(path, "".join(json.dumps(row, ensure_ascii=False, sort_keys=True) + "\n" for row in rows))
+    atomic_text(path, "".join(json.dumps(row, ensure_ascii=False, sort_keys=True, default=json_default) + "\n" for row in rows))
 
 
 def schema(name: str) -> dict[str, Any]:

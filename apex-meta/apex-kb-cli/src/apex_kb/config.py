@@ -25,6 +25,19 @@ def overlaps(left: Path, right: Path) -> bool:
     return is_within(left, right) or is_within(right, left)
 
 
+def _optional_positive_int(value: Any) -> int | None:
+    """None/absent means 'no cap' (prior behaviour); anything else must be a positive int."""
+    if value is None or value == "":
+        return None
+    try:
+        parsed = int(value)
+    except (TypeError, ValueError) as exc:
+        raise ApexKBError("run_option_invalid", f"max_candidates_per_topic must be a positive integer or absent, got {value!r}") from exc
+    if parsed < 1:
+        raise ApexKBError("run_option_invalid", f"max_candidates_per_topic must be >= 1, got {parsed}")
+    return parsed
+
+
 def _query(topic_slug: str, index: int, raw: Any) -> dict[str, Any]:
     if isinstance(raw, str):
         return {
@@ -129,6 +142,14 @@ def normalize_config(raw: Any) -> dict[str, Any]:
             "graph_depth": options.get("graph_depth", "links"),
             "ai_help_after_preflight": bool(options.get("ai_help_after_preflight", False)),
             "max_semantic_repairs": int(options.get("max_semantic_repairs", 2)),
+            # Work-pack sizing. Phase 0 already ranks every candidate by weighted field/term
+            # evidence and classifies it core/contextual/incidental/blocked, but until now none
+            # of that ranking bounded what Phase 1 must actually disposition — so a broad topic
+            # term against a real corpus produced an unbounded mandatory work pack (measured:
+            # 341 files for one topic on a ~900-file corpus). These apply the existing ranking
+            # as a bound. Defaults preserve prior behaviour exactly: no cap, all classes.
+            "max_candidates_per_topic": _optional_positive_int(options.get("max_candidates_per_topic")),
+            "min_candidate_class": str(options.get("min_candidate_class") or "incidental"),
         },
         "special_constraints": [str(item).strip() for item in config.get("special_constraints") or [] if str(item).strip()],
     }

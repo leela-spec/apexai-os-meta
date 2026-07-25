@@ -6,7 +6,9 @@ import pytest
 
 from apex_kb.errors import ApexKBError
 from apex_kb.io import atomic_json, load_json
+from apex_kb.corpus import build_corpus_intelligence
 from apex_kb.lifecycle import configure_semantic_acceptance, continue_once, load_run
+from apex_kb.semantic.engine import create_phase1_packet
 
 from .helpers import _acceptance_result, _phase1_result, _phase2_result, initialize, satisfy_active_task
 
@@ -128,3 +130,70 @@ def test_acceptance_rejects_unproven_pass_and_out_of_packet_pointers(tmp_path: P
         "acceptance_question_set_invalid",
         "semantic_pointer_outside_packet",
     }
+
+
+def test_candidate_selection_bounds_work_pack_and_records_exclusions(tmp_path: Path):
+    """Phase 0 ranking must be usable as a bound on the Phase 1 work pack.
+
+    Before this, every candidate scoring above zero — including a single body-only mention of one
+    supporting term — became a mandatory Phase 1 disposition. On a real corpus that produced work
+    packs far past a worker's usable context, which is the practical cause of thin, averaged
+    semantic output. The bound must never be silent: excluded candidates are recorded with rank,
+    score, class, and the rule that excluded them.
+    """
+    from apex_kb.semantic.engine import select_candidates
+
+    candidates = [
+        {"source_id": "src-core", "repository_path": "a/core.md", "rank": 1, "score": 90, "candidate_class": "core"},
+        {"source_id": "src-ctx", "repository_path": "a/ctx.md", "rank": 2, "score": 30, "candidate_class": "contextual"},
+        {"source_id": "src-inc1", "repository_path": "a/inc1.md", "rank": 3, "score": 3, "candidate_class": "incidental"},
+        {"source_id": "src-inc2", "repository_path": "a/inc2.md", "rank": 4, "score": 3, "candidate_class": "incidental"},
+        {"source_id": "src-blocked", "repository_path": "a/scan.pdf", "rank": 5, "score": 1, "candidate_class": "blocked"},
+    ]
+
+    # Default = prior behaviour: nothing bounded out.
+    kept, excluded = select_candidates(candidates, {"min_candidate_class": "incidental", "max_candidates_per_topic": None})
+    assert len(kept) == 5 and excluded == []
+
+    # Class floor drops body-only incidental matches but must retain blocked ones, so an
+    # extraction failure stays visible rather than vanishing because its text could not be scored.
+    kept, excluded = select_candidates(candidates, {"min_candidate_class": "contextual", "max_candidates_per_topic": None})
+    kept_ids = {item["source_id"] for item in kept}
+    assert kept_ids == {"src-core", "src-ctx", "src-blocked"}
+    assert {item["source_id"] for item in excluded} == {"src-inc1", "src-inc2"}
+    assert all(item["excluded_by"] == "min_candidate_class" for item in excluded)
+    assert all(item["rank"] and item["candidate_class"] and "rule_detail" in item for item in excluded)
+
+    # Cap keeps the best-ranked and records the rest; blocked is exempt from the cap.
+    kept, excluded = select_candidates(candidates, {"min_candidate_class": "incidental", "max_candidates_per_topic": 2})
+    assert [item["source_id"] for item in kept] == ["src-core", "src-ctx", "src-blocked"]
+    assert {item["source_id"] for item in excluded} == {"src-inc1", "src-inc2"}
+    assert all(item["excluded_by"] == "max_candidates_per_topic" for item in excluded)
+
+
+def test_bounded_phase1_packet_declares_and_writes_its_exclusions(tmp_path: Path):
+    """A bounded pack must be auditable end-to-end: task fields plus an on-disk exclusion list."""
+    run_root, source_repo, _ = initialize(tmp_path, output="analysis_only")
+    bulk = source_repo / "LeelaAppDevelopment" / "Bulk"
+    bulk.mkdir()
+    for index in range(12):
+        # Body-only supporting-term mentions => low-scoring incidental candidates.
+        (bulk / f"note-{index:02d}.md").write_text(f"# Note {index}\nAn epic mention in prose.\n", encoding="utf-8")
+    manifest, state = load_run(run_root)
+    manifest["run_options"]["max_candidates_per_topic"] = 3
+    build_corpus_intelligence(run_root, manifest)
+
+    packet = create_phase1_packet(run_root, manifest, "skill-tree", 1, None)
+
+    task = load_json(Path(packet["packet_dir"]) / "task.json")
+    allowlist = load_json(Path(packet["packet_dir"]) / "source-allowlist.json")
+    assert task["candidate_count"] == len(allowlist["sources"])
+    assert task["phase0_candidate_count"] >= task["candidate_count"]
+    if task["excluded_candidate_count"]:
+        excluded_path = Path(packet["packet_dir"]) / "excluded-candidates.json"
+        assert excluded_path.is_file(), "exclusions must be written, never silent"
+        payload = load_json(excluded_path)
+        assert payload["excluded_count"] == task["excluded_candidate_count"]
+        assert payload["selected_count"] == task["candidate_count"]
+        assert all("excluded_by" in item and "rule_detail" in item for item in payload["excluded"])
+        assert "excluded-candidates.json" in (Path(packet["packet_dir"]) / "TASK.md").read_text(encoding="utf-8")

@@ -22,6 +22,7 @@ from ..io import (
     atomic_text,
     canonical_hash,
     iter_ndjson,
+    json_default,
     load_json,
     safe_relative,
     sha256_bytes,
@@ -175,9 +176,25 @@ def _frontmatter(lines: list[str]) -> tuple[dict[str, Any], int, list[str]]:
         value = yaml.safe_load(raw) or {}
         if not isinstance(value, dict):
             return {}, end + 1, ["frontmatter_not_mapping"]
-        return value, end + 1, []
+        # Normalize at the source, not only at write time. YAML turns an unquoted
+        # `timestamp: 2026-07-25` into a `datetime.date`, which is not JSON-encodable and
+        # previously aborted the whole corpus stage when the record was serialized. Keeping
+        # the in-memory record JSON-clean also means matching, comparison, and change
+        # detection all operate on the same stable ISO text the artifacts contain.
+        return _json_clean(value), end + 1, []
     except yaml.YAMLError as exc:
         return {}, end + 1, [f"frontmatter_parse_error:{exc}"]
+
+
+def _json_clean(value: Any) -> Any:
+    """Recursively coerce parsed YAML into JSON-encodable, deterministic values."""
+    if isinstance(value, dict):
+        return {str(key): _json_clean(item) for key, item in value.items()}
+    if isinstance(value, (list, tuple)):
+        return [_json_clean(item) for item in value]
+    if isinstance(value, (str, int, float, bool)) or value is None:
+        return value
+    return json_default(value)
 
 
 def _markdown_structure(text: str) -> dict[str, Any]:
@@ -984,6 +1001,11 @@ def build_corpus_intelligence(run_root: Path, manifest: dict[str, Any], previous
         "total_bytes": sum(item["bytes"] for item in records),
         "topic_candidate_counts": {topic_id: item["candidate_count"] for topic_id, item in topic_maps.items()},
         "candidate_sets_truncated": False,
+        # Surface work-pack size the moment it is knowable. A topic whose terms match hundreds of
+        # files yields a Phase 1 pack no worker can hold, and previously that was only discovered
+        # after semantic budget had already been spent. This is advisory: it names the topics and
+        # what would bound them, and never alters the deterministic topic maps.
+        "work_pack_pressure": _work_pack_pressure(topic_maps, manifest["run_options"]),
         "git_metadata_error": git_metadata_error,
         "git_dated_file_count": sum(bool(item["git_last_changed"]) for item in records),
         "link_graph_edge_count": len(link_graph["edges"]),
@@ -1010,6 +1032,53 @@ def build_corpus_intelligence(run_root: Path, manifest: dict[str, Any], previous
     validate_schema(result, "stage-result.schema.json")
     atomic_json(run_root / manifest["artifact_layout"]["stage_results"] / "corpus-intelligence.json", result)
     return {"summary": summary, "topic_maps": topic_maps, "records": records, "result": result}
+
+
+WORK_PACK_SOFT_CEILING = 50
+
+
+def _work_pack_pressure(topic_maps: dict[str, dict[str, Any]], run_options: dict[str, Any]) -> dict[str, Any]:
+    """Report, per topic, how large the Phase 1 work pack would be and what would bound it.
+
+    Advisory only — it never changes the topic maps, which stay complete and untruncated as the
+    deterministic navigation record. Its job is to make an oversized pack visible *before* semantic
+    budget is spent on it, instead of after.
+    """
+    cap = run_options.get("max_candidates_per_topic")
+    floor = str(run_options.get("min_candidate_class") or "incidental")
+    floor_order = CLASS_ORDER.get(floor, 2)
+    over: list[dict[str, Any]] = []
+    for topic_id, topic_map in sorted(topic_maps.items()):
+        candidates = topic_map["candidates"]
+        by_class: dict[str, int] = {}
+        for item in candidates:
+            by_class[item["candidate_class"]] = by_class.get(item["candidate_class"], 0) + 1
+        would_select = sum(
+            1 for item in candidates
+            if item["candidate_class"] == "blocked" or CLASS_ORDER.get(item["candidate_class"], 2) <= floor_order
+        )
+        if cap is not None:
+            non_blocked = min(would_select - by_class.get("blocked", 0), int(cap))
+            would_select = non_blocked + by_class.get("blocked", 0)
+        if would_select > WORK_PACK_SOFT_CEILING:
+            over.append({
+                "topic_id": topic_id,
+                "phase0_candidate_count": topic_map["candidate_count"],
+                "would_select": would_select,
+                "by_class": by_class,
+                "advice": (
+                    f"{would_select} sources would each require a full Phase 1 disposition. "
+                    "Narrow the topic's primary/supporting terms (multi-word identifiers score narrow; "
+                    "single common words match hundreds of files), or bound the pack with "
+                    "run_options.min_candidate_class / max_candidates_per_topic."
+                ),
+            })
+    return {
+        "soft_ceiling": WORK_PACK_SOFT_CEILING,
+        "min_candidate_class": floor,
+        "max_candidates_per_topic": cap,
+        "topics_over_soft_ceiling": over,
+    }
 
 
 def load_topic_map(run_root: Path, topic_id: str) -> dict[str, Any]:
