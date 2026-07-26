@@ -1,0 +1,145 @@
+C:\GitDev\Leela-Cloud-2026/apex-meta/apex-kb-cli/docs/apex-kb-improvement-tasks.md
+
+also underneath:
+
+
+
+
+
+# new
+
+1. "Apex KB is giving itself checks even though everything is useless" — yes, and here's the mechanism
+You're right, and it has a name: self-preference bias. It's a documented, measured effect — an AI that grades its own work rates it higher than an independent grader would, even when the work fails. Fresh research I just pulled puts numbers on it: on rubrics where the output actually fails, a same-family AI judge can be up to 50% more likely to wrongly mark it as passing, and scores can skew by up to 10 points. Apex's whole edge over its closest competitor (OpenKB) was 63 vs 65 — smaller than that known bias. They're not actually distinguishable by that scoreboard.
+
+The stop-it mechanism is simple: never let the thing being graded see or write the answer key. That's exactly what I built (see #5 below) — questions with answers I already confirmed independently, checked by someone who never saw them being written.
+
+2. "The golden rule"
+I think you mean the gold set / golden-query set — the core fix, and it really is one rule: you cannot claim something works without a test it can fail. Concretely: write down questions whose right answers you already know for certain, hide the answers from whatever tool you're testing, run it, and count what it actually got right. No test like that existed for Apex KB in a month of use — that's why eleven tries all "worked" by its own account and produced nothing by yours.
+
+3. Did I fix the Apex KB CLI itself? No.
+I did not touch any code in apexai-os-meta (the actual Apex KB program). I only:
+
+Marked the old run as retired (in this repo, not the tool itself)
+Built the gold set / answer key
+Just now wrote an analysis into the KB and expanded that answer key
+Fixing Apex's code for real would mean: let it read the docs/ssot/decisions folder (it currently refuses to), swap its raw word-counting for a real relevance-ranking method, and teach it to read code files (it currently can't). That's genuine engineering work, not a quick patch, and I didn't want to start it without you weighing in — happy to scope it if you want it done.
+
+4. Analysis written into the KB
+Done: 2026-07-26-why-the-competitor-benchmark-was-fake.md, sitting next to the original audit. It lays out, in plain terms, why the comparison was fake: most competitor scores were read off READMEs and marked "insufficient evidence" rather than tested; every score (Apex's included) came from an easy 11-file personal-notes corpus, never the harder real project; the report itself admits three separate times that answer quality was never measured; and the same process wrote, ran, and graded the tool.
+
+5. Benchmarks
+I expanded the gold set (docs/ssot/_reviews/kb-gold-set.md) rather than starting from zero, since it already scored 8/8 blind last session. Added:
+
+A coverage map against the four benchmark types Apex's own audit said were missing (golden-query, token-savings, claim-entailment, precision/recall)
+3 new claim-entailment spot-checks — literally opening a cited line and checking the claim is actually true there. Result: 1 of 3 had a broken citation (this repo's own OPEN_QUESTIONS.md pointed at the wrong line), 1 was fully accurate, 1 was true but understated. That's a real, useful finding on its own.
+Honestly flagged as not covered: a proper precision/recall set (needs a full "everything relevant to this question" list per question, not just one proof line — bigger undertaking, didn't want to fake it).
+
+6. Web research on alternatives / better methods
+RAG evaluation: established tools exist for exactly this problem — Ragas and ARES build test question sets automatically and score retrieval quality; this is the mature version of what the gold set is doing by hand.
+Bias fixes: use multiple independent graders instead of one, and break "is this good?" into narrower yes/no sub-questions rather than one holistic score — both measurably reduce self-preference bias.
+Reconciling contradictory documents into one truth: this is a known field called truth discovery / data reconciliation. The standard approaches are (a) majority voting across sources, or (b) weighting each source by track-record reliability and letting the more-trustworthy source win on conflicts. That second one is exactly what this repo's authority order already does (operator decisions > specs > canon > code > history) — the academic literature independently confirms that's the right shape of solution, not just a house convention.
+
+
+# older analysis
+
+Taking ownership. Let me survey the code and test setup before changing anything.
+
+
+Ran 3 commands
+Now let me understand how Phase 1 results are validated, since a selection policy must not break coverage validation.
+
+Read Phase 1 coverage validation
+Starting with the crash — the blocking one. Fixing at both the source and the write layer.
+
+
+Edited and read io.py
++35
+-5
+Now the root cause — normalizing at parse time so the stored data model is clean, not just rescued at write time.
+
+
+Read and edited engine.py, ran 2 commands
++18
+-1
+All 54 tests pass. Now adding a regression test so this specific crash can't return.
+
+
+Ran 2 commands
+The crash is fixed — it got past build_corpus_intelligence without raising. My assertion about the artifact shape was wrong; checking the real structure.
+
+
+Ran 2 commands
+Crash fixed and locked in with a regression test. Now the ranking problem — designing it around the machinery that already exists.
+
+
+Ran 2 commands, edited and read config.py
++21
+-0
+Now the schema, so the new options are accepted and validated.
+
+Added optional selection options to the schema
+Now the core change — applying the existing ranking as a bound, with honest recorded exclusions.
+
+
+Read and edited engine.py
++47
+-0
+Now wiring it into the Phase 1 task builder, with the exclusions written into the packet.
+
+
+Edited and read engine.py, ran a command
++34
+-5
+55 passing. Verifying the task schema actually permits the new fields rather than silently ignoring them.
+
+Checked if semantic-task schema is strict
+Declaring them properly so they're contract, not accidental extras.
+
+Declare the new task fields in the schema
+Now tests proving the selection actually bounds the pack, keeps exclusions honest, and preserves default behaviour.
+
+
+Ran 7 commands
+Now the last piece — making oversized packs visible before a run commits, rather than discovered mid-Phase-1.
+
+
+Ran 3 commands, edited engine.py
++52
+-0
+57 passing. Now verifying against the real corpus that crashed — the actual proof.
+
+
+Ran 2 commands
+Running in background — I'll be notified. Meanwhile, committing the fixes.
+
+Staged the CLI fixes
+Build artifacts got staged — removing them from the commit.
+
+
+Ran 2 commands
+I own these now, so both are fixed at the source, tested, and committed as c4d27ba6 in apexai-os-meta. 57/57 green.
+
+Bug 1 — the crash
+Your instinct ("if it fails on this date thing, there should be a workaround") was right, and I did it at both levels rather than just patching the symptom:
+
+At the write layer — io.json_default() deterministically coerces date/datetime/time, Decimal, set, bytes, Path, with str() as a final catch. Wired into atomic_json, atomic_ndjson, and canonical_json (hashing broke on the same input). No unforeseen type can ever abort a long run again — that's your if-clause, generalised.
+At the source — _json_clean() in the frontmatter parser, so the in-memory record holds clean ISO text. Matters because matching, diffing and hashing all read that value; repairing only the written file would have left them inconsistent.
+Regression test covers an unquoted date and an unquoted datetime.
+
+Bug 2 — ranking existed, but bounded nothing
+You were right that this was already handled — and that's exactly why it was frustrating. The scoring you remembered is real and good:
+
+filename 18 · path 16 · h1 15 · heading 12 · body 3   ×   primary 5 · alias 4 · supporting 1
+→ classified core / contextual / incidental / blocked, sorted best-first
+It was computed and then ignored. create_phase1_packet took topic_map["candidates"] wholesale, so a single body-only mention of one supporting term (score 3) became a mandatory disposition alongside a filename hit on a primary phrase (score 90). That's the whole reason semantic runs produced thin output: the pack doesn't fit, so the worker skims and writes from an impression — the same failure mode as mine.
+
+Now select_candidates() applies that ranking as a bound, via two optional options that default to today's exact behaviour:
+
+min_candidate_class — drop body-only incidental noise
+max_candidates_per_topic — hard cap on the pack
+Critically, nothing is dropped silently, because that would just relocate the original sin: every exclusion keeps its rank, score, class and the rule that cut it, gets written to excluded-candidates.json, is counted in the task, and is named in TASK.md. The contract now tells the worker to disposition exactly the allowlist and never cite an excluded source — and if a locked question truly needs one, to say so in open_questions rather than reach outside the pack. blocked candidates are exempt from both filters so an extraction failure can't vanish because its text couldn't be scored.
+
+Plus visibility
+phase0-stats.json now carries work_pack_pressure — naming every topic that would exceed a 50-source soft ceiling, with its class breakdown and concrete advice. Advisory only; topic maps stay complete as the deterministic record. Previously oversize was only discovered after spending semantic budget.
+
+Verification is running now: I wiped the broken run, re-initialised against the fixed CLI, and started the exact Phase 0 stage that crashed. It's in the background — I'll report whether the real 1,600-file corpus completes, which is the only proof that counts.
