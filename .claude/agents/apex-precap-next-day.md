@@ -20,6 +20,7 @@ Output:
 - `artifacts/next-day-plans/next_day_plan-<YYYYMMDD>.md` (envelope first, per handoff-schema.md)
 - One flow_packet per represented flow (F1 Leela, F2 MasterOfArts, F3 ApexAI, F4 Residual — planned, compressed, skipped, or omitted with reasons) under `artifacts/flow-packets/<YYYYMMDD>/`
 - One prompt-pack file per flow under `artifacts/flow-packets/<YYYYMMDD>/prompt-packs/` (separate file per flow, not embedded — locked operator decision)
+- When a prompt_packet_reference is materialized (not a placeholder), its body lives at `artifacts/flow-packets/<YYYYMMDD>/prompt-packs/bodies/<packet_id>.md`, one file per packet, body content only (see `flow-prompt-pack-contract.md` § Prompt Body Materialization Location)
 - Envelope: `envelope_version: 1`, `packet_type: next_day_plan`, `gate: G2`, `accountability: meta_ops`, `lifecycle_stage: proposal`, `target_surface: none`, `authority.state: candidate`, `operator_validation: not_requested`, `expected_action: operator confirms G2, then executes flows and returns raw dumps`.
 - Return ONLY the next_day_plan envelope plus a ≤12-line summary: per-flow one-liners, execution mode used, review flags. Never return packet bodies.
 

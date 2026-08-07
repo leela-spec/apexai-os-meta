@@ -1,10 +1,10 @@
 # FEE — Upstream Change Gate Batch (DRAFT)
 
 ```yaml
-status: "draft for operator gate — NOTHING APPLIED"
+status: "items 1 and 3 approved and applied 2026-08-07; items 2/4/5/6 unchanged"
 authority:
   state: candidate
-  operator_validation: not_requested
+  operator_validation: partially_requested
 scope: "six additive changes to files FEE does not own"
 rule: "each item is independently approvable; none is applied as part of implementation"
 ```
@@ -13,7 +13,7 @@ Every item below is **additive**. None removes or rewrites an existing rule. Eac
 
 ---
 
-## Item 1 — Prompt-body location (BLOCKS live execution)
+## Item 1 — Prompt-body location (BLOCKS live execution) — **APPROVED AND APPLIED 2026-08-07**
 
 **Target:** `.claude/skills/PrecapNextDay/references/flow-prompt-pack-contract.md` (+ the agent wrapper's output note)
 
@@ -33,6 +33,8 @@ artifacts/flow-packets/<YYYYMMDD>/prompt-packs/bodies/<packet_id>.md
 
 **Reversal trigger:** PrecapNextDay adopts a different body-materialization mechanism.
 
+**Applied.** `flow-prompt-pack-contract.md` gained a `prompt_body_materialization` section (additive) plus a `note` on `prompt_packet_reference.prompt_packet_path_or_slot`; `.claude/agents/apex-precap-next-day.md`'s Output list gained the body-path line. M1 can now be implemented against a real target.
+
 ---
 
 ## Item 2 — Local adjudication surface class (only if M5 is ever built)
@@ -47,7 +49,7 @@ artifacts/flow-packets/<YYYYMMDD>/prompt-packs/bodies/<packet_id>.md
 
 ---
 
-## Item 3 — FEE as a permitted step-4 actor
+## Item 3 — FEE as a permitted step-4 actor — **APPROVED AND APPLIED 2026-08-07**
 
 **Target:** `.claude/skills/weekly-orchestrator/SKILL.md:32`
 
@@ -64,6 +66,8 @@ operator_execution: {agent: none_operator_human_step_or_fee, gate: G3, trigger: 
 **What this does not do.** It does not automate G3, does not change the trigger, does not change what step 5 receives, and does not make FEE an orchestration system. D-M7 stands: FEE changes who *performs* step 4, never who *approves* it.
 
 **Unblocks:** FEE running as a sanctioned actor rather than an undeclared one.
+
+**Applied.** `weekly-orchestrator/SKILL.md:32` now reads `agent: none_operator_human_step_or_fee`; `gate: G3` and its trigger are unchanged.
 
 ---
 

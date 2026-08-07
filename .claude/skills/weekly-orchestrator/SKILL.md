@@ -29,7 +29,7 @@ skill_contract:
   stage_routing:
     precap_week:        {agent: apex-precap-week,        gate: G1, trigger: "run precap-week | week start"}
     precap_next_day:    {agent: apex-precap-next-day,    gate: G2, trigger: "run precap-next-day | after G1 or after status merge"}
-    operator_execution: {agent: none_operator_human_step, gate: G3, trigger: "operator returns evidence or skip signal"}
+    operator_execution: {agent: none_operator_human_step_or_fee, gate: G3, trigger: "operator returns evidence or skip signal"}
     evidence_normalize: {agent: apex-evidence-normalize,  gate: none, trigger: "raw evidence arrives"}
     flow_recap:         {agent: apex-flow-recap,          gate: G4, trigger: "normalized dump + flow packet ready"}
     status_merge:       {agent: apex-status-merge,        gate: G5, trigger: "run status-merge | once daily | manual"}

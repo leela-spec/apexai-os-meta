@@ -577,6 +577,10 @@ prompt_packet_reference:
     prompt_packet_path_or_slot:
       type: string
       required: true
+      note: >
+        When this ref points at a materialized (non-placeholder) prompt packet,
+        the file lives at prompt_body_materialization.body_path_convention below.
+        Placeholder slots (e.g. degraded_generic_prompt_mode) are exempt.
     provider_rationale_ref:
       type: string
       required: false
@@ -617,6 +621,35 @@ prompt_sequence_reference:
       type: string
       required: true
       note: "Use prompt-engineering iteration-loop-pattern values."
+```
+
+## Prompt Body Materialization Location (additive, FEE gate-batch item 1, approved 2026-08-07)
+
+```yaml
+prompt_body_materialization:
+  type: object
+  purpose: >
+    Names the on-disk location for a materialized prompt_packet (containing the
+    inline final_copy_paste_prompt.prompt_body owned by prompt-engineering) once a
+    prompt_packet_reference.prompt_packet_path_or_slot stops being a placeholder.
+    Additive only: does not redefine prompt_packet or final_copy_paste_prompt
+    schema, and does not change PreCapNextDay's own filesystem_write_required
+    posture for the flow_prompt_pack file itself, which stays as-is. This closes
+    the gap identified in FEE preflight finding F2 (zero prompt-packet bodies
+    existed anywhere under artifacts/ as of 2026-07-30) so a materialized body has
+    a defined home whether written by a human, PromptEngineer, or FEE.
+  fields:
+    body_path_convention:
+      type: string
+      const: "artifacts/flow-packets/<YYYYMMDD>/prompt-packs/bodies/<packet_id>.md"
+    one_file_per_prompt_packet: true
+    body_content_only: true
+    honors_copy_boundary: copy_prompt_body_only
+    honors_metadata_outside_prompt_body: true
+    absent_body_behavior: >
+      A consumer resolving prompt_packet_path_or_slot to this convention and
+      finding no file must treat the ref as unresolved and halt/flag for operator
+      review — never silently default to placeholder or generic content.
 ```
 
 ## Schema: workflow and expected-output references

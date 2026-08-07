@@ -5,7 +5,7 @@ An execution substrate for **step 4** of the Weekly Orchestrator loop. **Not an 
 Live authority for the seam it fills, `.claude/skills/weekly-orchestrator/SKILL.md:32`:
 
 ```yaml
-operator_execution: {agent: none_operator_human_step, gate: G3, trigger: "operator returns evidence or skip signal"}
+operator_execution: {agent: none_operator_human_step_or_fee, gate: G3, trigger: "operator returns evidence or skip signal"}
 ```
 
 FEE replaces the **actor** at that step. It never touches G3.
