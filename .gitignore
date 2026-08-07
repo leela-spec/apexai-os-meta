@@ -2,6 +2,10 @@
 # Local validator environments
 .venv-skillvalidators/
 
+# Python bytecode and interpreter caches
+__pycache__/
+*.py[cod]
+
 # Local patch/debug scripts
 patch_promptengineer_kb_schema.py
 
