@@ -8,6 +8,11 @@ maintenance: "Update this file's status line whenever the initiative moves from 
 
 # Local Orchestration Engine
 
+> **Latest handover:** `apex-meta/local-orchestration-engine/HANDOVER-2026-08-07.md` — read this
+> before the sections below if you are picking this work up fresh (local or online agent). It
+> records what was corrected, approved, and applied most recently, and what is explicitly still
+> pending a fresh operator decision.
+
 ## What this is
 
 A project folder for designing a small local model that acts purely as an **operator**, not a
