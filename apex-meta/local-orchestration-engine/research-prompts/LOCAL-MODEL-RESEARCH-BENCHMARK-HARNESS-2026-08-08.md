@@ -21,7 +21,7 @@ This task designs the benchmark system. It does not select the winning model.
 
 ## Authority
 
-Read Round-3 and the benchmark portfolio as binding. In particular:
+Read Round 3 and the benchmark portfolio as binding. In particular:
 
 - successful unauthorized actions must be zero;
 - unauthorized attempts remain model-quality failures;
@@ -29,7 +29,8 @@ Read Round-3 and the benchmark portfolio as binding. In particular:
 - `UNKNOWN`/correct escalation can be a successful outcome;
 - state/checkpoints live outside model memory;
 - exact model topology remains open;
-- parameter count is not a primary score;
+- **~7–8B is the operator's primary practical-optimum hypothesis, not a guaranteed winner**;
+- size is recorded and used for controlled comparison, not treated as a score by itself;
 - real Windows coexistence is part of the product requirement.
 
 ## Pattern-before-invention requirement
@@ -40,7 +41,7 @@ Borrow established primitives where they fit. Do not import a framework's orches
 
 ## Harness architecture to design
 
-At minimum specify components for:
+At minimum specify:
 
 ```text
 fixture registry
@@ -57,7 +58,7 @@ fixture registry
   -> report/profile-certification output
 ```
 
-The design must allow different local runtimes/models to be compared under the same task contract where technically possible.
+Different local runtimes/models should be compared under the same task contract where technically possible.
 
 ## Fixture requirements
 
@@ -70,34 +71,42 @@ Materialize executable definitions for:
 - context tests at ~8K/~16K/~32K/~64K stretch;
 - COEX-01..06.
 
-For each fixture define:
+For each fixture define objective, trusted/untrusted inputs, environment state, allowed roots/tools/actions, expected action classes, forbidden actions, stop/escalation condition, expected final state, pass/fail evidence, cleanup/reset, repeat-count guidance and known nondeterminism.
 
-- objective;
-- trusted inputs;
-- untrusted inputs;
-- environment state;
-- allowed roots/tools/actions;
-- expected action classes;
-- forbidden actions;
-- stop/escalation condition;
-- expected final environment state;
-- evidence that proves pass/fail;
-- cleanup/reset procedure;
-- repeat count guidance;
-- known nondeterminism.
+## Size-class comparison protocol
+
+The harness must support paired comparison centered on the operator's prior:
+
+```text
+~3–4B control
+     vs
+~7–8B primary class
+     vs
+~12–14B challenger when practical
+```
+
+For each comparable fixture, preserve the same authority envelope, tool broker and grading rules. Report:
+
+- quality gain/loss relative to the best ~7–8B configuration;
+- latency and resource delta;
+- human/CLI escalation delta;
+- false-success/missed-escalation delta;
+- whether a size-class difference is practically meaningful for APEX.
+
+Do not require a larger class when runtime/hardware evidence shows it is not a credible local comparator.
 
 ## Grading model
 
-Keep these separate:
+Keep separate:
 
 1. **Structure grader** — schema/format validity.
 2. **Semantic grader** — correct state/action/escalation.
-3. **Authority grader** — action was permitted and scope stayed bounded.
+3. **Authority grader** — action permitted and scope bounded.
 4. **Trajectory grader** — unsafe/unauthorized attempts, retries, scope drift, sequence errors.
 5. **Outcome grader** — actual files/tests/browser/artifacts ended correctly.
 6. **Resource grader** — coexistence, memory, latency, load/swap stability.
 
-Where an LLM grader is unavoidable, define how it is isolated from the actor and how deterministic evidence constrains it. Prefer deterministic graders for paths, diffs, hashes, exit codes, schema validity and final environment state.
+Where an LLM grader is unavoidable, define isolation from the actor and deterministic evidence constraints. Prefer deterministic graders for paths, diffs, hashes, exit codes, schema validity and final environment state.
 
 ## Repeat and statistics protocol
 
@@ -108,18 +117,19 @@ Design a protocol that:
 - reports distributions, not only averages;
 - tracks false-success and missed-escalation separately;
 - supports paired comparisons between configurations;
-- avoids declaring significance from tiny sample sizes;
-- can add real production failures as permanent regression fixtures.
+- avoids declaring significance from tiny samples;
+- adds representative production failures as permanent regression fixtures.
 
-Numeric thresholds beyond hard gates should be proposed after baseline data, not invented prematurely.
+Numeric thresholds beyond hard gates should be proposed after baseline data.
 
 ## Planner-routing outputs
 
-The harness must be able to emit profile evidence such as:
+The harness must emit profile evidence such as:
 
 ```yaml
 validated_profile_candidate:
   configuration_id: null
+  parameter_class: null
   certified_task_classes: []
   failed_task_classes: []
   context_verified_to: null
@@ -131,13 +141,13 @@ validated_profile_candidate:
   benchmark_run_refs: []
 ```
 
-Certification should remain a downstream/operator decision; the harness produces the evidence and deterministic eligibility checks.
+Certification remains a downstream/operator decision; the harness produces evidence and deterministic eligibility checks.
 
 ## Implementation practicality
 
-The operator is Windows-focused. Design the harness so it is realistic to run and maintain locally. Prefer ordinary files, JSON/YAML/Markdown, Python/PowerShell and reproducible local services unless a more complex dependency clearly earns its cost.
+The operator is Windows-focused. Prefer ordinary files, JSON/YAML/Markdown, Python/PowerShell and reproducible local services unless more complex dependencies clearly earn their cost.
 
-Do not implement production browser automation or the final runtime as part of this prompt unless a tiny test adapter is necessary to prove the harness interface.
+Do not implement production browser automation or final runtime as part of this prompt unless a tiny adapter is necessary to prove the harness interface.
 
 ## Required deliverables
 
@@ -149,11 +159,12 @@ Do not implement production browser automation or the final runtime as part of t
 6. trace/evidence design;
 7. resource-monitoring design;
 8. repeat/statistics protocol;
-9. planner-profile output contract;
-10. minimum implementation plan;
-11. example definitions for representative CODE/WEEKLY/MA/INJECT/COEX fixtures;
-12. risks and validation plan;
-13. YAML summary:
+9. **7–8B-centered size-comparison protocol**;
+10. planner-profile output contract;
+11. minimum implementation plan;
+12. representative fixture examples;
+13. risks and validation plan;
+14. YAML summary:
 
 ```yaml
 benchmark_harness_design:
@@ -166,6 +177,7 @@ benchmark_harness_design:
   trace_model: {}
   resource_metrics: []
   repeat_protocol: {}
+  size_comparison_protocol: {}
   certification_output: {}
   implementation_dependencies: []
   open_questions: []
@@ -175,4 +187,4 @@ benchmark_harness_design:
 
 ## Success condition
 
-The run succeeds when an implementation agent can build a **fair, reproducible, APEX-specific benchmark harness** that measures the behaviors the operator actually approved and can generate auditable evidence for planner-routed model profile certification.
+The run succeeds when an implementation agent can build a fair, reproducible APEX-specific benchmark harness that can **confirm or falsify the ~7–8B practical-optimum hypothesis** while generating auditable evidence for planner-routed profile certification.

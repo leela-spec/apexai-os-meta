@@ -15,11 +15,11 @@ authority:
 
 Research and produce a **runtime decision packet for local APEX model execution on the operator's Windows laptop**.
 
-The deliverable must identify current realistic inference runtimes/configurations that can support planner-routed high-reasoning local models with controlled load/unload, stable APIs, structured outputs, observability, reproducibility and real coexistence with browsers/development tools.
+The runtime research should primarily establish the best ways to serve the operator's expected **~7–8B practical-center models**, while also showing what is required to test a smaller control and credible ~12–14B challengers. Do not bias the runtime design toward the largest model that can technically load.
 
-Do not select production runtime without local bake-off evidence.
+Do not select a production runtime without local bake-off evidence.
 
-## Machine profile to ground the research
+## Machine profile
 
 ```text
 HP OmniBook X Flip 16-as0xxx
@@ -29,7 +29,7 @@ Intel Core Ultra 7 258V
 Intel Arc 140V integrated graphics
 ```
 
-Geekbench evidence is hardware context only. Do not infer LLM throughput, dedicated VRAM or practical context capacity from it.
+Geekbench is hardware context only. Do not infer LLM throughput, dedicated VRAM or usable context capacity from it.
 
 ## Authority and runtime contract
 
@@ -40,17 +40,18 @@ Round-3 LM-23..LM-30 define the requirements:
 - reliability-first but latency measured;
 - browser/IDE/test/CLI coexistence is mandatory;
 - execution planner routes only to benchmark-certified profiles;
+- ~7–8B is the primary model-size hypothesis, not an unchangeable production lock;
 - model topology remains open;
 - runtime must support controlled load/unload/switching and reproducible configuration;
-- run/orchestration state must live outside the inference runtime.
+- run/orchestration state must live outside inference runtime.
 
 ## Candidate runtime space
 
-Research current realistic options rather than assuming these exact examples remain best:
+Research current realistic options rather than assuming these examples remain best:
 
 - OpenVINO / OpenVINO GenAI / OpenVINO Model Server paths;
 - llama.cpp-family Windows backends including Intel-relevant acceleration;
-- Ollama where useful as a model lifecycle/API layer;
+- Ollama where useful as model-lifecycle/API layer;
 - other currently credible Windows/Intel local-serving stacks.
 
 Verify current support before including a stack.
@@ -74,14 +75,32 @@ For each serious runtime/configuration determine:
 - health/readiness interfaces;
 - logging and performance metrics;
 - ease of pinning exact runtime/model/config versions;
-- integration with an external scheduler/checkpoint system;
-- current limitations/issues relevant to this exact hardware.
+- integration with external scheduler/checkpoint system;
+- current limitations/issues relevant to this hardware.
+
+## Size-class/runtime comparison
+
+The bake-off design must answer:
+
+```text
+~3–4B control:
+  How cheap/fast can it be, and what capability is lost?
+
+~7–8B primary:
+  Can it run comfortably with browsers, IDE, tests and expected context?
+  Which backend/representation gives the best reliability/resource balance?
+
+~12–14B challenger:
+  Can it run stably enough to be a meaningful comparator?
+  What load/swap/coexistence penalty does it impose?
+
+>14B:
+  Include only if concrete current evidence makes local testing realistic and decision-relevant.
+```
 
 ## Resource/coexistence research
 
-The runtime must be evaluated for the real APEX environment, not isolated tokens/sec.
-
-Design the local bake-off to capture:
+Design local tests for:
 
 - model-only baseline;
 - model + browser workload;
@@ -97,9 +116,9 @@ Design the local bake-off to capture:
 
 ## NPU/GPU/CPU stance
 
-Treat device choice as empirical. Do not prefer NPU merely because it is power-efficient in theory, and do not prefer GPU merely because it is faster in generic benchmarks.
+Treat device choice empirically. Do not prefer NPU for theoretical efficiency or GPU for generic speed.
 
-Compare current supported paths and define the smallest tests that settle:
+Compare supported paths on:
 
 - throughput;
 - latency;
@@ -119,12 +138,13 @@ Compare current supported paths and define the smallest tests that settle:
 6. structured-output/API/observability comparison;
 7. load/unload/hot-swap capability comparison;
 8. context/memory behavior evidence;
-9. coexistence bake-off plan;
-10. recommended first runtime configurations to test locally;
-11. rejected/deprioritized runtime paths;
-12. unresolved unknowns;
-13. source appendix dominated by official current documentation/issues;
-14. YAML:
+9. **~7–8B primary runtime configurations to test first**;
+10. smaller-control and larger-challenger runtime configurations where useful;
+11. coexistence bake-off plan;
+12. rejected/deprioritized runtime paths;
+13. unresolved unknowns;
+14. source appendix dominated by current official documentation/issues;
+15. YAML:
 
 ```yaml
 windows_intel_runtime_research:
@@ -140,8 +160,10 @@ windows_intel_runtime_research:
   api_and_observability: {}
   load_unload_swap: {}
   context_memory_findings: {}
+  primary_7_8b_bakeoff_configs: []
+  smaller_control_configs: []
+  larger_challenger_configs: []
   coexistence_tests_required: []
-  recommended_bakeoff_configs: []
   rejected_or_deprioritized: []
   unresolved_unknowns: []
   overall_confidence_0_to_100: null
@@ -153,9 +175,10 @@ windows_intel_runtime_research:
 - Do not infer dedicated VRAM on the integrated Arc GPU.
 - Do not let runtime convenience dictate APEX authority architecture.
 - Keep orchestration state external to model-serving process.
+- Do not optimize the runtime around maximum model size; optimize around the APEX comparison plan centered on ~7–8B.
 - Separate official support from anecdotal compatibility.
 - Prefer current primary sources.
 
 ## Success condition
 
-The run succeeds when APEX has a small set of **current, reproducible Windows/Intel runtime configurations** ready for local model+runtime+harness bake-off, with all material coexistence and switching questions converted into measurable tests.
+The run succeeds when APEX has current, reproducible Windows/Intel runtime configurations ready to test the **~7–8B practical-optimum hypothesis** against only the smaller/larger comparators needed to make a sound decision.

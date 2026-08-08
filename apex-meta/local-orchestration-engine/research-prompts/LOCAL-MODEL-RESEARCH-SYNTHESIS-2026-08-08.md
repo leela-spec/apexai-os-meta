@@ -15,13 +15,13 @@ authority:
 
 Research, reconcile and produce a **local-model execution decision packet** for APEX from the completed model-landscape, coding, Weekly/Multi-Agent, Windows/runtime and benchmark-harness research plus any available local benchmark results.
 
-The packet must recommend **which model+runtime configurations should enter the first local bake-off, which task-specific capability profiles they are hypotheses for, how planner routing should use certified profiles, what remains unknown, and exactly what evidence would change the recommendation**.
+The packet must determine whether the operator's **~7–8B practical-optimum hypothesis** holds, which model+runtime configurations should enter the first local bake-off, which task-specific capability profiles they are hypotheses for, how planner routing should use certified profiles, what remains unknown, and what evidence would change the recommendation.
 
-Do not force one model or a model ladder. Model topology is intentionally evidence-driven.
+Do not force one model or a model ladder. Model topology remains evidence-driven.
 
 ## Authority
 
-1. `OPERATOR-DECISION-LOCK-2026-08-08-R3-LOCAL-MODEL.md` — operator-approved behavior, reasoning-first objective, planner routing and authority boundaries.
+1. `OPERATOR-DECISION-LOCK-2026-08-08-R3-LOCAL-MODEL.md` — operator-approved behavior, ~7–8B practical-center prior, planner routing and authority boundaries.
 2. `LOCAL-MODEL-BENCHMARK-PORTFOLIO-2026-08-08.md` — benchmark classes and hard gates.
 3. Completed current research packets — evidence and candidate hypotheses.
 4. Local APEX benchmark results — measured execution reality when available.
@@ -33,14 +33,15 @@ No research packet may silently override an operator boundary.
 
 Answer:
 
-> Which current local model+runtime configurations provide the strongest practically sustainable reasoning for each approved APEX task class, and how should the bounded execution planner route among configurations that have passed the relevant benchmark gates?
+> **Does a strong current ~7–8B model provide the best practical balance for APEX local execution, and where—if anywhere—does a smaller or larger benchmark-certified configuration justify displacing it for a specific task class?**
 
-The answer may be:
+Possible outcomes include:
 
-- one configuration for all certified classes;
-- one strong general profile plus coding or other specialist profiles;
-- several task-specific profiles;
-- local execution for some classes and direct Claude/Codex/subscription escalation for others.
+- one ~7–8B configuration covers all certified local classes;
+- a ~7–8B general profile plus a coding specialist;
+- a smaller model is sufficient for selected cheap/routine classes;
+- a larger model is justified for a narrow high-difficulty local class;
+- some classes should bypass local escalation and go directly to Claude/Codex/subscription reasoning.
 
 Do not reward complexity without measured value.
 
@@ -48,14 +49,14 @@ Do not reward complexity without measured value.
 
 Reconcile at least:
 
-- model reasoning strength versus scope-drift/missed-escalation risk;
+- ~7–8B execution quality versus ~3–4B resource advantage;
+- ~12–14B quality gain versus ~7–8B memory/latency/coexistence advantage;
 - coding specialization versus general-model simplicity;
 - context requirements versus retrieval/tool churn;
 - structured-output capability versus semantic correctness;
 - public benchmark evidence versus APEX fixture evidence;
 - runtime throughput versus load/swap/context/coexistence behavior;
 - CPU/GPU/NPU/backend trade-offs;
-- larger-model quality gains versus shared-memory pressure;
 - one-resident-model simplicity versus planner-routed switching;
 - model behavior versus harness containment;
 - platform/executor-runtime dependencies that could change model feasibility.
@@ -75,17 +76,18 @@ At minimum:
 - reconstructable evidence/checkpoint behavior;
 - workable Windows coexistence for the task class.
 
-A weighted aggregate cannot compensate for a hard-gate failure.
+Weighted utility cannot compensate for a hard-gate failure.
 
 ## Planner-routing synthesis
 
-Do not simply rank models globally.
+Do not rank models globally and stop there.
 
-Build a proposed registry shape such as:
+Build candidate registry profiles such as:
 
 ```yaml
-validated_profile_hypotheses:
-  high_reasoning_general:
+candidate_profiles:
+  practical_center_general:
+    expected_parameter_class: "~7–8B"
     configuration: null
     target_task_classes: []
     required_benchmarks: []
@@ -93,6 +95,7 @@ validated_profile_hypotheses:
     fallback_profile: null
 
   bounded_code:
+    expected_parameter_class: null
     configuration: null
     target_task_classes: []
     required_benchmarks: []
@@ -100,7 +103,7 @@ validated_profile_hypotheses:
     fallback_profile: null
 ```
 
-Only call a profile `validated` when actual APEX benchmark evidence supports it. Before local trials, use `candidate_profile` or equivalent.
+Only call a profile `validated` when actual APEX benchmark evidence supports it.
 
 Define what the execution planner should inspect when routing:
 
@@ -114,27 +117,30 @@ Define what the execution planner should inspect when routing:
 - available certified profiles;
 - fallback/escalation policy.
 
-Keep the planner itself subordinate to deterministic policy validation.
+Keep the planner subordinate to deterministic policy validation.
 
 ## First bake-off design
 
-Choose the smallest bake-off that can settle the consequential questions.
+The first bake-off should be centered on the operator's prior, not on maximum candidate breadth.
 
-Include enough candidates to test:
+Include:
 
-- efficient baseline;
-- strong-reasoning general configuration(s);
-- higher-reasoning stretch configuration(s) if feasible;
-- coding specialist if evidence says it could earn complexity;
-- materially distinct runtime/backend options where runtime uncertainty affects results.
+1. **the strongest one or two ~7–8B primary configurations**;
+2. **one credible ~3–4B efficiency control**;
+3. **one ~12–14B challenger** only if runtime/hardware research says it is realistically usable and likely to settle a meaningful question;
+4. a coding specialist only if research says it may materially reduce CLI escalation;
+5. materially distinct runtime/backend options only where runtime uncertainty could change the result.
 
-Avoid combinatorial explosion. Use screening to eliminate configurations that cannot plausibly meet resource/hard-gate requirements before full trials.
+Do not include >14B by default. Include it only when current evidence makes it locally plausible and likely to alter a decision.
+
+Avoid combinatorial explosion. Screen out configurations that cannot plausibly meet resource/hard-gate requirements before full trials.
 
 ## Required comparison outputs
 
-For each surviving candidate/configuration provide:
+For each surviving configuration provide:
 
 - exact version/artifact/runtime/backend;
+- parameter class;
 - target APEX task classes;
 - expected strengths;
 - expected failure modes;
@@ -145,36 +151,54 @@ For each surviving candidate/configuration provide:
 - evidence confidence;
 - reversal trigger.
 
+For the ~7–8B prior specifically report:
+
+```text
+CONFIRMED
+  evidence supports ~7–8B as practical optimum
+
+PARTIAL
+  ~7–8B is default, but another class wins selected task classes
+
+REJECTED
+  another class gives a clearly better total APEX outcome
+
+UNRESOLVED
+  evidence insufficient; name the smallest decisive test
+```
+
 ## Required deliverables
 
 Produce one coherent decision packet with:
 
 1. executive recommendation for first bake-off;
-2. evidence freshness/version map;
-3. cross-research contradiction table;
-4. candidate configuration matrix;
-5. per-task-class model/runtime hypotheses;
-6. hard-gate status;
-7. reasoning-strength versus resource/authority-risk analysis;
-8. proposed planner-routing capability profiles;
-9. proposed local bake-off sequence;
-10. runtime/backend tests required;
-11. rejected/deprioritized candidates and why;
-12. remaining unknowns;
-13. reversal triggers;
-14. final operator decisions required before production selection;
-15. YAML:
+2. **verdict on the ~7–8B practical-optimum hypothesis**;
+3. evidence freshness/version map;
+4. cross-research contradiction table;
+5. candidate configuration matrix;
+6. per-task-class model/runtime hypotheses;
+7. hard-gate status;
+8. size/reasoning versus resource/authority-risk analysis;
+9. proposed planner-routing capability profiles;
+10. proposed local bake-off sequence;
+11. runtime/backend tests required;
+12. rejected/deprioritized candidates and why;
+13. remaining unknowns;
+14. reversal triggers;
+15. final operator decisions required before production selection;
+16. YAML:
 
 ```yaml
 local_model_synthesis:
   evidence_date: null
   research_packets: []
   benchmark_results_available: []
+  practical_7_8b_hypothesis_verdict: null
   candidate_configurations: []
   hard_gate_summary: {}
   task_class_hypotheses: {}
   planner_profile_hypotheses: {}
-  reasoning_vs_resource_findings: {}
+  size_resource_findings: {}
   contradictions: []
   recommended_first_bakeoff: []
   runtime_backend_tests: []
@@ -189,10 +213,11 @@ local_model_synthesis:
 
 - No production selection before operator review and required local benchmarks.
 - Do not pre-lock one model, two models, ladder or coder split.
-- Do not make parameter count the optimization target.
+- **Do not replace the ~7–8B practical-center prior with a largest-model optimization objective.**
+- Do not treat the ~7–8B prior as proof; make evidence confirm or reject it.
 - Do not equate bigger with better or smaller with efficient without workload evidence.
-- Do not increase model authority based on reasoning quality.
-- Keep platform selection and model selection distinct while surfacing real dependencies.
+- Do not increase model authority based on capability.
+- Keep platform selection and model selection distinct while surfacing dependencies.
 - Do not hide contradictory measurements behind an average score.
 
 ## Validation
@@ -200,14 +225,15 @@ local_model_synthesis:
 Before delivery verify that:
 
 - every recommendation maps to approved APEX fixtures;
-- stronger reasoning is tested for actual execution value, not assumed valuable;
+- the ~7–8B prior was tested rather than assumed or silently discarded;
+- smaller/larger comparisons quantify both execution value and resource cost;
 - resource coexistence is treated as product behavior;
-- planner routing uses only benchmark-certified profiles in the final architecture;
-- model and runtime versions are explicit;
+- planner routing uses only benchmark-certified profiles in final architecture;
+- model/runtime versions are explicit;
 - hard gates override weighted utility;
-- remaining uncertainty is converted into the smallest decisive test;
-- the operator receives choices rather than a silent production decision.
+- remaining uncertainty becomes the smallest decisive test;
+- operator receives choices rather than a silent production decision.
 
 ## Success condition
 
-The run succeeds when the operator can decide **which model+runtime configurations to benchmark first and what evidence is required before they may enter the planner-routable registry**, without precommitting APEX to a model size, family or topology.
+The run succeeds when the operator can decide whether **~7–8B really is the optimal practical center**, which exceptions deserve separate routed profiles if any, and exactly what local evidence is still required before model/runtime configurations enter the validated registry.

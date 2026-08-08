@@ -15,7 +15,9 @@ authority:
 
 Research and produce a **current candidate packet for non-coding APEX local execution**, focused on Weekly Orchestrator execution and Multi-Agent Orchestration support.
 
-The goal is to identify high-reasoning local models/configurations that are especially reliable at constrained state interpretation, tool/action choice, browser recovery, evidence preparation, specialist-worker execution, hostile-content resistance and correct escalation — while remaining subordinate to the owning orchestration system.
+The operator expects **~7–8B to be the practical optimum** for the main bounded executor. Research should determine whether that class has enough reasoning for constrained state interpretation, tool/action choice, browser recovery, evidence preparation, specialist-worker execution, hostile-content resistance and correct escalation while preserving laptop coexistence.
+
+Smaller and larger models are comparators that may falsify the hypothesis; they are not the default research objective.
 
 ## Binding architecture
 
@@ -24,7 +26,7 @@ Round-3 LM-6..LM-22 are authority.
 Key boundaries:
 
 - Weekly graph/work packet owns sequence;
-- local model classifies only among declared states and can return `UNKNOWN`;
+- local model classifies only among declared states and may return `UNKNOWN`;
 - multi-turn browser work follows predeclared follow-up classes;
 - job state is externally durable and resumable;
 - Meta Ops retains Multi-Agent orchestration;
@@ -33,11 +35,20 @@ Key boundaries:
 - hostile source/browser/model/tool content is untrusted data;
 - typed escalation is routed by enforced policy.
 
+## Candidate comparison
+
+Research primarily:
+
+1. strong current **~7–8B general/instruction/tool models**;
+2. **~3–4B efficiency controls** to quantify what is lost or retained at lower resource cost;
+3. **~12–14B challengers** when local deployment is credible and the extra reasoning may solve specific Weekly/MA failures;
+4. larger models only when concrete hardware/runtime evidence makes them locally plausible and decision-relevant.
+
 ## Research questions
 
 For each serious candidate determine current evidence about:
 
-- instruction fidelity under long multi-step work packets;
+- instruction fidelity under multi-step work packets;
 - closed-set state classification and abstention/unknown behavior;
 - tool selection and argument generation;
 - structured outputs;
@@ -56,8 +67,6 @@ Use primary model/runtime sources first. Public agent benchmarks may prioritize 
 
 ## Required fixture mapping
 
-Map evidence and hypotheses to:
-
 ### Weekly
 - WEEKLY-01 one prompt + capture;
 - WEEKLY-02 conditional multi-turn;
@@ -75,47 +84,47 @@ Map evidence and hypotheses to:
 - MA-06 adversarial source containment.
 
 ### Injection
-Assess suitability for INJECT-01..08, while keeping in mind that hard containment remains outside the model.
+Assess suitability for INJECT-01..08 while keeping hard containment outside the model.
 
-## Reasoning-first lens
+## Practical-center reasoning lens
 
-Specifically test the hypothesis that higher-reasoning local models materially improve:
+Test three concrete hypotheses:
 
-- recognition of genuine `UNKNOWN` states;
-- distinction between equivalent UI recovery and workflow invention;
-- correct escalation class;
-- evidence comparison without premature verdict;
-- nuanced hostile-content recognition;
-- multi-root provenance;
-- bounded semantic cleanup.
+1. **~7–8B vs ~3–4B:** does the practical-center class materially improve `UNKNOWN` recognition, recovery judgement, escalation routing, evidence comparison and hostile-content handling?
+2. **~7–8B vs ~12–14B:** do larger challengers materially improve the bounded role, or mostly consume more shared resources for small gains?
+3. **Capability vs drift:** does greater model capability increase willingness to solve beyond the packet, and if so can the external harness reliably contain it?
 
-Also identify cases where more capable models may create **more scope drift** because they are more willing to solve beyond the packet.
+Do not assume either that bigger is better or that 7–8B wins. Make the local APEX fixtures decide.
 
 ## Deliverables
 
 1. executive finding;
 2. current candidate/version map;
-3. reasoning-strength vs authority-drift comparison;
-4. WEEKLY-01..06 evidence/hypothesis matrix;
-5. MA-01..06 evidence/hypothesis matrix;
-6. injection-resistance findings;
-7. context and retrieval implications;
-8. browser/tool implications;
-9. resource/coexistence implications;
-10. shortlist for APEX bake-off;
-11. unknowns requiring local trials;
-12. source appendix;
-13. YAML:
+3. primary ~7–8B shortlist;
+4. smaller/larger comparator table;
+5. WEEKLY-01..06 evidence/hypothesis matrix;
+6. MA-01..06 evidence/hypothesis matrix;
+7. injection-resistance findings;
+8. size/reasoning versus authority-drift comparison;
+9. context and retrieval implications;
+10. browser/tool implications;
+11. resource/coexistence implications;
+12. shortlist for APEX bake-off;
+13. unknowns requiring local trials;
+14. source appendix;
+15. YAML:
 
 ```yaml
 weekly_multiagent_model_research:
   evidence_date: null
-  candidates: []
+  primary_7_8b_candidates: []
+  smaller_controls: []
+  larger_challengers: []
   benchmark_priority: []
   weekly_fixture_hypotheses: {}
   multiagent_fixture_hypotheses: {}
   injection_findings: {}
-  reasoning_strengths: {}
+  size_tradeoff_hypotheses: {}
   scope_drift_risks: {}
   context_findings: {}
   browser_tool_findings: {}
@@ -128,11 +137,12 @@ weekly_multiagent_model_research:
 
 - Do not redesign Weekly or Multi-Agent Orchestration.
 - Do not confuse local reasoning quality with authority.
-- Do not treat a model's self-reported confidence as a validity signal.
-- Do not treat prompt-injection resistance as sufficient containment; system guards remain mandatory.
+- Do not treat model self-confidence as a validity signal.
+- Do not treat prompt-injection resistance as sufficient containment.
 - Preserve differences between model failure and harness/runtime failure.
+- **Do not replace the 7–8B practical-center prior with a largest-model search.**
 - No production selection.
 
 ## Success condition
 
-The run succeeds when APEX has a current, evidence-backed shortlist for the **high-reasoning bounded operator role** and concrete hypotheses about where reasoning strength helps, where it creates drift risk, and what WEEKLY/MA/INJECT fixtures must decide locally.
+The run succeeds when APEX has a **7–8B-centered shortlist** and concrete evidence hypotheses showing what smaller controls or larger challengers would have to demonstrate to displace that expected optimum for Weekly or Multi-Agent execution.
