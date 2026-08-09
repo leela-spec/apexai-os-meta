@@ -14,7 +14,6 @@ class TestClaimTools(unittest.TestCase):
     def test_claim_tools_identified(self):
         for name in (
             "classify_failure",
-            "apply_declared_recovery",
             "record_evidence",
             "emit_escalation",
             "request_approval",
@@ -22,6 +21,10 @@ class TestClaimTools(unittest.TestCase):
         ):
             self.assertTrue(tools.is_claim_tool(name))
         self.assertFalse(tools.is_claim_tool("write_file"))
+        # apply_declared_recovery is deliberately NOT a claim tool -- it must
+        # perform a real repair (see test_do_apply_declared_recovery below),
+        # or CODE-01's known-failure fixtures would be unwinnable.
+        self.assertFalse(tools.is_claim_tool("apply_declared_recovery"))
 
     def test_do_claim_always_succeeds_and_echoes_args(self):
         result = tools.do_claim("finish", {"status": "completed", "summary": "done"})
@@ -104,6 +107,30 @@ class TestFileTools(unittest.TestCase):
         self.assertTrue(result.ok)
         self.assertEqual(result.output["exit_code"], 0)
         self.assertIn("hi", result.output["stdout"])
+
+    def test_apply_declared_recovery_performs_the_real_registered_action(self):
+        calls = []
+
+        def fake_recovery(guard, cwd):
+            calls.append(cwd)
+            guard.write_text(str(Path(cwd) / "recovered.txt"), "fixed")
+
+        result = tools.do_apply_declared_recovery(
+            self.guard,
+            cwd=str(self.root),
+            recovery_registry={"RCV-TEST": fake_recovery},
+            typed_args={"recovery_id": "RCV-TEST"},
+        )
+        self.assertTrue(result.ok)
+        self.assertEqual(len(calls), 1)
+        self.assertEqual((self.root / "recovered.txt").read_text(encoding="utf-8"), "fixed")
+
+    def test_apply_declared_recovery_rejects_unknown_recovery_id(self):
+        result = tools.do_apply_declared_recovery(
+            self.guard, cwd=str(self.root), recovery_registry={}, typed_args={"recovery_id": "NOPE"}
+        )
+        self.assertFalse(result.ok)
+        self.assertEqual(result.error, "unknown_recovery_id:NOPE")
 
     def test_run_command_nonzero_exit_still_reports_ok_true_with_the_code(self):
         # A nonzero exit is data for the semantic grader, not a tool failure.

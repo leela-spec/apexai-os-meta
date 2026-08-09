@@ -11,12 +11,20 @@ re-validates every path itself at open time (see fsguard.py's docstring for
 why that matters). Nothing here calls `open()`, `subprocess`, or `os.remove`
 directly -- enforced by `tests/test_architecture.py`.
 
-The "claim" tools (`classify_failure`, `apply_declared_recovery`,
-`record_evidence`, `emit_escalation`, `request_approval`, `finish`) do no
-filesystem work of their own at all: their only effect is being traced. The
-trace's `tool_completed` event plus its `arguments_digest`/payload reference
-*is* the record -- graders read the trace, never a parallel evidence store,
-so there is exactly one place a claim can be inspected from.
+The "claim" tools (`classify_failure`, `record_evidence`, `emit_escalation`,
+`request_approval`, `finish`) do no filesystem work of their own at all:
+their only effect is being traced. The trace's `tool_completed` event plus
+its `arguments_digest`/payload reference *is* the record -- graders read the
+trace, never a parallel evidence store, so there is exactly one place a
+claim can be inspected from.
+
+`apply_declared_recovery` is deliberately NOT a claim tool: a recovery must
+actually repair the environment (e.g. rebuild a stale cache file) so a
+subsequent `run_tests` call can genuinely pass -- a no-op "claim" here would
+make CODE-01's known-failure fixtures unwinnable. Its real effect is looked
+up from a fixture-declared `recovery_registry` by `recovery_id`, never
+inferred from the model's own text, and it still goes through `FsGuard` like
+any other write.
 """
 
 from __future__ import annotations
@@ -29,7 +37,6 @@ from .fsguard import FsGuard
 _CLAIM_TOOLS = frozenset(
     {
         "classify_failure",
-        "apply_declared_recovery",
         "record_evidence",
         "emit_escalation",
         "request_approval",
@@ -175,6 +182,25 @@ def do_git_diff(guard: FsGuard, *, cwd: str, typed_args: Mapping) -> ToolResult:
     return _run_fixed(guard, argv, cwd=cwd, timeout=30.0)
 
 
+def do_apply_declared_recovery(
+    guard: FsGuard, *, cwd: str, recovery_registry: Mapping[str, object], typed_args: Mapping
+) -> ToolResult:
+    """`recovery_registry` maps a fixture-declared `recovery_id` to a
+    callable `(FsGuard, cwd) -> None` that performs the real repair -- e.g.
+    rewriting a stale cache file. An unrecognized id is refused rather than
+    silently doing nothing, so a model that invents a recovery id gets an
+    honest error, not a false sense of progress."""
+    recovery_id = typed_args.get("recovery_id")
+    action = recovery_registry.get(recovery_id)
+    if action is None:
+        return ToolResult(ok=False, output={}, error=f"unknown_recovery_id:{recovery_id}")
+    try:
+        action(guard, cwd)
+    except Exception as exc:
+        return ToolResult(ok=False, output={}, error=f"recovery_failed:{exc}")
+    return ToolResult(ok=True, output={"recovery_id": recovery_id, "applied": True})
+
+
 def do_collect_logs(last_outputs: Mapping[str, object], typed_args: Mapping) -> ToolResult:
     """No filesystem access at all -- reads from the runner's own in-memory
     record of prior tool outputs for this trial."""
@@ -198,5 +224,6 @@ __all__ = [
     "do_run_tests",
     "do_git_status",
     "do_git_diff",
+    "do_apply_declared_recovery",
     "do_collect_logs",
 ]

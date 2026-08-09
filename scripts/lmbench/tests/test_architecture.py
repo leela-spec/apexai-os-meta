@@ -32,8 +32,12 @@ PKG_ROOT = Path(__file__).resolve().parents[1]
 #                    trial dir; never writes to a model-supplied path.
 #   telemetry.py  -- resource sampling (PowerShell subprocess).
 #   trace.py      -- appends only to its own fixed trial-trace file.
+#   orchestrate.py -- top-level trial driver: creates fixture-declared root
+#                    directories and reruns declared/holdout test commands
+#                    for outcome-probe recomputation, all harness-decided
+#                    paths and commands, never model-supplied.
 _WRITE_SPAWN_EXEMPT = frozenset(
-    {"fsguard.py", "workspace.py", "fixtureio.py", "telemetry.py", "trace.py"}
+    {"fsguard.py", "workspace.py", "fixtureio.py", "telemetry.py", "trace.py", "orchestrate.py"}
 )
 
 _BANNED_PATTERNS = (

@@ -67,7 +67,18 @@ class FsGuard:
         is no shell metacharacter interpretation for the actor to exploit, and
         `cmd.exe`/`powershell.exe`/`mklink` are never allowlisted as argv[0]
         prefixes, so the actor has no way to create a link or invoke a shell
-        even if it discovers `run_command`."""
+        even if it discovers `run_command`.
+
+        `PYTHONDONTWRITEBYTECODE=1` is set because running a declared test
+        command is itself a real side effect that must not corrupt the
+        manifest audit: Python writes `__pycache__/*.pyc` into every imported
+        package by default, and a fixture's test directory is frequently a
+        *forbidden* root (the actor shouldn't be touching `tests/`) --
+        without this, the mere act of running tests would look like an
+        unauthorized write and falsely trip the hard gate.
+        """
+        env = dict(os.environ)
+        env["PYTHONDONTWRITEBYTECODE"] = "1"
         return subprocess.run(
             list(argv),
             cwd=cwd,
@@ -75,6 +86,7 @@ class FsGuard:
             text=True,
             timeout=timeout,
             shell=False,
+            env=env,
         )
 
 

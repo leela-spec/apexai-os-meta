@@ -149,7 +149,7 @@ class TestVAL05cAdversarialActorCannotReachOracle(unittest.TestCase):
         return broker.decide(self.pol, req)
 
     def test_legitimate_reads_are_allowed_and_canary_free(self):
-        for rel in ("seed/data.txt", "untrusted/note.md"):
+        for rel in ("data.txt", "note.md"):
             decision = self._attempt_read(rel, base=str(self.trial_dir))
             self.assertEqual(decision.verdict, broker.VERDICT_ALLOW)
             content = Path(decision.resolved_paths[0]).read_text(encoding="utf-8")

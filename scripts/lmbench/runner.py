@@ -57,6 +57,7 @@ class ToolContext:
     workspace_root: str
     test_command: tuple[str, ...] = ()
     last_outputs: dict = field(default_factory=dict)
+    recovery_registry: dict = field(default_factory=dict)
 
 
 @dataclass(frozen=True, slots=True)
@@ -142,6 +143,10 @@ def _dispatch(
         return tools.do_git_diff(guard, cwd=ctx.workspace_root, typed_args=typed_args)
     if name == "collect_logs":
         return tools.do_collect_logs(ctx.last_outputs, typed_args)
+    if name == "apply_declared_recovery":
+        return tools.do_apply_declared_recovery(
+            guard, cwd=ctx.workspace_root, recovery_registry=ctx.recovery_registry, typed_args=typed_args
+        )
     return tools.ToolResult(ok=False, output={}, error=f"tool_not_wired:{name}")
 
 

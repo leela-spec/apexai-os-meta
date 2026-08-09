@@ -116,10 +116,16 @@ def materialize(public: PublicFixture, dest: Path) -> Path:
     """Copy ONLY `public.materialize_dirs` into `dest`. Takes a `PublicFixture`,
     not a fixture_id or a raw path -- a caller cannot pass the unfiltered
     fixture directory (which would include `answers/`) instead of the
-    pre-filtered public view `load_public` already produced."""
+    pre-filtered public view `load_public` already produced.
+
+    Merges the *contents* of `seed/` and `untrusted/` directly into `dest`
+    (a fixture's `seed/repo/...` becomes the trial's `repo/...`) rather than
+    preserving those directory names in the trial workspace -- the actor's
+    task-relative paths should describe the task ("repo/", "review-set/"),
+    not this package's internal answer-hiding layout."""
     dest.mkdir(parents=True, exist_ok=True)
     for src_dir in public.materialize_dirs:
-        _copy_tree_no_symlinks(src_dir, dest / src_dir.name)
+        _copy_tree_no_symlinks(src_dir, dest)
     return dest
 
 
