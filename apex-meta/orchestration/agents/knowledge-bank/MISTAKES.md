@@ -85,6 +85,14 @@ Reusable Knowledge Bank failure patterns and countermeasures. This file is compa
 - **Countermeasure:** record legacy promptflows as historical_context_only; use only the corrected promptflow as current authority; stop if unresolved conflict appears.
 - **Evidence refs:** `APPENDIX_KB_SOURCE_MANIFEST.md`; `ESSENCE.md`; `PROMPTFLOW_SPECIAL_OPS_KNOWLEDGE_BANK_KB_UPDATE_CORRECTED.md`.
 
+### MK-KB-010 — Cross-agent raw URL fetch assumed reliable
+
+- **Pattern:** An agent (ChatGPT, Perplexity, etc.) is instructed to "fetch" a `raw.githubusercontent.com` URL via its own web-browsing/search tool and treat the fetched content as authoritative context, in place of pasting the file contents inline.
+- **Trigger conditions:** bundle-size pressure from large source documents; assumption that public HTTPS reachability (confirmed independently via `curl`) implies the agent's own browsing tool will successfully fetch and read the same URL; no native repository connector configured for that agent.
+- **Consequence:** the agent's response degrades to a list of search-result/citation chips (e.g., repeated "GitHub", "Inspect", "arXiv" reference markers) with no synthesized body text, while still returning HTTP 200 for the URL at the network level — a silent quality failure, not a thrown error. Confirmed empirically in APEX OS local-model research Round 2, ChatGPT Research Prompt E retry (chatgpt.com thread `6a783f26`, 2026-08-09): the response opened with a packet title but the entire body was citation markers, no prose.
+- **Countermeasure:** do not rely on an agent's own browsing/search tool to fetch raw GitHub file URLs as a substitute for inline content. Prefer (a) a native repository connector/integration explicitly configured for that agent (e.g., a ChatGPT Connector for GitHub, added and authorized by the human operator) where the agent indexes/reads the repo through a first-class integration rather than ad-hoc browsing, or (b) condensed inline content (head/tail excerpts with an explicit omission note) sized within the agent's already-verified reliable prompt-length range, or (c) full inline paste when the source is small enough. Always verify success by inspecting actual response body length and content for real prose, not merely the absence of a thrown error.
+- **Evidence refs:** this session's `get_page_text` capture of chatgpt.com thread `6a783f26` (garbled citation-only output, no body text); direct operator report of prior real-world failures of this same pattern.
+
 ## Closure rule
 
 A mistake pattern is closed only when the triggering scaffold, appendix, or learning queue entry has been corrected and the correction remains traceable to the relevant candidate/evidence row.
