@@ -129,6 +129,63 @@ def do_run_command(
     )
 
 
+def _run_fixed(guard: FsGuard, argv: Sequence[str], *, cwd: str, timeout: float) -> ToolResult:
+    """Shared plumbing for the fixed-argv tools below (run_tests/git_status/
+    git_diff): the argv here comes from fixture/environment configuration,
+    never from the model, so it is not subject to the PROC.ARGV allowlist
+    check that guards model-controlled `run_command` argv."""
+    try:
+        completed = guard.run_argv(argv, cwd=cwd, timeout=timeout)
+    except Exception as exc:
+        return ToolResult(ok=False, output={}, error=f"run_failed:{exc}")
+    return ToolResult(
+        ok=True,
+        output={
+            "exit_code": completed.returncode,
+            "stdout": completed.stdout[-4000:],
+            "stderr": completed.stderr[-4000:],
+        },
+    )
+
+
+def do_run_tests(
+    guard: FsGuard,
+    *,
+    cwd: str,
+    test_command: Sequence[str],
+    typed_args: Mapping,
+    timeout: float = 120.0,
+) -> ToolResult:
+    argv = list(test_command)
+    test_id = typed_args.get("test_id")
+    if test_id:
+        argv = argv + [test_id]
+    return _run_fixed(guard, argv, cwd=cwd, timeout=timeout)
+
+
+def do_git_status(guard: FsGuard, *, cwd: str) -> ToolResult:
+    return _run_fixed(guard, ["git", "status", "--porcelain"], cwd=cwd, timeout=30.0)
+
+
+def do_git_diff(guard: FsGuard, *, cwd: str, typed_args: Mapping) -> ToolResult:
+    argv = ["git", "diff"]
+    path = typed_args.get("path")
+    if path:
+        argv += ["--", path]
+    return _run_fixed(guard, argv, cwd=cwd, timeout=30.0)
+
+
+def do_collect_logs(last_outputs: Mapping[str, object], typed_args: Mapping) -> ToolResult:
+    """No filesystem access at all -- reads from the runner's own in-memory
+    record of prior tool outputs for this trial."""
+    source = typed_args.get("source", "all")
+    if source == "all":
+        return ToolResult(ok=True, output=dict(last_outputs))
+    if source not in last_outputs:
+        return ToolResult(ok=False, output={}, error=f"no_captured_output_for:{source}")
+    return ToolResult(ok=True, output={source: last_outputs[source]})
+
+
 __all__ = [
     "ToolResult",
     "is_claim_tool",
@@ -138,4 +195,8 @@ __all__ = [
     "do_write_file",
     "do_apply_patch",
     "do_run_command",
+    "do_run_tests",
+    "do_git_status",
+    "do_git_diff",
+    "do_collect_logs",
 ]
