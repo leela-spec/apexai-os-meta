@@ -83,6 +83,24 @@ class TestVAL16HardGateBlocksEligibility(unittest.TestCase):
         self.assertIsNone(candidate["certification_decision"])
         self.assertIn("F1", candidate["certification_eligible_task_classes"])
 
+    def test_single_trial_pass_is_not_eligible_one_lucky_run_is_not_a_certification(self):
+        # Found the hard way in this initiative's own first real bake-off:
+        # n=1 all-pass must NOT read as eligible, or a single lucky trial is
+        # indistinguishable from a validated capability.
+        one_clean_trial = report.aggregate("F1", [_verdict("T1", verdict.ACTOR_PASS)])
+        self.assertEqual(one_clean_trial.actor_pass, one_clean_trial.valid_total)  # looks "clean"
+        self.assertFalse(one_clean_trial.eligible)
+
+        two_clean_trials = report.aggregate(
+            "F1", [_verdict("T1", verdict.ACTOR_PASS), _verdict("T2", verdict.ACTOR_PASS)]
+        )
+        self.assertFalse(two_clean_trials.eligible)
+
+        three_clean_trials = report.aggregate(
+            "F1", [_verdict(f"T{i}", verdict.ACTOR_PASS) for i in range(3)]
+        )
+        self.assertTrue(three_clean_trials.eligible)
+
     def test_certification_decision_null_even_when_nothing_is_eligible(self):
         bad_agg = report.aggregate(
             "F1",

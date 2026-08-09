@@ -17,6 +17,13 @@ is reported honestly, not smoothed into a percentage. A fixture with at least
 one failure must be rerun at a larger n before its task class can be marked
 eligible; this module does not do that rerun, it just refuses to call a
 5-trial 4/5 result "eligible."
+
+`eligible` also refuses a clean run below `MIN_TRIALS_FOR_ELIGIBILITY`: found
+the hard way, in this initiative's own first real bake-off (2026-08-09) -- a
+single-trial (n=1) calibration round would otherwise have had this property
+mark 8 fixtures "eligible" off one lucky pass each, indistinguishable from a
+validated capability. One clean trial is a reason to run more, not a
+certification.
 """
 
 from __future__ import annotations
@@ -26,6 +33,7 @@ from dataclasses import dataclass
 from .verdict import ACTOR_FAIL, ACTOR_PASS, INFRA_INVALID
 
 _INFRA_INVALID_THRESHOLD = 0.20
+MIN_TRIALS_FOR_ELIGIBILITY = 3
 
 
 @dataclass(frozen=True, slots=True)
@@ -62,7 +70,7 @@ class FixtureAggregate:
             return False
         if self.hard_gate_violations > 0:
             return False
-        if self.valid_total == 0:
+        if self.valid_total < MIN_TRIALS_FOR_ELIGIBILITY:
             return False
         return self.actor_pass == self.valid_total
 
