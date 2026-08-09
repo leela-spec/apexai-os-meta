@@ -11,7 +11,11 @@ depends_on:
   - apex-meta/local-orchestration-engine/DESIGN-LOCK-QA.md
   - apex-meta/local-orchestration-engine/research-results/LOCAL-MODEL-RESEARCH-F-SYNTHESIS-2026-08-09-CHATGPT-RESULT.md
   - apex-meta/local-orchestration-engine/research-results/LOCAL-MODEL-RESEARCH-F-SYNTHESIS-2026-08-09-PERPLEXITY-RESULT.md
-status: "operator sequencing decision recorded; does not authorize production model selection; the ~7-8B practical center starts first and is tested before any larger/MoE candidate is revisited"
+  - apex-meta/local-orchestration-engine/research-prompts/LOCAL-MODEL-RESEARCH-RANKING-UPDATE-2026-08-09.md
+  - apex-meta/local-orchestration-engine/research-results/LOCAL-MODEL-RESEARCH-G-RANKING-UPDATE-2026-08-09-CHATGPT-RESULT.md
+  - apex-meta/local-orchestration-engine/research-results/LOCAL-MODEL-RESEARCH-G-RANKING-UPDATE-2026-08-09-PERPLEXITY-RESULT.md
+  - apex-meta/local-orchestration-engine/research-results/LOCAL-MODEL-RESEARCH-G-RANKING-UPDATE-2026-08-09-GEMINI-RESULT.md
+status: "operator sequencing decision recorded; does not authorize production model selection; the ~7-8B practical center starts first and is tested before any larger/MoE candidate is revisited. UPDATE (2026-08-09, Section 6): Research Prompt G sent this note's Section 3 estimates back out for verification across ChatGPT, Perplexity, and Gemini; all three independently confirmed both MoE candidates are real, both have real GGUF weight sizes larger than this note's inferred estimates, and both still fail the 15.7 GB usable-VRAM budget once KV cache is included at APEX's ~32K context target. The sequencing decision in Section 4 is unchanged."
 ---
 
 # MoE Bandwidth Finding vs. Coexistence Constraint — Bake-Off Sequencing Decision
@@ -45,6 +49,8 @@ That objection was about **VRAM footprint / coexistence**, not throughput. MoE a
 - Gemma-4-26B-A4B-it @ Q4_K_M: 26B params × ~4.5 bits/weight ≈ **14.6 GB** of weights alone, before KV cache.
 - Qwen3-30B-A3B @ Q3_K_M: 30B params × ~3.75 bits/weight ≈ **14 GB** of weights alone, before KV cache.
 
+**These two figures were INFERRED, not measured, and are superseded by Section 6 below** — Research Prompt G sent both numbers out for independent verification against primary sources on all three research agents, and both came back higher (worse) than estimated here.
+
 Both would consume nearly the entire 15.7 GB ceiling — reproducing almost exactly the D-S5 objection (crowding out the "GPU-addressable share of a shared pool" that the browser fleet and other concurrent operations need), just via a faster model this time. So the MoE finding resolves the *speed* axis cleanly but does not, by itself, resolve the *coexistence* axis that is this project's actual hard requirement (`OPERATOR-DECISION-LOCK-2026-08-08-R3-LOCAL-MODEL.md`, LM-26: "laptop coexistence is a hard requirement").
 
 **Unverified-model flag**: `Qwen3-30B-A3B` matches Alibaba's known, real Qwen3 MoE lineup and is treated as plausible. `Gemma-4-26B-A4B-it` has not been independently confirmed against this project's own fabrication-check ledger (`LOCAL-MODEL-CROSS-AGENT-COMPARISON-B-E-2026-08-09.md`, Section 5) — the prior research only verified Gemma 4 12B (dense) and Gemma 4 E2B/E4B (small NPU variants), not a 26B-A4B MoE variant. This does not mean it is wrong; it means it is not yet in the evidence trail as confirmed.
@@ -62,8 +68,32 @@ This is a **sequencing decision**, not a production model/runtime selection — 
 3. If the 7-8B tier measurably underperforms (the existing Prompt F packets' own reversal-trigger language already anticipates this: "narration/execution quality measurably fails" is the named condition for reconsidering size), revisit this note's MoE finding as the next candidate to test — specifically Qwen3-30B-A3B, with its VRAM footprint and coexistence impact (COEX-01..06) measured explicitly rather than assumed, exactly like every other candidate in the benchmark portfolio.
 4. Either way, `Gemma-4-26B-A4B-it` should go through the same real-primary-source verification the other candidates received (Section 5 of the B-E comparison) before being treated as a confirmed real model, not just a `whichllm` label.
 
-## 5. Cross-references for future readers
+## 5. Update (2026-08-09) — Research Prompt G ranking-update results
+
+**This section supersedes the INFERRED VRAM-footprint numbers in Section 3.** Research Prompt G (`research-prompts/LOCAL-MODEL-RESEARCH-RANKING-UPDATE-2026-08-09.md`) was written specifically to send this note's own estimates back out for independent verification — not to relitigate the sequencing decision in Section 4, but to check whether the numbers that decision leaned on were actually right. It was run against all three research agents this session had access to: ChatGPT (native GitHub connector), Perplexity (chunked-message submission), and Gemini (Deep Research — the first successful Gemini run in this program; a Round 1 attempt had failed on a disclosed search outage). Full raw results: `LOCAL-MODEL-RESEARCH-G-RANKING-UPDATE-2026-08-09-CHATGPT-RESULT.md`, `...-PERPLEXITY-RESULT.md`, `...-GEMINI-RESULT.md`.
+
+**Model verification — resolved.** Both candidates are confirmed real, non-fabricated models by all three agents against primary sources (Google's and Alibaba/Qwen's own model cards and configs): Gemma-4-26B-A4B-it is 25.2B total / 3.8B active parameters, 128 routed experts with top-8 selection plus 1 shared expert, 30 layers; Qwen3-30B-A3B is 30.5B total / 3.3B active parameters, 128 experts with top-8 selection, 48 layers. This closes the "unverified-model flag" raised in Section 3 above for Gemma-4-26B-A4B-it.
+
+**VRAM footprint — corrected upward (worse than this note's Section 3 estimate).** All three agents independently found real GGUF artifact sizes materially larger than this note's inferred numbers:
+
+| Model | Quant | This note's Section 3 estimate | Verified real file size (3-agent range) | Verdict at APEX's ~32K context |
+|---|---|---|---|---|
+| Gemma-4-26B-A4B-it | Q4_K_M | ~14.6 GB (inferred) | ~16.8–17.04 GB (measured GGUF artifact) | Weights alone already exceed the 15.7 GB usable budget — FAILS before any KV cache is added. |
+| Qwen3-30B-A3B | Q3_K_M | ~14 GB (inferred) | ~14.1–14.7 GB (measured GGUF artifact; varies by third-party build) | Weights alone are marginally within budget, but adding ~32K-context KV cache (ChatGPT: ~3.22 GB; Gemini: ~0.6–1.9 GB) pushes the total to ~15.1–17.9 GB depending on method — FAILS or leaves near-zero coexistence margin. |
+
+Perplexity used a 4K-context KV allowance (lighter, ~0.5 GB) and still found Gemma failing (-1.84 GB headroom) and Qwen marginal-to-failing once a runtime reserve is added (~0.6 GB headroom, "fails the coexistence margin in practice"). ChatGPT and Gemini both computed at APEX's actual ~32K target and found both candidates failing outright (ChatGPT: Gemma -1.98 GB, Qwen -2.23 GB; Gemini: Gemma ~-2 GB before KV, Qwen breaches its 0.25 GB pre-KV margin the moment a conversation starts). The three agents used different KV-cache methodologies and got different exact numbers, but the same verdict.
+
+**Does this change the sequencing decision in Section 4? No — all three agents independently say no.** `changes_first_bakeoff_recommendation: false` in all three agents' structured output. The ~7-8B tier (Qwen3-8B, Qwen2.5-Coder-7B-Instruct, Qwen3.5-4B efficiency control) remains the first bake-off. D-S5's coexistence precedent is reaffirmed by all three agents, now on stronger (measured, not inferred) evidence than this note originally had.
+
+**What did change: both MoE models are now named, verified escalation candidates rather than a flagged-unverified aside.** All three agents agree Qwen3-30B-A3B should be preferred over Gemma-4-26B-A4B-it as the first MoE escalation candidate if the 7-8B tier underperforms (smaller weight artifact, higher whichllm-estimated throughput, and it at least approaches the device ceiling at short context, whereas Gemma's weights alone already exceed it). Gemma-4-26B-A4B-it is retained as a secondary/conditional escalation candidate. ChatGPT additionally flagged that whichllm's throughput field is documented as `estimated_tok_per_sec` (a bandwidth-based estimate), not a measured local benchmark result — the 22.8/33.8 tok/s figures cited in Section 1 above should be read accordingly, not as observed performance.
+
+**Reversal/promotion trigger, sharpened.** All three agents converged on a similar, more operational reversal trigger than "a bigger model benchmarks better": promotion of an MoE candidate requires the 7-8B tier to measurably fail a specific APEX task class in repeated trials, the MoE candidate to pass the corresponding trials with zero successful unauthorized actions, and the MoE configuration to pass its relevant COEX scenario without degrading laptop coexistence — evaluated as a complete model+quant+runtime+harness configuration, not an abstract model-vs-model comparison. See each agent's result file for the exact wording (they differ in detail but agree on structure).
+
+**Confidence.** ChatGPT: 91/100. Perplexity: 86/100. Gemini did not report a numeric confidence score but reached the same verdict via independently-sourced live web search. All three flag the same category of remaining uncertainty: exact runtime/backend KV-cache and allocator behavior, and the fact that none of this has been measured on the actual operator machine — only real local APEX benchmark execution (Section 4, still the next step) resolves that.
+
+## 6. Cross-references for future readers
 
 - The candidate/evidence gap this note documents (MoE active-vs-total-parameter oversight) should be treated as a new row in future contradiction/evidence-freshness tables if this initiative's research is extended further.
 - See `LOCAL-MODEL-CROSS-AGENT-COMPARISON-B-E-2026-08-09.md` Section 9 (Known limitations) for a pointer back to this note.
 - See `architecture/04-decision-ledger.md` (D-S5) and `architecture/02-meso-module-design.md` for the pre-existing, unrelated-capability precedent this note builds on.
+- See Section 5 above and the three `LOCAL-MODEL-RESEARCH-G-RANKING-UPDATE-2026-08-09-*-RESULT.md` files for the Prompt G verification that supersedes this note's original Section 3 estimates.
