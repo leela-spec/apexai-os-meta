@@ -180,6 +180,29 @@ class TraceWriter:
         return event_id
 
 
+    def write_payload(self, name: str, data: dict) -> str:
+        """Writes a JSON payload alongside the trace for content that doesn't
+        belong inline in the append-only log (full tool-call arguments and
+        results) -- the trace keeps only a digest and this `payload_ref`,
+        exactly like FEE's ledger keeps hashes-and-paths rather than bodies.
+        Grading reads the referenced file, never the actor's live process, so
+        a trial is regradable from disk alone (VAL-10). Same risk class as
+        the trace file itself: the destination path is harness-decided (a
+        fixed directory, a harness-controlled sequence number), never a
+        model-supplied path -- exempted in test_architecture.py alongside
+        trace.py's own JSONL append."""
+        payloads_dir = self.path.parent / "payloads"
+        payloads_dir.mkdir(parents=True, exist_ok=True)
+        target = payloads_dir / f"{name}.json"
+        target.write_text(json.dumps(data, sort_keys=True, default=str), encoding="utf-8")
+        return f"payloads/{name}.json"
+
+
+def read_payload(trace_path: Path, payload_ref: str) -> dict:
+    target = trace_path.parent / payload_ref
+    return json.loads(target.read_text(encoding="utf-8"))
+
+
 def read_trace(path: Path) -> list[dict]:
     """Read a trace, surfacing a corrupt line with its number rather than
     skipping it -- a silently dropped event would make the authority replay
@@ -221,6 +244,7 @@ __all__ = [
     "TraceError",
     "TraceWriter",
     "read_trace",
+    "read_payload",
     "replay_authority",
     "event_counts",
 ]

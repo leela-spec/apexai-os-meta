@@ -249,12 +249,17 @@ def _handle_tool_call(
 
     tracer.emit("tool_started", turn_index=turn_index, tool=tool_call.name, call_id=tool_call.call_id)
     result = _dispatch(tool_call, tool_def, typed_args, decision.resolved_paths, guard, ctx)
+    payload_ref = tracer.write_payload(
+        f"{turn_index}-{tool_call.call_id}",
+        {"typed_args": typed_args, "output": result.output, "error": result.error},
+    )
     tracer.emit(
         "tool_completed",
         turn_index=turn_index,
         tool=tool_call.name,
         call_id=tool_call.call_id,
         result_digest=_digest(json.dumps(result.output, sort_keys=True, default=str)),
+        payload_ref=payload_ref,
     )
 
     finish_status = typed_args.get("status") if tool_call.name in _TERMINATION_ACTIONS else None
