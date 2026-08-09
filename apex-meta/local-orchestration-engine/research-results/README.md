@@ -19,6 +19,7 @@ Then read **`LOCAL-MODEL-MOE-BANDWIDTH-VS-COEXISTENCE-2026-08-09.md`** — it re
 | `LOCAL-MODEL-CROSS-AGENT-COMPARISON-A-2026-08-08.md` | Round 1 synthesis — Prompt A (Local Model Research Landscape) across ChatGPT, Perplexity, and Gemini. |
 | `LOCAL-MODEL-CROSS-AGENT-COMPARISON-B-E-2026-08-09.md` | Round 2 synthesis — Prompts B-F across ChatGPT and Perplexity. The current, authoritative comparison and first-bake-off recommendation. Read the top-of-file reading-order note before relying on any one section. |
 | `LOCAL-MODEL-MOE-BANDWIDTH-VS-COEXISTENCE-2026-08-09.md` | Post-synthesis addendum recording the `whichllm` MoE-bandwidth finding, why it doesn't simply override the B-F recommendation, and the operator's sequencing decision (7-8B first, escalate only if needed). Section 5 (added 2026-08-09) records the Prompt G ranking-update verification results — see below. |
+| `LOCAL-MODEL-INSTALL-LOG-2026-08-09-QWEN3-8B.md` | Install-and-smoke-test record for Qwen3-8B in both runtime configurations (OpenVINO GenAI/GPU, llama.cpp/Vulkan) on the operator's own machine. Not a benchmark result. |
 
 ### Raw per-agent research results, by prompt
 
@@ -44,6 +45,7 @@ Then read **`LOCAL-MODEL-MOE-BANDWIDTH-VS-COEXISTENCE-2026-08-09.md`** — it re
 ## What has and hasn't been done
 
 - **Done**: all seven local-model research prompts (A-G) executed on both ChatGPT and Perplexity (A and G also on Gemini); cross-agent synthesis and fabrication spot-checks; the MoE-bandwidth finding reconciled against the existing coexistence constraint (`LOCAL-MODEL-MOE-BANDWIDTH-VS-COEXISTENCE-2026-08-09.md`); that note's own inferred VRAM-footprint numbers sent back out for independent 3-agent verification via Prompt G, with all three agents confirming the real numbers are worse than estimated and unanimously reaffirming the existing sequencing decision.
+- **Also done (2026-08-09)**: Qwen3-8B — the primary ~7-8B generalist candidate — is now installed and smoke-tested in both runtime configurations the research converged on (OpenVINO GenAI/GPU and llama.cpp/Vulkan) on the operator's actual machine. See `LOCAL-MODEL-INSTALL-LOG-2026-08-09-QWEN3-8B.md`. This is install-and-verify only, not a benchmark result or model selection.
 - **Not done, and the actual next step**: real local APEX benchmark execution (the CODE/WEEKLY/MA/INJECT/COEX fixtures both agents designed in Prompt E) on the operator's own machine, against the ~7-8B tier first per the sequencing decision above. Nothing in this folder substitutes for that measurement — every recommendation here remains a hypothesis until it's run.
 
 ## Related files outside this folder
