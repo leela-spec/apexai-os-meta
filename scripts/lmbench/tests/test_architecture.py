@@ -21,13 +21,20 @@ from pathlib import Path
 
 PKG_ROOT = Path(__file__).resolve().parents[1]
 
-# fsguard.py: the actor-dispatch write/spawn choke point this test exists to defend.
-# workspace.py / telemetry.py: harness-internal trial setup/teardown/sampling --
-#   never write to an actor-supplied path.
-# trace.py: appends only to its own fixed trial-trace file, decided by the
-#   harness at trial setup, never to a model-supplied path -- same risk class
-#   as workspace.py, not the actor-dispatch surface this test defends.
-_WRITE_SPAWN_EXEMPT = frozenset({"fsguard.py", "workspace.py", "telemetry.py", "trace.py"})
+# The security invariant is: writes triggered by ACTOR (model) output route
+# through fsguard.py, which re-validates every path itself. Harness-internal
+# writes to paths the harness itself decided -- trial setup/teardown, fixture
+# materialization from already-repo-committed content, telemetry sampling,
+# trace logging -- are a different risk class and are exempt:
+#   fsguard.py    -- the actor-dispatch write/spawn choke point itself.
+#   workspace.py  -- trial directory allocate/destroy, process termination.
+#   fixtureio.py  -- copies already-repo-committed fixture files into a fresh
+#                    trial dir; never writes to a model-supplied path.
+#   telemetry.py  -- resource sampling (PowerShell subprocess).
+#   trace.py      -- appends only to its own fixed trial-trace file.
+_WRITE_SPAWN_EXEMPT = frozenset(
+    {"fsguard.py", "workspace.py", "fixtureio.py", "telemetry.py", "trace.py"}
+)
 
 _BANNED_PATTERNS = (
     re.compile(r"\bsubprocess\."),
