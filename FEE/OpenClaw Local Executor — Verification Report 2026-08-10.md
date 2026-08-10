@@ -3,7 +3,7 @@ title: "OpenClaw Local Executor — Verification Report 2026-08-10"
 doc_type: verification_report
 initiative: local-executor
 created: 2026-08-10
-status: blocked-at-g3-plugin-version
+status: blocked-at-g3-no-generative-in-process-provider
 canonical_plan: FEE/OpenClaw Local Executor — Installation and Implementation Plan.md
 canonical_decision: FEE/OpenClaw Local Executor — Operator Decision Lock.md
 ---
@@ -12,7 +12,9 @@ canonical_decision: FEE/OpenClaw Local Executor — Operator Decision Lock.md
 
 ## Terminal status
 
-Execution stopped at the in-process llama.cpp provider installation gate. The plan requires exact plugin version `@openclaw/llama-cpp-provider@2026.7.1-2` and prohibits substituting an unreviewed release. npm returned `E404 No match found for version 2026.7.1-2`.
+Execution stopped at the in-process llama.cpp provider gate. The plan requires a generative in-process provider able to run the Qwen GGUF and return chat tool calls. The operator authorized the compatible published plugin `@openclaw/llama-cpp-provider@2026.7.1` after npm confirmed that `2026.7.1-2` does not exist.
+
+The installed plugin is not a generative provider. Its manifest describes `Local GGUF embeddings through node-llama-cpp`, registers only `embeddingProviders: ["local"]`, exposes no model provider IDs, and its implementation calls `registerEmbeddingProvider` only. It cannot supply the researched `local://llama-cpp` Qwen chat path.
 
 Published plugin state at the stop:
 
@@ -20,9 +22,10 @@ Published plugin state at the stop:
 - extended stable: `2026.6.34`
 - beta: `2026.7.2-beta.7`
 - latest stable peer requirement: `openclaw >=2026.7.1`
-- installed in-process llama.cpp plugin: none
+- installed plugin: `@openclaw/llama-cpp-provider@2026.7.1`, pinned and loaded
+- installed plugin capability: local GGUF embeddings only
 
-The host is installed as `OpenClaw 2026.7.1-2 (0790d9f)`. Installing plugin `2026.7.1` would therefore be a version-policy deviation requiring operator approval.
+The host remains `OpenClaw 2026.7.1-2 (0790d9f)`. The version-policy deviation was explicitly approved; no unreviewed package or cloud provider was introduced.
 
 ## Evidence identity
 
@@ -52,7 +55,7 @@ No token value or account credential is stored in this repository.
 | Standalone normal turn | PASS | Dedicated `apex-executor` returned exactly `APEX_QWEN_OK` through `apex-local/qwen3-8b-q4km`. |
 | G2 standalone tool trajectory | PASS | One typed `session_status` call, zero tool failures, result returned to Qwen, final response `apex-local/qwen3-8b-q4km`. |
 | Skill containment | PASS | Only `apex-flow-executor` is visible to `apex-executor`; 15 otherwise eligible bundled skills are excluded by the agent allowlist. |
-| G3 in-process provider | BLOCKED | Required exact plugin version is unpublished; no substitute installed. |
+| G3 in-process provider | BLOCKED | Authorized plugin `2026.7.1` installed and inspected. It implements embeddings only and cannot execute the required generative/tool trajectory. |
 
 ## Diagnostic findings
 
@@ -60,6 +63,7 @@ No token value or account credential is stored in this repository.
 2. With lazy tool mode enabled and the broad executor surface declared, Qwen mapped `session_status` to `exec {"command":"session_status"}`. Cautious exec policy did not execute it; the request remained blocked for approval and timed out. This is retained as a negative fixture.
 3. With only the typed `session_status` tool exposed, the complete structured tool trajectory passed. Per-request tool shaping is therefore required; a broad always-visible operational surface is not acceptable for this 8B executor.
 4. The Gateway currently runs in foreground-test mode and is healthy. The Windows Scheduled Task is deliberately not installed because the plan permits persistence only after the provider and capability gates pass.
+5. Current OpenClaw package documentation and installed code do not support the research plan's generative `local://llama-cpp` assumption. This is an architecture-input error, not a Qwen, llama.cpp, browser, skill, or configuration failure.
 
 ## Current runtime state
 
@@ -68,6 +72,7 @@ No token value or account credential is stored in this repository.
 - Gateway RPC/read probe: pass
 - persistent Gateway service: not installed
 - active model path: standalone llama.cpp provider
+- llama.cpp plugin: installed for embeddings only; not selected for generation
 - cloud fallback: none
 - active Qwen inference lanes: one
 
@@ -77,9 +82,9 @@ The following remains blocked behind G3: in-process equivalence testing, product
 
 ## Required operator decision
 
-Either:
+Choose one revised generative topology:
 
-1. authorize reviewed plugin `@openclaw/llama-cpp-provider@2026.7.1`, whose declared peer range accepts the installed OpenClaw host; or
-2. keep the exact-version rule and wait for a `2026.7.1-2` plugin publication.
+1. retain the already passing standalone llama.cpp OpenAI-compatible provider as the Local Executor's normal generation path; or
+2. pause the project until OpenClaw publishes an official generative in-process llama.cpp provider.
 
-No plugin substitution was made in this run.
+Do not configure the installed embedding plugin as a chat provider. No in-process generative substitute was installed or invented.
