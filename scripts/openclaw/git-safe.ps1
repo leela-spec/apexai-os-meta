@@ -47,7 +47,7 @@ function Get-ValidatedRequest {
     $validator = Join-Path $PSScriptRoot 'validate-execution-request.py'
     $pythonRuntime = 'C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.12_3.12.2800.0_x64__qbz5n2kfra8p0\python3.12.exe'
     $pythonSha256 = '5365b422ee178f691988eb937b7abca5f48910b148f76fcce6dbaf5585c948d0'
-    $validatorSha256 = 'adea70a8596b7ab4ac7c3af65a54c94093f655de0b5f3fb721dc503b4cfcd050'
+    $validatorSha256 = 'e7dc850e5d9149fb6d5c9d4e7ea2d82dd9a7cf8b6bcd1211deda3a8b8441a3c6'
     $runtimeStream = [IO.File]::Open(
         $pythonRuntime, [IO.FileMode]::Open, [IO.FileAccess]::Read, [IO.FileShare]::Read
     )

@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import os
 import shutil
 import subprocess
 import sys
@@ -145,6 +146,18 @@ class ExecutionRequestValidatorTests(unittest.TestCase):
         request = self.request()
         request["roots"][1]["mode"] = "read"
         self.assert_rejected(request, "WRITE_REQUIRES_READ_WRITE")
+
+    def test_rejects_reparse_evidence_path(self) -> None:
+        real_evidence = self.outputs / "real-evidence"
+        real_evidence.mkdir()
+        linked_evidence = self.outputs / "evidence-link"
+        try:
+            os.symlink(real_evidence, linked_evidence, target_is_directory=True)
+        except OSError as exc:
+            self.skipTest(f"directory symlink unavailable: {exc}")
+        request = self.request()
+        request["evidence_dir"] = str(linked_evidence)
+        self.assert_rejected(request, "EVIDENCE_REPARSE")
 
     def test_rejects_script_outside_roots_and_inline_execution(self) -> None:
         request = self.request()

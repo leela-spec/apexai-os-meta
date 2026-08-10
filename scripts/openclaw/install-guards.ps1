@@ -8,6 +8,70 @@ param(
 $ErrorActionPreference = 'Stop'
 Set-StrictMode -Version Latest
 
+function Assert-NoReparseEntry {
+    param([string]$Path, [string]$Label)
+    $item = Get-Item -LiteralPath $Path -Force -ErrorAction Stop
+    if ($item.Attributes -band [IO.FileAttributes]::ReparsePoint) {
+        throw "$Label contains a prohibited reparse point: $($item.FullName)"
+    }
+}
+
+function Set-ExactRootAcl {
+    param([string]$Path, [string]$OperatorSid)
+    $admin = [Security.Principal.SecurityIdentifier]::new('S-1-5-32-544')
+    $system = [Security.Principal.SecurityIdentifier]::new('S-1-5-18')
+    $operator = [Security.Principal.SecurityIdentifier]::new($OperatorSid)
+    $acl = [Security.AccessControl.DirectorySecurity]::new()
+    $acl.SetAccessRuleProtection($true, $false)
+    $acl.SetOwner($admin)
+    $inheritance = [Security.AccessControl.InheritanceFlags]'ContainerInherit, ObjectInherit'
+    foreach ($entry in @(
+        @($system, [Security.AccessControl.FileSystemRights]::FullControl),
+        @($admin, [Security.AccessControl.FileSystemRights]::FullControl),
+        @($operator, [Security.AccessControl.FileSystemRights]::ReadAndExecute)
+    )) {
+        $rule = [Security.AccessControl.FileSystemAccessRule]::new(
+            $entry[0], $entry[1], $inheritance,
+            [Security.AccessControl.PropagationFlags]::None,
+            [Security.AccessControl.AccessControlType]::Allow
+        )
+        [void]$acl.AddAccessRule($rule)
+    }
+    Set-Acl -LiteralPath $Path -AclObject $acl
+}
+
+function Assert-ExactAcl {
+    param([string]$Path, [string]$OperatorSid)
+    $allowed = @('S-1-5-18', 'S-1-5-32-544', $OperatorSid)
+    $acl = Get-Acl -LiteralPath $Path
+    $owner = ([Security.Principal.NTAccount]$acl.Owner).Translate([Security.Principal.SecurityIdentifier]).Value
+    if ($owner -cne 'S-1-5-32-544' -or -not $acl.AreAccessRulesProtected) {
+        throw "Guard ACL owner/protection mismatch: $Path"
+    }
+    $seen = @{}
+    $forbidden = [Security.AccessControl.FileSystemRights]::WriteData -bor
+        [Security.AccessControl.FileSystemRights]::AppendData -bor
+        [Security.AccessControl.FileSystemRights]::WriteExtendedAttributes -bor
+        [Security.AccessControl.FileSystemRights]::WriteAttributes -bor
+        [Security.AccessControl.FileSystemRights]::DeleteSubdirectoriesAndFiles -bor
+        [Security.AccessControl.FileSystemRights]::Delete -bor
+        [Security.AccessControl.FileSystemRights]::ChangePermissions -bor
+        [Security.AccessControl.FileSystemRights]::TakeOwnership
+    foreach ($rule in $acl.GetAccessRules($true, $false, [Security.Principal.SecurityIdentifier])) {
+        $sid = $rule.IdentityReference.Value
+        if ($rule.AccessControlType -ne [Security.AccessControl.AccessControlType]::Allow -or $sid -notin $allowed) {
+            throw "Guard ACL contains an unapproved rule: $Path ($sid)"
+        }
+        if ($sid -ceq $OperatorSid -and ($rule.FileSystemRights -band $forbidden)) {
+            throw "Guard ACL grants operator write authority: $Path"
+        }
+        $seen[$sid] = $true
+    }
+    foreach ($sid in $allowed) {
+        if (-not $seen.ContainsKey($sid)) { throw "Guard ACL lacks required principal: $Path ($sid)" }
+    }
+}
+
 if ([string]::IsNullOrWhiteSpace($SourcePath)) {
     $SourcePath = $PSScriptRoot
 }
@@ -16,7 +80,8 @@ $guardFiles = @(
     'validate-execution-request.py',
     'run-script-safe.ps1',
     'run-command-safe.ps1',
-    'git-safe.ps1'
+    'git-safe.ps1',
+    'dispatch-execution-request.ps1'
 )
 
 try {
@@ -27,6 +92,7 @@ try {
         if (-not (Test-Path -LiteralPath $path -PathType Leaf)) {
             throw "Required guard source is missing: $path"
         }
+        Assert-NoReparseEntry -Path $path -Label 'Guard source'
         $fileHashes[$name] = (Get-FileHash -Algorithm SHA256 -LiteralPath $path).Hash.ToLowerInvariant()
     }
 
@@ -74,7 +140,9 @@ try {
         try {
             foreach ($name in $guardFiles) {
                 Copy-Item -LiteralPath (Join-Path $source $name) -Destination (Join-Path $stagingPath $name)
-                $copiedHash = (Get-FileHash -Algorithm SHA256 -LiteralPath (Join-Path $stagingPath $name)).Hash.ToLowerInvariant()
+                $copiedPath = Join-Path $stagingPath $name
+                Assert-NoReparseEntry -Path $copiedPath -Label 'Staged guard'
+                $copiedHash = (Get-FileHash -Algorithm SHA256 -LiteralPath $copiedPath).Hash.ToLowerInvariant()
                 if ($copiedHash -cne $fileHashes[$name]) {
                     throw "Copied guard identity mismatch: $name"
                 }
@@ -82,6 +150,7 @@ try {
             $manifest = [ordered]@{
                 schema_version = 'apex.guard-manifest/v1'
                 identity = $identity
+                acl_policy = 'admin-system-full-operator-rx/v1'
                 files = $fileHashes
             }
             $manifestJson = $manifest | ConvertTo-Json -Depth 4
@@ -99,10 +168,35 @@ try {
         }
     }
 
+    $attestedManifest = [ordered]@{
+        schema_version = 'apex.guard-manifest/v1'
+        identity = $identity
+        acl_policy = 'admin-system-full-operator-rx/v1'
+        files = $fileHashes
+    }
+    [IO.File]::WriteAllText(
+        (Join-Path $versionPath 'guard-manifest.json'),
+        ($attestedManifest | ConvertTo-Json -Depth 4),
+        [Text.UTF8Encoding]::new($false)
+    )
+
     if (-not $SkipAcl) {
+        Set-ExactRootAcl -Path $targetRoot -OperatorSid $userSid
+        $aclOutput = @(& icacls.exe $versionPath '/inheritance:e' '/T' '/C' 2>&1)
+        if ($LASTEXITCODE -ne 0) {
+            throw "Could not enable exact guard inheritance: $($aclOutput -join [Environment]::NewLine)"
+        }
+        $aclOutput = @(& icacls.exe $versionPath '/reset' '/T' '/C' 2>&1)
+        if ($LASTEXITCODE -ne 0) {
+            throw "Could not reset guard DACLs: $($aclOutput -join [Environment]::NewLine)"
+        }
         $aclOutput = @(& icacls.exe $versionPath '/setowner' $administratorsSid '/T' '/C' 2>&1)
         if ($LASTEXITCODE -ne 0) {
             throw "Could not transfer guard ownership: $($aclOutput -join [Environment]::NewLine)"
+        }
+        $aclOutput = @(& icacls.exe $versionPath '/grant:r' "*$userSid`:RX" '*S-1-5-18:F' "$administratorsSid`:F" '/T' '/C' 2>&1)
+        if ($LASTEXITCODE -ne 0) {
+            throw "Could not establish guard traversal: $($aclOutput -join [Environment]::NewLine)"
         }
         $aclOutput = @(& icacls.exe $versionPath '/inheritance:r' '/T' '/C' 2>&1)
         if ($LASTEXITCODE -ne 0) {
@@ -112,17 +206,10 @@ try {
         if ($LASTEXITCODE -ne 0) {
             throw "Could not protect installed guards: $($aclOutput -join [Environment]::NewLine)"
         }
-        $aclOutput = @(& icacls.exe $targetRoot '/setowner' $administratorsSid 2>&1)
-        if ($LASTEXITCODE -ne 0) {
-            throw "Could not transfer guard-root ownership: $($aclOutput -join [Environment]::NewLine)"
-        }
-        $aclOutput = @(& icacls.exe $targetRoot '/inheritance:r' 2>&1)
-        if ($LASTEXITCODE -ne 0) {
-            throw "Could not remove guard-root inheritance: $($aclOutput -join [Environment]::NewLine)"
-        }
-        $aclOutput = @(& icacls.exe $targetRoot '/grant:r' "*$userSid`:RX" '*S-1-5-18:F' "$administratorsSid`:F" 2>&1)
-        if ($LASTEXITCODE -ne 0) {
-            throw "Could not protect guard root: $($aclOutput -join [Environment]::NewLine)"
+        Assert-ExactAcl -Path $targetRoot -OperatorSid $userSid
+        Assert-ExactAcl -Path $versionPath -OperatorSid $userSid
+        foreach ($item in Get-ChildItem -LiteralPath $versionPath -Recurse -Force) {
+            Assert-ExactAcl -Path $item.FullName -OperatorSid $userSid
         }
     }
 

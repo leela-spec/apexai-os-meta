@@ -142,6 +142,8 @@ def reject_reparse_chain(raw: object, code: str, name: str) -> None:
             attributes = os.lstat(candidate).st_file_attributes
         except AttributeError:
             return
+        except FileNotFoundError:
+            continue
         except OSError as exc:
             fail(code, f"{name} reparse inspection failed: {exc}")
         if attributes & stat.FILE_ATTRIBUTE_REPARSE_POINT:
@@ -211,6 +213,7 @@ def validate(raw: object) -> dict:
         mode = root.get("mode")
         if mode not in ROOT_MODES:
             fail("ROOT_MODE", f"roots[{index}].mode must be read or read_write")
+        reject_reparse_chain(root.get("path"), "ROOT_REPARSE", f"roots[{index}].path")
         root_path = safe_path(root.get("path"), "ROOT_PATH", f"roots[{index}].path", must_exist=True)
         roots.append({"path": str(root_path), "mode": mode})
     normalized_root_paths = [os.path.normcase(root["path"]) for root in roots]
@@ -219,6 +222,7 @@ def validate(raw: object) -> dict:
 
     prompt_ref = require_object(request["prompt_ref"], "PROMPT_REF", "prompt_ref")
     exact_fields(prompt_ref, {"path", "sha256"}, "PROMPT_REF", "prompt_ref")
+    reject_reparse_chain(prompt_ref.get("path"), "PROMPT_REPARSE", "prompt_ref.path")
     prompt_path = safe_path(prompt_ref.get("path"), "PROMPT_REF", "prompt_ref.path", must_exist=True)
     if containing_root(prompt_path, roots, writable=False) is None:
         fail("PATH_OUTSIDE_ROOTS", f"prompt path is outside declared roots: {prompt_path}")
@@ -229,6 +233,8 @@ def validate(raw: object) -> dict:
     if actual_hash.lower() != expected_hash.lower():
         fail("PROMPT_HASH", "prompt bytes do not match prompt_ref.sha256")
 
+    reject_reparse_chain(request["result_path"], "RESULT_REPARSE", "result_path")
+    reject_reparse_chain(request["evidence_dir"], "EVIDENCE_REPARSE", "evidence_dir")
     result_path = safe_path(request["result_path"], "RESULT_PATH", "result_path")
     evidence_dir = safe_path(request["evidence_dir"], "EVIDENCE_PATH", "evidence_dir")
     for path in (result_path, evidence_dir):

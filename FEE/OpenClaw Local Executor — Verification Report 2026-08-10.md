@@ -3,7 +3,7 @@ title: "OpenClaw Local Executor — Verification Report 2026-08-10"
 doc_type: verification_report
 initiative: local-executor
 created: 2026-08-10
-status: in-progress-standalone-provider-selected
+status: in-progress-bounded-immediate-dispatch-verified
 canonical_plan: FEE/OpenClaw Local Executor — Installation and Implementation Plan.md
 canonical_decision: FEE/OpenClaw Local Executor — Operator Decision Lock.md
 ---
@@ -14,7 +14,9 @@ canonical_decision: FEE/OpenClaw Local Executor — Operator Decision Lock.md
 
 The operator authorized continuation with the already-passing standalone llama.cpp endpoint as the production generation topology. The in-process comparison gate is closed as a documented capability mismatch, not left blocking: the official compatible plugin is embeddings-only, while the standalone provider passes both normal and structured-tool OpenClaw trajectories.
 
-The bounded execution-request validator and safety wrappers are now implemented test-first. Their 34-test suite covers the valid contract, fail-closed schema and authority checks, hashed and read-locked script/executable identity, reviewed-identity exact-argv commands, bounded Git status/diff/add/commit, a bound origin identity and exact main refspec, disabled commit/pre-push hooks, sanitized Git configuration and environment, rename-source containment, versioned guard deployment, and branch/path/message/fetch-URL/push-URL denials in disposable repositories.
+The bounded execution-request validator, safety wrappers, protected runtime installer, and immediate dispatcher are now implemented test-first. The current 49-test helper suite covers the valid contract, fail-closed schema and authority checks, hashed and read-locked script/executable identity, reviewed-identity exact-argv commands, bounded Git status/diff/add/commit, protected immutable installations, request freezing, idempotency conflicts, evidence tampering, symlink and hard-link attacks, post-copy reparse rejection, exact OpenClaw configuration restoration, and recovery serialization. The three tests that invoke the live Gateway are opt-in; they have also passed separately against the protected runtime.
+
+Immediate model dispatch is intentionally limited to the exact OpenClaw tools `browser`, `read`, `write`, and `session_status`. Model-visible process, script, command, and Git grants remain fail-closed until their exact approval integration exists. The dispatcher freezes the validated request and prompt, uses request-derived sessions, serializes active configuration changes with a machine-wide mutex and recovery journal, restores the original configuration bytes, and creates independently hashable evidence through retained no-delete, no-write handles.
 
 The original in-process finding remains relevant. The plan requested a generative provider able to run the Qwen GGUF and return chat tool calls. The operator authorized the compatible published plugin `@openclaw/llama-cpp-provider@2026.7.1` after npm confirmed that `2026.7.1-2` does not exist.
 
@@ -35,15 +37,15 @@ The host remains `OpenClaw 2026.7.1-2 (0790d9f)`. The version-policy deviation w
 
 | Item | Value |
 |---|---|
-| Repository checkpoint | `35ef223bcbf3c523edecdda32749720aa66d0bba` |
+| Repository checkpoint before this report update | `325b71d4810ba6676b03c9bdaf7cc2dea35c9831` |
 | OpenClaw | `2026.7.1-2 (0790d9f)` |
 | Node | `v24.18.0` |
-| Active config SHA-256 | `75D2C58A33136E698F24F3FB329FEDC6668E29DFB835DE74A3C30DFBEFDF52AF` |
+| Active config SHA-256 | `68791DB12C3ED537951DB1613757432720399FE0771413EAF03A4104D3104668` |
 | Qwen GGUF SHA-256 | `D98CDCBD03E17CE47681435B5150E34C1417F50B5C0019DD560E4882C5745785` |
 | llama-server launcher SHA-256 | `63E7ED32203FC90DF3DF42FCC42762B988446E0D66B786ADB9AD059FA3CE2819` |
 | Gateway | loopback `127.0.0.1:18789`, token SecretRef from user environment |
 | Standalone model endpoint | loopback `127.0.0.1:8090` |
-| Evidence timestamp | `2026-08-10T18:44:17.8391418+02:00` |
+| Evidence timestamp | `2026-08-10T21:33:18.8593565+02:00` |
 
 No token value or account credential is stored in this repository.
 
@@ -63,7 +65,10 @@ No token value or account credential is stored in this repository.
 | Bounded request validator | PASS | Versioned closed-world request schema validates immutable prompt hashes, roots/modes, tools, exact scripts and commands, Git authority, success criteria, stop conditions, result path, and evidence directory. |
 | Script and command safety wrappers | PASS | Exact declared executable/script/argv fixtures executed by ID; identities are hashed, reparse paths rejected, and files read-locked through execution. Scripts require read-only roots; command grants require a reviewed executable hash. The pinned packaged Python runtime is hashed and read-locked while validating. |
 | Git safety wrapper | PASS | Disposable-repository status/diff/add/commit and bound-origin main push passed. Hooks, fsmonitor, external diff/text conversion, signing, unsafe protocols, URL rewrites, executable local config, and Git execution environment overrides are blocked or sanitized. Work-tree root, sole fetch/push URL, branch, commit message, staged rename source/destination paths, Git binary, and credential helper identities are independently rechecked. |
-| Guard deployment | PASS | Versioned identity `ba69b1ac5103fe40572a86ff4df0c106372ea2cecbb274dcc13b13c5dae30759` is installed at `C:\ProgramData\ApexExecutor\guards\guards-v1-ba69b1ac5103fe40`. Root, version, and manifest are Administrators-owned; the executor user has only RX/Synchronize. All manifest hashes match, and non-elevated file-creation probes in both root and version were denied. Interrupted ACL installation was recovered idempotently without overwriting guard bytes. |
+| Protected OpenClaw runtime | PASS | Exact OpenClaw `2026.7.1-2` and its Node runtime are installed as immutable identity `38f1eec9e8e5c087567ef21a16304a6a544921551580f5b017305305a9aa9fa1` at `C:\ProgramData\ApexExecutor\runtime\openclaw-2026.7.1-2-38f1eec9e8e5c087`. The manifest covers all 32,079 files and attests ACL policy `admin-system-full-operator-rx/v1`; the operator has only RX/Synchronize. |
+| Immediate dispatcher | PASS | Preparation, idempotent replay, conflict rejection, prompt/message freezing, evidence tamper rejection, child-symlink and hard-link rejection, bounded failure capture, live local-Qwen execution, exact config restoration, interrupted-config recovery, and concurrent recovery serialization passed. Model dispatch rejects exec/script/command/Git grants pending their approval bridge. |
+| Guard deployment | PENDING FINAL SOURCE REINSTALL | Protected identity `6a9a2d887424f96fcf97dffecb68049ed6345db3119d5fbd1854bbb422bba9f8` is installed at `C:\ProgramData\ApexExecutor\guards\guards-v1-6a9a2d887424f96f` with exact protected ACLs and matching manifest hashes. Two subsequent compatibility/error-classification changes altered only the dispatcher source, so one final elevated idempotent installation is required before this gate returns to PASS. |
+| Post-change regression | PASS | 49 OpenClaw helper tests passed with 3 live integrations explicitly skipped in the default run; 32 FEE tests and 177 LMBench tests passed; every OpenClaw PowerShell file parsed cleanly. Independent final review found no remaining Critical or Important issues and approved deployment. |
 
 ## Diagnostic findings
 
@@ -86,4 +91,4 @@ No token value or account credential is stored in this repository.
 
 ## Remaining work
 
-Full per-request capability dispatch, Chrome profile/extension pairing, provider containment, Cron gates, persistent Gateway installation, context promotion, subscription vertical slice, restart/idempotency testing, real recurring workflows, and deferred FEE reconciliation remain. The installed embedding plugin will not be configured as a chat provider; no in-process generative substitute or cloud fallback will be introduced.
+Final protected guard redeployment is the next checkpoint. Chrome profile/extension pairing, selected-tab provider containment, browser hostile-page tests, Cron gates, persistent Gateway installation, context promotion, the subscription vertical slice, cross-stage restart/idempotency testing, real recurring workflows, and deferred FEE reconciliation remain. The installed embedding plugin will not be configured as a chat provider; no in-process generative substitute or cloud fallback will be introduced.

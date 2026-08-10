@@ -15,6 +15,7 @@ SCRIPT_WRAPPER = REPO_ROOT / "scripts" / "openclaw" / "run-script-safe.ps1"
 GIT_WRAPPER = REPO_ROOT / "scripts" / "openclaw" / "git-safe.ps1"
 COMMAND_WRAPPER = REPO_ROOT / "scripts" / "openclaw" / "run-command-safe.ps1"
 GUARD_INSTALLER = REPO_ROOT / "scripts" / "openclaw" / "install-guards.ps1"
+RUNTIME_INSTALLER = REPO_ROOT / "scripts" / "openclaw" / "install-openclaw-runtime.ps1"
 
 
 class SafetyWrapperTests(unittest.TestCase):
@@ -346,6 +347,48 @@ class SafetyWrapperTests(unittest.TestCase):
 
 
 class GuardInstallerTests(unittest.TestCase):
+    def test_installers_rescan_staging_before_hashing_or_promotion(self) -> None:
+        guard_source = GUARD_INSTALLER.read_text(encoding="utf-8")
+        self.assertLess(
+            guard_source.index("Assert-NoReparseEntry -Path $copiedPath"),
+            guard_source.index("Get-FileHash -Algorithm SHA256 -LiteralPath $copiedPath"),
+        )
+
+        runtime_source = RUNTIME_INSTALLER.read_text(encoding="utf-8")
+        staged_scan = runtime_source.index("Assert-NoReparseTree -Path (Join-Path $staging 'node_modules')")
+        self.assertLess(staged_scan, runtime_source.index("$stagedPackage =", staged_scan))
+        self.assertLess(staged_scan, runtime_source.index("$fileHashes = Get-RuntimeHashes", staged_scan))
+
+    def test_runtime_installer_rejects_reparse_node_source(self) -> None:
+        with tempfile.TemporaryDirectory() as tempdir:
+            root = Path(tempdir)
+            real_node = root / "real-node.exe"
+            real_node.write_bytes(b"fixture-node")
+            linked_node = root / "node.exe"
+            try:
+                linked_node.symlink_to(real_node)
+            except OSError as exc:
+                self.skipTest(f"symbolic links unavailable: {exc}")
+            modules = root / "node_modules"
+            openclaw = modules / "openclaw"
+            openclaw.mkdir(parents=True)
+            (openclaw / "openclaw.mjs").write_text("fixture", encoding="utf-8")
+            (openclaw / "package.json").write_text(
+                json.dumps({"name": "openclaw", "version": "2026.7.1-2"}), encoding="utf-8"
+            )
+            result = subprocess.run(
+                [
+                    POWERSHELL, "-NoProfile", "-NonInteractive", "-ExecutionPolicy", "Bypass",
+                    "-File", str(RUNTIME_INSTALLER), "-NodePath", str(linked_node),
+                    "-ModulesPath", str(modules), "-TargetPath", str(root / "runtime"), "-SkipAcl",
+                ],
+                cwd=REPO_ROOT, text=True, capture_output=True, check=False,
+            )
+            self.assertNotEqual(result.returncode, 0)
+            combined = (result.stdout + result.stderr).lower()
+            self.assertIn("reparse point", combined)
+            self.assertIn(str(linked_node).lower(), combined.replace("\n", ""))
+
     def test_installs_versioned_hash_manifest_without_overwrite(self) -> None:
         with tempfile.TemporaryDirectory() as tempdir:
             target = Path(tempdir) / "guards"
@@ -376,6 +419,48 @@ class GuardInstallerTests(unittest.TestCase):
             second_payload = json.loads(second.stdout)
             self.assertEqual(second_payload["installed_path"], payload["installed_path"])
             self.assertTrue(second_payload["already_existed"])
+
+    def test_installs_complete_versioned_runtime_manifest_without_overwrite(self) -> None:
+        with tempfile.TemporaryDirectory() as tempdir:
+            root = Path(tempdir)
+            node = root / "source" / "node.exe"
+            modules = root / "source" / "node_modules"
+            openclaw = modules / "openclaw"
+            dependency = modules / "fixture-dependency"
+            openclaw.mkdir(parents=True)
+            dependency.mkdir()
+            node.write_bytes(b"fixture-node")
+            (openclaw / "openclaw.mjs").write_text("fixture", encoding="utf-8")
+            (openclaw / "package.json").write_text(
+                json.dumps({"name": "openclaw", "version": "2026.7.1-2"}), encoding="utf-8"
+            )
+            (dependency / "index.js").write_text("dependency", encoding="utf-8")
+            long_dependency = dependency / ("a" * 50) / ("b" * 50)
+            long_dependency.mkdir(parents=True)
+            (long_dependency / (("c" * 30) + ".map")).write_text("long-path", encoding="utf-8")
+            target = root / "runtime"
+            command = [
+                POWERSHELL, "-NoProfile", "-NonInteractive", "-ExecutionPolicy", "Bypass",
+                "-File", str(RUNTIME_INSTALLER), "-NodePath", str(node),
+                "-ModulesPath", str(modules), "-TargetPath", str(target), "-SkipAcl",
+            ]
+            first = subprocess.run(command, cwd=REPO_ROOT, text=True, capture_output=True, check=False)
+            self.assertEqual(first.returncode, 0, first.stdout + first.stderr)
+            payload = json.loads(first.stdout)
+            installed = Path(payload["installed_path"])
+            manifest = json.loads((installed / "runtime-manifest.json").read_text(encoding="utf-8"))
+            self.assertEqual(manifest["openclaw_version"], "2026.7.1-2")
+            self.assertIn("node_modules/fixture-dependency/index.js", manifest["files"])
+            for relative, expected_hash in manifest["files"].items():
+                actual = hashlib.sha256((installed / Path(relative)).read_bytes()).hexdigest()
+                self.assertEqual(actual, expected_hash)
+            second = subprocess.run(command, cwd=REPO_ROOT, text=True, capture_output=True, check=False)
+            self.assertEqual(second.returncode, 0, second.stdout + second.stderr)
+            self.assertTrue(json.loads(second.stdout)["already_existed"])
+            (installed / "node_modules" / "injected.js").write_text("unmanifested", encoding="utf-8")
+            third = subprocess.run(command, cwd=REPO_ROOT, text=True, capture_output=True, check=False)
+            self.assertNotEqual(third.returncode, 0)
+            self.assertIn("file set mismatch", (third.stdout + third.stderr).lower())
 
 
 if __name__ == "__main__":
