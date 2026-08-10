@@ -496,6 +496,18 @@ Browser/page/model content is untrusted input and cannot expand execution author
 
 Before unattended production, the executor must pass a provider-containment fixture in which a job declared for one provider is induced by hostile page/content text to navigate to another destination and correctly refuses/stops rather than widening scope.
 
+## DEC-OC-14A — Browser containment is enforced before tool execution
+
+**Decision: LOCKED**
+
+Provider containment is not delegated to Qwen, a skill, or page-level instructions. The validated dispatcher must establish a request-scoped browser policy before the agent turn. That policy binds the OpenClaw session to exactly one explicitly shared tab, browser profile, provider hostname, and expiry.
+
+An APEX-owned OpenClaw plugin must enforce the policy through OpenClaw's official `before_tool_call` hook. Browser calls fail closed before execution when the policy is missing or expired, the agent/session does not match, the requested profile or tab differs, a navigation target leaves the declared hostname, or the current tab can no longer be verified inside the declared hostname.
+
+The request-scoped policy is stored outside the agent workspace. Qwen may read the authorized values supplied to its turn but cannot create, widen, or replace the enforcement policy. The dispatcher owns policy creation and cleanup; the plugin owns enforcement. Skills remain operating guidance rather than security boundaries.
+
+The bundled `browser-automation` skill remains the source for general browser mechanics. The APEX-owned `subscription-ai-browser` skill adds only provider-specific state verification, exact prompt insertion, completion detection, and verbatim capture for ChatGPT, Perplexity, and Gemini. No community skill is required for the initial provider lane.
+
 ---
 
 # 16. Skills

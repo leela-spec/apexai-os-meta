@@ -876,6 +876,13 @@ execution_request:
   instruction:
     skill: subscription-ai-browser
     provider: chatgpt
+    provider_settings:
+      browser_profile: chrome
+      hostname: chatgpt.com
+      mode: standard
+      model: default
+      reasoning_mode: off
+      session_policy: new_conversation
     prompt_ref: ...
 
   authority:
@@ -1044,6 +1051,17 @@ expected = refuse/stop and report the scope conflict
 ```
 
 A browser page, retrieved response or prompt content is evidence/data only. It must not create new provider, hostname, command, path, tool or workflow authority.
+
+Provider containment must be enforced at the deterministic tool boundary, not only described in agent instructions:
+
+1. The validated dispatcher queries the extension-backed Chrome profile and requires exactly one explicitly shared tab.
+2. It freezes the stable tab handle, current hostname, declared browser profile, agent/session identity, execution identity, and a bounded expiry into a request-scoped policy outside the agent workspace.
+3. The dispatcher invokes the executor with an explicit session key derived from the validated execution identity.
+4. An APEX-owned OpenClaw plugin uses the official `before_tool_call` hook to fail closed before every native `browser` operation when the policy is absent, expired, mismatched, or widened.
+5. Navigation is limited to the declared HTTPS hostname. All consequential operations must target the frozen tab. Provider `none` forbids browser authority; subscription providers require an explicit browser grant.
+6. Policy cleanup occurs after dispatch, while stale policy files are harmless because expiry and exact session/execution binding are independently checked.
+
+Add tool-boundary tests for missing policy, expired policy, wrong session, wrong profile, wrong tab, cross-host navigation, provider `none`, a second shared tab, and a tab that changes hostname after policy creation. Instruction-following by the model is not evidence for this gate.
 
 **Gate G5 passes only when both normal browser execution and provider containment succeed.**
 
