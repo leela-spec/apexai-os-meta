@@ -1,5 +1,5 @@
 ---
-title: "Handover — Build the FEE Phase-0 Project Environment"
+title: "Handover — Install the OpenClaw Local Executor"
 doc_type: implementation_handover
 initiative: local-orchestration-engine
 created: 2026-08-10
@@ -8,11 +8,12 @@ repository: leela-spec/apexai-os-meta
 branch: main
 authority:
   - operator direction in the 2026-08-10 Codex session
-  - docs/superpowers/specs/2026-08-10-fee-project-environment-design.md
-  - docs/superpowers/plans/2026-08-10-fee-project-environment-implementation-plan.md
+  - FEE/OpenClaw Local Executor — Operator Decision Lock.md
+  - FEE/OpenClaw Local Executor — Installation and Implementation Plan.md
+  - OPENCLAW-LOCAL-LLM-MASTER-BRIEF.md
 ---
 
-# Handover — FEE Phase-0 Project Environment
+# Handover — OpenClaw Local Executor
 
 ## 0. Instruction to the receiving AI
 
@@ -34,41 +35,39 @@ Do not treat this handover as more authoritative than the operator decision lock
 ```yaml
 frame:
   mission: >
-    Materialize the approved repo-native Phase-0 project-management environment
-    for the broad four-layer Flow Execution Engine program, including the FEE
-    cockpit, canonical APEX epic/task records, user stories, roadmap,
-    workstreams, traceability, quality gates, efficiency, risks, decisions,
-    evidence, status, templates, maintained handover, and stale-scope
-    documentation reconciliation.
+    Install and validate one bounded Local Executor composed of OpenClaw and
+    Qwen3-8B. It executes approved browser, file, script, test, and Git work
+    without taking planning, provider-selection, evaluation, scheduling, or
+    workflow-continuation authority from APEX and project reasoning workflows.
 
   current_state: >
-    The architecture/design phase is complete. The approved specification and
-    detailed implementation plan are committed and pushed to origin/main as
-    part of this handover delivery. Existing FEE and lmbench code/tests remain
-    unchanged. The Phase-0 cockpit and canonical FEE epic/task records have not
-    yet been materialized.
+    OpenClaw is selected and not yet installed. Qwen3-8B Q4_K_M and llama.cpp
+    are installed locally; the 8090 server is currently stopped. Repository
+    configuration and executor-skill drafts exist but must be validated against
+    the installed OpenClaw schema. The operator decision lock and installation
+    plan under FEE are the canonical authorities.
 
   next_step_only: >
-    Execute Task 1 in
-    docs/superpowers/plans/2026-08-10-fee-project-environment-implementation-plan.md:
-    create README.md, 00-PROJECT-COCKPIT.md, 01-PROJECT-CHARTER.md, and
-    02-SYSTEM-BASELINE.md under apex-meta/local-orchestration-engine/project/;
-    validate and commit that bounded batch before starting Task 2.
+    Preserve the baseline, prove a direct structured tool call through the
+    standalone llama.cpp server, then install exact OpenClaw 2026.7.1-2 and
+    execute gates G0 through G12 in the canonical installation plan.
 
   explicit_non_goals:
-    - install OpenClaw, Hermes, or Odysseus
-    - select an executor platform
-    - certify Qwen3-8B or another local model
-    - change scripts/fee or scripts/lmbench runtime behavior
-    - run live browser-account automation
+    - create a separate FEE runtime, agent, daemon, service, or global queue
+    - let the executor write prompts, select providers, evaluate results, or
+      decide workflow continuation
+    - let page, model, or retrieved content widen declared authority
+    - delete scripts/fee before its useful mechanisms are audited and migrated
+    - install third-party ClawHub skills
     - create a new PM database, web service, dashboard runtime, or SaaS dependency
     - redesign Weekly Orchestrator or Multi-Agent Orchestration
-    - merge those orchestration authorities into FEE
     - edit, stage, move, or delete the pre-existing bundle files
-    - start Horizon 1 or later technical implementation
 
   source_hierarchy:
     - current explicit operator instruction
+    - FEE/OpenClaw Local Executor — Operator Decision Lock.md
+    - FEE/OpenClaw Local Executor — Installation and Implementation Plan.md
+    - OPENCLAW-LOCAL-LLM-MASTER-BRIEF.md
     - OPERATOR-DECISION-LOCK-2026-08-08-R3-LOCAL-MODEL.md for local-model behavior
     - OPERATOR-DECISION-LOCK-2026-08-08-R2.md for FEE/runtime boundary
     - OPERATOR-DECISION-LOCK-2026-08-07-R1.md for four-layer scope and user flows
@@ -78,8 +77,11 @@ frame:
     - earlier architecture proposals and historical handovers
 
   allowed_reads:
-    - docs/superpowers/specs/2026-08-10-fee-project-environment-design.md
-    - docs/superpowers/plans/2026-08-10-fee-project-environment-implementation-plan.md
+    - FEE/OpenClaw Local Executor — Operator Decision Lock.md
+    - FEE/OpenClaw Local Executor — Installation and Implementation Plan.md
+    - OPENCLAW-LOCAL-LLM-MASTER-BRIEF.md
+    - apex-meta/local-orchestration-engine/project/specs/2026-08-10-fee-project-environment-design.md
+    - apex-meta/local-orchestration-engine/project/plans/2026-08-10-fee-project-environment-implementation-plan.md
     - apex-meta/local-orchestration-engine/**
     - apex-meta/orchestration/**
     - apex-meta/epics/**
@@ -90,6 +92,9 @@ frame:
     - Git history and status for this repository
 
   allowed_writes:
+    - apex-meta/openclaw/**
+    - scripts/openclaw/**
+    - FEE/** verification evidence and active Local Executor documentation
     - apex-meta/local-orchestration-engine/project/**
     - apex-meta/epics/fee-orchestration-system/**
     - apex-meta/local-orchestration-engine/00-START-HERE.md
@@ -100,7 +105,7 @@ frame:
 
   forbidden_writes:
     - scripts/lmbench/**
-    - scripts/fee runtime implementation files other than README.md and __init__.py
+    - scripts/fee runtime files until the post-vertical-slice migration audit
     - apex-meta/local-orchestration-engine/benchmark/results/**
     - apex-meta/local-orchestration-engine/research-results/**
     - existing operator decision locks
@@ -112,10 +117,10 @@ frame:
     - unrelated user-modified or untracked files
 
   operator_gates:
-    - review the completed Phase-0 project environment before technical implementation
-    - decide the remaining platform composition/browser/resource/maintenance policies before their dependent tasks
-    - select or certify any runtime/model profile only from measured evidence
-    - authorize any later live subscription-account automation
+    - select the in-process provider only from an equivalent measured tool trajectory
+    - require explicit execution-request grants for roots, tools, scripts, Git, and providers
+    - require manual login and CAPTCHA/security handling
+    - enable real recurring workflows only after restart/idempotency verification
     - authorize any future push not already covered by a specific operator request
 
   stop_conditions:
@@ -187,8 +192,8 @@ The operator explicitly wants a sophisticated meta-level view covering:
 
 Read these fully before Task 1:
 
-1. `docs/superpowers/specs/2026-08-10-fee-project-environment-design.md`
-2. `docs/superpowers/plans/2026-08-10-fee-project-environment-implementation-plan.md`
+1. `apex-meta/local-orchestration-engine/project/specs/2026-08-10-fee-project-environment-design.md`
+2. `apex-meta/local-orchestration-engine/project/plans/2026-08-10-fee-project-environment-implementation-plan.md`
 3. `apex-meta/local-orchestration-engine/OPERATOR-DECISION-LOCK-2026-08-07-R1.md`
 4. `apex-meta/local-orchestration-engine/OPERATOR-DECISION-LOCK-2026-08-08-R2.md`
 5. `apex-meta/local-orchestration-engine/OPERATOR-DECISION-LOCK-2026-08-08-R3-LOCAL-MODEL.md`
