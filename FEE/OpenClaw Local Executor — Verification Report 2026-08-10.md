@@ -3,18 +3,33 @@ title: "OpenClaw Local Executor — Verification Report 2026-08-10"
 doc_type: verification_report
 initiative: local-executor
 created: 2026-08-10
-status: in-progress-bounded-immediate-dispatch-verified
+status: in-progress-browser-policy-installed-vertical-slice-pending
 canonical_plan: FEE/OpenClaw Local Executor — Installation and Implementation Plan.md
 canonical_decision: FEE/OpenClaw Local Executor — Operator Decision Lock.md
 ---
 
 # OpenClaw Local Executor — Verification Report 2026-08-10
 
+## Latest checkpoint — 23:32 Europe/Berlin
+
+This section supersedes older current-state statements below without rewriting the historical evidence.
+
+- Protected Gateway now runs from `C:\ProgramData\ApexExecutor\runtime\openclaw-2026.7.1-2-38f1eec9e8e5c087`, not the user npm installation.
+- Request v2 uses closed provider-setting tuples, requires browser only for subscription providers, forbids it for provider `none`, and requires `result_path` beneath `evidence_dir`.
+- The copied and allowlisted `apex-browser-policy` plugin is installed and the active configuration validates. It binds browser calls to the dispatcher-created session policy, exact profile, exact live tab, and exact hostname, and denies JavaScript evaluation and undeclared browser actions.
+- Pure verification passed: 44 validator/wrapper/provider-skill tests and 11 plugin tests.
+- New protected guard identity `aecae18ef55759b18e0c11b0eb25ea7ff28ae402a4a7b5f7ce539834dc7512ad` was installed. Its five manifest hashes match. The protected dispatcher suite passed 8 non-live tests with 3 opt-in live tests skipped.
+- A subsequent opt-in live test command was interrupted by the operator after a few seconds. No live-test result is claimed. Post-interruption checks found no config journal or live child, and both model and Gateway remained healthy.
+- At final observation the official extension exposed exactly one Perplexity tab. No Qwen-driven provider prompt has been submitted.
+- Full continuation detail is in `FEE/HANDOVER-2026-08-10-OPENCLAW-LOCAL-EXECUTOR-CURRENT.md`.
+
 ## Current status
 
 The operator authorized continuation with the already-passing standalone llama.cpp endpoint as the production generation topology. The in-process comparison gate is closed as a documented capability mismatch, not left blocking: the official compatible plugin is embeddings-only, while the standalone provider passes both normal and structured-tool OpenClaw trajectories.
 
 The bounded execution-request validator, safety wrappers, protected runtime installer, and immediate dispatcher are now implemented test-first. The current 49-test helper suite covers the valid contract, fail-closed schema and authority checks, hashed and read-locked script/executable identity, reviewed-identity exact-argv commands, bounded Git status/diff/add/commit, protected immutable installations, request freezing, idempotency conflicts, evidence tampering, symlink and hard-link attacks, post-copy reparse rejection, exact OpenClaw configuration restoration, and recovery serialization. The three tests that invoke the live Gateway are opt-in; they have also passed separately against the protected runtime.
+
+The first provider UI walkthrough exposed a missing authority field before Qwen was allowed to act: request v1 declared a provider but not the operator-selected web mode, web model, reasoning mode, hostname, browser profile, or session policy. Deterministic clicks were limited to extension/selected-tab containment and one harmless ChatGPT transport probe. Request v2 now carries these settings explicitly, and the new APEX-owned `subscription-ai-browser` skill applies them without inference or substitution. Live provider handling must run through the protected Qwen dispatcher.
 
 Immediate model dispatch is intentionally limited to the exact OpenClaw tools `browser`, `read`, `write`, and `session_status`. Model-visible process, script, command, and Git grants remain fail-closed until their exact approval integration exists. The dispatcher freezes the validated request and prompt, uses request-derived sessions, serializes active configuration changes with a machine-wide mutex and recovery journal, restores the original configuration bytes, and creates independently hashable evidence through retained no-delete, no-write handles.
 

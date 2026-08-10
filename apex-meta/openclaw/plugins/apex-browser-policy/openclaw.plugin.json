@@ -1,0 +1,17 @@
+{
+  "id": "apex-browser-policy",
+  "name": "APEX Browser Policy",
+  "description": "Fail-closed request-scoped browser containment for apex-executor",
+  "configSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": ["policyDir"],
+    "properties": {
+      "policyDir": {
+        "type": "string",
+        "minLength": 3,
+        "description": "Absolute directory containing dispatcher-created request-scoped browser policies"
+      }
+    }
+  }
+}

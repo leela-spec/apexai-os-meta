@@ -40,12 +40,20 @@ class DispatchPreparationTests(unittest.TestCase):
 
     def request(self) -> dict:
         return {
-            "schema_version": "apex.execution-request/v1",
+            "schema_version": "apex.execution-request/v2",
             "execution_id": "exec-dispatch-001",
             "idempotency_key": self.idempotency_key,
             "origin": {"repo": str(REPO_ROOT), "workflow": "fixture", "step": "browser-capture"},
             "instruction": "apex-flow-executor",
             "provider": "chatgpt",
+            "provider_settings": {
+                "browser_profile": "chrome",
+                "hostname": "chatgpt.com",
+                "mode": "standard",
+                "model": "default",
+                "reasoning_mode": "off",
+                "session_policy": "new_conversation",
+            },
             "prompt_ref": {
                 "path": str(self.prompt),
                 "sha256": hashlib.sha256(self.prompt.read_bytes()).hexdigest(),
@@ -70,7 +78,7 @@ class DispatchPreparationTests(unittest.TestCase):
             },
             "success_criteria": ["response captured verbatim"],
             "stop_conditions": ["authentication required"],
-            "result_path": str(self.work / "result.md"),
+            "result_path": str(self.work / "evidence" / "result.md"),
             "evidence_dir": str(self.work / "evidence"),
         }
 
@@ -102,6 +110,11 @@ class DispatchPreparationTests(unittest.TestCase):
         message = Path(payload["message_file"]).read_text(encoding="utf-8")
         self.assertIn(self.prompt_text, message)
         self.assertIn(hashlib.sha256(self.prompt.read_bytes()).hexdigest(), message)
+        self.assertIn("- Browser profile: chrome", message)
+        self.assertIn("- Provider hostname: chatgpt.com", message)
+        self.assertIn("- Provider mode: standard", message)
+        self.assertIn("- Web model: default", message)
+        self.assertIn("- Provider reasoning mode: off", message)
         normalized = json.loads(Path(payload["normalized_request_file"]).read_text(encoding="utf-8"))
         self.assertEqual(normalized["execution_id"], "exec-dispatch-001")
         self.assertEqual(Path(payload["workspace"]), self.work / "evidence")
@@ -185,6 +198,15 @@ class DispatchPreparationTests(unittest.TestCase):
     @unittest.skipUnless(os.environ.get("APEX_OPENCLAW_INTEGRATION") == "1", "live OpenClaw integration")
     def test_live_turn_completes_and_restores_exact_config_bytes(self) -> None:
         request = self.request()
+        request["provider"] = "none"
+        request["provider_settings"] = {
+            "browser_profile": "none",
+            "hostname": "none",
+            "mode": "none",
+            "model": "none",
+            "reasoning_mode": "off",
+            "session_policy": "none",
+        }
         request["grants"]["tools"] = ["session_status"]
         config_path = Path.home() / ".openclaw" / "openclaw.json"
         before = hashlib.sha256(config_path.read_bytes()).hexdigest()
@@ -232,6 +254,15 @@ class DispatchPreparationTests(unittest.TestCase):
     @unittest.skipUnless(os.environ.get("APEX_OPENCLAW_INTEGRATION") == "1", "live recovery race integration")
     def test_recovery_waits_for_active_live_turn(self) -> None:
         request = self.request()
+        request["provider"] = "none"
+        request["provider_settings"] = {
+            "browser_profile": "none",
+            "hostname": "none",
+            "mode": "none",
+            "model": "none",
+            "reasoning_mode": "off",
+            "session_policy": "none",
+        }
         request["grants"]["tools"] = ["session_status"]
         self.request_path.write_text(json.dumps(request), encoding="utf-8")
         journal_path = Path(os.environ["LOCALAPPDATA"]) / "ApexExecutor" / "openclaw-config-journal.json"

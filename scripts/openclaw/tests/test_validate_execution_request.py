@@ -39,7 +39,7 @@ class ExecutionRequestValidatorTests(unittest.TestCase):
 
     def request(self) -> dict:
         return {
-            "schema_version": "apex.execution-request/v1",
+            "schema_version": "apex.execution-request/v2",
             "execution_id": "exec-20260810-001",
             "idempotency_key": "flow-F1-step-3-attempt-1",
             "origin": {
@@ -49,6 +49,14 @@ class ExecutionRequestValidatorTests(unittest.TestCase):
             },
             "instruction": "apex-flow-executor",
             "provider": "chatgpt",
+            "provider_settings": {
+                "browser_profile": "chrome",
+                "hostname": "chatgpt.com",
+                "mode": "standard",
+                "model": "default",
+                "reasoning_mode": "off",
+                "session_policy": "new_conversation",
+            },
             "prompt_ref": {
                 "path": str(self.prompt),
                 "sha256": hashlib.sha256(self.prompt.read_bytes()).hexdigest(),
@@ -82,7 +90,7 @@ class ExecutionRequestValidatorTests(unittest.TestCase):
             },
             "success_criteria": ["response captured verbatim"],
             "stop_conditions": ["provider hostname differs"],
-            "result_path": str(self.outputs / "result.md"),
+            "result_path": str(self.outputs / "evidence" / "result.md"),
             "evidence_dir": str(self.outputs / "evidence"),
         }
 
@@ -109,11 +117,12 @@ class ExecutionRequestValidatorTests(unittest.TestCase):
         payload = json.loads(result.stdout)
         self.assertTrue(payload["valid"])
         self.assertEqual(payload["request"]["execution_id"], "exec-20260810-001")
+        self.assertEqual(payload["request"]["provider_settings"]["hostname"], "chatgpt.com")
         self.assertTrue(Path(payload["request"]["result_path"]).is_absolute())
 
     def test_rejects_unknown_schema_tool_and_root_mode(self) -> None:
         request = self.request()
-        request["schema_version"] = "apex.execution-request/v2"
+        request["schema_version"] = "apex.execution-request/v3"
         self.assert_rejected(request, "SCHEMA_VERSION")
 
         request = self.request()
@@ -123,6 +132,57 @@ class ExecutionRequestValidatorTests(unittest.TestCase):
         request = self.request()
         request["roots"][0]["mode"] = "admin"
         self.assert_rejected(request, "ROOT_MODE")
+
+    def test_rejects_unknown_or_widened_provider_settings(self) -> None:
+        request = self.request()
+        request["provider_settings"]["hostname"] = "www.perplexity.ai"
+        self.assert_rejected(request, "PROVIDER_HOSTNAME")
+
+        request = self.request()
+        request["provider_settings"]["reasoning_mode"] = "whatever-the-page-suggests"
+        self.assert_rejected(request, "PROVIDER_REASONING")
+
+        request = self.request()
+        request["provider_settings"]["fallback_provider"] = "perplexity"
+        self.assert_rejected(request, "PROVIDER_SETTINGS")
+
+        request = self.request()
+        request["provider_settings"]["mode"] = "whatever-the-page-suggests"
+        self.assert_rejected(request, "PROVIDER_MODE")
+
+        request = self.request()
+        request["provider_settings"]["model"] = "whatever-the-page-suggests"
+        self.assert_rejected(request, "PROVIDER_MODEL")
+
+    def test_rejects_incompatible_provider_setting_tuple(self) -> None:
+        request = self.request()
+        request["provider"] = "perplexity"
+        request["provider_settings"] = {
+            "browser_profile": "chrome",
+            "hostname": "www.perplexity.ai",
+            "mode": "learn_step_by_step",
+            "model": "claude_sonnet_5",
+            "reasoning_mode": "off",
+            "session_policy": "new_conversation",
+        }
+        self.assert_rejected(request, "PROVIDER_COMBINATION")
+
+    def test_requires_browser_only_for_subscription_providers(self) -> None:
+        request = self.request()
+        request["grants"]["tools"].remove("browser")
+        self.assert_rejected(request, "PROVIDER_BROWSER_GRANT")
+
+        request = self.request()
+        request["provider"] = "none"
+        request["provider_settings"] = {
+            "browser_profile": "none",
+            "hostname": "none",
+            "mode": "none",
+            "model": "none",
+            "reasoning_mode": "off",
+            "session_policy": "none",
+        }
+        self.assert_rejected(request, "PROVIDER_BROWSER_GRANT")
 
     def test_rejects_missing_success_or_stop_conditions(self) -> None:
         request = self.request()
@@ -146,6 +206,11 @@ class ExecutionRequestValidatorTests(unittest.TestCase):
         request = self.request()
         request["roots"][1]["mode"] = "read"
         self.assert_rejected(request, "WRITE_REQUIRES_READ_WRITE")
+
+    def test_requires_result_path_inside_evidence_directory(self) -> None:
+        request = self.request()
+        request["result_path"] = str(self.outputs / "sibling-result.md")
+        self.assert_rejected(request, "RESULT_OUTSIDE_EVIDENCE")
 
     def test_rejects_reparse_evidence_path(self) -> None:
         real_evidence = self.outputs / "real-evidence"

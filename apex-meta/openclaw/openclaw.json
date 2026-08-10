@@ -1,0 +1,93 @@
+// Reviewed template for the APEX executor on this machine.
+// The active copy belongs at C:\Users\gehma\.openclaw\openclaw.json.
+{
+  agents: {
+    defaults: {
+      workspace: "C:/Users/gehma/.openclaw/workspace",
+      model: { primary: "apex-local/qwen3-8b-q4km", fallbacks: [] },
+    },
+    list: [
+      { id: "main" },
+      {
+        id: "apex-executor",
+        name: "apex-executor",
+        workspace: "C:/Users/gehma/.openclaw/workspace-apex-executor",
+        agentDir: "C:/Users/gehma/.openclaw/agents/apex-executor/agent",
+        model: "apex-local/qwen3-8b-q4km",
+        skills: ["apex-flow-executor", "subscription-ai-browser", "browser-automation"],
+        thinkingDefault: "off",
+        reasoningDefault: "off",
+        bootstrapMaxChars: 3000,
+        bootstrapTotalMaxChars: 8000,
+        contextTokens: 8192,
+        experimental: { localModelLean: false },
+        tools: {
+          allow: ["session_status"],
+          deny: [
+            "message", "tts", "agents_list", "get_goal", "create_goal", "update_goal",
+            "skill_workshop", "sessions_list", "sessions_history", "sessions_send",
+            "sessions_spawn", "sessions_yield", "subagents", "web_search", "web_fetch",
+            "memory_search", "memory_get", "node_inference",
+          ],
+          loopDetection: { enabled: true },
+          exec: { host: "gateway", security: "allowlist", ask: "on-miss", strictInlineEval: true },
+        },
+      },
+    ],
+  },
+  gateway: {
+    mode: "local",
+    port: 18789,
+    auth: {
+      token: { source: "env", provider: "default", id: "OPENCLAW_GATEWAY_TOKEN" },
+      mode: "token",
+    },
+    bind: "loopback",
+  },
+  secrets: {
+    providers: { default: { source: "env", allowlist: ["OPENCLAW_GATEWAY_TOKEN"] } },
+  },
+  models: {
+    mode: "merge",
+    providers: {
+      "apex-local": {
+        models: [{
+          id: "qwen3-8b-q4km",
+          name: "Qwen3-8B Q4_K_M / llama.cpp Vulkan",
+          input: ["text"],
+          reasoning: true,
+          contextWindow: 8192,
+          maxTokens: 2048,
+          cost: { input: 0, cacheRead: 0, cacheWrite: 0, output: 0 },
+          compat: { supportsTools: true, toolSchemaProfile: "llamacpp", thinkingFormat: "qwen" },
+        }],
+        baseUrl: "http://127.0.0.1:8090/v1",
+        timeoutSeconds: 240,
+        api: "openai-completions",
+        apiKey: "local",
+      },
+    },
+  },
+  skills: {
+    load: { watch: true, extraDirs: ["C:/GitDev/apexai-os-meta/apex-meta/openclaw/skills"] },
+    install: { allowUploadedArchives: false },
+    workshop: { autonomous: { enabled: false }, allowSymlinkTargetWrites: false },
+    allowBundled: [],
+  },
+  tools: {
+    loopDetection: { enabled: true },
+    exec: { strictInlineEval: true, host: "gateway", security: "allowlist", ask: "on-miss" },
+    elevated: { enabled: false },
+  },
+  plugins: {
+    allow: ["llama-cpp", "apex-browser-policy", "browser"],
+    load: { paths: ["C:/Users/gehma/.openclaw/extensions/apex-browser-policy"] },
+    entries: {
+      "llama-cpp": { enabled: true },
+      "apex-browser-policy": {
+        enabled: true,
+        config: { policyDir: "C:/Users/gehma/AppData/Local/ApexExecutor/browser-policies" },
+      },
+    },
+  },
+}

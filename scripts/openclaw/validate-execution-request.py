@@ -19,7 +19,7 @@ from typing import NoReturn
 from urllib.parse import urlsplit
 
 
-SCHEMA_VERSION = "apex.execution-request/v1"
+SCHEMA_VERSION = "apex.execution-request/v2"
 TOP_FIELDS = frozenset(
     {
         "schema_version",
@@ -28,6 +28,7 @@ TOP_FIELDS = frozenset(
         "origin",
         "instruction",
         "provider",
+        "provider_settings",
         "prompt_ref",
         "roots",
         "grants",
@@ -42,6 +43,35 @@ ALLOWED_TOOLS = frozenset(
 )
 ALLOWED_GIT_OPERATIONS = frozenset({"status", "diff", "add", "commit", "push"})
 ROOT_MODES = frozenset({"read", "read_write"})
+PROVIDER_HOSTNAMES = {
+    "chatgpt": "chatgpt.com",
+    "perplexity": "www.perplexity.ai",
+    "gemini": "gemini.google.com",
+    "none": "none",
+}
+PROVIDER_REASONING_MODES = frozenset({"off", "thinking", "extended_thinking"})
+SESSION_POLICIES = frozenset({"new_conversation", "reuse_tab", "named_project", "none"})
+PROVIDER_SETTING_COMBINATIONS = {
+    "chatgpt": frozenset(
+        {
+            ("standard", "default", "off", "new_conversation"),
+            ("standard", "default", "off", "reuse_tab"),
+        }
+    ),
+    "perplexity": frozenset(
+        {
+            ("learn_step_by_step", "claude_sonnet_5", "thinking", "new_conversation"),
+            ("learn_step_by_step", "claude_sonnet_5", "thinking", "reuse_tab"),
+        }
+    ),
+    "gemini": frozenset(
+        {
+            ("standard", "default", "off", "new_conversation"),
+            ("standard", "default", "off", "reuse_tab"),
+        }
+    ),
+    "none": frozenset({("none", "none", "off", "none")}),
+}
 INLINE_TOKENS = frozenset(
     {"-c", "/c", "-command", "-encodedcommand", "--eval", "-e", "--execute"}
 )
@@ -90,6 +120,13 @@ def require_text(value: object, code: str, name: str) -> str:
     if not isinstance(value, str) or not value.strip():
         fail(code, f"{name} must be a non-empty string")
     return value
+
+
+def require_provider_label(value: object, code: str, name: str) -> str:
+    text = require_text(value, code, name)
+    if len(text) > 128 or any(char in text for char in "\r\n\x00"):
+        fail(code, f"{name} must be a single label of at most 128 characters")
+    return text
 
 
 def safe_path(raw: object, code: str, name: str, *, must_exist: bool = False) -> Path:
@@ -203,6 +240,78 @@ def validate(raw: object) -> dict:
         "step": require_text(origin["step"], "ORIGIN", "origin.step"),
     }
 
+    provider = require_text(request["provider"], "PROVIDER", "provider")
+    if provider not in PROVIDER_HOSTNAMES:
+        fail("PROVIDER", f"provider must be one of {sorted(PROVIDER_HOSTNAMES)}")
+    provider_settings_raw = require_object(
+        request["provider_settings"], "PROVIDER_SETTINGS", "provider_settings"
+    )
+    provider_setting_fields = {
+        "browser_profile",
+        "hostname",
+        "mode",
+        "model",
+        "reasoning_mode",
+        "session_policy",
+    }
+    exact_fields(
+        provider_settings_raw, provider_setting_fields, "PROVIDER_SETTINGS", "provider_settings"
+    )
+    if set(provider_settings_raw) != provider_setting_fields:
+        fail("PROVIDER_SETTINGS", "provider_settings requires every declared setting")
+    browser_profile = require_provider_label(
+        provider_settings_raw["browser_profile"], "PROVIDER_PROFILE", "provider_settings.browser_profile"
+    )
+    expected_profile = "none" if provider == "none" else "chrome"
+    if browser_profile != expected_profile:
+        fail("PROVIDER_PROFILE", f"provider {provider} requires browser profile {expected_profile}")
+    hostname = require_provider_label(
+        provider_settings_raw["hostname"], "PROVIDER_HOSTNAME", "provider_settings.hostname"
+    ).lower()
+    if hostname != PROVIDER_HOSTNAMES[provider]:
+        fail("PROVIDER_HOSTNAME", f"provider {provider} requires hostname {PROVIDER_HOSTNAMES[provider]}")
+    reasoning_mode = require_provider_label(
+        provider_settings_raw["reasoning_mode"],
+        "PROVIDER_REASONING",
+        "provider_settings.reasoning_mode",
+    )
+    if reasoning_mode not in PROVIDER_REASONING_MODES:
+        fail("PROVIDER_REASONING", f"unsupported provider reasoning mode: {reasoning_mode}")
+    session_policy = require_provider_label(
+        provider_settings_raw["session_policy"],
+        "PROVIDER_SESSION",
+        "provider_settings.session_policy",
+    )
+    if session_policy not in SESSION_POLICIES or (provider == "none") != (session_policy == "none"):
+        fail("PROVIDER_SESSION", "session policy is incompatible with the declared provider")
+    mode = require_provider_label(
+        provider_settings_raw["mode"], "PROVIDER_MODE", "provider_settings.mode"
+    )
+    model = require_provider_label(
+        provider_settings_raw["model"], "PROVIDER_MODEL", "provider_settings.model"
+    )
+    allowed_modes = {combination[0] for combination in PROVIDER_SETTING_COMBINATIONS[provider]}
+    allowed_models = {combination[1] for combination in PROVIDER_SETTING_COMBINATIONS[provider]}
+    if mode not in allowed_modes:
+        fail("PROVIDER_MODE", f"unsupported mode for provider {provider}: {mode}")
+    if model not in allowed_models:
+        fail("PROVIDER_MODEL", f"unsupported model for provider {provider}: {model}")
+    combination = (mode, model, reasoning_mode, session_policy)
+    if combination not in PROVIDER_SETTING_COMBINATIONS[provider]:
+        fail("PROVIDER_COMBINATION", f"provider settings are incompatible for {provider}")
+    provider_settings = {
+        "browser_profile": browser_profile,
+        "hostname": hostname,
+        "mode": mode,
+        "model": model,
+        "reasoning_mode": reasoning_mode,
+        "session_policy": session_policy,
+    }
+    if provider == "none" and any(
+        provider_settings[key] != "none" for key in ("hostname", "mode", "model", "session_policy")
+    ):
+        fail("PROVIDER_SETTINGS", "provider none requires inert provider settings")
+
     roots_raw = request["roots"]
     if not isinstance(roots_raw, list) or not roots_raw:
         fail("ROOTS", "roots must be a non-empty list")
@@ -240,6 +349,8 @@ def validate(raw: object) -> dict:
     for path in (result_path, evidence_dir):
         if containing_root(path, roots, writable=True) is None:
             fail("PATH_OUTSIDE_ROOTS", f"write path is outside declared roots: {path}")
+    if result_path == evidence_dir or not is_within(result_path, evidence_dir):
+        fail("RESULT_OUTSIDE_EVIDENCE", "result_path must be a file beneath evidence_dir")
 
     grants = require_object(request["grants"], "GRANTS", "grants")
     exact_fields(grants, {"tools", "scripts", "commands", "git"}, "GRANTS", "grants")
@@ -253,6 +364,10 @@ def validate(raw: object) -> dict:
         fail("UNKNOWN_TOOL", f"unknown tools: {unknown_tools}")
     if len(tools) != len(set(tools)):
         fail("TOOLS", "grants.tools contains duplicates")
+    if provider == "none" and "browser" in tools:
+        fail("PROVIDER_BROWSER_GRANT", "provider none forbids the browser tool grant")
+    if provider != "none" and "browser" not in tools:
+        fail("PROVIDER_BROWSER_GRANT", "subscription providers require the browser tool grant")
 
     scripts_raw = grants["scripts"]
     if not isinstance(scripts_raw, list):
@@ -405,7 +520,8 @@ def validate(raw: object) -> dict:
         "idempotency_key": idempotency_key,
         "origin": normalized_origin,
         "instruction": require_text(request["instruction"], "INSTRUCTION", "instruction"),
-        "provider": require_text(request["provider"], "PROVIDER", "provider"),
+        "provider": provider,
+        "provider_settings": provider_settings,
         "prompt_ref": {"path": str(prompt_path), "sha256": actual_hash},
         "roots": roots,
         "grants": {

@@ -56,12 +56,20 @@ class SafetyWrapperTests(unittest.TestCase):
 
     def request(self) -> dict:
         return {
-            "schema_version": "apex.execution-request/v1",
+            "schema_version": "apex.execution-request/v2",
             "execution_id": "exec-wrapper-001",
             "idempotency_key": "wrapper-fixture-001",
             "origin": {"repo": str(self.git_repo), "workflow": "fixture", "step": "safe-wrapper"},
             "instruction": "apex-flow-executor",
             "provider": "none",
+            "provider_settings": {
+                "browser_profile": "none",
+                "hostname": "none",
+                "mode": "none",
+                "model": "none",
+                "reasoning_mode": "off",
+                "session_policy": "none",
+            },
             "prompt_ref": {
                 "path": str(self.prompt),
                 "sha256": hashlib.sha256(self.prompt.read_bytes()).hexdigest(),
@@ -93,7 +101,7 @@ class SafetyWrapperTests(unittest.TestCase):
             },
             "success_criteria": ["fixture succeeds"],
             "stop_conditions": ["authority mismatch"],
-            "result_path": str(self.work / "result.md"),
+            "result_path": str(self.work / "evidence" / "result.md"),
             "evidence_dir": str(self.work / "evidence"),
         }
 
