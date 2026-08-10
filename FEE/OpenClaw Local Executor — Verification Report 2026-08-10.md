@@ -3,16 +3,20 @@ title: "OpenClaw Local Executor — Verification Report 2026-08-10"
 doc_type: verification_report
 initiative: local-executor
 created: 2026-08-10
-status: blocked-at-g3-no-generative-in-process-provider
+status: in-progress-standalone-provider-selected
 canonical_plan: FEE/OpenClaw Local Executor — Installation and Implementation Plan.md
 canonical_decision: FEE/OpenClaw Local Executor — Operator Decision Lock.md
 ---
 
 # OpenClaw Local Executor — Verification Report 2026-08-10
 
-## Terminal status
+## Current status
 
-Execution stopped at the in-process llama.cpp provider gate. The plan requires a generative in-process provider able to run the Qwen GGUF and return chat tool calls. The operator authorized the compatible published plugin `@openclaw/llama-cpp-provider@2026.7.1` after npm confirmed that `2026.7.1-2` does not exist.
+The operator authorized continuation with the already-passing standalone llama.cpp endpoint as the production generation topology. The in-process comparison gate is closed as a documented capability mismatch, not left blocking: the official compatible plugin is embeddings-only, while the standalone provider passes both normal and structured-tool OpenClaw trajectories.
+
+The bounded execution-request validator and safety wrappers are now implemented test-first. Their 34-test suite covers the valid contract, fail-closed schema and authority checks, hashed and read-locked script/executable identity, reviewed-identity exact-argv commands, bounded Git status/diff/add/commit, a bound origin identity and exact main refspec, disabled commit/pre-push hooks, sanitized Git configuration and environment, rename-source containment, versioned guard deployment, and branch/path/message/fetch-URL/push-URL denials in disposable repositories.
+
+The original in-process finding remains relevant. The plan requested a generative provider able to run the Qwen GGUF and return chat tool calls. The operator authorized the compatible published plugin `@openclaw/llama-cpp-provider@2026.7.1` after npm confirmed that `2026.7.1-2` does not exist.
 
 The installed plugin is not a generative provider. Its manifest describes `Local GGUF embeddings through node-llama-cpp`, registers only `embeddingProviders: ["local"]`, exposes no model provider IDs, and its implementation calls `registerEmbeddingProvider` only. It cannot supply the researched `local://llama-cpp` Qwen chat path.
 
@@ -55,7 +59,11 @@ No token value or account credential is stored in this repository.
 | Standalone normal turn | PASS | Dedicated `apex-executor` returned exactly `APEX_QWEN_OK` through `apex-local/qwen3-8b-q4km`. |
 | G2 standalone tool trajectory | PASS | One typed `session_status` call, zero tool failures, result returned to Qwen, final response `apex-local/qwen3-8b-q4km`. |
 | Skill containment | PASS | Only `apex-flow-executor` is visible to `apex-executor`; 15 otherwise eligible bundled skills are excluded by the agent allowlist. |
-| G3 in-process provider | BLOCKED | Authorized plugin `2026.7.1` installed and inspected. It implements embeddings only and cannot execute the required generative/tool trajectory. |
+| G3 provider selection | PASS WITH DOCUMENTED DEVIATION | Authorized plugin `2026.7.1` implements embeddings only. Operator selected the passing standalone llama.cpp endpoint as production generation topology; cloud fallback remains prohibited. |
+| Bounded request validator | PASS | Versioned closed-world request schema validates immutable prompt hashes, roots/modes, tools, exact scripts and commands, Git authority, success criteria, stop conditions, result path, and evidence directory. |
+| Script and command safety wrappers | PASS | Exact declared executable/script/argv fixtures executed by ID; identities are hashed, reparse paths rejected, and files read-locked through execution. Scripts require read-only roots; command grants require a reviewed executable hash. The pinned packaged Python runtime is hashed and read-locked while validating. |
+| Git safety wrapper | PASS | Disposable-repository status/diff/add/commit and bound-origin main push passed. Hooks, fsmonitor, external diff/text conversion, signing, unsafe protocols, URL rewrites, executable local config, and Git execution environment overrides are blocked or sanitized. Work-tree root, sole fetch/push URL, branch, commit message, staged rename source/destination paths, Git binary, and credential helper identities are independently rechecked. |
+| Guard deployment | PASS | Versioned identity `ba69b1ac5103fe40572a86ff4df0c106372ea2cecbb274dcc13b13c5dae30759` is installed at `C:\ProgramData\ApexExecutor\guards\guards-v1-ba69b1ac5103fe40`. Root, version, and manifest are Administrators-owned; the executor user has only RX/Synchronize. All manifest hashes match, and non-elevated file-creation probes in both root and version were denied. Interrupted ACL installation was recovered idempotently without overwriting guard bytes. |
 
 ## Diagnostic findings
 
@@ -76,15 +84,6 @@ No token value or account credential is stored in this repository.
 - cloud fallback: none
 - active Qwen inference lanes: one
 
-## Unexecuted work
+## Remaining work
 
-The following remains blocked behind G3: in-process equivalence testing, production execution-request validator and wrappers, full per-request capability dispatch, Chrome profile/extension pairing, provider containment, script and disposable-Git gates, Cron gates, persistent Gateway installation, context promotion, subscription vertical slice, restart/idempotency testing, real recurring workflows, and deferred FEE reconciliation.
-
-## Required operator decision
-
-Choose one revised generative topology:
-
-1. retain the already passing standalone llama.cpp OpenAI-compatible provider as the Local Executor's normal generation path; or
-2. pause the project until OpenClaw publishes an official generative in-process llama.cpp provider.
-
-Do not configure the installed embedding plugin as a chat provider. No in-process generative substitute was installed or invented.
+Full per-request capability dispatch, Chrome profile/extension pairing, provider containment, Cron gates, persistent Gateway installation, context promotion, subscription vertical slice, restart/idempotency testing, real recurring workflows, and deferred FEE reconciliation remain. The installed embedding plugin will not be configured as a chat provider; no in-process generative substitute or cloud fallback will be introduced.
