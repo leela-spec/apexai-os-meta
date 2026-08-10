@@ -3,7 +3,7 @@ title: "FEE Project Environment Design"
 doc_type: design_specification
 initiative: local-orchestration-engine
 created: 2026-08-10
-status: operator-approved-topology; written-spec-awaiting-operator-review
+status: operator-approved; ready-for-implementation-planning
 authority:
   - operator direction in the 2026-08-10 Codex session
   - apex-meta/local-orchestration-engine/OPERATOR-DECISION-LOCK-2026-08-07-R1.md
