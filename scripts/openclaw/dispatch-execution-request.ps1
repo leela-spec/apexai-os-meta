@@ -379,6 +379,37 @@ function Resolve-ProtectedRuntime {
 }
 
 function Resolve-ProtectedValidator {
+    # A dispatcher executing from an immutable version directory is bound to
+    # its sibling validator and the same manifest. Historical immutable guard
+    # versions may legitimately contain the identical validator hash, so a
+    # global uniqueness requirement would make safe versioning unusable.
+    $selfPath = [IO.Path]::GetFullPath($PSCommandPath)
+    $selfVersion = Split-Path -Parent $selfPath
+    $selfParent = Split-Path -Parent $selfVersion
+    if ($selfParent -ieq [IO.Path]::GetFullPath($guardRoot) -and
+        (Split-Path -Leaf $selfVersion).StartsWith('guards-v1-', [StringComparison]::Ordinal)) {
+        $manifestPath = Join-Path $selfVersion 'guard-manifest.json'
+        $candidate = Join-Path $selfVersion 'validate-execution-request.py'
+        if (-not (Test-Path -LiteralPath $manifestPath -PathType Leaf) -or
+            -not (Test-Path -LiteralPath $candidate -PathType Leaf)) {
+            throw 'DISPATCH_IDENTITY: co-located protected guard is incomplete'
+        }
+        $manifest = Get-Content -Raw -LiteralPath $manifestPath | ConvertFrom-Json
+        if ([string]$manifest.schema_version -cne 'apex.guard-manifest/v1' -or
+            [string]$manifest.acl_policy -cne 'admin-system-full-operator-rx/v1' -or
+            [string]$manifest.files.'validate-execution-request.py' -cne $validatorExpectedHash -or
+            [string]$manifest.files.'dispatch-execution-request.ps1' -cne (Get-Sha256File -Path $selfPath) -or
+            (Get-Sha256File -Path $candidate) -cne $validatorExpectedHash) {
+            throw 'DISPATCH_IDENTITY: co-located protected guard identity mismatch'
+        }
+        foreach ($protectedPath in @($guardRoot, $selfVersion, $manifestPath, $selfPath, $candidate)) {
+            Assert-ProtectedAclPolicy -Path $protectedPath
+        }
+        return $candidate
+    }
+
+    # Repository-source diagnostics are permitted only when exactly one
+    # protected validator with the pinned identity is installed.
     $matches = @()
     foreach ($version in Get-ChildItem -LiteralPath $guardRoot -Directory -Filter 'guards-v1-*') {
         $manifestPath = Join-Path $version.FullName 'guard-manifest.json'
@@ -394,13 +425,16 @@ function Resolve-ProtectedValidator {
             $matches += [pscustomobject]@{ Path = $candidate; Version = $version.FullName; Manifest = $manifestPath }
         }
     }
-    if ($matches.Count -ne 1) {
-        throw "DISPATCH_IDENTITY: expected one protected validator $validatorExpectedHash, found $($matches.Count)"
+    if ($matches.Count -lt 1) {
+        throw "DISPATCH_IDENTITY: protected validator $validatorExpectedHash is not installed"
     }
-    foreach ($protectedPath in @($guardRoot, $matches[0].Version, $matches[0].Manifest, $matches[0].Path)) {
+    # Multiple immutable versions containing byte-identical pinned validators
+    # are equivalent. Select deterministically after identity filtering.
+    $selected = @($matches | Sort-Object Version)[0]
+    foreach ($protectedPath in @($guardRoot, $selected.Version, $selected.Manifest, $selected.Path)) {
         Assert-ProtectedAclPolicy -Path $protectedPath
     }
-    return [string]$matches[0].Path
+    return [string]$selected.Path
 }
 
 try {
