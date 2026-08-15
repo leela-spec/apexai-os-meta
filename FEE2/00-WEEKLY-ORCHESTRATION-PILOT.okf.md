@@ -26,6 +26,32 @@ next_gate: real_project_intake
 
 # FEE2 Weekly-Orchestration Pilot
 
+## 0. AI handoff index (OKR)
+
+### Objective
+
+Resume and complete one contract-first weekly-orchestration pilot without reconstructing its architecture from chat history. Start here, then follow the key-result rows in order.
+
+### Key results and routes
+
+| KR | What an AI must establish or use | Authoritative location | Current state / resume action |
+|---|---|---|---|
+| KR0 | Pilot intent, decisions, stage map, gates, blockers, ledger, and next action | `FEE2/00-WEEKLY-ORCHESTRATION-PILOT.okf.md` | **Start here.** Static readiness passed; wait for real-project intake. |
+| KR1 | Native weekly controller and its handoff-envelope contract | `.claude/skills/weekly-orchestrator/SKILL.md`; `.claude/skills/weekly-orchestrator/references/handoff-schema.md` | Use Claude Code as the live controller. |
+| KR2 | Plan, Session, and Sync contracts | `.claude/skills/apex-plan/SKILL.md`; `.claude/skills/apex-session/SKILL.md`; `.claude/skills/apex-sync/SKILL.md`; `scripts/apex_sync.py` | Intake through Plan; mutate only through confirmed Session; run Sync read-only first. |
+| KR3 | G1-G5 stage-agent entry points | `.claude/agents/apex-precap-week.md`; `.claude/agents/apex-precap-next-day.md`; `.claude/agents/apex-evidence-normalize.md`; `.claude/agents/apex-flow-recap.md`; `.claude/agents/apex-status-merge.md`; `.claude/agents/apex-project-status.md` | Invoke in the order recorded in Section 8. |
+| KR4 | Canonical durable project state and orchestration artifacts | `apex-meta/epics/`; `apex-meta/handoff/`; `artifacts/weekly-plans/`; `artifacts/next-day-plans/`; `artifacts/flow-packets/`; `artifacts/flow-recap-packets/` | Never duplicate task status in FEE2; add exact evidence links to this document. |
+| KR5 | OpenClaw cloud-first runtime topology | `apex-meta/openclaw/openclaw.json`; `apex-meta/openclaw/skills/subscription-ai-browser/SKILL.md`; `apex-meta/openclaw/skills/subscription-ai-browser/references/chatgpt.md`; `apex-meta/openclaw/skills/apex-flow-executor/SKILL.md` | OpenClaw may open and navigate provider tabs itself; cloud executor runs before Qwen. |
+| KR6 | Frozen request dispatch and independent evidence verification | `scripts/openclaw/validate-execution-request.py`; `scripts/openclaw/dispatch-execution-request.ps1`; `scripts/openclaw/verify-execution-evidence.py` | Use `apex.execution-request/v2`; completion requires browser-transcript-backed evidence, not a zero exit code. |
+| KR7 | Contract/regression checks | `scripts/openclaw/tests/`; `apex-meta/openclaw/plugins/apex-browser-policy/tests/` | Run the focused Python suite with native PowerShell module paths; browser-policy tests are regression-only and disabled on the pilot path. |
+
+### Resume protocol
+
+1. Read KR0, then KR1-KR3 only as needed for the current stage.
+2. Treat Section 16 as the live cursor: the next gate is real-project intake and privacy approval.
+3. After each gate, add a concise evidence link and ledger row here; write project truth only to the KR4 canonical paths.
+4. Do not reopen historical `FEE/` material unless a current artifact needs provenance. It is reference-only and cannot override Sections 4-5.
+
 ## 1. Purpose
 
 This is the single living control document for testing one complete APEX weekly-orchestration slice, learning from the first real failures, and improving only what blocks useful operation.
