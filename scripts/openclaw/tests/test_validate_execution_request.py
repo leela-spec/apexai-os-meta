@@ -50,7 +50,7 @@ class ExecutionRequestValidatorTests(unittest.TestCase):
             "instruction": "apex-flow-executor",
             "provider": "chatgpt",
             "provider_settings": {
-                "browser_profile": "chrome",
+                "browser_profile": "openclaw",
                 "hostname": "chatgpt.com",
                 "mode": "standard",
                 "model": "default",
@@ -158,7 +158,7 @@ class ExecutionRequestValidatorTests(unittest.TestCase):
         request = self.request()
         request["provider"] = "perplexity"
         request["provider_settings"] = {
-            "browser_profile": "chrome",
+            "browser_profile": "openclaw",
             "hostname": "www.perplexity.ai",
             "mode": "learn_step_by_step",
             "model": "claude_sonnet_5",
@@ -167,10 +167,12 @@ class ExecutionRequestValidatorTests(unittest.TestCase):
         }
         self.assert_rejected(request, "PROVIDER_COMBINATION")
 
-    def test_requires_browser_only_for_subscription_providers(self) -> None:
-        request = self.request()
-        request["grants"]["tools"].remove("browser")
-        self.assert_rejected(request, "PROVIDER_BROWSER_GRANT")
+    def test_requires_browser_read_and_write_for_subscription_providers(self) -> None:
+        for required_tool in ("browser", "read", "write"):
+            with self.subTest(required_tool=required_tool):
+                request = self.request()
+                request["grants"]["tools"].remove(required_tool)
+                self.assert_rejected(request, "PROVIDER_TOOL_GRANT")
 
         request = self.request()
         request["provider"] = "none"

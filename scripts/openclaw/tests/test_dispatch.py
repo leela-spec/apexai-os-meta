@@ -47,7 +47,7 @@ class DispatchPreparationTests(unittest.TestCase):
             "instruction": "apex-flow-executor",
             "provider": "chatgpt",
             "provider_settings": {
-                "browser_profile": "chrome",
+                "browser_profile": "openclaw",
                 "hostname": "chatgpt.com",
                 "mode": "standard",
                 "model": "default",
@@ -63,7 +63,7 @@ class DispatchPreparationTests(unittest.TestCase):
                 {"path": str(self.work), "mode": "read_write"},
             ],
             "grants": {
-                "tools": ["browser", "write"],
+                "tools": ["browser", "read", "write"],
                 "scripts": [],
                 "commands": [],
                 "git": {
@@ -82,13 +82,24 @@ class DispatchPreparationTests(unittest.TestCase):
             "evidence_dir": str(self.work / "evidence"),
         }
 
-    def dispatch(self, request: dict) -> subprocess.CompletedProcess[str]:
+    def dispatch(
+        self,
+        request: dict,
+        *,
+        executor_model: str | None = None,
+        cloud_receipt: Path | None = None,
+    ) -> subprocess.CompletedProcess[str]:
         self.request_path.write_text(json.dumps(request), encoding="utf-8")
+        command = [
+            POWERSHELL, "-NoProfile", "-NonInteractive", "-ExecutionPolicy", "Bypass",
+            "-File", str(DISPATCHER), "-RequestPath", str(self.request_path), "-PrepareOnly",
+        ]
+        if executor_model is not None:
+            command.extend(["-ExecutorModel", executor_model])
+        if cloud_receipt is not None:
+            command.extend(["-CloudControlReceiptPath", str(cloud_receipt)])
         return subprocess.run(
-            [
-                POWERSHELL, "-NoProfile", "-NonInteractive", "-ExecutionPolicy", "Bypass",
-                "-File", str(DISPATCHER), "-RequestPath", str(self.request_path), "-PrepareOnly",
-            ],
+            command,
             cwd=REPO_ROOT, text=True, capture_output=True, check=False,
         )
 
@@ -108,9 +119,11 @@ class DispatchPreparationTests(unittest.TestCase):
         payload = json.loads(result.stdout)
         self.assertEqual(payload["status"], "prepared")
         message = Path(payload["message_file"]).read_text(encoding="utf-8")
-        self.assertIn(self.prompt_text, message)
+        self.assertNotIn(self.prompt_text, message)
         self.assertIn(hashlib.sha256(self.prompt.read_bytes()).hexdigest(), message)
-        self.assertIn("- Browser profile: chrome", message)
+        frozen_prompt = self.work / "evidence" / "frozen-prompt.md"
+        self.assertEqual(frozen_prompt.read_bytes(), self.prompt.read_bytes())
+        self.assertIn("- Browser profile: openclaw", message)
         self.assertIn("- Provider hostname: chatgpt.com", message)
         self.assertIn("- Provider mode: standard", message)
         self.assertIn("- Web model: default", message)
@@ -184,16 +197,118 @@ class DispatchPreparationTests(unittest.TestCase):
         payload = json.loads(prepared.stdout)
         raw_result = self.work / "evidence" / "openclaw-result.json"
         raw_result.write_text("original", encoding="utf-8")
+        captured_result = self.work / "evidence" / "result.md"
+        captured_result.write_text("captured", encoding="utf-8")
+        verified_receipt = self.work / "evidence" / "verified-receipt.json"
+        verified_receipt.write_text("{}", encoding="utf-8")
+        executor_receipt = self.work / "evidence" / "executor-receipt.json"
+        executor_receipt.write_text("{}", encoding="utf-8")
+        session_file = self.root / "session.jsonl"
+        session_file.write_text("{}\n", encoding="utf-8")
         state_path = Path(payload["state_file"])
         state = json.loads(state_path.read_text(encoding="utf-8"))
         state["status"] = "completed"
         state["raw_result_file"] = str(raw_result)
         state["raw_result_sha256"] = hashlib.sha256(raw_result.read_bytes()).hexdigest()
+        state["result_file"] = str(captured_result)
+        state["result_sha256"] = hashlib.sha256(captured_result.read_bytes()).hexdigest()
+        state["verified_receipt_file"] = str(verified_receipt)
+        state["verified_receipt_sha256"] = hashlib.sha256(verified_receipt.read_bytes()).hexdigest()
+        state["executor_receipt_file"] = str(executor_receipt)
+        state["executor_receipt_sha256"] = hashlib.sha256(executor_receipt.read_bytes()).hexdigest()
+        state["session_file"] = str(session_file)
+        state["session_sha256"] = hashlib.sha256(session_file.read_bytes()).hexdigest()
         state_path.write_text(json.dumps(state), encoding="utf-8")
         raw_result.write_text("tampered", encoding="utf-8")
         duplicate = self.invoke(self.request())
         self.assertNotEqual(duplicate.returncode, 0)
         self.assertIn("COMPLETED_EVIDENCE_CHANGED", duplicate.stderr + duplicate.stdout)
+        raw_result.write_text("original", encoding="utf-8")
+        executor_receipt.unlink()
+        missing_source = self.invoke(self.request())
+        self.assertNotEqual(missing_source.returncode, 0)
+        self.assertIn("COMPLETED_EVIDENCE_CHANGED", missing_source.stderr + missing_source.stdout)
+
+    def test_qwen_requires_verified_cloud_run_of_identical_request(self) -> None:
+        request = self.request()
+        missing = self.dispatch(request, executor_model="apex-local/qwen3-8b-q4km")
+        self.assertNotEqual(missing.returncode, 0)
+        self.assertIn("CLOUD_CONTROL_REQUIRED", missing.stderr + missing.stdout)
+
+        hand_authored = self.root / "hand-authored-cloud-receipt.json"
+        hand_authored.write_text(json.dumps({
+            "schema_version": "apex.verified-executor-receipt/v1",
+            "status": "completed",
+            "executor_model": "openai/gpt-4.1-nano",
+            "provider": request["provider"],
+            "prompt_sha256": request["prompt_ref"]["sha256"],
+        }), encoding="utf-8")
+        forged = self.dispatch(
+            request,
+            executor_model="apex-local/qwen3-8b-q4km",
+            cloud_receipt=hand_authored,
+        )
+        self.assertNotEqual(forged.returncode, 0)
+        self.assertIn("CLOUD_CONTROL_INVALID", forged.stderr + forged.stdout)
+
+        cloud_source_receipt = self.root / "cloud-executor-receipt.json"
+        cloud_source_receipt.write_text("{}", encoding="utf-8")
+        cloud_raw_result = self.root / "cloud-openclaw-result.json"
+        cloud_raw_result.write_text("{}", encoding="utf-8")
+        cloud_result = self.root / "cloud-result.md"
+        cloud_result.write_text("cloud capture", encoding="utf-8")
+        cloud_session = self.root / "cloud-session.jsonl"
+        cloud_session.write_text("{}\n", encoding="utf-8")
+        cloud_state = (
+            Path(os.environ["LOCALAPPDATA"])
+            / "ApexExecutor"
+            / "dispatch-state"
+            / f"cloud-control-{hashlib.sha256(str(self.root).encode()).hexdigest()}.json"
+        )
+        cloud_receipt = self.root / "cloud-verified-receipt.json"
+        cloud_payload = {
+            "schema_version": "apex.verified-executor-receipt/v1",
+            "status": "completed",
+            "execution_id": request["execution_id"],
+            "executor_model": "openai/gpt-4.1-nano",
+            "provider": request["provider"],
+            "browser_profile": request["provider_settings"]["browser_profile"],
+            "hostname": request["provider_settings"]["hostname"],
+            "mode": request["provider_settings"]["mode"],
+            "web_model": request["provider_settings"]["model"],
+            "reasoning_mode": request["provider_settings"]["reasoning_mode"],
+            "session_policy": request["provider_settings"]["session_policy"],
+            "prompt_sha256": request["prompt_ref"]["sha256"],
+            "result_path": str(cloud_result),
+            "result_sha256": hashlib.sha256(cloud_result.read_bytes()).hexdigest(),
+            "source_receipt_path": str(cloud_source_receipt),
+            "source_receipt_sha256": hashlib.sha256(cloud_source_receipt.read_bytes()).hexdigest(),
+            "raw_result_path": str(cloud_raw_result),
+            "raw_result_sha256": hashlib.sha256(cloud_raw_result.read_bytes()).hexdigest(),
+            "session_file": str(cloud_session),
+            "session_sha256": hashlib.sha256(cloud_session.read_bytes()).hexdigest(),
+            "browser_evidence_sha256": "a" * 64,
+            "browser_submission_count": 1,
+            "dispatch_state_file": str(cloud_state),
+        }
+        cloud_receipt.write_text(json.dumps(cloud_payload), encoding="utf-8")
+        cloud_state.parent.mkdir(parents=True, exist_ok=True)
+        cloud_state.write_text(json.dumps({
+            "status": "completed",
+            "executor_model": "openai/gpt-4.1-nano",
+            "verified_receipt_file": str(cloud_receipt),
+            "verified_receipt_sha256": hashlib.sha256(cloud_receipt.read_bytes()).hexdigest(),
+        }), encoding="utf-8")
+        try:
+            prepared = self.dispatch(
+                request,
+                executor_model="apex-local/qwen3-8b-q4km",
+                cloud_receipt=cloud_receipt,
+            )
+            self.assertEqual(prepared.returncode, 0, prepared.stdout + prepared.stderr)
+            self.assertEqual(json.loads(prepared.stdout)["executor_model"], "apex-local/qwen3-8b-q4km")
+        finally:
+            cloud_state.unlink(missing_ok=True)
 
     @unittest.skipUnless(os.environ.get("APEX_OPENCLAW_INTEGRATION") == "1", "live OpenClaw integration")
     def test_live_turn_completes_and_restores_exact_config_bytes(self) -> None:

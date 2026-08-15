@@ -13,13 +13,13 @@
         name: "apex-executor",
         workspace: "C:/Users/gehma/.openclaw/workspace-apex-executor",
         agentDir: "C:/Users/gehma/.openclaw/agents/apex-executor/agent",
-        model: "apex-local/qwen3-8b-q4km",
+        model: "openai/gpt-4.1-nano",
         skills: ["apex-flow-executor", "subscription-ai-browser", "browser-automation"],
-        thinkingDefault: "off",
-        reasoningDefault: "off",
+        thinkingDefault: "medium",
+        reasoningDefault: "on",
         bootstrapMaxChars: 3000,
         bootstrapTotalMaxChars: 8000,
-        contextTokens: 8192,
+        contextTokens: 32768,
         experimental: { localModelLean: false },
         tools: {
           allow: ["session_status"],
@@ -35,6 +35,11 @@
       },
     ],
   },
+  browser: {
+    defaultProfile: "openclaw",
+    evaluateEnabled: false,
+    snapshotDefaults: { mode: "efficient" },
+  },
   gateway: {
     mode: "local",
     port: 18789,
@@ -45,7 +50,7 @@
     bind: "loopback",
   },
   secrets: {
-    providers: { default: { source: "env", allowlist: ["OPENCLAW_GATEWAY_TOKEN"] } },
+    providers: { default: { source: "env", allowlist: ["OPENCLAW_GATEWAY_TOKEN", "OPENAI_API_KEY"] } },
   },
   models: {
     mode: "merge",
@@ -56,15 +61,23 @@
           name: "Qwen3-8B Q4_K_M / llama.cpp Vulkan",
           input: ["text"],
           reasoning: true,
-          contextWindow: 8192,
+          contextWindow: 32768,
           maxTokens: 2048,
           cost: { input: 0, cacheRead: 0, cacheWrite: 0, output: 0 },
           compat: { supportsTools: true, toolSchemaProfile: "llamacpp", thinkingFormat: "qwen" },
         }],
         baseUrl: "http://127.0.0.1:8090/v1",
-        timeoutSeconds: 240,
+        timeoutSeconds: 600,
         api: "openai-completions",
         apiKey: "local",
+      },
+      openai: {
+        models: [
+          { id: "gpt-4o-mini", name: "GPT-4o mini" },
+          { id: "gpt-4.1-nano", name: "GPT-4.1 nano" },
+          { id: "gpt-5-nano", name: "GPT-5 nano" },
+        ],
+        apiKey: { source: "env", provider: "default", id: "OPENAI_API_KEY" },
       },
     },
   },
@@ -80,14 +93,15 @@
     elevated: { enabled: false },
   },
   plugins: {
-    allow: ["llama-cpp", "apex-browser-policy", "browser"],
+    allow: ["llama-cpp", "apex-browser-policy", "browser", "openai"],
     load: { paths: ["C:/Users/gehma/.openclaw/extensions/apex-browser-policy"] },
     entries: {
       "llama-cpp": { enabled: true },
       "apex-browser-policy": {
-        enabled: true,
+        enabled: false,
         config: { policyDir: "C:/Users/gehma/AppData/Local/ApexExecutor/browser-policies" },
       },
+      openai: {},
     },
   },
 }

@@ -262,7 +262,7 @@ def validate(raw: object) -> dict:
     browser_profile = require_provider_label(
         provider_settings_raw["browser_profile"], "PROVIDER_PROFILE", "provider_settings.browser_profile"
     )
-    expected_profile = "none" if provider == "none" else "chrome"
+    expected_profile = "none" if provider == "none" else "openclaw"
     if browser_profile != expected_profile:
         fail("PROVIDER_PROFILE", f"provider {provider} requires browser profile {expected_profile}")
     hostname = require_provider_label(
@@ -366,8 +366,10 @@ def validate(raw: object) -> dict:
         fail("TOOLS", "grants.tools contains duplicates")
     if provider == "none" and "browser" in tools:
         fail("PROVIDER_BROWSER_GRANT", "provider none forbids the browser tool grant")
-    if provider != "none" and "browser" not in tools:
-        fail("PROVIDER_BROWSER_GRANT", "subscription providers require the browser tool grant")
+    if provider != "none":
+        missing_provider_tools = sorted({"browser", "read", "write"} - set(tools))
+        if missing_provider_tools:
+            fail("PROVIDER_TOOL_GRANT", f"subscription providers require tools: {missing_provider_tools}")
 
     scripts_raw = grants["scripts"]
     if not isinstance(scripts_raw, list):
