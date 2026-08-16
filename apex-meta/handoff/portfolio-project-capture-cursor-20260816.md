@@ -2,6 +2,7 @@
 title: "Portfolio Project Capture Cursor — 2026-08-16"
 document_role: next_session_gate_cursor
 created: 2026-08-16
+updated: 2026-08-16
 status: waiting_for_operator_approval_to_enter_apex_session
 week: 2026-W34
 ---
@@ -12,11 +13,16 @@ week: 2026-W34
 
 Apex Plan proposal work is complete for the first real W34 portfolio intake.
 
-Start from:
+## Required restart reading order
 
-- `apex-meta/handoff/plan-packets/portfolio-project-capture-index-20260816-2026-W34.md`
+Read these files in order rather than reconstructing the workflow from chat history:
 
-The index points to all supporting project packets and evidence checkpoints.
+1. `apex-meta/handoff/weekly-project-management-next-steps-handover-20260816.okf.md`
+2. `apex-meta/handoff/plan-packets/weekly-project-management-to-weekly-cycle-overview-20260816.okf.md`
+3. `apex-meta/handoff/portfolio-project-capture-cursor-20260816.md`
+4. `apex-meta/handoff/plan-packets/portfolio-project-capture-index-20260816-2026-W34.md`
+
+The portfolio index points to all supporting project packets and evidence checkpoints.
 
 ## Completed planning coverage
 
@@ -46,8 +52,8 @@ current_gate:
 
 ## Exact next sequence after approval
 
-1. Read the portfolio index and current Apex Session contract.
-2. Produce Session before/after mutation preview for the nine proposed new epics and approved task records.
+1. Read the pipeline overview, portfolio index, current Apex Session contract, and only the relevant current project packets.
+2. Produce Session before/after mutation preview for the approved new epics and task records.
 3. Apply only operator-approved canonical writes under `apex-meta/epics/`.
 4. Refresh Session planning feed/handoff as required.
 5. Run Apex Sync deterministic validation against canonical task files.
@@ -64,8 +70,8 @@ current_gate:
 - no fake Sync computation;
 - no G1 packet;
 - no OpenClaw project execution;
-- no inference that this cursor itself constitutes Session mutation approval.
+- no inference that this cursor, handover, overview, or prior assistant recommendation constitutes Session mutation approval.
 
 ## Restart rule
 
-Do not reconstruct the project inventory or decompositions from chat. Read the portfolio index and only the relevant current packet/source repository for the next action.
+Do not reconstruct the project inventory, decompositions, pipeline architecture, or next steps from chat. Read the handover, pipeline overview, portfolio index, and only the relevant current packet/source repository for the next action.
