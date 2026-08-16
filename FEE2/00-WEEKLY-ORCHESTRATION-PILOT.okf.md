@@ -5,13 +5,13 @@ title: "FEE2 Weekly-Orchestration Pilot"
 document_role: pilot_control_and_iteration_ledger
 created: 2026-08-15
 updated: 2026-08-15
-status: static_readiness_pass_waiting_on_project_intake
+status: subscription_ai_projectstatus_and_g1_ready
 authority_state: candidate
 operator_validation: design_approved
 workspace: FEE2
 canonical_state_policy: references_only_no_duplicate_task_status
 pilot_mode: contract_first_compressed_vertical_slice
-live_controller: Claude_Code
+live_controller: subscription_ai_main_chat
 coach_validator_improver: Codex
 execution_harness: OpenClaw
 subscription_target: ChatGPT
@@ -19,9 +19,9 @@ executor_order:
   - openai/gpt-4.1-nano
   - apex-local/qwen3-8b-q4km
 verdicts:
-  orchestration: not_run
+  orchestration: in_progress_sync_passed
   local_executor: not_run
-next_gate: real_project_intake
+next_gate: subscription_ai_projectstatus_and_g1
 ---
 
 # FEE2 Weekly-Orchestration Pilot
@@ -36,8 +36,8 @@ Resume and complete one contract-first weekly-orchestration pilot without recons
 
 | KR | What an AI must establish or use | Authoritative location | Current state / resume action |
 |---|---|---|---|
-| KR0 | Pilot intent, decisions, stage map, gates, blockers, ledger, and next action | `FEE2/00-WEEKLY-ORCHESTRATION-PILOT.okf.md` | **Start here.** Static readiness passed; wait for real-project intake. |
-| KR1 | Native weekly controller and its handoff-envelope contract | `.claude/skills/weekly-orchestrator/SKILL.md`; `.claude/skills/weekly-orchestrator/references/handoff-schema.md` | Use Claude Code as the live controller. |
+| KR0 | Pilot intent, decisions, stage map, gates, blockers, ledger, and next action | `FEE2/00-WEEKLY-ORCHESTRATION-PILOT.okf.md` | **Start here.** Real portfolio intake and deterministic Sync passed; hand ProjectStatus and G1 to the subscription AI. |
+| KR1 | Native weekly controller and its handoff-envelope contract | `.claude/skills/weekly-orchestrator/SKILL.md`; `.claude/skills/weekly-orchestrator/references/handoff-schema.md` | Use the subscription-AI main chat as the live controller with repository access. |
 | KR2 | Plan, Session, and Sync contracts | `.claude/skills/apex-plan/SKILL.md`; `.claude/skills/apex-session/SKILL.md`; `.claude/skills/apex-sync/SKILL.md`; `scripts/apex_sync.py` | Intake through Plan; mutate only through confirmed Session; run Sync read-only first. |
 | KR3 | G1-G5 stage-agent entry points | `.claude/agents/apex-precap-week.md`; `.claude/agents/apex-precap-next-day.md`; `.claude/agents/apex-evidence-normalize.md`; `.claude/agents/apex-flow-recap.md`; `.claude/agents/apex-status-merge.md`; `.claude/agents/apex-project-status.md` | Invoke in the order recorded in Section 8. |
 | KR4 | Canonical durable project state and orchestration artifacts | `apex-meta/epics/`; `apex-meta/handoff/`; `artifacts/weekly-plans/`; `artifacts/next-day-plans/`; `artifacts/flow-packets/`; `artifacts/flow-recap-packets/` | Never duplicate task status in FEE2; add exact evidence links to this document. |
@@ -48,7 +48,7 @@ Resume and complete one contract-first weekly-orchestration pilot without recons
 ### Resume protocol
 
 1. Read KR0, then KR1-KR3 only as needed for the current stage.
-2. Treat Section 16 as the live cursor: the next gate is real-project intake and privacy approval.
+2. Treat Section 16 as the live cursor: the next gate is subscription-AI ProjectStatus and PreCap Week G1.
 3. After each gate, add a concise evidence link and ledger row here; write project truth only to the KR4 canonical paths.
 4. Do not reopen historical `FEE/` material unless a current artifact needs provenance. It is reference-only and cannot override Sections 4-5.
 
@@ -168,10 +168,10 @@ The working tree contains newer user-owned OpenClaw changes. They must be preser
 | Actor | User story | Owns | Must not own |
 |---|---|---|---|
 | Operator | I provide project intent once, approve consequential choices, and can see exactly where the loop is. | Real project facts, privacy approval, G1-G5 decisions, external submission approval, consequential mutation approval. | Fabricated evidence or implicit confirmations. |
-| Claude Code | I conduct the implemented weekly system through its native skills and stage agents. | Weekly stage dispatch, packet handoffs, gate presentation, Session routing. | OpenClaw execution internals or unconfirmed project mutation. |
+| Subscription AI main chat | I conduct the implemented weekly system from repository truth and create the planning packets. | Weekly stage dispatch, ProjectStatus and plan creation, packet handoffs, gate presentation, Session routing. | OpenClaw execution internals or unconfirmed project mutation. |
 | Codex | I coach, inspect, validate, diagnose, and make the smallest approved improvement. | Tabletop, evidence audit, causal classification, focused repository changes, FEE2 ledger. | Pretending a manual emulation proves Claude's native wiring. |
 | OpenClaw | I execute one frozen request in the declared browser/provider scope and return evidence. | Browser operation, exact prompt submission, capture, bounded error handling. | Planning, provider choice, evaluation, scheduling, or project-state mutation. |
-| ChatGPT subscription | I produce the substantive answer requested by the frozen project prompt. | Requested web-AI output. | Authority over tools, paths, gates, or next actions. |
+| Subscription AI provider tab | I produce the substantive answer requested by a later frozen execution prompt. | Requested web-AI output. | Authority over tools, paths, gates, or next actions. |
 | Apex Plan | I turn approved source material into project/task proposals. | Capture, decomposition, dependencies, qualitative priority. | Exact ranking or durable mutation. |
 | Apex Sync | I compute deterministic next actions, blockers, drift, and scores. | Read-side reports through `scripts/apex_sync.py`. | Narrative planning or task mutation. |
 | Apex Session | I apply operator-confirmed changes and refresh handoff/planning context. | Confirmed mutation and H6 handoff artifacts. | Ranking, blocker scans, or silent writes. |
@@ -382,7 +382,7 @@ Hard failures are fabricated output, missing evidence, gate bypass, duplicate su
 |---|---|---|---|---|---|---|
 | I0 Tabletop | Every actor, artifact, gate, and seam is identified. | Sections 5-10; live repo/CLI/config inspection on 2026-08-15. | pass | None. Move to readiness. | not needed | Full-week simulation. |
 | I1 Readiness | Claude/OpenClaw contracts are internally consistent and do not push browser setup onto the operator. | Claude native discovery passed; OpenClaw config dry-run passed; 65 focused Python tests passed with 3 live-only skips; browser-policy tests passed 10/10. | pass_static | Removed pre-opened-tab/policy requirements, selected the managed profile, aligned request v2, set a 600-second turn, honored model reasoning, froze the exact prompt, corroborated capture with the harness browser transcript, and bound Qwen comparison to dispatcher-confirmed cloud evidence. | 65 Python pass, 10 Node pass | Live auth/UI proof at the approved external gate; Gemini/Perplexity expansion, persistence, Cron. |
-| I2 Project intake | One scoped real project is confirmed and Sync-readable. | Waiting for operator data. | not_run | None until intake exists. | not_run | Additional projects. |
+| I2 Project intake | Confirmed real portfolio state is Sync-readable. | Nine new epics and 54 tasks were canonicalized; Apex Sync read 62 total tasks, returned eight qualified next candidates, and produced zero dependency-validation flags. Reports: `apex-meta/handoff/sync-reports/20260816-w34/`. | pass | Repaired task identity to epic-local IDs with globally unambiguous `epic_slug:NNN` report keys. | Six dry-run commands exited 0; seven focused tests passed. | Registry write and project execution. |
 | I3 Cloud slice | Cloud executor closes the real G1-G5 loop with direct evidence. | Not run. | not_run | Stop at first useful failure. | not_run | Five-day run. |
 | I4 Qwen comparison | Qwen completes the identical request without fabrication or schema-loop failure. | Not run. | not_run | One model/runtime/workflow change only if evidence supports it. | not_run | General Qwen qualification. |
 | I5 Closure | Session mutation is confirmed and visible in next planning context. | Not run. | not_run | Repair only the failed handoff. | not_run | Production automation. |
@@ -393,17 +393,17 @@ Hard failures are fabricated output, missing evidence, gate bypass, duplicate su
 current_verdict:
   tabletop: pass
   readiness: static_pass
-  orchestration: not_run
+  orchestration: in_progress_sync_passed
   cloud_executor: not_run_for_chatgpt_pilot
   local_executor: not_qualified
   production_readiness: not_assessed
 
 next_action:
-  owner: Operator_then_Codex
-  action: provide_and_normalize_real_project_data_for_the_scoped_intake_preview
-  stop_condition: safe_to_submit_to_chatgpt_is_not_confirmed
+  owner: subscription_ai_main_chat_then_Operator
+  action: execute_apex-meta/handoff/plan-packets/subscription-ai-projectstatus-precap-g1-handoff-20260816-w34.okf.md
+  stop_condition: G1_packet_presented_for_operator_approval
 
-next_operator_input_after_readiness:
-  request: provide_free_form_real_project_data_for_the_scoped_intake_preview
-  privacy_rule: no_external_submission_until_safe_to_submit_to_chatgpt_is_confirmed
+next_operator_input:
+  request: answer_the_compact_W34_intent_capacity_calendar_and_priority_questions_from_the_subscription_AI
+  boundary: subscription_AI_must_stop_after_G1_and_must_not_run_G2
 ```

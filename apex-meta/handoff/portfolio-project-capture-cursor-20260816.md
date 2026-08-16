@@ -3,7 +3,7 @@ title: "Portfolio Project Capture Cursor — 2026-08-16"
 document_role: next_session_gate_cursor
 created: 2026-08-16
 updated: 2026-08-16
-status: apex_sync_execution_pending_local_executor
+status: subscription_ai_projectstatus_and_g1_pending
 week: 2026-W34
 ---
 
@@ -11,42 +11,44 @@ week: 2026-W34
 
 ## Current state
 
-Apex Plan proposal work, operator review, and Apex Session canonicalization are complete. Nine new epics and 54 tasks are canonical under `apex-meta/epics/`.
+Apex Plan proposal work, operator review, Apex Session canonicalization, and Apex Sync deterministic validation are complete. Nine new epics and 54 tasks are canonical under `apex-meta/epics/`; the full graph contains 62 tasks including the pre-existing NARM epic.
 
-Apex Sync is the next authority. The browser runtime cannot execute the deterministic Sync script because the exact repository is not locally checked out and `gh` is unavailable. Per the Apex Sync contract, a local-execution packet has been persisted instead of estimating results.
+The six W34 Sync reports are committed under `apex-meta/handoff/sync-reports/20260816-w34/`. All commands exited `0`, dependency validation found no structural errors, and eight globally unambiguous next candidates use `epic_slug:NNN` task keys. The next actor is the operator's subscription AI, which must build ProjectStatus, collect week-specific inputs from the operator, run PreCap Week G1, and stop for approval.
 
 ## Required restart reading order
 
-1. `apex-meta/handoff/apex-sync-local-execution-packet-20260816-w34.okf.md`
-2. committed files under `apex-meta/handoff/sync-reports/20260816-w34/` once present
-3. `apex-meta/handoff/planning-feed-20260816-w34.md`
-4. canonical task records under `apex-meta/epics/`
+1. `apex-meta/handoff/plan-packets/subscription-ai-projectstatus-precap-g1-handoff-20260816-w34.okf.md`
+2. `apex-meta/handoff/planning-feed-20260816-w34.md`
+3. committed files under `apex-meta/handoff/sync-reports/20260816-w34/`
+4. `.claude/skills/ProjectStatus/SKILL.md`
+5. `.claude/skills/PrecapWeek/SKILL.md`
+6. `.claude/skills/weekly-orchestrator/SKILL.md`
 
 ## Gate
 
 ```yaml
 current_gate:
-  from: Apex Session confirmed canonical state
-  to: Apex Sync deterministic validation complete
-  blocker_type: execution_environment
+  from: Apex Sync deterministic validation complete
+  to: PreCap Week G1 candidate ready for operator review
+  blocker_type: operator_week_context_required
   operator_decision_required: false
-  required_action: run persisted local executor packet in repository checkout
-  precap_week_g1_allowed_now: false
+  required_action: subscription AI generates ProjectStatus, collects W34-only context from operator, dispatches PreCap Week G1, and stops
+  precap_week_g1_allowed_now: true_after_week_context_collection
 ```
 
 ## Exact next sequence
 
-1. Run all six dry-run Sync commands from the persisted local-execution packet.
-2. Commit/push generated JSON reports to main.
-3. Read and validate the committed reports.
-4. Route any proven structural corrections through Plan/Session.
-5. Generate `artifacts/weekly-plans/project-status-overview-20260816.md`.
-6. Collect W34-specific intent/calendar/capacity inputs.
-7. Run PreCap Week G1 and stop at G1 operator gate.
+1. Open the subscription-AI handoff packet in a subscription AI with repository access.
+2. Generate `artifacts/weekly-plans/project-status-overview-20260816.md` from confirmed Session and Sync sources.
+3. Ask the operator only for missing W34 intent, minimum success, capacity, calendar constraints, Dating allocation, and priority overrides.
+4. Dispatch PreCap Week for `run_date: 20260816` and `week_id: 2026-W34`.
+5. Write `artifacts/weekly-plans/weekly_plan_packet-20260816-2026-W34.md` with `operator_validation: not_requested`.
+6. Commit/push the two artifacts and stop at G1. Do not run G2.
 
 ## Do not do
 
-- do not estimate Sync outputs with an LLM;
-- do not run registry with `--dry-run false` yet;
-- do not mutate task status from Sync;
-- do not run ProjectStatus or G1 before deterministic reports are available.
+- do not replace committed Sync evidence with LLM estimates;
+- do not run registry with `--dry-run false`;
+- do not mutate canonical task status;
+- do not infer missing operator week inputs;
+- do not run G2 or execute project work.

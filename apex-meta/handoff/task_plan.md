@@ -4,15 +4,15 @@ Complete the first real W34 portfolio-to-weekly Apex cycle from confirmed reposi
 
 # Current Step
 
-Apex Session canonicalization is complete for the approved nine-epic W34 portfolio set. The next authority is Apex Sync for deterministic graph/dependency/next-action validation.
+Apex Session canonicalization and Apex Sync deterministic validation are complete for the W34 portfolio. The next actor is the subscription AI for ProjectStatus, W34-only operator input collection, and PreCap Week G1.
 
 # Phases
 
 - Phase 1: Apex Plan portfolio inventory and evidence-grounded project packets — complete.
 - Phase 2: Operator approval of the proposal set — complete.
 - Phase 3: Apex Session canonical epic/task creation — complete.
-- Phase 4: Apex Sync deterministic validation — next.
-- Phase 5: Generate cross-project ProjectStatus.
+- Phase 4: Apex Sync deterministic validation — complete.
+- Phase 5: Generate cross-project ProjectStatus — next.
 - Phase 6: Collect W34-only capacity/calendar/context inputs.
 - Phase 7: Run PreCap Week G1 and stop at operator G1 gate.
 
@@ -27,8 +27,6 @@ Apex Session canonicalization is complete for the approved nine-epic W34 portfol
 
 # Open Items
 
-- Run Apex Sync against the canonical task graph.
-- Resolve only structural/dependency defects proven by Sync through the correct authority.
 - Generate `artifacts/weekly-plans/project-status-overview-20260816.md`.
 - Collect remaining W34-specific inputs, including calendar constraints/capacity and the Dating time slot.
 - Run PreCap Week G1 after ProjectStatus and weekly context are ready.
@@ -45,6 +43,6 @@ Apex Session canonicalization is complete for the approved nine-epic W34 portfol
 
 # Next Actions
 
-- Invoke Apex Sync using the canonical repository task records.
-- Persist deterministic dependency, next-action, blocker/staleness, focus-candidate, and registry-validation outputs.
-- Route any required structural correction back through Plan/Session rather than patching it inside Sync narrative.
+- Give the subscription AI `apex-meta/handoff/plan-packets/subscription-ai-projectstatus-precap-g1-handoff-20260816-w34.okf.md`.
+- Let it generate ProjectStatus, collect missing W34-only inputs from the operator, and run G1.
+- Stop at the G1 operator gate; do not run G2 or project execution.
