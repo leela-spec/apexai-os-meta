@@ -1,6 +1,6 @@
 # Apex Plan / Sync / Session Improvement — Start Here
 
-Status: **contract/eval/carrier spike complete; production skills not yet redesigned**
+Status: **contract/eval/carrier spike complete; local implementation handover ready; production skills not yet redesigned**
 Date: 2026-08-16
 Canonical folder: `apex-meta/plan-sync-session-improvement/`
 Repository: `leela-spec/apexai-os-meta`
@@ -20,9 +20,10 @@ It consolidates:
 - the minimal A1′ authorization contract draft;
 - lifecycle/duration and regression eval criteria;
 - an executable carrier spike across Plan / Weekly / Session with the Sync C1 boundary;
-- the resulting compatibility map and remaining decision boundary.
+- the resulting compatibility map and remaining decision boundary;
+- a precise local-code implementation handover with OKR-style objectives, local run procedure, anti-drift rules, production edit surface, acceptance metrics, and final handback requirements.
 
-Another AI should be able to resume from this folder without reconstructing design state from chat history.
+Another AI or local coding agent should be able to resume from this folder without reconstructing design state from chat history.
 
 ## Current operator-validated direction
 
@@ -51,6 +52,18 @@ See `06-operator-decisions-and-current-direction.md` for the decision ledger.
 10. `10-carrier-spike.py` — executable non-production Plan/Weekly/Session/Sync carrier spike.
 11. `11-carrier-spike-results.txt` — raw carrier-spike results.
 12. `12-carrier-spike-verdict-and-compatibility-map.md` — implementation footprint, compatibility map, writer-boundary finding, and remaining decision.
+13. `13-local-code-implementation-handover.okr.md` — authoritative local coding handover; read before local implementation planning or production contract edits.
+
+## Local coding restart point
+
+For a fresh local coding session, start with `13-local-code-implementation-handover.okr.md` after reading this file. The handover is anchored to repository state `8b6aa657236ad29dc10f50ce39ef2487cf8225be`; if `main` has moved beyond that commit, inspect intervening changes affecting this line before editing.
+
+The local handover authorizes reproduction of the saved design spike and precise implementation planning. It does **not** silently convert the remaining P1/W1 recommendations into operator decisions.
+
+Recommended but still explicit decision boundary:
+
+- **P1:** canonical authorization policy under Session references;
+- **W1:** clarify the existing durable writer boundary rather than creating a new subsystem.
 
 ## Core verified problem
 
@@ -140,4 +153,4 @@ Expected no-change surfaces for the core fix:
 
 ## Preservation rule
 
-Research, simulations, and prior reports in this folder are evidence/history. Do not silently rewrite old conclusions. Add a superseding decision/report with explicit links, evidence, and operator confirmation when direction changes.
+Research, simulations, prior reports, and this handover are evidence/history. Do not silently rewrite old conclusions. Add a superseding decision/report with explicit links, evidence, and operator confirmation when direction changes.
