@@ -1,7 +1,7 @@
 # Operator Decisions and Current Direction
 
 Date: 2026-08-16
-Status: **operator-validated design direction; implementation not yet authorized by this file alone**
+Status: **operator-validated design direction; contract/eval/carrier spike complete; production skill edits pending final architecture choice**
 
 ## Decision history
 
@@ -38,6 +38,43 @@ The external benchmark strengthened A1 but added a critical timing rule:
 The validation found strong convergence across OpenAI Agents SDK HITL/tool guardrails, Claude Code permissions/hooks, LangGraph interrupts, Temporal durable workflows, GitHub protected environments, and recent commit-time-authorization research.
 
 This is treated as a **refinement of the already validated A1**, not as a reversal of it.
+
+### D5 — Minimal contract / lifecycle eval / carrier spike requested
+
+The operator asked to continue with the next engineering step while explicitly prioritizing a **simple, efficient, resilient, valuable, on-target design that guards against over-engineering**.
+
+Requested work:
+
+- draft a small canonical authorization-policy contract;
+- define duration/lifecycle and regression eval metrics;
+- spike whether Plan, Session, Weekly/Status Merge, and Sync can carry the witness without creating a large subsystem;
+- save the work into the canonical project folder.
+
+**Result:** completed in `08` through `12` of this folder.
+
+### D6 — Carrier spike supports field extension, not a subsystem
+
+The executable non-production carrier spike produced:
+
+- `17/17` expected policy outcomes;
+- `0` unsafe allows;
+- `0` overblocks;
+- `0` repeated operator gates across 50 unchanged covered internal actions;
+- no task gate field;
+- no global authorization registry;
+- no new daemon/service;
+- no reusable-authorization change to Sync for the core Plan -> Session fix.
+
+The spike therefore supports this carrier shape:
+
+- Plan reuses its existing `operator_gate` as the approval/witness container;
+- Weekly reuses `operator_validation` and `authority.basis_digest`, adding only authorization id/reference when needed;
+- Status Merge passes the confirmed reference/digest rather than owning another policy engine;
+- Session accepts the witness reference and validates it at the durable-effect boundary;
+- Sync remains under C1;
+- canonical task records remain unchanged.
+
+This is design evidence, not production authorization code.
 
 ## Current target policy
 
@@ -95,6 +132,66 @@ Keep the existing contract boundary:
 
 The Plan -> Session duplicate-confirmation fix must not silently broaden Sync authority.
 
+## Lifecycle / duration position from the spike
+
+No global authorization TTL is selected for v1.
+
+Each witness has explicit lifecycle data:
+
+- `issued_at`;
+- optional `expires_at`;
+- `status: active | revoked | expired`.
+
+Rules:
+
+- if `expires_at` exists, authorization is invalid at or after that timestamp;
+- `expires_at: null` explicitly means no time expiry, but basis/action/scope/constraints/status checks still apply on every commit;
+- revocation takes effect on the next attempted action;
+- a changed basis invalidates the witness even if time validity remains;
+- process/chat restart does not invalidate a durable witness if it can be reloaded and revalidated from repository evidence.
+
+A global TTL should only be introduced later if real usage demonstrates a cross-workflow need.
+
+## Existing durable-writer ambiguity discovered
+
+Current Session mutation-gate rules say final mutation records are authoritative input to a later explicit file-application flow and do not imply silent repo writes. Weekly wording also describes Session as validating/applying confirmed mutation.
+
+Inspection of the current `apex-session` package and repository search did **not** identify a separately named file-application/writer component.
+
+This is treated as an existing contract ambiguity, not a reason to invent a new subsystem.
+
+Standing recommendation:
+
+- **W1 — clarify the existing writer boundary** and put the final A1′ validation immediately before the real durable effect;
+- **do not choose W2 — create a new writer/authorization subsystem** without evidence that one is necessary.
+
+## Remaining architecture choice requiring operator decision
+
+### P1 — Session-owned canonical authorization reference — **recommended**
+
+Create the production canonical policy at:
+
+`.claude/skills/apex-session/references/authorization-policy.md`
+
+Rationale:
+
+- Session already owns confirmed mutation semantics and validation;
+- Plan and Weekly only need to carry/reference the witness;
+- this is the smallest local home for the policy;
+- if multiple independent durable writers are later proven, the policy can be shared/moved then.
+
+### P2 — shared Workflow & Processes policy
+
+Place the policy in a shared Workflow & Processes reference immediately.
+
+Potential benefit: neutral location if multiple independent writers need the complete algorithm.
+
+Current downside: creates a shared abstraction before the repository demonstrates that need, increasing cognitive and maintenance surface for a small Plan -> Session fix.
+
+**Recommendation: P1.**
+
+P1/P2 has not yet been silently decided by the engineering spike; it is the next operator architecture choice before production skill edits.
+
 ## Rejected / not-selected alternatives
 
 ### Task-wide canonical `auto / exception_only / manual`
@@ -120,6 +217,10 @@ Rejected as the primary authorization control. The local simulation showed that 
 
 Use deterministic scope/digest/action/evidence checks first. AI review may add an escalation signal.
 
+### New authorization registry/service/daemon
+
+Not justified by current evidence. The carrier spike shows the existing approved packet and existing Plan/Weekly/Session handoffs can carry the needed evidence.
+
 ## Preserved safeguards
 
 The redesign must preserve:
@@ -136,15 +237,15 @@ The redesign must preserve:
 
 ## Implementation boundary
 
-The operator has validated the design direction, but the next engineering step should remain implementation preparation rather than immediately rewriting production skills.
+The contract, eval matrix, and carrier spike are now complete.
 
-Before skill edits:
+Before production skill edits:
 
-1. create a small canonical authorization-policy draft;
-2. create the regression/eval matrix;
-3. map it onto existing fields and packet boundaries;
-4. prove the minimum set of affected files;
-5. bring any remaining high-impact architecture choice to the operator with concrete use cases and options.
+1. operator chooses P1 or P2;
+2. implementation identifies/clarifies the actual durable writer boundary under W1;
+3. edit only the minimum affected skill contracts consistently;
+4. run the eval matrix against the implemented behavior;
+5. save implementation evidence and any superseding decisions in this folder.
 
 ## No-loss rule
 
