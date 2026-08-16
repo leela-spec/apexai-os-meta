@@ -55,7 +55,7 @@ operator decisions.
 | `PD1_compute_priority_score` | Convert H7 priority values into numeric scores. |
 | `PD2_compute_urgency_score` | Compute due-date urgency as days until due or `999`. |
 | `PD3_compute_unlock_depth` | Count downstream tasks unlocked by completing a task. |
-| `PD4_compute_focus_candidates` | Sort actionable candidates by priority, urgency, unlock depth, and id. |
+| `PD4_compute_focus_candidates` | Sort actionable candidates by priority, urgency, unlock depth, and epic-qualified task key. |
 
 ## excluded_processes
 

@@ -21,6 +21,8 @@ Discovery rules:
 - Only Markdown files matching the exact glob are task inputs.
 - Files outside the glob are ignored by `apex-sync`.
 - Task id must come from frontmatter field `id`.
+- Task id uniqueness is scoped to the immediate epic folder.
+- `task_key` is derived for reports and registry output as `<epic_slug>:<id-padded-to-three-digits>`.
 - File stem may not silently replace a missing `id`.
 - Epic slug is the immediate parent directory under `apex-meta/epics/`.
 - Task body is preserved for parsing context but not written back.
@@ -58,7 +60,7 @@ Validation rules:
 | Frontmatter line cannot be parsed as YAML-like `key: value` | `malformed_frontmatter` |
 | Missing `id` | `missing_task_id` |
 | Non-integer `id` | `missing_task_id` |
-| Duplicate integer `id` across task files | `duplicate_task_id` |
+| Duplicate integer `id` within one epic folder | `duplicate_task_id` |
 | Status not in H1 enum | `unsupported_status` |
 | `depends_on` target does not exist | `missing_dependency_target` |
 | `depends_on` graph contains a cycle | `circular_dependency_risk` |
@@ -89,12 +91,14 @@ The generated registry must include:
 - Discovered task-file count.
 - Review flag count.
 - Task table with:
+  - `task_key`
   - `id`
   - `epic_slug`
   - `status`
   - `priority`
   - `due_date`
   - `depends_on`
+  - `depends_on_keys`
   - `blocked_by`
   - `updated_date`
   - `created_date`

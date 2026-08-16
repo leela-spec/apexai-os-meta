@@ -163,7 +163,9 @@ dependencies for this skill.
   - `done`
   - `deferred`
 - H3 dependency field is `depends_on`.
-- Every `depends_on` item is treated as an integer task id.
+- Task `id` values are unique within their epic folder, not across the repository.
+- Reports derive the globally unambiguous `task_key` as `<epic_slug>:<id-padded-to-three-digits>`.
+- Every `depends_on` item and numeric `blocked_by` item is treated as an integer task id in the current epic.
 - A task is actionable only when:
   - status is `open` or `in-progress`;
   - every `depends_on` target exists;
@@ -171,7 +173,7 @@ dependencies for this skill.
   - `blocked_by` is empty or references completed numeric blockers.
 - A task with status `blocked` and empty `blocked_by` must be flagged.
 - Missing or malformed frontmatter must be reported, not silently ignored.
-- Duplicate task ids must be reported.
+- Duplicate task ids within one epic must be reported; the same id in different epics is valid.
 - Missing dependency targets must be reported.
 - Circular dependency risk must be reported.
 - Registry drift must be reported before any write.
@@ -184,9 +186,9 @@ dependencies for this skill.
 |---|---|---|
 | `malformed_frontmatter` | A task file lacks valid YAML-like frontmatter. | Report the file and continue processing other valid task files. |
 | `missing_task_id` | A task lacks an integer `id`. | Report the file and exclude it from exact graph computation. |
-| `duplicate_task_id` | Two or more task files use the same id. | Report all affected files. |
+| `duplicate_task_id` | Two or more task files in one epic use the same id. | Report all affected files. |
 | `unsupported_status` | A status is not one of the H1 values. | Report the task and keep it visible in validation output. |
-| `missing_dependency_target` | `depends_on` references an id that does not exist. | Report the task in `dependency_validation_report`. |
+| `missing_dependency_target` | `depends_on` references an id that does not exist in the current epic. | Report the qualified task key in `dependency_validation_report`. |
 | `circular_dependency_risk` | The `depends_on` graph contains a cycle. | Report the cycle and do not treat the affected graph as fully valid. |
 | `blocked_without_reason` | A task has status `blocked` but empty `blocked_by`. | Report the task in `blocker_report`. |
 | `stale_task_candidate` | A non-done, non-deferred task exceeds the stale threshold. | Report the task without mutating status. |

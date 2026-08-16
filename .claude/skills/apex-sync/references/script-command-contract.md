@@ -61,6 +61,7 @@ Produces:
 The command must:
 
 - Load task files from `apex-meta/epics/*/[0-9][0-9][0-9].md`.
+- Treat integer task ids as epic-local and derive `<epic_slug>:NNN` task keys for unambiguous reports.
 - Validate task ids, statuses, dependencies, blockers, and dependency cycles.
 - Select candidates whose status is `open` or `in-progress`.
 - Require all `depends_on` targets to exist and be `done`.
@@ -112,7 +113,7 @@ Produces:
 The command must:
 
 - Generate deterministic registry content from task files.
-- Include task ids, titles, statuses, priorities, due dates, dependencies,
+- Include task keys, task ids, titles, statuses, priorities, due dates, dependencies,
   blockers, timestamps, epic slug, and task path.
 - Include review flags from validation.
 - Write only `apex-meta/registry/index.md`.

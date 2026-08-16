@@ -37,10 +37,10 @@ project_status_overview_contract:
 
   initial_projects:
     - Leela
-    - Apex
     - MasterOfArts
+    - Apex
     - Investment
-    - Others
+    - Residual
 
   required_sections:
     overview_metadata:

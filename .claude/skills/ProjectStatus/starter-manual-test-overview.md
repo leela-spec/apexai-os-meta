@@ -38,7 +38,7 @@ Investment
   - paused-review: keep investment active but paused [55/20/NA]
   --- reactivation-check: review when investment should become active again [50/18/NA]
 
-Others
+Residual
 ```
 
 # Ranked Task View
@@ -92,14 +92,14 @@ unassigned_items:
     item_name: "Hold unassigned infos, tasks, and project candidates until they can be assigned."
     rating: "[40/25/NA]"
     assignment_status: unassigned
-    review_note: "Moved out of Others because unresolved incoming material belongs in Unassigned."
+    review_note: "Unresolved incoming material belongs in Unassigned, not a permanent project category."
 
   - item_type: task
     item_label: assignment-review
     item_name: "Assign incoming items to a project when clear."
     rating: "[45/30/NA]"
     assignment_status: unassigned
-    review_note: "Moved out of Others because assignment-review is part of the temporary unassigned policy."
+    review_note: "Assignment review belongs to the temporary Unassigned policy."
 ```
 
 # Operator Validation

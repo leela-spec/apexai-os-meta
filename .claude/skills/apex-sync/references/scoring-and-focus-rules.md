@@ -69,7 +69,8 @@ Dependency rules:
 
 - Canonical dependency field is `depends_on`.
 - `dependencies` is not canonical.
-- Every `depends_on` item is interpreted as an integer task id.
+- Every `depends_on` item is interpreted as an integer task id in the current epic.
+- The same integer id in another epic does not satisfy the dependency.
 - Every dependency target must exist.
 - Every dependency target must have status `done`.
 - Missing dependency targets are flagged.
@@ -89,8 +90,8 @@ A task appears in blocker reporting when any condition is true:
 - Empty `blocked_by` means no explicit blocker reason is present.
 - Status `blocked` with empty `blocked_by` is flagged as
   `blocked_without_reason`.
-- Numeric `blocked_by` entries are treated as task ids and are clear only when
-  those tasks are `done`.
+- Numeric `blocked_by` entries are treated as task ids in the current epic and
+  are clear only when those tasks are `done`.
 - Non-numeric `blocked_by` entries are treated as blocker reasons and keep the
   task blocked for read-side actionability.
 
@@ -127,7 +128,7 @@ on a task.
 
 Rules:
 
-- Build reverse edges from `depends_on`.
+- Build reverse edges from epic-qualified `depends_on` relationships.
 - Count every reachable downstream task once.
 - Ignore missing dependency targets for unlock-depth counting.
 - Do not count the task itself.
@@ -160,14 +161,14 @@ Focus candidates are actionable tasks sorted by:
 1. Priority score descending.
 2. Urgency score ascending.
 3. Unlock depth descending.
-4. Task id ascending.
+4. Derived task key ascending.
 
 ```yaml
 focus_candidate_sort_policy:
   primary: priority_score_desc
   secondary: urgency_score_asc
   tertiary: unlock_depth_desc
-  quaternary: id_asc
+  quaternary: task_key_asc
 ```
 
 This is a deterministic ordering policy, not a planning recommendation.
@@ -186,6 +187,7 @@ This is a deterministic ordering policy, not a planning recommendation.
 
 Each scored task should include:
 
+- `task_key`
 - `id`
 - `title`
 - `status`
@@ -194,7 +196,9 @@ Each scored task should include:
 - `due_date`
 - `urgency_score`
 - `depends_on`
+- `depends_on_keys`
 - `blocked_by`
+- `blocked_by_task_keys`
 - `updated_date`
 - `created_date`
 - `epic_slug`

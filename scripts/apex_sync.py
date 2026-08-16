@@ -404,6 +404,33 @@ def safe_relative(path: Path, root: Path) -> str:
         return str(path).replace("\\", "/")
 
 
+def task_key_for(epic_slug: str, task_id: int) -> str:
+    """Return the globally unambiguous report identity for an epic-local id."""
+    return f"{epic_slug}:{task_id:03d}"
+
+
+def task_key(task: TaskRecord) -> str:
+    return task_key_for(task.epic_slug, task.id)
+
+
+def task_index(tasks: Iterable[TaskRecord]) -> Dict[str, TaskRecord]:
+    return {task_key(task): task for task in tasks}
+
+
+def dependency_keys(task: TaskRecord) -> List[str]:
+    return [task_key_for(task.epic_slug, dependency) for dependency in task.depends_on]
+
+
+def numeric_blocker_keys(task: TaskRecord) -> List[str]:
+    keys: List[str] = []
+    for blocker in task.blocked_by:
+        try:
+            keys.append(task_key_for(task.epic_slug, int(blocker)))
+        except ValueError:
+            continue
+    return keys
+
+
 def coerce_int_list(value: Any) -> List[int]:
     if value in (None, ""):
         return []
@@ -425,12 +452,12 @@ def coerce_string_list(value: Any) -> List[str]:
 
 
 def validate_duplicate_ids(tasks: List[TaskRecord]) -> List[Dict[str, Any]]:
-    by_id: Dict[int, List[TaskRecord]] = {}
+    by_id: Dict[Tuple[str, int], List[TaskRecord]] = {}
     for task in tasks:
-        by_id.setdefault(task.id, []).append(task)
+        by_id.setdefault((task.epic_slug, task.id), []).append(task)
 
     flags: List[Dict[str, Any]] = []
-    for task_id, matches in sorted(by_id.items()):
+    for (epic_slug, task_id), matches in sorted(by_id.items()):
         if len(matches) <= 1:
             continue
         paths = [task.task_path for task in matches]
@@ -438,8 +465,10 @@ def validate_duplicate_ids(tasks: List[TaskRecord]) -> List[Dict[str, Any]]:
             flags.append(
                 review_flag(
                     REVIEW_DUPLICATE_TASK_ID,
-                    "task id appears in multiple task files",
+                    "task id appears in multiple task files within one epic",
                     id=task_id,
+                    epic_slug=epic_slug,
+                    task_key=task_key(task),
                     task_path=task.task_path,
                     duplicate_paths=paths,
                 )
@@ -453,6 +482,7 @@ def validate_status_values(tasks: List[TaskRecord]) -> List[Dict[str, Any]]:
             REVIEW_UNSUPPORTED_STATUS,
             "status is not one of open, in-progress, blocked, done, deferred",
             id=task.id,
+            task_key=task_key(task),
             status=task.status,
             task_path=task.task_path,
         )
@@ -462,53 +492,57 @@ def validate_status_values(tasks: List[TaskRecord]) -> List[Dict[str, Any]]:
 
 
 def validate_dependency_targets(tasks: List[TaskRecord]) -> List[Dict[str, Any]]:
-    ids = {task.id for task in tasks}
+    keys = {task_key(task) for task in tasks}
     flags: List[Dict[str, Any]] = []
     for task in tasks:
-        missing = [dep for dep in task.depends_on if dep not in ids]
-        if missing:
+        missing = [dep for dep in task.depends_on if task_key_for(task.epic_slug, dep) not in keys]
+        missing_keys = [task_key_for(task.epic_slug, dep) for dep in missing]
+        if missing_keys:
             flags.append(
                 review_flag(
                     REVIEW_MISSING_DEPENDENCY_TARGET,
-                    "depends_on references missing task id(s)",
+                    "depends_on references missing task id(s) in the current epic",
                     id=task.id,
+                    task_key=task_key(task),
                     task_path=task.task_path,
                     missing_depends_on=missing,
+                    missing_dependency_keys=missing_keys,
                     depends_on=list(task.depends_on),
+                    depends_on_keys=dependency_keys(task),
                 )
             )
     return flags
 
 
 def validate_circular_dependency_risk(tasks: List[TaskRecord]) -> List[Dict[str, Any]]:
-    by_id = {task.id: task for task in tasks}
-    visiting: Set[int] = set()
-    visited: Set[int] = set()
-    cycles: List[List[int]] = []
+    by_key = task_index(tasks)
+    visiting: Set[str] = set()
+    visited: Set[str] = set()
+    cycles: List[List[str]] = []
 
-    def visit(task_id: int, stack: List[int]) -> None:
-        if task_id in visiting:
-            cycle_start = stack.index(task_id) if task_id in stack else 0
-            cycles.append(stack[cycle_start:] + [task_id])
+    def visit(current_key: str, stack: List[str]) -> None:
+        if current_key in visiting:
+            cycle_start = stack.index(current_key) if current_key in stack else 0
+            cycles.append(stack[cycle_start:] + [current_key])
             return
-        if task_id in visited:
+        if current_key in visited:
             return
-        visiting.add(task_id)
-        stack.append(task_id)
-        task = by_id.get(task_id)
+        visiting.add(current_key)
+        stack.append(current_key)
+        task = by_key.get(current_key)
         if task is not None:
-            for dep in task.depends_on:
-                if dep in by_id:
-                    visit(dep, stack)
+            for dependency_key in dependency_keys(task):
+                if dependency_key in by_key:
+                    visit(dependency_key, stack)
         stack.pop()
-        visiting.remove(task_id)
-        visited.add(task_id)
+        visiting.remove(current_key)
+        visited.add(current_key)
 
-    for task_id in sorted(by_id):
-        visit(task_id, [])
+    for current_key in sorted(by_key):
+        visit(current_key, [])
 
     flags: List[Dict[str, Any]] = []
-    seen: Set[Tuple[int, ...]] = set()
+    seen: Set[Tuple[str, ...]] = set()
     for cycle in cycles:
         normalized = tuple(cycle)
         if normalized in seen:
@@ -530,6 +564,7 @@ def validate_blocked_reason(tasks: List[TaskRecord]) -> List[Dict[str, Any]]:
             REVIEW_BLOCKED_WITHOUT_REASON,
             "status is blocked but blocked_by is empty",
             id=task.id,
+            task_key=task_key(task),
             task_path=task.task_path,
         )
         for task in tasks
@@ -545,7 +580,7 @@ def is_done(task: Optional[TaskRecord]) -> bool:
     return bool(task and task.status == "done")
 
 
-def blocked_by_is_clear(task: TaskRecord, by_id: Dict[int, TaskRecord]) -> bool:
+def blocked_by_is_clear(task: TaskRecord, by_key: Dict[str, TaskRecord]) -> bool:
     if not task.blocked_by:
         return True
     numeric_blockers: List[int] = []
@@ -554,12 +589,22 @@ def blocked_by_is_clear(task: TaskRecord, by_id: Dict[int, TaskRecord]) -> bool:
             numeric_blockers.append(int(blocker))
         except ValueError:
             return False
-    return all(is_done(by_id.get(blocker_id)) for blocker_id in numeric_blockers)
+    return all(
+        is_done(by_key.get(task_key_for(task.epic_slug, blocker_id)))
+        for blocker_id in numeric_blockers
+    )
 
 
-def dependency_state(task: TaskRecord, by_id: Dict[int, TaskRecord]) -> Tuple[bool, List[int], List[int]]:
-    missing = [dep for dep in task.depends_on if dep not in by_id]
-    unsatisfied = [dep for dep in task.depends_on if dep in by_id and by_id[dep].status != "done"]
+def dependency_state(task: TaskRecord, by_key: Dict[str, TaskRecord]) -> Tuple[bool, List[int], List[int]]:
+    missing = [
+        dep for dep in task.depends_on if task_key_for(task.epic_slug, dep) not in by_key
+    ]
+    unsatisfied = [
+        dep
+        for dep in task.depends_on
+        if task_key_for(task.epic_slug, dep) in by_key
+        and by_key[task_key_for(task.epic_slug, dep)].status != "done"
+    ]
     return not missing and not unsatisfied, missing, unsatisfied
 
 
@@ -599,17 +644,18 @@ def task_timestamp(task: TaskRecord) -> Optional[date]:
     return parse_date(task.updated_date) or parse_date(task.created_date)
 
 
-def compute_unlock_depths(tasks: List[TaskRecord]) -> Dict[int, int]:
-    reverse_edges: Dict[int, Set[int]] = {task.id: set() for task in tasks}
-    valid_ids = set(reverse_edges)
+def compute_unlock_depths(tasks: List[TaskRecord]) -> Dict[str, int]:
+    reverse_edges: Dict[str, Set[str]] = {task_key(task): set() for task in tasks}
+    valid_keys = set(reverse_edges)
     for task in tasks:
         for dependency in task.depends_on:
-            if dependency in valid_ids:
-                reverse_edges.setdefault(dependency, set()).add(task.id)
+            dependency_key = task_key_for(task.epic_slug, dependency)
+            if dependency_key in valid_keys:
+                reverse_edges.setdefault(dependency_key, set()).add(task_key(task))
 
-    def downstream_count(task_id: int) -> int:
-        seen: Set[int] = set()
-        stack = list(reverse_edges.get(task_id, set()))
+    def downstream_count(current_key: str) -> int:
+        seen: Set[str] = set()
+        stack = list(reverse_edges.get(current_key, set()))
         while stack:
             item = stack.pop()
             if item in seen:
@@ -618,7 +664,7 @@ def compute_unlock_depths(tasks: List[TaskRecord]) -> Dict[int, int]:
             stack.extend(reverse_edges.get(item, set()))
         return len(seen)
 
-    return {task.id: downstream_count(task.id) for task in tasks}
+    return {task_key(task): downstream_count(task_key(task)) for task in tasks}
 
 
 def task_summary(
@@ -630,13 +676,16 @@ def task_summary(
 ) -> Dict[str, Any]:
     entry: Dict[str, Any] = {
         "id": task.id,
+        "task_key": task_key(task),
         "title": task.title,
         "status": task.status,
         "priority": task.priority,
         "priority_score": priority_score(task),
         "due_date": task.due_date,
         "depends_on": list(task.depends_on),
+        "depends_on_keys": dependency_keys(task),
         "blocked_by": list(task.blocked_by),
+        "blocked_by_task_keys": numeric_blocker_keys(task),
         "updated_date": task.updated_date,
         "created_date": task.created_date,
         "epic_slug": task.epic_slug,
@@ -651,12 +700,12 @@ def task_summary(
     return entry
 
 
-def focus_sort_key(entry: Dict[str, Any]) -> Tuple[int, int, int, int]:
+def focus_sort_key(entry: Dict[str, Any]) -> Tuple[int, int, int, str]:
     return (
         -int(entry.get("priority_score", 0)),
         int(entry.get("urgency_score", NO_DUE_DATE_URGENCY)),
         -int(entry.get("unlock_depth", 0)),
-        int(entry.get("id", 0)),
+        str(entry.get("task_key", "")),
     )
 
 
@@ -718,18 +767,18 @@ def dependency_validation_report(
 def command_next(root: Path, dry_run: bool, generated_at: str) -> Dict[str, Any]:
     today_value = date.today()
     load = read_task_files(root)
-    by_id = {task.id: task for task in load.tasks}
+    by_key = task_index(load.tasks)
     unlock_depths = compute_unlock_depths(load.tasks)
     candidates: List[Dict[str, Any]] = []
 
     for task in load.tasks:
-        dependencies_satisfied, missing, unsatisfied = dependency_state(task, by_id)
-        if task.status in {"open", "in-progress"} and dependencies_satisfied and blocked_by_is_clear(task, by_id):
+        dependencies_satisfied, missing, unsatisfied = dependency_state(task, by_key)
+        if task.status in {"open", "in-progress"} and dependencies_satisfied and blocked_by_is_clear(task, by_key):
             candidates.append(
                 task_summary(
                     task,
                     today_value=today_value,
-                    unlock_depth=unlock_depths.get(task.id, 0),
+                    unlock_depth=unlock_depths.get(task_key(task), 0),
                     reason="status is open or in-progress, depends_on is satisfied, and blocked_by is clear",
                 )
             )
@@ -760,27 +809,35 @@ def command_next(root: Path, dry_run: bool, generated_at: str) -> Dict[str, Any]
 
 def command_blockers(root: Path, dry_run: bool, generated_at: str) -> Dict[str, Any]:
     load = read_task_files(root)
-    by_id = {task.id: task for task in load.tasks}
+    by_key = task_index(load.tasks)
     blocked_tasks: List[Dict[str, Any]] = []
     missing_dependency_targets: List[Dict[str, Any]] = []
 
     for task in load.tasks:
-        dependencies_satisfied, missing, unsatisfied = dependency_state(task, by_id)
+        dependencies_satisfied, missing, unsatisfied = dependency_state(task, by_key)
         if task.status == "blocked" or task.blocked_by or unsatisfied:
             entry = task_summary(
                 task,
                 reason="task is blocked, has blocked_by, or has unsatisfied depends_on",
             )
             entry["unsatisfied_depends_on"] = unsatisfied
+            entry["unsatisfied_dependency_keys"] = [
+                task_key_for(task.epic_slug, dependency) for dependency in unsatisfied
+            ]
             blocked_tasks.append(entry)
         if missing:
             missing_dependency_targets.append(
                 {
                     "id": task.id,
+                    "task_key": task_key(task),
                     "title": task.title,
                     "task_path": task.task_path,
                     "depends_on": list(task.depends_on),
+                    "depends_on_keys": dependency_keys(task),
                     "missing_depends_on": missing,
+                    "missing_dependency_keys": [
+                        task_key_for(task.epic_slug, dependency) for dependency in missing
+                    ],
                 }
             )
         if dependencies_satisfied:
@@ -824,19 +881,21 @@ def registry_lines(load: TaskLoadResult, generated_at: str) -> List[str]:
         f"  review_flags_count: {len(load.review_flags)}",
         "```",
         "",
-        "| id | epic_slug | status | priority | due_date | depends_on | blocked_by | updated_date | created_date | title | task_path |",
-        "|---:|---|---|---|---|---|---|---|---|---|---|",
+        "| task_key | id | epic_slug | status | priority | due_date | depends_on | depends_on_keys | blocked_by | updated_date | created_date | title | task_path |",
+        "|---|---:|---|---|---|---|---|---|---|---|---|---|---|",
     ]
     for task in sorted(load.tasks, key=lambda item: (item.epic_slug, item.id, item.task_path)):
         lines.append(
-            "| {id} | {epic_slug} | {status} | {priority} | {due_date} | {depends_on} | "
-            "{blocked_by} | {updated_date} | {created_date} | {title} | {task_path} |".format(
+            "| {task_key} | {id} | {epic_slug} | {status} | {priority} | {due_date} | {depends_on} | "
+            "{depends_on_keys} | {blocked_by} | {updated_date} | {created_date} | {title} | {task_path} |".format(
+                task_key=escape_table(task_key(task)),
                 id=task.id,
                 epic_slug=escape_table(task.epic_slug),
                 status=escape_table(task.status),
                 priority=escape_table(task.priority),
                 due_date=escape_table(task.due_date),
                 depends_on=escape_table(",".join(str(dep) for dep in task.depends_on)),
+                depends_on_keys=escape_table(",".join(dependency_keys(task))),
                 blocked_by=escape_table(",".join(task.blocked_by)),
                 updated_date=escape_table(task.updated_date),
                 created_date=escape_table(task.created_date),
@@ -921,6 +980,7 @@ def command_stall(
                     REVIEW_STALE_TASK_CANDIDATE,
                     f"no timestamp change for {age_days} days",
                     id=task.id,
+                    task_key=task_key(task),
                     task_path=task.task_path,
                     stall_days=age_days,
                 )
@@ -997,7 +1057,7 @@ def command_score(root: Path, dry_run: bool, generated_at: str, today_value: Opt
     load = read_task_files(root)
     current_date = parse_today(today_value)
     unlock_depths = compute_unlock_depths(load.tasks)
-    by_id = {task.id: task for task in load.tasks}
+    by_key = task_index(load.tasks)
     scored_tasks: List[Dict[str, Any]] = []
     focus_candidates: List[Dict[str, Any]] = []
 
@@ -1005,12 +1065,12 @@ def command_score(root: Path, dry_run: bool, generated_at: str, today_value: Opt
         entry = task_summary(
             task,
             today_value=current_date,
-            unlock_depth=unlock_depths.get(task.id, 0),
+            unlock_depth=unlock_depths.get(task_key(task), 0),
             reason="priority_score, urgency_score, and unlock_depth computed from frontmatter and depends_on graph",
         )
         scored_tasks.append(entry)
-        dependencies_satisfied, _missing, _unsatisfied = dependency_state(task, by_id)
-        if task.status in {"open", "in-progress"} and dependencies_satisfied and blocked_by_is_clear(task, by_id):
+        dependencies_satisfied, _missing, _unsatisfied = dependency_state(task, by_key)
+        if task.status in {"open", "in-progress"} and dependencies_satisfied and blocked_by_is_clear(task, by_key):
             focus_candidates.append(entry)
 
     return {
@@ -1021,7 +1081,7 @@ def command_score(root: Path, dry_run: bool, generated_at: str, today_value: Opt
             root=root,
             script_exit_code=0,
             review_flags=load.review_flags,
-            tasks=sorted(scored_tasks, key=lambda item: int(item["id"])),
+            tasks=sorted(scored_tasks, key=lambda item: str(item["task_key"])),
         ),
         "focus_candidate_report": base_report(
             "focus_candidate_report",

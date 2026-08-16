@@ -17,11 +17,11 @@ Leela
   - task-label: task-name [prio/urgency/date]
   --- subtask-label: subtask-name [prio/urgency/date]
 
-Apex
+MasterOfArts
   - task-label: task-name [prio/urgency/date]
   --- subtask-label: subtask-name [prio/urgency/date]
 
-MasterOfArts
+Apex
   - task-label: task-name [prio/urgency/date]
   --- subtask-label: subtask-name [prio/urgency/date]
 
@@ -29,7 +29,7 @@ Investment
   - task-label: task-name [prio/urgency/date]
   --- subtask-label: subtask-name [prio/urgency/date]
 
-Others
+Residual
   - task-label: task-name [prio/urgency/date]
   --- subtask-label: subtask-name [prio/urgency/date]
 ```

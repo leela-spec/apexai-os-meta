@@ -30,10 +30,10 @@ skill_contract:
 
   default_projects:
     - Leela
-    - Apex
     - MasterOfArts
+    - Apex
     - Investment
-    - Others
+    - Residual
 
   rating_format:
     syntax: "[priority/urgency/date]"
