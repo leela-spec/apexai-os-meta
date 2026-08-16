@@ -1,0 +1,1594 @@
+{
+  "blocker_report": {
+    "blocked_tasks": [
+      {
+        "blocked_by": [
+          "exact_desired_outcome_unknown"
+        ],
+        "blocked_by_task_keys": [],
+        "created_date": "2026-08-16",
+        "depends_on": [],
+        "depends_on_keys": [],
+        "due_date": null,
+        "epic_slug": "apartment-improvements",
+        "id": 1,
+        "priority": "medium",
+        "priority_score": 2,
+        "reason": "task is blocked, has blocked_by, or has unsatisfied depends_on",
+        "status": "open",
+        "task_key": "apartment-improvements:001",
+        "task_path": "apex-meta/epics/apartment-improvements/001.md",
+        "title": "Resolve apartment art item",
+        "unsatisfied_dependency_keys": [],
+        "unsatisfied_depends_on": [],
+        "updated_date": "2026-08-16"
+      },
+      {
+        "blocked_by": [
+          "exact_issue_or_desired_outcome_unknown"
+        ],
+        "blocked_by_task_keys": [],
+        "created_date": "2026-08-16",
+        "depends_on": [],
+        "depends_on_keys": [],
+        "due_date": null,
+        "epic_slug": "apartment-improvements",
+        "id": 2,
+        "priority": "medium",
+        "priority_score": 2,
+        "reason": "task is blocked, has blocked_by, or has unsatisfied depends_on",
+        "status": "open",
+        "task_key": "apartment-improvements:002",
+        "task_path": "apex-meta/epics/apartment-improvements/002.md",
+        "title": "Resolve washing machine item",
+        "unsatisfied_dependency_keys": [],
+        "unsatisfied_depends_on": [],
+        "updated_date": "2026-08-16"
+      },
+      {
+        "blocked_by": [
+          "exact_plumbing_issue_unknown"
+        ],
+        "blocked_by_task_keys": [],
+        "created_date": "2026-08-16",
+        "depends_on": [],
+        "depends_on_keys": [],
+        "due_date": null,
+        "epic_slug": "apartment-improvements",
+        "id": 3,
+        "priority": "medium",
+        "priority_score": 2,
+        "reason": "task is blocked, has blocked_by, or has unsatisfied depends_on",
+        "status": "open",
+        "task_key": "apartment-improvements:003",
+        "task_path": "apex-meta/epics/apartment-improvements/003.md",
+        "title": "Resolve plumbing item",
+        "unsatisfied_dependency_keys": [],
+        "unsatisfied_depends_on": [],
+        "updated_date": "2026-08-16"
+      },
+      {
+        "blocked_by": [],
+        "blocked_by_task_keys": [],
+        "created_date": "2026-08-16",
+        "depends_on": [
+          1
+        ],
+        "depends_on_keys": [
+          "apex-kb-evolution:001"
+        ],
+        "due_date": null,
+        "epic_slug": "apex-kb-evolution",
+        "id": 2,
+        "priority": "high",
+        "priority_score": 3,
+        "reason": "task is blocked, has blocked_by, or has unsatisfied depends_on",
+        "status": "open",
+        "task_key": "apex-kb-evolution:002",
+        "task_path": "apex-meta/epics/apex-kb-evolution/002.md",
+        "title": "Build operator-value and retrieval benchmark for ApexKB",
+        "unsatisfied_dependency_keys": [
+          "apex-kb-evolution:001"
+        ],
+        "unsatisfied_depends_on": [
+          1
+        ],
+        "updated_date": "2026-08-16"
+      },
+      {
+        "blocked_by": [],
+        "blocked_by_task_keys": [],
+        "created_date": "2026-08-16",
+        "depends_on": [
+          1,
+          2
+        ],
+        "depends_on_keys": [
+          "apex-kb-evolution:001",
+          "apex-kb-evolution:002"
+        ],
+        "due_date": null,
+        "epic_slug": "apex-kb-evolution",
+        "id": 3,
+        "priority": "medium",
+        "priority_score": 2,
+        "reason": "task is blocked, has blocked_by, or has unsatisfied depends_on",
+        "status": "open",
+        "task_key": "apex-kb-evolution:003",
+        "task_path": "apex-meta/epics/apex-kb-evolution/003.md",
+        "title": "Evaluate cheapest credible ApexKB upgrade path",
+        "unsatisfied_dependency_keys": [
+          "apex-kb-evolution:001",
+          "apex-kb-evolution:002"
+        ],
+        "unsatisfied_depends_on": [
+          1,
+          2
+        ],
+        "updated_date": "2026-08-16"
+      },
+      {
+        "blocked_by": [],
+        "blocked_by_task_keys": [],
+        "created_date": "2026-08-16",
+        "depends_on": [
+          1,
+          2
+        ],
+        "depends_on_keys": [
+          "apex-kb-evolution:001",
+          "apex-kb-evolution:002"
+        ],
+        "due_date": null,
+        "epic_slug": "apex-kb-evolution",
+        "id": 4,
+        "priority": "medium",
+        "priority_score": 2,
+        "reason": "task is blocked, has blocked_by, or has unsatisfied depends_on",
+        "status": "open",
+        "task_key": "apex-kb-evolution:004",
+        "task_path": "apex-meta/epics/apex-kb-evolution/004.md",
+        "title": "Evaluate current ApexKB alternatives and hybrid options",
+        "unsatisfied_dependency_keys": [
+          "apex-kb-evolution:001",
+          "apex-kb-evolution:002"
+        ],
+        "unsatisfied_depends_on": [
+          1,
+          2
+        ],
+        "updated_date": "2026-08-16"
+      },
+      {
+        "blocked_by": [],
+        "blocked_by_task_keys": [],
+        "created_date": "2026-08-16",
+        "depends_on": [
+          3,
+          4
+        ],
+        "depends_on_keys": [
+          "apex-kb-evolution:003",
+          "apex-kb-evolution:004"
+        ],
+        "due_date": null,
+        "epic_slug": "apex-kb-evolution",
+        "id": 5,
+        "priority": "high",
+        "priority_score": 3,
+        "reason": "task is blocked, has blocked_by, or has unsatisfied depends_on",
+        "status": "open",
+        "task_key": "apex-kb-evolution:005",
+        "task_path": "apex-meta/epics/apex-kb-evolution/005.md",
+        "title": "Run controlled ApexKB versus alternative comparison",
+        "unsatisfied_dependency_keys": [
+          "apex-kb-evolution:003",
+          "apex-kb-evolution:004"
+        ],
+        "unsatisfied_depends_on": [
+          3,
+          4
+        ],
+        "updated_date": "2026-08-16"
+      },
+      {
+        "blocked_by": [
+          "operator_decision_required"
+        ],
+        "blocked_by_task_keys": [],
+        "created_date": "2026-08-16",
+        "depends_on": [
+          5
+        ],
+        "depends_on_keys": [
+          "apex-kb-evolution:005"
+        ],
+        "due_date": null,
+        "epic_slug": "apex-kb-evolution",
+        "id": 6,
+        "priority": "high",
+        "priority_score": 3,
+        "reason": "task is blocked, has blocked_by, or has unsatisfied depends_on",
+        "status": "open",
+        "task_key": "apex-kb-evolution:006",
+        "task_path": "apex-meta/epics/apex-kb-evolution/006.md",
+        "title": "Decide ApexKB continue freeze replace or hybrid direction",
+        "unsatisfied_dependency_keys": [
+          "apex-kb-evolution:005"
+        ],
+        "unsatisfied_depends_on": [
+          5
+        ],
+        "updated_date": "2026-08-16"
+      },
+      {
+        "blocked_by": [],
+        "blocked_by_task_keys": [],
+        "created_date": "2026-08-16",
+        "depends_on": [
+          6
+        ],
+        "depends_on_keys": [
+          "apex-kb-evolution:006"
+        ],
+        "due_date": null,
+        "epic_slug": "apex-kb-evolution",
+        "id": 7,
+        "priority": "medium",
+        "priority_score": 2,
+        "reason": "task is blocked, has blocked_by, or has unsatisfied depends_on",
+        "status": "open",
+        "task_key": "apex-kb-evolution:007",
+        "task_path": "apex-meta/epics/apex-kb-evolution/007.md",
+        "title": "Pilot chosen ApexKB evolution path before broad migration",
+        "unsatisfied_dependency_keys": [
+          "apex-kb-evolution:006"
+        ],
+        "unsatisfied_depends_on": [
+          6
+        ],
+        "updated_date": "2026-08-16"
+      },
+      {
+        "blocked_by": [
+          "missing_fields_if_not_present_in_source"
+        ],
+        "blocked_by_task_keys": [],
+        "created_date": "2026-08-16",
+        "depends_on": [],
+        "depends_on_keys": [],
+        "due_date": null,
+        "epic_slug": "business-invoicing",
+        "id": 1,
+        "priority": "medium",
+        "priority_score": 2,
+        "reason": "task is blocked, has blocked_by, or has unsatisfied depends_on",
+        "status": "open",
+        "task_key": "business-invoicing:001",
+        "task_path": "apex-meta/epics/business-invoicing/001.md",
+        "title": "Create and send Martial Arts invoice",
+        "unsatisfied_dependency_keys": [],
+        "unsatisfied_depends_on": [],
+        "updated_date": "2026-08-16"
+      },
+      {
+        "blocked_by": [
+          "missing_month_or_service_period_if_not_confirmed"
+        ],
+        "blocked_by_task_keys": [],
+        "created_date": "2026-08-16",
+        "depends_on": [],
+        "depends_on_keys": [],
+        "due_date": null,
+        "epic_slug": "business-invoicing",
+        "id": 2,
+        "priority": "medium",
+        "priority_score": 2,
+        "reason": "task is blocked, has blocked_by, or has unsatisfied depends_on",
+        "status": "open",
+        "task_key": "business-invoicing:002",
+        "task_path": "apex-meta/epics/business-invoicing/002.md",
+        "title": "Create and send AkiiByte invoice",
+        "unsatisfied_dependency_keys": [],
+        "unsatisfied_depends_on": [],
+        "updated_date": "2026-08-16"
+      },
+      {
+        "blocked_by": [
+          "missing_fields_if_not_present_in_source"
+        ],
+        "blocked_by_task_keys": [],
+        "created_date": "2026-08-16",
+        "depends_on": [],
+        "depends_on_keys": [],
+        "due_date": null,
+        "epic_slug": "business-invoicing",
+        "id": 3,
+        "priority": "medium",
+        "priority_score": 2,
+        "reason": "task is blocked, has blocked_by, or has unsatisfied depends_on",
+        "status": "open",
+        "task_key": "business-invoicing:003",
+        "task_path": "apex-meta/epics/business-invoicing/003.md",
+        "title": "Create and send AI Consulting invoice",
+        "unsatisfied_dependency_keys": [],
+        "unsatisfied_depends_on": [],
+        "updated_date": "2026-08-16"
+      },
+      {
+        "blocked_by": [],
+        "blocked_by_task_keys": [],
+        "created_date": "2026-08-16",
+        "depends_on": [
+          1,
+          2,
+          3
+        ],
+        "depends_on_keys": [
+          "business-invoicing:001",
+          "business-invoicing:002",
+          "business-invoicing:003"
+        ],
+        "due_date": null,
+        "epic_slug": "business-invoicing",
+        "id": 4,
+        "priority": "medium",
+        "priority_score": 2,
+        "reason": "task is blocked, has blocked_by, or has unsatisfied depends_on",
+        "status": "open",
+        "task_key": "business-invoicing:004",
+        "task_path": "apex-meta/epics/business-invoicing/004.md",
+        "title": "Verify invoice ledger and numbering after all three invoices",
+        "unsatisfied_dependency_keys": [
+          "business-invoicing:001",
+          "business-invoicing:002",
+          "business-invoicing:003"
+        ],
+        "unsatisfied_depends_on": [
+          1,
+          2,
+          3
+        ],
+        "updated_date": "2026-08-16"
+      },
+      {
+        "blocked_by": [
+          "operator_specific_topics_and_sources_required_during_execution"
+        ],
+        "blocked_by_task_keys": [],
+        "created_date": "2026-08-16",
+        "depends_on": [],
+        "depends_on_keys": [],
+        "due_date": null,
+        "epic_slug": "investment-intelligence-automation",
+        "id": 1,
+        "priority": "medium",
+        "priority_score": 2,
+        "reason": "task is blocked, has blocked_by, or has unsatisfied depends_on",
+        "status": "open",
+        "task_key": "investment-intelligence-automation:001",
+        "task_path": "apex-meta/epics/investment-intelligence-automation/001.md",
+        "title": "Define investment video-discovery contract",
+        "unsatisfied_dependency_keys": [],
+        "unsatisfied_depends_on": [],
+        "updated_date": "2026-08-16"
+      },
+      {
+        "blocked_by": [],
+        "blocked_by_task_keys": [],
+        "created_date": "2026-08-16",
+        "depends_on": [
+          1
+        ],
+        "depends_on_keys": [
+          "investment-intelligence-automation:001"
+        ],
+        "due_date": null,
+        "epic_slug": "investment-intelligence-automation",
+        "id": 2,
+        "priority": "medium",
+        "priority_score": 2,
+        "reason": "task is blocked, has blocked_by, or has unsatisfied depends_on",
+        "status": "open",
+        "task_key": "investment-intelligence-automation:002",
+        "task_path": "apex-meta/epics/investment-intelligence-automation/002.md",
+        "title": "Configure and test OpenClaw Cron video-search job",
+        "unsatisfied_dependency_keys": [
+          "investment-intelligence-automation:001"
+        ],
+        "unsatisfied_depends_on": [
+          1
+        ],
+        "updated_date": "2026-08-16"
+      },
+      {
+        "blocked_by": [
+          "operator_specific_alert_conditions_required_during_execution"
+        ],
+        "blocked_by_task_keys": [],
+        "created_date": "2026-08-16",
+        "depends_on": [],
+        "depends_on_keys": [],
+        "due_date": null,
+        "epic_slug": "investment-intelligence-automation",
+        "id": 3,
+        "priority": "medium",
+        "priority_score": 2,
+        "reason": "task is blocked, has blocked_by, or has unsatisfied depends_on",
+        "status": "open",
+        "task_key": "investment-intelligence-automation:003",
+        "task_path": "apex-meta/epics/investment-intelligence-automation/003.md",
+        "title": "Define investment alert contract and signal thresholds",
+        "unsatisfied_dependency_keys": [],
+        "unsatisfied_depends_on": [],
+        "updated_date": "2026-08-16"
+      },
+      {
+        "blocked_by": [],
+        "blocked_by_task_keys": [],
+        "created_date": "2026-08-16",
+        "depends_on": [
+          3
+        ],
+        "depends_on_keys": [
+          "investment-intelligence-automation:003"
+        ],
+        "due_date": null,
+        "epic_slug": "investment-intelligence-automation",
+        "id": 4,
+        "priority": "medium",
+        "priority_score": 2,
+        "reason": "task is blocked, has blocked_by, or has unsatisfied depends_on",
+        "status": "open",
+        "task_key": "investment-intelligence-automation:004",
+        "task_path": "apex-meta/epics/investment-intelligence-automation/004.md",
+        "title": "Implement and test investment alert loop",
+        "unsatisfied_dependency_keys": [
+          "investment-intelligence-automation:003"
+        ],
+        "unsatisfied_depends_on": [
+          3
+        ],
+        "updated_date": "2026-08-16"
+      },
+      {
+        "blocked_by": [
+          "operator_current_decision_process_required_during_execution"
+        ],
+        "blocked_by_task_keys": [],
+        "created_date": "2026-08-16",
+        "depends_on": [],
+        "depends_on_keys": [],
+        "due_date": null,
+        "epic_slug": "investment-intelligence-automation",
+        "id": 5,
+        "priority": "medium",
+        "priority_score": 2,
+        "reason": "task is blocked, has blocked_by, or has unsatisfied depends_on",
+        "status": "open",
+        "task_key": "investment-intelligence-automation:005",
+        "task_path": "apex-meta/epics/investment-intelligence-automation/005.md",
+        "title": "Define portfolio and trading decision-feedback record",
+        "unsatisfied_dependency_keys": [],
+        "unsatisfied_depends_on": [],
+        "updated_date": "2026-08-16"
+      },
+      {
+        "blocked_by": [],
+        "blocked_by_task_keys": [],
+        "created_date": "2026-08-16",
+        "depends_on": [
+          5
+        ],
+        "depends_on_keys": [
+          "investment-intelligence-automation:005"
+        ],
+        "due_date": null,
+        "epic_slug": "investment-intelligence-automation",
+        "id": 6,
+        "priority": "medium",
+        "priority_score": 2,
+        "reason": "task is blocked, has blocked_by, or has unsatisfied depends_on",
+        "status": "open",
+        "task_key": "investment-intelligence-automation:006",
+        "task_path": "apex-meta/epics/investment-intelligence-automation/006.md",
+        "title": "Automate decision-feedback collection and review",
+        "unsatisfied_dependency_keys": [
+          "investment-intelligence-automation:005"
+        ],
+        "unsatisfied_depends_on": [
+          5
+        ],
+        "updated_date": "2026-08-16"
+      },
+      {
+        "blocked_by": [],
+        "blocked_by_task_keys": [],
+        "created_date": "2026-08-16",
+        "depends_on": [
+          2,
+          4,
+          6
+        ],
+        "depends_on_keys": [
+          "investment-intelligence-automation:002",
+          "investment-intelligence-automation:004",
+          "investment-intelligence-automation:006"
+        ],
+        "due_date": null,
+        "epic_slug": "investment-intelligence-automation",
+        "id": 7,
+        "priority": "medium",
+        "priority_score": 2,
+        "reason": "task is blocked, has blocked_by, or has unsatisfied depends_on",
+        "status": "open",
+        "task_key": "investment-intelligence-automation:007",
+        "task_path": "apex-meta/epics/investment-intelligence-automation/007.md",
+        "title": "Validate integrated investment intelligence loop",
+        "unsatisfied_dependency_keys": [
+          "investment-intelligence-automation:002",
+          "investment-intelligence-automation:004",
+          "investment-intelligence-automation:006"
+        ],
+        "unsatisfied_depends_on": [
+          2,
+          4,
+          6
+        ],
+        "updated_date": "2026-08-16"
+      },
+      {
+        "blocked_by": [],
+        "blocked_by_task_keys": [],
+        "created_date": "2026-08-16",
+        "depends_on": [
+          1,
+          2
+        ],
+        "depends_on_keys": [
+          "leela-core-interaction-development:001",
+          "leela-core-interaction-development:002"
+        ],
+        "due_date": null,
+        "epic_slug": "leela-core-interaction-development",
+        "id": 3,
+        "priority": "high",
+        "priority_score": 3,
+        "reason": "task is blocked, has blocked_by, or has unsatisfied depends_on",
+        "status": "open",
+        "task_key": "leela-core-interaction-development:003",
+        "task_path": "apex-meta/epics/leela-core-interaction-development/003.md",
+        "title": "Promote bounded cluster to primary Skill Tree navigation",
+        "unsatisfied_dependency_keys": [
+          "leela-core-interaction-development:001",
+          "leela-core-interaction-development:002"
+        ],
+        "unsatisfied_depends_on": [
+          1,
+          2
+        ],
+        "updated_date": "2026-08-16"
+      },
+      {
+        "blocked_by": [],
+        "blocked_by_task_keys": [],
+        "created_date": "2026-08-16",
+        "depends_on": [
+          3
+        ],
+        "depends_on_keys": [
+          "leela-core-interaction-development:003"
+        ],
+        "due_date": null,
+        "epic_slug": "leela-core-interaction-development",
+        "id": 4,
+        "priority": "high",
+        "priority_score": 3,
+        "reason": "task is blocked, has blocked_by, or has unsatisfied depends_on",
+        "status": "open",
+        "task_key": "leela-core-interaction-development:004",
+        "task_path": "apex-meta/epics/leela-core-interaction-development/004.md",
+        "title": "Make canonical ScopeSelection handoff origin-aware",
+        "unsatisfied_dependency_keys": [
+          "leela-core-interaction-development:003"
+        ],
+        "unsatisfied_depends_on": [
+          3
+        ],
+        "updated_date": "2026-08-16"
+      },
+      {
+        "blocked_by": [],
+        "blocked_by_task_keys": [],
+        "created_date": "2026-08-16",
+        "depends_on": [
+          4
+        ],
+        "depends_on_keys": [
+          "leela-core-interaction-development:004"
+        ],
+        "due_date": null,
+        "epic_slug": "leela-core-interaction-development",
+        "id": 5,
+        "priority": "high",
+        "priority_score": 3,
+        "reason": "task is blocked, has blocked_by, or has unsatisfied depends_on",
+        "status": "open",
+        "task_key": "leela-core-interaction-development:005",
+        "task_path": "apex-meta/epics/leela-core-interaction-development/005.md",
+        "title": "Quarantine fake and legacy scope-resolution state from the integrated path",
+        "unsatisfied_dependency_keys": [
+          "leela-core-interaction-development:004"
+        ],
+        "unsatisfied_depends_on": [
+          4
+        ],
+        "updated_date": "2026-08-16"
+      },
+      {
+        "blocked_by": [],
+        "blocked_by_task_keys": [],
+        "created_date": "2026-08-16",
+        "depends_on": [
+          4
+        ],
+        "depends_on_keys": [
+          "leela-core-interaction-development:004"
+        ],
+        "due_date": null,
+        "epic_slug": "leela-core-interaction-development",
+        "id": 6,
+        "priority": "high",
+        "priority_score": 3,
+        "reason": "task is blocked, has blocked_by, or has unsatisfied depends_on",
+        "status": "open",
+        "task_key": "leela-core-interaction-development:006",
+        "task_path": "apex-meta/epics/leela-core-interaction-development/006.md",
+        "title": "Reconcile ResolutionRequest and ResolutionContext with current Home and Skill Tree contracts",
+        "unsatisfied_dependency_keys": [
+          "leela-core-interaction-development:004"
+        ],
+        "unsatisfied_depends_on": [
+          4
+        ],
+        "updated_date": "2026-08-16"
+      },
+      {
+        "blocked_by": [],
+        "blocked_by_task_keys": [],
+        "created_date": "2026-08-16",
+        "depends_on": [
+          5,
+          6
+        ],
+        "depends_on_keys": [
+          "leela-core-interaction-development:005",
+          "leela-core-interaction-development:006"
+        ],
+        "due_date": null,
+        "epic_slug": "leela-core-interaction-development",
+        "id": 7,
+        "priority": "high",
+        "priority_score": 3,
+        "reason": "task is blocked, has blocked_by, or has unsatisfied depends_on",
+        "status": "open",
+        "task_key": "leela-core-interaction-development:007",
+        "task_path": "apex-meta/epics/leela-core-interaction-development/007.md",
+        "title": "Build Home request adapter into frozen resolution context",
+        "unsatisfied_dependency_keys": [
+          "leela-core-interaction-development:005",
+          "leela-core-interaction-development:006"
+        ],
+        "unsatisfied_depends_on": [
+          5,
+          6
+        ],
+        "updated_date": "2026-08-16"
+      },
+      {
+        "blocked_by": [],
+        "blocked_by_task_keys": [],
+        "created_date": "2026-08-16",
+        "depends_on": [
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "depends_on_keys": [
+          "leela-core-interaction-development:003",
+          "leela-core-interaction-development:004",
+          "leela-core-interaction-development:005",
+          "leela-core-interaction-development:006",
+          "leela-core-interaction-development:007"
+        ],
+        "due_date": null,
+        "epic_slug": "leela-core-interaction-development",
+        "id": 8,
+        "priority": "high",
+        "priority_score": 3,
+        "reason": "task is blocked, has blocked_by, or has unsatisfied depends_on",
+        "status": "open",
+        "task_key": "leela-core-interaction-development:008",
+        "task_path": "apex-meta/epics/leela-core-interaction-development/008.md",
+        "title": "Validate Home to Skill Tree to frozen resolution-context vertical slice",
+        "unsatisfied_dependency_keys": [
+          "leela-core-interaction-development:003",
+          "leela-core-interaction-development:004",
+          "leela-core-interaction-development:005",
+          "leela-core-interaction-development:006",
+          "leela-core-interaction-development:007"
+        ],
+        "unsatisfied_depends_on": [
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "updated_date": "2026-08-16"
+      },
+      {
+        "blocked_by": [
+          "operator_answer_required"
+        ],
+        "blocked_by_task_keys": [],
+        "created_date": "2026-08-16",
+        "depends_on": [],
+        "depends_on_keys": [],
+        "due_date": null,
+        "epic_slug": "leela-product-decisions",
+        "id": 2,
+        "priority": "high",
+        "priority_score": 3,
+        "reason": "task is blocked, has blocked_by, or has unsatisfied depends_on",
+        "status": "open",
+        "task_key": "leela-product-decisions:002",
+        "task_path": "apex-meta/epics/leela-product-decisions/002.md",
+        "title": "Prepare and close QA-02 and QA-11 resolution-profile decisions",
+        "unsatisfied_dependency_keys": [],
+        "unsatisfied_depends_on": [],
+        "updated_date": "2026-08-16"
+      },
+      {
+        "blocked_by": [
+          "operator_answer_required"
+        ],
+        "blocked_by_task_keys": [],
+        "created_date": "2026-08-16",
+        "depends_on": [],
+        "depends_on_keys": [],
+        "due_date": null,
+        "epic_slug": "leela-product-decisions",
+        "id": 3,
+        "priority": "high",
+        "priority_score": 3,
+        "reason": "task is blocked, has blocked_by, or has unsatisfied depends_on",
+        "status": "open",
+        "task_key": "leela-product-decisions:003",
+        "task_path": "apex-meta/epics/leela-product-decisions/003.md",
+        "title": "Prepare and close QA-100 Home override persistence",
+        "unsatisfied_dependency_keys": [],
+        "unsatisfied_depends_on": [],
+        "updated_date": "2026-08-16"
+      },
+      {
+        "blocked_by": [
+          "operator_answer_required_for_global_policy"
+        ],
+        "blocked_by_task_keys": [],
+        "created_date": "2026-08-16",
+        "depends_on": [],
+        "depends_on_keys": [],
+        "due_date": null,
+        "epic_slug": "leela-product-decisions",
+        "id": 4,
+        "priority": "medium",
+        "priority_score": 2,
+        "reason": "task is blocked, has blocked_by, or has unsatisfied depends_on",
+        "status": "open",
+        "task_key": "leela-product-decisions:004",
+        "task_path": "apex-meta/epics/leela-product-decisions/004.md",
+        "title": "Close QA-138 spatial accessibility fallback policy after bounded-cluster verification",
+        "unsatisfied_dependency_keys": [],
+        "unsatisfied_depends_on": [],
+        "updated_date": "2026-08-16"
+      },
+      {
+        "blocked_by": [
+          "operator_answer_required"
+        ],
+        "blocked_by_task_keys": [],
+        "created_date": "2026-08-16",
+        "depends_on": [],
+        "depends_on_keys": [],
+        "due_date": null,
+        "epic_slug": "leela-product-decisions",
+        "id": 5,
+        "priority": "medium",
+        "priority_score": 2,
+        "reason": "task is blocked, has blocked_by, or has unsatisfied depends_on",
+        "status": "open",
+        "task_key": "leela-product-decisions:005",
+        "task_path": "apex-meta/epics/leela-product-decisions/005.md",
+        "title": "Close QA-73 Harmonization ownership and namespace disposition",
+        "unsatisfied_dependency_keys": [],
+        "unsatisfied_depends_on": [],
+        "updated_date": "2026-08-16"
+      },
+      {
+        "blocked_by": [],
+        "blocked_by_task_keys": [],
+        "created_date": "2026-08-16",
+        "depends_on": [
+          1
+        ],
+        "depends_on_keys": [
+          "leela-product-decisions:001"
+        ],
+        "due_date": null,
+        "epic_slug": "leela-product-decisions",
+        "id": 6,
+        "priority": "high",
+        "priority_score": 3,
+        "reason": "task is blocked, has blocked_by, or has unsatisfied depends_on",
+        "status": "open",
+        "task_key": "leela-product-decisions:006",
+        "task_path": "apex-meta/epics/leela-product-decisions/006.md",
+        "title": "Evidence-sweep and close Sequencing and Builder decision cluster",
+        "unsatisfied_dependency_keys": [
+          "leela-product-decisions:001"
+        ],
+        "unsatisfied_depends_on": [
+          1
+        ],
+        "updated_date": "2026-08-16"
+      },
+      {
+        "blocked_by": [],
+        "blocked_by_task_keys": [],
+        "created_date": "2026-08-16",
+        "depends_on": [
+          1
+        ],
+        "depends_on_keys": [
+          "leela-product-decisions:001"
+        ],
+        "due_date": null,
+        "epic_slug": "leela-product-decisions",
+        "id": 7,
+        "priority": "medium",
+        "priority_score": 2,
+        "reason": "task is blocked, has blocked_by, or has unsatisfied depends_on",
+        "status": "open",
+        "task_key": "leela-product-decisions:007",
+        "task_path": "apex-meta/epics/leela-product-decisions/007.md",
+        "title": "Evidence-sweep and close Path Stats and policy decision cluster",
+        "unsatisfied_dependency_keys": [
+          "leela-product-decisions:001"
+        ],
+        "unsatisfied_depends_on": [
+          1
+        ],
+        "updated_date": "2026-08-16"
+      },
+      {
+        "blocked_by": [],
+        "blocked_by_task_keys": [],
+        "created_date": "2026-08-16",
+        "depends_on": [
+          1
+        ],
+        "depends_on_keys": [
+          "leela-product-decisions:001"
+        ],
+        "due_date": null,
+        "epic_slug": "leela-product-decisions",
+        "id": 8,
+        "priority": "medium",
+        "priority_score": 2,
+        "reason": "task is blocked, has blocked_by, or has unsatisfied depends_on",
+        "status": "open",
+        "task_key": "leela-product-decisions:008",
+        "task_path": "apex-meta/epics/leela-product-decisions/008.md",
+        "title": "Reconcile source-integrity and stale-plan decision debt",
+        "unsatisfied_dependency_keys": [
+          "leela-product-decisions:001"
+        ],
+        "unsatisfied_depends_on": [
+          1
+        ],
+        "updated_date": "2026-08-16"
+      },
+      {
+        "blocked_by": [],
+        "blocked_by_task_keys": [],
+        "created_date": "2026-08-16",
+        "depends_on": [
+          1
+        ],
+        "depends_on_keys": [
+          "leela-product-decisions:001"
+        ],
+        "due_date": null,
+        "epic_slug": "leela-product-decisions",
+        "id": 9,
+        "priority": "medium",
+        "priority_score": 2,
+        "reason": "task is blocked, has blocked_by, or has unsatisfied depends_on",
+        "status": "open",
+        "task_key": "leela-product-decisions:009",
+        "task_path": "apex-meta/epics/leela-product-decisions/009.md",
+        "title": "Create operator-facing decision batches and closure cadence",
+        "unsatisfied_dependency_keys": [
+          "leela-product-decisions:001"
+        ],
+        "unsatisfied_depends_on": [
+          1
+        ],
+        "updated_date": "2026-08-16"
+      },
+      {
+        "blocked_by": [],
+        "blocked_by_task_keys": [],
+        "created_date": "2026-08-16",
+        "depends_on": [
+          1
+        ],
+        "depends_on_keys": [
+          "leela-project-management-cleanup:001"
+        ],
+        "due_date": null,
+        "epic_slug": "leela-project-management-cleanup",
+        "id": 2,
+        "priority": "high",
+        "priority_score": 3,
+        "reason": "task is blocked, has blocked_by, or has unsatisfied depends_on",
+        "status": "open",
+        "task_key": "leela-project-management-cleanup:002",
+        "task_path": "apex-meta/epics/leela-project-management-cleanup/002.md",
+        "title": "Define and publish one current Leela project-control authority map",
+        "unsatisfied_dependency_keys": [
+          "leela-project-management-cleanup:001"
+        ],
+        "unsatisfied_depends_on": [
+          1
+        ],
+        "updated_date": "2026-08-16"
+      },
+      {
+        "blocked_by": [],
+        "blocked_by_task_keys": [],
+        "created_date": "2026-08-16",
+        "depends_on": [
+          1,
+          2
+        ],
+        "depends_on_keys": [
+          "leela-project-management-cleanup:001",
+          "leela-project-management-cleanup:002"
+        ],
+        "due_date": null,
+        "epic_slug": "leela-project-management-cleanup",
+        "id": 3,
+        "priority": "high",
+        "priority_score": 3,
+        "reason": "task is blocked, has blocked_by, or has unsatisfied depends_on",
+        "status": "open",
+        "task_key": "leela-project-management-cleanup:003",
+        "task_path": "apex-meta/epics/leela-project-management-cleanup/003.md",
+        "title": "Retire or annotate stale Spatial Opus control instructions",
+        "unsatisfied_dependency_keys": [
+          "leela-project-management-cleanup:001",
+          "leela-project-management-cleanup:002"
+        ],
+        "unsatisfied_depends_on": [
+          1,
+          2
+        ],
+        "updated_date": "2026-08-16"
+      },
+      {
+        "blocked_by": [
+          "operator_approval_of_project_packets"
+        ],
+        "blocked_by_task_keys": [],
+        "created_date": "2026-08-16",
+        "depends_on": [
+          2
+        ],
+        "depends_on_keys": [
+          "leela-project-management-cleanup:002"
+        ],
+        "due_date": null,
+        "epic_slug": "leela-project-management-cleanup",
+        "id": 4,
+        "priority": "high",
+        "priority_score": 3,
+        "reason": "task is blocked, has blocked_by, or has unsatisfied depends_on",
+        "status": "open",
+        "task_key": "leela-project-management-cleanup:004",
+        "task_path": "apex-meta/epics/leela-project-management-cleanup/004.md",
+        "title": "Consolidate active Leela projects into central Apex project records",
+        "unsatisfied_dependency_keys": [
+          "leela-project-management-cleanup:002"
+        ],
+        "unsatisfied_depends_on": [
+          2
+        ],
+        "updated_date": "2026-08-16"
+      },
+      {
+        "blocked_by": [],
+        "blocked_by_task_keys": [],
+        "created_date": "2026-08-16",
+        "depends_on": [
+          2,
+          4
+        ],
+        "depends_on_keys": [
+          "leela-project-management-cleanup:002",
+          "leela-project-management-cleanup:004"
+        ],
+        "due_date": null,
+        "epic_slug": "leela-project-management-cleanup",
+        "id": 5,
+        "priority": "medium",
+        "priority_score": 2,
+        "reason": "task is blocked, has blocked_by, or has unsatisfied depends_on",
+        "status": "open",
+        "task_key": "leela-project-management-cleanup:005",
+        "task_path": "apex-meta/epics/leela-project-management-cleanup/005.md",
+        "title": "Reconcile runtime Micro packets with Apex project task identity",
+        "unsatisfied_dependency_keys": [
+          "leela-project-management-cleanup:002",
+          "leela-project-management-cleanup:004"
+        ],
+        "unsatisfied_depends_on": [
+          2,
+          4
+        ],
+        "updated_date": "2026-08-16"
+      },
+      {
+        "blocked_by": [],
+        "blocked_by_task_keys": [],
+        "created_date": "2026-08-16",
+        "depends_on": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "depends_on_keys": [
+          "leela-project-management-cleanup:002",
+          "leela-project-management-cleanup:003",
+          "leela-project-management-cleanup:004",
+          "leela-project-management-cleanup:005"
+        ],
+        "due_date": null,
+        "epic_slug": "leela-project-management-cleanup",
+        "id": 6,
+        "priority": "medium",
+        "priority_score": 2,
+        "reason": "task is blocked, has blocked_by, or has unsatisfied depends_on",
+        "status": "open",
+        "task_key": "leela-project-management-cleanup:006",
+        "task_path": "apex-meta/epics/leela-project-management-cleanup/006.md",
+        "title": "Verify decluttered Leela restart path",
+        "unsatisfied_dependency_keys": [
+          "leela-project-management-cleanup:002",
+          "leela-project-management-cleanup:003",
+          "leela-project-management-cleanup:004",
+          "leela-project-management-cleanup:005"
+        ],
+        "unsatisfied_depends_on": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "updated_date": "2026-08-16"
+      },
+      {
+        "blocked_by": [],
+        "blocked_by_task_keys": [],
+        "created_date": "2026-08-16",
+        "depends_on": [
+          1
+        ],
+        "depends_on_keys": [
+          "masterofarts-website-definition:001"
+        ],
+        "due_date": null,
+        "epic_slug": "masterofarts-website-definition",
+        "id": 2,
+        "priority": "high",
+        "priority_score": 3,
+        "reason": "task is blocked, has blocked_by, or has unsatisfied depends_on",
+        "status": "open",
+        "task_key": "masterofarts-website-definition:002",
+        "task_path": "apex-meta/epics/masterofarts-website-definition/002.md",
+        "title": "Reconcile website purpose audience and primary conversion outcomes",
+        "unsatisfied_dependency_keys": [
+          "masterofarts-website-definition:001"
+        ],
+        "unsatisfied_depends_on": [
+          1
+        ],
+        "updated_date": "2026-08-16"
+      },
+      {
+        "blocked_by": [],
+        "blocked_by_task_keys": [],
+        "created_date": "2026-08-16",
+        "depends_on": [
+          2
+        ],
+        "depends_on_keys": [
+          "masterofarts-website-definition:002"
+        ],
+        "due_date": null,
+        "epic_slug": "masterofarts-website-definition",
+        "id": 3,
+        "priority": "medium",
+        "priority_score": 2,
+        "reason": "task is blocked, has blocked_by, or has unsatisfied depends_on",
+        "status": "open",
+        "task_key": "masterofarts-website-definition:003",
+        "task_path": "apex-meta/epics/masterofarts-website-definition/003.md",
+        "title": "Define website information architecture and page responsibilities",
+        "unsatisfied_dependency_keys": [
+          "masterofarts-website-definition:002"
+        ],
+        "unsatisfied_depends_on": [
+          2
+        ],
+        "updated_date": "2026-08-16"
+      },
+      {
+        "blocked_by": [],
+        "blocked_by_task_keys": [],
+        "created_date": "2026-08-16",
+        "depends_on": [
+          3
+        ],
+        "depends_on_keys": [
+          "masterofarts-website-definition:003"
+        ],
+        "due_date": null,
+        "epic_slug": "masterofarts-website-definition",
+        "id": 4,
+        "priority": "medium",
+        "priority_score": 2,
+        "reason": "task is blocked, has blocked_by, or has unsatisfied depends_on",
+        "status": "open",
+        "task_key": "masterofarts-website-definition:004",
+        "task_path": "apex-meta/epics/masterofarts-website-definition/004.md",
+        "title": "Define page-level content and interaction requirements",
+        "unsatisfied_dependency_keys": [
+          "masterofarts-website-definition:003"
+        ],
+        "unsatisfied_depends_on": [
+          3
+        ],
+        "updated_date": "2026-08-16"
+      },
+      {
+        "blocked_by": [],
+        "blocked_by_task_keys": [],
+        "created_date": "2026-08-16",
+        "depends_on": [
+          4
+        ],
+        "depends_on_keys": [
+          "masterofarts-website-definition:004"
+        ],
+        "due_date": null,
+        "epic_slug": "masterofarts-website-definition",
+        "id": 5,
+        "priority": "medium",
+        "priority_score": 2,
+        "reason": "task is blocked, has blocked_by, or has unsatisfied depends_on",
+        "status": "open",
+        "task_key": "masterofarts-website-definition:005",
+        "task_path": "apex-meta/epics/masterofarts-website-definition/005.md",
+        "title": "Review website definition for consistency and implementation readiness",
+        "unsatisfied_dependency_keys": [
+          "masterofarts-website-definition:004"
+        ],
+        "unsatisfied_depends_on": [
+          4
+        ],
+        "updated_date": "2026-08-16"
+      },
+      {
+        "blocked_by": [],
+        "blocked_by_task_keys": [],
+        "created_date": "2026-06-22",
+        "depends_on": [
+          1
+        ],
+        "depends_on_keys": [
+          "narm-support-knowledgebase:001"
+        ],
+        "due_date": null,
+        "epic_slug": "narm-support-knowledgebase",
+        "id": 2,
+        "priority": "high",
+        "priority_score": 3,
+        "reason": "task is blocked, has blocked_by, or has unsatisfied depends_on",
+        "status": "open",
+        "task_key": "narm-support-knowledgebase:002",
+        "task_path": "apex-meta/epics/narm-support-knowledgebase/002.md",
+        "title": "Inventory and classify Therapy source files",
+        "unsatisfied_dependency_keys": [
+          "narm-support-knowledgebase:001"
+        ],
+        "unsatisfied_depends_on": [
+          1
+        ],
+        "updated_date": "2026-06-22"
+      },
+      {
+        "blocked_by": [],
+        "blocked_by_task_keys": [],
+        "created_date": "2026-06-22",
+        "depends_on": [
+          1,
+          2
+        ],
+        "depends_on_keys": [
+          "narm-support-knowledgebase:001",
+          "narm-support-knowledgebase:002"
+        ],
+        "due_date": null,
+        "epic_slug": "narm-support-knowledgebase",
+        "id": 3,
+        "priority": "high",
+        "priority_score": 3,
+        "reason": "task is blocked, has blocked_by, or has unsatisfied depends_on",
+        "status": "open",
+        "task_key": "narm-support-knowledgebase:003",
+        "task_path": "apex-meta/epics/narm-support-knowledgebase/003.md",
+        "title": "Design NARM theory index structure",
+        "unsatisfied_dependency_keys": [
+          "narm-support-knowledgebase:001",
+          "narm-support-knowledgebase:002"
+        ],
+        "unsatisfied_depends_on": [
+          1,
+          2
+        ],
+        "updated_date": "2026-06-22"
+      },
+      {
+        "blocked_by": [],
+        "blocked_by_task_keys": [],
+        "created_date": "2026-06-22",
+        "depends_on": [
+          1,
+          2
+        ],
+        "depends_on_keys": [
+          "narm-support-knowledgebase:001",
+          "narm-support-knowledgebase:002"
+        ],
+        "due_date": null,
+        "epic_slug": "narm-support-knowledgebase",
+        "id": 4,
+        "priority": "high",
+        "priority_score": 3,
+        "reason": "task is blocked, has blocked_by, or has unsatisfied depends_on",
+        "status": "open",
+        "task_key": "narm-support-knowledgebase:004",
+        "task_path": "apex-meta/epics/narm-support-knowledgebase/004.md",
+        "title": "Design personal psychological material index structure",
+        "unsatisfied_dependency_keys": [
+          "narm-support-knowledgebase:001",
+          "narm-support-knowledgebase:002"
+        ],
+        "unsatisfied_depends_on": [
+          1,
+          2
+        ],
+        "updated_date": "2026-06-22"
+      },
+      {
+        "blocked_by": [],
+        "blocked_by_task_keys": [],
+        "created_date": "2026-06-22",
+        "depends_on": [
+          3,
+          4
+        ],
+        "depends_on_keys": [
+          "narm-support-knowledgebase:003",
+          "narm-support-knowledgebase:004"
+        ],
+        "due_date": null,
+        "epic_slug": "narm-support-knowledgebase",
+        "id": 5,
+        "priority": "medium",
+        "priority_score": 2,
+        "reason": "task is blocked, has blocked_by, or has unsatisfied depends_on",
+        "status": "open",
+        "task_key": "narm-support-knowledgebase:005",
+        "task_path": "apex-meta/epics/narm-support-knowledgebase/005.md",
+        "title": "Define cross-reference model between NARM theory and personal material",
+        "unsatisfied_dependency_keys": [
+          "narm-support-knowledgebase:003",
+          "narm-support-knowledgebase:004"
+        ],
+        "unsatisfied_depends_on": [
+          3,
+          4
+        ],
+        "updated_date": "2026-06-22"
+      },
+      {
+        "blocked_by": [],
+        "blocked_by_task_keys": [],
+        "created_date": "2026-06-22",
+        "depends_on": [
+          1,
+          3,
+          4,
+          5
+        ],
+        "depends_on_keys": [
+          "narm-support-knowledgebase:001",
+          "narm-support-knowledgebase:003",
+          "narm-support-knowledgebase:004",
+          "narm-support-knowledgebase:005"
+        ],
+        "due_date": null,
+        "epic_slug": "narm-support-knowledgebase",
+        "id": 6,
+        "priority": "high",
+        "priority_score": 3,
+        "reason": "task is blocked, has blocked_by, or has unsatisfied depends_on",
+        "status": "open",
+        "task_key": "narm-support-knowledgebase:006",
+        "task_path": "apex-meta/epics/narm-support-knowledgebase/006.md",
+        "title": "Design guided self-exploration flow templates",
+        "unsatisfied_dependency_keys": [
+          "narm-support-knowledgebase:001",
+          "narm-support-knowledgebase:003",
+          "narm-support-knowledgebase:004",
+          "narm-support-knowledgebase:005"
+        ],
+        "unsatisfied_depends_on": [
+          1,
+          3,
+          4,
+          5
+        ],
+        "updated_date": "2026-06-22"
+      },
+      {
+        "blocked_by": [],
+        "blocked_by_task_keys": [],
+        "created_date": "2026-06-22",
+        "depends_on": [
+          1,
+          4,
+          5,
+          6
+        ],
+        "depends_on_keys": [
+          "narm-support-knowledgebase:001",
+          "narm-support-knowledgebase:004",
+          "narm-support-knowledgebase:005",
+          "narm-support-knowledgebase:006"
+        ],
+        "due_date": null,
+        "epic_slug": "narm-support-knowledgebase",
+        "id": 7,
+        "priority": "high",
+        "priority_score": 3,
+        "reason": "task is blocked, has blocked_by, or has unsatisfied depends_on",
+        "status": "open",
+        "task_key": "narm-support-knowledgebase:007",
+        "task_path": "apex-meta/epics/narm-support-knowledgebase/007.md",
+        "title": "Design compact NARM therapist session-prep output format",
+        "unsatisfied_dependency_keys": [
+          "narm-support-knowledgebase:001",
+          "narm-support-knowledgebase:004",
+          "narm-support-knowledgebase:005",
+          "narm-support-knowledgebase:006"
+        ],
+        "unsatisfied_depends_on": [
+          1,
+          4,
+          5,
+          6
+        ],
+        "updated_date": "2026-06-22"
+      },
+      {
+        "blocked_by": [],
+        "blocked_by_task_keys": [],
+        "created_date": "2026-06-22",
+        "depends_on": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "depends_on_keys": [
+          "narm-support-knowledgebase:002",
+          "narm-support-knowledgebase:003",
+          "narm-support-knowledgebase:004",
+          "narm-support-knowledgebase:005",
+          "narm-support-knowledgebase:006",
+          "narm-support-knowledgebase:007"
+        ],
+        "due_date": null,
+        "epic_slug": "narm-support-knowledgebase",
+        "id": 8,
+        "priority": "medium",
+        "priority_score": 2,
+        "reason": "task is blocked, has blocked_by, or has unsatisfied depends_on",
+        "status": "open",
+        "task_key": "narm-support-knowledgebase:008",
+        "task_path": "apex-meta/epics/narm-support-knowledgebase/008.md",
+        "title": "Prepare operator-approved implementation handoff",
+        "unsatisfied_dependency_keys": [
+          "narm-support-knowledgebase:002",
+          "narm-support-knowledgebase:003",
+          "narm-support-knowledgebase:004",
+          "narm-support-knowledgebase:005",
+          "narm-support-knowledgebase:006",
+          "narm-support-knowledgebase:007"
+        ],
+        "unsatisfied_depends_on": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "updated_date": "2026-06-22"
+      },
+      {
+        "blocked_by": [],
+        "blocked_by_task_keys": [],
+        "created_date": "2026-08-16",
+        "depends_on": [
+          1
+        ],
+        "depends_on_keys": [
+          "transendance-concept:001"
+        ],
+        "due_date": null,
+        "epic_slug": "transendance-concept",
+        "id": 2,
+        "priority": "high",
+        "priority_score": 3,
+        "reason": "task is blocked, has blocked_by, or has unsatisfied depends_on",
+        "status": "open",
+        "task_key": "transendance-concept:002",
+        "task_path": "apex-meta/epics/transendance-concept/002.md",
+        "title": "Define TransenDance module set and module purposes",
+        "unsatisfied_dependency_keys": [
+          "transendance-concept:001"
+        ],
+        "unsatisfied_depends_on": [
+          1
+        ],
+        "updated_date": "2026-08-16"
+      },
+      {
+        "blocked_by": [],
+        "blocked_by_task_keys": [],
+        "created_date": "2026-08-16",
+        "depends_on": [
+          2
+        ],
+        "depends_on_keys": [
+          "transendance-concept:002"
+        ],
+        "due_date": null,
+        "epic_slug": "transendance-concept",
+        "id": 3,
+        "priority": "high",
+        "priority_score": 3,
+        "reason": "task is blocked, has blocked_by, or has unsatisfied depends_on",
+        "status": "open",
+        "task_key": "transendance-concept:003",
+        "task_path": "apex-meta/epics/transendance-concept/003.md",
+        "title": "Define event progression timing logic and transitions",
+        "unsatisfied_dependency_keys": [
+          "transendance-concept:002"
+        ],
+        "unsatisfied_depends_on": [
+          2
+        ],
+        "updated_date": "2026-08-16"
+      },
+      {
+        "blocked_by": [],
+        "blocked_by_task_keys": [],
+        "created_date": "2026-08-16",
+        "depends_on": [
+          2
+        ],
+        "depends_on_keys": [
+          "transendance-concept:002"
+        ],
+        "due_date": null,
+        "epic_slug": "transendance-concept",
+        "id": 4,
+        "priority": "medium",
+        "priority_score": 2,
+        "reason": "task is blocked, has blocked_by, or has unsatisfied depends_on",
+        "status": "open",
+        "task_key": "transendance-concept:004",
+        "task_path": "apex-meta/epics/transendance-concept/004.md",
+        "title": "Define facilitation and safety boundaries for the concept draft",
+        "unsatisfied_dependency_keys": [
+          "transendance-concept:002"
+        ],
+        "unsatisfied_depends_on": [
+          2
+        ],
+        "updated_date": "2026-08-16"
+      },
+      {
+        "blocked_by": [],
+        "blocked_by_task_keys": [],
+        "created_date": "2026-08-16",
+        "depends_on": [
+          3,
+          4
+        ],
+        "depends_on_keys": [
+          "transendance-concept:003",
+          "transendance-concept:004"
+        ],
+        "due_date": null,
+        "epic_slug": "transendance-concept",
+        "id": 5,
+        "priority": "high",
+        "priority_score": 3,
+        "reason": "task is blocked, has blocked_by, or has unsatisfied depends_on",
+        "status": "open",
+        "task_key": "transendance-concept:005",
+        "task_path": "apex-meta/epics/transendance-concept/005.md",
+        "title": "Assemble TransenDance concept draft with modules and timeline",
+        "unsatisfied_dependency_keys": [
+          "transendance-concept:003",
+          "transendance-concept:004"
+        ],
+        "unsatisfied_depends_on": [
+          3,
+          4
+        ],
+        "updated_date": "2026-08-16"
+      }
+    ],
+    "dry_run": true,
+    "generated_at": "2026-08-16T19:27:49Z",
+    "missing_dependency_targets": [],
+    "report_name": "blocker_report",
+    "review_flags": [],
+    "root": "C:\\GitDev\\apexai-os-meta",
+    "script_exit_code": 0
+  },
+  "dependency_validation_report": {
+    "discovered_task_files": 62,
+    "dry_run": true,
+    "generated_at": "2026-08-16T19:27:49Z",
+    "report_name": "dependency_validation_report",
+    "review_flags": [],
+    "root": "C:\\GitDev\\apexai-os-meta",
+    "script_exit_code": 0,
+    "task_count": 62
+  },
+  "script_exit_code": 0
+}
