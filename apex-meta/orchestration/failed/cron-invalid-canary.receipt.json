@@ -1,0 +1,11 @@
+{
+  "dispatcher_exit_code": 2,
+  "dispatcher_stderr": "REQUEST_INVALID: {\"code\": \"MISSING_FIELD\", \"detail\": \"missing required fields: ['evidence_dir', 'execution_id', 'grants', 'idempotency_key', 'instruction', 'origin', 'prompt_ref', 'provider', 'provider_settings', 'result_path', 'roots', 'schema_version', 'stop_conditions', 'success_criteria']\", \"valid\": false}\n",
+  "dispatcher_stdout": "",
+  "error_code": "DISPATCH_FAILED",
+  "processed_at": "2026-08-15T20:03:15.816887Z",
+  "request_file": "cron-invalid-canary.request.json",
+  "request_sha256": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356",
+  "schema_version": "apex.execution-inbox-receipt/v1",
+  "status": "failed"
+}
