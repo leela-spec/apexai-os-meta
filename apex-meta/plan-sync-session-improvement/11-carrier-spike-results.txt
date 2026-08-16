@@ -1,0 +1,49 @@
+CARRIER_SHAPES
+plan_has_new_task_field=false
+plan_operator_gate_authorization_fields=8
+weekly_reuses_existing_basis_digest=true
+weekly_added_scalar_refs=2
+session_added_scalar_refs=3
+sync_reusable_authorization_changes=0
+
+SCENARIOS
+exact_plan_serialization: expected=ALLOW actual=ALLOW reason=covered_by_active_commit_time_authorization
+second_exact_serialization_same_scope: expected=ALLOW actual=ALLOW reason=covered_by_active_commit_time_authorization
+objective_done_with_evidence: expected=ALLOW actual=ALLOW reason=covered_by_active_commit_time_authorization
+objective_done_missing_evidence: expected=GATE actual=GATE reason=objective_evidence_missing
+changed_basis: expected=GATE actual=GATE reason=basis_digest_changed
+scope_escape: expected=GATE actual=GATE reason=target_out_of_scope
+action_escape: expected=GATE actual=GATE reason=action_not_authorized
+source_conflict: expected=GATE actual=GATE reason=source_conflict
+duplicate_merge: expected=GATE actual=GATE reason=duplicate_entity_risk
+operator_judgment: expected=GATE actual=GATE reason=operator_judgment_required
+external_send_even_if_parent_approved: expected=GATE actual=GATE reason=b1_external_or_irreversible_gate
+destructive_action: expected=GATE actual=GATE reason=destructive_action
+manual_override: expected=GATE actual=GATE reason=explicit_manual_override
+semantic_reviewer_escalates: expected=GATE actual=GATE reason=semantic_review_escalation
+expired_authorization: expected=GATE actual=GATE reason=authorization_expired
+revoked_authorization: expected=GATE actual=GATE reason=authorization_revoked
+no_witness: expected=GATE actual=GATE reason=missing_authorization_witness
+
+SYNC_C1
+explicit_operator_non_dry_run_request=false: GATE c1_registry_write_requires_explicit_operator_request
+explicit_operator_non_dry_run_request=true: ALLOW c1_explicit_sync_registry_write_request
+
+LONG_RUN
+covered_internal_actions=50 repeated_operator_gates=0
+
+METRICS
+policy_correctness=17/17
+unsafe_allows=0
+overblocks=0
+new_global_registry_required=false
+new_task_gate_field_required=false
+new_daemon_or_service_required=false
+production_code_claim=false
+
+NOTES
+- This is an executable design spike, not production authorization code.
+- The spike intentionally models B1 as an unconditional external/irreversible gate for the first rollout.
+- C1 remains a separate Sync-specific protected-write rule.
+- The spike does not claim that AI semantic review can prove safety; semantic review only escalates.
+- The production implementation still needs exact mapping to current packet fields and the actual durable-write application boundary.
