@@ -1,33 +1,33 @@
 # Current Step
 
-Durable planning and session handoff files exist for the NARM-support knowledgebase project. A dedicated handover now exists for another chat to prepare definitions of done and index-preparation artifacts before Codex performs the actual index-building pass.
+The W34 portfolio is now canonical in Apex Session state: nine new approved epics and 54 open tasks exist under `apex-meta/epics/`. The next authority is Apex Sync.
 
 # Open Items
 
-- Confirm final index format and destination.
-- Confirm whether generated indexes should be written into the Obsidian Therapy folder or into this repo.
-- Confirm final generated-index destination; current recommendation is repo-first under `apex-meta/artifacts/narm-support-knowledgebase/`.
-- Validate dependencies for tasks 001 through 008.
-- Prepare definitions of done for Tasks 001 through 006.
-- Preserve Tasks 007 and 008 as later-phase work.
+- Run deterministic task/dependency validation across the canonical graph.
+- Compute next actions, explicit blockers/staleness, priority/urgency/unlock-depth/focus candidates, and registry validation through Apex Sync.
+- Route structural corrections through Plan/Session if Sync proves any are required.
+- Generate `artifacts/weekly-plans/project-status-overview-20260816.md` after Sync.
+- Collect W34-specific calendar/capacity/context inputs, including Dating time allocation.
+- Run PreCap Week G1 and stop at G1 operator gate.
 
 # Risks
 
-- Process drift risk: if the operator asks for a step out of package order, state the mismatch and follow the skill-package process.
-- Output-quality risk: avoid vague reassurance and generic therapy language; preserve the operator's request for direct, behaviorally concrete work.
-- Some dependency relationships were proposed qualitatively and still need apex-sync validation.
-- Source files have not yet been inspected or indexed.
+- Do not treat proposal packets as current state now that canonical task records exist; canonical records are the project-state basis.
+- Do not silently resolve task blockers requiring operator decisions or missing source inputs.
+- Do not duplicate FEE2/current PM infrastructure epics.
+- Do not turn Dating into a task backlog.
+- Gate-policy redesign is separate and not yet the active contract for this run.
 
 # Decisions Made
 
-- Operator approved the apex-plan packet for handoff.
-- Created epic `narm-support-knowledgebase`.
-- Created eight open task records.
-- Created H6 handoff artifacts.
-- Created `apex-meta/handoff/narm-index-prep-handover.md` for the next chat.
+- Operator approved the full nine-epic proposal set.
+- Exact Session serialization was confirmed and applied.
+- All 54 new tasks start open with approved priorities, null due dates, dependencies, blockers, sources, and unresolved context preserved.
+- Pre-existing NARM canonical project remains unchanged.
 
 # Next Actions
 
-- In the next chat, read `apex-meta/handoff/narm-index-prep-handover.md`.
-- Prepare `definitions-of-done.md`, `index-artifact-plan.md`, `index-validation-questions.md`, and `source-file-map.md` under `apex-meta/artifacts/narm-support-knowledgebase/`.
-- Do not build the final indexes in the handover chat; prepare them for a later Codex index-building pass.
+- Read `apex-meta/handoff/planning-feed-20260816-w34.md` plus canonical task files.
+- Invoke `apex-sync` and use its canonical deterministic script/workflow rather than LLM-estimated graph conclusions.
+- Persist Sync outputs before moving to ProjectStatus.

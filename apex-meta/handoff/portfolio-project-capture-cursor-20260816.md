@@ -3,7 +3,7 @@ title: "Portfolio Project Capture Cursor — 2026-08-16"
 document_role: next_session_gate_cursor
 created: 2026-08-16
 updated: 2026-08-16
-status: waiting_for_operator_approval_to_enter_apex_session
+status: apex_session_canonicalization_complete_sync_next
 week: 2026-W34
 ---
 
@@ -11,67 +11,47 @@ week: 2026-W34
 
 ## Current state
 
-Apex Plan proposal work is complete for the first real W34 portfolio intake.
+Apex Plan proposal work and operator review are complete. Apex Session canonicalization is complete for the approved W34 portfolio intake.
+
+Canonical state now exists for nine newly approved epics and 54 tasks under `apex-meta/epics/`. The pre-existing NARM epic remains unchanged.
 
 ## Required restart reading order
 
-Read these files in order rather than reconstructing the workflow from chat history:
-
-1. `apex-meta/handoff/weekly-project-management-next-steps-handover-20260816.okf.md`
-2. `apex-meta/handoff/plan-packets/weekly-project-management-to-weekly-cycle-overview-20260816.okf.md`
-3. `apex-meta/handoff/portfolio-project-capture-cursor-20260816.md`
-4. `apex-meta/handoff/plan-packets/portfolio-project-capture-index-20260816-2026-W34.md`
-
-The portfolio index points to all supporting project packets and evidence checkpoints.
-
-## Completed planning coverage
-
-- Leela Core Interaction Development — evidence-checked v2 packet
-- Leela Product Decisions — evidence-checked packet + decision checkpoints
-- Leela Project Management Cleanup — evidence-checked packet
-- MasterOfArts Website Definition — source-gap-aware packet
-- TransenDance Concept — operator-grounded packet
-- Business Invoicing — existing invoice SSOT-grounded packet
-- Apex existing-initiative mapping — weekly pilot + PM infrastructure not duplicated
-- ApexKB Evolution — prior value-audit-grounded packet
-- Investment Intelligence Automation — three equal workstreams, existing Cron capability grounded
-- Apartment Improvements — ambiguity-preserving packet
-- Dating / meeting women — weekly capacity input only, no tasks
+1. `apex-meta/handoff/session-canonicalization-confirmation-20260816-w34.okf.md`
+2. `apex-meta/handoff/planning-feed-20260816-w34.md`
+3. `apex-meta/handoff/next-session.md`
+4. canonical task records under `apex-meta/epics/`
+5. `apex-meta/handoff/plan-packets/portfolio-project-capture-index-20260816-2026-W34.md` only when proposal/source history is needed
 
 ## Gate
 
 ```yaml
 current_gate:
-  from: Apex Plan proposal state
-  to: Apex Session confirmed canonical project/task state
-  required_authority: explicit operator approval
-  canonical_writes_done: false
-  apex_sync_allowed_on_new_projects_now: false
+  from: Apex Session confirmed canonical project/task state
+  to: Apex Sync deterministic validation
+  operator_approval_required_now: false
+  canonical_writes_done: true
+  apex_sync_allowed: true
+  project_status_allowed_after_sync: true
   precap_week_g1_allowed_now: false
 ```
 
-## Exact next sequence after approval
+## Exact next sequence
 
-1. Read the pipeline overview, portfolio index, current Apex Session contract, and only the relevant current project packets.
-2. Produce Session before/after mutation preview for the approved new epics and task records.
-3. Apply only operator-approved canonical writes under `apex-meta/epics/`.
-4. Refresh Session planning feed/handoff as required.
-5. Run Apex Sync deterministic validation against canonical task files.
-6. Repair only validated structural/dependency issues through the correct authority.
-7. Generate `artifacts/weekly-plans/project-status-overview-20260816.md`.
-8. Collect/resolve remaining week-specific intent/calendar inputs.
-9. Run PreCap Week G1 to `artifacts/weekly-plans/weekly_plan_packet-20260816-2026-W34.md`.
-10. Stop at G1 operator approval.
+1. Read the current Apex Sync contract.
+2. Run deterministic validation against canonical task files.
+3. Persist dependency/next-action/blocker-staleness/focus/registry outputs.
+4. Route proven structural corrections through the correct authority.
+5. Generate `artifacts/weekly-plans/project-status-overview-20260816.md`.
+6. Collect remaining W34-specific intent/calendar/capacity inputs.
+7. Run PreCap Week G1 to `artifacts/weekly-plans/weekly_plan_packet-20260816-2026-W34.md`.
+8. Stop at G1 operator approval.
 
-## Do not do before approval
+## Do not do
 
-- no new canonical epic/task files;
-- no registry rebuild for proposal-only records;
-- no fake Sync computation;
-- no G1 packet;
-- no OpenClaw project execution;
-- no inference that this cursor, handover, overview, or prior assistant recommendation constitutes Session mutation approval.
-
-## Restart rule
-
-Do not reconstruct the project inventory, decompositions, pipeline architecture, or next steps from chat. Read the handover, pipeline overview, portfolio index, and only the relevant current packet/source repository for the next action.
+- do not reconstruct canonical task state from chat memory;
+- do not run Sync against proposal-only packets when canonical files now exist;
+- do not silently resolve operator-decision blockers;
+- do not duplicate existing Apex weekly-flow/PM initiatives;
+- do not turn Dating into task records;
+- do not run PreCap Week G1 before Sync, ProjectStatus, and W34 input readiness.

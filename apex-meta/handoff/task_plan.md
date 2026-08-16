@@ -1,42 +1,50 @@
 # Goal
 
-Build a NARM-support infrastructure that indexes NARM theory and personal psychological material, creates guided self-exploration flows aligned with NARM, and produces compact session-prep outputs for a NARM therapist. This is a therapy-support knowledgebase, not a replacement for the therapist.
+Complete the first real W34 portfolio-to-weekly Apex cycle from confirmed repository truth: canonicalize the operator-approved portfolio, validate it deterministically with Apex Sync, build ProjectStatus, collect week-specific inputs, and run PreCap Week G1.
 
 # Current Step
 
-Durable planning and session handoff files have been created from the operator-approved apex-plan packet.
+Apex Session canonicalization is complete for the approved nine-epic W34 portfolio set. The next authority is Apex Sync for deterministic graph/dependency/next-action validation.
 
 # Phases
 
-- Phase 1: Define safety and scope boundaries.
-- Phase 2: Inventory and classify Therapy source files.
-- Phase 3: Design NARM theory and personal-material index structures.
-- Phase 4: Define cross-reference rules between NARM theory and personal material.
-- Phase 5: Design self-exploration flows and therapist session-prep output format.
-- Phase 6: Validate dependencies and compute next action through apex-sync.
+- Phase 1: Apex Plan portfolio inventory and evidence-grounded project packets — complete.
+- Phase 2: Operator approval of the proposal set — complete.
+- Phase 3: Apex Session canonical epic/task creation — complete.
+- Phase 4: Apex Sync deterministic validation — next.
+- Phase 5: Generate cross-project ProjectStatus.
+- Phase 6: Collect W34-only capacity/calendar/context inputs.
+- Phase 7: Run PreCap Week G1 and stop at operator G1 gate.
 
 # Decisions
 
-- Operator approved the apex-plan packet for handoff.
-- The project is recorded as epic `narm-support-knowledgebase`.
-- The system must support therapy preparation without replacing therapist judgment.
+- Operator approved the nine proposed new epics for canonicalization.
+- Dating remains weekly capacity only and is not a task backlog.
+- Existing FEE2 weekly-flow and current Plan/Sync/Session PM infrastructure are not duplicated as new epics.
+- Leela Core Interaction Development begins from the existing Home and bounded spatial Skill Tree rather than greenfield rebuilding.
+- Investment discovery, alerts, and decision-feedback workstreams remain equal in operator priority.
+- Open product/architecture choices remain explicit blockers or review flags; Session approval did not resolve them.
 
 # Open Items
 
-- Confirm final index format and target knowledgebase location.
-- Confirm whether generated index files should be written into the Obsidian Therapy folder or kept under `apex-meta`.
-- Confirm privacy and redaction rules for therapist-prep outputs.
-- Validate dependencies through apex-sync.
+- Run Apex Sync against the canonical task graph.
+- Resolve only structural/dependency defects proven by Sync through the correct authority.
+- Generate `artifacts/weekly-plans/project-status-overview-20260816.md`.
+- Collect remaining W34-specific inputs, including calendar constraints/capacity and the Dating time slot.
+- Run PreCap Week G1 after ProjectStatus and weekly context are ready.
+- Existing NARM project remains canonical but is not part of the nine-epic W34 intake mutation.
 
 # Risks
 
-- Scope drift into therapy replacement or diagnostic claims.
-- Raw personal source material may require redaction before summary generation.
-- Relationship-pattern evidence may be ambiguous until source files are inspected.
-- Dependency actionability has not yet been computed.
+- Some tasks intentionally contain operator-answer or missing-input blockers; Sync must preserve rather than silently resolve them.
+- MasterOfArts website source baseline remains unidentified.
+- Apartment art/washing-machine/plumbing outcomes remain intentionally unspecified until real execution context is collected.
+- Investment search topics, alert conditions, and current decision-journal contract remain missing execution inputs.
+- ApexKB alternative evaluation requires current primary-source research at execution time.
+- Gate-policy redesign is a separate validation initiative and has not retroactively changed this Session run.
 
 # Next Actions
 
-- Use apex-sync to validate dependencies and compute next action.
-- Review task records under `apex-meta/epics/narm-support-knowledgebase/`.
-- After validation, begin with the first confirmed actionable task.
+- Invoke Apex Sync using the canonical repository task records.
+- Persist deterministic dependency, next-action, blocker/staleness, focus-candidate, and registry-validation outputs.
+- Route any required structural correction back through Plan/Session rather than patching it inside Sync narrative.
