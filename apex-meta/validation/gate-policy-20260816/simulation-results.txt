@@ -1,0 +1,37 @@
+scenario,oracle,current,proposal_as_written,minimal_pinned_authorization
+S01,ALLOW_NO_NEW_GATE,REQUIRE_OPERATOR_GATE,ALLOW_NO_NEW_GATE,ALLOW_NO_NEW_GATE
+S02,ALLOW_NO_NEW_GATE,REQUIRE_OPERATOR_GATE,ALLOW_NO_NEW_GATE,ALLOW_NO_NEW_GATE
+S03,REQUIRE_OPERATOR_GATE,REQUIRE_OPERATOR_GATE,REQUIRE_OPERATOR_GATE,REQUIRE_OPERATOR_GATE
+S04,ALLOW_NO_NEW_GATE,REQUIRE_OPERATOR_GATE,ALLOW_NO_NEW_GATE,ALLOW_NO_NEW_GATE
+S05,REQUIRE_OPERATOR_GATE,REQUIRE_OPERATOR_GATE,REQUIRE_OPERATOR_GATE,REQUIRE_OPERATOR_GATE
+S06,REQUIRE_OPERATOR_GATE,REQUIRE_OPERATOR_GATE,REQUIRE_OPERATOR_GATE,REQUIRE_OPERATOR_GATE
+S07,ALLOW_NO_NEW_GATE,REQUIRE_OPERATOR_GATE,ALLOW_NO_NEW_GATE,ALLOW_NO_NEW_GATE
+S08,REQUIRE_OPERATOR_GATE,REQUIRE_OPERATOR_GATE,REQUIRE_OPERATOR_GATE,REQUIRE_OPERATOR_GATE
+S09,REQUIRE_OPERATOR_GATE,REQUIRE_OPERATOR_GATE,UNDEFINED_OR_AMBIGUOUS,REQUIRE_OPERATOR_GATE
+S10,REQUIRE_OPERATOR_GATE,REQUIRE_OPERATOR_GATE,UNDEFINED_OR_AMBIGUOUS,REQUIRE_OPERATOR_GATE
+S11,REQUIRE_OPERATOR_GATE,REQUIRE_OPERATOR_GATE,UNDEFINED_OR_AMBIGUOUS,REQUIRE_OPERATOR_GATE
+S12,REQUIRE_OPERATOR_GATE,REQUIRE_OPERATOR_GATE,ALLOW_NO_NEW_GATE,REQUIRE_OPERATOR_GATE
+S13,ALLOW_NO_NEW_GATE,ALLOW_NO_NEW_GATE,ALLOW_NO_NEW_GATE,ALLOW_NO_NEW_GATE
+S14,REQUIRE_OPERATOR_GATE,REQUIRE_OPERATOR_GATE,REQUIRE_OPERATOR_GATE,REQUIRE_OPERATOR_GATE
+S15,ALLOW_NO_NEW_GATE,REQUIRE_OPERATOR_GATE,ALLOW_NO_NEW_GATE,ALLOW_NO_NEW_GATE
+S16,ALLOW_NO_NEW_GATE,REQUIRE_OPERATOR_GATE,ALLOW_NO_NEW_GATE,ALLOW_NO_NEW_GATE
+
+METRICS
+current: correct=10/16 unsafe_allow=0 overblocked=6 undefined=0
+proposal_as_written: correct=12/16 unsafe_allow=1 overblocked=0 undefined=3
+minimal_pinned_authorization: correct=16/16 unsafe_allow=0 overblocked=0 undefined=0
+
+LONG_RUN_20_ACTIONS
+current: extra_gates_no_fault=20; first_stop_with_detected_semantic_drift_at_13=13
+proposal_as_written: extra_gates_no_fault=0; first_stop_with_detected_semantic_drift_at_13=13
+minimal_pinned_authorization: extra_gates_no_fault=0; first_stop_with_detected_semantic_drift_at_13=13
+
+DETECTOR_FALSE_NEGATIVE
+If a semantic change is real but the semantic-delta detector reports false, both exception-based designs can auto-pass it.
+Implication: code/external automation needs action-specific deterministic bounds + evidence/review; gate policy alone is not a safety proof.
+
+NOTES
+- This is a design pressure-test with an explicit provisional oracle, not a production authorization engine.
+- S12 intentionally catches the handover proposal's candidate automatic deterministic registry maintenance conflicting with current Apex Sync's explicit --dry-run false operator request rule.
+- S15 distinguishes safe serialization of a task that contains a future manual decision from executing that manual decision.
+- S16 models an exact external action/payload that was itself explicitly pre-authorized; whether Apex should permit this class is an operator policy choice, not assumed implementation authority.
