@@ -205,3 +205,17 @@ O001_resolution:
 **Scope:** orchestration spine architecture (Module 00 topology)
 
 **Source:** architecture research (`01-ARCHITECTURE-RESEARCH-PROMPT.md` result) + operator acceptance, 2026-08-17
+
+---
+
+## D013 — Module 00 closed: forked-skill topology implemented and fresh-context verified
+
+**Status:** locked
+
+**Decision:** D012's topology is now live in production, not just decided. All twelve phases of `05-TARGET-STRUCTURE-IMPLEMENTATION-PLAN.md` are complete: central routing rewritten, all six stage Skills converted to self-contained fork workers, production routing switched and smoke-tested, `handoff-schema.md` simplified via per-field consumer audit, the authority/persistence map added, the six wrapper agents archived, role-doctrine loading cleaned up, static topology verification passed, and a fresh-context integration test (two independent subagents with no memory of this migration, given only a normal operator trigger and real repo state) passed without requiring any production fix. Full phase-by-phase provenance is in git history and `CURRENT-STATE.md`'s "Full phase record."
+
+**Rationale:** D011 requires that runtime activation be proven by entrypoint/contract behavior a fresh invocation can produce without design-chat memory — the fresh-context test is that proof, not a promise of it.
+
+**Scope:** Module 00 (`00-orchestration-spine`) only. Modules 01-08 (detailed output-artifact refinement) are separately scoped and not started.
+
+**Source:** implementation + fresh-context verification, 2026-08-17

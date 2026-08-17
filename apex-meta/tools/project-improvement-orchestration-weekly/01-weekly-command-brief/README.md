@@ -20,13 +20,13 @@ A readable **Weekly Command Brief** answering:
 - optional day/sequence seeds when useful;
 - what requires operator approval or correction.
 
-## Known current defect
+## Status after Module 00
 
-The current W34 weekly packet is schema/envelope-heavy and contains repeated metadata and provisional numeric mappings. The recovered J02 human-facing design exists but was not made the active runtime output.
+Module 00 (forked-skill topology) already wired the recovered J02 Weekly Command Brief template in as PrecapWeek's active, required runtime output, and removed the fixed five-project roster / mandatory numeric rating as hard schema gates. See `HANDOVER.md` for the exact baseline. What Module 00 deliberately did **not** do: refine the Brief's detailed wording, section depth, or Q&A semantics -- that is this module's job.
 
 ## Module work
 
-A fresh module chat should discuss the detailed weekly Q&A semantics and artifact shape with the operator, then update the real PrecapWeek skill/agent/template/contracts to produce it within the interfaces established by Module 00.
+Discuss the detailed weekly Q&A semantics and artifact shape with the operator, then refine the real PrecapWeek template/contracts within the interfaces `HANDOVER.md` establishes.
 
 ## Completion
 
