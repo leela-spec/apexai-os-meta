@@ -16,4 +16,4 @@
 
 **Regression fixture:** Existing W34 planning/run artifacts and recovered operator-output design.
 
-**Latest scaffold commit:** to be filled after scaffold commit is created.
+**Scaffold commit:** `9d2811bb7e34a45a49883d9a31774887d6d95606`
