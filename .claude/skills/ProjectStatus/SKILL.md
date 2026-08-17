@@ -1,5 +1,5 @@
 ---
-name: project-status-overview
+name: ProjectStatus
 description: >
   Use this skill when the operator asks to create, update, normalize, rank, or
   validate a compact cross-project project status overview. Accepts manual
@@ -17,6 +17,15 @@ description: >
 
 ```yaml
 skill_contract:
+  execution:
+    context: fork_when_requested
+    parent_context_assumed: false
+  lifecycle_required: false
+  role:
+    - readable_projection_of_confirmed_state
+  sources:
+    - confirmed_state
+    - deterministic_Sync_signals_when_useful
   primary_output: current_project_status_overview
   output_role: compact_cross_project_aggregator
   hierarchy:
@@ -67,6 +76,10 @@ skill_contract:
       - project_execution
       - decision_registry
       - artifact_registry
+    must_not:
+      - become_second_state_authority
+      - invent_priority_truth
+      - be_required_after_every_mutation
 ```
 
 ## Supporting Files
