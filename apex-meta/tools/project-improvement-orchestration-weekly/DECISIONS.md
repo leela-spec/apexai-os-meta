@@ -118,8 +118,38 @@
 
 ---
 
+## D010 — Research skill/agent composition before changing topology
+
+**Status:** locked process rule
+
+**Decision:** Module 00 must run `00-orchestration-spine/01-ARCHITECTURE-RESEARCH-PROMPT.md` before reorganizing or retaining the current skill/agent topology by assumption.
+
+**Rationale:** Claude Code natively supports both Skills and Subagents, but native support does not prove that each current wrapper agent creates enough value to justify its context/instruction layer. The architecture must be selected from actual APEX requirements and current official Claude behavior.
+
+**Scope:** orchestration spine architecture
+
+**Source:** operator feedback + architecture review, 2026-08-17
+
+---
+
+## D011 — Runtime activation requires entrypoint/contract behavior, not template presence
+
+**Status:** locked evaluation rule
+
+**Decision:** A promoted template is not considered integrated until the active production entrypoint and runtime path require/use the intended behavior and a fresh invocation can produce it without design-chat memory.
+
+**Rationale:** Previous activation validation reported promoted templates and passing fixtures while changing zero contracts, zero entrypoints and zero runtime behavior; current stage skills still encode the stale schema-first path.
+
+**Scope:** all output modules
+
+**Source:** repository evidence + operator direction, 2026-08-17
+
+---
+
 ## Open architecture question O001 — Skill/agent physical organization
 
-**Status:** unresolved; Module 00
+**Status:** unresolved; Module 00 architecture research
 
-Current evidence shows Claude Code natively composes subagents and skills: project subagents can preload one or more skills, while skills are separate filesystem packages. There is no need to assume a native nested 'meta-skill/sub-skill' hierarchy. Determine whether the current central skill + peer stage agents/skills arrangement should remain, be grouped/reorganized for human maintainability, or be changed for a demonstrated runtime reason.
+Current official Claude Code architecture treats Skills and Subagents as distinct composable primitives: Skills provide reusable instructions/workflows; Subagents provide isolated workers with separate context and may preload Skills. The unresolved APEX question is **not** whether this composition is supported, but whether each current custom weekly stage agent delivers enough isolation, permissions, model specialization, parallelism or reusable worker value to justify the extra layer.
+
+Resolve O001 using `00-orchestration-spine/01-ARCHITECTURE-RESEARCH-PROMPT.md`, then record the accepted topology here before production restructuring.
