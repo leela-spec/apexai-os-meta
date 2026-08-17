@@ -27,7 +27,6 @@ handoff_envelope:
     - operator W34 answers supplied in the subscription AI chat on 2026-08-17
   uncertainties:
     - "Calendar access was explicitly skipped for this run; no fixed appointments or unavailable periods were evaluated."
-    - "The operator named 'video construction/realization' as a co-priority, but that wording does not map uniquely to a canonical task title."
     - "A specific Dating allocation was not supplied."
     - "Numeric ratings translate the operator's equal primary-role override for schema compatibility; they are not separately supplied 1-100 ratings."
   unresolved_risk: "The four-flow daily shape may conflict with unseen calendar commitments; daily planning must validate actual capacity before execution."
@@ -55,8 +54,8 @@ precap_week_output:
     weekly_intent:
       status: provided
       summary: >-
-        Treat the operator-named video construction/realization outcome and the
-        website as equal co-priorities. Keep Leela, MasterOfArts, Apex, and
+        Treat the MasterOfArts website as a named priority. Keep Leela,
+        MasterOfArts, Apex, and
         Investment primary, with one flow for each planned on every weekday;
         the operator decides what is actually run.
     detailed_project_state_files:
@@ -83,17 +82,16 @@ precap_week_output:
 
   weekly_direction:
     week_focus: >-
-      Advance the operator-named video construction/realization outcome and the
-      MasterOfArts website at equal priority while preserving one planned daily
+      Advance the MasterOfArts website while preserving one planned daily
       flow for each of Leela, MasterOfArts, Apex, and Investment.
     success_definition: >-
       Each primary category receives a credible planned flow on every weekday,
-      and the two named co-priority outcomes make concrete forward movement
-      selected by the operator during daily planning.
+      and the website makes concrete forward movement selected by the operator
+      during daily planning.
     strategic_notes:
       - "The four flows are planning proposals, not mandatory execution commitments."
       - "Use dependency-clear Sync candidates before blocked downstream work."
-      - "Preserve equal priority across Investment video discovery, alerts, and decision-feedback branches when choosing Investment work."
+      - "Preserve equal priority across the three Investment branches when choosing Investment work."
     major_constraints:
       - "Calendar constraints are unavailable for this packet."
       - "Dating time remains capacity-only and has no specified allocation."
@@ -117,7 +115,7 @@ precap_week_output:
         source and move the website toward a coherent implementation-ready definition.
       planned_role: primary
       notes:
-        - "The website is one of the operator's two equal co-priority outcomes."
+        - "The website is an operator-named weekly priority."
         - "TransenDance concept work remains an available dependency-clear alternative."
     Apex:
       rating: "[90/70/NA]"
@@ -130,12 +128,12 @@ precap_week_output:
     Investment:
       rating: "[90/70/NA]"
       weekly_goal: >-
-        Use one planned daily flow to advance Investment intelligence, including
-        the operator-named video construction/realization outcome where its
-        canonical mapping is confirmed during daily planning.
+        Use one planned daily flow to advance Investment intelligence by
+        collecting the required operator input or progressing the selected
+        canonical branch when its blocker is cleared.
       planned_role: primary
       notes:
-        - "Video discovery, alerts, and decision feedback remain equal in operator priority."
+        - "The three canonical Investment branches remain equal in operator priority."
         - "Execution still requires the explicit topics, alert conditions, or decision-process inputs named by canonical blockers."
     Residual:
       rating: "[30/20/NA]"
@@ -164,7 +162,7 @@ precap_week_output:
       day_role: build
       priority_projects: [Leela, MasterOfArts, Apex, Investment]
       capacity_shape: standard
-      intended_direction: "Plan four primary-category flows and use the operator's daily choice to favor whichever co-priority outcome has the clearest leverage."
+      intended_direction: "Plan four primary-category flows and use the operator's daily choice to favor the work with the clearest leverage."
       calendar_notes: ["Calendar not evaluated; validate constraints during daily planning."]
       deferred_or_reduced: [Residual]
     Thursday:
@@ -194,13 +192,11 @@ precap_week_output:
       - "Do not treat all four proposed flows as mandatory if actual capacity is lower."
       - "Use only dependency-clear tasks or explicitly collect the input required by a blocker."
     recommended_first_day_direction: >-
-      Propose one Monday flow for each primary category, lead with one of the
-      two operator-named co-priority outcomes, and let the operator confirm the
-      actual order and feasible count.
+      Propose one Monday flow for each primary category, include the website
+      priority, and let the operator confirm the actual order and feasible count.
     missing_context_for_precap_next_day:
       - "Monday calendar constraints"
       - "Specific Dating allocation"
-      - "Canonical task mapping for the operator phrase 'video construction/realization'"
 
   calendar_source_status:
     status: calendar_unavailable
@@ -223,16 +219,12 @@ precap_week_output:
       effect: "Flow timing and conflict-free feasibility cannot be established."
     - input: dating_time_allocation
       effect: "Dating cannot be reserved as a specific W34 capacity block."
-    - input: video_construction_realization_task_mapping
-      effect: "The named co-priority is preserved verbatim but cannot be attached to a unique canonical task without confirmation."
 
   operator_validation:
     status: operator_review_needed
     review_flags:
       - trigger: calendar_uncertainty
         required_operator_decision: "Confirm that calendar-aware daily planning will occur before fixed flow times are accepted."
-      - trigger: ambiguous_priority_mapping
-        required_operator_decision: "Confirm or correct the canonical meaning of 'video construction/realization'."
       - trigger: missing_dating_allocation
         required_operator_decision: "Either provide a Dating allocation later or accept that none is reserved in this packet."
       - trigger: capacity_assumption
@@ -244,7 +236,7 @@ precap_week_output:
 
 - Four primary categories: Leela, MasterOfArts, Apex, and Investment.
 - Four planned weekday flows: one per primary category; actual execution remains the operator's decision.
-- Video construction/realization and the website are preserved as equal co-priorities.
+- The MasterOfArts website remains a named weekly priority.
 - Residual remains recovery/support; nothing is excluded.
 - Calendar constraints and a Dating allocation remain unresolved and visible.
 
