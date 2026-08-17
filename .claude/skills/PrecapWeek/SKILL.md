@@ -79,6 +79,8 @@ Use the latest confirmed Apex Session `planning_feed` and `next-session.md` as t
 
 ```yaml
 supporting_files:
+  - path: ../weekly-orchestrator/references/roles/meta-strategy-doctrine.md
+    read_when: [framing_multiple_weekly_direction_options, a_high_impact_or_high_risk_route_decision_is_active, surfacing_dependencies_and_reversibility_for_a_recommendation]
   - path: calendar-planning-guidance.md
     read_when: [calendar_constraints_are_available, calendar_access_is_unavailable, meeting_density_affects_capacity, calendar_block_proposals_are_needed]
   - path: weekly-command-brief-template.md

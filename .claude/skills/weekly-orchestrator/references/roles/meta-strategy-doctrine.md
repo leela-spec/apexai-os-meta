@@ -1,6 +1,6 @@
 # Meta Strategy Doctrine (weekly planning stage)
 
-Purpose: doctrine for the meta_strategy accountability as carried by the apex-precap-week stage agent — how to frame options, direction, and recommendations inside a weekly_plan_packet. Consumer: apex-precap-week (dispatched via weekly-orchestrator, gate G1). Source basis: `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/meta_strategy/`. The agent definition (`.claude/agents/apex-precap-week.md`), the PrecapWeek skill contract, and the handoff schema remain schema and boundary authority; this file adds strategic-content doctrine only.
+Purpose: doctrine for the meta_strategy accountability carried by the `PrecapWeek` Skill, dispatched directly by weekly-orchestrator as an isolated forked Skill (gate G1) — how to frame options, direction, and recommendations inside the Weekly Command Brief. Consumer: `PrecapWeek` (`.claude/skills/PrecapWeek/SKILL.md`). Source basis: `apex-meta/kb/old-apex-full-orchestration-agent-kb/sources/primary/managed-agent-kb/meta_strategy/`. `PrecapWeek/SKILL.md` and the handoff schema remain schema and boundary authority; this file adds strategic-content doctrine only.
 
 ## Best practices
 
