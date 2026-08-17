@@ -12,9 +12,9 @@
 
 **Implementation phase order (from the target plan):**
 
-1. Phase 1/2 — record decision (done) + fix cold-start discovery: rename `.claude/Claude.md` -> `.claude/CLAUDE.md`.
-2. Phase 3 — rewrite `weekly-orchestrator/SKILL.md` routing to dispatch directly to owning Skills (`context: fork`), keeping only lifecycle/gate/persistence ownership centrally.
-3. Phase 4 — convert the six owning Skills into self-contained fork workers, one at a time (PrecapWeek -> PrecapNextDay -> raw-flow-dump-normalize -> flow-recap -> status-merge -> ProjectStatus).
+1. Phase 1/2 — record decision (done) + fix cold-start discovery: rename `.claude/Claude.md` -> `.claude/CLAUDE.md`. **DONE** (commits `ad95d50d`, `e24d3039`).
+2. Phase 3 — rewrite `weekly-orchestrator/SKILL.md` routing to dispatch directly to owning Skills (`context: fork`), keeping only lifecycle/gate/persistence ownership centrally. **DONE** (commit `91efd902`). `stage_routing` now maps to `PrecapWeek`/`PrecapNextDay`/`raw-flow-dump-normalize`/`flow-recap`/`status-merge`/`ProjectStatus` owners with `execution: context_fork*`; no wrapper-agent name remains in the file. Reviewer agents and role-doctrine reference list left untouched (doctrine cleanup is Phase 9/H).
+3. Phase 4 — convert the six owning Skills into self-contained fork workers, one at a time (PrecapWeek -> PrecapNextDay -> raw-flow-dump-normalize -> flow-recap -> status-merge -> ProjectStatus). **IN PROGRESS — start here.** Note found during Phase 3 recon: each owning Skill's own frontmatter `name:` (e.g. `precap-week`, `precap-next-day`, `project-status-overview`) differs from its directory/PascalCase name (`PrecapWeek`, `PrecapNextDay`, `ProjectStatus`) used in stage_routing and in the Skill-tool's invocable listing. Resolve/verify this per-skill during its own migration step — do not fix speculatively across all six at once.
 4. Phase 5 — switch production routing to the Skills; smoke-test before archiving anything.
 5. Phase 6 — simplify `handoff-schema.md` via per-field consumer audit.
 6. Phase 7 — normalize the authority/persistence map inside `weekly-orchestrator`.
@@ -24,9 +24,9 @@
 10. Phase 11 — fresh-context Module 00 integration test (Tests A-H, no design-chat rationale supplied).
 11. Phase 12 — Module 00 closure; write Module 01 handover.
 
-**Open decision:** none architectural. Remaining implementation judgment calls (e.g., exact handoff-schema field disposition) are resolved per-field using the retention test in the target plan, not re-litigated as architecture.
+**Open decision:** none architectural. Remaining implementation judgment calls (e.g., exact handoff-schema field disposition, the skill-name-vs-directory-name mismatch above) are resolved per-field/per-skill using the retention test in the target plan, not re-litigated as architecture.
 
-**Next action:** Phase B/2 — rename `.claude/Claude.md` to `.claude/CLAUDE.md` (two-step rename; NTFS is case-insensitive), verifying content stays a compact activation/routing surface only. Then proceed to Phase C/3 — rewrite `weekly-orchestrator/SKILL.md` stage routing.
+**Next action:** Phase D/4 — migrate `PrecapWeek` first: read `.claude/skills/PrecapWeek/SKILL.md` and its wrapper agent `.claude/agents/apex-precap-week.md`, classify every wrapper rule (already_in_skill / belongs_in_skill / belongs_in_orchestrator / obsolete), add `execution: {context: fork, parent_context_assumed: false}` to the Skill, search consumers before removing any field, then repeat for PrecapNextDay, raw-flow-dump-normalize, flow-recap, status-merge, ProjectStatus in that order. One coherent Skill migration = one commit.
 
 **Regression fixture:** Existing W34 planning/run artifacts and recovered operator-output design.
 
