@@ -7,16 +7,16 @@ handoff_envelope:
   produced_by: apex-precap-week
   accountability: meta_strategy
   lifecycle_stage: proposal
-  status: partial
+  status: complete
   target_surface: none
-  next_state: "If the operator confirms G1, PreCapNextDay may use the first_precap_next_day_seed for Monday planning."
+  next_state: "G1 is confirmed. PreCapNextDay may use the first_precap_next_day_seed for Monday planning."
   prerequisites:
     - apex-meta/handoff/planning-feed-20260816-w34.md
     - apex-meta/handoff/sync-reports/20260816-w34/next.json
     - apex-meta/handoff/sync-reports/20260816-w34/blockers.json
     - apex-meta/handoff/sync-reports/20260816-w34/score.json
     - artifacts/weekly-plans/project-status-overview-20260816.md
-  expected_action: "Operator confirms or revises G1; after confirmation, PreCapNextDay consumes first_precap_next_day_seed."
+  expected_action: "PreCapNextDay consumes first_precap_next_day_seed and produces the G2 candidate; project execution still requires G2 confirmation."
   sources:
     - apex-meta/handoff/plan-packets/subscription-ai-projectstatus-precap-g1-handoff-20260816-w34.okf.md
     - apex-meta/handoff/planning-feed-20260816-w34.md
@@ -25,17 +25,18 @@ handoff_envelope:
     - apex-meta/handoff/sync-reports/20260816-w34/score.json
     - artifacts/weekly-plans/project-status-overview-20260816.md
     - operator W34 answers supplied in the subscription AI chat on 2026-08-17
+    - operator G1 approval supplied in the subscription AI chat on 2026-08-17
   uncertainties:
     - "Calendar access was explicitly skipped for this run; no fixed appointments or unavailable periods were evaluated."
     - "A specific Dating allocation was not supplied."
     - "Numeric ratings translate the operator's equal primary-role override for schema compatibility; they are not separately supplied 1-100 ratings."
   unresolved_risk: "The four-flow daily shape may conflict with unseen calendar commitments; daily planning must validate actual capacity before execution."
-  stop_condition: "Stop at G1. Do not run PreCapNextDay, G2, calendar writes, prompt creation, project execution, status merge, or Session mutation before operator confirmation."
+  stop_condition: "G1 passed. PreCapNextDay/G2 planning is allowed; do not execute project work, perform calendar writes, run FlowRecap, status merge, or Session mutation before the relevant downstream gates."
   authority:
-    state: candidate
+    state: confirmed
     basis_digest: null
-    verification_ref: null
-  operator_validation: not_requested
+    verification_ref: "operator approval in subscription AI chat, 2026-08-17"
+  operator_validation: confirmed
 ```
 
 # PreCap Week — 2026-W34
@@ -47,7 +48,7 @@ precap_week_output:
     schema_version: "0.1"
     week_id: "2026-W34"
     created_at: "2026-08-16"
-    output_status: operator_review_needed
+    output_status: approved
     primary_consumer: PreCapNextDay
 
   input_basis:
@@ -182,7 +183,7 @@ precap_week_output:
 
   first_precap_next_day_seed:
     target_day: Monday
-    seed_status: operator_review_needed
+    seed_status: approved
     weekly_context_summary: >-
       W34 uses an eight-hour, four-flow daily planning baseline with Leela,
       MasterOfArts, Apex, and Investment all primary; calendar constraints are unavailable.
@@ -221,15 +222,15 @@ precap_week_output:
       effect: "Dating cannot be reserved as a specific W34 capacity block."
 
   operator_validation:
-    status: operator_review_needed
+    status: confirmed
     review_flags:
       - trigger: calendar_uncertainty
-        required_operator_decision: "Confirm that calendar-aware daily planning will occur before fixed flow times are accepted."
+        resolution: "Accepted at G1 with the requirement that calendar-aware daily planning occur before fixed flow times are accepted."
       - trigger: missing_dating_allocation
-        required_operator_decision: "Either provide a Dating allocation later or accept that none is reserved in this packet."
+        resolution: "Accepted at G1 without a reserved Dating allocation; it may be supplied later as capacity context."
       - trigger: capacity_assumption
-        required_operator_decision: "Confirm that the eight-hour/four-flow weekday baseline reflects the intended planning model."
-    approval_required_before_precap_next_day: true
+        resolution: "Accepted at G1 as the planning baseline, subject to day-level capacity validation."
+    approval_required_before_precap_next_day: false
 ```
 
 ## G1 Summary
@@ -240,6 +241,8 @@ precap_week_output:
 - Residual remains recovery/support; nothing is excluded.
 - Calendar constraints and a Dating allocation remain unresolved and visible.
 
-## G1 Approval Question
+## G1 Gate Record
 
-Approve this W34 weekly direction for PreCapNextDay, or name the exact revision required. Approval confirms the planning direction only; it does not authorize G2, calendar writes, prompt creation, or project execution.
+- Operator decision: approved.
+- Recorded: 2026-08-17.
+- Effect: PreCapNextDay may produce the Monday G2 candidate. Project execution remains gated on G2 approval.
