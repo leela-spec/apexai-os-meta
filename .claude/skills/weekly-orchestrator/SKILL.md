@@ -47,7 +47,36 @@ skill_contract:
   boundaries:
     owns: [stage_dispatch, gate_records, durable_write_application, review_triggering, loop_position_reporting]
     must_not_own: [stage_packet_schemas, project_work_execution, skill_contract_content, calendar_or_scheduler_creation]
+  authority:
+    lifecycle: weekly-orchestrator
+    weekly_planning: PrecapWeek
+    daily_planning: PrecapNextDay
+    prompt_content: PromptEngineer
+    AI_routing: AIRouting
+    evidence_normalization: raw-flow-dump-normalize
+    recap: flow-recap
+    candidate_merge: status-merge
+    durable_mutation: apex-session
+    deterministic_computation: apex-sync
+    project_projection: ProjectStatus
+    review_validity: apex-review-validity
+    review_alignment: apex-review-alignment
 ```
+
+## Persistence defaults
+
+| Output | Target |
+|---|---|
+| Weekly Command Brief | durable operator artifact |
+| Next Day Brief | durable operator artifact |
+| Flow Execution Card | durable execution artifact |
+| actual prompt file | durable execution artifact |
+| normalization intermediate | ephemeral by default |
+| FlowRecap result | durable result/evidence artifact |
+| StatusMerge decision surface | durable when needed for mutation/audit |
+| ProjectStatus | on-demand/derived unless a later module proves persistence value |
+| Sync report | deterministic report under existing Sync contract |
+| Session mutation | canonical durable state |
 
 ## Procedure
 
