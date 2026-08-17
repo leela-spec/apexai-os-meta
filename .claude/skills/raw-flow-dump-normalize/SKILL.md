@@ -18,6 +18,16 @@ This skill is an interface package only. It prepares clear downstream input for 
 skill_contract:
   package_name: raw-flow-dump-normalize
   package_path: ".claude/skills/raw-flow-dump-normalize/"
+  execution:
+    context: fork_per_flow
+    parent_context_assumed: false
+  invocation: conditional
+  bypass_rule:
+    if_input_already_conforms_to_normalized_raw_flow_dump_or_skipped_flow_marker: skip_normalization_and_pass_through_unchanged
+    if_input_is_messy_partial_or_unstructured: normalize
+  persistence:
+    write_output_file_only_if_a_future_consumer_requires_it: true
+    otherwise: return_the_normalized_body_inline_to_the_caller
   primary_outputs:
     - normalized_raw_flow_dump
     - skipped_flow_marker
@@ -64,13 +74,14 @@ supporting_files:
 
 ## Procedure
 
-1. Identify the single planned flow being normalized and capture `execution_day`, `flow_id`, `source_flow_packet_ref`, and `flow_prompt_pack_ref` when available.
-2. Inspect the available raw evidence: operator notes, chat excerpts, produced artifacts, missing artifacts, blocker notes, and model usage notes.
-3. Decide whether evidence supports `normalized_raw_flow_dump` or whether the flow should instead become `skipped_flow_marker`.
-4. Separate raw evidence from normalized interpretation; do not rewrite uncertainty into certainty.
-5. Normalize completion state, produced outputs, decisions, blockers or failures, open questions, source gaps, model usage notes, confidence, and validation status.
-6. Check ownership boundaries before output: no FlowRecap packet, no project status delta, no model usage delta, no status merge, no project execution, and no calendar write.
-7. Return the normalized artifact or marker plus any operator review flags needed before downstream FlowRecap.
+1. Check whether the supplied input already conforms to `normalized_raw_flow_dump` or `skipped_flow_marker` structure. If it does, bypass normalization and pass it through to FlowRecap unchanged -- this stage is conditional, not a mandatory pipeline step.
+2. Identify the single planned flow being normalized and capture `execution_day`, `flow_id`, `source_flow_packet_ref`, and `flow_prompt_pack_ref` when available.
+3. Inspect the available raw evidence: operator notes, chat excerpts, produced artifacts, missing artifacts, blocker notes, and model usage notes.
+4. Decide whether evidence supports `normalized_raw_flow_dump` or whether the flow should instead become `skipped_flow_marker`.
+5. Separate raw evidence from normalized interpretation; do not rewrite uncertainty into certainty.
+6. Normalize completion state, produced outputs, decisions, blockers or failures, open questions, source gaps, model usage notes, confidence, and validation status.
+7. Check ownership boundaries before output: no FlowRecap packet, no project status delta, no model usage delta, no status merge, no project execution, and no calendar write.
+8. Return the normalized artifact or marker plus any operator review flags needed before downstream FlowRecap. Write a file only if a downstream consumer needs a persistent ref; otherwise return the body inline to the caller.
 
 ## Failure Modes
 
