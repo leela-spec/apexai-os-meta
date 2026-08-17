@@ -10,6 +10,17 @@ This is the highest-leverage module because repository evidence already shows th
 
 What is the smallest coherent, resilient Weekly Orchestration lifecycle that reliably moves from confirmed project truth to weekly planning, daily planning, execution, truthful evidence, recap/candidate changes and confirmed state update?
 
+## Mandatory execution order
+
+A fresh Master must use the Module 00 files in this order:
+
+1. **`01-ARCHITECTURE-RESEARCH-PROMPT.md`** — run an independent current-docs + repo research pass to decide whether the existing `weekly-orchestrator -> stage agents -> stage skills` composition is actually the simplest justified native architecture.
+2. **`02-MACRO-INTEGRATION-GUIDANCE.md`** — lock why the validated operator design must be integrated into runtime authority rather than merely stored as templates.
+3. **`03-MESO-INTEGRATION-GUIDANCE.md`** — map the target design to the actual Weekly Orchestrator, PrecapWeek, PrecapNextDay, Flow Cards, prompt files, evidence, recap, status mutation and ProjectStatus components.
+4. **`04-MICRO-INTEGRATION-SEQUENCE.md`** — execute the ordered global-spine migration, stale-authority retirement, static integration verification and Module 01 handoff.
+
+Do not skip directly to implementation before the architecture research decision is recorded. Do not rerun broad design discovery after the research result unless new evidence contradicts the validated design.
+
 ## Master responsibilities
 
 Understand and challenge:
@@ -37,10 +48,13 @@ The repo currently uses:
 - peer stage skills under `.claude/skills/` such as `PrecapWeek`, `PrecapNextDay`, `ProjectStatus`, `PromptEngineer`, `apex-session`, `apex-sync`;
 - stage agents may preload their owning skill through agent frontmatter.
 
-This composition is natively supported by Claude Code. Do **not** create a nested meta-skill hierarchy merely for visual neatness. Physical reorganization is allowed only if it improves maintainability or runtime behavior without duplicating authority.
+Claude Code supports skills and subagents as distinct composable primitives, but **native support does not prove that every current wrapper agent is useful**. The architecture research must test each agent against actual needs for context isolation, tool/permission boundaries, parallel work, model specialization and repeatability.
+
+Do **not** create a nested meta-skill hierarchy merely for visual neatness. Do not retain custom stage agents merely because they already exist.
 
 ## Explicit assumptions to revalidate
 
+- current skill + agent composition and whether wrapper agents duplicate skill behavior;
 - G1-G5 structure and which gates are truly blocking;
 - universal weekly handoff envelope;
 - mandatory Sync reads;
@@ -53,15 +67,23 @@ This composition is natively supported by Claude Code. Do **not** create a neste
 - current planning stage interfaces;
 - prompt-pack requirement.
 
+## Known integration failure to correct
+
+The validated operator-output templates were promoted into owning packages, but the recorded activation validation changed **zero contracts, zero entrypoints and zero runtime behavior**. Current PrecapWeek and PrecapNextDay entrypoints still encode schema-first packet behavior.
+
+Therefore Module 00 must treat **runtime wiring and stale-authority removal** as the real integration problem. Template presence alone is not activation.
+
 ## Expected module result
 
-1. A plain-language corrected lifecycle.
-2. A justified component/transaction map.
-3. Updated active global Weekly Orchestrator contracts encoding that lifecycle.
-4. Superseded global contracts moved to archive/history where appropriate.
-5. Clear module interfaces for Modules 01+.
-6. Updated root `CURRENT-STATE.md` and `DECISIONS.md`.
-7. First bounded handover for the next module.
+1. Accepted simplest runtime composition for skills/subagents.
+2. A plain-language corrected lifecycle.
+3. A justified component/transaction map.
+4. Updated active global Weekly Orchestrator contracts encoding that lifecycle.
+5. Stage interfaces aligned with the validated operator-output design.
+6. Superseded global contracts moved to archive/history where appropriate.
+7. Clear module interfaces for Modules 01+.
+8. Updated root `CURRENT-STATE.md` and `DECISIONS.md`.
+9. First bounded handover for the next module.
 
 ## Not this module
 
