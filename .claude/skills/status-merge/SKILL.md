@@ -10,6 +10,9 @@ description: Use this skill to review FlowRecap candidate deltas against confirm
 `status-merge` owns the operator-reviewable proposal between weekly evidence and Apex Session. It does not mutate project state, write Project KB records, create plans, or run Apex Plan or Sync.
 
 ```yaml
+execution:
+  context: fork_per_batch
+  parent_context_assumed: false
 inputs:
   required: [source_flow_recap_refs, previous_session_or_sync_refs]
   optional: [source_usage_summary_refs, operator_merge_notes, evidence_refs]
@@ -17,7 +20,11 @@ outputs:
   - status_merge_packet
   - proposed_apex_session_mutation
   - next_PreCapNextDay_input_context
+owns: [combine_candidate_changes, expose_conflicts, produce_operator_decision_surface]
+must_not_own: [durable_mutation, canonical_state, lifecycle_gate]
+gate_owner: weekly-orchestrator
 durable_owner: apex-session
+mutation_consumer: apex-session
 ```
 
 ## Procedure
