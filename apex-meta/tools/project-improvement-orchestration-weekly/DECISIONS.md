@@ -148,8 +148,60 @@
 
 ## Open architecture question O001 — Skill/agent physical organization
 
-**Status:** unresolved; Module 00 architecture research
+**Status:** resolved — see D012
 
-Current official Claude Code architecture treats Skills and Subagents as distinct composable primitives: Skills provide reusable instructions/workflows; Subagents provide isolated workers with separate context and may preload Skills. The unresolved APEX question is **not** whether this composition is supported, but whether each current custom weekly stage agent delivers enough isolation, permissions, model specialization, parallelism or reusable worker value to justify the extra layer.
+Current official Claude Code architecture treats Skills and Subagents as distinct composable primitives: Skills provide reusable instructions/workflows; Subagents provide isolated workers with separate context and may preload Skills. The unresolved APEX question was **not** whether this composition is supported, but whether each current custom weekly stage agent delivers enough isolation, permissions, model specialization, parallelism or reusable worker value to justify the extra layer.
 
-Resolve O001 using `00-orchestration-spine/01-ARCHITECTURE-RESEARCH-PROMPT.md`, then record the accepted topology here before production restructuring.
+Resolved using `00-orchestration-spine/01-ARCHITECTURE-RESEARCH-PROMPT.md`. Accepted topology recorded in D012.
+
+---
+
+## D012 — O001 resolved: skill-owned, selectively-forked weekly runtime topology
+
+**Status:** locked
+
+**Decision:** Accept the researched topology as final for Module 00. Six weekly stage components become directly-executable Skills invoked with isolated `context: fork` from the central `weekly-orchestrator`, replacing their wrapper agents. Two blind reviewer agents are retained as independent Subagents because their isolation/blind-review value is functional, not incidental. `apex-session` and `apex-sync` remain the durable-mutation and deterministic-read-side backbone. `PromptEngineer`, `AIRouting`, and `model-usage-log` are loaded only on demand, never preloaded by default.
+
+```okf
+O001_resolution:
+  status: accepted
+
+  composition:
+    main_session:
+      - weekly-orchestrator
+
+    forked_stage_skills:
+      - PrecapWeek
+      - PrecapNextDay
+      - raw-flow-dump-normalize_when_needed
+      - flow-recap_per_flow
+      - status-merge_per_batch
+      - ProjectStatus_when_requested
+
+    retained_custom_agents:
+      - apex-review-validity
+      - apex-review-alignment
+
+    direct_backbone:
+      - apex-session
+      - apex-sync
+
+    on_demand_dependencies:
+      - PromptEngineer
+      - AIRouting
+      - model-usage-log
+
+  removed_from_active_runtime:
+    - apex-precap-week
+    - apex-precap-next-day
+    - apex-evidence-normalize
+    - apex-flow-recap
+    - apex-status-merge
+    - apex-project-status
+```
+
+**Rationale:** The six wrapper agents added an instruction/context layer without unique isolation, permission, model-specialization, or parallelism value beyond what `context: fork` on the owning Skill already provides. The two review agents are kept because their functional value (blind, independent, read-only judgment) depends specifically on being separate Subagents that never see producer rationale or each other's verdict.
+
+**Scope:** orchestration spine architecture (Module 00 topology)
+
+**Source:** architecture research (`01-ARCHITECTURE-RESEARCH-PROMPT.md` result) + operator acceptance, 2026-08-17
