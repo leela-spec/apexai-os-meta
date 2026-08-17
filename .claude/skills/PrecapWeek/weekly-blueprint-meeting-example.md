@@ -7,7 +7,7 @@ purpose:  file_role: meeting_heavy_deformation_reference  owns:    - meeting_wee
 ## Scope
 
 ```
-scope:  applies_to:    - meeting_heavy_weeks    - constrained_weekdays    - overloaded_days    - partial_capacity_days    - calendar_constrained_weekly_planning  does_not_replace:    - weekly_blueprint_standard    - calendar_planning_guidance    - weekly_plan_output_contract  weekday_scope:    included:      - Monday      - Tuesday      - Wednesday      - Thursday      - Friday    excluded:      - Saturday      - Sunday_regular_day_planning    allowed_exception:      - Sunday_weekly_precap_session  use_condition: >    Use this file only after the standard weekday blueprint has been considered    and calendar constraints or fixed commitments make the standard structure    unrealistic.
+scope:  applies_to:    - meeting_heavy_weeks    - constrained_weekdays    - overloaded_days    - partial_capacity_days    - calendar_constrained_weekly_planning  does_not_replace:    - weekly_blueprint_standard    - calendar_planning_guidance    - weekly_command_brief_template  weekday_scope:    included:      - Monday      - Tuesday      - Wednesday      - Thursday      - Friday    excluded:      - Saturday      - Sunday_regular_day_planning    allowed_exception:      - Sunday_weekly_precap_session  use_condition: >    Use this file only after the standard weekday blueprint has been considered    and calendar constraints or fixed commitments make the standard structure    unrealistic.
 ```
 
 ## Meeting-Heavy Detection

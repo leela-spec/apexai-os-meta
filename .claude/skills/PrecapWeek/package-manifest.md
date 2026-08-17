@@ -4,16 +4,19 @@
 package_manifest:
   package_name: PrecapWeek
   package_path: .claude/skills/PrecapWeek/
-  entrypoint: Skill_Precap-Week.md
-  primary_output: precap_week_output
-  first_downstream_seed: first_precap_next_day_seed
+  entrypoint: SKILL.md
+  execution:
+    context: fork
+    parent_context_assumed: false
+  primary_operator_output: Weekly_Command_Brief
+  downstream_transfer: reference_plus_minimal_seed  # carried in the Brief's own compact downstream handoff block
   files:
-    - path: Skill_Precap-Week.md
+    - path: SKILL.md
       role: skill_entrypoint
     - path: calendar-planning-guidance.md
       role: calendar_constraint_contract
-    - path: weekly-plan-output-contract.md
-      role: canonical_weekly_output_contract
+    - path: weekly-command-brief-template.md
+      role: active_required_operator_output_template
     - path: weekly-blueprint-standard.md
       role: standard_weekday_blueprint
     - path: weekly-blueprint-meeting-example.md
@@ -34,5 +37,9 @@ package_manifest:
   completion_conditions:
     all_declared_files_present: true
     operator_validation_required_before_downstream_use: true
-    first_precap_next_day_seed_required: true
+    compact_downstream_handoff_required: true
+  superseded_files:
+    - path: weekly-plan-output-contract.md
+      archived_to: apex-meta/archive/weekly-orchestration/topology-pre-forked-skills-2026-08/PrecapWeek/weekly-plan-output-contract.md
+      reason: replaced_by_weekly-command-brief-template.md_as_the_active_required_output_contract
 ```

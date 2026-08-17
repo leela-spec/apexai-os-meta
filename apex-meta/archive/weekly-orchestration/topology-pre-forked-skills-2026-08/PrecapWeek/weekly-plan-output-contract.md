@@ -1,3 +1,23 @@
+```yaml
+archive_metadata:
+  original_path: .claude/skills/PrecapWeek/weekly-plan-output-contract.md
+  archived_date: 2026-08-17
+  reason: replaced_by_weekly-command-brief-template.md_as_the_active_required_operator_output
+  replacement: .claude/skills/PrecapWeek/weekly-command-brief-template.md
+  architecture_decision_ref: apex-meta/tools/project-improvement-orchestration-weekly/DECISIONS.md#D012
+```
+
+This file defined `precap_week_output`: a machine-schema artifact with a fixed five-project roster
+(Leela/MasterOfArts/Apex/Investment/Residual) and mandatory 1-100 `[priority/urgency/date]` ratings
+as hard approval gates, plus a `first_precap_next_day_seed` section that duplicated the full weekly
+result into a second machine artifact. D012 (accepted forked-skill topology) and the target
+implementation plan (`00-orchestration-spine/05-TARGET-STRUCTURE-IMPLEMENTATION-PLAN.md`, Phase 4A)
+retire this in favor of the human-first `Weekly_Command_Brief` template, whose own compact
+"downstream handoff" block carries the minimal seed PrecapNextDay needs. Kept here for history per
+D007 (preserve superseded architecture rather than delete).
+
+---
+
 ## Purpose
 
 ```
