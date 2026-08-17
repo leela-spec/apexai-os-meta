@@ -1,3 +1,18 @@
+```yaml
+archive_metadata:
+  original_path: .claude/agents/apex-status-merge.md
+  archived_date: 2026-08-17
+  reason: replaced_by_direct_forked_skill_execution
+  replacement: .claude/skills/status-merge/SKILL.md
+  architecture_decision_ref: apex-meta/tools/project-improvement-orchestration-weekly/DECISIONS.md#D012
+```
+
+Superseded per D012: weekly-orchestrator now dispatches `status-merge` directly as
+an isolated forked Skill per batch (`execution: context: fork_per_batch`),
+replacing this wrapper agent. Kept for history per D007.
+
+---
+
 ---
 name: apex-status-merge
 description: Status-merge stage of the Apex weekly loop. Use when the operator triggers "run status-merge" or the weekly-orchestrator dispatches stage G5 with unconsumed flow recap packets. Reviews candidate deltas against previous project state, surfaces conflicts, and produces a proposal-only status_merge_packet plus next_PreCapNextDay_input_context. Never mutates durable state itself.

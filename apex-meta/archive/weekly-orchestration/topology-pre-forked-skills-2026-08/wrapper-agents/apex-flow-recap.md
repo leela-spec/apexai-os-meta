@@ -1,3 +1,21 @@
+```yaml
+archive_metadata:
+  original_path: .claude/agents/apex-flow-recap.md
+  archived_date: 2026-08-17
+  reason: replaced_by_direct_forked_skill_execution
+  replacement: .claude/skills/flow-recap/SKILL.md
+  architecture_decision_ref: apex-meta/tools/project-improvement-orchestration-weekly/DECISIONS.md#D012
+```
+
+Superseded per D012: weekly-orchestrator now dispatches `flow-recap` directly as an
+isolated forked Skill per flow (`execution: context: fork_per_flow`, parallel across
+independent flows), replacing this wrapper agent's role of preloading both the
+`flow-recap` and `model-usage-log` skills. model-usage-log is now invoked by
+flow-recap only when actual usage evidence exists, not unconditionally as this
+agent did. Kept for history per D007.
+
+---
+
 ---
 name: apex-flow-recap
 description: Recap stage of the Apex weekly loop. Use when the operator triggers "run flow-recap" or the weekly-orchestrator dispatches stage G4 with a flow packet plus normalized raw flow dump. Produces the flow_recap_packet with candidate-only project status delta, candidate model usage delta, and next_step_proposal. Candidates only — never accepted state, never durable writes.

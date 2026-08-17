@@ -1,3 +1,19 @@
+```yaml
+archive_metadata:
+  original_path: .claude/agents/apex-precap-next-day.md
+  archived_date: 2026-08-17
+  reason: replaced_by_direct_forked_skill_execution
+  replacement: .claude/skills/PrecapNextDay/SKILL.md
+  architecture_decision_ref: apex-meta/tools/project-improvement-orchestration-weekly/DECISIONS.md#D012
+```
+
+Superseded per D012: weekly-orchestrator now dispatches `PrecapNextDay` directly as
+an isolated forked Skill (`execution: context: fork`), replacing this wrapper
+agent's role of preloading the `precap-next-day` skill inside a named custom
+agent. Kept for history per D007.
+
+---
+
 ---
 name: apex-precap-next-day
 description: Daily planning stage of the Apex weekly loop. Use when the operator triggers "run precap-next-day" or the weekly-orchestrator dispatches stage G2. Compiles the next_day_plan, F1-F4 flow packets, and per-flow prompt packs from the confirmed weekly plan and best available context. Never executes project work, never runs FlowRecap, never merges status.

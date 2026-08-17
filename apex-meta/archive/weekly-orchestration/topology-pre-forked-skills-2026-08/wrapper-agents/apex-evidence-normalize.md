@@ -1,3 +1,18 @@
+```yaml
+archive_metadata:
+  original_path: .claude/agents/apex-evidence-normalize.md
+  archived_date: 2026-08-17
+  reason: replaced_by_direct_forked_skill_execution
+  replacement: .claude/skills/raw-flow-dump-normalize/SKILL.md
+  architecture_decision_ref: apex-meta/tools/project-improvement-orchestration-weekly/DECISIONS.md#D012
+```
+
+Superseded per D012: weekly-orchestrator now dispatches `raw-flow-dump-normalize`
+directly as a conditional isolated forked Skill (`execution: context: fork_per_flow`),
+replacing this wrapper agent. Kept for history per D007.
+
+---
+
 ---
 name: apex-evidence-normalize
 description: Evidence intake stage of the Apex weekly loop. Use when the operator triggers "run raw-flow-dump-normalize" or the weekly-orchestrator receives messy post-execution notes, chat fragments, or a skipped-flow signal. Normalizes them into a normalized_raw_flow_dump or skipped_flow_marker for FlowRecap. Organizes evidence only — never interprets project meaning, never produces recap conclusions.

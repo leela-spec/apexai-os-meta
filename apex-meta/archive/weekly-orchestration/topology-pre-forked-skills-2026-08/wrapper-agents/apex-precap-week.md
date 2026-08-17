@@ -1,3 +1,19 @@
+```yaml
+archive_metadata:
+  original_path: .claude/agents/apex-precap-week.md
+  archived_date: 2026-08-17
+  reason: replaced_by_direct_forked_skill_execution
+  replacement: .claude/skills/PrecapWeek/SKILL.md
+  architecture_decision_ref: apex-meta/tools/project-improvement-orchestration-weekly/DECISIONS.md#D012
+```
+
+Superseded per D012: weekly-orchestrator now dispatches `PrecapWeek` directly as an
+isolated forked Skill (`execution: context: fork`), replacing this wrapper agent's
+role of preloading the `precap-week` skill inside a named custom agent. Kept for
+history per D007.
+
+---
+
 ---
 name: apex-precap-week
 description: Weekly planning stage of the Apex weekly loop. Use when the operator triggers "run precap-week" or the weekly-orchestrator dispatches stage G1. Turns weekly intent, project status, calendar constraints, and the weekday blueprint into a weekly_plan_packet plus first_precap_next_day_seed. Never plans single days in detail, never executes work, never writes durable state.

@@ -1,3 +1,19 @@
+```yaml
+archive_metadata:
+  original_path: .claude/agents/apex-project-status.md
+  archived_date: 2026-08-17
+  reason: replaced_by_direct_forked_skill_execution
+  replacement: .claude/skills/ProjectStatus/SKILL.md
+  architecture_decision_ref: apex-meta/tools/project-improvement-orchestration-weekly/DECISIONS.md#D012
+```
+
+Superseded per D012: weekly-orchestrator now dispatches `ProjectStatus` directly as
+an optional isolated forked Skill (`execution: context: fork_when_requested`,
+`lifecycle_required: false`), replacing this wrapper agent. Kept for history per
+D007.
+
+---
+
 ---
 name: apex-project-status
 description: Overview stage of the Apex weekly loop. Use when the operator triggers "run project-status-overview" or after a confirmed status merge has been applied to durable state. Produces the compact cross-project confirmed overview (project → task → subtask with priority/urgency/date ratings and ranked task view). Reads confirmed truth only — never candidates, never a durable database.
