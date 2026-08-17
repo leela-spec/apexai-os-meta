@@ -10,7 +10,15 @@ description: Use this skill when converting one completed, partial, skipped, or 
 ```yaml
 skill_contract:
   package: flow-recap
+  execution:
+    context: fork_per_flow
+    parallel_across_independent_flows: true
+    parent_context_assumed: false
+  mutation_authority: none
   primary_artifact: flow_recap_packet
+  model_usage_delta:
+    invocation: only_when_actual_usage_evidence_exists
+    otherwise: omit_the_field_entirely
   input_contract:
     required:
       - source_flow_packet_ref
@@ -25,9 +33,11 @@ skill_contract:
     required:
       - flow_recap_packet
       - candidate_project_status_delta
-      - model_usage_delta_candidate
       - next_step_proposal
       - operator_review_flags
+    conditionally_required:
+      - field: model_usage_delta_candidate
+        when: actual_model_or_AI_surface_usage_evidence_exists_for_this_flow
   boundaries:
     owns:
       - recap_summary
@@ -145,12 +155,12 @@ procedure:
     fallback: emit_no_state_change_or_low_confidence_delta_when_state_change_is_not_supported
 
   - step: 6
-    name: create_model_usage_delta_candidate
+    name: create_model_usage_delta_candidate_if_evidenced
     actions:
-      - capture_model_usage_notes_only_when_evidenced
-      - mark_finalization_owner_as_model_usage_log
-      - keep_usage_delta_candidate_not_final
-    fallback: mark_usage_confidence_low_and_list_unknown_usage_details
+      - check_whether_actual_model_or_AI_surface_usage_evidence_exists_for_this_flow
+      - if_no_usage_evidence_exists_omit_the_field_entirely_do_not_invoke_model_usage_log
+      - if_usage_evidence_exists_capture_it_mark_finalization_owner_as_model_usage_log_and_keep_the_delta_candidate_not_final
+    fallback: omit_the_field_and_note_no_usage_evidence_rather_than_guessing
 
   - step: 7
     name: add_next_step_and_review_flags
@@ -202,13 +212,15 @@ output_requirements:
     - decisions_made
     - blockers_failures_and_open_questions
     - candidate_project_status_delta
-    - model_usage_delta_candidate
     - next_step_proposal
     - operator_review_flags
     - completion_gate
+  conditional_sections:
+    - section: model_usage_delta_candidate
+      include_when: actual_model_or_AI_surface_usage_evidence_exists_for_this_flow
   required_markers:
     candidate_project_status_delta_marked_candidate_only: true
-    model_usage_delta_candidate_marked_not_final: true
+    model_usage_delta_candidate_marked_not_final_when_present: true
     next_step_proposal_marked_not_next_day_plan: true
   forbidden_outputs:
     accepted_project_status_update: false
@@ -231,8 +243,8 @@ completion_gate:
   outputs_created_or_changed_listed: true
   candidate_project_status_delta_present_or_no_state_change: true
   candidate_project_status_delta_marked_candidate_only: true
-  model_usage_delta_candidate_present: true
-  model_usage_delta_candidate_marked_not_final: true
+  model_usage_delta_candidate_present_when_usage_evidence_exists_omitted_otherwise: true
+  model_usage_delta_candidate_marked_not_final_when_present: true
   next_step_proposal_present: true
   next_step_proposal_is_not_next_day_plan: true
   operator_review_flags_present: true

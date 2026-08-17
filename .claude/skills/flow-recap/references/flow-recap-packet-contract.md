@@ -135,7 +135,6 @@ flow_recap_packet:
     - decisions_made
     - blockers_or_failures
     - candidate_project_status_delta
-    - model_usage_delta_candidate
     - next_step_proposal
     - operator_review_flags
     - validation_status
@@ -228,8 +227,8 @@ flow_recap_packet:
     model_usage_delta_candidate:
       type: object_ref
       ref: model_usage_delta_candidate
-      required: true
-      note: Candidate only. Final usage schemas are owned by model-usage-log or ai-routing-and-usage-tracking.
+      required: false
+      note: Included only when actual model/AI-surface usage evidence exists for this flow. Candidate only. Final usage schemas are owned by model-usage-log or ai-routing-and-usage-tracking.
 
     next_step_proposal:
       type: object_ref

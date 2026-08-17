@@ -115,7 +115,7 @@ flow_recap_handoff:
     state: candidate
     requires_operator_validation: true
     suggested_acceptance_route: <status_merge|project_kb_manager_update_mode|ProjectStatus_review|no_action|operator_decision_needed|unknown>
-  model_usage_delta_candidate:
+  model_usage_delta_candidate:  # omit this whole block when no actual usage evidence exists for this flow
     candidate_id: <model_usage_delta_candidate_YYYY_MM_DD_flow_id_slug>
     state: advisory_candidate
     finalization_owner: model-usage-log
@@ -139,7 +139,7 @@ completion_gate:
   evidence_summary_present: true
   candidate_project_status_delta_present_or_no_state_change: true
   candidate_project_status_delta_marked_candidate_only: true
-  model_usage_delta_candidate_present_and_not_final: true
+  model_usage_delta_candidate_present_when_usage_evidence_exists_and_not_final: true
   next_step_proposal_present_and_not_a_next_day_plan: true
   operator_review_flags_present: true
   downstream_handoff_visible: true
