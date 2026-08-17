@@ -8,7 +8,13 @@ package_manifest:
   package_path_actual: ".claude/skills/PrecapNextDay/"
   package_path_canonical_target: ".claude/skills/precap-next-day/"
   package_role: resilient_daily_orchestration_compiler
-  primary_artifact: next_day_plan
+  execution:
+    context: fork
+    parent_context_assumed: false
+  primary_operator_output: PreCap_Next_Day_Brief
+  expanded_outputs:
+    - Flow_Execution_Card_per_full_flow
+    - actual_prompt_files
   read_when:
     - operator_inspects_package_structure
     - validating_package_files
@@ -48,15 +54,6 @@ package_manifest:
       purpose: "Template derivation workflow, dashboard conventions, APEX-only example policy, and roundtrip test method."
       read_when: "creating_or_reviewing_operator_output_templates"
 
-    - path: ".claude/skills/PrecapNextDay/templates/next-day-plan-operator-template.md"
-      purpose: "Main operator dashboard template for next_day_plan outputs."
-      read_when: "creating_next_day_plan_dashboard"
-    - path: ".claude/skills/PrecapNextDay/templates/flow-packet-template.md"
-      purpose: "Blank per-flow packet template."
-      read_when: "creating_flow_packet_output"
-    - path: ".claude/skills/PrecapNextDay/templates/flow-prompt-pack-template.md"
-      purpose: "Blank per-flow prompt pack template with prompt placeholders and refs."
-      read_when: "creating_flow_prompt_pack_output"
     - path: ".claude/skills/PrecapNextDay/templates/capture-and-handoff-template.md"
       purpose: "Capture and FlowRecap handoff preparation template."
       read_when: "preparing_capture_or_handoff"
@@ -100,24 +97,41 @@ package_manifest:
       - non_workflow_calendar_blocks
       - final_OpenRouter_model_map
       - API_frontier_model_default_daily_engine
+
+  superseded_files:
+    - path: templates/next-day-plan-operator-template.md
+      archived_to: apex-meta/archive/weekly-orchestration/topology-pre-forked-skills-2026-08/PrecapNextDay/next-day-plan-operator-template.md
+      reason: replaced_by_precap-next-day-brief-template.md
+    - path: templates/flow-packet-template.md
+      archived_to: apex-meta/archive/weekly-orchestration/topology-pre-forked-skills-2026-08/PrecapNextDay/flow-packet-template.md
+      reason: replaced_by_flow-execution-card-template.md
+    - path: templates/flow-prompt-pack-template.md
+      archived_to: apex-meta/archive/weekly-orchestration/topology-pre-forked-skills-2026-08/PrecapNextDay/flow-prompt-pack-template.md
+      reason: replaced_by_prompt-files-and-index-template.md
 ```
 
 Note: this manifest reflects the repo's current CamelCase package path. A later package-normalization pass can move files to the canonical lowercase path and rename the entrypoint to `SKILL.md`.
 
-## Promoted Operator Templates
+## Active Required Operator Templates
+
+Per the accepted forked-skill topology (D012) these three templates are now the
+active required output of this Skill, not merely promoted reference files --
+`next_day_plan`/`flow_packet`/`flow_prompt_pack` in the reference contracts
+below remain available as optional internal-depth schemas (Module 02-04
+territory) but are no longer the primary completion gate.
 
 ```yaml
 operator_templates:
   - artifact_id: J3
     path: .claude/skills/PrecapNextDay/templates/precap-next-day-brief-template.md
-    purpose: Operator-facing presentation template
-    read_when: operator_requests_template
+    purpose: Primary required operator output
+    read_when: producing_the_precap_next_day_brief
   - artifact_id: J4
     path: .claude/skills/PrecapNextDay/templates/flow-execution-card-template.md
-    purpose: Operator-facing presentation template
-    read_when: operator_requests_template
+    purpose: Required output, one per represented flow
+    read_when: producing_a_flow_execution_card
   - artifact_id: J5
     path: .claude/skills/PrecapNextDay/templates/prompt-files-and-index-template.md
-    purpose: Operator-facing presentation template
-    read_when: operator_requests_template
+    purpose: Required output -- real prompt files plus index, per flow
+    read_when: producing_prompt_files_for_a_flow
 ```

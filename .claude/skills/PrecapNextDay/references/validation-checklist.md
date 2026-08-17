@@ -9,9 +9,11 @@ validation_checklist_contract:
   purpose: >
     Define the validation checklist, completion gates, operator-review triggers,
     and correction rules used before accepting PreCapNextDay outputs. This file
-    validates next_day_plan, flow_packet, flow_prompt_pack, usage-tracking,
-    calendar-write-request, and workflow-process-validation integration without
-    redefining their schemas.
+    validates the PreCap Next Day Brief, Flow Execution Cards, real prompt
+    files, usage-tracking, calendar-write-request, and workflow-process-
+    validation integration. The internal next_day_plan/flow_packet/
+    flow_prompt_pack schemas remain optional depth for Module 02-04 use; they
+    are no longer the primary completion gate.
 
   ownership:
     owns:
@@ -281,13 +283,13 @@ next_day_plan_checks:
       rule: "The daily plan must include a valid validation_status value."
 ```
 
-## Flow Packet Checks
+## Flow Execution Card Checks
 
 ```yaml
 flow_packet_checks:
   type: object
   required:
-    - every_active_flow_has_flow_packet
+    - every_active_flow_has_flow_execution_card
     - flow_ids_are_valid
     - sprint_structure_is_valid
     - compressed_or_omitted_sprints_have_reason
@@ -295,10 +297,10 @@ flow_packet_checks:
     - skipped_flow_marker_template_present_when_relevant
     - FlowRecap_handoff_block_present
   checklist:
-    every_active_flow_has_flow_packet:
+    every_active_flow_has_flow_execution_card:
       type: boolean
       required_value: true
-      rule: "Each active flow must have a corresponding flow_packet or extractable flow-packet block."
+      rule: "Each active flow must have a corresponding Flow Execution Card (templates/flow-execution-card-template.md)."
     flow_ids_are_valid:
       type: boolean
       required_value: true
@@ -325,15 +327,15 @@ flow_packet_checks:
       rule: "Each active flow must include a FlowRecap handoff block with expected evidence and recap inputs."
 ```
 
-## Flow Prompt Pack Checks
+## Prompt Files and Index Checks
 
 ```yaml
 flow_prompt_pack_checks:
   type: object
   required:
-    - every_active_flow_has_prompt_pack
-    - prompt_pack_is_per_flow
-    - prompt_execution_packets_present
+    - every_active_flow_has_prompt_files_and_index
+    - prompt_files_are_per_flow
+    - prompt_files_are_real_files_not_placeholders
     - prompts_are_final_copy_paste_ready
     - one_primary_prompt_system_rule_preserved
     - start_and_follow_up_prompts_separated_when_needed
@@ -342,22 +344,22 @@ flow_prompt_pack_checks:
     - prompt_failure_hints_present
     - light_capture_hints_do_not_replace_raw_flow_dump
   checklist:
-    every_active_flow_has_prompt_pack:
+    every_active_flow_has_prompt_files_and_index:
       type: boolean
       required_value: true
-      rule: "Every active flow must include a flow_prompt_pack or explicit reason for missing prompt pack."
-    prompt_pack_is_per_flow:
+      rule: "Every active flow must include real prompt files plus a Prompt Files and Index entry (templates/prompt-files-and-index-template.md), or an explicit reason for missing prompts."
+    prompt_files_are_per_flow:
       type: boolean
       required_value: true
-      rule: "Prompt packs must be organized per flow, not as one undifferentiated day-level prompt blob."
-    prompt_execution_packets_present:
+      rule: "Prompt files must be organized per flow, not as one undifferentiated day-level prompt blob."
+    prompt_files_are_real_files_not_placeholders:
       type: boolean
       required_value: true
-      rule: "Prompt packs must contain prompt_execution_packet units or equivalent prompt blocks."
+      rule: "Each prompt index entry must resolve to an actual prompt file body, not a placeholder slot presented as ready."
     prompts_are_final_copy_paste_ready:
       type: boolean
       required_value: true
-      rule: "Prompt bodies must be directly usable and not presented as outlines unless degraded mode is explicitly selected."
+      rule: "Prompt bodies must be directly usable and not presented as outlines unless degraded mode is explicitly selected and marked DEGRADED."
     one_primary_prompt_system_rule_preserved:
       type: boolean
       required_value: true
@@ -654,10 +656,11 @@ boundary_checks:
 
 ```yaml
 package_completion_gate:
-  next_day_plan_validated: true
+  precap_next_day_brief_validated: true
   input_resilience_validated: true
-  each_active_flow_has_flow_packet: true
-  each_active_flow_has_prompt_pack_or_review_flag: true
+  each_active_flow_has_flow_execution_card: true
+  each_active_flow_has_real_prompt_files_or_review_flag: true
+  no_placeholder_prompt_accepted_as_ready: true
   FlowRecap_handoff_blocks_present: true
   usage_tracking_plan_or_degraded_placeholder_present: true
   calendar_write_requests_are_gated: true
@@ -736,10 +739,11 @@ precap_next_day_validation_report:
     - "Exact remaining quota is unknown, so scarce-mode recommendations require operator review."
 
   completion_gate:
-    next_day_plan_validated: true
+    precap_next_day_brief_validated: true
     input_resilience_validated: true
-    each_active_flow_has_flow_packet: true
-    each_active_flow_has_prompt_pack_or_review_flag: true
+    each_active_flow_has_flow_execution_card: true
+    each_active_flow_has_real_prompt_files_or_review_flag: true
+    no_placeholder_prompt_accepted_as_ready: true
     FlowRecap_handoff_blocks_present: true
     usage_tracking_plan_or_degraded_placeholder_present: true
     calendar_write_requests_are_gated: true

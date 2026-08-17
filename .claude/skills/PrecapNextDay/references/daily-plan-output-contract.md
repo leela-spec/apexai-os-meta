@@ -283,7 +283,7 @@ daily_plan_context_summary:
         - flow_recap_packets
         - skipped_flow_markers
         - recap_day_notes
-        - precap_week_output
+        - Weekly_Command_Brief
         - weekly_plan_packet
         - fixed_calendar_constraints
         - calendar_events

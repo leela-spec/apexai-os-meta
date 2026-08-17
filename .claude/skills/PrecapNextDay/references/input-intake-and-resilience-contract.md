@@ -167,7 +167,7 @@ available_input_map:
         - flow_recap_packets
         - skipped_flow_markers
         - recap_day_notes
-        - precap_week_output
+        - Weekly_Command_Brief
         - weekly_plan_packet
         - fixed_calendar_constraints
         - calendar_events
@@ -217,7 +217,7 @@ input_source_entry:
         - flow_recap_packets
         - skipped_flow_markers
         - recap_day_notes
-        - precap_week_output
+        - Weekly_Command_Brief
         - weekly_plan_packet
         - fixed_calendar_constraints
         - calendar_events

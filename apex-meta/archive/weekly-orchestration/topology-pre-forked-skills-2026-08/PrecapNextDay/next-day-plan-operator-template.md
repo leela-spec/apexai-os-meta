@@ -1,3 +1,18 @@
+```yaml
+archive_metadata:
+  original_path: .claude/skills/PrecapNextDay/templates/next-day-plan-operator-template.md
+  archived_date: 2026-08-17
+  reason: replaced_by_precap-next-day-brief-template.md_as_the_active_required_operator_output
+  replacement: .claude/skills/PrecapNextDay/templates/precap-next-day-brief-template.md
+  architecture_decision_ref: apex-meta/tools/project-improvement-orchestration-weekly/DECISIONS.md#D012
+```
+
+Superseded per D012 / target plan Phase 4B: this blank template's schema authority was
+`references/daily-plan-output-contract.md` (`next_day_plan`), now demoted to optional
+internal depth. Kept for history per D007.
+
+---
+
 # FILE: .claude/skills/PrecapNextDay/templates/next-day-plan-operator-template.md
 
 # PreCap Next Day — <execution_day>

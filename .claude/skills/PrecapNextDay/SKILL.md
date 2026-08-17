@@ -1,6 +1,6 @@
 ---
-name: precap-next-day
-description: Use this skill when the operator asks to create, compile, or review a resilient next-day orchestration plan from partial planning, project, recap, calendar, prompt, workflow, or usage context. Produces next_day_plan-centered planning artifacts. Does not execute project work, run FlowRecap, merge status, or require complete inputs.
+name: PrecapNextDay
+description: Use this skill when the operator asks to create, compile, or review a resilient next-day orchestration plan from partial planning, project, recap, calendar, prompt, workflow, or usage context. Produces a PreCap Next Day Brief, one Flow Execution Card per full flow, and real prompt files. Does not execute project work, run FlowRecap, merge status, or require complete inputs.
 ---
 
 # PreCap Next Day
@@ -8,8 +8,19 @@ description: Use this skill when the operator asks to create, compile, or review
 ## Skill Contract
 
 skill_contract:
-  primary_output: next_day_plan
+  execution:
+    context: fork
+    parent_context_assumed: false
+  primary_operator_output: PreCap_Next_Day_Brief
+  expanded_outputs:
+    - Flow_Execution_Card_per_full_flow
+    - actual_prompt_files
   output_role: resilient_daily_orchestration_compiler
+  dependencies:
+    PromptEngineer:
+      load: only_when_prompt_required
+    AIRouting:
+      load: only_when_route_recommendation_required
   boundaries:
     must_not_create:
       - Do not execute project work.
@@ -21,6 +32,9 @@ skill_contract:
       - Do not use API frontier models as the default daily workflow engine.
       - Do not require complete inputs before producing a degraded next-day plan.
       - Do not redefine schemas owned by prompt-engineering, workflow-process-design, ai-routing-and-usage-tracking, FlowRecap, or status-merge packages.
+      - Do not treat a placeholder or degraded prompt as execution-ready -- mark it degraded and flag it.
+      - Do not require a large flow_prompt_pack machine schema as a completion gate; real prompt files plus the prompt index satisfy the prompt-readiness requirement.
+      - Do not duplicate the full flow context across the Brief, a Flow Execution Card, and its prompt files -- each carries only what it owns; the others reference it.
   input_policy:
     all_inputs_optional: true
     missing_inputs_degrade_confidence: true
@@ -41,16 +55,16 @@ skill_contract:
       - calendar_constrained_mode
       - prompt_heavy_mode
     canonical_source: references/input-intake-and-resilience-contract.md
-  fixed_daily_flows:
-    canonical_source: references/flow-packet-contract.md
-  sprint_policy:
-    canonical_source: references/flow-packet-contract.md
-  dependency_interfaces:
-    prompt_engineering: references/prompt-engineering-dependency-contract.md
-    usage_tracking: references/usage-tracking-dependency-contract.md
-    workflow_process_validation: references/workflow-process-validation-contract.md
-    calendar_write: references/calendar-event-write-contract.md
-  schema_authority:
+  operator_output_templates:
+    PreCap_Next_Day_Brief: templates/precap-next-day-brief-template.md
+    Flow_Execution_Card: templates/flow-execution-card-template.md
+    Prompt_Files_and_Index: templates/prompt-files-and-index-template.md
+  internal_detail_schemas:
+    note: >
+      These are optional internal-depth references, not required top-level
+      output gates. Detailed redesign of this depth is Module 02 (Next Day
+      Brief) / Module 03 (Flow Execution Card) / Module 04 (Sprint Prompts)
+      work, not Module 00.
     next_day_plan: references/daily-plan-output-contract.md
     flow_packet: references/flow-packet-contract.md
     flow_prompt_pack: references/flow-prompt-pack-contract.md
@@ -62,6 +76,20 @@ skill_contract:
 ## Supporting Files
 
 supporting_files:
+  - path: templates/precap-next-day-brief-template.md
+    read_when:
+      - producing_the_precap_next_day_brief
+      - checking_required_brief_sections
+      - creating_the_compact_downstream_handoff
+  - path: templates/flow-execution-card-template.md
+    read_when:
+      - producing_a_flow_execution_card
+      - opening_the_full_workspace_for_a_represented_flow
+  - path: templates/prompt-files-and-index-template.md
+    read_when:
+      - producing_real_prompt_files_for_a_flow
+      - building_the_prompt_index
+      - checking_prompt_file_quality
   - path: references/input-intake-and-resilience-contract.md
     read_when:
       - validating_input_resilience
@@ -70,20 +98,13 @@ supporting_files:
       - degraded_mode_needed
   - path: references/daily-plan-output-contract.md
     read_when:
-      - creating_next_day_plan
-      - validating_daily_plan_output
-      - building_generated_file_index
+      - reconciling_internal_day-level_structure_beyond_the_Brief_template
   - path: references/flow-packet-contract.md
     read_when:
-      - creating_flow_packets
-      - compressing_or_omitting_flow
-      - preparing_raw_flow_dump
-      - preparing_FlowRecap_handoff
+      - reconciling_internal_per-flow_structure_beyond_the_Flow_Execution_Card_template
   - path: references/flow-prompt-pack-contract.md
     read_when:
-      - creating_flow_prompt_packs
-      - validating_prompt_pack_structure
-      - bridging_prompt_execution_packets
+      - reconciling_internal_prompt_grouping_beyond_the_Prompt_Files_and_Index_template
   - path: references/prompt-engineering-dependency-contract.md
     read_when:
       - prompt_engineering_dependency_needed
@@ -109,7 +130,7 @@ supporting_files:
       - final_validation
       - failure_mode_triggered
       - operator_review_flags_needed
-  - path: package-manifest.md
+  - path: precap-next-day-package-manifest.md
     read_when:
       - operator_inspects_package_structure
       - validating_package_files
@@ -117,26 +138,27 @@ supporting_files:
 ## Procedure
 
 1. Load the best available context, treat missing inputs as confidence and review signals, and select the safest execution mode.
-2. Create the day frame by defining the next_day_plan, daily intent, source-context summary, review status, generated-file index, and operator review flags.
+2. Create the day frame: daily intent, source-context summary, review status, and operator review flags.
 3. Represent each fixed daily flow as planned, compressed, skipped, or explicitly omitted with reasons.
-4. Create or define one flow_packet for each represented flow, including sprint intent, expected outputs, raw-flow-dump preparation, skipped-flow-marker handling, and FlowRecap handoff context.
-5. Create or define one flow_prompt_pack for each represented flow, referencing prompt-engineering-owned prompt packets and marking degraded generic prompt mode when prompt dependencies are missing.
-6. Apply prompt-engineering, usage-tracking, and workflow-process dependency interfaces when available, and preserve dependency gaps as degraded-mode review flags instead of redefining upstream schemas.
+4. For each represented flow, produce one Flow Execution Card (full workspace: goals, inputs/dependencies, S1-S3 sprint detail, evidence handoff) -- not a separate machine flow_packet schema duplicating the same content.
+5. For each represented flow, produce real prompt files per sprint plus a Prompt Files and Index entry pointing at them (routing reference, readiness, target surface). A degraded or missing prompt is marked `DEGRADED`/`MISSING` and flagged -- it is never presented as ready.
+6. Apply prompt-engineering, usage-tracking, and workflow-process dependency interfaces only when the flow content actually requires them, and preserve dependency gaps as degraded-mode review flags instead of redefining upstream schemas.
 7. Prepare calendar workflow-block write requests only when relevant, keeping all calendar mutation pending until explicit operator approval and tool confirmation exist.
-8. Validate the complete output against the validation checklist, apply the matching failure-mode correction if any check fails, and present unresolved uncertainty as operator_review_flags.
+8. Assemble the PreCap Next Day Brief referencing each Flow Execution Card and its Prompt Files and Index -- the Brief's own compact downstream handoff carries the minimal cross-flow summary; it does not restate each flow's full content.
+9. Validate the complete output against the validation checklist, apply the matching failure-mode correction if any check fails, and present unresolved uncertainty as operator_review_flags.
 
 ## Failure Modes
 
 failure_modes:
   no_inputs:
     trigger: No usable planning, project, recap, calendar, workflow, prompt, or usage context is supplied.
-    correction: Run bootstrap_mode, create a low-confidence next_day_plan, define starter F1-F4 flow coverage, and add operator review flags.
+    correction: Run bootstrap_mode, create a low-confidence PreCap Next Day Brief, define starter F1-F4 flow coverage, and add operator review flags.
   missing_project_status:
     trigger: Current project status and detailed project state are missing or stale.
     correction: Use operator intent, recaps, skipped markers, or bootstrap assumptions, and mark project-state confidence as low.
   prompt_engineering_unavailable:
-    trigger: Prompt-engineering references or prompt packet generation inputs are missing.
-    correction: Use degraded_generic_prompt_mode, reference the missing dependency, and mark prompt optimization for operator review.
+    trigger: Prompt-engineering references or prompt generation inputs are missing.
+    correction: Use degraded_generic_prompt_mode, mark the affected prompt file DEGRADED, reference the missing dependency, and flag prompt optimization for operator review.
   usage_tracking_unavailable:
     trigger: AI surface inventory, quota context, routing recommendations, or usage summaries are missing.
     correction: Use generic usage-tracking hooks, avoid quota claims, and mark usage planning for operator review.
@@ -159,10 +181,11 @@ output_requirements:
   may_define_outputs_in_chat: true
   filesystem_write_required: false
   primary_output:
-    - next_day_plan
+    - PreCap_Next_Day_Brief
   required_or_defined_when_relevant:
-    - flow_packet
-    - flow_prompt_pack
+    - Flow_Execution_Card_per_represented_flow
+    - actual_prompt_files_per_sprint
+    - Prompt_Files_and_Index
     - calendar_event_write_request
     - usage_tracking_plan_or_usage_tracking_summary
     - raw_flow_dump_template
@@ -170,20 +193,21 @@ output_requirements:
     - FlowRecap_handoff_block
     - operator_review_flags
   must_not_include:
-    - Do not include full schemas owned by reference files.
+    - Do not include full internal schemas owned by reference files -- the operator sees the Brief/Card/Prompt-Index templates, not the underlying machine contract.
     - Do not include prompt-engineering prompt_packet schemas or final prompt doctrine.
     - Do not include workflow-process taxonomies as inline enums.
     - Do not include routing, quota, planned-budget, or usage-delta schemas.
     - Do not include FlowRecap output or project status merge output.
+    - Do not present a placeholder or outline prompt as execution-ready.
 
 ## Completion Gate
 
 completion_gate:
-  next_day_plan_exists: true
+  precap_next_day_brief_exists: true
   fixed_flows_are_represented_or_explicitly_omitted: true
-  represented_flows_have_flow_packet_references: true
-  represented_flows_have_flow_prompt_pack_references: true
-  prompt_packs_are_ready_or_marked_degraded_with_review_flags: true
+  represented_flows_have_flow_execution_cards: true
+  represented_flows_have_real_prompt_files_or_explicit_degraded_flag: true
+  no_placeholder_prompt_accepted_as_ready: true
   usage_tracking_hooks_exist_or_degraded_usage_review_flag_exists: true
   calendar_writes_are_request_based_and_not_claimed_completed_without_approval: true
   FlowRecap_handoff_exists_without_running_FlowRecap: true
