@@ -1,0 +1,159 @@
+{
+  "schema": "ttk.map-result.v2",
+  "packet_id": "map-window-0002",
+  "packet_sha256": "50da878b43080cb76e4f7d3aaf83f26426f04e82f001cc9da1fd1b3554498f81",
+  "window_id": "window-0002",
+  "subtopics": [
+    {
+      "label": "Window window-0002 Topics",
+      "source_segment_ids": [
+        "seg-000045",
+        "seg-000046",
+        "seg-000047",
+        "seg-000048",
+        "seg-000049",
+        "seg-000050",
+        "seg-000051",
+        "seg-000052",
+        "seg-000053",
+        "seg-000054",
+        "seg-000055",
+        "seg-000056",
+        "seg-000057",
+        "seg-000058",
+        "seg-000059",
+        "seg-000060",
+        "seg-000061",
+        "seg-000062",
+        "seg-000063",
+        "seg-000064",
+        "seg-000065",
+        "seg-000066",
+        "seg-000067",
+        "seg-000068",
+        "seg-000069",
+        "seg-000070",
+        "seg-000071",
+        "seg-000072",
+        "seg-000073",
+        "seg-000074",
+        "seg-000075",
+        "seg-000076",
+        "seg-000077",
+        "seg-000078",
+        "seg-000079",
+        "seg-000080",
+        "seg-000081",
+        "seg-000082",
+        "seg-000083",
+        "seg-000084",
+        "seg-000085",
+        "seg-000086",
+        "seg-000087",
+        "seg-000088",
+        "seg-000089",
+        "seg-000090",
+        "seg-000091",
+        "seg-000092",
+        "seg-000093",
+        "seg-000094",
+        "seg-000095",
+        "seg-000096",
+        "seg-000097",
+        "seg-000098",
+        "seg-000099",
+        "seg-000100",
+        "seg-000101",
+        "seg-000102",
+        "seg-000103",
+        "seg-000104",
+        "seg-000105",
+        "seg-000106",
+        "seg-000107",
+        "seg-000108",
+        "seg-000109",
+        "seg-000110",
+        "seg-000111",
+        "seg-000112",
+        "seg-000113",
+        "seg-000114",
+        "seg-000115",
+        "seg-000116"
+      ]
+    }
+  ],
+  "key_points": [
+    {
+      "text": "How should traders use Elliott Payf analysis and practice as a forecasting tool or risk management",
+      "source_segment_ids": [
+        "seg-000045"
+      ]
+    },
+    {
+      "text": "tool or a way to map out map out probabilities? Well I think you're pretty much late all around.",
+      "source_segment_ids": [
+        "seg-000046"
+      ]
+    },
+    {
+      "text": "They did a great job. Yes to all three. I mean historically it's mainly been a long term",
+      "source_segment_ids": [
+        "seg-000047"
+      ]
+    }
+  ],
+  "mechanisms": [],
+  "protocols": [],
+  "arguments": [],
+  "candidate_claims": [
+    {
+      "claim_text": "How should traders use Elliott Payf analysis and practice as a forecasting tool or risk management",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000045"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000045",
+          "quote": "How should traders use Elliott Payf analysis and practice as a forecasting tool or risk management"
+        }
+      ],
+      "checkworthiness": "medium"
+    },
+    {
+      "claim_text": "tool or a way to map out map out probabilities? Well I think you're pretty much late all around.",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000046"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000046",
+          "quote": "tool or a way to map out map out probabilities? Well I think you're pretty much late all around."
+        }
+      ],
+      "checkworthiness": "low"
+    },
+    {
+      "claim_text": "They did a great job. Yes to all three. I mean historically it's mainly been a long term",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000047"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000047",
+          "quote": "They did a great job. Yes to all three. I mean historically it's mainly been a long term"
+        }
+      ],
+      "checkworthiness": "low"
+    }
+  ],
+  "entities": [],
+  "concepts": [],
+  "open_questions": [],
+  "contradictions_or_uncertainty": []
+}

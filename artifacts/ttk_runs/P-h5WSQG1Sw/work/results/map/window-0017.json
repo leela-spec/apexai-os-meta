@@ -1,0 +1,143 @@
+{
+  "schema": "ttk.map-result.v2",
+  "packet_id": "map-window-0017",
+  "packet_sha256": "dcacf534879738690ac00f501dcc86ae8d025e01678456e8a555a3f0454e43da",
+  "window_id": "window-0017",
+  "subtopics": [
+    {
+      "label": "Window window-0017 Topics",
+      "source_segment_ids": [
+        "seg-001011",
+        "seg-001012",
+        "seg-001013",
+        "seg-001014",
+        "seg-001015",
+        "seg-001016",
+        "seg-001017",
+        "seg-001018",
+        "seg-001019",
+        "seg-001020",
+        "seg-001021",
+        "seg-001022",
+        "seg-001023",
+        "seg-001024",
+        "seg-001025",
+        "seg-001026",
+        "seg-001027",
+        "seg-001028",
+        "seg-001029",
+        "seg-001030",
+        "seg-001031",
+        "seg-001032",
+        "seg-001033",
+        "seg-001034",
+        "seg-001035",
+        "seg-001036",
+        "seg-001037",
+        "seg-001038",
+        "seg-001039",
+        "seg-001040",
+        "seg-001041",
+        "seg-001042",
+        "seg-001043",
+        "seg-001044",
+        "seg-001045",
+        "seg-001046",
+        "seg-001047",
+        "seg-001048",
+        "seg-001049",
+        "seg-001050",
+        "seg-001051",
+        "seg-001052",
+        "seg-001053",
+        "seg-001054",
+        "seg-001055",
+        "seg-001056",
+        "seg-001057",
+        "seg-001058",
+        "seg-001059",
+        "seg-001060",
+        "seg-001061",
+        "seg-001062",
+        "seg-001063",
+        "seg-001064",
+        "seg-001065",
+        "seg-001066"
+      ]
+    }
+  ],
+  "key_points": [
+    {
+      "text": "and I have to encounter people like that too and you know it's very disconcerting when you're",
+      "source_segment_ids": [
+        "seg-001011"
+      ]
+    },
+    {
+      "text": "giving the talk it's disconcerting when you're giving the talk but I was going to say there's",
+      "source_segment_ids": [
+        "seg-001012"
+      ]
+    },
+    {
+      "text": "also something incredibly refreshing about it because it's almost like they're they're asking the",
+      "source_segment_ids": [
+        "seg-001013"
+      ]
+    }
+  ],
+  "mechanisms": [],
+  "protocols": [],
+  "arguments": [],
+  "candidate_claims": [
+    {
+      "claim_text": "and I have to encounter people like that too and you know it's very disconcerting when you're",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-001011"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-001011",
+          "quote": "and I have to encounter people like that too and you know it's very disconcerting when you're"
+        }
+      ],
+      "checkworthiness": "medium"
+    },
+    {
+      "claim_text": "giving the talk it's disconcerting when you're giving the talk but I was going to say there's",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-001012"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-001012",
+          "quote": "giving the talk it's disconcerting when you're giving the talk but I was going to say there's"
+        }
+      ],
+      "checkworthiness": "low"
+    },
+    {
+      "claim_text": "also something incredibly refreshing about it because it's almost like they're they're asking the",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-001013"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-001013",
+          "quote": "also something incredibly refreshing about it because it's almost like they're they're asking the"
+        }
+      ],
+      "checkworthiness": "low"
+    }
+  ],
+  "entities": [],
+  "concepts": [],
+  "open_questions": [],
+  "contradictions_or_uncertainty": []
+}

@@ -1,0 +1,149 @@
+{
+  "schema": "ttk.map-result.v2",
+  "packet_id": "map-window-0013",
+  "packet_sha256": "dd12f10c4491401ac9c779e1411f86bf27f1cc2e6a3bd0febf760499fac44855",
+  "window_id": "window-0013",
+  "subtopics": [
+    {
+      "label": "Window window-0013 Topics",
+      "source_segment_ids": [
+        "seg-000766",
+        "seg-000767",
+        "seg-000768",
+        "seg-000769",
+        "seg-000770",
+        "seg-000771",
+        "seg-000772",
+        "seg-000773",
+        "seg-000774",
+        "seg-000775",
+        "seg-000776",
+        "seg-000777",
+        "seg-000778",
+        "seg-000779",
+        "seg-000780",
+        "seg-000781",
+        "seg-000782",
+        "seg-000783",
+        "seg-000784",
+        "seg-000785",
+        "seg-000786",
+        "seg-000787",
+        "seg-000788",
+        "seg-000789",
+        "seg-000790",
+        "seg-000791",
+        "seg-000792",
+        "seg-000793",
+        "seg-000794",
+        "seg-000795",
+        "seg-000796",
+        "seg-000797",
+        "seg-000798",
+        "seg-000799",
+        "seg-000800",
+        "seg-000801",
+        "seg-000802",
+        "seg-000803",
+        "seg-000804",
+        "seg-000805",
+        "seg-000806",
+        "seg-000807",
+        "seg-000808",
+        "seg-000809",
+        "seg-000810",
+        "seg-000811",
+        "seg-000812",
+        "seg-000813",
+        "seg-000814",
+        "seg-000815",
+        "seg-000816",
+        "seg-000817",
+        "seg-000818",
+        "seg-000819",
+        "seg-000820",
+        "seg-000821",
+        "seg-000822",
+        "seg-000823",
+        "seg-000824",
+        "seg-000825",
+        "seg-000826",
+        "seg-000827"
+      ]
+    }
+  ],
+  "key_points": [
+    {
+      "text": "is no systematic association between specific emotions and specific changes in your body.",
+      "source_segment_ids": [
+        "seg-000766"
+      ]
+    },
+    {
+      "text": "Well, if you look at those studies, people put a few electrodes on and they measure, you know,",
+      "source_segment_ids": [
+        "seg-000767"
+      ]
+    },
+    {
+      "text": "heart rate changes, blood pressure changes, et cetera, it is extremely crude. You're looking at",
+      "source_segment_ids": [
+        "seg-000768"
+      ]
+    }
+  ],
+  "mechanisms": [],
+  "protocols": [],
+  "arguments": [],
+  "candidate_claims": [
+    {
+      "claim_text": "is no systematic association between specific emotions and specific changes in your body.",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000766"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000766",
+          "quote": "is no systematic association between specific emotions and specific changes in your body."
+        }
+      ],
+      "checkworthiness": "medium"
+    },
+    {
+      "claim_text": "Well, if you look at those studies, people put a few electrodes on and they measure, you know,",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000767"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000767",
+          "quote": "Well, if you look at those studies, people put a few electrodes on and they measure, you know,"
+        }
+      ],
+      "checkworthiness": "low"
+    },
+    {
+      "claim_text": "heart rate changes, blood pressure changes, et cetera, it is extremely crude. You're looking at",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000768"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000768",
+          "quote": "heart rate changes, blood pressure changes, et cetera, it is extremely crude. You're looking at"
+        }
+      ],
+      "checkworthiness": "low"
+    }
+  ],
+  "entities": [],
+  "concepts": [],
+  "open_questions": [],
+  "contradictions_or_uncertainty": []
+}

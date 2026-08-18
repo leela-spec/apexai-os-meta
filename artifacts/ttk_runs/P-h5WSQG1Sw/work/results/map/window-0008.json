@@ -1,0 +1,171 @@
+{
+  "schema": "ttk.map-result.v2",
+  "packet_id": "map-window-0008",
+  "packet_sha256": "b1e4ef2e9727fd1e96704dddab9ab2bd79c356e4ef34256f36b5f049ab3eff09",
+  "window_id": "window-0008",
+  "subtopics": [
+    {
+      "label": "Window window-0008 Topics",
+      "source_segment_ids": [
+        "seg-000419",
+        "seg-000420",
+        "seg-000421",
+        "seg-000422",
+        "seg-000423",
+        "seg-000424",
+        "seg-000425",
+        "seg-000426",
+        "seg-000427",
+        "seg-000428",
+        "seg-000429",
+        "seg-000430",
+        "seg-000431",
+        "seg-000432",
+        "seg-000433",
+        "seg-000434",
+        "seg-000435",
+        "seg-000436",
+        "seg-000437",
+        "seg-000438",
+        "seg-000439",
+        "seg-000440",
+        "seg-000441",
+        "seg-000442",
+        "seg-000443",
+        "seg-000444",
+        "seg-000445",
+        "seg-000446",
+        "seg-000447",
+        "seg-000448",
+        "seg-000449",
+        "seg-000450",
+        "seg-000451",
+        "seg-000452",
+        "seg-000453",
+        "seg-000454",
+        "seg-000455",
+        "seg-000456",
+        "seg-000457",
+        "seg-000458",
+        "seg-000459",
+        "seg-000460",
+        "seg-000461",
+        "seg-000462",
+        "seg-000463",
+        "seg-000464",
+        "seg-000465",
+        "seg-000466",
+        "seg-000467",
+        "seg-000468",
+        "seg-000469",
+        "seg-000470",
+        "seg-000471",
+        "seg-000472",
+        "seg-000473",
+        "seg-000474",
+        "seg-000475",
+        "seg-000476",
+        "seg-000477",
+        "seg-000478",
+        "seg-000479",
+        "seg-000480",
+        "seg-000481",
+        "seg-000482",
+        "seg-000483",
+        "seg-000484",
+        "seg-000485",
+        "seg-000486",
+        "seg-000487",
+        "seg-000488",
+        "seg-000489",
+        "seg-000490",
+        "seg-000491",
+        "seg-000492",
+        "seg-000493",
+        "seg-000494",
+        "seg-000495",
+        "seg-000496",
+        "seg-000497",
+        "seg-000498",
+        "seg-000499",
+        "seg-000500",
+        "seg-000501",
+        "seg-000502"
+      ]
+    }
+  ],
+  "key_points": [
+    {
+      "text": "you were describing how, you know, at some points during these races, you just feel like complete",
+      "source_segment_ids": [
+        "seg-000419"
+      ]
+    },
+    {
+      "text": "garbage. But then you start to feel better. And so then the next time you feel like complete",
+      "source_segment_ids": [
+        "seg-000420"
+      ]
+    },
+    {
+      "text": "garbage, you have the cognitive knowledge that you felt terrible then better again. And so you're",
+      "source_segment_ids": [
+        "seg-000421"
+      ]
+    }
+  ],
+  "mechanisms": [],
+  "protocols": [],
+  "arguments": [],
+  "candidate_claims": [
+    {
+      "claim_text": "you were describing how, you know, at some points during these races, you just feel like complete",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000419"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000419",
+          "quote": "you were describing how, you know, at some points during these races, you just feel like complete"
+        }
+      ],
+      "checkworthiness": "medium"
+    },
+    {
+      "claim_text": "garbage. But then you start to feel better. And so then the next time you feel like complete",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000420"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000420",
+          "quote": "garbage. But then you start to feel better. And so then the next time you feel like complete"
+        }
+      ],
+      "checkworthiness": "low"
+    },
+    {
+      "claim_text": "garbage, you have the cognitive knowledge that you felt terrible then better again. And so you're",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000421"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000421",
+          "quote": "garbage, you have the cognitive knowledge that you felt terrible then better again. And so you're"
+        }
+      ],
+      "checkworthiness": "low"
+    }
+  ],
+  "entities": [],
+  "concepts": [],
+  "open_questions": [],
+  "contradictions_or_uncertainty": []
+}

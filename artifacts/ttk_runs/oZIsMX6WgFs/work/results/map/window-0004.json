@@ -1,0 +1,106 @@
+{
+  "schema": "ttk.map-result.v2",
+  "packet_id": "map-window-0004",
+  "packet_sha256": "d74b627c37b8190bfc52a437a71a8160aef9db8849683025fbd352d148948cbc",
+  "window_id": "window-0004",
+  "subtopics": [
+    {
+      "label": "Window window-0004 Topics",
+      "source_segment_ids": [
+        "seg-000086",
+        "seg-000087",
+        "seg-000088",
+        "seg-000089",
+        "seg-000090",
+        "seg-000091",
+        "seg-000092",
+        "seg-000093",
+        "seg-000094",
+        "seg-000095",
+        "seg-000096",
+        "seg-000097",
+        "seg-000098",
+        "seg-000099",
+        "seg-000100",
+        "seg-000101",
+        "seg-000102",
+        "seg-000103",
+        "seg-000104"
+      ]
+    }
+  ],
+  "key_points": [
+    {
+      "text": "and by the way the key top here we have seen with reaching 120k in Bitcoin in October 2025 this was and if you follow my work you are aware of that that was 0.5 of the fifth repetition of that nominal 200 day cycle here so which means we now would expect three cycles",
+      "source_segment_ids": [
+        "seg-000086"
+      ]
+    },
+    {
+      "text": "to the downward situation until we reach a final bottom just keep that in mind so what this period here was the first iteration of this let's say nominal on average 200 day cycle yeah which lead to that one here",
+      "source_segment_ids": [
+        "seg-000087"
+      ]
+    },
+    {
+      "text": "and by having in mind that this will not be a major bottom by the way this was 50% correction so a 50% correction just on time it is to be expected that we see a correction to the upside but as we have been aware of that there is a second and third cycle due to the downside",
+      "source_segment_ids": [
+        "seg-000088"
+      ]
+    }
+  ],
+  "mechanisms": [],
+  "protocols": [],
+  "arguments": [],
+  "candidate_claims": [
+    {
+      "claim_text": "and by the way the key top here we have seen with reaching 120k in Bitcoin in October 2025 this was and if you follow my work you are aware of that that was 0.5 of the fifth repetition of that nominal 200 day cycle here so which means we now would expect three cycles",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000086"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000086",
+          "quote": "and by the way the key top here we have seen with reaching 120k in Bitcoin in October 2025 this was and if you follow my work you are aware of that that was 0.5 of the fifth repetition of that nominal 200 day cycle here so which means we now would expect three cycles"
+        }
+      ],
+      "checkworthiness": "medium"
+    },
+    {
+      "claim_text": "to the downward situation until we reach a final bottom just keep that in mind so what this period here was the first iteration of this let's say nominal on average 200 day cycle yeah which lead to that one here",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000087"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000087",
+          "quote": "to the downward situation until we reach a final bottom just keep that in mind so what this period here was the first iteration of this let's say nominal on average 200 day cycle yeah which lead to that one here"
+        }
+      ],
+      "checkworthiness": "low"
+    },
+    {
+      "claim_text": "and by having in mind that this will not be a major bottom by the way this was 50% correction so a 50% correction just on time it is to be expected that we see a correction to the upside but as we have been aware of that there is a second and third cycle due to the downside",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000088"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000088",
+          "quote": "and by having in mind that this will not be a major bottom by the way this was 50% correction so a 50% correction just on time it is to be expected that we see a correction to the upside but as we have been aware of that there is a second and third cycle due to the downside"
+        }
+      ],
+      "checkworthiness": "low"
+    }
+  ],
+  "entities": [],
+  "concepts": [],
+  "open_questions": [],
+  "contradictions_or_uncertainty": []
+}

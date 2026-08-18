@@ -1,0 +1,150 @@
+{
+  "schema": "ttk.map-result.v2",
+  "packet_id": "map-window-0004",
+  "packet_sha256": "a1b8ae088d20eafe4ff4dd3112b6c35876be2ebd64d72db87978fa619e6063dc",
+  "window_id": "window-0004",
+  "subtopics": [
+    {
+      "label": "Window window-0004 Topics",
+      "source_segment_ids": [
+        "seg-000168",
+        "seg-000169",
+        "seg-000170",
+        "seg-000171",
+        "seg-000172",
+        "seg-000173",
+        "seg-000174",
+        "seg-000175",
+        "seg-000176",
+        "seg-000177",
+        "seg-000178",
+        "seg-000179",
+        "seg-000180",
+        "seg-000181",
+        "seg-000182",
+        "seg-000183",
+        "seg-000184",
+        "seg-000185",
+        "seg-000186",
+        "seg-000187",
+        "seg-000188",
+        "seg-000189",
+        "seg-000190",
+        "seg-000191",
+        "seg-000192",
+        "seg-000193",
+        "seg-000194",
+        "seg-000195",
+        "seg-000196",
+        "seg-000197",
+        "seg-000198",
+        "seg-000199",
+        "seg-000200",
+        "seg-000201",
+        "seg-000202",
+        "seg-000203",
+        "seg-000204",
+        "seg-000205",
+        "seg-000206",
+        "seg-000207",
+        "seg-000208",
+        "seg-000209",
+        "seg-000210",
+        "seg-000211",
+        "seg-000212",
+        "seg-000213",
+        "seg-000214",
+        "seg-000215",
+        "seg-000216",
+        "seg-000217",
+        "seg-000218",
+        "seg-000219",
+        "seg-000220",
+        "seg-000221",
+        "seg-000222",
+        "seg-000223",
+        "seg-000224",
+        "seg-000225",
+        "seg-000226",
+        "seg-000227",
+        "seg-000228",
+        "seg-000229",
+        "seg-000230"
+      ]
+    }
+  ],
+  "key_points": [
+    {
+      "text": "I'd like to take a quick break and acknowledge our sponsor, Helix Sleep. Helix Sleep makes matrices",
+      "source_segment_ids": [
+        "seg-000168"
+      ]
+    },
+    {
+      "text": "and pillows that are customized to your unique sleep needs. Now, I've spoken many times before on",
+      "source_segment_ids": [
+        "seg-000169"
+      ]
+    },
+    {
+      "text": "this and on other podcasts about the fact that getting a great night's sleep is the foundation of",
+      "source_segment_ids": [
+        "seg-000170"
+      ]
+    }
+  ],
+  "mechanisms": [],
+  "protocols": [],
+  "arguments": [],
+  "candidate_claims": [
+    {
+      "claim_text": "I'd like to take a quick break and acknowledge our sponsor, Helix Sleep. Helix Sleep makes matrices",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000168"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000168",
+          "quote": "I'd like to take a quick break and acknowledge our sponsor, Helix Sleep. Helix Sleep makes matrices"
+        }
+      ],
+      "checkworthiness": "medium"
+    },
+    {
+      "claim_text": "and pillows that are customized to your unique sleep needs. Now, I've spoken many times before on",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000169"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000169",
+          "quote": "and pillows that are customized to your unique sleep needs. Now, I've spoken many times before on"
+        }
+      ],
+      "checkworthiness": "low"
+    },
+    {
+      "claim_text": "this and on other podcasts about the fact that getting a great night's sleep is the foundation of",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000170"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000170",
+          "quote": "this and on other podcasts about the fact that getting a great night's sleep is the foundation of"
+        }
+      ],
+      "checkworthiness": "low"
+    }
+  ],
+  "entities": [],
+  "concepts": [],
+  "open_questions": [],
+  "contradictions_or_uncertainty": []
+}

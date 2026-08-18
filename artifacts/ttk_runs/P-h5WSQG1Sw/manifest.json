@@ -1,0 +1,19 @@
+{
+  "config": {
+    "block_segments": 4,
+    "context_segments": 1,
+    "max_words": 1500,
+    "min_words": 700,
+    "pause_weight": 0.15,
+    "target_words": 1100
+  },
+  "contract_version": "ttk.semantic-contract.v2",
+  "schema": "ttk.run.v2",
+  "segment_count": 1438,
+  "source_format": "srt",
+  "source_name": "P-h5WSQG1Sw.srt",
+  "source_sha256": "3e46962b9a0be33deecf1612ca70d8c2ceb1405ce67075ce22c6123d8e972c9d",
+  "timestamp_quality": "segment",
+  "window_count": 23,
+  "word_count": 24815
+}

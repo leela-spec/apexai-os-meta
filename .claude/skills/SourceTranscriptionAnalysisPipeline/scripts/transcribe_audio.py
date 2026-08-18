@@ -87,11 +87,26 @@ def main():
     
     srt_index = 1
     for seg in segments:
+        words_data = []
+        if hasattr(seg, "words") and seg.words:
+            for w in seg.words:
+                words_data.append({
+                    "word": w.word,
+                    "start": round(w.start, 3),
+                    "end": round(w.end, 3),
+                    "probability": round(w.probability, 4)
+                })
+
         seg_data = {
             "id": seg.id,
-            "start": seg.start,
-            "end": seg.end,
-            "text": seg.text.strip()
+            "start": round(seg.start, 3),
+            "end": round(seg.end, 3),
+            "text": seg.text.strip(),
+            "avg_logprob": getattr(seg, "avg_logprob", None),
+            "no_speech_prob": getattr(seg, "no_speech_prob", None),
+            "compression_ratio": getattr(seg, "compression_ratio", None),
+            "temperature": getattr(seg, "temperature", None),
+            "words": words_data
         }
         segment_list.append(seg_data)
         plain_text_lines.append(seg.text.strip())

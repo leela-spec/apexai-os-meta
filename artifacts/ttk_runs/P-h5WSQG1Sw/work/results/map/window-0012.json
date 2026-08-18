@@ -1,0 +1,146 @@
+{
+  "schema": "ttk.map-result.v2",
+  "packet_id": "map-window-0012",
+  "packet_sha256": "7dcefc6194e78d7ab7e24c3a04265e8d6b5a5f60b362db3d76ac1445fc66418c",
+  "window_id": "window-0012",
+  "subtopics": [
+    {
+      "label": "Window window-0012 Topics",
+      "source_segment_ids": [
+        "seg-000707",
+        "seg-000708",
+        "seg-000709",
+        "seg-000710",
+        "seg-000711",
+        "seg-000712",
+        "seg-000713",
+        "seg-000714",
+        "seg-000715",
+        "seg-000716",
+        "seg-000717",
+        "seg-000718",
+        "seg-000719",
+        "seg-000720",
+        "seg-000721",
+        "seg-000722",
+        "seg-000723",
+        "seg-000724",
+        "seg-000725",
+        "seg-000726",
+        "seg-000727",
+        "seg-000728",
+        "seg-000729",
+        "seg-000730",
+        "seg-000731",
+        "seg-000732",
+        "seg-000733",
+        "seg-000734",
+        "seg-000735",
+        "seg-000736",
+        "seg-000737",
+        "seg-000738",
+        "seg-000739",
+        "seg-000740",
+        "seg-000741",
+        "seg-000742",
+        "seg-000743",
+        "seg-000744",
+        "seg-000745",
+        "seg-000746",
+        "seg-000747",
+        "seg-000748",
+        "seg-000749",
+        "seg-000750",
+        "seg-000751",
+        "seg-000752",
+        "seg-000753",
+        "seg-000754",
+        "seg-000755",
+        "seg-000756",
+        "seg-000757",
+        "seg-000758",
+        "seg-000759",
+        "seg-000760",
+        "seg-000761",
+        "seg-000762",
+        "seg-000763",
+        "seg-000764",
+        "seg-000765"
+      ]
+    }
+  ],
+  "key_points": [
+    {
+      "text": "Don't. It's really interesting. You have to pass it.",
+      "source_segment_ids": [
+        "seg-000707"
+      ]
+    },
+    {
+      "text": "Eventually, it's passed, but it evokes very interesting adaptive behaviors,",
+      "source_segment_ids": [
+        "seg-000708"
+      ]
+    },
+    {
+      "text": "well, just as an aside, before I forget it. So, normally for pain, extraceptive pain,",
+      "source_segment_ids": [
+        "seg-000709"
+      ]
+    }
+  ],
+  "mechanisms": [],
+  "protocols": [],
+  "arguments": [],
+  "candidate_claims": [
+    {
+      "claim_text": "Don't. It's really interesting. You have to pass it.",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000707"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000707",
+          "quote": "Don't. It's really interesting. You have to pass it."
+        }
+      ],
+      "checkworthiness": "medium"
+    },
+    {
+      "claim_text": "Eventually, it's passed, but it evokes very interesting adaptive behaviors,",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000708"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000708",
+          "quote": "Eventually, it's passed, but it evokes very interesting adaptive behaviors,"
+        }
+      ],
+      "checkworthiness": "low"
+    },
+    {
+      "claim_text": "well, just as an aside, before I forget it. So, normally for pain, extraceptive pain,",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000709"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000709",
+          "quote": "well, just as an aside, before I forget it. So, normally for pain, extraceptive pain,"
+        }
+      ],
+      "checkworthiness": "low"
+    }
+  ],
+  "entities": [],
+  "concepts": [],
+  "open_questions": [],
+  "contradictions_or_uncertainty": []
+}

@@ -1,0 +1,150 @@
+{
+  "schema": "ttk.map-result.v2",
+  "packet_id": "map-window-0015",
+  "packet_sha256": "2d3de5d76684f7eecc49930325f2a3e942fd9f983e1cf3e475551910a01366b6",
+  "window_id": "window-0015",
+  "subtopics": [
+    {
+      "label": "Window window-0015 Topics",
+      "source_segment_ids": [
+        "seg-000879",
+        "seg-000880",
+        "seg-000881",
+        "seg-000882",
+        "seg-000883",
+        "seg-000884",
+        "seg-000885",
+        "seg-000886",
+        "seg-000887",
+        "seg-000888",
+        "seg-000889",
+        "seg-000890",
+        "seg-000891",
+        "seg-000892",
+        "seg-000893",
+        "seg-000894",
+        "seg-000895",
+        "seg-000896",
+        "seg-000897",
+        "seg-000898",
+        "seg-000899",
+        "seg-000900",
+        "seg-000901",
+        "seg-000902",
+        "seg-000903",
+        "seg-000904",
+        "seg-000905",
+        "seg-000906",
+        "seg-000907",
+        "seg-000908",
+        "seg-000909",
+        "seg-000910",
+        "seg-000911",
+        "seg-000912",
+        "seg-000913",
+        "seg-000914",
+        "seg-000915",
+        "seg-000916",
+        "seg-000917",
+        "seg-000918",
+        "seg-000919",
+        "seg-000920",
+        "seg-000921",
+        "seg-000922",
+        "seg-000923",
+        "seg-000924",
+        "seg-000925",
+        "seg-000926",
+        "seg-000927",
+        "seg-000928",
+        "seg-000929",
+        "seg-000930",
+        "seg-000931",
+        "seg-000932",
+        "seg-000933",
+        "seg-000934",
+        "seg-000935",
+        "seg-000936",
+        "seg-000937",
+        "seg-000938",
+        "seg-000939",
+        "seg-000940",
+        "seg-000941"
+      ]
+    }
+  ],
+  "key_points": [
+    {
+      "text": "a good example is the visual word form area. So there's regions in the brain that like the ones",
+      "source_segment_ids": [
+        "seg-000879"
+      ]
+    },
+    {
+      "text": "that my former Celtic colleague, Doris Sau study, that are specialized for faces. But there's also",
+      "source_segment_ids": [
+        "seg-000880"
+      ]
+    },
+    {
+      "text": "a region in the brain typically on the left in most people that's for recognizing words, letters.",
+      "source_segment_ids": [
+        "seg-000881"
+      ]
+    }
+  ],
+  "mechanisms": [],
+  "protocols": [],
+  "arguments": [],
+  "candidate_claims": [
+    {
+      "claim_text": "a good example is the visual word form area. So there's regions in the brain that like the ones",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000879"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000879",
+          "quote": "a good example is the visual word form area. So there's regions in the brain that like the ones"
+        }
+      ],
+      "checkworthiness": "medium"
+    },
+    {
+      "claim_text": "that my former Celtic colleague, Doris Sau study, that are specialized for faces. But there's also",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000880"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000880",
+          "quote": "that my former Celtic colleague, Doris Sau study, that are specialized for faces. But there's also"
+        }
+      ],
+      "checkworthiness": "low"
+    },
+    {
+      "claim_text": "a region in the brain typically on the left in most people that's for recognizing words, letters.",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000881"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000881",
+          "quote": "a region in the brain typically on the left in most people that's for recognizing words, letters."
+        }
+      ],
+      "checkworthiness": "low"
+    }
+  ],
+  "entities": [],
+  "concepts": [],
+  "open_questions": [],
+  "contradictions_or_uncertainty": []
+}

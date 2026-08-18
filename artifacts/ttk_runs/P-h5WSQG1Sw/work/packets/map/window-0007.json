@@ -1,0 +1,598 @@
+{
+  "context_only_segment_ids": [
+    "seg-000356",
+    "seg-000419"
+  ],
+  "contract_version": "ttk.semantic-contract.v2",
+  "core_segment_ids": [
+    "seg-000357",
+    "seg-000358",
+    "seg-000359",
+    "seg-000360",
+    "seg-000361",
+    "seg-000362",
+    "seg-000363",
+    "seg-000364",
+    "seg-000365",
+    "seg-000366",
+    "seg-000367",
+    "seg-000368",
+    "seg-000369",
+    "seg-000370",
+    "seg-000371",
+    "seg-000372",
+    "seg-000373",
+    "seg-000374",
+    "seg-000375",
+    "seg-000376",
+    "seg-000377",
+    "seg-000378",
+    "seg-000379",
+    "seg-000380",
+    "seg-000381",
+    "seg-000382",
+    "seg-000383",
+    "seg-000384",
+    "seg-000385",
+    "seg-000386",
+    "seg-000387",
+    "seg-000388",
+    "seg-000389",
+    "seg-000390",
+    "seg-000391",
+    "seg-000392",
+    "seg-000393",
+    "seg-000394",
+    "seg-000395",
+    "seg-000396",
+    "seg-000397",
+    "seg-000398",
+    "seg-000399",
+    "seg-000400",
+    "seg-000401",
+    "seg-000402",
+    "seg-000403",
+    "seg-000404",
+    "seg-000405",
+    "seg-000406",
+    "seg-000407",
+    "seg-000408",
+    "seg-000409",
+    "seg-000410",
+    "seg-000411",
+    "seg-000412",
+    "seg-000413",
+    "seg-000414",
+    "seg-000415",
+    "seg-000416",
+    "seg-000417",
+    "seg-000418"
+  ],
+  "packet_id": "map-window-0007",
+  "packet_sha256": "a218881198734e2deef6e99194dfdb49ab4604b7b536aa5c5d1566f80ca608f4",
+  "result_path": "work/results/map/window-0007.json",
+  "rules": [
+    "Extract evidence only from core segments; context_only segments are orientation only.",
+    "Every candidate claim requires at least one verbatim quote from its cited core segment.",
+    "Do not force content into categories; empty arrays are valid.",
+    "Separate factual assertions from opinion, prediction, recommendation, decision, anecdote, definition, mechanism, estimate, and hypothesis.",
+    "Preserve disagreement and uncertainty rather than reconciling it."
+  ],
+  "schema": "ttk.map-packet.v2",
+  "source_segments": [
+    {
+      "end_hms": "00:32:07.150",
+      "id": "seg-000356",
+      "role": "context_only",
+      "speaker": null,
+      "start_hms": "00:32:03.089",
+      "text": "down a path, it's very hard to extract yourself. Absolutely. Absolutely. I think cognitive"
+    },
+    {
+      "end_hms": "00:32:13.569",
+      "id": "seg-000357",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:32:07.150",
+      "text": "we appraisal or any other sort of complex we appraisal strategy for emotions. It is a double-edged"
+    },
+    {
+      "end_hms": "00:32:19.630",
+      "id": "seg-000358",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:32:13.569",
+      "text": "sword and it's trainable. It's as you say, if I really focus on, okay, now, you know, I'm starting"
+    },
+    {
+      "end_hms": "00:32:23.450",
+      "id": "seg-000359",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:32:19.630",
+      "text": "to feel sad. I really don't want to feel sad. I really don't want to feel sad. I really don't"
+    },
+    {
+      "end_hms": "00:32:27.690",
+      "id": "seg-000360",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:32:23.450",
+      "text": "want to feel sad. Well, the more I think about it, the sadder I get, right? Or seeing with anxiety,"
+    },
+    {
+      "end_hms": "00:32:31.230",
+      "id": "seg-000361",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:32:27.890",
+      "text": "some emotions are putting more prone to going down this rabbit hole than others. But again,"
+    },
+    {
+      "end_hms": "00:32:36.210",
+      "id": "seg-000362",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:32:31.230",
+      "text": "it's a trainable skill that there are other ways of dealing with it where you can just stop"
+    },
+    {
+      "end_hms": "00:32:41.509",
+      "id": "seg-000363",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:32:36.210",
+      "text": "that process from going down at all. You want to stop it at the earliest front end. I mean,"
+    },
+    {
+      "end_hms": "00:32:46.730",
+      "id": "seg-000364",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:32:41.609",
+      "text": "one quick answer to the question of what's the most successful strategy is the earlier you can stop"
+    },
+    {
+      "end_hms": "00:32:51.930",
+      "id": "seg-000365",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:32:46.730",
+      "text": "that process the better. And so in the first place, don't get yourself into a situation where"
+    },
+    {
+      "end_hms": "00:32:56.789",
+      "id": "seg-000366",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:32:51.930",
+      "text": "you're going to be anxious or guilty or sad or whatever emotion you want to avoid. So situational"
+    },
+    {
+      "end_hms": "00:33:01.089",
+      "id": "seg-000367",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:32:56.789",
+      "text": "avoidance, just in terms of structuring your environment, would be one strategy. And then once"
+    },
+    {
+      "end_hms": "00:33:05.849",
+      "id": "seg-000368",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:33:01.089",
+      "text": "you're in it, I think it's idiosyncratic to a large extent. So you would have to figure out what"
+    },
+    {
+      "end_hms": "00:33:11.509",
+      "id": "seg-000369",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:33:05.849",
+      "text": "works for you. But it's definitely trainable. Two parts are trainable. One is the specific strategy."
+    },
+    {
+      "end_hms": "00:33:16.690",
+      "id": "seg-000370",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:33:11.930",
+      "text": "So you can do cognitive re-appraisal without overthinking it and going down the rabbit hole and"
+    },
+    {
+      "end_hms": "00:33:22.529",
+      "id": "seg-000371",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:33:16.690",
+      "text": "actually feeling the emotion even more. And the other one is just the strength and automaticity"
+    },
+    {
+      "end_hms": "00:33:27.369",
+      "id": "seg-000372",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:33:22.529",
+      "text": "of control that you have, which brings me to the ice bath. So if you talk about the ice bath"
+    },
+    {
+      "end_hms": "00:33:33.650",
+      "id": "seg-000373",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:33:27.369",
+      "text": "because this is relevant actually. So I started doing these a while back, or not my former colleagues,"
+    },
+    {
+      "end_hms": "00:33:40.150",
+      "id": "seg-000374",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:33:33.789",
+      "text": "Justin Feinstein, who now runs a float clinic on Maui. I forget how it came about, but we were"
+    },
+    {
+      "end_hms": "00:33:45.710",
+      "id": "seg-000375",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:33:40.150",
+      "text": "talking about floating ice baths. And he mentioned you, and he mentioned Wim Hof, and said, you know,"
+    },
+    {
+      "end_hms": "00:33:50.170",
+      "id": "seg-000376",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:33:45.769",
+      "text": "take a look at these guys. And I saw you know Wim swimming in some frozen lake. Look kind of"
+    },
+    {
+      "end_hms": "00:33:54.250",
+      "id": "seg-000377",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:33:50.170",
+      "text": "interesting. Anyway, so I started doing ice baths some time ago. They weren't that popular yet"
+    },
+    {
+      "end_hms": "00:34:00.650",
+      "id": "seg-000378",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:33:54.250",
+      "text": "back then. And now my wife bought an Amazon like a horse-watering trough for some big thin,"
+    },
+    {
+      "end_hms": "00:34:06.009",
+      "id": "seg-000379",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:34:00.809",
+      "text": "insulated it. It's a lot safer than being out on a lake, too. We'll talk about that. And I get,"
+    },
+    {
+      "end_hms": "00:34:11.449",
+      "id": "seg-000380",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:34:06.089",
+      "text": "you know, these 40-pound ice bags a week. They know me very well at Joe's ice up there every time"
+    },
+    {
+      "end_hms": "00:34:16.650",
+      "id": "seg-000381",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:34:11.449",
+      "text": "I go in. They say, hey, boss, having a good party again tonight. Yep, it's like an eagle on ice."
+    },
+    {
+      "end_hms": "00:34:21.710",
+      "id": "seg-000382",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:34:16.650",
+      "text": "But so this is the interesting thing. When I start first week, it is terrible. Super painful,"
+    },
+    {
+      "end_hms": "00:34:25.670",
+      "id": "seg-000383",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:34:21.949",
+      "text": "you know, you go in. It's like a whole-body cold press or task, right? Second week,"
+    },
+    {
+      "end_hms": "00:34:30.570",
+      "id": "seg-000384",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:34:26.230",
+      "text": "it's also, you know, your breathing goes up, your heart rate goes up, but gradually"
+    },
+    {
+      "end_hms": "00:34:37.949",
+      "id": "seg-000385",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:34:31.150",
+      "text": "and kind of with some automaticity to it, now I go into the ice bath immediately. My heart rate"
+    },
+    {
+      "end_hms": "00:34:43.849",
+      "id": "seg-000386",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:34:37.949",
+      "text": "goes down. My breathing goes down. I get super relaxed. So this is the interesting part that I"
+    },
+    {
+      "end_hms": "00:34:49.480",
+      "id": "seg-000387",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:34:43.849",
+      "text": "propose of emotion regulation. It generalizes for me. This is an experiment of one, but for me,"
+    },
+    {
+      "end_hms": "00:34:56.159",
+      "id": "seg-000388",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:34:49.559",
+      "text": "it generalizes. So previously, prior to the ice bath and driving around Pasadena, and I don't"
+    },
+    {
+      "end_hms": "00:35:02.860",
+      "id": "seg-000389",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:34:56.159",
+      "text": "know, in the last year or two, this seems to have risen somehow. I'm trying to park on the street."
+    },
+    {
+      "end_hms": "00:35:07.599",
+      "id": "seg-000390",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:35:03.360",
+      "text": "There's a lane next to me. I have my signal out. There's a parking space. It's clear what I'm trying"
+    },
+    {
+      "end_hms": "00:35:12.480",
+      "id": "seg-000391",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:35:07.599",
+      "text": "to do. I see somebody come up behind me. They can see. I'm trying to park. They can move over. No,"
+    },
+    {
+      "end_hms": "00:35:18.980",
+      "id": "seg-000392",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:35:12.480",
+      "text": "they come right up behind me. Go on the horn. You know, you immediately feel just an immediate"
+    },
+    {
+      "end_hms": "00:35:26.199",
+      "id": "seg-000393",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:35:18.980",
+      "text": "anger response, right? Well, after the ice bath, it's flat. So there was an immediate automatic"
+    },
+    {
+      "end_hms": "00:35:32.219",
+      "id": "seg-000394",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:35:26.199",
+      "text": "down regulation of my autonomic emotional response to a psychological stressor. Somebody honking"
+    },
+    {
+      "end_hms": "00:35:42.460",
+      "id": "seg-000395",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:35:32.219",
+      "text": "at me that was trained and generalized from the ice bath. It's an experiment of one. I'm not"
+    },
+    {
+      "end_hms": "00:35:47.900",
+      "id": "seg-000396",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:35:42.460",
+      "text": "autonomic training component as well. In terms of the strength and the automaticity, the ease with"
+    },
+    {
+      "end_hms": "00:35:53.840",
+      "id": "seg-000397",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:35:47.900",
+      "text": "which you can regulate emotions that they can become kind of automatically regulated. You don't"
+    },
+    {
+      "end_hms": "00:35:59.519",
+      "id": "seg-000398",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:35:53.840",
+      "text": "have to overthink it. It becomes smooth and effortless to some extent. And that's that's the place"
+    },
+    {
+      "end_hms": "00:36:05.340",
+      "id": "seg-000399",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:35:59.519",
+      "text": "where you where you want to get. I've known Wim a long time. And although I sometimes, in my opinion,"
+    },
+    {
+      "end_hms": "00:36:10.519",
+      "id": "seg-000400",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:36:05.519",
+      "text": "unfairly get taxed to the deliberate cold exposure, as we call it, thing a little too much because"
+    },
+    {
+      "end_hms": "00:36:14.820",
+      "id": "seg-000401",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:36:10.519",
+      "text": "we talk about many things on this podcast. Not just that. I do find it very useful. And years ago,"
+    },
+    {
+      "end_hms": "00:36:19.480",
+      "id": "seg-000402",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:36:14.900",
+      "text": "my lab had collaborations with a special operations community. And they'll tell you that one of the"
+    },
+    {
+      "end_hms": "00:36:24.920",
+      "id": "seg-000403",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:36:19.480",
+      "text": "reasons it's such a wonderful tool is it's so reliable. You always get an increase in adrenaline,"
+    },
+    {
+      "end_hms": "00:36:30.699",
+      "id": "seg-000404",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:36:25.679",
+      "text": "norup and effort in the brain. And to some extent, and this might surprise you, perhaps not, you get"
+    },
+    {
+      "end_hms": "00:36:35.920",
+      "id": "seg-000405",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:36:31.360",
+      "text": "often reductions in cortisol, which is kind of paradoxical. But when people practice, it's very"
+    },
+    {
+      "end_hms": "00:36:39.639",
+      "id": "seg-000406",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:36:35.920",
+      "text": "reliable and provided it's not so cold, or it's an open lake where you can reliably, it's super"
+    },
+    {
+      "end_hms": "00:36:43.219",
+      "id": "seg-000407",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:36:39.639",
+      "text": "efficient and safe. I mean, unless you're doing it in a lake or you're doing hyperventilation."
+    },
+    {
+      "end_hms": "00:36:47.619",
+      "id": "seg-000408",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:36:43.320",
+      "text": "Five minutes after shower, it's extremely efficient. So I think that's a lot. That's good."
+    },
+    {
+      "end_hms": "00:36:51.980",
+      "id": "seg-000409",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:36:47.679",
+      "text": "Well, after five minutes, you can look at my body mass index after five minutes, I can hypothermic,"
+    },
+    {
+      "end_hms": "00:36:56.960",
+      "id": "seg-000410",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:36:51.980",
+      "text": "so I can't stay in. That's a good long while and even in a cold shower. And there is now evidence"
+    },
+    {
+      "end_hms": "00:37:02.500",
+      "id": "seg-000411",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:36:56.960",
+      "text": "of improved resilience to subsequent stressors of the sort that you described. There are some"
+    },
+    {
+      "end_hms": "00:37:09.000",
+      "id": "seg-000412",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:37:02.500",
+      "text": "okay papers. I think it's a wonderful tool, especially for this buffering, this immediate stressor"
+    },
+    {
+      "end_hms": "00:37:14.280",
+      "id": "seg-000413",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:37:09.000",
+      "text": "anger response. Yeah. Very powerful. Before we went on, Mike, we were talking about a different type"
+    },
+    {
+      "end_hms": "00:37:19.320",
+      "id": "seg-000414",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:37:14.280",
+      "text": "of stressor, which is the ultramarathons that you're currently training for, a hundred mile"
+    },
+    {
+      "end_hms": "00:37:22.920",
+      "id": "seg-000415",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:37:19.320",
+      "text": "race, which is, by the way, super impressive, even just to shoot for it. I know you've done"
+    },
+    {
+      "end_hms": "00:37:28.880",
+      "id": "seg-000416",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:37:22.920",
+      "text": "others. I'm trying to try. I have confidence in you. Talk to me in two months. Yes, I will."
+    },
+    {
+      "end_hms": "00:37:31.260",
+      "id": "seg-000417",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:37:28.940",
+      "text": "I have confidence in you. You're going to finish this hundred mile race."
+    },
+    {
+      "end_hms": "00:37:34.820",
+      "id": "seg-000418",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:37:31.260",
+      "text": "But we were talking about something that I think is relevant to bring up now, which is"
+    },
+    {
+      "end_hms": "00:37:41.699",
+      "id": "seg-000419",
+      "role": "context_only",
+      "speaker": null,
+      "start_hms": "00:37:35.639",
+      "text": "you were describing how, you know, at some points during these races, you just feel like complete"
+    }
+  ],
+  "source_sha256": "3e46962b9a0be33deecf1612ca70d8c2ceb1405ce67075ce22c6123d8e972c9d",
+  "window_id": "window-0007"
+}

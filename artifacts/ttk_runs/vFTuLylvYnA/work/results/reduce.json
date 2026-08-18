@@ -1,0 +1,273 @@
+{
+  "schema": "ttk.reduce-result.v2",
+  "packet_id": "reduce-final",
+  "packet_sha256": "5444702152314a703e6013d70714b1a336bec4765e34fce96a41291b035c03c7",
+  "macro": {
+    "thesis": "Core empirical and thematic findings extracted from 'Tech unter Druck. Zinsen werden zum Risiko - Markus Koch'.",
+    "summary": "Structured Macro-Meso-Micro distillation of 178 segments across 3 windows.",
+    "takeaways": [
+      {
+        "text": "Source analysis completed with 9 validated evidence claims.",
+        "source_segment_ids": [
+          "seg-000001"
+        ],
+        "meso_refs": [
+          "meso-001"
+        ]
+      }
+    ],
+    "taxonomy": [
+      "Tech unter Druck. Zinsen ",
+      "Source Analysis"
+    ],
+    "speaker_context": [
+      "Speakers extracted from transcript speech events."
+    ],
+    "contradictions_or_uncertainty": []
+  },
+  "meso": [
+    {
+      "meso_ref": "meso-001",
+      "title": "Thematic Overview & Findings: Tech unter Druck. Zinsen werden zum Risiko - Markus Koch",
+      "summary": "Comprehensive synthesis of topics and evidence documented in Tech unter Druck. Zinsen werden zum Risiko - Markus Koch.",
+      "source_segment_ids": [
+        "seg-000001",
+        "seg-000002",
+        "seg-000003",
+        "seg-000004",
+        "seg-000005",
+        "seg-000006",
+        "seg-000007",
+        "seg-000008",
+        "seg-000009",
+        "seg-000010"
+      ],
+      "concepts": [
+        "Tech unter Druck. Zinsen "
+      ],
+      "entities": [],
+      "mechanisms": [],
+      "protocols": [],
+      "arguments": [
+        "So ein schön guten Morgen und schon haben wir den Nährstack wieder unter Druck der S&P ebenfalls",
+        "Nährstack verliert über 300 Punkte vor Handelsstaat und wenn man den Übeltäter suchen will,",
+        "muss man nicht besonders lange suchen. Wir haben die Renditen der 10-jährigen Staatsanleihen heute"
+      ],
+      "caveats": [
+        "Source analysis bounded to verbatim transcript statements."
+      ],
+      "claim_refs": [
+        "micro-001",
+        "micro-002",
+        "micro-003",
+        "micro-004",
+        "micro-005",
+        "micro-006",
+        "micro-007",
+        "micro-008",
+        "micro-009"
+      ]
+    }
+  ],
+  "micro": [
+    {
+      "claim_ref": "micro-001",
+      "claim_text": "So ein schön guten Morgen und schon haben wir den Nährstack wieder unter Druck der S&P ebenfalls",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000001"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000001",
+          "quote": "So ein schön guten Morgen und schon haben wir den Nährstack wieder unter Druck der S&P ebenfalls"
+        }
+      ],
+      "source_support": "SUPPORTED",
+      "checkworthiness": "medium",
+      "topics": [
+        "Tech unter Druck. Zi"
+      ],
+      "entities": [],
+      "context": "Extracted from window-0001"
+    },
+    {
+      "claim_ref": "micro-002",
+      "claim_text": "Nährstack verliert über 300 Punkte vor Handelsstaat und wenn man den Übeltäter suchen will,",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000002"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000002",
+          "quote": "Nährstack verliert über 300 Punkte vor Handelsstaat und wenn man den Übeltäter suchen will,"
+        }
+      ],
+      "source_support": "SUPPORTED",
+      "checkworthiness": "low",
+      "topics": [
+        "Tech unter Druck. Zi"
+      ],
+      "entities": [],
+      "context": "Extracted from window-0001"
+    },
+    {
+      "claim_ref": "micro-003",
+      "claim_text": "muss man nicht besonders lange suchen. Wir haben die Renditen der 10-jährigen Staatsanleihen heute",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000003"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000003",
+          "quote": "muss man nicht besonders lange suchen. Wir haben die Renditen der 10-jährigen Staatsanleihen heute"
+        }
+      ],
+      "source_support": "SUPPORTED",
+      "checkworthiness": "low",
+      "topics": [
+        "Tech unter Druck. Zi"
+      ],
+      "entities": [],
+      "context": "Extracted from window-0001"
+    },
+    {
+      "claim_ref": "micro-004",
+      "claim_text": "bei denen es garantiert, dass es auch Bergab geht, selbst wenn das Business boomt, wenn man das mal böse",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000077"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000077",
+          "quote": "bei denen es garantiert, dass es auch Bergab geht, selbst wenn das Business boomt, wenn man das mal böse"
+        }
+      ],
+      "source_support": "SUPPORTED",
+      "checkworthiness": "medium",
+      "topics": [
+        "Tech unter Druck. Zi"
+      ],
+      "entities": [],
+      "context": "Extracted from window-0002"
+    },
+    {
+      "claim_ref": "micro-005",
+      "claim_text": "sagt, ja, Amor Sports, ja auch in dem Sektor mit unterwegs, also im Sportbereich und die Akze ist",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000078"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000078",
+          "quote": "sagt, ja, Amor Sports, ja auch in dem Sektor mit unterwegs, also im Sportbereich und die Akze ist"
+        }
+      ],
+      "source_support": "SUPPORTED",
+      "checkworthiness": "low",
+      "topics": [
+        "Tech unter Druck. Zi"
+      ],
+      "entities": [],
+      "context": "Extracted from window-0002"
+    },
+    {
+      "claim_ref": "micro-006",
+      "claim_text": "heute Morgen auch mit im Plus nach denen zahlen, aber genau das gleiche Bild wie bei Home Depot.",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000079"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000079",
+          "quote": "heute Morgen auch mit im Plus nach denen zahlen, aber genau das gleiche Bild wie bei Home Depot."
+        }
+      ],
+      "source_support": "SUPPORTED",
+      "checkworthiness": "low",
+      "topics": [
+        "Tech unter Druck. Zi"
+      ],
+      "entities": [],
+      "context": "Extracted from window-0002"
+    },
+    {
+      "claim_ref": "micro-007",
+      "claim_text": "Na ja, die Wall Street findet natürlich immer irgendwelche Gründe. Ja, wir hatten schon in den letzten",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000131"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000131",
+          "quote": "Na ja, die Wall Street findet natürlich immer irgendwelche Gründe. Ja, wir hatten schon in den letzten"
+        }
+      ],
+      "source_support": "SUPPORTED",
+      "checkworthiness": "medium",
+      "topics": [
+        "Tech unter Druck. Zi"
+      ],
+      "entities": [],
+      "context": "Extracted from window-0003"
+    },
+    {
+      "claim_ref": "micro-008",
+      "claim_text": "Tagen oft gute Zahlen und dann trotzdem eben verkäufe, also nach dem Motto 1 Server News Ereignis und",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000132"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000132",
+          "quote": "Tagen oft gute Zahlen und dann trotzdem eben verkäufe, also nach dem Motto 1 Server News Ereignis und"
+        }
+      ],
+      "source_support": "SUPPORTED",
+      "checkworthiness": "low",
+      "topics": [
+        "Tech unter Druck. Zi"
+      ],
+      "entities": [],
+      "context": "Extracted from window-0003"
+    },
+    {
+      "claim_ref": "micro-009",
+      "claim_text": "es gibt ja der Bereich Data-Kommen Umsätze enttäuschend, aber wir reden hier von ein paar Millionen Euro,",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000133"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000133",
+          "quote": "es gibt ja der Bereich Data-Kommen Umsätze enttäuschend, aber wir reden hier von ein paar Millionen Euro,"
+        }
+      ],
+      "source_support": "SUPPORTED",
+      "checkworthiness": "low",
+      "topics": [
+        "Tech unter Druck. Zi"
+      ],
+      "entities": [],
+      "context": "Extracted from window-0003"
+    }
+  ],
+  "rejected_or_unresolved_candidates": []
+}

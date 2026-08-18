@@ -1,0 +1,145 @@
+{
+  "schema": "ttk.map-result.v2",
+  "packet_id": "map-window-0009",
+  "packet_sha256": "e628ae719984dee20633b922f208056cd4af11ef13fa692a16271a61a16f091c",
+  "window_id": "window-0009",
+  "subtopics": [
+    {
+      "label": "Window window-0009 Topics",
+      "source_segment_ids": [
+        "seg-000503",
+        "seg-000504",
+        "seg-000505",
+        "seg-000506",
+        "seg-000507",
+        "seg-000508",
+        "seg-000509",
+        "seg-000510",
+        "seg-000511",
+        "seg-000512",
+        "seg-000513",
+        "seg-000514",
+        "seg-000515",
+        "seg-000516",
+        "seg-000517",
+        "seg-000518",
+        "seg-000519",
+        "seg-000520",
+        "seg-000521",
+        "seg-000522",
+        "seg-000523",
+        "seg-000524",
+        "seg-000525",
+        "seg-000526",
+        "seg-000527",
+        "seg-000528",
+        "seg-000529",
+        "seg-000530",
+        "seg-000531",
+        "seg-000532",
+        "seg-000533",
+        "seg-000534",
+        "seg-000535",
+        "seg-000536",
+        "seg-000537",
+        "seg-000538",
+        "seg-000539",
+        "seg-000540",
+        "seg-000541",
+        "seg-000542",
+        "seg-000543",
+        "seg-000544",
+        "seg-000545",
+        "seg-000546",
+        "seg-000547",
+        "seg-000548",
+        "seg-000549",
+        "seg-000550",
+        "seg-000551",
+        "seg-000552",
+        "seg-000553",
+        "seg-000554",
+        "seg-000555",
+        "seg-000556",
+        "seg-000557",
+        "seg-000558",
+        "seg-000559",
+        "seg-000560"
+      ]
+    }
+  ],
+  "key_points": [
+    {
+      "text": "formula, which is a blend of vitamins, minerals, probiotics, and adaptogens. And it adds three",
+      "source_segment_ids": [
+        "seg-000503"
+      ]
+    },
+    {
+      "text": "important new ingredients, creatine monohydrate, calcium, HMB, and zinc carnacine. Each serving has",
+      "source_segment_ids": [
+        "seg-000504"
+      ]
+    },
+    {
+      "text": "five grams of creatine monohydrate to support muscle strength and performance as well as brain health.",
+      "source_segment_ids": [
+        "seg-000505"
+      ]
+    }
+  ],
+  "mechanisms": [],
+  "protocols": [],
+  "arguments": [],
+  "candidate_claims": [
+    {
+      "claim_text": "formula, which is a blend of vitamins, minerals, probiotics, and adaptogens. And it adds three",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000503"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000503",
+          "quote": "formula, which is a blend of vitamins, minerals, probiotics, and adaptogens. And it adds three"
+        }
+      ],
+      "checkworthiness": "medium"
+    },
+    {
+      "claim_text": "important new ingredients, creatine monohydrate, calcium, HMB, and zinc carnacine. Each serving has",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000504"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000504",
+          "quote": "important new ingredients, creatine monohydrate, calcium, HMB, and zinc carnacine. Each serving has"
+        }
+      ],
+      "checkworthiness": "low"
+    },
+    {
+      "claim_text": "five grams of creatine monohydrate to support muscle strength and performance as well as brain health.",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000505"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000505",
+          "quote": "five grams of creatine monohydrate to support muscle strength and performance as well as brain health."
+        }
+      ],
+      "checkworthiness": "low"
+    }
+  ],
+  "entities": [],
+  "concepts": [],
+  "open_questions": [],
+  "contradictions_or_uncertainty": []
+}

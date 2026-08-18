@@ -1,0 +1,571 @@
+{
+  "contract_version": "ttk.semantic-contract.v2",
+  "evidence": {
+    "arguments": [],
+    "candidate_claims": [
+      {
+        "checkworthiness": "medium",
+        "claim_kind": "fact",
+        "claim_text": "Elliott, thanks for joining us today, so we have Elliott Pregnant with us, and it's an honor to",
+        "quote_evidence": [
+          {
+            "quote": "Elliott, thanks for joining us today, so we have Elliott Pregnant with us, and it's an honor to",
+            "segment_id": "seg-000001"
+          }
+        ],
+        "source_segment_ids": [
+          "seg-000001"
+        ],
+        "source_window_ids": [
+          "window-0001"
+        ],
+        "speaker": null
+      },
+      {
+        "checkworthiness": "low",
+        "claim_kind": "fact",
+        "claim_text": "have you here spending some time with us talking about the Elliott Wave Principle and your history",
+        "quote_evidence": [
+          {
+            "quote": "have you here spending some time with us talking about the Elliott Wave Principle and your history",
+            "segment_id": "seg-000002"
+          }
+        ],
+        "source_segment_ids": [
+          "seg-000002"
+        ],
+        "source_window_ids": [
+          "window-0001"
+        ],
+        "speaker": null
+      },
+      {
+        "checkworthiness": "low",
+        "claim_kind": "fact",
+        "claim_text": "and your personal background on that. So, I mean, before we go into the more depth of Elliott Wave,",
+        "quote_evidence": [
+          {
+            "quote": "and your personal background on that. So, I mean, before we go into the more depth of Elliott Wave,",
+            "segment_id": "seg-000003"
+          }
+        ],
+        "source_segment_ids": [
+          "seg-000003"
+        ],
+        "source_window_ids": [
+          "window-0001"
+        ],
+        "speaker": null
+      },
+      {
+        "checkworthiness": "medium",
+        "claim_kind": "fact",
+        "claim_text": "How should traders use Elliott Payf analysis and practice as a forecasting tool or risk management",
+        "quote_evidence": [
+          {
+            "quote": "How should traders use Elliott Payf analysis and practice as a forecasting tool or risk management",
+            "segment_id": "seg-000045"
+          }
+        ],
+        "source_segment_ids": [
+          "seg-000045"
+        ],
+        "source_window_ids": [
+          "window-0002"
+        ],
+        "speaker": null
+      },
+      {
+        "checkworthiness": "low",
+        "claim_kind": "fact",
+        "claim_text": "tool or a way to map out map out probabilities? Well I think you're pretty much late all around.",
+        "quote_evidence": [
+          {
+            "quote": "tool or a way to map out map out probabilities? Well I think you're pretty much late all around.",
+            "segment_id": "seg-000046"
+          }
+        ],
+        "source_segment_ids": [
+          "seg-000046"
+        ],
+        "source_window_ids": [
+          "window-0002"
+        ],
+        "speaker": null
+      },
+      {
+        "checkworthiness": "low",
+        "claim_kind": "fact",
+        "claim_text": "They did a great job. Yes to all three. I mean historically it's mainly been a long term",
+        "quote_evidence": [
+          {
+            "quote": "They did a great job. Yes to all three. I mean historically it's mainly been a long term",
+            "segment_id": "seg-000047"
+          }
+        ],
+        "source_segment_ids": [
+          "seg-000047"
+        ],
+        "source_window_ids": [
+          "window-0002"
+        ],
+        "speaker": null
+      },
+      {
+        "checkworthiness": "medium",
+        "claim_kind": "fact",
+        "claim_text": "yes I mean e-waves does do the wave count it's an automated process so you don't have to sit there by",
+        "quote_evidence": [
+          {
+            "quote": "yes I mean e-waves does do the wave count it's an automated process so you don't have to sit there by",
+            "segment_id": "seg-000117"
+          }
+        ],
+        "source_segment_ids": [
+          "seg-000117"
+        ],
+        "source_window_ids": [
+          "window-0003"
+        ],
+        "speaker": null
+      },
+      {
+        "checkworthiness": "low",
+        "claim_kind": "fact",
+        "claim_text": "hand and sketch out the wave pattern which like you said earlier can be very tricky because when",
+        "quote_evidence": [
+          {
+            "quote": "hand and sketch out the wave pattern which like you said earlier can be very tricky because when",
+            "segment_id": "seg-000118"
+          }
+        ],
+        "source_segment_ids": [
+          "seg-000118"
+        ],
+        "source_window_ids": [
+          "window-0003"
+        ],
+        "speaker": null
+      },
+      {
+        "checkworthiness": "low",
+        "claim_kind": "fact",
+        "claim_text": "you're looking at a chart through you're going to have partial patterns most of the time and that's",
+        "quote_evidence": [
+          {
+            "quote": "you're looking at a chart through you're going to have partial patterns most of the time and that's",
+            "segment_id": "seg-000119"
+          }
+        ],
+        "source_segment_ids": [
+          "seg-000119"
+        ],
+        "source_window_ids": [
+          "window-0003"
+        ],
+        "speaker": null
+      },
+      {
+        "checkworthiness": "medium",
+        "claim_kind": "fact",
+        "claim_text": "maybe maybe in simple terms very often retail investors ask me you know looks really super",
+        "quote_evidence": [
+          {
+            "quote": "maybe maybe in simple terms very often retail investors ask me you know looks really super",
+            "segment_id": "seg-000162"
+          }
+        ],
+        "source_segment_ids": [
+          "seg-000162"
+        ],
+        "source_window_ids": [
+          "window-0004"
+        ],
+        "speaker": null
+      },
+      {
+        "checkworthiness": "low",
+        "claim_kind": "fact",
+        "claim_text": "interesting where do we actually start how can I get a good understanding of what it actually",
+        "quote_evidence": [
+          {
+            "quote": "interesting where do we actually start how can I get a good understanding of what it actually",
+            "segment_id": "seg-000163"
+          }
+        ],
+        "source_segment_ids": [
+          "seg-000163"
+        ],
+        "source_window_ids": [
+          "window-0004"
+        ],
+        "speaker": null
+      },
+      {
+        "checkworthiness": "low",
+        "claim_kind": "fact",
+        "claim_text": "does which which how would you recommend somebody that is interested in working with Elliott wave",
+        "quote_evidence": [
+          {
+            "quote": "does which which how would you recommend somebody that is interested in working with Elliott wave",
+            "segment_id": "seg-000164"
+          }
+        ],
+        "source_segment_ids": [
+          "seg-000164"
+        ],
+        "source_window_ids": [
+          "window-0004"
+        ],
+        "speaker": null
+      }
+    ],
+    "concepts": [],
+    "contradictions_or_uncertainty": [],
+    "entities": [],
+    "key_points": [
+      {
+        "source_segment_ids": [
+          "seg-000001"
+        ],
+        "source_window_id": "window-0001",
+        "text": "Elliott, thanks for joining us today, so we have Elliott Pregnant with us, and it's an honor to"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000002"
+        ],
+        "source_window_id": "window-0001",
+        "text": "have you here spending some time with us talking about the Elliott Wave Principle and your history"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000003"
+        ],
+        "source_window_id": "window-0001",
+        "text": "and your personal background on that. So, I mean, before we go into the more depth of Elliott Wave,"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000045"
+        ],
+        "source_window_id": "window-0002",
+        "text": "How should traders use Elliott Payf analysis and practice as a forecasting tool or risk management"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000046"
+        ],
+        "source_window_id": "window-0002",
+        "text": "tool or a way to map out map out probabilities? Well I think you're pretty much late all around."
+      },
+      {
+        "source_segment_ids": [
+          "seg-000047"
+        ],
+        "source_window_id": "window-0002",
+        "text": "They did a great job. Yes to all three. I mean historically it's mainly been a long term"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000117"
+        ],
+        "source_window_id": "window-0003",
+        "text": "yes I mean e-waves does do the wave count it's an automated process so you don't have to sit there by"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000118"
+        ],
+        "source_window_id": "window-0003",
+        "text": "hand and sketch out the wave pattern which like you said earlier can be very tricky because when"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000119"
+        ],
+        "source_window_id": "window-0003",
+        "text": "you're looking at a chart through you're going to have partial patterns most of the time and that's"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000162"
+        ],
+        "source_window_id": "window-0004",
+        "text": "maybe maybe in simple terms very often retail investors ask me you know looks really super"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000163"
+        ],
+        "source_window_id": "window-0004",
+        "text": "interesting where do we actually start how can I get a good understanding of what it actually"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000164"
+        ],
+        "source_window_id": "window-0004",
+        "text": "does which which how would you recommend somebody that is interested in working with Elliott wave"
+      }
+    ],
+    "mechanisms": [],
+    "near_duplicate_claim_candidates": [],
+    "open_questions": [],
+    "protocols": [],
+    "subtopics": [
+      {
+        "label": "Window window-0001 Topics",
+        "source_segment_ids": [
+          "seg-000001",
+          "seg-000002",
+          "seg-000003",
+          "seg-000004",
+          "seg-000005",
+          "seg-000006",
+          "seg-000007",
+          "seg-000008",
+          "seg-000009",
+          "seg-000010",
+          "seg-000011",
+          "seg-000012",
+          "seg-000013",
+          "seg-000014",
+          "seg-000015",
+          "seg-000016",
+          "seg-000017",
+          "seg-000018",
+          "seg-000019",
+          "seg-000020",
+          "seg-000021",
+          "seg-000022",
+          "seg-000023",
+          "seg-000024",
+          "seg-000025",
+          "seg-000026",
+          "seg-000027",
+          "seg-000028",
+          "seg-000029",
+          "seg-000030",
+          "seg-000031",
+          "seg-000032",
+          "seg-000033",
+          "seg-000034",
+          "seg-000035",
+          "seg-000036",
+          "seg-000037",
+          "seg-000038",
+          "seg-000039",
+          "seg-000040",
+          "seg-000041",
+          "seg-000042",
+          "seg-000043",
+          "seg-000044"
+        ],
+        "source_window_id": "window-0001"
+      },
+      {
+        "label": "Window window-0002 Topics",
+        "source_segment_ids": [
+          "seg-000045",
+          "seg-000046",
+          "seg-000047",
+          "seg-000048",
+          "seg-000049",
+          "seg-000050",
+          "seg-000051",
+          "seg-000052",
+          "seg-000053",
+          "seg-000054",
+          "seg-000055",
+          "seg-000056",
+          "seg-000057",
+          "seg-000058",
+          "seg-000059",
+          "seg-000060",
+          "seg-000061",
+          "seg-000062",
+          "seg-000063",
+          "seg-000064",
+          "seg-000065",
+          "seg-000066",
+          "seg-000067",
+          "seg-000068",
+          "seg-000069",
+          "seg-000070",
+          "seg-000071",
+          "seg-000072",
+          "seg-000073",
+          "seg-000074",
+          "seg-000075",
+          "seg-000076",
+          "seg-000077",
+          "seg-000078",
+          "seg-000079",
+          "seg-000080",
+          "seg-000081",
+          "seg-000082",
+          "seg-000083",
+          "seg-000084",
+          "seg-000085",
+          "seg-000086",
+          "seg-000087",
+          "seg-000088",
+          "seg-000089",
+          "seg-000090",
+          "seg-000091",
+          "seg-000092",
+          "seg-000093",
+          "seg-000094",
+          "seg-000095",
+          "seg-000096",
+          "seg-000097",
+          "seg-000098",
+          "seg-000099",
+          "seg-000100",
+          "seg-000101",
+          "seg-000102",
+          "seg-000103",
+          "seg-000104",
+          "seg-000105",
+          "seg-000106",
+          "seg-000107",
+          "seg-000108",
+          "seg-000109",
+          "seg-000110",
+          "seg-000111",
+          "seg-000112",
+          "seg-000113",
+          "seg-000114",
+          "seg-000115",
+          "seg-000116"
+        ],
+        "source_window_id": "window-0002"
+      },
+      {
+        "label": "Window window-0003 Topics",
+        "source_segment_ids": [
+          "seg-000117",
+          "seg-000118",
+          "seg-000119",
+          "seg-000120",
+          "seg-000121",
+          "seg-000122",
+          "seg-000123",
+          "seg-000124",
+          "seg-000125",
+          "seg-000126",
+          "seg-000127",
+          "seg-000128",
+          "seg-000129",
+          "seg-000130",
+          "seg-000131",
+          "seg-000132",
+          "seg-000133",
+          "seg-000134",
+          "seg-000135",
+          "seg-000136",
+          "seg-000137",
+          "seg-000138",
+          "seg-000139",
+          "seg-000140",
+          "seg-000141",
+          "seg-000142",
+          "seg-000143",
+          "seg-000144",
+          "seg-000145",
+          "seg-000146",
+          "seg-000147",
+          "seg-000148",
+          "seg-000149",
+          "seg-000150",
+          "seg-000151",
+          "seg-000152",
+          "seg-000153",
+          "seg-000154",
+          "seg-000155",
+          "seg-000156",
+          "seg-000157",
+          "seg-000158",
+          "seg-000159",
+          "seg-000160",
+          "seg-000161"
+        ],
+        "source_window_id": "window-0003"
+      },
+      {
+        "label": "Window window-0004 Topics",
+        "source_segment_ids": [
+          "seg-000162",
+          "seg-000163",
+          "seg-000164",
+          "seg-000165",
+          "seg-000166",
+          "seg-000167",
+          "seg-000168",
+          "seg-000169",
+          "seg-000170",
+          "seg-000171",
+          "seg-000172",
+          "seg-000173",
+          "seg-000174",
+          "seg-000175",
+          "seg-000176",
+          "seg-000177",
+          "seg-000178",
+          "seg-000179",
+          "seg-000180",
+          "seg-000181",
+          "seg-000182",
+          "seg-000183",
+          "seg-000184",
+          "seg-000185",
+          "seg-000186",
+          "seg-000187",
+          "seg-000188",
+          "seg-000189",
+          "seg-000190",
+          "seg-000191",
+          "seg-000192",
+          "seg-000193",
+          "seg-000194",
+          "seg-000195",
+          "seg-000196",
+          "seg-000197",
+          "seg-000198",
+          "seg-000199",
+          "seg-000200",
+          "seg-000201",
+          "seg-000202",
+          "seg-000203",
+          "seg-000204",
+          "seg-000205",
+          "seg-000206",
+          "seg-000207",
+          "seg-000208",
+          "seg-000209",
+          "seg-000210",
+          "seg-000211",
+          "seg-000212",
+          "seg-000213",
+          "seg-000214",
+          "seg-000215"
+        ],
+        "source_window_id": "window-0004"
+      }
+    ]
+  },
+  "evidence_ledger_sha256": "c25cba718c8f8b19ad5615ae8d21b6e7611f5a736071ccd6e39e67fdd5545989",
+  "packet_id": "reduce-final",
+  "packet_sha256": "cb1467784ff77f155c58685ee85fbe7d28cef9bc0e66fdbf0983cb272b50d96a",
+  "result_path": "work/results/reduce.json",
+  "rules": [
+    "Build Macro and Meso from this validated evidence ledger; do not reread the whole transcript by default.",
+    "Every final claim and load-bearing Macro/Meso statement must retain source segment IDs.",
+    "Keep source support separate from external truth verification.",
+    "Review near-duplicate candidates semantically; do not collapse non-equivalent claims.",
+    "Preserve disagreement and uncertainty."
+  ],
+  "schema": "ttk.reduce-packet.v2",
+  "source_sha256": "2d93ffe19ae134fb41bd2a9eb40f14285d702429ce4d2205113c0b177533899a"
+}

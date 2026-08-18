@@ -1,0 +1,105 @@
+{
+  "schema": "ttk.map-result.v2",
+  "packet_id": "map-window-0003",
+  "packet_sha256": "ced3ae54826a6d398e087536faefe8ea11bb69826c19e0a0c1403168ae2c4780",
+  "window_id": "window-0003",
+  "subtopics": [
+    {
+      "label": "Window window-0003 Topics",
+      "source_segment_ids": [
+        "seg-000068",
+        "seg-000069",
+        "seg-000070",
+        "seg-000071",
+        "seg-000072",
+        "seg-000073",
+        "seg-000074",
+        "seg-000075",
+        "seg-000076",
+        "seg-000077",
+        "seg-000078",
+        "seg-000079",
+        "seg-000080",
+        "seg-000081",
+        "seg-000082",
+        "seg-000083",
+        "seg-000084",
+        "seg-000085"
+      ]
+    }
+  ],
+  "key_points": [
+    {
+      "text": "Let me put in this one here so while we see that was just a technical reaction which has to be expected at that point so from a cyclic perspective that swing has not ended yet to say that way or let's zoom in a little bit here.",
+      "source_segment_ids": [
+        "seg-000068"
+      ]
+    },
+    {
+      "text": "So from a cyclic perspective the cycle has still more time on the downward pressure or give more headwind to that asset class from a technical perspective a reaction here would quite be to be expected from a technical point of view.",
+      "source_segment_ids": [
+        "seg-000069"
+      ]
+    },
+    {
+      "text": "We've seen here how that window played out what would be quite interesting so if you would ask me so how to monitor that situation is.",
+      "source_segment_ids": [
+        "seg-000070"
+      ]
+    }
+  ],
+  "mechanisms": [],
+  "protocols": [],
+  "arguments": [],
+  "candidate_claims": [
+    {
+      "claim_text": "Let me put in this one here so while we see that was just a technical reaction which has to be expected at that point so from a cyclic perspective that swing has not ended yet to say that way or let's zoom in a little bit here.",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000068"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000068",
+          "quote": "Let me put in this one here so while we see that was just a technical reaction which has to be expected at that point so from a cyclic perspective that swing has not ended yet to say that way or let's zoom in a little bit here."
+        }
+      ],
+      "checkworthiness": "medium"
+    },
+    {
+      "claim_text": "So from a cyclic perspective the cycle has still more time on the downward pressure or give more headwind to that asset class from a technical perspective a reaction here would quite be to be expected from a technical point of view.",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000069"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000069",
+          "quote": "So from a cyclic perspective the cycle has still more time on the downward pressure or give more headwind to that asset class from a technical perspective a reaction here would quite be to be expected from a technical point of view."
+        }
+      ],
+      "checkworthiness": "low"
+    },
+    {
+      "claim_text": "We've seen here how that window played out what would be quite interesting so if you would ask me so how to monitor that situation is.",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000070"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000070",
+          "quote": "We've seen here how that window played out what would be quite interesting so if you would ask me so how to monitor that situation is."
+        }
+      ],
+      "checkworthiness": "low"
+    }
+  ],
+  "entities": [],
+  "concepts": [],
+  "open_questions": [],
+  "contradictions_or_uncertainty": []
+}

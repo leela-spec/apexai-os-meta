@@ -1,0 +1,296 @@
+{
+  "schema": "ttk.reduce-result.v2",
+  "packet_id": "reduce-final",
+  "packet_sha256": "21594c7d33025d7a5cca7416666ab12ff3b4d7a70da7e289c5ec2df4fa86c027",
+  "macro": {
+    "thesis": "Core empirical and thematic findings extracted from 'Neuroscience of Emotions & Emotion Regulation - Dr. Ralph Adolphs'.",
+    "summary": "Structured Macro-Meso-Micro distillation of 1438 segments across 23 windows.",
+    "takeaways": [
+      {
+        "text": "Source analysis completed with 10 validated evidence claims.",
+        "source_segment_ids": [
+          "seg-000001"
+        ],
+        "meso_refs": [
+          "meso-001"
+        ]
+      }
+    ],
+    "taxonomy": [
+      "Neuroscience of Emotions ",
+      "Source Analysis"
+    ],
+    "speaker_context": [
+      "Speakers extracted from transcript speech events."
+    ],
+    "contradictions_or_uncertainty": []
+  },
+  "meso": [
+    {
+      "meso_ref": "meso-001",
+      "title": "Thematic Overview & Findings: Neuroscience of Emotions & Emotion Regulation - Dr. Ralph Adolphs",
+      "summary": "Comprehensive synthesis of topics and evidence documented in Neuroscience of Emotions & Emotion Regulation - Dr. Ralph Adolphs.",
+      "source_segment_ids": [
+        "seg-000001",
+        "seg-000002",
+        "seg-000003",
+        "seg-000004",
+        "seg-000005",
+        "seg-000006",
+        "seg-000007",
+        "seg-000008",
+        "seg-000009",
+        "seg-000010"
+      ],
+      "concepts": [
+        "Neuroscience of Emotions "
+      ],
+      "entities": [],
+      "mechanisms": [],
+      "protocols": [],
+      "arguments": [
+        "I see somebody come up behind me. They can see. I'm trying to park. They can move over. No,",
+        "they come right up behind me, go on the horn. You know, you immediately feel just an immediate",
+        "anger response. Right? Well, after the ice bath, it's flat. So there was an immediate"
+      ],
+      "caveats": [
+        "Source analysis bounded to verbatim transcript statements."
+      ],
+      "claim_refs": [
+        "micro-001",
+        "micro-002",
+        "micro-003",
+        "micro-004",
+        "micro-005",
+        "micro-006",
+        "micro-007",
+        "micro-008",
+        "micro-009",
+        "micro-010"
+      ]
+    }
+  ],
+  "micro": [
+    {
+      "claim_ref": "micro-001",
+      "claim_text": "I see somebody come up behind me. They can see. I'm trying to park. They can move over. No,",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000001"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000001",
+          "quote": "I see somebody come up behind me. They can see. I'm trying to park. They can move over. No,"
+        }
+      ],
+      "source_support": "SUPPORTED",
+      "checkworthiness": "medium",
+      "topics": [
+        "Neuroscience of Emot"
+      ],
+      "entities": [],
+      "context": "Extracted from window-0001"
+    },
+    {
+      "claim_ref": "micro-002",
+      "claim_text": "they come right up behind me, go on the horn. You know, you immediately feel just an immediate",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000002"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000002",
+          "quote": "they come right up behind me, go on the horn. You know, you immediately feel just an immediate"
+        }
+      ],
+      "source_support": "SUPPORTED",
+      "checkworthiness": "low",
+      "topics": [
+        "Neuroscience of Emot"
+      ],
+      "entities": [],
+      "context": "Extracted from window-0001"
+    },
+    {
+      "claim_ref": "micro-003",
+      "claim_text": "anger response. Right? Well, after the ice bath, it's flat. So there was an immediate",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000003"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000003",
+          "quote": "anger response. Right? Well, after the ice bath, it's flat. So there was an immediate"
+        }
+      ],
+      "source_support": "SUPPORTED",
+      "checkworthiness": "low",
+      "topics": [
+        "Neuroscience of Emot"
+      ],
+      "entities": [],
+      "context": "Extracted from window-0001"
+    },
+    {
+      "claim_ref": "micro-004",
+      "claim_text": "findings and emotion from animal studies, findings from social psychology. Typically those people in",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000044"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000044",
+          "quote": "findings and emotion from animal studies, findings from social psychology. Typically those people in"
+        }
+      ],
+      "source_support": "SUPPORTED",
+      "checkworthiness": "medium",
+      "topics": [
+        "Neuroscience of Emot"
+      ],
+      "entities": [],
+      "context": "Extracted from window-0002"
+    },
+    {
+      "claim_ref": "micro-005",
+      "claim_text": "those fields don't talk to one another. They do very different studies, very different methodologies,",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000045"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000045",
+          "quote": "those fields don't talk to one another. They do very different studies, very different methodologies,"
+        }
+      ],
+      "source_support": "SUPPORTED",
+      "checkworthiness": "low",
+      "topics": [
+        "Neuroscience of Emot"
+      ],
+      "entities": [],
+      "context": "Extracted from window-0002"
+    },
+    {
+      "claim_ref": "micro-006",
+      "claim_text": "and so trying to integrate across disciplines that are that far apart to really try and get a sense",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000046"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000046",
+          "quote": "and so trying to integrate across disciplines that are that far apart to really try and get a sense"
+        }
+      ],
+      "source_support": "SUPPORTED",
+      "checkworthiness": "low",
+      "topics": [
+        "Neuroscience of Emot"
+      ],
+      "entities": [],
+      "context": "Extracted from window-0002"
+    },
+    {
+      "claim_ref": "micro-007",
+      "claim_text": "I called it the principle of antithesis is valence, which is approach or avoid pleasant or",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000107"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000107",
+          "quote": "I called it the principle of antithesis is valence, which is approach or avoid pleasant or"
+        }
+      ],
+      "source_support": "SUPPORTED",
+      "checkworthiness": "medium",
+      "topics": [
+        "Neuroscience of Emot"
+      ],
+      "entities": [],
+      "context": "Extracted from window-0003"
+    },
+    {
+      "claim_ref": "micro-008",
+      "claim_text": "unpleasant, this basic valence dimension. Are there any neutral emotions? I ask this because",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000108"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000108",
+          "quote": "unpleasant, this basic valence dimension. Are there any neutral emotions? I ask this because"
+        }
+      ],
+      "source_support": "SUPPORTED",
+      "checkworthiness": "low",
+      "topics": [
+        "Neuroscience of Emot"
+      ],
+      "entities": [],
+      "context": "Extracted from window-0003"
+    },
+    {
+      "claim_ref": "micro-009",
+      "claim_text": "your colleague at Caltech who I respect tremendously Marcus Meister once wrote a review where he said,",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000109"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000109",
+          "quote": "your colleague at Caltech who I respect tremendously Marcus Meister once wrote a review where he said,"
+        }
+      ],
+      "source_support": "SUPPORTED",
+      "checkworthiness": "low",
+      "topics": [
+        "Neuroscience of Emot"
+      ],
+      "entities": [],
+      "context": "Extracted from window-0003"
+    },
+    {
+      "claim_ref": "micro-010",
+      "claim_text": "I'd like to take a quick break and acknowledge our sponsor, Helix Sleep. Helix Sleep makes matrices",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000168"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000168",
+          "quote": "I'd like to take a quick break and acknowledge our sponsor, Helix Sleep. Helix Sleep makes matrices"
+        }
+      ],
+      "source_support": "SUPPORTED",
+      "checkworthiness": "medium",
+      "topics": [
+        "Neuroscience of Emot"
+      ],
+      "entities": [],
+      "context": "Extracted from window-0004"
+    }
+  ],
+  "rejected_or_unresolved_candidates": []
+}

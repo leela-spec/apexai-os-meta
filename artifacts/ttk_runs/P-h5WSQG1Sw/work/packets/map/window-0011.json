@@ -1,0 +1,751 @@
+{
+  "context_only_segment_ids": [
+    "seg-000627",
+    "seg-000707"
+  ],
+  "contract_version": "ttk.semantic-contract.v2",
+  "core_segment_ids": [
+    "seg-000628",
+    "seg-000629",
+    "seg-000630",
+    "seg-000631",
+    "seg-000632",
+    "seg-000633",
+    "seg-000634",
+    "seg-000635",
+    "seg-000636",
+    "seg-000637",
+    "seg-000638",
+    "seg-000639",
+    "seg-000640",
+    "seg-000641",
+    "seg-000642",
+    "seg-000643",
+    "seg-000644",
+    "seg-000645",
+    "seg-000646",
+    "seg-000647",
+    "seg-000648",
+    "seg-000649",
+    "seg-000650",
+    "seg-000651",
+    "seg-000652",
+    "seg-000653",
+    "seg-000654",
+    "seg-000655",
+    "seg-000656",
+    "seg-000657",
+    "seg-000658",
+    "seg-000659",
+    "seg-000660",
+    "seg-000661",
+    "seg-000662",
+    "seg-000663",
+    "seg-000664",
+    "seg-000665",
+    "seg-000666",
+    "seg-000667",
+    "seg-000668",
+    "seg-000669",
+    "seg-000670",
+    "seg-000671",
+    "seg-000672",
+    "seg-000673",
+    "seg-000674",
+    "seg-000675",
+    "seg-000676",
+    "seg-000677",
+    "seg-000678",
+    "seg-000679",
+    "seg-000680",
+    "seg-000681",
+    "seg-000682",
+    "seg-000683",
+    "seg-000684",
+    "seg-000685",
+    "seg-000686",
+    "seg-000687",
+    "seg-000688",
+    "seg-000689",
+    "seg-000690",
+    "seg-000691",
+    "seg-000692",
+    "seg-000693",
+    "seg-000694",
+    "seg-000695",
+    "seg-000696",
+    "seg-000697",
+    "seg-000698",
+    "seg-000699",
+    "seg-000700",
+    "seg-000701",
+    "seg-000702",
+    "seg-000703",
+    "seg-000704",
+    "seg-000705",
+    "seg-000706"
+  ],
+  "packet_id": "map-window-0011",
+  "packet_sha256": "0ae03874653c2f5f00cb796a7d7b9cf6730873ad1d7d180a7cc823630e313211",
+  "result_path": "work/results/map/window-0011.json",
+  "rules": [
+    "Extract evidence only from core segments; context_only segments are orientation only.",
+    "Every candidate claim requires at least one verbatim quote from its cited core segment.",
+    "Do not force content into categories; empty arrays are valid.",
+    "Separate factual assertions from opinion, prediction, recommendation, decision, anecdote, definition, mechanism, estimate, and hypothesis.",
+    "Preserve disagreement and uncertainty rather than reconciling it."
+  ],
+  "schema": "ttk.map-packet.v2",
+  "source_segments": [
+    {
+      "end_hms": "00:56:23.579",
+      "id": "seg-000627",
+      "role": "context_only",
+      "speaker": null,
+      "start_hms": "00:56:17.079",
+      "text": "we're always predicting and taking into account things that change. Like the facial expressions,"
+    },
+    {
+      "end_hms": "00:56:27.840",
+      "id": "seg-000628",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:56:23.800",
+      "text": "you know, the original studies, like the ones I started doing as a postdoc where you just"
+    },
+    {
+      "end_hms": "00:56:34.360",
+      "id": "seg-000629",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:56:27.840",
+      "text": "truly static Paul Ekman pictures of facial affect. Well, we never see that in people. It's always"
+    },
+    {
+      "end_hms": "00:56:40.039",
+      "id": "seg-000630",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:56:34.360",
+      "text": "dynamic. The face is changing. And so, Philipp Schins, Rachel Jack, colleagues in Scotland, for"
+    },
+    {
+      "end_hms": "00:56:45.579",
+      "id": "seg-000631",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:56:40.039",
+      "text": "instance, have studied this in great detail and used dynamic, actual videos of people making faces"
+    },
+    {
+      "end_hms": "00:56:51.039",
+      "id": "seg-000632",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:56:45.579",
+      "text": "and asked, at what point does the brain start to represent different emotions depending on"
+    },
+    {
+      "end_hms": "00:56:56.699",
+      "id": "seg-000633",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:56:51.039",
+      "text": "not how the face looks but how the face is changing? So the dynamics are everywhere. It's super"
+    },
+    {
+      "end_hms": "00:57:01.940",
+      "id": "seg-000634",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:56:56.699",
+      "text": "important. Because when we look at babies and they start to smile for the first time or they express"
+    },
+    {
+      "end_hms": "00:57:06.780",
+      "id": "seg-000635",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:57:01.940",
+      "text": "what we think is humor or something like that, we are so tuned to faces because they can't really"
+    },
+    {
+      "end_hms": "00:57:13.260",
+      "id": "seg-000636",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:57:06.780",
+      "text": "do much and whether or not they're interacting with us or not is really dependent on our behavior."
+    },
+    {
+      "end_hms": "00:57:17.260",
+      "id": "seg-000637",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:57:13.420",
+      "text": "There's a lot of control there. We're putting them in front of us as they develop more autonomy."
+    },
+    {
+      "end_hms": "00:57:23.260",
+      "id": "seg-000638",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:57:17.579",
+      "text": "Then these sorts of dynamics really emerge. The face is visible and the face, the human face"
+    },
+    {
+      "end_hms": "00:57:28.940",
+      "id": "seg-000639",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:57:23.260",
+      "text": "has way more muscles and control than other animals. Great apes have similar sets of muscles,"
+    },
+    {
+      "end_hms": "00:57:34.400",
+      "id": "seg-000640",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:57:28.940",
+      "text": "but monkeys are your dog. You can't make those kinds of faces. He just does a side eye and he"
+    },
+    {
+      "end_hms": "00:57:39.300",
+      "id": "seg-000641",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:57:34.400",
+      "text": "everyone so long. And I project on him what that's about. But he's a real sweetie. I had another"
+    },
+    {
+      "end_hms": "00:57:45.039",
+      "id": "seg-000642",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:57:39.300",
+      "text": "bulldog mutt. They're both mutts. He was much more coarse, less affectionate. This one is like"
+    },
+    {
+      "end_hms": "00:57:48.820",
+      "id": "seg-000643",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:57:45.039",
+      "text": "pure butter. But of course, I don't know what's going on in his head. He could be thinking like,"
+    },
+    {
+      "end_hms": "00:57:53.760",
+      "id": "seg-000644",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:57:48.940",
+      "text": "this guy's the biggest church in the world. I wish we'd be walking right now. This patient,"
+    },
+    {
+      "end_hms": "00:57:59.739",
+      "id": "seg-000645",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:57:53.760",
+      "text": "SM, who had bilateral amygdala lesions, could she experience autonomic arousal? Could she"
+    },
+    {
+      "end_hms": "00:58:05.699",
+      "id": "seg-000646",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:57:59.739",
+      "text": "experience stress? Could she experience anxiety under any conditions? She could. That's really"
+    },
+    {
+      "end_hms": "00:58:12.780",
+      "id": "seg-000647",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:58:05.699",
+      "text": "important. You might think that the whole emotion system is gone. You just de-nervate at the entire"
+    },
+    {
+      "end_hms": "00:58:18.420",
+      "id": "seg-000648",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:58:12.780",
+      "text": "autonomic nervous system. That's why you don't have emotions. But it's much more specific than that"
+    },
+    {
+      "end_hms": "00:58:24.920",
+      "id": "seg-000649",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:58:18.420",
+      "text": "and fits with thinking about emotions as evolved functional modules for dealing with particular"
+    },
+    {
+      "end_hms": "00:58:32.019",
+      "id": "seg-000650",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:58:24.920",
+      "text": "types of statistically recurring environmental challenges that share some challenging feature in"
+    },
+    {
+      "end_hms": "00:58:39.239",
+      "id": "seg-000651",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:58:32.019",
+      "text": "common. So she doesn't have fear to external stressors like we went with her into a haunted house."
+    },
+    {
+      "end_hms": "00:58:45.900",
+      "id": "seg-000652",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:58:39.880",
+      "text": "She poked the monsters and wanted to touch things. Same with the snakes and spiders in the pet store."
+    },
+    {
+      "end_hms": "00:58:51.300",
+      "id": "seg-000653",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:58:46.420",
+      "text": "But we did a study, again, just in Feinstein, I think was the first author in this one as well,"
+    },
+    {
+      "end_hms": "00:58:58.869",
+      "id": "seg-000654",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:58:52.309",
+      "text": "with her and with a couple, two, maybe three patients who had similar lesions in collaboration"
+    },
+    {
+      "end_hms": "00:59:06.929",
+      "id": "seg-000655",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:58:58.869",
+      "text": "with Renee Hurleman from Germany, where we put a mask on them and had them inhale carbon dioxide."
+    },
+    {
+      "end_hms": "00:59:12.570",
+      "id": "seg-000656",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:59:07.610",
+      "text": "If you do that, you get a panic attack in about half the population because it makes you feel like"
+    },
+    {
+      "end_hms": "00:59:17.250",
+      "id": "seg-000657",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:59:12.570",
+      "text": "you're suffocating. So as soon as you get that carbon dioxide in, it changes the pH in your blood"
+    },
+    {
+      "end_hms": "00:59:22.510",
+      "id": "seg-000658",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:59:17.250",
+      "text": "that's detected by the brain, and you get this massive air hunker like you suddenly can't breathe."
+    },
+    {
+      "end_hms": "00:59:27.650",
+      "id": "seg-000659",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:59:22.809",
+      "text": "That's what your brain goes into this alarm mode of some suffocation like a panic,"
+    },
+    {
+      "end_hms": "00:59:33.230",
+      "id": "seg-000660",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:59:28.030",
+      "text": "and she and the other amygdala patients had a full-blown panic attack when they inhaled the"
+    },
+    {
+      "end_hms": "00:59:39.489",
+      "id": "seg-000661",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:59:33.230",
+      "text": "carbon dioxide. So this interocept of signal seems not to depend on the amygdala and to depend on"
+    },
+    {
+      "end_hms": "00:59:46.090",
+      "id": "seg-000662",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:59:39.489",
+      "text": "other brainstem circuits. So we had a very important association between different types of fear,"
+    },
+    {
+      "end_hms": "00:59:52.429",
+      "id": "seg-000663",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:59:46.670",
+      "text": "which I think a bottom line story for the way that the science is informing our folk psychology,"
+    },
+    {
+      "end_hms": "00:59:59.030",
+      "id": "seg-000664",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:59:52.469",
+      "text": "which is these categories we have, like anger or fear or disgust. There are many varieties. It's"
+    },
+    {
+      "end_hms": "01:00:03.050",
+      "id": "seg-000665",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:59:59.030",
+      "text": "much more finely differentiated than that once you look at the science and once you look at the brain"
+    },
+    {
+      "end_hms": "01:00:07.730",
+      "id": "seg-000666",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:00:03.050",
+      "text": "systems, they're distinct brain systems. In this instance, for fear to something out there in the"
+    },
+    {
+      "end_hms": "01:00:11.809",
+      "id": "seg-000667",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:00:07.730",
+      "text": "world versus panic of something happening inside you, like having a heart attack or not getting"
+    },
+    {
+      "end_hms": "01:00:18.550",
+      "id": "seg-000668",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:00:11.809",
+      "text": "enough air. I see. Maybe we could talk a little bit about the bodily representation of these things"
+    },
+    {
+      "end_hms": "01:00:24.230",
+      "id": "seg-000669",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:00:18.550",
+      "text": "we're calling emotions. Years ago, I posted on social media a picture of a figure from your paper"
+    },
+    {
+      "end_hms": "01:00:29.710",
+      "id": "seg-000670",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:00:24.909",
+      "text": "from your book, excuse me, with David Anderson, which was describing a study where people"
+    },
+    {
+      "end_hms": "01:00:35.949",
+      "id": "seg-000671",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:00:29.710",
+      "text": "self-described, so as purely subjective reporting as I recall, where in their body they felt"
+    },
+    {
+      "end_hms": "01:00:41.110",
+      "id": "seg-000672",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:00:35.949",
+      "text": "different emotions. It was kind of like a heat map in the forehead for certain emotions and"
+    },
+    {
+      "end_hms": "01:00:45.829",
+      "id": "seg-000673",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:00:41.110",
+      "text": "in the whole body for others and there were wide range of emotions. Admittedly, it's subjective"
+    },
+    {
+      "end_hms": "01:00:52.210",
+      "id": "seg-000674",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:00:45.829",
+      "text": "report. But does this hold up? I think to myself, where do I feel sadness, like heartache? Well,"
+    },
+    {
+      "end_hms": "01:00:56.090",
+      "id": "seg-000675",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:00:52.210",
+      "text": "I tend to feel it around my heart, but maybe that's because it's called heartache. Where do I feel"
+    },
+    {
+      "end_hms": "01:01:00.050",
+      "id": "seg-000676",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:00:56.090",
+      "text": "anger? Well, extreme anger, I'm going to feel as a whole body experience. Same thing with all."
+    },
+    {
+      "end_hms": "01:01:09.789",
+      "id": "seg-000677",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:01:00.050",
+      "text": "So, what if anything is important about the regularity and or the variation in kind of where in"
+    },
+    {
+      "end_hms": "01:01:14.250",
+      "id": "seg-000678",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:01:09.789",
+      "text": "our body we feel emotions? Some people would say this is like their whole experience of life."
+    },
+    {
+      "end_hms": "01:01:20.150",
+      "id": "seg-000679",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:01:14.250",
+      "text": "They feel things in their body all the time. Some people feel I think are more cerebral. They"
+    },
+    {
+      "end_hms": "01:01:24.510",
+      "id": "seg-000680",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:01:20.150",
+      "text": "kind of think things more than they feel things. You know, I think it's a great question. I mean,"
+    },
+    {
+      "end_hms": "01:01:28.590",
+      "id": "seg-000681",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:01:24.590",
+      "text": "that figure that you're alluding to came from a paper I think in PNAS by Larry Newman,"
+    },
+    {
+      "end_hms": "01:01:34.969",
+      "id": "seg-000682",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:01:28.590",
+      "text": "my and colleagues in Finland and he and his colleague, Henees Sarimaki. They have done some of the"
+    },
+    {
+      "end_hms": "01:01:42.949",
+      "id": "seg-000683",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:01:34.969",
+      "text": "great, great recent studies also on experience of emotions in humans using functional MRI. But"
+    },
+    {
+      "end_hms": "01:01:48.130",
+      "id": "seg-000684",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:01:42.949",
+      "text": "what you mentioned to the experiment is I just give you a word, right? I'm not actually making you"
+    },
+    {
+      "end_hms": "01:01:54.550",
+      "id": "seg-000685",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:01:48.130",
+      "text": "feel the emotion. I'm asking you sadness, draw, you know, where on the body you think you would"
+    },
+    {
+      "end_hms": "01:01:59.869",
+      "id": "seg-000686",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:01:54.550",
+      "text": "feel that emotion. So, if you think about it, it's certainly not about actual physiological changes"
+    },
+    {
+      "end_hms": "01:02:03.050",
+      "id": "seg-000687",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:01:59.869",
+      "text": "in the body. Nothing's measured in the body. They don't have electrons on the body, whatever."
+    },
+    {
+      "end_hms": "01:02:07.670",
+      "id": "seg-000688",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:02:03.170",
+      "text": "There's people just drawing on a little mannequin where they think they would feel the emotion."
+    },
+    {
+      "end_hms": "01:02:12.070",
+      "id": "seg-000689",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:02:08.190",
+      "text": "It's also not about conscious experiences of emotion. I'm not making, I'm not showing you sad movie"
+    },
+    {
+      "end_hms": "01:02:16.570",
+      "id": "seg-000690",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:02:12.070",
+      "text": "clips or anything like that. I'm giving you a little word, a single word. So, it's about concepts."
+    },
+    {
+      "end_hms": "01:02:23.670",
+      "id": "seg-000691",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:02:16.869",
+      "text": "It's about where in the body people's concept of sadness or happiness or fear where that"
+    },
+    {
+      "end_hms": "01:02:29.070",
+      "id": "seg-000692",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:02:23.670",
+      "text": "corresponds to changes in the body. Now, that's an interesting question, but you have to narrow it"
+    },
+    {
+      "end_hms": "01:02:34.949",
+      "id": "seg-000693",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:02:29.070",
+      "text": "down to that, which is a fundamental problem with most emotions, including that one. I think the"
+    },
+    {
+      "end_hms": "01:02:39.389",
+      "id": "seg-000694",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:02:34.949",
+      "text": "title, I forget what the title is, but it's something like bodily maps of emotions or bodily maps"
+    },
+    {
+      "end_hms": "01:02:46.150",
+      "id": "seg-000695",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:02:39.389",
+      "text": "of subjective experience, maybe even. It should be something like people's concept of where in the"
+    },
+    {
+      "end_hms": "01:02:51.429",
+      "id": "seg-000696",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:02:46.150",
+      "text": "body emotion words are associated with changes or something like that. What's interesting about"
+    },
+    {
+      "end_hms": "01:02:57.210",
+      "id": "seg-000697",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:02:51.429",
+      "text": "that study is that Laurie has gone on to look at it in different cultures. He's looked at it"
+    },
+    {
+      "end_hms": "01:03:02.369",
+      "id": "seg-000698",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:02:57.210",
+      "text": "developmentally across children and asked how these concepts and where in the body would feel"
+    },
+    {
+      "end_hms": "01:03:08.030",
+      "id": "seg-000699",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:03:02.369",
+      "text": "emotion develop. So, it's super interesting work, but it's ultimately about people's concepts of"
+    },
+    {
+      "end_hms": "01:03:13.909",
+      "id": "seg-000700",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:03:08.030",
+      "text": "how emotions correspond to changes in the body, not the real actual changes in the body. But then,"
+    },
+    {
+      "end_hms": "01:03:18.690",
+      "id": "seg-000701",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:03:14.130",
+      "text": "as you were saying, of course, there are real changes in the body when you really feel an emotion"
+    },
+    {
+      "end_hms": "01:03:25.230",
+      "id": "seg-000702",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:03:18.690",
+      "text": "as well. And that's harder to study, but people have studied it quite a bit with a focus on the part"
+    },
+    {
+      "end_hms": "01:03:30.670",
+      "id": "seg-000703",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:03:25.230",
+      "text": "of the brain that gets a lot of input from the body, which is a part of cortex called the insula."
+    },
+    {
+      "end_hms": "01:03:36.949",
+      "id": "seg-000704",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:03:31.110",
+      "text": "And so, there's lots and lots of work on the insula. It gets input from all the organs in your body,"
+    },
+    {
+      "end_hms": "01:03:41.780",
+      "id": "seg-000705",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:03:37.090",
+      "text": "everywhere in your body. So, you know, from your heart, from your liver, from your kidney,"
+    },
+    {
+      "end_hms": "01:03:45.179",
+      "id": "seg-000706",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:03:42.000",
+      "text": "at a kidney stone, not too long ago, which you talk about the kid. Have you had a kidney stone?"
+    },
+    {
+      "end_hms": "01:03:48.920",
+      "id": "seg-000707",
+      "role": "context_only",
+      "speaker": null,
+      "start_hms": "01:03:46.679",
+      "text": "Don't. It's really interesting. You have to pass it."
+    }
+  ],
+  "source_sha256": "3e46962b9a0be33deecf1612ca70d8c2ceb1405ce67075ce22c6123d8e972c9d",
+  "window_id": "window-0011"
+}

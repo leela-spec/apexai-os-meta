@@ -1,0 +1,148 @@
+{
+  "schema": "ttk.map-result.v2",
+  "packet_id": "map-window-0003",
+  "packet_sha256": "f1abd4346f82d0c06da04c7931f4a9f91cc9a1854e5da72827156a2a35f3262c",
+  "window_id": "window-0003",
+  "subtopics": [
+    {
+      "label": "Window window-0003 Topics",
+      "source_segment_ids": [
+        "seg-000107",
+        "seg-000108",
+        "seg-000109",
+        "seg-000110",
+        "seg-000111",
+        "seg-000112",
+        "seg-000113",
+        "seg-000114",
+        "seg-000115",
+        "seg-000116",
+        "seg-000117",
+        "seg-000118",
+        "seg-000119",
+        "seg-000120",
+        "seg-000121",
+        "seg-000122",
+        "seg-000123",
+        "seg-000124",
+        "seg-000125",
+        "seg-000126",
+        "seg-000127",
+        "seg-000128",
+        "seg-000129",
+        "seg-000130",
+        "seg-000131",
+        "seg-000132",
+        "seg-000133",
+        "seg-000134",
+        "seg-000135",
+        "seg-000136",
+        "seg-000137",
+        "seg-000138",
+        "seg-000139",
+        "seg-000140",
+        "seg-000141",
+        "seg-000142",
+        "seg-000143",
+        "seg-000144",
+        "seg-000145",
+        "seg-000146",
+        "seg-000147",
+        "seg-000148",
+        "seg-000149",
+        "seg-000150",
+        "seg-000151",
+        "seg-000152",
+        "seg-000153",
+        "seg-000154",
+        "seg-000155",
+        "seg-000156",
+        "seg-000157",
+        "seg-000158",
+        "seg-000159",
+        "seg-000160",
+        "seg-000161",
+        "seg-000162",
+        "seg-000163",
+        "seg-000164",
+        "seg-000165",
+        "seg-000166",
+        "seg-000167"
+      ]
+    }
+  ],
+  "key_points": [
+    {
+      "text": "I called it the principle of antithesis is valence, which is approach or avoid pleasant or",
+      "source_segment_ids": [
+        "seg-000107"
+      ]
+    },
+    {
+      "text": "unpleasant, this basic valence dimension. Are there any neutral emotions? I ask this because",
+      "source_segment_ids": [
+        "seg-000108"
+      ]
+    },
+    {
+      "text": "your colleague at Caltech who I respect tremendously Marcus Meister once wrote a review where he said,",
+      "source_segment_ids": [
+        "seg-000109"
+      ]
+    }
+  ],
+  "mechanisms": [],
+  "protocols": [],
+  "arguments": [],
+  "candidate_claims": [
+    {
+      "claim_text": "I called it the principle of antithesis is valence, which is approach or avoid pleasant or",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000107"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000107",
+          "quote": "I called it the principle of antithesis is valence, which is approach or avoid pleasant or"
+        }
+      ],
+      "checkworthiness": "medium"
+    },
+    {
+      "claim_text": "unpleasant, this basic valence dimension. Are there any neutral emotions? I ask this because",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000108"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000108",
+          "quote": "unpleasant, this basic valence dimension. Are there any neutral emotions? I ask this because"
+        }
+      ],
+      "checkworthiness": "low"
+    },
+    {
+      "claim_text": "your colleague at Caltech who I respect tremendously Marcus Meister once wrote a review where he said,",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000109"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000109",
+          "quote": "your colleague at Caltech who I respect tremendously Marcus Meister once wrote a review where he said,"
+        }
+      ],
+      "checkworthiness": "low"
+    }
+  ],
+  "entities": [],
+  "concepts": [],
+  "open_questions": [],
+  "contradictions_or_uncertainty": []
+}

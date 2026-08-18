@@ -1,0 +1,156 @@
+{
+  "schema": "ttk.map-result.v2",
+  "packet_id": "map-window-0016",
+  "packet_sha256": "52532c084ae190cb4191c859b6b00c732fcaea2c59df4156d1d5c3e0232ba043",
+  "window_id": "window-0016",
+  "subtopics": [
+    {
+      "label": "Window window-0016 Topics",
+      "source_segment_ids": [
+        "seg-000942",
+        "seg-000943",
+        "seg-000944",
+        "seg-000945",
+        "seg-000946",
+        "seg-000947",
+        "seg-000948",
+        "seg-000949",
+        "seg-000950",
+        "seg-000951",
+        "seg-000952",
+        "seg-000953",
+        "seg-000954",
+        "seg-000955",
+        "seg-000956",
+        "seg-000957",
+        "seg-000958",
+        "seg-000959",
+        "seg-000960",
+        "seg-000961",
+        "seg-000962",
+        "seg-000963",
+        "seg-000964",
+        "seg-000965",
+        "seg-000966",
+        "seg-000967",
+        "seg-000968",
+        "seg-000969",
+        "seg-000970",
+        "seg-000971",
+        "seg-000972",
+        "seg-000973",
+        "seg-000974",
+        "seg-000975",
+        "seg-000976",
+        "seg-000977",
+        "seg-000978",
+        "seg-000979",
+        "seg-000980",
+        "seg-000981",
+        "seg-000982",
+        "seg-000983",
+        "seg-000984",
+        "seg-000985",
+        "seg-000986",
+        "seg-000987",
+        "seg-000988",
+        "seg-000989",
+        "seg-000990",
+        "seg-000991",
+        "seg-000992",
+        "seg-000993",
+        "seg-000994",
+        "seg-000995",
+        "seg-000996",
+        "seg-000997",
+        "seg-000998",
+        "seg-000999",
+        "seg-001000",
+        "seg-001001",
+        "seg-001002",
+        "seg-001003",
+        "seg-001004",
+        "seg-001005",
+        "seg-001006",
+        "seg-001007",
+        "seg-001008",
+        "seg-001009",
+        "seg-001010"
+      ]
+    }
+  ],
+  "key_points": [
+    {
+      "text": "So if you had only those you would have to have a separate reflex for the bear and for the tiger",
+      "source_segment_ids": [
+        "seg-000942"
+      ]
+    },
+    {
+      "text": "and for every possible you know large threat out there which you couldn't possibly have it's not",
+      "source_segment_ids": [
+        "seg-000943"
+      ]
+    },
+    {
+      "text": "efficient. Yeah the fan in fan out visual is very very useful and it gets to the next topic I'd",
+      "source_segment_ids": [
+        "seg-000944"
+      ]
+    }
+  ],
+  "mechanisms": [],
+  "protocols": [],
+  "arguments": [],
+  "candidate_claims": [
+    {
+      "claim_text": "So if you had only those you would have to have a separate reflex for the bear and for the tiger",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000942"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000942",
+          "quote": "So if you had only those you would have to have a separate reflex for the bear and for the tiger"
+        }
+      ],
+      "checkworthiness": "medium"
+    },
+    {
+      "claim_text": "and for every possible you know large threat out there which you couldn't possibly have it's not",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000943"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000943",
+          "quote": "and for every possible you know large threat out there which you couldn't possibly have it's not"
+        }
+      ],
+      "checkworthiness": "low"
+    },
+    {
+      "claim_text": "efficient. Yeah the fan in fan out visual is very very useful and it gets to the next topic I'd",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000944"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000944",
+          "quote": "efficient. Yeah the fan in fan out visual is very very useful and it gets to the next topic I'd"
+        }
+      ],
+      "checkworthiness": "low"
+    }
+  ],
+  "entities": [],
+  "concepts": [],
+  "open_questions": [],
+  "contradictions_or_uncertainty": []
+}

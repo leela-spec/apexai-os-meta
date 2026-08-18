@@ -1,51 +1,65 @@
-﻿import sys, json, re
+"""
+synthesize_p2.py
+Honest Pipeline 2 adapter driving transcript_engine.py.
+Validates structured semantic results against source SRT transcripts without
+hardcoded domain assumptions or fabricated confirmations.
+"""
+import sys
+import json
+import argparse
 from pathlib import Path
-sys.path.insert(0, r'C:\GitDev\apexai-os-meta\SourceTranscriptionAnalysisPipeline_Research')
-from transcript_engine import MacroResult, SpeakerProfile, MesoModule, MicroClaim, KnowledgeEngine
 
-def run_p2(vid, title, srt_path, out_dir):
-    engine = KnowledgeEngine()
+# Add parent directory to import transcript_engine
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from transcript_engine import KnowledgeEngine, parse_srt_spoken_text, GroundingError
+
+
+def run_p2(vid: str, title: str, srt_path: str, out_dir: str, semantic_path: str = None):
     srt = Path(srt_path)
-    text = srt.read_text(encoding='utf-8', errors='ignore') if srt.exists() else ""
+    out = Path(out_dir)
+    out.mkdir(parents=True, exist_ok=True)
     
-    engine.set_macro(MacroResult(
-        core_thesis=f"Core analytical findings and market thesis for {title}.",
-        global_takeaways=[
-            "Systematic algorithmic analysis outperforms discretionary intuition.",
-            "Cycle synchronicity and timing indicators provide asymmetric risk-reward entries.",
-            "Risk management rules must govern position sizing across volatility regimes."
-        ],
-        taxonomy_tags=[f"[[{title[:25]}]]", "[[Market Cycles]]", "[[Quantitative Analysis]]"],
-        speakers=[SpeakerProfile(label="Speaker 0", name="Presenter", credentials="Market Strategist")]
-    ))
+    if not semantic_path or not Path(semantic_path).exists():
+        print(f"[P2_SYNTHESIS_PENDING] No semantic result JSON provided for '{vid}'. Skipping P2 synthesis.", file=sys.stderr)
+        sys.exit(2)
+        
+    sem_file = Path(semantic_path)
+    try:
+        data = json.loads(sem_file.read_text(encoding="utf-8"))
+    except Exception as e:
+        print(f"Error parsing semantic JSON '{sem_file}': {e}", file=sys.stderr)
+        sys.exit(1)
+        
+    spoken_text = parse_srt_spoken_text(srt) if srt.exists() else None
     
-    engine.add_meso_module(MesoModule(
-        title="Technical Framework & Cycle Structure",
-        start_ts="00:00:15",
-        end_ts="00:15:00",
-        arguments=["Cyclical wave structures demonstrate fractal recurrence across multiple timeframes."],
-        protocol_steps=[
-            "Identify dominant cycle length using harmonic filtering.",
-            "Align momentum indicators with higher-timeframe trend direction.",
-            "Define strict invalidation stop-loss levels prior to trade entry."
-        ],
-        caveats=["Whipsaws occur during low-volatility consolidation ranges."]
-    ))
+    try:
+        engine = KnowledgeEngine.from_semantic_result(data, spoken_text=spoken_text)
+    except GroundingError as ge:
+        print(f"P2 Grounding Validation Error for '{vid}': {ge}", file=sys.stderr)
+        sys.exit(1)
+        
+    engine.write(str(out), f"{vid}_engine_wiki", f"{title} — Research Engine Analysis")
+    print(f"  P2 Engine Wiki written to {out}")
+    sys.exit(0)
+
+
+def main():
+    parser = argparse.ArgumentParser(description="Pipeline 2 Honest Adapter")
+    parser.add_argument("vid", help="Video / Source ID")
+    parser.add_argument("title", help="Source title")
+    parser.add_argument("srt_path", help="Path to transcript SRT file")
+    parser.add_argument("out_dir", help="Output directory")
+    parser.add_argument("--semantic-result", default=None, help="Path to semantic result JSON")
     
-    engine.add_micro_claim(MicroClaim(
-        claim_id="1",
-        proposition=f"Quantitative cycle models provide statistically significant predictive edge in {title}.",
-        quote=text[:200].replace('\n', ' ') if text else "Quantitative models establish probabilistic boundaries.",
-        timestamp="00:01:00",
-        internal_confidence="market-data",
-        verdict="CONFIRMED",
-        search_query=f"{title} cycle analysis foundation",
-        external_sources=["https://cycles.org", "https://elliottwave.com"],
-        added_context="Empirical cycle analysis has been documented since Edward R. Dewey (1940)."
-    ))
+    # Also support positional semantic_result for backward compatibility
+    args, unknown = parser.parse_known_args()
     
-    engine.write(out_dir, f"{vid}_engine_wiki", f"{title} â€” Research Engine Analysis")
-    print(f"  P2 Engine Wiki written to {out_dir}")
+    semantic_result = args.semantic_result
+    if not semantic_result and unknown:
+        semantic_result = unknown[0]
+        
+    run_p2(args.vid, args.title, args.srt_path, args.out_dir, semantic_result)
+
 
 if __name__ == '__main__':
-    run_p2(sys.argv[1], sys.argv[2], sys.argv[3], sys.argv[4])
+    main()

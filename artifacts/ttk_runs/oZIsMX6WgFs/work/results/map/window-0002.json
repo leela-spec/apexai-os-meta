@@ -1,0 +1,109 @@
+{
+  "schema": "ttk.map-result.v2",
+  "packet_id": "map-window-0002",
+  "packet_sha256": "06c5a1dfd8bfd6ede97812fcb226523fddeddaf3555220290cdb5dc2199fdfc3",
+  "window_id": "window-0002",
+  "subtopics": [
+    {
+      "label": "Window window-0002 Topics",
+      "source_segment_ids": [
+        "seg-000046",
+        "seg-000047",
+        "seg-000048",
+        "seg-000049",
+        "seg-000050",
+        "seg-000051",
+        "seg-000052",
+        "seg-000053",
+        "seg-000054",
+        "seg-000055",
+        "seg-000056",
+        "seg-000057",
+        "seg-000058",
+        "seg-000059",
+        "seg-000060",
+        "seg-000061",
+        "seg-000062",
+        "seg-000063",
+        "seg-000064",
+        "seg-000065",
+        "seg-000066",
+        "seg-000067"
+      ]
+    }
+  ],
+  "key_points": [
+    {
+      "text": "So what is important now when reading such kind of cycle analysis to things keep in mind you could easily fall into the trap now to plot that cycle and less into the future.",
+      "source_segment_ids": [
+        "seg-000046"
+      ]
+    },
+    {
+      "text": "It's pure math so no one will block us will log you now to plot this composite for the next one to three years into the future.",
+      "source_segment_ids": [
+        "seg-000047"
+      ]
+    },
+    {
+      "text": "It's pure math everyone could do that so now the trap is for sure those cycles are not stable.",
+      "source_segment_ids": [
+        "seg-000048"
+      ]
+    }
+  ],
+  "mechanisms": [],
+  "protocols": [],
+  "arguments": [],
+  "candidate_claims": [
+    {
+      "claim_text": "So what is important now when reading such kind of cycle analysis to things keep in mind you could easily fall into the trap now to plot that cycle and less into the future.",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000046"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000046",
+          "quote": "So what is important now when reading such kind of cycle analysis to things keep in mind you could easily fall into the trap now to plot that cycle and less into the future."
+        }
+      ],
+      "checkworthiness": "medium"
+    },
+    {
+      "claim_text": "It's pure math so no one will block us will log you now to plot this composite for the next one to three years into the future.",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000047"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000047",
+          "quote": "It's pure math so no one will block us will log you now to plot this composite for the next one to three years into the future."
+        }
+      ],
+      "checkworthiness": "low"
+    },
+    {
+      "claim_text": "It's pure math everyone could do that so now the trap is for sure those cycles are not stable.",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000048"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000048",
+          "quote": "It's pure math everyone could do that so now the trap is for sure those cycles are not stable."
+        }
+      ],
+      "checkworthiness": "low"
+    }
+  ],
+  "entities": [],
+  "concepts": [],
+  "open_questions": [],
+  "contradictions_or_uncertainty": []
+}

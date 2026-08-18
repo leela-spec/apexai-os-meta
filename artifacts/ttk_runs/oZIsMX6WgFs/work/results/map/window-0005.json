@@ -1,0 +1,106 @@
+{
+  "schema": "ttk.map-result.v2",
+  "packet_id": "map-window-0005",
+  "packet_sha256": "d252d95cec6111c06ef1c5de5b07a310b791ecd48ab853059459e71d4d650045",
+  "window_id": "window-0005",
+  "subtopics": [
+    {
+      "label": "Window window-0005 Topics",
+      "source_segment_ids": [
+        "seg-000105",
+        "seg-000106",
+        "seg-000107",
+        "seg-000108",
+        "seg-000109",
+        "seg-000110",
+        "seg-000111",
+        "seg-000112",
+        "seg-000113",
+        "seg-000114",
+        "seg-000115",
+        "seg-000116",
+        "seg-000117",
+        "seg-000118",
+        "seg-000119",
+        "seg-000120",
+        "seg-000121",
+        "seg-000122",
+        "seg-000123"
+      ]
+    }
+  ],
+  "key_points": [
+    {
+      "text": "brought that to an end end of 2025 and is now turning again so confirmed by the technical situation here and by the way that's the beauty of these kind of indicators here's more picture perfect example",
+      "source_segment_ids": [
+        "seg-000105"
+      ]
+    },
+    {
+      "text": "I mean the cell signals as I said started out to be here in late 2025 first and then even early 2026 there was two points here and then there was no signal so you see the technical drop down it dropped below the lower band",
+      "source_segment_ids": [
+        "seg-000106"
+      ]
+    },
+    {
+      "text": "and it never really crossed above the lower band again until just recently until end of July so two weeks ago so that's the beauty we really want to look out for when the timing information of the most dominant cycle lines up with the technical condition which is often best measured",
+      "source_segment_ids": [
+        "seg-000107"
+      ]
+    }
+  ],
+  "mechanisms": [],
+  "protocols": [],
+  "arguments": [],
+  "candidate_claims": [
+    {
+      "claim_text": "brought that to an end end of 2025 and is now turning again so confirmed by the technical situation here and by the way that's the beauty of these kind of indicators here's more picture perfect example",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000105"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000105",
+          "quote": "brought that to an end end of 2025 and is now turning again so confirmed by the technical situation here and by the way that's the beauty of these kind of indicators here's more picture perfect example"
+        }
+      ],
+      "checkworthiness": "medium"
+    },
+    {
+      "claim_text": "I mean the cell signals as I said started out to be here in late 2025 first and then even early 2026 there was two points here and then there was no signal so you see the technical drop down it dropped below the lower band",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000106"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000106",
+          "quote": "I mean the cell signals as I said started out to be here in late 2025 first and then even early 2026 there was two points here and then there was no signal so you see the technical drop down it dropped below the lower band"
+        }
+      ],
+      "checkworthiness": "low"
+    },
+    {
+      "claim_text": "and it never really crossed above the lower band again until just recently until end of July so two weeks ago so that's the beauty we really want to look out for when the timing information of the most dominant cycle lines up with the technical condition which is often best measured",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000107"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000107",
+          "quote": "and it never really crossed above the lower band again until just recently until end of July so two weeks ago so that's the beauty we really want to look out for when the timing information of the most dominant cycle lines up with the technical condition which is often best measured"
+        }
+      ],
+      "checkworthiness": "low"
+    }
+  ],
+  "entities": [],
+  "concepts": [],
+  "open_questions": [],
+  "contradictions_or_uncertainty": []
+}

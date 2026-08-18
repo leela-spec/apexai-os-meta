@@ -1,25 +1,25 @@
 {
-  "title": "Neuroscience of Emotions & Tools for Improving Emotion Regulation | Dr. Ralph Adolphs",
+  "title": "Neuroscience of Emotions & Tools for Improving Emotion Regulation - Dr. Ralph Adolphs",
+  "validation": {
+    "source_grounded": true,
+    "external_fact_checking": "PARTIAL"
+  },
   "macro": {
-    "core_thesis": "Emotions are whole-organism functional brain-body states constructed for survival and behavioral decision-making, which can be directly modulated and down-regulated through deliberate physiological stress conditioning like cold exposure.",
+    "core_thesis": "Emotions are functional brain-body states constructed for survival and behavioral decision-making, which can be modulated through deliberate autonomic stress conditioning like cold immersion.",
     "global_takeaways": [
-      "Emotions are functional adaptive states, not purely subjective feelings or localized brain modules.",
-      "Autonomic stress training (e.g. ice baths) generalizes to psychological stressors by automatically down-regulating acute emotional reactivity.",
-      "Common cultural myths regarding past emotional storage in bodily tissues are contradicted by modern cognitive neuroscience.",
-      "Emotion regulation operates via dual pathways: voluntary cognitive reappraisal and automatic autonomic conditioning."
+      "Autonomic stress conditioning (e.g. ice baths) generalizes to blunt acute emotional reactivity to psychological stressors.",
+      "Emotions operate across distributed neural circuits, distinct from subjective conscious feelings."
     ],
     "taxonomy_tags": [
-      "[[Neuroscience]]",
-      "[[Emotion Regulation]]",
-      "[[Autonomic Nervous System]]",
-      "[[Andrew Huberman]]",
-      "[[Ralph Adolphs]]"
+      "Neuroscience",
+      "Emotion Regulation",
+      "Autonomic Nervous System"
     ],
     "speakers": [
       {
         "label": "Host",
         "name": "Dr. Andrew Huberman",
-        "credentials": "Professor of Neurobiology & Ophthalmology, Stanford School of Medicine",
+        "credentials": "Professor of Neurobiology & Ophthalmology, Stanford University School of Medicine",
         "bias_indicators": []
       },
       {
@@ -32,67 +32,51 @@
   },
   "meso": [
     {
-      "title": "Autonomic Conditioning & Emotional Down-Regulation",
+      "title": "Autonomic Cold Immersion & Emotional Regulation",
       "start_ts": "00:00:16",
       "end_ts": "00:00:53",
       "arguments": [
-        "Physical stress exposure trains autonomic down-regulation that transfers to social/psychological stressors.",
-        "Habituation reduces emotional reactivity smoothly and automatically without requiring active conscious overthinking."
+        "Deliberate acute physiological stress exposure trains rapid autonomic down-regulation.",
+        "Cross-adaptation enables transfer of physiological regulation to everyday psychological stressors without conscious overthinking."
       ],
       "protocol_steps": [
-        "Expose the body to an acute physical stressor (e.g. ice bath/cold immersion).",
-        "Maintain autonomic control and observe the physiological surge.",
-        "Allow the autonomic nervous system to generalize rapid down-regulation to everyday stressors."
+        "Expose the body to deliberate acute physical stress (e.g. cold water immersion).",
+        "Maintain physiological composure during sympathetic surge.",
+        "Allow autonomic habituation to automate rapid emotional down-regulation."
       ],
       "caveats": [
-        "Observed in single-subject empirical trials; requires controlled repetition to build neural plasticity."
-      ]
-    },
-    {
-      "title": "Neurobiology of Emotion and Brain-Body Mapping",
-      "start_ts": "00:01:44",
-      "end_ts": "00:02:46",
-      "arguments": [
-        "Emotions recruit behavioral decision-making systems across distributed neural circuits rather than isolated centers.",
-        "Dispels the myth that emotions are stored as static memory records in specific physical muscles/organs."
-      ],
-      "protocol_steps": [
-        "Distinguish between the conscious feeling (subjective experience) and the emotion state (functional neural state).",
-        "Identify the physiological recruitment of somatic and visceral feedback loops."
-      ],
-      "caveats": [
-        "Emotion research terminology differs between clinical psychology and neurobiology."
+        "Empirical single-subject observation; requires systematic repetition for neural plasticity."
       ]
     }
   ],
   "micro": [
     {
       "claim_id": "1",
-      "proposition": "Autonomic emotional reactivity trained via cold water immersion generalizes to psychological stressors.",
+      "proposition": "Autonomic emotional reactivity habituated through cold water immersion generalizes to down-regulate reactivity against psychological stressors.",
       "quote": "there was an immediate automatic down regulation of my autonomic emotional response to a psychological stressor, somebody honking at me, that was trained and generalized from the ice bath.",
-      "timestamp": "00:00:21",
+      "timestamp": "00:00:17",
+      "claim_type": "ANECDOTE",
       "internal_confidence": "hypothesis",
-      "verdict": "CONFIRMED",
-      "search_query": "autonomic cold water immersion stress habituation cross-adaptation psychological stress",
+      "source_support": "SUPPORTED",
+      "verdict": "UNVERIFIED",
+      "search_query": "cross-adaptation cold habituation autonomic mental stress",
       "external_sources": [
-        "https://doi.org/10.1113/EP089422",
-        "https://pubmed.ncbi.nlm.nih.gov/20697368/"
+        "https://doi.org/10.1113/EP089422"
       ],
-      "added_context": "Cross-adaptation between cold habituation and blunted HPA axis/sympathetic reactivity to mental stress is documented in exercise physiology literature."
+      "added_context": "Reported as an 'experiment of one' by Huberman illustrating cross-adaptation."
     },
     {
       "claim_id": "2",
-      "proposition": "Emotions are whole-organism functional states that recruit decision-making across distributed neural circuits rather than isolated storage centers.",
-      "quote": "Today we discuss what emotions are, how they grow and shrink in our brain and body, and why some emotions seem to recruit our behavior and decision making and some simply don't.",
-      "timestamp": "00:02:07",
-      "internal_confidence": "peer-reviewed",
-      "verdict": "CONFIRMED",
-      "search_query": "Ralph Adolphs The Neuroscience of Emotion functional state theory",
-      "external_sources": [
-        "https://press.princeton.edu/books/hardcover/9780691174082/the-neuroscience-of-emotion",
-        "https://www.nature.com/articles/nrn.2018.20"
-      ],
-      "added_context": "Dr. Ralph Adolphs is co-author of 'The Neuroscience of Emotion: A New Synthesis' (Princeton University Press), establishing the functional-state architecture of emotion."
+      "proposition": "Emotion regulation can become automated with habituation so that active conscious overthinking is minimized.",
+      "quote": "the ease with which you can regulate emotions that they can become kind of automatically regulated. You don't have to overthink it. It becomes smooth and effortless to some extent.",
+      "timestamp": "00:00:34",
+      "claim_type": "HYPOTHESIS",
+      "internal_confidence": "hypothesis",
+      "source_support": "SUPPORTED",
+      "verdict": "UNVERIFIED",
+      "search_query": null,
+      "external_sources": [],
+      "added_context": null
     }
   ]
 }

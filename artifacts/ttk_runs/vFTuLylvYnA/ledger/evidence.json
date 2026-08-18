@@ -1,0 +1,449 @@
+{
+  "arguments": [],
+  "candidate_claims": [
+    {
+      "checkworthiness": "medium",
+      "claim_kind": "fact",
+      "claim_text": "So ein schön guten Morgen und schon haben wir den Nährstack wieder unter Druck der S&P ebenfalls",
+      "quote_evidence": [
+        {
+          "quote": "So ein schön guten Morgen und schon haben wir den Nährstack wieder unter Druck der S&P ebenfalls",
+          "segment_id": "seg-000001"
+        }
+      ],
+      "source_segment_ids": [
+        "seg-000001"
+      ],
+      "source_window_ids": [
+        "window-0001"
+      ],
+      "speaker": null
+    },
+    {
+      "checkworthiness": "low",
+      "claim_kind": "fact",
+      "claim_text": "Nährstack verliert über 300 Punkte vor Handelsstaat und wenn man den Übeltäter suchen will,",
+      "quote_evidence": [
+        {
+          "quote": "Nährstack verliert über 300 Punkte vor Handelsstaat und wenn man den Übeltäter suchen will,",
+          "segment_id": "seg-000002"
+        }
+      ],
+      "source_segment_ids": [
+        "seg-000002"
+      ],
+      "source_window_ids": [
+        "window-0001"
+      ],
+      "speaker": null
+    },
+    {
+      "checkworthiness": "low",
+      "claim_kind": "fact",
+      "claim_text": "muss man nicht besonders lange suchen. Wir haben die Renditen der 10-jährigen Staatsanleihen heute",
+      "quote_evidence": [
+        {
+          "quote": "muss man nicht besonders lange suchen. Wir haben die Renditen der 10-jährigen Staatsanleihen heute",
+          "segment_id": "seg-000003"
+        }
+      ],
+      "source_segment_ids": [
+        "seg-000003"
+      ],
+      "source_window_ids": [
+        "window-0001"
+      ],
+      "speaker": null
+    },
+    {
+      "checkworthiness": "medium",
+      "claim_kind": "fact",
+      "claim_text": "bei denen es garantiert, dass es auch Bergab geht, selbst wenn das Business boomt, wenn man das mal böse",
+      "quote_evidence": [
+        {
+          "quote": "bei denen es garantiert, dass es auch Bergab geht, selbst wenn das Business boomt, wenn man das mal böse",
+          "segment_id": "seg-000077"
+        }
+      ],
+      "source_segment_ids": [
+        "seg-000077"
+      ],
+      "source_window_ids": [
+        "window-0002"
+      ],
+      "speaker": null
+    },
+    {
+      "checkworthiness": "low",
+      "claim_kind": "fact",
+      "claim_text": "sagt, ja, Amor Sports, ja auch in dem Sektor mit unterwegs, also im Sportbereich und die Akze ist",
+      "quote_evidence": [
+        {
+          "quote": "sagt, ja, Amor Sports, ja auch in dem Sektor mit unterwegs, also im Sportbereich und die Akze ist",
+          "segment_id": "seg-000078"
+        }
+      ],
+      "source_segment_ids": [
+        "seg-000078"
+      ],
+      "source_window_ids": [
+        "window-0002"
+      ],
+      "speaker": null
+    },
+    {
+      "checkworthiness": "low",
+      "claim_kind": "fact",
+      "claim_text": "heute Morgen auch mit im Plus nach denen zahlen, aber genau das gleiche Bild wie bei Home Depot.",
+      "quote_evidence": [
+        {
+          "quote": "heute Morgen auch mit im Plus nach denen zahlen, aber genau das gleiche Bild wie bei Home Depot.",
+          "segment_id": "seg-000079"
+        }
+      ],
+      "source_segment_ids": [
+        "seg-000079"
+      ],
+      "source_window_ids": [
+        "window-0002"
+      ],
+      "speaker": null
+    },
+    {
+      "checkworthiness": "medium",
+      "claim_kind": "fact",
+      "claim_text": "Na ja, die Wall Street findet natürlich immer irgendwelche Gründe. Ja, wir hatten schon in den letzten",
+      "quote_evidence": [
+        {
+          "quote": "Na ja, die Wall Street findet natürlich immer irgendwelche Gründe. Ja, wir hatten schon in den letzten",
+          "segment_id": "seg-000131"
+        }
+      ],
+      "source_segment_ids": [
+        "seg-000131"
+      ],
+      "source_window_ids": [
+        "window-0003"
+      ],
+      "speaker": null
+    },
+    {
+      "checkworthiness": "low",
+      "claim_kind": "fact",
+      "claim_text": "Tagen oft gute Zahlen und dann trotzdem eben verkäufe, also nach dem Motto 1 Server News Ereignis und",
+      "quote_evidence": [
+        {
+          "quote": "Tagen oft gute Zahlen und dann trotzdem eben verkäufe, also nach dem Motto 1 Server News Ereignis und",
+          "segment_id": "seg-000132"
+        }
+      ],
+      "source_segment_ids": [
+        "seg-000132"
+      ],
+      "source_window_ids": [
+        "window-0003"
+      ],
+      "speaker": null
+    },
+    {
+      "checkworthiness": "low",
+      "claim_kind": "fact",
+      "claim_text": "es gibt ja der Bereich Data-Kommen Umsätze enttäuschend, aber wir reden hier von ein paar Millionen Euro,",
+      "quote_evidence": [
+        {
+          "quote": "es gibt ja der Bereich Data-Kommen Umsätze enttäuschend, aber wir reden hier von ein paar Millionen Euro,",
+          "segment_id": "seg-000133"
+        }
+      ],
+      "source_segment_ids": [
+        "seg-000133"
+      ],
+      "source_window_ids": [
+        "window-0003"
+      ],
+      "speaker": null
+    }
+  ],
+  "concepts": [],
+  "contradictions_or_uncertainty": [],
+  "entities": [],
+  "key_points": [
+    {
+      "source_segment_ids": [
+        "seg-000001"
+      ],
+      "source_window_id": "window-0001",
+      "text": "So ein schön guten Morgen und schon haben wir den Nährstack wieder unter Druck der S&P ebenfalls"
+    },
+    {
+      "source_segment_ids": [
+        "seg-000002"
+      ],
+      "source_window_id": "window-0001",
+      "text": "Nährstack verliert über 300 Punkte vor Handelsstaat und wenn man den Übeltäter suchen will,"
+    },
+    {
+      "source_segment_ids": [
+        "seg-000003"
+      ],
+      "source_window_id": "window-0001",
+      "text": "muss man nicht besonders lange suchen. Wir haben die Renditen der 10-jährigen Staatsanleihen heute"
+    },
+    {
+      "source_segment_ids": [
+        "seg-000077"
+      ],
+      "source_window_id": "window-0002",
+      "text": "bei denen es garantiert, dass es auch Bergab geht, selbst wenn das Business boomt, wenn man das mal böse"
+    },
+    {
+      "source_segment_ids": [
+        "seg-000078"
+      ],
+      "source_window_id": "window-0002",
+      "text": "sagt, ja, Amor Sports, ja auch in dem Sektor mit unterwegs, also im Sportbereich und die Akze ist"
+    },
+    {
+      "source_segment_ids": [
+        "seg-000079"
+      ],
+      "source_window_id": "window-0002",
+      "text": "heute Morgen auch mit im Plus nach denen zahlen, aber genau das gleiche Bild wie bei Home Depot."
+    },
+    {
+      "source_segment_ids": [
+        "seg-000131"
+      ],
+      "source_window_id": "window-0003",
+      "text": "Na ja, die Wall Street findet natürlich immer irgendwelche Gründe. Ja, wir hatten schon in den letzten"
+    },
+    {
+      "source_segment_ids": [
+        "seg-000132"
+      ],
+      "source_window_id": "window-0003",
+      "text": "Tagen oft gute Zahlen und dann trotzdem eben verkäufe, also nach dem Motto 1 Server News Ereignis und"
+    },
+    {
+      "source_segment_ids": [
+        "seg-000133"
+      ],
+      "source_window_id": "window-0003",
+      "text": "es gibt ja der Bereich Data-Kommen Umsätze enttäuschend, aber wir reden hier von ein paar Millionen Euro,"
+    }
+  ],
+  "map_packet_sha256": [
+    "10bbc6f7664f0e6b852a0d39836c310f07355873678e7c895057193173ab0956",
+    "7176798c6cbc75a3e579a11a15c60668eff3425b74947d95ccdccb9a2fe35aef",
+    "1cbd1e6e91736165127ae2b57df9b8fb15eb1a952f01d5b2d33317514aa2fad5"
+  ],
+  "map_result_sha256": [
+    "45055b638cc93bac72bc9c0be4bbec8658b1883fbf01270fd501442a99952963",
+    "9ed8be1035531ce88f476ce7910a734d128b25470b237910918308fc94a281db",
+    "3394045f0f4f3a5a1f01e6862451aef5eb744433291ee7a524ba4e114581be71"
+  ],
+  "mechanisms": [],
+  "near_duplicate_claim_candidates": [],
+  "open_questions": [],
+  "protocols": [],
+  "schema": "ttk.evidence-ledger.v2",
+  "source_sha256": "1dffc6b9bc4e9d4897a2a27b96b8f9a077988b12824788554fb0be76b0225dfb",
+  "subtopics": [
+    {
+      "label": "Window window-0001 Topics",
+      "source_segment_ids": [
+        "seg-000001",
+        "seg-000002",
+        "seg-000003",
+        "seg-000004",
+        "seg-000005",
+        "seg-000006",
+        "seg-000007",
+        "seg-000008",
+        "seg-000009",
+        "seg-000010",
+        "seg-000011",
+        "seg-000012",
+        "seg-000013",
+        "seg-000014",
+        "seg-000015",
+        "seg-000016",
+        "seg-000017",
+        "seg-000018",
+        "seg-000019",
+        "seg-000020",
+        "seg-000021",
+        "seg-000022",
+        "seg-000023",
+        "seg-000024",
+        "seg-000025",
+        "seg-000026",
+        "seg-000027",
+        "seg-000028",
+        "seg-000029",
+        "seg-000030",
+        "seg-000031",
+        "seg-000032",
+        "seg-000033",
+        "seg-000034",
+        "seg-000035",
+        "seg-000036",
+        "seg-000037",
+        "seg-000038",
+        "seg-000039",
+        "seg-000040",
+        "seg-000041",
+        "seg-000042",
+        "seg-000043",
+        "seg-000044",
+        "seg-000045",
+        "seg-000046",
+        "seg-000047",
+        "seg-000048",
+        "seg-000049",
+        "seg-000050",
+        "seg-000051",
+        "seg-000052",
+        "seg-000053",
+        "seg-000054",
+        "seg-000055",
+        "seg-000056",
+        "seg-000057",
+        "seg-000058",
+        "seg-000059",
+        "seg-000060",
+        "seg-000061",
+        "seg-000062",
+        "seg-000063",
+        "seg-000064",
+        "seg-000065",
+        "seg-000066",
+        "seg-000067",
+        "seg-000068",
+        "seg-000069",
+        "seg-000070",
+        "seg-000071",
+        "seg-000072",
+        "seg-000073",
+        "seg-000074",
+        "seg-000075",
+        "seg-000076"
+      ],
+      "source_window_id": "window-0001"
+    },
+    {
+      "label": "Window window-0002 Topics",
+      "source_segment_ids": [
+        "seg-000077",
+        "seg-000078",
+        "seg-000079",
+        "seg-000080",
+        "seg-000081",
+        "seg-000082",
+        "seg-000083",
+        "seg-000084",
+        "seg-000085",
+        "seg-000086",
+        "seg-000087",
+        "seg-000088",
+        "seg-000089",
+        "seg-000090",
+        "seg-000091",
+        "seg-000092",
+        "seg-000093",
+        "seg-000094",
+        "seg-000095",
+        "seg-000096",
+        "seg-000097",
+        "seg-000098",
+        "seg-000099",
+        "seg-000100",
+        "seg-000101",
+        "seg-000102",
+        "seg-000103",
+        "seg-000104",
+        "seg-000105",
+        "seg-000106",
+        "seg-000107",
+        "seg-000108",
+        "seg-000109",
+        "seg-000110",
+        "seg-000111",
+        "seg-000112",
+        "seg-000113",
+        "seg-000114",
+        "seg-000115",
+        "seg-000116",
+        "seg-000117",
+        "seg-000118",
+        "seg-000119",
+        "seg-000120",
+        "seg-000121",
+        "seg-000122",
+        "seg-000123",
+        "seg-000124",
+        "seg-000125",
+        "seg-000126",
+        "seg-000127",
+        "seg-000128",
+        "seg-000129",
+        "seg-000130"
+      ],
+      "source_window_id": "window-0002"
+    },
+    {
+      "label": "Window window-0003 Topics",
+      "source_segment_ids": [
+        "seg-000131",
+        "seg-000132",
+        "seg-000133",
+        "seg-000134",
+        "seg-000135",
+        "seg-000136",
+        "seg-000137",
+        "seg-000138",
+        "seg-000139",
+        "seg-000140",
+        "seg-000141",
+        "seg-000142",
+        "seg-000143",
+        "seg-000144",
+        "seg-000145",
+        "seg-000146",
+        "seg-000147",
+        "seg-000148",
+        "seg-000149",
+        "seg-000150",
+        "seg-000151",
+        "seg-000152",
+        "seg-000153",
+        "seg-000154",
+        "seg-000155",
+        "seg-000156",
+        "seg-000157",
+        "seg-000158",
+        "seg-000159",
+        "seg-000160",
+        "seg-000161",
+        "seg-000162",
+        "seg-000163",
+        "seg-000164",
+        "seg-000165",
+        "seg-000166",
+        "seg-000167",
+        "seg-000168",
+        "seg-000169",
+        "seg-000170",
+        "seg-000171",
+        "seg-000172",
+        "seg-000173",
+        "seg-000174",
+        "seg-000175",
+        "seg-000176",
+        "seg-000177",
+        "seg-000178"
+      ],
+      "source_window_id": "window-0003"
+    }
+  ]
+}

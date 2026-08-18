@@ -1,0 +1,150 @@
+{
+  "schema": "ttk.map-result.v2",
+  "packet_id": "map-window-0002",
+  "packet_sha256": "6d887a12fff4047dc44e6541421cb5b01291dde882a5d6b776e34d4de754670a",
+  "window_id": "window-0002",
+  "subtopics": [
+    {
+      "label": "Window window-0002 Topics",
+      "source_segment_ids": [
+        "seg-000044",
+        "seg-000045",
+        "seg-000046",
+        "seg-000047",
+        "seg-000048",
+        "seg-000049",
+        "seg-000050",
+        "seg-000051",
+        "seg-000052",
+        "seg-000053",
+        "seg-000054",
+        "seg-000055",
+        "seg-000056",
+        "seg-000057",
+        "seg-000058",
+        "seg-000059",
+        "seg-000060",
+        "seg-000061",
+        "seg-000062",
+        "seg-000063",
+        "seg-000064",
+        "seg-000065",
+        "seg-000066",
+        "seg-000067",
+        "seg-000068",
+        "seg-000069",
+        "seg-000070",
+        "seg-000071",
+        "seg-000072",
+        "seg-000073",
+        "seg-000074",
+        "seg-000075",
+        "seg-000076",
+        "seg-000077",
+        "seg-000078",
+        "seg-000079",
+        "seg-000080",
+        "seg-000081",
+        "seg-000082",
+        "seg-000083",
+        "seg-000084",
+        "seg-000085",
+        "seg-000086",
+        "seg-000087",
+        "seg-000088",
+        "seg-000089",
+        "seg-000090",
+        "seg-000091",
+        "seg-000092",
+        "seg-000093",
+        "seg-000094",
+        "seg-000095",
+        "seg-000096",
+        "seg-000097",
+        "seg-000098",
+        "seg-000099",
+        "seg-000100",
+        "seg-000101",
+        "seg-000102",
+        "seg-000103",
+        "seg-000104",
+        "seg-000105",
+        "seg-000106"
+      ]
+    }
+  ],
+  "key_points": [
+    {
+      "text": "findings and emotion from animal studies, findings from social psychology. Typically those people in",
+      "source_segment_ids": [
+        "seg-000044"
+      ]
+    },
+    {
+      "text": "those fields don't talk to one another. They do very different studies, very different methodologies,",
+      "source_segment_ids": [
+        "seg-000045"
+      ]
+    },
+    {
+      "text": "and so trying to integrate across disciplines that are that far apart to really try and get a sense",
+      "source_segment_ids": [
+        "seg-000046"
+      ]
+    }
+  ],
+  "mechanisms": [],
+  "protocols": [],
+  "arguments": [],
+  "candidate_claims": [
+    {
+      "claim_text": "findings and emotion from animal studies, findings from social psychology. Typically those people in",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000044"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000044",
+          "quote": "findings and emotion from animal studies, findings from social psychology. Typically those people in"
+        }
+      ],
+      "checkworthiness": "medium"
+    },
+    {
+      "claim_text": "those fields don't talk to one another. They do very different studies, very different methodologies,",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000045"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000045",
+          "quote": "those fields don't talk to one another. They do very different studies, very different methodologies,"
+        }
+      ],
+      "checkworthiness": "low"
+    },
+    {
+      "claim_text": "and so trying to integrate across disciplines that are that far apart to really try and get a sense",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000046"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000046",
+          "quote": "and so trying to integrate across disciplines that are that far apart to really try and get a sense"
+        }
+      ],
+      "checkworthiness": "low"
+    }
+  ],
+  "entities": [],
+  "concepts": [],
+  "open_questions": [],
+  "contradictions_or_uncertainty": []
+}

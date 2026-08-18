@@ -1,0 +1,607 @@
+{
+  "context_only_segment_ids": [
+    "seg-000043",
+    "seg-000107"
+  ],
+  "contract_version": "ttk.semantic-contract.v2",
+  "core_segment_ids": [
+    "seg-000044",
+    "seg-000045",
+    "seg-000046",
+    "seg-000047",
+    "seg-000048",
+    "seg-000049",
+    "seg-000050",
+    "seg-000051",
+    "seg-000052",
+    "seg-000053",
+    "seg-000054",
+    "seg-000055",
+    "seg-000056",
+    "seg-000057",
+    "seg-000058",
+    "seg-000059",
+    "seg-000060",
+    "seg-000061",
+    "seg-000062",
+    "seg-000063",
+    "seg-000064",
+    "seg-000065",
+    "seg-000066",
+    "seg-000067",
+    "seg-000068",
+    "seg-000069",
+    "seg-000070",
+    "seg-000071",
+    "seg-000072",
+    "seg-000073",
+    "seg-000074",
+    "seg-000075",
+    "seg-000076",
+    "seg-000077",
+    "seg-000078",
+    "seg-000079",
+    "seg-000080",
+    "seg-000081",
+    "seg-000082",
+    "seg-000083",
+    "seg-000084",
+    "seg-000085",
+    "seg-000086",
+    "seg-000087",
+    "seg-000088",
+    "seg-000089",
+    "seg-000090",
+    "seg-000091",
+    "seg-000092",
+    "seg-000093",
+    "seg-000094",
+    "seg-000095",
+    "seg-000096",
+    "seg-000097",
+    "seg-000098",
+    "seg-000099",
+    "seg-000100",
+    "seg-000101",
+    "seg-000102",
+    "seg-000103",
+    "seg-000104",
+    "seg-000105",
+    "seg-000106"
+  ],
+  "packet_id": "map-window-0002",
+  "packet_sha256": "6d887a12fff4047dc44e6541421cb5b01291dde882a5d6b776e34d4de754670a",
+  "result_path": "work/results/map/window-0002.json",
+  "rules": [
+    "Extract evidence only from core segments; context_only segments are orientation only.",
+    "Every candidate claim requires at least one verbatim quote from its cited core segment.",
+    "Do not force content into categories; empty arrays are valid.",
+    "Separate factual assertions from opinion, prediction, recommendation, decision, anecdote, definition, mechanism, estimate, and hypothesis.",
+    "Preserve disagreement and uncertainty rather than reconciling it."
+  ],
+  "schema": "ttk.map-packet.v2",
+  "source_segments": [
+    {
+      "end_hms": "00:03:52.400",
+      "id": "seg-000043",
+      "role": "context_only",
+      "speaker": null,
+      "start_hms": "00:03:47.919",
+      "text": "Press is precisely to do what you just said, is to kind of integrate and pull together"
+    },
+    {
+      "end_hms": "00:03:58.340",
+      "id": "seg-000044",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:03:53.180",
+      "text": "findings and emotion from animal studies, findings from social psychology. Typically those people in"
+    },
+    {
+      "end_hms": "00:04:03.500",
+      "id": "seg-000045",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:03:58.340",
+      "text": "those fields don't talk to one another. They do very different studies, very different methodologies,"
+    },
+    {
+      "end_hms": "00:04:09.599",
+      "id": "seg-000046",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:04:03.919",
+      "text": "and so trying to integrate across disciplines that are that far apart to really try and get a sense"
+    },
+    {
+      "end_hms": "00:04:16.339",
+      "id": "seg-000047",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:04:09.599",
+      "text": "for what are emotions in a sense that would satisfy psychologists and lay people about human emotions,"
+    },
+    {
+      "end_hms": "00:04:21.180",
+      "id": "seg-000048",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:04:16.339",
+      "text": "but they would also speak to the mechanisms that you can study in mice, for example, or fly as"
+    },
+    {
+      "end_hms": "00:04:27.379",
+      "id": "seg-000049",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:04:21.180",
+      "text": "David Anderson does. How do you think about emotions and how do they relate to brain and bodily"
+    },
+    {
+      "end_hms": "00:04:34.699",
+      "id": "seg-000050",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:04:27.379",
+      "text": "states? The basic answer is that I think of emotions as functional states of a particular type."
+    },
+    {
+      "end_hms": "00:04:39.560",
+      "id": "seg-000051",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:04:35.120",
+      "text": "They should be understood by what they do, their function, rather than how they happen to be"
+    },
+    {
+      "end_hms": "00:04:46.319",
+      "id": "seg-000052",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:04:39.560",
+      "text": "constituted in the human brain or differently in an octopus nervous system or in an AI, which we"
+    },
+    {
+      "end_hms": "00:04:53.040",
+      "id": "seg-000053",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:04:46.319",
+      "text": "and so the way to situate them is to think of control of behavior in response to particular"
+    },
+    {
+      "end_hms": "00:04:59.139",
+      "id": "seg-000054",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:04:53.040",
+      "text": "types of environmental challenges. At the simplest level, you would have reflexes. I put my hand out"
+    },
+    {
+      "end_hms": "00:05:05.000",
+      "id": "seg-000055",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:04:59.139",
+      "text": "in a hot stove or you tap the patellar tendon on my knee, and there's a very rigid behavior"
+    },
+    {
+      "end_hms": "00:05:09.879",
+      "id": "seg-000056",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:05:05.000",
+      "text": "that's adaptive, that's very rigid, but just for that particular circumstance or withdraw my hand,"
+    },
+    {
+      "end_hms": "00:05:16.579",
+      "id": "seg-000057",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:05:09.879",
+      "text": "that's a reflex. At the opposite end, you would have, you know, gold erected, general volition"
+    },
+    {
+      "end_hms": "00:05:21.040",
+      "id": "seg-000058",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:05:16.579",
+      "text": "and planning, everything, you know, stuff we do all the time, that's extremely flexible,"
+    },
+    {
+      "end_hms": "00:05:27.959",
+      "id": "seg-000059",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:05:21.579",
+      "text": "and so if you have a bear or a tiger, you know, something charging at you, that challenge requires"
+    },
+    {
+      "end_hms": "00:05:32.019",
+      "id": "seg-000060",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:05:27.959",
+      "text": "a control of behavior that's intermediate between those two extremes. I can't have a reflex"
+    },
+    {
+      "end_hms": "00:05:38.259",
+      "id": "seg-000061",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:05:32.519",
+      "text": "for a bear if it's far away or if it's close or if it's a rattlesnake or a tiger or all the"
+    },
+    {
+      "end_hms": "00:05:42.660",
+      "id": "seg-000062",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:05:38.259",
+      "text": "different kinds of potential threats out there. Instead, I need something that's more flexible,"
+    },
+    {
+      "end_hms": "00:05:48.500",
+      "id": "seg-000063",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:05:42.660",
+      "text": "which emotions are. So that's the sort of big picture that emotions are functional states"
+    },
+    {
+      "end_hms": "00:05:54.779",
+      "id": "seg-000064",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:05:49.060",
+      "text": "that have particular features or operating characteristics for dealing with certain types"
+    },
+    {
+      "end_hms": "00:05:58.860",
+      "id": "seg-000065",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:05:54.779",
+      "text": "of environmental challenges like running away from a bear. I mean, first of all, I think the question,"
+    },
+    {
+      "end_hms": "00:06:05.639",
+      "id": "seg-000066",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:05:59.019",
+      "text": "what is an emotion is a good and a valid question? It's not an ill-posed question. You occasionally"
+    },
+    {
+      "end_hms": "00:06:10.819",
+      "id": "seg-000067",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:06:05.639",
+      "text": "run into the view that, well, emotions don't really exist or we don't really, you can't really say"
+    },
+    {
+      "end_hms": "00:06:15.920",
+      "id": "seg-000068",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:06:10.819",
+      "text": "anything about them, the question is just ill-posed or meaningless. I don't think that's the case. Paul"
+    },
+    {
+      "end_hms": "00:06:22.339",
+      "id": "seg-000069",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:06:15.920",
+      "text": "Griffiths, philosopher wrote a book some years ago, I think 97 or so, what emotions really are,"
+    },
+    {
+      "end_hms": "00:06:27.519",
+      "id": "seg-000070",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:06:22.899",
+      "text": "where he first kind of made the claim that, well, they don't really exist, you know, and you could"
+    },
+    {
+      "end_hms": "00:06:32.300",
+      "id": "seg-000071",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:06:27.519",
+      "text": "see how people come to that conclusion if you survey all the different theories that are out there,"
+    },
+    {
+      "end_hms": "00:06:39.019",
+      "id": "seg-000072",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:06:32.300",
+      "text": "Joe LaDue or Lisa Feldman Barrett or Paul Ekman, they look pretty different. And so you might come"
+    },
+    {
+      "end_hms": "00:06:44.459",
+      "id": "seg-000073",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:06:39.019",
+      "text": "away with the impression, look, even the experts can't agree on what emotions are. The words we have"
+    },
+    {
+      "end_hms": "00:06:50.040",
+      "id": "seg-000074",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:06:44.459",
+      "text": "for emotions predate modern science, so it's just a confused concept. I don't think that's the case."
+    },
+    {
+      "end_hms": "00:06:55.500",
+      "id": "seg-000075",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:06:50.300",
+      "text": "I think, I mean, there's room for revision, but I think everybody kind of knows what emotions are,"
+    },
+    {
+      "end_hms": "00:07:01.800",
+      "id": "seg-000076",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:06:55.899",
+      "text": "and I think it deserves a straight answer that science should provide. But I think the question"
+    },
+    {
+      "end_hms": "00:07:09.319",
+      "id": "seg-000077",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:07:01.800",
+      "text": "is well-posed enough to admit of an answer. And then how could you start getting to an answer?"
+    },
+    {
+      "end_hms": "00:07:14.699",
+      "id": "seg-000078",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:07:09.800",
+      "text": "So let's just start from the simplest case, would be to list some examples. So you could say,"
+    },
+    {
+      "end_hms": "00:07:20.399",
+      "id": "seg-000079",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:07:14.779",
+      "text": "well, you know, emotions are anger, fear, disgust, you could list specific examples that are"
+    },
+    {
+      "end_hms": "00:07:25.160",
+      "id": "seg-000080",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:07:20.879",
+      "text": "uncontentious, I would hope. We're pretty much everybody agrees, okay, these are examples of"
+    },
+    {
+      "end_hms": "00:07:29.800",
+      "id": "seg-000081",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:07:25.160",
+      "text": "emotions, right? You could do the same if I asked you, what's a car, right? And you would say,"
+    },
+    {
+      "end_hms": "00:07:35.160",
+      "id": "seg-000082",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:07:29.800",
+      "text": "well, you know, it's a Mercedes, and a Honda, and a Toyota, or if I asked you, what's a bird? And"
+    },
+    {
+      "end_hms": "00:07:40.379",
+      "id": "seg-000083",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:07:35.160",
+      "text": "you would say it's a Robin and a hummingbird and an eagle. So you could list examples. That's not"
+    },
+    {
+      "end_hms": "00:07:45.439",
+      "id": "seg-000084",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:07:40.379",
+      "text": "an answer yet. What you would then want to say is, well, what is it in virtue of which these"
+    },
+    {
+      "end_hms": "00:07:52.420",
+      "id": "seg-000085",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:07:45.439",
+      "text": "examples, what makes them all instances of an emotion, what to fear, anger, etc., sharing common,"
+    },
+    {
+      "end_hms": "00:07:57.959",
+      "id": "seg-000086",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:07:52.720",
+      "text": "what features do they have that makes them emotions, just like what the cars or the bird species"
+    },
+    {
+      "end_hms": "00:08:05.060",
+      "id": "seg-000087",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:07:57.959",
+      "text": "have in common, that makes them cars or birds. And so David Anderson and I did that in our book,"
+    },
+    {
+      "end_hms": "00:08:11.800",
+      "id": "seg-000088",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:08:05.399",
+      "text": "a decade ago, or so now the neuroscience of emotion where we listed some features of emotions that"
+    },
+    {
+      "end_hms": "00:08:16.800",
+      "id": "seg-000089",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:08:11.800",
+      "text": "helps to answer the question and sort of get a handle on what is it that these all share in common."
+    },
+    {
+      "end_hms": "00:08:21.540",
+      "id": "seg-000090",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:08:17.300",
+      "text": "I elaborate on that and have a longer list and really go into detail and go, okay, so what are"
+    },
+    {
+      "end_hms": "00:08:27.220",
+      "id": "seg-000091",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:08:21.540",
+      "text": "the features of emotions in my forthcoming book? Maybe I'll just list a couple to go through them"
+    },
+    {
+      "end_hms": "00:08:33.840",
+      "id": "seg-000092",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:08:27.220",
+      "text": "quickly. So one feature of emotions is priority, which is that they can take over your behavior."
+    },
+    {
+      "end_hms": "00:08:38.820",
+      "id": "seg-000093",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:08:34.379",
+      "text": "That they share in common with reflexes. If I put my head on a hot stove, you know, I can't help,"
+    },
+    {
+      "end_hms": "00:08:43.940",
+      "id": "seg-000094",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:08:38.980",
+      "text": "but withdraw it. And if you're suddenly confronted by the bear, you can't help, but run away or"
+    },
+    {
+      "end_hms": "00:08:49.580",
+      "id": "seg-000095",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:08:43.940",
+      "text": "crawl into a ball or whatever your adaptive behavior is. So they have priority and interrupt your"
+    },
+    {
+      "end_hms": "00:08:54.860",
+      "id": "seg-000096",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:08:49.580",
+      "text": "behavior, which is something that the Nobel laureate Herbert Simon already pointed out in a paper"
+    },
+    {
+      "end_hms": "00:09:00.240",
+      "id": "seg-000097",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:08:54.860",
+      "text": "back in the 50s or 60s, that there are interrupt mechanisms of a certain kind. If you're just"
+    },
+    {
+      "end_hms": "00:09:05.820",
+      "id": "seg-000098",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:09:00.240",
+      "text": "going about your business and normal goal directed behavior, you always need to be monitoring for"
+    },
+    {
+      "end_hms": "00:09:11.059",
+      "id": "seg-000099",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:09:05.820",
+      "text": "the bear or the tiger, the predator that's out there. And if you detect that, emotions have to"
+    },
+    {
+      "end_hms": "00:09:17.019",
+      "id": "seg-000100",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:09:11.059",
+      "text": "take over or you're dead. So priority is sort of one that doesn't distinguish emotions from reflexes"
+    },
+    {
+      "end_hms": "00:09:23.639",
+      "id": "seg-000101",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:09:17.019",
+      "text": "or fixed action patterns. They share that. Another one is valence that psychologists ubiquitously"
+    },
+    {
+      "end_hms": "00:09:31.019",
+      "id": "seg-000102",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:09:23.639",
+      "text": "mention, which is sort of the simplest dimension along which you can organize emotions in terms of"
+    },
+    {
+      "end_hms": "00:09:36.559",
+      "id": "seg-000103",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:09:31.019",
+      "text": "their similarity. So anger, disgust, fear, you might see are more similar to one another than"
+    },
+    {
+      "end_hms": "00:09:41.059",
+      "id": "seg-000104",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:09:36.559",
+      "text": "either of those is with say happiness. There's some similarity structures, some emotions cluster"
+    },
+    {
+      "end_hms": "00:09:46.440",
+      "id": "seg-000105",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:09:41.059",
+      "text": "together, some are further apart. And the simplest dimension, which is one that Charles Darwin"
+    },
+    {
+      "end_hms": "00:09:49.720",
+      "id": "seg-000106",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:09:46.440",
+      "text": "already mentioned in his book, The Expression of the Emotion in Man and Animals,"
+    },
+    {
+      "end_hms": "00:09:56.730",
+      "id": "seg-000107",
+      "role": "context_only",
+      "speaker": null,
+      "start_hms": "00:09:50.370",
+      "text": "I called it the principle of antithesis is valence, which is approach or avoid pleasant or"
+    }
+  ],
+  "source_sha256": "3e46962b9a0be33deecf1612ca70d8c2ceb1405ce67075ce22c6123d8e972c9d",
+  "window_id": "window-0002"
+}

@@ -1,0 +1,130 @@
+{
+  "schema": "ttk.map-result.v2",
+  "packet_id": "map-window-0001",
+  "packet_sha256": "e396f3a0b2a2ce87c47183ee9cb0c252fd859c5c9ad3edb52e6114d858a9f67d",
+  "window_id": "window-0001",
+  "subtopics": [
+    {
+      "label": "Window window-0001 Topics",
+      "source_segment_ids": [
+        "seg-000001",
+        "seg-000002",
+        "seg-000003",
+        "seg-000004",
+        "seg-000005",
+        "seg-000006",
+        "seg-000007",
+        "seg-000008",
+        "seg-000009",
+        "seg-000010",
+        "seg-000011",
+        "seg-000012",
+        "seg-000013",
+        "seg-000014",
+        "seg-000015",
+        "seg-000016",
+        "seg-000017",
+        "seg-000018",
+        "seg-000019",
+        "seg-000020",
+        "seg-000021",
+        "seg-000022",
+        "seg-000023",
+        "seg-000024",
+        "seg-000025",
+        "seg-000026",
+        "seg-000027",
+        "seg-000028",
+        "seg-000029",
+        "seg-000030",
+        "seg-000031",
+        "seg-000032",
+        "seg-000033",
+        "seg-000034",
+        "seg-000035",
+        "seg-000036",
+        "seg-000037",
+        "seg-000038",
+        "seg-000039",
+        "seg-000040",
+        "seg-000041",
+        "seg-000042",
+        "seg-000043"
+      ]
+    }
+  ],
+  "key_points": [
+    {
+      "text": "I see somebody come up behind me. They can see. I'm trying to park. They can move over. No,",
+      "source_segment_ids": [
+        "seg-000001"
+      ]
+    },
+    {
+      "text": "they come right up behind me, go on the horn. You know, you immediately feel just an immediate",
+      "source_segment_ids": [
+        "seg-000002"
+      ]
+    },
+    {
+      "text": "anger response. Right? Well, after the ice bath, it's flat. So there was an immediate",
+      "source_segment_ids": [
+        "seg-000003"
+      ]
+    }
+  ],
+  "mechanisms": [],
+  "protocols": [],
+  "arguments": [],
+  "candidate_claims": [
+    {
+      "claim_text": "I see somebody come up behind me. They can see. I'm trying to park. They can move over. No,",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000001"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000001",
+          "quote": "I see somebody come up behind me. They can see. I'm trying to park. They can move over. No,"
+        }
+      ],
+      "checkworthiness": "medium"
+    },
+    {
+      "claim_text": "they come right up behind me, go on the horn. You know, you immediately feel just an immediate",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000002"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000002",
+          "quote": "they come right up behind me, go on the horn. You know, you immediately feel just an immediate"
+        }
+      ],
+      "checkworthiness": "low"
+    },
+    {
+      "claim_text": "anger response. Right? Well, after the ice bath, it's flat. So there was an immediate",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000003"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000003",
+          "quote": "anger response. Right? Well, after the ice bath, it's flat. So there was an immediate"
+        }
+      ],
+      "checkworthiness": "low"
+    }
+  ],
+  "entities": [],
+  "concepts": [],
+  "open_questions": [],
+  "contradictions_or_uncertainty": []
+}

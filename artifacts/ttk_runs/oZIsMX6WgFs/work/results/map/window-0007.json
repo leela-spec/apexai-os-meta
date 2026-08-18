@@ -1,0 +1,105 @@
+{
+  "schema": "ttk.map-result.v2",
+  "packet_id": "map-window-0007",
+  "packet_sha256": "d1556f6b42e1765c09dc7271cb081ed187bf5b300f16c8a45185cdbde8880074",
+  "window_id": "window-0007",
+  "subtopics": [
+    {
+      "label": "Window window-0007 Topics",
+      "source_segment_ids": [
+        "seg-000155",
+        "seg-000156",
+        "seg-000157",
+        "seg-000158",
+        "seg-000159",
+        "seg-000160",
+        "seg-000161",
+        "seg-000162",
+        "seg-000163",
+        "seg-000164",
+        "seg-000165",
+        "seg-000166",
+        "seg-000167",
+        "seg-000168",
+        "seg-000169",
+        "seg-000170",
+        "seg-000171",
+        "seg-000172"
+      ]
+    }
+  ],
+  "key_points": [
+    {
+      "text": "yes yes I mean this would be now a good example to switch which I cannot do because it's not activated that engine right now",
+      "source_segment_ids": [
+        "seg-000155"
+      ]
+    },
+    {
+      "text": "and the so the cycle links synchronizes in terms of their top and low comes more or less at the same point in time which is what we talked",
+      "source_segment_ids": [
+        "seg-000156"
+      ]
+    },
+    {
+      "text": "about here and looks like one cycle so now bringing that back to the to the bands idea it's yes it goes in the in this direction",
+      "source_segment_ids": [
+        "seg-000157"
+      ]
+    }
+  ],
+  "mechanisms": [],
+  "protocols": [],
+  "arguments": [],
+  "candidate_claims": [
+    {
+      "claim_text": "yes yes I mean this would be now a good example to switch which I cannot do because it's not activated that engine right now",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000155"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000155",
+          "quote": "yes yes I mean this would be now a good example to switch which I cannot do because it's not activated that engine right now"
+        }
+      ],
+      "checkworthiness": "medium"
+    },
+    {
+      "claim_text": "and the so the cycle links synchronizes in terms of their top and low comes more or less at the same point in time which is what we talked",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000156"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000156",
+          "quote": "and the so the cycle links synchronizes in terms of their top and low comes more or less at the same point in time which is what we talked"
+        }
+      ],
+      "checkworthiness": "low"
+    },
+    {
+      "claim_text": "about here and looks like one cycle so now bringing that back to the to the bands idea it's yes it goes in the in this direction",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000157"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000157",
+          "quote": "about here and looks like one cycle so now bringing that back to the to the bands idea it's yes it goes in the in this direction"
+        }
+      ],
+      "checkworthiness": "low"
+    }
+  ],
+  "entities": [],
+  "concepts": [],
+  "open_questions": [],
+  "contradictions_or_uncertainty": []
+}

@@ -1,0 +1,138 @@
+{
+  "schema": "ttk.map-result.v2",
+  "packet_id": "map-window-0014",
+  "packet_sha256": "4f9918fca3d330fad4136471b87781c4f5cb4df62ef2763792c65a6adee208a9",
+  "window_id": "window-0014",
+  "subtopics": [
+    {
+      "label": "Window window-0014 Topics",
+      "source_segment_ids": [
+        "seg-000828",
+        "seg-000829",
+        "seg-000830",
+        "seg-000831",
+        "seg-000832",
+        "seg-000833",
+        "seg-000834",
+        "seg-000835",
+        "seg-000836",
+        "seg-000837",
+        "seg-000838",
+        "seg-000839",
+        "seg-000840",
+        "seg-000841",
+        "seg-000842",
+        "seg-000843",
+        "seg-000844",
+        "seg-000845",
+        "seg-000846",
+        "seg-000847",
+        "seg-000848",
+        "seg-000849",
+        "seg-000850",
+        "seg-000851",
+        "seg-000852",
+        "seg-000853",
+        "seg-000854",
+        "seg-000855",
+        "seg-000856",
+        "seg-000857",
+        "seg-000858",
+        "seg-000859",
+        "seg-000860",
+        "seg-000861",
+        "seg-000862",
+        "seg-000863",
+        "seg-000864",
+        "seg-000865",
+        "seg-000866",
+        "seg-000867",
+        "seg-000868",
+        "seg-000869",
+        "seg-000870",
+        "seg-000871",
+        "seg-000872",
+        "seg-000873",
+        "seg-000874",
+        "seg-000875",
+        "seg-000876",
+        "seg-000877",
+        "seg-000878"
+      ]
+    }
+  ],
+  "key_points": [
+    {
+      "text": "art of that sort is able to capture the circuitry related to a particular emotions across people?",
+      "source_segment_ids": [
+        "seg-000828"
+      ]
+    },
+    {
+      "text": "So not just about my unique experience. And art is subjective, right? So there's things related",
+      "source_segment_ids": [
+        "seg-000829"
+      ]
+    },
+    {
+      "text": "to taste. But let's assume this is abstract art. So there's no apparent faces or animals or",
+      "source_segment_ids": [
+        "seg-000830"
+      ]
+    }
+  ],
+  "mechanisms": [],
+  "protocols": [],
+  "arguments": [],
+  "candidate_claims": [
+    {
+      "claim_text": "art of that sort is able to capture the circuitry related to a particular emotions across people?",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000828"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000828",
+          "quote": "art of that sort is able to capture the circuitry related to a particular emotions across people?"
+        }
+      ],
+      "checkworthiness": "medium"
+    },
+    {
+      "claim_text": "So not just about my unique experience. And art is subjective, right? So there's things related",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000829"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000829",
+          "quote": "So not just about my unique experience. And art is subjective, right? So there's things related"
+        }
+      ],
+      "checkworthiness": "low"
+    },
+    {
+      "claim_text": "to taste. But let's assume this is abstract art. So there's no apparent faces or animals or",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000830"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000830",
+          "quote": "to taste. But let's assume this is abstract art. So there's no apparent faces or animals or"
+        }
+      ],
+      "checkworthiness": "low"
+    }
+  ],
+  "entities": [],
+  "concepts": [],
+  "open_questions": [],
+  "contradictions_or_uncertainty": []
+}

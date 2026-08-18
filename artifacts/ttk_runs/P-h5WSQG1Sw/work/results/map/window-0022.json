@@ -1,0 +1,153 @@
+{
+  "schema": "ttk.map-result.v2",
+  "packet_id": "map-window-0022",
+  "packet_sha256": "ebc28f8f00439628a4c8fb02796fcbf8db74d62e06f97ebce703df4839567ed6",
+  "window_id": "window-0022",
+  "subtopics": [
+    {
+      "label": "Window window-0022 Topics",
+      "source_segment_ids": [
+        "seg-001345",
+        "seg-001346",
+        "seg-001347",
+        "seg-001348",
+        "seg-001349",
+        "seg-001350",
+        "seg-001351",
+        "seg-001352",
+        "seg-001353",
+        "seg-001354",
+        "seg-001355",
+        "seg-001356",
+        "seg-001357",
+        "seg-001358",
+        "seg-001359",
+        "seg-001360",
+        "seg-001361",
+        "seg-001362",
+        "seg-001363",
+        "seg-001364",
+        "seg-001365",
+        "seg-001366",
+        "seg-001367",
+        "seg-001368",
+        "seg-001369",
+        "seg-001370",
+        "seg-001371",
+        "seg-001372",
+        "seg-001373",
+        "seg-001374",
+        "seg-001375",
+        "seg-001376",
+        "seg-001377",
+        "seg-001378",
+        "seg-001379",
+        "seg-001380",
+        "seg-001381",
+        "seg-001382",
+        "seg-001383",
+        "seg-001384",
+        "seg-001385",
+        "seg-001386",
+        "seg-001387",
+        "seg-001388",
+        "seg-001389",
+        "seg-001390",
+        "seg-001391",
+        "seg-001392",
+        "seg-001393",
+        "seg-001394",
+        "seg-001395",
+        "seg-001396",
+        "seg-001397",
+        "seg-001398",
+        "seg-001399",
+        "seg-001400",
+        "seg-001401",
+        "seg-001402",
+        "seg-001403",
+        "seg-001404",
+        "seg-001405",
+        "seg-001406",
+        "seg-001407",
+        "seg-001408",
+        "seg-001409",
+        "seg-001410"
+      ]
+    }
+  ],
+  "key_points": [
+    {
+      "text": "and all of a sudden the bell sounds and you could hear a pin drop but there's thousands of people",
+      "source_segment_ids": [
+        "seg-001345"
+      ]
+    },
+    {
+      "text": "around you yeah you hear a bell again the meal begins walking to the auditorium at Shuffle Shuffle Shuffle",
+      "source_segment_ids": [
+        "seg-001346"
+      ]
+    },
+    {
+      "text": "talking talking talking talking boom it's a step function they're training this in the cells",
+      "source_segment_ids": [
+        "seg-001347"
+      ]
+    }
+  ],
+  "mechanisms": [],
+  "protocols": [],
+  "arguments": [],
+  "candidate_claims": [
+    {
+      "claim_text": "and all of a sudden the bell sounds and you could hear a pin drop but there's thousands of people",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-001345"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-001345",
+          "quote": "and all of a sudden the bell sounds and you could hear a pin drop but there's thousands of people"
+        }
+      ],
+      "checkworthiness": "medium"
+    },
+    {
+      "claim_text": "around you yeah you hear a bell again the meal begins walking to the auditorium at Shuffle Shuffle Shuffle",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-001346"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-001346",
+          "quote": "around you yeah you hear a bell again the meal begins walking to the auditorium at Shuffle Shuffle Shuffle"
+        }
+      ],
+      "checkworthiness": "low"
+    },
+    {
+      "claim_text": "talking talking talking talking boom it's a step function they're training this in the cells",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-001347"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-001347",
+          "quote": "talking talking talking talking boom it's a step function they're training this in the cells"
+        }
+      ],
+      "checkworthiness": "low"
+    }
+  ],
+  "entities": [],
+  "concepts": [],
+  "open_questions": [],
+  "contradictions_or_uncertainty": []
+}

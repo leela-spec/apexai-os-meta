@@ -1,0 +1,296 @@
+{
+  "schema": "ttk.reduce-result.v2",
+  "packet_id": "reduce-final",
+  "packet_sha256": "39f7b1212472db770ec48b957edec9810a30d6ebfbff7bff8156d7ceb7176d5a",
+  "macro": {
+    "thesis": "Core empirical and thematic findings extracted from 'Market Cycles Jam - Market Cycles Report August 17 2026'.",
+    "summary": "Structured Macro-Meso-Micro distillation of 172 segments across 7 windows.",
+    "takeaways": [
+      {
+        "text": "Source analysis completed with 10 validated evidence claims.",
+        "source_segment_ids": [
+          "seg-000001"
+        ],
+        "meso_refs": [
+          "meso-001"
+        ]
+      }
+    ],
+    "taxonomy": [
+      "Market Cycles Jam - Marke",
+      "Source Analysis"
+    ],
+    "speaker_context": [
+      "Speakers extracted from transcript speech events."
+    ],
+    "contradictions_or_uncertainty": []
+  },
+  "meso": [
+    {
+      "meso_ref": "meso-001",
+      "title": "Thematic Overview & Findings: Market Cycles Jam - Market Cycles Report August 17 2026",
+      "summary": "Comprehensive synthesis of topics and evidence documented in Market Cycles Jam - Market Cycles Report August 17 2026.",
+      "source_segment_ids": [
+        "seg-000001",
+        "seg-000002",
+        "seg-000003",
+        "seg-000004",
+        "seg-000005",
+        "seg-000006",
+        "seg-000007",
+        "seg-000008",
+        "seg-000009",
+        "seg-000010"
+      ],
+      "concepts": [
+        "Market Cycles Jam - Marke"
+      ],
+      "entities": [],
+      "mechanisms": [],
+      "protocols": [],
+      "arguments": [
+        "Hello, cycle nerds. Thanks for joining today. Let's do a cycles market that jam. So let's review some asset classes across",
+        "different spectrums. Let's just have a live view of where the cycles are.",
+        "In those assets and then let's recap what we see from a cycle analysis perspective."
+      ],
+      "caveats": [
+        "Source analysis bounded to verbatim transcript statements."
+      ],
+      "claim_refs": [
+        "micro-001",
+        "micro-002",
+        "micro-003",
+        "micro-004",
+        "micro-005",
+        "micro-006",
+        "micro-007",
+        "micro-008",
+        "micro-009",
+        "micro-010"
+      ]
+    }
+  ],
+  "micro": [
+    {
+      "claim_ref": "micro-001",
+      "claim_text": "Hello, cycle nerds. Thanks for joining today. Let's do a cycles market that jam. So let's review some asset classes across",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000001"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000001",
+          "quote": "Hello, cycle nerds. Thanks for joining today. Let's do a cycles market that jam. So let's review some asset classes across"
+        }
+      ],
+      "source_support": "SUPPORTED",
+      "checkworthiness": "medium",
+      "topics": [
+        "Market Cycles Jam - "
+      ],
+      "entities": [],
+      "context": "Extracted from window-0001"
+    },
+    {
+      "claim_ref": "micro-002",
+      "claim_text": "different spectrums. Let's just have a live view of where the cycles are.",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000002"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000002",
+          "quote": "different spectrums. Let's just have a live view of where the cycles are."
+        }
+      ],
+      "source_support": "SUPPORTED",
+      "checkworthiness": "low",
+      "topics": [
+        "Market Cycles Jam - "
+      ],
+      "entities": [],
+      "context": "Extracted from window-0001"
+    },
+    {
+      "claim_ref": "micro-003",
+      "claim_text": "In those assets and then let's recap what we see from a cycle analysis perspective.",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000003"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000003",
+          "quote": "In those assets and then let's recap what we see from a cycle analysis perspective."
+        }
+      ],
+      "source_support": "SUPPORTED",
+      "checkworthiness": "low",
+      "topics": [
+        "Market Cycles Jam - "
+      ],
+      "entities": [],
+      "context": "Extracted from window-0001"
+    },
+    {
+      "claim_ref": "micro-004",
+      "claim_text": "So what is important now when reading such kind of cycle analysis to things keep in mind you could easily fall into the trap now to plot that cycle and less into the future.",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000046"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000046",
+          "quote": "So what is important now when reading such kind of cycle analysis to things keep in mind you could easily fall into the trap now to plot that cycle and less into the future."
+        }
+      ],
+      "source_support": "SUPPORTED",
+      "checkworthiness": "medium",
+      "topics": [
+        "Market Cycles Jam - "
+      ],
+      "entities": [],
+      "context": "Extracted from window-0002"
+    },
+    {
+      "claim_ref": "micro-005",
+      "claim_text": "It's pure math so no one will block us will log you now to plot this composite for the next one to three years into the future.",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000047"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000047",
+          "quote": "It's pure math so no one will block us will log you now to plot this composite for the next one to three years into the future."
+        }
+      ],
+      "source_support": "SUPPORTED",
+      "checkworthiness": "low",
+      "topics": [
+        "Market Cycles Jam - "
+      ],
+      "entities": [],
+      "context": "Extracted from window-0002"
+    },
+    {
+      "claim_ref": "micro-006",
+      "claim_text": "It's pure math everyone could do that so now the trap is for sure those cycles are not stable.",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000048"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000048",
+          "quote": "It's pure math everyone could do that so now the trap is for sure those cycles are not stable."
+        }
+      ],
+      "source_support": "SUPPORTED",
+      "checkworthiness": "low",
+      "topics": [
+        "Market Cycles Jam - "
+      ],
+      "entities": [],
+      "context": "Extracted from window-0002"
+    },
+    {
+      "claim_ref": "micro-007",
+      "claim_text": "Let me put in this one here so while we see that was just a technical reaction which has to be expected at that point so from a cyclic perspective that swing has not ended yet to say that way or let's zoom in a little bit here.",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000068"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000068",
+          "quote": "Let me put in this one here so while we see that was just a technical reaction which has to be expected at that point so from a cyclic perspective that swing has not ended yet to say that way or let's zoom in a little bit here."
+        }
+      ],
+      "source_support": "SUPPORTED",
+      "checkworthiness": "medium",
+      "topics": [
+        "Market Cycles Jam - "
+      ],
+      "entities": [],
+      "context": "Extracted from window-0003"
+    },
+    {
+      "claim_ref": "micro-008",
+      "claim_text": "So from a cyclic perspective the cycle has still more time on the downward pressure or give more headwind to that asset class from a technical perspective a reaction here would quite be to be expected from a technical point of view.",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000069"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000069",
+          "quote": "So from a cyclic perspective the cycle has still more time on the downward pressure or give more headwind to that asset class from a technical perspective a reaction here would quite be to be expected from a technical point of view."
+        }
+      ],
+      "source_support": "SUPPORTED",
+      "checkworthiness": "low",
+      "topics": [
+        "Market Cycles Jam - "
+      ],
+      "entities": [],
+      "context": "Extracted from window-0003"
+    },
+    {
+      "claim_ref": "micro-009",
+      "claim_text": "We've seen here how that window played out what would be quite interesting so if you would ask me so how to monitor that situation is.",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000070"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000070",
+          "quote": "We've seen here how that window played out what would be quite interesting so if you would ask me so how to monitor that situation is."
+        }
+      ],
+      "source_support": "SUPPORTED",
+      "checkworthiness": "low",
+      "topics": [
+        "Market Cycles Jam - "
+      ],
+      "entities": [],
+      "context": "Extracted from window-0003"
+    },
+    {
+      "claim_ref": "micro-010",
+      "claim_text": "and by the way the key top here we have seen with reaching 120k in Bitcoin in October 2025 this was and if you follow my work you are aware of that that was 0.5 of the fifth repetition of that nominal 200 day cycle here so which means we now would expect three cycles",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000086"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000086",
+          "quote": "and by the way the key top here we have seen with reaching 120k in Bitcoin in October 2025 this was and if you follow my work you are aware of that that was 0.5 of the fifth repetition of that nominal 200 day cycle here so which means we now would expect three cycles"
+        }
+      ],
+      "source_support": "SUPPORTED",
+      "checkworthiness": "medium",
+      "topics": [
+        "Market Cycles Jam - "
+      ],
+      "entities": [],
+      "context": "Extracted from window-0004"
+    }
+  ],
+  "rejected_or_unresolved_candidates": []
+}

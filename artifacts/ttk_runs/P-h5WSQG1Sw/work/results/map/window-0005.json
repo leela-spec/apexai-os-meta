@@ -1,0 +1,155 @@
+{
+  "schema": "ttk.map-result.v2",
+  "packet_id": "map-window-0005",
+  "packet_sha256": "3773fb2f1263d8a0d2eff011c938573ebe9cae2e97c5f7e3fd4f7998363e93aa",
+  "window_id": "window-0005",
+  "subtopics": [
+    {
+      "label": "Window window-0005 Topics",
+      "source_segment_ids": [
+        "seg-000231",
+        "seg-000232",
+        "seg-000233",
+        "seg-000234",
+        "seg-000235",
+        "seg-000236",
+        "seg-000237",
+        "seg-000238",
+        "seg-000239",
+        "seg-000240",
+        "seg-000241",
+        "seg-000242",
+        "seg-000243",
+        "seg-000244",
+        "seg-000245",
+        "seg-000246",
+        "seg-000247",
+        "seg-000248",
+        "seg-000249",
+        "seg-000250",
+        "seg-000251",
+        "seg-000252",
+        "seg-000253",
+        "seg-000254",
+        "seg-000255",
+        "seg-000256",
+        "seg-000257",
+        "seg-000258",
+        "seg-000259",
+        "seg-000260",
+        "seg-000261",
+        "seg-000262",
+        "seg-000263",
+        "seg-000264",
+        "seg-000265",
+        "seg-000266",
+        "seg-000267",
+        "seg-000268",
+        "seg-000269",
+        "seg-000270",
+        "seg-000271",
+        "seg-000272",
+        "seg-000273",
+        "seg-000274",
+        "seg-000275",
+        "seg-000276",
+        "seg-000277",
+        "seg-000278",
+        "seg-000279",
+        "seg-000280",
+        "seg-000281",
+        "seg-000282",
+        "seg-000283",
+        "seg-000284",
+        "seg-000285",
+        "seg-000286",
+        "seg-000287",
+        "seg-000288",
+        "seg-000289",
+        "seg-000290",
+        "seg-000291",
+        "seg-000292",
+        "seg-000293",
+        "seg-000294",
+        "seg-000295",
+        "seg-000296",
+        "seg-000297",
+        "seg-000298"
+      ]
+    }
+  ],
+  "key_points": [
+    {
+      "text": "And the other question is, if you tie emotion to the conscious experience of emotion,",
+      "source_segment_ids": [
+        "seg-000231"
+      ]
+    },
+    {
+      "text": "that is you equate, you conflate emotions with feelings, well, then you're not studying emotions,",
+      "source_segment_ids": [
+        "seg-000232"
+      ]
+    },
+    {
+      "text": "you're studying consciousness. If you spoke about Christoph Koch earlier, great respect for people",
+      "source_segment_ids": [
+        "seg-000233"
+      ]
+    }
+  ],
+  "mechanisms": [],
+  "protocols": [],
+  "arguments": [],
+  "candidate_claims": [
+    {
+      "claim_text": "And the other question is, if you tie emotion to the conscious experience of emotion,",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000231"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000231",
+          "quote": "And the other question is, if you tie emotion to the conscious experience of emotion,"
+        }
+      ],
+      "checkworthiness": "medium"
+    },
+    {
+      "claim_text": "that is you equate, you conflate emotions with feelings, well, then you're not studying emotions,",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000232"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000232",
+          "quote": "that is you equate, you conflate emotions with feelings, well, then you're not studying emotions,"
+        }
+      ],
+      "checkworthiness": "low"
+    },
+    {
+      "claim_text": "you're studying consciousness. If you spoke about Christoph Koch earlier, great respect for people",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000233"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000233",
+          "quote": "you're studying consciousness. If you spoke about Christoph Koch earlier, great respect for people"
+        }
+      ],
+      "checkworthiness": "low"
+    }
+  ],
+  "entities": [],
+  "concepts": [],
+  "open_questions": [],
+  "contradictions_or_uncertainty": []
+}

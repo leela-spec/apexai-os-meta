@@ -1,0 +1,115 @@
+{
+  "schema": "ttk.map-result.v2",
+  "packet_id": "map-window-0023",
+  "packet_sha256": "f86bd84262af593ccd820688391b108cf3cde742ca46f53a90aa8f4f5b652b0b",
+  "window_id": "window-0023",
+  "subtopics": [
+    {
+      "label": "Window window-0023 Topics",
+      "source_segment_ids": [
+        "seg-001411",
+        "seg-001412",
+        "seg-001413",
+        "seg-001414",
+        "seg-001415",
+        "seg-001416",
+        "seg-001417",
+        "seg-001418",
+        "seg-001419",
+        "seg-001420",
+        "seg-001421",
+        "seg-001422",
+        "seg-001423",
+        "seg-001424",
+        "seg-001425",
+        "seg-001426",
+        "seg-001427",
+        "seg-001428",
+        "seg-001429",
+        "seg-001430",
+        "seg-001431",
+        "seg-001432",
+        "seg-001433",
+        "seg-001434",
+        "seg-001435",
+        "seg-001436",
+        "seg-001437",
+        "seg-001438"
+      ]
+    }
+  ],
+  "key_points": [
+    {
+      "text": "if you're learning from and or enjoying this podcast please subscribe to our YouTube channel",
+      "source_segment_ids": [
+        "seg-001411"
+      ]
+    },
+    {
+      "text": "that's a terrific zero cost way to support us in addition please follow the podcast by clicking",
+      "source_segment_ids": [
+        "seg-001412"
+      ]
+    },
+    {
+      "text": "the follow button on both Spotify and Apple and on both Spotify and Apple you can leave us up to a",
+      "source_segment_ids": [
+        "seg-001413"
+      ]
+    }
+  ],
+  "mechanisms": [],
+  "protocols": [],
+  "arguments": [],
+  "candidate_claims": [
+    {
+      "claim_text": "if you're learning from and or enjoying this podcast please subscribe to our YouTube channel",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-001411"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-001411",
+          "quote": "if you're learning from and or enjoying this podcast please subscribe to our YouTube channel"
+        }
+      ],
+      "checkworthiness": "medium"
+    },
+    {
+      "claim_text": "that's a terrific zero cost way to support us in addition please follow the podcast by clicking",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-001412"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-001412",
+          "quote": "that's a terrific zero cost way to support us in addition please follow the podcast by clicking"
+        }
+      ],
+      "checkworthiness": "low"
+    },
+    {
+      "claim_text": "the follow button on both Spotify and Apple and on both Spotify and Apple you can leave us up to a",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-001413"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-001413",
+          "quote": "the follow button on both Spotify and Apple and on both Spotify and Apple you can leave us up to a"
+        }
+      ],
+      "checkworthiness": "low"
+    }
+  ],
+  "entities": [],
+  "concepts": [],
+  "open_questions": [],
+  "contradictions_or_uncertainty": []
+}

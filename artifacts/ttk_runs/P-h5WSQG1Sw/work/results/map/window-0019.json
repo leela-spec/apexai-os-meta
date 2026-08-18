@@ -1,0 +1,156 @@
+{
+  "schema": "ttk.map-result.v2",
+  "packet_id": "map-window-0019",
+  "packet_sha256": "5258c03bf5d6e086627d119f575d312560148fc5b075e289b277bae1ecd04ae4",
+  "window_id": "window-0019",
+  "subtopics": [
+    {
+      "label": "Window window-0019 Topics",
+      "source_segment_ids": [
+        "seg-001121",
+        "seg-001122",
+        "seg-001123",
+        "seg-001124",
+        "seg-001125",
+        "seg-001126",
+        "seg-001127",
+        "seg-001128",
+        "seg-001129",
+        "seg-001130",
+        "seg-001131",
+        "seg-001132",
+        "seg-001133",
+        "seg-001134",
+        "seg-001135",
+        "seg-001136",
+        "seg-001137",
+        "seg-001138",
+        "seg-001139",
+        "seg-001140",
+        "seg-001141",
+        "seg-001142",
+        "seg-001143",
+        "seg-001144",
+        "seg-001145",
+        "seg-001146",
+        "seg-001147",
+        "seg-001148",
+        "seg-001149",
+        "seg-001150",
+        "seg-001151",
+        "seg-001152",
+        "seg-001153",
+        "seg-001154",
+        "seg-001155",
+        "seg-001156",
+        "seg-001157",
+        "seg-001158",
+        "seg-001159",
+        "seg-001160",
+        "seg-001161",
+        "seg-001162",
+        "seg-001163",
+        "seg-001164",
+        "seg-001165",
+        "seg-001166",
+        "seg-001167",
+        "seg-001168",
+        "seg-001169",
+        "seg-001170",
+        "seg-001171",
+        "seg-001172",
+        "seg-001173",
+        "seg-001174",
+        "seg-001175",
+        "seg-001176",
+        "seg-001177",
+        "seg-001178",
+        "seg-001179",
+        "seg-001180",
+        "seg-001181",
+        "seg-001182",
+        "seg-001183",
+        "seg-001184",
+        "seg-001185",
+        "seg-001186",
+        "seg-001187",
+        "seg-001188",
+        "seg-001189"
+      ]
+    }
+  ],
+  "key_points": [
+    {
+      "text": "what else is it associated with is it predictive of career success is it predictive of anything else",
+      "source_segment_ids": [
+        "seg-001121"
+      ]
+    },
+    {
+      "text": "and so we don't know we're measuring everything else and getting lots of questionnaires on these people",
+      "source_segment_ids": [
+        "seg-001122"
+      ]
+    },
+    {
+      "text": "to ask what what are the associations and is there any causal hypothesis that we would come up with",
+      "source_segment_ids": [
+        "seg-001123"
+      ]
+    }
+  ],
+  "mechanisms": [],
+  "protocols": [],
+  "arguments": [],
+  "candidate_claims": [
+    {
+      "claim_text": "what else is it associated with is it predictive of career success is it predictive of anything else",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-001121"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-001121",
+          "quote": "what else is it associated with is it predictive of career success is it predictive of anything else"
+        }
+      ],
+      "checkworthiness": "medium"
+    },
+    {
+      "claim_text": "and so we don't know we're measuring everything else and getting lots of questionnaires on these people",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-001122"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-001122",
+          "quote": "and so we don't know we're measuring everything else and getting lots of questionnaires on these people"
+        }
+      ],
+      "checkworthiness": "low"
+    },
+    {
+      "claim_text": "to ask what what are the associations and is there any causal hypothesis that we would come up with",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-001123"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-001123",
+          "quote": "to ask what what are the associations and is there any causal hypothesis that we would come up with"
+        }
+      ],
+      "checkworthiness": "low"
+    }
+  ],
+  "entities": [],
+  "concepts": [],
+  "open_questions": [],
+  "contradictions_or_uncertainty": []
+}

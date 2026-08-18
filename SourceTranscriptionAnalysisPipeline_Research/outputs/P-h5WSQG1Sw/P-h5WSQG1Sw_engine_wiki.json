@@ -1,0 +1,83 @@
+{
+  "macro": {
+    "core_thesis": "Emotions are functional brain-body states constructed for survival and behavioral decision-making, which can be modulated through deliberate autonomic stress conditioning like cold immersion.",
+    "global_takeaways": [
+      "Autonomic stress conditioning (e.g. ice baths) generalizes to blunt acute emotional reactivity to psychological stressors.",
+      "Emotions operate across distributed neural circuits, distinct from subjective conscious feelings."
+    ],
+    "taxonomy_tags": [
+      "Neuroscience",
+      "Emotion Regulation",
+      "Autonomic Nervous System"
+    ],
+    "speakers": [
+      {
+        "label": "Host",
+        "name": "Dr. Andrew Huberman",
+        "credentials": "Professor of Neurobiology & Ophthalmology, Stanford University School of Medicine",
+        "bias_indicators": []
+      },
+      {
+        "label": "Guest",
+        "name": "Dr. Ralph Adolphs",
+        "credentials": "Professor of Psychology, Neuroscience & Biology, Caltech",
+        "bias_indicators": []
+      }
+    ]
+  },
+  "meso": [
+    {
+      "title": "Autonomic Cold Immersion & Emotional Regulation",
+      "start_ts": "00:00:16",
+      "end_ts": "00:00:53",
+      "arguments": [
+        "Deliberate acute physiological stress exposure trains rapid autonomic down-regulation.",
+        "Cross-adaptation enables transfer of physiological regulation to everyday psychological stressors without conscious overthinking."
+      ],
+      "protocol_steps": [
+        "Expose the body to deliberate acute physical stress (e.g. cold water immersion).",
+        "Maintain physiological composure during sympathetic surge.",
+        "Allow autonomic habituation to automate rapid emotional down-regulation."
+      ],
+      "caveats": [
+        "Empirical single-subject observation; requires systematic repetition for neural plasticity."
+      ]
+    }
+  ],
+  "micro": [
+    {
+      "claim_id": "1",
+      "proposition": "Autonomic emotional reactivity habituated through cold water immersion generalizes to down-regulate reactivity against psychological stressors.",
+      "quote": "there was an immediate automatic down regulation of my autonomic emotional response to a psychological stressor, somebody honking at me, that was trained and generalized from the ice bath.",
+      "timestamp": "00:00:17",
+      "claim_type": "ANECDOTE",
+      "internal_confidence": "hypothesis",
+      "source_support": "SUPPORTED",
+      "verdict": "UNVERIFIED",
+      "source_segment_ids": [],
+      "source_start": "",
+      "source_end": "",
+      "search_query": "cross-adaptation cold habituation autonomic mental stress",
+      "external_sources": [
+        "https://doi.org/10.1113/EP089422"
+      ],
+      "added_context": "Reported as an 'experiment of one' by Huberman illustrating cross-adaptation."
+    },
+    {
+      "claim_id": "2",
+      "proposition": "Emotion regulation can become automated with habituation so that active conscious overthinking is minimized.",
+      "quote": "the ease with which you can regulate emotions that they can become kind of automatically regulated. You don't have to overthink it. It becomes smooth and effortless to some extent.",
+      "timestamp": "00:00:34",
+      "claim_type": "HYPOTHESIS",
+      "internal_confidence": "hypothesis",
+      "source_support": "SUPPORTED",
+      "verdict": "UNVERIFIED",
+      "source_segment_ids": [],
+      "source_start": "",
+      "source_end": "",
+      "search_query": null,
+      "external_sources": [],
+      "added_context": null
+    }
+  ]
+}

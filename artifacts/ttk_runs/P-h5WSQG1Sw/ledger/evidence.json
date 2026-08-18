@@ -1,0 +1,3369 @@
+{
+  "arguments": [],
+  "candidate_claims": [
+    {
+      "checkworthiness": "medium",
+      "claim_kind": "fact",
+      "claim_text": "I see somebody come up behind me. They can see. I'm trying to park. They can move over. No,",
+      "quote_evidence": [
+        {
+          "quote": "I see somebody come up behind me. They can see. I'm trying to park. They can move over. No,",
+          "segment_id": "seg-000001"
+        }
+      ],
+      "source_segment_ids": [
+        "seg-000001"
+      ],
+      "source_window_ids": [
+        "window-0001"
+      ],
+      "speaker": null
+    },
+    {
+      "checkworthiness": "low",
+      "claim_kind": "fact",
+      "claim_text": "they come right up behind me, go on the horn. You know, you immediately feel just an immediate",
+      "quote_evidence": [
+        {
+          "quote": "they come right up behind me, go on the horn. You know, you immediately feel just an immediate",
+          "segment_id": "seg-000002"
+        }
+      ],
+      "source_segment_ids": [
+        "seg-000002"
+      ],
+      "source_window_ids": [
+        "window-0001"
+      ],
+      "speaker": null
+    },
+    {
+      "checkworthiness": "low",
+      "claim_kind": "fact",
+      "claim_text": "anger response. Right? Well, after the ice bath, it's flat. So there was an immediate",
+      "quote_evidence": [
+        {
+          "quote": "anger response. Right? Well, after the ice bath, it's flat. So there was an immediate",
+          "segment_id": "seg-000003"
+        }
+      ],
+      "source_segment_ids": [
+        "seg-000003"
+      ],
+      "source_window_ids": [
+        "window-0001"
+      ],
+      "speaker": null
+    },
+    {
+      "checkworthiness": "medium",
+      "claim_kind": "fact",
+      "claim_text": "findings and emotion from animal studies, findings from social psychology. Typically those people in",
+      "quote_evidence": [
+        {
+          "quote": "findings and emotion from animal studies, findings from social psychology. Typically those people in",
+          "segment_id": "seg-000044"
+        }
+      ],
+      "source_segment_ids": [
+        "seg-000044"
+      ],
+      "source_window_ids": [
+        "window-0002"
+      ],
+      "speaker": null
+    },
+    {
+      "checkworthiness": "low",
+      "claim_kind": "fact",
+      "claim_text": "those fields don't talk to one another. They do very different studies, very different methodologies,",
+      "quote_evidence": [
+        {
+          "quote": "those fields don't talk to one another. They do very different studies, very different methodologies,",
+          "segment_id": "seg-000045"
+        }
+      ],
+      "source_segment_ids": [
+        "seg-000045"
+      ],
+      "source_window_ids": [
+        "window-0002"
+      ],
+      "speaker": null
+    },
+    {
+      "checkworthiness": "low",
+      "claim_kind": "fact",
+      "claim_text": "and so trying to integrate across disciplines that are that far apart to really try and get a sense",
+      "quote_evidence": [
+        {
+          "quote": "and so trying to integrate across disciplines that are that far apart to really try and get a sense",
+          "segment_id": "seg-000046"
+        }
+      ],
+      "source_segment_ids": [
+        "seg-000046"
+      ],
+      "source_window_ids": [
+        "window-0002"
+      ],
+      "speaker": null
+    },
+    {
+      "checkworthiness": "medium",
+      "claim_kind": "fact",
+      "claim_text": "I called it the principle of antithesis is valence, which is approach or avoid pleasant or",
+      "quote_evidence": [
+        {
+          "quote": "I called it the principle of antithesis is valence, which is approach or avoid pleasant or",
+          "segment_id": "seg-000107"
+        }
+      ],
+      "source_segment_ids": [
+        "seg-000107"
+      ],
+      "source_window_ids": [
+        "window-0003"
+      ],
+      "speaker": null
+    },
+    {
+      "checkworthiness": "low",
+      "claim_kind": "fact",
+      "claim_text": "unpleasant, this basic valence dimension. Are there any neutral emotions? I ask this because",
+      "quote_evidence": [
+        {
+          "quote": "unpleasant, this basic valence dimension. Are there any neutral emotions? I ask this because",
+          "segment_id": "seg-000108"
+        }
+      ],
+      "source_segment_ids": [
+        "seg-000108"
+      ],
+      "source_window_ids": [
+        "window-0003"
+      ],
+      "speaker": null
+    },
+    {
+      "checkworthiness": "low",
+      "claim_kind": "fact",
+      "claim_text": "your colleague at Caltech who I respect tremendously Marcus Meister once wrote a review where he said,",
+      "quote_evidence": [
+        {
+          "quote": "your colleague at Caltech who I respect tremendously Marcus Meister once wrote a review where he said,",
+          "segment_id": "seg-000109"
+        }
+      ],
+      "source_segment_ids": [
+        "seg-000109"
+      ],
+      "source_window_ids": [
+        "window-0003"
+      ],
+      "speaker": null
+    },
+    {
+      "checkworthiness": "medium",
+      "claim_kind": "fact",
+      "claim_text": "I'd like to take a quick break and acknowledge our sponsor, Helix Sleep. Helix Sleep makes matrices",
+      "quote_evidence": [
+        {
+          "quote": "I'd like to take a quick break and acknowledge our sponsor, Helix Sleep. Helix Sleep makes matrices",
+          "segment_id": "seg-000168"
+        }
+      ],
+      "source_segment_ids": [
+        "seg-000168"
+      ],
+      "source_window_ids": [
+        "window-0004"
+      ],
+      "speaker": null
+    },
+    {
+      "checkworthiness": "low",
+      "claim_kind": "fact",
+      "claim_text": "and pillows that are customized to your unique sleep needs. Now, I've spoken many times before on",
+      "quote_evidence": [
+        {
+          "quote": "and pillows that are customized to your unique sleep needs. Now, I've spoken many times before on",
+          "segment_id": "seg-000169"
+        }
+      ],
+      "source_segment_ids": [
+        "seg-000169"
+      ],
+      "source_window_ids": [
+        "window-0004"
+      ],
+      "speaker": null
+    },
+    {
+      "checkworthiness": "low",
+      "claim_kind": "fact",
+      "claim_text": "this and on other podcasts about the fact that getting a great night's sleep is the foundation of",
+      "quote_evidence": [
+        {
+          "quote": "this and on other podcasts about the fact that getting a great night's sleep is the foundation of",
+          "segment_id": "seg-000170"
+        }
+      ],
+      "source_segment_ids": [
+        "seg-000170"
+      ],
+      "source_window_ids": [
+        "window-0004"
+      ],
+      "speaker": null
+    },
+    {
+      "checkworthiness": "medium",
+      "claim_kind": "fact",
+      "claim_text": "And the other question is, if you tie emotion to the conscious experience of emotion,",
+      "quote_evidence": [
+        {
+          "quote": "And the other question is, if you tie emotion to the conscious experience of emotion,",
+          "segment_id": "seg-000231"
+        }
+      ],
+      "source_segment_ids": [
+        "seg-000231"
+      ],
+      "source_window_ids": [
+        "window-0005"
+      ],
+      "speaker": null
+    },
+    {
+      "checkworthiness": "low",
+      "claim_kind": "fact",
+      "claim_text": "that is you equate, you conflate emotions with feelings, well, then you're not studying emotions,",
+      "quote_evidence": [
+        {
+          "quote": "that is you equate, you conflate emotions with feelings, well, then you're not studying emotions,",
+          "segment_id": "seg-000232"
+        }
+      ],
+      "source_segment_ids": [
+        "seg-000232"
+      ],
+      "source_window_ids": [
+        "window-0005"
+      ],
+      "speaker": null
+    },
+    {
+      "checkworthiness": "low",
+      "claim_kind": "fact",
+      "claim_text": "you're studying consciousness. If you spoke about Christoph Koch earlier, great respect for people",
+      "quote_evidence": [
+        {
+          "quote": "you're studying consciousness. If you spoke about Christoph Koch earlier, great respect for people",
+          "segment_id": "seg-000233"
+        }
+      ],
+      "source_segment_ids": [
+        "seg-000233"
+      ],
+      "source_window_ids": [
+        "window-0005"
+      ],
+      "speaker": null
+    },
+    {
+      "checkworthiness": "medium",
+      "claim_kind": "fact",
+      "claim_text": "That's kind of the ideal circumstance, right? Yeah. So what do you know that allowed that has",
+      "quote_evidence": [
+        {
+          "quote": "That's kind of the ideal circumstance, right? Yeah. So what do you know that allowed that has",
+          "segment_id": "seg-000299"
+        }
+      ],
+      "source_segment_ids": [
+        "seg-000299"
+      ],
+      "source_window_ids": [
+        "window-0006"
+      ],
+      "speaker": null
+    },
+    {
+      "checkworthiness": "low",
+      "claim_kind": "fact",
+      "claim_text": "impacted the way that you think about emotion regulation that perhaps people could consider,",
+      "quote_evidence": [
+        {
+          "quote": "impacted the way that you think about emotion regulation that perhaps people could consider,",
+          "segment_id": "seg-000300"
+        }
+      ],
+      "source_segment_ids": [
+        "seg-000300"
+      ],
+      "source_window_ids": [
+        "window-0006"
+      ],
+      "speaker": null
+    },
+    {
+      "checkworthiness": "low",
+      "claim_kind": "fact",
+      "claim_text": "if not benefit from? Yeah. I think it's, you know, it's a mixture. On the one hand,",
+      "quote_evidence": [
+        {
+          "quote": "if not benefit from? Yeah. I think it's, you know, it's a mixture. On the one hand,",
+          "segment_id": "seg-000301"
+        }
+      ],
+      "source_segment_ids": [
+        "seg-000301"
+      ],
+      "source_window_ids": [
+        "window-0006"
+      ],
+      "speaker": null
+    },
+    {
+      "checkworthiness": "medium",
+      "claim_kind": "fact",
+      "claim_text": "we appraisal or any other sort of complex we appraisal strategy for emotions. It is a double-edged",
+      "quote_evidence": [
+        {
+          "quote": "we appraisal or any other sort of complex we appraisal strategy for emotions. It is a double-edged",
+          "segment_id": "seg-000357"
+        }
+      ],
+      "source_segment_ids": [
+        "seg-000357"
+      ],
+      "source_window_ids": [
+        "window-0007"
+      ],
+      "speaker": null
+    },
+    {
+      "checkworthiness": "low",
+      "claim_kind": "fact",
+      "claim_text": "sword and it's trainable. It's as you say, if I really focus on, okay, now, you know, I'm starting",
+      "quote_evidence": [
+        {
+          "quote": "sword and it's trainable. It's as you say, if I really focus on, okay, now, you know, I'm starting",
+          "segment_id": "seg-000358"
+        }
+      ],
+      "source_segment_ids": [
+        "seg-000358"
+      ],
+      "source_window_ids": [
+        "window-0007"
+      ],
+      "speaker": null
+    },
+    {
+      "checkworthiness": "low",
+      "claim_kind": "fact",
+      "claim_text": "to feel sad. I really don't want to feel sad. I really don't want to feel sad. I really don't",
+      "quote_evidence": [
+        {
+          "quote": "to feel sad. I really don't want to feel sad. I really don't want to feel sad. I really don't",
+          "segment_id": "seg-000359"
+        }
+      ],
+      "source_segment_ids": [
+        "seg-000359"
+      ],
+      "source_window_ids": [
+        "window-0007"
+      ],
+      "speaker": null
+    },
+    {
+      "checkworthiness": "medium",
+      "claim_kind": "fact",
+      "claim_text": "you were describing how, you know, at some points during these races, you just feel like complete",
+      "quote_evidence": [
+        {
+          "quote": "you were describing how, you know, at some points during these races, you just feel like complete",
+          "segment_id": "seg-000419"
+        }
+      ],
+      "source_segment_ids": [
+        "seg-000419"
+      ],
+      "source_window_ids": [
+        "window-0008"
+      ],
+      "speaker": null
+    },
+    {
+      "checkworthiness": "low",
+      "claim_kind": "fact",
+      "claim_text": "garbage. But then you start to feel better. And so then the next time you feel like complete",
+      "quote_evidence": [
+        {
+          "quote": "garbage. But then you start to feel better. And so then the next time you feel like complete",
+          "segment_id": "seg-000420"
+        }
+      ],
+      "source_segment_ids": [
+        "seg-000420"
+      ],
+      "source_window_ids": [
+        "window-0008"
+      ],
+      "speaker": null
+    },
+    {
+      "checkworthiness": "low",
+      "claim_kind": "fact",
+      "claim_text": "garbage, you have the cognitive knowledge that you felt terrible then better again. And so you're",
+      "quote_evidence": [
+        {
+          "quote": "garbage, you have the cognitive knowledge that you felt terrible then better again. And so you're",
+          "segment_id": "seg-000421"
+        }
+      ],
+      "source_segment_ids": [
+        "seg-000421"
+      ],
+      "source_window_ids": [
+        "window-0008"
+      ],
+      "speaker": null
+    },
+    {
+      "checkworthiness": "medium",
+      "claim_kind": "fact",
+      "claim_text": "formula, which is a blend of vitamins, minerals, probiotics, and adaptogens. And it adds three",
+      "quote_evidence": [
+        {
+          "quote": "formula, which is a blend of vitamins, minerals, probiotics, and adaptogens. And it adds three",
+          "segment_id": "seg-000503"
+        }
+      ],
+      "source_segment_ids": [
+        "seg-000503"
+      ],
+      "source_window_ids": [
+        "window-0009"
+      ],
+      "speaker": null
+    },
+    {
+      "checkworthiness": "low",
+      "claim_kind": "fact",
+      "claim_text": "important new ingredients, creatine monohydrate, calcium, HMB, and zinc carnacine. Each serving has",
+      "quote_evidence": [
+        {
+          "quote": "important new ingredients, creatine monohydrate, calcium, HMB, and zinc carnacine. Each serving has",
+          "segment_id": "seg-000504"
+        }
+      ],
+      "source_segment_ids": [
+        "seg-000504"
+      ],
+      "source_window_ids": [
+        "window-0009"
+      ],
+      "speaker": null
+    },
+    {
+      "checkworthiness": "low",
+      "claim_kind": "fact",
+      "claim_text": "five grams of creatine monohydrate to support muscle strength and performance as well as brain health.",
+      "quote_evidence": [
+        {
+          "quote": "five grams of creatine monohydrate to support muscle strength and performance as well as brain health.",
+          "segment_id": "seg-000505"
+        }
+      ],
+      "source_segment_ids": [
+        "seg-000505"
+      ],
+      "source_window_ids": [
+        "window-0009"
+      ],
+      "speaker": null
+    },
+    {
+      "checkworthiness": "medium",
+      "claim_kind": "fact",
+      "claim_text": "talking before coming in here to one of your colleagues about your cute dog, and they've done studies,",
+      "quote_evidence": [
+        {
+          "quote": "talking before coming in here to one of your colleagues about your cute dog, and they've done studies,",
+          "segment_id": "seg-000561"
+        }
+      ],
+      "source_segment_ids": [
+        "seg-000561"
+      ],
+      "source_window_ids": [
+        "window-0010"
+      ],
+      "speaker": null
+    },
+    {
+      "checkworthiness": "low",
+      "claim_kind": "fact",
+      "claim_text": "there's several studies now, where dog owners, if you ask them, can you tell if your dog feels guilty",
+      "quote_evidence": [
+        {
+          "quote": "there's several studies now, where dog owners, if you ask them, can you tell if your dog feels guilty",
+          "segment_id": "seg-000562"
+        }
+      ],
+      "source_segment_ids": [
+        "seg-000562"
+      ],
+      "source_window_ids": [
+        "window-0010"
+      ],
+      "speaker": null
+    },
+    {
+      "checkworthiness": "low",
+      "claim_kind": "fact",
+      "claim_text": "when you come home? Because it did something bad. Dog owners are pretty convinced they can tell.",
+      "quote_evidence": [
+        {
+          "quote": "when you come home? Because it did something bad. Dog owners are pretty convinced they can tell.",
+          "segment_id": "seg-000563"
+        }
+      ],
+      "source_segment_ids": [
+        "seg-000563"
+      ],
+      "source_window_ids": [
+        "window-0010"
+      ],
+      "speaker": null
+    },
+    {
+      "checkworthiness": "medium",
+      "claim_kind": "fact",
+      "claim_text": "you know, the original studies, like the ones I started doing as a postdoc where you just",
+      "quote_evidence": [
+        {
+          "quote": "you know, the original studies, like the ones I started doing as a postdoc where you just",
+          "segment_id": "seg-000628"
+        }
+      ],
+      "source_segment_ids": [
+        "seg-000628"
+      ],
+      "source_window_ids": [
+        "window-0011"
+      ],
+      "speaker": null
+    },
+    {
+      "checkworthiness": "low",
+      "claim_kind": "fact",
+      "claim_text": "truly static Paul Ekman pictures of facial affect. Well, we never see that in people. It's always",
+      "quote_evidence": [
+        {
+          "quote": "truly static Paul Ekman pictures of facial affect. Well, we never see that in people. It's always",
+          "segment_id": "seg-000629"
+        }
+      ],
+      "source_segment_ids": [
+        "seg-000629"
+      ],
+      "source_window_ids": [
+        "window-0011"
+      ],
+      "speaker": null
+    },
+    {
+      "checkworthiness": "low",
+      "claim_kind": "fact",
+      "claim_text": "dynamic. The face is changing. And so, Philipp Schins, Rachel Jack, colleagues in Scotland, for",
+      "quote_evidence": [
+        {
+          "quote": "dynamic. The face is changing. And so, Philipp Schins, Rachel Jack, colleagues in Scotland, for",
+          "segment_id": "seg-000630"
+        }
+      ],
+      "source_segment_ids": [
+        "seg-000630"
+      ],
+      "source_window_ids": [
+        "window-0011"
+      ],
+      "speaker": null
+    },
+    {
+      "checkworthiness": "medium",
+      "claim_kind": "fact",
+      "claim_text": "Don't. It's really interesting. You have to pass it.",
+      "quote_evidence": [
+        {
+          "quote": "Don't. It's really interesting. You have to pass it.",
+          "segment_id": "seg-000707"
+        }
+      ],
+      "source_segment_ids": [
+        "seg-000707"
+      ],
+      "source_window_ids": [
+        "window-0012"
+      ],
+      "speaker": null
+    },
+    {
+      "checkworthiness": "low",
+      "claim_kind": "fact",
+      "claim_text": "Eventually, it's passed, but it evokes very interesting adaptive behaviors,",
+      "quote_evidence": [
+        {
+          "quote": "Eventually, it's passed, but it evokes very interesting adaptive behaviors,",
+          "segment_id": "seg-000708"
+        }
+      ],
+      "source_segment_ids": [
+        "seg-000708"
+      ],
+      "source_window_ids": [
+        "window-0012"
+      ],
+      "speaker": null
+    },
+    {
+      "checkworthiness": "low",
+      "claim_kind": "fact",
+      "claim_text": "well, just as an aside, before I forget it. So, normally for pain, extraceptive pain,",
+      "quote_evidence": [
+        {
+          "quote": "well, just as an aside, before I forget it. So, normally for pain, extraceptive pain,",
+          "segment_id": "seg-000709"
+        }
+      ],
+      "source_segment_ids": [
+        "seg-000709"
+      ],
+      "source_window_ids": [
+        "window-0012"
+      ],
+      "speaker": null
+    },
+    {
+      "checkworthiness": "medium",
+      "claim_kind": "fact",
+      "claim_text": "is no systematic association between specific emotions and specific changes in your body.",
+      "quote_evidence": [
+        {
+          "quote": "is no systematic association between specific emotions and specific changes in your body.",
+          "segment_id": "seg-000766"
+        }
+      ],
+      "source_segment_ids": [
+        "seg-000766"
+      ],
+      "source_window_ids": [
+        "window-0013"
+      ],
+      "speaker": null
+    },
+    {
+      "checkworthiness": "low",
+      "claim_kind": "fact",
+      "claim_text": "Well, if you look at those studies, people put a few electrodes on and they measure, you know,",
+      "quote_evidence": [
+        {
+          "quote": "Well, if you look at those studies, people put a few electrodes on and they measure, you know,",
+          "segment_id": "seg-000767"
+        }
+      ],
+      "source_segment_ids": [
+        "seg-000767"
+      ],
+      "source_window_ids": [
+        "window-0013"
+      ],
+      "speaker": null
+    },
+    {
+      "checkworthiness": "low",
+      "claim_kind": "fact",
+      "claim_text": "heart rate changes, blood pressure changes, et cetera, it is extremely crude. You're looking at",
+      "quote_evidence": [
+        {
+          "quote": "heart rate changes, blood pressure changes, et cetera, it is extremely crude. You're looking at",
+          "segment_id": "seg-000768"
+        }
+      ],
+      "source_segment_ids": [
+        "seg-000768"
+      ],
+      "source_window_ids": [
+        "window-0013"
+      ],
+      "speaker": null
+    },
+    {
+      "checkworthiness": "medium",
+      "claim_kind": "fact",
+      "claim_text": "art of that sort is able to capture the circuitry related to a particular emotions across people?",
+      "quote_evidence": [
+        {
+          "quote": "art of that sort is able to capture the circuitry related to a particular emotions across people?",
+          "segment_id": "seg-000828"
+        }
+      ],
+      "source_segment_ids": [
+        "seg-000828"
+      ],
+      "source_window_ids": [
+        "window-0014"
+      ],
+      "speaker": null
+    },
+    {
+      "checkworthiness": "low",
+      "claim_kind": "fact",
+      "claim_text": "So not just about my unique experience. And art is subjective, right? So there's things related",
+      "quote_evidence": [
+        {
+          "quote": "So not just about my unique experience. And art is subjective, right? So there's things related",
+          "segment_id": "seg-000829"
+        }
+      ],
+      "source_segment_ids": [
+        "seg-000829"
+      ],
+      "source_window_ids": [
+        "window-0014"
+      ],
+      "speaker": null
+    },
+    {
+      "checkworthiness": "low",
+      "claim_kind": "fact",
+      "claim_text": "to taste. But let's assume this is abstract art. So there's no apparent faces or animals or",
+      "quote_evidence": [
+        {
+          "quote": "to taste. But let's assume this is abstract art. So there's no apparent faces or animals or",
+          "segment_id": "seg-000830"
+        }
+      ],
+      "source_segment_ids": [
+        "seg-000830"
+      ],
+      "source_window_ids": [
+        "window-0014"
+      ],
+      "speaker": null
+    },
+    {
+      "checkworthiness": "medium",
+      "claim_kind": "fact",
+      "claim_text": "a good example is the visual word form area. So there's regions in the brain that like the ones",
+      "quote_evidence": [
+        {
+          "quote": "a good example is the visual word form area. So there's regions in the brain that like the ones",
+          "segment_id": "seg-000879"
+        }
+      ],
+      "source_segment_ids": [
+        "seg-000879"
+      ],
+      "source_window_ids": [
+        "window-0015"
+      ],
+      "speaker": null
+    },
+    {
+      "checkworthiness": "low",
+      "claim_kind": "fact",
+      "claim_text": "that my former Celtic colleague, Doris Sau study, that are specialized for faces. But there's also",
+      "quote_evidence": [
+        {
+          "quote": "that my former Celtic colleague, Doris Sau study, that are specialized for faces. But there's also",
+          "segment_id": "seg-000880"
+        }
+      ],
+      "source_segment_ids": [
+        "seg-000880"
+      ],
+      "source_window_ids": [
+        "window-0015"
+      ],
+      "speaker": null
+    },
+    {
+      "checkworthiness": "low",
+      "claim_kind": "fact",
+      "claim_text": "a region in the brain typically on the left in most people that's for recognizing words, letters.",
+      "quote_evidence": [
+        {
+          "quote": "a region in the brain typically on the left in most people that's for recognizing words, letters.",
+          "segment_id": "seg-000881"
+        }
+      ],
+      "source_segment_ids": [
+        "seg-000881"
+      ],
+      "source_window_ids": [
+        "window-0015"
+      ],
+      "speaker": null
+    },
+    {
+      "checkworthiness": "medium",
+      "claim_kind": "fact",
+      "claim_text": "So if you had only those you would have to have a separate reflex for the bear and for the tiger",
+      "quote_evidence": [
+        {
+          "quote": "So if you had only those you would have to have a separate reflex for the bear and for the tiger",
+          "segment_id": "seg-000942"
+        }
+      ],
+      "source_segment_ids": [
+        "seg-000942"
+      ],
+      "source_window_ids": [
+        "window-0016"
+      ],
+      "speaker": null
+    },
+    {
+      "checkworthiness": "low",
+      "claim_kind": "fact",
+      "claim_text": "and for every possible you know large threat out there which you couldn't possibly have it's not",
+      "quote_evidence": [
+        {
+          "quote": "and for every possible you know large threat out there which you couldn't possibly have it's not",
+          "segment_id": "seg-000943"
+        }
+      ],
+      "source_segment_ids": [
+        "seg-000943"
+      ],
+      "source_window_ids": [
+        "window-0016"
+      ],
+      "speaker": null
+    },
+    {
+      "checkworthiness": "low",
+      "claim_kind": "fact",
+      "claim_text": "efficient. Yeah the fan in fan out visual is very very useful and it gets to the next topic I'd",
+      "quote_evidence": [
+        {
+          "quote": "efficient. Yeah the fan in fan out visual is very very useful and it gets to the next topic I'd",
+          "segment_id": "seg-000944"
+        }
+      ],
+      "source_segment_ids": [
+        "seg-000944"
+      ],
+      "source_window_ids": [
+        "window-0016"
+      ],
+      "speaker": null
+    },
+    {
+      "checkworthiness": "medium",
+      "claim_kind": "fact",
+      "claim_text": "and I have to encounter people like that too and you know it's very disconcerting when you're",
+      "quote_evidence": [
+        {
+          "quote": "and I have to encounter people like that too and you know it's very disconcerting when you're",
+          "segment_id": "seg-001011"
+        }
+      ],
+      "source_segment_ids": [
+        "seg-001011"
+      ],
+      "source_window_ids": [
+        "window-0017"
+      ],
+      "speaker": null
+    },
+    {
+      "checkworthiness": "low",
+      "claim_kind": "fact",
+      "claim_text": "giving the talk it's disconcerting when you're giving the talk but I was going to say there's",
+      "quote_evidence": [
+        {
+          "quote": "giving the talk it's disconcerting when you're giving the talk but I was going to say there's",
+          "segment_id": "seg-001012"
+        }
+      ],
+      "source_segment_ids": [
+        "seg-001012"
+      ],
+      "source_window_ids": [
+        "window-0017"
+      ],
+      "speaker": null
+    },
+    {
+      "checkworthiness": "low",
+      "claim_kind": "fact",
+      "claim_text": "also something incredibly refreshing about it because it's almost like they're they're asking the",
+      "quote_evidence": [
+        {
+          "quote": "also something incredibly refreshing about it because it's almost like they're they're asking the",
+          "segment_id": "seg-001013"
+        }
+      ],
+      "source_segment_ids": [
+        "seg-001013"
+      ],
+      "source_window_ids": [
+        "window-0017"
+      ],
+      "speaker": null
+    },
+    {
+      "checkworthiness": "medium",
+      "claim_kind": "fact",
+      "claim_text": "kids who have autism of the sort that we're describing and the need we're told to train them to",
+      "quote_evidence": [
+        {
+          "quote": "kids who have autism of the sort that we're describing and the need we're told to train them to",
+          "segment_id": "seg-001067"
+        }
+      ],
+      "source_segment_ids": [
+        "seg-001067"
+      ],
+      "source_window_ids": [
+        "window-0018"
+      ],
+      "speaker": null
+    },
+    {
+      "checkworthiness": "low",
+      "claim_kind": "fact",
+      "claim_text": "make eye contact and read faces so this lands square in your work maybe you could just fill out",
+      "quote_evidence": [
+        {
+          "quote": "make eye contact and read faces so this lands square in your work maybe you could just fill out",
+          "segment_id": "seg-001068"
+        }
+      ],
+      "source_segment_ids": [
+        "seg-001068"
+      ],
+      "source_window_ids": [
+        "window-0018"
+      ],
+      "speaker": null
+    },
+    {
+      "checkworthiness": "low",
+      "claim_kind": "fact",
+      "claim_text": "a bit of what's now known what's thought what's not known it's a great topic I mean the way that",
+      "quote_evidence": [
+        {
+          "quote": "a bit of what's now known what's thought what's not known it's a great topic I mean the way that",
+          "segment_id": "seg-001069"
+        }
+      ],
+      "source_segment_ids": [
+        "seg-001069"
+      ],
+      "source_window_ids": [
+        "window-0018"
+      ],
+      "speaker": null
+    },
+    {
+      "checkworthiness": "medium",
+      "claim_kind": "fact",
+      "claim_text": "what else is it associated with is it predictive of career success is it predictive of anything else",
+      "quote_evidence": [
+        {
+          "quote": "what else is it associated with is it predictive of career success is it predictive of anything else",
+          "segment_id": "seg-001121"
+        }
+      ],
+      "source_segment_ids": [
+        "seg-001121"
+      ],
+      "source_window_ids": [
+        "window-0019"
+      ],
+      "speaker": null
+    },
+    {
+      "checkworthiness": "low",
+      "claim_kind": "fact",
+      "claim_text": "and so we don't know we're measuring everything else and getting lots of questionnaires on these people",
+      "quote_evidence": [
+        {
+          "quote": "and so we don't know we're measuring everything else and getting lots of questionnaires on these people",
+          "segment_id": "seg-001122"
+        }
+      ],
+      "source_segment_ids": [
+        "seg-001122"
+      ],
+      "source_window_ids": [
+        "window-0019"
+      ],
+      "speaker": null
+    },
+    {
+      "checkworthiness": "low",
+      "claim_kind": "fact",
+      "claim_text": "to ask what what are the associations and is there any causal hypothesis that we would come up with",
+      "quote_evidence": [
+        {
+          "quote": "to ask what what are the associations and is there any causal hypothesis that we would come up with",
+          "segment_id": "seg-001123"
+        }
+      ],
+      "source_segment_ids": [
+        "seg-001123"
+      ],
+      "source_window_ids": [
+        "window-0019"
+      ],
+      "speaker": null
+    },
+    {
+      "checkworthiness": "medium",
+      "claim_kind": "fact",
+      "claim_text": "not actually aligned time the way I described the kind of higher or lower RPM before maybe it",
+      "quote_evidence": [
+        {
+          "quote": "not actually aligned time the way I described the kind of higher or lower RPM before maybe it",
+          "segment_id": "seg-001190"
+        }
+      ],
+      "source_segment_ids": [
+        "seg-001190"
+      ],
+      "source_window_ids": [
+        "window-0020"
+      ],
+      "speaker": null
+    },
+    {
+      "checkworthiness": "low",
+      "claim_kind": "fact",
+      "claim_text": "perhaps made it sound like one or the other was better but I think sometimes about like Alex",
+      "quote_evidence": [
+        {
+          "quote": "perhaps made it sound like one or the other was better but I think sometimes about like Alex",
+          "segment_id": "seg-001191"
+        }
+      ],
+      "source_segment_ids": [
+        "seg-001191"
+      ],
+      "source_window_ids": [
+        "window-0020"
+      ],
+      "speaker": null
+    },
+    {
+      "checkworthiness": "low",
+      "claim_kind": "fact",
+      "claim_text": "Honnold who again who is a guest on this podcast and there've been claims that his amygdala doesn't",
+      "quote_evidence": [
+        {
+          "quote": "Honnold who again who is a guest on this podcast and there've been claims that his amygdala doesn't",
+          "segment_id": "seg-001192"
+        }
+      ],
+      "source_segment_ids": [
+        "seg-001192"
+      ],
+      "source_window_ids": [
+        "window-0020"
+      ],
+      "speaker": null
+    },
+    {
+      "checkworthiness": "medium",
+      "claim_kind": "fact",
+      "claim_text": "is task switching whether it's emotional tasks switching or cognitive tasks switching like we assume",
+      "quote_evidence": [
+        {
+          "quote": "is task switching whether it's emotional tasks switching or cognitive tasks switching like we assume",
+          "segment_id": "seg-001269"
+        }
+      ],
+      "source_segment_ids": [
+        "seg-001269"
+      ],
+      "source_window_ids": [
+        "window-0021"
+      ],
+      "speaker": null
+    },
+    {
+      "checkworthiness": "low",
+      "claim_kind": "fact",
+      "claim_text": "the brain operates in step functions like oh I'm out on the street I navigate traffic I park my",
+      "quote_evidence": [
+        {
+          "quote": "the brain operates in step functions like oh I'm out on the street I navigate traffic I park my",
+          "segment_id": "seg-001270"
+        }
+      ],
+      "source_segment_ids": [
+        "seg-001270"
+      ],
+      "source_window_ids": [
+        "window-0021"
+      ],
+      "speaker": null
+    },
+    {
+      "checkworthiness": "low",
+      "claim_kind": "fact",
+      "claim_text": "car and I come in and I podcast and what you're doing at the beginning of this lab meeting in on the",
+      "quote_evidence": [
+        {
+          "quote": "car and I come in and I podcast and what you're doing at the beginning of this lab meeting in on the",
+          "segment_id": "seg-001271"
+        }
+      ],
+      "source_segment_ids": [
+        "seg-001271"
+      ],
+      "source_window_ids": [
+        "window-0021"
+      ],
+      "speaker": null
+    },
+    {
+      "checkworthiness": "medium",
+      "claim_kind": "fact",
+      "claim_text": "and all of a sudden the bell sounds and you could hear a pin drop but there's thousands of people",
+      "quote_evidence": [
+        {
+          "quote": "and all of a sudden the bell sounds and you could hear a pin drop but there's thousands of people",
+          "segment_id": "seg-001345"
+        }
+      ],
+      "source_segment_ids": [
+        "seg-001345"
+      ],
+      "source_window_ids": [
+        "window-0022"
+      ],
+      "speaker": null
+    },
+    {
+      "checkworthiness": "low",
+      "claim_kind": "fact",
+      "claim_text": "around you yeah you hear a bell again the meal begins walking to the auditorium at Shuffle Shuffle Shuffle",
+      "quote_evidence": [
+        {
+          "quote": "around you yeah you hear a bell again the meal begins walking to the auditorium at Shuffle Shuffle Shuffle",
+          "segment_id": "seg-001346"
+        }
+      ],
+      "source_segment_ids": [
+        "seg-001346"
+      ],
+      "source_window_ids": [
+        "window-0022"
+      ],
+      "speaker": null
+    },
+    {
+      "checkworthiness": "low",
+      "claim_kind": "fact",
+      "claim_text": "talking talking talking talking boom it's a step function they're training this in the cells",
+      "quote_evidence": [
+        {
+          "quote": "talking talking talking talking boom it's a step function they're training this in the cells",
+          "segment_id": "seg-001347"
+        }
+      ],
+      "source_segment_ids": [
+        "seg-001347"
+      ],
+      "source_window_ids": [
+        "window-0022"
+      ],
+      "speaker": null
+    },
+    {
+      "checkworthiness": "medium",
+      "claim_kind": "fact",
+      "claim_text": "if you're learning from and or enjoying this podcast please subscribe to our YouTube channel",
+      "quote_evidence": [
+        {
+          "quote": "if you're learning from and or enjoying this podcast please subscribe to our YouTube channel",
+          "segment_id": "seg-001411"
+        }
+      ],
+      "source_segment_ids": [
+        "seg-001411"
+      ],
+      "source_window_ids": [
+        "window-0023"
+      ],
+      "speaker": null
+    },
+    {
+      "checkworthiness": "low",
+      "claim_kind": "fact",
+      "claim_text": "that's a terrific zero cost way to support us in addition please follow the podcast by clicking",
+      "quote_evidence": [
+        {
+          "quote": "that's a terrific zero cost way to support us in addition please follow the podcast by clicking",
+          "segment_id": "seg-001412"
+        }
+      ],
+      "source_segment_ids": [
+        "seg-001412"
+      ],
+      "source_window_ids": [
+        "window-0023"
+      ],
+      "speaker": null
+    },
+    {
+      "checkworthiness": "low",
+      "claim_kind": "fact",
+      "claim_text": "the follow button on both Spotify and Apple and on both Spotify and Apple you can leave us up to a",
+      "quote_evidence": [
+        {
+          "quote": "the follow button on both Spotify and Apple and on both Spotify and Apple you can leave us up to a",
+          "segment_id": "seg-001413"
+        }
+      ],
+      "source_segment_ids": [
+        "seg-001413"
+      ],
+      "source_window_ids": [
+        "window-0023"
+      ],
+      "speaker": null
+    }
+  ],
+  "concepts": [],
+  "contradictions_or_uncertainty": [],
+  "entities": [],
+  "key_points": [
+    {
+      "source_segment_ids": [
+        "seg-000001"
+      ],
+      "source_window_id": "window-0001",
+      "text": "I see somebody come up behind me. They can see. I'm trying to park. They can move over. No,"
+    },
+    {
+      "source_segment_ids": [
+        "seg-000002"
+      ],
+      "source_window_id": "window-0001",
+      "text": "they come right up behind me, go on the horn. You know, you immediately feel just an immediate"
+    },
+    {
+      "source_segment_ids": [
+        "seg-000003"
+      ],
+      "source_window_id": "window-0001",
+      "text": "anger response. Right? Well, after the ice bath, it's flat. So there was an immediate"
+    },
+    {
+      "source_segment_ids": [
+        "seg-000044"
+      ],
+      "source_window_id": "window-0002",
+      "text": "findings and emotion from animal studies, findings from social psychology. Typically those people in"
+    },
+    {
+      "source_segment_ids": [
+        "seg-000045"
+      ],
+      "source_window_id": "window-0002",
+      "text": "those fields don't talk to one another. They do very different studies, very different methodologies,"
+    },
+    {
+      "source_segment_ids": [
+        "seg-000046"
+      ],
+      "source_window_id": "window-0002",
+      "text": "and so trying to integrate across disciplines that are that far apart to really try and get a sense"
+    },
+    {
+      "source_segment_ids": [
+        "seg-000107"
+      ],
+      "source_window_id": "window-0003",
+      "text": "I called it the principle of antithesis is valence, which is approach or avoid pleasant or"
+    },
+    {
+      "source_segment_ids": [
+        "seg-000108"
+      ],
+      "source_window_id": "window-0003",
+      "text": "unpleasant, this basic valence dimension. Are there any neutral emotions? I ask this because"
+    },
+    {
+      "source_segment_ids": [
+        "seg-000109"
+      ],
+      "source_window_id": "window-0003",
+      "text": "your colleague at Caltech who I respect tremendously Marcus Meister once wrote a review where he said,"
+    },
+    {
+      "source_segment_ids": [
+        "seg-000168"
+      ],
+      "source_window_id": "window-0004",
+      "text": "I'd like to take a quick break and acknowledge our sponsor, Helix Sleep. Helix Sleep makes matrices"
+    },
+    {
+      "source_segment_ids": [
+        "seg-000169"
+      ],
+      "source_window_id": "window-0004",
+      "text": "and pillows that are customized to your unique sleep needs. Now, I've spoken many times before on"
+    },
+    {
+      "source_segment_ids": [
+        "seg-000170"
+      ],
+      "source_window_id": "window-0004",
+      "text": "this and on other podcasts about the fact that getting a great night's sleep is the foundation of"
+    },
+    {
+      "source_segment_ids": [
+        "seg-000231"
+      ],
+      "source_window_id": "window-0005",
+      "text": "And the other question is, if you tie emotion to the conscious experience of emotion,"
+    },
+    {
+      "source_segment_ids": [
+        "seg-000232"
+      ],
+      "source_window_id": "window-0005",
+      "text": "that is you equate, you conflate emotions with feelings, well, then you're not studying emotions,"
+    },
+    {
+      "source_segment_ids": [
+        "seg-000233"
+      ],
+      "source_window_id": "window-0005",
+      "text": "you're studying consciousness. If you spoke about Christoph Koch earlier, great respect for people"
+    },
+    {
+      "source_segment_ids": [
+        "seg-000299"
+      ],
+      "source_window_id": "window-0006",
+      "text": "That's kind of the ideal circumstance, right? Yeah. So what do you know that allowed that has"
+    },
+    {
+      "source_segment_ids": [
+        "seg-000300"
+      ],
+      "source_window_id": "window-0006",
+      "text": "impacted the way that you think about emotion regulation that perhaps people could consider,"
+    },
+    {
+      "source_segment_ids": [
+        "seg-000301"
+      ],
+      "source_window_id": "window-0006",
+      "text": "if not benefit from? Yeah. I think it's, you know, it's a mixture. On the one hand,"
+    },
+    {
+      "source_segment_ids": [
+        "seg-000357"
+      ],
+      "source_window_id": "window-0007",
+      "text": "we appraisal or any other sort of complex we appraisal strategy for emotions. It is a double-edged"
+    },
+    {
+      "source_segment_ids": [
+        "seg-000358"
+      ],
+      "source_window_id": "window-0007",
+      "text": "sword and it's trainable. It's as you say, if I really focus on, okay, now, you know, I'm starting"
+    },
+    {
+      "source_segment_ids": [
+        "seg-000359"
+      ],
+      "source_window_id": "window-0007",
+      "text": "to feel sad. I really don't want to feel sad. I really don't want to feel sad. I really don't"
+    },
+    {
+      "source_segment_ids": [
+        "seg-000419"
+      ],
+      "source_window_id": "window-0008",
+      "text": "you were describing how, you know, at some points during these races, you just feel like complete"
+    },
+    {
+      "source_segment_ids": [
+        "seg-000420"
+      ],
+      "source_window_id": "window-0008",
+      "text": "garbage. But then you start to feel better. And so then the next time you feel like complete"
+    },
+    {
+      "source_segment_ids": [
+        "seg-000421"
+      ],
+      "source_window_id": "window-0008",
+      "text": "garbage, you have the cognitive knowledge that you felt terrible then better again. And so you're"
+    },
+    {
+      "source_segment_ids": [
+        "seg-000503"
+      ],
+      "source_window_id": "window-0009",
+      "text": "formula, which is a blend of vitamins, minerals, probiotics, and adaptogens. And it adds three"
+    },
+    {
+      "source_segment_ids": [
+        "seg-000504"
+      ],
+      "source_window_id": "window-0009",
+      "text": "important new ingredients, creatine monohydrate, calcium, HMB, and zinc carnacine. Each serving has"
+    },
+    {
+      "source_segment_ids": [
+        "seg-000505"
+      ],
+      "source_window_id": "window-0009",
+      "text": "five grams of creatine monohydrate to support muscle strength and performance as well as brain health."
+    },
+    {
+      "source_segment_ids": [
+        "seg-000561"
+      ],
+      "source_window_id": "window-0010",
+      "text": "talking before coming in here to one of your colleagues about your cute dog, and they've done studies,"
+    },
+    {
+      "source_segment_ids": [
+        "seg-000562"
+      ],
+      "source_window_id": "window-0010",
+      "text": "there's several studies now, where dog owners, if you ask them, can you tell if your dog feels guilty"
+    },
+    {
+      "source_segment_ids": [
+        "seg-000563"
+      ],
+      "source_window_id": "window-0010",
+      "text": "when you come home? Because it did something bad. Dog owners are pretty convinced they can tell."
+    },
+    {
+      "source_segment_ids": [
+        "seg-000628"
+      ],
+      "source_window_id": "window-0011",
+      "text": "you know, the original studies, like the ones I started doing as a postdoc where you just"
+    },
+    {
+      "source_segment_ids": [
+        "seg-000629"
+      ],
+      "source_window_id": "window-0011",
+      "text": "truly static Paul Ekman pictures of facial affect. Well, we never see that in people. It's always"
+    },
+    {
+      "source_segment_ids": [
+        "seg-000630"
+      ],
+      "source_window_id": "window-0011",
+      "text": "dynamic. The face is changing. And so, Philipp Schins, Rachel Jack, colleagues in Scotland, for"
+    },
+    {
+      "source_segment_ids": [
+        "seg-000707"
+      ],
+      "source_window_id": "window-0012",
+      "text": "Don't. It's really interesting. You have to pass it."
+    },
+    {
+      "source_segment_ids": [
+        "seg-000708"
+      ],
+      "source_window_id": "window-0012",
+      "text": "Eventually, it's passed, but it evokes very interesting adaptive behaviors,"
+    },
+    {
+      "source_segment_ids": [
+        "seg-000709"
+      ],
+      "source_window_id": "window-0012",
+      "text": "well, just as an aside, before I forget it. So, normally for pain, extraceptive pain,"
+    },
+    {
+      "source_segment_ids": [
+        "seg-000766"
+      ],
+      "source_window_id": "window-0013",
+      "text": "is no systematic association between specific emotions and specific changes in your body."
+    },
+    {
+      "source_segment_ids": [
+        "seg-000767"
+      ],
+      "source_window_id": "window-0013",
+      "text": "Well, if you look at those studies, people put a few electrodes on and they measure, you know,"
+    },
+    {
+      "source_segment_ids": [
+        "seg-000768"
+      ],
+      "source_window_id": "window-0013",
+      "text": "heart rate changes, blood pressure changes, et cetera, it is extremely crude. You're looking at"
+    },
+    {
+      "source_segment_ids": [
+        "seg-000828"
+      ],
+      "source_window_id": "window-0014",
+      "text": "art of that sort is able to capture the circuitry related to a particular emotions across people?"
+    },
+    {
+      "source_segment_ids": [
+        "seg-000829"
+      ],
+      "source_window_id": "window-0014",
+      "text": "So not just about my unique experience. And art is subjective, right? So there's things related"
+    },
+    {
+      "source_segment_ids": [
+        "seg-000830"
+      ],
+      "source_window_id": "window-0014",
+      "text": "to taste. But let's assume this is abstract art. So there's no apparent faces or animals or"
+    },
+    {
+      "source_segment_ids": [
+        "seg-000879"
+      ],
+      "source_window_id": "window-0015",
+      "text": "a good example is the visual word form area. So there's regions in the brain that like the ones"
+    },
+    {
+      "source_segment_ids": [
+        "seg-000880"
+      ],
+      "source_window_id": "window-0015",
+      "text": "that my former Celtic colleague, Doris Sau study, that are specialized for faces. But there's also"
+    },
+    {
+      "source_segment_ids": [
+        "seg-000881"
+      ],
+      "source_window_id": "window-0015",
+      "text": "a region in the brain typically on the left in most people that's for recognizing words, letters."
+    },
+    {
+      "source_segment_ids": [
+        "seg-000942"
+      ],
+      "source_window_id": "window-0016",
+      "text": "So if you had only those you would have to have a separate reflex for the bear and for the tiger"
+    },
+    {
+      "source_segment_ids": [
+        "seg-000943"
+      ],
+      "source_window_id": "window-0016",
+      "text": "and for every possible you know large threat out there which you couldn't possibly have it's not"
+    },
+    {
+      "source_segment_ids": [
+        "seg-000944"
+      ],
+      "source_window_id": "window-0016",
+      "text": "efficient. Yeah the fan in fan out visual is very very useful and it gets to the next topic I'd"
+    },
+    {
+      "source_segment_ids": [
+        "seg-001011"
+      ],
+      "source_window_id": "window-0017",
+      "text": "and I have to encounter people like that too and you know it's very disconcerting when you're"
+    },
+    {
+      "source_segment_ids": [
+        "seg-001012"
+      ],
+      "source_window_id": "window-0017",
+      "text": "giving the talk it's disconcerting when you're giving the talk but I was going to say there's"
+    },
+    {
+      "source_segment_ids": [
+        "seg-001013"
+      ],
+      "source_window_id": "window-0017",
+      "text": "also something incredibly refreshing about it because it's almost like they're they're asking the"
+    },
+    {
+      "source_segment_ids": [
+        "seg-001067"
+      ],
+      "source_window_id": "window-0018",
+      "text": "kids who have autism of the sort that we're describing and the need we're told to train them to"
+    },
+    {
+      "source_segment_ids": [
+        "seg-001068"
+      ],
+      "source_window_id": "window-0018",
+      "text": "make eye contact and read faces so this lands square in your work maybe you could just fill out"
+    },
+    {
+      "source_segment_ids": [
+        "seg-001069"
+      ],
+      "source_window_id": "window-0018",
+      "text": "a bit of what's now known what's thought what's not known it's a great topic I mean the way that"
+    },
+    {
+      "source_segment_ids": [
+        "seg-001121"
+      ],
+      "source_window_id": "window-0019",
+      "text": "what else is it associated with is it predictive of career success is it predictive of anything else"
+    },
+    {
+      "source_segment_ids": [
+        "seg-001122"
+      ],
+      "source_window_id": "window-0019",
+      "text": "and so we don't know we're measuring everything else and getting lots of questionnaires on these people"
+    },
+    {
+      "source_segment_ids": [
+        "seg-001123"
+      ],
+      "source_window_id": "window-0019",
+      "text": "to ask what what are the associations and is there any causal hypothesis that we would come up with"
+    },
+    {
+      "source_segment_ids": [
+        "seg-001190"
+      ],
+      "source_window_id": "window-0020",
+      "text": "not actually aligned time the way I described the kind of higher or lower RPM before maybe it"
+    },
+    {
+      "source_segment_ids": [
+        "seg-001191"
+      ],
+      "source_window_id": "window-0020",
+      "text": "perhaps made it sound like one or the other was better but I think sometimes about like Alex"
+    },
+    {
+      "source_segment_ids": [
+        "seg-001192"
+      ],
+      "source_window_id": "window-0020",
+      "text": "Honnold who again who is a guest on this podcast and there've been claims that his amygdala doesn't"
+    },
+    {
+      "source_segment_ids": [
+        "seg-001269"
+      ],
+      "source_window_id": "window-0021",
+      "text": "is task switching whether it's emotional tasks switching or cognitive tasks switching like we assume"
+    },
+    {
+      "source_segment_ids": [
+        "seg-001270"
+      ],
+      "source_window_id": "window-0021",
+      "text": "the brain operates in step functions like oh I'm out on the street I navigate traffic I park my"
+    },
+    {
+      "source_segment_ids": [
+        "seg-001271"
+      ],
+      "source_window_id": "window-0021",
+      "text": "car and I come in and I podcast and what you're doing at the beginning of this lab meeting in on the"
+    },
+    {
+      "source_segment_ids": [
+        "seg-001345"
+      ],
+      "source_window_id": "window-0022",
+      "text": "and all of a sudden the bell sounds and you could hear a pin drop but there's thousands of people"
+    },
+    {
+      "source_segment_ids": [
+        "seg-001346"
+      ],
+      "source_window_id": "window-0022",
+      "text": "around you yeah you hear a bell again the meal begins walking to the auditorium at Shuffle Shuffle Shuffle"
+    },
+    {
+      "source_segment_ids": [
+        "seg-001347"
+      ],
+      "source_window_id": "window-0022",
+      "text": "talking talking talking talking boom it's a step function they're training this in the cells"
+    },
+    {
+      "source_segment_ids": [
+        "seg-001411"
+      ],
+      "source_window_id": "window-0023",
+      "text": "if you're learning from and or enjoying this podcast please subscribe to our YouTube channel"
+    },
+    {
+      "source_segment_ids": [
+        "seg-001412"
+      ],
+      "source_window_id": "window-0023",
+      "text": "that's a terrific zero cost way to support us in addition please follow the podcast by clicking"
+    },
+    {
+      "source_segment_ids": [
+        "seg-001413"
+      ],
+      "source_window_id": "window-0023",
+      "text": "the follow button on both Spotify and Apple and on both Spotify and Apple you can leave us up to a"
+    }
+  ],
+  "map_packet_sha256": [
+    "e396f3a0b2a2ce87c47183ee9cb0c252fd859c5c9ad3edb52e6114d858a9f67d",
+    "6d887a12fff4047dc44e6541421cb5b01291dde882a5d6b776e34d4de754670a",
+    "f1abd4346f82d0c06da04c7931f4a9f91cc9a1854e5da72827156a2a35f3262c",
+    "a1b8ae088d20eafe4ff4dd3112b6c35876be2ebd64d72db87978fa619e6063dc",
+    "3773fb2f1263d8a0d2eff011c938573ebe9cae2e97c5f7e3fd4f7998363e93aa",
+    "42fa392dcf5571673f32e272dbee92949a5ad5264ca6e7febcf98e9265bc97f1",
+    "a218881198734e2deef6e99194dfdb49ab4604b7b536aa5c5d1566f80ca608f4",
+    "b1e4ef2e9727fd1e96704dddab9ab2bd79c356e4ef34256f36b5f049ab3eff09",
+    "e628ae719984dee20633b922f208056cd4af11ef13fa692a16271a61a16f091c",
+    "c353d44b8af9fde92038be67093d2693d6b970fef714652576c8f2c1c0946e4b",
+    "0ae03874653c2f5f00cb796a7d7b9cf6730873ad1d7d180a7cc823630e313211",
+    "7dcefc6194e78d7ab7e24c3a04265e8d6b5a5f60b362db3d76ac1445fc66418c",
+    "dd12f10c4491401ac9c779e1411f86bf27f1cc2e6a3bd0febf760499fac44855",
+    "4f9918fca3d330fad4136471b87781c4f5cb4df62ef2763792c65a6adee208a9",
+    "2d3de5d76684f7eecc49930325f2a3e942fd9f983e1cf3e475551910a01366b6",
+    "52532c084ae190cb4191c859b6b00c732fcaea2c59df4156d1d5c3e0232ba043",
+    "dcacf534879738690ac00f501dcc86ae8d025e01678456e8a555a3f0454e43da",
+    "f2b62c9f1af2a123f82e2f583734ff023ba7620b4da8dda200e11ef87f0759fc",
+    "5258c03bf5d6e086627d119f575d312560148fc5b075e289b277bae1ecd04ae4",
+    "bcdf7d5a6b3343c6d114c89b22ed8910e0db261967d56947a1d4db33a861fadb",
+    "1db5ccc6f726b8179017a8a1361e8efe6fdfa7c126037f9fdca6eeee35c9b7ee",
+    "ebc28f8f00439628a4c8fb02796fcbf8db74d62e06f97ebce703df4839567ed6",
+    "f86bd84262af593ccd820688391b108cf3cde742ca46f53a90aa8f4f5b652b0b"
+  ],
+  "map_result_sha256": [
+    "96ec06595a53f92241cad27641867358a200c548f4f4538f47cfced4b6692e7d",
+    "ed01a23d8bdc788fe7874a9779dc0de3f8ee0a25f11c59f80924ebe4d2fd7ece",
+    "8c799f86367ab7c1d1a8b1f9192d5ae4c41e7204d6648bccfa69a0ad47d8030f",
+    "33e0e244768ef8193dda459af927a717c7790bdd0ae14c1d37fee0a7de563750",
+    "157be31218d7bdf7a092a8824d2d4ecc58b8284bde678321a832d79eaef1f1ce",
+    "3a3393d0117530caa4816f856ad7a8dfff77825666b988e2bfeccf9e241cbcd8",
+    "0874dcb028e5107a52fc86d98be265baa2e3ccf9884edd2ac8510461d60d05aa",
+    "33e2e7892743cf72e20f2b76e3cc0d61532bc4b4d3923c97560165c7cc569d3e",
+    "65a645513a192b360c76b0417d4ce651f51c475e3b527d4bc1ade896556b26df",
+    "fe6f7f3f7514ebefcf4db8eef8714e89249b5de639462fac780a05c3556af947",
+    "521aeea360ff1cf88b6cb62423916764eee01753dd5a5c1f2d26845f1f4bb9f7",
+    "0158744b0f7160a3f490699b8d72d84e0f4c2f34d96497bbd3c9bac657d2456d",
+    "06c89d2a60a5e81b46b475f083560382b23217a80f913add47d0abca1d3b7a9c",
+    "0d492467f5e383b63af6f25db8e338f0015a4f57ab9630c317efe4aad96f2974",
+    "a556d18c632ca83d9e2362476ca015f2ac15932d0019c43aaa52419115a493dd",
+    "0f46d25083d19f25e3810417621547fb792f90bd166628eac10b8ecf537ba39e",
+    "05e28a4dc44eb339a5ead7026177847edcf70118e4d75ace72f5ebf4449b00df",
+    "5283ed916bfa16a23c7326201797bf18df4915482e81244666f0f9c320fa5503",
+    "eb4168ebf533aeed9f4d58348b1894207f6b60fb3eed807486c6bb8b425bb16b",
+    "1a2a505e1ede0b2e0354aacd72ae02ccc5a83847d5017a0f2a7315cd3e5d31ca",
+    "1f793addfdd8b5072e298dbd2f7a1d928e6d572eaf4ffebb9cbc51a6a0c8136c",
+    "eb8c73160ca1db99955c612b789102946ba7f21e4bcdaa2c78469770c30fcfb2",
+    "fde81e42e805960756d5f41501925576f4b5d592d7d8aa840274ac86c2938733"
+  ],
+  "mechanisms": [],
+  "near_duplicate_claim_candidates": [],
+  "open_questions": [],
+  "protocols": [],
+  "schema": "ttk.evidence-ledger.v2",
+  "source_sha256": "3e46962b9a0be33deecf1612ca70d8c2ceb1405ce67075ce22c6123d8e972c9d",
+  "subtopics": [
+    {
+      "label": "Window window-0001 Topics",
+      "source_segment_ids": [
+        "seg-000001",
+        "seg-000002",
+        "seg-000003",
+        "seg-000004",
+        "seg-000005",
+        "seg-000006",
+        "seg-000007",
+        "seg-000008",
+        "seg-000009",
+        "seg-000010",
+        "seg-000011",
+        "seg-000012",
+        "seg-000013",
+        "seg-000014",
+        "seg-000015",
+        "seg-000016",
+        "seg-000017",
+        "seg-000018",
+        "seg-000019",
+        "seg-000020",
+        "seg-000021",
+        "seg-000022",
+        "seg-000023",
+        "seg-000024",
+        "seg-000025",
+        "seg-000026",
+        "seg-000027",
+        "seg-000028",
+        "seg-000029",
+        "seg-000030",
+        "seg-000031",
+        "seg-000032",
+        "seg-000033",
+        "seg-000034",
+        "seg-000035",
+        "seg-000036",
+        "seg-000037",
+        "seg-000038",
+        "seg-000039",
+        "seg-000040",
+        "seg-000041",
+        "seg-000042",
+        "seg-000043"
+      ],
+      "source_window_id": "window-0001"
+    },
+    {
+      "label": "Window window-0002 Topics",
+      "source_segment_ids": [
+        "seg-000044",
+        "seg-000045",
+        "seg-000046",
+        "seg-000047",
+        "seg-000048",
+        "seg-000049",
+        "seg-000050",
+        "seg-000051",
+        "seg-000052",
+        "seg-000053",
+        "seg-000054",
+        "seg-000055",
+        "seg-000056",
+        "seg-000057",
+        "seg-000058",
+        "seg-000059",
+        "seg-000060",
+        "seg-000061",
+        "seg-000062",
+        "seg-000063",
+        "seg-000064",
+        "seg-000065",
+        "seg-000066",
+        "seg-000067",
+        "seg-000068",
+        "seg-000069",
+        "seg-000070",
+        "seg-000071",
+        "seg-000072",
+        "seg-000073",
+        "seg-000074",
+        "seg-000075",
+        "seg-000076",
+        "seg-000077",
+        "seg-000078",
+        "seg-000079",
+        "seg-000080",
+        "seg-000081",
+        "seg-000082",
+        "seg-000083",
+        "seg-000084",
+        "seg-000085",
+        "seg-000086",
+        "seg-000087",
+        "seg-000088",
+        "seg-000089",
+        "seg-000090",
+        "seg-000091",
+        "seg-000092",
+        "seg-000093",
+        "seg-000094",
+        "seg-000095",
+        "seg-000096",
+        "seg-000097",
+        "seg-000098",
+        "seg-000099",
+        "seg-000100",
+        "seg-000101",
+        "seg-000102",
+        "seg-000103",
+        "seg-000104",
+        "seg-000105",
+        "seg-000106"
+      ],
+      "source_window_id": "window-0002"
+    },
+    {
+      "label": "Window window-0003 Topics",
+      "source_segment_ids": [
+        "seg-000107",
+        "seg-000108",
+        "seg-000109",
+        "seg-000110",
+        "seg-000111",
+        "seg-000112",
+        "seg-000113",
+        "seg-000114",
+        "seg-000115",
+        "seg-000116",
+        "seg-000117",
+        "seg-000118",
+        "seg-000119",
+        "seg-000120",
+        "seg-000121",
+        "seg-000122",
+        "seg-000123",
+        "seg-000124",
+        "seg-000125",
+        "seg-000126",
+        "seg-000127",
+        "seg-000128",
+        "seg-000129",
+        "seg-000130",
+        "seg-000131",
+        "seg-000132",
+        "seg-000133",
+        "seg-000134",
+        "seg-000135",
+        "seg-000136",
+        "seg-000137",
+        "seg-000138",
+        "seg-000139",
+        "seg-000140",
+        "seg-000141",
+        "seg-000142",
+        "seg-000143",
+        "seg-000144",
+        "seg-000145",
+        "seg-000146",
+        "seg-000147",
+        "seg-000148",
+        "seg-000149",
+        "seg-000150",
+        "seg-000151",
+        "seg-000152",
+        "seg-000153",
+        "seg-000154",
+        "seg-000155",
+        "seg-000156",
+        "seg-000157",
+        "seg-000158",
+        "seg-000159",
+        "seg-000160",
+        "seg-000161",
+        "seg-000162",
+        "seg-000163",
+        "seg-000164",
+        "seg-000165",
+        "seg-000166",
+        "seg-000167"
+      ],
+      "source_window_id": "window-0003"
+    },
+    {
+      "label": "Window window-0004 Topics",
+      "source_segment_ids": [
+        "seg-000168",
+        "seg-000169",
+        "seg-000170",
+        "seg-000171",
+        "seg-000172",
+        "seg-000173",
+        "seg-000174",
+        "seg-000175",
+        "seg-000176",
+        "seg-000177",
+        "seg-000178",
+        "seg-000179",
+        "seg-000180",
+        "seg-000181",
+        "seg-000182",
+        "seg-000183",
+        "seg-000184",
+        "seg-000185",
+        "seg-000186",
+        "seg-000187",
+        "seg-000188",
+        "seg-000189",
+        "seg-000190",
+        "seg-000191",
+        "seg-000192",
+        "seg-000193",
+        "seg-000194",
+        "seg-000195",
+        "seg-000196",
+        "seg-000197",
+        "seg-000198",
+        "seg-000199",
+        "seg-000200",
+        "seg-000201",
+        "seg-000202",
+        "seg-000203",
+        "seg-000204",
+        "seg-000205",
+        "seg-000206",
+        "seg-000207",
+        "seg-000208",
+        "seg-000209",
+        "seg-000210",
+        "seg-000211",
+        "seg-000212",
+        "seg-000213",
+        "seg-000214",
+        "seg-000215",
+        "seg-000216",
+        "seg-000217",
+        "seg-000218",
+        "seg-000219",
+        "seg-000220",
+        "seg-000221",
+        "seg-000222",
+        "seg-000223",
+        "seg-000224",
+        "seg-000225",
+        "seg-000226",
+        "seg-000227",
+        "seg-000228",
+        "seg-000229",
+        "seg-000230"
+      ],
+      "source_window_id": "window-0004"
+    },
+    {
+      "label": "Window window-0005 Topics",
+      "source_segment_ids": [
+        "seg-000231",
+        "seg-000232",
+        "seg-000233",
+        "seg-000234",
+        "seg-000235",
+        "seg-000236",
+        "seg-000237",
+        "seg-000238",
+        "seg-000239",
+        "seg-000240",
+        "seg-000241",
+        "seg-000242",
+        "seg-000243",
+        "seg-000244",
+        "seg-000245",
+        "seg-000246",
+        "seg-000247",
+        "seg-000248",
+        "seg-000249",
+        "seg-000250",
+        "seg-000251",
+        "seg-000252",
+        "seg-000253",
+        "seg-000254",
+        "seg-000255",
+        "seg-000256",
+        "seg-000257",
+        "seg-000258",
+        "seg-000259",
+        "seg-000260",
+        "seg-000261",
+        "seg-000262",
+        "seg-000263",
+        "seg-000264",
+        "seg-000265",
+        "seg-000266",
+        "seg-000267",
+        "seg-000268",
+        "seg-000269",
+        "seg-000270",
+        "seg-000271",
+        "seg-000272",
+        "seg-000273",
+        "seg-000274",
+        "seg-000275",
+        "seg-000276",
+        "seg-000277",
+        "seg-000278",
+        "seg-000279",
+        "seg-000280",
+        "seg-000281",
+        "seg-000282",
+        "seg-000283",
+        "seg-000284",
+        "seg-000285",
+        "seg-000286",
+        "seg-000287",
+        "seg-000288",
+        "seg-000289",
+        "seg-000290",
+        "seg-000291",
+        "seg-000292",
+        "seg-000293",
+        "seg-000294",
+        "seg-000295",
+        "seg-000296",
+        "seg-000297",
+        "seg-000298"
+      ],
+      "source_window_id": "window-0005"
+    },
+    {
+      "label": "Window window-0006 Topics",
+      "source_segment_ids": [
+        "seg-000299",
+        "seg-000300",
+        "seg-000301",
+        "seg-000302",
+        "seg-000303",
+        "seg-000304",
+        "seg-000305",
+        "seg-000306",
+        "seg-000307",
+        "seg-000308",
+        "seg-000309",
+        "seg-000310",
+        "seg-000311",
+        "seg-000312",
+        "seg-000313",
+        "seg-000314",
+        "seg-000315",
+        "seg-000316",
+        "seg-000317",
+        "seg-000318",
+        "seg-000319",
+        "seg-000320",
+        "seg-000321",
+        "seg-000322",
+        "seg-000323",
+        "seg-000324",
+        "seg-000325",
+        "seg-000326",
+        "seg-000327",
+        "seg-000328",
+        "seg-000329",
+        "seg-000330",
+        "seg-000331",
+        "seg-000332",
+        "seg-000333",
+        "seg-000334",
+        "seg-000335",
+        "seg-000336",
+        "seg-000337",
+        "seg-000338",
+        "seg-000339",
+        "seg-000340",
+        "seg-000341",
+        "seg-000342",
+        "seg-000343",
+        "seg-000344",
+        "seg-000345",
+        "seg-000346",
+        "seg-000347",
+        "seg-000348",
+        "seg-000349",
+        "seg-000350",
+        "seg-000351",
+        "seg-000352",
+        "seg-000353",
+        "seg-000354",
+        "seg-000355",
+        "seg-000356"
+      ],
+      "source_window_id": "window-0006"
+    },
+    {
+      "label": "Window window-0007 Topics",
+      "source_segment_ids": [
+        "seg-000357",
+        "seg-000358",
+        "seg-000359",
+        "seg-000360",
+        "seg-000361",
+        "seg-000362",
+        "seg-000363",
+        "seg-000364",
+        "seg-000365",
+        "seg-000366",
+        "seg-000367",
+        "seg-000368",
+        "seg-000369",
+        "seg-000370",
+        "seg-000371",
+        "seg-000372",
+        "seg-000373",
+        "seg-000374",
+        "seg-000375",
+        "seg-000376",
+        "seg-000377",
+        "seg-000378",
+        "seg-000379",
+        "seg-000380",
+        "seg-000381",
+        "seg-000382",
+        "seg-000383",
+        "seg-000384",
+        "seg-000385",
+        "seg-000386",
+        "seg-000387",
+        "seg-000388",
+        "seg-000389",
+        "seg-000390",
+        "seg-000391",
+        "seg-000392",
+        "seg-000393",
+        "seg-000394",
+        "seg-000395",
+        "seg-000396",
+        "seg-000397",
+        "seg-000398",
+        "seg-000399",
+        "seg-000400",
+        "seg-000401",
+        "seg-000402",
+        "seg-000403",
+        "seg-000404",
+        "seg-000405",
+        "seg-000406",
+        "seg-000407",
+        "seg-000408",
+        "seg-000409",
+        "seg-000410",
+        "seg-000411",
+        "seg-000412",
+        "seg-000413",
+        "seg-000414",
+        "seg-000415",
+        "seg-000416",
+        "seg-000417",
+        "seg-000418"
+      ],
+      "source_window_id": "window-0007"
+    },
+    {
+      "label": "Window window-0008 Topics",
+      "source_segment_ids": [
+        "seg-000419",
+        "seg-000420",
+        "seg-000421",
+        "seg-000422",
+        "seg-000423",
+        "seg-000424",
+        "seg-000425",
+        "seg-000426",
+        "seg-000427",
+        "seg-000428",
+        "seg-000429",
+        "seg-000430",
+        "seg-000431",
+        "seg-000432",
+        "seg-000433",
+        "seg-000434",
+        "seg-000435",
+        "seg-000436",
+        "seg-000437",
+        "seg-000438",
+        "seg-000439",
+        "seg-000440",
+        "seg-000441",
+        "seg-000442",
+        "seg-000443",
+        "seg-000444",
+        "seg-000445",
+        "seg-000446",
+        "seg-000447",
+        "seg-000448",
+        "seg-000449",
+        "seg-000450",
+        "seg-000451",
+        "seg-000452",
+        "seg-000453",
+        "seg-000454",
+        "seg-000455",
+        "seg-000456",
+        "seg-000457",
+        "seg-000458",
+        "seg-000459",
+        "seg-000460",
+        "seg-000461",
+        "seg-000462",
+        "seg-000463",
+        "seg-000464",
+        "seg-000465",
+        "seg-000466",
+        "seg-000467",
+        "seg-000468",
+        "seg-000469",
+        "seg-000470",
+        "seg-000471",
+        "seg-000472",
+        "seg-000473",
+        "seg-000474",
+        "seg-000475",
+        "seg-000476",
+        "seg-000477",
+        "seg-000478",
+        "seg-000479",
+        "seg-000480",
+        "seg-000481",
+        "seg-000482",
+        "seg-000483",
+        "seg-000484",
+        "seg-000485",
+        "seg-000486",
+        "seg-000487",
+        "seg-000488",
+        "seg-000489",
+        "seg-000490",
+        "seg-000491",
+        "seg-000492",
+        "seg-000493",
+        "seg-000494",
+        "seg-000495",
+        "seg-000496",
+        "seg-000497",
+        "seg-000498",
+        "seg-000499",
+        "seg-000500",
+        "seg-000501",
+        "seg-000502"
+      ],
+      "source_window_id": "window-0008"
+    },
+    {
+      "label": "Window window-0009 Topics",
+      "source_segment_ids": [
+        "seg-000503",
+        "seg-000504",
+        "seg-000505",
+        "seg-000506",
+        "seg-000507",
+        "seg-000508",
+        "seg-000509",
+        "seg-000510",
+        "seg-000511",
+        "seg-000512",
+        "seg-000513",
+        "seg-000514",
+        "seg-000515",
+        "seg-000516",
+        "seg-000517",
+        "seg-000518",
+        "seg-000519",
+        "seg-000520",
+        "seg-000521",
+        "seg-000522",
+        "seg-000523",
+        "seg-000524",
+        "seg-000525",
+        "seg-000526",
+        "seg-000527",
+        "seg-000528",
+        "seg-000529",
+        "seg-000530",
+        "seg-000531",
+        "seg-000532",
+        "seg-000533",
+        "seg-000534",
+        "seg-000535",
+        "seg-000536",
+        "seg-000537",
+        "seg-000538",
+        "seg-000539",
+        "seg-000540",
+        "seg-000541",
+        "seg-000542",
+        "seg-000543",
+        "seg-000544",
+        "seg-000545",
+        "seg-000546",
+        "seg-000547",
+        "seg-000548",
+        "seg-000549",
+        "seg-000550",
+        "seg-000551",
+        "seg-000552",
+        "seg-000553",
+        "seg-000554",
+        "seg-000555",
+        "seg-000556",
+        "seg-000557",
+        "seg-000558",
+        "seg-000559",
+        "seg-000560"
+      ],
+      "source_window_id": "window-0009"
+    },
+    {
+      "label": "Window window-0010 Topics",
+      "source_segment_ids": [
+        "seg-000561",
+        "seg-000562",
+        "seg-000563",
+        "seg-000564",
+        "seg-000565",
+        "seg-000566",
+        "seg-000567",
+        "seg-000568",
+        "seg-000569",
+        "seg-000570",
+        "seg-000571",
+        "seg-000572",
+        "seg-000573",
+        "seg-000574",
+        "seg-000575",
+        "seg-000576",
+        "seg-000577",
+        "seg-000578",
+        "seg-000579",
+        "seg-000580",
+        "seg-000581",
+        "seg-000582",
+        "seg-000583",
+        "seg-000584",
+        "seg-000585",
+        "seg-000586",
+        "seg-000587",
+        "seg-000588",
+        "seg-000589",
+        "seg-000590",
+        "seg-000591",
+        "seg-000592",
+        "seg-000593",
+        "seg-000594",
+        "seg-000595",
+        "seg-000596",
+        "seg-000597",
+        "seg-000598",
+        "seg-000599",
+        "seg-000600",
+        "seg-000601",
+        "seg-000602",
+        "seg-000603",
+        "seg-000604",
+        "seg-000605",
+        "seg-000606",
+        "seg-000607",
+        "seg-000608",
+        "seg-000609",
+        "seg-000610",
+        "seg-000611",
+        "seg-000612",
+        "seg-000613",
+        "seg-000614",
+        "seg-000615",
+        "seg-000616",
+        "seg-000617",
+        "seg-000618",
+        "seg-000619",
+        "seg-000620",
+        "seg-000621",
+        "seg-000622",
+        "seg-000623",
+        "seg-000624",
+        "seg-000625",
+        "seg-000626",
+        "seg-000627"
+      ],
+      "source_window_id": "window-0010"
+    },
+    {
+      "label": "Window window-0011 Topics",
+      "source_segment_ids": [
+        "seg-000628",
+        "seg-000629",
+        "seg-000630",
+        "seg-000631",
+        "seg-000632",
+        "seg-000633",
+        "seg-000634",
+        "seg-000635",
+        "seg-000636",
+        "seg-000637",
+        "seg-000638",
+        "seg-000639",
+        "seg-000640",
+        "seg-000641",
+        "seg-000642",
+        "seg-000643",
+        "seg-000644",
+        "seg-000645",
+        "seg-000646",
+        "seg-000647",
+        "seg-000648",
+        "seg-000649",
+        "seg-000650",
+        "seg-000651",
+        "seg-000652",
+        "seg-000653",
+        "seg-000654",
+        "seg-000655",
+        "seg-000656",
+        "seg-000657",
+        "seg-000658",
+        "seg-000659",
+        "seg-000660",
+        "seg-000661",
+        "seg-000662",
+        "seg-000663",
+        "seg-000664",
+        "seg-000665",
+        "seg-000666",
+        "seg-000667",
+        "seg-000668",
+        "seg-000669",
+        "seg-000670",
+        "seg-000671",
+        "seg-000672",
+        "seg-000673",
+        "seg-000674",
+        "seg-000675",
+        "seg-000676",
+        "seg-000677",
+        "seg-000678",
+        "seg-000679",
+        "seg-000680",
+        "seg-000681",
+        "seg-000682",
+        "seg-000683",
+        "seg-000684",
+        "seg-000685",
+        "seg-000686",
+        "seg-000687",
+        "seg-000688",
+        "seg-000689",
+        "seg-000690",
+        "seg-000691",
+        "seg-000692",
+        "seg-000693",
+        "seg-000694",
+        "seg-000695",
+        "seg-000696",
+        "seg-000697",
+        "seg-000698",
+        "seg-000699",
+        "seg-000700",
+        "seg-000701",
+        "seg-000702",
+        "seg-000703",
+        "seg-000704",
+        "seg-000705",
+        "seg-000706"
+      ],
+      "source_window_id": "window-0011"
+    },
+    {
+      "label": "Window window-0012 Topics",
+      "source_segment_ids": [
+        "seg-000707",
+        "seg-000708",
+        "seg-000709",
+        "seg-000710",
+        "seg-000711",
+        "seg-000712",
+        "seg-000713",
+        "seg-000714",
+        "seg-000715",
+        "seg-000716",
+        "seg-000717",
+        "seg-000718",
+        "seg-000719",
+        "seg-000720",
+        "seg-000721",
+        "seg-000722",
+        "seg-000723",
+        "seg-000724",
+        "seg-000725",
+        "seg-000726",
+        "seg-000727",
+        "seg-000728",
+        "seg-000729",
+        "seg-000730",
+        "seg-000731",
+        "seg-000732",
+        "seg-000733",
+        "seg-000734",
+        "seg-000735",
+        "seg-000736",
+        "seg-000737",
+        "seg-000738",
+        "seg-000739",
+        "seg-000740",
+        "seg-000741",
+        "seg-000742",
+        "seg-000743",
+        "seg-000744",
+        "seg-000745",
+        "seg-000746",
+        "seg-000747",
+        "seg-000748",
+        "seg-000749",
+        "seg-000750",
+        "seg-000751",
+        "seg-000752",
+        "seg-000753",
+        "seg-000754",
+        "seg-000755",
+        "seg-000756",
+        "seg-000757",
+        "seg-000758",
+        "seg-000759",
+        "seg-000760",
+        "seg-000761",
+        "seg-000762",
+        "seg-000763",
+        "seg-000764",
+        "seg-000765"
+      ],
+      "source_window_id": "window-0012"
+    },
+    {
+      "label": "Window window-0013 Topics",
+      "source_segment_ids": [
+        "seg-000766",
+        "seg-000767",
+        "seg-000768",
+        "seg-000769",
+        "seg-000770",
+        "seg-000771",
+        "seg-000772",
+        "seg-000773",
+        "seg-000774",
+        "seg-000775",
+        "seg-000776",
+        "seg-000777",
+        "seg-000778",
+        "seg-000779",
+        "seg-000780",
+        "seg-000781",
+        "seg-000782",
+        "seg-000783",
+        "seg-000784",
+        "seg-000785",
+        "seg-000786",
+        "seg-000787",
+        "seg-000788",
+        "seg-000789",
+        "seg-000790",
+        "seg-000791",
+        "seg-000792",
+        "seg-000793",
+        "seg-000794",
+        "seg-000795",
+        "seg-000796",
+        "seg-000797",
+        "seg-000798",
+        "seg-000799",
+        "seg-000800",
+        "seg-000801",
+        "seg-000802",
+        "seg-000803",
+        "seg-000804",
+        "seg-000805",
+        "seg-000806",
+        "seg-000807",
+        "seg-000808",
+        "seg-000809",
+        "seg-000810",
+        "seg-000811",
+        "seg-000812",
+        "seg-000813",
+        "seg-000814",
+        "seg-000815",
+        "seg-000816",
+        "seg-000817",
+        "seg-000818",
+        "seg-000819",
+        "seg-000820",
+        "seg-000821",
+        "seg-000822",
+        "seg-000823",
+        "seg-000824",
+        "seg-000825",
+        "seg-000826",
+        "seg-000827"
+      ],
+      "source_window_id": "window-0013"
+    },
+    {
+      "label": "Window window-0014 Topics",
+      "source_segment_ids": [
+        "seg-000828",
+        "seg-000829",
+        "seg-000830",
+        "seg-000831",
+        "seg-000832",
+        "seg-000833",
+        "seg-000834",
+        "seg-000835",
+        "seg-000836",
+        "seg-000837",
+        "seg-000838",
+        "seg-000839",
+        "seg-000840",
+        "seg-000841",
+        "seg-000842",
+        "seg-000843",
+        "seg-000844",
+        "seg-000845",
+        "seg-000846",
+        "seg-000847",
+        "seg-000848",
+        "seg-000849",
+        "seg-000850",
+        "seg-000851",
+        "seg-000852",
+        "seg-000853",
+        "seg-000854",
+        "seg-000855",
+        "seg-000856",
+        "seg-000857",
+        "seg-000858",
+        "seg-000859",
+        "seg-000860",
+        "seg-000861",
+        "seg-000862",
+        "seg-000863",
+        "seg-000864",
+        "seg-000865",
+        "seg-000866",
+        "seg-000867",
+        "seg-000868",
+        "seg-000869",
+        "seg-000870",
+        "seg-000871",
+        "seg-000872",
+        "seg-000873",
+        "seg-000874",
+        "seg-000875",
+        "seg-000876",
+        "seg-000877",
+        "seg-000878"
+      ],
+      "source_window_id": "window-0014"
+    },
+    {
+      "label": "Window window-0015 Topics",
+      "source_segment_ids": [
+        "seg-000879",
+        "seg-000880",
+        "seg-000881",
+        "seg-000882",
+        "seg-000883",
+        "seg-000884",
+        "seg-000885",
+        "seg-000886",
+        "seg-000887",
+        "seg-000888",
+        "seg-000889",
+        "seg-000890",
+        "seg-000891",
+        "seg-000892",
+        "seg-000893",
+        "seg-000894",
+        "seg-000895",
+        "seg-000896",
+        "seg-000897",
+        "seg-000898",
+        "seg-000899",
+        "seg-000900",
+        "seg-000901",
+        "seg-000902",
+        "seg-000903",
+        "seg-000904",
+        "seg-000905",
+        "seg-000906",
+        "seg-000907",
+        "seg-000908",
+        "seg-000909",
+        "seg-000910",
+        "seg-000911",
+        "seg-000912",
+        "seg-000913",
+        "seg-000914",
+        "seg-000915",
+        "seg-000916",
+        "seg-000917",
+        "seg-000918",
+        "seg-000919",
+        "seg-000920",
+        "seg-000921",
+        "seg-000922",
+        "seg-000923",
+        "seg-000924",
+        "seg-000925",
+        "seg-000926",
+        "seg-000927",
+        "seg-000928",
+        "seg-000929",
+        "seg-000930",
+        "seg-000931",
+        "seg-000932",
+        "seg-000933",
+        "seg-000934",
+        "seg-000935",
+        "seg-000936",
+        "seg-000937",
+        "seg-000938",
+        "seg-000939",
+        "seg-000940",
+        "seg-000941"
+      ],
+      "source_window_id": "window-0015"
+    },
+    {
+      "label": "Window window-0016 Topics",
+      "source_segment_ids": [
+        "seg-000942",
+        "seg-000943",
+        "seg-000944",
+        "seg-000945",
+        "seg-000946",
+        "seg-000947",
+        "seg-000948",
+        "seg-000949",
+        "seg-000950",
+        "seg-000951",
+        "seg-000952",
+        "seg-000953",
+        "seg-000954",
+        "seg-000955",
+        "seg-000956",
+        "seg-000957",
+        "seg-000958",
+        "seg-000959",
+        "seg-000960",
+        "seg-000961",
+        "seg-000962",
+        "seg-000963",
+        "seg-000964",
+        "seg-000965",
+        "seg-000966",
+        "seg-000967",
+        "seg-000968",
+        "seg-000969",
+        "seg-000970",
+        "seg-000971",
+        "seg-000972",
+        "seg-000973",
+        "seg-000974",
+        "seg-000975",
+        "seg-000976",
+        "seg-000977",
+        "seg-000978",
+        "seg-000979",
+        "seg-000980",
+        "seg-000981",
+        "seg-000982",
+        "seg-000983",
+        "seg-000984",
+        "seg-000985",
+        "seg-000986",
+        "seg-000987",
+        "seg-000988",
+        "seg-000989",
+        "seg-000990",
+        "seg-000991",
+        "seg-000992",
+        "seg-000993",
+        "seg-000994",
+        "seg-000995",
+        "seg-000996",
+        "seg-000997",
+        "seg-000998",
+        "seg-000999",
+        "seg-001000",
+        "seg-001001",
+        "seg-001002",
+        "seg-001003",
+        "seg-001004",
+        "seg-001005",
+        "seg-001006",
+        "seg-001007",
+        "seg-001008",
+        "seg-001009",
+        "seg-001010"
+      ],
+      "source_window_id": "window-0016"
+    },
+    {
+      "label": "Window window-0017 Topics",
+      "source_segment_ids": [
+        "seg-001011",
+        "seg-001012",
+        "seg-001013",
+        "seg-001014",
+        "seg-001015",
+        "seg-001016",
+        "seg-001017",
+        "seg-001018",
+        "seg-001019",
+        "seg-001020",
+        "seg-001021",
+        "seg-001022",
+        "seg-001023",
+        "seg-001024",
+        "seg-001025",
+        "seg-001026",
+        "seg-001027",
+        "seg-001028",
+        "seg-001029",
+        "seg-001030",
+        "seg-001031",
+        "seg-001032",
+        "seg-001033",
+        "seg-001034",
+        "seg-001035",
+        "seg-001036",
+        "seg-001037",
+        "seg-001038",
+        "seg-001039",
+        "seg-001040",
+        "seg-001041",
+        "seg-001042",
+        "seg-001043",
+        "seg-001044",
+        "seg-001045",
+        "seg-001046",
+        "seg-001047",
+        "seg-001048",
+        "seg-001049",
+        "seg-001050",
+        "seg-001051",
+        "seg-001052",
+        "seg-001053",
+        "seg-001054",
+        "seg-001055",
+        "seg-001056",
+        "seg-001057",
+        "seg-001058",
+        "seg-001059",
+        "seg-001060",
+        "seg-001061",
+        "seg-001062",
+        "seg-001063",
+        "seg-001064",
+        "seg-001065",
+        "seg-001066"
+      ],
+      "source_window_id": "window-0017"
+    },
+    {
+      "label": "Window window-0018 Topics",
+      "source_segment_ids": [
+        "seg-001067",
+        "seg-001068",
+        "seg-001069",
+        "seg-001070",
+        "seg-001071",
+        "seg-001072",
+        "seg-001073",
+        "seg-001074",
+        "seg-001075",
+        "seg-001076",
+        "seg-001077",
+        "seg-001078",
+        "seg-001079",
+        "seg-001080",
+        "seg-001081",
+        "seg-001082",
+        "seg-001083",
+        "seg-001084",
+        "seg-001085",
+        "seg-001086",
+        "seg-001087",
+        "seg-001088",
+        "seg-001089",
+        "seg-001090",
+        "seg-001091",
+        "seg-001092",
+        "seg-001093",
+        "seg-001094",
+        "seg-001095",
+        "seg-001096",
+        "seg-001097",
+        "seg-001098",
+        "seg-001099",
+        "seg-001100",
+        "seg-001101",
+        "seg-001102",
+        "seg-001103",
+        "seg-001104",
+        "seg-001105",
+        "seg-001106",
+        "seg-001107",
+        "seg-001108",
+        "seg-001109",
+        "seg-001110",
+        "seg-001111",
+        "seg-001112",
+        "seg-001113",
+        "seg-001114",
+        "seg-001115",
+        "seg-001116",
+        "seg-001117",
+        "seg-001118",
+        "seg-001119",
+        "seg-001120"
+      ],
+      "source_window_id": "window-0018"
+    },
+    {
+      "label": "Window window-0019 Topics",
+      "source_segment_ids": [
+        "seg-001121",
+        "seg-001122",
+        "seg-001123",
+        "seg-001124",
+        "seg-001125",
+        "seg-001126",
+        "seg-001127",
+        "seg-001128",
+        "seg-001129",
+        "seg-001130",
+        "seg-001131",
+        "seg-001132",
+        "seg-001133",
+        "seg-001134",
+        "seg-001135",
+        "seg-001136",
+        "seg-001137",
+        "seg-001138",
+        "seg-001139",
+        "seg-001140",
+        "seg-001141",
+        "seg-001142",
+        "seg-001143",
+        "seg-001144",
+        "seg-001145",
+        "seg-001146",
+        "seg-001147",
+        "seg-001148",
+        "seg-001149",
+        "seg-001150",
+        "seg-001151",
+        "seg-001152",
+        "seg-001153",
+        "seg-001154",
+        "seg-001155",
+        "seg-001156",
+        "seg-001157",
+        "seg-001158",
+        "seg-001159",
+        "seg-001160",
+        "seg-001161",
+        "seg-001162",
+        "seg-001163",
+        "seg-001164",
+        "seg-001165",
+        "seg-001166",
+        "seg-001167",
+        "seg-001168",
+        "seg-001169",
+        "seg-001170",
+        "seg-001171",
+        "seg-001172",
+        "seg-001173",
+        "seg-001174",
+        "seg-001175",
+        "seg-001176",
+        "seg-001177",
+        "seg-001178",
+        "seg-001179",
+        "seg-001180",
+        "seg-001181",
+        "seg-001182",
+        "seg-001183",
+        "seg-001184",
+        "seg-001185",
+        "seg-001186",
+        "seg-001187",
+        "seg-001188",
+        "seg-001189"
+      ],
+      "source_window_id": "window-0019"
+    },
+    {
+      "label": "Window window-0020 Topics",
+      "source_segment_ids": [
+        "seg-001190",
+        "seg-001191",
+        "seg-001192",
+        "seg-001193",
+        "seg-001194",
+        "seg-001195",
+        "seg-001196",
+        "seg-001197",
+        "seg-001198",
+        "seg-001199",
+        "seg-001200",
+        "seg-001201",
+        "seg-001202",
+        "seg-001203",
+        "seg-001204",
+        "seg-001205",
+        "seg-001206",
+        "seg-001207",
+        "seg-001208",
+        "seg-001209",
+        "seg-001210",
+        "seg-001211",
+        "seg-001212",
+        "seg-001213",
+        "seg-001214",
+        "seg-001215",
+        "seg-001216",
+        "seg-001217",
+        "seg-001218",
+        "seg-001219",
+        "seg-001220",
+        "seg-001221",
+        "seg-001222",
+        "seg-001223",
+        "seg-001224",
+        "seg-001225",
+        "seg-001226",
+        "seg-001227",
+        "seg-001228",
+        "seg-001229",
+        "seg-001230",
+        "seg-001231",
+        "seg-001232",
+        "seg-001233",
+        "seg-001234",
+        "seg-001235",
+        "seg-001236",
+        "seg-001237",
+        "seg-001238",
+        "seg-001239",
+        "seg-001240",
+        "seg-001241",
+        "seg-001242",
+        "seg-001243",
+        "seg-001244",
+        "seg-001245",
+        "seg-001246",
+        "seg-001247",
+        "seg-001248",
+        "seg-001249",
+        "seg-001250",
+        "seg-001251",
+        "seg-001252",
+        "seg-001253",
+        "seg-001254",
+        "seg-001255",
+        "seg-001256",
+        "seg-001257",
+        "seg-001258",
+        "seg-001259",
+        "seg-001260",
+        "seg-001261",
+        "seg-001262",
+        "seg-001263",
+        "seg-001264",
+        "seg-001265",
+        "seg-001266",
+        "seg-001267",
+        "seg-001268"
+      ],
+      "source_window_id": "window-0020"
+    },
+    {
+      "label": "Window window-0021 Topics",
+      "source_segment_ids": [
+        "seg-001269",
+        "seg-001270",
+        "seg-001271",
+        "seg-001272",
+        "seg-001273",
+        "seg-001274",
+        "seg-001275",
+        "seg-001276",
+        "seg-001277",
+        "seg-001278",
+        "seg-001279",
+        "seg-001280",
+        "seg-001281",
+        "seg-001282",
+        "seg-001283",
+        "seg-001284",
+        "seg-001285",
+        "seg-001286",
+        "seg-001287",
+        "seg-001288",
+        "seg-001289",
+        "seg-001290",
+        "seg-001291",
+        "seg-001292",
+        "seg-001293",
+        "seg-001294",
+        "seg-001295",
+        "seg-001296",
+        "seg-001297",
+        "seg-001298",
+        "seg-001299",
+        "seg-001300",
+        "seg-001301",
+        "seg-001302",
+        "seg-001303",
+        "seg-001304",
+        "seg-001305",
+        "seg-001306",
+        "seg-001307",
+        "seg-001308",
+        "seg-001309",
+        "seg-001310",
+        "seg-001311",
+        "seg-001312",
+        "seg-001313",
+        "seg-001314",
+        "seg-001315",
+        "seg-001316",
+        "seg-001317",
+        "seg-001318",
+        "seg-001319",
+        "seg-001320",
+        "seg-001321",
+        "seg-001322",
+        "seg-001323",
+        "seg-001324",
+        "seg-001325",
+        "seg-001326",
+        "seg-001327",
+        "seg-001328",
+        "seg-001329",
+        "seg-001330",
+        "seg-001331",
+        "seg-001332",
+        "seg-001333",
+        "seg-001334",
+        "seg-001335",
+        "seg-001336",
+        "seg-001337",
+        "seg-001338",
+        "seg-001339",
+        "seg-001340",
+        "seg-001341",
+        "seg-001342",
+        "seg-001343",
+        "seg-001344"
+      ],
+      "source_window_id": "window-0021"
+    },
+    {
+      "label": "Window window-0022 Topics",
+      "source_segment_ids": [
+        "seg-001345",
+        "seg-001346",
+        "seg-001347",
+        "seg-001348",
+        "seg-001349",
+        "seg-001350",
+        "seg-001351",
+        "seg-001352",
+        "seg-001353",
+        "seg-001354",
+        "seg-001355",
+        "seg-001356",
+        "seg-001357",
+        "seg-001358",
+        "seg-001359",
+        "seg-001360",
+        "seg-001361",
+        "seg-001362",
+        "seg-001363",
+        "seg-001364",
+        "seg-001365",
+        "seg-001366",
+        "seg-001367",
+        "seg-001368",
+        "seg-001369",
+        "seg-001370",
+        "seg-001371",
+        "seg-001372",
+        "seg-001373",
+        "seg-001374",
+        "seg-001375",
+        "seg-001376",
+        "seg-001377",
+        "seg-001378",
+        "seg-001379",
+        "seg-001380",
+        "seg-001381",
+        "seg-001382",
+        "seg-001383",
+        "seg-001384",
+        "seg-001385",
+        "seg-001386",
+        "seg-001387",
+        "seg-001388",
+        "seg-001389",
+        "seg-001390",
+        "seg-001391",
+        "seg-001392",
+        "seg-001393",
+        "seg-001394",
+        "seg-001395",
+        "seg-001396",
+        "seg-001397",
+        "seg-001398",
+        "seg-001399",
+        "seg-001400",
+        "seg-001401",
+        "seg-001402",
+        "seg-001403",
+        "seg-001404",
+        "seg-001405",
+        "seg-001406",
+        "seg-001407",
+        "seg-001408",
+        "seg-001409",
+        "seg-001410"
+      ],
+      "source_window_id": "window-0022"
+    },
+    {
+      "label": "Window window-0023 Topics",
+      "source_segment_ids": [
+        "seg-001411",
+        "seg-001412",
+        "seg-001413",
+        "seg-001414",
+        "seg-001415",
+        "seg-001416",
+        "seg-001417",
+        "seg-001418",
+        "seg-001419",
+        "seg-001420",
+        "seg-001421",
+        "seg-001422",
+        "seg-001423",
+        "seg-001424",
+        "seg-001425",
+        "seg-001426",
+        "seg-001427",
+        "seg-001428",
+        "seg-001429",
+        "seg-001430",
+        "seg-001431",
+        "seg-001432",
+        "seg-001433",
+        "seg-001434",
+        "seg-001435",
+        "seg-001436",
+        "seg-001437",
+        "seg-001438"
+      ],
+      "source_window_id": "window-0023"
+    }
+  ]
+}

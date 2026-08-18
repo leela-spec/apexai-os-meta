@@ -1,0 +1,145 @@
+﻿{
+    "run_id":  "20260818-182204",
+    "timestamp":  "2026-08-18T16:22:05.0460645Z",
+    "git_commit":  "6c2f1b701c90373e50798c4def8f6a9746827b05",
+    "sources":  [
+                    {
+                        "id":  "P-h5WSQG1Sw",
+                        "title":  "Neuroscience of Emotions \u0026 Emotion Regulation - Dr. Ralph Adolphs",
+                        "url":  "https://www.youtube.com/watch?v=P-h5WSQG1Sw",
+                        "transcript":  {
+                                           "path":  "C:\\GitDev\\apexai-os-meta\\.claude\\skills\\SourceTranscriptionAnalysisPipeline\\artifacts\\transcripts\\P-h5WSQG1Sw\\P-h5WSQG1Sw.srt",
+                                           "sha256":  "3e46962b9a0be33deecf1612ca70d8c2ceb1405ce67075ce22c6123d8e972c9d",
+                                           "approx_words":  30545
+                                       },
+                        "pipeline_1":  {
+                                           "status":  "ASR_COMPLETE",
+                                           "error":  null,
+                                           "artifacts":  {
+                                                             "txt":  "C:\\GitDev\\apexai-os-meta\\.claude\\skills\\SourceTranscriptionAnalysisPipeline\\artifacts\\transcripts\\P-h5WSQG1Sw\\P-h5WSQG1Sw.txt",
+                                                             "srt":  "C:\\GitDev\\apexai-os-meta\\.claude\\skills\\SourceTranscriptionAnalysisPipeline\\artifacts\\transcripts\\P-h5WSQG1Sw\\P-h5WSQG1Sw.srt",
+                                                             "json":  "C:\\GitDev\\apexai-os-meta\\.claude\\skills\\SourceTranscriptionAnalysisPipeline\\artifacts\\transcripts\\P-h5WSQG1Sw\\P-h5WSQG1Sw.json"
+                                                         }
+                                       },
+                        "pipeline_2":  {
+                                           "status":  "OPERATOR_ARTIFACT_COMPLETE",
+                                           "error":  null,
+                                           "artifacts":  {
+                                                             "wiki":  "C:\\GitDev\\apexai-os-meta\\SourceTranscriptionAnalysisPipeline_Research\\outputs\\P-h5WSQG1Sw\\P-h5WSQG1Sw_engine_wiki.md",
+                                                             "json":  "C:\\GitDev\\apexai-os-meta\\SourceTranscriptionAnalysisPipeline_Research\\outputs\\P-h5WSQG1Sw\\P-h5WSQG1Sw_engine_wiki.json"
+                                                         }
+                                       },
+                        "pipeline_3":  {
+                                           "status":  "FAILED",
+                                           "error":  "TTK lifecycle failed with exit code 2",
+                                           "artifacts":  {
+
+                                                         }
+                                       }
+                    },
+                    {
+                        "id":  "CygwqaNg2PY",
+                        "title":  "Elliott Prechter: Teaching a Machine to Count Elliott Waves",
+                        "url":  "https://www.youtube.com/watch?v=CygwqaNg2PY",
+                        "transcript":  {
+                                           "path":  "C:\\GitDev\\apexai-os-meta\\.claude\\skills\\SourceTranscriptionAnalysisPipeline\\artifacts\\transcripts\\CygwqaNg2PY\\CygwqaNg2PY.srt",
+                                           "sha256":  "2d93ffe19ae134fb41bd2a9eb40f14285d702429ce4d2205113c0b177533899a",
+                                           "approx_words":  4723
+                                       },
+                        "pipeline_1":  {
+                                           "status":  "ASR_COMPLETE",
+                                           "error":  null,
+                                           "artifacts":  {
+                                                             "txt":  "C:\\GitDev\\apexai-os-meta\\.claude\\skills\\SourceTranscriptionAnalysisPipeline\\artifacts\\transcripts\\CygwqaNg2PY\\CygwqaNg2PY.txt",
+                                                             "srt":  "C:\\GitDev\\apexai-os-meta\\.claude\\skills\\SourceTranscriptionAnalysisPipeline\\artifacts\\transcripts\\CygwqaNg2PY\\CygwqaNg2PY.srt",
+                                                             "json":  "C:\\GitDev\\apexai-os-meta\\.claude\\skills\\SourceTranscriptionAnalysisPipeline\\artifacts\\transcripts\\CygwqaNg2PY\\CygwqaNg2PY.json"
+                                                         }
+                                       },
+                        "pipeline_2":  {
+                                           "status":  "SYNTHESIS_PENDING",
+                                           "error":  null,
+                                           "artifacts":  {
+
+                                                         }
+                                       },
+                        "pipeline_3":  {
+                                           "status":  "FAILED",
+                                           "error":  "TTK lifecycle failed with exit code 2",
+                                           "artifacts":  {
+
+                                                         }
+                                       }
+                    },
+                    {
+                        "id":  "vFTuLylvYnA",
+                        "title":  "Tech unter Druck. Zinsen werden zum Risiko - Markus Koch",
+                        "url":  "https://www.youtube.com/watch?v=vFTuLylvYnA",
+                        "transcript":  {
+                                           "path":  "C:\\GitDev\\apexai-os-meta\\.claude\\skills\\SourceTranscriptionAnalysisPipeline\\artifacts\\transcripts\\vFTuLylvYnA\\vFTuLylvYnA.srt",
+                                           "sha256":  "1dffc6b9bc4e9d4897a2a27b96b8f9a077988b12824788554fb0be76b0225dfb",
+                                           "approx_words":  3410
+                                       },
+                        "pipeline_1":  {
+                                           "status":  "ASR_COMPLETE",
+                                           "error":  null,
+                                           "artifacts":  {
+                                                             "txt":  "C:\\GitDev\\apexai-os-meta\\.claude\\skills\\SourceTranscriptionAnalysisPipeline\\artifacts\\transcripts\\vFTuLylvYnA\\vFTuLylvYnA.txt",
+                                                             "srt":  "C:\\GitDev\\apexai-os-meta\\.claude\\skills\\SourceTranscriptionAnalysisPipeline\\artifacts\\transcripts\\vFTuLylvYnA\\vFTuLylvYnA.srt",
+                                                             "json":  "C:\\GitDev\\apexai-os-meta\\.claude\\skills\\SourceTranscriptionAnalysisPipeline\\artifacts\\transcripts\\vFTuLylvYnA\\vFTuLylvYnA.json"
+                                                         }
+                                       },
+                        "pipeline_2":  {
+                                           "status":  "SYNTHESIS_PENDING",
+                                           "error":  null,
+                                           "artifacts":  {
+
+                                                         }
+                                       },
+                        "pipeline_3":  {
+                                           "status":  "FAILED",
+                                           "error":  "TTK lifecycle failed with exit code 2",
+                                           "artifacts":  {
+
+                                                         }
+                                       }
+                    },
+                    {
+                        "id":  "oZIsMX6WgFs",
+                        "title":  "Market Cycles Jam - Market Cycles Report August 17 2026",
+                        "url":  "https://www.youtube.com/watch?v=oZIsMX6WgFs",
+                        "transcript":  {
+                                           "path":  "C:\\GitDev\\apexai-os-meta\\.claude\\skills\\SourceTranscriptionAnalysisPipeline\\artifacts\\transcripts\\oZIsMX6WgFs\\oZIsMX6WgFs.srt",
+                                           "sha256":  "d6bfb051b2344b3d17fd1a73643322945870262589aab1cf757ed1fe873ba135",
+                                           "approx_words":  7641
+                                       },
+                        "pipeline_1":  {
+                                           "status":  "ASR_COMPLETE",
+                                           "error":  null,
+                                           "artifacts":  {
+                                                             "txt":  "C:\\GitDev\\apexai-os-meta\\.claude\\skills\\SourceTranscriptionAnalysisPipeline\\artifacts\\transcripts\\oZIsMX6WgFs\\oZIsMX6WgFs.txt",
+                                                             "srt":  "C:\\GitDev\\apexai-os-meta\\.claude\\skills\\SourceTranscriptionAnalysisPipeline\\artifacts\\transcripts\\oZIsMX6WgFs\\oZIsMX6WgFs.srt",
+                                                             "json":  "C:\\GitDev\\apexai-os-meta\\.claude\\skills\\SourceTranscriptionAnalysisPipeline\\artifacts\\transcripts\\oZIsMX6WgFs\\oZIsMX6WgFs.json"
+                                                         }
+                                       },
+                        "pipeline_2":  {
+                                           "status":  "SYNTHESIS_PENDING",
+                                           "error":  null,
+                                           "artifacts":  {
+
+                                                         }
+                                       },
+                        "pipeline_3":  {
+                                           "status":  "FAILED",
+                                           "error":  "TTK lifecycle failed with exit code 2",
+                                           "artifacts":  {
+
+                                                         }
+                                       }
+                    }
+                ],
+    "summary":  {
+                    "all_passed":  false,
+                    "incomplete_count":  4,
+                    "total_sources":  4
+                }
+}

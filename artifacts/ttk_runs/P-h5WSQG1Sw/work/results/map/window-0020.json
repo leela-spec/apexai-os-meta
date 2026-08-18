@@ -1,0 +1,166 @@
+{
+  "schema": "ttk.map-result.v2",
+  "packet_id": "map-window-0020",
+  "packet_sha256": "bcdf7d5a6b3343c6d114c89b22ed8910e0db261967d56947a1d4db33a861fadb",
+  "window_id": "window-0020",
+  "subtopics": [
+    {
+      "label": "Window window-0020 Topics",
+      "source_segment_ids": [
+        "seg-001190",
+        "seg-001191",
+        "seg-001192",
+        "seg-001193",
+        "seg-001194",
+        "seg-001195",
+        "seg-001196",
+        "seg-001197",
+        "seg-001198",
+        "seg-001199",
+        "seg-001200",
+        "seg-001201",
+        "seg-001202",
+        "seg-001203",
+        "seg-001204",
+        "seg-001205",
+        "seg-001206",
+        "seg-001207",
+        "seg-001208",
+        "seg-001209",
+        "seg-001210",
+        "seg-001211",
+        "seg-001212",
+        "seg-001213",
+        "seg-001214",
+        "seg-001215",
+        "seg-001216",
+        "seg-001217",
+        "seg-001218",
+        "seg-001219",
+        "seg-001220",
+        "seg-001221",
+        "seg-001222",
+        "seg-001223",
+        "seg-001224",
+        "seg-001225",
+        "seg-001226",
+        "seg-001227",
+        "seg-001228",
+        "seg-001229",
+        "seg-001230",
+        "seg-001231",
+        "seg-001232",
+        "seg-001233",
+        "seg-001234",
+        "seg-001235",
+        "seg-001236",
+        "seg-001237",
+        "seg-001238",
+        "seg-001239",
+        "seg-001240",
+        "seg-001241",
+        "seg-001242",
+        "seg-001243",
+        "seg-001244",
+        "seg-001245",
+        "seg-001246",
+        "seg-001247",
+        "seg-001248",
+        "seg-001249",
+        "seg-001250",
+        "seg-001251",
+        "seg-001252",
+        "seg-001253",
+        "seg-001254",
+        "seg-001255",
+        "seg-001256",
+        "seg-001257",
+        "seg-001258",
+        "seg-001259",
+        "seg-001260",
+        "seg-001261",
+        "seg-001262",
+        "seg-001263",
+        "seg-001264",
+        "seg-001265",
+        "seg-001266",
+        "seg-001267",
+        "seg-001268"
+      ]
+    }
+  ],
+  "key_points": [
+    {
+      "text": "not actually aligned time the way I described the kind of higher or lower RPM before maybe it",
+      "source_segment_ids": [
+        "seg-001190"
+      ]
+    },
+    {
+      "text": "perhaps made it sound like one or the other was better but I think sometimes about like Alex",
+      "source_segment_ids": [
+        "seg-001191"
+      ]
+    },
+    {
+      "text": "Honnold who again who is a guest on this podcast and there've been claims that his amygdala doesn't",
+      "source_segment_ids": [
+        "seg-001192"
+      ]
+    }
+  ],
+  "mechanisms": [],
+  "protocols": [],
+  "arguments": [],
+  "candidate_claims": [
+    {
+      "claim_text": "not actually aligned time the way I described the kind of higher or lower RPM before maybe it",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-001190"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-001190",
+          "quote": "not actually aligned time the way I described the kind of higher or lower RPM before maybe it"
+        }
+      ],
+      "checkworthiness": "medium"
+    },
+    {
+      "claim_text": "perhaps made it sound like one or the other was better but I think sometimes about like Alex",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-001191"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-001191",
+          "quote": "perhaps made it sound like one or the other was better but I think sometimes about like Alex"
+        }
+      ],
+      "checkworthiness": "low"
+    },
+    {
+      "claim_text": "Honnold who again who is a guest on this podcast and there've been claims that his amygdala doesn't",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-001192"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-001192",
+          "quote": "Honnold who again who is a guest on this podcast and there've been claims that his amygdala doesn't"
+        }
+      ],
+      "checkworthiness": "low"
+    }
+  ],
+  "entities": [],
+  "concepts": [],
+  "open_questions": [],
+  "contradictions_or_uncertainty": []
+}

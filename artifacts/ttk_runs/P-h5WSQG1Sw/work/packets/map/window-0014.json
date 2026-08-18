@@ -1,0 +1,499 @@
+{
+  "context_only_segment_ids": [
+    "seg-000827",
+    "seg-000879"
+  ],
+  "contract_version": "ttk.semantic-contract.v2",
+  "core_segment_ids": [
+    "seg-000828",
+    "seg-000829",
+    "seg-000830",
+    "seg-000831",
+    "seg-000832",
+    "seg-000833",
+    "seg-000834",
+    "seg-000835",
+    "seg-000836",
+    "seg-000837",
+    "seg-000838",
+    "seg-000839",
+    "seg-000840",
+    "seg-000841",
+    "seg-000842",
+    "seg-000843",
+    "seg-000844",
+    "seg-000845",
+    "seg-000846",
+    "seg-000847",
+    "seg-000848",
+    "seg-000849",
+    "seg-000850",
+    "seg-000851",
+    "seg-000852",
+    "seg-000853",
+    "seg-000854",
+    "seg-000855",
+    "seg-000856",
+    "seg-000857",
+    "seg-000858",
+    "seg-000859",
+    "seg-000860",
+    "seg-000861",
+    "seg-000862",
+    "seg-000863",
+    "seg-000864",
+    "seg-000865",
+    "seg-000866",
+    "seg-000867",
+    "seg-000868",
+    "seg-000869",
+    "seg-000870",
+    "seg-000871",
+    "seg-000872",
+    "seg-000873",
+    "seg-000874",
+    "seg-000875",
+    "seg-000876",
+    "seg-000877",
+    "seg-000878"
+  ],
+  "packet_id": "map-window-0014",
+  "packet_sha256": "4f9918fca3d330fad4136471b87781c4f5cb4df62ef2763792c65a6adee208a9",
+  "result_path": "work/results/map/window-0014.json",
+  "rules": [
+    "Extract evidence only from core segments; context_only segments are orientation only.",
+    "Every candidate claim requires at least one verbatim quote from its cited core segment.",
+    "Do not force content into categories; empty arrays are valid.",
+    "Separate factual assertions from opinion, prediction, recommendation, decision, anecdote, definition, mechanism, estimate, and hypothesis.",
+    "Preserve disagreement and uncertainty rather than reconciling it."
+  ],
+  "schema": "ttk.map-packet.v2",
+  "source_segments": [
+    {
+      "end_hms": "01:14:26.640",
+      "id": "seg-000827",
+      "role": "context_only",
+      "speaker": null,
+      "start_hms": "01:14:20.340",
+      "text": "just for some reason makes me feel a certain way. Maybe sadness, maybe happiness. Do you think that"
+    },
+    {
+      "end_hms": "01:14:34.079",
+      "id": "seg-000828",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:14:26.640",
+      "text": "art of that sort is able to capture the circuitry related to a particular emotions across people?"
+    },
+    {
+      "end_hms": "01:14:38.939",
+      "id": "seg-000829",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:14:34.520",
+      "text": "So not just about my unique experience. And art is subjective, right? So there's things related"
+    },
+    {
+      "end_hms": "01:14:44.159",
+      "id": "seg-000830",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:14:38.939",
+      "text": "to taste. But let's assume this is abstract art. So there's no apparent faces or animals or"
+    },
+    {
+      "end_hms": "01:14:50.220",
+      "id": "seg-000831",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:14:44.159",
+      "text": "no depictions of scenes. But let's say out of 100 people, you know, more than half say,"
+    },
+    {
+      "end_hms": "01:14:55.960",
+      "id": "seg-000832",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:14:50.439",
+      "text": "yeah, look at that. And I just feel peace. Is it the case that some art can tap into neural"
+    },
+    {
+      "end_hms": "01:15:00.119",
+      "id": "seg-000833",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:14:55.960",
+      "text": "circuits or some music can tap into neural circuits? Absolutely. Independent of the lyrics."
+    },
+    {
+      "end_hms": "01:15:05.140",
+      "id": "seg-000834",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:15:00.720",
+      "text": "I mean, we don't have the brain imaging presumably, but there is a kind of a more sophisticated"
+    },
+    {
+      "end_hms": "01:15:10.760",
+      "id": "seg-000835",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:15:05.779",
+      "text": "example. We're not regressing to the hypothalamus. Absolutely. But this is the stuff that like"
+    },
+    {
+      "end_hms": "01:15:15.819",
+      "id": "seg-000836",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:15:10.760",
+      "text": "the richness of life is also about that. Sure. And so the interesting question is which particular"
+    },
+    {
+      "end_hms": "01:15:20.659",
+      "id": "seg-000837",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:15:15.819",
+      "text": "features in the music or in the abstract art is it that are driving those generalizable"
+    },
+    {
+      "end_hms": "01:15:24.920",
+      "id": "seg-000838",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:15:20.659",
+      "text": "emotion responses? And they're certainly there. One of the earliest studies on emotion actually"
+    },
+    {
+      "end_hms": "01:15:30.739",
+      "id": "seg-000839",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:15:25.439",
+      "text": "was done by Anne Blood and Robert Satori in the mid 90s or something. I believe using,"
+    },
+    {
+      "end_hms": "01:15:36.119",
+      "id": "seg-000840",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:15:30.739",
+      "text": "I'm pretty sure using positon emission tomography pet rather than FM or I at the time. And what they"
+    },
+    {
+      "end_hms": "01:15:41.260",
+      "id": "seg-000841",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:15:36.119",
+      "text": "did was they played music to people. And I think they set it up so that you and I could hear the"
+    },
+    {
+      "end_hms": "01:15:46.560",
+      "id": "seg-000842",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:15:41.260",
+      "text": "same piece of music. In your case, the music really does something for you. And the particular"
+    },
+    {
+      "end_hms": "01:15:52.659",
+      "id": "seg-000843",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:15:46.560",
+      "text": "measure was does it send shivers down your spine? Do you get like chills, goosebumps from listening"
+    },
+    {
+      "end_hms": "01:15:57.300",
+      "id": "seg-000844",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:15:52.659",
+      "text": "to the music? And it does that for you, but not for me. And in your case, the same auditory stimulus,"
+    },
+    {
+      "end_hms": "01:16:01.579",
+      "id": "seg-000845",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:15:57.300",
+      "text": "different emotion. And from the imaging, they show that the insula, the structure we're just"
+    },
+    {
+      "end_hms": "01:16:07.180",
+      "id": "seg-000846",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:16:01.579",
+      "text": "talking about, the amygdala, several of these emotion-related structures are indeed activated when"
+    },
+    {
+      "end_hms": "01:16:12.880",
+      "id": "seg-000847",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:16:07.180",
+      "text": "you have shivers, chills down your spine, listening to music. For abstract art, my Caltech"
+    },
+    {
+      "end_hms": "01:16:17.699",
+      "id": "seg-000848",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:16:12.880",
+      "text": "colleague John O'Dorothy had a paper a little while ago where, again, he found something generalizable."
+    },
+    {
+      "end_hms": "01:16:24.800",
+      "id": "seg-000849",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:16:17.840",
+      "text": "He decomposed abstract art into the constituent sort of visual features. You can feed it into"
+    },
+    {
+      "end_hms": "01:16:31.800",
+      "id": "seg-000850",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:16:24.800",
+      "text": "your neural network and get a representation of all the different shades and colors and the basic"
+    },
+    {
+      "end_hms": "01:16:38.000",
+      "id": "seg-000851",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:16:31.800",
+      "text": "visual composition, basic visual features that constitute that. And from that, you can reconstitute"
+    },
+    {
+      "end_hms": "01:16:44.140",
+      "id": "seg-000852",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:16:38.000",
+      "text": "whether or not it is liked or not liked, whether it's a pleasant, whether people find it pleasant"
+    },
+    {
+      "end_hms": "01:16:49.119",
+      "id": "seg-000853",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:16:44.140",
+      "text": "or unpleasant. So it doesn't come out of nowhere. Yes, there's something about even if it's abstract,"
+    },
+    {
+      "end_hms": "01:16:56.199",
+      "id": "seg-000854",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:16:49.119",
+      "text": "even if it's abstract music, or if it's abstract art, there's some auditory or visual features there"
+    },
+    {
+      "end_hms": "01:17:03.159",
+      "id": "seg-000855",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:16:56.750",
+      "text": "that are generalizable and that can be used to evoke emotions. And the big question then is,"
+    },
+    {
+      "end_hms": "01:17:08.220",
+      "id": "seg-000856",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:17:03.680",
+      "text": "can we link that back? Obviously, the emotions didn't evolve in order to appreciate abstract art,"
+    },
+    {
+      "end_hms": "01:17:14.159",
+      "id": "seg-000857",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:17:08.699",
+      "text": "but they evolved to detect tigers and bears and other things. Well, other similar kinds of visual"
+    },
+    {
+      "end_hms": "01:17:20.439",
+      "id": "seg-000858",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:17:14.159",
+      "text": "features, presumably there are. So there are some visual features in the real world that for which"
+    },
+    {
+      "end_hms": "01:17:26.800",
+      "id": "seg-000859",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:17:20.439",
+      "text": "particular emotions evolved, that can also then find a place again in abstract art and evoke"
+    },
+    {
+      "end_hms": "01:17:31.399",
+      "id": "seg-000860",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:17:26.800",
+      "text": "similar emotions. That's the basic story. But the answer to your question is, yes, even for these"
+    },
+    {
+      "end_hms": "01:17:37.739",
+      "id": "seg-000861",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:17:31.399",
+      "text": "very uniquely humans of abstract kinds of stimuli, people have done work and found particular"
+    },
+    {
+      "end_hms": "01:17:43.079",
+      "id": "seg-000862",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:17:37.739",
+      "text": "features in those stimuli that will trigger emotion states in humans. And they're great stimuli to"
+    },
+    {
+      "end_hms": "01:17:50.260",
+      "id": "seg-000863",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:17:43.079",
+      "text": "use. Talk a little bit about hard wiring versus learned emotional states at the brain level."
+    },
+    {
+      "end_hms": "01:17:56.920",
+      "id": "seg-000864",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:17:50.539",
+      "text": "We know there are brain areas that process faces just the organization of two dots and a vertical"
+    },
+    {
+      "end_hms": "01:18:01.939",
+      "id": "seg-000865",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:17:56.920",
+      "text": "line and a horizontal line below it. There are neurons that like that organization of features."
+    },
+    {
+      "end_hms": "01:18:07.680",
+      "id": "seg-000866",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:18:02.600",
+      "text": "And I should know the answer to the next question, but I don't. Are there neurons that are tuned"
+    },
+    {
+      "end_hms": "01:18:13.960",
+      "id": "seg-000867",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:18:07.680",
+      "text": "to a smiling face versus a frowning face at the level like almost like like very sparse emoji,"
+    },
+    {
+      "end_hms": "01:18:18.720",
+      "id": "seg-000868",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:18:14.119",
+      "text": "like level, we call them units in the brain. Are there units that are tuned to frowning faces or"
+    },
+    {
+      "end_hms": "01:18:23.180",
+      "id": "seg-000869",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:18:18.720",
+      "text": "smiling faces? And of course, you'd love to be able to do the experiment in somebody who has"
+    },
+    {
+      "end_hms": "01:18:26.600",
+      "id": "seg-000870",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:18:23.180",
+      "text": "come, you know, had never been exposed to them for the first time, but that's impossible to do."
+    },
+    {
+      "end_hms": "01:18:32.000",
+      "id": "seg-000871",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:18:26.800",
+      "text": "So I have to assume the experiment has been at least thought about if not done."
+    },
+    {
+      "end_hms": "01:18:36.319",
+      "id": "seg-000872",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:18:32.279",
+      "text": "Yeah, I mean, it's a great question. I mean, you know, with respect to face processing in general,"
+    },
+    {
+      "end_hms": "01:18:42.739",
+      "id": "seg-000873",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:18:36.319",
+      "text": "the sort of consensus is it's both hardwired and innate in some sense that there's something"
+    },
+    {
+      "end_hms": "01:18:49.579",
+      "id": "seg-000874",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:18:42.739",
+      "text": "there in the brain already at birth that's experience independent. But then it also depends on"
+    },
+    {
+      "end_hms": "01:18:54.859",
+      "id": "seg-000875",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:18:49.579",
+      "text": "normal maturation and development and experience. And so people like Rebecca Saks at MIT, for instance,"
+    },
+    {
+      "end_hms": "01:19:01.380",
+      "id": "seg-000876",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:18:54.899",
+      "text": "has done functional or imaging studies on babies and shown them faces and asked the question,"
+    },
+    {
+      "end_hms": "01:19:05.880",
+      "id": "seg-000877",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:19:01.380",
+      "text": "how does this pulse system develop? It's always a mixture. People tend to think in terms of black"
+    },
+    {
+      "end_hms": "01:19:12.140",
+      "id": "seg-000878",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:19:05.880",
+      "text": "and white. It's hardwired and innate or it's learned. Nothing is either or. It's always,"
+    },
+    {
+      "end_hms": "01:19:16.880",
+      "id": "seg-000879",
+      "role": "context_only",
+      "speaker": null,
+      "start_hms": "01:19:12.359",
+      "text": "a good example is the visual word form area. So there's regions in the brain that like the ones"
+    }
+  ],
+  "source_sha256": "3e46962b9a0be33deecf1612ca70d8c2ceb1405ce67075ce22c6123d8e972c9d",
+  "window_id": "window-0014"
+}

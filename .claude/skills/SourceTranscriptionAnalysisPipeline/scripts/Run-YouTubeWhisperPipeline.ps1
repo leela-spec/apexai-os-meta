@@ -13,6 +13,7 @@ param(
 
     [string]$Model = "base",
     [string]$Language = "",
+    [string]$SemanticResult = "",
     [string]$AudioDir = "artifacts\audio",
     [string]$OutputDir = "artifacts\transcripts",
     [string]$StateFile = "state\processed_videos.json",
@@ -144,37 +145,57 @@ if ($proc.ExitCode -ne 0) {
     throw "Whisper transcription failed with exit code $($proc.ExitCode)"
 }
 
-# Step 4: Macro -> Meso -> Micro Knowledge Synthesis
-Write-Host "`n[4/5] Synthesizing Macro/Meso/Micro Knowledge Wiki..." -ForegroundColor Cyan
-$synthScript = Join-Path $PSScriptRoot "synthesize_transcript.py"
 $transcriptSrtFile = Join-Path $videoOutputDir "$videoId.srt"
 $transcriptJsonFile = Join-Path $videoOutputDir "$videoId.json"
 $transcriptMdFile = Join-Path $videoOutputDir "$videoId.md"
+$transcriptTxtFile = Join-Path $videoOutputDir "$videoId.txt"
 
-if (Test-Path $synthScript) {
+if (-not (Test-Path $transcriptSrtFile) -or -not (Test-Path $transcriptJsonFile) -or -not (Test-Path $transcriptTxtFile)) {
+    throw "Transcription finished but required output files are missing in $videoOutputDir"
+}
+
+# Step 4: Macro -> Meso -> Micro Knowledge Synthesis
+$knowledgeWikiFile = Join-Path $videoOutputDir "$($videoId)_knowledge_wiki.md"
+$knowledgeJsonFile = Join-Path $videoOutputDir "$($videoId)_knowledge_wiki.json"
+$pipelineStatus = "ASR_COMPLETE"
+$eventType = "YOUTUBE_TRANSCRIPT_COMPLETED_SYNTHESIS_PENDING"
+
+$synthScript = Join-Path $PSScriptRoot "synthesize_transcript.py"
+if (-not [string]::IsNullOrWhiteSpace($SemanticResult) -and (Test-Path $SemanticResult)) {
+    Write-Host "`n[4/5] Validating & Synthesizing Macro/Meso/Micro Knowledge Wiki from Semantic Result..." -ForegroundColor Cyan
     $titleArg = "$videoTitle - Knowledge Synthesis"
     $synthArgs = @(
         $synthScript,
         "--transcript", $transcriptSrtFile,
+        "--semantic-result", $SemanticResult,
         "--output_dir", $videoOutputDir,
         "--slug", $videoId,
         "--title", $titleArg
     )
     $procSynth = Start-Process -FilePath "python" -ArgumentList $synthArgs -NoNewWindow -Wait -PassThru
+    if ($procSynth.ExitCode -eq 0 -and (Test-Path $knowledgeWikiFile)) {
+        $pipelineStatus = "SYNTHESIS_COMPLETE"
+        $eventType = "YOUTUBE_TRANSCRIPT_AND_SYNTHESIS_COMPLETED"
+        Write-Host "  -> Knowledge Wiki successfully validated & generated." -ForegroundColor Green
+    } else {
+        $pipelineStatus = "SYNTHESIS_FAILED"
+        Write-Host "  -> Synthesis validation failed with exit code $($procSynth.ExitCode)." -ForegroundColor Red
+    }
+} else {
+    Write-Host "`n[4/5] Synthesis: No semantic result JSON provided (State: SYNTHESIS_PENDING)." -ForegroundColor Yellow
 }
 
 # Step 5: Downstream AI Task Payload Generation & State Update
 Write-Host "`n[5/5] Generating Downstream AI Trigger Payload and Updating State..." -ForegroundColor Cyan
 
 $transcriptText = ""
-if (Test-Path (Join-Path $videoOutputDir "$videoId.txt")) {
-    $transcriptText = Get-Content (Join-Path $videoOutputDir "$videoId.txt") -Raw -Encoding utf8
+if (Test-Path $transcriptTxtFile) {
+    $transcriptText = Get-Content $transcriptTxtFile -Raw -Encoding utf8
 }
 
-$knowledgeWikiFile = Join-Path $videoOutputDir "$($videoId)_knowledge_wiki.md"
-
 $aiTaskPayload = [PSCustomObject]@{
-    event_type       = "YOUTUBE_TRANSCRIPT_AND_SYNTHESIS_COMPLETED"
+    event_type       = $eventType
+    status           = $pipelineStatus
     timestamp        = (Get-Date).ToUniversalTime().ToString("o")
     video_id         = $videoId
     video_title      = $videoTitle
@@ -184,12 +205,14 @@ $aiTaskPayload = [PSCustomObject]@{
     model_used       = $Model
     transcript_files = [PSCustomObject]@{
         knowledge_wiki = if (Test-Path $knowledgeWikiFile) { $knowledgeWikiFile } else { $null }
+        knowledge_json = if (Test-Path $knowledgeJsonFile) { $knowledgeJsonFile } else { $null }
         markdown = $transcriptMdFile
         subtitles = $transcriptSrtFile
         raw_json = $transcriptJsonFile
+        plaintext = $transcriptTxtFile
     }
     transcript_preview = if ($transcriptText.Length -gt 500) { $transcriptText.Substring(0, 500) + "..." } else { $transcriptText }
-    downstream_guardrail_prompt = "Review the synthesized knowledge wiki for $channel ('$videoTitle') and update project context."
+    downstream_guardrail_prompt = "Perform semantic extraction on transcript '$videoId' ($videoTitle) to produce a validated knowledge wiki."
 }
 
 $aiPayloadFile = Join-Path $repoRoot "artifacts\pending_ai_task.json"
@@ -197,13 +220,14 @@ $aiTaskPayload | ConvertTo-Json -Depth 6 | Set-Content -Path $aiPayloadFile -Enc
 
 # Update State File
 $stateEntry = [PSCustomObject]@{
-    id           = $videoId
-    title        = $videoTitle
-    channel      = $channel
-    url          = "https://www.youtube.com/watch?v=$videoId"
-    duration_str = $meta.duration_string
-    processed_at = (Get-Date).ToUniversalTime().ToString("o")
-    model        = $Model
+    id            = $videoId
+    title         = $videoTitle
+    channel       = $channel
+    url           = "https://www.youtube.com/watch?v=$videoId"
+    duration_str  = $meta.duration_string
+    processed_at  = (Get-Date).ToUniversalTime().ToString("o")
+    model         = $Model
+    status        = $pipelineStatus
     artifacts_dir = $videoOutputDir
 }
 

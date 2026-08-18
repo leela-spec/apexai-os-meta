@@ -1,0 +1,634 @@
+{
+  "context_only_segment_ids": [
+    "seg-001344",
+    "seg-001411"
+  ],
+  "contract_version": "ttk.semantic-contract.v2",
+  "core_segment_ids": [
+    "seg-001345",
+    "seg-001346",
+    "seg-001347",
+    "seg-001348",
+    "seg-001349",
+    "seg-001350",
+    "seg-001351",
+    "seg-001352",
+    "seg-001353",
+    "seg-001354",
+    "seg-001355",
+    "seg-001356",
+    "seg-001357",
+    "seg-001358",
+    "seg-001359",
+    "seg-001360",
+    "seg-001361",
+    "seg-001362",
+    "seg-001363",
+    "seg-001364",
+    "seg-001365",
+    "seg-001366",
+    "seg-001367",
+    "seg-001368",
+    "seg-001369",
+    "seg-001370",
+    "seg-001371",
+    "seg-001372",
+    "seg-001373",
+    "seg-001374",
+    "seg-001375",
+    "seg-001376",
+    "seg-001377",
+    "seg-001378",
+    "seg-001379",
+    "seg-001380",
+    "seg-001381",
+    "seg-001382",
+    "seg-001383",
+    "seg-001384",
+    "seg-001385",
+    "seg-001386",
+    "seg-001387",
+    "seg-001388",
+    "seg-001389",
+    "seg-001390",
+    "seg-001391",
+    "seg-001392",
+    "seg-001393",
+    "seg-001394",
+    "seg-001395",
+    "seg-001396",
+    "seg-001397",
+    "seg-001398",
+    "seg-001399",
+    "seg-001400",
+    "seg-001401",
+    "seg-001402",
+    "seg-001403",
+    "seg-001404",
+    "seg-001405",
+    "seg-001406",
+    "seg-001407",
+    "seg-001408",
+    "seg-001409",
+    "seg-001410"
+  ],
+  "packet_id": "map-window-0022",
+  "packet_sha256": "ebc28f8f00439628a4c8fb02796fcbf8db74d62e06f97ebce703df4839567ed6",
+  "result_path": "work/results/map/window-0022.json",
+  "rules": [
+    "Extract evidence only from core segments; context_only segments are orientation only.",
+    "Every candidate claim requires at least one verbatim quote from its cited core segment.",
+    "Do not force content into categories; empty arrays are valid.",
+    "Separate factual assertions from opinion, prediction, recommendation, decision, anecdote, definition, mechanism, estimate, and hypothesis.",
+    "Preserve disagreement and uncertainty rather than reconciling it."
+  ],
+  "schema": "ttk.map-packet.v2",
+  "source_segments": [
+    {
+      "end_hms": "02:00:54.890",
+      "id": "seg-001344",
+      "role": "context_only",
+      "speaker": null,
+      "start_hms": "02:00:49.409",
+      "text": "one of the most incredible things about that environment is everyone goes into the cafeteria for lunch"
+    },
+    {
+      "end_hms": "02:01:01.010",
+      "id": "seg-001345",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "02:00:55.510",
+      "text": "and all of a sudden the bell sounds and you could hear a pin drop but there's thousands of people"
+    },
+    {
+      "end_hms": "02:01:06.909",
+      "id": "seg-001346",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "02:01:01.010",
+      "text": "around you yeah you hear a bell again the meal begins walking to the auditorium at Shuffle Shuffle Shuffle"
+    },
+    {
+      "end_hms": "02:01:12.350",
+      "id": "seg-001347",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "02:01:06.909",
+      "text": "talking talking talking talking boom it's a step function they're training this in the cells"
+    },
+    {
+      "end_hms": "02:01:17.350",
+      "id": "seg-001348",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "02:01:12.350",
+      "text": "yeah and the other thing no phones no one has phones during the day they get I think they get an"
+    },
+    {
+      "end_hms": "02:01:21.590",
+      "id": "seg-001349",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "02:01:17.350",
+      "text": "hour where they can access their phones I normally my phone it's on right now because you guys"
+    },
+    {
+      "end_hms": "02:01:26.630",
+      "id": "seg-001350",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "02:01:21.590",
+      "text": "wanted to text me but normally my phone is off or I don't have a phone on me and and zero social"
+    },
+    {
+      "end_hms": "02:01:35.050",
+      "id": "seg-001351",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "02:01:26.630",
+      "text": "media not an X and not a social not on Facebook and not on Instagram zero I just and you know whenever"
+    },
+    {
+      "end_hms": "02:01:40.970",
+      "id": "seg-001352",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "02:01:35.050",
+      "text": "people ask me say oh you know can I hook you up with what's a thing LinkedIn or whatever I'm not"
+    },
+    {
+      "end_hms": "02:01:44.949",
+      "id": "seg-001353",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "02:01:40.970",
+      "text": "on LinkedIn I don't know if I don't care what LinkedIn and they're always surprised and say well"
+    },
+    {
+      "end_hms": "02:01:50.630",
+      "id": "seg-001354",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "02:01:44.949",
+      "text": "why are you not on the social media and I say why would I be I'm already above 100% in terms of"
+    },
+    {
+      "end_hms": "02:01:56.250",
+      "id": "seg-001355",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "02:01:50.630",
+      "text": "people emailing me I don't need more so I'm yeah zero love that you've given yourself permission"
+    },
+    {
+      "end_hms": "02:02:02.329",
+      "id": "seg-001356",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "02:01:56.250",
+      "text": "to do that I put social media on a separate phone so that I can really track my time on there"
+    },
+    {
+      "end_hms": "02:02:07.430",
+      "id": "seg-001357",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "02:02:02.329",
+      "text": "and I just use it only to post read a little bit and then I'm out now I just I can't take"
+    },
+    {
+      "end_hms": "02:02:12.760",
+      "id": "seg-001358",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "02:02:07.430",
+      "text": "the mental noise before we started recording you mentioned that you fortunately successfully"
+    },
+    {
+      "end_hms": "02:02:18.460",
+      "id": "seg-001359",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "02:02:12.760",
+      "text": "overcame about of illness yes I'm curious whether the process of going through that the diagnosis"
+    },
+    {
+      "end_hms": "02:02:23.720",
+      "id": "seg-001360",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "02:02:18.460",
+      "text": "the treatment and then emerging from it thank goodness healthy had you at times thinking about"
+    },
+    {
+      "end_hms": "02:02:28.260",
+      "id": "seg-001361",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "02:02:23.720",
+      "text": "the science of emotions I mean that's an emotional experience to say the least you don't have to"
+    },
+    {
+      "end_hms": "02:02:34.800",
+      "id": "seg-001362",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "02:02:28.260",
+      "text": "share with us exactly what it was but were there times when what your knowledge of the brain's"
+    },
+    {
+      "end_hms": "02:02:40.859",
+      "id": "seg-001363",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "02:02:34.800",
+      "text": "ability to process emotions for better or worse was a useful tool to you in that context I guess"
+    },
+    {
+      "end_hms": "02:02:46.399",
+      "id": "seg-001364",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "02:02:40.859",
+      "text": "so I mean you know only in the most indirect sense but I guess it's about emotion regulation"
+    },
+    {
+      "end_hms": "02:02:50.680",
+      "id": "seg-001365",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "02:02:46.399",
+      "text": "well it's got two things I think it's about emotion regulation so you know you know initially when"
+    },
+    {
+      "end_hms": "02:02:57.439",
+      "id": "seg-001366",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "02:02:50.680",
+      "text": "you get a diagnosis that reminds you of your mortality sort of a mixture of you know"
+    },
+    {
+      "end_hms": "02:03:04.659",
+      "id": "seg-001367",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "02:02:57.439",
+      "text": "fear sadness worry you know all these negative emotions and so you're regulating that and it's"
+    },
+    {
+      "end_hms": "02:03:09.300",
+      "id": "seg-001368",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "02:03:04.659",
+      "text": "interpersonal for sure so interpersonal emotion regulation between me and my wife"
+    },
+    {
+      "end_hms": "02:03:14.640",
+      "id": "seg-001369",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "02:03:09.300",
+      "text": "us talking about it so that's like a huge part of the process if you're not regulating those"
+    },
+    {
+      "end_hms": "02:03:23.899",
+      "id": "seg-001370",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "02:03:14.640",
+      "text": "negative emotions anymore but you're you're buying into you're getting more other emotions like"
+    },
+    {
+      "end_hms": "02:03:29.739",
+      "id": "seg-001371",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "02:03:23.899",
+      "text": "awe gratitude acceptance all of these emotions we were talking about before that I think are"
+    },
+    {
+      "end_hms": "02:03:35.880",
+      "id": "seg-001372",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "02:03:29.739",
+      "text": "largely uniquely human that really makes you appreciate and be just grateful for what you have so"
+    },
+    {
+      "end_hms": "02:03:41.260",
+      "id": "seg-001373",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "02:03:35.880",
+      "text": "that whole process of regulating the sort of you know immediate stressors and then coming to"
+    },
+    {
+      "end_hms": "02:03:48.600",
+      "id": "seg-001374",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "02:03:42.439",
+      "text": "having more gratitude in awe in everyday life and then you know also I mean I think one big"
+    },
+    {
+      "end_hms": "02:03:54.220",
+      "id": "seg-001375",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "02:03:48.600",
+      "text": "consequence of anything like that is that you have this metacognitive perspective on your"
+    },
+    {
+      "end_hms": "02:04:00.340",
+      "id": "seg-001376",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "02:03:54.220",
+      "text": "lifeline and you know where you are how much time you have left and how to value that and what to do"
+    },
+    {
+      "end_hms": "02:04:06.300",
+      "id": "seg-001377",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "02:04:00.340",
+      "text": "and what to plan and how to allocate your time to things that are worthwhile and so in my case one"
+    },
+    {
+      "end_hms": "02:04:11.659",
+      "id": "seg-001378",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "02:04:06.300",
+      "text": "of those components was you know signing up for this 100 mile term marathon starting to train for"
+    },
+    {
+      "end_hms": "02:04:16.699",
+      "id": "seg-001379",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "02:04:11.659",
+      "text": "it and then just pushing through all of that so you know one of the consequences of the therapy"
+    },
+    {
+      "end_hms": "02:04:22.680",
+      "id": "seg-001380",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "02:04:16.699",
+      "text": "for this was I had lots of joints pain and lots of fatigue so I tell my doctor about that you say"
+    },
+    {
+      "end_hms": "02:04:27.220",
+      "id": "seg-001381",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "02:04:22.680",
+      "text": "that's great that means it's working it's just like yes but the side effects are preventing me from"
+    },
+    {
+      "end_hms": "02:04:32.500",
+      "id": "seg-001382",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "02:04:27.220",
+      "text": "trading for a hundred mile raise and so pushing through that I think it just it makes you"
+    },
+    {
+      "end_hms": "02:04:38.460",
+      "id": "seg-001383",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "02:04:32.500",
+      "text": "grateful for what you have and makes you just be in awe of the fact that you know we're briefly"
+    },
+    {
+      "end_hms": "02:04:43.539",
+      "id": "seg-001384",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "02:04:38.460",
+      "text": "talking about consciousness before that there's a world there at all you tend to have this"
+    },
+    {
+      "end_hms": "02:04:49.460",
+      "id": "seg-001385",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "02:04:43.539",
+      "text": "perspective that physics gives us of the way the world works that you know the world is going on"
+    },
+    {
+      "end_hms": "02:04:54.880",
+      "id": "seg-001386",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "02:04:49.460",
+      "text": "and when you die you get plucked out of that and everything else goes on but from a neuroscience"
+    },
+    {
+      "end_hms": "02:04:59.939",
+      "id": "seg-001387",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "02:04:54.880",
+      "text": "perspective it's kind of the opposite you get the sense that the whole world is actually a"
+    },
+    {
+      "end_hms": "02:05:05.420",
+      "id": "seg-001388",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "02:04:59.939",
+      "text": "construction of stuff in your brain and as you get older little things drop out and various people"
+    },
+    {
+      "end_hms": "02:05:11.380",
+      "id": "seg-001389",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "02:05:05.420",
+      "text": "die and you're unable to do things and eventually you lose the whole world so rather than thinking of"
+    },
+    {
+      "end_hms": "02:05:17.939",
+      "id": "seg-001390",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "02:05:11.380",
+      "text": "death as we normally do as the world loses you the neuroscience perspective is the inverse which"
+    },
+    {
+      "end_hms": "02:05:22.739",
+      "id": "seg-001391",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "02:05:17.939",
+      "text": "is you lose the world so you have like you know a couple of decades left and then you're going to lose"
+    },
+    {
+      "end_hms": "02:05:30.140",
+      "id": "seg-001392",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "02:05:22.739",
+      "text": "everything and that's coming so live it up I love it and thank you so much for being willing to"
+    },
+    {
+      "end_hms": "02:05:36.300",
+      "id": "seg-001393",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "02:05:30.140",
+      "text": "answer that question I'm sure throughout today's conversation I'm struck by the fact that your"
+    },
+    {
+      "end_hms": "02:05:41.319",
+      "id": "seg-001394",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "02:05:36.300",
+      "text": "workplace such a prominent role in your life and your life and your work even if we weren't necessarily"
+    },
+    {
+      "end_hms": "02:05:47.239",
+      "id": "seg-001395",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "02:05:41.319",
+      "text": "connecting the dots in that way the the fact that you do practices specifically to tap into your"
+    },
+    {
+      "end_hms": "02:05:52.260",
+      "id": "seg-001396",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "02:05:47.239",
+      "text": "autonomic nervous system emotion regulation and at the same time the fact that you look at"
+    },
+    {
+      "end_hms": "02:05:57.960",
+      "id": "seg-001397",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "02:05:52.260",
+      "text": "neural circuits and do extremely well controlled studies to explore the mechanics that translate to"
+    },
+    {
+      "end_hms": "02:06:03.619",
+      "id": "seg-001398",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "02:05:57.960",
+      "text": "everybody like this is a in case anyone hasn't told you and because I sit at a unique vantage point"
+    },
+    {
+      "end_hms": "02:06:08.960",
+      "id": "seg-001399",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "02:06:03.619",
+      "text": "both having done academic research and now in public health communication people need to hear"
+    },
+    {
+      "end_hms": "02:06:15.399",
+      "id": "seg-001400",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "02:06:08.960",
+      "text": "this and see an experienced scientist like you so thank you so much for coming here today for"
+    },
+    {
+      "end_hms": "02:06:20.619",
+      "id": "seg-001401",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "02:06:15.880",
+      "text": "being willing to open up about some of this and frankly for doing the work that you do for so"
+    },
+    {
+      "end_hms": "02:06:24.739",
+      "id": "seg-001402",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "02:06:20.619",
+      "text": "many years and such at such a high level and I'm so grateful that you're writing yet another book"
+    },
+    {
+      "end_hms": "02:06:29.779",
+      "id": "seg-001403",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "02:06:25.180",
+      "text": "if it's not out yet we can't put a link to it just yet but when it comes out I'll surely get a copy"
+    },
+    {
+      "end_hms": "02:06:34.600",
+      "id": "seg-001404",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "02:06:29.779",
+      "text": "and even though you're not on social media I'll be sure to talk about it after I've read it because"
+    },
+    {
+      "end_hms": "02:06:38.640",
+      "id": "seg-001405",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "02:06:34.600",
+      "text": "as I did the prior book that you wrote with David so thank you very much for the pleasure being"
+    },
+    {
+      "end_hms": "02:06:42.380",
+      "id": "seg-001406",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "02:06:38.640",
+      "text": "here we'll stay in touch and maybe at some point I can tell you that I finished a hundred mile"
+    },
+    {
+      "end_hms": "02:06:47.739",
+      "id": "seg-001407",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "02:06:42.380",
+      "text": "race in the book got published excellent I have no doubt that you will whether I join you for that"
+    },
+    {
+      "end_hms": "02:06:52.520",
+      "id": "seg-001408",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "02:06:47.739",
+      "text": "hundred mile races a completely different story but thank you so much Ralph appreciate you thank you"
+    },
+    {
+      "end_hms": "02:06:57.500",
+      "id": "seg-001409",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "02:06:52.520",
+      "text": "thank you for joining me for today's discussion with Dr. Ralph Adolfs to learn more about his work"
+    },
+    {
+      "end_hms": "02:07:01.960",
+      "id": "seg-001410",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "02:06:57.500",
+      "text": "and to find links to his previous and forthcoming books please see the link in the show note"
+    },
+    {
+      "end_hms": "02:07:06.479",
+      "id": "seg-001411",
+      "role": "context_only",
+      "speaker": null,
+      "start_hms": "02:07:02.640",
+      "text": "if you're learning from and or enjoying this podcast please subscribe to our YouTube channel"
+    }
+  ],
+  "source_sha256": "3e46962b9a0be33deecf1612ca70d8c2ceb1405ce67075ce22c6123d8e972c9d",
+  "window_id": "window-0022"
+}

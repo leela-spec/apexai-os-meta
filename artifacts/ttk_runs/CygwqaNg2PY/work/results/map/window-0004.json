@@ -1,0 +1,141 @@
+{
+  "schema": "ttk.map-result.v2",
+  "packet_id": "map-window-0004",
+  "packet_sha256": "f3df8f3020b77a7237de4bd7ba8d135a3577a8550bca7d3399645a4f6fbc018b",
+  "window_id": "window-0004",
+  "subtopics": [
+    {
+      "label": "Window window-0004 Topics",
+      "source_segment_ids": [
+        "seg-000162",
+        "seg-000163",
+        "seg-000164",
+        "seg-000165",
+        "seg-000166",
+        "seg-000167",
+        "seg-000168",
+        "seg-000169",
+        "seg-000170",
+        "seg-000171",
+        "seg-000172",
+        "seg-000173",
+        "seg-000174",
+        "seg-000175",
+        "seg-000176",
+        "seg-000177",
+        "seg-000178",
+        "seg-000179",
+        "seg-000180",
+        "seg-000181",
+        "seg-000182",
+        "seg-000183",
+        "seg-000184",
+        "seg-000185",
+        "seg-000186",
+        "seg-000187",
+        "seg-000188",
+        "seg-000189",
+        "seg-000190",
+        "seg-000191",
+        "seg-000192",
+        "seg-000193",
+        "seg-000194",
+        "seg-000195",
+        "seg-000196",
+        "seg-000197",
+        "seg-000198",
+        "seg-000199",
+        "seg-000200",
+        "seg-000201",
+        "seg-000202",
+        "seg-000203",
+        "seg-000204",
+        "seg-000205",
+        "seg-000206",
+        "seg-000207",
+        "seg-000208",
+        "seg-000209",
+        "seg-000210",
+        "seg-000211",
+        "seg-000212",
+        "seg-000213",
+        "seg-000214",
+        "seg-000215"
+      ]
+    }
+  ],
+  "key_points": [
+    {
+      "text": "maybe maybe in simple terms very often retail investors ask me you know looks really super",
+      "source_segment_ids": [
+        "seg-000162"
+      ]
+    },
+    {
+      "text": "interesting where do we actually start how can I get a good understanding of what it actually",
+      "source_segment_ids": [
+        "seg-000163"
+      ]
+    },
+    {
+      "text": "does which which how would you recommend somebody that is interested in working with Elliott wave",
+      "source_segment_ids": [
+        "seg-000164"
+      ]
+    }
+  ],
+  "mechanisms": [],
+  "protocols": [],
+  "arguments": [],
+  "candidate_claims": [
+    {
+      "claim_text": "maybe maybe in simple terms very often retail investors ask me you know looks really super",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000162"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000162",
+          "quote": "maybe maybe in simple terms very often retail investors ask me you know looks really super"
+        }
+      ],
+      "checkworthiness": "medium"
+    },
+    {
+      "claim_text": "interesting where do we actually start how can I get a good understanding of what it actually",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000163"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000163",
+          "quote": "interesting where do we actually start how can I get a good understanding of what it actually"
+        }
+      ],
+      "checkworthiness": "low"
+    },
+    {
+      "claim_text": "does which which how would you recommend somebody that is interested in working with Elliott wave",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000164"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000164",
+          "quote": "does which which how would you recommend somebody that is interested in working with Elliott wave"
+        }
+      ],
+      "checkworthiness": "low"
+    }
+  ],
+  "entities": [],
+  "concepts": [],
+  "open_questions": [],
+  "contradictions_or_uncertainty": []
+}
