@@ -1,0 +1,85 @@
+{
+  "macro": {
+    "contradictions_or_uncertainty": [],
+    "speaker_context": [
+      "Fresh Run vFTuLylvYnA"
+    ],
+    "summary": "Complete multi-module synthesis for fresh vFTuLylvYnA.",
+    "takeaways": [
+      {
+        "meso_refs": [
+          "meso-0001"
+        ],
+        "source_segment_ids": [
+          "seg-000001"
+        ],
+        "text": "Fresh takeaway for vFTuLylvYnA"
+      }
+    ],
+    "taxonomy": [
+      "Fresh-vFTuLylvYnA"
+    ],
+    "thesis": "Fresh end-to-end synthesis for Markus Koch - German Market Analysis (DE Fresh E2E)."
+  },
+  "meso": [
+    {
+      "arguments": [
+        "Central argument in vFTuLylvYnA"
+      ],
+      "caveats": [],
+      "claim_refs": [
+        "claim-0001"
+      ],
+      "concepts": [
+        "Concept-vFTuLylvYnA"
+      ],
+      "entities": [
+        "Entity-vFTuLylvYnA"
+      ],
+      "mechanisms": [
+        {
+          "source_segment_ids": [
+            "seg-000001"
+          ],
+          "text": "Key mechanism in vFTuLylvYnA"
+        }
+      ],
+      "meso_ref": "meso-0001",
+      "protocols": [],
+      "source_segment_ids": [
+        "seg-000001"
+      ],
+      "summary": "Fresh structured section for vFTuLylvYnA.",
+      "title": "Fresh Foundational Module for vFTuLylvYnA"
+    }
+  ],
+  "micro": [
+    {
+      "checkworthiness": "medium",
+      "claim_kind": "fact",
+      "claim_ref": "claim-0001",
+      "claim_text": "Fresh verified proposition in vFTuLylvYnA",
+      "entities": [
+        "Entity-vFTuLylvYnA"
+      ],
+      "quote_evidence": [
+        {
+          "quote": "[ASR Fresh v2",
+          "segment_id": "seg-000001"
+        }
+      ],
+      "source_segment_ids": [
+        "seg-000001"
+      ],
+      "source_support": "SUPPORTED",
+      "speaker": null,
+      "topics": [
+        "Topic-vFTuLylvYnA"
+      ]
+    }
+  ],
+  "packet_id": "reduce-final",
+  "packet_sha256": "fa9a8fbe4de98e93746d188e5abff5fe5af42c0ba0ca35b1a229dd870fcec318",
+  "rejected_or_unresolved_candidates": [],
+  "schema": "ttk.reduce-result.v2"
+}

@@ -1,0 +1,171 @@
+{
+  "arguments": [],
+  "candidate_claims": [
+    {
+      "checkworthiness": "medium",
+      "claim_kind": "fact",
+      "claim_text": "Fresh proposition from window-0001",
+      "quote_evidence": [
+        {
+          "quote": "[ASR Fresh v2",
+          "segment_id": "seg-000001"
+        }
+      ],
+      "source_segment_ids": [
+        "seg-000001"
+      ],
+      "source_window_ids": [
+        "window-0001"
+      ],
+      "speaker": null
+    },
+    {
+      "checkworthiness": "medium",
+      "claim_kind": "fact",
+      "claim_text": "Fresh proposition from window-0002",
+      "quote_evidence": [
+        {
+          "quote": "bei denen es garantiert, dass es auch Be",
+          "segment_id": "seg-000078"
+        }
+      ],
+      "source_segment_ids": [
+        "seg-000078"
+      ],
+      "source_window_ids": [
+        "window-0002"
+      ],
+      "speaker": null
+    },
+    {
+      "checkworthiness": "medium",
+      "claim_kind": "fact",
+      "claim_text": "Fresh proposition from window-0003",
+      "quote_evidence": [
+        {
+          "quote": "Na ja, die Wall Street findet natürlich immer irgendwelche Gründe",
+          "segment_id": "seg-000132"
+        }
+      ],
+      "source_segment_ids": [
+        "seg-000132"
+      ],
+      "source_window_ids": [
+        "window-0003"
+      ],
+      "speaker": null
+    }
+  ],
+  "concepts": [
+    {
+      "description": "Domain concept vFTuLylvYnA",
+      "name": "Concept-vFTuLylvYnA",
+      "source_segment_ids": [
+        "seg-000001",
+        "seg-000078",
+        "seg-000132"
+      ],
+      "type": "domain_concept"
+    }
+  ],
+  "contradictions_or_uncertainty": [],
+  "entities": [
+    {
+      "description": "Domain entity vFTuLylvYnA",
+      "name": "Entity-vFTuLylvYnA",
+      "source_segment_ids": [
+        "seg-000001",
+        "seg-000078",
+        "seg-000132"
+      ],
+      "type": "domain_entity"
+    }
+  ],
+  "key_points": [
+    {
+      "source_segment_ids": [
+        "seg-000001"
+      ],
+      "source_window_id": "window-0001",
+      "text": "Fresh finding from window-0001"
+    },
+    {
+      "source_segment_ids": [
+        "seg-000078"
+      ],
+      "source_window_id": "window-0002",
+      "text": "Fresh finding from window-0002"
+    },
+    {
+      "source_segment_ids": [
+        "seg-000132"
+      ],
+      "source_window_id": "window-0003",
+      "text": "Fresh finding from window-0003"
+    }
+  ],
+  "map_packet_sha256": [
+    "73bb1ee27e622b1a9fdc0a0497823ac371a5340d8a8be0f4e2cf442002365528",
+    "e01eb5bb51a77f3e782b4da20cad6a88a345c9e0699d182a701158fd2aad4478",
+    "b843b14b49391c8c9b80133b5c152f89ccdfb637809d7fffa70d96411c8535c2"
+  ],
+  "map_result_sha256": [
+    "38417b8442fdaab475cb50d84fc628901be906e1543139fd67a750d451e4fb04",
+    "037859fbb2174f92345ad4ed13f5fcae1c01e24bdb32d01ec1a6ba204d25cac3",
+    "33941cdfdd10af2af6aef40b887e68946243bef876fa255ccf7438c1cb28b1db"
+  ],
+  "mechanisms": [
+    {
+      "source_segment_ids": [
+        "seg-000001"
+      ],
+      "source_window_id": "window-0001",
+      "text": "Grounded mechanism in fresh vFTuLylvYnA"
+    },
+    {
+      "source_segment_ids": [
+        "seg-000078"
+      ],
+      "source_window_id": "window-0002",
+      "text": "Grounded mechanism in fresh vFTuLylvYnA"
+    },
+    {
+      "source_segment_ids": [
+        "seg-000132"
+      ],
+      "source_window_id": "window-0003",
+      "text": "Grounded mechanism in fresh vFTuLylvYnA"
+    }
+  ],
+  "near_duplicate_claim_candidates": [],
+  "open_questions": [],
+  "protocols": [],
+  "schema": "ttk.evidence-ledger.v2",
+  "source_sha256": "f2470887010a48aaee1f864dfcf751c1b789470e563b53e281f49a68f9308be7",
+  "subtopics": [
+    {
+      "label": "Fresh section window-0001",
+      "source_segment_ids": [
+        "seg-000001",
+        "seg-000002"
+      ],
+      "source_window_id": "window-0001"
+    },
+    {
+      "label": "Fresh section window-0002",
+      "source_segment_ids": [
+        "seg-000078",
+        "seg-000079"
+      ],
+      "source_window_id": "window-0002"
+    },
+    {
+      "label": "Fresh section window-0003",
+      "source_segment_ids": [
+        "seg-000132",
+        "seg-000133"
+      ],
+      "source_window_id": "window-0003"
+    }
+  ]
+}

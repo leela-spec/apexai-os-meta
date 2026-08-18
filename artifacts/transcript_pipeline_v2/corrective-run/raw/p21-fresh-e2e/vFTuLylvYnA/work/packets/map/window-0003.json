@@ -1,0 +1,463 @@
+{
+  "context_only_segment_ids": [
+    "seg-000131"
+  ],
+  "contract_version": "ttk.semantic-contract.v2",
+  "core_segment_ids": [
+    "seg-000132",
+    "seg-000133",
+    "seg-000134",
+    "seg-000135",
+    "seg-000136",
+    "seg-000137",
+    "seg-000138",
+    "seg-000139",
+    "seg-000140",
+    "seg-000141",
+    "seg-000142",
+    "seg-000143",
+    "seg-000144",
+    "seg-000145",
+    "seg-000146",
+    "seg-000147",
+    "seg-000148",
+    "seg-000149",
+    "seg-000150",
+    "seg-000151",
+    "seg-000152",
+    "seg-000153",
+    "seg-000154",
+    "seg-000155",
+    "seg-000156",
+    "seg-000157",
+    "seg-000158",
+    "seg-000159",
+    "seg-000160",
+    "seg-000161",
+    "seg-000162",
+    "seg-000163",
+    "seg-000164",
+    "seg-000165",
+    "seg-000166",
+    "seg-000167",
+    "seg-000168",
+    "seg-000169",
+    "seg-000170",
+    "seg-000171",
+    "seg-000172",
+    "seg-000173",
+    "seg-000174",
+    "seg-000175",
+    "seg-000176",
+    "seg-000177",
+    "seg-000178",
+    "seg-000179"
+  ],
+  "packet_id": "map-window-0003",
+  "packet_sha256": "b843b14b49391c8c9b80133b5c152f89ccdfb637809d7fffa70d96411c8535c2",
+  "result_path": "work/results/map/window-0003.json",
+  "rules": [
+    "Extract evidence only from core segments; context_only segments are orientation only.",
+    "Every candidate claim requires at least one verbatim quote from its cited core segment.",
+    "Do not force content into categories; empty arrays are valid.",
+    "Separate factual assertions from opinion, prediction, recommendation, decision, anecdote, definition, mechanism, estimate, and hypothesis.",
+    "Preserve disagreement and uncertainty rather than reconciling it."
+  ],
+  "schema": "ttk.map-packet.v2",
+  "source_segments": [
+    {
+      "end_hms": "00:14:37.559",
+      "id": "seg-000131",
+      "role": "context_only",
+      "speaker": null,
+      "start_hms": "00:14:30.320",
+      "text": "blau, blau, blau, blau, blau, alles gut gelaufen. Fazit, Aktie, Minus, 12%, warum?"
+    },
+    {
+      "end_hms": "00:14:43.279",
+      "id": "seg-000132",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:14:38.620",
+      "text": "Na ja, die Wall Street findet natürlich immer irgendwelche Gründe. Ja, wir hatten schon in den letzten"
+    },
+    {
+      "end_hms": "00:14:49.740",
+      "id": "seg-000133",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:14:43.279",
+      "text": "Tagen oft gute Zahlen und dann trotzdem eben verkäufe, also nach dem Motto 1 Server News Ereignis und"
+    },
+    {
+      "end_hms": "00:14:57.980",
+      "id": "seg-000134",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:14:49.740",
+      "text": "es gibt ja der Bereich Data-Kommen Umsätze enttäuschend, aber wir reden hier von ein paar Millionen Euro,"
+    },
+    {
+      "end_hms": "00:15:06.600",
+      "id": "seg-000135",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:14:57.980",
+      "text": "die Data-Kommen Umsätze lagen bei 258 Millionen, das ist eine Verfehlung von 13 Millionen Dollar."
+    },
+    {
+      "end_hms": "00:15:13.679",
+      "id": "seg-000136",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:15:07.179",
+      "text": "Beim Unternehmen das 1,3 Milliarden Dollar Umsatz fährt, ist das doch schon erstaunlich,"
+    },
+    {
+      "end_hms": "00:15:20.659",
+      "id": "seg-000137",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:15:13.759",
+      "text": "dass die Aktie trotzdem 12% heute Morgen auf der Verliererseite ist. Es gibt dazu einige"
+    },
+    {
+      "end_hms": "00:15:27.419",
+      "id": "seg-000138",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:15:20.659",
+      "text": "analogisten Kommentare, wir haben einmal JP Morgan, die die Aktie tatsächlich nur mit neutral"
+    },
+    {
+      "end_hms": "00:15:35.100",
+      "id": "seg-000139",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:15:28.200",
+      "text": "einstufen und einem Kurs, wir von 695 Dollar, aber neutral. Beim Kurs, wir von 695 Dollar, die"
+    },
+    {
+      "end_hms": "00:15:41.740",
+      "id": "seg-000140",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:15:35.100",
+      "text": "Aktie ist bei 524 Dollar heute Morgen und man sagt ja, der Bereich Data-Kommen, die Umsätze hier"
+    },
+    {
+      "end_hms": "00:15:53.389",
+      "id": "seg-000141",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:15:41.740",
+      "text": "waren ein bisschen weicher als erwartet und man geht aber davon aus, ne, sorry, waren etwas weicher"
+    },
+    {
+      "end_hms": "00:15:59.330",
+      "id": "seg-000142",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:15:53.389",
+      "text": "als erwarten, das überschattet, das insgesamt zunehmende Umsatzwachstum. All right, Barclays"
+    },
+    {
+      "end_hms": "00:16:05.669",
+      "id": "seg-000143",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:15:59.330",
+      "text": "hebt das Kurs hier sogar an auf 739 Dollar. Hier hat man eine Kaufempfehlung, sagt sehr solides"
+    },
+    {
+      "end_hms": "00:16:12.409",
+      "id": "seg-000144",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:16:05.669",
+      "text": "Quartal, Umsatzerwartung geschlagen, Ertragschätzungen. Auch sehr viel starke im Bereich Data Center"
+    },
+    {
+      "end_hms": "00:16:20.379",
+      "id": "seg-000145",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:16:12.409",
+      "text": "insgesamt, wie dem auch sei, Data-Kommen und High-Performance-Compute. Diese zwei Segmente haben"
+    },
+    {
+      "end_hms": "00:16:27.620",
+      "id": "seg-000146",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:16:20.379",
+      "text": "die Schätzungen im abgelaufenen Quartal minimal verfielt. Nichtsdestotrotz dürfte im Fiskaljahr"
+    },
+    {
+      "end_hms": "00:16:37.299",
+      "id": "seg-000147",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:16:27.620",
+      "text": "2027 das Wachstum an Dynamik gewinnen. Klingt nicht schlecht, aber die Aktie 12% im Minus. So und damit"
+    },
+    {
+      "end_hms": "00:16:42.799",
+      "id": "seg-000148",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:16:37.299",
+      "text": "bleibe ich mal direkt im Textsektor und schauen wir uns nochmal Nvidia an. Wir haben ja"
+    },
+    {
+      "end_hms": "00:16:52.899",
+      "id": "seg-000149",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:16:42.799",
+      "text": "nächste Woche zu den großen Highlights, die Quartalzahlen von Nvidia am 26. August. Und bei Nvidia haben"
+    },
+    {
+      "end_hms": "00:16:59.740",
+      "id": "seg-000150",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:16:52.899",
+      "text": "wir jetzt vorbeersicht einen Minus auch von 2%. Weil die Banker von America sagt, gute Einstiegs"
+    },
+    {
+      "end_hms": "00:17:08.079",
+      "id": "seg-000151",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:16:59.740",
+      "text": "Gelegenheit, Kursstil 350 Dollar bis 420. Und man betont die Bewertung, sei auf den aktuellen"
+    },
+    {
+      "end_hms": "00:17:17.440",
+      "id": "seg-000152",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:17:08.079",
+      "text": "Niveau attraktiv. Man handelt im Vergleich zum verfügbaren Cash Flow zu einem Discount von 34 bis 50%"
+    },
+    {
+      "end_hms": "00:17:26.079",
+      "id": "seg-000153",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:17:17.440",
+      "text": "und zwar inklusive der Risiken, die man eingeht bei Wander finanzierungen, aber finanzierungen"
+    },
+    {
+      "end_hms": "00:17:35.559",
+      "id": "seg-000154",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:17:26.079",
+      "text": "letztendlich gesehen von Kunden. Die Banker von America glaubt, dass die Off Balance-Sheet Risiken,"
+    },
+    {
+      "end_hms": "00:17:44.779",
+      "id": "seg-000155",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:17:35.660",
+      "text": "also die Risiken, die nicht in der Bilanz getragen werden, risk matters, dass sei ein Faktor der"
+    },
+    {
+      "end_hms": "00:17:52.940",
+      "id": "seg-000156",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:17:44.779",
+      "text": "wichtig sei, wie dem auch sei, wird dieser Punkt eigentlich überlagert durch die attraktive"
+    },
+    {
+      "end_hms": "00:17:59.059",
+      "id": "seg-000157",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:17:52.940",
+      "text": "Bewertung. Also klingt eigentlich bullish, Aktie aber auf der Verliererseite. Ansonsten haben"
+    },
+    {
+      "end_hms": "00:18:04.380",
+      "id": "seg-000158",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:17:59.059",
+      "text": "wir bei den Analysen Kommentare nicht so wahnsinnig viel spannendes. Salesforce wird heute bei"
+    },
+    {
+      "end_hms": "00:18:10.440",
+      "id": "seg-000159",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:18:04.380",
+      "text": "der City Group mit neutral eingestuft. Das Kurs, die wir trotzdem angehoben auf 204 Dollar gestern"
+    },
+    {
+      "end_hms": "00:18:16.640",
+      "id": "seg-000160",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:18:10.440",
+      "text": "waren die ganzen Software-Aktien auf der Verliererseite Salesforce. Heute morgen 1,1% im Plus,"
+    },
+    {
+      "end_hms": "00:18:23.740",
+      "id": "seg-000161",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:18:16.940",
+      "text": "im Vorfeld der Ergebnisse für das zweite Quartal. Die City ist wie gesagt nur bei neutral."
+    },
+    {
+      "end_hms": "00:18:29.460",
+      "id": "seg-000162",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:18:24.299",
+      "text": "Aber wie gesagt, manchmal liest man Analysen Kommentare und fragt sich, warum. Also das Kurs,"
+    },
+    {
+      "end_hms": "00:18:34.640",
+      "id": "seg-000163",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:18:29.559",
+      "text": "die wird angehoben, die Aktie wird aber nur mit neutral eingestuft und gleichzeitig sagt man ja"
+    },
+    {
+      "end_hms": "00:18:40.680",
+      "id": "seg-000164",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:18:34.640",
+      "text": "in der Tat, wenn man sich also umhört bei den Partnern, dann entwickelt sich das Geschäft von Salesforce"
+    },
+    {
+      "end_hms": "00:18:47.000",
+      "id": "seg-000165",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:18:40.680",
+      "text": "sehr gemischt, scheint sich aber im Vergleich zum ersten Quartal gebessert zu haben und man hebt"
+    },
+    {
+      "end_hms": "00:18:54.259",
+      "id": "seg-000166",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:18:47.000",
+      "text": "für das zweite Quartal die Umsatz erwartungen an, aber nur auf das Niveau der Konsenschätzung. Also"
+    },
+    {
+      "end_hms": "00:19:00.259",
+      "id": "seg-000167",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:18:54.259",
+      "text": "bullish sieht eigentlich anders aus. Duolingo wird heute 4% im Plus starten. Da gibt's auch eine"
+    },
+    {
+      "end_hms": "00:19:06.460",
+      "id": "seg-000168",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:19:00.259",
+      "text": "Kaufempfehlung von DA Davidson. Kursthil steigt auf 160 Dollar. Der Markt würde die Marketing"
+    },
+    {
+      "end_hms": "00:19:14.039",
+      "id": "seg-000169",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:19:06.460",
+      "text": "um monetarisierungsmöglichkeiten nicht ausreichend im Aktienkurs reflektieren. Kernproblem ist natürlich"
+    },
+    {
+      "end_hms": "00:19:22.019",
+      "id": "seg-000170",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:19:14.039",
+      "text": "hier vor allen Dingen der Wettbewerb durch das Thema AI. Wir haben MongoDB bei Guggenheim. Kursthil wird"
+    },
+    {
+      "end_hms": "00:19:28.500",
+      "id": "seg-000171",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:19:22.019",
+      "text": "auf 560 Dollar angehoben. Auch hier geht man davon aus, dass das Wachstum im zweiten Quartal des"
+    },
+    {
+      "end_hms": "00:19:35.960",
+      "id": "seg-000172",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:19:28.500",
+      "text": "Fiskalenjahres 27 höher ausfallen wird als erwartet und dass die Aussichten weiter nach oben geschraubt werden,"
+    },
+    {
+      "end_hms": "00:19:46.339",
+      "id": "seg-000173",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:19:36.240",
+      "text": "inklusive auch für das dritte Quartal rechnet Guggenheim mit 26% Wachstum und dann im Fiskaljahr 2027"
+    },
+    {
+      "end_hms": "00:19:53.079",
+      "id": "seg-000174",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:19:46.339",
+      "text": "mit einem Umsatz Wachstum in Richtung 22%. Also sehr langfristig, sehr viel Visibilität,"
+    },
+    {
+      "end_hms": "00:19:58.859",
+      "id": "seg-000175",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:19:53.079",
+      "text": "übrigens nicht der einzige Analyse, der sich heute zum MongoDB positiv äußert. Die Akte ist allerdings"
+    },
+    {
+      "end_hms": "00:20:06.359",
+      "id": "seg-000176",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:19:58.859",
+      "text": "auch in den letzten Wochen schon sehr stark gestiegen. Wir kommen von 299 Dollar am 24. Juli und sind"
+    },
+    {
+      "end_hms": "00:20:15.500",
+      "id": "seg-000177",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:20:06.359",
+      "text": "jetzt bei 440 Dollar. Also das Ding hat schon ordentlich umgehabt. Steifel hebt das Kursthil heute auf 475"
+    },
+    {
+      "end_hms": "00:20:21.980",
+      "id": "seg-000178",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:20:15.500",
+      "text": "Dollar an. So, guys, damit bin ich dann auch durch vor heute. Wir sehen uns nachher wieder zur Closing Bell"
+    },
+    {
+      "end_hms": "00:20:23.599",
+      "id": "seg-000179",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:20:21.980",
+      "text": "bis dann und macht es gut."
+    }
+  ],
+  "source_sha256": "f2470887010a48aaee1f864dfcf751c1b789470e563b53e281f49a68f9308be7",
+  "window_id": "window-0003"
+}

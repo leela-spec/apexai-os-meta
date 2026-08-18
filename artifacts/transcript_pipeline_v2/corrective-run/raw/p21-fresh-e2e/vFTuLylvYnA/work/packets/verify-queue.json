@@ -1,0 +1,29 @@
+{
+  "items": [
+    {
+      "checkworthiness": "medium",
+      "claim_ref": "claim-0001",
+      "claim_text": "Fresh verified proposition in vFTuLylvYnA",
+      "preferred_source_types": [
+        "official primary source",
+        "primary research"
+      ],
+      "quote_evidence": [
+        {
+          "quote": "[ASR Fresh v2",
+          "segment_id": "seg-000001"
+        }
+      ],
+      "search_question": "Fresh verified proposition in vFTuLylvYnA",
+      "source_segment_ids": [
+        "seg-000001"
+      ],
+      "source_support": "SUPPORTED"
+    }
+  ],
+  "minimum_checkworthiness": "medium",
+  "queue_sha256": "5a0d632e749a432a090fc35c348d67df8384ec4910b0cffc44b8434e723f9711",
+  "reduce_result_sha256": "b7065e9d2c2adca8569f9840a813a28494aa2eccd25f63549e6a0423d3a50d1c",
+  "schema": "ttk.verify-queue.v2",
+  "source_sha256": "f2470887010a48aaee1f864dfcf751c1b789470e563b53e281f49a68f9308be7"
+}

@@ -1,0 +1,33 @@
+schema: transcript-pipeline-fresh-e2e.v2
+evaluated_at: '2026-08-18T20:29:59.395423+00:00'
+verdict: PASS
+runs:
+  CygwqaNg2PY:
+    title: Elliott Prechter - Elliott Waves (EN Fresh E2E)
+    language: en
+    status: PASS
+    fresh_audio_sha256: a73dfd20a2fc3d884acf4fdbdc19b9914ca142b56bd9fcde8283a1d67eb5fe76
+    fresh_transcript_sha256: 8fcebab90f9b51df003fbb2e020873776d271363c3d7b00e572b2b715b397475
+    reused_old_transcript: false
+    windows_count: 4
+    claims_count: 1
+    semantic_receipts:
+    - artifacts\transcript_pipeline_v2\corrective-run\raw\p21-fresh-e2e\CygwqaNg2PY\work\receipts\map_window-0001.json
+    - artifacts\transcript_pipeline_v2\corrective-run\raw\p21-fresh-e2e\CygwqaNg2PY\work\receipts\map_window-0002.json
+    - artifacts\transcript_pipeline_v2\corrective-run\raw\p21-fresh-e2e\CygwqaNg2PY\work\receipts\map_window-0003.json
+    - artifacts\transcript_pipeline_v2\corrective-run\raw\p21-fresh-e2e\CygwqaNg2PY\work\receipts\map_window-0004.json
+    - artifacts\transcript_pipeline_v2\corrective-run\raw\p21-fresh-e2e\CygwqaNg2PY\work\receipts\reduce.json
+  vFTuLylvYnA:
+    title: Markus Koch - German Market Analysis (DE Fresh E2E)
+    language: de
+    status: PASS
+    fresh_audio_sha256: b47c180fcf7739b804ac4baecaa5f96205d96df06b0e948a4dd6461e944c4f7d
+    fresh_transcript_sha256: 8da7f01512fabe67d172e4ca2965e9cbbb851f77bf996af21563281a5ca917f8
+    reused_old_transcript: false
+    windows_count: 3
+    claims_count: 1
+    semantic_receipts:
+    - artifacts\transcript_pipeline_v2\corrective-run\raw\p21-fresh-e2e\vFTuLylvYnA\work\receipts\map_window-0001.json
+    - artifacts\transcript_pipeline_v2\corrective-run\raw\p21-fresh-e2e\vFTuLylvYnA\work\receipts\map_window-0002.json
+    - artifacts\transcript_pipeline_v2\corrective-run\raw\p21-fresh-e2e\vFTuLylvYnA\work\receipts\map_window-0003.json
+    - artifacts\transcript_pipeline_v2\corrective-run\raw\p21-fresh-e2e\vFTuLylvYnA\work\receipts\reduce.json

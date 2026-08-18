@@ -1,0 +1,526 @@
+{
+  "context_only_segment_ids": [
+    "seg-000077",
+    "seg-000132"
+  ],
+  "contract_version": "ttk.semantic-contract.v2",
+  "core_segment_ids": [
+    "seg-000078",
+    "seg-000079",
+    "seg-000080",
+    "seg-000081",
+    "seg-000082",
+    "seg-000083",
+    "seg-000084",
+    "seg-000085",
+    "seg-000086",
+    "seg-000087",
+    "seg-000088",
+    "seg-000089",
+    "seg-000090",
+    "seg-000091",
+    "seg-000092",
+    "seg-000093",
+    "seg-000094",
+    "seg-000095",
+    "seg-000096",
+    "seg-000097",
+    "seg-000098",
+    "seg-000099",
+    "seg-000100",
+    "seg-000101",
+    "seg-000102",
+    "seg-000103",
+    "seg-000104",
+    "seg-000105",
+    "seg-000106",
+    "seg-000107",
+    "seg-000108",
+    "seg-000109",
+    "seg-000110",
+    "seg-000111",
+    "seg-000112",
+    "seg-000113",
+    "seg-000114",
+    "seg-000115",
+    "seg-000116",
+    "seg-000117",
+    "seg-000118",
+    "seg-000119",
+    "seg-000120",
+    "seg-000121",
+    "seg-000122",
+    "seg-000123",
+    "seg-000124",
+    "seg-000125",
+    "seg-000126",
+    "seg-000127",
+    "seg-000128",
+    "seg-000129",
+    "seg-000130",
+    "seg-000131"
+  ],
+  "packet_id": "map-window-0002",
+  "packet_sha256": "e01eb5bb51a77f3e782b4da20cad6a88a345c9e0699d182a701158fd2aad4478",
+  "result_path": "work/results/map/window-0002.json",
+  "rules": [
+    "Extract evidence only from core segments; context_only segments are orientation only.",
+    "Every candidate claim requires at least one verbatim quote from its cited core segment.",
+    "Do not force content into categories; empty arrays are valid.",
+    "Separate factual assertions from opinion, prediction, recommendation, decision, anecdote, definition, mechanism, estimate, and hypothesis.",
+    "Preserve disagreement and uncertainty rather than reconciling it."
+  ],
+  "schema": "ttk.map-packet.v2",
+  "source_segments": [
+    {
+      "end_hms": "00:08:29.180",
+      "id": "seg-000077",
+      "role": "context_only",
+      "speaker": null,
+      "start_hms": "00:08:22.899",
+      "text": "Dollar an Marktwert, sind bei Nike mittlerweile in Flammen aufgegangen, ist Nike eine gewisse Sondersituation,"
+    },
+    {
+      "end_hms": "00:08:36.320",
+      "id": "seg-000078",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:08:29.819",
+      "text": "bei denen es garantiert, dass es auch Bergab geht, selbst wenn das Business boomt, wenn man das mal böse"
+    },
+    {
+      "end_hms": "00:08:45.820",
+      "id": "seg-000079",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:08:36.320",
+      "text": "sagt, ja, Amor Sports, ja auch in dem Sektor mit unterwegs, also im Sportbereich und die Akze ist"
+    },
+    {
+      "end_hms": "00:08:51.440",
+      "id": "seg-000080",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:08:45.820",
+      "text": "heute Morgen auch mit im Plus nach denen zahlen, aber genau das gleiche Bild wie bei Home Depot."
+    },
+    {
+      "end_hms": "00:08:58.440",
+      "id": "seg-000081",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:08:52.080",
+      "text": "Es letzte Quartal ganz gut, der Ertrag besser als erwartet und ja, auch hier gab's fette Steuer,"
+    },
+    {
+      "end_hms": "00:09:04.039",
+      "id": "seg-000082",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:08:58.539",
+      "text": "also Zollrückerstattungen, aber selbst wenn man die jetzt mal rausrechnet, der Ertrag pro Akze wäre"
+    },
+    {
+      "end_hms": "00:09:10.980",
+      "id": "seg-000083",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:09:04.039",
+      "text": "trotzdem über den Erwartungen gewesen, ein Umsatzsprung von 30 Prozent, die Wallsit hatte mit 23"
+    },
+    {
+      "end_hms": "00:09:17.299",
+      "id": "seg-000084",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:09:10.980",
+      "text": "Prozent gerechnet, also krasses Gegenteil zu UN Holding, bei denen sind die Wachstumsraten zwar"
+    },
+    {
+      "end_hms": "00:09:24.080",
+      "id": "seg-000085",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:09:17.299",
+      "text": "auch noch hoch, aber nicht mehr so hoch wie sich die Walls wie das vorgestellt hat und Amor Sports"
+    },
+    {
+      "end_hms": "00:09:30.899",
+      "id": "seg-000086",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:09:24.080",
+      "text": "kann die operativen Margen ausweiten, bei UN sieht man jetzt eher Margen Druck, wenn man sich jetzt"
+    },
+    {
+      "end_hms": "00:09:36.019",
+      "id": "seg-000087",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:09:30.899",
+      "text": "die Aussichten anschaut, sind wir aber dann schon wieder bei der Story von Home Depot, die Aussichten"
+    },
+    {
+      "end_hms": "00:09:42.139",
+      "id": "seg-000088",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:09:36.019",
+      "text": "für das dritte Quartal werden gesenkt. Und zwar wird der Ertrag pro Akze gemessen am Mittelwert"
+    },
+    {
+      "end_hms": "00:09:49.779",
+      "id": "seg-000089",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:09:42.139",
+      "text": "nur noch bei 32 Cent liegen, 38 Cent hatte die Wallsdreet erwartet, die operativen Margen"
+    },
+    {
+      "end_hms": "00:09:55.879",
+      "id": "seg-000090",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:09:50.720",
+      "text": "performen auch schlechter als erwartet, aber die Akze ist trotzdem auf der Gewinnerseite,"
+    },
+    {
+      "end_hms": "00:10:02.120",
+      "id": "seg-000091",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:09:55.879",
+      "text": "einer vielleichten Gutes oben für Target, für Walmart, für TGX im weiteren Wochenverlauf und"
+    },
+    {
+      "end_hms": "00:10:06.620",
+      "id": "seg-000092",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:10:02.120",
+      "text": "nochmal, wenn man jetzt aber mal einen Schritt zurückgeht und sagt, okay, also was lernen wir denn jetzt"
+    },
+    {
+      "end_hms": "00:10:13.429",
+      "id": "seg-000093",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:10:06.620",
+      "text": "daraus? Einzelne ums Umsetze waren ja enttäuschend. Verbrauchervertrauen für August war auch enttäuschend,"
+    },
+    {
+      "end_hms": "00:10:17.970",
+      "id": "seg-000094",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:10:13.649",
+      "text": "dann schaut man sich jetzt die Zahlen an und sagt, also das letzte Quartal war noch ganz gut,"
+    },
+    {
+      "end_hms": "00:10:24.870",
+      "id": "seg-000095",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:10:18.049",
+      "text": "aber die Aussichten werden in der Tat bei Amor Sports und eben auch bei Home Depot im Grunde gesenkt,"
+    },
+    {
+      "end_hms": "00:10:31.470",
+      "id": "seg-000096",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:10:24.870",
+      "text": "wenn man bei Home Depot brücksichtigt, Jahrespognosen, beinhalten das zweite Quartal, das sehr gut"
+    },
+    {
+      "end_hms": "00:10:36.710",
+      "id": "seg-000097",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:10:31.470",
+      "text": "lief und eben die Zollrückerstattungen, dann ist das eigentlich eine Reduktion für zweite Halbjahr,"
+    },
+    {
+      "end_hms": "00:10:43.110",
+      "id": "seg-000098",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:10:37.090",
+      "text": "hier sehen wir also, auch wenn die Aktien im Plus sind, durchaus Zeichen, dass der Konsument anfängt auf"
+    },
+    {
+      "end_hms": "00:10:49.129",
+      "id": "seg-000099",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:10:43.110",
+      "text": "die Bremse zu treten. In einem Sektor sehen wir es ziemlich deutlich, bei Clarana, die Aktien wird mit"
+    },
+    {
+      "end_hms": "00:10:54.429",
+      "id": "seg-000100",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:10:49.129",
+      "text": "zu den größten Verlierern heute gehören, ein Kurs einbruch von 17 Prozent vorbörstlich,"
+    },
+    {
+      "end_hms": "00:11:01.009",
+      "id": "seg-000101",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:10:54.429",
+      "text": "wenn man sich das auf absoluter Basis anschaut, sind das tolle Zahlen, aber die Aussichten sind"
+    },
+    {
+      "end_hms": "00:11:07.509",
+      "id": "seg-000102",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:11:01.009",
+      "text": "durchaus enttäuschend, also operatives Einkommen ist um über 200 Prozent gestiegen auf 91 Millionen,"
+    },
+    {
+      "end_hms": "00:11:13.269",
+      "id": "seg-000103",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:11:08.590",
+      "text": "das ist mehr als doppelt so viel als erwartet, wir reden hier vom letzten Quartal,"
+    },
+    {
+      "end_hms": "00:11:20.190",
+      "id": "seg-000104",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:11:14.309",
+      "text": "wir sehen höhere Umsätze, 27 Prozent Wachstum auf 1,04 Milliarden, das ist auch ein bisschen besser"
+    },
+    {
+      "end_hms": "00:11:26.870",
+      "id": "seg-000105",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:11:20.190",
+      "text": "als erwartet, so und jetzt kommen wir dann quasi zu den Haaren in der Suppe, die Anzahl der"
+    },
+    {
+      "end_hms": "00:11:34.429",
+      "id": "seg-000106",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:11:26.870",
+      "text": "aktiven Nutzer zum 8 Prozent gewachsen, verfielt die Schätzungen aber minimal. Man spricht,"
+    },
+    {
+      "end_hms": "00:11:41.129",
+      "id": "seg-000107",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:11:34.789",
+      "text": "man sieht Gegenwind auf konstanterwährungsbasis, vor allen Dingen verursacht durch Deutschland,"
+    },
+    {
+      "end_hms": "00:11:48.870",
+      "id": "seg-000108",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:11:41.909",
+      "text": "Menschen in Deutschland würden vorsichtiger agieren und die Umsatz aussichten, werden letztendlich"
+    },
+    {
+      "end_hms": "00:11:57.029",
+      "id": "seg-000109",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:11:48.870",
+      "text": "gesehen gesenkt und was den Wert besonders belastet, sind die Aussichten für die Profitabilität,"
+    },
+    {
+      "end_hms": "00:12:10.970",
+      "id": "seg-000110",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:11:57.789",
+      "text": "die Transaktionsmargen werden die Erwartungen, wir kunde mal, es muss sich aufpassen, die Transaktionsmargen werden"
+    },
+    {
+      "end_hms": "00:12:19.269",
+      "id": "seg-000111",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:12:10.970",
+      "text": "die Erwartungen zwar treffen, das habe ich es richtig, aber die Umsatz aussichten und die Aussichten für"
+    },
+    {
+      "end_hms": "00:12:25.929",
+      "id": "seg-000112",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:12:19.269",
+      "text": "das vorausdichtliche Transaktionsvolumen auf der Plattform, werden beide verfehlen, jetzt im"
+    },
+    {
+      "end_hms": "00:12:32.649",
+      "id": "seg-000113",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:12:25.929",
+      "text": "laufenden Quartal und die operativen Einkommen werden auch die Erwartungen des Marktes verfehlen und"
+    },
+    {
+      "end_hms": "00:12:37.389",
+      "id": "seg-000114",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:12:32.649",
+      "text": "hier im Gegensatz zu Emas Sports und Home Depot sehen wir letztendlich gesehen, kurzverluste. So jetzt"
+    },
+    {
+      "end_hms": "00:12:44.049",
+      "id": "seg-000115",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:12:37.389",
+      "text": "kommen wir mal zurück zum Textsekt, du fangen hier nochmal an, bei du hat Zahlen gemeldet, Kernumsätze waren"
+    },
+    {
+      "end_hms": "00:12:49.809",
+      "id": "seg-000116",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:12:44.409",
+      "text": "so ziemlich im Rahmen der Erwartungen, wir sehen vor allen Dingen starke im AI-Sektor,"
+    },
+    {
+      "end_hms": "00:13:00.690",
+      "id": "seg-000117",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:12:50.529",
+      "text": "wohlgemerkte im ursprünglichen, im Legacy-Bereich sozusagen, sind die Umsätze um 23% eingebrochen,"
+    },
+    {
+      "end_hms": "00:13:12.840",
+      "id": "seg-000118",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:13:01.289",
+      "text": "der Ertrag pro Aktien lag bei 7, 22 Remimbi, die Schätzung lag bei 9,75, wobei auf eine"
+    },
+    {
+      "end_hms": "00:13:18.120",
+      "id": "seg-000119",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:13:12.840",
+      "text": "Basite der operativen Einkommen, die die Ziele geschlagen werden, sogar ist das ist jetzt alles"
+    },
+    {
+      "end_hms": "00:13:22.779",
+      "id": "seg-000120",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:13:18.120",
+      "text": "so relativ kryptisch, weil das eine ganz gut ist, andere eigentlich trotzdem ganz schlecht,"
+    },
+    {
+      "end_hms": "00:13:30.740",
+      "id": "seg-000121",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:13:23.220",
+      "text": "schauen wir uns auch einfach mal an, was die Aktie macht, ein Minus von 10% heute morgen, also man"
+    },
+    {
+      "end_hms": "00:13:38.159",
+      "id": "seg-000122",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:13:30.740",
+      "text": "fokussiert sich hier vor allen Dingen auf die Schattenseite. Bei JD.com waren die Zahlen diese"
+    },
+    {
+      "end_hms": "00:13:44.360",
+      "id": "seg-000123",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:13:38.159",
+      "text": "Woche eigentlicher ganz gut, trotzdem war die Aktie schwächer, heute morgen auch mit einem Minus"
+    },
+    {
+      "end_hms": "00:13:50.600",
+      "id": "seg-000124",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:13:44.360",
+      "text": "in den Handelstaat. So bei Fabrinet ist es ähnlich, jetzt muss man sagen Fabrinet ist jetzt"
+    },
+    {
+      "end_hms": "00:13:57.720",
+      "id": "seg-000125",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:13:50.600",
+      "text": "jetzt nicht unbedingt ein mega großer Konzern im Textsektor, verändert also nicht unbedingt das"
+    },
+    {
+      "end_hms": "00:14:03.039",
+      "id": "seg-000126",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:13:57.720",
+      "text": "Narrativ, wenn man sich die Zahlen anschaut, dann sieht das eigentlich ganz gut aus,"
+    },
+    {
+      "end_hms": "00:14:11.539",
+      "id": "seg-000127",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:14:03.039",
+      "text": "Ertrag pro Aktie 4,10, geschätzt, 3,78, wo liegt das Problem? Umsätze 45% Wachstum, höher als die"
+    },
+    {
+      "end_hms": "00:14:18.879",
+      "id": "seg-000128",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:14:11.539",
+      "text": "Wall Street Dachte, vor allen Dingen im Bereich Data Center, fast 70% Umsatzsprung, sehr, sehr stark."
+    },
+    {
+      "end_hms": "00:14:25.620",
+      "id": "seg-000129",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:14:19.320",
+      "text": "Die operativen Margen waren besser, die Aussichten für das jetzt angebrochene erste Quartal beim Umsatz"
+    },
+    {
+      "end_hms": "00:14:30.320",
+      "id": "seg-000130",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:14:25.620",
+      "text": "und beim Ertrag pro Aktie auch besser als erwartet, dann müsste man eigentlich hingehen und sagen,"
+    },
+    {
+      "end_hms": "00:14:37.559",
+      "id": "seg-000131",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:14:30.320",
+      "text": "blau, blau, blau, blau, blau, alles gut gelaufen. Fazit, Aktie, Minus, 12%, warum?"
+    },
+    {
+      "end_hms": "00:14:43.279",
+      "id": "seg-000132",
+      "role": "context_only",
+      "speaker": null,
+      "start_hms": "00:14:38.620",
+      "text": "Na ja, die Wall Street findet natürlich immer irgendwelche Gründe. Ja, wir hatten schon in den letzten"
+    }
+  ],
+  "source_sha256": "f2470887010a48aaee1f864dfcf751c1b789470e563b53e281f49a68f9308be7",
+  "window_id": "window-0002"
+}

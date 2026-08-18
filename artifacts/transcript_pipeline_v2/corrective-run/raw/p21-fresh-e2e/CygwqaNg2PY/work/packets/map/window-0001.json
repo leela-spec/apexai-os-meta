@@ -1,0 +1,436 @@
+{
+  "context_only_segment_ids": [
+    "seg-000046"
+  ],
+  "contract_version": "ttk.semantic-contract.v2",
+  "core_segment_ids": [
+    "seg-000001",
+    "seg-000002",
+    "seg-000003",
+    "seg-000004",
+    "seg-000005",
+    "seg-000006",
+    "seg-000007",
+    "seg-000008",
+    "seg-000009",
+    "seg-000010",
+    "seg-000011",
+    "seg-000012",
+    "seg-000013",
+    "seg-000014",
+    "seg-000015",
+    "seg-000016",
+    "seg-000017",
+    "seg-000018",
+    "seg-000019",
+    "seg-000020",
+    "seg-000021",
+    "seg-000022",
+    "seg-000023",
+    "seg-000024",
+    "seg-000025",
+    "seg-000026",
+    "seg-000027",
+    "seg-000028",
+    "seg-000029",
+    "seg-000030",
+    "seg-000031",
+    "seg-000032",
+    "seg-000033",
+    "seg-000034",
+    "seg-000035",
+    "seg-000036",
+    "seg-000037",
+    "seg-000038",
+    "seg-000039",
+    "seg-000040",
+    "seg-000041",
+    "seg-000042",
+    "seg-000043",
+    "seg-000044",
+    "seg-000045"
+  ],
+  "packet_id": "map-window-0001",
+  "packet_sha256": "d333cfbda081ca74a90933612af65c1f99f451de4bf844df57996b2e391990a9",
+  "result_path": "work/results/map/window-0001.json",
+  "rules": [
+    "Extract evidence only from core segments; context_only segments are orientation only.",
+    "Every candidate claim requires at least one verbatim quote from its cited core segment.",
+    "Do not force content into categories; empty arrays are valid.",
+    "Separate factual assertions from opinion, prediction, recommendation, decision, anecdote, definition, mechanism, estimate, and hypothesis.",
+    "Preserve disagreement and uncertainty rather than reconciling it."
+  ],
+  "schema": "ttk.map-packet.v2",
+  "source_segments": [
+    {
+      "end_hms": "00:00:01.000",
+      "id": "seg-000001",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:00:00.000",
+      "text": "[ASR Fresh v2.1 CygwqaNg2PY]"
+    },
+    {
+      "end_hms": "00:00:04.379",
+      "id": "seg-000002",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:00:00.000",
+      "text": "Elliott, thanks for joining us today, so we have Elliott Pregnant with us, and it's an honor to"
+    },
+    {
+      "end_hms": "00:00:08.980",
+      "id": "seg-000003",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:00:04.379",
+      "text": "have you here spending some time with us talking about the Elliott Wave Principle and your history"
+    },
+    {
+      "end_hms": "00:00:15.560",
+      "id": "seg-000004",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:00:08.980",
+      "text": "and your personal background on that. So, I mean, before we go into the more depth of Elliott Wave,"
+    },
+    {
+      "end_hms": "00:00:22.379",
+      "id": "seg-000005",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:00:15.839",
+      "text": "if someone would be new to that kind of analysis, how would you describe Elliott Wave in simple sentences?"
+    },
+    {
+      "end_hms": "00:00:29.780",
+      "id": "seg-000006",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:00:23.519",
+      "text": "Well, okay, I think the simplest way to understand it is it's a description of the price patterns"
+    },
+    {
+      "end_hms": "00:00:36.340",
+      "id": "seg-000007",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:00:30.260",
+      "text": "that unfold over and over again in financial markets. So, Elliott Wave Theory is really the study"
+    },
+    {
+      "end_hms": "00:00:42.219",
+      "id": "seg-000008",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:00:36.340",
+      "text": "of these price patterns. So, you could imagine that understanding the way these patterns behave"
+    },
+    {
+      "end_hms": "00:00:49.299",
+      "id": "seg-000009",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:00:42.219",
+      "text": "might be of use to you if you're a trader or an investor. If we go back to the early 1930s when"
+    },
+    {
+      "end_hms": "00:00:57.020",
+      "id": "seg-000010",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:00:49.299",
+      "text": "Elliott Wave theory was developed, can you give us a bit of the backdrop? How did the connection"
+    },
+    {
+      "end_hms": "00:01:03.689",
+      "id": "seg-000011",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:00:57.020",
+      "text": "happened between the original, let me reface this again, sorry. Let's look back to the early 1930s"
+    },
+    {
+      "end_hms": "00:01:07.969",
+      "id": "seg-000012",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:01:03.689",
+      "text": "when the Elliott Wave Theory was developed first time. How did the connection happen between your"
+    },
+    {
+      "end_hms": "00:01:14.329",
+      "id": "seg-000013",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:01:07.969",
+      "text": "father and the person that originally developed it? Well, the person who originally developed Elliott"
+    },
+    {
+      "end_hms": "00:01:21.409",
+      "id": "seg-000014",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:01:14.329",
+      "text": "Wave Theory was RN, Elliott Ralph Nelson, Elliott, and he was an accountant and he actually became"
+    },
+    {
+      "end_hms": "00:01:27.989",
+      "id": "seg-000015",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:01:21.409",
+      "text": "ill and was bedridden for long period of time and during that time he spent hours and hours"
+    },
+    {
+      "end_hms": "00:01:35.709",
+      "id": "seg-000016",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:01:27.989",
+      "text": "every day pouring over market charts and he kept noticing these recurring patterns in price and time"
+    },
+    {
+      "end_hms": "00:01:40.670",
+      "id": "seg-000017",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:01:35.709",
+      "text": "and those patterns eventually became the Elliott Wave Principle which he later wrote about."
+    },
+    {
+      "end_hms": "00:01:47.349",
+      "id": "seg-000018",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:01:41.269",
+      "text": "And he actually used the theory to pinpoint the moment at which the great depression, the great"
+    },
+    {
+      "end_hms": "00:01:53.090",
+      "id": "seg-000019",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:01:47.349",
+      "text": "crash of 29 ended and he started telling people that they should be buying the market at that time."
+    },
+    {
+      "end_hms": "00:02:01.730",
+      "id": "seg-000020",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:01:53.390",
+      "text": "So he put it into practice quite readily from that point. My father, when he came across the"
+    },
+    {
+      "end_hms": "00:02:06.890",
+      "id": "seg-000021",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:02:01.730",
+      "text": "Elliott Wave Theory, believe it or not, the only way at that time, which was, I believe that was"
+    },
+    {
+      "end_hms": "00:02:14.810",
+      "id": "seg-000022",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:02:06.890",
+      "text": "in the 70s, to read about the theory was on microfilm because they didn't even have full books,"
+    },
+    {
+      "end_hms": "00:02:20.949",
+      "id": "seg-000023",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:02:14.810",
+      "text": "so the information about it that R and Elliott had written about was almost lost to history and of"
+    },
+    {
+      "end_hms": "00:02:28.389",
+      "id": "seg-000024",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:02:20.949",
+      "text": "course he had prints created from the microfilm and of course popularized it a lot during the 80s."
+    },
+    {
+      "end_hms": "00:02:37.530",
+      "id": "seg-000025",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:02:28.949",
+      "text": "So we almost didn't recover this theory. When did Elliott Wave Theory really blow up? I mean"
+    },
+    {
+      "end_hms": "00:02:43.430",
+      "id": "seg-000026",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:02:37.530",
+      "text": "everybody on Wall Street knows Elliott Wave Theory. The heyday when it was most popular was in the"
+    },
+    {
+      "end_hms": "00:02:53.110",
+      "id": "seg-000027",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:02:43.430",
+      "text": "1980s. My father had predicted a repeat of the roaring 20s right around the late 70s and early 80s"
+    },
+    {
+      "end_hms": "00:02:59.050",
+      "id": "seg-000028",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:02:53.669",
+      "text": "which of course went against the consensus at that time which was mostly doom and gloom which is"
+    },
+    {
+      "end_hms": "00:03:06.689",
+      "id": "seg-000029",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:02:59.050",
+      "text": "completely understandable when you have interest rates at 18% and just very scary runaway inflation."
+    },
+    {
+      "end_hms": "00:03:12.689",
+      "id": "seg-000030",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:03:06.870",
+      "text": "I think that was the worst, I think it's the worst inflationary period in US history. Aside from"
+    },
+    {
+      "end_hms": "00:03:21.560",
+      "id": "seg-000031",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:03:12.689",
+      "text": "maybe the continental I guess. So you talked about your father making that public as a book and then"
+    },
+    {
+      "end_hms": "00:03:28.240",
+      "id": "seg-000032",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:03:21.560",
+      "text": "going into this period where it gets known everywhere. How do you feel now a generation after that"
+    },
+    {
+      "end_hms": "00:03:34.400",
+      "id": "seg-000033",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:03:28.919",
+      "text": "taking that forward or how has your father convinced you that you should continue that road?"
+    },
+    {
+      "end_hms": "00:03:41.699",
+      "id": "seg-000034",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:03:35.020",
+      "text": "How does your first name relate to the first name? Well it was either going to be Elliott or it"
+    },
+    {
+      "end_hms": "00:03:49.479",
+      "id": "seg-000035",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:03:41.699",
+      "text": "was going to be Fibbo. I'm really glad I got with Elliott. Maybe if we had a dog we would have Fibbo I"
+    },
+    {
+      "end_hms": "00:03:59.699",
+      "id": "seg-000036",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:03:49.479",
+      "text": "guess. But no for me my background is in computer science and engineering. I really growing up I was"
+    },
+    {
+      "end_hms": "00:04:05.979",
+      "id": "seg-000037",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:03:59.699",
+      "text": "never interested in finance at all. Most kids aren't right. They're interested in many other things."
+    },
+    {
+      "end_hms": "00:04:14.759",
+      "id": "seg-000038",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:04:05.979",
+      "text": "I tried with my daughter. And of course you grow up and then the thing that really caught my"
+    },
+    {
+      "end_hms": "00:04:23.079",
+      "id": "seg-000039",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:04:14.759",
+      "text": "attention was the crash of 2008 and that was when it just struck me that financial analysis"
+    },
+    {
+      "end_hms": "00:04:30.420",
+      "id": "seg-000040",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:04:23.079",
+      "text": "has a big impact and for me it was beyond just a portfolio or numbers or even thinking about"
+    },
+    {
+      "end_hms": "00:04:37.259",
+      "id": "seg-000041",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:04:30.420",
+      "text": "my own investments. It was more of a visceral feeling of wow these cycles in the market they"
+    },
+    {
+      "end_hms": "00:04:43.620",
+      "id": "seg-000042",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:04:37.259",
+      "text": "affect people in a very dramatic way and I could see it going to work and people would be all"
+    },
+    {
+      "end_hms": "00:04:50.939",
+      "id": "seg-000043",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:04:43.620",
+      "text": "depressed sitting at their offices back in 2008. Meanwhile I'm like you know I'm 4x short the"
+    },
+    {
+      "end_hms": "00:04:57.000",
+      "id": "seg-000044",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:04:50.939",
+      "text": "banks right now. I'm loving this but I'm not going to say anything to anybody about it you know"
+    },
+    {
+      "end_hms": "00:05:03.699",
+      "id": "seg-000045",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:04:57.000",
+      "text": "who's who's unhappy with what's happening. So that was a big hook for me like oh this is useful."
+    },
+    {
+      "end_hms": "00:05:10.680",
+      "id": "seg-000046",
+      "role": "context_only",
+      "speaker": null,
+      "start_hms": "00:05:05.000",
+      "text": "How should traders use Elliott Payf analysis and practice as a forecasting tool or risk management"
+    }
+  ],
+  "source_sha256": "08a3b3bceb38da2f5b4e0315beee6464f514f22005b4d7618a0ff8978c129905",
+  "window_id": "window-0001"
+}

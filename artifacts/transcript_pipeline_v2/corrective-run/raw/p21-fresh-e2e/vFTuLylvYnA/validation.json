@@ -1,0 +1,41 @@
+{
+  "compiled_current": true,
+  "complete": true,
+  "errors": [],
+  "map": {
+    "invalid": 0,
+    "missing": 0,
+    "total": 3,
+    "valid": 3,
+    "windows": [
+      {
+        "errors": [],
+        "status": "valid",
+        "window_id": "window-0001"
+      },
+      {
+        "errors": [],
+        "status": "valid",
+        "window_id": "window-0002"
+      },
+      {
+        "errors": [],
+        "status": "valid",
+        "window_id": "window-0003"
+      }
+    ]
+  },
+  "ok": true,
+  "reduce": {
+    "errors": [],
+    "status": "valid"
+  },
+  "schema": "ttk.validation.v2",
+  "verify": {
+    "errors": [],
+    "status": "result_missing"
+  },
+  "warnings": [
+    "verification stage: result_missing"
+  ]
+}

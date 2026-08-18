@@ -1,0 +1,29 @@
+{
+  "items": [
+    {
+      "checkworthiness": "medium",
+      "claim_ref": "claim-0001",
+      "claim_text": "Fresh verified proposition in CygwqaNg2PY",
+      "preferred_source_types": [
+        "official primary source",
+        "primary research"
+      ],
+      "quote_evidence": [
+        {
+          "quote": "[ASR Fresh v2",
+          "segment_id": "seg-000001"
+        }
+      ],
+      "search_question": "Fresh verified proposition in CygwqaNg2PY",
+      "source_segment_ids": [
+        "seg-000001"
+      ],
+      "source_support": "SUPPORTED"
+    }
+  ],
+  "minimum_checkworthiness": "medium",
+  "queue_sha256": "0fdf43342f7004db233ae94602d57db3d3710405758408ca24652d57ba13317c",
+  "reduce_result_sha256": "5ae7597459f8c7905f0cc382c4845eaab57d7d2d421b2098dac470a347eeaa13",
+  "schema": "ttk.verify-queue.v2",
+  "source_sha256": "08a3b3bceb38da2f5b4e0315beee6464f514f22005b4d7618a0ff8978c129905"
+}

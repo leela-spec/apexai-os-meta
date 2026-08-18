@@ -1,0 +1,217 @@
+{
+  "contract_version": "ttk.semantic-contract.v2",
+  "evidence": {
+    "arguments": [],
+    "candidate_claims": [
+      {
+        "checkworthiness": "medium",
+        "claim_kind": "fact",
+        "claim_text": "Fresh proposition from window-0001",
+        "quote_evidence": [
+          {
+            "quote": "[ASR Fresh v2",
+            "segment_id": "seg-000001"
+          }
+        ],
+        "source_segment_ids": [
+          "seg-000001"
+        ],
+        "source_window_ids": [
+          "window-0001"
+        ],
+        "speaker": null
+      },
+      {
+        "checkworthiness": "medium",
+        "claim_kind": "fact",
+        "claim_text": "Fresh proposition from window-0002",
+        "quote_evidence": [
+          {
+            "quote": "How should traders use Elliott Payf anal",
+            "segment_id": "seg-000046"
+          }
+        ],
+        "source_segment_ids": [
+          "seg-000046"
+        ],
+        "source_window_ids": [
+          "window-0002"
+        ],
+        "speaker": null
+      },
+      {
+        "checkworthiness": "medium",
+        "claim_kind": "fact",
+        "claim_text": "Fresh proposition from window-0003",
+        "quote_evidence": [
+          {
+            "quote": "yes I mean e-waves does do the wave coun",
+            "segment_id": "seg-000118"
+          }
+        ],
+        "source_segment_ids": [
+          "seg-000118"
+        ],
+        "source_window_ids": [
+          "window-0003"
+        ],
+        "speaker": null
+      },
+      {
+        "checkworthiness": "medium",
+        "claim_kind": "fact",
+        "claim_text": "Fresh proposition from window-0004",
+        "quote_evidence": [
+          {
+            "quote": "maybe maybe in simple terms very often r",
+            "segment_id": "seg-000163"
+          }
+        ],
+        "source_segment_ids": [
+          "seg-000163"
+        ],
+        "source_window_ids": [
+          "window-0004"
+        ],
+        "speaker": null
+      }
+    ],
+    "concepts": [
+      {
+        "description": "Domain concept CygwqaNg2PY",
+        "name": "Concept-CygwqaNg2PY",
+        "source_segment_ids": [
+          "seg-000001",
+          "seg-000046",
+          "seg-000118",
+          "seg-000163"
+        ],
+        "type": "domain_concept"
+      }
+    ],
+    "contradictions_or_uncertainty": [],
+    "entities": [
+      {
+        "description": "Domain entity CygwqaNg2PY",
+        "name": "Entity-CygwqaNg2PY",
+        "source_segment_ids": [
+          "seg-000001",
+          "seg-000046",
+          "seg-000118",
+          "seg-000163"
+        ],
+        "type": "domain_entity"
+      }
+    ],
+    "key_points": [
+      {
+        "source_segment_ids": [
+          "seg-000001"
+        ],
+        "source_window_id": "window-0001",
+        "text": "Fresh finding from window-0001"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000046"
+        ],
+        "source_window_id": "window-0002",
+        "text": "Fresh finding from window-0002"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000118"
+        ],
+        "source_window_id": "window-0003",
+        "text": "Fresh finding from window-0003"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000163"
+        ],
+        "source_window_id": "window-0004",
+        "text": "Fresh finding from window-0004"
+      }
+    ],
+    "mechanisms": [
+      {
+        "source_segment_ids": [
+          "seg-000001"
+        ],
+        "source_window_id": "window-0001",
+        "text": "Grounded mechanism in fresh CygwqaNg2PY"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000046"
+        ],
+        "source_window_id": "window-0002",
+        "text": "Grounded mechanism in fresh CygwqaNg2PY"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000118"
+        ],
+        "source_window_id": "window-0003",
+        "text": "Grounded mechanism in fresh CygwqaNg2PY"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000163"
+        ],
+        "source_window_id": "window-0004",
+        "text": "Grounded mechanism in fresh CygwqaNg2PY"
+      }
+    ],
+    "near_duplicate_claim_candidates": [],
+    "open_questions": [],
+    "protocols": [],
+    "subtopics": [
+      {
+        "label": "Fresh section window-0001",
+        "source_segment_ids": [
+          "seg-000001",
+          "seg-000002"
+        ],
+        "source_window_id": "window-0001"
+      },
+      {
+        "label": "Fresh section window-0002",
+        "source_segment_ids": [
+          "seg-000046",
+          "seg-000047"
+        ],
+        "source_window_id": "window-0002"
+      },
+      {
+        "label": "Fresh section window-0003",
+        "source_segment_ids": [
+          "seg-000118",
+          "seg-000119"
+        ],
+        "source_window_id": "window-0003"
+      },
+      {
+        "label": "Fresh section window-0004",
+        "source_segment_ids": [
+          "seg-000163",
+          "seg-000164"
+        ],
+        "source_window_id": "window-0004"
+      }
+    ]
+  },
+  "evidence_ledger_sha256": "4d688697f78705114a1d2a9cd5628baf4388f3af36756c696812beb0a30ad8d9",
+  "packet_id": "reduce-final",
+  "packet_sha256": "e85637a91419e751eee4e63f0cf477e667ef9485d253bead87a4c627c5fd97b0",
+  "result_path": "work/results/reduce.json",
+  "rules": [
+    "Build Macro and Meso from this validated evidence ledger; do not reread the whole transcript by default.",
+    "Every final claim and load-bearing Macro/Meso statement must retain source segment IDs.",
+    "Keep source support separate from external truth verification.",
+    "Review near-duplicate candidates semantically; do not collapse non-equivalent claims.",
+    "Preserve disagreement and uncertainty."
+  ],
+  "schema": "ttk.reduce-packet.v2",
+  "source_sha256": "08a3b3bceb38da2f5b4e0315beee6464f514f22005b4d7618a0ff8978c129905"
+}

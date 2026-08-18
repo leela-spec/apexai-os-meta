@@ -1,0 +1,72 @@
+{
+  "schema": "ttk.map-result.v2",
+  "packet_id": "map-window-0003",
+  "packet_sha256": "45b010ef18588825018b23520d29fb7e2dd381e3671ba433167adfa154fc8182",
+  "window_id": "window-0003",
+  "subtopics": [
+    {
+      "label": "Fresh section window-0003",
+      "source_segment_ids": [
+        "seg-000118",
+        "seg-000119"
+      ]
+    }
+  ],
+  "key_points": [
+    {
+      "text": "Fresh finding from window-0003",
+      "source_segment_ids": [
+        "seg-000118"
+      ]
+    }
+  ],
+  "mechanisms": [
+    {
+      "text": "Grounded mechanism in fresh CygwqaNg2PY",
+      "source_segment_ids": [
+        "seg-000118"
+      ]
+    }
+  ],
+  "protocols": [],
+  "arguments": [],
+  "candidate_claims": [
+    {
+      "claim_text": "Fresh proposition from window-0003",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "medium",
+      "source_segment_ids": [
+        "seg-000118"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000118",
+          "quote": "yes I mean e-waves does do the wave coun"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "name": "Entity-CygwqaNg2PY",
+      "type": "domain_entity",
+      "description": "Domain entity CygwqaNg2PY",
+      "source_segment_ids": [
+        "seg-000118"
+      ]
+    }
+  ],
+  "concepts": [
+    {
+      "name": "Concept-CygwqaNg2PY",
+      "type": "domain_concept",
+      "description": "Domain concept CygwqaNg2PY",
+      "source_segment_ids": [
+        "seg-000118"
+      ]
+    }
+  ],
+  "open_questions": [],
+  "contradictions_or_uncertainty": []
+}

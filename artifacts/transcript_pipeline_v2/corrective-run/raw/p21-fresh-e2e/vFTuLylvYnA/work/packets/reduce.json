@@ -1,0 +1,175 @@
+{
+  "contract_version": "ttk.semantic-contract.v2",
+  "evidence": {
+    "arguments": [],
+    "candidate_claims": [
+      {
+        "checkworthiness": "medium",
+        "claim_kind": "fact",
+        "claim_text": "Fresh proposition from window-0001",
+        "quote_evidence": [
+          {
+            "quote": "[ASR Fresh v2",
+            "segment_id": "seg-000001"
+          }
+        ],
+        "source_segment_ids": [
+          "seg-000001"
+        ],
+        "source_window_ids": [
+          "window-0001"
+        ],
+        "speaker": null
+      },
+      {
+        "checkworthiness": "medium",
+        "claim_kind": "fact",
+        "claim_text": "Fresh proposition from window-0002",
+        "quote_evidence": [
+          {
+            "quote": "bei denen es garantiert, dass es auch Be",
+            "segment_id": "seg-000078"
+          }
+        ],
+        "source_segment_ids": [
+          "seg-000078"
+        ],
+        "source_window_ids": [
+          "window-0002"
+        ],
+        "speaker": null
+      },
+      {
+        "checkworthiness": "medium",
+        "claim_kind": "fact",
+        "claim_text": "Fresh proposition from window-0003",
+        "quote_evidence": [
+          {
+            "quote": "Na ja, die Wall Street findet natürlich immer irgendwelche Gründe",
+            "segment_id": "seg-000132"
+          }
+        ],
+        "source_segment_ids": [
+          "seg-000132"
+        ],
+        "source_window_ids": [
+          "window-0003"
+        ],
+        "speaker": null
+      }
+    ],
+    "concepts": [
+      {
+        "description": "Domain concept vFTuLylvYnA",
+        "name": "Concept-vFTuLylvYnA",
+        "source_segment_ids": [
+          "seg-000001",
+          "seg-000078",
+          "seg-000132"
+        ],
+        "type": "domain_concept"
+      }
+    ],
+    "contradictions_or_uncertainty": [],
+    "entities": [
+      {
+        "description": "Domain entity vFTuLylvYnA",
+        "name": "Entity-vFTuLylvYnA",
+        "source_segment_ids": [
+          "seg-000001",
+          "seg-000078",
+          "seg-000132"
+        ],
+        "type": "domain_entity"
+      }
+    ],
+    "key_points": [
+      {
+        "source_segment_ids": [
+          "seg-000001"
+        ],
+        "source_window_id": "window-0001",
+        "text": "Fresh finding from window-0001"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000078"
+        ],
+        "source_window_id": "window-0002",
+        "text": "Fresh finding from window-0002"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000132"
+        ],
+        "source_window_id": "window-0003",
+        "text": "Fresh finding from window-0003"
+      }
+    ],
+    "mechanisms": [
+      {
+        "source_segment_ids": [
+          "seg-000001"
+        ],
+        "source_window_id": "window-0001",
+        "text": "Grounded mechanism in fresh vFTuLylvYnA"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000078"
+        ],
+        "source_window_id": "window-0002",
+        "text": "Grounded mechanism in fresh vFTuLylvYnA"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000132"
+        ],
+        "source_window_id": "window-0003",
+        "text": "Grounded mechanism in fresh vFTuLylvYnA"
+      }
+    ],
+    "near_duplicate_claim_candidates": [],
+    "open_questions": [],
+    "protocols": [],
+    "subtopics": [
+      {
+        "label": "Fresh section window-0001",
+        "source_segment_ids": [
+          "seg-000001",
+          "seg-000002"
+        ],
+        "source_window_id": "window-0001"
+      },
+      {
+        "label": "Fresh section window-0002",
+        "source_segment_ids": [
+          "seg-000078",
+          "seg-000079"
+        ],
+        "source_window_id": "window-0002"
+      },
+      {
+        "label": "Fresh section window-0003",
+        "source_segment_ids": [
+          "seg-000132",
+          "seg-000133"
+        ],
+        "source_window_id": "window-0003"
+      }
+    ]
+  },
+  "evidence_ledger_sha256": "81e90dd29f9705a91666c378a2116f89fb1c56539153857970a538b9185587ac",
+  "packet_id": "reduce-final",
+  "packet_sha256": "fa9a8fbe4de98e93746d188e5abff5fe5af42c0ba0ca35b1a229dd870fcec318",
+  "result_path": "work/results/reduce.json",
+  "rules": [
+    "Build Macro and Meso from this validated evidence ledger; do not reread the whole transcript by default.",
+    "Every final claim and load-bearing Macro/Meso statement must retain source segment IDs.",
+    "Keep source support separate from external truth verification.",
+    "Review near-duplicate candidates semantically; do not collapse non-equivalent claims.",
+    "Preserve disagreement and uncertainty."
+  ],
+  "schema": "ttk.reduce-packet.v2",
+  "source_sha256": "f2470887010a48aaee1f864dfcf751c1b789470e563b53e281f49a68f9308be7"
+}

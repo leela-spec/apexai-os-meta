@@ -1,0 +1,724 @@
+{
+  "context_only_segment_ids": [
+    "seg-000078"
+  ],
+  "contract_version": "ttk.semantic-contract.v2",
+  "core_segment_ids": [
+    "seg-000001",
+    "seg-000002",
+    "seg-000003",
+    "seg-000004",
+    "seg-000005",
+    "seg-000006",
+    "seg-000007",
+    "seg-000008",
+    "seg-000009",
+    "seg-000010",
+    "seg-000011",
+    "seg-000012",
+    "seg-000013",
+    "seg-000014",
+    "seg-000015",
+    "seg-000016",
+    "seg-000017",
+    "seg-000018",
+    "seg-000019",
+    "seg-000020",
+    "seg-000021",
+    "seg-000022",
+    "seg-000023",
+    "seg-000024",
+    "seg-000025",
+    "seg-000026",
+    "seg-000027",
+    "seg-000028",
+    "seg-000029",
+    "seg-000030",
+    "seg-000031",
+    "seg-000032",
+    "seg-000033",
+    "seg-000034",
+    "seg-000035",
+    "seg-000036",
+    "seg-000037",
+    "seg-000038",
+    "seg-000039",
+    "seg-000040",
+    "seg-000041",
+    "seg-000042",
+    "seg-000043",
+    "seg-000044",
+    "seg-000045",
+    "seg-000046",
+    "seg-000047",
+    "seg-000048",
+    "seg-000049",
+    "seg-000050",
+    "seg-000051",
+    "seg-000052",
+    "seg-000053",
+    "seg-000054",
+    "seg-000055",
+    "seg-000056",
+    "seg-000057",
+    "seg-000058",
+    "seg-000059",
+    "seg-000060",
+    "seg-000061",
+    "seg-000062",
+    "seg-000063",
+    "seg-000064",
+    "seg-000065",
+    "seg-000066",
+    "seg-000067",
+    "seg-000068",
+    "seg-000069",
+    "seg-000070",
+    "seg-000071",
+    "seg-000072",
+    "seg-000073",
+    "seg-000074",
+    "seg-000075",
+    "seg-000076",
+    "seg-000077"
+  ],
+  "packet_id": "map-window-0001",
+  "packet_sha256": "73bb1ee27e622b1a9fdc0a0497823ac371a5340d8a8be0f4e2cf442002365528",
+  "result_path": "work/results/map/window-0001.json",
+  "rules": [
+    "Extract evidence only from core segments; context_only segments are orientation only.",
+    "Every candidate claim requires at least one verbatim quote from its cited core segment.",
+    "Do not force content into categories; empty arrays are valid.",
+    "Separate factual assertions from opinion, prediction, recommendation, decision, anecdote, definition, mechanism, estimate, and hypothesis.",
+    "Preserve disagreement and uncertainty rather than reconciling it."
+  ],
+  "schema": "ttk.map-packet.v2",
+  "source_segments": [
+    {
+      "end_hms": "00:00:01.000",
+      "id": "seg-000001",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:00:00.000",
+      "text": "[ASR Fresh v2.1 vFTuLylvYnA]"
+    },
+    {
+      "end_hms": "00:00:07.240",
+      "id": "seg-000002",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:00:01.300",
+      "text": "So ein schön guten Morgen und schon haben wir den Nährstack wieder unter Druck der S&P ebenfalls"
+    },
+    {
+      "end_hms": "00:00:14.320",
+      "id": "seg-000003",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:00:07.240",
+      "text": "Nährstack verliert über 300 Punkte vor Handelsstaat und wenn man den Übeltäter suchen will,"
+    },
+    {
+      "end_hms": "00:00:20.420",
+      "id": "seg-000004",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:00:14.960",
+      "text": "muss man nicht besonders lange suchen. Wir haben die Renditen der 10-jährigen Staatsanleihen heute"
+    },
+    {
+      "end_hms": "00:00:29.780",
+      "id": "seg-000005",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:00:20.420",
+      "text": "morgen bei 4,74 Prozent. Die kriegen also weiter nach oben. Wir haben die 30-jährigen UE Staatsanleihen"
+    },
+    {
+      "end_hms": "00:00:37.820",
+      "id": "seg-000006",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:00:29.780",
+      "text": "bei fast 5,3 Prozent und damit auf dem höchsten Niveau seit 19 Jahren. Also auftrieb bei den"
+    },
+    {
+      "end_hms": "00:00:43.159",
+      "id": "seg-000007",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:00:37.820",
+      "text": "Renditen der Staatsanleihen, das sorgt vor allen Dingen im Textsektor für Abgabe Druck und wir"
+    },
+    {
+      "end_hms": "00:00:49.579",
+      "id": "seg-000008",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:00:43.159",
+      "text": "haben weitere Zeichen, dass wir zumindest mal keine Entspannungen sehen werden im Nahen Osten."
+    },
+    {
+      "end_hms": "00:00:58.100",
+      "id": "seg-000009",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:00:49.759",
+      "text": "Auch nach den Ergebnissen teils stärkere Kursreaktionen, die Aktien von Clarana brechen 17 Prozent ein,"
+    },
+    {
+      "end_hms": "00:01:05.939",
+      "id": "seg-000010",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:00:58.100",
+      "text": "die Aktien von Fabranet etwa 11 Prozent vorbörslich im Minus, wobei bei Home Depot nach den"
+    },
+    {
+      "end_hms": "00:01:12.459",
+      "id": "seg-000011",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:01:05.939",
+      "text": "Ergebnissen ein gewisses Aufatmen stattfindet, hier geht es letztendlich bergauf. So, bevor ich den"
+    },
+    {
+      "end_hms": "00:01:18.000",
+      "id": "seg-000012",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:01:12.459",
+      "text": "aktuellen Fundmanager Survey für den Augustanspreche der Bank auf America kurz noch ein Hinweis in"
+    },
+    {
+      "end_hms": "00:01:22.840",
+      "id": "seg-000013",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:01:18.000",
+      "text": "eigener Sache. Wir haben über ein Jahr daran gearbeitet. Jetzt ist die neue Plattform"
+    },
+    {
+      "end_hms": "00:01:30.879",
+      "id": "seg-000014",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:01:22.840",
+      "text": "gelauscht. Markus Kochpunkt DE vorher 63 Wall Street DE. Die Plattform werden wir für die"
+    },
+    {
+      "end_hms": "00:01:36.680",
+      "id": "seg-000015",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:01:30.879",
+      "text": "bestehenden Abonnenten auch noch weiterführen, aber bei Markus Koch DE gibt es jetzt wesentlich mehr"
+    },
+    {
+      "end_hms": "00:01:43.620",
+      "id": "seg-000016",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:01:36.680",
+      "text": "Inhalte mit mehr Experten und deutlich mehr Research, weil wir damit auch das Ziel verfolgen,"
+    },
+    {
+      "end_hms": "00:01:49.659",
+      "id": "seg-000017",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:01:43.739",
+      "text": "vor allen Dingen das Thema der langfristigen Geldanlage mit aufzubauen und zu vertiefen"
+    },
+    {
+      "end_hms": "00:01:56.200",
+      "id": "seg-000018",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:01:49.659",
+      "text": "abgesehen. Davon eröffnen wir Anfang Dezember ein eigenes kleines Studio in München mit einer sehr"
+    },
+    {
+      "end_hms": "00:02:03.680",
+      "id": "seg-000019",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:01:56.200",
+      "text": "spannenden personellen Besetzung, die Details vorhang auf. Also dann hier erst im November. Ich"
+    },
+    {
+      "end_hms": "00:02:08.259",
+      "id": "seg-000020",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:02:03.680",
+      "text": "möchte mich an der Stelle noch mal wirklich herzlich bedanken für alle Abonnenten, die uns"
+    },
+    {
+      "end_hms": "00:02:14.159",
+      "id": "seg-000021",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:02:08.259",
+      "text": "teils auch schon so lange begleiten. Bei mir in der Discord-Community auch ausgesprochen"
+    },
+    {
+      "end_hms": "00:02:21.139",
+      "id": "seg-000022",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:02:14.159",
+      "text": "aktiv sind, ohne euch, wäre, wären alle diese Schritte nicht möglich gewesen. Auch das Feedback zu"
+    },
+    {
+      "end_hms": "00:02:27.259",
+      "id": "seg-000023",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:02:21.139",
+      "text": "neuen Plattformen ist wirklich phänomenal. Danke an der Stelle auch noch mal an mein gesamtes Team."
+    },
+    {
+      "end_hms": "00:02:34.319",
+      "id": "seg-000024",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:02:27.379",
+      "text": "Ich bin so dankbar mit so vielen kreativen und tollen Menschen zusammenarbeiten zu dürfen. Wir"
+    },
+    {
+      "end_hms": "00:02:40.180",
+      "id": "seg-000025",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:02:34.319",
+      "text": "können uns hier auf die Schulter klopfen. Mal lieber Felix, ich sag's mal so im IT-Bereich,"
+    },
+    {
+      "end_hms": "00:02:44.860",
+      "id": "seg-000026",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:02:40.180",
+      "text": "du hast ein wirkliches wundervoll brachte. An der Stelle auch noch mal an meinen"
+    },
+    {
+      "end_hms": "00:02:51.460",
+      "id": "seg-000027",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:02:44.860",
+      "text": "gesamtes Team. Vielen herzlichen Dank und wir werden jetzt Ende August Anfang November auch"
+    },
+    {
+      "end_hms": "00:02:58.319",
+      "id": "seg-000028",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:02:51.460",
+      "text": "eine schöne Aktion starten. Für alle Wegbegleiter von uns gibt es dann den Mini-Koch. Dazu wird es"
+    },
+    {
+      "end_hms": "00:03:04.319",
+      "id": "seg-000029",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:02:58.319",
+      "text": "dann Ende des Monats Anfang September mehr Details geben. So jetzt kommen wir aber mal zurück zum"
+    },
+    {
+      "end_hms": "00:03:12.680",
+      "id": "seg-000030",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:03:04.319",
+      "text": "Kapitalmarkt. Wir haben also den Fundmanager Survey der Bank of America und um 1 gleich vorweg"
+    },
+    {
+      "end_hms": "00:03:22.780",
+      "id": "seg-000031",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:03:12.680",
+      "text": "zu sagen. Optimismus ist hier extrem ausgeprägt. Das ist der dritt-bullischste Monatsberichte seit"
+    },
+    {
+      "end_hms": "00:03:34.099",
+      "id": "seg-000032",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:03:22.780",
+      "text": "dem Jahr 2022. Die Cash Levels der Formmanager global sind jetzt bei nur noch unter drei"
+    },
+    {
+      "end_hms": "00:03:41.479",
+      "id": "seg-000033",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:03:34.099",
+      "text": "einhalb Prozent. Dabei waren die 3,6 Prozent von der Juli-Umfrage schon ausgesprochen. Niedrig"
+    },
+    {
+      "end_hms": "00:03:47.639",
+      "id": "seg-000034",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:03:41.479",
+      "text": "unter die Bank of America betont immer wieder, dass ab unter vier einhalb Prozent Cash"
+    },
+    {
+      "end_hms": "00:03:55.099",
+      "id": "seg-000035",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:03:48.199",
+      "text": "Reserven normalerweise der Punkt gekommen ist, um vorsichtig zu sein. Also die Gegenseite einzunehmen,"
+    },
+    {
+      "end_hms": "00:04:00.800",
+      "id": "seg-000036",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:03:55.180",
+      "text": "wenn man sich die globale Aktienallocation anschaut, erreichen wir hier jetzt das höchste"
+    },
+    {
+      "end_hms": "00:04:09.400",
+      "id": "seg-000037",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:04:00.800",
+      "text": "Niveau seit November 2021, 72 Prozent der befragten Teilnehmer gehen davon aus. Das ist vor den"
+    },
+    {
+      "end_hms": "00:04:16.259",
+      "id": "seg-000038",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:04:09.400",
+      "text": "Zwischenwahlen im November keine Zinsanhebungen geben wird und was ist der most crowded trade?"
+    },
+    {
+      "end_hms": "00:04:23.819",
+      "id": "seg-000039",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:04:16.670",
+      "text": "Oh Wunder, es sind natürlich immer noch die globalen Halbleiter-Aktien-Long-Position auf globaler"
+    },
+    {
+      "end_hms": "00:04:30.920",
+      "id": "seg-000040",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:04:23.819",
+      "text": "Halbleiter. Man sieht allerdings auch, obwohl das immer noch auf Platz 1 ist der most crowded"
+    },
+    {
+      "end_hms": "00:04:38.379",
+      "id": "seg-000041",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:04:30.920",
+      "text": "trades. Der Prozentsatz hat sich erheblich verschoben. Im Juli waren die Quote noch bei 82 Prozent"
+    },
+    {
+      "end_hms": "00:04:44.620",
+      "id": "seg-000042",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:04:38.379",
+      "text": "jetzt 53 Prozent. Das ist also Stück weit ein bisschen abgekühlt ist, aber immer noch letztendlich"
+    },
+    {
+      "end_hms": "00:04:50.939",
+      "id": "seg-000043",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:04:44.620",
+      "text": "gesehen auf einem ausgesprochen hohen Niveau. Und damit machen wir mal weiter mit den"
+    },
+    {
+      "end_hms": "00:04:56.779",
+      "id": "seg-000044",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:04:50.939",
+      "text": "Tech-Werten insgesamt an der Wall Street. Wir hatten bereits in Europa und Asien bei diesen"
+    },
+    {
+      "end_hms": "00:05:02.439",
+      "id": "seg-000045",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:04:56.779",
+      "text": "Werten-Abgabedruck. Es kann also nicht nur am Anstieg der Renditen der Uhrstarts-Anleihen liegen,"
+    },
+    {
+      "end_hms": "00:05:10.680",
+      "id": "seg-000046",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:05:03.000",
+      "text": "ESML, Infineon, STM-Wahlen, Europa unter-Abgabedruck in Asien, SK Heinigs, zwei Prozent schwächer,"
+    },
+    {
+      "end_hms": "00:05:18.639",
+      "id": "seg-000047",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:05:10.680",
+      "text": "Samsung, vier Prozent unter Druck. Wir hatten Gewinnmitnahmen bei Lenovo und bei Meijuan. Bei"
+    },
+    {
+      "end_hms": "00:05:23.939",
+      "id": "seg-000048",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:05:18.639",
+      "text": "Du hat gestern noch Zahlen gemeldet, also über Nachtzahlen gemeldet. Wir sehen also im Prinzip global"
+    },
+    {
+      "end_hms": "00:05:32.160",
+      "id": "seg-000049",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:05:23.939",
+      "text": "im Techsektor Stück weit Gewinnmitnahmen und teils nach den Ergebnissen, auch Kursreaktionen,"
+    },
+    {
+      "end_hms": "00:05:38.860",
+      "id": "seg-000050",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:05:32.379",
+      "text": "die für mein Geschmack hier in Pfals etwas übertrieben wirken. Wenn man sich mal den Einbruch von Fabrenett"
+    },
+    {
+      "end_hms": "00:05:45.500",
+      "id": "seg-000051",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:05:38.860",
+      "text": "anschaut, ein Minus von 11 Prozent vor Handelsstaat an der Wall Street. Dabei sind die Zahlen"
+    },
+    {
+      "end_hms": "00:05:50.439",
+      "id": "seg-000052",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:05:45.500",
+      "text": "eigentlich gar nicht so schlecht. Darauf komme ich jetzt gleich noch mal zu sprechen. Wir haben"
+    },
+    {
+      "end_hms": "00:05:56.819",
+      "id": "seg-000053",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:05:50.439",
+      "text": "abgesehen davon morgen die Zahlen von Target, Mittwoch die Zahlen von Walmart. Das heißt,"
+    },
+    {
+      "end_hms": "00:06:02.600",
+      "id": "seg-000054",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:05:56.920",
+      "text": "die Einzelhändler stehen hier mit im Fokus, TGX meldet diese Woche auch Zahlen. Die gute Nachricht"
+    },
+    {
+      "end_hms": "00:06:09.199",
+      "id": "seg-000055",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:06:02.600",
+      "text": "ist, dass die Messlatte für die Einzelhändler in den letzten Tagen immer tiefer gehängt wurde."
+    },
+    {
+      "end_hms": "00:06:14.519",
+      "id": "seg-000056",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:06:09.500",
+      "text": "Wie oft haben wir jetzt erwähnt, oh, Arbeitsmarkt war schwächer, Einzelhandel war, Einzelhandelsumsätze waren"
+    },
+    {
+      "end_hms": "00:06:18.860",
+      "id": "seg-000057",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:06:14.519",
+      "text": "unter den Erwartungen, Verbraucher vertrauen war, unter den Erwartungen, oh, wie sieht es aus im"
+    },
+    {
+      "end_hms": "00:06:23.639",
+      "id": "seg-000058",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:06:18.860",
+      "text": "Einzelhandel. Und so haben wir dann tatsächlich Zahlen, bei dem man sagen könnte, brau. Wenn man mal"
+    },
+    {
+      "end_hms": "00:06:29.199",
+      "id": "seg-000059",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:06:23.639",
+      "text": "genau hinschaut, dann gibt es hier durchaus das eine oder andere H in der Suppe und trotzdem sind die"
+    },
+    {
+      "end_hms": "00:06:33.939",
+      "id": "seg-000060",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:06:29.199",
+      "text": "Aktien auf der Gewinnerseite. Wenn man sich jetzt zum Beispiel mal eine Home Depot heute morgen"
+    },
+    {
+      "end_hms": "00:06:38.819",
+      "id": "seg-000061",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:06:33.939",
+      "text": "anschaut, bei Home Depot so auf den ersten Blick sieht das alles wirklich sehr gut aus. Das letzte"
+    },
+    {
+      "end_hms": "00:06:44.560",
+      "id": "seg-000062",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:06:38.819",
+      "text": "Quartal, der Ertrag über den Schätzungen Umsatz besser als erwartet, die Umsätze der Schnellenger"
+    },
+    {
+      "end_hms": "00:06:51.199",
+      "id": "seg-000063",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:06:44.560",
+      "text": "geöffneten Baumärkte immer ein wichtiger Indikator. Auch über den Erwartungen des Marktes, die Anzahl der"
+    },
+    {
+      "end_hms": "00:06:59.480",
+      "id": "seg-000064",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:06:51.199",
+      "text": "Transaktionen war zwar leicht rückläufig, aber dafür waren die im Schnitt bezahlten, wie sagt"
+    },
+    {
+      "end_hms": "00:07:05.639",
+      "id": "seg-000065",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:06:59.480",
+      "text": "man beim Checkout, Kassenbongs quasi höher, als man erwartet, hatte Margen, waren auch besser. Also"
+    },
+    {
+      "end_hms": "00:07:11.399",
+      "id": "seg-000066",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:07:05.639",
+      "text": "klingt doch eigentlich alles gar nicht so schlecht. Und wie gestern schon erwähnt, die Tatsache,"
+    },
+    {
+      "end_hms": "00:07:18.759",
+      "id": "seg-000067",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:07:11.500",
+      "text": "das Angrosam, also die Trump-Administration, die eingesagten Zolle überwiegend wieder ausschütten"
+    },
+    {
+      "end_hms": "00:07:25.319",
+      "id": "seg-000068",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:07:18.759",
+      "text": "muss an die Unternehmen. Das macht sich bei Home Depot auch vorteilhaft bemerkbar. Und so und"
+    },
+    {
+      "end_hms": "00:07:31.420",
+      "id": "seg-000069",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:07:25.319",
+      "text": "jetzt kommt eigentlich das Haar in der Suppe, dass obwohl das zweite Quartal so stark ist, werden die"
+    },
+    {
+      "end_hms": "00:07:43.399",
+      "id": "seg-000070",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:07:31.420",
+      "text": "Pognosen für das Gesamtjahr lediglich bestätigt und die werden nur bestätigt, obwohl die Zollrückerstattungen"
+    },
+    {
+      "end_hms": "00:07:50.079",
+      "id": "seg-000071",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:07:43.399",
+      "text": "da drin mitbeinhaltet sind. Also normalerweise müsste man sagen, also wenn das zweite Quartal so"
+    },
+    {
+      "end_hms": "00:07:56.160",
+      "id": "seg-000072",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:07:50.079",
+      "text": "viel besser lief und ihr kriegt so viele Zollrückerstattungen, dann müsste doch eigentlich der Ausblick für"
+    },
+    {
+      "end_hms": "00:08:03.579",
+      "id": "seg-000073",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:07:56.160",
+      "text": "das Gesamtjahr auch angehoben werden. Ist aber nicht der Fall, die werden lediglich bestätigt, aber die"
+    },
+    {
+      "end_hms": "00:08:09.199",
+      "id": "seg-000074",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:08:03.579",
+      "text": "Akze ist trotzdem auf der Gewinnerseite, also vielleicht anzeichen, dass die Messlatte im"
+    },
+    {
+      "end_hms": "00:08:14.779",
+      "id": "seg-000075",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:08:09.199",
+      "text": "einzelnen Handelsbereich ausreichend niedrig gehängt wurde. Nike, wie gesagt, hat gestern auf einem"
+    },
+    {
+      "end_hms": "00:08:22.899",
+      "id": "seg-000076",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:08:14.779",
+      "text": "14-Jahres-Tief geschlossen, ein Minus von 78 Prozent seit den Altzeithoch, über 220 Milliarden"
+    },
+    {
+      "end_hms": "00:08:29.180",
+      "id": "seg-000077",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:08:22.899",
+      "text": "Dollar an Marktwert, sind bei Nike mittlerweile in Flammen aufgegangen, ist Nike eine gewisse Sondersituation,"
+    },
+    {
+      "end_hms": "00:08:36.320",
+      "id": "seg-000078",
+      "role": "context_only",
+      "speaker": null,
+      "start_hms": "00:08:29.819",
+      "text": "bei denen es garantiert, dass es auch Bergab geht, selbst wenn das Business boomt, wenn man das mal böse"
+    }
+  ],
+  "source_sha256": "f2470887010a48aaee1f864dfcf751c1b789470e563b53e281f49a68f9308be7",
+  "window_id": "window-0001"
+}

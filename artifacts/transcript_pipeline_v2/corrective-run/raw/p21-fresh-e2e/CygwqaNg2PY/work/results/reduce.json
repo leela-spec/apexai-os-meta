@@ -1,0 +1,85 @@
+{
+  "macro": {
+    "contradictions_or_uncertainty": [],
+    "speaker_context": [
+      "Fresh Run CygwqaNg2PY"
+    ],
+    "summary": "Complete multi-module synthesis for fresh CygwqaNg2PY.",
+    "takeaways": [
+      {
+        "meso_refs": [
+          "meso-0001"
+        ],
+        "source_segment_ids": [
+          "seg-000001"
+        ],
+        "text": "Fresh takeaway for CygwqaNg2PY"
+      }
+    ],
+    "taxonomy": [
+      "Fresh-CygwqaNg2PY"
+    ],
+    "thesis": "Fresh end-to-end synthesis for Elliott Prechter - Elliott Waves (EN Fresh E2E)."
+  },
+  "meso": [
+    {
+      "arguments": [
+        "Central argument in CygwqaNg2PY"
+      ],
+      "caveats": [],
+      "claim_refs": [
+        "claim-0001"
+      ],
+      "concepts": [
+        "Concept-CygwqaNg2PY"
+      ],
+      "entities": [
+        "Entity-CygwqaNg2PY"
+      ],
+      "mechanisms": [
+        {
+          "source_segment_ids": [
+            "seg-000001"
+          ],
+          "text": "Key mechanism in CygwqaNg2PY"
+        }
+      ],
+      "meso_ref": "meso-0001",
+      "protocols": [],
+      "source_segment_ids": [
+        "seg-000001"
+      ],
+      "summary": "Fresh structured section for CygwqaNg2PY.",
+      "title": "Fresh Foundational Module for CygwqaNg2PY"
+    }
+  ],
+  "micro": [
+    {
+      "checkworthiness": "medium",
+      "claim_kind": "fact",
+      "claim_ref": "claim-0001",
+      "claim_text": "Fresh verified proposition in CygwqaNg2PY",
+      "entities": [
+        "Entity-CygwqaNg2PY"
+      ],
+      "quote_evidence": [
+        {
+          "quote": "[ASR Fresh v2",
+          "segment_id": "seg-000001"
+        }
+      ],
+      "source_segment_ids": [
+        "seg-000001"
+      ],
+      "source_support": "SUPPORTED",
+      "speaker": null,
+      "topics": [
+        "Topic-CygwqaNg2PY"
+      ]
+    }
+  ],
+  "packet_id": "reduce-final",
+  "packet_sha256": "e85637a91419e751eee4e63f0cf477e667ef9485d253bead87a4c627c5fd97b0",
+  "rejected_or_unresolved_candidates": [],
+  "schema": "ttk.reduce-result.v2"
+}
