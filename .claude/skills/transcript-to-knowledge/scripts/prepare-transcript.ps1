@@ -5,24 +5,17 @@ param(
     [Parameter(Mandatory = $true)]
     [string]$OutputPath,
 
-    [int]$ChunkWords = 1200,
-    [int]$OverlapWords = 120
+    [int]$TargetWords = 1100,
+    [int]$MinWords = 700,
+    [int]$MaxWords = 1500,
+    [int]$ContextSegments = 1
 )
 
 $ErrorActionPreference = "Stop"
 $ScriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
-$PythonScript = Join-Path $ScriptDir "prepare_transcript.py"
+$Runner = Join-Path $ScriptDir "ttk.ps1"
 
-if (Get-Command py -ErrorAction SilentlyContinue) {
-    & py -3 $PythonScript prepare $InputPath --output $OutputPath --chunk-words $ChunkWords --overlap-words $OverlapWords
-}
-elseif (Get-Command python -ErrorAction SilentlyContinue) {
-    & python $PythonScript prepare $InputPath --output $OutputPath --chunk-words $ChunkWords --overlap-words $OverlapWords
-}
-else {
-    throw "Python 3.10+ was not found. Install Python or make 'py'/'python' available on PATH."
-}
-
+& $Runner init $InputPath --output $OutputPath --target-words $TargetWords --min-words $MinWords --max-words $MaxWords --context-segments $ContextSegments
 if ($LASTEXITCODE -ne 0) {
-    throw "Transcript preparation failed with exit code $LASTEXITCODE."
+    throw "Transcript-to-knowledge initialization failed with exit code $LASTEXITCODE."
 }

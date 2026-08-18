@@ -1,70 +1,97 @@
 ---
 name: transcript-to-knowledge
-description: Deterministically prepare Whisper, faster-whisper, WhisperX, SRT, VTT, or plain-text transcripts for Macro/Meso/Micro knowledge compilation with stable quote/timestamp anchors, bounded chunks, semantic task planning, Obsidian-style wiki links, and fact-verification hooks. Use when converting transcripts, podcasts, interviews, meetings, lectures, or videos into source-grounded Apex KB/wiki knowledge while preserving exact provenance and avoiding duplicated raw context.
+description: Build a standalone, resumable Macro/Meso/Micro knowledge set from Whisper, faster-whisper, WhisperX, SRT, VTT, JSON, or plain-text transcripts. Use when converting podcasts, meetings, lectures, interviews, or videos into source-grounded Markdown/wiki artifacts with exact quote anchors, atomic claims, selective fact verification, deterministic validation, and no dependency on Apex KB or an external LLM API.
 ---
 
-# Transcript To Knowledge
+# Transcript to Knowledge
 
-Normalize first; reason second. Keep source evidence deterministic and semantic synthesis explicitly model-owned.
+Treat the transcript as immutable evidence. Use deterministic code for custody, segmentation, validation, routing, resumability, deduplication warnings, and compilation; use the active reasoning model only for semantic interpretation.
 
-## Workflow
+## Control loop
 
-1. **Prepare the transcript deterministically.**
-   - Run `scripts/prepare_transcript.py prepare <input> --output <dir>`.
-   - On Windows, prefer `scripts/prepare-transcript.ps1`.
-   - Preserve generated `manifest.json`, `transcript.json`, `transcript.md`, `chunk-index.json`, `task-plan.json`, and `chunks/` unchanged as source evidence.
+1. **Initialize a standalone run.**
 
-2. **Inspect the manifest before semantic work.**
-   - If `timestamp_quality` is `none` or partial, never invent missing timing.
-   - If speaker labels are absent, do not infer speaker identity from style alone.
-   - If the source is too large, work chunk-first instead of loading the whole transcript.
+   ```powershell
+   python scripts/ttk.py doctor
+   python scripts/ttk.py init <transcript> --output <run-dir>
+   ```
 
-3. **Compile Meso and Micro from bounded chunks.**
-   - Read `references/knowledge-contract.md` for the epistemic/output contract.
-   - Read `references/prompt-templates.md` and apply the **Meso** and **Micro** sections.
-   - Preserve exact `seg-XXXXXX` anchors in every important derived statement and claim.
-   - Deduplicate overlapping-chunk outputs before promotion.
+   On Windows, `scripts/ttk.ps1` is a thin PowerShell launcher. The CLI makes no network or LLM calls.
 
-4. **Compile Macro after Meso exists.**
-   - Use validated Meso modules as the default Macro input.
-   - Reopen raw transcript segments only for gaps, contradictions, or quote verification.
-   - Apply the **Macro** section in `references/prompt-templates.md`.
+2. **Ask the CLI what is next.**
 
-5. **Verify only factual Micro claims that need verification.**
-   - Use live web/research tools when available; otherwise keep `[UNVERIFIED]`.
-   - Never fabricate URLs, DOIs, source titles, dates, quotes, timestamps, or verdicts.
-   - Preserve disagreement and added context.
+   ```powershell
+   python scripts/ttk.py next <run-dir> --json-output
+   ```
 
-6. **Integrate with Apex KB without changing lifecycle authority.**
-   - Treat prepared transcript artifacts as source inputs.
-   - If Apex KB generated a semantic task packet, obey its allowlist and output path first.
-   - Do not choose lifecycle stages, mutate Apex KB run state, or build a parallel KB compiler.
+   Follow the returned packet/result paths. Do not invent an alternative lifecycle from chat state.
 
-## Deterministic boundary
+3. **Complete Map packets one at a time.**
+   - Read `references/semantic-contracts.md` → **Map result**.
+   - Read the returned `work/packets/map/window-XXXX.json`.
+   - Write the matching `work/results/map/window-XXXX.json`.
+   - Extract evidence only from `role: core` segments. `context_only` exists only to understand the boundary.
+   - Every candidate claim requires a verbatim quote from a cited core segment.
+   - Empty arrays are valid; never force a quota.
 
-Use code for:
-- source hashing;
-- format parsing;
-- timestamp/speaker preservation;
-- stable anchors;
-- chunk windows/overlap;
-- task-plan generation.
+4. **Validate before reduction.**
 
-Use a semantic worker for:
-- thesis/taxonomy synthesis;
-- thematic chaptering;
-- argument/mechanism interpretation;
-- atomic factual-claim identification;
-- external verification judgments.
+   ```powershell
+   python scripts/ttk.py validate <run-dir>
+   python scripts/ttk.py make-reduce <run-dir>
+   ```
 
-Do not describe semantic outputs or live search as deterministic.
+   The CLI rejects stale packet hashes, invalid source references, non-verbatim quotes, missing core coverage, malformed result contracts, and decisive verification verdicts without evidence.
 
-## Validation
+5. **Complete one compact Reduce packet.**
+   - Read `references/semantic-contracts.md` → **Reduce result**.
+   - Use `work/packets/reduce.json`, which contains the validated evidence ledger rather than the raw full transcript.
+   - Produce final Macro synthesis, semantic Meso modules, and refined Micro claims.
+   - Keep transcript support (`SUPPORTED|PARTIAL|AMBIGUOUS|UNSUPPORTED`) separate from external truth.
 
-Run:
+6. **Route only check-worthy factual claims for external verification.**
 
-```bash
-python scripts/test_prepare_transcript.py -v
+   ```powershell
+   python scripts/ttk.py make-verify <run-dir> --min-checkworthiness medium
+   ```
+
+   - Read `references/semantic-contracts.md` → **External verification**.
+   - Browse only queue items when live research is useful and available.
+   - Prefer primary/official sources.
+   - Leave insufficiently supported claims `UNVERIFIED`.
+   - Do not externally verify opinions, recommendations, predictions, decisions, anecdotes, or other non-factual speech by default.
+
+7. **Compile and validate the wiki.**
+
+   ```powershell
+   python scripts/ttk.py compile <run-dir>
+   python scripts/ttk.py validate <run-dir> --complete
+   ```
+
+   The compiler creates Macro, Meso, claim, concept, entity, and index Markdown pages with resolvable Obsidian-style links.
+
+## Non-negotiable boundaries
+
+- **Standalone:** Do not require Apex KB, a graph database, vector database, workflow engine, or hosted API for correctness.
+- **Processing windows are not chapters:** deterministic lexical/pause segmentation creates bounded transport windows; the Reduce pass decides final Meso structure.
+- **Context halo is not evidence:** semantic Map results may cite only core segment IDs.
+- **One raw semantic pass:** extract themes, mechanisms, claims, quotes, entities, and uncertainty together in each Map pass to avoid rereading the raw transcript for separate jobs.
+- **No silent semantic dedupe:** exact duplicate claim text may merge mechanically; near-duplicates are warnings for the Reduce pass.
+- **No fake provenance:** never fabricate timestamps, speaker identity, quotes, URLs, publication dates, evidence, or verification verdicts.
+- **No hidden state:** resumability is derived from files, packet hashes, and validators, not conversation memory.
+
+## Deterministic vs semantic work
+
+**Deterministic CLI:** parsing, SHA-256 custody, diagnostics, lexical-cohesion/pause window candidates, exact core coverage, packet hashes, structural validation, quote substring checks, duplicate warnings, verification routing, stable claim IDs, wiki compilation, status/resume.
+
+**Semantic worker:** theme interpretation, real chapter/module boundaries, argument/mechanism understanding, claim formulation/classification, source-support judgment, Macro synthesis, and external evidence judgment.
+
+For rationale and rejected alternatives, read `references/architecture.md`. For exact JSON shapes, read `references/semantic-contracts.md`. For Windows operator commands and recovery, read `references/operator-runbook.md`. For regression scenarios, read `references/evals.md`.
+
+## Tests
+
+Run from `scripts/`:
+
+```powershell
+python test_ttk.py -v
 ```
-
-Use `references/evals.md` for semantic and boundary regression scenarios.
