@@ -25,4 +25,6 @@ activation_validation:
   unrelated_agent_files_changed: 0
   unresolved_items: []
   verdict: active_and_ready
+  verdict_status: retracted
+  superseded_by: apex-meta/tools/project-improvement-orchestration-weekly/DECISIONS.md#D011
 ```
