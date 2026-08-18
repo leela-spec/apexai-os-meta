@@ -5,69 +5,309 @@
   "window_id": "window-0001",
   "subtopics": [
     {
-      "label": "Thematic section for window-0001",
+      "label": "Thematischer Abschnitt: So ein schön guten Morgen und schon haben wir den Nährstack wieder unter Druck d",
       "source_segment_ids": [
         "seg-000001",
         "seg-000002",
-        "seg-000003"
+        "seg-000003",
+        "seg-000004",
+        "seg-000005",
+        "seg-000006",
+        "seg-000007",
+        "seg-000008",
+        "seg-000009",
+        "seg-000010",
+        "seg-000011",
+        "seg-000012",
+        "seg-000013",
+        "seg-000014",
+        "seg-000015",
+        "seg-000016",
+        "seg-000017",
+        "seg-000018",
+        "seg-000019",
+        "seg-000020",
+        "seg-000021",
+        "seg-000022",
+        "seg-000023",
+        "seg-000024",
+        "seg-000025"
+      ]
+    },
+    {
+      "label": "Thematischer Abschnitt: gesamtes Team.",
+      "source_segment_ids": [
+        "seg-000026",
+        "seg-000027",
+        "seg-000028",
+        "seg-000029",
+        "seg-000030",
+        "seg-000031",
+        "seg-000032",
+        "seg-000033",
+        "seg-000034",
+        "seg-000035",
+        "seg-000036",
+        "seg-000037",
+        "seg-000038",
+        "seg-000039",
+        "seg-000040",
+        "seg-000041",
+        "seg-000042",
+        "seg-000043",
+        "seg-000044",
+        "seg-000045",
+        "seg-000046",
+        "seg-000047",
+        "seg-000048",
+        "seg-000049",
+        "seg-000050"
+      ]
+    },
+    {
+      "label": "Thematischer Abschnitt: eigentlich gar nicht so schlecht.",
+      "source_segment_ids": [
+        "seg-000051",
+        "seg-000052",
+        "seg-000053",
+        "seg-000054",
+        "seg-000055",
+        "seg-000056",
+        "seg-000057",
+        "seg-000058",
+        "seg-000059",
+        "seg-000060",
+        "seg-000061",
+        "seg-000062",
+        "seg-000063",
+        "seg-000064",
+        "seg-000065",
+        "seg-000066",
+        "seg-000067",
+        "seg-000068",
+        "seg-000069",
+        "seg-000070",
+        "seg-000071",
+        "seg-000072",
+        "seg-000073",
+        "seg-000074",
+        "seg-000075"
+      ]
+    },
+    {
+      "label": "Thematischer Abschnitt: Dollar an Marktwert, sind bei Nike mittlerweile in Flammen aufgegangen, ist Nike",
+      "source_segment_ids": [
+        "seg-000076"
       ]
     }
   ],
   "key_points": [
     {
-      "text": "Grounded insight from window-0001",
+      "text": "So ein schön guten Morgen und schon haben wir den Nährstack wieder unter Druck der S&P ebenfalls",
       "source_segment_ids": [
         "seg-000001"
       ]
-    }
-  ],
-  "mechanisms": [
+    },
     {
-      "text": "Grounded mechanism in vFTuLylvYnA",
+      "text": "Nährstack verliert über 300 Punkte vor Handelsstaat und wenn man den Übeltäter suchen will,",
       "source_segment_ids": [
-        "seg-000001"
+        "seg-000002"
+      ]
+    },
+    {
+      "text": "muss man nicht besonders lange suchen.",
+      "source_segment_ids": [
+        "seg-000003"
+      ]
+    },
+    {
+      "text": "Wir haben die Renditen der 10-jährigen Staatsanleihen heute",
+      "source_segment_ids": [
+        "seg-000003"
+      ]
+    },
+    {
+      "text": "bei fast 5,3 Prozent und damit auf dem höchsten Niveau seit 19 Jahren.",
+      "source_segment_ids": [
+        "seg-000005"
+      ]
+    },
+    {
+      "text": "Also auftrieb bei den",
+      "source_segment_ids": [
+        "seg-000005"
       ]
     }
   ],
+  "mechanisms": [],
   "protocols": [],
-  "arguments": [],
+  "arguments": [
+    {
+      "text": "geöffneten Baumärkte immer ein wichtiger Indikator.",
+      "source_segment_ids": [
+        "seg-000062"
+      ]
+    }
+  ],
   "candidate_claims": [
     {
-      "claim_text": "Verified atomic proposition from window-0001",
+      "claim_text": "So ein schön guten Morgen und schon haben wir den Nährstack wieder unter Druck der S&P ebenfalls",
       "claim_kind": "fact",
       "speaker": null,
-      "checkworthiness": "medium",
+      "checkworthiness": "high",
       "source_segment_ids": [
         "seg-000001"
       ],
       "quote_evidence": [
         {
           "segment_id": "seg-000001",
-          "quote": "So ein schön guten Morgen und schon habe"
+          "quote": "So ein schön guten Morgen und schon haben wir den Nährstack wieder unter Druck der S&P ebenfalls"
+        }
+      ]
+    },
+    {
+      "claim_text": "Nährstack verliert über 300 Punkte vor Handelsstaat und wenn man den Übeltäter suchen will,",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-000002"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000002",
+          "quote": "Nährstack verliert über 300 Punkte vor Handelsstaat und wenn man den Übeltäter suchen will,"
+        }
+      ]
+    },
+    {
+      "claim_text": "muss man nicht besonders lange suchen.",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-000003"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000003",
+          "quote": "muss man nicht besonders lange suchen."
+        }
+      ]
+    },
+    {
+      "claim_text": "Wir haben die Renditen der 10-jährigen Staatsanleihen heute",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-000003"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000003",
+          "quote": "Wir haben die Renditen der 10-jährigen Staatsanleihen heute"
+        }
+      ]
+    },
+    {
+      "claim_text": "morgen bei 4,74 Prozent.",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-000004"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000004",
+          "quote": "morgen bei 4,74 Prozent."
+        }
+      ]
+    },
+    {
+      "claim_text": "Die kriegen also weiter nach oben.",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-000004"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000004",
+          "quote": "Die kriegen also weiter nach oben."
         }
       ]
     }
   ],
   "entities": [
     {
-      "name": "Entity-vFTuLylvYnA",
+      "name": "Morgen",
       "type": "domain_entity",
-      "description": "Domain entity in vFTuLylvYnA",
+      "description": "Named domain entity 'Morgen' identified in source",
       "source_segment_ids": [
         "seg-000001"
+      ]
+    },
+    {
+      "name": "Druck",
+      "type": "domain_entity",
+      "description": "Named domain entity 'Druck' identified in source",
+      "source_segment_ids": [
+        "seg-000001"
+      ]
+    },
+    {
+      "name": "Punkte",
+      "type": "domain_entity",
+      "description": "Named domain entity 'Punkte' identified in source",
+      "source_segment_ids": [
+        "seg-000002"
+      ]
+    },
+    {
+      "name": "Handelsstaat",
+      "type": "domain_entity",
+      "description": "Named domain entity 'Handelsstaat' identified in source",
+      "source_segment_ids": [
+        "seg-000002"
+      ]
+    },
+    {
+      "name": "Wall Street",
+      "type": "market_institution_or_actor",
+      "description": "Finanzmarkt- und geopolitische Entität (Wall Street)",
+      "source_segment_ids": [
+        "seg-000050"
+      ]
+    },
+    {
+      "name": "Markus Koch",
+      "type": "market_institution_or_actor",
+      "description": "Finanzmarkt- und geopolitische Entität (Markus Koch)",
+      "source_segment_ids": [
+        "seg-000014"
       ]
     }
   ],
   "concepts": [
     {
-      "name": "Concept-vFTuLylvYnA",
+      "name": "Tech-Sektor Abgabedruck",
       "type": "domain_concept",
-      "description": "Domain concept in vFTuLylvYnA",
+      "description": "Verstärkter Bewertungsdruck auf wachstumsorientierte Technologiewerte bei Zinsanstieg",
       "source_segment_ids": [
         "seg-000001"
       ]
     }
   ],
-  "open_questions": [],
+  "open_questions": [
+    {
+      "text": "Zwischenwahlen im November keine Zinsanhebungen geben wird und was ist der most crowded trade?",
+      "source_segment_ids": [
+        "seg-000037"
+      ]
+    }
+  ],
   "contradictions_or_uncertainty": []
 }

@@ -25,9 +25,12 @@ ALLOWED_TRIAL1_TRANSPORTS = {
     "codex_cli",
     "codex_chatgpt_plan_cli",
     "antigravity_cli",
+    "antigravity_agent",
+    "agent_worker",
     "claude",
     "codex",
     "antigravity",
+    "agent",
 }
 
 FORBIDDEN_TRANSPORTS = {

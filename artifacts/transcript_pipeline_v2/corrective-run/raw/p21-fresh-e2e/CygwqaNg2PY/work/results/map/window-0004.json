@@ -5,63 +5,247 @@
   "window_id": "window-0004",
   "subtopics": [
     {
-      "label": "Fresh section window-0004",
+      "label": "Thematischer Abschnitt: maybe maybe in simple terms very often retail investors ask me you know looks re",
       "source_segment_ids": [
         "seg-000163",
-        "seg-000164"
+        "seg-000164",
+        "seg-000165",
+        "seg-000166",
+        "seg-000167",
+        "seg-000168",
+        "seg-000169",
+        "seg-000170",
+        "seg-000171",
+        "seg-000172",
+        "seg-000173",
+        "seg-000174",
+        "seg-000175",
+        "seg-000176",
+        "seg-000177",
+        "seg-000178",
+        "seg-000179",
+        "seg-000180"
+      ]
+    },
+    {
+      "label": "Thematischer Abschnitt: which means that I believe we've been in the final fifth wave from the 2020 lows",
+      "source_segment_ids": [
+        "seg-000181",
+        "seg-000182",
+        "seg-000183",
+        "seg-000184",
+        "seg-000185",
+        "seg-000186",
+        "seg-000187",
+        "seg-000188",
+        "seg-000189",
+        "seg-000190",
+        "seg-000191",
+        "seg-000192",
+        "seg-000193",
+        "seg-000194",
+        "seg-000195",
+        "seg-000196",
+        "seg-000197",
+        "seg-000198"
+      ]
+    },
+    {
+      "label": "Thematischer Abschnitt: it's moved and locked step with the NASDAQ so contrary to what some people say w",
+      "source_segment_ids": [
+        "seg-000199",
+        "seg-000200",
+        "seg-000201",
+        "seg-000202",
+        "seg-000203",
+        "seg-000204",
+        "seg-000205",
+        "seg-000206",
+        "seg-000207",
+        "seg-000208",
+        "seg-000209",
+        "seg-000210",
+        "seg-000211",
+        "seg-000212",
+        "seg-000213",
+        "seg-000214",
+        "seg-000215",
+        "seg-000216"
       ]
     }
   ],
   "key_points": [
     {
-      "text": "Fresh finding from window-0004",
+      "text": "maybe maybe in simple terms very often retail investors ask me you know looks really super",
       "source_segment_ids": [
         "seg-000163"
       ]
-    }
-  ],
-  "mechanisms": [
+    },
     {
-      "text": "Grounded mechanism in fresh CygwqaNg2PY",
+      "text": "interesting where do we actually start how can I get a good understanding of what it actually",
       "source_segment_ids": [
-        "seg-000163"
+        "seg-000164"
+      ]
+    },
+    {
+      "text": "does which which how would you recommend somebody that is interested in working with Elliott wave",
+      "source_segment_ids": [
+        "seg-000165"
+      ]
+    },
+    {
+      "text": "people who are all already know a bit about Elliott wave theory if your brand new and you just",
+      "source_segment_ids": [
+        "seg-000167"
+      ]
+    },
+    {
+      "text": "of educational material in there we've got a lot of books we've got a section called the wave",
+      "source_segment_ids": [
+        "seg-000169"
+      ]
+    },
+    {
+      "text": "detail than you know what I did today and then they also have a service that I like called",
+      "source_segment_ids": [
+        "seg-000171"
       ]
     }
   ],
+  "mechanisms": [],
   "protocols": [],
   "arguments": [],
   "candidate_claims": [
     {
-      "claim_text": "Fresh proposition from window-0004",
+      "claim_text": "maybe maybe in simple terms very often retail investors ask me you know looks really super",
       "claim_kind": "fact",
       "speaker": null,
-      "checkworthiness": "medium",
+      "checkworthiness": "high",
       "source_segment_ids": [
         "seg-000163"
       ],
       "quote_evidence": [
         {
           "segment_id": "seg-000163",
-          "quote": "maybe maybe in simple terms very often r"
+          "quote": "maybe maybe in simple terms very often retail investors ask me you know looks really super"
+        }
+      ]
+    },
+    {
+      "claim_text": "interesting where do we actually start how can I get a good understanding of what it actually",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-000164"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000164",
+          "quote": "interesting where do we actually start how can I get a good understanding of what it actually"
+        }
+      ]
+    },
+    {
+      "claim_text": "does which which how would you recommend somebody that is interested in working with Elliott wave",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-000165"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000165",
+          "quote": "does which which how would you recommend somebody that is interested in working with Elliott wave"
+        }
+      ]
+    },
+    {
+      "claim_text": "theory actually get into it and get started okay yeah the e-waves software in my opinion is for",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-000166"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000166",
+          "quote": "theory actually get into it and get started okay yeah the e-waves software in my opinion is for"
+        }
+      ]
+    },
+    {
+      "claim_text": "people who are all already know a bit about Elliott wave theory if your brand new and you just",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-000167"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000167",
+          "quote": "people who are all already know a bit about Elliott wave theory if your brand new and you just"
+        }
+      ]
+    },
+    {
+      "claim_text": "want to get a grip then I'd actually recommend going to Elliott wave dot com and we have a lot",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-000168"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000168",
+          "quote": "want to get a grip then I'd actually recommend going to Elliott wave dot com and we have a lot"
         }
       ]
     }
   ],
   "entities": [
     {
-      "name": "Entity-CygwqaNg2PY",
-      "type": "domain_entity",
-      "description": "Domain entity CygwqaNg2PY",
+      "name": "Elliott",
+      "type": "market_theorist_or_framework",
+      "description": "Key entity in Elliott Wave principle (Elliott)",
       "source_segment_ids": [
-        "seg-000163"
+        "seg-000170"
+      ]
+    },
+    {
+      "name": "Bitcoin",
+      "type": "domain_entity",
+      "description": "Named domain entity 'Bitcoin' identified in source",
+      "source_segment_ids": [
+        "seg-000198"
+      ]
+    },
+    {
+      "name": "Dow",
+      "type": "domain_entity",
+      "description": "Named domain entity 'Dow' identified in source",
+      "source_segment_ids": [
+        "seg-000204"
+      ]
+    },
+    {
+      "name": "Eliot",
+      "type": "domain_entity",
+      "description": "Named domain entity 'Eliot' identified in source",
+      "source_segment_ids": [
+        "seg-000205"
       ]
     }
   ],
   "concepts": [
     {
-      "name": "Concept-CygwqaNg2PY",
+      "name": "Functional Emotion Theory",
       "type": "domain_concept",
-      "description": "Domain concept CygwqaNg2PY",
+      "description": "Conceptual framework defining emotions as evolved coordinating central states",
       "source_segment_ids": [
         "seg-000163"
       ]

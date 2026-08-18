@@ -1,29 +1,509 @@
 {
   "items": [
     {
-      "checkworthiness": "medium",
+      "checkworthiness": "high",
       "claim_ref": "claim-0001",
-      "claim_text": "Verified atomic proposition in P-h5WSQG1Sw",
+      "claim_text": "I see somebody come up behind me.",
       "preferred_source_types": [
         "official primary source",
         "primary research"
       ],
       "quote_evidence": [
         {
-          "quote": "I see somebody come up behind me",
+          "quote": "I see somebody come up behind me.",
           "segment_id": "seg-000001"
         }
       ],
-      "search_question": "Verified atomic proposition in P-h5WSQG1Sw",
+      "search_question": "I see somebody come up behind me.",
       "source_segment_ids": [
         "seg-000001"
+      ],
+      "source_support": "SUPPORTED"
+    },
+    {
+      "checkworthiness": "high",
+      "claim_ref": "claim-0002",
+      "claim_text": "They can see.",
+      "preferred_source_types": [
+        "official primary source",
+        "primary research"
+      ],
+      "quote_evidence": [
+        {
+          "quote": "They can see.",
+          "segment_id": "seg-000001"
+        }
+      ],
+      "search_question": "They can see.",
+      "source_segment_ids": [
+        "seg-000001"
+      ],
+      "source_support": "SUPPORTED"
+    },
+    {
+      "checkworthiness": "high",
+      "claim_ref": "claim-0003",
+      "claim_text": "I'm trying to park.",
+      "preferred_source_types": [
+        "official primary source",
+        "primary research"
+      ],
+      "quote_evidence": [
+        {
+          "quote": "I'm trying to park.",
+          "segment_id": "seg-000001"
+        }
+      ],
+      "search_question": "I'm trying to park.",
+      "source_segment_ids": [
+        "seg-000001"
+      ],
+      "source_support": "SUPPORTED"
+    },
+    {
+      "checkworthiness": "high",
+      "claim_ref": "claim-0004",
+      "claim_text": "They can move over.",
+      "preferred_source_types": [
+        "official primary source",
+        "primary research"
+      ],
+      "quote_evidence": [
+        {
+          "quote": "They can move over.",
+          "segment_id": "seg-000001"
+        }
+      ],
+      "search_question": "They can move over.",
+      "source_segment_ids": [
+        "seg-000001"
+      ],
+      "source_support": "SUPPORTED"
+    },
+    {
+      "checkworthiness": "high",
+      "claim_ref": "claim-0005",
+      "claim_text": "they come right up behind me, go on the horn.",
+      "preferred_source_types": [
+        "official primary source",
+        "primary research"
+      ],
+      "quote_evidence": [
+        {
+          "quote": "they come right up behind me, go on the horn.",
+          "segment_id": "seg-000002"
+        }
+      ],
+      "search_question": "they come right up behind me, go on the horn.",
+      "source_segment_ids": [
+        "seg-000002"
+      ],
+      "source_support": "SUPPORTED"
+    },
+    {
+      "checkworthiness": "high",
+      "claim_ref": "claim-0006",
+      "claim_text": "You know, you immediately feel just an immediate",
+      "preferred_source_types": [
+        "official primary source",
+        "primary research"
+      ],
+      "quote_evidence": [
+        {
+          "quote": "You know, you immediately feel just an immediate",
+          "segment_id": "seg-000002"
+        }
+      ],
+      "search_question": "You know, you immediately feel just an immediate",
+      "source_segment_ids": [
+        "seg-000002"
+      ],
+      "source_support": "SUPPORTED"
+    },
+    {
+      "checkworthiness": "high",
+      "claim_ref": "claim-0007",
+      "claim_text": "findings and emotion from animal studies, findings from social psychology.",
+      "preferred_source_types": [
+        "official primary source",
+        "primary research"
+      ],
+      "quote_evidence": [
+        {
+          "quote": "findings and emotion from animal studies, findings from social psychology.",
+          "segment_id": "seg-000044"
+        }
+      ],
+      "search_question": "findings and emotion from animal studies, findings from social psychology.",
+      "source_segment_ids": [
+        "seg-000044"
+      ],
+      "source_support": "SUPPORTED"
+    },
+    {
+      "checkworthiness": "high",
+      "claim_ref": "claim-0008",
+      "claim_text": "Typically those people in",
+      "preferred_source_types": [
+        "official primary source",
+        "primary research"
+      ],
+      "quote_evidence": [
+        {
+          "quote": "Typically those people in",
+          "segment_id": "seg-000044"
+        }
+      ],
+      "search_question": "Typically those people in",
+      "source_segment_ids": [
+        "seg-000044"
+      ],
+      "source_support": "SUPPORTED"
+    },
+    {
+      "checkworthiness": "high",
+      "claim_ref": "claim-0009",
+      "claim_text": "those fields don't talk to one another.",
+      "preferred_source_types": [
+        "official primary source",
+        "primary research"
+      ],
+      "quote_evidence": [
+        {
+          "quote": "those fields don't talk to one another.",
+          "segment_id": "seg-000045"
+        }
+      ],
+      "search_question": "those fields don't talk to one another.",
+      "source_segment_ids": [
+        "seg-000045"
+      ],
+      "source_support": "SUPPORTED"
+    },
+    {
+      "checkworthiness": "high",
+      "claim_ref": "claim-0010",
+      "claim_text": "They do very different studies, very different methodologies,",
+      "preferred_source_types": [
+        "official primary source",
+        "primary research"
+      ],
+      "quote_evidence": [
+        {
+          "quote": "They do very different studies, very different methodologies,",
+          "segment_id": "seg-000045"
+        }
+      ],
+      "search_question": "They do very different studies, very different methodologies,",
+      "source_segment_ids": [
+        "seg-000045"
+      ],
+      "source_support": "SUPPORTED"
+    },
+    {
+      "checkworthiness": "high",
+      "claim_ref": "claim-0011",
+      "claim_text": "and so trying to integrate across disciplines that are that far apart to really try and get a sense",
+      "preferred_source_types": [
+        "official primary source",
+        "primary research"
+      ],
+      "quote_evidence": [
+        {
+          "quote": "and so trying to integrate across disciplines that are that far apart to really try and get a sense",
+          "segment_id": "seg-000046"
+        }
+      ],
+      "search_question": "and so trying to integrate across disciplines that are that far apart to really try and get a sense",
+      "source_segment_ids": [
+        "seg-000046"
+      ],
+      "source_support": "SUPPORTED"
+    },
+    {
+      "checkworthiness": "high",
+      "claim_ref": "claim-0012",
+      "claim_text": "for what are emotions in a sense that would satisfy psychologists and lay people about human emotions,",
+      "preferred_source_types": [
+        "official primary source",
+        "primary research"
+      ],
+      "quote_evidence": [
+        {
+          "quote": "for what are emotions in a sense that would satisfy psychologists and lay people about human emotions,",
+          "segment_id": "seg-000047"
+        }
+      ],
+      "search_question": "for what are emotions in a sense that would satisfy psychologists and lay people about human emotions,",
+      "source_segment_ids": [
+        "seg-000047"
+      ],
+      "source_support": "SUPPORTED"
+    },
+    {
+      "checkworthiness": "high",
+      "claim_ref": "claim-0013",
+      "claim_text": "I called it the principle of antithesis is valence, which is approach or avoid pleasant or",
+      "preferred_source_types": [
+        "official primary source",
+        "primary research"
+      ],
+      "quote_evidence": [
+        {
+          "quote": "I called it the principle of antithesis is valence, which is approach or avoid pleasant or",
+          "segment_id": "seg-000107"
+        }
+      ],
+      "search_question": "I called it the principle of antithesis is valence, which is approach or avoid pleasant or",
+      "source_segment_ids": [
+        "seg-000107"
+      ],
+      "source_support": "SUPPORTED"
+    },
+    {
+      "checkworthiness": "high",
+      "claim_ref": "claim-0014",
+      "claim_text": "unpleasant, this basic valence dimension.",
+      "preferred_source_types": [
+        "official primary source",
+        "primary research"
+      ],
+      "quote_evidence": [
+        {
+          "quote": "unpleasant, this basic valence dimension.",
+          "segment_id": "seg-000108"
+        }
+      ],
+      "search_question": "unpleasant, this basic valence dimension.",
+      "source_segment_ids": [
+        "seg-000108"
+      ],
+      "source_support": "SUPPORTED"
+    },
+    {
+      "checkworthiness": "high",
+      "claim_ref": "claim-0015",
+      "claim_text": "Are there any neutral emotions?",
+      "preferred_source_types": [
+        "official primary source",
+        "primary research"
+      ],
+      "quote_evidence": [
+        {
+          "quote": "Are there any neutral emotions?",
+          "segment_id": "seg-000108"
+        }
+      ],
+      "search_question": "Are there any neutral emotions?",
+      "source_segment_ids": [
+        "seg-000108"
+      ],
+      "source_support": "SUPPORTED"
+    },
+    {
+      "checkworthiness": "high",
+      "claim_ref": "claim-0016",
+      "claim_text": "I ask this because",
+      "preferred_source_types": [
+        "official primary source",
+        "primary research"
+      ],
+      "quote_evidence": [
+        {
+          "quote": "I ask this because",
+          "segment_id": "seg-000108"
+        }
+      ],
+      "search_question": "I ask this because",
+      "source_segment_ids": [
+        "seg-000108"
+      ],
+      "source_support": "SUPPORTED"
+    },
+    {
+      "checkworthiness": "high",
+      "claim_ref": "claim-0017",
+      "claim_text": "your colleague at Caltech who I respect tremendously Marcus Meister once wrote a review where he said,",
+      "preferred_source_types": [
+        "official primary source",
+        "primary research"
+      ],
+      "quote_evidence": [
+        {
+          "quote": "your colleague at Caltech who I respect tremendously Marcus Meister once wrote a review where he said,",
+          "segment_id": "seg-000109"
+        }
+      ],
+      "search_question": "your colleague at Caltech who I respect tremendously Marcus Meister once wrote a review where he said,",
+      "source_segment_ids": [
+        "seg-000109"
+      ],
+      "source_support": "SUPPORTED"
+    },
+    {
+      "checkworthiness": "high",
+      "claim_ref": "claim-0018",
+      "claim_text": "you know, a good way to think about sensory systems and maybe neural systems of all kinds is",
+      "preferred_source_types": [
+        "official primary source",
+        "primary research"
+      ],
+      "quote_evidence": [
+        {
+          "quote": "you know, a good way to think about sensory systems and maybe neural systems of all kinds is",
+          "segment_id": "seg-000110"
+        }
+      ],
+      "search_question": "you know, a good way to think about sensory systems and maybe neural systems of all kinds is",
+      "source_segment_ids": [
+        "seg-000110"
+      ],
+      "source_support": "SUPPORTED"
+    },
+    {
+      "checkworthiness": "high",
+      "claim_ref": "claim-0019",
+      "claim_text": "I'd like to take a quick break and acknowledge our sponsor, Helix Sleep.",
+      "preferred_source_types": [
+        "official primary source",
+        "primary research"
+      ],
+      "quote_evidence": [
+        {
+          "quote": "I'd like to take a quick break and acknowledge our sponsor, Helix Sleep.",
+          "segment_id": "seg-000168"
+        }
+      ],
+      "search_question": "I'd like to take a quick break and acknowledge our sponsor, Helix Sleep.",
+      "source_segment_ids": [
+        "seg-000168"
+      ],
+      "source_support": "SUPPORTED"
+    },
+    {
+      "checkworthiness": "high",
+      "claim_ref": "claim-0020",
+      "claim_text": "Helix Sleep makes matrices",
+      "preferred_source_types": [
+        "official primary source",
+        "primary research"
+      ],
+      "quote_evidence": [
+        {
+          "quote": "Helix Sleep makes matrices",
+          "segment_id": "seg-000168"
+        }
+      ],
+      "search_question": "Helix Sleep makes matrices",
+      "source_segment_ids": [
+        "seg-000168"
+      ],
+      "source_support": "SUPPORTED"
+    },
+    {
+      "checkworthiness": "high",
+      "claim_ref": "claim-0021",
+      "claim_text": "and pillows that are customized to your unique sleep needs.",
+      "preferred_source_types": [
+        "official primary source",
+        "primary research"
+      ],
+      "quote_evidence": [
+        {
+          "quote": "and pillows that are customized to your unique sleep needs.",
+          "segment_id": "seg-000169"
+        }
+      ],
+      "search_question": "and pillows that are customized to your unique sleep needs.",
+      "source_segment_ids": [
+        "seg-000169"
+      ],
+      "source_support": "SUPPORTED"
+    },
+    {
+      "checkworthiness": "high",
+      "claim_ref": "claim-0022",
+      "claim_text": "Now, I've spoken many times before on",
+      "preferred_source_types": [
+        "official primary source",
+        "primary research"
+      ],
+      "quote_evidence": [
+        {
+          "quote": "Now, I've spoken many times before on",
+          "segment_id": "seg-000169"
+        }
+      ],
+      "search_question": "Now, I've spoken many times before on",
+      "source_segment_ids": [
+        "seg-000169"
+      ],
+      "source_support": "SUPPORTED"
+    },
+    {
+      "checkworthiness": "high",
+      "claim_ref": "claim-0023",
+      "claim_text": "this and on other podcasts about the fact that getting a great night's sleep is the foundation of",
+      "preferred_source_types": [
+        "official primary source",
+        "primary research"
+      ],
+      "quote_evidence": [
+        {
+          "quote": "this and on other podcasts about the fact that getting a great night's sleep is the foundation of",
+          "segment_id": "seg-000170"
+        }
+      ],
+      "search_question": "this and on other podcasts about the fact that getting a great night's sleep is the foundation of",
+      "source_segment_ids": [
+        "seg-000170"
+      ],
+      "source_support": "SUPPORTED"
+    },
+    {
+      "checkworthiness": "high",
+      "claim_ref": "claim-0024",
+      "claim_text": "mental health, physical health and performance.",
+      "preferred_source_types": [
+        "official primary source",
+        "primary research"
+      ],
+      "quote_evidence": [
+        {
+          "quote": "mental health, physical health and performance.",
+          "segment_id": "seg-000171"
+        }
+      ],
+      "search_question": "mental health, physical health and performance.",
+      "source_segment_ids": [
+        "seg-000171"
+      ],
+      "source_support": "SUPPORTED"
+    },
+    {
+      "checkworthiness": "high",
+      "claim_ref": "claim-0025",
+      "claim_text": "And the other question is, if you tie emotion to the conscious experience of emotion,",
+      "preferred_source_types": [
+        "official primary source",
+        "primary research"
+      ],
+      "quote_evidence": [
+        {
+          "quote": "And the other question is, if you tie emotion to the conscious experience of emotion,",
+          "segment_id": "seg-000231"
+        }
+      ],
+      "search_question": "And the other question is, if you tie emotion to the conscious experience of emotion,",
+      "source_segment_ids": [
+        "seg-000231"
       ],
       "source_support": "SUPPORTED"
     }
   ],
   "minimum_checkworthiness": "medium",
-  "queue_sha256": "9a53ce96cf467ebac1e450a647429e9d91c3ed184fa02abef1cde00e94765312",
-  "reduce_result_sha256": "5055ee14faf95224ec06b1a9a1b4a6204fd45c857924256810c474f6e1ca0f24",
+  "queue_sha256": "6c17eb179d1c4ccce2eb68994545db9e6701bd24f3cb7c6e68b498f55de00e7f",
+  "reduce_result_sha256": "96966f005240b0abcbf6404e78303dea8234152d684106215ca7860b7af52287",
   "schema": "ttk.verify-queue.v2",
   "source_sha256": "3e46962b9a0be33deecf1612ca70d8c2ceb1405ce67075ce22c6123d8e972c9d"
 }

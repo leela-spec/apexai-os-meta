@@ -5,64 +5,255 @@
   "window_id": "window-0003",
   "subtopics": [
     {
-      "label": "Thematic section for window-0003",
+      "label": "Thematischer Abschnitt: Na ja, die Wall Street findet natürlich immer irgendwelche Gründe.",
       "source_segment_ids": [
         "seg-000131",
         "seg-000132",
-        "seg-000133"
+        "seg-000133",
+        "seg-000134",
+        "seg-000135",
+        "seg-000136",
+        "seg-000137",
+        "seg-000138",
+        "seg-000139",
+        "seg-000140",
+        "seg-000141",
+        "seg-000142",
+        "seg-000143",
+        "seg-000144",
+        "seg-000145",
+        "seg-000146"
+      ]
+    },
+    {
+      "label": "Thematischer Abschnitt: bleibe ich mal direkt im Textsektor und schauen wir uns nochmal Nvidia an.",
+      "source_segment_ids": [
+        "seg-000147",
+        "seg-000148",
+        "seg-000149",
+        "seg-000150",
+        "seg-000151",
+        "seg-000152",
+        "seg-000153",
+        "seg-000154",
+        "seg-000155",
+        "seg-000156",
+        "seg-000157",
+        "seg-000158",
+        "seg-000159",
+        "seg-000160",
+        "seg-000161",
+        "seg-000162"
+      ]
+    },
+    {
+      "label": "Thematischer Abschnitt: in der Tat, wenn man sich also umhört bei den Partnern, dann entwickelt sich das",
+      "source_segment_ids": [
+        "seg-000163",
+        "seg-000164",
+        "seg-000165",
+        "seg-000166",
+        "seg-000167",
+        "seg-000168",
+        "seg-000169",
+        "seg-000170",
+        "seg-000171",
+        "seg-000172",
+        "seg-000173",
+        "seg-000174",
+        "seg-000175",
+        "seg-000176",
+        "seg-000177",
+        "seg-000178"
       ]
     }
   ],
   "key_points": [
     {
-      "text": "Grounded insight from window-0003",
+      "text": "Na ja, die Wall Street findet natürlich immer irgendwelche Gründe.",
       "source_segment_ids": [
         "seg-000131"
+      ]
+    },
+    {
+      "text": "Ja, wir hatten schon in den letzten",
+      "source_segment_ids": [
+        "seg-000131"
+      ]
+    },
+    {
+      "text": "es gibt ja der Bereich Data-Kommen Umsätze enttäuschend, aber wir reden hier von ein paar Millionen Euro,",
+      "source_segment_ids": [
+        "seg-000133"
+      ]
+    },
+    {
+      "text": "Beim Unternehmen das 1,3 Milliarden Dollar Umsatz fährt, ist das doch schon erstaunlich,",
+      "source_segment_ids": [
+        "seg-000135"
+      ]
+    },
+    {
+      "text": "analogisten Kommentare, wir haben einmal JP Morgan, die die Aktie tatsächlich nur mit neutral",
+      "source_segment_ids": [
+        "seg-000137"
+      ]
+    },
+    {
+      "text": "Aktie ist bei 524 Dollar heute Morgen und man sagt ja, der Bereich Data-Kommen, die Umsätze hier",
+      "source_segment_ids": [
+        "seg-000139"
       ]
     }
   ],
   "mechanisms": [
     {
-      "text": "Grounded mechanism in vFTuLylvYnA",
+      "text": "Kursthil steigt auf 160 Dollar.",
       "source_segment_ids": [
-        "seg-000131"
+        "seg-000167"
       ]
     }
   ],
   "protocols": [],
-  "arguments": [],
+  "arguments": [
+    {
+      "text": "wichtig sei, wie dem auch sei, wird dieser Punkt eigentlich überlagert durch die attraktive",
+      "source_segment_ids": [
+        "seg-000155"
+      ]
+    }
+  ],
   "candidate_claims": [
     {
-      "claim_text": "Verified atomic proposition from window-0003",
+      "claim_text": "Na ja, die Wall Street findet natürlich immer irgendwelche Gründe.",
       "claim_kind": "fact",
       "speaker": null,
-      "checkworthiness": "medium",
+      "checkworthiness": "high",
       "source_segment_ids": [
         "seg-000131"
       ],
       "quote_evidence": [
         {
           "segment_id": "seg-000131",
-          "quote": "Na ja, die Wall Street findet natürlich immer irgendwelche Gründe"
+          "quote": "Na ja, die Wall Street findet natürlich immer irgendwelche Gründe."
+        }
+      ]
+    },
+    {
+      "claim_text": "Ja, wir hatten schon in den letzten",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-000131"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000131",
+          "quote": "Ja, wir hatten schon in den letzten"
+        }
+      ]
+    },
+    {
+      "claim_text": "Tagen oft gute Zahlen und dann trotzdem eben verkäufe, also nach dem Motto 1 Server News Ereignis und",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-000132"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000132",
+          "quote": "Tagen oft gute Zahlen und dann trotzdem eben verkäufe, also nach dem Motto 1 Server News Ereignis und"
+        }
+      ]
+    },
+    {
+      "claim_text": "es gibt ja der Bereich Data-Kommen Umsätze enttäuschend, aber wir reden hier von ein paar Millionen Euro,",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-000133"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000133",
+          "quote": "es gibt ja der Bereich Data-Kommen Umsätze enttäuschend, aber wir reden hier von ein paar Millionen Euro,"
+        }
+      ]
+    },
+    {
+      "claim_text": "die Data-Kommen Umsätze lagen bei 258 Millionen, das ist eine Verfehlung von 13 Millionen Dollar.",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-000134"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000134",
+          "quote": "die Data-Kommen Umsätze lagen bei 258 Millionen, das ist eine Verfehlung von 13 Millionen Dollar."
+        }
+      ]
+    },
+    {
+      "claim_text": "Beim Unternehmen das 1,3 Milliarden Dollar Umsatz fährt, ist das doch schon erstaunlich,",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-000135"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000135",
+          "quote": "Beim Unternehmen das 1,3 Milliarden Dollar Umsatz fährt, ist das doch schon erstaunlich,"
         }
       ]
     }
   ],
   "entities": [
     {
-      "name": "Entity-vFTuLylvYnA",
-      "type": "domain_entity",
-      "description": "Domain entity in vFTuLylvYnA",
+      "name": "Wall Street",
+      "type": "market_institution_or_actor",
+      "description": "Finanzmarkt- und geopolitische Entität (Wall Street)",
       "source_segment_ids": [
         "seg-000131"
+      ]
+    },
+    {
+      "name": "Tagen",
+      "type": "domain_entity",
+      "description": "Named domain entity 'Tagen' identified in source",
+      "source_segment_ids": [
+        "seg-000132"
+      ]
+    },
+    {
+      "name": "Zahlen",
+      "type": "domain_entity",
+      "description": "Named domain entity 'Zahlen' identified in source",
+      "source_segment_ids": [
+        "seg-000132"
+      ]
+    },
+    {
+      "name": "Motto",
+      "type": "domain_entity",
+      "description": "Named domain entity 'Motto' identified in source",
+      "source_segment_ids": [
+        "seg-000132"
       ]
     }
   ],
   "concepts": [
     {
-      "name": "Concept-vFTuLylvYnA",
+      "name": "Core Subject Model",
       "type": "domain_concept",
-      "description": "Domain concept in vFTuLylvYnA",
+      "description": "Primary domain concept analyzed in window-0003",
       "source_segment_ids": [
         "seg-000131"
       ]

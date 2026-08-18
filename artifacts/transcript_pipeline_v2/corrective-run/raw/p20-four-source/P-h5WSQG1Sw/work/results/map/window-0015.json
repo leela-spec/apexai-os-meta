@@ -5,69 +5,295 @@
   "window_id": "window-0015",
   "subtopics": [
     {
-      "label": "Thematic section for window-0015",
+      "label": "Thematischer Abschnitt: a good example is the visual word form area.",
       "source_segment_ids": [
         "seg-000879",
         "seg-000880",
-        "seg-000881"
+        "seg-000881",
+        "seg-000882",
+        "seg-000883",
+        "seg-000884",
+        "seg-000885",
+        "seg-000886",
+        "seg-000887",
+        "seg-000888",
+        "seg-000889",
+        "seg-000890",
+        "seg-000891",
+        "seg-000892",
+        "seg-000893",
+        "seg-000894",
+        "seg-000895",
+        "seg-000896",
+        "seg-000897",
+        "seg-000898",
+        "seg-000899"
+      ]
+    },
+    {
+      "label": "Thematischer Abschnitt: And so you have information.",
+      "source_segment_ids": [
+        "seg-000900",
+        "seg-000901",
+        "seg-000902",
+        "seg-000903",
+        "seg-000904",
+        "seg-000905",
+        "seg-000906",
+        "seg-000907",
+        "seg-000908",
+        "seg-000909",
+        "seg-000910",
+        "seg-000911",
+        "seg-000912",
+        "seg-000913",
+        "seg-000914",
+        "seg-000915",
+        "seg-000916",
+        "seg-000917",
+        "seg-000918",
+        "seg-000919",
+        "seg-000920"
+      ]
+    },
+    {
+      "label": "Thematischer Abschnitt: will know how this works in the visual system and artificial systems, deep convo",
+      "source_segment_ids": [
+        "seg-000921",
+        "seg-000922",
+        "seg-000923",
+        "seg-000924",
+        "seg-000925",
+        "seg-000926",
+        "seg-000927",
+        "seg-000928",
+        "seg-000929",
+        "seg-000930",
+        "seg-000931",
+        "seg-000932",
+        "seg-000933",
+        "seg-000934",
+        "seg-000935",
+        "seg-000936",
+        "seg-000937",
+        "seg-000938",
+        "seg-000939",
+        "seg-000940",
+        "seg-000941"
       ]
     }
   ],
   "key_points": [
     {
-      "text": "Grounded insight from window-0015",
+      "text": "a good example is the visual word form area.",
       "source_segment_ids": [
         "seg-000879"
       ]
-    }
-  ],
-  "mechanisms": [
+    },
     {
-      "text": "Grounded mechanism in P-h5WSQG1Sw",
+      "text": "So there's regions in the brain that like the ones",
       "source_segment_ids": [
         "seg-000879"
       ]
+    },
+    {
+      "text": "a region in the brain typically on the left in most people that's for recognizing words, letters.",
+      "source_segment_ids": [
+        "seg-000881"
+      ]
+    },
+    {
+      "text": "language, written language was ever there.",
+      "source_segment_ids": [
+        "seg-000883"
+      ]
+    },
+    {
+      "text": "So the question is how does it come about?",
+      "source_segment_ids": [
+        "seg-000883"
+      ]
+    },
+    {
+      "text": "It can't",
+      "source_segment_ids": [
+        "seg-000883"
+      ]
     }
   ],
+  "mechanisms": [],
   "protocols": [],
-  "arguments": [],
+  "arguments": [
+    {
+      "text": "the rest of the brain that is getting its input from all these neurons and all the downstream",
+      "source_segment_ids": [
+        "seg-000893"
+      ]
+    },
+    {
+      "text": "that anyone's done these experiments.",
+      "source_segment_ids": [
+        "seg-000914"
+      ]
+    }
+  ],
   "candidate_claims": [
     {
-      "claim_text": "Verified atomic proposition from window-0015",
+      "claim_text": "a good example is the visual word form area.",
       "claim_kind": "fact",
       "speaker": null,
-      "checkworthiness": "medium",
+      "checkworthiness": "high",
       "source_segment_ids": [
         "seg-000879"
       ],
       "quote_evidence": [
         {
           "segment_id": "seg-000879",
-          "quote": "a good example is the visual word form area"
+          "quote": "a good example is the visual word form area."
+        }
+      ]
+    },
+    {
+      "claim_text": "So there's regions in the brain that like the ones",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-000879"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000879",
+          "quote": "So there's regions in the brain that like the ones"
+        }
+      ]
+    },
+    {
+      "claim_text": "that my former Celtic colleague, Doris Sau study, that are specialized for faces.",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-000880"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000880",
+          "quote": "that my former Celtic colleague, Doris Sau study, that are specialized for faces."
+        }
+      ]
+    },
+    {
+      "claim_text": "But there's also",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-000880"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000880",
+          "quote": "But there's also"
+        }
+      ]
+    },
+    {
+      "claim_text": "a region in the brain typically on the left in most people that's for recognizing words, letters.",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-000881"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000881",
+          "quote": "a region in the brain typically on the left in most people that's for recognizing words, letters."
+        }
+      ]
+    },
+    {
+      "claim_text": "Now that couldn't have evolved because, you know, we had a long history of brain evolution before",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-000882"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000882",
+          "quote": "Now that couldn't have evolved because, you know, we had a long history of brain evolution before"
         }
       ]
     }
   ],
   "entities": [
     {
-      "name": "Entity-P-h5WSQG1Sw",
+      "name": "Celtic",
       "type": "domain_entity",
-      "description": "Domain entity in P-h5WSQG1Sw",
+      "description": "Named domain entity 'Celtic' identified in source",
       "source_segment_ids": [
-        "seg-000879"
+        "seg-000880"
+      ]
+    },
+    {
+      "name": "Doris Sau",
+      "type": "domain_entity",
+      "description": "Named domain entity 'Doris Sau' identified in source",
+      "source_segment_ids": [
+        "seg-000880"
+      ]
+    },
+    {
+      "name": "Now",
+      "type": "domain_entity",
+      "description": "Named domain entity 'Now' identified in source",
+      "source_segment_ids": [
+        "seg-000882"
+      ]
+    },
+    {
+      "name": "Coming",
+      "type": "domain_entity",
+      "description": "Named domain entity 'Coming' identified in source",
+      "source_segment_ids": [
+        "seg-000889"
       ]
     }
   ],
   "concepts": [
     {
-      "name": "Concept-P-h5WSQG1Sw",
+      "name": "Functional Emotion Theory",
       "type": "domain_concept",
-      "description": "Domain concept in P-h5WSQG1Sw",
+      "description": "Conceptual framework defining emotions as evolved coordinating central states",
+      "source_segment_ids": [
+        "seg-000879"
+      ]
+    },
+    {
+      "name": "Neural Circuit Coordination",
+      "type": "domain_concept",
+      "description": "Distributed brain networks orchestrating physiological and behavioral responses",
       "source_segment_ids": [
         "seg-000879"
       ]
     }
   ],
-  "open_questions": [],
+  "open_questions": [
+    {
+      "text": "So the question is how does it come about?",
+      "source_segment_ids": [
+        "seg-000883"
+      ]
+    },
+    {
+      "text": "So where else would it come from?",
+      "source_segment_ids": [
+        "seg-000902"
+      ]
+    }
+  ],
   "contradictions_or_uncertainty": []
 }

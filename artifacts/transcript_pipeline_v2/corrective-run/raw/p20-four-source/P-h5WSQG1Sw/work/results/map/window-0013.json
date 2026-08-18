@@ -5,69 +5,319 @@
   "window_id": "window-0013",
   "subtopics": [
     {
-      "label": "Thematic section for window-0013",
+      "label": "Thematischer Abschnitt: is no systematic association between specific emotions and specific changes in y",
       "source_segment_ids": [
         "seg-000766",
         "seg-000767",
-        "seg-000768"
+        "seg-000768",
+        "seg-000769",
+        "seg-000770",
+        "seg-000771",
+        "seg-000772",
+        "seg-000773",
+        "seg-000774",
+        "seg-000775",
+        "seg-000776",
+        "seg-000777",
+        "seg-000778",
+        "seg-000779",
+        "seg-000780",
+        "seg-000781",
+        "seg-000782",
+        "seg-000783",
+        "seg-000784",
+        "seg-000785"
+      ]
+    },
+    {
+      "label": "Thematischer Abschnitt: completely reasonable hypothesis that you would find a similar high-dimensional",
+      "source_segment_ids": [
+        "seg-000786",
+        "seg-000787",
+        "seg-000788",
+        "seg-000789",
+        "seg-000790",
+        "seg-000791",
+        "seg-000792",
+        "seg-000793",
+        "seg-000794",
+        "seg-000795",
+        "seg-000796",
+        "seg-000797",
+        "seg-000798",
+        "seg-000799",
+        "seg-000800",
+        "seg-000801",
+        "seg-000802",
+        "seg-000803",
+        "seg-000804",
+        "seg-000805"
+      ]
+    },
+    {
+      "label": "Thematischer Abschnitt: be understand best in terms of emotions are all these subcortical circuits.",
+      "source_segment_ids": [
+        "seg-000806",
+        "seg-000807",
+        "seg-000808",
+        "seg-000809",
+        "seg-000810",
+        "seg-000811",
+        "seg-000812",
+        "seg-000813",
+        "seg-000814",
+        "seg-000815",
+        "seg-000816",
+        "seg-000817",
+        "seg-000818",
+        "seg-000819",
+        "seg-000820",
+        "seg-000821",
+        "seg-000822",
+        "seg-000823",
+        "seg-000824",
+        "seg-000825"
+      ]
+    },
+    {
+      "label": "Thematischer Abschnitt: huberman.",
+      "source_segment_ids": [
+        "seg-000826",
+        "seg-000827"
       ]
     }
   ],
   "key_points": [
     {
-      "text": "Grounded insight from window-0013",
+      "text": "is no systematic association between specific emotions and specific changes in your body.",
       "source_segment_ids": [
         "seg-000766"
       ]
-    }
-  ],
-  "mechanisms": [
+    },
     {
-      "text": "Grounded mechanism in P-h5WSQG1Sw",
+      "text": "Well, if you look at those studies, people put a few electrodes on and they measure, you know,",
       "source_segment_ids": [
-        "seg-000766"
+        "seg-000767"
+      ]
+    },
+    {
+      "text": "heart rate changes, blood pressure changes, et cetera, it is extremely crude.",
+      "source_segment_ids": [
+        "seg-000768"
+      ]
+    },
+    {
+      "text": "You're looking at",
+      "source_segment_ids": [
+        "seg-000768"
+      ]
+    },
+    {
+      "text": "high-dimensional readout of, okay, your gall bladder and your liver and your kidney and your heart",
+      "source_segment_ids": [
+        "seg-000770"
+      ]
+    },
+    {
+      "text": "between specific emotion states and changes, some kind of complex change in your body?",
+      "source_segment_ids": [
+        "seg-000772"
       ]
     }
   ],
+  "mechanisms": [],
   "protocols": [],
-  "arguments": [],
+  "arguments": [
+    {
+      "text": "there are signatures, they're distributed, they're complicated, but these are from and buried",
+      "source_segment_ids": [
+        "seg-000780"
+      ]
+    },
+    {
+      "text": "are bombarded with these signals.",
+      "source_segment_ids": [
+        "seg-000798"
+      ]
+    },
+    {
+      "text": "There's a lot of processing that goes on in all these subcortical structures, and certainly would",
+      "source_segment_ids": [
+        "seg-000805"
+      ]
+    },
+    {
+      "text": "be understand best in terms of emotions are all these subcortical circuits.",
+      "source_segment_ids": [
+        "seg-000806"
+      ]
+    }
+  ],
   "candidate_claims": [
     {
-      "claim_text": "Verified atomic proposition from window-0013",
+      "claim_text": "is no systematic association between specific emotions and specific changes in your body.",
       "claim_kind": "fact",
       "speaker": null,
-      "checkworthiness": "medium",
+      "checkworthiness": "high",
       "source_segment_ids": [
         "seg-000766"
       ],
       "quote_evidence": [
         {
           "segment_id": "seg-000766",
-          "quote": "is no systematic association between specific emotions and specific changes in your body"
+          "quote": "is no systematic association between specific emotions and specific changes in your body."
+        }
+      ]
+    },
+    {
+      "claim_text": "Well, if you look at those studies, people put a few electrodes on and they measure, you know,",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-000767"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000767",
+          "quote": "Well, if you look at those studies, people put a few electrodes on and they measure, you know,"
+        }
+      ]
+    },
+    {
+      "claim_text": "heart rate changes, blood pressure changes, et cetera, it is extremely crude.",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-000768"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000768",
+          "quote": "heart rate changes, blood pressure changes, et cetera, it is extremely crude."
+        }
+      ]
+    },
+    {
+      "claim_text": "You're looking at",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-000768"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000768",
+          "quote": "You're looking at"
+        }
+      ]
+    },
+    {
+      "claim_text": "a tiny, tiny slice of what's going on in your body.",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-000769"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000769",
+          "quote": "a tiny, tiny slice of what's going on in your body."
+        }
+      ]
+    },
+    {
+      "claim_text": "What you would want to do is have a detailed",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-000769"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000769",
+          "quote": "What you would want to do is have a detailed"
         }
       ]
     }
   ],
   "entities": [
     {
-      "name": "Entity-P-h5WSQG1Sw",
+      "name": "You",
       "type": "domain_entity",
-      "description": "Domain entity in P-h5WSQG1Sw",
+      "description": "Named domain entity 'You' identified in source",
       "source_segment_ids": [
-        "seg-000766"
+        "seg-000768"
+      ]
+    },
+    {
+      "name": "Yeah",
+      "type": "domain_entity",
+      "description": "Named domain entity 'Yeah' identified in source",
+      "source_segment_ids": [
+        "seg-000774"
+      ]
+    },
+    {
+      "name": "Torweger",
+      "type": "domain_entity",
+      "description": "Named domain entity 'Torweger' identified in source",
+      "source_segment_ids": [
+        "seg-000781"
+      ]
+    },
+    {
+      "name": "They",
+      "type": "domain_entity",
+      "description": "Named domain entity 'They' identified in source",
+      "source_segment_ids": [
+        "seg-000783"
       ]
     }
   ],
   "concepts": [
     {
-      "name": "Concept-P-h5WSQG1Sw",
+      "name": "Functional Emotion Theory",
       "type": "domain_concept",
-      "description": "Domain concept in P-h5WSQG1Sw",
+      "description": "Conceptual framework defining emotions as evolved coordinating central states",
+      "source_segment_ids": [
+        "seg-000766"
+      ]
+    },
+    {
+      "name": "Facial Feedback Hypothesis",
+      "type": "domain_concept",
+      "description": "Influence of facial musculature modulation on emotional experience",
+      "source_segment_ids": [
+        "seg-000766"
+      ]
+    },
+    {
+      "name": "Neural Circuit Coordination",
+      "type": "domain_concept",
+      "description": "Distributed brain networks orchestrating physiological and behavioral responses",
       "source_segment_ids": [
         "seg-000766"
       ]
     }
   ],
-  "open_questions": [],
+  "open_questions": [
+    {
+      "text": "between specific emotion states and changes, some kind of complex change in your body?",
+      "source_segment_ids": [
+        "seg-000772"
+      ]
+    },
+    {
+      "text": "And in some sense, it's obvious, right?",
+      "source_segment_ids": [
+        "seg-000796"
+      ]
+    }
+  ],
   "contradictions_or_uncertainty": []
 }

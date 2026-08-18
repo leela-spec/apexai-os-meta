@@ -5,64 +5,288 @@
   "window_id": "window-0022",
   "subtopics": [
     {
-      "label": "Thematic section for window-0022",
+      "label": "Thematischer Abschnitt: and all of a sudden the bell sounds and you could hear a pin drop but there's th",
       "source_segment_ids": [
         "seg-001345",
         "seg-001346",
-        "seg-001347"
+        "seg-001347",
+        "seg-001348",
+        "seg-001349",
+        "seg-001350",
+        "seg-001351",
+        "seg-001352",
+        "seg-001353",
+        "seg-001354",
+        "seg-001355",
+        "seg-001356",
+        "seg-001357",
+        "seg-001358",
+        "seg-001359",
+        "seg-001360",
+        "seg-001361",
+        "seg-001362",
+        "seg-001363",
+        "seg-001364",
+        "seg-001365",
+        "seg-001366"
+      ]
+    },
+    {
+      "label": "Thematischer Abschnitt: fear sadness worry you know all these negative emotions and so you're regulating",
+      "source_segment_ids": [
+        "seg-001367",
+        "seg-001368",
+        "seg-001369",
+        "seg-001370",
+        "seg-001371",
+        "seg-001372",
+        "seg-001373",
+        "seg-001374",
+        "seg-001375",
+        "seg-001376",
+        "seg-001377",
+        "seg-001378",
+        "seg-001379",
+        "seg-001380",
+        "seg-001381",
+        "seg-001382",
+        "seg-001383",
+        "seg-001384",
+        "seg-001385",
+        "seg-001386",
+        "seg-001387",
+        "seg-001388"
+      ]
+    },
+    {
+      "label": "Thematischer Abschnitt: die and you're unable to do things and eventually you lose the whole world so ra",
+      "source_segment_ids": [
+        "seg-001389",
+        "seg-001390",
+        "seg-001391",
+        "seg-001392",
+        "seg-001393",
+        "seg-001394",
+        "seg-001395",
+        "seg-001396",
+        "seg-001397",
+        "seg-001398",
+        "seg-001399",
+        "seg-001400",
+        "seg-001401",
+        "seg-001402",
+        "seg-001403",
+        "seg-001404",
+        "seg-001405",
+        "seg-001406",
+        "seg-001407",
+        "seg-001408",
+        "seg-001409",
+        "seg-001410"
       ]
     }
   ],
   "key_points": [
     {
-      "text": "Grounded insight from window-0022",
+      "text": "and all of a sudden the bell sounds and you could hear a pin drop but there's thousands of people",
       "source_segment_ids": [
         "seg-001345"
       ]
-    }
-  ],
-  "mechanisms": [
+    },
     {
-      "text": "Grounded mechanism in P-h5WSQG1Sw",
+      "text": "around you yeah you hear a bell again the meal begins walking to the auditorium at Shuffle Shuffle Shuffle",
       "source_segment_ids": [
-        "seg-001345"
+        "seg-001346"
+      ]
+    },
+    {
+      "text": "talking talking talking talking boom it's a step function they're training this in the cells",
+      "source_segment_ids": [
+        "seg-001347"
+      ]
+    },
+    {
+      "text": "hour where they can access their phones I normally my phone it's on right now because you guys",
+      "source_segment_ids": [
+        "seg-001349"
+      ]
+    },
+    {
+      "text": "media not an X and not a social not on Facebook and not on Instagram zero I just and you know whenever",
+      "source_segment_ids": [
+        "seg-001351"
+      ]
+    },
+    {
+      "text": "on LinkedIn I don't know if I don't care what LinkedIn and they're always surprised and say well",
+      "source_segment_ids": [
+        "seg-001353"
       ]
     }
   ],
+  "mechanisms": [],
   "protocols": [],
-  "arguments": [],
+  "arguments": [
+    {
+      "text": "fear sadness worry you know all these negative emotions and so you're regulating that and it's",
+      "source_segment_ids": [
+        "seg-001367"
+      ]
+    },
+    {
+      "text": "awe gratitude acceptance all of these emotions we were talking about before that I think are",
+      "source_segment_ids": [
+        "seg-001371"
+      ]
+    }
+  ],
   "candidate_claims": [
     {
-      "claim_text": "Verified atomic proposition from window-0022",
+      "claim_text": "and all of a sudden the bell sounds and you could hear a pin drop but there's thousands of people",
       "claim_kind": "fact",
       "speaker": null,
-      "checkworthiness": "medium",
+      "checkworthiness": "high",
       "source_segment_ids": [
         "seg-001345"
       ],
       "quote_evidence": [
         {
           "segment_id": "seg-001345",
-          "quote": "and all of a sudden the bell sounds and"
+          "quote": "and all of a sudden the bell sounds and you could hear a pin drop but there's thousands of people"
+        }
+      ]
+    },
+    {
+      "claim_text": "around you yeah you hear a bell again the meal begins walking to the auditorium at Shuffle Shuffle Shuffle",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-001346"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-001346",
+          "quote": "around you yeah you hear a bell again the meal begins walking to the auditorium at Shuffle Shuffle Shuffle"
+        }
+      ]
+    },
+    {
+      "claim_text": "talking talking talking talking boom it's a step function they're training this in the cells",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-001347"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-001347",
+          "quote": "talking talking talking talking boom it's a step function they're training this in the cells"
+        }
+      ]
+    },
+    {
+      "claim_text": "yeah and the other thing no phones no one has phones during the day they get I think they get an",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-001348"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-001348",
+          "quote": "yeah and the other thing no phones no one has phones during the day they get I think they get an"
+        }
+      ]
+    },
+    {
+      "claim_text": "hour where they can access their phones I normally my phone it's on right now because you guys",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-001349"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-001349",
+          "quote": "hour where they can access their phones I normally my phone it's on right now because you guys"
+        }
+      ]
+    },
+    {
+      "claim_text": "wanted to text me but normally my phone is off or I don't have a phone on me and and zero social",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-001350"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-001350",
+          "quote": "wanted to text me but normally my phone is off or I don't have a phone on me and and zero social"
         }
       ]
     }
   ],
   "entities": [
     {
-      "name": "Entity-P-h5WSQG1Sw",
+      "name": "Shuffle Shuffle Shuffle",
       "type": "domain_entity",
-      "description": "Domain entity in P-h5WSQG1Sw",
+      "description": "Named domain entity 'Shuffle Shuffle Shuffle' identified in source",
       "source_segment_ids": [
-        "seg-001345"
+        "seg-001346"
+      ]
+    },
+    {
+      "name": "Facebook",
+      "type": "domain_entity",
+      "description": "Named domain entity 'Facebook' identified in source",
+      "source_segment_ids": [
+        "seg-001351"
+      ]
+    },
+    {
+      "name": "Instagram",
+      "type": "domain_entity",
+      "description": "Named domain entity 'Instagram' identified in source",
+      "source_segment_ids": [
+        "seg-001351"
+      ]
+    },
+    {
+      "name": "David",
+      "type": "domain_entity",
+      "description": "Named domain entity 'David' identified in source",
+      "source_segment_ids": [
+        "seg-001405"
+      ]
+    },
+    {
+      "name": "Ralph",
+      "type": "researcher_or_neuroanatomy",
+      "description": "Key entity in emotion neuroscience discussion (Ralph)",
+      "source_segment_ids": [
+        "seg-001408"
       ]
     }
   ],
   "concepts": [
     {
-      "name": "Concept-P-h5WSQG1Sw",
+      "name": "Functional Emotion Theory",
       "type": "domain_concept",
-      "description": "Domain concept in P-h5WSQG1Sw",
+      "description": "Conceptual framework defining emotions as evolved coordinating central states",
+      "source_segment_ids": [
+        "seg-001345"
+      ]
+    },
+    {
+      "name": "Neural Circuit Coordination",
+      "type": "domain_concept",
+      "description": "Distributed brain networks orchestrating physiological and behavioral responses",
       "source_segment_ids": [
         "seg-001345"
       ]

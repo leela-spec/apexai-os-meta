@@ -1,85 +1,967 @@
 {
+  "schema": "ttk.reduce-result.v2",
+  "packet_id": "reduce-final",
+  "packet_sha256": "ff5d6509468adeb276914e9e9db634ea17ad8b6ce42d16b5275081c5e0ccb1e0",
   "macro": {
-    "contradictions_or_uncertainty": [],
-    "speaker_context": [
-      "Fresh Run CygwqaNg2PY"
-    ],
-    "summary": "Complete multi-module synthesis for fresh CygwqaNg2PY.",
+    "thesis": "Financial market prices unfold in deterministic, self-similar fractal wave patterns governed by Fibonacci proportions, reflecting endogenous shifts in collective social mood rather than external news events.",
+    "summary": "Elliott Prechter outlines the foundational architecture of the Elliott Wave Principle and Socionomics. Market movements are structured into 5-wave motive progressions and 3-wave corrective consolidations. The analysis explains how mathematical Fibonacci relationships dictate price retracements and targets, and how social mood acts as the primary engine driving financial markets and macro-societal events.",
     "takeaways": [
       {
-        "meso_refs": [
-          "meso-0001"
-        ],
+        "text": "Elliott Wave Core Architecture & Fractal Geometry: Foundations of 5-wave motive progressions and 3-wave corrective patterns.",
         "source_segment_ids": [
           "seg-000001"
         ],
-        "text": "Fresh takeaway for CygwqaNg2PY"
+        "meso_refs": [
+          "meso-0001"
+        ]
+      },
+      {
+        "text": "Mathematical Proportions & Fibonacci Ratios: Fibonacci extensions, retracements, and price targets across wave degrees.",
+        "source_segment_ids": [
+          "seg-000073"
+        ],
+        "meso_refs": [
+          "meso-0002"
+        ]
+      },
+      {
+        "text": "Socionomic Causality & Social Mood: Social mood as the driving engine of macroeconomic trends and cultural shifts.",
+        "source_segment_ids": [
+          "seg-000145"
+        ],
+        "meso_refs": [
+          "meso-0003"
+        ]
       }
     ],
     "taxonomy": [
-      "Fresh-CygwqaNg2PY"
+      "Financial Markets",
+      "Technical Analysis",
+      "Elliott Wave Theory",
+      "Socionomics",
+      "Behavioral Finance"
     ],
-    "thesis": "Fresh end-to-end synthesis for Elliott Prechter - Elliott Waves (EN Fresh E2E)."
+    "speaker_context": [
+      "Elliott Prechter",
+      "Interviewer"
+    ],
+    "contradictions_or_uncertainty": [
+      "in one question so I'm not sure which part of the question to answer first here okay where do we"
+    ]
   },
   "meso": [
     {
-      "arguments": [
-        "Central argument in CygwqaNg2PY"
-      ],
-      "caveats": [],
-      "claim_refs": [
-        "claim-0001"
+      "meso_ref": "meso-0001",
+      "title": "Elliott Wave Core Architecture & Fractal Geometry",
+      "summary": "Foundations of 5-wave motive progressions and 3-wave corrective patterns.",
+      "source_segment_ids": [
+        "seg-000001",
+        "seg-000002",
+        "seg-000003",
+        "seg-000004",
+        "seg-000005",
+        "seg-000006",
+        "seg-000007",
+        "seg-000008",
+        "seg-000009",
+        "seg-000010",
+        "seg-000011",
+        "seg-000012",
+        "seg-000013",
+        "seg-000014",
+        "seg-000015",
+        "seg-000016",
+        "seg-000017",
+        "seg-000018",
+        "seg-000019",
+        "seg-000020",
+        "seg-000021",
+        "seg-000022",
+        "seg-000023",
+        "seg-000024",
+        "seg-000025",
+        "seg-000026",
+        "seg-000027",
+        "seg-000028",
+        "seg-000029",
+        "seg-000030",
+        "seg-000031",
+        "seg-000032",
+        "seg-000033",
+        "seg-000034",
+        "seg-000035",
+        "seg-000036",
+        "seg-000037",
+        "seg-000038",
+        "seg-000039",
+        "seg-000040",
+        "seg-000041",
+        "seg-000042",
+        "seg-000043",
+        "seg-000044",
+        "seg-000045",
+        "seg-000046",
+        "seg-000047",
+        "seg-000048",
+        "seg-000049",
+        "seg-000050",
+        "seg-000051",
+        "seg-000052",
+        "seg-000053",
+        "seg-000054",
+        "seg-000055",
+        "seg-000056",
+        "seg-000057",
+        "seg-000058",
+        "seg-000059",
+        "seg-000060",
+        "seg-000061",
+        "seg-000062",
+        "seg-000063",
+        "seg-000064",
+        "seg-000065",
+        "seg-000066",
+        "seg-000067",
+        "seg-000068",
+        "seg-000069",
+        "seg-000070",
+        "seg-000071",
+        "seg-000072"
       ],
       "concepts": [
-        "Concept-CygwqaNg2PY"
+        "Functional Emotion Theory"
       ],
       "entities": [
-        "Entity-CygwqaNg2PY"
+        "Fresh",
+        "Elliott",
+        "Elliott Pregnant"
       ],
       "mechanisms": [
         {
+          "text": "Foundations of 5-wave motive progressions and 3-wave corrective patterns.",
           "source_segment_ids": [
             "seg-000001"
-          ],
-          "text": "Key mechanism in CygwqaNg2PY"
+          ]
         }
       ],
-      "meso_ref": "meso-0001",
       "protocols": [],
-      "source_segment_ids": [
-        "seg-000001"
+      "arguments": [
+        "of these price patterns.",
+        "So, you could imagine that understanding the way these patterns behave",
+        "every day pouring over market charts and he kept noticing these recurring patterns in price and time"
       ],
-      "summary": "Fresh structured section for CygwqaNg2PY.",
-      "title": "Fresh Foundational Module for CygwqaNg2PY"
+      "caveats": [],
+      "claim_refs": [
+        "claim-0001",
+        "claim-0002",
+        "claim-0003",
+        "claim-0004",
+        "claim-0005",
+        "claim-0006",
+        "claim-0007",
+        "claim-0008"
+      ]
+    },
+    {
+      "meso_ref": "meso-0002",
+      "title": "Mathematical Proportions & Fibonacci Ratios",
+      "summary": "Fibonacci extensions, retracements, and price targets across wave degrees.",
+      "source_segment_ids": [
+        "seg-000073",
+        "seg-000074",
+        "seg-000075",
+        "seg-000076",
+        "seg-000077",
+        "seg-000078",
+        "seg-000079",
+        "seg-000080",
+        "seg-000081",
+        "seg-000082",
+        "seg-000083",
+        "seg-000084",
+        "seg-000085",
+        "seg-000086",
+        "seg-000087",
+        "seg-000088",
+        "seg-000089",
+        "seg-000090",
+        "seg-000091",
+        "seg-000092",
+        "seg-000093",
+        "seg-000094",
+        "seg-000095",
+        "seg-000096",
+        "seg-000097",
+        "seg-000098",
+        "seg-000099",
+        "seg-000100",
+        "seg-000101",
+        "seg-000102",
+        "seg-000103",
+        "seg-000104",
+        "seg-000105",
+        "seg-000106",
+        "seg-000107",
+        "seg-000108",
+        "seg-000109",
+        "seg-000110",
+        "seg-000111",
+        "seg-000112",
+        "seg-000113",
+        "seg-000114",
+        "seg-000115",
+        "seg-000116",
+        "seg-000117",
+        "seg-000118",
+        "seg-000119",
+        "seg-000120",
+        "seg-000121",
+        "seg-000122",
+        "seg-000123",
+        "seg-000124",
+        "seg-000125",
+        "seg-000126",
+        "seg-000127",
+        "seg-000128",
+        "seg-000129",
+        "seg-000130",
+        "seg-000131",
+        "seg-000132",
+        "seg-000133",
+        "seg-000134",
+        "seg-000135",
+        "seg-000136",
+        "seg-000137",
+        "seg-000138",
+        "seg-000139",
+        "seg-000140",
+        "seg-000141",
+        "seg-000142",
+        "seg-000143",
+        "seg-000144"
+      ],
+      "concepts": [
+        "Functional Emotion Theory"
+      ],
+      "entities": [
+        "Fresh",
+        "Elliott",
+        "Elliott Pregnant"
+      ],
+      "mechanisms": [
+        {
+          "text": "Fibonacci extensions, retracements, and price targets across wave degrees.",
+          "source_segment_ids": [
+            "seg-000073"
+          ]
+        }
+      ],
+      "protocols": [],
+      "arguments": [
+        "the same actually but there's certainly an argument to be made that some of them do trade a little",
+        "one example that I gave earlier today was that in commodity markets you tend to get these large",
+        "you mentioned e-wave technologies so these days we have the computer power to detect patterns as"
+      ],
+      "caveats": [],
+      "claim_refs": [
+        "claim-0009",
+        "claim-0010",
+        "claim-0011",
+        "claim-0012",
+        "claim-0013",
+        "claim-0014",
+        "claim-0015",
+        "claim-0016"
+      ]
+    },
+    {
+      "meso_ref": "meso-0003",
+      "title": "Socionomic Causality & Social Mood",
+      "summary": "Social mood as the driving engine of macroeconomic trends and cultural shifts.",
+      "source_segment_ids": [
+        "seg-000145",
+        "seg-000146",
+        "seg-000147",
+        "seg-000148",
+        "seg-000149",
+        "seg-000150",
+        "seg-000151",
+        "seg-000152",
+        "seg-000153",
+        "seg-000154",
+        "seg-000155",
+        "seg-000156",
+        "seg-000157",
+        "seg-000158",
+        "seg-000159",
+        "seg-000160",
+        "seg-000161",
+        "seg-000162",
+        "seg-000163",
+        "seg-000164",
+        "seg-000165",
+        "seg-000166",
+        "seg-000167",
+        "seg-000168",
+        "seg-000169",
+        "seg-000170",
+        "seg-000171",
+        "seg-000172",
+        "seg-000173",
+        "seg-000174",
+        "seg-000175",
+        "seg-000176",
+        "seg-000177",
+        "seg-000178",
+        "seg-000179",
+        "seg-000180",
+        "seg-000181",
+        "seg-000182",
+        "seg-000183",
+        "seg-000184",
+        "seg-000185",
+        "seg-000186",
+        "seg-000187",
+        "seg-000188",
+        "seg-000189",
+        "seg-000190",
+        "seg-000191",
+        "seg-000192",
+        "seg-000193",
+        "seg-000194",
+        "seg-000195",
+        "seg-000196",
+        "seg-000197",
+        "seg-000198",
+        "seg-000199",
+        "seg-000200",
+        "seg-000201",
+        "seg-000202",
+        "seg-000203",
+        "seg-000204",
+        "seg-000205",
+        "seg-000206",
+        "seg-000207",
+        "seg-000208",
+        "seg-000209",
+        "seg-000210",
+        "seg-000211",
+        "seg-000212",
+        "seg-000213",
+        "seg-000214",
+        "seg-000215",
+        "seg-000216"
+      ],
+      "concepts": [
+        "Functional Emotion Theory"
+      ],
+      "entities": [
+        "Fresh",
+        "Elliott",
+        "Elliott Pregnant"
+      ],
+      "mechanisms": [
+        {
+          "text": "Social mood as the driving engine of macroeconomic trends and cultural shifts.",
+          "source_segment_ids": [
+            "seg-000145"
+          ]
+        }
+      ],
+      "protocols": [],
+      "arguments": [
+        "Core analytical proposition in Socionomic Causality & Social Mood"
+      ],
+      "caveats": [],
+      "claim_refs": [
+        "claim-0017",
+        "claim-0018",
+        "claim-0019",
+        "claim-0020",
+        "claim-0021",
+        "claim-0022",
+        "claim-0023",
+        "claim-0024"
+      ]
     }
   ],
   "micro": [
     {
-      "checkworthiness": "medium",
-      "claim_kind": "fact",
       "claim_ref": "claim-0001",
-      "claim_text": "Fresh verified proposition in CygwqaNg2PY",
-      "entities": [
-        "Entity-CygwqaNg2PY"
-      ],
-      "quote_evidence": [
-        {
-          "quote": "[ASR Fresh v2",
-          "segment_id": "seg-000001"
-        }
-      ],
+      "claim_text": "[ASR Fresh v2.1 CygwqaNg2PY]",
+      "claim_kind": "fact",
+      "source_support": "SUPPORTED",
+      "checkworthiness": "high",
+      "speaker": null,
       "source_segment_ids": [
         "seg-000001"
       ],
-      "source_support": "SUPPORTED",
-      "speaker": null,
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000001",
+          "quote": "[ASR Fresh v2.1 CygwqaNg2PY]"
+        }
+      ],
       "topics": [
-        "Topic-CygwqaNg2PY"
+        "Financial Markets"
+      ],
+      "entities": [
+        "Fresh",
+        "Elliott"
+      ]
+    },
+    {
+      "claim_ref": "claim-0002",
+      "claim_text": "Elliott, thanks for joining us today, so we have Elliott Pregnant with us, and it's an honor to",
+      "claim_kind": "fact",
+      "source_support": "SUPPORTED",
+      "checkworthiness": "high",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000002"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000002",
+          "quote": "Elliott, thanks for joining us today, so we have Elliott Pregnant with us, and it's an honor to"
+        }
+      ],
+      "topics": [
+        "Financial Markets"
+      ],
+      "entities": [
+        "Fresh",
+        "Elliott"
+      ]
+    },
+    {
+      "claim_ref": "claim-0003",
+      "claim_text": "have you here spending some time with us talking about the Elliott Wave Principle and your history",
+      "claim_kind": "fact",
+      "source_support": "SUPPORTED",
+      "checkworthiness": "high",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000003"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000003",
+          "quote": "have you here spending some time with us talking about the Elliott Wave Principle and your history"
+        }
+      ],
+      "topics": [
+        "Financial Markets"
+      ],
+      "entities": [
+        "Fresh",
+        "Elliott"
+      ]
+    },
+    {
+      "claim_ref": "claim-0004",
+      "claim_text": "and your personal background on that.",
+      "claim_kind": "fact",
+      "source_support": "SUPPORTED",
+      "checkworthiness": "high",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000004"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000004",
+          "quote": "and your personal background on that."
+        }
+      ],
+      "topics": [
+        "Financial Markets"
+      ],
+      "entities": [
+        "Fresh",
+        "Elliott"
+      ]
+    },
+    {
+      "claim_ref": "claim-0005",
+      "claim_text": "So, I mean, before we go into the more depth of Elliott Wave,",
+      "claim_kind": "fact",
+      "source_support": "SUPPORTED",
+      "checkworthiness": "high",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000004"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000004",
+          "quote": "So, I mean, before we go into the more depth of Elliott Wave,"
+        }
+      ],
+      "topics": [
+        "Financial Markets"
+      ],
+      "entities": [
+        "Fresh",
+        "Elliott"
+      ]
+    },
+    {
+      "claim_ref": "claim-0006",
+      "claim_text": "if someone would be new to that kind of analysis, how would you describe Elliott Wave in simple sentences?",
+      "claim_kind": "fact",
+      "source_support": "SUPPORTED",
+      "checkworthiness": "high",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000005"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000005",
+          "quote": "if someone would be new to that kind of analysis, how would you describe Elliott Wave in simple sentences?"
+        }
+      ],
+      "topics": [
+        "Financial Markets"
+      ],
+      "entities": [
+        "Fresh",
+        "Elliott"
+      ]
+    },
+    {
+      "claim_ref": "claim-0007",
+      "claim_text": "How should traders use Elliott Payf analysis and practice as a forecasting tool or risk management",
+      "claim_kind": "fact",
+      "source_support": "SUPPORTED",
+      "checkworthiness": "high",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000046"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000046",
+          "quote": "How should traders use Elliott Payf analysis and practice as a forecasting tool or risk management"
+        }
+      ],
+      "topics": [
+        "Financial Markets"
+      ],
+      "entities": [
+        "Fresh",
+        "Elliott"
+      ]
+    },
+    {
+      "claim_ref": "claim-0008",
+      "claim_text": "tool or a way to map out map out probabilities?",
+      "claim_kind": "fact",
+      "source_support": "SUPPORTED",
+      "checkworthiness": "high",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000047"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000047",
+          "quote": "tool or a way to map out map out probabilities?"
+        }
+      ],
+      "topics": [
+        "Financial Markets"
+      ],
+      "entities": [
+        "Fresh",
+        "Elliott"
+      ]
+    },
+    {
+      "claim_ref": "claim-0009",
+      "claim_text": "Well I think you're pretty much late all around.",
+      "claim_kind": "fact",
+      "source_support": "SUPPORTED",
+      "checkworthiness": "high",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000047"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000047",
+          "quote": "Well I think you're pretty much late all around."
+        }
+      ],
+      "topics": [
+        "Financial Markets"
+      ],
+      "entities": [
+        "Fresh",
+        "Elliott"
+      ]
+    },
+    {
+      "claim_ref": "claim-0010",
+      "claim_text": "They did a great job.",
+      "claim_kind": "fact",
+      "source_support": "SUPPORTED",
+      "checkworthiness": "high",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000048"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000048",
+          "quote": "They did a great job."
+        }
+      ],
+      "topics": [
+        "Financial Markets"
+      ],
+      "entities": [
+        "Fresh",
+        "Elliott"
+      ]
+    },
+    {
+      "claim_ref": "claim-0011",
+      "claim_text": "Yes to all three.",
+      "claim_kind": "fact",
+      "source_support": "SUPPORTED",
+      "checkworthiness": "high",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000048"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000048",
+          "quote": "Yes to all three."
+        }
+      ],
+      "topics": [
+        "Financial Markets"
+      ],
+      "entities": [
+        "Fresh",
+        "Elliott"
+      ]
+    },
+    {
+      "claim_ref": "claim-0012",
+      "claim_text": "I mean historically it's mainly been a long term",
+      "claim_kind": "fact",
+      "source_support": "SUPPORTED",
+      "checkworthiness": "high",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000048"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000048",
+          "quote": "I mean historically it's mainly been a long term"
+        }
+      ],
+      "topics": [
+        "Financial Markets"
+      ],
+      "entities": [
+        "Fresh",
+        "Elliott"
+      ]
+    },
+    {
+      "claim_ref": "claim-0013",
+      "claim_text": "yes I mean e-waves does do the wave count it's an automated process so you don't have to sit there by",
+      "claim_kind": "fact",
+      "source_support": "SUPPORTED",
+      "checkworthiness": "high",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000118"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000118",
+          "quote": "yes I mean e-waves does do the wave count it's an automated process so you don't have to sit there by"
+        }
+      ],
+      "topics": [
+        "Financial Markets"
+      ],
+      "entities": [
+        "Fresh",
+        "Elliott"
+      ]
+    },
+    {
+      "claim_ref": "claim-0014",
+      "claim_text": "hand and sketch out the wave pattern which like you said earlier can be very tricky because when",
+      "claim_kind": "fact",
+      "source_support": "SUPPORTED",
+      "checkworthiness": "high",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000119"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000119",
+          "quote": "hand and sketch out the wave pattern which like you said earlier can be very tricky because when"
+        }
+      ],
+      "topics": [
+        "Financial Markets"
+      ],
+      "entities": [
+        "Fresh",
+        "Elliott"
+      ]
+    },
+    {
+      "claim_ref": "claim-0015",
+      "claim_text": "you're looking at a chart through you're going to have partial patterns most of the time and that's",
+      "claim_kind": "fact",
+      "source_support": "SUPPORTED",
+      "checkworthiness": "high",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000120"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000120",
+          "quote": "you're looking at a chart through you're going to have partial patterns most of the time and that's"
+        }
+      ],
+      "topics": [
+        "Financial Markets"
+      ],
+      "entities": [
+        "Fresh",
+        "Elliott"
+      ]
+    },
+    {
+      "claim_ref": "claim-0016",
+      "claim_text": "why in my presentation earlier I wanted to show that a particular example we had the market",
+      "claim_kind": "fact",
+      "source_support": "SUPPORTED",
+      "checkworthiness": "high",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000121"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000121",
+          "quote": "why in my presentation earlier I wanted to show that a particular example we had the market"
+        }
+      ],
+      "topics": [
+        "Financial Markets"
+      ],
+      "entities": [
+        "Fresh",
+        "Elliott"
+      ]
+    },
+    {
+      "claim_ref": "claim-0017",
+      "claim_text": "coiling up and it looked like it was a triangle and we're going to burst up out of the triangle right",
+      "claim_kind": "fact",
+      "source_support": "SUPPORTED",
+      "checkworthiness": "high",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000122"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000122",
+          "quote": "coiling up and it looked like it was a triangle and we're going to burst up out of the triangle right"
+        }
+      ],
+      "topics": [
+        "Financial Markets"
+      ],
+      "entities": [
+        "Fresh",
+        "Elliott"
+      ]
+    },
+    {
+      "claim_ref": "claim-0018",
+      "claim_text": "which is a common pattern and the market did the exact opposite because that was actually part",
+      "claim_kind": "fact",
+      "source_support": "SUPPORTED",
+      "checkworthiness": "high",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000123"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000123",
+          "quote": "which is a common pattern and the market did the exact opposite because that was actually part"
+        }
+      ],
+      "topics": [
+        "Financial Markets"
+      ],
+      "entities": [
+        "Fresh",
+        "Elliott"
+      ]
+    },
+    {
+      "claim_ref": "claim-0019",
+      "claim_text": "maybe maybe in simple terms very often retail investors ask me you know looks really super",
+      "claim_kind": "fact",
+      "source_support": "SUPPORTED",
+      "checkworthiness": "high",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000163"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000163",
+          "quote": "maybe maybe in simple terms very often retail investors ask me you know looks really super"
+        }
+      ],
+      "topics": [
+        "Financial Markets"
+      ],
+      "entities": [
+        "Fresh",
+        "Elliott"
+      ]
+    },
+    {
+      "claim_ref": "claim-0020",
+      "claim_text": "interesting where do we actually start how can I get a good understanding of what it actually",
+      "claim_kind": "fact",
+      "source_support": "SUPPORTED",
+      "checkworthiness": "high",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000164"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000164",
+          "quote": "interesting where do we actually start how can I get a good understanding of what it actually"
+        }
+      ],
+      "topics": [
+        "Financial Markets"
+      ],
+      "entities": [
+        "Fresh",
+        "Elliott"
+      ]
+    },
+    {
+      "claim_ref": "claim-0021",
+      "claim_text": "does which which how would you recommend somebody that is interested in working with Elliott wave",
+      "claim_kind": "fact",
+      "source_support": "SUPPORTED",
+      "checkworthiness": "high",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000165"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000165",
+          "quote": "does which which how would you recommend somebody that is interested in working with Elliott wave"
+        }
+      ],
+      "topics": [
+        "Financial Markets"
+      ],
+      "entities": [
+        "Fresh",
+        "Elliott"
+      ]
+    },
+    {
+      "claim_ref": "claim-0022",
+      "claim_text": "theory actually get into it and get started okay yeah the e-waves software in my opinion is for",
+      "claim_kind": "fact",
+      "source_support": "SUPPORTED",
+      "checkworthiness": "high",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000166"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000166",
+          "quote": "theory actually get into it and get started okay yeah the e-waves software in my opinion is for"
+        }
+      ],
+      "topics": [
+        "Financial Markets"
+      ],
+      "entities": [
+        "Fresh",
+        "Elliott"
+      ]
+    },
+    {
+      "claim_ref": "claim-0023",
+      "claim_text": "people who are all already know a bit about Elliott wave theory if your brand new and you just",
+      "claim_kind": "fact",
+      "source_support": "SUPPORTED",
+      "checkworthiness": "high",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000167"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000167",
+          "quote": "people who are all already know a bit about Elliott wave theory if your brand new and you just"
+        }
+      ],
+      "topics": [
+        "Financial Markets"
+      ],
+      "entities": [
+        "Fresh",
+        "Elliott"
+      ]
+    },
+    {
+      "claim_ref": "claim-0024",
+      "claim_text": "want to get a grip then I'd actually recommend going to Elliott wave dot com and we have a lot",
+      "claim_kind": "fact",
+      "source_support": "SUPPORTED",
+      "checkworthiness": "high",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000168"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000168",
+          "quote": "want to get a grip then I'd actually recommend going to Elliott wave dot com and we have a lot"
+        }
+      ],
+      "topics": [
+        "Financial Markets"
+      ],
+      "entities": [
+        "Fresh",
+        "Elliott"
       ]
     }
   ],
-  "packet_id": "reduce-final",
-  "packet_sha256": "e85637a91419e751eee4e63f0cf477e667ef9485d253bead87a4c627c5fd97b0",
-  "rejected_or_unresolved_candidates": [],
-  "schema": "ttk.reduce-result.v2"
+  "rejected_or_unresolved_candidates": []
 }

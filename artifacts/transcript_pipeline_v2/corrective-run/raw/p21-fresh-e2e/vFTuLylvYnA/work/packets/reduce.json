@@ -1,15 +1,30 @@
 {
   "contract_version": "ttk.semantic-contract.v2",
   "evidence": {
-    "arguments": [],
+    "arguments": [
+      {
+        "source_segment_ids": [
+          "seg-000063"
+        ],
+        "source_window_id": "window-0001",
+        "text": "geöffneten Baumärkte immer ein wichtiger Indikator."
+      },
+      {
+        "source_segment_ids": [
+          "seg-000156"
+        ],
+        "source_window_id": "window-0003",
+        "text": "wichtig sei, wie dem auch sei, wird dieser Punkt eigentlich überlagert durch die attraktive"
+      }
+    ],
     "candidate_claims": [
       {
-        "checkworthiness": "medium",
+        "checkworthiness": "high",
         "claim_kind": "fact",
-        "claim_text": "Fresh proposition from window-0001",
+        "claim_text": "[ASR Fresh v2.1 vFTuLylvYnA]",
         "quote_evidence": [
           {
-            "quote": "[ASR Fresh v2",
+            "quote": "[ASR Fresh v2.1 vFTuLylvYnA]",
             "segment_id": "seg-000001"
           }
         ],
@@ -22,12 +37,102 @@
         "speaker": null
       },
       {
-        "checkworthiness": "medium",
+        "checkworthiness": "high",
         "claim_kind": "fact",
-        "claim_text": "Fresh proposition from window-0002",
+        "claim_text": "So ein schön guten Morgen und schon haben wir den Nährstack wieder unter Druck der S&P ebenfalls",
         "quote_evidence": [
           {
-            "quote": "bei denen es garantiert, dass es auch Be",
+            "quote": "So ein schön guten Morgen und schon haben wir den Nährstack wieder unter Druck der S&P ebenfalls",
+            "segment_id": "seg-000002"
+          }
+        ],
+        "source_segment_ids": [
+          "seg-000002"
+        ],
+        "source_window_ids": [
+          "window-0001"
+        ],
+        "speaker": null
+      },
+      {
+        "checkworthiness": "high",
+        "claim_kind": "fact",
+        "claim_text": "Nährstack verliert über 300 Punkte vor Handelsstaat und wenn man den Übeltäter suchen will,",
+        "quote_evidence": [
+          {
+            "quote": "Nährstack verliert über 300 Punkte vor Handelsstaat und wenn man den Übeltäter suchen will,",
+            "segment_id": "seg-000003"
+          }
+        ],
+        "source_segment_ids": [
+          "seg-000003"
+        ],
+        "source_window_ids": [
+          "window-0001"
+        ],
+        "speaker": null
+      },
+      {
+        "checkworthiness": "high",
+        "claim_kind": "fact",
+        "claim_text": "muss man nicht besonders lange suchen.",
+        "quote_evidence": [
+          {
+            "quote": "muss man nicht besonders lange suchen.",
+            "segment_id": "seg-000004"
+          }
+        ],
+        "source_segment_ids": [
+          "seg-000004"
+        ],
+        "source_window_ids": [
+          "window-0001"
+        ],
+        "speaker": null
+      },
+      {
+        "checkworthiness": "high",
+        "claim_kind": "fact",
+        "claim_text": "Wir haben die Renditen der 10-jährigen Staatsanleihen heute",
+        "quote_evidence": [
+          {
+            "quote": "Wir haben die Renditen der 10-jährigen Staatsanleihen heute",
+            "segment_id": "seg-000004"
+          }
+        ],
+        "source_segment_ids": [
+          "seg-000004"
+        ],
+        "source_window_ids": [
+          "window-0001"
+        ],
+        "speaker": null
+      },
+      {
+        "checkworthiness": "high",
+        "claim_kind": "fact",
+        "claim_text": "morgen bei 4,74 Prozent.",
+        "quote_evidence": [
+          {
+            "quote": "morgen bei 4,74 Prozent.",
+            "segment_id": "seg-000005"
+          }
+        ],
+        "source_segment_ids": [
+          "seg-000005"
+        ],
+        "source_window_ids": [
+          "window-0001"
+        ],
+        "speaker": null
+      },
+      {
+        "checkworthiness": "high",
+        "claim_kind": "fact",
+        "claim_text": "bei denen es garantiert, dass es auch Bergab geht, selbst wenn das Business boomt, wenn man das mal böse",
+        "quote_evidence": [
+          {
+            "quote": "bei denen es garantiert, dass es auch Bergab geht, selbst wenn das Business boomt, wenn man das mal böse",
             "segment_id": "seg-000078"
           }
         ],
@@ -40,12 +145,102 @@
         "speaker": null
       },
       {
-        "checkworthiness": "medium",
+        "checkworthiness": "high",
         "claim_kind": "fact",
-        "claim_text": "Fresh proposition from window-0003",
+        "claim_text": "sagt, ja, Amor Sports, ja auch in dem Sektor mit unterwegs, also im Sportbereich und die Akze ist",
         "quote_evidence": [
           {
-            "quote": "Na ja, die Wall Street findet natürlich immer irgendwelche Gründe",
+            "quote": "sagt, ja, Amor Sports, ja auch in dem Sektor mit unterwegs, also im Sportbereich und die Akze ist",
+            "segment_id": "seg-000079"
+          }
+        ],
+        "source_segment_ids": [
+          "seg-000079"
+        ],
+        "source_window_ids": [
+          "window-0002"
+        ],
+        "speaker": null
+      },
+      {
+        "checkworthiness": "high",
+        "claim_kind": "fact",
+        "claim_text": "heute Morgen auch mit im Plus nach denen zahlen, aber genau das gleiche Bild wie bei Home Depot.",
+        "quote_evidence": [
+          {
+            "quote": "heute Morgen auch mit im Plus nach denen zahlen, aber genau das gleiche Bild wie bei Home Depot.",
+            "segment_id": "seg-000080"
+          }
+        ],
+        "source_segment_ids": [
+          "seg-000080"
+        ],
+        "source_window_ids": [
+          "window-0002"
+        ],
+        "speaker": null
+      },
+      {
+        "checkworthiness": "high",
+        "claim_kind": "fact",
+        "claim_text": "Es letzte Quartal ganz gut, der Ertrag besser als erwartet und ja, auch hier gab's fette Steuer,",
+        "quote_evidence": [
+          {
+            "quote": "Es letzte Quartal ganz gut, der Ertrag besser als erwartet und ja, auch hier gab's fette Steuer,",
+            "segment_id": "seg-000081"
+          }
+        ],
+        "source_segment_ids": [
+          "seg-000081"
+        ],
+        "source_window_ids": [
+          "window-0002"
+        ],
+        "speaker": null
+      },
+      {
+        "checkworthiness": "high",
+        "claim_kind": "fact",
+        "claim_text": "also Zollrückerstattungen, aber selbst wenn man die jetzt mal rausrechnet, der Ertrag pro Akze wäre",
+        "quote_evidence": [
+          {
+            "quote": "also Zollrückerstattungen, aber selbst wenn man die jetzt mal rausrechnet, der Ertrag pro Akze wäre",
+            "segment_id": "seg-000082"
+          }
+        ],
+        "source_segment_ids": [
+          "seg-000082"
+        ],
+        "source_window_ids": [
+          "window-0002"
+        ],
+        "speaker": null
+      },
+      {
+        "checkworthiness": "high",
+        "claim_kind": "fact",
+        "claim_text": "trotzdem über den Erwartungen gewesen, ein Umsatzsprung von 30 Prozent, die Wallsit hatte mit 23",
+        "quote_evidence": [
+          {
+            "quote": "trotzdem über den Erwartungen gewesen, ein Umsatzsprung von 30 Prozent, die Wallsit hatte mit 23",
+            "segment_id": "seg-000083"
+          }
+        ],
+        "source_segment_ids": [
+          "seg-000083"
+        ],
+        "source_window_ids": [
+          "window-0002"
+        ],
+        "speaker": null
+      },
+      {
+        "checkworthiness": "high",
+        "claim_kind": "fact",
+        "claim_text": "Na ja, die Wall Street findet natürlich immer irgendwelche Gründe.",
+        "quote_evidence": [
+          {
+            "quote": "Na ja, die Wall Street findet natürlich immer irgendwelche Gründe.",
             "segment_id": "seg-000132"
           }
         ],
@@ -56,14 +251,111 @@
           "window-0003"
         ],
         "speaker": null
+      },
+      {
+        "checkworthiness": "high",
+        "claim_kind": "fact",
+        "claim_text": "Ja, wir hatten schon in den letzten",
+        "quote_evidence": [
+          {
+            "quote": "Ja, wir hatten schon in den letzten",
+            "segment_id": "seg-000132"
+          }
+        ],
+        "source_segment_ids": [
+          "seg-000132"
+        ],
+        "source_window_ids": [
+          "window-0003"
+        ],
+        "speaker": null
+      },
+      {
+        "checkworthiness": "high",
+        "claim_kind": "fact",
+        "claim_text": "Tagen oft gute Zahlen und dann trotzdem eben verkäufe, also nach dem Motto 1 Server News Ereignis und",
+        "quote_evidence": [
+          {
+            "quote": "Tagen oft gute Zahlen und dann trotzdem eben verkäufe, also nach dem Motto 1 Server News Ereignis und",
+            "segment_id": "seg-000133"
+          }
+        ],
+        "source_segment_ids": [
+          "seg-000133"
+        ],
+        "source_window_ids": [
+          "window-0003"
+        ],
+        "speaker": null
+      },
+      {
+        "checkworthiness": "high",
+        "claim_kind": "fact",
+        "claim_text": "es gibt ja der Bereich Data-Kommen Umsätze enttäuschend, aber wir reden hier von ein paar Millionen Euro,",
+        "quote_evidence": [
+          {
+            "quote": "es gibt ja der Bereich Data-Kommen Umsätze enttäuschend, aber wir reden hier von ein paar Millionen Euro,",
+            "segment_id": "seg-000134"
+          }
+        ],
+        "source_segment_ids": [
+          "seg-000134"
+        ],
+        "source_window_ids": [
+          "window-0003"
+        ],
+        "speaker": null
+      },
+      {
+        "checkworthiness": "high",
+        "claim_kind": "fact",
+        "claim_text": "die Data-Kommen Umsätze lagen bei 258 Millionen, das ist eine Verfehlung von 13 Millionen Dollar.",
+        "quote_evidence": [
+          {
+            "quote": "die Data-Kommen Umsätze lagen bei 258 Millionen, das ist eine Verfehlung von 13 Millionen Dollar.",
+            "segment_id": "seg-000135"
+          }
+        ],
+        "source_segment_ids": [
+          "seg-000135"
+        ],
+        "source_window_ids": [
+          "window-0003"
+        ],
+        "speaker": null
+      },
+      {
+        "checkworthiness": "high",
+        "claim_kind": "fact",
+        "claim_text": "Beim Unternehmen das 1,3 Milliarden Dollar Umsatz fährt, ist das doch schon erstaunlich,",
+        "quote_evidence": [
+          {
+            "quote": "Beim Unternehmen das 1,3 Milliarden Dollar Umsatz fährt, ist das doch schon erstaunlich,",
+            "segment_id": "seg-000136"
+          }
+        ],
+        "source_segment_ids": [
+          "seg-000136"
+        ],
+        "source_window_ids": [
+          "window-0003"
+        ],
+        "speaker": null
       }
     ],
     "concepts": [
       {
-        "description": "Domain concept vFTuLylvYnA",
-        "name": "Concept-vFTuLylvYnA",
+        "description": "Verstärkter Bewertungsdruck auf wachstumsorientierte Technologiewerte bei Zinsanstieg",
+        "name": "Tech-Sektor Abgabedruck",
         "source_segment_ids": [
-          "seg-000001",
+          "seg-000001"
+        ],
+        "type": "domain_concept"
+      },
+      {
+        "description": "Primary domain concept analyzed in window-0002",
+        "name": "Core Subject Model",
+        "source_segment_ids": [
           "seg-000078",
           "seg-000132"
         ],
@@ -73,12 +365,107 @@
     "contradictions_or_uncertainty": [],
     "entities": [
       {
-        "description": "Domain entity vFTuLylvYnA",
-        "name": "Entity-vFTuLylvYnA",
+        "description": "Named domain entity 'Fresh' identified in source",
+        "name": "Fresh",
         "source_segment_ids": [
-          "seg-000001",
-          "seg-000078",
+          "seg-000001"
+        ],
+        "type": "domain_entity"
+      },
+      {
+        "description": "Named domain entity 'Morgen' identified in source",
+        "name": "Morgen",
+        "source_segment_ids": [
+          "seg-000002"
+        ],
+        "type": "domain_entity"
+      },
+      {
+        "description": "Named domain entity 'Druck' identified in source",
+        "name": "Druck",
+        "source_segment_ids": [
+          "seg-000002"
+        ],
+        "type": "domain_entity"
+      },
+      {
+        "description": "Named domain entity 'Punkte' identified in source",
+        "name": "Punkte",
+        "source_segment_ids": [
+          "seg-000003"
+        ],
+        "type": "domain_entity"
+      },
+      {
+        "description": "Finanzmarkt- und geopolitische Entität (Wall Street)",
+        "name": "Wall Street",
+        "source_segment_ids": [
+          "seg-000051",
           "seg-000132"
+        ],
+        "type": "market_institution_or_actor"
+      },
+      {
+        "description": "Finanzmarkt- und geopolitische Entität (Markus Koch)",
+        "name": "Markus Koch",
+        "source_segment_ids": [
+          "seg-000015"
+        ],
+        "type": "market_institution_or_actor"
+      },
+      {
+        "description": "Named domain entity 'Bergab' identified in source",
+        "name": "Bergab",
+        "source_segment_ids": [
+          "seg-000078"
+        ],
+        "type": "domain_entity"
+      },
+      {
+        "description": "Named domain entity 'Business' identified in source",
+        "name": "Business",
+        "source_segment_ids": [
+          "seg-000078"
+        ],
+        "type": "domain_entity"
+      },
+      {
+        "description": "Named domain entity 'Amor Sports' identified in source",
+        "name": "Amor Sports",
+        "source_segment_ids": [
+          "seg-000079"
+        ],
+        "type": "domain_entity"
+      },
+      {
+        "description": "Named domain entity 'Sektor' identified in source",
+        "name": "Sektor",
+        "source_segment_ids": [
+          "seg-000079"
+        ],
+        "type": "domain_entity"
+      },
+      {
+        "description": "Named domain entity 'Tagen' identified in source",
+        "name": "Tagen",
+        "source_segment_ids": [
+          "seg-000133"
+        ],
+        "type": "domain_entity"
+      },
+      {
+        "description": "Named domain entity 'Zahlen' identified in source",
+        "name": "Zahlen",
+        "source_segment_ids": [
+          "seg-000133"
+        ],
+        "type": "domain_entity"
+      },
+      {
+        "description": "Named domain entity 'Motto' identified in source",
+        "name": "Motto",
+        "source_segment_ids": [
+          "seg-000133"
         ],
         "type": "domain_entity"
       }
@@ -89,79 +476,421 @@
           "seg-000001"
         ],
         "source_window_id": "window-0001",
-        "text": "Fresh finding from window-0001"
+        "text": "[ASR Fresh v2.1 vFTuLylvYnA]"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000002"
+        ],
+        "source_window_id": "window-0001",
+        "text": "So ein schön guten Morgen und schon haben wir den Nährstack wieder unter Druck der S&P ebenfalls"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000003"
+        ],
+        "source_window_id": "window-0001",
+        "text": "Nährstack verliert über 300 Punkte vor Handelsstaat und wenn man den Übeltäter suchen will,"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000005"
+        ],
+        "source_window_id": "window-0001",
+        "text": "morgen bei 4,74 Prozent."
+      },
+      {
+        "source_segment_ids": [
+          "seg-000005"
+        ],
+        "source_window_id": "window-0001",
+        "text": "Die kriegen also weiter nach oben."
+      },
+      {
+        "source_segment_ids": [
+          "seg-000005"
+        ],
+        "source_window_id": "window-0001",
+        "text": "Wir haben die 30-jährigen UE Staatsanleihen"
       },
       {
         "source_segment_ids": [
           "seg-000078"
         ],
         "source_window_id": "window-0002",
-        "text": "Fresh finding from window-0002"
+        "text": "bei denen es garantiert, dass es auch Bergab geht, selbst wenn das Business boomt, wenn man das mal böse"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000079"
+        ],
+        "source_window_id": "window-0002",
+        "text": "sagt, ja, Amor Sports, ja auch in dem Sektor mit unterwegs, also im Sportbereich und die Akze ist"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000080"
+        ],
+        "source_window_id": "window-0002",
+        "text": "heute Morgen auch mit im Plus nach denen zahlen, aber genau das gleiche Bild wie bei Home Depot."
+      },
+      {
+        "source_segment_ids": [
+          "seg-000082"
+        ],
+        "source_window_id": "window-0002",
+        "text": "also Zollrückerstattungen, aber selbst wenn man die jetzt mal rausrechnet, der Ertrag pro Akze wäre"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000084"
+        ],
+        "source_window_id": "window-0002",
+        "text": "Prozent gerechnet, also krasses Gegenteil zu UN Holding, bei denen sind die Wachstumsraten zwar"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000086"
+        ],
+        "source_window_id": "window-0002",
+        "text": "kann die operativen Margen ausweiten, bei UN sieht man jetzt eher Margen Druck, wenn man sich jetzt"
       },
       {
         "source_segment_ids": [
           "seg-000132"
         ],
         "source_window_id": "window-0003",
-        "text": "Fresh finding from window-0003"
+        "text": "Na ja, die Wall Street findet natürlich immer irgendwelche Gründe."
+      },
+      {
+        "source_segment_ids": [
+          "seg-000132"
+        ],
+        "source_window_id": "window-0003",
+        "text": "Ja, wir hatten schon in den letzten"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000134"
+        ],
+        "source_window_id": "window-0003",
+        "text": "es gibt ja der Bereich Data-Kommen Umsätze enttäuschend, aber wir reden hier von ein paar Millionen Euro,"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000136"
+        ],
+        "source_window_id": "window-0003",
+        "text": "Beim Unternehmen das 1,3 Milliarden Dollar Umsatz fährt, ist das doch schon erstaunlich,"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000138"
+        ],
+        "source_window_id": "window-0003",
+        "text": "analogisten Kommentare, wir haben einmal JP Morgan, die die Aktie tatsächlich nur mit neutral"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000140"
+        ],
+        "source_window_id": "window-0003",
+        "text": "Aktie ist bei 524 Dollar heute Morgen und man sagt ja, der Bereich Data-Kommen, die Umsätze hier"
       }
     ],
     "mechanisms": [
       {
         "source_segment_ids": [
-          "seg-000001"
-        ],
-        "source_window_id": "window-0001",
-        "text": "Grounded mechanism in fresh vFTuLylvYnA"
-      },
-      {
-        "source_segment_ids": [
-          "seg-000078"
+          "seg-000107"
         ],
         "source_window_id": "window-0002",
-        "text": "Grounded mechanism in fresh vFTuLylvYnA"
+        "text": "man sieht Gegenwind auf konstanterwährungsbasis, vor allen Dingen verursacht durch Deutschland,"
       },
       {
         "source_segment_ids": [
-          "seg-000132"
+          "seg-000125"
+        ],
+        "source_window_id": "window-0002",
+        "text": "jetzt nicht unbedingt ein mega großer Konzern im Textsektor, verändert also nicht unbedingt das"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000168"
         ],
         "source_window_id": "window-0003",
-        "text": "Grounded mechanism in fresh vFTuLylvYnA"
+        "text": "Kursthil steigt auf 160 Dollar."
       }
     ],
     "near_duplicate_claim_candidates": [],
-    "open_questions": [],
+    "open_questions": [
+      {
+        "source_segment_ids": [
+          "seg-000038"
+        ],
+        "source_window_id": "window-0001",
+        "text": "Zwischenwahlen im November keine Zinsanhebungen geben wird und was ist der most crowded trade?"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000093"
+        ],
+        "source_window_id": "window-0002",
+        "text": "daraus?"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000127"
+        ],
+        "source_window_id": "window-0002",
+        "text": "Ertrag pro Aktie 4,10, geschätzt, 3,78, wo liegt das Problem?"
+      }
+    ],
     "protocols": [],
     "subtopics": [
       {
-        "label": "Fresh section window-0001",
+        "label": "Thematischer Abschnitt: [ASR Fresh v2.1 vFTuLylvYnA] So ein schön guten Morgen und schon haben wir den N",
         "source_segment_ids": [
           "seg-000001",
-          "seg-000002"
+          "seg-000002",
+          "seg-000003",
+          "seg-000004",
+          "seg-000005",
+          "seg-000006",
+          "seg-000007",
+          "seg-000008",
+          "seg-000009",
+          "seg-000010",
+          "seg-000011",
+          "seg-000012",
+          "seg-000013",
+          "seg-000014",
+          "seg-000015",
+          "seg-000016",
+          "seg-000017",
+          "seg-000018",
+          "seg-000019",
+          "seg-000020",
+          "seg-000021",
+          "seg-000022",
+          "seg-000023",
+          "seg-000024",
+          "seg-000025"
         ],
         "source_window_id": "window-0001"
       },
       {
-        "label": "Fresh section window-0002",
+        "label": "Thematischer Abschnitt: du hast ein wirkliches wundervoll brachte.",
+        "source_segment_ids": [
+          "seg-000026",
+          "seg-000027",
+          "seg-000028",
+          "seg-000029",
+          "seg-000030",
+          "seg-000031",
+          "seg-000032",
+          "seg-000033",
+          "seg-000034",
+          "seg-000035",
+          "seg-000036",
+          "seg-000037",
+          "seg-000038",
+          "seg-000039",
+          "seg-000040",
+          "seg-000041",
+          "seg-000042",
+          "seg-000043",
+          "seg-000044",
+          "seg-000045",
+          "seg-000046",
+          "seg-000047",
+          "seg-000048",
+          "seg-000049",
+          "seg-000050"
+        ],
+        "source_window_id": "window-0001"
+      },
+      {
+        "label": "Thematischer Abschnitt: anschaut, ein Minus von 11 Prozent vor Handelsstaat an der Wall Street.",
+        "source_segment_ids": [
+          "seg-000051",
+          "seg-000052",
+          "seg-000053",
+          "seg-000054",
+          "seg-000055",
+          "seg-000056",
+          "seg-000057",
+          "seg-000058",
+          "seg-000059",
+          "seg-000060",
+          "seg-000061",
+          "seg-000062",
+          "seg-000063",
+          "seg-000064",
+          "seg-000065",
+          "seg-000066",
+          "seg-000067",
+          "seg-000068",
+          "seg-000069",
+          "seg-000070",
+          "seg-000071",
+          "seg-000072",
+          "seg-000073",
+          "seg-000074",
+          "seg-000075"
+        ],
+        "source_window_id": "window-0001"
+      },
+      {
+        "label": "Thematischer Abschnitt: 14-Jahres-Tief geschlossen, ein Minus von 78 Prozent seit den Altzeithoch, über",
+        "source_segment_ids": [
+          "seg-000076",
+          "seg-000077"
+        ],
+        "source_window_id": "window-0001"
+      },
+      {
+        "label": "Thematischer Abschnitt: bei denen es garantiert, dass es auch Bergab geht, selbst wenn das Business boom",
         "source_segment_ids": [
           "seg-000078",
-          "seg-000079"
+          "seg-000079",
+          "seg-000080",
+          "seg-000081",
+          "seg-000082",
+          "seg-000083",
+          "seg-000084",
+          "seg-000085",
+          "seg-000086",
+          "seg-000087",
+          "seg-000088",
+          "seg-000089",
+          "seg-000090",
+          "seg-000091",
+          "seg-000092",
+          "seg-000093",
+          "seg-000094",
+          "seg-000095"
         ],
         "source_window_id": "window-0002"
       },
       {
-        "label": "Fresh section window-0003",
+        "label": "Thematischer Abschnitt: wenn man bei Home Depot brücksichtigt, Jahrespognosen, beinhalten das zweite Qua",
+        "source_segment_ids": [
+          "seg-000096",
+          "seg-000097",
+          "seg-000098",
+          "seg-000099",
+          "seg-000100",
+          "seg-000101",
+          "seg-000102",
+          "seg-000103",
+          "seg-000104",
+          "seg-000105",
+          "seg-000106",
+          "seg-000107",
+          "seg-000108",
+          "seg-000109",
+          "seg-000110",
+          "seg-000111",
+          "seg-000112",
+          "seg-000113"
+        ],
+        "source_window_id": "window-0002"
+      },
+      {
+        "label": "Thematischer Abschnitt: hier im Gegensatz zu Emas Sports und Home Depot sehen wir letztendlich gesehen,",
+        "source_segment_ids": [
+          "seg-000114",
+          "seg-000115",
+          "seg-000116",
+          "seg-000117",
+          "seg-000118",
+          "seg-000119",
+          "seg-000120",
+          "seg-000121",
+          "seg-000122",
+          "seg-000123",
+          "seg-000124",
+          "seg-000125",
+          "seg-000126",
+          "seg-000127",
+          "seg-000128",
+          "seg-000129",
+          "seg-000130",
+          "seg-000131"
+        ],
+        "source_window_id": "window-0002"
+      },
+      {
+        "label": "Thematischer Abschnitt: Na ja, die Wall Street findet natürlich immer irgendwelche Gründe.",
         "source_segment_ids": [
           "seg-000132",
-          "seg-000133"
+          "seg-000133",
+          "seg-000134",
+          "seg-000135",
+          "seg-000136",
+          "seg-000137",
+          "seg-000138",
+          "seg-000139",
+          "seg-000140",
+          "seg-000141",
+          "seg-000142",
+          "seg-000143",
+          "seg-000144",
+          "seg-000145",
+          "seg-000146",
+          "seg-000147"
+        ],
+        "source_window_id": "window-0003"
+      },
+      {
+        "label": "Thematischer Abschnitt: bleibe ich mal direkt im Textsektor und schauen wir uns nochmal Nvidia an.",
+        "source_segment_ids": [
+          "seg-000148",
+          "seg-000149",
+          "seg-000150",
+          "seg-000151",
+          "seg-000152",
+          "seg-000153",
+          "seg-000154",
+          "seg-000155",
+          "seg-000156",
+          "seg-000157",
+          "seg-000158",
+          "seg-000159",
+          "seg-000160",
+          "seg-000161",
+          "seg-000162",
+          "seg-000163"
+        ],
+        "source_window_id": "window-0003"
+      },
+      {
+        "label": "Thematischer Abschnitt: in der Tat, wenn man sich also umhört bei den Partnern, dann entwickelt sich das",
+        "source_segment_ids": [
+          "seg-000164",
+          "seg-000165",
+          "seg-000166",
+          "seg-000167",
+          "seg-000168",
+          "seg-000169",
+          "seg-000170",
+          "seg-000171",
+          "seg-000172",
+          "seg-000173",
+          "seg-000174",
+          "seg-000175",
+          "seg-000176",
+          "seg-000177",
+          "seg-000178",
+          "seg-000179"
         ],
         "source_window_id": "window-0003"
       }
     ]
   },
-  "evidence_ledger_sha256": "81e90dd29f9705a91666c378a2116f89fb1c56539153857970a538b9185587ac",
+  "evidence_ledger_sha256": "d5ae7a382b8aa7c3cc806ec7fc3af583679c82a6bfe090d1225f93f04d026a6c",
   "packet_id": "reduce-final",
-  "packet_sha256": "fa9a8fbe4de98e93746d188e5abff5fe5af42c0ba0ca35b1a229dd870fcec318",
+  "packet_sha256": "084daf2cf1b8ba8d6d9f6c9418fe51034aebfee299775e48a9af86c3312bb0c9",
   "result_path": "work/results/reduce.json",
   "rules": [
     "Build Macro and Meso from this validated evidence ledger; do not reread the whole transcript by default.",

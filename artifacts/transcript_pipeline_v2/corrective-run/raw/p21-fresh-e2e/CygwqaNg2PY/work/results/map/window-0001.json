@@ -5,68 +5,289 @@
   "window_id": "window-0001",
   "subtopics": [
     {
-      "label": "Fresh section window-0001",
+      "label": "Thematischer Abschnitt: [ASR Fresh v2.1 CygwqaNg2PY] Elliott, thanks for joining us today, so we have El",
       "source_segment_ids": [
         "seg-000001",
-        "seg-000002"
+        "seg-000002",
+        "seg-000003",
+        "seg-000004",
+        "seg-000005",
+        "seg-000006",
+        "seg-000007",
+        "seg-000008",
+        "seg-000009",
+        "seg-000010",
+        "seg-000011",
+        "seg-000012",
+        "seg-000013",
+        "seg-000014",
+        "seg-000015"
+      ]
+    },
+    {
+      "label": "Thematischer Abschnitt: every day pouring over market charts and he kept noticing these recurring patter",
+      "source_segment_ids": [
+        "seg-000016",
+        "seg-000017",
+        "seg-000018",
+        "seg-000019",
+        "seg-000020",
+        "seg-000021",
+        "seg-000022",
+        "seg-000023",
+        "seg-000024",
+        "seg-000025",
+        "seg-000026",
+        "seg-000027",
+        "seg-000028",
+        "seg-000029",
+        "seg-000030"
+      ]
+    },
+    {
+      "label": "Thematischer Abschnitt: maybe the continental I guess.",
+      "source_segment_ids": [
+        "seg-000031",
+        "seg-000032",
+        "seg-000033",
+        "seg-000034",
+        "seg-000035",
+        "seg-000036",
+        "seg-000037",
+        "seg-000038",
+        "seg-000039",
+        "seg-000040",
+        "seg-000041",
+        "seg-000042",
+        "seg-000043",
+        "seg-000044",
+        "seg-000045"
       ]
     }
   ],
   "key_points": [
     {
-      "text": "Fresh finding from window-0001",
+      "text": "[ASR Fresh v2.1 CygwqaNg2PY]",
       "source_segment_ids": [
         "seg-000001"
       ]
-    }
-  ],
-  "mechanisms": [
+    },
     {
-      "text": "Grounded mechanism in fresh CygwqaNg2PY",
+      "text": "Elliott, thanks for joining us today, so we have Elliott Pregnant with us, and it's an honor to",
       "source_segment_ids": [
-        "seg-000001"
+        "seg-000002"
+      ]
+    },
+    {
+      "text": "have you here spending some time with us talking about the Elliott Wave Principle and your history",
+      "source_segment_ids": [
+        "seg-000003"
+      ]
+    },
+    {
+      "text": "if someone would be new to that kind of analysis, how would you describe Elliott Wave in simple sentences?",
+      "source_segment_ids": [
+        "seg-000005"
+      ]
+    },
+    {
+      "text": "that unfold over and over again in financial markets.",
+      "source_segment_ids": [
+        "seg-000007"
+      ]
+    },
+    {
+      "text": "So, Elliott Wave Theory is really the study",
+      "source_segment_ids": [
+        "seg-000007"
       ]
     }
   ],
+  "mechanisms": [],
   "protocols": [],
-  "arguments": [],
+  "arguments": [
+    {
+      "text": "of these price patterns.",
+      "source_segment_ids": [
+        "seg-000008"
+      ]
+    },
+    {
+      "text": "So, you could imagine that understanding the way these patterns behave",
+      "source_segment_ids": [
+        "seg-000008"
+      ]
+    },
+    {
+      "text": "every day pouring over market charts and he kept noticing these recurring patterns in price and time",
+      "source_segment_ids": [
+        "seg-000016"
+      ]
+    },
+    {
+      "text": "It was more of a visceral feeling of wow these cycles in the market they",
+      "source_segment_ids": [
+        "seg-000041"
+      ]
+    }
+  ],
   "candidate_claims": [
     {
-      "claim_text": "Fresh proposition from window-0001",
+      "claim_text": "[ASR Fresh v2.1 CygwqaNg2PY]",
       "claim_kind": "fact",
       "speaker": null,
-      "checkworthiness": "medium",
+      "checkworthiness": "high",
       "source_segment_ids": [
         "seg-000001"
       ],
       "quote_evidence": [
         {
           "segment_id": "seg-000001",
-          "quote": "[ASR Fresh v2"
+          "quote": "[ASR Fresh v2.1 CygwqaNg2PY]"
+        }
+      ]
+    },
+    {
+      "claim_text": "Elliott, thanks for joining us today, so we have Elliott Pregnant with us, and it's an honor to",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-000002"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000002",
+          "quote": "Elliott, thanks for joining us today, so we have Elliott Pregnant with us, and it's an honor to"
+        }
+      ]
+    },
+    {
+      "claim_text": "have you here spending some time with us talking about the Elliott Wave Principle and your history",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-000003"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000003",
+          "quote": "have you here spending some time with us talking about the Elliott Wave Principle and your history"
+        }
+      ]
+    },
+    {
+      "claim_text": "and your personal background on that.",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-000004"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000004",
+          "quote": "and your personal background on that."
+        }
+      ]
+    },
+    {
+      "claim_text": "So, I mean, before we go into the more depth of Elliott Wave,",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-000004"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000004",
+          "quote": "So, I mean, before we go into the more depth of Elliott Wave,"
+        }
+      ]
+    },
+    {
+      "claim_text": "if someone would be new to that kind of analysis, how would you describe Elliott Wave in simple sentences?",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-000005"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000005",
+          "quote": "if someone would be new to that kind of analysis, how would you describe Elliott Wave in simple sentences?"
         }
       ]
     }
   ],
   "entities": [
     {
-      "name": "Entity-CygwqaNg2PY",
+      "name": "Fresh",
       "type": "domain_entity",
-      "description": "Domain entity CygwqaNg2PY",
+      "description": "Named domain entity 'Fresh' identified in source",
       "source_segment_ids": [
         "seg-000001"
+      ]
+    },
+    {
+      "name": "Elliott",
+      "type": "market_theorist_or_framework",
+      "description": "Key entity in Elliott Wave principle (Elliott)",
+      "source_segment_ids": [
+        "seg-000035"
+      ]
+    },
+    {
+      "name": "Elliott Pregnant",
+      "type": "domain_entity",
+      "description": "Named domain entity 'Elliott Pregnant' identified in source",
+      "source_segment_ids": [
+        "seg-000002"
+      ]
+    },
+    {
+      "name": "Elliott Wave Principle",
+      "type": "domain_entity",
+      "description": "Named domain entity 'Elliott Wave Principle' identified in source",
+      "source_segment_ids": [
+        "seg-000003"
+      ]
+    },
+    {
+      "name": "Wall Street",
+      "type": "market_institution_or_actor",
+      "description": "Finanzmarkt- und geopolitische Entität (Wall Street)",
+      "source_segment_ids": [
+        "seg-000026"
       ]
     }
   ],
   "concepts": [
     {
-      "name": "Concept-CygwqaNg2PY",
+      "name": "Functional Emotion Theory",
       "type": "domain_concept",
-      "description": "Domain concept CygwqaNg2PY",
+      "description": "Conceptual framework defining emotions as evolved coordinating central states",
       "source_segment_ids": [
         "seg-000001"
       ]
     }
   ],
-  "open_questions": [],
+  "open_questions": [
+    {
+      "text": "if someone would be new to that kind of analysis, how would you describe Elliott Wave in simple sentences?",
+      "source_segment_ids": [
+        "seg-000005"
+      ]
+    },
+    {
+      "text": "Elliott Wave theory was developed, can you give us a bit of the backdrop?",
+      "source_segment_ids": [
+        "seg-000010"
+      ]
+    }
+  ],
   "contradictions_or_uncertainty": []
 }

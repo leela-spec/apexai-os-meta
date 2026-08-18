@@ -1,0 +1,17 @@
+{
+  "schema": "transcript-pipeline-receipt.v2",
+  "task_id": "reduce_invocation",
+  "status": "PASS",
+  "started_at": "2026-08-18T20:56:43.596202+00:00",
+  "finished_at": "2026-08-18T20:56:43.596202+00:00",
+  "wall_time_seconds": 0.0031,
+  "exit_code": 0,
+  "input_hash": "25c71b0747ce80f943a8ec546ed4c6aae643c2749211ce92558869ac8314bb08",
+  "output_hash": "f48e94b853016216e3f1fe737c28c18c14da2627c8ef3cddb12bbea2db50bfd4",
+  "config": {
+    "provider": "antigravity_agent"
+  },
+  "attempts": 1,
+  "provider": "antigravity_agent",
+  "transport": "agent_worker"
+}

@@ -1,0 +1,19 @@
+{
+  "config": {
+    "block_segments": 4,
+    "context_segments": 1,
+    "max_words": 1500,
+    "min_words": 700,
+    "pause_weight": 0.15,
+    "target_words": 1100
+  },
+  "contract_version": "ttk.semantic-contract.v2",
+  "schema": "ttk.run.v2",
+  "segment_count": 215,
+  "source_format": "srt",
+  "source_name": "CygwqaNg2PY.srt",
+  "source_sha256": "2d93ffe19ae134fb41bd2a9eb40f14285d702429ce4d2205113c0b177533899a",
+  "timestamp_quality": "segment",
+  "window_count": 4,
+  "word_count": 3863
+}

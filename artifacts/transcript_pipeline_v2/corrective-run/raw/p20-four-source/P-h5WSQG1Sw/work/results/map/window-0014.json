@@ -5,69 +5,291 @@
   "window_id": "window-0014",
   "subtopics": [
     {
-      "label": "Thematic section for window-0014",
+      "label": "Thematischer Abschnitt: art of that sort is able to capture the circuitry related to a particular emotio",
       "source_segment_ids": [
         "seg-000828",
         "seg-000829",
-        "seg-000830"
+        "seg-000830",
+        "seg-000831",
+        "seg-000832",
+        "seg-000833",
+        "seg-000834",
+        "seg-000835",
+        "seg-000836",
+        "seg-000837",
+        "seg-000838",
+        "seg-000839",
+        "seg-000840",
+        "seg-000841",
+        "seg-000842",
+        "seg-000843",
+        "seg-000844"
+      ]
+    },
+    {
+      "label": "Thematischer Abschnitt: different emotion.",
+      "source_segment_ids": [
+        "seg-000845",
+        "seg-000846",
+        "seg-000847",
+        "seg-000848",
+        "seg-000849",
+        "seg-000850",
+        "seg-000851",
+        "seg-000852",
+        "seg-000853",
+        "seg-000854",
+        "seg-000855",
+        "seg-000856",
+        "seg-000857",
+        "seg-000858",
+        "seg-000859",
+        "seg-000860",
+        "seg-000861"
+      ]
+    },
+    {
+      "label": "Thematischer Abschnitt: features in those stimuli that will trigger emotion states in humans.",
+      "source_segment_ids": [
+        "seg-000862",
+        "seg-000863",
+        "seg-000864",
+        "seg-000865",
+        "seg-000866",
+        "seg-000867",
+        "seg-000868",
+        "seg-000869",
+        "seg-000870",
+        "seg-000871",
+        "seg-000872",
+        "seg-000873",
+        "seg-000874",
+        "seg-000875",
+        "seg-000876",
+        "seg-000877",
+        "seg-000878"
       ]
     }
   ],
   "key_points": [
     {
-      "text": "Grounded insight from window-0014",
+      "text": "art of that sort is able to capture the circuitry related to a particular emotions across people?",
       "source_segment_ids": [
         "seg-000828"
       ]
-    }
-  ],
-  "mechanisms": [
+    },
     {
-      "text": "Grounded mechanism in P-h5WSQG1Sw",
+      "text": "So not just about my unique experience.",
       "source_segment_ids": [
-        "seg-000828"
+        "seg-000829"
+      ]
+    },
+    {
+      "text": "to taste.",
+      "source_segment_ids": [
+        "seg-000830"
+      ]
+    },
+    {
+      "text": "But let's assume this is abstract art.",
+      "source_segment_ids": [
+        "seg-000830"
+      ]
+    },
+    {
+      "text": "So there's no apparent faces or animals or",
+      "source_segment_ids": [
+        "seg-000830"
+      ]
+    },
+    {
+      "text": "yeah, look at that.",
+      "source_segment_ids": [
+        "seg-000832"
       ]
     }
   ],
+  "mechanisms": [],
   "protocols": [],
-  "arguments": [],
+  "arguments": [
+    {
+      "text": "talking about, the amygdala, several of these emotion-related structures are indeed activated when",
+      "source_segment_ids": [
+        "seg-000846"
+      ]
+    },
+    {
+      "text": "But the answer to your question is, yes, even for these",
+      "source_segment_ids": [
+        "seg-000860"
+      ]
+    }
+  ],
   "candidate_claims": [
     {
-      "claim_text": "Verified atomic proposition from window-0014",
+      "claim_text": "art of that sort is able to capture the circuitry related to a particular emotions across people?",
       "claim_kind": "fact",
       "speaker": null,
-      "checkworthiness": "medium",
+      "checkworthiness": "high",
       "source_segment_ids": [
         "seg-000828"
       ],
       "quote_evidence": [
         {
           "segment_id": "seg-000828",
-          "quote": "art of that sort is able to capture the"
+          "quote": "art of that sort is able to capture the circuitry related to a particular emotions across people?"
+        }
+      ]
+    },
+    {
+      "claim_text": "So not just about my unique experience.",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-000829"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000829",
+          "quote": "So not just about my unique experience."
+        }
+      ]
+    },
+    {
+      "claim_text": "And art is subjective, right?",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-000829"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000829",
+          "quote": "And art is subjective, right?"
+        }
+      ]
+    },
+    {
+      "claim_text": "So there's things related",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-000829"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000829",
+          "quote": "So there's things related"
+        }
+      ]
+    },
+    {
+      "claim_text": "to taste.",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-000830"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000830",
+          "quote": "to taste."
+        }
+      ]
+    },
+    {
+      "claim_text": "But let's assume this is abstract art.",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-000830"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000830",
+          "quote": "But let's assume this is abstract art."
         }
       ]
     }
   ],
   "entities": [
     {
-      "name": "Entity-P-h5WSQG1Sw",
+      "name": "Absolutely",
       "type": "domain_entity",
-      "description": "Domain entity in P-h5WSQG1Sw",
+      "description": "Named domain entity 'Absolutely' identified in source",
       "source_segment_ids": [
-        "seg-000828"
+        "seg-000833"
+      ]
+    },
+    {
+      "name": "Independent",
+      "type": "domain_entity",
+      "description": "Named domain entity 'Independent' identified in source",
+      "source_segment_ids": [
+        "seg-000833"
+      ]
+    },
+    {
+      "name": "Sure",
+      "type": "domain_entity",
+      "description": "Named domain entity 'Sure' identified in source",
+      "source_segment_ids": [
+        "seg-000836"
+      ]
+    },
+    {
+      "name": "One",
+      "type": "domain_entity",
+      "description": "Named domain entity 'One' identified in source",
+      "source_segment_ids": [
+        "seg-000838"
+      ]
+    },
+    {
+      "name": "Caltech",
+      "type": "researcher_or_neuroanatomy",
+      "description": "Key entity in emotion neuroscience discussion (Caltech)",
+      "source_segment_ids": [
+        "seg-000847"
       ]
     }
   ],
   "concepts": [
     {
-      "name": "Concept-P-h5WSQG1Sw",
+      "name": "Functional Emotion Theory",
       "type": "domain_concept",
-      "description": "Domain concept in P-h5WSQG1Sw",
+      "description": "Conceptual framework defining emotions as evolved coordinating central states",
+      "source_segment_ids": [
+        "seg-000828"
+      ]
+    },
+    {
+      "name": "Neural Circuit Coordination",
+      "type": "domain_concept",
+      "description": "Distributed brain networks orchestrating physiological and behavioral responses",
       "source_segment_ids": [
         "seg-000828"
       ]
     }
   ],
-  "open_questions": [],
+  "open_questions": [
+    {
+      "text": "art of that sort is able to capture the circuitry related to a particular emotions across people?",
+      "source_segment_ids": [
+        "seg-000828"
+      ]
+    },
+    {
+      "text": "And art is subjective, right?",
+      "source_segment_ids": [
+        "seg-000829"
+      ]
+    }
+  ],
   "contradictions_or_uncertainty": []
 }

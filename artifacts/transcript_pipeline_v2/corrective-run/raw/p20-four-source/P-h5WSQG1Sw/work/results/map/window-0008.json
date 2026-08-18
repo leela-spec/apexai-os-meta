@@ -5,36 +5,175 @@
   "window_id": "window-0008",
   "subtopics": [
     {
-      "label": "Thematic section for window-0008",
+      "label": "Thematischer Abschnitt: you were describing how, you know, at some points during these races, you just f",
       "source_segment_ids": [
         "seg-000419",
         "seg-000420",
-        "seg-000421"
+        "seg-000421",
+        "seg-000422",
+        "seg-000423",
+        "seg-000424",
+        "seg-000425",
+        "seg-000426",
+        "seg-000427",
+        "seg-000428",
+        "seg-000429",
+        "seg-000430",
+        "seg-000431",
+        "seg-000432",
+        "seg-000433",
+        "seg-000434",
+        "seg-000435",
+        "seg-000436",
+        "seg-000437",
+        "seg-000438",
+        "seg-000439",
+        "seg-000440",
+        "seg-000441",
+        "seg-000442",
+        "seg-000443",
+        "seg-000444",
+        "seg-000445",
+        "seg-000446"
+      ]
+    },
+    {
+      "label": "Thematischer Abschnitt: but it's doable.",
+      "source_segment_ids": [
+        "seg-000447",
+        "seg-000448",
+        "seg-000449",
+        "seg-000450",
+        "seg-000451",
+        "seg-000452",
+        "seg-000453",
+        "seg-000454",
+        "seg-000455",
+        "seg-000456",
+        "seg-000457",
+        "seg-000458",
+        "seg-000459",
+        "seg-000460",
+        "seg-000461",
+        "seg-000462",
+        "seg-000463",
+        "seg-000464",
+        "seg-000465",
+        "seg-000466",
+        "seg-000467",
+        "seg-000468",
+        "seg-000469",
+        "seg-000470",
+        "seg-000471",
+        "seg-000472",
+        "seg-000473",
+        "seg-000474"
+      ]
+    },
+    {
+      "label": "Thematischer Abschnitt: and the rest of life seems trivial, but it seems the opposite is true.",
+      "source_segment_ids": [
+        "seg-000475",
+        "seg-000476",
+        "seg-000477",
+        "seg-000478",
+        "seg-000479",
+        "seg-000480",
+        "seg-000481",
+        "seg-000482",
+        "seg-000483",
+        "seg-000484",
+        "seg-000485",
+        "seg-000486",
+        "seg-000487",
+        "seg-000488",
+        "seg-000489",
+        "seg-000490",
+        "seg-000491",
+        "seg-000492",
+        "seg-000493",
+        "seg-000494",
+        "seg-000495",
+        "seg-000496",
+        "seg-000497",
+        "seg-000498",
+        "seg-000499",
+        "seg-000500",
+        "seg-000501",
+        "seg-000502"
       ]
     }
   ],
   "key_points": [
     {
-      "text": "Grounded insight from window-0008",
+      "text": "you were describing how, you know, at some points during these races, you just feel like complete",
       "source_segment_ids": [
         "seg-000419"
       ]
-    }
-  ],
-  "mechanisms": [
+    },
     {
-      "text": "Grounded mechanism in P-h5WSQG1Sw",
+      "text": "garbage.",
       "source_segment_ids": [
-        "seg-000419"
+        "seg-000420"
+      ]
+    },
+    {
+      "text": "garbage, you have the cognitive knowledge that you felt terrible then better again.",
+      "source_segment_ids": [
+        "seg-000421"
+      ]
+    },
+    {
+      "text": "And so you're",
+      "source_segment_ids": [
+        "seg-000421"
+      ]
+    },
+    {
+      "text": "but over much longer time scales.",
+      "source_segment_ids": [
+        "seg-000423"
+      ]
+    },
+    {
+      "text": "It's a little bit harder to access for most people than a",
+      "source_segment_ids": [
+        "seg-000423"
       ]
     }
   ],
+  "mechanisms": [],
   "protocols": [],
-  "arguments": [],
+  "arguments": [
+    {
+      "text": "you were describing how, you know, at some points during these races, you just feel like complete",
+      "source_segment_ids": [
+        "seg-000419"
+      ]
+    },
+    {
+      "text": "that I love these ultramarathons and sort of identify as an ultra runner, even though I didn't do it",
+      "source_segment_ids": [
+        "seg-000425"
+      ]
+    },
+    {
+      "text": "You have these",
+      "source_segment_ids": [
+        "seg-000426"
+      ]
+    },
+    {
+      "text": "to these kinds of things.",
+      "source_segment_ids": [
+        "seg-000480"
+      ]
+    }
+  ],
   "candidate_claims": [
     {
-      "claim_text": "Verified atomic proposition from window-0008",
-      "claim_kind": "fact",
+      "claim_text": "you were describing how, you know, at some points during these races, you just feel like complete",
+      "claim_kind": "opinion",
       "speaker": null,
       "checkworthiness": "medium",
       "source_segment_ids": [
@@ -43,31 +182,143 @@
       "quote_evidence": [
         {
           "segment_id": "seg-000419",
-          "quote": "you were describing how, you know, at so"
+          "quote": "you were describing how, you know, at some points during these races, you just feel like complete"
+        }
+      ]
+    },
+    {
+      "claim_text": "garbage.",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-000420"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000420",
+          "quote": "garbage."
+        }
+      ]
+    },
+    {
+      "claim_text": "But then you start to feel better.",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-000420"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000420",
+          "quote": "But then you start to feel better."
+        }
+      ]
+    },
+    {
+      "claim_text": "And so then the next time you feel like complete",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-000420"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000420",
+          "quote": "And so then the next time you feel like complete"
+        }
+      ]
+    },
+    {
+      "claim_text": "garbage, you have the cognitive knowledge that you felt terrible then better again.",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-000421"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000421",
+          "quote": "garbage, you have the cognitive knowledge that you felt terrible then better again."
+        }
+      ]
+    },
+    {
+      "claim_text": "And so you're",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-000421"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000421",
+          "quote": "And so you're"
         }
       ]
     }
   ],
   "entities": [
     {
-      "name": "Entity-P-h5WSQG1Sw",
+      "name": "You",
       "type": "domain_entity",
-      "description": "Domain entity in P-h5WSQG1Sw",
+      "description": "Named domain entity 'You' identified in source",
       "source_segment_ids": [
-        "seg-000419"
+        "seg-000426"
+      ]
+    },
+    {
+      "name": "People",
+      "type": "domain_entity",
+      "description": "Named domain entity 'People' identified in source",
+      "source_segment_ids": [
+        "seg-000431"
+      ]
+    },
+    {
+      "name": "Super",
+      "type": "domain_entity",
+      "description": "Named domain entity 'Super' identified in source",
+      "source_segment_ids": [
+        "seg-000434"
+      ]
+    },
+    {
+      "name": "For",
+      "type": "domain_entity",
+      "description": "Named domain entity 'For' identified in source",
+      "source_segment_ids": [
+        "seg-000440"
       ]
     }
   ],
   "concepts": [
     {
-      "name": "Concept-P-h5WSQG1Sw",
+      "name": "Functional Emotion Theory",
       "type": "domain_concept",
-      "description": "Domain concept in P-h5WSQG1Sw",
+      "description": "Conceptual framework defining emotions as evolved coordinating central states",
       "source_segment_ids": [
         "seg-000419"
       ]
     }
   ],
-  "open_questions": [],
+  "open_questions": [
+    {
+      "text": "No, nobody says that, right?",
+      "source_segment_ids": [
+        "seg-000432"
+      ]
+    },
+    {
+      "text": "It's not like, you know, years, how hard can it be?",
+      "source_segment_ids": [
+        "seg-000446"
+      ]
+    }
+  ],
   "contradictions_or_uncertainty": []
 }

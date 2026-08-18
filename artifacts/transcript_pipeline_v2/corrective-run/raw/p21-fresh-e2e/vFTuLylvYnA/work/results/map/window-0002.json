@@ -5,26 +5,124 @@
   "window_id": "window-0002",
   "subtopics": [
     {
-      "label": "Fresh section window-0002",
+      "label": "Thematischer Abschnitt: bei denen es garantiert, dass es auch Bergab geht, selbst wenn das Business boom",
       "source_segment_ids": [
         "seg-000078",
-        "seg-000079"
+        "seg-000079",
+        "seg-000080",
+        "seg-000081",
+        "seg-000082",
+        "seg-000083",
+        "seg-000084",
+        "seg-000085",
+        "seg-000086",
+        "seg-000087",
+        "seg-000088",
+        "seg-000089",
+        "seg-000090",
+        "seg-000091",
+        "seg-000092",
+        "seg-000093",
+        "seg-000094",
+        "seg-000095"
+      ]
+    },
+    {
+      "label": "Thematischer Abschnitt: wenn man bei Home Depot brücksichtigt, Jahrespognosen, beinhalten das zweite Qua",
+      "source_segment_ids": [
+        "seg-000096",
+        "seg-000097",
+        "seg-000098",
+        "seg-000099",
+        "seg-000100",
+        "seg-000101",
+        "seg-000102",
+        "seg-000103",
+        "seg-000104",
+        "seg-000105",
+        "seg-000106",
+        "seg-000107",
+        "seg-000108",
+        "seg-000109",
+        "seg-000110",
+        "seg-000111",
+        "seg-000112",
+        "seg-000113"
+      ]
+    },
+    {
+      "label": "Thematischer Abschnitt: hier im Gegensatz zu Emas Sports und Home Depot sehen wir letztendlich gesehen,",
+      "source_segment_ids": [
+        "seg-000114",
+        "seg-000115",
+        "seg-000116",
+        "seg-000117",
+        "seg-000118",
+        "seg-000119",
+        "seg-000120",
+        "seg-000121",
+        "seg-000122",
+        "seg-000123",
+        "seg-000124",
+        "seg-000125",
+        "seg-000126",
+        "seg-000127",
+        "seg-000128",
+        "seg-000129",
+        "seg-000130",
+        "seg-000131"
       ]
     }
   ],
   "key_points": [
     {
-      "text": "Fresh finding from window-0002",
+      "text": "bei denen es garantiert, dass es auch Bergab geht, selbst wenn das Business boomt, wenn man das mal böse",
       "source_segment_ids": [
         "seg-000078"
+      ]
+    },
+    {
+      "text": "sagt, ja, Amor Sports, ja auch in dem Sektor mit unterwegs, also im Sportbereich und die Akze ist",
+      "source_segment_ids": [
+        "seg-000079"
+      ]
+    },
+    {
+      "text": "heute Morgen auch mit im Plus nach denen zahlen, aber genau das gleiche Bild wie bei Home Depot.",
+      "source_segment_ids": [
+        "seg-000080"
+      ]
+    },
+    {
+      "text": "also Zollrückerstattungen, aber selbst wenn man die jetzt mal rausrechnet, der Ertrag pro Akze wäre",
+      "source_segment_ids": [
+        "seg-000082"
+      ]
+    },
+    {
+      "text": "Prozent gerechnet, also krasses Gegenteil zu UN Holding, bei denen sind die Wachstumsraten zwar",
+      "source_segment_ids": [
+        "seg-000084"
+      ]
+    },
+    {
+      "text": "kann die operativen Margen ausweiten, bei UN sieht man jetzt eher Margen Druck, wenn man sich jetzt",
+      "source_segment_ids": [
+        "seg-000086"
       ]
     }
   ],
   "mechanisms": [
     {
-      "text": "Grounded mechanism in fresh vFTuLylvYnA",
+      "text": "man sieht Gegenwind auf konstanterwährungsbasis, vor allen Dingen verursacht durch Deutschland,",
       "source_segment_ids": [
-        "seg-000078"
+        "seg-000107"
+      ]
+    },
+    {
+      "text": "jetzt nicht unbedingt ein mega großer Konzern im Textsektor, verändert also nicht unbedingt das",
+      "source_segment_ids": [
+        "seg-000125"
       ]
     }
   ],
@@ -32,41 +130,153 @@
   "arguments": [],
   "candidate_claims": [
     {
-      "claim_text": "Fresh proposition from window-0002",
+      "claim_text": "bei denen es garantiert, dass es auch Bergab geht, selbst wenn das Business boomt, wenn man das mal böse",
       "claim_kind": "fact",
       "speaker": null,
-      "checkworthiness": "medium",
+      "checkworthiness": "high",
       "source_segment_ids": [
         "seg-000078"
       ],
       "quote_evidence": [
         {
           "segment_id": "seg-000078",
-          "quote": "bei denen es garantiert, dass es auch Be"
+          "quote": "bei denen es garantiert, dass es auch Bergab geht, selbst wenn das Business boomt, wenn man das mal böse"
+        }
+      ]
+    },
+    {
+      "claim_text": "sagt, ja, Amor Sports, ja auch in dem Sektor mit unterwegs, also im Sportbereich und die Akze ist",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-000079"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000079",
+          "quote": "sagt, ja, Amor Sports, ja auch in dem Sektor mit unterwegs, also im Sportbereich und die Akze ist"
+        }
+      ]
+    },
+    {
+      "claim_text": "heute Morgen auch mit im Plus nach denen zahlen, aber genau das gleiche Bild wie bei Home Depot.",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-000080"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000080",
+          "quote": "heute Morgen auch mit im Plus nach denen zahlen, aber genau das gleiche Bild wie bei Home Depot."
+        }
+      ]
+    },
+    {
+      "claim_text": "Es letzte Quartal ganz gut, der Ertrag besser als erwartet und ja, auch hier gab's fette Steuer,",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-000081"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000081",
+          "quote": "Es letzte Quartal ganz gut, der Ertrag besser als erwartet und ja, auch hier gab's fette Steuer,"
+        }
+      ]
+    },
+    {
+      "claim_text": "also Zollrückerstattungen, aber selbst wenn man die jetzt mal rausrechnet, der Ertrag pro Akze wäre",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-000082"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000082",
+          "quote": "also Zollrückerstattungen, aber selbst wenn man die jetzt mal rausrechnet, der Ertrag pro Akze wäre"
+        }
+      ]
+    },
+    {
+      "claim_text": "trotzdem über den Erwartungen gewesen, ein Umsatzsprung von 30 Prozent, die Wallsit hatte mit 23",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-000083"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000083",
+          "quote": "trotzdem über den Erwartungen gewesen, ein Umsatzsprung von 30 Prozent, die Wallsit hatte mit 23"
         }
       ]
     }
   ],
   "entities": [
     {
-      "name": "Entity-vFTuLylvYnA",
+      "name": "Bergab",
       "type": "domain_entity",
-      "description": "Domain entity vFTuLylvYnA",
+      "description": "Named domain entity 'Bergab' identified in source",
       "source_segment_ids": [
         "seg-000078"
+      ]
+    },
+    {
+      "name": "Business",
+      "type": "domain_entity",
+      "description": "Named domain entity 'Business' identified in source",
+      "source_segment_ids": [
+        "seg-000078"
+      ]
+    },
+    {
+      "name": "Amor Sports",
+      "type": "domain_entity",
+      "description": "Named domain entity 'Amor Sports' identified in source",
+      "source_segment_ids": [
+        "seg-000079"
+      ]
+    },
+    {
+      "name": "Sektor",
+      "type": "domain_entity",
+      "description": "Named domain entity 'Sektor' identified in source",
+      "source_segment_ids": [
+        "seg-000079"
       ]
     }
   ],
   "concepts": [
     {
-      "name": "Concept-vFTuLylvYnA",
+      "name": "Core Subject Model",
       "type": "domain_concept",
-      "description": "Domain concept vFTuLylvYnA",
+      "description": "Primary domain concept analyzed in window-0002",
       "source_segment_ids": [
         "seg-000078"
       ]
     }
   ],
-  "open_questions": [],
+  "open_questions": [
+    {
+      "text": "daraus?",
+      "source_segment_ids": [
+        "seg-000093"
+      ]
+    },
+    {
+      "text": "Ertrag pro Aktie 4,10, geschätzt, 3,78, wo liegt das Problem?",
+      "source_segment_ids": [
+        "seg-000127"
+      ]
+    }
+  ],
   "contradictions_or_uncertainty": []
 }

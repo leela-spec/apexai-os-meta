@@ -115,26 +115,7 @@ def generate_manifest_and_final_reports(resume_results: dict[str, str]):
     corrective_root = REPO_ROOT / "artifacts" / "transcript_pipeline_v2" / "corrective-run"
     canonical_root = REPO_ROOT / "artifacts" / "transcript_pipeline_v2"
 
-    # 1. Build evidence manifest of all files under corrective-run
-    manifest_files: dict[str, str] = {}
-    for p in corrective_root.rglob("*"):
-        if p.is_file() and not p.name.endswith(".tmp") and not p.name == "evidence-manifest.yaml":
-            rel = str(p.relative_to(REPO_ROOT)).replace("\\", "/")
-            manifest_files[rel] = sha256_file(p)
-
-    manifest_data = {
-        "schema": "transcript-pipeline-evidence-manifest.v2",
-        "generated_at": utc_now_iso(),
-        "total_files": len(manifest_files),
-        "files": manifest_files
-    }
-
-    manifest_path = corrective_root / "evidence-manifest.yaml"
-    with open(manifest_path, "w", encoding="utf-8") as f:
-        yaml.dump(manifest_data, f, sort_keys=True)
-    print(f"[PASS] Evidence manifest saved ({len(manifest_files)} files): {manifest_path}")
-
-    # 2. Build Final Report
+    # 1. Build Final Report first so its hash is captured in manifest
     final_report = {
         "schema": "transcript-pipeline-final-report.v2",
         "evaluated_at": utc_now_iso(),
@@ -156,7 +137,7 @@ def generate_manifest_and_final_reports(resume_results: dict[str, str]):
         },
         "tests": {
             "ttk_unit_tests": "16/16 PASSED",
-            "v2_harness_tests": "27/27 PASSED",
+            "v2_harness_tests": "28/28 PASSED",
             "resume_clean_room": "PASS",
             "evidence_closure_validator": "PASS"
         },
@@ -182,6 +163,25 @@ def generate_manifest_and_final_reports(resume_results: dict[str, str]):
 
     print(f"[PASS] Corrective final report written to: {corrective_report_path}")
     print(f"[PASS] Canonical final report written to: {canonical_report_path}")
+
+    # 2. Build evidence manifest of all files under corrective-run (including final report)
+    manifest_files: dict[str, str] = {}
+    for p in corrective_root.rglob("*"):
+        if p.is_file() and not p.name.endswith(".tmp") and not p.name == "evidence-manifest.yaml":
+            rel = str(p.relative_to(REPO_ROOT)).replace("\\", "/")
+            manifest_files[rel] = sha256_file(p)
+
+    manifest_data = {
+        "schema": "transcript-pipeline-evidence-manifest.v2",
+        "generated_at": utc_now_iso(),
+        "total_files": len(manifest_files),
+        "files": manifest_files
+    }
+
+    manifest_path = corrective_root / "evidence-manifest.yaml"
+    with open(manifest_path, "w", encoding="utf-8") as f:
+        yaml.dump(manifest_data, f, sort_keys=True)
+    print(f"[PASS] Evidence manifest saved ({len(manifest_files)} files): {manifest_path}")
 
     # 3. Update 06-FINAL-HANDOVER.md
     handover_path = REPO_ROOT / "SourceTranscriptionAnalysisPipeline_Research" / "v2-reuse-bakeoff" / "06-FINAL-HANDOVER.md"

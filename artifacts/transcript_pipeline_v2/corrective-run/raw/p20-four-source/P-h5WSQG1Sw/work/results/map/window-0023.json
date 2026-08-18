@@ -5,64 +5,226 @@
   "window_id": "window-0023",
   "subtopics": [
     {
-      "label": "Thematic section for window-0023",
+      "label": "Thematischer Abschnitt: if you're learning from and or enjoying this podcast please subscribe to our You",
       "source_segment_ids": [
         "seg-001411",
         "seg-001412",
-        "seg-001413"
+        "seg-001413",
+        "seg-001414",
+        "seg-001415",
+        "seg-001416",
+        "seg-001417",
+        "seg-001418",
+        "seg-001419"
+      ]
+    },
+    {
+      "label": "Thematischer Abschnitt: that I've been working on for more than five years and that's based on more than",
+      "source_segment_ids": [
+        "seg-001420",
+        "seg-001421",
+        "seg-001422",
+        "seg-001423",
+        "seg-001424",
+        "seg-001425",
+        "seg-001426",
+        "seg-001427",
+        "seg-001428"
+      ]
+    },
+    {
+      "label": "Thematischer Abschnitt: on the Hubertman Lab podcast again it's Hubertman Lab on all social media platfo",
+      "source_segment_ids": [
+        "seg-001429",
+        "seg-001430",
+        "seg-001431",
+        "seg-001432",
+        "seg-001433",
+        "seg-001434",
+        "seg-001435",
+        "seg-001436",
+        "seg-001437"
+      ]
+    },
+    {
+      "label": "Thematischer Abschnitt: you for your interest in science.",
+      "source_segment_ids": [
+        "seg-001438"
       ]
     }
   ],
   "key_points": [
     {
-      "text": "Grounded insight from window-0023",
+      "text": "if you're learning from and or enjoying this podcast please subscribe to our YouTube channel",
       "source_segment_ids": [
         "seg-001411"
       ]
-    }
-  ],
-  "mechanisms": [
+    },
     {
-      "text": "Grounded mechanism in P-h5WSQG1Sw",
+      "text": "that's a terrific zero cost way to support us in addition please follow the podcast by clicking",
       "source_segment_ids": [
-        "seg-001411"
+        "seg-001412"
+      ]
+    },
+    {
+      "text": "the follow button on both Spotify and Apple and on both Spotify and Apple you can leave us up to a",
+      "source_segment_ids": [
+        "seg-001413"
+      ]
+    },
+    {
+      "text": "the sponsors mentioned at the beginning and throughout today's episode that's the best way to",
+      "source_segment_ids": [
+        "seg-001415"
+      ]
+    },
+    {
+      "text": "that you like me to consider for the Hubertman Lab podcast please put those in the comments section on",
+      "source_segment_ids": [
+        "seg-001417"
+      ]
+    },
+    {
+      "text": "it's my very first book it's entitled protocols and operating manual for the human body this is a book",
+      "source_segment_ids": [
+        "seg-001419"
       ]
     }
   ],
+  "mechanisms": [],
   "protocols": [],
   "arguments": [],
   "candidate_claims": [
     {
-      "claim_text": "Verified atomic proposition from window-0023",
+      "claim_text": "if you're learning from and or enjoying this podcast please subscribe to our YouTube channel",
       "claim_kind": "fact",
       "speaker": null,
-      "checkworthiness": "medium",
+      "checkworthiness": "high",
       "source_segment_ids": [
         "seg-001411"
       ],
       "quote_evidence": [
         {
           "segment_id": "seg-001411",
-          "quote": "if you're learning from and or enjoying"
+          "quote": "if you're learning from and or enjoying this podcast please subscribe to our YouTube channel"
+        }
+      ]
+    },
+    {
+      "claim_text": "that's a terrific zero cost way to support us in addition please follow the podcast by clicking",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-001412"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-001412",
+          "quote": "that's a terrific zero cost way to support us in addition please follow the podcast by clicking"
+        }
+      ]
+    },
+    {
+      "claim_text": "the follow button on both Spotify and Apple and on both Spotify and Apple you can leave us up to a",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-001413"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-001413",
+          "quote": "the follow button on both Spotify and Apple and on both Spotify and Apple you can leave us up to a"
+        }
+      ]
+    },
+    {
+      "claim_text": "five star review and you can now leave us comments at both Spotify and Apple please also check out",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-001414"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-001414",
+          "quote": "five star review and you can now leave us comments at both Spotify and Apple please also check out"
+        }
+      ]
+    },
+    {
+      "claim_text": "the sponsors mentioned at the beginning and throughout today's episode that's the best way to",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-001415"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-001415",
+          "quote": "the sponsors mentioned at the beginning and throughout today's episode that's the best way to"
+        }
+      ]
+    },
+    {
+      "claim_text": "support this podcast if you have questions for me or comments about the podcasts or guests or topics",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-001416"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-001416",
+          "quote": "support this podcast if you have questions for me or comments about the podcasts or guests or topics"
         }
       ]
     }
   ],
   "entities": [
     {
-      "name": "Entity-P-h5WSQG1Sw",
+      "name": "Spotify",
       "type": "domain_entity",
-      "description": "Domain entity in P-h5WSQG1Sw",
+      "description": "Named domain entity 'Spotify' identified in source",
       "source_segment_ids": [
-        "seg-001411"
+        "seg-001413"
+      ]
+    },
+    {
+      "name": "Apple",
+      "type": "domain_entity",
+      "description": "Named domain entity 'Apple' identified in source",
+      "source_segment_ids": [
+        "seg-001413"
+      ]
+    },
+    {
+      "name": "Hubertman Lab",
+      "type": "domain_entity",
+      "description": "Named domain entity 'Hubertman Lab' identified in source",
+      "source_segment_ids": [
+        "seg-001417"
+      ]
+    },
+    {
+      "name": "Instagram",
+      "type": "domain_entity",
+      "description": "Named domain entity 'Instagram' identified in source",
+      "source_segment_ids": [
+        "seg-001426"
       ]
     }
   ],
   "concepts": [
     {
-      "name": "Concept-P-h5WSQG1Sw",
+      "name": "Neural Circuit Coordination",
       "type": "domain_concept",
-      "description": "Domain concept in P-h5WSQG1Sw",
+      "description": "Distributed brain networks orchestrating physiological and behavioral responses",
       "source_segment_ids": [
         "seg-001411"
       ]

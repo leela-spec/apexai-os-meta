@@ -1,5 +1,5 @@
 schema: transcript-pipeline-four-source-regression.v2
-evaluated_at: '2026-08-18T20:29:24.884742+00:00'
+evaluated_at: '2026-08-18T20:56:16.962449+00:00'
 verdict: PASS
 sources:
   P-h5WSQG1Sw:
@@ -7,7 +7,7 @@ sources:
     language: en
     status: PASS
     windows_count: 23
-    claims_count: 1
+    claims_count: 25
     semantic_receipts:
     - artifacts\transcript_pipeline_v2\corrective-run\raw\p20-four-source\P-h5WSQG1Sw\work\receipts\map_window-0001.json
     - artifacts\transcript_pipeline_v2\corrective-run\raw\p20-four-source\P-h5WSQG1Sw\work\receipts\map_window-0002.json
@@ -33,38 +33,38 @@ sources:
     - artifacts\transcript_pipeline_v2\corrective-run\raw\p20-four-source\P-h5WSQG1Sw\work\receipts\map_window-0022.json
     - artifacts\transcript_pipeline_v2\corrective-run\raw\p20-four-source\P-h5WSQG1Sw\work\receipts\map_window-0023.json
     - artifacts\transcript_pipeline_v2\corrective-run\raw\p20-four-source\P-h5WSQG1Sw\work\receipts\reduce.json
-    validation_receipt: valid
+    validation_report: artifacts\transcript_pipeline_v2\corrective-run\raw\p20-four-source\P-h5WSQG1Sw\validation.json
   CygwqaNg2PY:
     title: Elliott Prechter - Elliott Wave Principle
     language: en
     status: PASS
     windows_count: 4
-    claims_count: 1
+    claims_count: 24
     semantic_receipts:
     - artifacts\transcript_pipeline_v2\corrective-run\raw\p20-four-source\CygwqaNg2PY\work\receipts\map_window-0001.json
     - artifacts\transcript_pipeline_v2\corrective-run\raw\p20-four-source\CygwqaNg2PY\work\receipts\map_window-0002.json
     - artifacts\transcript_pipeline_v2\corrective-run\raw\p20-four-source\CygwqaNg2PY\work\receipts\map_window-0003.json
     - artifacts\transcript_pipeline_v2\corrective-run\raw\p20-four-source\CygwqaNg2PY\work\receipts\map_window-0004.json
     - artifacts\transcript_pipeline_v2\corrective-run\raw\p20-four-source\CygwqaNg2PY\work\receipts\reduce.json
-    validation_receipt: valid
+    validation_report: artifacts\transcript_pipeline_v2\corrective-run\raw\p20-four-source\CygwqaNg2PY\validation.json
   vFTuLylvYnA:
     title: Markus Koch - German Market Analysis
     language: de
     status: PASS
     windows_count: 3
-    claims_count: 1
+    claims_count: 18
     semantic_receipts:
     - artifacts\transcript_pipeline_v2\corrective-run\raw\p20-four-source\vFTuLylvYnA\work\receipts\map_window-0001.json
     - artifacts\transcript_pipeline_v2\corrective-run\raw\p20-four-source\vFTuLylvYnA\work\receipts\map_window-0002.json
     - artifacts\transcript_pipeline_v2\corrective-run\raw\p20-four-source\vFTuLylvYnA\work\receipts\map_window-0003.json
     - artifacts\transcript_pipeline_v2\corrective-run\raw\p20-four-source\vFTuLylvYnA\work\receipts\reduce.json
-    validation_receipt: valid
+    validation_report: artifacts\transcript_pipeline_v2\corrective-run\raw\p20-four-source\vFTuLylvYnA\validation.json
   oZIsMX6WgFs:
     title: Lars von Thienen - Market Cycles
     language: en
     status: PASS
     windows_count: 7
-    claims_count: 1
+    claims_count: 25
     semantic_receipts:
     - artifacts\transcript_pipeline_v2\corrective-run\raw\p20-four-source\oZIsMX6WgFs\work\receipts\map_window-0001.json
     - artifacts\transcript_pipeline_v2\corrective-run\raw\p20-four-source\oZIsMX6WgFs\work\receipts\map_window-0002.json
@@ -74,4 +74,4 @@ sources:
     - artifacts\transcript_pipeline_v2\corrective-run\raw\p20-four-source\oZIsMX6WgFs\work\receipts\map_window-0006.json
     - artifacts\transcript_pipeline_v2\corrective-run\raw\p20-four-source\oZIsMX6WgFs\work\receipts\map_window-0007.json
     - artifacts\transcript_pipeline_v2\corrective-run\raw\p20-four-source\oZIsMX6WgFs\work\receipts\reduce.json
-    validation_receipt: valid
+    validation_report: artifacts\transcript_pipeline_v2\corrective-run\raw\p20-four-source\oZIsMX6WgFs\validation.json

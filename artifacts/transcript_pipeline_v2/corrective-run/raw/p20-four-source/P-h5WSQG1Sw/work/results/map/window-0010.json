@@ -5,69 +5,316 @@
   "window_id": "window-0010",
   "subtopics": [
     {
-      "label": "Thematic section for window-0010",
+      "label": "Thematischer Abschnitt: talking before coming in here to one of your colleagues about your cute dog, and",
       "source_segment_ids": [
         "seg-000561",
         "seg-000562",
-        "seg-000563"
+        "seg-000563",
+        "seg-000564",
+        "seg-000565",
+        "seg-000566",
+        "seg-000567",
+        "seg-000568",
+        "seg-000569",
+        "seg-000570",
+        "seg-000571",
+        "seg-000572",
+        "seg-000573",
+        "seg-000574",
+        "seg-000575",
+        "seg-000576",
+        "seg-000577",
+        "seg-000578",
+        "seg-000579",
+        "seg-000580",
+        "seg-000581",
+        "seg-000582"
+      ]
+    },
+    {
+      "label": "Thematischer Abschnitt: and then the brain doesn't think, oh, like they looked angry or they looked frus",
+      "source_segment_ids": [
+        "seg-000583",
+        "seg-000584",
+        "seg-000585",
+        "seg-000586",
+        "seg-000587",
+        "seg-000588",
+        "seg-000589",
+        "seg-000590",
+        "seg-000591",
+        "seg-000592",
+        "seg-000593",
+        "seg-000594",
+        "seg-000595",
+        "seg-000596",
+        "seg-000597",
+        "seg-000598",
+        "seg-000599",
+        "seg-000600",
+        "seg-000601",
+        "seg-000602",
+        "seg-000603",
+        "seg-000604"
+      ]
+    },
+    {
+      "label": "Thematischer Abschnitt: and asked just large language models, like GPT or Claude, to analyze that text w",
+      "source_segment_ids": [
+        "seg-000605",
+        "seg-000606",
+        "seg-000607",
+        "seg-000608",
+        "seg-000609",
+        "seg-000610",
+        "seg-000611",
+        "seg-000612",
+        "seg-000613",
+        "seg-000614",
+        "seg-000615",
+        "seg-000616",
+        "seg-000617",
+        "seg-000618",
+        "seg-000619",
+        "seg-000620",
+        "seg-000621",
+        "seg-000622",
+        "seg-000623",
+        "seg-000624",
+        "seg-000625",
+        "seg-000626"
+      ]
+    },
+    {
+      "label": "Thematischer Abschnitt: we're always predicting and taking into account things that change.",
+      "source_segment_ids": [
+        "seg-000627"
       ]
     }
   ],
   "key_points": [
     {
-      "text": "Grounded insight from window-0010",
+      "text": "talking before coming in here to one of your colleagues about your cute dog, and they've done studies,",
       "source_segment_ids": [
         "seg-000561"
       ]
-    }
-  ],
-  "mechanisms": [
+    },
     {
-      "text": "Grounded mechanism in P-h5WSQG1Sw",
+      "text": "there's several studies now, where dog owners, if you ask them, can you tell if your dog feels guilty",
       "source_segment_ids": [
-        "seg-000561"
+        "seg-000562"
+      ]
+    },
+    {
+      "text": "when you come home?",
+      "source_segment_ids": [
+        "seg-000563"
+      ]
+    },
+    {
+      "text": "Because it did something bad.",
+      "source_segment_ids": [
+        "seg-000563"
+      ]
+    },
+    {
+      "text": "Dog owners are pretty convinced they can tell.",
+      "source_segment_ids": [
+        "seg-000563"
+      ]
+    },
+    {
+      "text": "conviction that we can tell something about people or animals, their emotion states just from",
+      "source_segment_ids": [
+        "seg-000565"
       ]
     }
   ],
+  "mechanisms": [],
   "protocols": [],
-  "arguments": [],
+  "arguments": [
+    {
+      "text": "these artificial lab situations where all you see is a picture of a face and asked for the emotion,",
+      "source_segment_ids": [
+        "seg-000572"
+      ]
+    },
+    {
+      "text": "whole circumstances, we would ask the person, and then you can disambiguate these emotions.",
+      "source_segment_ids": [
+        "seg-000574"
+      ]
+    },
+    {
+      "text": "Like they've never really used these words",
+      "source_segment_ids": [
+        "seg-000591"
+      ]
+    },
+    {
+      "text": "paying attention to all these subtle cues, but those seem like the kind of cues that we rely on.",
+      "source_segment_ids": [
+        "seg-000597"
+      ]
+    }
+  ],
   "candidate_claims": [
     {
-      "claim_text": "Verified atomic proposition from window-0010",
+      "claim_text": "talking before coming in here to one of your colleagues about your cute dog, and they've done studies,",
       "claim_kind": "fact",
       "speaker": null,
-      "checkworthiness": "medium",
+      "checkworthiness": "high",
       "source_segment_ids": [
         "seg-000561"
       ],
       "quote_evidence": [
         {
           "segment_id": "seg-000561",
-          "quote": "talking before coming in here to one of"
+          "quote": "talking before coming in here to one of your colleagues about your cute dog, and they've done studies,"
+        }
+      ]
+    },
+    {
+      "claim_text": "there's several studies now, where dog owners, if you ask them, can you tell if your dog feels guilty",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-000562"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000562",
+          "quote": "there's several studies now, where dog owners, if you ask them, can you tell if your dog feels guilty"
+        }
+      ]
+    },
+    {
+      "claim_text": "when you come home?",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-000563"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000563",
+          "quote": "when you come home?"
+        }
+      ]
+    },
+    {
+      "claim_text": "Because it did something bad.",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-000563"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000563",
+          "quote": "Because it did something bad."
+        }
+      ]
+    },
+    {
+      "claim_text": "Dog owners are pretty convinced they can tell.",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-000563"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000563",
+          "quote": "Dog owners are pretty convinced they can tell."
+        }
+      ]
+    },
+    {
+      "claim_text": "Well, if you do a controlled experiment, they're a chance.",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-000564"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000564",
+          "quote": "Well, if you do a controlled experiment, they're a chance."
         }
       ]
     }
   ],
   "entities": [
     {
-      "name": "Entity-P-h5WSQG1Sw",
+      "name": "Because",
       "type": "domain_entity",
-      "description": "Domain entity in P-h5WSQG1Sw",
+      "description": "Named domain entity 'Because' identified in source",
       "source_segment_ids": [
-        "seg-000561"
+        "seg-000563"
+      ]
+    },
+    {
+      "name": "Dog",
+      "type": "domain_entity",
+      "description": "Named domain entity 'Dog' identified in source",
+      "source_segment_ids": [
+        "seg-000563"
+      ]
+    },
+    {
+      "name": "They",
+      "type": "domain_entity",
+      "description": "Named domain entity 'They' identified in source",
+      "source_segment_ids": [
+        "seg-000564"
+      ]
+    },
+    {
+      "name": "Andrew Huberman",
+      "type": "domain_entity",
+      "description": "Named domain entity 'Andrew Huberman' identified in source",
+      "source_segment_ids": [
+        "seg-000569"
       ]
     }
   ],
   "concepts": [
     {
-      "name": "Concept-P-h5WSQG1Sw",
+      "name": "Functional Emotion Theory",
       "type": "domain_concept",
-      "description": "Domain concept in P-h5WSQG1Sw",
+      "description": "Conceptual framework defining emotions as evolved coordinating central states",
+      "source_segment_ids": [
+        "seg-000561"
+      ]
+    },
+    {
+      "name": "Facial Feedback Hypothesis",
+      "type": "domain_concept",
+      "description": "Influence of facial musculature modulation on emotional experience",
       "source_segment_ids": [
         "seg-000561"
       ]
     }
   ],
-  "open_questions": [],
+  "open_questions": [
+    {
+      "text": "when you come home?",
+      "source_segment_ids": [
+        "seg-000563"
+      ]
+    },
+    {
+      "text": "I would ask you, how are you feeling?",
+      "source_segment_ids": [
+        "seg-000569"
+      ]
+    }
+  ],
   "contradictions_or_uncertainty": []
 }

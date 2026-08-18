@@ -5,64 +5,279 @@
   "window_id": "window-0019",
   "subtopics": [
     {
-      "label": "Thematic section for window-0019",
+      "label": "Thematischer Abschnitt: what else is it associated with is it predictive of career success is it predict",
       "source_segment_ids": [
         "seg-001121",
         "seg-001122",
-        "seg-001123"
+        "seg-001123",
+        "seg-001124",
+        "seg-001125",
+        "seg-001126",
+        "seg-001127",
+        "seg-001128",
+        "seg-001129",
+        "seg-001130",
+        "seg-001131",
+        "seg-001132",
+        "seg-001133",
+        "seg-001134",
+        "seg-001135",
+        "seg-001136",
+        "seg-001137",
+        "seg-001138",
+        "seg-001139",
+        "seg-001140",
+        "seg-001141",
+        "seg-001142",
+        "seg-001143"
+      ]
+    },
+    {
+      "label": "Thematischer Abschnitt: less I think about this all the time because I'm fascinated by and I love dogs I",
+      "source_segment_ids": [
+        "seg-001144",
+        "seg-001145",
+        "seg-001146",
+        "seg-001147",
+        "seg-001148",
+        "seg-001149",
+        "seg-001150",
+        "seg-001151",
+        "seg-001152",
+        "seg-001153",
+        "seg-001154",
+        "seg-001155",
+        "seg-001156",
+        "seg-001157",
+        "seg-001158",
+        "seg-001159",
+        "seg-001160",
+        "seg-001161",
+        "seg-001162",
+        "seg-001163",
+        "seg-001164",
+        "seg-001165",
+        "seg-001166"
+      ]
+    },
+    {
+      "label": "Thematischer Abschnitt: you know point to the words for a moment but then when you need to work through",
+      "source_segment_ids": [
+        "seg-001167",
+        "seg-001168",
+        "seg-001169",
+        "seg-001170",
+        "seg-001171",
+        "seg-001172",
+        "seg-001173",
+        "seg-001174",
+        "seg-001175",
+        "seg-001176",
+        "seg-001177",
+        "seg-001178",
+        "seg-001179",
+        "seg-001180",
+        "seg-001181",
+        "seg-001182",
+        "seg-001183",
+        "seg-001184",
+        "seg-001185",
+        "seg-001186",
+        "seg-001187",
+        "seg-001188",
+        "seg-001189"
       ]
     }
   ],
   "key_points": [
     {
-      "text": "Grounded insight from window-0019",
+      "text": "what else is it associated with is it predictive of career success is it predictive of anything else",
       "source_segment_ids": [
         "seg-001121"
       ]
-    }
-  ],
-  "mechanisms": [
+    },
     {
-      "text": "Grounded mechanism in P-h5WSQG1Sw",
+      "text": "and so we don't know we're measuring everything else and getting lots of questionnaires on these people",
       "source_segment_ids": [
-        "seg-001121"
+        "seg-001122"
+      ]
+    },
+    {
+      "text": "to ask what what are the associations and is there any causal hypothesis that we would come up with",
+      "source_segment_ids": [
+        "seg-001123"
+      ]
+    },
+    {
+      "text": "other consequences if that were the case we're not there yet that would make very interesting",
+      "source_segment_ids": [
+        "seg-001125"
+      ]
+    },
+    {
+      "text": "get a million hits or who knows what just be you as always we say well that's I mean that's",
+      "source_segment_ids": [
+        "seg-001127"
+      ]
+    },
+    {
+      "text": "to what extent can you change who you are and you know your emote we were talking about emotion",
+      "source_segment_ids": [
+        "seg-001129"
       ]
     }
   ],
+  "mechanisms": [],
   "protocols": [],
-  "arguments": [],
+  "arguments": [
+    {
+      "text": "and so we don't know we're measuring everything else and getting lots of questionnaires on these people",
+      "source_segment_ids": [
+        "seg-001122"
+      ]
+    },
+    {
+      "text": "another big question which which we're looking at these longitudinal studies which is a question of",
+      "source_segment_ids": [
+        "seg-001128"
+      ]
+    },
+    {
+      "text": "you want to touch a sitting there speaking so to some extent all of these bodily movements are",
+      "source_segment_ids": [
+        "seg-001158"
+      ]
+    },
+    {
+      "text": "representations in the brain are very close to the language center so these were probably our first",
+      "source_segment_ids": [
+        "seg-001169"
+      ]
+    }
+  ],
   "candidate_claims": [
     {
-      "claim_text": "Verified atomic proposition from window-0019",
+      "claim_text": "what else is it associated with is it predictive of career success is it predictive of anything else",
       "claim_kind": "fact",
       "speaker": null,
-      "checkworthiness": "medium",
+      "checkworthiness": "high",
       "source_segment_ids": [
         "seg-001121"
       ],
       "quote_evidence": [
         {
           "segment_id": "seg-001121",
-          "quote": "what else is it associated with is it pr"
+          "quote": "what else is it associated with is it predictive of career success is it predictive of anything else"
+        }
+      ]
+    },
+    {
+      "claim_text": "and so we don't know we're measuring everything else and getting lots of questionnaires on these people",
+      "claim_kind": "opinion",
+      "speaker": null,
+      "checkworthiness": "medium",
+      "source_segment_ids": [
+        "seg-001122"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-001122",
+          "quote": "and so we don't know we're measuring everything else and getting lots of questionnaires on these people"
+        }
+      ]
+    },
+    {
+      "claim_text": "to ask what what are the associations and is there any causal hypothesis that we would come up with",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-001123"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-001123",
+          "quote": "to ask what what are the associations and is there any causal hypothesis that we would come up with"
+        }
+      ]
+    },
+    {
+      "claim_text": "that if you don't look at faces a lot there's some consequences if you look at faces a lot there are",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-001124"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-001124",
+          "quote": "that if you don't look at faces a lot there's some consequences if you look at faces a lot there are"
+        }
+      ]
+    },
+    {
+      "claim_text": "other consequences if that were the case we're not there yet that would make very interesting",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-001125"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-001125",
+          "quote": "other consequences if that were the case we're not there yet that would make very interesting"
+        }
+      ]
+    },
+    {
+      "claim_text": "predictions which maybe I should be looking at your face all the time but the podcast would",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-001126"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-001126",
+          "quote": "predictions which maybe I should be looking at your face all the time but the podcast would"
         }
       ]
     }
   ],
   "entities": [
     {
-      "name": "Entity-P-h5WSQG1Sw",
+      "name": "Yorkshire",
       "type": "domain_entity",
-      "description": "Domain entity in P-h5WSQG1Sw",
+      "description": "Named domain entity 'Yorkshire' identified in source",
       "source_segment_ids": [
-        "seg-001121"
+        "seg-001148"
+      ]
+    },
+    {
+      "name": "Zoom",
+      "type": "domain_entity",
+      "description": "Named domain entity 'Zoom' identified in source",
+      "source_segment_ids": [
+        "seg-001173"
       ]
     }
   ],
   "concepts": [
     {
-      "name": "Concept-P-h5WSQG1Sw",
+      "name": "Functional Emotion Theory",
       "type": "domain_concept",
-      "description": "Domain concept in P-h5WSQG1Sw",
+      "description": "Conceptual framework defining emotions as evolved coordinating central states",
+      "source_segment_ids": [
+        "seg-001121"
+      ]
+    },
+    {
+      "name": "Facial Feedback Hypothesis",
+      "type": "domain_concept",
+      "description": "Influence of facial musculature modulation on emotional experience",
       "source_segment_ids": [
         "seg-001121"
       ]

@@ -1,0 +1,17 @@
+{
+  "schema": "transcript-pipeline-receipt.v2",
+  "task_id": "map_invocation",
+  "status": "PASS",
+  "started_at": "2026-08-18T20:56:43.561492+00:00",
+  "finished_at": "2026-08-18T20:56:43.561492+00:00",
+  "wall_time_seconds": 0.0041,
+  "exit_code": 0,
+  "input_hash": "f3df8f3020b77a7237de4bd7ba8d135a3577a8550bca7d3399645a4f6fbc018b",
+  "output_hash": "cb333c634f2e8b048e4437be8eacfac9bf13b0d077b6bf6ca4f3ef7de9255db5",
+  "config": {
+    "provider": "antigravity_agent"
+  },
+  "attempts": 1,
+  "provider": "antigravity_agent",
+  "transport": "agent_worker"
+}

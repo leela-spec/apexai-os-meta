@@ -1,13 +1,17 @@
 {
-  "schema": "ttk.receipt.v2",
-  "task_id": "fresh_reduce_synthesis",
-  "component_id": "direct_agent_reduce",
-  "provider": "antigravity_agent",
+  "schema": "transcript-pipeline-receipt.v2",
+  "task_id": "reduce_invocation",
   "status": "PASS",
+  "started_at": "2026-08-18T20:56:23.164118+00:00",
+  "finished_at": "2026-08-18T20:56:23.164118+00:00",
+  "wall_time_seconds": 0.0,
   "exit_code": 0,
-  "input_hash": "e85637a91419e751eee4e63f0cf477e667ef9485d253bead87a4c627c5fd97b0",
-  "output_hash": "9d3fa532057c6143ff64bbab6e1ab51d8737e63252a13482c17511c0fbbf3ed6",
-  "output_file": "artifacts\\transcript_pipeline_v2\\corrective-run\\raw\\p21-fresh-e2e\\CygwqaNg2PY\\work\\results\\reduce.json",
-  "ttk_validation_status": "PASS",
-  "evaluated_at": "2026-08-18T20:29:59.297206+00:00"
+  "input_hash": "ff5d6509468adeb276914e9e9db634ea17ad8b6ce42d16b5275081c5e0ccb1e0",
+  "output_hash": "1b8a67714521352edc467857dfe1765a9130cf06044dd51e557085022bc93a87",
+  "config": {
+    "provider": "antigravity_agent"
+  },
+  "attempts": 1,
+  "provider": "antigravity_agent",
+  "transport": "agent_worker"
 }

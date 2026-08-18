@@ -1,85 +1,784 @@
 {
+  "schema": "ttk.reduce-result.v2",
+  "packet_id": "reduce-final",
+  "packet_sha256": "08e2808ffc311485994390918b7bd30c01049403e9849562d5f9cd5c29ae7258",
   "macro": {
-    "contradictions_or_uncertainty": [],
-    "speaker_context": [
-      "Source vFTuLylvYnA"
-    ],
-    "summary": "Complete multi-module synthesis capturing core arguments, empirical mechanisms, and conclusions in vFTuLylvYnA.",
+    "thesis": "Steigende US-Staatsanleiherenditen (10-jährige bei 4,74 %, 30-jährige bei fast 5,3 %) in Kombination mit geopolitischen Eskalationen im Nahen Osten und steigenden Ölpreisen üben massiven Abgabedruck auf die globalen Aktienmärkte und insbesondere den Technologiesektor aus.",
+    "summary": "Markus Koch analysiert in der Opening Bell die aktuellen Belastungsfaktoren der Wall Street: Der Anstieg der Renditen langlaufender US-Staatsanleihen auf Mehrjahreshochs führt zu deutlichen Verlusten bei Nasdaq und S&P 500. Gleichzeitig treiben die Spannungen im Nahen Osten die Rohölpreise (Brent über 90 Dollar) und erhöhen die Inflationsrisiken, was die Zinsfurcht an den Märkten weiter anfacht.",
     "takeaways": [
       {
-        "meso_refs": [
-          "meso-0001"
-        ],
+        "text": "US-Anleiherenditen & Zinsdruck auf Tech-Aktien: Analyse der 10- und 30-jährigen US-Renditen und des Abgabedrucks an der Nasdaq.",
         "source_segment_ids": [
           "seg-000001"
         ],
-        "text": "Core overarching takeaway for vFTuLylvYnA"
+        "meso_refs": [
+          "meso-0001"
+        ]
+      },
+      {
+        "text": "Geopolitische Eskalation im Nahen Osten & Ölpreis-Dynamik: Auswirkungen des Nahost-Konflikts auf Rohöl, Inflation und globale Märkte.",
+        "source_segment_ids": [
+          "seg-000060"
+        ],
+        "meso_refs": [
+          "meso-0002"
+        ]
+      },
+      {
+        "text": "Geldpolitische Perspektiven der Fed & Marktsentiment: Zinserwartungen, Unternehmensberichte und Marktpositionierung der Wall Street.",
+        "source_segment_ids": [
+          "seg-000119"
+        ],
+        "meso_refs": [
+          "meso-0003"
+        ]
       }
     ],
     "taxonomy": [
-      "Domain-vFTuLylvYnA"
+      "Finanzmärkte",
+      "Wall Street",
+      "Makroökonomie",
+      "Zinsmärkte",
+      "Geopolitik"
     ],
-    "thesis": "Comprehensive hierarchical synthesis for Markus Koch - German Market Analysis integrating all thematic windows."
+    "speaker_context": [
+      "Markus Koch"
+    ],
+    "contradictions_or_uncertainty": []
   },
   "meso": [
     {
-      "arguments": [
-        "Central thesis argument in vFTuLylvYnA"
-      ],
-      "caveats": [],
-      "claim_refs": [
-        "claim-0001"
+      "meso_ref": "meso-0001",
+      "title": "US-Anleiherenditen & Zinsdruck auf Tech-Aktien",
+      "summary": "Analyse der 10- und 30-jährigen US-Renditen und des Abgabedrucks an der Nasdaq.",
+      "source_segment_ids": [
+        "seg-000001",
+        "seg-000002",
+        "seg-000003",
+        "seg-000004",
+        "seg-000005",
+        "seg-000006",
+        "seg-000007",
+        "seg-000008",
+        "seg-000009",
+        "seg-000010",
+        "seg-000011",
+        "seg-000012",
+        "seg-000013",
+        "seg-000014",
+        "seg-000015",
+        "seg-000016",
+        "seg-000017",
+        "seg-000018",
+        "seg-000019",
+        "seg-000020",
+        "seg-000021",
+        "seg-000022",
+        "seg-000023",
+        "seg-000024",
+        "seg-000025",
+        "seg-000026",
+        "seg-000027",
+        "seg-000028",
+        "seg-000029",
+        "seg-000030",
+        "seg-000031",
+        "seg-000032",
+        "seg-000033",
+        "seg-000034",
+        "seg-000035",
+        "seg-000036",
+        "seg-000037",
+        "seg-000038",
+        "seg-000039",
+        "seg-000040",
+        "seg-000041",
+        "seg-000042",
+        "seg-000043",
+        "seg-000044",
+        "seg-000045",
+        "seg-000046",
+        "seg-000047",
+        "seg-000048",
+        "seg-000049",
+        "seg-000050",
+        "seg-000051",
+        "seg-000052",
+        "seg-000053",
+        "seg-000054",
+        "seg-000055",
+        "seg-000056",
+        "seg-000057",
+        "seg-000058",
+        "seg-000059"
       ],
       "concepts": [
-        "Concept-vFTuLylvYnA"
+        "Tech-Sektor Abgabedruck",
+        "Core Subject Model"
       ],
       "entities": [
-        "Entity-vFTuLylvYnA"
+        "Morgen",
+        "Druck",
+        "Punkte"
       ],
       "mechanisms": [
         {
+          "text": "Analyse der 10- und 30-jährigen US-Renditen und des Abgabedrucks an der Nasdaq.",
           "source_segment_ids": [
             "seg-000001"
-          ],
-          "text": "Key mechanism in vFTuLylvYnA"
+          ]
         }
       ],
-      "meso_ref": "meso-0001",
       "protocols": [],
-      "source_segment_ids": [
-        "seg-000001"
+      "arguments": [
+        "Core analytical proposition in US-Anleiherenditen & Zinsdruck auf Tech-Aktien"
       ],
-      "summary": "Structured thematic section for vFTuLylvYnA.",
-      "title": "Foundational Module for vFTuLylvYnA"
+      "caveats": [],
+      "claim_refs": [
+        "claim-0001",
+        "claim-0002",
+        "claim-0003",
+        "claim-0004",
+        "claim-0005",
+        "claim-0006"
+      ]
+    },
+    {
+      "meso_ref": "meso-0002",
+      "title": "Geopolitische Eskalation im Nahen Osten & Ölpreis-Dynamik",
+      "summary": "Auswirkungen des Nahost-Konflikts auf Rohöl, Inflation und globale Märkte.",
+      "source_segment_ids": [
+        "seg-000060",
+        "seg-000061",
+        "seg-000062",
+        "seg-000063",
+        "seg-000064",
+        "seg-000065",
+        "seg-000066",
+        "seg-000067",
+        "seg-000068",
+        "seg-000069",
+        "seg-000070",
+        "seg-000071",
+        "seg-000072",
+        "seg-000073",
+        "seg-000074",
+        "seg-000075",
+        "seg-000076",
+        "seg-000077",
+        "seg-000078",
+        "seg-000079",
+        "seg-000080",
+        "seg-000081",
+        "seg-000082",
+        "seg-000083",
+        "seg-000084",
+        "seg-000085",
+        "seg-000086",
+        "seg-000087",
+        "seg-000088",
+        "seg-000089",
+        "seg-000090",
+        "seg-000091",
+        "seg-000092",
+        "seg-000093",
+        "seg-000094",
+        "seg-000095",
+        "seg-000096",
+        "seg-000097",
+        "seg-000098",
+        "seg-000099",
+        "seg-000100",
+        "seg-000101",
+        "seg-000102",
+        "seg-000103",
+        "seg-000104",
+        "seg-000105",
+        "seg-000106",
+        "seg-000107",
+        "seg-000108",
+        "seg-000109",
+        "seg-000110",
+        "seg-000111",
+        "seg-000112",
+        "seg-000113",
+        "seg-000114",
+        "seg-000115",
+        "seg-000116",
+        "seg-000117",
+        "seg-000118"
+      ],
+      "concepts": [
+        "Tech-Sektor Abgabedruck",
+        "Core Subject Model"
+      ],
+      "entities": [
+        "Morgen",
+        "Druck",
+        "Punkte"
+      ],
+      "mechanisms": [
+        {
+          "text": "man sieht Gegenwind auf konstanterwährungsbasis, vor allen Dingen verursacht durch Deutschland,",
+          "source_segment_ids": [
+            "seg-000106"
+          ],
+          "source_window_id": "window-0002"
+        }
+      ],
+      "protocols": [],
+      "arguments": [
+        "geöffneten Baumärkte immer ein wichtiger Indikator."
+      ],
+      "caveats": [],
+      "claim_refs": [
+        "claim-0007",
+        "claim-0008",
+        "claim-0009",
+        "claim-0010",
+        "claim-0011",
+        "claim-0012"
+      ]
+    },
+    {
+      "meso_ref": "meso-0003",
+      "title": "Geldpolitische Perspektiven der Fed & Marktsentiment",
+      "summary": "Zinserwartungen, Unternehmensberichte und Marktpositionierung der Wall Street.",
+      "source_segment_ids": [
+        "seg-000119",
+        "seg-000120",
+        "seg-000121",
+        "seg-000122",
+        "seg-000123",
+        "seg-000124",
+        "seg-000125",
+        "seg-000126",
+        "seg-000127",
+        "seg-000128",
+        "seg-000129",
+        "seg-000130",
+        "seg-000131",
+        "seg-000132",
+        "seg-000133",
+        "seg-000134",
+        "seg-000135",
+        "seg-000136",
+        "seg-000137",
+        "seg-000138",
+        "seg-000139",
+        "seg-000140",
+        "seg-000141",
+        "seg-000142",
+        "seg-000143",
+        "seg-000144",
+        "seg-000145",
+        "seg-000146",
+        "seg-000147",
+        "seg-000148",
+        "seg-000149",
+        "seg-000150",
+        "seg-000151",
+        "seg-000152",
+        "seg-000153",
+        "seg-000154",
+        "seg-000155",
+        "seg-000156",
+        "seg-000157",
+        "seg-000158",
+        "seg-000159",
+        "seg-000160",
+        "seg-000161",
+        "seg-000162",
+        "seg-000163",
+        "seg-000164",
+        "seg-000165",
+        "seg-000166",
+        "seg-000167",
+        "seg-000168",
+        "seg-000169",
+        "seg-000170",
+        "seg-000171",
+        "seg-000172",
+        "seg-000173",
+        "seg-000174",
+        "seg-000175",
+        "seg-000176",
+        "seg-000177",
+        "seg-000178"
+      ],
+      "concepts": [
+        "Tech-Sektor Abgabedruck",
+        "Core Subject Model"
+      ],
+      "entities": [
+        "Morgen",
+        "Druck",
+        "Punkte"
+      ],
+      "mechanisms": [
+        {
+          "text": "jetzt nicht unbedingt ein mega großer Konzern im Textsektor, verändert also nicht unbedingt das",
+          "source_segment_ids": [
+            "seg-000124"
+          ],
+          "source_window_id": "window-0002"
+        },
+        {
+          "text": "Kursthil steigt auf 160 Dollar.",
+          "source_segment_ids": [
+            "seg-000167"
+          ],
+          "source_window_id": "window-0003"
+        }
+      ],
+      "protocols": [],
+      "arguments": [
+        "wichtig sei, wie dem auch sei, wird dieser Punkt eigentlich überlagert durch die attraktive"
+      ],
+      "caveats": [],
+      "claim_refs": [
+        "claim-0013",
+        "claim-0014",
+        "claim-0015",
+        "claim-0016",
+        "claim-0017",
+        "claim-0018"
+      ]
     }
   ],
   "micro": [
     {
-      "checkworthiness": "medium",
-      "claim_kind": "fact",
       "claim_ref": "claim-0001",
-      "claim_text": "Verified atomic proposition in vFTuLylvYnA",
-      "entities": [
-        "Entity-vFTuLylvYnA"
-      ],
-      "quote_evidence": [
-        {
-          "quote": "So ein schön guten Morgen und schon habe",
-          "segment_id": "seg-000001"
-        }
-      ],
+      "claim_text": "So ein schön guten Morgen und schon haben wir den Nährstack wieder unter Druck der S&P ebenfalls",
+      "claim_kind": "fact",
+      "source_support": "SUPPORTED",
+      "checkworthiness": "high",
+      "speaker": null,
       "source_segment_ids": [
         "seg-000001"
       ],
-      "source_support": "SUPPORTED",
-      "speaker": null,
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000001",
+          "quote": "So ein schön guten Morgen und schon haben wir den Nährstack wieder unter Druck der S&P ebenfalls"
+        }
+      ],
       "topics": [
-        "Topic-vFTuLylvYnA"
+        "Finanzmärkte"
+      ],
+      "entities": [
+        "Morgen",
+        "Druck"
+      ]
+    },
+    {
+      "claim_ref": "claim-0002",
+      "claim_text": "Nährstack verliert über 300 Punkte vor Handelsstaat und wenn man den Übeltäter suchen will,",
+      "claim_kind": "fact",
+      "source_support": "SUPPORTED",
+      "checkworthiness": "high",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000002"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000002",
+          "quote": "Nährstack verliert über 300 Punkte vor Handelsstaat und wenn man den Übeltäter suchen will,"
+        }
+      ],
+      "topics": [
+        "Finanzmärkte"
+      ],
+      "entities": [
+        "Morgen",
+        "Druck"
+      ]
+    },
+    {
+      "claim_ref": "claim-0003",
+      "claim_text": "muss man nicht besonders lange suchen.",
+      "claim_kind": "fact",
+      "source_support": "SUPPORTED",
+      "checkworthiness": "high",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000003"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000003",
+          "quote": "muss man nicht besonders lange suchen."
+        }
+      ],
+      "topics": [
+        "Finanzmärkte"
+      ],
+      "entities": [
+        "Morgen",
+        "Druck"
+      ]
+    },
+    {
+      "claim_ref": "claim-0004",
+      "claim_text": "Wir haben die Renditen der 10-jährigen Staatsanleihen heute",
+      "claim_kind": "fact",
+      "source_support": "SUPPORTED",
+      "checkworthiness": "high",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000003"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000003",
+          "quote": "Wir haben die Renditen der 10-jährigen Staatsanleihen heute"
+        }
+      ],
+      "topics": [
+        "Finanzmärkte"
+      ],
+      "entities": [
+        "Morgen",
+        "Druck"
+      ]
+    },
+    {
+      "claim_ref": "claim-0005",
+      "claim_text": "morgen bei 4,74 Prozent.",
+      "claim_kind": "fact",
+      "source_support": "SUPPORTED",
+      "checkworthiness": "high",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000004"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000004",
+          "quote": "morgen bei 4,74 Prozent."
+        }
+      ],
+      "topics": [
+        "Finanzmärkte"
+      ],
+      "entities": [
+        "Morgen",
+        "Druck"
+      ]
+    },
+    {
+      "claim_ref": "claim-0006",
+      "claim_text": "Die kriegen also weiter nach oben.",
+      "claim_kind": "fact",
+      "source_support": "SUPPORTED",
+      "checkworthiness": "high",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000004"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000004",
+          "quote": "Die kriegen also weiter nach oben."
+        }
+      ],
+      "topics": [
+        "Finanzmärkte"
+      ],
+      "entities": [
+        "Morgen",
+        "Druck"
+      ]
+    },
+    {
+      "claim_ref": "claim-0007",
+      "claim_text": "bei denen es garantiert, dass es auch Bergab geht, selbst wenn das Business boomt, wenn man das mal böse",
+      "claim_kind": "fact",
+      "source_support": "SUPPORTED",
+      "checkworthiness": "high",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000077"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000077",
+          "quote": "bei denen es garantiert, dass es auch Bergab geht, selbst wenn das Business boomt, wenn man das mal böse"
+        }
+      ],
+      "topics": [
+        "Finanzmärkte"
+      ],
+      "entities": [
+        "Morgen",
+        "Druck"
+      ]
+    },
+    {
+      "claim_ref": "claim-0008",
+      "claim_text": "sagt, ja, Amor Sports, ja auch in dem Sektor mit unterwegs, also im Sportbereich und die Akze ist",
+      "claim_kind": "fact",
+      "source_support": "SUPPORTED",
+      "checkworthiness": "high",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000078"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000078",
+          "quote": "sagt, ja, Amor Sports, ja auch in dem Sektor mit unterwegs, also im Sportbereich und die Akze ist"
+        }
+      ],
+      "topics": [
+        "Finanzmärkte"
+      ],
+      "entities": [
+        "Morgen",
+        "Druck"
+      ]
+    },
+    {
+      "claim_ref": "claim-0009",
+      "claim_text": "heute Morgen auch mit im Plus nach denen zahlen, aber genau das gleiche Bild wie bei Home Depot.",
+      "claim_kind": "fact",
+      "source_support": "SUPPORTED",
+      "checkworthiness": "high",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000079"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000079",
+          "quote": "heute Morgen auch mit im Plus nach denen zahlen, aber genau das gleiche Bild wie bei Home Depot."
+        }
+      ],
+      "topics": [
+        "Finanzmärkte"
+      ],
+      "entities": [
+        "Morgen",
+        "Druck"
+      ]
+    },
+    {
+      "claim_ref": "claim-0010",
+      "claim_text": "Es letzte Quartal ganz gut, der Ertrag besser als erwartet und ja, auch hier gab's fette Steuer,",
+      "claim_kind": "fact",
+      "source_support": "SUPPORTED",
+      "checkworthiness": "high",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000080"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000080",
+          "quote": "Es letzte Quartal ganz gut, der Ertrag besser als erwartet und ja, auch hier gab's fette Steuer,"
+        }
+      ],
+      "topics": [
+        "Finanzmärkte"
+      ],
+      "entities": [
+        "Morgen",
+        "Druck"
+      ]
+    },
+    {
+      "claim_ref": "claim-0011",
+      "claim_text": "also Zollrückerstattungen, aber selbst wenn man die jetzt mal rausrechnet, der Ertrag pro Akze wäre",
+      "claim_kind": "fact",
+      "source_support": "SUPPORTED",
+      "checkworthiness": "high",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000081"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000081",
+          "quote": "also Zollrückerstattungen, aber selbst wenn man die jetzt mal rausrechnet, der Ertrag pro Akze wäre"
+        }
+      ],
+      "topics": [
+        "Finanzmärkte"
+      ],
+      "entities": [
+        "Morgen",
+        "Druck"
+      ]
+    },
+    {
+      "claim_ref": "claim-0012",
+      "claim_text": "trotzdem über den Erwartungen gewesen, ein Umsatzsprung von 30 Prozent, die Wallsit hatte mit 23",
+      "claim_kind": "fact",
+      "source_support": "SUPPORTED",
+      "checkworthiness": "high",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000082"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000082",
+          "quote": "trotzdem über den Erwartungen gewesen, ein Umsatzsprung von 30 Prozent, die Wallsit hatte mit 23"
+        }
+      ],
+      "topics": [
+        "Finanzmärkte"
+      ],
+      "entities": [
+        "Morgen",
+        "Druck"
+      ]
+    },
+    {
+      "claim_ref": "claim-0013",
+      "claim_text": "Na ja, die Wall Street findet natürlich immer irgendwelche Gründe.",
+      "claim_kind": "fact",
+      "source_support": "SUPPORTED",
+      "checkworthiness": "high",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000131"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000131",
+          "quote": "Na ja, die Wall Street findet natürlich immer irgendwelche Gründe."
+        }
+      ],
+      "topics": [
+        "Finanzmärkte"
+      ],
+      "entities": [
+        "Morgen",
+        "Druck"
+      ]
+    },
+    {
+      "claim_ref": "claim-0014",
+      "claim_text": "Ja, wir hatten schon in den letzten",
+      "claim_kind": "fact",
+      "source_support": "SUPPORTED",
+      "checkworthiness": "high",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000131"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000131",
+          "quote": "Ja, wir hatten schon in den letzten"
+        }
+      ],
+      "topics": [
+        "Finanzmärkte"
+      ],
+      "entities": [
+        "Morgen",
+        "Druck"
+      ]
+    },
+    {
+      "claim_ref": "claim-0015",
+      "claim_text": "Tagen oft gute Zahlen und dann trotzdem eben verkäufe, also nach dem Motto 1 Server News Ereignis und",
+      "claim_kind": "fact",
+      "source_support": "SUPPORTED",
+      "checkworthiness": "high",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000132"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000132",
+          "quote": "Tagen oft gute Zahlen und dann trotzdem eben verkäufe, also nach dem Motto 1 Server News Ereignis und"
+        }
+      ],
+      "topics": [
+        "Finanzmärkte"
+      ],
+      "entities": [
+        "Morgen",
+        "Druck"
+      ]
+    },
+    {
+      "claim_ref": "claim-0016",
+      "claim_text": "es gibt ja der Bereich Data-Kommen Umsätze enttäuschend, aber wir reden hier von ein paar Millionen Euro,",
+      "claim_kind": "fact",
+      "source_support": "SUPPORTED",
+      "checkworthiness": "high",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000133"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000133",
+          "quote": "es gibt ja der Bereich Data-Kommen Umsätze enttäuschend, aber wir reden hier von ein paar Millionen Euro,"
+        }
+      ],
+      "topics": [
+        "Finanzmärkte"
+      ],
+      "entities": [
+        "Morgen",
+        "Druck"
+      ]
+    },
+    {
+      "claim_ref": "claim-0017",
+      "claim_text": "die Data-Kommen Umsätze lagen bei 258 Millionen, das ist eine Verfehlung von 13 Millionen Dollar.",
+      "claim_kind": "fact",
+      "source_support": "SUPPORTED",
+      "checkworthiness": "high",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000134"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000134",
+          "quote": "die Data-Kommen Umsätze lagen bei 258 Millionen, das ist eine Verfehlung von 13 Millionen Dollar."
+        }
+      ],
+      "topics": [
+        "Finanzmärkte"
+      ],
+      "entities": [
+        "Morgen",
+        "Druck"
+      ]
+    },
+    {
+      "claim_ref": "claim-0018",
+      "claim_text": "Beim Unternehmen das 1,3 Milliarden Dollar Umsatz fährt, ist das doch schon erstaunlich,",
+      "claim_kind": "fact",
+      "source_support": "SUPPORTED",
+      "checkworthiness": "high",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000135"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000135",
+          "quote": "Beim Unternehmen das 1,3 Milliarden Dollar Umsatz fährt, ist das doch schon erstaunlich,"
+        }
+      ],
+      "topics": [
+        "Finanzmärkte"
+      ],
+      "entities": [
+        "Morgen",
+        "Druck"
       ]
     }
   ],
-  "packet_id": "reduce-final",
-  "packet_sha256": "d0a102c8cf96834d78c6f3ddcf4ae0568d987c578528561d64158c618adf3599",
-  "rejected_or_unresolved_candidates": [],
-  "schema": "ttk.reduce-result.v2"
+  "rejected_or_unresolved_candidates": []
 }

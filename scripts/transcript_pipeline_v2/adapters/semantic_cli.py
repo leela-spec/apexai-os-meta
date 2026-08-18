@@ -97,6 +97,8 @@ class SemanticCLIWorker:
         elif self.provider == "antigravity":
             if not shutil.which("agy"):
                 raise ProviderUnavailableError("agy CLI executable not found on PATH (BLOCKED_FOR_TRIAL1)")
+        elif self.provider in ["antigravity_agent", "agent"]:
+            pass
         else:
             raise ProviderUnavailableError(f"Unknown provider '{self.provider}'")
 
@@ -108,6 +110,8 @@ class SemanticCLIWorker:
             return ["codex", "exec", prompt]
         elif self.provider == "antigravity":
             return ["agy", "-p", prompt]
+        elif self.provider in ["antigravity_agent", "agent"]:
+            return ["agent", "exec", prompt]
         raise ProviderUnavailableError(f"Cannot build command for provider '{self.provider}'")
 
     def invoke_raw(self, prompt: str) -> tuple[int, str, str, float]:
@@ -145,6 +149,42 @@ class SemanticCLIWorker:
         max_retries: int = 1
     ) -> dict[str, Any]:
         """Execute Map extraction with up to 1 validation-informed retry."""
+        if self.provider in ["antigravity_agent", "agent"]:
+            t0 = time.time()
+            from adapters.agent_semantic_engine import AgentSemanticEngine
+            result = AgentSemanticEngine.process_map_packet(packet, lookup)
+            validation_errors = ttk_map.validate_map_result(packet, result, lookup)
+            wall_time = time.time() - t0
+            input_hash = packet.get("packet_sha256") or hashlib.sha256(json.dumps(packet, sort_keys=True).encode("utf-8")).hexdigest()
+            if not validation_errors:
+                output_hash = hashlib.sha256(json.dumps(result, sort_keys=True).encode("utf-8")).hexdigest()
+                if receipt_path:
+                    receipt = ExecutionReceipt(receipt_path, task_id="map_invocation", config={"provider": self.provider})
+                    receipt.complete(
+                        exit_code=0,
+                        input_hash=input_hash,
+                        output_hash=output_hash,
+                        status="PASS",
+                        attempts=1,
+                        wall_time_seconds=round(wall_time, 4),
+                        provider=self.provider,
+                        transport="agent_worker"
+                    )
+                return result
+            else:
+                last_error = f"TTK Validation errors: {'; '.join(validation_errors)}"
+                if receipt_path:
+                    receipt = ExecutionReceipt(receipt_path, task_id="map_invocation", config={"provider": self.provider})
+                    receipt.fail(
+                        error=last_error,
+                        exit_code=1,
+                        input_hash=input_hash,
+                        attempts=1,
+                        provider=self.provider,
+                        transport="agent_worker"
+                    )
+                raise SemanticExecutionError(f"Agent Map semantic extraction failed: {last_error}")
+
         packet_json = json.dumps(packet, indent=2, ensure_ascii=False)
         prompt_tmpl = (REPO_ROOT / "scripts" / "transcript_pipeline_v2" / "prompts" / "map.md").read_text(encoding="utf-8")
         base_prompt = prompt_tmpl.replace("{PACKET_JSON}", packet_json)
@@ -219,6 +259,42 @@ class SemanticCLIWorker:
         max_retries: int = 1
     ) -> dict[str, Any]:
         """Execute Reduce synthesis with up to 1 validation-informed retry."""
+        if self.provider in ["antigravity_agent", "agent"]:
+            t0 = time.time()
+            from adapters.agent_semantic_engine import AgentSemanticEngine
+            result = AgentSemanticEngine.process_reduce_packet(packet, lookup)
+            validation_errors = ttk_verify.validate_reduce_result(packet, result, lookup)
+            wall_time = time.time() - t0
+            input_hash = packet.get("packet_sha256") or hashlib.sha256(json.dumps(packet, sort_keys=True).encode("utf-8")).hexdigest()
+            if not validation_errors:
+                output_hash = hashlib.sha256(json.dumps(result, sort_keys=True).encode("utf-8")).hexdigest()
+                if receipt_path:
+                    receipt = ExecutionReceipt(receipt_path, task_id="reduce_invocation", config={"provider": self.provider})
+                    receipt.complete(
+                        exit_code=0,
+                        input_hash=input_hash,
+                        output_hash=output_hash,
+                        status="PASS",
+                        attempts=1,
+                        wall_time_seconds=round(wall_time, 4),
+                        provider=self.provider,
+                        transport="agent_worker"
+                    )
+                return result
+            else:
+                last_error = f"TTK Validation errors: {'; '.join(validation_errors)}"
+                if receipt_path:
+                    receipt = ExecutionReceipt(receipt_path, task_id="reduce_invocation", config={"provider": self.provider})
+                    receipt.fail(
+                        error=last_error,
+                        exit_code=1,
+                        input_hash=input_hash,
+                        attempts=1,
+                        provider=self.provider,
+                        transport="agent_worker"
+                    )
+                raise SemanticExecutionError(f"Agent Reduce semantic synthesis failed: {last_error}")
+
         packet_json = json.dumps(packet, indent=2, ensure_ascii=False)
         prompt_tmpl = (REPO_ROOT / "scripts" / "transcript_pipeline_v2" / "prompts" / "reduce.md").read_text(encoding="utf-8")
         base_prompt = prompt_tmpl.replace("{PACKET_JSON}", packet_json)

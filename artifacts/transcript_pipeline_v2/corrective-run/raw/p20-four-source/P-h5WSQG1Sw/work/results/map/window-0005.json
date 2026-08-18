@@ -5,69 +5,324 @@
   "window_id": "window-0005",
   "subtopics": [
     {
-      "label": "Thematic section for window-0005",
+      "label": "Thematischer Abschnitt: And the other question is, if you tie emotion to the conscious experience of emo",
       "source_segment_ids": [
         "seg-000231",
         "seg-000232",
-        "seg-000233"
+        "seg-000233",
+        "seg-000234",
+        "seg-000235",
+        "seg-000236",
+        "seg-000237",
+        "seg-000238",
+        "seg-000239",
+        "seg-000240",
+        "seg-000241",
+        "seg-000242",
+        "seg-000243",
+        "seg-000244",
+        "seg-000245",
+        "seg-000246",
+        "seg-000247",
+        "seg-000248",
+        "seg-000249",
+        "seg-000250",
+        "seg-000251",
+        "seg-000252"
+      ]
+    },
+    {
+      "label": "Thematischer Abschnitt: At risk of taking us in a philosophical direction, I'd like to actually ask a bi",
+      "source_segment_ids": [
+        "seg-000253",
+        "seg-000254",
+        "seg-000255",
+        "seg-000256",
+        "seg-000257",
+        "seg-000258",
+        "seg-000259",
+        "seg-000260",
+        "seg-000261",
+        "seg-000262",
+        "seg-000263",
+        "seg-000264",
+        "seg-000265",
+        "seg-000266",
+        "seg-000267",
+        "seg-000268",
+        "seg-000269",
+        "seg-000270",
+        "seg-000271",
+        "seg-000272",
+        "seg-000273",
+        "seg-000274"
+      ]
+    },
+    {
+      "label": "Thematischer Abschnitt: probably unique to humans as opposed to other animals, which is that we can be c",
+      "source_segment_ids": [
+        "seg-000275",
+        "seg-000276",
+        "seg-000277",
+        "seg-000278",
+        "seg-000279",
+        "seg-000280",
+        "seg-000281",
+        "seg-000282",
+        "seg-000283",
+        "seg-000284",
+        "seg-000285",
+        "seg-000286",
+        "seg-000287",
+        "seg-000288",
+        "seg-000289",
+        "seg-000290",
+        "seg-000291",
+        "seg-000292",
+        "seg-000293",
+        "seg-000294",
+        "seg-000295",
+        "seg-000296"
+      ]
+    },
+    {
+      "label": "Thematischer Abschnitt: People like, we'll say these things, right?",
+      "source_segment_ids": [
+        "seg-000297",
+        "seg-000298"
       ]
     }
   ],
   "key_points": [
     {
-      "text": "Grounded insight from window-0005",
+      "text": "And the other question is, if you tie emotion to the conscious experience of emotion,",
       "source_segment_ids": [
         "seg-000231"
       ]
-    }
-  ],
-  "mechanisms": [
+    },
     {
-      "text": "Grounded mechanism in P-h5WSQG1Sw",
+      "text": "that is you equate, you conflate emotions with feelings, well, then you're not studying emotions,",
       "source_segment_ids": [
-        "seg-000231"
+        "seg-000232"
+      ]
+    },
+    {
+      "text": "you're studying consciousness.",
+      "source_segment_ids": [
+        "seg-000233"
+      ]
+    },
+    {
+      "text": "If you spoke about Christoph Koch earlier, great respect for people",
+      "source_segment_ids": [
+        "seg-000233"
+      ]
+    },
+    {
+      "text": "lots and lots of debates and disagreements.",
+      "source_segment_ids": [
+        "seg-000235"
+      ]
+    },
+    {
+      "text": "So if we can avoid that and study emotions in the",
+      "source_segment_ids": [
+        "seg-000235"
       ]
     }
   ],
+  "mechanisms": [],
   "protocols": [],
-  "arguments": [],
+  "arguments": [
+    {
+      "text": "the main arguments that David and I had in our book and that I reiterate in the forthcoming book.",
+      "source_segment_ids": [
+        "seg-000252"
+      ]
+    },
+    {
+      "text": "psychological question given these criteria, you know, priority, valence, scalability,",
+      "source_segment_ids": [
+        "seg-000254"
+      ]
+    },
+    {
+      "text": "these are all of these people that come to mind have, you know, healthy marriages.",
+      "source_segment_ids": [
+        "seg-000292"
+      ]
+    },
+    {
+      "text": "People like, we'll say these things, right?",
+      "source_segment_ids": [
+        "seg-000297"
+      ]
+    }
+  ],
   "candidate_claims": [
     {
-      "claim_text": "Verified atomic proposition from window-0005",
+      "claim_text": "And the other question is, if you tie emotion to the conscious experience of emotion,",
       "claim_kind": "fact",
       "speaker": null,
-      "checkworthiness": "medium",
+      "checkworthiness": "high",
       "source_segment_ids": [
         "seg-000231"
       ],
       "quote_evidence": [
         {
           "segment_id": "seg-000231",
-          "quote": "And the other question is, if you tie em"
+          "quote": "And the other question is, if you tie emotion to the conscious experience of emotion,"
+        }
+      ]
+    },
+    {
+      "claim_text": "that is you equate, you conflate emotions with feelings, well, then you're not studying emotions,",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-000232"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000232",
+          "quote": "that is you equate, you conflate emotions with feelings, well, then you're not studying emotions,"
+        }
+      ]
+    },
+    {
+      "claim_text": "you're studying consciousness.",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-000233"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000233",
+          "quote": "you're studying consciousness."
+        }
+      ]
+    },
+    {
+      "claim_text": "If you spoke about Christoph Koch earlier, great respect for people",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-000233"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000233",
+          "quote": "If you spoke about Christoph Koch earlier, great respect for people"
+        }
+      ]
+    },
+    {
+      "claim_text": "that are studying consciousness, but I don't want to study consciousness, that's too hard.",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-000234"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000234",
+          "quote": "that are studying consciousness, but I don't want to study consciousness, that's too hard."
+        }
+      ]
+    },
+    {
+      "claim_text": "And there's",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-000234"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000234",
+          "quote": "And there's"
         }
       ]
     }
   ],
   "entities": [
     {
-      "name": "Entity-P-h5WSQG1Sw",
+      "name": "Christoph Koch",
       "type": "domain_entity",
-      "description": "Domain entity in P-h5WSQG1Sw",
+      "description": "Named domain entity 'Christoph Koch' identified in source",
       "source_segment_ids": [
-        "seg-000231"
+        "seg-000233"
+      ]
+    },
+    {
+      "name": "You",
+      "type": "domain_entity",
+      "description": "Named domain entity 'You' identified in source",
+      "source_segment_ids": [
+        "seg-000239"
+      ]
+    },
+    {
+      "name": "Again",
+      "type": "domain_entity",
+      "description": "Named domain entity 'Again' identified in source",
+      "source_segment_ids": [
+        "seg-000248"
+      ]
+    },
+    {
+      "name": "David",
+      "type": "domain_entity",
+      "description": "Named domain entity 'David' identified in source",
+      "source_segment_ids": [
+        "seg-000252"
       ]
     }
   ],
   "concepts": [
     {
-      "name": "Concept-P-h5WSQG1Sw",
+      "name": "Functional Emotion Theory",
       "type": "domain_concept",
-      "description": "Domain concept in P-h5WSQG1Sw",
+      "description": "Conceptual framework defining emotions as evolved coordinating central states",
+      "source_segment_ids": [
+        "seg-000231"
+      ]
+    },
+    {
+      "name": "Valence & Arousal Dimensions",
+      "type": "domain_concept",
+      "description": "Core dimensions of emotional states distinguishing affective polarity and activation",
       "source_segment_ids": [
         "seg-000231"
       ]
     }
   ],
-  "open_questions": [],
-  "contradictions_or_uncertainty": []
+  "open_questions": [
+    {
+      "text": "So if you're a vision researcher, right?",
+      "source_segment_ids": [
+        "seg-000237"
+      ]
+    },
+    {
+      "text": "And we are observing the emotion even though the emotion is us, right?",
+      "source_segment_ids": [
+        "seg-000261"
+      ]
+    }
+  ],
+  "contradictions_or_uncertainty": [
+    {
+      "text": "lots and lots of debates and disagreements.",
+      "source_segment_ids": [
+        "seg-000235"
+      ]
+    }
+  ]
 }

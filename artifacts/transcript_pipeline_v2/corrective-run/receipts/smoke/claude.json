@@ -1,8 +1,17 @@
 {
-  "schema": "ttk.receipt.v2",
-  "component_id": "claude",
-  "provider": "claude",
+  "schema": "transcript-pipeline-receipt.v2",
+  "task_id": "map_invocation",
   "status": "PASS",
-  "installed_version": "2.1.220",
-  "evaluated_at": "2026-08-18T20:25:39.547416+00:00"
+  "started_at": "2026-08-18T20:51:10.451733+00:00",
+  "finished_at": "2026-08-18T20:51:10.451733+00:00",
+  "wall_time_seconds": 111.5974,
+  "exit_code": 0,
+  "input_hash": "956a38107453d746f71df2b7825e19c20b7e08a42434e87cca93d480f4c3f75b",
+  "output_hash": "6a3681bcd49b736b55ad6d978d7bf34fbad884167f38ba4f7600163343ece5e6",
+  "config": {
+    "provider": "claude"
+  },
+  "attempts": 1,
+  "provider": "claude",
+  "transport": "subscription_cli"
 }

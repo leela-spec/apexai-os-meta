@@ -5,69 +5,301 @@
   "window_id": "window-0002",
   "subtopics": [
     {
-      "label": "Thematic section for window-0002",
+      "label": "Thematischer Abschnitt: findings and emotion from animal studies, findings from social psychology.",
       "source_segment_ids": [
         "seg-000044",
         "seg-000045",
-        "seg-000046"
+        "seg-000046",
+        "seg-000047",
+        "seg-000048",
+        "seg-000049",
+        "seg-000050",
+        "seg-000051",
+        "seg-000052",
+        "seg-000053",
+        "seg-000054",
+        "seg-000055",
+        "seg-000056",
+        "seg-000057",
+        "seg-000058",
+        "seg-000059",
+        "seg-000060",
+        "seg-000061",
+        "seg-000062",
+        "seg-000063",
+        "seg-000064"
+      ]
+    },
+    {
+      "label": "Thematischer Abschnitt: of environmental challenges like running away from a bear.",
+      "source_segment_ids": [
+        "seg-000065",
+        "seg-000066",
+        "seg-000067",
+        "seg-000068",
+        "seg-000069",
+        "seg-000070",
+        "seg-000071",
+        "seg-000072",
+        "seg-000073",
+        "seg-000074",
+        "seg-000075",
+        "seg-000076",
+        "seg-000077",
+        "seg-000078",
+        "seg-000079",
+        "seg-000080",
+        "seg-000081",
+        "seg-000082",
+        "seg-000083",
+        "seg-000084",
+        "seg-000085"
+      ]
+    },
+    {
+      "label": "Thematischer Abschnitt: what features do they have that makes them emotions, just like what the cars or",
+      "source_segment_ids": [
+        "seg-000086",
+        "seg-000087",
+        "seg-000088",
+        "seg-000089",
+        "seg-000090",
+        "seg-000091",
+        "seg-000092",
+        "seg-000093",
+        "seg-000094",
+        "seg-000095",
+        "seg-000096",
+        "seg-000097",
+        "seg-000098",
+        "seg-000099",
+        "seg-000100",
+        "seg-000101",
+        "seg-000102",
+        "seg-000103",
+        "seg-000104",
+        "seg-000105",
+        "seg-000106"
       ]
     }
   ],
   "key_points": [
     {
-      "text": "Grounded insight from window-0002",
+      "text": "findings and emotion from animal studies, findings from social psychology.",
       "source_segment_ids": [
         "seg-000044"
       ]
-    }
-  ],
-  "mechanisms": [
+    },
     {
-      "text": "Grounded mechanism in P-h5WSQG1Sw",
+      "text": "Typically those people in",
       "source_segment_ids": [
         "seg-000044"
       ]
+    },
+    {
+      "text": "and so trying to integrate across disciplines that are that far apart to really try and get a sense",
+      "source_segment_ids": [
+        "seg-000046"
+      ]
+    },
+    {
+      "text": "but they would also speak to the mechanisms that you can study in mice, for example, or fly as",
+      "source_segment_ids": [
+        "seg-000048"
+      ]
+    },
+    {
+      "text": "states?",
+      "source_segment_ids": [
+        "seg-000050"
+      ]
+    },
+    {
+      "text": "The basic answer is that I think of emotions as functional states of a particular type.",
+      "source_segment_ids": [
+        "seg-000050"
+      ]
     }
   ],
+  "mechanisms": [],
   "protocols": [],
-  "arguments": [],
+  "arguments": [
+    {
+      "text": "We're pretty much everybody agrees, okay, these are examples of",
+      "source_segment_ids": [
+        "seg-000080"
+      ]
+    },
+    {
+      "text": "What you would then want to say is, well, what is it in virtue of which these",
+      "source_segment_ids": [
+        "seg-000084"
+      ]
+    },
+    {
+      "text": "helps to answer the question and sort of get a handle on what is it that these all share in common.",
+      "source_segment_ids": [
+        "seg-000089"
+      ]
+    }
+  ],
   "candidate_claims": [
     {
-      "claim_text": "Verified atomic proposition from window-0002",
+      "claim_text": "findings and emotion from animal studies, findings from social psychology.",
       "claim_kind": "fact",
       "speaker": null,
-      "checkworthiness": "medium",
+      "checkworthiness": "high",
       "source_segment_ids": [
         "seg-000044"
       ],
       "quote_evidence": [
         {
           "segment_id": "seg-000044",
-          "quote": "findings and emotion from animal studies, findings from social psychology"
+          "quote": "findings and emotion from animal studies, findings from social psychology."
+        }
+      ]
+    },
+    {
+      "claim_text": "Typically those people in",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-000044"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000044",
+          "quote": "Typically those people in"
+        }
+      ]
+    },
+    {
+      "claim_text": "those fields don't talk to one another.",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-000045"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000045",
+          "quote": "those fields don't talk to one another."
+        }
+      ]
+    },
+    {
+      "claim_text": "They do very different studies, very different methodologies,",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-000045"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000045",
+          "quote": "They do very different studies, very different methodologies,"
+        }
+      ]
+    },
+    {
+      "claim_text": "and so trying to integrate across disciplines that are that far apart to really try and get a sense",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-000046"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000046",
+          "quote": "and so trying to integrate across disciplines that are that far apart to really try and get a sense"
+        }
+      ]
+    },
+    {
+      "claim_text": "for what are emotions in a sense that would satisfy psychologists and lay people about human emotions,",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-000047"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000047",
+          "quote": "for what are emotions in a sense that would satisfy psychologists and lay people about human emotions,"
         }
       ]
     }
   ],
   "entities": [
     {
-      "name": "Entity-P-h5WSQG1Sw",
+      "name": "Typically",
       "type": "domain_entity",
-      "description": "Domain entity in P-h5WSQG1Sw",
+      "description": "Named domain entity 'Typically' identified in source",
       "source_segment_ids": [
         "seg-000044"
+      ]
+    },
+    {
+      "name": "They",
+      "type": "domain_entity",
+      "description": "Named domain entity 'They' identified in source",
+      "source_segment_ids": [
+        "seg-000045"
+      ]
+    },
+    {
+      "name": "David Anderson",
+      "type": "domain_entity",
+      "description": "Named domain entity 'David Anderson' identified in source",
+      "source_segment_ids": [
+        "seg-000049"
+      ]
+    },
+    {
+      "name": "Instead",
+      "type": "domain_entity",
+      "description": "Named domain entity 'Instead' identified in source",
+      "source_segment_ids": [
+        "seg-000062"
       ]
     }
   ],
   "concepts": [
     {
-      "name": "Concept-P-h5WSQG1Sw",
+      "name": "Functional Emotion Theory",
       "type": "domain_concept",
-      "description": "Domain concept in P-h5WSQG1Sw",
+      "description": "Conceptual framework defining emotions as evolved coordinating central states",
+      "source_segment_ids": [
+        "seg-000044"
+      ]
+    },
+    {
+      "name": "Valence & Arousal Dimensions",
+      "type": "domain_concept",
+      "description": "Core dimensions of emotional states distinguishing affective polarity and activation",
       "source_segment_ids": [
         "seg-000044"
       ]
     }
   ],
-  "open_questions": [],
+  "open_questions": [
+    {
+      "text": "states?",
+      "source_segment_ids": [
+        "seg-000050"
+      ]
+    },
+    {
+      "text": "what is an emotion is a good and a valid question?",
+      "source_segment_ids": [
+        "seg-000066"
+      ]
+    }
+  ],
   "contradictions_or_uncertainty": []
 }

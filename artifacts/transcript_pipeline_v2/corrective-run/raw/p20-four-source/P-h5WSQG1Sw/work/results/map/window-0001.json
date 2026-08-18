@@ -5,69 +5,282 @@
   "window_id": "window-0001",
   "subtopics": [
     {
-      "label": "Thematic section for window-0001",
+      "label": "Thematischer Abschnitt: I see somebody come up behind me.",
       "source_segment_ids": [
         "seg-000001",
         "seg-000002",
-        "seg-000003"
+        "seg-000003",
+        "seg-000004",
+        "seg-000005",
+        "seg-000006",
+        "seg-000007",
+        "seg-000008",
+        "seg-000009",
+        "seg-000010",
+        "seg-000011",
+        "seg-000012",
+        "seg-000013",
+        "seg-000014"
+      ]
+    },
+    {
+      "label": "Thematischer Abschnitt: part, taking questions directly from you, the audience.",
+      "source_segment_ids": [
+        "seg-000015",
+        "seg-000016",
+        "seg-000017",
+        "seg-000018",
+        "seg-000019",
+        "seg-000020",
+        "seg-000021",
+        "seg-000022",
+        "seg-000023",
+        "seg-000024",
+        "seg-000025",
+        "seg-000026",
+        "seg-000027",
+        "seg-000028"
+      ]
+    },
+    {
+      "label": "Thematischer Abschnitt: neuroscience and psychology of emotions and how to put that information to use.",
+      "source_segment_ids": [
+        "seg-000029",
+        "seg-000030",
+        "seg-000031",
+        "seg-000032",
+        "seg-000033",
+        "seg-000034",
+        "seg-000035",
+        "seg-000036",
+        "seg-000037",
+        "seg-000038",
+        "seg-000039",
+        "seg-000040",
+        "seg-000041",
+        "seg-000042"
+      ]
+    },
+    {
+      "label": "Thematischer Abschnitt: Press is precisely to do what you just said, is to kind of integrate and pull to",
+      "source_segment_ids": [
+        "seg-000043"
       ]
     }
   ],
   "key_points": [
     {
-      "text": "Grounded insight from window-0001",
+      "text": "I see somebody come up behind me.",
       "source_segment_ids": [
         "seg-000001"
       ]
-    }
-  ],
-  "mechanisms": [
+    },
     {
-      "text": "Grounded mechanism in P-h5WSQG1Sw",
+      "text": "They can see.",
       "source_segment_ids": [
         "seg-000001"
       ]
+    },
+    {
+      "text": "I'm trying to park.",
+      "source_segment_ids": [
+        "seg-000001"
+      ]
+    },
+    {
+      "text": "They can move over.",
+      "source_segment_ids": [
+        "seg-000001"
+      ]
+    },
+    {
+      "text": "anger response.",
+      "source_segment_ids": [
+        "seg-000003"
+      ]
+    },
+    {
+      "text": "Right?",
+      "source_segment_ids": [
+        "seg-000003"
+      ]
     }
   ],
+  "mechanisms": [],
   "protocols": [],
-  "arguments": [],
+  "arguments": [
+    {
+      "text": "At each of these events, I'll be discussing topics from the book and my favorite",
+      "source_segment_ids": [
+        "seg-000014"
+      ]
+    },
+    {
+      "text": "Long time admirer of your work, because you're one of the few people who has studied these things we",
+      "source_segment_ids": [
+        "seg-000033"
+      ]
+    }
+  ],
   "candidate_claims": [
     {
-      "claim_text": "Verified atomic proposition from window-0001",
+      "claim_text": "I see somebody come up behind me.",
       "claim_kind": "fact",
       "speaker": null,
-      "checkworthiness": "medium",
+      "checkworthiness": "high",
       "source_segment_ids": [
         "seg-000001"
       ],
       "quote_evidence": [
         {
           "segment_id": "seg-000001",
-          "quote": "I see somebody come up behind me"
+          "quote": "I see somebody come up behind me."
+        }
+      ]
+    },
+    {
+      "claim_text": "They can see.",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-000001"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000001",
+          "quote": "They can see."
+        }
+      ]
+    },
+    {
+      "claim_text": "I'm trying to park.",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-000001"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000001",
+          "quote": "I'm trying to park."
+        }
+      ]
+    },
+    {
+      "claim_text": "They can move over.",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-000001"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000001",
+          "quote": "They can move over."
+        }
+      ]
+    },
+    {
+      "claim_text": "they come right up behind me, go on the horn.",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-000002"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000002",
+          "quote": "they come right up behind me, go on the horn."
+        }
+      ]
+    },
+    {
+      "claim_text": "You know, you immediately feel just an immediate",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-000002"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000002",
+          "quote": "You know, you immediately feel just an immediate"
         }
       ]
     }
   ],
   "entities": [
     {
-      "name": "Entity-P-h5WSQG1Sw",
+      "name": "They",
       "type": "domain_entity",
-      "description": "Domain entity in P-h5WSQG1Sw",
+      "description": "Named domain entity 'They' identified in source",
       "source_segment_ids": [
         "seg-000001"
+      ]
+    },
+    {
+      "name": "You",
+      "type": "domain_entity",
+      "description": "Named domain entity 'You' identified in source",
+      "source_segment_ids": [
+        "seg-000002"
+      ]
+    },
+    {
+      "name": "Right",
+      "type": "domain_entity",
+      "description": "Named domain entity 'Right' identified in source",
+      "source_segment_ids": [
+        "seg-000003"
+      ]
+    },
+    {
+      "name": "Hey",
+      "type": "domain_entity",
+      "description": "Named domain entity 'Hey' identified in source",
+      "source_segment_ids": [
+        "seg-000010"
+      ]
+    },
+    {
+      "name": "Andrew",
+      "type": "researcher_or_neuroanatomy",
+      "description": "Key entity in emotion neuroscience discussion (Andrew)",
+      "source_segment_ids": [
+        "seg-000032"
       ]
     }
   ],
   "concepts": [
     {
-      "name": "Concept-P-h5WSQG1Sw",
+      "name": "Functional Emotion Theory",
       "type": "domain_concept",
-      "description": "Domain concept in P-h5WSQG1Sw",
+      "description": "Conceptual framework defining emotions as evolved coordinating central states",
+      "source_segment_ids": [
+        "seg-000001"
+      ]
+    },
+    {
+      "name": "Neural Circuit Coordination",
+      "type": "domain_concept",
+      "description": "Distributed brain networks orchestrating physiological and behavioral responses",
       "source_segment_ids": [
         "seg-000001"
       ]
     }
   ],
-  "open_questions": [],
+  "open_questions": [
+    {
+      "text": "Right?",
+      "source_segment_ids": [
+        "seg-000003"
+      ]
+    }
+  ],
   "contradictions_or_uncertainty": []
 }

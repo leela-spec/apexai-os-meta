@@ -5,64 +5,224 @@
   "window_id": "window-0004",
   "subtopics": [
     {
-      "label": "Thematic section for window-0004",
+      "label": "Thematischer Abschnitt: and by the way the key top here we have seen with reaching 120k in Bitcoin in Oc",
       "source_segment_ids": [
         "seg-000086",
         "seg-000087",
-        "seg-000088"
+        "seg-000088",
+        "seg-000089",
+        "seg-000090",
+        "seg-000091"
+      ]
+    },
+    {
+      "label": "Thematischer Abschnitt: so the upward correction ended and what always is to be expected that the downwa",
+      "source_segment_ids": [
+        "seg-000092",
+        "seg-000093",
+        "seg-000094",
+        "seg-000095",
+        "seg-000096",
+        "seg-000097"
+      ]
+    },
+    {
+      "label": "Thematischer Abschnitt: mainly to start with a fresh perspective here so the most important long term cy",
+      "source_segment_ids": [
+        "seg-000098",
+        "seg-000099",
+        "seg-000100",
+        "seg-000101",
+        "seg-000102",
+        "seg-000103"
+      ]
+    },
+    {
+      "label": "Thematischer Abschnitt: so since July this year June July this year this long term cycle which I mean yo",
+      "source_segment_ids": [
+        "seg-000104"
       ]
     }
   ],
   "key_points": [
     {
-      "text": "Grounded insight from window-0004",
+      "text": "and by the way the key top here we have seen with reaching 120k in Bitcoin in October 2025 this was and if you follow my work you are aware of...",
       "source_segment_ids": [
         "seg-000086"
       ]
-    }
-  ],
-  "mechanisms": [
+    },
     {
-      "text": "Grounded mechanism in oZIsMX6WgFs",
+      "text": "to the downward situation until we reach a final bottom just keep that in mind so what this period here was the first iteration of this let's...",
       "source_segment_ids": [
-        "seg-000086"
+        "seg-000087"
+      ]
+    },
+    {
+      "text": "and by having in mind that this will not be a major bottom by the way this was 50% correction so a 50% correction just on time it is to be...",
+      "source_segment_ids": [
+        "seg-000088"
+      ]
+    },
+    {
+      "text": "and also to conclude not just based on that cycle here also based on the price pattern here that this more or less seems to be the end of that...",
+      "source_segment_ids": [
+        "seg-000090"
+      ]
+    },
+    {
+      "text": "so the upward correction ended and what always is to be expected that the downward correction is much sharper and deeper than the upward path...",
+      "source_segment_ids": [
+        "seg-000092"
+      ]
+    },
+    {
+      "text": "but always keep in mind the Bitcoin corrections after those iterations to the point of 5 have shown up with 70 to 80% in the past so therefore...",
+      "source_segment_ids": [
+        "seg-000094"
       ]
     }
   ],
+  "mechanisms": [],
   "protocols": [],
-  "arguments": [],
+  "arguments": [
+    {
+      "text": "you need to have confidence in why you're choosing a specific cycle you need to have reasoning and good arguments why you the analyst it's not the computer it's you sitting in front of the screen making the decision to choose its cycle for your individual interpretation of that data series",
+      "source_segment_ids": [
+        "seg-000099"
+      ]
+    }
+  ],
   "candidate_claims": [
     {
-      "claim_text": "Verified atomic proposition from window-0004",
+      "claim_text": "and by the way the key top here we have seen with reaching 120k in Bitcoin in October 2025 this was and if you follow my work you are aware of that that was 0.5 of the fifth repetition of that nominal 200 day cycle here so which means we now would expect three cycles",
       "claim_kind": "fact",
       "speaker": null,
-      "checkworthiness": "medium",
+      "checkworthiness": "high",
       "source_segment_ids": [
         "seg-000086"
       ],
       "quote_evidence": [
         {
           "segment_id": "seg-000086",
-          "quote": "and by the way the key top here we have seen with reaching 120k in Bitcoin in October 2025 this was and if you follow my work you are aware of that that was 0"
+          "quote": "and by the way the key top here we have seen with reaching 120k in Bitcoin in October 2025 this was and if you follow my work you are aware of that that was 0.5 of the fifth repetition of that nominal 200 day cycle here so which means we now would expect three cycles"
+        }
+      ]
+    },
+    {
+      "claim_text": "to the downward situation until we reach a final bottom just keep that in mind so what this period here was the first iteration of this let's say nominal on average 200 day cycle yeah which lead to that one here",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-000087"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000087",
+          "quote": "to the downward situation until we reach a final bottom just keep that in mind so what this period here was the first iteration of this let's say nominal on average 200 day cycle yeah which lead to that one here"
+        }
+      ]
+    },
+    {
+      "claim_text": "and by having in mind that this will not be a major bottom by the way this was 50% correction so a 50% correction just on time it is to be expected that we see a correction to the upside but as we have been aware of that there is a second and third cycle due to the downside",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-000088"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000088",
+          "quote": "and by having in mind that this will not be a major bottom by the way this was 50% correction so a 50% correction just on time it is to be expected that we see a correction to the upside but as we have been aware of that there is a second and third cycle due to the downside"
+        }
+      ]
+    },
+    {
+      "claim_text": "under this pattern completes again which means we should not have expected much to the upside which by the way exactly this is what happened and again on the technical part you would easily be able to identify this point in time when we reached the bottom",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-000089"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000089",
+          "quote": "under this pattern completes again which means we should not have expected much to the upside which by the way exactly this is what happened and again on the technical part you would easily be able to identify this point in time when we reached the bottom"
+        }
+      ]
+    },
+    {
+      "claim_text": "and also to conclude not just based on that cycle here also based on the price pattern here that this more or less seems to be the end of that correction here from 60 to 80k then the next downstream peat in and now again what I always tell you where we are today we are here and what is the next upcoming window of opportunity we are looking here",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-000090"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000090",
+          "quote": "and also to conclude not just based on that cycle here also based on the price pattern here that this more or less seems to be the end of that correction here from 60 to 80k then the next downstream peat in and now again what I always tell you where we are today we are here and what is the next upcoming window of opportunity we are looking here"
+        }
+      ]
+    },
+    {
+      "claim_text": "so November let's say November roughly here is the next window of opportunity which still needs what is needed to complete that downward phase of that full to composite cycles or the second iteration of the nominal 200 day cycle",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-000091"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000091",
+          "quote": "so November let's say November roughly here is the next window of opportunity which still needs what is needed to complete that downward phase of that full to composite cycles or the second iteration of the nominal 200 day cycle"
         }
       ]
     }
   ],
   "entities": [
     {
-      "name": "Entity-oZIsMX6WgFs",
+      "name": "Bitcoin",
       "type": "domain_entity",
-      "description": "Domain entity in oZIsMX6WgFs",
+      "description": "Named domain entity 'Bitcoin' identified in source",
       "source_segment_ids": [
         "seg-000086"
+      ]
+    },
+    {
+      "name": "October",
+      "type": "domain_entity",
+      "description": "Named domain entity 'October' identified in source",
+      "source_segment_ids": [
+        "seg-000086"
+      ]
+    },
+    {
+      "name": "November",
+      "type": "domain_entity",
+      "description": "Named domain entity 'November' identified in source",
+      "source_segment_ids": [
+        "seg-000091"
+      ]
+    },
+    {
+      "name": "July",
+      "type": "domain_entity",
+      "description": "Named domain entity 'July' identified in source",
+      "source_segment_ids": [
+        "seg-000104"
       ]
     }
   ],
   "concepts": [
     {
-      "name": "Concept-oZIsMX6WgFs",
+      "name": "Core Subject Model",
       "type": "domain_concept",
-      "description": "Domain concept in oZIsMX6WgFs",
+      "description": "Primary domain concept analyzed in window-0004",
       "source_segment_ids": [
         "seg-000086"
       ]

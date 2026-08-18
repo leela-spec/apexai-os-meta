@@ -5,69 +5,231 @@
   "window_id": "window-0003",
   "subtopics": [
     {
-      "label": "Thematic section for window-0003",
+      "label": "Thematischer Abschnitt: Let me put in this one here so while we see that was just a technical reaction w",
       "source_segment_ids": [
         "seg-000068",
         "seg-000069",
-        "seg-000070"
+        "seg-000070",
+        "seg-000071",
+        "seg-000072",
+        "seg-000073"
+      ]
+    },
+    {
+      "label": "Thematischer Abschnitt: So therefore I will not reveal the full similar analysis but you can see from th",
+      "source_segment_ids": [
+        "seg-000074",
+        "seg-000075",
+        "seg-000076",
+        "seg-000077",
+        "seg-000078",
+        "seg-000079"
+      ]
+    },
+    {
+      "label": "Thematischer Abschnitt: and when they come into those where we have the high amplitude situations like h",
+      "source_segment_ids": [
+        "seg-000080",
+        "seg-000081",
+        "seg-000082",
+        "seg-000083",
+        "seg-000084",
+        "seg-000085"
       ]
     }
   ],
   "key_points": [
     {
-      "text": "Grounded insight from window-0003",
+      "text": "Let me put in this one here so while we see that was just a technical reaction which has to be expected at that point so from a cyclic...",
       "source_segment_ids": [
         "seg-000068"
       ]
-    }
-  ],
-  "mechanisms": [
+    },
     {
-      "text": "Grounded mechanism in oZIsMX6WgFs",
+      "text": "So from a cyclic perspective the cycle has still more time on the downward pressure or give more headwind to that asset class from a technical...",
       "source_segment_ids": [
-        "seg-000068"
+        "seg-000069"
+      ]
+    },
+    {
+      "text": "We've seen here how that window played out what would be quite interesting so if you would ask me so how to monitor that situation is.",
+      "source_segment_ids": [
+        "seg-000070"
+      ]
+    },
+    {
+      "text": "So momentum is already turning down while price keeps to move up which is an early indication when momentum is decreasing and price is still...",
+      "source_segment_ids": [
+        "seg-000072"
+      ]
+    },
+    {
+      "text": "So therefore I will not reveal the full similar analysis but you can see from the cycle selected here 180 190 120 the same two short term cycles...",
+      "source_segment_ids": [
+        "seg-000074"
+      ]
+    },
+    {
+      "text": "This is kind of plateau however if you see the harmonic relation so 380 in relation to 180 this is more harmonic relation of two which is an...",
+      "source_segment_ids": [
+        "seg-000076"
       ]
     }
   ],
+  "mechanisms": [],
   "protocols": [],
   "arguments": [],
   "candidate_claims": [
     {
-      "claim_text": "Verified atomic proposition from window-0003",
+      "claim_text": "Let me put in this one here so while we see that was just a technical reaction which has to be expected at that point so from a cyclic perspective that swing has not ended yet to say that way or let's zoom in a little bit here.",
       "claim_kind": "fact",
       "speaker": null,
-      "checkworthiness": "medium",
+      "checkworthiness": "high",
       "source_segment_ids": [
         "seg-000068"
       ],
       "quote_evidence": [
         {
           "segment_id": "seg-000068",
-          "quote": "Let me put in this one here so while we see that was just a technical reaction which has to be expected at that point so from a cyclic perspective that swing has not ended yet to say that way or let's zoom in a little bit here"
+          "quote": "Let me put in this one here so while we see that was just a technical reaction which has to be expected at that point so from a cyclic perspective that swing has not ended yet to say that way or let's zoom in a little bit here."
+        }
+      ]
+    },
+    {
+      "claim_text": "So from a cyclic perspective the cycle has still more time on the downward pressure or give more headwind to that asset class from a technical perspective a reaction here would quite be to be expected from a technical point of view.",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-000069"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000069",
+          "quote": "So from a cyclic perspective the cycle has still more time on the downward pressure or give more headwind to that asset class from a technical perspective a reaction here would quite be to be expected from a technical point of view."
+        }
+      ]
+    },
+    {
+      "claim_text": "We've seen here how that window played out what would be quite interesting so if you would ask me so how to monitor that situation is.",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-000070"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000070",
+          "quote": "We've seen here how that window played out what would be quite interesting so if you would ask me so how to monitor that situation is."
+        }
+      ]
+    },
+    {
+      "claim_text": "Price has not made in all time high again but if this works out to become more and more important divergence here between the price action and the relative strength this is even more possible indication for bounce back into another possible downturn needs to be seen out and we see similar picture here on the momentum.",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-000071"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000071",
+          "quote": "Price has not made in all time high again but if this works out to become more and more important divergence here between the price action and the relative strength this is even more possible indication for bounce back into another possible downturn needs to be seen out and we see similar picture here on the momentum."
+        }
+      ]
+    },
+    {
+      "claim_text": "So momentum is already turning down while price keeps to move up which is an early indication when momentum is decreasing and price is still increasing we have a divergence here so they are quite early science from the technical point of view which could confirm a possible continuation of the projected cycles.",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-000072"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000072",
+          "quote": "So momentum is already turning down while price keeps to move up which is an early indication when momentum is decreasing and price is still increasing we have a divergence here so they are quite early science from the technical point of view which could confirm a possible continuation of the projected cycles."
+        }
+      ]
+    },
+    {
+      "claim_text": "Next window of opportunity which is due here in September October so that's how we read the Nasdaq by the way the picture without going into every detail looks quite similar on the semi conductors.",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-000073"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000073",
+          "quote": "Next window of opportunity which is due here in September October so that's how we read the Nasdaq by the way the picture without going into every detail looks quite similar on the semi conductors."
         }
       ]
     }
   ],
   "entities": [
     {
-      "name": "Entity-oZIsMX6WgFs",
+      "name": "Let",
       "type": "domain_entity",
-      "description": "Domain entity in oZIsMX6WgFs",
+      "description": "Named domain entity 'Let' identified in source",
       "source_segment_ids": [
         "seg-000068"
+      ]
+    },
+    {
+      "name": "Price",
+      "type": "domain_entity",
+      "description": "Named domain entity 'Price' identified in source",
+      "source_segment_ids": [
+        "seg-000071"
+      ]
+    },
+    {
+      "name": "Next",
+      "type": "domain_entity",
+      "description": "Named domain entity 'Next' identified in source",
+      "source_segment_ids": [
+        "seg-000073"
+      ]
+    },
+    {
+      "name": "September October",
+      "type": "domain_entity",
+      "description": "Named domain entity 'September October' identified in source",
+      "source_segment_ids": [
+        "seg-000073"
+      ]
+    },
+    {
+      "name": "Nasdaq",
+      "type": "market_institution_or_actor",
+      "description": "Finanzmarkt- und geopolitische Entität (Nasdaq)",
+      "source_segment_ids": [
+        "seg-000073"
       ]
     }
   ],
   "concepts": [
     {
-      "name": "Concept-oZIsMX6WgFs",
+      "name": "Fibonacci Ratio Relationships",
       "type": "domain_concept",
-      "description": "Domain concept in oZIsMX6WgFs",
+      "description": "Mathematical proportions governing wave amplitude and retracement targets",
       "source_segment_ids": [
         "seg-000068"
       ]
     }
   ],
   "open_questions": [],
-  "contradictions_or_uncertainty": []
+  "contradictions_or_uncertainty": [
+    {
+      "text": "This is kind of plateau however if you see the harmonic relation so 380 in relation to 180 this is more harmonic relation of two which is an important harmonic ratio so those two cycles belong more or less to similar family they have a harmonic relation to each other so it would make sense now if we assume the 180 to 190 day cycle is important.",
+      "source_segment_ids": [
+        "seg-000076"
+      ]
+    }
+  ]
 }

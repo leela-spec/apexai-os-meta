@@ -5,69 +5,322 @@
   "window_id": "window-0009",
   "subtopics": [
     {
-      "label": "Thematic section for window-0009",
+      "label": "Thematischer Abschnitt: formula, which is a blend of vitamins, minerals, probiotics, and adaptogens.",
       "source_segment_ids": [
         "seg-000503",
         "seg-000504",
-        "seg-000505"
+        "seg-000505",
+        "seg-000506",
+        "seg-000507",
+        "seg-000508",
+        "seg-000509",
+        "seg-000510",
+        "seg-000511",
+        "seg-000512",
+        "seg-000513",
+        "seg-000514",
+        "seg-000515",
+        "seg-000516",
+        "seg-000517",
+        "seg-000518",
+        "seg-000519",
+        "seg-000520",
+        "seg-000521"
+      ]
+    },
+    {
+      "label": "Thematischer Abschnitt: fear in emotional facial expressions.",
+      "source_segment_ids": [
+        "seg-000522",
+        "seg-000523",
+        "seg-000524",
+        "seg-000525",
+        "seg-000526",
+        "seg-000527",
+        "seg-000528",
+        "seg-000529",
+        "seg-000530",
+        "seg-000531",
+        "seg-000532",
+        "seg-000533",
+        "seg-000534",
+        "seg-000535",
+        "seg-000536",
+        "seg-000537",
+        "seg-000538",
+        "seg-000539",
+        "seg-000540"
+      ]
+    },
+    {
+      "label": "Thematischer Abschnitt: than that and actually Lisa Feldman Barrett of all people co-authored a paper wi",
+      "source_segment_ids": [
+        "seg-000541",
+        "seg-000542",
+        "seg-000543",
+        "seg-000544",
+        "seg-000545",
+        "seg-000546",
+        "seg-000547",
+        "seg-000548",
+        "seg-000549",
+        "seg-000550",
+        "seg-000551",
+        "seg-000552",
+        "seg-000553",
+        "seg-000554",
+        "seg-000555",
+        "seg-000556",
+        "seg-000557",
+        "seg-000558",
+        "seg-000559"
+      ]
+    },
+    {
+      "label": "Thematischer Abschnitt: emotional facial expressions for the perception of emotions in others and in ani",
+      "source_segment_ids": [
+        "seg-000560"
       ]
     }
   ],
   "key_points": [
     {
-      "text": "Grounded insight from window-0009",
+      "text": "formula, which is a blend of vitamins, minerals, probiotics, and adaptogens.",
       "source_segment_ids": [
         "seg-000503"
       ]
-    }
-  ],
-  "mechanisms": [
+    },
     {
-      "text": "Grounded mechanism in P-h5WSQG1Sw",
+      "text": "And it adds three",
       "source_segment_ids": [
         "seg-000503"
       ]
+    },
+    {
+      "text": "five grams of creatine monohydrate to support muscle strength and performance as well as brain health.",
+      "source_segment_ids": [
+        "seg-000505"
+      ]
+    },
+    {
+      "text": "and improve the lining of your gut.",
+      "source_segment_ids": [
+        "seg-000507"
+      ]
+    },
+    {
+      "text": "All three of these ingredients have compelling science to",
+      "source_segment_ids": [
+        "seg-000507"
+      ]
+    },
+    {
+      "text": "know, I've been taking AG1 every day for nearly 14 years now.",
+      "source_segment_ids": [
+        "seg-000509"
+      ]
     }
   ],
+  "mechanisms": [],
   "protocols": [],
-  "arguments": [],
+  "arguments": [
+    {
+      "text": "All three of these ingredients have compelling science to",
+      "source_segment_ids": [
+        "seg-000507"
+      ]
+    },
+    {
+      "text": "to fame was he went to New Guinea and these non-Western cultures and claimed that universally across",
+      "source_segment_ids": [
+        "seg-000535"
+      ]
+    },
+    {
+      "text": "all cultures, people recognized these so-called basic emotions from facial expressions.",
+      "source_segment_ids": [
+        "seg-000536"
+      ]
+    },
+    {
+      "text": "that there's by convention, there's some association between these things and these things.",
+      "source_segment_ids": [
+        "seg-000554"
+      ]
+    }
+  ],
   "candidate_claims": [
     {
-      "claim_text": "Verified atomic proposition from window-0009",
+      "claim_text": "formula, which is a blend of vitamins, minerals, probiotics, and adaptogens.",
       "claim_kind": "fact",
       "speaker": null,
-      "checkworthiness": "medium",
+      "checkworthiness": "high",
       "source_segment_ids": [
         "seg-000503"
       ],
       "quote_evidence": [
         {
           "segment_id": "seg-000503",
-          "quote": "formula, which is a blend of vitamins, minerals, probiotics, and adaptogens"
+          "quote": "formula, which is a blend of vitamins, minerals, probiotics, and adaptogens."
+        }
+      ]
+    },
+    {
+      "claim_text": "And it adds three",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-000503"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000503",
+          "quote": "And it adds three"
+        }
+      ]
+    },
+    {
+      "claim_text": "important new ingredients, creatine monohydrate, calcium, HMB, and zinc carnacine.",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-000504"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000504",
+          "quote": "important new ingredients, creatine monohydrate, calcium, HMB, and zinc carnacine."
+        }
+      ]
+    },
+    {
+      "claim_text": "Each serving has",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-000504"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000504",
+          "quote": "Each serving has"
+        }
+      ]
+    },
+    {
+      "claim_text": "five grams of creatine monohydrate to support muscle strength and performance as well as brain health.",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-000505"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000505",
+          "quote": "five grams of creatine monohydrate to support muscle strength and performance as well as brain health."
+        }
+      ]
+    },
+    {
+      "claim_text": "Calcium, HMB to support muscle recovery and reduce muscle breakdown and zinc carnacine to support",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-000506"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000506",
+          "quote": "Calcium, HMB to support muscle recovery and reduce muscle breakdown and zinc carnacine to support"
         }
       ]
     }
   ],
   "entities": [
     {
-      "name": "Entity-P-h5WSQG1Sw",
+      "name": "Each",
       "type": "domain_entity",
-      "description": "Domain entity in P-h5WSQG1Sw",
+      "description": "Named domain entity 'Each' identified in source",
       "source_segment_ids": [
-        "seg-000503"
+        "seg-000504"
+      ]
+    },
+    {
+      "name": "Calcium",
+      "type": "domain_entity",
+      "description": "Named domain entity 'Calcium' identified in source",
+      "source_segment_ids": [
+        "seg-000506"
+      ]
+    },
+    {
+      "name": "All",
+      "type": "domain_entity",
+      "description": "Named domain entity 'All' identified in source",
+      "source_segment_ids": [
+        "seg-000507"
+      ]
+    },
+    {
+      "name": "Pro",
+      "type": "domain_entity",
+      "description": "Named domain entity 'Pro' identified in source",
+      "source_segment_ids": [
+        "seg-000511"
+      ]
+    },
+    {
+      "name": "Huberman",
+      "type": "researcher_or_neuroanatomy",
+      "description": "Key entity in emotion neuroscience discussion (Huberman)",
+      "source_segment_ids": [
+        "seg-000513"
       ]
     }
   ],
   "concepts": [
     {
-      "name": "Concept-P-h5WSQG1Sw",
+      "name": "Functional Emotion Theory",
       "type": "domain_concept",
-      "description": "Domain concept in P-h5WSQG1Sw",
+      "description": "Conceptual framework defining emotions as evolved coordinating central states",
+      "source_segment_ids": [
+        "seg-000503"
+      ]
+    },
+    {
+      "name": "Facial Feedback Hypothesis",
+      "type": "domain_concept",
+      "description": "Influence of facial musculature modulation on emotional experience",
       "source_segment_ids": [
         "seg-000503"
       ]
     }
   ],
-  "open_questions": [],
-  "contradictions_or_uncertainty": []
+  "open_questions": [
+    {
+      "text": "about perception and assessment of emotions?",
+      "source_segment_ids": [
+        "seg-000516"
+      ]
+    },
+    {
+      "text": "conclusions about those studies now in 2026?",
+      "source_segment_ids": [
+        "seg-000518"
+      ]
+    }
+  ],
+  "contradictions_or_uncertainty": [
+    {
+      "text": "studied a lot and probably has been the topic of the most acrimonious debates to some extent.",
+      "source_segment_ids": [
+        "seg-000532"
+      ]
+    }
+  ]
 }

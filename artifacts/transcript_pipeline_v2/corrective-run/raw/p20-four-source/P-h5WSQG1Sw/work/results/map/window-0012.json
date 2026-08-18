@@ -5,69 +5,288 @@
   "window_id": "window-0012",
   "subtopics": [
     {
-      "label": "Thematic section for window-0012",
+      "label": "Thematischer Abschnitt: Don't.",
       "source_segment_ids": [
         "seg-000707",
         "seg-000708",
-        "seg-000709"
+        "seg-000709",
+        "seg-000710",
+        "seg-000711",
+        "seg-000712",
+        "seg-000713",
+        "seg-000714",
+        "seg-000715",
+        "seg-000716",
+        "seg-000717",
+        "seg-000718",
+        "seg-000719",
+        "seg-000720",
+        "seg-000721",
+        "seg-000722",
+        "seg-000723",
+        "seg-000724",
+        "seg-000725"
+      ]
+    },
+    {
+      "label": "Thematischer Abschnitt: stove, this is a very different type of pain.",
+      "source_segment_ids": [
+        "seg-000726",
+        "seg-000727",
+        "seg-000728",
+        "seg-000729",
+        "seg-000730",
+        "seg-000731",
+        "seg-000732",
+        "seg-000733",
+        "seg-000734",
+        "seg-000735",
+        "seg-000736",
+        "seg-000737",
+        "seg-000738",
+        "seg-000739",
+        "seg-000740",
+        "seg-000741",
+        "seg-000742",
+        "seg-000743",
+        "seg-000744"
+      ]
+    },
+    {
+      "label": "Thematischer Abschnitt: to in this figure from Lowy Numenma and colleagues that we produced in our book",
+      "source_segment_ids": [
+        "seg-000745",
+        "seg-000746",
+        "seg-000747",
+        "seg-000748",
+        "seg-000749",
+        "seg-000750",
+        "seg-000751",
+        "seg-000752",
+        "seg-000753",
+        "seg-000754",
+        "seg-000755",
+        "seg-000756",
+        "seg-000757",
+        "seg-000758",
+        "seg-000759",
+        "seg-000760",
+        "seg-000761",
+        "seg-000762",
+        "seg-000763"
+      ]
+    },
+    {
+      "label": "Thematischer Abschnitt: is some truth to them.",
+      "source_segment_ids": [
+        "seg-000764",
+        "seg-000765"
       ]
     }
   ],
   "key_points": [
     {
-      "text": "Grounded insight from window-0012",
+      "text": "Don't.",
       "source_segment_ids": [
         "seg-000707"
       ]
-    }
-  ],
-  "mechanisms": [
+    },
     {
-      "text": "Grounded mechanism in P-h5WSQG1Sw",
+      "text": "It's really interesting.",
       "source_segment_ids": [
         "seg-000707"
       ]
+    },
+    {
+      "text": "You have to pass it.",
+      "source_segment_ids": [
+        "seg-000707"
+      ]
+    },
+    {
+      "text": "well, just as an aside, before I forget it.",
+      "source_segment_ids": [
+        "seg-000709"
+      ]
+    },
+    {
+      "text": "So, normally for pain, extraceptive pain,",
+      "source_segment_ids": [
+        "seg-000709"
+      ]
+    },
+    {
+      "text": "some kind of reflex.",
+      "source_segment_ids": [
+        "seg-000711"
+      ]
     }
   ],
+  "mechanisms": [],
   "protocols": [],
-  "arguments": [],
+  "arguments": [
+    {
+      "text": "there are these two different ways of talking about the role of the body, the one that you alluded",
+      "source_segment_ids": [
+        "seg-000744"
+      ]
+    },
+    {
+      "text": "It's amazing how these ideas can kind of perpetuate.",
+      "source_segment_ids": [
+        "seg-000763"
+      ]
+    }
+  ],
   "candidate_claims": [
     {
-      "claim_text": "Verified atomic proposition from window-0012",
+      "claim_text": "Don't.",
       "claim_kind": "fact",
       "speaker": null,
-      "checkworthiness": "medium",
+      "checkworthiness": "high",
       "source_segment_ids": [
         "seg-000707"
       ],
       "quote_evidence": [
         {
           "segment_id": "seg-000707",
-          "quote": "Don't"
+          "quote": "Don't."
+        }
+      ]
+    },
+    {
+      "claim_text": "It's really interesting.",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-000707"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000707",
+          "quote": "It's really interesting."
+        }
+      ]
+    },
+    {
+      "claim_text": "You have to pass it.",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-000707"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000707",
+          "quote": "You have to pass it."
+        }
+      ]
+    },
+    {
+      "claim_text": "Eventually, it's passed, but it evokes very interesting adaptive behaviors,",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-000708"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000708",
+          "quote": "Eventually, it's passed, but it evokes very interesting adaptive behaviors,"
+        }
+      ]
+    },
+    {
+      "claim_text": "well, just as an aside, before I forget it.",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-000709"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000709",
+          "quote": "well, just as an aside, before I forget it."
+        }
+      ]
+    },
+    {
+      "claim_text": "So, normally for pain, extraceptive pain,",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-000709"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000709",
+          "quote": "So, normally for pain, extraceptive pain,"
         }
       ]
     }
   ],
   "entities": [
     {
-      "name": "Entity-P-h5WSQG1Sw",
+      "name": "Don",
       "type": "domain_entity",
-      "description": "Domain entity in P-h5WSQG1Sw",
+      "description": "Named domain entity 'Don' identified in source",
       "source_segment_ids": [
         "seg-000707"
+      ]
+    },
+    {
+      "name": "You",
+      "type": "domain_entity",
+      "description": "Named domain entity 'You' identified in source",
+      "source_segment_ids": [
+        "seg-000707"
+      ]
+    },
+    {
+      "name": "Eventually",
+      "type": "domain_entity",
+      "description": "Named domain entity 'Eventually' identified in source",
+      "source_segment_ids": [
+        "seg-000708"
+      ]
+    },
+    {
+      "name": "For",
+      "type": "domain_entity",
+      "description": "Named domain entity 'For' identified in source",
+      "source_segment_ids": [
+        "seg-000711"
       ]
     }
   ],
   "concepts": [
     {
-      "name": "Concept-P-h5WSQG1Sw",
+      "name": "Functional Emotion Theory",
       "type": "domain_concept",
-      "description": "Domain concept in P-h5WSQG1Sw",
+      "description": "Conceptual framework defining emotions as evolved coordinating central states",
       "source_segment_ids": [
         "seg-000707"
       ]
     }
   ],
-  "open_questions": [],
+  "open_questions": [
+    {
+      "text": "And goes, what's wrong?",
+      "source_segment_ids": [
+        "seg-000714"
+      ]
+    },
+    {
+      "text": "And then she asked me, can't you just stop the behavior?",
+      "source_segment_ids": [
+        "seg-000715"
+      ]
+    }
+  ],
   "contradictions_or_uncertainty": []
 }

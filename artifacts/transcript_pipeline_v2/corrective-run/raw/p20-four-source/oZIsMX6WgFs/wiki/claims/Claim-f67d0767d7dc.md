@@ -1,0 +1,16 @@
+# Claim-f67d0767d7dc
+
+**Proposition:** It's pure math everyone could do that so now the trap is for sure those cycles are not stable.
+**Kind:** fact
+**Source support:** SUPPORTED
+**External status:** [UNVERIFIED]
+**Speaker:** unknown
+
+## Transcript evidence
+
+- `seg-000048` · 00:11:40.279
+  > It's pure math everyone could do that so now the trap is for sure those cycles are not stable.
+
+## Links
+
+[[concepts/finanzm-rkte|Finanzmärkte]] · [[entities/hello|Hello]] · [[entities/thanks|Thanks]]

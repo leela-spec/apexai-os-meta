@@ -5,64 +5,223 @@
   "window_id": "window-0018",
   "subtopics": [
     {
-      "label": "Thematic section for window-0018",
+      "label": "Thematischer Abschnitt: kids who have autism of the sort that we're describing and the need we're told t",
       "source_segment_ids": [
         "seg-001067",
         "seg-001068",
-        "seg-001069"
+        "seg-001069",
+        "seg-001070",
+        "seg-001071",
+        "seg-001072",
+        "seg-001073",
+        "seg-001074",
+        "seg-001075",
+        "seg-001076",
+        "seg-001077",
+        "seg-001078",
+        "seg-001079",
+        "seg-001080",
+        "seg-001081",
+        "seg-001082",
+        "seg-001083",
+        "seg-001084"
+      ]
+    },
+    {
+      "label": "Thematischer Abschnitt: of really interesting work and a lot of opportunities now that we've been actual",
+      "source_segment_ids": [
+        "seg-001085",
+        "seg-001086",
+        "seg-001087",
+        "seg-001088",
+        "seg-001089",
+        "seg-001090",
+        "seg-001091",
+        "seg-001092",
+        "seg-001093",
+        "seg-001094",
+        "seg-001095",
+        "seg-001096",
+        "seg-001097",
+        "seg-001098",
+        "seg-001099",
+        "seg-001100",
+        "seg-001101",
+        "seg-001102"
+      ]
+    },
+    {
+      "label": "Thematischer Abschnitt: is that the social features like eyes or who's talking have less of a weight on",
+      "source_segment_ids": [
+        "seg-001103",
+        "seg-001104",
+        "seg-001105",
+        "seg-001106",
+        "seg-001107",
+        "seg-001108",
+        "seg-001109",
+        "seg-001110",
+        "seg-001111",
+        "seg-001112",
+        "seg-001113",
+        "seg-001114",
+        "seg-001115",
+        "seg-001116",
+        "seg-001117",
+        "seg-001118",
+        "seg-001119",
+        "seg-001120"
       ]
     }
   ],
   "key_points": [
     {
-      "text": "Grounded insight from window-0018",
+      "text": "kids who have autism of the sort that we're describing and the need we're told to train them to",
       "source_segment_ids": [
         "seg-001067"
       ]
-    }
-  ],
-  "mechanisms": [
+    },
     {
-      "text": "Grounded mechanism in P-h5WSQG1Sw",
+      "text": "make eye contact and read faces so this lands square in your work maybe you could just fill out",
       "source_segment_ids": [
-        "seg-001067"
+        "seg-001068"
+      ]
+    },
+    {
+      "text": "a bit of what's now known what's thought what's not known it's a great topic I mean the way that",
+      "source_segment_ids": [
+        "seg-001069"
+      ]
+    },
+    {
+      "text": "member who has autism I don't have any personal experience it's really been just like with",
+      "source_segment_ids": [
+        "seg-001071"
+      ]
+    },
+    {
+      "text": "emotion in general and with respect to autism by understanding individual differences everybody's",
+      "source_segment_ids": [
+        "seg-001073"
+      ]
+    },
+    {
+      "text": "tools to look at that is you know social interaction social awareness ability to read other",
+      "source_segment_ids": [
+        "seg-001075"
       ]
     }
   ],
+  "mechanisms": [],
   "protocols": [],
   "arguments": [],
   "candidate_claims": [
     {
-      "claim_text": "Verified atomic proposition from window-0018",
+      "claim_text": "kids who have autism of the sort that we're describing and the need we're told to train them to",
       "claim_kind": "fact",
       "speaker": null,
-      "checkworthiness": "medium",
+      "checkworthiness": "high",
       "source_segment_ids": [
         "seg-001067"
       ],
       "quote_evidence": [
         {
           "segment_id": "seg-001067",
-          "quote": "kids who have autism of the sort that we"
+          "quote": "kids who have autism of the sort that we're describing and the need we're told to train them to"
+        }
+      ]
+    },
+    {
+      "claim_text": "make eye contact and read faces so this lands square in your work maybe you could just fill out",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-001068"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-001068",
+          "quote": "make eye contact and read faces so this lands square in your work maybe you could just fill out"
+        }
+      ]
+    },
+    {
+      "claim_text": "a bit of what's now known what's thought what's not known it's a great topic I mean the way that",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-001069"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-001069",
+          "quote": "a bit of what's now known what's thought what's not known it's a great topic I mean the way that"
+        }
+      ]
+    },
+    {
+      "claim_text": "I personally have approached it is not with a primary interest in autism I don't have a family",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-001070"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-001070",
+          "quote": "I personally have approached it is not with a primary interest in autism I don't have a family"
+        }
+      ]
+    },
+    {
+      "claim_text": "member who has autism I don't have any personal experience it's really been just like with",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-001071"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-001071",
+          "quote": "member who has autism I don't have any personal experience it's really been just like with"
+        }
+      ]
+    },
+    {
+      "claim_text": "amygdala lesion patient it's the my main motivation has been to just understand the mind cognition",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-001072"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-001072",
+          "quote": "amygdala lesion patient it's the my main motivation has been to just understand the mind cognition"
         }
       ]
     }
   ],
   "entities": [
     {
-      "name": "Entity-P-h5WSQG1Sw",
+      "name": "Ados",
       "type": "domain_entity",
-      "description": "Domain entity in P-h5WSQG1Sw",
+      "description": "Named domain entity 'Ados' identified in source",
       "source_segment_ids": [
-        "seg-001067"
+        "seg-001081"
       ]
     }
   ],
   "concepts": [
     {
-      "name": "Concept-P-h5WSQG1Sw",
+      "name": "Functional Emotion Theory",
       "type": "domain_concept",
-      "description": "Domain concept in P-h5WSQG1Sw",
+      "description": "Conceptual framework defining emotions as evolved coordinating central states",
       "source_segment_ids": [
         "seg-001067"
       ]

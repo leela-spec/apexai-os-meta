@@ -1,29 +1,489 @@
 {
   "items": [
     {
-      "checkworthiness": "medium",
+      "checkworthiness": "high",
       "claim_ref": "claim-0001",
-      "claim_text": "Verified atomic proposition in oZIsMX6WgFs",
+      "claim_text": "Hello, cycle nerds.",
       "preferred_source_types": [
         "official primary source",
         "primary research"
       ],
       "quote_evidence": [
         {
-          "quote": "Hello, cycle nerds",
+          "quote": "Hello, cycle nerds.",
           "segment_id": "seg-000001"
         }
       ],
-      "search_question": "Verified atomic proposition in oZIsMX6WgFs",
+      "search_question": "Hello, cycle nerds.",
       "source_segment_ids": [
         "seg-000001"
+      ],
+      "source_support": "SUPPORTED"
+    },
+    {
+      "checkworthiness": "high",
+      "claim_ref": "claim-0002",
+      "claim_text": "Thanks for joining today.",
+      "preferred_source_types": [
+        "official primary source",
+        "primary research"
+      ],
+      "quote_evidence": [
+        {
+          "quote": "Thanks for joining today.",
+          "segment_id": "seg-000001"
+        }
+      ],
+      "search_question": "Thanks for joining today.",
+      "source_segment_ids": [
+        "seg-000001"
+      ],
+      "source_support": "SUPPORTED"
+    },
+    {
+      "checkworthiness": "high",
+      "claim_ref": "claim-0003",
+      "claim_text": "Let's do a cycles market that jam.",
+      "preferred_source_types": [
+        "official primary source",
+        "primary research"
+      ],
+      "quote_evidence": [
+        {
+          "quote": "Let's do a cycles market that jam.",
+          "segment_id": "seg-000001"
+        }
+      ],
+      "search_question": "Let's do a cycles market that jam.",
+      "source_segment_ids": [
+        "seg-000001"
+      ],
+      "source_support": "SUPPORTED"
+    },
+    {
+      "checkworthiness": "high",
+      "claim_ref": "claim-0004",
+      "claim_text": "So let's review some asset classes across",
+      "preferred_source_types": [
+        "official primary source",
+        "primary research"
+      ],
+      "quote_evidence": [
+        {
+          "quote": "So let's review some asset classes across",
+          "segment_id": "seg-000001"
+        }
+      ],
+      "search_question": "So let's review some asset classes across",
+      "source_segment_ids": [
+        "seg-000001"
+      ],
+      "source_support": "SUPPORTED"
+    },
+    {
+      "checkworthiness": "high",
+      "claim_ref": "claim-0005",
+      "claim_text": "different spectrums.",
+      "preferred_source_types": [
+        "official primary source",
+        "primary research"
+      ],
+      "quote_evidence": [
+        {
+          "quote": "different spectrums.",
+          "segment_id": "seg-000002"
+        }
+      ],
+      "search_question": "different spectrums.",
+      "source_segment_ids": [
+        "seg-000002"
+      ],
+      "source_support": "SUPPORTED"
+    },
+    {
+      "checkworthiness": "high",
+      "claim_ref": "claim-0006",
+      "claim_text": "Let's just have a live view of where the cycles are.",
+      "preferred_source_types": [
+        "official primary source",
+        "primary research"
+      ],
+      "quote_evidence": [
+        {
+          "quote": "Let's just have a live view of where the cycles are.",
+          "segment_id": "seg-000002"
+        }
+      ],
+      "search_question": "Let's just have a live view of where the cycles are.",
+      "source_segment_ids": [
+        "seg-000002"
+      ],
+      "source_support": "SUPPORTED"
+    },
+    {
+      "checkworthiness": "high",
+      "claim_ref": "claim-0007",
+      "claim_text": "So what is important now when reading such kind of cycle analysis to things keep in mind you could easily fall into the trap now to plot that cycle and less into the future.",
+      "preferred_source_types": [
+        "official primary source",
+        "primary research"
+      ],
+      "quote_evidence": [
+        {
+          "quote": "So what is important now when reading such kind of cycle analysis to things keep in mind you could easily fall into the trap now to plot that cycle and less into the future.",
+          "segment_id": "seg-000046"
+        }
+      ],
+      "search_question": "So what is important now when reading such kind of cycle analysis to things keep in mind you could easily fall into the trap now to plot that cycle and less into the future.",
+      "source_segment_ids": [
+        "seg-000046"
+      ],
+      "source_support": "SUPPORTED"
+    },
+    {
+      "checkworthiness": "high",
+      "claim_ref": "claim-0008",
+      "claim_text": "It's pure math so no one will block us will log you now to plot this composite for the next one to three years into the future.",
+      "preferred_source_types": [
+        "official primary source",
+        "primary research"
+      ],
+      "quote_evidence": [
+        {
+          "quote": "It's pure math so no one will block us will log you now to plot this composite for the next one to three years into the future.",
+          "segment_id": "seg-000047"
+        }
+      ],
+      "search_question": "It's pure math so no one will block us will log you now to plot this composite for the next one to three years into the future.",
+      "source_segment_ids": [
+        "seg-000047"
+      ],
+      "source_support": "SUPPORTED"
+    },
+    {
+      "checkworthiness": "high",
+      "claim_ref": "claim-0009",
+      "claim_text": "It's pure math everyone could do that so now the trap is for sure those cycles are not stable.",
+      "preferred_source_types": [
+        "official primary source",
+        "primary research"
+      ],
+      "quote_evidence": [
+        {
+          "quote": "It's pure math everyone could do that so now the trap is for sure those cycles are not stable.",
+          "segment_id": "seg-000048"
+        }
+      ],
+      "search_question": "It's pure math everyone could do that so now the trap is for sure those cycles are not stable.",
+      "source_segment_ids": [
+        "seg-000048"
+      ],
+      "source_support": "SUPPORTED"
+    },
+    {
+      "checkworthiness": "high",
+      "claim_ref": "claim-0010",
+      "claim_text": "We talked about the stability score so those cycles wobble they have a variability so which means we pick three cycles so each cycle the very around length amplitude phase see this as an error rate and now we add up three cycles which will change over time.",
+      "preferred_source_types": [
+        "official primary source",
+        "primary research"
+      ],
+      "quote_evidence": [
+        {
+          "quote": "We talked about the stability score so those cycles wobble they have a variability so which means we pick three cycles so each cycle the very around length amplitude phase see this as an error rate and now we add up three cycles which will change over time.",
+          "segment_id": "seg-000049"
+        }
+      ],
+      "search_question": "We talked about the stability score so those cycles wobble they have a variability so which means we pick three cycles so each cycle the very around length amplitude phase see this as an error rate and now we add up three cycles which will change over time.",
+      "source_segment_ids": [
+        "seg-000049"
+      ],
+      "source_support": "SUPPORTED"
+    },
+    {
+      "checkworthiness": "high",
+      "claim_ref": "claim-0011",
+      "claim_text": "So the error rate the more you go into the future the higher the error rate of that projection will be just pure pure matter of fact.",
+      "preferred_source_types": [
+        "official primary source",
+        "primary research"
+      ],
+      "quote_evidence": [
+        {
+          "quote": "So the error rate the more you go into the future the higher the error rate of that projection will be just pure pure matter of fact.",
+          "segment_id": "seg-000050"
+        }
+      ],
+      "search_question": "So the error rate the more you go into the future the higher the error rate of that projection will be just pure pure matter of fact.",
+      "source_segment_ids": [
+        "seg-000050"
+      ],
+      "source_support": "SUPPORTED"
+    },
+    {
+      "checkworthiness": "high",
+      "claim_ref": "claim-0012",
+      "claim_text": "So therefore the only two points which are interesting if you do this kind of cycle analysis is where are we now today I call it now cast in that cycle which is which is here where the dot is.",
+      "preferred_source_types": [
+        "official primary source",
+        "primary research"
+      ],
+      "quote_evidence": [
+        {
+          "quote": "So therefore the only two points which are interesting if you do this kind of cycle analysis is where are we now today I call it now cast in that cycle which is which is here where the dot is.",
+          "segment_id": "seg-000051"
+        }
+      ],
+      "search_question": "So therefore the only two points which are interesting if you do this kind of cycle analysis is where are we now today I call it now cast in that cycle which is which is here where the dot is.",
+      "source_segment_ids": [
+        "seg-000051"
+      ],
+      "source_support": "SUPPORTED"
+    },
+    {
+      "checkworthiness": "high",
+      "claim_ref": "claim-0013",
+      "claim_text": "Let me put in this one here so while we see that was just a technical reaction which has to be expected at that point so from a cyclic perspective that swing has not ended yet to say that way or let's zoom in a little bit here.",
+      "preferred_source_types": [
+        "official primary source",
+        "primary research"
+      ],
+      "quote_evidence": [
+        {
+          "quote": "Let me put in this one here so while we see that was just a technical reaction which has to be expected at that point so from a cyclic perspective that swing has not ended yet to say that way or let's zoom in a little bit here.",
+          "segment_id": "seg-000068"
+        }
+      ],
+      "search_question": "Let me put in this one here so while we see that was just a technical reaction which has to be expected at that point so from a cyclic perspective that swing has not ended yet to say that way or let's zoom in a little bit here.",
+      "source_segment_ids": [
+        "seg-000068"
+      ],
+      "source_support": "SUPPORTED"
+    },
+    {
+      "checkworthiness": "high",
+      "claim_ref": "claim-0014",
+      "claim_text": "So from a cyclic perspective the cycle has still more time on the downward pressure or give more headwind to that asset class from a technical perspective a reaction here would quite be to be expected from a technical point of view.",
+      "preferred_source_types": [
+        "official primary source",
+        "primary research"
+      ],
+      "quote_evidence": [
+        {
+          "quote": "So from a cyclic perspective the cycle has still more time on the downward pressure or give more headwind to that asset class from a technical perspective a reaction here would quite be to be expected from a technical point of view.",
+          "segment_id": "seg-000069"
+        }
+      ],
+      "search_question": "So from a cyclic perspective the cycle has still more time on the downward pressure or give more headwind to that asset class from a technical perspective a reaction here would quite be to be expected from a technical point of view.",
+      "source_segment_ids": [
+        "seg-000069"
+      ],
+      "source_support": "SUPPORTED"
+    },
+    {
+      "checkworthiness": "high",
+      "claim_ref": "claim-0015",
+      "claim_text": "We've seen here how that window played out what would be quite interesting so if you would ask me so how to monitor that situation is.",
+      "preferred_source_types": [
+        "official primary source",
+        "primary research"
+      ],
+      "quote_evidence": [
+        {
+          "quote": "We've seen here how that window played out what would be quite interesting so if you would ask me so how to monitor that situation is.",
+          "segment_id": "seg-000070"
+        }
+      ],
+      "search_question": "We've seen here how that window played out what would be quite interesting so if you would ask me so how to monitor that situation is.",
+      "source_segment_ids": [
+        "seg-000070"
+      ],
+      "source_support": "SUPPORTED"
+    },
+    {
+      "checkworthiness": "high",
+      "claim_ref": "claim-0016",
+      "claim_text": "Price has not made in all time high again but if this works out to become more and more important divergence here between the price action and the relative strength this is even more possible indication for bounce back into another possible downturn needs to be seen out and we see similar picture here on the momentum.",
+      "preferred_source_types": [
+        "official primary source",
+        "primary research"
+      ],
+      "quote_evidence": [
+        {
+          "quote": "Price has not made in all time high again but if this works out to become more and more important divergence here between the price action and the relative strength this is even more possible indication for bounce back into another possible downturn needs to be seen out and we see similar picture here on the momentum.",
+          "segment_id": "seg-000071"
+        }
+      ],
+      "search_question": "Price has not made in all time high again but if this works out to become more and more important divergence here between the price action and the relative strength this is even more possible indication for bounce back into another possible downturn needs to be seen out and we see similar picture here on the momentum.",
+      "source_segment_ids": [
+        "seg-000071"
+      ],
+      "source_support": "SUPPORTED"
+    },
+    {
+      "checkworthiness": "high",
+      "claim_ref": "claim-0017",
+      "claim_text": "So momentum is already turning down while price keeps to move up which is an early indication when momentum is decreasing and price is still increasing we have a divergence here so they are quite early science from the technical point of view which could confirm a possible continuation of the projected cycles.",
+      "preferred_source_types": [
+        "official primary source",
+        "primary research"
+      ],
+      "quote_evidence": [
+        {
+          "quote": "So momentum is already turning down while price keeps to move up which is an early indication when momentum is decreasing and price is still increasing we have a divergence here so they are quite early science from the technical point of view which could confirm a possible continuation of the projected cycles.",
+          "segment_id": "seg-000072"
+        }
+      ],
+      "search_question": "So momentum is already turning down while price keeps to move up which is an early indication when momentum is decreasing and price is still increasing we have a divergence here so they are quite early science from the technical point of view which could confirm a possible continuation of the projected cycles.",
+      "source_segment_ids": [
+        "seg-000072"
+      ],
+      "source_support": "SUPPORTED"
+    },
+    {
+      "checkworthiness": "high",
+      "claim_ref": "claim-0018",
+      "claim_text": "Next window of opportunity which is due here in September October so that's how we read the Nasdaq by the way the picture without going into every detail looks quite similar on the semi conductors.",
+      "preferred_source_types": [
+        "official primary source",
+        "primary research"
+      ],
+      "quote_evidence": [
+        {
+          "quote": "Next window of opportunity which is due here in September October so that's how we read the Nasdaq by the way the picture without going into every detail looks quite similar on the semi conductors.",
+          "segment_id": "seg-000073"
+        }
+      ],
+      "search_question": "Next window of opportunity which is due here in September October so that's how we read the Nasdaq by the way the picture without going into every detail looks quite similar on the semi conductors.",
+      "source_segment_ids": [
+        "seg-000073"
+      ],
+      "source_support": "SUPPORTED"
+    },
+    {
+      "checkworthiness": "high",
+      "claim_ref": "claim-0019",
+      "claim_text": "and by the way the key top here we have seen with reaching 120k in Bitcoin in October 2025 this was and if you follow my work you are aware of that that was 0.5 of the fifth repetition of that nominal 200 day cycle here so which means we now would expect three cycles",
+      "preferred_source_types": [
+        "official primary source",
+        "primary research"
+      ],
+      "quote_evidence": [
+        {
+          "quote": "and by the way the key top here we have seen with reaching 120k in Bitcoin in October 2025 this was and if you follow my work you are aware of that that was 0.5 of the fifth repetition of that nominal 200 day cycle here so which means we now would expect three cycles",
+          "segment_id": "seg-000086"
+        }
+      ],
+      "search_question": "and by the way the key top here we have seen with reaching 120k in Bitcoin in October 2025 this was and if you follow my work you are aware of that that was 0.5 of the fifth repetition of that nominal 200 day cycle here so which means we now would expect three cycles",
+      "source_segment_ids": [
+        "seg-000086"
+      ],
+      "source_support": "SUPPORTED"
+    },
+    {
+      "checkworthiness": "high",
+      "claim_ref": "claim-0020",
+      "claim_text": "to the downward situation until we reach a final bottom just keep that in mind so what this period here was the first iteration of this let's say nominal on average 200 day cycle yeah which lead to that one here",
+      "preferred_source_types": [
+        "official primary source",
+        "primary research"
+      ],
+      "quote_evidence": [
+        {
+          "quote": "to the downward situation until we reach a final bottom just keep that in mind so what this period here was the first iteration of this let's say nominal on average 200 day cycle yeah which lead to that one here",
+          "segment_id": "seg-000087"
+        }
+      ],
+      "search_question": "to the downward situation until we reach a final bottom just keep that in mind so what this period here was the first iteration of this let's say nominal on average 200 day cycle yeah which lead to that one here",
+      "source_segment_ids": [
+        "seg-000087"
+      ],
+      "source_support": "SUPPORTED"
+    },
+    {
+      "checkworthiness": "high",
+      "claim_ref": "claim-0021",
+      "claim_text": "and by having in mind that this will not be a major bottom by the way this was 50% correction so a 50% correction just on time it is to be expected that we see a correction to the upside but as we have been aware of that there is a second and third cycle due to the downside",
+      "preferred_source_types": [
+        "official primary source",
+        "primary research"
+      ],
+      "quote_evidence": [
+        {
+          "quote": "and by having in mind that this will not be a major bottom by the way this was 50% correction so a 50% correction just on time it is to be expected that we see a correction to the upside but as we have been aware of that there is a second and third cycle due to the downside",
+          "segment_id": "seg-000088"
+        }
+      ],
+      "search_question": "and by having in mind that this will not be a major bottom by the way this was 50% correction so a 50% correction just on time it is to be expected that we see a correction to the upside but as we have been aware of that there is a second and third cycle due to the downside",
+      "source_segment_ids": [
+        "seg-000088"
+      ],
+      "source_support": "SUPPORTED"
+    },
+    {
+      "checkworthiness": "high",
+      "claim_ref": "claim-0022",
+      "claim_text": "under this pattern completes again which means we should not have expected much to the upside which by the way exactly this is what happened and again on the technical part you would easily be able to identify this point in time when we reached the bottom",
+      "preferred_source_types": [
+        "official primary source",
+        "primary research"
+      ],
+      "quote_evidence": [
+        {
+          "quote": "under this pattern completes again which means we should not have expected much to the upside which by the way exactly this is what happened and again on the technical part you would easily be able to identify this point in time when we reached the bottom",
+          "segment_id": "seg-000089"
+        }
+      ],
+      "search_question": "under this pattern completes again which means we should not have expected much to the upside which by the way exactly this is what happened and again on the technical part you would easily be able to identify this point in time when we reached the bottom",
+      "source_segment_ids": [
+        "seg-000089"
+      ],
+      "source_support": "SUPPORTED"
+    },
+    {
+      "checkworthiness": "high",
+      "claim_ref": "claim-0023",
+      "claim_text": "and also to conclude not just based on that cycle here also based on the price pattern here that this more or less seems to be the end of that correction here from 60 to 80k then the next downstream peat in and now again what I always tell you where we are today we are here and what is the next upcoming window of opportunity we are looking here",
+      "preferred_source_types": [
+        "official primary source",
+        "primary research"
+      ],
+      "quote_evidence": [
+        {
+          "quote": "and also to conclude not just based on that cycle here also based on the price pattern here that this more or less seems to be the end of that correction here from 60 to 80k then the next downstream peat in and now again what I always tell you where we are today we are here and what is the next upcoming window of opportunity we are looking here",
+          "segment_id": "seg-000090"
+        }
+      ],
+      "search_question": "and also to conclude not just based on that cycle here also based on the price pattern here that this more or less seems to be the end of that correction here from 60 to 80k then the next downstream peat in and now again what I always tell you where we are today we are here and what is the next upcoming window of opportunity we are looking here",
+      "source_segment_ids": [
+        "seg-000090"
+      ],
+      "source_support": "SUPPORTED"
+    },
+    {
+      "checkworthiness": "high",
+      "claim_ref": "claim-0024",
+      "claim_text": "so November let's say November roughly here is the next window of opportunity which still needs what is needed to complete that downward phase of that full to composite cycles or the second iteration of the nominal 200 day cycle",
+      "preferred_source_types": [
+        "official primary source",
+        "primary research"
+      ],
+      "quote_evidence": [
+        {
+          "quote": "so November let's say November roughly here is the next window of opportunity which still needs what is needed to complete that downward phase of that full to composite cycles or the second iteration of the nominal 200 day cycle",
+          "segment_id": "seg-000091"
+        }
+      ],
+      "search_question": "so November let's say November roughly here is the next window of opportunity which still needs what is needed to complete that downward phase of that full to composite cycles or the second iteration of the nominal 200 day cycle",
+      "source_segment_ids": [
+        "seg-000091"
       ],
       "source_support": "SUPPORTED"
     }
   ],
   "minimum_checkworthiness": "medium",
-  "queue_sha256": "2538612bc502c19cb0eda5b8bffe36b117c39f78f1bb5396f1190126635b8f86",
-  "reduce_result_sha256": "1334c3d43e915f1544c415dfea0da2042f499da82b9191d7f6ec3ec7224c63a2",
+  "queue_sha256": "8d77d01be98b7d8572670275f7711c9900b477f6053d056df70b7d645b8cc26d",
+  "reduce_result_sha256": "657d1fcc1e9b89e0a3be345e06c7e39e9a6f0ab948d62f93d894f12a7d81e664",
   "schema": "ttk.verify-queue.v2",
   "source_sha256": "d6bfb051b2344b3d17fd1a73643322945870262589aab1cf757ed1fe873ba135"
 }

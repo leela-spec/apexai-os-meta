@@ -5,68 +5,233 @@
   "window_id": "window-0003",
   "subtopics": [
     {
-      "label": "Fresh section window-0003",
+      "label": "Thematischer Abschnitt: yes I mean e-waves does do the wave count it's an automated process so you don't",
       "source_segment_ids": [
         "seg-000118",
-        "seg-000119"
+        "seg-000119",
+        "seg-000120",
+        "seg-000121",
+        "seg-000122",
+        "seg-000123",
+        "seg-000124",
+        "seg-000125",
+        "seg-000126",
+        "seg-000127",
+        "seg-000128",
+        "seg-000129",
+        "seg-000130",
+        "seg-000131",
+        "seg-000132"
+      ]
+    },
+    {
+      "label": "Thematischer Abschnitt: so does UAV now solve that?",
+      "source_segment_ids": [
+        "seg-000133",
+        "seg-000134",
+        "seg-000135",
+        "seg-000136",
+        "seg-000137",
+        "seg-000138",
+        "seg-000139",
+        "seg-000140",
+        "seg-000141",
+        "seg-000142",
+        "seg-000143",
+        "seg-000144",
+        "seg-000145",
+        "seg-000146",
+        "seg-000147"
+      ]
+    },
+    {
+      "label": "Thematischer Abschnitt: it's the same with with with Elliott waves so what we've done with e-waves of co",
+      "source_segment_ids": [
+        "seg-000148",
+        "seg-000149",
+        "seg-000150",
+        "seg-000151",
+        "seg-000152",
+        "seg-000153",
+        "seg-000154",
+        "seg-000155",
+        "seg-000156",
+        "seg-000157",
+        "seg-000158",
+        "seg-000159",
+        "seg-000160",
+        "seg-000161",
+        "seg-000162"
       ]
     }
   ],
   "key_points": [
     {
-      "text": "Fresh finding from window-0003",
+      "text": "yes I mean e-waves does do the wave count it's an automated process so you don't have to sit there by",
       "source_segment_ids": [
         "seg-000118"
       ]
-    }
-  ],
-  "mechanisms": [
+    },
     {
-      "text": "Grounded mechanism in fresh CygwqaNg2PY",
+      "text": "hand and sketch out the wave pattern which like you said earlier can be very tricky because when",
       "source_segment_ids": [
-        "seg-000118"
+        "seg-000119"
+      ]
+    },
+    {
+      "text": "you're looking at a chart through you're going to have partial patterns most of the time and that's",
+      "source_segment_ids": [
+        "seg-000120"
+      ]
+    },
+    {
+      "text": "coiling up and it looked like it was a triangle and we're going to burst up out of the triangle right",
+      "source_segment_ids": [
+        "seg-000122"
+      ]
+    },
+    {
+      "text": "of a partial pattern it was not a finished triangle it was part of yet another pattern so there's",
+      "source_segment_ids": [
+        "seg-000124"
+      ]
+    },
+    {
+      "text": "quite a challenge to develop the program to deal with the inherent partialness of the data we're",
+      "source_segment_ids": [
+        "seg-000126"
       ]
     }
   ],
+  "mechanisms": [],
   "protocols": [],
-  "arguments": [],
+  "arguments": [
+    {
+      "text": "all these kind of very tricky situations you get into with partial patterns so it's been it's been",
+      "source_segment_ids": [
+        "seg-000125"
+      ]
+    }
+  ],
   "candidate_claims": [
     {
-      "claim_text": "Fresh proposition from window-0003",
+      "claim_text": "yes I mean e-waves does do the wave count it's an automated process so you don't have to sit there by",
       "claim_kind": "fact",
       "speaker": null,
-      "checkworthiness": "medium",
+      "checkworthiness": "high",
       "source_segment_ids": [
         "seg-000118"
       ],
       "quote_evidence": [
         {
           "segment_id": "seg-000118",
-          "quote": "yes I mean e-waves does do the wave coun"
+          "quote": "yes I mean e-waves does do the wave count it's an automated process so you don't have to sit there by"
+        }
+      ]
+    },
+    {
+      "claim_text": "hand and sketch out the wave pattern which like you said earlier can be very tricky because when",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-000119"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000119",
+          "quote": "hand and sketch out the wave pattern which like you said earlier can be very tricky because when"
+        }
+      ]
+    },
+    {
+      "claim_text": "you're looking at a chart through you're going to have partial patterns most of the time and that's",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-000120"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000120",
+          "quote": "you're looking at a chart through you're going to have partial patterns most of the time and that's"
+        }
+      ]
+    },
+    {
+      "claim_text": "why in my presentation earlier I wanted to show that a particular example we had the market",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-000121"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000121",
+          "quote": "why in my presentation earlier I wanted to show that a particular example we had the market"
+        }
+      ]
+    },
+    {
+      "claim_text": "coiling up and it looked like it was a triangle and we're going to burst up out of the triangle right",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-000122"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000122",
+          "quote": "coiling up and it looked like it was a triangle and we're going to burst up out of the triangle right"
+        }
+      ]
+    },
+    {
+      "claim_text": "which is a common pattern and the market did the exact opposite because that was actually part",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-000123"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000123",
+          "quote": "which is a common pattern and the market did the exact opposite because that was actually part"
         }
       ]
     }
   ],
   "entities": [
     {
-      "name": "Entity-CygwqaNg2PY",
-      "type": "domain_entity",
-      "description": "Domain entity CygwqaNg2PY",
+      "name": "Elliott",
+      "type": "market_theorist_or_framework",
+      "description": "Key entity in Elliott Wave principle (Elliott)",
       "source_segment_ids": [
-        "seg-000118"
+        "seg-000156"
       ]
     }
   ],
   "concepts": [
     {
-      "name": "Concept-CygwqaNg2PY",
+      "name": "Functional Emotion Theory",
       "type": "domain_concept",
-      "description": "Domain concept CygwqaNg2PY",
+      "description": "Conceptual framework defining emotions as evolved coordinating central states",
       "source_segment_ids": [
         "seg-000118"
       ]
     }
   ],
-  "open_questions": [],
+  "open_questions": [
+    {
+      "text": "so does UAV now solve that?",
+      "source_segment_ids": [
+        "seg-000133"
+      ]
+    }
+  ],
   "contradictions_or_uncertainty": []
 }

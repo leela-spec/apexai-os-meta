@@ -1,0 +1,517 @@
+{
+  "context_only_segment_ids": [
+    "seg-000161"
+  ],
+  "contract_version": "ttk.semantic-contract.v2",
+  "core_segment_ids": [
+    "seg-000162",
+    "seg-000163",
+    "seg-000164",
+    "seg-000165",
+    "seg-000166",
+    "seg-000167",
+    "seg-000168",
+    "seg-000169",
+    "seg-000170",
+    "seg-000171",
+    "seg-000172",
+    "seg-000173",
+    "seg-000174",
+    "seg-000175",
+    "seg-000176",
+    "seg-000177",
+    "seg-000178",
+    "seg-000179",
+    "seg-000180",
+    "seg-000181",
+    "seg-000182",
+    "seg-000183",
+    "seg-000184",
+    "seg-000185",
+    "seg-000186",
+    "seg-000187",
+    "seg-000188",
+    "seg-000189",
+    "seg-000190",
+    "seg-000191",
+    "seg-000192",
+    "seg-000193",
+    "seg-000194",
+    "seg-000195",
+    "seg-000196",
+    "seg-000197",
+    "seg-000198",
+    "seg-000199",
+    "seg-000200",
+    "seg-000201",
+    "seg-000202",
+    "seg-000203",
+    "seg-000204",
+    "seg-000205",
+    "seg-000206",
+    "seg-000207",
+    "seg-000208",
+    "seg-000209",
+    "seg-000210",
+    "seg-000211",
+    "seg-000212",
+    "seg-000213",
+    "seg-000214",
+    "seg-000215"
+  ],
+  "packet_id": "map-window-0004",
+  "packet_sha256": "f3df8f3020b77a7237de4bd7ba8d135a3577a8550bca7d3399645a4f6fbc018b",
+  "result_path": "work/results/map/window-0004.json",
+  "rules": [
+    "Extract evidence only from core segments; context_only segments are orientation only.",
+    "Every candidate claim requires at least one verbatim quote from its cited core segment.",
+    "Do not force content into categories; empty arrays are valid.",
+    "Separate factual assertions from opinion, prediction, recommendation, decision, anecdote, definition, mechanism, estimate, and hypothesis.",
+    "Preserve disagreement and uncertainty rather than reconciling it."
+  ],
+  "schema": "ttk.map-packet.v2",
+  "source_segments": [
+    {
+      "end_hms": "00:17:55.829",
+      "id": "seg-000161",
+      "role": "context_only",
+      "speaker": null,
+      "start_hms": "00:17:51.069",
+      "text": "from the system and they're they're talking about it you know in their work and I love to see that"
+    },
+    {
+      "end_hms": "00:18:04.250",
+      "id": "seg-000162",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:17:57.109",
+      "text": "maybe maybe in simple terms very often retail investors ask me you know looks really super"
+    },
+    {
+      "end_hms": "00:18:08.569",
+      "id": "seg-000163",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:18:04.250",
+      "text": "interesting where do we actually start how can I get a good understanding of what it actually"
+    },
+    {
+      "end_hms": "00:18:15.569",
+      "id": "seg-000164",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:18:08.569",
+      "text": "does which which how would you recommend somebody that is interested in working with Elliott wave"
+    },
+    {
+      "end_hms": "00:18:22.930",
+      "id": "seg-000165",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:18:15.569",
+      "text": "theory actually get into it and get started okay yeah the e-waves software in my opinion is for"
+    },
+    {
+      "end_hms": "00:18:29.829",
+      "id": "seg-000166",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:18:22.930",
+      "text": "people who are all already know a bit about Elliott wave theory if your brand new and you just"
+    },
+    {
+      "end_hms": "00:18:35.750",
+      "id": "seg-000167",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:18:29.829",
+      "text": "want to get a grip then I'd actually recommend going to Elliott wave dot com and we have a lot"
+    },
+    {
+      "end_hms": "00:18:40.809",
+      "id": "seg-000168",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:18:35.750",
+      "text": "of educational material in there we've got a lot of books we've got a section called the wave"
+    },
+    {
+      "end_hms": "00:18:46.990",
+      "id": "seg-000169",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:18:40.809",
+      "text": "of pdia where they explain all the core Elliott wave patterns and their behavior a lot more elaborate"
+    },
+    {
+      "end_hms": "00:18:52.769",
+      "id": "seg-000170",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:18:46.990",
+      "text": "detail than you know what I did today and then they also have a service that I like called"
+    },
+    {
+      "end_hms": "00:18:59.170",
+      "id": "seg-000171",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:18:52.769",
+      "text": "traders classroom and that's really a very introductory service where it's really focused on"
+    },
+    {
+      "end_hms": "00:19:05.710",
+      "id": "seg-000172",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:18:59.170",
+      "text": "education and teaching people how to do it yourself as opposed to say a forecasting service or"
+    },
+    {
+      "end_hms": "00:19:11.150",
+      "id": "seg-000173",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:19:05.710",
+      "text": "other types of services that you know assume you know a little bit more about it I mean they all"
+    },
+    {
+      "end_hms": "00:19:15.950",
+      "id": "seg-000174",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:19:11.150",
+      "text": "with all kinds of different market regimes right you guys went through every possibility environment"
+    },
+    {
+      "end_hms": "00:19:21.529",
+      "id": "seg-000175",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:19:15.950",
+      "text": "over the decades looking at 2026 you know stocks are going parabolic in the semi-contact area"
+    },
+    {
+      "end_hms": "00:19:26.230",
+      "id": "seg-000176",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:19:21.529",
+      "text": "yes I mean is there anything that you know that you specifically look at at the moment that makes"
+    },
+    {
+      "end_hms": "00:19:33.900",
+      "id": "seg-000177",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:19:26.230",
+      "text": "you nervous about the market or any change in regime that is happening right now well what I"
+    },
+    {
+      "end_hms": "00:19:40.519",
+      "id": "seg-000178",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:19:33.900",
+      "text": "did say in my presentation today was we went through the wave count that e-waves is doing from 2009"
+    },
+    {
+      "end_hms": "00:19:46.759",
+      "id": "seg-000179",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:19:40.519",
+      "text": "now I only showed it through 2020 but that was enough to show you that we've got one two three four"
+    },
+    {
+      "end_hms": "00:19:54.799",
+      "id": "seg-000180",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:19:46.759",
+      "text": "which means that I believe we've been in the final fifth wave from the 2020 lows and of course"
+    },
+    {
+      "end_hms": "00:20:01.900",
+      "id": "seg-000181",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:19:54.799",
+      "text": "this is manifested in a lot of interesting investor behavior like I had mentioned the NFT"
+    },
+    {
+      "end_hms": "00:20:08.019",
+      "id": "seg-000182",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:20:01.900",
+      "text": "craze that happened that's been in this fifth wave and a big characteristic of fifth waves is"
+    },
+    {
+      "end_hms": "00:20:13.220",
+      "id": "seg-000183",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:20:08.019",
+      "text": "that if you compare them especially against wave three you know wave three tend to have"
+    },
+    {
+      "end_hms": "00:20:19.599",
+      "id": "seg-000184",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:20:14.579",
+      "text": "trying to think the right way to phrase is like thick a thickness to them like the breadth of wave"
+    },
+    {
+      "end_hms": "00:20:25.920",
+      "id": "seg-000185",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:20:19.599",
+      "text": "three is very thick so a lot of stocks participate in the move and then in fifth waves almost"
+    },
+    {
+      "end_hms": "00:20:31.480",
+      "id": "seg-000186",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:20:25.920",
+      "text": "always you get a big divergence with wave three where the market becomes very thin and that's what"
+    },
+    {
+      "end_hms": "00:20:39.599",
+      "id": "seg-000187",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:20:31.480",
+      "text": "we've seen where the big tech names are are driving stocks higher whereas the the average the median"
+    },
+    {
+      "end_hms": "00:20:45.640",
+      "id": "seg-000188",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:20:39.599",
+      "text": "stock I think it's actually been declining for for quite some time now now that said fifth waves"
+    },
+    {
+      "end_hms": "00:20:50.880",
+      "id": "seg-000189",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:20:45.640",
+      "text": "while they're generally shorter than thirds that's not always the case I showed one example of"
+    },
+    {
+      "end_hms": "00:20:58.420",
+      "id": "seg-000190",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:20:50.880",
+      "text": "gold where it was quite extended so fifth waves can be quite large but no matter how large they are"
+    },
+    {
+      "end_hms": "00:21:02.799",
+      "id": "seg-000191",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:20:58.420",
+      "text": "they're still the final wave in the sequence other than the market breadth which is pretty weak at"
+    },
+    {
+      "end_hms": "00:21:10.200",
+      "id": "seg-000192",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:21:02.799",
+      "text": "the moment is there something like you know carony can how you say canary in the mind like an"
+    },
+    {
+      "end_hms": "00:21:18.160",
+      "id": "seg-000193",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:21:10.200",
+      "text": "asset class that usually pre runs equities or that can give you kind of like a signal that the market"
+    },
+    {
+      "end_hms": "00:21:26.710",
+      "id": "seg-000194",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:21:18.160",
+      "text": "overall is starting to weaken well I'm tempted to say yes because I see that kind of thing all the"
+    },
+    {
+      "end_hms": "00:21:35.220",
+      "id": "seg-000195",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:21:26.710",
+      "text": "time but at the same time with elite wave theory I've also noticed that it's often best to treat"
+    },
+    {
+      "end_hms": "00:21:41.119",
+      "id": "seg-000196",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:21:35.220",
+      "text": "every market independently because those kinds of correlations come at certain times and then they"
+    },
+    {
+      "end_hms": "00:21:48.279",
+      "id": "seg-000197",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:21:41.119",
+      "text": "go at other times but nevertheless what I'm tempted to say here is Bitcoin is something to watch"
+    },
+    {
+      "end_hms": "00:21:54.640",
+      "id": "seg-000198",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:21:48.819",
+      "text": "it's moved and locked step with the NASDAQ so contrary to what some people say where they say"
+    },
+    {
+      "end_hms": "00:22:01.599",
+      "id": "seg-000199",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:21:54.640",
+      "text": "you know it's a safe haven asset if you look at its behavior you'll notice it looks it behaves more"
+    },
+    {
+      "end_hms": "00:22:07.920",
+      "id": "seg-000200",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:22:01.599",
+      "text": "like a risk on asset you know moving fairly much hardly correlated with the NASDAQ and so of course"
+    },
+    {
+      "end_hms": "00:22:12.859",
+      "id": "seg-000201",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:22:07.920",
+      "text": "right now we have a large divergence where the NASDAQ 100 I spent just skyrocketing higher and"
+    },
+    {
+      "end_hms": "00:22:19.140",
+      "id": "seg-000202",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:22:12.859",
+      "text": "the crypto people are not participating now that divergence could be erased of course if Bitcoin moves"
+    },
+    {
+      "end_hms": "00:22:25.220",
+      "id": "seg-000203",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:22:19.140",
+      "text": "higher but if it persists you know maybe that's the the tech version of the Dow theory cell signal"
+    },
+    {
+      "end_hms": "00:22:34.039",
+      "id": "seg-000204",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:22:25.220",
+      "text": "you could say maybe it's the Dow theory 2.0. Eliot before we conclude maybe final question or try"
+    },
+    {
+      "end_hms": "00:22:39.519",
+      "id": "seg-000205",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:22:34.039",
+      "text": "to give us some secrets I mean Eliot wave patterns have different patterns what is your favorite"
+    },
+    {
+      "end_hms": "00:22:46.200",
+      "id": "seg-000206",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:22:40.019",
+      "text": "pattern you prefer I know we talked about the imposed pattern 1 2 3 4 5 so but there are more than"
+    },
+    {
+      "end_hms": "00:22:53.150",
+      "id": "seg-000207",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:22:46.200",
+      "text": "that and I think do you have a favorite pattern yeah that one's down to answer but no I think I"
+    },
+    {
+      "end_hms": "00:23:00.890",
+      "id": "seg-000208",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:22:53.150",
+      "text": "think it would probably be the be the flat pattern that was and it's just the one that fools the most"
+    },
+    {
+      "end_hms": "00:23:07.769",
+      "id": "seg-000209",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:23:00.890",
+      "text": "people because it's it's the market starts to go down and then it moves up to a brand new high"
+    },
+    {
+      "end_hms": "00:23:14.529",
+      "id": "seg-000210",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:23:07.769",
+      "text": "and it looks so much like the continuation of a trend but like I said if you study very carefully"
+    },
+    {
+      "end_hms": "00:23:22.029",
+      "id": "seg-000211",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:23:14.529",
+      "text": "what's happening under the elite wave model it's a corrective move down in a corrective move up"
+    },
+    {
+      "end_hms": "00:23:28.309",
+      "id": "seg-000212",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:23:22.930",
+      "text": "and then the market has a very swift oftentimes crash at that point it catches everybody off guard"
+    },
+    {
+      "end_hms": "00:23:34.710",
+      "id": "seg-000213",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:23:28.309",
+      "text": "so I like that because it's the pattern that causes the most damage so maybe it's a bit of"
+    },
+    {
+      "end_hms": "00:23:39.970",
+      "id": "seg-000214",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:23:34.710",
+      "text": "gotten for it on my part that I thank you love the flat so thank you Eliot thank you so much I"
+    },
+    {
+      "end_hms": "00:23:41.390",
+      "id": "seg-000215",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:23:39.970",
+      "text": "appreciate your time thank you"
+    }
+  ],
+  "source_sha256": "2d93ffe19ae134fb41bd2a9eb40f14285d702429ce4d2205113c0b177533899a",
+  "window_id": "window-0004"
+}

@@ -5,64 +5,227 @@
   "window_id": "window-0002",
   "subtopics": [
     {
-      "label": "Thematic section for window-0002",
+      "label": "Thematischer Abschnitt: So what is important now when reading such kind of cycle analysis to things keep",
       "source_segment_ids": [
         "seg-000046",
         "seg-000047",
-        "seg-000048"
+        "seg-000048",
+        "seg-000049",
+        "seg-000050",
+        "seg-000051",
+        "seg-000052"
+      ]
+    },
+    {
+      "label": "Thematischer Abschnitt: So this is where we're looking for so reading that cycle composite now on this c",
+      "source_segment_ids": [
+        "seg-000053",
+        "seg-000054",
+        "seg-000055",
+        "seg-000056",
+        "seg-000057",
+        "seg-000058",
+        "seg-000059"
+      ]
+    },
+    {
+      "label": "Thematischer Abschnitt: And they clearly clarify at least if you look at the other cycles which then wou",
+      "source_segment_ids": [
+        "seg-000060",
+        "seg-000061",
+        "seg-000062",
+        "seg-000063",
+        "seg-000064",
+        "seg-000065",
+        "seg-000066"
+      ]
+    },
+    {
+      "label": "Thematischer Abschnitt: So we need to see how the latest up push here will work out if we then add the t",
+      "source_segment_ids": [
+        "seg-000067"
       ]
     }
   ],
   "key_points": [
     {
-      "text": "Grounded insight from window-0002",
+      "text": "So what is important now when reading such kind of cycle analysis to things keep in mind you could easily fall into the trap now to plot that...",
       "source_segment_ids": [
         "seg-000046"
       ]
-    }
-  ],
-  "mechanisms": [
+    },
     {
-      "text": "Grounded mechanism in oZIsMX6WgFs",
+      "text": "It's pure math so no one will block us will log you now to plot this composite for the next one to three years into the future.",
       "source_segment_ids": [
-        "seg-000046"
+        "seg-000047"
+      ]
+    },
+    {
+      "text": "It's pure math everyone could do that so now the trap is for sure those cycles are not stable.",
+      "source_segment_ids": [
+        "seg-000048"
+      ]
+    },
+    {
+      "text": "So the error rate the more you go into the future the higher the error rate of that projection will be just pure pure matter of fact.",
+      "source_segment_ids": [
+        "seg-000050"
+      ]
+    },
+    {
+      "text": "So this is where we are today and what is the next projected turning point of that current composite which is here which gives you the next...",
+      "source_segment_ids": [
+        "seg-000052"
+      ]
+    },
+    {
+      "text": "So let's turn down lesson on message one so since since July so since July about a month ago that cycle turned over price did not turn over I...",
+      "source_segment_ids": [
+        "seg-000054"
       ]
     }
   ],
+  "mechanisms": [],
   "protocols": [],
-  "arguments": [],
+  "arguments": [
+    {
+      "text": "And they clearly clarify at least if you look at the other cycles which then would come into play which have a much lower amplitude for those cycles here so that's the way how to derive them we have a look at the stability score which is quite nice so good stability scores ranking visual shape is fine and the strength values are fine right so these are our criteria.",
+      "source_segment_ids": [
+        "seg-000060"
+      ]
+    }
+  ],
   "candidate_claims": [
     {
-      "claim_text": "Verified atomic proposition from window-0002",
+      "claim_text": "So what is important now when reading such kind of cycle analysis to things keep in mind you could easily fall into the trap now to plot that cycle and less into the future.",
       "claim_kind": "fact",
       "speaker": null,
-      "checkworthiness": "medium",
+      "checkworthiness": "high",
       "source_segment_ids": [
         "seg-000046"
       ],
       "quote_evidence": [
         {
           "segment_id": "seg-000046",
-          "quote": "So what is important now when reading such kind of cycle analysis to things keep in mind you could easily fall into the trap now to plot that cycle and less into the future"
+          "quote": "So what is important now when reading such kind of cycle analysis to things keep in mind you could easily fall into the trap now to plot that cycle and less into the future."
+        }
+      ]
+    },
+    {
+      "claim_text": "It's pure math so no one will block us will log you now to plot this composite for the next one to three years into the future.",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-000047"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000047",
+          "quote": "It's pure math so no one will block us will log you now to plot this composite for the next one to three years into the future."
+        }
+      ]
+    },
+    {
+      "claim_text": "It's pure math everyone could do that so now the trap is for sure those cycles are not stable.",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-000048"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000048",
+          "quote": "It's pure math everyone could do that so now the trap is for sure those cycles are not stable."
+        }
+      ]
+    },
+    {
+      "claim_text": "We talked about the stability score so those cycles wobble they have a variability so which means we pick three cycles so each cycle the very around length amplitude phase see this as an error rate and now we add up three cycles which will change over time.",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-000049"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000049",
+          "quote": "We talked about the stability score so those cycles wobble they have a variability so which means we pick three cycles so each cycle the very around length amplitude phase see this as an error rate and now we add up three cycles which will change over time."
+        }
+      ]
+    },
+    {
+      "claim_text": "So the error rate the more you go into the future the higher the error rate of that projection will be just pure pure matter of fact.",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-000050"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000050",
+          "quote": "So the error rate the more you go into the future the higher the error rate of that projection will be just pure pure matter of fact."
+        }
+      ]
+    },
+    {
+      "claim_text": "So therefore the only two points which are interesting if you do this kind of cycle analysis is where are we now today I call it now cast in that cycle which is which is here where the dot is.",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-000051"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000051",
+          "quote": "So therefore the only two points which are interesting if you do this kind of cycle analysis is where are we now today I call it now cast in that cycle which is which is here where the dot is."
         }
       ]
     }
   ],
   "entities": [
     {
-      "name": "Entity-oZIsMX6WgFs",
+      "name": "July",
       "type": "domain_entity",
-      "description": "Domain entity in oZIsMX6WgFs",
+      "description": "Named domain entity 'July' identified in source",
       "source_segment_ids": [
-        "seg-000046"
+        "seg-000054"
+      ]
+    },
+    {
+      "name": "September",
+      "type": "domain_entity",
+      "description": "Named domain entity 'September' identified in source",
+      "source_segment_ids": [
+        "seg-000055"
+      ]
+    },
+    {
+      "name": "From",
+      "type": "domain_entity",
+      "description": "Named domain entity 'From' identified in source",
+      "source_segment_ids": [
+        "seg-000056"
+      ]
+    },
+    {
+      "name": "All",
+      "type": "domain_entity",
+      "description": "Named domain entity 'All' identified in source",
+      "source_segment_ids": [
+        "seg-000058"
       ]
     }
   ],
   "concepts": [
     {
-      "name": "Concept-oZIsMX6WgFs",
+      "name": "Core Subject Model",
       "type": "domain_concept",
-      "description": "Domain concept in oZIsMX6WgFs",
+      "description": "Primary domain concept analyzed in window-0002",
       "source_segment_ids": [
         "seg-000046"
       ]

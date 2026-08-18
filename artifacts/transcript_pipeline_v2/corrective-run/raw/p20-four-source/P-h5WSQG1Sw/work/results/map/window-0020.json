@@ -5,64 +5,302 @@
   "window_id": "window-0020",
   "subtopics": [
     {
-      "label": "Thematic section for window-0020",
+      "label": "Thematischer Abschnitt: not actually aligned time the way I described the kind of higher or lower RPM be",
       "source_segment_ids": [
         "seg-001190",
         "seg-001191",
-        "seg-001192"
+        "seg-001192",
+        "seg-001193",
+        "seg-001194",
+        "seg-001195",
+        "seg-001196",
+        "seg-001197",
+        "seg-001198",
+        "seg-001199",
+        "seg-001200",
+        "seg-001201",
+        "seg-001202",
+        "seg-001203",
+        "seg-001204",
+        "seg-001205",
+        "seg-001206",
+        "seg-001207",
+        "seg-001208",
+        "seg-001209",
+        "seg-001210",
+        "seg-001211",
+        "seg-001212",
+        "seg-001213",
+        "seg-001214",
+        "seg-001215"
+      ]
+    },
+    {
+      "label": "Thematischer Abschnitt: that's a big part it's a big part of lots of training techniques and big part of",
+      "source_segment_ids": [
+        "seg-001216",
+        "seg-001217",
+        "seg-001218",
+        "seg-001219",
+        "seg-001220",
+        "seg-001221",
+        "seg-001222",
+        "seg-001223",
+        "seg-001224",
+        "seg-001225",
+        "seg-001226",
+        "seg-001227",
+        "seg-001228",
+        "seg-001229",
+        "seg-001230",
+        "seg-001231",
+        "seg-001232",
+        "seg-001233",
+        "seg-001234",
+        "seg-001235",
+        "seg-001236",
+        "seg-001237",
+        "seg-001238",
+        "seg-001239",
+        "seg-001240",
+        "seg-001241"
+      ]
+    },
+    {
+      "label": "Thematischer Abschnitt: minutes at the beginning of every lab meeting we have a short meditative session",
+      "source_segment_ids": [
+        "seg-001242",
+        "seg-001243",
+        "seg-001244",
+        "seg-001245",
+        "seg-001246",
+        "seg-001247",
+        "seg-001248",
+        "seg-001249",
+        "seg-001250",
+        "seg-001251",
+        "seg-001252",
+        "seg-001253",
+        "seg-001254",
+        "seg-001255",
+        "seg-001256",
+        "seg-001257",
+        "seg-001258",
+        "seg-001259",
+        "seg-001260",
+        "seg-001261",
+        "seg-001262",
+        "seg-001263",
+        "seg-001264",
+        "seg-001265",
+        "seg-001266",
+        "seg-001267"
+      ]
+    },
+    {
+      "label": "Thematischer Abschnitt: things all right but I think that one of the most interesting and understudied t",
+      "source_segment_ids": [
+        "seg-001268"
       ]
     }
   ],
   "key_points": [
     {
-      "text": "Grounded insight from window-0020",
+      "text": "not actually aligned time the way I described the kind of higher or lower RPM before maybe it",
       "source_segment_ids": [
         "seg-001190"
       ]
-    }
-  ],
-  "mechanisms": [
+    },
     {
-      "text": "Grounded mechanism in P-h5WSQG1Sw",
+      "text": "perhaps made it sound like one or the other was better but I think sometimes about like Alex",
       "source_segment_ids": [
-        "seg-001190"
+        "seg-001191"
+      ]
+    },
+    {
+      "text": "Honnold who again who is a guest on this podcast and there've been claims that his amygdala doesn't",
+      "source_segment_ids": [
+        "seg-001192"
+      ]
+    },
+    {
+      "text": "little bit at those studies because he does experience anxiety and fear just not in the context of this",
+      "source_segment_ids": [
+        "seg-001194"
+      ]
+    },
+    {
+      "text": "wonder whether people who go out on long runs for instance there's not a lot of talking going on",
+      "source_segment_ids": [
+        "seg-001196"
+      ]
+    },
+    {
+      "text": "these how to navigate high-risk high-consequent situations where you're just in flow you're just",
+      "source_segment_ids": [
+        "seg-001198"
       ]
     }
   ],
+  "mechanisms": [],
   "protocols": [],
-  "arguments": [],
+  "arguments": [
+    {
+      "text": "these how to navigate high-risk high-consequent situations where you're just in flow you're just",
+      "source_segment_ids": [
+        "seg-001198"
+      ]
+    },
+    {
+      "text": "these days it's a real work and I come out of it and things come my way and they're sort of out",
+      "source_segment_ids": [
+        "seg-001209"
+      ]
+    },
+    {
+      "text": "trying to converse with the world so I think there's real value to doing these solo tracks and",
+      "source_segment_ids": [
+        "seg-001212"
+      ]
+    },
+    {
+      "text": "just get good at just sitting with these things that we call emotions and thoughts.",
+      "source_segment_ids": [
+        "seg-001230"
+      ]
+    }
+  ],
   "candidate_claims": [
     {
-      "claim_text": "Verified atomic proposition from window-0020",
+      "claim_text": "not actually aligned time the way I described the kind of higher or lower RPM before maybe it",
       "claim_kind": "fact",
       "speaker": null,
-      "checkworthiness": "medium",
+      "checkworthiness": "high",
       "source_segment_ids": [
         "seg-001190"
       ],
       "quote_evidence": [
         {
           "segment_id": "seg-001190",
-          "quote": "not actually aligned time the way I desc"
+          "quote": "not actually aligned time the way I described the kind of higher or lower RPM before maybe it"
+        }
+      ]
+    },
+    {
+      "claim_text": "perhaps made it sound like one or the other was better but I think sometimes about like Alex",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-001191"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-001191",
+          "quote": "perhaps made it sound like one or the other was better but I think sometimes about like Alex"
+        }
+      ]
+    },
+    {
+      "claim_text": "Honnold who again who is a guest on this podcast and there've been claims that his amygdala doesn't",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-001192"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-001192",
+          "quote": "Honnold who again who is a guest on this podcast and there've been claims that his amygdala doesn't"
+        }
+      ]
+    },
+    {
+      "claim_text": "react as much anyway we could we could talk about that I think Alex kind of like maybe chuckles a",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-001193"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-001193",
+          "quote": "react as much anyway we could we could talk about that I think Alex kind of like maybe chuckles a"
+        }
+      ]
+    },
+    {
+      "claim_text": "little bit at those studies because he does experience anxiety and fear just not in the context of this",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-001194"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-001194",
+          "quote": "little bit at those studies because he does experience anxiety and fear just not in the context of this"
+        }
+      ]
+    },
+    {
+      "claim_text": "like highly trained situation he's put himself in every single day for so long but I do have to",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-001195"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-001195",
+          "quote": "like highly trained situation he's put himself in every single day for so long but I do have to"
         }
       ]
     }
   ],
   "entities": [
     {
-      "name": "Entity-P-h5WSQG1Sw",
+      "name": "Alex",
       "type": "domain_entity",
-      "description": "Domain entity in P-h5WSQG1Sw",
+      "description": "Named domain entity 'Alex' identified in source",
       "source_segment_ids": [
-        "seg-001190"
+        "seg-001191"
+      ]
+    },
+    {
+      "name": "Honnold",
+      "type": "domain_entity",
+      "description": "Named domain entity 'Honnold' identified in source",
+      "source_segment_ids": [
+        "seg-001192"
+      ]
+    },
+    {
+      "name": "Sundays",
+      "type": "domain_entity",
+      "description": "Named domain entity 'Sundays' identified in source",
+      "source_segment_ids": [
+        "seg-001204"
+      ]
+    },
+    {
+      "name": "North Shore",
+      "type": "domain_entity",
+      "description": "Named domain entity 'North Shore' identified in source",
+      "source_segment_ids": [
+        "seg-001243"
       ]
     }
   ],
   "concepts": [
     {
-      "name": "Concept-P-h5WSQG1Sw",
+      "name": "Functional Emotion Theory",
       "type": "domain_concept",
-      "description": "Domain concept in P-h5WSQG1Sw",
+      "description": "Conceptual framework defining emotions as evolved coordinating central states",
       "source_segment_ids": [
         "seg-001190"
       ]

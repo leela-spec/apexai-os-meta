@@ -1,10 +1,10 @@
 {
-  "claim_count": 1,
-  "concept_count": 2,
-  "entity_count": 1,
+  "claim_count": 18,
+  "concept_count": 3,
+  "entity_count": 3,
   "macro": "wiki/summaries/Macro.md",
-  "module_count": 1,
-  "reduce_result_sha256": "b7065e9d2c2adca8569f9840a813a28494aa2eccd25f63549e6a0423d3a50d1c",
+  "module_count": 3,
+  "reduce_result_sha256": "ad1ebc61f635dc5935a070d92ff4fd48eb2cb43ac7bf20c87ca59d11dd68b217",
   "schema": "ttk.compiled.v2",
   "verification_state": "result_missing",
   "verify_results_sha256": null

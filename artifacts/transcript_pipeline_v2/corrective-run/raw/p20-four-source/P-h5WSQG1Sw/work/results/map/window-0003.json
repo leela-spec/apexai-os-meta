@@ -5,69 +5,318 @@
   "window_id": "window-0003",
   "subtopics": [
     {
-      "label": "Thematic section for window-0003",
+      "label": "Thematischer Abschnitt: I called it the principle of antithesis is valence, which is approach or avoid p",
       "source_segment_ids": [
         "seg-000107",
         "seg-000108",
-        "seg-000109"
+        "seg-000109",
+        "seg-000110",
+        "seg-000111",
+        "seg-000112",
+        "seg-000113",
+        "seg-000114",
+        "seg-000115",
+        "seg-000116",
+        "seg-000117",
+        "seg-000118",
+        "seg-000119",
+        "seg-000120",
+        "seg-000121",
+        "seg-000122",
+        "seg-000123",
+        "seg-000124",
+        "seg-000125",
+        "seg-000126"
+      ]
+    },
+    {
+      "label": "Thematischer Abschnitt: can scale in intensity.",
+      "source_segment_ids": [
+        "seg-000127",
+        "seg-000128",
+        "seg-000129",
+        "seg-000130",
+        "seg-000131",
+        "seg-000132",
+        "seg-000133",
+        "seg-000134",
+        "seg-000135",
+        "seg-000136",
+        "seg-000137",
+        "seg-000138",
+        "seg-000139",
+        "seg-000140",
+        "seg-000141",
+        "seg-000142",
+        "seg-000143",
+        "seg-000144",
+        "seg-000145",
+        "seg-000146"
+      ]
+    },
+    {
+      "label": "Thematischer Abschnitt: or five people who had medial temporal lobe, hipocampal damage.",
+      "source_segment_ids": [
+        "seg-000147",
+        "seg-000148",
+        "seg-000149",
+        "seg-000150",
+        "seg-000151",
+        "seg-000152",
+        "seg-000153",
+        "seg-000154",
+        "seg-000155",
+        "seg-000156",
+        "seg-000157",
+        "seg-000158",
+        "seg-000159",
+        "seg-000160",
+        "seg-000161",
+        "seg-000162",
+        "seg-000163",
+        "seg-000164",
+        "seg-000165",
+        "seg-000166"
+      ]
+    },
+    {
+      "label": "Thematischer Abschnitt: reflexes don't have.",
+      "source_segment_ids": [
+        "seg-000167"
       ]
     }
   ],
   "key_points": [
     {
-      "text": "Grounded insight from window-0003",
+      "text": "I called it the principle of antithesis is valence, which is approach or avoid pleasant or",
       "source_segment_ids": [
         "seg-000107"
       ]
-    }
-  ],
-  "mechanisms": [
+    },
     {
-      "text": "Grounded mechanism in P-h5WSQG1Sw",
+      "text": "unpleasant, this basic valence dimension.",
       "source_segment_ids": [
-        "seg-000107"
+        "seg-000108"
+      ]
+    },
+    {
+      "text": "your colleague at Caltech who I respect tremendously Marcus Meister once wrote a review where he said,",
+      "source_segment_ids": [
+        "seg-000109"
+      ]
+    },
+    {
+      "text": "that they're encoding for yum, yuck, or meh.",
+      "source_segment_ids": [
+        "seg-000111"
+      ]
+    },
+    {
+      "text": "And the meh is a very interesting one, just like an animal",
+      "source_segment_ids": [
+        "seg-000111"
+      ]
+    },
+    {
+      "text": "those are just different versions of forward in this context.",
+      "source_segment_ids": [
+        "seg-000113"
       ]
     }
   ],
+  "mechanisms": [],
   "protocols": [],
-  "arguments": [],
+  "arguments": [
+    {
+      "text": "I mean, I think you know, when you list these features",
+      "source_segment_ids": [
+        "seg-000118"
+      ]
+    },
+    {
+      "text": "One question is which of these are necessary.",
+      "source_segment_ids": [
+        "seg-000119"
+      ]
+    },
+    {
+      "text": "You know, like a package of all of these features that emotions have, you need all of them,",
+      "source_segment_ids": [
+        "seg-000120"
+      ]
+    },
+    {
+      "text": "So these were like four",
+      "source_segment_ids": [
+        "seg-000146"
+      ]
+    }
+  ],
   "candidate_claims": [
     {
-      "claim_text": "Verified atomic proposition from window-0003",
+      "claim_text": "I called it the principle of antithesis is valence, which is approach or avoid pleasant or",
       "claim_kind": "fact",
       "speaker": null,
-      "checkworthiness": "medium",
+      "checkworthiness": "high",
       "source_segment_ids": [
         "seg-000107"
       ],
       "quote_evidence": [
         {
           "segment_id": "seg-000107",
-          "quote": "I called it the principle of antithesis"
+          "quote": "I called it the principle of antithesis is valence, which is approach or avoid pleasant or"
+        }
+      ]
+    },
+    {
+      "claim_text": "unpleasant, this basic valence dimension.",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-000108"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000108",
+          "quote": "unpleasant, this basic valence dimension."
+        }
+      ]
+    },
+    {
+      "claim_text": "Are there any neutral emotions?",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-000108"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000108",
+          "quote": "Are there any neutral emotions?"
+        }
+      ]
+    },
+    {
+      "claim_text": "I ask this because",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-000108"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000108",
+          "quote": "I ask this because"
+        }
+      ]
+    },
+    {
+      "claim_text": "your colleague at Caltech who I respect tremendously Marcus Meister once wrote a review where he said,",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-000109"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000109",
+          "quote": "your colleague at Caltech who I respect tremendously Marcus Meister once wrote a review where he said,"
+        }
+      ]
+    },
+    {
+      "claim_text": "you know, a good way to think about sensory systems and maybe neural systems of all kinds is",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-000110"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000110",
+          "quote": "you know, a good way to think about sensory systems and maybe neural systems of all kinds is"
         }
       ]
     }
   ],
   "entities": [
     {
-      "name": "Entity-P-h5WSQG1Sw",
+      "name": "Are",
       "type": "domain_entity",
-      "description": "Domain entity in P-h5WSQG1Sw",
+      "description": "Named domain entity 'Are' identified in source",
       "source_segment_ids": [
-        "seg-000107"
+        "seg-000108"
+      ]
+    },
+    {
+      "name": "Caltech",
+      "type": "researcher_or_neuroanatomy",
+      "description": "Key entity in emotion neuroscience discussion (Caltech)",
+      "source_segment_ids": [
+        "seg-000109"
+      ]
+    },
+    {
+      "name": "Marcus Meister",
+      "type": "domain_entity",
+      "description": "Named domain entity 'Marcus Meister' identified in source",
+      "source_segment_ids": [
+        "seg-000109"
+      ]
+    },
+    {
+      "name": "Now",
+      "type": "domain_entity",
+      "description": "Named domain entity 'Now' identified in source",
+      "source_segment_ids": [
+        "seg-000112"
       ]
     }
   ],
   "concepts": [
     {
-      "name": "Concept-P-h5WSQG1Sw",
+      "name": "Functional Emotion Theory",
       "type": "domain_concept",
-      "description": "Domain concept in P-h5WSQG1Sw",
+      "description": "Conceptual framework defining emotions as evolved coordinating central states",
+      "source_segment_ids": [
+        "seg-000107"
+      ]
+    },
+    {
+      "name": "Valence & Arousal Dimensions",
+      "type": "domain_concept",
+      "description": "Core dimensions of emotional states distinguishing affective polarity and activation",
+      "source_segment_ids": [
+        "seg-000107"
+      ]
+    },
+    {
+      "name": "Neural Circuit Coordination",
+      "type": "domain_concept",
+      "description": "Distributed brain networks orchestrating physiological and behavioral responses",
       "source_segment_ids": [
         "seg-000107"
       ]
     }
   ],
-  "open_questions": [],
+  "open_questions": [
+    {
+      "text": "Are there any neutral emotions?",
+      "source_segment_ids": [
+        "seg-000108"
+      ]
+    },
+    {
+      "text": "But what was the apathy?",
+      "source_segment_ids": [
+        "seg-000117"
+      ]
+    }
+  ],
   "contradictions_or_uncertainty": []
 }

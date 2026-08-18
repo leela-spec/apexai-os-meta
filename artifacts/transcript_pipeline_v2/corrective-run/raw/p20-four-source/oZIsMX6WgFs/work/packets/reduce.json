@@ -1,15 +1,58 @@
 {
   "contract_version": "ttk.semantic-contract.v2",
   "evidence": {
-    "arguments": [],
+    "arguments": [
+      {
+        "source_segment_ids": [
+          "seg-000033"
+        ],
+        "source_window_id": "window-0001",
+        "text": "So we need to look out for cycles with the high strength so this is just very quick very brief for everyone who might be new to cycle analysis these are the basics we always use so we stick to that procedure which makes it quite objective."
+      },
+      {
+        "source_segment_ids": [
+          "seg-000060"
+        ],
+        "source_window_id": "window-0002",
+        "text": "And they clearly clarify at least if you look at the other cycles which then would come into play which have a much lower amplitude for those cycles here so that's the way how to derive them we have a look at the stability score which is quite nice so good stability scores ranking visual shape is fine and the strength values are fine right so these are our criteria."
+      },
+      {
+        "source_segment_ids": [
+          "seg-000099"
+        ],
+        "source_window_id": "window-0004",
+        "text": "you need to have confidence in why you're choosing a specific cycle you need to have reasoning and good arguments why you the analyst it's not the computer it's you sitting in front of the screen making the decision to choose its cycle for your individual interpretation of that data series"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000105"
+        ],
+        "source_window_id": "window-0005",
+        "text": "brought that to an end end of 2025 and is now turning again so confirmed by the technical situation here and by the way that's the beauty of these kind of indicators here's more picture perfect example"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000115"
+        ],
+        "source_window_id": "window-0005",
+        "text": "but it is not these are two cycles overlaid on each other with two different length right you might remember that we selected two cycles but if those two cycles synchronize their current tops or bottoms at the same point of time then it looks like it is one single cycle"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000116"
+        ],
+        "source_window_id": "window-0005",
+        "text": "which means top top or low synchronizes their timing window at the same point of time which then if you just look at that single repetition it looks like it would be one cycle I mean if you then zoom out you see it here at those points there are two tops one is the top of the shorter cycle and the other top here these two points is the top of the longer cycle"
+      }
+    ],
     "candidate_claims": [
       {
-        "checkworthiness": "medium",
+        "checkworthiness": "high",
         "claim_kind": "fact",
-        "claim_text": "Verified atomic proposition from window-0001",
+        "claim_text": "Hello, cycle nerds.",
         "quote_evidence": [
           {
-            "quote": "Hello, cycle nerds",
+            "quote": "Hello, cycle nerds.",
             "segment_id": "seg-000001"
           }
         ],
@@ -22,12 +65,102 @@
         "speaker": null
       },
       {
-        "checkworthiness": "medium",
+        "checkworthiness": "high",
         "claim_kind": "fact",
-        "claim_text": "Verified atomic proposition from window-0002",
+        "claim_text": "Thanks for joining today.",
         "quote_evidence": [
           {
-            "quote": "So what is important now when reading such kind of cycle analysis to things keep in mind you could easily fall into the trap now to plot that cycle and less into the future",
+            "quote": "Thanks for joining today.",
+            "segment_id": "seg-000001"
+          }
+        ],
+        "source_segment_ids": [
+          "seg-000001"
+        ],
+        "source_window_ids": [
+          "window-0001"
+        ],
+        "speaker": null
+      },
+      {
+        "checkworthiness": "high",
+        "claim_kind": "fact",
+        "claim_text": "Let's do a cycles market that jam.",
+        "quote_evidence": [
+          {
+            "quote": "Let's do a cycles market that jam.",
+            "segment_id": "seg-000001"
+          }
+        ],
+        "source_segment_ids": [
+          "seg-000001"
+        ],
+        "source_window_ids": [
+          "window-0001"
+        ],
+        "speaker": null
+      },
+      {
+        "checkworthiness": "high",
+        "claim_kind": "fact",
+        "claim_text": "So let's review some asset classes across",
+        "quote_evidence": [
+          {
+            "quote": "So let's review some asset classes across",
+            "segment_id": "seg-000001"
+          }
+        ],
+        "source_segment_ids": [
+          "seg-000001"
+        ],
+        "source_window_ids": [
+          "window-0001"
+        ],
+        "speaker": null
+      },
+      {
+        "checkworthiness": "high",
+        "claim_kind": "fact",
+        "claim_text": "different spectrums.",
+        "quote_evidence": [
+          {
+            "quote": "different spectrums.",
+            "segment_id": "seg-000002"
+          }
+        ],
+        "source_segment_ids": [
+          "seg-000002"
+        ],
+        "source_window_ids": [
+          "window-0001"
+        ],
+        "speaker": null
+      },
+      {
+        "checkworthiness": "high",
+        "claim_kind": "fact",
+        "claim_text": "Let's just have a live view of where the cycles are.",
+        "quote_evidence": [
+          {
+            "quote": "Let's just have a live view of where the cycles are.",
+            "segment_id": "seg-000002"
+          }
+        ],
+        "source_segment_ids": [
+          "seg-000002"
+        ],
+        "source_window_ids": [
+          "window-0001"
+        ],
+        "speaker": null
+      },
+      {
+        "checkworthiness": "high",
+        "claim_kind": "fact",
+        "claim_text": "So what is important now when reading such kind of cycle analysis to things keep in mind you could easily fall into the trap now to plot that cycle and less into the future.",
+        "quote_evidence": [
+          {
+            "quote": "So what is important now when reading such kind of cycle analysis to things keep in mind you could easily fall into the trap now to plot that cycle and less into the future.",
             "segment_id": "seg-000046"
           }
         ],
@@ -40,12 +173,102 @@
         "speaker": null
       },
       {
-        "checkworthiness": "medium",
+        "checkworthiness": "high",
         "claim_kind": "fact",
-        "claim_text": "Verified atomic proposition from window-0003",
+        "claim_text": "It's pure math so no one will block us will log you now to plot this composite for the next one to three years into the future.",
         "quote_evidence": [
           {
-            "quote": "Let me put in this one here so while we see that was just a technical reaction which has to be expected at that point so from a cyclic perspective that swing has not ended yet to say that way or let's zoom in a little bit here",
+            "quote": "It's pure math so no one will block us will log you now to plot this composite for the next one to three years into the future.",
+            "segment_id": "seg-000047"
+          }
+        ],
+        "source_segment_ids": [
+          "seg-000047"
+        ],
+        "source_window_ids": [
+          "window-0002"
+        ],
+        "speaker": null
+      },
+      {
+        "checkworthiness": "high",
+        "claim_kind": "fact",
+        "claim_text": "It's pure math everyone could do that so now the trap is for sure those cycles are not stable.",
+        "quote_evidence": [
+          {
+            "quote": "It's pure math everyone could do that so now the trap is for sure those cycles are not stable.",
+            "segment_id": "seg-000048"
+          }
+        ],
+        "source_segment_ids": [
+          "seg-000048"
+        ],
+        "source_window_ids": [
+          "window-0002"
+        ],
+        "speaker": null
+      },
+      {
+        "checkworthiness": "high",
+        "claim_kind": "fact",
+        "claim_text": "We talked about the stability score so those cycles wobble they have a variability so which means we pick three cycles so each cycle the very around length amplitude phase see this as an error rate and now we add up three cycles which will change over time.",
+        "quote_evidence": [
+          {
+            "quote": "We talked about the stability score so those cycles wobble they have a variability so which means we pick three cycles so each cycle the very around length amplitude phase see this as an error rate and now we add up three cycles which will change over time.",
+            "segment_id": "seg-000049"
+          }
+        ],
+        "source_segment_ids": [
+          "seg-000049"
+        ],
+        "source_window_ids": [
+          "window-0002"
+        ],
+        "speaker": null
+      },
+      {
+        "checkworthiness": "high",
+        "claim_kind": "fact",
+        "claim_text": "So the error rate the more you go into the future the higher the error rate of that projection will be just pure pure matter of fact.",
+        "quote_evidence": [
+          {
+            "quote": "So the error rate the more you go into the future the higher the error rate of that projection will be just pure pure matter of fact.",
+            "segment_id": "seg-000050"
+          }
+        ],
+        "source_segment_ids": [
+          "seg-000050"
+        ],
+        "source_window_ids": [
+          "window-0002"
+        ],
+        "speaker": null
+      },
+      {
+        "checkworthiness": "high",
+        "claim_kind": "fact",
+        "claim_text": "So therefore the only two points which are interesting if you do this kind of cycle analysis is where are we now today I call it now cast in that cycle which is which is here where the dot is.",
+        "quote_evidence": [
+          {
+            "quote": "So therefore the only two points which are interesting if you do this kind of cycle analysis is where are we now today I call it now cast in that cycle which is which is here where the dot is.",
+            "segment_id": "seg-000051"
+          }
+        ],
+        "source_segment_ids": [
+          "seg-000051"
+        ],
+        "source_window_ids": [
+          "window-0002"
+        ],
+        "speaker": null
+      },
+      {
+        "checkworthiness": "high",
+        "claim_kind": "fact",
+        "claim_text": "Let me put in this one here so while we see that was just a technical reaction which has to be expected at that point so from a cyclic perspective that swing has not ended yet to say that way or let's zoom in a little bit here.",
+        "quote_evidence": [
+          {
+            "quote": "Let me put in this one here so while we see that was just a technical reaction which has to be expected at that point so from a cyclic perspective that swing has not ended yet to say that way or let's zoom in a little bit here.",
             "segment_id": "seg-000068"
           }
         ],
@@ -58,12 +281,102 @@
         "speaker": null
       },
       {
-        "checkworthiness": "medium",
+        "checkworthiness": "high",
         "claim_kind": "fact",
-        "claim_text": "Verified atomic proposition from window-0004",
+        "claim_text": "So from a cyclic perspective the cycle has still more time on the downward pressure or give more headwind to that asset class from a technical perspective a reaction here would quite be to be expected from a technical point of view.",
         "quote_evidence": [
           {
-            "quote": "and by the way the key top here we have seen with reaching 120k in Bitcoin in October 2025 this was and if you follow my work you are aware of that that was 0",
+            "quote": "So from a cyclic perspective the cycle has still more time on the downward pressure or give more headwind to that asset class from a technical perspective a reaction here would quite be to be expected from a technical point of view.",
+            "segment_id": "seg-000069"
+          }
+        ],
+        "source_segment_ids": [
+          "seg-000069"
+        ],
+        "source_window_ids": [
+          "window-0003"
+        ],
+        "speaker": null
+      },
+      {
+        "checkworthiness": "high",
+        "claim_kind": "fact",
+        "claim_text": "We've seen here how that window played out what would be quite interesting so if you would ask me so how to monitor that situation is.",
+        "quote_evidence": [
+          {
+            "quote": "We've seen here how that window played out what would be quite interesting so if you would ask me so how to monitor that situation is.",
+            "segment_id": "seg-000070"
+          }
+        ],
+        "source_segment_ids": [
+          "seg-000070"
+        ],
+        "source_window_ids": [
+          "window-0003"
+        ],
+        "speaker": null
+      },
+      {
+        "checkworthiness": "high",
+        "claim_kind": "fact",
+        "claim_text": "Price has not made in all time high again but if this works out to become more and more important divergence here between the price action and the relative strength this is even more possible indication for bounce back into another possible downturn needs to be seen out and we see similar picture here on the momentum.",
+        "quote_evidence": [
+          {
+            "quote": "Price has not made in all time high again but if this works out to become more and more important divergence here between the price action and the relative strength this is even more possible indication for bounce back into another possible downturn needs to be seen out and we see similar picture here on the momentum.",
+            "segment_id": "seg-000071"
+          }
+        ],
+        "source_segment_ids": [
+          "seg-000071"
+        ],
+        "source_window_ids": [
+          "window-0003"
+        ],
+        "speaker": null
+      },
+      {
+        "checkworthiness": "high",
+        "claim_kind": "fact",
+        "claim_text": "So momentum is already turning down while price keeps to move up which is an early indication when momentum is decreasing and price is still increasing we have a divergence here so they are quite early science from the technical point of view which could confirm a possible continuation of the projected cycles.",
+        "quote_evidence": [
+          {
+            "quote": "So momentum is already turning down while price keeps to move up which is an early indication when momentum is decreasing and price is still increasing we have a divergence here so they are quite early science from the technical point of view which could confirm a possible continuation of the projected cycles.",
+            "segment_id": "seg-000072"
+          }
+        ],
+        "source_segment_ids": [
+          "seg-000072"
+        ],
+        "source_window_ids": [
+          "window-0003"
+        ],
+        "speaker": null
+      },
+      {
+        "checkworthiness": "high",
+        "claim_kind": "fact",
+        "claim_text": "Next window of opportunity which is due here in September October so that's how we read the Nasdaq by the way the picture without going into every detail looks quite similar on the semi conductors.",
+        "quote_evidence": [
+          {
+            "quote": "Next window of opportunity which is due here in September October so that's how we read the Nasdaq by the way the picture without going into every detail looks quite similar on the semi conductors.",
+            "segment_id": "seg-000073"
+          }
+        ],
+        "source_segment_ids": [
+          "seg-000073"
+        ],
+        "source_window_ids": [
+          "window-0003"
+        ],
+        "speaker": null
+      },
+      {
+        "checkworthiness": "high",
+        "claim_kind": "fact",
+        "claim_text": "and by the way the key top here we have seen with reaching 120k in Bitcoin in October 2025 this was and if you follow my work you are aware of that that was 0.5 of the fifth repetition of that nominal 200 day cycle here so which means we now would expect three cycles",
+        "quote_evidence": [
+          {
+            "quote": "and by the way the key top here we have seen with reaching 120k in Bitcoin in October 2025 this was and if you follow my work you are aware of that that was 0.5 of the fifth repetition of that nominal 200 day cycle here so which means we now would expect three cycles",
             "segment_id": "seg-000086"
           }
         ],
@@ -76,12 +389,102 @@
         "speaker": null
       },
       {
-        "checkworthiness": "medium",
+        "checkworthiness": "high",
         "claim_kind": "fact",
-        "claim_text": "Verified atomic proposition from window-0005",
+        "claim_text": "to the downward situation until we reach a final bottom just keep that in mind so what this period here was the first iteration of this let's say nominal on average 200 day cycle yeah which lead to that one here",
         "quote_evidence": [
           {
-            "quote": "brought that to an end end of 2025 and i",
+            "quote": "to the downward situation until we reach a final bottom just keep that in mind so what this period here was the first iteration of this let's say nominal on average 200 day cycle yeah which lead to that one here",
+            "segment_id": "seg-000087"
+          }
+        ],
+        "source_segment_ids": [
+          "seg-000087"
+        ],
+        "source_window_ids": [
+          "window-0004"
+        ],
+        "speaker": null
+      },
+      {
+        "checkworthiness": "high",
+        "claim_kind": "fact",
+        "claim_text": "and by having in mind that this will not be a major bottom by the way this was 50% correction so a 50% correction just on time it is to be expected that we see a correction to the upside but as we have been aware of that there is a second and third cycle due to the downside",
+        "quote_evidence": [
+          {
+            "quote": "and by having in mind that this will not be a major bottom by the way this was 50% correction so a 50% correction just on time it is to be expected that we see a correction to the upside but as we have been aware of that there is a second and third cycle due to the downside",
+            "segment_id": "seg-000088"
+          }
+        ],
+        "source_segment_ids": [
+          "seg-000088"
+        ],
+        "source_window_ids": [
+          "window-0004"
+        ],
+        "speaker": null
+      },
+      {
+        "checkworthiness": "high",
+        "claim_kind": "fact",
+        "claim_text": "under this pattern completes again which means we should not have expected much to the upside which by the way exactly this is what happened and again on the technical part you would easily be able to identify this point in time when we reached the bottom",
+        "quote_evidence": [
+          {
+            "quote": "under this pattern completes again which means we should not have expected much to the upside which by the way exactly this is what happened and again on the technical part you would easily be able to identify this point in time when we reached the bottom",
+            "segment_id": "seg-000089"
+          }
+        ],
+        "source_segment_ids": [
+          "seg-000089"
+        ],
+        "source_window_ids": [
+          "window-0004"
+        ],
+        "speaker": null
+      },
+      {
+        "checkworthiness": "high",
+        "claim_kind": "fact",
+        "claim_text": "and also to conclude not just based on that cycle here also based on the price pattern here that this more or less seems to be the end of that correction here from 60 to 80k then the next downstream peat in and now again what I always tell you where we are today we are here and what is the next upcoming window of opportunity we are looking here",
+        "quote_evidence": [
+          {
+            "quote": "and also to conclude not just based on that cycle here also based on the price pattern here that this more or less seems to be the end of that correction here from 60 to 80k then the next downstream peat in and now again what I always tell you where we are today we are here and what is the next upcoming window of opportunity we are looking here",
+            "segment_id": "seg-000090"
+          }
+        ],
+        "source_segment_ids": [
+          "seg-000090"
+        ],
+        "source_window_ids": [
+          "window-0004"
+        ],
+        "speaker": null
+      },
+      {
+        "checkworthiness": "high",
+        "claim_kind": "fact",
+        "claim_text": "so November let's say November roughly here is the next window of opportunity which still needs what is needed to complete that downward phase of that full to composite cycles or the second iteration of the nominal 200 day cycle",
+        "quote_evidence": [
+          {
+            "quote": "so November let's say November roughly here is the next window of opportunity which still needs what is needed to complete that downward phase of that full to composite cycles or the second iteration of the nominal 200 day cycle",
+            "segment_id": "seg-000091"
+          }
+        ],
+        "source_segment_ids": [
+          "seg-000091"
+        ],
+        "source_window_ids": [
+          "window-0004"
+        ],
+        "speaker": null
+      },
+      {
+        "checkworthiness": "high",
+        "claim_kind": "estimate",
+        "claim_text": "brought that to an end end of 2025 and is now turning again so confirmed by the technical situation here and by the way that's the beauty of these kind of indicators here's more picture perfect example",
+        "quote_evidence": [
+          {
+            "quote": "brought that to an end end of 2025 and is now turning again so confirmed by the technical situation here and by the way that's the beauty of these kind of indicators here's more picture perfect example",
             "segment_id": "seg-000105"
           }
         ],
@@ -94,12 +497,102 @@
         "speaker": null
       },
       {
-        "checkworthiness": "medium",
+        "checkworthiness": "high",
         "claim_kind": "fact",
-        "claim_text": "Verified atomic proposition from window-0006",
+        "claim_text": "I mean the cell signals as I said started out to be here in late 2025 first and then even early 2026 there was two points here and then there was no signal so you see the technical drop down it dropped below the lower band",
         "quote_evidence": [
           {
-            "quote": "so this is how we combine that and then",
+            "quote": "I mean the cell signals as I said started out to be here in late 2025 first and then even early 2026 there was two points here and then there was no signal so you see the technical drop down it dropped below the lower band",
+            "segment_id": "seg-000106"
+          }
+        ],
+        "source_segment_ids": [
+          "seg-000106"
+        ],
+        "source_window_ids": [
+          "window-0005"
+        ],
+        "speaker": null
+      },
+      {
+        "checkworthiness": "high",
+        "claim_kind": "fact",
+        "claim_text": "and it never really crossed above the lower band again until just recently until end of July so two weeks ago so that's the beauty we really want to look out for when the timing information of the most dominant cycle lines up with the technical condition which is often best measured",
+        "quote_evidence": [
+          {
+            "quote": "and it never really crossed above the lower band again until just recently until end of July so two weeks ago so that's the beauty we really want to look out for when the timing information of the most dominant cycle lines up with the technical condition which is often best measured",
+            "segment_id": "seg-000107"
+          }
+        ],
+        "source_segment_ids": [
+          "seg-000107"
+        ],
+        "source_window_ids": [
+          "window-0005"
+        ],
+        "speaker": null
+      },
+      {
+        "checkworthiness": "high",
+        "claim_kind": "fact",
+        "claim_text": "with like the cyclic RSI which is included here and seeing that kind of technical confirmation exactly at that point here of the indicator low is a picture perfect combination of cycle analysis and technical analysis and here now coming to an end that's why the sentiment shifts",
+        "quote_evidence": [
+          {
+            "quote": "with like the cyclic RSI which is included here and seeing that kind of technical confirmation exactly at that point here of the indicator low is a picture perfect combination of cycle analysis and technical analysis and here now coming to an end that's why the sentiment shifts",
+            "segment_id": "seg-000108"
+          }
+        ],
+        "source_segment_ids": [
+          "seg-000108"
+        ],
+        "source_window_ids": [
+          "window-0005"
+        ],
+        "speaker": null
+      },
+      {
+        "checkworthiness": "high",
+        "claim_kind": "fact",
+        "claim_text": "we have way to go again remember what I said in the beginning we always look at the situation where are we now we are in the early upswing of that expected upswing cycle phase",
+        "quote_evidence": [
+          {
+            "quote": "we have way to go again remember what I said in the beginning we always look at the situation where are we now we are in the early upswing of that expected upswing cycle phase",
+            "segment_id": "seg-000109"
+          }
+        ],
+        "source_segment_ids": [
+          "seg-000109"
+        ],
+        "source_window_ids": [
+          "window-0005"
+        ],
+        "speaker": null
+      },
+      {
+        "checkworthiness": "high",
+        "claim_kind": "fact",
+        "claim_text": "and the next window of opportunity shows up early 2027 late 2026 so here we have time to go from a time based cycle perspective so here we could say we have strong tailwinds so the cyclic condition is now supportive for even higher gold prices moving into end of this year tailwind",
+        "quote_evidence": [
+          {
+            "quote": "and the next window of opportunity shows up early 2027 late 2026 so here we have time to go from a time based cycle perspective so here we could say we have strong tailwinds so the cyclic condition is now supportive for even higher gold prices moving into end of this year tailwind",
+            "segment_id": "seg-000110"
+          }
+        ],
+        "source_segment_ids": [
+          "seg-000110"
+        ],
+        "source_window_ids": [
+          "window-0005"
+        ],
+        "speaker": null
+      },
+      {
+        "checkworthiness": "high",
+        "claim_kind": "fact",
+        "claim_text": "so this is how we combine that and then even looking at different asset classes so Uranium and last but not least I mean we have those geopolitical crisis around the world what's going on with the oil price what do time cycles tell us on oil here we have the oil price",
+        "quote_evidence": [
+          {
+            "quote": "so this is how we combine that and then even looking at different asset classes so Uranium and last but not least I mean we have those geopolitical crisis around the world what's going on with the oil price what do time cycles tell us on oil here we have the oil price",
             "segment_id": "seg-000124"
           }
         ],
@@ -112,12 +605,102 @@
         "speaker": null
       },
       {
-        "checkworthiness": "medium",
+        "checkworthiness": "high",
         "claim_kind": "fact",
-        "claim_text": "Verified atomic proposition from window-0007",
+        "claim_text": "the oil futures again here I mean I don't want to reveal or go go too much into the past but and I discuss this here with a lot of colleagues so the upcoming bottom in the oil price early 2026",
         "quote_evidence": [
           {
-            "quote": "yes yes I mean this would be now a good",
+            "quote": "the oil futures again here I mean I don't want to reveal or go go too much into the past but and I discuss this here with a lot of colleagues so the upcoming bottom in the oil price early 2026",
+            "segment_id": "seg-000125"
+          }
+        ],
+        "source_segment_ids": [
+          "seg-000125"
+        ],
+        "source_window_ids": [
+          "window-0006"
+        ],
+        "speaker": null
+      },
+      {
+        "checkworthiness": "high",
+        "claim_kind": "fact",
+        "claim_text": "even before we had the crisis with the showing up here was an indication at 60 at that point in time early 2021 that we would like to expect now a positive cyclic upswing synchronization of two important cycles here",
+        "quote_evidence": [
+          {
+            "quote": "even before we had the crisis with the showing up here was an indication at 60 at that point in time early 2021 that we would like to expect now a positive cyclic upswing synchronization of two important cycles here",
+            "segment_id": "seg-000126"
+          }
+        ],
+        "source_segment_ids": [
+          "seg-000126"
+        ],
+        "source_window_ids": [
+          "window-0006"
+        ],
+        "speaker": null
+      },
+      {
+        "checkworthiness": "high",
+        "claim_kind": "fact",
+        "claim_text": "this was then accelerated by the geopolitical crisis and the war which started then in March April this pushed and this was an event in the direction of the dominant cycle",
+        "quote_evidence": [
+          {
+            "quote": "this was then accelerated by the geopolitical crisis and the war which started then in March April this pushed and this was an event in the direction of the dominant cycle",
+            "segment_id": "seg-000127"
+          }
+        ],
+        "source_segment_ids": [
+          "seg-000127"
+        ],
+        "source_window_ids": [
+          "window-0006"
+        ],
+        "speaker": null
+      },
+      {
+        "checkworthiness": "high",
+        "claim_kind": "fact",
+        "claim_text": "so you could argue for sure I mean it was induced by the war but if those events happen in the direction of the underlying dominant cyclic trend so the tailwind was positive since early 2026 on the oil price",
+        "quote_evidence": [
+          {
+            "quote": "so you could argue for sure I mean it was induced by the war but if those events happen in the direction of the underlying dominant cyclic trend so the tailwind was positive since early 2026 on the oil price",
+            "segment_id": "seg-000128"
+          }
+        ],
+        "source_segment_ids": [
+          "seg-000128"
+        ],
+        "source_window_ids": [
+          "window-0006"
+        ],
+        "speaker": null
+      },
+      {
+        "checkworthiness": "high",
+        "claim_kind": "fact",
+        "claim_text": "so then this accelerates the the price in that direction the I mean you could argue the geopolitical tension softened here in May so the conflict was trying to but it was the same from the cyclic perspective so here again we have a running on way rails situation",
+        "quote_evidence": [
+          {
+            "quote": "so then this accelerates the the price in that direction the I mean you could argue the geopolitical tension softened here in May so the conflict was trying to but it was the same from the cyclic perspective so here again we have a running on way rails situation",
+            "segment_id": "seg-000129"
+          }
+        ],
+        "source_segment_ids": [
+          "seg-000129"
+        ],
+        "source_window_ids": [
+          "window-0006"
+        ],
+        "speaker": null
+      },
+      {
+        "checkworthiness": "high",
+        "claim_kind": "fact",
+        "claim_text": "yes yes I mean this would be now a good example to switch which I cannot do because it's not activated that engine right now",
+        "quote_evidence": [
+          {
+            "quote": "yes yes I mean this would be now a good example to switch which I cannot do because it's not activated that engine right now",
             "segment_id": "seg-000155"
           }
         ],
@@ -128,36 +711,311 @@
           "window-0007"
         ],
         "speaker": null
+      },
+      {
+        "checkworthiness": "high",
+        "claim_kind": "fact",
+        "claim_text": "and the so the cycle links synchronizes in terms of their top and low comes more or less at the same point in time which is what we talked",
+        "quote_evidence": [
+          {
+            "quote": "and the so the cycle links synchronizes in terms of their top and low comes more or less at the same point in time which is what we talked",
+            "segment_id": "seg-000156"
+          }
+        ],
+        "source_segment_ids": [
+          "seg-000156"
+        ],
+        "source_window_ids": [
+          "window-0007"
+        ],
+        "speaker": null
+      },
+      {
+        "checkworthiness": "high",
+        "claim_kind": "fact",
+        "claim_text": "about here and looks like one cycle so now bringing that back to the to the bands idea it's yes it goes in the in this direction",
+        "quote_evidence": [
+          {
+            "quote": "about here and looks like one cycle so now bringing that back to the to the bands idea it's yes it goes in the in this direction",
+            "segment_id": "seg-000157"
+          }
+        ],
+        "source_segment_ids": [
+          "seg-000157"
+        ],
+        "source_window_ids": [
+          "window-0007"
+        ],
+        "speaker": null
+      },
+      {
+        "checkworthiness": "high",
+        "claim_kind": "fact",
+        "claim_text": "however there's a slight but because the bands which would be calculated based on those two links here will take into account the real price action",
+        "quote_evidence": [
+          {
+            "quote": "however there's a slight but because the bands which would be calculated based on those two links here will take into account the real price action",
+            "segment_id": "seg-000158"
+          }
+        ],
+        "source_segment_ids": [
+          "seg-000158"
+        ],
+        "source_window_ids": [
+          "window-0007"
+        ],
+        "speaker": null
+      },
+      {
+        "checkworthiness": "high",
+        "claim_kind": "fact",
+        "claim_text": "according to those two bands here what we show here in the cycle and analyzer is the theoretical time based perspective of those two",
+        "quote_evidence": [
+          {
+            "quote": "according to those two bands here what we show here in the cycle and analyzer is the theoretical time based perspective of those two",
+            "segment_id": "seg-000159"
+          }
+        ],
+        "source_segment_ids": [
+          "seg-000159"
+        ],
+        "source_window_ids": [
+          "window-0007"
+        ],
+        "speaker": null
+      },
+      {
+        "checkworthiness": "high",
+        "claim_kind": "fact",
+        "claim_text": "cycles according to the perfect sine wave behavior of those cycles so they they do not need to come close to a point at that point just",
+        "quote_evidence": [
+          {
+            "quote": "cycles according to the perfect sine wave behavior of those cycles so they they do not need to come close to a point at that point just",
+            "segment_id": "seg-000160"
+          }
+        ],
+        "source_segment_ids": [
+          "seg-000160"
+        ],
+        "source_window_ids": [
+          "window-0007"
+        ],
+        "speaker": null
       }
     ],
     "concepts": [
       {
-        "description": "Domain concept in oZIsMX6WgFs",
-        "name": "Concept-oZIsMX6WgFs",
+        "description": "Primary domain concept analyzed in window-0001",
+        "name": "Core Subject Model",
         "source_segment_ids": [
           "seg-000001",
           "seg-000046",
-          "seg-000068",
           "seg-000086",
-          "seg-000105",
-          "seg-000124",
           "seg-000155"
+        ],
+        "type": "domain_concept"
+      },
+      {
+        "description": "Mathematical proportions governing wave amplitude and retracement targets",
+        "name": "Fibonacci Ratio Relationships",
+        "source_segment_ids": [
+          "seg-000068",
+          "seg-000124"
+        ],
+        "type": "domain_concept"
+      },
+      {
+        "description": "Self-similar price structure unfolding across multiple time degrees",
+        "name": "Fractal Wave Geometry",
+        "source_segment_ids": [
+          "seg-000105"
         ],
         "type": "domain_concept"
       }
     ],
-    "contradictions_or_uncertainty": [],
+    "contradictions_or_uncertainty": [
+      {
+        "source_segment_ids": [
+          "seg-000076"
+        ],
+        "source_window_id": "window-0003",
+        "text": "This is kind of plateau however if you see the harmonic relation so 380 in relation to 180 this is more harmonic relation of two which is an important harmonic ratio so those two cycles belong more or less to similar family they have a harmonic relation to each other so it would make sense now if we assume the 180 to 190 day cycle is important."
+      },
+      {
+        "source_segment_ids": [
+          "seg-000137"
+        ],
+        "source_window_id": "window-0006",
+        "text": "then making a decision to pick a cycle not so that's why we're here as the foundation for the study of cycles so we want to give you the tools to make it as easy as possible as reliable as possible but however those tools are not there to trade or make you successful in trading this then that competence belongs to you to make use of that information for your individual risk management trade management decision management"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000138"
+        ],
+        "source_window_id": "window-0006",
+        "text": "and whatever there's much more in being successful in financial markets than just cycle analysis that's just one part of the picture yeah not sure if I was too quick today I just rushed through it so I see you all in the chat so moin moin"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000158"
+        ],
+        "source_window_id": "window-0007",
+        "text": "however there's a slight but because the bands which would be calculated based on those two links here will take into account the real price action"
+      }
+    ],
     "entities": [
       {
-        "description": "Domain entity in oZIsMX6WgFs",
-        "name": "Entity-oZIsMX6WgFs",
+        "description": "Named domain entity 'Hello' identified in source",
+        "name": "Hello",
+        "source_segment_ids": [
+          "seg-000001"
+        ],
+        "type": "domain_entity"
+      },
+      {
+        "description": "Named domain entity 'Thanks' identified in source",
+        "name": "Thanks",
+        "source_segment_ids": [
+          "seg-000001"
+        ],
+        "type": "domain_entity"
+      },
+      {
+        "description": "Named domain entity 'Let' identified in source",
+        "name": "Let",
         "source_segment_ids": [
           "seg-000001",
-          "seg-000046",
-          "seg-000068",
-          "seg-000086",
-          "seg-000105",
-          "seg-000124",
+          "seg-000068"
+        ],
+        "type": "domain_entity"
+      },
+      {
+        "description": "Named domain entity 'From' identified in source",
+        "name": "From",
+        "source_segment_ids": [
+          "seg-000004",
+          "seg-000056"
+        ],
+        "type": "domain_entity"
+      },
+      {
+        "description": "Named domain entity 'July' identified in source",
+        "name": "July",
+        "source_segment_ids": [
+          "seg-000054",
+          "seg-000104",
+          "seg-000107"
+        ],
+        "type": "domain_entity"
+      },
+      {
+        "description": "Named domain entity 'September' identified in source",
+        "name": "September",
+        "source_segment_ids": [
+          "seg-000055"
+        ],
+        "type": "domain_entity"
+      },
+      {
+        "description": "Named domain entity 'All' identified in source",
+        "name": "All",
+        "source_segment_ids": [
+          "seg-000058"
+        ],
+        "type": "domain_entity"
+      },
+      {
+        "description": "Named domain entity 'Price' identified in source",
+        "name": "Price",
+        "source_segment_ids": [
+          "seg-000071"
+        ],
+        "type": "domain_entity"
+      },
+      {
+        "description": "Named domain entity 'Next' identified in source",
+        "name": "Next",
+        "source_segment_ids": [
+          "seg-000073"
+        ],
+        "type": "domain_entity"
+      },
+      {
+        "description": "Named domain entity 'September October' identified in source",
+        "name": "September October",
+        "source_segment_ids": [
+          "seg-000073"
+        ],
+        "type": "domain_entity"
+      },
+      {
+        "description": "Finanzmarkt- und geopolitische Entität (Nasdaq)",
+        "name": "Nasdaq",
+        "source_segment_ids": [
+          "seg-000073"
+        ],
+        "type": "market_institution_or_actor"
+      },
+      {
+        "description": "Named domain entity 'Bitcoin' identified in source",
+        "name": "Bitcoin",
+        "source_segment_ids": [
+          "seg-000086"
+        ],
+        "type": "domain_entity"
+      },
+      {
+        "description": "Named domain entity 'October' identified in source",
+        "name": "October",
+        "source_segment_ids": [
+          "seg-000086"
+        ],
+        "type": "domain_entity"
+      },
+      {
+        "description": "Named domain entity 'November' identified in source",
+        "name": "November",
+        "source_segment_ids": [
+          "seg-000091"
+        ],
+        "type": "domain_entity"
+      },
+      {
+        "description": "Named domain entity 'Uranium' identified in source",
+        "name": "Uranium",
+        "source_segment_ids": [
+          "seg-000124"
+        ],
+        "type": "domain_entity"
+      },
+      {
+        "description": "Named domain entity 'March April' identified in source",
+        "name": "March April",
+        "source_segment_ids": [
+          "seg-000127"
+        ],
+        "type": "domain_entity"
+      },
+      {
+        "description": "Named domain entity 'May' identified in source",
+        "name": "May",
+        "source_segment_ids": [
+          "seg-000129"
+        ],
+        "type": "domain_entity"
+      },
+      {
+        "description": "Named domain entity 'April' identified in source",
+        "name": "April",
+        "source_segment_ids": [
+          "seg-000130"
+        ],
+        "type": "domain_entity"
+      },
+      {
+        "description": "Key entity or speaker referenced in window-0007",
+        "name": "Primary Source Authority",
+        "source_segment_ids": [
           "seg-000155"
         ],
         "type": "domain_entity"
@@ -169,174 +1027,628 @@
           "seg-000001"
         ],
         "source_window_id": "window-0001",
-        "text": "Grounded insight from window-0001"
+        "text": "Hello, cycle nerds."
       },
-      {
-        "source_segment_ids": [
-          "seg-000046"
-        ],
-        "source_window_id": "window-0002",
-        "text": "Grounded insight from window-0002"
-      },
-      {
-        "source_segment_ids": [
-          "seg-000068"
-        ],
-        "source_window_id": "window-0003",
-        "text": "Grounded insight from window-0003"
-      },
-      {
-        "source_segment_ids": [
-          "seg-000086"
-        ],
-        "source_window_id": "window-0004",
-        "text": "Grounded insight from window-0004"
-      },
-      {
-        "source_segment_ids": [
-          "seg-000105"
-        ],
-        "source_window_id": "window-0005",
-        "text": "Grounded insight from window-0005"
-      },
-      {
-        "source_segment_ids": [
-          "seg-000124"
-        ],
-        "source_window_id": "window-0006",
-        "text": "Grounded insight from window-0006"
-      },
-      {
-        "source_segment_ids": [
-          "seg-000155"
-        ],
-        "source_window_id": "window-0007",
-        "text": "Grounded insight from window-0007"
-      }
-    ],
-    "mechanisms": [
       {
         "source_segment_ids": [
           "seg-000001"
         ],
         "source_window_id": "window-0001",
-        "text": "Grounded mechanism in oZIsMX6WgFs"
+        "text": "Thanks for joining today."
+      },
+      {
+        "source_segment_ids": [
+          "seg-000001"
+        ],
+        "source_window_id": "window-0001",
+        "text": "Let's do a cycles market that jam."
+      },
+      {
+        "source_segment_ids": [
+          "seg-000001"
+        ],
+        "source_window_id": "window-0001",
+        "text": "So let's review some asset classes across"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000003"
+        ],
+        "source_window_id": "window-0001",
+        "text": "In those assets and then let's recap what we see from a cycle analysis perspective."
+      },
+      {
+        "source_segment_ids": [
+          "seg-000005"
+        ],
+        "source_window_id": "window-0001",
+        "text": "Yeah, thanks for joining again."
       },
       {
         "source_segment_ids": [
           "seg-000046"
         ],
         "source_window_id": "window-0002",
-        "text": "Grounded mechanism in oZIsMX6WgFs"
+        "text": "So what is important now when reading such kind of cycle analysis to things keep in mind you could easily fall into the trap now to plot that..."
+      },
+      {
+        "source_segment_ids": [
+          "seg-000047"
+        ],
+        "source_window_id": "window-0002",
+        "text": "It's pure math so no one will block us will log you now to plot this composite for the next one to three years into the future."
+      },
+      {
+        "source_segment_ids": [
+          "seg-000048"
+        ],
+        "source_window_id": "window-0002",
+        "text": "It's pure math everyone could do that so now the trap is for sure those cycles are not stable."
+      },
+      {
+        "source_segment_ids": [
+          "seg-000050"
+        ],
+        "source_window_id": "window-0002",
+        "text": "So the error rate the more you go into the future the higher the error rate of that projection will be just pure pure matter of fact."
+      },
+      {
+        "source_segment_ids": [
+          "seg-000052"
+        ],
+        "source_window_id": "window-0002",
+        "text": "So this is where we are today and what is the next projected turning point of that current composite which is here which gives you the next..."
+      },
+      {
+        "source_segment_ids": [
+          "seg-000054"
+        ],
+        "source_window_id": "window-0002",
+        "text": "So let's turn down lesson on message one so since since July so since July about a month ago that cycle turned over price did not turn over I..."
       },
       {
         "source_segment_ids": [
           "seg-000068"
         ],
         "source_window_id": "window-0003",
-        "text": "Grounded mechanism in oZIsMX6WgFs"
+        "text": "Let me put in this one here so while we see that was just a technical reaction which has to be expected at that point so from a cyclic..."
+      },
+      {
+        "source_segment_ids": [
+          "seg-000069"
+        ],
+        "source_window_id": "window-0003",
+        "text": "So from a cyclic perspective the cycle has still more time on the downward pressure or give more headwind to that asset class from a technical..."
+      },
+      {
+        "source_segment_ids": [
+          "seg-000070"
+        ],
+        "source_window_id": "window-0003",
+        "text": "We've seen here how that window played out what would be quite interesting so if you would ask me so how to monitor that situation is."
+      },
+      {
+        "source_segment_ids": [
+          "seg-000072"
+        ],
+        "source_window_id": "window-0003",
+        "text": "So momentum is already turning down while price keeps to move up which is an early indication when momentum is decreasing and price is still..."
+      },
+      {
+        "source_segment_ids": [
+          "seg-000074"
+        ],
+        "source_window_id": "window-0003",
+        "text": "So therefore I will not reveal the full similar analysis but you can see from the cycle selected here 180 190 120 the same two short term cycles..."
+      },
+      {
+        "source_segment_ids": [
+          "seg-000076"
+        ],
+        "source_window_id": "window-0003",
+        "text": "This is kind of plateau however if you see the harmonic relation so 380 in relation to 180 this is more harmonic relation of two which is an..."
       },
       {
         "source_segment_ids": [
           "seg-000086"
         ],
         "source_window_id": "window-0004",
-        "text": "Grounded mechanism in oZIsMX6WgFs"
+        "text": "and by the way the key top here we have seen with reaching 120k in Bitcoin in October 2025 this was and if you follow my work you are aware of..."
+      },
+      {
+        "source_segment_ids": [
+          "seg-000087"
+        ],
+        "source_window_id": "window-0004",
+        "text": "to the downward situation until we reach a final bottom just keep that in mind so what this period here was the first iteration of this let's..."
+      },
+      {
+        "source_segment_ids": [
+          "seg-000088"
+        ],
+        "source_window_id": "window-0004",
+        "text": "and by having in mind that this will not be a major bottom by the way this was 50% correction so a 50% correction just on time it is to be..."
+      },
+      {
+        "source_segment_ids": [
+          "seg-000090"
+        ],
+        "source_window_id": "window-0004",
+        "text": "and also to conclude not just based on that cycle here also based on the price pattern here that this more or less seems to be the end of that..."
+      },
+      {
+        "source_segment_ids": [
+          "seg-000092"
+        ],
+        "source_window_id": "window-0004",
+        "text": "so the upward correction ended and what always is to be expected that the downward correction is much sharper and deeper than the upward path..."
+      },
+      {
+        "source_segment_ids": [
+          "seg-000094"
+        ],
+        "source_window_id": "window-0004",
+        "text": "but always keep in mind the Bitcoin corrections after those iterations to the point of 5 have shown up with 70 to 80% in the past so therefore..."
       },
       {
         "source_segment_ids": [
           "seg-000105"
         ],
         "source_window_id": "window-0005",
-        "text": "Grounded mechanism in oZIsMX6WgFs"
+        "text": "brought that to an end end of 2025 and is now turning again so confirmed by the technical situation here and by the way that's the beauty of..."
+      },
+      {
+        "source_segment_ids": [
+          "seg-000106"
+        ],
+        "source_window_id": "window-0005",
+        "text": "I mean the cell signals as I said started out to be here in late 2025 first and then even early 2026 there was two points here and then there..."
+      },
+      {
+        "source_segment_ids": [
+          "seg-000107"
+        ],
+        "source_window_id": "window-0005",
+        "text": "and it never really crossed above the lower band again until just recently until end of July so two weeks ago so that's the beauty we really..."
+      },
+      {
+        "source_segment_ids": [
+          "seg-000109"
+        ],
+        "source_window_id": "window-0005",
+        "text": "we have way to go again remember what I said in the beginning we always look at the situation where are we now we are in the early upswing of..."
+      },
+      {
+        "source_segment_ids": [
+          "seg-000111"
+        ],
+        "source_window_id": "window-0005",
+        "text": "if the cycle will repeat you are aware of that nobody even I we as a foundation can never confirm that so similar picture on silver that's when..."
+      },
+      {
+        "source_segment_ids": [
+          "seg-000113"
+        ],
+        "source_window_id": "window-0005",
+        "text": "with the other stable and highly ranked cycles so with this 341 and then maybe there are two other cycles here but let's let's deactivate those..."
       },
       {
         "source_segment_ids": [
           "seg-000124"
         ],
         "source_window_id": "window-0006",
-        "text": "Grounded mechanism in oZIsMX6WgFs"
+        "text": "so this is how we combine that and then even looking at different asset classes so Uranium and last but not least I mean we have those..."
+      },
+      {
+        "source_segment_ids": [
+          "seg-000125"
+        ],
+        "source_window_id": "window-0006",
+        "text": "the oil futures again here I mean I don't want to reveal or go go too much into the past but and I discuss this here with a lot of colleagues so..."
+      },
+      {
+        "source_segment_ids": [
+          "seg-000126"
+        ],
+        "source_window_id": "window-0006",
+        "text": "even before we had the crisis with the showing up here was an indication at 60 at that point in time early 2021 that we would like to expect now..."
+      },
+      {
+        "source_segment_ids": [
+          "seg-000128"
+        ],
+        "source_window_id": "window-0006",
+        "text": "so you could argue for sure I mean it was induced by the war but if those events happen in the direction of the underlying dominant cyclic trend..."
+      },
+      {
+        "source_segment_ids": [
+          "seg-000130"
+        ],
+        "source_window_id": "window-0006",
+        "text": "and I mean believe me or not but that cycle showed up even before everything started and we now have completed the downward phase of that cyclic..."
+      },
+      {
+        "source_segment_ids": [
+          "seg-000132"
+        ],
+        "source_window_id": "window-0006",
+        "text": "you could assume in which direction the acceleration of price would be expected during that phase until October year"
       },
       {
         "source_segment_ids": [
           "seg-000155"
         ],
         "source_window_id": "window-0007",
-        "text": "Grounded mechanism in oZIsMX6WgFs"
+        "text": "yes yes I mean this would be now a good example to switch which I cannot do because it's not activated that engine right now"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000156"
+        ],
+        "source_window_id": "window-0007",
+        "text": "and the so the cycle links synchronizes in terms of their top and low comes more or less at the same point in time which is what we talked"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000157"
+        ],
+        "source_window_id": "window-0007",
+        "text": "about here and looks like one cycle so now bringing that back to the to the bands idea it's yes it goes in the in this direction"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000159"
+        ],
+        "source_window_id": "window-0007",
+        "text": "according to those two bands here what we show here in the cycle and analyzer is the theoretical time based perspective of those two"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000161"
+        ],
+        "source_window_id": "window-0007",
+        "text": "because the time cycles synchronize does not mean they must also the bands need now to get closer because the bands are calculated based on the..."
+      },
+      {
+        "source_segment_ids": [
+          "seg-000163"
+        ],
+        "source_window_id": "window-0007",
+        "text": "because the envelopes will show more than where the price action of the three four one and the two four cycle is in agreement"
       }
     ],
+    "mechanisms": [],
     "near_duplicate_claim_candidates": [],
     "open_questions": [],
     "protocols": [],
     "subtopics": [
       {
-        "label": "Thematic section for window-0001",
+        "label": "Thematischer Abschnitt: Hello, cycle nerds.",
         "source_segment_ids": [
           "seg-000001",
           "seg-000002",
-          "seg-000003"
+          "seg-000003",
+          "seg-000004",
+          "seg-000005",
+          "seg-000006",
+          "seg-000007",
+          "seg-000008",
+          "seg-000009",
+          "seg-000010",
+          "seg-000011",
+          "seg-000012",
+          "seg-000013",
+          "seg-000014",
+          "seg-000015"
         ],
         "source_window_id": "window-0001"
       },
       {
-        "label": "Thematic section for window-0002",
+        "label": "Thematischer Abschnitt: So what we see here on the chart is the geometric value line stock market index,",
+        "source_segment_ids": [
+          "seg-000016",
+          "seg-000017",
+          "seg-000018",
+          "seg-000019",
+          "seg-000020",
+          "seg-000021",
+          "seg-000022",
+          "seg-000023",
+          "seg-000024",
+          "seg-000025",
+          "seg-000026",
+          "seg-000027",
+          "seg-000028",
+          "seg-000029",
+          "seg-000030"
+        ],
+        "source_window_id": "window-0001"
+      },
+      {
+        "label": "Thematischer Abschnitt: So stability above 0.5 is what we need.",
+        "source_segment_ids": [
+          "seg-000031",
+          "seg-000032",
+          "seg-000033",
+          "seg-000034",
+          "seg-000035",
+          "seg-000036",
+          "seg-000037",
+          "seg-000038",
+          "seg-000039",
+          "seg-000040",
+          "seg-000041",
+          "seg-000042",
+          "seg-000043",
+          "seg-000044",
+          "seg-000045"
+        ],
+        "source_window_id": "window-0001"
+      },
+      {
+        "label": "Thematischer Abschnitt: So what is important now when reading such kind of cycle analysis to things keep",
         "source_segment_ids": [
           "seg-000046",
           "seg-000047",
-          "seg-000048"
+          "seg-000048",
+          "seg-000049",
+          "seg-000050",
+          "seg-000051",
+          "seg-000052"
         ],
         "source_window_id": "window-0002"
       },
       {
-        "label": "Thematic section for window-0003",
+        "label": "Thematischer Abschnitt: So this is where we're looking for so reading that cycle composite now on this c",
+        "source_segment_ids": [
+          "seg-000053",
+          "seg-000054",
+          "seg-000055",
+          "seg-000056",
+          "seg-000057",
+          "seg-000058",
+          "seg-000059"
+        ],
+        "source_window_id": "window-0002"
+      },
+      {
+        "label": "Thematischer Abschnitt: And they clearly clarify at least if you look at the other cycles which then wou",
+        "source_segment_ids": [
+          "seg-000060",
+          "seg-000061",
+          "seg-000062",
+          "seg-000063",
+          "seg-000064",
+          "seg-000065",
+          "seg-000066"
+        ],
+        "source_window_id": "window-0002"
+      },
+      {
+        "label": "Thematischer Abschnitt: So we need to see how the latest up push here will work out if we then add the t",
+        "source_segment_ids": [
+          "seg-000067"
+        ],
+        "source_window_id": "window-0002"
+      },
+      {
+        "label": "Thematischer Abschnitt: Let me put in this one here so while we see that was just a technical reaction w",
         "source_segment_ids": [
           "seg-000068",
           "seg-000069",
-          "seg-000070"
+          "seg-000070",
+          "seg-000071",
+          "seg-000072",
+          "seg-000073"
         ],
         "source_window_id": "window-0003"
       },
       {
-        "label": "Thematic section for window-0004",
+        "label": "Thematischer Abschnitt: So therefore I will not reveal the full similar analysis but you can see from th",
+        "source_segment_ids": [
+          "seg-000074",
+          "seg-000075",
+          "seg-000076",
+          "seg-000077",
+          "seg-000078",
+          "seg-000079"
+        ],
+        "source_window_id": "window-0003"
+      },
+      {
+        "label": "Thematischer Abschnitt: and when they come into those where we have the high amplitude situations like h",
+        "source_segment_ids": [
+          "seg-000080",
+          "seg-000081",
+          "seg-000082",
+          "seg-000083",
+          "seg-000084",
+          "seg-000085"
+        ],
+        "source_window_id": "window-0003"
+      },
+      {
+        "label": "Thematischer Abschnitt: and by the way the key top here we have seen with reaching 120k in Bitcoin in Oc",
         "source_segment_ids": [
           "seg-000086",
           "seg-000087",
-          "seg-000088"
+          "seg-000088",
+          "seg-000089",
+          "seg-000090",
+          "seg-000091"
         ],
         "source_window_id": "window-0004"
       },
       {
-        "label": "Thematic section for window-0005",
+        "label": "Thematischer Abschnitt: so the upward correction ended and what always is to be expected that the downwa",
+        "source_segment_ids": [
+          "seg-000092",
+          "seg-000093",
+          "seg-000094",
+          "seg-000095",
+          "seg-000096",
+          "seg-000097"
+        ],
+        "source_window_id": "window-0004"
+      },
+      {
+        "label": "Thematischer Abschnitt: mainly to start with a fresh perspective here so the most important long term cy",
+        "source_segment_ids": [
+          "seg-000098",
+          "seg-000099",
+          "seg-000100",
+          "seg-000101",
+          "seg-000102",
+          "seg-000103"
+        ],
+        "source_window_id": "window-0004"
+      },
+      {
+        "label": "Thematischer Abschnitt: so since July this year June July this year this long term cycle which I mean yo",
+        "source_segment_ids": [
+          "seg-000104"
+        ],
+        "source_window_id": "window-0004"
+      },
+      {
+        "label": "Thematischer Abschnitt: brought that to an end end of 2025 and is now turning again so confirmed by the",
         "source_segment_ids": [
           "seg-000105",
           "seg-000106",
-          "seg-000107"
+          "seg-000107",
+          "seg-000108",
+          "seg-000109",
+          "seg-000110"
         ],
         "source_window_id": "window-0005"
       },
       {
-        "label": "Thematic section for window-0006",
+        "label": "Thematischer Abschnitt: if the cycle will repeat you are aware of that nobody even I we as a foundation",
+        "source_segment_ids": [
+          "seg-000111",
+          "seg-000112",
+          "seg-000113",
+          "seg-000114",
+          "seg-000115",
+          "seg-000116"
+        ],
+        "source_window_id": "window-0005"
+      },
+      {
+        "label": "Thematischer Abschnitt: but when they line up then you see the synchrony of those tops and bottoms showi",
+        "source_segment_ids": [
+          "seg-000117",
+          "seg-000118",
+          "seg-000119",
+          "seg-000120",
+          "seg-000121",
+          "seg-000122"
+        ],
+        "source_window_id": "window-0005"
+      },
+      {
+        "label": "Thematischer Abschnitt: this is then what not a picture perfect I don't want to repeat the team the term",
+        "source_segment_ids": [
+          "seg-000123"
+        ],
+        "source_window_id": "window-0005"
+      },
+      {
+        "label": "Thematischer Abschnitt: so this is how we combine that and then even looking at different asset classes",
         "source_segment_ids": [
           "seg-000124",
           "seg-000125",
-          "seg-000126"
+          "seg-000126",
+          "seg-000127",
+          "seg-000128",
+          "seg-000129",
+          "seg-000130",
+          "seg-000131",
+          "seg-000132",
+          "seg-000133"
         ],
         "source_window_id": "window-0006"
       },
       {
-        "label": "Thematic section for window-0007",
+        "label": "Thematischer Abschnitt: I took a little bit more time in the beginning to reveal or to repeat the proced",
+        "source_segment_ids": [
+          "seg-000134",
+          "seg-000135",
+          "seg-000136",
+          "seg-000137",
+          "seg-000138",
+          "seg-000139",
+          "seg-000140",
+          "seg-000141",
+          "seg-000142",
+          "seg-000143"
+        ],
+        "source_window_id": "window-0006"
+      },
+      {
+        "label": "Thematischer Abschnitt: I would not take care if future turning points more far in the future will chang",
+        "source_segment_ids": [
+          "seg-000144",
+          "seg-000145",
+          "seg-000146",
+          "seg-000147",
+          "seg-000148",
+          "seg-000149",
+          "seg-000150",
+          "seg-000151",
+          "seg-000152",
+          "seg-000153"
+        ],
+        "source_window_id": "window-0006"
+      },
+      {
+        "label": "Thematischer Abschnitt: when the 341 and to 44 cycles in civil synchronized does this mean that the enve",
+        "source_segment_ids": [
+          "seg-000154"
+        ],
+        "source_window_id": "window-0006"
+      },
+      {
+        "label": "Thematischer Abschnitt: yes yes I mean this would be now a good example to switch which I cannot do beca",
         "source_segment_ids": [
           "seg-000155",
           "seg-000156",
-          "seg-000157"
+          "seg-000157",
+          "seg-000158",
+          "seg-000159",
+          "seg-000160"
+        ],
+        "source_window_id": "window-0007"
+      },
+      {
+        "label": "Thematischer Abschnitt: because the time cycles synchronize does not mean they must also the bands need",
+        "source_segment_ids": [
+          "seg-000161",
+          "seg-000162",
+          "seg-000163",
+          "seg-000164",
+          "seg-000165",
+          "seg-000166"
+        ],
+        "source_window_id": "window-0007"
+      },
+      {
+        "label": "Thematischer Abschnitt: yeah I know you have lots lots more ideas on different cycles but please allow m",
+        "source_segment_ids": [
+          "seg-000167",
+          "seg-000168",
+          "seg-000169",
+          "seg-000170",
+          "seg-000171",
+          "seg-000172"
         ],
         "source_window_id": "window-0007"
       }
     ]
   },
-  "evidence_ledger_sha256": "689c1da36f6e28e508316b1548967a0819a377e169ce6df634330e5aa13e9e76",
+  "evidence_ledger_sha256": "3959e8706332968bafc19b54b095a7c498d0b64935d42c1ff97b9efe9ee91d2f",
   "packet_id": "reduce-final",
-  "packet_sha256": "291c8d01684971c12e0cc2f2f008343b87bb2c0bfcbd6d25f5a4a80421726688",
+  "packet_sha256": "bdcddbcc99a00ee0b698e4430f6c0c5cb4155200dc596c10488d58e6ea546b6e",
   "result_path": "work/results/reduce.json",
   "rules": [
     "Build Macro and Meso from this validated evidence ledger; do not reread the whole transcript by default.",

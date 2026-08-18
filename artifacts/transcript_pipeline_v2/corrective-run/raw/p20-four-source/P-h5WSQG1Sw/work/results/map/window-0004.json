@@ -5,69 +5,315 @@
   "window_id": "window-0004",
   "subtopics": [
     {
-      "label": "Thematic section for window-0004",
+      "label": "Thematischer Abschnitt: I'd like to take a quick break and acknowledge our sponsor, Helix Sleep.",
       "source_segment_ids": [
         "seg-000168",
         "seg-000169",
-        "seg-000170"
+        "seg-000170",
+        "seg-000171",
+        "seg-000172",
+        "seg-000173",
+        "seg-000174",
+        "seg-000175",
+        "seg-000176",
+        "seg-000177",
+        "seg-000178",
+        "seg-000179",
+        "seg-000180",
+        "seg-000181",
+        "seg-000182",
+        "seg-000183",
+        "seg-000184",
+        "seg-000185",
+        "seg-000186",
+        "seg-000187",
+        "seg-000188"
+      ]
+    },
+    {
+      "label": "Thematischer Abschnitt: million Americans are exposed to PFAS chemicals, also known as forever chemicals",
+      "source_segment_ids": [
+        "seg-000189",
+        "seg-000190",
+        "seg-000191",
+        "seg-000192",
+        "seg-000193",
+        "seg-000194",
+        "seg-000195",
+        "seg-000196",
+        "seg-000197",
+        "seg-000198",
+        "seg-000199",
+        "seg-000200",
+        "seg-000201",
+        "seg-000202",
+        "seg-000203",
+        "seg-000204",
+        "seg-000205",
+        "seg-000206",
+        "seg-000207",
+        "seg-000208",
+        "seg-000209"
+      ]
+    },
+    {
+      "label": "Thematischer Abschnitt: talk more about this as also the claim now from Anthropic that large language mo",
+      "source_segment_ids": [
+        "seg-000210",
+        "seg-000211",
+        "seg-000212",
+        "seg-000213",
+        "seg-000214",
+        "seg-000215",
+        "seg-000216",
+        "seg-000217",
+        "seg-000218",
+        "seg-000219",
+        "seg-000220",
+        "seg-000221",
+        "seg-000222",
+        "seg-000223",
+        "seg-000224",
+        "seg-000225",
+        "seg-000226",
+        "seg-000227",
+        "seg-000228",
+        "seg-000229",
+        "seg-000230"
       ]
     }
   ],
   "key_points": [
     {
-      "text": "Grounded insight from window-0004",
+      "text": "I'd like to take a quick break and acknowledge our sponsor, Helix Sleep.",
       "source_segment_ids": [
         "seg-000168"
       ]
-    }
-  ],
-  "mechanisms": [
+    },
     {
-      "text": "Grounded mechanism in P-h5WSQG1Sw",
+      "text": "Helix Sleep makes matrices",
       "source_segment_ids": [
         "seg-000168"
       ]
+    },
+    {
+      "text": "this and on other podcasts about the fact that getting a great night's sleep is the foundation of",
+      "source_segment_ids": [
+        "seg-000170"
+      ]
+    },
+    {
+      "text": "basis, everything suffers.",
+      "source_segment_ids": [
+        "seg-000172"
+      ]
+    },
+    {
+      "text": "And when we are sleeping well and enough, our mental health, physical health",
+      "source_segment_ids": [
+        "seg-000172"
+      ]
+    },
+    {
+      "text": "difference in the quality of sleep that you get each night.",
+      "source_segment_ids": [
+        "seg-000174"
+      ]
     }
   ],
+  "mechanisms": [],
   "protocols": [],
-  "arguments": [],
+  "arguments": [
+    {
+      "text": "These forever chemicals are linked to serious health issues, such as hormone disruption,",
+      "source_segment_ids": [
+        "seg-000190"
+      ]
+    },
+    {
+      "text": "It's for all these reasons that I'm thrilled to have Rora as",
+      "source_segment_ids": [
+        "seg-000193"
+      ]
+    },
+    {
+      "text": "there was discussion about whether animals have emotions based on these criteria.",
+      "source_segment_ids": [
+        "seg-000202"
+      ]
+    },
+    {
+      "text": "But again, these are functionally defined",
+      "source_segment_ids": [
+        "seg-000212"
+      ]
+    }
+  ],
   "candidate_claims": [
     {
-      "claim_text": "Verified atomic proposition from window-0004",
+      "claim_text": "I'd like to take a quick break and acknowledge our sponsor, Helix Sleep.",
       "claim_kind": "fact",
       "speaker": null,
-      "checkworthiness": "medium",
+      "checkworthiness": "high",
       "source_segment_ids": [
         "seg-000168"
       ],
       "quote_evidence": [
         {
           "segment_id": "seg-000168",
-          "quote": "I'd like to take a quick break and acknowledge our sponsor, Helix Sleep"
+          "quote": "I'd like to take a quick break and acknowledge our sponsor, Helix Sleep."
+        }
+      ]
+    },
+    {
+      "claim_text": "Helix Sleep makes matrices",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-000168"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000168",
+          "quote": "Helix Sleep makes matrices"
+        }
+      ]
+    },
+    {
+      "claim_text": "and pillows that are customized to your unique sleep needs.",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-000169"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000169",
+          "quote": "and pillows that are customized to your unique sleep needs."
+        }
+      ]
+    },
+    {
+      "claim_text": "Now, I've spoken many times before on",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-000169"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000169",
+          "quote": "Now, I've spoken many times before on"
+        }
+      ]
+    },
+    {
+      "claim_text": "this and on other podcasts about the fact that getting a great night's sleep is the foundation of",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-000170"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000170",
+          "quote": "this and on other podcasts about the fact that getting a great night's sleep is the foundation of"
+        }
+      ]
+    },
+    {
+      "claim_text": "mental health, physical health and performance.",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-000171"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000171",
+          "quote": "mental health, physical health and performance."
         }
       ]
     }
   ],
   "entities": [
     {
-      "name": "Entity-P-h5WSQG1Sw",
+      "name": "Helix Sleep",
       "type": "domain_entity",
-      "description": "Domain entity in P-h5WSQG1Sw",
+      "description": "Named domain entity 'Helix Sleep' identified in source",
       "source_segment_ids": [
         "seg-000168"
+      ]
+    },
+    {
+      "name": "Now",
+      "type": "domain_entity",
+      "description": "Named domain entity 'Now' identified in source",
+      "source_segment_ids": [
+        "seg-000169"
+      ]
+    },
+    {
+      "name": "Helix",
+      "type": "domain_entity",
+      "description": "Named domain entity 'Helix' identified in source",
+      "source_segment_ids": [
+        "seg-000176"
+      ]
+    },
+    {
+      "name": "You",
+      "type": "domain_entity",
+      "description": "Named domain entity 'You' identified in source",
+      "source_segment_ids": [
+        "seg-000178"
+      ]
+    },
+    {
+      "name": "Huberman",
+      "type": "researcher_or_neuroanatomy",
+      "description": "Key entity in emotion neuroscience discussion (Huberman)",
+      "source_segment_ids": [
+        "seg-000201"
       ]
     }
   ],
   "concepts": [
     {
-      "name": "Concept-P-h5WSQG1Sw",
+      "name": "Functional Emotion Theory",
       "type": "domain_concept",
-      "description": "Domain concept in P-h5WSQG1Sw",
+      "description": "Conceptual framework defining emotions as evolved coordinating central states",
+      "source_segment_ids": [
+        "seg-000168"
+      ]
+    },
+    {
+      "name": "Valence & Arousal Dimensions",
+      "type": "domain_concept",
+      "description": "Core dimensions of emotional states distinguishing affective polarity and activation",
       "source_segment_ids": [
         "seg-000168"
       ]
     }
   ],
-  "open_questions": [],
+  "open_questions": [
+    {
+      "text": "Is it generally agreed upon that animals have emotions?",
+      "source_segment_ids": [
+        "seg-000203"
+      ]
+    },
+    {
+      "text": "here for us?",
+      "source_segment_ids": [
+        "seg-000206"
+      ]
+    }
+  ],
   "contradictions_or_uncertainty": []
 }

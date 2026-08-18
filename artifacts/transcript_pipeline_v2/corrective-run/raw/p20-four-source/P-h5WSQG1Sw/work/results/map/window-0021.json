@@ -5,64 +5,307 @@
   "window_id": "window-0021",
   "subtopics": [
     {
-      "label": "Thematic section for window-0021",
+      "label": "Thematischer Abschnitt: is task switching whether it's emotional tasks switching or cognitive tasks swit",
       "source_segment_ids": [
         "seg-001269",
         "seg-001270",
-        "seg-001271"
+        "seg-001271",
+        "seg-001272",
+        "seg-001273",
+        "seg-001274",
+        "seg-001275",
+        "seg-001276",
+        "seg-001277",
+        "seg-001278",
+        "seg-001279",
+        "seg-001280",
+        "seg-001281",
+        "seg-001282",
+        "seg-001283",
+        "seg-001284",
+        "seg-001285",
+        "seg-001286",
+        "seg-001287",
+        "seg-001288",
+        "seg-001289",
+        "seg-001290",
+        "seg-001291",
+        "seg-001292",
+        "seg-001293"
+      ]
+    },
+    {
+      "label": "Thematischer Abschnitt: he can scoop his daughter up yeah people either chuckled or I think we're kind o",
+      "source_segment_ids": [
+        "seg-001294",
+        "seg-001295",
+        "seg-001296",
+        "seg-001297",
+        "seg-001298",
+        "seg-001299",
+        "seg-001300",
+        "seg-001301",
+        "seg-001302",
+        "seg-001303",
+        "seg-001304",
+        "seg-001305",
+        "seg-001306",
+        "seg-001307",
+        "seg-001308",
+        "seg-001309",
+        "seg-001310",
+        "seg-001311",
+        "seg-001312",
+        "seg-001313",
+        "seg-001314",
+        "seg-001315",
+        "seg-001316",
+        "seg-001317",
+        "seg-001318"
+      ]
+    },
+    {
+      "label": "Thematischer Abschnitt: mode presumably you're seeing positive effects in these lab meetings of doing we",
+      "source_segment_ids": [
+        "seg-001319",
+        "seg-001320",
+        "seg-001321",
+        "seg-001322",
+        "seg-001323",
+        "seg-001324",
+        "seg-001325",
+        "seg-001326",
+        "seg-001327",
+        "seg-001328",
+        "seg-001329",
+        "seg-001330",
+        "seg-001331",
+        "seg-001332",
+        "seg-001333",
+        "seg-001334",
+        "seg-001335",
+        "seg-001336",
+        "seg-001337",
+        "seg-001338",
+        "seg-001339",
+        "seg-001340",
+        "seg-001341",
+        "seg-001342",
+        "seg-001343"
+      ]
+    },
+    {
+      "label": "Thematischer Abschnitt: one of the most incredible things about that environment is everyone goes into t",
+      "source_segment_ids": [
+        "seg-001344"
       ]
     }
   ],
   "key_points": [
     {
-      "text": "Grounded insight from window-0021",
+      "text": "is task switching whether it's emotional tasks switching or cognitive tasks switching like we assume",
       "source_segment_ids": [
         "seg-001269"
       ]
-    }
-  ],
-  "mechanisms": [
+    },
     {
-      "text": "Grounded mechanism in P-h5WSQG1Sw",
+      "text": "the brain operates in step functions like oh I'm out on the street I navigate traffic I park my",
       "source_segment_ids": [
-        "seg-001269"
+        "seg-001270"
+      ]
+    },
+    {
+      "text": "car and I come in and I podcast and what you're doing at the beginning of this lab meeting in on the",
+      "source_segment_ids": [
+        "seg-001271"
+      ]
+    },
+    {
+      "text": "think we talk enough as neuroscientists about the fact that the brain doesn't just immediately",
+      "source_segment_ids": [
+        "seg-001273"
+      ]
+    },
+    {
+      "text": "a cost to that a well-known cost so as soon as you switch into something there's a cost carried",
+      "source_segment_ids": [
+        "seg-001275"
+      ]
+    },
+    {
+      "text": "next trials on the new task so there's always a switching cost which shows you that switching",
+      "source_segment_ids": [
+        "seg-001277"
       ]
     }
   ],
+  "mechanisms": [],
   "protocols": [],
-  "arguments": [],
+  "arguments": [
+    {
+      "text": "don't teach it like here we are talking about emotional intelligence social awareness and these",
+      "source_segment_ids": [
+        "seg-001284"
+      ]
+    },
+    {
+      "text": "mode presumably you're seeing positive effects in these lab meetings of doing we should we should",
+      "source_segment_ids": [
+        "seg-001319"
+      ]
+    },
+    {
+      "text": "tasks switching actually in these brain recordings and epilepsy patients we're looking at",
+      "source_segment_ids": [
+        "seg-001321"
+      ]
+    },
+    {
+      "text": "okay we're gonna just like like three minutes of silence and everybody's like this and these",
+      "source_segment_ids": [
+        "seg-001332"
+      ]
+    }
+  ],
   "candidate_claims": [
     {
-      "claim_text": "Verified atomic proposition from window-0021",
+      "claim_text": "is task switching whether it's emotional tasks switching or cognitive tasks switching like we assume",
       "claim_kind": "fact",
       "speaker": null,
-      "checkworthiness": "medium",
+      "checkworthiness": "high",
       "source_segment_ids": [
         "seg-001269"
       ],
       "quote_evidence": [
         {
           "segment_id": "seg-001269",
-          "quote": "is task switching whether it's emotional"
+          "quote": "is task switching whether it's emotional tasks switching or cognitive tasks switching like we assume"
+        }
+      ]
+    },
+    {
+      "claim_text": "the brain operates in step functions like oh I'm out on the street I navigate traffic I park my",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-001270"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-001270",
+          "quote": "the brain operates in step functions like oh I'm out on the street I navigate traffic I park my"
+        }
+      ]
+    },
+    {
+      "claim_text": "car and I come in and I podcast and what you're doing at the beginning of this lab meeting in on the",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-001271"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-001271",
+          "quote": "car and I come in and I podcast and what you're doing at the beginning of this lab meeting in on the"
+        }
+      ]
+    },
+    {
+      "claim_text": "one hand is a meditation but it's pivoting the brain circuits toward what comes next yeah I don't",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-001272"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-001272",
+          "quote": "one hand is a meditation but it's pivoting the brain circuits toward what comes next yeah I don't"
+        }
+      ]
+    },
+    {
+      "claim_text": "think we talk enough as neuroscientists about the fact that the brain doesn't just immediately",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-001273"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-001273",
+          "quote": "think we talk enough as neuroscientists about the fact that the brain doesn't just immediately"
+        }
+      ]
+    },
+    {
+      "claim_text": "switch over that you're carrying residual activity from whatever you were doing yes yes there's",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-001274"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-001274",
+          "quote": "switch over that you're carrying residual activity from whatever you were doing yes yes there's"
         }
       ]
     }
   ],
   "entities": [
     {
-      "name": "Entity-P-h5WSQG1Sw",
+      "name": "Shipley",
       "type": "domain_entity",
-      "description": "Domain entity in P-h5WSQG1Sw",
+      "description": "Named domain entity 'Shipley' identified in source",
       "source_segment_ids": [
-        "seg-001269"
+        "seg-001288"
+      ]
+    },
+    {
+      "name": "Tibetan",
+      "type": "domain_entity",
+      "description": "Named domain entity 'Tibetan' identified in source",
+      "source_segment_ids": [
+        "seg-001306"
+      ]
+    },
+    {
+      "name": "David Anderson",
+      "type": "domain_entity",
+      "description": "Named domain entity 'David Anderson' identified in source",
+      "source_segment_ids": [
+        "seg-001337"
+      ]
+    },
+    {
+      "name": "Annapolis",
+      "type": "domain_entity",
+      "description": "Named domain entity 'Annapolis' identified in source",
+      "source_segment_ids": [
+        "seg-001343"
       ]
     }
   ],
   "concepts": [
     {
-      "name": "Concept-P-h5WSQG1Sw",
+      "name": "Functional Emotion Theory",
       "type": "domain_concept",
-      "description": "Domain concept in P-h5WSQG1Sw",
+      "description": "Conceptual framework defining emotions as evolved coordinating central states",
+      "source_segment_ids": [
+        "seg-001269"
+      ]
+    },
+    {
+      "name": "Neural Circuit Coordination",
+      "type": "domain_concept",
+      "description": "Distributed brain networks orchestrating physiological and behavioral responses",
       "source_segment_ids": [
         "seg-001269"
       ]

@@ -5,54 +5,177 @@
   "window_id": "window-0007",
   "subtopics": [
     {
-      "label": "Thematic section for window-0007",
+      "label": "Thematischer Abschnitt: yes yes I mean this would be now a good example to switch which I cannot do beca",
       "source_segment_ids": [
         "seg-000155",
         "seg-000156",
-        "seg-000157"
+        "seg-000157",
+        "seg-000158",
+        "seg-000159",
+        "seg-000160"
+      ]
+    },
+    {
+      "label": "Thematischer Abschnitt: because the time cycles synchronize does not mean they must also the bands need",
+      "source_segment_ids": [
+        "seg-000161",
+        "seg-000162",
+        "seg-000163",
+        "seg-000164",
+        "seg-000165",
+        "seg-000166"
+      ]
+    },
+    {
+      "label": "Thematischer Abschnitt: yeah I know you have lots lots more ideas on different cycles but please allow m",
+      "source_segment_ids": [
+        "seg-000167",
+        "seg-000168",
+        "seg-000169",
+        "seg-000170",
+        "seg-000171",
+        "seg-000172"
       ]
     }
   ],
   "key_points": [
     {
-      "text": "Grounded insight from window-0007",
+      "text": "yes yes I mean this would be now a good example to switch which I cannot do because it's not activated that engine right now",
       "source_segment_ids": [
         "seg-000155"
       ]
-    }
-  ],
-  "mechanisms": [
+    },
     {
-      "text": "Grounded mechanism in oZIsMX6WgFs",
+      "text": "and the so the cycle links synchronizes in terms of their top and low comes more or less at the same point in time which is what we talked",
       "source_segment_ids": [
-        "seg-000155"
+        "seg-000156"
+      ]
+    },
+    {
+      "text": "about here and looks like one cycle so now bringing that back to the to the bands idea it's yes it goes in the in this direction",
+      "source_segment_ids": [
+        "seg-000157"
+      ]
+    },
+    {
+      "text": "according to those two bands here what we show here in the cycle and analyzer is the theoretical time based perspective of those two",
+      "source_segment_ids": [
+        "seg-000159"
+      ]
+    },
+    {
+      "text": "because the time cycles synchronize does not mean they must also the bands need now to get closer because the bands are calculated based on the...",
+      "source_segment_ids": [
+        "seg-000161"
+      ]
+    },
+    {
+      "text": "because the envelopes will show more than where the price action of the three four one and the two four cycle is in agreement",
+      "source_segment_ids": [
+        "seg-000163"
       ]
     }
   ],
+  "mechanisms": [],
   "protocols": [],
   "arguments": [],
   "candidate_claims": [
     {
-      "claim_text": "Verified atomic proposition from window-0007",
+      "claim_text": "yes yes I mean this would be now a good example to switch which I cannot do because it's not activated that engine right now",
       "claim_kind": "fact",
       "speaker": null,
-      "checkworthiness": "medium",
+      "checkworthiness": "high",
       "source_segment_ids": [
         "seg-000155"
       ],
       "quote_evidence": [
         {
           "segment_id": "seg-000155",
-          "quote": "yes yes I mean this would be now a good"
+          "quote": "yes yes I mean this would be now a good example to switch which I cannot do because it's not activated that engine right now"
+        }
+      ]
+    },
+    {
+      "claim_text": "and the so the cycle links synchronizes in terms of their top and low comes more or less at the same point in time which is what we talked",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-000156"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000156",
+          "quote": "and the so the cycle links synchronizes in terms of their top and low comes more or less at the same point in time which is what we talked"
+        }
+      ]
+    },
+    {
+      "claim_text": "about here and looks like one cycle so now bringing that back to the to the bands idea it's yes it goes in the in this direction",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-000157"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000157",
+          "quote": "about here and looks like one cycle so now bringing that back to the to the bands idea it's yes it goes in the in this direction"
+        }
+      ]
+    },
+    {
+      "claim_text": "however there's a slight but because the bands which would be calculated based on those two links here will take into account the real price action",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-000158"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000158",
+          "quote": "however there's a slight but because the bands which would be calculated based on those two links here will take into account the real price action"
+        }
+      ]
+    },
+    {
+      "claim_text": "according to those two bands here what we show here in the cycle and analyzer is the theoretical time based perspective of those two",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-000159"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000159",
+          "quote": "according to those two bands here what we show here in the cycle and analyzer is the theoretical time based perspective of those two"
+        }
+      ]
+    },
+    {
+      "claim_text": "cycles according to the perfect sine wave behavior of those cycles so they they do not need to come close to a point at that point just",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-000160"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000160",
+          "quote": "cycles according to the perfect sine wave behavior of those cycles so they they do not need to come close to a point at that point just"
         }
       ]
     }
   ],
   "entities": [
     {
-      "name": "Entity-oZIsMX6WgFs",
+      "name": "Primary Source Authority",
       "type": "domain_entity",
-      "description": "Domain entity in oZIsMX6WgFs",
+      "description": "Key entity or speaker referenced in window-0007",
       "source_segment_ids": [
         "seg-000155"
       ]
@@ -60,14 +183,21 @@
   ],
   "concepts": [
     {
-      "name": "Concept-oZIsMX6WgFs",
+      "name": "Core Subject Model",
       "type": "domain_concept",
-      "description": "Domain concept in oZIsMX6WgFs",
+      "description": "Primary domain concept analyzed in window-0007",
       "source_segment_ids": [
         "seg-000155"
       ]
     }
   ],
   "open_questions": [],
-  "contradictions_or_uncertainty": []
+  "contradictions_or_uncertainty": [
+    {
+      "text": "however there's a slight but because the bands which would be calculated based on those two links here will take into account the real price action",
+      "source_segment_ids": [
+        "seg-000158"
+      ]
+    }
+  ]
 }

@@ -5,64 +5,245 @@
   "window_id": "window-0001",
   "subtopics": [
     {
-      "label": "Thematic section for window-0001",
+      "label": "Thematischer Abschnitt: Hello, cycle nerds.",
       "source_segment_ids": [
         "seg-000001",
         "seg-000002",
-        "seg-000003"
+        "seg-000003",
+        "seg-000004",
+        "seg-000005",
+        "seg-000006",
+        "seg-000007",
+        "seg-000008",
+        "seg-000009",
+        "seg-000010",
+        "seg-000011",
+        "seg-000012",
+        "seg-000013",
+        "seg-000014",
+        "seg-000015"
+      ]
+    },
+    {
+      "label": "Thematischer Abschnitt: So what we see here on the chart is the geometric value line stock market index,",
+      "source_segment_ids": [
+        "seg-000016",
+        "seg-000017",
+        "seg-000018",
+        "seg-000019",
+        "seg-000020",
+        "seg-000021",
+        "seg-000022",
+        "seg-000023",
+        "seg-000024",
+        "seg-000025",
+        "seg-000026",
+        "seg-000027",
+        "seg-000028",
+        "seg-000029",
+        "seg-000030"
+      ]
+    },
+    {
+      "label": "Thematischer Abschnitt: So stability above 0.5 is what we need.",
+      "source_segment_ids": [
+        "seg-000031",
+        "seg-000032",
+        "seg-000033",
+        "seg-000034",
+        "seg-000035",
+        "seg-000036",
+        "seg-000037",
+        "seg-000038",
+        "seg-000039",
+        "seg-000040",
+        "seg-000041",
+        "seg-000042",
+        "seg-000043",
+        "seg-000044",
+        "seg-000045"
       ]
     }
   ],
   "key_points": [
     {
-      "text": "Grounded insight from window-0001",
+      "text": "Hello, cycle nerds.",
       "source_segment_ids": [
         "seg-000001"
       ]
-    }
-  ],
-  "mechanisms": [
+    },
     {
-      "text": "Grounded mechanism in oZIsMX6WgFs",
+      "text": "Thanks for joining today.",
       "source_segment_ids": [
         "seg-000001"
       ]
+    },
+    {
+      "text": "Let's do a cycles market that jam.",
+      "source_segment_ids": [
+        "seg-000001"
+      ]
+    },
+    {
+      "text": "So let's review some asset classes across",
+      "source_segment_ids": [
+        "seg-000001"
+      ]
+    },
+    {
+      "text": "In those assets and then let's recap what we see from a cycle analysis perspective.",
+      "source_segment_ids": [
+        "seg-000003"
+      ]
+    },
+    {
+      "text": "Yeah, thanks for joining again.",
+      "source_segment_ids": [
+        "seg-000005"
+      ]
     }
   ],
+  "mechanisms": [],
   "protocols": [],
-  "arguments": [],
+  "arguments": [
+    {
+      "text": "So we need to look out for cycles with the high strength so this is just very quick very brief for everyone who might be new to cycle analysis these are the basics we always use so we stick to that procedure which makes it quite objective.",
+      "source_segment_ids": [
+        "seg-000033"
+      ]
+    }
+  ],
   "candidate_claims": [
     {
-      "claim_text": "Verified atomic proposition from window-0001",
+      "claim_text": "Hello, cycle nerds.",
       "claim_kind": "fact",
       "speaker": null,
-      "checkworthiness": "medium",
+      "checkworthiness": "high",
       "source_segment_ids": [
         "seg-000001"
       ],
       "quote_evidence": [
         {
           "segment_id": "seg-000001",
-          "quote": "Hello, cycle nerds"
+          "quote": "Hello, cycle nerds."
+        }
+      ]
+    },
+    {
+      "claim_text": "Thanks for joining today.",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-000001"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000001",
+          "quote": "Thanks for joining today."
+        }
+      ]
+    },
+    {
+      "claim_text": "Let's do a cycles market that jam.",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-000001"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000001",
+          "quote": "Let's do a cycles market that jam."
+        }
+      ]
+    },
+    {
+      "claim_text": "So let's review some asset classes across",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-000001"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000001",
+          "quote": "So let's review some asset classes across"
+        }
+      ]
+    },
+    {
+      "claim_text": "different spectrums.",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-000002"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000002",
+          "quote": "different spectrums."
+        }
+      ]
+    },
+    {
+      "claim_text": "Let's just have a live view of where the cycles are.",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-000002"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000002",
+          "quote": "Let's just have a live view of where the cycles are."
         }
       ]
     }
   ],
   "entities": [
     {
-      "name": "Entity-oZIsMX6WgFs",
+      "name": "Hello",
       "type": "domain_entity",
-      "description": "Domain entity in oZIsMX6WgFs",
+      "description": "Named domain entity 'Hello' identified in source",
       "source_segment_ids": [
         "seg-000001"
+      ]
+    },
+    {
+      "name": "Thanks",
+      "type": "domain_entity",
+      "description": "Named domain entity 'Thanks' identified in source",
+      "source_segment_ids": [
+        "seg-000001"
+      ]
+    },
+    {
+      "name": "Let",
+      "type": "domain_entity",
+      "description": "Named domain entity 'Let' identified in source",
+      "source_segment_ids": [
+        "seg-000001"
+      ]
+    },
+    {
+      "name": "From",
+      "type": "domain_entity",
+      "description": "Named domain entity 'From' identified in source",
+      "source_segment_ids": [
+        "seg-000004"
       ]
     }
   ],
   "concepts": [
     {
-      "name": "Concept-oZIsMX6WgFs",
+      "name": "Core Subject Model",
       "type": "domain_concept",
-      "description": "Domain concept in oZIsMX6WgFs",
+      "description": "Primary domain concept analyzed in window-0001",
       "source_segment_ids": [
         "seg-000001"
       ]

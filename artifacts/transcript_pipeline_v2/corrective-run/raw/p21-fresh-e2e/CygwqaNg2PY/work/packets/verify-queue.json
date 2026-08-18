@@ -1,29 +1,489 @@
 {
   "items": [
     {
-      "checkworthiness": "medium",
+      "checkworthiness": "high",
       "claim_ref": "claim-0001",
-      "claim_text": "Fresh verified proposition in CygwqaNg2PY",
+      "claim_text": "[ASR Fresh v2.1 CygwqaNg2PY]",
       "preferred_source_types": [
         "official primary source",
         "primary research"
       ],
       "quote_evidence": [
         {
-          "quote": "[ASR Fresh v2",
+          "quote": "[ASR Fresh v2.1 CygwqaNg2PY]",
           "segment_id": "seg-000001"
         }
       ],
-      "search_question": "Fresh verified proposition in CygwqaNg2PY",
+      "search_question": "[ASR Fresh v2.1 CygwqaNg2PY]",
       "source_segment_ids": [
         "seg-000001"
+      ],
+      "source_support": "SUPPORTED"
+    },
+    {
+      "checkworthiness": "high",
+      "claim_ref": "claim-0002",
+      "claim_text": "Elliott, thanks for joining us today, so we have Elliott Pregnant with us, and it's an honor to",
+      "preferred_source_types": [
+        "official primary source",
+        "primary research"
+      ],
+      "quote_evidence": [
+        {
+          "quote": "Elliott, thanks for joining us today, so we have Elliott Pregnant with us, and it's an honor to",
+          "segment_id": "seg-000002"
+        }
+      ],
+      "search_question": "Elliott, thanks for joining us today, so we have Elliott Pregnant with us, and it's an honor to",
+      "source_segment_ids": [
+        "seg-000002"
+      ],
+      "source_support": "SUPPORTED"
+    },
+    {
+      "checkworthiness": "high",
+      "claim_ref": "claim-0003",
+      "claim_text": "have you here spending some time with us talking about the Elliott Wave Principle and your history",
+      "preferred_source_types": [
+        "official primary source",
+        "primary research"
+      ],
+      "quote_evidence": [
+        {
+          "quote": "have you here spending some time with us talking about the Elliott Wave Principle and your history",
+          "segment_id": "seg-000003"
+        }
+      ],
+      "search_question": "have you here spending some time with us talking about the Elliott Wave Principle and your history",
+      "source_segment_ids": [
+        "seg-000003"
+      ],
+      "source_support": "SUPPORTED"
+    },
+    {
+      "checkworthiness": "high",
+      "claim_ref": "claim-0004",
+      "claim_text": "and your personal background on that.",
+      "preferred_source_types": [
+        "official primary source",
+        "primary research"
+      ],
+      "quote_evidence": [
+        {
+          "quote": "and your personal background on that.",
+          "segment_id": "seg-000004"
+        }
+      ],
+      "search_question": "and your personal background on that.",
+      "source_segment_ids": [
+        "seg-000004"
+      ],
+      "source_support": "SUPPORTED"
+    },
+    {
+      "checkworthiness": "high",
+      "claim_ref": "claim-0005",
+      "claim_text": "So, I mean, before we go into the more depth of Elliott Wave,",
+      "preferred_source_types": [
+        "official primary source",
+        "primary research"
+      ],
+      "quote_evidence": [
+        {
+          "quote": "So, I mean, before we go into the more depth of Elliott Wave,",
+          "segment_id": "seg-000004"
+        }
+      ],
+      "search_question": "So, I mean, before we go into the more depth of Elliott Wave,",
+      "source_segment_ids": [
+        "seg-000004"
+      ],
+      "source_support": "SUPPORTED"
+    },
+    {
+      "checkworthiness": "high",
+      "claim_ref": "claim-0006",
+      "claim_text": "if someone would be new to that kind of analysis, how would you describe Elliott Wave in simple sentences?",
+      "preferred_source_types": [
+        "official primary source",
+        "primary research"
+      ],
+      "quote_evidence": [
+        {
+          "quote": "if someone would be new to that kind of analysis, how would you describe Elliott Wave in simple sentences?",
+          "segment_id": "seg-000005"
+        }
+      ],
+      "search_question": "if someone would be new to that kind of analysis, how would you describe Elliott Wave in simple sentences?",
+      "source_segment_ids": [
+        "seg-000005"
+      ],
+      "source_support": "SUPPORTED"
+    },
+    {
+      "checkworthiness": "high",
+      "claim_ref": "claim-0007",
+      "claim_text": "How should traders use Elliott Payf analysis and practice as a forecasting tool or risk management",
+      "preferred_source_types": [
+        "official primary source",
+        "primary research"
+      ],
+      "quote_evidence": [
+        {
+          "quote": "How should traders use Elliott Payf analysis and practice as a forecasting tool or risk management",
+          "segment_id": "seg-000046"
+        }
+      ],
+      "search_question": "How should traders use Elliott Payf analysis and practice as a forecasting tool or risk management",
+      "source_segment_ids": [
+        "seg-000046"
+      ],
+      "source_support": "SUPPORTED"
+    },
+    {
+      "checkworthiness": "high",
+      "claim_ref": "claim-0008",
+      "claim_text": "tool or a way to map out map out probabilities?",
+      "preferred_source_types": [
+        "official primary source",
+        "primary research"
+      ],
+      "quote_evidence": [
+        {
+          "quote": "tool or a way to map out map out probabilities?",
+          "segment_id": "seg-000047"
+        }
+      ],
+      "search_question": "tool or a way to map out map out probabilities?",
+      "source_segment_ids": [
+        "seg-000047"
+      ],
+      "source_support": "SUPPORTED"
+    },
+    {
+      "checkworthiness": "high",
+      "claim_ref": "claim-0009",
+      "claim_text": "Well I think you're pretty much late all around.",
+      "preferred_source_types": [
+        "official primary source",
+        "primary research"
+      ],
+      "quote_evidence": [
+        {
+          "quote": "Well I think you're pretty much late all around.",
+          "segment_id": "seg-000047"
+        }
+      ],
+      "search_question": "Well I think you're pretty much late all around.",
+      "source_segment_ids": [
+        "seg-000047"
+      ],
+      "source_support": "SUPPORTED"
+    },
+    {
+      "checkworthiness": "high",
+      "claim_ref": "claim-0010",
+      "claim_text": "They did a great job.",
+      "preferred_source_types": [
+        "official primary source",
+        "primary research"
+      ],
+      "quote_evidence": [
+        {
+          "quote": "They did a great job.",
+          "segment_id": "seg-000048"
+        }
+      ],
+      "search_question": "They did a great job.",
+      "source_segment_ids": [
+        "seg-000048"
+      ],
+      "source_support": "SUPPORTED"
+    },
+    {
+      "checkworthiness": "high",
+      "claim_ref": "claim-0011",
+      "claim_text": "Yes to all three.",
+      "preferred_source_types": [
+        "official primary source",
+        "primary research"
+      ],
+      "quote_evidence": [
+        {
+          "quote": "Yes to all three.",
+          "segment_id": "seg-000048"
+        }
+      ],
+      "search_question": "Yes to all three.",
+      "source_segment_ids": [
+        "seg-000048"
+      ],
+      "source_support": "SUPPORTED"
+    },
+    {
+      "checkworthiness": "high",
+      "claim_ref": "claim-0012",
+      "claim_text": "I mean historically it's mainly been a long term",
+      "preferred_source_types": [
+        "official primary source",
+        "primary research"
+      ],
+      "quote_evidence": [
+        {
+          "quote": "I mean historically it's mainly been a long term",
+          "segment_id": "seg-000048"
+        }
+      ],
+      "search_question": "I mean historically it's mainly been a long term",
+      "source_segment_ids": [
+        "seg-000048"
+      ],
+      "source_support": "SUPPORTED"
+    },
+    {
+      "checkworthiness": "high",
+      "claim_ref": "claim-0013",
+      "claim_text": "yes I mean e-waves does do the wave count it's an automated process so you don't have to sit there by",
+      "preferred_source_types": [
+        "official primary source",
+        "primary research"
+      ],
+      "quote_evidence": [
+        {
+          "quote": "yes I mean e-waves does do the wave count it's an automated process so you don't have to sit there by",
+          "segment_id": "seg-000118"
+        }
+      ],
+      "search_question": "yes I mean e-waves does do the wave count it's an automated process so you don't have to sit there by",
+      "source_segment_ids": [
+        "seg-000118"
+      ],
+      "source_support": "SUPPORTED"
+    },
+    {
+      "checkworthiness": "high",
+      "claim_ref": "claim-0014",
+      "claim_text": "hand and sketch out the wave pattern which like you said earlier can be very tricky because when",
+      "preferred_source_types": [
+        "official primary source",
+        "primary research"
+      ],
+      "quote_evidence": [
+        {
+          "quote": "hand and sketch out the wave pattern which like you said earlier can be very tricky because when",
+          "segment_id": "seg-000119"
+        }
+      ],
+      "search_question": "hand and sketch out the wave pattern which like you said earlier can be very tricky because when",
+      "source_segment_ids": [
+        "seg-000119"
+      ],
+      "source_support": "SUPPORTED"
+    },
+    {
+      "checkworthiness": "high",
+      "claim_ref": "claim-0015",
+      "claim_text": "you're looking at a chart through you're going to have partial patterns most of the time and that's",
+      "preferred_source_types": [
+        "official primary source",
+        "primary research"
+      ],
+      "quote_evidence": [
+        {
+          "quote": "you're looking at a chart through you're going to have partial patterns most of the time and that's",
+          "segment_id": "seg-000120"
+        }
+      ],
+      "search_question": "you're looking at a chart through you're going to have partial patterns most of the time and that's",
+      "source_segment_ids": [
+        "seg-000120"
+      ],
+      "source_support": "SUPPORTED"
+    },
+    {
+      "checkworthiness": "high",
+      "claim_ref": "claim-0016",
+      "claim_text": "why in my presentation earlier I wanted to show that a particular example we had the market",
+      "preferred_source_types": [
+        "official primary source",
+        "primary research"
+      ],
+      "quote_evidence": [
+        {
+          "quote": "why in my presentation earlier I wanted to show that a particular example we had the market",
+          "segment_id": "seg-000121"
+        }
+      ],
+      "search_question": "why in my presentation earlier I wanted to show that a particular example we had the market",
+      "source_segment_ids": [
+        "seg-000121"
+      ],
+      "source_support": "SUPPORTED"
+    },
+    {
+      "checkworthiness": "high",
+      "claim_ref": "claim-0017",
+      "claim_text": "coiling up and it looked like it was a triangle and we're going to burst up out of the triangle right",
+      "preferred_source_types": [
+        "official primary source",
+        "primary research"
+      ],
+      "quote_evidence": [
+        {
+          "quote": "coiling up and it looked like it was a triangle and we're going to burst up out of the triangle right",
+          "segment_id": "seg-000122"
+        }
+      ],
+      "search_question": "coiling up and it looked like it was a triangle and we're going to burst up out of the triangle right",
+      "source_segment_ids": [
+        "seg-000122"
+      ],
+      "source_support": "SUPPORTED"
+    },
+    {
+      "checkworthiness": "high",
+      "claim_ref": "claim-0018",
+      "claim_text": "which is a common pattern and the market did the exact opposite because that was actually part",
+      "preferred_source_types": [
+        "official primary source",
+        "primary research"
+      ],
+      "quote_evidence": [
+        {
+          "quote": "which is a common pattern and the market did the exact opposite because that was actually part",
+          "segment_id": "seg-000123"
+        }
+      ],
+      "search_question": "which is a common pattern and the market did the exact opposite because that was actually part",
+      "source_segment_ids": [
+        "seg-000123"
+      ],
+      "source_support": "SUPPORTED"
+    },
+    {
+      "checkworthiness": "high",
+      "claim_ref": "claim-0019",
+      "claim_text": "maybe maybe in simple terms very often retail investors ask me you know looks really super",
+      "preferred_source_types": [
+        "official primary source",
+        "primary research"
+      ],
+      "quote_evidence": [
+        {
+          "quote": "maybe maybe in simple terms very often retail investors ask me you know looks really super",
+          "segment_id": "seg-000163"
+        }
+      ],
+      "search_question": "maybe maybe in simple terms very often retail investors ask me you know looks really super",
+      "source_segment_ids": [
+        "seg-000163"
+      ],
+      "source_support": "SUPPORTED"
+    },
+    {
+      "checkworthiness": "high",
+      "claim_ref": "claim-0020",
+      "claim_text": "interesting where do we actually start how can I get a good understanding of what it actually",
+      "preferred_source_types": [
+        "official primary source",
+        "primary research"
+      ],
+      "quote_evidence": [
+        {
+          "quote": "interesting where do we actually start how can I get a good understanding of what it actually",
+          "segment_id": "seg-000164"
+        }
+      ],
+      "search_question": "interesting where do we actually start how can I get a good understanding of what it actually",
+      "source_segment_ids": [
+        "seg-000164"
+      ],
+      "source_support": "SUPPORTED"
+    },
+    {
+      "checkworthiness": "high",
+      "claim_ref": "claim-0021",
+      "claim_text": "does which which how would you recommend somebody that is interested in working with Elliott wave",
+      "preferred_source_types": [
+        "official primary source",
+        "primary research"
+      ],
+      "quote_evidence": [
+        {
+          "quote": "does which which how would you recommend somebody that is interested in working with Elliott wave",
+          "segment_id": "seg-000165"
+        }
+      ],
+      "search_question": "does which which how would you recommend somebody that is interested in working with Elliott wave",
+      "source_segment_ids": [
+        "seg-000165"
+      ],
+      "source_support": "SUPPORTED"
+    },
+    {
+      "checkworthiness": "high",
+      "claim_ref": "claim-0022",
+      "claim_text": "theory actually get into it and get started okay yeah the e-waves software in my opinion is for",
+      "preferred_source_types": [
+        "official primary source",
+        "primary research"
+      ],
+      "quote_evidence": [
+        {
+          "quote": "theory actually get into it and get started okay yeah the e-waves software in my opinion is for",
+          "segment_id": "seg-000166"
+        }
+      ],
+      "search_question": "theory actually get into it and get started okay yeah the e-waves software in my opinion is for",
+      "source_segment_ids": [
+        "seg-000166"
+      ],
+      "source_support": "SUPPORTED"
+    },
+    {
+      "checkworthiness": "high",
+      "claim_ref": "claim-0023",
+      "claim_text": "people who are all already know a bit about Elliott wave theory if your brand new and you just",
+      "preferred_source_types": [
+        "official primary source",
+        "primary research"
+      ],
+      "quote_evidence": [
+        {
+          "quote": "people who are all already know a bit about Elliott wave theory if your brand new and you just",
+          "segment_id": "seg-000167"
+        }
+      ],
+      "search_question": "people who are all already know a bit about Elliott wave theory if your brand new and you just",
+      "source_segment_ids": [
+        "seg-000167"
+      ],
+      "source_support": "SUPPORTED"
+    },
+    {
+      "checkworthiness": "high",
+      "claim_ref": "claim-0024",
+      "claim_text": "want to get a grip then I'd actually recommend going to Elliott wave dot com and we have a lot",
+      "preferred_source_types": [
+        "official primary source",
+        "primary research"
+      ],
+      "quote_evidence": [
+        {
+          "quote": "want to get a grip then I'd actually recommend going to Elliott wave dot com and we have a lot",
+          "segment_id": "seg-000168"
+        }
+      ],
+      "search_question": "want to get a grip then I'd actually recommend going to Elliott wave dot com and we have a lot",
+      "source_segment_ids": [
+        "seg-000168"
       ],
       "source_support": "SUPPORTED"
     }
   ],
   "minimum_checkworthiness": "medium",
-  "queue_sha256": "0fdf43342f7004db233ae94602d57db3d3710405758408ca24652d57ba13317c",
-  "reduce_result_sha256": "5ae7597459f8c7905f0cc382c4845eaab57d7d2d421b2098dac470a347eeaa13",
+  "queue_sha256": "219a36553d00646c54697c8de9497f0777fd5081d8367c7256d0996f34eb2bb9",
+  "reduce_result_sha256": "6feb75d5e9203dbffe008fe34776f46c7ff401b56eb83fc071cc6311bedcb83e",
   "schema": "ttk.verify-queue.v2",
   "source_sha256": "08a3b3bceb38da2f5b4e0315beee6464f514f22005b4d7618a0ff8978c129905"
 }

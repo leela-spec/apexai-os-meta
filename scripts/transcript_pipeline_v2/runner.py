@@ -79,7 +79,11 @@ def build_parser() -> argparse.ArgumentParser:
     p_reduce.add_argument("--provider", default="claude", help="Semantic CLI provider (claude, codex, antigravity)")
     p_reduce.add_argument("--packet", required=True, type=Path, help="Path to input Reduce packet JSON")
     p_reduce.add_argument("--output", required=True, type=Path, help="Path to output Reduce result JSON")
-    p_reduce.add_argument("--receipt", type=Path, help="Path to output execution receipt JSON")
+    p_run = sub.add_parser("run", help="Execute complete TTK pipeline on a source transcript")
+    p_run.add_argument("source", type=Path, help="Path to input transcript file")
+    p_run.add_argument("output", type=Path, help="Output directory for knowledge package")
+    p_run.add_argument("--provider", default="antigravity_agent", help="Semantic worker provider (antigravity_agent, claude, codex)")
+    p_run.add_argument("--force", action="store_true", help="Force recomputation of all stages")
 
     return parser
 
@@ -158,6 +162,24 @@ def main(argv: list[str] | None = None) -> int:
         except (ProviderUnavailableError, SemanticExecutionError) as exc:
             print(f"ERROR: {exc}", file=sys.stderr)
             return 2
+
+    elif args.command == "run":
+        import execute_ttk_lifecycle
+        try:
+            res = execute_ttk_lifecycle.execute_full_ttk_run(
+                args.source,
+                args.output,
+                provider=args.provider,
+                force=args.force
+            )
+            if args.json_output:
+                print(json.dumps(res, indent=2, ensure_ascii=False))
+            else:
+                print(f"Pipeline executed successfully: {res['claims_compiled']} claims compiled to {args.output}")
+            return 0
+        except Exception as exc:
+            print(f"ERROR: {exc}", file=sys.stderr)
+            return 1
 
     return 0
 

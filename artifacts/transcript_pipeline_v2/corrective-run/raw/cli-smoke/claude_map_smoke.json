@@ -1,0 +1,536 @@
+{
+  "schema": "ttk.map-result.v2",
+  "packet_id": "map-window-0001",
+  "packet_sha256": "956a38107453d746f71df2b7825e19c20b7e08a42434e87cca93d480f4c3f75b",
+  "window_id": "window-0001",
+  "subtopics": [
+    {
+      "label": "Simple definition of Elliott Wave Theory as a study of recurring price patterns",
+      "source_segment_ids": [
+        "seg-000004",
+        "seg-000005",
+        "seg-000006",
+        "seg-000007",
+        "seg-000008"
+      ]
+    },
+    {
+      "label": "R.N. Elliott's origin story: illness, bedridden chart study, and development of the theory",
+      "source_segment_ids": [
+        "seg-000009",
+        "seg-000010",
+        "seg-000011",
+        "seg-000012",
+        "seg-000013",
+        "seg-000014",
+        "seg-000015",
+        "seg-000016"
+      ]
+    },
+    {
+      "label": "R.N. Elliott's use of the theory to call the bottom of the 1929 crash",
+      "source_segment_ids": [
+        "seg-000017",
+        "seg-000018"
+      ]
+    },
+    {
+      "label": "The guest's father discovering the theory via microfilm in the 1970s and popularizing it in the 1980s",
+      "source_segment_ids": [
+        "seg-000019",
+        "seg-000020",
+        "seg-000021",
+        "seg-000022",
+        "seg-000023",
+        "seg-000024"
+      ]
+    },
+    {
+      "label": "1980s heyday of Elliott Wave Theory and the father's contrarian 'roaring 20s' prediction amid high inflation",
+      "source_segment_ids": [
+        "seg-000025",
+        "seg-000026",
+        "seg-000027",
+        "seg-000028",
+        "seg-000029",
+        "seg-000030"
+      ]
+    },
+    {
+      "label": "Guest's naming, background in computer science, and initial disinterest in finance",
+      "source_segment_ids": [
+        "seg-000031",
+        "seg-000032",
+        "seg-000033",
+        "seg-000034",
+        "seg-000035",
+        "seg-000036"
+      ]
+    },
+    {
+      "label": "The 2008 crash as the guest's personal turning point toward financial analysis",
+      "source_segment_ids": [
+        "seg-000037",
+        "seg-000038",
+        "seg-000039",
+        "seg-000040",
+        "seg-000041",
+        "seg-000042",
+        "seg-000043",
+        "seg-000044"
+      ]
+    }
+  ],
+  "key_points": [
+    {
+      "text": "Elliott Wave Theory is described as the study of price patterns that recur repeatedly in financial markets, of potential use to traders and investors.",
+      "source_segment_ids": [
+        "seg-000005",
+        "seg-000006",
+        "seg-000007",
+        "seg-000008"
+      ]
+    },
+    {
+      "text": "R.N. Elliott, an accountant, developed the theory in the early 1930s while bedridden with illness, after spending hours daily studying market charts and noticing recurring patterns in price and time.",
+      "source_segment_ids": [
+        "seg-000012",
+        "seg-000013",
+        "seg-000014",
+        "seg-000015",
+        "seg-000016"
+      ]
+    },
+    {
+      "text": "R.N. Elliott used the theory to pinpoint the end of the 1929 crash and told people to start buying the market.",
+      "source_segment_ids": [
+        "seg-000017",
+        "seg-000018"
+      ]
+    },
+    {
+      "text": "In the 1970s, the only way to read R.N. Elliott's original writings was on microfilm, since no full books existed, and the material had nearly been lost to history.",
+      "source_segment_ids": [
+        "seg-000019",
+        "seg-000020",
+        "seg-000021",
+        "seg-000022"
+      ]
+    },
+    {
+      "text": "The guest's father had prints made from the microfilm and popularized Elliott Wave Theory during the 1980s.",
+      "source_segment_ids": [
+        "seg-000023"
+      ]
+    },
+    {
+      "text": "The theory's peak popularity ('heyday') was in the 1980s.",
+      "source_segment_ids": [
+        "seg-000024",
+        "seg-000025",
+        "seg-000026"
+      ]
+    },
+    {
+      "text": "The father predicted a repeat of the 'roaring 20s' around the late 1970s/early 1980s, contrary to a prevailing doom-and-gloom consensus driven by 18% interest rates and severe inflation.",
+      "source_segment_ids": [
+        "seg-000026",
+        "seg-000027",
+        "seg-000028"
+      ]
+    },
+    {
+      "text": "The guest's first name, Elliott, was chosen in reference to Elliott Wave Theory, with Fibonacci-derived 'Fibbo' as the alternative.",
+      "source_segment_ids": [
+        "seg-000033",
+        "seg-000034"
+      ]
+    },
+    {
+      "text": "The guest's background is in computer science and engineering, and he had no interest in finance growing up.",
+      "source_segment_ids": [
+        "seg-000035",
+        "seg-000036"
+      ]
+    },
+    {
+      "text": "The 2008 crash was the moment the guest realized financial analysis has a significant real-world impact on people, not just portfolios.",
+      "source_segment_ids": [
+        "seg-000037",
+        "seg-000038",
+        "seg-000039",
+        "seg-000040"
+      ]
+    }
+  ],
+  "mechanisms": [
+    {
+      "text": "R.N. Elliott identified recurring price-and-time patterns by extensively and repeatedly studying market charts while bedridden with illness, which he later formalized as the Elliott Wave Principle.",
+      "source_segment_ids": [
+        "seg-000013",
+        "seg-000014",
+        "seg-000015",
+        "seg-000016"
+      ]
+    }
+  ],
+  "protocols": [],
+  "arguments": [
+    {
+      "text": "High interest rates (18%) and severe runaway inflation made the era's dominant doom-and-gloom consensus understandable, which is what makes the father's contrarian 'roaring 20s repeat' prediction notable.",
+      "source_segment_ids": [
+        "seg-000026",
+        "seg-000027",
+        "seg-000028"
+      ]
+    }
+  ],
+  "candidate_claims": [
+    {
+      "claim_text": "Elliott Wave Theory is a description of recurring price patterns that unfold repeatedly in financial markets.",
+      "claim_kind": "definition",
+      "speaker": null,
+      "checkworthiness": "low",
+      "source_segment_ids": [
+        "seg-000005",
+        "seg-000006"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000005",
+          "quote": "it's a description of the price patterns"
+        },
+        {
+          "segment_id": "seg-000006",
+          "quote": "that unfold over and over again in financial markets"
+        }
+      ]
+    },
+    {
+      "claim_text": "Ralph Nelson (R.N.) Elliott, an accountant, developed Elliott Wave Theory after becoming bedridden with illness and spending hours daily studying market charts, noticing recurring price and time patterns.",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "medium",
+      "source_segment_ids": [
+        "seg-000013",
+        "seg-000014",
+        "seg-000015",
+        "seg-000016"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000013",
+          "quote": "Wave Theory was RN, Elliott Ralph Nelson, Elliott, and he was an accountant and he actually became"
+        },
+        {
+          "segment_id": "seg-000014",
+          "quote": "ill and was bedridden for long period of time and during that time he spent hours and hours"
+        },
+        {
+          "segment_id": "seg-000015",
+          "quote": "every day pouring over market charts and he kept noticing these recurring patterns in price and time"
+        }
+      ]
+    },
+    {
+      "claim_text": "R.N. Elliott used the theory to pinpoint the moment the 1929 crash/Great Depression ended and told people they should buy the market at that time.",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-000017",
+        "seg-000018"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000017",
+          "quote": "he actually used the theory to pinpoint the moment at which the great depression, the great"
+        },
+        {
+          "segment_id": "seg-000018",
+          "quote": "crash of 29 ended and he started telling people that they should be buying the market at that time"
+        }
+      ]
+    },
+    {
+      "claim_text": "The guest's father discovered Elliott Wave Theory in the 1970s, when the only way to read the original material was on microfilm because no full books existed at that time.",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "medium",
+      "source_segment_ids": [
+        "seg-000019",
+        "seg-000020",
+        "seg-000021"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000020",
+          "quote": "the only way at that time, which was, I believe that was"
+        },
+        {
+          "segment_id": "seg-000021",
+          "quote": "in the 70s, to read about the theory was on microfilm because they didn't even have full books"
+        }
+      ]
+    },
+    {
+      "claim_text": "R.N. Elliott's original writings had been almost lost to history before the guest's father had prints made from the microfilm and popularized the theory during the 1980s.",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "medium",
+      "source_segment_ids": [
+        "seg-000022",
+        "seg-000023"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000022",
+          "quote": "the information about it that R and Elliott had written about was almost lost to history"
+        },
+        {
+          "segment_id": "seg-000023",
+          "quote": "he had prints created from the microfilm and of course popularized it a lot during the 80s"
+        }
+      ]
+    },
+    {
+      "claim_text": "Elliott Wave Theory's heyday of popularity was in the 1980s.",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "medium",
+      "source_segment_ids": [
+        "seg-000025",
+        "seg-000026"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000025",
+          "quote": "The heyday when it was most popular was in the"
+        },
+        {
+          "segment_id": "seg-000026",
+          "quote": "1980s"
+        }
+      ]
+    },
+    {
+      "claim_text": "The guest's father predicted a repeat of the 'roaring 20s' around the late 1970s/early 1980s, against the prevailing doom-and-gloom consensus of the time.",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "medium",
+      "source_segment_ids": [
+        "seg-000026",
+        "seg-000027"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000026",
+          "quote": "My father had predicted a repeat of the roaring 20s right around the late 70s and early 80s"
+        },
+        {
+          "segment_id": "seg-000027",
+          "quote": "which of course went against the consensus at that time which was mostly doom and gloom"
+        }
+      ]
+    },
+    {
+      "claim_text": "Interest rates were at 18% alongside very severe runaway inflation during that period.",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-000028"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000028",
+          "quote": "you have interest rates at 18% and just very scary runaway inflation"
+        }
+      ]
+    },
+    {
+      "claim_text": "The guest believes that period was the worst inflationary period in US history, aside from possibly the continental currency episode.",
+      "claim_kind": "estimate",
+      "speaker": null,
+      "checkworthiness": "medium",
+      "source_segment_ids": [
+        "seg-000029",
+        "seg-000030"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000029",
+          "quote": "I think that was the worst, I think it's the worst inflationary period in US history"
+        }
+      ]
+    },
+    {
+      "claim_text": "The guest's first name, Elliott, was chosen in reference to Elliott Wave Theory, with 'Fibbo' (after Fibonacci) as the alternative considered.",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "low",
+      "source_segment_ids": [
+        "seg-000033",
+        "seg-000034"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000033",
+          "quote": "it was either going to be Elliott or it"
+        },
+        {
+          "segment_id": "seg-000034",
+          "quote": "was going to be Fibbo. I'm really glad I got with Elliott"
+        }
+      ]
+    },
+    {
+      "claim_text": "The guest's professional background is in computer science and engineering, and he was not interested in finance growing up.",
+      "claim_kind": "anecdote",
+      "speaker": null,
+      "checkworthiness": "low",
+      "source_segment_ids": [
+        "seg-000035",
+        "seg-000036"
+      ],
+      "quote_evidence": []
+    },
+    {
+      "claim_text": "The 2008 crash was the moment financial analysis struck the guest as having a big impact beyond portfolios or personal investments.",
+      "claim_kind": "anecdote",
+      "speaker": null,
+      "checkworthiness": "low",
+      "source_segment_ids": [
+        "seg-000037",
+        "seg-000038",
+        "seg-000039"
+      ],
+      "quote_evidence": []
+    },
+    {
+      "claim_text": "During the 2008 crash, the guest was positioned '4x short the banks' while observing depressed coworkers, though he kept quiet about his position out of consideration for others.",
+      "claim_kind": "anecdote",
+      "speaker": null,
+      "checkworthiness": "medium",
+      "source_segment_ids": [
+        "seg-000041",
+        "seg-000042",
+        "seg-000043",
+        "seg-000044"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000042",
+          "quote": "Meanwhile I'm like you know I'm 4x short the"
+        },
+        {
+          "segment_id": "seg-000043",
+          "quote": "banks right now. I'm loving this but I'm not going to say anything to anybody about it"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "name": "R.N. Elliott (Ralph Nelson Elliott)",
+      "type": "person",
+      "description": "Accountant who originally developed the Elliott Wave Principle in the early 1930s after studying market charts while bedridden with illness; used the theory to call the end of the 1929 crash.",
+      "source_segment_ids": [
+        "seg-000012",
+        "seg-000013",
+        "seg-000014",
+        "seg-000015",
+        "seg-000016",
+        "seg-000017",
+        "seg-000018"
+      ]
+    },
+    {
+      "name": "The guest's father",
+      "type": "person",
+      "description": "Discovered Elliott Wave Theory via microfilm in the 1970s, had prints made from it, popularized the theory during the 1980s, and predicted a repeat of the 'roaring 20s' against consensus.",
+      "source_segment_ids": [
+        "seg-000019",
+        "seg-000020",
+        "seg-000021",
+        "seg-000022",
+        "seg-000023",
+        "seg-000026",
+        "seg-000027"
+      ]
+    },
+    {
+      "name": "Elliott (the guest)",
+      "type": "person",
+      "description": "Interview guest, named after Elliott Wave Theory, with a computer science and engineering background who became interested in financial analysis after the 2008 crash.",
+      "source_segment_ids": [
+        "seg-000033",
+        "seg-000034",
+        "seg-000035",
+        "seg-000036",
+        "seg-000037",
+        "seg-000038"
+      ]
+    }
+  ],
+  "concepts": [
+    {
+      "name": "Elliott Wave Theory / Elliott Wave Principle",
+      "type": "concept",
+      "description": "A theory describing recurring price patterns that unfold repeatedly in financial markets, used by traders and investors.",
+      "source_segment_ids": [
+        "seg-000005",
+        "seg-000006",
+        "seg-000007",
+        "seg-000016"
+      ]
+    },
+    {
+      "name": "Microfilm access to Elliott's original writings",
+      "type": "concept",
+      "description": "In the 1970s, R.N. Elliott's writings existed only on microfilm, with no full books available, making the material nearly lost to history until reprinted.",
+      "source_segment_ids": [
+        "seg-000020",
+        "seg-000021",
+        "seg-000022",
+        "seg-000023"
+      ]
+    },
+    {
+      "name": "1929 crash / Great Depression bottom call",
+      "type": "concept",
+      "description": "The historical market event R.N. Elliott used his theory to analyze, pinpointing its end and recommending buying.",
+      "source_segment_ids": [
+        "seg-000017",
+        "seg-000018"
+      ]
+    },
+    {
+      "name": "2008 financial crash",
+      "type": "concept",
+      "description": "The market event that served as the guest's personal catalyst for taking financial analysis seriously.",
+      "source_segment_ids": [
+        "seg-000038",
+        "seg-000042"
+      ]
+    }
+  ],
+  "open_questions": [
+    {
+      "text": "How the guest's father convinced him to continue the family's Elliott Wave work, and how the guest feels about carrying it forward a generation later.",
+      "source_segment_ids": [
+        "seg-000031",
+        "seg-000032"
+      ]
+    }
+  ],
+  "contradictions_or_uncertainty": [
+    {
+      "text": "The guest hedges his claim about the worst US inflationary period, qualifying it with 'I think' and noting a possible exception ('maybe the continental').",
+      "source_segment_ids": [
+        "seg-000029",
+        "seg-000030"
+      ]
+    }
+  ]
+}

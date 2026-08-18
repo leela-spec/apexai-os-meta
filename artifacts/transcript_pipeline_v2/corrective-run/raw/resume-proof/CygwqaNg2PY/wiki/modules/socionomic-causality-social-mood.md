@@ -1,0 +1,19 @@
+# Socionomic Causality & Social Mood
+
+Social mood as the driving engine of macroeconomic trends and cultural shifts.
+
+## Source
+
+- `seg-000143` · 00:15:59.259, `seg-000144` · 00:16:05.759, `seg-000145` · 00:16:11.929, `seg-000146` · 00:16:16.049, `seg-000147` · 00:16:21.289, `seg-000148` · 00:16:27.629, `seg-000149` · 00:16:32.909, `seg-000150` · 00:16:39.289, `seg-000151` · 00:16:46.990, `seg-000152` · 00:16:54.649, `seg-000153` · 00:17:00.649, `seg-000154` · 00:17:07.170, `seg-000155` · 00:17:12.970, `seg-000156` · 00:17:19.549, `seg-000157` · 00:17:26.609, `seg-000158` · 00:17:34.750, `seg-000159` · 00:17:40.390, `seg-000160` · 00:17:45.890, `seg-000161` · 00:17:51.069, `seg-000162` · 00:17:57.109, `seg-000163` · 00:18:04.250, `seg-000164` · 00:18:08.569, `seg-000165` · 00:18:15.569, `seg-000166` · 00:18:22.930, `seg-000167` · 00:18:29.829, `seg-000168` · 00:18:35.750, `seg-000169` · 00:18:40.809, `seg-000170` · 00:18:46.990, `seg-000171` · 00:18:52.769, `seg-000172` · 00:18:59.170, `seg-000173` · 00:19:05.710, `seg-000174` · 00:19:11.150, `seg-000175` · 00:19:15.950, `seg-000176` · 00:19:21.529, `seg-000177` · 00:19:26.230, `seg-000178` · 00:19:33.900, `seg-000179` · 00:19:40.519, `seg-000180` · 00:19:46.759, `seg-000181` · 00:19:54.799, `seg-000182` · 00:20:01.900, `seg-000183` · 00:20:08.019, `seg-000184` · 00:20:14.579, `seg-000185` · 00:20:19.599, `seg-000186` · 00:20:25.920, `seg-000187` · 00:20:31.480, `seg-000188` · 00:20:39.599, `seg-000189` · 00:20:45.640, `seg-000190` · 00:20:50.880, `seg-000191` · 00:20:58.420, `seg-000192` · 00:21:02.799, `seg-000193` · 00:21:10.200, `seg-000194` · 00:21:18.160, `seg-000195` · 00:21:26.710, `seg-000196` · 00:21:35.220, `seg-000197` · 00:21:41.119, `seg-000198` · 00:21:48.819, `seg-000199` · 00:21:54.640, `seg-000200` · 00:22:01.599, `seg-000201` · 00:22:07.920, `seg-000202` · 00:22:12.859, `seg-000203` · 00:22:19.140, `seg-000204` · 00:22:25.220, `seg-000205` · 00:22:34.039, `seg-000206` · 00:22:40.019, `seg-000207` · 00:22:46.200, `seg-000208` · 00:22:53.150, `seg-000209` · 00:23:00.890, `seg-000210` · 00:23:07.769, `seg-000211` · 00:23:14.529, `seg-000212` · 00:23:22.930, `seg-000213` · 00:23:28.309, `seg-000214` · 00:23:34.710, `seg-000215` · 00:23:39.970
+
+## Mechanisms
+
+- {"source_segment_ids":["seg-000143"],"text":"Social mood as the driving engine of macroeconomic trends and cultural shifts."}
+
+## Arguments
+
+- Core analytical proposition in Socionomic Causality & Social Mood
+
+## Related
+
+[[concepts/functional-emotion-theory|Functional Emotion Theory]] · [[entities/elliott|Elliott]] · [[entities/elliott-pregnant|Elliott Pregnant]] · [[entities/elliott-wave-principle|Elliott Wave Principle]] · [[claims/Claim-04cba4bd1e37|Claim-04cba4bd1e37]] · [[claims/Claim-e1f869a828d5|Claim-e1f869a828d5]] · [[claims/Claim-180f19897d59|Claim-180f19897d59]] · [[claims/Claim-3391db195c06|Claim-3391db195c06]] · [[claims/Claim-3cfce919e209|Claim-3cfce919e209]] · [[claims/Claim-0ddc2a446483|Claim-0ddc2a446483]] · [[claims/Claim-22a08a445f63|Claim-22a08a445f63]] · [[claims/Claim-e9ffb50abb23|Claim-e9ffb50abb23]]

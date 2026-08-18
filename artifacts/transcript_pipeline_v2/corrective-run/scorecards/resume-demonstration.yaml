@@ -1,0 +1,29 @@
+schema: transcript-pipeline-resume-proof.v2
+evaluated_at: '2026-08-18T20:56:45.574174+00:00'
+verdict: PASS
+demonstrations:
+  step1_clean_initial_run:
+    status: PASS
+    windows_count: 4
+    claims_compiled: 24
+  step2_unchanged_rerun:
+    status: PASS
+    reused_map_units:
+    - window-0001.json
+    - window-0002.json
+    - window-0003.json
+    - window-0004.json
+    recomputed_map_units: []
+    reduce_reused: true
+    cache_hit_rate: 100%
+  step3_targeted_invalidation:
+    status: PASS
+    invalidated_unit: window-0002.json
+    preserved_units:
+    - window-0001.json
+    - window-0003.json
+    - window-0004.json
+    recomputed_units:
+    - window-0002.json
+    downstream_reduce_recomputed: true
+    final_validation: true

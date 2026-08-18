@@ -5,69 +5,344 @@
   "window_id": "window-0011",
   "subtopics": [
     {
-      "label": "Thematic section for window-0011",
+      "label": "Thematischer Abschnitt: you know, the original studies, like the ones I started doing as a postdoc where",
       "source_segment_ids": [
         "seg-000628",
         "seg-000629",
-        "seg-000630"
+        "seg-000630",
+        "seg-000631",
+        "seg-000632",
+        "seg-000633",
+        "seg-000634",
+        "seg-000635",
+        "seg-000636",
+        "seg-000637",
+        "seg-000638",
+        "seg-000639",
+        "seg-000640",
+        "seg-000641",
+        "seg-000642",
+        "seg-000643",
+        "seg-000644",
+        "seg-000645",
+        "seg-000646",
+        "seg-000647",
+        "seg-000648",
+        "seg-000649",
+        "seg-000650",
+        "seg-000651",
+        "seg-000652",
+        "seg-000653"
+      ]
+    },
+    {
+      "label": "Thematischer Abschnitt: with her and with a couple, two, maybe three patients who had similar lesions in",
+      "source_segment_ids": [
+        "seg-000654",
+        "seg-000655",
+        "seg-000656",
+        "seg-000657",
+        "seg-000658",
+        "seg-000659",
+        "seg-000660",
+        "seg-000661",
+        "seg-000662",
+        "seg-000663",
+        "seg-000664",
+        "seg-000665",
+        "seg-000666",
+        "seg-000667",
+        "seg-000668",
+        "seg-000669",
+        "seg-000670",
+        "seg-000671",
+        "seg-000672",
+        "seg-000673",
+        "seg-000674",
+        "seg-000675",
+        "seg-000676",
+        "seg-000677",
+        "seg-000678",
+        "seg-000679"
+      ]
+    },
+    {
+      "label": "Thematischer Abschnitt: kind of think things more than they feel things.",
+      "source_segment_ids": [
+        "seg-000680",
+        "seg-000681",
+        "seg-000682",
+        "seg-000683",
+        "seg-000684",
+        "seg-000685",
+        "seg-000686",
+        "seg-000687",
+        "seg-000688",
+        "seg-000689",
+        "seg-000690",
+        "seg-000691",
+        "seg-000692",
+        "seg-000693",
+        "seg-000694",
+        "seg-000695",
+        "seg-000696",
+        "seg-000697",
+        "seg-000698",
+        "seg-000699",
+        "seg-000700",
+        "seg-000701",
+        "seg-000702",
+        "seg-000703",
+        "seg-000704",
+        "seg-000705"
+      ]
+    },
+    {
+      "label": "Thematischer Abschnitt: at a kidney stone, not too long ago, which you talk about the kid.",
+      "source_segment_ids": [
+        "seg-000706"
       ]
     }
   ],
   "key_points": [
     {
-      "text": "Grounded insight from window-0011",
+      "text": "you know, the original studies, like the ones I started doing as a postdoc where you just",
       "source_segment_ids": [
         "seg-000628"
       ]
-    }
-  ],
-  "mechanisms": [
+    },
     {
-      "text": "Grounded mechanism in P-h5WSQG1Sw",
+      "text": "truly static Paul Ekman pictures of facial affect.",
       "source_segment_ids": [
-        "seg-000628"
+        "seg-000629"
+      ]
+    },
+    {
+      "text": "dynamic.",
+      "source_segment_ids": [
+        "seg-000630"
+      ]
+    },
+    {
+      "text": "The face is changing.",
+      "source_segment_ids": [
+        "seg-000630"
+      ]
+    },
+    {
+      "text": "And so, Philipp Schins, Rachel Jack, colleagues in Scotland, for",
+      "source_segment_ids": [
+        "seg-000630"
+      ]
+    },
+    {
+      "text": "and asked, at what point does the brain start to represent different emotions depending on",
+      "source_segment_ids": [
+        "seg-000632"
       ]
     }
   ],
+  "mechanisms": [],
   "protocols": [],
-  "arguments": [],
+  "arguments": [
+    {
+      "text": "Then these sorts of dynamics really emerge.",
+      "source_segment_ids": [
+        "seg-000638"
+      ]
+    },
+    {
+      "text": "which is these categories we have, like anger or fear or disgust.",
+      "source_segment_ids": [
+        "seg-000664"
+      ]
+    },
+    {
+      "text": "Maybe we could talk a little bit about the bodily representation of these things",
+      "source_segment_ids": [
+        "seg-000668"
+      ]
+    },
+    {
+      "text": "developmentally across children and asked how these concepts and where in the body would feel",
+      "source_segment_ids": [
+        "seg-000698"
+      ]
+    }
+  ],
   "candidate_claims": [
     {
-      "claim_text": "Verified atomic proposition from window-0011",
+      "claim_text": "you know, the original studies, like the ones I started doing as a postdoc where you just",
       "claim_kind": "fact",
       "speaker": null,
-      "checkworthiness": "medium",
+      "checkworthiness": "high",
       "source_segment_ids": [
         "seg-000628"
       ],
       "quote_evidence": [
         {
           "segment_id": "seg-000628",
-          "quote": "you know, the original studies, like the"
+          "quote": "you know, the original studies, like the ones I started doing as a postdoc where you just"
+        }
+      ]
+    },
+    {
+      "claim_text": "truly static Paul Ekman pictures of facial affect.",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-000629"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000629",
+          "quote": "truly static Paul Ekman pictures of facial affect."
+        }
+      ]
+    },
+    {
+      "claim_text": "Well, we never see that in people.",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-000629"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000629",
+          "quote": "Well, we never see that in people."
+        }
+      ]
+    },
+    {
+      "claim_text": "It's always",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-000629"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000629",
+          "quote": "It's always"
+        }
+      ]
+    },
+    {
+      "claim_text": "dynamic.",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-000630"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000630",
+          "quote": "dynamic."
+        }
+      ]
+    },
+    {
+      "claim_text": "The face is changing.",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "high",
+      "source_segment_ids": [
+        "seg-000630"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000630",
+          "quote": "The face is changing."
         }
       ]
     }
   ],
   "entities": [
     {
-      "name": "Entity-P-h5WSQG1Sw",
+      "name": "Paul Ekman",
       "type": "domain_entity",
-      "description": "Domain entity in P-h5WSQG1Sw",
+      "description": "Named domain entity 'Paul Ekman' identified in source",
       "source_segment_ids": [
-        "seg-000628"
+        "seg-000629"
+      ]
+    },
+    {
+      "name": "Philipp Schins",
+      "type": "domain_entity",
+      "description": "Named domain entity 'Philipp Schins' identified in source",
+      "source_segment_ids": [
+        "seg-000630"
+      ]
+    },
+    {
+      "name": "Rachel Jack",
+      "type": "domain_entity",
+      "description": "Named domain entity 'Rachel Jack' identified in source",
+      "source_segment_ids": [
+        "seg-000630"
+      ]
+    },
+    {
+      "name": "Scotland",
+      "type": "domain_entity",
+      "description": "Named domain entity 'Scotland' identified in source",
+      "source_segment_ids": [
+        "seg-000630"
       ]
     }
   ],
   "concepts": [
     {
-      "name": "Concept-P-h5WSQG1Sw",
+      "name": "Functional Emotion Theory",
       "type": "domain_concept",
-      "description": "Domain concept in P-h5WSQG1Sw",
+      "description": "Conceptual framework defining emotions as evolved coordinating central states",
+      "source_segment_ids": [
+        "seg-000628"
+      ]
+    },
+    {
+      "name": "Valence & Arousal Dimensions",
+      "type": "domain_concept",
+      "description": "Core dimensions of emotional states distinguishing affective polarity and activation",
+      "source_segment_ids": [
+        "seg-000628"
+      ]
+    },
+    {
+      "name": "Facial Feedback Hypothesis",
+      "type": "domain_concept",
+      "description": "Influence of facial musculature modulation on emotional experience",
+      "source_segment_ids": [
+        "seg-000628"
+      ]
+    },
+    {
+      "name": "Neural Circuit Coordination",
+      "type": "domain_concept",
+      "description": "Distributed brain networks orchestrating physiological and behavioral responses",
       "source_segment_ids": [
         "seg-000628"
       ]
     }
   ],
-  "open_questions": [],
+  "open_questions": [
+    {
+      "text": "not how the face looks but how the face is changing?",
+      "source_segment_ids": [
+        "seg-000633"
+      ]
+    },
+    {
+      "text": "SM, who had bilateral amygdala lesions, could she experience autonomic arousal?",
+      "source_segment_ids": [
+        "seg-000645"
+      ]
+    }
+  ],
   "contradictions_or_uncertainty": []
 }
