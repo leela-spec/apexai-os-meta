@@ -1,0 +1,21 @@
+schema: transcript-pipeline-reduce-scorecard.v2
+evaluated_at: '2026-08-18T20:28:10.343564+00:00'
+lanes:
+  direct_agent_reduce:
+    macro_thesis_quality:
+      value: 4.8
+      evidence_refs: &id001
+      - artifacts\transcript_pipeline_v2\corrective-run\raw\reduce\CygwqaNg2PY\reduce_result.json
+      - artifacts\transcript_pipeline_v2\corrective-run\raw\reduce\vFTuLylvYnA\reduce_result.json
+      - artifacts\transcript_pipeline_v2\corrective-run\raw\reduce\P-h5WSQG1Sw\reduce_result.json
+      - artifacts\transcript_pipeline_v2\corrective-run\raw\reduce\oZIsMX6WgFs\reduce_result.json
+    meso_coherence:
+      value: 4.9
+      evidence_refs: *id001
+    status: PASS
+    verdict: SELECTED_WINNER
+  docetl_fixed_reduce:
+    status: BLOCKED_FOR_TRIAL1
+    verdict: CHALLENGER_DEFERRED
+    reason: docetl package not installed; Trial-1 requires agent/subagent semantic
+      transport

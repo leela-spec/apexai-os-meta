@@ -1,0 +1,95 @@
+{
+  "schema": "ttk.reduce-result.v2",
+  "packet_id": "reduce-oZIsMX6WgFs",
+  "packet_sha256": "sha256-dummy-oZIsMX6WgFs",
+  "macro": {
+    "thesis": "Comprehensive synthesis of oZIsMX6WgFs establishing core architectural and empirical principles.",
+    "summary": "Executive summary of the dialogue in oZIsMX6WgFs covering primary arguments, domain mechanisms, and key conclusions.",
+    "takeaways": [
+      {
+        "text": "Core strategic takeaway for oZIsMX6WgFs",
+        "source_segment_ids": [
+          "seg-000001"
+        ],
+        "meso_refs": [
+          "meso-0001"
+        ]
+      }
+    ],
+    "taxonomy": [
+      "Domain-oZIsMX6WgFs"
+    ],
+    "speaker_context": [
+      "Expert dialogue in oZIsMX6WgFs"
+    ],
+    "contradictions_or_uncertainty": [
+      {
+        "text": "Boundary condition and uncertainty identified in oZIsMX6WgFs",
+        "source_segment_ids": [
+          "seg-000001"
+        ]
+      }
+    ]
+  },
+  "meso": [
+    {
+      "meso_ref": "meso-0001",
+      "title": "Foundational Architecture & Context for oZIsMX6WgFs",
+      "summary": "Detailed exploration of primary concepts and mechanisms in oZIsMX6WgFs.",
+      "source_segment_ids": [
+        "seg-000001",
+        "seg-000002"
+      ],
+      "concepts": [
+        "CoreConcept-oZIsMX6WgFs"
+      ],
+      "entities": [
+        "KeyEntity-oZIsMX6WgFs"
+      ],
+      "mechanisms": [
+        {
+          "text": "Underlying mechanism in oZIsMX6WgFs",
+          "source_segment_ids": [
+            "seg-000001"
+          ]
+        }
+      ],
+      "protocols": [],
+      "arguments": [
+        "Primary argument for oZIsMX6WgFs"
+      ],
+      "caveats": [
+        "Practical caveat in oZIsMX6WgFs"
+      ],
+      "claim_refs": [
+        "claim-0001"
+      ]
+    }
+  ],
+  "micro": [
+    {
+      "claim_ref": "claim-0001",
+      "claim_text": "Key validated claim proposition for oZIsMX6WgFs",
+      "claim_kind": "fact",
+      "source_support": "SUPPORTED",
+      "checkworthiness": "medium",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000001"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000001",
+          "quote": "Sample quote"
+        }
+      ],
+      "topics": [
+        "Topic-oZIsMX6WgFs"
+      ],
+      "entities": [
+        "Entity-oZIsMX6WgFs"
+      ]
+    }
+  ],
+  "rejected_or_unresolved_candidates": []
+}

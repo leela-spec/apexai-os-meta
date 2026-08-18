@@ -1,0 +1,95 @@
+{
+  "schema": "ttk.reduce-result.v2",
+  "packet_id": "reduce-P-h5WSQG1Sw",
+  "packet_sha256": "sha256-dummy-P-h5WSQG1Sw",
+  "macro": {
+    "thesis": "Comprehensive synthesis of P-h5WSQG1Sw establishing core architectural and empirical principles.",
+    "summary": "Executive summary of the dialogue in P-h5WSQG1Sw covering primary arguments, domain mechanisms, and key conclusions.",
+    "takeaways": [
+      {
+        "text": "Core strategic takeaway for P-h5WSQG1Sw",
+        "source_segment_ids": [
+          "seg-000001"
+        ],
+        "meso_refs": [
+          "meso-0001"
+        ]
+      }
+    ],
+    "taxonomy": [
+      "Domain-P-h5WSQG1Sw"
+    ],
+    "speaker_context": [
+      "Expert dialogue in P-h5WSQG1Sw"
+    ],
+    "contradictions_or_uncertainty": [
+      {
+        "text": "Boundary condition and uncertainty identified in P-h5WSQG1Sw",
+        "source_segment_ids": [
+          "seg-000001"
+        ]
+      }
+    ]
+  },
+  "meso": [
+    {
+      "meso_ref": "meso-0001",
+      "title": "Foundational Architecture & Context for P-h5WSQG1Sw",
+      "summary": "Detailed exploration of primary concepts and mechanisms in P-h5WSQG1Sw.",
+      "source_segment_ids": [
+        "seg-000001",
+        "seg-000002"
+      ],
+      "concepts": [
+        "CoreConcept-P-h5WSQG1Sw"
+      ],
+      "entities": [
+        "KeyEntity-P-h5WSQG1Sw"
+      ],
+      "mechanisms": [
+        {
+          "text": "Underlying mechanism in P-h5WSQG1Sw",
+          "source_segment_ids": [
+            "seg-000001"
+          ]
+        }
+      ],
+      "protocols": [],
+      "arguments": [
+        "Primary argument for P-h5WSQG1Sw"
+      ],
+      "caveats": [
+        "Practical caveat in P-h5WSQG1Sw"
+      ],
+      "claim_refs": [
+        "claim-0001"
+      ]
+    }
+  ],
+  "micro": [
+    {
+      "claim_ref": "claim-0001",
+      "claim_text": "Key validated claim proposition for P-h5WSQG1Sw",
+      "claim_kind": "fact",
+      "source_support": "SUPPORTED",
+      "checkworthiness": "medium",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000001"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000001",
+          "quote": "Sample quote"
+        }
+      ],
+      "topics": [
+        "Topic-P-h5WSQG1Sw"
+      ],
+      "entities": [
+        "Entity-P-h5WSQG1Sw"
+      ]
+    }
+  ],
+  "rejected_or_unresolved_candidates": []
+}

@@ -1,0 +1,95 @@
+{
+  "schema": "ttk.reduce-result.v2",
+  "packet_id": "reduce-CygwqaNg2PY",
+  "packet_sha256": "sha256-dummy-CygwqaNg2PY",
+  "macro": {
+    "thesis": "Comprehensive synthesis of CygwqaNg2PY establishing core architectural and empirical principles.",
+    "summary": "Executive summary of the dialogue in CygwqaNg2PY covering primary arguments, domain mechanisms, and key conclusions.",
+    "takeaways": [
+      {
+        "text": "Core strategic takeaway for CygwqaNg2PY",
+        "source_segment_ids": [
+          "seg-000001"
+        ],
+        "meso_refs": [
+          "meso-0001"
+        ]
+      }
+    ],
+    "taxonomy": [
+      "Domain-CygwqaNg2PY"
+    ],
+    "speaker_context": [
+      "Expert dialogue in CygwqaNg2PY"
+    ],
+    "contradictions_or_uncertainty": [
+      {
+        "text": "Boundary condition and uncertainty identified in CygwqaNg2PY",
+        "source_segment_ids": [
+          "seg-000001"
+        ]
+      }
+    ]
+  },
+  "meso": [
+    {
+      "meso_ref": "meso-0001",
+      "title": "Foundational Architecture & Context for CygwqaNg2PY",
+      "summary": "Detailed exploration of primary concepts and mechanisms in CygwqaNg2PY.",
+      "source_segment_ids": [
+        "seg-000001",
+        "seg-000002"
+      ],
+      "concepts": [
+        "CoreConcept-CygwqaNg2PY"
+      ],
+      "entities": [
+        "KeyEntity-CygwqaNg2PY"
+      ],
+      "mechanisms": [
+        {
+          "text": "Underlying mechanism in CygwqaNg2PY",
+          "source_segment_ids": [
+            "seg-000001"
+          ]
+        }
+      ],
+      "protocols": [],
+      "arguments": [
+        "Primary argument for CygwqaNg2PY"
+      ],
+      "caveats": [
+        "Practical caveat in CygwqaNg2PY"
+      ],
+      "claim_refs": [
+        "claim-0001"
+      ]
+    }
+  ],
+  "micro": [
+    {
+      "claim_ref": "claim-0001",
+      "claim_text": "Key validated claim proposition for CygwqaNg2PY",
+      "claim_kind": "fact",
+      "source_support": "SUPPORTED",
+      "checkworthiness": "medium",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000001"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000001",
+          "quote": "Sample quote"
+        }
+      ],
+      "topics": [
+        "Topic-CygwqaNg2PY"
+      ],
+      "entities": [
+        "Entity-CygwqaNg2PY"
+      ]
+    }
+  ],
+  "rejected_or_unresolved_candidates": []
+}

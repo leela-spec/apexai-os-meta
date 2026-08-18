@@ -1,0 +1,95 @@
+{
+  "schema": "ttk.reduce-result.v2",
+  "packet_id": "reduce-vFTuLylvYnA",
+  "packet_sha256": "sha256-dummy-vFTuLylvYnA",
+  "macro": {
+    "thesis": "Comprehensive synthesis of vFTuLylvYnA establishing core architectural and empirical principles.",
+    "summary": "Executive summary of the dialogue in vFTuLylvYnA covering primary arguments, domain mechanisms, and key conclusions.",
+    "takeaways": [
+      {
+        "text": "Core strategic takeaway for vFTuLylvYnA",
+        "source_segment_ids": [
+          "seg-000001"
+        ],
+        "meso_refs": [
+          "meso-0001"
+        ]
+      }
+    ],
+    "taxonomy": [
+      "Domain-vFTuLylvYnA"
+    ],
+    "speaker_context": [
+      "Expert dialogue in vFTuLylvYnA"
+    ],
+    "contradictions_or_uncertainty": [
+      {
+        "text": "Boundary condition and uncertainty identified in vFTuLylvYnA",
+        "source_segment_ids": [
+          "seg-000001"
+        ]
+      }
+    ]
+  },
+  "meso": [
+    {
+      "meso_ref": "meso-0001",
+      "title": "Foundational Architecture & Context for vFTuLylvYnA",
+      "summary": "Detailed exploration of primary concepts and mechanisms in vFTuLylvYnA.",
+      "source_segment_ids": [
+        "seg-000001",
+        "seg-000002"
+      ],
+      "concepts": [
+        "CoreConcept-vFTuLylvYnA"
+      ],
+      "entities": [
+        "KeyEntity-vFTuLylvYnA"
+      ],
+      "mechanisms": [
+        {
+          "text": "Underlying mechanism in vFTuLylvYnA",
+          "source_segment_ids": [
+            "seg-000001"
+          ]
+        }
+      ],
+      "protocols": [],
+      "arguments": [
+        "Primary argument for vFTuLylvYnA"
+      ],
+      "caveats": [
+        "Practical caveat in vFTuLylvYnA"
+      ],
+      "claim_refs": [
+        "claim-0001"
+      ]
+    }
+  ],
+  "micro": [
+    {
+      "claim_ref": "claim-0001",
+      "claim_text": "Key validated claim proposition for vFTuLylvYnA",
+      "claim_kind": "fact",
+      "source_support": "SUPPORTED",
+      "checkworthiness": "medium",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000001"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000001",
+          "quote": "Sample quote"
+        }
+      ],
+      "topics": [
+        "Topic-vFTuLylvYnA"
+      ],
+      "entities": [
+        "Entity-vFTuLylvYnA"
+      ]
+    }
+  ],
+  "rejected_or_unresolved_candidates": []
+}
