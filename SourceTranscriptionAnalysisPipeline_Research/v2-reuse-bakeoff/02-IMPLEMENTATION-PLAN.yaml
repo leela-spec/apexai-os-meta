@@ -52,6 +52,12 @@ execution_rules:
     rule: 'For semantic calls, preserve packet/result/worker receipts; retries are bounded and validation-informed.'
   - id: EX-10
     rule: 'If a task changes runtime code, add/run tests before commit. Documentation alone is not evidence that code works.'
+  - id: EX-11
+    rule: 'Trial 1 strong-AI execution is subscription-CLI-only. Allowed semantic transports are Claude Code CLI, Codex CLI, and Antigravity CLI when its local headless smoke test passes. Do not use API-key, pay-as-you-go, hosted model API, or browser-AI transport during Trial 1.'
+  - id: EX-12
+    rule: 'If a candidate framework cannot call an allowed Trial-1 CLI through a bounded local adapter, record BLOCKED_FOR_TRIAL1 and continue. Do not silently switch that framework to an API provider.'
+  - id: EX-13
+    rule: 'Semantic-worker subprocesses must not inherit known API-key billing variables when subscription authentication is intended. Preserve subscription OAuth/session credentials, but remove or fail on conflicting API-key transport.'
 
 artifact_layout:
   code_root: scripts/transcript_pipeline_v2
@@ -114,12 +120,15 @@ tasks:
       - 'python --version'
       - 'claude --version'
       - 'codex --version'
-      - 'gemini --version'
+      - 'agy --version'
     steps:
       - 'Assert repo root resolves to apexai-os-meta and remote points to leela-spec/apexai-os-meta.'
       - 'Assert branch is main. If not, STOP unless operator explicitly changed branch policy.'
       - 'Capture HEAD SHA and dirty paths. Do not overwrite unrelated dirty paths.'
-      - 'Record availability/version/exit status of Python, Claude, Codex, Gemini. A missing challenger CLI is BLOCKED for that provider, not permission to install unrelated software globally.'
+      - 'Record availability/version/exit status of Python, Claude, Codex, and Antigravity. A missing challenger CLI is BLOCKED for that provider, not permission to install unrelated software globally.'
+      - 'Record only presence/absence, never values, for known API-routing variables including ANTHROPIC_API_KEY, ANTHROPIC_AUTH_TOKEN, ANTHROPIC_BASE_URL, OPENAI_API_KEY, GEMINI_API_KEY, and GOOGLE_API_KEY.'
+      - 'Trial-1 semantic subprocesses must use a sanitized child environment that prevents API-key/pay-as-you-go routing while preserving the authenticated subscription CLI session.'
+      - 'Antigravity is allowed only after a real local non-interactive subprocess smoke test proves the installed version returns capturable output and exits cleanly. Otherwise record BLOCKED_FOR_TRIAL1 for Antigravity and continue with Claude/Codex.'
       - 'Verify all four benchmark transcript paths exist. Record SHA256 for each.'
       - 'Verify TTK skill and test file exist.'
     acceptance:
@@ -224,7 +233,7 @@ tasks:
       - scripts/transcript_pipeline_v2/tests/test_semantic_cli.py
       - artifacts/transcript_pipeline_v2/receipts/smoke/map_direct_cli.json
     primary_provider: claude
-    provider_fallback_order: [codex, gemini]
+    provider_fallback_order: [codex, antigravity]
     required_interface:
       map: 'python scripts/transcript_pipeline_v2/runner.py map --provider <provider> --packet <packet.json> --output <result.json>'
       reduce: 'python scripts/transcript_pipeline_v2/runner.py reduce --provider <provider> --packet <packet.json> --output <result.json>'
@@ -233,7 +242,8 @@ tasks:
       - 'Capture stdout/stderr/exit code and redact/no-copy secrets.'
       - 'Claude path should use headless print mode and strict --json-schema when installed CLI supports it.'
       - 'Codex path should use codex exec --output-schema when used.'
-      - 'Gemini path may use --output-format json plus deterministic extraction/validation of the response field.'
+      - 'Antigravity path must first pass a real local subprocess smoke test for non-interactive prompt execution, capturable stdout/final output, bounded timeout, and clean exit. If the installed version fails, mark provider BLOCKED_FOR_TRIAL1 rather than weakening execution safety.'
+      - 'Every Trial-1 semantic subprocess must use subscription/account authentication rather than API-key/pay-as-you-go transport. Sanitize conflicting API-key environment variables in the child process and record the transport class without recording credentials.'
       - 'Map/Reduce invocation must not need filesystem/web/shell tools from the semantic model; packet content is passed as bounded prompt/file content.'
       - 'Retry at most once for schema/TTK validation failure, appending the exact machine validator error.'
       - 'No retry may substitute heuristic output.'
@@ -572,7 +582,7 @@ tasks:
       - 'A simpler component wins ties.'
       - 'A more complex component may win if its measured quality/reliability/efficiency gain is material.'
       - 'Conditional components remain conditional; do not force WhisperX onto single-speaker flows.'
-      - 'Optional paid API cannot become production default without explicit operator approval.'
+      - 'Trial 1 may select only local deterministic/local-ML components plus Claude Code, Codex, or smoke-tested Antigravity subscription-CLI semantic routes. Paid/API-key-billed and browser-AI routes remain post-Trial-1 options and cannot be selected from Trial-1 evidence.'
     acceptance:
       - 'SELECTION.yaml names one chosen component/route for every required stage'
       - 'every non-selected measured candidate has KEEP_AS_CHALLENGER/REJECT/BLOCKED with rationale and reversal trigger'

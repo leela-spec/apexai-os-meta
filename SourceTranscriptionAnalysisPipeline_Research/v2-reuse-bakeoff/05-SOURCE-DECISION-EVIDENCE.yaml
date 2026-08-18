@@ -13,18 +13,23 @@ operator_decisions:
     asr_dependency: 'High-quality transcription is required to enable the knowledge goal; ASR is not itself the final product.'
     representation: 'Macro/Meso/Micro is preferred but replaceable if a better representation wins measured comparison.'
   semantic_intelligence:
-    allowed_workers:
+    trial1_allowed_workers:
       - Claude Code CLI
       - Codex CLI
+      - Antigravity CLI if local headless smoke test passes
+    deferred_workers_after_trial1:
       - Gemini CLI
       - browser subscription AIs
+    trial1_transport: subscription_cli_only
     qwen_current_pipeline_role: none
     qwen_future_possible_role: 'Very simple bounded classification/routing only if independently benchmarked; not semantic reasoning.'
   cost:
     subscription_quota_use: acceptable_quality_first
     deterministic_token_saving_tools: strongly_valuable
-    paid_api: undesirable_not_forbidden
-    paid_api_visibility: 'Keep useful paid options visible with cost/value; small capped experiments allowed for architecture questions.'
+    trial1_paid_api: forbidden
+    trial1_api_key_billing: forbidden
+    paid_api_after_trial1: undesirable_not_forbidden
+    paid_api_visibility: 'Keep useful paid options visible with cost/value for later decisions, but do not execute them during Trial 1 without a newer explicit operator override.'
   orchestration:
     normal_trigger: APEX/OpenClaw
     human_interaction: 'No routine intervention after start; fail/stop on genuine unresolved failure/authority boundary.'
@@ -49,7 +54,7 @@ provisional_recommended_defaults_from_saved_evaluation:
   D_local_preextract: D1_gliner2_first_then_nuextract_if_needed
   E_nli_hhem_advisory: E1_yes
   F_docetl_real_benchmark: F1_yes
-  G_small_capped_api_experiment: G1_yes_if_material_and_recorded
+  G_small_capped_api_experiment: deferred_after_trial1_requires_new_operator_approval
   H_deepeval_plus_gold_scoreboard: H1_yes
   I_fabric_open_notebook_baselines: I1_yes
   J_isolated_dependency_for_material_gain: J1_yes
@@ -223,7 +228,7 @@ unresolved_before_execution:
   - 'Whether Parakeet runtime is smooth on this exact Windows/Intel stack.'
   - 'Whether WhisperX diarization model access is already authenticated.'
   - 'Whether LangExtract CLI-provider adapter preserves subscription economics cleanly.'
-  - 'Whether DocETL can use the preferred subscription CLI route without disproportionate adapter work; capped API experiment is allowed if materially useful.'
+  - 'Whether DocETL can use Claude Code, Codex, or smoke-tested Antigravity subscription CLI transport without disproportionate adapter work; if not, mark DocETL BLOCKED_FOR_TRIAL1 and retain API evaluation only as a post-Trial-1 option.'
   - 'How much GLiNER2 helps German extraction; benchmark required.'
   - 'Exact utility of NLI/HHEM thresholds; derive from labeled fixtures.'
   - 'Whether DeepEval metrics used are language-appropriate; German must not rely solely on English judge prompts.'
@@ -235,5 +240,5 @@ forbidden_inferences:
   - 'Schema valid means semantic quality is good.'
   - 'A simple architecture is best before comparison.'
   - 'A feature-rich architecture is best before comparison.'
-  - 'A paid option is forbidden simply because local/free is preferred.'
+  - 'Trial 1 may use a paid/API-key-billed or browser-AI transport without a newer explicit operator override.'
   - 'A research score is an implementation PASS.'

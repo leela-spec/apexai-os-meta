@@ -23,6 +23,10 @@ rules:
     text: 'Record exact version/commit/model revision after install; do not rely only on floating latest versions.'
   - id: REG-07
     text: 'A failed install is BLOCKED/FAIL evidence, not permission to silently substitute a custom implementation.'
+  - id: REG-08
+    text: 'Trial 1 strong-AI transport is subscription-CLI-only: Claude Code CLI, Codex CLI, or Antigravity CLI after a successful local headless smoke test.'
+  - id: REG-09
+    text: 'API-key, pay-as-you-go, hosted model API, and browser-AI transport are post-Trial-1 options. If a framework cannot use an allowed CLI adapter in Trial 1, mark it BLOCKED_FOR_TRIAL1 instead of changing transport.'
 
 paths:
   tools_root: scripts/transcript_pipeline_v2/tools
@@ -198,9 +202,11 @@ components:
     providers:
       primary:
         id: claude
+        transport: subscription_cli
         docs:
           - 'https://code.claude.com/docs/en/headless'
           - 'https://code.claude.com/docs/en/cli-usage'
+          - 'https://code.claude.com/docs/en/authentication'
         capabilities:
           - noninteractive_print_mode
           - json_output
@@ -208,21 +214,29 @@ components:
           - max_turns
       challenger:
         id: codex
+        transport: subscription_cli
         docs:
+          - 'https://github.com/openai/codex'
           - 'https://github.com/openai/codex/blob/main/codex-rs/exec/src/cli.rs'
         capabilities:
           - noninteractive_exec
           - output_schema
           - jsonl_events
-      fallback:
+      challenger_conditional:
+        id: antigravity
+        transport: subscription_or_account_cli
+        docs:
+          - 'https://github.com/google-antigravity/antigravity-cli'
+        requirements:
+          - local_headless_subprocess_smoke_pass
+          - capturable_output
+          - bounded_timeout
+          - no_api_key_billing
+        on_failure: BLOCKED_FOR_TRIAL1
+      deferred_after_trial1:
         id: gemini
         docs:
           - 'https://github.com/google-gemini/gemini-cli/blob/main/docs/cli/headless.md'
-        capabilities:
-          - headless_prompt
-          - json_output
-          - stream_json
-          - usage_stats
     constraints:
       - no tools needed during normal Map
       - packet content is bounded input
@@ -333,8 +347,14 @@ components:
       optimizer_enabled: false
       reason: 'Preserve attribution. Compare a fixed pipeline before automatic rewrites.'
     provider_policy:
-      preferred: 'Use an already-authorized provider route if practical.'
-      capped_api_experiment_allowed: true
+      trial1_transport: subscription_cli_only
+      trial1_allowed_semantic_clis:
+        - claude
+        - codex
+        - antigravity_if_headless_smoke_passes
+      trial1_api_experiment_allowed: false
+      if_cli_adapter_not_practical: BLOCKED_FOR_TRIAL1
+      post_trial_capped_api_experiment_allowed: true_only_with_explicit_operator_approval
       production_api_default_allowed: false
     hypothesis: 'DocETL improves semantic recall/cost/maintenance or removes enough custom orchestration to justify itself.'
     reject_if:
@@ -350,12 +370,14 @@ components:
     authority:
       routing: deterministic_TTK
       evidence_judgment: strong_semantic_worker
-    provider_options:
-      - Claude Code WebSearch/WebFetch
-      - Gemini search/tooling
-      - Codex web search
+    provider_options_trial1:
+      - Claude Code subscription CLI WebSearch/WebFetch
+      - Codex subscription CLI web search
+      - Antigravity CLI research/tooling only if its headless smoke test passes
+    provider_options_post_trial1:
+      - Gemini CLI
       - OpenClaw browser subscription AI
-      - capped paid API if explicitly useful
+      - capped paid API if explicitly approved
     policy:
       default_claim_types: factual_only
       nonfactual_external_status: NOT_APPLICABLE

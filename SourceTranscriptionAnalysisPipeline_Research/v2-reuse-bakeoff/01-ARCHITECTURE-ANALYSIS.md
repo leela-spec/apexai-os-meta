@@ -111,7 +111,7 @@ Implications:
 | OpenVINO GenAI Whisper | Intel-local runtime, relevant hardware fit | separate model/runtime conversion complexity | Challenger if speed is a problem | test after quality selection |
 | WhisperX transcription backend | faster-whisper plus downstream alignment | extra dependencies; not needed solely for ASR | Conditional | use for speaker/alignment test |
 | whisper.cpp | mature local runtime | Windows Intel acceleration path may need tuning | Secondary challenger | only if existing engines fail needs |
-| Hosted ASR / Voxtral-style API | potentially strong quality; low install burden | cost/privacy/network | Optional oracle/escalation | one capped experiment only if local ceiling is unclear |
+| Hosted ASR / Voxtral-style API | potentially strong quality; low install burden | cost/privacy/network | Post-Trial-1 oracle/escalation | do not run in Trial 1; retain as a documented later option only |
 
 **Official/primary evidence:**
 - faster-whisper: https://github.com/SYSTRAN/faster-whisper
@@ -182,7 +182,7 @@ Primary evidence: https://github.com/fastino-ai/GLiNER2
 ### Route A — direct strong CLI
 
 ```text
-TTK packet -> Claude/Codex/Gemini CLI -> TTK Map result -> TTK validator
+TTK packet -> Claude/Codex/Antigravity subscription CLI -> TTK Map result -> TTK validator
 ```
 
 Pros:
@@ -300,7 +300,7 @@ Risks:
 - provider/API integration may be easier than subscription-CLI integration;
 - optimizer makes attribution harder if enabled too early.
 
-**V2 experiment:** fixed DocETL pipeline first; optimizer **off** during the initial comparison. Use the same validated Map evidence set where feasible. Enable optimization only as a second experiment after baseline attribution exists.
+**Trial 1 experiment:** fixed DocETL pipeline first; optimizer **off** during the initial comparison. Use the same validated Map evidence set where feasible. Any strong-AI call must execute through an allowed locally invoked subscription CLI. If DocETL cannot be connected to Claude Code, Codex, or Antigravity without API-key/pay-as-you-go transport or disproportionate adapter work, mark the DocETL experiment `BLOCKED_FOR_TRIAL1` rather than using an API. Enable optimization only as a second experiment after baseline attribution exists.
 
 **Promotion rule:** DocETL must improve semantic recall/quality or materially reduce custom orchestration/tuning burden enough to justify the dependency/provider route.
 
@@ -310,11 +310,11 @@ Risks:
 
 | Option | Value | Lane | V2 action |
 |---|---|---|---|
-| Claude Code web tools | same semantic worker, bounded queue | Primary candidate | use if available under subscription/runtime policy |
-| Gemini Google search/tooling | strong alternative | Fallback/challenger | compare if needed |
-| Codex web search | strong alternative | Fallback/challenger | compare if needed |
-| OpenClaw browser subscription AIs | reuses logged-in browser sessions | Browser fallback | use for provider features unavailable in CLI |
-| paid research APIs | direct programmatic interface | Optional capped escalation | disclose cost/value, never silently default |
+| Claude Code web tools | same semantic worker, bounded queue | Trial-1 primary candidate | use only through authenticated subscription CLI transport |
+| Codex web search | strong alternative | Trial-1 challenger | use only through authenticated ChatGPT-plan CLI transport |
+| Antigravity CLI research/tooling if its headless smoke test passes | subscription/account-backed local CLI alternative | Trial-1 challenger | fail closed if current CLI cannot be captured safely/non-interactively |
+| OpenClaw/browser subscription AIs | reuses logged-in browser sessions | Post-Trial-1 fallback | retain as later option; do not use in the first trial |
+| paid research APIs | direct programmatic interface | Post-Trial-1 optional escalation | do not use in Trial 1; retain documented cost/value option |
 | verify everything | maximal research | massive cost/noise | Reject | checkworthy factual claims only |
 
 TTK `make-verify` remains the deterministic routing authority.

@@ -72,12 +72,18 @@ frame:
     normal_trigger: APEX/OpenClaw
     execution_host: Windows local machine
     qwen_role_v2: none_in_this_pipeline
-    semantic_workers_available:
+    semantic_workers_available_trial1:
       - Claude Code CLI
       - Codex CLI
+      - Antigravity CLI
+    semantic_workers_deferred_after_trial1:
       - Gemini CLI
       - browser subscription AIs through existing OpenClaw/browser infrastructure
-    paid_api_policy: undesirable_but_allowed_for_small_capped_experiments_or_escalation
+    trial1_ai_transport_policy: subscription_cli_only
+    trial1_api_key_billing_allowed: false
+    trial1_paid_api_allowed: false
+    paid_api_policy_after_trial1: undesirable_but_visible_for_later_benchmark_or_escalation
+    trial1_component_rule: 'If a framework needs strong AI, it must call an allowed subscription CLI through a local adapter or be marked BLOCKED_FOR_TRIAL1.'
 
   evidence_principles:
     - transcript is immutable source evidence
@@ -195,8 +201,8 @@ lanes:
     - Fabric
     - Open Notebook
     - yt-distill / youtube-transcript knowledge tools where installable
-  optional_external_oracles:
-    - capped paid ASR/API experiment only when useful to distinguish local quality ceilings
+  deferred_external_oracles_after_trial1:
+    - hosted ASR/API experiments may be reconsidered only after the subscription-CLI-only first trial and explicit operator approval
 ```
 
 # 5. Write scope for the receiving implementation AI

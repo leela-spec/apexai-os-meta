@@ -16,6 +16,8 @@ principles:
   - 'One warmup run is excluded from timing when model initialization materially affects first-run latency.'
   - 'Failed/blocking cases stay visible; no survivor-only average.'
   - 'Record UNMEASURED instead of estimating unavailable tokens, cost, RAM, or accuracy.'
+  - 'Trial 1 strong-AI benchmark calls must use locally invoked subscription/account CLIs only: Claude Code, Codex, or Antigravity after its local headless smoke test passes.'
+  - 'API-key, pay-as-you-go, hosted model API, and browser-AI routes are excluded from Trial 1. A framework that cannot operate through an allowed CLI is BLOCKED_FOR_TRIAL1, not silently rerouted.'
 
 paths:
   root: artifacts/transcript_pipeline_v2
@@ -188,6 +190,7 @@ asr_benchmark:
     - parakeet_v3
   optional_candidates:
     - faster_whisper_large_v3
+  post_trial_candidates:
     - hosted_asr_oracle
   controls:
     - identical_audio_clip_sha
@@ -368,6 +371,7 @@ semantic_eval:
     restrictions:
       - 'Do not use as sole pass/fail authority.'
       - 'Do not silently apply English-only metric prompts to German and compare as if equivalent.'
+      - 'During Trial 1, any LLM-backed DeepEval judge must execute through an allowed locally invoked subscription CLI adapter. If the metric cannot operate through that transport without API billing, record it BLOCKED_FOR_TRIAL1 or UNMEASURED.'
   blind_product_rubric:
     dimensions:
       - thesis_usefulness
