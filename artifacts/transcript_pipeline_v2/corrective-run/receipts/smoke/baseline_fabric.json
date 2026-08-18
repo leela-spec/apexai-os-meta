@@ -1,0 +1,7 @@
+{
+  "schema": "ttk.receipt.v2",
+  "component_id": "baseline_fabric",
+  "status": "BLOCKED_FOR_TRIAL1",
+  "reason": "fabric CLI binary not installed",
+  "evaluated_at": "2026-08-18T20:26:58.199345+00:00"
+}

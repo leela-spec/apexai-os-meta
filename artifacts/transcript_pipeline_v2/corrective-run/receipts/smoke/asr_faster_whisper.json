@@ -1,0 +1,8 @@
+{
+  "schema": "ttk.receipt.v2",
+  "component_id": "asr_faster_whisper",
+  "status": "PASS",
+  "smoke_test": "load_base_model_cpu_int8",
+  "load_time_seconds": 1.0671,
+  "evaluated_at": "2026-08-18T20:26:58.121834+00:00"
+}
