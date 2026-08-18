@@ -1,0 +1,281 @@
+schema: apex.transcript_pipeline.decision_contract.v1
+created: 2026-08-18
+status: active
+repository: leela-spec/apexai-os-meta
+branch_policy: main_only
+
+mission:
+  product_goal: trustworthy_high_value_knowledge_artifact
+  upstream_dependency: high_quality_asr
+  invocation_target: apex_openclaw_automatic
+  routine_human_interaction: none
+  recovery: resume_from_validated_state
+
+operator_decisions:
+  macro_meso_micro:
+    status: preferred_not_sacred
+    replacement_rule: replace_only_if_measured_alternative_is_better
+  semantic_worker:
+    class: strong_subscription_cli_ai
+    default_v1: claude_code_cli
+    challengers:
+      - codex_cli
+      - gemini_cli
+      - browser_subscription_ai_via_openclaw
+    paid_api_policy: undesirable_but_visible_as_optional_fallback_or_benchmark
+  qwen:
+    v1_role: none
+    future_allowed_role:
+      - bounded_mechanical_executor
+      - simple_classification_or_routing_only_after_benchmark
+    forbidden_role:
+      - semantic_map
+      - semantic_reduce
+      - claim_support_judgment
+      - macro_synthesis
+      - meso_synthesis
+      - external_evidence_judgment
+  token_efficiency:
+    priority: high
+    rule: deterministic_or_specialist_tools_may_add_setup_complexity_if_they_materially_reduce_semantic_ai_work
+  provenance:
+    factual_claim_exact_quote_required: true
+    estimate_exact_quote_required_when_externally_testable: true
+    nonfactual_exact_quote_required: false
+    nonfactual_source_segment_ids_required: true
+  external_verification:
+    default_scope: important_checkworthy_factual_claims_only
+    verify_every_fact: false
+    primary_sources_preferred: true
+    insufficient_evidence_status: UNVERIFIED
+  fail_closed:
+    semantic_stage_missing_or_failed_means_complete: false
+    schema_validity_alone_means_semantic_success: false
+
+anti_overengineering:
+  principle: one_proven_component_per_required_job_in_v1
+  dependency_admission_rule:
+    - solves_demonstrated_problem
+    - or_materially_improves_quality
+    - or_materially_improves_reliability
+    - or_materially_reduces_tokens_or_cost
+    - or_eliminates_meaningful_fragile_custom_code
+  duplicate_capability_rule: reject_unless_measured_win
+  deferred_components:
+    langextract:
+      trigger: ttk_span_mapping_or_grounded_extraction_remains_materially_inadequate_after_prompt_provider_comparison
+    instructor:
+      trigger: native_cli_schema_and_retry_path_proves_insufficient
+    docetl:
+      trigger: ttk_map_reduce_orchestration_is_measured_quality_or_maintenance_bottleneck
+    gliner2:
+      trigger: map_token_usage_is_measured_dominant_cost_and_local_pre_extraction_passes_gold_set
+    nuextract:
+      trigger: same_as_gliner2_after_simpler_option_tested
+    deepeval:
+      trigger: repeated_semantic_regression_evaluation_becomes_too_manual_or_expensive
+    whisperx:
+      trigger: word_alignment_or_speaker_attribution_is_measured_requirement
+    parakeet:
+      trigger: calibrated_faster_whisper_fails_asr_quality_gate
+    openvino_whisper:
+      trigger: quality_acceptable_faster_whisper_model_is_too_slow_and_intel_acceleration_has_clear_value
+    new_workflow_engine:
+      trigger: ttk_plus_openclaw_resume_orchestration_fails_under_demonstrated_scale_or_concurrency
+
+v1_pipeline:
+  - step: trigger
+    owner: apex_openclaw
+    implementation: local_deterministic_runner
+  - step: source_acquisition
+    owner: deterministic_software
+    implementation: existing_p1_or_yt_dlp_ffmpeg_path
+  - step: asr
+    owner: local_asr_model
+    implementation: calibrated_faster_whisper
+    telemetry:
+      - word_timestamps
+      - word_probability
+      - avg_logprob
+      - no_speech_prob
+      - compression_ratio
+      - temperature
+      - vad
+    challenger: parakeet_tdt_0_6b_v3
+  - step: asr_quality_control
+    owner: deterministic_code
+    implementation: confidence_and_diagnostic_flags
+    forbidden_first_response: semantic_ai_transcript_rewrite
+  - step: custody
+    owner: ttk
+    implementation: init_sha_segments_ids
+  - step: windows
+    owner: ttk
+    implementation: bounded_processing_windows_with_context_halo
+    invariant: processing_windows_are_not_semantic_chapters
+  - step: map
+    owner: strong_cli_ai
+    implementation: claude_code_print_mode_with_json_schema
+    tools_enabled: false
+  - step: map_validation
+    owner: ttk
+    implementation: deterministic_validation
+  - step: reduce
+    owner: strong_cli_ai
+    implementation: claude_code_print_mode_with_json_schema
+    tools_enabled: false
+    raw_full_transcript_allowed: false
+  - step: reduce_validation
+    owner: ttk
+    implementation: deterministic_validation
+  - step: verification_routing
+    owner: ttk
+    implementation: checkworthiness_queue
+  - step: external_verification
+    owner: strong_cli_ai
+    implementation: claude_code_with_websearch_webfetch
+    tools_enabled:
+      - WebSearch
+      - WebFetch
+  - step: compile
+    owner: ttk
+    implementation: deterministic_compiler
+  - step: complete_validation
+    owner: ttk
+    implementation: validate_complete
+  - step: receipt
+    owner: deterministic_runner
+    implementation: truthful_machine_readable_receipt
+
+semantic_authority:
+  deterministic_code_allowed:
+    - source_parsing
+    - source_hashing
+    - canonical_ids
+    - timestamp_preservation
+    - window_construction
+    - packet_hashes
+    - state_and_resume
+    - structural_validation
+    - source_reference_validation
+    - exact_quote_validation
+    - coverage_validation
+    - verification_routing
+    - stable_ids
+    - compilation
+    - receipts
+  strong_ai_required:
+    - theme_interpretation
+    - semantic_chapter_boundaries
+    - claim_formulation
+    - claim_classification
+    - source_support_judgment
+    - mechanism_interpretation
+    - argument_interpretation
+    - uncertainty_interpretation
+    - macro_synthesis
+    - meso_synthesis
+    - external_evidence_judgment
+  forbidden_pseudo_semantics:
+    - keyword_based_claim_type_as_authority
+    - fixed_time_or_window_quartile_meso_as_semantic_chapters
+    - automatic_source_support_supported
+    - generic_macro_template_as_completed_semantic_synthesis
+    - arbitrary_verbatim_sentence_fragments_as_final_claims
+
+semantic_worker_v1:
+  provider: claude_code_cli
+  mode: print_headless
+  structured_output: json_schema
+  max_attempts_per_packet: 2
+  retry_on:
+    - cli_nonzero_exit
+    - invalid_json_or_schema
+    - ttk_invariant_validation_failure
+  retry_input: append_exact_validation_error
+  silent_fallback_to_heuristics: false
+  provider_adapter_requirement: isolated_single_file_or_module
+  multi_provider_router_v1: false
+
+asr_calibration:
+  timing: after_semantic_v1_passes
+  first_candidates:
+    - faster_whisper_base
+    - faster_whisper_small
+    - faster_whisper_medium
+  select_rule: smallest_configuration_that_passes_quality_gate
+  gold_slice_focus:
+    - proper_nouns
+    - numbers_percentages
+    - scientific_terms
+    - elliott_wave_terms
+    - german_finance_terms
+  if_none_pass: benchmark_parakeet_v3
+
+benchmark_corpus:
+  - id: P-h5WSQG1Sw
+    role: long_english_science_interview
+  - id: CygwqaNg2PY
+    role: technical_finance
+  - id: vFTuLylvYnA
+    role: german_finance
+  - id: oZIsMX6WgFs
+    role: technical_market_cycles
+
+v1_test_sequence:
+  - phase: semantic_repair
+    reuse_existing_transcripts: true
+    purpose: isolate_semantic_architecture_from_asr_quality
+  - phase: asr_calibration
+    reuse_existing_transcripts: false
+    purpose: choose_smallest_adequate_asr_configuration
+  - phase: fresh_end_to_end
+    order:
+      - vFTuLylvYnA
+      - CygwqaNg2PY
+      - P-h5WSQG1Sw
+      - oZIsMX6WgFs
+
+receipt_required_states:
+  - ASR_COMPLETE
+  - SOURCE_CUSTODY_VALID
+  - MAP_COMPLETE
+  - MAP_VALID
+  - REDUCE_COMPLETE
+  - REDUCE_VALID
+  - VERIFICATION_ROUTED
+  - VERIFICATION_COMPLETE_OR_EXPLICIT_UNVERIFIED
+  - OPERATOR_ARTIFACT_COMPLETE
+  - COMPLETE_VALIDATION_PASS
+
+quality_rejection_signals:
+  - arbitrary_transcript_sentence_dumping
+  - every_claim_classified_as_fact
+  - discourse_words_as_entities
+  - fixed_generic_meso_headings
+  - generic_macro_about_having_completed_extraction
+  - uniform_supported_without_semantic_judgment
+  - major_later_window_theme_loss
+  - fabricated_quote_or_source_reference
+
+stop_conditions:
+  - all_strong_cli_ai_authentication_missing
+  - source_artifact_missing_and_not_deterministically_regenerable
+  - semantic_contract_conflict_requires_product_decision
+  - claude_schema_output_unavailable_and_fallback_choice_changes_architecture
+  - deferred_framework_is_needed_without_its_named_failure_trigger
+
+source_documents:
+  architecture_analysis: SourceTranscriptionAnalysisPipeline_Research/PIPELINE_ARCHITECTURE_OPTIONS_AND_V1_DECISION_2026-08-18.md
+  implementation_plan: SourceTranscriptionAnalysisPipeline_Research/V1_IMPLEMENTATION_PLAN_CLI_SEMANTIC_WORKER_2026-08-18.md
+  ttk_skill: .claude/skills/transcript-to-knowledge/SKILL.md
+  ttk_semantic_contracts: .claude/skills/transcript-to-knowledge/references/semantic-contracts.md
+  current_problem_executor: .claude/skills/transcript-to-knowledge/scripts/execute_ttk_lifecycle.py
+  latest_receipt_at_decision_time: artifacts/benchmark_runs/20260818-185245/receipt.json
+
+handover_instruction: >-
+  Read this contract first, then the architecture analysis and implementation plan.
+  Do not infer new product constraints from older research artifacts where they conflict
+  with this decision contract. Preserve historical artifacts as evidence. Implement V1
+  narrowly, measure the four-source corpus, and add deferred components only after the
+  named failure trigger is demonstrated.
