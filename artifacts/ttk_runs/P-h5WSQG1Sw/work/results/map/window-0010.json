@@ -5,7 +5,7 @@
   "window_id": "window-0010",
   "subtopics": [
     {
-      "label": "Window window-0010 Topics",
+      "label": "Thematic Chapter 10 (Well, They)",
       "source_segment_ids": [
         "seg-000561",
         "seg-000562",
@@ -91,15 +91,63 @@
       ]
     },
     {
-      "text": "when you come home? Because it did something bad. Dog owners are pretty convinced they can tell.",
+      "text": "Because it did something bad.",
       "source_segment_ids": [
         "seg-000563"
       ]
+    },
+    {
+      "text": "Dog owners are pretty convinced they can tell.",
+      "source_segment_ids": [
+        "seg-000563"
+      ]
+    },
+    {
+      "text": "Well, if you do a controlled experiment, they're a chance.",
+      "source_segment_ids": [
+        "seg-000564"
+      ]
     }
   ],
-  "mechanisms": [],
-  "protocols": [],
-  "arguments": [],
+  "mechanisms": [
+    {
+      "text": "Because it did something bad.",
+      "source_segment_ids": [
+        "seg-000563"
+      ]
+    },
+    {
+      "text": "we can do it, but mostly not so accurate, which makes sense, because ordinarily, it's not just",
+      "source_segment_ids": [
+        "seg-000567"
+      ]
+    }
+  ],
+  "protocols": [
+    {
+      "title": "Protocol: Absolutely, much more than like, oh, the",
+      "steps": [
+        "Absolutely, much more than like, oh, they're carrying their shoulders differently."
+      ],
+      "source_segment_ids": [
+        "seg-000586"
+      ]
+    }
+  ],
+  "arguments": [
+    {
+      "text": "there's several studies now, where dog owners, if you ask them, can you tell if your dog feels guilty",
+      "source_segment_ids": [
+        "seg-000562"
+      ]
+    },
+    {
+      "text": "I would ask you, how are you feeling?",
+      "source_segment_ids": [
+        "seg-000569"
+      ]
+    }
+  ],
   "candidate_claims": [
     {
       "claim_text": "talking before coming in here to one of your colleagues about your cute dog, and they've done studies,",
@@ -114,11 +162,11 @@
           "quote": "talking before coming in here to one of your colleagues about your cute dog, and they've done studies,"
         }
       ],
-      "checkworthiness": "medium"
+      "checkworthiness": "high"
     },
     {
       "claim_text": "there's several studies now, where dog owners, if you ask them, can you tell if your dog feels guilty",
-      "claim_kind": "fact",
+      "claim_kind": "opinion",
       "speaker": null,
       "source_segment_ids": [
         "seg-000562"
@@ -132,7 +180,22 @@
       "checkworthiness": "low"
     },
     {
-      "claim_text": "when you come home? Because it did something bad. Dog owners are pretty convinced they can tell.",
+      "claim_text": "Because it did something bad.",
+      "claim_kind": "mechanism",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000563"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000563",
+          "quote": "Because it did something bad."
+        }
+      ],
+      "checkworthiness": "medium"
+    },
+    {
+      "claim_text": "Dog owners are pretty convinced they can tell.",
       "claim_kind": "fact",
       "speaker": null,
       "source_segment_ids": [
@@ -141,13 +204,35 @@
       "quote_evidence": [
         {
           "segment_id": "seg-000563",
-          "quote": "when you come home? Because it did something bad. Dog owners are pretty convinced they can tell."
+          "quote": "Dog owners are pretty convinced they can tell."
         }
       ],
-      "checkworthiness": "low"
+      "checkworthiness": "high"
     }
   ],
-  "entities": [],
+  "entities": [
+    {
+      "name": "Well",
+      "type": "topic",
+      "source_segment_ids": [
+        "seg-000564"
+      ]
+    },
+    {
+      "name": "They",
+      "type": "topic",
+      "source_segment_ids": [
+        "seg-000564"
+      ]
+    },
+    {
+      "name": "Andrew Huberman",
+      "type": "topic",
+      "source_segment_ids": [
+        "seg-000569"
+      ]
+    }
+  ],
   "concepts": [],
   "open_questions": [],
   "contradictions_or_uncertainty": []

@@ -2,20 +2,22 @@
 
 ## Thesis
 
-Core empirical and thematic findings extracted from 'Elliott Prechter: Teaching a Machine to Count Elliott Waves'.
+Comprehensive empirical and thematic knowledge extraction from 'Elliott Prechter: Teaching a Machine to Count Elliott Waves'.
 
 ## Summary
 
-Structured Macro-Meso-Micro distillation of 215 segments across 4 windows.
+Hierarchical synthesis covering 215 segments across 4 Map windows into 2 modular deep dives and 16 forensic claims.
 
 ## Global Takeaways
 
-- Source analysis completed with 10 validated evidence claims. — [[modules/thematic-overview-findings-elliott-prechter-teaching-a-machine-to-count-elliott|Thematic Overview & Findings: Elliott Prechter: Teaching a Machine to Count Elliott Waves]] · `seg-000001`
+- Foundational Architecture & Context: Modular analysis synthesizing 2 Map windows across 116 source segments. — [[modules/foundational-architecture-context-00-00-00-00-13-14|Foundational Architecture & Context `[00:00:00 - 00:13:14]`]] · `seg-000001`
+- Mechanisms, Evidence & Analysis: Modular analysis synthesizing 2 Map windows across 99 source segments. — [[modules/mechanisms-evidence-analysis-00-13-16-00-23-41|Mechanisms, Evidence & Analysis `[00:13:16 - 00:23:41]`]] · `seg-000117`
 
 ## Taxonomy
 
 - Elliott Prechter: Teachin
-- Source Analysis
+- Knowledge Synthesis
+- Forensic Extraction
 
 ## Speaker / Context
 
@@ -23,4 +25,5 @@ Structured Macro-Meso-Micro distillation of 215 segments across 4 windows.
 
 ## Meso Modules
 
-- [[modules/thematic-overview-findings-elliott-prechter-teaching-a-machine-to-count-elliott|Thematic Overview & Findings: Elliott Prechter: Teaching a Machine to Count Elliott Waves]]
+- [[modules/foundational-architecture-context-00-00-00-00-13-14|Foundational Architecture & Context `[00:00:00 - 00:13:14]`]]
+- [[modules/mechanisms-evidence-analysis-00-13-16-00-23-41|Mechanisms, Evidence & Analysis `[00:13:16 - 00:23:41]`]]

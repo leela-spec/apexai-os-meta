@@ -5,7 +5,7 @@
   "window_id": "window-0012",
   "subtopics": [
     {
-      "label": "Window window-0012 Topics",
+      "label": "Thematic Chapter 12 (Eventually, There)",
       "source_segment_ids": [
         "seg-000707",
         "seg-000708",
@@ -71,7 +71,7 @@
   ],
   "key_points": [
     {
-      "text": "Don't. It's really interesting. You have to pass it.",
+      "text": "It's really interesting.",
       "source_segment_ids": [
         "seg-000707"
       ]
@@ -83,18 +83,56 @@
       ]
     },
     {
-      "text": "well, just as an aside, before I forget it. So, normally for pain, extraceptive pain,",
+      "text": "well, just as an aside, before I forget it.",
       "source_segment_ids": [
         "seg-000709"
       ]
+    },
+    {
+      "text": "So, normally for pain, extraceptive pain,",
+      "source_segment_ids": [
+        "seg-000709"
+      ]
+    },
+    {
+      "text": "like we were talking about the hot plate before, you know, you pull your hand away or there's",
+      "source_segment_ids": [
+        "seg-000710"
+      ]
     }
   ],
-  "mechanisms": [],
+  "mechanisms": [
+    {
+      "text": "It's like because you can't escape.",
+      "source_segment_ids": [
+        "seg-000727"
+      ]
+    },
+    {
+      "text": "Because in Eastern medicine, there's strong beliefs",
+      "source_segment_ids": [
+        "seg-000755"
+      ]
+    }
+  ],
   "protocols": [],
-  "arguments": [],
+  "arguments": [
+    {
+      "text": "that William James had back in 1884.",
+      "source_segment_ids": [
+        "seg-000734"
+      ]
+    },
+    {
+      "text": "was that you see the bear, you run away, your heart rate goes up, and then you feel the emotion,",
+      "source_segment_ids": [
+        "seg-000735"
+      ]
+    }
+  ],
   "candidate_claims": [
     {
-      "claim_text": "Don't. It's really interesting. You have to pass it.",
+      "claim_text": "It's really interesting.",
       "claim_kind": "fact",
       "speaker": null,
       "source_segment_ids": [
@@ -103,10 +141,10 @@
       "quote_evidence": [
         {
           "segment_id": "seg-000707",
-          "quote": "Don't. It's really interesting. You have to pass it."
+          "quote": "It's really interesting."
         }
       ],
-      "checkworthiness": "medium"
+      "checkworthiness": "high"
     },
     {
       "claim_text": "Eventually, it's passed, but it evokes very interesting adaptive behaviors,",
@@ -121,10 +159,10 @@
           "quote": "Eventually, it's passed, but it evokes very interesting adaptive behaviors,"
         }
       ],
-      "checkworthiness": "low"
+      "checkworthiness": "high"
     },
     {
-      "claim_text": "well, just as an aside, before I forget it. So, normally for pain, extraceptive pain,",
+      "claim_text": "well, just as an aside, before I forget it.",
       "claim_kind": "fact",
       "speaker": null,
       "source_segment_ids": [
@@ -133,13 +171,50 @@
       "quote_evidence": [
         {
           "segment_id": "seg-000709",
-          "quote": "well, just as an aside, before I forget it. So, normally for pain, extraceptive pain,"
+          "quote": "well, just as an aside, before I forget it."
         }
       ],
-      "checkworthiness": "low"
+      "checkworthiness": "high"
+    },
+    {
+      "claim_text": "So, normally for pain, extraceptive pain,",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000709"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000709",
+          "quote": "So, normally for pain, extraceptive pain,"
+        }
+      ],
+      "checkworthiness": "high"
     }
   ],
-  "entities": [],
+  "entities": [
+    {
+      "name": "Eventually",
+      "type": "topic",
+      "source_segment_ids": [
+        "seg-000708"
+      ]
+    },
+    {
+      "name": "There",
+      "type": "topic",
+      "source_segment_ids": [
+        "seg-000711"
+      ]
+    },
+    {
+      "name": "Switzerland",
+      "type": "topic",
+      "source_segment_ids": [
+        "seg-000712"
+      ]
+    }
+  ],
   "concepts": [],
   "open_questions": [],
   "contradictions_or_uncertainty": []

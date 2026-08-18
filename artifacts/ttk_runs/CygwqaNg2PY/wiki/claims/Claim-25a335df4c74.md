@@ -13,8 +13,8 @@
 
 ## Context
 
-Extracted from window-0003
+Documented in Window window-0003
 
 ## Links
 
-[[concepts/elliott-prechter-te|Elliott Prechter: Te]]
+[[concepts/elliott-prechter-teachin|Elliott Prechter: Teachin]] · [[entities/well|Well]] · [[entities/elliott|Elliott]]

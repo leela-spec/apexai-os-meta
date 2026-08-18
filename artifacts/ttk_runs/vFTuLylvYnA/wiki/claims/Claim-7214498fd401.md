@@ -13,8 +13,8 @@
 
 ## Context
 
-Extracted from window-0003
+Documented in Window window-0003
 
 ## Links
 
-[[concepts/tech-unter-druck-zi|Tech unter Druck. Zi]]
+[[concepts/tech-unter-druck-zinsen|Tech unter Druck. Zinsen ]] · [[entities/wall-street|Wall Street]] · [[entities/tagen|Tagen]] · [[entities/zahlen|Zahlen]]

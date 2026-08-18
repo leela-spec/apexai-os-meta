@@ -5,7 +5,7 @@
   "window_id": "window-0017",
   "subtopics": [
     {
-      "label": "Window window-0017 Topics",
+      "label": "Thematic Chapter 17 (San Diego)",
       "source_segment_ids": [
         "seg-001011",
         "seg-001012",
@@ -84,11 +84,59 @@
       "source_segment_ids": [
         "seg-001013"
       ]
+    },
+    {
+      "text": "questions that they they need to ask you're a little embarrassed for them but you're but it's",
+      "source_segment_ids": [
+        "seg-001014"
+      ]
+    },
+    {
+      "text": "liberating you feel like we've broken the social mold here a little bit and someone would say excuse",
+      "source_segment_ids": [
+        "seg-001015"
+      ]
     }
   ],
-  "mechanisms": [],
-  "protocols": [],
-  "arguments": [],
+  "mechanisms": [
+    {
+      "text": "also something incredibly refreshing about it because it's almost like they're they're asking the",
+      "source_segment_ids": [
+        "seg-001013"
+      ]
+    },
+    {
+      "text": "and I'll just put the mention up front because this is a topic that sometimes gets people triggered",
+      "source_segment_ids": [
+        "seg-001054"
+      ]
+    }
+  ],
+  "protocols": [
+    {
+      "title": "Protocol: being an impediment because if you have ",
+      "steps": [
+        "being an impediment because if you have to track everything have to remember okay I should make"
+      ],
+      "source_segment_ids": [
+        "seg-001035"
+      ]
+    }
+  ],
+  "arguments": [
+    {
+      "text": "liberating you feel like we've broken the social mold here a little bit and someone would say excuse",
+      "source_segment_ids": [
+        "seg-001015"
+      ]
+    },
+    {
+      "text": "very successful who are on the spectrum to some extent and I think you know coming back to what you",
+      "source_segment_ids": [
+        "seg-001027"
+      ]
+    }
+  ],
   "candidate_claims": [
     {
       "claim_text": "and I have to encounter people like that too and you know it's very disconcerting when you're",
@@ -103,7 +151,7 @@
           "quote": "and I have to encounter people like that too and you know it's very disconcerting when you're"
         }
       ],
-      "checkworthiness": "medium"
+      "checkworthiness": "high"
     },
     {
       "claim_text": "giving the talk it's disconcerting when you're giving the talk but I was going to say there's",
@@ -118,11 +166,11 @@
           "quote": "giving the talk it's disconcerting when you're giving the talk but I was going to say there's"
         }
       ],
-      "checkworthiness": "low"
+      "checkworthiness": "high"
     },
     {
       "claim_text": "also something incredibly refreshing about it because it's almost like they're they're asking the",
-      "claim_kind": "fact",
+      "claim_kind": "mechanism",
       "speaker": null,
       "source_segment_ids": [
         "seg-001013"
@@ -133,10 +181,33 @@
           "quote": "also something incredibly refreshing about it because it's almost like they're they're asking the"
         }
       ],
-      "checkworthiness": "low"
+      "checkworthiness": "medium"
+    },
+    {
+      "claim_text": "questions that they they need to ask you're a little embarrassed for them but you're but it's",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-001014"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-001014",
+          "quote": "questions that they they need to ask you're a little embarrassed for them but you're but it's"
+        }
+      ],
+      "checkworthiness": "high"
     }
   ],
-  "entities": [],
+  "entities": [
+    {
+      "name": "San Diego",
+      "type": "topic",
+      "source_segment_ids": [
+        "seg-001061"
+      ]
+    }
+  ],
   "concepts": [],
   "open_questions": [],
   "contradictions_or_uncertainty": []

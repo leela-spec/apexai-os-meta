@@ -13,7 +13,7 @@ sys.path.insert(0, os.path.dirname(__file__))
 from transcript_engine import (
     hhmmss_to_seconds, seconds_to_hhmmss, MacroResult, SpeakerProfile,
     MesoModule, MicroClaim, KnowledgeEngine, VerificationHook, VERDICTS,
-    GroundingError, parse_srt_spoken_text
+    GroundingError, parse_srt_spoken_text, parse_srt_segments
 )
 
 
@@ -60,10 +60,12 @@ class TestTranscriptEngine(unittest.TestCase):
             arguments=["int8 quantization halves RAM with no WER loss"],
             protocol_steps=["Condition audio to 16kHz mono", "Apply Silero VAD", "Run faster-whisper"],
             caveats=["GPU float16 recommended for beam_size=5"],
+            source_segment_ids=["seg-0001", "seg-0002"]
         )
         md = mod.to_markdown()
         self.assertIn("[00:00:00 - 00:08:12]", md)
         self.assertIn("1. Condition audio to 16kHz mono", md)
+        self.assertIn("seg-0001", md)
 
     def test_empty_protocol_steps_is_valid(self):
         mod = MesoModule(
@@ -119,6 +121,62 @@ class TestTranscriptEngine(unittest.TestCase):
         with self.assertRaises(GroundingError) as ctx:
             KnowledgeEngine.from_semantic_result(data, spoken_text=sample_srt)
         self.assertIn("NOT present verbatim", str(ctx.exception))
+
+    def test_from_semantic_result_validates_segment_provenance(self):
+        segments = [
+            {"id": "seg-0001", "start": 0, "end": 5, "start_ts": "00:00:00", "end_ts": "00:00:05", "text": "Hello world and welcome."}
+        ]
+        data = {
+            "macro": {
+                "core_thesis": "Thesis",
+                "global_takeaways": ["T1"],
+                "taxonomy_tags": [],
+                "speakers": []
+            },
+            "meso": [],
+            "micro": [
+                {
+                    "claim_id": "1",
+                    "proposition": "Greeting",
+                    "quote": "Hello world and welcome.",
+                    "timestamp": "00:00:00",
+                    "source_segment_ids": ["seg-0001"]
+                }
+            ]
+        }
+        engine = KnowledgeEngine.from_semantic_result(data, spoken_text="Hello world and welcome.", segments=segments)
+        self.assertEqual(len(engine.micro), 1)
+        self.assertEqual(engine.micro[0].source_segment_ids, ["seg-0001"])
+        self.assertEqual(engine.micro[0].source_start, "00:00:00")
+        self.assertEqual(engine.micro[0].source_end, "00:00:05")
+        self.assertIsNotNone(engine.coverage_stats)
+        self.assertEqual(engine.coverage_stats["coverage_pct"], 100.0)
+
+    def test_from_semantic_result_rejects_unknown_segment_id(self):
+        segments = [
+            {"id": "seg-0001", "start": 0, "end": 5, "start_ts": "00:00:00", "end_ts": "00:00:05", "text": "Hello world and welcome."}
+        ]
+        data = {
+            "macro": {
+                "core_thesis": "Thesis",
+                "global_takeaways": ["T1"],
+                "taxonomy_tags": [],
+                "speakers": []
+            },
+            "meso": [],
+            "micro": [
+                {
+                    "claim_id": "1",
+                    "proposition": "Greeting",
+                    "quote": "Hello world and welcome.",
+                    "timestamp": "00:00:00",
+                    "source_segment_ids": ["seg-9999"]
+                }
+            ]
+        }
+        with self.assertRaises(GroundingError) as ctx:
+            KnowledgeEngine.from_semantic_result(data, spoken_text="Hello world and welcome.", segments=segments)
+        self.assertIn("unknown source_segment_id", str(ctx.exception))
 
     def test_from_semantic_result_rejects_srt_metadata_quote(self):
         sample_srt = "00:00:01,000 --> 00:00:05,000 Spoken text"

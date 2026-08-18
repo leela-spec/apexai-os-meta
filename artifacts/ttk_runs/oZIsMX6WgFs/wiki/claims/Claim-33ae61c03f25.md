@@ -13,8 +13,8 @@
 
 ## Context
 
-Extracted from window-0001
+Documented in Window window-0001
 
 ## Links
 
-[[concepts/market-cycles-jam|Market Cycles Jam - ]]
+[[concepts/market-cycles-jam-marke|Market Cycles Jam - Marke]] · [[entities/thanks|Thanks]] · [[entities/from|From]] · [[entities/lars-fartinen|Lars Fartinen]]

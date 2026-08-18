@@ -1,9 +1,9 @@
 # Claim-5ef59bbddb99
 
 **Proposition:** and by the way the key top here we have seen with reaching 120k in Bitcoin in October 2025 this was and if you follow my work you are aware of that that was 0.5 of the fifth repetition of that nominal 200 day cycle here so which means we now would expect three cycles
-**Kind:** fact
+**Kind:** prediction
 **Source support:** SUPPORTED
-**External status:** [UNVERIFIED]
+**External status:** [NOT_APPLICABLE]
 **Speaker:** unknown
 
 ## Transcript evidence
@@ -13,8 +13,8 @@
 
 ## Context
 
-Extracted from window-0004
+Documented in Window window-0004
 
 ## Links
 
-[[concepts/market-cycles-jam|Market Cycles Jam - ]]
+[[concepts/market-cycles-jam-marke|Market Cycles Jam - Marke]] · [[entities/bitcoin|Bitcoin]] · [[entities/october|October]] · [[entities/november|November]]

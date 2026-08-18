@@ -5,7 +5,7 @@
   "window_id": "window-0003",
   "subtopics": [
     {
-      "label": "Window window-0003 Topics",
+      "label": "Thematic Chapter 3 (Well, Elliott)",
       "source_segment_ids": [
         "seg-000117",
         "seg-000118",
@@ -73,11 +73,59 @@
       "source_segment_ids": [
         "seg-000119"
       ]
+    },
+    {
+      "text": "why in my presentation earlier I wanted to show that a particular example we had the market",
+      "source_segment_ids": [
+        "seg-000120"
+      ]
+    },
+    {
+      "text": "coiling up and it looked like it was a triangle and we're going to burst up out of the triangle right",
+      "source_segment_ids": [
+        "seg-000121"
+      ]
     }
   ],
-  "mechanisms": [],
-  "protocols": [],
-  "arguments": [],
+  "mechanisms": [
+    {
+      "text": "hand and sketch out the wave pattern which like you said earlier can be very tricky because when",
+      "source_segment_ids": [
+        "seg-000118"
+      ]
+    },
+    {
+      "text": "which is a common pattern and the market did the exact opposite because that was actually part",
+      "source_segment_ids": [
+        "seg-000122"
+      ]
+    }
+  ],
+  "protocols": [
+    {
+      "title": "Protocol: that's one common baseline that all anal",
+      "steps": [
+        "that's one common baseline that all analysts should follow I've seen many blog posts where they"
+      ],
+      "source_segment_ids": [
+        "seg-000134"
+      ]
+    }
+  ],
+  "arguments": [
+    {
+      "text": "following different alien wave experts showing different counts I think that cannot be the case",
+      "source_segment_ids": [
+        "seg-000130"
+      ]
+    },
+    {
+      "text": "analysts that may disagree now I think there are times in the market where everything kind of lines",
+      "source_segment_ids": [
+        "seg-000140"
+      ]
+    }
+  ],
   "candidate_claims": [
     {
       "claim_text": "yes I mean e-waves does do the wave count it's an automated process so you don't have to sit there by",
@@ -92,11 +140,11 @@
           "quote": "yes I mean e-waves does do the wave count it's an automated process so you don't have to sit there by"
         }
       ],
-      "checkworthiness": "medium"
+      "checkworthiness": "high"
     },
     {
       "claim_text": "hand and sketch out the wave pattern which like you said earlier can be very tricky because when",
-      "claim_kind": "fact",
+      "claim_kind": "mechanism",
       "speaker": null,
       "source_segment_ids": [
         "seg-000118"
@@ -107,7 +155,7 @@
           "quote": "hand and sketch out the wave pattern which like you said earlier can be very tricky because when"
         }
       ],
-      "checkworthiness": "low"
+      "checkworthiness": "medium"
     },
     {
       "claim_text": "you're looking at a chart through you're going to have partial patterns most of the time and that's",
@@ -122,10 +170,40 @@
           "quote": "you're looking at a chart through you're going to have partial patterns most of the time and that's"
         }
       ],
-      "checkworthiness": "low"
+      "checkworthiness": "high"
+    },
+    {
+      "claim_text": "why in my presentation earlier I wanted to show that a particular example we had the market",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000120"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000120",
+          "quote": "why in my presentation earlier I wanted to show that a particular example we had the market"
+        }
+      ],
+      "checkworthiness": "high"
     }
   ],
-  "entities": [],
+  "entities": [
+    {
+      "name": "Well",
+      "type": "topic",
+      "source_segment_ids": [
+        "seg-000132"
+      ]
+    },
+    {
+      "name": "Elliott",
+      "type": "topic",
+      "source_segment_ids": [
+        "seg-000147"
+      ]
+    }
+  ],
   "concepts": [],
   "open_questions": [],
   "contradictions_or_uncertainty": []

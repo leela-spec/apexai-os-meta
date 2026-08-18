@@ -5,7 +5,7 @@
   "window_id": "window-0001",
   "subtopics": [
     {
-      "label": "Window window-0001 Topics",
+      "label": "Thematic Chapter 1 (Well, Protocols)",
       "source_segment_ids": [
         "seg-000001",
         "seg-000002",
@@ -55,30 +55,87 @@
   ],
   "key_points": [
     {
-      "text": "I see somebody come up behind me. They can see. I'm trying to park. They can move over. No,",
+      "text": "I see somebody come up behind me.",
       "source_segment_ids": [
         "seg-000001"
       ]
     },
     {
-      "text": "they come right up behind me, go on the horn. You know, you immediately feel just an immediate",
+      "text": "they come right up behind me, go on the horn.",
       "source_segment_ids": [
         "seg-000002"
       ]
     },
     {
-      "text": "anger response. Right? Well, after the ice bath, it's flat. So there was an immediate",
+      "text": "You know, you immediately feel just an immediate",
+      "source_segment_ids": [
+        "seg-000002"
+      ]
+    },
+    {
+      "text": "Well, after the ice bath, it's flat.",
+      "source_segment_ids": [
+        "seg-000003"
+      ]
+    },
+    {
+      "text": "So there was an immediate",
       "source_segment_ids": [
         "seg-000003"
       ]
     }
   ],
-  "mechanisms": [],
-  "protocols": [],
-  "arguments": [],
+  "mechanisms": [
+    {
+      "text": "Long time admirer of your work, because you're one of the few people who has studied these things we",
+      "source_segment_ids": [
+        "seg-000033"
+      ]
+    },
+    {
+      "text": "doing that, because it's so easy for people to stimulate a brain area.",
+      "source_segment_ids": [
+        "seg-000039"
+      ]
+    }
+  ],
+  "protocols": [
+    {
+      "title": "Protocol: To celebrate the launch of my new book e",
+      "steps": [
+        "To celebrate the launch of my new book entitled Protocols,"
+      ],
+      "source_segment_ids": [
+        "seg-000010"
+      ]
+    },
+    {
+      "title": "Protocol: slash events, and use the code Protocols",
+      "steps": [
+        "slash events, and use the code Protocols to get early access."
+      ],
+      "source_segment_ids": [
+        "seg-000016"
+      ]
+    }
+  ],
+  "arguments": [
+    {
+      "text": "You know, you immediately feel just an immediate",
+      "source_segment_ids": [
+        "seg-000002"
+      ]
+    },
+    {
+      "text": "I'm not claiming this as a published study, but I think there's a direct autonomic",
+      "source_segment_ids": [
+        "seg-000006"
+      ]
+    }
+  ],
   "candidate_claims": [
     {
-      "claim_text": "I see somebody come up behind me. They can see. I'm trying to park. They can move over. No,",
+      "claim_text": "I see somebody come up behind me.",
       "claim_kind": "fact",
       "speaker": null,
       "source_segment_ids": [
@@ -87,13 +144,13 @@
       "quote_evidence": [
         {
           "segment_id": "seg-000001",
-          "quote": "I see somebody come up behind me. They can see. I'm trying to park. They can move over. No,"
+          "quote": "I see somebody come up behind me."
         }
       ],
-      "checkworthiness": "medium"
+      "checkworthiness": "high"
     },
     {
-      "claim_text": "they come right up behind me, go on the horn. You know, you immediately feel just an immediate",
+      "claim_text": "they come right up behind me, go on the horn.",
       "claim_kind": "fact",
       "speaker": null,
       "source_segment_ids": [
@@ -102,13 +159,28 @@
       "quote_evidence": [
         {
           "segment_id": "seg-000002",
-          "quote": "they come right up behind me, go on the horn. You know, you immediately feel just an immediate"
+          "quote": "they come right up behind me, go on the horn."
+        }
+      ],
+      "checkworthiness": "high"
+    },
+    {
+      "claim_text": "You know, you immediately feel just an immediate",
+      "claim_kind": "opinion",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000002"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000002",
+          "quote": "You know, you immediately feel just an immediate"
         }
       ],
       "checkworthiness": "low"
     },
     {
-      "claim_text": "anger response. Right? Well, after the ice bath, it's flat. So there was an immediate",
+      "claim_text": "Well, after the ice bath, it's flat.",
       "claim_kind": "fact",
       "speaker": null,
       "source_segment_ids": [
@@ -117,13 +189,35 @@
       "quote_evidence": [
         {
           "segment_id": "seg-000003",
-          "quote": "anger response. Right? Well, after the ice bath, it's flat. So there was an immediate"
+          "quote": "Well, after the ice bath, it's flat."
         }
       ],
-      "checkworthiness": "low"
+      "checkworthiness": "high"
     }
   ],
-  "entities": [],
+  "entities": [
+    {
+      "name": "Well",
+      "type": "topic",
+      "source_segment_ids": [
+        "seg-000003"
+      ]
+    },
+    {
+      "name": "Protocols",
+      "type": "topic",
+      "source_segment_ids": [
+        "seg-000010"
+      ]
+    },
+    {
+      "name": "New York City",
+      "type": "topic",
+      "source_segment_ids": [
+        "seg-000012"
+      ]
+    }
+  ],
   "concepts": [],
   "open_questions": [],
   "contradictions_or_uncertainty": []

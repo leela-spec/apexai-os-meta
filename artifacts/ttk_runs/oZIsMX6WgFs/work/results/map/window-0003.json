@@ -5,7 +5,7 @@
   "window_id": "window-0003",
   "subtopics": [
     {
-      "label": "Window window-0003 Topics",
+      "label": "Thematic Chapter 3 (Price, Next)",
       "source_segment_ids": [
         "seg-000068",
         "seg-000069",
@@ -46,15 +46,50 @@
       "source_segment_ids": [
         "seg-000070"
       ]
+    },
+    {
+      "text": "Price has not made in all time high again but if this works out to become more and more important divergence here between the price action and the relative strength this is even more possible indication for bounce back into another possible downturn needs to be seen out and we see similar picture here on the momentum.",
+      "source_segment_ids": [
+        "seg-000071"
+      ]
+    },
+    {
+      "text": "So momentum is already turning down while price keeps to move up which is an early indication when momentum is decreasing and price is still increasing we have a divergence here so they are quite early science from the technical point of view which could confirm a possible continuation of the projected cycles.",
+      "source_segment_ids": [
+        "seg-000072"
+      ]
     }
   ],
   "mechanisms": [],
-  "protocols": [],
-  "arguments": [],
+  "protocols": [
+    {
+      "title": "Protocol: And by the way here's just an interestin",
+      "steps": [
+        "And by the way here's just an interesting observation as we are here for cycle analysis I'm just seeing this cycle here with the links of 380 which if I would just have seen that cycle on its own 380 days I would not pick that due to this I mean the left shoulder is more more than perfect we don't see the full right shoulder here it's it's a client."
+      ],
+      "source_segment_ids": [
+        "seg-000075"
+      ]
+    }
+  ],
+  "arguments": [
+    {
+      "text": "Let me put in this one here so while we see that was just a technical reaction which has to be expected at that point so from a cyclic perspective that swing has not ended yet to say that way or let's zoom in a little bit here.",
+      "source_segment_ids": [
+        "seg-000068"
+      ]
+    },
+    {
+      "text": "So from a cyclic perspective the cycle has still more time on the downward pressure or give more headwind to that asset class from a technical perspective a reaction here would quite be to be expected from a technical point of view.",
+      "source_segment_ids": [
+        "seg-000069"
+      ]
+    }
+  ],
   "candidate_claims": [
     {
       "claim_text": "Let me put in this one here so while we see that was just a technical reaction which has to be expected at that point so from a cyclic perspective that swing has not ended yet to say that way or let's zoom in a little bit here.",
-      "claim_kind": "fact",
+      "claim_kind": "prediction",
       "speaker": null,
       "source_segment_ids": [
         "seg-000068"
@@ -69,7 +104,7 @@
     },
     {
       "claim_text": "So from a cyclic perspective the cycle has still more time on the downward pressure or give more headwind to that asset class from a technical perspective a reaction here would quite be to be expected from a technical point of view.",
-      "claim_kind": "fact",
+      "claim_kind": "prediction",
       "speaker": null,
       "source_segment_ids": [
         "seg-000069"
@@ -80,7 +115,7 @@
           "quote": "So from a cyclic perspective the cycle has still more time on the downward pressure or give more headwind to that asset class from a technical perspective a reaction here would quite be to be expected from a technical point of view."
         }
       ],
-      "checkworthiness": "low"
+      "checkworthiness": "medium"
     },
     {
       "claim_text": "We've seen here how that window played out what would be quite interesting so if you would ask me so how to monitor that situation is.",
@@ -95,10 +130,47 @@
           "quote": "We've seen here how that window played out what would be quite interesting so if you would ask me so how to monitor that situation is."
         }
       ],
-      "checkworthiness": "low"
+      "checkworthiness": "high"
+    },
+    {
+      "claim_text": "Price has not made in all time high again but if this works out to become more and more important divergence here between the price action and the relative strength this is even more possible indication for bounce back into another possible downturn needs to be seen out and we see similar picture here on the momentum.",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000071"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000071",
+          "quote": "Price has not made in all time high again but if this works out to become more and more important divergence here between the price action and the relative strength this is even more possible indication for bounce back into another possible downturn needs to be seen out and we see similar picture here on the momentum."
+        }
+      ],
+      "checkworthiness": "high"
     }
   ],
-  "entities": [],
+  "entities": [
+    {
+      "name": "Price",
+      "type": "topic",
+      "source_segment_ids": [
+        "seg-000071"
+      ]
+    },
+    {
+      "name": "Next",
+      "type": "topic",
+      "source_segment_ids": [
+        "seg-000073"
+      ]
+    },
+    {
+      "name": "September October",
+      "type": "topic",
+      "source_segment_ids": [
+        "seg-000073"
+      ]
+    }
+  ],
   "concepts": [],
   "open_questions": [],
   "contradictions_or_uncertainty": []

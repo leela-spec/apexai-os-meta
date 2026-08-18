@@ -5,7 +5,7 @@
   "window_id": "window-0002",
   "subtopics": [
     {
-      "label": "Window window-0002 Topics",
+      "label": "Thematic Chapter 2 (Elliott Payf, Well)",
       "source_segment_ids": [
         "seg-000045",
         "seg-000046",
@@ -90,25 +90,57 @@
       ]
     },
     {
-      "text": "tool or a way to map out map out probabilities? Well I think you're pretty much late all around.",
+      "text": "tool or a way to map out map out probabilities?",
       "source_segment_ids": [
         "seg-000046"
       ]
     },
     {
-      "text": "They did a great job. Yes to all three. I mean historically it's mainly been a long term",
+      "text": "Well I think you're pretty much late all around.",
+      "source_segment_ids": [
+        "seg-000046"
+      ]
+    },
+    {
+      "text": "They did a great job.",
+      "source_segment_ids": [
+        "seg-000047"
+      ]
+    },
+    {
+      "text": "I mean historically it's mainly been a long term",
       "source_segment_ids": [
         "seg-000047"
       ]
     }
   ],
-  "mechanisms": [],
+  "mechanisms": [
+    {
+      "text": "is the second reason you mentioned which is limiting your risk because everyone I know who is a",
+      "source_segment_ids": [
+        "seg-000049"
+      ]
+    }
+  ],
   "protocols": [],
-  "arguments": [],
+  "arguments": [
+    {
+      "text": "How should traders use Elliott Payf analysis and practice as a forecasting tool or risk management",
+      "source_segment_ids": [
+        "seg-000045"
+      ]
+    },
+    {
+      "text": "Well I think you're pretty much late all around.",
+      "source_segment_ids": [
+        "seg-000046"
+      ]
+    }
+  ],
   "candidate_claims": [
     {
       "claim_text": "How should traders use Elliott Payf analysis and practice as a forecasting tool or risk management",
-      "claim_kind": "fact",
+      "claim_kind": "prediction",
       "speaker": null,
       "source_segment_ids": [
         "seg-000045"
@@ -122,7 +154,7 @@
       "checkworthiness": "medium"
     },
     {
-      "claim_text": "tool or a way to map out map out probabilities? Well I think you're pretty much late all around.",
+      "claim_text": "tool or a way to map out map out probabilities?",
       "claim_kind": "fact",
       "speaker": null,
       "source_segment_ids": [
@@ -131,13 +163,28 @@
       "quote_evidence": [
         {
           "segment_id": "seg-000046",
-          "quote": "tool or a way to map out map out probabilities? Well I think you're pretty much late all around."
+          "quote": "tool or a way to map out map out probabilities?"
+        }
+      ],
+      "checkworthiness": "high"
+    },
+    {
+      "claim_text": "Well I think you're pretty much late all around.",
+      "claim_kind": "opinion",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000046"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000046",
+          "quote": "Well I think you're pretty much late all around."
         }
       ],
       "checkworthiness": "low"
     },
     {
-      "claim_text": "They did a great job. Yes to all three. I mean historically it's mainly been a long term",
+      "claim_text": "They did a great job.",
       "claim_kind": "fact",
       "speaker": null,
       "source_segment_ids": [
@@ -146,13 +193,35 @@
       "quote_evidence": [
         {
           "segment_id": "seg-000047",
-          "quote": "They did a great job. Yes to all three. I mean historically it's mainly been a long term"
+          "quote": "They did a great job."
         }
       ],
-      "checkworthiness": "low"
+      "checkworthiness": "high"
     }
   ],
-  "entities": [],
+  "entities": [
+    {
+      "name": "Elliott Payf",
+      "type": "topic",
+      "source_segment_ids": [
+        "seg-000045"
+      ]
+    },
+    {
+      "name": "Well",
+      "type": "topic",
+      "source_segment_ids": [
+        "seg-000046"
+      ]
+    },
+    {
+      "name": "They",
+      "type": "topic",
+      "source_segment_ids": [
+        "seg-000047"
+      ]
+    }
+  ],
   "concepts": [],
   "open_questions": [],
   "contradictions_or_uncertainty": []

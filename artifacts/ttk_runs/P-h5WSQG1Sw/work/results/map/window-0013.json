@@ -5,7 +5,7 @@
   "window_id": "window-0013",
   "subtopics": [
     {
-      "label": "Window window-0013 Topics",
+      "label": "Thematic Chapter 13 (Well, What)",
       "source_segment_ids": [
         "seg-000766",
         "seg-000767",
@@ -86,15 +86,66 @@
       ]
     },
     {
-      "text": "heart rate changes, blood pressure changes, et cetera, it is extremely crude. You're looking at",
+      "text": "heart rate changes, blood pressure changes, et cetera, it is extremely crude.",
       "source_segment_ids": [
         "seg-000768"
       ]
+    },
+    {
+      "text": "a tiny, tiny slice of what's going on in your body.",
+      "source_segment_ids": [
+        "seg-000769"
+      ]
+    },
+    {
+      "text": "What you would want to do is have a detailed",
+      "source_segment_ids": [
+        "seg-000769"
+      ]
     }
   ],
-  "mechanisms": [],
-  "protocols": [],
-  "arguments": [],
+  "mechanisms": [
+    {
+      "text": "Someone said, I don't know who said it, but all AB testing leads to sex or violence,",
+      "source_segment_ids": [
+        "seg-000799"
+      ]
+    }
+  ],
+  "protocols": [
+    {
+      "title": "Protocol: Yeah, they really should be done because",
+      "steps": [
+        "Yeah, they really should be done because I could make up a story where if someone or an animal"
+      ],
+      "source_segment_ids": [
+        "seg-000774"
+      ]
+    },
+    {
+      "title": "Protocol: and mental health, it also analyzes thes",
+      "steps": [
+        "and mental health, it also analyzes these results and provides recommendations for improving your"
+      ],
+      "source_segment_ids": [
+        "seg-000812"
+      ]
+    }
+  ],
+  "arguments": [
+    {
+      "text": "feels extreme anger, like of the sort that they would have right before they were in a fight,",
+      "source_segment_ids": [
+        "seg-000775"
+      ]
+    },
+    {
+      "text": "and the fact that the brain and the body are so intimately tied together, I think it's a",
+      "source_segment_ids": [
+        "seg-000785"
+      ]
+    }
+  ],
   "candidate_claims": [
     {
       "claim_text": "is no systematic association between specific emotions and specific changes in your body.",
@@ -109,7 +160,7 @@
           "quote": "is no systematic association between specific emotions and specific changes in your body."
         }
       ],
-      "checkworthiness": "medium"
+      "checkworthiness": "high"
     },
     {
       "claim_text": "Well, if you look at those studies, people put a few electrodes on and they measure, you know,",
@@ -124,10 +175,10 @@
           "quote": "Well, if you look at those studies, people put a few electrodes on and they measure, you know,"
         }
       ],
-      "checkworthiness": "low"
+      "checkworthiness": "high"
     },
     {
-      "claim_text": "heart rate changes, blood pressure changes, et cetera, it is extremely crude. You're looking at",
+      "claim_text": "heart rate changes, blood pressure changes, et cetera, it is extremely crude.",
       "claim_kind": "fact",
       "speaker": null,
       "source_segment_ids": [
@@ -136,13 +187,50 @@
       "quote_evidence": [
         {
           "segment_id": "seg-000768",
-          "quote": "heart rate changes, blood pressure changes, et cetera, it is extremely crude. You're looking at"
+          "quote": "heart rate changes, blood pressure changes, et cetera, it is extremely crude."
         }
       ],
-      "checkworthiness": "low"
+      "checkworthiness": "high"
+    },
+    {
+      "claim_text": "a tiny, tiny slice of what's going on in your body.",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000769"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000769",
+          "quote": "a tiny, tiny slice of what's going on in your body."
+        }
+      ],
+      "checkworthiness": "high"
     }
   ],
-  "entities": [],
+  "entities": [
+    {
+      "name": "Well",
+      "type": "topic",
+      "source_segment_ids": [
+        "seg-000767"
+      ]
+    },
+    {
+      "name": "What",
+      "type": "topic",
+      "source_segment_ids": [
+        "seg-000769"
+      ]
+    },
+    {
+      "name": "Yeah",
+      "type": "topic",
+      "source_segment_ids": [
+        "seg-000774"
+      ]
+    }
+  ],
   "concepts": [],
   "open_questions": [],
   "contradictions_or_uncertainty": []

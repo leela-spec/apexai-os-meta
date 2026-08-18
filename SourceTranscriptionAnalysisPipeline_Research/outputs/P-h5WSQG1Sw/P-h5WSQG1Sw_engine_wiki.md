@@ -1,5 +1,9 @@
 # Neuroscience of Emotions & Emotion Regulation - Dr. Ralph Adolphs — Research Engine Analysis
 
+> [!NOTE]
+> - **Quote Grounding:** VALIDATED (Verbatim Match)
+> - **Segment Coverage:** 0 / 1438 segments (0.0%)
+
 ## Macro: Executive Synthesis
 
 **Core Thesis:** Emotions are functional brain-body states constructed for survival and behavioral decision-making, which can be modulated through deliberate autonomic stress conditioning like cold immersion.
@@ -38,7 +42,7 @@ Neuroscience Emotion Regulation Autonomic Nervous System
 
 - **Proposition:** Autonomic emotional reactivity habituated through cold water immersion generalizes to down-regulate reactivity against psychological stressors.
 - **Claim Type:** `ANECDOTE`
-- **Source Support:** `SUPPORTED`
+- **Source Support:** `SUPPORTED` *(Segment Provenance: `unassigned`)*
 - **Internal confidence:** hypothesis
 - **Search query:** cross-adaptation cold habituation autonomic mental stress
 - **Sources:**
@@ -51,7 +55,7 @@ Neuroscience Emotion Regulation Autonomic Nervous System
 
 - **Proposition:** Emotion regulation can become automated with habituation so that active conscious overthinking is minimized.
 - **Claim Type:** `HYPOTHESIS`
-- **Source Support:** `SUPPORTED`
+- **Source Support:** `SUPPORTED` *(Segment Provenance: `unassigned`)*
 - **Internal confidence:** hypothesis
 - **Search query:** n/a
 - **Sources:**

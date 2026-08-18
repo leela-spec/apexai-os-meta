@@ -5,7 +5,7 @@
   "window_id": "window-0022",
   "subtopics": [
     {
-      "label": "Window window-0022 Topics",
+      "label": "Thematic Chapter 22 (Shuffle Shuffle Shuffle, Facebook)",
       "source_segment_ids": [
         "seg-001345",
         "seg-001346",
@@ -94,11 +94,49 @@
       "source_segment_ids": [
         "seg-001347"
       ]
+    },
+    {
+      "text": "yeah and the other thing no phones no one has phones during the day they get I think they get an",
+      "source_segment_ids": [
+        "seg-001348"
+      ]
+    },
+    {
+      "text": "hour where they can access their phones I normally my phone it's on right now because you guys",
+      "source_segment_ids": [
+        "seg-001349"
+      ]
     }
   ],
-  "mechanisms": [],
+  "mechanisms": [
+    {
+      "text": "hour where they can access their phones I normally my phone it's on right now because you guys",
+      "source_segment_ids": [
+        "seg-001349"
+      ]
+    },
+    {
+      "text": "everybody like this is a in case anyone hasn't told you and because I sit at a unique vantage point",
+      "source_segment_ids": [
+        "seg-001398"
+      ]
+    }
+  ],
   "protocols": [],
-  "arguments": [],
+  "arguments": [
+    {
+      "text": "yeah and the other thing no phones no one has phones during the day they get I think they get an",
+      "source_segment_ids": [
+        "seg-001348"
+      ]
+    },
+    {
+      "text": "well it's got two things I think it's about emotion regulation so you know you know initially when",
+      "source_segment_ids": [
+        "seg-001365"
+      ]
+    }
+  ],
   "candidate_claims": [
     {
       "claim_text": "and all of a sudden the bell sounds and you could hear a pin drop but there's thousands of people",
@@ -113,7 +151,7 @@
           "quote": "and all of a sudden the bell sounds and you could hear a pin drop but there's thousands of people"
         }
       ],
-      "checkworthiness": "medium"
+      "checkworthiness": "high"
     },
     {
       "claim_text": "around you yeah you hear a bell again the meal begins walking to the auditorium at Shuffle Shuffle Shuffle",
@@ -128,7 +166,7 @@
           "quote": "around you yeah you hear a bell again the meal begins walking to the auditorium at Shuffle Shuffle Shuffle"
         }
       ],
-      "checkworthiness": "low"
+      "checkworthiness": "high"
     },
     {
       "claim_text": "talking talking talking talking boom it's a step function they're training this in the cells",
@@ -143,10 +181,47 @@
           "quote": "talking talking talking talking boom it's a step function they're training this in the cells"
         }
       ],
+      "checkworthiness": "high"
+    },
+    {
+      "claim_text": "yeah and the other thing no phones no one has phones during the day they get I think they get an",
+      "claim_kind": "opinion",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-001348"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-001348",
+          "quote": "yeah and the other thing no phones no one has phones during the day they get I think they get an"
+        }
+      ],
       "checkworthiness": "low"
     }
   ],
-  "entities": [],
+  "entities": [
+    {
+      "name": "Shuffle Shuffle Shuffle",
+      "type": "topic",
+      "source_segment_ids": [
+        "seg-001346"
+      ]
+    },
+    {
+      "name": "Facebook",
+      "type": "topic",
+      "source_segment_ids": [
+        "seg-001351"
+      ]
+    },
+    {
+      "name": "Instagram",
+      "type": "topic",
+      "source_segment_ids": [
+        "seg-001351"
+      ]
+    }
+  ],
   "concepts": [],
   "open_questions": [],
   "contradictions_or_uncertainty": []

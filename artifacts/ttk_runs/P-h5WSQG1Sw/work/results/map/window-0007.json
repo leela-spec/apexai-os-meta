@@ -5,7 +5,7 @@
   "window_id": "window-0007",
   "subtopics": [
     {
-      "label": "Window window-0007 Topics",
+      "label": "Thematic Chapter 7 (Well, Justin Feinstein)",
       "source_segment_ids": [
         "seg-000357",
         "seg-000358",
@@ -74,30 +74,68 @@
   ],
   "key_points": [
     {
-      "text": "we appraisal or any other sort of complex we appraisal strategy for emotions. It is a double-edged",
+      "text": "we appraisal or any other sort of complex we appraisal strategy for emotions.",
       "source_segment_ids": [
         "seg-000357"
       ]
     },
     {
-      "text": "sword and it's trainable. It's as you say, if I really focus on, okay, now, you know, I'm starting",
+      "text": "sword and it's trainable.",
       "source_segment_ids": [
         "seg-000358"
       ]
     },
     {
-      "text": "to feel sad. I really don't want to feel sad. I really don't want to feel sad. I really don't",
+      "text": "It's as you say, if I really focus on, okay, now, you know, I'm starting",
+      "source_segment_ids": [
+        "seg-000358"
+      ]
+    },
+    {
+      "text": "I really don't want to feel sad.",
+      "source_segment_ids": [
+        "seg-000359"
+      ]
+    },
+    {
+      "text": "I really don't want to feel sad.",
       "source_segment_ids": [
         "seg-000359"
       ]
     }
   ],
-  "mechanisms": [],
+  "mechanisms": [
+    {
+      "text": "because this is relevant actually.",
+      "source_segment_ids": [
+        "seg-000373"
+      ]
+    },
+    {
+      "text": "unfairly get taxed to the deliberate cold exposure, as we call it, thing a little too much because",
+      "source_segment_ids": [
+        "seg-000400"
+      ]
+    }
+  ],
   "protocols": [],
-  "arguments": [],
+  "arguments": [
+    {
+      "text": "I really don't want to feel sad.",
+      "source_segment_ids": [
+        "seg-000359"
+      ]
+    },
+    {
+      "text": "I really don't want to feel sad.",
+      "source_segment_ids": [
+        "seg-000359"
+      ]
+    }
+  ],
   "candidate_claims": [
     {
-      "claim_text": "we appraisal or any other sort of complex we appraisal strategy for emotions. It is a double-edged",
+      "claim_text": "we appraisal or any other sort of complex we appraisal strategy for emotions.",
       "claim_kind": "fact",
       "speaker": null,
       "source_segment_ids": [
@@ -106,13 +144,13 @@
       "quote_evidence": [
         {
           "segment_id": "seg-000357",
-          "quote": "we appraisal or any other sort of complex we appraisal strategy for emotions. It is a double-edged"
+          "quote": "we appraisal or any other sort of complex we appraisal strategy for emotions."
         }
       ],
-      "checkworthiness": "medium"
+      "checkworthiness": "high"
     },
     {
-      "claim_text": "sword and it's trainable. It's as you say, if I really focus on, okay, now, you know, I'm starting",
+      "claim_text": "sword and it's trainable.",
       "claim_kind": "fact",
       "speaker": null,
       "source_segment_ids": [
@@ -121,14 +159,29 @@
       "quote_evidence": [
         {
           "segment_id": "seg-000358",
-          "quote": "sword and it's trainable. It's as you say, if I really focus on, okay, now, you know, I'm starting"
+          "quote": "sword and it's trainable."
         }
       ],
-      "checkworthiness": "low"
+      "checkworthiness": "high"
     },
     {
-      "claim_text": "to feel sad. I really don't want to feel sad. I really don't want to feel sad. I really don't",
+      "claim_text": "It's as you say, if I really focus on, okay, now, you know, I'm starting",
       "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000358"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000358",
+          "quote": "It's as you say, if I really focus on, okay, now, you know, I'm starting"
+        }
+      ],
+      "checkworthiness": "high"
+    },
+    {
+      "claim_text": "I really don't want to feel sad.",
+      "claim_kind": "opinion",
       "speaker": null,
       "source_segment_ids": [
         "seg-000359"
@@ -136,13 +189,35 @@
       "quote_evidence": [
         {
           "segment_id": "seg-000359",
-          "quote": "to feel sad. I really don't want to feel sad. I really don't want to feel sad. I really don't"
+          "quote": "I really don't want to feel sad."
         }
       ],
       "checkworthiness": "low"
     }
   ],
-  "entities": [],
+  "entities": [
+    {
+      "name": "Well",
+      "type": "topic",
+      "source_segment_ids": [
+        "seg-000360"
+      ]
+    },
+    {
+      "name": "Justin Feinstein",
+      "type": "topic",
+      "source_segment_ids": [
+        "seg-000374"
+      ]
+    },
+    {
+      "name": "Maui",
+      "type": "topic",
+      "source_segment_ids": [
+        "seg-000374"
+      ]
+    }
+  ],
   "concepts": [],
   "open_questions": [],
   "contradictions_or_uncertainty": []

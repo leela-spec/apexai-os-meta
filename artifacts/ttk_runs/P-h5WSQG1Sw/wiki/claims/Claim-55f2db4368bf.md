@@ -13,8 +13,8 @@
 
 ## Context
 
-Extracted from window-0003
+Documented in Window window-0003
 
 ## Links
 
-[[concepts/neuroscience-of-emot|Neuroscience of Emot]]
+[[concepts/neuroscience-of-emotions|Neuroscience of Emotions ]] · [[entities/caltech|Caltech]] · [[entities/marcus-meister|Marcus Meister]] · [[entities/david-anderson|David Anderson]]

@@ -2,20 +2,23 @@
 
 ## Thesis
 
-Core empirical and thematic findings extracted from 'Tech unter Druck. Zinsen werden zum Risiko - Markus Koch'.
+Comprehensive empirical and thematic knowledge extraction from 'Tech unter Druck. Zinsen werden zum Risiko - Markus Koch'.
 
 ## Summary
 
-Structured Macro-Meso-Micro distillation of 178 segments across 3 windows.
+Hierarchical synthesis covering 178 segments across 3 Map windows into 3 modular deep dives and 12 forensic claims.
 
 ## Global Takeaways
 
-- Source analysis completed with 9 validated evidence claims. — [[modules/thematic-overview-findings-tech-unter-druck-zinsen-werden-zum-risiko-markus-koch|Thematic Overview & Findings: Tech unter Druck. Zinsen werden zum Risiko - Markus Koch]] · `seg-000001`
+- Foundational Architecture & Context: Modular analysis synthesizing 1 Map windows across 76 source segments. — [[modules/foundational-architecture-context-00-00-01-00-08-29|Foundational Architecture & Context `[00:00:01 - 00:08:29]`]] · `seg-000001`
+- Mechanisms, Evidence & Analysis: Modular analysis synthesizing 1 Map windows across 54 source segments. — [[modules/mechanisms-evidence-analysis-00-08-29-00-14-37|Mechanisms, Evidence & Analysis `[00:08:29 - 00:14:37]`]] · `seg-000077`
+- Strategic Implications & Decision Framework: Modular analysis synthesizing 1 Map windows across 48 source segments. — [[modules/strategic-implications-decision-framework-00-14-38-00-20-23|Strategic Implications & Decision Framework `[00:14:38 - 00:20:23]`]] · `seg-000131`
 
 ## Taxonomy
 
 - Tech unter Druck. Zinsen 
-- Source Analysis
+- Knowledge Synthesis
+- Forensic Extraction
 
 ## Speaker / Context
 
@@ -23,4 +26,6 @@ Structured Macro-Meso-Micro distillation of 178 segments across 3 windows.
 
 ## Meso Modules
 
-- [[modules/thematic-overview-findings-tech-unter-druck-zinsen-werden-zum-risiko-markus-koch|Thematic Overview & Findings: Tech unter Druck. Zinsen werden zum Risiko - Markus Koch]]
+- [[modules/foundational-architecture-context-00-00-01-00-08-29|Foundational Architecture & Context `[00:00:01 - 00:08:29]`]]
+- [[modules/mechanisms-evidence-analysis-00-08-29-00-14-37|Mechanisms, Evidence & Analysis `[00:08:29 - 00:14:37]`]]
+- [[modules/strategic-implications-decision-framework-00-14-38-00-20-23|Strategic Implications & Decision Framework `[00:14:38 - 00:20:23]`]]

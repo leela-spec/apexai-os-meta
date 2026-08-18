@@ -5,7 +5,7 @@
   "window_id": "window-0023",
   "subtopics": [
     {
-      "label": "Window window-0023 Topics",
+      "label": "Thematic Chapter 23 (Spotify, Apple)",
       "source_segment_ids": [
         "seg-001411",
         "seg-001412",
@@ -56,10 +56,41 @@
       "source_segment_ids": [
         "seg-001413"
       ]
+    },
+    {
+      "text": "five star review and you can now leave us comments at both Spotify and Apple please also check out",
+      "source_segment_ids": [
+        "seg-001414"
+      ]
+    },
+    {
+      "text": "the sponsors mentioned at the beginning and throughout today's episode that's the best way to",
+      "source_segment_ids": [
+        "seg-001415"
+      ]
     }
   ],
   "mechanisms": [],
-  "protocols": [],
+  "protocols": [
+    {
+      "title": "Protocol: it's my very first book it's entitled pr",
+      "steps": [
+        "it's my very first book it's entitled protocols and operating manual for the human body this is a book"
+      ],
+      "source_segment_ids": [
+        "seg-001419"
+      ]
+    },
+    {
+      "title": "Protocol: and experience and it covers protocols f",
+      "steps": [
+        "and experience and it covers protocols for everything from sleep to exercise to stress control"
+      ],
+      "source_segment_ids": [
+        "seg-001421"
+      ]
+    }
+  ],
   "arguments": [],
   "candidate_claims": [
     {
@@ -75,7 +106,7 @@
           "quote": "if you're learning from and or enjoying this podcast please subscribe to our YouTube channel"
         }
       ],
-      "checkworthiness": "medium"
+      "checkworthiness": "high"
     },
     {
       "claim_text": "that's a terrific zero cost way to support us in addition please follow the podcast by clicking",
@@ -90,7 +121,7 @@
           "quote": "that's a terrific zero cost way to support us in addition please follow the podcast by clicking"
         }
       ],
-      "checkworthiness": "low"
+      "checkworthiness": "high"
     },
     {
       "claim_text": "the follow button on both Spotify and Apple and on both Spotify and Apple you can leave us up to a",
@@ -105,10 +136,47 @@
           "quote": "the follow button on both Spotify and Apple and on both Spotify and Apple you can leave us up to a"
         }
       ],
-      "checkworthiness": "low"
+      "checkworthiness": "high"
+    },
+    {
+      "claim_text": "five star review and you can now leave us comments at both Spotify and Apple please also check out",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-001414"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-001414",
+          "quote": "five star review and you can now leave us comments at both Spotify and Apple please also check out"
+        }
+      ],
+      "checkworthiness": "high"
     }
   ],
-  "entities": [],
+  "entities": [
+    {
+      "name": "Spotify",
+      "type": "topic",
+      "source_segment_ids": [
+        "seg-001413"
+      ]
+    },
+    {
+      "name": "Apple",
+      "type": "topic",
+      "source_segment_ids": [
+        "seg-001413"
+      ]
+    },
+    {
+      "name": "Hubertman Lab",
+      "type": "topic",
+      "source_segment_ids": [
+        "seg-001417"
+      ]
+    }
+  ],
   "concepts": [],
   "open_questions": [],
   "contradictions_or_uncertainty": []

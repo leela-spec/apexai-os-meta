@@ -1,24 +1,34 @@
 {
   "schema": "ttk.reduce-result.v2",
   "packet_id": "reduce-final",
-  "packet_sha256": "cb1467784ff77f155c58685ee85fbe7d28cef9bc0e66fdbf0983cb272b50d96a",
+  "packet_sha256": "e0da18042c03bca1d2e5d1655b52182798807f44be0d17b8b89fe6a9856436fd",
   "macro": {
-    "thesis": "Core empirical and thematic findings extracted from 'Elliott Prechter: Teaching a Machine to Count Elliott Waves'.",
-    "summary": "Structured Macro-Meso-Micro distillation of 215 segments across 4 windows.",
+    "thesis": "Comprehensive empirical and thematic knowledge extraction from 'Elliott Prechter: Teaching a Machine to Count Elliott Waves'.",
+    "summary": "Hierarchical synthesis covering 215 segments across 4 Map windows into 2 modular deep dives and 16 forensic claims.",
     "takeaways": [
       {
-        "text": "Source analysis completed with 10 validated evidence claims.",
+        "text": "Foundational Architecture & Context: Modular analysis synthesizing 2 Map windows across 116 source segments.",
         "source_segment_ids": [
           "seg-000001"
         ],
         "meso_refs": [
           "meso-001"
         ]
+      },
+      {
+        "text": "Mechanisms, Evidence & Analysis: Modular analysis synthesizing 2 Map windows across 99 source segments.",
+        "source_segment_ids": [
+          "seg-000117"
+        ],
+        "meso_refs": [
+          "meso-002"
+        ]
       }
     ],
     "taxonomy": [
       "Elliott Prechter: Teachin",
-      "Source Analysis"
+      "Knowledge Synthesis",
+      "Forensic Extraction"
     ],
     "speaker_context": [
       "Speakers extracted from transcript speech events."
@@ -28,8 +38,8 @@
   "meso": [
     {
       "meso_ref": "meso-001",
-      "title": "Thematic Overview & Findings: Elliott Prechter: Teaching a Machine to Count Elliott Waves",
-      "summary": "Comprehensive synthesis of topics and evidence documented in Elliott Prechter: Teaching a Machine to Count Elliott Waves.",
+      "title": "Foundational Architecture & Context `[00:00:00 - 00:13:14]`",
+      "summary": "Modular analysis synthesizing 2 Map windows across 116 source segments.",
       "source_segment_ids": [
         "seg-000001",
         "seg-000002",
@@ -40,21 +50,86 @@
         "seg-000007",
         "seg-000008",
         "seg-000009",
-        "seg-000010"
+        "seg-000010",
+        "seg-000011",
+        "seg-000012",
+        "seg-000013",
+        "seg-000014",
+        "seg-000015",
+        "seg-000016",
+        "seg-000017",
+        "seg-000018",
+        "seg-000019",
+        "seg-000020",
+        "seg-000021",
+        "seg-000022",
+        "seg-000023",
+        "seg-000024",
+        "seg-000025"
       ],
       "concepts": [
-        "Elliott Prechter: Teachin"
+        "Well",
+        "Elliott Payf",
+        "They",
+        "Elliott Wave Principle"
       ],
       "entities": [],
-      "mechanisms": [],
-      "protocols": [],
+      "mechanisms": [
+        {
+          "text": "in the 70s, to read about the theory was on microfilm because they didn't even have full books,",
+          "source_segment_ids": [
+            "seg-000021"
+          ]
+        },
+        {
+          "text": "is the second reason you mentioned which is limiting your risk because everyone I know who is a",
+          "source_segment_ids": [
+            "seg-000049"
+          ]
+        }
+      ],
+      "protocols": [
+        {
+          "title": "Protocol: crash of 29 ended and he started telling",
+          "steps": [
+            "crash of 29 ended and he started telling people that they should be buying the market at that time."
+          ],
+          "source_segment_ids": [
+            "seg-000018"
+          ]
+        },
+        {
+          "title": "Protocol: taking that forward or how has your fath",
+          "steps": [
+            "taking that forward or how has your father convinced you that you should continue that road?"
+          ],
+          "source_segment_ids": [
+            "seg-000032"
+          ]
+        }
+      ],
       "arguments": [
-        "Elliott, thanks for joining us today, so we have Elliott Pregnant with us, and it's an honor to",
-        "have you here spending some time with us talking about the Elliott Wave Principle and your history",
-        "and your personal background on that. So, I mean, before we go into the more depth of Elliott Wave,"
+        {
+          "text": "Well, okay, I think the simplest way to understand it is it's a description of the price patterns",
+          "source_segment_ids": [
+            "seg-000005"
+          ]
+        },
+        {
+          "text": "Elliott Wave Theory, believe it or not, the only way at that time, which was, I believe that was",
+          "source_segment_ids": [
+            "seg-000020"
+          ]
+        },
+        {
+          "text": "How should traders use Elliott Payf analysis and practice as a forecasting tool or risk management",
+          "source_segment_ids": [
+            "seg-000045"
+          ]
+        }
       ],
       "caveats": [
-        "Source analysis bounded to verbatim transcript statements."
+        "Analysis grounded in spoken dialogue evidence."
       ],
       "claim_refs": [
         "micro-001",
@@ -64,9 +139,128 @@
         "micro-005",
         "micro-006",
         "micro-007",
-        "micro-008",
+        "micro-008"
+      ]
+    },
+    {
+      "meso_ref": "meso-002",
+      "title": "Mechanisms, Evidence & Analysis `[00:13:16 - 00:23:41]`",
+      "summary": "Modular analysis synthesizing 2 Map windows across 99 source segments.",
+      "source_segment_ids": [
+        "seg-000117",
+        "seg-000118",
+        "seg-000119",
+        "seg-000120",
+        "seg-000121",
+        "seg-000122",
+        "seg-000123",
+        "seg-000124",
+        "seg-000125",
+        "seg-000126",
+        "seg-000127",
+        "seg-000128",
+        "seg-000129",
+        "seg-000130",
+        "seg-000131",
+        "seg-000132",
+        "seg-000133",
+        "seg-000134",
+        "seg-000135",
+        "seg-000136",
+        "seg-000137",
+        "seg-000138",
+        "seg-000139",
+        "seg-000140",
+        "seg-000141"
+      ],
+      "concepts": [
+        "Elliott",
+        "Well",
+        "Eliot",
+        "Bitcoin"
+      ],
+      "entities": [],
+      "mechanisms": [
+        {
+          "text": "hand and sketch out the wave pattern which like you said earlier can be very tricky because when",
+          "source_segment_ids": [
+            "seg-000118"
+          ]
+        },
+        {
+          "text": "which is a common pattern and the market did the exact opposite because that was actually part",
+          "source_segment_ids": [
+            "seg-000122"
+          ]
+        },
+        {
+          "text": "overall is starting to weaken well I'm tempted to say yes because I see that kind of thing all the",
+          "source_segment_ids": [
+            "seg-000194"
+          ]
+        }
+      ],
+      "protocols": [
+        {
+          "title": "Protocol: that's one common baseline that all anal",
+          "steps": [
+            "that's one common baseline that all analysts should follow I've seen many blog posts where they"
+          ],
+          "source_segment_ids": [
+            "seg-000134"
+          ]
+        },
+        {
+          "title": "Protocol: does which which how would you recommend",
+          "steps": [
+            "does which which how would you recommend somebody that is interested in working with Elliott wave"
+          ],
+          "source_segment_ids": [
+            "seg-000164"
+          ]
+        },
+        {
+          "title": "Protocol: want to get a grip then I'd actually rec",
+          "steps": [
+            "want to get a grip then I'd actually recommend going to Elliott wave dot com and we have a lot"
+          ],
+          "source_segment_ids": [
+            "seg-000167"
+          ]
+        }
+      ],
+      "arguments": [
+        {
+          "text": "following different alien wave experts showing different counts I think that cannot be the case",
+          "source_segment_ids": [
+            "seg-000130"
+          ]
+        },
+        {
+          "text": "analysts that may disagree now I think there are times in the market where everything kind of lines",
+          "source_segment_ids": [
+            "seg-000140"
+          ]
+        },
+        {
+          "text": "theory actually get into it and get started okay yeah the e-waves software in my opinion is for",
+          "source_segment_ids": [
+            "seg-000165"
+          ]
+        }
+      ],
+      "caveats": [
+        "Analysis grounded in spoken dialogue evidence."
+      ],
+      "claim_refs": [
         "micro-009",
-        "micro-010"
+        "micro-010",
+        "micro-011",
+        "micro-012",
+        "micro-013",
+        "micro-014",
+        "micro-015",
+        "micro-016"
       ]
     }
   ],
@@ -86,12 +280,16 @@
         }
       ],
       "source_support": "SUPPORTED",
-      "checkworthiness": "medium",
+      "checkworthiness": "high",
       "topics": [
-        "Elliott Prechter: Te"
+        "Elliott Prechter: Teachin"
       ],
-      "entities": [],
-      "context": "Extracted from window-0001"
+      "entities": [
+        "Elliott",
+        "Elliott Pregnant",
+        "Elliott Wave Principle"
+      ],
+      "context": "Documented in Window window-0001"
     },
     {
       "claim_ref": "micro-002",
@@ -108,16 +306,20 @@
         }
       ],
       "source_support": "SUPPORTED",
-      "checkworthiness": "low",
+      "checkworthiness": "high",
       "topics": [
-        "Elliott Prechter: Te"
+        "Elliott Prechter: Teachin"
       ],
-      "entities": [],
-      "context": "Extracted from window-0001"
+      "entities": [
+        "Elliott",
+        "Elliott Pregnant",
+        "Elliott Wave Principle"
+      ],
+      "context": "Documented in Window window-0001"
     },
     {
       "claim_ref": "micro-003",
-      "claim_text": "and your personal background on that. So, I mean, before we go into the more depth of Elliott Wave,",
+      "claim_text": "and your personal background on that.",
       "claim_kind": "fact",
       "speaker": null,
       "source_segment_ids": [
@@ -126,21 +328,51 @@
       "quote_evidence": [
         {
           "segment_id": "seg-000003",
-          "quote": "and your personal background on that. So, I mean, before we go into the more depth of Elliott Wave,"
+          "quote": "and your personal background on that."
         }
       ],
       "source_support": "SUPPORTED",
-      "checkworthiness": "low",
+      "checkworthiness": "high",
       "topics": [
-        "Elliott Prechter: Te"
+        "Elliott Prechter: Teachin"
       ],
-      "entities": [],
-      "context": "Extracted from window-0001"
+      "entities": [
+        "Elliott",
+        "Elliott Pregnant",
+        "Elliott Wave Principle"
+      ],
+      "context": "Documented in Window window-0001"
     },
     {
       "claim_ref": "micro-004",
-      "claim_text": "How should traders use Elliott Payf analysis and practice as a forecasting tool or risk management",
+      "claim_text": "So, I mean, before we go into the more depth of Elliott Wave,",
       "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000003"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000003",
+          "quote": "So, I mean, before we go into the more depth of Elliott Wave,"
+        }
+      ],
+      "source_support": "SUPPORTED",
+      "checkworthiness": "high",
+      "topics": [
+        "Elliott Prechter: Teachin"
+      ],
+      "entities": [
+        "Elliott",
+        "Elliott Pregnant",
+        "Elliott Wave Principle"
+      ],
+      "context": "Documented in Window window-0001"
+    },
+    {
+      "claim_ref": "micro-005",
+      "claim_text": "How should traders use Elliott Payf analysis and practice as a forecasting tool or risk management",
+      "claim_kind": "prediction",
       "speaker": null,
       "source_segment_ids": [
         "seg-000045"
@@ -154,14 +386,18 @@
       "source_support": "SUPPORTED",
       "checkworthiness": "medium",
       "topics": [
-        "Elliott Prechter: Te"
+        "Elliott Prechter: Teachin"
       ],
-      "entities": [],
-      "context": "Extracted from window-0002"
+      "entities": [
+        "Elliott Payf",
+        "Well",
+        "They"
+      ],
+      "context": "Documented in Window window-0002"
     },
     {
-      "claim_ref": "micro-005",
-      "claim_text": "tool or a way to map out map out probabilities? Well I think you're pretty much late all around.",
+      "claim_ref": "micro-006",
+      "claim_text": "tool or a way to map out map out probabilities?",
       "claim_kind": "fact",
       "speaker": null,
       "source_segment_ids": [
@@ -170,20 +406,50 @@
       "quote_evidence": [
         {
           "segment_id": "seg-000046",
-          "quote": "tool or a way to map out map out probabilities? Well I think you're pretty much late all around."
+          "quote": "tool or a way to map out map out probabilities?"
+        }
+      ],
+      "source_support": "SUPPORTED",
+      "checkworthiness": "high",
+      "topics": [
+        "Elliott Prechter: Teachin"
+      ],
+      "entities": [
+        "Elliott Payf",
+        "Well",
+        "They"
+      ],
+      "context": "Documented in Window window-0002"
+    },
+    {
+      "claim_ref": "micro-007",
+      "claim_text": "Well I think you're pretty much late all around.",
+      "claim_kind": "opinion",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000046"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000046",
+          "quote": "Well I think you're pretty much late all around."
         }
       ],
       "source_support": "SUPPORTED",
       "checkworthiness": "low",
       "topics": [
-        "Elliott Prechter: Te"
+        "Elliott Prechter: Teachin"
       ],
-      "entities": [],
-      "context": "Extracted from window-0002"
+      "entities": [
+        "Elliott Payf",
+        "Well",
+        "They"
+      ],
+      "context": "Documented in Window window-0002"
     },
     {
-      "claim_ref": "micro-006",
-      "claim_text": "They did a great job. Yes to all three. I mean historically it's mainly been a long term",
+      "claim_ref": "micro-008",
+      "claim_text": "They did a great job.",
       "claim_kind": "fact",
       "speaker": null,
       "source_segment_ids": [
@@ -192,19 +458,23 @@
       "quote_evidence": [
         {
           "segment_id": "seg-000047",
-          "quote": "They did a great job. Yes to all three. I mean historically it's mainly been a long term"
+          "quote": "They did a great job."
         }
       ],
       "source_support": "SUPPORTED",
-      "checkworthiness": "low",
+      "checkworthiness": "high",
       "topics": [
-        "Elliott Prechter: Te"
+        "Elliott Prechter: Teachin"
       ],
-      "entities": [],
-      "context": "Extracted from window-0002"
+      "entities": [
+        "Elliott Payf",
+        "Well",
+        "They"
+      ],
+      "context": "Documented in Window window-0002"
     },
     {
-      "claim_ref": "micro-007",
+      "claim_ref": "micro-009",
       "claim_text": "yes I mean e-waves does do the wave count it's an automated process so you don't have to sit there by",
       "claim_kind": "fact",
       "speaker": null,
@@ -218,17 +488,20 @@
         }
       ],
       "source_support": "SUPPORTED",
-      "checkworthiness": "medium",
+      "checkworthiness": "high",
       "topics": [
-        "Elliott Prechter: Te"
+        "Elliott Prechter: Teachin"
       ],
-      "entities": [],
-      "context": "Extracted from window-0003"
+      "entities": [
+        "Well",
+        "Elliott"
+      ],
+      "context": "Documented in Window window-0003"
     },
     {
-      "claim_ref": "micro-008",
+      "claim_ref": "micro-010",
       "claim_text": "hand and sketch out the wave pattern which like you said earlier can be very tricky because when",
-      "claim_kind": "fact",
+      "claim_kind": "mechanism",
       "speaker": null,
       "source_segment_ids": [
         "seg-000118"
@@ -240,15 +513,18 @@
         }
       ],
       "source_support": "SUPPORTED",
-      "checkworthiness": "low",
+      "checkworthiness": "medium",
       "topics": [
-        "Elliott Prechter: Te"
+        "Elliott Prechter: Teachin"
       ],
-      "entities": [],
-      "context": "Extracted from window-0003"
+      "entities": [
+        "Well",
+        "Elliott"
+      ],
+      "context": "Documented in Window window-0003"
     },
     {
-      "claim_ref": "micro-009",
+      "claim_ref": "micro-011",
       "claim_text": "you're looking at a chart through you're going to have partial patterns most of the time and that's",
       "claim_kind": "fact",
       "speaker": null,
@@ -262,15 +538,43 @@
         }
       ],
       "source_support": "SUPPORTED",
-      "checkworthiness": "low",
+      "checkworthiness": "high",
       "topics": [
-        "Elliott Prechter: Te"
+        "Elliott Prechter: Teachin"
       ],
-      "entities": [],
-      "context": "Extracted from window-0003"
+      "entities": [
+        "Well",
+        "Elliott"
+      ],
+      "context": "Documented in Window window-0003"
     },
     {
-      "claim_ref": "micro-010",
+      "claim_ref": "micro-012",
+      "claim_text": "why in my presentation earlier I wanted to show that a particular example we had the market",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000120"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000120",
+          "quote": "why in my presentation earlier I wanted to show that a particular example we had the market"
+        }
+      ],
+      "source_support": "SUPPORTED",
+      "checkworthiness": "high",
+      "topics": [
+        "Elliott Prechter: Teachin"
+      ],
+      "entities": [
+        "Well",
+        "Elliott"
+      ],
+      "context": "Documented in Window window-0003"
+    },
+    {
+      "claim_ref": "micro-013",
       "claim_text": "maybe maybe in simple terms very often retail investors ask me you know looks really super",
       "claim_kind": "fact",
       "speaker": null,
@@ -284,12 +588,94 @@
         }
       ],
       "source_support": "SUPPORTED",
-      "checkworthiness": "medium",
+      "checkworthiness": "high",
       "topics": [
-        "Elliott Prechter: Te"
+        "Elliott Prechter: Teachin"
       ],
-      "entities": [],
-      "context": "Extracted from window-0004"
+      "entities": [
+        "Elliott",
+        "Bitcoin",
+        "Eliot"
+      ],
+      "context": "Documented in Window window-0004"
+    },
+    {
+      "claim_ref": "micro-014",
+      "claim_text": "interesting where do we actually start how can I get a good understanding of what it actually",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000163"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000163",
+          "quote": "interesting where do we actually start how can I get a good understanding of what it actually"
+        }
+      ],
+      "source_support": "SUPPORTED",
+      "checkworthiness": "high",
+      "topics": [
+        "Elliott Prechter: Teachin"
+      ],
+      "entities": [
+        "Elliott",
+        "Bitcoin",
+        "Eliot"
+      ],
+      "context": "Documented in Window window-0004"
+    },
+    {
+      "claim_ref": "micro-015",
+      "claim_text": "does which which how would you recommend somebody that is interested in working with Elliott wave",
+      "claim_kind": "recommendation",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000164"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000164",
+          "quote": "does which which how would you recommend somebody that is interested in working with Elliott wave"
+        }
+      ],
+      "source_support": "SUPPORTED",
+      "checkworthiness": "low",
+      "topics": [
+        "Elliott Prechter: Teachin"
+      ],
+      "entities": [
+        "Elliott",
+        "Bitcoin",
+        "Eliot"
+      ],
+      "context": "Documented in Window window-0004"
+    },
+    {
+      "claim_ref": "micro-016",
+      "claim_text": "theory actually get into it and get started okay yeah the e-waves software in my opinion is for",
+      "claim_kind": "opinion",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000165"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000165",
+          "quote": "theory actually get into it and get started okay yeah the e-waves software in my opinion is for"
+        }
+      ],
+      "source_support": "SUPPORTED",
+      "checkworthiness": "low",
+      "topics": [
+        "Elliott Prechter: Teachin"
+      ],
+      "entities": [
+        "Elliott",
+        "Bitcoin",
+        "Eliot"
+      ],
+      "context": "Documented in Window window-0004"
     }
   ],
   "rejected_or_unresolved_candidates": []

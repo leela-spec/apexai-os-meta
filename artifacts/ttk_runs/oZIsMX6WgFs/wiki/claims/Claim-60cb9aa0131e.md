@@ -1,9 +1,9 @@
 # Claim-60cb9aa0131e
 
 **Proposition:** So from a cyclic perspective the cycle has still more time on the downward pressure or give more headwind to that asset class from a technical perspective a reaction here would quite be to be expected from a technical point of view.
-**Kind:** fact
+**Kind:** prediction
 **Source support:** SUPPORTED
-**External status:** [UNVERIFIED]
+**External status:** [NOT_APPLICABLE]
 **Speaker:** unknown
 
 ## Transcript evidence
@@ -13,8 +13,8 @@
 
 ## Context
 
-Extracted from window-0003
+Documented in Window window-0003
 
 ## Links
 
-[[concepts/market-cycles-jam|Market Cycles Jam - ]]
+[[concepts/market-cycles-jam-marke|Market Cycles Jam - Marke]] · [[entities/price|Price]] · [[entities/next|Next]] · [[entities/september-october|September October]]

@@ -9,6 +9,17 @@
                           "processed_at":  "2026-08-18T15:20:35.0256392Z",
                           "model":  "base",
                           "artifacts_dir":  "C:\\GitDev\\apexai-os-meta\\.claude\\skills\\SourceTranscriptionAnalysisPipeline\\artifacts\\transcripts\\P-h5WSQG1Sw"
+                      },
+                      {
+                          "id":  "vFTuLylvYnA",
+                          "title":  "Tech unter Druck. Zinsen werden zum Risiko.",
+                          "channel":  "Markus Koch Wall Street",
+                          "url":  "https://www.youtube.com/watch?v=vFTuLylvYnA",
+                          "duration_str":  "20:40",
+                          "processed_at":  "2026-08-18T16:49:29.2132138Z",
+                          "model":  "base",
+                          "status":  "ASR_COMPLETE",
+                          "artifacts_dir":  "C:\\GitDev\\apexai-os-meta\\.claude\\skills\\SourceTranscriptionAnalysisPipeline\\artifacts\\transcripts\\vFTuLylvYnA"
                       }
                   ]
 }

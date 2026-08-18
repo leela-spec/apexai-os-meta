@@ -5,7 +5,7 @@
   "window_id": "window-0006",
   "subtopics": [
     {
-      "label": "Window window-0006 Topics",
+      "label": "Thematic Chapter 6 (That, Antonio)",
       "source_segment_ids": [
         "seg-000299",
         "seg-000300",
@@ -70,7 +70,13 @@
   ],
   "key_points": [
     {
-      "text": "That's kind of the ideal circumstance, right? Yeah. So what do you know that allowed that has",
+      "text": "That's kind of the ideal circumstance, right?",
+      "source_segment_ids": [
+        "seg-000299"
+      ]
+    },
+    {
+      "text": "So what do you know that allowed that has",
       "source_segment_ids": [
         "seg-000299"
       ]
@@ -82,18 +88,50 @@
       ]
     },
     {
-      "text": "if not benefit from? Yeah. I think it's, you know, it's a mixture. On the one hand,",
+      "text": "I think it's, you know, it's a mixture.",
       "source_segment_ids": [
         "seg-000301"
       ]
+    },
+    {
+      "text": "you absolutely need emotions.",
+      "source_segment_ids": [
+        "seg-000302"
+      ]
     }
   ],
-  "mechanisms": [],
+  "mechanisms": [
+    {
+      "text": "if you can name the emotion, but I find that a little tricky, because sometimes it's not one emotion.",
+      "source_segment_ids": [
+        "seg-000320"
+      ]
+    },
+    {
+      "text": "the emotion is so big, but because it's such a tangled jungle of whether isn't really language",
+      "source_segment_ids": [
+        "seg-000323"
+      ]
+    }
+  ],
   "protocols": [],
-  "arguments": [],
+  "arguments": [
+    {
+      "text": "I think it's, you know, it's a mixture.",
+      "source_segment_ids": [
+        "seg-000301"
+      ]
+    },
+    {
+      "text": "in Iowa in 1994, I think, you know, if you have massive frontal lobe lesions that make it the case",
+      "source_segment_ids": [
+        "seg-000304"
+      ]
+    }
+  ],
   "candidate_claims": [
     {
-      "claim_text": "That's kind of the ideal circumstance, right? Yeah. So what do you know that allowed that has",
+      "claim_text": "That's kind of the ideal circumstance, right?",
       "claim_kind": "fact",
       "speaker": null,
       "source_segment_ids": [
@@ -102,10 +140,25 @@
       "quote_evidence": [
         {
           "segment_id": "seg-000299",
-          "quote": "That's kind of the ideal circumstance, right? Yeah. So what do you know that allowed that has"
+          "quote": "That's kind of the ideal circumstance, right?"
         }
       ],
-      "checkworthiness": "medium"
+      "checkworthiness": "high"
+    },
+    {
+      "claim_text": "So what do you know that allowed that has",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000299"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000299",
+          "quote": "So what do you know that allowed that has"
+        }
+      ],
+      "checkworthiness": "high"
     },
     {
       "claim_text": "impacted the way that you think about emotion regulation that perhaps people could consider,",
@@ -120,11 +173,11 @@
           "quote": "impacted the way that you think about emotion regulation that perhaps people could consider,"
         }
       ],
-      "checkworthiness": "low"
+      "checkworthiness": "high"
     },
     {
-      "claim_text": "if not benefit from? Yeah. I think it's, you know, it's a mixture. On the one hand,",
-      "claim_kind": "fact",
+      "claim_text": "I think it's, you know, it's a mixture.",
+      "claim_kind": "opinion",
       "speaker": null,
       "source_segment_ids": [
         "seg-000301"
@@ -132,13 +185,35 @@
       "quote_evidence": [
         {
           "segment_id": "seg-000301",
-          "quote": "if not benefit from? Yeah. I think it's, you know, it's a mixture. On the one hand,"
+          "quote": "I think it's, you know, it's a mixture."
         }
       ],
       "checkworthiness": "low"
     }
   ],
-  "entities": [],
+  "entities": [
+    {
+      "name": "That",
+      "type": "topic",
+      "source_segment_ids": [
+        "seg-000299"
+      ]
+    },
+    {
+      "name": "Antonio",
+      "type": "topic",
+      "source_segment_ids": [
+        "seg-000302"
+      ]
+    },
+    {
+      "name": "Descartes",
+      "type": "topic",
+      "source_segment_ids": [
+        "seg-000303"
+      ]
+    }
+  ],
   "concepts": [],
   "open_questions": [],
   "contradictions_or_uncertainty": []

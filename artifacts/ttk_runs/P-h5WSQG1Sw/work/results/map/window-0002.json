@@ -5,7 +5,7 @@
   "window_id": "window-0002",
   "subtopics": [
     {
-      "label": "Window window-0002 Topics",
+      "label": "Thematic Chapter 2 (Typically, They)",
       "source_segment_ids": [
         "seg-000044",
         "seg-000045",
@@ -75,13 +75,25 @@
   ],
   "key_points": [
     {
-      "text": "findings and emotion from animal studies, findings from social psychology. Typically those people in",
+      "text": "findings and emotion from animal studies, findings from social psychology.",
       "source_segment_ids": [
         "seg-000044"
       ]
     },
     {
-      "text": "those fields don't talk to one another. They do very different studies, very different methodologies,",
+      "text": "Typically those people in",
+      "source_segment_ids": [
+        "seg-000044"
+      ]
+    },
+    {
+      "text": "those fields don't talk to one another.",
+      "source_segment_ids": [
+        "seg-000045"
+      ]
+    },
+    {
+      "text": "They do very different studies, very different methodologies,",
       "source_segment_ids": [
         "seg-000045"
       ]
@@ -93,12 +105,51 @@
       ]
     }
   ],
-  "mechanisms": [],
-  "protocols": [],
-  "arguments": [],
+  "mechanisms": [
+    {
+      "text": "back in the 50s or 60s, that there are interrupt mechanisms of a certain kind.",
+      "source_segment_ids": [
+        "seg-000097"
+      ]
+    }
+  ],
+  "protocols": [
+    {
+      "title": "Protocol: They should be understood by what they d",
+      "steps": [
+        "They should be understood by what they do, their function, rather than how they happen to be"
+      ],
+      "source_segment_ids": [
+        "seg-000051"
+      ]
+    },
+    {
+      "title": "Protocol: and I think it deserves a straight answe",
+      "steps": [
+        "and I think it deserves a straight answer that science should provide."
+      ],
+      "source_segment_ids": [
+        "seg-000076"
+      ]
+    }
+  ],
+  "arguments": [
+    {
+      "text": "The basic answer is that I think of emotions as functional states of a particular type.",
+      "source_segment_ids": [
+        "seg-000050"
+      ]
+    },
+    {
+      "text": "I mean, first of all, I think the question,",
+      "source_segment_ids": [
+        "seg-000065"
+      ]
+    }
+  ],
   "candidate_claims": [
     {
-      "claim_text": "findings and emotion from animal studies, findings from social psychology. Typically those people in",
+      "claim_text": "findings and emotion from animal studies, findings from social psychology.",
       "claim_kind": "fact",
       "speaker": null,
       "source_segment_ids": [
@@ -107,13 +158,28 @@
       "quote_evidence": [
         {
           "segment_id": "seg-000044",
-          "quote": "findings and emotion from animal studies, findings from social psychology. Typically those people in"
+          "quote": "findings and emotion from animal studies, findings from social psychology."
         }
       ],
-      "checkworthiness": "medium"
+      "checkworthiness": "high"
     },
     {
-      "claim_text": "those fields don't talk to one another. They do very different studies, very different methodologies,",
+      "claim_text": "Typically those people in",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000044"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000044",
+          "quote": "Typically those people in"
+        }
+      ],
+      "checkworthiness": "high"
+    },
+    {
+      "claim_text": "those fields don't talk to one another.",
       "claim_kind": "fact",
       "speaker": null,
       "source_segment_ids": [
@@ -122,28 +188,50 @@
       "quote_evidence": [
         {
           "segment_id": "seg-000045",
-          "quote": "those fields don't talk to one another. They do very different studies, very different methodologies,"
+          "quote": "those fields don't talk to one another."
         }
       ],
-      "checkworthiness": "low"
+      "checkworthiness": "high"
     },
     {
-      "claim_text": "and so trying to integrate across disciplines that are that far apart to really try and get a sense",
+      "claim_text": "They do very different studies, very different methodologies,",
       "claim_kind": "fact",
       "speaker": null,
       "source_segment_ids": [
-        "seg-000046"
+        "seg-000045"
       ],
       "quote_evidence": [
         {
-          "segment_id": "seg-000046",
-          "quote": "and so trying to integrate across disciplines that are that far apart to really try and get a sense"
+          "segment_id": "seg-000045",
+          "quote": "They do very different studies, very different methodologies,"
         }
       ],
-      "checkworthiness": "low"
+      "checkworthiness": "high"
     }
   ],
-  "entities": [],
+  "entities": [
+    {
+      "name": "Typically",
+      "type": "topic",
+      "source_segment_ids": [
+        "seg-000044"
+      ]
+    },
+    {
+      "name": "They",
+      "type": "topic",
+      "source_segment_ids": [
+        "seg-000045"
+      ]
+    },
+    {
+      "name": "Instead",
+      "type": "topic",
+      "source_segment_ids": [
+        "seg-000062"
+      ]
+    }
+  ],
   "concepts": [],
   "open_questions": [],
   "contradictions_or_uncertainty": []

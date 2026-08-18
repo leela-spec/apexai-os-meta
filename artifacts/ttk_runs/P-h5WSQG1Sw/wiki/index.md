@@ -4,24 +4,180 @@
 
 ## Modules
 
-- [[modules/thematic-overview-findings-neuroscience-of-emotions-emotion-regulation-dr-ralph|Thematic Overview & Findings: Neuroscience of Emotions & Emotion Regulation - Dr. Ralph Adolphs]]
+- [[modules/foundational-architecture-context-00-00-00-00-27-01|Foundational Architecture & Context `[00:00:00 - 00:27:01]`]]
+- [[modules/mechanisms-evidence-analysis-00-27-01-00-56-23|Mechanisms, Evidence & Analysis `[00:27:01 - 00:56:23]`]]
+- [[modules/strategic-implications-decision-framework-00-56-23-01-24-59|Strategic Implications & Decision Framework `[00:56:23 - 01:24:59]`]]
+- [[modules/synthesis-caveats-forward-outlook-01-25-00-02-09-21|Synthesis, Caveats & Forward Outlook `[01:25:00 - 02:09:21]`]]
 
 ## Claims
 
-- [[claims/Claim-6ac6ef8bc102|Claim-6ac6ef8bc102]] — I see somebody come up behind me. They can see. I'm trying to park. They can move over. No,
-- [[claims/Claim-1aac86404d09|Claim-1aac86404d09]] — they come right up behind me, go on the horn. You know, you immediately feel just an immediate
-- [[claims/Claim-244ddb508e08|Claim-244ddb508e08]] — anger response. Right? Well, after the ice bath, it's flat. So there was an immediate
-- [[claims/Claim-f00fa23db1f9|Claim-f00fa23db1f9]] — findings and emotion from animal studies, findings from social psychology. Typically those people in
-- [[claims/Claim-25ebafae0eaf|Claim-25ebafae0eaf]] — those fields don't talk to one another. They do very different studies, very different methodologies,
-- [[claims/Claim-d547bdefbb9d|Claim-d547bdefbb9d]] — and so trying to integrate across disciplines that are that far apart to really try and get a sense
+- [[claims/Claim-9104f2b8fc33|Claim-9104f2b8fc33]] — I see somebody come up behind me.
+- [[claims/Claim-a8ac31605c41|Claim-a8ac31605c41]] — they come right up behind me, go on the horn.
+- [[claims/Claim-3011d23c0a99|Claim-3011d23c0a99]] — You know, you immediately feel just an immediate
+- [[claims/Claim-b9107a209018|Claim-b9107a209018]] — Well, after the ice bath, it's flat.
+- [[claims/Claim-aa9f21ed920a|Claim-aa9f21ed920a]] — findings and emotion from animal studies, findings from social psychology.
+- [[claims/Claim-cbdc47db052c|Claim-cbdc47db052c]] — Typically those people in
+- [[claims/Claim-54533b35c290|Claim-54533b35c290]] — those fields don't talk to one another.
+- [[claims/Claim-981929d5edac|Claim-981929d5edac]] — They do very different studies, very different methodologies,
 - [[claims/Claim-0ebe4726ceec|Claim-0ebe4726ceec]] — I called it the principle of antithesis is valence, which is approach or avoid pleasant or
-- [[claims/Claim-3679eef38540|Claim-3679eef38540]] — unpleasant, this basic valence dimension. Are there any neutral emotions? I ask this because
+- [[claims/Claim-c123eb484f37|Claim-c123eb484f37]] — unpleasant, this basic valence dimension.
+- [[claims/Claim-da7222b7b40f|Claim-da7222b7b40f]] — Are there any neutral emotions?
 - [[claims/Claim-55f2db4368bf|Claim-55f2db4368bf]] — your colleague at Caltech who I respect tremendously Marcus Meister once wrote a review where he said,
-- [[claims/Claim-4c841998ac31|Claim-4c841998ac31]] — I'd like to take a quick break and acknowledge our sponsor, Helix Sleep. Helix Sleep makes matrices
+- [[claims/Claim-32456adee4f4|Claim-32456adee4f4]] — I'd like to take a quick break and acknowledge our sponsor, Helix Sleep.
+- [[claims/Claim-2465c45c2986|Claim-2465c45c2986]] — Helix Sleep makes matrices
+- [[claims/Claim-52a98634b0e2|Claim-52a98634b0e2]] — and pillows that are customized to your unique sleep needs.
+- [[claims/Claim-157ce3abdd61|Claim-157ce3abdd61]] — Now, I've spoken many times before on
+- [[claims/Claim-3d08da96d199|Claim-3d08da96d199]] — And the other question is, if you tie emotion to the conscious experience of emotion,
+- [[claims/Claim-3fb63281e738|Claim-3fb63281e738]] — that is you equate, you conflate emotions with feelings, well, then you're not studying emotions,
+- [[claims/Claim-389799d8a1bf|Claim-389799d8a1bf]] — you're studying consciousness.
+- [[claims/Claim-9af619ce3381|Claim-9af619ce3381]] — If you spoke about Christoph Koch earlier, great respect for people
+- [[claims/Claim-cb95ac931d4f|Claim-cb95ac931d4f]] — That's kind of the ideal circumstance, right?
+- [[claims/Claim-c83e4d184586|Claim-c83e4d184586]] — So what do you know that allowed that has
+- [[claims/Claim-0d6beb4ab5b1|Claim-0d6beb4ab5b1]] — impacted the way that you think about emotion regulation that perhaps people could consider,
+- [[claims/Claim-f1356f652573|Claim-f1356f652573]] — I think it's, you know, it's a mixture.
+- [[claims/Claim-f92eadafd49f|Claim-f92eadafd49f]] — we appraisal or any other sort of complex we appraisal strategy for emotions.
+- [[claims/Claim-283a949fad24|Claim-283a949fad24]] — sword and it's trainable.
+- [[claims/Claim-a659cec4f8ee|Claim-a659cec4f8ee]] — It's as you say, if I really focus on, okay, now, you know, I'm starting
+- [[claims/Claim-c93ed963b085|Claim-c93ed963b085]] — I really don't want to feel sad.
+- [[claims/Claim-c4ee43f51a50|Claim-c4ee43f51a50]] — you were describing how, you know, at some points during these races, you just feel like complete
+- [[claims/Claim-7875d1a421aa|Claim-7875d1a421aa]] — But then you start to feel better.
+- [[claims/Claim-7e2d97943c35|Claim-7e2d97943c35]] — And so then the next time you feel like complete
+- [[claims/Claim-11b47a7e1704|Claim-11b47a7e1704]] — garbage, you have the cognitive knowledge that you felt terrible then better again.
+- [[claims/Claim-9d28bfcc41f9|Claim-9d28bfcc41f9]] — formula, which is a blend of vitamins, minerals, probiotics, and adaptogens.
+- [[claims/Claim-369fab8f3107|Claim-369fab8f3107]] — important new ingredients, creatine monohydrate, calcium, HMB, and zinc carnacine.
+- [[claims/Claim-951af237a0f3|Claim-951af237a0f3]] — five grams of creatine monohydrate to support muscle strength and performance as well as brain health.
+- [[claims/Claim-5525f1b7ab7f|Claim-5525f1b7ab7f]] — Calcium, HMB to support muscle recovery and reduce muscle breakdown and zinc carnacine to support
+- [[claims/Claim-8b6e3c967a61|Claim-8b6e3c967a61]] — talking before coming in here to one of your colleagues about your cute dog, and they've done studies,
+- [[claims/Claim-2f538c567862|Claim-2f538c567862]] — there's several studies now, where dog owners, if you ask them, can you tell if your dog feels guilty
+- [[claims/Claim-e96ec6a7f0e0|Claim-e96ec6a7f0e0]] — Because it did something bad.
+- [[claims/Claim-4c28d8bc4cf4|Claim-4c28d8bc4cf4]] — Dog owners are pretty convinced they can tell.
+- [[claims/Claim-fb5843dd09a5|Claim-fb5843dd09a5]] — you know, the original studies, like the ones I started doing as a postdoc where you just
+- [[claims/Claim-146840a09acd|Claim-146840a09acd]] — truly static Paul Ekman pictures of facial affect.
+- [[claims/Claim-eff741a73232|Claim-eff741a73232]] — Well, we never see that in people.
+- [[claims/Claim-d7e6c0a8d3d4|Claim-d7e6c0a8d3d4]] — The face is changing.
+- [[claims/Claim-65417b673a79|Claim-65417b673a79]] — It's really interesting.
+- [[claims/Claim-53f81be86b23|Claim-53f81be86b23]] — Eventually, it's passed, but it evokes very interesting adaptive behaviors,
+- [[claims/Claim-80245c4b0c62|Claim-80245c4b0c62]] — well, just as an aside, before I forget it.
+- [[claims/Claim-d6fa5eec4630|Claim-d6fa5eec4630]] — So, normally for pain, extraceptive pain,
+- [[claims/Claim-d6e67ce8d15c|Claim-d6e67ce8d15c]] — is no systematic association between specific emotions and specific changes in your body.
+- [[claims/Claim-9e3c3006e0e1|Claim-9e3c3006e0e1]] — Well, if you look at those studies, people put a few electrodes on and they measure, you know,
+- [[claims/Claim-079cb039fa47|Claim-079cb039fa47]] — heart rate changes, blood pressure changes, et cetera, it is extremely crude.
+- [[claims/Claim-a1dfb2ac6aa0|Claim-a1dfb2ac6aa0]] — a tiny, tiny slice of what's going on in your body.
+- [[claims/Claim-f0f8b3ea200e|Claim-f0f8b3ea200e]] — art of that sort is able to capture the circuitry related to a particular emotions across people?
+- [[claims/Claim-9107f0e27127|Claim-9107f0e27127]] — So not just about my unique experience.
+- [[claims/Claim-dbc8ee338afa|Claim-dbc8ee338afa]] — And art is subjective, right?
+- [[claims/Claim-4537b03349cc|Claim-4537b03349cc]] — But let's assume this is abstract art.
+- [[claims/Claim-c69fd0c76c3b|Claim-c69fd0c76c3b]] — a good example is the visual word form area.
+- [[claims/Claim-488932ba3bfb|Claim-488932ba3bfb]] — So there's regions in the brain that like the ones
+- [[claims/Claim-1b6b8dd37bc2|Claim-1b6b8dd37bc2]] — that my former Celtic colleague, Doris Sau study, that are specialized for faces.
+- [[claims/Claim-66557576e284|Claim-66557576e284]] — a region in the brain typically on the left in most people that's for recognizing words, letters.
+- [[claims/Claim-cd8c1ac1f03f|Claim-cd8c1ac1f03f]] — So if you had only those you would have to have a separate reflex for the bear and for the tiger
+- [[claims/Claim-b37f92754f60|Claim-b37f92754f60]] — and for every possible you know large threat out there which you couldn't possibly have it's not
+- [[claims/Claim-8c134cffbd7a|Claim-8c134cffbd7a]] — Yeah the fan in fan out visual is very very useful and it gets to the next topic I'd
+- [[claims/Claim-5cb4a916e20f|Claim-5cb4a916e20f]] — like to ask you about which is building social intelligence and emotional intelligence because
+- [[claims/Claim-9fa1309724f3|Claim-9fa1309724f3]] — and I have to encounter people like that too and you know it's very disconcerting when you're
+- [[claims/Claim-ecb4893cb2da|Claim-ecb4893cb2da]] — giving the talk it's disconcerting when you're giving the talk but I was going to say there's
+- [[claims/Claim-10d2e81f7987|Claim-10d2e81f7987]] — also something incredibly refreshing about it because it's almost like they're they're asking the
+- [[claims/Claim-a69cb0d2c168|Claim-a69cb0d2c168]] — questions that they they need to ask you're a little embarrassed for them but you're but it's
+- [[claims/Claim-2f5454f03e6d|Claim-2f5454f03e6d]] — kids who have autism of the sort that we're describing and the need we're told to train them to
+- [[claims/Claim-4d5ad98c7123|Claim-4d5ad98c7123]] — make eye contact and read faces so this lands square in your work maybe you could just fill out
+- [[claims/Claim-cc4ba9772051|Claim-cc4ba9772051]] — a bit of what's now known what's thought what's not known it's a great topic I mean the way that
+- [[claims/Claim-bfd1d02d452e|Claim-bfd1d02d452e]] — I personally have approached it is not with a primary interest in autism I don't have a family
+- [[claims/Claim-0af76f89afeb|Claim-0af76f89afeb]] — what else is it associated with is it predictive of career success is it predictive of anything else
+- [[claims/Claim-ae203df4478d|Claim-ae203df4478d]] — and so we don't know we're measuring everything else and getting lots of questionnaires on these people
+- [[claims/Claim-1f63d087108a|Claim-1f63d087108a]] — to ask what what are the associations and is there any causal hypothesis that we would come up with
+- [[claims/Claim-5cb9e95314f3|Claim-5cb9e95314f3]] — that if you don't look at faces a lot there's some consequences if you look at faces a lot there are
+- [[claims/Claim-f14bef3ff471|Claim-f14bef3ff471]] — not actually aligned time the way I described the kind of higher or lower RPM before maybe it
+- [[claims/Claim-9ac78f48954f|Claim-9ac78f48954f]] — perhaps made it sound like one or the other was better but I think sometimes about like Alex
+- [[claims/Claim-66e9b09480f3|Claim-66e9b09480f3]] — Honnold who again who is a guest on this podcast and there've been claims that his amygdala doesn't
+- [[claims/Claim-2ef7c5721503|Claim-2ef7c5721503]] — react as much anyway we could we could talk about that I think Alex kind of like maybe chuckles a
+- [[claims/Claim-756d958fb0e2|Claim-756d958fb0e2]] — is task switching whether it's emotional tasks switching or cognitive tasks switching like we assume
+- [[claims/Claim-aa26086a43a1|Claim-aa26086a43a1]] — the brain operates in step functions like oh I'm out on the street I navigate traffic I park my
+- [[claims/Claim-fcb0b7e4a69d|Claim-fcb0b7e4a69d]] — car and I come in and I podcast and what you're doing at the beginning of this lab meeting in on the
+- [[claims/Claim-6179fee7ab86|Claim-6179fee7ab86]] — one hand is a meditation but it's pivoting the brain circuits toward what comes next yeah I don't
+- [[claims/Claim-c2c622f6b23a|Claim-c2c622f6b23a]] — and all of a sudden the bell sounds and you could hear a pin drop but there's thousands of people
+- [[claims/Claim-22a879f0788b|Claim-22a879f0788b]] — around you yeah you hear a bell again the meal begins walking to the auditorium at Shuffle Shuffle Shuffle
+- [[claims/Claim-e1c0841465dc|Claim-e1c0841465dc]] — talking talking talking talking boom it's a step function they're training this in the cells
+- [[claims/Claim-a549021d052c|Claim-a549021d052c]] — yeah and the other thing no phones no one has phones during the day they get I think they get an
+- [[claims/Claim-7cd682ae425d|Claim-7cd682ae425d]] — if you're learning from and or enjoying this podcast please subscribe to our YouTube channel
+- [[claims/Claim-fe39fdae58d7|Claim-fe39fdae58d7]] — that's a terrific zero cost way to support us in addition please follow the podcast by clicking
+- [[claims/Claim-154aa094d905|Claim-154aa094d905]] — the follow button on both Spotify and Apple and on both Spotify and Apple you can leave us up to a
+- [[claims/Claim-40d6f01f45ea|Claim-40d6f01f45ea]] — five star review and you can now leave us comments at both Spotify and Apple please also check out
 
 ## Concepts
 
-- [[concepts/neuroscience-of-emot|Neuroscience of Emot]]
+- [[concepts/anne-blood|Anne Blood]]
+- [[concepts/anybody|Anybody]]
+- [[concepts/caltech|Caltech]]
+- [[concepts/christoph-koch|Christoph Koch]]
+- [[concepts/honnold|Honnold]]
+- [[concepts/instagram|Instagram]]
 - [[concepts/neuroscience-of-emotions|Neuroscience of Emotions]]
+- [[concepts/omega|Omega]]
+- [[concepts/people|People]]
+- [[concepts/robert-satori|Robert Satori]]
+- [[concepts/san-diego|San Diego]]
+- [[concepts/sundays|Sundays]]
+- [[concepts/there|There]]
+- [[concepts/they|They]]
+- [[concepts/typically|Typically]]
+- [[concepts/what|What]]
 
 ## Entities
+
+- [[entities/ados|Ados]]
+- [[entities/again|Again]]
+- [[entities/alex|Alex]]
+- [[entities/andrew-huberman|Andrew Huberman]]
+- [[entities/anne-blood|Anne Blood]]
+- [[entities/antonio|Antonio]]
+- [[entities/anybody|Anybody]]
+- [[entities/apple|Apple]]
+- [[entities/calcium|Calcium]]
+- [[entities/caltech|Caltech]]
+- [[entities/celtic|Celtic]]
+- [[entities/christoph-koch|Christoph Koch]]
+- [[entities/coins|Coins]]
+- [[entities/coming|Coming]]
+- [[entities/david|David]]
+- [[entities/david-anderson|David Anderson]]
+- [[entities/descartes|Descartes]]
+- [[entities/doris-sau|Doris Sau]]
+- [[entities/eventually|Eventually]]
+- [[entities/facebook|Facebook]]
+- [[entities/helix|Helix]]
+- [[entities/helix-sleep|Helix Sleep]]
+- [[entities/honnold|Honnold]]
+- [[entities/hubertman-lab|Hubertman Lab]]
+- [[entities/independent|Independent]]
+- [[entities/instagram|Instagram]]
+- [[entities/instead|Instead]]
+- [[entities/james-gross|James Gross]]
+- [[entities/justin-feinstein|Justin Feinstein]]
+- [[entities/marcus-meister|Marcus Meister]]
+- [[entities/maui|Maui]]
+- [[entities/new-york-city|New York City]]
+- [[entities/omega|Omega]]
+- [[entities/paul-ekman|Paul Ekman]]
+- [[entities/people|People]]
+- [[entities/philipp-schins|Philipp Schins]]
+- [[entities/protocols|Protocols]]
+- [[entities/robert-satori|Robert Satori]]
+- [[entities/san-diego|San Diego]]
+- [[entities/shipley|Shipley]]
+- [[entities/shuffle-shuffle-shuffle|Shuffle Shuffle Shuffle]]
+- [[entities/spotify|Spotify]]
+- [[entities/sundays|Sundays]]
+- [[entities/switzerland|Switzerland]]
+- [[entities/that|That]]
+- [[entities/there|There]]
+- [[entities/they|They]]
+- [[entities/this|This]]
+- [[entities/tibetan|Tibetan]]
+- [[entities/typically|Typically]]
+- [[entities/well|Well]]
+- [[entities/what|What]]
+- [[entities/when|When]]
+- [[entities/yeah|Yeah]]
+- [[entities/yorkshire|Yorkshire]]
+- [[entities/zoom|Zoom]]

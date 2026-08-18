@@ -1,10 +1,67 @@
 {
   "contract_version": "ttk.semantic-contract.v2",
   "evidence": {
-    "arguments": [],
+    "arguments": [
+      {
+        "source_segment_ids": [
+          "seg-000005"
+        ],
+        "source_window_id": "window-0001",
+        "text": "Well, okay, I think the simplest way to understand it is it's a description of the price patterns"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000020"
+        ],
+        "source_window_id": "window-0001",
+        "text": "Elliott Wave Theory, believe it or not, the only way at that time, which was, I believe that was"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000045"
+        ],
+        "source_window_id": "window-0002",
+        "text": "How should traders use Elliott Payf analysis and practice as a forecasting tool or risk management"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000046"
+        ],
+        "source_window_id": "window-0002",
+        "text": "Well I think you're pretty much late all around."
+      },
+      {
+        "source_segment_ids": [
+          "seg-000130"
+        ],
+        "source_window_id": "window-0003",
+        "text": "following different alien wave experts showing different counts I think that cannot be the case"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000140"
+        ],
+        "source_window_id": "window-0003",
+        "text": "analysts that may disagree now I think there are times in the market where everything kind of lines"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000165"
+        ],
+        "source_window_id": "window-0004",
+        "text": "theory actually get into it and get started okay yeah the e-waves software in my opinion is for"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000172"
+        ],
+        "source_window_id": "window-0004",
+        "text": "education and teaching people how to do it yourself as opposed to say a forecasting service or"
+      }
+    ],
     "candidate_claims": [
       {
-        "checkworthiness": "medium",
+        "checkworthiness": "high",
         "claim_kind": "fact",
         "claim_text": "Elliott, thanks for joining us today, so we have Elliott Pregnant with us, and it's an honor to",
         "quote_evidence": [
@@ -22,7 +79,7 @@
         "speaker": null
       },
       {
-        "checkworthiness": "low",
+        "checkworthiness": "high",
         "claim_kind": "fact",
         "claim_text": "have you here spending some time with us talking about the Elliott Wave Principle and your history",
         "quote_evidence": [
@@ -40,12 +97,30 @@
         "speaker": null
       },
       {
-        "checkworthiness": "low",
+        "checkworthiness": "high",
         "claim_kind": "fact",
-        "claim_text": "and your personal background on that. So, I mean, before we go into the more depth of Elliott Wave,",
+        "claim_text": "and your personal background on that.",
         "quote_evidence": [
           {
-            "quote": "and your personal background on that. So, I mean, before we go into the more depth of Elliott Wave,",
+            "quote": "and your personal background on that.",
+            "segment_id": "seg-000003"
+          }
+        ],
+        "source_segment_ids": [
+          "seg-000003"
+        ],
+        "source_window_ids": [
+          "window-0001"
+        ],
+        "speaker": null
+      },
+      {
+        "checkworthiness": "high",
+        "claim_kind": "fact",
+        "claim_text": "So, I mean, before we go into the more depth of Elliott Wave,",
+        "quote_evidence": [
+          {
+            "quote": "So, I mean, before we go into the more depth of Elliott Wave,",
             "segment_id": "seg-000003"
           }
         ],
@@ -59,7 +134,7 @@
       },
       {
         "checkworthiness": "medium",
-        "claim_kind": "fact",
+        "claim_kind": "prediction",
         "claim_text": "How should traders use Elliott Payf analysis and practice as a forecasting tool or risk management",
         "quote_evidence": [
           {
@@ -76,12 +151,12 @@
         "speaker": null
       },
       {
-        "checkworthiness": "low",
+        "checkworthiness": "high",
         "claim_kind": "fact",
-        "claim_text": "tool or a way to map out map out probabilities? Well I think you're pretty much late all around.",
+        "claim_text": "tool or a way to map out map out probabilities?",
         "quote_evidence": [
           {
-            "quote": "tool or a way to map out map out probabilities? Well I think you're pretty much late all around.",
+            "quote": "tool or a way to map out map out probabilities?",
             "segment_id": "seg-000046"
           }
         ],
@@ -95,11 +170,29 @@
       },
       {
         "checkworthiness": "low",
-        "claim_kind": "fact",
-        "claim_text": "They did a great job. Yes to all three. I mean historically it's mainly been a long term",
+        "claim_kind": "opinion",
+        "claim_text": "Well I think you're pretty much late all around.",
         "quote_evidence": [
           {
-            "quote": "They did a great job. Yes to all three. I mean historically it's mainly been a long term",
+            "quote": "Well I think you're pretty much late all around.",
+            "segment_id": "seg-000046"
+          }
+        ],
+        "source_segment_ids": [
+          "seg-000046"
+        ],
+        "source_window_ids": [
+          "window-0002"
+        ],
+        "speaker": null
+      },
+      {
+        "checkworthiness": "high",
+        "claim_kind": "fact",
+        "claim_text": "They did a great job.",
+        "quote_evidence": [
+          {
+            "quote": "They did a great job.",
             "segment_id": "seg-000047"
           }
         ],
@@ -112,7 +205,7 @@
         "speaker": null
       },
       {
-        "checkworthiness": "medium",
+        "checkworthiness": "high",
         "claim_kind": "fact",
         "claim_text": "yes I mean e-waves does do the wave count it's an automated process so you don't have to sit there by",
         "quote_evidence": [
@@ -130,8 +223,8 @@
         "speaker": null
       },
       {
-        "checkworthiness": "low",
-        "claim_kind": "fact",
+        "checkworthiness": "medium",
+        "claim_kind": "mechanism",
         "claim_text": "hand and sketch out the wave pattern which like you said earlier can be very tricky because when",
         "quote_evidence": [
           {
@@ -148,7 +241,7 @@
         "speaker": null
       },
       {
-        "checkworthiness": "low",
+        "checkworthiness": "high",
         "claim_kind": "fact",
         "claim_text": "you're looking at a chart through you're going to have partial patterns most of the time and that's",
         "quote_evidence": [
@@ -166,7 +259,25 @@
         "speaker": null
       },
       {
-        "checkworthiness": "medium",
+        "checkworthiness": "high",
+        "claim_kind": "fact",
+        "claim_text": "why in my presentation earlier I wanted to show that a particular example we had the market",
+        "quote_evidence": [
+          {
+            "quote": "why in my presentation earlier I wanted to show that a particular example we had the market",
+            "segment_id": "seg-000120"
+          }
+        ],
+        "source_segment_ids": [
+          "seg-000120"
+        ],
+        "source_window_ids": [
+          "window-0003"
+        ],
+        "speaker": null
+      },
+      {
+        "checkworthiness": "high",
         "claim_kind": "fact",
         "claim_text": "maybe maybe in simple terms very often retail investors ask me you know looks really super",
         "quote_evidence": [
@@ -184,7 +295,7 @@
         "speaker": null
       },
       {
-        "checkworthiness": "low",
+        "checkworthiness": "high",
         "claim_kind": "fact",
         "claim_text": "interesting where do we actually start how can I get a good understanding of what it actually",
         "quote_evidence": [
@@ -203,7 +314,7 @@
       },
       {
         "checkworthiness": "low",
-        "claim_kind": "fact",
+        "claim_kind": "recommendation",
         "claim_text": "does which which how would you recommend somebody that is interested in working with Elliott wave",
         "quote_evidence": [
           {
@@ -218,11 +329,89 @@
           "window-0004"
         ],
         "speaker": null
+      },
+      {
+        "checkworthiness": "low",
+        "claim_kind": "opinion",
+        "claim_text": "theory actually get into it and get started okay yeah the e-waves software in my opinion is for",
+        "quote_evidence": [
+          {
+            "quote": "theory actually get into it and get started okay yeah the e-waves software in my opinion is for",
+            "segment_id": "seg-000165"
+          }
+        ],
+        "source_segment_ids": [
+          "seg-000165"
+        ],
+        "source_window_ids": [
+          "window-0004"
+        ],
+        "speaker": null
       }
     ],
     "concepts": [],
     "contradictions_or_uncertainty": [],
-    "entities": [],
+    "entities": [
+      {
+        "name": "Elliott",
+        "source_segment_ids": [
+          "seg-000001",
+          "seg-000147",
+          "seg-000164"
+        ],
+        "type": "topic"
+      },
+      {
+        "name": "Elliott Pregnant",
+        "source_segment_ids": [
+          "seg-000001"
+        ],
+        "type": "topic"
+      },
+      {
+        "name": "Elliott Wave Principle",
+        "source_segment_ids": [
+          "seg-000002"
+        ],
+        "type": "topic"
+      },
+      {
+        "name": "Elliott Payf",
+        "source_segment_ids": [
+          "seg-000045"
+        ],
+        "type": "topic"
+      },
+      {
+        "name": "Well",
+        "source_segment_ids": [
+          "seg-000046",
+          "seg-000132"
+        ],
+        "type": "topic"
+      },
+      {
+        "name": "They",
+        "source_segment_ids": [
+          "seg-000047"
+        ],
+        "type": "topic"
+      },
+      {
+        "name": "Bitcoin",
+        "source_segment_ids": [
+          "seg-000197"
+        ],
+        "type": "topic"
+      },
+      {
+        "name": "Eliot",
+        "source_segment_ids": [
+          "seg-000204"
+        ],
+        "type": "topic"
+      }
+    ],
     "key_points": [
       {
         "source_segment_ids": [
@@ -243,7 +432,21 @@
           "seg-000003"
         ],
         "source_window_id": "window-0001",
-        "text": "and your personal background on that. So, I mean, before we go into the more depth of Elliott Wave,"
+        "text": "and your personal background on that."
+      },
+      {
+        "source_segment_ids": [
+          "seg-000003"
+        ],
+        "source_window_id": "window-0001",
+        "text": "So, I mean, before we go into the more depth of Elliott Wave,"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000004"
+        ],
+        "source_window_id": "window-0001",
+        "text": "if someone would be new to that kind of analysis, how would you describe Elliott Wave in simple sentences?"
       },
       {
         "source_segment_ids": [
@@ -257,14 +460,28 @@
           "seg-000046"
         ],
         "source_window_id": "window-0002",
-        "text": "tool or a way to map out map out probabilities? Well I think you're pretty much late all around."
+        "text": "tool or a way to map out map out probabilities?"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000046"
+        ],
+        "source_window_id": "window-0002",
+        "text": "Well I think you're pretty much late all around."
       },
       {
         "source_segment_ids": [
           "seg-000047"
         ],
         "source_window_id": "window-0002",
-        "text": "They did a great job. Yes to all three. I mean historically it's mainly been a long term"
+        "text": "They did a great job."
+      },
+      {
+        "source_segment_ids": [
+          "seg-000047"
+        ],
+        "source_window_id": "window-0002",
+        "text": "I mean historically it's mainly been a long term"
       },
       {
         "source_segment_ids": [
@@ -289,6 +506,20 @@
       },
       {
         "source_segment_ids": [
+          "seg-000120"
+        ],
+        "source_window_id": "window-0003",
+        "text": "why in my presentation earlier I wanted to show that a particular example we had the market"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000121"
+        ],
+        "source_window_id": "window-0003",
+        "text": "coiling up and it looked like it was a triangle and we're going to burst up out of the triangle right"
+      },
+      {
+        "source_segment_ids": [
           "seg-000162"
         ],
         "source_window_id": "window-0004",
@@ -307,15 +538,123 @@
         ],
         "source_window_id": "window-0004",
         "text": "does which which how would you recommend somebody that is interested in working with Elliott wave"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000165"
+        ],
+        "source_window_id": "window-0004",
+        "text": "theory actually get into it and get started okay yeah the e-waves software in my opinion is for"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000166"
+        ],
+        "source_window_id": "window-0004",
+        "text": "people who are all already know a bit about Elliott wave theory if your brand new and you just"
       }
     ],
-    "mechanisms": [],
+    "mechanisms": [
+      {
+        "source_segment_ids": [
+          "seg-000021"
+        ],
+        "source_window_id": "window-0001",
+        "text": "in the 70s, to read about the theory was on microfilm because they didn't even have full books,"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000049"
+        ],
+        "source_window_id": "window-0002",
+        "text": "is the second reason you mentioned which is limiting your risk because everyone I know who is a"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000118"
+        ],
+        "source_window_id": "window-0003",
+        "text": "hand and sketch out the wave pattern which like you said earlier can be very tricky because when"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000122"
+        ],
+        "source_window_id": "window-0003",
+        "text": "which is a common pattern and the market did the exact opposite because that was actually part"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000194"
+        ],
+        "source_window_id": "window-0004",
+        "text": "overall is starting to weaken well I'm tempted to say yes because I see that kind of thing all the"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000196"
+        ],
+        "source_window_id": "window-0004",
+        "text": "every market independently because those kinds of correlations come at certain times and then they"
+      }
+    ],
     "near_duplicate_claim_candidates": [],
     "open_questions": [],
-    "protocols": [],
+    "protocols": [
+      {
+        "source_segment_ids": [
+          "seg-000018"
+        ],
+        "source_window_id": "window-0001",
+        "steps": [
+          "crash of 29 ended and he started telling people that they should be buying the market at that time."
+        ],
+        "title": "Protocol: crash of 29 ended and he started telling"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000032"
+        ],
+        "source_window_id": "window-0001",
+        "steps": [
+          "taking that forward or how has your father convinced you that you should continue that road?"
+        ],
+        "title": "Protocol: taking that forward or how has your fath"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000134"
+        ],
+        "source_window_id": "window-0003",
+        "steps": [
+          "that's one common baseline that all analysts should follow I've seen many blog posts where they"
+        ],
+        "title": "Protocol: that's one common baseline that all anal"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000164"
+        ],
+        "source_window_id": "window-0004",
+        "steps": [
+          "does which which how would you recommend somebody that is interested in working with Elliott wave"
+        ],
+        "title": "Protocol: does which which how would you recommend"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000167"
+        ],
+        "source_window_id": "window-0004",
+        "steps": [
+          "want to get a grip then I'd actually recommend going to Elliott wave dot com and we have a lot"
+        ],
+        "title": "Protocol: want to get a grip then I'd actually rec"
+      }
+    ],
     "subtopics": [
       {
-        "label": "Window window-0001 Topics",
+        "label": "Thematic Chapter 1 (Elliott, Elliott Pregnant)",
         "source_segment_ids": [
           "seg-000001",
           "seg-000002",
@@ -365,7 +704,7 @@
         "source_window_id": "window-0001"
       },
       {
-        "label": "Window window-0002 Topics",
+        "label": "Thematic Chapter 2 (Elliott Payf, Well)",
         "source_segment_ids": [
           "seg-000045",
           "seg-000046",
@@ -443,7 +782,7 @@
         "source_window_id": "window-0002"
       },
       {
-        "label": "Window window-0003 Topics",
+        "label": "Thematic Chapter 3 (Well, Elliott)",
         "source_segment_ids": [
           "seg-000117",
           "seg-000118",
@@ -494,7 +833,7 @@
         "source_window_id": "window-0003"
       },
       {
-        "label": "Window window-0004 Topics",
+        "label": "Thematic Chapter 4 (Elliott, Bitcoin)",
         "source_segment_ids": [
           "seg-000162",
           "seg-000163",
@@ -555,9 +894,9 @@
       }
     ]
   },
-  "evidence_ledger_sha256": "c25cba718c8f8b19ad5615ae8d21b6e7611f5a736071ccd6e39e67fdd5545989",
+  "evidence_ledger_sha256": "e822a9de3b32396805931548ef085e1ed213b8dfdddf7f1f8b2833a103d5136d",
   "packet_id": "reduce-final",
-  "packet_sha256": "cb1467784ff77f155c58685ee85fbe7d28cef9bc0e66fdbf0983cb272b50d96a",
+  "packet_sha256": "e0da18042c03bca1d2e5d1655b52182798807f44be0d17b8b89fe6a9856436fd",
   "result_path": "work/results/reduce.json",
   "rules": [
     "Build Macro and Meso from this validated evidence ledger; do not reread the whole transcript by default.",

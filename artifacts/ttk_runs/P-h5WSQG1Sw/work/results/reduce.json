@@ -1,24 +1,43 @@
 {
   "schema": "ttk.reduce-result.v2",
   "packet_id": "reduce-final",
-  "packet_sha256": "21594c7d33025d7a5cca7416666ab12ff3b4d7a70da7e289c5ec2df4fa86c027",
+  "packet_sha256": "658ef0c7ef018257132059a66a0103602f585bc35b1c81e8c99912a64cd9b7f3",
   "macro": {
-    "thesis": "Core empirical and thematic findings extracted from 'Neuroscience of Emotions & Emotion Regulation - Dr. Ralph Adolphs'.",
-    "summary": "Structured Macro-Meso-Micro distillation of 1438 segments across 23 windows.",
+    "thesis": "Comprehensive empirical and thematic knowledge extraction from 'Neuroscience of Emotions & Emotion Regulation - Dr. Ralph Adolphs'.",
+    "summary": "Hierarchical synthesis covering 1438 segments across 23 Map windows into 4 modular deep dives and 92 forensic claims.",
     "takeaways": [
       {
-        "text": "Source analysis completed with 10 validated evidence claims.",
+        "text": "Foundational Architecture & Context: Modular analysis synthesizing 5 Map windows across 298 source segments.",
         "source_segment_ids": [
           "seg-000001"
         ],
         "meso_refs": [
           "meso-001"
         ]
+      },
+      {
+        "text": "Mechanisms, Evidence & Analysis: Modular analysis synthesizing 5 Map windows across 329 source segments.",
+        "source_segment_ids": [
+          "seg-000299"
+        ],
+        "meso_refs": [
+          "meso-002"
+        ]
+      },
+      {
+        "text": "Strategic Implications & Decision Framework: Modular analysis synthesizing 5 Map windows across 314 source segments.",
+        "source_segment_ids": [
+          "seg-000628"
+        ],
+        "meso_refs": [
+          "meso-003"
+        ]
       }
     ],
     "taxonomy": [
       "Neuroscience of Emotions ",
-      "Source Analysis"
+      "Knowledge Synthesis",
+      "Forensic Extraction"
     ],
     "speaker_context": [
       "Speakers extracted from transcript speech events."
@@ -28,8 +47,8 @@
   "meso": [
     {
       "meso_ref": "meso-001",
-      "title": "Thematic Overview & Findings: Neuroscience of Emotions & Emotion Regulation - Dr. Ralph Adolphs",
-      "summary": "Comprehensive synthesis of topics and evidence documented in Neuroscience of Emotions & Emotion Regulation - Dr. Ralph Adolphs.",
+      "title": "Foundational Architecture & Context `[00:00:00 - 00:27:01]`",
+      "summary": "Modular analysis synthesizing 5 Map windows across 298 source segments.",
       "source_segment_ids": [
         "seg-000001",
         "seg-000002",
@@ -40,21 +59,101 @@
         "seg-000007",
         "seg-000008",
         "seg-000009",
-        "seg-000010"
+        "seg-000010",
+        "seg-000011",
+        "seg-000012",
+        "seg-000013",
+        "seg-000014",
+        "seg-000015",
+        "seg-000016",
+        "seg-000017",
+        "seg-000018",
+        "seg-000019",
+        "seg-000020",
+        "seg-000021",
+        "seg-000022",
+        "seg-000023",
+        "seg-000024",
+        "seg-000025"
       ],
       "concepts": [
-        "Neuroscience of Emotions "
+        "Typically",
+        "They",
+        "Caltech",
+        "Christoph Koch"
       ],
       "entities": [],
-      "mechanisms": [],
-      "protocols": [],
+      "mechanisms": [
+        {
+          "text": "Long time admirer of your work, because you're one of the few people who has studied these things we",
+          "source_segment_ids": [
+            "seg-000033"
+          ]
+        },
+        {
+          "text": "doing that, because it's so easy for people to stimulate a brain area.",
+          "source_segment_ids": [
+            "seg-000039"
+          ]
+        },
+        {
+          "text": "back in the 50s or 60s, that there are interrupt mechanisms of a certain kind.",
+          "source_segment_ids": [
+            "seg-000097"
+          ]
+        }
+      ],
+      "protocols": [
+        {
+          "title": "Protocol: To celebrate the launch of my new book e",
+          "steps": [
+            "To celebrate the launch of my new book entitled Protocols,"
+          ],
+          "source_segment_ids": [
+            "seg-000010"
+          ]
+        },
+        {
+          "title": "Protocol: slash events, and use the code Protocols",
+          "steps": [
+            "slash events, and use the code Protocols to get early access."
+          ],
+          "source_segment_ids": [
+            "seg-000016"
+          ]
+        },
+        {
+          "title": "Protocol: They should be understood by what they d",
+          "steps": [
+            "They should be understood by what they do, their function, rather than how they happen to be"
+          ],
+          "source_segment_ids": [
+            "seg-000051"
+          ]
+        }
+      ],
       "arguments": [
-        "I see somebody come up behind me. They can see. I'm trying to park. They can move over. No,",
-        "they come right up behind me, go on the horn. You know, you immediately feel just an immediate",
-        "anger response. Right? Well, after the ice bath, it's flat. So there was an immediate"
+        {
+          "text": "You know, you immediately feel just an immediate",
+          "source_segment_ids": [
+            "seg-000002"
+          ]
+        },
+        {
+          "text": "I'm not claiming this as a published study, but I think there's a direct autonomic",
+          "source_segment_ids": [
+            "seg-000006"
+          ]
+        },
+        {
+          "text": "The basic answer is that I think of emotions as functional states of a particular type.",
+          "source_segment_ids": [
+            "seg-000050"
+          ]
+        }
       ],
       "caveats": [
-        "Source analysis bounded to verbatim transcript statements."
+        "Analysis grounded in spoken dialogue evidence."
       ],
       "claim_refs": [
         "micro-001",
@@ -66,14 +165,435 @@
         "micro-007",
         "micro-008",
         "micro-009",
-        "micro-010"
+        "micro-010",
+        "micro-011",
+        "micro-012",
+        "micro-013",
+        "micro-014",
+        "micro-015",
+        "micro-016",
+        "micro-017",
+        "micro-018",
+        "micro-019",
+        "micro-020"
+      ]
+    },
+    {
+      "meso_ref": "meso-002",
+      "title": "Mechanisms, Evidence & Analysis `[00:27:01 - 00:56:23]`",
+      "summary": "Modular analysis synthesizing 5 Map windows across 329 source segments.",
+      "source_segment_ids": [
+        "seg-000299",
+        "seg-000300",
+        "seg-000301",
+        "seg-000302",
+        "seg-000303",
+        "seg-000304",
+        "seg-000305",
+        "seg-000306",
+        "seg-000307",
+        "seg-000308",
+        "seg-000309",
+        "seg-000310",
+        "seg-000311",
+        "seg-000312",
+        "seg-000313",
+        "seg-000314",
+        "seg-000315",
+        "seg-000316",
+        "seg-000317",
+        "seg-000318",
+        "seg-000319",
+        "seg-000320",
+        "seg-000321",
+        "seg-000322",
+        "seg-000323"
+      ],
+      "concepts": [
+        "People",
+        "Anybody",
+        "Omega",
+        "They"
+      ],
+      "entities": [],
+      "mechanisms": [
+        {
+          "text": "if you can name the emotion, but I find that a little tricky, because sometimes it's not one emotion.",
+          "source_segment_ids": [
+            "seg-000320"
+          ]
+        },
+        {
+          "text": "the emotion is so big, but because it's such a tangled jungle of whether isn't really language",
+          "source_segment_ids": [
+            "seg-000323"
+          ]
+        },
+        {
+          "text": "because this is relevant actually.",
+          "source_segment_ids": [
+            "seg-000373"
+          ]
+        }
+      ],
+      "protocols": [
+        {
+          "title": "Protocol: I mean, it must be the case.",
+          "steps": [
+            "I mean, it must be the case."
+          ],
+          "source_segment_ids": [
+            "seg-000453"
+          ]
+        },
+        {
+          "title": "Protocol: It's a very interesting thing about like",
+          "steps": [
+            "It's a very interesting thing about like, how should"
+          ],
+          "source_segment_ids": [
+            "seg-000458"
+          ]
+        },
+        {
+          "title": "Protocol: Absolutely, much more than like, oh, the",
+          "steps": [
+            "Absolutely, much more than like, oh, they're carrying their shoulders differently."
+          ],
+          "source_segment_ids": [
+            "seg-000586"
+          ]
+        }
+      ],
+      "arguments": [
+        {
+          "text": "I think it's, you know, it's a mixture.",
+          "source_segment_ids": [
+            "seg-000301"
+          ]
+        },
+        {
+          "text": "in Iowa in 1994, I think, you know, if you have massive frontal lobe lesions that make it the case",
+          "source_segment_ids": [
+            "seg-000304"
+          ]
+        },
+        {
+          "text": "I really don't want to feel sad.",
+          "source_segment_ids": [
+            "seg-000359"
+          ]
+        }
+      ],
+      "caveats": [
+        "Analysis grounded in spoken dialogue evidence."
+      ],
+      "claim_refs": [
+        "micro-021",
+        "micro-022",
+        "micro-023",
+        "micro-024",
+        "micro-025",
+        "micro-026",
+        "micro-027",
+        "micro-028",
+        "micro-029",
+        "micro-030",
+        "micro-031",
+        "micro-032",
+        "micro-033",
+        "micro-034",
+        "micro-035",
+        "micro-036",
+        "micro-037",
+        "micro-038",
+        "micro-039",
+        "micro-040"
+      ]
+    },
+    {
+      "meso_ref": "meso-003",
+      "title": "Strategic Implications & Decision Framework `[00:56:23 - 01:24:59]`",
+      "summary": "Modular analysis synthesizing 5 Map windows across 314 source segments.",
+      "source_segment_ids": [
+        "seg-000628",
+        "seg-000629",
+        "seg-000630",
+        "seg-000631",
+        "seg-000632",
+        "seg-000633",
+        "seg-000634",
+        "seg-000635",
+        "seg-000636",
+        "seg-000637",
+        "seg-000638",
+        "seg-000639",
+        "seg-000640",
+        "seg-000641",
+        "seg-000642",
+        "seg-000643",
+        "seg-000644",
+        "seg-000645",
+        "seg-000646",
+        "seg-000647",
+        "seg-000648",
+        "seg-000649",
+        "seg-000650",
+        "seg-000651",
+        "seg-000652"
+      ],
+      "concepts": [
+        "What",
+        "Anne Blood",
+        "Robert Satori",
+        "There"
+      ],
+      "entities": [],
+      "mechanisms": [
+        {
+          "text": "Because when we look at babies and they start to smile for the first time or they express",
+          "source_segment_ids": [
+            "seg-000634"
+          ]
+        },
+        {
+          "text": "what we think is humor or something like that, we are so tuned to faces because they can't really",
+          "source_segment_ids": [
+            "seg-000635"
+          ]
+        },
+        {
+          "text": "It's like because you can't escape.",
+          "source_segment_ids": [
+            "seg-000727"
+          ]
+        }
+      ],
+      "protocols": [
+        {
+          "title": "Protocol: It should be something like people's con",
+          "steps": [
+            "It should be something like people's concept of where in the"
+          ],
+          "source_segment_ids": [
+            "seg-000695"
+          ]
+        },
+        {
+          "title": "Protocol: Yeah, they really should be done because",
+          "steps": [
+            "Yeah, they really should be done because I could make up a story where if someone or an animal"
+          ],
+          "source_segment_ids": [
+            "seg-000774"
+          ]
+        },
+        {
+          "title": "Protocol: and mental health, it also analyzes thes",
+          "steps": [
+            "and mental health, it also analyzes these results and provides recommendations for improving your"
+          ],
+          "source_segment_ids": [
+            "seg-000812"
+          ]
+        }
+      ],
+      "arguments": [
+        {
+          "text": "And I project on him what that's about.",
+          "source_segment_ids": [
+            "seg-000641"
+          ]
+        },
+        {
+          "text": "But we did a study, again, just in Feinstein, I think was the first author in this one as well,",
+          "source_segment_ids": [
+            "seg-000653"
+          ]
+        },
+        {
+          "text": "that William James had back in 1884.",
+          "source_segment_ids": [
+            "seg-000734"
+          ]
+        }
+      ],
+      "caveats": [
+        "Analysis grounded in spoken dialogue evidence."
+      ],
+      "claim_refs": [
+        "micro-041",
+        "micro-042",
+        "micro-043",
+        "micro-044",
+        "micro-045",
+        "micro-046",
+        "micro-047",
+        "micro-048",
+        "micro-049",
+        "micro-050",
+        "micro-051",
+        "micro-052",
+        "micro-053",
+        "micro-054",
+        "micro-055",
+        "micro-056",
+        "micro-057",
+        "micro-058",
+        "micro-059",
+        "micro-060"
+      ]
+    },
+    {
+      "meso_ref": "meso-004",
+      "title": "Synthesis, Caveats & Forward Outlook `[01:25:00 - 02:09:21]`",
+      "summary": "Modular analysis synthesizing 8 Map windows across 497 source segments.",
+      "source_segment_ids": [
+        "seg-000942",
+        "seg-000943",
+        "seg-000944",
+        "seg-000945",
+        "seg-000946",
+        "seg-000947",
+        "seg-000948",
+        "seg-000949",
+        "seg-000950",
+        "seg-000951",
+        "seg-000952",
+        "seg-000953",
+        "seg-000954",
+        "seg-000955",
+        "seg-000956",
+        "seg-000957",
+        "seg-000958",
+        "seg-000959",
+        "seg-000960",
+        "seg-000961",
+        "seg-000962",
+        "seg-000963",
+        "seg-000964",
+        "seg-000965",
+        "seg-000966"
+      ],
+      "concepts": [
+        "Honnold",
+        "San Diego",
+        "Sundays",
+        "Instagram"
+      ],
+      "entities": [],
+      "mechanisms": [
+        {
+          "text": "like to ask you about which is building social intelligence and emotional intelligence because",
+          "source_segment_ids": [
+            "seg-000945"
+          ]
+        },
+        {
+          "text": "we talk it up these days because indeed empathy is important but no this is a tricky one",
+          "source_segment_ids": [
+            "seg-000962"
+          ]
+        },
+        {
+          "text": "also something incredibly refreshing about it because it's almost like they're they're asking the",
+          "source_segment_ids": [
+            "seg-001013"
+          ]
+        }
+      ],
+      "protocols": [
+        {
+          "title": "Protocol: being an impediment because if you have ",
+          "steps": [
+            "being an impediment because if you have to track everything have to remember okay I should make"
+          ],
+          "source_segment_ids": [
+            "seg-001035"
+          ]
+        },
+        {
+          "title": "Protocol: predictions which maybe I should be look",
+          "steps": [
+            "predictions which maybe I should be looking at your face all the time but the podcast would"
+          ],
+          "source_segment_ids": [
+            "seg-001126"
+          ]
+        },
+        {
+          "title": "Protocol: recommend people go even if you don't wa",
+          "steps": [
+            "recommend people go even if you don't want a dog because you get to see all the different genetic"
+          ],
+          "source_segment_ids": [
+            "seg-001146"
+          ]
+        }
+      ],
+      "arguments": [
+        {
+          "text": "in tune with like what everyone in the room is feeling who did this who didn't do that and going",
+          "source_segment_ids": [
+            "seg-000953"
+          ]
+        },
+        {
+          "text": "it's there's a cost well I think it's extremely heterogeneous and so this is not sort of one-size fits",
+          "source_segment_ids": [
+            "seg-000966"
+          ]
+        },
+        {
+          "text": "liberating you feel like we've broken the social mold here a little bit and someone would say excuse",
+          "source_segment_ids": [
+            "seg-001015"
+          ]
+        }
+      ],
+      "caveats": [
+        "Analysis grounded in spoken dialogue evidence."
+      ],
+      "claim_refs": [
+        "micro-061",
+        "micro-062",
+        "micro-063",
+        "micro-064",
+        "micro-065",
+        "micro-066",
+        "micro-067",
+        "micro-068",
+        "micro-069",
+        "micro-070",
+        "micro-071",
+        "micro-072",
+        "micro-073",
+        "micro-074",
+        "micro-075",
+        "micro-076",
+        "micro-077",
+        "micro-078",
+        "micro-079",
+        "micro-080",
+        "micro-081",
+        "micro-082",
+        "micro-083",
+        "micro-084",
+        "micro-085",
+        "micro-086",
+        "micro-087",
+        "micro-088",
+        "micro-089",
+        "micro-090",
+        "micro-091",
+        "micro-092"
       ]
     }
   ],
   "micro": [
     {
       "claim_ref": "micro-001",
-      "claim_text": "I see somebody come up behind me. They can see. I'm trying to park. They can move over. No,",
+      "claim_text": "I see somebody come up behind me.",
       "claim_kind": "fact",
       "speaker": null,
       "source_segment_ids": [
@@ -82,20 +602,24 @@
       "quote_evidence": [
         {
           "segment_id": "seg-000001",
-          "quote": "I see somebody come up behind me. They can see. I'm trying to park. They can move over. No,"
+          "quote": "I see somebody come up behind me."
         }
       ],
       "source_support": "SUPPORTED",
-      "checkworthiness": "medium",
+      "checkworthiness": "high",
       "topics": [
-        "Neuroscience of Emot"
+        "Neuroscience of Emotions "
       ],
-      "entities": [],
-      "context": "Extracted from window-0001"
+      "entities": [
+        "Well",
+        "Protocols",
+        "New York City"
+      ],
+      "context": "Documented in Window window-0001"
     },
     {
       "claim_ref": "micro-002",
-      "claim_text": "they come right up behind me, go on the horn. You know, you immediately feel just an immediate",
+      "claim_text": "they come right up behind me, go on the horn.",
       "claim_kind": "fact",
       "speaker": null,
       "source_segment_ids": [
@@ -104,20 +628,50 @@
       "quote_evidence": [
         {
           "segment_id": "seg-000002",
-          "quote": "they come right up behind me, go on the horn. You know, you immediately feel just an immediate"
+          "quote": "they come right up behind me, go on the horn."
+        }
+      ],
+      "source_support": "SUPPORTED",
+      "checkworthiness": "high",
+      "topics": [
+        "Neuroscience of Emotions "
+      ],
+      "entities": [
+        "Well",
+        "Protocols",
+        "New York City"
+      ],
+      "context": "Documented in Window window-0001"
+    },
+    {
+      "claim_ref": "micro-003",
+      "claim_text": "You know, you immediately feel just an immediate",
+      "claim_kind": "opinion",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000002"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000002",
+          "quote": "You know, you immediately feel just an immediate"
         }
       ],
       "source_support": "SUPPORTED",
       "checkworthiness": "low",
       "topics": [
-        "Neuroscience of Emot"
+        "Neuroscience of Emotions "
       ],
-      "entities": [],
-      "context": "Extracted from window-0001"
+      "entities": [
+        "Well",
+        "Protocols",
+        "New York City"
+      ],
+      "context": "Documented in Window window-0001"
     },
     {
-      "claim_ref": "micro-003",
-      "claim_text": "anger response. Right? Well, after the ice bath, it's flat. So there was an immediate",
+      "claim_ref": "micro-004",
+      "claim_text": "Well, after the ice bath, it's flat.",
       "claim_kind": "fact",
       "speaker": null,
       "source_segment_ids": [
@@ -126,20 +680,24 @@
       "quote_evidence": [
         {
           "segment_id": "seg-000003",
-          "quote": "anger response. Right? Well, after the ice bath, it's flat. So there was an immediate"
+          "quote": "Well, after the ice bath, it's flat."
         }
       ],
       "source_support": "SUPPORTED",
-      "checkworthiness": "low",
+      "checkworthiness": "high",
       "topics": [
-        "Neuroscience of Emot"
+        "Neuroscience of Emotions "
       ],
-      "entities": [],
-      "context": "Extracted from window-0001"
+      "entities": [
+        "Well",
+        "Protocols",
+        "New York City"
+      ],
+      "context": "Documented in Window window-0001"
     },
     {
-      "claim_ref": "micro-004",
-      "claim_text": "findings and emotion from animal studies, findings from social psychology. Typically those people in",
+      "claim_ref": "micro-005",
+      "claim_text": "findings and emotion from animal studies, findings from social psychology.",
       "claim_kind": "fact",
       "speaker": null,
       "source_segment_ids": [
@@ -148,20 +706,50 @@
       "quote_evidence": [
         {
           "segment_id": "seg-000044",
-          "quote": "findings and emotion from animal studies, findings from social psychology. Typically those people in"
+          "quote": "findings and emotion from animal studies, findings from social psychology."
         }
       ],
       "source_support": "SUPPORTED",
-      "checkworthiness": "medium",
+      "checkworthiness": "high",
       "topics": [
-        "Neuroscience of Emot"
+        "Neuroscience of Emotions "
       ],
-      "entities": [],
-      "context": "Extracted from window-0002"
+      "entities": [
+        "Typically",
+        "They",
+        "Instead"
+      ],
+      "context": "Documented in Window window-0002"
     },
     {
-      "claim_ref": "micro-005",
-      "claim_text": "those fields don't talk to one another. They do very different studies, very different methodologies,",
+      "claim_ref": "micro-006",
+      "claim_text": "Typically those people in",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000044"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000044",
+          "quote": "Typically those people in"
+        }
+      ],
+      "source_support": "SUPPORTED",
+      "checkworthiness": "high",
+      "topics": [
+        "Neuroscience of Emotions "
+      ],
+      "entities": [
+        "Typically",
+        "They",
+        "Instead"
+      ],
+      "context": "Documented in Window window-0002"
+    },
+    {
+      "claim_ref": "micro-007",
+      "claim_text": "those fields don't talk to one another.",
       "claim_kind": "fact",
       "speaker": null,
       "source_segment_ids": [
@@ -170,43 +758,51 @@
       "quote_evidence": [
         {
           "segment_id": "seg-000045",
-          "quote": "those fields don't talk to one another. They do very different studies, very different methodologies,"
+          "quote": "those fields don't talk to one another."
         }
       ],
       "source_support": "SUPPORTED",
-      "checkworthiness": "low",
+      "checkworthiness": "high",
       "topics": [
-        "Neuroscience of Emot"
+        "Neuroscience of Emotions "
       ],
-      "entities": [],
-      "context": "Extracted from window-0002"
+      "entities": [
+        "Typically",
+        "They",
+        "Instead"
+      ],
+      "context": "Documented in Window window-0002"
     },
     {
-      "claim_ref": "micro-006",
-      "claim_text": "and so trying to integrate across disciplines that are that far apart to really try and get a sense",
+      "claim_ref": "micro-008",
+      "claim_text": "They do very different studies, very different methodologies,",
       "claim_kind": "fact",
       "speaker": null,
       "source_segment_ids": [
-        "seg-000046"
+        "seg-000045"
       ],
       "quote_evidence": [
         {
-          "segment_id": "seg-000046",
-          "quote": "and so trying to integrate across disciplines that are that far apart to really try and get a sense"
+          "segment_id": "seg-000045",
+          "quote": "They do very different studies, very different methodologies,"
         }
       ],
       "source_support": "SUPPORTED",
-      "checkworthiness": "low",
+      "checkworthiness": "high",
       "topics": [
-        "Neuroscience of Emot"
+        "Neuroscience of Emotions "
       ],
-      "entities": [],
-      "context": "Extracted from window-0002"
+      "entities": [
+        "Typically",
+        "They",
+        "Instead"
+      ],
+      "context": "Documented in Window window-0002"
     },
     {
-      "claim_ref": "micro-007",
+      "claim_ref": "micro-009",
       "claim_text": "I called it the principle of antithesis is valence, which is approach or avoid pleasant or",
-      "claim_kind": "fact",
+      "claim_kind": "definition",
       "speaker": null,
       "source_segment_ids": [
         "seg-000107"
@@ -218,16 +814,20 @@
         }
       ],
       "source_support": "SUPPORTED",
-      "checkworthiness": "medium",
+      "checkworthiness": "low",
       "topics": [
-        "Neuroscience of Emot"
+        "Neuroscience of Emotions "
       ],
-      "entities": [],
-      "context": "Extracted from window-0003"
+      "entities": [
+        "Caltech",
+        "Marcus Meister",
+        "David Anderson"
+      ],
+      "context": "Documented in Window window-0003"
     },
     {
-      "claim_ref": "micro-008",
-      "claim_text": "unpleasant, this basic valence dimension. Are there any neutral emotions? I ask this because",
+      "claim_ref": "micro-010",
+      "claim_text": "unpleasant, this basic valence dimension.",
       "claim_kind": "fact",
       "speaker": null,
       "source_segment_ids": [
@@ -236,19 +836,49 @@
       "quote_evidence": [
         {
           "segment_id": "seg-000108",
-          "quote": "unpleasant, this basic valence dimension. Are there any neutral emotions? I ask this because"
+          "quote": "unpleasant, this basic valence dimension."
         }
       ],
       "source_support": "SUPPORTED",
-      "checkworthiness": "low",
+      "checkworthiness": "high",
       "topics": [
-        "Neuroscience of Emot"
+        "Neuroscience of Emotions "
       ],
-      "entities": [],
-      "context": "Extracted from window-0003"
+      "entities": [
+        "Caltech",
+        "Marcus Meister",
+        "David Anderson"
+      ],
+      "context": "Documented in Window window-0003"
     },
     {
-      "claim_ref": "micro-009",
+      "claim_ref": "micro-011",
+      "claim_text": "Are there any neutral emotions?",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000108"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000108",
+          "quote": "Are there any neutral emotions?"
+        }
+      ],
+      "source_support": "SUPPORTED",
+      "checkworthiness": "high",
+      "topics": [
+        "Neuroscience of Emotions "
+      ],
+      "entities": [
+        "Caltech",
+        "Marcus Meister",
+        "David Anderson"
+      ],
+      "context": "Documented in Window window-0003"
+    },
+    {
+      "claim_ref": "micro-012",
       "claim_text": "your colleague at Caltech who I respect tremendously Marcus Meister once wrote a review where he said,",
       "claim_kind": "fact",
       "speaker": null,
@@ -262,16 +892,20 @@
         }
       ],
       "source_support": "SUPPORTED",
-      "checkworthiness": "low",
+      "checkworthiness": "high",
       "topics": [
-        "Neuroscience of Emot"
+        "Neuroscience of Emotions "
       ],
-      "entities": [],
-      "context": "Extracted from window-0003"
+      "entities": [
+        "Caltech",
+        "Marcus Meister",
+        "David Anderson"
+      ],
+      "context": "Documented in Window window-0003"
     },
     {
-      "claim_ref": "micro-010",
-      "claim_text": "I'd like to take a quick break and acknowledge our sponsor, Helix Sleep. Helix Sleep makes matrices",
+      "claim_ref": "micro-013",
+      "claim_text": "I'd like to take a quick break and acknowledge our sponsor, Helix Sleep.",
       "claim_kind": "fact",
       "speaker": null,
       "source_segment_ids": [
@@ -280,16 +914,2054 @@
       "quote_evidence": [
         {
           "segment_id": "seg-000168",
-          "quote": "I'd like to take a quick break and acknowledge our sponsor, Helix Sleep. Helix Sleep makes matrices"
+          "quote": "I'd like to take a quick break and acknowledge our sponsor, Helix Sleep."
+        }
+      ],
+      "source_support": "SUPPORTED",
+      "checkworthiness": "high",
+      "topics": [
+        "Neuroscience of Emotions "
+      ],
+      "entities": [
+        "Helix Sleep",
+        "When",
+        "Helix"
+      ],
+      "context": "Documented in Window window-0004"
+    },
+    {
+      "claim_ref": "micro-014",
+      "claim_text": "Helix Sleep makes matrices",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000168"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000168",
+          "quote": "Helix Sleep makes matrices"
+        }
+      ],
+      "source_support": "SUPPORTED",
+      "checkworthiness": "high",
+      "topics": [
+        "Neuroscience of Emotions "
+      ],
+      "entities": [
+        "Helix Sleep",
+        "When",
+        "Helix"
+      ],
+      "context": "Documented in Window window-0004"
+    },
+    {
+      "claim_ref": "micro-015",
+      "claim_text": "and pillows that are customized to your unique sleep needs.",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000169"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000169",
+          "quote": "and pillows that are customized to your unique sleep needs."
+        }
+      ],
+      "source_support": "SUPPORTED",
+      "checkworthiness": "high",
+      "topics": [
+        "Neuroscience of Emotions "
+      ],
+      "entities": [
+        "Helix Sleep",
+        "When",
+        "Helix"
+      ],
+      "context": "Documented in Window window-0004"
+    },
+    {
+      "claim_ref": "micro-016",
+      "claim_text": "Now, I've spoken many times before on",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000169"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000169",
+          "quote": "Now, I've spoken many times before on"
+        }
+      ],
+      "source_support": "SUPPORTED",
+      "checkworthiness": "high",
+      "topics": [
+        "Neuroscience of Emotions "
+      ],
+      "entities": [
+        "Helix Sleep",
+        "When",
+        "Helix"
+      ],
+      "context": "Documented in Window window-0004"
+    },
+    {
+      "claim_ref": "micro-017",
+      "claim_text": "And the other question is, if you tie emotion to the conscious experience of emotion,",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000231"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000231",
+          "quote": "And the other question is, if you tie emotion to the conscious experience of emotion,"
+        }
+      ],
+      "source_support": "SUPPORTED",
+      "checkworthiness": "high",
+      "topics": [
+        "Neuroscience of Emotions "
+      ],
+      "entities": [
+        "Christoph Koch",
+        "Again",
+        "David"
+      ],
+      "context": "Documented in Window window-0005"
+    },
+    {
+      "claim_ref": "micro-018",
+      "claim_text": "that is you equate, you conflate emotions with feelings, well, then you're not studying emotions,",
+      "claim_kind": "opinion",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000232"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000232",
+          "quote": "that is you equate, you conflate emotions with feelings, well, then you're not studying emotions,"
+        }
+      ],
+      "source_support": "SUPPORTED",
+      "checkworthiness": "low",
+      "topics": [
+        "Neuroscience of Emotions "
+      ],
+      "entities": [
+        "Christoph Koch",
+        "Again",
+        "David"
+      ],
+      "context": "Documented in Window window-0005"
+    },
+    {
+      "claim_ref": "micro-019",
+      "claim_text": "you're studying consciousness.",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000233"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000233",
+          "quote": "you're studying consciousness."
+        }
+      ],
+      "source_support": "SUPPORTED",
+      "checkworthiness": "high",
+      "topics": [
+        "Neuroscience of Emotions "
+      ],
+      "entities": [
+        "Christoph Koch",
+        "Again",
+        "David"
+      ],
+      "context": "Documented in Window window-0005"
+    },
+    {
+      "claim_ref": "micro-020",
+      "claim_text": "If you spoke about Christoph Koch earlier, great respect for people",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000233"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000233",
+          "quote": "If you spoke about Christoph Koch earlier, great respect for people"
+        }
+      ],
+      "source_support": "SUPPORTED",
+      "checkworthiness": "high",
+      "topics": [
+        "Neuroscience of Emotions "
+      ],
+      "entities": [
+        "Christoph Koch",
+        "Again",
+        "David"
+      ],
+      "context": "Documented in Window window-0005"
+    },
+    {
+      "claim_ref": "micro-021",
+      "claim_text": "That's kind of the ideal circumstance, right?",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000299"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000299",
+          "quote": "That's kind of the ideal circumstance, right?"
+        }
+      ],
+      "source_support": "SUPPORTED",
+      "checkworthiness": "high",
+      "topics": [
+        "Neuroscience of Emotions "
+      ],
+      "entities": [
+        "That",
+        "Antonio",
+        "Descartes"
+      ],
+      "context": "Documented in Window window-0006"
+    },
+    {
+      "claim_ref": "micro-022",
+      "claim_text": "So what do you know that allowed that has",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000299"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000299",
+          "quote": "So what do you know that allowed that has"
+        }
+      ],
+      "source_support": "SUPPORTED",
+      "checkworthiness": "high",
+      "topics": [
+        "Neuroscience of Emotions "
+      ],
+      "entities": [
+        "That",
+        "Antonio",
+        "Descartes"
+      ],
+      "context": "Documented in Window window-0006"
+    },
+    {
+      "claim_ref": "micro-023",
+      "claim_text": "impacted the way that you think about emotion regulation that perhaps people could consider,",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000300"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000300",
+          "quote": "impacted the way that you think about emotion regulation that perhaps people could consider,"
+        }
+      ],
+      "source_support": "SUPPORTED",
+      "checkworthiness": "high",
+      "topics": [
+        "Neuroscience of Emotions "
+      ],
+      "entities": [
+        "That",
+        "Antonio",
+        "Descartes"
+      ],
+      "context": "Documented in Window window-0006"
+    },
+    {
+      "claim_ref": "micro-024",
+      "claim_text": "I think it's, you know, it's a mixture.",
+      "claim_kind": "opinion",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000301"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000301",
+          "quote": "I think it's, you know, it's a mixture."
+        }
+      ],
+      "source_support": "SUPPORTED",
+      "checkworthiness": "low",
+      "topics": [
+        "Neuroscience of Emotions "
+      ],
+      "entities": [
+        "That",
+        "Antonio",
+        "Descartes"
+      ],
+      "context": "Documented in Window window-0006"
+    },
+    {
+      "claim_ref": "micro-025",
+      "claim_text": "we appraisal or any other sort of complex we appraisal strategy for emotions.",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000357"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000357",
+          "quote": "we appraisal or any other sort of complex we appraisal strategy for emotions."
+        }
+      ],
+      "source_support": "SUPPORTED",
+      "checkworthiness": "high",
+      "topics": [
+        "Neuroscience of Emotions "
+      ],
+      "entities": [
+        "Well",
+        "Justin Feinstein",
+        "Maui"
+      ],
+      "context": "Documented in Window window-0007"
+    },
+    {
+      "claim_ref": "micro-026",
+      "claim_text": "sword and it's trainable.",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000358"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000358",
+          "quote": "sword and it's trainable."
+        }
+      ],
+      "source_support": "SUPPORTED",
+      "checkworthiness": "high",
+      "topics": [
+        "Neuroscience of Emotions "
+      ],
+      "entities": [
+        "Well",
+        "Justin Feinstein",
+        "Maui"
+      ],
+      "context": "Documented in Window window-0007"
+    },
+    {
+      "claim_ref": "micro-027",
+      "claim_text": "It's as you say, if I really focus on, okay, now, you know, I'm starting",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000358"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000358",
+          "quote": "It's as you say, if I really focus on, okay, now, you know, I'm starting"
+        }
+      ],
+      "source_support": "SUPPORTED",
+      "checkworthiness": "high",
+      "topics": [
+        "Neuroscience of Emotions "
+      ],
+      "entities": [
+        "Well",
+        "Justin Feinstein",
+        "Maui"
+      ],
+      "context": "Documented in Window window-0007"
+    },
+    {
+      "claim_ref": "micro-028",
+      "claim_text": "I really don't want to feel sad.",
+      "claim_kind": "opinion",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000359"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000359",
+          "quote": "I really don't want to feel sad."
+        }
+      ],
+      "source_support": "SUPPORTED",
+      "checkworthiness": "low",
+      "topics": [
+        "Neuroscience of Emotions "
+      ],
+      "entities": [
+        "Well",
+        "Justin Feinstein",
+        "Maui"
+      ],
+      "context": "Documented in Window window-0007"
+    },
+    {
+      "claim_ref": "micro-029",
+      "claim_text": "you were describing how, you know, at some points during these races, you just feel like complete",
+      "claim_kind": "opinion",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000419"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000419",
+          "quote": "you were describing how, you know, at some points during these races, you just feel like complete"
+        }
+      ],
+      "source_support": "SUPPORTED",
+      "checkworthiness": "low",
+      "topics": [
+        "Neuroscience of Emotions "
+      ],
+      "entities": [
+        "People",
+        "This",
+        "Anybody"
+      ],
+      "context": "Documented in Window window-0008"
+    },
+    {
+      "claim_ref": "micro-030",
+      "claim_text": "But then you start to feel better.",
+      "claim_kind": "opinion",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000420"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000420",
+          "quote": "But then you start to feel better."
+        }
+      ],
+      "source_support": "SUPPORTED",
+      "checkworthiness": "low",
+      "topics": [
+        "Neuroscience of Emotions "
+      ],
+      "entities": [
+        "People",
+        "This",
+        "Anybody"
+      ],
+      "context": "Documented in Window window-0008"
+    },
+    {
+      "claim_ref": "micro-031",
+      "claim_text": "And so then the next time you feel like complete",
+      "claim_kind": "opinion",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000420"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000420",
+          "quote": "And so then the next time you feel like complete"
+        }
+      ],
+      "source_support": "SUPPORTED",
+      "checkworthiness": "low",
+      "topics": [
+        "Neuroscience of Emotions "
+      ],
+      "entities": [
+        "People",
+        "This",
+        "Anybody"
+      ],
+      "context": "Documented in Window window-0008"
+    },
+    {
+      "claim_ref": "micro-032",
+      "claim_text": "garbage, you have the cognitive knowledge that you felt terrible then better again.",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000421"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000421",
+          "quote": "garbage, you have the cognitive knowledge that you felt terrible then better again."
+        }
+      ],
+      "source_support": "SUPPORTED",
+      "checkworthiness": "high",
+      "topics": [
+        "Neuroscience of Emotions "
+      ],
+      "entities": [
+        "People",
+        "This",
+        "Anybody"
+      ],
+      "context": "Documented in Window window-0008"
+    },
+    {
+      "claim_ref": "micro-033",
+      "claim_text": "formula, which is a blend of vitamins, minerals, probiotics, and adaptogens.",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000503"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000503",
+          "quote": "formula, which is a blend of vitamins, minerals, probiotics, and adaptogens."
+        }
+      ],
+      "source_support": "SUPPORTED",
+      "checkworthiness": "high",
+      "topics": [
+        "Neuroscience of Emotions "
+      ],
+      "entities": [
+        "Calcium",
+        "Omega",
+        "Coins"
+      ],
+      "context": "Documented in Window window-0009"
+    },
+    {
+      "claim_ref": "micro-034",
+      "claim_text": "important new ingredients, creatine monohydrate, calcium, HMB, and zinc carnacine.",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000504"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000504",
+          "quote": "important new ingredients, creatine monohydrate, calcium, HMB, and zinc carnacine."
+        }
+      ],
+      "source_support": "SUPPORTED",
+      "checkworthiness": "high",
+      "topics": [
+        "Neuroscience of Emotions "
+      ],
+      "entities": [
+        "Calcium",
+        "Omega",
+        "Coins"
+      ],
+      "context": "Documented in Window window-0009"
+    },
+    {
+      "claim_ref": "micro-035",
+      "claim_text": "five grams of creatine monohydrate to support muscle strength and performance as well as brain health.",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000505"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000505",
+          "quote": "five grams of creatine monohydrate to support muscle strength and performance as well as brain health."
+        }
+      ],
+      "source_support": "SUPPORTED",
+      "checkworthiness": "high",
+      "topics": [
+        "Neuroscience of Emotions "
+      ],
+      "entities": [
+        "Calcium",
+        "Omega",
+        "Coins"
+      ],
+      "context": "Documented in Window window-0009"
+    },
+    {
+      "claim_ref": "micro-036",
+      "claim_text": "Calcium, HMB to support muscle recovery and reduce muscle breakdown and zinc carnacine to support",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000506"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000506",
+          "quote": "Calcium, HMB to support muscle recovery and reduce muscle breakdown and zinc carnacine to support"
+        }
+      ],
+      "source_support": "SUPPORTED",
+      "checkworthiness": "high",
+      "topics": [
+        "Neuroscience of Emotions "
+      ],
+      "entities": [
+        "Calcium",
+        "Omega",
+        "Coins"
+      ],
+      "context": "Documented in Window window-0009"
+    },
+    {
+      "claim_ref": "micro-037",
+      "claim_text": "talking before coming in here to one of your colleagues about your cute dog, and they've done studies,",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000561"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000561",
+          "quote": "talking before coming in here to one of your colleagues about your cute dog, and they've done studies,"
+        }
+      ],
+      "source_support": "SUPPORTED",
+      "checkworthiness": "high",
+      "topics": [
+        "Neuroscience of Emotions "
+      ],
+      "entities": [
+        "Well",
+        "They",
+        "Andrew Huberman"
+      ],
+      "context": "Documented in Window window-0010"
+    },
+    {
+      "claim_ref": "micro-038",
+      "claim_text": "there's several studies now, where dog owners, if you ask them, can you tell if your dog feels guilty",
+      "claim_kind": "opinion",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000562"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000562",
+          "quote": "there's several studies now, where dog owners, if you ask them, can you tell if your dog feels guilty"
+        }
+      ],
+      "source_support": "SUPPORTED",
+      "checkworthiness": "low",
+      "topics": [
+        "Neuroscience of Emotions "
+      ],
+      "entities": [
+        "Well",
+        "They",
+        "Andrew Huberman"
+      ],
+      "context": "Documented in Window window-0010"
+    },
+    {
+      "claim_ref": "micro-039",
+      "claim_text": "Because it did something bad.",
+      "claim_kind": "mechanism",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000563"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000563",
+          "quote": "Because it did something bad."
         }
       ],
       "source_support": "SUPPORTED",
       "checkworthiness": "medium",
       "topics": [
-        "Neuroscience of Emot"
+        "Neuroscience of Emotions "
       ],
-      "entities": [],
-      "context": "Extracted from window-0004"
+      "entities": [
+        "Well",
+        "They",
+        "Andrew Huberman"
+      ],
+      "context": "Documented in Window window-0010"
+    },
+    {
+      "claim_ref": "micro-040",
+      "claim_text": "Dog owners are pretty convinced they can tell.",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000563"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000563",
+          "quote": "Dog owners are pretty convinced they can tell."
+        }
+      ],
+      "source_support": "SUPPORTED",
+      "checkworthiness": "high",
+      "topics": [
+        "Neuroscience of Emotions "
+      ],
+      "entities": [
+        "Well",
+        "They",
+        "Andrew Huberman"
+      ],
+      "context": "Documented in Window window-0010"
+    },
+    {
+      "claim_ref": "micro-041",
+      "claim_text": "you know, the original studies, like the ones I started doing as a postdoc where you just",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000628"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000628",
+          "quote": "you know, the original studies, like the ones I started doing as a postdoc where you just"
+        }
+      ],
+      "source_support": "SUPPORTED",
+      "checkworthiness": "high",
+      "topics": [
+        "Neuroscience of Emotions "
+      ],
+      "entities": [
+        "Paul Ekman",
+        "Well",
+        "Philipp Schins"
+      ],
+      "context": "Documented in Window window-0011"
+    },
+    {
+      "claim_ref": "micro-042",
+      "claim_text": "truly static Paul Ekman pictures of facial affect.",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000629"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000629",
+          "quote": "truly static Paul Ekman pictures of facial affect."
+        }
+      ],
+      "source_support": "SUPPORTED",
+      "checkworthiness": "high",
+      "topics": [
+        "Neuroscience of Emotions "
+      ],
+      "entities": [
+        "Paul Ekman",
+        "Well",
+        "Philipp Schins"
+      ],
+      "context": "Documented in Window window-0011"
+    },
+    {
+      "claim_ref": "micro-043",
+      "claim_text": "Well, we never see that in people.",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000629"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000629",
+          "quote": "Well, we never see that in people."
+        }
+      ],
+      "source_support": "SUPPORTED",
+      "checkworthiness": "high",
+      "topics": [
+        "Neuroscience of Emotions "
+      ],
+      "entities": [
+        "Paul Ekman",
+        "Well",
+        "Philipp Schins"
+      ],
+      "context": "Documented in Window window-0011"
+    },
+    {
+      "claim_ref": "micro-044",
+      "claim_text": "The face is changing.",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000630"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000630",
+          "quote": "The face is changing."
+        }
+      ],
+      "source_support": "SUPPORTED",
+      "checkworthiness": "high",
+      "topics": [
+        "Neuroscience of Emotions "
+      ],
+      "entities": [
+        "Paul Ekman",
+        "Well",
+        "Philipp Schins"
+      ],
+      "context": "Documented in Window window-0011"
+    },
+    {
+      "claim_ref": "micro-045",
+      "claim_text": "It's really interesting.",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000707"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000707",
+          "quote": "It's really interesting."
+        }
+      ],
+      "source_support": "SUPPORTED",
+      "checkworthiness": "high",
+      "topics": [
+        "Neuroscience of Emotions "
+      ],
+      "entities": [
+        "Eventually",
+        "There",
+        "Switzerland"
+      ],
+      "context": "Documented in Window window-0012"
+    },
+    {
+      "claim_ref": "micro-046",
+      "claim_text": "Eventually, it's passed, but it evokes very interesting adaptive behaviors,",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000708"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000708",
+          "quote": "Eventually, it's passed, but it evokes very interesting adaptive behaviors,"
+        }
+      ],
+      "source_support": "SUPPORTED",
+      "checkworthiness": "high",
+      "topics": [
+        "Neuroscience of Emotions "
+      ],
+      "entities": [
+        "Eventually",
+        "There",
+        "Switzerland"
+      ],
+      "context": "Documented in Window window-0012"
+    },
+    {
+      "claim_ref": "micro-047",
+      "claim_text": "well, just as an aside, before I forget it.",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000709"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000709",
+          "quote": "well, just as an aside, before I forget it."
+        }
+      ],
+      "source_support": "SUPPORTED",
+      "checkworthiness": "high",
+      "topics": [
+        "Neuroscience of Emotions "
+      ],
+      "entities": [
+        "Eventually",
+        "There",
+        "Switzerland"
+      ],
+      "context": "Documented in Window window-0012"
+    },
+    {
+      "claim_ref": "micro-048",
+      "claim_text": "So, normally for pain, extraceptive pain,",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000709"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000709",
+          "quote": "So, normally for pain, extraceptive pain,"
+        }
+      ],
+      "source_support": "SUPPORTED",
+      "checkworthiness": "high",
+      "topics": [
+        "Neuroscience of Emotions "
+      ],
+      "entities": [
+        "Eventually",
+        "There",
+        "Switzerland"
+      ],
+      "context": "Documented in Window window-0012"
+    },
+    {
+      "claim_ref": "micro-049",
+      "claim_text": "is no systematic association between specific emotions and specific changes in your body.",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000766"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000766",
+          "quote": "is no systematic association between specific emotions and specific changes in your body."
+        }
+      ],
+      "source_support": "SUPPORTED",
+      "checkworthiness": "high",
+      "topics": [
+        "Neuroscience of Emotions "
+      ],
+      "entities": [
+        "Well",
+        "What",
+        "Yeah"
+      ],
+      "context": "Documented in Window window-0013"
+    },
+    {
+      "claim_ref": "micro-050",
+      "claim_text": "Well, if you look at those studies, people put a few electrodes on and they measure, you know,",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000767"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000767",
+          "quote": "Well, if you look at those studies, people put a few electrodes on and they measure, you know,"
+        }
+      ],
+      "source_support": "SUPPORTED",
+      "checkworthiness": "high",
+      "topics": [
+        "Neuroscience of Emotions "
+      ],
+      "entities": [
+        "Well",
+        "What",
+        "Yeah"
+      ],
+      "context": "Documented in Window window-0013"
+    },
+    {
+      "claim_ref": "micro-051",
+      "claim_text": "heart rate changes, blood pressure changes, et cetera, it is extremely crude.",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000768"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000768",
+          "quote": "heart rate changes, blood pressure changes, et cetera, it is extremely crude."
+        }
+      ],
+      "source_support": "SUPPORTED",
+      "checkworthiness": "high",
+      "topics": [
+        "Neuroscience of Emotions "
+      ],
+      "entities": [
+        "Well",
+        "What",
+        "Yeah"
+      ],
+      "context": "Documented in Window window-0013"
+    },
+    {
+      "claim_ref": "micro-052",
+      "claim_text": "a tiny, tiny slice of what's going on in your body.",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000769"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000769",
+          "quote": "a tiny, tiny slice of what's going on in your body."
+        }
+      ],
+      "source_support": "SUPPORTED",
+      "checkworthiness": "high",
+      "topics": [
+        "Neuroscience of Emotions "
+      ],
+      "entities": [
+        "Well",
+        "What",
+        "Yeah"
+      ],
+      "context": "Documented in Window window-0013"
+    },
+    {
+      "claim_ref": "micro-053",
+      "claim_text": "art of that sort is able to capture the circuitry related to a particular emotions across people?",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000828"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000828",
+          "quote": "art of that sort is able to capture the circuitry related to a particular emotions across people?"
+        }
+      ],
+      "source_support": "SUPPORTED",
+      "checkworthiness": "high",
+      "topics": [
+        "Neuroscience of Emotions "
+      ],
+      "entities": [
+        "Independent",
+        "Anne Blood",
+        "Robert Satori"
+      ],
+      "context": "Documented in Window window-0014"
+    },
+    {
+      "claim_ref": "micro-054",
+      "claim_text": "So not just about my unique experience.",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000829"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000829",
+          "quote": "So not just about my unique experience."
+        }
+      ],
+      "source_support": "SUPPORTED",
+      "checkworthiness": "high",
+      "topics": [
+        "Neuroscience of Emotions "
+      ],
+      "entities": [
+        "Independent",
+        "Anne Blood",
+        "Robert Satori"
+      ],
+      "context": "Documented in Window window-0014"
+    },
+    {
+      "claim_ref": "micro-055",
+      "claim_text": "And art is subjective, right?",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000829"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000829",
+          "quote": "And art is subjective, right?"
+        }
+      ],
+      "source_support": "SUPPORTED",
+      "checkworthiness": "high",
+      "topics": [
+        "Neuroscience of Emotions "
+      ],
+      "entities": [
+        "Independent",
+        "Anne Blood",
+        "Robert Satori"
+      ],
+      "context": "Documented in Window window-0014"
+    },
+    {
+      "claim_ref": "micro-056",
+      "claim_text": "But let's assume this is abstract art.",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000830"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000830",
+          "quote": "But let's assume this is abstract art."
+        }
+      ],
+      "source_support": "SUPPORTED",
+      "checkworthiness": "high",
+      "topics": [
+        "Neuroscience of Emotions "
+      ],
+      "entities": [
+        "Independent",
+        "Anne Blood",
+        "Robert Satori"
+      ],
+      "context": "Documented in Window window-0014"
+    },
+    {
+      "claim_ref": "micro-057",
+      "claim_text": "a good example is the visual word form area.",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000879"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000879",
+          "quote": "a good example is the visual word form area."
+        }
+      ],
+      "source_support": "SUPPORTED",
+      "checkworthiness": "high",
+      "topics": [
+        "Neuroscience of Emotions "
+      ],
+      "entities": [
+        "Celtic",
+        "Doris Sau",
+        "Coming"
+      ],
+      "context": "Documented in Window window-0015"
+    },
+    {
+      "claim_ref": "micro-058",
+      "claim_text": "So there's regions in the brain that like the ones",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000879"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000879",
+          "quote": "So there's regions in the brain that like the ones"
+        }
+      ],
+      "source_support": "SUPPORTED",
+      "checkworthiness": "high",
+      "topics": [
+        "Neuroscience of Emotions "
+      ],
+      "entities": [
+        "Celtic",
+        "Doris Sau",
+        "Coming"
+      ],
+      "context": "Documented in Window window-0015"
+    },
+    {
+      "claim_ref": "micro-059",
+      "claim_text": "that my former Celtic colleague, Doris Sau study, that are specialized for faces.",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000880"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000880",
+          "quote": "that my former Celtic colleague, Doris Sau study, that are specialized for faces."
+        }
+      ],
+      "source_support": "SUPPORTED",
+      "checkworthiness": "high",
+      "topics": [
+        "Neuroscience of Emotions "
+      ],
+      "entities": [
+        "Celtic",
+        "Doris Sau",
+        "Coming"
+      ],
+      "context": "Documented in Window window-0015"
+    },
+    {
+      "claim_ref": "micro-060",
+      "claim_text": "a region in the brain typically on the left in most people that's for recognizing words, letters.",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000881"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000881",
+          "quote": "a region in the brain typically on the left in most people that's for recognizing words, letters."
+        }
+      ],
+      "source_support": "SUPPORTED",
+      "checkworthiness": "high",
+      "topics": [
+        "Neuroscience of Emotions "
+      ],
+      "entities": [
+        "Celtic",
+        "Doris Sau",
+        "Coming"
+      ],
+      "context": "Documented in Window window-0015"
+    },
+    {
+      "claim_ref": "micro-061",
+      "claim_text": "So if you had only those you would have to have a separate reflex for the bear and for the tiger",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000942"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000942",
+          "quote": "So if you had only those you would have to have a separate reflex for the bear and for the tiger"
+        }
+      ],
+      "source_support": "SUPPORTED",
+      "checkworthiness": "high",
+      "topics": [
+        "Neuroscience of Emotions "
+      ],
+      "entities": [
+        "Yeah",
+        "James Gross",
+        "San Diego"
+      ],
+      "context": "Documented in Window window-0016"
+    },
+    {
+      "claim_ref": "micro-062",
+      "claim_text": "and for every possible you know large threat out there which you couldn't possibly have it's not",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000943"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000943",
+          "quote": "and for every possible you know large threat out there which you couldn't possibly have it's not"
+        }
+      ],
+      "source_support": "SUPPORTED",
+      "checkworthiness": "high",
+      "topics": [
+        "Neuroscience of Emotions "
+      ],
+      "entities": [
+        "Yeah",
+        "James Gross",
+        "San Diego"
+      ],
+      "context": "Documented in Window window-0016"
+    },
+    {
+      "claim_ref": "micro-063",
+      "claim_text": "Yeah the fan in fan out visual is very very useful and it gets to the next topic I'd",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000944"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000944",
+          "quote": "Yeah the fan in fan out visual is very very useful and it gets to the next topic I'd"
+        }
+      ],
+      "source_support": "SUPPORTED",
+      "checkworthiness": "high",
+      "topics": [
+        "Neuroscience of Emotions "
+      ],
+      "entities": [
+        "Yeah",
+        "James Gross",
+        "San Diego"
+      ],
+      "context": "Documented in Window window-0016"
+    },
+    {
+      "claim_ref": "micro-064",
+      "claim_text": "like to ask you about which is building social intelligence and emotional intelligence because",
+      "claim_kind": "mechanism",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000945"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000945",
+          "quote": "like to ask you about which is building social intelligence and emotional intelligence because"
+        }
+      ],
+      "source_support": "SUPPORTED",
+      "checkworthiness": "medium",
+      "topics": [
+        "Neuroscience of Emotions "
+      ],
+      "entities": [
+        "Yeah",
+        "James Gross",
+        "San Diego"
+      ],
+      "context": "Documented in Window window-0016"
+    },
+    {
+      "claim_ref": "micro-065",
+      "claim_text": "and I have to encounter people like that too and you know it's very disconcerting when you're",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-001011"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-001011",
+          "quote": "and I have to encounter people like that too and you know it's very disconcerting when you're"
+        }
+      ],
+      "source_support": "SUPPORTED",
+      "checkworthiness": "high",
+      "topics": [
+        "Neuroscience of Emotions "
+      ],
+      "entities": [
+        "San Diego"
+      ],
+      "context": "Documented in Window window-0017"
+    },
+    {
+      "claim_ref": "micro-066",
+      "claim_text": "giving the talk it's disconcerting when you're giving the talk but I was going to say there's",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-001012"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-001012",
+          "quote": "giving the talk it's disconcerting when you're giving the talk but I was going to say there's"
+        }
+      ],
+      "source_support": "SUPPORTED",
+      "checkworthiness": "high",
+      "topics": [
+        "Neuroscience of Emotions "
+      ],
+      "entities": [
+        "San Diego"
+      ],
+      "context": "Documented in Window window-0017"
+    },
+    {
+      "claim_ref": "micro-067",
+      "claim_text": "also something incredibly refreshing about it because it's almost like they're they're asking the",
+      "claim_kind": "mechanism",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-001013"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-001013",
+          "quote": "also something incredibly refreshing about it because it's almost like they're they're asking the"
+        }
+      ],
+      "source_support": "SUPPORTED",
+      "checkworthiness": "medium",
+      "topics": [
+        "Neuroscience of Emotions "
+      ],
+      "entities": [
+        "San Diego"
+      ],
+      "context": "Documented in Window window-0017"
+    },
+    {
+      "claim_ref": "micro-068",
+      "claim_text": "questions that they they need to ask you're a little embarrassed for them but you're but it's",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-001014"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-001014",
+          "quote": "questions that they they need to ask you're a little embarrassed for them but you're but it's"
+        }
+      ],
+      "source_support": "SUPPORTED",
+      "checkworthiness": "high",
+      "topics": [
+        "Neuroscience of Emotions "
+      ],
+      "entities": [
+        "San Diego"
+      ],
+      "context": "Documented in Window window-0017"
+    },
+    {
+      "claim_ref": "micro-069",
+      "claim_text": "kids who have autism of the sort that we're describing and the need we're told to train them to",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-001067"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-001067",
+          "quote": "kids who have autism of the sort that we're describing and the need we're told to train them to"
+        }
+      ],
+      "source_support": "SUPPORTED",
+      "checkworthiness": "high",
+      "topics": [
+        "Neuroscience of Emotions "
+      ],
+      "entities": [
+        "Ados"
+      ],
+      "context": "Documented in Window window-0018"
+    },
+    {
+      "claim_ref": "micro-070",
+      "claim_text": "make eye contact and read faces so this lands square in your work maybe you could just fill out",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-001068"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-001068",
+          "quote": "make eye contact and read faces so this lands square in your work maybe you could just fill out"
+        }
+      ],
+      "source_support": "SUPPORTED",
+      "checkworthiness": "high",
+      "topics": [
+        "Neuroscience of Emotions "
+      ],
+      "entities": [
+        "Ados"
+      ],
+      "context": "Documented in Window window-0018"
+    },
+    {
+      "claim_ref": "micro-071",
+      "claim_text": "a bit of what's now known what's thought what's not known it's a great topic I mean the way that",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-001069"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-001069",
+          "quote": "a bit of what's now known what's thought what's not known it's a great topic I mean the way that"
+        }
+      ],
+      "source_support": "SUPPORTED",
+      "checkworthiness": "high",
+      "topics": [
+        "Neuroscience of Emotions "
+      ],
+      "entities": [
+        "Ados"
+      ],
+      "context": "Documented in Window window-0018"
+    },
+    {
+      "claim_ref": "micro-072",
+      "claim_text": "I personally have approached it is not with a primary interest in autism I don't have a family",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-001070"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-001070",
+          "quote": "I personally have approached it is not with a primary interest in autism I don't have a family"
+        }
+      ],
+      "source_support": "SUPPORTED",
+      "checkworthiness": "high",
+      "topics": [
+        "Neuroscience of Emotions "
+      ],
+      "entities": [
+        "Ados"
+      ],
+      "context": "Documented in Window window-0018"
+    },
+    {
+      "claim_ref": "micro-073",
+      "claim_text": "what else is it associated with is it predictive of career success is it predictive of anything else",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-001121"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-001121",
+          "quote": "what else is it associated with is it predictive of career success is it predictive of anything else"
+        }
+      ],
+      "source_support": "SUPPORTED",
+      "checkworthiness": "high",
+      "topics": [
+        "Neuroscience of Emotions "
+      ],
+      "entities": [
+        "Yorkshire",
+        "Zoom"
+      ],
+      "context": "Documented in Window window-0019"
+    },
+    {
+      "claim_ref": "micro-074",
+      "claim_text": "and so we don't know we're measuring everything else and getting lots of questionnaires on these people",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-001122"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-001122",
+          "quote": "and so we don't know we're measuring everything else and getting lots of questionnaires on these people"
+        }
+      ],
+      "source_support": "SUPPORTED",
+      "checkworthiness": "high",
+      "topics": [
+        "Neuroscience of Emotions "
+      ],
+      "entities": [
+        "Yorkshire",
+        "Zoom"
+      ],
+      "context": "Documented in Window window-0019"
+    },
+    {
+      "claim_ref": "micro-075",
+      "claim_text": "to ask what what are the associations and is there any causal hypothesis that we would come up with",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-001123"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-001123",
+          "quote": "to ask what what are the associations and is there any causal hypothesis that we would come up with"
+        }
+      ],
+      "source_support": "SUPPORTED",
+      "checkworthiness": "high",
+      "topics": [
+        "Neuroscience of Emotions "
+      ],
+      "entities": [
+        "Yorkshire",
+        "Zoom"
+      ],
+      "context": "Documented in Window window-0019"
+    },
+    {
+      "claim_ref": "micro-076",
+      "claim_text": "that if you don't look at faces a lot there's some consequences if you look at faces a lot there are",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-001124"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-001124",
+          "quote": "that if you don't look at faces a lot there's some consequences if you look at faces a lot there are"
+        }
+      ],
+      "source_support": "SUPPORTED",
+      "checkworthiness": "high",
+      "topics": [
+        "Neuroscience of Emotions "
+      ],
+      "entities": [
+        "Yorkshire",
+        "Zoom"
+      ],
+      "context": "Documented in Window window-0019"
+    },
+    {
+      "claim_ref": "micro-077",
+      "claim_text": "not actually aligned time the way I described the kind of higher or lower RPM before maybe it",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-001190"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-001190",
+          "quote": "not actually aligned time the way I described the kind of higher or lower RPM before maybe it"
+        }
+      ],
+      "source_support": "SUPPORTED",
+      "checkworthiness": "high",
+      "topics": [
+        "Neuroscience of Emotions "
+      ],
+      "entities": [
+        "Alex",
+        "Honnold",
+        "Sundays"
+      ],
+      "context": "Documented in Window window-0020"
+    },
+    {
+      "claim_ref": "micro-078",
+      "claim_text": "perhaps made it sound like one or the other was better but I think sometimes about like Alex",
+      "claim_kind": "opinion",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-001191"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-001191",
+          "quote": "perhaps made it sound like one or the other was better but I think sometimes about like Alex"
+        }
+      ],
+      "source_support": "SUPPORTED",
+      "checkworthiness": "low",
+      "topics": [
+        "Neuroscience of Emotions "
+      ],
+      "entities": [
+        "Alex",
+        "Honnold",
+        "Sundays"
+      ],
+      "context": "Documented in Window window-0020"
+    },
+    {
+      "claim_ref": "micro-079",
+      "claim_text": "Honnold who again who is a guest on this podcast and there've been claims that his amygdala doesn't",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-001192"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-001192",
+          "quote": "Honnold who again who is a guest on this podcast and there've been claims that his amygdala doesn't"
+        }
+      ],
+      "source_support": "SUPPORTED",
+      "checkworthiness": "high",
+      "topics": [
+        "Neuroscience of Emotions "
+      ],
+      "entities": [
+        "Alex",
+        "Honnold",
+        "Sundays"
+      ],
+      "context": "Documented in Window window-0020"
+    },
+    {
+      "claim_ref": "micro-080",
+      "claim_text": "react as much anyway we could we could talk about that I think Alex kind of like maybe chuckles a",
+      "claim_kind": "opinion",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-001193"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-001193",
+          "quote": "react as much anyway we could we could talk about that I think Alex kind of like maybe chuckles a"
+        }
+      ],
+      "source_support": "SUPPORTED",
+      "checkworthiness": "low",
+      "topics": [
+        "Neuroscience of Emotions "
+      ],
+      "entities": [
+        "Alex",
+        "Honnold",
+        "Sundays"
+      ],
+      "context": "Documented in Window window-0020"
+    },
+    {
+      "claim_ref": "micro-081",
+      "claim_text": "is task switching whether it's emotional tasks switching or cognitive tasks switching like we assume",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-001269"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-001269",
+          "quote": "is task switching whether it's emotional tasks switching or cognitive tasks switching like we assume"
+        }
+      ],
+      "source_support": "SUPPORTED",
+      "checkworthiness": "high",
+      "topics": [
+        "Neuroscience of Emotions "
+      ],
+      "entities": [
+        "Shipley",
+        "Tibetan",
+        "David Anderson"
+      ],
+      "context": "Documented in Window window-0021"
+    },
+    {
+      "claim_ref": "micro-082",
+      "claim_text": "the brain operates in step functions like oh I'm out on the street I navigate traffic I park my",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-001270"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-001270",
+          "quote": "the brain operates in step functions like oh I'm out on the street I navigate traffic I park my"
+        }
+      ],
+      "source_support": "SUPPORTED",
+      "checkworthiness": "high",
+      "topics": [
+        "Neuroscience of Emotions "
+      ],
+      "entities": [
+        "Shipley",
+        "Tibetan",
+        "David Anderson"
+      ],
+      "context": "Documented in Window window-0021"
+    },
+    {
+      "claim_ref": "micro-083",
+      "claim_text": "car and I come in and I podcast and what you're doing at the beginning of this lab meeting in on the",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-001271"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-001271",
+          "quote": "car and I come in and I podcast and what you're doing at the beginning of this lab meeting in on the"
+        }
+      ],
+      "source_support": "SUPPORTED",
+      "checkworthiness": "high",
+      "topics": [
+        "Neuroscience of Emotions "
+      ],
+      "entities": [
+        "Shipley",
+        "Tibetan",
+        "David Anderson"
+      ],
+      "context": "Documented in Window window-0021"
+    },
+    {
+      "claim_ref": "micro-084",
+      "claim_text": "one hand is a meditation but it's pivoting the brain circuits toward what comes next yeah I don't",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-001272"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-001272",
+          "quote": "one hand is a meditation but it's pivoting the brain circuits toward what comes next yeah I don't"
+        }
+      ],
+      "source_support": "SUPPORTED",
+      "checkworthiness": "high",
+      "topics": [
+        "Neuroscience of Emotions "
+      ],
+      "entities": [
+        "Shipley",
+        "Tibetan",
+        "David Anderson"
+      ],
+      "context": "Documented in Window window-0021"
+    },
+    {
+      "claim_ref": "micro-085",
+      "claim_text": "and all of a sudden the bell sounds and you could hear a pin drop but there's thousands of people",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-001345"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-001345",
+          "quote": "and all of a sudden the bell sounds and you could hear a pin drop but there's thousands of people"
+        }
+      ],
+      "source_support": "SUPPORTED",
+      "checkworthiness": "high",
+      "topics": [
+        "Neuroscience of Emotions "
+      ],
+      "entities": [
+        "Shuffle Shuffle Shuffle",
+        "Facebook",
+        "Instagram"
+      ],
+      "context": "Documented in Window window-0022"
+    },
+    {
+      "claim_ref": "micro-086",
+      "claim_text": "around you yeah you hear a bell again the meal begins walking to the auditorium at Shuffle Shuffle Shuffle",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-001346"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-001346",
+          "quote": "around you yeah you hear a bell again the meal begins walking to the auditorium at Shuffle Shuffle Shuffle"
+        }
+      ],
+      "source_support": "SUPPORTED",
+      "checkworthiness": "high",
+      "topics": [
+        "Neuroscience of Emotions "
+      ],
+      "entities": [
+        "Shuffle Shuffle Shuffle",
+        "Facebook",
+        "Instagram"
+      ],
+      "context": "Documented in Window window-0022"
+    },
+    {
+      "claim_ref": "micro-087",
+      "claim_text": "talking talking talking talking boom it's a step function they're training this in the cells",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-001347"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-001347",
+          "quote": "talking talking talking talking boom it's a step function they're training this in the cells"
+        }
+      ],
+      "source_support": "SUPPORTED",
+      "checkworthiness": "high",
+      "topics": [
+        "Neuroscience of Emotions "
+      ],
+      "entities": [
+        "Shuffle Shuffle Shuffle",
+        "Facebook",
+        "Instagram"
+      ],
+      "context": "Documented in Window window-0022"
+    },
+    {
+      "claim_ref": "micro-088",
+      "claim_text": "yeah and the other thing no phones no one has phones during the day they get I think they get an",
+      "claim_kind": "opinion",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-001348"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-001348",
+          "quote": "yeah and the other thing no phones no one has phones during the day they get I think they get an"
+        }
+      ],
+      "source_support": "SUPPORTED",
+      "checkworthiness": "low",
+      "topics": [
+        "Neuroscience of Emotions "
+      ],
+      "entities": [
+        "Shuffle Shuffle Shuffle",
+        "Facebook",
+        "Instagram"
+      ],
+      "context": "Documented in Window window-0022"
+    },
+    {
+      "claim_ref": "micro-089",
+      "claim_text": "if you're learning from and or enjoying this podcast please subscribe to our YouTube channel",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-001411"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-001411",
+          "quote": "if you're learning from and or enjoying this podcast please subscribe to our YouTube channel"
+        }
+      ],
+      "source_support": "SUPPORTED",
+      "checkworthiness": "high",
+      "topics": [
+        "Neuroscience of Emotions "
+      ],
+      "entities": [
+        "Spotify",
+        "Apple",
+        "Hubertman Lab"
+      ],
+      "context": "Documented in Window window-0023"
+    },
+    {
+      "claim_ref": "micro-090",
+      "claim_text": "that's a terrific zero cost way to support us in addition please follow the podcast by clicking",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-001412"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-001412",
+          "quote": "that's a terrific zero cost way to support us in addition please follow the podcast by clicking"
+        }
+      ],
+      "source_support": "SUPPORTED",
+      "checkworthiness": "high",
+      "topics": [
+        "Neuroscience of Emotions "
+      ],
+      "entities": [
+        "Spotify",
+        "Apple",
+        "Hubertman Lab"
+      ],
+      "context": "Documented in Window window-0023"
+    },
+    {
+      "claim_ref": "micro-091",
+      "claim_text": "the follow button on both Spotify and Apple and on both Spotify and Apple you can leave us up to a",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-001413"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-001413",
+          "quote": "the follow button on both Spotify and Apple and on both Spotify and Apple you can leave us up to a"
+        }
+      ],
+      "source_support": "SUPPORTED",
+      "checkworthiness": "high",
+      "topics": [
+        "Neuroscience of Emotions "
+      ],
+      "entities": [
+        "Spotify",
+        "Apple",
+        "Hubertman Lab"
+      ],
+      "context": "Documented in Window window-0023"
+    },
+    {
+      "claim_ref": "micro-092",
+      "claim_text": "five star review and you can now leave us comments at both Spotify and Apple please also check out",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-001414"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-001414",
+          "quote": "five star review and you can now leave us comments at both Spotify and Apple please also check out"
+        }
+      ],
+      "source_support": "SUPPORTED",
+      "checkworthiness": "high",
+      "topics": [
+        "Neuroscience of Emotions "
+      ],
+      "entities": [
+        "Spotify",
+        "Apple",
+        "Hubertman Lab"
+      ],
+      "context": "Documented in Window window-0023"
     }
   ],
   "rejected_or_unresolved_candidates": []

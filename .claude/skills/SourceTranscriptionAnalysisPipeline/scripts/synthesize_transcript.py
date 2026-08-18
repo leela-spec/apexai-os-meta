@@ -213,10 +213,11 @@ class KnowledgeSynthesisEngine:
     def get_external_verification_status(self) -> str:
         if not self.micro_claims:
             return "NOT_RUN"
-        verified_count = sum(1 for c in self.micro_claims if c.verdict in ("CONFIRMED", "CONTRADICTED", "MIXED") or c.external_sources)
-        if verified_count == 0:
+        # Only decisive external verdicts count as verified, NOT merely having search query URLs
+        decisive_count = sum(1 for c in self.micro_claims if c.verdict in ("CONFIRMED", "CONTRADICTED", "MIXED"))
+        if decisive_count == 0:
             return "NOT_RUN"
-        elif verified_count < len(self.micro_claims):
+        elif decisive_count < len(self.micro_claims):
             return "PARTIAL"
         return "COMPLETED"
 
@@ -225,7 +226,7 @@ class KnowledgeSynthesisEngine:
         parts = [
             f"# {self.title}\n",
             "> [!NOTE]\n"
-            "> - **Source Grounding:** VALIDATED (100% exact verbatim match)\n"
+            "> - **Quote Grounding:** VALIDATED (Verbatim Substring Match)\n"
             f"> - **External Fact-Checking:** {ext_status}\n"
         ]
         if self.macro:
@@ -245,7 +246,7 @@ class KnowledgeSynthesisEngine:
         return {
             "title": self.title,
             "validation": {
-                "source_grounded": True,
+                "quote_grounding": "VALIDATED",
                 "external_fact_checking": self.get_external_verification_status()
             },
             "macro": asdict(self.macro) if self.macro else None,

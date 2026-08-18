@@ -13,8 +13,8 @@
 
 ## Context
 
-Extracted from window-0002
+Documented in Window window-0002
 
 ## Links
 
-[[concepts/tech-unter-druck-zi|Tech unter Druck. Zi]]
+[[concepts/tech-unter-druck-zinsen|Tech unter Druck. Zinsen ]] · [[entities/bergab|Bergab]] · [[entities/business|Business]] · [[entities/amor-sports|Amor Sports]]

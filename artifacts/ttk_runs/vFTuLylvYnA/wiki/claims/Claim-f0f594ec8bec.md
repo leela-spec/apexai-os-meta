@@ -1,9 +1,9 @@
 # Claim-f0f594ec8bec
 
 **Proposition:** Nährstack verliert über 300 Punkte vor Handelsstaat und wenn man den Übeltäter suchen will,
-**Kind:** fact
+**Kind:** prediction
 **Source support:** SUPPORTED
-**External status:** [UNVERIFIED]
+**External status:** [NOT_APPLICABLE]
 **Speaker:** unknown
 
 ## Transcript evidence
@@ -13,8 +13,8 @@
 
 ## Context
 
-Extracted from window-0001
+Documented in Window window-0001
 
 ## Links
 
-[[concepts/tech-unter-druck-zi|Tech unter Druck. Zi]]
+[[concepts/tech-unter-druck-zinsen|Tech unter Druck. Zinsen ]] · [[entities/morgen|Morgen]] · [[entities/druck|Druck]] · [[entities/punkte|Punkte]]

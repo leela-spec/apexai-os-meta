@@ -5,7 +5,7 @@
   "window_id": "window-0009",
   "subtopics": [
     {
-      "label": "Window window-0009 Topics",
+      "label": "Thematic Chapter 9 (Calcium, Omega)",
       "source_segment_ids": [
         "seg-000503",
         "seg-000504",
@@ -70,13 +70,13 @@
   ],
   "key_points": [
     {
-      "text": "formula, which is a blend of vitamins, minerals, probiotics, and adaptogens. And it adds three",
+      "text": "formula, which is a blend of vitamins, minerals, probiotics, and adaptogens.",
       "source_segment_ids": [
         "seg-000503"
       ]
     },
     {
-      "text": "important new ingredients, creatine monohydrate, calcium, HMB, and zinc carnacine. Each serving has",
+      "text": "important new ingredients, creatine monohydrate, calcium, HMB, and zinc carnacine.",
       "source_segment_ids": [
         "seg-000504"
       ]
@@ -86,14 +86,52 @@
       "source_segment_ids": [
         "seg-000505"
       ]
+    },
+    {
+      "text": "Calcium, HMB to support muscle recovery and reduce muscle breakdown and zinc carnacine to support",
+      "source_segment_ids": [
+        "seg-000506"
+      ]
+    },
+    {
+      "text": "and improve the lining of your gut.",
+      "source_segment_ids": [
+        "seg-000507"
+      ]
     }
   ],
-  "mechanisms": [],
+  "mechanisms": [
+    {
+      "text": "It took for some reason because it's just harder to do.",
+      "source_segment_ids": [
+        "seg-000523"
+      ]
+    },
+    {
+      "text": "So Paul Ekman, back in the 70s, famous, by the way, I dedicate my forthcoming book to him because",
+      "source_segment_ids": [
+        "seg-000533"
+      ]
+    }
+  ],
   "protocols": [],
-  "arguments": [],
+  "arguments": [
+    {
+      "text": "Because I have a feeling a lot of what was in the",
+      "source_segment_ids": [
+        "seg-000518"
+      ]
+    },
+    {
+      "text": "Google this now, emotional facial expressions, you will find pictures of emotional facial expressions.",
+      "source_segment_ids": [
+        "seg-000537"
+      ]
+    }
+  ],
   "candidate_claims": [
     {
-      "claim_text": "formula, which is a blend of vitamins, minerals, probiotics, and adaptogens. And it adds three",
+      "claim_text": "formula, which is a blend of vitamins, minerals, probiotics, and adaptogens.",
       "claim_kind": "fact",
       "speaker": null,
       "source_segment_ids": [
@@ -102,13 +140,13 @@
       "quote_evidence": [
         {
           "segment_id": "seg-000503",
-          "quote": "formula, which is a blend of vitamins, minerals, probiotics, and adaptogens. And it adds three"
+          "quote": "formula, which is a blend of vitamins, minerals, probiotics, and adaptogens."
         }
       ],
-      "checkworthiness": "medium"
+      "checkworthiness": "high"
     },
     {
-      "claim_text": "important new ingredients, creatine monohydrate, calcium, HMB, and zinc carnacine. Each serving has",
+      "claim_text": "important new ingredients, creatine monohydrate, calcium, HMB, and zinc carnacine.",
       "claim_kind": "fact",
       "speaker": null,
       "source_segment_ids": [
@@ -117,10 +155,10 @@
       "quote_evidence": [
         {
           "segment_id": "seg-000504",
-          "quote": "important new ingredients, creatine monohydrate, calcium, HMB, and zinc carnacine. Each serving has"
+          "quote": "important new ingredients, creatine monohydrate, calcium, HMB, and zinc carnacine."
         }
       ],
-      "checkworthiness": "low"
+      "checkworthiness": "high"
     },
     {
       "claim_text": "five grams of creatine monohydrate to support muscle strength and performance as well as brain health.",
@@ -135,10 +173,47 @@
           "quote": "five grams of creatine monohydrate to support muscle strength and performance as well as brain health."
         }
       ],
-      "checkworthiness": "low"
+      "checkworthiness": "high"
+    },
+    {
+      "claim_text": "Calcium, HMB to support muscle recovery and reduce muscle breakdown and zinc carnacine to support",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000506"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000506",
+          "quote": "Calcium, HMB to support muscle recovery and reduce muscle breakdown and zinc carnacine to support"
+        }
+      ],
+      "checkworthiness": "high"
     }
   ],
-  "entities": [],
+  "entities": [
+    {
+      "name": "Calcium",
+      "type": "topic",
+      "source_segment_ids": [
+        "seg-000506"
+      ]
+    },
+    {
+      "name": "Omega",
+      "type": "topic",
+      "source_segment_ids": [
+        "seg-000512"
+      ]
+    },
+    {
+      "name": "Coins",
+      "type": "topic",
+      "source_segment_ids": [
+        "seg-000512"
+      ]
+    }
+  ],
   "concepts": [],
   "open_questions": [],
   "contradictions_or_uncertainty": []

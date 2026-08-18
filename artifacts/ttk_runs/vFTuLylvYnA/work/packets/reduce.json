@@ -1,10 +1,18 @@
 {
   "contract_version": "ttk.semantic-contract.v2",
   "evidence": {
-    "arguments": [],
+    "arguments": [
+      {
+        "source_segment_ids": [
+          "seg-000002"
+        ],
+        "source_window_id": "window-0001",
+        "text": "Nährstack verliert über 300 Punkte vor Handelsstaat und wenn man den Übeltäter suchen will,"
+      }
+    ],
     "candidate_claims": [
       {
-        "checkworthiness": "medium",
+        "checkworthiness": "high",
         "claim_kind": "fact",
         "claim_text": "So ein schön guten Morgen und schon haben wir den Nährstack wieder unter Druck der S&P ebenfalls",
         "quote_evidence": [
@@ -22,8 +30,8 @@
         "speaker": null
       },
       {
-        "checkworthiness": "low",
-        "claim_kind": "fact",
+        "checkworthiness": "medium",
+        "claim_kind": "prediction",
         "claim_text": "Nährstack verliert über 300 Punkte vor Handelsstaat und wenn man den Übeltäter suchen will,",
         "quote_evidence": [
           {
@@ -40,12 +48,12 @@
         "speaker": null
       },
       {
-        "checkworthiness": "low",
+        "checkworthiness": "high",
         "claim_kind": "fact",
-        "claim_text": "muss man nicht besonders lange suchen. Wir haben die Renditen der 10-jährigen Staatsanleihen heute",
+        "claim_text": "muss man nicht besonders lange suchen.",
         "quote_evidence": [
           {
-            "quote": "muss man nicht besonders lange suchen. Wir haben die Renditen der 10-jährigen Staatsanleihen heute",
+            "quote": "muss man nicht besonders lange suchen.",
             "segment_id": "seg-000003"
           }
         ],
@@ -58,7 +66,25 @@
         "speaker": null
       },
       {
-        "checkworthiness": "medium",
+        "checkworthiness": "high",
+        "claim_kind": "fact",
+        "claim_text": "Wir haben die Renditen der 10-jährigen Staatsanleihen heute",
+        "quote_evidence": [
+          {
+            "quote": "Wir haben die Renditen der 10-jährigen Staatsanleihen heute",
+            "segment_id": "seg-000003"
+          }
+        ],
+        "source_segment_ids": [
+          "seg-000003"
+        ],
+        "source_window_ids": [
+          "window-0001"
+        ],
+        "speaker": null
+      },
+      {
+        "checkworthiness": "high",
         "claim_kind": "fact",
         "claim_text": "bei denen es garantiert, dass es auch Bergab geht, selbst wenn das Business boomt, wenn man das mal böse",
         "quote_evidence": [
@@ -76,7 +102,7 @@
         "speaker": null
       },
       {
-        "checkworthiness": "low",
+        "checkworthiness": "high",
         "claim_kind": "fact",
         "claim_text": "sagt, ja, Amor Sports, ja auch in dem Sektor mit unterwegs, also im Sportbereich und die Akze ist",
         "quote_evidence": [
@@ -94,7 +120,7 @@
         "speaker": null
       },
       {
-        "checkworthiness": "low",
+        "checkworthiness": "high",
         "claim_kind": "fact",
         "claim_text": "heute Morgen auch mit im Plus nach denen zahlen, aber genau das gleiche Bild wie bei Home Depot.",
         "quote_evidence": [
@@ -112,12 +138,30 @@
         "speaker": null
       },
       {
-        "checkworthiness": "medium",
+        "checkworthiness": "high",
         "claim_kind": "fact",
-        "claim_text": "Na ja, die Wall Street findet natürlich immer irgendwelche Gründe. Ja, wir hatten schon in den letzten",
+        "claim_text": "Es letzte Quartal ganz gut, der Ertrag besser als erwartet und ja, auch hier gab's fette Steuer,",
         "quote_evidence": [
           {
-            "quote": "Na ja, die Wall Street findet natürlich immer irgendwelche Gründe. Ja, wir hatten schon in den letzten",
+            "quote": "Es letzte Quartal ganz gut, der Ertrag besser als erwartet und ja, auch hier gab's fette Steuer,",
+            "segment_id": "seg-000080"
+          }
+        ],
+        "source_segment_ids": [
+          "seg-000080"
+        ],
+        "source_window_ids": [
+          "window-0002"
+        ],
+        "speaker": null
+      },
+      {
+        "checkworthiness": "high",
+        "claim_kind": "fact",
+        "claim_text": "Na ja, die Wall Street findet natürlich immer irgendwelche Gründe.",
+        "quote_evidence": [
+          {
+            "quote": "Na ja, die Wall Street findet natürlich immer irgendwelche Gründe.",
             "segment_id": "seg-000131"
           }
         ],
@@ -130,7 +174,25 @@
         "speaker": null
       },
       {
-        "checkworthiness": "low",
+        "checkworthiness": "high",
+        "claim_kind": "fact",
+        "claim_text": "Ja, wir hatten schon in den letzten",
+        "quote_evidence": [
+          {
+            "quote": "Ja, wir hatten schon in den letzten",
+            "segment_id": "seg-000131"
+          }
+        ],
+        "source_segment_ids": [
+          "seg-000131"
+        ],
+        "source_window_ids": [
+          "window-0003"
+        ],
+        "speaker": null
+      },
+      {
+        "checkworthiness": "high",
         "claim_kind": "fact",
         "claim_text": "Tagen oft gute Zahlen und dann trotzdem eben verkäufe, also nach dem Motto 1 Server News Ereignis und",
         "quote_evidence": [
@@ -148,7 +210,7 @@
         "speaker": null
       },
       {
-        "checkworthiness": "low",
+        "checkworthiness": "high",
         "claim_kind": "fact",
         "claim_text": "es gibt ja der Bereich Data-Kommen Umsätze enttäuschend, aber wir reden hier von ein paar Millionen Euro,",
         "quote_evidence": [
@@ -168,7 +230,71 @@
     ],
     "concepts": [],
     "contradictions_or_uncertainty": [],
-    "entities": [],
+    "entities": [
+      {
+        "name": "Morgen",
+        "source_segment_ids": [
+          "seg-000001"
+        ],
+        "type": "topic"
+      },
+      {
+        "name": "Druck",
+        "source_segment_ids": [
+          "seg-000001"
+        ],
+        "type": "topic"
+      },
+      {
+        "name": "Punkte",
+        "source_segment_ids": [
+          "seg-000002"
+        ],
+        "type": "topic"
+      },
+      {
+        "name": "Bergab",
+        "source_segment_ids": [
+          "seg-000077"
+        ],
+        "type": "topic"
+      },
+      {
+        "name": "Business",
+        "source_segment_ids": [
+          "seg-000077"
+        ],
+        "type": "topic"
+      },
+      {
+        "name": "Amor Sports",
+        "source_segment_ids": [
+          "seg-000078"
+        ],
+        "type": "topic"
+      },
+      {
+        "name": "Wall Street",
+        "source_segment_ids": [
+          "seg-000131"
+        ],
+        "type": "topic"
+      },
+      {
+        "name": "Tagen",
+        "source_segment_ids": [
+          "seg-000132"
+        ],
+        "type": "topic"
+      },
+      {
+        "name": "Zahlen",
+        "source_segment_ids": [
+          "seg-000132"
+        ],
+        "type": "topic"
+      }
+    ],
     "key_points": [
       {
         "source_segment_ids": [
@@ -189,7 +315,21 @@
           "seg-000003"
         ],
         "source_window_id": "window-0001",
-        "text": "muss man nicht besonders lange suchen. Wir haben die Renditen der 10-jährigen Staatsanleihen heute"
+        "text": "muss man nicht besonders lange suchen."
+      },
+      {
+        "source_segment_ids": [
+          "seg-000003"
+        ],
+        "source_window_id": "window-0001",
+        "text": "Wir haben die Renditen der 10-jährigen Staatsanleihen heute"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000004"
+        ],
+        "source_window_id": "window-0001",
+        "text": "morgen bei 4,74 Prozent."
       },
       {
         "source_segment_ids": [
@@ -214,10 +354,31 @@
       },
       {
         "source_segment_ids": [
+          "seg-000080"
+        ],
+        "source_window_id": "window-0002",
+        "text": "Es letzte Quartal ganz gut, der Ertrag besser als erwartet und ja, auch hier gab's fette Steuer,"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000081"
+        ],
+        "source_window_id": "window-0002",
+        "text": "also Zollrückerstattungen, aber selbst wenn man die jetzt mal rausrechnet, der Ertrag pro Akze wäre"
+      },
+      {
+        "source_segment_ids": [
           "seg-000131"
         ],
         "source_window_id": "window-0003",
-        "text": "Na ja, die Wall Street findet natürlich immer irgendwelche Gründe. Ja, wir hatten schon in den letzten"
+        "text": "Na ja, die Wall Street findet natürlich immer irgendwelche Gründe."
+      },
+      {
+        "source_segment_ids": [
+          "seg-000131"
+        ],
+        "source_window_id": "window-0003",
+        "text": "Ja, wir hatten schon in den letzten"
       },
       {
         "source_segment_ids": [
@@ -232,6 +393,13 @@
         ],
         "source_window_id": "window-0003",
         "text": "es gibt ja der Bereich Data-Kommen Umsätze enttäuschend, aber wir reden hier von ein paar Millionen Euro,"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000134"
+        ],
+        "source_window_id": "window-0003",
+        "text": "die Data-Kommen Umsätze lagen bei 258 Millionen, das ist eine Verfehlung von 13 Millionen Dollar."
       }
     ],
     "mechanisms": [],
@@ -240,7 +408,7 @@
     "protocols": [],
     "subtopics": [
       {
-        "label": "Window window-0001 Topics",
+        "label": "Thematic Chapter 1 (Morgen, Druck)",
         "source_segment_ids": [
           "seg-000001",
           "seg-000002",
@@ -322,7 +490,7 @@
         "source_window_id": "window-0001"
       },
       {
-        "label": "Window window-0002 Topics",
+        "label": "Thematic Chapter 2 (Bergab, Business)",
         "source_segment_ids": [
           "seg-000077",
           "seg-000078",
@@ -382,7 +550,7 @@
         "source_window_id": "window-0002"
       },
       {
-        "label": "Window window-0003 Topics",
+        "label": "Thematic Chapter 3 (Wall Street, Tagen)",
         "source_segment_ids": [
           "seg-000131",
           "seg-000132",
@@ -437,9 +605,9 @@
       }
     ]
   },
-  "evidence_ledger_sha256": "6bfeb3553f7a223126df7d8fae2f8a34c09369c7a73037658330dbe55109fd45",
+  "evidence_ledger_sha256": "2b73bac82e682f672996fa911927d044de6c2a94844998713a843182f41de64d",
   "packet_id": "reduce-final",
-  "packet_sha256": "5444702152314a703e6013d70714b1a336bec4765e34fce96a41291b035c03c7",
+  "packet_sha256": "2fb697fc45dcf5c61c66b2899fc8a14d7f108a7c860deec834af4b615171f641",
   "result_path": "work/results/reduce.json",
   "rules": [
     "Build Macro and Meso from this validated evidence ledger; do not reread the whole transcript by default.",

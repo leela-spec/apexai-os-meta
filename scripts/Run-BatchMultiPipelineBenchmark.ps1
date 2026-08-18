@@ -2,7 +2,8 @@
 [CmdletBinding()]
 param(
     [string]$RunId = (Get-Date -Format "yyyyMMdd-HHmmss"),
-    [switch]$IncludeSynthesis
+    [switch]$IncludeSynthesis,
+    [switch]$ForceTranscribe
 )
 
 $ErrorActionPreference = "Stop"
@@ -22,10 +23,13 @@ if (Test-Path $nodePath) {
     $jsRuntimeArg = @("--js-runtimes", "node:$nodePath")
 }
 
-# Resolve git commit
+# Resolve git commit & working-tree status
 $gitCommit = "unknown"
+$gitDirty = $false
 try {
     $gitCommit = (& git rev-parse HEAD).Trim()
+    $dirtyCheck = (& git status --porcelain).Trim()
+    if ($dirtyCheck) { $gitDirty = $true }
 } catch {}
 
 $videos = @(
@@ -37,18 +41,21 @@ $videos = @(
 
 Write-Host "==========================================================" -ForegroundColor Cyan
 Write-Host "  FAIL-CLOSED MULTI-PIPELINE BENCHMARK HARNESS" -ForegroundColor Cyan
-Write-Host "  Run ID: $RunId | Commit: $gitCommit" -ForegroundColor Cyan
+Write-Host "  Run ID: $RunId | Commit: $gitCommit (Dirty: $gitDirty)" -ForegroundColor Cyan
 Write-Host "==========================================================" -ForegroundColor Cyan
 
 $benchmarkReceipt = [ordered]@{
     run_id       = $RunId
     timestamp    = (Get-Date).ToUniversalTime().ToString("o")
     git_commit   = $gitCommit
+    git_dirty    = $gitDirty
     sources      = @()
     summary      = @{
-        total_sources    = $videos.Count
-        all_passed       = $true
-        incomplete_count = 0
+        total_sources               = $videos.Count
+        all_passed                  = $false
+        fully_complete_sources      = 0
+        incomplete_count            = 0
+        p2_synthesis_pending_count  = 0
     }
 }
 
@@ -85,9 +92,9 @@ foreach ($v in $videos) {
     $targetJson = Join-Path $p1Dir "$vid.json"
     $targetTxt = Join-Path $p1Dir "$vid.txt"
 
-    # Step 1: Download audio if SRT does not exist
-    if (-not (Test-Path $targetSrt)) {
-        Write-Host "  Downloading audio for $vid..." -ForegroundColor Gray
+    # Download audio and transcribe if SRT missing or ForceTranscribe requested
+    if ($ForceTranscribe -or -not (Test-Path $targetSrt) -or -not (Test-Path $targetJson)) {
+        Write-Host "  Downloading audio stream for $vid..." -ForegroundColor Gray
         $dlArgs = @(
             "--extract-audio",
             "--audio-format", "mp3",
@@ -228,13 +235,28 @@ if (-not (Test-Path $receiptDir)) { New-Item -ItemType Directory -Path $receiptD
 $receiptPath = Join-Path $receiptDir "receipt.json"
 
 $allPassed = $true
+$incompleteCount = 0
+$fullyComplete = 0
+$p2Pending = 0
+
 foreach ($s in $benchmarkReceipt.sources) {
-    if ($s.pipeline_1.status -eq "FAILED" -or $s.pipeline_3.status -eq "FAILED") {
+    if ($s.pipeline_2.status -eq "SYNTHESIS_PENDING") {
+        $p2Pending += 1
+    }
+    
+    # A source is fully complete only if all pipelines completed successfully
+    if ($s.pipeline_1.status -eq "ASR_COMPLETE" -and $s.pipeline_2.status -eq "OPERATOR_ARTIFACT_COMPLETE" -and $s.pipeline_3.status -eq "OPERATOR_ARTIFACT_COMPLETE") {
+        $fullyComplete += 1
+    } else {
         $allPassed = $false
-        $benchmarkReceipt.summary.incomplete_count += 1
+        $incompleteCount += 1
     }
 }
+
 $benchmarkReceipt.summary.all_passed = $allPassed
+$benchmarkReceipt.summary.fully_complete_sources = $fullyComplete
+$benchmarkReceipt.summary.incomplete_count = $incompleteCount
+$benchmarkReceipt.summary.p2_synthesis_pending_count = $p2Pending
 
 $benchmarkReceipt | ConvertTo-Json -Depth 6 | Set-Content -Path $receiptPath -Encoding utf8
 
@@ -243,10 +265,15 @@ Write-Host "  BENCHMARK EXECUTION SUMMARY TABLE" -ForegroundColor Cyan
 Write-Host "==========================================================" -ForegroundColor Cyan
 $resultsTable | Format-Table -AutoSize
 
-Write-Host "Machine-readable receipt: $receiptPath" -ForegroundColor White
+Write-Host "Summary Telemetry:" -ForegroundColor White
+Write-Host "  - Fully Complete Sources: $fullyComplete / $($videos.Count)" -ForegroundColor White
+Write-Host "  - Incomplete / Pending:   $incompleteCount" -ForegroundColor White
+Write-Host "  - P2 Synthesis Pending:   $p2Pending" -ForegroundColor White
+Write-Host "  - All Pipelines Passed:   $allPassed" -ForegroundColor White
+Write-Host "`nMachine-readable receipt: $receiptPath" -ForegroundColor White
 
 if ($allPassed) {
-    Write-Host "`n>> BENCHMARK RUN COMPLETED WITH HONEST FAIL-CLOSED VALIDATION <<" -ForegroundColor Green
+    Write-Host "`n>> ALL PIPELINES FULLY COMPLETE ACROSS ALL SOURCES <<" -ForegroundColor Green
 } else {
-    Write-Host "`n>> BENCHMARK INCOMPLETE: Check errors in $receiptPath <<" -ForegroundColor Red
+    Write-Host "`n>> BENCHMARK RUN COMPLETED: Partial execution ($fullyComplete complete, $incompleteCount pending synthesis/failed) <<" -ForegroundColor Yellow
 }

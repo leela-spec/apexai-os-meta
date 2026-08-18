@@ -13,8 +13,8 @@
 
 ## Context
 
-Extracted from window-0001
+Documented in Window window-0001
 
 ## Links
 
-[[concepts/elliott-prechter-te|Elliott Prechter: Te]]
+[[concepts/elliott-prechter-teachin|Elliott Prechter: Teachin]] · [[entities/elliott|Elliott]] · [[entities/elliott-pregnant|Elliott Pregnant]] · [[entities/elliott-wave-principle|Elliott Wave Principle]]

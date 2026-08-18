@@ -5,7 +5,7 @@
   "window_id": "window-0018",
   "subtopics": [
     {
-      "label": "Window window-0018 Topics",
+      "label": "Thematic Chapter 18 (Ados)",
       "source_segment_ids": [
         "seg-001067",
         "seg-001068",
@@ -82,6 +82,18 @@
       "source_segment_ids": [
         "seg-001069"
       ]
+    },
+    {
+      "text": "I personally have approached it is not with a primary interest in autism I don't have a family",
+      "source_segment_ids": [
+        "seg-001070"
+      ]
+    },
+    {
+      "text": "member who has autism I don't have any personal experience it's really been just like with",
+      "source_segment_ids": [
+        "seg-001071"
+      ]
     }
   ],
   "mechanisms": [],
@@ -101,7 +113,7 @@
           "quote": "kids who have autism of the sort that we're describing and the need we're told to train them to"
         }
       ],
-      "checkworthiness": "medium"
+      "checkworthiness": "high"
     },
     {
       "claim_text": "make eye contact and read faces so this lands square in your work maybe you could just fill out",
@@ -116,7 +128,7 @@
           "quote": "make eye contact and read faces so this lands square in your work maybe you could just fill out"
         }
       ],
-      "checkworthiness": "low"
+      "checkworthiness": "high"
     },
     {
       "claim_text": "a bit of what's now known what's thought what's not known it's a great topic I mean the way that",
@@ -131,10 +143,33 @@
           "quote": "a bit of what's now known what's thought what's not known it's a great topic I mean the way that"
         }
       ],
-      "checkworthiness": "low"
+      "checkworthiness": "high"
+    },
+    {
+      "claim_text": "I personally have approached it is not with a primary interest in autism I don't have a family",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-001070"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-001070",
+          "quote": "I personally have approached it is not with a primary interest in autism I don't have a family"
+        }
+      ],
+      "checkworthiness": "high"
     }
   ],
-  "entities": [],
+  "entities": [
+    {
+      "name": "Ados",
+      "type": "topic",
+      "source_segment_ids": [
+        "seg-001081"
+      ]
+    }
+  ],
   "concepts": [],
   "open_questions": [],
   "contradictions_or_uncertainty": []

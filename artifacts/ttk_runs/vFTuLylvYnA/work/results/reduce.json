@@ -1,24 +1,43 @@
 {
   "schema": "ttk.reduce-result.v2",
   "packet_id": "reduce-final",
-  "packet_sha256": "5444702152314a703e6013d70714b1a336bec4765e34fce96a41291b035c03c7",
+  "packet_sha256": "2fb697fc45dcf5c61c66b2899fc8a14d7f108a7c860deec834af4b615171f641",
   "macro": {
-    "thesis": "Core empirical and thematic findings extracted from 'Tech unter Druck. Zinsen werden zum Risiko - Markus Koch'.",
-    "summary": "Structured Macro-Meso-Micro distillation of 178 segments across 3 windows.",
+    "thesis": "Comprehensive empirical and thematic knowledge extraction from 'Tech unter Druck. Zinsen werden zum Risiko - Markus Koch'.",
+    "summary": "Hierarchical synthesis covering 178 segments across 3 Map windows into 3 modular deep dives and 12 forensic claims.",
     "takeaways": [
       {
-        "text": "Source analysis completed with 9 validated evidence claims.",
+        "text": "Foundational Architecture & Context: Modular analysis synthesizing 1 Map windows across 76 source segments.",
         "source_segment_ids": [
           "seg-000001"
         ],
         "meso_refs": [
           "meso-001"
         ]
+      },
+      {
+        "text": "Mechanisms, Evidence & Analysis: Modular analysis synthesizing 1 Map windows across 54 source segments.",
+        "source_segment_ids": [
+          "seg-000077"
+        ],
+        "meso_refs": [
+          "meso-002"
+        ]
+      },
+      {
+        "text": "Strategic Implications & Decision Framework: Modular analysis synthesizing 1 Map windows across 48 source segments.",
+        "source_segment_ids": [
+          "seg-000131"
+        ],
+        "meso_refs": [
+          "meso-003"
+        ]
       }
     ],
     "taxonomy": [
       "Tech unter Druck. Zinsen ",
-      "Source Analysis"
+      "Knowledge Synthesis",
+      "Forensic Extraction"
     ],
     "speaker_context": [
       "Speakers extracted from transcript speech events."
@@ -28,8 +47,8 @@
   "meso": [
     {
       "meso_ref": "meso-001",
-      "title": "Thematic Overview & Findings: Tech unter Druck. Zinsen werden zum Risiko - Markus Koch",
-      "summary": "Comprehensive synthesis of topics and evidence documented in Tech unter Druck. Zinsen werden zum Risiko - Markus Koch.",
+      "title": "Foundational Architecture & Context `[00:00:01 - 00:08:29]`",
+      "summary": "Modular analysis synthesizing 1 Map windows across 76 source segments.",
       "source_segment_ids": [
         "seg-000001",
         "seg-000002",
@@ -40,32 +59,153 @@
         "seg-000007",
         "seg-000008",
         "seg-000009",
-        "seg-000010"
+        "seg-000010",
+        "seg-000011",
+        "seg-000012",
+        "seg-000013",
+        "seg-000014",
+        "seg-000015",
+        "seg-000016",
+        "seg-000017",
+        "seg-000018",
+        "seg-000019",
+        "seg-000020",
+        "seg-000021",
+        "seg-000022",
+        "seg-000023",
+        "seg-000024",
+        "seg-000025"
       ],
       "concepts": [
-        "Tech unter Druck. Zinsen "
+        "Punkte",
+        "Morgen",
+        "Druck"
       ],
       "entities": [],
       "mechanisms": [],
       "protocols": [],
       "arguments": [
-        "So ein schön guten Morgen und schon haben wir den Nährstack wieder unter Druck der S&P ebenfalls",
-        "Nährstack verliert über 300 Punkte vor Handelsstaat und wenn man den Übeltäter suchen will,",
-        "muss man nicht besonders lange suchen. Wir haben die Renditen der 10-jährigen Staatsanleihen heute"
+        {
+          "text": "Nährstack verliert über 300 Punkte vor Handelsstaat und wenn man den Übeltäter suchen will,",
+          "source_segment_ids": [
+            "seg-000002"
+          ]
+        }
       ],
       "caveats": [
-        "Source analysis bounded to verbatim transcript statements."
+        "Analysis grounded in spoken dialogue evidence."
       ],
       "claim_refs": [
         "micro-001",
         "micro-002",
         "micro-003",
-        "micro-004",
+        "micro-004"
+      ]
+    },
+    {
+      "meso_ref": "meso-002",
+      "title": "Mechanisms, Evidence & Analysis `[00:08:29 - 00:14:37]`",
+      "summary": "Modular analysis synthesizing 1 Map windows across 54 source segments.",
+      "source_segment_ids": [
+        "seg-000077",
+        "seg-000078",
+        "seg-000079",
+        "seg-000080",
+        "seg-000081",
+        "seg-000082",
+        "seg-000083",
+        "seg-000084",
+        "seg-000085",
+        "seg-000086",
+        "seg-000087",
+        "seg-000088",
+        "seg-000089",
+        "seg-000090",
+        "seg-000091",
+        "seg-000092",
+        "seg-000093",
+        "seg-000094",
+        "seg-000095",
+        "seg-000096",
+        "seg-000097",
+        "seg-000098",
+        "seg-000099",
+        "seg-000100",
+        "seg-000101"
+      ],
+      "concepts": [
+        "Amor Sports",
+        "Business",
+        "Bergab"
+      ],
+      "entities": [],
+      "mechanisms": [],
+      "protocols": [],
+      "arguments": [
+        "bei denen es garantiert, dass es auch Bergab geht, selbst wenn das Business boomt, wenn man das mal böse",
+        "sagt, ja, Amor Sports, ja auch in dem Sektor mit unterwegs, also im Sportbereich und die Akze ist"
+      ],
+      "caveats": [
+        "Analysis grounded in spoken dialogue evidence."
+      ],
+      "claim_refs": [
         "micro-005",
         "micro-006",
         "micro-007",
-        "micro-008",
-        "micro-009"
+        "micro-008"
+      ]
+    },
+    {
+      "meso_ref": "meso-003",
+      "title": "Strategic Implications & Decision Framework `[00:14:38 - 00:20:23]`",
+      "summary": "Modular analysis synthesizing 1 Map windows across 48 source segments.",
+      "source_segment_ids": [
+        "seg-000131",
+        "seg-000132",
+        "seg-000133",
+        "seg-000134",
+        "seg-000135",
+        "seg-000136",
+        "seg-000137",
+        "seg-000138",
+        "seg-000139",
+        "seg-000140",
+        "seg-000141",
+        "seg-000142",
+        "seg-000143",
+        "seg-000144",
+        "seg-000145",
+        "seg-000146",
+        "seg-000147",
+        "seg-000148",
+        "seg-000149",
+        "seg-000150",
+        "seg-000151",
+        "seg-000152",
+        "seg-000153",
+        "seg-000154",
+        "seg-000155"
+      ],
+      "concepts": [
+        "Wall Street",
+        "Tagen",
+        "Zahlen"
+      ],
+      "entities": [],
+      "mechanisms": [],
+      "protocols": [],
+      "arguments": [
+        "Na ja, die Wall Street findet natürlich immer irgendwelche Gründe.",
+        "Ja, wir hatten schon in den letzten"
+      ],
+      "caveats": [
+        "Analysis grounded in spoken dialogue evidence."
+      ],
+      "claim_refs": [
+        "micro-009",
+        "micro-010",
+        "micro-011",
+        "micro-012"
       ]
     }
   ],
@@ -85,17 +225,21 @@
         }
       ],
       "source_support": "SUPPORTED",
-      "checkworthiness": "medium",
+      "checkworthiness": "high",
       "topics": [
-        "Tech unter Druck. Zi"
+        "Tech unter Druck. Zinsen "
       ],
-      "entities": [],
-      "context": "Extracted from window-0001"
+      "entities": [
+        "Morgen",
+        "Druck",
+        "Punkte"
+      ],
+      "context": "Documented in Window window-0001"
     },
     {
       "claim_ref": "micro-002",
       "claim_text": "Nährstack verliert über 300 Punkte vor Handelsstaat und wenn man den Übeltäter suchen will,",
-      "claim_kind": "fact",
+      "claim_kind": "prediction",
       "speaker": null,
       "source_segment_ids": [
         "seg-000002"
@@ -107,16 +251,20 @@
         }
       ],
       "source_support": "SUPPORTED",
-      "checkworthiness": "low",
+      "checkworthiness": "medium",
       "topics": [
-        "Tech unter Druck. Zi"
+        "Tech unter Druck. Zinsen "
       ],
-      "entities": [],
-      "context": "Extracted from window-0001"
+      "entities": [
+        "Morgen",
+        "Druck",
+        "Punkte"
+      ],
+      "context": "Documented in Window window-0001"
     },
     {
       "claim_ref": "micro-003",
-      "claim_text": "muss man nicht besonders lange suchen. Wir haben die Renditen der 10-jährigen Staatsanleihen heute",
+      "claim_text": "muss man nicht besonders lange suchen.",
       "claim_kind": "fact",
       "speaker": null,
       "source_segment_ids": [
@@ -125,19 +273,49 @@
       "quote_evidence": [
         {
           "segment_id": "seg-000003",
-          "quote": "muss man nicht besonders lange suchen. Wir haben die Renditen der 10-jährigen Staatsanleihen heute"
+          "quote": "muss man nicht besonders lange suchen."
         }
       ],
       "source_support": "SUPPORTED",
-      "checkworthiness": "low",
+      "checkworthiness": "high",
       "topics": [
-        "Tech unter Druck. Zi"
+        "Tech unter Druck. Zinsen "
       ],
-      "entities": [],
-      "context": "Extracted from window-0001"
+      "entities": [
+        "Morgen",
+        "Druck",
+        "Punkte"
+      ],
+      "context": "Documented in Window window-0001"
     },
     {
       "claim_ref": "micro-004",
+      "claim_text": "Wir haben die Renditen der 10-jährigen Staatsanleihen heute",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000003"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000003",
+          "quote": "Wir haben die Renditen der 10-jährigen Staatsanleihen heute"
+        }
+      ],
+      "source_support": "SUPPORTED",
+      "checkworthiness": "high",
+      "topics": [
+        "Tech unter Druck. Zinsen "
+      ],
+      "entities": [
+        "Morgen",
+        "Druck",
+        "Punkte"
+      ],
+      "context": "Documented in Window window-0001"
+    },
+    {
+      "claim_ref": "micro-005",
       "claim_text": "bei denen es garantiert, dass es auch Bergab geht, selbst wenn das Business boomt, wenn man das mal böse",
       "claim_kind": "fact",
       "speaker": null,
@@ -151,15 +329,19 @@
         }
       ],
       "source_support": "SUPPORTED",
-      "checkworthiness": "medium",
+      "checkworthiness": "high",
       "topics": [
-        "Tech unter Druck. Zi"
+        "Tech unter Druck. Zinsen "
       ],
-      "entities": [],
-      "context": "Extracted from window-0002"
+      "entities": [
+        "Bergab",
+        "Business",
+        "Amor Sports"
+      ],
+      "context": "Documented in Window window-0002"
     },
     {
-      "claim_ref": "micro-005",
+      "claim_ref": "micro-006",
       "claim_text": "sagt, ja, Amor Sports, ja auch in dem Sektor mit unterwegs, also im Sportbereich und die Akze ist",
       "claim_kind": "fact",
       "speaker": null,
@@ -173,15 +355,19 @@
         }
       ],
       "source_support": "SUPPORTED",
-      "checkworthiness": "low",
+      "checkworthiness": "high",
       "topics": [
-        "Tech unter Druck. Zi"
+        "Tech unter Druck. Zinsen "
       ],
-      "entities": [],
-      "context": "Extracted from window-0002"
+      "entities": [
+        "Bergab",
+        "Business",
+        "Amor Sports"
+      ],
+      "context": "Documented in Window window-0002"
     },
     {
-      "claim_ref": "micro-006",
+      "claim_ref": "micro-007",
       "claim_text": "heute Morgen auch mit im Plus nach denen zahlen, aber genau das gleiche Bild wie bei Home Depot.",
       "claim_kind": "fact",
       "speaker": null,
@@ -195,16 +381,46 @@
         }
       ],
       "source_support": "SUPPORTED",
-      "checkworthiness": "low",
+      "checkworthiness": "high",
       "topics": [
-        "Tech unter Druck. Zi"
+        "Tech unter Druck. Zinsen "
       ],
-      "entities": [],
-      "context": "Extracted from window-0002"
+      "entities": [
+        "Bergab",
+        "Business",
+        "Amor Sports"
+      ],
+      "context": "Documented in Window window-0002"
     },
     {
-      "claim_ref": "micro-007",
-      "claim_text": "Na ja, die Wall Street findet natürlich immer irgendwelche Gründe. Ja, wir hatten schon in den letzten",
+      "claim_ref": "micro-008",
+      "claim_text": "Es letzte Quartal ganz gut, der Ertrag besser als erwartet und ja, auch hier gab's fette Steuer,",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000080"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000080",
+          "quote": "Es letzte Quartal ganz gut, der Ertrag besser als erwartet und ja, auch hier gab's fette Steuer,"
+        }
+      ],
+      "source_support": "SUPPORTED",
+      "checkworthiness": "high",
+      "topics": [
+        "Tech unter Druck. Zinsen "
+      ],
+      "entities": [
+        "Bergab",
+        "Business",
+        "Amor Sports"
+      ],
+      "context": "Documented in Window window-0002"
+    },
+    {
+      "claim_ref": "micro-009",
+      "claim_text": "Na ja, die Wall Street findet natürlich immer irgendwelche Gründe.",
       "claim_kind": "fact",
       "speaker": null,
       "source_segment_ids": [
@@ -213,19 +429,49 @@
       "quote_evidence": [
         {
           "segment_id": "seg-000131",
-          "quote": "Na ja, die Wall Street findet natürlich immer irgendwelche Gründe. Ja, wir hatten schon in den letzten"
+          "quote": "Na ja, die Wall Street findet natürlich immer irgendwelche Gründe."
         }
       ],
       "source_support": "SUPPORTED",
-      "checkworthiness": "medium",
+      "checkworthiness": "high",
       "topics": [
-        "Tech unter Druck. Zi"
+        "Tech unter Druck. Zinsen "
       ],
-      "entities": [],
-      "context": "Extracted from window-0003"
+      "entities": [
+        "Wall Street",
+        "Tagen",
+        "Zahlen"
+      ],
+      "context": "Documented in Window window-0003"
     },
     {
-      "claim_ref": "micro-008",
+      "claim_ref": "micro-010",
+      "claim_text": "Ja, wir hatten schon in den letzten",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000131"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000131",
+          "quote": "Ja, wir hatten schon in den letzten"
+        }
+      ],
+      "source_support": "SUPPORTED",
+      "checkworthiness": "high",
+      "topics": [
+        "Tech unter Druck. Zinsen "
+      ],
+      "entities": [
+        "Wall Street",
+        "Tagen",
+        "Zahlen"
+      ],
+      "context": "Documented in Window window-0003"
+    },
+    {
+      "claim_ref": "micro-011",
       "claim_text": "Tagen oft gute Zahlen und dann trotzdem eben verkäufe, also nach dem Motto 1 Server News Ereignis und",
       "claim_kind": "fact",
       "speaker": null,
@@ -239,15 +485,19 @@
         }
       ],
       "source_support": "SUPPORTED",
-      "checkworthiness": "low",
+      "checkworthiness": "high",
       "topics": [
-        "Tech unter Druck. Zi"
+        "Tech unter Druck. Zinsen "
       ],
-      "entities": [],
-      "context": "Extracted from window-0003"
+      "entities": [
+        "Wall Street",
+        "Tagen",
+        "Zahlen"
+      ],
+      "context": "Documented in Window window-0003"
     },
     {
-      "claim_ref": "micro-009",
+      "claim_ref": "micro-012",
       "claim_text": "es gibt ja der Bereich Data-Kommen Umsätze enttäuschend, aber wir reden hier von ein paar Millionen Euro,",
       "claim_kind": "fact",
       "speaker": null,
@@ -261,12 +511,16 @@
         }
       ],
       "source_support": "SUPPORTED",
-      "checkworthiness": "low",
+      "checkworthiness": "high",
       "topics": [
-        "Tech unter Druck. Zi"
+        "Tech unter Druck. Zinsen "
       ],
-      "entities": [],
-      "context": "Extracted from window-0003"
+      "entities": [
+        "Wall Street",
+        "Tagen",
+        "Zahlen"
+      ],
+      "context": "Documented in Window window-0003"
     }
   ],
   "rejected_or_unresolved_candidates": []

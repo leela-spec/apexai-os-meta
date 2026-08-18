@@ -1,18 +1,21 @@
 ﻿{
-    "event_type":  "YOUTUBE_TRANSCRIPT_AND_SYNTHESIS_COMPLETED",
-    "timestamp":  "2026-08-18T15:20:34.9792332Z",
-    "video_id":  "P-h5WSQG1Sw",
-    "video_title":  "Neuroscience of Emotions \u0026 Tools for Improving Emotion Regulation| Dr. Ralph Adolphs",
-    "channel":  "Andrew Huberman",
-    "video_url":  "https://www.youtube.com/watch?v=P-h5WSQG1Sw",
-    "duration_seconds":  7770,
+    "event_type":  "YOUTUBE_TRANSCRIPT_COMPLETED_SYNTHESIS_PENDING",
+    "status":  "ASR_COMPLETE",
+    "timestamp":  "2026-08-18T16:49:29.1822538Z",
+    "video_id":  "vFTuLylvYnA",
+    "video_title":  "Tech unter Druck. Zinsen werden zum Risiko.",
+    "channel":  "Markus Koch Wall Street",
+    "video_url":  "https://www.youtube.com/watch?v=vFTuLylvYnA",
+    "duration_seconds":  1240,
     "model_used":  "base",
     "transcript_files":  {
-                             "knowledge_wiki":  null,
-                             "markdown":  "C:\\GitDev\\apexai-os-meta\\.claude\\skills\\SourceTranscriptionAnalysisPipeline\\artifacts\\transcripts\\P-h5WSQG1Sw\\P-h5WSQG1Sw.md",
-                             "subtitles":  "C:\\GitDev\\apexai-os-meta\\.claude\\skills\\SourceTranscriptionAnalysisPipeline\\artifacts\\transcripts\\P-h5WSQG1Sw\\P-h5WSQG1Sw.srt",
-                             "raw_json":  "C:\\GitDev\\apexai-os-meta\\.claude\\skills\\SourceTranscriptionAnalysisPipeline\\artifacts\\transcripts\\P-h5WSQG1Sw\\P-h5WSQG1Sw.json"
+                             "knowledge_wiki":  "C:\\GitDev\\apexai-os-meta\\.claude\\skills\\SourceTranscriptionAnalysisPipeline\\artifacts\\transcripts\\vFTuLylvYnA\\vFTuLylvYnA_knowledge_wiki.md",
+                             "knowledge_json":  "C:\\GitDev\\apexai-os-meta\\.claude\\skills\\SourceTranscriptionAnalysisPipeline\\artifacts\\transcripts\\vFTuLylvYnA\\vFTuLylvYnA_knowledge_wiki.json",
+                             "markdown":  "C:\\GitDev\\apexai-os-meta\\.claude\\skills\\SourceTranscriptionAnalysisPipeline\\artifacts\\transcripts\\vFTuLylvYnA\\vFTuLylvYnA.md",
+                             "subtitles":  "C:\\GitDev\\apexai-os-meta\\.claude\\skills\\SourceTranscriptionAnalysisPipeline\\artifacts\\transcripts\\vFTuLylvYnA\\vFTuLylvYnA.srt",
+                             "raw_json":  "C:\\GitDev\\apexai-os-meta\\.claude\\skills\\SourceTranscriptionAnalysisPipeline\\artifacts\\transcripts\\vFTuLylvYnA\\vFTuLylvYnA.json",
+                             "plaintext":  "C:\\GitDev\\apexai-os-meta\\.claude\\skills\\SourceTranscriptionAnalysisPipeline\\artifacts\\transcripts\\vFTuLylvYnA\\vFTuLylvYnA.txt"
                          },
-    "transcript_preview":  "I see somebody come up behind me. They can see. I\u0027m trying to park. They can move over. No,\r\nthey come right up behind me, go on the horn. You know, you immediately feel just an immediate\r\nanger response. Right? Well, after the ice bath, it\u0027s flat. So there was an immediate\r\nautomatic down regulation of my autonomic emotional response to a psychological stressor,\r\nsomebody honking at me, that was trained and generalized from the ice bath. It\u0027s an experiment\r\nof one. I\u0027m not claiming this as a pu...",
-    "downstream_guardrail_prompt":  "Review the synthesized knowledge wiki for Andrew Huberman (\u0027Neuroscience of Emotions \u0026 Tools for Improving Emotion Regulation| Dr. Ralph Adolphs\u0027) and update project context."
+    "transcript_preview":  "So ein schön guten Morgen und schon haben wir den Nährstack wieder unter Druck der S\u0026P ebenfalls\r\nNährstack verliert über 300 Punkte vor Handelsstaat und wenn man den Übeltäter suchen will,\r\nmuss man nicht besonders lange suchen. Wir haben die Renditen der 10-jährigen Staatsanleihen heute\r\nmorgen bei 4,74 Prozent. Die kriegen also weiter nach oben. Wir haben die 30-jährigen UE Staatsanleihen\r\nbei fast 5,3 Prozent und damit auf dem höchsten Niveau seit 19 Jahren. Also auftrieb bei den\r\nRenditen d...",
+    "downstream_guardrail_prompt":  "Perform semantic extraction on transcript \u0027vFTuLylvYnA\u0027 (Tech unter Druck. Zinsen werden zum Risiko.) to produce a validated knowledge wiki."
 }

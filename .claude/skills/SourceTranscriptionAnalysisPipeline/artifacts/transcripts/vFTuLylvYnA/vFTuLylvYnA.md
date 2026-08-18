@@ -3,7 +3,7 @@
 - **Language Detected:** `de` (99.0%)
 - **Audio Duration:** 20:40 (1240.2s)
 - **Whisper Model:** `base` (Local CPU / CTranslate2)
-- **Processing Time:** 89.47s (13.9x real-time)
+- **Processing Time:** 95.77s (12.9x real-time)
 
 ---
 

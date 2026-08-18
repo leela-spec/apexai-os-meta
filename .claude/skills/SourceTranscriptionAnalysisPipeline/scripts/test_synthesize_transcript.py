@@ -96,7 +96,25 @@ class TestSynthesizeTranscript(unittest.TestCase):
         md_file, json_file = engine.write_artifacts(self.dir_path, "test_slug")
         self.assertTrue(md_file.exists())
         self.assertTrue(json_file.exists())
-        self.assertIn("Source Grounding:** VALIDATED", md_file.read_text(encoding="utf-8"))
+        self.assertIn("Quote Grounding:** VALIDATED", md_file.read_text(encoding="utf-8"))
+
+    def test_search_urls_alone_leave_external_verification_not_run(self):
+        data_with_urls = dict(VALID_SEMANTIC_DATA)
+        data_with_urls["micro"] = [{
+            "claim_id": "1",
+            "proposition": "The presentation explores neural network architectures and backpropagation algorithms.",
+            "quote": "Today we are going to explore neural network architectures and backpropagation algorithms.",
+            "timestamp": "00:00:05",
+            "claim_type": "FACT",
+            "verdict": "UNVERIFIED",
+            "external_sources": ["https://example.com/paper1", "https://example.com/paper2"]
+        }]
+        sem_path = self.dir_path / "url_semantic.json"
+        sem_path.write_text(json.dumps(data_with_urls), encoding="utf-8")
+        
+        engine = validate_and_load_semantic_result(sem_path, self.spoken_text, title="Test Synthesis")
+        # Crucial bugfix check: URLs present, but verdict is UNVERIFIED -> status MUST be NOT_RUN
+        self.assertEqual(engine.get_external_verification_status(), "NOT_RUN")
 
     def test_invented_quote_fails_validation(self):
         corrupt_data = dict(VALID_SEMANTIC_DATA)

@@ -5,7 +5,7 @@
   "window_id": "window-0001",
   "subtopics": [
     {
-      "label": "Window window-0001 Topics",
+      "label": "Thematic Chapter 1 (Morgen, Druck)",
       "source_segment_ids": [
         "seg-000001",
         "seg-000002",
@@ -100,15 +100,34 @@
       ]
     },
     {
-      "text": "muss man nicht besonders lange suchen. Wir haben die Renditen der 10-jährigen Staatsanleihen heute",
+      "text": "muss man nicht besonders lange suchen.",
       "source_segment_ids": [
         "seg-000003"
+      ]
+    },
+    {
+      "text": "Wir haben die Renditen der 10-jährigen Staatsanleihen heute",
+      "source_segment_ids": [
+        "seg-000003"
+      ]
+    },
+    {
+      "text": "morgen bei 4,74 Prozent.",
+      "source_segment_ids": [
+        "seg-000004"
       ]
     }
   ],
   "mechanisms": [],
   "protocols": [],
-  "arguments": [],
+  "arguments": [
+    {
+      "text": "Nährstack verliert über 300 Punkte vor Handelsstaat und wenn man den Übeltäter suchen will,",
+      "source_segment_ids": [
+        "seg-000002"
+      ]
+    }
+  ],
   "candidate_claims": [
     {
       "claim_text": "So ein schön guten Morgen und schon haben wir den Nährstack wieder unter Druck der S&P ebenfalls",
@@ -123,11 +142,11 @@
           "quote": "So ein schön guten Morgen und schon haben wir den Nährstack wieder unter Druck der S&P ebenfalls"
         }
       ],
-      "checkworthiness": "medium"
+      "checkworthiness": "high"
     },
     {
       "claim_text": "Nährstack verliert über 300 Punkte vor Handelsstaat und wenn man den Übeltäter suchen will,",
-      "claim_kind": "fact",
+      "claim_kind": "prediction",
       "speaker": null,
       "source_segment_ids": [
         "seg-000002"
@@ -138,10 +157,10 @@
           "quote": "Nährstack verliert über 300 Punkte vor Handelsstaat und wenn man den Übeltäter suchen will,"
         }
       ],
-      "checkworthiness": "low"
+      "checkworthiness": "medium"
     },
     {
-      "claim_text": "muss man nicht besonders lange suchen. Wir haben die Renditen der 10-jährigen Staatsanleihen heute",
+      "claim_text": "muss man nicht besonders lange suchen.",
       "claim_kind": "fact",
       "speaker": null,
       "source_segment_ids": [
@@ -150,13 +169,50 @@
       "quote_evidence": [
         {
           "segment_id": "seg-000003",
-          "quote": "muss man nicht besonders lange suchen. Wir haben die Renditen der 10-jährigen Staatsanleihen heute"
+          "quote": "muss man nicht besonders lange suchen."
         }
       ],
-      "checkworthiness": "low"
+      "checkworthiness": "high"
+    },
+    {
+      "claim_text": "Wir haben die Renditen der 10-jährigen Staatsanleihen heute",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000003"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000003",
+          "quote": "Wir haben die Renditen der 10-jährigen Staatsanleihen heute"
+        }
+      ],
+      "checkworthiness": "high"
     }
   ],
-  "entities": [],
+  "entities": [
+    {
+      "name": "Morgen",
+      "type": "topic",
+      "source_segment_ids": [
+        "seg-000001"
+      ]
+    },
+    {
+      "name": "Druck",
+      "type": "topic",
+      "source_segment_ids": [
+        "seg-000001"
+      ]
+    },
+    {
+      "name": "Punkte",
+      "type": "topic",
+      "source_segment_ids": [
+        "seg-000002"
+      ]
+    }
+  ],
   "concepts": [],
   "open_questions": [],
   "contradictions_or_uncertainty": []

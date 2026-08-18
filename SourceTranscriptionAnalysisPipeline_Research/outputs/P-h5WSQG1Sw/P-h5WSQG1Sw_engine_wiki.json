@@ -1,4 +1,9 @@
 {
+  "coverage": {
+    "total_source_segments": 1438,
+    "covered_segments": 0,
+    "coverage_pct": 0.0
+  },
   "macro": {
     "core_thesis": "Emotions are functional brain-body states constructed for survival and behavioral decision-making, which can be modulated through deliberate autonomic stress conditioning like cold immersion.",
     "global_takeaways": [
@@ -41,7 +46,8 @@
       ],
       "caveats": [
         "Empirical single-subject observation; requires systematic repetition for neural plasticity."
-      ]
+      ],
+      "source_segment_ids": []
     }
   ],
   "micro": [

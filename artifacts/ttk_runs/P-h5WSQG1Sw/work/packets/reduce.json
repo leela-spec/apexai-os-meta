@@ -1,15 +1,310 @@
 {
   "contract_version": "ttk.semantic-contract.v2",
   "evidence": {
-    "arguments": [],
+    "arguments": [
+      {
+        "source_segment_ids": [
+          "seg-000002"
+        ],
+        "source_window_id": "window-0001",
+        "text": "You know, you immediately feel just an immediate"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000006"
+        ],
+        "source_window_id": "window-0001",
+        "text": "I'm not claiming this as a published study, but I think there's a direct autonomic"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000050"
+        ],
+        "source_window_id": "window-0002",
+        "text": "The basic answer is that I think of emotions as functional states of a particular type."
+      },
+      {
+        "source_segment_ids": [
+          "seg-000065"
+        ],
+        "source_window_id": "window-0002",
+        "text": "I mean, first of all, I think the question,"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000118"
+        ],
+        "source_window_id": "window-0003",
+        "text": "I mean, I think you know, when you list these features"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000121"
+        ],
+        "source_window_id": "window-0003",
+        "text": "And I think the answer is some of them are sufficient, but there's some"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000176"
+        ],
+        "source_window_id": "window-0004",
+        "text": "If you go to the Helix website, you can take a brief two-minute quiz and it will ask you questions"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000179"
+        ],
+        "source_window_id": "window-0004",
+        "text": "and Helix will match you to the ideal mattress for you."
+      },
+      {
+        "source_segment_ids": [
+          "seg-000232"
+        ],
+        "source_window_id": "window-0005",
+        "text": "that is you equate, you conflate emotions with feelings, well, then you're not studying emotions,"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000255"
+        ],
+        "source_window_id": "window-0005",
+        "text": "I think all of us have had the experience"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000301"
+        ],
+        "source_window_id": "window-0006",
+        "text": "I think it's, you know, it's a mixture."
+      },
+      {
+        "source_segment_ids": [
+          "seg-000304"
+        ],
+        "source_window_id": "window-0006",
+        "text": "in Iowa in 1994, I think, you know, if you have massive frontal lobe lesions that make it the case"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000359"
+        ],
+        "source_window_id": "window-0007",
+        "text": "I really don't want to feel sad."
+      },
+      {
+        "source_segment_ids": [
+          "seg-000359"
+        ],
+        "source_window_id": "window-0007",
+        "text": "I really don't want to feel sad."
+      },
+      {
+        "source_segment_ids": [
+          "seg-000419"
+        ],
+        "source_window_id": "window-0008",
+        "text": "you were describing how, you know, at some points during these races, you just feel like complete"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000420"
+        ],
+        "source_window_id": "window-0008",
+        "text": "But then you start to feel better."
+      },
+      {
+        "source_segment_ids": [
+          "seg-000518"
+        ],
+        "source_window_id": "window-0009",
+        "text": "Because I have a feeling a lot of what was in the"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000537"
+        ],
+        "source_window_id": "window-0009",
+        "text": "Google this now, emotional facial expressions, you will find pictures of emotional facial expressions."
+      },
+      {
+        "source_segment_ids": [
+          "seg-000562"
+        ],
+        "source_window_id": "window-0010",
+        "text": "there's several studies now, where dog owners, if you ask them, can you tell if your dog feels guilty"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000569"
+        ],
+        "source_window_id": "window-0010",
+        "text": "I would ask you, how are you feeling?"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000641"
+        ],
+        "source_window_id": "window-0011",
+        "text": "And I project on him what that's about."
+      },
+      {
+        "source_segment_ids": [
+          "seg-000653"
+        ],
+        "source_window_id": "window-0011",
+        "text": "But we did a study, again, just in Feinstein, I think was the first author in this one as well,"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000734"
+        ],
+        "source_window_id": "window-0012",
+        "text": "that William James had back in 1884."
+      },
+      {
+        "source_segment_ids": [
+          "seg-000735"
+        ],
+        "source_window_id": "window-0012",
+        "text": "was that you see the bear, you run away, your heart rate goes up, and then you feel the emotion,"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000775"
+        ],
+        "source_window_id": "window-0013",
+        "text": "feels extreme anger, like of the sort that they would have right before they were in a fight,"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000785"
+        ],
+        "source_window_id": "window-0013",
+        "text": "and the fact that the brain and the body are so intimately tied together, I think it's a"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000832"
+        ],
+        "source_window_id": "window-0014",
+        "text": "And I just feel peace."
+      },
+      {
+        "source_segment_ids": [
+          "seg-000841"
+        ],
+        "source_window_id": "window-0014",
+        "text": "And I think they set it up so that you and I could hear the"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000914"
+        ],
+        "source_window_id": "window-0015",
+        "text": "Not that exact experiment but I think that in broad strokes,"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000921"
+        ],
+        "source_window_id": "window-0015",
+        "text": "will know how this works in the visual system and artificial systems, deep convolutional neural"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000953"
+        ],
+        "source_window_id": "window-0016",
+        "text": "in tune with like what everyone in the room is feeling who did this who didn't do that and going"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000966"
+        ],
+        "source_window_id": "window-0016",
+        "text": "it's there's a cost well I think it's extremely heterogeneous and so this is not sort of one-size fits"
+      },
+      {
+        "source_segment_ids": [
+          "seg-001015"
+        ],
+        "source_window_id": "window-0017",
+        "text": "liberating you feel like we've broken the social mold here a little bit and someone would say excuse"
+      },
+      {
+        "source_segment_ids": [
+          "seg-001027"
+        ],
+        "source_window_id": "window-0017",
+        "text": "very successful who are on the spectrum to some extent and I think you know coming back to what you"
+      },
+      {
+        "source_segment_ids": [
+          "seg-001136"
+        ],
+        "source_window_id": "window-0019",
+        "text": "constitutes you have the core of their personality that's unchangeable but I think it's a super"
+      },
+      {
+        "source_segment_ids": [
+          "seg-001138"
+        ],
+        "source_window_id": "window-0019",
+        "text": "yeah I think about this all the time I feel like some people this is pseudoscientific what I'm about"
+      },
+      {
+        "source_segment_ids": [
+          "seg-001191"
+        ],
+        "source_window_id": "window-0020",
+        "text": "perhaps made it sound like one or the other was better but I think sometimes about like Alex"
+      },
+      {
+        "source_segment_ids": [
+          "seg-001193"
+        ],
+        "source_window_id": "window-0020",
+        "text": "react as much anyway we could we could talk about that I think Alex kind of like maybe chuckles a"
+      },
+      {
+        "source_segment_ids": [
+          "seg-001294"
+        ],
+        "source_window_id": "window-0021",
+        "text": "he can scoop his daughter up yeah people either chuckled or I think we're kind of taking a back"
+      },
+      {
+        "source_segment_ids": [
+          "seg-001302"
+        ],
+        "source_window_id": "window-0021",
+        "text": "they're super important and it's trainable it's largely trainable and I think if you have"
+      },
+      {
+        "source_segment_ids": [
+          "seg-001348"
+        ],
+        "source_window_id": "window-0022",
+        "text": "yeah and the other thing no phones no one has phones during the day they get I think they get an"
+      },
+      {
+        "source_segment_ids": [
+          "seg-001365"
+        ],
+        "source_window_id": "window-0022",
+        "text": "well it's got two things I think it's about emotion regulation so you know you know initially when"
+      }
+    ],
     "candidate_claims": [
       {
-        "checkworthiness": "medium",
+        "checkworthiness": "high",
         "claim_kind": "fact",
-        "claim_text": "I see somebody come up behind me. They can see. I'm trying to park. They can move over. No,",
+        "claim_text": "I see somebody come up behind me.",
         "quote_evidence": [
           {
-            "quote": "I see somebody come up behind me. They can see. I'm trying to park. They can move over. No,",
+            "quote": "I see somebody come up behind me.",
             "segment_id": "seg-000001"
           }
         ],
@@ -22,12 +317,12 @@
         "speaker": null
       },
       {
-        "checkworthiness": "low",
+        "checkworthiness": "high",
         "claim_kind": "fact",
-        "claim_text": "they come right up behind me, go on the horn. You know, you immediately feel just an immediate",
+        "claim_text": "they come right up behind me, go on the horn.",
         "quote_evidence": [
           {
-            "quote": "they come right up behind me, go on the horn. You know, you immediately feel just an immediate",
+            "quote": "they come right up behind me, go on the horn.",
             "segment_id": "seg-000002"
           }
         ],
@@ -41,11 +336,29 @@
       },
       {
         "checkworthiness": "low",
-        "claim_kind": "fact",
-        "claim_text": "anger response. Right? Well, after the ice bath, it's flat. So there was an immediate",
+        "claim_kind": "opinion",
+        "claim_text": "You know, you immediately feel just an immediate",
         "quote_evidence": [
           {
-            "quote": "anger response. Right? Well, after the ice bath, it's flat. So there was an immediate",
+            "quote": "You know, you immediately feel just an immediate",
+            "segment_id": "seg-000002"
+          }
+        ],
+        "source_segment_ids": [
+          "seg-000002"
+        ],
+        "source_window_ids": [
+          "window-0001"
+        ],
+        "speaker": null
+      },
+      {
+        "checkworthiness": "high",
+        "claim_kind": "fact",
+        "claim_text": "Well, after the ice bath, it's flat.",
+        "quote_evidence": [
+          {
+            "quote": "Well, after the ice bath, it's flat.",
             "segment_id": "seg-000003"
           }
         ],
@@ -58,12 +371,12 @@
         "speaker": null
       },
       {
-        "checkworthiness": "medium",
+        "checkworthiness": "high",
         "claim_kind": "fact",
-        "claim_text": "findings and emotion from animal studies, findings from social psychology. Typically those people in",
+        "claim_text": "findings and emotion from animal studies, findings from social psychology.",
         "quote_evidence": [
           {
-            "quote": "findings and emotion from animal studies, findings from social psychology. Typically those people in",
+            "quote": "findings and emotion from animal studies, findings from social psychology.",
             "segment_id": "seg-000044"
           }
         ],
@@ -76,12 +389,48 @@
         "speaker": null
       },
       {
-        "checkworthiness": "low",
+        "checkworthiness": "high",
         "claim_kind": "fact",
-        "claim_text": "those fields don't talk to one another. They do very different studies, very different methodologies,",
+        "claim_text": "Typically those people in",
         "quote_evidence": [
           {
-            "quote": "those fields don't talk to one another. They do very different studies, very different methodologies,",
+            "quote": "Typically those people in",
+            "segment_id": "seg-000044"
+          }
+        ],
+        "source_segment_ids": [
+          "seg-000044"
+        ],
+        "source_window_ids": [
+          "window-0002"
+        ],
+        "speaker": null
+      },
+      {
+        "checkworthiness": "high",
+        "claim_kind": "fact",
+        "claim_text": "those fields don't talk to one another.",
+        "quote_evidence": [
+          {
+            "quote": "those fields don't talk to one another.",
+            "segment_id": "seg-000045"
+          }
+        ],
+        "source_segment_ids": [
+          "seg-000045"
+        ],
+        "source_window_ids": [
+          "window-0002"
+        ],
+        "speaker": null
+      },
+      {
+        "checkworthiness": "high",
+        "claim_kind": "fact",
+        "claim_text": "They do very different studies, very different methodologies,",
+        "quote_evidence": [
+          {
+            "quote": "They do very different studies, very different methodologies,",
             "segment_id": "seg-000045"
           }
         ],
@@ -95,25 +444,7 @@
       },
       {
         "checkworthiness": "low",
-        "claim_kind": "fact",
-        "claim_text": "and so trying to integrate across disciplines that are that far apart to really try and get a sense",
-        "quote_evidence": [
-          {
-            "quote": "and so trying to integrate across disciplines that are that far apart to really try and get a sense",
-            "segment_id": "seg-000046"
-          }
-        ],
-        "source_segment_ids": [
-          "seg-000046"
-        ],
-        "source_window_ids": [
-          "window-0002"
-        ],
-        "speaker": null
-      },
-      {
-        "checkworthiness": "medium",
-        "claim_kind": "fact",
+        "claim_kind": "definition",
         "claim_text": "I called it the principle of antithesis is valence, which is approach or avoid pleasant or",
         "quote_evidence": [
           {
@@ -130,12 +461,12 @@
         "speaker": null
       },
       {
-        "checkworthiness": "low",
+        "checkworthiness": "high",
         "claim_kind": "fact",
-        "claim_text": "unpleasant, this basic valence dimension. Are there any neutral emotions? I ask this because",
+        "claim_text": "unpleasant, this basic valence dimension.",
         "quote_evidence": [
           {
-            "quote": "unpleasant, this basic valence dimension. Are there any neutral emotions? I ask this because",
+            "quote": "unpleasant, this basic valence dimension.",
             "segment_id": "seg-000108"
           }
         ],
@@ -148,7 +479,25 @@
         "speaker": null
       },
       {
-        "checkworthiness": "low",
+        "checkworthiness": "high",
+        "claim_kind": "fact",
+        "claim_text": "Are there any neutral emotions?",
+        "quote_evidence": [
+          {
+            "quote": "Are there any neutral emotions?",
+            "segment_id": "seg-000108"
+          }
+        ],
+        "source_segment_ids": [
+          "seg-000108"
+        ],
+        "source_window_ids": [
+          "window-0003"
+        ],
+        "speaker": null
+      },
+      {
+        "checkworthiness": "high",
         "claim_kind": "fact",
         "claim_text": "your colleague at Caltech who I respect tremendously Marcus Meister once wrote a review where he said,",
         "quote_evidence": [
@@ -166,12 +515,12 @@
         "speaker": null
       },
       {
-        "checkworthiness": "medium",
+        "checkworthiness": "high",
         "claim_kind": "fact",
-        "claim_text": "I'd like to take a quick break and acknowledge our sponsor, Helix Sleep. Helix Sleep makes matrices",
+        "claim_text": "I'd like to take a quick break and acknowledge our sponsor, Helix Sleep.",
         "quote_evidence": [
           {
-            "quote": "I'd like to take a quick break and acknowledge our sponsor, Helix Sleep. Helix Sleep makes matrices",
+            "quote": "I'd like to take a quick break and acknowledge our sponsor, Helix Sleep.",
             "segment_id": "seg-000168"
           }
         ],
@@ -184,12 +533,30 @@
         "speaker": null
       },
       {
-        "checkworthiness": "low",
+        "checkworthiness": "high",
         "claim_kind": "fact",
-        "claim_text": "and pillows that are customized to your unique sleep needs. Now, I've spoken many times before on",
+        "claim_text": "Helix Sleep makes matrices",
         "quote_evidence": [
           {
-            "quote": "and pillows that are customized to your unique sleep needs. Now, I've spoken many times before on",
+            "quote": "Helix Sleep makes matrices",
+            "segment_id": "seg-000168"
+          }
+        ],
+        "source_segment_ids": [
+          "seg-000168"
+        ],
+        "source_window_ids": [
+          "window-0004"
+        ],
+        "speaker": null
+      },
+      {
+        "checkworthiness": "high",
+        "claim_kind": "fact",
+        "claim_text": "and pillows that are customized to your unique sleep needs.",
+        "quote_evidence": [
+          {
+            "quote": "and pillows that are customized to your unique sleep needs.",
             "segment_id": "seg-000169"
           }
         ],
@@ -202,17 +569,17 @@
         "speaker": null
       },
       {
-        "checkworthiness": "low",
+        "checkworthiness": "high",
         "claim_kind": "fact",
-        "claim_text": "this and on other podcasts about the fact that getting a great night's sleep is the foundation of",
+        "claim_text": "Now, I've spoken many times before on",
         "quote_evidence": [
           {
-            "quote": "this and on other podcasts about the fact that getting a great night's sleep is the foundation of",
-            "segment_id": "seg-000170"
+            "quote": "Now, I've spoken many times before on",
+            "segment_id": "seg-000169"
           }
         ],
         "source_segment_ids": [
-          "seg-000170"
+          "seg-000169"
         ],
         "source_window_ids": [
           "window-0004"
@@ -220,7 +587,7 @@
         "speaker": null
       },
       {
-        "checkworthiness": "medium",
+        "checkworthiness": "high",
         "claim_kind": "fact",
         "claim_text": "And the other question is, if you tie emotion to the conscious experience of emotion,",
         "quote_evidence": [
@@ -239,7 +606,7 @@
       },
       {
         "checkworthiness": "low",
-        "claim_kind": "fact",
+        "claim_kind": "opinion",
         "claim_text": "that is you equate, you conflate emotions with feelings, well, then you're not studying emotions,",
         "quote_evidence": [
           {
@@ -256,12 +623,12 @@
         "speaker": null
       },
       {
-        "checkworthiness": "low",
+        "checkworthiness": "high",
         "claim_kind": "fact",
-        "claim_text": "you're studying consciousness. If you spoke about Christoph Koch earlier, great respect for people",
+        "claim_text": "you're studying consciousness.",
         "quote_evidence": [
           {
-            "quote": "you're studying consciousness. If you spoke about Christoph Koch earlier, great respect for people",
+            "quote": "you're studying consciousness.",
             "segment_id": "seg-000233"
           }
         ],
@@ -274,12 +641,30 @@
         "speaker": null
       },
       {
-        "checkworthiness": "medium",
+        "checkworthiness": "high",
         "claim_kind": "fact",
-        "claim_text": "That's kind of the ideal circumstance, right? Yeah. So what do you know that allowed that has",
+        "claim_text": "If you spoke about Christoph Koch earlier, great respect for people",
         "quote_evidence": [
           {
-            "quote": "That's kind of the ideal circumstance, right? Yeah. So what do you know that allowed that has",
+            "quote": "If you spoke about Christoph Koch earlier, great respect for people",
+            "segment_id": "seg-000233"
+          }
+        ],
+        "source_segment_ids": [
+          "seg-000233"
+        ],
+        "source_window_ids": [
+          "window-0005"
+        ],
+        "speaker": null
+      },
+      {
+        "checkworthiness": "high",
+        "claim_kind": "fact",
+        "claim_text": "That's kind of the ideal circumstance, right?",
+        "quote_evidence": [
+          {
+            "quote": "That's kind of the ideal circumstance, right?",
             "segment_id": "seg-000299"
           }
         ],
@@ -292,7 +677,25 @@
         "speaker": null
       },
       {
-        "checkworthiness": "low",
+        "checkworthiness": "high",
+        "claim_kind": "fact",
+        "claim_text": "So what do you know that allowed that has",
+        "quote_evidence": [
+          {
+            "quote": "So what do you know that allowed that has",
+            "segment_id": "seg-000299"
+          }
+        ],
+        "source_segment_ids": [
+          "seg-000299"
+        ],
+        "source_window_ids": [
+          "window-0006"
+        ],
+        "speaker": null
+      },
+      {
+        "checkworthiness": "high",
         "claim_kind": "fact",
         "claim_text": "impacted the way that you think about emotion regulation that perhaps people could consider,",
         "quote_evidence": [
@@ -311,11 +714,11 @@
       },
       {
         "checkworthiness": "low",
-        "claim_kind": "fact",
-        "claim_text": "if not benefit from? Yeah. I think it's, you know, it's a mixture. On the one hand,",
+        "claim_kind": "opinion",
+        "claim_text": "I think it's, you know, it's a mixture.",
         "quote_evidence": [
           {
-            "quote": "if not benefit from? Yeah. I think it's, you know, it's a mixture. On the one hand,",
+            "quote": "I think it's, you know, it's a mixture.",
             "segment_id": "seg-000301"
           }
         ],
@@ -328,12 +731,12 @@
         "speaker": null
       },
       {
-        "checkworthiness": "medium",
+        "checkworthiness": "high",
         "claim_kind": "fact",
-        "claim_text": "we appraisal or any other sort of complex we appraisal strategy for emotions. It is a double-edged",
+        "claim_text": "we appraisal or any other sort of complex we appraisal strategy for emotions.",
         "quote_evidence": [
           {
-            "quote": "we appraisal or any other sort of complex we appraisal strategy for emotions. It is a double-edged",
+            "quote": "we appraisal or any other sort of complex we appraisal strategy for emotions.",
             "segment_id": "seg-000357"
           }
         ],
@@ -346,12 +749,30 @@
         "speaker": null
       },
       {
-        "checkworthiness": "low",
+        "checkworthiness": "high",
         "claim_kind": "fact",
-        "claim_text": "sword and it's trainable. It's as you say, if I really focus on, okay, now, you know, I'm starting",
+        "claim_text": "sword and it's trainable.",
         "quote_evidence": [
           {
-            "quote": "sword and it's trainable. It's as you say, if I really focus on, okay, now, you know, I'm starting",
+            "quote": "sword and it's trainable.",
+            "segment_id": "seg-000358"
+          }
+        ],
+        "source_segment_ids": [
+          "seg-000358"
+        ],
+        "source_window_ids": [
+          "window-0007"
+        ],
+        "speaker": null
+      },
+      {
+        "checkworthiness": "high",
+        "claim_kind": "fact",
+        "claim_text": "It's as you say, if I really focus on, okay, now, you know, I'm starting",
+        "quote_evidence": [
+          {
+            "quote": "It's as you say, if I really focus on, okay, now, you know, I'm starting",
             "segment_id": "seg-000358"
           }
         ],
@@ -365,11 +786,11 @@
       },
       {
         "checkworthiness": "low",
-        "claim_kind": "fact",
-        "claim_text": "to feel sad. I really don't want to feel sad. I really don't want to feel sad. I really don't",
+        "claim_kind": "opinion",
+        "claim_text": "I really don't want to feel sad.",
         "quote_evidence": [
           {
-            "quote": "to feel sad. I really don't want to feel sad. I really don't want to feel sad. I really don't",
+            "quote": "I really don't want to feel sad.",
             "segment_id": "seg-000359"
           }
         ],
@@ -382,8 +803,8 @@
         "speaker": null
       },
       {
-        "checkworthiness": "medium",
-        "claim_kind": "fact",
+        "checkworthiness": "low",
+        "claim_kind": "opinion",
         "claim_text": "you were describing how, you know, at some points during these races, you just feel like complete",
         "quote_evidence": [
           {
@@ -401,11 +822,11 @@
       },
       {
         "checkworthiness": "low",
-        "claim_kind": "fact",
-        "claim_text": "garbage. But then you start to feel better. And so then the next time you feel like complete",
+        "claim_kind": "opinion",
+        "claim_text": "But then you start to feel better.",
         "quote_evidence": [
           {
-            "quote": "garbage. But then you start to feel better. And so then the next time you feel like complete",
+            "quote": "But then you start to feel better.",
             "segment_id": "seg-000420"
           }
         ],
@@ -419,11 +840,29 @@
       },
       {
         "checkworthiness": "low",
-        "claim_kind": "fact",
-        "claim_text": "garbage, you have the cognitive knowledge that you felt terrible then better again. And so you're",
+        "claim_kind": "opinion",
+        "claim_text": "And so then the next time you feel like complete",
         "quote_evidence": [
           {
-            "quote": "garbage, you have the cognitive knowledge that you felt terrible then better again. And so you're",
+            "quote": "And so then the next time you feel like complete",
+            "segment_id": "seg-000420"
+          }
+        ],
+        "source_segment_ids": [
+          "seg-000420"
+        ],
+        "source_window_ids": [
+          "window-0008"
+        ],
+        "speaker": null
+      },
+      {
+        "checkworthiness": "high",
+        "claim_kind": "fact",
+        "claim_text": "garbage, you have the cognitive knowledge that you felt terrible then better again.",
+        "quote_evidence": [
+          {
+            "quote": "garbage, you have the cognitive knowledge that you felt terrible then better again.",
             "segment_id": "seg-000421"
           }
         ],
@@ -436,12 +875,12 @@
         "speaker": null
       },
       {
-        "checkworthiness": "medium",
+        "checkworthiness": "high",
         "claim_kind": "fact",
-        "claim_text": "formula, which is a blend of vitamins, minerals, probiotics, and adaptogens. And it adds three",
+        "claim_text": "formula, which is a blend of vitamins, minerals, probiotics, and adaptogens.",
         "quote_evidence": [
           {
-            "quote": "formula, which is a blend of vitamins, minerals, probiotics, and adaptogens. And it adds three",
+            "quote": "formula, which is a blend of vitamins, minerals, probiotics, and adaptogens.",
             "segment_id": "seg-000503"
           }
         ],
@@ -454,12 +893,12 @@
         "speaker": null
       },
       {
-        "checkworthiness": "low",
+        "checkworthiness": "high",
         "claim_kind": "fact",
-        "claim_text": "important new ingredients, creatine monohydrate, calcium, HMB, and zinc carnacine. Each serving has",
+        "claim_text": "important new ingredients, creatine monohydrate, calcium, HMB, and zinc carnacine.",
         "quote_evidence": [
           {
-            "quote": "important new ingredients, creatine monohydrate, calcium, HMB, and zinc carnacine. Each serving has",
+            "quote": "important new ingredients, creatine monohydrate, calcium, HMB, and zinc carnacine.",
             "segment_id": "seg-000504"
           }
         ],
@@ -472,7 +911,7 @@
         "speaker": null
       },
       {
-        "checkworthiness": "low",
+        "checkworthiness": "high",
         "claim_kind": "fact",
         "claim_text": "five grams of creatine monohydrate to support muscle strength and performance as well as brain health.",
         "quote_evidence": [
@@ -490,7 +929,25 @@
         "speaker": null
       },
       {
-        "checkworthiness": "medium",
+        "checkworthiness": "high",
+        "claim_kind": "fact",
+        "claim_text": "Calcium, HMB to support muscle recovery and reduce muscle breakdown and zinc carnacine to support",
+        "quote_evidence": [
+          {
+            "quote": "Calcium, HMB to support muscle recovery and reduce muscle breakdown and zinc carnacine to support",
+            "segment_id": "seg-000506"
+          }
+        ],
+        "source_segment_ids": [
+          "seg-000506"
+        ],
+        "source_window_ids": [
+          "window-0009"
+        ],
+        "speaker": null
+      },
+      {
+        "checkworthiness": "high",
         "claim_kind": "fact",
         "claim_text": "talking before coming in here to one of your colleagues about your cute dog, and they've done studies,",
         "quote_evidence": [
@@ -509,7 +966,7 @@
       },
       {
         "checkworthiness": "low",
-        "claim_kind": "fact",
+        "claim_kind": "opinion",
         "claim_text": "there's several studies now, where dog owners, if you ask them, can you tell if your dog feels guilty",
         "quote_evidence": [
           {
@@ -526,12 +983,12 @@
         "speaker": null
       },
       {
-        "checkworthiness": "low",
-        "claim_kind": "fact",
-        "claim_text": "when you come home? Because it did something bad. Dog owners are pretty convinced they can tell.",
+        "checkworthiness": "medium",
+        "claim_kind": "mechanism",
+        "claim_text": "Because it did something bad.",
         "quote_evidence": [
           {
-            "quote": "when you come home? Because it did something bad. Dog owners are pretty convinced they can tell.",
+            "quote": "Because it did something bad.",
             "segment_id": "seg-000563"
           }
         ],
@@ -544,7 +1001,25 @@
         "speaker": null
       },
       {
-        "checkworthiness": "medium",
+        "checkworthiness": "high",
+        "claim_kind": "fact",
+        "claim_text": "Dog owners are pretty convinced they can tell.",
+        "quote_evidence": [
+          {
+            "quote": "Dog owners are pretty convinced they can tell.",
+            "segment_id": "seg-000563"
+          }
+        ],
+        "source_segment_ids": [
+          "seg-000563"
+        ],
+        "source_window_ids": [
+          "window-0010"
+        ],
+        "speaker": null
+      },
+      {
+        "checkworthiness": "high",
         "claim_kind": "fact",
         "claim_text": "you know, the original studies, like the ones I started doing as a postdoc where you just",
         "quote_evidence": [
@@ -562,12 +1037,12 @@
         "speaker": null
       },
       {
-        "checkworthiness": "low",
+        "checkworthiness": "high",
         "claim_kind": "fact",
-        "claim_text": "truly static Paul Ekman pictures of facial affect. Well, we never see that in people. It's always",
+        "claim_text": "truly static Paul Ekman pictures of facial affect.",
         "quote_evidence": [
           {
-            "quote": "truly static Paul Ekman pictures of facial affect. Well, we never see that in people. It's always",
+            "quote": "truly static Paul Ekman pictures of facial affect.",
             "segment_id": "seg-000629"
           }
         ],
@@ -580,12 +1055,30 @@
         "speaker": null
       },
       {
-        "checkworthiness": "low",
+        "checkworthiness": "high",
         "claim_kind": "fact",
-        "claim_text": "dynamic. The face is changing. And so, Philipp Schins, Rachel Jack, colleagues in Scotland, for",
+        "claim_text": "Well, we never see that in people.",
         "quote_evidence": [
           {
-            "quote": "dynamic. The face is changing. And so, Philipp Schins, Rachel Jack, colleagues in Scotland, for",
+            "quote": "Well, we never see that in people.",
+            "segment_id": "seg-000629"
+          }
+        ],
+        "source_segment_ids": [
+          "seg-000629"
+        ],
+        "source_window_ids": [
+          "window-0011"
+        ],
+        "speaker": null
+      },
+      {
+        "checkworthiness": "high",
+        "claim_kind": "fact",
+        "claim_text": "The face is changing.",
+        "quote_evidence": [
+          {
+            "quote": "The face is changing.",
             "segment_id": "seg-000630"
           }
         ],
@@ -598,12 +1091,12 @@
         "speaker": null
       },
       {
-        "checkworthiness": "medium",
+        "checkworthiness": "high",
         "claim_kind": "fact",
-        "claim_text": "Don't. It's really interesting. You have to pass it.",
+        "claim_text": "It's really interesting.",
         "quote_evidence": [
           {
-            "quote": "Don't. It's really interesting. You have to pass it.",
+            "quote": "It's really interesting.",
             "segment_id": "seg-000707"
           }
         ],
@@ -616,7 +1109,7 @@
         "speaker": null
       },
       {
-        "checkworthiness": "low",
+        "checkworthiness": "high",
         "claim_kind": "fact",
         "claim_text": "Eventually, it's passed, but it evokes very interesting adaptive behaviors,",
         "quote_evidence": [
@@ -634,12 +1127,12 @@
         "speaker": null
       },
       {
-        "checkworthiness": "low",
+        "checkworthiness": "high",
         "claim_kind": "fact",
-        "claim_text": "well, just as an aside, before I forget it. So, normally for pain, extraceptive pain,",
+        "claim_text": "well, just as an aside, before I forget it.",
         "quote_evidence": [
           {
-            "quote": "well, just as an aside, before I forget it. So, normally for pain, extraceptive pain,",
+            "quote": "well, just as an aside, before I forget it.",
             "segment_id": "seg-000709"
           }
         ],
@@ -652,7 +1145,25 @@
         "speaker": null
       },
       {
-        "checkworthiness": "medium",
+        "checkworthiness": "high",
+        "claim_kind": "fact",
+        "claim_text": "So, normally for pain, extraceptive pain,",
+        "quote_evidence": [
+          {
+            "quote": "So, normally for pain, extraceptive pain,",
+            "segment_id": "seg-000709"
+          }
+        ],
+        "source_segment_ids": [
+          "seg-000709"
+        ],
+        "source_window_ids": [
+          "window-0012"
+        ],
+        "speaker": null
+      },
+      {
+        "checkworthiness": "high",
         "claim_kind": "fact",
         "claim_text": "is no systematic association between specific emotions and specific changes in your body.",
         "quote_evidence": [
@@ -670,7 +1181,7 @@
         "speaker": null
       },
       {
-        "checkworthiness": "low",
+        "checkworthiness": "high",
         "claim_kind": "fact",
         "claim_text": "Well, if you look at those studies, people put a few electrodes on and they measure, you know,",
         "quote_evidence": [
@@ -688,12 +1199,12 @@
         "speaker": null
       },
       {
-        "checkworthiness": "low",
+        "checkworthiness": "high",
         "claim_kind": "fact",
-        "claim_text": "heart rate changes, blood pressure changes, et cetera, it is extremely crude. You're looking at",
+        "claim_text": "heart rate changes, blood pressure changes, et cetera, it is extremely crude.",
         "quote_evidence": [
           {
-            "quote": "heart rate changes, blood pressure changes, et cetera, it is extremely crude. You're looking at",
+            "quote": "heart rate changes, blood pressure changes, et cetera, it is extremely crude.",
             "segment_id": "seg-000768"
           }
         ],
@@ -706,7 +1217,25 @@
         "speaker": null
       },
       {
-        "checkworthiness": "medium",
+        "checkworthiness": "high",
+        "claim_kind": "fact",
+        "claim_text": "a tiny, tiny slice of what's going on in your body.",
+        "quote_evidence": [
+          {
+            "quote": "a tiny, tiny slice of what's going on in your body.",
+            "segment_id": "seg-000769"
+          }
+        ],
+        "source_segment_ids": [
+          "seg-000769"
+        ],
+        "source_window_ids": [
+          "window-0013"
+        ],
+        "speaker": null
+      },
+      {
+        "checkworthiness": "high",
         "claim_kind": "fact",
         "claim_text": "art of that sort is able to capture the circuitry related to a particular emotions across people?",
         "quote_evidence": [
@@ -724,12 +1253,12 @@
         "speaker": null
       },
       {
-        "checkworthiness": "low",
+        "checkworthiness": "high",
         "claim_kind": "fact",
-        "claim_text": "So not just about my unique experience. And art is subjective, right? So there's things related",
+        "claim_text": "So not just about my unique experience.",
         "quote_evidence": [
           {
-            "quote": "So not just about my unique experience. And art is subjective, right? So there's things related",
+            "quote": "So not just about my unique experience.",
             "segment_id": "seg-000829"
           }
         ],
@@ -742,12 +1271,30 @@
         "speaker": null
       },
       {
-        "checkworthiness": "low",
+        "checkworthiness": "high",
         "claim_kind": "fact",
-        "claim_text": "to taste. But let's assume this is abstract art. So there's no apparent faces or animals or",
+        "claim_text": "And art is subjective, right?",
         "quote_evidence": [
           {
-            "quote": "to taste. But let's assume this is abstract art. So there's no apparent faces or animals or",
+            "quote": "And art is subjective, right?",
+            "segment_id": "seg-000829"
+          }
+        ],
+        "source_segment_ids": [
+          "seg-000829"
+        ],
+        "source_window_ids": [
+          "window-0014"
+        ],
+        "speaker": null
+      },
+      {
+        "checkworthiness": "high",
+        "claim_kind": "fact",
+        "claim_text": "But let's assume this is abstract art.",
+        "quote_evidence": [
+          {
+            "quote": "But let's assume this is abstract art.",
             "segment_id": "seg-000830"
           }
         ],
@@ -760,12 +1307,12 @@
         "speaker": null
       },
       {
-        "checkworthiness": "medium",
+        "checkworthiness": "high",
         "claim_kind": "fact",
-        "claim_text": "a good example is the visual word form area. So there's regions in the brain that like the ones",
+        "claim_text": "a good example is the visual word form area.",
         "quote_evidence": [
           {
-            "quote": "a good example is the visual word form area. So there's regions in the brain that like the ones",
+            "quote": "a good example is the visual word form area.",
             "segment_id": "seg-000879"
           }
         ],
@@ -778,12 +1325,30 @@
         "speaker": null
       },
       {
-        "checkworthiness": "low",
+        "checkworthiness": "high",
         "claim_kind": "fact",
-        "claim_text": "that my former Celtic colleague, Doris Sau study, that are specialized for faces. But there's also",
+        "claim_text": "So there's regions in the brain that like the ones",
         "quote_evidence": [
           {
-            "quote": "that my former Celtic colleague, Doris Sau study, that are specialized for faces. But there's also",
+            "quote": "So there's regions in the brain that like the ones",
+            "segment_id": "seg-000879"
+          }
+        ],
+        "source_segment_ids": [
+          "seg-000879"
+        ],
+        "source_window_ids": [
+          "window-0015"
+        ],
+        "speaker": null
+      },
+      {
+        "checkworthiness": "high",
+        "claim_kind": "fact",
+        "claim_text": "that my former Celtic colleague, Doris Sau study, that are specialized for faces.",
+        "quote_evidence": [
+          {
+            "quote": "that my former Celtic colleague, Doris Sau study, that are specialized for faces.",
             "segment_id": "seg-000880"
           }
         ],
@@ -796,7 +1361,7 @@
         "speaker": null
       },
       {
-        "checkworthiness": "low",
+        "checkworthiness": "high",
         "claim_kind": "fact",
         "claim_text": "a region in the brain typically on the left in most people that's for recognizing words, letters.",
         "quote_evidence": [
@@ -814,7 +1379,7 @@
         "speaker": null
       },
       {
-        "checkworthiness": "medium",
+        "checkworthiness": "high",
         "claim_kind": "fact",
         "claim_text": "So if you had only those you would have to have a separate reflex for the bear and for the tiger",
         "quote_evidence": [
@@ -832,7 +1397,7 @@
         "speaker": null
       },
       {
-        "checkworthiness": "low",
+        "checkworthiness": "high",
         "claim_kind": "fact",
         "claim_text": "and for every possible you know large threat out there which you couldn't possibly have it's not",
         "quote_evidence": [
@@ -850,12 +1415,12 @@
         "speaker": null
       },
       {
-        "checkworthiness": "low",
+        "checkworthiness": "high",
         "claim_kind": "fact",
-        "claim_text": "efficient. Yeah the fan in fan out visual is very very useful and it gets to the next topic I'd",
+        "claim_text": "Yeah the fan in fan out visual is very very useful and it gets to the next topic I'd",
         "quote_evidence": [
           {
-            "quote": "efficient. Yeah the fan in fan out visual is very very useful and it gets to the next topic I'd",
+            "quote": "Yeah the fan in fan out visual is very very useful and it gets to the next topic I'd",
             "segment_id": "seg-000944"
           }
         ],
@@ -869,6 +1434,24 @@
       },
       {
         "checkworthiness": "medium",
+        "claim_kind": "mechanism",
+        "claim_text": "like to ask you about which is building social intelligence and emotional intelligence because",
+        "quote_evidence": [
+          {
+            "quote": "like to ask you about which is building social intelligence and emotional intelligence because",
+            "segment_id": "seg-000945"
+          }
+        ],
+        "source_segment_ids": [
+          "seg-000945"
+        ],
+        "source_window_ids": [
+          "window-0016"
+        ],
+        "speaker": null
+      },
+      {
+        "checkworthiness": "high",
         "claim_kind": "fact",
         "claim_text": "and I have to encounter people like that too and you know it's very disconcerting when you're",
         "quote_evidence": [
@@ -886,7 +1469,7 @@
         "speaker": null
       },
       {
-        "checkworthiness": "low",
+        "checkworthiness": "high",
         "claim_kind": "fact",
         "claim_text": "giving the talk it's disconcerting when you're giving the talk but I was going to say there's",
         "quote_evidence": [
@@ -904,8 +1487,8 @@
         "speaker": null
       },
       {
-        "checkworthiness": "low",
-        "claim_kind": "fact",
+        "checkworthiness": "medium",
+        "claim_kind": "mechanism",
         "claim_text": "also something incredibly refreshing about it because it's almost like they're they're asking the",
         "quote_evidence": [
           {
@@ -922,7 +1505,25 @@
         "speaker": null
       },
       {
-        "checkworthiness": "medium",
+        "checkworthiness": "high",
+        "claim_kind": "fact",
+        "claim_text": "questions that they they need to ask you're a little embarrassed for them but you're but it's",
+        "quote_evidence": [
+          {
+            "quote": "questions that they they need to ask you're a little embarrassed for them but you're but it's",
+            "segment_id": "seg-001014"
+          }
+        ],
+        "source_segment_ids": [
+          "seg-001014"
+        ],
+        "source_window_ids": [
+          "window-0017"
+        ],
+        "speaker": null
+      },
+      {
+        "checkworthiness": "high",
         "claim_kind": "fact",
         "claim_text": "kids who have autism of the sort that we're describing and the need we're told to train them to",
         "quote_evidence": [
@@ -940,7 +1541,7 @@
         "speaker": null
       },
       {
-        "checkworthiness": "low",
+        "checkworthiness": "high",
         "claim_kind": "fact",
         "claim_text": "make eye contact and read faces so this lands square in your work maybe you could just fill out",
         "quote_evidence": [
@@ -958,7 +1559,7 @@
         "speaker": null
       },
       {
-        "checkworthiness": "low",
+        "checkworthiness": "high",
         "claim_kind": "fact",
         "claim_text": "a bit of what's now known what's thought what's not known it's a great topic I mean the way that",
         "quote_evidence": [
@@ -976,7 +1577,25 @@
         "speaker": null
       },
       {
-        "checkworthiness": "medium",
+        "checkworthiness": "high",
+        "claim_kind": "fact",
+        "claim_text": "I personally have approached it is not with a primary interest in autism I don't have a family",
+        "quote_evidence": [
+          {
+            "quote": "I personally have approached it is not with a primary interest in autism I don't have a family",
+            "segment_id": "seg-001070"
+          }
+        ],
+        "source_segment_ids": [
+          "seg-001070"
+        ],
+        "source_window_ids": [
+          "window-0018"
+        ],
+        "speaker": null
+      },
+      {
+        "checkworthiness": "high",
         "claim_kind": "fact",
         "claim_text": "what else is it associated with is it predictive of career success is it predictive of anything else",
         "quote_evidence": [
@@ -994,7 +1613,7 @@
         "speaker": null
       },
       {
-        "checkworthiness": "low",
+        "checkworthiness": "high",
         "claim_kind": "fact",
         "claim_text": "and so we don't know we're measuring everything else and getting lots of questionnaires on these people",
         "quote_evidence": [
@@ -1012,7 +1631,7 @@
         "speaker": null
       },
       {
-        "checkworthiness": "low",
+        "checkworthiness": "high",
         "claim_kind": "fact",
         "claim_text": "to ask what what are the associations and is there any causal hypothesis that we would come up with",
         "quote_evidence": [
@@ -1030,7 +1649,25 @@
         "speaker": null
       },
       {
-        "checkworthiness": "medium",
+        "checkworthiness": "high",
+        "claim_kind": "fact",
+        "claim_text": "that if you don't look at faces a lot there's some consequences if you look at faces a lot there are",
+        "quote_evidence": [
+          {
+            "quote": "that if you don't look at faces a lot there's some consequences if you look at faces a lot there are",
+            "segment_id": "seg-001124"
+          }
+        ],
+        "source_segment_ids": [
+          "seg-001124"
+        ],
+        "source_window_ids": [
+          "window-0019"
+        ],
+        "speaker": null
+      },
+      {
+        "checkworthiness": "high",
         "claim_kind": "fact",
         "claim_text": "not actually aligned time the way I described the kind of higher or lower RPM before maybe it",
         "quote_evidence": [
@@ -1049,7 +1686,7 @@
       },
       {
         "checkworthiness": "low",
-        "claim_kind": "fact",
+        "claim_kind": "opinion",
         "claim_text": "perhaps made it sound like one or the other was better but I think sometimes about like Alex",
         "quote_evidence": [
           {
@@ -1066,7 +1703,7 @@
         "speaker": null
       },
       {
-        "checkworthiness": "low",
+        "checkworthiness": "high",
         "claim_kind": "fact",
         "claim_text": "Honnold who again who is a guest on this podcast and there've been claims that his amygdala doesn't",
         "quote_evidence": [
@@ -1084,7 +1721,25 @@
         "speaker": null
       },
       {
-        "checkworthiness": "medium",
+        "checkworthiness": "low",
+        "claim_kind": "opinion",
+        "claim_text": "react as much anyway we could we could talk about that I think Alex kind of like maybe chuckles a",
+        "quote_evidence": [
+          {
+            "quote": "react as much anyway we could we could talk about that I think Alex kind of like maybe chuckles a",
+            "segment_id": "seg-001193"
+          }
+        ],
+        "source_segment_ids": [
+          "seg-001193"
+        ],
+        "source_window_ids": [
+          "window-0020"
+        ],
+        "speaker": null
+      },
+      {
+        "checkworthiness": "high",
         "claim_kind": "fact",
         "claim_text": "is task switching whether it's emotional tasks switching or cognitive tasks switching like we assume",
         "quote_evidence": [
@@ -1102,7 +1757,7 @@
         "speaker": null
       },
       {
-        "checkworthiness": "low",
+        "checkworthiness": "high",
         "claim_kind": "fact",
         "claim_text": "the brain operates in step functions like oh I'm out on the street I navigate traffic I park my",
         "quote_evidence": [
@@ -1120,7 +1775,7 @@
         "speaker": null
       },
       {
-        "checkworthiness": "low",
+        "checkworthiness": "high",
         "claim_kind": "fact",
         "claim_text": "car and I come in and I podcast and what you're doing at the beginning of this lab meeting in on the",
         "quote_evidence": [
@@ -1138,7 +1793,25 @@
         "speaker": null
       },
       {
-        "checkworthiness": "medium",
+        "checkworthiness": "high",
+        "claim_kind": "fact",
+        "claim_text": "one hand is a meditation but it's pivoting the brain circuits toward what comes next yeah I don't",
+        "quote_evidence": [
+          {
+            "quote": "one hand is a meditation but it's pivoting the brain circuits toward what comes next yeah I don't",
+            "segment_id": "seg-001272"
+          }
+        ],
+        "source_segment_ids": [
+          "seg-001272"
+        ],
+        "source_window_ids": [
+          "window-0021"
+        ],
+        "speaker": null
+      },
+      {
+        "checkworthiness": "high",
         "claim_kind": "fact",
         "claim_text": "and all of a sudden the bell sounds and you could hear a pin drop but there's thousands of people",
         "quote_evidence": [
@@ -1156,7 +1829,7 @@
         "speaker": null
       },
       {
-        "checkworthiness": "low",
+        "checkworthiness": "high",
         "claim_kind": "fact",
         "claim_text": "around you yeah you hear a bell again the meal begins walking to the auditorium at Shuffle Shuffle Shuffle",
         "quote_evidence": [
@@ -1174,7 +1847,7 @@
         "speaker": null
       },
       {
-        "checkworthiness": "low",
+        "checkworthiness": "high",
         "claim_kind": "fact",
         "claim_text": "talking talking talking talking boom it's a step function they're training this in the cells",
         "quote_evidence": [
@@ -1192,7 +1865,25 @@
         "speaker": null
       },
       {
-        "checkworthiness": "medium",
+        "checkworthiness": "low",
+        "claim_kind": "opinion",
+        "claim_text": "yeah and the other thing no phones no one has phones during the day they get I think they get an",
+        "quote_evidence": [
+          {
+            "quote": "yeah and the other thing no phones no one has phones during the day they get I think they get an",
+            "segment_id": "seg-001348"
+          }
+        ],
+        "source_segment_ids": [
+          "seg-001348"
+        ],
+        "source_window_ids": [
+          "window-0022"
+        ],
+        "speaker": null
+      },
+      {
+        "checkworthiness": "high",
         "claim_kind": "fact",
         "claim_text": "if you're learning from and or enjoying this podcast please subscribe to our YouTube channel",
         "quote_evidence": [
@@ -1210,7 +1901,7 @@
         "speaker": null
       },
       {
-        "checkworthiness": "low",
+        "checkworthiness": "high",
         "claim_kind": "fact",
         "claim_text": "that's a terrific zero cost way to support us in addition please follow the podcast by clicking",
         "quote_evidence": [
@@ -1228,7 +1919,7 @@
         "speaker": null
       },
       {
-        "checkworthiness": "low",
+        "checkworthiness": "high",
         "claim_kind": "fact",
         "claim_text": "the follow button on both Spotify and Apple and on both Spotify and Apple you can leave us up to a",
         "quote_evidence": [
@@ -1244,46 +1935,493 @@
           "window-0023"
         ],
         "speaker": null
+      },
+      {
+        "checkworthiness": "high",
+        "claim_kind": "fact",
+        "claim_text": "five star review and you can now leave us comments at both Spotify and Apple please also check out",
+        "quote_evidence": [
+          {
+            "quote": "five star review and you can now leave us comments at both Spotify and Apple please also check out",
+            "segment_id": "seg-001414"
+          }
+        ],
+        "source_segment_ids": [
+          "seg-001414"
+        ],
+        "source_window_ids": [
+          "window-0023"
+        ],
+        "speaker": null
       }
     ],
     "concepts": [],
     "contradictions_or_uncertainty": [],
-    "entities": [],
+    "entities": [
+      {
+        "name": "Well",
+        "source_segment_ids": [
+          "seg-000003",
+          "seg-000360",
+          "seg-000564",
+          "seg-000629",
+          "seg-000767"
+        ],
+        "type": "topic"
+      },
+      {
+        "name": "Protocols",
+        "source_segment_ids": [
+          "seg-000010"
+        ],
+        "type": "topic"
+      },
+      {
+        "name": "New York City",
+        "source_segment_ids": [
+          "seg-000012"
+        ],
+        "type": "topic"
+      },
+      {
+        "name": "Typically",
+        "source_segment_ids": [
+          "seg-000044"
+        ],
+        "type": "topic"
+      },
+      {
+        "name": "They",
+        "source_segment_ids": [
+          "seg-000045",
+          "seg-000564"
+        ],
+        "type": "topic"
+      },
+      {
+        "name": "Instead",
+        "source_segment_ids": [
+          "seg-000062"
+        ],
+        "type": "topic"
+      },
+      {
+        "name": "Caltech",
+        "source_segment_ids": [
+          "seg-000109"
+        ],
+        "type": "topic"
+      },
+      {
+        "name": "Marcus Meister",
+        "source_segment_ids": [
+          "seg-000109"
+        ],
+        "type": "topic"
+      },
+      {
+        "name": "David Anderson",
+        "source_segment_ids": [
+          "seg-000124",
+          "seg-001337"
+        ],
+        "type": "topic"
+      },
+      {
+        "name": "Helix Sleep",
+        "source_segment_ids": [
+          "seg-000168"
+        ],
+        "type": "topic"
+      },
+      {
+        "name": "When",
+        "source_segment_ids": [
+          "seg-000171"
+        ],
+        "type": "topic"
+      },
+      {
+        "name": "Helix",
+        "source_segment_ids": [
+          "seg-000176"
+        ],
+        "type": "topic"
+      },
+      {
+        "name": "Christoph Koch",
+        "source_segment_ids": [
+          "seg-000233"
+        ],
+        "type": "topic"
+      },
+      {
+        "name": "Again",
+        "source_segment_ids": [
+          "seg-000248"
+        ],
+        "type": "topic"
+      },
+      {
+        "name": "David",
+        "source_segment_ids": [
+          "seg-000252"
+        ],
+        "type": "topic"
+      },
+      {
+        "name": "That",
+        "source_segment_ids": [
+          "seg-000299"
+        ],
+        "type": "topic"
+      },
+      {
+        "name": "Antonio",
+        "source_segment_ids": [
+          "seg-000302"
+        ],
+        "type": "topic"
+      },
+      {
+        "name": "Descartes",
+        "source_segment_ids": [
+          "seg-000303"
+        ],
+        "type": "topic"
+      },
+      {
+        "name": "Justin Feinstein",
+        "source_segment_ids": [
+          "seg-000374"
+        ],
+        "type": "topic"
+      },
+      {
+        "name": "Maui",
+        "source_segment_ids": [
+          "seg-000374"
+        ],
+        "type": "topic"
+      },
+      {
+        "name": "People",
+        "source_segment_ids": [
+          "seg-000431"
+        ],
+        "type": "topic"
+      },
+      {
+        "name": "This",
+        "source_segment_ids": [
+          "seg-000438"
+        ],
+        "type": "topic"
+      },
+      {
+        "name": "Anybody",
+        "source_segment_ids": [
+          "seg-000444"
+        ],
+        "type": "topic"
+      },
+      {
+        "name": "Calcium",
+        "source_segment_ids": [
+          "seg-000506"
+        ],
+        "type": "topic"
+      },
+      {
+        "name": "Omega",
+        "source_segment_ids": [
+          "seg-000512"
+        ],
+        "type": "topic"
+      },
+      {
+        "name": "Coins",
+        "source_segment_ids": [
+          "seg-000512"
+        ],
+        "type": "topic"
+      },
+      {
+        "name": "Andrew Huberman",
+        "source_segment_ids": [
+          "seg-000569"
+        ],
+        "type": "topic"
+      },
+      {
+        "name": "Paul Ekman",
+        "source_segment_ids": [
+          "seg-000629"
+        ],
+        "type": "topic"
+      },
+      {
+        "name": "Philipp Schins",
+        "source_segment_ids": [
+          "seg-000630"
+        ],
+        "type": "topic"
+      },
+      {
+        "name": "Eventually",
+        "source_segment_ids": [
+          "seg-000708"
+        ],
+        "type": "topic"
+      },
+      {
+        "name": "There",
+        "source_segment_ids": [
+          "seg-000711"
+        ],
+        "type": "topic"
+      },
+      {
+        "name": "Switzerland",
+        "source_segment_ids": [
+          "seg-000712"
+        ],
+        "type": "topic"
+      },
+      {
+        "name": "What",
+        "source_segment_ids": [
+          "seg-000769"
+        ],
+        "type": "topic"
+      },
+      {
+        "name": "Yeah",
+        "source_segment_ids": [
+          "seg-000774",
+          "seg-000944"
+        ],
+        "type": "topic"
+      },
+      {
+        "name": "Independent",
+        "source_segment_ids": [
+          "seg-000833"
+        ],
+        "type": "topic"
+      },
+      {
+        "name": "Anne Blood",
+        "source_segment_ids": [
+          "seg-000839"
+        ],
+        "type": "topic"
+      },
+      {
+        "name": "Robert Satori",
+        "source_segment_ids": [
+          "seg-000839"
+        ],
+        "type": "topic"
+      },
+      {
+        "name": "Celtic",
+        "source_segment_ids": [
+          "seg-000880"
+        ],
+        "type": "topic"
+      },
+      {
+        "name": "Doris Sau",
+        "source_segment_ids": [
+          "seg-000880"
+        ],
+        "type": "topic"
+      },
+      {
+        "name": "Coming",
+        "source_segment_ids": [
+          "seg-000889"
+        ],
+        "type": "topic"
+      },
+      {
+        "name": "James Gross",
+        "source_segment_ids": [
+          "seg-000969"
+        ],
+        "type": "topic"
+      },
+      {
+        "name": "San Diego",
+        "source_segment_ids": [
+          "seg-001008",
+          "seg-001061"
+        ],
+        "type": "topic"
+      },
+      {
+        "name": "Ados",
+        "source_segment_ids": [
+          "seg-001081"
+        ],
+        "type": "topic"
+      },
+      {
+        "name": "Yorkshire",
+        "source_segment_ids": [
+          "seg-001148"
+        ],
+        "type": "topic"
+      },
+      {
+        "name": "Zoom",
+        "source_segment_ids": [
+          "seg-001173"
+        ],
+        "type": "topic"
+      },
+      {
+        "name": "Alex",
+        "source_segment_ids": [
+          "seg-001191"
+        ],
+        "type": "topic"
+      },
+      {
+        "name": "Honnold",
+        "source_segment_ids": [
+          "seg-001192"
+        ],
+        "type": "topic"
+      },
+      {
+        "name": "Sundays",
+        "source_segment_ids": [
+          "seg-001204"
+        ],
+        "type": "topic"
+      },
+      {
+        "name": "Shipley",
+        "source_segment_ids": [
+          "seg-001288"
+        ],
+        "type": "topic"
+      },
+      {
+        "name": "Tibetan",
+        "source_segment_ids": [
+          "seg-001306"
+        ],
+        "type": "topic"
+      },
+      {
+        "name": "Shuffle Shuffle Shuffle",
+        "source_segment_ids": [
+          "seg-001346"
+        ],
+        "type": "topic"
+      },
+      {
+        "name": "Facebook",
+        "source_segment_ids": [
+          "seg-001351"
+        ],
+        "type": "topic"
+      },
+      {
+        "name": "Instagram",
+        "source_segment_ids": [
+          "seg-001351"
+        ],
+        "type": "topic"
+      },
+      {
+        "name": "Spotify",
+        "source_segment_ids": [
+          "seg-001413"
+        ],
+        "type": "topic"
+      },
+      {
+        "name": "Apple",
+        "source_segment_ids": [
+          "seg-001413"
+        ],
+        "type": "topic"
+      },
+      {
+        "name": "Hubertman Lab",
+        "source_segment_ids": [
+          "seg-001417"
+        ],
+        "type": "topic"
+      }
+    ],
     "key_points": [
       {
         "source_segment_ids": [
           "seg-000001"
         ],
         "source_window_id": "window-0001",
-        "text": "I see somebody come up behind me. They can see. I'm trying to park. They can move over. No,"
+        "text": "I see somebody come up behind me."
       },
       {
         "source_segment_ids": [
           "seg-000002"
         ],
         "source_window_id": "window-0001",
-        "text": "they come right up behind me, go on the horn. You know, you immediately feel just an immediate"
+        "text": "they come right up behind me, go on the horn."
+      },
+      {
+        "source_segment_ids": [
+          "seg-000002"
+        ],
+        "source_window_id": "window-0001",
+        "text": "You know, you immediately feel just an immediate"
       },
       {
         "source_segment_ids": [
           "seg-000003"
         ],
         "source_window_id": "window-0001",
-        "text": "anger response. Right? Well, after the ice bath, it's flat. So there was an immediate"
+        "text": "Well, after the ice bath, it's flat."
+      },
+      {
+        "source_segment_ids": [
+          "seg-000003"
+        ],
+        "source_window_id": "window-0001",
+        "text": "So there was an immediate"
       },
       {
         "source_segment_ids": [
           "seg-000044"
         ],
         "source_window_id": "window-0002",
-        "text": "findings and emotion from animal studies, findings from social psychology. Typically those people in"
+        "text": "findings and emotion from animal studies, findings from social psychology."
+      },
+      {
+        "source_segment_ids": [
+          "seg-000044"
+        ],
+        "source_window_id": "window-0002",
+        "text": "Typically those people in"
       },
       {
         "source_segment_ids": [
           "seg-000045"
         ],
         "source_window_id": "window-0002",
-        "text": "those fields don't talk to one another. They do very different studies, very different methodologies,"
+        "text": "those fields don't talk to one another."
+      },
+      {
+        "source_segment_ids": [
+          "seg-000045"
+        ],
+        "source_window_id": "window-0002",
+        "text": "They do very different studies, very different methodologies,"
       },
       {
         "source_segment_ids": [
@@ -1304,7 +2442,14 @@
           "seg-000108"
         ],
         "source_window_id": "window-0003",
-        "text": "unpleasant, this basic valence dimension. Are there any neutral emotions? I ask this because"
+        "text": "unpleasant, this basic valence dimension."
+      },
+      {
+        "source_segment_ids": [
+          "seg-000108"
+        ],
+        "source_window_id": "window-0003",
+        "text": "Are there any neutral emotions?"
       },
       {
         "source_segment_ids": [
@@ -1315,17 +2460,38 @@
       },
       {
         "source_segment_ids": [
+          "seg-000110"
+        ],
+        "source_window_id": "window-0003",
+        "text": "you know, a good way to think about sensory systems and maybe neural systems of all kinds is"
+      },
+      {
+        "source_segment_ids": [
           "seg-000168"
         ],
         "source_window_id": "window-0004",
-        "text": "I'd like to take a quick break and acknowledge our sponsor, Helix Sleep. Helix Sleep makes matrices"
+        "text": "I'd like to take a quick break and acknowledge our sponsor, Helix Sleep."
+      },
+      {
+        "source_segment_ids": [
+          "seg-000168"
+        ],
+        "source_window_id": "window-0004",
+        "text": "Helix Sleep makes matrices"
       },
       {
         "source_segment_ids": [
           "seg-000169"
         ],
         "source_window_id": "window-0004",
-        "text": "and pillows that are customized to your unique sleep needs. Now, I've spoken many times before on"
+        "text": "and pillows that are customized to your unique sleep needs."
+      },
+      {
+        "source_segment_ids": [
+          "seg-000169"
+        ],
+        "source_window_id": "window-0004",
+        "text": "Now, I've spoken many times before on"
       },
       {
         "source_segment_ids": [
@@ -1353,14 +2519,35 @@
           "seg-000233"
         ],
         "source_window_id": "window-0005",
-        "text": "you're studying consciousness. If you spoke about Christoph Koch earlier, great respect for people"
+        "text": "you're studying consciousness."
+      },
+      {
+        "source_segment_ids": [
+          "seg-000233"
+        ],
+        "source_window_id": "window-0005",
+        "text": "If you spoke about Christoph Koch earlier, great respect for people"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000234"
+        ],
+        "source_window_id": "window-0005",
+        "text": "that are studying consciousness, but I don't want to study consciousness, that's too hard."
       },
       {
         "source_segment_ids": [
           "seg-000299"
         ],
         "source_window_id": "window-0006",
-        "text": "That's kind of the ideal circumstance, right? Yeah. So what do you know that allowed that has"
+        "text": "That's kind of the ideal circumstance, right?"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000299"
+        ],
+        "source_window_id": "window-0006",
+        "text": "So what do you know that allowed that has"
       },
       {
         "source_segment_ids": [
@@ -1374,28 +2561,49 @@
           "seg-000301"
         ],
         "source_window_id": "window-0006",
-        "text": "if not benefit from? Yeah. I think it's, you know, it's a mixture. On the one hand,"
+        "text": "I think it's, you know, it's a mixture."
+      },
+      {
+        "source_segment_ids": [
+          "seg-000302"
+        ],
+        "source_window_id": "window-0006",
+        "text": "you absolutely need emotions."
       },
       {
         "source_segment_ids": [
           "seg-000357"
         ],
         "source_window_id": "window-0007",
-        "text": "we appraisal or any other sort of complex we appraisal strategy for emotions. It is a double-edged"
+        "text": "we appraisal or any other sort of complex we appraisal strategy for emotions."
       },
       {
         "source_segment_ids": [
           "seg-000358"
         ],
         "source_window_id": "window-0007",
-        "text": "sword and it's trainable. It's as you say, if I really focus on, okay, now, you know, I'm starting"
+        "text": "sword and it's trainable."
+      },
+      {
+        "source_segment_ids": [
+          "seg-000358"
+        ],
+        "source_window_id": "window-0007",
+        "text": "It's as you say, if I really focus on, okay, now, you know, I'm starting"
       },
       {
         "source_segment_ids": [
           "seg-000359"
         ],
         "source_window_id": "window-0007",
-        "text": "to feel sad. I really don't want to feel sad. I really don't want to feel sad. I really don't"
+        "text": "I really don't want to feel sad."
+      },
+      {
+        "source_segment_ids": [
+          "seg-000359"
+        ],
+        "source_window_id": "window-0007",
+        "text": "I really don't want to feel sad."
       },
       {
         "source_segment_ids": [
@@ -1409,28 +2617,42 @@
           "seg-000420"
         ],
         "source_window_id": "window-0008",
-        "text": "garbage. But then you start to feel better. And so then the next time you feel like complete"
+        "text": "But then you start to feel better."
+      },
+      {
+        "source_segment_ids": [
+          "seg-000420"
+        ],
+        "source_window_id": "window-0008",
+        "text": "And so then the next time you feel like complete"
       },
       {
         "source_segment_ids": [
           "seg-000421"
         ],
         "source_window_id": "window-0008",
-        "text": "garbage, you have the cognitive knowledge that you felt terrible then better again. And so you're"
+        "text": "garbage, you have the cognitive knowledge that you felt terrible then better again."
+      },
+      {
+        "source_segment_ids": [
+          "seg-000422"
+        ],
+        "source_window_id": "window-0008",
+        "text": "starting to integrate over longer periods of time."
       },
       {
         "source_segment_ids": [
           "seg-000503"
         ],
         "source_window_id": "window-0009",
-        "text": "formula, which is a blend of vitamins, minerals, probiotics, and adaptogens. And it adds three"
+        "text": "formula, which is a blend of vitamins, minerals, probiotics, and adaptogens."
       },
       {
         "source_segment_ids": [
           "seg-000504"
         ],
         "source_window_id": "window-0009",
-        "text": "important new ingredients, creatine monohydrate, calcium, HMB, and zinc carnacine. Each serving has"
+        "text": "important new ingredients, creatine monohydrate, calcium, HMB, and zinc carnacine."
       },
       {
         "source_segment_ids": [
@@ -1438,6 +2660,20 @@
         ],
         "source_window_id": "window-0009",
         "text": "five grams of creatine monohydrate to support muscle strength and performance as well as brain health."
+      },
+      {
+        "source_segment_ids": [
+          "seg-000506"
+        ],
+        "source_window_id": "window-0009",
+        "text": "Calcium, HMB to support muscle recovery and reduce muscle breakdown and zinc carnacine to support"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000507"
+        ],
+        "source_window_id": "window-0009",
+        "text": "and improve the lining of your gut."
       },
       {
         "source_segment_ids": [
@@ -1458,7 +2694,21 @@
           "seg-000563"
         ],
         "source_window_id": "window-0010",
-        "text": "when you come home? Because it did something bad. Dog owners are pretty convinced they can tell."
+        "text": "Because it did something bad."
+      },
+      {
+        "source_segment_ids": [
+          "seg-000563"
+        ],
+        "source_window_id": "window-0010",
+        "text": "Dog owners are pretty convinced they can tell."
+      },
+      {
+        "source_segment_ids": [
+          "seg-000564"
+        ],
+        "source_window_id": "window-0010",
+        "text": "Well, if you do a controlled experiment, they're a chance."
       },
       {
         "source_segment_ids": [
@@ -1472,21 +2722,35 @@
           "seg-000629"
         ],
         "source_window_id": "window-0011",
-        "text": "truly static Paul Ekman pictures of facial affect. Well, we never see that in people. It's always"
+        "text": "truly static Paul Ekman pictures of facial affect."
+      },
+      {
+        "source_segment_ids": [
+          "seg-000629"
+        ],
+        "source_window_id": "window-0011",
+        "text": "Well, we never see that in people."
       },
       {
         "source_segment_ids": [
           "seg-000630"
         ],
         "source_window_id": "window-0011",
-        "text": "dynamic. The face is changing. And so, Philipp Schins, Rachel Jack, colleagues in Scotland, for"
+        "text": "The face is changing."
+      },
+      {
+        "source_segment_ids": [
+          "seg-000630"
+        ],
+        "source_window_id": "window-0011",
+        "text": "And so, Philipp Schins, Rachel Jack, colleagues in Scotland, for"
       },
       {
         "source_segment_ids": [
           "seg-000707"
         ],
         "source_window_id": "window-0012",
-        "text": "Don't. It's really interesting. You have to pass it."
+        "text": "It's really interesting."
       },
       {
         "source_segment_ids": [
@@ -1500,7 +2764,21 @@
           "seg-000709"
         ],
         "source_window_id": "window-0012",
-        "text": "well, just as an aside, before I forget it. So, normally for pain, extraceptive pain,"
+        "text": "well, just as an aside, before I forget it."
+      },
+      {
+        "source_segment_ids": [
+          "seg-000709"
+        ],
+        "source_window_id": "window-0012",
+        "text": "So, normally for pain, extraceptive pain,"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000710"
+        ],
+        "source_window_id": "window-0012",
+        "text": "like we were talking about the hot plate before, you know, you pull your hand away or there's"
       },
       {
         "source_segment_ids": [
@@ -1521,7 +2799,21 @@
           "seg-000768"
         ],
         "source_window_id": "window-0013",
-        "text": "heart rate changes, blood pressure changes, et cetera, it is extremely crude. You're looking at"
+        "text": "heart rate changes, blood pressure changes, et cetera, it is extremely crude."
+      },
+      {
+        "source_segment_ids": [
+          "seg-000769"
+        ],
+        "source_window_id": "window-0013",
+        "text": "a tiny, tiny slice of what's going on in your body."
+      },
+      {
+        "source_segment_ids": [
+          "seg-000769"
+        ],
+        "source_window_id": "window-0013",
+        "text": "What you would want to do is have a detailed"
       },
       {
         "source_segment_ids": [
@@ -1535,28 +2827,49 @@
           "seg-000829"
         ],
         "source_window_id": "window-0014",
-        "text": "So not just about my unique experience. And art is subjective, right? So there's things related"
+        "text": "So not just about my unique experience."
+      },
+      {
+        "source_segment_ids": [
+          "seg-000829"
+        ],
+        "source_window_id": "window-0014",
+        "text": "And art is subjective, right?"
       },
       {
         "source_segment_ids": [
           "seg-000830"
         ],
         "source_window_id": "window-0014",
-        "text": "to taste. But let's assume this is abstract art. So there's no apparent faces or animals or"
+        "text": "But let's assume this is abstract art."
+      },
+      {
+        "source_segment_ids": [
+          "seg-000830"
+        ],
+        "source_window_id": "window-0014",
+        "text": "So there's no apparent faces or animals or"
       },
       {
         "source_segment_ids": [
           "seg-000879"
         ],
         "source_window_id": "window-0015",
-        "text": "a good example is the visual word form area. So there's regions in the brain that like the ones"
+        "text": "a good example is the visual word form area."
+      },
+      {
+        "source_segment_ids": [
+          "seg-000879"
+        ],
+        "source_window_id": "window-0015",
+        "text": "So there's regions in the brain that like the ones"
       },
       {
         "source_segment_ids": [
           "seg-000880"
         ],
         "source_window_id": "window-0015",
-        "text": "that my former Celtic colleague, Doris Sau study, that are specialized for faces. But there's also"
+        "text": "that my former Celtic colleague, Doris Sau study, that are specialized for faces."
       },
       {
         "source_segment_ids": [
@@ -1564,6 +2877,13 @@
         ],
         "source_window_id": "window-0015",
         "text": "a region in the brain typically on the left in most people that's for recognizing words, letters."
+      },
+      {
+        "source_segment_ids": [
+          "seg-000882"
+        ],
+        "source_window_id": "window-0015",
+        "text": "Now that couldn't have evolved because, you know, we had a long history of brain evolution before"
       },
       {
         "source_segment_ids": [
@@ -1584,7 +2904,21 @@
           "seg-000944"
         ],
         "source_window_id": "window-0016",
-        "text": "efficient. Yeah the fan in fan out visual is very very useful and it gets to the next topic I'd"
+        "text": "Yeah the fan in fan out visual is very very useful and it gets to the next topic I'd"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000945"
+        ],
+        "source_window_id": "window-0016",
+        "text": "like to ask you about which is building social intelligence and emotional intelligence because"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000946"
+        ],
+        "source_window_id": "window-0016",
+        "text": "we define that different ways people who seem unable to read the room so to speak versus people who"
       },
       {
         "source_segment_ids": [
@@ -1609,6 +2943,20 @@
       },
       {
         "source_segment_ids": [
+          "seg-001014"
+        ],
+        "source_window_id": "window-0017",
+        "text": "questions that they they need to ask you're a little embarrassed for them but you're but it's"
+      },
+      {
+        "source_segment_ids": [
+          "seg-001015"
+        ],
+        "source_window_id": "window-0017",
+        "text": "liberating you feel like we've broken the social mold here a little bit and someone would say excuse"
+      },
+      {
+        "source_segment_ids": [
           "seg-001067"
         ],
         "source_window_id": "window-0018",
@@ -1627,6 +2975,20 @@
         ],
         "source_window_id": "window-0018",
         "text": "a bit of what's now known what's thought what's not known it's a great topic I mean the way that"
+      },
+      {
+        "source_segment_ids": [
+          "seg-001070"
+        ],
+        "source_window_id": "window-0018",
+        "text": "I personally have approached it is not with a primary interest in autism I don't have a family"
+      },
+      {
+        "source_segment_ids": [
+          "seg-001071"
+        ],
+        "source_window_id": "window-0018",
+        "text": "member who has autism I don't have any personal experience it's really been just like with"
       },
       {
         "source_segment_ids": [
@@ -1651,6 +3013,20 @@
       },
       {
         "source_segment_ids": [
+          "seg-001124"
+        ],
+        "source_window_id": "window-0019",
+        "text": "that if you don't look at faces a lot there's some consequences if you look at faces a lot there are"
+      },
+      {
+        "source_segment_ids": [
+          "seg-001125"
+        ],
+        "source_window_id": "window-0019",
+        "text": "other consequences if that were the case we're not there yet that would make very interesting"
+      },
+      {
+        "source_segment_ids": [
           "seg-001190"
         ],
         "source_window_id": "window-0020",
@@ -1669,6 +3045,20 @@
         ],
         "source_window_id": "window-0020",
         "text": "Honnold who again who is a guest on this podcast and there've been claims that his amygdala doesn't"
+      },
+      {
+        "source_segment_ids": [
+          "seg-001193"
+        ],
+        "source_window_id": "window-0020",
+        "text": "react as much anyway we could we could talk about that I think Alex kind of like maybe chuckles a"
+      },
+      {
+        "source_segment_ids": [
+          "seg-001194"
+        ],
+        "source_window_id": "window-0020",
+        "text": "little bit at those studies because he does experience anxiety and fear just not in the context of this"
       },
       {
         "source_segment_ids": [
@@ -1693,6 +3083,20 @@
       },
       {
         "source_segment_ids": [
+          "seg-001272"
+        ],
+        "source_window_id": "window-0021",
+        "text": "one hand is a meditation but it's pivoting the brain circuits toward what comes next yeah I don't"
+      },
+      {
+        "source_segment_ids": [
+          "seg-001273"
+        ],
+        "source_window_id": "window-0021",
+        "text": "think we talk enough as neuroscientists about the fact that the brain doesn't just immediately"
+      },
+      {
+        "source_segment_ids": [
           "seg-001345"
         ],
         "source_window_id": "window-0022",
@@ -1714,6 +3118,20 @@
       },
       {
         "source_segment_ids": [
+          "seg-001348"
+        ],
+        "source_window_id": "window-0022",
+        "text": "yeah and the other thing no phones no one has phones during the day they get I think they get an"
+      },
+      {
+        "source_segment_ids": [
+          "seg-001349"
+        ],
+        "source_window_id": "window-0022",
+        "text": "hour where they can access their phones I normally my phone it's on right now because you guys"
+      },
+      {
+        "source_segment_ids": [
           "seg-001411"
         ],
         "source_window_id": "window-0023",
@@ -1732,15 +3150,510 @@
         ],
         "source_window_id": "window-0023",
         "text": "the follow button on both Spotify and Apple and on both Spotify and Apple you can leave us up to a"
+      },
+      {
+        "source_segment_ids": [
+          "seg-001414"
+        ],
+        "source_window_id": "window-0023",
+        "text": "five star review and you can now leave us comments at both Spotify and Apple please also check out"
+      },
+      {
+        "source_segment_ids": [
+          "seg-001415"
+        ],
+        "source_window_id": "window-0023",
+        "text": "the sponsors mentioned at the beginning and throughout today's episode that's the best way to"
       }
     ],
-    "mechanisms": [],
+    "mechanisms": [
+      {
+        "source_segment_ids": [
+          "seg-000033"
+        ],
+        "source_window_id": "window-0001",
+        "text": "Long time admirer of your work, because you're one of the few people who has studied these things we"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000039"
+        ],
+        "source_window_id": "window-0001",
+        "text": "doing that, because it's so easy for people to stimulate a brain area."
+      },
+      {
+        "source_segment_ids": [
+          "seg-000097"
+        ],
+        "source_window_id": "window-0002",
+        "text": "back in the 50s or 60s, that there are interrupt mechanisms of a certain kind."
+      },
+      {
+        "source_segment_ids": [
+          "seg-000113"
+        ],
+        "source_window_id": "window-0003",
+        "text": "And I sometimes wonder because algorithms"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000131"
+        ],
+        "source_window_id": "window-0003",
+        "text": "because reflexes are binary."
+      },
+      {
+        "source_segment_ids": [
+          "seg-000222"
+        ],
+        "source_window_id": "window-0004",
+        "text": "You would say because it's a certain type of conscious experience"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000228"
+        ],
+        "source_window_id": "window-0004",
+        "text": "it gets really problematic to know whether or not animals have emotions because we don't know"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000249"
+        ],
+        "source_window_id": "window-0005",
+        "text": "And that's very important because we have conscious"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000273"
+        ],
+        "source_window_id": "window-0005",
+        "text": "definitely talk about ice baths and ultra, ultra races because you, you're training for one."
+      },
+      {
+        "source_segment_ids": [
+          "seg-000320"
+        ],
+        "source_window_id": "window-0006",
+        "text": "if you can name the emotion, but I find that a little tricky, because sometimes it's not one emotion."
+      },
+      {
+        "source_segment_ids": [
+          "seg-000323"
+        ],
+        "source_window_id": "window-0006",
+        "text": "the emotion is so big, but because it's such a tangled jungle of whether isn't really language"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000373"
+        ],
+        "source_window_id": "window-0007",
+        "text": "because this is relevant actually."
+      },
+      {
+        "source_segment_ids": [
+          "seg-000400"
+        ],
+        "source_window_id": "window-0007",
+        "text": "unfairly get taxed to the deliberate cold exposure, as we call it, thing a little too much because"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000426"
+        ],
+        "source_window_id": "window-0008",
+        "text": "And I'm just now getting back into it because of that nonlinearity."
+      },
+      {
+        "source_segment_ids": [
+          "seg-000456"
+        ],
+        "source_window_id": "window-0008",
+        "text": "And they just say, okay, like, I'm better for life because I'm out of it."
+      },
+      {
+        "source_segment_ids": [
+          "seg-000523"
+        ],
+        "source_window_id": "window-0009",
+        "text": "It took for some reason because it's just harder to do."
+      },
+      {
+        "source_segment_ids": [
+          "seg-000533"
+        ],
+        "source_window_id": "window-0009",
+        "text": "So Paul Ekman, back in the 70s, famous, by the way, I dedicate my forthcoming book to him because"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000563"
+        ],
+        "source_window_id": "window-0010",
+        "text": "Because it did something bad."
+      },
+      {
+        "source_segment_ids": [
+          "seg-000567"
+        ],
+        "source_window_id": "window-0010",
+        "text": "we can do it, but mostly not so accurate, which makes sense, because ordinarily, it's not just"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000634"
+        ],
+        "source_window_id": "window-0011",
+        "text": "Because when we look at babies and they start to smile for the first time or they express"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000635"
+        ],
+        "source_window_id": "window-0011",
+        "text": "what we think is humor or something like that, we are so tuned to faces because they can't really"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000727"
+        ],
+        "source_window_id": "window-0012",
+        "text": "It's like because you can't escape."
+      },
+      {
+        "source_segment_ids": [
+          "seg-000755"
+        ],
+        "source_window_id": "window-0012",
+        "text": "Because in Eastern medicine, there's strong beliefs"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000799"
+        ],
+        "source_window_id": "window-0013",
+        "text": "Someone said, I don't know who said it, but all AB testing leads to sex or violence,"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000882"
+        ],
+        "source_window_id": "window-0015",
+        "text": "Now that couldn't have evolved because, you know, we had a long history of brain evolution before"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000884"
+        ],
+        "source_window_id": "window-0015",
+        "text": "be hardwired or innate because there wasn't long enough evolutionary time to evolve a region of the"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000945"
+        ],
+        "source_window_id": "window-0016",
+        "text": "like to ask you about which is building social intelligence and emotional intelligence because"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000962"
+        ],
+        "source_window_id": "window-0016",
+        "text": "we talk it up these days because indeed empathy is important but no this is a tricky one"
+      },
+      {
+        "source_segment_ids": [
+          "seg-001013"
+        ],
+        "source_window_id": "window-0017",
+        "text": "also something incredibly refreshing about it because it's almost like they're they're asking the"
+      },
+      {
+        "source_segment_ids": [
+          "seg-001054"
+        ],
+        "source_window_id": "window-0017",
+        "text": "and I'll just put the mention up front because this is a topic that sometimes gets people triggered"
+      },
+      {
+        "source_segment_ids": [
+          "seg-001140"
+        ],
+        "source_window_id": "window-0019",
+        "text": "former colleague because I haven't been working in that field for a while but here we see boton"
+      },
+      {
+        "source_segment_ids": [
+          "seg-001155"
+        ],
+        "source_window_id": "window-0019",
+        "text": "for speaking so it's a super interesting observation because the question of course is to what"
+      },
+      {
+        "source_segment_ids": [
+          "seg-001194"
+        ],
+        "source_window_id": "window-0020",
+        "text": "little bit at those studies because he does experience anxiety and fear just not in the context of this"
+      },
+      {
+        "source_segment_ids": [
+          "seg-001207"
+        ],
+        "source_window_id": "window-0020",
+        "text": "spent a bunch of time alone because I've gone through that kind of initial stage of the mind"
+      },
+      {
+        "source_segment_ids": [
+          "seg-001316"
+        ],
+        "source_window_id": "window-0021",
+        "text": "this five minutes of silence like because you're you're spending five minutes yeah and we know"
+      },
+      {
+        "source_segment_ids": [
+          "seg-001349"
+        ],
+        "source_window_id": "window-0022",
+        "text": "hour where they can access their phones I normally my phone it's on right now because you guys"
+      },
+      {
+        "source_segment_ids": [
+          "seg-001398"
+        ],
+        "source_window_id": "window-0022",
+        "text": "everybody like this is a in case anyone hasn't told you and because I sit at a unique vantage point"
+      }
+    ],
     "near_duplicate_claim_candidates": [],
     "open_questions": [],
-    "protocols": [],
+    "protocols": [
+      {
+        "source_segment_ids": [
+          "seg-000010"
+        ],
+        "source_window_id": "window-0001",
+        "steps": [
+          "To celebrate the launch of my new book entitled Protocols,"
+        ],
+        "title": "Protocol: To celebrate the launch of my new book e"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000016"
+        ],
+        "source_window_id": "window-0001",
+        "steps": [
+          "slash events, and use the code Protocols to get early access."
+        ],
+        "title": "Protocol: slash events, and use the code Protocols"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000051"
+        ],
+        "source_window_id": "window-0002",
+        "steps": [
+          "They should be understood by what they do, their function, rather than how they happen to be"
+        ],
+        "title": "Protocol: They should be understood by what they d"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000076"
+        ],
+        "source_window_id": "window-0002",
+        "steps": [
+          "and I think it deserves a straight answer that science should provide."
+        ],
+        "title": "Protocol: and I think it deserves a straight answe"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000186"
+        ],
+        "source_window_id": "window-0004",
+        "steps": [
+          "also brought to us by Rora."
+        ],
+        "title": "Protocol: also brought to us by Rora."
+      },
+      {
+        "source_segment_ids": [
+          "seg-000227"
+        ],
+        "source_window_id": "window-0004",
+        "steps": [
+          "but just practically, it has two big problems that I think science should avoid."
+        ],
+        "title": "Protocol: but just practically, it has two big pro"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000246"
+        ],
+        "source_window_id": "window-0005",
+        "steps": [
+          "We should do the same thing with"
+        ],
+        "title": "Protocol: We should do the same thing with"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000250"
+        ],
+        "source_window_id": "window-0005",
+        "steps": [
+          "As a scientific discipline, we should separate the conscious"
+        ],
+        "title": "Protocol: As a scientific discipline, we should se"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000453"
+        ],
+        "source_window_id": "window-0008",
+        "steps": [
+          "I mean, it must be the case."
+        ],
+        "title": "Protocol: I mean, it must be the case."
+      },
+      {
+        "source_segment_ids": [
+          "seg-000458"
+        ],
+        "source_window_id": "window-0008",
+        "steps": [
+          "It's a very interesting thing about like, how should"
+        ],
+        "title": "Protocol: It's a very interesting thing about like"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000586"
+        ],
+        "source_window_id": "window-0010",
+        "steps": [
+          "Absolutely, much more than like, oh, they're carrying their shoulders differently."
+        ],
+        "title": "Protocol: Absolutely, much more than like, oh, the"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000695"
+        ],
+        "source_window_id": "window-0011",
+        "steps": [
+          "It should be something like people's concept of where in the"
+        ],
+        "title": "Protocol: It should be something like people's con"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000774"
+        ],
+        "source_window_id": "window-0013",
+        "steps": [
+          "Yeah, they really should be done because I could make up a story where if someone or an animal"
+        ],
+        "title": "Protocol: Yeah, they really should be done because"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000812"
+        ],
+        "source_window_id": "window-0013",
+        "steps": [
+          "and mental health, it also analyzes these results and provides recommendations for improving your"
+        ],
+        "title": "Protocol: and mental health, it also analyzes thes"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000866"
+        ],
+        "source_window_id": "window-0014",
+        "steps": [
+          "And I should know the answer to the next question, but I don't."
+        ],
+        "title": "Protocol: And I should know the answer to the next"
+      },
+      {
+        "source_segment_ids": [
+          "seg-001035"
+        ],
+        "source_window_id": "window-0017",
+        "steps": [
+          "being an impediment because if you have to track everything have to remember okay I should make"
+        ],
+        "title": "Protocol: being an impediment because if you have "
+      },
+      {
+        "source_segment_ids": [
+          "seg-001126"
+        ],
+        "source_window_id": "window-0019",
+        "steps": [
+          "predictions which maybe I should be looking at your face all the time but the podcast would"
+        ],
+        "title": "Protocol: predictions which maybe I should be look"
+      },
+      {
+        "source_segment_ids": [
+          "seg-001146"
+        ],
+        "source_window_id": "window-0019",
+        "steps": [
+          "recommend people go even if you don't want a dog because you get to see all the different genetic"
+        ],
+        "title": "Protocol: recommend people go even if you don't wa"
+      },
+      {
+        "source_segment_ids": [
+          "seg-001278"
+        ],
+        "source_window_id": "window-0021",
+        "steps": [
+          "is hard and some for some reason and there's a couple of theories for why it should be hard there's"
+        ],
+        "title": "Protocol: is hard and some for some reason and the"
+      },
+      {
+        "source_segment_ids": [
+          "seg-001285"
+        ],
+        "source_window_id": "window-0021",
+        "steps": [
+          "kinds of things and I think most people think oh we should sit down and look at a bunch of faces and"
+        ],
+        "title": "Protocol: kinds of things and I think most people "
+      },
+      {
+        "source_segment_ids": [
+          "seg-001419"
+        ],
+        "source_window_id": "window-0023",
+        "steps": [
+          "it's my very first book it's entitled protocols and operating manual for the human body this is a book"
+        ],
+        "title": "Protocol: it's my very first book it's entitled pr"
+      },
+      {
+        "source_segment_ids": [
+          "seg-001421"
+        ],
+        "source_window_id": "window-0023",
+        "steps": [
+          "and experience and it covers protocols for everything from sleep to exercise to stress control"
+        ],
+        "title": "Protocol: and experience and it covers protocols f"
+      }
+    ],
     "subtopics": [
       {
-        "label": "Window window-0001 Topics",
+        "label": "Thematic Chapter 1 (Well, Protocols)",
         "source_segment_ids": [
           "seg-000001",
           "seg-000002",
@@ -1789,7 +3702,7 @@
         "source_window_id": "window-0001"
       },
       {
-        "label": "Window window-0002 Topics",
+        "label": "Thematic Chapter 2 (Typically, They)",
         "source_segment_ids": [
           "seg-000044",
           "seg-000045",
@@ -1858,7 +3771,7 @@
         "source_window_id": "window-0002"
       },
       {
-        "label": "Window window-0003 Topics",
+        "label": "Thematic Chapter 3 (Caltech, Marcus Meister)",
         "source_segment_ids": [
           "seg-000107",
           "seg-000108",
@@ -1925,7 +3838,7 @@
         "source_window_id": "window-0003"
       },
       {
-        "label": "Window window-0004 Topics",
+        "label": "Thematic Chapter 4 (Helix Sleep, When)",
         "source_segment_ids": [
           "seg-000168",
           "seg-000169",
@@ -1994,7 +3907,7 @@
         "source_window_id": "window-0004"
       },
       {
-        "label": "Window window-0005 Topics",
+        "label": "Thematic Chapter 5 (Christoph Koch, Again)",
         "source_segment_ids": [
           "seg-000231",
           "seg-000232",
@@ -2068,7 +3981,7 @@
         "source_window_id": "window-0005"
       },
       {
-        "label": "Window window-0006 Topics",
+        "label": "Thematic Chapter 6 (That, Antonio)",
         "source_segment_ids": [
           "seg-000299",
           "seg-000300",
@@ -2132,7 +4045,7 @@
         "source_window_id": "window-0006"
       },
       {
-        "label": "Window window-0007 Topics",
+        "label": "Thematic Chapter 7 (Well, Justin Feinstein)",
         "source_segment_ids": [
           "seg-000357",
           "seg-000358",
@@ -2200,7 +4113,7 @@
         "source_window_id": "window-0007"
       },
       {
-        "label": "Window window-0008 Topics",
+        "label": "Thematic Chapter 8 (People, This)",
         "source_segment_ids": [
           "seg-000419",
           "seg-000420",
@@ -2290,7 +4203,7 @@
         "source_window_id": "window-0008"
       },
       {
-        "label": "Window window-0009 Topics",
+        "label": "Thematic Chapter 9 (Calcium, Omega)",
         "source_segment_ids": [
           "seg-000503",
           "seg-000504",
@@ -2354,7 +4267,7 @@
         "source_window_id": "window-0009"
       },
       {
-        "label": "Window window-0010 Topics",
+        "label": "Thematic Chapter 10 (Well, They)",
         "source_segment_ids": [
           "seg-000561",
           "seg-000562",
@@ -2427,7 +4340,7 @@
         "source_window_id": "window-0010"
       },
       {
-        "label": "Window window-0011 Topics",
+        "label": "Thematic Chapter 11 (Paul Ekman, Well)",
         "source_segment_ids": [
           "seg-000628",
           "seg-000629",
@@ -2512,7 +4425,7 @@
         "source_window_id": "window-0011"
       },
       {
-        "label": "Window window-0012 Topics",
+        "label": "Thematic Chapter 12 (Eventually, There)",
         "source_segment_ids": [
           "seg-000707",
           "seg-000708",
@@ -2577,7 +4490,7 @@
         "source_window_id": "window-0012"
       },
       {
-        "label": "Window window-0013 Topics",
+        "label": "Thematic Chapter 13 (Well, What)",
         "source_segment_ids": [
           "seg-000766",
           "seg-000767",
@@ -2645,7 +4558,7 @@
         "source_window_id": "window-0013"
       },
       {
-        "label": "Window window-0014 Topics",
+        "label": "Thematic Chapter 14 (Independent, Anne Blood)",
         "source_segment_ids": [
           "seg-000828",
           "seg-000829",
@@ -2702,7 +4615,7 @@
         "source_window_id": "window-0014"
       },
       {
-        "label": "Window window-0015 Topics",
+        "label": "Thematic Chapter 15 (Celtic, Doris Sau)",
         "source_segment_ids": [
           "seg-000879",
           "seg-000880",
@@ -2771,7 +4684,7 @@
         "source_window_id": "window-0015"
       },
       {
-        "label": "Window window-0016 Topics",
+        "label": "Thematic Chapter 16 (Yeah, James Gross)",
         "source_segment_ids": [
           "seg-000942",
           "seg-000943",
@@ -2846,7 +4759,7 @@
         "source_window_id": "window-0016"
       },
       {
-        "label": "Window window-0017 Topics",
+        "label": "Thematic Chapter 17 (San Diego)",
         "source_segment_ids": [
           "seg-001011",
           "seg-001012",
@@ -2908,7 +4821,7 @@
         "source_window_id": "window-0017"
       },
       {
-        "label": "Window window-0018 Topics",
+        "label": "Thematic Chapter 18 (Ados)",
         "source_segment_ids": [
           "seg-001067",
           "seg-001068",
@@ -2968,7 +4881,7 @@
         "source_window_id": "window-0018"
       },
       {
-        "label": "Window window-0019 Topics",
+        "label": "Thematic Chapter 19 (Yorkshire, Zoom)",
         "source_segment_ids": [
           "seg-001121",
           "seg-001122",
@@ -3043,7 +4956,7 @@
         "source_window_id": "window-0019"
       },
       {
-        "label": "Window window-0020 Topics",
+        "label": "Thematic Chapter 20 (Alex, Honnold)",
         "source_segment_ids": [
           "seg-001190",
           "seg-001191",
@@ -3128,7 +5041,7 @@
         "source_window_id": "window-0020"
       },
       {
-        "label": "Window window-0021 Topics",
+        "label": "Thematic Chapter 21 (Shipley, Tibetan)",
         "source_segment_ids": [
           "seg-001269",
           "seg-001270",
@@ -3210,7 +5123,7 @@
         "source_window_id": "window-0021"
       },
       {
-        "label": "Window window-0022 Topics",
+        "label": "Thematic Chapter 22 (Shuffle Shuffle Shuffle, Facebook)",
         "source_segment_ids": [
           "seg-001345",
           "seg-001346",
@@ -3282,7 +5195,7 @@
         "source_window_id": "window-0022"
       },
       {
-        "label": "Window window-0023 Topics",
+        "label": "Thematic Chapter 23 (Spotify, Apple)",
         "source_segment_ids": [
           "seg-001411",
           "seg-001412",
@@ -3317,9 +5230,9 @@
       }
     ]
   },
-  "evidence_ledger_sha256": "599eba5eecc81ffab38c3ca55f9c2c350508bf4b255cdf846f55a3d066fc7a88",
+  "evidence_ledger_sha256": "201cd8a6c1757f97793cb52d06e4c9a0a00c2c810947359df670a17ae90f0f2a",
   "packet_id": "reduce-final",
-  "packet_sha256": "21594c7d33025d7a5cca7416666ab12ff3b4d7a70da7e289c5ec2df4fa86c027",
+  "packet_sha256": "658ef0c7ef018257132059a66a0103602f585bc35b1c81e8c99912a64cd9b7f3",
   "result_path": "work/results/reduce.json",
   "rules": [
     "Build Macro and Meso from this validated evidence ledger; do not reread the whole transcript by default.",

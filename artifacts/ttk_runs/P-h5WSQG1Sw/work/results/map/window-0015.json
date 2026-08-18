@@ -5,7 +5,7 @@
   "window_id": "window-0015",
   "subtopics": [
     {
-      "label": "Window window-0015 Topics",
+      "label": "Thematic Chapter 15 (Celtic, Doris Sau)",
       "source_segment_ids": [
         "seg-000879",
         "seg-000880",
@@ -75,13 +75,19 @@
   ],
   "key_points": [
     {
-      "text": "a good example is the visual word form area. So there's regions in the brain that like the ones",
+      "text": "a good example is the visual word form area.",
       "source_segment_ids": [
         "seg-000879"
       ]
     },
     {
-      "text": "that my former Celtic colleague, Doris Sau study, that are specialized for faces. But there's also",
+      "text": "So there's regions in the brain that like the ones",
+      "source_segment_ids": [
+        "seg-000879"
+      ]
+    },
+    {
+      "text": "that my former Celtic colleague, Doris Sau study, that are specialized for faces.",
       "source_segment_ids": [
         "seg-000880"
       ]
@@ -91,14 +97,46 @@
       "source_segment_ids": [
         "seg-000881"
       ]
+    },
+    {
+      "text": "Now that couldn't have evolved because, you know, we had a long history of brain evolution before",
+      "source_segment_ids": [
+        "seg-000882"
+      ]
     }
   ],
-  "mechanisms": [],
+  "mechanisms": [
+    {
+      "text": "Now that couldn't have evolved because, you know, we had a long history of brain evolution before",
+      "source_segment_ids": [
+        "seg-000882"
+      ]
+    },
+    {
+      "text": "be hardwired or innate because there wasn't long enough evolutionary time to evolve a region of the",
+      "source_segment_ids": [
+        "seg-000884"
+      ]
+    }
+  ],
   "protocols": [],
-  "arguments": [],
+  "arguments": [
+    {
+      "text": "Not that exact experiment but I think that in broad strokes,",
+      "source_segment_ids": [
+        "seg-000914"
+      ]
+    },
+    {
+      "text": "will know how this works in the visual system and artificial systems, deep convolutional neural",
+      "source_segment_ids": [
+        "seg-000921"
+      ]
+    }
+  ],
   "candidate_claims": [
     {
-      "claim_text": "a good example is the visual word form area. So there's regions in the brain that like the ones",
+      "claim_text": "a good example is the visual word form area.",
       "claim_kind": "fact",
       "speaker": null,
       "source_segment_ids": [
@@ -107,13 +145,28 @@
       "quote_evidence": [
         {
           "segment_id": "seg-000879",
-          "quote": "a good example is the visual word form area. So there's regions in the brain that like the ones"
+          "quote": "a good example is the visual word form area."
         }
       ],
-      "checkworthiness": "medium"
+      "checkworthiness": "high"
     },
     {
-      "claim_text": "that my former Celtic colleague, Doris Sau study, that are specialized for faces. But there's also",
+      "claim_text": "So there's regions in the brain that like the ones",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000879"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000879",
+          "quote": "So there's regions in the brain that like the ones"
+        }
+      ],
+      "checkworthiness": "high"
+    },
+    {
+      "claim_text": "that my former Celtic colleague, Doris Sau study, that are specialized for faces.",
       "claim_kind": "fact",
       "speaker": null,
       "source_segment_ids": [
@@ -122,10 +175,10 @@
       "quote_evidence": [
         {
           "segment_id": "seg-000880",
-          "quote": "that my former Celtic colleague, Doris Sau study, that are specialized for faces. But there's also"
+          "quote": "that my former Celtic colleague, Doris Sau study, that are specialized for faces."
         }
       ],
-      "checkworthiness": "low"
+      "checkworthiness": "high"
     },
     {
       "claim_text": "a region in the brain typically on the left in most people that's for recognizing words, letters.",
@@ -140,10 +193,32 @@
           "quote": "a region in the brain typically on the left in most people that's for recognizing words, letters."
         }
       ],
-      "checkworthiness": "low"
+      "checkworthiness": "high"
     }
   ],
-  "entities": [],
+  "entities": [
+    {
+      "name": "Celtic",
+      "type": "topic",
+      "source_segment_ids": [
+        "seg-000880"
+      ]
+    },
+    {
+      "name": "Doris Sau",
+      "type": "topic",
+      "source_segment_ids": [
+        "seg-000880"
+      ]
+    },
+    {
+      "name": "Coming",
+      "type": "topic",
+      "source_segment_ids": [
+        "seg-000889"
+      ]
+    }
+  ],
   "concepts": [],
   "open_questions": [],
   "contradictions_or_uncertainty": []

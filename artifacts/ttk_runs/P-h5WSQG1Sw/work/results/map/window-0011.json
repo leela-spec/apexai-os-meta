@@ -5,7 +5,7 @@
   "window_id": "window-0011",
   "subtopics": [
     {
-      "label": "Window window-0011 Topics",
+      "label": "Thematic Chapter 11 (Paul Ekman, Well)",
       "source_segment_ids": [
         "seg-000628",
         "seg-000629",
@@ -97,21 +97,69 @@
       ]
     },
     {
-      "text": "truly static Paul Ekman pictures of facial affect. Well, we never see that in people. It's always",
+      "text": "truly static Paul Ekman pictures of facial affect.",
       "source_segment_ids": [
         "seg-000629"
       ]
     },
     {
-      "text": "dynamic. The face is changing. And so, Philipp Schins, Rachel Jack, colleagues in Scotland, for",
+      "text": "Well, we never see that in people.",
+      "source_segment_ids": [
+        "seg-000629"
+      ]
+    },
+    {
+      "text": "The face is changing.",
+      "source_segment_ids": [
+        "seg-000630"
+      ]
+    },
+    {
+      "text": "And so, Philipp Schins, Rachel Jack, colleagues in Scotland, for",
       "source_segment_ids": [
         "seg-000630"
       ]
     }
   ],
-  "mechanisms": [],
-  "protocols": [],
-  "arguments": [],
+  "mechanisms": [
+    {
+      "text": "Because when we look at babies and they start to smile for the first time or they express",
+      "source_segment_ids": [
+        "seg-000634"
+      ]
+    },
+    {
+      "text": "what we think is humor or something like that, we are so tuned to faces because they can't really",
+      "source_segment_ids": [
+        "seg-000635"
+      ]
+    }
+  ],
+  "protocols": [
+    {
+      "title": "Protocol: It should be something like people's con",
+      "steps": [
+        "It should be something like people's concept of where in the"
+      ],
+      "source_segment_ids": [
+        "seg-000695"
+      ]
+    }
+  ],
+  "arguments": [
+    {
+      "text": "And I project on him what that's about.",
+      "source_segment_ids": [
+        "seg-000641"
+      ]
+    },
+    {
+      "text": "But we did a study, again, just in Feinstein, I think was the first author in this one as well,",
+      "source_segment_ids": [
+        "seg-000653"
+      ]
+    }
+  ],
   "candidate_claims": [
     {
       "claim_text": "you know, the original studies, like the ones I started doing as a postdoc where you just",
@@ -126,10 +174,10 @@
           "quote": "you know, the original studies, like the ones I started doing as a postdoc where you just"
         }
       ],
-      "checkworthiness": "medium"
+      "checkworthiness": "high"
     },
     {
-      "claim_text": "truly static Paul Ekman pictures of facial affect. Well, we never see that in people. It's always",
+      "claim_text": "truly static Paul Ekman pictures of facial affect.",
       "claim_kind": "fact",
       "speaker": null,
       "source_segment_ids": [
@@ -138,13 +186,28 @@
       "quote_evidence": [
         {
           "segment_id": "seg-000629",
-          "quote": "truly static Paul Ekman pictures of facial affect. Well, we never see that in people. It's always"
+          "quote": "truly static Paul Ekman pictures of facial affect."
         }
       ],
-      "checkworthiness": "low"
+      "checkworthiness": "high"
     },
     {
-      "claim_text": "dynamic. The face is changing. And so, Philipp Schins, Rachel Jack, colleagues in Scotland, for",
+      "claim_text": "Well, we never see that in people.",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000629"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000629",
+          "quote": "Well, we never see that in people."
+        }
+      ],
+      "checkworthiness": "high"
+    },
+    {
+      "claim_text": "The face is changing.",
       "claim_kind": "fact",
       "speaker": null,
       "source_segment_ids": [
@@ -153,13 +216,35 @@
       "quote_evidence": [
         {
           "segment_id": "seg-000630",
-          "quote": "dynamic. The face is changing. And so, Philipp Schins, Rachel Jack, colleagues in Scotland, for"
+          "quote": "The face is changing."
         }
       ],
-      "checkworthiness": "low"
+      "checkworthiness": "high"
     }
   ],
-  "entities": [],
+  "entities": [
+    {
+      "name": "Paul Ekman",
+      "type": "topic",
+      "source_segment_ids": [
+        "seg-000629"
+      ]
+    },
+    {
+      "name": "Well",
+      "type": "topic",
+      "source_segment_ids": [
+        "seg-000629"
+      ]
+    },
+    {
+      "name": "Philipp Schins",
+      "type": "topic",
+      "source_segment_ids": [
+        "seg-000630"
+      ]
+    }
+  ],
   "concepts": [],
   "open_questions": [],
   "contradictions_or_uncertainty": []

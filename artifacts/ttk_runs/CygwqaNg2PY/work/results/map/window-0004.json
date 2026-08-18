@@ -5,7 +5,7 @@
   "window_id": "window-0004",
   "subtopics": [
     {
-      "label": "Window window-0004 Topics",
+      "label": "Thematic Chapter 4 (Elliott, Bitcoin)",
       "source_segment_ids": [
         "seg-000162",
         "seg-000163",
@@ -82,11 +82,68 @@
       "source_segment_ids": [
         "seg-000164"
       ]
+    },
+    {
+      "text": "theory actually get into it and get started okay yeah the e-waves software in my opinion is for",
+      "source_segment_ids": [
+        "seg-000165"
+      ]
+    },
+    {
+      "text": "people who are all already know a bit about Elliott wave theory if your brand new and you just",
+      "source_segment_ids": [
+        "seg-000166"
+      ]
     }
   ],
-  "mechanisms": [],
-  "protocols": [],
-  "arguments": [],
+  "mechanisms": [
+    {
+      "text": "overall is starting to weaken well I'm tempted to say yes because I see that kind of thing all the",
+      "source_segment_ids": [
+        "seg-000194"
+      ]
+    },
+    {
+      "text": "every market independently because those kinds of correlations come at certain times and then they",
+      "source_segment_ids": [
+        "seg-000196"
+      ]
+    }
+  ],
+  "protocols": [
+    {
+      "title": "Protocol: does which which how would you recommend",
+      "steps": [
+        "does which which how would you recommend somebody that is interested in working with Elliott wave"
+      ],
+      "source_segment_ids": [
+        "seg-000164"
+      ]
+    },
+    {
+      "title": "Protocol: want to get a grip then I'd actually rec",
+      "steps": [
+        "want to get a grip then I'd actually recommend going to Elliott wave dot com and we have a lot"
+      ],
+      "source_segment_ids": [
+        "seg-000167"
+      ]
+    }
+  ],
+  "arguments": [
+    {
+      "text": "theory actually get into it and get started okay yeah the e-waves software in my opinion is for",
+      "source_segment_ids": [
+        "seg-000165"
+      ]
+    },
+    {
+      "text": "education and teaching people how to do it yourself as opposed to say a forecasting service or",
+      "source_segment_ids": [
+        "seg-000172"
+      ]
+    }
+  ],
   "candidate_claims": [
     {
       "claim_text": "maybe maybe in simple terms very often retail investors ask me you know looks really super",
@@ -101,7 +158,7 @@
           "quote": "maybe maybe in simple terms very often retail investors ask me you know looks really super"
         }
       ],
-      "checkworthiness": "medium"
+      "checkworthiness": "high"
     },
     {
       "claim_text": "interesting where do we actually start how can I get a good understanding of what it actually",
@@ -116,11 +173,11 @@
           "quote": "interesting where do we actually start how can I get a good understanding of what it actually"
         }
       ],
-      "checkworthiness": "low"
+      "checkworthiness": "high"
     },
     {
       "claim_text": "does which which how would you recommend somebody that is interested in working with Elliott wave",
-      "claim_kind": "fact",
+      "claim_kind": "recommendation",
       "speaker": null,
       "source_segment_ids": [
         "seg-000164"
@@ -132,9 +189,46 @@
         }
       ],
       "checkworthiness": "low"
+    },
+    {
+      "claim_text": "theory actually get into it and get started okay yeah the e-waves software in my opinion is for",
+      "claim_kind": "opinion",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000165"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000165",
+          "quote": "theory actually get into it and get started okay yeah the e-waves software in my opinion is for"
+        }
+      ],
+      "checkworthiness": "low"
     }
   ],
-  "entities": [],
+  "entities": [
+    {
+      "name": "Elliott",
+      "type": "topic",
+      "source_segment_ids": [
+        "seg-000164"
+      ]
+    },
+    {
+      "name": "Bitcoin",
+      "type": "topic",
+      "source_segment_ids": [
+        "seg-000197"
+      ]
+    },
+    {
+      "name": "Eliot",
+      "type": "topic",
+      "source_segment_ids": [
+        "seg-000204"
+      ]
+    }
+  ],
   "concepts": [],
   "open_questions": [],
   "contradictions_or_uncertainty": []

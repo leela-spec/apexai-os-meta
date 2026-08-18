@@ -5,7 +5,7 @@
   "window_id": "window-0014",
   "subtopics": [
     {
-      "label": "Window window-0014 Topics",
+      "label": "Thematic Chapter 14 (Independent, Anne Blood)",
       "source_segment_ids": [
         "seg-000828",
         "seg-000829",
@@ -69,21 +69,56 @@
       ]
     },
     {
-      "text": "So not just about my unique experience. And art is subjective, right? So there's things related",
+      "text": "So not just about my unique experience.",
       "source_segment_ids": [
         "seg-000829"
       ]
     },
     {
-      "text": "to taste. But let's assume this is abstract art. So there's no apparent faces or animals or",
+      "text": "And art is subjective, right?",
+      "source_segment_ids": [
+        "seg-000829"
+      ]
+    },
+    {
+      "text": "But let's assume this is abstract art.",
+      "source_segment_ids": [
+        "seg-000830"
+      ]
+    },
+    {
+      "text": "So there's no apparent faces or animals or",
       "source_segment_ids": [
         "seg-000830"
       ]
     }
   ],
   "mechanisms": [],
-  "protocols": [],
-  "arguments": [],
+  "protocols": [
+    {
+      "title": "Protocol: And I should know the answer to the next",
+      "steps": [
+        "And I should know the answer to the next question, but I don't."
+      ],
+      "source_segment_ids": [
+        "seg-000866"
+      ]
+    }
+  ],
+  "arguments": [
+    {
+      "text": "And I just feel peace.",
+      "source_segment_ids": [
+        "seg-000832"
+      ]
+    },
+    {
+      "text": "And I think they set it up so that you and I could hear the",
+      "source_segment_ids": [
+        "seg-000841"
+      ]
+    }
+  ],
   "candidate_claims": [
     {
       "claim_text": "art of that sort is able to capture the circuitry related to a particular emotions across people?",
@@ -98,10 +133,10 @@
           "quote": "art of that sort is able to capture the circuitry related to a particular emotions across people?"
         }
       ],
-      "checkworthiness": "medium"
+      "checkworthiness": "high"
     },
     {
-      "claim_text": "So not just about my unique experience. And art is subjective, right? So there's things related",
+      "claim_text": "So not just about my unique experience.",
       "claim_kind": "fact",
       "speaker": null,
       "source_segment_ids": [
@@ -110,13 +145,28 @@
       "quote_evidence": [
         {
           "segment_id": "seg-000829",
-          "quote": "So not just about my unique experience. And art is subjective, right? So there's things related"
+          "quote": "So not just about my unique experience."
         }
       ],
-      "checkworthiness": "low"
+      "checkworthiness": "high"
     },
     {
-      "claim_text": "to taste. But let's assume this is abstract art. So there's no apparent faces or animals or",
+      "claim_text": "And art is subjective, right?",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000829"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000829",
+          "quote": "And art is subjective, right?"
+        }
+      ],
+      "checkworthiness": "high"
+    },
+    {
+      "claim_text": "But let's assume this is abstract art.",
       "claim_kind": "fact",
       "speaker": null,
       "source_segment_ids": [
@@ -125,13 +175,35 @@
       "quote_evidence": [
         {
           "segment_id": "seg-000830",
-          "quote": "to taste. But let's assume this is abstract art. So there's no apparent faces or animals or"
+          "quote": "But let's assume this is abstract art."
         }
       ],
-      "checkworthiness": "low"
+      "checkworthiness": "high"
     }
   ],
-  "entities": [],
+  "entities": [
+    {
+      "name": "Independent",
+      "type": "topic",
+      "source_segment_ids": [
+        "seg-000833"
+      ]
+    },
+    {
+      "name": "Anne Blood",
+      "type": "topic",
+      "source_segment_ids": [
+        "seg-000839"
+      ]
+    },
+    {
+      "name": "Robert Satori",
+      "type": "topic",
+      "source_segment_ids": [
+        "seg-000839"
+      ]
+    }
+  ],
   "concepts": [],
   "open_questions": [],
   "contradictions_or_uncertainty": []

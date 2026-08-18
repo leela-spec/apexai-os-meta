@@ -5,7 +5,7 @@
   "window_id": "window-0020",
   "subtopics": [
     {
-      "label": "Window window-0020 Topics",
+      "label": "Thematic Chapter 20 (Alex, Honnold)",
       "source_segment_ids": [
         "seg-001190",
         "seg-001191",
@@ -107,11 +107,49 @@
       "source_segment_ids": [
         "seg-001192"
       ]
+    },
+    {
+      "text": "react as much anyway we could we could talk about that I think Alex kind of like maybe chuckles a",
+      "source_segment_ids": [
+        "seg-001193"
+      ]
+    },
+    {
+      "text": "little bit at those studies because he does experience anxiety and fear just not in the context of this",
+      "source_segment_ids": [
+        "seg-001194"
+      ]
     }
   ],
-  "mechanisms": [],
+  "mechanisms": [
+    {
+      "text": "little bit at those studies because he does experience anxiety and fear just not in the context of this",
+      "source_segment_ids": [
+        "seg-001194"
+      ]
+    },
+    {
+      "text": "spent a bunch of time alone because I've gone through that kind of initial stage of the mind",
+      "source_segment_ids": [
+        "seg-001207"
+      ]
+    }
+  ],
   "protocols": [],
-  "arguments": [],
+  "arguments": [
+    {
+      "text": "perhaps made it sound like one or the other was better but I think sometimes about like Alex",
+      "source_segment_ids": [
+        "seg-001191"
+      ]
+    },
+    {
+      "text": "react as much anyway we could we could talk about that I think Alex kind of like maybe chuckles a",
+      "source_segment_ids": [
+        "seg-001193"
+      ]
+    }
+  ],
   "candidate_claims": [
     {
       "claim_text": "not actually aligned time the way I described the kind of higher or lower RPM before maybe it",
@@ -126,11 +164,11 @@
           "quote": "not actually aligned time the way I described the kind of higher or lower RPM before maybe it"
         }
       ],
-      "checkworthiness": "medium"
+      "checkworthiness": "high"
     },
     {
       "claim_text": "perhaps made it sound like one or the other was better but I think sometimes about like Alex",
-      "claim_kind": "fact",
+      "claim_kind": "opinion",
       "speaker": null,
       "source_segment_ids": [
         "seg-001191"
@@ -156,10 +194,47 @@
           "quote": "Honnold who again who is a guest on this podcast and there've been claims that his amygdala doesn't"
         }
       ],
+      "checkworthiness": "high"
+    },
+    {
+      "claim_text": "react as much anyway we could we could talk about that I think Alex kind of like maybe chuckles a",
+      "claim_kind": "opinion",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-001193"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-001193",
+          "quote": "react as much anyway we could we could talk about that I think Alex kind of like maybe chuckles a"
+        }
+      ],
       "checkworthiness": "low"
     }
   ],
-  "entities": [],
+  "entities": [
+    {
+      "name": "Alex",
+      "type": "topic",
+      "source_segment_ids": [
+        "seg-001191"
+      ]
+    },
+    {
+      "name": "Honnold",
+      "type": "topic",
+      "source_segment_ids": [
+        "seg-001192"
+      ]
+    },
+    {
+      "name": "Sundays",
+      "type": "topic",
+      "source_segment_ids": [
+        "seg-001204"
+      ]
+    }
+  ],
   "concepts": [],
   "open_questions": [],
   "contradictions_or_uncertainty": []

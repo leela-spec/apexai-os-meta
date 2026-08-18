@@ -5,7 +5,7 @@
   "window_id": "window-0003",
   "subtopics": [
     {
-      "label": "Window window-0003 Topics",
+      "label": "Thematic Chapter 3 (Wall Street, Tagen)",
       "source_segment_ids": [
         "seg-000131",
         "seg-000132",
@@ -60,7 +60,13 @@
   ],
   "key_points": [
     {
-      "text": "Na ja, die Wall Street findet natürlich immer irgendwelche Gründe. Ja, wir hatten schon in den letzten",
+      "text": "Na ja, die Wall Street findet natürlich immer irgendwelche Gründe.",
+      "source_segment_ids": [
+        "seg-000131"
+      ]
+    },
+    {
+      "text": "Ja, wir hatten schon in den letzten",
       "source_segment_ids": [
         "seg-000131"
       ]
@@ -76,6 +82,12 @@
       "source_segment_ids": [
         "seg-000133"
       ]
+    },
+    {
+      "text": "die Data-Kommen Umsätze lagen bei 258 Millionen, das ist eine Verfehlung von 13 Millionen Dollar.",
+      "source_segment_ids": [
+        "seg-000134"
+      ]
     }
   ],
   "mechanisms": [],
@@ -83,7 +95,7 @@
   "arguments": [],
   "candidate_claims": [
     {
-      "claim_text": "Na ja, die Wall Street findet natürlich immer irgendwelche Gründe. Ja, wir hatten schon in den letzten",
+      "claim_text": "Na ja, die Wall Street findet natürlich immer irgendwelche Gründe.",
       "claim_kind": "fact",
       "speaker": null,
       "source_segment_ids": [
@@ -92,10 +104,25 @@
       "quote_evidence": [
         {
           "segment_id": "seg-000131",
-          "quote": "Na ja, die Wall Street findet natürlich immer irgendwelche Gründe. Ja, wir hatten schon in den letzten"
+          "quote": "Na ja, die Wall Street findet natürlich immer irgendwelche Gründe."
         }
       ],
-      "checkworthiness": "medium"
+      "checkworthiness": "high"
+    },
+    {
+      "claim_text": "Ja, wir hatten schon in den letzten",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000131"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000131",
+          "quote": "Ja, wir hatten schon in den letzten"
+        }
+      ],
+      "checkworthiness": "high"
     },
     {
       "claim_text": "Tagen oft gute Zahlen und dann trotzdem eben verkäufe, also nach dem Motto 1 Server News Ereignis und",
@@ -110,7 +137,7 @@
           "quote": "Tagen oft gute Zahlen und dann trotzdem eben verkäufe, also nach dem Motto 1 Server News Ereignis und"
         }
       ],
-      "checkworthiness": "low"
+      "checkworthiness": "high"
     },
     {
       "claim_text": "es gibt ja der Bereich Data-Kommen Umsätze enttäuschend, aber wir reden hier von ein paar Millionen Euro,",
@@ -125,10 +152,32 @@
           "quote": "es gibt ja der Bereich Data-Kommen Umsätze enttäuschend, aber wir reden hier von ein paar Millionen Euro,"
         }
       ],
-      "checkworthiness": "low"
+      "checkworthiness": "high"
     }
   ],
-  "entities": [],
+  "entities": [
+    {
+      "name": "Wall Street",
+      "type": "topic",
+      "source_segment_ids": [
+        "seg-000131"
+      ]
+    },
+    {
+      "name": "Tagen",
+      "type": "topic",
+      "source_segment_ids": [
+        "seg-000132"
+      ]
+    },
+    {
+      "name": "Zahlen",
+      "type": "topic",
+      "source_segment_ids": [
+        "seg-000132"
+      ]
+    }
+  ],
   "concepts": [],
   "open_questions": [],
   "contradictions_or_uncertainty": []

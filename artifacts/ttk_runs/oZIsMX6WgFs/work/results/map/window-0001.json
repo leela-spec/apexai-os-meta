@@ -5,7 +5,7 @@
   "window_id": "window-0001",
   "subtopics": [
     {
-      "label": "Window window-0001 Topics",
+      "label": "Thematic Chapter 1 (Thanks, From)",
       "source_segment_ids": [
         "seg-000001",
         "seg-000002",
@@ -57,13 +57,19 @@
   ],
   "key_points": [
     {
-      "text": "Hello, cycle nerds. Thanks for joining today. Let's do a cycles market that jam. So let's review some asset classes across",
+      "text": "Thanks for joining today.",
       "source_segment_ids": [
         "seg-000001"
       ]
     },
     {
-      "text": "different spectrums. Let's just have a live view of where the cycles are.",
+      "text": "Let's do a cycles market that jam.",
+      "source_segment_ids": [
+        "seg-000001"
+      ]
+    },
+    {
+      "text": "Let's just have a live view of where the cycles are.",
       "source_segment_ids": [
         "seg-000002"
       ]
@@ -73,14 +79,50 @@
       "source_segment_ids": [
         "seg-000003"
       ]
+    },
+    {
+      "text": "From the mind of Lars Fartinen, the most advanced cycle analysis, hot off the press.",
+      "source_segment_ids": [
+        "seg-000004"
+      ]
     }
   ],
-  "mechanisms": [],
-  "protocols": [],
-  "arguments": [],
+  "mechanisms": [
+    {
+      "text": "Then always important yeah make a quick recap of the previous changes in trend for that price series you are analyzing here because what you are looking for and this is why we do cycle analysis we do cycle analysis to identify points in time points in time now listen carefully points in time not price.",
+      "source_segment_ids": [
+        "seg-000039"
+      ]
+    }
+  ],
+  "protocols": [
+    {
+      "title": "Protocol: I mean a sharp peak is can be seen here ",
+      "steps": [
+        "I mean a sharp peak is can be seen here as we approach that cycle length with 120 days, which is a quite high amplitude in the very sharp peak in regards to the left and right shoulder of that peak."
+      ],
+      "source_segment_ids": [
+        "seg-000019"
+      ]
+    }
+  ],
+  "arguments": [
+    {
+      "text": "just to learn how the situation of different cycles shapes, which does not mean this is not a forecast,",
+      "source_segment_ids": [
+        "seg-000007"
+      ]
+    },
+    {
+      "text": "And we will eat our own dog food.",
+      "source_segment_ids": [
+        "seg-000009"
+      ]
+    }
+  ],
   "candidate_claims": [
     {
-      "claim_text": "Hello, cycle nerds. Thanks for joining today. Let's do a cycles market that jam. So let's review some asset classes across",
+      "claim_text": "Thanks for joining today.",
       "claim_kind": "fact",
       "speaker": null,
       "source_segment_ids": [
@@ -89,13 +131,28 @@
       "quote_evidence": [
         {
           "segment_id": "seg-000001",
-          "quote": "Hello, cycle nerds. Thanks for joining today. Let's do a cycles market that jam. So let's review some asset classes across"
+          "quote": "Thanks for joining today."
         }
       ],
-      "checkworthiness": "medium"
+      "checkworthiness": "high"
     },
     {
-      "claim_text": "different spectrums. Let's just have a live view of where the cycles are.",
+      "claim_text": "Let's do a cycles market that jam.",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000001"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000001",
+          "quote": "Let's do a cycles market that jam."
+        }
+      ],
+      "checkworthiness": "high"
+    },
+    {
+      "claim_text": "Let's just have a live view of where the cycles are.",
       "claim_kind": "fact",
       "speaker": null,
       "source_segment_ids": [
@@ -104,10 +161,10 @@
       "quote_evidence": [
         {
           "segment_id": "seg-000002",
-          "quote": "different spectrums. Let's just have a live view of where the cycles are."
+          "quote": "Let's just have a live view of where the cycles are."
         }
       ],
-      "checkworthiness": "low"
+      "checkworthiness": "high"
     },
     {
       "claim_text": "In those assets and then let's recap what we see from a cycle analysis perspective.",
@@ -122,10 +179,32 @@
           "quote": "In those assets and then let's recap what we see from a cycle analysis perspective."
         }
       ],
-      "checkworthiness": "low"
+      "checkworthiness": "high"
     }
   ],
-  "entities": [],
+  "entities": [
+    {
+      "name": "Thanks",
+      "type": "topic",
+      "source_segment_ids": [
+        "seg-000001"
+      ]
+    },
+    {
+      "name": "From",
+      "type": "topic",
+      "source_segment_ids": [
+        "seg-000004"
+      ]
+    },
+    {
+      "name": "Lars Fartinen",
+      "type": "topic",
+      "source_segment_ids": [
+        "seg-000004"
+      ]
+    }
+  ],
   "concepts": [],
   "open_questions": [],
   "contradictions_or_uncertainty": []

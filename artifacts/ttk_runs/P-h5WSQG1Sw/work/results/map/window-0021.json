@@ -5,7 +5,7 @@
   "window_id": "window-0021",
   "subtopics": [
     {
-      "label": "Window window-0021 Topics",
+      "label": "Thematic Chapter 21 (Shipley, Tibetan)",
       "source_segment_ids": [
         "seg-001269",
         "seg-001270",
@@ -104,11 +104,62 @@
       "source_segment_ids": [
         "seg-001271"
       ]
+    },
+    {
+      "text": "one hand is a meditation but it's pivoting the brain circuits toward what comes next yeah I don't",
+      "source_segment_ids": [
+        "seg-001272"
+      ]
+    },
+    {
+      "text": "think we talk enough as neuroscientists about the fact that the brain doesn't just immediately",
+      "source_segment_ids": [
+        "seg-001273"
+      ]
     }
   ],
-  "mechanisms": [],
-  "protocols": [],
-  "arguments": [],
+  "mechanisms": [
+    {
+      "text": "this five minutes of silence like because you're you're spending five minutes yeah and we know",
+      "source_segment_ids": [
+        "seg-001316"
+      ]
+    }
+  ],
+  "protocols": [
+    {
+      "title": "Protocol: is hard and some for some reason and the",
+      "steps": [
+        "is hard and some for some reason and there's a couple of theories for why it should be hard there's"
+      ],
+      "source_segment_ids": [
+        "seg-001278"
+      ]
+    },
+    {
+      "title": "Protocol: kinds of things and I think most people ",
+      "steps": [
+        "kinds of things and I think most people think oh we should sit down and look at a bunch of faces and"
+      ],
+      "source_segment_ids": [
+        "seg-001285"
+      ]
+    }
+  ],
+  "arguments": [
+    {
+      "text": "he can scoop his daughter up yeah people either chuckled or I think we're kind of taking a back",
+      "source_segment_ids": [
+        "seg-001294"
+      ]
+    },
+    {
+      "text": "they're super important and it's trainable it's largely trainable and I think if you have",
+      "source_segment_ids": [
+        "seg-001302"
+      ]
+    }
+  ],
   "candidate_claims": [
     {
       "claim_text": "is task switching whether it's emotional tasks switching or cognitive tasks switching like we assume",
@@ -123,7 +174,7 @@
           "quote": "is task switching whether it's emotional tasks switching or cognitive tasks switching like we assume"
         }
       ],
-      "checkworthiness": "medium"
+      "checkworthiness": "high"
     },
     {
       "claim_text": "the brain operates in step functions like oh I'm out on the street I navigate traffic I park my",
@@ -138,7 +189,7 @@
           "quote": "the brain operates in step functions like oh I'm out on the street I navigate traffic I park my"
         }
       ],
-      "checkworthiness": "low"
+      "checkworthiness": "high"
     },
     {
       "claim_text": "car and I come in and I podcast and what you're doing at the beginning of this lab meeting in on the",
@@ -153,10 +204,47 @@
           "quote": "car and I come in and I podcast and what you're doing at the beginning of this lab meeting in on the"
         }
       ],
-      "checkworthiness": "low"
+      "checkworthiness": "high"
+    },
+    {
+      "claim_text": "one hand is a meditation but it's pivoting the brain circuits toward what comes next yeah I don't",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-001272"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-001272",
+          "quote": "one hand is a meditation but it's pivoting the brain circuits toward what comes next yeah I don't"
+        }
+      ],
+      "checkworthiness": "high"
     }
   ],
-  "entities": [],
+  "entities": [
+    {
+      "name": "Shipley",
+      "type": "topic",
+      "source_segment_ids": [
+        "seg-001288"
+      ]
+    },
+    {
+      "name": "Tibetan",
+      "type": "topic",
+      "source_segment_ids": [
+        "seg-001306"
+      ]
+    },
+    {
+      "name": "David Anderson",
+      "type": "topic",
+      "source_segment_ids": [
+        "seg-001337"
+      ]
+    }
+  ],
   "concepts": [],
   "open_questions": [],
   "contradictions_or_uncertainty": []

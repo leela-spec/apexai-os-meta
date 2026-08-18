@@ -5,7 +5,7 @@
   "window_id": "window-0003",
   "subtopics": [
     {
-      "label": "Window window-0003 Topics",
+      "label": "Thematic Chapter 3 (Caltech, Marcus Meister)",
       "source_segment_ids": [
         "seg-000107",
         "seg-000108",
@@ -79,7 +79,13 @@
       ]
     },
     {
-      "text": "unpleasant, this basic valence dimension. Are there any neutral emotions? I ask this because",
+      "text": "unpleasant, this basic valence dimension.",
+      "source_segment_ids": [
+        "seg-000108"
+      ]
+    },
+    {
+      "text": "Are there any neutral emotions?",
       "source_segment_ids": [
         "seg-000108"
       ]
@@ -89,15 +95,47 @@
       "source_segment_ids": [
         "seg-000109"
       ]
+    },
+    {
+      "text": "you know, a good way to think about sensory systems and maybe neural systems of all kinds is",
+      "source_segment_ids": [
+        "seg-000110"
+      ]
     }
   ],
-  "mechanisms": [],
+  "mechanisms": [
+    {
+      "text": "And I sometimes wonder because algorithms",
+      "source_segment_ids": [
+        "seg-000113"
+      ]
+    },
+    {
+      "text": "because reflexes are binary.",
+      "source_segment_ids": [
+        "seg-000131"
+      ]
+    }
+  ],
   "protocols": [],
-  "arguments": [],
+  "arguments": [
+    {
+      "text": "I mean, I think you know, when you list these features",
+      "source_segment_ids": [
+        "seg-000118"
+      ]
+    },
+    {
+      "text": "And I think the answer is some of them are sufficient, but there's some",
+      "source_segment_ids": [
+        "seg-000121"
+      ]
+    }
+  ],
   "candidate_claims": [
     {
       "claim_text": "I called it the principle of antithesis is valence, which is approach or avoid pleasant or",
-      "claim_kind": "fact",
+      "claim_kind": "definition",
       "speaker": null,
       "source_segment_ids": [
         "seg-000107"
@@ -108,10 +146,10 @@
           "quote": "I called it the principle of antithesis is valence, which is approach or avoid pleasant or"
         }
       ],
-      "checkworthiness": "medium"
+      "checkworthiness": "low"
     },
     {
-      "claim_text": "unpleasant, this basic valence dimension. Are there any neutral emotions? I ask this because",
+      "claim_text": "unpleasant, this basic valence dimension.",
       "claim_kind": "fact",
       "speaker": null,
       "source_segment_ids": [
@@ -120,10 +158,25 @@
       "quote_evidence": [
         {
           "segment_id": "seg-000108",
-          "quote": "unpleasant, this basic valence dimension. Are there any neutral emotions? I ask this because"
+          "quote": "unpleasant, this basic valence dimension."
         }
       ],
-      "checkworthiness": "low"
+      "checkworthiness": "high"
+    },
+    {
+      "claim_text": "Are there any neutral emotions?",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000108"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000108",
+          "quote": "Are there any neutral emotions?"
+        }
+      ],
+      "checkworthiness": "high"
     },
     {
       "claim_text": "your colleague at Caltech who I respect tremendously Marcus Meister once wrote a review where he said,",
@@ -138,10 +191,32 @@
           "quote": "your colleague at Caltech who I respect tremendously Marcus Meister once wrote a review where he said,"
         }
       ],
-      "checkworthiness": "low"
+      "checkworthiness": "high"
     }
   ],
-  "entities": [],
+  "entities": [
+    {
+      "name": "Caltech",
+      "type": "topic",
+      "source_segment_ids": [
+        "seg-000109"
+      ]
+    },
+    {
+      "name": "Marcus Meister",
+      "type": "topic",
+      "source_segment_ids": [
+        "seg-000109"
+      ]
+    },
+    {
+      "name": "David Anderson",
+      "type": "topic",
+      "source_segment_ids": [
+        "seg-000124"
+      ]
+    }
+  ],
   "concepts": [],
   "open_questions": [],
   "contradictions_or_uncertainty": []

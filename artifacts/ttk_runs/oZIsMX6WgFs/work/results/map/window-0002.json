@@ -5,7 +5,7 @@
   "window_id": "window-0002",
   "subtopics": [
     {
-      "label": "Window window-0002 Topics",
+      "label": "Thematic Chapter 2 (July, September)",
       "source_segment_ids": [
         "seg-000046",
         "seg-000047",
@@ -50,15 +50,40 @@
       "source_segment_ids": [
         "seg-000048"
       ]
+    },
+    {
+      "text": "We talked about the stability score so those cycles wobble they have a variability so which means we pick three cycles so each cycle the very around length amplitude phase see this as an error rate and now we add up three cycles which will change over time.",
+      "source_segment_ids": [
+        "seg-000049"
+      ]
+    },
+    {
+      "text": "So the error rate the more you go into the future the higher the error rate of that projection will be just pure pure matter of fact.",
+      "source_segment_ids": [
+        "seg-000050"
+      ]
     }
   ],
   "mechanisms": [],
   "protocols": [],
-  "arguments": [],
+  "arguments": [
+    {
+      "text": "So what is important now when reading such kind of cycle analysis to things keep in mind you could easily fall into the trap now to plot that cycle and less into the future.",
+      "source_segment_ids": [
+        "seg-000046"
+      ]
+    },
+    {
+      "text": "It's pure math so no one will block us will log you now to plot this composite for the next one to three years into the future.",
+      "source_segment_ids": [
+        "seg-000047"
+      ]
+    }
+  ],
   "candidate_claims": [
     {
       "claim_text": "So what is important now when reading such kind of cycle analysis to things keep in mind you could easily fall into the trap now to plot that cycle and less into the future.",
-      "claim_kind": "fact",
+      "claim_kind": "prediction",
       "speaker": null,
       "source_segment_ids": [
         "seg-000046"
@@ -73,7 +98,7 @@
     },
     {
       "claim_text": "It's pure math so no one will block us will log you now to plot this composite for the next one to three years into the future.",
-      "claim_kind": "fact",
+      "claim_kind": "prediction",
       "speaker": null,
       "source_segment_ids": [
         "seg-000047"
@@ -84,7 +109,7 @@
           "quote": "It's pure math so no one will block us will log you now to plot this composite for the next one to three years into the future."
         }
       ],
-      "checkworthiness": "low"
+      "checkworthiness": "medium"
     },
     {
       "claim_text": "It's pure math everyone could do that so now the trap is for sure those cycles are not stable.",
@@ -99,10 +124,47 @@
           "quote": "It's pure math everyone could do that so now the trap is for sure those cycles are not stable."
         }
       ],
-      "checkworthiness": "low"
+      "checkworthiness": "high"
+    },
+    {
+      "claim_text": "We talked about the stability score so those cycles wobble they have a variability so which means we pick three cycles so each cycle the very around length amplitude phase see this as an error rate and now we add up three cycles which will change over time.",
+      "claim_kind": "prediction",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000049"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000049",
+          "quote": "We talked about the stability score so those cycles wobble they have a variability so which means we pick three cycles so each cycle the very around length amplitude phase see this as an error rate and now we add up three cycles which will change over time."
+        }
+      ],
+      "checkworthiness": "medium"
     }
   ],
-  "entities": [],
+  "entities": [
+    {
+      "name": "July",
+      "type": "topic",
+      "source_segment_ids": [
+        "seg-000054"
+      ]
+    },
+    {
+      "name": "September",
+      "type": "topic",
+      "source_segment_ids": [
+        "seg-000055"
+      ]
+    },
+    {
+      "name": "From",
+      "type": "topic",
+      "source_segment_ids": [
+        "seg-000056"
+      ]
+    }
+  ],
   "concepts": [],
   "open_questions": [],
   "contradictions_or_uncertainty": []

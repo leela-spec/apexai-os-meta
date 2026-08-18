@@ -11,7 +11,7 @@ from pathlib import Path
 
 # Add parent directory to import transcript_engine
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from transcript_engine import KnowledgeEngine, parse_srt_spoken_text, GroundingError
+from transcript_engine import KnowledgeEngine, parse_srt_spoken_text, parse_srt_segments, GroundingError
 
 
 def run_p2(vid: str, title: str, srt_path: str, out_dir: str, semantic_path: str = None):
@@ -31,9 +31,10 @@ def run_p2(vid: str, title: str, srt_path: str, out_dir: str, semantic_path: str
         sys.exit(1)
         
     spoken_text = parse_srt_spoken_text(srt) if srt.exists() else None
+    segments = parse_srt_segments(srt) if srt.exists() else None
     
     try:
-        engine = KnowledgeEngine.from_semantic_result(data, spoken_text=spoken_text)
+        engine = KnowledgeEngine.from_semantic_result(data, spoken_text=spoken_text, segments=segments)
     except GroundingError as ge:
         print(f"P2 Grounding Validation Error for '{vid}': {ge}", file=sys.stderr)
         sys.exit(1)

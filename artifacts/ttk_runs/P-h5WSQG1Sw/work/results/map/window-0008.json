@@ -5,7 +5,7 @@
   "window_id": "window-0008",
   "subtopics": [
     {
-      "label": "Window window-0008 Topics",
+      "label": "Thematic Chapter 8 (People, This)",
       "source_segment_ids": [
         "seg-000419",
         "seg-000420",
@@ -102,25 +102,82 @@
       ]
     },
     {
-      "text": "garbage. But then you start to feel better. And so then the next time you feel like complete",
+      "text": "But then you start to feel better.",
       "source_segment_ids": [
         "seg-000420"
       ]
     },
     {
-      "text": "garbage, you have the cognitive knowledge that you felt terrible then better again. And so you're",
+      "text": "And so then the next time you feel like complete",
+      "source_segment_ids": [
+        "seg-000420"
+      ]
+    },
+    {
+      "text": "garbage, you have the cognitive knowledge that you felt terrible then better again.",
       "source_segment_ids": [
         "seg-000421"
       ]
+    },
+    {
+      "text": "starting to integrate over longer periods of time.",
+      "source_segment_ids": [
+        "seg-000422"
+      ]
     }
   ],
-  "mechanisms": [],
-  "protocols": [],
-  "arguments": [],
+  "mechanisms": [
+    {
+      "text": "And I'm just now getting back into it because of that nonlinearity.",
+      "source_segment_ids": [
+        "seg-000426"
+      ]
+    },
+    {
+      "text": "And they just say, okay, like, I'm better for life because I'm out of it.",
+      "source_segment_ids": [
+        "seg-000456"
+      ]
+    }
+  ],
+  "protocols": [
+    {
+      "title": "Protocol: I mean, it must be the case.",
+      "steps": [
+        "I mean, it must be the case."
+      ],
+      "source_segment_ids": [
+        "seg-000453"
+      ]
+    },
+    {
+      "title": "Protocol: It's a very interesting thing about like",
+      "steps": [
+        "It's a very interesting thing about like, how should"
+      ],
+      "source_segment_ids": [
+        "seg-000458"
+      ]
+    }
+  ],
+  "arguments": [
+    {
+      "text": "you were describing how, you know, at some points during these races, you just feel like complete",
+      "source_segment_ids": [
+        "seg-000419"
+      ]
+    },
+    {
+      "text": "But then you start to feel better.",
+      "source_segment_ids": [
+        "seg-000420"
+      ]
+    }
+  ],
   "candidate_claims": [
     {
       "claim_text": "you were describing how, you know, at some points during these races, you just feel like complete",
-      "claim_kind": "fact",
+      "claim_kind": "opinion",
       "speaker": null,
       "source_segment_ids": [
         "seg-000419"
@@ -131,11 +188,11 @@
           "quote": "you were describing how, you know, at some points during these races, you just feel like complete"
         }
       ],
-      "checkworthiness": "medium"
+      "checkworthiness": "low"
     },
     {
-      "claim_text": "garbage. But then you start to feel better. And so then the next time you feel like complete",
-      "claim_kind": "fact",
+      "claim_text": "But then you start to feel better.",
+      "claim_kind": "opinion",
       "speaker": null,
       "source_segment_ids": [
         "seg-000420"
@@ -143,13 +200,28 @@
       "quote_evidence": [
         {
           "segment_id": "seg-000420",
-          "quote": "garbage. But then you start to feel better. And so then the next time you feel like complete"
+          "quote": "But then you start to feel better."
         }
       ],
       "checkworthiness": "low"
     },
     {
-      "claim_text": "garbage, you have the cognitive knowledge that you felt terrible then better again. And so you're",
+      "claim_text": "And so then the next time you feel like complete",
+      "claim_kind": "opinion",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000420"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000420",
+          "quote": "And so then the next time you feel like complete"
+        }
+      ],
+      "checkworthiness": "low"
+    },
+    {
+      "claim_text": "garbage, you have the cognitive knowledge that you felt terrible then better again.",
       "claim_kind": "fact",
       "speaker": null,
       "source_segment_ids": [
@@ -158,13 +230,35 @@
       "quote_evidence": [
         {
           "segment_id": "seg-000421",
-          "quote": "garbage, you have the cognitive knowledge that you felt terrible then better again. And so you're"
+          "quote": "garbage, you have the cognitive knowledge that you felt terrible then better again."
         }
       ],
-      "checkworthiness": "low"
+      "checkworthiness": "high"
     }
   ],
-  "entities": [],
+  "entities": [
+    {
+      "name": "People",
+      "type": "topic",
+      "source_segment_ids": [
+        "seg-000431"
+      ]
+    },
+    {
+      "name": "This",
+      "type": "topic",
+      "source_segment_ids": [
+        "seg-000438"
+      ]
+    },
+    {
+      "name": "Anybody",
+      "type": "topic",
+      "source_segment_ids": [
+        "seg-000444"
+      ]
+    }
+  ],
   "concepts": [],
   "open_questions": [],
   "contradictions_or_uncertainty": []

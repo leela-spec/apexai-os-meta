@@ -5,7 +5,7 @@
   "window_id": "window-0002",
   "subtopics": [
     {
-      "label": "Window window-0002 Topics",
+      "label": "Thematic Chapter 2 (Bergab, Business)",
       "source_segment_ids": [
         "seg-000077",
         "seg-000078",
@@ -82,6 +82,18 @@
       "source_segment_ids": [
         "seg-000079"
       ]
+    },
+    {
+      "text": "Es letzte Quartal ganz gut, der Ertrag besser als erwartet und ja, auch hier gab's fette Steuer,",
+      "source_segment_ids": [
+        "seg-000080"
+      ]
+    },
+    {
+      "text": "also Zollrückerstattungen, aber selbst wenn man die jetzt mal rausrechnet, der Ertrag pro Akze wäre",
+      "source_segment_ids": [
+        "seg-000081"
+      ]
     }
   ],
   "mechanisms": [],
@@ -101,7 +113,7 @@
           "quote": "bei denen es garantiert, dass es auch Bergab geht, selbst wenn das Business boomt, wenn man das mal böse"
         }
       ],
-      "checkworthiness": "medium"
+      "checkworthiness": "high"
     },
     {
       "claim_text": "sagt, ja, Amor Sports, ja auch in dem Sektor mit unterwegs, also im Sportbereich und die Akze ist",
@@ -116,7 +128,7 @@
           "quote": "sagt, ja, Amor Sports, ja auch in dem Sektor mit unterwegs, also im Sportbereich und die Akze ist"
         }
       ],
-      "checkworthiness": "low"
+      "checkworthiness": "high"
     },
     {
       "claim_text": "heute Morgen auch mit im Plus nach denen zahlen, aber genau das gleiche Bild wie bei Home Depot.",
@@ -131,10 +143,47 @@
           "quote": "heute Morgen auch mit im Plus nach denen zahlen, aber genau das gleiche Bild wie bei Home Depot."
         }
       ],
-      "checkworthiness": "low"
+      "checkworthiness": "high"
+    },
+    {
+      "claim_text": "Es letzte Quartal ganz gut, der Ertrag besser als erwartet und ja, auch hier gab's fette Steuer,",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000080"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000080",
+          "quote": "Es letzte Quartal ganz gut, der Ertrag besser als erwartet und ja, auch hier gab's fette Steuer,"
+        }
+      ],
+      "checkworthiness": "high"
     }
   ],
-  "entities": [],
+  "entities": [
+    {
+      "name": "Bergab",
+      "type": "topic",
+      "source_segment_ids": [
+        "seg-000077"
+      ]
+    },
+    {
+      "name": "Business",
+      "type": "topic",
+      "source_segment_ids": [
+        "seg-000077"
+      ]
+    },
+    {
+      "name": "Amor Sports",
+      "type": "topic",
+      "source_segment_ids": [
+        "seg-000078"
+      ]
+    }
+  ],
   "concepts": [],
   "open_questions": [],
   "contradictions_or_uncertainty": []

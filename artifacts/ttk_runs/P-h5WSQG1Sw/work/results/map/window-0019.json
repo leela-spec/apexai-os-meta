@@ -5,7 +5,7 @@
   "window_id": "window-0019",
   "subtopics": [
     {
-      "label": "Window window-0019 Topics",
+      "label": "Thematic Chapter 19 (Yorkshire, Zoom)",
       "source_segment_ids": [
         "seg-001121",
         "seg-001122",
@@ -97,11 +97,68 @@
       "source_segment_ids": [
         "seg-001123"
       ]
+    },
+    {
+      "text": "that if you don't look at faces a lot there's some consequences if you look at faces a lot there are",
+      "source_segment_ids": [
+        "seg-001124"
+      ]
+    },
+    {
+      "text": "other consequences if that were the case we're not there yet that would make very interesting",
+      "source_segment_ids": [
+        "seg-001125"
+      ]
     }
   ],
-  "mechanisms": [],
-  "protocols": [],
-  "arguments": [],
+  "mechanisms": [
+    {
+      "text": "former colleague because I haven't been working in that field for a while but here we see boton",
+      "source_segment_ids": [
+        "seg-001140"
+      ]
+    },
+    {
+      "text": "for speaking so it's a super interesting observation because the question of course is to what",
+      "source_segment_ids": [
+        "seg-001155"
+      ]
+    }
+  ],
+  "protocols": [
+    {
+      "title": "Protocol: predictions which maybe I should be look",
+      "steps": [
+        "predictions which maybe I should be looking at your face all the time but the podcast would"
+      ],
+      "source_segment_ids": [
+        "seg-001126"
+      ]
+    },
+    {
+      "title": "Protocol: recommend people go even if you don't wa",
+      "steps": [
+        "recommend people go even if you don't want a dog because you get to see all the different genetic"
+      ],
+      "source_segment_ids": [
+        "seg-001146"
+      ]
+    }
+  ],
+  "arguments": [
+    {
+      "text": "constitutes you have the core of their personality that's unchangeable but I think it's a super",
+      "source_segment_ids": [
+        "seg-001136"
+      ]
+    },
+    {
+      "text": "yeah I think about this all the time I feel like some people this is pseudoscientific what I'm about",
+      "source_segment_ids": [
+        "seg-001138"
+      ]
+    }
+  ],
   "candidate_claims": [
     {
       "claim_text": "what else is it associated with is it predictive of career success is it predictive of anything else",
@@ -116,7 +173,7 @@
           "quote": "what else is it associated with is it predictive of career success is it predictive of anything else"
         }
       ],
-      "checkworthiness": "medium"
+      "checkworthiness": "high"
     },
     {
       "claim_text": "and so we don't know we're measuring everything else and getting lots of questionnaires on these people",
@@ -131,7 +188,7 @@
           "quote": "and so we don't know we're measuring everything else and getting lots of questionnaires on these people"
         }
       ],
-      "checkworthiness": "low"
+      "checkworthiness": "high"
     },
     {
       "claim_text": "to ask what what are the associations and is there any causal hypothesis that we would come up with",
@@ -146,10 +203,40 @@
           "quote": "to ask what what are the associations and is there any causal hypothesis that we would come up with"
         }
       ],
-      "checkworthiness": "low"
+      "checkworthiness": "high"
+    },
+    {
+      "claim_text": "that if you don't look at faces a lot there's some consequences if you look at faces a lot there are",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-001124"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-001124",
+          "quote": "that if you don't look at faces a lot there's some consequences if you look at faces a lot there are"
+        }
+      ],
+      "checkworthiness": "high"
     }
   ],
-  "entities": [],
+  "entities": [
+    {
+      "name": "Yorkshire",
+      "type": "topic",
+      "source_segment_ids": [
+        "seg-001148"
+      ]
+    },
+    {
+      "name": "Zoom",
+      "type": "topic",
+      "source_segment_ids": [
+        "seg-001173"
+      ]
+    }
+  ],
   "concepts": [],
   "open_questions": [],
   "contradictions_or_uncertainty": []

@@ -5,7 +5,7 @@
   "window_id": "window-0001",
   "subtopics": [
     {
-      "label": "Window window-0001 Topics",
+      "label": "Thematic Chapter 1 (Elliott, Elliott Pregnant)",
       "source_segment_ids": [
         "seg-000001",
         "seg-000002",
@@ -68,15 +68,66 @@
       ]
     },
     {
-      "text": "and your personal background on that. So, I mean, before we go into the more depth of Elliott Wave,",
+      "text": "and your personal background on that.",
       "source_segment_ids": [
         "seg-000003"
       ]
+    },
+    {
+      "text": "So, I mean, before we go into the more depth of Elliott Wave,",
+      "source_segment_ids": [
+        "seg-000003"
+      ]
+    },
+    {
+      "text": "if someone would be new to that kind of analysis, how would you describe Elliott Wave in simple sentences?",
+      "source_segment_ids": [
+        "seg-000004"
+      ]
     }
   ],
-  "mechanisms": [],
-  "protocols": [],
-  "arguments": [],
+  "mechanisms": [
+    {
+      "text": "in the 70s, to read about the theory was on microfilm because they didn't even have full books,",
+      "source_segment_ids": [
+        "seg-000021"
+      ]
+    }
+  ],
+  "protocols": [
+    {
+      "title": "Protocol: crash of 29 ended and he started telling",
+      "steps": [
+        "crash of 29 ended and he started telling people that they should be buying the market at that time."
+      ],
+      "source_segment_ids": [
+        "seg-000018"
+      ]
+    },
+    {
+      "title": "Protocol: taking that forward or how has your fath",
+      "steps": [
+        "taking that forward or how has your father convinced you that you should continue that road?"
+      ],
+      "source_segment_ids": [
+        "seg-000032"
+      ]
+    }
+  ],
+  "arguments": [
+    {
+      "text": "Well, okay, I think the simplest way to understand it is it's a description of the price patterns",
+      "source_segment_ids": [
+        "seg-000005"
+      ]
+    },
+    {
+      "text": "Elliott Wave Theory, believe it or not, the only way at that time, which was, I believe that was",
+      "source_segment_ids": [
+        "seg-000020"
+      ]
+    }
+  ],
   "candidate_claims": [
     {
       "claim_text": "Elliott, thanks for joining us today, so we have Elliott Pregnant with us, and it's an honor to",
@@ -91,7 +142,7 @@
           "quote": "Elliott, thanks for joining us today, so we have Elliott Pregnant with us, and it's an honor to"
         }
       ],
-      "checkworthiness": "medium"
+      "checkworthiness": "high"
     },
     {
       "claim_text": "have you here spending some time with us talking about the Elliott Wave Principle and your history",
@@ -106,10 +157,10 @@
           "quote": "have you here spending some time with us talking about the Elliott Wave Principle and your history"
         }
       ],
-      "checkworthiness": "low"
+      "checkworthiness": "high"
     },
     {
-      "claim_text": "and your personal background on that. So, I mean, before we go into the more depth of Elliott Wave,",
+      "claim_text": "and your personal background on that.",
       "claim_kind": "fact",
       "speaker": null,
       "source_segment_ids": [
@@ -118,13 +169,50 @@
       "quote_evidence": [
         {
           "segment_id": "seg-000003",
-          "quote": "and your personal background on that. So, I mean, before we go into the more depth of Elliott Wave,"
+          "quote": "and your personal background on that."
         }
       ],
-      "checkworthiness": "low"
+      "checkworthiness": "high"
+    },
+    {
+      "claim_text": "So, I mean, before we go into the more depth of Elliott Wave,",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000003"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000003",
+          "quote": "So, I mean, before we go into the more depth of Elliott Wave,"
+        }
+      ],
+      "checkworthiness": "high"
     }
   ],
-  "entities": [],
+  "entities": [
+    {
+      "name": "Elliott",
+      "type": "topic",
+      "source_segment_ids": [
+        "seg-000001"
+      ]
+    },
+    {
+      "name": "Elliott Pregnant",
+      "type": "topic",
+      "source_segment_ids": [
+        "seg-000001"
+      ]
+    },
+    {
+      "name": "Elliott Wave Principle",
+      "type": "topic",
+      "source_segment_ids": [
+        "seg-000002"
+      ]
+    }
+  ],
   "concepts": [],
   "open_questions": [],
   "contradictions_or_uncertainty": []

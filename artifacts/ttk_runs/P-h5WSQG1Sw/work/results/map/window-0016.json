@@ -5,7 +5,7 @@
   "window_id": "window-0016",
   "subtopics": [
     {
-      "label": "Window window-0016 Topics",
+      "label": "Thematic Chapter 16 (Yeah, James Gross)",
       "source_segment_ids": [
         "seg-000942",
         "seg-000943",
@@ -93,15 +93,53 @@
       ]
     },
     {
-      "text": "efficient. Yeah the fan in fan out visual is very very useful and it gets to the next topic I'd",
+      "text": "Yeah the fan in fan out visual is very very useful and it gets to the next topic I'd",
       "source_segment_ids": [
         "seg-000944"
       ]
+    },
+    {
+      "text": "like to ask you about which is building social intelligence and emotional intelligence because",
+      "source_segment_ids": [
+        "seg-000945"
+      ]
+    },
+    {
+      "text": "we define that different ways people who seem unable to read the room so to speak versus people who",
+      "source_segment_ids": [
+        "seg-000946"
+      ]
     }
   ],
-  "mechanisms": [],
+  "mechanisms": [
+    {
+      "text": "like to ask you about which is building social intelligence and emotional intelligence because",
+      "source_segment_ids": [
+        "seg-000945"
+      ]
+    },
+    {
+      "text": "we talk it up these days because indeed empathy is important but no this is a tricky one",
+      "source_segment_ids": [
+        "seg-000962"
+      ]
+    }
+  ],
   "protocols": [],
-  "arguments": [],
+  "arguments": [
+    {
+      "text": "in tune with like what everyone in the room is feeling who did this who didn't do that and going",
+      "source_segment_ids": [
+        "seg-000953"
+      ]
+    },
+    {
+      "text": "it's there's a cost well I think it's extremely heterogeneous and so this is not sort of one-size fits",
+      "source_segment_ids": [
+        "seg-000966"
+      ]
+    }
+  ],
   "candidate_claims": [
     {
       "claim_text": "So if you had only those you would have to have a separate reflex for the bear and for the tiger",
@@ -116,7 +154,7 @@
           "quote": "So if you had only those you would have to have a separate reflex for the bear and for the tiger"
         }
       ],
-      "checkworthiness": "medium"
+      "checkworthiness": "high"
     },
     {
       "claim_text": "and for every possible you know large threat out there which you couldn't possibly have it's not",
@@ -131,10 +169,10 @@
           "quote": "and for every possible you know large threat out there which you couldn't possibly have it's not"
         }
       ],
-      "checkworthiness": "low"
+      "checkworthiness": "high"
     },
     {
-      "claim_text": "efficient. Yeah the fan in fan out visual is very very useful and it gets to the next topic I'd",
+      "claim_text": "Yeah the fan in fan out visual is very very useful and it gets to the next topic I'd",
       "claim_kind": "fact",
       "speaker": null,
       "source_segment_ids": [
@@ -143,13 +181,50 @@
       "quote_evidence": [
         {
           "segment_id": "seg-000944",
-          "quote": "efficient. Yeah the fan in fan out visual is very very useful and it gets to the next topic I'd"
+          "quote": "Yeah the fan in fan out visual is very very useful and it gets to the next topic I'd"
         }
       ],
-      "checkworthiness": "low"
+      "checkworthiness": "high"
+    },
+    {
+      "claim_text": "like to ask you about which is building social intelligence and emotional intelligence because",
+      "claim_kind": "mechanism",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000945"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000945",
+          "quote": "like to ask you about which is building social intelligence and emotional intelligence because"
+        }
+      ],
+      "checkworthiness": "medium"
     }
   ],
-  "entities": [],
+  "entities": [
+    {
+      "name": "Yeah",
+      "type": "topic",
+      "source_segment_ids": [
+        "seg-000944"
+      ]
+    },
+    {
+      "name": "James Gross",
+      "type": "topic",
+      "source_segment_ids": [
+        "seg-000969"
+      ]
+    },
+    {
+      "name": "San Diego",
+      "type": "topic",
+      "source_segment_ids": [
+        "seg-001008"
+      ]
+    }
+  ],
   "concepts": [],
   "open_questions": [],
   "contradictions_or_uncertainty": []

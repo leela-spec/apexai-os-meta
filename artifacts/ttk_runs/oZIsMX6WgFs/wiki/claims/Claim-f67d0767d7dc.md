@@ -13,8 +13,8 @@
 
 ## Context
 
-Extracted from window-0002
+Documented in Window window-0002
 
 ## Links
 
-[[concepts/market-cycles-jam|Market Cycles Jam - ]]
+[[concepts/market-cycles-jam-marke|Market Cycles Jam - Marke]] · [[entities/july|July]] · [[entities/september|September]] · [[entities/from|From]]

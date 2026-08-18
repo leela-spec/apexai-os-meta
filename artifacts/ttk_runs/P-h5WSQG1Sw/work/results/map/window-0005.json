@@ -5,7 +5,7 @@
   "window_id": "window-0005",
   "subtopics": [
     {
-      "label": "Window window-0005 Topics",
+      "label": "Thematic Chapter 5 (Christoph Koch, Again)",
       "source_segment_ids": [
         "seg-000231",
         "seg-000232",
@@ -92,15 +92,72 @@
       ]
     },
     {
-      "text": "you're studying consciousness. If you spoke about Christoph Koch earlier, great respect for people",
+      "text": "you're studying consciousness.",
       "source_segment_ids": [
         "seg-000233"
       ]
+    },
+    {
+      "text": "If you spoke about Christoph Koch earlier, great respect for people",
+      "source_segment_ids": [
+        "seg-000233"
+      ]
+    },
+    {
+      "text": "that are studying consciousness, but I don't want to study consciousness, that's too hard.",
+      "source_segment_ids": [
+        "seg-000234"
+      ]
     }
   ],
-  "mechanisms": [],
-  "protocols": [],
-  "arguments": [],
+  "mechanisms": [
+    {
+      "text": "And that's very important because we have conscious",
+      "source_segment_ids": [
+        "seg-000249"
+      ]
+    },
+    {
+      "text": "definitely talk about ice baths and ultra, ultra races because you, you're training for one.",
+      "source_segment_ids": [
+        "seg-000273"
+      ]
+    }
+  ],
+  "protocols": [
+    {
+      "title": "Protocol: We should do the same thing with",
+      "steps": [
+        "We should do the same thing with"
+      ],
+      "source_segment_ids": [
+        "seg-000246"
+      ]
+    },
+    {
+      "title": "Protocol: As a scientific discipline, we should se",
+      "steps": [
+        "As a scientific discipline, we should separate the conscious"
+      ],
+      "source_segment_ids": [
+        "seg-000250"
+      ]
+    }
+  ],
+  "arguments": [
+    {
+      "text": "that is you equate, you conflate emotions with feelings, well, then you're not studying emotions,",
+      "source_segment_ids": [
+        "seg-000232"
+      ]
+    },
+    {
+      "text": "I think all of us have had the experience",
+      "source_segment_ids": [
+        "seg-000255"
+      ]
+    }
+  ],
   "candidate_claims": [
     {
       "claim_text": "And the other question is, if you tie emotion to the conscious experience of emotion,",
@@ -115,11 +172,11 @@
           "quote": "And the other question is, if you tie emotion to the conscious experience of emotion,"
         }
       ],
-      "checkworthiness": "medium"
+      "checkworthiness": "high"
     },
     {
       "claim_text": "that is you equate, you conflate emotions with feelings, well, then you're not studying emotions,",
-      "claim_kind": "fact",
+      "claim_kind": "opinion",
       "speaker": null,
       "source_segment_ids": [
         "seg-000232"
@@ -133,7 +190,7 @@
       "checkworthiness": "low"
     },
     {
-      "claim_text": "you're studying consciousness. If you spoke about Christoph Koch earlier, great respect for people",
+      "claim_text": "you're studying consciousness.",
       "claim_kind": "fact",
       "speaker": null,
       "source_segment_ids": [
@@ -142,13 +199,50 @@
       "quote_evidence": [
         {
           "segment_id": "seg-000233",
-          "quote": "you're studying consciousness. If you spoke about Christoph Koch earlier, great respect for people"
+          "quote": "you're studying consciousness."
         }
       ],
-      "checkworthiness": "low"
+      "checkworthiness": "high"
+    },
+    {
+      "claim_text": "If you spoke about Christoph Koch earlier, great respect for people",
+      "claim_kind": "fact",
+      "speaker": null,
+      "source_segment_ids": [
+        "seg-000233"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000233",
+          "quote": "If you spoke about Christoph Koch earlier, great respect for people"
+        }
+      ],
+      "checkworthiness": "high"
     }
   ],
-  "entities": [],
+  "entities": [
+    {
+      "name": "Christoph Koch",
+      "type": "topic",
+      "source_segment_ids": [
+        "seg-000233"
+      ]
+    },
+    {
+      "name": "Again",
+      "type": "topic",
+      "source_segment_ids": [
+        "seg-000248"
+      ]
+    },
+    {
+      "name": "David",
+      "type": "topic",
+      "source_segment_ids": [
+        "seg-000252"
+      ]
+    }
+  ],
   "concepts": [],
   "open_questions": [],
   "contradictions_or_uncertainty": []
