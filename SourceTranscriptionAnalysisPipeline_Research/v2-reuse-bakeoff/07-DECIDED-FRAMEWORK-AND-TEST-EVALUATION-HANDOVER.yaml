@@ -1,0 +1,385 @@
+schema: transcript-pipeline-continuation-evaluation-handover.v2_1
+created: '2026-08-18'
+status: AUTHORITATIVE_CONTINUATION_HANDOVER
+repository: leela-spec/apexai-os-meta
+branch_policy: main_only_unless_operator_explicitly_changes_it
+purpose: >-
+  Preserve the decided framework and give a future fresh AI an exact evaluation
+  procedure for the implementation/test run. This file is intentionally narrower
+  than the architecture research: it separates what is already decided from what
+  the benchmark is still allowed to select, so a later evaluator does not restart
+  architecture design or invent component winners from memory.
+
+authority_read_order:
+  - current_explicit_operator_instruction
+  - SourceTranscriptionAnalysisPipeline_Research/v2-reuse-bakeoff/06-TRIAL1-TRANSPORT-LOCK.yaml
+  - SourceTranscriptionAnalysisPipeline_Research/v2-reuse-bakeoff/07-DECIDED-FRAMEWORK-AND-TEST-EVALUATION-HANDOVER.yaml
+  - SourceTranscriptionAnalysisPipeline_Research/v2-reuse-bakeoff/00-START-HERE.md
+  - SourceTranscriptionAnalysisPipeline_Research/v2-reuse-bakeoff/03-BENCHMARK-AND-TEST-SPEC.yaml
+  - SourceTranscriptionAnalysisPipeline_Research/v2-reuse-bakeoff/02-IMPLEMENTATION-PLAN.yaml
+  - SourceTranscriptionAnalysisPipeline_Research/v2-reuse-bakeoff/04-COMPONENT-REGISTRY.yaml
+  - SourceTranscriptionAnalysisPipeline_Research/v2-reuse-bakeoff/01-ARCHITECTURE-ANALYSIS.md
+  - .claude/skills/transcript-to-knowledge/SKILL.md
+  - repository_runtime_artifacts_and_receipts
+  - older_research_history
+
+current_verified_repo_state_at_handover_creation:
+  remote_branch: main
+  trial1_patch_commit: c3719abd466427ecfe35f3838f970fd46ec99e6c
+  transport_lock_commit: 0238d596bb519a28cc91ea119146ae219b62322e
+  start_here_authority_update_commit: 24bfa7a064419b3e913cf557b9e988b10dc9ecbb
+  implementation_artifacts_present: false
+  selection_yaml_present: false
+  final_report_yaml_present: false
+  interpretation: >-
+    The framework/test plan is prepared, but the V2 component bake-off and
+    production selection have not yet been executed on remote main at the time
+    this handover is written. A later evaluator must inspect live repo artifacts
+    rather than assuming this state remains unchanged.
+
+verification_of_trial1_patch:
+  overall: SUBSTANTIALLY_PATCHED_WITH_THREE_STALE_LINES_OVERRIDDEN_BY_LOCK
+  verified_correct:
+    - START-HERE locks Trial 1 to Claude Code, Codex, or smoke-tested Antigravity subscription CLI transport
+    - START-HERE forbids Trial 1 paid/API-key billing and browser AI transport
+    - hosted ASR/API is deferred after Trial 1 in START-HERE and benchmark spec
+    - architecture Map reference route is Claude/Codex/Antigravity
+    - architecture DocETL Trial 1 description is fail-closed when CLI transport is impractical
+    - architecture external verification is Trial-1 CLI-only
+    - implementation rules EX-11/EX-12/EX-13 enforce subscription CLI, fail-closed framework blocking, and sanitized API-routing environment
+    - P0 checks Claude/Codex/Antigravity and API-routing-variable presence without recording secrets
+    - P4 uses Claude primary, Codex fallback/challenger, Antigravity conditional after real local headless smoke test
+    - P16 prohibits paid/API/browser routes from Trial 1 selection
+    - benchmark spec excludes API-key/pay-as-you-go/hosted-model/browser-AI routes from Trial 1
+    - DeepEval Trial 1 LLM-backed metrics must use allowed CLI adapter or be BLOCKED/UNMEASURED
+    - component registry marks Gemini/browser/paid API routes post-Trial-1 and DocETL API experiment false for Trial 1
+    - source decision evidence records Trial 1 paid API and API-key billing as forbidden
+  stale_lines_that_must_not_control_execution:
+    - file: SourceTranscriptionAnalysisPipeline_Research/v2-reuse-bakeoff/01-ARCHITECTURE-ANALYSIS.md
+      issue: S8 still describes Gemini headless JSON as generic fallback/challenger
+      authoritative_resolution: Gemini_CLI_is_POST_TRIAL_ONLY
+    - file: SourceTranscriptionAnalysisPipeline_Research/v2-reuse-bakeoff/02-IMPLEMENTATION-PLAN.yaml
+      issue: P10 still says DocETL may use a small capped API experiment
+      authoritative_resolution: API_is_FORBIDDEN_IN_TRIAL1;_mark_DocETL_BLOCKED_FOR_TRIAL1_if_allowed_CLI_adapter_is_not_practical
+    - file: SourceTranscriptionAnalysisPipeline_Research/v2-reuse-bakeoff/02-IMPLEMENTATION-PLAN.yaml
+      issue: P13 still lists hosted_asr_oracle under optional candidates
+      authoritative_resolution: hosted_asr_oracle_is_POST_TRIAL_ONLY
+  governing_resolution_file: SourceTranscriptionAnalysisPipeline_Research/v2-reuse-bakeoff/06-TRIAL1-TRANSPORT-LOCK.yaml
+
+locked_framework:
+  product:
+    goal: trustworthy_high_value_knowledge_artifact_from_audio_or_video
+    asr_role: prerequisite_quality_gate_not_final_product
+    representation: Macro_Meso_Micro_preferred_but_replaceable_only_if_measured_better
+
+  orchestration:
+    normal_trigger: APEX_OpenClaw
+    first_standalone_execution: thin_local_deterministic_runner_over_TTK_state
+    qwen_role: none
+    workflow_rule: deterministic_dispatch_for_deterministic_control
+
+  trial1_ai_transport:
+    policy: subscription_cli_only
+    allowed:
+      - Claude_Code_CLI
+      - Codex_CLI
+      - Antigravity_CLI_after_local_headless_smoke_PASS
+    deferred:
+      - Gemini_CLI
+      - browser_subscription_AI
+      - direct_paid_or_API_key_billed_model_routes
+    fail_closed: true
+    no_silent_provider_substitution: true
+
+  source_acquisition:
+    selected_framework: existing_P1_yt_dlp_ffmpeg_path
+    status: RETAIN
+
+  asr_framework:
+    decided_structure: local_ASR_bakeoff
+    primary_reference: faster_whisper
+    required_challenger: NVIDIA_Parakeet_TDT_0_6B_v3
+    conditional_alignment_diarization: WhisperX
+    hosted_ASR: POST_TRIAL_ONLY
+    selection_not_yet_decided: true
+
+  canonical_evidence_and_state:
+    selected_framework: TTK
+    status: LOCKED_CORE
+    responsibilities:
+      - immutable_source_SHA_custody
+      - canonical_segment_IDs
+      - processing_windows_and_context_halo
+      - packet_hashes
+      - stale_result_rejection
+      - deterministic_schema_and_provenance_validation
+      - coverage_validation
+      - file_based_resume
+      - selective_fact_verification_queue
+      - deterministic_compilation
+    replacement_rule: >-
+      Do not replace TTK custody/state because a generic framework duplicates a
+      subset of its features. Replacement requires measured preservation of all
+      hard invariants plus material benefit.
+
+  map_framework:
+    decided_test_lanes:
+      - direct_strong_subscription_CLI_Map
+      - LangExtract_grounded_Map_with_allowed_CLI_provider_adapter
+      - GLiNER2_assisted_direct_CLI_Map
+    NuExtract_rule: run_only_if_GLiNER2_does_not_satisfy_preextraction_role
+    final_map_winner_not_yet_decided: true
+    semantic_authority: strong_subscription_CLI_AI
+    forbidden_authority:
+      - regex_keyword_semantics
+      - Qwen
+      - local_small_model_as_final_semantic_judge
+
+  structured_output_framework:
+    default: native_CLI_schema_output_plus_TTK_validation
+    Instructor_rule: >-
+      Conditional challenger only if native CLI schema/retry handling proves
+      duplicated, brittle, or insufficient. Do not install/promote merely because
+      Instructor exists.
+
+  source_support_framework:
+    authoritative_judgment: strong_semantic_worker
+    deterministic_checks:
+      - cited_source_exists
+      - exact_quote_or_span_exists_when_required
+      - source_reference_is_valid_core_evidence
+    advisory_models_to_benchmark:
+      - multilingual_mDeBERTa_NLI
+      - Vectara_HHEM_English_only
+    rule: quote_exists_does_not_imply_SUPPORTED
+    advisory_models_may_silently_override: false
+
+  reduce_framework:
+    decided_test_lanes:
+      - direct_strong_subscription_CLI_Reduce_over_validated_TTK_evidence_ledger
+      - fixed_DocETL_Reduce_orchestration_challenger
+    DocETL_optimizer_first_comparison: false
+    DocETL_trial1_transport: allowed_subscription_CLI_only
+    DocETL_if_CLI_adapter_impractical: BLOCKED_FOR_TRIAL1
+    final_reduce_winner_not_yet_decided: true
+
+  factual_evidence_policy:
+    exact_source_evidence_required_for:
+      - factual_claim
+      - externally_testable_estimate
+    valid_source_provenance_required_but_forced_exact_quote_not_required_for:
+      - opinion
+      - prediction
+      - recommendation
+      - decision
+      - anecdote
+      - mechanism
+      - hypothesis
+      - nonfactual_definition
+    macro_meso_may_synthesize: true
+    source_support_separate_from_external_truth: true
+
+  external_verification:
+    route_only: important_checkworthy_factual_claims
+    trial1_transport: allowed_subscription_CLI_only
+    insufficient_external_evidence: UNVERIFIED
+    browser_or_paid_API_fallback_trial1: forbidden
+
+  compiler:
+    selected_framework: TTK_compiler
+    status: LOCKED_CORE
+
+  evaluation_framework:
+    hard_authority:
+      - deterministic_TTK_and_harness_gates
+      - exact_receipts_and_hashes
+    product_quality_authority:
+      - targeted_HUMAN_GOLD
+      - source_metadata_where_exact
+    auxiliary:
+      - DeepEval_only_where_language_and_CLI_transport_are_valid
+      - mDeBERTa_and_HHEM_advisory_scores
+    product_baselines:
+      - Fabric_if_Trial1_transport_constraints_can_be_respected
+      - Open_Notebook_if_Trial1_transport_constraints_can_be_respected
+    rule: automatic_judge_never_overrides_hard_provenance_gate
+
+  component_selection_rule:
+    selection_task: P16
+    hard_failure_cannot_be_averaged_away: true
+    simpler_component_wins_ties: true
+    more_complex_component_may_win_for_material_measured_gain: true
+    install_success_is_not_promotion: true
+    research_recommendation_is_not_test_PASS: true
+    UNMEASURED_required_stage_cannot_be_selected: true
+
+not_decided_yet_do_not_invent:
+  - exact_ASR_engine_and_model_size
+  - whether_WhisperX_is_promoted_conditionally
+  - Map_lane_winner
+  - whether_GLiNER2_is_retained
+  - whether_NuExtract_trigger_fires
+  - whether_Instructor_trigger_fires
+  - whether_NLI_or_HHEM_advisory_layer_is_retained
+  - Reduce_lane_winner
+  - whether_DocETL_earns_production_use
+  - exact_external_verification_CLI_preference_if_multiple_allowed_routes_work
+  - final_production_composition
+
+benchmark_contract:
+  spec: SourceTranscriptionAnalysisPipeline_Research/v2-reuse-bakeoff/03-BENCHMARK-AND-TEST-SPEC.yaml
+  implementation_plan: SourceTranscriptionAnalysisPipeline_Research/v2-reuse-bakeoff/02-IMPLEMENTATION-PLAN.yaml
+  task_graph: P0_through_P22
+  initial_corpus:
+    - P-h5WSQG1Sw
+    - CygwqaNg2PY
+    - vFTuLylvYnA
+    - oZIsMX6WgFs
+  levels:
+    - T0_UNIT
+    - T1_COMPONENT
+    - T2_FULL_SOURCE
+    - T3_FOUR_SOURCE_REGRESSION
+    - T4_FRESH_END_TO_END
+    - T5_RESUME_CLEAN_ROOM
+  hard_gates:
+    - HG01_SEMANTIC_EXECUTION_PROVEN
+    - HG02_SOURCE_PROVENANCE
+    - HG03_FACTUAL_EXACT_EVIDENCE
+    - HG04_PACKET_FRESHNESS
+    - HG05_COMPLETE_WINDOW_COVERAGE
+    - HG06_SOURCE_SUPPORT_SEPARATION
+    - HG07_EXTERNAL_VERIFICATION_EVIDENCE
+    - HG08_RECEIPT_TRUTH
+    - HG09_NO_GENERIC_PSEUDO_SEMANTICS
+    - HG10_RESUME_IDEMPOTENCY
+
+future_test_evaluator_role:
+  mission: >-
+    Evaluate whether the implementation and selected components actually satisfy
+    the locked framework and benchmark contract. Do not restart architecture
+    research unless a measured failure activates an existing reversal trigger or
+    exposes a genuinely new capability gap.
+
+  required_first_reads:
+    - SourceTranscriptionAnalysisPipeline_Research/v2-reuse-bakeoff/06-TRIAL1-TRANSPORT-LOCK.yaml
+    - SourceTranscriptionAnalysisPipeline_Research/v2-reuse-bakeoff/07-DECIDED-FRAMEWORK-AND-TEST-EVALUATION-HANDOVER.yaml
+    - SourceTranscriptionAnalysisPipeline_Research/v2-reuse-bakeoff/03-BENCHMARK-AND-TEST-SPEC.yaml
+    - SourceTranscriptionAnalysisPipeline_Research/v2-reuse-bakeoff/02-IMPLEMENTATION-PLAN.yaml
+    - artifacts/transcript_pipeline_v2/SELECTION.yaml
+    - artifacts/transcript_pipeline_v2/FINAL-REPORT.yaml
+    - SourceTranscriptionAnalysisPipeline_Research/v2-reuse-bakeoff/06-FINAL-HANDOVER.md
+
+  missing_artifact_rule: >-
+    If SELECTION.yaml, FINAL-REPORT.yaml, or required P20/P21/P22 evidence is
+    missing, do not infer success. Report NOT_READY_FOR_FINAL_EVALUATION or
+    PARTIAL according to the benchmark contract and identify the exact missing
+    task/artifact.
+
+  evaluation_sequence:
+    - verify_repo_is_leela_spec_apexai_os_meta_and_branch_main
+    - capture_live_HEAD_and_dirty_state
+    - confirm_Trial1_transport_receipts_use_only_allowed_subscription_CLIs
+    - confirm_no_API_key_pay_as_you_go_hosted_model_or_browser_AI_transport_was_used
+    - inspect_P0_through_P15_receipts_and_scorecards_for_missing_or_survivor_only_data
+    - inspect_P16_SELECTION_yaml_and_recompute_whether_each_winner_satisfies_hard_gates_and_material_gain_policy
+    - inspect_P17_evidence_policy_tests
+    - inspect_P18_runner_and_prove_no_heuristic_semantic_success_path_remains
+    - inspect_P19_benchmark_receipt_truth_logic
+    - evaluate_P20_all_four_existing_transcript_runs
+    - evaluate_P21_fresh_German_and_English_audio_to_knowledge_runs
+    - evaluate_P22_unit_regression_batch_and_clean_room_resume_results
+    - cross_check_FINAL_REPORT_yaml_against_primary_receipts_and_artifacts_instead_of_trusting_summary_only
+    - issue_final_verdict_and_exact_next_step
+
+  transport_compliance_checks:
+    allowed:
+      - claude_subscription_CLI
+      - codex_ChatGPT_plan_CLI
+      - antigravity_after_smoke_PASS
+    forbidden_trial1:
+      - API_key_billing
+      - pay_as_you_go_model_API
+      - hosted_model_API
+      - browser_AI
+      - Gemini_CLI
+    evidence_required:
+      - semantic_invocation_receipt
+      - provider_or_worker_ID
+      - transport_class
+      - packet_or_input_hash
+      - output_hash
+      - exit_status
+      - validator_status
+    secret_rule: receipts_must_not_store_credentials_or_key_values
+
+  test_evidence_priority:
+    - deterministic_hard_gate_result
+    - HUMAN_GOLD
+    - SOURCE_METADATA
+    - AI_SILVER
+    - AUTOMATIC_JUDGE
+    - prose_claim_without_artifact
+
+  final_verdicts:
+    PASS: >-
+      All selected-pipeline hard gates pass; required P20 four-source regression,
+      P21 fresh German+English end-to-end runs, and P22 clean-room resume and
+      mandatory tests pass; Trial 1 transport lock is obeyed; selected components
+      are justified by measured evidence; no fabricated semantic completion.
+    PARTIAL: >-
+      Core selected pipeline is demonstrably working and hard-safe, but one or
+      more declared non-core challenger/baseline measurements are blocked or an
+      optional measurement remains explicitly UNMEASURED, consistent with spec.
+    FAIL: >-
+      Any selected route violates a hard gate, uses forbidden Trial 1 transport,
+      cannot prove semantic execution, reports stale/pending work as complete,
+      fails required fresh end-to-end tests, or fails deterministic regression or
+      resume/idempotency requirements.
+    NOT_READY_FOR_FINAL_EVALUATION: >-
+      Required execution/selection/final artifacts do not yet exist.
+
+  evaluator_output_required_fields:
+    - verdict
+    - inspected_commit
+    - dirty_state
+    - trial1_transport_compliance
+    - hard_gate_results
+    - selected_architecture_recomputed_verdict
+    - asr_results
+    - map_results
+    - advisory_support_results
+    - reduce_results
+    - verification_results
+    - four_source_results
+    - fresh_end_to_end_results
+    - resume_idempotency_results
+    - product_baseline_results
+    - discrepancies_between_FINAL_REPORT_and_primary_evidence
+    - remaining_UNMEASURED
+    - reversal_triggers_activated
+    - exact_next_action
+
+anti_drift_rules:
+  - do_not_reintroduce_Qwen_as_semantic_worker
+  - do_not_treat_local_as_synonym_for_deterministic
+  - do_not_treat_schema_valid_as_semantically_good
+  - do_not_treat_quote_exists_as_source_support
+  - do_not_require_exact_quote_for_every_nonfactual_Micro
+  - do_not_verify_every_statement_externally
+  - do_not_use_API_or_browser_AI_in_Trial1
+  - do_not_remove_reusable_candidate_before_its_required_bounded_test_unless_it_is_BLOCKED_with_evidence
+  - do_not_promote_component_because_it_installed
+  - do_not_keep_component_because_it_was_researched
+  - do_not_replace_TTK_custody_without_measured_invariant_preservation
+  - do_not_enable_DocETL_optimizer_in_first_comparison
+  - do_not_allow_NLI_or_HHEM_to_become_final_semantic_authority
+  - do_not_accept_heuristic_or_regex_semantic_generation_as_fallback
+  - do_not_reopen_architecture_from_zero_when_the_task_is_test_evaluation
+
+continuation_rule: >-
+  The future evaluator may recommend a framework change only when measured test
+  evidence activates a documented reversal trigger or demonstrates a new named
+  capability gap. Any such recommendation must identify the failed target,
+  evidence, smallest viable change, expected value, and regression test. Otherwise
+  continue the decided framework and evaluate the implementation as designed.
