@@ -219,3 +219,20 @@ O001_resolution:
 **Scope:** Module 00 (`00-orchestration-spine`) only. Modules 01-08 (detailed output-artifact refinement) are separately scoped and not started.
 
 **Source:** implementation + fresh-context verification, 2026-08-17
+
+---
+
+## Open question O002 — Is `workflow-process-design` an on-demand dependency of the accepted topology?
+
+**Status:** unresolved; found during the post-Module-00 repair pass, 2026-08-18
+
+D012's `on_demand_dependencies` lists `PromptEngineer`, `AIRouting`, and `model-usage-log` only. It omits the `Workflow&Processes` skill (frontmatter `name: workflow-process-design`) — yet `PrecapNextDay/SKILL.md` declares an explicit `workflow_process_unavailable` failure mode for exactly this dependency, and `PrecapNextDay/references/workflow-process-validation-contract.md` names it as an `authoritative_files` source.
+
+Two readings, not resolved here:
+
+- `workflow-process-design` is a real fourth on-demand dependency and D012 needs amending to include it.
+- `PrecapNextDay`'s failure mode and contract reference are themselves dead/aspirational content, and nothing actually depends on this skill in the live weekly loop.
+
+**Scope:** orchestration spine architecture (Module 00 topology) — an amendment here would touch D012 directly, so this is recorded as a question rather than silently resolved either way.
+
+**Source:** post-Module-00 repair-pass verification, 2026-08-18
