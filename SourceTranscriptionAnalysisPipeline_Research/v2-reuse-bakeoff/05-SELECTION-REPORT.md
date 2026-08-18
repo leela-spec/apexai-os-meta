@@ -1,28 +1,30 @@
-# V2 Production Architecture Selection Report
+# V2.1 Trial 1 Production Architecture Selection Report
 
-**Date:** 2026-08-18  
-**Trial:** Trial 1 (Subscription-CLI Transport Lock)  
-**Governing Authority:** `SourceTranscriptionAnalysisPipeline_Research/v2-reuse-bakeoff/06-TRIAL1-TRANSPORT-LOCK.yaml`
+**Status:** COMPLETE — DERIVED FROM MEASURED BENCHMARK EVIDENCE  
+**Repository:** `leela-spec/apexai-os-meta`  
+**Branch:** `main`
 
 ---
 
 ## 1. Selected Production Composition
 
-1. **Source Acquisition:** Retain existing `yt-dlp + ffmpeg` pipeline.
-2. **ASR Engine:** `faster-whisper` (medium, int8 compute type) with word timestamps and VAD filter. (Local Intel Core Ultra 7 execution).
-3. **Alignment / Diarization:** `WhisperX` as conditional stage for multi-speaker interview sources only.
-4. **Evidence Custody & State:** `TTK` (Locked Core) for immutable source custody, segment IDs, processing windows, packet hashes, and deterministic validation.
-5. **Map Extraction:** `direct_cli` via Claude Code subscription CLI with native JSON schema and TTK single-retry validation.
-6. **Advisory Models:** `mDeBERTa-v3` (multilingual) and `Vectara-HHEM` (English) retained as non-blocking advisory lint warnings; semantic worker remains authoritative.
-7. **Reduce Synthesis:** `direct_cli_reduce` via Claude Code subscription CLI over validated TTK evidence ledger.
-8. **Selective External Verification:** Deterministic TTK queue routing only checkworthy factual claims (`checkworthiness >= medium`) to subscription CLI research.
-9. **Compiler:** `TTK` compiler emitting structured Obsidian Markdown Wiki and `compiled.json`.
+| Pipeline Stage | Selected Component / Engine | Execution Mode | Evidence Status |
+| :--- | :--- | :--- | :--- |
+| **Source Acquisition** | `source_existing` | `yt-dlp` / `ffmpeg` | Retained (P1 path) |
+| **ASR Transcription** | `faster_whisper_small` | Local CPU (`int8` CTranslate2) | Measured PASS |
+| **Alignment / Diarization** | `NONE` | Single-speaker default | Not Triggered |
+| **Canonical Custody** | `custody_ttk` | Deterministic TTK Python spine | Locked Core |
+| **Pre-Extraction** | `NONE` | Direct agent extraction | Not Triggered |
+| **Map Stage** | `direct_agent_map` | Grounded agent/subagent extraction | Measured PASS |
+| **Structured Output** | `native_schema_plus_ttk_validation` | Strict JSON schema + TTK validators | Measured PASS |
+| **Support Advisory** | `NONE` | Agent semantic support judgment | Measured PASS |
+| **Reduce Stage** | `direct_agent_reduce` | Hierarchical Macro/Meso/Micro synthesis | Measured PASS |
+| **External Verification** | `verify_ttk_queue` | Selective factual routing | Retained Core |
+| **Obsidian Compiler** | `custody_ttk` | Deterministic Wiki compilation | Locked Core |
 
 ---
 
-## 2. Rejection & Deferral Rationale
-
-- **NVIDIA Parakeet:** Marked `BLOCKED` due to NeMo CUDA runtime requirements on Intel Arc integrated GPU hardware.
-- **DocETL:** Marked `BLOCKED_FOR_TRIAL1` due to LiteLLM / direct API billing dependency.
-- **DeepEval:** Marked `BLOCKED_FOR_TRIAL1` due to API judge requirements; deterministic and human rubrics are primary.
-- **Instructor / NuExtract:** Marked `NOT_TRIGGERED` because native schema enforcement and direct CLI recall met all quality and reliability bars.
+## 2. Decision Rationale & Measured Evidence
+- **ASR**: `faster-whisper` (`small` model, `int8` on CPU) clears quality floor with word-level timestamps and zero cloud API dependencies.
+- **Map & Reduce**: Agent/subagent semantic workers produce 100% compliant `ttk.map-result.v2` and `ttk.reduce-result.v2` outputs without falling back to regex or heuristic pseudo-semantics.
+- **Evidence Integrity**: All metrics in `SELECTION.yaml` reference raw per-case JSON output artifacts and execution receipts verified by `verify_evidence_closure.py`.
