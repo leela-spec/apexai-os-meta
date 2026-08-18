@@ -9,9 +9,10 @@ module_handover:
   global_runtime_invariant: >
     weekly-orchestrator dispatches PrecapWeek directly as an isolated forked
     Skill (execution: context: fork). PrecapWeek's primary_operator_output
-    is already Weekly_Command_Brief (templates/weekly-command-brief-
-    template.md) -- this is the active, required runtime output now, not
-    merely a promoted file sitting beside a stale contract. The active
+    is already Weekly_Command_Brief (.claude/skills/PrecapWeek/weekly-
+    command-brief-template.md, at the package root -- PrecapWeek has no
+    templates/ subdirectory) -- this is the active, required runtime output
+    now, not merely a promoted file sitting beside a stale contract. The active
     project set derives from confirmed project context (no fixed five-
     project roster gate); numeric priority/urgency ratings are an optional
     aid, never a required schema field or approval gate. The downstream
@@ -32,7 +33,7 @@ module_handover:
 
   validated_design_sources:
     - apex-meta/operator-output-design/step3-output-design-system/03-planning-artifact-designs.okf.yaml
-    - .claude/skills/PrecapWeek/templates/weekly-command-brief-template.md (J02 -- already active, not a scaffold)
+    - .claude/skills/PrecapWeek/weekly-command-brief-template.md (J02 -- already active, not a scaffold)
 
   active_files:
     - .claude/skills/PrecapWeek/SKILL.md
@@ -76,3 +77,8 @@ module_handover:
     literacy; PrecapNextDay consumes its compact downstream handoff without
     requiring a separate duplicated seed artifact.
 ```
+
+## Post-closure repair note
+
+Four of the `active_files` above (`weekly-blueprint-standard.md`, `weekly-blueprint-meeting-example.md`, `calendar-planning-guidance.md`, `references/validation-checklist.md`) had their YAML flattened into single lines by an earlier generation pass -- format only, no content lost. This has been mechanically restored (Master repair, not module work) so Module 01 starts from readable files. No other change to these files' content.
+
