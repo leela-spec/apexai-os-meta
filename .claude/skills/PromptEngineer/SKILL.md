@@ -89,52 +89,52 @@ supporting_files:
       - writing_final_copy_paste_prompt
       - checking_prompt_failure_modes
 
-  - path: references/prompt-packet-contract.md
+  - path: PromptPacketContract.md
     read_when:
       - creating_prompt_packet
       - validating_prompt_sequence
       - separating_start_and_follow_up_prompts
-  - path: references/prompt-task-taxonomy.md
+  - path: PromptTaskTaxonomy.md
     read_when:
       - classifying_prompt_task
       - selecting_prompt_pattern
       - matching_task_to_expected_output
-  - path: references/iteration-loop-patterns.md
+  - path: iteration-loop-patterns.md
     read_when:
       - selecting_iteration_loop
       - adding_follow_up_prompts
       - defining_stop_conditions
-  - path: references/provider-style-contract-chatgpt.md
+  - path: ProviderStyleContract_ChatGPT.md
     read_when:
       - provider_target_is_ChatGPT
       - deep_research_prompt_needed
       - agent_run_prompt_needed
-  - path: references/provider-style-contract-claude.md
+  - path: provider-style-contract-claude.md
     read_when:
       - provider_target_is_Claude
       - Claude_Code_file_generation_prompt_needed
       - Claude_extended_thinking_prompt_needed
-  - path: references/provider-style-contract-gemini.md
+  - path: provider-style-contract-gemini.md
     read_when:
       - provider_target_is_Gemini
       - long_context_digest_prompt_needed
       - broad_document_comparison_needed
-  - path: references/provider-style-contract-openrouter-todo.md
+  - path: provider-style-contract-openrouter-todo.md
     read_when:
       - provider_target_is_OpenRouter_later
       - API_low_reasoning_placeholder_needed
       - OpenRouter_boundary_check_needed
-  - path: references/prompt-quality-validation.md
+  - path: prompt-quality-validation.md
     read_when:
       - validating_prompt_quality
       - assigning_validation_status
       - creating_prompt_quality_review
-  - path: references/prompt-learning-feedback-contract.md
+  - path: prompt-learning-feedback-contract.md
     read_when:
       - processing_prompt_result_feedback
       - capturing_failed_prompt_learning
       - preparing_pattern_update_candidate
-  - path: examples/starter-prompt-pack-example.md
+  - path: starter-prompt-pack-example.md
     read_when:
       - operator_requests_example
       - running_starter_manual_test

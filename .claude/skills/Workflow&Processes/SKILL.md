@@ -38,13 +38,13 @@ skill_contract:
 
   classification_targets:
     workflow_stage:
-      canonical_home: references/workflow-stage-taxonomy.md
+      canonical_home: workflow-stage-taxonomy.md
     process_stage:
-      canonical_home: references/process-stage-taxonomy.md
+      canonical_home: process-stage-taxonomy.md
     expected_output_type:
-      canonical_home: references/expected-output-type-contract.md
+      canonical_home: expected-output-type-contract.md
     workflow_record:
-      canonical_home: references/workflow-record-contract.md
+      canonical_home: workflow-record-contract.md
 
   validation_status:
     allowed:
@@ -110,55 +110,55 @@ supporting_files:
       - designing_stage_gates_or_handoffs
       - checking_workflow_failure_modes
 
-  - path: references/workflow-stage-taxonomy.md
+  - path: workflow-stage-taxonomy.md
     read_when:
       - classifying_workflow_stage
       - extracting_workflow_from_notes
       - resolving_workflow_stage_ambiguity
 
-  - path: references/process-stage-taxonomy.md
+  - path: process-stage-taxonomy.md
     read_when:
       - classifying_process_stage
       - mapping_sprint_to_process_role
       - resolving_process_stage_ambiguity
 
-  - path: references/expected-output-type-contract.md
+  - path: expected-output-type-contract.md
     read_when:
       - defining_expected_output_type
       - validating_output_shape
       - aligning_prompt_with_operator_deliverable
 
-  - path: references/workflow-record-contract.md
+  - path: workflow-record-contract.md
     read_when:
       - creating_workflow_record
       - normalizing_workflow_notes
       - preserving_reusable_process_structure
 
-  - path: references/prompt-workflow-alignment-validation.md
+  - path: prompt-process-alignment-validation.md
     read_when:
       - validating_prompt_process_fit
       - checking_prompt_against_workflow_stage
       - diagnosing_failed_prompt_output
 
-  - path: references/sprint-structure-rules.md
+  - path: references/sprint-structure-rules.md  # OPEN QUESTION: declared here but does not exist anywhere in the repo. Not authored or deleted by this repair pass -- see DECISIONS.md and CURRENT-STATE.md's post-closure repair pass note.
     read_when:
       - validating_sprint_structure
       - checking_iteration_logic
       - reviewing_flow_packet_fit
 
-  - path: references/operator-review-and-conflict-rules.md
+  - path: operator-validation-and-conflict-resolution.md
     read_when:
       - skill_databases_disagree
       - operator_tradeoff_decision_needed
       - confidence_is_low
 
-  - path: examples/starter-workflow-process-example.md
+  - path: starter-workflow-process-example.md
     read_when:
       - operator_requests_example
       - calibrating_workflow_process_behavior
       - testing_package_behavior
 
-  - path: package-manifest.md
+  - path: workflow-process-design-package-manifest.md
     read_when:
       - inspecting_package_structure
       - validating_file_inventory
@@ -264,44 +264,3 @@ completion_gate:
   operator_review_flags_present_when_confidence_is_limited: true
   package_boundaries_preserved: true
 ```
-
----
-
-# VALIDATION - FILE-SPECIFIC CHECKS
-
-- [ ] Description starts with "Use this skill when".
-- [ ] Procedure includes classification, expected-output definition, sprint validation, prompt/workflow alignment, and conflict handoff.
-- [ ] Skill does not generate provider-specific prompt rules, route models or quotas, execute project work, or override operator decision.
-- [ ] Supporting files use YAML path plus read_when conditions.
-- [ ] Completion Gate is a YAML boolean checklist.
-
----
-
-# NEXT PROMPT
-
-Paste this next:
-> Prompt WPD2:
-> Create exactly one file.
->
-> # FILE: .claude/skills/workflow-process-design/references/workflow-stage-taxonomy.md
->
-> File type: reference_taxonomy.
-> Schema ownership: owns workflow_stage taxonomy.
-> Context carry-forward:
-> - .claude/skills/workflow-process-design/SKILL.md
->
-> Structure constraints:
-> - YAML-first taxonomy file.
-> - Define workflow_stage exactly once.
-> - Include selection rules, ambiguity handling, and minimal examples.
-> - Do not duplicate process_stage taxonomy or expected_output_type contract.
->
-> Content constraints:
-> - Include stages for intake, exploration, extraction, normalization, planning, execution_support, validation, synthesis, recap_preparation, learning_update, and operator_decision.
-> - Include use_when, avoid_when, required_inputs, likely_outputs, and review_flags for each stage.
-> - Keep workflow stage separate from process stage and prompt task type.
->
-> File-specific checks:
-> - [ ] workflow_stage taxonomy is defined once.
-> - [ ] process_stage and expected_output_type are referenced but not redefined.
-> - [ ] Ambiguity handling and examples are included.

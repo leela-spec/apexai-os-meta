@@ -122,63 +122,63 @@ supporting_files:
       - checking_routing_failure_modes
       - operator_requests_routing_doctrine
 
-  - path: references/AI-surface-inventory-contract.md
+  - path: AI-surface-inventory-contract.md
     read_when:
       - AI_surface_inventory_missing
       - validating_available_surfaces
       - selecting_surface_class
       - checking_surface_capability_tags
 
-  - path: references/monthly-quota-map-contract.md
+  - path: monthly-quota-map-contract.md
     read_when:
       - monthly_quota_map_available
       - scarce_mode_possible
       - quota_pressure_needs_review
       - planning_high_end_reasoning_use
 
-  - path: references/routing-decision-contract.md
+  - path: routing-decision-contract.md
     read_when:
       - creating_routing_decision
       - validating_route_fields
       - resolving_provider_or_surface_conflict
       - assigning_fallback_surface
 
-  - path: references/planned-usage-budget-contract.md
+  - path: planned-usage-budget-contract.md
     read_when:
       - creating_planned_usage_budget
       - estimating_daily_or_flow_usage
       - comparing_planned_use_to_quota
       - preparing_next_day_usage_plan
 
-  - path: references/usage-delta-contract.md
+  - path: usage-delta-contract.md
     read_when:
       - usage_delta_available
       - capturing_FlowRecap_usage_feedback
       - comparing_actual_use_to_planned_use
       - updating_usage_learning_signal
 
-  - path: references/routing-recommendation-packet-contract.md
+  - path: routing-recommendation-packet-contract.md
     read_when:
       - creating_routing_recommendation_packet
       - producing_operator_tradeoff_card
       - combining_routing_and_budget_outputs
       - validating_final_recommendation
 
-  - path: references/cost-class-and-scarcity-rules.md
+  - path: cost-class-and-scarcity-rules.md
     read_when:
       - assigning_cost_class
       - deciding_scarce_mode_allowed
       - preventing_minimum_cost_overoptimization
       - applying_high_value_route_rules
 
-  - path: examples/starter-usage-routing-example.md
+  - path: starter-usage-routing-example.md
     read_when:
       - operator_requests_example
       - testing_skill_for_first_time
       - calibrating_routing_decision_shape
       - validating_package_behavior
 
-  - path: package-manifest.md
+  - path: ai-routing-and-usage-tracking-package-manifest.md
     read_when:
       - operator_inspects_package_structure
       - validating_package_files
