@@ -1,0 +1,3 @@
+interface:
+  display_name: "Transcript to Knowledge"
+  short_description: "Anchor, chunk, and compile transcripts into grounded wiki knowledge"

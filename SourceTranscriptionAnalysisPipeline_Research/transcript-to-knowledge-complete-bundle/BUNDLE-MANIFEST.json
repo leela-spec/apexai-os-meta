@@ -1,0 +1,45 @@
+{
+  "bundle_name": "transcript-to-knowledge-complete-bundle-2026-08-18",
+  "snapshot_date": "2026-08-18",
+  "repository": "leela-spec/apexai-os-meta",
+  "branch": "main",
+  "authoritative_v2_commit": "5858f1fa8102c22a007560f2a91914a3299d7ea9",
+  "authoritative_v2_commit_message": "feat: rebuild transcript knowledge pipeline standalone",
+  "repository_paths": {
+    "current_skill": ".claude/skills/transcript-to-knowledge/",
+    "current_research": "apex-meta/validation/transcript-to-knowledge-20260818/v2/"
+  },
+  "current_skill_package": {
+    "path": "current/package/skill.zip",
+    "sha256": "7ce05e20c2ec00ef5c03aa554c19e0ac5500e7e7ea5363e1271cc6eace9a86f2",
+    "file_count": 18,
+    "files": [
+      "transcript-to-knowledge/SKILL.md",
+      "transcript-to-knowledge/agents/openai.yaml",
+      "transcript-to-knowledge/references/architecture.md",
+      "transcript-to-knowledge/references/evals.md",
+      "transcript-to-knowledge/references/operator-runbook.md",
+      "transcript-to-knowledge/references/semantic-contracts.md",
+      "transcript-to-knowledge/scripts/prepare-transcript.ps1",
+      "transcript-to-knowledge/scripts/prepare_transcript.py",
+      "transcript-to-knowledge/scripts/test_ttk.py",
+      "transcript-to-knowledge/scripts/ttk.ps1",
+      "transcript-to-knowledge/scripts/ttk.py",
+      "transcript-to-knowledge/scripts/ttk_base.py",
+      "transcript-to-knowledge/scripts/ttk_compile.py",
+      "transcript-to-knowledge/scripts/ttk_map.py",
+      "transcript-to-knowledge/scripts/ttk_source.py",
+      "transcript-to-knowledge/scripts/ttk_verify.py",
+      "transcript-to-knowledge/scripts/ttk_wiki.py",
+      "transcript-to-knowledge/scripts/ttk_windows.py"
+    ],
+    "verified_against_unpacked_source_before_bundling": true
+  },
+  "bundle_sections": {
+    "current_skill_source": "current/skill-source/",
+    "current_research_v2": "current/research-v2/",
+    "history_v1_skill_source": "history/v1-skill-source/",
+    "history_v1_research": "history/v1-research/"
+  },
+  "history_note": "v1 is preserved only for reasoning/history; v2 is authoritative."
+}
