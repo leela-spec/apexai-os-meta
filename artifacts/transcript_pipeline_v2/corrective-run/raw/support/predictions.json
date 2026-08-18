@@ -1,0 +1,354 @@
+[
+  {
+    "pair_id": "SP-EN-001",
+    "source_id": "P-h5WSQG1Sw",
+    "expected_label": "SUPPORTED",
+    "predicted_label": "SUPPORTED",
+    "is_correct": true,
+    "evaluated_at": "2026-08-18T20:27:38.640812+00:00"
+  },
+  {
+    "pair_id": "SP-EN-002",
+    "source_id": "P-h5WSQG1Sw",
+    "expected_label": "SUPPORTED",
+    "predicted_label": "SUPPORTED",
+    "is_correct": true,
+    "evaluated_at": "2026-08-18T20:27:38.640812+00:00"
+  },
+  {
+    "pair_id": "SP-EN-003",
+    "source_id": "CygwqaNg2PY",
+    "expected_label": "SUPPORTED",
+    "predicted_label": "SUPPORTED",
+    "is_correct": true,
+    "evaluated_at": "2026-08-18T20:27:38.640812+00:00"
+  },
+  {
+    "pair_id": "SP-EN-004",
+    "source_id": "CygwqaNg2PY",
+    "expected_label": "SUPPORTED",
+    "predicted_label": "SUPPORTED",
+    "is_correct": true,
+    "evaluated_at": "2026-08-18T20:27:38.640812+00:00"
+  },
+  {
+    "pair_id": "SP-EN-005",
+    "source_id": "oZIsMX6WgFs",
+    "expected_label": "SUPPORTED",
+    "predicted_label": "SUPPORTED",
+    "is_correct": true,
+    "evaluated_at": "2026-08-18T20:27:38.640812+00:00"
+  },
+  {
+    "pair_id": "SP-EN-006",
+    "source_id": "P-h5WSQG1Sw",
+    "expected_label": "SUPPORTED",
+    "predicted_label": "SUPPORTED",
+    "is_correct": true,
+    "evaluated_at": "2026-08-18T20:27:38.640812+00:00"
+  },
+  {
+    "pair_id": "SP-EN-007",
+    "source_id": "P-h5WSQG1Sw",
+    "expected_label": "SUPPORTED",
+    "predicted_label": "SUPPORTED",
+    "is_correct": true,
+    "evaluated_at": "2026-08-18T20:27:38.640812+00:00"
+  },
+  {
+    "pair_id": "SP-EN-008",
+    "source_id": "CygwqaNg2PY",
+    "expected_label": "SUPPORTED",
+    "predicted_label": "SUPPORTED",
+    "is_correct": true,
+    "evaluated_at": "2026-08-18T20:27:38.640812+00:00"
+  },
+  {
+    "pair_id": "SP-EN-009",
+    "source_id": "oZIsMX6WgFs",
+    "expected_label": "SUPPORTED",
+    "predicted_label": "SUPPORTED",
+    "is_correct": true,
+    "evaluated_at": "2026-08-18T20:27:38.640812+00:00"
+  },
+  {
+    "pair_id": "SP-EN-010",
+    "source_id": "P-h5WSQG1Sw",
+    "expected_label": "SUPPORTED",
+    "predicted_label": "SUPPORTED",
+    "is_correct": true,
+    "evaluated_at": "2026-08-18T20:27:38.640812+00:00"
+  },
+  {
+    "pair_id": "SP-DE-011",
+    "source_id": "vFTuLylvYnA",
+    "expected_label": "SUPPORTED",
+    "predicted_label": "SUPPORTED",
+    "is_correct": true,
+    "evaluated_at": "2026-08-18T20:27:38.640812+00:00"
+  },
+  {
+    "pair_id": "SP-DE-012",
+    "source_id": "vFTuLylvYnA",
+    "expected_label": "SUPPORTED",
+    "predicted_label": "SUPPORTED",
+    "is_correct": true,
+    "evaluated_at": "2026-08-18T20:27:38.640812+00:00"
+  },
+  {
+    "pair_id": "SP-DE-013",
+    "source_id": "vFTuLylvYnA",
+    "expected_label": "SUPPORTED",
+    "predicted_label": "SUPPORTED",
+    "is_correct": true,
+    "evaluated_at": "2026-08-18T20:27:38.640812+00:00"
+  },
+  {
+    "pair_id": "SP-DE-014",
+    "source_id": "vFTuLylvYnA",
+    "expected_label": "SUPPORTED",
+    "predicted_label": "SUPPORTED",
+    "is_correct": true,
+    "evaluated_at": "2026-08-18T20:27:38.640812+00:00"
+  },
+  {
+    "pair_id": "SP-DE-015",
+    "source_id": "vFTuLylvYnA",
+    "expected_label": "SUPPORTED",
+    "predicted_label": "SUPPORTED",
+    "is_correct": true,
+    "evaluated_at": "2026-08-18T20:27:38.640812+00:00"
+  },
+  {
+    "pair_id": "SP-EN-016",
+    "source_id": "P-h5WSQG1Sw",
+    "expected_label": "PARTIAL",
+    "predicted_label": "PARTIAL",
+    "is_correct": true,
+    "evaluated_at": "2026-08-18T20:27:38.640812+00:00"
+  },
+  {
+    "pair_id": "SP-EN-017",
+    "source_id": "CygwqaNg2PY",
+    "expected_label": "PARTIAL",
+    "predicted_label": "PARTIAL",
+    "is_correct": true,
+    "evaluated_at": "2026-08-18T20:27:38.640812+00:00"
+  },
+  {
+    "pair_id": "SP-EN-018",
+    "source_id": "oZIsMX6WgFs",
+    "expected_label": "PARTIAL",
+    "predicted_label": "PARTIAL",
+    "is_correct": true,
+    "evaluated_at": "2026-08-18T20:27:38.640812+00:00"
+  },
+  {
+    "pair_id": "SP-EN-019",
+    "source_id": "P-h5WSQG1Sw",
+    "expected_label": "PARTIAL",
+    "predicted_label": "PARTIAL",
+    "is_correct": true,
+    "evaluated_at": "2026-08-18T20:27:38.640812+00:00"
+  },
+  {
+    "pair_id": "SP-DE-020",
+    "source_id": "vFTuLylvYnA",
+    "expected_label": "PARTIAL",
+    "predicted_label": "PARTIAL",
+    "is_correct": true,
+    "evaluated_at": "2026-08-18T20:27:38.640812+00:00"
+  },
+  {
+    "pair_id": "SP-DE-021",
+    "source_id": "vFTuLylvYnA",
+    "expected_label": "PARTIAL",
+    "predicted_label": "PARTIAL",
+    "is_correct": true,
+    "evaluated_at": "2026-08-18T20:27:38.640812+00:00"
+  },
+  {
+    "pair_id": "SP-EN-022",
+    "source_id": "P-h5WSQG1Sw",
+    "expected_label": "AMBIGUOUS",
+    "predicted_label": "AMBIGUOUS",
+    "is_correct": true,
+    "evaluated_at": "2026-08-18T20:27:38.640812+00:00"
+  },
+  {
+    "pair_id": "SP-EN-023",
+    "source_id": "CygwqaNg2PY",
+    "expected_label": "AMBIGUOUS",
+    "predicted_label": "AMBIGUOUS",
+    "is_correct": true,
+    "evaluated_at": "2026-08-18T20:27:38.640812+00:00"
+  },
+  {
+    "pair_id": "SP-EN-024",
+    "source_id": "oZIsMX6WgFs",
+    "expected_label": "AMBIGUOUS",
+    "predicted_label": "AMBIGUOUS",
+    "is_correct": true,
+    "evaluated_at": "2026-08-18T20:27:38.640812+00:00"
+  },
+  {
+    "pair_id": "SP-EN-025",
+    "source_id": "P-h5WSQG1Sw",
+    "expected_label": "AMBIGUOUS",
+    "predicted_label": "AMBIGUOUS",
+    "is_correct": true,
+    "evaluated_at": "2026-08-18T20:27:38.640812+00:00"
+  },
+  {
+    "pair_id": "SP-DE-026",
+    "source_id": "vFTuLylvYnA",
+    "expected_label": "AMBIGUOUS",
+    "predicted_label": "AMBIGUOUS",
+    "is_correct": true,
+    "evaluated_at": "2026-08-18T20:27:38.640812+00:00"
+  },
+  {
+    "pair_id": "SP-DE-027",
+    "source_id": "vFTuLylvYnA",
+    "expected_label": "AMBIGUOUS",
+    "predicted_label": "AMBIGUOUS",
+    "is_correct": true,
+    "evaluated_at": "2026-08-18T20:27:38.640812+00:00"
+  },
+  {
+    "pair_id": "SP-EN-028",
+    "source_id": "P-h5WSQG1Sw",
+    "expected_label": "UNSUPPORTED",
+    "predicted_label": "UNSUPPORTED",
+    "is_correct": true,
+    "evaluated_at": "2026-08-18T20:27:38.640812+00:00"
+  },
+  {
+    "pair_id": "SP-EN-029",
+    "source_id": "P-h5WSQG1Sw",
+    "expected_label": "UNSUPPORTED",
+    "predicted_label": "UNSUPPORTED",
+    "is_correct": true,
+    "evaluated_at": "2026-08-18T20:27:38.640812+00:00"
+  },
+  {
+    "pair_id": "SP-EN-030",
+    "source_id": "CygwqaNg2PY",
+    "expected_label": "UNSUPPORTED",
+    "predicted_label": "UNSUPPORTED",
+    "is_correct": true,
+    "evaluated_at": "2026-08-18T20:27:38.640812+00:00"
+  },
+  {
+    "pair_id": "SP-EN-031",
+    "source_id": "CygwqaNg2PY",
+    "expected_label": "UNSUPPORTED",
+    "predicted_label": "UNSUPPORTED",
+    "is_correct": true,
+    "evaluated_at": "2026-08-18T20:27:38.640812+00:00"
+  },
+  {
+    "pair_id": "SP-EN-032",
+    "source_id": "oZIsMX6WgFs",
+    "expected_label": "UNSUPPORTED",
+    "predicted_label": "UNSUPPORTED",
+    "is_correct": true,
+    "evaluated_at": "2026-08-18T20:27:38.640812+00:00"
+  },
+  {
+    "pair_id": "SP-EN-033",
+    "source_id": "oZIsMX6WgFs",
+    "expected_label": "UNSUPPORTED",
+    "predicted_label": "UNSUPPORTED",
+    "is_correct": true,
+    "evaluated_at": "2026-08-18T20:27:38.640812+00:00"
+  },
+  {
+    "pair_id": "SP-DE-034",
+    "source_id": "vFTuLylvYnA",
+    "expected_label": "UNSUPPORTED",
+    "predicted_label": "UNSUPPORTED",
+    "is_correct": true,
+    "evaluated_at": "2026-08-18T20:27:38.640812+00:00"
+  },
+  {
+    "pair_id": "SP-DE-035",
+    "source_id": "vFTuLylvYnA",
+    "expected_label": "UNSUPPORTED",
+    "predicted_label": "UNSUPPORTED",
+    "is_correct": true,
+    "evaluated_at": "2026-08-18T20:27:38.640812+00:00"
+  },
+  {
+    "pair_id": "SP-EN-036",
+    "source_id": "P-h5WSQG1Sw",
+    "expected_label": "UNSUPPORTED",
+    "predicted_label": "UNSUPPORTED",
+    "is_correct": true,
+    "evaluated_at": "2026-08-18T20:27:38.640812+00:00"
+  },
+  {
+    "pair_id": "SP-EN-037",
+    "source_id": "P-h5WSQG1Sw",
+    "expected_label": "UNSUPPORTED",
+    "predicted_label": "UNSUPPORTED",
+    "is_correct": true,
+    "evaluated_at": "2026-08-18T20:27:38.640812+00:00"
+  },
+  {
+    "pair_id": "SP-EN-038",
+    "source_id": "CygwqaNg2PY",
+    "expected_label": "UNSUPPORTED",
+    "predicted_label": "UNSUPPORTED",
+    "is_correct": true,
+    "evaluated_at": "2026-08-18T20:27:38.640812+00:00"
+  },
+  {
+    "pair_id": "SP-EN-039",
+    "source_id": "oZIsMX6WgFs",
+    "expected_label": "UNSUPPORTED",
+    "predicted_label": "UNSUPPORTED",
+    "is_correct": true,
+    "evaluated_at": "2026-08-18T20:27:38.640812+00:00"
+  },
+  {
+    "pair_id": "SP-DE-040",
+    "source_id": "vFTuLylvYnA",
+    "expected_label": "UNSUPPORTED",
+    "predicted_label": "UNSUPPORTED",
+    "is_correct": true,
+    "evaluated_at": "2026-08-18T20:27:38.640812+00:00"
+  },
+  {
+    "pair_id": "SP-DE-041",
+    "source_id": "vFTuLylvYnA",
+    "expected_label": "UNSUPPORTED",
+    "predicted_label": "UNSUPPORTED",
+    "is_correct": true,
+    "evaluated_at": "2026-08-18T20:27:38.640812+00:00"
+  },
+  {
+    "pair_id": "SP-EN-042",
+    "source_id": "P-h5WSQG1Sw",
+    "expected_label": "UNSUPPORTED",
+    "predicted_label": "UNSUPPORTED",
+    "is_correct": true,
+    "evaluated_at": "2026-08-18T20:27:38.640812+00:00"
+  },
+  {
+    "pair_id": "SP-EN-043",
+    "source_id": "CygwqaNg2PY",
+    "expected_label": "UNSUPPORTED",
+    "predicted_label": "UNSUPPORTED",
+    "is_correct": true,
+    "evaluated_at": "2026-08-18T20:27:38.640812+00:00"
+  },
+  {
+    "pair_id": "SP-DE-044",
+    "source_id": "vFTuLylvYnA",
+    "expected_label": "UNSUPPORTED",
+    "predicted_label": "UNSUPPORTED",
+    "is_correct": true,
+    "evaluated_at": "2026-08-18T20:27:38.640812+00:00"
+  }
+]

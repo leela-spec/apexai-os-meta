@@ -1,0 +1,30 @@
+schema: transcript-pipeline-map-scorecard.v2
+evaluated_at: '2026-08-18T20:27:38.623510+00:00'
+lanes:
+  direct_agent_map:
+    insight_recall:
+      value: 1.0
+      evidence_refs: &id001
+      - artifacts\transcript_pipeline_v2\corrective-run\raw\map\P-h5WSQG1Sw\window-0001.json
+      - artifacts\transcript_pipeline_v2\corrective-run\raw\map\P-h5WSQG1Sw\window-0006.json
+      - artifacts\transcript_pipeline_v2\corrective-run\raw\map\P-h5WSQG1Sw\window-0014.json
+      - artifacts\transcript_pipeline_v2\corrective-run\raw\map\P-h5WSQG1Sw\window-0022.json
+      - artifacts\transcript_pipeline_v2\corrective-run\raw\map\CygwqaNg2PY\window-0001.json
+      - artifacts\transcript_pipeline_v2\corrective-run\raw\map\CygwqaNg2PY\window-0003.json
+      - artifacts\transcript_pipeline_v2\corrective-run\raw\map\vFTuLylvYnA\window-0001.json
+      - artifacts\transcript_pipeline_v2\corrective-run\raw\map\vFTuLylvYnA\window-0003.json
+      - artifacts\transcript_pipeline_v2\corrective-run\raw\map\oZIsMX6WgFs\window-0001.json
+      - artifacts\transcript_pipeline_v2\corrective-run\raw\map\oZIsMX6WgFs\window-0005.json
+    factual_grounding_precision:
+      value: 1.0
+      evidence_refs: *id001
+    status: PASS
+    verdict: SELECTED_WINNER
+  gliner2_assisted_cli:
+    status: NOT_INSTALLED
+    verdict: CHALLENGER_DEFERRED
+    reason: gliner2 package not installed in environment
+  langextract_cli_provider:
+    status: NOT_INSTALLED
+    verdict: CHALLENGER_DEFERRED
+    reason: langextract package not installed in environment

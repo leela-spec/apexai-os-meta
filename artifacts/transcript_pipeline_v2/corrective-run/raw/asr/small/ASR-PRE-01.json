@@ -1,0 +1,19 @@
+{
+  "slice_id": "ASR-PRE-01",
+  "source_id": "CygwqaNg2PY",
+  "model": "faster-whisper-small",
+  "target_terms": [
+    "Elliott Prechter",
+    "Elliott Wave Principle",
+    "Robert Prechter",
+    "wave counting",
+    "Fibonacci"
+  ],
+  "matched_terms": [
+    "Elliott Wave Principle"
+  ],
+  "term_accuracy": 0.2,
+  "word_timestamps": true,
+  "vad_enabled": true,
+  "evaluated_at": "2026-08-18T20:27:36.510805+00:00"
+}

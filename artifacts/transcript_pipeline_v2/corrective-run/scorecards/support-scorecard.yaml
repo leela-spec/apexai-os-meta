@@ -1,0 +1,19 @@
+schema: transcript-pipeline-support-scorecard.v2
+evaluated_at: '2026-08-18T20:27:38.650233+00:00'
+candidates:
+  agent_semantic_support_judge:
+    precision:
+      value: 1.0
+      evidence_refs:
+      - artifacts\transcript_pipeline_v2\corrective-run\raw\support\predictions.json
+    total_pairs_evaluated: 44
+    status: PASS
+    verdict: SELECTED_WINNER
+  mdeberta_nli:
+    status: NOT_INSTALLED
+    verdict: ADVISORY_DEFERRED
+    reason: transformers/torch not installed in environment
+  hhem_english_only:
+    status: NOT_INSTALLED
+    verdict: ADVISORY_DEFERRED
+    reason: transformers/torch not installed in environment

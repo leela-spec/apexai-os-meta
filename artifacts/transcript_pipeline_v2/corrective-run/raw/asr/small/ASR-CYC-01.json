@@ -1,0 +1,19 @@
+{
+  "slice_id": "ASR-CYC-01",
+  "source_id": "oZIsMX6WgFs",
+  "model": "faster-whisper-small",
+  "target_terms": [
+    "cycle lengths",
+    "phasing",
+    "dominant cycle",
+    "harmonic periods",
+    "Lars von Thienen"
+  ],
+  "matched_terms": [
+    "dominant cycle"
+  ],
+  "term_accuracy": 0.2,
+  "word_timestamps": true,
+  "vad_enabled": true,
+  "evaluated_at": "2026-08-18T20:27:36.518117+00:00"
+}

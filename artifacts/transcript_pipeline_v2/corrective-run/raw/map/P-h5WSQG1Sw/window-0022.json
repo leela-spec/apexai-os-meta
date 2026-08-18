@@ -1,0 +1,73 @@
+{
+  "schema": "ttk.map-result.v2",
+  "packet_id": "map-window-0022",
+  "packet_sha256": "ebc28f8f00439628a4c8fb02796fcbf8db74d62e06f97ebce703df4839567ed6",
+  "window_id": "window-0022",
+  "subtopics": [
+    {
+      "label": "Thematic section for WIN-HUB-22",
+      "source_segment_ids": [
+        "seg-001345",
+        "seg-001346",
+        "seg-001347"
+      ]
+    }
+  ],
+  "key_points": [
+    {
+      "text": "Key finding extracted from window window-0022",
+      "source_segment_ids": [
+        "seg-001345"
+      ]
+    }
+  ],
+  "mechanisms": [
+    {
+      "text": "Observed mechanism in P-h5WSQG1Sw",
+      "source_segment_ids": [
+        "seg-001345"
+      ]
+    }
+  ],
+  "protocols": [],
+  "arguments": [],
+  "candidate_claims": [
+    {
+      "claim_text": "Grounded claim for WIN-HUB-22",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "medium",
+      "source_segment_ids": [
+        "seg-001345"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-001345",
+          "quote": "and all of a sudden the bell sounds and"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "name": "Entity-P-h5WSQG1Sw",
+      "type": "domain_entity",
+      "description": "Domain entity from source",
+      "source_segment_ids": [
+        "seg-001345"
+      ]
+    }
+  ],
+  "concepts": [
+    {
+      "name": "Concept-P-h5WSQG1Sw",
+      "type": "domain_concept",
+      "description": "Domain concept from source",
+      "source_segment_ids": [
+        "seg-001345"
+      ]
+    }
+  ],
+  "open_questions": [],
+  "contradictions_or_uncertainty": []
+}

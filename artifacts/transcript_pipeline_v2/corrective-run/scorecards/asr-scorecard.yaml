@@ -1,0 +1,41 @@
+schema: transcript-pipeline-asr-scorecard.v2
+evaluated_at: '2026-08-18T20:27:36.520779+00:00'
+candidates:
+  faster_whisper_small:
+    engine: faster-whisper (CTranslate2 int8)
+    model_size: small
+    domain_term_accuracy:
+      value: 0.3333
+      evidence_refs: &id001
+      - artifacts\transcript_pipeline_v2\corrective-run\raw\asr\small\ASR-HUB-01.json
+      - artifacts\transcript_pipeline_v2\corrective-run\raw\asr\small\ASR-PRE-01.json
+      - artifacts\transcript_pipeline_v2\corrective-run\raw\asr\small\ASR-KOC-01.json
+      - artifacts\transcript_pipeline_v2\corrective-run\raw\asr\small\ASR-CYC-01.json
+    word_timestamps_available:
+      value: PASS
+      evidence_refs: *id001
+    status: PASS
+    verdict: SELECTED_WINNER
+  faster_whisper_base:
+    engine: faster-whisper (CTranslate2 int8)
+    model_size: base
+    domain_term_accuracy:
+      value: 0.3333
+      evidence_refs: &id002
+      - artifacts\transcript_pipeline_v2\corrective-run\raw\asr\base\ASR-HUB-01.json
+      - artifacts\transcript_pipeline_v2\corrective-run\raw\asr\base\ASR-PRE-01.json
+      - artifacts\transcript_pipeline_v2\corrective-run\raw\asr\base\ASR-KOC-01.json
+      - artifacts\transcript_pipeline_v2\corrective-run\raw\asr\base\ASR-CYC-01.json
+    word_timestamps_available:
+      value: PASS
+      evidence_refs: *id002
+    status: PASS
+    verdict: KEEP_AS_CHALLENGER_FAST_MODE
+  parakeet_v3:
+    status: BLOCKED_DEPENDENCY
+    verdict: BLOCKED
+    reason: NeMo / PyTorch CUDA stack not installed on Windows Intel Arc
+  hosted_asr_oracle:
+    status: POST_TRIAL_ONLY
+    verdict: DEFERRED
+    reason: Trial-1 restriction

@@ -1,0 +1,21 @@
+{
+  "slice_id": "ASR-HUB-01",
+  "source_id": "P-h5WSQG1Sw",
+  "model": "faster-whisper-base",
+  "target_terms": [
+    "amygdala",
+    "prefrontal cortex",
+    "emotion regulation",
+    "Ralph Adolphs",
+    "Caltech"
+  ],
+  "matched_terms": [
+    "amygdala",
+    "emotion regulation",
+    "Caltech"
+  ],
+  "term_accuracy": 0.6,
+  "word_timestamps": true,
+  "vad_enabled": true,
+  "evaluated_at": "2026-08-18T20:27:35.253419+00:00"
+}

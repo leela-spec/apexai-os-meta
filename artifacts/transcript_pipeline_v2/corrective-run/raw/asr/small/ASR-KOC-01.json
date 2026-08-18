@@ -1,0 +1,21 @@
+{
+  "slice_id": "ASR-KOC-01",
+  "source_id": "vFTuLylvYnA",
+  "model": "faster-whisper-small",
+  "target_terms": [
+    "Nasdaq",
+    "S&P 500",
+    "Handelsstart",
+    "300 Punkte",
+    "Renditen",
+    "Zehnjährige Staatsanleihen"
+  ],
+  "matched_terms": [
+    "300 Punkte",
+    "Renditen"
+  ],
+  "term_accuracy": 0.3333333333333333,
+  "word_timestamps": true,
+  "vad_enabled": true,
+  "evaluated_at": "2026-08-18T20:27:36.514913+00:00"
+}

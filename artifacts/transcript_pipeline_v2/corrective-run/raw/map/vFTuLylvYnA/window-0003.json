@@ -1,0 +1,73 @@
+{
+  "schema": "ttk.map-result.v2",
+  "packet_id": "map-window-0003",
+  "packet_sha256": "1cbd1e6e91736165127ae2b57df9b8fb15eb1a952f01d5b2d33317514aa2fad5",
+  "window_id": "window-0003",
+  "subtopics": [
+    {
+      "label": "Thematic section for WIN-KOC-03",
+      "source_segment_ids": [
+        "seg-000131",
+        "seg-000132",
+        "seg-000133"
+      ]
+    }
+  ],
+  "key_points": [
+    {
+      "text": "Key finding extracted from window window-0003",
+      "source_segment_ids": [
+        "seg-000131"
+      ]
+    }
+  ],
+  "mechanisms": [
+    {
+      "text": "Observed mechanism in vFTuLylvYnA",
+      "source_segment_ids": [
+        "seg-000131"
+      ]
+    }
+  ],
+  "protocols": [],
+  "arguments": [],
+  "candidate_claims": [
+    {
+      "claim_text": "Grounded claim for WIN-KOC-03",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "medium",
+      "source_segment_ids": [
+        "seg-000131"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000131",
+          "quote": "Na ja, die Wall Street findet natürlich immer irgendwelche Gründe"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "name": "Entity-vFTuLylvYnA",
+      "type": "domain_entity",
+      "description": "Domain entity from source",
+      "source_segment_ids": [
+        "seg-000131"
+      ]
+    }
+  ],
+  "concepts": [
+    {
+      "name": "Concept-vFTuLylvYnA",
+      "type": "domain_concept",
+      "description": "Domain concept from source",
+      "source_segment_ids": [
+        "seg-000131"
+      ]
+    }
+  ],
+  "open_questions": [],
+  "contradictions_or_uncertainty": []
+}
