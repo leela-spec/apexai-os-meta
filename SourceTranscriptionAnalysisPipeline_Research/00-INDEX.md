@@ -10,6 +10,7 @@ This directory serves as the centralized research, benchmarking, and multi-AI ev
 | Priority | Document / Asset | Type | Purpose & Summary |
 | :---: | :--- | :--- | :--- |
 | **00** | [`00-INDEX.md`](file:///c:/GitDev/apexai-os-meta/SourceTranscriptionAnalysisPipeline_Research/00-INDEX.md) | Index | Master catalog and document map. |
+| **00.1** | [`HANDOVER_MULTI_PIPELINE_EVALUATION.md`](file:///c:/GitDev/apexai-os-meta/SourceTranscriptionAnalysisPipeline_Research/HANDOVER_MULTI_PIPELINE_EVALUATION.md) | Handover | Master agent evaluation handover with remote paths and ranked improvement matrix. |
 | **01** | [`PROCESS_STEP_COMPARISON_MATRIX.md`](file:///c:/GitDev/apexai-os-meta/SourceTranscriptionAnalysisPipeline_Research/PROCESS_STEP_COMPARISON_MATRIX.md) | Comparison Matrix | Step-by-step lifecycle matrix comparing all 3 pipelines across 14 discrete steps. |
 | **02** | [`THREE_SYSTEM_COMPARATIVE_BENCHMARK.md`](file:///c:/GitDev/apexai-os-meta/SourceTranscriptionAnalysisPipeline_Research/THREE_SYSTEM_COMPARATIVE_BENCHMARK.md) | Benchmark Report | 3-way evaluation of Ingestion, Dataclass Engine, and TTK Protocol. |
 | **03** | [`AI_WORK_ANALYSIS_AND_IMPROVEMENTS.md`](file:///c:/GitDev/apexai-os-meta/SourceTranscriptionAnalysisPipeline_Research/AI_WORK_ANALYSIS_AND_IMPROVEMENTS.md) | Technical Report | Deep comparative evaluation of the external AI's codebase (`transcript_engine.py`), flaws, and solutions. |
