@@ -1,0 +1,14 @@
+{
+  "schema": "ttk.receipt.v2",
+  "task_id": "agent_map_smoke",
+  "component_id": "semantic_agent",
+  "provider": "antigravity_agent",
+  "status": "PASS",
+  "exit_code": 0,
+  "input_hash": "956a38107453d746f71df2b7825e19c20b7e08a42434e87cca93d480f4c3f75b",
+  "output_hash": "7981c05d4617a513ee7ea8074ae4c193b8965481ce0b7a0279605335a6eb4a24",
+  "output_file": "artifacts\\transcript_pipeline_v2\\corrective-run\\raw\\cli-smoke\\agent_map_smoke.json",
+  "wall_time_seconds": 0.0,
+  "ttk_validation_status": "PASS",
+  "evaluated_at": "2026-08-18T20:25:39.535649+00:00"
+}

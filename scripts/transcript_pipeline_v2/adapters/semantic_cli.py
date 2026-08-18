@@ -102,8 +102,8 @@ class SemanticCLIWorker:
 
     def _build_command(self, prompt: str) -> list[str]:
         if self.provider == "claude":
-            # Use noninteractive print mode
-            return ["claude", "-p", prompt]
+            # Use noninteractive print mode with tools disabled and no session persistence
+            return ["claude", "-p", prompt, "--tools", "", "--no-session-persistence"]
         elif self.provider == "codex":
             return ["codex", "exec", prompt]
         elif self.provider == "antigravity":
@@ -118,6 +118,7 @@ class SemanticCLIWorker:
         
         proc = subprocess.Popen(
             cmd,
+            stdin=subprocess.DEVNULL,
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE,
             text=True,
