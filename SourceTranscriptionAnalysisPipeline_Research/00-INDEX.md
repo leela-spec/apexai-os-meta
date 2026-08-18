@@ -1,27 +1,33 @@
 # SourceTranscriptionAnalysisPipeline Research: Master Index (00-INDEX)
 
-## 0. Current authoritative continuation path — V2 reuse bake-off
+## 0. Current authoritative continuation path — V2.1 reuse bake-off
 
-**Start here for all new transcript-pipeline implementation work.** The V2 set below supersedes the earlier V1 architecture/implementation sequence where they conflict. V1 remains historical evidence of the over-correction that V2 fixes.
+**Start here for all new transcript-pipeline implementation work.** The V2/V2.1 set below supersedes the earlier V1 architecture/implementation sequence where they conflict. V1 remains historical evidence of the over-correction that V2 fixes.
 
 1. [`v2-reuse-bakeoff/00-START-HERE.md`](file:///c:/GitDev/apexai-os-meta/SourceTranscriptionAnalysisPipeline_Research/v2-reuse-bakeoff/00-START-HERE.md) — execution handover, constant frame, authority hierarchy, read order, stop conditions.
-2. [`v2-reuse-bakeoff/01-ARCHITECTURE-ANALYSIS.md`](file:///c:/GitDev/apexai-os-meta/SourceTranscriptionAnalysisPipeline_Research/v2-reuse-bakeoff/01-ARCHITECTURE-ANALYSIS.md) — corrected reuse-first architecture, full per-stage option matrices, promotion/rejection logic.
-3. [`v2-reuse-bakeoff/02-IMPLEMENTATION-PLAN.yaml`](file:///c:/GitDev/apexai-os-meta/SourceTranscriptionAnalysisPipeline_Research/v2-reuse-bakeoff/02-IMPLEMENTATION-PLAN.yaml) — **machine-readable P0–P22 execution plan** with task dependencies, reads/writes, commands, acceptance, commits, final tests.
-4. [`v2-reuse-bakeoff/03-BENCHMARK-AND-TEST-SPEC.yaml`](file:///c:/GitDev/apexai-os-meta/SourceTranscriptionAnalysisPipeline_Research/v2-reuse-bakeoff/03-BENCHMARK-AND-TEST-SPEC.yaml) — benchmark levels, hard gates, metrics, thresholds, four-source and fresh end-to-end acceptance, final report schema.
-5. [`v2-reuse-bakeoff/04-COMPONENT-REGISTRY.yaml`](file:///c:/GitDev/apexai-os-meta/SourceTranscriptionAnalysisPipeline_Research/v2-reuse-bakeoff/04-COMPONENT-REGISTRY.yaml) — component roles, isolated install paths, hypotheses, triggers, fallbacks, official sources.
-6. [`v2-reuse-bakeoff/05-SOURCE-DECISION-EVIDENCE.yaml`](file:///c:/GitDev/apexai-os-meta/SourceTranscriptionAnalysisPipeline_Research/v2-reuse-bakeoff/05-SOURCE-DECISION-EVIDENCE.yaml) — operator decisions, project-resource inputs, hardware evidence, repository evidence, rationale trace, unresolved questions.
+2. [`v2-reuse-bakeoff/06-TRIAL1-TRANSPORT-LOCK.yaml`](file:///c:/GitDev/apexai-os-meta/SourceTranscriptionAnalysisPipeline_Research/v2-reuse-bakeoff/06-TRIAL1-TRANSPORT-LOCK.yaml) — **authoritative V2.1 Trial-1 transport override**; subscription-CLI-only rules and explicit resolution of residual stale V2 lines.
+3. [`v2-reuse-bakeoff/01-ARCHITECTURE-ANALYSIS.md`](file:///c:/GitDev/apexai-os-meta/SourceTranscriptionAnalysisPipeline_Research/v2-reuse-bakeoff/01-ARCHITECTURE-ANALYSIS.md) — corrected reuse-first architecture, full per-stage option matrices, promotion/rejection logic.
+4. [`v2-reuse-bakeoff/02-IMPLEMENTATION-PLAN.yaml`](file:///c:/GitDev/apexai-os-meta/SourceTranscriptionAnalysisPipeline_Research/v2-reuse-bakeoff/02-IMPLEMENTATION-PLAN.yaml) — **machine-readable P0–P22 execution plan** with task dependencies, reads/writes, commands, acceptance, commits, final tests. Where Trial-1 transport wording conflicts with `06-TRIAL1-TRANSPORT-LOCK.yaml`, the lock wins.
+5. [`v2-reuse-bakeoff/03-BENCHMARK-AND-TEST-SPEC.yaml`](file:///c:/GitDev/apexai-os-meta/SourceTranscriptionAnalysisPipeline_Research/v2-reuse-bakeoff/03-BENCHMARK-AND-TEST-SPEC.yaml) — benchmark levels, hard gates, metrics, thresholds, four-source and fresh end-to-end acceptance, final report schema.
+6. [`v2-reuse-bakeoff/04-COMPONENT-REGISTRY.yaml`](file:///c:/GitDev/apexai-os-meta/SourceTranscriptionAnalysisPipeline_Research/v2-reuse-bakeoff/04-COMPONENT-REGISTRY.yaml) — component roles, isolated install paths, hypotheses, triggers, fallbacks, official sources.
+7. [`v2-reuse-bakeoff/05-SOURCE-DECISION-EVIDENCE.yaml`](file:///c:/GitDev/apexai-os-meta/SourceTranscriptionAnalysisPipeline_Research/v2-reuse-bakeoff/05-SOURCE-DECISION-EVIDENCE.yaml) — operator decisions, project-resource inputs, hardware evidence, repository evidence, rationale trace, unresolved questions.
+8. [`v2-reuse-bakeoff/00-TEST-EVALUATOR-START-HERE.md`](file:///c:/GitDev/apexai-os-meta/SourceTranscriptionAnalysisPipeline_Research/v2-reuse-bakeoff/00-TEST-EVALUATOR-START-HERE.md) — start point for a later fresh AI evaluating implementation/test results rather than implementing the pipeline.
+9. [`v2-reuse-bakeoff/07-DECIDED-FRAMEWORK-AND-TEST-EVALUATION-HANDOVER.yaml`](file:///c:/GitDev/apexai-os-meta/SourceTranscriptionAnalysisPipeline_Research/v2-reuse-bakeoff/07-DECIDED-FRAMEWORK-AND-TEST-EVALUATION-HANDOVER.yaml) — **machine-readable decided-framework lock plus future test-evaluator procedure and anti-drift rules**.
 
-### V2 governing rule
+### V2/V2.1 governing rules
 
 > **Measure before remove.** A mature reusable component that plausibly replaces fragile custom code, reduces expensive reasoning, improves evidence quality, or adds a useful independent safety/evaluation signal receives a bounded benchmark before rejection. Installed/benchmarked does not mean production-selected.
+
+> **Trial 1 is subscription-CLI-only.** Strong-AI calls may use Claude Code CLI, Codex CLI, or Antigravity CLI after its local headless smoke test passes. API-key/pay-as-you-go/hosted-model/browser-AI transport and Gemini CLI are post-Trial-1 options only unless the operator explicitly changes this policy later.
 
 ### Current authority boundaries
 
 - **Qwen:** no role in this transcript pipeline now.
 - **TTK:** retain deterministic transcript custody, packet/hash state, validation, verification routing, resume, compiler unless a measured replacement proves all hard invariants.
-- **Strong subscription CLI AI:** semantic authority for irreducible meaning/synthesis; Claude/Codex/Gemini/browser subscription AIs are available resources.
-- **Reusable candidates:** faster-whisper, Parakeet, WhisperX, LangExtract, GLiNER2, NuExtract, Instructor, mDeBERTa, HHEM, DocETL, DeepEval, Fabric/Open Notebook are classified in the registry and tested only in their declared lanes.
-- **Paid APIs:** undesirable but not forbidden; small capped experiments are allowed when they answer a material architecture question and cost/value are recorded.
+- **Trial-1 semantic authority:** Claude Code CLI or Codex CLI; Antigravity CLI only after a real local non-interactive smoke test passes. These are locally invoked subscription/account CLI transports, not local-model reasoning.
+- **Deferred semantic transports:** Gemini CLI, browser subscription AIs, direct paid/API-key-billed model routes, and hosted model APIs are visible future options but must not execute in Trial 1.
+- **Reusable candidates:** faster-whisper, Parakeet, WhisperX, LangExtract, GLiNER2, NuExtract, Instructor, mDeBERTa, HHEM, DocETL, DeepEval, Fabric/Open Notebook are classified in the registry and tested only in their declared lanes. Any AI-backed candidate must obey `06-TRIAL1-TRANSPORT-LOCK.yaml`.
+- **Paid APIs:** undesirable but not globally erased from research; **forbidden in Trial 1**. A later capped experiment requires a newer explicit operator decision.
 - **Factual Micro claims:** exact source evidence required; non-factual objects still need source provenance but not artificial quote quotas.
 
 ---
@@ -30,8 +36,8 @@
 
 | Priority | Document / Asset | Status | Purpose |
 | :---: | :--- | :--- | :--- |
-| **00** | `00-INDEX.md` | Current | Master catalog and V2 continuation path. |
-| **00.V2** | `v2-reuse-bakeoff/**` | **Current authority** | Reuse-first architecture, machine-readable implementation, benchmark/test system, component registry, decision/evidence log. |
+| **00** | `00-INDEX.md` | Current | Master catalog and V2.1 continuation path. |
+| **00.V2** | `v2-reuse-bakeoff/**` | **Current authority** | Reuse-first architecture, V2.1 transport lock, machine-readable implementation, benchmark/test system, component registry, decision/evidence log, evaluator handover. |
 | **H-V1.1** | `PIPELINE_DECISION_CONTRACT_2026-08-18.yaml` | Superseded where conflicting | Earlier minimal V1 decision contract; useful history only. |
 | **H-V1.2** | `PIPELINE_ARCHITECTURE_OPTIONS_AND_V1_DECISION_2026-08-18.md` | Superseded where conflicting | Earlier architecture analysis that over-corrected by excluding reusable candidates from V1. |
 | **H-V1.3** | `V1_IMPLEMENTATION_PLAN_CLI_SEMANTIC_WORKER_2026-08-18.md` | Superseded where conflicting | Earlier direct-CLI-only execution plan. |
@@ -65,4 +71,10 @@ It reports only one fully complete source and three incomplete sources. V2 requi
 
 ## 3. Next step
 
-A receiving CLI AI should **not** edit the pipeline from this index. It should open `v2-reuse-bakeoff/00-START-HERE.md`, follow the required reads, then execute `P0` from `v2-reuse-bakeoff/02-IMPLEMENTATION-PLAN.yaml`.
+### Implementation AI
+
+Open `v2-reuse-bakeoff/00-START-HERE.md`, then `v2-reuse-bakeoff/06-TRIAL1-TRANSPORT-LOCK.yaml`, follow the required reads, and execute `P0` from `v2-reuse-bakeoff/02-IMPLEMENTATION-PLAN.yaml`.
+
+### Future test-evaluation AI
+
+Open `v2-reuse-bakeoff/00-TEST-EVALUATOR-START-HERE.md`, then `v2-reuse-bakeoff/07-DECIDED-FRAMEWORK-AND-TEST-EVALUATION-HANDOVER.yaml`. Evaluate actual receipts, scorecards, `SELECTION.yaml`, `FINAL-REPORT.yaml`, four-source regression, fresh EN+DE end-to-end runs, and clean-room resume evidence. Do not restart architecture research unless measured evidence activates a documented reversal trigger or exposes a new named capability gap.
