@@ -1,0 +1,807 @@
+schema: transcript-pipeline-implementation-plan.v2
+created: '2026-08-18'
+status: READY_FOR_EXECUTION
+repository:
+  full_name: leela-spec/apexai-os-meta
+  expected_local_path: 'C:/GitDev/apexai-os-meta'
+  branch: main
+  branch_policy: main_only_unless_operator_explicitly_changes_it
+
+mission: >-
+  Implement a controlled reuse-first component bake-off, select the first
+  production transcript-to-knowledge pipeline from measured evidence, integrate
+  the winners into the existing TTK deterministic spine, and finish with a
+  repeatable four-source benchmark plus fresh end-to-end tests.
+
+non_goals:
+  - redesign APEX/OpenClaw/FEE
+  - give Qwen semantic or pipeline authority
+  - install every candidate into one Python environment
+  - create a vector database or graph database
+  - create a new workflow scheduler/service
+  - replace TTK custody before a measured alternative proves all hard invariants
+  - accept structurally valid but semantically generic output as success
+  - use heuristic Python as a fallback when semantic AI execution fails
+
+source_of_truth:
+  start_here: SourceTranscriptionAnalysisPipeline_Research/v2-reuse-bakeoff/00-START-HERE.md
+  architecture: SourceTranscriptionAnalysisPipeline_Research/v2-reuse-bakeoff/01-ARCHITECTURE-ANALYSIS.md
+  components: SourceTranscriptionAnalysisPipeline_Research/v2-reuse-bakeoff/04-COMPONENT-REGISTRY.yaml
+  benchmark: SourceTranscriptionAnalysisPipeline_Research/v2-reuse-bakeoff/03-BENCHMARK-AND-TEST-SPEC.yaml
+  ttk_skill: .claude/skills/transcript-to-knowledge/SKILL.md
+  ttk_contracts: .claude/skills/transcript-to-knowledge/references/semantic-contracts.md
+
+execution_rules:
+  - id: EX-01
+    rule: 'Execute tasks in dependency order; do not skip a hard-gate task because a later component is more interesting.'
+  - id: EX-02
+    rule: 'At task start, verify declared inputs and current Git status. At task end, write declared receipts and run declared validations.'
+  - id: EX-03
+    rule: 'Record UNMEASURED rather than guessing a metric.'
+  - id: EX-04
+    rule: 'One failed benchmark candidate does not block unrelated candidates unless it is a dependency.'
+  - id: EX-05
+    rule: 'No challenger is production-selected until Task P16.'
+  - id: EX-06
+    rule: 'Production integration begins only after Task P16 has a machine-readable selection result.'
+  - id: EX-07
+    rule: 'Use isolated virtual environments under scripts/transcript_pipeline_v2/tools/<component>/.venv.'
+  - id: EX-08
+    rule: 'Never store API keys, auth tokens, browser cookies, or secrets in repo artifacts/receipts.'
+  - id: EX-09
+    rule: 'For semantic calls, preserve packet/result/worker receipts; retries are bounded and validation-informed.'
+  - id: EX-10
+    rule: 'If a task changes runtime code, add/run tests before commit. Documentation alone is not evidence that code works.'
+
+artifact_layout:
+  code_root: scripts/transcript_pipeline_v2
+  tools_root: scripts/transcript_pipeline_v2/tools
+  schemas_root: scripts/transcript_pipeline_v2/schemas
+  adapters_root: scripts/transcript_pipeline_v2/adapters
+  tests_root: scripts/transcript_pipeline_v2/tests
+  benchmark_root: artifacts/transcript_pipeline_v2
+  receipts_root: artifacts/transcript_pipeline_v2/receipts
+  gold_root: artifacts/transcript_pipeline_v2/gold
+  runs_root: artifacts/transcript_pipeline_v2/runs
+  comparisons_root: artifacts/transcript_pipeline_v2/comparisons
+  final_report: artifacts/transcript_pipeline_v2/FINAL-REPORT.yaml
+
+benchmark_sources:
+  - id: P-h5WSQG1Sw
+    slug: huberman_adolphs
+    language: en
+    role: long_science_interview
+    current_transcript: .claude/skills/SourceTranscriptionAnalysisPipeline/artifacts/transcripts/P-h5WSQG1Sw/P-h5WSQG1Sw.srt
+    ttk_run: artifacts/ttk_runs/P-h5WSQG1Sw
+  - id: CygwqaNg2PY
+    slug: prechter
+    language: en
+    role: technical_finance
+    current_transcript: .claude/skills/SourceTranscriptionAnalysisPipeline/artifacts/transcripts/CygwqaNg2PY/CygwqaNg2PY.srt
+    ttk_run: artifacts/ttk_runs/CygwqaNg2PY
+  - id: vFTuLylvYnA
+    slug: koch
+    language: de
+    role: german_finance
+    current_transcript: .claude/skills/SourceTranscriptionAnalysisPipeline/artifacts/transcripts/vFTuLylvYnA/vFTuLylvYnA.srt
+    ttk_run: artifacts/ttk_runs/vFTuLylvYnA
+  - id: oZIsMX6WgFs
+    slug: market_cycles
+    language: en
+    role: technical_procedure
+    current_transcript: .claude/skills/SourceTranscriptionAnalysisPipeline/artifacts/transcripts/oZIsMX6WgFs/oZIsMX6WgFs.srt
+    ttk_run: artifacts/ttk_runs/oZIsMX6WgFs
+
+tasks:
+  - id: P0
+    title: Preflight repository, environment, and authority
+    depends_on: []
+    purpose: 'Prevent execution on stale/wrong state and capture exact starting provenance.'
+    reads:
+      - SourceTranscriptionAnalysisPipeline_Research/v2-reuse-bakeoff/00-START-HERE.md
+      - SourceTranscriptionAnalysisPipeline_Research/v2-reuse-bakeoff/01-ARCHITECTURE-ANALYSIS.md
+      - SourceTranscriptionAnalysisPipeline_Research/v2-reuse-bakeoff/04-COMPONENT-REGISTRY.yaml
+      - .claude/skills/transcript-to-knowledge/SKILL.md
+      - .claude/skills/transcript-to-knowledge/references/semantic-contracts.md
+    writes:
+      - artifacts/transcript_pipeline_v2/receipts/P0-preflight.json
+    commands:
+      - 'git rev-parse --show-toplevel'
+      - 'git branch --show-current'
+      - 'git rev-parse HEAD'
+      - 'git status --porcelain=v1'
+      - 'git remote get-url origin'
+      - 'python --version'
+      - 'claude --version'
+      - 'codex --version'
+      - 'gemini --version'
+    steps:
+      - 'Assert repo root resolves to apexai-os-meta and remote points to leela-spec/apexai-os-meta.'
+      - 'Assert branch is main. If not, STOP unless operator explicitly changed branch policy.'
+      - 'Capture HEAD SHA and dirty paths. Do not overwrite unrelated dirty paths.'
+      - 'Record availability/version/exit status of Python, Claude, Codex, Gemini. A missing challenger CLI is BLOCKED for that provider, not permission to install unrelated software globally.'
+      - 'Verify all four benchmark transcript paths exist. Record SHA256 for each.'
+      - 'Verify TTK skill and test file exist.'
+    acceptance:
+      - 'receipt contains repository, branch, HEAD, dirty_paths, CLI availability, transcript SHA256 values'
+      - 'no secrets in receipt'
+    stop_if:
+      - wrong_repository
+      - branch_not_main_without_explicit_override
+      - benchmark_transcript_missing
+    commit: none
+
+  - id: P1
+    title: Materialize isolated V2 harness skeleton
+    depends_on: [P0]
+    purpose: 'Create a small experiment/adapter layer without changing production TTK semantics yet.'
+    writes:
+      - scripts/transcript_pipeline_v2/README.md
+      - scripts/transcript_pipeline_v2/__init__.py
+      - scripts/transcript_pipeline_v2/runner.py
+      - scripts/transcript_pipeline_v2/receipt.py
+      - scripts/transcript_pipeline_v2/schemas/map-result.schema.json
+      - scripts/transcript_pipeline_v2/schemas/reduce-result.schema.json
+      - scripts/transcript_pipeline_v2/schemas/verify-result.schema.json
+      - scripts/transcript_pipeline_v2/tests/test_receipt.py
+      - scripts/transcript_pipeline_v2/tests/test_schema_sync.py
+      - artifacts/transcript_pipeline_v2/manifest.yaml
+    steps:
+      - 'Create only directories required by this plan.'
+      - 'Implement receipt helper that writes JSON atomically and includes started_at/finished_at/exit_code/config/input_hash/output_hash fields.'
+      - 'Create JSON Schemas matching current TTK Map/Reduce/Verify shapes; do not weaken TTK runtime validation.'
+      - 'Implement a schema-sync test that catches obvious divergence between declared schema identifiers/required fields and TTK contract constants.'
+      - 'Create manifest containing benchmark source IDs/paths/SHA256 from P0 and plan version.'
+      - 'runner.py at this stage may expose only preflight/status commands; do not implement semantic heuristics.'
+    validation_commands:
+      - 'python -m unittest discover -s scripts/transcript_pipeline_v2/tests -t . -v'
+      - 'python .claude/skills/transcript-to-knowledge/scripts/test_ttk.py -v'
+      - 'git diff --check'
+    acceptance:
+      - 'V2 tests pass'
+      - 'existing TTK tests pass unchanged'
+      - 'no production semantic path modified'
+    commit:
+      message: 'test(transcript): scaffold V2 reuse benchmark harness'
+
+  - id: P2
+    title: Capture current baseline and known failure artifacts
+    depends_on: [P1]
+    purpose: 'Freeze what the current system produces so challengers are compared against evidence, not memory.'
+    writes:
+      - artifacts/transcript_pipeline_v2/baseline/current-system.yaml
+      - artifacts/transcript_pipeline_v2/baseline/current-semantic-symptoms.yaml
+      - artifacts/transcript_pipeline_v2/receipts/P2-baseline.json
+    commands:
+      - 'python .claude/skills/transcript-to-knowledge/scripts/test_ttk.py -v'
+      - 'powershell -NoProfile -File scripts/Run-BatchMultiPipelineBenchmark.ps1'
+    notes:
+      - 'If the benchmark script would trigger costly/redundant work, run its dry/status mode if available and document exact command. Do not silently claim a new run.'
+    steps:
+      - 'Record latest existing benchmark receipt and its git_commit/git_dirty/all_passed/incomplete counts.'
+      - 'Inspect current P3 Macro/Meso/Micro outputs for all four sources.'
+      - 'Record known pseudo-semantic symptoms as observable examples: generic Macro, fixed Meso grouping, sentence-fragment claims, heuristic claim types, blanket support.'
+      - 'Hash all baseline artifacts used for later comparison.'
+    acceptance:
+      - 'baseline manifest identifies exact artifacts and hashes'
+      - 'known failures are concrete paths/examples, not generic prose'
+    commit:
+      message: 'test(transcript): record V2 baseline evidence'
+
+  - id: P3
+    title: Build benchmark fixtures and gold/silver labels
+    depends_on: [P2]
+    purpose: 'Create stable representative cases so semantic/ASR decisions are comparable.'
+    writes:
+      - artifacts/transcript_pipeline_v2/gold/README.md
+      - artifacts/transcript_pipeline_v2/gold/asr-slices.yaml
+      - artifacts/transcript_pipeline_v2/gold/map-windows.yaml
+      - artifacts/transcript_pipeline_v2/gold/support-pairs.yaml
+      - artifacts/transcript_pipeline_v2/gold/operator-rubric.yaml
+      - artifacts/transcript_pipeline_v2/gold/gold-status.yaml
+    steps:
+      - 'Select Map windows from every source: at least 2 per short source and 4 from Huberman, distributed early/middle/late and including known domain difficulty.'
+      - 'Do not select only easy windows.'
+      - 'For each selected Map window, create an insight checklist containing important themes/claims/mechanisms/protocols/uncertainties supported by the transcript. Mark label_authority as HUMAN_GOLD, AI_SILVER, or SOURCE_METADATA.'
+      - 'Create at least 40 support-pair fixtures across EN/DE with SUPPORTED/PARTIAL/AMBIGUOUS/UNSUPPORTED labels. At least 10 must be deliberately incorrect or overreaching propositions. Labels may begin AI_SILVER but final promotion of NLI/HHEM requires a manually reviewed subset.'
+      - 'Define ASR difficult slices: proper nouns, percentages/numbers, Elliott terminology, German finance vocabulary, scientific terms. Where exact human audio transcription is not yet available, mark reference_text_authority=UNMEASURED rather than fabricating gold.'
+      - 'Operator rubric must score thesis usefulness, Meso coherence, important-insight recall, source fidelity, uncertainty preservation, concision, and time-to-understand.'
+    acceptance:
+      - 'fixtures cover all four source types and languages'
+      - 'all labels include authority field'
+      - 'no AI_SILVER label is represented as human gold'
+    commit:
+      message: 'test(transcript): add V2 benchmark fixtures'
+
+  - id: P4
+    title: Implement direct strong-CLI semantic worker reference
+    depends_on: [P1, P3]
+    purpose: 'Create the reference Map/Reduce semantic path without heuristic fallback.'
+    writes:
+      - scripts/transcript_pipeline_v2/adapters/semantic_cli.py
+      - scripts/transcript_pipeline_v2/prompts/map.md
+      - scripts/transcript_pipeline_v2/prompts/reduce.md
+      - scripts/transcript_pipeline_v2/tests/test_semantic_cli.py
+      - artifacts/transcript_pipeline_v2/receipts/smoke/map_direct_cli.json
+    primary_provider: claude
+    provider_fallback_order: [codex, gemini]
+    required_interface:
+      map: 'python scripts/transcript_pipeline_v2/runner.py map --provider <provider> --packet <packet.json> --output <result.json>'
+      reduce: 'python scripts/transcript_pipeline_v2/runner.py reduce --provider <provider> --packet <packet.json> --output <result.json>'
+    implementation_requirements:
+      - 'Use subprocess argv arrays, not shell-concatenated command strings.'
+      - 'Capture stdout/stderr/exit code and redact/no-copy secrets.'
+      - 'Claude path should use headless print mode and strict --json-schema when installed CLI supports it.'
+      - 'Codex path should use codex exec --output-schema when used.'
+      - 'Gemini path may use --output-format json plus deterministic extraction/validation of the response field.'
+      - 'Map/Reduce invocation must not need filesystem/web/shell tools from the semantic model; packet content is passed as bounded prompt/file content.'
+      - 'Retry at most once for schema/TTK validation failure, appending the exact machine validator error.'
+      - 'No retry may substitute heuristic output.'
+      - 'Receipts record provider/model where observable, token usage where emitted, wall time, attempts, packet SHA, output SHA.'
+    tests:
+      - 'mock subprocess success produces exact result file and receipt'
+      - 'nonzero CLI exit returns failure and no fabricated result'
+      - 'invalid JSON triggers one bounded retry then failure'
+      - 'schema-invalid JSON triggers one bounded retry then failure'
+      - 'provider unavailable reports BLOCKED for that provider'
+    validation_commands:
+      - 'python -m unittest discover -s scripts/transcript_pipeline_v2/tests -t . -v'
+      - 'python .claude/skills/transcript-to-knowledge/scripts/test_ttk.py -v'
+    acceptance:
+      - 'one selected benchmark window successfully produces a TTK-valid Map result from a real strong CLI call'
+      - 'receipt proves semantic provider actually ran'
+    commit:
+      message: 'feat(transcript): add direct CLI semantic reference worker'
+
+  - id: P5
+    title: Install and smoke-test reusable candidate environments
+    depends_on: [P0, P1]
+    purpose: 'Prove candidates actually install/run on this Windows/Intel laptop before spending integration effort.'
+    components:
+      must_attempt:
+        - asr_faster_whisper
+        - asr_parakeet
+        - align_whisperx
+        - preextract_gliner2
+        - map_langextract
+        - support_mdeberta
+        - support_hhem
+        - reduce_docetl
+        - eval_deepeval
+      conditional_attempt:
+        - preextract_nuextract
+        - baseline_fabric
+        - baseline_open_notebook
+    writes:
+      - artifacts/transcript_pipeline_v2/receipts/install/*.json
+      - artifacts/transcript_pipeline_v2/receipts/smoke/*.json
+      - scripts/transcript_pipeline_v2/tools/*/VERSION.lock
+      - scripts/transcript_pipeline_v2/tools/*/README.md
+      - scripts/transcript_pipeline_v2/tools/*/install.ps1
+      - scripts/transcript_pipeline_v2/tools/*/smoke_test.py
+    steps:
+      - 'For each must_attempt component, read current official installation docs before executing the registry recommendation.'
+      - 'Use isolated venv unless component is a standalone binary/container.'
+      - 'Pin exact installed package versions and, for HF models, model revision/hash where available.'
+      - 'Run the smallest meaningful smoke test; installation without inference/execution is not PASS.'
+      - 'Record wall time, rough peak memory if practical, and any Windows/Intel-specific workaround.'
+      - 'If a component requires credentials (e.g. gated diarization model), mark BLOCKED_CREDENTIAL if not already configured; do not store the credential.'
+    acceptance:
+      - 'every must_attempt component has PASS/FAIL/BLOCKED receipt with exact evidence'
+      - 'no component status remains implied from research only'
+    commit:
+      message: 'build(transcript): materialize isolated V2 candidate environments'
+
+  - id: P6
+    title: Implement GLiNER2 pre-extraction challenger
+    depends_on: [P4, P5]
+    gate: 'preextract_gliner2 smoke status must be PASS'
+    writes:
+      - scripts/transcript_pipeline_v2/adapters/gliner2_preextract.py
+      - scripts/transcript_pipeline_v2/tests/test_gliner2_adapter.py
+    interface: 'python scripts/transcript_pipeline_v2/runner.py preextract --engine gliner2 --packet <packet.json> --output <hints.json>'
+    requirements:
+      - 'Extract only fields GLiNER2 is suited for: entities, basic relations/classification candidates, optional structured hints.'
+      - 'Hints retain source segment IDs/offsets where possible.'
+      - 'Do not assign final Macro/Meso meaning or final source_support.'
+      - 'Map prompt must label hints as fallible auxiliary suggestions and allow ignoring them.'
+    acceptance:
+      - 'adapter runs on one EN and one DE selected window'
+      - 'hints are source-linked and schema-valid'
+      - 'no final semantic authority is attributed to GLiNER2'
+    commit:
+      message: 'feat(transcript): add GLiNER2 Map pre-extraction challenger'
+
+  - id: P7
+    title: Implement LangExtract grounded-Map challenger
+    depends_on: [P4, P5]
+    gate: 'map_langextract smoke status must be PASS'
+    writes:
+      - scripts/transcript_pipeline_v2/tools/map_langextract/provider_cli/pyproject.toml
+      - scripts/transcript_pipeline_v2/tools/map_langextract/provider_cli/langextract_cli_provider/__init__.py
+      - scripts/transcript_pipeline_v2/tools/map_langextract/provider_cli/langextract_cli_provider/provider.py
+      - scripts/transcript_pipeline_v2/tools/map_langextract/provider_cli/langextract_cli_provider/schema.py
+      - scripts/transcript_pipeline_v2/adapters/langextract_map.py
+      - scripts/transcript_pipeline_v2/tests/test_langextract_adapter.py
+    requirements:
+      - 'Use LangExtract documented external provider plugin mechanism; do not modify/fork LangExtract package core.'
+      - 'Start with the same strong provider used by P4 where practical.'
+      - 'Provider takes batch prompts and returns LangExtract-compatible scored outputs.'
+      - 'Implement schema support only to the extent needed for the benchmark; do not build a generic commercial provider SDK.'
+      - 'Translate LangExtract source locations/extractions deterministically into TTK segment IDs/Map fields.'
+      - 'If exact mapping cannot be proven, fail the extraction rather than guess segment IDs.'
+    smoke_cases:
+      - one_en_map_window
+      - one_de_map_window
+    acceptance:
+      - 'LangExtract result maps back to exact TTK source segments'
+      - 'TTK validator accepts translated factual grounding where applicable'
+      - 'plugin is isolated and replaceable'
+    commit:
+      message: 'feat(transcript): add LangExtract grounded Map challenger'
+
+  - id: P8
+    title: Run controlled Map tournament
+    depends_on: [P4, P6, P7]
+    purpose: 'Select/understand Map extraction paths from identical TTK windows.'
+    lanes:
+      - direct_cli
+      - gliner2_assisted_cli
+      - langextract_cli_provider
+    inputs: artifacts/transcript_pipeline_v2/gold/map-windows.yaml
+    writes:
+      - artifacts/transcript_pipeline_v2/runs/map/<lane>/<source>/<window>/*
+      - artifacts/transcript_pipeline_v2/comparisons/map-scorecard.yaml
+      - artifacts/transcript_pipeline_v2/receipts/P8-map-tournament.json
+    procedure:
+      - 'Run every lane on the exact same packet content and semantic provider/model where architecture permits.'
+      - 'Do not change prompt semantics between lanes except fields needed to consume auxiliary hints/framework output.'
+      - 'Use one warmup case not scored, then scored cases.'
+      - 'Validate each result with TTK deterministic validator.'
+      - 'Score insight checklist recall, factual-grounding correctness, unsupported propositions, entity precision/recall where labeled, uncertainty capture, tokens, runtime, retries.'
+      - 'Record code/adapter complexity: added LOC and unique dependency count.'
+    hard_gates:
+      - no fabricated source references
+      - factual quote/evidence policy satisfied
+      - semantic worker actually ran
+    acceptance:
+      - 'scorecard contains every lane/case or explicit BLOCKED reason'
+      - 'no lane is promoted yet; result feeds P16'
+    commit:
+      message: 'test(transcript): record V2 Map tournament'
+
+  - id: P9
+    title: Benchmark local support/factual-consistency advisory models
+    depends_on: [P3, P5]
+    writes:
+      - scripts/transcript_pipeline_v2/adapters/support_nli.py
+      - scripts/transcript_pipeline_v2/adapters/support_hhem.py
+      - scripts/transcript_pipeline_v2/tests/test_support_adapters.py
+      - artifacts/transcript_pipeline_v2/comparisons/support-scorecard.yaml
+    procedure:
+      - 'Run mDeBERTa on all labeled EN/DE support pairs.'
+      - 'Run HHEM only on English subset unless current model documentation explicitly supports the language tested.'
+      - 'Calculate confusion matrix / precision / recall for useful warning classes.'
+      - 'Determine thresholds from benchmark only; do not hard-code research-blog defaults without validation.'
+      - 'Model outputs remain warnings; compare against semantic-worker support judgment separately.'
+    acceptance:
+      - 'scorecard separates HUMAN_GOLD and AI_SILVER subsets'
+      - 'no advisory model is called authoritative'
+    commit:
+      message: 'test(transcript): benchmark local support advisory models'
+
+  - id: P10
+    title: Implement fixed DocETL orchestration challenger
+    depends_on: [P5, P8]
+    gate: 'reduce_docetl smoke status must be PASS'
+    purpose: 'Test whether mature declarative Map/Reduce orchestration materially improves quality/cost/maintenance.'
+    writes:
+      - scripts/transcript_pipeline_v2/docetl/fixed-pipeline.yaml
+      - scripts/transcript_pipeline_v2/adapters/docetl_runner.py
+      - scripts/transcript_pipeline_v2/tests/test_docetl_adapter.py
+    requirements:
+      - 'Optimizer OFF in first comparison.'
+      - 'Do not replace TTK source custody; consume TTK packet/evidence representations.'
+      - 'If provider integration requires API rather than subscription CLI, use only a small capped experiment and record provider/model/cost.'
+      - 'Do not store API keys.'
+      - 'Produce outputs translatable to current TTK Map/Reduce contracts or explicitly record contract mismatch.'
+    acceptance:
+      - 'one complete fixed DocETL test source/case runs or has exact BLOCKED evidence'
+      - 'cost/usage recorded when API route is used'
+    commit:
+      message: 'feat(transcript): add fixed DocETL orchestration challenger'
+
+  - id: P11
+    title: Run Reduce tournament
+    depends_on: [P8, P10]
+    lanes:
+      - direct_cli_reduce
+      - docetl_fixed_reduce
+    input_policy: 'Use the same selected/validated Map evidence ledger per comparison case wherever possible.'
+    sources:
+      minimum:
+        - CygwqaNg2PY
+        - vFTuLylvYnA
+      full_if_feasible:
+        - P-h5WSQG1Sw
+        - oZIsMX6WgFs
+    writes:
+      - artifacts/transcript_pipeline_v2/runs/reduce/<lane>/<source>/*
+      - artifacts/transcript_pipeline_v2/comparisons/reduce-scorecard.yaml
+    metrics:
+      - important_insight_recall
+      - macro_thesis_quality
+      - meso_semantic_coherence
+      - cross_window_coverage
+      - uncertainty_preservation
+      - factual_grounding_errors
+      - generic_boilerplate_rate
+      - input_tokens
+      - output_tokens
+      - wall_time
+      - retries
+      - orchestration_code_loc
+      - dependency_count
+    rejection_symptoms:
+      - generic process-summary Macro
+      - fixed time-quartile Meso structure
+      - earliest-window bias
+      - blanket SUPPORTED
+      - important validated Map themes dropped without explanation
+    acceptance:
+      - 'both lanes scored or explicit BLOCKED'
+      - 'no production selection yet'
+    commit:
+      message: 'test(transcript): record V2 Reduce tournament'
+
+  - id: P12
+    title: Add semantic evaluation harness and product baselines
+    depends_on: [P5, P8, P11]
+    writes:
+      - scripts/transcript_pipeline_v2/eval/run_eval.py
+      - scripts/transcript_pipeline_v2/eval/rubrics.yaml
+      - scripts/transcript_pipeline_v2/tests/test_eval_harness.py
+      - artifacts/transcript_pipeline_v2/comparisons/semantic-eval.yaml
+      - artifacts/transcript_pipeline_v2/comparisons/product-baselines.yaml
+    procedure:
+      - 'Integrate DeepEval only for metrics that can be run reproducibly with the chosen judge/provider and language.'
+      - 'Never let DeepEval replace deterministic provenance gates.'
+      - 'For German, report unsupported English-only metric limitations explicitly and rely on gold/human rubric where necessary.'
+      - 'Run Fabric baseline on at least one English and one technical source if install succeeds.'
+      - 'Run Open Notebook or another product baseline on at least one source if setup is straightforward; otherwise mark BLOCKED/DEFERRED without blocking core architecture selection.'
+      - 'Compare current artifact, direct reference, and best challengers using identical operator rubric.'
+    acceptance:
+      - 'semantic evaluation artifacts identify evaluator/provider/model and language limitations'
+      - 'product baseline comparison exists or explicit blocked evidence exists'
+    commit:
+      message: 'test(transcript): add semantic and product baseline evaluation'
+
+  - id: P13
+    title: Run ASR tournament on this hardware
+    depends_on: [P3, P5]
+    lanes:
+      required:
+        - faster_whisper_base
+        - faster_whisper_small
+        - faster_whisper_medium
+        - parakeet_v3
+      optional:
+        - faster_whisper_large_v3
+        - hosted_asr_oracle
+    writes:
+      - artifacts/transcript_pipeline_v2/runs/asr/*
+      - artifacts/transcript_pipeline_v2/comparisons/asr-scorecard.yaml
+    procedure:
+      - 'Use identical extracted audio clips defined in asr-slices.yaml.'
+      - 'Record exact audio SHA256, sample rate, duration.'
+      - 'Keep language/VAD/timestamp policy explicit.'
+      - 'Run model-size comparison without hotwords first.'
+      - 'Run a separate hotword experiment for known domain terms so attribution remains clear.'
+      - 'Measure WER only where gold reference is HUMAN_GOLD; for partial/silver cases use named-term/numeric agreement and label metric authority.'
+      - 'Measure wall time and memory where practical.'
+      - 'If Parakeet cannot run stably on Windows/Intel, that is a real complexity/feasibility result.'
+    selection_rule: 'Quality is a hard prerequisite. Among configurations clearing the quality floor, prefer lower runtime/complexity.'
+    acceptance:
+      - 'scorecard clearly separates gold/silver/proxy metrics'
+      - 'first ASR recommendation and fallback are evidence-backed'
+    commit:
+      message: 'test(transcript): record local ASR tournament'
+
+  - id: P14
+    title: Run WhisperX conditional provenance benchmark
+    depends_on: [P5, P13]
+    gate: 'align_whisperx smoke status PASS or BLOCKED_CREDENTIAL with documented resolution path'
+    source: P-h5WSQG1Sw
+    writes:
+      - artifacts/transcript_pipeline_v2/comparisons/whisperx-scorecard.yaml
+    procedure:
+      - 'Run alignment on selected interview slice using the chosen/reference ASR transcript.'
+      - 'If diarization credentials/model access available, run diarization; otherwise benchmark alignment and mark diarization BLOCKED_CREDENTIAL.'
+      - 'Measure word-time quality on manually inspectable events and speaker attribution where labels exist.'
+      - 'Record runtime and extra dependency/maintenance burden.'
+    promotion_rule: 'CONDITIONAL only when multi-speaker provenance gain is material.'
+    commit:
+      message: 'test(transcript): evaluate conditional WhisperX provenance'
+
+  - id: P15
+    title: Determine whether Instructor or NuExtract triggers are met
+    depends_on: [P8, P11]
+    purpose: 'Avoid both premature exclusion and gratuitous installation.'
+    procedure:
+      - 'Inspect direct CLI schema/retry failure rate across Map/Reduce tournament.'
+      - 'If native CLI schema plus TTK validation is stable and adapter code remains small, mark Instructor NOT_TRIGGERED.'
+      - 'If provider-specific retry/schema code is duplicated or flaky, run a bounded Instructor prototype and benchmark complexity/reliability.'
+      - 'Inspect GLiNER2 structured recall/token impact. If role fails materially and multilingual structured pre-extraction remains valuable, trigger NuExtract bounded benchmark; otherwise mark NOT_TRIGGERED.'
+    writes:
+      - artifacts/transcript_pipeline_v2/comparisons/conditional-trigger-decisions.yaml
+    acceptance:
+      - 'Instructor and NuExtract each have RUN or NOT_TRIGGERED evidence-backed status'
+    commit:
+      message: 'test(transcript): resolve conditional component triggers'
+
+  - id: P16
+    title: Select first production architecture from measured evidence
+    depends_on: [P8, P9, P11, P12, P13, P14, P15]
+    purpose: 'Freeze a testable first production composition before modifying TTK runtime.'
+    writes:
+      - artifacts/transcript_pipeline_v2/SELECTION.yaml
+      - SourceTranscriptionAnalysisPipeline_Research/v2-reuse-bakeoff/05-SELECTION-REPORT.md
+    decision_dimensions:
+      hard:
+        - provenance_correctness
+        - fail_closed_behavior
+        - semantic_worker_actually_executed
+        - factual_evidence_policy
+      utility:
+        - important_insight_recall
+        - semantic_correctness
+        - operator_usefulness
+        - uncertainty_preservation
+      efficiency:
+        - token_or_quota_use
+        - runtime
+        - memory
+        - retry_rate
+      complexity:
+        - custom_code_loc
+        - dependency_count
+        - provider_coupling
+        - recovery_surface
+    rules:
+      - 'Do not average away a hard-gate failure.'
+      - 'A simpler component wins ties.'
+      - 'A more complex component may win if its measured quality/reliability/efficiency gain is material.'
+      - 'Conditional components remain conditional; do not force WhisperX onto single-speaker flows.'
+      - 'Optional paid API cannot become production default without explicit operator approval.'
+    acceptance:
+      - 'SELECTION.yaml names one chosen component/route for every required stage'
+      - 'every non-selected measured candidate has KEEP_AS_CHALLENGER/REJECT/BLOCKED with rationale and reversal trigger'
+      - 'no UNMEASURED required stage is represented as selected'
+    commit:
+      message: 'docs(transcript): select V2 first production composition from benchmark'
+
+  - id: P17
+    title: Update TTK semantic evidence policy D35 and regression tests
+    depends_on: [P16]
+    writes:
+      - .claude/skills/transcript-to-knowledge/references/semantic-contracts.md
+      - .claude/skills/transcript-to-knowledge/scripts/ttk.py
+      - .claude/skills/transcript-to-knowledge/scripts/test_ttk.py
+    requirements:
+      factual_exact_quote_required:
+        - fact
+        - externally_testable_estimate
+      segment_provenance_required_quote_optional:
+        - opinion
+        - prediction
+        - recommendation
+        - decision
+        - anecdote
+        - mechanism
+        - hypothesis
+        - nonfactual_definition
+      global_rules:
+        - 'all semantic objects needing provenance reference valid source segments/claims'
+        - 'context_only cannot supply cited evidence'
+        - 'source support remains separate from external truth'
+    required_tests:
+      - factual_without_quote_fails
+      - factual_invented_quote_fails
+      - factual_context_only_quote_fails
+      - opinion_with_core_ref_no_quote_passes
+      - prediction_with_core_ref_no_quote_passes
+      - mechanism_with_core_ref_no_quote_passes_when_contract_allows
+      - invalid_source_ref_fails_for_all_kinds
+      - stale_packet_hash_fails
+      - unresolved_reduce_claim_ref_fails
+      - verify_queue_routes_only_checkworthy_factual_claims
+    validation_commands:
+      - 'python .claude/skills/transcript-to-knowledge/scripts/test_ttk.py -v'
+    acceptance:
+      - 'all old relevant tests plus new D35 tests pass'
+    commit:
+      message: 'fix(transcript): align TTK evidence policy with factual-claim grounding'
+
+  - id: P18
+    title: Integrate selected semantic components into resumable TTK runner
+    depends_on: [P16, P17]
+    writes_dynamic: true
+    expected_writes:
+      - .claude/skills/transcript-to-knowledge/scripts/execute_ttk_lifecycle.py
+      - .claude/skills/transcript-to-knowledge/scripts/test_execute_ttk_lifecycle.py
+      - scripts/transcript_pipeline_v2/adapters/*
+    requirements:
+      - 'Remove/disable heuristic pseudo-semantic generation as a valid semantic path.'
+      - 'Runner asks TTK state what is pending and reruns only pending/stale/invalid units.'
+      - 'Selected Map route produces Map result then TTK validates.'
+      - 'Selected advisory layers may flag but cannot silently mutate semantic truth unless selection policy explicitly defines it.'
+      - 'Selected Reduce route consumes validated evidence ledger.'
+      - 'Verification queue remains selective and factual.'
+      - 'Compilation and complete validation remain deterministic TTK steps.'
+      - 'Every semantic invocation writes a receipt proving provider/model/packet/result/exit/validation.'
+      - 'No semantic call failure may fall back to regex/heuristic semantic output.'
+    resume_tests:
+      - 'valid existing Map is not rerun'
+      - 'one invalid Map reruns only that window'
+      - 'changed Map invalidates Reduce packet/result'
+      - 'changed Reduce invalidates verify queue/compile as current contract defines'
+      - 'rerun of complete current run is no-op or status-only without semantic quota use'
+    validation_commands:
+      - 'python .claude/skills/transcript-to-knowledge/scripts/test_ttk.py -v'
+      - 'python -m unittest discover -s scripts/transcript_pipeline_v2/tests -t . -v'
+    acceptance:
+      - 'semantic heuristic path cannot produce OPERATOR_ARTIFACT_COMPLETE'
+      - 'resumability tests pass'
+    commit:
+      message: 'feat(transcript): integrate benchmark-selected semantic pipeline'
+
+  - id: P19
+    title: Update batch benchmark harness for truthful V2 stage gates
+    depends_on: [P18]
+    writes:
+      - scripts/Run-BatchMultiPipelineBenchmark.ps1
+      - scripts/transcript_pipeline_v2/tests/test_benchmark_receipt.py
+    required_stage_states:
+      - SOURCE_ACQUIRED
+      - ASR_COMPLETE
+      - SOURCE_CUSTODY_VALID
+      - MAP_COMPLETE
+      - MAP_VALID
+      - REDUCE_COMPLETE
+      - REDUCE_VALID
+      - VERIFICATION_ROUTED
+      - VERIFICATION_COMPLETE_OR_EXPLICIT_UNVERIFIED
+      - OPERATOR_ARTIFACT_COMPLETE
+      - COMPLETE_VALIDATION_PASS
+    rules:
+      - 'all_passed is false if any required stage is FAILED, PENDING, STALE, or absent.'
+      - 'receipt records run-start git commit and dirty state; if tree changes during run, record end commit/dirty state too.'
+      - 'ASR_COMPLETE must prove expected ASR artifacts for the selected ASR mode.'
+      - 'semantic completion must prove invocation receipts, not just output file presence.'
+      - 'P2 historical pipeline status must not be required for selected V2 production pass unless explicitly retained in SELECTION.yaml.'
+    validation_commands:
+      - 'python -m unittest discover -s scripts/transcript_pipeline_v2/tests -t . -v'
+    commit:
+      message: 'fix(transcript): make V2 benchmark receipt stage-truthful'
+
+  - id: P20
+    title: Run semantic four-source regression using existing transcripts
+    depends_on: [P18, P19]
+    purpose: 'Prove semantic architecture independently of fresh ASR variability.'
+    sources:
+      - P-h5WSQG1Sw
+      - CygwqaNg2PY
+      - vFTuLylvYnA
+      - oZIsMX6WgFs
+    writes:
+      - artifacts/transcript_pipeline_v2/runs/semantic-four-source/*
+      - artifacts/transcript_pipeline_v2/comparisons/four-source-regression.yaml
+    procedure:
+      - 'Initialize fresh V2 run directories from existing transcript artifacts; do not reuse old semantic results.'
+      - 'Run full selected Map/Reduce/verify/compile lifecycle.'
+      - 'Run complete TTK validation.'
+      - 'Score against benchmark fixtures and baselines.'
+      - 'Inspect every source for generic Macro/Meso failure, sentence dumping, important late-window omissions, and factual grounding errors.'
+    acceptance:
+      - 'all four sources complete or exact source-specific failure is recorded'
+      - 'no fabricated semantic completion'
+      - 'long Huberman run covers all windows and Reduce includes important content from early/middle/late source'
+      - 'German source is semantically coherent in German/source context'
+    commit:
+      message: 'test(transcript): record V2 four-source semantic regression'
+
+  - id: P21
+    title: Run fresh end-to-end ASR plus knowledge tests
+    depends_on: [P13, P18, P20]
+    sources:
+      required:
+        - vFTuLylvYnA
+        - CygwqaNg2PY
+      expand_after_pass:
+        - P-h5WSQG1Sw
+        - oZIsMX6WgFs
+    purpose: 'Prove the selected ASR and semantic composition together from source audio, not reused transcripts.'
+    procedure:
+      - 'Use selected ASR config from P16.'
+      - 'Force fresh transcription into a new V2 run directory; never silently reuse old SRT/JSON.'
+      - 'If conditional WhisperX is selected and source is multi-speaker, apply it according to selection policy.'
+      - 'Run TTK custody, selected Map/Reduce/advisory/verification, compile, complete validate.'
+      - 'Write exact run receipt with ASR/model/provider/config/source hashes.'
+      - 'Compare fresh outputs against semantic-only P20 to diagnose ASR-caused knowledge degradation.'
+    acceptance:
+      - 'required DE + EN sources pass complete lifecycle'
+      - 'fresh ASR evidence fields required by selected config are present'
+      - 'receipt proves no old transcript reuse'
+    commit:
+      message: 'test(transcript): record fresh V2 end-to-end runs'
+
+  - id: P22
+    title: Final regression, clean-room resume test, and handover
+    depends_on: [P20, P21]
+    purpose: 'End with a reproducible test and a handover another AI can trust.'
+    writes:
+      - artifacts/transcript_pipeline_v2/FINAL-REPORT.yaml
+      - SourceTranscriptionAnalysisPipeline_Research/v2-reuse-bakeoff/06-FINAL-HANDOVER.md
+      - SourceTranscriptionAnalysisPipeline_Research/00-INDEX.md
+    mandatory_test_commands:
+      - 'python .claude/skills/transcript-to-knowledge/scripts/test_ttk.py -v'
+      - 'python -m unittest discover -s scripts/transcript_pipeline_v2/tests -t . -v'
+      - 'powershell -NoProfile -File scripts/Run-BatchMultiPipelineBenchmark.ps1'
+      - 'git diff --check'
+    clean_room_test:
+      - 'Create/copy one completed benchmark run to a safe test location or use a fixture.'
+      - 'Delete exactly one derived Map result in the test copy.'
+      - 'Run status/runner and prove only that Map plus dependent Reduce/verify/compile artifacts are regenerated as required.'
+      - 'Run the same complete run again and prove no valid semantic packet is unnecessarily rerun.'
+      - 'Record semantic invocation counts before/after.'
+    final_report_schema: transcript-pipeline-final-report.v2
+    final_report_required_fields:
+      - verdict
+      - repository
+      - branch
+      - start_commit
+      - end_commit
+      - dirty_paths
+      - selected_architecture
+      - component_decisions
+      - installed_components
+      - benchmarked_components
+      - unmeasured_components
+      - unit_test_results
+      - four_source_results
+      - fresh_end_to_end_results
+      - asr_selection
+      - map_selection
+      - support_advisory_selection
+      - reduce_selection
+      - verification_selection
+      - product_baseline_results
+      - token_runtime_memory_summary
+      - hard_gate_failures
+      - known_limitations
+      - reversal_triggers
+      - exact_next_step
+    final_verdict_rules:
+      PASS:
+        - all mandatory tests pass
+        - required four-source semantic regression passes
+        - required fresh DE+EN end-to-end passes
+        - selected components have measured evidence
+        - no required stage reports fabricated completion
+        - clean-room resume test passes
+      PARTIAL:
+        - core selected pipeline works but one non-core challenger/baseline is blocked or a declared optional measurement remains unmeasured
+      FAIL:
+        - any selected pipeline hard gate fails
+        - semantic completion cannot be proven
+        - fresh required end-to-end source fails without bounded attributable fix
+        - deterministic regression suite fails
+    commit:
+      message: 'docs(transcript): finalize V2 reuse bakeoff handover'
+
+final_execution_instruction: >-
+  Do not report the pipeline as complete after installing components or producing
+  one attractive output. Completion requires P22's mandatory tests, the
+  four-source semantic regression, at least one fresh German and one fresh
+  English end-to-end run, and a machine-readable FINAL-REPORT.yaml that makes
+  every component selection traceable to benchmark evidence.
