@@ -25,33 +25,34 @@ The receiving AI must implement the bake-off and produce evidence. It must **not
 
 ## 0.1 Immediate next action
 
-Read the files below in order, verify repository state, then execute **Task P0** in `02-IMPLEMENTATION-PLAN.yaml`.
+Read this file, then read `06-TRIAL1-TRANSPORT-LOCK.yaml` before any implementation or benchmark task. After that, read the remaining files below in order, verify repository state, then execute **Task P0** in `02-IMPLEMENTATION-PLAN.yaml`.
 
 Do not begin by modifying TTK, installing all dependencies, or rewriting the pipeline.
 
 ## 0.2 Required reads, in order
 
 1. `SourceTranscriptionAnalysisPipeline_Research/v2-reuse-bakeoff/00-START-HERE.md`
-2. `SourceTranscriptionAnalysisPipeline_Research/v2-reuse-bakeoff/01-ARCHITECTURE-ANALYSIS.md`
-3. `SourceTranscriptionAnalysisPipeline_Research/v2-reuse-bakeoff/04-COMPONENT-REGISTRY.yaml`
-4. `SourceTranscriptionAnalysisPipeline_Research/v2-reuse-bakeoff/02-IMPLEMENTATION-PLAN.yaml`
-5. `SourceTranscriptionAnalysisPipeline_Research/v2-reuse-bakeoff/03-BENCHMARK-AND-TEST-SPEC.yaml`
-6. `.claude/skills/transcript-to-knowledge/SKILL.md`
-7. `.claude/skills/transcript-to-knowledge/references/semantic-contracts.md`
-8. `.claude/skills/transcript-to-knowledge/references/architecture.md`
-9. `.claude/skills/transcript-to-knowledge/references/operator-runbook.md`
-10. `.claude/skills/transcript-to-knowledge/references/evals.md`
-11. `.claude/skills/transcript-to-knowledge/scripts/ttk.py`
-12. `.claude/skills/transcript-to-knowledge/scripts/test_ttk.py`
-13. `.claude/skills/transcript-to-knowledge/scripts/execute_ttk_lifecycle.py`
-14. `.claude/skills/SourceTranscriptionAnalysisPipeline/scripts/transcribe_audio.py`
-15. `scripts/Run-BatchMultiPipelineBenchmark.ps1`
-16. `artifacts/benchmark_runs/20260818-185245/receipt.json`
-17. `SourceTranscriptionAnalysisPipeline_Research/POST_REPAIR_EVALUATION_REPORT.md`
-18. `SourceTranscriptionAnalysisPipeline_Research/RESEARCH_ADVANCED_IMPROVEMENTS_AND_UNIFICATION.md`
-19. `SourceTranscriptionAnalysisPipeline_Research/HYBRID_CROSS_POLLINATION_AND_UNIFICATION_STRATEGY.md`
+2. `SourceTranscriptionAnalysisPipeline_Research/v2-reuse-bakeoff/06-TRIAL1-TRANSPORT-LOCK.yaml`
+3. `SourceTranscriptionAnalysisPipeline_Research/v2-reuse-bakeoff/01-ARCHITECTURE-ANALYSIS.md`
+4. `SourceTranscriptionAnalysisPipeline_Research/v2-reuse-bakeoff/04-COMPONENT-REGISTRY.yaml`
+5. `SourceTranscriptionAnalysisPipeline_Research/v2-reuse-bakeoff/02-IMPLEMENTATION-PLAN.yaml`
+6. `SourceTranscriptionAnalysisPipeline_Research/v2-reuse-bakeoff/03-BENCHMARK-AND-TEST-SPEC.yaml`
+7. `.claude/skills/transcript-to-knowledge/SKILL.md`
+8. `.claude/skills/transcript-to-knowledge/references/semantic-contracts.md`
+9. `.claude/skills/transcript-to-knowledge/references/architecture.md`
+10. `.claude/skills/transcript-to-knowledge/references/operator-runbook.md`
+11. `.claude/skills/transcript-to-knowledge/references/evals.md`
+12. `.claude/skills/transcript-to-knowledge/scripts/ttk.py`
+13. `.claude/skills/transcript-to-knowledge/scripts/test_ttk.py`
+14. `.claude/skills/transcript-to-knowledge/scripts/execute_ttk_lifecycle.py`
+15. `.claude/skills/SourceTranscriptionAnalysisPipeline/scripts/transcribe_audio.py`
+16. `scripts/Run-BatchMultiPipelineBenchmark.ps1`
+17. `artifacts/benchmark_runs/20260818-185245/receipt.json`
+18. `SourceTranscriptionAnalysisPipeline_Research/POST_REPAIR_EVALUATION_REPORT.md`
+19. `SourceTranscriptionAnalysisPipeline_Research/RESEARCH_ADVANCED_IMPROVEMENTS_AND_UNIFICATION.md`
+20. `SourceTranscriptionAnalysisPipeline_Research/HYBRID_CROSS_POLLINATION_AND_UNIFICATION_STRATEGY.md`
 
-Read historical files for evidence and previously observed failures. Where they conflict with this V2 set, this V2 set controls implementation sequencing unless the operator gives a newer explicit instruction.
+Read historical files for evidence and previously observed failures. Where they conflict with this V2 set, this V2 set controls implementation sequencing unless the operator gives a newer explicit instruction. For **Trial 1 AI transport/provider policy specifically**, `06-TRIAL1-TRANSPORT-LOCK.yaml` is authoritative over conflicting older V2 lines.
 
 # 1. Constant frame
 
@@ -126,12 +127,13 @@ frame:
 Use this order when instructions conflict:
 
 1. current explicit operator instruction;
-2. this V2 handover and its machine-readable plan/spec;
-3. current TTK contracts and validators for existing implemented invariants;
-4. measured benchmark/test evidence from the repository;
-5. current official/primary documentation for external tools;
-6. prior architecture/research documents;
-7. prose assumptions or remembered chat context.
+2. `06-TRIAL1-TRANSPORT-LOCK.yaml` for Trial 1 AI transport/provider policy;
+3. this V2 handover and its machine-readable plan/spec;
+4. current TTK contracts and validators for existing implemented invariants;
+5. measured benchmark/test evidence from the repository;
+6. current official/primary documentation for external tools;
+7. prior architecture/research documents;
+8. prose assumptions or remembered chat context.
 
 Never treat a research recommendation as a production selection until its promotion gate passes.
 
