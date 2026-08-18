@@ -1,0 +1,202 @@
+{
+  "context_only_segment_ids": [
+    "seg-000067",
+    "seg-000086"
+  ],
+  "contract_version": "ttk.semantic-contract.v2",
+  "core_segment_ids": [
+    "seg-000068",
+    "seg-000069",
+    "seg-000070",
+    "seg-000071",
+    "seg-000072",
+    "seg-000073",
+    "seg-000074",
+    "seg-000075",
+    "seg-000076",
+    "seg-000077",
+    "seg-000078",
+    "seg-000079",
+    "seg-000080",
+    "seg-000081",
+    "seg-000082",
+    "seg-000083",
+    "seg-000084",
+    "seg-000085"
+  ],
+  "packet_id": "map-window-0003",
+  "packet_sha256": "ced3ae54826a6d398e087536faefe8ea11bb69826c19e0a0c1403168ae2c4780",
+  "result_path": "work/results/map/window-0003.json",
+  "rules": [
+    "Extract evidence only from core segments; context_only segments are orientation only.",
+    "Every candidate claim requires at least one verbatim quote from its cited core segment.",
+    "Do not force content into categories; empty arrays are valid.",
+    "Separate factual assertions from opinion, prediction, recommendation, decision, anecdote, definition, mechanism, estimate, and hypothesis.",
+    "Preserve disagreement and uncertainty rather than reconciling it."
+  ],
+  "schema": "ttk.map-packet.v2",
+  "source_segments": [
+    {
+      "end_hms": "00:18:26.339",
+      "id": "seg-000067",
+      "role": "context_only",
+      "speaker": null,
+      "start_hms": "00:18:12.220",
+      "text": "So we need to see how the latest up push here will work out if we then add the technical indicators which is the next step maybe we don't have the time to reveal all those details here."
+    },
+    {
+      "end_hms": "00:18:49.700",
+      "id": "seg-000068",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:18:30.019",
+      "text": "Let me put in this one here so while we see that was just a technical reaction which has to be expected at that point so from a cyclic perspective that swing has not ended yet to say that way or let's zoom in a little bit here."
+    },
+    {
+      "end_hms": "00:19:06.710",
+      "id": "seg-000069",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:18:49.700",
+      "text": "So from a cyclic perspective the cycle has still more time on the downward pressure or give more headwind to that asset class from a technical perspective a reaction here would quite be to be expected from a technical point of view."
+    },
+    {
+      "end_hms": "00:19:17.529",
+      "id": "seg-000070",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:19:07.009",
+      "text": "We've seen here how that window played out what would be quite interesting so if you would ask me so how to monitor that situation is."
+    },
+    {
+      "end_hms": "00:19:45.609",
+      "id": "seg-000071",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:19:18.349",
+      "text": "Price has not made in all time high again but if this works out to become more and more important divergence here between the price action and the relative strength this is even more possible indication for bounce back into another possible downturn needs to be seen out and we see similar picture here on the momentum."
+    },
+    {
+      "end_hms": "00:20:16.390",
+      "id": "seg-000072",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:19:45.609",
+      "text": "So momentum is already turning down while price keeps to move up which is an early indication when momentum is decreasing and price is still increasing we have a divergence here so they are quite early science from the technical point of view which could confirm a possible continuation of the projected cycles."
+    },
+    {
+      "end_hms": "00:20:35.930",
+      "id": "seg-000073",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:20:16.390",
+      "text": "Next window of opportunity which is due here in September October so that's how we read the Nasdaq by the way the picture without going into every detail looks quite similar on the semi conductors."
+    },
+    {
+      "end_hms": "00:20:58.190",
+      "id": "seg-000074",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:20:36.089",
+      "text": "So therefore I will not reveal the full similar analysis but you can see from the cycle selected here 180 190 120 the same two short term cycles on the daily chart which will make up the most important cycles here 120 180."
+    },
+    {
+      "end_hms": "00:21:32.460",
+      "id": "seg-000075",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:21:01.069",
+      "text": "And by the way here's just an interesting observation as we are here for cycle analysis I'm just seeing this cycle here with the links of 380 which if I would just have seen that cycle on its own 380 days I would not pick that due to this I mean the left shoulder is more more than perfect we don't see the full right shoulder here it's it's a client."
+    },
+    {
+      "end_hms": "00:22:03.029",
+      "id": "seg-000076",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:21:32.640",
+      "text": "This is kind of plateau however if you see the harmonic relation so 380 in relation to 180 this is more harmonic relation of two which is an important harmonic ratio so those two cycles belong more or less to similar family they have a harmonic relation to each other so it would make sense now if we assume the 180 to 190 day cycle is important."
+    },
+    {
+      "end_hms": "00:22:35.269",
+      "id": "seg-000077",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:22:03.049",
+      "text": "We could also activate the 380 cycles on top of that and that's another very important observation here so maybe you think what happened by doing that the overall shape of the most important two points which I told you are important to have a look on is I told you that the current point in time so where are we today"
+    },
+    {
+      "end_hms": "00:23:06.519",
+      "id": "seg-000078",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:22:35.269",
+      "text": "and the next upcoming turning point here and if I now activate or deactivate the 380 day cycle those windows we are interested in do not change at all so that's the key which more confirms even it looks like a secondary cycle but it's quite in sync in regards to the key top and the key bottoms of that cycle it synchronizes"
+    },
+    {
+      "end_hms": "00:23:29.190",
+      "id": "seg-000079",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:23:07.480",
+      "text": "the key low here at that point so we could monitor this if we just only select those two cycles let's clean up the chart a little bit here so and we see here when those cycles are not in sync which is when they form those different bottoms or different tops here"
+    },
+    {
+      "end_hms": "00:23:58.000",
+      "id": "seg-000080",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:23:29.190",
+      "text": "and when they come into those where we have the high amplitude situations like here and here this is when those two cycles synchronize their face and their tops and bottoms in that case so then you need to monitor what price did at that point in time but it's just an interesting observation from a cycle analysis point of view"
+    },
+    {
+      "end_hms": "00:24:19.849",
+      "id": "seg-000081",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:23:58.700",
+      "text": "yeah so that's let's pause here for the broader stock markets so it's not an easy picture on the overall markets but short term cycles from the daily point of view more suggest that the downward cycle headwind still continues into September October"
+    },
+    {
+      "end_hms": "00:24:40.160",
+      "id": "seg-000082",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:24:19.849",
+      "text": "I've shown you the technical situation let's continue or let's move on for the next asset class on X sector I have at least prepared which is Bitcoin for sure everyone wants to talk about Bitcoin I hope you are aware of my long term pattern analysis"
+    },
+    {
+      "end_hms": "00:25:04.349",
+      "id": "seg-000083",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:24:40.160",
+      "text": "yes yeah fly me to the moon and the road to hell you might aware of the song so we have a nominal cycle always important in the Bitcoin crypto area which is the nominal 200 day cycle plus or minus and we have five repetitions to a key top in those markets and we have three repetitions for a final bottom"
+    },
+    {
+      "end_hms": "00:25:33.309",
+      "id": "seg-000084",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:25:04.349",
+      "text": "this is the longer term pattern which worked out over the full history of Bitcoin I reveal the tier on the channel on and on and now we can zoom in with a more detailed on top daily analysis where are we with the situation right now so this is the picture again same procedure as usual yeah we pick the most valuable cycle which is in that case"
+    },
+    {
+      "end_hms": "00:25:54.089",
+      "id": "seg-000085",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:25:33.309",
+      "text": "it's just the 270 and the 110 yeah according to our rule set I will not repeat that again and then if we look and zoom in again you see how nicely those two cycles revealed the previous changes in trend of the price series"
+    },
+    {
+      "end_hms": "00:26:24.930",
+      "id": "seg-000086",
+      "role": "context_only",
+      "speaker": null,
+      "start_hms": "00:25:56.160",
+      "text": "and by the way the key top here we have seen with reaching 120k in Bitcoin in October 2025 this was and if you follow my work you are aware of that that was 0.5 of the fifth repetition of that nominal 200 day cycle here so which means we now would expect three cycles"
+    }
+  ],
+  "source_sha256": "d6bfb051b2344b3d17fd1a73643322945870262589aab1cf757ed1fe873ba135",
+  "window_id": "window-0003"
+}

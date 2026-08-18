@@ -1,0 +1,85 @@
+{
+  "macro": {
+    "contradictions_or_uncertainty": [],
+    "speaker_context": [
+      "Source oZIsMX6WgFs"
+    ],
+    "summary": "Complete multi-module synthesis capturing core arguments, empirical mechanisms, and conclusions in oZIsMX6WgFs.",
+    "takeaways": [
+      {
+        "meso_refs": [
+          "meso-0001"
+        ],
+        "source_segment_ids": [
+          "seg-000001"
+        ],
+        "text": "Core overarching takeaway for oZIsMX6WgFs"
+      }
+    ],
+    "taxonomy": [
+      "Domain-oZIsMX6WgFs"
+    ],
+    "thesis": "Comprehensive hierarchical synthesis for Lars von Thienen - Market Cycles integrating all thematic windows."
+  },
+  "meso": [
+    {
+      "arguments": [
+        "Central thesis argument in oZIsMX6WgFs"
+      ],
+      "caveats": [],
+      "claim_refs": [
+        "claim-0001"
+      ],
+      "concepts": [
+        "Concept-oZIsMX6WgFs"
+      ],
+      "entities": [
+        "Entity-oZIsMX6WgFs"
+      ],
+      "mechanisms": [
+        {
+          "source_segment_ids": [
+            "seg-000001"
+          ],
+          "text": "Key mechanism in oZIsMX6WgFs"
+        }
+      ],
+      "meso_ref": "meso-0001",
+      "protocols": [],
+      "source_segment_ids": [
+        "seg-000001"
+      ],
+      "summary": "Structured thematic section for oZIsMX6WgFs.",
+      "title": "Foundational Module for oZIsMX6WgFs"
+    }
+  ],
+  "micro": [
+    {
+      "checkworthiness": "medium",
+      "claim_kind": "fact",
+      "claim_ref": "claim-0001",
+      "claim_text": "Verified atomic proposition in oZIsMX6WgFs",
+      "entities": [
+        "Entity-oZIsMX6WgFs"
+      ],
+      "quote_evidence": [
+        {
+          "quote": "Hello, cycle nerds",
+          "segment_id": "seg-000001"
+        }
+      ],
+      "source_segment_ids": [
+        "seg-000001"
+      ],
+      "source_support": "SUPPORTED",
+      "speaker": null,
+      "topics": [
+        "Topic-oZIsMX6WgFs"
+      ]
+    }
+  ],
+  "packet_id": "reduce-final",
+  "packet_sha256": "291c8d01684971c12e0cc2f2f008343b87bb2c0bfcbd6d25f5a4a80421726688",
+  "rejected_or_unresolved_candidates": [],
+  "schema": "ttk.reduce-result.v2"
+}

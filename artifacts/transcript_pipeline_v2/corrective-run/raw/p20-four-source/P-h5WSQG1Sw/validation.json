@@ -1,0 +1,141 @@
+{
+  "compiled_current": true,
+  "complete": true,
+  "errors": [],
+  "map": {
+    "invalid": 0,
+    "missing": 0,
+    "total": 23,
+    "valid": 23,
+    "windows": [
+      {
+        "errors": [],
+        "status": "valid",
+        "window_id": "window-0001"
+      },
+      {
+        "errors": [],
+        "status": "valid",
+        "window_id": "window-0002"
+      },
+      {
+        "errors": [],
+        "status": "valid",
+        "window_id": "window-0003"
+      },
+      {
+        "errors": [],
+        "status": "valid",
+        "window_id": "window-0004"
+      },
+      {
+        "errors": [],
+        "status": "valid",
+        "window_id": "window-0005"
+      },
+      {
+        "errors": [],
+        "status": "valid",
+        "window_id": "window-0006"
+      },
+      {
+        "errors": [],
+        "status": "valid",
+        "window_id": "window-0007"
+      },
+      {
+        "errors": [],
+        "status": "valid",
+        "window_id": "window-0008"
+      },
+      {
+        "errors": [],
+        "status": "valid",
+        "window_id": "window-0009"
+      },
+      {
+        "errors": [],
+        "status": "valid",
+        "window_id": "window-0010"
+      },
+      {
+        "errors": [],
+        "status": "valid",
+        "window_id": "window-0011"
+      },
+      {
+        "errors": [],
+        "status": "valid",
+        "window_id": "window-0012"
+      },
+      {
+        "errors": [],
+        "status": "valid",
+        "window_id": "window-0013"
+      },
+      {
+        "errors": [],
+        "status": "valid",
+        "window_id": "window-0014"
+      },
+      {
+        "errors": [],
+        "status": "valid",
+        "window_id": "window-0015"
+      },
+      {
+        "errors": [],
+        "status": "valid",
+        "window_id": "window-0016"
+      },
+      {
+        "errors": [],
+        "status": "valid",
+        "window_id": "window-0017"
+      },
+      {
+        "errors": [],
+        "status": "valid",
+        "window_id": "window-0018"
+      },
+      {
+        "errors": [],
+        "status": "valid",
+        "window_id": "window-0019"
+      },
+      {
+        "errors": [],
+        "status": "valid",
+        "window_id": "window-0020"
+      },
+      {
+        "errors": [],
+        "status": "valid",
+        "window_id": "window-0021"
+      },
+      {
+        "errors": [],
+        "status": "valid",
+        "window_id": "window-0022"
+      },
+      {
+        "errors": [],
+        "status": "valid",
+        "window_id": "window-0023"
+      }
+    ]
+  },
+  "ok": true,
+  "reduce": {
+    "errors": [],
+    "status": "valid"
+  },
+  "schema": "ttk.validation.v2",
+  "verify": {
+    "errors": [],
+    "status": "result_missing"
+  },
+  "warnings": [
+    "verification stage: result_missing"
+  ]
+}

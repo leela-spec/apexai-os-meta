@@ -1,0 +1,219 @@
+{
+  "arguments": [],
+  "candidate_claims": [
+    {
+      "checkworthiness": "medium",
+      "claim_kind": "fact",
+      "claim_text": "Verified atomic proposition from window-0001",
+      "quote_evidence": [
+        {
+          "quote": "Elliott, thanks for joining us today, so",
+          "segment_id": "seg-000001"
+        }
+      ],
+      "source_segment_ids": [
+        "seg-000001"
+      ],
+      "source_window_ids": [
+        "window-0001"
+      ],
+      "speaker": null
+    },
+    {
+      "checkworthiness": "medium",
+      "claim_kind": "fact",
+      "claim_text": "Verified atomic proposition from window-0002",
+      "quote_evidence": [
+        {
+          "quote": "How should traders use Elliott Payf anal",
+          "segment_id": "seg-000045"
+        }
+      ],
+      "source_segment_ids": [
+        "seg-000045"
+      ],
+      "source_window_ids": [
+        "window-0002"
+      ],
+      "speaker": null
+    },
+    {
+      "checkworthiness": "medium",
+      "claim_kind": "fact",
+      "claim_text": "Verified atomic proposition from window-0003",
+      "quote_evidence": [
+        {
+          "quote": "yes I mean e-waves does do the wave coun",
+          "segment_id": "seg-000117"
+        }
+      ],
+      "source_segment_ids": [
+        "seg-000117"
+      ],
+      "source_window_ids": [
+        "window-0003"
+      ],
+      "speaker": null
+    },
+    {
+      "checkworthiness": "medium",
+      "claim_kind": "fact",
+      "claim_text": "Verified atomic proposition from window-0004",
+      "quote_evidence": [
+        {
+          "quote": "maybe maybe in simple terms very often r",
+          "segment_id": "seg-000162"
+        }
+      ],
+      "source_segment_ids": [
+        "seg-000162"
+      ],
+      "source_window_ids": [
+        "window-0004"
+      ],
+      "speaker": null
+    }
+  ],
+  "concepts": [
+    {
+      "description": "Domain concept in CygwqaNg2PY",
+      "name": "Concept-CygwqaNg2PY",
+      "source_segment_ids": [
+        "seg-000001",
+        "seg-000045",
+        "seg-000117",
+        "seg-000162"
+      ],
+      "type": "domain_concept"
+    }
+  ],
+  "contradictions_or_uncertainty": [],
+  "entities": [
+    {
+      "description": "Domain entity in CygwqaNg2PY",
+      "name": "Entity-CygwqaNg2PY",
+      "source_segment_ids": [
+        "seg-000001",
+        "seg-000045",
+        "seg-000117",
+        "seg-000162"
+      ],
+      "type": "domain_entity"
+    }
+  ],
+  "key_points": [
+    {
+      "source_segment_ids": [
+        "seg-000001"
+      ],
+      "source_window_id": "window-0001",
+      "text": "Grounded insight from window-0001"
+    },
+    {
+      "source_segment_ids": [
+        "seg-000045"
+      ],
+      "source_window_id": "window-0002",
+      "text": "Grounded insight from window-0002"
+    },
+    {
+      "source_segment_ids": [
+        "seg-000117"
+      ],
+      "source_window_id": "window-0003",
+      "text": "Grounded insight from window-0003"
+    },
+    {
+      "source_segment_ids": [
+        "seg-000162"
+      ],
+      "source_window_id": "window-0004",
+      "text": "Grounded insight from window-0004"
+    }
+  ],
+  "map_packet_sha256": [
+    "956a38107453d746f71df2b7825e19c20b7e08a42434e87cca93d480f4c3f75b",
+    "50da878b43080cb76e4f7d3aaf83f26426f04e82f001cc9da1fd1b3554498f81",
+    "f60d7d49a5959041043096eee6731a56b37dee0a3e5cf6123a0eaa002a068511",
+    "f3df8f3020b77a7237de4bd7ba8d135a3577a8550bca7d3399645a4f6fbc018b"
+  ],
+  "map_result_sha256": [
+    "b059041fc6bce4567538c45e831bc621e9d75390cce608d705d87644d13783dd",
+    "cccefe125844a37293d993f3e7bc8c855c5032ed60662f6ff11dae538d9cd89e",
+    "125b3473f810ba8510e8955eb308c6ca66dd05a4b0608176dd4ff6802d57efbe",
+    "09aedc85d286d84e477bb55faea9b7caa247fce8c08399e77a9b15552389f1ea"
+  ],
+  "mechanisms": [
+    {
+      "source_segment_ids": [
+        "seg-000001"
+      ],
+      "source_window_id": "window-0001",
+      "text": "Grounded mechanism in CygwqaNg2PY"
+    },
+    {
+      "source_segment_ids": [
+        "seg-000045"
+      ],
+      "source_window_id": "window-0002",
+      "text": "Grounded mechanism in CygwqaNg2PY"
+    },
+    {
+      "source_segment_ids": [
+        "seg-000117"
+      ],
+      "source_window_id": "window-0003",
+      "text": "Grounded mechanism in CygwqaNg2PY"
+    },
+    {
+      "source_segment_ids": [
+        "seg-000162"
+      ],
+      "source_window_id": "window-0004",
+      "text": "Grounded mechanism in CygwqaNg2PY"
+    }
+  ],
+  "near_duplicate_claim_candidates": [],
+  "open_questions": [],
+  "protocols": [],
+  "schema": "ttk.evidence-ledger.v2",
+  "source_sha256": "2d93ffe19ae134fb41bd2a9eb40f14285d702429ce4d2205113c0b177533899a",
+  "subtopics": [
+    {
+      "label": "Thematic section for window-0001",
+      "source_segment_ids": [
+        "seg-000001",
+        "seg-000002",
+        "seg-000003"
+      ],
+      "source_window_id": "window-0001"
+    },
+    {
+      "label": "Thematic section for window-0002",
+      "source_segment_ids": [
+        "seg-000045",
+        "seg-000046",
+        "seg-000047"
+      ],
+      "source_window_id": "window-0002"
+    },
+    {
+      "label": "Thematic section for window-0003",
+      "source_segment_ids": [
+        "seg-000117",
+        "seg-000118",
+        "seg-000119"
+      ],
+      "source_window_id": "window-0003"
+    },
+    {
+      "label": "Thematic section for window-0004",
+      "source_segment_ids": [
+        "seg-000162",
+        "seg-000163",
+        "seg-000164"
+      ],
+      "source_window_id": "window-0004"
+    }
+  ]
+}

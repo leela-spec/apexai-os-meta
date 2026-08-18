@@ -1,0 +1,73 @@
+{
+  "schema": "ttk.map-result.v2",
+  "packet_id": "map-window-0002",
+  "packet_sha256": "7176798c6cbc75a3e579a11a15c60668eff3425b74947d95ccdccb9a2fe35aef",
+  "window_id": "window-0002",
+  "subtopics": [
+    {
+      "label": "Thematic section for window-0002",
+      "source_segment_ids": [
+        "seg-000077",
+        "seg-000078",
+        "seg-000079"
+      ]
+    }
+  ],
+  "key_points": [
+    {
+      "text": "Grounded insight from window-0002",
+      "source_segment_ids": [
+        "seg-000077"
+      ]
+    }
+  ],
+  "mechanisms": [
+    {
+      "text": "Grounded mechanism in vFTuLylvYnA",
+      "source_segment_ids": [
+        "seg-000077"
+      ]
+    }
+  ],
+  "protocols": [],
+  "arguments": [],
+  "candidate_claims": [
+    {
+      "claim_text": "Verified atomic proposition from window-0002",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "medium",
+      "source_segment_ids": [
+        "seg-000077"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000077",
+          "quote": "bei denen es garantiert, dass es auch Be"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "name": "Entity-vFTuLylvYnA",
+      "type": "domain_entity",
+      "description": "Domain entity in vFTuLylvYnA",
+      "source_segment_ids": [
+        "seg-000077"
+      ]
+    }
+  ],
+  "concepts": [
+    {
+      "name": "Concept-vFTuLylvYnA",
+      "type": "domain_concept",
+      "description": "Domain concept in vFTuLylvYnA",
+      "source_segment_ids": [
+        "seg-000077"
+      ]
+    }
+  ],
+  "open_questions": [],
+  "contradictions_or_uncertainty": []
+}

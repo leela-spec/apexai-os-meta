@@ -1,0 +1,73 @@
+{
+  "schema": "ttk.map-result.v2",
+  "packet_id": "map-window-0003",
+  "packet_sha256": "ced3ae54826a6d398e087536faefe8ea11bb69826c19e0a0c1403168ae2c4780",
+  "window_id": "window-0003",
+  "subtopics": [
+    {
+      "label": "Thematic section for window-0003",
+      "source_segment_ids": [
+        "seg-000068",
+        "seg-000069",
+        "seg-000070"
+      ]
+    }
+  ],
+  "key_points": [
+    {
+      "text": "Grounded insight from window-0003",
+      "source_segment_ids": [
+        "seg-000068"
+      ]
+    }
+  ],
+  "mechanisms": [
+    {
+      "text": "Grounded mechanism in oZIsMX6WgFs",
+      "source_segment_ids": [
+        "seg-000068"
+      ]
+    }
+  ],
+  "protocols": [],
+  "arguments": [],
+  "candidate_claims": [
+    {
+      "claim_text": "Verified atomic proposition from window-0003",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "medium",
+      "source_segment_ids": [
+        "seg-000068"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000068",
+          "quote": "Let me put in this one here so while we see that was just a technical reaction which has to be expected at that point so from a cyclic perspective that swing has not ended yet to say that way or let's zoom in a little bit here"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "name": "Entity-oZIsMX6WgFs",
+      "type": "domain_entity",
+      "description": "Domain entity in oZIsMX6WgFs",
+      "source_segment_ids": [
+        "seg-000068"
+      ]
+    }
+  ],
+  "concepts": [
+    {
+      "name": "Concept-oZIsMX6WgFs",
+      "type": "domain_concept",
+      "description": "Domain concept in oZIsMX6WgFs",
+      "source_segment_ids": [
+        "seg-000068"
+      ]
+    }
+  ],
+  "open_questions": [],
+  "contradictions_or_uncertainty": []
+}

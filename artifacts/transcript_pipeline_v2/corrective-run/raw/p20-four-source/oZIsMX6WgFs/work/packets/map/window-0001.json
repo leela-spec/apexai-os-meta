@@ -1,0 +1,436 @@
+{
+  "context_only_segment_ids": [
+    "seg-000046"
+  ],
+  "contract_version": "ttk.semantic-contract.v2",
+  "core_segment_ids": [
+    "seg-000001",
+    "seg-000002",
+    "seg-000003",
+    "seg-000004",
+    "seg-000005",
+    "seg-000006",
+    "seg-000007",
+    "seg-000008",
+    "seg-000009",
+    "seg-000010",
+    "seg-000011",
+    "seg-000012",
+    "seg-000013",
+    "seg-000014",
+    "seg-000015",
+    "seg-000016",
+    "seg-000017",
+    "seg-000018",
+    "seg-000019",
+    "seg-000020",
+    "seg-000021",
+    "seg-000022",
+    "seg-000023",
+    "seg-000024",
+    "seg-000025",
+    "seg-000026",
+    "seg-000027",
+    "seg-000028",
+    "seg-000029",
+    "seg-000030",
+    "seg-000031",
+    "seg-000032",
+    "seg-000033",
+    "seg-000034",
+    "seg-000035",
+    "seg-000036",
+    "seg-000037",
+    "seg-000038",
+    "seg-000039",
+    "seg-000040",
+    "seg-000041",
+    "seg-000042",
+    "seg-000043",
+    "seg-000044",
+    "seg-000045"
+  ],
+  "packet_id": "map-window-0001",
+  "packet_sha256": "d5f4f9fbaf2ad7f6858015f1b65de35d65c7cfac7c99bc58e78d1589d0ef2baa",
+  "result_path": "work/results/map/window-0001.json",
+  "rules": [
+    "Extract evidence only from core segments; context_only segments are orientation only.",
+    "Every candidate claim requires at least one verbatim quote from its cited core segment.",
+    "Do not force content into categories; empty arrays are valid.",
+    "Separate factual assertions from opinion, prediction, recommendation, decision, anecdote, definition, mechanism, estimate, and hypothesis.",
+    "Preserve disagreement and uncertainty rather than reconciling it."
+  ],
+  "schema": "ttk.map-packet.v2",
+  "source_segments": [
+    {
+      "end_hms": "00:00:10.369",
+      "id": "seg-000001",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:00:00.430",
+      "text": "Hello, cycle nerds. Thanks for joining today. Let's do a cycles market that jam. So let's review some asset classes across"
+    },
+    {
+      "end_hms": "00:00:16.390",
+      "id": "seg-000002",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:00:10.369",
+      "text": "different spectrums. Let's just have a live view of where the cycles are."
+    },
+    {
+      "end_hms": "00:00:24.489",
+      "id": "seg-000003",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:00:17.149",
+      "text": "In those assets and then let's recap what we see from a cycle analysis perspective."
+    },
+    {
+      "end_hms": "00:00:42.829",
+      "id": "seg-000004",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:00:24.489",
+      "text": "From the mind of Lars Fartinen, the most advanced cycle analysis, hot off the press."
+    },
+    {
+      "end_hms": "00:00:51.179",
+      "id": "seg-000005",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:00:45.359",
+      "text": "Yeah, thanks for joining again. We are live another episode of the cycles TV. And as you are aware,"
+    },
+    {
+      "end_hms": "00:01:01.380",
+      "id": "seg-000006",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:00:51.420",
+      "text": "we review different asset classes, charts in the financial area. We apply our cycle analysis techniques from the foundation"
+    },
+    {
+      "end_hms": "00:01:09.540",
+      "id": "seg-000007",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:01:01.380",
+      "text": "just to learn how the situation of different cycles shapes, which does not mean this is not a forecast,"
+    },
+    {
+      "end_hms": "00:01:18.900",
+      "id": "seg-000008",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:01:09.780",
+      "text": "this is not a prediction, this is no advice at all. It is just trying to learn something if we apply cycle analysis to financial markets."
+    },
+    {
+      "end_hms": "00:01:31.010",
+      "id": "seg-000009",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:01:19.640",
+      "text": "And we will eat our own dog food. So we will use it by the application which is available to all members to learn, discuss and see what we see."
+    },
+    {
+      "end_hms": "00:01:39.090",
+      "id": "seg-000010",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:01:31.930",
+      "text": "So let's get into it. As I said, some markets I have prepared basic US markets for today."
+    },
+    {
+      "end_hms": "00:01:51.349",
+      "id": "seg-000011",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:01:39.650",
+      "text": "So let's start with a very broad view of the US stock markets as a whole. And for that I will use the geometric value line index,"
+    },
+    {
+      "end_hms": "00:02:00.709",
+      "id": "seg-000012",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:01:51.730",
+      "text": "which consists of around 5,000 traded stocks across the US. And it's equal weighted."
+    },
+    {
+      "end_hms": "00:02:13.650",
+      "id": "seg-000013",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:02:00.709",
+      "text": "So it gives a good idea about the whole situation in the stock market overall before we focus on different asset classes or different areas in specific."
+    },
+    {
+      "end_hms": "00:02:23.400",
+      "id": "seg-000014",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:02:14.800",
+      "text": "So let's do the basic work and I will walk you through the basic principles again, how to read a spectrum, how to pick a cycle,"
+    },
+    {
+      "end_hms": "00:02:36.740",
+      "id": "seg-000015",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:02:23.400",
+      "text": "which is the basic knowledge we are here applying to cycle analysis to get some ideas. And it's important to recap how we are doing that here, at least if you are new to cycle analysis."
+    },
+    {
+      "end_hms": "00:02:47.879",
+      "id": "seg-000016",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:02:37.080",
+      "text": "So what we see here on the chart is the geometric value line stock market index, which we see here at the bottom."
+    },
+    {
+      "end_hms": "00:03:04.849",
+      "id": "seg-000017",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:02:47.879",
+      "text": "We see the spectrum perspective, so which reveals the spectrum analysis of possible cycles in that spectrum, which means each peak in that spectrum represents possible theoretical cycle."
+    },
+    {
+      "end_hms": "00:03:13.210",
+      "id": "seg-000018",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:03:05.210",
+      "text": "So this is pure digital signal processing, which is then revealed by each peak in that spectrum."
+    },
+    {
+      "end_hms": "00:03:35.650",
+      "id": "seg-000019",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:03:13.210",
+      "text": "The better the better the better the peak looks also from its shape. I mean a sharp peak is can be seen here as we approach that cycle length with 120 days, which is a quite high amplitude in the very sharp peak in regards to the left and right shoulder of that peak."
+    },
+    {
+      "end_hms": "00:03:50.830",
+      "id": "seg-000020",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:03:35.650",
+      "text": "And it even drops down to the bottom of the spectrum bottom here at zero, which from the shape from the visual shape of that peak qualifies for very high qualified cycles similar to those here."
+    },
+    {
+      "end_hms": "00:03:57.590",
+      "id": "seg-000021",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:03:51.569",
+      "text": "So that's that's the way how you can differentiate good or bad cycles in the spectrum."
+    },
+    {
+      "end_hms": "00:04:11.530",
+      "id": "seg-000022",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:03:57.590",
+      "text": "We see the similar perspective in the upper right table view so that table gives us those peaks, you have seen the spectrum just listed in numbers."
+    },
+    {
+      "end_hms": "00:04:25.399",
+      "id": "seg-000023",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:04:12.780",
+      "text": "So the length of the cycle is what we see here as peak. So if we talk about the 120 day cycle, we will find it here in the table as second listed cycle length."
+    },
+    {
+      "end_hms": "00:04:46.180",
+      "id": "seg-000024",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:04:26.250",
+      "text": "How to read that table, just a quick primaries, you see the length information, the color coding indicates the current face of that cycle. So red color coding means that cycle is in its downward face, green coloring would indicate in its upward face."
+    },
+    {
+      "end_hms": "00:05:06.560",
+      "id": "seg-000025",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:04:47.339",
+      "text": "Then we need to take care of the ranking the ranking is an information about the visual shape. So what I expressed just in verbal terms, how good shape looks like is here given by numbers in the ranking, which goes one is the best ranking."
+    },
+    {
+      "end_hms": "00:05:25.579",
+      "id": "seg-000026",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:05:06.560",
+      "text": "So the 122, I just explained why that shape looks good. So you can also see it based on numbers. So you don't need, you don't must read the spectrum on your own. So if you are not fully aware how to read it, the ranking will give you that information."
+    },
+    {
+      "end_hms": "00:05:41.959",
+      "id": "seg-000027",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:05:25.579",
+      "text": "One is the best and then it's sorted. The stability score is another very important metric when we deal with cycles, the stability score gives us an indication about the variability of that given cycle."
+    },
+    {
+      "end_hms": "00:05:59.579",
+      "id": "seg-000028",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:05:41.959",
+      "text": "And we want to have cycles which are with a high stability score or the other way around with a low variability. So the higher the stability, which means that that cycle was very, as the name suggests, very stable."
+    },
+    {
+      "end_hms": "00:06:23.670",
+      "id": "seg-000029",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:05:59.579",
+      "text": "So it has not wobbled around cycles in real nature and also as in financial markets are not that stable are not that theoretical clean as a sine wave looks like. So therefore we need a quality measurement on how good that real cyclic behavior of that cycle in the price series comes close to a perfect sine wave."
+    },
+    {
+      "end_hms": "00:06:39.850",
+      "id": "seg-000030",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:06:23.670",
+      "text": "Think about if the stability would get close to one which would mean it would be a perfect sine wave which you will never see in real data because of the sine wave is not only the simplest way to visualize that."
+    },
+    {
+      "end_hms": "00:07:06.769",
+      "id": "seg-000031",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:06:39.850",
+      "text": "So stability above 0.5 is what we need. So ignore all cycles with stability lower than 0.5. Everything above 0.5. So everything close to .7 is a real good stability over the past. So ranking stability are two different metrics and then strength gives you an indication in relative terms to the other cycles."
+    },
+    {
+      "end_hms": "00:07:29.670",
+      "id": "seg-000032",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:07:06.769",
+      "text": "How they impact price movement over time for us a cycle which is there but has not impacted price movement per day or per bar is interesting from a scientific perspective but not if we are interested in maybe prediction of future price movements."
+    },
+    {
+      "end_hms": "00:07:48.029",
+      "id": "seg-000033",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:07:29.670",
+      "text": "So we need to look out for cycles with the high strength so this is just very quick very brief for everyone who might be new to cycle analysis these are the basics we always use so we stick to that procedure which makes it quite objective."
+    },
+    {
+      "end_hms": "00:08:16.810",
+      "id": "seg-000034",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:07:48.029",
+      "text": "So it's always the same procedure how you can make sure you select those cycles which give you the most chance that they seem to repeat also in the future. There's no guarantee at all that they will repeat in that way but at least it improves your chances so that you get a better probability if you start to think about where is the current situation or so."
+    },
+    {
+      "end_hms": "00:08:26.470",
+      "id": "seg-000035",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:08:16.810",
+      "text": "So long story short so based on that information we are now we need now to make a decision which cycles we think would make the most sense."
+    },
+    {
+      "end_hms": "00:08:47.129",
+      "id": "seg-000036",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:08:27.839",
+      "text": "So in that case I mentioned that already so the one the cycle with links of 122 and I would then also include maybe those two cycles here in addition to get at least a projection out of those which brings us"
+    },
+    {
+      "end_hms": "00:09:05.700",
+      "id": "seg-000037",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:08:47.129",
+      "text": "to this composite cycle this is what we're looking for never try to choose more than three cycles because then we are trying to overfit the historical price data with just cycles which could be there but overfitting will not help at all."
+    },
+    {
+      "end_hms": "00:09:18.860",
+      "id": "seg-000038",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:09:05.700",
+      "text": "So try to limit your cycle selection to not more than three dominant cycles which we did I try to explain you why to choose those cycles here."
+    },
+    {
+      "end_hms": "00:09:45.779",
+      "id": "seg-000039",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:09:18.860",
+      "text": "Then always important yeah make a quick recap of the previous changes in trend for that price series you are analyzing here because what you are looking for and this is why we do cycle analysis we do cycle analysis to identify points in time points in time now listen carefully points in time not price."
+    },
+    {
+      "end_hms": "00:10:05.259",
+      "id": "seg-000040",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:09:46.779",
+      "text": "So we are looking for on the time axis yeah when those turns at least according to the cycles might occur and this is what you can have a quick look if the cycles you selected based on the cycle analysis"
+    },
+    {
+      "end_hms": "00:10:19.570",
+      "id": "seg-000041",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:10:05.259",
+      "text": "will give you an approximate indication when to expect the price trend to change at that given point in time."
+    },
+    {
+      "end_hms": "00:10:34.740",
+      "id": "seg-000042",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:10:20.389",
+      "text": "So to make that easy to spot from a visual perspective you can then at least this helped me a lot to understand what cycles are and how to make use of them"
+    },
+    {
+      "end_hms": "00:10:51.679",
+      "id": "seg-000043",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:10:34.740",
+      "text": "is trying to plot that kind of zigzag line between the price at the points in time when the cycle suggested those turning points."
+    },
+    {
+      "end_hms": "00:11:01.759",
+      "id": "seg-000044",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:10:52.539",
+      "text": "So the red line very roughly drawn here on the chart gives you the indication of the turning points of those cycles from past behavior."
+    },
+    {
+      "end_hms": "00:11:11.639",
+      "id": "seg-000045",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:11:01.759",
+      "text": "Always keep that in mind this is the past behavior where we detected those cycles so we can now roll forward."
+    },
+    {
+      "end_hms": "00:11:28.639",
+      "id": "seg-000046",
+      "role": "context_only",
+      "speaker": null,
+      "start_hms": "00:11:12.299",
+      "text": "So what is important now when reading such kind of cycle analysis to things keep in mind you could easily fall into the trap now to plot that cycle and less into the future."
+    }
+  ],
+  "source_sha256": "d6bfb051b2344b3d17fd1a73643322945870262589aab1cf757ed1fe873ba135",
+  "window_id": "window-0001"
+}

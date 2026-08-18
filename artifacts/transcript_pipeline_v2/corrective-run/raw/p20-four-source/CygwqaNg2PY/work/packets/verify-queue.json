@@ -1,0 +1,29 @@
+{
+  "items": [
+    {
+      "checkworthiness": "medium",
+      "claim_ref": "claim-0001",
+      "claim_text": "Verified atomic proposition in CygwqaNg2PY",
+      "preferred_source_types": [
+        "official primary source",
+        "primary research"
+      ],
+      "quote_evidence": [
+        {
+          "quote": "Elliott, thanks for joining us today, so",
+          "segment_id": "seg-000001"
+        }
+      ],
+      "search_question": "Verified atomic proposition in CygwqaNg2PY",
+      "source_segment_ids": [
+        "seg-000001"
+      ],
+      "source_support": "SUPPORTED"
+    }
+  ],
+  "minimum_checkworthiness": "medium",
+  "queue_sha256": "b06556a5159fbb5cb295e60cf89b7d0388ea0d5bee625c361851d514ced3b6b1",
+  "reduce_result_sha256": "2b96e794d771322035321a3ec14779acd1b2a52ccf35f0f9118aee2a1de6ae86",
+  "schema": "ttk.verify-queue.v2",
+  "source_sha256": "2d93ffe19ae134fb41bd2a9eb40f14285d702429ce4d2205113c0b177533899a"
+}

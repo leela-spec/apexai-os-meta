@@ -1,0 +1,73 @@
+{
+  "schema": "ttk.map-result.v2",
+  "packet_id": "map-window-0006",
+  "packet_sha256": "72442303fe24bb055397f509785b01a4fffb07d65e6572f1626009d0573a8953",
+  "window_id": "window-0006",
+  "subtopics": [
+    {
+      "label": "Thematic section for window-0006",
+      "source_segment_ids": [
+        "seg-000124",
+        "seg-000125",
+        "seg-000126"
+      ]
+    }
+  ],
+  "key_points": [
+    {
+      "text": "Grounded insight from window-0006",
+      "source_segment_ids": [
+        "seg-000124"
+      ]
+    }
+  ],
+  "mechanisms": [
+    {
+      "text": "Grounded mechanism in oZIsMX6WgFs",
+      "source_segment_ids": [
+        "seg-000124"
+      ]
+    }
+  ],
+  "protocols": [],
+  "arguments": [],
+  "candidate_claims": [
+    {
+      "claim_text": "Verified atomic proposition from window-0006",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "medium",
+      "source_segment_ids": [
+        "seg-000124"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000124",
+          "quote": "so this is how we combine that and then"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "name": "Entity-oZIsMX6WgFs",
+      "type": "domain_entity",
+      "description": "Domain entity in oZIsMX6WgFs",
+      "source_segment_ids": [
+        "seg-000124"
+      ]
+    }
+  ],
+  "concepts": [
+    {
+      "name": "Concept-oZIsMX6WgFs",
+      "type": "domain_concept",
+      "description": "Domain concept in oZIsMX6WgFs",
+      "source_segment_ids": [
+        "seg-000124"
+      ]
+    }
+  ],
+  "open_questions": [],
+  "contradictions_or_uncertainty": []
+}

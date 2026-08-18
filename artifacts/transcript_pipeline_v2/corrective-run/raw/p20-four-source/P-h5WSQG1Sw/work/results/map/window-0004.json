@@ -1,0 +1,73 @@
+{
+  "schema": "ttk.map-result.v2",
+  "packet_id": "map-window-0004",
+  "packet_sha256": "a1b8ae088d20eafe4ff4dd3112b6c35876be2ebd64d72db87978fa619e6063dc",
+  "window_id": "window-0004",
+  "subtopics": [
+    {
+      "label": "Thematic section for window-0004",
+      "source_segment_ids": [
+        "seg-000168",
+        "seg-000169",
+        "seg-000170"
+      ]
+    }
+  ],
+  "key_points": [
+    {
+      "text": "Grounded insight from window-0004",
+      "source_segment_ids": [
+        "seg-000168"
+      ]
+    }
+  ],
+  "mechanisms": [
+    {
+      "text": "Grounded mechanism in P-h5WSQG1Sw",
+      "source_segment_ids": [
+        "seg-000168"
+      ]
+    }
+  ],
+  "protocols": [],
+  "arguments": [],
+  "candidate_claims": [
+    {
+      "claim_text": "Verified atomic proposition from window-0004",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "medium",
+      "source_segment_ids": [
+        "seg-000168"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000168",
+          "quote": "I'd like to take a quick break and acknowledge our sponsor, Helix Sleep"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "name": "Entity-P-h5WSQG1Sw",
+      "type": "domain_entity",
+      "description": "Domain entity in P-h5WSQG1Sw",
+      "source_segment_ids": [
+        "seg-000168"
+      ]
+    }
+  ],
+  "concepts": [
+    {
+      "name": "Concept-P-h5WSQG1Sw",
+      "type": "domain_concept",
+      "description": "Domain concept in P-h5WSQG1Sw",
+      "source_segment_ids": [
+        "seg-000168"
+      ]
+    }
+  ],
+  "open_questions": [],
+  "contradictions_or_uncertainty": []
+}

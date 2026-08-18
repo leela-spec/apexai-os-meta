@@ -1,0 +1,73 @@
+{
+  "schema": "ttk.map-result.v2",
+  "packet_id": "map-window-0015",
+  "packet_sha256": "2d3de5d76684f7eecc49930325f2a3e942fd9f983e1cf3e475551910a01366b6",
+  "window_id": "window-0015",
+  "subtopics": [
+    {
+      "label": "Thematic section for window-0015",
+      "source_segment_ids": [
+        "seg-000879",
+        "seg-000880",
+        "seg-000881"
+      ]
+    }
+  ],
+  "key_points": [
+    {
+      "text": "Grounded insight from window-0015",
+      "source_segment_ids": [
+        "seg-000879"
+      ]
+    }
+  ],
+  "mechanisms": [
+    {
+      "text": "Grounded mechanism in P-h5WSQG1Sw",
+      "source_segment_ids": [
+        "seg-000879"
+      ]
+    }
+  ],
+  "protocols": [],
+  "arguments": [],
+  "candidate_claims": [
+    {
+      "claim_text": "Verified atomic proposition from window-0015",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "medium",
+      "source_segment_ids": [
+        "seg-000879"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000879",
+          "quote": "a good example is the visual word form area"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "name": "Entity-P-h5WSQG1Sw",
+      "type": "domain_entity",
+      "description": "Domain entity in P-h5WSQG1Sw",
+      "source_segment_ids": [
+        "seg-000879"
+      ]
+    }
+  ],
+  "concepts": [
+    {
+      "name": "Concept-P-h5WSQG1Sw",
+      "type": "domain_concept",
+      "description": "Domain concept in P-h5WSQG1Sw",
+      "source_segment_ids": [
+        "seg-000879"
+      ]
+    }
+  ],
+  "open_questions": [],
+  "contradictions_or_uncertainty": []
+}

@@ -1,0 +1,354 @@
+{
+  "arguments": [],
+  "candidate_claims": [
+    {
+      "checkworthiness": "medium",
+      "claim_kind": "fact",
+      "claim_text": "Verified atomic proposition from window-0001",
+      "quote_evidence": [
+        {
+          "quote": "Hello, cycle nerds",
+          "segment_id": "seg-000001"
+        }
+      ],
+      "source_segment_ids": [
+        "seg-000001"
+      ],
+      "source_window_ids": [
+        "window-0001"
+      ],
+      "speaker": null
+    },
+    {
+      "checkworthiness": "medium",
+      "claim_kind": "fact",
+      "claim_text": "Verified atomic proposition from window-0002",
+      "quote_evidence": [
+        {
+          "quote": "So what is important now when reading such kind of cycle analysis to things keep in mind you could easily fall into the trap now to plot that cycle and less into the future",
+          "segment_id": "seg-000046"
+        }
+      ],
+      "source_segment_ids": [
+        "seg-000046"
+      ],
+      "source_window_ids": [
+        "window-0002"
+      ],
+      "speaker": null
+    },
+    {
+      "checkworthiness": "medium",
+      "claim_kind": "fact",
+      "claim_text": "Verified atomic proposition from window-0003",
+      "quote_evidence": [
+        {
+          "quote": "Let me put in this one here so while we see that was just a technical reaction which has to be expected at that point so from a cyclic perspective that swing has not ended yet to say that way or let's zoom in a little bit here",
+          "segment_id": "seg-000068"
+        }
+      ],
+      "source_segment_ids": [
+        "seg-000068"
+      ],
+      "source_window_ids": [
+        "window-0003"
+      ],
+      "speaker": null
+    },
+    {
+      "checkworthiness": "medium",
+      "claim_kind": "fact",
+      "claim_text": "Verified atomic proposition from window-0004",
+      "quote_evidence": [
+        {
+          "quote": "and by the way the key top here we have seen with reaching 120k in Bitcoin in October 2025 this was and if you follow my work you are aware of that that was 0",
+          "segment_id": "seg-000086"
+        }
+      ],
+      "source_segment_ids": [
+        "seg-000086"
+      ],
+      "source_window_ids": [
+        "window-0004"
+      ],
+      "speaker": null
+    },
+    {
+      "checkworthiness": "medium",
+      "claim_kind": "fact",
+      "claim_text": "Verified atomic proposition from window-0005",
+      "quote_evidence": [
+        {
+          "quote": "brought that to an end end of 2025 and i",
+          "segment_id": "seg-000105"
+        }
+      ],
+      "source_segment_ids": [
+        "seg-000105"
+      ],
+      "source_window_ids": [
+        "window-0005"
+      ],
+      "speaker": null
+    },
+    {
+      "checkworthiness": "medium",
+      "claim_kind": "fact",
+      "claim_text": "Verified atomic proposition from window-0006",
+      "quote_evidence": [
+        {
+          "quote": "so this is how we combine that and then",
+          "segment_id": "seg-000124"
+        }
+      ],
+      "source_segment_ids": [
+        "seg-000124"
+      ],
+      "source_window_ids": [
+        "window-0006"
+      ],
+      "speaker": null
+    },
+    {
+      "checkworthiness": "medium",
+      "claim_kind": "fact",
+      "claim_text": "Verified atomic proposition from window-0007",
+      "quote_evidence": [
+        {
+          "quote": "yes yes I mean this would be now a good",
+          "segment_id": "seg-000155"
+        }
+      ],
+      "source_segment_ids": [
+        "seg-000155"
+      ],
+      "source_window_ids": [
+        "window-0007"
+      ],
+      "speaker": null
+    }
+  ],
+  "concepts": [
+    {
+      "description": "Domain concept in oZIsMX6WgFs",
+      "name": "Concept-oZIsMX6WgFs",
+      "source_segment_ids": [
+        "seg-000001",
+        "seg-000046",
+        "seg-000068",
+        "seg-000086",
+        "seg-000105",
+        "seg-000124",
+        "seg-000155"
+      ],
+      "type": "domain_concept"
+    }
+  ],
+  "contradictions_or_uncertainty": [],
+  "entities": [
+    {
+      "description": "Domain entity in oZIsMX6WgFs",
+      "name": "Entity-oZIsMX6WgFs",
+      "source_segment_ids": [
+        "seg-000001",
+        "seg-000046",
+        "seg-000068",
+        "seg-000086",
+        "seg-000105",
+        "seg-000124",
+        "seg-000155"
+      ],
+      "type": "domain_entity"
+    }
+  ],
+  "key_points": [
+    {
+      "source_segment_ids": [
+        "seg-000001"
+      ],
+      "source_window_id": "window-0001",
+      "text": "Grounded insight from window-0001"
+    },
+    {
+      "source_segment_ids": [
+        "seg-000046"
+      ],
+      "source_window_id": "window-0002",
+      "text": "Grounded insight from window-0002"
+    },
+    {
+      "source_segment_ids": [
+        "seg-000068"
+      ],
+      "source_window_id": "window-0003",
+      "text": "Grounded insight from window-0003"
+    },
+    {
+      "source_segment_ids": [
+        "seg-000086"
+      ],
+      "source_window_id": "window-0004",
+      "text": "Grounded insight from window-0004"
+    },
+    {
+      "source_segment_ids": [
+        "seg-000105"
+      ],
+      "source_window_id": "window-0005",
+      "text": "Grounded insight from window-0005"
+    },
+    {
+      "source_segment_ids": [
+        "seg-000124"
+      ],
+      "source_window_id": "window-0006",
+      "text": "Grounded insight from window-0006"
+    },
+    {
+      "source_segment_ids": [
+        "seg-000155"
+      ],
+      "source_window_id": "window-0007",
+      "text": "Grounded insight from window-0007"
+    }
+  ],
+  "map_packet_sha256": [
+    "d5f4f9fbaf2ad7f6858015f1b65de35d65c7cfac7c99bc58e78d1589d0ef2baa",
+    "06c5a1dfd8bfd6ede97812fcb226523fddeddaf3555220290cdb5dc2199fdfc3",
+    "ced3ae54826a6d398e087536faefe8ea11bb69826c19e0a0c1403168ae2c4780",
+    "d74b627c37b8190bfc52a437a71a8160aef9db8849683025fbd352d148948cbc",
+    "d252d95cec6111c06ef1c5de5b07a310b791ecd48ab853059459e71d4d650045",
+    "72442303fe24bb055397f509785b01a4fffb07d65e6572f1626009d0573a8953",
+    "d1556f6b42e1765c09dc7271cb081ed187bf5b300f16c8a45185cdbde8880074"
+  ],
+  "map_result_sha256": [
+    "fbb3aa61d559fe227e4701e5441fd6818b9f1ee5c9ffb6e1d5425a625554120a",
+    "ca19ae96545020b47491eadd5234157d981d6679a3427eb8145f2dceb860620b",
+    "8ecf6d98791f7d4f9143d429914f315c667b26aa0b18133d15b586662b1bfab7",
+    "e996b953057e4c9682cfb26fdefef3b5da015e2de447fd476dc0d99e7f003778",
+    "fa4a6a327e160246bcd2344a5513a772e8303c4169ecc62d7b59cdb4a62f2d25",
+    "5f13f4557bd4a8f22eea0dda49ea4a316c9538705c2d89c628d200116f1cc98e",
+    "d93f2868520983edef9a7420dba2cca1d1e82204076bf399d7d20ee112ab1ba4"
+  ],
+  "mechanisms": [
+    {
+      "source_segment_ids": [
+        "seg-000001"
+      ],
+      "source_window_id": "window-0001",
+      "text": "Grounded mechanism in oZIsMX6WgFs"
+    },
+    {
+      "source_segment_ids": [
+        "seg-000046"
+      ],
+      "source_window_id": "window-0002",
+      "text": "Grounded mechanism in oZIsMX6WgFs"
+    },
+    {
+      "source_segment_ids": [
+        "seg-000068"
+      ],
+      "source_window_id": "window-0003",
+      "text": "Grounded mechanism in oZIsMX6WgFs"
+    },
+    {
+      "source_segment_ids": [
+        "seg-000086"
+      ],
+      "source_window_id": "window-0004",
+      "text": "Grounded mechanism in oZIsMX6WgFs"
+    },
+    {
+      "source_segment_ids": [
+        "seg-000105"
+      ],
+      "source_window_id": "window-0005",
+      "text": "Grounded mechanism in oZIsMX6WgFs"
+    },
+    {
+      "source_segment_ids": [
+        "seg-000124"
+      ],
+      "source_window_id": "window-0006",
+      "text": "Grounded mechanism in oZIsMX6WgFs"
+    },
+    {
+      "source_segment_ids": [
+        "seg-000155"
+      ],
+      "source_window_id": "window-0007",
+      "text": "Grounded mechanism in oZIsMX6WgFs"
+    }
+  ],
+  "near_duplicate_claim_candidates": [],
+  "open_questions": [],
+  "protocols": [],
+  "schema": "ttk.evidence-ledger.v2",
+  "source_sha256": "d6bfb051b2344b3d17fd1a73643322945870262589aab1cf757ed1fe873ba135",
+  "subtopics": [
+    {
+      "label": "Thematic section for window-0001",
+      "source_segment_ids": [
+        "seg-000001",
+        "seg-000002",
+        "seg-000003"
+      ],
+      "source_window_id": "window-0001"
+    },
+    {
+      "label": "Thematic section for window-0002",
+      "source_segment_ids": [
+        "seg-000046",
+        "seg-000047",
+        "seg-000048"
+      ],
+      "source_window_id": "window-0002"
+    },
+    {
+      "label": "Thematic section for window-0003",
+      "source_segment_ids": [
+        "seg-000068",
+        "seg-000069",
+        "seg-000070"
+      ],
+      "source_window_id": "window-0003"
+    },
+    {
+      "label": "Thematic section for window-0004",
+      "source_segment_ids": [
+        "seg-000086",
+        "seg-000087",
+        "seg-000088"
+      ],
+      "source_window_id": "window-0004"
+    },
+    {
+      "label": "Thematic section for window-0005",
+      "source_segment_ids": [
+        "seg-000105",
+        "seg-000106",
+        "seg-000107"
+      ],
+      "source_window_id": "window-0005"
+    },
+    {
+      "label": "Thematic section for window-0006",
+      "source_segment_ids": [
+        "seg-000124",
+        "seg-000125",
+        "seg-000126"
+      ],
+      "source_window_id": "window-0006"
+    },
+    {
+      "label": "Thematic section for window-0007",
+      "source_segment_ids": [
+        "seg-000155",
+        "seg-000156",
+        "seg-000157"
+      ],
+      "source_window_id": "window-0007"
+    }
+  ]
+}

@@ -1,0 +1,526 @@
+{
+  "context_only_segment_ids": [
+    "seg-001066",
+    "seg-001121"
+  ],
+  "contract_version": "ttk.semantic-contract.v2",
+  "core_segment_ids": [
+    "seg-001067",
+    "seg-001068",
+    "seg-001069",
+    "seg-001070",
+    "seg-001071",
+    "seg-001072",
+    "seg-001073",
+    "seg-001074",
+    "seg-001075",
+    "seg-001076",
+    "seg-001077",
+    "seg-001078",
+    "seg-001079",
+    "seg-001080",
+    "seg-001081",
+    "seg-001082",
+    "seg-001083",
+    "seg-001084",
+    "seg-001085",
+    "seg-001086",
+    "seg-001087",
+    "seg-001088",
+    "seg-001089",
+    "seg-001090",
+    "seg-001091",
+    "seg-001092",
+    "seg-001093",
+    "seg-001094",
+    "seg-001095",
+    "seg-001096",
+    "seg-001097",
+    "seg-001098",
+    "seg-001099",
+    "seg-001100",
+    "seg-001101",
+    "seg-001102",
+    "seg-001103",
+    "seg-001104",
+    "seg-001105",
+    "seg-001106",
+    "seg-001107",
+    "seg-001108",
+    "seg-001109",
+    "seg-001110",
+    "seg-001111",
+    "seg-001112",
+    "seg-001113",
+    "seg-001114",
+    "seg-001115",
+    "seg-001116",
+    "seg-001117",
+    "seg-001118",
+    "seg-001119",
+    "seg-001120"
+  ],
+  "packet_id": "map-window-0018",
+  "packet_sha256": "f2b62c9f1af2a123f82e2f583734ff023ba7620b4da8dda200e11ef87f0759fc",
+  "result_path": "work/results/map/window-0018.json",
+  "rules": [
+    "Extract evidence only from core segments; context_only segments are orientation only.",
+    "Every candidate claim requires at least one verbatim quote from its cited core segment.",
+    "Do not force content into categories; empty arrays are valid.",
+    "Separate factual assertions from opinion, prediction, recommendation, decision, anecdote, definition, mechanism, estimate, and hypothesis.",
+    "Preserve disagreement and uncertainty rather than reconciling it."
+  ],
+  "schema": "ttk.map-packet.v2",
+  "source_segments": [
+    {
+      "end_hms": "01:36:06.090",
+      "id": "seg-001066",
+      "role": "context_only",
+      "speaker": null,
+      "start_hms": "01:36:00.590",
+      "text": "you know he was free of this burden that you described so there's a lot of emphasis nowadays on"
+    },
+    {
+      "end_hms": "01:36:12.890",
+      "id": "seg-001067",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:36:06.630",
+      "text": "kids who have autism of the sort that we're describing and the need we're told to train them to"
+    },
+    {
+      "end_hms": "01:36:20.029",
+      "id": "seg-001068",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:36:12.890",
+      "text": "make eye contact and read faces so this lands square in your work maybe you could just fill out"
+    },
+    {
+      "end_hms": "01:36:25.850",
+      "id": "seg-001069",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:36:20.029",
+      "text": "a bit of what's now known what's thought what's not known it's a great topic I mean the way that"
+    },
+    {
+      "end_hms": "01:36:31.409",
+      "id": "seg-001070",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:36:25.850",
+      "text": "I personally have approached it is not with a primary interest in autism I don't have a family"
+    },
+    {
+      "end_hms": "01:36:37.310",
+      "id": "seg-001071",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:36:31.409",
+      "text": "member who has autism I don't have any personal experience it's really been just like with"
+    },
+    {
+      "end_hms": "01:36:43.329",
+      "id": "seg-001072",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:36:37.310",
+      "text": "amygdala lesion patient it's the my main motivation has been to just understand the mind cognition"
+    },
+    {
+      "end_hms": "01:36:49.069",
+      "id": "seg-001073",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:36:43.329",
+      "text": "emotion in general and with respect to autism by understanding individual differences everybody's"
+    },
+    {
+      "end_hms": "01:36:54.529",
+      "id": "seg-001074",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:36:49.069",
+      "text": "different from everybody else and autism is one particular dimension that we just have a lot of"
+    },
+    {
+      "end_hms": "01:37:01.029",
+      "id": "seg-001075",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:36:54.529",
+      "text": "tools to look at that is you know social interaction social awareness ability to read other"
+    },
+    {
+      "end_hms": "01:37:08.229",
+      "id": "seg-001076",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:37:01.029",
+      "text": "people's emotions and so that dimension of social variability maps onto one of the facets"
+    },
+    {
+      "end_hms": "01:37:14.289",
+      "id": "seg-001077",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:37:08.229",
+      "text": "of autism spectrum disorder and so that's why we've looked at both people who do not have any"
+    },
+    {
+      "end_hms": "01:37:20.310",
+      "id": "seg-001078",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:37:14.289",
+      "text": "diagnosis of autism there's still there's a range of artistic like traits that you can quantify"
+    },
+    {
+      "end_hms": "01:37:25.609",
+      "id": "seg-001079",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:37:20.310",
+      "text": "with questionnaires that are well regarded and then once you get to a DSM 5 diagnosis you have"
+    },
+    {
+      "end_hms": "01:37:31.310",
+      "id": "seg-001080",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:37:25.609",
+      "text": "more and more severe cases of autism with respect to social functioning that again you can quantify"
+    },
+    {
+      "end_hms": "01:37:36.329",
+      "id": "seg-001081",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:37:31.310",
+      "text": "using tools like the Ados etc but it's a spectrum that I personally look at as a particularly"
+    },
+    {
+      "end_hms": "01:37:41.170",
+      "id": "seg-001082",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:37:36.329",
+      "text": "interesting and important dimension of individual differences in social interactions with other people"
+    },
+    {
+      "end_hms": "01:37:46.050",
+      "id": "seg-001083",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:37:41.170",
+      "text": "in my lab that have different motivations they have family members with autism for instance so they're"
+    },
+    {
+      "end_hms": "01:37:54.380",
+      "id": "seg-001084",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:37:46.050",
+      "text": "personally interested in autism as a psychiatric category but coming to your question there's a lot"
+    },
+    {
+      "end_hms": "01:37:59.340",
+      "id": "seg-001085",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:37:54.380",
+      "text": "of really interesting work and a lot of opportunities now that we've been actually using in our lab"
+    },
+    {
+      "end_hms": "01:38:06.199",
+      "id": "seg-001086",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:37:59.340",
+      "text": "as well to look at the question of processing about faces eye contact etc and right now how much"
+    },
+    {
+      "end_hms": "01:38:12.060",
+      "id": "seg-001087",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:38:06.199",
+      "text": "eye contact are you making with me how much eye contact my making with you it is extremely variable"
+    },
+    {
+      "end_hms": "01:38:18.159",
+      "id": "seg-001088",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:38:12.060",
+      "text": "I mean the eyes move around they carry a lot of information you know socially there's a gigantic"
+    },
+    {
+      "end_hms": "01:38:25.000",
+      "id": "seg-001089",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:38:18.159",
+      "text": "range there it's data that are now fairly easy to quantify and collect in hundreds or thousands"
+    },
+    {
+      "end_hms": "01:38:30.520",
+      "id": "seg-001090",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:38:25.000",
+      "text": "of people using their webcams and so we have a study going on where people watch for example the"
+    },
+    {
+      "end_hms": "01:38:38.760",
+      "id": "seg-001091",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:38:30.520",
+      "text": "zoom video other people interacting talking and we use the webcam on their laptop to record where"
+    },
+    {
+      "end_hms": "01:38:44.220",
+      "id": "seg-001092",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:38:38.760",
+      "text": "they are looking on the screen when they have that zoom video going on so we can quantify a lot"
+    },
+    {
+      "end_hms": "01:38:50.140",
+      "id": "seg-001093",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:38:44.220",
+      "text": "across large numbers of people and the basic finding has been that people who are further along"
+    },
+    {
+      "end_hms": "01:38:55.960",
+      "id": "seg-001094",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:38:50.140",
+      "text": "have high risk or higher on this dimension of the autism spectrum of social interaction with just"
+    },
+    {
+      "end_hms": "01:39:03.380",
+      "id": "seg-001095",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:38:55.960",
+      "text": "questionnaire-based measures or a psychiatric diagnosis make less eye contact and as well as other"
+    },
+    {
+      "end_hms": "01:39:09.560",
+      "id": "seg-001096",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:39:03.380",
+      "text": "features so we're looking at contact with the person who's talking distraction to other things we"
+    },
+    {
+      "end_hms": "01:39:14.539",
+      "id": "seg-001097",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:39:09.560",
+      "text": "have experimental features where there's a person talking they're making eye contact there's like"
+    },
+    {
+      "end_hms": "01:39:19.340",
+      "id": "seg-001098",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:39:14.539",
+      "text": "TV or something that goes on in the background and we can quantify to what extent is your visual"
+    },
+    {
+      "end_hms": "01:39:24.199",
+      "id": "seg-001099",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:39:19.340",
+      "text": "attention your gaze that we can quantify from the webcam captured by somebody looking somebody"
+    },
+    {
+      "end_hms": "01:39:30.100",
+      "id": "seg-001100",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:39:24.199",
+      "text": "talking somebody smiling or laughing the TV going on in the background as a distractor and we"
+    },
+    {
+      "end_hms": "01:39:35.939",
+      "id": "seg-001101",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:39:30.100",
+      "text": "can put all of that into a big model and ask what is it that normally drives visual attention and"
+    },
+    {
+      "end_hms": "01:39:41.479",
+      "id": "seg-001102",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:39:35.939",
+      "text": "what is it that distinguishes people with autism and where they would look and the basic answer"
+    },
+    {
+      "end_hms": "01:39:49.539",
+      "id": "seg-001103",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:39:42.060",
+      "text": "is that the social features like eyes or who's talking have less of a weight on where artistic"
+    },
+    {
+      "end_hms": "01:39:55.680",
+      "id": "seg-001104",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:39:49.539",
+      "text": "people would look than the distractors but they tend to be more distracted and that that is we've"
+    },
+    {
+      "end_hms": "01:40:01.539",
+      "id": "seg-001105",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:39:55.680",
+      "text": "been doing the study every month now for a year that seems to be a temporarily stable personality"
+    },
+    {
+      "end_hms": "01:40:06.920",
+      "id": "seg-001106",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:40:01.539",
+      "text": "traits like feature of autism spectrum disorder so it fluctuates to some extent and we're trying"
+    },
+    {
+      "end_hms": "01:40:12.060",
+      "id": "seg-001107",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:40:06.920",
+      "text": "to quantify does it interact with whether you've slept badly the night before or you're stressed"
+    },
+    {
+      "end_hms": "01:40:17.960",
+      "id": "seg-001108",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:40:12.060",
+      "text": "or other things that can change goes do have an effect but the answer seems to be it's fairly"
+    },
+    {
+      "end_hms": "01:40:23.180",
+      "id": "seg-001109",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:40:17.960",
+      "text": "temporarily stable and it's almost like a signature for individuals so there's some people"
+    },
+    {
+      "end_hms": "01:40:28.079",
+      "id": "seg-001110",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:40:23.180",
+      "text": "that are real face lookers and they look at faces a lot and there's some people that look at faces"
+    },
+    {
+      "end_hms": "01:40:34.680",
+      "id": "seg-001111",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:40:28.079",
+      "text": "hardly at all and that seems to be stable across time and like a basic personality trait in this"
+    },
+    {
+      "end_hms": "01:40:39.859",
+      "id": "seg-001112",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:40:35.199",
+      "text": "population of people diagnosed with autism for everybody I see if I just take the general"
+    },
+    {
+      "end_hms": "01:40:45.000",
+      "id": "seg-001113",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:40:39.859",
+      "text": "population on average it's the case that those people who would have a diagnosis of autism or who"
+    },
+    {
+      "end_hms": "01:40:51.079",
+      "id": "seg-001114",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:40:45.000",
+      "text": "score higher on artistic traits even if they don't have a diagnosis look less at faces but across"
+    },
+    {
+      "end_hms": "01:40:55.800",
+      "id": "seg-001115",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:40:51.079",
+      "text": "everybody it's the case that some people look a lot at faces some people don't and that that's"
+    },
+    {
+      "end_hms": "01:41:00.880",
+      "id": "seg-001116",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:40:55.800",
+      "text": "temporarily stable so in general right now if you quantify it from this podcast how often do I"
+    },
+    {
+      "end_hms": "01:41:05.840",
+      "id": "seg-001117",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:41:00.880",
+      "text": "make eye contact or look at you and then you ask you know like in a classroom or in the lab"
+    },
+    {
+      "end_hms": "01:41:10.819",
+      "id": "seg-001118",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:41:05.840",
+      "text": "meeting how often do I make eye contact it would be similar proportion that I'm just like not a"
+    },
+    {
+      "end_hms": "01:41:16.960",
+      "id": "seg-001119",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:41:10.819",
+      "text": "face looker or eye looker and you might be it's like a stable personality trait and it's associated"
+    },
+    {
+      "end_hms": "01:41:22.600",
+      "id": "seg-001120",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:41:16.960",
+      "text": "coarsely with this dimension in autism spectrum disorder but of course the million dollar question"
+    },
+    {
+      "end_hms": "01:41:29.979",
+      "id": "seg-001121",
+      "role": "context_only",
+      "speaker": null,
+      "start_hms": "01:41:23.279",
+      "text": "what else is it associated with is it predictive of career success is it predictive of anything else"
+    }
+  ],
+  "source_sha256": "3e46962b9a0be33deecf1612ca70d8c2ceb1405ce67075ce22c6123d8e972c9d",
+  "window_id": "window-0018"
+}

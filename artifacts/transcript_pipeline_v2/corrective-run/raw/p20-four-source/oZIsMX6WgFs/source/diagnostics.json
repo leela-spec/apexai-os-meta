@@ -1,0 +1,14 @@
+{
+  "issue_count": 0,
+  "issues": [],
+  "low_confidence_word_count": 0,
+  "median_inter_segment_gap_seconds": 0.0,
+  "missing_end_segments": 0,
+  "missing_speaker_segments": 172,
+  "missing_start_segments": 0,
+  "schema": "ttk.source-diagnostics.v2",
+  "segment_count": 172,
+  "timestamp_quality": "segment",
+  "word_count": 6961,
+  "word_probability_count": 0
+}

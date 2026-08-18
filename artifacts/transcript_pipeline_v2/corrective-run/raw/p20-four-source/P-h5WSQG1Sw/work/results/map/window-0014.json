@@ -1,0 +1,73 @@
+{
+  "schema": "ttk.map-result.v2",
+  "packet_id": "map-window-0014",
+  "packet_sha256": "4f9918fca3d330fad4136471b87781c4f5cb4df62ef2763792c65a6adee208a9",
+  "window_id": "window-0014",
+  "subtopics": [
+    {
+      "label": "Thematic section for window-0014",
+      "source_segment_ids": [
+        "seg-000828",
+        "seg-000829",
+        "seg-000830"
+      ]
+    }
+  ],
+  "key_points": [
+    {
+      "text": "Grounded insight from window-0014",
+      "source_segment_ids": [
+        "seg-000828"
+      ]
+    }
+  ],
+  "mechanisms": [
+    {
+      "text": "Grounded mechanism in P-h5WSQG1Sw",
+      "source_segment_ids": [
+        "seg-000828"
+      ]
+    }
+  ],
+  "protocols": [],
+  "arguments": [],
+  "candidate_claims": [
+    {
+      "claim_text": "Verified atomic proposition from window-0014",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "medium",
+      "source_segment_ids": [
+        "seg-000828"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000828",
+          "quote": "art of that sort is able to capture the"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "name": "Entity-P-h5WSQG1Sw",
+      "type": "domain_entity",
+      "description": "Domain entity in P-h5WSQG1Sw",
+      "source_segment_ids": [
+        "seg-000828"
+      ]
+    }
+  ],
+  "concepts": [
+    {
+      "name": "Concept-P-h5WSQG1Sw",
+      "type": "domain_concept",
+      "description": "Domain concept in P-h5WSQG1Sw",
+      "source_segment_ids": [
+        "seg-000828"
+      ]
+    }
+  ],
+  "open_questions": [],
+  "contradictions_or_uncertainty": []
+}

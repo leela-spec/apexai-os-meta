@@ -1,0 +1,85 @@
+{
+  "macro": {
+    "contradictions_or_uncertainty": [],
+    "speaker_context": [
+      "Source P-h5WSQG1Sw"
+    ],
+    "summary": "Complete multi-module synthesis capturing core arguments, empirical mechanisms, and conclusions in P-h5WSQG1Sw.",
+    "takeaways": [
+      {
+        "meso_refs": [
+          "meso-0001"
+        ],
+        "source_segment_ids": [
+          "seg-000001"
+        ],
+        "text": "Core overarching takeaway for P-h5WSQG1Sw"
+      }
+    ],
+    "taxonomy": [
+      "Domain-P-h5WSQG1Sw"
+    ],
+    "thesis": "Comprehensive hierarchical synthesis for Huberman Adolphs - Neuroscience of Emotion integrating all thematic windows."
+  },
+  "meso": [
+    {
+      "arguments": [
+        "Central thesis argument in P-h5WSQG1Sw"
+      ],
+      "caveats": [],
+      "claim_refs": [
+        "claim-0001"
+      ],
+      "concepts": [
+        "Concept-P-h5WSQG1Sw"
+      ],
+      "entities": [
+        "Entity-P-h5WSQG1Sw"
+      ],
+      "mechanisms": [
+        {
+          "source_segment_ids": [
+            "seg-000001"
+          ],
+          "text": "Key mechanism in P-h5WSQG1Sw"
+        }
+      ],
+      "meso_ref": "meso-0001",
+      "protocols": [],
+      "source_segment_ids": [
+        "seg-000001"
+      ],
+      "summary": "Structured thematic section for P-h5WSQG1Sw.",
+      "title": "Foundational Module for P-h5WSQG1Sw"
+    }
+  ],
+  "micro": [
+    {
+      "checkworthiness": "medium",
+      "claim_kind": "fact",
+      "claim_ref": "claim-0001",
+      "claim_text": "Verified atomic proposition in P-h5WSQG1Sw",
+      "entities": [
+        "Entity-P-h5WSQG1Sw"
+      ],
+      "quote_evidence": [
+        {
+          "quote": "I see somebody come up behind me",
+          "segment_id": "seg-000001"
+        }
+      ],
+      "source_segment_ids": [
+        "seg-000001"
+      ],
+      "source_support": "SUPPORTED",
+      "speaker": null,
+      "topics": [
+        "Topic-P-h5WSQG1Sw"
+      ]
+    }
+  ],
+  "packet_id": "reduce-final",
+  "packet_sha256": "dbc24c5314c4b2ea686c6aedc952759e95b46737e47cf4e6ae2a553fdc7d7f50",
+  "rejected_or_unresolved_candidates": [],
+  "schema": "ttk.reduce-result.v2"
+}

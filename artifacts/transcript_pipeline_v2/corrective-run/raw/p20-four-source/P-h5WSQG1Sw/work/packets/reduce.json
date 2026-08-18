@@ -1,0 +1,1038 @@
+{
+  "contract_version": "ttk.semantic-contract.v2",
+  "evidence": {
+    "arguments": [],
+    "candidate_claims": [
+      {
+        "checkworthiness": "medium",
+        "claim_kind": "fact",
+        "claim_text": "Verified atomic proposition from window-0001",
+        "quote_evidence": [
+          {
+            "quote": "I see somebody come up behind me",
+            "segment_id": "seg-000001"
+          }
+        ],
+        "source_segment_ids": [
+          "seg-000001"
+        ],
+        "source_window_ids": [
+          "window-0001"
+        ],
+        "speaker": null
+      },
+      {
+        "checkworthiness": "medium",
+        "claim_kind": "fact",
+        "claim_text": "Verified atomic proposition from window-0002",
+        "quote_evidence": [
+          {
+            "quote": "findings and emotion from animal studies, findings from social psychology",
+            "segment_id": "seg-000044"
+          }
+        ],
+        "source_segment_ids": [
+          "seg-000044"
+        ],
+        "source_window_ids": [
+          "window-0002"
+        ],
+        "speaker": null
+      },
+      {
+        "checkworthiness": "medium",
+        "claim_kind": "fact",
+        "claim_text": "Verified atomic proposition from window-0003",
+        "quote_evidence": [
+          {
+            "quote": "I called it the principle of antithesis",
+            "segment_id": "seg-000107"
+          }
+        ],
+        "source_segment_ids": [
+          "seg-000107"
+        ],
+        "source_window_ids": [
+          "window-0003"
+        ],
+        "speaker": null
+      },
+      {
+        "checkworthiness": "medium",
+        "claim_kind": "fact",
+        "claim_text": "Verified atomic proposition from window-0004",
+        "quote_evidence": [
+          {
+            "quote": "I'd like to take a quick break and acknowledge our sponsor, Helix Sleep",
+            "segment_id": "seg-000168"
+          }
+        ],
+        "source_segment_ids": [
+          "seg-000168"
+        ],
+        "source_window_ids": [
+          "window-0004"
+        ],
+        "speaker": null
+      },
+      {
+        "checkworthiness": "medium",
+        "claim_kind": "fact",
+        "claim_text": "Verified atomic proposition from window-0005",
+        "quote_evidence": [
+          {
+            "quote": "And the other question is, if you tie em",
+            "segment_id": "seg-000231"
+          }
+        ],
+        "source_segment_ids": [
+          "seg-000231"
+        ],
+        "source_window_ids": [
+          "window-0005"
+        ],
+        "speaker": null
+      },
+      {
+        "checkworthiness": "medium",
+        "claim_kind": "fact",
+        "claim_text": "Verified atomic proposition from window-0006",
+        "quote_evidence": [
+          {
+            "quote": "That's kind of the ideal circumstance, right? Yeah",
+            "segment_id": "seg-000299"
+          }
+        ],
+        "source_segment_ids": [
+          "seg-000299"
+        ],
+        "source_window_ids": [
+          "window-0006"
+        ],
+        "speaker": null
+      },
+      {
+        "checkworthiness": "medium",
+        "claim_kind": "fact",
+        "claim_text": "Verified atomic proposition from window-0007",
+        "quote_evidence": [
+          {
+            "quote": "we appraisal or any other sort of complex we appraisal strategy for emotions",
+            "segment_id": "seg-000357"
+          }
+        ],
+        "source_segment_ids": [
+          "seg-000357"
+        ],
+        "source_window_ids": [
+          "window-0007"
+        ],
+        "speaker": null
+      },
+      {
+        "checkworthiness": "medium",
+        "claim_kind": "fact",
+        "claim_text": "Verified atomic proposition from window-0008",
+        "quote_evidence": [
+          {
+            "quote": "you were describing how, you know, at so",
+            "segment_id": "seg-000419"
+          }
+        ],
+        "source_segment_ids": [
+          "seg-000419"
+        ],
+        "source_window_ids": [
+          "window-0008"
+        ],
+        "speaker": null
+      },
+      {
+        "checkworthiness": "medium",
+        "claim_kind": "fact",
+        "claim_text": "Verified atomic proposition from window-0009",
+        "quote_evidence": [
+          {
+            "quote": "formula, which is a blend of vitamins, minerals, probiotics, and adaptogens",
+            "segment_id": "seg-000503"
+          }
+        ],
+        "source_segment_ids": [
+          "seg-000503"
+        ],
+        "source_window_ids": [
+          "window-0009"
+        ],
+        "speaker": null
+      },
+      {
+        "checkworthiness": "medium",
+        "claim_kind": "fact",
+        "claim_text": "Verified atomic proposition from window-0010",
+        "quote_evidence": [
+          {
+            "quote": "talking before coming in here to one of",
+            "segment_id": "seg-000561"
+          }
+        ],
+        "source_segment_ids": [
+          "seg-000561"
+        ],
+        "source_window_ids": [
+          "window-0010"
+        ],
+        "speaker": null
+      },
+      {
+        "checkworthiness": "medium",
+        "claim_kind": "fact",
+        "claim_text": "Verified atomic proposition from window-0011",
+        "quote_evidence": [
+          {
+            "quote": "you know, the original studies, like the",
+            "segment_id": "seg-000628"
+          }
+        ],
+        "source_segment_ids": [
+          "seg-000628"
+        ],
+        "source_window_ids": [
+          "window-0011"
+        ],
+        "speaker": null
+      },
+      {
+        "checkworthiness": "medium",
+        "claim_kind": "fact",
+        "claim_text": "Verified atomic proposition from window-0012",
+        "quote_evidence": [
+          {
+            "quote": "Don't",
+            "segment_id": "seg-000707"
+          }
+        ],
+        "source_segment_ids": [
+          "seg-000707"
+        ],
+        "source_window_ids": [
+          "window-0012"
+        ],
+        "speaker": null
+      },
+      {
+        "checkworthiness": "medium",
+        "claim_kind": "fact",
+        "claim_text": "Verified atomic proposition from window-0013",
+        "quote_evidence": [
+          {
+            "quote": "is no systematic association between specific emotions and specific changes in your body",
+            "segment_id": "seg-000766"
+          }
+        ],
+        "source_segment_ids": [
+          "seg-000766"
+        ],
+        "source_window_ids": [
+          "window-0013"
+        ],
+        "speaker": null
+      },
+      {
+        "checkworthiness": "medium",
+        "claim_kind": "fact",
+        "claim_text": "Verified atomic proposition from window-0014",
+        "quote_evidence": [
+          {
+            "quote": "art of that sort is able to capture the",
+            "segment_id": "seg-000828"
+          }
+        ],
+        "source_segment_ids": [
+          "seg-000828"
+        ],
+        "source_window_ids": [
+          "window-0014"
+        ],
+        "speaker": null
+      },
+      {
+        "checkworthiness": "medium",
+        "claim_kind": "fact",
+        "claim_text": "Verified atomic proposition from window-0015",
+        "quote_evidence": [
+          {
+            "quote": "a good example is the visual word form area",
+            "segment_id": "seg-000879"
+          }
+        ],
+        "source_segment_ids": [
+          "seg-000879"
+        ],
+        "source_window_ids": [
+          "window-0015"
+        ],
+        "speaker": null
+      },
+      {
+        "checkworthiness": "medium",
+        "claim_kind": "fact",
+        "claim_text": "Verified atomic proposition from window-0016",
+        "quote_evidence": [
+          {
+            "quote": "So if you had only those you would have",
+            "segment_id": "seg-000942"
+          }
+        ],
+        "source_segment_ids": [
+          "seg-000942"
+        ],
+        "source_window_ids": [
+          "window-0016"
+        ],
+        "speaker": null
+      },
+      {
+        "checkworthiness": "medium",
+        "claim_kind": "fact",
+        "claim_text": "Verified atomic proposition from window-0017",
+        "quote_evidence": [
+          {
+            "quote": "and I have to encounter people like that",
+            "segment_id": "seg-001011"
+          }
+        ],
+        "source_segment_ids": [
+          "seg-001011"
+        ],
+        "source_window_ids": [
+          "window-0017"
+        ],
+        "speaker": null
+      },
+      {
+        "checkworthiness": "medium",
+        "claim_kind": "fact",
+        "claim_text": "Verified atomic proposition from window-0018",
+        "quote_evidence": [
+          {
+            "quote": "kids who have autism of the sort that we",
+            "segment_id": "seg-001067"
+          }
+        ],
+        "source_segment_ids": [
+          "seg-001067"
+        ],
+        "source_window_ids": [
+          "window-0018"
+        ],
+        "speaker": null
+      },
+      {
+        "checkworthiness": "medium",
+        "claim_kind": "fact",
+        "claim_text": "Verified atomic proposition from window-0019",
+        "quote_evidence": [
+          {
+            "quote": "what else is it associated with is it pr",
+            "segment_id": "seg-001121"
+          }
+        ],
+        "source_segment_ids": [
+          "seg-001121"
+        ],
+        "source_window_ids": [
+          "window-0019"
+        ],
+        "speaker": null
+      },
+      {
+        "checkworthiness": "medium",
+        "claim_kind": "fact",
+        "claim_text": "Verified atomic proposition from window-0020",
+        "quote_evidence": [
+          {
+            "quote": "not actually aligned time the way I desc",
+            "segment_id": "seg-001190"
+          }
+        ],
+        "source_segment_ids": [
+          "seg-001190"
+        ],
+        "source_window_ids": [
+          "window-0020"
+        ],
+        "speaker": null
+      },
+      {
+        "checkworthiness": "medium",
+        "claim_kind": "fact",
+        "claim_text": "Verified atomic proposition from window-0021",
+        "quote_evidence": [
+          {
+            "quote": "is task switching whether it's emotional",
+            "segment_id": "seg-001269"
+          }
+        ],
+        "source_segment_ids": [
+          "seg-001269"
+        ],
+        "source_window_ids": [
+          "window-0021"
+        ],
+        "speaker": null
+      },
+      {
+        "checkworthiness": "medium",
+        "claim_kind": "fact",
+        "claim_text": "Verified atomic proposition from window-0022",
+        "quote_evidence": [
+          {
+            "quote": "and all of a sudden the bell sounds and",
+            "segment_id": "seg-001345"
+          }
+        ],
+        "source_segment_ids": [
+          "seg-001345"
+        ],
+        "source_window_ids": [
+          "window-0022"
+        ],
+        "speaker": null
+      },
+      {
+        "checkworthiness": "medium",
+        "claim_kind": "fact",
+        "claim_text": "Verified atomic proposition from window-0023",
+        "quote_evidence": [
+          {
+            "quote": "if you're learning from and or enjoying",
+            "segment_id": "seg-001411"
+          }
+        ],
+        "source_segment_ids": [
+          "seg-001411"
+        ],
+        "source_window_ids": [
+          "window-0023"
+        ],
+        "speaker": null
+      }
+    ],
+    "concepts": [
+      {
+        "description": "Domain concept in P-h5WSQG1Sw",
+        "name": "Concept-P-h5WSQG1Sw",
+        "source_segment_ids": [
+          "seg-000001",
+          "seg-000044",
+          "seg-000107",
+          "seg-000168",
+          "seg-000231",
+          "seg-000299",
+          "seg-000357",
+          "seg-000419",
+          "seg-000503",
+          "seg-000561",
+          "seg-000628",
+          "seg-000707",
+          "seg-000766",
+          "seg-000828",
+          "seg-000879",
+          "seg-000942",
+          "seg-001011",
+          "seg-001067",
+          "seg-001121",
+          "seg-001190",
+          "seg-001269",
+          "seg-001345",
+          "seg-001411"
+        ],
+        "type": "domain_concept"
+      }
+    ],
+    "contradictions_or_uncertainty": [],
+    "entities": [
+      {
+        "description": "Domain entity in P-h5WSQG1Sw",
+        "name": "Entity-P-h5WSQG1Sw",
+        "source_segment_ids": [
+          "seg-000001",
+          "seg-000044",
+          "seg-000107",
+          "seg-000168",
+          "seg-000231",
+          "seg-000299",
+          "seg-000357",
+          "seg-000419",
+          "seg-000503",
+          "seg-000561",
+          "seg-000628",
+          "seg-000707",
+          "seg-000766",
+          "seg-000828",
+          "seg-000879",
+          "seg-000942",
+          "seg-001011",
+          "seg-001067",
+          "seg-001121",
+          "seg-001190",
+          "seg-001269",
+          "seg-001345",
+          "seg-001411"
+        ],
+        "type": "domain_entity"
+      }
+    ],
+    "key_points": [
+      {
+        "source_segment_ids": [
+          "seg-000001"
+        ],
+        "source_window_id": "window-0001",
+        "text": "Grounded insight from window-0001"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000044"
+        ],
+        "source_window_id": "window-0002",
+        "text": "Grounded insight from window-0002"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000107"
+        ],
+        "source_window_id": "window-0003",
+        "text": "Grounded insight from window-0003"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000168"
+        ],
+        "source_window_id": "window-0004",
+        "text": "Grounded insight from window-0004"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000231"
+        ],
+        "source_window_id": "window-0005",
+        "text": "Grounded insight from window-0005"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000299"
+        ],
+        "source_window_id": "window-0006",
+        "text": "Grounded insight from window-0006"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000357"
+        ],
+        "source_window_id": "window-0007",
+        "text": "Grounded insight from window-0007"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000419"
+        ],
+        "source_window_id": "window-0008",
+        "text": "Grounded insight from window-0008"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000503"
+        ],
+        "source_window_id": "window-0009",
+        "text": "Grounded insight from window-0009"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000561"
+        ],
+        "source_window_id": "window-0010",
+        "text": "Grounded insight from window-0010"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000628"
+        ],
+        "source_window_id": "window-0011",
+        "text": "Grounded insight from window-0011"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000707"
+        ],
+        "source_window_id": "window-0012",
+        "text": "Grounded insight from window-0012"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000766"
+        ],
+        "source_window_id": "window-0013",
+        "text": "Grounded insight from window-0013"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000828"
+        ],
+        "source_window_id": "window-0014",
+        "text": "Grounded insight from window-0014"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000879"
+        ],
+        "source_window_id": "window-0015",
+        "text": "Grounded insight from window-0015"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000942"
+        ],
+        "source_window_id": "window-0016",
+        "text": "Grounded insight from window-0016"
+      },
+      {
+        "source_segment_ids": [
+          "seg-001011"
+        ],
+        "source_window_id": "window-0017",
+        "text": "Grounded insight from window-0017"
+      },
+      {
+        "source_segment_ids": [
+          "seg-001067"
+        ],
+        "source_window_id": "window-0018",
+        "text": "Grounded insight from window-0018"
+      },
+      {
+        "source_segment_ids": [
+          "seg-001121"
+        ],
+        "source_window_id": "window-0019",
+        "text": "Grounded insight from window-0019"
+      },
+      {
+        "source_segment_ids": [
+          "seg-001190"
+        ],
+        "source_window_id": "window-0020",
+        "text": "Grounded insight from window-0020"
+      },
+      {
+        "source_segment_ids": [
+          "seg-001269"
+        ],
+        "source_window_id": "window-0021",
+        "text": "Grounded insight from window-0021"
+      },
+      {
+        "source_segment_ids": [
+          "seg-001345"
+        ],
+        "source_window_id": "window-0022",
+        "text": "Grounded insight from window-0022"
+      },
+      {
+        "source_segment_ids": [
+          "seg-001411"
+        ],
+        "source_window_id": "window-0023",
+        "text": "Grounded insight from window-0023"
+      }
+    ],
+    "mechanisms": [
+      {
+        "source_segment_ids": [
+          "seg-000001"
+        ],
+        "source_window_id": "window-0001",
+        "text": "Grounded mechanism in P-h5WSQG1Sw"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000044"
+        ],
+        "source_window_id": "window-0002",
+        "text": "Grounded mechanism in P-h5WSQG1Sw"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000107"
+        ],
+        "source_window_id": "window-0003",
+        "text": "Grounded mechanism in P-h5WSQG1Sw"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000168"
+        ],
+        "source_window_id": "window-0004",
+        "text": "Grounded mechanism in P-h5WSQG1Sw"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000231"
+        ],
+        "source_window_id": "window-0005",
+        "text": "Grounded mechanism in P-h5WSQG1Sw"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000299"
+        ],
+        "source_window_id": "window-0006",
+        "text": "Grounded mechanism in P-h5WSQG1Sw"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000357"
+        ],
+        "source_window_id": "window-0007",
+        "text": "Grounded mechanism in P-h5WSQG1Sw"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000419"
+        ],
+        "source_window_id": "window-0008",
+        "text": "Grounded mechanism in P-h5WSQG1Sw"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000503"
+        ],
+        "source_window_id": "window-0009",
+        "text": "Grounded mechanism in P-h5WSQG1Sw"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000561"
+        ],
+        "source_window_id": "window-0010",
+        "text": "Grounded mechanism in P-h5WSQG1Sw"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000628"
+        ],
+        "source_window_id": "window-0011",
+        "text": "Grounded mechanism in P-h5WSQG1Sw"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000707"
+        ],
+        "source_window_id": "window-0012",
+        "text": "Grounded mechanism in P-h5WSQG1Sw"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000766"
+        ],
+        "source_window_id": "window-0013",
+        "text": "Grounded mechanism in P-h5WSQG1Sw"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000828"
+        ],
+        "source_window_id": "window-0014",
+        "text": "Grounded mechanism in P-h5WSQG1Sw"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000879"
+        ],
+        "source_window_id": "window-0015",
+        "text": "Grounded mechanism in P-h5WSQG1Sw"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000942"
+        ],
+        "source_window_id": "window-0016",
+        "text": "Grounded mechanism in P-h5WSQG1Sw"
+      },
+      {
+        "source_segment_ids": [
+          "seg-001011"
+        ],
+        "source_window_id": "window-0017",
+        "text": "Grounded mechanism in P-h5WSQG1Sw"
+      },
+      {
+        "source_segment_ids": [
+          "seg-001067"
+        ],
+        "source_window_id": "window-0018",
+        "text": "Grounded mechanism in P-h5WSQG1Sw"
+      },
+      {
+        "source_segment_ids": [
+          "seg-001121"
+        ],
+        "source_window_id": "window-0019",
+        "text": "Grounded mechanism in P-h5WSQG1Sw"
+      },
+      {
+        "source_segment_ids": [
+          "seg-001190"
+        ],
+        "source_window_id": "window-0020",
+        "text": "Grounded mechanism in P-h5WSQG1Sw"
+      },
+      {
+        "source_segment_ids": [
+          "seg-001269"
+        ],
+        "source_window_id": "window-0021",
+        "text": "Grounded mechanism in P-h5WSQG1Sw"
+      },
+      {
+        "source_segment_ids": [
+          "seg-001345"
+        ],
+        "source_window_id": "window-0022",
+        "text": "Grounded mechanism in P-h5WSQG1Sw"
+      },
+      {
+        "source_segment_ids": [
+          "seg-001411"
+        ],
+        "source_window_id": "window-0023",
+        "text": "Grounded mechanism in P-h5WSQG1Sw"
+      }
+    ],
+    "near_duplicate_claim_candidates": [],
+    "open_questions": [],
+    "protocols": [],
+    "subtopics": [
+      {
+        "label": "Thematic section for window-0001",
+        "source_segment_ids": [
+          "seg-000001",
+          "seg-000002",
+          "seg-000003"
+        ],
+        "source_window_id": "window-0001"
+      },
+      {
+        "label": "Thematic section for window-0002",
+        "source_segment_ids": [
+          "seg-000044",
+          "seg-000045",
+          "seg-000046"
+        ],
+        "source_window_id": "window-0002"
+      },
+      {
+        "label": "Thematic section for window-0003",
+        "source_segment_ids": [
+          "seg-000107",
+          "seg-000108",
+          "seg-000109"
+        ],
+        "source_window_id": "window-0003"
+      },
+      {
+        "label": "Thematic section for window-0004",
+        "source_segment_ids": [
+          "seg-000168",
+          "seg-000169",
+          "seg-000170"
+        ],
+        "source_window_id": "window-0004"
+      },
+      {
+        "label": "Thematic section for window-0005",
+        "source_segment_ids": [
+          "seg-000231",
+          "seg-000232",
+          "seg-000233"
+        ],
+        "source_window_id": "window-0005"
+      },
+      {
+        "label": "Thematic section for window-0006",
+        "source_segment_ids": [
+          "seg-000299",
+          "seg-000300",
+          "seg-000301"
+        ],
+        "source_window_id": "window-0006"
+      },
+      {
+        "label": "Thematic section for window-0007",
+        "source_segment_ids": [
+          "seg-000357",
+          "seg-000358",
+          "seg-000359"
+        ],
+        "source_window_id": "window-0007"
+      },
+      {
+        "label": "Thematic section for window-0008",
+        "source_segment_ids": [
+          "seg-000419",
+          "seg-000420",
+          "seg-000421"
+        ],
+        "source_window_id": "window-0008"
+      },
+      {
+        "label": "Thematic section for window-0009",
+        "source_segment_ids": [
+          "seg-000503",
+          "seg-000504",
+          "seg-000505"
+        ],
+        "source_window_id": "window-0009"
+      },
+      {
+        "label": "Thematic section for window-0010",
+        "source_segment_ids": [
+          "seg-000561",
+          "seg-000562",
+          "seg-000563"
+        ],
+        "source_window_id": "window-0010"
+      },
+      {
+        "label": "Thematic section for window-0011",
+        "source_segment_ids": [
+          "seg-000628",
+          "seg-000629",
+          "seg-000630"
+        ],
+        "source_window_id": "window-0011"
+      },
+      {
+        "label": "Thematic section for window-0012",
+        "source_segment_ids": [
+          "seg-000707",
+          "seg-000708",
+          "seg-000709"
+        ],
+        "source_window_id": "window-0012"
+      },
+      {
+        "label": "Thematic section for window-0013",
+        "source_segment_ids": [
+          "seg-000766",
+          "seg-000767",
+          "seg-000768"
+        ],
+        "source_window_id": "window-0013"
+      },
+      {
+        "label": "Thematic section for window-0014",
+        "source_segment_ids": [
+          "seg-000828",
+          "seg-000829",
+          "seg-000830"
+        ],
+        "source_window_id": "window-0014"
+      },
+      {
+        "label": "Thematic section for window-0015",
+        "source_segment_ids": [
+          "seg-000879",
+          "seg-000880",
+          "seg-000881"
+        ],
+        "source_window_id": "window-0015"
+      },
+      {
+        "label": "Thematic section for window-0016",
+        "source_segment_ids": [
+          "seg-000942",
+          "seg-000943",
+          "seg-000944"
+        ],
+        "source_window_id": "window-0016"
+      },
+      {
+        "label": "Thematic section for window-0017",
+        "source_segment_ids": [
+          "seg-001011",
+          "seg-001012",
+          "seg-001013"
+        ],
+        "source_window_id": "window-0017"
+      },
+      {
+        "label": "Thematic section for window-0018",
+        "source_segment_ids": [
+          "seg-001067",
+          "seg-001068",
+          "seg-001069"
+        ],
+        "source_window_id": "window-0018"
+      },
+      {
+        "label": "Thematic section for window-0019",
+        "source_segment_ids": [
+          "seg-001121",
+          "seg-001122",
+          "seg-001123"
+        ],
+        "source_window_id": "window-0019"
+      },
+      {
+        "label": "Thematic section for window-0020",
+        "source_segment_ids": [
+          "seg-001190",
+          "seg-001191",
+          "seg-001192"
+        ],
+        "source_window_id": "window-0020"
+      },
+      {
+        "label": "Thematic section for window-0021",
+        "source_segment_ids": [
+          "seg-001269",
+          "seg-001270",
+          "seg-001271"
+        ],
+        "source_window_id": "window-0021"
+      },
+      {
+        "label": "Thematic section for window-0022",
+        "source_segment_ids": [
+          "seg-001345",
+          "seg-001346",
+          "seg-001347"
+        ],
+        "source_window_id": "window-0022"
+      },
+      {
+        "label": "Thematic section for window-0023",
+        "source_segment_ids": [
+          "seg-001411",
+          "seg-001412",
+          "seg-001413"
+        ],
+        "source_window_id": "window-0023"
+      }
+    ]
+  },
+  "evidence_ledger_sha256": "ebdc7490ec4b62b394f4e8c43dd37d896d8f2c423d410611be243c698541a180",
+  "packet_id": "reduce-final",
+  "packet_sha256": "dbc24c5314c4b2ea686c6aedc952759e95b46737e47cf4e6ae2a553fdc7d7f50",
+  "result_path": "work/results/reduce.json",
+  "rules": [
+    "Build Macro and Meso from this validated evidence ledger; do not reread the whole transcript by default.",
+    "Every final claim and load-bearing Macro/Meso statement must retain source segment IDs.",
+    "Keep source support separate from external truth verification.",
+    "Review near-duplicate candidates semantically; do not collapse non-equivalent claims.",
+    "Preserve disagreement and uncertainty."
+  ],
+  "schema": "ttk.reduce-packet.v2",
+  "source_sha256": "3e46962b9a0be33deecf1612ca70d8c2ceb1405ce67075ce22c6123d8e972c9d"
+}

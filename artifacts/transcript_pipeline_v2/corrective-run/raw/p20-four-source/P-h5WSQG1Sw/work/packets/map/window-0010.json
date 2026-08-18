@@ -1,0 +1,643 @@
+{
+  "context_only_segment_ids": [
+    "seg-000560",
+    "seg-000628"
+  ],
+  "contract_version": "ttk.semantic-contract.v2",
+  "core_segment_ids": [
+    "seg-000561",
+    "seg-000562",
+    "seg-000563",
+    "seg-000564",
+    "seg-000565",
+    "seg-000566",
+    "seg-000567",
+    "seg-000568",
+    "seg-000569",
+    "seg-000570",
+    "seg-000571",
+    "seg-000572",
+    "seg-000573",
+    "seg-000574",
+    "seg-000575",
+    "seg-000576",
+    "seg-000577",
+    "seg-000578",
+    "seg-000579",
+    "seg-000580",
+    "seg-000581",
+    "seg-000582",
+    "seg-000583",
+    "seg-000584",
+    "seg-000585",
+    "seg-000586",
+    "seg-000587",
+    "seg-000588",
+    "seg-000589",
+    "seg-000590",
+    "seg-000591",
+    "seg-000592",
+    "seg-000593",
+    "seg-000594",
+    "seg-000595",
+    "seg-000596",
+    "seg-000597",
+    "seg-000598",
+    "seg-000599",
+    "seg-000600",
+    "seg-000601",
+    "seg-000602",
+    "seg-000603",
+    "seg-000604",
+    "seg-000605",
+    "seg-000606",
+    "seg-000607",
+    "seg-000608",
+    "seg-000609",
+    "seg-000610",
+    "seg-000611",
+    "seg-000612",
+    "seg-000613",
+    "seg-000614",
+    "seg-000615",
+    "seg-000616",
+    "seg-000617",
+    "seg-000618",
+    "seg-000619",
+    "seg-000620",
+    "seg-000621",
+    "seg-000622",
+    "seg-000623",
+    "seg-000624",
+    "seg-000625",
+    "seg-000626",
+    "seg-000627"
+  ],
+  "packet_id": "map-window-0010",
+  "packet_sha256": "c353d44b8af9fde92038be67093d2693d6b970fef714652576c8f2c1c0946e4b",
+  "result_path": "work/results/map/window-0010.json",
+  "rules": [
+    "Extract evidence only from core segments; context_only segments are orientation only.",
+    "Every candidate claim requires at least one verbatim quote from its cited core segment.",
+    "Do not force content into categories; empty arrays are valid.",
+    "Separate factual assertions from opinion, prediction, recommendation, decision, anecdote, definition, mechanism, estimate, and hypothesis.",
+    "Preserve disagreement and uncertainty rather than reconciling it."
+  ],
+  "schema": "ttk.map-packet.v2",
+  "source_segments": [
+    {
+      "end_hms": "00:50:35.039",
+      "id": "seg-000560",
+      "role": "context_only",
+      "speaker": null,
+      "start_hms": "00:50:28.780",
+      "text": "emotional facial expressions for the perception of emotions in others and in animals. I was just"
+    },
+    {
+      "end_hms": "00:50:41.539",
+      "id": "seg-000561",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:50:35.039",
+      "text": "talking before coming in here to one of your colleagues about your cute dog, and they've done studies,"
+    },
+    {
+      "end_hms": "00:50:47.900",
+      "id": "seg-000562",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:50:41.539",
+      "text": "there's several studies now, where dog owners, if you ask them, can you tell if your dog feels guilty"
+    },
+    {
+      "end_hms": "00:50:52.659",
+      "id": "seg-000563",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:50:47.900",
+      "text": "when you come home? Because it did something bad. Dog owners are pretty convinced they can tell."
+    },
+    {
+      "end_hms": "00:50:57.900",
+      "id": "seg-000564",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:50:53.119",
+      "text": "Well, if you do a controlled experiment, they're a chance. They think they can tell. So our"
+    },
+    {
+      "end_hms": "00:51:03.320",
+      "id": "seg-000565",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:50:57.900",
+      "text": "conviction that we can tell something about people or animals, their emotion states just from"
+    },
+    {
+      "end_hms": "00:51:08.860",
+      "id": "seg-000566",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:51:03.320",
+      "text": "looking at the facial expressions, our conviction vastly outstrips our accuracy. We're pretty convinced"
+    },
+    {
+      "end_hms": "00:51:15.940",
+      "id": "seg-000567",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:51:08.860",
+      "text": "we can do it, but mostly not so accurate, which makes sense, because ordinarily, it's not just"
+    },
+    {
+      "end_hms": "00:51:21.179",
+      "id": "seg-000568",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:51:15.940",
+      "text": "some facial expression. If I see you now and you look sad, I wouldn't stop there, and I would say"
+    },
+    {
+      "end_hms": "00:51:26.099",
+      "id": "seg-000569",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:51:21.179",
+      "text": "Andrew Huberman is sad. I would ask you, how are you feeling? What's going on? I would probe you"
+    },
+    {
+      "end_hms": "00:51:29.800",
+      "id": "seg-000570",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:51:26.099",
+      "text": "and get a lot more information. Maybe you would say, oh no, I'm just the strength I had to"
+    },
+    {
+      "end_hms": "00:51:34.579",
+      "id": "seg-000571",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:51:29.800",
+      "text": "taste it better or something. That caused me to make a certain facial expression. So in general,"
+    },
+    {
+      "end_hms": "00:51:40.380",
+      "id": "seg-000572",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:51:35.039",
+      "text": "these artificial lab situations where all you see is a picture of a face and asked for the emotion,"
+    },
+    {
+      "end_hms": "00:51:45.480",
+      "id": "seg-000573",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:51:40.900",
+      "text": "we don't do that in the real world anyway. We would probe further, we would take into account the"
+    },
+    {
+      "end_hms": "00:51:51.019",
+      "id": "seg-000574",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:51:45.480",
+      "text": "whole circumstances, we would ask the person, and then you can disambiguate these emotions. So it's"
+    },
+    {
+      "end_hms": "00:51:56.340",
+      "id": "seg-000575",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:51:51.019",
+      "text": "not that we cannot tell what emotions people are animals feel, but we don't do so normally just"
+    },
+    {
+      "end_hms": "00:52:01.679",
+      "id": "seg-000576",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:51:56.340",
+      "text": "from a single slice, like a facial expression. I feel like at least in the context of romantic"
+    },
+    {
+      "end_hms": "00:52:08.179",
+      "id": "seg-000577",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:52:01.679",
+      "text": "partnership, so much more of our assessment of another person and their assessment of us is"
+    },
+    {
+      "end_hms": "00:52:15.260",
+      "id": "seg-000578",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:52:08.179",
+      "text": "actually a mathematical integration of noticing when frequency of speech or frequency of text"
+    },
+    {
+      "end_hms": "00:52:20.639",
+      "id": "seg-000579",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:52:15.260",
+      "text": "is heading in a negative direction relative to the mean, right? At a particular time of day,"
+    },
+    {
+      "end_hms": "00:52:24.300",
+      "id": "seg-000580",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:52:20.639",
+      "text": "and I think the brain is really good at saying like normally somebody is pretty communicative"
+    },
+    {
+      "end_hms": "00:52:28.900",
+      "id": "seg-000581",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:52:24.300",
+      "text": "in the morning, but less at night, for sake of example, but suddenly they're like a little more"
+    },
+    {
+      "end_hms": "00:52:32.820",
+      "id": "seg-000582",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:52:28.900",
+      "text": "terse with us in the morning, but maybe not even harshness. There's just fewer words exchange,"
+    },
+    {
+      "end_hms": "00:52:38.539",
+      "id": "seg-000583",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:52:33.000",
+      "text": "and then the brain doesn't think, oh, like they looked angry or they looked frustrated. You know,"
+    },
+    {
+      "end_hms": "00:52:44.159",
+      "id": "seg-000584",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:52:38.619",
+      "text": "I like they were like, it's a little quieter this morning than usual. And then it's a very quiet"
+    },
+    {
+      "end_hms": "00:52:49.119",
+      "id": "seg-000585",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:52:44.159",
+      "text": "person you have fewer data points to work from, but we become exquisitely tuned to this."
+    },
+    {
+      "end_hms": "00:52:53.800",
+      "id": "seg-000586",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:52:49.119",
+      "text": "Absolutely, much more than like, oh, they're carrying their shoulders differently. At the"
+    },
+    {
+      "end_hms": "00:52:57.239",
+      "id": "seg-000587",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:52:53.800",
+      "text": "extremes, I think we see this, somebody walks in the door and you can tell like, they're sad,"
+    },
+    {
+      "end_hms": "00:53:00.280",
+      "id": "seg-000588",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:52:57.360",
+      "text": "they're defeated. We're looking for change. You're looking for change. It's a time scene,"
+    },
+    {
+      "end_hms": "00:53:05.619",
+      "id": "seg-000589",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:53:00.519",
+      "text": "and the number of times, or even just like you probably had this experience like in an email with"
+    },
+    {
+      "end_hms": "00:53:09.579",
+      "id": "seg-000590",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:53:05.619",
+      "text": "a colleague, let's move it to a different domain. There's a certain kind of language that's used"
+    },
+    {
+      "end_hms": "00:53:13.880",
+      "id": "seg-000591",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:53:09.579",
+      "text": "in an email that's different than the usual language. Like they've never really used these words"
+    },
+    {
+      "end_hms": "00:53:18.059",
+      "id": "seg-000592",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:53:13.880",
+      "text": "before. You don't even identify which words those are. Yeah. Years ago, there was this chart"
+    },
+    {
+      "end_hms": "00:53:23.599",
+      "id": "seg-000593",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:53:18.599",
+      "text": "that some graduate student or postdoc put out that if the director of a lab signs off with"
+    },
+    {
+      "end_hms": "00:53:27.960",
+      "id": "seg-000594",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:53:23.599",
+      "text": "their name, it means one thing. If they punctuate their email, it means like, let's meet, you know,"
+    },
+    {
+      "end_hms": "00:53:31.739",
+      "id": "seg-000595",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:53:28.000",
+      "text": "like you're in trouble. You know, if there's just a dash with the first initial, you know, there's"
+    },
+    {
+      "end_hms": "00:53:36.219",
+      "id": "seg-000596",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:53:31.739",
+      "text": "all this, and you kind of, I laughed too. And then you realize, you go, wow, like they're really"
+    },
+    {
+      "end_hms": "00:53:41.179",
+      "id": "seg-000597",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:53:36.219",
+      "text": "paying attention to all these subtle cues, but those seem like the kind of cues that we rely on."
+    },
+    {
+      "end_hms": "00:53:47.860",
+      "id": "seg-000598",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:53:41.599",
+      "text": "Much more than like, do they look sad? Do they sound happy? And I think we vastly underestimate"
+    },
+    {
+      "end_hms": "00:53:50.840",
+      "id": "seg-000599",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:53:47.860",
+      "text": "this. I don't know if there are any good studies of this, but this feels like the more"
+    },
+    {
+      "end_hms": "00:53:55.199",
+      "id": "seg-000600",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:53:50.840",
+      "text": "positive in the world. Yeah, we just finished a study like this where people text it. That's all"
+    },
+    {
+      "end_hms": "00:53:59.800",
+      "id": "seg-000601",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:53:55.199",
+      "text": "they had, but it's dynamic. It's a conversation. There's like a whole transcript. And then the"
+    },
+    {
+      "end_hms": "00:54:04.179",
+      "id": "seg-000602",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:53:59.800",
+      "text": "question is, what can you tell about a person, both in terms of their stable personality and the"
+    },
+    {
+      "end_hms": "00:54:09.760",
+      "id": "seg-000603",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:54:04.179",
+      "text": "current mood, just from that text, it turns out you can tell a lot. So people did the study recently"
+    },
+    {
+      "end_hms": "00:54:16.019",
+      "id": "seg-000604",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:54:09.760",
+      "text": "where people generated, I think it's about a page or so of sort of diary type written text,"
+    },
+    {
+      "end_hms": "00:54:22.820",
+      "id": "seg-000605",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:54:16.579",
+      "text": "and asked just large language models, like GPT or Claude, to analyze that text without"
+    },
+    {
+      "end_hms": "00:54:28.659",
+      "id": "seg-000606",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:54:22.820",
+      "text": "knowing anything else and just tell me the personality profile. And it's as good as the"
+    },
+    {
+      "end_hms": "00:54:33.840",
+      "id": "seg-000607",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:54:28.659",
+      "text": "ground truth or as another person or a clinician would be as good as a clinician. It gets close"
+    },
+    {
+      "end_hms": "00:54:39.619",
+      "id": "seg-000608",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:54:33.840",
+      "text": "to the ground truth and it's as good as like a good friend or a person who knows the person."
+    },
+    {
+      "end_hms": "00:54:43.519",
+      "id": "seg-000609",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:54:39.639",
+      "text": "So if you score the big five, which is they did in that study, extraversion, conscientiousness,"
+    },
+    {
+      "end_hms": "00:54:50.440",
+      "id": "seg-000610",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:54:43.519",
+      "text": "neuroticism, et cetera, you can tell that, AI can tell that just from a transcript of text quite"
+    },
+    {
+      "end_hms": "00:54:56.739",
+      "id": "seg-000611",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:54:50.440",
+      "text": "well. So the information is there, clearly, in what we say, what we write and the order in which"
+    },
+    {
+      "end_hms": "00:55:03.280",
+      "id": "seg-000612",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:54:56.739",
+      "text": "that progresses, that tells a lot about a person enough that AI can basically diagnose your"
+    },
+    {
+      "end_hms": "00:55:11.099",
+      "id": "seg-000613",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:55:03.280",
+      "text": "personality from just text. It's almost like our brain is very tuned to when we don't get what we"
+    },
+    {
+      "end_hms": "00:55:15.320",
+      "id": "seg-000614",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:55:11.099",
+      "text": "were expecting to get in terms of the amount of interaction, like I have some people that clean"
+    },
+    {
+      "end_hms": "00:55:20.960",
+      "id": "seg-000615",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:55:15.320",
+      "text": "up the graffiti on the street where I live. And there's always an exchange of hello or like"
+    },
+    {
+      "end_hms": "00:55:26.000",
+      "id": "seg-000616",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:55:20.960",
+      "text": "hi if one of us is on a call or busy. And I can say with certainty because this happened the"
+    },
+    {
+      "end_hms": "00:55:29.219",
+      "id": "seg-000617",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:55:26.000",
+      "text": "other day that if I looked over and the person saw me and then turned away, even though we,"
+    },
+    {
+      "end_hms": "00:55:34.739",
+      "id": "seg-000618",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:55:29.559",
+      "text": "I don't know their name, well, maybe I do now, but there's very little familiarity except with"
+    },
+    {
+      "end_hms": "00:55:40.340",
+      "id": "seg-000619",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:55:34.739",
+      "text": "we always acknowledge the other's presence. If they were to do that, I would think, gosh, like"
+    },
+    {
+      "end_hms": "00:55:45.480",
+      "id": "seg-000620",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:55:40.340",
+      "text": "this person's like maybe upset. That's one of the key ingredients of Lisa Feldman-Bertz thinking,"
+    },
+    {
+      "end_hms": "00:55:51.619",
+      "id": "seg-000621",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:55:45.599",
+      "text": "certainly in recent years, which is prediction that most of the information comes from when there's"
+    },
+    {
+      "end_hms": "00:55:56.179",
+      "id": "seg-000622",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:55:51.619",
+      "text": "a mismatch between what you're predicting about a circumstance and something that's just different"
+    },
+    {
+      "end_hms": "00:56:01.980",
+      "id": "seg-000623",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:55:56.179",
+      "text": "because that cares information, something changed, right? Like what you were saying. And Lisa's work,"
+    },
+    {
+      "end_hms": "00:56:07.219",
+      "id": "seg-000624",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:56:02.099",
+      "text": "Lisa's thinking on emotions incorporates prediction in a big way these days, that there's"
+    },
+    {
+      "end_hms": "00:56:11.019",
+      "id": "seg-000625",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:56:07.219",
+      "text": "something that you're predicting about the world, but suddenly there's a tiger or something"
+    },
+    {
+      "end_hms": "00:56:16.840",
+      "id": "seg-000626",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:56:11.019",
+      "text": "unexpected and you need to incorporate that and that carries important information. But absolutely,"
+    },
+    {
+      "end_hms": "00:56:23.579",
+      "id": "seg-000627",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:56:17.079",
+      "text": "we're always predicting and taking into account things that change. Like the facial expressions,"
+    },
+    {
+      "end_hms": "00:56:27.840",
+      "id": "seg-000628",
+      "role": "context_only",
+      "speaker": null,
+      "start_hms": "00:56:23.800",
+      "text": "you know, the original studies, like the ones I started doing as a postdoc where you just"
+    }
+  ],
+  "source_sha256": "3e46962b9a0be33deecf1612ca70d8c2ceb1405ce67075ce22c6123d8e972c9d",
+  "window_id": "window-0010"
+}

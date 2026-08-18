@@ -1,0 +1,29 @@
+{
+  "items": [
+    {
+      "checkworthiness": "medium",
+      "claim_ref": "claim-0001",
+      "claim_text": "Verified atomic proposition in vFTuLylvYnA",
+      "preferred_source_types": [
+        "official primary source",
+        "primary research"
+      ],
+      "quote_evidence": [
+        {
+          "quote": "So ein schön guten Morgen und schon habe",
+          "segment_id": "seg-000001"
+        }
+      ],
+      "search_question": "Verified atomic proposition in vFTuLylvYnA",
+      "source_segment_ids": [
+        "seg-000001"
+      ],
+      "source_support": "SUPPORTED"
+    }
+  ],
+  "minimum_checkworthiness": "medium",
+  "queue_sha256": "7675e620e2f7041eefcb37f1e285aec5656cc3ec25afc5dabccb734483fc20d9",
+  "reduce_result_sha256": "e40ced4226f2c2100c5191576ec56b3f47b1f4494fa580a1ccb427063e820c3e",
+  "schema": "ttk.verify-queue.v2",
+  "source_sha256": "1dffc6b9bc4e9d4897a2a27b96b8f9a077988b12824788554fb0be76b0225dfb"
+}

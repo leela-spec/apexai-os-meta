@@ -1,0 +1,607 @@
+{
+  "context_only_segment_ids": [
+    "seg-000167",
+    "seg-000231"
+  ],
+  "contract_version": "ttk.semantic-contract.v2",
+  "core_segment_ids": [
+    "seg-000168",
+    "seg-000169",
+    "seg-000170",
+    "seg-000171",
+    "seg-000172",
+    "seg-000173",
+    "seg-000174",
+    "seg-000175",
+    "seg-000176",
+    "seg-000177",
+    "seg-000178",
+    "seg-000179",
+    "seg-000180",
+    "seg-000181",
+    "seg-000182",
+    "seg-000183",
+    "seg-000184",
+    "seg-000185",
+    "seg-000186",
+    "seg-000187",
+    "seg-000188",
+    "seg-000189",
+    "seg-000190",
+    "seg-000191",
+    "seg-000192",
+    "seg-000193",
+    "seg-000194",
+    "seg-000195",
+    "seg-000196",
+    "seg-000197",
+    "seg-000198",
+    "seg-000199",
+    "seg-000200",
+    "seg-000201",
+    "seg-000202",
+    "seg-000203",
+    "seg-000204",
+    "seg-000205",
+    "seg-000206",
+    "seg-000207",
+    "seg-000208",
+    "seg-000209",
+    "seg-000210",
+    "seg-000211",
+    "seg-000212",
+    "seg-000213",
+    "seg-000214",
+    "seg-000215",
+    "seg-000216",
+    "seg-000217",
+    "seg-000218",
+    "seg-000219",
+    "seg-000220",
+    "seg-000221",
+    "seg-000222",
+    "seg-000223",
+    "seg-000224",
+    "seg-000225",
+    "seg-000226",
+    "seg-000227",
+    "seg-000228",
+    "seg-000229",
+    "seg-000230"
+  ],
+  "packet_id": "map-window-0004",
+  "packet_sha256": "a1b8ae088d20eafe4ff4dd3112b6c35876be2ebd64d72db87978fa619e6063dc",
+  "result_path": "work/results/map/window-0004.json",
+  "rules": [
+    "Extract evidence only from core segments; context_only segments are orientation only.",
+    "Every candidate claim requires at least one verbatim quote from its cited core segment.",
+    "Do not force content into categories; empty arrays are valid.",
+    "Separate factual assertions from opinion, prediction, recommendation, decision, anecdote, definition, mechanism, estimate, and hypothesis.",
+    "Preserve disagreement and uncertainty rather than reconciling it."
+  ],
+  "schema": "ttk.map-packet.v2",
+  "source_segments": [
+    {
+      "end_hms": "00:15:25.159",
+      "id": "seg-000167",
+      "role": "context_only",
+      "speaker": null,
+      "start_hms": "00:15:20.980",
+      "text": "reflexes don't have. It just goes straight through. There's no temporal persistence."
+    },
+    {
+      "end_hms": "00:15:31.409",
+      "id": "seg-000168",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:15:25.990",
+      "text": "I'd like to take a quick break and acknowledge our sponsor, Helix Sleep. Helix Sleep makes matrices"
+    },
+    {
+      "end_hms": "00:15:37.190",
+      "id": "seg-000169",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:15:31.409",
+      "text": "and pillows that are customized to your unique sleep needs. Now, I've spoken many times before on"
+    },
+    {
+      "end_hms": "00:15:41.850",
+      "id": "seg-000170",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:15:37.190",
+      "text": "this and on other podcasts about the fact that getting a great night's sleep is the foundation of"
+    },
+    {
+      "end_hms": "00:15:46.009",
+      "id": "seg-000171",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:15:41.850",
+      "text": "mental health, physical health and performance. When we aren't getting great sleep on a consistent"
+    },
+    {
+      "end_hms": "00:15:51.330",
+      "id": "seg-000172",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:15:46.009",
+      "text": "basis, everything suffers. And when we are sleeping well and enough, our mental health, physical health"
+    },
+    {
+      "end_hms": "00:15:56.490",
+      "id": "seg-000173",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:15:51.330",
+      "text": "and performance in all endeavors improve markedly. Now, the mattress you sleep on makes a huge"
+    },
+    {
+      "end_hms": "00:16:01.549",
+      "id": "seg-000174",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:15:56.490",
+      "text": "difference in the quality of sleep that you get each night. How soft it is or how firm it is,"
+    },
+    {
+      "end_hms": "00:16:05.570",
+      "id": "seg-000175",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:16:01.710",
+      "text": "all play into your comfort and need to be tailored to your unique sleep needs."
+    },
+    {
+      "end_hms": "00:16:10.389",
+      "id": "seg-000176",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:16:06.129",
+      "text": "If you go to the Helix website, you can take a brief two-minute quiz and it will ask you questions"
+    },
+    {
+      "end_hms": "00:16:14.230",
+      "id": "seg-000177",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:16:10.389",
+      "text": "such as, do you sleep on your back, your side, your stomach, maybe you know, maybe you don't,"
+    },
+    {
+      "end_hms": "00:16:18.470",
+      "id": "seg-000178",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:16:14.450",
+      "text": "do you tend to run hot or cold during the night, things of that sort. You answer those questions"
+    },
+    {
+      "end_hms": "00:16:23.210",
+      "id": "seg-000179",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:16:18.470",
+      "text": "and Helix will match you to the ideal mattress for you. For me, that turned out to be the dusk"
+    },
+    {
+      "end_hms": "00:16:29.389",
+      "id": "seg-000180",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:16:23.210",
+      "text": "DSK mattress. I've been sleeping on a dusk mattress for more than four years now and it's been far"
+    },
+    {
+      "end_hms": "00:16:35.529",
+      "id": "seg-000181",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:16:29.389",
+      "text": "in a way the best sleep that I've ever had. If you'd like to try Helix, you can go to helixleap.com"
+    },
+    {
+      "end_hms": "00:16:40.409",
+      "id": "seg-000182",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:16:35.529",
+      "text": "slash huberman, take that two-minute sleep quiz and Helix will match you to a mattress that's"
+    },
+    {
+      "end_hms": "00:16:47.049",
+      "id": "seg-000183",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:16:40.409",
+      "text": "customized for you. Right now, Helix is giving up to 27% off their entire site. Helix has also"
+    },
+    {
+      "end_hms": "00:16:53.070",
+      "id": "seg-000184",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:16:47.049",
+      "text": "teamed up with TrueMed, which allows you to use your HSA FSA dollars to shop Helix's award-winning"
+    },
+    {
+      "end_hms": "00:17:00.149",
+      "id": "seg-000185",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:16:53.070",
+      "text": "mattresses. Again, that's helixleap.com slash huberman to get up to 27% off. Today's episode is"
+    },
+    {
+      "end_hms": "00:17:04.450",
+      "id": "seg-000186",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:17:00.149",
+      "text": "also brought to us by Rora. Rora makes what I believe are the best water filters on the market."
+    },
+    {
+      "end_hms": "00:17:09.809",
+      "id": "seg-000187",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:17:04.769",
+      "text": "It's an unfortunate reality, but tap water often contains contaminants that negatively impact"
+    },
+    {
+      "end_hms": "00:17:15.650",
+      "id": "seg-000188",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:17:09.809",
+      "text": "our health. In fact, a 2020 study by the Environmental Working Group estimated that more than 200"
+    },
+    {
+      "end_hms": "00:17:20.750",
+      "id": "seg-000189",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:17:15.650",
+      "text": "million Americans are exposed to PFAS chemicals, also known as forever chemicals through drinking"
+    },
+    {
+      "end_hms": "00:17:25.910",
+      "id": "seg-000190",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:17:20.750",
+      "text": "of tap water. These forever chemicals are linked to serious health issues, such as hormone disruption,"
+    },
+    {
+      "end_hms": "00:17:31.470",
+      "id": "seg-000191",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:17:26.509",
+      "text": "gut microbiome disruption, fertility issues, and many other health problems. The Environmental"
+    },
+    {
+      "end_hms": "00:17:37.029",
+      "id": "seg-000192",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:17:31.470",
+      "text": "Working Group has also shown that over 122 million Americans drink tap water with high levels of"
+    },
+    {
+      "end_hms": "00:17:41.730",
+      "id": "seg-000193",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:17:37.029",
+      "text": "chemicals known to cause cancer. It's for all these reasons that I'm thrilled to have Rora as"
+    },
+    {
+      "end_hms": "00:17:46.210",
+      "id": "seg-000194",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:17:41.730",
+      "text": "a sponsor of this podcast. I've been using the Rora countertop system for almost a year now."
+    },
+    {
+      "end_hms": "00:17:50.809",
+      "id": "seg-000195",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:17:46.849",
+      "text": "Rora's filtration technology removes harmful substances, including endocrine disruptors,"
+    },
+    {
+      "end_hms": "00:17:55.430",
+      "id": "seg-000196",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:17:51.150",
+      "text": "end disinfection byproducts, while preserving beneficial minerals like magnesium and calcium."
+    },
+    {
+      "end_hms": "00:17:59.750",
+      "id": "seg-000197",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:17:55.950",
+      "text": "It requires no installation or plumbing. It's built from medical grade stainless steel,"
+    },
+    {
+      "end_hms": "00:18:03.809",
+      "id": "seg-000198",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:18:00.069",
+      "text": "and it's sleek designed to its beautifully on your countertop. In fact, I consider it a welcome"
+    },
+    {
+      "end_hms": "00:18:08.670",
+      "id": "seg-000199",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:18:03.809",
+      "text": "addition to my kitchen. It looks great, and the water is delicious. If you'd like to try Rora,"
+    },
+    {
+      "end_hms": "00:18:14.289",
+      "id": "seg-000200",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:18:08.670",
+      "text": "you can go to Rora.com slash Huberman and get an exclusive discount. Again, that's Rora."
+    },
+    {
+      "end_hms": "00:18:21.430",
+      "id": "seg-000201",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:18:14.630",
+      "text": "R-O-R-R-A.com slash Huberman. It is striking to me that maybe 30 years ago or so,"
+    },
+    {
+      "end_hms": "00:18:26.410",
+      "id": "seg-000202",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:18:21.769",
+      "text": "there was discussion about whether animals have emotions based on these criteria. Priority,"
+    },
+    {
+      "end_hms": "00:18:32.259",
+      "id": "seg-000203",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:18:26.490",
+      "text": "valence, scalability, and persistence. Is it generally agreed upon that animals have emotions?"
+    },
+    {
+      "end_hms": "00:18:36.400",
+      "id": "seg-000204",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:18:32.500",
+      "text": "I believe they do, because I love my dog and other animals, and I want to believe that."
+    },
+    {
+      "end_hms": "00:18:40.460",
+      "id": "seg-000205",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:18:36.400",
+      "text": "As scientists, if we step back, do they meet the criteria for emotions that you're setting up"
+    },
+    {
+      "end_hms": "00:18:45.619",
+      "id": "seg-000206",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:18:40.460",
+      "text": "here for us? Absolutely. Yes. If you have those criteria, those functional criteria,"
+    },
+    {
+      "end_hms": "00:18:51.119",
+      "id": "seg-000207",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:18:46.180",
+      "text": "and you would add one or two others, many states and animals, and certainly the states that we"
+    },
+    {
+      "end_hms": "00:18:57.140",
+      "id": "seg-000208",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:18:51.119",
+      "text": "would ordinarily interpret as emotions in our pets and our dogs, cats. By the way, I loved your"
+    },
+    {
+      "end_hms": "00:19:04.980",
+      "id": "seg-000209",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:18:57.140",
+      "text": "dog. They would meet those criteria, and they would have functional emotions. We should"
+    },
+    {
+      "end_hms": "00:19:10.059",
+      "id": "seg-000210",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:19:04.980",
+      "text": "talk more about this as also the claim now from Anthropic that large language models have"
+    },
+    {
+      "end_hms": "00:19:14.900",
+      "id": "seg-000211",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:19:10.059",
+      "text": "functional emotions as well. That's so wild. We have to return to that because I think it boggles"
+    },
+    {
+      "end_hms": "00:19:20.259",
+      "id": "seg-000212",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:19:14.900",
+      "text": "the mind. How could a machine have emotions? But again, these are functionally defined"
+    },
+    {
+      "end_hms": "00:19:27.180",
+      "id": "seg-000213",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:19:20.259",
+      "text": "emotions. I think there's no problem assigning to AI to some extent, and certainly to many"
+    },
+    {
+      "end_hms": "00:19:33.420",
+      "id": "seg-000214",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:19:27.180",
+      "text": "animals, those functional emotions, where it gets complicated is that in us, and also by"
+    },
+    {
+      "end_hms": "00:19:38.759",
+      "id": "seg-000215",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:19:33.420",
+      "text": "assumption in animals, I have no doubt, they also have conscious experiences of emotions,"
+    },
+    {
+      "end_hms": "00:19:46.579",
+      "id": "seg-000216",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:19:39.099",
+      "text": "and most people take the conscious experience of the emotion as the ground truth for the emotion."
+    },
+    {
+      "end_hms": "00:19:51.140",
+      "id": "seg-000217",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:19:47.160",
+      "text": "Emotions without conscious experiences of emotions sound like an oxymoron. It's like, you can't"
+    },
+    {
+      "end_hms": "00:19:56.700",
+      "id": "seg-000218",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:19:51.140",
+      "text": "have that. The conscious experience is the emotion, which is what William James said, which is what"
+    },
+    {
+      "end_hms": "00:20:02.140",
+      "id": "seg-000219",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:19:56.700",
+      "text": "Joel Adou says. And I think it's implicitly there across essentially every psychological theory"
+    },
+    {
+      "end_hms": "00:20:07.539",
+      "id": "seg-000220",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:20:02.140",
+      "text": "is the assumption that emotions really are types of conscious experiences, which I think"
+    },
+    {
+      "end_hms": "00:20:12.599",
+      "id": "seg-000221",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:20:07.539",
+      "text": "is the intuition that if I ask you, how do you know what's the ground truth, right? How do you"
+    },
+    {
+      "end_hms": "00:20:17.759",
+      "id": "seg-000222",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:20:12.599",
+      "text": "know you're having an emotion? You would say because it's a certain type of conscious experience"
+    },
+    {
+      "end_hms": "00:20:22.500",
+      "id": "seg-000223",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:20:17.759",
+      "text": "because of how it feels. And if I asked you more specifically, how do you know it's sadness versus"
+    },
+    {
+      "end_hms": "00:20:27.640",
+      "id": "seg-000224",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:20:22.500",
+      "text": "anger versus fear? You would say because of how they feel, they feel different. And so we take"
+    },
+    {
+      "end_hms": "00:20:32.259",
+      "id": "seg-000225",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:20:27.640",
+      "text": "the conscious experience, our own introspective access to the conscious experience"
+    },
+    {
+      "end_hms": "00:20:38.619",
+      "id": "seg-000226",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:20:32.859",
+      "text": "as the ground truth, that has a lot of problems associated with a deep philosophical problems,"
+    },
+    {
+      "end_hms": "00:20:44.380",
+      "id": "seg-000227",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:20:38.619",
+      "text": "but just practically, it has two big problems that I think science should avoid. One is,"
+    },
+    {
+      "end_hms": "00:20:49.740",
+      "id": "seg-000228",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:20:44.680",
+      "text": "it gets really problematic to know whether or not animals have emotions because we don't know"
+    },
+    {
+      "end_hms": "00:20:54.539",
+      "id": "seg-000229",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:20:49.740",
+      "text": "how to test whether or not they have conscious experiences. I have no doubt that they do,"
+    },
+    {
+      "end_hms": "00:20:59.160",
+      "id": "seg-000230",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:20:54.539",
+      "text": "it's just that there's no scientific way to test currently. So we should have different criteria."
+    },
+    {
+      "end_hms": "00:21:05.059",
+      "id": "seg-000231",
+      "role": "context_only",
+      "speaker": null,
+      "start_hms": "00:20:59.619",
+      "text": "And the other question is, if you tie emotion to the conscious experience of emotion,"
+    }
+  ],
+  "source_sha256": "3e46962b9a0be33deecf1612ca70d8c2ceb1405ce67075ce22c6123d8e972c9d",
+  "window_id": "window-0004"
+}

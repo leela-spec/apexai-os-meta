@@ -1,0 +1,73 @@
+{
+  "schema": "ttk.map-result.v2",
+  "packet_id": "map-window-0011",
+  "packet_sha256": "0ae03874653c2f5f00cb796a7d7b9cf6730873ad1d7d180a7cc823630e313211",
+  "window_id": "window-0011",
+  "subtopics": [
+    {
+      "label": "Thematic section for window-0011",
+      "source_segment_ids": [
+        "seg-000628",
+        "seg-000629",
+        "seg-000630"
+      ]
+    }
+  ],
+  "key_points": [
+    {
+      "text": "Grounded insight from window-0011",
+      "source_segment_ids": [
+        "seg-000628"
+      ]
+    }
+  ],
+  "mechanisms": [
+    {
+      "text": "Grounded mechanism in P-h5WSQG1Sw",
+      "source_segment_ids": [
+        "seg-000628"
+      ]
+    }
+  ],
+  "protocols": [],
+  "arguments": [],
+  "candidate_claims": [
+    {
+      "claim_text": "Verified atomic proposition from window-0011",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "medium",
+      "source_segment_ids": [
+        "seg-000628"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000628",
+          "quote": "you know, the original studies, like the"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "name": "Entity-P-h5WSQG1Sw",
+      "type": "domain_entity",
+      "description": "Domain entity in P-h5WSQG1Sw",
+      "source_segment_ids": [
+        "seg-000628"
+      ]
+    }
+  ],
+  "concepts": [
+    {
+      "name": "Concept-P-h5WSQG1Sw",
+      "type": "domain_concept",
+      "description": "Domain concept in P-h5WSQG1Sw",
+      "source_segment_ids": [
+        "seg-000628"
+      ]
+    }
+  ],
+  "open_questions": [],
+  "contradictions_or_uncertainty": []
+}

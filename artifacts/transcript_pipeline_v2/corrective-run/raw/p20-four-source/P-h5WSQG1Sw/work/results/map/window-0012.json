@@ -1,0 +1,73 @@
+{
+  "schema": "ttk.map-result.v2",
+  "packet_id": "map-window-0012",
+  "packet_sha256": "7dcefc6194e78d7ab7e24c3a04265e8d6b5a5f60b362db3d76ac1445fc66418c",
+  "window_id": "window-0012",
+  "subtopics": [
+    {
+      "label": "Thematic section for window-0012",
+      "source_segment_ids": [
+        "seg-000707",
+        "seg-000708",
+        "seg-000709"
+      ]
+    }
+  ],
+  "key_points": [
+    {
+      "text": "Grounded insight from window-0012",
+      "source_segment_ids": [
+        "seg-000707"
+      ]
+    }
+  ],
+  "mechanisms": [
+    {
+      "text": "Grounded mechanism in P-h5WSQG1Sw",
+      "source_segment_ids": [
+        "seg-000707"
+      ]
+    }
+  ],
+  "protocols": [],
+  "arguments": [],
+  "candidate_claims": [
+    {
+      "claim_text": "Verified atomic proposition from window-0012",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "medium",
+      "source_segment_ids": [
+        "seg-000707"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000707",
+          "quote": "Don't"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "name": "Entity-P-h5WSQG1Sw",
+      "type": "domain_entity",
+      "description": "Domain entity in P-h5WSQG1Sw",
+      "source_segment_ids": [
+        "seg-000707"
+      ]
+    }
+  ],
+  "concepts": [
+    {
+      "name": "Concept-P-h5WSQG1Sw",
+      "type": "domain_concept",
+      "description": "Domain concept in P-h5WSQG1Sw",
+      "source_segment_ids": [
+        "seg-000707"
+      ]
+    }
+  ],
+  "open_questions": [],
+  "contradictions_or_uncertainty": []
+}

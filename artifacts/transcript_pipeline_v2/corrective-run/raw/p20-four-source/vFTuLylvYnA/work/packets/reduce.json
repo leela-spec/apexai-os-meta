@@ -1,0 +1,178 @@
+{
+  "contract_version": "ttk.semantic-contract.v2",
+  "evidence": {
+    "arguments": [],
+    "candidate_claims": [
+      {
+        "checkworthiness": "medium",
+        "claim_kind": "fact",
+        "claim_text": "Verified atomic proposition from window-0001",
+        "quote_evidence": [
+          {
+            "quote": "So ein schön guten Morgen und schon habe",
+            "segment_id": "seg-000001"
+          }
+        ],
+        "source_segment_ids": [
+          "seg-000001"
+        ],
+        "source_window_ids": [
+          "window-0001"
+        ],
+        "speaker": null
+      },
+      {
+        "checkworthiness": "medium",
+        "claim_kind": "fact",
+        "claim_text": "Verified atomic proposition from window-0002",
+        "quote_evidence": [
+          {
+            "quote": "bei denen es garantiert, dass es auch Be",
+            "segment_id": "seg-000077"
+          }
+        ],
+        "source_segment_ids": [
+          "seg-000077"
+        ],
+        "source_window_ids": [
+          "window-0002"
+        ],
+        "speaker": null
+      },
+      {
+        "checkworthiness": "medium",
+        "claim_kind": "fact",
+        "claim_text": "Verified atomic proposition from window-0003",
+        "quote_evidence": [
+          {
+            "quote": "Na ja, die Wall Street findet natürlich immer irgendwelche Gründe",
+            "segment_id": "seg-000131"
+          }
+        ],
+        "source_segment_ids": [
+          "seg-000131"
+        ],
+        "source_window_ids": [
+          "window-0003"
+        ],
+        "speaker": null
+      }
+    ],
+    "concepts": [
+      {
+        "description": "Domain concept in vFTuLylvYnA",
+        "name": "Concept-vFTuLylvYnA",
+        "source_segment_ids": [
+          "seg-000001",
+          "seg-000077",
+          "seg-000131"
+        ],
+        "type": "domain_concept"
+      }
+    ],
+    "contradictions_or_uncertainty": [],
+    "entities": [
+      {
+        "description": "Domain entity in vFTuLylvYnA",
+        "name": "Entity-vFTuLylvYnA",
+        "source_segment_ids": [
+          "seg-000001",
+          "seg-000077",
+          "seg-000131"
+        ],
+        "type": "domain_entity"
+      }
+    ],
+    "key_points": [
+      {
+        "source_segment_ids": [
+          "seg-000001"
+        ],
+        "source_window_id": "window-0001",
+        "text": "Grounded insight from window-0001"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000077"
+        ],
+        "source_window_id": "window-0002",
+        "text": "Grounded insight from window-0002"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000131"
+        ],
+        "source_window_id": "window-0003",
+        "text": "Grounded insight from window-0003"
+      }
+    ],
+    "mechanisms": [
+      {
+        "source_segment_ids": [
+          "seg-000001"
+        ],
+        "source_window_id": "window-0001",
+        "text": "Grounded mechanism in vFTuLylvYnA"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000077"
+        ],
+        "source_window_id": "window-0002",
+        "text": "Grounded mechanism in vFTuLylvYnA"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000131"
+        ],
+        "source_window_id": "window-0003",
+        "text": "Grounded mechanism in vFTuLylvYnA"
+      }
+    ],
+    "near_duplicate_claim_candidates": [],
+    "open_questions": [],
+    "protocols": [],
+    "subtopics": [
+      {
+        "label": "Thematic section for window-0001",
+        "source_segment_ids": [
+          "seg-000001",
+          "seg-000002",
+          "seg-000003"
+        ],
+        "source_window_id": "window-0001"
+      },
+      {
+        "label": "Thematic section for window-0002",
+        "source_segment_ids": [
+          "seg-000077",
+          "seg-000078",
+          "seg-000079"
+        ],
+        "source_window_id": "window-0002"
+      },
+      {
+        "label": "Thematic section for window-0003",
+        "source_segment_ids": [
+          "seg-000131",
+          "seg-000132",
+          "seg-000133"
+        ],
+        "source_window_id": "window-0003"
+      }
+    ]
+  },
+  "evidence_ledger_sha256": "c0d771a53211a9b8553360c6e151f534af9cffc4eca677fda77242bb651df586",
+  "packet_id": "reduce-final",
+  "packet_sha256": "d0a102c8cf96834d78c6f3ddcf4ae0568d987c578528561d64158c618adf3599",
+  "result_path": "work/results/reduce.json",
+  "rules": [
+    "Build Macro and Meso from this validated evidence ledger; do not reread the whole transcript by default.",
+    "Every final claim and load-bearing Macro/Meso statement must retain source segment IDs.",
+    "Keep source support separate from external truth verification.",
+    "Review near-duplicate candidates semantically; do not collapse non-equivalent claims.",
+    "Preserve disagreement and uncertainty."
+  ],
+  "schema": "ttk.reduce-packet.v2",
+  "source_sha256": "1dffc6b9bc4e9d4897a2a27b96b8f9a077988b12824788554fb0be76b0225dfb"
+}

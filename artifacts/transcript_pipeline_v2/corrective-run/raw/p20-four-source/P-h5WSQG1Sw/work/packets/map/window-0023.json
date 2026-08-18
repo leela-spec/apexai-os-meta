@@ -1,0 +1,283 @@
+{
+  "context_only_segment_ids": [
+    "seg-001410"
+  ],
+  "contract_version": "ttk.semantic-contract.v2",
+  "core_segment_ids": [
+    "seg-001411",
+    "seg-001412",
+    "seg-001413",
+    "seg-001414",
+    "seg-001415",
+    "seg-001416",
+    "seg-001417",
+    "seg-001418",
+    "seg-001419",
+    "seg-001420",
+    "seg-001421",
+    "seg-001422",
+    "seg-001423",
+    "seg-001424",
+    "seg-001425",
+    "seg-001426",
+    "seg-001427",
+    "seg-001428",
+    "seg-001429",
+    "seg-001430",
+    "seg-001431",
+    "seg-001432",
+    "seg-001433",
+    "seg-001434",
+    "seg-001435",
+    "seg-001436",
+    "seg-001437",
+    "seg-001438"
+  ],
+  "packet_id": "map-window-0023",
+  "packet_sha256": "f86bd84262af593ccd820688391b108cf3cde742ca46f53a90aa8f4f5b652b0b",
+  "result_path": "work/results/map/window-0023.json",
+  "rules": [
+    "Extract evidence only from core segments; context_only segments are orientation only.",
+    "Every candidate claim requires at least one verbatim quote from its cited core segment.",
+    "Do not force content into categories; empty arrays are valid.",
+    "Separate factual assertions from opinion, prediction, recommendation, decision, anecdote, definition, mechanism, estimate, and hypothesis.",
+    "Preserve disagreement and uncertainty rather than reconciling it."
+  ],
+  "schema": "ttk.map-packet.v2",
+  "source_segments": [
+    {
+      "end_hms": "02:07:01.960",
+      "id": "seg-001410",
+      "role": "context_only",
+      "speaker": null,
+      "start_hms": "02:06:57.500",
+      "text": "and to find links to his previous and forthcoming books please see the link in the show note"
+    },
+    {
+      "end_hms": "02:07:06.479",
+      "id": "seg-001411",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "02:07:02.640",
+      "text": "if you're learning from and or enjoying this podcast please subscribe to our YouTube channel"
+    },
+    {
+      "end_hms": "02:07:11.619",
+      "id": "seg-001412",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "02:07:06.479",
+      "text": "that's a terrific zero cost way to support us in addition please follow the podcast by clicking"
+    },
+    {
+      "end_hms": "02:07:16.479",
+      "id": "seg-001413",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "02:07:11.619",
+      "text": "the follow button on both Spotify and Apple and on both Spotify and Apple you can leave us up to a"
+    },
+    {
+      "end_hms": "02:07:21.859",
+      "id": "seg-001414",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "02:07:16.479",
+      "text": "five star review and you can now leave us comments at both Spotify and Apple please also check out"
+    },
+    {
+      "end_hms": "02:07:25.920",
+      "id": "seg-001415",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "02:07:21.859",
+      "text": "the sponsors mentioned at the beginning and throughout today's episode that's the best way to"
+    },
+    {
+      "end_hms": "02:07:31.039",
+      "id": "seg-001416",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "02:07:25.920",
+      "text": "support this podcast if you have questions for me or comments about the podcasts or guests or topics"
+    },
+    {
+      "end_hms": "02:07:35.439",
+      "id": "seg-001417",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "02:07:31.039",
+      "text": "that you like me to consider for the Hubertman Lab podcast please put those in the comments section on"
+    },
+    {
+      "end_hms": "02:07:40.039",
+      "id": "seg-001418",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "02:07:35.439",
+      "text": "YouTube I do read all the comments for those of you that haven't heard I have a new book coming out"
+    },
+    {
+      "end_hms": "02:07:45.739",
+      "id": "seg-001419",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "02:07:40.039",
+      "text": "it's my very first book it's entitled protocols and operating manual for the human body this is a book"
+    },
+    {
+      "end_hms": "02:07:50.500",
+      "id": "seg-001420",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "02:07:45.739",
+      "text": "that I've been working on for more than five years and that's based on more than 30 years of research"
+    },
+    {
+      "end_hms": "02:07:56.680",
+      "id": "seg-001421",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "02:07:50.500",
+      "text": "and experience and it covers protocols for everything from sleep to exercise to stress control"
+    },
+    {
+      "end_hms": "02:08:02.760",
+      "id": "seg-001422",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "02:07:56.680",
+      "text": "protocols related to focus and motivation and of course I provide the scientific substantiation"
+    },
+    {
+      "end_hms": "02:08:08.439",
+      "id": "seg-001423",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "02:08:02.760",
+      "text": "for the protocols that are included the book is now available by pre-sale at protocolsbook.com"
+    },
+    {
+      "end_hms": "02:08:13.579",
+      "id": "seg-001424",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "02:08:08.439",
+      "text": "there you can find links to various vendors you can pick the one that you like best again the book"
+    },
+    {
+      "end_hms": "02:08:18.819",
+      "id": "seg-001425",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "02:08:13.579",
+      "text": "is called protocols and operating manual for the human body and if you're not already following me"
+    },
+    {
+      "end_hms": "02:08:24.859",
+      "id": "seg-001426",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "02:08:18.819",
+      "text": "on social media I am Hubertman Lab on all social media platforms so that's Instagram X threads Facebook"
+    },
+    {
+      "end_hms": "02:08:30.300",
+      "id": "seg-001427",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "02:08:24.859",
+      "text": "and LinkedIn and on all those platforms I discuss science and science related tools some of which"
+    },
+    {
+      "end_hms": "02:08:34.739",
+      "id": "seg-001428",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "02:08:30.300",
+      "text": "overlaps with the content of the Hubertman Lab podcast but much of which is distinct from the information"
+    },
+    {
+      "end_hms": "02:08:40.199",
+      "id": "seg-001429",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "02:08:34.739",
+      "text": "on the Hubertman Lab podcast again it's Hubertman Lab on all social media platforms and if you haven't"
+    },
+    {
+      "end_hms": "02:08:44.960",
+      "id": "seg-001430",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "02:08:40.199",
+      "text": "already subscribed to our neural network newsletter the neural network newsletter is a zero-cost monthly"
+    },
+    {
+      "end_hms": "02:08:50.020",
+      "id": "seg-001431",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "02:08:44.960",
+      "text": "newsletter that includes podcast summaries as well as what we call protocols in the form of one to"
+    },
+    {
+      "end_hms": "02:08:54.619",
+      "id": "seg-001432",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "02:08:50.020",
+      "text": "three page PDFs that cover everything from how to optimize your sleep how to optimize dopamine"
+    },
+    {
+      "end_hms": "02:08:59.000",
+      "id": "seg-001433",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "02:08:54.619",
+      "text": "deliberate cold exposure we have a foundational fitness protocol that covers cardiovascular"
+    },
+    {
+      "end_hms": "02:09:04.380",
+      "id": "seg-001434",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "02:08:59.000",
+      "text": "training and resistance training all of that is available completely zero cost you simply go to"
+    },
+    {
+      "end_hms": "02:09:09.359",
+      "id": "seg-001435",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "02:09:04.380",
+      "text": "Hubertman Lab.com go to the menu tab in the top right corner scroll down to newsletter and enter your"
+    },
+    {
+      "end_hms": "02:09:14.500",
+      "id": "seg-001436",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "02:09:09.359",
+      "text": "email and I should emphasize that we do not share your email with anybody thank you once again for"
+    },
+    {
+      "end_hms": "02:09:19.899",
+      "id": "seg-001437",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "02:09:14.500",
+      "text": "joining me for today's discussion with Dr. Ralph Adolf's and last but certainly not least thank"
+    },
+    {
+      "end_hms": "02:09:21.520",
+      "id": "seg-001438",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "02:09:19.899",
+      "text": "you for your interest in science."
+    }
+  ],
+  "source_sha256": "3e46962b9a0be33deecf1612ca70d8c2ceb1405ce67075ce22c6123d8e972c9d",
+  "window_id": "window-0023"
+}

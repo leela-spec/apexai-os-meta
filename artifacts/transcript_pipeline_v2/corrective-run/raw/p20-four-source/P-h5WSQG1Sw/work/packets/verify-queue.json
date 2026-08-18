@@ -1,0 +1,29 @@
+{
+  "items": [
+    {
+      "checkworthiness": "medium",
+      "claim_ref": "claim-0001",
+      "claim_text": "Verified atomic proposition in P-h5WSQG1Sw",
+      "preferred_source_types": [
+        "official primary source",
+        "primary research"
+      ],
+      "quote_evidence": [
+        {
+          "quote": "I see somebody come up behind me",
+          "segment_id": "seg-000001"
+        }
+      ],
+      "search_question": "Verified atomic proposition in P-h5WSQG1Sw",
+      "source_segment_ids": [
+        "seg-000001"
+      ],
+      "source_support": "SUPPORTED"
+    }
+  ],
+  "minimum_checkworthiness": "medium",
+  "queue_sha256": "9a53ce96cf467ebac1e450a647429e9d91c3ed184fa02abef1cde00e94765312",
+  "reduce_result_sha256": "5055ee14faf95224ec06b1a9a1b4a6204fd45c857924256810c474f6e1ca0f24",
+  "schema": "ttk.verify-queue.v2",
+  "source_sha256": "3e46962b9a0be33deecf1612ca70d8c2ceb1405ce67075ce22c6123d8e972c9d"
+}

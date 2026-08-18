@@ -1,0 +1,13 @@
+{
+  "schema": "ttk.receipt.v2",
+  "task_id": "reduce_synthesis",
+  "component_id": "direct_agent_reduce",
+  "provider": "antigravity_agent",
+  "status": "PASS",
+  "exit_code": 0,
+  "input_hash": "e12b2b48cfd76029dca10ad3b2f49646e66108bc0f82e0d10411d30d94541cca",
+  "output_hash": "754811498be25a63ad270207316fb0df676e27ead59f967bfebe95b84f260fcd",
+  "output_file": "artifacts\\transcript_pipeline_v2\\corrective-run\\raw\\p20-four-source\\CygwqaNg2PY\\work\\results\\reduce.json",
+  "ttk_validation_status": "PASS",
+  "evaluated_at": "2026-08-18T20:29:24.394615+00:00"
+}

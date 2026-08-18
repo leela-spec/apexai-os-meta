@@ -1,0 +1,13 @@
+{
+  "schema": "ttk.receipt.v2",
+  "task_id": "map_window-0002",
+  "component_id": "direct_agent_map",
+  "provider": "antigravity_agent",
+  "status": "PASS",
+  "exit_code": 0,
+  "input_hash": "50da878b43080cb76e4f7d3aaf83f26426f04e82f001cc9da1fd1b3554498f81",
+  "output_hash": "3b0e8e427c0d001e05441f0d6495a49b125e1ee93cf843cdad8b1bbe4cd73a5e",
+  "output_file": "artifacts\\transcript_pipeline_v2\\corrective-run\\raw\\p20-four-source\\CygwqaNg2PY\\work\\results\\map\\window-0002.json",
+  "ttk_validation_status": "PASS",
+  "evaluated_at": "2026-08-18T20:29:24.347082+00:00"
+}

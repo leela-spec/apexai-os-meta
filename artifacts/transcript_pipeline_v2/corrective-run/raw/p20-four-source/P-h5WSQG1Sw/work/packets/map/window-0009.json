@@ -1,0 +1,562 @@
+{
+  "context_only_segment_ids": [
+    "seg-000502",
+    "seg-000561"
+  ],
+  "contract_version": "ttk.semantic-contract.v2",
+  "core_segment_ids": [
+    "seg-000503",
+    "seg-000504",
+    "seg-000505",
+    "seg-000506",
+    "seg-000507",
+    "seg-000508",
+    "seg-000509",
+    "seg-000510",
+    "seg-000511",
+    "seg-000512",
+    "seg-000513",
+    "seg-000514",
+    "seg-000515",
+    "seg-000516",
+    "seg-000517",
+    "seg-000518",
+    "seg-000519",
+    "seg-000520",
+    "seg-000521",
+    "seg-000522",
+    "seg-000523",
+    "seg-000524",
+    "seg-000525",
+    "seg-000526",
+    "seg-000527",
+    "seg-000528",
+    "seg-000529",
+    "seg-000530",
+    "seg-000531",
+    "seg-000532",
+    "seg-000533",
+    "seg-000534",
+    "seg-000535",
+    "seg-000536",
+    "seg-000537",
+    "seg-000538",
+    "seg-000539",
+    "seg-000540",
+    "seg-000541",
+    "seg-000542",
+    "seg-000543",
+    "seg-000544",
+    "seg-000545",
+    "seg-000546",
+    "seg-000547",
+    "seg-000548",
+    "seg-000549",
+    "seg-000550",
+    "seg-000551",
+    "seg-000552",
+    "seg-000553",
+    "seg-000554",
+    "seg-000555",
+    "seg-000556",
+    "seg-000557",
+    "seg-000558",
+    "seg-000559",
+    "seg-000560"
+  ],
+  "packet_id": "map-window-0009",
+  "packet_sha256": "e628ae719984dee20633b922f208056cd4af11ef13fa692a16271a61a16f091c",
+  "result_path": "work/results/map/window-0009.json",
+  "rules": [
+    "Extract evidence only from core segments; context_only segments are orientation only.",
+    "Every candidate claim requires at least one verbatim quote from its cited core segment.",
+    "Do not force content into categories; empty arrays are valid.",
+    "Separate factual assertions from opinion, prediction, recommendation, decision, anecdote, definition, mechanism, estimate, and hypothesis.",
+    "Preserve disagreement and uncertainty rather than reconciling it."
+  ],
+  "schema": "ttk.map-packet.v2",
+  "source_segments": [
+    {
+      "end_hms": "00:45:16.719",
+      "id": "seg-000502",
+      "role": "context_only",
+      "speaker": null,
+      "start_hms": "00:45:10.840",
+      "text": "has just launched their newest formulation, AG1 Pro. AG1 Pro takes the clinically-backed AG1"
+    },
+    {
+      "end_hms": "00:45:21.260",
+      "id": "seg-000503",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:45:16.719",
+      "text": "formula, which is a blend of vitamins, minerals, probiotics, and adaptogens. And it adds three"
+    },
+    {
+      "end_hms": "00:45:27.340",
+      "id": "seg-000504",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:45:21.260",
+      "text": "important new ingredients, creatine monohydrate, calcium, HMB, and zinc carnacine. Each serving has"
+    },
+    {
+      "end_hms": "00:45:32.199",
+      "id": "seg-000505",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:45:27.340",
+      "text": "five grams of creatine monohydrate to support muscle strength and performance as well as brain health."
+    },
+    {
+      "end_hms": "00:45:37.559",
+      "id": "seg-000506",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:45:32.380",
+      "text": "Calcium, HMB to support muscle recovery and reduce muscle breakdown and zinc carnacine to support"
+    },
+    {
+      "end_hms": "00:45:41.480",
+      "id": "seg-000507",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:45:37.559",
+      "text": "and improve the lining of your gut. All three of these ingredients have compelling science to"
+    },
+    {
+      "end_hms": "00:45:46.980",
+      "id": "seg-000508",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:45:41.480",
+      "text": "support them, and therefore I love seeing them added to the existing AG1 formula. As most of you"
+    },
+    {
+      "end_hms": "00:45:52.159",
+      "id": "seg-000509",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:45:46.980",
+      "text": "know, I've been taking AG1 every day for nearly 14 years now. I started taking it long before I"
+    },
+    {
+      "end_hms": "00:45:56.340",
+      "id": "seg-000510",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:45:52.159",
+      "text": "even knew what a podcast was. It's a great product and it's now made even better with the new"
+    },
+    {
+      "end_hms": "00:46:02.699",
+      "id": "seg-000511",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:45:56.340",
+      "text": "AG1 Pro formula. If you would like to try AG1 Pro, you can go to drinkag1.com slash"
+    },
+    {
+      "end_hms": "00:46:09.460",
+      "id": "seg-000512",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:46:03.400",
+      "text": "special offer. AG1 is giving away a free bottle of Omega 3 Coins on Q10 with your first subscription."
+    },
+    {
+      "end_hms": "00:46:16.260",
+      "id": "seg-000513",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:46:10.000",
+      "text": "Again, go to drinkag1.com slash Huberman to get a free bottle of Omega 3 Coins on Q10 with"
+    },
+    {
+      "end_hms": "00:46:21.139",
+      "id": "seg-000514",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:46:16.260",
+      "text": "your first AG1 subscription. As long as we're talking about assessing the emotions or the"
+    },
+    {
+      "end_hms": "00:46:26.239",
+      "id": "seg-000515",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:46:21.139",
+      "text": "perspective of another, what are some favorite experiments, either yours or others in the field"
+    },
+    {
+      "end_hms": "00:46:31.280",
+      "id": "seg-000516",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:46:26.239",
+      "text": "about perception and assessment of emotions? I've seen a number of studies like, oh,"
+    },
+    {
+      "end_hms": "00:46:36.880",
+      "id": "seg-000517",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:46:31.280",
+      "text": "people with lesions here or there, see scary faces is not that scary. What's this general"
+    },
+    {
+      "end_hms": "00:46:42.400",
+      "id": "seg-000518",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:46:37.639",
+      "text": "conclusions about those studies now in 2026? Because I have a feeling a lot of what was in the"
+    },
+    {
+      "end_hms": "00:46:47.760",
+      "id": "seg-000519",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:46:42.400",
+      "text": "textbooks when I was a graduate student may not still pull up. When I started as a postdoc in the"
+    },
+    {
+      "end_hms": "00:46:54.639",
+      "id": "seg-000520",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:46:47.760",
+      "text": "early 90s with Demasio, I started my career on that topic by studying this famous patient, SM,"
+    },
+    {
+      "end_hms": "00:47:00.559",
+      "id": "seg-000521",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:46:55.320",
+      "text": "who had selective bilateral amygdala lesions, and the finding was that she's unable to perceive"
+    },
+    {
+      "end_hms": "00:47:04.800",
+      "id": "seg-000522",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:47:00.559",
+      "text": "fear in emotional facial expressions. Perceive fear. Could she feel fear?"
+    },
+    {
+      "end_hms": "00:47:09.079",
+      "id": "seg-000523",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:47:04.960",
+      "text": "Subsequently, we also did that. It took for some reason because it's just harder to do. It"
+    },
+    {
+      "end_hms": "00:47:14.960",
+      "id": "seg-000524",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:47:09.079",
+      "text": "took some years. Justin Feinstein, who has the float clinic in Maui, was the first author in"
+    },
+    {
+      "end_hms": "00:47:20.219",
+      "id": "seg-000525",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:47:14.960",
+      "text": "that paper. So some years later, we took that same patient to haunted houses. We took her to an"
+    },
+    {
+      "end_hms": "00:47:24.440",
+      "id": "seg-000526",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:47:20.219",
+      "text": "exotic pet store where there were snakes and spiders. We showed her horror movies, a whole bunch"
+    },
+    {
+      "end_hms": "00:47:30.880",
+      "id": "seg-000527",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:47:24.440",
+      "text": "of things, and found also, she doesn't seem to consciously experience fear either. So there seemed to be"
+    },
+    {
+      "end_hms": "00:47:37.599",
+      "id": "seg-000528",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:47:30.880",
+      "text": "this very specific deficit for fear tied to the amygdala from one patient. So that's a big caveat."
+    },
+    {
+      "end_hms": "00:47:43.119",
+      "id": "seg-000529",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:47:37.800",
+      "text": "Does this generalize? Well, yes, the amygdala is important for fear, but just saying it's the"
+    },
+    {
+      "end_hms": "00:47:48.000",
+      "id": "seg-000530",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:47:43.119",
+      "text": "center for fear is overly simplistic. It's embedded in a big network of structures,"
+    },
+    {
+      "end_hms": "00:47:53.599",
+      "id": "seg-000531",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:47:48.000",
+      "text": "there's individual differences, and so on and so forth. The perception of emotions has been"
+    },
+    {
+      "end_hms": "00:47:59.340",
+      "id": "seg-000532",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:47:53.599",
+      "text": "studied a lot and probably has been the topic of the most acrimonious debates to some extent."
+    },
+    {
+      "end_hms": "00:48:04.920",
+      "id": "seg-000533",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:47:59.500",
+      "text": "So Paul Ekman, back in the 70s, famous, by the way, I dedicate my forthcoming book to him because"
+    },
+    {
+      "end_hms": "00:48:11.980",
+      "id": "seg-000534",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:48:04.920",
+      "text": "he probably had the biggest impact on modern emotion science of any single person. But his claim"
+    },
+    {
+      "end_hms": "00:48:18.659",
+      "id": "seg-000535",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:48:11.980",
+      "text": "to fame was he went to New Guinea and these non-Western cultures and claimed that universally across"
+    },
+    {
+      "end_hms": "00:48:23.579",
+      "id": "seg-000536",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:48:18.659",
+      "text": "all cultures, people recognized these so-called basic emotions from facial expressions. If you"
+    },
+    {
+      "end_hms": "00:48:29.699",
+      "id": "seg-000537",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:48:23.579",
+      "text": "Google this now, emotional facial expressions, you will find pictures of emotional facial expressions."
+    },
+    {
+      "end_hms": "00:48:36.380",
+      "id": "seg-000538",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:48:30.260",
+      "text": "Lots of AI companies and computer algorithms are predicated on the idea that you can read out the"
+    },
+    {
+      "end_hms": "00:48:41.000",
+      "id": "seg-000539",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:48:36.380",
+      "text": "emotion from somebody's facial expression. He had six of them, happiness, surprise, fear anger,"
+    },
+    {
+      "end_hms": "00:48:47.000",
+      "id": "seg-000540",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:48:41.000",
+      "text": "disgust and sadness, sometimes contempt added in there. Well, it turns out it's more complicated"
+    },
+    {
+      "end_hms": "00:48:52.599",
+      "id": "seg-000541",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:48:47.000",
+      "text": "than that and actually Lisa Feldman Barrett of all people co-authored a paper with me and three"
+    },
+    {
+      "end_hms": "00:48:59.360",
+      "id": "seg-000542",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:48:52.599",
+      "text": "other people a couple of years back that the title was something like emotional facial expressions"
+    },
+    {
+      "end_hms": "00:49:04.099",
+      "id": "seg-000543",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:48:59.920",
+      "text": "reconsidered. We took stock of the whole literature and asked, is this really true? Is Ekman's"
+    },
+    {
+      "end_hms": "00:49:08.300",
+      "id": "seg-000544",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:49:04.099",
+      "text": "claim really true? Can you tell how someone feels from their facial expression? And the answer is,"
+    },
+    {
+      "end_hms": "00:49:14.559",
+      "id": "seg-000545",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:49:08.300",
+      "text": "well, not nearly as well as you would think, and in general not. And the reasons are methodological."
+    },
+    {
+      "end_hms": "00:49:18.699",
+      "id": "seg-000546",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:49:14.780",
+      "text": "And once you think about it, they make a lot of sense, which is that the emotional facial"
+    },
+    {
+      "end_hms": "00:49:23.739",
+      "id": "seg-000547",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:49:18.699",
+      "text": "expressions that Ekman pioneered, I used them in the first 1994 Nature paper with as a"
+    },
+    {
+      "end_hms": "00:49:28.460",
+      "id": "seg-000548",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:49:23.739",
+      "text": "McDalallesian patient. Those aren't actually what you normally see walking around the world. People"
+    },
+    {
+      "end_hms": "00:49:33.760",
+      "id": "seg-000549",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:49:28.460",
+      "text": "don't have those facial expressions. They are posed facial expressions by actors. Yeah, they're very"
+    },
+    {
+      "end_hms": "00:49:39.280",
+      "id": "seg-000550",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:49:33.760",
+      "text": "extreme. And then the task is like, well, here's a list of emotion words, happiness, fear,"
+    },
+    {
+      "end_hms": "00:49:43.940",
+      "id": "seg-000551",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:49:39.340",
+      "text": "anger, disgust, etc. Pick the one that matches the face. That's the typical task. Those multiple"
+    },
+    {
+      "end_hms": "00:49:49.139",
+      "id": "seg-000552",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:49:43.940",
+      "text": "choice. Look, if I gave you a bunch of emoticons and a bunch of emotion words and asked you to match"
+    },
+    {
+      "end_hms": "00:49:53.599",
+      "id": "seg-000553",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:49:49.139",
+      "text": "them, you could do that very easily. I wouldn't show you anything about emotions. It shows you"
+    },
+    {
+      "end_hms": "00:49:59.679",
+      "id": "seg-000554",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:49:53.599",
+      "text": "that there's by convention, there's some association between these things and these things."
+    },
+    {
+      "end_hms": "00:50:05.639",
+      "id": "seg-000555",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:49:59.679",
+      "text": "That's it. So when you actually see real world facial expressions, and when instead of giving a"
+    },
+    {
+      "end_hms": "00:50:10.619",
+      "id": "seg-000556",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:50:05.639",
+      "text": "list, you just ask people, just generate freely a work that describes that, you get something that's"
+    },
+    {
+      "end_hms": "00:50:16.400",
+      "id": "seg-000557",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:50:10.619",
+      "text": "much has much more variation, much more heterogeneity, which then was part of the ingredient"
+    },
+    {
+      "end_hms": "00:50:22.940",
+      "id": "seg-000558",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:50:16.400",
+      "text": "for Lisa's whole claim that variation is the norm, and that in fact, emotions are in some sense"
+    },
+    {
+      "end_hms": "00:50:28.780",
+      "id": "seg-000559",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:50:22.940",
+      "text": "constructed rather than packages to be found in nature, which I disagree with that part. But"
+    },
+    {
+      "end_hms": "00:50:35.039",
+      "id": "seg-000560",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:50:28.780",
+      "text": "emotional facial expressions for the perception of emotions in others and in animals. I was just"
+    },
+    {
+      "end_hms": "00:50:41.539",
+      "id": "seg-000561",
+      "role": "context_only",
+      "speaker": null,
+      "start_hms": "00:50:35.039",
+      "text": "talking before coming in here to one of your colleagues about your cute dog, and they've done studies,"
+    }
+  ],
+  "source_sha256": "3e46962b9a0be33deecf1612ca70d8c2ceb1405ce67075ce22c6123d8e972c9d",
+  "window_id": "window-0009"
+}

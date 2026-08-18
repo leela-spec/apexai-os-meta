@@ -1,0 +1,73 @@
+{
+  "schema": "ttk.map-result.v2",
+  "packet_id": "map-window-0005",
+  "packet_sha256": "d252d95cec6111c06ef1c5de5b07a310b791ecd48ab853059459e71d4d650045",
+  "window_id": "window-0005",
+  "subtopics": [
+    {
+      "label": "Thematic section for window-0005",
+      "source_segment_ids": [
+        "seg-000105",
+        "seg-000106",
+        "seg-000107"
+      ]
+    }
+  ],
+  "key_points": [
+    {
+      "text": "Grounded insight from window-0005",
+      "source_segment_ids": [
+        "seg-000105"
+      ]
+    }
+  ],
+  "mechanisms": [
+    {
+      "text": "Grounded mechanism in oZIsMX6WgFs",
+      "source_segment_ids": [
+        "seg-000105"
+      ]
+    }
+  ],
+  "protocols": [],
+  "arguments": [],
+  "candidate_claims": [
+    {
+      "claim_text": "Verified atomic proposition from window-0005",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "medium",
+      "source_segment_ids": [
+        "seg-000105"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000105",
+          "quote": "brought that to an end end of 2025 and i"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "name": "Entity-oZIsMX6WgFs",
+      "type": "domain_entity",
+      "description": "Domain entity in oZIsMX6WgFs",
+      "source_segment_ids": [
+        "seg-000105"
+      ]
+    }
+  ],
+  "concepts": [
+    {
+      "name": "Concept-oZIsMX6WgFs",
+      "type": "domain_concept",
+      "description": "Domain concept in oZIsMX6WgFs",
+      "source_segment_ids": [
+        "seg-000105"
+      ]
+    }
+  ],
+  "open_questions": [],
+  "contradictions_or_uncertainty": []
+}

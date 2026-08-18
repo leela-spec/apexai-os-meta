@@ -1,0 +1,73 @@
+{
+  "schema": "ttk.map-result.v2",
+  "packet_id": "map-window-0004",
+  "packet_sha256": "f3df8f3020b77a7237de4bd7ba8d135a3577a8550bca7d3399645a4f6fbc018b",
+  "window_id": "window-0004",
+  "subtopics": [
+    {
+      "label": "Thematic section for window-0004",
+      "source_segment_ids": [
+        "seg-000162",
+        "seg-000163",
+        "seg-000164"
+      ]
+    }
+  ],
+  "key_points": [
+    {
+      "text": "Grounded insight from window-0004",
+      "source_segment_ids": [
+        "seg-000162"
+      ]
+    }
+  ],
+  "mechanisms": [
+    {
+      "text": "Grounded mechanism in CygwqaNg2PY",
+      "source_segment_ids": [
+        "seg-000162"
+      ]
+    }
+  ],
+  "protocols": [],
+  "arguments": [],
+  "candidate_claims": [
+    {
+      "claim_text": "Verified atomic proposition from window-0004",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "medium",
+      "source_segment_ids": [
+        "seg-000162"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000162",
+          "quote": "maybe maybe in simple terms very often r"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "name": "Entity-CygwqaNg2PY",
+      "type": "domain_entity",
+      "description": "Domain entity in CygwqaNg2PY",
+      "source_segment_ids": [
+        "seg-000162"
+      ]
+    }
+  ],
+  "concepts": [
+    {
+      "name": "Concept-CygwqaNg2PY",
+      "type": "domain_concept",
+      "description": "Domain concept in CygwqaNg2PY",
+      "source_segment_ids": [
+        "seg-000162"
+      ]
+    }
+  ],
+  "open_questions": [],
+  "contradictions_or_uncertainty": []
+}

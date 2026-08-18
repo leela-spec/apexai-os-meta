@@ -1,0 +1,796 @@
+{
+  "context_only_segment_ids": [
+    "seg-000418",
+    "seg-000503"
+  ],
+  "contract_version": "ttk.semantic-contract.v2",
+  "core_segment_ids": [
+    "seg-000419",
+    "seg-000420",
+    "seg-000421",
+    "seg-000422",
+    "seg-000423",
+    "seg-000424",
+    "seg-000425",
+    "seg-000426",
+    "seg-000427",
+    "seg-000428",
+    "seg-000429",
+    "seg-000430",
+    "seg-000431",
+    "seg-000432",
+    "seg-000433",
+    "seg-000434",
+    "seg-000435",
+    "seg-000436",
+    "seg-000437",
+    "seg-000438",
+    "seg-000439",
+    "seg-000440",
+    "seg-000441",
+    "seg-000442",
+    "seg-000443",
+    "seg-000444",
+    "seg-000445",
+    "seg-000446",
+    "seg-000447",
+    "seg-000448",
+    "seg-000449",
+    "seg-000450",
+    "seg-000451",
+    "seg-000452",
+    "seg-000453",
+    "seg-000454",
+    "seg-000455",
+    "seg-000456",
+    "seg-000457",
+    "seg-000458",
+    "seg-000459",
+    "seg-000460",
+    "seg-000461",
+    "seg-000462",
+    "seg-000463",
+    "seg-000464",
+    "seg-000465",
+    "seg-000466",
+    "seg-000467",
+    "seg-000468",
+    "seg-000469",
+    "seg-000470",
+    "seg-000471",
+    "seg-000472",
+    "seg-000473",
+    "seg-000474",
+    "seg-000475",
+    "seg-000476",
+    "seg-000477",
+    "seg-000478",
+    "seg-000479",
+    "seg-000480",
+    "seg-000481",
+    "seg-000482",
+    "seg-000483",
+    "seg-000484",
+    "seg-000485",
+    "seg-000486",
+    "seg-000487",
+    "seg-000488",
+    "seg-000489",
+    "seg-000490",
+    "seg-000491",
+    "seg-000492",
+    "seg-000493",
+    "seg-000494",
+    "seg-000495",
+    "seg-000496",
+    "seg-000497",
+    "seg-000498",
+    "seg-000499",
+    "seg-000500",
+    "seg-000501",
+    "seg-000502"
+  ],
+  "packet_id": "map-window-0008",
+  "packet_sha256": "b1e4ef2e9727fd1e96704dddab9ab2bd79c356e4ef34256f36b5f049ab3eff09",
+  "result_path": "work/results/map/window-0008.json",
+  "rules": [
+    "Extract evidence only from core segments; context_only segments are orientation only.",
+    "Every candidate claim requires at least one verbatim quote from its cited core segment.",
+    "Do not force content into categories; empty arrays are valid.",
+    "Separate factual assertions from opinion, prediction, recommendation, decision, anecdote, definition, mechanism, estimate, and hypothesis.",
+    "Preserve disagreement and uncertainty rather than reconciling it."
+  ],
+  "schema": "ttk.map-packet.v2",
+  "source_segments": [
+    {
+      "end_hms": "00:37:34.820",
+      "id": "seg-000418",
+      "role": "context_only",
+      "speaker": null,
+      "start_hms": "00:37:31.260",
+      "text": "But we were talking about something that I think is relevant to bring up now, which is"
+    },
+    {
+      "end_hms": "00:37:41.699",
+      "id": "seg-000419",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:37:35.639",
+      "text": "you were describing how, you know, at some points during these races, you just feel like complete"
+    },
+    {
+      "end_hms": "00:37:47.300",
+      "id": "seg-000420",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:37:41.699",
+      "text": "garbage. But then you start to feel better. And so then the next time you feel like complete"
+    },
+    {
+      "end_hms": "00:37:53.519",
+      "id": "seg-000421",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:37:47.300",
+      "text": "garbage, you have the cognitive knowledge that you felt terrible then better again. And so you're"
+    },
+    {
+      "end_hms": "00:37:58.159",
+      "id": "seg-000422",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:37:53.519",
+      "text": "starting to integrate over longer periods of time. So here's another example of emotion regulation,"
+    },
+    {
+      "end_hms": "00:38:02.780",
+      "id": "seg-000423",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:37:58.159",
+      "text": "but over much longer time scales. It's a little bit harder to access for most people than a"
+    },
+    {
+      "end_hms": "00:38:07.059",
+      "id": "seg-000424",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:38:02.780",
+      "text": "cold shower. No, but I think this is one thing, one reason, many reasons, but there's one reason"
+    },
+    {
+      "end_hms": "00:38:12.760",
+      "id": "seg-000425",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:38:07.059",
+      "text": "that I love these ultramarathons and sort of identify as an ultra runner, even though I didn't do it"
+    },
+    {
+      "end_hms": "00:38:17.019",
+      "id": "seg-000426",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:38:12.760",
+      "text": "for decades. And I'm just now getting back into it because of that nonlinearity. You have these"
+    },
+    {
+      "end_hms": "00:38:21.880",
+      "id": "seg-000427",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:38:17.019",
+      "text": "major ups and downs. And you know, sort of mantra that ultra running has co-opted is, you know,"
+    },
+    {
+      "end_hms": "00:38:26.380",
+      "id": "seg-000428",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:38:22.039",
+      "text": "relentless forward momentum. But the sort of psychological equivalent is just relentless"
+    },
+    {
+      "end_hms": "00:38:32.519",
+      "id": "seg-000429",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:38:26.380",
+      "text": "optimism, like optimism in the face of adversity. You have to just keep that mindset. And everybody"
+    },
+    {
+      "end_hms": "00:38:37.000",
+      "id": "seg-000430",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:38:32.519",
+      "text": "there's like that. You know, you come around like mile 40, mile 50, mile 60, you come around some"
+    },
+    {
+      "end_hms": "00:38:44.400",
+      "id": "seg-000431",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:38:37.000",
+      "text": "curve and you look and feel like crap. People go, look and go, no, nobody says, well, looks like"
+    },
+    {
+      "end_hms": "00:38:48.900",
+      "id": "seg-000432",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:38:44.400",
+      "text": "you're not going to make it. No, nobody says that, right? So everybody is super positive."
+    },
+    {
+      "end_hms": "00:38:53.539",
+      "id": "seg-000433",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:38:49.440",
+      "text": "You're hanging in there and it is really hard. And you know, you've just been going downhill,"
+    },
+    {
+      "end_hms": "00:38:59.940",
+      "id": "seg-000434",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:38:53.539",
+      "text": "your knees are shot. You have blisters. You've been vomiting. Super tired. And you extrapolate and"
+    },
+    {
+      "end_hms": "00:39:05.920",
+      "id": "seg-000435",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:38:59.940",
+      "text": "you think this is not going to work. But if you refuse to give up, it doesn't always work."
+    },
+    {
+      "end_hms": "00:39:10.980",
+      "id": "seg-000436",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:39:06.179",
+      "text": "But about half the time or so, it levels out and it starts going back up again. And you keep going."
+    },
+    {
+      "end_hms": "00:39:17.420",
+      "id": "seg-000437",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:39:11.300",
+      "text": "I mean, you feel wrecked at mile 50. I feel wrecked or earlier, mile 30. And so trying to think"
+    },
+    {
+      "end_hms": "00:39:22.739",
+      "id": "seg-000438",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:39:17.420",
+      "text": "forward and say, well, I have to do this over again. This is like not fathomable. So it's a really"
+    },
+    {
+      "end_hms": "00:39:28.300",
+      "id": "seg-000439",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:39:22.739",
+      "text": "interesting exercise in not giving up and being able to do something that you think is impossible"
+    },
+    {
+      "end_hms": "00:39:33.659",
+      "id": "seg-000440",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:39:28.300",
+      "text": "to do. For that matter, all of your listeners would think it's important. If any of your listeners"
+    },
+    {
+      "end_hms": "00:39:39.579",
+      "id": "seg-000441",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:39:33.659",
+      "text": "went running with me, they would conclude two things. One is they're faster than I am. And two,"
+    },
+    {
+      "end_hms": "00:39:44.559",
+      "id": "seg-000442",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:39:39.940",
+      "text": "I'm not going to be able to do 100 miles, which means if I actually finished the 100 miles,"
+    },
+    {
+      "end_hms": "00:39:50.059",
+      "id": "seg-000443",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:39:45.179",
+      "text": "all of you would be able to do so as well, which I think is true. I think anybody can do it."
+    },
+    {
+      "end_hms": "00:39:56.420",
+      "id": "seg-000444",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:39:50.059",
+      "text": "Anybody who's basically healthy, if they only want it to, which is the key, could actually do it."
+    },
+    {
+      "end_hms": "00:40:01.179",
+      "id": "seg-000445",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:39:56.559",
+      "text": "So it's just a really interesting exercise. You know, it's only 30 hours. Well, only, but it's"
+    },
+    {
+      "end_hms": "00:40:06.420",
+      "id": "seg-000446",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:40:01.179",
+      "text": "only 30 hours. It's not like, you know, years, how hard can it be? I hope that, well, it's hard,"
+    },
+    {
+      "end_hms": "00:40:12.440",
+      "id": "seg-000447",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:40:06.579",
+      "text": "but it's doable. It's definitely doable. And so it's just in that sweet spot of something that seems"
+    },
+    {
+      "end_hms": "00:40:19.239",
+      "id": "seg-000448",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:40:12.440",
+      "text": "impossible and is just unbelievably hard, but doable. And that's attractive somehow."
+    },
+    {
+      "end_hms": "00:40:23.280",
+      "id": "seg-000449",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:40:19.699",
+      "text": "If you can do it, which, of course, doesn't happen all the time. Yeah. And I don't know if there"
+    },
+    {
+      "end_hms": "00:40:28.820",
+      "id": "seg-000450",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:40:23.280",
+      "text": "are any data on this, but for people that have lived through really hard things and come out better,"
+    },
+    {
+      "end_hms": "00:40:34.119",
+      "id": "seg-000451",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:40:29.099",
+      "text": "or have pushed themselves to deliberately do hard things of the sort that you're describing,"
+    },
+    {
+      "end_hms": "00:40:41.500",
+      "id": "seg-000452",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:40:34.460",
+      "text": "I do think that the memory of that can recall our body and brain's ability to lean into other"
+    },
+    {
+      "end_hms": "00:40:45.599",
+      "id": "seg-000453",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:40:41.500",
+      "text": "hard things. I think so. I mean, it must be the case. I don't know of any good experiments on"
+    },
+    {
+      "end_hms": "00:40:49.960",
+      "id": "seg-000454",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:40:45.599",
+      "text": "that, but, you know, was that post-traumatic resilience, I guess they call it? You know, I mean,"
+    },
+    {
+      "end_hms": "00:40:54.500",
+      "id": "seg-000455",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:40:50.159",
+      "text": "some people come out of very difficult circumstances. Yeah. Maybe they do, quote, unquote, the work they"
+    },
+    {
+      "end_hms": "00:40:58.800",
+      "id": "seg-000456",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:40:54.500",
+      "text": "need to or not. And they just say, okay, like, I'm better for life because I'm out of it. Other people"
+    },
+    {
+      "end_hms": "00:41:03.599",
+      "id": "seg-000457",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:40:58.800",
+      "text": "carry the wounds of that forward in a way that they're, you know, they're psychological and sometimes"
+    },
+    {
+      "end_hms": "00:41:08.599",
+      "id": "seg-000458",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:41:03.599",
+      "text": "their physical health is a downward trajectory. It's a very interesting thing about like, how should"
+    },
+    {
+      "end_hms": "00:41:14.000",
+      "id": "seg-000459",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:41:08.599",
+      "text": "we conceptualize pain and pain ending? Like some people seem to live in the discomfort of the"
+    },
+    {
+      "end_hms": "00:41:20.119",
+      "id": "seg-000460",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:41:14.000",
+      "text": "pain having even happened. Yeah, you can certainly persevere and overcome, you know, severe"
+    },
+    {
+      "end_hms": "00:41:25.539",
+      "id": "seg-000461",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:41:20.119",
+      "text": "adversity if it's time limited. And I think just your own sort of belief in yourself and your"
+    },
+    {
+      "end_hms": "00:41:31.679",
+      "id": "seg-000462",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:41:25.539",
+      "text": "capability to overcome adversity, as you were saying, is one important component. Another one"
+    },
+    {
+      "end_hms": "00:41:38.059",
+      "id": "seg-000463",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:41:31.679",
+      "text": "is something like gratitude or awe. And you get to appreciate and just value, you know, just the"
+    },
+    {
+      "end_hms": "00:41:43.739",
+      "id": "seg-000464",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:41:38.059",
+      "text": "fact that I'm here talking to you, I mean, I'm just, I'm actually grateful and feeling some sense"
+    },
+    {
+      "end_hms": "00:41:51.039",
+      "id": "seg-000465",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:41:43.739",
+      "text": "of awe right now at just existing. And so getting to that point where you're just every morning you"
+    },
+    {
+      "end_hms": "00:41:56.940",
+      "id": "seg-000466",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:41:51.039",
+      "text": "wake up and you have this sense of, I guess, gratitude and awe or some combination of those emotions,"
+    },
+    {
+      "end_hms": "00:42:02.659",
+      "id": "seg-000467",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:41:57.500",
+      "text": "I think that's a really valuable thing to carry out of all of this. And, you know, it takes time"
+    },
+    {
+      "end_hms": "00:42:07.619",
+      "id": "seg-000468",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:42:02.659",
+      "text": "to kind of accumulate, but I like living that way. I want to get back to the emotion system,"
+    },
+    {
+      "end_hms": "00:42:15.539",
+      "id": "seg-000469",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:42:07.619",
+      "text": "but I'll just, I feel inclined to mention we had Dacker Keltner on the podcast. And he said,"
+    },
+    {
+      "end_hms": "00:42:21.860",
+      "id": "seg-000470",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:42:16.119",
+      "text": "it's when we bring our attention from a small spatial scale to a large spatial scale,"
+    },
+    {
+      "end_hms": "00:42:27.300",
+      "id": "seg-000471",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:42:22.079",
+      "text": "right? Or from large to small. But then during the course of our discussion, he added that this"
+    },
+    {
+      "end_hms": "00:42:31.760",
+      "id": "seg-000472",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:42:27.300",
+      "text": "is also true in the time domain. So when we live our life day to day, we start to feel kind of"
+    },
+    {
+      "end_hms": "00:42:38.840",
+      "id": "seg-000473",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:42:31.760",
+      "text": "lost in time and awe becomes less common. But when perhaps we run a hundred mile race across"
+    },
+    {
+      "end_hms": "00:42:44.320",
+      "id": "seg-000474",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:42:38.840",
+      "text": "30 hours, we realize how much can happen in 30 hours? One could say, Oh, well, then you finish the race"
+    },
+    {
+      "end_hms": "00:42:49.380",
+      "id": "seg-000475",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:42:44.320",
+      "text": "and the rest of life seems trivial, but it seems the opposite is true. That we realize that time is"
+    },
+    {
+      "end_hms": "00:42:53.860",
+      "id": "seg-000476",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:42:49.380",
+      "text": "this very elastic thing at least in our minds. And all of a sudden, we have awe for the fact that we"
+    },
+    {
+      "end_hms": "00:42:58.659",
+      "id": "seg-000477",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:42:53.860",
+      "text": "have so many days of life to live forward. It's very interesting. And it almost speaks to the ice"
+    },
+    {
+      "end_hms": "00:43:03.119",
+      "id": "seg-000478",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:42:58.659",
+      "text": "bath again, like you have this very compressed, stressful experience that gives you that gap,"
+    },
+    {
+      "end_hms": "00:43:08.039",
+      "id": "seg-000479",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:43:03.320",
+      "text": "that gap between stimulus and response that seems very hard to access unless we subject ourselves"
+    },
+    {
+      "end_hms": "00:43:11.860",
+      "id": "seg-000480",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:43:08.039",
+      "text": "to these kinds of things. No, and I think that capability, the, I mean, people think, you know,"
+    },
+    {
+      "end_hms": "00:43:17.079",
+      "id": "seg-000481",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:43:11.940",
+      "text": "chimpanzees maybe can feel awe, but I think it's, I think it's a uniquely, at least as we have it,"
+    },
+    {
+      "end_hms": "00:43:23.039",
+      "id": "seg-000482",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:43:17.199",
+      "text": "it's uniquely human emotion. And it's based on a broad sort of metacognitive ability we have,"
+    },
+    {
+      "end_hms": "00:43:28.300",
+      "id": "seg-000483",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:43:23.099",
+      "text": "which is to detach our conscious experience from the here and now and do like mental time travel."
+    },
+    {
+      "end_hms": "00:43:34.119",
+      "id": "seg-000484",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:43:28.300",
+      "text": "It's pretty derivative to the need to understand other people. So I could put myself into your shoes"
+    },
+    {
+      "end_hms": "00:43:39.019",
+      "id": "seg-000485",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:43:34.119",
+      "text": "right now. I can, I can do that. I could imagine sitting where you're sitting and I'm seeing"
+    },
+    {
+      "end_hms": "00:43:43.940",
+      "id": "seg-000486",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:43:39.019",
+      "text": "Ralph Adolf's here. You know, I could imagine zooming around and adopting another person's perspective"
+    },
+    {
+      "end_hms": "00:43:49.139",
+      "id": "seg-000487",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:43:43.940",
+      "text": "in space. We certainly zoom around in time and reminisce, you know, stuff from the past,"
+    },
+    {
+      "end_hms": "00:43:54.400",
+      "id": "seg-000488",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:43:49.440",
+      "text": "imagine things in the future. And I think always like that too. We adopt a different perspective"
+    },
+    {
+      "end_hms": "00:44:00.280",
+      "id": "seg-000489",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:43:55.039",
+      "text": "that's not just tied to the here and now, which I think is probably a crucial ability"
+    },
+    {
+      "end_hms": "00:44:04.960",
+      "id": "seg-000490",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:44:00.280",
+      "text": "that distinguishes the nature of conscious experience in humans, which is that we have some"
+    },
+    {
+      "end_hms": "00:44:12.780",
+      "id": "seg-000491",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:44:04.960",
+      "text": "control over it. I can simulate what it's like to be you. I can imagine being in the past or in"
+    },
+    {
+      "end_hms": "00:44:20.179",
+      "id": "seg-000492",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:44:12.780",
+      "text": "the future. I can zoom out broadly when I'm feeling awe. And I think animals are more just stuck with"
+    },
+    {
+      "end_hms": "00:44:24.960",
+      "id": "seg-000493",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:44:20.179",
+      "text": "whatever the senses are delivering to them right now. That's the content of their conscious"
+    },
+    {
+      "end_hms": "00:44:30.880",
+      "id": "seg-000494",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:44:24.960",
+      "text": "experience. We can use it flexibly. And that's I think why we can plan and write novels and"
+    },
+    {
+      "end_hms": "00:44:36.219",
+      "id": "seg-000495",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:44:30.880",
+      "text": "fiction and think about most of the time, right? What if I ask you, what's in your consciousness,"
+    },
+    {
+      "end_hms": "00:44:40.780",
+      "id": "seg-000496",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:44:36.400",
+      "text": "what are you thinking about? It's not stuff that's in front of you. Daydreaming, you're like all"
+    },
+    {
+      "end_hms": "00:44:46.159",
+      "id": "seg-000497",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:44:40.780",
+      "text": "kinds of places and it really gives the human mind the power that distinguishes it from any other"
+    },
+    {
+      "end_hms": "00:44:51.940",
+      "id": "seg-000498",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:44:46.159",
+      "text": "animals. And it's the reason we have everything that we have that makes us so so different. So"
+    },
+    {
+      "end_hms": "00:44:59.159",
+      "id": "seg-000499",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:44:51.940",
+      "text": "all I think is an example of a uniquely human emotion that derives from that that ability to adopt"
+    },
+    {
+      "end_hms": "00:45:04.199",
+      "id": "seg-000500",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:44:59.159",
+      "text": "a vast point of view or a point of view that's not tied to just whatever the senses are delivering to"
+    },
+    {
+      "end_hms": "00:45:10.840",
+      "id": "seg-000501",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:45:04.199",
+      "text": "you. I'd like to take a quick break and acknowledge our sponsor, AG1. I'm excited to share that AG1"
+    },
+    {
+      "end_hms": "00:45:16.719",
+      "id": "seg-000502",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:45:10.840",
+      "text": "has just launched their newest formulation, AG1 Pro. AG1 Pro takes the clinically-backed AG1"
+    },
+    {
+      "end_hms": "00:45:21.260",
+      "id": "seg-000503",
+      "role": "context_only",
+      "speaker": null,
+      "start_hms": "00:45:16.719",
+      "text": "formula, which is a blend of vitamins, minerals, probiotics, and adaptogens. And it adds three"
+    }
+  ],
+  "source_sha256": "3e46962b9a0be33deecf1612ca70d8c2ceb1405ce67075ce22c6123d8e972c9d",
+  "window_id": "window-0008"
+}

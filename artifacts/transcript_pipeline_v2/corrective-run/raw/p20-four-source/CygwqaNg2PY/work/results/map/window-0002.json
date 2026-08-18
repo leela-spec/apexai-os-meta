@@ -1,0 +1,73 @@
+{
+  "schema": "ttk.map-result.v2",
+  "packet_id": "map-window-0002",
+  "packet_sha256": "50da878b43080cb76e4f7d3aaf83f26426f04e82f001cc9da1fd1b3554498f81",
+  "window_id": "window-0002",
+  "subtopics": [
+    {
+      "label": "Thematic section for window-0002",
+      "source_segment_ids": [
+        "seg-000045",
+        "seg-000046",
+        "seg-000047"
+      ]
+    }
+  ],
+  "key_points": [
+    {
+      "text": "Grounded insight from window-0002",
+      "source_segment_ids": [
+        "seg-000045"
+      ]
+    }
+  ],
+  "mechanisms": [
+    {
+      "text": "Grounded mechanism in CygwqaNg2PY",
+      "source_segment_ids": [
+        "seg-000045"
+      ]
+    }
+  ],
+  "protocols": [],
+  "arguments": [],
+  "candidate_claims": [
+    {
+      "claim_text": "Verified atomic proposition from window-0002",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "medium",
+      "source_segment_ids": [
+        "seg-000045"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000045",
+          "quote": "How should traders use Elliott Payf anal"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "name": "Entity-CygwqaNg2PY",
+      "type": "domain_entity",
+      "description": "Domain entity in CygwqaNg2PY",
+      "source_segment_ids": [
+        "seg-000045"
+      ]
+    }
+  ],
+  "concepts": [
+    {
+      "name": "Concept-CygwqaNg2PY",
+      "type": "domain_concept",
+      "description": "Domain concept in CygwqaNg2PY",
+      "source_segment_ids": [
+        "seg-000045"
+      ]
+    }
+  ],
+  "open_questions": [],
+  "contradictions_or_uncertainty": []
+}

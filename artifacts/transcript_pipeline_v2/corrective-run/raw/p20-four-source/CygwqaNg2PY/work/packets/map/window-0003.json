@@ -1,0 +1,445 @@
+{
+  "context_only_segment_ids": [
+    "seg-000116",
+    "seg-000162"
+  ],
+  "contract_version": "ttk.semantic-contract.v2",
+  "core_segment_ids": [
+    "seg-000117",
+    "seg-000118",
+    "seg-000119",
+    "seg-000120",
+    "seg-000121",
+    "seg-000122",
+    "seg-000123",
+    "seg-000124",
+    "seg-000125",
+    "seg-000126",
+    "seg-000127",
+    "seg-000128",
+    "seg-000129",
+    "seg-000130",
+    "seg-000131",
+    "seg-000132",
+    "seg-000133",
+    "seg-000134",
+    "seg-000135",
+    "seg-000136",
+    "seg-000137",
+    "seg-000138",
+    "seg-000139",
+    "seg-000140",
+    "seg-000141",
+    "seg-000142",
+    "seg-000143",
+    "seg-000144",
+    "seg-000145",
+    "seg-000146",
+    "seg-000147",
+    "seg-000148",
+    "seg-000149",
+    "seg-000150",
+    "seg-000151",
+    "seg-000152",
+    "seg-000153",
+    "seg-000154",
+    "seg-000155",
+    "seg-000156",
+    "seg-000157",
+    "seg-000158",
+    "seg-000159",
+    "seg-000160",
+    "seg-000161"
+  ],
+  "packet_id": "map-window-0003",
+  "packet_sha256": "f60d7d49a5959041043096eee6731a56b37dee0a3e5cf6123a0eaa002a068511",
+  "result_path": "work/results/map/window-0003.json",
+  "rules": [
+    "Extract evidence only from core segments; context_only segments are orientation only.",
+    "Every candidate claim requires at least one verbatim quote from its cited core segment.",
+    "Do not force content into categories; empty arrays are valid.",
+    "Separate factual assertions from opinion, prediction, recommendation, decision, anecdote, definition, mechanism, estimate, and hypothesis.",
+    "Preserve disagreement and uncertainty rather than reconciling it."
+  ],
+  "schema": "ttk.map-packet.v2",
+  "source_segments": [
+    {
+      "end_hms": "00:13:14.320",
+      "id": "seg-000116",
+      "role": "context_only",
+      "speaker": null,
+      "start_hms": "00:13:08.740",
+      "text": "patterns right now so you don't need to do it manually so e-wave is doing that for you right"
+    },
+    {
+      "end_hms": "00:13:21.730",
+      "id": "seg-000117",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:13:16.110",
+      "text": "yes I mean e-waves does do the wave count it's an automated process so you don't have to sit there by"
+    },
+    {
+      "end_hms": "00:13:28.570",
+      "id": "seg-000118",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:13:21.730",
+      "text": "hand and sketch out the wave pattern which like you said earlier can be very tricky because when"
+    },
+    {
+      "end_hms": "00:13:34.440",
+      "id": "seg-000119",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:13:28.570",
+      "text": "you're looking at a chart through you're going to have partial patterns most of the time and that's"
+    },
+    {
+      "end_hms": "00:13:40.379",
+      "id": "seg-000120",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:13:34.440",
+      "text": "why in my presentation earlier I wanted to show that a particular example we had the market"
+    },
+    {
+      "end_hms": "00:13:45.860",
+      "id": "seg-000121",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:13:40.379",
+      "text": "coiling up and it looked like it was a triangle and we're going to burst up out of the triangle right"
+    },
+    {
+      "end_hms": "00:13:50.879",
+      "id": "seg-000122",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:13:45.860",
+      "text": "which is a common pattern and the market did the exact opposite because that was actually part"
+    },
+    {
+      "end_hms": "00:13:56.419",
+      "id": "seg-000123",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:13:51.460",
+      "text": "of a partial pattern it was not a finished triangle it was part of yet another pattern so there's"
+    },
+    {
+      "end_hms": "00:14:02.360",
+      "id": "seg-000124",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:13:56.419",
+      "text": "all these kind of very tricky situations you get into with partial patterns so it's been it's been"
+    },
+    {
+      "end_hms": "00:14:11.100",
+      "id": "seg-000125",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:14:02.360",
+      "text": "quite a challenge to develop the program to deal with the inherent partialness of the data we're"
+    },
+    {
+      "end_hms": "00:14:18.340",
+      "id": "seg-000126",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:14:11.100",
+      "text": "working with but that's why the program does a lot of extrapolation work like I showed where it can"
+    },
+    {
+      "end_hms": "00:14:23.879",
+      "id": "seg-000127",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:14:18.899",
+      "text": "try to complete the pattern in its head so it's always kind of imagining okay if this is a"
+    },
+    {
+      "end_hms": "00:14:29.960",
+      "id": "seg-000128",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:14:23.879",
+      "text": "partially formed pattern where might the market go next and what would that look like so does it"
+    },
+    {
+      "end_hms": "00:14:36.320",
+      "id": "seg-000129",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:14:29.960",
+      "text": "remove this subjective decision-making of the analyst which we had before which made me crazy"
+    },
+    {
+      "end_hms": "00:14:42.419",
+      "id": "seg-000130",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:14:36.320",
+      "text": "following different alien wave experts showing different counts I think that cannot be the case"
+    },
+    {
+      "end_hms": "00:14:47.779",
+      "id": "seg-000131",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:14:42.419",
+      "text": "they are clear rules yeah published in in the book so why can they come up with different outcomes"
+    },
+    {
+      "end_hms": "00:14:57.879",
+      "id": "seg-000132",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:14:48.159",
+      "text": "so does UAV now solve that? Well or not yeah okay so there are of course rules that do constrain"
+    },
+    {
+      "end_hms": "00:15:03.860",
+      "id": "seg-000133",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:14:57.879",
+      "text": "the wave counts that are legal as well as the wave counts that are illegal so to speak and"
+    },
+    {
+      "end_hms": "00:15:09.919",
+      "id": "seg-000134",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:15:03.860",
+      "text": "that's one common baseline that all analysts should follow I've seen many blog posts where they"
+    },
+    {
+      "end_hms": "00:15:15.299",
+      "id": "seg-000135",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:15:09.919",
+      "text": "obviously don't know about the rules and you get some really weird looking counts but but even at"
+    },
+    {
+      "end_hms": "00:15:22.720",
+      "id": "seg-000136",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:15:15.299",
+      "text": "that basis okay that that's a nice foundation for the elite wave theory but then there's of course"
+    },
+    {
+      "end_hms": "00:15:29.279",
+      "id": "seg-000137",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:15:22.720",
+      "text": "the area where probability comes into play and guidelines come into play and when you get to that"
+    },
+    {
+      "end_hms": "00:15:35.320",
+      "id": "seg-000138",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:15:29.279",
+      "text": "area of the theory where you have different alternative wave counts or different ways that are"
+    },
+    {
+      "end_hms": "00:15:40.480",
+      "id": "seg-000139",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:15:35.320",
+      "text": "legal of labeling a chart and you're trying to pick between them that's where you get different"
+    },
+    {
+      "end_hms": "00:15:46.820",
+      "id": "seg-000140",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:15:40.480",
+      "text": "analysts that may disagree now I think there are times in the market where everything kind of lines"
+    },
+    {
+      "end_hms": "00:15:53.000",
+      "id": "seg-000141",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:15:46.820",
+      "text": "up and you'll see many analysts all of a sudden agreeing and I love when that happens so my answer"
+    },
+    {
+      "end_hms": "00:15:59.259",
+      "id": "seg-000142",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:15:53.000",
+      "text": "to you is when you see analysts disagreeing as long as they're good analysts what it's telling you"
+    },
+    {
+      "end_hms": "00:16:05.759",
+      "id": "seg-000143",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:15:59.259",
+      "text": "is that there are some alternative interpretations with a different message that are going on so maybe"
+    },
+    {
+      "end_hms": "00:16:11.929",
+      "id": "seg-000144",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:16:05.759",
+      "text": "the best thing to do is to just do this for a little bit and say okay the message is not clear"
+    },
+    {
+      "end_hms": "00:16:16.049",
+      "id": "seg-000145",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:16:11.929",
+      "text": "very similar to the cycles work you were talking about where you say sometimes"
+    },
+    {
+      "end_hms": "00:16:21.289",
+      "id": "seg-000146",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:16:16.049",
+      "text": "there are cycles going in different directions and the right answer is to be neutral so I would say"
+    },
+    {
+      "end_hms": "00:16:27.629",
+      "id": "seg-000147",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:16:21.289",
+      "text": "it's the same with with with Elliott waves so what we've done with e-waves of course that a human"
+    },
+    {
+      "end_hms": "00:16:32.909",
+      "id": "seg-000148",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:16:27.629",
+      "text": "can't do is that instead of using guidelines now I use the word guidelines because that's what we're"
+    },
+    {
+      "end_hms": "00:16:39.289",
+      "id": "seg-000149",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:16:32.909",
+      "text": "all familiar with but e-waves the program itself does not have guidelines you know the the guidelines"
+    },
+    {
+      "end_hms": "00:16:46.990",
+      "id": "seg-000150",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:16:39.289",
+      "text": "so to speak that I refer to are just part of what the model how the model learns the behavior of"
+    },
+    {
+      "end_hms": "00:16:54.649",
+      "id": "seg-000151",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:16:46.990",
+      "text": "the patterns which is an automatic learning process that it does but we can of course study the"
+    },
+    {
+      "end_hms": "00:17:00.649",
+      "id": "seg-000152",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:16:54.649",
+      "text": "resulting model and kind of see hey does it is it behaving in a way that conforms to the original"
+    },
+    {
+      "end_hms": "00:17:07.170",
+      "id": "seg-000153",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:17:00.649",
+      "text": "guidelines that are an Elliott wrote about and like I said before we've for the most part have"
+    },
+    {
+      "end_hms": "00:17:12.970",
+      "id": "seg-000154",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:17:07.170",
+      "text": "found that it's in agreement with his observations is there any cross checking taking place between"
+    },
+    {
+      "end_hms": "00:17:19.549",
+      "id": "seg-000155",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:17:12.970",
+      "text": "the results of e-waves and the official Elliott wave international interpretation of what the markets"
+    },
+    {
+      "end_hms": "00:17:26.609",
+      "id": "seg-000156",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:17:19.549",
+      "text": "are doing cross checking yeah that you compare and oh we can hear if there are differences you know"
+    },
+    {
+      "end_hms": "00:17:34.750",
+      "id": "seg-000157",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:17:26.609",
+      "text": "to be honest we tried to have various analysts follow the same course but if you've ever worked"
+    },
+    {
+      "end_hms": "00:17:40.390",
+      "id": "seg-000158",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:17:34.750",
+      "text": "with analysts before you know that they have each have their own opinion and so people do much"
+    },
+    {
+      "end_hms": "00:17:45.890",
+      "id": "seg-000159",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:17:40.390",
+      "text": "better work when they're allowed to just do use their own opinion and they have access to e-waves"
+    },
+    {
+      "end_hms": "00:17:51.069",
+      "id": "seg-000160",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:17:45.890",
+      "text": "and they'll refer to it and so I've a lot of time see that's that's the count we're producing"
+    },
+    {
+      "end_hms": "00:17:55.829",
+      "id": "seg-000161",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:17:51.069",
+      "text": "from the system and they're they're talking about it you know in their work and I love to see that"
+    },
+    {
+      "end_hms": "00:18:04.250",
+      "id": "seg-000162",
+      "role": "context_only",
+      "speaker": null,
+      "start_hms": "00:17:57.109",
+      "text": "maybe maybe in simple terms very often retail investors ask me you know looks really super"
+    }
+  ],
+  "source_sha256": "2d93ffe19ae134fb41bd2a9eb40f14285d702429ce4d2205113c0b177533899a",
+  "window_id": "window-0003"
+}

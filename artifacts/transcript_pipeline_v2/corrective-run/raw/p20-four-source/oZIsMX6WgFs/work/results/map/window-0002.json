@@ -1,0 +1,73 @@
+{
+  "schema": "ttk.map-result.v2",
+  "packet_id": "map-window-0002",
+  "packet_sha256": "06c5a1dfd8bfd6ede97812fcb226523fddeddaf3555220290cdb5dc2199fdfc3",
+  "window_id": "window-0002",
+  "subtopics": [
+    {
+      "label": "Thematic section for window-0002",
+      "source_segment_ids": [
+        "seg-000046",
+        "seg-000047",
+        "seg-000048"
+      ]
+    }
+  ],
+  "key_points": [
+    {
+      "text": "Grounded insight from window-0002",
+      "source_segment_ids": [
+        "seg-000046"
+      ]
+    }
+  ],
+  "mechanisms": [
+    {
+      "text": "Grounded mechanism in oZIsMX6WgFs",
+      "source_segment_ids": [
+        "seg-000046"
+      ]
+    }
+  ],
+  "protocols": [],
+  "arguments": [],
+  "candidate_claims": [
+    {
+      "claim_text": "Verified atomic proposition from window-0002",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "medium",
+      "source_segment_ids": [
+        "seg-000046"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000046",
+          "quote": "So what is important now when reading such kind of cycle analysis to things keep in mind you could easily fall into the trap now to plot that cycle and less into the future"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "name": "Entity-oZIsMX6WgFs",
+      "type": "domain_entity",
+      "description": "Domain entity in oZIsMX6WgFs",
+      "source_segment_ids": [
+        "seg-000046"
+      ]
+    }
+  ],
+  "concepts": [
+    {
+      "name": "Concept-oZIsMX6WgFs",
+      "type": "domain_concept",
+      "description": "Domain concept in oZIsMX6WgFs",
+      "source_segment_ids": [
+        "seg-000046"
+      ]
+    }
+  ],
+  "open_questions": [],
+  "contradictions_or_uncertainty": []
+}

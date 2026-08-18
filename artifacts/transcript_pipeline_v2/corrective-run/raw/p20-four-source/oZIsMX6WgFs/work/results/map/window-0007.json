@@ -1,0 +1,73 @@
+{
+  "schema": "ttk.map-result.v2",
+  "packet_id": "map-window-0007",
+  "packet_sha256": "d1556f6b42e1765c09dc7271cb081ed187bf5b300f16c8a45185cdbde8880074",
+  "window_id": "window-0007",
+  "subtopics": [
+    {
+      "label": "Thematic section for window-0007",
+      "source_segment_ids": [
+        "seg-000155",
+        "seg-000156",
+        "seg-000157"
+      ]
+    }
+  ],
+  "key_points": [
+    {
+      "text": "Grounded insight from window-0007",
+      "source_segment_ids": [
+        "seg-000155"
+      ]
+    }
+  ],
+  "mechanisms": [
+    {
+      "text": "Grounded mechanism in oZIsMX6WgFs",
+      "source_segment_ids": [
+        "seg-000155"
+      ]
+    }
+  ],
+  "protocols": [],
+  "arguments": [],
+  "candidate_claims": [
+    {
+      "claim_text": "Verified atomic proposition from window-0007",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "medium",
+      "source_segment_ids": [
+        "seg-000155"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000155",
+          "quote": "yes yes I mean this would be now a good"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "name": "Entity-oZIsMX6WgFs",
+      "type": "domain_entity",
+      "description": "Domain entity in oZIsMX6WgFs",
+      "source_segment_ids": [
+        "seg-000155"
+      ]
+    }
+  ],
+  "concepts": [
+    {
+      "name": "Concept-oZIsMX6WgFs",
+      "type": "domain_concept",
+      "description": "Domain concept in oZIsMX6WgFs",
+      "source_segment_ids": [
+        "seg-000155"
+      ]
+    }
+  ],
+  "open_questions": [],
+  "contradictions_or_uncertainty": []
+}

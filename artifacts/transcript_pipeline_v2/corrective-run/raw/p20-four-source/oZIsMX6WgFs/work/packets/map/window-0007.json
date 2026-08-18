@@ -1,0 +1,193 @@
+{
+  "context_only_segment_ids": [
+    "seg-000154"
+  ],
+  "contract_version": "ttk.semantic-contract.v2",
+  "core_segment_ids": [
+    "seg-000155",
+    "seg-000156",
+    "seg-000157",
+    "seg-000158",
+    "seg-000159",
+    "seg-000160",
+    "seg-000161",
+    "seg-000162",
+    "seg-000163",
+    "seg-000164",
+    "seg-000165",
+    "seg-000166",
+    "seg-000167",
+    "seg-000168",
+    "seg-000169",
+    "seg-000170",
+    "seg-000171",
+    "seg-000172"
+  ],
+  "packet_id": "map-window-0007",
+  "packet_sha256": "d1556f6b42e1765c09dc7271cb081ed187bf5b300f16c8a45185cdbde8880074",
+  "result_path": "work/results/map/window-0007.json",
+  "rules": [
+    "Extract evidence only from core segments; context_only segments are orientation only.",
+    "Every candidate claim requires at least one verbatim quote from its cited core segment.",
+    "Do not force content into categories; empty arrays are valid.",
+    "Separate factual assertions from opinion, prediction, recommendation, decision, anecdote, definition, mechanism, estimate, and hypothesis.",
+    "Preserve disagreement and uncertainty rather than reconciling it."
+  ],
+  "schema": "ttk.map-packet.v2",
+  "source_segments": [
+    {
+      "end_hms": "00:50:26.409",
+      "id": "seg-000154",
+      "role": "context_only",
+      "speaker": null,
+      "start_hms": "00:50:12.750",
+      "text": "when the 341 and to 44 cycles in civil synchronized does this mean that the envelopes and bands you spoke about what's okay okay now you're referring to what we showed you last week"
+    },
+    {
+      "end_hms": "00:50:38.590",
+      "id": "seg-000155",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:50:30.429",
+      "text": "yes yes I mean this would be now a good example to switch which I cannot do because it's not activated that engine right now"
+    },
+    {
+      "end_hms": "00:50:55.489",
+      "id": "seg-000156",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:50:38.590",
+      "text": "and the so the cycle links synchronizes in terms of their top and low comes more or less at the same point in time which is what we talked"
+    },
+    {
+      "end_hms": "00:51:06.349",
+      "id": "seg-000157",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:50:55.489",
+      "text": "about here and looks like one cycle so now bringing that back to the to the bands idea it's yes it goes in the in this direction"
+    },
+    {
+      "end_hms": "00:51:22.730",
+      "id": "seg-000158",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:51:07.630",
+      "text": "however there's a slight but because the bands which would be calculated based on those two links here will take into account the real price action"
+    },
+    {
+      "end_hms": "00:51:35.210",
+      "id": "seg-000159",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:51:24.429",
+      "text": "according to those two bands here what we show here in the cycle and analyzer is the theoretical time based perspective of those two"
+    },
+    {
+      "end_hms": "00:51:49.030",
+      "id": "seg-000160",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:51:35.210",
+      "text": "cycles according to the perfect sine wave behavior of those cycles so they they do not need to come close to a point at that point just"
+    },
+    {
+      "end_hms": "00:52:03.530",
+      "id": "seg-000161",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:51:49.030",
+      "text": "because the time cycles synchronize does not mean they must also the bands need now to get closer because the bands are calculated based on the real price action"
+    },
+    {
+      "end_hms": "00:52:13.929",
+      "id": "seg-000162",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:52:03.530",
+      "text": "this is what makes those two different kinds of analysis which both depend on the dominant cycle makes it so interesting to bring it together"
+    },
+    {
+      "end_hms": "00:52:23.429",
+      "id": "seg-000163",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:52:13.929",
+      "text": "because the envelopes will show more than where the price action of the three four one and the two four cycle is in agreement"
+    },
+    {
+      "end_hms": "00:52:34.070",
+      "id": "seg-000164",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:52:23.429",
+      "text": "what happens in price with the theoretical cycle from from the price action not the time based action so maybe not to go into the depth here"
+    },
+    {
+      "end_hms": "00:52:45.429",
+      "id": "seg-000165",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:52:34.070",
+      "text": "I would keep it as a good example to follow up to bring the time based cycle analysis into the picture of those price cyclic envelopes"
+    },
+    {
+      "end_hms": "00:52:58.369",
+      "id": "seg-000166",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:52:45.429",
+      "text": "because the envelopes are focused on price according to the cycles while the time cycles are focused on time based changes but then it's exactly the right point to now focus on"
+    },
+    {
+      "end_hms": "00:53:10.650",
+      "id": "seg-000167",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:53:00.130",
+      "text": "yeah I know you have lots lots more ideas on different cycles but please allow me we are now close to running one hour"
+    },
+    {
+      "end_hms": "00:53:19.809",
+      "id": "seg-000168",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:53:10.650",
+      "text": "I tried at least to answer some of your questions to repeat the procedure to give you a market perspective which is just education"
+    },
+    {
+      "end_hms": "00:53:28.210",
+      "id": "seg-000169",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:53:19.809",
+      "text": "so don't derive any decision on just what I showed here in that short amount of time because the purpose here is education on cycle analysis"
+    },
+    {
+      "end_hms": "00:53:38.070",
+      "id": "seg-000170",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:53:28.210",
+      "text": "I hope you liked that cycles jam how I called it just rushing through the asset classes next week same time same procedure"
+    },
+    {
+      "end_hms": "00:53:45.610",
+      "id": "seg-000171",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:53:38.070",
+      "text": "drop me a note leave me a comment join next week to have a joint session here also with some live interaction"
+    },
+    {
+      "end_hms": "00:53:49.670",
+      "id": "seg-000172",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:53:45.610",
+      "text": "again see you soon right bye thank you"
+    }
+  ],
+  "source_sha256": "d6bfb051b2344b3d17fd1a73643322945870262589aab1cf757ed1fe873ba135",
+  "window_id": "window-0007"
+}

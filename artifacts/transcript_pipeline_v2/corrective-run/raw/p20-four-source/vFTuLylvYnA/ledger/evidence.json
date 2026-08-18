@@ -1,0 +1,174 @@
+{
+  "arguments": [],
+  "candidate_claims": [
+    {
+      "checkworthiness": "medium",
+      "claim_kind": "fact",
+      "claim_text": "Verified atomic proposition from window-0001",
+      "quote_evidence": [
+        {
+          "quote": "So ein schön guten Morgen und schon habe",
+          "segment_id": "seg-000001"
+        }
+      ],
+      "source_segment_ids": [
+        "seg-000001"
+      ],
+      "source_window_ids": [
+        "window-0001"
+      ],
+      "speaker": null
+    },
+    {
+      "checkworthiness": "medium",
+      "claim_kind": "fact",
+      "claim_text": "Verified atomic proposition from window-0002",
+      "quote_evidence": [
+        {
+          "quote": "bei denen es garantiert, dass es auch Be",
+          "segment_id": "seg-000077"
+        }
+      ],
+      "source_segment_ids": [
+        "seg-000077"
+      ],
+      "source_window_ids": [
+        "window-0002"
+      ],
+      "speaker": null
+    },
+    {
+      "checkworthiness": "medium",
+      "claim_kind": "fact",
+      "claim_text": "Verified atomic proposition from window-0003",
+      "quote_evidence": [
+        {
+          "quote": "Na ja, die Wall Street findet natürlich immer irgendwelche Gründe",
+          "segment_id": "seg-000131"
+        }
+      ],
+      "source_segment_ids": [
+        "seg-000131"
+      ],
+      "source_window_ids": [
+        "window-0003"
+      ],
+      "speaker": null
+    }
+  ],
+  "concepts": [
+    {
+      "description": "Domain concept in vFTuLylvYnA",
+      "name": "Concept-vFTuLylvYnA",
+      "source_segment_ids": [
+        "seg-000001",
+        "seg-000077",
+        "seg-000131"
+      ],
+      "type": "domain_concept"
+    }
+  ],
+  "contradictions_or_uncertainty": [],
+  "entities": [
+    {
+      "description": "Domain entity in vFTuLylvYnA",
+      "name": "Entity-vFTuLylvYnA",
+      "source_segment_ids": [
+        "seg-000001",
+        "seg-000077",
+        "seg-000131"
+      ],
+      "type": "domain_entity"
+    }
+  ],
+  "key_points": [
+    {
+      "source_segment_ids": [
+        "seg-000001"
+      ],
+      "source_window_id": "window-0001",
+      "text": "Grounded insight from window-0001"
+    },
+    {
+      "source_segment_ids": [
+        "seg-000077"
+      ],
+      "source_window_id": "window-0002",
+      "text": "Grounded insight from window-0002"
+    },
+    {
+      "source_segment_ids": [
+        "seg-000131"
+      ],
+      "source_window_id": "window-0003",
+      "text": "Grounded insight from window-0003"
+    }
+  ],
+  "map_packet_sha256": [
+    "10bbc6f7664f0e6b852a0d39836c310f07355873678e7c895057193173ab0956",
+    "7176798c6cbc75a3e579a11a15c60668eff3425b74947d95ccdccb9a2fe35aef",
+    "1cbd1e6e91736165127ae2b57df9b8fb15eb1a952f01d5b2d33317514aa2fad5"
+  ],
+  "map_result_sha256": [
+    "b4f9b24ba53bb3bf0d3e0df3379ceb8c8df342f7d24862c620fd9f721c5ede45",
+    "4598af784eed086a12bac6e0a6476465b9a0fb8d39972a49473e9d6aa417ee5b",
+    "699958f295d10786aed0f0306d9ff6bbaa1d5c336f3981cd141ad7f667be68ae"
+  ],
+  "mechanisms": [
+    {
+      "source_segment_ids": [
+        "seg-000001"
+      ],
+      "source_window_id": "window-0001",
+      "text": "Grounded mechanism in vFTuLylvYnA"
+    },
+    {
+      "source_segment_ids": [
+        "seg-000077"
+      ],
+      "source_window_id": "window-0002",
+      "text": "Grounded mechanism in vFTuLylvYnA"
+    },
+    {
+      "source_segment_ids": [
+        "seg-000131"
+      ],
+      "source_window_id": "window-0003",
+      "text": "Grounded mechanism in vFTuLylvYnA"
+    }
+  ],
+  "near_duplicate_claim_candidates": [],
+  "open_questions": [],
+  "protocols": [],
+  "schema": "ttk.evidence-ledger.v2",
+  "source_sha256": "1dffc6b9bc4e9d4897a2a27b96b8f9a077988b12824788554fb0be76b0225dfb",
+  "subtopics": [
+    {
+      "label": "Thematic section for window-0001",
+      "source_segment_ids": [
+        "seg-000001",
+        "seg-000002",
+        "seg-000003"
+      ],
+      "source_window_id": "window-0001"
+    },
+    {
+      "label": "Thematic section for window-0002",
+      "source_segment_ids": [
+        "seg-000077",
+        "seg-000078",
+        "seg-000079"
+      ],
+      "source_window_id": "window-0002"
+    },
+    {
+      "label": "Thematic section for window-0003",
+      "source_segment_ids": [
+        "seg-000131",
+        "seg-000132",
+        "seg-000133"
+      ],
+      "source_window_id": "window-0003"
+    }
+  ]
+}

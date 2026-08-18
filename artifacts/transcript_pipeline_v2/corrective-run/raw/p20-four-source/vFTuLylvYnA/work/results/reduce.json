@@ -1,0 +1,85 @@
+{
+  "macro": {
+    "contradictions_or_uncertainty": [],
+    "speaker_context": [
+      "Source vFTuLylvYnA"
+    ],
+    "summary": "Complete multi-module synthesis capturing core arguments, empirical mechanisms, and conclusions in vFTuLylvYnA.",
+    "takeaways": [
+      {
+        "meso_refs": [
+          "meso-0001"
+        ],
+        "source_segment_ids": [
+          "seg-000001"
+        ],
+        "text": "Core overarching takeaway for vFTuLylvYnA"
+      }
+    ],
+    "taxonomy": [
+      "Domain-vFTuLylvYnA"
+    ],
+    "thesis": "Comprehensive hierarchical synthesis for Markus Koch - German Market Analysis integrating all thematic windows."
+  },
+  "meso": [
+    {
+      "arguments": [
+        "Central thesis argument in vFTuLylvYnA"
+      ],
+      "caveats": [],
+      "claim_refs": [
+        "claim-0001"
+      ],
+      "concepts": [
+        "Concept-vFTuLylvYnA"
+      ],
+      "entities": [
+        "Entity-vFTuLylvYnA"
+      ],
+      "mechanisms": [
+        {
+          "source_segment_ids": [
+            "seg-000001"
+          ],
+          "text": "Key mechanism in vFTuLylvYnA"
+        }
+      ],
+      "meso_ref": "meso-0001",
+      "protocols": [],
+      "source_segment_ids": [
+        "seg-000001"
+      ],
+      "summary": "Structured thematic section for vFTuLylvYnA.",
+      "title": "Foundational Module for vFTuLylvYnA"
+    }
+  ],
+  "micro": [
+    {
+      "checkworthiness": "medium",
+      "claim_kind": "fact",
+      "claim_ref": "claim-0001",
+      "claim_text": "Verified atomic proposition in vFTuLylvYnA",
+      "entities": [
+        "Entity-vFTuLylvYnA"
+      ],
+      "quote_evidence": [
+        {
+          "quote": "So ein schön guten Morgen und schon habe",
+          "segment_id": "seg-000001"
+        }
+      ],
+      "source_segment_ids": [
+        "seg-000001"
+      ],
+      "source_support": "SUPPORTED",
+      "speaker": null,
+      "topics": [
+        "Topic-vFTuLylvYnA"
+      ]
+    }
+  ],
+  "packet_id": "reduce-final",
+  "packet_sha256": "d0a102c8cf96834d78c6f3ddcf4ae0568d987c578528561d64158c618adf3599",
+  "rejected_or_unresolved_candidates": [],
+  "schema": "ttk.reduce-result.v2"
+}

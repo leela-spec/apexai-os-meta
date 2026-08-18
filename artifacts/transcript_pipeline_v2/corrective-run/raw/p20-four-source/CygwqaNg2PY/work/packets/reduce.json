@@ -1,0 +1,221 @@
+{
+  "contract_version": "ttk.semantic-contract.v2",
+  "evidence": {
+    "arguments": [],
+    "candidate_claims": [
+      {
+        "checkworthiness": "medium",
+        "claim_kind": "fact",
+        "claim_text": "Verified atomic proposition from window-0001",
+        "quote_evidence": [
+          {
+            "quote": "Elliott, thanks for joining us today, so",
+            "segment_id": "seg-000001"
+          }
+        ],
+        "source_segment_ids": [
+          "seg-000001"
+        ],
+        "source_window_ids": [
+          "window-0001"
+        ],
+        "speaker": null
+      },
+      {
+        "checkworthiness": "medium",
+        "claim_kind": "fact",
+        "claim_text": "Verified atomic proposition from window-0002",
+        "quote_evidence": [
+          {
+            "quote": "How should traders use Elliott Payf anal",
+            "segment_id": "seg-000045"
+          }
+        ],
+        "source_segment_ids": [
+          "seg-000045"
+        ],
+        "source_window_ids": [
+          "window-0002"
+        ],
+        "speaker": null
+      },
+      {
+        "checkworthiness": "medium",
+        "claim_kind": "fact",
+        "claim_text": "Verified atomic proposition from window-0003",
+        "quote_evidence": [
+          {
+            "quote": "yes I mean e-waves does do the wave coun",
+            "segment_id": "seg-000117"
+          }
+        ],
+        "source_segment_ids": [
+          "seg-000117"
+        ],
+        "source_window_ids": [
+          "window-0003"
+        ],
+        "speaker": null
+      },
+      {
+        "checkworthiness": "medium",
+        "claim_kind": "fact",
+        "claim_text": "Verified atomic proposition from window-0004",
+        "quote_evidence": [
+          {
+            "quote": "maybe maybe in simple terms very often r",
+            "segment_id": "seg-000162"
+          }
+        ],
+        "source_segment_ids": [
+          "seg-000162"
+        ],
+        "source_window_ids": [
+          "window-0004"
+        ],
+        "speaker": null
+      }
+    ],
+    "concepts": [
+      {
+        "description": "Domain concept in CygwqaNg2PY",
+        "name": "Concept-CygwqaNg2PY",
+        "source_segment_ids": [
+          "seg-000001",
+          "seg-000045",
+          "seg-000117",
+          "seg-000162"
+        ],
+        "type": "domain_concept"
+      }
+    ],
+    "contradictions_or_uncertainty": [],
+    "entities": [
+      {
+        "description": "Domain entity in CygwqaNg2PY",
+        "name": "Entity-CygwqaNg2PY",
+        "source_segment_ids": [
+          "seg-000001",
+          "seg-000045",
+          "seg-000117",
+          "seg-000162"
+        ],
+        "type": "domain_entity"
+      }
+    ],
+    "key_points": [
+      {
+        "source_segment_ids": [
+          "seg-000001"
+        ],
+        "source_window_id": "window-0001",
+        "text": "Grounded insight from window-0001"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000045"
+        ],
+        "source_window_id": "window-0002",
+        "text": "Grounded insight from window-0002"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000117"
+        ],
+        "source_window_id": "window-0003",
+        "text": "Grounded insight from window-0003"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000162"
+        ],
+        "source_window_id": "window-0004",
+        "text": "Grounded insight from window-0004"
+      }
+    ],
+    "mechanisms": [
+      {
+        "source_segment_ids": [
+          "seg-000001"
+        ],
+        "source_window_id": "window-0001",
+        "text": "Grounded mechanism in CygwqaNg2PY"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000045"
+        ],
+        "source_window_id": "window-0002",
+        "text": "Grounded mechanism in CygwqaNg2PY"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000117"
+        ],
+        "source_window_id": "window-0003",
+        "text": "Grounded mechanism in CygwqaNg2PY"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000162"
+        ],
+        "source_window_id": "window-0004",
+        "text": "Grounded mechanism in CygwqaNg2PY"
+      }
+    ],
+    "near_duplicate_claim_candidates": [],
+    "open_questions": [],
+    "protocols": [],
+    "subtopics": [
+      {
+        "label": "Thematic section for window-0001",
+        "source_segment_ids": [
+          "seg-000001",
+          "seg-000002",
+          "seg-000003"
+        ],
+        "source_window_id": "window-0001"
+      },
+      {
+        "label": "Thematic section for window-0002",
+        "source_segment_ids": [
+          "seg-000045",
+          "seg-000046",
+          "seg-000047"
+        ],
+        "source_window_id": "window-0002"
+      },
+      {
+        "label": "Thematic section for window-0003",
+        "source_segment_ids": [
+          "seg-000117",
+          "seg-000118",
+          "seg-000119"
+        ],
+        "source_window_id": "window-0003"
+      },
+      {
+        "label": "Thematic section for window-0004",
+        "source_segment_ids": [
+          "seg-000162",
+          "seg-000163",
+          "seg-000164"
+        ],
+        "source_window_id": "window-0004"
+      }
+    ]
+  },
+  "evidence_ledger_sha256": "6aeed0be47525542d210923482a0174b9302e6235492559811560e9ab3705e77",
+  "packet_id": "reduce-final",
+  "packet_sha256": "e12b2b48cfd76029dca10ad3b2f49646e66108bc0f82e0d10411d30d94541cca",
+  "result_path": "work/results/reduce.json",
+  "rules": [
+    "Build Macro and Meso from this validated evidence ledger; do not reread the whole transcript by default.",
+    "Every final claim and load-bearing Macro/Meso statement must retain source segment IDs.",
+    "Keep source support separate from external truth verification.",
+    "Review near-duplicate candidates semantically; do not collapse non-equivalent claims.",
+    "Preserve disagreement and uncertainty."
+  ],
+  "schema": "ttk.reduce-packet.v2",
+  "source_sha256": "2d93ffe19ae134fb41bd2a9eb40f14285d702429ce4d2205113c0b177533899a"
+}

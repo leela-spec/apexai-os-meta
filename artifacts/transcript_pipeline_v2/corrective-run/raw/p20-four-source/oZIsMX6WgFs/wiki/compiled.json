@@ -1,0 +1,11 @@
+{
+  "claim_count": 1,
+  "concept_count": 2,
+  "entity_count": 1,
+  "macro": "wiki/summaries/Macro.md",
+  "module_count": 1,
+  "reduce_result_sha256": "1334c3d43e915f1544c415dfea0da2042f499da82b9191d7f6ec3ec7224c63a2",
+  "schema": "ttk.compiled.v2",
+  "verification_state": "result_missing",
+  "verify_results_sha256": null
+}

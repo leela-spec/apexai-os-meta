@@ -1,0 +1,29 @@
+{
+  "items": [
+    {
+      "checkworthiness": "medium",
+      "claim_ref": "claim-0001",
+      "claim_text": "Verified atomic proposition in oZIsMX6WgFs",
+      "preferred_source_types": [
+        "official primary source",
+        "primary research"
+      ],
+      "quote_evidence": [
+        {
+          "quote": "Hello, cycle nerds",
+          "segment_id": "seg-000001"
+        }
+      ],
+      "search_question": "Verified atomic proposition in oZIsMX6WgFs",
+      "source_segment_ids": [
+        "seg-000001"
+      ],
+      "source_support": "SUPPORTED"
+    }
+  ],
+  "minimum_checkworthiness": "medium",
+  "queue_sha256": "2538612bc502c19cb0eda5b8bffe36b117c39f78f1bb5396f1190126635b8f86",
+  "reduce_result_sha256": "1334c3d43e915f1544c415dfea0da2042f499da82b9191d7f6ec3ec7224c63a2",
+  "schema": "ttk.verify-queue.v2",
+  "source_sha256": "d6bfb051b2344b3d17fd1a73643322945870262589aab1cf757ed1fe873ba135"
+}

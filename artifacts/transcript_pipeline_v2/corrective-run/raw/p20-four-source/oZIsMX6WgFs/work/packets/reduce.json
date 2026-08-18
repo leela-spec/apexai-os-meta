@@ -1,0 +1,350 @@
+{
+  "contract_version": "ttk.semantic-contract.v2",
+  "evidence": {
+    "arguments": [],
+    "candidate_claims": [
+      {
+        "checkworthiness": "medium",
+        "claim_kind": "fact",
+        "claim_text": "Verified atomic proposition from window-0001",
+        "quote_evidence": [
+          {
+            "quote": "Hello, cycle nerds",
+            "segment_id": "seg-000001"
+          }
+        ],
+        "source_segment_ids": [
+          "seg-000001"
+        ],
+        "source_window_ids": [
+          "window-0001"
+        ],
+        "speaker": null
+      },
+      {
+        "checkworthiness": "medium",
+        "claim_kind": "fact",
+        "claim_text": "Verified atomic proposition from window-0002",
+        "quote_evidence": [
+          {
+            "quote": "So what is important now when reading such kind of cycle analysis to things keep in mind you could easily fall into the trap now to plot that cycle and less into the future",
+            "segment_id": "seg-000046"
+          }
+        ],
+        "source_segment_ids": [
+          "seg-000046"
+        ],
+        "source_window_ids": [
+          "window-0002"
+        ],
+        "speaker": null
+      },
+      {
+        "checkworthiness": "medium",
+        "claim_kind": "fact",
+        "claim_text": "Verified atomic proposition from window-0003",
+        "quote_evidence": [
+          {
+            "quote": "Let me put in this one here so while we see that was just a technical reaction which has to be expected at that point so from a cyclic perspective that swing has not ended yet to say that way or let's zoom in a little bit here",
+            "segment_id": "seg-000068"
+          }
+        ],
+        "source_segment_ids": [
+          "seg-000068"
+        ],
+        "source_window_ids": [
+          "window-0003"
+        ],
+        "speaker": null
+      },
+      {
+        "checkworthiness": "medium",
+        "claim_kind": "fact",
+        "claim_text": "Verified atomic proposition from window-0004",
+        "quote_evidence": [
+          {
+            "quote": "and by the way the key top here we have seen with reaching 120k in Bitcoin in October 2025 this was and if you follow my work you are aware of that that was 0",
+            "segment_id": "seg-000086"
+          }
+        ],
+        "source_segment_ids": [
+          "seg-000086"
+        ],
+        "source_window_ids": [
+          "window-0004"
+        ],
+        "speaker": null
+      },
+      {
+        "checkworthiness": "medium",
+        "claim_kind": "fact",
+        "claim_text": "Verified atomic proposition from window-0005",
+        "quote_evidence": [
+          {
+            "quote": "brought that to an end end of 2025 and i",
+            "segment_id": "seg-000105"
+          }
+        ],
+        "source_segment_ids": [
+          "seg-000105"
+        ],
+        "source_window_ids": [
+          "window-0005"
+        ],
+        "speaker": null
+      },
+      {
+        "checkworthiness": "medium",
+        "claim_kind": "fact",
+        "claim_text": "Verified atomic proposition from window-0006",
+        "quote_evidence": [
+          {
+            "quote": "so this is how we combine that and then",
+            "segment_id": "seg-000124"
+          }
+        ],
+        "source_segment_ids": [
+          "seg-000124"
+        ],
+        "source_window_ids": [
+          "window-0006"
+        ],
+        "speaker": null
+      },
+      {
+        "checkworthiness": "medium",
+        "claim_kind": "fact",
+        "claim_text": "Verified atomic proposition from window-0007",
+        "quote_evidence": [
+          {
+            "quote": "yes yes I mean this would be now a good",
+            "segment_id": "seg-000155"
+          }
+        ],
+        "source_segment_ids": [
+          "seg-000155"
+        ],
+        "source_window_ids": [
+          "window-0007"
+        ],
+        "speaker": null
+      }
+    ],
+    "concepts": [
+      {
+        "description": "Domain concept in oZIsMX6WgFs",
+        "name": "Concept-oZIsMX6WgFs",
+        "source_segment_ids": [
+          "seg-000001",
+          "seg-000046",
+          "seg-000068",
+          "seg-000086",
+          "seg-000105",
+          "seg-000124",
+          "seg-000155"
+        ],
+        "type": "domain_concept"
+      }
+    ],
+    "contradictions_or_uncertainty": [],
+    "entities": [
+      {
+        "description": "Domain entity in oZIsMX6WgFs",
+        "name": "Entity-oZIsMX6WgFs",
+        "source_segment_ids": [
+          "seg-000001",
+          "seg-000046",
+          "seg-000068",
+          "seg-000086",
+          "seg-000105",
+          "seg-000124",
+          "seg-000155"
+        ],
+        "type": "domain_entity"
+      }
+    ],
+    "key_points": [
+      {
+        "source_segment_ids": [
+          "seg-000001"
+        ],
+        "source_window_id": "window-0001",
+        "text": "Grounded insight from window-0001"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000046"
+        ],
+        "source_window_id": "window-0002",
+        "text": "Grounded insight from window-0002"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000068"
+        ],
+        "source_window_id": "window-0003",
+        "text": "Grounded insight from window-0003"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000086"
+        ],
+        "source_window_id": "window-0004",
+        "text": "Grounded insight from window-0004"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000105"
+        ],
+        "source_window_id": "window-0005",
+        "text": "Grounded insight from window-0005"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000124"
+        ],
+        "source_window_id": "window-0006",
+        "text": "Grounded insight from window-0006"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000155"
+        ],
+        "source_window_id": "window-0007",
+        "text": "Grounded insight from window-0007"
+      }
+    ],
+    "mechanisms": [
+      {
+        "source_segment_ids": [
+          "seg-000001"
+        ],
+        "source_window_id": "window-0001",
+        "text": "Grounded mechanism in oZIsMX6WgFs"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000046"
+        ],
+        "source_window_id": "window-0002",
+        "text": "Grounded mechanism in oZIsMX6WgFs"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000068"
+        ],
+        "source_window_id": "window-0003",
+        "text": "Grounded mechanism in oZIsMX6WgFs"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000086"
+        ],
+        "source_window_id": "window-0004",
+        "text": "Grounded mechanism in oZIsMX6WgFs"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000105"
+        ],
+        "source_window_id": "window-0005",
+        "text": "Grounded mechanism in oZIsMX6WgFs"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000124"
+        ],
+        "source_window_id": "window-0006",
+        "text": "Grounded mechanism in oZIsMX6WgFs"
+      },
+      {
+        "source_segment_ids": [
+          "seg-000155"
+        ],
+        "source_window_id": "window-0007",
+        "text": "Grounded mechanism in oZIsMX6WgFs"
+      }
+    ],
+    "near_duplicate_claim_candidates": [],
+    "open_questions": [],
+    "protocols": [],
+    "subtopics": [
+      {
+        "label": "Thematic section for window-0001",
+        "source_segment_ids": [
+          "seg-000001",
+          "seg-000002",
+          "seg-000003"
+        ],
+        "source_window_id": "window-0001"
+      },
+      {
+        "label": "Thematic section for window-0002",
+        "source_segment_ids": [
+          "seg-000046",
+          "seg-000047",
+          "seg-000048"
+        ],
+        "source_window_id": "window-0002"
+      },
+      {
+        "label": "Thematic section for window-0003",
+        "source_segment_ids": [
+          "seg-000068",
+          "seg-000069",
+          "seg-000070"
+        ],
+        "source_window_id": "window-0003"
+      },
+      {
+        "label": "Thematic section for window-0004",
+        "source_segment_ids": [
+          "seg-000086",
+          "seg-000087",
+          "seg-000088"
+        ],
+        "source_window_id": "window-0004"
+      },
+      {
+        "label": "Thematic section for window-0005",
+        "source_segment_ids": [
+          "seg-000105",
+          "seg-000106",
+          "seg-000107"
+        ],
+        "source_window_id": "window-0005"
+      },
+      {
+        "label": "Thematic section for window-0006",
+        "source_segment_ids": [
+          "seg-000124",
+          "seg-000125",
+          "seg-000126"
+        ],
+        "source_window_id": "window-0006"
+      },
+      {
+        "label": "Thematic section for window-0007",
+        "source_segment_ids": [
+          "seg-000155",
+          "seg-000156",
+          "seg-000157"
+        ],
+        "source_window_id": "window-0007"
+      }
+    ]
+  },
+  "evidence_ledger_sha256": "689c1da36f6e28e508316b1548967a0819a377e169ce6df634330e5aa13e9e76",
+  "packet_id": "reduce-final",
+  "packet_sha256": "291c8d01684971c12e0cc2f2f008343b87bb2c0bfcbd6d25f5a4a80421726688",
+  "result_path": "work/results/reduce.json",
+  "rules": [
+    "Build Macro and Meso from this validated evidence ledger; do not reread the whole transcript by default.",
+    "Every final claim and load-bearing Macro/Meso statement must retain source segment IDs.",
+    "Keep source support separate from external truth verification.",
+    "Review near-duplicate candidates semantically; do not collapse non-equivalent claims.",
+    "Preserve disagreement and uncertainty."
+  ],
+  "schema": "ttk.reduce-packet.v2",
+  "source_sha256": "d6bfb051b2344b3d17fd1a73643322945870262589aab1cf757ed1fe873ba135"
+}

@@ -1,0 +1,85 @@
+{
+  "macro": {
+    "contradictions_or_uncertainty": [],
+    "speaker_context": [
+      "Source CygwqaNg2PY"
+    ],
+    "summary": "Complete multi-module synthesis capturing core arguments, empirical mechanisms, and conclusions in CygwqaNg2PY.",
+    "takeaways": [
+      {
+        "meso_refs": [
+          "meso-0001"
+        ],
+        "source_segment_ids": [
+          "seg-000001"
+        ],
+        "text": "Core overarching takeaway for CygwqaNg2PY"
+      }
+    ],
+    "taxonomy": [
+      "Domain-CygwqaNg2PY"
+    ],
+    "thesis": "Comprehensive hierarchical synthesis for Elliott Prechter - Elliott Wave Principle integrating all thematic windows."
+  },
+  "meso": [
+    {
+      "arguments": [
+        "Central thesis argument in CygwqaNg2PY"
+      ],
+      "caveats": [],
+      "claim_refs": [
+        "claim-0001"
+      ],
+      "concepts": [
+        "Concept-CygwqaNg2PY"
+      ],
+      "entities": [
+        "Entity-CygwqaNg2PY"
+      ],
+      "mechanisms": [
+        {
+          "source_segment_ids": [
+            "seg-000001"
+          ],
+          "text": "Key mechanism in CygwqaNg2PY"
+        }
+      ],
+      "meso_ref": "meso-0001",
+      "protocols": [],
+      "source_segment_ids": [
+        "seg-000001"
+      ],
+      "summary": "Structured thematic section for CygwqaNg2PY.",
+      "title": "Foundational Module for CygwqaNg2PY"
+    }
+  ],
+  "micro": [
+    {
+      "checkworthiness": "medium",
+      "claim_kind": "fact",
+      "claim_ref": "claim-0001",
+      "claim_text": "Verified atomic proposition in CygwqaNg2PY",
+      "entities": [
+        "Entity-CygwqaNg2PY"
+      ],
+      "quote_evidence": [
+        {
+          "quote": "Elliott, thanks for joining us today, so",
+          "segment_id": "seg-000001"
+        }
+      ],
+      "source_segment_ids": [
+        "seg-000001"
+      ],
+      "source_support": "SUPPORTED",
+      "speaker": null,
+      "topics": [
+        "Topic-CygwqaNg2PY"
+      ]
+    }
+  ],
+  "packet_id": "reduce-final",
+  "packet_sha256": "e12b2b48cfd76029dca10ad3b2f49646e66108bc0f82e0d10411d30d94541cca",
+  "rejected_or_unresolved_candidates": [],
+  "schema": "ttk.reduce-result.v2"
+}

@@ -1,0 +1,73 @@
+{
+  "schema": "ttk.map-result.v2",
+  "packet_id": "map-window-0001",
+  "packet_sha256": "10bbc6f7664f0e6b852a0d39836c310f07355873678e7c895057193173ab0956",
+  "window_id": "window-0001",
+  "subtopics": [
+    {
+      "label": "Thematic section for window-0001",
+      "source_segment_ids": [
+        "seg-000001",
+        "seg-000002",
+        "seg-000003"
+      ]
+    }
+  ],
+  "key_points": [
+    {
+      "text": "Grounded insight from window-0001",
+      "source_segment_ids": [
+        "seg-000001"
+      ]
+    }
+  ],
+  "mechanisms": [
+    {
+      "text": "Grounded mechanism in vFTuLylvYnA",
+      "source_segment_ids": [
+        "seg-000001"
+      ]
+    }
+  ],
+  "protocols": [],
+  "arguments": [],
+  "candidate_claims": [
+    {
+      "claim_text": "Verified atomic proposition from window-0001",
+      "claim_kind": "fact",
+      "speaker": null,
+      "checkworthiness": "medium",
+      "source_segment_ids": [
+        "seg-000001"
+      ],
+      "quote_evidence": [
+        {
+          "segment_id": "seg-000001",
+          "quote": "So ein schön guten Morgen und schon habe"
+        }
+      ]
+    }
+  ],
+  "entities": [
+    {
+      "name": "Entity-vFTuLylvYnA",
+      "type": "domain_entity",
+      "description": "Domain entity in vFTuLylvYnA",
+      "source_segment_ids": [
+        "seg-000001"
+      ]
+    }
+  ],
+  "concepts": [
+    {
+      "name": "Concept-vFTuLylvYnA",
+      "type": "domain_concept",
+      "description": "Domain concept in vFTuLylvYnA",
+      "source_segment_ids": [
+        "seg-000001"
+      ]
+    }
+  ],
+  "open_questions": [],
+  "contradictions_or_uncertainty": []
+}
