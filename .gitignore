@@ -25,3 +25,12 @@ apex-meta/kb/_source-acquisitions/skill-best-practices-official-2026-06-23/raw/o
 
 # Oversized generated corpus inventory; compressed .gz variant is tracked.
 apex-meta/kb/claude-skill-design/manifests/projectrepos-corpus-intelligence/file-inventory.json
+
+# Global tools, media cache, and binaries
+*.exe
+*.dll
+*.zip
+*.tar.gz
+artifacts/audio/
+scripts/tools/*.exe
+

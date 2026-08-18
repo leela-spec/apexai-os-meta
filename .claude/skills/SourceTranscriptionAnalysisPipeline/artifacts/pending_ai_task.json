@@ -1,0 +1,19 @@
+﻿{
+    "event_type":  "YOUTUBE_TRANSCRIPT_COMPLETED",
+    "timestamp":  "2026-08-18T12:19:03.7482797Z",
+    "video_id":  "P-h5WSQG1Sw",
+    "video_title":  "Neuroscience of Emotions \u0026 Tools for Improving Emotion Regulation| Dr. Ralph Adolphs",
+    "channel":  "Andrew Huberman",
+    "video_url":  "https://www.youtube.com/watch?v=P-h5WSQG1Sw",
+    "duration_seconds":  7770,
+    "model_used":  "base",
+    "processing_speedup":  "15.4x",
+    "transcript_files":  {
+                             "markdown":  "artifacts\\transcripts\\P-h5WSQG1Sw\\P-h5WSQG1Sw.md",
+                             "subtitles":  "artifacts\\transcripts\\P-h5WSQG1Sw\\P-h5WSQG1Sw.srt",
+                             "raw_json":  "artifacts\\transcripts\\P-h5WSQG1Sw\\P-h5WSQG1Sw.json",
+                             "plain_text":  "artifacts\\transcripts\\P-h5WSQG1Sw\\P-h5WSQG1Sw.txt"
+                         },
+    "transcript_preview":  "I see somebody come up behind me. They can see. I\u0027m trying to park. They can move over. No.\r\nThey come right up behind me, go on the horn. And you know, you immediately feel\r\njust an immediate anger response, right? Well, after the ice bath, it\u0027s flat.\r\nSo there was an immediate automatic down regulation of my autonomic emotional response\r\nto a psychological stressor, somebody honking at me, that was trained and generalized\r\nfrom the ice bath. It\u0027s an experiment of one. I\u0027m not claiming this as ...",
+    "downstream_guardrail_prompt":  "Review this transcript from Andrew Huberman (Neuroscience of Emotions) and extract core tools/protocols for emotion regulation."
+}
