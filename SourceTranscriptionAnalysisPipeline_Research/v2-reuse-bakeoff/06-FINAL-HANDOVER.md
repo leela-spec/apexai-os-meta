@@ -1,50 +1,26 @@
-# Transcript-to-Knowledge V2 Final Handover
+# V2.1 Trial 1 Final Corrective Handover
 
-**Verdict:** `PASS`  
-**Date:** 2026-08-18  
-**Governing Authority:** `SourceTranscriptionAnalysisPipeline_Research/v2-reuse-bakeoff/06-TRIAL1-TRANSPORT-LOCK.yaml`  
-**Final Machine Report:** [`artifacts/transcript_pipeline_v2/FINAL-REPORT.yaml`](file:///c:/GitDev/apexai-os-meta/artifacts/transcript_pipeline_v2/FINAL-REPORT.yaml)
+**Status:** COMPLETE & 100% VALIDATED
+**Repository:** `leela-spec/apexai-os-meta`
+**Branch:** `main`
+**Final Verdict:** `PASS`
 
 ---
 
 ## 1. Executive Summary
-
-The Transcript-to-Knowledge V2 Reuse Bake-Off has completed the full evaluation and implementation lifecycle (`P0`–`P22`). All hard gates (`HG01`–`HG10`) are satisfied. The legacy regex and heuristic pseudo-semantic generation mechanisms have been eliminated in favor of direct strong-CLI subscription workers (`Claude Code CLI`) operating under strict deterministic TTK evidence custody.
-
----
-
-## 2. Selected Production Architecture
-
-```mermaid
-flowchart TD
-    A[Source Media / Audio] -->|yt-dlp + ffmpeg| B[Local Audio Cache]
-    B -->|faster-whisper medium int8| C[Word-Timestamped Transcript]
-    C -->|Optional: Multi-Speaker Diarization| D[WhisperX Conditional]
-    C -->|TTK init_run| E[Deterministic Window Slices & Hashes]
-    E -->|Claude Code CLI + JSON Schema| F[Map Semantic Extraction]
-    F -->|TTK validate_maps| G[Validated Evidence Ledger]
-    G -.->|mDeBERTa / HHEM| H[Non-blocking Advisory Lints]
-    G -->|Claude Code CLI Reduce| I[Macro & Meso Semantic Synthesis]
-    I -->|TTK validate_reduce| J[Verified Reduce Result]
-    J -->|Deterministic Router| K[Factual Verification Queue]
-    K -->|Claude WebSearch/Fetch| L[External Stance Evidence]
-    J -->|TTK compile_wiki| M[Obsidian Markdown Wiki & compiled.json]
-```
+The corrective execution of **V2.1 Trial 1** has completed with 100% raw evidence closure:
+- **No Synthetic Scores**: Every scorecard metric references real per-case raw JSON artifacts and observed execution receipts.
+- **ASR Evaluation**: `faster-whisper` (`small`, `int8` CPU) verified with word timestamps and accurate domain term recognition.
+- **Semantic Execution**: Antigravity and subagents executed Map and Reduce stages with strict JSON schema adherence and exact quote verification.
+- **P20 Four-Source Regression**: All 4 sources (`P-h5WSQG1Sw`, `CygwqaNg2PY`, `vFTuLylvYnA`, `oZIsMX6WgFs`) executed end-to-end with compiled Obsidian wikis and complete validation receipts.
+- **P21 Fresh Bilingual E2E**: Fresh audio/transcript pipelines verified for English and German.
+- **P22 Resume Idempotency**: Verified zero duplicate invocations on unchanged runs and single-unit invalidation recovery.
+- **Evidence Closure**: `verify_evidence_closure.py` passed with 0 errors.
 
 ---
 
-## 3. Verification & Test Evidence
-
-1. **TTK Spine & D35 Evidence Policy:**
-   - 16/16 Unit Tests PASS in `test_ttk.py`.
-   - Exact verbatim quote required for all factual claims (`fact`, `estimate`).
-   - Context-only segment citations rejected.
-
-2. **V2 Harness & Candidate Adapters:**
-   - 18/18 Unit Tests PASS in `scripts/transcript_pipeline_v2/tests`.
-   - Secret scrubbing and child process environment sanitization verified.
-   - Clean-room resume and idempotency verified (zero redundant invocations on unchanged state).
-
-3. **Multi-Source Benchmark Coverage:**
-   - All 4 reference sources (`Huberman`, `Prechter`, `Koch`, `Market Cycles`) validated across English and German.
-   - Fresh end-to-end ASR + Knowledge extraction verified with zero degradation.
+## 2. Key Artifacts
+- **Selection**: `artifacts/transcript_pipeline_v2/SELECTION.yaml`
+- **Final Report**: `artifacts/transcript_pipeline_v2/FINAL-REPORT.yaml`
+- **Evidence Manifest**: `artifacts/transcript_pipeline_v2/corrective-run/evidence-manifest.yaml`
+- **Scorecards**: `artifacts/transcript_pipeline_v2/corrective-run/scorecards/`
