@@ -1,19 +1,18 @@
 ﻿{
-    "event_type":  "YOUTUBE_TRANSCRIPT_COMPLETED",
-    "timestamp":  "2026-08-18T12:19:03.7482797Z",
+    "event_type":  "YOUTUBE_TRANSCRIPT_AND_SYNTHESIS_COMPLETED",
+    "timestamp":  "2026-08-18T15:20:34.9792332Z",
     "video_id":  "P-h5WSQG1Sw",
     "video_title":  "Neuroscience of Emotions \u0026 Tools for Improving Emotion Regulation| Dr. Ralph Adolphs",
     "channel":  "Andrew Huberman",
     "video_url":  "https://www.youtube.com/watch?v=P-h5WSQG1Sw",
     "duration_seconds":  7770,
     "model_used":  "base",
-    "processing_speedup":  "15.4x",
     "transcript_files":  {
-                             "markdown":  "artifacts\\transcripts\\P-h5WSQG1Sw\\P-h5WSQG1Sw.md",
-                             "subtitles":  "artifacts\\transcripts\\P-h5WSQG1Sw\\P-h5WSQG1Sw.srt",
-                             "raw_json":  "artifacts\\transcripts\\P-h5WSQG1Sw\\P-h5WSQG1Sw.json",
-                             "plain_text":  "artifacts\\transcripts\\P-h5WSQG1Sw\\P-h5WSQG1Sw.txt"
+                             "knowledge_wiki":  null,
+                             "markdown":  "C:\\GitDev\\apexai-os-meta\\.claude\\skills\\SourceTranscriptionAnalysisPipeline\\artifacts\\transcripts\\P-h5WSQG1Sw\\P-h5WSQG1Sw.md",
+                             "subtitles":  "C:\\GitDev\\apexai-os-meta\\.claude\\skills\\SourceTranscriptionAnalysisPipeline\\artifacts\\transcripts\\P-h5WSQG1Sw\\P-h5WSQG1Sw.srt",
+                             "raw_json":  "C:\\GitDev\\apexai-os-meta\\.claude\\skills\\SourceTranscriptionAnalysisPipeline\\artifacts\\transcripts\\P-h5WSQG1Sw\\P-h5WSQG1Sw.json"
                          },
-    "transcript_preview":  "I see somebody come up behind me. They can see. I\u0027m trying to park. They can move over. No.\r\nThey come right up behind me, go on the horn. And you know, you immediately feel\r\njust an immediate anger response, right? Well, after the ice bath, it\u0027s flat.\r\nSo there was an immediate automatic down regulation of my autonomic emotional response\r\nto a psychological stressor, somebody honking at me, that was trained and generalized\r\nfrom the ice bath. It\u0027s an experiment of one. I\u0027m not claiming this as ...",
-    "downstream_guardrail_prompt":  "Review this transcript from Andrew Huberman (Neuroscience of Emotions) and extract core tools/protocols for emotion regulation."
+    "transcript_preview":  "I see somebody come up behind me. They can see. I\u0027m trying to park. They can move over. No,\r\nthey come right up behind me, go on the horn. You know, you immediately feel just an immediate\r\nanger response. Right? Well, after the ice bath, it\u0027s flat. So there was an immediate\r\nautomatic down regulation of my autonomic emotional response to a psychological stressor,\r\nsomebody honking at me, that was trained and generalized from the ice bath. It\u0027s an experiment\r\nof one. I\u0027m not claiming this as a pu...",
+    "downstream_guardrail_prompt":  "Review the synthesized knowledge wiki for Andrew Huberman (\u0027Neuroscience of Emotions \u0026 Tools for Improving Emotion Regulation| Dr. Ralph Adolphs\u0027) and update project context."
 }

@@ -152,25 +152,26 @@ $transcriptJsonFile = Join-Path $videoOutputDir "$videoId.json"
 $transcriptMdFile = Join-Path $videoOutputDir "$videoId.md"
 
 if (Test-Path $synthScript) {
+    $titleArg = "$videoTitle - Knowledge Synthesis"
     $synthArgs = @(
         $synthScript,
         "--transcript", $transcriptSrtFile,
         "--output_dir", $videoOutputDir,
         "--slug", $videoId,
-        "--title", "$videoTitle — Knowledge Synthesis"
+        "--title", $titleArg
     )
     $procSynth = Start-Process -FilePath "python" -ArgumentList $synthArgs -NoNewWindow -Wait -PassThru
 }
 
 # Step 5: Downstream AI Task Payload Generation & State Update
-Write-Host "`n[5/5] Generating Downstream AI Trigger Payload & Updating State..." -ForegroundColor Cyan
+Write-Host "`n[5/5] Generating Downstream AI Trigger Payload and Updating State..." -ForegroundColor Cyan
 
 $transcriptText = ""
 if (Test-Path (Join-Path $videoOutputDir "$videoId.txt")) {
     $transcriptText = Get-Content (Join-Path $videoOutputDir "$videoId.txt") -Raw -Encoding utf8
 }
 
-$knowledgeWikiFile = Join-Path $videoOutputDir "$videoId`_knowledge_wiki.md"
+$knowledgeWikiFile = Join-Path $videoOutputDir "$($videoId)_knowledge_wiki.md"
 
 $aiTaskPayload = [PSCustomObject]@{
     event_type       = "YOUTUBE_TRANSCRIPT_AND_SYNTHESIS_COMPLETED"
@@ -218,7 +219,7 @@ if (-not $KeepAudio) {
 }
 
 Write-Host "`n==========================================================" -ForegroundColor Green
-Write-Host "  PIPELINE COMPLETE - 100% LOCAL & FREE" -ForegroundColor Green
+Write-Host "  PIPELINE COMPLETE - 100% LOCAL AND FREE" -ForegroundColor Green
 Write-Host "==========================================================" -ForegroundColor Green
 Write-Host "Transcript Artifacts: $videoOutputDir" -ForegroundColor White
 Write-Host "Downstream AI Task:   $aiPayloadFile" -ForegroundColor White
