@@ -34,9 +34,9 @@ class TestResumableRunner(unittest.TestCase):
             output_dir = tmp / "run_test"
             
             def mock_invoke_fn(prompt):
-                # Extract packet from prompt
-                match = re.search(r"```json\s*(\{.*?\})\s*```", prompt, re.DOTALL)
-                pkt = json.loads(match.group(1)) if match else {}
+                # Extract packet from prompt (last json block)
+                matches = re.findall(r"```json\s*(\{.*?\})\s*```", prompt, re.DOTALL)
+                pkt = json.loads(matches[-1]) if matches else {}
                 
                 if "map" in pkt.get("schema", "").lower() or "source_segments" in pkt:
                     core_ids = [s["id"] for s in pkt.get("source_segments", []) if s.get("role") == "core"]
