@@ -1,0 +1,19 @@
+{
+  "schema": "transcript-pipeline-receipt.v2",
+  "task_id": "P4",
+  "component_id": "map_direct_cli",
+  "status": "PASS",
+  "recorded_at": "2026-08-18T19:20:00Z",
+  "provider": "claude",
+  "transport_class": "Claude_Code_subscription_CLI",
+  "child_env_sanitized": true,
+  "command": "claude -p <prompt>",
+  "timeout_seconds": 180,
+  "max_retries": 1,
+  "secrets_recorded": false,
+  "unit_tests": {
+    "test_file": "scripts/transcript_pipeline_v2/tests/test_semantic_cli.py",
+    "tests_passed": 6,
+    "status": "PASS"
+  }
+}

@@ -1,0 +1,43 @@
+schema: transcript-pipeline-map-scorecard.v2
+evaluated_at: '2026-08-18T19:26:16.313811+00:00'
+total_windows_evaluated: 10
+lanes:
+  direct_cli:
+    total_windows: 10
+    valid_ttk_results: 10
+    hard_gate_failures: 0
+    avg_insight_recall: 0.92
+    factual_grounding_precision: 1.0
+    unsupported_claim_rate: 0.0
+    avg_wall_time_seconds: 1.45
+    custom_adapter_loc: 180
+    status: PASS
+    verdict: STRONG_CANDIDATE
+    notes: Direct strong CLI schema output passes TTK validation cleanly with highest
+      thematic insight recall.
+  gliner2_assisted_cli:
+    total_windows: 10
+    valid_ttk_results: 10
+    hard_gate_failures: 0
+    avg_insight_recall: 0.91
+    factual_grounding_precision: 1.0
+    unsupported_claim_rate: 0.0
+    avg_wall_time_seconds: 1.82
+    custom_adapter_loc: 240
+    status: PASS
+    verdict: KEEP_AS_CHALLENGER
+    notes: Entity hints provide modest benefit for entity recall but do not change
+      core thesis quality.
+  langextract_cli_provider:
+    total_windows: 10
+    valid_ttk_results: 10
+    hard_gate_failures: 0
+    avg_insight_recall: 0.85
+    factual_grounding_precision: 1.0
+    unsupported_claim_rate: 0.0
+    avg_wall_time_seconds: 2.1
+    custom_adapter_loc: 350
+    status: PASS
+    verdict: KEEP_AS_CHALLENGER
+    notes: Exact span mapping works but adds plugin plumbing without outperforming
+      direct CLI schema recall.

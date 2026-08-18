@@ -1,0 +1,233 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "TTK Map Result Schema v2",
+  "type": "object",
+  "required": [
+    "schema",
+    "packet_id",
+    "packet_sha256",
+    "window_id",
+    "subtopics",
+    "key_points",
+    "mechanisms",
+    "protocols",
+    "arguments",
+    "candidate_claims",
+    "entities",
+    "concepts",
+    "open_questions",
+    "contradictions_or_uncertainty"
+  ],
+  "properties": {
+    "schema": {
+      "type": "string",
+      "const": "ttk.map-result.v2"
+    },
+    "packet_id": {
+      "type": "string"
+    },
+    "packet_sha256": {
+      "type": "string"
+    },
+    "window_id": {
+      "type": "string"
+    },
+    "subtopics": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["label", "source_segment_ids"],
+        "properties": {
+          "label": {"type": "string"},
+          "source_segment_ids": {
+            "type": "array",
+            "items": {"type": "string"},
+            "minItems": 1
+          }
+        }
+      }
+    },
+    "key_points": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["text", "source_segment_ids"],
+        "properties": {
+          "text": {"type": "string"},
+          "source_segment_ids": {
+            "type": "array",
+            "items": {"type": "string"},
+            "minItems": 1
+          }
+        }
+      }
+    },
+    "mechanisms": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["text", "source_segment_ids"],
+        "properties": {
+          "text": {"type": "string"},
+          "source_segment_ids": {
+            "type": "array",
+            "items": {"type": "string"},
+            "minItems": 1
+          }
+        }
+      }
+    },
+    "protocols": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["title", "steps", "source_segment_ids"],
+        "properties": {
+          "title": {"type": "string"},
+          "steps": {
+            "type": "array",
+            "items": {"type": "string"},
+            "minItems": 1
+          },
+          "source_segment_ids": {
+            "type": "array",
+            "items": {"type": "string"},
+            "minItems": 1
+          }
+        }
+      }
+    },
+    "arguments": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["text", "source_segment_ids"],
+        "properties": {
+          "text": {"type": "string"},
+          "source_segment_ids": {
+            "type": "array",
+            "items": {"type": "string"},
+            "minItems": 1
+          }
+        }
+      }
+    },
+    "candidate_claims": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "claim_text",
+          "claim_kind",
+          "checkworthiness",
+          "source_segment_ids",
+          "quote_evidence"
+        ],
+        "properties": {
+          "claim_text": {"type": "string"},
+          "claim_kind": {
+            "type": "string",
+            "enum": [
+              "fact",
+              "opinion",
+              "prediction",
+              "recommendation",
+              "decision",
+              "anecdote",
+              "definition",
+              "mechanism",
+              "estimate",
+              "hypothesis"
+            ]
+          },
+          "speaker": {"type": ["string", "null"]},
+          "checkworthiness": {
+            "type": "string",
+            "enum": ["high", "medium", "low", "none"]
+          },
+          "source_segment_ids": {
+            "type": "array",
+            "items": {"type": "string"},
+            "minItems": 1
+          },
+          "quote_evidence": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["segment_id", "quote"],
+              "properties": {
+                "segment_id": {"type": "string"},
+                "quote": {"type": "string"}
+              }
+            },
+            "minItems": 1
+          }
+        }
+      }
+    },
+    "entities": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "source_segment_ids"],
+        "properties": {
+          "name": {"type": "string"},
+          "type": {"type": "string"},
+          "description": {"type": "string"},
+          "source_segment_ids": {
+            "type": "array",
+            "items": {"type": "string"},
+            "minItems": 1
+          }
+        }
+      }
+    },
+    "concepts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "source_segment_ids"],
+        "properties": {
+          "name": {"type": "string"},
+          "type": {"type": "string"},
+          "description": {"type": "string"},
+          "source_segment_ids": {
+            "type": "array",
+            "items": {"type": "string"},
+            "minItems": 1
+          }
+        }
+      }
+    },
+    "open_questions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["text", "source_segment_ids"],
+        "properties": {
+          "text": {"type": "string"},
+          "source_segment_ids": {
+            "type": "array",
+            "items": {"type": "string"},
+            "minItems": 1
+          }
+        }
+      }
+    },
+    "contradictions_or_uncertainty": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["text", "source_segment_ids"],
+        "properties": {
+          "text": {"type": "string"},
+          "source_segment_ids": {
+            "type": "array",
+            "items": {"type": "string"},
+            "minItems": 1
+          }
+        }
+      }
+    }
+  }
+}

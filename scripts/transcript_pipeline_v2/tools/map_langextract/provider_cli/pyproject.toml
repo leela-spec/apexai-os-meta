@@ -1,0 +1,14 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "langextract-cli-provider"
+version = "0.1.0"
+description = "LangExtract external provider plugin for subscription CLI execution"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = []
+
+[project.entry-points."langextract.providers"]
+subscription_cli = "langextract_cli_provider.provider:SubscriptionCLIProvider"

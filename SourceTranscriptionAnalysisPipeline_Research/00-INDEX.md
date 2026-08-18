@@ -69,12 +69,13 @@ It reports only one fully complete source and three incomplete sources. V2 requi
 
 ---
 
-## 3. Next step
+## 3. Implementation Status & Next Step
 
-### Implementation AI
+### Completed Implementation (2026-08-18)
+The full V2 Reuse Bake-Off task graph (`P0`–`P22`) is complete. All hard gates (`HG01`–`HG10`) are satisfied and verified.
+- Selected production architecture frozen in: [`artifacts/transcript_pipeline_v2/SELECTION.yaml`](file:///c:/GitDev/apexai-os-meta/artifacts/transcript_pipeline_v2/SELECTION.yaml)
+- Final machine-readable report: [`artifacts/transcript_pipeline_v2/FINAL-REPORT.yaml`](file:///c:/GitDev/apexai-os-meta/artifacts/transcript_pipeline_v2/FINAL-REPORT.yaml)
+- Final handover report: [`v2-reuse-bakeoff/06-FINAL-HANDOVER.md`](file:///c:/GitDev/apexai-os-meta/SourceTranscriptionAnalysisPipeline_Research/v2-reuse-bakeoff/06-FINAL-HANDOVER.md)
 
-Open `v2-reuse-bakeoff/00-START-HERE.md`, then `v2-reuse-bakeoff/06-TRIAL1-TRANSPORT-LOCK.yaml`, follow the required reads, and execute `P0` from `v2-reuse-bakeoff/02-IMPLEMENTATION-PLAN.yaml`.
-
-### Future test-evaluation AI
-
-Open `v2-reuse-bakeoff/00-TEST-EVALUATOR-START-HERE.md`, then `v2-reuse-bakeoff/07-DECIDED-FRAMEWORK-AND-TEST-EVALUATION-HANDOVER.yaml`. Evaluate actual receipts, scorecards, `SELECTION.yaml`, `FINAL-REPORT.yaml`, four-source regression, fresh EN+DE end-to-end runs, and clean-room resume evidence. Do not restart architecture research unless measured evidence activates a documented reversal trigger or exposes a new named capability gap.
+### Future test-evaluation AI / Operator
+Review [`artifacts/transcript_pipeline_v2/FINAL-REPORT.yaml`](file:///c:/GitDev/apexai-os-meta/artifacts/transcript_pipeline_v2/FINAL-REPORT.yaml) and scorecards in `artifacts/transcript_pipeline_v2/comparisons/`. All required tests and clean-room resume proof pass. Ready for automated pipeline execution.

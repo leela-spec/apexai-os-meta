@@ -1,0 +1,10 @@
+{
+  "schema": "transcript-pipeline-install-receipt.v2",
+  "component_id": "baseline_open_notebook",
+  "name": "Open-Notebook",
+  "version_or_revision": "0.3.0",
+  "class": "external_application",
+  "installed_at": "2026-08-18T19:25:00Z",
+  "status": "DEFERRED_DOWNSTREAM_VIEW",
+  "notes": "Downstream consumption layer; does not affect core pipeline selection."
+}

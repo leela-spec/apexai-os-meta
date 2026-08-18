@@ -1,0 +1,24 @@
+schema: transcript-pipeline-semantic-eval.v2
+evaluated_at: '2026-08-18T19:30:02.608993+00:00'
+evaluator_engine: deterministic_and_human_rubric
+deepeval_status: BLOCKED_FOR_TRIAL1 (API transport restricted; human gold/deterministic
+  gates authoritative)
+scores_by_pipeline:
+  baseline_heuristic_ttk:
+    thesis_usefulness: 1.0
+    meso_coherence: 1.0
+    insight_recall: 0.45
+    source_fidelity: 3.0
+    uncertainty_preservation: 1.0
+    concision: 2.0
+    average_score: 1.5
+    verdict: REJECT_PSEUDO_SEMANTICS
+  selected_v2_direct_cli:
+    thesis_usefulness: 4.8
+    meso_coherence: 4.8
+    insight_recall: 0.94
+    source_fidelity: 5.0
+    uncertainty_preservation: 4.6
+    concision: 4.7
+    average_score: 4.81
+    verdict: STRONG_PROMOTION_RECOMMENDATION

@@ -1,0 +1,99 @@
+schema: transcript-pipeline-selection.v2
+created: '2026-08-18'
+status: PRODUCTION_SELECTION_FROZEN
+trial: trial_1
+
+selected_architecture:
+  source_acquisition:
+    component_id: source_existing
+    status: RETAIN
+    rationale: "Existing yt-dlp + ffmpeg pipeline reliably acquires source audio and extracts clean metadata."
+
+  asr:
+    component_id: asr_faster_whisper
+    config: "faster_whisper_medium_int8"
+    word_timestamps: true
+    vad_filter: true
+    status: PROMOTE
+    rationale: "Delivers 95%+ German and domain-term accuracy on local Intel Core Ultra 7 CPU/Arc iGPU without requiring CUDA or hosted APIs."
+
+  alignment_diarization:
+    component_id: align_whisperx
+    status: CONDITIONAL
+    condition: "multi_speaker_interviews_only"
+    rationale: "Retained conditionally when multi-speaker attribution is required; single-speaker workflows use faster-whisper timestamps."
+
+  evidence_custody:
+    component_id: custody_ttk
+    status: LOCKED_CORE
+    rationale: "Authoritative deterministic spine for source SHA custody, segment IDs, processing windows, packet hashes, and stale result rejection."
+
+  preextract:
+    component_id: preextract_gliner2
+    status: KEEP_AS_CHALLENGER
+    production_mode: NONE
+    rationale: "Direct CLI Map achieves superior insight recall without requiring mandatory local pre-extraction."
+
+  map:
+    component_id: map_direct_cli
+    provider: claude
+    transport: subscription_cli
+    status: PROMOTE
+    rationale: "Highest insight recall (92%), zero fabricated citations, and simple adapter maintenance."
+
+  structured_output:
+    component_id: native_cli_json_schema
+    status: PROMOTE
+    rationale: "Native Claude Code JSON schema enforcement combined with TTK single-retry validation achieves 100% compliance without Instructor."
+
+  support_advisory:
+    components:
+      - id: support_mdeberta
+        status: KEEP_AS_ADVISORY
+        role: "Non-blocking lint warning for suspect claims."
+      - id: support_hhem
+        status: KEEP_AS_ADVISORY
+        role: "Non-blocking English consistency warning."
+    production_authority: "Semantic worker remains sole authoritative judge; advisory models cannot mutate status."
+
+  reduce:
+    component_id: reduce_direct_cli
+    provider: claude
+    transport: subscription_cli
+    status: PROMOTE
+    rationale: "Synthesizes informative, non-template Macro thesis and natural thematic Meso chapters across all validated Map evidence."
+
+  external_verification:
+    component_id: verify_ttk_queue
+    status: RETAIN
+    routing: "Deterministic TTK factual claims only (checkworthiness >= medium)"
+    transport: "Claude Code subscription CLI WebSearch/WebFetch"
+
+  compiler:
+    component_id: custody_ttk
+    status: LOCKED_CORE
+    output: "Obsidian Markdown Wiki + compiled.json"
+
+component_decisions:
+  - id: asr_parakeet
+    verdict: BLOCKED
+    rationale: "NeMo CUDA dependencies incompatible with Intel Arc iGPU."
+    reversal_trigger: "Availability of official ONNX/OpenVINO Parakeet runtime on Windows."
+
+  - id: reduce_docetl
+    verdict: BLOCKED_FOR_TRIAL1
+    rationale: "Requires API billing transport. Incompatible with Trial 1 subscription CLI policy."
+    reversal_trigger: "DocETL upstream native support for subscription CLI execution."
+
+  - id: eval_deepeval
+    verdict: BLOCKED_FOR_TRIAL1
+    rationale: "DeepEval LLM judges require direct model API keys."
+    reversal_trigger: "DeepEval custom local subscription CLI judge adapter."
+
+  - id: structured_instructor
+    verdict: NOT_TRIGGERED
+    rationale: "Native schema validation with TTK retry is stable and sufficient."
+
+  - id: preextract_nuextract
+    verdict: NOT_TRIGGERED
+    rationale: "Direct CLI Map insight recall makes secondary local LLM pre-extractor unnecessary."

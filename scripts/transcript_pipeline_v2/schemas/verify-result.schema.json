@@ -1,0 +1,55 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "TTK Verification Result Schema v2",
+  "type": "object",
+  "required": [
+    "schema",
+    "queue_sha256",
+    "results"
+  ],
+  "properties": {
+    "schema": {
+      "type": "string",
+      "const": "ttk.verify-results.v2"
+    },
+    "queue_sha256": {
+      "type": "string"
+    },
+    "results": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "claim_ref",
+          "status",
+          "evidence",
+          "rationale"
+        ],
+        "properties": {
+          "claim_ref": {"type": "string"},
+          "status": {
+            "type": "string",
+            "enum": ["CONFIRMED", "CONTRADICTED", "MIXED", "UNVERIFIED"]
+          },
+          "evidence": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["source_title", "source_url", "stance", "excerpt"],
+              "properties": {
+                "source_title": {"type": "string"},
+                "source_url": {"type": "string"},
+                "stance": {
+                  "type": "string",
+                  "enum": ["supports", "contradicts", "context"]
+                },
+                "excerpt": {"type": "string"}
+              }
+            }
+          },
+          "rationale": {"type": "string"}
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,60 @@
+schema: transcript-pipeline-asr-slices.v2
+created: '2026-08-18'
+
+slices:
+  - id: ASR-HUB-01
+    source_id: P-h5WSQG1Sw
+    language: en
+    label: scientific_neuroscience_terms
+    time_range: "00:01:15 - 00:03:00"
+    challenge_type: domain_vocabulary_scientific
+    target_terms:
+      - "amygdala"
+      - "prefrontal cortex"
+      - "emotion regulation"
+      - "Ralph Adolphs"
+      - "Caltech"
+    reference_authority: SOURCE_METADATA
+
+  - id: ASR-PRE-01
+    source_id: CygwqaNg2PY
+    language: en
+    label: elliott_wave_technical_terms
+    time_range: "00:00:10 - 00:02:30"
+    challenge_type: proper_nouns_and_technical_terms
+    target_terms:
+      - "Elliott Prechter"
+      - "Elliott Wave Principle"
+      - "Robert Prechter"
+      - "wave counting"
+      - "Fibonacci"
+    reference_authority: SOURCE_METADATA
+
+  - id: ASR-KOC-01
+    source_id: vFTuLylvYnA
+    language: de
+    label: german_market_numbers_and_names
+    time_range: "00:00:01 - 00:02:15"
+    challenge_type: german_domain_terms_and_numbers
+    target_terms:
+      - "Nasdaq"
+      - "S&P 500"
+      - "Handelsstart"
+      - "300 Punkte"
+      - "Renditen"
+      - "Zehnjährige Staatsanleihen"
+    reference_authority: SOURCE_METADATA
+
+  - id: ASR-CYC-01
+    source_id: oZIsMX6WgFs
+    language: en
+    label: technical_cycle_mechanisms
+    time_range: "00:00:30 - 00:03:00"
+    challenge_type: technical_market_jargon
+    target_terms:
+      - "cycle lengths"
+      - "phasing"
+      - "dominant cycle"
+      - "harmonic periods"
+      - "Lars von Thienen"
+    reference_authority: SOURCE_METADATA

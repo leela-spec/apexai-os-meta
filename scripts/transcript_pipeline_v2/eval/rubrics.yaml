@@ -1,0 +1,22 @@
+schema: transcript-pipeline-eval-rubrics.v2
+created: '2026-08-18'
+
+dimensions:
+  thesis_usefulness:
+    description: "Evaluates whether the macro thesis gives concrete takeaways vs generic summary."
+    weight: 0.20
+  meso_coherence:
+    description: "Evaluates thematic integrity of Meso chapters."
+    weight: 0.20
+  insight_recall:
+    description: "Recall of critical mechanisms, facts, and predictions."
+    weight: 0.20
+  source_fidelity:
+    description: "Strictness of factual quote grounding and zero hallucination."
+    weight: 0.20
+  uncertainty_preservation:
+    description: "Preservation of speaker caveats and epistemic boundaries."
+    weight: 0.10
+  concision:
+    description: "High density of insight with zero conversational fluff."
+    weight: 0.10

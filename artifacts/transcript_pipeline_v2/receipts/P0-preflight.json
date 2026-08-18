@@ -1,0 +1,90 @@
+{
+  "schema": "transcript-pipeline-preflight.v2",
+  "task": "P0",
+  "recorded_at": "2026-08-18T19:17:00Z",
+  "repository": {
+    "root": "C:/GitDev/apexai-os-meta",
+    "remote_origin": "https://github.com/leela-spec/apexai-os-meta.git",
+    "branch": "main",
+    "head_commit": "b259640f7d1fc85484767ef8fc7d0c27e915aece",
+    "is_main_branch": true
+  },
+  "cli_environment": {
+    "python": {
+      "available": true,
+      "version": "Python 3.12.10",
+      "status": "AVAILABLE"
+    },
+    "claude_code": {
+      "available": true,
+      "version": "2.1.220 (Claude Code)",
+      "command": "claude",
+      "status": "AVAILABLE_PRIMARY_TRIAL1"
+    },
+    "codex_cli": {
+      "available": false,
+      "version": null,
+      "status": "BLOCKED_FOR_TRIAL1_NOT_INSTALLED"
+    },
+    "antigravity_cli": {
+      "available": false,
+      "version": null,
+      "status": "BLOCKED_FOR_TRIAL1_NOT_INSTALLED"
+    }
+  },
+  "api_routing_environment_presence": {
+    "ANTHROPIC_API_KEY": false,
+    "ANTHROPIC_AUTH_TOKEN": false,
+    "ANTHROPIC_BASE_URL": false,
+    "OPENAI_API_KEY": true,
+    "GEMINI_API_KEY": false,
+    "GOOGLE_API_KEY": false
+  },
+  "trial1_transport_policy": {
+    "semantic_transport": "subscription_cli_only",
+    "selected_primary_worker": "claude_code",
+    "child_env_sanitization_required": true,
+    "secrets_recorded": false
+  },
+  "benchmark_transcripts": {
+    "P-h5WSQG1Sw": {
+      "exists": true,
+      "path": ".claude/skills/SourceTranscriptionAnalysisPipeline/artifacts/transcripts/P-h5WSQG1Sw/P-h5WSQG1Sw.srt",
+      "sha256": "3e46962b9a0be33deecf1612ca70d8c2ceb1405ce67075ce22c6123d8e972c9d",
+      "size_bytes": 194357
+    },
+    "CygwqaNg2PY": {
+      "exists": true,
+      "path": ".claude/skills/SourceTranscriptionAnalysisPipeline/artifacts/transcripts/CygwqaNg2PY/CygwqaNg2PY.srt",
+      "sha256": "2d93ffe19ae134fb41bd2a9eb40f14285d702429ce4d2205113c0b177533899a",
+      "size_bytes": 28917
+    },
+    "vFTuLylvYnA": {
+      "exists": true,
+      "path": ".claude/skills/SourceTranscriptionAnalysisPipeline/artifacts/transcripts/vFTuLylvYnA/vFTuLylvYnA.srt",
+      "sha256": "1dffc6b9bc4e9d4897a2a27b96b8f9a077988b12824788554fb0be76b0225dfb",
+      "size_bytes": 24237
+    },
+    "oZIsMX6WgFs": {
+      "exists": true,
+      "path": ".claude/skills/SourceTranscriptionAnalysisPipeline/artifacts/transcripts/oZIsMX6WgFs/oZIsMX6WgFs.srt",
+      "sha256": "d6bfb051b2344b3d17fd1a73643322945870262589aab1cf757ed1fe873ba135",
+      "size_bytes": 43012
+    }
+  },
+  "ttk_dependencies": {
+    "skill_md": {
+      "exists": true,
+      "path": ".claude/skills/transcript-to-knowledge/SKILL.md"
+    },
+    "test_ttk_py": {
+      "exists": true,
+      "path": ".claude/skills/transcript-to-knowledge/scripts/test_ttk.py"
+    },
+    "ttk_py": {
+      "exists": true,
+      "path": ".claude/skills/transcript-to-knowledge/scripts/ttk.py"
+    }
+  },
+  "status": "PASS"
+}

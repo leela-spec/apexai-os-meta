@@ -1,0 +1,24 @@
+{
+  "schema": "transcript-pipeline-receipt.v2",
+  "task_id": "P2",
+  "status": "PASS",
+  "recorded_at": "2026-08-18T19:18:30Z",
+  "baseline_batch_receipt": "artifacts/benchmark_runs/20260818-210157/receipt.json",
+  "inspected_commit": "b259640f7d1fc85484767ef8fc7d0c27e915aece",
+  "git_dirty": true,
+  "sources_inspected": [
+    "P-h5WSQG1Sw",
+    "CygwqaNg2PY",
+    "vFTuLylvYnA",
+    "oZIsMX6WgFs"
+  ],
+  "symptoms_cataloged": [
+    "generic_macro_thesis_and_summary_boilerplate",
+    "fixed_mechanical_meso_grouping",
+    "conversational_sentence_fragments_dumped_as_claims",
+    "regex_pseudo_entities",
+    "blanket_source_support_without_entailment"
+  ],
+  "artifacts_manifest": "artifacts/transcript_pipeline_v2/baseline/current-system.yaml",
+  "symptoms_manifest": "artifacts/transcript_pipeline_v2/baseline/current-semantic-symptoms.yaml"
+}

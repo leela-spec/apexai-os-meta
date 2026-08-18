@@ -1,0 +1,17 @@
+schema: transcript-pipeline-whisperx-scorecard.v2
+evaluated_at: '2026-08-18T19:27:00Z'
+source: P-h5WSQG1Sw
+status: CONDITIONAL_EVALUATED
+metrics:
+  reference_timestamps:
+    word_timestamps_available: true
+    speaker_diarization: Transcript speech event markers
+    dependency_overhead: Zero (built-in faster-whisper)
+  whisperx_alignment:
+    forced_alignment_quality: High
+    speaker_diarization_status: BLOCKED_CREDENTIAL (Requires pyannote HF token)
+    dependency_overhead: Heavy PyTorch/TorchAudio install
+verdict: CONDITIONAL
+recommendation: Retain as optional conditional stage for multi-speaker interview sources
+  when speaker attribution is explicitly required, but do not mandate on single-speaker
+  workflows.

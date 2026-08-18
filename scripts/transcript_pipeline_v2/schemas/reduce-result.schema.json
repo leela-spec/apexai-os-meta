@@ -1,0 +1,250 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "TTK Reduce Result Schema v2",
+  "type": "object",
+  "required": [
+    "schema",
+    "packet_id",
+    "packet_sha256",
+    "macro",
+    "meso",
+    "micro",
+    "rejected_or_unresolved_candidates"
+  ],
+  "properties": {
+    "schema": {
+      "type": "string",
+      "const": "ttk.reduce-result.v2"
+    },
+    "packet_id": {
+      "type": "string"
+    },
+    "packet_sha256": {
+      "type": "string"
+    },
+    "macro": {
+      "type": "object",
+      "required": [
+        "thesis",
+        "summary",
+        "takeaways",
+        "taxonomy",
+        "speaker_context",
+        "contradictions_or_uncertainty"
+      ],
+      "properties": {
+        "thesis": {"type": "string"},
+        "summary": {"type": "string"},
+        "takeaways": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["text", "source_segment_ids", "meso_refs"],
+            "properties": {
+              "text": {"type": "string"},
+              "source_segment_ids": {
+                "type": "array",
+                "items": {"type": "string"},
+                "minItems": 1
+              },
+              "meso_refs": {
+                "type": "array",
+                "items": {"type": "string"}
+              }
+            }
+          }
+        },
+        "taxonomy": {
+          "type": "array",
+          "items": {"type": "string"}
+        },
+        "speaker_context": {
+          "type": "array",
+          "items": {"type": "string"}
+        },
+        "contradictions_or_uncertainty": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["text", "source_segment_ids"],
+            "properties": {
+              "text": {"type": "string"},
+              "source_segment_ids": {
+                "type": "array",
+                "items": {"type": "string"}
+              }
+            }
+          }
+        }
+      }
+    },
+    "meso": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "meso_ref",
+          "title",
+          "summary",
+          "source_segment_ids",
+          "concepts",
+          "entities",
+          "mechanisms",
+          "protocols",
+          "arguments",
+          "caveats",
+          "claim_refs"
+        ],
+        "properties": {
+          "meso_ref": {"type": "string"},
+          "title": {"type": "string"},
+          "summary": {"type": "string"},
+          "source_segment_ids": {
+            "type": "array",
+            "items": {"type": "string"},
+            "minItems": 1
+          },
+          "concepts": {
+            "type": "array",
+            "items": {"type": "string"}
+          },
+          "entities": {
+            "type": "array",
+            "items": {"type": "string"}
+          },
+          "mechanisms": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["text", "source_segment_ids"],
+              "properties": {
+                "text": {"type": "string"},
+                "source_segment_ids": {
+                  "type": "array",
+                  "items": {"type": "string"}
+                }
+              }
+            }
+          },
+          "protocols": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["title", "steps", "source_segment_ids"],
+              "properties": {
+                "title": {"type": "string"},
+                "steps": {
+                  "type": "array",
+                  "items": {"type": "string"}
+                },
+                "source_segment_ids": {
+                  "type": "array",
+                  "items": {"type": "string"}
+                }
+              }
+            }
+          },
+          "arguments": {
+            "type": "array",
+            "items": {"type": "string"}
+          },
+          "caveats": {
+            "type": "array",
+            "items": {"type": "string"}
+          },
+          "claim_refs": {
+            "type": "array",
+            "items": {"type": "string"}
+          }
+        }
+      }
+    },
+    "micro": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "claim_ref",
+          "claim_text",
+          "claim_kind",
+          "source_support",
+          "checkworthiness",
+          "source_segment_ids",
+          "quote_evidence",
+          "topics",
+          "entities"
+        ],
+        "properties": {
+          "claim_ref": {"type": "string"},
+          "claim_text": {"type": "string"},
+          "claim_kind": {
+            "type": "string",
+            "enum": [
+              "fact",
+              "opinion",
+              "prediction",
+              "recommendation",
+              "decision",
+              "anecdote",
+              "definition",
+              "mechanism",
+              "estimate",
+              "hypothesis"
+            ]
+          },
+          "source_support": {
+            "type": "string",
+            "enum": ["SUPPORTED", "PARTIAL", "AMBIGUOUS", "UNSUPPORTED"]
+          },
+          "checkworthiness": {
+            "type": "string",
+            "enum": ["high", "medium", "low", "none"]
+          },
+          "speaker": {"type": ["string", "null"]},
+          "source_segment_ids": {
+            "type": "array",
+            "items": {"type": "string"},
+            "minItems": 1
+          },
+          "quote_evidence": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["segment_id", "quote"],
+              "properties": {
+                "segment_id": {"type": "string"},
+                "quote": {"type": "string"}
+              }
+            },
+            "minItems": 1
+          },
+          "topics": {
+            "type": "array",
+            "items": {"type": "string"}
+          },
+          "entities": {
+            "type": "array",
+            "items": {"type": "string"}
+          },
+          "context": {"type": "string"},
+          "verification_question": {"type": "string"},
+          "preferred_source_types": {
+            "type": "array",
+            "items": {"type": "string"}
+          }
+        }
+      }
+    },
+    "rejected_or_unresolved_candidates": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["claim_text", "reason"],
+        "properties": {
+          "claim_text": {"type": "string"},
+          "reason": {"type": "string"}
+        }
+      }
+    }
+  }
+}

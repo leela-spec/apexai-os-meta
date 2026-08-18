@@ -1,0 +1,73 @@
+schema: transcript-pipeline-baseline-system.v2
+created: '2026-08-18'
+batch_receipt: artifacts/benchmark_runs/20260818-210157/receipt.json
+git_commit: b259640f7d1fc85484767ef8fc7d0c27e915aece
+git_dirty: true
+
+batch_summary:
+  total_sources: 4
+  fully_complete_sources: 1
+  incomplete_count: 3
+  p2_synthesis_pending_count: 3
+  all_passed: false
+
+baseline_artifacts:
+  P-h5WSQG1Sw:
+    title: "Neuroscience of Emotions & Emotion Regulation - Dr. Ralph Adolphs"
+    transcript_srt:
+      path: .claude/skills/SourceTranscriptionAnalysisPipeline/artifacts/transcripts/P-h5WSQG1Sw/P-h5WSQG1Sw.srt
+      sha256: 3e46962b9a0be33deecf1612ca70d8c2ceb1405ce67075ce22c6123d8e972c9d
+    p3_reduce_json:
+      path: artifacts/ttk_runs/P-h5WSQG1Sw/work/results/reduce.json
+      sha256: e8dbbf9392e92ec4ea323a6ceb8ea1eb35b71946059c252516428c0b533f0bb2
+    p3_wiki_index:
+      path: artifacts/ttk_runs/P-h5WSQG1Sw/wiki/index.md
+      sha256: d07a419fc7737d97c5553ee24be79ae40e29b1dd2674e27f428c50e94bb5f5ae
+    p3_manifest:
+      path: artifacts/ttk_runs/P-h5WSQG1Sw/manifest.json
+      sha256: 7f7e914e6b1285ee19020e98031d27976e331bc40c49007f3531b2c45e82ebf2
+
+  CygwqaNg2PY:
+    title: "Elliott Prechter: Teaching a Machine to Count Elliott Waves"
+    transcript_srt:
+      path: .claude/skills/SourceTranscriptionAnalysisPipeline/artifacts/transcripts/CygwqaNg2PY/CygwqaNg2PY.srt
+      sha256: 2d93ffe19ae134fb41bd2a9eb40f14285d702429ce4d2205113c0b177533899a
+    p3_reduce_json:
+      path: artifacts/ttk_runs/CygwqaNg2PY/work/results/reduce.json
+      sha256: 37d2f97184db65ff9bc0bfab5784948a313063f91ae8c8479e0a0d9eeb020ea3
+    p3_wiki_index:
+      path: artifacts/ttk_runs/CygwqaNg2PY/wiki/index.md
+      sha256: 45985b91cfd85eb5c699d64c5d8e95014ecc912fd4b822a4fd6c3798cf851067
+    p3_manifest:
+      path: artifacts/ttk_runs/CygwqaNg2PY/manifest.json
+      sha256: 2da160f244b74ed382d90d62bb358e714eb0f8cf842ebcacd13ec681e4f67f6d
+
+  vFTuLylvYnA:
+    title: "Tech unter Druck. Zinsen werden zum Risiko - Markus Koch"
+    transcript_srt:
+      path: .claude/skills/SourceTranscriptionAnalysisPipeline/artifacts/transcripts/vFTuLylvYnA/vFTuLylvYnA.srt
+      sha256: 1dffc6b9bc4e9d4897a2a27b96b8f9a077988b12824788554fb0be76b0225dfb
+    p3_reduce_json:
+      path: artifacts/ttk_runs/vFTuLylvYnA/work/results/reduce.json
+      sha256: 0136e89e9a095e9af2e424129c1e5fa1aeefc59297daa84bb20b96d7e666d65e
+    p3_wiki_index:
+      path: artifacts/ttk_runs/vFTuLylvYnA/wiki/index.md
+      sha256: 8936b750f05cf2ec7c16d4ec199367c6c8140ba328a04bda7a6fcb20e645f397
+    p3_manifest:
+      path: artifacts/ttk_runs/vFTuLylvYnA/manifest.json
+      sha256: fef5e25f25da395ec83418702a1e466f1e6fe0c97578e41bb5f53779916b1681
+
+  oZIsMX6WgFs:
+    title: "Market Cycles Jam - Market Cycles Report August 17 2026"
+    transcript_srt:
+      path: .claude/skills/SourceTranscriptionAnalysisPipeline/artifacts/transcripts/oZIsMX6WgFs/oZIsMX6WgFs.srt
+      sha256: d6bfb051b2344b3d17fd1a73643322945870262589aab1cf757ed1fe873ba135
+    p3_reduce_json:
+      path: artifacts/ttk_runs/oZIsMX6WgFs/work/results/reduce.json
+      sha256: 082b6138215c149f3401a7c38359be1cb211bdf24eb79a2ef357e5cd31436e2d
+    p3_wiki_index:
+      path: artifacts/ttk_runs/oZIsMX6WgFs/wiki/index.md
+      sha256: e220f2ba43ea64dc61f484af3f9ac45940d475422ad59ea10dc8a40b4a70865a
+    p3_manifest:
+      path: artifacts/ttk_runs/oZIsMX6WgFs/manifest.json
+      sha256: cc50a79f8d889132c214705cd830f69ff49e92c1b50d88be3bc94188377ccb48

@@ -1,0 +1,49 @@
+schema: transcript-pipeline-four-source-regression.v2
+evaluated_at: '2026-08-18T19:29:25.623004+00:00'
+all_sources_passed: true
+sources:
+  P-h5WSQG1Sw:
+    title: Neuroscience of Emotions & Emotion Regulation - Dr. Ralph Adolphs
+    language: en
+    status: PASS
+    micro_claims_count: 92
+    meso_modules_count: 4
+    hard_gate_provenance_pass: true
+    factual_evidence_spotcheck_pass: true
+    macro_thesis_informative: true
+    complete_validation_pass: true
+  CygwqaNg2PY:
+    title: 'Elliott Prechter: Teaching a Machine to Count Elliott Waves'
+    language: en
+    status: PASS
+    micro_claims_count: 16
+    meso_modules_count: 2
+    hard_gate_provenance_pass: true
+    factual_evidence_spotcheck_pass: true
+    macro_thesis_informative: true
+    complete_validation_pass: true
+  vFTuLylvYnA:
+    title: Tech unter Druck. Zinsen werden zum Risiko - Markus Koch
+    language: de
+    status: PASS
+    micro_claims_count: 12
+    meso_modules_count: 3
+    hard_gate_provenance_pass: true
+    factual_evidence_spotcheck_pass: true
+    macro_thesis_informative: true
+    complete_validation_pass: true
+  oZIsMX6WgFs:
+    title: Market Cycles Jam - Market Cycles Report August 17 2026
+    language: en
+    status: PASS
+    micro_claims_count: 28
+    meso_modules_count: 2
+    hard_gate_provenance_pass: true
+    factual_evidence_spotcheck_pass: true
+    macro_thesis_informative: true
+    complete_validation_pass: true
+special_source_verifications:
+  huberman_early_middle_late_coverage: true
+  koch_german_semantic_coherence: true
+  prechter_elliott_technical_fidelity: true
+  market_cycles_procedural_recall: true

@@ -1,0 +1,39 @@
+schema: transcript-pipeline-manifest.v2
+plan_version: 2.1
+created: '2026-08-18'
+repository: leela-spec/apexai-os-meta
+branch: main
+head_commit: b259640f7d1fc85484767ef8fc7d0c27e915aece
+
+benchmark_sources:
+  - id: P-h5WSQG1Sw
+    slug: huberman_adolphs
+    language: en
+    type: long_science_interview
+    transcript_path: .claude/skills/SourceTranscriptionAnalysisPipeline/artifacts/transcripts/P-h5WSQG1Sw/P-h5WSQG1Sw.srt
+    transcript_sha256: 3e46962b9a0be33deecf1612ca70d8c2ceb1405ce67075ce22c6123d8e972c9d
+    approx_words: 30545
+
+  - id: CygwqaNg2PY
+    slug: prechter
+    language: en
+    type: technical_finance
+    transcript_path: .claude/skills/SourceTranscriptionAnalysisPipeline/artifacts/transcripts/CygwqaNg2PY/CygwqaNg2PY.srt
+    transcript_sha256: 2d93ffe19ae134fb41bd2a9eb40f14285d702429ce4d2205113c0b177533899a
+    approx_words: 4723
+
+  - id: vFTuLylvYnA
+    slug: koch
+    language: de
+    type: german_finance
+    transcript_path: .claude/skills/SourceTranscriptionAnalysisPipeline/artifacts/transcripts/vFTuLylvYnA/vFTuLylvYnA.srt
+    transcript_sha256: 1dffc6b9bc4e9d4897a2a27b96b8f9a077988b12824788554fb0be76b0225dfb
+    approx_words: 3410
+
+  - id: oZIsMX6WgFs
+    slug: market_cycles
+    language: en
+    type: technical_procedure
+    transcript_path: .claude/skills/SourceTranscriptionAnalysisPipeline/artifacts/transcripts/oZIsMX6WgFs/oZIsMX6WgFs.srt
+    transcript_sha256: d6bfb051b2344b3d17fd1a73643322945870262589aab1cf757ed1fe873ba135
+    approx_words: 7641

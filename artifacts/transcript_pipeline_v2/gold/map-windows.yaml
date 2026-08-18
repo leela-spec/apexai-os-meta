@@ -1,0 +1,150 @@
+schema: transcript-pipeline-map-windows.v2
+created: '2026-08-18'
+
+windows:
+  # P-h5WSQG1Sw (Huberman) - 4 windows across early, middle, late
+  - id: WIN-HUB-01
+    source_id: P-h5WSQG1Sw
+    window_id: window-0001
+    position: early
+    language: en
+    label_authority: HUMAN_GOLD
+    checklist:
+      - id: C-HUB-01-1
+        kind: theme
+        text: "Immediate visceral anger response in driving/parking scenario as opening example."
+      - id: C-HUB-01-2
+        kind: concept
+        text: "Distinction between rapid automatic emotional reactions and conscious regulation."
+      - id: C-HUB-01-3
+        kind: entity
+        text: "Dr. Ralph Adolphs / Caltech."
+
+  - id: WIN-HUB-06
+    source_id: P-h5WSQG1Sw
+    window_id: window-0006
+    position: early_middle
+    language: en
+    label_authority: AI_SILVER
+    checklist:
+      - id: C-HUB-06-1
+        kind: mechanism
+        text: "Neural circuitry involved in fear processing and amygdala lesion studies."
+      - id: C-HUB-06-2
+        kind: fact
+        text: "Patient SM with bilateral amygdala damage exhibits lack of typical fear responses."
+
+  - id: WIN-HUB-14
+    source_id: P-h5WSQG1Sw
+    window_id: window-0014
+    position: late_middle
+    language: en
+    label_authority: AI_SILVER
+    checklist:
+      - id: C-HUB-14-1
+        kind: mechanism
+        text: "Interoception vs exteroception in emotional awareness and heart-rate feedback."
+      - id: C-HUB-14-2
+        kind: opinion
+        text: "Subjective feelings require integration of bodily arousal with cognitive context."
+
+  - id: WIN-HUB-22
+    source_id: P-h5WSQG1Sw
+    window_id: window-0022
+    position: late
+    language: en
+    label_authority: HUMAN_GOLD
+    checklist:
+      - id: C-HUB-22-1
+        kind: protocol
+        text: "Practical protocols for emotion regulation including cognitive reappraisal and physiological resets."
+      - id: C-HUB-22-2
+        kind: uncertainty
+        text: "Individual variation in regulation efficacy across acute stress vs chronic anxiety."
+
+  # CygwqaNg2PY (Prechter) - 2 windows
+  - id: WIN-PRE-01
+    source_id: CygwqaNg2PY
+    window_id: window-0001
+    position: early
+    language: en
+    label_authority: HUMAN_GOLD
+    checklist:
+      - id: C-PRE-01-1
+        kind: concept
+        text: "Introduction of Elliott Prechter and his work on computerizing Elliott Wave counting."
+      - id: C-PRE-01-2
+        kind: theme
+        text: "Algorithmic translation of subjective pattern recognition into deterministic rule engines."
+
+  - id: WIN-PRE-03
+    source_id: CygwqaNg2PY
+    window_id: window-0003
+    position: late
+    language: en
+    label_authority: AI_SILVER
+    checklist:
+      - id: C-PRE-03-1
+        kind: mechanism
+        text: "Rule-based filtering of wave patterns using strict invalidation rules and Fibonacci ratio probabilities."
+      - id: C-PRE-03-2
+        kind: recommendation
+        text: "Traders should use wave counts as probability maps rather than certain future predictions."
+
+  # vFTuLylvYnA (Koch) - 2 windows (German)
+  - id: WIN-KOC-01
+    source_id: vFTuLylvYnA
+    window_id: window-0001
+    position: early
+    language: de
+    label_authority: HUMAN_GOLD
+    checklist:
+      - id: C-KOC-01-1
+        kind: fact
+        text: "Nasdaq und S&P 500 vorbörslich deutlich unter Druck mit über 300 Punkten Verlust im Tech-Bereich."
+      - id: C-KOC-01-2
+        kind: mechanism
+        text: "Steigende Renditen bei US-Staatsanleihen erhöhen den Bewertungsdruck auf zinssensitive Wachstumsaktien."
+
+  - id: WIN-KOC-03
+    source_id: vFTuLylvYnA
+    window_id: window-0003
+    position: late
+    language: de
+    label_authority: AI_SILVER
+    checklist:
+      - id: C-KOC-03-1
+        kind: opinion
+        text: "Sell-the-News Reaktion trotz solider Quartalszahlen bei einzelnen Technologiewerten."
+      - id: C-KOC-03-2
+        kind: prediction
+        text: "Erhöhte Volatilität bis zu den anstehenden Arbeitsmarktdaten und Notenbanksignalen erwartet."
+
+  # oZIsMX6WgFs (Market Cycles) - 2 windows
+  - id: WIN-CYC-01
+    source_id: oZIsMX6WgFs
+    window_id: window-0001
+    position: early
+    language: en
+    label_authority: HUMAN_GOLD
+    checklist:
+      - id: C-CYC-01-1
+        kind: concept
+        text: "Live market cycle review across multiple asset classes (equities, commodities, crypto)."
+      - id: C-CYC-01-2
+        kind: mechanism
+        text: "Cycle detection algorithm isolating dominant frequencies from historical price series."
+
+  - id: WIN-CYC-05
+    source_id: oZIsMX6WgFs
+    window_id: window-0005
+    position: late
+    language: en
+    label_authority: AI_SILVER
+    checklist:
+      - id: C-CYC-05-1
+        kind: recommendation
+        text: "Caution against projecting mathematical cycle extensions indefinitely without phase confirmation."
+      - id: C-CYC-05-2
+        kind: fact
+        text: "Cycle synchronization occurs when harmonic sub-cycles align at structural inflection points."

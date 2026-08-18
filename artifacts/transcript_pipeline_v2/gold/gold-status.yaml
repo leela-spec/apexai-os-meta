@@ -1,0 +1,49 @@
+schema: transcript-pipeline-gold-status.v2
+recorded_at: '2026-08-18'
+status: READY
+
+fixtures_summary:
+  map_windows:
+    total_count: 10
+    by_language:
+      en: 8
+      de: 2
+    by_authority:
+      HUMAN_GOLD: 6
+      AI_SILVER: 4
+    by_position:
+      early: 4
+      early_middle: 1
+      late_middle: 1
+      late: 4
+
+  support_pairs:
+    total_count: 44
+    by_language:
+      en: 31
+      de: 13
+    by_label:
+      SUPPORTED: 15
+      PARTIAL: 6
+      AMBIGUOUS: 6
+      UNSUPPORTED: 17
+    negative_overreach_count: 17
+    by_authority:
+      HUMAN_GOLD: 23
+      AI_SILVER: 21
+
+  asr_slices:
+    total_count: 4
+    by_language:
+      en: 3
+      de: 1
+    by_authority:
+      SOURCE_METADATA: 4
+
+acceptance_checks:
+  all_four_sources_covered: true
+  both_en_and_de_covered: true
+  all_labels_have_authority: true
+  no_ai_silver_as_human_gold: true
+  minimum_40_support_pairs_met: true
+  minimum_10_negative_pairs_met: true

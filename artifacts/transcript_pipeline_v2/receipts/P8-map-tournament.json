@@ -1,0 +1,14 @@
+{
+  "schema": "transcript-pipeline-receipt.v2",
+  "task_id": "P8",
+  "status": "PASS",
+  "recorded_at": "2026-08-18T19:26:16.315813+00:00",
+  "lanes_evaluated": [
+    "direct_cli",
+    "gliner2_assisted_cli",
+    "langextract_cli_provider"
+  ],
+  "windows_evaluated_count": 10,
+  "scorecard": "C:/GitDev/apexai-os-meta/artifacts/transcript_pipeline_v2/comparisons/map-scorecard.yaml",
+  "top_performing_lane": "direct_cli"
+}

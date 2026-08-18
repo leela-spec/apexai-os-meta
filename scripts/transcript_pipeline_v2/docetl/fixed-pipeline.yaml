@@ -1,0 +1,14 @@
+schema: docetl-fixed-pipeline.v2
+pipeline_name: ttk_reduce_fixed_pipeline
+optimizer_enabled: false
+provider_policy: subscription_cli_only
+
+pipeline:
+  map:
+    type: Map
+    prompt: "Extract core themes, mechanisms, protocols, and factual claims from processing window."
+    output_schema: scripts/transcript_pipeline_v2/schemas/map-result.schema.json
+  reduce:
+    type: Reduce
+    prompt: "Synthesize validated evidence ledger into Macro thesis and Meso chapters."
+    output_schema: scripts/transcript_pipeline_v2/schemas/reduce-result.schema.json

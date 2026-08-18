@@ -1,0 +1,15 @@
+schema: transcript-pipeline-product-baselines.v2
+evaluated_at: '2026-08-18T19:30:02.613476+00:00'
+baselines:
+  fabric_extract_wisdom:
+    class: external_prompt_pattern
+    status: EVALUATED_AS_BASELINE
+    insight_density: 3.8
+    grounding_auditability: 1.5
+    finding: Fabric produces readable bullet points but lacks immutable segment provenance,
+      exact quote verification, and deterministic compilation.
+  open_notebook:
+    class: external_application
+    status: DEFERRED_DOWNSTREAM_VIEW
+    finding: Open Notebook is a potential consumer of compiled TTK Markdown wiki outputs
+      rather than a replacement for evidence custody.

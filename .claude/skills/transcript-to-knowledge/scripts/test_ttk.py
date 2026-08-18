@@ -348,6 +348,60 @@ class TTKTests(unittest.TestCase):
         self.assertFalse(state["network_calls_in_cli"])
         self.assertFalse(state["llm_calls_in_cli"])
 
+    def test_d35_factual_without_quote_fails(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            _, run = make_run(Path(tmp))
+            packet_path = sorted((run / "work" / "packets" / "map").glob("*.json"))[0]
+            packet = json.loads(packet_path.read_text())
+            result = valid_map_result(packet)
+            result["candidate_claims"][0]["claim_kind"] = "fact"
+            result["candidate_claims"][0]["quote_evidence"] = []
+            errors = ttk.validate_map_result(packet, result, ttk._segment_lookup(run))
+            self.assertTrue(any("quote evidence" in e for e in errors))
+
+    def test_d35_opinion_and_prediction_with_core_ref_no_quote_passes(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            _, run = make_run(Path(tmp))
+            packet_path = sorted((run / "work" / "packets" / "map").glob("*.json"))[0]
+            packet = json.loads(packet_path.read_text())
+            result = valid_map_result(packet)
+            # Change to opinion without quote
+            result["candidate_claims"][0]["claim_kind"] = "opinion"
+            result["candidate_claims"][0]["quote_evidence"] = []
+            errors = ttk.validate_map_result(packet, result, ttk._segment_lookup(run))
+            self.assertEqual(errors, [])
+
+            # Change to prediction without quote
+            result["candidate_claims"][0]["claim_kind"] = "prediction"
+            errors = ttk.validate_map_result(packet, result, ttk._segment_lookup(run))
+            self.assertEqual(errors, [])
+
+    def test_d35_invalid_source_ref_fails_for_all_kinds(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            _, run = make_run(Path(tmp))
+            packet_path = sorted((run / "work" / "packets" / "map").glob("*.json"))[0]
+            packet = json.loads(packet_path.read_text())
+            for kind in ("fact", "opinion", "prediction", "mechanism"):
+                result = valid_map_result(packet)
+                result["candidate_claims"][0]["claim_kind"] = kind
+                result["candidate_claims"][0]["source_segment_ids"] = ["non-existent-seg-999"]
+                errors = ttk.validate_map_result(packet, result, ttk._segment_lookup(run))
+                self.assertTrue(any("non-core or unknown segment" in e for e in errors))
+
+    def test_d35_unresolved_reduce_claim_ref_fails(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            _, run = make_run(Path(tmp))
+            fill_maps(run)
+            ttk.make_reduce_packet(run)
+            reduce_result = valid_reduce_result(run)
+            reduce_result["meso"][0]["claim_refs"].append("micro-unknown-999")
+            errors = ttk.validate_reduce_result(
+                json.loads((run / "work" / "packets" / "reduce.json").read_text()),
+                reduce_result,
+                ttk._segment_lookup(run)
+            )
+            self.assertTrue(any("references unknown claim_ref" in e for e in errors))
+
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)

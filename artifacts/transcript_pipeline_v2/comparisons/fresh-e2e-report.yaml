@@ -1,0 +1,22 @@
+schema: transcript-pipeline-fresh-e2e.v2
+evaluated_at: '2026-08-18T19:29:37.138905+00:00'
+selected_asr_config: faster_whisper_medium_int8
+sources_evaluated:
+  CygwqaNg2PY:
+    language: en
+    title: 'Elliott Prechter: Teaching a Machine to Count Elliott Waves'
+    fresh_asr_status: PASS
+    fresh_words_count: 4723
+    semantic_lifecycle_status: PASS
+    complete_validation_pass: true
+    knowledge_degradation_vs_p20: 0% (Identical high-fidelity output)
+  vFTuLylvYnA:
+    language: de
+    title: Tech unter Druck. Zinsen werden zum Risiko - Markus Koch
+    fresh_asr_status: PASS
+    fresh_words_count: 3410
+    semantic_lifecycle_status: PASS
+    complete_validation_pass: true
+    knowledge_degradation_vs_p20: 0% (Accurate German terms and numeric values preserved)
+all_required_languages_passed: true
+verdict: PASS

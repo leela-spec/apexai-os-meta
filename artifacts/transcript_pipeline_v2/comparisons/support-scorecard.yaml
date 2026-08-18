@@ -1,0 +1,26 @@
+schema: transcript-pipeline-support-scorecard.v2
+evaluated_at: '2026-08-18T19:26:36.644956+00:00'
+total_pairs_evaluated: 44
+models:
+  mdeberta_nli:
+    scope: Multilingual (EN + DE)
+    total_pairs: 44
+    accuracy: 0.5682
+    precision_on_negative_cases: 0.88
+    recall_on_negative_cases: 0.82
+    role: advisory_warning_signal_only
+    verdict: KEEP_AS_ADVISORY_CHALLENGER
+    recommendation: Useful as non-blocking lint warning for suspect claims, but never
+      authoritative override.
+  hhem_english:
+    scope: English Only
+    total_pairs: 30
+    accuracy: 0.5667
+    precision_on_negative_cases: 0.85
+    recall_on_negative_cases: 0.8
+    role: advisory_english_consistency_only
+    verdict: KEEP_AS_ADVISORY_CHALLENGER
+    recommendation: Useful secondary consistency signal for English sources.
+production_policy:
+  semantic_worker_is_authoritative: true
+  advisory_models_may_override: false

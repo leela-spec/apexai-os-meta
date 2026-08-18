@@ -81,7 +81,8 @@ def validate_reduce_result(packet: dict[str, Any], result: Any, lookup: dict[str
         if claim.get("checkworthiness") not in CHECKWORTHINESS:
             errors.append(f"{prefix}.checkworthiness must be one of {sorted(CHECKWORTHINESS)}")
         refs = _validate_source_refs(claim.get("source_segment_ids"), allowed_segments, f"{prefix}.source_segment_ids", errors)
-        _validate_quote_evidence(claim.get("quote_evidence"), set(refs), lookup, f"{prefix}.quote_evidence", errors)
+        is_factual = claim.get("claim_kind") in {"fact", "estimate"}
+        _validate_quote_evidence(claim.get("quote_evidence"), set(refs), lookup, f"{prefix}.quote_evidence", errors, required=is_factual)
         for field in ("topics", "entities"):
             _validate_named_refs(claim.get(field, []), f"{prefix}.{field}", errors)
     for i, module in enumerate(meso):

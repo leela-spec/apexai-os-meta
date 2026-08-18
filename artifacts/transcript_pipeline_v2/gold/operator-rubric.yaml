@@ -1,0 +1,73 @@
+schema: transcript-pipeline-operator-rubric.v2
+created: '2026-08-18'
+
+scale: '0..5 integer score per dimension (5 is exceptional, 3 is acceptable production baseline, 0 is total failure)'
+
+dimensions:
+  - id: thesis_usefulness
+    name: Macro Thesis Usefulness & Informativeness
+    weight: 0.20
+    description: >
+      Measures whether the Macro thesis provides substantive, source-specific synthesis
+      rather than generic boilerplate like "Comprehensive extraction from <title>".
+    rubric:
+      5: "Captures core thesis, unique arguments, and nuanced conclusions specific to the source."
+      3: "Informative summary of main topic and general direction."
+      1: "Vague, mostly generic phrases with minimal source-specific insight."
+      0: "Pure template boilerplate or completely missing."
+
+  - id: meso_coherence
+    name: Meso Semantic Chapter Coherence
+    weight: 0.20
+    description: >
+      Measures whether Meso modules represent genuine semantic subject boundaries rather than
+      mechanical equal-time slices or hardcoded title templates.
+    rubric:
+      5: "Dynamic, content-driven chapters reflecting actual thematic shifts in dialogue."
+      3: "Reasonable modular breakdown with mostly coherent groupings."
+      1: "Arbitrary time-window slicing with fragmented topics."
+      0: "Fixed hardcoded chapter templates (e.g. 4 generic fixed names)."
+
+  - id: insight_recall
+    name: Important Insight Recall
+    weight: 0.20
+    description: >
+      Recall of high-value mechanisms, protocols, empirical findings, and predictions.
+    rubric:
+      5: ">= 90% of important gold/silver checklist insights captured accurately."
+      3: "70-89% insight recall; minor secondary points omitted."
+      1: "< 50% insight recall; key arguments missing."
+      0: "No meaningful insight extraction."
+
+  - id: source_fidelity
+    name: Source Grounding & Fidelity
+    weight: 0.20
+    description: >
+      Measures precision of factual grounding, quote fidelity, and absence of hallucinated claims.
+    rubric:
+      5: "100% exact quote grounding on factual claims, zero fabricated citations."
+      3: "Strong source support with negligible minor citation boundary inaccuracies."
+      1: "Frequent overreach or mismatched segment references."
+      0: "Fabricated source references or hallucinated quotes."
+
+  - id: uncertainty_preservation
+    name: Uncertainty & Nuance Preservation
+    weight: 0.10
+    description: >
+      Preservation of speaker caveats, disputed claims, and epistemic qualifications.
+    rubric:
+      5: "Accurately captures subtle caveats, conditions, and unresolved questions."
+      3: "Captures major caveats; flattens minor nuances."
+      1: "Converts probabilistic statements into dogmatic certainties."
+      0: "Completely ignores stated uncertainty and conflicting perspectives."
+
+  - id: concision
+    name: Concision & Token Efficiency
+    weight: 0.10
+    description: >
+      Density of insight per token; absence of conversational filler and duplicate claims.
+    rubric:
+      5: "Highly dense, clear, zero filler or duplicate statements."
+      3: "Good density with minor redundancy."
+      1: "Excessive wordiness and conversational sentence dumping."
+      0: "Raw transcript sentence dump without synthesis."

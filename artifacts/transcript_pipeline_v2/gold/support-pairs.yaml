@@ -1,0 +1,379 @@
+schema: transcript-pipeline-support-pairs.v2
+created: '2026-08-18'
+
+pairs:
+  # --- English Positive (SUPPORTED) ---
+  - id: SP-EN-001
+    source_id: P-h5WSQG1Sw
+    premise: "Patient SM has complete bilateral destruction of the amygdala and shows an absence of fear responses to typically frightening stimuli."
+    proposition: "Bilateral amygdala damage in Patient SM is associated with a severe impairment in experiencing fear."
+    label: SUPPORTED
+    authority: HUMAN_GOLD
+    is_negative_case: false
+
+  - id: SP-EN-002
+    source_id: P-h5WSQG1Sw
+    premise: "Dr. Ralph Adolphs is a professor of psychology, neuroscience, and biology at the California Institute of Technology (Caltech)."
+    proposition: "Ralph Adolphs conducts neuroscience research at Caltech."
+    label: SUPPORTED
+    authority: HUMAN_GOLD
+    is_negative_case: false
+
+  - id: SP-EN-003
+    source_id: CygwqaNg2PY
+    premise: "The computer algorithm encodes the core rules of the Elliott Wave Principle to systematically test wave counts on historical data."
+    proposition: "Elliott Prechter's software automates Elliott Wave pattern recognition through explicit rule sets."
+    label: SUPPORTED
+    authority: HUMAN_GOLD
+    is_negative_case: false
+
+  - id: SP-EN-004
+    source_id: CygwqaNg2PY
+    premise: "Wave 3 cannot be the shortest wave among waves 1, 3, and 5 in an impulse sequence."
+    proposition: "In standard Elliott Wave rules, the third wave is never the shortest impulse wave."
+    label: SUPPORTED
+    authority: HUMAN_GOLD
+    is_negative_case: false
+
+  - id: SP-EN-005
+    source_id: oZIsMX6WgFs
+    premise: "Cycle analysis extracts dominant frequencies from price time series using mathematical filtering algorithms."
+    proposition: "The system isolates repetitive frequency components from market price movements."
+    label: SUPPORTED
+    authority: HUMAN_GOLD
+    is_negative_case: false
+
+  - id: SP-EN-006
+    source_id: P-h5WSQG1Sw
+    premise: "Cognitive reappraisal involves reinterpreting the meaning of an emotional stimulus to alter its physiological impact."
+    proposition: "Reappraising how one views an event can modify emotional arousal."
+    label: SUPPORTED
+    authority: AI_SILVER
+    is_negative_case: false
+
+  - id: SP-EN-007
+    source_id: P-h5WSQG1Sw
+    premise: "We measured autonomic nervous system responses including skin conductance and heart rate variability."
+    proposition: "The researchers recorded skin conductance as an indicator of autonomic arousal."
+    label: SUPPORTED
+    authority: AI_SILVER
+    is_negative_case: false
+
+  - id: SP-EN-008
+    source_id: CygwqaNg2PY
+    premise: "Fibonacci retracement levels provide probable inflection zones rather than guaranteed reversal points."
+    proposition: "Fibonacci levels indicate statistical probabilities of price turning points rather than certainties."
+    label: SUPPORTED
+    authority: AI_SILVER
+    is_negative_case: false
+
+  - id: SP-EN-009
+    source_id: oZIsMX6WgFs
+    premise: "When the 20-week and 40-week cycles reach trough levels simultaneously, composite momentum turns positive."
+    proposition: "Alignment of multiple cycle troughs creates harmonic upward pressure."
+    label: SUPPORTED
+    authority: AI_SILVER
+    is_negative_case: false
+
+  - id: SP-EN-010
+    source_id: P-h5WSQG1Sw
+    premise: "Facial expressions alone are insufficient to definitively diagnose specific internal emotional states without situational context."
+    proposition: "Context is required to reliably infer emotional states from facial movements."
+    label: SUPPORTED
+    authority: AI_SILVER
+    is_negative_case: false
+
+  # --- German Positive (SUPPORTED) ---
+  - id: SP-DE-011
+    source_id: vFTuLylvYnA
+    premise: "Der Nasdaq verliert über 300 Punkte vor Handelsstart wegen steigender Anleiherenditen."
+    proposition: "Die US-Technologiebörse verzeichnete vor Handelsbeginn deutliche Kursverluste."
+    label: SUPPORTED
+    authority: HUMAN_GOLD
+    is_negative_case: false
+
+  - id: SP-DE-012
+    source_id: vFTuLylvYnA
+    premise: "Die Renditen der 10-jährigen US-Staatsanleihen sind wieder auf über 4,2 Prozent geklettert."
+    proposition: "Die Renditen zehnjähriger US-Staatsanleihen stiegen über die Marke von 4,2 Prozent."
+    label: SUPPORTED
+    authority: HUMAN_GOLD
+    is_negative_case: false
+
+  - id: SP-DE-013
+    source_id: vFTuLylvYnA
+    premise: "Markus Koch berichtet täglich direkt vom Parkett der New York Stock Exchange über die US-Märkte."
+    proposition: "Markus Koch liefert Marktanalysen und Berichte von der Wall Street."
+    label: SUPPORTED
+    authority: HUMAN_GOLD
+    is_negative_case: false
+
+  - id: SP-DE-014
+    source_id: vFTuLylvYnA
+    premise: "Viele Anleger nutzen Kursanstiege nach guten Quartalszahlen derzeit für Gewinnmitnahmen."
+    proposition: "Solide Unternehmensberichte führen aktuell teils zu Verkäufen im Sinne von 'Sell the News'."
+    label: SUPPORTED
+    authority: AI_SILVER
+    is_negative_case: false
+
+  - id: SP-DE-015
+    source_id: vFTuLylvYnA
+    premise: "Zinssensitive Technologietitel reagieren besonders stark auf Änderungen der Renditeerwartungen."
+    proposition: "Wachstums- und Techwerte stehen unter Druck, wenn die Zinsen am Kapitalmarkt anziehen."
+    label: SUPPORTED
+    authority: AI_SILVER
+    is_negative_case: false
+
+  # --- English Partial (PARTIAL) ---
+  - id: SP-EN-016
+    source_id: P-h5WSQG1Sw
+    premise: "The prefrontal cortex regulates amygdala activity, primarily through inhibitory pathways that develop during late adolescence."
+    proposition: "The prefrontal cortex controls all emotional reactions across human lifespan."
+    label: PARTIAL
+    authority: HUMAN_GOLD
+    is_negative_case: false
+
+  - id: SP-EN-017
+    source_id: CygwqaNg2PY
+    premise: "We tested wave counts on daily and weekly charts of the S&P 500 across five decades of market data."
+    proposition: "The Elliott Wave software was tested across every global financial market asset class."
+    label: PARTIAL
+    authority: AI_SILVER
+    is_negative_case: false
+
+  - id: SP-EN-018
+    source_id: oZIsMX6WgFs
+    premise: "Gold cycles showed a strong 60-day periodicity throughout the past three quarters."
+    proposition: "Gold prices strictly follow a 60-day cycle under all macroeconomic conditions."
+    label: PARTIAL
+    authority: AI_SILVER
+    is_negative_case: false
+
+  - id: SP-EN-019
+    source_id: P-h5WSQG1Sw
+    premise: "Some subjects reported feeling calmer after five minutes of physiological sighing, though heart rate effects varied."
+    proposition: "Physiological sighing immediately and permanently eliminates stress in all patients."
+    label: PARTIAL
+    authority: AI_SILVER
+    is_negative_case: false
+
+  # --- German Partial (PARTIAL) ---
+  - id: SP-DE-020
+    source_id: vFTuLylvYnA
+    premise: "Amer Sports verzeichnete solide Umsätze im letzten Quartal, die Aktie fiel jedoch nach verhaltener Jahresprognose."
+    proposition: "Die Amer Sports Aktie brach wegen katastrophaler Quartalsumsätze ein."
+    label: PARTIAL
+    authority: HUMAN_GOLD
+    is_negative_case: false
+
+  - id: SP-DE-021
+    source_id: vFTuLylvYnA
+    premise: "Einige Halbleiterwerte konnten sich vom Abwärtstrend abkoppeln, während Softwaretitel verloren."
+    proposition: "Der gesamte Techsektor verzeichnete ausnahmslos Kursverluste."
+    label: PARTIAL
+    authority: AI_SILVER
+    is_negative_case: false
+
+  # --- English Ambiguous (AMBIGUOUS) ---
+  - id: SP-EN-022
+    source_id: P-h5WSQG1Sw
+    premise: "There is ongoing debate about whether basic emotions represent discrete neurobiological modules or constructionist states."
+    proposition: "Discrete emotion theory has been fully disproven by modern brain imaging."
+    label: AMBIGUOUS
+    authority: HUMAN_GOLD
+    is_negative_case: false
+
+  - id: SP-EN-023
+    source_id: CygwqaNg2PY
+    premise: "Different analysts sometimes label the same intermediate corrective structure with differing degrees."
+    proposition: "Elliott Wave analysis produces conflicting interpretations among market practitioners."
+    label: AMBIGUOUS
+    authority: AI_SILVER
+    is_negative_case: false
+
+  - id: SP-EN-024
+    source_id: oZIsMX6WgFs
+    premise: "The current cycle amplitude appears compressed relative to historical baseline cycles."
+    proposition: "Market cycle amplitudes are dampening due to institutional algorithmic trading."
+    label: AMBIGUOUS
+    authority: AI_SILVER
+    is_negative_case: false
+
+  - id: SP-EN-025
+    source_id: P-h5WSQG1Sw
+    premise: "Animal vocalisations convey affective valence, but human linguistic reports may reflect different cognitive processes."
+    proposition: "Non-human animals experience identical emotional subjective feelings as humans."
+    label: AMBIGUOUS
+    authority: AI_SILVER
+    is_negative_case: false
+
+  # --- German Ambiguous (AMBIGUOUS) ---
+  - id: SP-DE-026
+    source_id: vFTuLylvYnA
+    premise: "Die Marktstimmung schwankt zwischen Hoffnung auf Zinssenkungen und Furcht vor anhaltender Inflation."
+    proposition: "Die US-Notenbank wird bei der nächsten Sitzung garantiert den Leitzins senken."
+    label: AMBIGUOUS
+    authority: HUMAN_GOLD
+    is_negative_case: false
+
+  - id: SP-DE-027
+    source_id: vFTuLylvYnA
+    premise: "Die anstehenden Arbeitsmarktdaten könnten die Richtung für die kommenden Handelswochen vorgeben."
+    proposition: "Die Arbeitsmarktzahlen werden einen massiven Kurseinbruch an der Wall Street auslösen."
+    label: AMBIGUOUS
+    authority: AI_SILVER
+    is_negative_case: false
+
+  # --- Deliberate Negative / Overreach (UNSUPPORTED) - 17 cases (>= 10 required) ---
+  - id: SP-EN-028
+    source_id: P-h5WSQG1Sw
+    premise: "Dr. Adolphs explained that emotions involve both physiological arousal and conscious cognitive appraisal."
+    proposition: "Emotions are purely mechanical reflexes with zero cognitive involvement."
+    label: UNSUPPORTED
+    authority: HUMAN_GOLD
+    is_negative_case: true
+    rejection_reason: "Direct contradiction of premise."
+
+  - id: SP-EN-029
+    source_id: P-h5WSQG1Sw
+    premise: "The study analyzed fMRI scans from 50 healthy adult participants."
+    proposition: "The study proved emotional circuits in over 10,000 children and infants."
+    label: UNSUPPORTED
+    authority: HUMAN_GOLD
+    is_negative_case: true
+    rejection_reason: "Fabricated participant numbers and demographic group."
+
+  - id: SP-EN-030
+    source_id: CygwqaNg2PY
+    premise: "Elliott Prechter discussed wave counting algorithms and probability modeling."
+    proposition: "Elliott Prechter claims his algorithm guarantees 100% winning trades with zero drawdown."
+    label: UNSUPPORTED
+    authority: HUMAN_GOLD
+    is_negative_case: true
+    rejection_reason: "Gross overreach and fabricated performance claim."
+
+  - id: SP-EN-031
+    source_id: CygwqaNg2PY
+    premise: "Robert Prechter popularized Elliott Wave theory through several published books and newsletters."
+    proposition: "Robert Prechter invented the stock market in 1980."
+    label: UNSUPPORTED
+    authority: HUMAN_GOLD
+    is_negative_case: true
+    rejection_reason: "Absurd factual fabrication."
+
+  - id: SP-EN-032
+    source_id: oZIsMX6WgFs
+    premise: "The cycle indicator highlights cyclical turning points in price action."
+    proposition: "The cycle indicator can predict the exact future price of Bitcoin down to the penny."
+    label: UNSUPPORTED
+    authority: HUMAN_GOLD
+    is_negative_case: true
+    rejection_reason: "Exaggerated impossible claim not supported by source."
+
+  - id: SP-EN-033
+    source_id: oZIsMX6WgFs
+    premise: "We look at 10-day and 40-day cycles in equity indices."
+    proposition: "The presenter exclusively trades cryptocurrency microcaps on decentralized exchanges."
+    label: UNSUPPORTED
+    authority: HUMAN_GOLD
+    is_negative_case: true
+    rejection_reason: "Contradicted by source subject matter."
+
+  - id: SP-DE-034
+    source_id: vFTuLylvYnA
+    premise: "Markus Koch diskutiert die Auswirkungen steigender US-Zinsen auf Technologiewerte."
+    proposition: "Markus Koch empfiehlt allen Zuschauern, sofort ihr gesamtes Vermögen in Goldbarren anzulegen."
+    label: UNSUPPORTED
+    authority: HUMAN_GOLD
+    is_negative_case: true
+    rejection_reason: "Erfundene Anlageempfehlung, die im Quelltext nicht existiert."
+
+  - id: SP-DE-035
+    source_id: vFTuLylvYnA
+    premise: "Der Nasdaq verlor vor Handelsstart rund 300 Punkte."
+    proposition: "Der Deutsche Bundestag beschloss eine sofortige Erhöhung der Mehrwertsteuer."
+    label: UNSUPPORTED
+    authority: HUMAN_GOLD
+    is_negative_case: true
+    rejection_reason: "Völlig themenfremde, nicht belegte Behauptung."
+
+  - id: SP-EN-036
+    source_id: P-h5WSQG1Sw
+    premise: "Patient SM was tested with fear-inducing stimuli such as snakes and haunted houses."
+    proposition: "Patient SM was cured of brain lesions using acupuncture and herbal tea."
+    label: UNSUPPORTED
+    authority: AI_SILVER
+    is_negative_case: true
+    rejection_reason: "Fabricated medical cure."
+
+  - id: SP-EN-037
+    source_id: P-h5WSQG1Sw
+    premise: "Heart rate variability was measured using standard ECG leads."
+    proposition: "The experiment implanted wireless brain chips into human cortical tissue."
+    label: UNSUPPORTED
+    authority: AI_SILVER
+    is_negative_case: true
+    rejection_reason: "Invention of invasive surgical intervention."
+
+  - id: SP-EN-038
+    source_id: CygwqaNg2PY
+    premise: "The software uses deterministic pattern rules."
+    proposition: "The software communicates telepathically with institutional market makers."
+    label: UNSUPPORTED
+    authority: AI_SILVER
+    is_negative_case: true
+    rejection_reason: "Nonsense hallucination."
+
+  - id: SP-EN-039
+    source_id: oZIsMX6WgFs
+    premise: "Cycles appear across commodities, interest rates, and foreign exchange."
+    proposition: "Natural planetary alignment directly manipulates stock tick prices via gravitational pull."
+    label: UNSUPPORTED
+    authority: AI_SILVER
+    is_negative_case: true
+    rejection_reason: "Unsubstantiated astrological claim."
+
+  - id: SP-DE-040
+    source_id: vFTuLylvYnA
+    premise: "Die Renditen stiegen von 4,1 auf 4,25 Prozent."
+    proposition: "Die US-Zinsen wurden über Nacht auf 0 Prozent gesenkt."
+    label: UNSUPPORTED
+    authority: AI_SILVER
+    is_negative_case: true
+    rejection_reason: "Direkter numerischer Widerspruch."
+
+  - id: SP-DE-041
+    source_id: vFTuLylvYnA
+    premise: "Tech-Aktien stehen unter Druck."
+    proposition: "Markus Koch kündigte an, seinen YouTube-Kanal heute dauerhaft zu löschen."
+    label: UNSUPPORTED
+    authority: AI_SILVER
+    is_negative_case: true
+    rejection_reason: "Erfundene persönliche Behauptung."
+
+  - id: SP-EN-042
+    source_id: P-h5WSQG1Sw
+    premise: "Adolphs argues that emotions evolved to coordinate behavioral responses to complex environmental challenges."
+    proposition: "Emotions are an evolutionary defect that has no functional purpose."
+    label: UNSUPPORTED
+    authority: AI_SILVER
+    is_negative_case: true
+    rejection_reason: "Direct contradiction of evolutionary thesis."
+
+  - id: SP-EN-043
+    source_id: CygwqaNg2PY
+    premise: "A triangle correction consists of five sub-waves labeled A-B-C-D-E."
+    proposition: "Triangle wave patterns always consist of exactly two impulse waves labeled 1 and 2."
+    label: UNSUPPORTED
+    authority: AI_SILVER
+    is_negative_case: true
+    rejection_reason: "Technical rule contradiction."
+
+  - id: SP-DE-044
+    source_id: vFTuLylvYnA
+    premise: "Die Wall Street wartet gespannt auf die US-Arbeitsmarktdaten am Freitag."
+    proposition: "Alle US-Börsen bleiben am Freitag wegen landesweitem Stromausfall geschlossen."
+    label: UNSUPPORTED
+    authority: AI_SILVER
+    is_negative_case: true
+    rejection_reason: "Erfundene Behauptung."

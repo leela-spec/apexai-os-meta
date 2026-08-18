@@ -1,0 +1,8 @@
+{
+  "schema": "transcript-pipeline-smoke-receipt.v2",
+  "component_id": "map_langextract",
+  "status": "READY_ADAPTER_SIMULATION",
+  "smoke_command": "python -m unittest scripts/transcript_pipeline_v2/tests/test_langextract_adapter.py",
+  "tested_at": "2026-08-18T19:25:00Z",
+  "notes": "Provider plugin architecture routing through subscription CLI."
+}

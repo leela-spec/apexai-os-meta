@@ -27,9 +27,13 @@ def _validate_source_refs(refs: Any, allowed: set[str], field: str, errors: list
     return out
 
 
-def _validate_quote_evidence(value: Any, allowed: set[str], lookup: dict[str, dict[str, Any]], field: str, errors: list[str]) -> None:
-    if not isinstance(value, list) or not value:
-        errors.append(f"{field} must contain at least one quote evidence item")
+def _validate_quote_evidence(value: Any, allowed: set[str], lookup: dict[str, dict[str, Any]], field: str, errors: list[str], required: bool = True) -> None:
+    if value is None or (isinstance(value, list) and len(value) == 0):
+        if required:
+            errors.append(f"{field} must contain at least one quote evidence item")
+        return
+    if not isinstance(value, list):
+        errors.append(f"{field} must be a list")
         return
     for index, item in enumerate(value):
         prefix = f"{field}[{index}]"
@@ -99,7 +103,8 @@ def validate_map_result(packet: dict[str, Any], result: Any, lookup: dict[str, d
         if claim.get("checkworthiness") not in CHECKWORTHINESS:
             errors.append(f"{prefix}.checkworthiness must be one of {sorted(CHECKWORTHINESS)}")
         _validate_source_refs(claim.get("source_segment_ids"), core, f"{prefix}.source_segment_ids", errors)
-        _validate_quote_evidence(claim.get("quote_evidence"), core, lookup, f"{prefix}.quote_evidence", errors)
+        is_factual = claim.get("claim_kind") in {"fact", "estimate"}
+        _validate_quote_evidence(claim.get("quote_evidence"), core, lookup, f"{prefix}.quote_evidence", errors, required=is_factual)
     return errors
 
 

@@ -1,0 +1,8 @@
+{
+  "schema": "transcript-pipeline-smoke-receipt.v2",
+  "component_id": "reduce_docetl",
+  "status": "BLOCKED_FOR_TRIAL1",
+  "smoke_command": "none",
+  "tested_at": "2026-08-18T19:25:00Z",
+  "notes": "DocETL requires litellm/OpenAI API key transport. Direct CLI subscription adapter is impractical without extensive core forking."
+}
