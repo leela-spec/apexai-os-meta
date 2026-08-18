@@ -1,0 +1,211 @@
+{
+  "context_only_segment_ids": [
+    "seg-000104",
+    "seg-000124"
+  ],
+  "contract_version": "ttk.semantic-contract.v2",
+  "core_segment_ids": [
+    "seg-000105",
+    "seg-000106",
+    "seg-000107",
+    "seg-000108",
+    "seg-000109",
+    "seg-000110",
+    "seg-000111",
+    "seg-000112",
+    "seg-000113",
+    "seg-000114",
+    "seg-000115",
+    "seg-000116",
+    "seg-000117",
+    "seg-000118",
+    "seg-000119",
+    "seg-000120",
+    "seg-000121",
+    "seg-000122",
+    "seg-000123"
+  ],
+  "packet_id": "map-window-0005",
+  "packet_sha256": "d252d95cec6111c06ef1c5de5b07a310b791ecd48ab853059459e71d4d650045",
+  "result_path": "work/results/map/window-0005.json",
+  "rules": [
+    "Extract evidence only from core segments; context_only segments are orientation only.",
+    "Every candidate claim requires at least one verbatim quote from its cited core segment.",
+    "Do not force content into categories; empty arrays are valid.",
+    "Separate factual assertions from opinion, prediction, recommendation, decision, anecdote, definition, mechanism, estimate, and hypothesis.",
+    "Preserve disagreement and uncertainty rather than reconciling it."
+  ],
+  "schema": "ttk.map-packet.v2",
+  "source_segments": [
+    {
+      "end_hms": "00:33:33.799",
+      "id": "seg-000104",
+      "role": "context_only",
+      "speaker": null,
+      "start_hms": "00:33:09.680",
+      "text": "so since July this year June July this year this long term cycle which I mean you can you can see it both ways which first gave us an indication about the timing of a possible upswing start so in early 2025 I indicated that at this point here which then really started that up"
+    },
+    {
+      "end_hms": "00:33:53.920",
+      "id": "seg-000105",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:33:33.799",
+      "text": "brought that to an end end of 2025 and is now turning again so confirmed by the technical situation here and by the way that's the beauty of these kind of indicators here's more picture perfect example"
+    },
+    {
+      "end_hms": "00:34:13.659",
+      "id": "seg-000106",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:33:53.920",
+      "text": "I mean the cell signals as I said started out to be here in late 2025 first and then even early 2026 there was two points here and then there was no signal so you see the technical drop down it dropped below the lower band"
+    },
+    {
+      "end_hms": "00:34:41.619",
+      "id": "seg-000107",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:34:13.659",
+      "text": "and it never really crossed above the lower band again until just recently until end of July so two weeks ago so that's the beauty we really want to look out for when the timing information of the most dominant cycle lines up with the technical condition which is often best measured"
+    },
+    {
+      "end_hms": "00:35:01.800",
+      "id": "seg-000108",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:34:41.619",
+      "text": "with like the cyclic RSI which is included here and seeing that kind of technical confirmation exactly at that point here of the indicator low is a picture perfect combination of cycle analysis and technical analysis and here now coming to an end that's why the sentiment shifts"
+    },
+    {
+      "end_hms": "00:35:17.920",
+      "id": "seg-000109",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:35:02.409",
+      "text": "we have way to go again remember what I said in the beginning we always look at the situation where are we now we are in the early upswing of that expected upswing cycle phase"
+    },
+    {
+      "end_hms": "00:35:47.789",
+      "id": "seg-000110",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:35:17.920",
+      "text": "and the next window of opportunity shows up early 2027 late 2026 so here we have time to go from a time based cycle perspective so here we could say we have strong tailwinds so the cyclic condition is now supportive for even higher gold prices moving into end of this year tailwind"
+    },
+    {
+      "end_hms": "00:36:17.650",
+      "id": "seg-000111",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:35:47.789",
+      "text": "if the cycle will repeat you are aware of that nobody even I we as a foundation can never confirm that so similar picture on silver that's when you gain confidence let's look at silver not exactly the same but a similar situation I mean pre selected are some more cycles here but let's look in what you see here is again the same or the similar cycle with links of 244 days"
+    },
+    {
+      "end_hms": "00:36:37.309",
+      "id": "seg-000112",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:36:17.650",
+      "text": "yeah seeing here a cycle which is now turning positive you see this by that yellow background with the green dot yeah which means this cycle is now just turning up and if you pair that cycle which we have seen on gold just a moment ago"
+    },
+    {
+      "end_hms": "00:37:06.090",
+      "id": "seg-000113",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:36:37.309",
+      "text": "with the other stable and highly ranked cycles so with this 341 and then maybe there are two other cycles here but let's let's deactivate those two cycles here let's just stay on those two very dominant cycles here you see where we are heading I mean this is the silver futures where we're just arriving at that situation"
+    },
+    {
+      "end_hms": "00:37:33.820",
+      "id": "seg-000114",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:37:06.090",
+      "text": "here so and as I said and and by the way this is the synchrony of cycles that's also a very interesting observation here I mean we are here to study cycles right so let's just look at the cycles here because this is a beautiful example this looks like one cycle right it even looks like a picture perfect plotting of one sine wave cycle given to one length"
+    },
+    {
+      "end_hms": "00:37:58.179",
+      "id": "seg-000115",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:37:33.820",
+      "text": "but it is not these are two cycles overlaid on each other with two different length right you might remember that we selected two cycles but if those two cycles synchronize their current tops or bottoms at the same point of time then it looks like it is one single cycle"
+    },
+    {
+      "end_hms": "00:38:26.150",
+      "id": "seg-000116",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:37:59.329",
+      "text": "which means top top or low synchronizes their timing window at the same point of time which then if you just look at that single repetition it looks like it would be one cycle I mean if you then zoom out you see it here at those points there are two tops one is the top of the shorter cycle and the other top here these two points is the top of the longer cycle"
+    },
+    {
+      "end_hms": "00:38:56.659",
+      "id": "seg-000117",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:38:26.150",
+      "text": "but when they line up then you see the synchrony of those tops and bottoms showing at at a similar point just as we are here for the cycles yeah so gold silver very similar picture here if we move on radium and that as it class over the metals has a similar very interesting shape and conditions if we talk about that here again"
+    },
+    {
+      "end_hms": "00:39:23.750",
+      "id": "seg-000118",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:38:56.659",
+      "text": "we see different length here so it is not the same rhythm as in gold and silver that needs to be taken into account but from a timing point it is quite similar to have those points lining up here in that situation with again room to go and the whole face is trying to look more to the upside"
+    },
+    {
+      "end_hms": "00:39:43.989",
+      "id": "seg-000119",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:39:23.750",
+      "text": "another interesting example is here we have a divergence between price and what happened on the cyclic RSI indicator exactly by touching the lower band so again here a picture perfect combination what we would like to see"
+    },
+    {
+      "end_hms": "00:40:10.610",
+      "id": "seg-000120",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:39:43.989",
+      "text": "and you see in the past it did not work out with this perfect window here so we touched and crossed we touched and crossed below the lower band but just in the running downward face of that cycle so both conditions have not been an alignment here so from a technical condition"
+    },
+    {
+      "end_hms": "00:40:26.710",
+      "id": "seg-000121",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:40:10.610",
+      "text": "and I mean from a technical point those have been short pullbacks to the upside but it always reserved reversed then to the downside and I would account the cycle downward or the headwind of the composite cycle"
+    },
+    {
+      "end_hms": "00:40:45.750",
+      "id": "seg-000122",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:40:26.710",
+      "text": "was against those technical signals but when both have been an agreement so here now the cycle turns up we have a divergence so one is time one is the second is divergence three is the signal now showing up here on the CRSI"
+    },
+    {
+      "end_hms": "00:41:02.699",
+      "id": "seg-000123",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:40:45.750",
+      "text": "this is then what not a picture perfect I don't want to repeat the team the term but this is what we are looking out for those conditions when you are stacking up you are confirmation of signals time cycles"
+    },
+    {
+      "end_hms": "00:41:30.389",
+      "id": "seg-000124",
+      "role": "context_only",
+      "speaker": null,
+      "start_hms": "00:41:07.980",
+      "text": "so this is how we combine that and then even looking at different asset classes so Uranium and last but not least I mean we have those geopolitical crisis around the world what's going on with the oil price what do time cycles tell us on oil here we have the oil price"
+    }
+  ],
+  "source_sha256": "d6bfb051b2344b3d17fd1a73643322945870262589aab1cf757ed1fe873ba135",
+  "window_id": "window-0005"
+}

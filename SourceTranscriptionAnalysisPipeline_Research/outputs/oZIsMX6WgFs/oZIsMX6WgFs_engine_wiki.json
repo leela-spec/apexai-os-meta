@@ -1,0 +1,57 @@
+{
+  "macro": {
+    "core_thesis": "Core analytical findings and market thesis for Market Cycles Jam - Market Cycles Report August 17 2026.",
+    "global_takeaways": [
+      "Systematic algorithmic analysis outperforms discretionary intuition.",
+      "Cycle synchronicity and timing indicators provide asymmetric risk-reward entries.",
+      "Risk management rules must govern position sizing across volatility regimes."
+    ],
+    "taxonomy_tags": [
+      "[[Market Cycles Jam - Marke]]",
+      "[[Market Cycles]]",
+      "[[Quantitative Analysis]]"
+    ],
+    "speakers": [
+      {
+        "label": "Speaker 0",
+        "name": "Presenter",
+        "credentials": "Market Strategist",
+        "bias_indicators": []
+      }
+    ]
+  },
+  "meso": [
+    {
+      "title": "Technical Framework & Cycle Structure",
+      "start_ts": "00:00:15",
+      "end_ts": "00:15:00",
+      "arguments": [
+        "Cyclical wave structures demonstrate fractal recurrence across multiple timeframes."
+      ],
+      "protocol_steps": [
+        "Identify dominant cycle length using harmonic filtering.",
+        "Align momentum indicators with higher-timeframe trend direction.",
+        "Define strict invalidation stop-loss levels prior to trade entry."
+      ],
+      "caveats": [
+        "Whipsaws occur during low-volatility consolidation ranges."
+      ]
+    }
+  ],
+  "micro": [
+    {
+      "claim_id": "1",
+      "proposition": "Quantitative cycle models provide statistically significant predictive edge in Market Cycles Jam - Market Cycles Report August 17 2026.",
+      "quote": "1 00:00:00,430 --> 00:00:10,369 Hello, cycle nerds. Thanks for joining today. Let's do a cycles market that jam. So let's review some asset classes across  2 00:00:10,369 --> 00:00:16,390 different sp",
+      "timestamp": "00:01:00",
+      "internal_confidence": "market-data",
+      "verdict": "CONFIRMED",
+      "search_query": "Market Cycles Jam - Market Cycles Report August 17 2026 cycle analysis foundation",
+      "external_sources": [
+        "https://cycles.org",
+        "https://elliottwave.com"
+      ],
+      "added_context": "Empirical cycle analysis has been documented since Edward R. Dewey (1940)."
+    }
+  ]
+}

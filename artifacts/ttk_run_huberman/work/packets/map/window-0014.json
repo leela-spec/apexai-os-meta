@@ -1,0 +1,670 @@
+{
+  "context_only_segment_ids": [
+    "seg-000804",
+    "seg-000875"
+  ],
+  "contract_version": "ttk.semantic-contract.v2",
+  "core_segment_ids": [
+    "seg-000805",
+    "seg-000806",
+    "seg-000807",
+    "seg-000808",
+    "seg-000809",
+    "seg-000810",
+    "seg-000811",
+    "seg-000812",
+    "seg-000813",
+    "seg-000814",
+    "seg-000815",
+    "seg-000816",
+    "seg-000817",
+    "seg-000818",
+    "seg-000819",
+    "seg-000820",
+    "seg-000821",
+    "seg-000822",
+    "seg-000823",
+    "seg-000824",
+    "seg-000825",
+    "seg-000826",
+    "seg-000827",
+    "seg-000828",
+    "seg-000829",
+    "seg-000830",
+    "seg-000831",
+    "seg-000832",
+    "seg-000833",
+    "seg-000834",
+    "seg-000835",
+    "seg-000836",
+    "seg-000837",
+    "seg-000838",
+    "seg-000839",
+    "seg-000840",
+    "seg-000841",
+    "seg-000842",
+    "seg-000843",
+    "seg-000844",
+    "seg-000845",
+    "seg-000846",
+    "seg-000847",
+    "seg-000848",
+    "seg-000849",
+    "seg-000850",
+    "seg-000851",
+    "seg-000852",
+    "seg-000853",
+    "seg-000854",
+    "seg-000855",
+    "seg-000856",
+    "seg-000857",
+    "seg-000858",
+    "seg-000859",
+    "seg-000860",
+    "seg-000861",
+    "seg-000862",
+    "seg-000863",
+    "seg-000864",
+    "seg-000865",
+    "seg-000866",
+    "seg-000867",
+    "seg-000868",
+    "seg-000869",
+    "seg-000870",
+    "seg-000871",
+    "seg-000872",
+    "seg-000873",
+    "seg-000874"
+  ],
+  "packet_id": "map-window-0014",
+  "packet_sha256": "29d9740db36abcd0aeadc6011ede001bce0990642b8a06590e4edcf9da3760da",
+  "result_path": "work/results/map/window-0014.json",
+  "rules": [
+    "Extract evidence only from core segments; context_only segments are orientation only.",
+    "Every candidate claim requires at least one verbatim quote from its cited core segment.",
+    "Do not force content into categories; empty arrays are valid.",
+    "Separate factual assertions from opinion, prediction, recommendation, decision, anecdote, definition, mechanism, estimate, and hypothesis.",
+    "Preserve disagreement and uncertainty rather than reconciling it."
+  ],
+  "schema": "ttk.map-packet.v2",
+  "source_segments": [
+    {
+      "end_hms": "01:12:37.720",
+      "id": "seg-000804",
+      "role": "context_only",
+      "speaker": null,
+      "start_hms": "01:12:32.399",
+      "text": "our conscious awareness I'd like to take a quick break and acknowledge our sponsor function"
+    },
+    {
+      "end_hms": "01:12:44.180",
+      "id": "seg-000805",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:12:38.439",
+      "text": "function provides over 160 advanced lab tests to give you a clear snapshot of your bodily health"
+    },
+    {
+      "end_hms": "01:12:49.180",
+      "id": "seg-000806",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:12:44.180",
+      "text": "this snapshot gives you insights into your heart health your hormone health autoimmune function"
+    },
+    {
+      "end_hms": "01:12:55.300",
+      "id": "seg-000807",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:12:49.180",
+      "text": "nutrient levels and much more they've also recently added access to advanced MRI and CT scans"
+    },
+    {
+      "end_hms": "01:13:00.500",
+      "id": "seg-000808",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:12:55.300",
+      "text": "function not only provides testing of over 160 biomarkers key to your physical and mental health"
+    },
+    {
+      "end_hms": "01:13:05.739",
+      "id": "seg-000809",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:13:00.500",
+      "text": "it also analyzes these results and provides recommendations for improving your health from top"
+    },
+    {
+      "end_hms": "01:13:10.859",
+      "id": "seg-000810",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:13:05.739",
+      "text": "doctors for example in a recent test with function I learned that some of my blood lipids were"
+    },
+    {
+      "end_hms": "01:13:16.079",
+      "id": "seg-000811",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:13:10.859",
+      "text": "slightly out of range as a result I decided to start supplementing with nato kinase which can"
+    },
+    {
+      "end_hms": "01:13:21.300",
+      "id": "seg-000812",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:13:16.079",
+      "text": "naturally help reduce LDL cholesterol and it did in a follow-up test I could confirm that this"
+    },
+    {
+      "end_hms": "01:13:26.020",
+      "id": "seg-000813",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:13:21.300",
+      "text": "strategy worked my blood lipids are now back exactly where I want them comprehensive lab"
+    },
+    {
+      "end_hms": "01:13:30.359",
+      "id": "seg-000814",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:13:26.020",
+      "text": "testing of the sort that function offers is just so important for health I mean how are also"
+    },
+    {
+      "end_hms": "01:13:33.939",
+      "id": "seg-000815",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:13:30.359",
+      "text": "you going to know what's going on under the hood and while I've been doing blood work for years"
+    },
+    {
+      "end_hms": "01:13:38.939",
+      "id": "seg-000816",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:13:33.939",
+      "text": "it used to be time-consuming complicated and expensive in fact I used to spend thousands of"
+    },
+    {
+      "end_hms": "01:13:43.800",
+      "id": "seg-000817",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:13:38.939",
+      "text": "dollars per year trying to get this kind of data and the data frankly we're not all that good"
+    },
+    {
+      "end_hms": "01:13:49.619",
+      "id": "seg-000818",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:13:43.800",
+      "text": "but now with function it's extremely easy and affordable a function membership is only a dollar a day"
+    },
+    {
+      "end_hms": "01:13:54.119",
+      "id": "seg-000819",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:13:49.619",
+      "text": "365 dollars a year and if you think about the information it provides and the health"
+    },
+    {
+      "end_hms": "01:13:58.699",
+      "id": "seg-000820",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:13:54.119",
+      "text": "challenges it helps you avoid and the proactive things that it can do for you to enhance your health"
+    },
+    {
+      "end_hms": "01:14:05.260",
+      "id": "seg-000821",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:13:58.699",
+      "text": "I truly look at it as a savings to learn more visit functionhealth.com slash huberman and use"
+    },
+    {
+      "end_hms": "01:14:10.840",
+      "id": "seg-000822",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:14:05.260",
+      "text": "the code huberman for a $50 credit towards your membership again that's functionhealth.com slash"
+    },
+    {
+      "end_hms": "01:14:20.119",
+      "id": "seg-000823",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:14:10.840",
+      "text": "huberman at the opposite extreme what happens when I go to like the momma and I see a piece of art"
+    },
+    {
+      "end_hms": "01:14:26.520",
+      "id": "seg-000824",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:14:20.119",
+      "text": "that just for some reason makes me feel a certain way maybe sadness maybe happiness do you think"
+    },
+    {
+      "end_hms": "01:14:33.579",
+      "id": "seg-000825",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:14:26.520",
+      "text": "that art of that sort is is able to capture the circuitry related to a particular motions across"
+    },
+    {
+      "end_hms": "01:14:38.180",
+      "id": "seg-000826",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:14:33.579",
+      "text": "people so not just about my unique experience and art is a subjective right so there's"
+    },
+    {
+      "end_hms": "01:14:43.039",
+      "id": "seg-000827",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:14:38.180",
+      "text": "the things related to taste but let's assume this is abstract art so there's no apparent faces or"
+    },
+    {
+      "end_hms": "01:14:49.840",
+      "id": "seg-000828",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:14:43.039",
+      "text": "animals or no depictions of scenes but let's say out of a hundred people you know more than half"
+    },
+    {
+      "end_hms": "01:14:56.340",
+      "id": "seg-000829",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:14:49.840",
+      "text": "say yeah look at that and I just feel peace is it the case that some art can tap into neural circuits"
+    },
+    {
+      "end_hms": "01:15:01.239",
+      "id": "seg-000830",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:14:56.340",
+      "text": "or some music can tap into neural circuits that's independent of the lyrics I mean we don't have"
+    },
+    {
+      "end_hms": "01:15:07.260",
+      "id": "seg-000831",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:15:01.239",
+      "text": "the brain imaging presumably but there is a kind of a more sophisticated example we're not regressing"
+    },
+    {
+      "end_hms": "01:15:12.560",
+      "id": "seg-000832",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:15:07.260",
+      "text": "to the hypothalamus absolutely but this is the stuff that like the richness of life is also about"
+    },
+    {
+      "end_hms": "01:15:17.460",
+      "id": "seg-000833",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:15:12.560",
+      "text": "that right and so the interesting question is which particular features in the music or in the"
+    },
+    {
+      "end_hms": "01:15:22.859",
+      "id": "seg-000834",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:15:17.460",
+      "text": "abstract art is it that are driving those generalizable emotion responses and they're certainly there"
+    },
+    {
+      "end_hms": "01:15:29.060",
+      "id": "seg-000835",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:15:22.859",
+      "text": "one of the earliest studies on emotion actually was done by Anne blood and Robert Satori in the"
+    },
+    {
+      "end_hms": "01:15:33.640",
+      "id": "seg-000836",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:15:29.060",
+      "text": "mid-90s or something I believe using and I'm pretty sure using positon emission tomography pet"
+    },
+    {
+      "end_hms": "01:15:39.520",
+      "id": "seg-000837",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:15:33.640",
+      "text": "rather than FM or I at the time and what they did was they played music to people and I think they"
+    },
+    {
+      "end_hms": "01:15:45.020",
+      "id": "seg-000838",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:15:39.520",
+      "text": "set it up so that you and I could hear the same piece of music in your case the music really does"
+    },
+    {
+      "end_hms": "01:15:50.819",
+      "id": "seg-000839",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:15:45.020",
+      "text": "something for you and the particular measure was does it send shivers down your spine do you get like"
+    },
+    {
+      "end_hms": "01:15:55.560",
+      "id": "seg-000840",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:15:50.819",
+      "text": "chills goosebumps from listening to the music and it does that for you but not for me and in your"
+    },
+    {
+      "end_hms": "01:16:00.319",
+      "id": "seg-000841",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:15:55.560",
+      "text": "case are the same auditory stimulus different emotion and from the imaging they show that the"
+    },
+    {
+      "end_hms": "01:16:05.060",
+      "id": "seg-000842",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:16:00.319",
+      "text": "insula the structure we're just talking about the amygdala several of these emotion related"
+    },
+    {
+      "end_hms": "01:16:10.859",
+      "id": "seg-000843",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:16:05.060",
+      "text": "structures are indeed activated when you have shivers chills down your spine listening to music"
+    },
+    {
+      "end_hms": "01:16:16.239",
+      "id": "seg-000844",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:16:10.859",
+      "text": "for abstract art my Celtic colleague John O'Dorothy had a paper a little while ago where again"
+    },
+    {
+      "end_hms": "01:16:22.699",
+      "id": "seg-000845",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:16:16.239",
+      "text": "he found something generalizable he decomposed abstract art into the constituent sort of visual"
+    },
+    {
+      "end_hms": "01:16:29.020",
+      "id": "seg-000846",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:16:22.699",
+      "text": "features that you can feed it into a neural network and get a representation of all the different"
+    },
+    {
+      "end_hms": "01:16:35.159",
+      "id": "seg-000847",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:16:29.020",
+      "text": "you know shades and colors and the basic visual composition basic visual features that constitute"
+    },
+    {
+      "end_hms": "01:16:42.079",
+      "id": "seg-000848",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:16:35.159",
+      "text": "that and from that you can reconstitute whether or not it is liked or not liked whether it's"
+    },
+    {
+      "end_hms": "01:16:47.539",
+      "id": "seg-000849",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:16:42.079",
+      "text": "pleasant whether people find it pleasant or unpleasant so it doesn't come out of nowhere yes there's"
+    },
+    {
+      "end_hms": "01:16:53.439",
+      "id": "seg-000850",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:16:47.539",
+      "text": "something about even if it's abstract even if it's abstract music or if it's abstract art there's"
+    },
+    {
+      "end_hms": "01:17:00.060",
+      "id": "seg-000851",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:16:53.439",
+      "text": "some auditory or visual features there that are generalizable and that can be used to evoke"
+    },
+    {
+      "end_hms": "01:17:06.380",
+      "id": "seg-000852",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:17:00.060",
+      "text": "emotions and the big question then is can we link that back obviously the emotions didn't evolve"
+    },
+    {
+      "end_hms": "01:17:11.659",
+      "id": "seg-000853",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:17:06.380",
+      "text": "in order to appreciate abstract art but they have often detect tigers and bears and other things"
+    },
+    {
+      "end_hms": "01:17:17.239",
+      "id": "seg-000854",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:17:11.659",
+      "text": "while other similar kinds of visual features presumably there are so there's some visual features"
+    },
+    {
+      "end_hms": "01:17:25.000",
+      "id": "seg-000855",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:17:17.239",
+      "text": "in the real world that for which particular emotions evolved that can also then find a place"
+    },
+    {
+      "end_hms": "01:17:29.619",
+      "id": "seg-000856",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:17:25.000",
+      "text": "again in abstract art and evoke similar emotions that's the basic story but the answer to your"
+    },
+    {
+      "end_hms": "01:17:35.520",
+      "id": "seg-000857",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:17:29.619",
+      "text": "question is yes even for these very uniquely humans of abstract kinds of stimuli people have"
+    },
+    {
+      "end_hms": "01:17:41.399",
+      "id": "seg-000858",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:17:35.520",
+      "text": "done work and found particular features in those stimuli that will trigger emotion states in"
+    },
+    {
+      "end_hms": "01:17:47.720",
+      "id": "seg-000859",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:17:41.399",
+      "text": "humans and they're great stimuli to use talk a little bit about hard wiring versus learned"
+    },
+    {
+      "end_hms": "01:17:54.699",
+      "id": "seg-000860",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:17:47.720",
+      "text": "emotional states at the brain level we know there are brain areas that process faces just the"
+    },
+    {
+      "end_hms": "01:17:59.520",
+      "id": "seg-000861",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:17:54.699",
+      "text": "organization of two dots and a vertical line and a horizontal line below it there neurons that"
+    },
+    {
+      "end_hms": "01:18:05.319",
+      "id": "seg-000862",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:18:00.119",
+      "text": "like that organization of features and I should know the answer to the next question but I don't"
+    },
+    {
+      "end_hms": "01:18:12.340",
+      "id": "seg-000863",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:18:05.880",
+      "text": "are there neurons that are tuned to a smiling face versus a frowning face at the level like almost"
+    },
+    {
+      "end_hms": "01:18:16.819",
+      "id": "seg-000864",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:18:12.340",
+      "text": "like like very sparse emoji like level we call them units in the brain are there units that are"
+    },
+    {
+      "end_hms": "01:18:21.819",
+      "id": "seg-000865",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:18:16.819",
+      "text": "tuned to frowning faces or smiling faces and of course you'd love to be able to do the experiment"
+    },
+    {
+      "end_hms": "01:18:26.199",
+      "id": "seg-000866",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:18:21.819",
+      "text": "and somebody who was you know had never been exposed to them for the first time but that's impossible"
+    },
+    {
+      "end_hms": "01:18:32.100",
+      "id": "seg-000867",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:18:26.199",
+      "text": "to do so right right I have to assume the experiment has been at least thought about if not done"
+    },
+    {
+      "end_hms": "01:18:36.319",
+      "id": "seg-000868",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:18:32.100",
+      "text": "yeah I mean it's a great question I mean you know with respect to face processing in general"
+    },
+    {
+      "end_hms": "01:18:42.739",
+      "id": "seg-000869",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:18:36.319",
+      "text": "the sort of consensus is it's both hardwired and innate in some sense that there's something"
+    },
+    {
+      "end_hms": "01:18:50.000",
+      "id": "seg-000870",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:18:42.739",
+      "text": "there in the brain already at birth that's experience independent but then it also depends on normal"
+    },
+    {
+      "end_hms": "01:18:54.840",
+      "id": "seg-000871",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:18:50.000",
+      "text": "maturation and development and experience and so people like Rebecca Sacks at MIT for instance"
+    },
+    {
+      "end_hms": "01:19:01.600",
+      "id": "seg-000872",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:18:54.840",
+      "text": "has done functional or imaging studies on babies and shown them faces and asked the question how"
+    },
+    {
+      "end_hms": "01:19:06.300",
+      "id": "seg-000873",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:19:01.600",
+      "text": "does this pulse system develop it's always a mixture people tend to think in terms of black and white"
+    },
+    {
+      "end_hms": "01:19:12.659",
+      "id": "seg-000874",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:19:06.300",
+      "text": "it's you know it's hardwired and innate or it's learned nothing is either or it's always a good"
+    },
+    {
+      "end_hms": "01:19:17.140",
+      "id": "seg-000875",
+      "role": "context_only",
+      "speaker": null,
+      "start_hms": "01:19:12.659",
+      "text": "example is the visual word form area so there's regions in the brain that like like the ones at my"
+    }
+  ],
+  "source_sha256": "35dc18929ef7fc18a3cfba97a48feae2210ffeb900a46a183e0a35d05539394b",
+  "window_id": "window-0014"
+}

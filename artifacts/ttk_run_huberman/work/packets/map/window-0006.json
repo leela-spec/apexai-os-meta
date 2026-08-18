@@ -1,0 +1,544 @@
+{
+  "context_only_segment_ids": [
+    "seg-000319",
+    "seg-000376"
+  ],
+  "contract_version": "ttk.semantic-contract.v2",
+  "core_segment_ids": [
+    "seg-000320",
+    "seg-000321",
+    "seg-000322",
+    "seg-000323",
+    "seg-000324",
+    "seg-000325",
+    "seg-000326",
+    "seg-000327",
+    "seg-000328",
+    "seg-000329",
+    "seg-000330",
+    "seg-000331",
+    "seg-000332",
+    "seg-000333",
+    "seg-000334",
+    "seg-000335",
+    "seg-000336",
+    "seg-000337",
+    "seg-000338",
+    "seg-000339",
+    "seg-000340",
+    "seg-000341",
+    "seg-000342",
+    "seg-000343",
+    "seg-000344",
+    "seg-000345",
+    "seg-000346",
+    "seg-000347",
+    "seg-000348",
+    "seg-000349",
+    "seg-000350",
+    "seg-000351",
+    "seg-000352",
+    "seg-000353",
+    "seg-000354",
+    "seg-000355",
+    "seg-000356",
+    "seg-000357",
+    "seg-000358",
+    "seg-000359",
+    "seg-000360",
+    "seg-000361",
+    "seg-000362",
+    "seg-000363",
+    "seg-000364",
+    "seg-000365",
+    "seg-000366",
+    "seg-000367",
+    "seg-000368",
+    "seg-000369",
+    "seg-000370",
+    "seg-000371",
+    "seg-000372",
+    "seg-000373",
+    "seg-000374",
+    "seg-000375"
+  ],
+  "packet_id": "map-window-0006",
+  "packet_sha256": "04b6e33ec4f1c505fe3243e021860ff26b569f0b71e258e539947b688e8d2e97",
+  "result_path": "work/results/map/window-0006.json",
+  "rules": [
+    "Extract evidence only from core segments; context_only segments are orientation only.",
+    "Every candidate claim requires at least one verbatim quote from its cited core segment.",
+    "Do not force content into categories; empty arrays are valid.",
+    "Separate factual assertions from opinion, prediction, recommendation, decision, anecdote, definition, mechanism, estimate, and hypothesis.",
+    "Preserve disagreement and uncertainty rather than reconciling it."
+  ],
+  "schema": "ttk.map-packet.v2",
+  "source_segments": [
+    {
+      "end_hms": "00:28:45.609",
+      "id": "seg-000319",
+      "role": "context_only",
+      "speaker": null,
+      "start_hms": "00:28:38.910",
+      "text": "the emotion and thereby to some extent control your emotions. How important is it to use language"
+    },
+    {
+      "end_hms": "00:28:51.789",
+      "id": "seg-000320",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:28:46.369",
+      "text": "to provide that granularity? I've certainly experienced like feeling a bunch of things around a"
+    },
+    {
+      "end_hms": "00:28:57.470",
+      "id": "seg-000321",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:28:51.789",
+      "text": "particular scenario. And if you can't separate out the elements, it can feel overwhelming. People"
+    },
+    {
+      "end_hms": "00:29:01.490",
+      "id": "seg-000322",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:28:57.470",
+      "text": "always say if you can name the emotion, but I find that a little tricky because sometimes it's not"
+    },
+    {
+      "end_hms": "00:29:06.650",
+      "id": "seg-000323",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:29:01.490",
+      "text": "one emotion. It's a bunch of things. It's confusion. It's frustration. Are those the same thing? I"
+    },
+    {
+      "end_hms": "00:29:14.809",
+      "id": "seg-000324",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:29:06.650",
+      "text": "don't know. And I think many people, myself included, sometimes it just feels like too much, not"
+    },
+    {
+      "end_hms": "00:29:20.509",
+      "id": "seg-000325",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:29:14.809",
+      "text": "because the emotion is so big, but because it's such a tangled jungle of whether isn't really"
+    },
+    {
+      "end_hms": "00:29:24.849",
+      "id": "seg-000326",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:29:20.509",
+      "text": "language to disappear. Absolutely. I don't think you need to put it into language. And I think"
+    },
+    {
+      "end_hms": "00:29:29.329",
+      "id": "seg-000327",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:29:24.849",
+      "text": "people's strategies vary. Some people think in words, some people think in pictures,"
+    },
+    {
+      "end_hms": "00:29:35.150",
+      "id": "seg-000328",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:29:29.970",
+      "text": "most people are in mixture. And if you look at different languages, if you're a French or"
+    },
+    {
+      "end_hms": "00:29:41.289",
+      "id": "seg-000329",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:29:35.150",
+      "text": "German speaking, like me, bilingual, we have different words for different emotions. But you need"
+    },
+    {
+      "end_hms": "00:29:47.309",
+      "id": "seg-000330",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:29:41.289",
+      "text": "some sense of the concept, which I think the concepts for emotions are pretty much universal across"
+    },
+    {
+      "end_hms": "00:29:52.150",
+      "id": "seg-000331",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:29:47.309",
+      "text": "languages. So, you know, there are all these different examples of emotion words from different"
+    },
+    {
+      "end_hms": "00:29:57.930",
+      "id": "seg-000332",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:29:52.150",
+      "text": "languages. Like Schadenfreude is one that people know. Now, you know, joy at another person's"
+    },
+    {
+      "end_hms": "00:30:03.970",
+      "id": "seg-000333",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:29:57.930",
+      "text": "misfortune from the German giggiel, I think is often trumpeted as another example. I forget"
+    },
+    {
+      "end_hms": "00:30:08.529",
+      "id": "seg-000334",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:30:03.970",
+      "text": "what the culture is, but this is the emotion you feel if something is just unbearably cute."
+    },
+    {
+      "end_hms": "00:30:13.650",
+      "id": "seg-000335",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:30:08.990",
+      "text": "There's a great book, Tiffany What Smith has a book. I think it's called The Book of Human Emotions,"
+    },
+    {
+      "end_hms": "00:30:19.690",
+      "id": "seg-000336",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:30:13.650",
+      "text": "which is basically like a little dictionary and entry from A to Z of all the different"
+    },
+    {
+      "end_hms": "00:30:25.690",
+      "id": "seg-000337",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:30:19.690",
+      "text": "emotion words in different languages. But the fact that we don't have a word for giggiel or"
+    },
+    {
+      "end_hms": "00:30:30.289",
+      "id": "seg-000338",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:30:25.690",
+      "text": "for Schadenfreude in English, you perfectly will have the concept. I just described it to you."
+    },
+    {
+      "end_hms": "00:30:33.970",
+      "id": "seg-000339",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:30:30.369",
+      "text": "You have no problem understanding what the emotion is. And so I think, as long as you have some"
+    },
+    {
+      "end_hms": "00:30:40.849",
+      "id": "seg-000340",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:30:34.650",
+      "text": "concept, which need not be put into words, some way to think about and differentiate the"
+    },
+    {
+      "end_hms": "00:30:45.769",
+      "id": "seg-000341",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:30:40.849",
+      "text": "different emotions that are going on in you, that gives your purchase and your ability to"
+    },
+    {
+      "end_hms": "00:30:52.109",
+      "id": "seg-000342",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:30:46.470",
+      "text": "to some extent evaluate them and say, this is an emotion I want or this is an emotion that I"
+    },
+    {
+      "end_hms": "00:30:57.910",
+      "id": "seg-000343",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:30:52.109",
+      "text": "don't want. And then to act on it through various strategies, cognitive, free appraisal, for example,"
+    },
+    {
+      "end_hms": "00:31:03.150",
+      "id": "seg-000344",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:30:57.970",
+      "text": "or acceptance, depending on what your strategy is. Yeah, the psychologists seem to disagree here"
+    },
+    {
+      "end_hms": "00:31:08.369",
+      "id": "seg-000345",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:31:03.150",
+      "text": "because many people, some have been on this podcast, all of whom are experts will say,"
+    },
+    {
+      "end_hms": "00:31:12.130",
+      "id": "seg-000346",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:31:08.369",
+      "text": "you know, if you don't allow yourself to feel the emotion, then it grows and other people will"
+    },
+    {
+      "end_hms": "00:31:17.009",
+      "id": "seg-000347",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:31:12.130",
+      "text": "say, well, if you focus on something, then it grows. And this is where I think neuroscience can be"
+    },
+    {
+      "end_hms": "00:31:21.430",
+      "id": "seg-000348",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:31:17.009",
+      "text": "of great help because probably both things are true and it depends on the context. But yeah,"
+    },
+    {
+      "end_hms": "00:31:26.470",
+      "id": "seg-000349",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:31:21.549",
+      "text": "that's exactly right. Maybe this is a good opportunity to talk about sort of dynamic attractor"
+    },
+    {
+      "end_hms": "00:31:30.750",
+      "id": "seg-000350",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:31:26.470",
+      "text": "states, which is, and then I don't throw out that language that confused people. But there's this"
+    },
+    {
+      "end_hms": "00:31:34.950",
+      "id": "seg-000351",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:31:30.750",
+      "text": "idea and neuroscience, right? Like if we view and I both, you know, talk about this cup and I"
+    },
+    {
+      "end_hms": "00:31:38.849",
+      "id": "seg-000352",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:31:34.950",
+      "text": "slide it forward and then we start looking at it and you know, more and more brain brain circuits"
+    },
+    {
+      "end_hms": "00:31:42.289",
+      "id": "seg-000353",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:31:38.849",
+      "text": "are going to be devoted to we could spend several hours. It's not a very interesting conversation,"
+    },
+    {
+      "end_hms": "00:31:47.490",
+      "id": "seg-000354",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:31:42.289",
+      "text": "but we if we do that about an emotion, we feel because of something somebody said to us at work"
+    },
+    {
+      "end_hms": "00:31:50.690",
+      "id": "seg-000355",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:31:47.490",
+      "text": "or online. I think we're all familiar with the idea that we can go down these rabbit holes"
+    },
+    {
+      "end_hms": "00:31:56.589",
+      "id": "seg-000356",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:31:50.690",
+      "text": "within our own mind. Absolutely. And it's a very dangerous way to live. It is knowing that it"
+    },
+    {
+      "end_hms": "00:32:01.509",
+      "id": "seg-000357",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:31:56.589",
+      "text": "exists perhaps can be helpful. Yeah, because it's almost like if you go far enough down a path,"
+    },
+    {
+      "end_hms": "00:32:05.430",
+      "id": "seg-000358",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:32:01.509",
+      "text": "it's like a horror movie. If you go far enough down a path, it's very hard to extract yourself."
+    },
+    {
+      "end_hms": "00:32:10.410",
+      "id": "seg-000359",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:32:05.470",
+      "text": "Absolutely. Absolutely. I think I mean cognitive reappraisal or any other sort of complex reappraisal"
+    },
+    {
+      "end_hms": "00:32:17.250",
+      "id": "seg-000360",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:32:10.410",
+      "text": "strategy for emotions. It is a double edged sword and it's trainable. It's as you say, if I really"
+    },
+    {
+      "end_hms": "00:32:22.250",
+      "id": "seg-000361",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:32:17.250",
+      "text": "focus on, okay, now, you know, I'm starting to feel sad. I really don't want to feel sad. I really"
+    },
+    {
+      "end_hms": "00:32:25.569",
+      "id": "seg-000362",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:32:22.250",
+      "text": "don't want to feel sad. I really don't want to feel sad. Well, the more I think about it, the sadder"
+    },
+    {
+      "end_hms": "00:32:29.789",
+      "id": "seg-000363",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:32:25.569",
+      "text": "I get, right? Or same with anxiety. Some emotions are pretty more prone to going down this"
+    },
+    {
+      "end_hms": "00:32:34.509",
+      "id": "seg-000364",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:32:29.789",
+      "text": "rabbit hole than others, but again, it's a trainable skill that there are other ways of dealing with it"
+    },
+    {
+      "end_hms": "00:32:39.730",
+      "id": "seg-000365",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:32:34.509",
+      "text": "where you can kind of just stop that process from going down at all. You want to stop it at the"
+    },
+    {
+      "end_hms": "00:32:44.990",
+      "id": "seg-000366",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:32:39.730",
+      "text": "earliest front end. I mean, one quick answer to the question of what's the most successful strategy"
+    },
+    {
+      "end_hms": "00:32:50.730",
+      "id": "seg-000367",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:32:44.990",
+      "text": "is the earlier you can stop that process, the better. And so in the first place, don't get yourself"
+    },
+    {
+      "end_hms": "00:32:55.250",
+      "id": "seg-000368",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:32:50.730",
+      "text": "into a situation where you're going to be anxious or guilty or sad or whatever emotion you want to"
+    },
+    {
+      "end_hms": "00:32:59.829",
+      "id": "seg-000369",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:32:55.250",
+      "text": "avoid. So situational avoidance, just in terms of structuring your environment, would be one"
+    },
+    {
+      "end_hms": "00:33:04.970",
+      "id": "seg-000370",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:32:59.829",
+      "text": "strategy. And then once you're in it, I think it's idiosyncratic to a large extent, so you would"
+    },
+    {
+      "end_hms": "00:33:09.910",
+      "id": "seg-000371",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:33:04.970",
+      "text": "have to figure out what works for you. But it's definitely trainable. Two parts are trainable. One"
+    },
+    {
+      "end_hms": "00:33:15.950",
+      "id": "seg-000372",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:33:09.910",
+      "text": "is the specific strategy. So you can do cognitive reappraisal without overthinking it and going down"
+    },
+    {
+      "end_hms": "00:33:21.349",
+      "id": "seg-000373",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:33:15.950",
+      "text": "the rabbit hole and actually feeling the emotion even more. And the other one is just the strength"
+    },
+    {
+      "end_hms": "00:33:30.309",
+      "id": "seg-000374",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:33:21.349",
+      "text": "and automaticity of control that you have, which brings me to the ice bath. So I started doing"
+    },
+    {
+      "end_hms": "00:33:37.269",
+      "id": "seg-000375",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:33:30.309",
+      "text": "these a while back, one of my former colleagues, Justin Feinstein, who runs a float clinic on Maui."
+    },
+    {
+      "end_hms": "00:33:43.650",
+      "id": "seg-000376",
+      "role": "context_only",
+      "speaker": null,
+      "start_hms": "00:33:38.269",
+      "text": "Forget how it came about, but we were talking about floating ice baths. And he mentioned you,"
+    }
+  ],
+  "source_sha256": "35dc18929ef7fc18a3cfba97a48feae2210ffeb900a46a183e0a35d05539394b",
+  "window_id": "window-0006"
+}

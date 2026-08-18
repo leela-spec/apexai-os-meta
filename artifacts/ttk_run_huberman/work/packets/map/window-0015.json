@@ -1,0 +1,625 @@
+{
+  "context_only_segment_ids": [
+    "seg-000874",
+    "seg-000940"
+  ],
+  "contract_version": "ttk.semantic-contract.v2",
+  "core_segment_ids": [
+    "seg-000875",
+    "seg-000876",
+    "seg-000877",
+    "seg-000878",
+    "seg-000879",
+    "seg-000880",
+    "seg-000881",
+    "seg-000882",
+    "seg-000883",
+    "seg-000884",
+    "seg-000885",
+    "seg-000886",
+    "seg-000887",
+    "seg-000888",
+    "seg-000889",
+    "seg-000890",
+    "seg-000891",
+    "seg-000892",
+    "seg-000893",
+    "seg-000894",
+    "seg-000895",
+    "seg-000896",
+    "seg-000897",
+    "seg-000898",
+    "seg-000899",
+    "seg-000900",
+    "seg-000901",
+    "seg-000902",
+    "seg-000903",
+    "seg-000904",
+    "seg-000905",
+    "seg-000906",
+    "seg-000907",
+    "seg-000908",
+    "seg-000909",
+    "seg-000910",
+    "seg-000911",
+    "seg-000912",
+    "seg-000913",
+    "seg-000914",
+    "seg-000915",
+    "seg-000916",
+    "seg-000917",
+    "seg-000918",
+    "seg-000919",
+    "seg-000920",
+    "seg-000921",
+    "seg-000922",
+    "seg-000923",
+    "seg-000924",
+    "seg-000925",
+    "seg-000926",
+    "seg-000927",
+    "seg-000928",
+    "seg-000929",
+    "seg-000930",
+    "seg-000931",
+    "seg-000932",
+    "seg-000933",
+    "seg-000934",
+    "seg-000935",
+    "seg-000936",
+    "seg-000937",
+    "seg-000938",
+    "seg-000939"
+  ],
+  "packet_id": "map-window-0015",
+  "packet_sha256": "94efc96d344d58ee12a0c679e12d70edb2addcde1260e84234063596104d53e3",
+  "result_path": "work/results/map/window-0015.json",
+  "rules": [
+    "Extract evidence only from core segments; context_only segments are orientation only.",
+    "Every candidate claim requires at least one verbatim quote from its cited core segment.",
+    "Do not force content into categories; empty arrays are valid.",
+    "Separate factual assertions from opinion, prediction, recommendation, decision, anecdote, definition, mechanism, estimate, and hypothesis.",
+    "Preserve disagreement and uncertainty rather than reconciling it."
+  ],
+  "schema": "ttk.map-packet.v2",
+  "source_segments": [
+    {
+      "end_hms": "01:19:12.659",
+      "id": "seg-000874",
+      "role": "context_only",
+      "speaker": null,
+      "start_hms": "01:19:06.300",
+      "text": "it's you know it's hardwired and innate or it's learned nothing is either or it's always a good"
+    },
+    {
+      "end_hms": "01:19:17.140",
+      "id": "seg-000875",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:19:12.659",
+      "text": "example is the visual word form area so there's regions in the brain that like like the ones at my"
+    },
+    {
+      "end_hms": "01:19:22.520",
+      "id": "seg-000876",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:19:17.140",
+      "text": "former Celtic colleague Doris South studied that are specialized for faces but there's also a"
+    },
+    {
+      "end_hms": "01:19:27.500",
+      "id": "seg-000877",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:19:22.520",
+      "text": "region in the brain typically on the left in most people that's for recognizing words letters"
+    },
+    {
+      "end_hms": "01:19:35.619",
+      "id": "seg-000878",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:19:28.220",
+      "text": "now that couldn't have evolved because you know we we had a long history of brain evolution before"
+    },
+    {
+      "end_hms": "01:19:40.800",
+      "id": "seg-000879",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:19:35.619",
+      "text": "language written language was wherever there so the question is how does it come about it can't"
+    },
+    {
+      "end_hms": "01:19:46.060",
+      "id": "seg-000880",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:19:40.800",
+      "text": "be hardwired or innate because there wasn't long enough evolutionary time to evolve a region of"
+    },
+    {
+      "end_hms": "01:19:51.079",
+      "id": "seg-000881",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:19:46.060",
+      "text": "the brain for figuring out words but if you take a look in pre-verbal infants at the connectivity"
+    },
+    {
+      "end_hms": "01:19:57.199",
+      "id": "seg-000882",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:19:51.079",
+      "text": "of this region it's going to become specialized for processing words once the infant can read"
+    },
+    {
+      "end_hms": "01:20:04.020",
+      "id": "seg-000883",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:19:57.500",
+      "text": "it's already wired up in a way to other brain regions that predisposes it to be able to do those"
+    },
+    {
+      "end_hms": "01:20:10.600",
+      "id": "seg-000884",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:20:04.020",
+      "text": "computations that with experience it can later be used in order to recognize words so there's"
+    },
+    {
+      "end_hms": "01:20:17.800",
+      "id": "seg-000885",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:20:10.600",
+      "text": "certain preset innate systems coming back to your question smiling versus frowning faces the two"
+    },
+    {
+      "end_hms": "01:20:23.140",
+      "id": "seg-000886",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:20:17.800",
+      "text": "parts to it the first part is I can find you a single neuron in the brain that responds"
+    },
+    {
+      "end_hms": "01:20:29.119",
+      "id": "seg-000887",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:20:23.140",
+      "text": "selectively for anything you like there's like no shortage of them but those in general those"
+    },
+    {
+      "end_hms": "01:20:34.760",
+      "id": "seg-000888",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:20:29.119",
+      "text": "single neurons don't do anything the re aren't important to understand of the brain works because"
+    },
+    {
+      "end_hms": "01:20:40.699",
+      "id": "seg-000889",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:20:35.319",
+      "text": "the rest of the brain that is getting its input from all these neurons and all the downstream"
+    },
+    {
+      "end_hms": "01:20:45.840",
+      "id": "seg-000890",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:20:40.699",
+      "text": "processing is not like a reflex it's not listening to only that one neuron it's getting input"
+    },
+    {
+      "end_hms": "01:20:50.920",
+      "id": "seg-000891",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:20:45.840",
+      "text": "from tens of thousands of neurons so at the population level if we record from thousands of"
+    },
+    {
+      "end_hms": "01:20:57.000",
+      "id": "seg-000892",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:20:50.920",
+      "text": "neurons and we ask from that is their information in a thousand neurons from which the rest of the"
+    },
+    {
+      "end_hms": "01:21:03.500",
+      "id": "seg-000893",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:20:57.000",
+      "text": "brain listening to those thousand neurons or we as the scientist could decode smiles versus frowns"
+    },
+    {
+      "end_hms": "01:21:09.640",
+      "id": "seg-000894",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:21:03.500",
+      "text": "the answers yes we've done that in collaboration with Uli Ruta-Sauser and Shua Wang and colleagues"
+    },
+    {
+      "end_hms": "01:21:15.130",
+      "id": "seg-000895",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:21:10.470",
+      "text": "where we can record from epilepsy patients like what Eddie Chang does same same kind of work"
+    },
+    {
+      "end_hms": "01:21:21.189",
+      "id": "seg-000896",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:21:15.670",
+      "text": "and so you you have information and of course if you think about it there has to be information"
+    },
+    {
+      "end_hms": "01:21:26.970",
+      "id": "seg-000897",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:21:21.189",
+      "text": "in the brain neurons that would distinguish frowns from smiles because you can distinguish them so"
+    },
+    {
+      "end_hms": "01:21:31.529",
+      "id": "seg-000898",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:21:26.970",
+      "text": "where else would it come from it has to be there in the brain but it's not there mechanistically"
+    },
+    {
+      "end_hms": "01:21:37.189",
+      "id": "seg-000899",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:21:31.529",
+      "text": "at the level of single neurons they're very noisy they typically respond to many different"
+    },
+    {
+      "end_hms": "01:21:43.550",
+      "id": "seg-000900",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:21:37.189",
+      "text": "types of cues so you always have to think about hundreds or thousands a large ensemble of neurons"
+    },
+    {
+      "end_hms": "01:21:47.770",
+      "id": "seg-000901",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:21:44.149",
+      "text": "because that's really the kind of unit of relevant information because that's what the rest of"
+    },
+    {
+      "end_hms": "01:21:53.010",
+      "id": "seg-000902",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:21:47.770",
+      "text": "the brain listens to yeah I was thinking about how you know in a hierarchical system like the visual"
+    },
+    {
+      "end_hms": "01:21:57.850",
+      "id": "seg-000903",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:21:53.010",
+      "text": "system like we have neurons that are tuned to circles more or less you know centers around we talk"
+    },
+    {
+      "end_hms": "01:22:03.710",
+      "id": "seg-000904",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:21:57.850",
+      "text": "about the circles than bars then oriented bars of a particular angle then moving bars etc etc"
+    },
+    {
+      "end_hms": "01:22:08.390",
+      "id": "seg-000905",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:22:03.710",
+      "text": "and so built up from from simple stuff to more complex stuff so you can build feature detectors"
+    },
+    {
+      "end_hms": "01:22:13.170",
+      "id": "seg-000906",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:22:08.390",
+      "text": "for lots of different things I I guess I was wondering when we come into the world are there"
+    },
+    {
+      "end_hms": "01:22:21.090",
+      "id": "seg-000907",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:22:13.170",
+      "text": "cells in the fusiform area that not just like faces but that are prepared to respond to two dots"
+    },
+    {
+      "end_hms": "01:22:26.729",
+      "id": "seg-000908",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:22:21.090",
+      "text": "the eyes of vertical things the nose and then a bar that is either you know bent up at the edges"
+    },
+    {
+      "end_hms": "01:22:30.810",
+      "id": "seg-000909",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:22:26.729",
+      "text": "or bent down at the edges and then we build on that scaffold I don't know that anyone's done"
+    },
+    {
+      "end_hms": "01:22:34.949",
+      "id": "seg-000910",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:22:30.810",
+      "text": "these experiments not that exact experiment but I think the in broad strokes the answer would be"
+    },
+    {
+      "end_hms": "01:22:41.869",
+      "id": "seg-000911",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:22:34.949",
+      "text": "that at birth it's it's crude it becomes more much more refined and more granular through experience"
+    },
+    {
+      "end_hms": "01:22:46.729",
+      "id": "seg-000912",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:22:42.390",
+      "text": "and then indeed exactly what you said happens you know it and coming back to emotions if you think"
+    },
+    {
+      "end_hms": "01:22:54.510",
+      "id": "seg-000913",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:22:46.729",
+      "text": "about so how does the state of fear come about in the brain from seeing the bear or the tiger"
+    },
+    {
+      "end_hms": "01:22:59.250",
+      "id": "seg-000914",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:22:54.510",
+      "text": "well at the level of the retina is just a bunch of pixels it's some burrito blobby black shape that"
+    },
+    {
+      "end_hms": "01:23:04.930",
+      "id": "seg-000915",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:22:59.250",
+      "text": "is looming coming closer etc but then progressively you have to construct more and more"
+    },
+    {
+      "end_hms": "01:23:09.569",
+      "id": "seg-000916",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:23:04.930",
+      "text": "abstract representations and you well know how this works in the visual system and artificial"
+    },
+    {
+      "end_hms": "01:23:15.630",
+      "id": "seg-000917",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:23:09.569",
+      "text": "systems deep convolutional neural networks into object classification do exactly that they take"
+    },
+    {
+      "end_hms": "01:23:21.409",
+      "id": "seg-000918",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:23:15.630",
+      "text": "just you know pixel wise input but then build something abstract like right now I recognize Andrew"
+    },
+    {
+      "end_hms": "01:23:26.250",
+      "id": "seg-000919",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:23:21.409",
+      "text": "Hubertman there if I look over here you know I can still recognize you whether you're on the left"
+    },
+    {
+      "end_hms": "01:23:31.529",
+      "id": "seg-000920",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:23:26.250",
+      "text": "or the right whether you're close or far away that would be able to recognize you invariantly"
+    },
+    {
+      "end_hms": "01:23:36.789",
+      "id": "seg-000921",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:23:31.529",
+      "text": "with respect to those details even though at the level of retina like like a camera taking a picture"
+    },
+    {
+      "end_hms": "01:23:42.569",
+      "id": "seg-000922",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:23:36.789",
+      "text": "the detailed pixels can be vastly different you can be left or right or close or lit in different"
+    },
+    {
+      "end_hms": "01:23:48.689",
+      "id": "seg-000923",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:23:42.569",
+      "text": "ways and you need to abstract from that and invariant representation regardless of the details"
+    },
+    {
+      "end_hms": "01:23:54.470",
+      "id": "seg-000924",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:23:48.689",
+      "text": "same thing for emotions regardless of whether it's a bear or a tiger or a big armed pickup truck"
+    },
+    {
+      "end_hms": "01:24:00.289",
+      "id": "seg-000925",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:23:54.470",
+      "text": "coming at you or lots of other kinds of stimuli they all need to funnel in to a central abstract"
+    },
+    {
+      "end_hms": "01:24:07.090",
+      "id": "seg-000926",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:24:00.289",
+      "text": "representation that's another key feature of emotions they require abstraction and that's what makes"
+    },
+    {
+      "end_hms": "01:24:12.130",
+      "id": "seg-000927",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:24:07.090",
+      "text": "them so flexible and that's where you can get David Anderson and I've described it in her book as"
+    },
+    {
+      "end_hms": "01:24:18.090",
+      "id": "seg-000928",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:24:12.130",
+      "text": "the sort of fan in fan out architecture I can get to the emotions state from seeing a bear or"
+    },
+    {
+      "end_hms": "01:24:23.029",
+      "id": "seg-000929",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:24:18.090",
+      "text": "smelling a bear or hearing a bear or hearing a twig snap hearing somebody yell there's a bear"
+    },
+    {
+      "end_hms": "01:24:28.689",
+      "id": "seg-000930",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:24:23.029",
+      "text": "zillions of different inputs completely unlike the rigid reflex which only has one input and that's"
+    },
+    {
+      "end_hms": "01:24:34.729",
+      "id": "seg-000931",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:24:28.689",
+      "text": "to get the central state of fear and then the outputs are also diverse I can hide I can run away I"
+    },
+    {
+      "end_hms": "01:24:40.930",
+      "id": "seg-000932",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:24:34.729",
+      "text": "can defend myself and so that flexibility that the central emotion state affords you can get to it"
+    },
+    {
+      "end_hms": "01:24:46.250",
+      "id": "seg-000933",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:24:40.930",
+      "text": "in many different ways because many different sensory cues are informative about a potential threat"
+    },
+    {
+      "end_hms": "01:24:51.710",
+      "id": "seg-000934",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:24:46.250",
+      "text": "and then you can behave in very flexible ways that are context dependent that's exactly what emotions"
+    },
+    {
+      "end_hms": "01:24:56.989",
+      "id": "seg-000935",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:24:51.710",
+      "text": "allow you to do and what makes them so different from reflexes reflexes is just a single path through"
+    },
+    {
+      "end_hms": "01:25:02.210",
+      "id": "seg-000936",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:24:56.989",
+      "text": "there's only one way to trigger it and there's only one behavior so if you had only those you would"
+    },
+    {
+      "end_hms": "01:25:08.029",
+      "id": "seg-000937",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:25:02.210",
+      "text": "have to have a separate reflex for the bear for the tiger and for every possible you know large"
+    },
+    {
+      "end_hms": "01:25:13.109",
+      "id": "seg-000938",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:25:08.029",
+      "text": "threat out there which you couldn't possibly have it's not efficient yeah the fan in fan out"
+    },
+    {
+      "end_hms": "01:25:18.569",
+      "id": "seg-000939",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:25:13.109",
+      "text": "visual is very very useful and it gets to the next topic I'd like to ask you about which is"
+    },
+    {
+      "end_hms": "01:25:24.170",
+      "id": "seg-000940",
+      "role": "context_only",
+      "speaker": null,
+      "start_hms": "01:25:18.569",
+      "text": "building social intelligence and emotional intelligence because we define that different ways"
+    }
+  ],
+  "source_sha256": "35dc18929ef7fc18a3cfba97a48feae2210ffeb900a46a183e0a35d05539394b",
+  "window_id": "window-0015"
+}

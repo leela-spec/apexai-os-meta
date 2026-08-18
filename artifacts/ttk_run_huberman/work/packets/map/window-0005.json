@@ -1,0 +1,481 @@
+{
+  "context_only_segment_ids": [
+    "seg-000270",
+    "seg-000320"
+  ],
+  "contract_version": "ttk.semantic-contract.v2",
+  "core_segment_ids": [
+    "seg-000271",
+    "seg-000272",
+    "seg-000273",
+    "seg-000274",
+    "seg-000275",
+    "seg-000276",
+    "seg-000277",
+    "seg-000278",
+    "seg-000279",
+    "seg-000280",
+    "seg-000281",
+    "seg-000282",
+    "seg-000283",
+    "seg-000284",
+    "seg-000285",
+    "seg-000286",
+    "seg-000287",
+    "seg-000288",
+    "seg-000289",
+    "seg-000290",
+    "seg-000291",
+    "seg-000292",
+    "seg-000293",
+    "seg-000294",
+    "seg-000295",
+    "seg-000296",
+    "seg-000297",
+    "seg-000298",
+    "seg-000299",
+    "seg-000300",
+    "seg-000301",
+    "seg-000302",
+    "seg-000303",
+    "seg-000304",
+    "seg-000305",
+    "seg-000306",
+    "seg-000307",
+    "seg-000308",
+    "seg-000309",
+    "seg-000310",
+    "seg-000311",
+    "seg-000312",
+    "seg-000313",
+    "seg-000314",
+    "seg-000315",
+    "seg-000316",
+    "seg-000317",
+    "seg-000318",
+    "seg-000319"
+  ],
+  "packet_id": "map-window-0005",
+  "packet_sha256": "a14f5776a805b2ec79a7d841f81c885d8fbcac28e41a603ff4bd441375c09c26",
+  "result_path": "work/results/map/window-0005.json",
+  "rules": [
+    "Extract evidence only from core segments; context_only segments are orientation only.",
+    "Every candidate claim requires at least one verbatim quote from its cited core segment.",
+    "Do not force content into categories; empty arrays are valid.",
+    "Separate factual assertions from opinion, prediction, recommendation, decision, anecdote, definition, mechanism, estimate, and hypothesis.",
+    "Preserve disagreement and uncertainty rather than reconciling it."
+  ],
+  "schema": "ttk.map-packet.v2",
+  "source_segments": [
+    {
+      "end_hms": "00:24:20.640",
+      "id": "seg-000270",
+      "role": "context_only",
+      "speaker": null,
+      "start_hms": "00:24:16.480",
+      "text": "the social media platform. And for some reason, the algorithm likes to serve up a lot of examples"
+    },
+    {
+      "end_hms": "00:24:25.220",
+      "id": "seg-000271",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:24:20.640",
+      "text": "of people like on planes, losing it, people going unhinged. Like, you know, I like people just"
+    },
+    {
+      "end_hms": "00:24:30.660",
+      "id": "seg-000272",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:24:25.220",
+      "text": "like completely melting down. And it's very in our language, hypothalamic, right. And so people"
+    },
+    {
+      "end_hms": "00:24:35.640",
+      "id": "seg-000273",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:24:30.660",
+      "text": "are drawn to that. I have an antidote to those people. They should take ice baths. I can tell you"
+    },
+    {
+      "end_hms": "00:24:40.299",
+      "id": "seg-000274",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:24:35.640",
+      "text": "more. Oh, listen, I think that helps. Seriously. Yeah. Well, ice baths, yeah, let's definitely talk about"
+    },
+    {
+      "end_hms": "00:24:46.799",
+      "id": "seg-000275",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:24:40.299",
+      "text": "ice baths and ultra, ultra races because you're training for one. No, but I think what you said is"
+    },
+    {
+      "end_hms": "00:24:51.920",
+      "id": "seg-000276",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:24:46.799",
+      "text": "exactly right and extremely important for humans, and probably unique to humans as opposed to other"
+    },
+    {
+      "end_hms": "00:24:58.400",
+      "id": "seg-000277",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:24:51.920",
+      "text": "animals, which is that we can be conscious of and monitor our own emotions. And by doing so,"
+    },
+    {
+      "end_hms": "00:25:03.880",
+      "id": "seg-000278",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:24:58.400",
+      "text": "we can regulate them to some extent. So emotion regulation and control and monitoring emotion"
+    },
+    {
+      "end_hms": "00:25:08.660",
+      "id": "seg-000279",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:25:03.880",
+      "text": "being aware of what emotion you have, those two go hand in hand. And your Stanford colleague,"
+    },
+    {
+      "end_hms": "00:25:14.019",
+      "id": "seg-000280",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:25:09.099",
+      "text": "you know, James Gross, start spawn this huge field in the 90s. I guess when it started"
+    },
+    {
+      "end_hms": "00:25:21.079",
+      "id": "seg-000281",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:25:14.019",
+      "text": "of emotion regulation, that is now huge. I just finished my term as co-editor of this journal"
+    },
+    {
+      "end_hms": "00:25:28.579",
+      "id": "seg-000282",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:25:21.079",
+      "text": "Effective Science. I would say about a quarter or so or third of the submissions are about"
+    },
+    {
+      "end_hms": "00:25:35.200",
+      "id": "seg-000283",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:25:28.579",
+      "text": "emotion regulation. It is so important in in humans. And most of pathologies and difficulties"
+    },
+    {
+      "end_hms": "00:25:39.480",
+      "id": "seg-000284",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:25:35.200",
+      "text": "about emotions are not about the emotion per se. It's about our ability or disability"
+    },
+    {
+      "end_hms": "00:25:45.980",
+      "id": "seg-000285",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:25:40.279",
+      "text": "to control them to regulate. If you don't mind, because of your understanding of"
+    },
+    {
+      "end_hms": "00:25:51.799",
+      "id": "seg-000286",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:25:46.920",
+      "text": "emotions and states and neuroscience, but also your experience as a human in the world,"
+    },
+    {
+      "end_hms": "00:25:56.859",
+      "id": "seg-000287",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:25:52.259",
+      "text": "has anything you've learned changed the way that you watch your emotions grow, decide one to"
+    },
+    {
+      "end_hms": "00:26:00.640",
+      "id": "seg-000288",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:25:56.859",
+      "text": "step in, when not to step in. You don't seem like an impulsive person. So we're not, but most"
+    },
+    {
+      "end_hms": "00:26:05.099",
+      "id": "seg-000289",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:26:00.640",
+      "text": "people aren't. We're not talking about pathology here. And I'll see this question by saying,"
+    },
+    {
+      "end_hms": "00:26:09.359",
+      "id": "seg-000290",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:26:05.099",
+      "text": "you know, I have a few friends who were in tier one special operations. And, you know, that's"
+    },
+    {
+      "end_hms": "00:26:12.799",
+      "id": "seg-000291",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:26:09.359",
+      "text": "high risk high consequence work. We've had Alex Honnold on the podcast, high risk high"
+    },
+    {
+      "end_hms": "00:26:19.519",
+      "id": "seg-000292",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:26:12.799",
+      "text": "consequence. And they all say the same thing, which are that emotions cloud logical judgment."
+    },
+    {
+      "end_hms": "00:26:24.740",
+      "id": "seg-000293",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:26:20.039",
+      "text": "So they're somehow far from emotions or their emotions don't get prioritized. But of course,"
+    },
+    {
+      "end_hms": "00:26:30.019",
+      "id": "seg-000294",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:26:24.740",
+      "text": "these are the all of these people that come to mind have, you know, healthy marriages now,"
+    },
+    {
+      "end_hms": "00:26:35.700",
+      "id": "seg-000295",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:26:30.240",
+      "text": "you know, healthy families, they're loving people, they have anger, they have emotions, but they"
+    },
+    {
+      "end_hms": "00:26:40.240",
+      "id": "seg-000296",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:26:35.700",
+      "text": "they've sort of categorized emotions as cloud judgment in the professional or, you know,"
+    },
+    {
+      "end_hms": "00:26:45.220",
+      "id": "seg-000297",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:26:40.240",
+      "text": "peak performance context. Therefore, they don't allow them to be prioritized. Sounds a little"
+    },
+    {
+      "end_hms": "00:26:49.480",
+      "id": "seg-000298",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:26:45.220",
+      "text": "bit robotics, sounds a little bit mechanical, quote unquote, on the spectrum. People like,"
+    },
+    {
+      "end_hms": "00:26:56.130",
+      "id": "seg-000299",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:26:49.579",
+      "text": "we'll say these things, right? But in some ways, provided they're allowed to allow themselves"
+    },
+    {
+      "end_hms": "00:27:01.250",
+      "id": "seg-000300",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:26:56.130",
+      "text": "to be emotional, emotional and let emotions, quote unquote, take over in the right context."
+    },
+    {
+      "end_hms": "00:27:05.869",
+      "id": "seg-000301",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:27:01.349",
+      "text": "That's kind of the ideal circumstance, right? Yeah. So what do you know that allowed that has"
+    },
+    {
+      "end_hms": "00:27:10.690",
+      "id": "seg-000302",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:27:05.869",
+      "text": "impacted the way that you think about emotion regulation that perhaps people could consider,"
+    },
+    {
+      "end_hms": "00:27:14.690",
+      "id": "seg-000303",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:27:10.690",
+      "text": "if not benefit from? Yeah, I think it's, you know, it's a mixture. On the one hand,"
+    },
+    {
+      "end_hms": "00:27:21.029",
+      "id": "seg-000304",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:27:14.690",
+      "text": "you absolutely need emotions. If you have no emotions, as we know from Antonio DiMassio's"
+    },
+    {
+      "end_hms": "00:27:26.170",
+      "id": "seg-000305",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:27:21.029",
+      "text": "original work in his book, Descartes Error, which he put out just as I was starting as a postdoc"
+    },
+    {
+      "end_hms": "00:27:31.829",
+      "id": "seg-000306",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:27:26.170",
+      "text": "in Iowa in 1994, I think, you know, if you have massive frontal lobe lesions that make it the"
+    },
+    {
+      "end_hms": "00:27:36.430",
+      "id": "seg-000307",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:27:31.829",
+      "text": "case that you're no longer emotionally responding to stimuli, the consequences are devastating,"
+    },
+    {
+      "end_hms": "00:27:42.009",
+      "id": "seg-000308",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:27:36.430",
+      "text": "which is that you cannot make decisions, complex decisions in your life. You can't organize your"
+    },
+    {
+      "end_hms": "00:27:47.009",
+      "id": "seg-000309",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:27:42.009",
+      "text": "life. You're not motivated to take the right path through life because you don't feel one way or"
+    },
+    {
+      "end_hms": "00:27:52.069",
+      "id": "seg-000310",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:27:47.009",
+      "text": "the other about the different options that are available. So it's clear that not having emotions"
+    },
+    {
+      "end_hms": "00:27:55.990",
+      "id": "seg-000311",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:27:52.069",
+      "text": "is very bad. And certainly if you were out facing the bear, which may not happen to too many"
+    },
+    {
+      "end_hms": "00:28:01.250",
+      "id": "seg-000312",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:27:55.990",
+      "text": "people these days, that would be very bad. On the other hand, being able to regulate them and"
+    },
+    {
+      "end_hms": "00:28:07.490",
+      "id": "seg-000313",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:28:01.250",
+      "text": "control them is definitely a human skill that's very important and that helps you a lot. The"
+    },
+    {
+      "end_hms": "00:28:14.490",
+      "id": "seg-000314",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:28:07.490",
+      "text": "first part is what you were talking about first earlier, which is the ability to monitor your"
+    },
+    {
+      "end_hms": "00:28:19.329",
+      "id": "seg-000315",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:28:14.490",
+      "text": "emotions to identify your emotions. I think Lisa Feldman-Barritt actually first did the main work"
+    },
+    {
+      "end_hms": "00:28:27.150",
+      "id": "seg-000316",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:28:19.329",
+      "text": "on this. It's a topic called emotional granularity. Like at what how fine a grain can you conceptualize"
+    },
+    {
+      "end_hms": "00:28:33.109",
+      "id": "seg-000317",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:28:27.150",
+      "text": "and be aware of your own emotions? And then once you're aware of them, you can bring various"
+    },
+    {
+      "end_hms": "00:28:38.910",
+      "id": "seg-000318",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:28:33.109",
+      "text": "emotion regulation strategies, mostly cognitive or you're appraisal type of strategies to bear on"
+    },
+    {
+      "end_hms": "00:28:45.609",
+      "id": "seg-000319",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:28:38.910",
+      "text": "the emotion and thereby to some extent control your emotions. How important is it to use language"
+    },
+    {
+      "end_hms": "00:28:51.789",
+      "id": "seg-000320",
+      "role": "context_only",
+      "speaker": null,
+      "start_hms": "00:28:46.369",
+      "text": "to provide that granularity? I've certainly experienced like feeling a bunch of things around a"
+    }
+  ],
+  "source_sha256": "35dc18929ef7fc18a3cfba97a48feae2210ffeb900a46a183e0a35d05539394b",
+  "window_id": "window-0005"
+}

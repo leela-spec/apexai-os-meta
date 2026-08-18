@@ -1,0 +1,526 @@
+{
+  "context_only_segment_ids": [
+    "seg-000056"
+  ],
+  "contract_version": "ttk.semantic-contract.v2",
+  "core_segment_ids": [
+    "seg-000001",
+    "seg-000002",
+    "seg-000003",
+    "seg-000004",
+    "seg-000005",
+    "seg-000006",
+    "seg-000007",
+    "seg-000008",
+    "seg-000009",
+    "seg-000010",
+    "seg-000011",
+    "seg-000012",
+    "seg-000013",
+    "seg-000014",
+    "seg-000015",
+    "seg-000016",
+    "seg-000017",
+    "seg-000018",
+    "seg-000019",
+    "seg-000020",
+    "seg-000021",
+    "seg-000022",
+    "seg-000023",
+    "seg-000024",
+    "seg-000025",
+    "seg-000026",
+    "seg-000027",
+    "seg-000028",
+    "seg-000029",
+    "seg-000030",
+    "seg-000031",
+    "seg-000032",
+    "seg-000033",
+    "seg-000034",
+    "seg-000035",
+    "seg-000036",
+    "seg-000037",
+    "seg-000038",
+    "seg-000039",
+    "seg-000040",
+    "seg-000041",
+    "seg-000042",
+    "seg-000043",
+    "seg-000044",
+    "seg-000045",
+    "seg-000046",
+    "seg-000047",
+    "seg-000048",
+    "seg-000049",
+    "seg-000050",
+    "seg-000051",
+    "seg-000052",
+    "seg-000053",
+    "seg-000054",
+    "seg-000055"
+  ],
+  "packet_id": "map-window-0001",
+  "packet_sha256": "7a8b4f94610df51a055ae5e2f94853ab02a0d4d43e2553e8ad3a01973e1b44c0",
+  "result_path": "work/results/map/window-0001.json",
+  "rules": [
+    "Extract evidence only from core segments; context_only segments are orientation only.",
+    "Every candidate claim requires at least one verbatim quote from its cited core segment.",
+    "Do not force content into categories; empty arrays are valid.",
+    "Separate factual assertions from opinion, prediction, recommendation, decision, anecdote, definition, mechanism, estimate, and hypothesis.",
+    "Preserve disagreement and uncertainty rather than reconciling it."
+  ],
+  "schema": "ttk.map-packet.v2",
+  "source_segments": [
+    {
+      "end_hms": "00:00:04.540",
+      "id": "seg-000001",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:00:00.000",
+      "text": "I see somebody come up behind me. They can see. I'm trying to park. They can move over. No."
+    },
+    {
+      "end_hms": "00:00:09.179",
+      "id": "seg-000002",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:00:04.759",
+      "text": "They come right up behind me, go on the horn. And you know, you immediately feel"
+    },
+    {
+      "end_hms": "00:00:15.400",
+      "id": "seg-000003",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:00:09.800",
+      "text": "just an immediate anger response, right? Well, after the ice bath, it's flat."
+    },
+    {
+      "end_hms": "00:00:21.300",
+      "id": "seg-000004",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:00:16.100",
+      "text": "So there was an immediate automatic down regulation of my autonomic emotional response"
+    },
+    {
+      "end_hms": "00:00:27.179",
+      "id": "seg-000005",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:00:21.300",
+      "text": "to a psychological stressor, somebody honking at me, that was trained and generalized"
+    },
+    {
+      "end_hms": "00:00:31.480",
+      "id": "seg-000006",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:00:27.179",
+      "text": "from the ice bath. It's an experiment of one. I'm not claiming this as a published study. But"
+    },
+    {
+      "end_hms": "00:00:38.399",
+      "id": "seg-000007",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:00:31.980",
+      "text": "I think there's a direct autonomic training component as well, in terms of the strength and the"
+    },
+    {
+      "end_hms": "00:00:42.960",
+      "id": "seg-000008",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:00:38.399",
+      "text": "automaticity, the ease with which you can regulate emotions that they can become"
+    },
+    {
+      "end_hms": "00:00:49.020",
+      "id": "seg-000009",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:00:43.500",
+      "text": "kind of automatically regulated. You don't have to overthink it. It becomes smooth and"
+    },
+    {
+      "end_hms": "00:00:53.100",
+      "id": "seg-000010",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:00:49.020",
+      "text": "effortless, to some extent. And that's that's the place where you where you want to get."
+    },
+    {
+      "end_hms": "00:00:58.520",
+      "id": "seg-000011",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:00:53.100",
+      "text": "Hey, everyone, to celebrate the launch of my new book entitled Protocols, I'm pleased to share"
+    },
+    {
+      "end_hms": "00:01:03.479",
+      "id": "seg-000012",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:00:58.520",
+      "text": "that I'll be hosting three live events very soon. The first live event is in New York City"
+    },
+    {
+      "end_hms": "00:01:09.340",
+      "id": "seg-000013",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:01:03.479",
+      "text": "at Radio City Music Hall on September 17th. The second event is in Los Angeles at the Dolby"
+    },
+    {
+      "end_hms": "00:01:15.519",
+      "id": "seg-000014",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:01:09.340",
+      "text": "Theater on October 8th. And the third live event is in San Francisco at the Masonic on October 28th."
+    },
+    {
+      "end_hms": "00:01:19.359",
+      "id": "seg-000015",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:01:15.680",
+      "text": "At each of these events, I'll be discussing topics from the book and my favorite part,"
+    },
+    {
+      "end_hms": "00:01:23.959",
+      "id": "seg-000016",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:01:19.359",
+      "text": "taking questions directly from you, the audience. To get tickets, you can go to"
+    },
+    {
+      "end_hms": "00:01:29.780",
+      "id": "seg-000017",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:01:23.959",
+      "text": "HubermanLab.com slash events and use the code Protocols to get early access. Again, that's"
+    },
+    {
+      "end_hms": "00:01:35.280",
+      "id": "seg-000018",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:01:29.780",
+      "text": "HubermanLab.com slash events and use the code Protocols to get early access to tickets."
+    },
+    {
+      "end_hms": "00:01:41.219",
+      "id": "seg-000019",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:01:35.540",
+      "text": "Welcome to the HubermanLab podcast. We discuss science and science-based tools for everyday life."
+    },
+    {
+      "end_hms": "00:01:50.500",
+      "id": "seg-000020",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:01:44.500",
+      "text": "I'm Andrew Huberman and I'm a professor of neurobiology and ophthalmology at Stanford School of Medicine."
+    },
+    {
+      "end_hms": "00:01:56.280",
+      "id": "seg-000021",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:01:50.500",
+      "text": "My guest today is Dr. Ralph Adolfs. Dr. Ralph Adolfs is a professor of psychology, neuroscience"
+    },
+    {
+      "end_hms": "00:02:01.540",
+      "id": "seg-000022",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:01:56.280",
+      "text": "and biology at Caltech University and a world expert in the neurobiology of emotions."
+    },
+    {
+      "end_hms": "00:02:06.620",
+      "id": "seg-000023",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:02:02.099",
+      "text": "Today we discuss what emotions are, how they grow and shrink in our brain and body,"
+    },
+    {
+      "end_hms": "00:02:11.400",
+      "id": "seg-000024",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:02:07.060",
+      "text": "and why some emotions seem to recruit our behavior and decision making and some simply don't."
+    },
+    {
+      "end_hms": "00:02:16.780",
+      "id": "seg-000025",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:02:11.699",
+      "text": "We also discuss where and how emotions are mapped in the body, and we dispel common myths about"
+    },
+    {
+      "end_hms": "00:02:22.120",
+      "id": "seg-000026",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:02:16.780",
+      "text": "the brain body storage of emotions from our past, which is a very commonly discussed topic that,"
+    },
+    {
+      "end_hms": "00:02:27.439",
+      "id": "seg-000027",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:02:22.159",
+      "text": "frankly, as you'll learn today, many, if not most people, get wrong. We also discuss why some"
+    },
+    {
+      "end_hms": "00:02:32.259",
+      "id": "seg-000028",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:02:27.439",
+      "text": "people are able to observe but not react to their emotions and what tools may assistant helping"
+    },
+    {
+      "end_hms": "00:02:37.400",
+      "id": "seg-000029",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:02:32.259",
+      "text": "you build better emotion regulation. As you'll soon realize, Dr. Adolfs is uniquely positioned"
+    },
+    {
+      "end_hms": "00:02:42.719",
+      "id": "seg-000030",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:02:37.400",
+      "text": "to explain the real neuroscience and psychology of emotions and how to put that information to use."
+    },
+    {
+      "end_hms": "00:02:46.800",
+      "id": "seg-000031",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:02:42.719",
+      "text": "Today's conversation therefore ought to be valuable for people of every age and profession,"
+    },
+    {
+      "end_hms": "00:02:51.099",
+      "id": "seg-000032",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:02:47.159",
+      "text": "and for anyone interested in improving their emotional life and understanding of others."
+    },
+    {
+      "end_hms": "00:02:56.740",
+      "id": "seg-000033",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:02:51.520",
+      "text": "And now for my conversation with Dr. Ralph Adolfs. Dr. Ralph Adolfs, welcome."
+    },
+    {
+      "end_hms": "00:03:01.379",
+      "id": "seg-000034",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:02:57.520",
+      "text": "Thank you, Andrew. Pleasure to be here. Long time admirer of your work,"
+    },
+    {
+      "end_hms": "00:03:05.460",
+      "id": "seg-000035",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:03:01.539",
+      "text": "because you're one of the few people who has studied these things we call emotions,"
+    },
+    {
+      "end_hms": "00:03:10.039",
+      "id": "seg-000036",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:03:05.800",
+      "text": "brain states, cognition and much more inhumans. There have been others in the field of neuroscience,"
+    },
+    {
+      "end_hms": "00:03:15.900",
+      "id": "seg-000037",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:03:10.039",
+      "text": "of course, but I would argue few people have combined a real grounding in neural circuits with"
+    },
+    {
+      "end_hms": "00:03:21.199",
+      "id": "seg-000038",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:03:15.900",
+      "text": "an interest in what most people think of as a psychological set of issues in a way that also"
+    },
+    {
+      "end_hms": "00:03:26.219",
+      "id": "seg-000039",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:03:21.199",
+      "text": "takes into account the animal data and really the broadest picture of this thing that we call"
+    },
+    {
+      "end_hms": "00:03:29.580",
+      "id": "seg-000040",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:03:26.219",
+      "text": "emotions and just going to start with a statement of gratitude. Thank you for doing that because it's"
+    },
+    {
+      "end_hms": "00:03:35.460",
+      "id": "seg-000041",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:03:29.580",
+      "text": "so easy for people to stimulate a brain area, see an animal or a human behavior, speak in a certain"
+    },
+    {
+      "end_hms": "00:03:39.120",
+      "id": "seg-000042",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:03:35.460",
+      "text": "way and say, oh, this is the brain region for this. And you've long been pushing back on that."
+    },
+    {
+      "end_hms": "00:03:43.240",
+      "id": "seg-000043",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:03:39.120",
+      "text": "Tall order, you know, and one impetus for the work that I've been doing in the book that I"
+    },
+    {
+      "end_hms": "00:03:48.259",
+      "id": "seg-000044",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:03:43.240",
+      "text": "co-wrote with the Evan Anderson, the book that I have forthcoming with Princeton University Press"
+    },
+    {
+      "end_hms": "00:03:52.400",
+      "id": "seg-000045",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:03:48.800",
+      "text": "is precisely to do what you just said is to kind of integrate and pull together"
+    },
+    {
+      "end_hms": "00:03:57.020",
+      "id": "seg-000046",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:03:53.259",
+      "text": "findings and emotion from animal studies, findings from social psychology,"
+    },
+    {
+      "end_hms": "00:04:01.460",
+      "id": "seg-000047",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:03:57.020",
+      "text": "typically those people in those fields don't talk to one another. They do very different studies,"
+    },
+    {
+      "end_hms": "00:04:07.039",
+      "id": "seg-000048",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:04:01.979",
+      "text": "very different methodologies, and so trying to integrate across disciplines that are that far"
+    },
+    {
+      "end_hms": "00:04:13.659",
+      "id": "seg-000049",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:04:07.039",
+      "text": "apart to really try and get a sense for what are emotions in a sense that would satisfy"
+    },
+    {
+      "end_hms": "00:04:18.720",
+      "id": "seg-000050",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:04:13.659",
+      "text": "psychologists and blame people about human emotions, but they would also speak to the mechanisms"
+    },
+    {
+      "end_hms": "00:04:24.060",
+      "id": "seg-000051",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:04:18.720",
+      "text": "that you can study in mice, for example, or fly as David Anderson does. So how do you think about"
+    },
+    {
+      "end_hms": "00:04:30.399",
+      "id": "seg-000052",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:04:24.060",
+      "text": "emotions and how do they relate to brain and bodily states? The basic answer is that I think of"
+    },
+    {
+      "end_hms": "00:04:37.019",
+      "id": "seg-000053",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:04:30.399",
+      "text": "emotions as functional states of a particular type. They should be understood by what they do."
+    },
+    {
+      "end_hms": "00:04:41.279",
+      "id": "seg-000054",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:04:37.040",
+      "text": "Their function, rather than how they happen to be constituted in the human brain or"
+    },
+    {
+      "end_hms": "00:04:45.079",
+      "id": "seg-000055",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:04:41.279",
+      "text": "differently in an octopus nervous system, or in an AI, which we should talk about."
+    },
+    {
+      "end_hms": "00:04:53.040",
+      "id": "seg-000056",
+      "role": "context_only",
+      "speaker": null,
+      "start_hms": "00:04:46.100",
+      "text": "And so the way to situate them is to think of control of behavior in response to particular"
+    }
+  ],
+  "source_sha256": "35dc18929ef7fc18a3cfba97a48feae2210ffeb900a46a183e0a35d05539394b",
+  "window_id": "window-0001"
+}

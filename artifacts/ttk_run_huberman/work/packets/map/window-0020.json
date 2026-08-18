@@ -1,0 +1,598 @@
+{
+  "context_only_segment_ids": [
+    "seg-001181",
+    "seg-001244"
+  ],
+  "contract_version": "ttk.semantic-contract.v2",
+  "core_segment_ids": [
+    "seg-001182",
+    "seg-001183",
+    "seg-001184",
+    "seg-001185",
+    "seg-001186",
+    "seg-001187",
+    "seg-001188",
+    "seg-001189",
+    "seg-001190",
+    "seg-001191",
+    "seg-001192",
+    "seg-001193",
+    "seg-001194",
+    "seg-001195",
+    "seg-001196",
+    "seg-001197",
+    "seg-001198",
+    "seg-001199",
+    "seg-001200",
+    "seg-001201",
+    "seg-001202",
+    "seg-001203",
+    "seg-001204",
+    "seg-001205",
+    "seg-001206",
+    "seg-001207",
+    "seg-001208",
+    "seg-001209",
+    "seg-001210",
+    "seg-001211",
+    "seg-001212",
+    "seg-001213",
+    "seg-001214",
+    "seg-001215",
+    "seg-001216",
+    "seg-001217",
+    "seg-001218",
+    "seg-001219",
+    "seg-001220",
+    "seg-001221",
+    "seg-001222",
+    "seg-001223",
+    "seg-001224",
+    "seg-001225",
+    "seg-001226",
+    "seg-001227",
+    "seg-001228",
+    "seg-001229",
+    "seg-001230",
+    "seg-001231",
+    "seg-001232",
+    "seg-001233",
+    "seg-001234",
+    "seg-001235",
+    "seg-001236",
+    "seg-001237",
+    "seg-001238",
+    "seg-001239",
+    "seg-001240",
+    "seg-001241",
+    "seg-001242",
+    "seg-001243"
+  ],
+  "packet_id": "map-window-0020",
+  "packet_sha256": "cafc2e937a06be5383c13b7c2e7f5f1aadb1100e531968e1b2febd96c90d0b74",
+  "result_path": "work/results/map/window-0020.json",
+  "rules": [
+    "Extract evidence only from core segments; context_only segments are orientation only.",
+    "Every candidate claim requires at least one verbatim quote from its cited core segment.",
+    "Do not force content into categories; empty arrays are valid.",
+    "Separate factual assertions from opinion, prediction, recommendation, decision, anecdote, definition, mechanism, estimate, and hypothesis.",
+    "Preserve disagreement and uncertainty rather than reconciling it."
+  ],
+  "schema": "ttk.map-packet.v2",
+  "source_segments": [
+    {
+      "end_hms": "01:47:07.670",
+      "id": "seg-001181",
+      "role": "context_only",
+      "speaker": null,
+      "start_hms": "01:47:01.770",
+      "text": "and you know that and so we're trying to look at the degree of actual social interaction as a"
+    },
+    {
+      "end_hms": "01:47:11.630",
+      "id": "seg-001182",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:47:07.670",
+      "text": "relevant dimension and I think it makes a huge difference I mean it feels completely different"
+    },
+    {
+      "end_hms": "01:47:17.350",
+      "id": "seg-001183",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:47:11.630",
+      "text": "being face-to-face but if you're on zoom let alone if I just watch a video that's not actually"
+    },
+    {
+      "end_hms": "01:47:23.189",
+      "id": "seg-001184",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:47:17.350",
+      "text": "aligned in time the way I described the kind of higher or lower RPM before but perhaps"
+    },
+    {
+      "end_hms": "01:47:27.550",
+      "id": "seg-001185",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:47:23.189",
+      "text": "maybe it sound like one or the other was better but I think sometimes about like Alex Honnold who"
+    },
+    {
+      "end_hms": "01:47:31.569",
+      "id": "seg-001186",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:47:27.550",
+      "text": "again who is a guest on this podcast and there've been claims that his amygdala doesn't react"
+    },
+    {
+      "end_hms": "01:47:35.930",
+      "id": "seg-001187",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:47:31.569",
+      "text": "as much anyway we could we could talk about that I think Alex kind of like maybe chuckles a little"
+    },
+    {
+      "end_hms": "01:47:40.329",
+      "id": "seg-001188",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:47:35.930",
+      "text": "bit at those studies because he does experience anxiety and fear just not in the context of this"
+    },
+    {
+      "end_hms": "01:47:46.500",
+      "id": "seg-001189",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:47:40.329",
+      "text": "like highly trained situation he's put himself in every single day for so long but I do have to"
+    },
+    {
+      "end_hms": "01:47:51.399",
+      "id": "seg-001190",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:47:46.500",
+      "text": "wonder whether people who go out on long runs for instance there's not a lot of talking going on"
+    },
+    {
+      "end_hms": "01:47:58.600",
+      "id": "seg-001191",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:47:51.399",
+      "text": "or Alex he's devoting his physical and mental energetic resources toward climbing and figuring out"
+    },
+    {
+      "end_hms": "01:48:02.640",
+      "id": "seg-001192",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:47:58.600",
+      "text": "these how to navigate high-risk high-consequence situations when there's just in flow you're just"
+    },
+    {
+      "end_hms": "01:48:07.039",
+      "id": "seg-001193",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:48:02.640",
+      "text": "like totally absorbed in what you're doing yeah if you're like Honnold type climbing once you he's"
+    },
+    {
+      "end_hms": "01:48:11.079",
+      "id": "seg-001194",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:48:07.039",
+      "text": "got it but like to work out the puzzle of like with ropes first of how to maneuver"
+    },
+    {
+      "end_hms": "01:48:16.739",
+      "id": "seg-001195",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:48:11.079",
+      "text": "is so that he can actually free solo it is a remarkable thing but I almost get the impression that if"
+    },
+    {
+      "end_hms": "01:48:21.640",
+      "id": "seg-001196",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:48:16.739",
+      "text": "people speak less that they're able to devote more mental and physical resources to the thing"
+    },
+    {
+      "end_hms": "01:48:27.100",
+      "id": "seg-001197",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:48:21.640",
+      "text": "they're doing I never ran ultras but I recall like running you know I used to run for like a long"
+    },
+    {
+      "end_hms": "01:48:30.680",
+      "id": "seg-001198",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:48:27.100",
+      "text": "eight to ten mile run on Sundays used to be a thing now it's getting shorter and shorter run"
+    },
+    {
+      "end_hms": "01:48:35.060",
+      "id": "seg-001199",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:48:30.680",
+      "text": "I have to get it back but come back from those and there's a fatigue component that confounds"
+    },
+    {
+      "end_hms": "01:48:42.310",
+      "id": "seg-001200",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:48:35.060",
+      "text": "what I'm about to say but one is a lot less reactive when you spent a bunch of time just in your"
+    },
+    {
+      "end_hms": "01:48:46.529",
+      "id": "seg-001201",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:48:42.310",
+      "text": "own head and you've learned to tolerate the voice in your own head I find that I'm much calmer"
+    },
+    {
+      "end_hms": "01:48:51.550",
+      "id": "seg-001202",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:48:47.050",
+      "text": "after I've spent a bunch of time alone because I've gone through that kind of initial stage of the"
+    },
+    {
+      "end_hms": "01:48:55.170",
+      "id": "seg-001203",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:48:51.550",
+      "text": "mind fluttering and then you want to communicate with people and I'll lock up my phone in a box"
+    },
+    {
+      "end_hms": "01:49:05.270",
+      "id": "seg-001204",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:48:55.170",
+      "text": "these days it's a real work and I come out of it and things come my way and they're sort of out"
+    },
+    {
+      "end_hms": "01:49:10.750",
+      "id": "seg-001205",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:49:05.270",
+      "text": "whereas I think when we're highly engaged with in in our own mental dialogue it's almost like"
+    },
+    {
+      "end_hms": "01:49:15.449",
+      "id": "seg-001206",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:49:10.750",
+      "text": "we're trying to converse with the world so I think there's real value to doing these solo"
+    },
+    {
+      "end_hms": "01:49:21.270",
+      "id": "seg-001207",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:49:15.449",
+      "text": "tricks and to devoting time to getting past that need to engage with the world I think it's very"
+    },
+    {
+      "end_hms": "01:49:27.270",
+      "id": "seg-001208",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:49:21.270",
+      "text": "very useful yeah I mean I'm sure it's idiosyncratic it'll vary but I think that particular aspect that"
+    },
+    {
+      "end_hms": "01:49:33.010",
+      "id": "seg-001209",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:49:27.270",
+      "text": "you mentioned that you can just be comfortable in your own mind and that that's beneficial I think"
+    },
+    {
+      "end_hms": "01:49:36.989",
+      "id": "seg-001210",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:49:33.010",
+      "text": "that's a big part it's a big part of lots of training techniques and big part of lots of"
+    },
+    {
+      "end_hms": "01:49:42.310",
+      "id": "seg-001211",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:49:36.989",
+      "text": "meditative techniques that you just but again it's very individual it's not just for one size fits"
+    },
+    {
+      "end_hms": "01:49:48.590",
+      "id": "seg-001212",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:49:42.310",
+      "text": "all but the ability to not just be driven by sensory input and be comfortable with your own mind so"
+    },
+    {
+      "end_hms": "01:49:52.810",
+      "id": "seg-001213",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:49:48.590",
+      "text": "that like you're doing nothing at all you're training you're training your own mind to be comfortable"
+    },
+    {
+      "end_hms": "01:49:57.250",
+      "id": "seg-001214",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:49:52.810",
+      "text": "and I think the consequence of that is then subsequently when you encounter challenges in the"
+    },
+    {
+      "end_hms": "01:50:01.689",
+      "id": "seg-001215",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:49:57.250",
+      "text": "world you're actually better equipped deal with those and better equipped to regulate your emotion"
+    },
+    {
+      "end_hms": "01:50:07.409",
+      "id": "seg-001216",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:50:01.689",
+      "text": "but when you're just at peace with yourself if you're not doing nothing your brain is being trained"
+    },
+    {
+      "end_hms": "01:50:13.350",
+      "id": "seg-001217",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:50:07.409",
+      "text": "all the time and it's being trained in a useful way and I think the ability to detach and decouple"
+    },
+    {
+      "end_hms": "01:50:18.890",
+      "id": "seg-001218",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:50:13.350",
+      "text": "from the constant challenges and sensory information that's normally coming in is like sleep"
+    },
+    {
+      "end_hms": "01:50:25.550",
+      "id": "seg-001219",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:50:18.890",
+      "text": "allows the brain to actually train itself and focus on particular internal regulation strategies"
+    },
+    {
+      "end_hms": "01:50:31.390",
+      "id": "seg-001220",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:50:25.550",
+      "text": "that are then subsequently useful for dealing with the world later could we say that one form"
+    },
+    {
+      "end_hms": "01:50:36.909",
+      "id": "seg-001221",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:50:31.390",
+      "text": "of potentially useful emotional intelligence or social intelligence training is to just spend"
+    },
+    {
+      "end_hms": "01:50:41.170",
+      "id": "seg-001222",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:50:36.909",
+      "text": "some time in your own head either moving or not moving you could do it meditating or you could do"
+    },
+    {
+      "end_hms": "01:50:45.949",
+      "id": "seg-001223",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:50:41.170",
+      "text": "it running but to just resist the temptation to get pulled out into the world and just get good at"
+    },
+    {
+      "end_hms": "01:50:50.449",
+      "id": "seg-001224",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:50:45.949",
+      "text": "just sitting with these things that we call emotions and thoughts. I think so especially it's"
+    },
+    {
+      "end_hms": "01:50:55.270",
+      "id": "seg-001225",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:50:50.449",
+      "text": "again it's going to be individual and it's going to vary but I think so especially if you can"
+    },
+    {
+      "end_hms": "01:51:02.390",
+      "id": "seg-001226",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:50:55.770",
+      "text": "get some kind of meta cognitive or reflective awareness and work on what is going on in your mind"
+    },
+    {
+      "end_hms": "01:51:07.810",
+      "id": "seg-001227",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:51:02.390",
+      "text": "and ultimately it's training control it's training control of your emotions and a training"
+    },
+    {
+      "end_hms": "01:51:13.409",
+      "id": "seg-001228",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:51:07.810",
+      "text": "control of your thoughts and if you're constantly bombarded and just dealing with stuff coming"
+    },
+    {
+      "end_hms": "01:51:19.409",
+      "id": "seg-001229",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:51:13.409",
+      "text": "and you don't have time to do that. So if you're just... Exactly, yes, or which I have none and so if"
+    },
+    {
+      "end_hms": "01:51:23.569",
+      "id": "seg-001230",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:51:19.409",
+      "text": "you're just by yourself you know if you're running or if you're meditating or if you're trained"
+    },
+    {
+      "end_hms": "01:51:29.850",
+      "id": "seg-001231",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:51:23.569",
+      "text": "up if you're in an ice bath I think you actually get a particular type of internal training"
+    },
+    {
+      "end_hms": "01:51:35.250",
+      "id": "seg-001232",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:51:29.850",
+      "text": "that you just don't have the leisure to get if you're bombarded by social media for instance yes"
+    },
+    {
+      "end_hms": "01:51:39.029",
+      "id": "seg-001233",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:51:35.250",
+      "text": "you know every beginning of my lab meeting now people have their laptops open and their"
+    },
+    {
+      "end_hms": "01:51:43.630",
+      "id": "seg-001234",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:51:39.029",
+      "text": "phones out we put them down and we actually have five minutes of silence a sort of meditative"
+    },
+    {
+      "end_hms": "01:51:48.989",
+      "id": "seg-001235",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:51:43.630",
+      "text": "silence to people to clear their minds with the beginning of yeah five minute or three minutes"
+    },
+    {
+      "end_hms": "01:51:53.409",
+      "id": "seg-001236",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:51:48.989",
+      "text": "at the beginning of every lab meeting we have a short meditative session. I put a picture up"
+    },
+    {
+      "end_hms": "01:51:57.829",
+      "id": "seg-001237",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:51:53.409",
+      "text": "of some beautiful beach in the North Shore of Kauai and people in case people want to look at that"
+    },
+    {
+      "end_hms": "01:52:03.010",
+      "id": "seg-001238",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:51:57.829",
+      "text": "but many people just close their eyes people can do whatever they want it's but the idea is to"
+    },
+    {
+      "end_hms": "01:52:09.810",
+      "id": "seg-001239",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:52:03.010",
+      "text": "clear your mind and focus and relax and get into a frame of mind where you're actually now"
+    },
+    {
+      "end_hms": "01:52:15.510",
+      "id": "seg-001240",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:52:09.810",
+      "text": "most receptive to listen to the research presentation that's coming up because you come in"
+    },
+    {
+      "end_hms": "01:52:20.250",
+      "id": "seg-001241",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:52:15.510",
+      "text": "and your mind is all over the place and you know there's an email here and the phone is going"
+    },
+    {
+      "end_hms": "01:52:26.130",
+      "id": "seg-001242",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:52:20.250",
+      "text": "and your mind is buzzing so quieting that, finding some focus and then being able to engage"
+    },
+    {
+      "end_hms": "01:52:32.529",
+      "id": "seg-001243",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:52:26.130",
+      "text": "subsequently much better with the real world listening to the talk. I think that's that helps and"
+    },
+    {
+      "end_hms": "01:52:37.409",
+      "id": "seg-001244",
+      "role": "context_only",
+      "speaker": null,
+      "start_hms": "01:52:32.529",
+      "text": "we do that every lab meeting Monday's a noon seems to work for people. How long have you"
+    }
+  ],
+  "source_sha256": "35dc18929ef7fc18a3cfba97a48feae2210ffeb900a46a183e0a35d05539394b",
+  "window_id": "window-0020"
+}

@@ -1,0 +1,598 @@
+{
+  "context_only_segment_ids": [
+    "seg-000939",
+    "seg-001002"
+  ],
+  "contract_version": "ttk.semantic-contract.v2",
+  "core_segment_ids": [
+    "seg-000940",
+    "seg-000941",
+    "seg-000942",
+    "seg-000943",
+    "seg-000944",
+    "seg-000945",
+    "seg-000946",
+    "seg-000947",
+    "seg-000948",
+    "seg-000949",
+    "seg-000950",
+    "seg-000951",
+    "seg-000952",
+    "seg-000953",
+    "seg-000954",
+    "seg-000955",
+    "seg-000956",
+    "seg-000957",
+    "seg-000958",
+    "seg-000959",
+    "seg-000960",
+    "seg-000961",
+    "seg-000962",
+    "seg-000963",
+    "seg-000964",
+    "seg-000965",
+    "seg-000966",
+    "seg-000967",
+    "seg-000968",
+    "seg-000969",
+    "seg-000970",
+    "seg-000971",
+    "seg-000972",
+    "seg-000973",
+    "seg-000974",
+    "seg-000975",
+    "seg-000976",
+    "seg-000977",
+    "seg-000978",
+    "seg-000979",
+    "seg-000980",
+    "seg-000981",
+    "seg-000982",
+    "seg-000983",
+    "seg-000984",
+    "seg-000985",
+    "seg-000986",
+    "seg-000987",
+    "seg-000988",
+    "seg-000989",
+    "seg-000990",
+    "seg-000991",
+    "seg-000992",
+    "seg-000993",
+    "seg-000994",
+    "seg-000995",
+    "seg-000996",
+    "seg-000997",
+    "seg-000998",
+    "seg-000999",
+    "seg-001000",
+    "seg-001001"
+  ],
+  "packet_id": "map-window-0016",
+  "packet_sha256": "f113cd8621f9c67c32de2fad11add3c8128fff427bb9ba21cec614329607f517",
+  "result_path": "work/results/map/window-0016.json",
+  "rules": [
+    "Extract evidence only from core segments; context_only segments are orientation only.",
+    "Every candidate claim requires at least one verbatim quote from its cited core segment.",
+    "Do not force content into categories; empty arrays are valid.",
+    "Separate factual assertions from opinion, prediction, recommendation, decision, anecdote, definition, mechanism, estimate, and hypothesis.",
+    "Preserve disagreement and uncertainty rather than reconciling it."
+  ],
+  "schema": "ttk.map-packet.v2",
+  "source_segments": [
+    {
+      "end_hms": "01:25:18.569",
+      "id": "seg-000939",
+      "role": "context_only",
+      "speaker": null,
+      "start_hms": "01:25:13.109",
+      "text": "visual is very very useful and it gets to the next topic I'd like to ask you about which is"
+    },
+    {
+      "end_hms": "01:25:24.170",
+      "id": "seg-000940",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:25:18.569",
+      "text": "building social intelligence and emotional intelligence because we define that different ways"
+    },
+    {
+      "end_hms": "01:25:29.949",
+      "id": "seg-000941",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:25:24.170",
+      "text": "people who seem unable to read the room so to speak versus people who are hypersensitive to"
+    },
+    {
+      "end_hms": "01:25:34.550",
+      "id": "seg-000942",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:25:29.949",
+      "text": "other people's emotions not necessarily responding to them but they're really in tune I'll go out"
+    },
+    {
+      "end_hms": "01:25:40.529",
+      "id": "seg-000943",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:25:34.550",
+      "text": "on a limb and say that some of the happiest most functional and when I say functional I also"
+    },
+    {
+      "end_hms": "01:25:44.810",
+      "id": "seg-000944",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:25:40.529",
+      "text": "include in that they take great care of the people around them their families their co-workers"
+    },
+    {
+      "end_hms": "01:25:52.010",
+      "id": "seg-000945",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:25:44.810",
+      "text": "people that I know and have observed are not super emotionally in tune with the emotions of others"
+    },
+    {
+      "end_hms": "01:25:56.470",
+      "id": "seg-000946",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:25:52.010",
+      "text": "meaning it doesn't seem like they're clocking every little nuance and some of the more I'm"
+    },
+    {
+      "end_hms": "01:26:02.869",
+      "id": "seg-000947",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:25:56.470",
+      "text": "generalizing here less functional more labile people that I've known are really in tune with like"
+    },
+    {
+      "end_hms": "01:26:07.329",
+      "id": "seg-000948",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:26:02.869",
+      "text": "what everyone in the room is feeling who did this who didn't do that and going back to our earlier"
+    },
+    {
+      "end_hms": "01:26:12.930",
+      "id": "seg-000949",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:26:07.329",
+      "text": "conversation that so much of how we gauge other people's emotions is an integration over you know how"
+    },
+    {
+      "end_hms": "01:26:17.569",
+      "id": "seg-000950",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:26:12.930",
+      "text": "often they tend to acknowledge us when they when we walk down the hall if the first time I met you"
+    },
+    {
+      "end_hms": "01:26:21.750",
+      "id": "seg-000951",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:26:17.569",
+      "text": "walk right by me which who knows what would have happened the second time in the third time"
+    },
+    {
+      "end_hms": "01:26:26.170",
+      "id": "seg-000952",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:26:21.750",
+      "text": "and then the fourth time you say good morning I'd say oh like this is for really delightful person"
+    },
+    {
+      "end_hms": "01:26:30.069",
+      "id": "seg-000953",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:26:26.170",
+      "text": "if you did the opposite said hello hello hello three days in the row and the fourth time yeah just"
+    },
+    {
+      "end_hms": "01:26:36.250",
+      "id": "seg-000954",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:26:30.069",
+      "text": "like yeah looked at me and brushed right by I'd probably think like that's weird you know so there's"
+    },
+    {
+      "end_hms": "01:26:43.720",
+      "id": "seg-000955",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:26:36.250",
+      "text": "some advantage actually to not being in tune with all the subtle cues of everyone around us what in"
+    },
+    {
+      "end_hms": "01:26:50.220",
+      "id": "seg-000956",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:26:43.720",
+      "text": "the brain is known about oh social awareness about reading the room we talk it up these days"
+    },
+    {
+      "end_hms": "01:26:55.460",
+      "id": "seg-000957",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:26:50.220",
+      "text": "because indeed empathy is important but no this is a tricky one I'm going to get some heat for"
+    },
+    {
+      "end_hms": "01:27:00.159",
+      "id": "seg-000958",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:26:55.460",
+      "text": "saying this but it's also a lot to be said for like walking into a room acknowledge you okay great"
+    },
+    {
+      "end_hms": "01:27:03.939",
+      "id": "seg-000959",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:27:00.159",
+      "text": "and then like getting your work done you don't want to be wrapped up into people's emotional states"
+    },
+    {
+      "end_hms": "01:27:10.539",
+      "id": "seg-000960",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:27:03.939",
+      "text": "because unnecessarily because they're labile they're all over the place it's there's a cost well"
+    },
+    {
+      "end_hms": "01:27:15.039",
+      "id": "seg-000961",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:27:10.539",
+      "text": "I think it's extremely heterogeneous and so this is not sort of one size fits all and there's not one"
+    },
+    {
+      "end_hms": "01:27:21.859",
+      "id": "seg-000962",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:27:15.659",
+      "text": "type of hip-serve emotional intelligence skill that fits all occasions and many different kinds"
+    },
+    {
+      "end_hms": "01:27:27.340",
+      "id": "seg-000963",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:27:22.340",
+      "text": "can work they depend on the context it depends on the circumstances initially when James"
+    },
+    {
+      "end_hms": "01:27:33.399",
+      "id": "seg-000964",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:27:27.340",
+      "text": "Gross had emotion regulation it was sort of focused on some basic mechanisms like suppression"
+    },
+    {
+      "end_hms": "01:27:41.100",
+      "id": "seg-000965",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:27:33.399",
+      "text": "reappraisal acceptance and now the big two topics and emotion regulation are variability and flexibility"
+    },
+    {
+      "end_hms": "01:27:46.300",
+      "id": "seg-000966",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:27:41.100",
+      "text": "so they're not just one way but you need to be able to have many many different options and you"
+    },
+    {
+      "end_hms": "01:27:51.680",
+      "id": "seg-000967",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:27:46.300",
+      "text": "can vary vary your emotion regulation responses but the other big part of emotion regulation which is"
+    },
+    {
+      "end_hms": "01:27:58.039",
+      "id": "seg-000968",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:27:51.680",
+      "text": "obvious once you think about it for any any parent would think about it is it's interpersonal it's"
+    },
+    {
+      "end_hms": "01:28:03.020",
+      "id": "seg-000969",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:27:58.039",
+      "text": "between people you regulate other people's emotions and you have to pick up on other people's emotions"
+    },
+    {
+      "end_hms": "01:28:07.880",
+      "id": "seg-000970",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:28:03.020",
+      "text": "into influence other people's emotions it's a bidirectional interaction and so I think a big"
+    },
+    {
+      "end_hms": "01:28:14.340",
+      "id": "seg-000971",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:28:07.880",
+      "text": "part of emotional intelligence comes from being able to read that probably in a fairly automatic way"
+    },
+    {
+      "end_hms": "01:28:20.920",
+      "id": "seg-000972",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:28:14.340",
+      "text": "and in a context dependent way and depending on the context it can be the case that what's most"
+    },
+    {
+      "end_hms": "01:28:25.319",
+      "id": "seg-000973",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:28:20.920",
+      "text": "adaptive is if you really get involved with other people and you really talk to them a lot you're"
+    },
+    {
+      "end_hms": "01:28:31.619",
+      "id": "seg-000974",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:28:25.319",
+      "text": "very empathic or you just take over and that can work too depending on the circumstances so the"
+    },
+    {
+      "end_hms": "01:28:37.479",
+      "id": "seg-000975",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:28:31.619",
+      "text": "their multiple strategies and I think for any of these social intelligence emotion regulation any of"
+    },
+    {
+      "end_hms": "01:28:43.840",
+      "id": "seg-000976",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:28:37.479",
+      "text": "you sort of met a cognitive skills the most successful skill is if you don't just have one but you have"
+    },
+    {
+      "end_hms": "01:28:49.840",
+      "id": "seg-000977",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:28:43.840",
+      "text": "variety and you can switch between them and you can use context to switch between those just like"
+    },
+    {
+      "end_hms": "01:28:53.680",
+      "id": "seg-000978",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:28:49.840",
+      "text": "physiological heart rate variability don't want to train to just be able to have a low heart rate"
+    },
+    {
+      "end_hms": "01:28:59.039",
+      "id": "seg-000979",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:28:53.680",
+      "text": "you want to be able to train to have a variable a big range same thing with emotions what's most"
+    },
+    {
+      "end_hms": "01:29:04.880",
+      "id": "seg-000980",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:28:59.039",
+      "text": "adaptive is being able to have a big range of emotions and being able to switch adaptively"
+    },
+    {
+      "end_hms": "01:29:11.520",
+      "id": "seg-000981",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:29:04.880",
+      "text": "depending on the context between them and I think that's where in a real long term context dependent"
+    },
+    {
+      "end_hms": "01:29:16.100",
+      "id": "seg-000982",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:29:11.520",
+      "text": "social intelligence for people that really come out ahead it's not one tiny slice where they do"
+    },
+    {
+      "end_hms": "01:29:20.739",
+      "id": "seg-000983",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:29:16.100",
+      "text": "well and don't do well in lots of other circumstances it's the ability to be really adaptive and"
+    },
+    {
+      "end_hms": "01:29:28.039",
+      "id": "seg-000984",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:29:20.739",
+      "text": "flexible and switch around which requires a keen sense of oneself like where we are in our"
+    },
+    {
+      "end_hms": "01:29:34.039",
+      "id": "seg-000985",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:29:28.039",
+      "text": "internal state and it's in sense of of context in fact I observed a really impressive physician"
+    },
+    {
+      "end_hms": "01:29:39.500",
+      "id": "seg-000986",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:29:34.039",
+      "text": "recently like moving through the hospital environment I mean he was just like all agency to"
+    },
+    {
+      "end_hms": "01:29:43.920",
+      "id": "seg-000987",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:29:39.500",
+      "text": "to to but then with the patient it was as if he dropped into a bubble yeah the patient was"
+    },
+    {
+      "end_hms": "01:29:48.600",
+      "id": "seg-000988",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:29:43.920",
+      "text": "understandably a little nervous about what was to come and and it was remarkable I was like okay"
+    },
+    {
+      "end_hms": "01:29:54.520",
+      "id": "seg-000989",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:29:48.600",
+      "text": "that is superb bedside manner but then it comes time to do the actual work and that's not a time"
+    },
+    {
+      "end_hms": "01:29:59.840",
+      "id": "seg-000990",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:29:54.520",
+      "text": "for emotion is just like 100 you have to be able to 100 percent like I mean that the life"
+    },
+    {
+      "end_hms": "01:30:06.060",
+      "id": "seg-000991",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:29:59.840",
+      "text": "and well-being of the patient relies on being absolutely focused on the task at hand I mean it's"
+    },
+    {
+      "end_hms": "01:30:13.319",
+      "id": "seg-000992",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:30:06.060",
+      "text": "related again to the presumptive association between emotional granularity what use a form of"
+    },
+    {
+      "end_hms": "01:30:19.539",
+      "id": "seg-000993",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:30:13.319",
+      "text": "merit pioneered decades ago the ability to differentiate and be aware of all the variety of"
+    },
+    {
+      "end_hms": "01:30:26.159",
+      "id": "seg-000994",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:30:19.539",
+      "text": "emotions in you and emotion regulation flexibility that you're able to adopt many different"
+    },
+    {
+      "end_hms": "01:30:31.279",
+      "id": "seg-000995",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:30:26.159",
+      "text": "emotion regulation strategies but in order to do so you need the emotional granularity to be"
+    },
+    {
+      "end_hms": "01:30:35.880",
+      "id": "seg-000996",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:30:31.279",
+      "text": "able to be aware of all the different emotions that are going on in the first place it's pretty"
+    },
+    {
+      "end_hms": "01:30:41.979",
+      "id": "seg-000997",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:30:35.880",
+      "text": "two things one is an ability to differentiate at a very fine grain and the other one is to step back"
+    },
+    {
+      "end_hms": "01:30:46.760",
+      "id": "seg-000998",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:30:41.979",
+      "text": "and have some kind of metacognitive oversight and control so you can see okay here's this full spectrum"
+    },
+    {
+      "end_hms": "01:30:52.319",
+      "id": "seg-000999",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:30:46.760",
+      "text": "of things I could do and you can take a look at all of those incorporate the context and pick one"
+    },
+    {
+      "end_hms": "01:30:57.779",
+      "id": "seg-001000",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:30:52.319",
+      "text": "the one path amongst many that you could take that's the most adaptive it's interesting some of my"
+    },
+    {
+      "end_hms": "01:31:02.479",
+      "id": "seg-001001",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:30:57.779",
+      "text": "favorite scientists are very motive people and then some of my favorite scientists thinking of one"
+    },
+    {
+      "end_hms": "01:31:07.300",
+      "id": "seg-001002",
+      "role": "context_only",
+      "speaker": null,
+      "start_hms": "01:31:02.479",
+      "text": "in particular when I was down at UC San Diego when my lab was there most people probably label as"
+    }
+  ],
+  "source_sha256": "35dc18929ef7fc18a3cfba97a48feae2210ffeb900a46a183e0a35d05539394b",
+  "window_id": "window-0016"
+}

@@ -1,0 +1,553 @@
+{
+  "context_only_segment_ids": [
+    "seg-001001",
+    "seg-001059"
+  ],
+  "contract_version": "ttk.semantic-contract.v2",
+  "core_segment_ids": [
+    "seg-001002",
+    "seg-001003",
+    "seg-001004",
+    "seg-001005",
+    "seg-001006",
+    "seg-001007",
+    "seg-001008",
+    "seg-001009",
+    "seg-001010",
+    "seg-001011",
+    "seg-001012",
+    "seg-001013",
+    "seg-001014",
+    "seg-001015",
+    "seg-001016",
+    "seg-001017",
+    "seg-001018",
+    "seg-001019",
+    "seg-001020",
+    "seg-001021",
+    "seg-001022",
+    "seg-001023",
+    "seg-001024",
+    "seg-001025",
+    "seg-001026",
+    "seg-001027",
+    "seg-001028",
+    "seg-001029",
+    "seg-001030",
+    "seg-001031",
+    "seg-001032",
+    "seg-001033",
+    "seg-001034",
+    "seg-001035",
+    "seg-001036",
+    "seg-001037",
+    "seg-001038",
+    "seg-001039",
+    "seg-001040",
+    "seg-001041",
+    "seg-001042",
+    "seg-001043",
+    "seg-001044",
+    "seg-001045",
+    "seg-001046",
+    "seg-001047",
+    "seg-001048",
+    "seg-001049",
+    "seg-001050",
+    "seg-001051",
+    "seg-001052",
+    "seg-001053",
+    "seg-001054",
+    "seg-001055",
+    "seg-001056",
+    "seg-001057",
+    "seg-001058"
+  ],
+  "packet_id": "map-window-0017",
+  "packet_sha256": "eb83f9ec91ded8242e0ada76a070f3114b4b14cd78b5a5bf8024d899dee0cd00",
+  "result_path": "work/results/map/window-0017.json",
+  "rules": [
+    "Extract evidence only from core segments; context_only segments are orientation only.",
+    "Every candidate claim requires at least one verbatim quote from its cited core segment.",
+    "Do not force content into categories; empty arrays are valid.",
+    "Separate factual assertions from opinion, prediction, recommendation, decision, anecdote, definition, mechanism, estimate, and hypothesis.",
+    "Preserve disagreement and uncertainty rather than reconciling it."
+  ],
+  "schema": "ttk.map-packet.v2",
+  "source_segments": [
+    {
+      "end_hms": "01:31:02.479",
+      "id": "seg-001001",
+      "role": "context_only",
+      "speaker": null,
+      "start_hms": "01:30:57.779",
+      "text": "favorite scientists are very motive people and then some of my favorite scientists thinking of one"
+    },
+    {
+      "end_hms": "01:31:07.300",
+      "id": "seg-001002",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:31:02.479",
+      "text": "in particular when I was down at UC San Diego when my lab was there most people probably label as"
+    },
+    {
+      "end_hms": "01:31:11.479",
+      "id": "seg-001003",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:31:07.300",
+      "text": "a little bit on the spectrum I won't mention his name he would walk into a faculty meeting where"
+    },
+    {
+      "end_hms": "01:31:16.100",
+      "id": "seg-001004",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:31:11.479",
+      "text": "someone else was presenting and he would say out loud to be like sitting there like is this any"
+    },
+    {
+      "end_hms": "01:31:21.180",
+      "id": "seg-001005",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:31:16.100",
+      "text": "good and I have encountered people like that too and you know it's very just concerning when"
+    },
+    {
+      "end_hms": "01:31:24.840",
+      "id": "seg-001006",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:31:21.180",
+      "text": "you're giving the talk it's disconcerting when you're giving the top but I was going to say there's"
+    },
+    {
+      "end_hms": "01:31:29.680",
+      "id": "seg-001007",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:31:24.840",
+      "text": "also something incredibly refreshing about it because it's almost like they're they're asking the"
+    },
+    {
+      "end_hms": "01:31:34.220",
+      "id": "seg-001008",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:31:29.680",
+      "text": "question that they they need to ask you're a little embarrassed for them but you're but it's liberating"
+    },
+    {
+      "end_hms": "01:31:39.260",
+      "id": "seg-001009",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:31:34.220",
+      "text": "you feel like we've broken the social mold here a little bit and someone would say excuse me"
+    },
+    {
+      "end_hms": "01:31:43.060",
+      "id": "seg-001010",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:31:39.260",
+      "text": "so and so so and so it's presenting be like oh sorry and then we'll just sit down and then listen"
+    },
+    {
+      "end_hms": "01:31:48.680",
+      "id": "seg-001011",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:31:43.060",
+      "text": "I mean they're entirely polite very actively engaged in the conversation but I sometimes wish"
+    },
+    {
+      "end_hms": "01:31:54.319",
+      "id": "seg-001012",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:31:48.680",
+      "text": "like how cool would that be like I'm sure there's a cost other areas and like but how cool would"
+    },
+    {
+      "end_hms": "01:31:59.260",
+      "id": "seg-001013",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:31:54.319",
+      "text": "that be you lose this person has a little bit less context dependent right right you know flexibility"
+    },
+    {
+      "end_hms": "01:32:04.380",
+      "id": "seg-001014",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:31:59.260",
+      "text": "around emotions and I have to imagine that they move through life in a way that's kind of like"
+    },
+    {
+      "end_hms": "01:32:09.739",
+      "id": "seg-001015",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:32:04.380",
+      "text": "liberated well they wouldn't have this huge cognitive load all the time right it's extremely smart"
+    },
+    {
+      "end_hms": "01:32:15.479",
+      "id": "seg-001016",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:32:09.739",
+      "text": "now that's qualitative right but like incredible so actually physicist turn neuroscientist and I"
+    },
+    {
+      "end_hms": "01:32:20.060",
+      "id": "seg-001017",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:32:15.479",
+      "text": "just thought and that's pretty cool and then the more you go into engineering and science fields the"
+    },
+    {
+      "end_hms": "01:32:23.880",
+      "id": "seg-001018",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:32:20.060",
+      "text": "more of these people you encounter this is true you see fewer of these people in the performing"
+    },
+    {
+      "end_hms": "01:32:28.819",
+      "id": "seg-001019",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:32:23.880",
+      "text": "arts for instance my lab studies autism amongst other things and you certainly would have the case"
+    },
+    {
+      "end_hms": "01:32:34.000",
+      "id": "seg-001020",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:32:28.819",
+      "text": "that as a spectrum yes indeed you would have mathematicians engineers lots of people who are very"
+    },
+    {
+      "end_hms": "01:32:39.159",
+      "id": "seg-001021",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:32:34.000",
+      "text": "successful who are on the spectrum to some extent and I think you know coming back to what you were"
+    },
+    {
+      "end_hms": "01:32:45.439",
+      "id": "seg-001022",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:32:39.159",
+      "text": "saying it's sort of liberating or simplifying if you had to really effortfully cognitively think"
+    },
+    {
+      "end_hms": "01:32:50.000",
+      "id": "seg-001023",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:32:45.439",
+      "text": "about how to regulate your social behavior and make all the right moves and not offend anybody"
+    },
+    {
+      "end_hms": "01:32:54.659",
+      "id": "seg-001024",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:32:50.000",
+      "text": "who are worried about that all the time it would be overwhelming and I think it is overwhelming"
+    },
+    {
+      "end_hms": "01:33:00.119",
+      "id": "seg-001025",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:32:54.659",
+      "text": "for many people with autism that you need to somehow internalize it and it has to be relatively"
+    },
+    {
+      "end_hms": "01:33:05.600",
+      "id": "seg-001026",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:33:00.119",
+      "text": "effortless and automatic it has to become automatic at some level and then you can move through life"
+    },
+    {
+      "end_hms": "01:33:11.100",
+      "id": "seg-001027",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:33:05.600",
+      "text": "fairly smoothly in a socially very complex way and that's what's difficult for many people with autism"
+    },
+    {
+      "end_hms": "01:33:16.020",
+      "id": "seg-001028",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:33:11.100",
+      "text": "that they lack that part they can compensate to some extent but the cognitive load starts really"
+    },
+    {
+      "end_hms": "01:33:20.180",
+      "id": "seg-001029",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:33:16.020",
+      "text": "being an impediment because if you have to track everything have to remember okay I should make"
+    },
+    {
+      "end_hms": "01:33:25.779",
+      "id": "seg-001030",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:33:20.180",
+      "text": "eye contact I have to remember turn taking if you have to cognitively remember all those things"
+    },
+    {
+      "end_hms": "01:33:31.520",
+      "id": "seg-001031",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:33:25.779",
+      "text": "it's just overwhelming so you have to be able to somehow have it be automatic at some level I'd"
+    },
+    {
+      "end_hms": "01:33:36.470",
+      "id": "seg-001032",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:33:31.810",
+      "text": "like to take a quick break and acknowledge one of our sponsors element elements is an electrolyte"
+    },
+    {
+      "end_hms": "01:33:41.090",
+      "id": "seg-001033",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:33:36.470",
+      "text": "drink that has everything you need and nothing you don't that means the electrolytes sodium"
+    },
+    {
+      "end_hms": "01:33:46.890",
+      "id": "seg-001034",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:33:41.090",
+      "text": "magnesium and potassium all in the correct ratios but no sugar proper hydration is critical for"
+    },
+    {
+      "end_hms": "01:33:51.850",
+      "id": "seg-001035",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:33:46.890",
+      "text": "brain and body function even a slight degree of dehydration can diminish your cognitive and"
+    },
+    {
+      "end_hms": "01:33:57.210",
+      "id": "seg-001036",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:33:51.850",
+      "text": "physical performance it's also important that you get adequate electrolytes the electrolytes sodium"
+    },
+    {
+      "end_hms": "01:34:02.130",
+      "id": "seg-001037",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:33:57.210",
+      "text": "magnesium and potassium are vital for the functioning of all cells in your body especially your"
+    },
+    {
+      "end_hms": "01:34:06.949",
+      "id": "seg-001038",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:34:02.130",
+      "text": "neurons or your nerve cells drinking element makes it very easy to ensure that you're getting adequate"
+    },
+    {
+      "end_hms": "01:34:12.789",
+      "id": "seg-001039",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:34:06.949",
+      "text": "hydration and adequate electrolytes my days tend to start really fast meaning I have to jump right"
+    },
+    {
+      "end_hms": "01:34:17.850",
+      "id": "seg-001040",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:34:12.789",
+      "text": "into work or right into exercise so to make sure that I'm hydrated and I have sufficient electrolytes"
+    },
+    {
+      "end_hms": "01:34:23.029",
+      "id": "seg-001041",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:34:17.850",
+      "text": "when I first wake up in the morning I drink 16 to 32 ounces of water with an element packet dissolved"
+    },
+    {
+      "end_hms": "01:34:27.670",
+      "id": "seg-001042",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:34:23.029",
+      "text": "in it I also drink element dissolved in water during any kind of physical exercise that I'm doing"
+    },
+    {
+      "end_hms": "01:34:32.890",
+      "id": "seg-001043",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:34:27.670",
+      "text": "especially on hot days when I'm sweating a lot and losing water and electrolytes element has a"
+    },
+    {
+      "end_hms": "01:34:37.329",
+      "id": "seg-001044",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:34:32.890",
+      "text": "bunch of great tasting flavors in fact I love them all I love the watermelon the raspberry the citrus"
+    },
+    {
+      "end_hms": "01:34:42.829",
+      "id": "seg-001045",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:34:37.329",
+      "text": "and I really love the lemonade flavor so if you'd like to try element you can go to drinkelement.com"
+    },
+    {
+      "end_hms": "01:34:48.729",
+      "id": "seg-001046",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:34:42.829",
+      "text": "slash huberman to claim a free element sample pack with any purchase again that's drinkelement.com"
+    },
+    {
+      "end_hms": "01:34:54.189",
+      "id": "seg-001047",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:34:48.729",
+      "text": "slash huberman to claim a free sample pack let's talk about autism and I'll just put the"
+    },
+    {
+      "end_hms": "01:34:58.689",
+      "id": "seg-001048",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:34:54.189",
+      "text": "mention up front because this is a topic that sometimes gets people triggered let's leave out"
+    },
+    {
+      "end_hms": "01:35:03.970",
+      "id": "seg-001049",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:34:58.689",
+      "text": "for the time being not because it isn't important it is important let's leave out severe cases"
+    },
+    {
+      "end_hms": "01:35:10.109",
+      "id": "seg-001050",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:35:03.970",
+      "text": "of autism where people need lifelong care they can't care for themselves and let's talk about"
+    },
+    {
+      "end_hms": "01:35:14.750",
+      "id": "seg-001051",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:35:10.109",
+      "text": "the rest of the spectrum already in that statement I'm sure I violated some of the newer"
+    },
+    {
+      "end_hms": "01:35:19.350",
+      "id": "seg-001052",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:35:14.750",
+      "text": "nomenclature but let's just liberate ourselves a little bit come at this from a place of benevolence"
+    },
+    {
+      "end_hms": "01:35:23.670",
+      "id": "seg-001053",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:35:19.350",
+      "text": "and trying to understand social dynamics social processing in the brain so we're not talking about"
+    },
+    {
+      "end_hms": "01:35:28.869",
+      "id": "seg-001054",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:35:23.670",
+      "text": "people with severe stereotopes who just do lifelong care even etc we're talking about the rest"
+    },
+    {
+      "end_hms": "01:35:33.489",
+      "id": "seg-001055",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:35:28.869",
+      "text": "of the category so something like this former colleague of mine in San Diego a little bit on the"
+    },
+    {
+      "end_hms": "01:35:39.090",
+      "id": "seg-001056",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:35:33.489",
+      "text": "spectrum for all I know even if it's been one of our participants maybe and it's a delightful person"
+    },
+    {
+      "end_hms": "01:35:44.729",
+      "id": "seg-001057",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:35:39.090",
+      "text": "happy marriage happy family everyone in his lab adored him and brilliant scientist and"
+    },
+    {
+      "end_hms": "01:35:50.210",
+      "id": "seg-001058",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:35:45.630",
+      "text": "by my read a highly functional and all aspects of life but definitely not"
+    },
+    {
+      "end_hms": "01:35:57.010",
+      "id": "seg-001059",
+      "role": "context_only",
+      "speaker": null,
+      "start_hms": "01:35:51.229",
+      "text": "tuned in to what other people are thinking you're doing in the end context matter right I mean"
+    }
+  ],
+  "source_sha256": "35dc18929ef7fc18a3cfba97a48feae2210ffeb900a46a183e0a35d05539394b",
+  "window_id": "window-0017"
+}

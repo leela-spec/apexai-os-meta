@@ -1,0 +1,409 @@
+{
+  "context_only_segment_ids": [
+    "seg-000763",
+    "seg-000805"
+  ],
+  "contract_version": "ttk.semantic-contract.v2",
+  "core_segment_ids": [
+    "seg-000764",
+    "seg-000765",
+    "seg-000766",
+    "seg-000767",
+    "seg-000768",
+    "seg-000769",
+    "seg-000770",
+    "seg-000771",
+    "seg-000772",
+    "seg-000773",
+    "seg-000774",
+    "seg-000775",
+    "seg-000776",
+    "seg-000777",
+    "seg-000778",
+    "seg-000779",
+    "seg-000780",
+    "seg-000781",
+    "seg-000782",
+    "seg-000783",
+    "seg-000784",
+    "seg-000785",
+    "seg-000786",
+    "seg-000787",
+    "seg-000788",
+    "seg-000789",
+    "seg-000790",
+    "seg-000791",
+    "seg-000792",
+    "seg-000793",
+    "seg-000794",
+    "seg-000795",
+    "seg-000796",
+    "seg-000797",
+    "seg-000798",
+    "seg-000799",
+    "seg-000800",
+    "seg-000801",
+    "seg-000802",
+    "seg-000803",
+    "seg-000804"
+  ],
+  "packet_id": "map-window-0013",
+  "packet_sha256": "49d0a4b5bf10eb62d9862282805676b730801d868c4f6bfe73ee08a677421e17",
+  "result_path": "work/results/map/window-0013.json",
+  "rules": [
+    "Extract evidence only from core segments; context_only segments are orientation only.",
+    "Every candidate claim requires at least one verbatim quote from its cited core segment.",
+    "Do not force content into categories; empty arrays are valid.",
+    "Separate factual assertions from opinion, prediction, recommendation, decision, anecdote, definition, mechanism, estimate, and hypothesis.",
+    "Preserve disagreement and uncertainty rather than reconciling it."
+  ],
+  "schema": "ttk.map-packet.v2",
+  "source_segments": [
+    {
+      "end_hms": "01:09:00.300",
+      "id": "seg-000763",
+      "role": "context_only",
+      "speaker": null,
+      "start_hms": "01:08:53.939",
+      "text": "Barrett has as has made this point repeatedly that there really is no systematic association"
+    },
+    {
+      "end_hms": "01:09:05.159",
+      "id": "seg-000764",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:09:00.300",
+      "text": "between specific emotions and specific changes in your body well if you look at those studies"
+    },
+    {
+      "end_hms": "01:09:09.640",
+      "id": "seg-000765",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:09:05.159",
+      "text": "people put a few electrodes on and they measure you know heart rate changes blood pressure changes"
+    },
+    {
+      "end_hms": "01:09:15.460",
+      "id": "seg-000766",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:09:09.640",
+      "text": "etc it is extremely crude you're looking at a tiny tiny slice of what's going on in your body"
+    },
+    {
+      "end_hms": "01:09:21.800",
+      "id": "seg-000767",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:09:15.460",
+      "text": "what you would want to do is have a detailed high-dimensional readout of okay your your gall bladder"
+    },
+    {
+      "end_hms": "01:09:28.340",
+      "id": "seg-000768",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:09:21.800",
+      "text": "and your liver and your kidney and your heart and changes all over your body and look at that"
+    },
+    {
+      "end_hms": "01:09:33.979",
+      "id": "seg-000769",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:09:28.340",
+      "text": "and ask is there is there some kind of association between specific emotion states and changes"
+    },
+    {
+      "end_hms": "01:09:39.119",
+      "id": "seg-000770",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:09:33.979",
+      "text": "some kind of complex change in your body and I would bet that there is but we just don't have"
+    },
+    {
+      "end_hms": "01:09:43.500",
+      "id": "seg-000771",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:09:39.119",
+      "text": "those data yet so those studies remain to be done yeah they really should be done because I could"
+    },
+    {
+      "end_hms": "01:09:49.899",
+      "id": "seg-000772",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:09:44.100",
+      "text": "make up a story where if someone or an animal feels extreme anger like of the sort that they"
+    },
+    {
+      "end_hms": "01:09:55.520",
+      "id": "seg-000773",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:09:49.899",
+      "text": "would have right before they were in a fight that certain immune organs would deploy a bunch of"
+    },
+    {
+      "end_hms": "01:10:00.840",
+      "id": "seg-000774",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:09:55.520",
+      "text": "things that prepare for wound healing or prepare for resilience in the in the aftermath that that"
+    },
+    {
+      "end_hms": "01:10:05.739",
+      "id": "seg-000775",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:10:00.840",
+      "text": "just stands to reason I of course I know data for that but well and the link between the brain"
+    },
+    {
+      "end_hms": "01:10:11.300",
+      "id": "seg-000776",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:10:05.739",
+      "text": "and the body I mean we now understand that that is so detailed and so intricate that really"
+    },
+    {
+      "end_hms": "01:10:17.279",
+      "id": "seg-000777",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:10:11.300",
+      "text": "brain and body are very very tightly coupled and we do know that there are signatures that"
+    },
+    {
+      "end_hms": "01:10:21.539",
+      "id": "seg-000778",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:10:17.279",
+      "text": "distributed they're complicated but these are from and buried herself in collaboration with"
+    },
+    {
+      "end_hms": "01:10:28.220",
+      "id": "seg-000779",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:10:21.539",
+      "text": "Torweger has published a neural imaging study showing that for basic emotions like anger and fear"
+    },
+    {
+      "end_hms": "01:10:35.180",
+      "id": "seg-000780",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:10:28.220",
+      "text": "and sadness and so on there are reliable signatures of brain activation they're distributed they're"
+    },
+    {
+      "end_hms": "01:10:39.359",
+      "id": "seg-000781",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:10:35.180",
+      "text": "spread out they're complicated they're not just like in one place but given that given that"
+    },
+    {
+      "end_hms": "01:10:43.699",
+      "id": "seg-000782",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:10:39.359",
+      "text": "association between emotions and patterns of the brain and the fact that the brain and the body"
+    },
+    {
+      "end_hms": "01:10:48.140",
+      "id": "seg-000783",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:10:43.699",
+      "text": "are so intimately tied together I think it's a completely reasonable hypothesis that you would"
+    },
+    {
+      "end_hms": "01:10:53.779",
+      "id": "seg-000784",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:10:48.140",
+      "text": "find a similar high-dimensional signature of changes throughout your body that are systematically"
+    },
+    {
+      "end_hms": "01:10:59.539",
+      "id": "seg-000785",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:10:53.779",
+      "text": "associated with certain types of emotions I had a thought spring to mind based on our earlier"
+    },
+    {
+      "end_hms": "01:11:04.739",
+      "id": "seg-000786",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:10:59.539",
+      "text": "discussion it from the perspective of media and advertising it makes perfect sense why all media"
+    },
+    {
+      "end_hms": "01:11:11.640",
+      "id": "seg-000787",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:11:04.739",
+      "text": "and advertising is incentivized to get you to prioritize an emotion to the point where it takes"
+    },
+    {
+      "end_hms": "01:11:17.279",
+      "id": "seg-000788",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:11:11.640",
+      "text": "over behavior to go click and buy something or to vote a certain way or to hate a certain group"
+    },
+    {
+      "end_hms": "01:11:22.680",
+      "id": "seg-000789",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:11:17.279",
+      "text": "or to like a certain group and so really what they're fighting for is this prioritization thing"
+    },
+    {
+      "end_hms": "01:11:28.840",
+      "id": "seg-000790",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:11:22.680",
+      "text": "like the path to behavior is through the prioritization in emotional capture and captures your attention"
+    },
+    {
+      "end_hms": "01:11:34.279",
+      "id": "seg-000791",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:11:28.840",
+      "text": "which is what emotions are designed to do and once you've captured people's attention you have"
+    },
+    {
+      "end_hms": "01:11:39.479",
+      "id": "seg-000792",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:11:34.279",
+      "text": "a captive audience and you can control them much more and in some sense it's obvious right you get"
+    },
+    {
+      "end_hms": "01:11:43.399",
+      "id": "seg-000793",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:11:39.479",
+      "text": "people emotional they're more likely to behave in a certain way versus another but I think we"
+    },
+    {
+      "end_hms": "01:11:48.020",
+      "id": "seg-000794",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:11:43.399",
+      "text": "underestimate the extent to which all day long we are bombarded with these signals like subtle"
+    },
+    {
+      "end_hms": "01:11:53.600",
+      "id": "seg-000795",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:11:48.020",
+      "text": "advertising doesn't really work well yeah yeah someone said I don't know who said it but you know"
+    },
+    {
+      "end_hms": "01:11:59.300",
+      "id": "seg-000796",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:11:53.600",
+      "text": "all AB testing leads to like you know sex or violence because if you really just look at what's"
+    },
+    {
+      "end_hms": "01:12:04.520",
+      "id": "seg-000797",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:11:59.300",
+      "text": "likely to get grab people's attention you know eventually you regress into the hypothalamus the"
+    },
+    {
+      "end_hms": "01:12:09.180",
+      "id": "seg-000798",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:12:04.520",
+      "text": "more primitive states like inspire more attention which tells you a lot about the world you know"
+    },
+    {
+      "end_hms": "01:12:13.560",
+      "id": "seg-000799",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:12:09.180",
+      "text": "and there and there are ethical lines and there are there are societal lines where you say no"
+    },
+    {
+      "end_hms": "01:12:18.079",
+      "id": "seg-000800",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:12:13.560",
+      "text": "no that's that's too extreme too much violence too much skin but it's all veering in the like"
+    },
+    {
+      "end_hms": "01:12:21.939",
+      "id": "seg-000801",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:12:18.079",
+      "text": "toward the hypothalamus so to speak it's all getting more and more primitive there's a lot of"
+    },
+    {
+      "end_hms": "01:12:25.880",
+      "id": "seg-000802",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:12:21.939",
+      "text": "processing that goes on in all these subcortical structures and certainly would be understand best"
+    },
+    {
+      "end_hms": "01:12:32.399",
+      "id": "seg-000803",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:12:25.880",
+      "text": "in terms of emotions are all these subcortical circuits and a lot of that is below the radar of"
+    },
+    {
+      "end_hms": "01:12:37.720",
+      "id": "seg-000804",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:12:32.399",
+      "text": "our conscious awareness I'd like to take a quick break and acknowledge our sponsor function"
+    },
+    {
+      "end_hms": "01:12:44.180",
+      "id": "seg-000805",
+      "role": "context_only",
+      "speaker": null,
+      "start_hms": "01:12:38.439",
+      "text": "function provides over 160 advanced lab tests to give you a clear snapshot of your bodily health"
+    }
+  ],
+  "source_sha256": "35dc18929ef7fc18a3cfba97a48feae2210ffeb900a46a183e0a35d05539394b",
+  "window_id": "window-0013"
+}

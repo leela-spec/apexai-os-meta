@@ -1,0 +1,616 @@
+{
+  "context_only_segment_ids": [
+    "seg-001117",
+    "seg-001182"
+  ],
+  "contract_version": "ttk.semantic-contract.v2",
+  "core_segment_ids": [
+    "seg-001118",
+    "seg-001119",
+    "seg-001120",
+    "seg-001121",
+    "seg-001122",
+    "seg-001123",
+    "seg-001124",
+    "seg-001125",
+    "seg-001126",
+    "seg-001127",
+    "seg-001128",
+    "seg-001129",
+    "seg-001130",
+    "seg-001131",
+    "seg-001132",
+    "seg-001133",
+    "seg-001134",
+    "seg-001135",
+    "seg-001136",
+    "seg-001137",
+    "seg-001138",
+    "seg-001139",
+    "seg-001140",
+    "seg-001141",
+    "seg-001142",
+    "seg-001143",
+    "seg-001144",
+    "seg-001145",
+    "seg-001146",
+    "seg-001147",
+    "seg-001148",
+    "seg-001149",
+    "seg-001150",
+    "seg-001151",
+    "seg-001152",
+    "seg-001153",
+    "seg-001154",
+    "seg-001155",
+    "seg-001156",
+    "seg-001157",
+    "seg-001158",
+    "seg-001159",
+    "seg-001160",
+    "seg-001161",
+    "seg-001162",
+    "seg-001163",
+    "seg-001164",
+    "seg-001165",
+    "seg-001166",
+    "seg-001167",
+    "seg-001168",
+    "seg-001169",
+    "seg-001170",
+    "seg-001171",
+    "seg-001172",
+    "seg-001173",
+    "seg-001174",
+    "seg-001175",
+    "seg-001176",
+    "seg-001177",
+    "seg-001178",
+    "seg-001179",
+    "seg-001180",
+    "seg-001181"
+  ],
+  "packet_id": "map-window-0019",
+  "packet_sha256": "a376f7881e2adbc578ff4c129a1aafadf5a27b66c9e33099b0c5ea95b8296627",
+  "result_path": "work/results/map/window-0019.json",
+  "rules": [
+    "Extract evidence only from core segments; context_only segments are orientation only.",
+    "Every candidate claim requires at least one verbatim quote from its cited core segment.",
+    "Do not force content into categories; empty arrays are valid.",
+    "Separate factual assertions from opinion, prediction, recommendation, decision, anecdote, definition, mechanism, estimate, and hypothesis.",
+    "Preserve disagreement and uncertainty rather than reconciling it."
+  ],
+  "schema": "ttk.map-packet.v2",
+  "source_segments": [
+    {
+      "end_hms": "01:41:39.479",
+      "id": "seg-001117",
+      "role": "context_only",
+      "speaker": null,
+      "start_hms": "01:41:33.039",
+      "text": "lots of questionnaires on these people to ask what are the associations and is there any causal"
+    },
+    {
+      "end_hms": "01:41:45.079",
+      "id": "seg-001118",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:41:39.899",
+      "text": "hypothesis that we would come up with that if you don't look at faces a lot there's some consequences"
+    },
+    {
+      "end_hms": "01:41:50.800",
+      "id": "seg-001119",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:41:45.079",
+      "text": "if you look at faces a lot there are other consequences if that were the case we're not very yet"
+    },
+    {
+      "end_hms": "01:41:55.239",
+      "id": "seg-001120",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:41:51.300",
+      "text": "that would make very interesting predictions would you mean well maybe I should be looking at your"
+    },
+    {
+      "end_hms": "01:42:01.960",
+      "id": "seg-001121",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:41:55.239",
+      "text": "face all the time the podcast would get a million hits or just be you as always we say well that's"
+    },
+    {
+      "end_hms": "01:42:06.020",
+      "id": "seg-001122",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:42:01.960",
+      "text": "I mean that's another big question which which we're looking at in these longitudinal studies which"
+    },
+    {
+      "end_hms": "01:42:11.600",
+      "id": "seg-001123",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:42:06.020",
+      "text": "is a question of to what extent can you change who you are and you know your emote we were talking"
+    },
+    {
+      "end_hms": "01:42:16.439",
+      "id": "seg-001124",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:42:11.600",
+      "text": "about emotion regulation you can regulate your emotions you can have this meta cognitive insight"
+    },
+    {
+      "end_hms": "01:42:22.020",
+      "id": "seg-001125",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:42:16.439",
+      "text": "you can have some control can you change if you're extrovert or neurotic can you change your"
+    },
+    {
+      "end_hms": "01:42:28.659",
+      "id": "seg-001126",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:42:22.020",
+      "text": "personality and the answer seems to be to some extent us for some variables more than others but"
+    },
+    {
+      "end_hms": "01:42:33.739",
+      "id": "seg-001127",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:42:28.659",
+      "text": "we're trying to quantify that so we have this big longitudinal data set where we give people tons"
+    },
+    {
+      "end_hms": "01:42:38.500",
+      "id": "seg-001128",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:42:33.739",
+      "text": "and tons of questionnaires about their personality about their mood about lots of things and are"
+    },
+    {
+      "end_hms": "01:42:43.859",
+      "id": "seg-001129",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:42:38.500",
+      "text": "asking to what extent over time do they get pushed around and that can change and which one"
+    },
+    {
+      "end_hms": "01:42:48.920",
+      "id": "seg-001130",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:42:43.859",
+      "text": "stay constant and constitutes you have the core of their personality that's unchangeable but I think"
+    },
+    {
+      "end_hms": "01:42:53.800",
+      "id": "seg-001131",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:42:48.920",
+      "text": "it's a super super interesting question what parts of you can change and what parts of you cannot"
+    },
+    {
+      "end_hms": "01:42:58.739",
+      "id": "seg-001132",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:42:53.800",
+      "text": "yeah I think about this all the time I feel like some people this is pseudoscientific what I'm about"
+    },
+    {
+      "end_hms": "01:43:04.760",
+      "id": "seg-001133",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:42:58.739",
+      "text": "to describe they seem to have very high autonomic what I call like our RPM I have a more of a"
+    },
+    {
+      "end_hms": "01:43:09.000",
+      "id": "seg-001134",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:43:04.760",
+      "text": "former colleague because I haven't been working in that field for a while but here we see boton"
+    },
+    {
+      "end_hms": "01:43:16.159",
+      "id": "seg-001135",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:43:09.000",
+      "text": "rosa from Basel give a talk like he moves a lot he's very electric he's also very thin he moves"
+    },
+    {
+      "end_hms": "01:43:20.720",
+      "id": "seg-001136",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:43:16.159",
+      "text": "in his brain he's exceedingly smart free as a high basal metabolic rate but he high basal metabolic"
+    },
+    {
+      "end_hms": "01:43:25.560",
+      "id": "seg-001137",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:43:20.720",
+      "text": "rate and he like a hummingbird yeah but he moves a lot right right and then other people they move less"
+    },
+    {
+      "end_hms": "01:43:30.699",
+      "id": "seg-001138",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:43:25.560",
+      "text": "I think about this all the time because I'm fascinated by and I love dogs I go to this AKC meet the"
+    },
+    {
+      "end_hms": "01:43:35.000",
+      "id": "seg-001139",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:43:30.699",
+      "text": "breeds thing every year I don't go every year they do it every year but I highly recommend people go"
+    },
+    {
+      "end_hms": "01:43:40.500",
+      "id": "seg-001140",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:43:35.000",
+      "text": "even if you don't want a dog because you get to see all the different genetic variation which of course"
+    },
+    {
+      "end_hms": "01:43:45.460",
+      "id": "seg-001141",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:43:40.500",
+      "text": "relates to body size but also temperament and yeah I mean bulldogs are pretty more on the on the"
+    },
+    {
+      "end_hms": "01:43:50.380",
+      "id": "seg-001142",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:43:45.460",
+      "text": "slow mellow side compared to Yorkshire terriers that are more very little spontaneous movement"
+    },
+    {
+      "end_hms": "01:43:56.239",
+      "id": "seg-001143",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:43:50.380",
+      "text": "I think it's one of the reasons why people feel comfortable approaching a bulldog whereas like a you"
+    },
+    {
+      "end_hms": "01:43:59.859",
+      "id": "seg-001144",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:43:56.239",
+      "text": "know pit bulls are always kind of like winding around and moving but some dogs it made it"
+    },
+    {
+      "end_hms": "01:44:03.619",
+      "id": "seg-001145",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:43:59.859",
+      "text": "relates to other things cuteness and whatnot but some people just seem to have a lot of spontaneous"
+    },
+    {
+      "end_hms": "01:44:08.640",
+      "id": "seg-001146",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:44:03.619",
+      "text": "movement other people are more stable in their bodily movements and it does seem to relate to kind"
+    },
+    {
+      "end_hms": "01:44:12.880",
+      "id": "seg-001147",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:44:08.640",
+      "text": "of how excitable they are or not excitable there so you can imagine like if you're if you're"
+    },
+    {
+      "end_hms": "01:44:17.699",
+      "id": "seg-001148",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:44:12.880",
+      "text": "humming at a higher rpm you can like more prone to action so it's a super interesting observation"
+    },
+    {
+      "end_hms": "01:44:21.640",
+      "id": "seg-001149",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:44:17.699",
+      "text": "because the question of course is to what extent does it relate to how their mind is working right"
+    },
+    {
+      "end_hms": "01:44:25.739",
+      "id": "seg-001150",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:44:21.640",
+      "text": "I mean as we're talking now and as you were just talking you know we're moving our hands"
+    },
+    {
+      "end_hms": "01:44:31.600",
+      "id": "seg-001151",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:44:25.739",
+      "text": "we're moving our body moving our face you want to touch a sitting there speaking so to some extent"
+    },
+    {
+      "end_hms": "01:44:36.779",
+      "id": "seg-001152",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:44:31.600",
+      "text": "all of these bodily movements are interfaced with thought if I had to sit completely still and not"
+    },
+    {
+      "end_hms": "01:44:42.840",
+      "id": "seg-001153",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:44:37.319",
+      "text": "move it would be pretty hard to have this conversation right so to some extent bodily movements"
+    },
+    {
+      "end_hms": "01:44:47.500",
+      "id": "seg-001154",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:44:42.840",
+      "text": "actually help us structure our thoughts it's not just like a large language model it's not just"
+    },
+    {
+      "end_hms": "01:44:55.039",
+      "id": "seg-001155",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:44:47.500",
+      "text": "language being on it interfaces with the body and it punctuates thoughts to some extent so I think"
+    },
+    {
+      "end_hms": "01:44:59.920",
+      "id": "seg-001156",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:44:55.039",
+      "text": "it's super interesting and it's certainly the case that the way that somebody moves their body"
+    },
+    {
+      "end_hms": "01:45:04.659",
+      "id": "seg-001157",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:44:59.920",
+      "text": "does say something about how they're thinking as well yeah I've been reading my audio book and I"
+    },
+    {
+      "end_hms": "01:45:10.380",
+      "id": "seg-001158",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:45:04.659",
+      "text": "asked them the sound technicians to allow me to stand while I read it much easier to read an audio"
+    },
+    {
+      "end_hms": "01:45:14.779",
+      "id": "seg-001159",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:45:10.380",
+      "text": "book and to put in flexion you actually can lean in when you want to emphasize something and you can"
+    },
+    {
+      "end_hms": "01:45:19.340",
+      "id": "seg-001160",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:45:14.779",
+      "text": "you know point to the words for a moment but then when you need to work through a passage that"
+    },
+    {
+      "end_hms": "01:45:23.819",
+      "id": "seg-001161",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:45:19.340",
+      "text": "needs to be very finely structured with little emotion because that happens to the view class"
+    },
+    {
+      "end_hms": "01:45:30.890",
+      "id": "seg-001162",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:45:23.819",
+      "text": "your hands and do it so our friend Eddie Chang tells me that the hand representations in the brain"
+    },
+    {
+      "end_hms": "01:45:35.689",
+      "id": "seg-001163",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:45:30.890",
+      "text": "are very close to the language center so these were probably our first tools of language or at"
+    },
+    {
+      "end_hms": "01:45:39.449",
+      "id": "seg-001164",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:45:35.689",
+      "text": "least they co-evolved well your mouth and your hands are the most dexterous and overrepresented"
+    },
+    {
+      "end_hms": "01:45:44.210",
+      "id": "seg-001165",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:45:39.449",
+      "text": "in the brain right you can you know control the world with them and you can move through the most"
+    },
+    {
+      "end_hms": "01:45:50.649",
+      "id": "seg-001166",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:45:44.210",
+      "text": "yeah when you know in the COVID pandemic started 2020 we weren't allowed to to go on campus at all so"
+    },
+    {
+      "end_hms": "01:45:56.710",
+      "id": "seg-001167",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:45:50.649",
+      "text": "we sat around our apartments I sat at home we had lab meetings on zoom only zoom and lectures all"
+    },
+    {
+      "end_hms": "01:46:01.630",
+      "id": "seg-001168",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:45:56.710",
+      "text": "the classes were in zoom prior to that and then zoom took off and now it's most meetings are hybrid"
+    },
+    {
+      "end_hms": "01:46:06.350",
+      "id": "seg-001169",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:46:01.630",
+      "text": "but before that point everything was face-to-face I would stand up and lecture we would talk face-to-face"
+    },
+    {
+      "end_hms": "01:46:12.350",
+      "id": "seg-001170",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:46:06.350",
+      "text": "and suddenly switching to just seeing a bunch of often little just black squares right ever for the"
+    },
+    {
+      "end_hms": "01:46:18.210",
+      "id": "seg-001171",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:46:12.350",
+      "text": "whole classroom there on zoom that was a hard switch that lack of an interactive nature which is"
+    },
+    {
+      "end_hms": "01:46:22.229",
+      "id": "seg-001172",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:46:18.210",
+      "text": "something that we're looking at now I think it's going to be super cool I've a graduate student just"
+    },
+    {
+      "end_hms": "01:46:27.189",
+      "id": "seg-001173",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:46:22.229",
+      "text": "starting this the experiment is this I would see your face on a screen and that said I would see"
+    },
+    {
+      "end_hms": "01:46:31.470",
+      "id": "seg-001174",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:46:27.189",
+      "text": "a video of you I would zoom with you right now and we could be having this podcast over zoom I"
+    },
+    {
+      "end_hms": "01:46:34.649",
+      "id": "seg-001175",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:46:31.470",
+      "text": "actually thought we're going to have this over zoom so I'm very happy it's not over zoom"
+    },
+    {
+      "end_hms": "01:46:39.229",
+      "id": "seg-001176",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:46:34.649",
+      "text": "always better in person and then then you're in person right and it feels different it feels different"
+    },
+    {
+      "end_hms": "01:46:45.829",
+      "id": "seg-001177",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:46:39.229",
+      "text": "and so we're sort of trying to parameterize that degree of social realness of social interaction"
+    },
+    {
+      "end_hms": "01:46:52.649",
+      "id": "seg-001178",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:46:45.829",
+      "text": "and then we're doing that with people with autism asking where does it change and how difficult is"
+    },
+    {
+      "end_hms": "01:46:57.029",
+      "id": "seg-001179",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:46:52.649",
+      "text": "it for people with autism to interact with another person is it equally difficult over zoom is"
+    },
+    {
+      "end_hms": "01:47:01.770",
+      "id": "seg-001180",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:46:57.029",
+      "text": "equally difficult over zoom if you have the selfie camera turned off the other person can't see you"
+    },
+    {
+      "end_hms": "01:47:07.670",
+      "id": "seg-001181",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:47:01.770",
+      "text": "and you know that and so we're trying to look at the degree of actual social interaction as a"
+    },
+    {
+      "end_hms": "01:47:11.630",
+      "id": "seg-001182",
+      "role": "context_only",
+      "speaker": null,
+      "start_hms": "01:47:07.670",
+      "text": "relevant dimension and I think it makes a huge difference I mean it feels completely different"
+    }
+  ],
+  "source_sha256": "35dc18929ef7fc18a3cfba97a48feae2210ffeb900a46a183e0a35d05539394b",
+  "window_id": "window-0019"
+}

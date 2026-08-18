@@ -1,0 +1,687 @@
+1
+00:00:00,430 --> 00:00:10,369
+Hello, cycle nerds. Thanks for joining today. Let's do a cycles market that jam. So let's review some asset classes across
+
+2
+00:00:10,369 --> 00:00:16,390
+different spectrums. Let's just have a live view of where the cycles are.
+
+3
+00:00:17,149 --> 00:00:24,489
+In those assets and then let's recap what we see from a cycle analysis perspective.
+
+4
+00:00:24,489 --> 00:00:42,829
+From the mind of Lars Fartinen, the most advanced cycle analysis, hot off the press.
+
+5
+00:00:45,359 --> 00:00:51,179
+Yeah, thanks for joining again. We are live another episode of the cycles TV. And as you are aware,
+
+6
+00:00:51,420 --> 00:01:01,380
+we review different asset classes, charts in the financial area. We apply our cycle analysis techniques from the foundation
+
+7
+00:01:01,380 --> 00:01:09,540
+just to learn how the situation of different cycles shapes, which does not mean this is not a forecast,
+
+8
+00:01:09,780 --> 00:01:18,900
+this is not a prediction, this is no advice at all. It is just trying to learn something if we apply cycle analysis to financial markets.
+
+9
+00:01:19,640 --> 00:01:31,010
+And we will eat our own dog food. So we will use it by the application which is available to all members to learn, discuss and see what we see.
+
+10
+00:01:31,930 --> 00:01:39,090
+So let's get into it. As I said, some markets I have prepared basic US markets for today.
+
+11
+00:01:39,650 --> 00:01:51,349
+So let's start with a very broad view of the US stock markets as a whole. And for that I will use the geometric value line index,
+
+12
+00:01:51,730 --> 00:02:00,709
+which consists of around 5,000 traded stocks across the US. And it's equal weighted.
+
+13
+00:02:00,709 --> 00:02:13,650
+So it gives a good idea about the whole situation in the stock market overall before we focus on different asset classes or different areas in specific.
+
+14
+00:02:14,800 --> 00:02:23,400
+So let's do the basic work and I will walk you through the basic principles again, how to read a spectrum, how to pick a cycle,
+
+15
+00:02:23,400 --> 00:02:36,740
+which is the basic knowledge we are here applying to cycle analysis to get some ideas. And it's important to recap how we are doing that here, at least if you are new to cycle analysis.
+
+16
+00:02:37,080 --> 00:02:47,879
+So what we see here on the chart is the geometric value line stock market index, which we see here at the bottom.
+
+17
+00:02:47,879 --> 00:03:04,849
+We see the spectrum perspective, so which reveals the spectrum analysis of possible cycles in that spectrum, which means each peak in that spectrum represents possible theoretical cycle.
+
+18
+00:03:05,210 --> 00:03:13,210
+So this is pure digital signal processing, which is then revealed by each peak in that spectrum.
+
+19
+00:03:13,210 --> 00:03:35,650
+The better the better the better the peak looks also from its shape. I mean a sharp peak is can be seen here as we approach that cycle length with 120 days, which is a quite high amplitude in the very sharp peak in regards to the left and right shoulder of that peak.
+
+20
+00:03:35,650 --> 00:03:50,830
+And it even drops down to the bottom of the spectrum bottom here at zero, which from the shape from the visual shape of that peak qualifies for very high qualified cycles similar to those here.
+
+21
+00:03:51,569 --> 00:03:57,590
+So that's that's the way how you can differentiate good or bad cycles in the spectrum.
+
+22
+00:03:57,590 --> 00:04:11,530
+We see the similar perspective in the upper right table view so that table gives us those peaks, you have seen the spectrum just listed in numbers.
+
+23
+00:04:12,780 --> 00:04:25,399
+So the length of the cycle is what we see here as peak. So if we talk about the 120 day cycle, we will find it here in the table as second listed cycle length.
+
+24
+00:04:26,250 --> 00:04:46,180
+How to read that table, just a quick primaries, you see the length information, the color coding indicates the current face of that cycle. So red color coding means that cycle is in its downward face, green coloring would indicate in its upward face.
+
+25
+00:04:47,339 --> 00:05:06,560
+Then we need to take care of the ranking the ranking is an information about the visual shape. So what I expressed just in verbal terms, how good shape looks like is here given by numbers in the ranking, which goes one is the best ranking.
+
+26
+00:05:06,560 --> 00:05:25,579
+So the 122, I just explained why that shape looks good. So you can also see it based on numbers. So you don't need, you don't must read the spectrum on your own. So if you are not fully aware how to read it, the ranking will give you that information.
+
+27
+00:05:25,579 --> 00:05:41,959
+One is the best and then it's sorted. The stability score is another very important metric when we deal with cycles, the stability score gives us an indication about the variability of that given cycle.
+
+28
+00:05:41,959 --> 00:05:59,579
+And we want to have cycles which are with a high stability score or the other way around with a low variability. So the higher the stability, which means that that cycle was very, as the name suggests, very stable.
+
+29
+00:05:59,579 --> 00:06:23,670
+So it has not wobbled around cycles in real nature and also as in financial markets are not that stable are not that theoretical clean as a sine wave looks like. So therefore we need a quality measurement on how good that real cyclic behavior of that cycle in the price series comes close to a perfect sine wave.
+
+30
+00:06:23,670 --> 00:06:39,850
+Think about if the stability would get close to one which would mean it would be a perfect sine wave which you will never see in real data because of the sine wave is not only the simplest way to visualize that.
+
+31
+00:06:39,850 --> 00:07:06,769
+So stability above 0.5 is what we need. So ignore all cycles with stability lower than 0.5. Everything above 0.5. So everything close to .7 is a real good stability over the past. So ranking stability are two different metrics and then strength gives you an indication in relative terms to the other cycles.
+
+32
+00:07:06,769 --> 00:07:29,670
+How they impact price movement over time for us a cycle which is there but has not impacted price movement per day or per bar is interesting from a scientific perspective but not if we are interested in maybe prediction of future price movements.
+
+33
+00:07:29,670 --> 00:07:48,029
+So we need to look out for cycles with the high strength so this is just very quick very brief for everyone who might be new to cycle analysis these are the basics we always use so we stick to that procedure which makes it quite objective.
+
+34
+00:07:48,029 --> 00:08:16,810
+So it's always the same procedure how you can make sure you select those cycles which give you the most chance that they seem to repeat also in the future. There's no guarantee at all that they will repeat in that way but at least it improves your chances so that you get a better probability if you start to think about where is the current situation or so.
+
+35
+00:08:16,810 --> 00:08:26,470
+So long story short so based on that information we are now we need now to make a decision which cycles we think would make the most sense.
+
+36
+00:08:27,839 --> 00:08:47,129
+So in that case I mentioned that already so the one the cycle with links of 122 and I would then also include maybe those two cycles here in addition to get at least a projection out of those which brings us
+
+37
+00:08:47,129 --> 00:09:05,700
+to this composite cycle this is what we're looking for never try to choose more than three cycles because then we are trying to overfit the historical price data with just cycles which could be there but overfitting will not help at all.
+
+38
+00:09:05,700 --> 00:09:18,860
+So try to limit your cycle selection to not more than three dominant cycles which we did I try to explain you why to choose those cycles here.
+
+39
+00:09:18,860 --> 00:09:45,779
+Then always important yeah make a quick recap of the previous changes in trend for that price series you are analyzing here because what you are looking for and this is why we do cycle analysis we do cycle analysis to identify points in time points in time now listen carefully points in time not price.
+
+40
+00:09:46,779 --> 00:10:05,259
+So we are looking for on the time axis yeah when those turns at least according to the cycles might occur and this is what you can have a quick look if the cycles you selected based on the cycle analysis
+
+41
+00:10:05,259 --> 00:10:19,570
+will give you an approximate indication when to expect the price trend to change at that given point in time.
+
+42
+00:10:20,389 --> 00:10:34,740
+So to make that easy to spot from a visual perspective you can then at least this helped me a lot to understand what cycles are and how to make use of them
+
+43
+00:10:34,740 --> 00:10:51,679
+is trying to plot that kind of zigzag line between the price at the points in time when the cycle suggested those turning points.
+
+44
+00:10:52,539 --> 00:11:01,759
+So the red line very roughly drawn here on the chart gives you the indication of the turning points of those cycles from past behavior.
+
+45
+00:11:01,759 --> 00:11:11,639
+Always keep that in mind this is the past behavior where we detected those cycles so we can now roll forward.
+
+46
+00:11:12,299 --> 00:11:28,639
+So what is important now when reading such kind of cycle analysis to things keep in mind you could easily fall into the trap now to plot that cycle and less into the future.
+
+47
+00:11:29,320 --> 00:11:40,120
+It's pure math so no one will block us will log you now to plot this composite for the next one to three years into the future.
+
+48
+00:11:40,279 --> 00:11:47,840
+It's pure math everyone could do that so now the trap is for sure those cycles are not stable.
+
+49
+00:11:47,840 --> 00:12:07,580
+We talked about the stability score so those cycles wobble they have a variability so which means we pick three cycles so each cycle the very around length amplitude phase see this as an error rate and now we add up three cycles which will change over time.
+
+50
+00:12:07,580 --> 00:12:18,169
+So the error rate the more you go into the future the higher the error rate of that projection will be just pure pure matter of fact.
+
+51
+00:12:18,809 --> 00:12:33,549
+So therefore the only two points which are interesting if you do this kind of cycle analysis is where are we now today I call it now cast in that cycle which is which is here where the dot is.
+
+52
+00:12:33,549 --> 00:12:49,049
+So this is where we are today and what is the next projected turning point of that current composite which is here which gives you the next window of opportunity.
+
+53
+00:12:50,490 --> 00:13:03,960
+So this is where we're looking for so reading that cycle composite now on this chart is the cycle has turned the composite cycle out of those three most dominant cycles.
+
+54
+00:13:03,960 --> 00:13:22,419
+So let's turn down lesson on message one so since since July so since July about a month ago that cycle turned over price did not turn over I mean for sure we see that we're talking about cycles here.
+
+55
+00:13:23,580 --> 00:13:49,330
+And second we would expect possible low or that cycle downward headwind to the market call it cyclic headwind for those markets to last until end of September yeah so for the next four to six weeks from a cyclic perspective we have had wind in that market which is not positive.
+
+56
+00:13:50,179 --> 00:14:09,470
+From a time based cycle analysis in that market so okay so but this was the value line so the broad market might be overdue for correction this is the main principles yeah how to read cycle analysis I was very quick with those rules.
+
+57
+00:14:10,210 --> 00:14:28,730
+I assume most of you are familiar with those rules sets also but now if we go over those other markets and asset classes I will not repeat the procedure but maybe you can follow me for the reasoning why I pick certain cycles and maybe certain cycles are not selected for that.
+
+58
+00:14:28,730 --> 00:14:55,370
+All right broader market now to zoom into now different areas let's go to the NASDAQ maybe the tech area where most media attention always is in the US so here we see the closer look into the market situation for the NASDAQ stock market.
+
+59
+00:14:56,110 --> 00:15:19,429
+Here so same principle as always two cycles are picked here 190 which is this peak here below in the spectrum I know sorry this peak here 189 and the second cycle with the length of 120 you might remember that cycle links which is this peak here.
+
+60
+00:15:19,429 --> 00:15:46,850
+And they clearly clarify at least if you look at the other cycles which then would come into play which have a much lower amplitude for those cycles here so that's the way how to derive them we have a look at the stability score which is quite nice so good stability scores ranking visual shape is fine and the strength values are fine right so these are our criteria.
+
+61
+00:15:46,850 --> 00:16:06,309
+Why to choose certain cycle again you could zoom in in the historical behavior of that cycle again it's not about price targets it is about the points in time when price turns according to that composite plot.
+
+62
+00:16:06,309 --> 00:16:32,460
+Yeah and if you zoom in now we have here the up turn and here again the top and here then the next up swing so this is how to read the timing of those cycles you can I think clearly identify that those cycles can explain most of the market behavior just based on those two cycles.
+
+63
+00:16:32,460 --> 00:16:53,460
+Again if it will repeat in the future nobody knows also that mathematical model will not give you any 100% certainty that it will repeat but at least if those cycles exist and continue with that stability this is what we would expect.
+
+64
+00:16:53,460 --> 00:17:20,960
+So here similar message and this is now when the cycle analysis becomes more and more important I mean never rely on just one single cycle analysis on one asset classes but if you see similar patterns or similar analysis result stacking up to more or less the similar message then you get more and more confidence on those cycles.
+
+65
+00:17:20,960 --> 00:17:50,450
+So back to the picture here and here we are quite running on rails if you see that we have the similar situation so that by end of June that cycle for the tech index turned down it was predicted upfront already and here it looks like I mean if you zoom in price seemed to follow like on rails which is how I call it and now it needs to be proven.
+
+66
+00:17:50,450 --> 00:18:12,220
+There is more time to go here into the again and of September beginning of October period so even though a different market sector we are analyzing here with more or less the similar projection as we have seen on even the geometric value line index.
+
+67
+00:18:12,220 --> 00:18:26,339
+So we need to see how the latest up push here will work out if we then add the technical indicators which is the next step maybe we don't have the time to reveal all those details here.
+
+68
+00:18:30,019 --> 00:18:49,700
+Let me put in this one here so while we see that was just a technical reaction which has to be expected at that point so from a cyclic perspective that swing has not ended yet to say that way or let's zoom in a little bit here.
+
+69
+00:18:49,700 --> 00:19:06,710
+So from a cyclic perspective the cycle has still more time on the downward pressure or give more headwind to that asset class from a technical perspective a reaction here would quite be to be expected from a technical point of view.
+
+70
+00:19:07,009 --> 00:19:17,529
+We've seen here how that window played out what would be quite interesting so if you would ask me so how to monitor that situation is.
+
+71
+00:19:18,349 --> 00:19:45,609
+Price has not made in all time high again but if this works out to become more and more important divergence here between the price action and the relative strength this is even more possible indication for bounce back into another possible downturn needs to be seen out and we see similar picture here on the momentum.
+
+72
+00:19:45,609 --> 00:20:16,390
+So momentum is already turning down while price keeps to move up which is an early indication when momentum is decreasing and price is still increasing we have a divergence here so they are quite early science from the technical point of view which could confirm a possible continuation of the projected cycles.
+
+73
+00:20:16,390 --> 00:20:35,930
+Next window of opportunity which is due here in September October so that's how we read the Nasdaq by the way the picture without going into every detail looks quite similar on the semi conductors.
+
+74
+00:20:36,089 --> 00:20:58,190
+So therefore I will not reveal the full similar analysis but you can see from the cycle selected here 180 190 120 the same two short term cycles on the daily chart which will make up the most important cycles here 120 180.
+
+75
+00:21:01,069 --> 00:21:32,460
+And by the way here's just an interesting observation as we are here for cycle analysis I'm just seeing this cycle here with the links of 380 which if I would just have seen that cycle on its own 380 days I would not pick that due to this I mean the left shoulder is more more than perfect we don't see the full right shoulder here it's it's a client.
+
+76
+00:21:32,640 --> 00:22:03,029
+This is kind of plateau however if you see the harmonic relation so 380 in relation to 180 this is more harmonic relation of two which is an important harmonic ratio so those two cycles belong more or less to similar family they have a harmonic relation to each other so it would make sense now if we assume the 180 to 190 day cycle is important.
+
+77
+00:22:03,049 --> 00:22:35,269
+We could also activate the 380 cycles on top of that and that's another very important observation here so maybe you think what happened by doing that the overall shape of the most important two points which I told you are important to have a look on is I told you that the current point in time so where are we today
+
+78
+00:22:35,269 --> 00:23:06,519
+and the next upcoming turning point here and if I now activate or deactivate the 380 day cycle those windows we are interested in do not change at all so that's the key which more confirms even it looks like a secondary cycle but it's quite in sync in regards to the key top and the key bottoms of that cycle it synchronizes
+
+79
+00:23:07,480 --> 00:23:29,190
+the key low here at that point so we could monitor this if we just only select those two cycles let's clean up the chart a little bit here so and we see here when those cycles are not in sync which is when they form those different bottoms or different tops here
+
+80
+00:23:29,190 --> 00:23:58,000
+and when they come into those where we have the high amplitude situations like here and here this is when those two cycles synchronize their face and their tops and bottoms in that case so then you need to monitor what price did at that point in time but it's just an interesting observation from a cycle analysis point of view
+
+81
+00:23:58,700 --> 00:24:19,849
+yeah so that's let's pause here for the broader stock markets so it's not an easy picture on the overall markets but short term cycles from the daily point of view more suggest that the downward cycle headwind still continues into September October
+
+82
+00:24:19,849 --> 00:24:40,160
+I've shown you the technical situation let's continue or let's move on for the next asset class on X sector I have at least prepared which is Bitcoin for sure everyone wants to talk about Bitcoin I hope you are aware of my long term pattern analysis
+
+83
+00:24:40,160 --> 00:25:04,349
+yes yeah fly me to the moon and the road to hell you might aware of the song so we have a nominal cycle always important in the Bitcoin crypto area which is the nominal 200 day cycle plus or minus and we have five repetitions to a key top in those markets and we have three repetitions for a final bottom
+
+84
+00:25:04,349 --> 00:25:33,309
+this is the longer term pattern which worked out over the full history of Bitcoin I reveal the tier on the channel on and on and now we can zoom in with a more detailed on top daily analysis where are we with the situation right now so this is the picture again same procedure as usual yeah we pick the most valuable cycle which is in that case
+
+85
+00:25:33,309 --> 00:25:54,089
+it's just the 270 and the 110 yeah according to our rule set I will not repeat that again and then if we look and zoom in again you see how nicely those two cycles revealed the previous changes in trend of the price series
+
+86
+00:25:56,160 --> 00:26:24,930
+and by the way the key top here we have seen with reaching 120k in Bitcoin in October 2025 this was and if you follow my work you are aware of that that was 0.5 of the fifth repetition of that nominal 200 day cycle here so which means we now would expect three cycles
+
+87
+00:26:24,930 --> 00:26:46,759
+to the downward situation until we reach a final bottom just keep that in mind so what this period here was the first iteration of this let's say nominal on average 200 day cycle yeah which lead to that one here
+
+88
+00:26:46,759 --> 00:27:10,000
+and by having in mind that this will not be a major bottom by the way this was 50% correction so a 50% correction just on time it is to be expected that we see a correction to the upside but as we have been aware of that there is a second and third cycle due to the downside
+
+89
+00:27:10,000 --> 00:27:28,500
+under this pattern completes again which means we should not have expected much to the upside which by the way exactly this is what happened and again on the technical part you would easily be able to identify this point in time when we reached the bottom
+
+90
+00:27:28,500 --> 00:27:58,359
+and also to conclude not just based on that cycle here also based on the price pattern here that this more or less seems to be the end of that correction here from 60 to 80k then the next downstream peat in and now again what I always tell you where we are today we are here and what is the next upcoming window of opportunity we are looking here
+
+91
+00:27:58,359 --> 00:28:20,549
+so November let's say November roughly here is the next window of opportunity which still needs what is needed to complete that downward phase of that full to composite cycles or the second iteration of the nominal 200 day cycle
+
+92
+00:28:20,549 --> 00:28:40,500
+so the upward correction ended and what always is to be expected that the downward correction is much sharper and deeper than the upward path here as we are in the longer term pattern of Bitcoin
+
+93
+00:28:40,500 --> 00:29:08,490
+so for me that cyclic situation even paired with the technical situation does not give me any positive confidence on the Bitcoin price we need to wait longer and I would assume even into 2027 to see a final bottom so even if I know we have corrected 50% from the previous top which is already a lot
+
+94
+00:29:08,490 --> 00:29:30,019
+but always keep in mind the Bitcoin corrections after those iterations to the point of 5 have shown up with 70 to 80% in the past so therefore it would not be even a surprise if we see a similar completion of that pattern which still gives room to the bottom also from the time cycles
+
+95
+00:29:30,019 --> 00:29:56,049
+so that's why I wanted to bring the Bitcoin cycles here again cycles jam let's just jam on the next asset class is for sure the metals like gold and silver and no cycles jam would be complete if not looking at the metals like silver gold or anium
+
+96
+00:29:56,180 --> 00:30:25,349
+here the picture is a little bit or is on the positive side yeah so for the stock market Bitcoin cycles do not reveal a positive story to tell that's that's the jamming so we had a negative jam on stock market and Bitcoin if we don't look now at the metals the sentiment shifts let's start with gold
+
+97
+00:30:26,240 --> 00:30:51,740
+so here we have the gold futures so the price series is the gold futures and we have been monitoring this already here no I think also on the channel at least in some messages here so we reached a point according to the cycles I mean maybe too many cycles are selected here for that picture so let's clean that up now
+
+98
+00:30:52,819 --> 00:31:20,339
+mainly to start with a fresh perspective here so the most important long term cycle and it has reached two important points in the past I mean I would recommend you need to monitor those markets for a longer time so not never switch to a financial chart turn on the cycle analysis and then try to trust whatever you see
+
+99
+00:31:20,339 --> 00:31:39,819
+you need to have confidence in why you're choosing a specific cycle you need to have reasoning and good arguments why you the analyst it's not the computer it's you sitting in front of the screen making the decision to choose its cycle for your individual interpretation of that data series
+
+100
+00:31:39,819 --> 00:32:08,170
+and you only gain that knowledge if you observe that specific asset class here called over a longer time then you get a feeling and knowledge about which cycles repeat which cycles show up more often so I mean it's like stability but it's stability proven through the eyes of the analyst in the real another world
+
+101
+00:32:08,170 --> 00:32:26,109
+not just in the digital domain so long story short what I want to tell is about that the situation here reaching a possible topping condition was seen since November to be honest I mean for a pricing perspective
+
+102
+00:32:26,109 --> 00:32:50,329
+it's it's a tough tough call call going here from 4,400 even up to 5,000 yes I agree with that but the topping window here was shown up even in November late late 2025 so expecting prices to come down from here
+
+103
+00:32:50,329 --> 00:33:09,619
+let's say it's between 4,000 and 5,000 was from the dominant long term cycle to be expected so said that we now reached a point in that key dominant cycle where the tide has shifted again
+
+104
+00:33:09,680 --> 00:33:33,799
+so since July this year June July this year this long term cycle which I mean you can you can see it both ways which first gave us an indication about the timing of a possible upswing start so in early 2025 I indicated that at this point here which then really started that up
+
+105
+00:33:33,799 --> 00:33:53,920
+brought that to an end end of 2025 and is now turning again so confirmed by the technical situation here and by the way that's the beauty of these kind of indicators here's more picture perfect example
+
+106
+00:33:53,920 --> 00:34:13,659
+I mean the cell signals as I said started out to be here in late 2025 first and then even early 2026 there was two points here and then there was no signal so you see the technical drop down it dropped below the lower band
+
+107
+00:34:13,659 --> 00:34:41,619
+and it never really crossed above the lower band again until just recently until end of July so two weeks ago so that's the beauty we really want to look out for when the timing information of the most dominant cycle lines up with the technical condition which is often best measured
+
+108
+00:34:41,619 --> 00:35:01,800
+with like the cyclic RSI which is included here and seeing that kind of technical confirmation exactly at that point here of the indicator low is a picture perfect combination of cycle analysis and technical analysis and here now coming to an end that's why the sentiment shifts
+
+109
+00:35:02,409 --> 00:35:17,920
+we have way to go again remember what I said in the beginning we always look at the situation where are we now we are in the early upswing of that expected upswing cycle phase
+
+110
+00:35:17,920 --> 00:35:47,789
+and the next window of opportunity shows up early 2027 late 2026 so here we have time to go from a time based cycle perspective so here we could say we have strong tailwinds so the cyclic condition is now supportive for even higher gold prices moving into end of this year tailwind
+
+111
+00:35:47,789 --> 00:36:17,650
+if the cycle will repeat you are aware of that nobody even I we as a foundation can never confirm that so similar picture on silver that's when you gain confidence let's look at silver not exactly the same but a similar situation I mean pre selected are some more cycles here but let's look in what you see here is again the same or the similar cycle with links of 244 days
+
+112
+00:36:17,650 --> 00:36:37,309
+yeah seeing here a cycle which is now turning positive you see this by that yellow background with the green dot yeah which means this cycle is now just turning up and if you pair that cycle which we have seen on gold just a moment ago
+
+113
+00:36:37,309 --> 00:37:06,090
+with the other stable and highly ranked cycles so with this 341 and then maybe there are two other cycles here but let's let's deactivate those two cycles here let's just stay on those two very dominant cycles here you see where we are heading I mean this is the silver futures where we're just arriving at that situation
+
+114
+00:37:06,090 --> 00:37:33,820
+here so and as I said and and by the way this is the synchrony of cycles that's also a very interesting observation here I mean we are here to study cycles right so let's just look at the cycles here because this is a beautiful example this looks like one cycle right it even looks like a picture perfect plotting of one sine wave cycle given to one length
+
+115
+00:37:33,820 --> 00:37:58,179
+but it is not these are two cycles overlaid on each other with two different length right you might remember that we selected two cycles but if those two cycles synchronize their current tops or bottoms at the same point of time then it looks like it is one single cycle
+
+116
+00:37:59,329 --> 00:38:26,150
+which means top top or low synchronizes their timing window at the same point of time which then if you just look at that single repetition it looks like it would be one cycle I mean if you then zoom out you see it here at those points there are two tops one is the top of the shorter cycle and the other top here these two points is the top of the longer cycle
+
+117
+00:38:26,150 --> 00:38:56,659
+but when they line up then you see the synchrony of those tops and bottoms showing at at a similar point just as we are here for the cycles yeah so gold silver very similar picture here if we move on radium and that as it class over the metals has a similar very interesting shape and conditions if we talk about that here again
+
+118
+00:38:56,659 --> 00:39:23,750
+we see different length here so it is not the same rhythm as in gold and silver that needs to be taken into account but from a timing point it is quite similar to have those points lining up here in that situation with again room to go and the whole face is trying to look more to the upside
+
+119
+00:39:23,750 --> 00:39:43,989
+another interesting example is here we have a divergence between price and what happened on the cyclic RSI indicator exactly by touching the lower band so again here a picture perfect combination what we would like to see
+
+120
+00:39:43,989 --> 00:40:10,610
+and you see in the past it did not work out with this perfect window here so we touched and crossed we touched and crossed below the lower band but just in the running downward face of that cycle so both conditions have not been an alignment here so from a technical condition
+
+121
+00:40:10,610 --> 00:40:26,710
+and I mean from a technical point those have been short pullbacks to the upside but it always reserved reversed then to the downside and I would account the cycle downward or the headwind of the composite cycle
+
+122
+00:40:26,710 --> 00:40:45,750
+was against those technical signals but when both have been an agreement so here now the cycle turns up we have a divergence so one is time one is the second is divergence three is the signal now showing up here on the CRSI
+
+123
+00:40:45,750 --> 00:41:02,699
+this is then what not a picture perfect I don't want to repeat the team the term but this is what we are looking out for those conditions when you are stacking up you are confirmation of signals time cycles
+
+124
+00:41:07,980 --> 00:41:30,389
+so this is how we combine that and then even looking at different asset classes so Uranium and last but not least I mean we have those geopolitical crisis around the world what's going on with the oil price what do time cycles tell us on oil here we have the oil price
+
+125
+00:41:31,110 --> 00:41:54,559
+the oil futures again here I mean I don't want to reveal or go go too much into the past but and I discuss this here with a lot of colleagues so the upcoming bottom in the oil price early 2026
+
+126
+00:41:54,559 --> 00:42:16,349
+even before we had the crisis with the showing up here was an indication at 60 at that point in time early 2021 that we would like to expect now a positive cyclic upswing synchronization of two important cycles here
+
+127
+00:42:16,349 --> 00:42:34,349
+this was then accelerated by the geopolitical crisis and the war which started then in March April this pushed and this was an event in the direction of the dominant cycle
+
+128
+00:42:34,349 --> 00:42:53,329
+so you could argue for sure I mean it was induced by the war but if those events happen in the direction of the underlying dominant cyclic trend so the tailwind was positive since early 2026 on the oil price
+
+129
+00:42:53,329 --> 00:43:19,550
+so then this accelerates the the price in that direction the I mean you could argue the geopolitical tension softened here in May so the conflict was trying to but it was the same from the cyclic perspective so here again we have a running on way rails situation
+
+130
+00:43:19,550 --> 00:43:36,409
+and I mean believe me or not but that cycle showed up even before everything started and we now have completed the downward phase of that cyclic headwind which was then here from April into July
+
+131
+00:43:36,409 --> 00:43:59,190
+and we are now looking for a more positive situation for the gold price I mean positive needs to be set into context positive just for the price the futures price of oil even looking into October so if again events unfold into this dominant cycle condition
+
+132
+00:43:59,190 --> 00:44:08,110
+you could assume in which direction the acceleration of price would be expected during that phase until October year
+
+133
+00:44:09,780 --> 00:44:27,840
+yeah that's it this was my cycles jam quick run through over different effort as it classes but as always it was important for me to show you the basic principle how to choose a specific cycle
+
+134
+00:44:27,840 --> 00:44:48,590
+I took a little bit more time in the beginning to reveal or to repeat the procedures which is quite objective which is quite important because detecting cycles in today's world is easy everyone can do that I mean throw whatever software you would like to on a data set and it will show you some cycles
+
+135
+00:44:48,590 --> 00:45:08,920
+what is really important is the reasoning and the decision making why then using or choosing one two or three cycles out of that mix in trying to find an answer on where we are today and maybe what would be the next important change in trend according to time cycles
+
+136
+00:45:08,920 --> 00:45:31,340
+because this is the information we want to derive of that and it's up to the analyst in this case me just trying to interpret that data so there's not always the computer automating that it always requires the decision making of view in front of your data and information
+
+137
+00:45:31,340 --> 00:45:58,780
+then making a decision to pick a cycle not so that's why we're here as the foundation for the study of cycles so we want to give you the tools to make it as easy as possible as reliable as possible but however those tools are not there to trade or make you successful in trading this then that competence belongs to you to make use of that information for your individual risk management trade management decision management
+
+138
+00:45:58,780 --> 00:46:19,469
+and whatever there's much more in being successful in financial markets than just cycle analysis that's just one part of the picture yeah not sure if I was too quick today I just rushed through it so I see you all in the chat so moin moin
+
+139
+00:46:21,260 --> 00:46:29,780
+to colon again done the thanks for joining florida greetings san francisco
+
+140
+00:46:31,429 --> 00:46:45,920
+Dale thanks for joining so we are across the globe here so what settings are we using so the settings I was using today maybe that's an important question
+
+141
+00:46:45,920 --> 00:47:12,409
+is just the standard settings out of the box which is pre configured in the analyzer juice box boy so in specific so the scanner uses the the average cycle phase so the average cycle phase over the past you could fine tune there then with the current cycle phase
+
+142
+00:47:12,409 --> 00:47:27,329
+or switch between those two parameters and see how the current and the next turning point might change so juice box boy this this would be a topic which I have not done today so this was just based on the average cycles
+
+143
+00:47:27,329 --> 00:47:36,409
+if you then switch to the current phase look out for if the next possible turning point or the current condition of that cycle would switch
+
+144
+00:47:36,409 --> 00:47:53,550
+I would not take care if future turning points more far in the future will change or even in the past so the switch to the current phase is just then interesting to check if the current in the here and now that will change the conditions
+
+145
+00:47:57,489 --> 00:48:23,079
+maybe you have seen that in the lower right we have a cycle consensus index which what is the cycle consensus and the cycle consensus index try to compress all the reasoning which I try to explain in this episode why choosing a cycle what is stability what is ranking in one simple way for the person sitting in front of the screen so for me
+
+146
+00:48:23,079 --> 00:48:37,260
+so I don't have to go through all those questions again and again over each asset asset class so the cycle consensus index makes that objective procedure more simple in mathematical terms
+
+147
+00:48:37,260 --> 00:48:51,170
+we introduce this at the New York conference and you're right we have not rolled it out to all members so we have not defined final date
+
+148
+00:48:51,170 --> 00:49:06,340
+but for sure it will be rolled out in the second half of this year so and more sooner than later dancing Shiva that's what I could say
+
+149
+00:49:06,340 --> 00:49:22,690
+I could not promise a specific date but now talking about we have August I would latest in October so I mean don't claim me on that topic
+
+150
+00:49:22,690 --> 00:49:33,630
+but during the next four to eight weeks we were rolled it out at least to the pro members we have so dancing Shiva I hope that helps a little bit
+
+151
+00:49:34,610 --> 00:49:37,170
+Arun nice to see you
+
+152
+00:49:37,550 --> 00:49:58,940
+Alexander greetings to California Spain all best to Europe here thank you Yuan so and maybe just to end
+
+153
+00:49:59,929 --> 00:50:11,929
+then the maybe going back just as you are part of that episode here the cycle with links of silver let's go back to silver for a second
+
+154
+00:50:12,750 --> 00:50:26,409
+when the 341 and to 44 cycles in civil synchronized does this mean that the envelopes and bands you spoke about what's okay okay now you're referring to what we showed you last week
+
+155
+00:50:30,429 --> 00:50:38,590
+yes yes I mean this would be now a good example to switch which I cannot do because it's not activated that engine right now
+
+156
+00:50:38,590 --> 00:50:55,489
+and the so the cycle links synchronizes in terms of their top and low comes more or less at the same point in time which is what we talked
+
+157
+00:50:55,489 --> 00:51:06,349
+about here and looks like one cycle so now bringing that back to the to the bands idea it's yes it goes in the in this direction
+
+158
+00:51:07,630 --> 00:51:22,730
+however there's a slight but because the bands which would be calculated based on those two links here will take into account the real price action
+
+159
+00:51:24,429 --> 00:51:35,210
+according to those two bands here what we show here in the cycle and analyzer is the theoretical time based perspective of those two
+
+160
+00:51:35,210 --> 00:51:49,030
+cycles according to the perfect sine wave behavior of those cycles so they they do not need to come close to a point at that point just
+
+161
+00:51:49,030 --> 00:52:03,530
+because the time cycles synchronize does not mean they must also the bands need now to get closer because the bands are calculated based on the real price action
+
+162
+00:52:03,530 --> 00:52:13,929
+this is what makes those two different kinds of analysis which both depend on the dominant cycle makes it so interesting to bring it together
+
+163
+00:52:13,929 --> 00:52:23,429
+because the envelopes will show more than where the price action of the three four one and the two four cycle is in agreement
+
+164
+00:52:23,429 --> 00:52:34,070
+what happens in price with the theoretical cycle from from the price action not the time based action so maybe not to go into the depth here
+
+165
+00:52:34,070 --> 00:52:45,429
+I would keep it as a good example to follow up to bring the time based cycle analysis into the picture of those price cyclic envelopes
+
+166
+00:52:45,429 --> 00:52:58,369
+because the envelopes are focused on price according to the cycles while the time cycles are focused on time based changes but then it's exactly the right point to now focus on
+
+167
+00:53:00,130 --> 00:53:10,650
+yeah I know you have lots lots more ideas on different cycles but please allow me we are now close to running one hour
+
+168
+00:53:10,650 --> 00:53:19,809
+I tried at least to answer some of your questions to repeat the procedure to give you a market perspective which is just education
+
+169
+00:53:19,809 --> 00:53:28,210
+so don't derive any decision on just what I showed here in that short amount of time because the purpose here is education on cycle analysis
+
+170
+00:53:28,210 --> 00:53:38,070
+I hope you liked that cycles jam how I called it just rushing through the asset classes next week same time same procedure
+
+171
+00:53:38,070 --> 00:53:45,610
+drop me a note leave me a comment join next week to have a joint session here also with some live interaction
+
+172
+00:53:45,610 --> 00:53:49,670
+again see you soon right bye thank you

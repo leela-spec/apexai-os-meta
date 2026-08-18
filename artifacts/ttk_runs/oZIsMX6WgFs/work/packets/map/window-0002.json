@@ -1,0 +1,238 @@
+{
+  "context_only_segment_ids": [
+    "seg-000045",
+    "seg-000068"
+  ],
+  "contract_version": "ttk.semantic-contract.v2",
+  "core_segment_ids": [
+    "seg-000046",
+    "seg-000047",
+    "seg-000048",
+    "seg-000049",
+    "seg-000050",
+    "seg-000051",
+    "seg-000052",
+    "seg-000053",
+    "seg-000054",
+    "seg-000055",
+    "seg-000056",
+    "seg-000057",
+    "seg-000058",
+    "seg-000059",
+    "seg-000060",
+    "seg-000061",
+    "seg-000062",
+    "seg-000063",
+    "seg-000064",
+    "seg-000065",
+    "seg-000066",
+    "seg-000067"
+  ],
+  "packet_id": "map-window-0002",
+  "packet_sha256": "06c5a1dfd8bfd6ede97812fcb226523fddeddaf3555220290cdb5dc2199fdfc3",
+  "result_path": "work/results/map/window-0002.json",
+  "rules": [
+    "Extract evidence only from core segments; context_only segments are orientation only.",
+    "Every candidate claim requires at least one verbatim quote from its cited core segment.",
+    "Do not force content into categories; empty arrays are valid.",
+    "Separate factual assertions from opinion, prediction, recommendation, decision, anecdote, definition, mechanism, estimate, and hypothesis.",
+    "Preserve disagreement and uncertainty rather than reconciling it."
+  ],
+  "schema": "ttk.map-packet.v2",
+  "source_segments": [
+    {
+      "end_hms": "00:11:11.639",
+      "id": "seg-000045",
+      "role": "context_only",
+      "speaker": null,
+      "start_hms": "00:11:01.759",
+      "text": "Always keep that in mind this is the past behavior where we detected those cycles so we can now roll forward."
+    },
+    {
+      "end_hms": "00:11:28.639",
+      "id": "seg-000046",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:11:12.299",
+      "text": "So what is important now when reading such kind of cycle analysis to things keep in mind you could easily fall into the trap now to plot that cycle and less into the future."
+    },
+    {
+      "end_hms": "00:11:40.120",
+      "id": "seg-000047",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:11:29.320",
+      "text": "It's pure math so no one will block us will log you now to plot this composite for the next one to three years into the future."
+    },
+    {
+      "end_hms": "00:11:47.840",
+      "id": "seg-000048",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:11:40.279",
+      "text": "It's pure math everyone could do that so now the trap is for sure those cycles are not stable."
+    },
+    {
+      "end_hms": "00:12:07.580",
+      "id": "seg-000049",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:11:47.840",
+      "text": "We talked about the stability score so those cycles wobble they have a variability so which means we pick three cycles so each cycle the very around length amplitude phase see this as an error rate and now we add up three cycles which will change over time."
+    },
+    {
+      "end_hms": "00:12:18.169",
+      "id": "seg-000050",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:12:07.580",
+      "text": "So the error rate the more you go into the future the higher the error rate of that projection will be just pure pure matter of fact."
+    },
+    {
+      "end_hms": "00:12:33.549",
+      "id": "seg-000051",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:12:18.809",
+      "text": "So therefore the only two points which are interesting if you do this kind of cycle analysis is where are we now today I call it now cast in that cycle which is which is here where the dot is."
+    },
+    {
+      "end_hms": "00:12:49.049",
+      "id": "seg-000052",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:12:33.549",
+      "text": "So this is where we are today and what is the next projected turning point of that current composite which is here which gives you the next window of opportunity."
+    },
+    {
+      "end_hms": "00:13:03.960",
+      "id": "seg-000053",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:12:50.490",
+      "text": "So this is where we're looking for so reading that cycle composite now on this chart is the cycle has turned the composite cycle out of those three most dominant cycles."
+    },
+    {
+      "end_hms": "00:13:22.419",
+      "id": "seg-000054",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:13:03.960",
+      "text": "So let's turn down lesson on message one so since since July so since July about a month ago that cycle turned over price did not turn over I mean for sure we see that we're talking about cycles here."
+    },
+    {
+      "end_hms": "00:13:49.330",
+      "id": "seg-000055",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:13:23.580",
+      "text": "And second we would expect possible low or that cycle downward headwind to the market call it cyclic headwind for those markets to last until end of September yeah so for the next four to six weeks from a cyclic perspective we have had wind in that market which is not positive."
+    },
+    {
+      "end_hms": "00:14:09.470",
+      "id": "seg-000056",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:13:50.179",
+      "text": "From a time based cycle analysis in that market so okay so but this was the value line so the broad market might be overdue for correction this is the main principles yeah how to read cycle analysis I was very quick with those rules."
+    },
+    {
+      "end_hms": "00:14:28.730",
+      "id": "seg-000057",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:14:10.210",
+      "text": "I assume most of you are familiar with those rules sets also but now if we go over those other markets and asset classes I will not repeat the procedure but maybe you can follow me for the reasoning why I pick certain cycles and maybe certain cycles are not selected for that."
+    },
+    {
+      "end_hms": "00:14:55.370",
+      "id": "seg-000058",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:14:28.730",
+      "text": "All right broader market now to zoom into now different areas let's go to the NASDAQ maybe the tech area where most media attention always is in the US so here we see the closer look into the market situation for the NASDAQ stock market."
+    },
+    {
+      "end_hms": "00:15:19.429",
+      "id": "seg-000059",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:14:56.110",
+      "text": "Here so same principle as always two cycles are picked here 190 which is this peak here below in the spectrum I know sorry this peak here 189 and the second cycle with the length of 120 you might remember that cycle links which is this peak here."
+    },
+    {
+      "end_hms": "00:15:46.850",
+      "id": "seg-000060",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:15:19.429",
+      "text": "And they clearly clarify at least if you look at the other cycles which then would come into play which have a much lower amplitude for those cycles here so that's the way how to derive them we have a look at the stability score which is quite nice so good stability scores ranking visual shape is fine and the strength values are fine right so these are our criteria."
+    },
+    {
+      "end_hms": "00:16:06.309",
+      "id": "seg-000061",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:15:46.850",
+      "text": "Why to choose certain cycle again you could zoom in in the historical behavior of that cycle again it's not about price targets it is about the points in time when price turns according to that composite plot."
+    },
+    {
+      "end_hms": "00:16:32.460",
+      "id": "seg-000062",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:16:06.309",
+      "text": "Yeah and if you zoom in now we have here the up turn and here again the top and here then the next up swing so this is how to read the timing of those cycles you can I think clearly identify that those cycles can explain most of the market behavior just based on those two cycles."
+    },
+    {
+      "end_hms": "00:16:53.460",
+      "id": "seg-000063",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:16:32.460",
+      "text": "Again if it will repeat in the future nobody knows also that mathematical model will not give you any 100% certainty that it will repeat but at least if those cycles exist and continue with that stability this is what we would expect."
+    },
+    {
+      "end_hms": "00:17:20.960",
+      "id": "seg-000064",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:16:53.460",
+      "text": "So here similar message and this is now when the cycle analysis becomes more and more important I mean never rely on just one single cycle analysis on one asset classes but if you see similar patterns or similar analysis result stacking up to more or less the similar message then you get more and more confidence on those cycles."
+    },
+    {
+      "end_hms": "00:17:50.450",
+      "id": "seg-000065",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:17:20.960",
+      "text": "So back to the picture here and here we are quite running on rails if you see that we have the similar situation so that by end of June that cycle for the tech index turned down it was predicted upfront already and here it looks like I mean if you zoom in price seemed to follow like on rails which is how I call it and now it needs to be proven."
+    },
+    {
+      "end_hms": "00:18:12.220",
+      "id": "seg-000066",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:17:50.450",
+      "text": "There is more time to go here into the again and of September beginning of October period so even though a different market sector we are analyzing here with more or less the similar projection as we have seen on even the geometric value line index."
+    },
+    {
+      "end_hms": "00:18:26.339",
+      "id": "seg-000067",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:18:12.220",
+      "text": "So we need to see how the latest up push here will work out if we then add the technical indicators which is the next step maybe we don't have the time to reveal all those details here."
+    },
+    {
+      "end_hms": "00:18:49.700",
+      "id": "seg-000068",
+      "role": "context_only",
+      "speaker": null,
+      "start_hms": "00:18:30.019",
+      "text": "Let me put in this one here so while we see that was just a technical reaction which has to be expected at that point so from a cyclic perspective that swing has not ended yet to say that way or let's zoom in a little bit here."
+    }
+  ],
+  "source_sha256": "d6bfb051b2344b3d17fd1a73643322945870262589aab1cf757ed1fe873ba135",
+  "window_id": "window-0002"
+}

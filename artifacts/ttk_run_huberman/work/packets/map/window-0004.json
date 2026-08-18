@@ -1,0 +1,769 @@
+{
+  "context_only_segment_ids": [
+    "seg-000189",
+    "seg-000271"
+  ],
+  "contract_version": "ttk.semantic-contract.v2",
+  "core_segment_ids": [
+    "seg-000190",
+    "seg-000191",
+    "seg-000192",
+    "seg-000193",
+    "seg-000194",
+    "seg-000195",
+    "seg-000196",
+    "seg-000197",
+    "seg-000198",
+    "seg-000199",
+    "seg-000200",
+    "seg-000201",
+    "seg-000202",
+    "seg-000203",
+    "seg-000204",
+    "seg-000205",
+    "seg-000206",
+    "seg-000207",
+    "seg-000208",
+    "seg-000209",
+    "seg-000210",
+    "seg-000211",
+    "seg-000212",
+    "seg-000213",
+    "seg-000214",
+    "seg-000215",
+    "seg-000216",
+    "seg-000217",
+    "seg-000218",
+    "seg-000219",
+    "seg-000220",
+    "seg-000221",
+    "seg-000222",
+    "seg-000223",
+    "seg-000224",
+    "seg-000225",
+    "seg-000226",
+    "seg-000227",
+    "seg-000228",
+    "seg-000229",
+    "seg-000230",
+    "seg-000231",
+    "seg-000232",
+    "seg-000233",
+    "seg-000234",
+    "seg-000235",
+    "seg-000236",
+    "seg-000237",
+    "seg-000238",
+    "seg-000239",
+    "seg-000240",
+    "seg-000241",
+    "seg-000242",
+    "seg-000243",
+    "seg-000244",
+    "seg-000245",
+    "seg-000246",
+    "seg-000247",
+    "seg-000248",
+    "seg-000249",
+    "seg-000250",
+    "seg-000251",
+    "seg-000252",
+    "seg-000253",
+    "seg-000254",
+    "seg-000255",
+    "seg-000256",
+    "seg-000257",
+    "seg-000258",
+    "seg-000259",
+    "seg-000260",
+    "seg-000261",
+    "seg-000262",
+    "seg-000263",
+    "seg-000264",
+    "seg-000265",
+    "seg-000266",
+    "seg-000267",
+    "seg-000268",
+    "seg-000269",
+    "seg-000270"
+  ],
+  "packet_id": "map-window-0004",
+  "packet_sha256": "16560155cac5c17d7208993e5d40acc16888cd306fb3dac0d4c86e566511c3dc",
+  "result_path": "work/results/map/window-0004.json",
+  "rules": [
+    "Extract evidence only from core segments; context_only segments are orientation only.",
+    "Every candidate claim requires at least one verbatim quote from its cited core segment.",
+    "Do not force content into categories; empty arrays are valid.",
+    "Separate factual assertions from opinion, prediction, recommendation, decision, anecdote, definition, mechanism, estimate, and hypothesis.",
+    "Preserve disagreement and uncertainty rather than reconciling it."
+  ],
+  "schema": "ttk.map-packet.v2",
+  "source_segments": [
+    {
+      "end_hms": "00:16:58.870",
+      "id": "seg-000189",
+      "role": "context_only",
+      "speaker": null,
+      "start_hms": "00:16:52.490",
+      "text": "award-winning mattresses. Again, that's helixleap.com slash huberman to get up to 27% off."
+    },
+    {
+      "end_hms": "00:17:03.870",
+      "id": "seg-000190",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:16:59.289",
+      "text": "Today's episode is also brought to us by Rora. Rora makes what I believe are the best water filters"
+    },
+    {
+      "end_hms": "00:17:09.269",
+      "id": "seg-000191",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:17:03.870",
+      "text": "on the market. It's an unfortunate reality, but tap water often contains contaminants that negatively"
+    },
+    {
+      "end_hms": "00:17:15.069",
+      "id": "seg-000192",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:17:09.269",
+      "text": "impact our health. In fact, a 2020 study by the Environmental Working Group estimated that more"
+    },
+    {
+      "end_hms": "00:17:19.990",
+      "id": "seg-000193",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:17:15.069",
+      "text": "than 200 million Americans are exposed to PFAS chemicals, also known as forever chemicals"
+    },
+    {
+      "end_hms": "00:17:24.430",
+      "id": "seg-000194",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:17:19.990",
+      "text": "through drinking of tap water. These forever chemicals are linked to serious health issues,"
+    },
+    {
+      "end_hms": "00:17:29.829",
+      "id": "seg-000195",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:17:24.730",
+      "text": "such as hormone disruption, gut microbiome disruption, fertility issues, and many other health"
+    },
+    {
+      "end_hms": "00:17:35.509",
+      "id": "seg-000196",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:17:29.829",
+      "text": "problems. The Environmental Working Group has also shown that over 122 million Americans drink"
+    },
+    {
+      "end_hms": "00:17:40.589",
+      "id": "seg-000197",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:17:35.509",
+      "text": "tap water with high levels of chemicals known to cause cancer. It's for all these reasons that I'm"
+    },
+    {
+      "end_hms": "00:17:45.049",
+      "id": "seg-000198",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:17:40.589",
+      "text": "thrilled to have Rora as a sponsor of this podcast. I've been using the Rora countertop system"
+    },
+    {
+      "end_hms": "00:17:49.769",
+      "id": "seg-000199",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:17:45.049",
+      "text": "for almost a year now. Rora's filtration technology removes harmful substances, including"
+    },
+    {
+      "end_hms": "00:17:54.730",
+      "id": "seg-000200",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:17:49.769",
+      "text": "endocrine disruptors and disinfection byproducts while preserving beneficial minerals like magnesium"
+    },
+    {
+      "end_hms": "00:17:59.390",
+      "id": "seg-000201",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:17:54.730",
+      "text": "and calcium. It requires no installation or plumbing. It's built from medical grade stainless"
+    },
+    {
+      "end_hms": "00:18:03.509",
+      "id": "seg-000202",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:17:59.390",
+      "text": "steel, and it's sleek designed to its beautifully on your countertop. In fact, I consider it a"
+    },
+    {
+      "end_hms": "00:18:08.690",
+      "id": "seg-000203",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:18:03.509",
+      "text": "welcome addition to my kitchen. It looks great, and the water is delicious. If you'd like to try Rora,"
+    },
+    {
+      "end_hms": "00:18:14.309",
+      "id": "seg-000204",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:18:08.690",
+      "text": "you can go to Rora.com slash Huberman and get an exclusive discount. Again, that's Rora."
+    },
+    {
+      "end_hms": "00:18:21.450",
+      "id": "seg-000205",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:18:14.630",
+      "text": "R-O-R-R-A dot com slash Huberman. It is striking to me that maybe 30 years ago or so,"
+    },
+    {
+      "end_hms": "00:18:26.410",
+      "id": "seg-000206",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:18:21.450",
+      "text": "there was discussion about whether animals have emotions based on these criteria. Priority,"
+    },
+    {
+      "end_hms": "00:18:32.259",
+      "id": "seg-000207",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:18:26.490",
+      "text": "valence, scalability, and persistence. Is it generally agreed upon that animals have emotions?"
+    },
+    {
+      "end_hms": "00:18:36.660",
+      "id": "seg-000208",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:18:32.500",
+      "text": "I believe they do because I love my dog and other animals, and I want to believe that. But as"
+    },
+    {
+      "end_hms": "00:18:41.200",
+      "id": "seg-000209",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:18:36.660",
+      "text": "scientists, if we step back, do they meet the criteria for emotions that you're setting up here for us?"
+    },
+    {
+      "end_hms": "00:18:47.039",
+      "id": "seg-000210",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:18:41.380",
+      "text": "Absolutely. Yes. So if you have those criteria, those functional criteria, and you would add one or"
+    },
+    {
+      "end_hms": "00:18:52.960",
+      "id": "seg-000211",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:18:47.039",
+      "text": "two others, many states and animals, and certainly the states that we would ordinarily interpret"
+    },
+    {
+      "end_hms": "00:19:01.220",
+      "id": "seg-000212",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:18:52.960",
+      "text": "as emotions in our pets and our dogs cats. By the way, I loved your dog. They would meet those"
+    },
+    {
+      "end_hms": "00:19:07.500",
+      "id": "seg-000213",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:19:01.220",
+      "text": "criteria and they would have functional emotions. We should talk more about this as also the claim now"
+    },
+    {
+      "end_hms": "00:19:12.019",
+      "id": "seg-000214",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:19:07.500",
+      "text": "from anthropic, that large language models have functional emotions as well. That's so wild."
+    },
+    {
+      "end_hms": "00:19:16.880",
+      "id": "seg-000215",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:19:12.119",
+      "text": "We have to return to that because I think it kind of boggles the mind. How could a machine have"
+    },
+    {
+      "end_hms": "00:19:22.579",
+      "id": "seg-000216",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:19:16.880",
+      "text": "emotions? But again, these are functionally defined emotions, and I think there's no problem"
+    },
+    {
+      "end_hms": "00:19:29.160",
+      "id": "seg-000217",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:19:22.579",
+      "text": "assigning to AI to some extent, and certainly to many animals, those functional emotions,"
+    },
+    {
+      "end_hms": "00:19:35.420",
+      "id": "seg-000218",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:19:29.160",
+      "text": "where it gets complicated is that in us, and also by assumption in animals, I have no doubt,"
+    },
+    {
+      "end_hms": "00:19:43.299",
+      "id": "seg-000219",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:19:35.819",
+      "text": "they also have conscious experiences of emotions, and most people take the conscious experience of"
+    },
+    {
+      "end_hms": "00:19:49.279",
+      "id": "seg-000220",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:19:43.299",
+      "text": "the emotion as the ground truth for the emotion. Emotions without conscious experiences of emotions"
+    },
+    {
+      "end_hms": "00:19:54.359",
+      "id": "seg-000221",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:19:49.279",
+      "text": "sound like an oxymoron. It's like, you can't have that. The conscious experience is the emotion,"
+    },
+    {
+      "end_hms": "00:19:59.599",
+      "id": "seg-000222",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:19:54.359",
+      "text": "which is what William James said, which is what Jola Dew says. I think it's implicitly there"
+    },
+    {
+      "end_hms": "00:20:05.279",
+      "id": "seg-000223",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:19:59.599",
+      "text": "across essentially every psychological theory is the assumption that emotions really are types"
+    },
+    {
+      "end_hms": "00:20:11.019",
+      "id": "seg-000224",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:20:05.279",
+      "text": "of conscious experiences, which I think is the intuition. If I ask you, how do you know what's"
+    },
+    {
+      "end_hms": "00:20:16.339",
+      "id": "seg-000225",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:20:11.019",
+      "text": "the ground truth? How do you know you're having an emotion? You would say because it's a certain type"
+    },
+    {
+      "end_hms": "00:20:24.339",
+      "id": "seg-000226",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:20:16.339",
+      "text": "of conscious experience because of how it feels. If I ask you more specifically, how do you know"
+    },
+    {
+      "end_hms": "00:20:28.680",
+      "id": "seg-000227",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:20:24.339",
+      "text": "you would say because of how they feel? They feel different, and so we take the conscious"
+    },
+    {
+      "end_hms": "00:20:34.920",
+      "id": "seg-000228",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:20:28.680",
+      "text": "experience, our own introspective access to the conscious experience as the ground truth. That has"
+    },
+    {
+      "end_hms": "00:20:41.299",
+      "id": "seg-000229",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:20:34.920",
+      "text": "a lot of problems associated with a deep philosophical problems, but just practically, it has two"
+    },
+    {
+      "end_hms": "00:20:46.640",
+      "id": "seg-000230",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:20:41.299",
+      "text": "big problems that I think science should avoid. One is, it gets really problematic to know whether"
+    },
+    {
+      "end_hms": "00:20:52.019",
+      "id": "seg-000231",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:20:46.640",
+      "text": "or not animals have emotions because we don't know how to test whether or not they have conscious"
+    },
+    {
+      "end_hms": "00:20:57.140",
+      "id": "seg-000232",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:20:52.019",
+      "text": "experiences. I have no doubt that they do. It's just that there's no scientific way to test"
+    },
+    {
+      "end_hms": "00:21:02.279",
+      "id": "seg-000233",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:20:57.140",
+      "text": "currently, so we should have different criteria. And the other question is, if you tie emotion"
+    },
+    {
+      "end_hms": "00:21:08.500",
+      "id": "seg-000234",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:21:02.279",
+      "text": "to the conscious experience of emotion that is you equate, you conflate emotions with feelings,"
+    },
+    {
+      "end_hms": "00:21:13.539",
+      "id": "seg-000235",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:21:09.380",
+      "text": "well, then you're not studying emotions. You're studying consciousness. If you spoke about Christ"
+    },
+    {
+      "end_hms": "00:21:18.640",
+      "id": "seg-000236",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:21:13.539",
+      "text": "of Kaha earlier, great respect for people that are studying consciousness, but I don't want to study"
+    },
+    {
+      "end_hms": "00:21:24.400",
+      "id": "seg-000237",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:21:18.640",
+      "text": "consciousness, that's too hard. And there's lots and lots of debates and disagreements. So if we can"
+    },
+    {
+      "end_hms": "00:21:31.119",
+      "id": "seg-000238",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:21:24.400",
+      "text": "avoid that and study emotions in the absence of needing to study conscious experiences of emotions,"
+    },
+    {
+      "end_hms": "00:21:37.220",
+      "id": "seg-000239",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:21:31.160",
+      "text": "we can move forward with the science, which is what every other discipline does. So if you're a"
+    },
+    {
+      "end_hms": "00:21:42.579",
+      "id": "seg-000240",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:21:37.220",
+      "text": "vision researcher, right? So you study vision. You study consciousness. No, you don't need to. I mean,"
+    },
+    {
+      "end_hms": "00:21:48.259",
+      "id": "seg-000241",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:21:42.579",
+      "text": "you can, but there's a huge amount of work that people do studying vision and how that works in"
+    },
+    {
+      "end_hms": "00:21:55.200",
+      "id": "seg-000242",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:21:48.259",
+      "text": "the brain, studying memory, you know, any other cognitive process without needing to study conscious"
+    },
+    {
+      "end_hms": "00:21:59.880",
+      "id": "seg-000243",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:21:55.200",
+      "text": "experiences. They're typically accompanied in humans. And if you talk to the layperson on the"
+    },
+    {
+      "end_hms": "00:22:05.440",
+      "id": "seg-000244",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:21:59.880",
+      "text": "street and just say, I'm a vision researcher, they take you to be studying the conscious experience"
+    },
+    {
+      "end_hms": "00:22:10.460",
+      "id": "seg-000245",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:22:05.440",
+      "text": "of seeing, perhaps, or if you say I'm a memory researcher, they take you to be studying the conscious"
+    },
+    {
+      "end_hms": "00:22:15.099",
+      "id": "seg-000246",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:22:10.460",
+      "text": "experience of recollection. But scientifically, most people working in those fields don't study"
+    },
+    {
+      "end_hms": "00:22:20.660",
+      "id": "seg-000247",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:22:15.099",
+      "text": "consciousness. And it's perfectly valid to study vision and memory, you know, in horseshoe crabs"
+    },
+    {
+      "end_hms": "00:22:26.019",
+      "id": "seg-000248",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:22:20.660",
+      "text": "or Eplegia, when nobody has any claims about consciousness, we should do the same thing with"
+    },
+    {
+      "end_hms": "00:22:31.539",
+      "id": "seg-000249",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:22:26.019",
+      "text": "emotion. And then we can have an integrated science across species that can move forward without"
+    },
+    {
+      "end_hms": "00:22:39.079",
+      "id": "seg-000250",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:22:31.539",
+      "text": "needing to tackle the difficult problem of consciousness. Again, yes, for sure, we and other animals"
+    },
+    {
+      "end_hms": "00:22:43.759",
+      "id": "seg-000251",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:22:39.079",
+      "text": "have conscious experiences of emotions. And that's very important, but lots of conscious experiences"
+    },
+    {
+      "end_hms": "00:22:49.480",
+      "id": "seg-000252",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:22:43.759",
+      "text": "of seeing and memory. As a scientific discipline, we should separate the conscious experience from"
+    },
+    {
+      "end_hms": "00:22:54.539",
+      "id": "seg-000253",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:22:49.480",
+      "text": "the process, from the emotion. And that's the way we progress. That's one of the main arguments"
+    },
+    {
+      "end_hms": "00:23:00.039",
+      "id": "seg-000254",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:22:54.539",
+      "text": "that David and I had in our book and that I reiterate in the forthcoming book. At risk of taking"
+    },
+    {
+      "end_hms": "00:23:05.279",
+      "id": "seg-000255",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:23:00.039",
+      "text": "us in a philosophical direction, I'd like to actually ask a biological, psychological question,"
+    },
+    {
+      "end_hms": "00:23:10.339",
+      "id": "seg-000256",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:23:05.680",
+      "text": "given these criteria, you know, priority, valence, scalability, and persistence, but really"
+    },
+    {
+      "end_hms": "00:23:15.740",
+      "id": "seg-000257",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:23:10.339",
+      "text": "focusing mainly on priority. I think all of us have had the experience of an emotion coming on,"
+    },
+    {
+      "end_hms": "00:23:21.000",
+      "id": "seg-000258",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:23:15.960",
+      "text": "but not in its kind of overtaking, maximal form. Like, okay, we feel ourselves getting annoyed,"
+    },
+    {
+      "end_hms": "00:23:27.019",
+      "id": "seg-000259",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:23:21.319",
+      "text": "and we can observe the emotion growing. The arousal state is familiar to us. We understand,"
+    },
+    {
+      "end_hms": "00:23:30.799",
+      "id": "seg-000260",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:23:27.299",
+      "text": "let's assume in this example that we understand why it's happening. Maybe you're in line at the"
+    },
+    {
+      "end_hms": "00:23:36.480",
+      "id": "seg-000261",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:23:30.799",
+      "text": "store and the person ahead of you is taking everybody's time by doing something that's really unnecessary"
+    },
+    {
+      "end_hms": "00:23:41.460",
+      "id": "seg-000262",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:23:36.480",
+      "text": "and kind of obnoxious to us in that moment. And so our frustration is rising. And we are observing"
+    },
+    {
+      "end_hms": "00:23:47.119",
+      "id": "seg-000263",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:23:42.000",
+      "text": "the emotion, even though the emotion is us, right, it's within us. And then at some point,"
+    },
+    {
+      "end_hms": "00:23:51.759",
+      "id": "seg-000264",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:23:47.700",
+      "text": "we might blur something out, or we might feel compelled that we have to just say, excuse me,"
+    },
+    {
+      "end_hms": "00:23:56.380",
+      "id": "seg-000265",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:23:51.880",
+      "text": "like to this maybe be taken care of some control. But you have some control. And there's this almost"
+    },
+    {
+      "end_hms": "00:24:02.079",
+      "id": "seg-000266",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:23:56.380",
+      "text": "like running together of two consciousnesses. Like there's like two of us in there at the same"
+    },
+    {
+      "end_hms": "00:24:07.500",
+      "id": "seg-000267",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:24:02.079",
+      "text": "time, observing self, observing the outside world. And then at some point, the prioritization gets"
+    },
+    {
+      "end_hms": "00:24:12.400",
+      "id": "seg-000268",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:24:07.500",
+      "text": "to the point where like we just do something. And sometimes it's a decision, and sometimes it"
+    },
+    {
+      "end_hms": "00:24:16.200",
+      "id": "seg-000269",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:24:12.400",
+      "text": "overtakes us. Now, at the opposite extreme, we've all observed. And you can just go on X,"
+    },
+    {
+      "end_hms": "00:24:20.640",
+      "id": "seg-000270",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:24:16.480",
+      "text": "the social media platform. And for some reason, the algorithm likes to serve up a lot of examples"
+    },
+    {
+      "end_hms": "00:24:25.220",
+      "id": "seg-000271",
+      "role": "context_only",
+      "speaker": null,
+      "start_hms": "00:24:20.640",
+      "text": "of people like on planes, losing it, people going unhinged. Like, you know, I like people just"
+    }
+  ],
+  "source_sha256": "35dc18929ef7fc18a3cfba97a48feae2210ffeb900a46a183e0a35d05539394b",
+  "window_id": "window-0004"
+}

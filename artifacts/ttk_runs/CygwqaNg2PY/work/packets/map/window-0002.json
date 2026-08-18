@@ -1,0 +1,688 @@
+{
+  "context_only_segment_ids": [
+    "seg-000044",
+    "seg-000117"
+  ],
+  "contract_version": "ttk.semantic-contract.v2",
+  "core_segment_ids": [
+    "seg-000045",
+    "seg-000046",
+    "seg-000047",
+    "seg-000048",
+    "seg-000049",
+    "seg-000050",
+    "seg-000051",
+    "seg-000052",
+    "seg-000053",
+    "seg-000054",
+    "seg-000055",
+    "seg-000056",
+    "seg-000057",
+    "seg-000058",
+    "seg-000059",
+    "seg-000060",
+    "seg-000061",
+    "seg-000062",
+    "seg-000063",
+    "seg-000064",
+    "seg-000065",
+    "seg-000066",
+    "seg-000067",
+    "seg-000068",
+    "seg-000069",
+    "seg-000070",
+    "seg-000071",
+    "seg-000072",
+    "seg-000073",
+    "seg-000074",
+    "seg-000075",
+    "seg-000076",
+    "seg-000077",
+    "seg-000078",
+    "seg-000079",
+    "seg-000080",
+    "seg-000081",
+    "seg-000082",
+    "seg-000083",
+    "seg-000084",
+    "seg-000085",
+    "seg-000086",
+    "seg-000087",
+    "seg-000088",
+    "seg-000089",
+    "seg-000090",
+    "seg-000091",
+    "seg-000092",
+    "seg-000093",
+    "seg-000094",
+    "seg-000095",
+    "seg-000096",
+    "seg-000097",
+    "seg-000098",
+    "seg-000099",
+    "seg-000100",
+    "seg-000101",
+    "seg-000102",
+    "seg-000103",
+    "seg-000104",
+    "seg-000105",
+    "seg-000106",
+    "seg-000107",
+    "seg-000108",
+    "seg-000109",
+    "seg-000110",
+    "seg-000111",
+    "seg-000112",
+    "seg-000113",
+    "seg-000114",
+    "seg-000115",
+    "seg-000116"
+  ],
+  "packet_id": "map-window-0002",
+  "packet_sha256": "50da878b43080cb76e4f7d3aaf83f26426f04e82f001cc9da1fd1b3554498f81",
+  "result_path": "work/results/map/window-0002.json",
+  "rules": [
+    "Extract evidence only from core segments; context_only segments are orientation only.",
+    "Every candidate claim requires at least one verbatim quote from its cited core segment.",
+    "Do not force content into categories; empty arrays are valid.",
+    "Separate factual assertions from opinion, prediction, recommendation, decision, anecdote, definition, mechanism, estimate, and hypothesis.",
+    "Preserve disagreement and uncertainty rather than reconciling it."
+  ],
+  "schema": "ttk.map-packet.v2",
+  "source_segments": [
+    {
+      "end_hms": "00:05:03.699",
+      "id": "seg-000044",
+      "role": "context_only",
+      "speaker": null,
+      "start_hms": "00:04:57.000",
+      "text": "who's who's unhappy with what's happening. So that was a big hook for me like oh this is useful."
+    },
+    {
+      "end_hms": "00:05:10.680",
+      "id": "seg-000045",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:05:05.000",
+      "text": "How should traders use Elliott Payf analysis and practice as a forecasting tool or risk management"
+    },
+    {
+      "end_hms": "00:05:18.189",
+      "id": "seg-000046",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:05:10.680",
+      "text": "tool or a way to map out map out probabilities? Well I think you're pretty much late all around."
+    },
+    {
+      "end_hms": "00:05:26.629",
+      "id": "seg-000047",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:05:18.629",
+      "text": "They did a great job. Yes to all three. I mean historically it's mainly been a long term"
+    },
+    {
+      "end_hms": "00:05:33.009",
+      "id": "seg-000048",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:05:26.629",
+      "text": "forecasting tool. Personally I like the intermediate timeframe a little more and for that reason"
+    },
+    {
+      "end_hms": "00:05:38.769",
+      "id": "seg-000049",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:05:33.009",
+      "text": "is the second reason you mentioned which is limiting your risk because everyone I know who is a"
+    },
+    {
+      "end_hms": "00:05:44.709",
+      "id": "seg-000050",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:05:38.769",
+      "text": "successful trader. I'm sure there are exceptions out there but the ones that I know personally"
+    },
+    {
+      "end_hms": "00:05:51.170",
+      "id": "seg-000051",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:05:45.350",
+      "text": "their number one thing is limiting the risk when they're wrong and that's what Elliott Wave Theory"
+    },
+    {
+      "end_hms": "00:05:57.350",
+      "id": "seg-000052",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:05:51.170",
+      "text": "does a really good job job of doing is it tells you precise points in time where if you have a"
+    },
+    {
+      "end_hms": "00:06:03.209",
+      "id": "seg-000053",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:05:57.350",
+      "text": "a thesis you know where that thesis will be validated and where that thesis will be invalidated."
+    },
+    {
+      "end_hms": "00:06:08.670",
+      "id": "seg-000054",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:06:03.949",
+      "text": "So you can keep try to you know keep your risk as small as possible. So when I started at"
+    },
+    {
+      "end_hms": "00:06:14.639",
+      "id": "seg-000055",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:06:08.670",
+      "text": "Westerners in the early 90s I remember you know taking tickets get them timestamped it was all"
+    },
+    {
+      "end_hms": "00:06:25.339",
+      "id": "seg-000056",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:06:14.639",
+      "text": "still very basic. How did technology change the functionality of Elliott Wave or are there no big"
+    },
+    {
+      "end_hms": "00:06:32.519",
+      "id": "seg-000057",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:06:25.339",
+      "text": "changes compared to the 70s or 80s? That's an interesting question and when I talked today at the"
+    },
+    {
+      "end_hms": "00:06:40.120",
+      "id": "seg-000058",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:06:32.519",
+      "text": "FSC I mentioned at the end of my presentation a point about that exactly which is that we've found"
+    },
+    {
+      "end_hms": "00:06:46.079",
+      "id": "seg-000059",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:06:40.120",
+      "text": "that the behavior of Elliott Wave's really hasn't changed in spite of the technology."
+    },
+    {
+      "end_hms": "00:06:55.060",
+      "id": "seg-000060",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:06:47.199",
+      "text": "In fact the term I use is it's a stationary model and what I mean by stationary is that the"
+    },
+    {
+      "end_hms": "00:07:03.430",
+      "id": "seg-000061",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:06:55.680",
+      "text": "behavior or the properties of these patterns don't really change through time. In fact the"
+    },
+    {
+      "end_hms": "00:07:09.029",
+      "id": "seg-000062",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:07:03.430",
+      "text": "behavior of Elliott Wave's as far as I can tell from my work is the same today as it was 200"
+    },
+    {
+      "end_hms": "00:07:16.990",
+      "id": "seg-000063",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:07:09.029",
+      "text": "years ago. So we think markets despite all the technology there's still a human being behind"
+    },
+    {
+      "end_hms": "00:07:23.829",
+      "id": "seg-000064",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:07:16.990",
+      "text": "that's calling the shots even if you have say a fully quantitative model that's automated. At the"
+    },
+    {
+      "end_hms": "00:07:28.709",
+      "id": "seg-000065",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:07:23.829",
+      "text": "end of the day there's still a person who developed the model, a person who's still running or"
+    },
+    {
+      "end_hms": "00:07:34.769",
+      "id": "seg-000066",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:07:28.709",
+      "text": "deciding when to stop the model. They don't like the results. So it's still I think humans are"
+    },
+    {
+      "end_hms": "00:07:39.769",
+      "id": "seg-000067",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:07:34.769",
+      "text": "still the drivers of what happens in the market and I think Elliott Waves over a reflection of"
+    },
+    {
+      "end_hms": "00:07:45.310",
+      "id": "seg-000068",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:07:39.769",
+      "text": "that psychology. There's a great saying I'm there's a great saying on Wall Street if you follow"
+    },
+    {
+      "end_hms": "00:07:54.029",
+      "id": "seg-000069",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:07:45.310",
+      "text": "the herd all you see is Asus. How do you avoid being part of the herd at important turning points"
+    },
+    {
+      "end_hms": "00:08:00.050",
+      "id": "seg-000070",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:07:54.029",
+      "text": "in the market looking at using Elliott Wave theory? I think what Elliott Waves do for you and I"
+    },
+    {
+      "end_hms": "00:08:09.029",
+      "id": "seg-000071",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:08:00.050",
+      "text": "would say technical analysis in general Elliott Waves and cycles as well is that the tune your mind"
+    },
+    {
+      "end_hms": "00:08:16.269",
+      "id": "seg-000072",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:08:09.029",
+      "text": "to think about and anticipate change in the market. So instead of focusing on the fact that the"
+    },
+    {
+      "end_hms": "00:08:22.110",
+      "id": "seg-000073",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:08:16.269",
+      "text": "market has been going up for a really long time and then say just extrapolating that infinitely"
+    },
+    {
+      "end_hms": "00:08:29.129",
+      "id": "seg-000074",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:08:22.110",
+      "text": "into the future you're always thinking that this trend really could turn at any moment and become"
+    },
+    {
+      "end_hms": "00:08:35.629",
+      "id": "seg-000075",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:08:29.129",
+      "text": "a different kind of a trend. So it's just a different way of thinking and when you're thinking"
+    },
+    {
+      "end_hms": "00:08:40.990",
+      "id": "seg-000076",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:08:35.629",
+      "text": "that way you're not going to be as caught off guard when there's a sudden change in the market"
+    },
+    {
+      "end_hms": "00:08:47.669",
+      "id": "seg-000077",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:08:40.990",
+      "text": "environment like when bond yields go from zero or in some cases negative and suddenly the highest"
+    },
+    {
+      "end_hms": "00:08:54.610",
+      "id": "seg-000078",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:08:47.669",
+      "text": "yields in 20 years. Those are the kinds of things that catch a lot of people off guard but if you look"
+    },
+    {
+      "end_hms": "00:08:59.730",
+      "id": "seg-000079",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:08:54.610",
+      "text": "for example the wave counts that Elliott Wave International has been producing you know they"
+    },
+    {
+      "end_hms": "00:09:05.909",
+      "id": "seg-000080",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:08:59.730",
+      "text": "anticipated that change in interest rates before it happened. So you know you're not always going"
+    },
+    {
+      "end_hms": "00:09:12.809",
+      "id": "seg-000081",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:09:05.909",
+      "text": "to be right but at least you will be in tune and ready for those junctures to occur."
+    },
+    {
+      "end_hms": "00:09:20.429",
+      "id": "seg-000082",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:09:13.289",
+      "text": "The differences between applying Elliott Wave theory on equities, bonds, currencies, cryptocurrencies."
+    },
+    {
+      "end_hms": "00:09:29.399",
+      "id": "seg-000083",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:09:21.899",
+      "text": "There's some differences with the e-wave software in particular I developed I treat all markets"
+    },
+    {
+      "end_hms": "00:09:35.720",
+      "id": "seg-000084",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:09:29.399",
+      "text": "the same actually but there's certainly an argument to be made that some of them do trade a little"
+    },
+    {
+      "end_hms": "00:09:43.500",
+      "id": "seg-000085",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:09:35.720",
+      "text": "bit differently but I'm always wary of curve fitting you know I don't want to bifurcate"
+    },
+    {
+      "end_hms": "00:09:50.919",
+      "id": "seg-000086",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:09:44.980",
+      "text": "the training data use for the program to do many different buckets you know the more general"
+    },
+    {
+      "end_hms": "00:09:56.299",
+      "id": "seg-000087",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:09:50.919",
+      "text": "that I can treat things the more robust I think it is but there are definitely differences and"
+    },
+    {
+      "end_hms": "00:10:02.860",
+      "id": "seg-000088",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:09:56.820",
+      "text": "one example that I gave earlier today was that in commodity markets you tend to get these large"
+    },
+    {
+      "end_hms": "00:10:10.399",
+      "id": "seg-000089",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:10:02.860",
+      "text": "fifth wave blow-off moves more often than you get and say equities so we do know that there are"
+    },
+    {
+      "end_hms": "00:10:17.240",
+      "id": "seg-000090",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:10:10.399",
+      "text": "some differences. Let's also get back to the technology topic and you mentioned e-wave already"
+    },
+    {
+      "end_hms": "00:10:22.519",
+      "id": "seg-000091",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:10:17.240",
+      "text": "a little bit in your mentioning because I think I mean you mentioned we go from microfilm to books"
+    },
+    {
+      "end_hms": "00:10:27.440",
+      "id": "seg-000092",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:10:22.519",
+      "text": "this is what your father that the way but I think now you add another layer on top of that because"
+    },
+    {
+      "end_hms": "00:10:34.279",
+      "id": "seg-000093",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:10:27.440",
+      "text": "you mentioned e-wave technologies so these days we have the computer power to detect patterns as"
+    },
+    {
+      "end_hms": "00:10:39.200",
+      "id": "seg-000094",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:10:34.279",
+      "text": "you introduced Elliott Wave's patterns in price structure so and I think a challenge always"
+    },
+    {
+      "end_hms": "00:10:45.460",
+      "id": "seg-000095",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:10:39.200",
+      "text": "was with Elliott Wave's someone needs to sit in front of a price chart and make a decision"
+    },
+    {
+      "end_hms": "00:10:53.009",
+      "id": "seg-000096",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:10:46.240",
+      "text": "where to put this pattern and it's always easy to see a pattern after the fact but it's the"
+    },
+    {
+      "end_hms": "00:10:58.570",
+      "id": "seg-000097",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:10:53.009",
+      "text": "challenge is to see it quite before it happens or before it is completed I mean that's where we"
+    },
+    {
+      "end_hms": "00:11:03.710",
+      "id": "seg-000098",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:10:58.570",
+      "text": "want to use Elliott Wave for and I think you are now pushing this into in kind of computer"
+    },
+    {
+      "end_hms": "00:11:09.990",
+      "id": "seg-000099",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:11:03.710",
+      "text": "automated supported way which is I think another big step which is required because every"
+    },
+    {
+      "end_hms": "00:11:17.210",
+      "id": "seg-000100",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:11:09.990",
+      "text": "Elliott Wave another might come up with a different count so how do you see that and what is"
+    },
+    {
+      "end_hms": "00:11:24.620",
+      "id": "seg-000101",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:11:17.210",
+      "text": "e-wave maybe solving in that context? Yes well that's a lot of that's a lot of unpack they're all"
+    },
+    {
+      "end_hms": "00:11:33.259",
+      "id": "seg-000102",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:11:24.620",
+      "text": "in one question so I'm not sure which part of the question to answer first here okay where do we"
+    },
+    {
+      "end_hms": "00:11:41.980",
+      "id": "seg-000103",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:11:33.259",
+      "text": "start maybe I'll start with the creating e-waves we've started in the beginning here before we"
+    },
+    {
+      "end_hms": "00:11:48.360",
+      "id": "seg-000104",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:11:41.980",
+      "text": "get on to the other question part of that but e-waves is a project that actually started a long time"
+    },
+    {
+      "end_hms": "00:11:56.000",
+      "id": "seg-000105",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:11:48.360",
+      "text": "ago started in 1986 so it's been been in development for a while I say that but that's not"
+    },
+    {
+      "end_hms": "00:12:05.860",
+      "id": "seg-000106",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:11:56.000",
+      "text": "entirely true the version one was created in 86 and then it more or less was not really used"
+    },
+    {
+      "end_hms": "00:12:12.080",
+      "id": "seg-000107",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:12:05.860",
+      "text": "for a long time or developed on and the reason if if you used computers back in the 80s you might"
+    },
+    {
+      "end_hms": "00:12:17.700",
+      "id": "seg-000108",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:12:12.080",
+      "text": "have some idea that they didn't have a lot of horsepower behind them and it actually takes"
+    },
+    {
+      "end_hms": "00:12:25.279",
+      "id": "seg-000109",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:12:17.700",
+      "text": "a tremendous amount of computing power to do these Elliott Wave analysis even today and I've got"
+    },
+    {
+      "end_hms": "00:12:32.919",
+      "id": "seg-000110",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:12:25.919",
+      "text": "really souped up computer that I use for it and even then it's a lot slower than I would like"
+    },
+    {
+      "end_hms": "00:12:39.299",
+      "id": "seg-000111",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:12:32.919",
+      "text": "so there's just there's a lot of computing power that's necessary so I would say it wasn't"
+    },
+    {
+      "end_hms": "00:12:45.620",
+      "id": "seg-000112",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:12:39.299",
+      "text": "until more recently that we really had the power we needed to be able to run the program"
+    },
+    {
+      "end_hms": "00:12:52.100",
+      "id": "seg-000113",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:12:46.299",
+      "text": "well and of course what I've been doing is I rewrote the entire thing and modernized it"
+    },
+    {
+      "end_hms": "00:13:00.600",
+      "id": "seg-000114",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:12:52.100",
+      "text": "you know and kind of brought it up into the modern era so to speak and so that's the e-waves"
+    },
+    {
+      "end_hms": "00:13:08.740",
+      "id": "seg-000115",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:13:00.600",
+      "text": "origin story but I think you have included a way to find isolate and detect counts and wave"
+    },
+    {
+      "end_hms": "00:13:14.320",
+      "id": "seg-000116",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:13:08.740",
+      "text": "patterns right now so you don't need to do it manually so e-wave is doing that for you right"
+    },
+    {
+      "end_hms": "00:13:21.730",
+      "id": "seg-000117",
+      "role": "context_only",
+      "speaker": null,
+      "start_hms": "00:13:16.110",
+      "text": "yes I mean e-waves does do the wave count it's an automated process so you don't have to sit there by"
+    }
+  ],
+  "source_sha256": "2d93ffe19ae134fb41bd2a9eb40f14285d702429ce4d2205113c0b177533899a",
+  "window_id": "window-0002"
+}

@@ -1,0 +1,733 @@
+{
+  "context_only_segment_ids": [
+    "seg-000112",
+    "seg-000190"
+  ],
+  "contract_version": "ttk.semantic-contract.v2",
+  "core_segment_ids": [
+    "seg-000113",
+    "seg-000114",
+    "seg-000115",
+    "seg-000116",
+    "seg-000117",
+    "seg-000118",
+    "seg-000119",
+    "seg-000120",
+    "seg-000121",
+    "seg-000122",
+    "seg-000123",
+    "seg-000124",
+    "seg-000125",
+    "seg-000126",
+    "seg-000127",
+    "seg-000128",
+    "seg-000129",
+    "seg-000130",
+    "seg-000131",
+    "seg-000132",
+    "seg-000133",
+    "seg-000134",
+    "seg-000135",
+    "seg-000136",
+    "seg-000137",
+    "seg-000138",
+    "seg-000139",
+    "seg-000140",
+    "seg-000141",
+    "seg-000142",
+    "seg-000143",
+    "seg-000144",
+    "seg-000145",
+    "seg-000146",
+    "seg-000147",
+    "seg-000148",
+    "seg-000149",
+    "seg-000150",
+    "seg-000151",
+    "seg-000152",
+    "seg-000153",
+    "seg-000154",
+    "seg-000155",
+    "seg-000156",
+    "seg-000157",
+    "seg-000158",
+    "seg-000159",
+    "seg-000160",
+    "seg-000161",
+    "seg-000162",
+    "seg-000163",
+    "seg-000164",
+    "seg-000165",
+    "seg-000166",
+    "seg-000167",
+    "seg-000168",
+    "seg-000169",
+    "seg-000170",
+    "seg-000171",
+    "seg-000172",
+    "seg-000173",
+    "seg-000174",
+    "seg-000175",
+    "seg-000176",
+    "seg-000177",
+    "seg-000178",
+    "seg-000179",
+    "seg-000180",
+    "seg-000181",
+    "seg-000182",
+    "seg-000183",
+    "seg-000184",
+    "seg-000185",
+    "seg-000186",
+    "seg-000187",
+    "seg-000188",
+    "seg-000189"
+  ],
+  "packet_id": "map-window-0003",
+  "packet_sha256": "ed80369ac369c53378d6ad9a827d8a51f25d1af3de2b74c09ce078563d9c5701",
+  "result_path": "work/results/map/window-0003.json",
+  "rules": [
+    "Extract evidence only from core segments; context_only segments are orientation only.",
+    "Every candidate claim requires at least one verbatim quote from its cited core segment.",
+    "Do not force content into categories; empty arrays are valid.",
+    "Separate factual assertions from opinion, prediction, recommendation, decision, anecdote, definition, mechanism, estimate, and hypothesis.",
+    "Preserve disagreement and uncertainty rather than reconciling it."
+  ],
+  "schema": "ttk.map-packet.v2",
+  "source_segments": [
+    {
+      "end_hms": "00:10:01.710",
+      "id": "seg-000112",
+      "role": "context_only",
+      "speaker": null,
+      "start_hms": "00:09:55.529",
+      "text": "pleasant or unpleasant, this basic valence dimension. Are there any neutral emotions?"
+    },
+    {
+      "end_hms": "00:10:08.529",
+      "id": "seg-000113",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:10:02.470",
+      "text": "I ask this because your colleague at Caltech, who I respect tremendously Marcus Meister once wrote"
+    },
+    {
+      "end_hms": "00:10:12.850",
+      "id": "seg-000114",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:10:08.529",
+      "text": "a review where he said, you know, a good way to think about sensory systems and maybe neural"
+    },
+    {
+      "end_hms": "00:10:19.029",
+      "id": "seg-000115",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:10:12.850",
+      "text": "systems of all kinds is that they're encoding for yum, yuck or me. And the mezz very interesting one,"
+    },
+    {
+      "end_hms": "00:10:24.490",
+      "id": "seg-000116",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:10:19.110",
+      "text": "just like an animal or including us can go forward, backward or stay put. Now we can go side to side,"
+    },
+    {
+      "end_hms": "00:10:29.049",
+      "id": "seg-000117",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:10:24.490",
+      "text": "to of course, those are just different versions of forward in this context. And I sometimes wonder"
+    },
+    {
+      "end_hms": "00:10:35.769",
+      "id": "seg-000118",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:10:30.070",
+      "text": "because algorithms are repurposed across different neural systems. If there is indeed a meh"
+    },
+    {
+      "end_hms": "00:10:40.730",
+      "id": "seg-000119",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:10:36.309",
+      "text": "emotion, or maybe the emotion is meh. I don't want to take us down a philosophical path. But"
+    },
+    {
+      "end_hms": "00:10:45.350",
+      "id": "seg-000120",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:10:40.730",
+      "text": "the living sense goes as well as we're talking about valence, anger and happiness, clearly,"
+    },
+    {
+      "end_hms": "00:10:51.490",
+      "id": "seg-000121",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:10:45.929",
+      "text": "you know, sad and happy. Okay, opposite ends of the spectrum. But what it was the apathy? Is there a"
+    },
+    {
+      "end_hms": "00:10:56.190",
+      "id": "seg-000122",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:10:51.490",
+      "text": "state of prioritization of doing nothing? It's a really good question. I mean, I think you know,"
+    },
+    {
+      "end_hms": "00:11:03.590",
+      "id": "seg-000123",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:10:56.250",
+      "text": "when you list these features, like priority valence, I'll get to some others. One question is"
+    },
+    {
+      "end_hms": "00:11:11.190",
+      "id": "seg-000124",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:11:03.590",
+      "text": "which of these are necessary. You know, like a package of all of these features that emotions have,"
+    },
+    {
+      "end_hms": "00:11:16.230",
+      "id": "seg-000125",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:11:11.470",
+      "text": "you need all of them or some of them sufficient. And I think the answer is some of them are sufficient."
+    },
+    {
+      "end_hms": "00:11:21.269",
+      "id": "seg-000126",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:11:16.230",
+      "text": "But there's some that are necessary. I think priority is necessary. I think valence may be not"
+    },
+    {
+      "end_hms": "00:11:27.370",
+      "id": "seg-000127",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:11:21.269",
+      "text": "as you were alluding to. I could imagine there's still valence, but it's at a neutral region of"
+    },
+    {
+      "end_hms": "00:11:32.149",
+      "id": "seg-000128",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:11:27.370",
+      "text": "the spectrum. But then there's other ones which are the ones that David Anderson has studied in"
+    },
+    {
+      "end_hms": "00:11:37.549",
+      "id": "seg-000129",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:11:32.149",
+      "text": "particular in the hypothalamus and mice. And I think goes into great detail in the podcast that you had"
+    },
+    {
+      "end_hms": "00:11:43.169",
+      "id": "seg-000130",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:11:37.549",
+      "text": "with them, which are scalability and temporal persistence. And so scalability would be that an"
+    },
+    {
+      "end_hms": "00:11:50.649",
+      "id": "seg-000131",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:11:43.169",
+      "text": "emotion can scale in intensity. One of the best examples of that is for the case of fear and"
+    },
+    {
+      "end_hms": "00:11:56.549",
+      "id": "seg-000132",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:11:50.649",
+      "text": "the bear coming at you. So typically, it would scale from anxiety and monitoring. You know, there's"
+    },
+    {
+      "end_hms": "00:12:03.429",
+      "id": "seg-000133",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:11:56.549",
+      "text": "the bear sort of out there to fear where you might run away or hide to panic. So that's a threat"
+    },
+    {
+      "end_hms": "00:12:08.809",
+      "id": "seg-000134",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:12:03.429",
+      "text": "imminence scalability. And that's something where emotions are different now from reflexes because"
+    },
+    {
+      "end_hms": "00:12:13.509",
+      "id": "seg-000135",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:12:08.809",
+      "text": "reflexes are binary. It's all or nothing. I either pull my hand away or nothing. The knee jerks"
+    },
+    {
+      "end_hms": "00:12:19.269",
+      "id": "seg-000136",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:12:13.509",
+      "text": "are not. It's not there's not like some scalable package in there. And then temporal persistence is"
+    },
+    {
+      "end_hms": "00:12:24.950",
+      "id": "seg-000137",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:12:19.269",
+      "text": "even more something that's essential to emotions and speaks to their function, which is you have"
+    },
+    {
+      "end_hms": "00:12:32.009",
+      "id": "seg-000138",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:12:24.950",
+      "text": "this internal state, let's say of aggression or of fear that has to last some time because the"
+    },
+    {
+      "end_hms": "00:12:37.269",
+      "id": "seg-000139",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:12:32.009",
+      "text": "the bear might be around for some time. So you might be running away or you might be attacking"
+    },
+    {
+      "end_hms": "00:12:42.649",
+      "id": "seg-000140",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:12:37.269",
+      "text": "an anger. Those are phasic little bouts but the actual internal state that is motivating those"
+    },
+    {
+      "end_hms": "00:12:47.629",
+      "id": "seg-000141",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:12:43.090",
+      "text": "persists for quite a long time. So temporal persistence is really important and it allows"
+    },
+    {
+      "end_hms": "00:12:53.190",
+      "id": "seg-000142",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:12:47.629",
+      "text": "the person or the animal to incorporate lots and lots of information that's coming in"
+    },
+    {
+      "end_hms": "00:12:58.070",
+      "id": "seg-000143",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:12:53.190",
+      "text": "and to have a motivational state that would be suited for that kind of environmental challenge."
+    },
+    {
+      "end_hms": "00:13:02.549",
+      "id": "seg-000144",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:12:58.110",
+      "text": "It's not like a hot plate where if you pull your hand away, you're done. The bear is out there and"
+    },
+    {
+      "end_hms": "00:13:06.710",
+      "id": "seg-000145",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:13:02.549",
+      "text": "it might come back. It might still be lurking in the forest. So you better be afraid for some period"
+    },
+    {
+      "end_hms": "00:13:13.090",
+      "id": "seg-000146",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:13:06.710",
+      "text": "of time. David Anderson has studied this a lot in terms of what neural circuits, what properties"
+    },
+    {
+      "end_hms": "00:13:19.090",
+      "id": "seg-000147",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:13:13.090",
+      "text": "of neurotransmitters in the brain could actually implement persistence. We do have really slow neurotransmitters"
+    },
+    {
+      "end_hms": "00:13:23.350",
+      "id": "seg-000148",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:13:19.090",
+      "text": "like neural peptides, for instance, which is what he's studied. But my colleagues at the University"
+    },
+    {
+      "end_hms": "00:13:29.190",
+      "id": "seg-000149",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:13:23.350",
+      "text": "of Iowa actually did a really cool study in humans that showed the temple persistence of emotions"
+    },
+    {
+      "end_hms": "00:13:36.460",
+      "id": "seg-000150",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:13:29.950",
+      "text": "independent of memory. So here's a study. They took patients with amnesia. So these were like four"
+    },
+    {
+      "end_hms": "00:13:42.500",
+      "id": "seg-000151",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:13:36.460",
+      "text": "or five people who had medial temple, low paper campal damage. They live in a time window of maybe"
+    },
+    {
+      "end_hms": "00:13:47.519",
+      "id": "seg-000152",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:13:42.500",
+      "text": "a minute or so. I used to study these patients when I first started as a postdoc at the University of"
+    },
+    {
+      "end_hms": "00:13:54.000",
+      "id": "seg-000153",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:13:47.519",
+      "text": "Iowa with with Damasio. And you know, you can talk to them. They can process information. But if you"
+    },
+    {
+      "end_hms": "00:13:58.039",
+      "id": "seg-000154",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:13:54.000",
+      "text": "go to the toilet and you come back five minutes later, they would stand up and shake your hand"
+    },
+    {
+      "end_hms": "00:14:02.559",
+      "id": "seg-000155",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:13:58.039",
+      "text": "and introduce themselves to you because they would have no recollection of having met you before."
+    },
+    {
+      "end_hms": "00:14:07.440",
+      "id": "seg-000156",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:14:02.559",
+      "text": "So just no memory. Very strong, anthropgrade amnesia as it's called. So they had those"
+    },
+    {
+      "end_hms": "00:14:13.860",
+      "id": "seg-000157",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:14:07.440",
+      "text": "and controls. They showed them really sad movie clips in all cases. The patients can understand"
+    },
+    {
+      "end_hms": "00:14:18.799",
+      "id": "seg-000158",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:14:13.860",
+      "text": "and watch the movie clip. They get really sad and weepy. Right after watching these sad movie clips,"
+    },
+    {
+      "end_hms": "00:14:24.879",
+      "id": "seg-000159",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:14:18.980",
+      "text": "everybody rates how sad do you feel? The music patients feel really sad. The controls feel really sad."
+    },
+    {
+      "end_hms": "00:14:30.059",
+      "id": "seg-000160",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:14:25.220",
+      "text": "You wait five minutes. You then ask the controls, well, how sad do you feel? And they say,"
+    },
+    {
+      "end_hms": "00:14:35.240",
+      "id": "seg-000161",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:14:30.059",
+      "text": "yeah, I still feel a little bit of sad sadness in me because I remember having seen the movie."
+    },
+    {
+      "end_hms": "00:14:39.299",
+      "id": "seg-000162",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:14:35.559",
+      "text": "And if you ask them, why do you feel sad? They say, well, because you showed me the sad movie five"
+    },
+    {
+      "end_hms": "00:14:44.639",
+      "id": "seg-000163",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:14:39.299",
+      "text": "minutes ago. The amnesia patients, you ask, how do you feel? I say, I feel really sad. And I don't"
+    },
+    {
+      "end_hms": "00:14:49.879",
+      "id": "seg-000164",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:14:44.639",
+      "text": "know why. I have no idea. And you ask them, do you remember seeing a movie single? There's like no"
+    },
+    {
+      "end_hms": "00:14:55.720",
+      "id": "seg-000165",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:14:50.620",
+      "text": "declarative memory of the movie, but there's still the temporal persistence of the sadness at last"
+    },
+    {
+      "end_hms": "00:15:01.179",
+      "id": "seg-000166",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:14:55.720",
+      "text": "some time. So I thought this was a really cool study because it showed very clearly that there is"
+    },
+    {
+      "end_hms": "00:15:06.139",
+      "id": "seg-000167",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:15:01.179",
+      "text": "temporal persistence in emotions and sadness probably has one of the longest time constants,"
+    },
+    {
+      "end_hms": "00:15:10.700",
+      "id": "seg-000168",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:15:06.259",
+      "text": "as we know from personal experience, but it's separate from just declarative memory. It's not"
+    },
+    {
+      "end_hms": "00:15:15.100",
+      "id": "seg-000169",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:15:10.700",
+      "text": "that you're remembering that the bear is there that's going on too. But independently of that,"
+    },
+    {
+      "end_hms": "00:15:20.299",
+      "id": "seg-000170",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:15:15.279",
+      "text": "the emotion state has its own temporal persistence. The state has to last some time. And again,"
+    },
+    {
+      "end_hms": "00:15:24.539",
+      "id": "seg-000171",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:15:20.419",
+      "text": "that's something that reflexes don't have. It just goes straight through. There's no temporal"
+    },
+    {
+      "end_hms": "00:15:30.710",
+      "id": "seg-000172",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:15:24.539",
+      "text": "persistence. I'd like to take a quick break and acknowledge our sponsor, Helix Sleep. Helix Sleep"
+    },
+    {
+      "end_hms": "00:15:36.169",
+      "id": "seg-000173",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:15:30.710",
+      "text": "makes mattresses and pillows that are customized to your unique sleep needs. Now, I've spoken many"
+    },
+    {
+      "end_hms": "00:15:41.149",
+      "id": "seg-000174",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:15:36.169",
+      "text": "times before on this and on other podcasts about the fact that getting a great night's sleep is the"
+    },
+    {
+      "end_hms": "00:15:45.370",
+      "id": "seg-000175",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:15:41.149",
+      "text": "foundation of mental health, physical health, and performance. When we aren't getting great sleep"
+    },
+    {
+      "end_hms": "00:15:50.470",
+      "id": "seg-000176",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:15:45.370",
+      "text": "on a consistent basis, everything suffers. And when we are sleeping well and enough, our mental"
+    },
+    {
+      "end_hms": "00:15:55.350",
+      "id": "seg-000177",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:15:50.470",
+      "text": "health, physical health, and performance in all endeavors improve markedly. Now, the mattress you"
+    },
+    {
+      "end_hms": "00:16:00.629",
+      "id": "seg-000178",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:15:55.350",
+      "text": "sleep on makes a huge difference in the quality of sleep that you get each night. How soft it is,"
+    },
+    {
+      "end_hms": "00:16:05.529",
+      "id": "seg-000179",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:16:00.710",
+      "text": "or how firm it is, all play into your comfort and need to be tailored to your unique sleep needs."
+    },
+    {
+      "end_hms": "00:16:10.389",
+      "id": "seg-000180",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:16:06.110",
+      "text": "If you go to the Helix website, you can take a brief two-minute quiz and it will ask you questions"
+    },
+    {
+      "end_hms": "00:16:14.230",
+      "id": "seg-000181",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:16:10.389",
+      "text": "such as do you sleep on your back, your side, or your stomach. Maybe you know, maybe you don't."
+    },
+    {
+      "end_hms": "00:16:18.490",
+      "id": "seg-000182",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:16:14.450",
+      "text": "Do you tend to run hot or cold during the night? Things of that sort. You answer those questions"
+    },
+    {
+      "end_hms": "00:16:23.269",
+      "id": "seg-000183",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:16:18.490",
+      "text": "and Helix will match you to the ideal mattress for you. For me, that turned out to be the dusk,"
+    },
+    {
+      "end_hms": "00:16:28.450",
+      "id": "seg-000184",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:16:23.309",
+      "text": "do you SK mattress? I've been sleeping on a dusk mattress for more than four years now,"
+    },
+    {
+      "end_hms": "00:16:33.870",
+      "id": "seg-000185",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:16:28.710",
+      "text": "and it's been far and away the best sleep that I've ever had. If you'd like to try Helix, you can"
+    },
+    {
+      "end_hms": "00:16:39.669",
+      "id": "seg-000186",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:16:33.870",
+      "text": "go to helixleap.com slash huberman, take that two-minute sleep quiz and Helix will match you to a"
+    },
+    {
+      "end_hms": "00:16:46.629",
+      "id": "seg-000187",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:16:39.669",
+      "text": "mattress that's customized for you. Right now, Helix is giving up to 27% off their entire site. Helix"
+    },
+    {
+      "end_hms": "00:16:52.490",
+      "id": "seg-000188",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:16:46.629",
+      "text": "has also teamed up with TrueMed, which allows you to use your HSA FSA dollars to shop Helix's"
+    },
+    {
+      "end_hms": "00:16:58.870",
+      "id": "seg-000189",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:16:52.490",
+      "text": "award-winning mattresses. Again, that's helixleap.com slash huberman to get up to 27% off."
+    },
+    {
+      "end_hms": "00:17:03.870",
+      "id": "seg-000190",
+      "role": "context_only",
+      "speaker": null,
+      "start_hms": "00:16:59.289",
+      "text": "Today's episode is also brought to us by Rora. Rora makes what I believe are the best water filters"
+    }
+  ],
+  "source_sha256": "35dc18929ef7fc18a3cfba97a48feae2210ffeb900a46a183e0a35d05539394b",
+  "window_id": "window-0003"
+}

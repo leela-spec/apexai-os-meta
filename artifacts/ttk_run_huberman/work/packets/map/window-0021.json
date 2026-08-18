@@ -1,0 +1,580 @@
+{
+  "context_only_segment_ids": [
+    "seg-001243",
+    "seg-001304"
+  ],
+  "contract_version": "ttk.semantic-contract.v2",
+  "core_segment_ids": [
+    "seg-001244",
+    "seg-001245",
+    "seg-001246",
+    "seg-001247",
+    "seg-001248",
+    "seg-001249",
+    "seg-001250",
+    "seg-001251",
+    "seg-001252",
+    "seg-001253",
+    "seg-001254",
+    "seg-001255",
+    "seg-001256",
+    "seg-001257",
+    "seg-001258",
+    "seg-001259",
+    "seg-001260",
+    "seg-001261",
+    "seg-001262",
+    "seg-001263",
+    "seg-001264",
+    "seg-001265",
+    "seg-001266",
+    "seg-001267",
+    "seg-001268",
+    "seg-001269",
+    "seg-001270",
+    "seg-001271",
+    "seg-001272",
+    "seg-001273",
+    "seg-001274",
+    "seg-001275",
+    "seg-001276",
+    "seg-001277",
+    "seg-001278",
+    "seg-001279",
+    "seg-001280",
+    "seg-001281",
+    "seg-001282",
+    "seg-001283",
+    "seg-001284",
+    "seg-001285",
+    "seg-001286",
+    "seg-001287",
+    "seg-001288",
+    "seg-001289",
+    "seg-001290",
+    "seg-001291",
+    "seg-001292",
+    "seg-001293",
+    "seg-001294",
+    "seg-001295",
+    "seg-001296",
+    "seg-001297",
+    "seg-001298",
+    "seg-001299",
+    "seg-001300",
+    "seg-001301",
+    "seg-001302",
+    "seg-001303"
+  ],
+  "packet_id": "map-window-0021",
+  "packet_sha256": "867b3491cfa5401e651fbf34379c7461009a1c87af87d0750a4e1448fe002ce9",
+  "result_path": "work/results/map/window-0021.json",
+  "rules": [
+    "Extract evidence only from core segments; context_only segments are orientation only.",
+    "Every candidate claim requires at least one verbatim quote from its cited core segment.",
+    "Do not force content into categories; empty arrays are valid.",
+    "Separate factual assertions from opinion, prediction, recommendation, decision, anecdote, definition, mechanism, estimate, and hypothesis.",
+    "Preserve disagreement and uncertainty rather than reconciling it."
+  ],
+  "schema": "ttk.map-packet.v2",
+  "source_segments": [
+    {
+      "end_hms": "01:52:32.529",
+      "id": "seg-001243",
+      "role": "context_only",
+      "speaker": null,
+      "start_hms": "01:52:26.130",
+      "text": "subsequently much better with the real world listening to the talk. I think that's that helps and"
+    },
+    {
+      "end_hms": "01:52:37.409",
+      "id": "seg-001244",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:52:32.529",
+      "text": "we do that every lab meeting Monday's a noon seems to work for people. How long have you"
+    },
+    {
+      "end_hms": "01:52:45.670",
+      "id": "seg-001245",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:52:37.409",
+      "text": "implemented this? We started it in 2020 when George Floyd was killed specifically to remember"
+    },
+    {
+      "end_hms": "01:52:49.609",
+      "id": "seg-001246",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:52:45.670",
+      "text": "George Floyd so there was a very specific starting point because the main people were upset"
+    },
+    {
+      "end_hms": "01:52:55.329",
+      "id": "seg-001247",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:52:49.609",
+      "text": "and we figured we needed some kind of remembrance or just a moment of silence to acknowledge things"
+    },
+    {
+      "end_hms": "01:53:02.069",
+      "id": "seg-001248",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:52:55.329",
+      "text": "and then it morphed into you know you can remember whatever you like you can just relax and then"
+    },
+    {
+      "end_hms": "01:53:07.170",
+      "id": "seg-001249",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:53:02.069",
+      "text": "it's sort of morphed into this idea well you know let's just have a moment of silence and just like"
+    },
+    {
+      "end_hms": "01:53:13.329",
+      "id": "seg-001250",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:53:07.789",
+      "text": "recalibrate from the busy world and everything that's just been going on to know you know I mean it's"
+    },
+    {
+      "end_hms": "01:53:18.550",
+      "id": "seg-001251",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:53:13.329",
+      "text": "good to do an average every day in any case but certainly right now before we launch into the"
+    },
+    {
+      "end_hms": "01:53:23.050",
+      "id": "seg-001252",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:53:18.550",
+      "text": "research presentation at a lab meeting so it's sort of morphed from a moment of silence to remember"
+    },
+    {
+      "end_hms": "01:53:30.210",
+      "id": "seg-001253",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:53:23.050",
+      "text": "somebody to a short meditation essentially. I love it my neuroscience colleagues are doing"
+    },
+    {
+      "end_hms": "01:53:36.029",
+      "id": "seg-001254",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:53:30.210",
+      "text": "ice baths training for 100 mile races and doing the question is it helping by am I getting more"
+    },
+    {
+      "end_hms": "01:53:40.729",
+      "id": "seg-001255",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:53:36.029",
+      "text": "nature papers as a consequence of any of these different metric that's a different metric you seem"
+    },
+    {
+      "end_hms": "01:53:45.710",
+      "id": "seg-001256",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:53:40.729",
+      "text": "like a happy vital person happy and you're writing books and you're doing public education here"
+    },
+    {
+      "end_hms": "01:53:49.350",
+      "id": "seg-001257",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:53:45.710",
+      "text": "in addition to all of that I'd like to actually stay on this meditation thing for a moment"
+    },
+    {
+      "end_hms": "01:53:53.789",
+      "id": "seg-001258",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:53:49.350",
+      "text": "Rick Rubin famed music producer came on this podcast he also happens to be a friend of mine"
+    },
+    {
+      "end_hms": "01:54:00.310",
+      "id": "seg-001259",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:53:53.789",
+      "text": "and right as we sat down he said can we do some coherence breathing first he plays it's like a tone"
+    },
+    {
+      "end_hms": "01:54:07.029",
+      "id": "seg-001260",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:54:00.310",
+      "text": "you do some inhale exhale yeah he he likes these transition breathing exercises are great yeah"
+    },
+    {
+      "end_hms": "01:54:11.210",
+      "id": "seg-001261",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:54:07.029",
+      "text": "these transition tools and and they will increase your heart rate variability and these kinds of"
+    },
+    {
+      "end_hms": "01:54:16.689",
+      "id": "seg-001262",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:54:11.210",
+      "text": "things all right but I think that one of the most interesting and understudy things in our field"
+    },
+    {
+      "end_hms": "01:54:22.350",
+      "id": "seg-001263",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:54:17.250",
+      "text": "is task switching whether it's emotional tasks switching or cognitive tasks switching like we assume"
+    },
+    {
+      "end_hms": "01:54:26.909",
+      "id": "seg-001264",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:54:22.350",
+      "text": "the brain operates in step functions like oh I'm out on the street I navigate traffic I park my"
+    },
+    {
+      "end_hms": "01:54:31.289",
+      "id": "seg-001265",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:54:26.909",
+      "text": "car and I come in and I podcast and what you're doing at the beginning of this lab meeting in on the"
+    },
+    {
+      "end_hms": "01:54:37.670",
+      "id": "seg-001266",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:54:31.289",
+      "text": "one hand is a meditation but it's pivoting the brain circuits toward what comes next yeah I don't"
+    },
+    {
+      "end_hms": "01:54:43.729",
+      "id": "seg-001267",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:54:37.670",
+      "text": "think we talk enough as neuroscientists about the fact that the brain doesn't just immediately switch"
+    },
+    {
+      "end_hms": "01:54:48.909",
+      "id": "seg-001268",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:54:43.729",
+      "text": "over that you're carrying residual activity from whatever you were doing yes yes there's a cost"
+    },
+    {
+      "end_hms": "01:54:53.529",
+      "id": "seg-001269",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:54:48.909",
+      "text": "to that a well-known cost so as soon as you switch into something there's a cost carried over"
+    },
+    {
+      "end_hms": "01:54:57.710",
+      "id": "seg-001270",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:54:53.529",
+      "text": "from the previous task and you're much slower and it's more difficult for the couple of next"
+    },
+    {
+      "end_hms": "01:55:03.729",
+      "id": "seg-001271",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:54:57.710",
+      "text": "trials on the new task so there's always a switching cost which shows you that switching is hard"
+    },
+    {
+      "end_hms": "01:55:07.850",
+      "id": "seg-001272",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:55:03.729",
+      "text": "and some for some reason and there's a couple of theories for why it should be hard there's some"
+    },
+    {
+      "end_hms": "01:55:13.670",
+      "id": "seg-001273",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:55:07.850",
+      "text": "residue some sort of inertia being carried over previously there's some reconfiguration in the"
+    },
+    {
+      "end_hms": "01:55:18.329",
+      "id": "seg-001274",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:55:13.670",
+      "text": "brain required between what you were doing in the previous task and the new task but all of us"
+    },
+    {
+      "end_hms": "01:55:24.069",
+      "id": "seg-001275",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:55:18.329",
+      "text": "seem to require some effort and it's definitely a skill and something that people are looking at a lot"
+    },
+    {
+      "end_hms": "01:55:29.930",
+      "id": "seg-001276",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:55:24.069",
+      "text": "in brain recordings in humans and thinking a lot about how to design into AI that ability to switch"
+    },
+    {
+      "end_hms": "01:55:36.409",
+      "id": "seg-001277",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:55:29.930",
+      "text": "quickly and knowing how to switch anticipating when to switch is a hugely important skill and we"
+    },
+    {
+      "end_hms": "01:55:40.609",
+      "id": "seg-001278",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:55:36.409",
+      "text": "don't teach it like here we are talking about emotional intelligence social awareness and these"
+    },
+    {
+      "end_hms": "01:55:44.789",
+      "id": "seg-001279",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:55:40.609",
+      "text": "kinds of things and I think most people think oh we should sit down and look at a bunch of faces and"
+    },
+    {
+      "end_hms": "01:55:49.109",
+      "id": "seg-001280",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:55:44.789",
+      "text": "learn to detect the subtle cues and faces or we should make more eye contact and what I'm hearing"
+    },
+    {
+      "end_hms": "01:55:53.670",
+      "id": "seg-001281",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:55:49.109",
+      "text": "today is while some of that might be true most things are pointing into different direction"
+    },
+    {
+      "end_hms": "01:55:58.930",
+      "id": "seg-001282",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:55:53.670",
+      "text": "we had a guest on this podcast DJ Shipley who's a former tier one seal team operator that's another"
+    },
+    {
+      "end_hms": "01:56:03.270",
+      "id": "seg-001283",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:55:58.930",
+      "text": "high-risk high-consequence world but then he's out now he's no longer deploying and he talked"
+    },
+    {
+      "end_hms": "01:56:08.149",
+      "id": "seg-001284",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:56:03.270",
+      "text": "about his routine for coming home it's like he knows he's rehearsing as he comes out of the car"
+    },
+    {
+      "end_hms": "01:56:12.409",
+      "id": "seg-001285",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:56:08.149",
+      "text": "just like if it were an op you know I'm going to hit the door my daughter is going to come running"
+    },
+    {
+      "end_hms": "01:56:15.550",
+      "id": "seg-001286",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:56:12.409",
+      "text": "from this direction my other daughter is going to come and pass he's going to be in the kitchen"
+    },
+    {
+      "end_hms": "01:56:20.250",
+      "id": "seg-001287",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:56:15.550",
+      "text": "box going to come charging but he's rehearsing and he knows exactly where he'll set his bag so"
+    },
+    {
+      "end_hms": "01:56:25.350",
+      "id": "seg-001288",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:56:20.250",
+      "text": "he can scoop his daughter up yeah people either chuckled or I think we're kind of taken a back"
+    },
+    {
+      "end_hms": "01:56:31.189",
+      "id": "seg-001289",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:56:25.350",
+      "text": "by that until he said but this is the way that I know I can drop everything from the day"
+    },
+    {
+      "end_hms": "01:56:36.329",
+      "id": "seg-001290",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:56:31.189",
+      "text": "yeah and be at my best when I enter that environment and you know this is the kind of a court"
+    },
+    {
+      "end_hms": "01:56:42.470",
+      "id": "seg-001291",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:56:36.329",
+      "text": "unquote like hyper-wide chromosome version of kind of a home and family life but it was remarkable"
+    },
+    {
+      "end_hms": "01:56:47.130",
+      "id": "seg-001292",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:56:42.470",
+      "text": "what the comments when we ran this clip on social media the men were all kind of like in awe like"
+    },
+    {
+      "end_hms": "01:56:51.850",
+      "id": "seg-001293",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:56:47.130",
+      "text": "you have a system dude and you follow it and the women were like yes fantastic like this is"
+    },
+    {
+      "end_hms": "01:56:57.069",
+      "id": "seg-001294",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:56:51.850",
+      "text": "somebody who's prioritizing how he shows up he's leaving everything else outside which is a kind of"
+    },
+    {
+      "end_hms": "01:57:03.810",
+      "id": "seg-001295",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:56:57.069",
+      "text": "you know it's a more of a 1950s version of that skill it's super important it was super important"
+    },
+    {
+      "end_hms": "01:57:08.170",
+      "id": "seg-001296",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:57:03.810",
+      "text": "and it's trainable it's largely trainable and I think if you have meditative exercises"
+    },
+    {
+      "end_hms": "01:57:13.250",
+      "id": "seg-001297",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:57:08.869",
+      "text": "they train exactly that it's a huge switch right you're switching from like constantly"
+    },
+    {
+      "end_hms": "01:57:17.810",
+      "id": "seg-001298",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:57:13.250",
+      "text": "being bombarded and dealing with stuff in the world to suddenly like putting all of that aside"
+    },
+    {
+      "end_hms": "01:57:23.670",
+      "id": "seg-001299",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:57:17.810",
+      "text": "and just being inside and and it has health benefits you know richy david's in for instance I don't"
+    },
+    {
+      "end_hms": "01:57:28.750",
+      "id": "seg-001300",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:57:23.670",
+      "text": "know if you have any had him here you know he studied Tibetan monks and still long-term"
+    },
+    {
+      "end_hms": "01:57:33.489",
+      "id": "seg-001301",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:57:28.750",
+      "text": "meditators of meditative 10,000 hours or whatever which we can't afford to do but he has a lot of"
+    },
+    {
+      "end_hms": "01:57:39.649",
+      "id": "seg-001302",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:57:33.489",
+      "text": "studies on even for the rest of us you know short stretches of meditation regular meditative exercises"
+    },
+    {
+      "end_hms": "01:57:45.489",
+      "id": "seg-001303",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:57:39.649",
+      "text": "you know you've done well-controlled studies have demonstrable health benefits for sure"
+    },
+    {
+      "end_hms": "01:57:52.029",
+      "id": "seg-001304",
+      "role": "context_only",
+      "speaker": null,
+      "start_hms": "01:57:45.489",
+      "text": "so again it comes back to this issue of variability being able to switch and having lots of variability"
+    }
+  ],
+  "source_sha256": "35dc18929ef7fc18a3cfba97a48feae2210ffeb900a46a183e0a35d05539394b",
+  "window_id": "window-0021"
+}

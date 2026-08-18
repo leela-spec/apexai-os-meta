@@ -1,0 +1,211 @@
+{
+  "context_only_segment_ids": [
+    "seg-000085",
+    "seg-000105"
+  ],
+  "contract_version": "ttk.semantic-contract.v2",
+  "core_segment_ids": [
+    "seg-000086",
+    "seg-000087",
+    "seg-000088",
+    "seg-000089",
+    "seg-000090",
+    "seg-000091",
+    "seg-000092",
+    "seg-000093",
+    "seg-000094",
+    "seg-000095",
+    "seg-000096",
+    "seg-000097",
+    "seg-000098",
+    "seg-000099",
+    "seg-000100",
+    "seg-000101",
+    "seg-000102",
+    "seg-000103",
+    "seg-000104"
+  ],
+  "packet_id": "map-window-0004",
+  "packet_sha256": "d74b627c37b8190bfc52a437a71a8160aef9db8849683025fbd352d148948cbc",
+  "result_path": "work/results/map/window-0004.json",
+  "rules": [
+    "Extract evidence only from core segments; context_only segments are orientation only.",
+    "Every candidate claim requires at least one verbatim quote from its cited core segment.",
+    "Do not force content into categories; empty arrays are valid.",
+    "Separate factual assertions from opinion, prediction, recommendation, decision, anecdote, definition, mechanism, estimate, and hypothesis.",
+    "Preserve disagreement and uncertainty rather than reconciling it."
+  ],
+  "schema": "ttk.map-packet.v2",
+  "source_segments": [
+    {
+      "end_hms": "00:25:54.089",
+      "id": "seg-000085",
+      "role": "context_only",
+      "speaker": null,
+      "start_hms": "00:25:33.309",
+      "text": "it's just the 270 and the 110 yeah according to our rule set I will not repeat that again and then if we look and zoom in again you see how nicely those two cycles revealed the previous changes in trend of the price series"
+    },
+    {
+      "end_hms": "00:26:24.930",
+      "id": "seg-000086",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:25:56.160",
+      "text": "and by the way the key top here we have seen with reaching 120k in Bitcoin in October 2025 this was and if you follow my work you are aware of that that was 0.5 of the fifth repetition of that nominal 200 day cycle here so which means we now would expect three cycles"
+    },
+    {
+      "end_hms": "00:26:46.759",
+      "id": "seg-000087",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:26:24.930",
+      "text": "to the downward situation until we reach a final bottom just keep that in mind so what this period here was the first iteration of this let's say nominal on average 200 day cycle yeah which lead to that one here"
+    },
+    {
+      "end_hms": "00:27:10.000",
+      "id": "seg-000088",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:26:46.759",
+      "text": "and by having in mind that this will not be a major bottom by the way this was 50% correction so a 50% correction just on time it is to be expected that we see a correction to the upside but as we have been aware of that there is a second and third cycle due to the downside"
+    },
+    {
+      "end_hms": "00:27:28.500",
+      "id": "seg-000089",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:27:10.000",
+      "text": "under this pattern completes again which means we should not have expected much to the upside which by the way exactly this is what happened and again on the technical part you would easily be able to identify this point in time when we reached the bottom"
+    },
+    {
+      "end_hms": "00:27:58.359",
+      "id": "seg-000090",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:27:28.500",
+      "text": "and also to conclude not just based on that cycle here also based on the price pattern here that this more or less seems to be the end of that correction here from 60 to 80k then the next downstream peat in and now again what I always tell you where we are today we are here and what is the next upcoming window of opportunity we are looking here"
+    },
+    {
+      "end_hms": "00:28:20.549",
+      "id": "seg-000091",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:27:58.359",
+      "text": "so November let's say November roughly here is the next window of opportunity which still needs what is needed to complete that downward phase of that full to composite cycles or the second iteration of the nominal 200 day cycle"
+    },
+    {
+      "end_hms": "00:28:40.500",
+      "id": "seg-000092",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:28:20.549",
+      "text": "so the upward correction ended and what always is to be expected that the downward correction is much sharper and deeper than the upward path here as we are in the longer term pattern of Bitcoin"
+    },
+    {
+      "end_hms": "00:29:08.490",
+      "id": "seg-000093",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:28:40.500",
+      "text": "so for me that cyclic situation even paired with the technical situation does not give me any positive confidence on the Bitcoin price we need to wait longer and I would assume even into 2027 to see a final bottom so even if I know we have corrected 50% from the previous top which is already a lot"
+    },
+    {
+      "end_hms": "00:29:30.019",
+      "id": "seg-000094",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:29:08.490",
+      "text": "but always keep in mind the Bitcoin corrections after those iterations to the point of 5 have shown up with 70 to 80% in the past so therefore it would not be even a surprise if we see a similar completion of that pattern which still gives room to the bottom also from the time cycles"
+    },
+    {
+      "end_hms": "00:29:56.049",
+      "id": "seg-000095",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:29:30.019",
+      "text": "so that's why I wanted to bring the Bitcoin cycles here again cycles jam let's just jam on the next asset class is for sure the metals like gold and silver and no cycles jam would be complete if not looking at the metals like silver gold or anium"
+    },
+    {
+      "end_hms": "00:30:25.349",
+      "id": "seg-000096",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:29:56.180",
+      "text": "here the picture is a little bit or is on the positive side yeah so for the stock market Bitcoin cycles do not reveal a positive story to tell that's that's the jamming so we had a negative jam on stock market and Bitcoin if we don't look now at the metals the sentiment shifts let's start with gold"
+    },
+    {
+      "end_hms": "00:30:51.740",
+      "id": "seg-000097",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:30:26.240",
+      "text": "so here we have the gold futures so the price series is the gold futures and we have been monitoring this already here no I think also on the channel at least in some messages here so we reached a point according to the cycles I mean maybe too many cycles are selected here for that picture so let's clean that up now"
+    },
+    {
+      "end_hms": "00:31:20.339",
+      "id": "seg-000098",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:30:52.819",
+      "text": "mainly to start with a fresh perspective here so the most important long term cycle and it has reached two important points in the past I mean I would recommend you need to monitor those markets for a longer time so not never switch to a financial chart turn on the cycle analysis and then try to trust whatever you see"
+    },
+    {
+      "end_hms": "00:31:39.819",
+      "id": "seg-000099",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:31:20.339",
+      "text": "you need to have confidence in why you're choosing a specific cycle you need to have reasoning and good arguments why you the analyst it's not the computer it's you sitting in front of the screen making the decision to choose its cycle for your individual interpretation of that data series"
+    },
+    {
+      "end_hms": "00:32:08.170",
+      "id": "seg-000100",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:31:39.819",
+      "text": "and you only gain that knowledge if you observe that specific asset class here called over a longer time then you get a feeling and knowledge about which cycles repeat which cycles show up more often so I mean it's like stability but it's stability proven through the eyes of the analyst in the real another world"
+    },
+    {
+      "end_hms": "00:32:26.109",
+      "id": "seg-000101",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:32:08.170",
+      "text": "not just in the digital domain so long story short what I want to tell is about that the situation here reaching a possible topping condition was seen since November to be honest I mean for a pricing perspective"
+    },
+    {
+      "end_hms": "00:32:50.329",
+      "id": "seg-000102",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:32:26.109",
+      "text": "it's it's a tough tough call call going here from 4,400 even up to 5,000 yes I agree with that but the topping window here was shown up even in November late late 2025 so expecting prices to come down from here"
+    },
+    {
+      "end_hms": "00:33:09.619",
+      "id": "seg-000103",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:32:50.329",
+      "text": "let's say it's between 4,000 and 5,000 was from the dominant long term cycle to be expected so said that we now reached a point in that key dominant cycle where the tide has shifted again"
+    },
+    {
+      "end_hms": "00:33:33.799",
+      "id": "seg-000104",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "00:33:09.680",
+      "text": "so since July this year June July this year this long term cycle which I mean you can you can see it both ways which first gave us an indication about the timing of a possible upswing start so in early 2025 I indicated that at this point here which then really started that up"
+    },
+    {
+      "end_hms": "00:33:53.920",
+      "id": "seg-000105",
+      "role": "context_only",
+      "speaker": null,
+      "start_hms": "00:33:33.799",
+      "text": "brought that to an end end of 2025 and is now turning again so confirmed by the technical situation here and by the way that's the beauty of these kind of indicators here's more picture perfect example"
+    }
+  ],
+  "source_sha256": "d6bfb051b2344b3d17fd1a73643322945870262589aab1cf757ed1fe873ba135",
+  "window_id": "window-0004"
+}

@@ -1,0 +1,742 @@
+{
+  "context_only_segment_ids": [
+    "seg-000685",
+    "seg-000764"
+  ],
+  "contract_version": "ttk.semantic-contract.v2",
+  "core_segment_ids": [
+    "seg-000686",
+    "seg-000687",
+    "seg-000688",
+    "seg-000689",
+    "seg-000690",
+    "seg-000691",
+    "seg-000692",
+    "seg-000693",
+    "seg-000694",
+    "seg-000695",
+    "seg-000696",
+    "seg-000697",
+    "seg-000698",
+    "seg-000699",
+    "seg-000700",
+    "seg-000701",
+    "seg-000702",
+    "seg-000703",
+    "seg-000704",
+    "seg-000705",
+    "seg-000706",
+    "seg-000707",
+    "seg-000708",
+    "seg-000709",
+    "seg-000710",
+    "seg-000711",
+    "seg-000712",
+    "seg-000713",
+    "seg-000714",
+    "seg-000715",
+    "seg-000716",
+    "seg-000717",
+    "seg-000718",
+    "seg-000719",
+    "seg-000720",
+    "seg-000721",
+    "seg-000722",
+    "seg-000723",
+    "seg-000724",
+    "seg-000725",
+    "seg-000726",
+    "seg-000727",
+    "seg-000728",
+    "seg-000729",
+    "seg-000730",
+    "seg-000731",
+    "seg-000732",
+    "seg-000733",
+    "seg-000734",
+    "seg-000735",
+    "seg-000736",
+    "seg-000737",
+    "seg-000738",
+    "seg-000739",
+    "seg-000740",
+    "seg-000741",
+    "seg-000742",
+    "seg-000743",
+    "seg-000744",
+    "seg-000745",
+    "seg-000746",
+    "seg-000747",
+    "seg-000748",
+    "seg-000749",
+    "seg-000750",
+    "seg-000751",
+    "seg-000752",
+    "seg-000753",
+    "seg-000754",
+    "seg-000755",
+    "seg-000756",
+    "seg-000757",
+    "seg-000758",
+    "seg-000759",
+    "seg-000760",
+    "seg-000761",
+    "seg-000762",
+    "seg-000763"
+  ],
+  "packet_id": "map-window-0012",
+  "packet_sha256": "da10bbd18b45e7704e2f9419dc87a403f3212583634f8dc409a21fb64a30e61c",
+  "result_path": "work/results/map/window-0012.json",
+  "rules": [
+    "Extract evidence only from core segments; context_only segments are orientation only.",
+    "Every candidate claim requires at least one verbatim quote from its cited core segment.",
+    "Do not force content into categories; empty arrays are valid.",
+    "Separate factual assertions from opinion, prediction, recommendation, decision, anecdote, definition, mechanism, estimate, and hypothesis.",
+    "Preserve disagreement and uncertainty rather than reconciling it."
+  ],
+  "schema": "ttk.map-packet.v2",
+  "source_segments": [
+    {
+      "end_hms": "01:01:47.909",
+      "id": "seg-000685",
+      "role": "context_only",
+      "speaker": null,
+      "start_hms": "01:01:41.929",
+      "text": "MRI but what you mentioned so the experiment is I just give you a word right I'm not actually making"
+    },
+    {
+      "end_hms": "01:01:54.530",
+      "id": "seg-000686",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:01:47.909",
+      "text": "you feel the emotion and asking you sadness draw you know where on the body you think you would"
+    },
+    {
+      "end_hms": "01:02:00.070",
+      "id": "seg-000687",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:01:54.530",
+      "text": "feel that emotion so if you think about it it's certainly not about actual physiological changes in"
+    },
+    {
+      "end_hms": "01:02:03.469",
+      "id": "seg-000688",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:02:00.070",
+      "text": "the body nothing's measured in the body they don't have electrons on the body whatever this people"
+    },
+    {
+      "end_hms": "01:02:08.630",
+      "id": "seg-000689",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:02:03.469",
+      "text": "just drawing on a little mannequin where they think they would feel the emotion it's also not"
+    },
+    {
+      "end_hms": "01:02:12.670",
+      "id": "seg-000690",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:02:08.630",
+      "text": "about conscious experiences of emotion I'm not making I'm not showing you sad movie clips or"
+    },
+    {
+      "end_hms": "01:02:17.289",
+      "id": "seg-000691",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:02:12.670",
+      "text": "anything like that I'm giving you a little word a single word so it's about concepts it's about"
+    },
+    {
+      "end_hms": "01:02:24.630",
+      "id": "seg-000692",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:02:17.289",
+      "text": "where in the body people's concept of sadness or happiness or fear where that corresponds to"
+    },
+    {
+      "end_hms": "01:02:29.690",
+      "id": "seg-000693",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:02:24.630",
+      "text": "changes in the body now that's an interesting question but you have to narrow it down to that"
+    },
+    {
+      "end_hms": "01:02:35.710",
+      "id": "seg-000694",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:02:29.690",
+      "text": "which is a fundamental problem with most emotions including that one I think the title I forget"
+    },
+    {
+      "end_hms": "01:02:39.909",
+      "id": "seg-000695",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:02:35.710",
+      "text": "what the title is but it's something like bodily maps of emotions or bodily maps of subjective"
+    },
+    {
+      "end_hms": "01:02:47.030",
+      "id": "seg-000696",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:02:39.909",
+      "text": "experience maybe even it should be something like people's concept of where in the body emotion"
+    },
+    {
+      "end_hms": "01:02:52.329",
+      "id": "seg-000697",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:02:47.030",
+      "text": "words are associated with changes or something like that what's interesting about that study"
+    },
+    {
+      "end_hms": "01:02:58.090",
+      "id": "seg-000698",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:02:52.329",
+      "text": "is that Laurie has gone on to look at it in different cultures he's looked at it developmentally"
+    },
+    {
+      "end_hms": "01:03:03.230",
+      "id": "seg-000699",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:02:58.090",
+      "text": "across children and asked how do these concepts and where in the body would feel emotion develop"
+    },
+    {
+      "end_hms": "01:03:09.170",
+      "id": "seg-000700",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:03:03.230",
+      "text": "so it's super interesting work but it's ultimately about people's concepts of how emotions correspond"
+    },
+    {
+      "end_hms": "01:03:15.150",
+      "id": "seg-000701",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:03:09.170",
+      "text": "to changes in the body not the real actual changes in the body but then as you were saying of"
+    },
+    {
+      "end_hms": "01:03:20.329",
+      "id": "seg-000702",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:03:15.150",
+      "text": "course there are real changes in the body when you really feel an emotion as well and that's"
+    },
+    {
+      "end_hms": "01:03:25.849",
+      "id": "seg-000703",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:03:20.329",
+      "text": "harder to study but people have studied it quite a bit with a focus on the part of the brain"
+    },
+    {
+      "end_hms": "01:03:30.670",
+      "id": "seg-000704",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:03:26.369",
+      "text": "that gets a lot of input from the body which is a part of cortex called the insula"
+    },
+    {
+      "end_hms": "01:03:36.949",
+      "id": "seg-000705",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:03:30.670",
+      "text": "and so there's lots and lots of work on the insula it gets input from all the organs in your body"
+    },
+    {
+      "end_hms": "01:03:42.340",
+      "id": "seg-000706",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:03:36.949",
+      "text": "everywhere in your body so you know from your heart from your liver from your kidney at a kidney"
+    },
+    {
+      "end_hms": "01:03:47.639",
+      "id": "seg-000707",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:03:42.340",
+      "text": "stone not too long ago which you talk about the kid have you had a kidney stone don't it's really"
+    },
+    {
+      "end_hms": "01:03:54.179",
+      "id": "seg-000708",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:03:47.639",
+      "text": "interesting to pass it eventually it's passed but it's it evokes very interesting adaptive behaviors"
+    },
+    {
+      "end_hms": "01:03:59.840",
+      "id": "seg-000709",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:03:54.179",
+      "text": "well just as an aside before I forget it so normally for pain extraceptive pain like we were"
+    },
+    {
+      "end_hms": "01:04:04.219",
+      "id": "seg-000710",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:03:59.840",
+      "text": "talking about the hot plate before you know you pull your hand away or there's some kind of reflex"
+    },
+    {
+      "end_hms": "01:04:09.880",
+      "id": "seg-000711",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:04:04.820",
+      "text": "for the kidney stone that's not adaptive there's nothing to pull away so my wife this was in"
+    },
+    {
+      "end_hms": "01:04:14.460",
+      "id": "seg-000712",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:04:09.880",
+      "text": "Switzerland we're in a remote little town in the middle of the night my wife sees me curl up into a"
+    },
+    {
+      "end_hms": "01:04:20.679",
+      "id": "seg-000713",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:04:14.460",
+      "text": "ball right on the floor just kind of breathing loudly and kind of curled up in me rocking motions"
+    },
+    {
+      "end_hms": "01:04:25.480",
+      "id": "seg-000714",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:04:20.679",
+      "text": "and goes what's wrong and I tell her why I have a kidney stone and then she asked me can't you"
+    },
+    {
+      "end_hms": "01:04:29.940",
+      "id": "seg-000715",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:04:25.480",
+      "text": "just stop the behavior or can we get on a plane and fly to the US so you can get ultrasound"
+    },
+    {
+      "end_hms": "01:04:34.800",
+      "id": "seg-000716",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:04:29.940",
+      "text": "made a treat for the kidney stone can you stop trolling up into a ball and you know making rocking"
+    },
+    {
+      "end_hms": "01:04:41.340",
+      "id": "seg-000717",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:04:34.800",
+      "text": "motions and I was kind of thinking about that to my haze of pain and say well no it's kind of like"
+    },
+    {
+      "end_hms": "01:04:47.239",
+      "id": "seg-000718",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:04:41.340",
+      "text": "the hot plate and pulling away it's a really strongly motivated behavior to just kind of withdraw"
+    },
+    {
+      "end_hms": "01:04:53.440",
+      "id": "seg-000719",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:04:47.239",
+      "text": "basically so it was a very interesting adaptive behavior and she called you know the equivalent of"
+    },
+    {
+      "end_hms": "01:05:01.699",
+      "id": "seg-000720",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:04:53.440",
+      "text": "911 in the middle of the of the night some guy came down and you know put a bunch of opiates into"
+    },
+    {
+      "end_hms": "01:05:07.440",
+      "id": "seg-000721",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:05:01.699",
+      "text": "me and he kept having the scale of you know on a scale from 0 to 10 how painful is it and I would"
+    },
+    {
+      "end_hms": "01:05:13.420",
+      "id": "seg-000722",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:05:07.440",
+      "text": "sort of go from 10 to 9.5 and it was extremely painful but eventually they got me to a clinic"
+    },
+    {
+      "end_hms": "01:05:19.239",
+      "id": "seg-000723",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:05:13.420",
+      "text": "there I passed the stone and it was an interesting experience I mean it's pain but just like what"
+    },
+    {
+      "end_hms": "01:05:23.699",
+      "id": "seg-000724",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:05:19.239",
+      "text": "we were talking about for emotions pain is not pain if you have a pain in your eye or you have a"
+    },
+    {
+      "end_hms": "01:05:29.900",
+      "id": "seg-000725",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:05:23.699",
+      "text": "pain from a hot stove this is a very different type of pain and one that's I would say worse than"
+    },
+    {
+      "end_hms": "01:05:34.679",
+      "id": "seg-000726",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:05:29.900",
+      "text": "the hot stove it's like because you can't escape when you can't rub it you can't do anything it"
+    },
+    {
+      "end_hms": "01:05:40.619",
+      "id": "seg-000727",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:05:34.679",
+      "text": "is up curl up into a ball and pray I mean it was horrible at any rate so at that moment had I"
+    },
+    {
+      "end_hms": "01:05:46.239",
+      "id": "seg-000728",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:05:40.619",
+      "text": "been in an MRI study my insulin would have been strongly activated so this you know this is a"
+    },
+    {
+      "end_hms": "01:05:53.119",
+      "id": "seg-000729",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:05:46.239",
+      "text": "region of the brain that according to theorists but Craig was the first Antonio Damasio as"
+    },
+    {
+      "end_hms": "01:05:59.119",
+      "id": "seg-000730",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:05:53.119",
+      "text": "theories in a similar vein this would be the substrate for the conscious experience of the"
+    },
+    {
+      "end_hms": "01:06:04.340",
+      "id": "seg-000731",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:05:59.119",
+      "text": "emotion or of pain in your body so it's getting all this input from your body and representing"
+    },
+    {
+      "end_hms": "01:06:10.639",
+      "id": "seg-000732",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:06:04.340",
+      "text": "the changes in your body as a conscious experience this was the original theory that William James had"
+    },
+    {
+      "end_hms": "01:06:17.159",
+      "id": "seg-000733",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:06:10.639",
+      "text": "back in 1884 he wrote this paper in mind what is an emotion and his theory was that you see the"
+    },
+    {
+      "end_hms": "01:06:23.239",
+      "id": "seg-000734",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:06:17.159",
+      "text": "bear you run away your heart rate goes up and then you feel the emotion which is a consequence of"
+    },
+    {
+      "end_hms": "01:06:28.599",
+      "id": "seg-000735",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:06:23.239",
+      "text": "you perceiving all the changes in your body that happened first now that's I think the conscious"
+    },
+    {
+      "end_hms": "01:06:34.679",
+      "id": "seg-000736",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:06:28.599",
+      "text": "experience of emotion yes and a lot of that depends on representing perceiving everything that"
+    },
+    {
+      "end_hms": "01:06:40.940",
+      "id": "seg-000737",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:06:34.679",
+      "text": "changes in in our body but to my mind that leaves the question of what the emotion is that's still"
+    },
+    {
+      "end_hms": "01:06:44.780",
+      "id": "seg-000738",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:06:40.940",
+      "text": "antecedent to that you first have to trigger all the changes in your body and run away what's doing"
+    },
+    {
+      "end_hms": "01:06:50.579",
+      "id": "seg-000739",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:06:44.780",
+      "text": "that right that's the emotion the conscious experience may well come later and unfold over some time"
+    },
+    {
+      "end_hms": "01:06:55.559",
+      "id": "seg-000740",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:06:50.579",
+      "text": "but the emotion state separate from the conscious experience as if emphasized would be the one that"
+    },
+    {
+      "end_hms": "01:06:59.900",
+      "id": "seg-000741",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:06:55.559",
+      "text": "actually motivates all the behaviors and all the different changes in your body so long answer to your"
+    },
+    {
+      "end_hms": "01:07:05.599",
+      "id": "seg-000742",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:06:59.900",
+      "text": "question there's there these two different ways of talking about the role of the body the one"
+    },
+    {
+      "end_hms": "01:07:10.400",
+      "id": "seg-000743",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:07:05.599",
+      "text": "that you alluded to in this figure from Lowy Newman my and colleagues that we produced in our book"
+    },
+    {
+      "end_hms": "01:07:16.119",
+      "id": "seg-000744",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:07:10.400",
+      "text": "is about people's concepts of emotions and they're certainly tied to changes in the body"
+    },
+    {
+      "end_hms": "01:07:22.780",
+      "id": "seg-000745",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:07:16.980",
+      "text": "whether or not those are accurate I think we just don't know so is it the case that those drawings"
+    },
+    {
+      "end_hms": "01:07:28.139",
+      "id": "seg-000746",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:07:22.780",
+      "text": "that they have in in the figure that we were speaking about if you put electrodes on your measured"
+    },
+    {
+      "end_hms": "01:07:32.860",
+      "id": "seg-000747",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:07:28.139",
+      "text": "blood flow changes that's actually where things change when you have our anger I think we just"
+    },
+    {
+      "end_hms": "01:07:38.179",
+      "id": "seg-000748",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:07:32.860",
+      "text": "don't know I think that's a set of studies that remains to be done but then in addition there is the"
+    },
+    {
+      "end_hms": "01:07:43.440",
+      "id": "seg-000749",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:07:38.179",
+      "text": "fact that all of the changes in your body are represented in your brain in the insula and that seems"
+    },
+    {
+      "end_hms": "01:07:50.079",
+      "id": "seg-000750",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:07:43.440",
+      "text": "to be the big part of the substrate for feeling the emotion for the conscious experience of the emotion"
+    },
+    {
+      "end_hms": "01:07:57.079",
+      "id": "seg-000751",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:07:50.079",
+      "text": "and other things nausea pain kidney stones so it's not limited to emotions but the strong feelings"
+    },
+    {
+      "end_hms": "01:08:02.300",
+      "id": "seg-000752",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:07:57.079",
+      "text": "that we have like you know you have a tightness in your chest if you're feeling really sad for example"
+    },
+    {
+      "end_hms": "01:08:08.639",
+      "id": "seg-000753",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:08:02.300",
+      "text": "that would be represented in your insula because in eastern medicine there's strong beliefs about"
+    },
+    {
+      "end_hms": "01:08:13.480",
+      "id": "seg-000754",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:08:08.639",
+      "text": "different organs being associated with different emotional states even like gall you know"
+    },
+    {
+      "end_hms": "01:08:19.079",
+      "id": "seg-000755",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:08:13.480",
+      "text": "someone has a lot of gall the gall bladder you know it but then again I always have to remind people"
+    },
+    {
+      "end_hms": "01:08:25.079",
+      "id": "seg-000756",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:08:19.079",
+      "text": "that a key feature of schizophrenia and psychosis of other kinds is clang associations two words sound"
+    },
+    {
+      "end_hms": "01:08:30.220",
+      "id": "seg-000757",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:08:25.079",
+      "text": "alike and some and people link them so we also are subject to this and in much milder way in the"
+    },
+    {
+      "end_hms": "01:08:35.100",
+      "id": "seg-000758",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:08:30.220",
+      "text": "world of health and science and especially in the public discourse people will say oh you know a"
+    },
+    {
+      "end_hms": "01:08:39.680",
+      "id": "seg-000759",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:08:35.100",
+      "text": "walnut looks like a brain walnuts are good for your brain well they have some fatty acids that"
+    },
+    {
+      "end_hms": "01:08:44.159",
+      "id": "seg-000760",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:08:39.680",
+      "text": "are probably good for for neurons but it has absolutely nothing to do with the shape of the walnut"
+    },
+    {
+      "end_hms": "01:08:48.819",
+      "id": "seg-000761",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:08:44.159",
+      "text": "it's amazing how these ideas can kind of perpetuate well I think there is some truth to them I think"
+    },
+    {
+      "end_hms": "01:08:53.939",
+      "id": "seg-000762",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:08:48.819",
+      "text": "it just has the honest answer is it has not been tested so if you ask someone like Lisa Feldman"
+    },
+    {
+      "end_hms": "01:09:00.300",
+      "id": "seg-000763",
+      "role": "core",
+      "speaker": null,
+      "start_hms": "01:08:53.939",
+      "text": "Barrett has as has made this point repeatedly that there really is no systematic association"
+    },
+    {
+      "end_hms": "01:09:05.159",
+      "id": "seg-000764",
+      "role": "context_only",
+      "speaker": null,
+      "start_hms": "01:09:00.300",
+      "text": "between specific emotions and specific changes in your body well if you look at those studies"
+    }
+  ],
+  "source_sha256": "35dc18929ef7fc18a3cfba97a48feae2210ffeb900a46a183e0a35d05539394b",
+  "window_id": "window-0012"
+}
