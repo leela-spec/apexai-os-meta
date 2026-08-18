@@ -15,8 +15,8 @@ module_00:
   wrapper_agents_active: 0
   reviewer_agents_active: 2
   forked_stage_skills_active: 6
-  stale_global_authority: known_unresolved  # see "Post-closure repair pass" below -- 4 items open as of this commit
-  fresh_architecture_test: pass  # scope: dispatch/routing/gates/bypass rules only -- did NOT exercise stage supporting_files load paths; see repair pass
+  stale_global_authority: known_unresolved  # 2 items intentionally deferred, not a defect -- see "Post-closure repair pass" below
+  fresh_architecture_test: pass  # scope: dispatch/routing/gates/bypass rules only -- did NOT exercise stage supporting_files load paths; that gap is now closed by the repair pass below and folded into future acceptance criteria
   next_module: 01_weekly_command_brief
 ```
 
@@ -28,22 +28,23 @@ module_00:
 
 No production fixes were needed as a result of the test — both agents' findings matched the intended design exactly. Full agent transcripts are in this conversation's history; not persisted here to keep this file compact (per the instruction not to turn this into a diary).
 
-## Post-closure repair pass
+## Post-closure repair pass — CLOSED
 
-A follow-up sweep (after Module 00 closure, before Module 01 opened) found what the fresh-context test above genuinely missed: it exercised dispatch/routing/gates, never a stage's own `supporting_files` load path. Findings and status, each its own commit:
+A follow-up sweep (after Module 00 closure, before Module 01 opened) found what the fresh-context test above genuinely missed: it exercised dispatch/routing/gates, never a stage's own `supporting_files` load path. All planned items resolved; two genuinely belong to a later module and are recorded there instead of fixed here.
 
 1. Collapsed YAML in 4 PrecapWeek files (up to 4424-char single lines) — **fixed**, commit `0720e6aa`.
 2. Collapsed YAML in `PromptEngineer/SKILL.md` — **fixed**, commit `11db9f54`.
 3. Fail-unsafe generation scaffolding (a live entrypoint instructing file creation) in `AIRouting/SKILL.md` + 6 contract files — **fixed**, commit `f8a9896b`.
 4. Wrong J02 template path in Module 01's own `HANDOVER.md` — **fixed**, commit `0e0fca77`.
 5. Stale activation report claiming `active_and_ready` while its own numbers said `contracts_changed: 0` — **fixed** (precedence marker to D011), commit `1c405cdc`.
-6. This entry.
-7. ProjectStatus duplicate inventory (divergent versions, competing entrypoint claim) — recorded in `08-project-status/README.md`, not yet applied at time of writing.
-8. `workflow-process-design` missing from D012's on-demand dependencies despite `PrecapNextDay` declaring a failure mode for it — logged as an open question in `DECISIONS.md`, not yet applied at time of writing.
-9. 28 broken `supporting_files` declarations across `AIRouting`, `PromptEngineer`, `Workflow&Processes` (shared skills, not owned by this project — repointing their own entrypoint declarations only, no moves/renames) — not yet applied at time of writing.
-10. Two stale ProjectStatus folders (`FirstIteration/`, `FolderStructure/`) archived per operator instruction — not yet applied at time of writing.
+6. `fresh_architecture_test` scope qualifier + `stale_global_authority` correction (this file) — **fixed**, commit `8f380b86`.
+7. ProjectStatus duplicate inventory (divergent versions, competing entrypoint claim) — **recorded** in `08-project-status/README.md`; **not resolved** (Module 08's content decision). Stale folders archived per operator instruction — commit `72105900`.
+8. `workflow-process-design` missing from D012's on-demand dependencies despite `PrecapNextDay` declaring a failure mode for it — **logged as open question O002** in `DECISIONS.md`, commit `d46d6d4a`. Not resolved either way.
+9. 28 broken `supporting_files` declarations across `AIRouting`, `PromptEngineer`, `Workflow&Processes` (shared skills, not owned by this project) — **fixed** by repointing each skill's own declarations to its real files, no moves/renames — commit `7b53bcd3`.
+10. Two stale ProjectStatus folders archived — folded into item 7's commit `72105900`.
+11. **Found during final verification, not in the original 10-item list:** 22 more files with the identical fail-unsafe scaffolding tail from item 3 — 9 in `PrecapNextDay/references/` (project-owned), 6 in `PromptEngineer/`, 7 in `Workflow&Processes/`. Confirmed with the operator before fixing given the 3x scope increase and first occurrence in a project-owned package. **Fixed**, commit `3c0d50b0` — including a caught-and-corrected truncation mistake (one file had a legitimate example containing a decoy `---`/`# VALIDATION` heading; verified no other file shares that trap before committing).
 
-Once 7-10 land, this section collapses back to a one-line note and `stale_global_authority` returns to `none_known`.
+**Remaining, by design, not oversight:** ProjectStatus's 4 broken pointers (item 7) and `Workflow&Processes`'s `sprint-structure-rules.md` (declared, doesn't exist anywhere — logged inline in its `SKILL.md` as an open question) are both content-authority decisions outside Master repair scope. `stale_global_authority: known_unresolved` reflects exactly these two, nothing else.
 
 ## Full phase record (for provenance; Module 01 does not need to re-read this)
 
