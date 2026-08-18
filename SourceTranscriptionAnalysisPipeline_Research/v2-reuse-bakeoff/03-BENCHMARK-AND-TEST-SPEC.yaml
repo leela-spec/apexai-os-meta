@@ -1,0 +1,540 @@
+schema: transcript-pipeline-benchmark-spec.v2
+created: '2026-08-18'
+status: READY_FOR_EXECUTION
+purpose: >-
+  Define a repeatable benchmark and regression system that can select reusable
+  pipeline components from measured evidence and detect future regressions.
+  Hard provenance/completion gates are binary; semantic/utility metrics are
+  comparative and retain uncertainty rather than manufacturing precision.
+
+principles:
+  - 'Hard correctness gates are not averaged into a utility score.'
+  - 'Every score must name input fixture, component version/config, provider/model, and metric authority.'
+  - 'Human gold, AI silver, source metadata, and automatic judge outputs are distinct evidence classes.'
+  - 'Do not use an English-only semantic judge as sole evidence for German quality.'
+  - 'Compare candidate lanes on identical input packets/audio wherever possible.'
+  - 'One warmup run is excluded from timing when model initialization materially affects first-run latency.'
+  - 'Failed/blocking cases stay visible; no survivor-only average.'
+  - 'Record UNMEASURED instead of estimating unavailable tokens, cost, RAM, or accuracy.'
+
+paths:
+  root: artifacts/transcript_pipeline_v2
+  fixture_root: artifacts/transcript_pipeline_v2/gold
+  run_root: artifacts/transcript_pipeline_v2/runs
+  comparison_root: artifacts/transcript_pipeline_v2/comparisons
+  receipt_root: artifacts/transcript_pipeline_v2/receipts
+  final_report: artifacts/transcript_pipeline_v2/FINAL-REPORT.yaml
+
+sources:
+  P-h5WSQG1Sw:
+    label: huberman_adolphs
+    language: en
+    type: long_science_interview
+    special_tests:
+      - long_source_coverage
+      - multi_speaker_provenance
+      - science_terms
+      - early_middle_late_reduce_coverage
+  CygwqaNg2PY:
+    label: prechter
+    language: en
+    type: technical_finance
+    special_tests:
+      - technical_terms
+      - named_terms
+      - compact_full_source_reduce
+  vFTuLylvYnA:
+    label: koch
+    language: de
+    type: german_finance
+    special_tests:
+      - german_asr
+      - german_semantics
+      - numbers_percentages
+      - domain_terms
+  oZIsMX6WgFs:
+    label: market_cycles
+    language: en
+    type: technical_procedure
+    special_tests:
+      - procedural_recall
+      - mechanism_recall
+      - longish_cross_window_reduce
+
+label_authorities:
+  HUMAN_GOLD:
+    rank: 1
+    description: 'Manually checked against source/audio by operator or qualified reviewer.'
+  SOURCE_METADATA:
+    rank: 2
+    description: 'Exact information established by source title/metadata or deterministic repository evidence.'
+  AI_SILVER:
+    rank: 3
+    description: 'Prepared by a strong AI from source evidence but not independently human adjudicated.'
+  AUTOMATIC_JUDGE:
+    rank: 4
+    description: 'Metric/model-generated evaluation signal.'
+  UNMEASURED:
+    rank: 99
+    description: 'No defensible reference available.'
+
+benchmark_levels:
+  T0_UNIT:
+    purpose: deterministic and adapter correctness
+    required_for_every_code_change: true
+    tests:
+      - T0_SCHEMA
+      - T0_HASH
+      - T0_SOURCE_REF
+      - T0_FACT_QUOTE
+      - T0_CONTEXT_ONLY
+      - T0_STALE_PACKET
+      - T0_CLI_FAILURE
+      - T0_BOUNDED_RETRY
+      - T0_RECEIPT
+      - T0_RESUME
+  T1_COMPONENT:
+    purpose: cheap representative component comparison
+    required_before_component_promotion: true
+    scope:
+      map_windows: '>= 10 representative windows total across all four sources, including EN+DE and early/middle/late long-source positions'
+      support_pairs: '>= 40 total with at least 10 negative/overreach examples'
+      asr_slices: 'difficult clips across all source classes; WER only on HUMAN_GOLD clips'
+  T2_FULL_SOURCE:
+    purpose: semantic architecture validation
+    required_before_production_integration: true
+    scope:
+      sources_required:
+        - CygwqaNg2PY
+        - vFTuLylvYnA
+      sources_preferred:
+        - P-h5WSQG1Sw
+        - oZIsMX6WgFs
+  T3_FOUR_SOURCE_REGRESSION:
+    purpose: selected semantic composition regression over existing transcripts
+    required_before_final_pass: true
+    sources:
+      - P-h5WSQG1Sw
+      - CygwqaNg2PY
+      - vFTuLylvYnA
+      - oZIsMX6WgFs
+  T4_FRESH_END_TO_END:
+    purpose: prove ASR plus semantic composition from fresh audio
+    required_before_final_pass: true
+    sources_required:
+      - vFTuLylvYnA
+      - CygwqaNg2PY
+    expand_after_required_pass:
+      - P-h5WSQG1Sw
+      - oZIsMX6WgFs
+  T5_RESUME_CLEAN_ROOM:
+    purpose: prove deterministic resume and no duplicate semantic work
+    required_before_final_pass: true
+
+hard_gates:
+  HG01_SEMANTIC_EXECUTION_PROVEN:
+    pass_when: 'Every required Map/Reduce semantic result has a matching successful invocation receipt identifying provider/model/packet/output.'
+    fail_examples:
+      - output_file_exists_but_no_semantic_receipt
+      - heuristic_fallback_generated_result
+  HG02_SOURCE_PROVENANCE:
+    pass_when: 'Every required source reference resolves to valid canonical TTK evidence and context-only segments are never cited as evidence.'
+  HG03_FACTUAL_EXACT_EVIDENCE:
+    pass_when: 'Every final factual/external-testable estimate Micro claim contains required exact source evidence under the selected TTK contract.'
+  HG04_PACKET_FRESHNESS:
+    pass_when: 'All result packet hashes match current packet hashes; stale results are rejected.'
+  HG05_COMPLETE_WINDOW_COVERAGE:
+    pass_when: 'Every expected Map core window is valid or explicitly failed; Reduce cannot report complete while Map coverage is incomplete.'
+  HG06_SOURCE_SUPPORT_SEPARATION:
+    pass_when: 'Source support is not inferred merely from quote existence and remains distinct from external truth verdict.'
+  HG07_EXTERNAL_VERIFICATION_EVIDENCE:
+    pass_when: 'CONFIRMED/CONTRADICTED/MIXED external verdicts include evidence records; insufficient cases remain UNVERIFIED.'
+  HG08_RECEIPT_TRUTH:
+    pass_when: 'all_passed=false whenever a required stage is absent, failed, pending, or stale; run Git/source/config provenance is recorded.'
+  HG09_NO_GENERIC_PSEUDO_SEMANTICS:
+    pass_when: 'Selected production path does not generate semantic result via regex/keyword/fixed-template logic.'
+  HG10_RESUME_IDEMPOTENCY:
+    pass_when: 'Rerun does not repeat current valid semantic packets and regenerates only invalidated units plus downstream dependents.'
+
+unit_test_cases:
+  - id: T0_SCHEMA
+    expected: 'Malformed Map/Reduce/Verify result fails.'
+  - id: T0_HASH
+    expected: 'Wrong packet_sha256 fails.'
+  - id: T0_SOURCE_REF
+    expected: 'Unknown source segment ID fails for every claim kind.'
+  - id: T0_FACT_QUOTE
+    expected: 'Factual claim without exact quote fails; invented quote fails.'
+  - id: T0_CONTEXT_ONLY
+    expected: 'Context-only segment used as evidence fails.'
+  - id: T0_NONFACT_QUOTE_OPTIONAL
+    expected: 'Opinion/prediction/mechanism with valid core provenance can pass without forced verbatim quote when current contract allows it.'
+  - id: T0_STALE_PACKET
+    expected: 'Old result invalidates after packet changes.'
+  - id: T0_CLI_FAILURE
+    expected: 'Nonzero semantic CLI exit cannot produce successful semantic result.'
+  - id: T0_BOUNDED_RETRY
+    expected: 'Schema/validator error permits at most one validation-informed retry in reference implementation.'
+  - id: T0_RECEIPT
+    expected: 'Receipt contains provider/config/input/output/exit/validation fields and no secrets.'
+  - id: T0_RESUME
+    expected: 'Current valid Map is skipped; one missing/invalid Map reruns exactly itself then invalid downstream stages.'
+
+asr_benchmark:
+  candidates:
+    - faster_whisper_base
+    - faster_whisper_small
+    - faster_whisper_medium
+    - parakeet_v3
+  optional_candidates:
+    - faster_whisper_large_v3
+    - hosted_asr_oracle
+  controls:
+    - identical_audio_clip_sha
+    - explicit_language_setting
+    - explicit_vad_setting
+    - timestamp_mode_recorded
+    - model_revision_recorded
+  metrics:
+    wer:
+      authority_required: HUMAN_GOLD
+      direction: lower_is_better
+    domain_term_accuracy:
+      authority: HUMAN_GOLD_or_SOURCE_METADATA
+      direction: higher_is_better
+    numeric_accuracy:
+      authority: HUMAN_GOLD_or_SOURCE_METADATA
+      direction: higher_is_better
+    word_timestamp_availability:
+      type: binary_or_coverage
+      direction: higher_is_better
+    wall_time_seconds:
+      type: measured
+      direction: lower_is_better_after_quality_gate
+    peak_memory_mb:
+      type: measured_if_available_else_UNMEASURED
+      direction: lower_is_better_after_quality_gate
+  hotword_experiment:
+    separate_from_model_size_test: true
+    reason: 'Preserve attribution between model quality and supplied vocabulary bias.'
+  selection:
+    hard_rule: 'Candidate must meet human-reviewed quality floor on difficult EN+DE slices; never select fastest candidate that fails quality.'
+    tie_breaker_order:
+      - domain_term_accuracy
+      - numeric_accuracy
+      - wer
+      - wall_time_seconds
+      - operational_complexity
+
+whisperx_benchmark:
+  source: P-h5WSQG1Sw
+  compare:
+    - reference_asr_timestamps
+    - whisperx_alignment
+    - whisperx_alignment_plus_diarization_if_available
+  metrics:
+    speaker_attribution_accuracy:
+      authority: HUMAN_GOLD_or_manually_reviewed_slice
+    timestamp_alignment_utility:
+      authority: manually_reviewed_events
+    wall_time_seconds:
+      authority: measured
+    dependency_burden:
+      authority: measured_install_and_runtime_notes
+  promotion_state_if_win: CONDITIONAL
+  never_global_default_without_multi_speaker_trigger: true
+
+map_benchmark:
+  lanes:
+    - direct_cli
+    - gliner2_assisted_cli
+    - langextract_cli_provider
+  controls:
+    - identical_TTK_packet
+    - same_primary_semantic_provider_model_where_possible
+    - same_semantic_contract
+    - same_scoring_fixture
+  metrics:
+    insight_recall:
+      formula: 'matched_important_gold_items / total_important_gold_items'
+      authority: HUMAN_GOLD_preferred_AI_SILVER_reported_separately
+      direction: higher_is_better
+    factual_grounding_precision:
+      formula: 'correctly_grounded_factual_claims / emitted_factual_claims'
+      authority: deterministic_plus_manual_review
+      direction: higher_is_better
+    unsupported_claim_rate:
+      formula: 'unsupported_or_overreaching_claims / reviewed_claims'
+      direction: lower_is_better
+    entity_precision:
+      direction: higher_is_better
+    entity_recall:
+      direction: higher_is_better
+    uncertainty_recall:
+      direction: higher_is_better
+    input_tokens:
+      authority: CLI_reported_or_UNMEASURED
+      direction: lower_is_better_if_quality_not_worse
+    output_tokens:
+      authority: CLI_reported_or_UNMEASURED
+      direction: lower_is_better_if_quality_not_worse
+    wall_time_seconds:
+      direction: lower_is_better_if_quality_not_worse
+    retry_count:
+      direction: lower_is_better
+    custom_adapter_loc:
+      authority: deterministic_line_count
+      direction: lower_is_better_ceteris_paribus
+  hard_fail:
+    - any_fabricated_source_reference
+    - semantic_worker_not_proven
+    - factual_exact_evidence_gate_fail
+
+support_model_benchmark:
+  gold_file: artifacts/transcript_pipeline_v2/gold/support-pairs.yaml
+  candidates:
+    - strong_semantic_worker_support_judgment
+    - mdeberta_nli
+    - hhem_english_only
+  labels:
+    - SUPPORTED
+    - PARTIAL
+    - AMBIGUOUS
+    - UNSUPPORTED
+  metrics:
+    confusion_matrix: true
+    supported_vs_warning_precision: true
+    supported_vs_warning_recall: true
+    false_negative_count: true
+    false_positive_count: true
+  authority:
+    final_reference: HUMAN_GOLD_subset
+    silver_analysis: AI_SILVER_reported_separately
+  production_policy:
+    semantic_worker_remains_authority: true
+    advisory_model_can_trigger_review: true
+    advisory_model_cannot_silently_override: true
+
+reduce_benchmark:
+  lanes:
+    - direct_cli_reduce
+    - docetl_fixed_reduce
+  optimizer_initially_enabled: false
+  controls:
+    - same_validated_map_evidence_where_possible
+    - same_source
+    - same_semantic_output_contract
+  metrics:
+    macro_thesis_quality:
+      scale: '0..5 rubric'
+    meso_semantic_coherence:
+      scale: '0..5 rubric'
+    important_insight_recall:
+      scale: '0..1 checklist recall'
+    cross_window_coverage:
+      scale: '0..1 weighted window/theme coverage'
+    uncertainty_preservation:
+      scale: '0..1 checklist recall'
+    unsupported_claim_rate:
+      direction: lower_is_better
+    generic_boilerplate_rate:
+      definition: 'generic/non-source-specific synthesis units / reviewed synthesis units'
+      direction: lower_is_better
+    input_tokens:
+      direction: lower_is_better_if_quality_not_worse
+    output_tokens:
+      direction: lower_is_better_if_quality_not_worse
+    wall_time_seconds:
+      direction: lower_is_better_if_quality_not_worse
+    retries:
+      direction: lower_is_better
+    orchestration_custom_loc:
+      direction: lower_is_better_ceteris_paribus
+  hard_fail_symptoms:
+    - generic_process_only_macro
+    - fixed_mechanical_time_chapters_as_semantic_truth
+    - major_late_source_content_omitted_without_reason
+    - blanket_SUPPORTED_without_semantic_judgment
+
+semantic_eval:
+  deterministic_metrics_are_primary_hard_gates: true
+  human_or_gold_metrics_are_primary_product_evidence: true
+  deepeval:
+    lane: auxiliary
+    allowed_metrics:
+      - faithfulness_where_language_and_judge_are_validated
+      - hallucination_where_language_and_judge_are_validated
+      - custom_GEval_rubric_where_provider_and_prompt_are_recorded
+    restrictions:
+      - 'Do not use as sole pass/fail authority.'
+      - 'Do not silently apply English-only metric prompts to German and compare as if equivalent.'
+  blind_product_rubric:
+    dimensions:
+      - thesis_usefulness
+      - important_insight_recall
+      - source_fidelity
+      - module_coherence
+      - uncertainty_preservation
+      - concision
+      - operator_time_to_understand
+    scale: '0..5 per dimension'
+    compare:
+      - current_system_artifact
+      - selected_candidate_artifact
+      - Fabric_baseline_if_available
+      - Open_Notebook_baseline_if_available
+
+material_gain_policy:
+  purpose: 'Decision threshold for promotion; these are project thresholds, not scientific universal constants.'
+  quality_gain_any:
+    - '>= 0.30 absolute improvement on a 0..5 primary rubric average on adequately reviewed cases'
+    - '>= 5 percentage-point absolute gain in important insight recall on the scored fixture set'
+    - 'meaningful hard-error elimination, such as fabricated grounding reduced to zero'
+  efficiency_gain_any:
+    - '>= 20% measured semantic token reduction with no material quality regression'
+    - '>= 20% measured wall-time reduction with no material quality regression'
+    - 'material custom-code/retry/maintenance reduction documented in selection review'
+  no_material_quality_regression:
+    rule: 'No hard-gate regression and no >0.20 drop on the 0..5 primary rubric average unless explicitly offset by a higher-priority correctness gain.'
+  small_sample_rule: 'If fixture count is too small for stable percentage interpretation, record result as directional and KEEP_AS_CHALLENGER rather than claiming promotion from noise.'
+
+component_decision_schema:
+  required_fields:
+    - component_id
+    - hypothesis
+    - version_or_revision
+    - benchmark_case_ids
+    - hard_gate_results
+    - metric_results
+    - evidence_authority
+    - complexity_delta
+    - verdict
+    - rationale
+    - reversal_trigger
+  verdict_enum:
+    - PROMOTE
+    - CONDITIONAL
+    - KEEP_AS_CHALLENGER
+    - REJECT
+    - BLOCKED
+    - UNMEASURED
+
+product_selection_hard_requirements:
+  - selected_ASR_or_reference_mode_defined
+  - selected_Map_route_defined
+  - selected_Reduce_route_defined
+  - factual_exact_evidence_policy_implemented
+  - semantic_execution_receipts_required
+  - TTK_validation_passes
+  - selective_fact_verification_policy_defined
+  - compiler_path_defined
+  - resume_policy_defined
+  - benchmark_receipt_truthful
+
+four_source_acceptance:
+  each_source:
+    - all_expected_Map_packets_valid
+    - Reduce_valid
+    - compiler_success
+    - complete_validation_success_or_explicitly_defined_verification_optional_state
+    - no_generic_pseudo_semantic_failure
+    - factual_evidence_spotcheck_pass
+  huberman_extra:
+    - 'Reduce evidence/insights demonstrably include early, middle, and late portions of source.'
+  koch_extra:
+    - 'German semantics remain coherent; no English-only evaluator may be sole pass authority.'
+  market_cycles_extra:
+    - 'Important procedure/mechanism content is present.'
+  prechter_extra:
+    - 'Technical Elliott-wave concepts are not collapsed into raw sentence fragments.'
+
+fresh_end_to_end_acceptance:
+  source_count_minimum: 2
+  required_languages: [en, de]
+  requirements:
+    - fresh_audio_to_transcript_run_proven
+    - selected_ASR_config_recorded
+    - no_old_transcript_reuse
+    - selected_semantic_pipeline_complete
+    - TTK_complete_validation_pass
+    - run_receipt_has_start_and_end_git_state
+    - output_compared_to_semantic_only_run_for_ASR_degradation
+
+resume_clean_room_acceptance:
+  test_id: T5_RESUME_CLEAN_ROOM
+  procedure:
+    - 'Start from a completed test run or fixture copy.'
+    - 'Record semantic invocation receipt count.'
+    - 'Delete one Map result only in the test copy.'
+    - 'Run status/runner.'
+    - 'Assert exactly the missing Map is invoked and downstream Reduce/verify/compile are invalidated/regenerated according to hashes.'
+    - 'Run again with no changes.'
+    - 'Assert no valid Map/Reduce semantic invocation is repeated.'
+  pass_when:
+    - first_rerun_only_required_semantic_work_occurs
+    - second_rerun_zero_redundant_semantic_work
+    - complete_validation_passes
+
+mandatory_final_commands:
+  - 'python .claude/skills/transcript-to-knowledge/scripts/test_ttk.py -v'
+  - 'python -m unittest discover -s scripts/transcript_pipeline_v2/tests -t . -v'
+  - 'powershell -NoProfile -File scripts/Run-BatchMultiPipelineBenchmark.ps1'
+  - 'git diff --check'
+
+final_report_schema:
+  schema: transcript-pipeline-final-report.v2
+  required_example:
+    verdict: PASS_or_PARTIAL_or_FAIL
+    repository: leela-spec/apexai-os-meta
+    branch: main
+    start_commit: '<sha>'
+    end_commit: '<sha>'
+    dirty_paths: []
+    selected_architecture:
+      source_acquisition: '<component_id>'
+      asr: '<component_id/config>'
+      alignment_diarization: '<component_id or NONE/CONDITIONAL>'
+      custody: custody_ttk
+      preextract: '<component_id or NONE>'
+      map: '<component_id>'
+      structured_output: '<native_cli_or_instructor>'
+      support_advisory: []
+      reduce: '<component_id>'
+      external_verification: verify_ttk_queue
+      compiler: custody_ttk
+      eval: []
+    component_decisions: []
+    installed_components: []
+    benchmarked_components: []
+    unmeasured_components: []
+    tests:
+      ttk: '<exact_summary>'
+      v2: '<exact_summary>'
+      batch: '<receipt_path>'
+      resume_clean_room: PASS_or_FAIL
+    source_results: {}
+    fresh_end_to_end_results: {}
+    metrics_summary: {}
+    hard_gate_failures: []
+    limitations: []
+    reversal_triggers: []
+    exact_next_step: '<one executable next action>'
+
+final_verdict:
+  PASS:
+    all:
+      - all_mandatory_final_commands_pass
+      - all_hard_gates_pass_for_selected_pipeline
+      - four_source_acceptance_passes
+      - fresh_end_to_end_acceptance_passes
+      - resume_clean_room_acceptance_passes
+      - selected_components_have_benchmark_evidence
+  PARTIAL:
+    condition: 'Selected core pipeline passes hard gates and required core tests, but optional challenger/baseline measurements remain BLOCKED/UNMEASURED.'
+  FAIL:
+    any:
+      - selected_pipeline_hard_gate_failure
+      - semantic_execution_not_provable
+      - deterministic_test_regression
+      - required_fresh_en_or_de_end_to_end_failure
+      - resume_idempotency_failure
