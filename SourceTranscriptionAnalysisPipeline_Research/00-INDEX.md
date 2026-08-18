@@ -26,7 +26,22 @@ This directory serves as the centralized research, benchmarking, and multi-AI ev
 * **Active Skill Package:** [`c:\GitDev\apexai-os-meta\.claude\skills\SourceTranscriptionAnalysisPipeline\`](file:///c:/GitDev/apexai-os-meta/.claude/skills/SourceTranscriptionAnalysisPipeline/)
 * **Deep Research & OKR Prompt:** [`c:\GitDev\apexai-os-meta\.claude\skills\SourceTranscriptionAnalysisPipeline\docs\TRANSCRIPT-EXTRACTION-MACRO-MESO-MICRO-RESEARCH.md`](file:///c:/GitDev/apexai-os-meta/.claude/skills/SourceTranscriptionAnalysisPipeline/docs/TRANSCRIPT-EXTRACTION-MACRO-MESO-MICRO-RESEARCH.md)
 * **Global Tools Bin (Universal):** `C:\ProgramData\AI-Tools\bin\` (`yt-dlp.exe`, `ffmpeg.exe`, `transcribe_audio.py`)
-* **Live Test Run Transcript:** [`c:\GitDev\apexai-os-meta\.claude\skills\SourceTranscriptionAnalysisPipeline\artifacts\transcripts\P-h5WSQG1Sw\`](file:///c:/GitDev/apexai-os-meta/.claude/skills/SourceTranscriptionAnalysisPipeline/artifacts/transcripts/P-h5WSQG1Sw/)
+* **Multi-Video Benchmark Runs (Executed Across All 3 Pipelines):**
+  1. **Andrew Huberman (`P-h5WSQG1Sw` - 2h 09m):** Neuroscience of Emotions
+     - [Pipeline 1 Knowledge Wiki](file:///c:/GitDev/apexai-os-meta/artifacts/transcripts/P-h5WSQG1Sw/P-h5WSQG1Sw_knowledge_wiki.md)
+     - [Pipeline 3 TTK Run Ledger (23 Windows)](file:///c:/GitDev/apexai-os-meta/artifacts/ttk_run_huberman/manifest.json)
+  2. **Elliott Prechter (`CygwqaNg2PY` - 23m):** Teaching a Machine to Count Elliott Waves
+     - [Pipeline 1 Knowledge Wiki](file:///c:/GitDev/apexai-os-meta/.claude/skills/SourceTranscriptionAnalysisPipeline/artifacts/transcripts/CygwqaNg2PY/CygwqaNg2PY_knowledge_wiki.md)
+     - [Pipeline 2 Engine Wiki](file:///c:/GitDev/apexai-os-meta/SourceTranscriptionAnalysisPipeline_Research/outputs/CygwqaNg2PY/CygwqaNg2PY_engine_wiki.md)
+     - [Pipeline 3 TTK Run Ledger (4 Windows)](file:///c:/GitDev/apexai-os-meta/artifacts/ttk_runs/CygwqaNg2PY/manifest.json)
+  3. **Markus Koch (`vFTuLylvYnA` - 21m):** Tech unter Druck. Zinsen werden zum Risiko
+     - [Pipeline 1 Knowledge Wiki](file:///c:/GitDev/apexai-os-meta/.claude/skills/SourceTranscriptionAnalysisPipeline/artifacts/transcripts/vFTuLylvYnA/vFTuLylvYnA_knowledge_wiki.md)
+     - [Pipeline 2 Engine Wiki](file:///c:/GitDev/apexai-os-meta/SourceTranscriptionAnalysisPipeline_Research/outputs/vFTuLylvYnA/vFTuLylvYnA_engine_wiki.md)
+     - [Pipeline 3 TTK Run Ledger (3 Windows)](file:///c:/GitDev/apexai-os-meta/artifacts/ttk_runs/vFTuLylvYnA/manifest.json)
+  4. **Foundation for Cycles (`oZIsMX6WgFs` - 53m):** Market Cycles Jam
+     - [Pipeline 1 Knowledge Wiki](file:///c:/GitDev/apexai-os-meta/.claude/skills/SourceTranscriptionAnalysisPipeline/artifacts/transcripts/oZIsMX6WgFs/oZIsMX6WgFs_knowledge_wiki.md)
+     - [Pipeline 2 Engine Wiki](file:///c:/GitDev/apexai-os-meta/SourceTranscriptionAnalysisPipeline_Research/outputs/oZIsMX6WgFs/oZIsMX6WgFs_engine_wiki.md)
+     - [Pipeline 3 TTK Run Ledger (7 Windows)](file:///c:/GitDev/apexai-os-meta/artifacts/ttk_runs/oZIsMX6WgFs/manifest.json)
 
 ---
 
