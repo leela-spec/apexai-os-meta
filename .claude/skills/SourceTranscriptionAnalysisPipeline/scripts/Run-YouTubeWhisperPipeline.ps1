@@ -144,18 +144,36 @@ if ($proc.ExitCode -ne 0) {
     throw "Whisper transcription failed with exit code $($proc.ExitCode)"
 }
 
-# Step 4: Downstream AI Task Payload Generation & State Update
-Write-Host "`n[4/4] Generating Downstream AI Trigger Payload & Updating State..." -ForegroundColor Cyan
-
-$transcriptMdFile = Join-Path $videoOutputDir "$videoId.md"
+# Step 4: Macro -> Meso -> Micro Knowledge Synthesis
+Write-Host "`n[4/5] Synthesizing Macro/Meso/Micro Knowledge Wiki..." -ForegroundColor Cyan
+$synthScript = Join-Path $PSScriptRoot "synthesize_transcript.py"
+$transcriptSrtFile = Join-Path $videoOutputDir "$videoId.srt"
 $transcriptJsonFile = Join-Path $videoOutputDir "$videoId.json"
+$transcriptMdFile = Join-Path $videoOutputDir "$videoId.md"
+
+if (Test-Path $synthScript) {
+    $synthArgs = @(
+        $synthScript,
+        "--transcript", $transcriptSrtFile,
+        "--output_dir", $videoOutputDir,
+        "--slug", $videoId,
+        "--title", "$videoTitle — Knowledge Synthesis"
+    )
+    $procSynth = Start-Process -FilePath "python" -ArgumentList $synthArgs -NoNewWindow -Wait -PassThru
+}
+
+# Step 5: Downstream AI Task Payload Generation & State Update
+Write-Host "`n[5/5] Generating Downstream AI Trigger Payload & Updating State..." -ForegroundColor Cyan
+
 $transcriptText = ""
 if (Test-Path (Join-Path $videoOutputDir "$videoId.txt")) {
     $transcriptText = Get-Content (Join-Path $videoOutputDir "$videoId.txt") -Raw -Encoding utf8
 }
 
+$knowledgeWikiFile = Join-Path $videoOutputDir "$videoId`_knowledge_wiki.md"
+
 $aiTaskPayload = [PSCustomObject]@{
-    event_type       = "YOUTUBE_TRANSCRIPT_COMPLETED"
+    event_type       = "YOUTUBE_TRANSCRIPT_AND_SYNTHESIS_COMPLETED"
     timestamp        = (Get-Date).ToUniversalTime().ToString("o")
     video_id         = $videoId
     video_title      = $videoTitle
@@ -164,12 +182,13 @@ $aiTaskPayload = [PSCustomObject]@{
     duration_seconds = $duration
     model_used       = $Model
     transcript_files = [PSCustomObject]@{
+        knowledge_wiki = if (Test-Path $knowledgeWikiFile) { $knowledgeWikiFile } else { $null }
         markdown = $transcriptMdFile
-        subtitles = Join-Path $videoOutputDir "$videoId.srt"
+        subtitles = $transcriptSrtFile
         raw_json = $transcriptJsonFile
     }
     transcript_preview = if ($transcriptText.Length -gt 500) { $transcriptText.Substring(0, 500) + "..." } else { $transcriptText }
-    downstream_guardrail_prompt = "Review this transcript from $channel ('$videoTitle') and update project context following project guardrails."
+    downstream_guardrail_prompt = "Review the synthesized knowledge wiki for $channel ('$videoTitle') and update project context."
 }
 
 $aiPayloadFile = Join-Path $repoRoot "artifacts\pending_ai_task.json"
