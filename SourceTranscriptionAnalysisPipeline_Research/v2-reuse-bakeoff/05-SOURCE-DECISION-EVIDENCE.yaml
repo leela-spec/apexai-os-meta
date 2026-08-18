@@ -1,0 +1,239 @@
+schema: transcript-pipeline-source-decision-evidence.v2
+created: '2026-08-18'
+status: CURRENT_CONTEXT_RECORD
+purpose: >-
+  Preserve the operator decisions, prior project-resource inputs, repository
+  evidence, hardware facts, and current official external-source references that
+  drove V2. This file records reproducible rationale and decision logic; it is
+  not a dump of private scratch reasoning.
+
+operator_decisions:
+  product:
+    final_goal: trustworthy_high_value_knowledge_artifact
+    asr_dependency: 'High-quality transcription is required to enable the knowledge goal; ASR is not itself the final product.'
+    representation: 'Macro/Meso/Micro is preferred but replaceable if a better representation wins measured comparison.'
+  semantic_intelligence:
+    allowed_workers:
+      - Claude Code CLI
+      - Codex CLI
+      - Gemini CLI
+      - browser subscription AIs
+    qwen_current_pipeline_role: none
+    qwen_future_possible_role: 'Very simple bounded classification/routing only if independently benchmarked; not semantic reasoning.'
+  cost:
+    subscription_quota_use: acceptable_quality_first
+    deterministic_token_saving_tools: strongly_valuable
+    paid_api: undesirable_not_forbidden
+    paid_api_visibility: 'Keep useful paid options visible with cost/value; small capped experiments allowed for architecture questions.'
+  orchestration:
+    normal_trigger: APEX/OpenClaw
+    human_interaction: 'No routine intervention after start; fail/stop on genuine unresolved failure/authority boundary.'
+  provenance:
+    factual_micro_exact_source_evidence_required: true
+    all_micro_exact_quote_required: false
+    nonfactual_objects_still_need_source_provenance: true
+    source_support_separate_from_external_truth: true
+    external_verification: important_checkworthy_factual_claims_only
+  architecture_policy:
+    guard_against_overengineering: true
+    focus_on_valuable_target_each_step: true
+    measure_before_remove: true
+    reuse_before_invention: true
+    complexity_definition: 'Complexity without demonstrated value is over-engineering; isolated complexity that materially improves quality/reliability/efficiency or removes fragile custom logic is acceptable.'
+
+provisional_recommended_defaults_from_saved_evaluation:
+  status: 'Use as bake-off defaults, not final production-selection authority.'
+  A_measure_before_remove: A1_yes
+  B_speaker_identity: B1_yes_when_multi_speaker
+  C_langextract_real_benchmark: C1_yes
+  D_local_preextract: D1_gliner2_first_then_nuextract_if_needed
+  E_nli_hhem_advisory: E1_yes
+  F_docetl_real_benchmark: F1_yes
+  G_small_capped_api_experiment: G1_yes_if_material_and_recorded
+  H_deepeval_plus_gold_scoreboard: H1_yes
+  I_fabric_open_notebook_baselines: I1_yes
+  J_isolated_dependency_for_material_gain: J1_yes
+  note: >-
+    The operator asked to save and operationalize the corrected architecture;
+    these defaults therefore define the benchmark scope. They do not preselect
+    winners. Task P16 promotes/rejects components from evidence.
+
+project_resource_inputs:
+  - title: Evaluate pipelines.txt
+    role: 'Saved corrected architecture V2 and Q&A/reuse-bakeoff rationale.'
+    key_points:
+      - 'Do not conflate not-all-in-hot-path with exclude-all-components.'
+      - 'faster-whisper core/reference; Parakeet challenger; WhisperX conditional.'
+      - 'TTK core custody; LangExtract real grounded Map contender; Instructor conditional; DocETL orchestration contender.'
+      - 'GLiNER2 cheap local pre-extraction; NuExtract secondary challenger.'
+      - 'mDeBERTa/HHEM advisory safety; DeepEval benchmark/eval; Fabric/Open Notebook baselines.'
+      - 'Measure candidates, then remove losers with evidence.'
+  - title: AI validation handover.txt
+    role: 'Broader APEX/FEE authority and deterministic-vs-semantic design background.'
+  - title: HP HP OmniBook X Flip Laptop 16-as0xxx - Geekbench cpu 2.html
+    role: 'Local hardware evidence.'
+  - title: HP HP OmniBook X Flip Laptop 16-as0xxx - Geekbench gpu2.html
+    role: 'Local GPU/OpenCL hardware evidence.'
+  - title: HP HP OmniBook X Flip Laptop 16-as0xxx - Geekbench cpu BM6.html
+    role: 'Additional CPU benchmark evidence.'
+  - title: HP HP OmniBook X Flip Laptop 16-as0xxx - Geekbench gpu BM 6.html
+    role: 'Additional GPU benchmark evidence.'
+
+hardware_evidence:
+  system: HP OmniBook X Flip Laptop 16-as0xxx
+  os: Windows 11 Home
+  cpu:
+    model: Intel Core Ultra 7 258V
+    cores: 8
+    max_frequency_mhz_reported: 4800
+    geekbench7_single: 2383
+    geekbench7_multi: 10721
+    geekbench6_single: 2759
+    geekbench6_multi: 10942
+  ram:
+    size_gb: 31.63
+  gpu:
+    model: Intel Arc 140V GPU
+    opencl_compute_units_reported: 64
+    max_frequency_mhz_reported: 1950
+    opencl_device_memory_gb_reported: 16.5
+    geekbench7_opencl: 21327
+    geekbench6_opencl: 30999
+  interpretation:
+    - 'Integrated GPU memory is shared/unified; reported device memory is not dedicated desktop VRAM.'
+    - 'Candidate feasibility must be measured on this Windows/Intel system.'
+
+repository_evidence:
+  current_TTK_contract:
+    path: .claude/skills/transcript-to-knowledge/SKILL.md
+    accepted_strengths:
+      - deterministic source custody
+      - processing windows distinct from semantic chapters
+      - context-only not evidence
+      - packet hashes and stale detection
+      - Map then Reduce semantic separation
+      - selective factual verification
+      - file-based resume
+      - deterministic compiler
+  current_semantic_contract:
+    path: .claude/skills/transcript-to-knowledge/references/semantic-contracts.md
+    known_update_required: 'Operator D35 factual-only hard exact-quote requirement versus current every-candidate-claim quote requirement.'
+  current_failure_file:
+    path: .claude/skills/transcript-to-knowledge/scripts/execute_ttk_lifecycle.py
+    failure_class: pseudo_semantic_heuristics
+    examples:
+      - keyword_claim_classification
+      - regex_entity_extraction
+      - source_sentence_fragments_as_claims
+      - fixed_Meso_grouping
+      - generic_Macro
+      - blanket_source_support
+  latest_known_benchmark_receipt:
+    path: artifacts/benchmark_runs/20260818-185245/receipt.json
+    important_state:
+      all_passed: false
+      fully_complete_sources: 1
+      incomplete_sources: 3
+      note: 'Run provenance recorded dirty tree/prior commit; V2 requires stronger start/end provenance.'
+
+benchmark_corpus:
+  - id: P-h5WSQG1Sw
+    description: long English neuroscience interview
+  - id: CygwqaNg2PY
+    description: technical Elliott Wave finance discussion
+  - id: vFTuLylvYnA
+    description: German market/finance commentary
+  - id: oZIsMX6WgFs
+    description: technical market-cycle procedure/analysis
+
+external_primary_sources:
+  - id: faster_whisper
+    url: 'https://github.com/SYSTRAN/faster-whisper'
+    evidence_used: 'local ASR, word timestamps, VAD, probability/segment diagnostics/hotword capabilities'
+  - id: parakeet
+    url: 'https://huggingface.co/nvidia/parakeet-tdt-0.6b-v3'
+    evidence_used: 'multilingual 600M ASR including English/German and timestamp support'
+  - id: whisperx
+    url: 'https://github.com/m-bain/whisperX'
+    evidence_used: 'faster-whisper backend, forced alignment, pyannote speaker diarization'
+  - id: langextract
+    url: 'https://github.com/google/langextract'
+    evidence_used: 'precise source grounding, structured extraction, long-doc strategy, local/cloud providers'
+  - id: langextract_provider_plugin
+    url: 'https://github.com/google/langextract/blob/main/examples/custom_provider_plugin/README.md'
+    evidence_used: 'official external provider plugin and optional schema mechanism'
+  - id: gliner2
+    url: 'https://github.com/fastino-ai/GLiNER2'
+    evidence_used: '205M CPU-first local entities/classification/relations/structured extraction'
+  - id: docetl
+    url: 'https://github.com/ucbepic/docetl'
+    evidence_used: 'declarative/agentic Map-Reduce, operators, parallelism, optimization'
+  - id: deepeval
+    url: 'https://github.com/confident-ai/deepeval'
+    evidence_used: 'repeatable faithfulness/hallucination/relevancy/G-Eval-style evaluation framework'
+  - id: hhem
+    url: 'https://huggingface.co/vectara/hallucination_evaluation_model'
+    evidence_used: 'local factual-consistency/hallucination comparison model'
+  - id: claude_cli
+    url: 'https://code.claude.com/docs/en/cli-usage'
+    evidence_used: 'headless print mode, JSON output, JSON schema, max turns/budget controls'
+  - id: codex_cli
+    url: 'https://github.com/openai/codex/blob/main/codex-rs/exec/src/cli.rs'
+    evidence_used: 'codex exec output schema, JSONL and final-message output controls'
+  - id: gemini_cli
+    url: 'https://github.com/google-gemini/gemini-cli/blob/main/docs/cli/headless.md'
+    evidence_used: 'headless JSON/stream JSON, usage stats, exit codes'
+
+rationale_trace:
+  - decision: retain_TTK_spine
+    because:
+      - 'already implements transcript-specific deterministic custody/resume/validation'
+      - 'generic alternatives do not automatically preserve core/context evidence semantics'
+  - decision: benchmark_LangExtract
+    because:
+      - 'precise source grounding is directly relevant to current quote/span weakness'
+      - 'custom provider is officially supported, so subscription-CLI-backed experiment is feasible'
+  - decision: benchmark_GLiNER2
+    because:
+      - 'local CPU-first narrow extraction could reduce expensive general-AI work'
+      - 'its role is auxiliary, so it cannot displace semantic authority accidentally'
+  - decision: benchmark_DocETL
+    because:
+      - 'it directly targets long-document LLM Map/Reduce orchestration'
+      - 'whether it beats TTK semantic dispatch is empirical, not obvious'
+  - decision: benchmark_NLI_and_HHEM
+    because:
+      - 'quote existence does not prove semantic support'
+      - 'cheap independent warnings may catch errors without a second large-model pass'
+  - decision: use_DeepEval_as_auxiliary
+    because:
+      - 'repeatable semantic regression is useful'
+      - 'automatic judges do not replace deterministic provenance or multilingual gold'
+  - decision: benchmark_Parakeet
+    because:
+      - 'German/domain ASR errors are already observed'
+      - 'a modern multilingual local ASR may solve them more cleanly than transcript repair'
+  - decision: conditional_WhisperX
+    because:
+      - 'speaker attribution has value on interviews'
+      - 'mandatory diarization would add needless cost to single-speaker sources'
+
+unresolved_before_execution:
+  - 'Exact installed versions/revisions of candidate packages; P5 records them.'
+  - 'Whether Parakeet runtime is smooth on this exact Windows/Intel stack.'
+  - 'Whether WhisperX diarization model access is already authenticated.'
+  - 'Whether LangExtract CLI-provider adapter preserves subscription economics cleanly.'
+  - 'Whether DocETL can use the preferred subscription CLI route without disproportionate adapter work; capped API experiment is allowed if materially useful.'
+  - 'How much GLiNER2 helps German extraction; benchmark required.'
+  - 'Exact utility of NLI/HHEM thresholds; derive from labeled fixtures.'
+  - 'Whether DeepEval metrics used are language-appropriate; German must not rely solely on English judge prompts.'
+
+forbidden_inferences:
+  - 'Installed means selected.'
+  - 'Local means deterministic.'
+  - 'Exact quote exists means proposition is supported.'
+  - 'Schema valid means semantic quality is good.'
+  - 'A simple architecture is best before comparison.'
+  - 'A feature-rich architecture is best before comparison.'
+  - 'A paid option is forbidden simply because local/free is preferred.'
+  - 'A research score is an implementation PASS.'
