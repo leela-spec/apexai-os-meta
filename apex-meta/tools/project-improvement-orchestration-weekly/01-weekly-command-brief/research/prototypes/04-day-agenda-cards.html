@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Candidate 04 — Day Agenda Cards | APEX Prototype</title>
+  <style>
+    :root {
+      --bg: #f8f9fa;
+      --surface: #ffffff;
+      --surface-subtle: #f1f5f9;
+      --text: #0f172a;
+      --text-muted: #475569;
+      --border: #cbd5e1;
+      --border-subtle: #e2e8f0;
+      --accent: #2563eb;
+      --accent-soft: #eff6ff;
+      --tag-bg: #e2e8f0;
+      --tag-text: #1e293b;
+      --defer-bg: #fef3c7;
+      --defer-border: #fcd34d;
+      --defer-text: #92400e;
+      --alert-bg: #fee2e2;
+      --alert-border: #fca5a5;
+      --alert-text: #991b1b;
+      --focus-badge: #f59e0b;
+      --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.4;
+      padding: 24px;
+      font-size: 13px;
+    }
+
+    .container {
+      max-width: 1440px;
+      margin: 0 auto;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 20px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+
+    /* Top Navigation Bar */
+    .top-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--border-subtle);
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .nav-back {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 12px;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 4px 8px;
+      border-radius: 4px;
+      background: var(--surface-subtle);
+      border: 1px solid var(--border-subtle);
+    }
+    .nav-back:hover { color: var(--text); background: var(--tag-bg); }
+
+    .proto-badge {
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      background: #0f172a;
+      color: #fff;
+      padding: 3px 8px;
+      border-radius: 3px;
+    }
+
+    .proto-title {
+      font-size: 16px;
+      font-weight: 700;
+    }
+
+    .proto-links {
+      display: flex;
+      gap: 6px;
+    }
+
+    .proto-link-btn {
+      text-decoration: none;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 3px 7px;
+      border-radius: 3px;
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      background: var(--surface);
+    }
+    .proto-link-btn.active {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+    }
+
+    /* Controls & Meta */
+    .control-strip {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--surface-subtle);
+      padding: 10px 14px;
+      border-radius: 4px;
+      border: 1px solid var(--border-subtle);
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .meta-info {
+      display: flex;
+      gap: 16px;
+      font-size: 12px;
+      color: var(--text-muted);
+      flex-wrap: wrap;
+    }
+    .meta-item strong { color: var(--text); }
+
+    .toggle-group {
+      display: inline-flex;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      overflow: hidden;
+      background: var(--surface);
+    }
+
+    .toggle-btn {
+      padding: 5px 12px;
+      font-size: 12px;
+      font-weight: 600;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      color: var(--text-muted);
+      transition: all 0.15s ease;
+    }
+    .toggle-btn.active {
+      background: #0f172a;
+      color: #fff;
+    }
+
+    /* =========================================================
+       FIVE-DAY AGENDA CARDS GRID
+       ========================================================= */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
+      align-items: start;
+    }
+
+    .day-card {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: var(--surface);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+    }
+
+    .day-card-header {
+      background: #f1f5f9;
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--border-subtle);
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .day-card-title-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+
+    .day-card-name {
+      font-size: 14px;
+      font-weight: 700;
+      color: #0f172a;
+    }
+    .day-card-date {
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .day-card-badges {
+      display: flex;
+      gap: 4px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .badge {
+      font-size: 10px;
+      font-weight: 600;
+      padding: 1px 5px;
+      border-radius: 3px;
+      text-transform: uppercase;
+    }
+    .badge-role { background: #e2e8f0; color: #334155; }
+    .badge-standard { background: #dcfce7; color: #166534; }
+    .badge-compressed { background: #fef3c7; color: #92400e; }
+    .badge-minimal { background: #fee2e2; color: #991b1b; }
+
+    .day-card-constraint {
+      font-size: 11px;
+      color: #991b1b;
+      font-weight: 500;
+      background: #fee2e2;
+      padding: 2px 6px;
+      border-radius: 3px;
+      margin-top: 2px;
+    }
+
+    .day-card-body {
+      padding: 10px 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      background: #ffffff;
+    }
+
+    .flow-item {
+      padding: 8px;
+      border: 1px solid var(--border-subtle);
+      border-radius: 4px;
+      background: #f8fafc;
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .flow-proj-tag {
+      font-size: 10.5px;
+      font-weight: 700;
+      color: #1e293b;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .flow-task {
+      font-size: 12px;
+      color: var(--text);
+      font-weight: 500;
+      line-height: 1.35;
+    }
+
+    .metric-badge {
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      color: #2563eb;
+      font-weight: 600;
+      background: #eff6ff;
+      padding: 0 4px;
+      border-radius: 3px;
+      display: inline-block;
+      white-space: nowrap;
+    }
+
+    .flow-dep {
+      font-size: 10.5px;
+      color: #64748b;
+      font-style: italic;
+    }
+
+    .flow-item.deferral {
+      background: var(--defer-bg);
+      border-color: var(--defer-border);
+    }
+    .flow-item.deferral .flow-task {
+      color: var(--defer-text);
+      font-size: 11px;
+    }
+
+    .flow-item.deadline {
+      background: #fdf2f8;
+      border-color: #fbcfe8;
+    }
+    .flow-item.deadline .flow-task {
+      color: #9d174d;
+      font-weight: 600;
+    }
+
+    /* Footer */
+    .footer-bar {
+      margin-top: 16px;
+      padding: 8px 12px;
+      background: #fafafa;
+      border-radius: 4px;
+      border: 1px solid var(--border-subtle);
+      font-size: 11px;
+      color: var(--text-muted);
+      display: flex;
+      justify-content: space-between;
+    }
+
+    @media (max-width: 1100px) {
+      .cards-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (max-width: 768px) {
+      .cards-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <!-- Top Navigation -->
+  <div class="top-nav">
+    <div class="nav-left">
+      <a href="00-index.html" class="nav-back">← All Candidates</a>
+      <span class="proto-badge">Candidate 04</span>
+      <span class="proto-title">Day Agenda Cards</span>
+    </div>
+    <div class="proto-links">
+      <a href="01-project-week-matrix.html" class="proto-link-btn">01 Matrix</a>
+      <a href="02-two-tier-ribbon-matrix.html" class="proto-link-btn">02 Two-Tier</a>
+      <a href="03-week-strip-project-arcs.html" class="proto-link-btn">03 Arcs</a>
+      <a href="04-day-agenda-cards.html" class="proto-link-btn active">04 Cards</a>
+      <a href="05-strategic-swimlane-critical-path.html" class="proto-link-btn">05 Swimlane</a>
+    </div>
+  </div>
+
+  <!-- Scenario Toggle & Meta Bar -->
+  <div class="control-strip">
+    <div class="meta-info">
+      <div class="meta-item"><strong>Week:</strong> 2026-W34</div>
+      <div class="meta-item"><strong>Architecture:</strong> Five Equal-Weight Day Cards</div>
+      <div class="meta-item" id="scenario-desc"><strong>Mode:</strong> Standard W34 Baseline</div>
+    </div>
+    <div class="toggle-group">
+      <button class="toggle-btn active" id="btn-normal" onclick="setScenario('normal')">Normal W34</button>
+      <button class="toggle-btn" id="btn-stress" onclick="setScenario('stress')">Stress Week</button>
+    </div>
+  </div>
+
+  <!-- DAY AGENDA CARDS GRID -->
+  <div class="cards-grid" id="cards-grid">
+    <!-- Generated via JS -->
+  </div>
+
+  <!-- Footer -->
+  <div class="footer-bar">
+    <div><strong>Conventions:</strong> <code>★</code> Focus | <code>↳</code> Dependency | <code>⏰</code> Hard Gate | <code>⏸️</code> Deferral</div>
+    <div id="cal-note"><strong>Calendar Status:</strong> Standard assumed baseline.</div>
+  </div>
+</div>
+
+<script src="prototype-data.js"></script>
+<script>
+  let currentScenario = 'normal';
+
+  function setScenario(sc) {
+    currentScenario = sc;
+    document.getElementById('btn-normal').classList.toggle('active', sc === 'normal');
+    document.getElementById('btn-stress').classList.toggle('active', sc === 'stress');
+    renderCards();
+  }
+
+  function renderCards() {
+    const data = PROTOTYPE_DATA;
+    const scenario = data.scenarios[currentScenario];
+
+    document.getElementById('scenario-desc').innerHTML = `<strong>Mode:</strong> ${scenario.label} — ${scenario.description}`;
+    document.getElementById('cal-note').innerHTML = `<strong>Calendar Status:</strong> ${scenario.calendarStatus}`;
+
+    let html = '';
+    data.days.forEach(day => {
+      const cap = scenario.dayCapacity[day.id];
+      let bClass = 'badge-standard';
+      if (cap.capacity === 'COMPRESSED') bClass = 'badge-compressed';
+      if (cap.capacity === 'MINIMAL') bClass = 'badge-minimal';
+
+      html += `
+        <div class="day-card">
+          <div class="day-card-header">
+            <div class="day-card-title-row">
+              <span class="day-card-name">${day.name}</span>
+              <span class="day-card-date">${day.date}</span>
+            </div>
+            <div class="day-card-badges">
+              <span class="badge badge-role">${day.role}</span>
+              <span class="badge ${bClass}">${cap.capacity}</span>
+            </div>
+            ${currentScenario === 'stress' && (cap.fixedConstraint.includes('Meetings') || cap.fixedConstraint.includes('checkpoint')) ?
+              `<div class="day-card-constraint">${cap.fixedConstraint.replace('👥 ', '')}</div>` : ''}
+          </div>
+          <div class="day-card-body">
+      `;
+
+      data.projects.forEach(proj => {
+        const cell = scenario.grid[proj.id][day.id];
+        let itemClass = 'flow-item';
+        if (cell.type === 'deferral') itemClass += ' deferral';
+        if (cell.type === 'deadline') itemClass += ' deadline';
+
+        html += `
+          <div class="${itemClass}">
+            <div class="flow-proj-tag">
+              <span>${proj.name} ${proj.isFocus ? '★' : ''}</span>
+            </div>
+            <div class="flow-task">
+              ${cell.type === 'deferral' ? `⏸️ <em>${cell.task}</em>` : cell.task}
+              ${cell.metric ? `<span class="metric-badge">(${cell.metric})</span>` : ''}
+            </div>
+            ${cell.dep ? `<div class="flow-dep">${cell.dep}</div>` : ''}
+            ${cell.reason ? `<div class="flow-dep" style="color:#92400e;">${cell.reason}</div>` : ''}
+          </div>
+        `;
+      });
+
+      html += `
+          </div>
+        </div>
+      `;
+    });
+
+    document.getElementById('cards-grid').innerHTML = html;
+  }
+
+  renderCards();
+</script>
+</body>
+</html>

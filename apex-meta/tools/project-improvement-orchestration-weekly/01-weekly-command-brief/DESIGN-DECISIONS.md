@@ -145,14 +145,20 @@ Prefer references plus a small next-day seed over copying the full weekly matrix
 2. Repair the malformed `active_files` path whose string currently contains explanatory prose.
 3. Remove the stale template `source_gap` referring to the archived/superseded weekly-plan output contract; do not resurrect that old contract.
 
-## Unresolved design question — weekly visualization
+## Validated weekly visualization & execution architecture
 
-The human-facing visualization of the Monday-Friday architecture is not yet decided.
+**Status:** resolved & locked by operator (2026-08-18)
 
-Operator requirement:
+The Weekly Command Brief visual architecture consists of two sequential matrices:
 
-> The week must be visible in a simple, minimalist, information-dense table/matrix that feels close to a calendar and makes the weekly structure immediately understandable.
+1. **Matrix 1 — Project Strategy, Sub-Targets & Leverage Ledger:**
+   - Placed first under `## Weekly architecture` to establish weekly project targets, strategic leverage, and 2–4 granular sub-targets (`[Proj-T1]`, `[Proj-T2]`, etc.) with explicit deliverable definitions.
+2. **Matrix 2 — Flow-by-Day Calendar & Execution Grid:**
+   - Placed second to show weekdays (Monday–Friday) as columns and flows (`F1` Focus, `F2` Build, `F3` System, `F4` Ops/Secondary) as rows.
+   - **Header:** Encodes real external calendar meetings and net focus hours (`FreeT: Xh | Meets: X (Yh)`) excluding internal routine anchors.
+   - **Cells:** Display the active project and sub-target tag (`[Proj-Tx]`), followed by 3 concrete sprint topic goals (`• S1: ...`, `• S2: ...`, `• S3: ...`). Scores are excluded from the visual grid to preserve visual calm.
+   - **Scoring Trace:** Where scoring is calculated, use autoregressive scratchpad syntax `(I#/E#/R#: Score)`.
 
-The visualization must be researched before production integration. See `WEEK-VISUALIZATION-RESEARCH-HANDOVER.md`.
-
-Do not finalize or rewrite the production Weekly Command Brief template around a guessed visualization before that research is accepted.
+### Google Calendar Flow Event Creation Handover
+- Automated creation of Google Calendar focus blocks for planned flows (`F1`–`F4`) around real meeting constraints is governed by:
+  `apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/HANDOVER-GOOGLE-CALENDAR-FLOW-EVENTS.md`.

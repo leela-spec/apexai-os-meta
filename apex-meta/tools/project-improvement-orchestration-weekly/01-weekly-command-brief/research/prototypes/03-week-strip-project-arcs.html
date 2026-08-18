@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Candidate 03 — Week Strip + Project Arcs | APEX Prototype</title>
+  <style>
+    :root {
+      --bg: #f8f9fa;
+      --surface: #ffffff;
+      --surface-subtle: #f1f5f9;
+      --text: #0f172a;
+      --text-muted: #475569;
+      --border: #cbd5e1;
+      --border-subtle: #e2e8f0;
+      --accent: #2563eb;
+      --accent-soft: #eff6ff;
+      --tag-bg: #e2e8f0;
+      --tag-text: #1e293b;
+      --defer-bg: #fef3c7;
+      --defer-border: #fcd34d;
+      --defer-text: #92400e;
+      --alert-bg: #fee2e2;
+      --alert-border: #fca5a5;
+      --alert-text: #991b1b;
+      --focus-badge: #f59e0b;
+      --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.4;
+      padding: 24px;
+      font-size: 13px;
+    }
+
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 20px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+
+    /* Top Navigation Bar */
+    .top-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--border-subtle);
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .nav-back {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 12px;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 4px 8px;
+      border-radius: 4px;
+      background: var(--surface-subtle);
+      border: 1px solid var(--border-subtle);
+    }
+    .nav-back:hover { color: var(--text); background: var(--tag-bg); }
+
+    .proto-badge {
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      background: #0f172a;
+      color: #fff;
+      padding: 3px 8px;
+      border-radius: 3px;
+    }
+
+    .proto-title {
+      font-size: 16px;
+      font-weight: 700;
+    }
+
+    .proto-links {
+      display: flex;
+      gap: 6px;
+    }
+
+    .proto-link-btn {
+      text-decoration: none;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 3px 7px;
+      border-radius: 3px;
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      background: var(--surface);
+    }
+    .proto-link-btn.active {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+    }
+
+    /* Controls & Meta */
+    .control-strip {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--surface-subtle);
+      padding: 10px 14px;
+      border-radius: 4px;
+      border: 1px solid var(--border-subtle);
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .meta-info {
+      display: flex;
+      gap: 16px;
+      font-size: 12px;
+      color: var(--text-muted);
+      flex-wrap: wrap;
+    }
+    .meta-item strong { color: var(--text); }
+
+    .toggle-group {
+      display: inline-flex;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      overflow: hidden;
+      background: var(--surface);
+    }
+
+    .toggle-btn {
+      padding: 5px 12px;
+      font-size: 12px;
+      font-weight: 600;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      color: var(--text-muted);
+      transition: all 0.15s ease;
+    }
+    .toggle-btn.active {
+      background: #0f172a;
+      color: #fff;
+    }
+
+    /* =========================================================
+       TOP WEEK RHYTHM STRIP
+       ========================================================= */
+    .week-strip {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+
+    .day-strip-card {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 8px 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .day-strip-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .day-strip-name { font-weight: 700; font-size: 12px; }
+    .day-strip-date { font-size: 11px; color: var(--text-muted); }
+
+    .day-strip-meta {
+      display: flex;
+      gap: 4px;
+      align-items: center;
+    }
+
+    .badge {
+      font-size: 9.5px;
+      font-weight: 600;
+      padding: 1px 4px;
+      border-radius: 2px;
+      text-transform: uppercase;
+    }
+    .badge-standard { background: #dcfce7; color: #166534; }
+    .badge-compressed { background: #fef3c7; color: #92400e; }
+    .badge-minimal { background: #fee2e2; color: #991b1b; }
+
+    .day-strip-constraint {
+      font-size: 10.5px;
+      color: #b91c1c;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    /* =========================================================
+       PROJECT TRAJECTORY ARCS
+       ========================================================= */
+    .project-arcs-container {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .project-arc-card {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: #fff;
+      overflow: hidden;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+    }
+
+    .arc-header {
+      background: #f8fafc;
+      padding: 8px 14px;
+      border-bottom: 1px solid var(--border-subtle);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .arc-title-group {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .arc-project-name {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text);
+    }
+    .arc-role-tag {
+      font-size: 11px;
+      color: var(--text-muted);
+      background: var(--tag-bg);
+      padding: 1px 6px;
+      border-radius: 3px;
+    }
+    .arc-target {
+      font-size: 11.5px;
+      color: #334155;
+    }
+
+    .arc-timeline {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      padding: 12px;
+      gap: 8px;
+      position: relative;
+    }
+
+    .arc-step {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 8px 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      min-height: 70px;
+      position: relative;
+    }
+
+    .arc-step-day {
+      font-size: 10px;
+      font-weight: 700;
+      color: #64748b;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .arc-step-title {
+      font-size: 11.5px;
+      font-weight: 500;
+      color: var(--text);
+      line-height: 1.3;
+    }
+
+    .metric-badge {
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      color: #2563eb;
+      font-weight: 600;
+      background: #eff6ff;
+      padding: 0 4px;
+      border-radius: 3px;
+      display: inline-block;
+      white-space: nowrap;
+    }
+
+    .arc-step-dep {
+      font-size: 10.5px;
+      color: #64748b;
+      font-style: italic;
+      margin-top: auto;
+    }
+
+    .arc-step.deferral {
+      background: var(--defer-bg);
+      border-color: var(--defer-border);
+      color: var(--defer-text);
+    }
+    .arc-step.deferral .arc-step-title { color: var(--defer-text); font-weight: 600; }
+
+    .arc-step.deadline {
+      background: #fdf2f8;
+      border-color: #fbcfe8;
+    }
+    .arc-step.deadline .arc-step-title { color: #9d174d; font-weight: 600; }
+
+    /* Footer */
+    .footer-bar {
+      margin-top: 16px;
+      padding: 8px 12px;
+      background: #fafafa;
+      border-radius: 4px;
+      border: 1px solid var(--border-subtle);
+      font-size: 11px;
+      color: var(--text-muted);
+      display: flex;
+      justify-content: space-between;
+    }
+
+    @media (max-width: 1024px) {
+      .week-strip { grid-template-columns: repeat(5, 1fr); font-size: 11px; }
+      .arc-timeline { grid-template-columns: repeat(5, 1fr); }
+    }
+    @media (max-width: 768px) {
+      .week-strip { grid-template-columns: repeat(2, 1fr); }
+      .arc-timeline { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <!-- Top Navigation -->
+  <div class="top-nav">
+    <div class="nav-left">
+      <a href="00-index.html" class="nav-back">← All Candidates</a>
+      <span class="proto-badge">Candidate 03</span>
+      <span class="proto-title">Week Strip + Project Arcs</span>
+    </div>
+    <div class="proto-links">
+      <a href="01-project-week-matrix.html" class="proto-link-btn">01 Matrix</a>
+      <a href="02-two-tier-ribbon-matrix.html" class="proto-link-btn">02 Two-Tier</a>
+      <a href="03-week-strip-project-arcs.html" class="proto-link-btn active">03 Arcs</a>
+      <a href="04-day-agenda-cards.html" class="proto-link-btn">04 Cards</a>
+      <a href="05-strategic-swimlane-critical-path.html" class="proto-link-btn">05 Swimlane</a>
+    </div>
+  </div>
+
+  <!-- Scenario Toggle & Meta Bar -->
+  <div class="control-strip">
+    <div class="meta-info">
+      <div class="meta-item"><strong>Week:</strong> 2026-W34</div>
+      <div class="meta-item"><strong>Architecture:</strong> Week Strip + Horizontal Project Arcs</div>
+      <div class="meta-item" id="scenario-desc"><strong>Mode:</strong> Standard W34 Baseline</div>
+    </div>
+    <div class="toggle-group">
+      <button class="toggle-btn active" id="btn-normal" onclick="setScenario('normal')">Normal W34</button>
+      <button class="toggle-btn" id="btn-stress" onclick="setScenario('stress')">Stress Week</button>
+    </div>
+  </div>
+
+  <!-- TOP WEEK RHYTHM STRIP -->
+  <div class="week-strip" id="week-strip">
+    <!-- Generated via JS -->
+  </div>
+
+  <!-- PROJECT ARCS -->
+  <div class="project-arcs-container" id="project-arcs">
+    <!-- Generated via JS -->
+  </div>
+
+  <!-- Footer -->
+  <div class="footer-bar">
+    <div><strong>Conventions:</strong> <code>★</code> Focus | <code>↳</code> Dependency | <code>⏰</code> Hard Gate | <code>⏸️</code> Deferral</div>
+    <div id="cal-note"><strong>Calendar Status:</strong> Standard assumed baseline.</div>
+  </div>
+</div>
+
+<script src="prototype-data.js"></script>
+<script>
+  let currentScenario = 'normal';
+
+  function setScenario(sc) {
+    currentScenario = sc;
+    document.getElementById('btn-normal').classList.toggle('active', sc === 'normal');
+    document.getElementById('btn-stress').classList.toggle('active', sc === 'stress');
+    renderViews();
+  }
+
+  function renderViews() {
+    const data = PROTOTYPE_DATA;
+    const scenario = data.scenarios[currentScenario];
+
+    document.getElementById('scenario-desc').innerHTML = `<strong>Mode:</strong> ${scenario.label} — ${scenario.description}`;
+    document.getElementById('cal-note').innerHTML = `<strong>Calendar Status:</strong> ${scenario.calendarStatus}`;
+
+    // 1. Render Top Week Strip
+    let sHtml = '';
+    data.days.forEach(day => {
+      const cap = scenario.dayCapacity[day.id];
+      let bClass = 'badge-standard';
+      if (cap.capacity === 'COMPRESSED') bClass = 'badge-compressed';
+      if (cap.capacity === 'MINIMAL') bClass = 'badge-minimal';
+
+      sHtml += `
+        <div class="day-strip-card">
+          <div class="day-strip-header">
+            <span class="day-strip-name">${day.name}</span>
+            <span class="day-strip-date">${day.date}</span>
+          </div>
+          <div class="day-strip-meta">
+            <span class="badge" style="background:#e2e8f0; color:#334155;">${day.role}</span>
+            <span class="badge ${bClass}">${cap.capacity}</span>
+          </div>
+          ${currentScenario === 'stress' && (cap.fixedConstraint.includes('Meetings') || cap.fixedConstraint.includes('checkpoint')) ?
+            `<div class="day-strip-constraint">${cap.fixedConstraint.replace('👥 ', '')}</div>` : 
+            `<div class="day-strip-constraint" style="color:#64748b;">${cap.flows} Flows</div>`}
+        </div>
+      `;
+    });
+    document.getElementById('week-strip').innerHTML = sHtml;
+
+    // 2. Render Project Arcs
+    let aHtml = '';
+    data.projects.forEach(proj => {
+      aHtml += `
+        <div class="project-arc-card">
+          <div class="arc-header">
+            <div class="arc-title-group">
+              <span class="arc-project-name">${proj.name} ${proj.isFocus ? '★' : ''}</span>
+              <span class="arc-role-tag">${proj.role}</span>
+            </div>
+            <div class="arc-target"><strong>Weekly Target:</strong> ${proj.target}</div>
+          </div>
+          <div class="arc-timeline">
+      `;
+
+      data.days.forEach(day => {
+        const cell = scenario.grid[proj.id][day.id];
+        let stepClass = 'arc-step';
+        if (cell.type === 'deferral') stepClass += ' deferral';
+        if (cell.type === 'deadline') stepClass += ' deadline';
+
+        aHtml += `
+          <div class="${stepClass}">
+            <div class="arc-step-day">
+              <span>${day.shortRole}</span>
+              <span>${day.name.substr(0,3)}</span>
+            </div>
+            <div class="arc-step-title">
+              ${cell.task}
+              ${cell.metric ? `<span class="metric-badge">(${cell.metric})</span>` : ''}
+            </div>
+            ${cell.dep ? `<div class="arc-step-dep">${cell.dep}</div>` : ''}
+          </div>
+        `;
+      });
+
+      aHtml += `
+          </div>
+        </div>
+      `;
+    });
+
+    document.getElementById('project-arcs').innerHTML = aHtml;
+  }
+
+  renderViews();
+</script>
+</body>
+</html>

@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Candidate 01 — Project × Week Matrix | APEX Prototype</title>
+  <style>
+    :root {
+      --bg: #f8f9fa;
+      --surface: #ffffff;
+      --surface-subtle: #f1f5f9;
+      --text: #0f172a;
+      --text-muted: #475569;
+      --border: #cbd5e1;
+      --border-subtle: #e2e8f0;
+      --accent: #2563eb;
+      --accent-soft: #eff6ff;
+      --tag-bg: #e2e8f0;
+      --tag-text: #1e293b;
+      --defer-bg: #fef3c7;
+      --defer-border: #fcd34d;
+      --defer-text: #92400e;
+      --alert-bg: #fee2e2;
+      --alert-border: #fca5a5;
+      --alert-text: #991b1b;
+      --focus-badge: #f59e0b;
+      --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.4;
+      padding: 24px;
+      font-size: 13px;
+    }
+
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 20px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+
+    /* Top Navigation Bar */
+    .top-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--border-subtle);
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .nav-back {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 12px;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 4px 8px;
+      border-radius: 4px;
+      background: var(--surface-subtle);
+      border: 1px solid var(--border-subtle);
+    }
+    .nav-back:hover { color: var(--text); background: var(--tag-bg); }
+
+    .proto-badge {
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      background: #0f172a;
+      color: #fff;
+      padding: 3px 8px;
+      border-radius: 3px;
+    }
+
+    .proto-title {
+      font-size: 16px;
+      font-weight: 700;
+    }
+
+    .proto-links {
+      display: flex;
+      gap: 6px;
+    }
+
+    .proto-link-btn {
+      text-decoration: none;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 3px 7px;
+      border-radius: 3px;
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      background: var(--surface);
+    }
+    .proto-link-btn.active {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+    }
+
+    /* Controls & Meta */
+    .control-strip {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--surface-subtle);
+      padding: 10px 14px;
+      border-radius: 4px;
+      border: 1px solid var(--border-subtle);
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .meta-info {
+      display: flex;
+      gap: 16px;
+      font-size: 12px;
+      color: var(--text-muted);
+      flex-wrap: wrap;
+    }
+    .meta-item strong { color: var(--text); }
+
+    .toggle-group {
+      display: inline-flex;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      overflow: hidden;
+      background: var(--surface);
+    }
+
+    .toggle-btn {
+      padding: 5px 12px;
+      font-size: 12px;
+      font-weight: 600;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      color: var(--text-muted);
+      transition: all 0.15s ease;
+    }
+    .toggle-btn.active {
+      background: #0f172a;
+      color: #fff;
+    }
+
+    /* Primary Matrix Table */
+    .table-wrapper {
+      overflow-x: auto;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 12px;
+      background: var(--surface);
+    }
+
+    th, td {
+      padding: 10px 12px;
+      border: 1px solid var(--border);
+      vertical-align: top;
+    }
+
+    /* Column Sizing */
+    th:first-child, td:first-child {
+      width: 220px;
+      min-width: 200px;
+      background: #fafafa;
+      font-weight: 600;
+    }
+
+    th {
+      background: #f1f5f9;
+      font-weight: 600;
+      color: #0f172a;
+      width: calc((100% - 220px) / 5);
+      min-width: 200px;
+    }
+
+    .day-header {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .day-title-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+
+    .day-name {
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .day-date {
+      font-size: 11px;
+      color: var(--text-muted);
+      font-weight: normal;
+    }
+
+    .day-badges {
+      display: flex;
+      gap: 4px;
+      flex-wrap: wrap;
+      margin-top: 2px;
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 600;
+      padding: 1px 5px;
+      border-radius: 3px;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+    }
+
+    .badge-role { background: #e2e8f0; color: #334155; }
+    .badge-standard { background: #dcfce7; color: #166534; }
+    .badge-compressed { background: #fef3c7; color: #92400e; }
+    .badge-minimal { background: #fee2e2; color: #991b1b; }
+
+    .day-constraint-note {
+      font-size: 11px;
+      color: #b91c1c;
+      font-weight: 500;
+      margin-top: 2px;
+    }
+
+    /* Project Column */
+    .project-header-cell {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .project-name {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .focus-star {
+      color: var(--focus-badge);
+      font-size: 12px;
+    }
+
+    .project-role-label {
+      font-size: 11px;
+      color: var(--text-muted);
+      font-weight: normal;
+    }
+
+    /* Cell Content */
+    .cell-content {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      min-height: 48px;
+    }
+
+    .task-title {
+      font-weight: 500;
+      color: var(--text);
+      line-height: 1.35;
+    }
+
+    .metric-badge {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: #2563eb;
+      font-weight: 600;
+      background: #eff6ff;
+      padding: 0 4px;
+      border-radius: 3px;
+      display: inline-block;
+      white-space: nowrap;
+    }
+
+    .dep-line {
+      font-size: 11px;
+      color: #64748b;
+      display: flex;
+      align-items: center;
+      gap: 3px;
+      font-style: italic;
+    }
+
+    .cell-deferral {
+      background: var(--defer-bg);
+      border: 1px solid var(--defer-border);
+      color: var(--defer-text);
+      padding: 6px 8px;
+      border-radius: 3px;
+      font-size: 11px;
+    }
+
+    .cell-deferral strong {
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    .cell-deadline {
+      background: #fdf2f8;
+      border: 1px solid #fbcfe8;
+      padding: 6px 8px;
+      border-radius: 3px;
+    }
+    .cell-deadline .task-title {
+      color: #9d174d;
+      font-weight: 600;
+    }
+
+    /* Footer Notes */
+    .matrix-footer {
+      margin-top: 14px;
+      padding: 10px 14px;
+      background: #fafafa;
+      border-radius: 4px;
+      border: 1px solid var(--border-subtle);
+      font-size: 11px;
+      color: var(--text-muted);
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      body { padding: 12px; }
+      .container { padding: 14px; }
+    }
+    @media (max-width: 768px) {
+      th:first-child, td:first-child {
+        position: sticky;
+        left: 0;
+        z-index: 2;
+        box-shadow: 2px 0 4px rgba(0,0,0,0.06);
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <!-- Top Navigation -->
+  <div class="top-nav">
+    <div class="nav-left">
+      <a href="00-index.html" class="nav-back">← All Candidates</a>
+      <span class="proto-badge">Candidate 01</span>
+      <span class="proto-title">Project × Week Matrix</span>
+    </div>
+    <div class="proto-links">
+      <a href="01-project-week-matrix.html" class="proto-link-btn active">01 Matrix</a>
+      <a href="02-two-tier-ribbon-matrix.html" class="proto-link-btn">02 Two-Tier</a>
+      <a href="03-week-strip-project-arcs.html" class="proto-link-btn">03 Arcs</a>
+      <a href="04-day-agenda-cards.html" class="proto-link-btn">04 Cards</a>
+      <a href="05-strategic-swimlane-critical-path.html" class="proto-link-btn">05 Swimlane</a>
+    </div>
+  </div>
+
+  <!-- Scenario Toggle & Meta Bar -->
+  <div class="control-strip">
+    <div class="meta-info">
+      <div class="meta-item"><strong>Week:</strong> 2026-W34</div>
+      <div class="meta-item"><strong>Architecture:</strong> Single Cross-Matrix Table</div>
+      <div class="meta-item" id="scenario-desc"><strong>Mode:</strong> Standard W34 Baseline</div>
+    </div>
+    <div class="toggle-group">
+      <button class="toggle-btn active" id="btn-normal" onclick="setScenario('normal')">Normal W34</button>
+      <button class="toggle-btn" id="btn-stress" onclick="setScenario('stress')">Stress Week</button>
+    </div>
+  </div>
+
+  <!-- Primary Matrix Table Container -->
+  <div class="table-wrapper">
+    <table id="matrix-table">
+      <!-- Generated via JavaScript from prototype-data.js -->
+    </table>
+  </div>
+
+  <!-- Footer Legend & Exceptions -->
+  <div class="matrix-footer">
+    <div><strong>Exceptions & Cues:</strong> <code>★</code> Named weekly focus | <code>↳</code> Consequential dependency | <code>⏰</code> Hard gate/deadline | <code>⏸️</code> Deliberate deferral</div>
+    <div id="cal-status-note"><strong>Calendar Note:</strong> Calendar unavailable in W34; STANDARD is an accepted planning assumption.</div>
+  </div>
+</div>
+
+<script src="prototype-data.js"></script>
+<script>
+  let currentScenario = 'normal';
+
+  function setScenario(sc) {
+    currentScenario = sc;
+    document.getElementById('btn-normal').classList.toggle('active', sc === 'normal');
+    document.getElementById('btn-stress').classList.toggle('active', sc === 'stress');
+    renderMatrix();
+  }
+
+  function renderMatrix() {
+    const data = PROTOTYPE_DATA;
+    const scenario = data.scenarios[currentScenario];
+    
+    document.getElementById('scenario-desc').innerHTML = `<strong>Mode:</strong> ${scenario.label} — ${scenario.description}`;
+    document.getElementById('cal-status-note').innerHTML = `<strong>Calendar Note:</strong> ${scenario.calendarStatus}`;
+
+    let html = '<thead><tr><th>Project / Stream</th>';
+    
+    // Header row with days
+    data.days.forEach(day => {
+      const cap = scenario.dayCapacity[day.id];
+      let capBadgeClass = 'badge-standard';
+      if (cap.capacity === 'COMPRESSED') capBadgeClass = 'badge-compressed';
+      if (cap.capacity === 'MINIMAL') capBadgeClass = 'badge-minimal';
+
+      html += `
+        <th>
+          <div class="day-header">
+            <div class="day-title-row">
+              <span class="day-name">${day.name}</span>
+              <span class="day-date">${day.date}</span>
+            </div>
+            <div class="day-badges">
+              <span class="badge badge-role">${day.role}</span>
+              <span class="badge ${capBadgeClass}">${cap.capacity}</span>
+            </div>
+            ${currentScenario === 'stress' && cap.fixedConstraint.includes('Meetings') || cap.fixedConstraint.includes('checkpoint') ? 
+              `<div class="day-constraint-note">${cap.fixedConstraint.replace('👥 ', '')}</div>` : ''}
+          </div>
+        </th>
+      `;
+    });
+    html += '</tr></thead><tbody>';
+
+    // Rows for each project
+    data.projects.forEach(proj => {
+      html += `<tr>`;
+      html += `
+        <td>
+          <div class="project-header-cell">
+            <div class="project-name">
+              ${proj.name}
+              ${proj.isFocus ? '<span class="focus-star" title="Named Weekly Focus">★</span>' : ''}
+            </div>
+            <div class="project-role-label">${proj.role}</div>
+          </div>
+        </td>
+      `;
+
+      // Cells for each day
+      data.days.forEach(day => {
+        const cell = scenario.grid[proj.id][day.id];
+        html += `<td>`;
+        
+        if (cell.type === 'deferral') {
+          html += `
+            <div class="cell-deferral">
+              <strong>⏸️ ${cell.task}</strong>
+              <span>${cell.reason || 'Deferred'}</span>
+            </div>
+          `;
+        } else if (cell.type === 'deadline') {
+          html += `
+            <div class="cell-deadline">
+              <div class="task-title">${cell.task} <span class="metric-badge">(${cell.metric})</span></div>
+              ${cell.dep ? `<div class="dep-line">${cell.dep}</div>` : ''}
+            </div>
+          `;
+        } else {
+          html += `
+            <div class="cell-content">
+              <div class="task-title">
+                ${cell.task} 
+                ${cell.metric ? `<span class="metric-badge">(${cell.metric})</span>` : ''}
+              </div>
+              ${cell.dep ? `<div class="dep-line">${cell.dep}</div>` : ''}
+            </div>
+          `;
+        }
+        
+        html += `</td>`;
+      });
+
+      html += `</tr>`;
+    });
+
+    html += '</tbody>';
+    document.getElementById('matrix-table').innerHTML = html;
+  }
+
+  // Initial render
+  renderMatrix();
+</script>
+</body>
+</html>

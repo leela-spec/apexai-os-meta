@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Candidate 02 — Two-Tier Ribbon + Matrix | APEX Prototype</title>
+  <style>
+    :root {
+      --bg: #f8f9fa;
+      --surface: #ffffff;
+      --surface-subtle: #f1f5f9;
+      --text: #0f172a;
+      --text-muted: #475569;
+      --border: #cbd5e1;
+      --border-subtle: #e2e8f0;
+      --accent: #2563eb;
+      --accent-soft: #eff6ff;
+      --tag-bg: #e2e8f0;
+      --tag-text: #1e293b;
+      --defer-bg: #fef3c7;
+      --defer-border: #fcd34d;
+      --defer-text: #92400e;
+      --alert-bg: #fee2e2;
+      --alert-border: #fca5a5;
+      --alert-text: #991b1b;
+      --focus-badge: #f59e0b;
+      --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.4;
+      padding: 24px;
+      font-size: 13px;
+    }
+
+    .container {
+      max-width: 1440px;
+      margin: 0 auto;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 20px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+
+    /* Top Navigation Bar */
+    .top-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--border-subtle);
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .nav-back {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 12px;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 4px 8px;
+      border-radius: 4px;
+      background: var(--surface-subtle);
+      border: 1px solid var(--border-subtle);
+    }
+    .nav-back:hover { color: var(--text); background: var(--tag-bg); }
+
+    .proto-badge {
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      background: #0f172a;
+      color: #fff;
+      padding: 3px 8px;
+      border-radius: 3px;
+    }
+
+    .proto-title {
+      font-size: 16px;
+      font-weight: 700;
+    }
+
+    .proto-links {
+      display: flex;
+      gap: 6px;
+    }
+
+    .proto-link-btn {
+      text-decoration: none;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 3px 7px;
+      border-radius: 3px;
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      background: var(--surface);
+    }
+    .proto-link-btn.active {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+    }
+
+    /* Controls & Meta */
+    .control-strip {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--surface-subtle);
+      padding: 10px 14px;
+      border-radius: 4px;
+      border: 1px solid var(--border-subtle);
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .meta-info {
+      display: flex;
+      gap: 16px;
+      font-size: 12px;
+      color: var(--text-muted);
+      flex-wrap: wrap;
+    }
+    .meta-item strong { color: var(--text); }
+
+    .toggle-group {
+      display: inline-flex;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      overflow: hidden;
+      background: var(--surface);
+    }
+
+    .toggle-btn {
+      padding: 5px 12px;
+      font-size: 12px;
+      font-weight: 600;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      color: var(--text-muted);
+      transition: all 0.15s ease;
+    }
+    .toggle-btn.active {
+      background: #0f172a;
+      color: #fff;
+    }
+
+    .section-header {
+      font-size: 13px;
+      font-weight: 700;
+      color: #0f172a;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .section-header::before {
+      content: "";
+      display: inline-block;
+      width: 4px;
+      height: 12px;
+      background: var(--accent);
+      border-radius: 2px;
+    }
+
+    /* =========================================================
+       TIER 1: CALENDAR & CAPACITY RIBBON
+       ========================================================= */
+    .ribbon-wrapper {
+      margin-bottom: 20px;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      overflow-x: auto;
+      background: #fafafa;
+    }
+
+    .ribbon-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 11px;
+    }
+
+    .ribbon-table th, .ribbon-table td {
+      padding: 6px 10px;
+      border: 1px solid var(--border-subtle);
+      text-align: left;
+    }
+
+    .ribbon-table th:first-child, .ribbon-table td:first-child {
+      width: 140px;
+      font-weight: 600;
+      background: #f1f5f9;
+      color: #334155;
+    }
+
+    .ribbon-table th {
+      background: #f1f5f9;
+      font-weight: 700;
+      color: #0f172a;
+      width: calc((100% - 140px) / 5);
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 600;
+      padding: 1px 5px;
+      border-radius: 3px;
+      text-transform: uppercase;
+    }
+    .badge-standard { background: #dcfce7; color: #166534; }
+    .badge-compressed { background: #fef3c7; color: #92400e; }
+    .badge-minimal { background: #fee2e2; color: #991b1b; }
+
+    /* =========================================================
+       TIER 2: PROJECT WORKSTREAM TRAJECTORY MATRIX
+       ========================================================= */
+    .matrix-wrapper {
+      overflow-x: auto;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      margin-bottom: 16px;
+    }
+
+    .trajectory-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 12px;
+      background: var(--surface);
+    }
+
+    .trajectory-table th, .trajectory-table td {
+      padding: 9px 11px;
+      border: 1px solid var(--border);
+      vertical-align: top;
+    }
+
+    .trajectory-table th:first-child, .trajectory-table td:first-child {
+      width: 170px;
+      background: #fafafa;
+    }
+
+    .trajectory-table th:last-child, .trajectory-table td:last-child {
+      width: 220px;
+      background: #fafafa;
+    }
+
+    .trajectory-table th {
+      background: #f1f5f9;
+      font-weight: 600;
+      color: #0f172a;
+    }
+
+    .project-title-block {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .project-name {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text);
+    }
+    .project-sub {
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .target-block {
+      font-size: 11px;
+      color: var(--text-muted);
+      line-height: 1.35;
+    }
+    .target-block strong {
+      color: var(--text);
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    .cell-content {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      min-height: 44px;
+    }
+
+    .task-title {
+      font-weight: 500;
+      color: var(--text);
+      line-height: 1.3;
+    }
+
+    .metric-badge {
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      color: #2563eb;
+      font-weight: 600;
+      background: #eff6ff;
+      padding: 0 4px;
+      border-radius: 3px;
+      display: inline-block;
+      white-space: nowrap;
+    }
+
+    .dep-line {
+      font-size: 11px;
+      color: #64748b;
+      font-style: italic;
+    }
+
+    .cell-deferral {
+      background: var(--defer-bg);
+      border: 1px solid var(--defer-border);
+      color: var(--defer-text);
+      padding: 5px 7px;
+      border-radius: 3px;
+      font-size: 11px;
+    }
+
+    .cell-deadline {
+      background: #fdf2f8;
+      border: 1px solid #fbcfe8;
+      padding: 5px 7px;
+      border-radius: 3px;
+    }
+    .cell-deadline .task-title {
+      color: #9d174d;
+      font-weight: 600;
+    }
+
+    .footer-bar {
+      padding: 8px 12px;
+      background: #fafafa;
+      border-radius: 4px;
+      border: 1px solid var(--border-subtle);
+      font-size: 11px;
+      color: var(--text-muted);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    @media (max-width: 1024px) {
+      body { padding: 12px; }
+      .container { padding: 14px; }
+    }
+    @media (max-width: 768px) {
+      .trajectory-table th:first-child, .trajectory-table td:first-child {
+        position: sticky;
+        left: 0;
+        z-index: 2;
+        box-shadow: 2px 0 4px rgba(0,0,0,0.06);
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <!-- Top Navigation -->
+  <div class="top-nav">
+    <div class="nav-left">
+      <a href="00-index.html" class="nav-back">← All Candidates</a>
+      <span class="proto-badge">Candidate 02</span>
+      <span class="proto-title">Two-Tier Ribbon + Matrix</span>
+    </div>
+    <div class="proto-links">
+      <a href="01-project-week-matrix.html" class="proto-link-btn">01 Matrix</a>
+      <a href="02-two-tier-ribbon-matrix.html" class="proto-link-btn active">02 Two-Tier</a>
+      <a href="03-week-strip-project-arcs.html" class="proto-link-btn">03 Arcs</a>
+      <a href="04-day-agenda-cards.html" class="proto-link-btn">04 Cards</a>
+      <a href="05-strategic-swimlane-critical-path.html" class="proto-link-btn">05 Swimlane</a>
+    </div>
+  </div>
+
+  <!-- Scenario Toggle & Meta Bar -->
+  <div class="control-strip">
+    <div class="meta-info">
+      <div class="meta-item"><strong>Week:</strong> 2026-W34</div>
+      <div class="meta-item"><strong>Architecture:</strong> Two-Tier Hybrid (Ribbon + Matrix)</div>
+      <div class="meta-item" id="scenario-desc"><strong>Mode:</strong> Standard W34 Baseline</div>
+    </div>
+    <div class="toggle-group">
+      <button class="toggle-btn active" id="btn-normal" onclick="setScenario('normal')">Normal W34</button>
+      <button class="toggle-btn" id="btn-stress" onclick="setScenario('stress')">Stress Week</button>
+    </div>
+  </div>
+
+  <!-- TIER 1: CALENDAR & CAPACITY RIBBON -->
+  <div class="section-header">Tier 1: Week Calendar & Capacity Ribbon</div>
+  <div class="ribbon-wrapper">
+    <table class="ribbon-table" id="ribbon-table">
+      <!-- Generated via JS -->
+    </table>
+  </div>
+
+  <!-- TIER 2: PROJECT WORKSTREAM TRAJECTORY MATRIX -->
+  <div class="section-header">Tier 2: Project Workstream Trajectory Matrix</div>
+  <div class="matrix-wrapper">
+    <table class="trajectory-table" id="trajectory-table">
+      <!-- Generated via JS -->
+    </table>
+  </div>
+
+  <!-- Footer Notes -->
+  <div class="footer-bar">
+    <div><strong>Conventions:</strong> <code>★</code> Named Focus | <code>↳</code> Dependency | <code>⏰</code> Hard Gate | <code>⏸️</code> Deferral</div>
+    <div id="cal-note"><strong>Calendar Status:</strong> Standard assumed baseline.</div>
+  </div>
+</div>
+
+<script src="prototype-data.js"></script>
+<script>
+  let currentScenario = 'normal';
+
+  function setScenario(sc) {
+    currentScenario = sc;
+    document.getElementById('btn-normal').classList.toggle('active', sc === 'normal');
+    document.getElementById('btn-stress').classList.toggle('active', sc === 'stress');
+    renderViews();
+  }
+
+  function renderViews() {
+    const data = PROTOTYPE_DATA;
+    const scenario = data.scenarios[currentScenario];
+
+    document.getElementById('scenario-desc').innerHTML = `<strong>Mode:</strong> ${scenario.label} — ${scenario.description}`;
+    document.getElementById('cal-note').innerHTML = `<strong>Calendar Status:</strong> ${scenario.calendarStatus}`;
+
+    // 1. Render Ribbon Table
+    let rHtml = '<thead><tr><th>Dimension</th>';
+    data.days.forEach(day => {
+      rHtml += `<th>${day.name} (${day.date})</th>`;
+    });
+    rHtml += '</tr></thead><tbody>';
+
+    // Day Role row
+    rHtml += '<tr><td><strong>Day Focus & Role</strong></td>';
+    data.days.forEach(day => {
+      rHtml += `<td><strong>${day.role}</strong></td>`;
+    });
+    rHtml += '</tr>';
+
+    // Capacity Shape row
+    rHtml += '<tr><td><strong>Capacity Shape</strong></td>';
+    data.days.forEach(day => {
+      const cap = scenario.dayCapacity[day.id];
+      let bClass = 'badge-standard';
+      if (cap.capacity === 'COMPRESSED') bClass = 'badge-compressed';
+      if (cap.capacity === 'MINIMAL') bClass = 'badge-minimal';
+      rHtml += `<td><span class="badge ${bClass}">${cap.capacity}</span> <span style="color:#64748b;">(${cap.flows}F)</span></td>`;
+    });
+    rHtml += '</tr>';
+
+    // Fixed Commitments row
+    rHtml += '<tr><td><strong>Fixed Anchors / Limits</strong></td>';
+    data.days.forEach(day => {
+      const cap = scenario.dayCapacity[day.id];
+      rHtml += `<td style="color:${cap.shapeClass === 'standard' ? '#475569' : '#991b1b'};">${cap.fixedConstraint}</td>`;
+    });
+    rHtml += '</tr></tbody>';
+
+    document.getElementById('ribbon-table').innerHTML = rHtml;
+
+    // 2. Render Trajectory Table
+    let tHtml = '<thead><tr><th>Project / Stream</th>';
+    data.days.forEach(day => {
+      tHtml += `<th>${day.name} <span style="font-size:11px; font-weight:normal; color:#64748b;">(${day.role})</span></th>`;
+    });
+    tHtml += '<th>Weekly Target & Leverage</th></tr></thead><tbody>';
+
+    data.projects.forEach(proj => {
+      tHtml += `<tr>`;
+      tHtml += `
+        <td>
+          <div class="project-title-block">
+            <span class="project-name">${proj.name} ${proj.isFocus ? '★' : ''}</span>
+            <span class="project-sub">${proj.role}</span>
+          </div>
+        </td>
+      `;
+
+      data.days.forEach(day => {
+        const cell = scenario.grid[proj.id][day.id];
+        tHtml += `<td>`;
+        if (cell.type === 'deferral') {
+          tHtml += `
+            <div class="cell-deferral">
+              <strong>⏸️ ${cell.task}</strong>
+              <span>${cell.reason || 'Deferred'}</span>
+            </div>
+          `;
+        } else if (cell.type === 'deadline') {
+          tHtml += `
+            <div class="cell-deadline">
+              <div class="task-title">${cell.task} <span class="metric-badge">(${cell.metric})</span></div>
+              ${cell.dep ? `<div class="dep-line">${cell.dep}</div>` : ''}
+            </div>
+          `;
+        } else {
+          tHtml += `
+            <div class="cell-content">
+              <div class="task-title">${cell.task} <span class="metric-badge">(${cell.metric})</span></div>
+              ${cell.dep ? `<div class="dep-line">${cell.dep}</div>` : ''}
+            </div>
+          `;
+        }
+        tHtml += `</td>`;
+      });
+
+      tHtml += `
+        <td>
+          <div class="target-block">
+            <strong>${proj.target.split(':')[0]}:</strong>
+            ${proj.target.split(':')[1] || ''}
+          </div>
+        </td>
+      `;
+      tHtml += `</tr>`;
+    });
+
+    tHtml += '</tbody>';
+    document.getElementById('trajectory-table').innerHTML = tHtml;
+  }
+
+  renderViews();
+</script>
+</body>
+</html>
