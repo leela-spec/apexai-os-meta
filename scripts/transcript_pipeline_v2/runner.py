@@ -124,7 +124,7 @@ def get_git_repo_info(cwd: Path | None = None) -> dict[str, Any]:
 
 
 def run_actual_tests(repo_root: Path) -> list[dict[str, str]]:
-    """Execute real test suite and diff check, returning actual execution results."""
+    """Execute real test suite and repository-wide diff check, returning actual execution results."""
     results = []
 
     # 1. pytest
@@ -139,9 +139,9 @@ def run_actual_tests(repo_root: Path) -> list[dict[str, str]]:
         "result": "PASS" if proc_pytest.returncode == 0 else "FAIL",
     })
 
-    # 2. git diff check
+    # 2. repository-wide git diff check
     proc_diff = subprocess.run(
-        ["git", "diff", "--check", "scripts/transcript_pipeline_v2/"],
+        ["git", "diff", "--check"],
         cwd=str(repo_root),
         capture_output=True,
         text=True
@@ -263,7 +263,6 @@ def init_run(
             start_head=start_head,
             unrelated_dirty_paths=unrelated_dirty_paths,
             request_dict=request_dict,
-            _skip_test_execution=_skip_repo_check,
         )
 
     return {
@@ -285,7 +284,7 @@ def finalize_s00(
     start_head: str | None = None,
     unrelated_dirty_paths: list[str] | None = None,
     request_dict: dict[str, Any] | None = None,
-    _skip_test_execution: bool = False,
+    test_records: list[dict[str, str]] | None = None,
 ) -> dict[str, Any]:
     """
     Accept and finalize S00 stage after executing real tests and verifying invariants.
@@ -316,9 +315,13 @@ def finalize_s00(
         if unrelated_dirty_paths is None:
             unrelated_dirty_paths = filter_unrelated_dirty_paths(git_info.get("dirty_paths", []))
 
-    # Real component identifier (real content hash of runner.py)
+    # Real component identifier (canonical LF content hash of runner.py)
     runner_py = SCRIPT_DIR / "runner.py"
-    runner_sha256 = compute_sha256(runner_py) if runner_py.exists() else "unknown"
+    if runner_py.exists():
+        runner_bytes = runner_py.read_bytes().replace(b"\r\n", b"\n")
+        runner_sha256 = hashlib.sha256(runner_bytes).hexdigest()
+    else:
+        runner_sha256 = "unknown"
 
     # Invariant checks: verify no fake or later-stage outputs
     source_dir = run_dir / "source"
@@ -331,13 +334,11 @@ def finalize_s00(
     if work_files:
         raise RuntimeError(f"S00 invariant violation: work directory contains unexpected files: {work_files}")
 
-    # Execute actual tests unless skipped for isolated unit testing
-    if not _skip_test_execution:
+    # Execute actual tests if not supplied
+    if test_records is None:
         test_records = run_actual_tests(repo_root)
-    else:
-        test_records = [{"command": "pytest scripts/transcript_pipeline_v2/tests", "result": "PASS"}]
 
-    all_passed = all(t["result"] == "PASS" for t in test_records)
+    all_passed = len(test_records) > 0 and all(t.get("result") == "PASS" for t in test_records)
     stage_status = "PASS" if all_passed else "FAIL"
 
     try:

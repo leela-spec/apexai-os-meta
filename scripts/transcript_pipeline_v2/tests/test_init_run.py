@@ -1,7 +1,7 @@
 """
 Tests for V2.1 TTK Module S00: Trigger and Run Initialization.
 Validates all focused S00 assertions, Git repo/branch enforcement,
-LF hash canonical consistency, and dirty path preservation.
+LF hash canonical consistency, exact command invocations, and dirty path preservation.
 """
 from __future__ import annotations
 
@@ -10,9 +10,10 @@ import json
 import subprocess
 import tempfile
 from pathlib import Path
+from unittest.mock import patch, MagicMock
 import pytest
 
-from runner import init_run, finalize_s00, compute_sha256
+from runner import init_run, finalize_s00, run_actual_tests, compute_sha256
 
 
 @pytest.fixture
@@ -134,7 +135,7 @@ def test_07_request_serialization_round_trips_and_lf(temp_env):
     )
     req_file = Path(res["request_path"])
     raw_bytes = req_file.read_bytes()
-    assert b"\r\n" not in raw_bytes  # Pure LF bytes
+    assert b"\r\n" not in raw_bytes
 
     loaded = json.loads(raw_bytes.decode("utf-8"))
     assert loaded["schema"] == "ttk.v2_1.run-request.v1"
@@ -191,11 +192,9 @@ def test_09_to_11_no_asr_map_reduce_files_created(temp_env):
     )
     run_dir = Path(res["run_dir"])
 
-    # Traverse all files in run_dir
     files_created = [f.name for f in run_dir.rglob("*") if f.is_file()]
     assert set(files_created) == {"request.json"}
 
-    # Specifically check absence of ASR / Map / Reduce outputs
     assert not (run_dir / "source" / "transcript.json").exists()
     assert not (run_dir / "source" / "audio.wav").exists()
     assert not (run_dir / "work" / "map.json").exists()
@@ -239,24 +238,20 @@ def test_14_unrelated_dirty_paths_preserved_in_real_git_fixture():
     """Assertion 14: Real git repository fixture verifies dirty file capture and byte preservation."""
     with tempfile.TemporaryDirectory() as tmpdir:
         repo_dir = Path(tmpdir)
-        # Initialize real git repository on main
         subprocess.run(["git", "init", "-b", "main"], cwd=str(repo_dir), check=True, capture_output=True)
         subprocess.run(["git", "config", "user.name", "Test Runner"], cwd=str(repo_dir), check=True, capture_output=True)
         subprocess.run(["git", "config", "user.email", "test@example.com"], cwd=str(repo_dir), check=True, capture_output=True)
         subprocess.run(["git", "remote", "add", "origin", "https://github.com/leela-spec/apexai-os-meta.git"], cwd=str(repo_dir), check=True, capture_output=True)
 
-        # Create tracked baseline file
         dirty_file = repo_dir / "unrelated_doc.txt"
         dirty_file.write_bytes(b"baseline committed content\n")
         subprocess.run(["git", "add", "unrelated_doc.txt"], cwd=str(repo_dir), check=True, capture_output=True)
         subprocess.run(["git", "commit", "-m", "initial baseline"], cwd=str(repo_dir), check=True, capture_output=True)
 
-        # Modify file to make it dirty
         modified_content = b"uncommitted modification by operator\n"
         dirty_file.write_bytes(modified_content)
         expected_hash = hashlib.sha256(modified_content).hexdigest()
 
-        # Execute init_run
         runs_dir = repo_dir / "artifacts" / "transcript_pipeline_v2" / "runs"
         res = init_run(
             source="https://www.youtube.com/watch?v=CygwqaNg2PY",
@@ -266,10 +261,7 @@ def test_14_unrelated_dirty_paths_preserved_in_real_git_fixture():
             _skip_repo_check=False,
         )
 
-        # Assert dirty file was captured in unrelated_dirty_paths
         assert "unrelated_doc.txt" in res["unrelated_dirty_paths"]
-
-        # Assert dirty file content and hash remain untouched
         assert dirty_file.read_bytes() == modified_content
         assert hashlib.sha256(dirty_file.read_bytes()).hexdigest() == expected_hash
 
@@ -318,8 +310,51 @@ def test_16_wrong_repo_remote_rejected():
             )
 
 
-def test_17_finalize_s00_verifies_invariants_and_writes_handoff(temp_env):
-    """Finalization test: finalize_s00 enforces LF hashes, real component hash, and PASS state."""
+def test_17_run_actual_tests_invokes_unscoped_git_diff_check():
+    """Verification: run_actual_tests must execute repository-wide 'git diff --check' without path restriction."""
+    with patch("subprocess.run") as mock_run:
+        mock_proc = MagicMock()
+        mock_proc.returncode = 0
+        mock_run.return_value = mock_proc
+
+        records = run_actual_tests(Path("."))
+        assert len(records) == 2
+
+        # Check call arguments
+        diff_call = [call for call in mock_run.call_args_list if call[0][0] == ["git", "diff", "--check"]]
+        assert len(diff_call) == 1, "Expected exactly one repository-wide git diff --check call"
+        assert diff_call[0][0][0] == ["git", "diff", "--check"]
+
+
+def test_18_no_fabricated_pass_on_empty_or_failing_test_records(temp_env):
+    """Integrity: finalize_s00 must never emit PASS if test records are empty or contain FAIL."""
+    temp_root, runs_dir = temp_env
+    res = init_run(
+        source="https://www.youtube.com/watch?v=CygwqaNg2PY",
+        source_id="CygwqaNg2PY",
+        _runs_dir=runs_dir,
+        _repo_root=temp_root,
+        _skip_repo_check=True,
+    )
+    # Empty test records -> FAIL
+    final_empty = finalize_s00(
+        run_dir=Path(res["run_dir"]),
+        repo_root=temp_root,
+        test_records=[],
+    )
+    assert final_empty["status"] == "FAIL"
+
+    # Failing test record -> FAIL
+    final_failing = finalize_s00(
+        run_dir=Path(res["run_dir"]),
+        repo_root=temp_root,
+        test_records=[{"command": "pytest", "result": "FAIL"}],
+    )
+    assert final_failing["status"] == "FAIL"
+
+
+def test_19_production_finalization_with_passing_records(temp_env):
+    """Acceptance: finalize_s00 produces PASS and canonical LF handoffs when all tests pass."""
     temp_root, runs_dir = temp_env
     res = init_run(
         source="https://www.youtube.com/watch?v=CygwqaNg2PY",
@@ -334,17 +369,13 @@ def test_17_finalize_s00_verifies_invariants_and_writes_handoff(temp_env):
     final = finalize_s00(
         run_dir=Path(res["run_dir"]),
         repo_root=temp_root,
-        start_head="259b368d05fed3f34d39aaa4517c309880a4a072",
-        unrelated_dirty_paths=["unrelated.txt"],
-        _skip_test_execution=True,
+        test_records=[
+            {"command": "pytest scripts/transcript_pipeline_v2/tests", "result": "PASS"},
+            {"command": "git diff --check", "result": "PASS"},
+        ],
     )
     assert final["status"] == "PASS"
     yaml_path = Path(final["handoff_yaml"])
     md_path = Path(final["handoff_md"])
-    assert yaml_path.exists()
-    assert md_path.exists()
-
-    yaml_bytes = yaml_path.read_bytes()
-    assert b"\r\n" not in yaml_bytes
-    md_bytes = md_path.read_bytes()
-    assert b"\r\n" not in md_bytes
+    assert b"\r\n" not in yaml_path.read_bytes()
+    assert b"\r\n" not in md_path.read_bytes()

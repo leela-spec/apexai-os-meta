@@ -1,9 +1,9 @@
 # S00 Stage Handover — Run ttk_20260819_095347_CygwqaNg2PY_069f8a
 
 - **Stage**: S00 (Trigger and Run Initialization)
-- **Status**: PASS
+- **Status**: FAIL
 - **Run ID**: `ttk_20260819_095347_CygwqaNg2PY_069f8a`
-- **Start HEAD**: `31cb1db67df9840c20871fa728bfaf3b7fdae68b`
+- **Start HEAD**: `6729342bb81db24ad46cf7813f31589cdecc9344`
 - **Source**: `https://www.youtube.com/watch?v=CygwqaNg2PY`
 - **Source Type**: `url`
 - **Source ID**: `CygwqaNg2PY`
@@ -18,7 +18,7 @@
 
 ## Actual Test Execution Evidence
 - `pytest scripts/transcript_pipeline_v2/tests` — **PASS**
-- `git diff --check` — **PASS**
+- `git diff --check` — **FAIL**
 
 ## Stage Invariants Verified
 1. Canonical LF byte encoding enforced across all artifacts.
