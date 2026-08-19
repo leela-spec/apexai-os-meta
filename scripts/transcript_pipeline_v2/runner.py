@@ -275,7 +275,16 @@ def init_run(
     (run_dir / "source").mkdir(parents=True, exist_ok=True)
     (run_dir / "work").mkdir(parents=True, exist_ok=True)
 
-    # 6. Write request.json with only operator-declared / request-derived facts
+    # 6. Persist immutable initialization provenance
+    provenance_dict = {
+        "run_id": run_id,
+        "start_head": start_head,
+        "unrelated_dirty_paths": unrelated_dirty_paths,
+        "created_at": utc_now_iso(),
+    }
+    write_canonical_json(handoffs_dir / "init_provenance.json", provenance_dict)
+
+    # 7. Write request.json with only operator-declared / request-derived facts
     request_dict: dict[str, Any] = {
         "schema": "ttk.v2_1.run-request.v1",
         "run_id": run_id,
@@ -341,11 +350,14 @@ def finalize_s00(
 ) -> dict[str, Any]:
     """
     Accept and finalize S00 stage after executing real tests and verifying invariants.
+    Preserves immutable start_head provenance from initialization.
     """
     repo_root = repo_root or REPO_ROOT
     run_dir = Path(run_dir).resolve()
     handoffs_dir = run_dir / "handoffs"
     request_file = run_dir / "request.json"
+    prov_file = handoffs_dir / "init_provenance.json"
+    s00_yaml_file = handoffs_dir / "S00.yaml"
 
     if not request_file.exists():
         raise FileNotFoundError(f"request.json not found in {run_dir}")
@@ -362,11 +374,35 @@ def finalize_s00(
     mode = request_dict.get("mode")
     purpose = request_dict.get("purpose")
 
+    # Resolve immutable start_head and unrelated_dirty_paths from provenance
     if start_head is None or unrelated_dirty_paths is None:
-        git_info = get_git_repo_info(cwd=repo_root)
-        start_head = start_head or git_info.get("head", "unknown")
-        if unrelated_dirty_paths is None:
-            unrelated_dirty_paths = filter_unrelated_dirty_paths(git_info.get("dirty_paths", []))
+        if prov_file.exists():
+            try:
+                with open(prov_file, "r", encoding="utf-8") as f:
+                    prov_data = json.load(f)
+                    if start_head is None:
+                        start_head = prov_data.get("start_head")
+                    if unrelated_dirty_paths is None:
+                        unrelated_dirty_paths = prov_data.get("unrelated_dirty_paths")
+            except Exception:
+                pass
+
+        if (start_head is None or unrelated_dirty_paths is None) and s00_yaml_file.exists():
+            try:
+                with open(s00_yaml_file, "r", encoding="utf-8") as f:
+                    for line in f:
+                        if line.startswith("start_head:") and start_head is None:
+                            val = line.split(":", 1)[1].strip()
+                            if val and val != "unknown":
+                                start_head = val
+            except Exception:
+                pass
+
+        if start_head is None or unrelated_dirty_paths is None:
+            git_info = get_git_repo_info(cwd=repo_root)
+            start_head = start_head or git_info.get("head", "unknown")
+            if unrelated_dirty_paths is None:
+                unrelated_dirty_paths = filter_unrelated_dirty_paths(git_info.get("dirty_paths", []))
 
     # Real component identifier (canonical LF content hash of runner.py)
     runner_py = SCRIPT_DIR / "runner.py"

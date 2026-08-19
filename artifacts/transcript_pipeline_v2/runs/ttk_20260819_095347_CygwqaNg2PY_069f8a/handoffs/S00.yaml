@@ -2,7 +2,7 @@ schema: ttk.v2_1.stage-handoff.v1
 stage: S00
 status: PASS
 run_id: ttk_20260819_095347_CygwqaNg2PY_069f8a
-start_head: 10a7f8df018eadb3395295aadbe0f283e7f593af
+start_head: 31cb1db67df9840c20871fa728bfaf3b7fdae68b
 end_head: null
 
 inputs:
@@ -11,7 +11,7 @@ inputs:
 
 components:
   - id: scripts/transcript_pipeline_v2/runner.py
-    sha256: 09d3c38f4b17489c87a4f8b055fbd3b8c5a08eacd53f175f154f92b439efe9dc
+    sha256: f4af52e383526874341bac7f0d49bf8fc0fdb9a71ee852c52f005e5c5be4d052
     config:
       mode: "fresh_e2e"
       language: "en"
@@ -20,7 +20,7 @@ outputs:
   - path: artifacts/transcript_pipeline_v2/runs/ttk_20260819_095347_CygwqaNg2PY_069f8a/request.json
     sha256: fef6d50b1e5a6f7c4d2a149a4861f0e7a5ec3fda6a86a8c65d45e1efa61b8bd9
   - path: artifacts/transcript_pipeline_v2/runs/ttk_20260819_095347_CygwqaNg2PY_069f8a/handoffs/S00-HANDOVER.md
-    sha256: 3138a654af32eb91d4148a5d42bd32d5c8b26d5d01de23863afe175f17c57a13
+    sha256: cc69d85d05a51dde35ced186bace02c9df4144f79ccef781504a9678ed1016ad
 
 tests:
   - command: pytest scripts/transcript_pipeline_v2/tests
@@ -93,8 +93,8 @@ unrelated_dirty_paths:
   - FEE/CORRECTION-2026-08-11-LOCAL-EXECUTOR-VIABILITY.md
   - FEE/GPU_Failure/
   - FEE/HANDOVER-2026-08-10-FEE-PROJECT-ENVIRONMENT.md
-  - "FEE/Installing and Configuring OpenClaw as Local LLM Executor for apex-ai-os-meta FEE Orchestration.md"
-  - "FEE/OpenClaw Installation & Configuration Research Report for APEX FEE.md"
+  - FEE/Installing and Configuring OpenClaw as Local LLM Executor for apex-ai-os-meta FEE Orchestration.md
+  - FEE/OpenClaw Installation & Configuration Research Report for APEX FEE.md
   - FEE/OpenClaw_BrowserAutomation.md
   - FEE/OpenClaw_Setup/
   - FEE/Patch_FinalGPTImplementationFiles.md

@@ -1,7 +1,8 @@
 """
 Tests for V2.1 TTK Module S00: Trigger and Run Initialization.
 Validates all focused S00 assertions, Git repo/branch enforcement,
-LF hash canonical consistency, exact command invocations, and dirty path preservation.
+LF hash canonical consistency, exact command invocations, dirty path preservation,
+and immutable start_head provenance across re-finalizations.
 """
 from __future__ import annotations
 
@@ -192,7 +193,7 @@ def test_09_to_11_no_asr_map_reduce_files_created(temp_env):
     run_dir = Path(res["run_dir"])
 
     files_created = [f.name for f in run_dir.rglob("*") if f.is_file()]
-    assert set(files_created) == {"request.json"}
+    assert set(files_created) == {"request.json", "init_provenance.json"}
 
     assert not (run_dir / "source" / "transcript.json").exists()
     assert not (run_dir / "source" / "audio.wav").exists()
@@ -320,11 +321,9 @@ def test_17_run_actual_tests_invokes_unscoped_and_scoped_checks():
         records = run_actual_tests(Path("."), run_id="test_run_123")
         assert len(records) == 3
 
-        # Check repository-wide diff call
         repo_diff_calls = [c for c in mock_run.call_args_list if c[0][0] == ["git", "diff", "--check"]]
         assert len(repo_diff_calls) == 1
 
-        # Check S00-scoped diff call
         s00_diff_calls = [c for c in mock_run.call_args_list if len(c[0][0]) > 3 and c[0][0][:3] == ["git", "diff", "--check"]]
         assert len(s00_diff_calls) == 1
         assert "scripts/transcript_pipeline_v2/" in s00_diff_calls[0][0][0]
@@ -416,3 +415,73 @@ def test_20_decision_rule_case_c_unknown_failure_is_blocked(temp_env):
         test_records=mock_test_records,
     )
     assert final["status"] == "BLOCKED"
+
+
+def test_21_refinalization_preserves_immutable_start_head():
+    """Regression test: re-finalization at a later Git commit preserves the original start HEAD."""
+    with tempfile.TemporaryDirectory() as tmpdir:
+        repo_dir = Path(tmpdir)
+        subprocess.run(["git", "init", "-b", "main"], cwd=str(repo_dir), check=True, capture_output=True)
+        subprocess.run(["git", "config", "user.name", "Test Runner"], cwd=str(repo_dir), check=True, capture_output=True)
+        subprocess.run(["git", "config", "user.email", "test@example.com"], cwd=str(repo_dir), check=True, capture_output=True)
+        subprocess.run(["git", "remote", "add", "origin", "https://github.com/leela-spec/apexai-os-meta.git"], cwd=str(repo_dir), check=True, capture_output=True)
+
+        # 1. Commit A
+        file_a = repo_dir / "init_file.txt"
+        file_a.write_text("Commit A content\n")
+        subprocess.run(["git", "add", "init_file.txt"], cwd=str(repo_dir), check=True, capture_output=True)
+        subprocess.run(["git", "commit", "-m", "commit A"], cwd=str(repo_dir), check=True, capture_output=True)
+        head_a = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=str(repo_dir), text=True).strip()
+
+        # 2. Init run at HEAD A
+        runs_dir = repo_dir / "artifacts" / "transcript_pipeline_v2" / "runs"
+        res = init_run(
+            source="https://www.youtube.com/watch?v=CygwqaNg2PY",
+            source_id="CygwqaNg2PY",
+            _runs_dir=runs_dir,
+            _repo_root=repo_dir,
+            _skip_repo_check=False,
+        )
+        assert res["start_head"] == head_a
+
+        # 3. Advance repo to Commit B
+        file_b = repo_dir / "second_file.txt"
+        file_b.write_text("Commit B content\n")
+        subprocess.run(["git", "add", "second_file.txt"], cwd=str(repo_dir), check=True, capture_output=True)
+        subprocess.run(["git", "commit", "-m", "commit B"], cwd=str(repo_dir), check=True, capture_output=True)
+        head_b = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=str(repo_dir), text=True).strip()
+        assert head_b != head_a
+
+        # 4. Finalize at HEAD B without passing start_head explicitly
+        mock_records = [
+            {"command": "pytest scripts/transcript_pipeline_v2/tests", "result": "PASS"},
+            {"command": "git diff --check -- scripts/transcript_pipeline_v2/", "result": "PASS"},
+            {"command": "git diff --check", "result": "PASS"},
+        ]
+        final_1 = finalize_s00(
+            run_dir=Path(res["run_dir"]),
+            repo_root=repo_dir,
+            test_records=mock_records,
+        )
+        assert final_1["start_head"] == head_a
+
+        # 5. Advance repo to Commit C and re-finalize
+        file_c = repo_dir / "third_file.txt"
+        file_c.write_text("Commit C content\n")
+        subprocess.run(["git", "add", "third_file.txt"], cwd=str(repo_dir), check=True, capture_output=True)
+        subprocess.run(["git", "commit", "-m", "commit C"], cwd=str(repo_dir), check=True, capture_output=True)
+        head_c = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=str(repo_dir), text=True).strip()
+        assert head_c != head_b
+
+        final_2 = finalize_s00(
+            run_dir=Path(res["run_dir"]),
+            repo_root=repo_dir,
+            test_records=mock_records,
+        )
+        assert final_2["start_head"] == head_a
+
+        # Verify persisted YAML and MD
+        yaml_content = Path(final_2["handoff_yaml"]).read_text(encoding="utf-8")
+        assert f"start_head: {head_a}" in yaml_content
+        md_content = Path(final_2["handoff_md"]).read_text(encoding="utf-8")
+        assert f"- **Start HEAD**: `{head_a}`" in md_content
