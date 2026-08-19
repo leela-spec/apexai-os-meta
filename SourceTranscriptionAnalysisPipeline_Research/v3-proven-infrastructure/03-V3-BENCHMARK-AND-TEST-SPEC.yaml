@@ -1,0 +1,198 @@
+schema: transcript-pipeline-benchmark-spec.v3
+created: '2026-08-19'
+status: AUTHORITATIVE
+purpose: >-
+  Provide the smallest evaluation set that can distinguish viable transcript-to-knowledge
+  architectures without turning evaluation itself into the project.
+
+principles:
+  - 'Product quality outranks framework completeness.'
+  - 'Use real runs before architecture claims.'
+  - 'Three primary videos are sufficient for architecture selection unless evidence is ambiguous.'
+  - 'The fourth historical source is optional holdout/regression, not mandatory.'
+  - 'Do not expand fixture counts because a percentage looks more scientific.'
+  - 'Use human-checked evidence for claims that require semantic authority.'
+  - 'Use deterministic checks only for deterministic properties.'
+  - 'Record UNMEASURED rather than inventing metrics.'
+  - 'A candidate that fails to run remains visible as FAIL/BLOCKED.'
+  - 'No API/provider substitution merely to make a framework pass.'
+
+sources:
+  primary:
+    P-h5WSQG1Sw:
+      label: huberman_adolphs
+      language: en
+      type: long_science_interview
+      stresses:
+        - long_source_coverage
+        - multi_speaker_context
+        - science_terms
+        - early_middle_late_retention
+    CygwqaNg2PY:
+      label: prechter
+      language: en
+      type: technical_finance
+      stresses:
+        - technical_terms
+        - named_terms
+        - compact_full_source_synthesis
+    vFTuLylvYnA:
+      label: koch
+      language: de
+      type: german_finance
+      stresses:
+        - german_asr
+        - german_semantics
+        - numbers_percentages
+        - domain_terms
+  optional_holdout:
+    oZIsMX6WgFs:
+      label: market_cycles
+      language: en
+      type: technical_procedure
+      run_when:
+        - three_source_result_ambiguous
+        - procedural_recall_is_unresolved_risk
+        - final_reviewer_requests_holdout
+
+benchmark_levels:
+  B0_RELAY_SMOKE:
+    purpose: prove OpenClaw can supervise Antigravity while producing useful work
+    acceptance:
+      - antigravity_process_really_launched
+      - output_or_pty_state_observable
+      - useful_research_artifact_committed
+      - no_dangerous_global_permission_bypass_required
+
+  B1_ONE_SOURCE_BASELINE:
+    purpose: cheaply reject weak end-to-end candidates
+    source: CygwqaNg2PY
+    candidates_to_run: 'strongest 2-3 from current M01 landscape'
+    acceptance_dimensions:
+      - runnable_without_manual_surgery
+      - actual_source_specific_output
+      - useful_thesis_and_key_insights
+      - timestamp_or_source_traceability_if_claimed
+      - no_obvious_cross_source_contamination
+
+  B2_COMPONENT_SLICES:
+    purpose: compare components only for gaps that remain after B1
+    asr:
+      clips_per_primary_source: 3
+      total_default_clips: 9
+      required_mix:
+        - difficult_acoustic_or_domain_slice
+        - names_or_terms
+        - numeric_slice_where_applicable
+    semantic_map:
+      windows_per_primary_source: 4
+      total_default_windows: 12
+      required_positions:
+        - early
+        - middle
+        - late
+        - difficult_or_domain_heavy
+    support_pairs:
+      per_primary_source: 8
+      total_default_pairs: 24
+      negative_or_overreach_minimum_per_source: 2
+    expansion_rule: >-
+      Expand only if the default fixture is too ambiguous to decide between finalists;
+      do not pre-emptively grow to 40+ pairs or dozens of windows.
+
+  B3_FULL_PRODUCT_FINALISTS:
+    purpose: compare full knowledge products after weak candidates are removed
+    first_source: CygwqaNg2PY
+    expand_finalists_to:
+      - P-h5WSQG1Sw
+      - vFTuLylvYnA
+
+  B4_FRESH_THREE_SOURCE_E2E:
+    purpose: final production proof
+    sources:
+      - P-h5WSQG1Sw
+      - CygwqaNg2PY
+      - vFTuLylvYnA
+    optional_holdout: oZIsMX6WgFs
+
+hard_product_gates:
+  HP01_REAL_EXECUTION:
+    fail_if:
+      - synthetic_audio_used_as_real
+      - historical_artifact_claimed_as_fresh
+      - heuristic_or_template_semantics_claimed_as_strong_ai
+      - framework_named_but_not_actually_invoked
+  HP02_SOURCE_IDENTITY:
+    pass_when: 'Final artifact is demonstrably bound to the intended source and contains no cross-source contamination.'
+  HP03_TRACEABILITY:
+    pass_when: 'Important factual/source claims can be traced to source text/timestamps at the level promised by the selected design.'
+  HP04_PRODUCT_SPECIFICITY:
+    fail_if:
+      - generic_process_only_summary
+      - source_interchangeable_boilerplate
+      - major_known_thesis_or_late_source_content_omitted_without_reason
+  HP05_MULTILINGUAL:
+    pass_when: 'German source completes with usable transcript/knowledge quality and no English-only evaluator is treated as sole authority.'
+  HP06_REPEATABILITY:
+    pass_when: 'A rerun or resumed run does not require manual file surgery or hidden chat memory.'
+
+product_rubric:
+  scale: '0..5'
+  dimensions:
+    - thesis_usefulness
+    - important_insight_recall
+    - source_fidelity
+    - semantic_structure
+    - procedures_mechanisms_examples_retained
+    - caveat_uncertainty_retention
+    - traceability
+    - concision_operator_reading_efficiency
+  authority:
+    primary: HUMAN_CHECKED_OR_SOURCE_GROUNDED
+    auxiliary:
+      - DeepEval_if_valid_for_language_provider_and_metric
+      - local_support_models_if_benchmarked
+      - other_existing_eval_frameworks_discovered_in_M01
+
+asr_metrics:
+  required_when_M02_runs:
+    - human_checked_domain_term_accuracy
+    - numeric_accuracy_where_applicable
+    - timestamp_availability_or_utility
+    - wall_time
+    - install_runtime_stability
+  optional:
+    - WER_only_where_human_reference_is_good_enough
+  rule: 'Never pick the fastest ASR that fails product-relevant accuracy.'
+
+semantic_metrics:
+  required_when_M03_or_M04_runs:
+    - important_insight_recall
+    - unsupported_overreach_rate
+    - source_grounding_quality
+    - uncertainty_caveat_recall
+    - retry_failure_count
+    - integration_complexity
+  optional_when_measurable:
+    - input_tokens
+    - output_tokens
+    - wall_time
+
+selection_policy:
+  preference_order:
+    - 'Adopt a near-complete system if it meets hard gates and product rubric at acceptable quality.'
+    - 'Prefer a light fork over a multi-framework composition when quality is comparable.'
+    - 'Prefer fewer components when quality/resilience are not materially worse.'
+    - 'Promote an extra component only when it improves quality/resilience/efficiency or removes meaningful custom code.'
+    - 'Do not require arbitrary percentage thresholds when the sample is too small; record directional evidence and reviewer judgment.'
+
+anti_overengineering:
+  two_strike_rule: >-
+    Two corrective iterations on the same subsystem without product advancement means stop
+    repairing and reconsider/replace the approach.
+  orchestration_repair_budget: 1
+  new_abstraction_requires:
+    - existing_solution_tried
+    - observed_failure
+    - why_configuration_or_light_fork_is_insufficient
+    - smallest_custom_addition

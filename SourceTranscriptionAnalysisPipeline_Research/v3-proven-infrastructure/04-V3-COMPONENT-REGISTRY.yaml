@@ -1,0 +1,189 @@
+schema: transcript-pipeline-component-registry.v3
+created: '2026-08-19'
+status: AUTHORITATIVE_CANDIDATE_REGISTRY
+purpose: >-
+  Preserve reusable candidate hypotheses without prematurely turning every candidate into
+  the production hot path. Current web verification date is recorded separately from
+  actual installed version; execution modules must record what really ran.
+
+rules:
+  - 'Complete/near-complete existing systems are evaluated before component composition.'
+  - 'A listed candidate is not promoted merely because prior research liked it.'
+  - 'A candidate is not rejected merely because it adds a stage; measure whether it replaces custom work or improves product quality.'
+  - 'No component gets semantic authority merely because it is local, cheap, or deterministic-looking.'
+  - 'Installed/runtime version is captured at execution time; never copy a web version into a run receipt.'
+  - 'If an existing system already solves the product adequately, skip unnecessary lower-level component bake-offs.'
+
+verified_external_on: '2026-08-19'
+
+orchestration:
+  openclaw:
+    role: thin_relay_and_process_supervisor
+    verified_capabilities:
+      - exec_supports_pty
+      - background_exec_sessions
+      - process_poll_and_log
+      - process_waiting_for_input_signal
+      - process_write_send_keys_submit_paste_kill
+    canonical_docs: 'https://docs.openclaw.ai/gateway/background-process'
+    restriction: 'Background process state is not durable across restart; Git remains durable state.'
+
+  antigravity_cli:
+    role: primary_bounded_executor_for_V3_modules
+    canonical_repo: 'https://github.com/google-antigravity/antigravity-cli'
+    canonical_docs:
+      - 'https://www.antigravity.google/docs/cli/overview'
+      - 'https://www.antigravity.google/docs/cli/permissions'
+    observed_doc_version_on_verification_date: '1.1.11'
+    runtime_policy:
+      - 'Do not assume installed version equals docs version.'
+      - 'Smoke-test headless stdout/exit/permissions on the installed version.'
+      - 'Use headless only when the required exact behavior passes.'
+      - 'Fallback to OpenClaw PTY supervision of interactive agy.'
+      - 'Do not default to --dangerously-skip-permissions.'
+    current_caveat: 'Open issues still report headless permission-scope limitations despite recent 1.1.x fixes.'
+
+complete_system_discovery:
+  status: REQUIRED_FIRST
+  instruction: >-
+    M01 searches current internet/GitHub broadly for maintained end-to-end or near-complete
+    video/audio/transcript-to-knowledge systems. This registry intentionally does not freeze
+    the universe of complete-system candidates.
+
+known_product_baselines:
+  fabric:
+    class: operator_output_baseline
+    canonical_repo: 'https://github.com/fail-open/fabric'
+    verified_on: '2026-08-19'
+    role: 'Simple transcript-to-wisdom/pattern baseline; usefulness comparator, not provenance authority.'
+    decision: RUN_IF_CURRENT_SETUP_PRACTICAL
+
+  open_notebook:
+    class: product_ui_knowledge_baseline
+    canonical_repo: 'https://github.com/lfnovo/open-notebook'
+    verified_on: '2026-08-19'
+    role: 'Existing NotebookLM-style knowledge/research product comparator and possible downstream UI.'
+    decision: RUN_IF_CURRENT_SETUP_PRACTICAL
+
+historical_near_complete_candidates_to_reverify:
+  - id: yt_distill
+    reason: 'Prior research found unusually close video->artifact->citation behavior; reverify current repository/maintenance before use.'
+  - id: youtube_digest_or_transcript_agents
+    reason: 'Useful simple product baselines; current best project should be rediscovered in M01 rather than frozen from old research.'
+
+pipeline_components:
+  source_acquisition:
+    yt_dlp_ffmpeg:
+      class: proven_mechanical_tools
+      role: source_acquisition_and_media_normalization
+      status: REUSE_IF_NEEDED
+      custom_replacement_forbidden_without_observed_gap: true
+
+  asr_faster_whisper:
+    canonical_repo: 'https://github.com/SYSTRAN/faster-whisper'
+    verified_on: '2026-08-19'
+    class: local_asr
+    observed_features:
+      - word_level_timestamps
+      - Silero_VAD_integration
+      - CPU_int8
+      - batched_inference
+    status: REFERENCE_IF_M02_REQUIRED
+
+  asr_parakeet:
+    canonical_model: 'https://huggingface.co/nvidia/parakeet-tdt-0.6b-v3'
+    verified_on: '2026-08-19'
+    class: local_multilingual_asr_challenger
+    observed_features:
+      - 25_languages
+      - Transformers_and_NeMo_paths
+    license_observed: cc-by-4.0
+    status: CHALLENGER_IF_M02_REQUIRED
+
+  whisperx:
+    canonical_repo: 'https://github.com/m-bain/whisperX'
+    verified_on: '2026-08-19'
+    class: alignment_and_diarization
+    role: 'Forced word alignment and optional speaker diarization when product evidence shows need.'
+    status: CONDITIONAL
+
+  ttk_existing:
+    class: existing_project_specific_custody_compiler
+    role: 'Existing deterministic transcript custody/windowing/validation/compiler pieces.'
+    status: RETAIN_AS_CANDIDATE_NOT_ASSUMED_CORE
+    rule: >-
+      Keep only the TTK pieces that demonstrably add value after complete-system/component
+      bake-off. Do not preserve them merely because they already exist.
+
+  langextract:
+    canonical_repo: 'https://github.com/google/langextract'
+    verified_on: '2026-08-19'
+    class: grounded_structured_extraction
+    observed_features:
+      - precise_source_grounding
+      - long_document_processing
+      - local_Ollama_provider
+      - custom_provider_plugin_mechanism
+    status: PRIMARY_GROUNDED_EXTRACTION_CHALLENGER_IF_M03_REQUIRED
+
+  instructor:
+    canonical_repo: 'https://github.com/567-labs/instructor'
+    verified_on: '2026-08-19'
+    class: typed_structured_output_validation_retry
+    observed_features:
+      - Pydantic_validation
+      - automatic_validation_retries
+      - multiple_providers_including_local_Ollama
+    status: CONDITIONAL_ONLY_IF_SCHEMA_SEAM_IS_BRITTLE
+
+  docetl:
+    canonical_repo: 'https://github.com/ucbepic/docetl'
+    verified_on: '2026-08-19'
+    class: declarative_llm_map_reduce
+    observed_features:
+      - map
+      - reduce
+      - filter
+      - parallel_orchestration
+      - optimizer_available
+    caveat: 'Official examples are provider/API-oriented; do not force into production if a compliant worker/provider seam is awkward.'
+    first_test_optimizer: false
+    status: SYNTHESIS_CHALLENGER_IF_M04_REQUIRED
+
+  gliner2:
+    canonical_repo: 'https://github.com/fastino-ai/GLiNER2'
+    verified_on: '2026-08-19'
+    class: local_schema_information_extraction
+    status: OPTIONAL_AUXILIARY_IF_M03_REQUIRED
+    authority_limit: 'May provide hints/entities/relations; never final semantic thesis/support authority.'
+
+historical_auxiliary_candidates_reverify_before_execution:
+  n_extract:
+    id: NuExtract_2
+    prior_role: schema_driven_extraction_challenger
+    status: ONLY_IF_GLINER2_ROLE_FAILS_AND_NEED_REMAINS
+  mdeberta_nli:
+    prior_role: multilingual_entailment_warning_signal
+    status: OPTIONAL_ADVISORY_REVERIFY_BEFORE_USE
+  hhem:
+    prior_role: English_factual_consistency_comparator
+    status: OPTIONAL_ADVISORY_REVERIFY_BEFORE_USE
+
+  deepeval:
+    canonical_repo: 'https://github.com/confident-ai/deepeval'
+    verified_on: '2026-08-19'
+    class: evaluation_framework
+    status: AUXILIARY_EVAL_IF_LANGUAGE_PROVIDER_PATH_IS_VALID
+    authority_limit: 'Never sole pass/fail authority for product fidelity.'
+
+promotion_rule:
+  required:
+    - real_run
+    - product_relevant_gain_or_meaningful_custom_code_elimination
+    - no_hard_product_gate_regression
+    - acceptable_operational_complexity
+  reject_when:
+    - cannot_run_reliably
+    - adds_complexity_without_material_value
+    - duplicates_an_existing_winner
+    - requires_custom_framework_to_make_the_candidate_framework_work
