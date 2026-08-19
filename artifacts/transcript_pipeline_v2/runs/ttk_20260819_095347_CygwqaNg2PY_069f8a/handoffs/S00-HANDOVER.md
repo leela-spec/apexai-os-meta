@@ -1,27 +1,33 @@
-# S00 Stage Handover — Run ttk_20260819_094549_CygwqaNg2PY_fe83d6
+# S00 Stage Handover — Run ttk_20260819_095347_CygwqaNg2PY_069f8a
 
 - **Stage**: S00 (Trigger and Run Initialization)
 - **Status**: PASS
-- **Run ID**: `ttk_20260819_094549_CygwqaNg2PY_fe83d6`
-- **Start HEAD**: `259b368d05fed3f34d39aaa4517c309880a4a072`
+- **Run ID**: `ttk_20260819_095347_CygwqaNg2PY_069f8a`
+- **Start HEAD**: `31cb1db67df9840c20871fa728bfaf3b7fdae68b`
 - **Source**: `https://www.youtube.com/watch?v=CygwqaNg2PY`
+- **Source Type**: `url`
 - **Source ID**: `CygwqaNg2PY`
 - **Language**: `en`
 - **Mode**: `fresh_e2e`
 - **Purpose**: `first_V2_1_vertical_slice`
 
 ## Generated Stage Outputs
-- `artifacts/transcript_pipeline_v2/runs/ttk_20260819_094549_CygwqaNg2PY_fe83d6/request.json`
-- `artifacts/transcript_pipeline_v2/runs/ttk_20260819_094549_CygwqaNg2PY_fe83d6/handoffs/S00.yaml`
-- `artifacts/transcript_pipeline_v2/runs/ttk_20260819_094549_CygwqaNg2PY_fe83d6/handoffs/S00-HANDOVER.md`
+- `artifacts/transcript_pipeline_v2/runs/ttk_20260819_095347_CygwqaNg2PY_069f8a/request.json`
+- `artifacts/transcript_pipeline_v2/runs/ttk_20260819_095347_CygwqaNg2PY_069f8a/handoffs/S00.yaml`
+- `artifacts/transcript_pipeline_v2/runs/ttk_20260819_095347_CygwqaNg2PY_069f8a/handoffs/S00-HANDOVER.md`
+
+## Actual Test Execution Evidence
+- `pytest scripts/transcript_pipeline_v2/tests` — **PASS**
+- `git diff --check` — **PASS**
 
 ## Stage Invariants Verified
-1. Run directory created with standard empty subdirectories (`source/`, `work/`, `handoffs/`).
-2. No source media downloaded or acquired.
-3. No ASR transcription executed or generated.
-4. No LLM or semantic worker invoked.
-5. No Map/Reduce intermediate or final artifacts created.
-6. Pre-existing unrelated dirty paths preserved untouched.
+1. Canonical LF byte encoding enforced across all artifacts.
+2. Run directory created with standard empty subdirectories (`source/`, `work/`, `handoffs/`).
+3. No source media downloaded or acquired.
+4. No ASR transcription executed or generated.
+5. No LLM or semantic worker invoked.
+6. No Map/Reduce intermediate or final artifacts created.
+7. Pre-existing unrelated dirty paths preserved untouched.
 
 ## Pre-existing Unrelated Dirty Paths
 - `FEE2/01-SUBSCRIPTION-AI-TO-OPENCLAW-TRIGGER-DEEP-RESEARCH-BRIEF.md`
@@ -71,7 +77,6 @@
 - `artifacts/ttk_runs/vFTuLylvYnA/wiki/modules/mechanisms-evidence-analysis-00-08-29-00-14-37.md`
 - `artifacts/ttk_runs/vFTuLylvYnA/wiki/modules/strategic-implications-decision-framework-00-14-38-00-20-23.md`
 - `artifacts/ttk_runs/vFTuLylvYnA/work/results/reduce.json`
-- `scripts/transcript_pipeline_v2/runner.py`
 - `source-knowledge/ProjectRepos/OLD_KB_ClaudeSkillANDOrchestraction/claude-orchestration-agents/raw/repos/first-batch-to-clone/shanraisshan__claude-code-best-practice/README.md`
 - `.obsidian/`
 - `FEE/2026-08-10-fee-project-environment-design.md`
@@ -103,5 +108,4 @@
 - `artifacts/ttk_runs/oZIsMX6WgFs/wiki/concepts/price.md`
 - `artifacts/ttk_runs/oZIsMX6WgFs/wiki/concepts/september-october.md`
 - `artifacts/ttk_runs/oZIsMX6WgFs/wiki/concepts/thanks.md`
-- `scripts/transcript_pipeline_v2/tests/test_init_run.py`
 - `state/FeeInbetween_Delete.md`
