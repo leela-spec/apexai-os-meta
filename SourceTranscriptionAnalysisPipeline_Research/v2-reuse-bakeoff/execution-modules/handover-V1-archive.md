@@ -2,7 +2,7 @@
 module: V1_ARCHIVE
 status: PASS
 start_head: 91152b6ef8aee50fb1bf5c7a3be630078bf511d6
-end_head: null
+end_head: 95acb5aeef78512ce866aaad9ca95f101593be1b
 archived_files:
   - SourceTranscriptionAnalysisPipeline_Research/PIPELINE_ARCHITECTURE_OPTIONS_AND_V1_DECISION_2026-08-18.md
   - SourceTranscriptionAnalysisPipeline_Research/PIPELINE_DECISION_CONTRACT_2026-08-18.yaml
@@ -36,4 +36,5 @@ notes:
   - "The three files were successfully relocated to the archive folder via git mv."
   - "References in the main index and recommended E2E architecture file were updated to point to the new archive locations."
   - "A README.md was added to the archive directory explaining its historical status, original purpose, and pointing to 00-START-HERE.md."
+  - "Repaired relative link in README.md from ../v2-reuse-bakeoff/00-START-HERE.md to ../../v2-reuse-bakeoff/00-START-HERE.md."
 ```
