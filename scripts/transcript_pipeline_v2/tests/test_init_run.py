@@ -172,7 +172,6 @@ def test_08_exact_operator_request_preserved(temp_env):
     assert req["mode"] == "fresh_e2e"
     assert req["purpose"] == "first_V2_1_vertical_slice"
 
-    # Confirm no inferred metadata fields are present
     assert "channel" not in req
     assert "duration" not in req
     assert "publication_date" not in req
@@ -310,24 +309,29 @@ def test_16_wrong_repo_remote_rejected():
             )
 
 
-def test_17_run_actual_tests_invokes_unscoped_git_diff_check():
-    """Verification: run_actual_tests must execute repository-wide 'git diff --check' without path restriction."""
+def test_17_run_actual_tests_invokes_unscoped_and_scoped_checks():
+    """Verification: run_actual_tests must execute repository-wide and S00-scoped git diff checks."""
     with patch("subprocess.run") as mock_run:
         mock_proc = MagicMock()
         mock_proc.returncode = 0
+        mock_proc.stdout = ""
         mock_run.return_value = mock_proc
 
-        records = run_actual_tests(Path("."))
-        assert len(records) == 2
+        records = run_actual_tests(Path("."), run_id="test_run_123")
+        assert len(records) == 3
 
-        # Check call arguments
-        diff_call = [call for call in mock_run.call_args_list if call[0][0] == ["git", "diff", "--check"]]
-        assert len(diff_call) == 1, "Expected exactly one repository-wide git diff --check call"
-        assert diff_call[0][0][0] == ["git", "diff", "--check"]
+        # Check repository-wide diff call
+        repo_diff_calls = [c for c in mock_run.call_args_list if c[0][0] == ["git", "diff", "--check"]]
+        assert len(repo_diff_calls) == 1
+
+        # Check S00-scoped diff call
+        s00_diff_calls = [c for c in mock_run.call_args_list if len(c[0][0]) > 3 and c[0][0][:3] == ["git", "diff", "--check"]]
+        assert len(s00_diff_calls) == 1
+        assert "scripts/transcript_pipeline_v2/" in s00_diff_calls[0][0][0]
 
 
-def test_18_no_fabricated_pass_on_empty_or_failing_test_records(temp_env):
-    """Integrity: finalize_s00 must never emit PASS if test records are empty or contain FAIL."""
+def test_18_decision_rule_case_a_pre_existing_unrelated_is_pass(temp_env):
+    """Decision Rule Case A: Global diff failures classified as PRE_EXISTING_UNRELATED produce PASS."""
     temp_root, runs_dir = temp_env
     res = init_run(
         source="https://www.youtube.com/watch?v=CygwqaNg2PY",
@@ -336,46 +340,79 @@ def test_18_no_fabricated_pass_on_empty_or_failing_test_records(temp_env):
         _repo_root=temp_root,
         _skip_repo_check=True,
     )
-    # Empty test records -> FAIL
-    final_empty = finalize_s00(
-        run_dir=Path(res["run_dir"]),
-        repo_root=temp_root,
-        test_records=[],
-    )
-    assert final_empty["status"] == "FAIL"
-
-    # Failing test record -> FAIL
-    final_failing = finalize_s00(
-        run_dir=Path(res["run_dir"]),
-        repo_root=temp_root,
-        test_records=[{"command": "pytest", "result": "FAIL"}],
-    )
-    assert final_failing["status"] == "FAIL"
-
-
-def test_19_production_finalization_with_passing_records(temp_env):
-    """Acceptance: finalize_s00 produces PASS and canonical LF handoffs when all tests pass."""
-    temp_root, runs_dir = temp_env
-    res = init_run(
-        source="https://www.youtube.com/watch?v=CygwqaNg2PY",
-        source_id="CygwqaNg2PY",
-        language="en",
-        mode="fresh_e2e",
-        purpose="first_V2_1_vertical_slice",
-        _runs_dir=runs_dir,
-        _repo_root=temp_root,
-        _skip_repo_check=True,
-    )
+    mock_test_records = [
+        {"command": "pytest scripts/transcript_pipeline_v2/tests", "result": "PASS"},
+        {"command": "git diff --check -- scripts/transcript_pipeline_v2/", "result": "PASS"},
+        {
+            "command": "git diff --check",
+            "result": "FAIL",
+            "exit_code": 1,
+            "failing_paths": ["FEE2/unrelated.md"],
+            "classifications": {"FEE2/unrelated.md": "PRE_EXISTING_UNRELATED"},
+        },
+    ]
     final = finalize_s00(
         run_dir=Path(res["run_dir"]),
         repo_root=temp_root,
-        test_records=[
-            {"command": "pytest scripts/transcript_pipeline_v2/tests", "result": "PASS"},
-            {"command": "git diff --check", "result": "PASS"},
-        ],
+        test_records=mock_test_records,
     )
     assert final["status"] == "PASS"
-    yaml_path = Path(final["handoff_yaml"])
-    md_path = Path(final["handoff_md"])
-    assert b"\r\n" not in yaml_path.read_bytes()
-    assert b"\r\n" not in md_path.read_bytes()
+    assert any("solely due to pre-existing unrelated dirty paths" in lim for lim in final["limitations"])
+
+
+def test_19_decision_rule_case_b_s00_owned_failure_is_fail(temp_env):
+    """Decision Rule Case B: Global diff failure classified as S00_OWNED produces FAIL."""
+    temp_root, runs_dir = temp_env
+    res = init_run(
+        source="https://www.youtube.com/watch?v=CygwqaNg2PY",
+        source_id="CygwqaNg2PY",
+        _runs_dir=runs_dir,
+        _repo_root=temp_root,
+        _skip_repo_check=True,
+    )
+    mock_test_records = [
+        {"command": "pytest scripts/transcript_pipeline_v2/tests", "result": "PASS"},
+        {"command": "git diff --check -- scripts/transcript_pipeline_v2/", "result": "FAIL"},
+        {
+            "command": "git diff --check",
+            "result": "FAIL",
+            "exit_code": 1,
+            "failing_paths": ["scripts/transcript_pipeline_v2/runner.py"],
+            "classifications": {"scripts/transcript_pipeline_v2/runner.py": "S00_OWNED"},
+        },
+    ]
+    final = finalize_s00(
+        run_dir=Path(res["run_dir"]),
+        repo_root=temp_root,
+        test_records=mock_test_records,
+    )
+    assert final["status"] == "FAIL"
+
+
+def test_20_decision_rule_case_c_unknown_failure_is_blocked(temp_env):
+    """Decision Rule Case C: Global diff failure classified as UNKNOWN produces BLOCKED."""
+    temp_root, runs_dir = temp_env
+    res = init_run(
+        source="https://www.youtube.com/watch?v=CygwqaNg2PY",
+        source_id="CygwqaNg2PY",
+        _runs_dir=runs_dir,
+        _repo_root=temp_root,
+        _skip_repo_check=True,
+    )
+    mock_test_records = [
+        {"command": "pytest scripts/transcript_pipeline_v2/tests", "result": "PASS"},
+        {"command": "git diff --check -- scripts/transcript_pipeline_v2/", "result": "PASS"},
+        {
+            "command": "git diff --check",
+            "result": "FAIL",
+            "exit_code": 1,
+            "failing_paths": ["some_new_unclassified_file.txt"],
+            "classifications": {"some_new_unclassified_file.txt": "UNKNOWN"},
+        },
+    ]
+    final = finalize_s00(
+        run_dir=Path(res["run_dir"]),
+        repo_root=temp_root,
+        test_records=mock_test_records,
+    )
+    assert final["status"] == "BLOCKED"

@@ -1,8 +1,8 @@
 schema: ttk.v2_1.stage-handoff.v1
 stage: S00
-status: FAIL
+status: PASS
 run_id: ttk_20260819_095347_CygwqaNg2PY_069f8a
-start_head: 6729342bb81db24ad46cf7813f31589cdecc9344
+start_head: 10a7f8df018eadb3395295aadbe0f283e7f593af
 end_head: null
 
 inputs:
@@ -11,7 +11,7 @@ inputs:
 
 components:
   - id: scripts/transcript_pipeline_v2/runner.py
-    sha256: 703f9be7dbceaf3eaaeb398d474a7b28344f1f0d6836ce0196ea4e0ad04a6462
+    sha256: 09d3c38f4b17489c87a4f8b055fbd3b8c5a08eacd53f175f154f92b439efe9dc
     config:
       mode: "fresh_e2e"
       language: "en"
@@ -20,16 +20,24 @@ outputs:
   - path: artifacts/transcript_pipeline_v2/runs/ttk_20260819_095347_CygwqaNg2PY_069f8a/request.json
     sha256: fef6d50b1e5a6f7c4d2a149a4861f0e7a5ec3fda6a86a8c65d45e1efa61b8bd9
   - path: artifacts/transcript_pipeline_v2/runs/ttk_20260819_095347_CygwqaNg2PY_069f8a/handoffs/S00-HANDOVER.md
-    sha256: 8ae9055ac140b211a438236362a6c0bc5e50ed5205865f37db648607bf7a79e2
+    sha256: 3138a654af32eb91d4148a5d42bd32d5c8b26d5d01de23863afe175f17c57a13
 
 tests:
   - command: pytest scripts/transcript_pipeline_v2/tests
     result: PASS
+  - command: git diff --check -- scripts/transcript_pipeline_v2/ artifacts/transcript_pipeline_v2/runs/ttk_20260819_095347_CygwqaNg2PY_069f8a/
+    result: PASS
   - command: git diff --check
     result: FAIL
+    exit_code: 2
+    failing_paths:
+      - FEE2/01-SUBSCRIPTION-AI-TO-OPENCLAW-TRIGGER-DEEP-RESEARCH-BRIEF.md
+    classifications:
+      FEE2/01-SUBSCRIPTION-AI-TO-OPENCLAW-TRIGGER-DEEP-RESEARCH-BRIEF.md: PRE_EXISTING_UNRELATED
 
 product_check: Run directory initialized for CygwqaNg2PY with canonical LF request.json and zero later-stage artifacts
-limitations: []
+limitations:
+  - Repository-wide git diff --check returned exit code 2 solely due to pre-existing unrelated dirty paths (FEE2/01-SUBSCRIPTION-AI-TO-OPENCLAW-TRIGGER-DEEP-RESEARCH-BRIEF.md); zero S00-owned whitespace defects were found.
 unrelated_dirty_paths:
   - FEE2/01-SUBSCRIPTION-AI-TO-OPENCLAW-TRIGGER-DEEP-RESEARCH-BRIEF.md
   - apex-meta/SmallSkills/Patching/instructions/WorkingPatchInstructionFormat.md

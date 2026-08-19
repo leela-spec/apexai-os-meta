@@ -9,6 +9,7 @@ import argparse
 import hashlib
 import json
 import os
+import re
 import subprocess
 import sys
 import uuid
@@ -123,9 +124,23 @@ def get_git_repo_info(cwd: Path | None = None) -> dict[str, Any]:
         }
 
 
-def run_actual_tests(repo_root: Path) -> list[dict[str, str]]:
-    """Execute real test suite and repository-wide diff check, returning actual execution results."""
-    results = []
+def parse_diff_check_failing_paths(output: str) -> list[str]:
+    """Extract distinct filenames referenced in git diff --check failure output."""
+    paths = set()
+    for line in output.splitlines():
+        m = re.match(r"^([^:\r\n]+):\d+:", line)
+        if m:
+            paths.add(m.group(1).strip())
+    return sorted(list(paths))
+
+
+def run_actual_tests(
+    repo_root: Path,
+    run_id: str | None = None,
+    unrelated_dirty_paths: list[str] | None = None
+) -> list[dict[str, Any]]:
+    """Execute real test suite, S00-owned diff check, and repository-wide diff check."""
+    results: list[dict[str, Any]] = []
 
     # 1. pytest
     proc_pytest = subprocess.run(
@@ -139,17 +154,55 @@ def run_actual_tests(repo_root: Path) -> list[dict[str, str]]:
         "result": "PASS" if proc_pytest.returncode == 0 else "FAIL",
     })
 
-    # 2. repository-wide git diff check
+    # 2. S00-owned whitespace check
+    s00_paths = ["scripts/transcript_pipeline_v2/"]
+    if run_id:
+        s00_paths.append(f"artifacts/transcript_pipeline_v2/runs/{run_id}/")
+    s00_cmd = ["git", "diff", "--check", "--"] + s00_paths
+    s00_cmd_str = " ".join(s00_cmd)
+    proc_s00_diff = subprocess.run(
+        s00_cmd,
+        cwd=str(repo_root),
+        capture_output=True,
+        text=True
+    )
+    results.append({
+        "command": s00_cmd_str,
+        "result": "PASS" if proc_s00_diff.returncode == 0 else "FAIL",
+    })
+
+    # 3. repository-wide git diff check
     proc_diff = subprocess.run(
         ["git", "diff", "--check"],
         cwd=str(repo_root),
         capture_output=True,
         text=True
     )
-    results.append({
-        "command": "git diff --check",
-        "result": "PASS" if proc_diff.returncode == 0 else "FAIL",
-    })
+    if proc_diff.returncode == 0:
+        results.append({
+            "command": "git diff --check",
+            "result": "PASS",
+        })
+    else:
+        failing_paths = parse_diff_check_failing_paths(proc_diff.stdout)
+        classified: dict[str, str] = {}
+        unrelated_set = set(unrelated_dirty_paths or [])
+        for fp in failing_paths:
+            norm_fp = fp.replace("\\", "/")
+            if fp in unrelated_set or norm_fp in unrelated_set:
+                classified[fp] = "PRE_EXISTING_UNRELATED"
+            elif any(norm_fp == pat or norm_fp.startswith(pat) for pat in STAGE_OWNED_PATTERNS):
+                classified[fp] = "S00_OWNED"
+            else:
+                classified[fp] = "UNKNOWN"
+
+        results.append({
+            "command": "git diff --check",
+            "result": "FAIL",
+            "exit_code": proc_diff.returncode,
+            "failing_paths": failing_paths,
+            "classifications": classified,
+        })
 
     return results
 
@@ -284,7 +337,7 @@ def finalize_s00(
     start_head: str | None = None,
     unrelated_dirty_paths: list[str] | None = None,
     request_dict: dict[str, Any] | None = None,
-    test_records: list[dict[str, str]] | None = None,
+    test_records: list[dict[str, Any]] | None = None,
 ) -> dict[str, Any]:
     """
     Accept and finalize S00 stage after executing real tests and verifying invariants.
@@ -336,10 +389,36 @@ def finalize_s00(
 
     # Execute actual tests if not supplied
     if test_records is None:
-        test_records = run_actual_tests(repo_root)
+        test_records = run_actual_tests(repo_root=repo_root, run_id=run_id, unrelated_dirty_paths=unrelated_dirty_paths)
 
-    all_passed = len(test_records) > 0 and all(t.get("result") == "PASS" for t in test_records)
-    stage_status = "PASS" if all_passed else "FAIL"
+    # Decision rule evaluation
+    pytest_pass = any(t["command"].startswith("pytest") and t.get("result") == "PASS" for t in test_records)
+    s00_diff_pass = any("scripts/transcript_pipeline_v2/" in t["command"] and t.get("result") == "PASS" for t in test_records)
+    global_diff = next((t for t in test_records if t["command"] == "git diff --check"), None)
+
+    limitations: list[str] = []
+
+    if not pytest_pass or not s00_diff_pass:
+        stage_status = "FAIL"
+    elif global_diff and global_diff.get("result") == "FAIL":
+        classifications = global_diff.get("classifications", {})
+        if any(c == "UNKNOWN" for c in classifications.values()):
+            stage_status = "BLOCKED"
+            limitations.append("Repository-wide git diff --check contains unclassified (UNKNOWN) failure paths.")
+        elif any(c == "S00_OWNED" for c in classifications.values()):
+            stage_status = "FAIL"
+            limitations.append("Repository-wide git diff --check contains S00-owned whitespace defects.")
+        elif len(classifications) > 0 and all(c == "PRE_EXISTING_UNRELATED" for c in classifications.values()):
+            # CASE A: All global failures are pre-existing unrelated and S00-owned check passed
+            stage_status = "PASS"
+            failing_list = ", ".join(global_diff.get("failing_paths", []))
+            limitations.append(
+                f"Repository-wide git diff --check returned exit code {global_diff.get('exit_code', 1)} solely due to pre-existing unrelated dirty paths ({failing_list}); zero S00-owned whitespace defects were found."
+            )
+        else:
+            stage_status = "FAIL"
+    else:
+        stage_status = "PASS"
 
     try:
         rel_request = str(request_file.relative_to(repo_root)).replace("\\", "/")
@@ -375,7 +454,14 @@ def finalize_s00(
         "## Actual Test Execution Evidence",
     ]
     for tr in test_records:
-        md_lines.append(f"- `{tr['command']}` — **{tr['result']}**")
+        cmd_str = tr["command"]
+        res_str = tr.get("result", "UNKNOWN")
+        md_lines.append(f"- `{cmd_str}` — **{res_str}**")
+        if res_str == "FAIL" and "failing_paths" in tr:
+            md_lines.append(f"  - Exit code: `{tr.get('exit_code', 1)}`")
+            for fp in tr.get("failing_paths", []):
+                cls = tr.get("classifications", {}).get(fp, "UNKNOWN")
+                md_lines.append(f"  - Failing path: `{fp}` (classification: `{cls}`)")
 
     md_lines.extend([
         "",
@@ -395,6 +481,11 @@ def finalize_s00(
             md_lines.append(f"- `{dp}`")
     else:
         md_lines.append("- None")
+
+    if limitations:
+        md_lines.extend(["", "## Limitations & Diagnostic Context"])
+        for lim in limitations:
+            md_lines.append(f"- {lim}")
 
     handover_md_path = handoffs_dir / "S00-HANDOVER.md"
     _, md_hash = write_canonical_text(handover_md_path, "\n".join(md_lines) + "\n")
@@ -432,13 +523,27 @@ def finalize_s00(
             f"  - command: {tr['command']}",
             f"    result: {tr['result']}",
         ])
+        if tr.get("result") == "FAIL" and "exit_code" in tr:
+            yaml_lines.append(f"    exit_code: {tr['exit_code']}")
+            if tr.get("failing_paths"):
+                yaml_lines.append("    failing_paths:")
+                for fp in tr["failing_paths"]:
+                    yaml_lines.append(f"      - {fp}")
+            if tr.get("classifications"):
+                yaml_lines.append("    classifications:")
+                for fp, cls in tr["classifications"].items():
+                    yaml_lines.append(f"      {fp}: {cls}")
 
-    yaml_lines.extend([
-        "",
-        f"product_check: Run directory initialized for {source_id or source_str} with canonical LF request.json and zero later-stage artifacts",
-        "limitations: []",
-        "unrelated_dirty_paths:",
-    ])
+    yaml_lines.append("")
+    yaml_lines.append(f"product_check: Run directory initialized for {source_id or source_str} with canonical LF request.json and zero later-stage artifacts")
+    if limitations:
+        yaml_lines.append("limitations:")
+        for lim in limitations:
+            yaml_lines.append(f"  - {lim}")
+    else:
+        yaml_lines.append("limitations: []")
+
+    yaml_lines.append("unrelated_dirty_paths:")
     if unrelated_dirty_paths:
         for dp in unrelated_dirty_paths:
             yaml_lines.append(f"  - {dp}")
@@ -476,6 +581,7 @@ def finalize_s00(
         "start_head": start_head,
         "unrelated_dirty_paths": unrelated_dirty_paths,
         "test_results": test_records,
+        "limitations": limitations,
         "request": request_dict,
     }
 
