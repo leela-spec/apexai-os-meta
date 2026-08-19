@@ -38,9 +38,9 @@
 | :---: | :--- | :--- | :--- |
 | **00** | `00-INDEX.md` | Current | Master catalog and V2.1 continuation path. |
 | **00.V2** | `v2-reuse-bakeoff/**` | **Current authority** | Reuse-first architecture, V2.1 transport lock, machine-readable implementation, benchmark/test system, component registry, decision/evidence log, evaluator handover. |
-| **H-V1.1** | `PIPELINE_DECISION_CONTRACT_2026-08-18.yaml` | Superseded where conflicting | Earlier minimal V1 decision contract; useful history only. |
-| **H-V1.2** | `PIPELINE_ARCHITECTURE_OPTIONS_AND_V1_DECISION_2026-08-18.md` | Superseded where conflicting | Earlier architecture analysis that over-corrected by excluding reusable candidates from V1. |
-| **H-V1.3** | `V1_IMPLEMENTATION_PLAN_CLI_SEMANTIC_WORKER_2026-08-18.md` | Superseded where conflicting | Earlier direct-CLI-only execution plan. |
+| **H-V1.1** | `archive/transcript-pipeline-v1-2026-08-18/PIPELINE_DECISION_CONTRACT_2026-08-18.yaml` | Superseded where conflicting | Earlier minimal V1 decision contract; useful history only. |
+| **H-V1.2** | `archive/transcript-pipeline-v1-2026-08-18/PIPELINE_ARCHITECTURE_OPTIONS_AND_V1_DECISION_2026-08-18.md` | Superseded where conflicting | Earlier architecture analysis that over-corrected by excluding reusable candidates from V1. |
+| **H-V1.3** | `archive/transcript-pipeline-v1-2026-08-18/V1_IMPLEMENTATION_PLAN_CLI_SEMANTIC_WORKER_2026-08-18.md` | Superseded where conflicting | Earlier direct-CLI-only execution plan. |
 | **01** | `POST_REPAIR_EVALUATION_REPORT.md` | Historical evidence | Post-repair evaluation across four benchmark sources / three architectures. |
 | **02** | `RESEARCH_ADVANCED_IMPROVEMENTS_AND_UNIFICATION.md` | Historical research | Resilience, simplicity, token efficiency, hybrid unification research. |
 | **02.1** | `HYBRID_CROSS_POLLINATION_AND_UNIFICATION_STRATEGY.md` | Historical research | Prior cross-pollination ideas; retain for evidence. |
