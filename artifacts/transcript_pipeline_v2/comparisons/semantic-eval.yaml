@@ -1,5 +1,5 @@
 schema: transcript-pipeline-semantic-eval.v2
-evaluated_at: '2026-08-18T20:58:09.291244+00:00'
+evaluated_at: '2026-08-19T10:36:12.463466+00:00'
 evaluator_engine: deterministic_and_human_rubric
 deepeval_status: BLOCKED_FOR_TRIAL1 (API transport restricted; human gold/deterministic
   gates authoritative)

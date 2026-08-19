@@ -22,39 +22,23 @@ function policy() {
   };
 }
 
-function fakeApi(policyDir, tabs) {
+function fakeApi(policyDir) {
   const hooks = new Map();
-  const requests = [];
   return {
     api: {
       pluginConfig: { policyDir },
-      runtime: {
-        gateway: {
-          request: async (method, params) => {
-            requests.push({ method, params });
-            return { tabs };
-          },
-        },
-      },
       on: (name, handler) => hooks.set(name, handler),
     },
     hooks,
-    requests,
   };
 }
 
-test("registered hook loads the session policy and checks live tabs", async () => {
+test("registered hook authorizes a call against the frozen policy without any gateway call", async () => {
   const dir = await mkdtemp(join(tmpdir(), "apex-browser-policy-"));
   try {
     await mkdir(dir, { recursive: true });
     await writeFile(join(dir, policyFileName(sessionKey)), JSON.stringify(policy()), "utf8");
-    const fixture = fakeApi(dir, [{
-      targetId: "raw-target",
-      tabId: "t2",
-      suggestedTargetId: "t2",
-      type: "page",
-      url: "https://www.perplexity.ai/",
-    }]);
+    const fixture = fakeApi(dir);
     registerApexBrowserPolicy(fixture.api);
     const hook = fixture.hooks.get("before_tool_call");
     assert.equal(typeof hook, "function");
@@ -64,10 +48,6 @@ test("registered hook loads the session policy and checks live tabs", async () =
       { agentId: "apex-executor", sessionKey, toolName: "browser" },
     );
     assert.equal(result, undefined);
-    assert.deepEqual(fixture.requests, [{
-      method: "browser.request",
-      params: { method: "GET", path: "/tabs", query: { profile: "chrome" }, timeoutMs: 5000 },
-    }]);
   } finally {
     await rm(dir, { recursive: true, force: true });
   }
@@ -76,7 +56,7 @@ test("registered hook loads the session policy and checks live tabs", async () =
 test("registered hook fails closed when the policy is absent", async () => {
   const dir = await mkdtemp(join(tmpdir(), "apex-browser-policy-"));
   try {
-    const fixture = fakeApi(dir, []);
+    const fixture = fakeApi(dir);
     registerApexBrowserPolicy(fixture.api);
     const result = await fixture.hooks.get("before_tool_call")(
       { toolName: "browser", params: { action: "tabs", profile: "chrome" } },
@@ -84,14 +64,13 @@ test("registered hook fails closed when the policy is absent", async () => {
     );
     assert.equal(result.block, true);
     assert.match(result.blockReason, /missing policy/);
-    assert.equal(fixture.requests.length, 0);
   } finally {
     await rm(dir, { recursive: true, force: true });
   }
 });
 
 test("hook ignores non-browser calls and agents outside apex-executor", async () => {
-  const fixture = fakeApi("C:\\missing", []);
+  const fixture = fakeApi("C:\\missing");
   registerApexBrowserPolicy(fixture.api);
   const hook = fixture.hooks.get("before_tool_call");
   assert.equal(
@@ -104,21 +83,18 @@ test("hook ignores non-browser calls and agents outside apex-executor", async ()
   );
 });
 
-test("hook blocks when live tab inspection fails", async () => {
+test("hook blocks a call whose declared tab/profile does not match the frozen policy", async () => {
   const dir = await mkdtemp(join(tmpdir(), "apex-browser-policy-"));
   try {
     await writeFile(join(dir, policyFileName(sessionKey)), JSON.stringify(policy()), "utf8");
-    const fixture = fakeApi(dir, []);
-    fixture.api.runtime.gateway.request = async () => {
-      throw new Error("relay unavailable");
-    };
+    const fixture = fakeApi(dir);
     registerApexBrowserPolicy(fixture.api);
     const result = await fixture.hooks.get("before_tool_call")(
-      { toolName: "browser", params: { action: "tabs", profile: "chrome" } },
+      { toolName: "browser", params: { action: "snapshot", profile: "chrome", targetId: "wrong-tab" } },
       { agentId: "apex-executor", sessionKey, toolName: "browser" },
     );
     assert.equal(result.block, true);
-    assert.match(result.blockReason, /live tab inspection failed/);
+    assert.match(result.blockReason, /tab mismatch/);
   } finally {
     await rm(dir, { recursive: true, force: true });
   }

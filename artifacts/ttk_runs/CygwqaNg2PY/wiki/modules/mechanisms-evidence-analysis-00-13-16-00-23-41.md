@@ -30,4 +30,4 @@ Modular analysis synthesizing 2 Map windows across 99 source segments.
 
 ## Related
 
-[[concepts/elliott|Elliott]] · [[concepts/well|Well]] · [[concepts/eliot|Eliot]] · [[concepts/bitcoin|Bitcoin]] · [[claims/Claim-25a335df4c74|Claim-25a335df4c74]] · [[claims/Claim-7731b6684682|Claim-7731b6684682]] · [[claims/Claim-807ad2c24f3b|Claim-807ad2c24f3b]] · [[claims/Claim-ba84feb4e760|Claim-ba84feb4e760]] · [[claims/Claim-180f19897d59|Claim-180f19897d59]] · [[claims/Claim-3391db195c06|Claim-3391db195c06]] · [[claims/Claim-3cfce919e209|Claim-3cfce919e209]] · [[claims/Claim-0ddc2a446483|Claim-0ddc2a446483]]
+[[concepts/eliot|Eliot]] · [[concepts/well|Well]] · [[concepts/elliott|Elliott]] · [[concepts/bitcoin|Bitcoin]] · [[claims/Claim-25a335df4c74|Claim-25a335df4c74]] · [[claims/Claim-7731b6684682|Claim-7731b6684682]] · [[claims/Claim-807ad2c24f3b|Claim-807ad2c24f3b]] · [[claims/Claim-ba84feb4e760|Claim-ba84feb4e760]] · [[claims/Claim-180f19897d59|Claim-180f19897d59]] · [[claims/Claim-3391db195c06|Claim-3391db195c06]] · [[claims/Claim-3cfce919e209|Claim-3cfce919e209]] · [[claims/Claim-0ddc2a446483|Claim-0ddc2a446483]]

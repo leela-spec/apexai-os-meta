@@ -17,4 +17,4 @@ Modular analysis synthesizing 1 Map windows across 54 source segments.
 
 ## Related
 
-[[concepts/amor-sports|Amor Sports]] · [[concepts/business|Business]] · [[concepts/bergab|Bergab]] · [[claims/Claim-9becee4d279c|Claim-9becee4d279c]] · [[claims/Claim-9662b11a35eb|Claim-9662b11a35eb]] · [[claims/Claim-0fd00508c83e|Claim-0fd00508c83e]] · [[claims/Claim-a4f331ce814b|Claim-a4f331ce814b]]
+[[concepts/bergab|Bergab]] · [[concepts/business|Business]] · [[concepts/amor-sports|Amor Sports]] · [[claims/Claim-9becee4d279c|Claim-9becee4d279c]] · [[claims/Claim-9662b11a35eb|Claim-9662b11a35eb]] · [[claims/Claim-0fd00508c83e|Claim-0fd00508c83e]] · [[claims/Claim-a4f331ce814b|Claim-a4f331ce814b]]

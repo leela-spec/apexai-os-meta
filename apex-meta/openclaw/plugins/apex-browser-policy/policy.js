@@ -43,10 +43,6 @@ function normalizedHostname(urlText) {
   }
 }
 
-function tabMatchesPolicy(tab, policy) {
-  return tab?.tabId === policy.tab_id || tab?.suggestedTargetId === policy.tab_id;
-}
-
 function targetIdFor(params) {
   if (params?.action === "act" && params.request && typeof params.request === "object") {
     return params.request.targetId ?? params.targetId;
@@ -54,7 +50,7 @@ function targetIdFor(params) {
   return params?.targetId;
 }
 
-export function authorizeBrowserCall({ agentId, sessionKey, params, policy, tabs, now = Date.now() }) {
+export function authorizeBrowserCall({ agentId, sessionKey, params, policy, now = Date.now() }) {
   if (!policy) return blocked("missing policy");
   if (!validatePolicy(policy)) return blocked("invalid policy");
   const expiry = Date.parse(policy.expires_at);
@@ -68,10 +64,6 @@ export function authorizeBrowserCall({ agentId, sessionKey, params, policy, tabs
   if (params.profile !== policy.browser_profile) return blocked("profile mismatch");
   if (params.target !== undefined && params.target !== "host") return blocked("browser target mismatch");
   if (params.node !== undefined) return blocked("browser node is not permitted");
-  if (!Array.isArray(tabs) || tabs.length !== 1) return blocked("exactly one shared tab is required");
-  const tab = tabs[0];
-  if (!tabMatchesPolicy(tab, policy)) return blocked("live tab mismatch");
-  if (normalizedHostname(tab.url) !== policy.hostname) return blocked("live hostname mismatch");
 
   const action = params.action;
   if (!OBSERVATION_ACTIONS.has(action) && !TARGETED_ACTIONS.has(action)) {

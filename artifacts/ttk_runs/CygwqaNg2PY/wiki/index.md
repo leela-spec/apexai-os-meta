@@ -33,7 +33,6 @@
 - [[concepts/elliott|Elliott]]
 - [[concepts/elliott-payf|Elliott Payf]]
 - [[concepts/elliott-prechter-teachin|Elliott Prechter: Teachin]]
-- [[concepts/elliott-wave-principle|Elliott Wave Principle]]
 - [[concepts/they|They]]
 - [[concepts/well|Well]]
 

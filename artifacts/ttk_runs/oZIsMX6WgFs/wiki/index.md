@@ -41,13 +41,14 @@
 ## Concepts
 
 - [[concepts/bitcoin|Bitcoin]]
-- [[concepts/july|July]]
-- [[concepts/lars-fartinen|Lars Fartinen]]
 - [[concepts/march-april|March April]]
 - [[concepts/market-cycles-jam-marke|Market Cycles Jam - Marke]]
-- [[concepts/next|Next]]
+- [[concepts/november|November]]
 - [[concepts/october|October]]
+- [[concepts/price|Price]]
 - [[concepts/september|September]]
+- [[concepts/september-october|September October]]
+- [[concepts/thanks|Thanks]]
 
 ## Entities
 

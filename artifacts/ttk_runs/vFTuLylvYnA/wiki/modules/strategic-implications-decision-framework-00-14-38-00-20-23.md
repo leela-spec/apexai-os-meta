@@ -17,4 +17,4 @@ Modular analysis synthesizing 1 Map windows across 48 source segments.
 
 ## Related
 
-[[concepts/wall-street|Wall Street]] · [[concepts/tagen|Tagen]] · [[concepts/zahlen|Zahlen]] · [[claims/Claim-d29baebac54d|Claim-d29baebac54d]] · [[claims/Claim-bb4226f81b32|Claim-bb4226f81b32]] · [[claims/Claim-7214498fd401|Claim-7214498fd401]] · [[claims/Claim-4903efaf8d40|Claim-4903efaf8d40]]
+[[concepts/wall-street|Wall Street]] · [[concepts/zahlen|Zahlen]] · [[concepts/tagen|Tagen]] · [[claims/Claim-d29baebac54d|Claim-d29baebac54d]] · [[claims/Claim-bb4226f81b32|Claim-bb4226f81b32]] · [[claims/Claim-7214498fd401|Claim-7214498fd401]] · [[claims/Claim-4903efaf8d40|Claim-4903efaf8d40]]

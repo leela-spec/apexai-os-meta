@@ -16,4 +16,4 @@ Modular analysis synthesizing 1 Map windows across 76 source segments.
 
 ## Related
 
-[[concepts/punkte|Punkte]] · [[concepts/morgen|Morgen]] · [[concepts/druck|Druck]] · [[claims/Claim-9123a215bd88|Claim-9123a215bd88]] · [[claims/Claim-f0f594ec8bec|Claim-f0f594ec8bec]] · [[claims/Claim-4c5c5c851507|Claim-4c5c5c851507]] · [[claims/Claim-d596b5835145|Claim-d596b5835145]]
+[[concepts/druck|Druck]] · [[concepts/punkte|Punkte]] · [[concepts/morgen|Morgen]] · [[claims/Claim-9123a215bd88|Claim-9123a215bd88]] · [[claims/Claim-f0f594ec8bec|Claim-f0f594ec8bec]] · [[claims/Claim-4c5c5c851507|Claim-4c5c5c851507]] · [[claims/Claim-d596b5835145|Claim-d596b5835145]]

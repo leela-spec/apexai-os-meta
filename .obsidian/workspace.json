@@ -1,0 +1,230 @@
+{
+  "main": {
+    "id": "106679c18072aeff",
+    "type": "split",
+    "children": [
+      {
+        "id": "05aeb998e639f35c",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "936801a0bdf106d3",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "apex-meta/AI-Snippets/Snippets.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Snippets"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "d4de69ccaed404e2",
+    "type": "split",
+    "children": [
+      {
+        "id": "b75a250d6c73ee9e",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "541b21c6148d1b9c",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "e28137754b0494b6",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "\"C:\\GitDev\\WorkingPatchInstructionFormat.md",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "60f1168e0d607dba",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "4b79dc9b23d6981f",
+    "type": "split",
+    "children": [
+      {
+        "id": "da1443deac37c335",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "06a9cd71519ffffa",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "FEE/GPU_Failure/Claude.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks"
+            }
+          },
+          {
+            "id": "1b3b9335c8e71a73",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "FEE/GPU_Failure/Claude.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links"
+            }
+          },
+          {
+            "id": "0f4134b199aab714",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "68c44d51183acb0a",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          },
+          {
+            "id": "785cb9ec07f6c709",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "apex-meta/AI-Snippets/Snippets.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline"
+            }
+          }
+        ],
+        "currentTab": 4
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false
+    }
+  },
+  "active": "936801a0bdf106d3",
+  "lastOpenFiles": [
+    "artifacts/ttk_runs/P-h5WSQG1Sw/wiki/concepts/caltech.md",
+    "artifacts/ttk_runs/CygwqaNg2PY/wiki/concepts/elliott-wave-principle.md",
+    "apex-meta/AI-Snippets/AIFailure/ClaudePlanContextFuckup.md",
+    "scripts/transcript_pipeline_v2/tests/__pycache__/test_init_run.cpython-312-pytest-9.1.1.pyc.15516",
+    "artifacts/transcript_pipeline_v2/runs/ttk_20260819_095347_CygwqaNg2PY_069f8a/handoffs/init_provenance.json",
+    "scripts/openclaw/tests/__pycache__/test_execution_inbox.cpython-312-pytest-9.1.1.pyc",
+    "scripts/transcript_pipeline_v2/__pycache__/runner.cpython-312.pyc.2520728993984",
+    "artifacts/transcript_pipeline_v2/runs/ttk_20260819_095347_CygwqaNg2PY_069f8a/handoffs/S00.yaml",
+    "artifacts/transcript_pipeline_v2/runs/ttk_20260819_095347_CygwqaNg2PY_069f8a/handoffs/S00-HANDOVER.md",
+    "artifacts/transcript_pipeline_v2/runs/ttk_20260819_095347_CygwqaNg2PY_069f8a/handoffs",
+    "artifacts/transcript_pipeline_v2/runs/ttk_20260819_095347_CygwqaNg2PY_069f8a/work",
+    "artifacts/transcript_pipeline_v2/runs/ttk_20260819_095347_CygwqaNg2PY_069f8a/source",
+    "artifacts/transcript_pipeline_v2/runs/ttk_20260819_095347_CygwqaNg2PY_069f8a/request.json",
+    "artifacts/transcript_pipeline_v2/runs/ttk_20260819_095347_CygwqaNg2PY_069f8a",
+    "artifacts/transcript_pipeline_v2/runs/ttk_20260819_094549_CygwqaNg2PY_fe83d6/handoffs/S00-HANDOVER.md",
+    "artifacts/transcript_pipeline_v2/runs/ttk_20260819_094510_CygwqaNg2PY_396880/handoffs/S00-HANDOVER.md",
+    "apex-meta/AI-Snippets/AIFailure/create-a-plan-for-kind-toucan.md",
+    "SourceTranscriptionAnalysisPipeline_Research/OperatorFolder/HandoverNew.md",
+    "SourceTranscriptionAnalysisPipeline_Research/v2-reuse-bakeoff/execution-modules/handover-V1-archive.md",
+    "SourceTranscriptionAnalysisPipeline_Research/archive/transcript-pipeline-v1-2026-08-18/V1_IMPLEMENTATION_PLAN_CLI_SEMANTIC_WORKER_2026-08-18.md",
+    "SourceTranscriptionAnalysisPipeline_Research/archive/transcript-pipeline-v1-2026-08-18/PIPELINE_ARCHITECTURE_OPTIONS_AND_V1_DECISION_2026-08-18.md",
+    "SourceTranscriptionAnalysisPipeline_Research/archive/transcript-pipeline-v1-2026-08-18/README.md",
+    "SourceTranscriptionAnalysisPipeline_Research/v2-reuse-bakeoff/execution-modules/S14-EVALUATION-PRODUCTION-HANDOVER-AND-REGRESSION-GATE.md",
+    "SourceTranscriptionAnalysisPipeline_Research/v2-reuse-bakeoff/execution-modules/S13-DETERMINISTIC-COMPILATION-AND-PRODUCT-QA.md",
+    "SourceTranscriptionAnalysisPipeline_Research/v2-reuse-bakeoff/execution-modules/S12-SELECTIVE-EXTERNAL-VERIFICATION.md",
+    "SourceTranscriptionAnalysisPipeline_Research/v2-reuse-bakeoff/execution-modules/S11-GLOBAL-REDUCE-AND-SYNTHESIS.md",
+    "SourceTranscriptionAnalysisPipeline_Research/v2-reuse-bakeoff/execution-modules/S10-ADVISORY-SOURCE-SUPPORT-CHECKS.md",
+    "SourceTranscriptionAnalysisPipeline_Research/v2-reuse-bakeoff/execution-modules/S09-DETERMINISTIC-MAP-VALIDATION-AND-EVIDENCE-LEDGER.md",
+    "SourceTranscriptionAnalysisPipeline_Research/v2-reuse-bakeoff/execution-modules/S08-STRUCTURED-OUTPUT-AND-RETRY-SEAM.md",
+    "SourceTranscriptionAnalysisPipeline_Research/v2-reuse-bakeoff/execution-modules/S07-GROUNDED-SEMANTIC-MAP.md",
+    "SourceTranscriptionAnalysisPipeline_Research/v2-reuse-bakeoff/execution-modules/S06-OPTIONAL-LOCAL-PREEXTRACTION.md",
+    "SourceTranscriptionAnalysisPipeline_Research/v2-reuse-bakeoff/execution-modules/S05-TTK-PROCESSING-WINDOWS.md",
+    "SourceTranscriptionAnalysisPipeline_Research/v2-reuse-bakeoff/execution-modules/S04-TTK-CANONICAL-CUSTODY.md",
+    "SourceTranscriptionAnalysisPipeline_Research/v2-reuse-bakeoff/execution-modules/S03-CONDITIONAL-ALIGNMENT-AND-DIARIZATION.md",
+    "SourceTranscriptionAnalysisPipeline_Research/v2-reuse-bakeoff/execution-modules/S02-ASR-AND-ASR-SELECTION.md",
+    "SourceTranscriptionAnalysisPipeline_Research/v2-reuse-bakeoff/execution-modules/S01-SOURCE-ACQUISITION.md"
+  ]
+}

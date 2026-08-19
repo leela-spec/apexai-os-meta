@@ -28,4 +28,4 @@ Modular analysis synthesizing 2 Map windows across 116 source segments.
 
 ## Related
 
-[[concepts/well|Well]] · [[concepts/elliott-payf|Elliott Payf]] · [[concepts/they|They]] · [[concepts/elliott-wave-principle|Elliott Wave Principle]] · [[claims/Claim-3c516f6092fc|Claim-3c516f6092fc]] · [[claims/Claim-0fca9887ad2a|Claim-0fca9887ad2a]] · [[claims/Claim-981340104979|Claim-981340104979]] · [[claims/Claim-777da9b4187b|Claim-777da9b4187b]] · [[claims/Claim-47794c21d354|Claim-47794c21d354]] · [[claims/Claim-aed041f67e71|Claim-aed041f67e71]] · [[claims/Claim-c24bfd5bb124|Claim-c24bfd5bb124]] · [[claims/Claim-e7746d079381|Claim-e7746d079381]]
+[[concepts/they|They]] · [[concepts/elliott|Elliott]] · [[concepts/elliott-payf|Elliott Payf]] · [[concepts/well|Well]] · [[claims/Claim-3c516f6092fc|Claim-3c516f6092fc]] · [[claims/Claim-0fca9887ad2a|Claim-0fca9887ad2a]] · [[claims/Claim-981340104979|Claim-981340104979]] · [[claims/Claim-777da9b4187b|Claim-777da9b4187b]] · [[claims/Claim-47794c21d354|Claim-47794c21d354]] · [[claims/Claim-aed041f67e71|Claim-aed041f67e71]] · [[claims/Claim-c24bfd5bb124|Claim-c24bfd5bb124]] · [[claims/Claim-e7746d079381|Claim-e7746d079381]]

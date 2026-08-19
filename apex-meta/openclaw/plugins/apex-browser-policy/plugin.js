@@ -34,25 +34,17 @@ export function registerApexBrowserPolicy(api) {
       if (!policy) return block("APEX_BROWSER_POLICY: missing policy");
       if (!validatePolicy(policy)) return block("APEX_BROWSER_POLICY: invalid policy");
 
-      let liveTabs;
-      try {
-        const result = await api.runtime.gateway.request("browser.request", {
-          method: "GET",
-          path: "/tabs",
-          query: { profile: policy.browser_profile },
-          timeoutMs: 5000,
-        });
-        liveTabs = result?.tabs;
-      } catch {
-        return block("APEX_BROWSER_POLICY: live tab inspection failed");
-      }
-
+      // Live per-call tab re-inspection was removed: it required the Gateway's
+      // "browser.request" method, which is reserved for operator.admin scope.
+      // api.runtime.gateway.request() only ever grants operator.write scope to
+      // plugins, so that call could never succeed. The dispatcher already
+      // queries live tabs with real admin scope (via the CLI) once, before
+      // writing this policy file, and pins tab_id/hostname/profile into it.
       const decision = authorizeBrowserCall({
         agentId: ctx.agentId,
         sessionKey: ctx.sessionKey,
         params: event.params,
         policy,
-        tabs: liveTabs,
       });
       if (!decision.ok) return block(decision.reason);
     },

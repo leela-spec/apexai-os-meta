@@ -20,24 +20,12 @@ function policy(overrides = {}) {
   };
 }
 
-function tabs(overrides = {}) {
-  return [{
-    targetId: "raw-target",
-    tabId: "t2",
-    suggestedTargetId: "t2",
-    type: "page",
-    url: "https://www.perplexity.ai/search/example",
-    ...overrides,
-  }];
-}
-
 function authorize(params, overrides = {}) {
   return authorizeBrowserCall({
     agentId: "apex-executor",
     sessionKey,
     params,
     policy: policy(overrides.policy),
-    tabs: overrides.tabs ?? tabs(),
     now,
   });
 }
@@ -81,7 +69,6 @@ test("fails closed for missing malformed or expired policy", () => {
       sessionKey,
       params: { action: "tabs", profile: "chrome" },
       policy: null,
-      tabs: tabs(),
       now,
     }).reason,
     /missing policy/,
@@ -100,13 +87,12 @@ test("fails closed for missing malformed or expired policy", () => {
   );
 });
 
-test("rejects wrong agent session profile tab and live hostname", () => {
+test("rejects wrong agent session profile and tab", () => {
   const wrongAgent = authorizeBrowserCall({
     agentId: "other-agent",
     sessionKey,
     params: { action: "tabs", profile: "chrome" },
     policy: policy(),
-    tabs: tabs(),
     now,
   });
   assert.match(wrongAgent.reason, /agent mismatch/);
@@ -116,7 +102,6 @@ test("rejects wrong agent session profile tab and live hostname", () => {
     sessionKey: "agent:apex-executor:wrong",
     params: { action: "tabs", profile: "chrome" },
     policy: policy(),
-    tabs: tabs(),
     now,
   });
   assert.match(wrongSession.reason, /session mismatch/);
@@ -125,20 +110,6 @@ test("rejects wrong agent session profile tab and live hostname", () => {
   assert.match(
     authorize({ action: "snapshot", profile: "chrome", targetId: "t9" }).reason,
     /tab mismatch/,
-  );
-  assert.match(
-    authorize({ action: "tabs", profile: "chrome" }, {
-      tabs: tabs({ url: "https://chatgpt.com/" }),
-    }).reason,
-    /hostname mismatch/,
-  );
-});
-
-test("rejects zero or multiple shared tabs", () => {
-  assert.match(authorize({ action: "tabs", profile: "chrome" }, { tabs: [] }).reason, /exactly one/);
-  assert.match(
-    authorize({ action: "tabs", profile: "chrome" }, { tabs: [...tabs(), ...tabs()] }).reason,
-    /exactly one/,
   );
 });
 
