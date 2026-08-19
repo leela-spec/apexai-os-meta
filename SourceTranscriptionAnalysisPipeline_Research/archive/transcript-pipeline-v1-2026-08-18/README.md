@@ -1,7 +1,7 @@
 # Historical Archive: Transcript Pipeline V1 (2026-08-18)
 
 - **Status:** Historical / Superseded
-- **Current Authority Pointer:** [`v2-reuse-bakeoff/00-START-HERE.md`](../v2-reuse-bakeoff/00-START-HERE.md)
+- **Current Authority Pointer:** [`v2-reuse-bakeoff/00-START-HERE.md`](../../v2-reuse-bakeoff/00-START-HERE.md)
 
 > [!WARNING]
 > This directory contains historical V1 files that have been superseded by the V2.1 architecture.
