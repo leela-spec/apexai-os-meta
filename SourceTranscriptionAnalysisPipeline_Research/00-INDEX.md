@@ -1,81 +1,113 @@
 # SourceTranscriptionAnalysisPipeline Research: Master Index (00-INDEX)
 
-## 0. Current authoritative continuation path — V2.1 reuse bake-off
+## 0. CURRENT continuation path — decision workspace (2026-08-20)
 
-**Start here for all new transcript-pipeline implementation work.** The V2/V2.1 set below supersedes the earlier V1 architecture/implementation sequence where they conflict. V1 remains historical evidence of the over-correction that V2 fixes.
+**Start here for all new transcript-pipeline architecture/research work. Do not treat the old V2.1/V3 implementation PASS state as current product authority.**
 
-1. [`v2-reuse-bakeoff/00-START-HERE.md`](file:///c:/GitDev/apexai-os-meta/SourceTranscriptionAnalysisPipeline_Research/v2-reuse-bakeoff/00-START-HERE.md) — execution handover, constant frame, authority hierarchy, read order, stop conditions.
-2. [`v2-reuse-bakeoff/06-TRIAL1-TRANSPORT-LOCK.yaml`](file:///c:/GitDev/apexai-os-meta/SourceTranscriptionAnalysisPipeline_Research/v2-reuse-bakeoff/06-TRIAL1-TRANSPORT-LOCK.yaml) — **authoritative V2.1 Trial-1 transport override**; subscription-CLI-only rules and explicit resolution of residual stale V2 lines.
-3. [`v2-reuse-bakeoff/01-ARCHITECTURE-ANALYSIS.md`](file:///c:/GitDev/apexai-os-meta/SourceTranscriptionAnalysisPipeline_Research/v2-reuse-bakeoff/01-ARCHITECTURE-ANALYSIS.md) — corrected reuse-first architecture, full per-stage option matrices, promotion/rejection logic.
-4. [`v2-reuse-bakeoff/02-IMPLEMENTATION-PLAN.yaml`](file:///c:/GitDev/apexai-os-meta/SourceTranscriptionAnalysisPipeline_Research/v2-reuse-bakeoff/02-IMPLEMENTATION-PLAN.yaml) — **machine-readable P0–P22 execution plan** with task dependencies, reads/writes, commands, acceptance, commits, final tests. Where Trial-1 transport wording conflicts with `06-TRIAL1-TRANSPORT-LOCK.yaml`, the lock wins.
-5. [`v2-reuse-bakeoff/03-BENCHMARK-AND-TEST-SPEC.yaml`](file:///c:/GitDev/apexai-os-meta/SourceTranscriptionAnalysisPipeline_Research/v2-reuse-bakeoff/03-BENCHMARK-AND-TEST-SPEC.yaml) — benchmark levels, hard gates, metrics, thresholds, four-source and fresh end-to-end acceptance, final report schema.
-6. [`v2-reuse-bakeoff/04-COMPONENT-REGISTRY.yaml`](file:///c:/GitDev/apexai-os-meta/SourceTranscriptionAnalysisPipeline_Research/v2-reuse-bakeoff/04-COMPONENT-REGISTRY.yaml) — component roles, isolated install paths, hypotheses, triggers, fallbacks, official sources.
-7. [`v2-reuse-bakeoff/05-SOURCE-DECISION-EVIDENCE.yaml`](file:///c:/GitDev/apexai-os-meta/SourceTranscriptionAnalysisPipeline_Research/v2-reuse-bakeoff/05-SOURCE-DECISION-EVIDENCE.yaml) — operator decisions, project-resource inputs, hardware evidence, repository evidence, rationale trace, unresolved questions.
-8. [`v2-reuse-bakeoff/00-TEST-EVALUATOR-START-HERE.md`](file:///c:/GitDev/apexai-os-meta/SourceTranscriptionAnalysisPipeline_Research/v2-reuse-bakeoff/00-TEST-EVALUATOR-START-HERE.md) — start point for a later fresh AI evaluating implementation/test results rather than implementing the pipeline.
-9. [`v2-reuse-bakeoff/07-DECIDED-FRAMEWORK-AND-TEST-EVALUATION-HANDOVER.yaml`](file:///c:/GitDev/apexai-os-meta/SourceTranscriptionAnalysisPipeline_Research/v2-reuse-bakeoff/07-DECIDED-FRAMEWORK-AND-TEST-EVALUATION-HANDOVER.yaml) — **machine-readable decided-framework lock plus future test-evaluator procedure and anti-drift rules**.
+The project is currently in a **decision and evidence phase**, not another broad implementation pass.
 
-### V2/V2.1 governing rules
+1. [`current-decision-workspace/00-START-HERE.md`](current-decision-workspace/00-START-HERE.md) — current authority/read order and anti-drift rules.
+2. [`current-decision-workspace/02-DECISIONS.md`](current-decision-workspace/02-DECISIONS.md) — operator-verified decisions; highest authority inside this workspace.
+3. [`current-decision-workspace/04-CURRENT-RECOMMENDATION.md`](current-decision-workspace/04-CURRENT-RECOMMENDATION.md) — one-file provisional recommendation for every responsibility.
+4. [`current-decision-workspace/03-PIPELINE-OPTIONS-MATRIX.md`](current-decision-workspace/03-PIPELINE-OPTIONS-MATRIX.md) — options with value/evidence/risk, including local/external paths and LangGraph/LangExtract.
+5. [`current-decision-workspace/05-OPEN-QUESTIONS-AND-TESTS.md`](current-decision-workspace/05-OPEN-QUESTIONS-AND-TESTS.md) — unresolved questions and mandatory experiments; local Qwen questions are tests, not operator Q&A.
+6. [`current-decision-workspace/06-SCENARIO-SIMULATIONS.md`](current-decision-workspace/06-SCENARIO-SIMULATIONS.md) — local, hybrid, external, CLI-autonomy, evidence-mode and synthesis scenarios.
+7. [`current-decision-workspace/01-RESEARCH-SOURCE-INDEX.md`](current-decision-workspace/01-RESEARCH-SOURCE-INDEX.md) — routing/index for V2.1, V3, Deep Research and current primary-source evidence.
+8. [`current-decision-workspace/07-FUTURE-DEVELOPMENT.md`](current-decision-workspace/07-FUTURE-DEVELOPMENT.md) — explicitly deferred visual-only evidence and non-factual provenance work.
+9. [`current-decision-workspace/sources/2026-08-20-GPT-V21-DR-OPTION-MATRIX.md`](current-decision-workspace/sources/2026-08-20-GPT-V21-DR-OPTION-MATRIX.md) — preserved V2.1 × Deep Research reconciliation source.
+10. [`current-decision-workspace/sources/2026-08-20-GPT-V3-LANGGRAPH-LANGEXTRACT-RECONCILIATION.md`](current-decision-workspace/sources/2026-08-20-GPT-V3-LANGGRAPH-LANGEXTRACT-RECONCILIATION.md) — preserved V3/LangGraph/LangExtract/local-cloud reconciliation source.
 
-> **Measure before remove.** A mature reusable component that plausibly replaces fragile custom code, reduces expensive reasoning, improves evidence quality, or adds a useful independent safety/evaluation signal receives a bounded benchmark before rejection. Installed/benchmarked does not mean production-selected.
+### Current governing rules
 
-> **Trial 1 is subscription-CLI-only.** Strong-AI calls may use Claude Code CLI, Codex CLI, or Antigravity CLI after its local headless smoke test passes. API-key/pay-as-you-go/hosted-model/browser-AI transport and Gemini CLI are post-Trial-1 options only unless the operator explicitly changes this policy later.
+> **Reuse before invention.** Existing maintained systems own capabilities first.
 
-### Current authority boundaries
+> **Measure before remove.** A credible reusable component that plausibly adds value receives a bounded test before rejection.
 
-- **Qwen:** no role in this transcript pipeline now.
-- **TTK:** retain deterministic transcript custody, packet/hash state, validation, verification routing, resume, compiler unless a measured replacement proves all hard invariants.
-- **Trial-1 semantic authority:** Claude Code CLI or Codex CLI; Antigravity CLI only after a real local non-interactive smoke test passes. These are locally invoked subscription/account CLI transports, not local-model reasoning.
-- **Deferred semantic transports:** Gemini CLI, browser subscription AIs, direct paid/API-key-billed model routes, and hosted model APIs are visible future options but must not execute in Trial 1.
-- **Reusable candidates:** faster-whisper, Parakeet, WhisperX, LangExtract, GLiNER2, NuExtract, Instructor, mDeBERTa, HHEM, DocETL, DeepEval, Fabric/Open Notebook are classified in the registry and tested only in their declared lanes. Any AI-backed candidate must obey `06-TRIAL1-TRANSPORT-LOCK.yaml`.
-- **Paid APIs:** undesirable but not globally erased from research; **forbidden in Trial 1**. A later capped experiment requires a newer explicit operator decision.
-- **Factual Micro claims:** exact source evidence required; non-factual objects still need source provenance but not artificial quote quotas.
+> **Product value, not stage count.** Simplification is only good when value is preserved or improved.
+
+> **Local-first preference, not absolute prohibition.** External APIs/subscription models may be selected only when they demonstrate significant value over practical local alternatives.
+
+> **Deterministic workflow state.** Normal pipeline sequence/state/retry/recovery is owned by code/workflow runtime, not chat memory. Autonomous CLI agents remain allowed but high-risk and must earn their role through large value and reliable execution.
+
+> **Recommendations are not decisions.** `current-decision-workspace/02-DECISIONS.md` is the operator decision authority.
 
 ---
 
-## 1. Historical documents and evidence
+## 1. V3 historical/current research layer
+
+V3 corrected the process failure in V2.1 by moving from a frozen 15-stage architecture toward evidence-first selection:
+
+`find proven systems -> run them -> compare actual products -> identify gaps -> benchmark needed components -> integrate the smallest winning composition`
+
+Relevant files:
+
+- `v3-proven-infrastructure/01-V3-ARCHITECTURE.md`
+- `v3-proven-infrastructure/02-V3-IMPLEMENTATION-PLAN.md`
+- `v3-proven-infrastructure/03-V3-BENCHMARK-AND-TEST-SPEC.yaml`
+- `v3-proven-infrastructure/04-V3-COMPONENT-REGISTRY.yaml`
+- `v3-proven-infrastructure/05-V3-OPENCLAW-ANTIGRAVITY-ORCHESTRATION.md`
+- `v3-proven-infrastructure/06-V3-ORCHESTRATOR-HANDOVER.md`
+
+V3 is **research/process evidence**, not proof of a selected working product pipeline. Its most valuable rules have been incorporated into the current decision workspace.
+
+---
+
+## 2. V2/V2.1 preserved research and implementation history
+
+The earlier V2/V2.1 set remains important evidence and candidate knowledge but is no longer the current continuation authority.
+
+Key files:
+
+1. `v2-reuse-bakeoff/00-START-HERE.md`
+2. `v2-reuse-bakeoff/06-TRIAL1-TRANSPORT-LOCK.yaml`
+3. `v2-reuse-bakeoff/01-ARCHITECTURE-ANALYSIS.md`
+4. `v2-reuse-bakeoff/02-IMPLEMENTATION-PLAN.yaml`
+5. `v2-reuse-bakeoff/03-BENCHMARK-AND-TEST-SPEC.yaml`
+6. `v2-reuse-bakeoff/04-COMPONENT-REGISTRY.yaml`
+7. `v2-reuse-bakeoff/05-SOURCE-DECISION-EVIDENCE.yaml`
+8. `v2-reuse-bakeoff/archive-pre-v3-authority/10-V2.1-RECOMMENDED-END-TO-END-ARCHITECTURE.original.md`
+9. `v2-reuse-bakeoff/archive-pre-v3-authority/11-V2.1-STAGE-BY-STAGE-IMPLEMENTATION-PLAN.original.md`
+
+### Important interpretation correction
+
+Historical V2.1 files reported completed implementation and satisfied hard gates. The actual operator outcome did not deliver a satisfactory working pipeline. Therefore these PASS labels are retained as historical evidence about the old validation process, **not treated as proof of product success**.
+
+---
+
+## 3. Historical documents and evidence
 
 | Priority | Document / Asset | Status | Purpose |
 | :---: | :--- | :--- | :--- |
-| **00** | `00-INDEX.md` | Current | Master catalog and V2.1 continuation path. |
-| **00.V2** | `v2-reuse-bakeoff/**` | **Current authority** | Reuse-first architecture, V2.1 transport lock, machine-readable implementation, benchmark/test system, component registry, decision/evidence log, evaluator handover. |
-| **H-V1.1** | `archive/transcript-pipeline-v1-2026-08-18/PIPELINE_DECISION_CONTRACT_2026-08-18.yaml` | Superseded where conflicting | Earlier minimal V1 decision contract; useful history only. |
-| **H-V1.2** | `archive/transcript-pipeline-v1-2026-08-18/PIPELINE_ARCHITECTURE_OPTIONS_AND_V1_DECISION_2026-08-18.md` | Superseded where conflicting | Earlier architecture analysis that over-corrected by excluding reusable candidates from V1. |
-| **H-V1.3** | `archive/transcript-pipeline-v1-2026-08-18/V1_IMPLEMENTATION_PLAN_CLI_SEMANTIC_WORKER_2026-08-18.md` | Superseded where conflicting | Earlier direct-CLI-only execution plan. |
-| **01** | `POST_REPAIR_EVALUATION_REPORT.md` | Historical evidence | Post-repair evaluation across four benchmark sources / three architectures. |
-| **02** | `RESEARCH_ADVANCED_IMPROVEMENTS_AND_UNIFICATION.md` | Historical research | Resilience, simplicity, token efficiency, hybrid unification research. |
-| **02.1** | `HYBRID_CROSS_POLLINATION_AND_UNIFICATION_STRATEGY.md` | Historical research | Prior cross-pollination ideas; retain for evidence. |
+| **00** | `00-INDEX.md` | **Current** | Master catalog and current decision-workspace route. |
+| **00.C** | `current-decision-workspace/**` | **Current authority** | Current decisions, recommendation, matrix, scenarios, open tests and source captures. |
+| **00.V3** | `v3-proven-infrastructure/**` | Research/process evidence | Evidence-first process correction and component registry. |
+| **00.V2** | `v2-reuse-bakeoff/**` | Historical/candidate evidence | Reuse-first research, old bake-off and prior implementation. |
+| **H-V1.1** | `archive/transcript-pipeline-v1-2026-08-18/PIPELINE_DECISION_CONTRACT_2026-08-18.yaml` | Superseded | Earlier minimal V1 decision contract. |
+| **H-V1.2** | `archive/transcript-pipeline-v1-2026-08-18/PIPELINE_ARCHITECTURE_OPTIONS_AND_V1_DECISION_2026-08-18.md` | Superseded | Earlier architecture analysis. |
+| **H-V1.3** | `archive/transcript-pipeline-v1-2026-08-18/V1_IMPLEMENTATION_PLAN_CLI_SEMANTIC_WORKER_2026-08-18.md` | Superseded | Earlier direct-CLI-only execution plan. |
+| **01** | `POST_REPAIR_EVALUATION_REPORT.md` | Historical evidence | Post-repair evaluation. |
+| **02** | `RESEARCH_ADVANCED_IMPROVEMENTS_AND_UNIFICATION.md` | Historical research | Resilience/simplicity/token-efficiency research. |
+| **02.1** | `HYBRID_CROSS_POLLINATION_AND_UNIFICATION_STRATEGY.md` | Historical research | Prior cross-pollination ideas. |
 | **03** | `PROCESS_STEP_COMPARISON_MATRIX.md` | Historical evidence | Prior lifecycle comparison. |
 | **04** | `HANDOVER_MULTI_PIPELINE_EVALUATION.md` | Historical handover | Prior evaluation context. |
-| **05** | `transcript_engine.py` | Historical experiment | Prior deterministic representation/renderer experiment. |
-| **06** | `test_transcript_engine.py` | Historical tests | Prior representation/grounding tests. |
-| **07** | `run_tests.py` | Historical utility | Prior test runner. |
 
 ---
 
-## 2. Benchmark corpus
+## 4. Benchmark corpus retained
 
-Initial cross-domain regression corpus:
+1. `P-h5WSQG1Sw` — long English neuroscience interview; long-context/multi-speaker stress.
+2. `CygwqaNg2PY` — technical finance/Elliott Wave source.
+3. `vFTuLylvYnA` — German finance/domain-term/numeric ASR source.
+4. `oZIsMX6WgFs` — optional technical procedure/mechanism source.
 
-1. **`P-h5WSQG1Sw` — Huberman / Adolphs:** long English neuroscience interview; multi-speaker and long-source coverage case.
-2. **`CygwqaNg2PY` — Elliott Prechter:** technical finance/Elliott Wave case.
-3. **`vFTuLylvYnA` — Markus Koch:** German finance, domain-term/numeric ASR case.
-4. **`oZIsMX6WgFs` — Market Cycles:** technical procedure/mechanism case.
-
-Latest pre-V2 committed batch receipt retained as historical baseline:
-
-`artifacts/benchmark_runs/20260818-185245/receipt.json`
-
-It reports only one fully complete source and three incomplete sources. V2 requires stronger stage-level execution receipts, a real semantic-worker proof, and fresh-ASR proof for final end-to-end acceptance.
+The current workspace may reduce fixture scope for individual component tests; do not rerun every full source for every question.
 
 ---
 
-## 3. Implementation Status & Next Step
+## 5. Current next step
 
-### Completed Implementation (2026-08-18)
-The full V2 Reuse Bake-Off task graph (`P0`–`P22`) is complete. All hard gates (`HG01`–`HG10`) are satisfied and verified.
-- Selected production architecture frozen in: [`artifacts/transcript_pipeline_v2/SELECTION.yaml`](file:///c:/GitDev/apexai-os-meta/artifacts/transcript_pipeline_v2/SELECTION.yaml)
-- Final machine-readable report: [`artifacts/transcript_pipeline_v2/FINAL-REPORT.yaml`](file:///c:/GitDev/apexai-os-meta/artifacts/transcript_pipeline_v2/FINAL-REPORT.yaml)
-- Final handover report: [`v2-reuse-bakeoff/06-FINAL-HANDOVER.md`](file:///c:/GitDev/apexai-os-meta/SourceTranscriptionAnalysisPipeline_Research/v2-reuse-bakeoff/06-FINAL-HANDOVER.md)
+Do **not** run another monolithic implementation.
 
-### Future test-evaluation AI / Operator
-Review [`artifacts/transcript_pipeline_v2/FINAL-REPORT.yaml`](file:///c:/GitDev/apexai-os-meta/artifacts/transcript_pipeline_v2/FINAL-REPORT.yaml) and scorecards in `artifacts/transcript_pipeline_v2/comparisons/`. All required tests and clean-room resume proof pass. Ready for automated pipeline execution.
+Execute the highest-leverage bounded research/tests in `current-decision-workspace/05-OPEN-QUESTIONS-AND-TESTS.md`, beginning with product/output use-case clarification and the local-Qwen/LangExtract/synthesis comparisons that materially determine whether local, subscription, API, or hybrid semantic paths are viable.
+
+After the high-leverage questions close, freeze a new selected architecture and implementation plan. Until then, `current-decision-workspace/04-CURRENT-RECOMMENDATION.md` is explicitly provisional.
