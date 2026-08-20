@@ -58,6 +58,10 @@ supporting_files:
     read_when:
       - resolving_failure
       - writing_failure_report
+  - path: references/recoverable-preflight-conditions.md
+    read_when:
+      - blocked_by_mechanical_or_environmental_failure
+      - deciding_whether_to_repair_and_retry
   - path: templates/patch_intent.template.json
     read_when:
       - drafting_patch_intent_example
