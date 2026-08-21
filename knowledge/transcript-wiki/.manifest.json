@@ -1,0 +1,53 @@
+{
+  "sources": {
+    "C:\\GitDev\\apexai-os-meta\\artifacts\\transcript_pipeline_v4\\CygwqaNg2PY\\transcript.txt": {
+      "content_hash": "3676dad3eab5acca27f5a36c6a6cb6cdc027cc38cf167da590b108334484253a",
+      "last_ingested": "2026-08-21T15:41:54.457027+00:00",
+      "pages_produced": [
+        "references/elliott-prechter-interview-2026.md",
+        "entities/elliott-prechter.md",
+        "entities/ralph-nelson-elliott.md",
+        "entities/robert-prechter.md",
+        "entities/elliott-wave-international.md",
+        "concepts/elliott-wave-principle.md",
+        "concepts/e-waves.md",
+        "concepts/fifth-wave-characteristics.md",
+        "concepts/flat-pattern.md",
+        "concepts/market-stationarity.md",
+        "concepts/nasdaq-bitcoin-divergence.md"
+      ]
+    },
+    "C:\\GitDev\\apexai-os-meta\\artifacts\\transcript_pipeline_v4\\vFTuLylvYnA\\transcript.txt": {
+      "content_hash": "28137d1e4c716694a7564cf209e8ab9f8097120fb6b9e758f03fefe18668676a",
+      "last_ingested": "2026-08-21T15:42:48.561257+00:00",
+      "pages_produced": [
+        "references/markus-koch-opening-bell-august.md",
+        "entities/markus-koch.md",
+        "entities/bank-of-america-global-research.md",
+        "concepts/bofa-fund-manager-survey.md",
+        "concepts/treasury-yield-pressure.md",
+        "concepts/retail-earnings-expectations-bar.md",
+        "concepts/sell-the-news-dynamics.md",
+        "concepts/fifth-wave-characteristics.md"
+      ]
+    },
+    "C:\\GitDev\\apexai-os-meta\\artifacts\\transcript_pipeline_v4\\P-h5WSQG1Sw\\transcript.txt": {
+      "content_hash": "243da9e4862cccac3460cca8a78bbaf73ab416e8b7f15d48e3248ca2769a4338",
+      "last_ingested": "2026-08-21T15:44:02.288539+00:00",
+      "pages_produced": [
+        "references/huberman-adolphs-neurobiology-of-emotions.md",
+        "entities/ralph-adolphs.md",
+        "entities/andrew-huberman.md",
+        "entities/david-anderson.md",
+        "entities/patient-sm.md",
+        "concepts/functional-theory-of-emotion.md",
+        "concepts/emotion-operating-features.md",
+        "concepts/emotion-vs-feeling-dissociation.md",
+        "concepts/amygdala-vs-brainstem-fear-circuits.md",
+        "concepts/temporal-persistence-in-amnesia.md",
+        "concepts/insula-and-interoception.md",
+        "concepts/cognitive-task-switching-cost.md"
+      ]
+    }
+  }
+}
