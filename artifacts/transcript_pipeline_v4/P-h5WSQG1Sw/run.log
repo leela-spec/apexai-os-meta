@@ -20,3 +20,10 @@
 2026-08-21T11:54:19.2837813+02:00 acquisition reused non-empty media; media=C:\GitDev\apexai-os-meta\artifacts\transcript_pipeline_v4\P-h5WSQG1Sw\source\source.m4a
 2026-08-21T11:54:19.3016040+02:00 ASR skipped; transcript reused; reason=non-empty existing output
 2026-08-21T11:54:19.3197973+02:00 Fabric started; pattern=extract_wisdom; vendor=Ollama; model=qwen3.5:9b; modelContextLength=65536; thinking=off; OLLAMA_HTTP_TIMEOUT=60m
+2026-08-21T13:14:54.0813661+02:00 run started; source locator=https://www.youtube.com/watch?v=P-h5WSQG1Sw; source ID=P-h5WSQG1Sw
+2026-08-21T13:14:54.0931382+02:00 source identification started; tool=yt-dlp
+2026-08-21T13:14:54.0983931+02:00 source identification completed; tool=yt-dlp; source ID=P-h5WSQG1Sw
+2026-08-21T13:14:54.1170274+02:00 acquisition reused non-empty media; media=C:\GitDev\apexai-os-meta\artifacts\transcript_pipeline_v4\P-h5WSQG1Sw\source\source.m4a
+2026-08-21T13:14:54.1272807+02:00 ASR skipped; transcript reused; reason=non-empty existing output
+2026-08-21T13:14:54.1369070+02:00 Fabric started; pattern=extract_wisdom; vendor=Ollama; model=qwen3.5:9b; modelContextLength=65536; thinking=off; OLLAMA_HTTP_TIMEOUT=60m
+2026-08-21T14:14:55.1328531+02:00 run error; exit error=Fabric failed with exit 1: Post "http://localhost:11434/api/chat": net/http: request canceled (Client.Timeout exceeded while awaiting headers)
