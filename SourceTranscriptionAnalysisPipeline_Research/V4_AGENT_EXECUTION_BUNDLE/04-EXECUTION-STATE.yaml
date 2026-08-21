@@ -1,0 +1,85 @@
+schema: ttk.v4.execution-state.v1
+plan_id: ttk-v4-direct-local
+last_updated_utc: 2026-08-21T10:57:23Z
+current_module: M50
+overall_status: IN_PROGRESS
+modules:
+  M00:
+    status: DONE
+    worker_id: lead_orchestrator
+    started_utc: 2026-08-20T20:22:42Z
+    completed_utc: 2026-08-20T20:23:57Z
+    result_summary: Repository and main branch verified at 9239966; unrelated dirty paths recorded and preserved; PowerShell 7.6.4, winget 1.29.280, yt-dlp 2026.07.04, FFmpeg/ffprobe present; py launcher, Ollama, and Fabric missing; 625.12 GB free.
+  M05:
+    status: DONE
+    worker_id: /root/v4_reuse_scout
+    started_utc: 2026-08-20T20:24:00Z
+    completed_utc: 2026-08-20T20:26:17Z
+    result_summary: Selected only deterministic canonical UTF-8 text, timestamp, and optional hash helpers; rejected all old orchestration and lifecycle code. Lead verified the named symbols in their allowed source files.
+  M10:
+    status: DONE
+    worker_id: /root/v4_acquisition
+    started_utc: 2026-08-20T20:24:00Z
+    completed_utc: 2026-08-20T20:26:17Z
+    result_summary: Existing yt-dlp 2026.07.04 and FFmpeg/ffprobe N-126188-g426841da9d-20260817 verified; all three primary source IDs resolved with expected durations. yt-dlp warned that no JavaScript runtime is configured, but simulation succeeded for every source.
+  M20:
+    status: DONE
+    worker_id: /root/v4_asr
+    started_utc: 2026-08-20T20:25:00Z
+    completed_utc: 2026-08-20T20:32:35Z
+    result_summary: Python 3.12.10 V4 virtual environment with faster-whisper 1.2.1; transcribe.py and behavioral test implemented via red/green TDD; import, CLI, unittest, and large-v3-turbo CPU/int8 model-load checks independently passed; separate review passed spec and quality with no findings.
+  M30:
+    status: DONE
+    worker_id: /root/v4_semantic
+    started_utc: 2026-08-20T20:31:00Z
+    completed_utc: 2026-08-20T21:09:57Z
+    result_summary: Ollama 0.32.5, Fabric 1.4.459, and exact qwen3.5:9b Q4_K_M installed; local direct and maintained extract_wisdom smoke passed with no cloud/API credentials; exact 65536 context loaded on CPU within 32 GB RAM; Fabric command resolution verified in fresh registry-PATH PowerShell; independent review passed after scoped re-review.
+  M40:
+    status: DONE
+    worker_id: /root/v4_integrator
+    started_utc: 2026-08-20T21:09:57Z
+    completed_utc: 2026-08-20T21:35:52Z
+    result_summary: Deterministic URL/local-media/local-transcript runner implemented with canonical artifacts, durable logging, transactional Fabric output, resume/Force behavior, and narrow cache ignores. After the long-source run proved Fabric's default 20m Ollama HTTP timeout inadequate, a child-scoped supported 60m override was added uniformly; 108 behavioral checks plus Python interface and parser/help checks passed; independent re-review passed spec and quality with no findings.
+  M50:
+    status: IN_PROGRESS
+    worker_id: lead_orchestrator
+    started_utc: 2026-08-20T21:35:52Z
+    completed_utc: null
+    result_summary: Sources CygwqaNg2PY and vFTuLylvYnA completed mechanically. P-h5WSQG1Sw acquisition and ASR completed; two semantic attempts exposed Fabric's default 20m local Ollama timeout. A reviewed child-scoped 60m correction was implemented, but its knowledge-only resume was terminated by task interruption before an exit result and must be resumed.
+  M55:
+    status: PENDING
+    worker_id: null
+    started_utc: null
+    completed_utc: null
+    result_summary: null
+  M60:
+    status: PENDING
+    worker_id: null
+    started_utc: null
+    completed_utc: null
+    result_summary: null
+source_runs:
+  CygwqaNg2PY:
+    status: DONE
+    artifact_dir: artifacts/transcript_pipeline_v4/CygwqaNg2PY
+    knowledge_path: artifacts/transcript_pipeline_v4/CygwqaNg2PY/knowledge.md
+    blocker: null
+  vFTuLylvYnA:
+    status: DONE
+    artifact_dir: artifacts/transcript_pipeline_v4/vFTuLylvYnA
+    knowledge_path: artifacts/transcript_pipeline_v4/vFTuLylvYnA/knowledge.md
+    blocker: null
+  P-h5WSQG1Sw:
+    status: PENDING
+    artifact_dir: artifacts/transcript_pipeline_v4/P-h5WSQG1Sw
+    knowledge_path: null
+    blocker: Fabric default OLLAMA_HTTP_TIMEOUT=20m canceled two full-document local requests; the reviewed child-scoped 60m knowledge-only retry was terminated by task interruption without an exit result and must be resumed.
+decisions:
+- Work directly on main as required by the V4 bundle and authorized by the operator; preserve and never stage unrelated dirty paths.
+- Do not use the outdated Apex KB workflow or tooling, per current operator instruction.
+surprises_and_discoveries:
+- The requested path resolves to SourceTranscriptionAnalysisPipeline_Research/V4_AGENT_EXECUTION_BUNDLE (underscores rather than nested SourceTranscriptionAnalysisPipeline/_Research/V4/_AGENT/_EXECUTION/_BUNDLE).
+- The Python py launcher is missing; M20 must identify an installed Python executable or install a suitable local runtime without changing architecture.
+- Ollama and Fabric are not currently on PATH; M30 owns installation and configuration.
+- System feasibility check: qwen3.5:9b at context 65536 loaded successfully at 100% CPU, using about 8.8 GB working set and 11.2 GB private memory; only about 1.3 GB physical memory remained free under the operator's current application load, so long runs are feasible but memory-tight and slow.
+blockers: []

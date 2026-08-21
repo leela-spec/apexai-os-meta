@@ -1,0 +1,33 @@
+schema: ttk.v4.module.v1
+module_id: M55
+name: Triggered full-local Open Notebook fallback
+triggered_only: true
+owner: lead_orchestrator_plus_module_installer_subagent
+trigger:
+- M50 records CONTEXT_BLOCKED for a real source after two attempts
+- lead confirms the issue is a capability already owned by Open Notebook local long-document ingestion rather than a simple
+  runner defect
+objective: Use an existing maintained full-local long-document system instead of inventing custom chunking or retrieval.
+selected_existing_system: lfnovo/open-notebook
+official_path: examples/docker-compose-full-local.yml
+requirements:
+- Docker Desktop / docker compose
+- local disk/RAM
+- no external model API
+actions:
+- check docker --version and docker compose version
+- obtain the current official docker-compose-full-local.yml from the Open Notebook repository
+- set a local OPEN_NOTEBOOK_ENCRYPTION_KEY
+- start the documented full-local services
+- use local Ollama and local STT configuration only
+- ingest only the source that triggered CONTEXT_BLOCKED
+- produce the strongest native Open Notebook source-derived artifact available without custom code
+forbidden_actions:
+- write custom chunker
+- write custom vector database
+- configure paid model provider
+- wrap every Open Notebook internal operation in V4 custom code
+acceptance_observations:
+- blocked source is processable through a maintained full-local long-document system or a precise Open Notebook blocker is
+  recorded
+return_schema: 02-AGENT-CONTRACTS.yaml#worker_return_schema

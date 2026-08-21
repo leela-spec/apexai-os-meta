@@ -34,3 +34,9 @@ apex-meta/kb/claude-skill-design/manifests/projectrepos-corpus-intelligence/file
 artifacts/audio/
 scripts/tools/*.exe
 
+# Transcript Pipeline V4 local environments, models, and generated artifacts
+scripts/transcript_pipeline_v4/.venv/
+scripts/transcript_pipeline_v4/models/
+artifacts/transcript_pipeline_v4/*/source/*
+!artifacts/transcript_pipeline_v4/*/source/*.info.json
+

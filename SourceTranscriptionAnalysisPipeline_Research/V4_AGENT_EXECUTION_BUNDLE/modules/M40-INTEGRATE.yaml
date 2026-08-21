@@ -1,0 +1,85 @@
+schema: ttk.v4.module.v1
+module_id: M40
+name: Integrate the verified local hot path
+owner: integrator_subagent
+objective: Create the smallest PowerShell runner connecting the selected maintained tools without changing architecture.
+depends_on_results:
+- M05
+- M10
+- M20
+- M30
+write_scope:
+- scripts/transcript_pipeline_v4/run_v4.ps1
+- scripts/transcript_pipeline_v4/README.md
+- scripts/transcript_pipeline_v4/transcribe.py only if a mechanical integration fix is required
+- .gitignore only if needed to prevent V4 model/venv/media cache from being committed
+runner_interface:
+  command: .\scripts\transcript_pipeline_v4\run_v4.ps1 -Source <URL-or-path> [-Language en|de] [-Force]
+  input_types:
+  - http/https media URL
+  - local audio/video file
+  - existing .txt/.md/.srt/.vtt transcript
+  default_output_root: artifacts/transcript_pipeline_v4/<source_id>
+  force_semantics: regenerate downstream artifacts explicitly; otherwise reuse non-empty existing outputs
+url_path:
+- derive source ID from yt-dlp metadata
+- create artifact directory
+- download best practical audio using yt-dlp and FFmpeg
+- write source metadata JSON when yt-dlp provides it
+- call transcribe.py if transcript.txt is absent
+- call Fabric over transcript.txt using Ollama qwen3.5:9b
+- write knowledge.md
+local_media_path:
+- derive stable source ID from file stem unless explicit metadata gives a better ID
+- do not duplicate large media unless needed
+- call transcribe.py if transcript.txt is absent
+- call Fabric
+existing_transcript_path:
+- preserve the original transcript file
+- normalize content deterministically to transcript.txt
+- if input is SRT/VTT, remove cue numbers/timing/markup without semantic rewriting
+- skip acquisition and ASR
+- call Fabric
+fabric_command_requirements:
+  pattern: extract_wisdom
+  vendor: Ollama
+  model: qwen3.5:9b
+  modelContextLength: 65536
+  thinking: 'off'
+  output: <run_dir>/knowledge.md
+  input: raw UTF-8 transcript.txt via stdin
+resume_rules:
+- reuse non-empty downloaded source audio if it belongs to the same run/source
+- reuse non-empty transcript.txt unless Force
+- reuse non-empty knowledge.md unless Force
+- never infer success from an empty file
+logging:
+  file: <run_dir>/run.log
+  minimum_facts:
+  - timestamp
+  - source locator
+  - source ID
+  - commands/component stages started/completed
+  - tool/model identifiers actually used
+  - fallbacks
+  - exit error when present
+  forbidden:
+  - semantic score
+  - PASS quality label
+mechanical_verification:
+- PowerShell script parses without syntax errors
+- runner --help or comment-based help is readable
+- runner rejects missing source
+- runner paths are repo-relative and Windows-safe
+problem_guidance:
+  old_helper_conflicts: do not import it; implement the tiny deterministic operation locally
+  path_quoting: fix PowerShell quoting; do not change architecture
+  fabric_cli_flag_changed: resolve from installed fabric --help and update runner to equivalent current flag
+  yt_dlp_cli_flag_changed: resolve from installed yt-dlp --help/current official docs
+forbidden_actions:
+- LangGraph
+- database
+- custom prompts
+- custom chunker
+- semantic evaluator
+return_schema: 02-AGENT-CONTRACTS.yaml#worker_return_schema

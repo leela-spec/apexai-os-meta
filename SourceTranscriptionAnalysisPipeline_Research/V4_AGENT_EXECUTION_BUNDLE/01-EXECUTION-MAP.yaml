@@ -1,0 +1,179 @@
+schema: ttk.v4.exec-map.v1
+plan_id: ttk-v4-direct-local
+status: EXECUTABLE
+execution_target:
+  summary: One command turns a URL, local media file, or existing transcript into a real local transcript and a human-readable
+    knowledge artifact.
+  primary_output: artifacts/transcript_pipeline_v4/<source_id>/knowledge.md
+  required_real_outputs: 3
+  acceptance_authority: operator_for_semantic_quality
+  mechanical_completion: all required commands complete or a declared blocker is recorded
+fixed_constraints:
+  repository: leela-spec/apexai-os-meta
+  branch: main
+  os: Windows 11
+  shell: PowerShell
+  usage_billed_model_api: FORBIDDEN
+  api_key_model_provider: FORBIDDEN
+  browser_ai_in_product_pipeline: FORBIDDEN
+  cloud_model_fallback: FORBIDDEN
+  new_semantic_framework: FORBIDDEN
+  new_evaluation_framework: FORBIDDEN
+  custom_map_reduce: FORBIDDEN
+  vector_database: FORBIDDEN
+  semantic_pass_score: FORBIDDEN
+  source_specific_prompt_tuning_during_corpus_run: FORBIDDEN
+selected_hot_path:
+- step: source
+  implementation: URL | local media | existing transcript
+- step: acquisition
+  implementation: yt-dlp + FFmpeg
+  local: true
+- step: asr
+  implementation: faster-whisper
+  model: large-v3-turbo
+  device: cpu
+  compute_type: int8
+  vad_filter: true
+  local: true
+- step: semantic_runtime
+  implementation: Ollama
+  model: qwen3.5:9b
+  preferred_context_tokens: 65536
+  local: true
+- step: knowledge_transform
+  implementation: Fabric
+  pattern: extract_wisdom
+  vendor: Ollama
+  thinking: 'off'
+  local: true
+- step: artifact
+  implementation: Markdown
+  file: knowledge.md
+artifact_layout:
+  code_root: scripts/transcript_pipeline_v4
+  required_code_files:
+  - scripts/transcript_pipeline_v4/run_v4.ps1
+  - scripts/transcript_pipeline_v4/transcribe.py
+  - scripts/transcript_pipeline_v4/README.md
+  run_root: artifacts/transcript_pipeline_v4/<source_id>
+  required_run_files:
+  - transcript.txt
+  - knowledge.md
+  - run.log
+  conditional_run_files:
+  - transcript.srt
+  - source/source.info.json
+  - source/source.<media_ext>
+  forbidden_committed_assets:
+  - downloaded model weights
+  - Ollama model store
+  - Python virtual environment
+  - large source audio/video unless repository policy explicitly permits it
+orchestration:
+  pattern: lead-orchestrator-with-bounded-workers
+  lead_owns:
+  - authority interpretation
+  - module ordering
+  - subagent dispatch
+  - write-scope collision prevention
+  - post-worker verification
+  - integration decisions within fixed architecture
+  - state updates
+  - git commit decisions
+  - final operator handoff
+  worker_owns:
+  - one bounded module objective
+  - verbose installation/debug output
+  - module-scoped file changes when authorized
+  - root-cause analysis inside selected component
+  - structured result return
+  worker_must_not:
+  - change architecture
+  - substitute a cloud/API provider
+  - add an unlisted framework
+  - modify another module's files
+  - declare semantic product quality PASS
+  - silently tune the pipeline to one corpus source
+  preferred_parallelism:
+    maximum_writer_workers: 1
+    independent_read_only_workers: 3
+    parallelizable_modules:
+    - - M05
+      - M10
+    conditional_parallelizable_modules:
+    - - M20
+      - M30
+    condition: only when installer/resource contention is unlikely; otherwise run sequentially
+module_dag:
+- id: M00
+  file: modules/M00-PREFLIGHT.yaml
+  depends_on: []
+- id: M05
+  file: modules/M05-REUSE-SCOUT.yaml
+  depends_on:
+  - M00
+- id: M10
+  file: modules/M10-ACQUISITION.yaml
+  depends_on:
+  - M00
+- id: M20
+  file: modules/M20-ASR.yaml
+  depends_on:
+  - M00
+- id: M30
+  file: modules/M30-LOCAL-SEMANTIC.yaml
+  depends_on:
+  - M00
+- id: M40
+  file: modules/M40-INTEGRATE.yaml
+  depends_on:
+  - M05
+  - M10
+  - M20
+  - M30
+- id: M50
+  file: modules/M50-CORPUS-RUN.yaml
+  depends_on:
+  - M40
+- id: M55
+  file: modules/M55-OPEN-NOTEBOOK-FALLBACK.yaml
+  depends_on:
+  - M50
+  triggered_only: true
+- id: M60
+  file: modules/M60-HANDOFF.yaml
+  depends_on:
+  - M50
+global_resolution_policy:
+  attempt_budget_per_failure_signature: 2
+  resolution_order:
+  - capture exact command, exit code, stderr, and relevant local log
+  - identify whether failure is configuration, installation, permission, source availability, runtime resource, or code defect
+  - use installed tool --help and current official primary documentation for the selected component
+  - apply the smallest fix that preserves the selected architecture
+  - rerun the exact failing operation
+  - after the second failure of the same approach, use only the module-declared fallback or mark BLOCKED
+  never_do:
+  - invent a replacement library
+  - switch to paid/cloud inference
+  - add a test framework to make progress appear measurable
+  - change prompt/pattern solely to make a corpus source look better
+  - delete unrelated dirty work
+git_policy:
+  branch: main
+  branch_creation: FORBIDDEN
+  unrelated_dirty_files: preserve and do not stage
+  worker_commits: FORBIDDEN
+  lead_commits: ALLOWED after module verification
+  staging: stage only V4 plan/code/result text files selected by the lead
+definition_of_done:
+- V4 runner accepts URL, local media, and existing transcript input.
+- No usage-billed/API-key model provider is required or invoked.
+- Real media input produces local faster-whisper transcript text.
+- Real transcript is sent through Fabric to local Ollama qwen3.5:9b.
+- knowledge.md is created from real source content.
+- Existing completed media/transcript/knowledge artifacts are reused unless Force is requested.
+- The same implementation/config is executed on all available primary corpus sources.
+- The operator receives the artifact paths and any precise blockers.
+- No automated semantic score is presented as product acceptance.

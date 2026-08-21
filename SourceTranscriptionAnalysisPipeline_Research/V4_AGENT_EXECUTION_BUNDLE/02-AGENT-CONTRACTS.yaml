@@ -1,0 +1,106 @@
+schema: ttk.v4.agent-contracts.v1
+dispatch_rule:
+  preferred: native_subagent_or_worker
+  fallback: lead executes module sequentially using the same task packet
+  fresh_context: true
+  full_project_history_to_worker: false
+  nested_workers_default: false
+lead_orchestrator:
+  objective: Keep the global target and architecture stable while delegating bounded high-output work.
+  must:
+  - read only the current module packet before dispatch
+  - give each worker the objective, exact inputs, allowed paths, allowed tools, output schema, and stop conditions
+  - verify worker results using the module verification block
+  - update 04-EXECUTION-STATE.yaml after every completed or blocked module
+  - prevent overlapping writer scopes
+  - freeze implementation/config after the first successful corpus source except for mechanical defect fixes
+  must_not:
+  - delegate the entire V4 plan to one worker
+  - accept a worker's self-reported PASS without checking observable output
+  - feed verbose worker logs back into main context unless needed for a blocker
+  - change architecture because a worker recommends a more interesting design
+worker_roles:
+  reuse_scout:
+    mode: read_only
+    purpose: Find small reusable deterministic helpers in existing repository code without inheriting old orchestration.
+    allowed_tools:
+    - read
+    - grep
+    - glob
+  module_installer:
+    mode: write_and_shell_with_module_scope
+    purpose: Install/verify exactly one selected maintained component and implement only module-owned glue.
+    allowed_tools:
+    - read
+    - write
+    - edit
+    - shell
+    - official_web_docs_if_available
+  integrator:
+    mode: write_and_shell_with_integration_scope
+    purpose: Connect verified modules into the declared runner without changing component selection.
+    allowed_tools:
+    - read
+    - write
+    - edit
+    - shell
+  execution_worker:
+    mode: shell_and_artifact_write
+    purpose: Run the frozen pipeline on real corpus sources and return concise execution facts.
+    allowed_tools:
+    - read
+    - shell
+    - write_artifacts
+  debugger:
+    mode: bounded_root_cause
+    purpose: Diagnose a concrete failure inside the current component or glue code.
+    activation: lead_only_after_first_failed_attempt
+    must_not:
+    - replace the component
+    - add framework
+    - change semantic target
+worker_task_envelope:
+  required_fields:
+  - module_id
+  - objective
+  - inputs
+  - allowed_paths
+  - forbidden_paths
+  - commands_or_actions
+  - acceptance_observations
+  - failure_policy
+  - return_schema
+worker_return_schema:
+  module_id: string
+  status: DONE | BLOCKED | NEEDS_OPERATOR | FAILED_TWO_STRIKES
+  summary: max 8 concise bullets or equivalent compact prose
+  commands_run:
+  - command: string
+    exit_code: integer|null
+    observation: string
+  files_changed:
+  - repo-relative path
+  versions_observed:
+    component: version
+  artifacts_created:
+  - repo-relative or absolute artifact path
+  deviations:
+  - from_plan: string
+    reason: string
+    architecture_changed: false
+  blocker:
+    category: string|null
+    exact_error: string|null
+    next_allowed_action: string|null
+claude_code_mapping_if_used:
+  guidance:
+  - Use project subagents for bounded tasks with fresh context.
+  - Use the main conversation for cross-module integration and decisions.
+  - Keep subagent tool access limited to what the module needs.
+  - Do not enable nested subagents by default.
+  recommended_names:
+  - v4-reuse-scout
+  - v4-module-installer
+  - v4-integrator
+  - v4-execution-worker
+  - v4-debugger

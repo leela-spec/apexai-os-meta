@@ -1,0 +1,73 @@
+schema: ttk.v4.module.v1
+module_id: M30
+name: Install local semantic runtime and Fabric
+owner: module_installer_subagent
+objective: Make Fabric call qwen3.5:9b through local Ollama with the maintained extract_wisdom pattern and no cloud provider.
+selected_components:
+  runtime: Ollama
+  model: qwen3.5:9b
+  fabric: latest installed supported release
+  pattern: extract_wisdom
+install_policy:
+  ollama:
+  - reuse existing Ollama if installed
+  - otherwise use current official Windows installer; winget is allowed only after verifying the package identity
+  fabric:
+  - reuse existing Fabric if installed
+  - otherwise winget install danielmiessler.Fabric
+actions:
+- run: ollama --version
+  capture: ollama_version_or_missing
+- if_missing: Ollama
+  action: install using current official Windows installer guidance
+- run: ollama pull qwen3.5:9b
+  capture: model_pull
+- run: ollama list
+  expect_contains: qwen3.5:9b
+- run: ollama run qwen3.5:9b "Reply with exactly LOCAL_MODEL_OK"
+  expect_contains: LOCAL_MODEL_OK
+- run: fabric --version
+  capture: fabric_version_or_missing
+- if_missing: Fabric
+  run: winget install danielmiessler.Fabric
+- run: fabric --setup
+  interactive_requirements:
+  - configure Ollama/local provider only for V4
+  - install/download built-in patterns
+  - do not enter paid model API credentials
+- run: fabric --listvendors
+  capture: vendors
+- run: fabric --listmodels
+  capture: models
+- run: fabric --listpatterns
+  expect_contains: extract_wisdom
+semantic_smoke:
+  input: A short neutral paragraph with several concrete points.
+  purpose: prove Fabric reaches local Ollama; do not evaluate quality
+  command_shape: Get-Content <smoke.txt> -Raw | fabric --pattern extract_wisdom --vendor Ollama --model qwen3.5:9b --modelContextLength
+    8192 --thinking off
+  acceptance: non-empty model output and no cloud/API credential use
+problem_guidance:
+  ollama_command_missing_after_install:
+  - start a fresh PowerShell process
+  - verify official Windows install location/PATH
+  - verify Ollama background service/app is running
+  ollama_model_failure:
+  - check Ollama local logs and free disk/RAM
+  - retry qwen3.5:9b once
+  - do not substitute cloud model or smaller local model automatically
+  fabric_patterns_missing:
+  - inspect fabric --help
+  - use Fabric's maintained pattern update/setup mechanism
+  - verify extract_wisdom appears before continuing
+  fabric_cannot_reach_ollama:
+  - confirm Ollama is responding locally
+  - inspect Fabric's current Ollama vendor configuration/help
+  - repair configuration once
+  - do not write an adapter
+forbidden_actions:
+- configure OpenAI/Anthropic/Gemini API keys
+- use Ollama cloud models
+- create custom Fabric pattern
+- write provider adapter
+return_schema: 02-AGENT-CONTRACTS.yaml#worker_return_schema

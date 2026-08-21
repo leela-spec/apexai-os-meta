@@ -1,0 +1,38 @@
+schema: ttk.v4.module.v1
+module_id: M05
+name: Read-only existing-code reuse scout
+owner: reuse_scout_subagent
+objective: Find small deterministic helpers worth reusing so V4 does not rewrite solved mechanical code.
+inputs:
+- scripts/transcript_pipeline_v2/runner.py
+- .claude/skills/transcript-to-knowledge/scripts/ when present
+allowed_paths:
+- scripts/transcript_pipeline_v2/runner.py
+- .claude/skills/transcript-to-knowledge/scripts/**
+forbidden_paths:
+- SourceTranscriptionAnalysisPipeline_Research/v2-reuse-bakeoff/**
+- SourceTranscriptionAnalysisPipeline_Research/v3-proven-infrastructure/** except test corpus already encoded in 03-TEST-CORPUS.yaml
+forbidden_actions:
+- write files
+- recommend old stage architecture
+- import old orchestration contracts wholesale
+search_targets:
+- SRT timestamp formatting
+- UTF-8 canonical text writing
+- safe subprocess invocation
+- source/video ID parsing
+- small hashing/path helpers only if directly useful
+required_output:
+  reusable:
+  - path: repo path
+    symbol_or_region: name
+    why: one sentence
+  reject:
+  - path: repo path
+    reason: orchestration/stale/overbuilt/etc.
+  recommendation: REUSE_SELECTED_HELPERS | REUSE_NONE
+acceptance_observations:
+- lead can decide reuse from a compact report without loading verbose old architecture into main context
+failure_policy:
+  no_good_helpers: return REUSE_NONE; this is a valid outcome
+return_schema: 02-AGENT-CONTRACTS.yaml#worker_return_schema

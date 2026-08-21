@@ -1,0 +1,60 @@
+schema: ttk.v4.corpus.v1
+policy:
+  use_real_public_sources: true
+  silent_source_substitution: FORBIDDEN
+  source_specific_pipeline_tuning: FORBIDDEN after first successful source
+  semantic_scoring_by_executor: FORBIDDEN
+  operator_reviews_final_artifacts: true
+execution_order:
+- CygwqaNg2PY
+- vFTuLylvYnA
+- P-h5WSQG1Sw
+primary:
+  CygwqaNg2PY:
+    label: prechter
+    url: https://www.youtube.com/watch?v=CygwqaNg2PY
+    language: en
+    source_type: technical_finance
+    purpose: first complete vertical slice; compact technical source
+    stresses:
+    - technical_terms
+    - named_terms
+    - full_source_synthesis
+  vFTuLylvYnA:
+    label: koch
+    url: https://www.youtube.com/watch?v=vFTuLylvYnA
+    language: de
+    source_type: german_finance
+    purpose: German and numeric/domain-term reality check
+    stresses:
+    - german_asr
+    - german_semantics
+    - numbers_percentages
+    - domain_terms
+  P-h5WSQG1Sw:
+    label: huberman_adolphs
+    url: https://www.youtube.com/watch?v=P-h5WSQG1Sw
+    language: en
+    source_type: long_science_interview
+    purpose: long-context and multi-speaker source stress
+    stresses:
+    - long_source_coverage
+    - multi_speaker_context
+    - science_terms
+    - early_middle_late_retention
+optional_holdout:
+  oZIsMX6WgFs:
+    label: market_cycles
+    url: https://www.youtube.com/watch?v=oZIsMX6WgFs
+    language: en
+    source_type: technical_procedure
+    run_only_when:
+    - operator_requests_holdout
+    - one primary source unavailable and operator explicitly approves substitution
+availability_check:
+  command_template: yt-dlp --simulate --print id --print title --print duration "<URL>"
+  on_unavailable: record SOURCE_UNAVAILABLE; continue other primary sources; do not invent replacement
+required_artifacts_per_completed_source:
+- transcript.txt
+- knowledge.md
+- run.log

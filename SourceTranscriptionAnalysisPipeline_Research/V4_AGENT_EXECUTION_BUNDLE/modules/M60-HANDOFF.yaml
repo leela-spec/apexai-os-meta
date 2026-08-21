@@ -1,0 +1,37 @@
+schema: ttk.v4.module.v1
+module_id: M60
+name: Operator artifact handoff
+owner: lead_orchestrator
+objective: Stop implementation and hand the real outputs to the operator without self-grading semantic quality.
+actions:
+- read 04-EXECUTION-STATE.yaml
+- verify artifact paths exist
+- record exact versions actually used
+- record any declared fallback or blocker
+- run git status --short
+- optionally commit verified V4 code/plan/text artifacts directly to main if authorized by the operator/workflow
+- produce the compact final report below
+final_report_schema:
+  implementation_files:
+  - path
+  tool_versions:
+    tool: version
+  model: exact Ollama model/tag
+  usage_billed_or_api_key_model_calls: NONE | UNEXPECTED
+  sources:
+    <source_id>:
+      status: DONE | BLOCKED | SOURCE_UNAVAILABLE
+      transcript: path|null
+      knowledge: path|null
+      blocker: string|null
+  fallbacks_used:
+  - string
+  custom_code_added:
+  - path
+  operator_review_paths:
+  - knowledge.md path
+forbidden_actions:
+- semantic score
+- claim product quality PASS
+- continue architecture work after artifacts are ready
+- tune results before operator review

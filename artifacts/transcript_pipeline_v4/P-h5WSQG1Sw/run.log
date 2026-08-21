@@ -1,0 +1,22 @@
+2026-08-21T00:45:55.9460547+02:00 run started; source locator=https://www.youtube.com/watch?v=P-h5WSQG1Sw; source ID=P-h5WSQG1Sw
+2026-08-21T00:45:55.9654286+02:00 source identification started; tool=yt-dlp
+2026-08-21T00:45:55.9711023+02:00 source identification completed; tool=yt-dlp; source ID=P-h5WSQG1Sw
+2026-08-21T00:45:55.9999893+02:00 acquisition started; tool=yt-dlp; audio conversion=FFmpeg; format=m4a
+2026-08-21T00:50:57.6145644+02:00 acquisition completed; media=C:\GitDev\apexai-os-meta\artifacts\transcript_pipeline_v4\P-h5WSQG1Sw\source\source.m4a
+2026-08-21T00:50:57.6468970+02:00 ASR started; implementation=faster-whisper; model=large-v3-turbo; device=cpu; compute_type=int8; vad_filter=true
+2026-08-21T11:02:01.2991704+02:00 ASR completed; transcript=transcript.txt; subtitles=transcript.srt
+2026-08-21T11:02:01.3136175+02:00 Fabric started; pattern=extract_wisdom; vendor=Ollama; model=qwen3.5:9b; modelContextLength=65536; thinking=off
+2026-08-21T11:22:02.4368469+02:00 run error; exit error=Fabric failed with exit 1: Post "http://localhost:11434/api/chat": context deadline exceeded (Client.Timeout exceeded while awaiting headers)
+2026-08-21T11:22:54.2257243+02:00 run started; source locator=https://www.youtube.com/watch?v=P-h5WSQG1Sw; source ID=P-h5WSQG1Sw
+2026-08-21T11:22:54.2497167+02:00 source identification started; tool=yt-dlp
+2026-08-21T11:22:54.2590307+02:00 source identification completed; tool=yt-dlp; source ID=P-h5WSQG1Sw
+2026-08-21T11:22:54.2978560+02:00 acquisition reused non-empty media; media=C:\GitDev\apexai-os-meta\artifacts\transcript_pipeline_v4\P-h5WSQG1Sw\source\source.m4a
+2026-08-21T11:22:54.3162666+02:00 ASR skipped; transcript reused; reason=non-empty existing output
+2026-08-21T11:22:54.3390683+02:00 Fabric started; pattern=extract_wisdom; vendor=Ollama; model=qwen3.5:9b; modelContextLength=65536; thinking=off
+2026-08-21T11:42:56.0292191+02:00 run error; exit error=Fabric failed with exit 1: Post "http://localhost:11434/api/chat": net/http: request canceled (Client.Timeout exceeded while awaiting headers)
+2026-08-21T11:54:19.2233646+02:00 run started; source locator=https://www.youtube.com/watch?v=P-h5WSQG1Sw; source ID=P-h5WSQG1Sw
+2026-08-21T11:54:19.2415390+02:00 source identification started; tool=yt-dlp
+2026-08-21T11:54:19.2499649+02:00 source identification completed; tool=yt-dlp; source ID=P-h5WSQG1Sw
+2026-08-21T11:54:19.2837813+02:00 acquisition reused non-empty media; media=C:\GitDev\apexai-os-meta\artifacts\transcript_pipeline_v4\P-h5WSQG1Sw\source\source.m4a
+2026-08-21T11:54:19.3016040+02:00 ASR skipped; transcript reused; reason=non-empty existing output
+2026-08-21T11:54:19.3197973+02:00 Fabric started; pattern=extract_wisdom; vendor=Ollama; model=qwen3.5:9b; modelContextLength=65536; thinking=off; OLLAMA_HTTP_TIMEOUT=60m

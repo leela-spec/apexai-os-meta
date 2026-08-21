@@ -1,0 +1,46 @@
+schema: ttk.v4.module.v1
+module_id: M50
+name: Run the frozen V4 pipeline on the real three-source corpus
+owner: execution_worker_subagent_with_lead_verification
+objective: Produce real knowledge artifacts from the three declared sources without source-specific tuning.
+corpus: 03-TEST-CORPUS.yaml
+execution_rules:
+- run sources sequentially because local ASR/LLM are resource-heavy
+- first source is CygwqaNg2PY
+- after first source completes mechanically, freeze component/model/pattern/config for remaining sources
+- mechanical bug fixes are allowed; semantic source-specific tuning is not
+- do not run an AI grader
+per_source_command_template: .\scripts\transcript_pipeline_v4\run_v4.ps1 -Source "<URL>" -Language <language>
+per_source_mechanical_checks:
+- runner exit code is 0
+- transcript.txt exists and is non-empty
+- knowledge.md exists and is non-empty
+- run.log exists
+- no cloud/API provider is configured or invoked by the V4 command path
+source_order:
+- source_id: CygwqaNg2PY
+  language: en
+- source_id: vFTuLylvYnA
+  language: de
+- source_id: P-h5WSQG1Sw
+  language: en
+problem_guidance:
+  source_unavailable: record SOURCE_UNAVAILABLE and continue remaining primary sources; no silent substitute
+  acquisition_failure: apply M10 failure policy; maximum two attempts
+  asr_failure: apply M20 failure policy; maximum two attempts
+  fabric_ollama_failure: apply M30 failure policy; maximum two attempts
+  context_length_failure:
+  - prove it is a genuine context/window/resource failure rather than a malformed command
+  - do not truncate transcript silently
+  - do not create custom chunking
+  - mark CONTEXT_BLOCKED and make M55 eligible
+  knowledge_semantically_disappointing:
+  - do not repair or tune
+  - preserve artifact
+  - record OPERATOR_REVIEW_REQUIRED
+  - continue remaining corpus sources if mechanically possible
+acceptance_observations:
+- all mechanically available primary sources have real output artifacts
+- the same frozen pipeline/config was used after first-source mechanical success
+- artifact paths are returned to the lead
+return_schema: 02-AGENT-CONTRACTS.yaml#worker_return_schema

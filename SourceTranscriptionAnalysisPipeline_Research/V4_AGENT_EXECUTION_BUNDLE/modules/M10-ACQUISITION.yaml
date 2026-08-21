@@ -1,0 +1,56 @@
+schema: ttk.v4.module.v1
+module_id: M10
+name: Install and verify acquisition toolchain
+owner: module_installer_subagent
+objective: Make yt-dlp, FFmpeg, and ffprobe available and verify all primary corpus URLs are addressable.
+selected_components:
+- yt-dlp
+- FFmpeg
+allowed_system_changes:
+- install missing yt-dlp
+- install missing FFmpeg
+preferred_install:
+  yt-dlp:
+  - existing command
+  - winget install yt-dlp
+  - official Windows standalone binary if winget unavailable
+  ffmpeg:
+  - existing command
+  - winget install -e --id Gyan.FFmpeg
+actions:
+- run: Get-Command yt-dlp -ErrorAction SilentlyContinue
+  purpose: detect existing install
+- run: Get-Command ffmpeg -ErrorAction SilentlyContinue
+  purpose: detect existing install
+- if_missing: yt-dlp
+  run: winget install yt-dlp
+- if_missing: ffmpeg
+  run: winget install -e --id Gyan.FFmpeg
+- run: yt-dlp --version
+  capture: yt_dlp_version
+- run: ffmpeg -version
+  capture: ffmpeg_version
+- run: ffprobe -version
+  capture: ffprobe_version
+- for_each: 03-TEST-CORPUS.yaml#primary
+  run_template: yt-dlp --simulate --print id --print title --print duration "<URL>"
+  capture: source_availability
+acceptance_observations:
+- yt-dlp exits successfully
+- ffmpeg and ffprobe exit successfully
+- availability status is recorded for each primary source
+problem_guidance:
+  yt_dlp_site_error:
+  - capture exact error
+  - run yt-dlp -U if the installed distribution supports self-update; otherwise update using its installation method
+  - retry the same simulate command once
+  - if still unavailable, mark only that source SOURCE_UNAVAILABLE
+  ffmpeg_not_on_path_after_install:
+  - open a new PowerShell process or refresh PATH
+  - locate the winget portable alias
+  - do not download a second FFmpeg distribution until the selected install is proven unusable
+forbidden_actions:
+- build downloader wrapper
+- use browser download automation
+- replace source silently
+return_schema: 02-AGENT-CONTRACTS.yaml#worker_return_schema

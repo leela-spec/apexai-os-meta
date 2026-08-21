@@ -1,0 +1,63 @@
+schema: ttk.v4.module.v1
+module_id: M20
+name: Install local ASR and implement transcribe.py
+owner: module_installer_subagent
+objective: Provide a deterministic local media-to-TXT/SRT command using faster-whisper and large-v3-turbo.
+write_scope:
+- scripts/transcript_pipeline_v4/transcribe.py
+- scripts/transcript_pipeline_v4/.venv/**
+selected_component:
+  library: faster-whisper
+  model: large-v3-turbo
+  device: cpu
+  compute_type: int8
+  vad_filter: true
+install_commands:
+- py -m venv scripts/transcript_pipeline_v4/.venv
+- '& scripts/transcript_pipeline_v4/.venv/Scripts/python.exe -m pip install -U pip'
+- '& scripts/transcript_pipeline_v4/.venv/Scripts/python.exe -m pip install faster-whisper'
+transcribe_py_interface:
+  command: '& scripts/transcript_pipeline_v4/.venv/Scripts/python.exe scripts/transcript_pipeline_v4/transcribe.py --input
+    <media> --text-out <txt> --srt-out <srt> [--language en|de]'
+  required_arguments:
+  - --input
+  - --text-out
+  - --srt-out
+  optional_arguments:
+  - --language
+  fixed_behavior:
+  - task=transcribe
+  - no translation
+  - vad_filter=True
+  - segment timestamps retained
+  - word timestamps disabled
+  - UTF-8 outputs
+  - transcript.txt contains source-order transcript text, not LLM-cleaned text
+verification:
+- run: '& scripts/transcript_pipeline_v4/.venv/Scripts/python.exe -c "import faster_whisper; print(''FASTER_WHISPER_IMPORT_OK'')"'
+  expect_contains: FASTER_WHISPER_IMPORT_OK
+- run: '& scripts/transcript_pipeline_v4/.venv/Scripts/python.exe -c "from faster_whisper import WhisperModel; WhisperModel(''large-v3-turbo'',
+    device=''cpu'', compute_type=''int8''); print(''MODEL_LOAD_OK'')"'
+  expect_contains: MODEL_LOAD_OK
+- run: '& scripts/transcript_pipeline_v4/.venv/Scripts/python.exe scripts/transcript_pipeline_v4/transcribe.py --help'
+  expect: exit 0
+problem_guidance:
+  pip_or_import_failure:
+  - capture exact Python and pip versions
+  - inspect current faster-whisper official README/issues only for the exact failure
+  - repair the isolated V4 environment, not global Python
+  - retry once
+  model_download_failure:
+  - verify HTTPS/network access to the model host and free disk
+  - retry once without changing model
+  model_memory_or_backend_failure:
+  - confirm failure is resource/backend related rather than install corruption
+  - retry once after closing conflicting high-memory processes
+  - 'only if large-v3-turbo is proven unable to load: use faster-whisper medium with CPU int8 as declared fallback and record
+    FALLBACK_ASR_MODEL=medium'
+forbidden_actions:
+- install WhisperX
+- install Parakeet
+- add diarization
+- use hosted transcription
+return_schema: 02-AGENT-CONTRACTS.yaml#worker_return_schema

@@ -1,0 +1,55 @@
+schema: ttk.v4.module.v1
+module_id: M00
+name: Repository and machine preflight
+owner: lead_orchestrator
+objective: Establish the exact local execution state without installing or changing architecture.
+inputs:
+- 00-START-HERE.md
+- 01-EXECUTION-MAP.yaml
+- 04-EXECUTION-STATE.yaml
+allowed_paths:
+- repository root
+- 04-EXECUTION-STATE.yaml
+forbidden_actions:
+- create branch
+- reset or clean unrelated changes
+- install components
+- read historical architecture corpus
+actions:
+- run: git rev-parse --show-toplevel
+  capture: repository_root
+- run: git remote get-url origin
+  capture: remote
+- run: git branch --show-current
+  expect: main
+- run: git rev-parse HEAD
+  capture: start_head
+- run: git status --short
+  capture: dirty_paths
+- run: $PSVersionTable.PSVersion.ToString()
+  capture: powershell_version
+- run: py --version
+  capture: python_version_or_missing
+- run: winget --version
+  capture: winget_version_or_missing
+- run: yt-dlp --version
+  capture: yt_dlp_version_or_missing
+- run: ffmpeg -version
+  capture: ffmpeg_version_or_missing
+- run: ollama --version
+  capture: ollama_version_or_missing
+- run: fabric --version
+  capture: fabric_version_or_missing
+- run: Get-PSDrive -PSProvider FileSystem | Select-Object Name,Free,Used
+  capture: disk_free
+acceptance_observations:
+- repository is leela-spec/apexai-os-meta
+- current branch is main
+- unrelated dirty paths are recorded and preserved
+- installed/missing state is known for every selected tool
+failure_policy:
+  wrong_branch: STOP_NEEDS_OPERATOR; do not create or switch branches automatically
+  wrong_repository: STOP_BLOCKED
+  dirty_worktree: continue only if V4 write scopes do not overlap; never clean unrelated work
+  missing_tool: record MISSING; installers handle it later
+return_schema: 02-AGENT-CONTRACTS.yaml#worker_return_schema
