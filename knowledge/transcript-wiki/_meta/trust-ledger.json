@@ -4,156 +4,211 @@
   "pages": {
     "concepts/amygdala-vs-brainstem-fear-circuits.md": {
       "material_fingerprint": "sha256:74c191762abc716d95e1ebf7d403ad7fa07705b824e012cdd5560dc21246bab3",
-      "reviewed_at": "2026-08-21T16:00:00Z",
+      "reviewed_at": "2026-08-21T19:40:00Z",
       "reviewed_confidence": 0.7
     },
     "concepts/bofa-fund-manager-survey.md": {
       "material_fingerprint": "sha256:6062b6430e77a99ae993e9c2eccc4e8afb63f32410c0d5d8284d904cba592c50",
-      "reviewed_at": "2026-08-21T16:00:00Z",
+      "reviewed_at": "2026-08-21T19:40:00Z",
       "reviewed_confidence": 0.65
+    },
+    "concepts/bridge-of-incidents.md": {
+      "material_fingerprint": "sha256:9fb25b9036c72266994dfbf9e6fdfc89fccbff6c9edb0b9a9661ab130502327b",
+      "reviewed_at": "2026-08-21T19:40:00Z",
+      "reviewed_confidence": 0.7
     },
     "concepts/cognitive-task-switching-cost.md": {
       "material_fingerprint": "sha256:ffa810c0068ddfa459061bc9be2e95b8a3994613cbc56db9977bb8157a4cff42",
-      "reviewed_at": "2026-08-21T16:00:00Z",
+      "reviewed_at": "2026-08-21T19:40:00Z",
       "reviewed_confidence": 0.7
     },
     "concepts/e-waves.md": {
       "material_fingerprint": "sha256:c9c27f17bed54049e0977aeb94d1ee34864bdbf29e88125c84f44c8d34fca2e3",
-      "reviewed_at": "2026-08-21T16:00:00Z",
+      "reviewed_at": "2026-08-21T19:40:00Z",
       "reviewed_confidence": 0.65
     },
     "concepts/elliott-wave-principle.md": {
       "material_fingerprint": "sha256:7c1712297bfe4ebcfe5fbd0abd474aa047e177082297d1668329ddca6b09830d",
-      "reviewed_at": "2026-08-21T16:00:00Z",
+      "reviewed_at": "2026-08-21T19:40:00Z",
       "reviewed_confidence": 0.65
     },
     "concepts/emotion-operating-features.md": {
       "material_fingerprint": "sha256:67dadfb39fdc41c589224bfaa521d4f00108bb527857550360bbf57e5b98db17",
-      "reviewed_at": "2026-08-21T16:00:00Z",
+      "reviewed_at": "2026-08-21T19:40:00Z",
       "reviewed_confidence": 0.7
     },
     "concepts/emotion-vs-feeling-dissociation.md": {
       "material_fingerprint": "sha256:57b9853b30ab8599c6bd213cb957872f2c52087206937121e95d0059ab1b3781",
-      "reviewed_at": "2026-08-21T16:00:00Z",
+      "reviewed_at": "2026-08-21T19:40:00Z",
+      "reviewed_confidence": 0.7
+    },
+    "concepts/falling-backward-technique.md": {
+      "material_fingerprint": "sha256:151c096928eafc2536df709d33255ad317a8b84f34c89ad7168d82311f7f1428",
+      "reviewed_at": "2026-08-21T19:40:00Z",
+      "reviewed_confidence": 0.7
+    },
+    "concepts/feeling-as-causal-state.md": {
+      "material_fingerprint": "sha256:c922cae391670a603a275a112ba727aad31ac535be4aa73e3581633ba285dc7c",
+      "reviewed_at": "2026-08-21T19:40:00Z",
       "reviewed_confidence": 0.7
     },
     "concepts/fifth-wave-characteristics.md": {
       "material_fingerprint": "sha256:dc1032df44bd427ffe3332748968b8d587a7eea3cda713e4fefd9c6f8a36809d",
-      "reviewed_at": "2026-08-21T16:00:00Z",
+      "reviewed_at": "2026-08-21T19:40:00Z",
       "reviewed_confidence": 0.7
     },
     "concepts/flat-pattern.md": {
       "material_fingerprint": "sha256:2e0625e9ed38d255a63ff31fdea2786eedc9f76c711e5901d59680d1602a3b10",
-      "reviewed_at": "2026-08-21T16:00:00Z",
+      "reviewed_at": "2026-08-21T19:40:00Z",
       "reviewed_confidence": 0.65
     },
     "concepts/functional-theory-of-emotion.md": {
       "material_fingerprint": "sha256:f8c896fb375bc87815fd188e2292acff6a440b8594c4c57d3ad3fc420fc4841f",
-      "reviewed_at": "2026-08-21T16:00:00Z",
+      "reviewed_at": "2026-08-21T19:40:00Z",
+      "reviewed_confidence": 0.7
+    },
+    "concepts/inner-conversations.md": {
+      "material_fingerprint": "sha256:d0d1812a471046de65fde7731f65511a6a407d8300cb43189d74de23ea1ee3f1",
+      "reviewed_at": "2026-08-21T19:40:00Z",
       "reviewed_confidence": 0.7
     },
     "concepts/insula-and-interoception.md": {
       "material_fingerprint": "sha256:cdecbd0e2f9c3325a6356e2ade9736bc429195ed204ed7e38ed7d23e4a2fc778",
-      "reviewed_at": "2026-08-21T16:00:00Z",
+      "reviewed_at": "2026-08-21T19:40:00Z",
+      "reviewed_confidence": 0.7
+    },
+    "concepts/law-of-assumption.md": {
+      "material_fingerprint": "sha256:5da915c9c77c0eaeeef96cce34ceb45516d80a6c369be1ca7deb7276ea159c44",
+      "reviewed_at": "2026-08-21T19:40:00Z",
       "reviewed_confidence": 0.7
     },
     "concepts/market-stationarity.md": {
       "material_fingerprint": "sha256:d2c5f0fad5e0617e08a02857ae810a37515d38206a96f7bbb10a3f767466c1dd",
-      "reviewed_at": "2026-08-21T16:00:00Z",
+      "reviewed_at": "2026-08-21T19:40:00Z",
       "reviewed_confidence": 0.65
+    },
+    "concepts/morning-revision-protocol.md": {
+      "material_fingerprint": "sha256:e7404f22e2fb19d457551aefb81f18cbdf0fd9a1dd31c312539c7027f561a97d",
+      "reviewed_at": "2026-08-21T19:40:00Z",
+      "reviewed_confidence": 0.7
     },
     "concepts/nasdaq-bitcoin-divergence.md": {
       "material_fingerprint": "sha256:60d962091d049b47bc0a9677eadb3273db036f56fc3b081ff2d05057dfdced7e",
-      "reviewed_at": "2026-08-21T16:00:00Z",
+      "reviewed_at": "2026-08-21T19:40:00Z",
       "reviewed_confidence": 0.65
     },
     "concepts/retail-earnings-expectations-bar.md": {
       "material_fingerprint": "sha256:f76b4dd2c02139edb080b63d9f0f3910e80ef1d22dd42c6c22fbbf7dda89c316",
-      "reviewed_at": "2026-08-21T16:00:00Z",
+      "reviewed_at": "2026-08-21T19:40:00Z",
       "reviewed_confidence": 0.65
+    },
+    "concepts/sabbath-of-assumption.md": {
+      "material_fingerprint": "sha256:090e757c4e841e3b0018a5703dcb6058c03ab627b38f7975cfdc9703dc9ed354",
+      "reviewed_at": "2026-08-21T19:40:00Z",
+      "reviewed_confidence": 0.7
     },
     "concepts/sell-the-news-dynamics.md": {
       "material_fingerprint": "sha256:cd1630fdc7e5b28f31095c19c8569d567c5a0dbe66dbf63281273445219fffb4",
-      "reviewed_at": "2026-08-21T16:00:00Z",
+      "reviewed_at": "2026-08-21T19:40:00Z",
       "reviewed_confidence": 0.65
+    },
+    "concepts/state-akin-to-sleep.md": {
+      "material_fingerprint": "sha256:b22767518987c68f9f5791de18ad4793356c610b71644a74f0fa8a40592ae3a4",
+      "reviewed_at": "2026-08-21T19:40:00Z",
+      "reviewed_confidence": 0.7
     },
     "concepts/temporal-persistence-in-amnesia.md": {
       "material_fingerprint": "sha256:1b346225cc0536dfe1006b666a20e63c460bb20d6bb5ddc9c59ab450b603f4b1",
-      "reviewed_at": "2026-08-21T16:00:00Z",
+      "reviewed_at": "2026-08-21T19:40:00Z",
       "reviewed_confidence": 0.7
     },
     "concepts/treasury-yield-pressure.md": {
       "material_fingerprint": "sha256:599c295b15752c73b680141442620dd892e5dcd87de3039c1095a44b735e5e9c",
-      "reviewed_at": "2026-08-21T16:00:00Z",
+      "reviewed_at": "2026-08-21T19:40:00Z",
       "reviewed_confidence": 0.65
+    },
+    "entities/abdullah.md": {
+      "material_fingerprint": "sha256:d7a5c6e6293ce06a33b439c965366e94c1cf6d9e0c1eec69f8014ee992a5c109",
+      "reviewed_at": "2026-08-21T19:40:00Z",
+      "reviewed_confidence": 0.7
     },
     "entities/andrew-huberman.md": {
       "material_fingerprint": "sha256:d60f266c5adb9508b8ee329253d22a691400a1c249f1e1c23fc89d72e6e5f029",
-      "reviewed_at": "2026-08-21T16:00:00Z",
+      "reviewed_at": "2026-08-21T19:40:00Z",
       "reviewed_confidence": 0.7
     },
     "entities/bank-of-america-global-research.md": {
       "material_fingerprint": "sha256:ce1dc679575a75f7c73b063936913c7fb699d242051189199fddbaa9858e7d1b",
-      "reviewed_at": "2026-08-21T16:00:00Z",
+      "reviewed_at": "2026-08-21T19:40:00Z",
       "reviewed_confidence": 0.65
     },
     "entities/david-anderson.md": {
       "material_fingerprint": "sha256:94a52fb93e26c3616a999fca9e860fca2c45474ec6eb8fd8280eb475fb5f2276",
-      "reviewed_at": "2026-08-21T16:00:00Z",
+      "reviewed_at": "2026-08-21T19:40:00Z",
       "reviewed_confidence": 0.7
     },
     "entities/elliott-prechter.md": {
       "material_fingerprint": "sha256:8507915ed15bca2968921e3e12cb41fcef87f46e021b5fee3951502536deff4d",
-      "reviewed_at": "2026-08-21T16:00:00Z",
+      "reviewed_at": "2026-08-21T19:40:00Z",
       "reviewed_confidence": 0.65
     },
     "entities/elliott-wave-international.md": {
       "material_fingerprint": "sha256:dec3527d97588a0da9ccceed05d0e8104f506ddd603383c251198518c3517044",
-      "reviewed_at": "2026-08-21T16:00:00Z",
+      "reviewed_at": "2026-08-21T19:40:00Z",
       "reviewed_confidence": 0.65
     },
     "entities/markus-koch.md": {
       "material_fingerprint": "sha256:e95156bf191b013bf533bbc019888668a5a4b552c525a586b82fc2061dc1a02a",
-      "reviewed_at": "2026-08-21T16:00:00Z",
+      "reviewed_at": "2026-08-21T19:40:00Z",
       "reviewed_confidence": 0.65
+    },
+    "entities/neville-goddard.md": {
+      "material_fingerprint": "sha256:dca3efed66010319f07deca19627eb733dc1f4408ec2e0309bbbe1a5ed2258f0",
+      "reviewed_at": "2026-08-21T19:40:00Z",
+      "reviewed_confidence": 0.7
     },
     "entities/patient-sm.md": {
       "material_fingerprint": "sha256:a4080a0cc346350bc3fc9dc5df7923b285922d895523fc144fb4a48f7935d102",
-      "reviewed_at": "2026-08-21T16:00:00Z",
+      "reviewed_at": "2026-08-21T19:40:00Z",
       "reviewed_confidence": 0.7
     },
     "entities/ralph-adolphs.md": {
       "material_fingerprint": "sha256:e944a394922b9de3029ce5847ee3475f0c289402e530e67a673196639ae94bc8",
-      "reviewed_at": "2026-08-21T16:00:00Z",
+      "reviewed_at": "2026-08-21T19:40:00Z",
       "reviewed_confidence": 0.7
     },
     "entities/ralph-nelson-elliott.md": {
       "material_fingerprint": "sha256:dbdd580bec9cbe45ce0c67cab9bab85df075cf763f2c6acd95ae3dcc33977e8e",
-      "reviewed_at": "2026-08-21T16:00:00Z",
+      "reviewed_at": "2026-08-21T19:40:00Z",
       "reviewed_confidence": 0.65
     },
     "entities/robert-prechter.md": {
       "material_fingerprint": "sha256:3359b8a287893ca0d1286e0d38b2cbc66272e54a125f4b7303743a53e0d900a5",
-      "reviewed_at": "2026-08-21T16:00:00Z",
+      "reviewed_at": "2026-08-21T19:40:00Z",
       "reviewed_confidence": 0.65
     },
     "references/elliott-prechter-interview-2026.md": {
       "material_fingerprint": "sha256:d47b05655ab33a9e254aa2444a9131ebde036750542b9d2d72750d89f6b14036",
-      "reviewed_at": "2026-08-21T16:00:00Z",
+      "reviewed_at": "2026-08-21T19:40:00Z",
       "reviewed_confidence": 0.65
     },
     "references/huberman-adolphs-neurobiology-of-emotions.md": {
       "material_fingerprint": "sha256:820d14c51c8af10af46890d2256c4acb19a125606b0422d9ce44e710c634c79f",
-      "reviewed_at": "2026-08-21T16:00:00Z",
+      "reviewed_at": "2026-08-21T19:40:00Z",
       "reviewed_confidence": 0.7
     },
     "references/markus-koch-opening-bell-august.md": {
       "material_fingerprint": "sha256:4e0029d3c579e4a7b47ed863390a15263dfa6576357898853cfd010ef742f94a",
-      "reviewed_at": "2026-08-21T16:00:00Z",
+      "reviewed_at": "2026-08-21T19:40:00Z",
       "reviewed_confidence": 0.65
+    },
+    "references/neville-goddard-wisdom-compilation.md": {
+      "material_fingerprint": "sha256:85630cbde66269b3c8d9c50578692cfc652015464b9cbf25f2fda20f0e085246",
+      "reviewed_at": "2026-08-21T19:40:00Z",
+      "reviewed_confidence": 0.7
     }
   },
   "removed_not_applicable": [],
-  "reviewed_at": "2026-08-21T16:00:00Z",
+  "reviewed_at": "2026-08-21T19:40:00Z",
   "schema_version": 1
 }

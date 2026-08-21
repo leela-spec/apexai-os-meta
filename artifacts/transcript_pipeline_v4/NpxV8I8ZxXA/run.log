@@ -1,0 +1,14 @@
+﻿2026-08-21T18:21:33.9963145+02:00 run started; source locator=https://www.youtube.com/watch?v=NpxV8I8ZxXA&pp=ygUhMyBob3VycyBvZiBuZXZpbGxlIGdvZGRhcmQgd2lzZG9t; source ID=NpxV8I8ZxXA
+2026-08-21T18:21:34.0243896+02:00 source identification started; tool=yt-dlp
+2026-08-21T18:21:34.0309120+02:00 source identification completed; tool=yt-dlp; source ID=NpxV8I8ZxXA
+2026-08-21T18:21:34.0374071+02:00 acquisition started; tool=yt-dlp; audio conversion=FFmpeg; format=m4a
+2026-08-21T18:25:03.2560659+02:00 acquisition completed; media=C:\GitDev\apexai-os-meta\artifacts\transcript_pipeline_v4\NpxV8I8ZxXA\source\source.m4a
+2026-08-21T18:25:03.2762935+02:00 ASR started; implementation=faster-whisper; model=large-v3-turbo; device=cpu; compute_type=int8; vad_filter=true
+2026-08-21T19:40:39.8776454+02:00 ASR completed; transcript=transcript.txt; subtitles=transcript.srt
+2026-08-21T19:40:39.8776454+02:00 run completed
+2026-08-21T19:44:27.1428496+02:00 run started; source locator=https://www.youtube.com/watch?v=NpxV8I8ZxXA&pp=ygUhMyBob3VycyBvZiBuZXZpbGxlIGdvZGRhcmQgd2lzZG9t; source ID=NpxV8I8ZxXA
+2026-08-21T19:44:27.1690812+02:00 source identification started; tool=yt-dlp
+2026-08-21T19:44:27.1768388+02:00 source identification completed; tool=yt-dlp; source ID=NpxV8I8ZxXA
+2026-08-21T19:44:27.1879087+02:00 acquisition reused non-empty media; media=C:\GitDev\apexai-os-meta\artifacts\transcript_pipeline_v4\NpxV8I8ZxXA\source\source.m4a
+2026-08-21T19:44:27.2035665+02:00 ASR skipped; transcript reused; reason=non-empty existing output
+2026-08-21T19:44:27.2070790+02:00 run completed

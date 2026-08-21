@@ -1,20 +1,18 @@
 ---
 title: Hot Cache
-updated: 2026-08-21T16:00:00Z
+updated: 2026-08-21T19:40:00Z
 ---
+
 ## Recent Activity
-- Ingested Huberman Lab with Dr. Ralph Adolphs (`P-h5WSQG1Sw`) — completed long-transcript distillation creating 12 pages covering functional theory of emotion, four operational features (Priority, Valence, Scalability, Persistence), Patient SM double dissociation (amygdala external threat vs. brainstem CO2 panic), Iowa amnesia persistence experiment, and insular interoception.
-- Ingested Markus Koch Opening Bell (`vFTuLylvYnA`) — added 6 macro/market pages.
-- Ingested Elliott Prechter interview (`CygwqaNg2PY`) — initialized wave theory & E-Waves.
+- Ingested 3-hour Neville Goddard Wisdom Compilation (`NpxV8I8ZxXA`): added 11 knowledge pages across somatic techniques (falling backward), morning revision, inner conversations, and the Law of Assumption.
+- Ingested Huberman Lab with Dr. Ralph Adolphs (`P-h5WSQG1Sw`): 12 pages on functional emotion theory, amygdala vs brainstem fear circuits, and interoception.
+- Ingested Markus Koch Opening Bell (`vFTuLylvYnA`): 6 new pages + merged 5th wave characteristics.
 
 ## Active Threads
-- Cross-disciplinary emotion modeling: functional states intermediate between reflexes and deliberate cognition.
-- Neural circuit dissociations: exteroceptive fear (amygdala) vs. interoceptive suffocation panic (brainstem).
-- Cognitive ergonomics: mitigating task-switching costs through brief meditative silence.
+- Cross-paradigm models of internal states: Compare functional emotion control architectures (Adolphs/Anderson) with subjective imaginal assumptions (Goddard).
+- Market sentiment indicators: BofA fund manager cash levels vs Elliott Wave 5th wave terminal patterns.
 
 ## Key Takeaways
-- Long multi-speaker academic transcript distilled with complete fidelity across early, middle, and late segments without timeout or truncation.
-- Cumulative wiki holds 30 interconnected markdown pages with strict frontmatter, typed relationships, and provenance tracking.
-
-## Flagged Contradictions
-- Conscious feeling as ground truth (traditional folk psychology / William James / Joe LeDoux) contradicted by functional emotion architecture (Adolphs & Anderson) which decouples functional state from conscious qualia.
+- Somatic surrender (falling backward) quiets voluntary motor/sensory resistance to enable direct subconscious imprinting.
+- Daytime inner conversations act as continuous causal mental diet; unmonitored mental arguments neutralize nighttime imaginal acts.
+- Morning revision (20 minutes) rewrites memory traces into the naturalness of the desired outcome.
