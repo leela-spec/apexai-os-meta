@@ -1,0 +1,16 @@
+2026-08-20T23:37:01.7630342+02:00 run started; source locator=https://www.youtube.com/watch?v=CygwqaNg2PY; source ID=CygwqaNg2PY
+2026-08-20T23:37:01.7858350+02:00 source identification started; tool=yt-dlp
+2026-08-20T23:37:01.7918363+02:00 source identification completed; tool=yt-dlp; source ID=CygwqaNg2PY
+2026-08-20T23:37:01.8246613+02:00 acquisition started; tool=yt-dlp; audio conversion=FFmpeg; format=m4a
+2026-08-20T23:37:08.7655995+02:00 run error; exit error=yt-dlp acquisition failed with exit 1: WARNING: [youtube] No supported JavaScript runtime could be found. Only deno is enabled by default; to use another runtime add  --js-runtimes RUNTIME[:PATH]  to your command/config. YouTube extraction without a JS runtime has been deprecated, and some formats may be missing. See  https://github.com/yt-dlp/yt-dlp/wiki/EJS  for details on installing one
+ERROR: unable to download video data: HTTP Error 403: Forbidden
+2026-08-20T23:37:49.5243669+02:00 run started; source locator=https://www.youtube.com/watch?v=CygwqaNg2PY; source ID=CygwqaNg2PY
+2026-08-20T23:37:49.5509716+02:00 source identification started; tool=yt-dlp
+2026-08-20T23:37:49.5581464+02:00 source identification completed; tool=yt-dlp; source ID=CygwqaNg2PY
+2026-08-20T23:37:49.5994971+02:00 acquisition started; tool=yt-dlp; audio conversion=FFmpeg; format=m4a
+2026-08-20T23:38:55.2981507+02:00 acquisition completed; media=C:\GitDev\apexai-os-meta\artifacts\transcript_pipeline_v4\CygwqaNg2PY\source\source.m4a
+2026-08-20T23:38:55.3388035+02:00 ASR started; implementation=faster-whisper; model=large-v3-turbo; device=cpu; compute_type=int8; vad_filter=true
+2026-08-20T23:55:38.8737660+02:00 ASR completed; transcript=transcript.txt; subtitles=transcript.srt
+2026-08-20T23:55:38.8917330+02:00 Fabric started; pattern=extract_wisdom; vendor=Ollama; model=qwen3.5:9b; modelContextLength=65536; thinking=off
+2026-08-21T00:13:13.6324779+02:00 Fabric completed; output=knowledge.md
+2026-08-21T00:13:13.6392794+02:00 run completed

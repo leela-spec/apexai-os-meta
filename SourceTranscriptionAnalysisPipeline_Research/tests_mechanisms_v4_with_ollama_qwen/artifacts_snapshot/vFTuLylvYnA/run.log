@@ -1,0 +1,10 @@
+2026-08-21T00:13:36.0607217+02:00 run started; source locator=https://www.youtube.com/watch?v=vFTuLylvYnA; source ID=vFTuLylvYnA
+2026-08-21T00:13:36.0774028+02:00 source identification started; tool=yt-dlp
+2026-08-21T00:13:36.0833071+02:00 source identification completed; tool=yt-dlp; source ID=vFTuLylvYnA
+2026-08-21T00:13:36.1084078+02:00 acquisition started; tool=yt-dlp; audio conversion=FFmpeg; format=m4a
+2026-08-21T00:14:33.7717918+02:00 acquisition completed; media=C:\GitDev\apexai-os-meta\artifacts\transcript_pipeline_v4\vFTuLylvYnA\source\source.m4a
+2026-08-21T00:14:33.8063448+02:00 ASR started; implementation=faster-whisper; model=large-v3-turbo; device=cpu; compute_type=int8; vad_filter=true
+2026-08-21T00:29:09.4990930+02:00 ASR completed; transcript=transcript.txt; subtitles=transcript.srt
+2026-08-21T00:29:09.5166362+02:00 Fabric started; pattern=extract_wisdom; vendor=Ollama; model=qwen3.5:9b; modelContextLength=65536; thinking=off
+2026-08-21T00:45:35.8109525+02:00 Fabric completed; output=knowledge.md
+2026-08-21T00:45:35.8179843+02:00 run completed

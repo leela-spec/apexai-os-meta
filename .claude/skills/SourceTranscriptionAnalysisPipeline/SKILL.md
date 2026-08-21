@@ -1,18 +1,22 @@
 ---
 name: SourceTranscriptionAnalysisPipeline
-description: End-to-end automated YouTube audio extraction, local free Whisper transcription, state tracking, and Macro-Meso-Micro knowledge synthesis pipeline.
+description: End-to-end automated audio acquisition (yt-dlp), offline faster-whisper transcription, and obsidian-wiki cumulative knowledge compilation pipeline.
 ---
 
 # SourceTranscriptionAnalysisPipeline
 
 ## 1. Overview
-The **SourceTranscriptionAnalysisPipeline** skill automates the detection of new media from configured YouTube channels/playlists, downloads audio-only streams (zero video bandwidth waste), performs 100% offline local Whisper transcription via CTranslate2 (`faster-whisper`), and structures raw transcripts into a 3-tier **Macro $\rightarrow$ Meso $\rightarrow$ Micro** knowledge graph.
+The **SourceTranscriptionAnalysisPipeline** orchestrates the end-to-end transformation of media URLs, local video/audio recordings, or raw caption files into a structured, interconnected Obsidian knowledge graph in `knowledge/transcript-wiki/`.
 
-### Core Capabilities
-* **Zero Cost / 100% Local**: Uses open-source Whisper (`faster-whisper`) running locally on CPU (`int8`) or GPU (`float16`). Consumes 0 cloud API tokens for transcription.
-* **Audio-Only Stream Extraction**: Bypasses heavy video downloads using `yt-dlp` + `ffmpeg`.
-* **State Management & Idempotency**: Tracks watched sources and processed videos to prevent duplicate processing.
-* **Macro $\rightarrow$ Meso $\rightarrow$ Micro Extraction**: Decomposes transcripts into Executive Thesis (Macro), Thematic Modules (Meso), and Fact-Checked Atomic Claims (Micro).
+### Architecture & Runtime Separation
+1. **Deterministic Layer (PowerShell & Python)**:
+   - **Acquisition**: `yt-dlp` + `ffmpeg` for media stream extraction.
+   - **ASR Transcription**: `faster-whisper` (`large-v3-turbo`, CPU `int8`, VAD enabled) via `scripts/transcript_pipeline_v4/transcribe.py`.
+   - **Artifact Custody**: `artifacts/transcript_pipeline_v4/<source_id>/` storing canonical `transcript.txt`, `transcript.srt`, `run.log`, and source media.
+2. **Semantic Layer (Host AI via `wiki-ingest` Skill)**:
+   - **Knowledge Compilation**: Progressive distillation of concepts, entities, and source references into `knowledge/transcript-wiki/`.
+   - **Delta Cache & Idempotency**: SHA-256 caching via `obsidian-wiki cache-check` / `cache-update`.
+   - **Vault Health**: Automatic link integrity and schema validation via `obsidian-wiki lint` and `obsidian-wiki doctor`.
 
 ---
 
@@ -20,81 +24,81 @@ The **SourceTranscriptionAnalysisPipeline** skill automates the detection of new
 
 ```
 .claude/skills/SourceTranscriptionAnalysisPipeline/
-├── SKILL.md                               # This skill definition and operator manual
-├── config/
-│   └── watched_sources.json               # Configured channels and playlists to monitor
-├── state/
-│   ├── watched_sources.json               # Runtime source configuration
-│   ├── latest_discovered_videos.json      # Latest discovered video links & metadata
-│   └── processed_videos.json              # Ledger of processed video IDs and timestamps
-├── scripts/
-│   ├── Run-YouTubeWhisperPipeline.ps1     # Master pipeline orchestrator
-│   ├── Sync-WatchedSources.ps1            # Channel & playlist metadata sync
-│   └── transcribe_audio.py                # Local faster-whisper CTranslate2 engine
-├── docs/
-│   └── TRANSCRIPT-EXTRACTION-MACRO-MESO-MICRO-RESEARCH.md  # Deep research & OKR framework
-└── artifacts/
-    ├── pending_ai_task.json               # Downstream AI trigger payload
-    └── transcripts/                       # Output directory for transcripts
-        └── <video_id>/                    # Per-video artifact folder (.md, .srt, .json, .txt)
+└── SKILL.md                               # This skill definition and operator manual
+
+scripts/transcript_pipeline_v4/
+├── run_v4.ps1                             # Deterministic acquisition and ASR runner
+├── transcribe.py                          # Local faster-whisper engine
+├── README.md                              # Runner documentation
+└── tests/
+    ├── test_run_v4.ps1                    # Deterministic behavioral test suite
+    └── test_transcribe.py                 # Fast CLI interface test
+
+artifacts/transcript_pipeline_v4/
+└── <source_id>/                           # Per-source artifact directory
+    ├── source/                            # Downloaded media and metadata JSON
+    ├── transcript.txt                     # Canonical normalized UTF-8 text
+    ├── transcript.srt                     # Subtitle cues with timestamps
+    └── run.log                            # Stage and execution log
+
+knowledge/transcript-wiki/                 # Cumulative Obsidian Knowledge Base
+├── concepts/                              # Distilled concept notes
+├── entities/                              # People, tools, organizations
+├── references/                            # Source attribution notes
+├── .manifest.json                         # SHA-256 source tracking manifest
+├── index.md                               # Vault content index
+├── log.md                                 # Cumulative ingestion log
+└── hot.md                                 # Active session cache
 ```
 
 ---
 
-## 3. Global Tools Architecture
-Binaries are stored in the universal system directory:
-* **Global Path:** `C:\ProgramData\AI-Tools\bin\`
-* **Binaries:** `yt-dlp.exe`, `ffmpeg.exe`, `ffprobe.exe`
-* **Path Registration:** Added to the Windows User `PATH` environment variable. Accessible globally by all repositories and agents.
+## 3. Prerequisites & Tools
+- **Python 3.10+** (with `faster-whisper` installed in environment)
+- **`yt-dlp` & `ffmpeg`** (accessible on system `PATH` or in standard tools directory)
+- **`obsidian-wiki` (v2026.8.4)**: `pip install -U obsidian-wiki`
 
 ---
 
-## 4. Usage & Execution Instructions
+## 4. End-to-End Execution Protocol
 
-### A. Sync Watched Channels / Playlists
-Discovers the latest video IDs and updates `state/latest_discovered_videos.json`:
+When a user requests to process a video or audio source into the knowledge base:
+
+### Step 1: Deterministic Acquisition & ASR
+Execute `scripts/transcript_pipeline_v4/run_v4.ps1`:
 ```powershell
-powershell -ExecutionPolicy Bypass -File ".claude\skills\SourceTranscriptionAnalysisPipeline\scripts\Sync-WatchedSources.ps1"
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\scripts\transcript_pipeline_v4\run_v4.ps1 -Source "<URL-or-Path>"
 ```
 
-### B. Transcribe a Specific Video
-Downloads audio stream only, executes local Whisper transcription, and generates artifacts:
+### Step 2: Verify Canonical Transcript
+Ensure `artifacts/transcript_pipeline_v4/<source_id>/transcript.txt` exists and is non-empty.
+
+### Step 3: Deterministic Cache Check
+Check whether the source transcript has already been compiled into the vault:
 ```powershell
-powershell -ExecutionPolicy Bypass -File ".claude\skills\SourceTranscriptionAnalysisPipeline\scripts\Run-YouTubeWhisperPipeline.ps1" -VideoUrl "https://www.youtube.com/watch?v=VIDEO_ID" -Model "base"
+python -m obsidian_wiki cache-check "knowledge/transcript-wiki" "artifacts/transcript_pipeline_v4/<source_id>/transcript.txt"
 ```
-*Supported Models:* `tiny`, `base`, `small`, `medium`, `large-v3-turbo`.
+- If status is `unchanged`: skip semantic processing and report existing pages from `.manifest.json`.
+- If status is `new` or `modified`: proceed to Step 4.
 
----
+### Step 4: Semantic Knowledge Compilation (`wiki-ingest`)
+Invoke the host `wiki-ingest` skill on `artifacts/transcript_pipeline_v4/<source_id>/transcript.txt`:
+1. Read the transcript progressively across its full length (early, middle, late sections).
+2. Distill key concepts into `concepts/`, entities into `entities/`, and create the source note in `references/`.
+3. Apply proper epistemic attribution and provenance markers (`^[inferred]`, `^[ambiguous]`).
+4. Update `.manifest.json` using `obsidian-wiki cache-update`:
+   ```powershell
+   python -m obsidian_wiki cache-update "knowledge/transcript-wiki" "artifacts/transcript_pipeline_v4/<source_id>/transcript.txt" --pages <list-of-created-and-updated-pages>
+   ```
+5. Update `index.md`, append to `log.md`, and refresh `hot.md`.
 
-## 5. Macro-Meso-Micro Extraction Framework
-
-When processing raw transcripts for wiki or project updates:
-
-1. **Macro Level (Synthesis & Taxonomy)**:
-   * Core Thesis Statement (<100 words).
-   * 3–5 High-Impact Takeaways.
-   * Category Ontology & `[[Wikilinks]]`.
-2. **Meso Level (Thematic Deep Dives & Modules)**:
-   * Timestamped Chapters `[HH:MM:SS - HH:MM:SS]`.
-   * Argument structures, theoretical models, and step-by-step protocols.
-3. **Micro Level (Atomic Claims & Verification)**:
-   * Falsifiable atomic propositions with verbatim quotes and `[HH:MM:SS]` anchors.
-   * Live web search verification verdict: `[CONFIRMED]`, `[CONTRADICTED]`, `[UNVERIFIED]`.
-   * Contextual nuance and subsequent research notes.
-
----
-
-## 6. Autonomous AI Ingestion OKR Prompt
-
-```markdown
-# OKR Research & Implementation Mission: Autonomous Transcript-to-Knowledge Engine
-
-## Objective (O)
-Build and deploy a deterministic, multi-tiered (Macro -> Meso -> Micro) knowledge extraction engine that transforms raw Whisper transcripts into verified, anchor-linked, fact-checked knowledge wiki artifacts with zero cloud API token waste.
-
-## Key Results (KRs)
-- KR 1: Identify, clone, and benchmark at least 3 state-of-the-art open-source transcript processing repositories (e.g. Fabric patterns, WhisperX, RAPTOR, Chain-of-Density).
-- KR 2: Implement a deterministic 3-tier parsing skill (Macro overview, Meso modules, Micro verified claims with [HH:MM:SS] anchors).
-- KR 3: Structure output artifacts as bidirectional Wiki-linked Markdown notes ([[Topic]], [[Claim]]) ready for Obsidian / Knowledge Graph ingestion.
-- KR 4: Deliver a self-contained PowerShell / CLI tool package with end-to-end unit tests and zero external proprietary dependencies.
+### Step 5: Vault Health Validation
+Verify vault integrity:
+```powershell
+python -m obsidian_wiki lint knowledge/transcript-wiki
+python -m obsidian_wiki doctor
 ```
+Ensure 0 broken links and clean schema compliance.
+
+### Step 6: Reporting
+Return a concise summary with created/updated pages and key insights.

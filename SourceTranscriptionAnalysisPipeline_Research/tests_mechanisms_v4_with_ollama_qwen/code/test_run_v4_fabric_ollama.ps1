@@ -45,7 +45,7 @@ function Invoke-Runner {
 
     $stdout = Join-Path $script:TempRoot ([System.IO.Path]::GetRandomFileName())
     $stderr = Join-Path $script:TempRoot ([System.IO.Path]::GetRandomFileName())
-    $commandLine = ((@('-NoProfile', '-NonInteractive', '-File', $script:Runner) + $Arguments | ForEach-Object { ConvertTo-TestCommandLineArgument $_ }) -join ' ')
+    $commandLine = ((@('-NoProfile', '-File', $script:Runner) + $Arguments | ForEach-Object { ConvertTo-TestCommandLineArgument $_ }) -join ' ')
     $process = Start-Process -FilePath 'powershell.exe' -ArgumentList $commandLine -WindowStyle Hidden -Wait -PassThru -RedirectStandardOutput $stdout -RedirectStandardError $stderr
     [pscustomobject]@{
         ExitCode = $process.ExitCode
@@ -72,7 +72,7 @@ public static class FakeTools
             return RunYtDlp(args);
         if (tool == "python")
             return RunPython(args);
-        return 0;
+        return RunFabric(args);
     }
 
     private static void Append(string environmentName, string value)
@@ -88,6 +88,34 @@ public static class FakeTools
             if (args[index] == name)
                 return args[index + 1];
         return null;
+    }
+
+    private static int RunFabric(string[] args)
+    {
+        var capture = Environment.GetEnvironmentVariable("FAKE_FABRIC_CAPTURE");
+        var stdinCapture = Environment.GetEnvironmentVariable("FAKE_FABRIC_STDIN");
+        var input = Console.In.ReadToEnd();
+        File.AppendAllText(capture, string.Join("\n", args) + "\n---\n", new UTF8Encoding(false));
+        File.WriteAllText(stdinCapture, input, new UTF8Encoding(false));
+        Append("FAKE_FABRIC_COUNT", "1\n");
+        Append("FAKE_FABRIC_TIMEOUT_CAPTURE", (Environment.GetEnvironmentVariable("OLLAMA_HTTP_TIMEOUT") ?? "<unset>") + "\n");
+
+        string output = null;
+        for (var index = 0; index < args.Length; index++)
+        {
+            if ((args[index] == "-o" || args[index] == "--output") && index + 1 < args.Length)
+                output = args[index + 1];
+            else if (args[index].StartsWith("--output="))
+                output = args[index].Substring("--output=".Length);
+        }
+        if (string.IsNullOrEmpty(output))
+            return 19;
+
+        Directory.CreateDirectory(Path.GetDirectoryName(output));
+        var body = Environment.GetEnvironmentVariable("FAKE_FABRIC_BODY") ?? "knowledge";
+        File.WriteAllText(output, body + "\n", new UTF8Encoding(false));
+        int exitCode;
+        return int.TryParse(Environment.GetEnvironmentVariable("FAKE_FABRIC_EXIT_CODE"), out exitCode) ? exitCode : 0;
     }
 
     private static int RunYtDlp(string[] args)
@@ -140,6 +168,15 @@ $script:TempRoot = Join-Path ([System.IO.Path]::GetTempPath()) ("transcript pipe
 $oldPath = $env:PATH
 $oldLocalAppData = $env:LOCALAPPDATA
 $oldOutputRoot = $env:TRANSCRIPT_PIPELINE_V4_OUTPUT_ROOT
+$oldCapture = $env:FAKE_FABRIC_CAPTURE
+$oldStdin = $env:FAKE_FABRIC_STDIN
+$oldCount = $env:FAKE_FABRIC_COUNT
+$oldBody = $env:FAKE_FABRIC_BODY
+$oldFabricExit = $env:FAKE_FABRIC_EXIT_CODE
+$oldFabricTimeoutCapture = $env:FAKE_FABRIC_TIMEOUT_CAPTURE
+$oldOllamaHttpTimeout = $env:OLLAMA_HTTP_TIMEOUT
+$userOllamaHttpTimeoutBefore = [Environment]::GetEnvironmentVariable('OLLAMA_HTTP_TIMEOUT', 'User')
+$machineOllamaHttpTimeoutBefore = [Environment]::GetEnvironmentVariable('OLLAMA_HTTP_TIMEOUT', 'Machine')
 $oldYtDlpCapture = $env:FAKE_YTDLP_CAPTURE
 $oldYtDlpCount = $env:FAKE_YTDLP_COUNT
 $oldYtDlpId = $env:FAKE_YTDLP_ID
@@ -156,6 +193,7 @@ try {
     $isolatedScriptRoot = Join-Path $script:TempRoot 'isolated repo\scripts\transcript_pipeline_v4'
     New-Item -ItemType Directory -Path $bin, $inputRoot, $outputRoot, $isolatedScriptRoot -Force | Out-Null
     New-FakeTools -Path (Join-Path $bin 'fake-tools.exe')
+    Copy-Item -LiteralPath (Join-Path $bin 'fake-tools.exe') -Destination (Join-Path $bin 'fabric.exe')
     Copy-Item -LiteralPath (Join-Path $bin 'fake-tools.exe') -Destination (Join-Path $bin 'yt-dlp.exe')
     Copy-Item -LiteralPath (Join-Path $bin 'fake-tools.exe') -Destination (Join-Path $bin 'python.exe')
     $script:Runner = Join-Path $isolatedScriptRoot 'run_v4.ps1'
@@ -164,6 +202,13 @@ try {
     $env:LOCALAPPDATA = Join-Path $script:TempRoot 'localappdata-without-winget-link'
     $env:PATH = "$bin;$oldPath"
     $env:TRANSCRIPT_PIPELINE_V4_OUTPUT_ROOT = $outputRoot
+    $env:FAKE_FABRIC_CAPTURE = Join-Path $script:TempRoot 'fabric-args.txt'
+    $env:FAKE_FABRIC_STDIN = Join-Path $script:TempRoot 'fabric-stdin.txt'
+    $env:FAKE_FABRIC_COUNT = Join-Path $script:TempRoot 'fabric-count.txt'
+    $env:FAKE_FABRIC_BODY = 'first knowledge'
+    $env:FAKE_FABRIC_EXIT_CODE = '0'
+    $env:FAKE_FABRIC_TIMEOUT_CAPTURE = Join-Path $script:TempRoot 'fabric-timeout.txt'
+    $env:OLLAMA_HTTP_TIMEOUT = 'parent-sentinel'
     $env:FAKE_YTDLP_CAPTURE = Join-Path $script:TempRoot 'yt-dlp-args.txt'
     $env:FAKE_YTDLP_COUNT = Join-Path $script:TempRoot 'yt-dlp-count.txt'
     $env:FAKE_YTDLP_ID = 'url-source-42'
@@ -176,6 +221,7 @@ try {
     # Generated text and metadata remain stageable while local environments, models, and downloaded media stay ignored.
     foreach ($stageablePath in @(
         'artifacts/transcript_pipeline_v4/example/transcript.txt',
+        'artifacts/transcript_pipeline_v4/example/knowledge.md',
         'artifacts/transcript_pipeline_v4/example/run.log',
         'artifacts/transcript_pipeline_v4/example/source/source.info.json'
     )) {
@@ -198,6 +244,7 @@ try {
     Assert-Equal $srtRun.ExitCode 0 "SRT run failed: $($srtRun.Stderr)"
     $srtTranscript = Join-Path $outputRoot 'marked-up\transcript.txt'
     Assert-Equal ([IO.File]::ReadAllText($srtTranscript)) "Hello`nworld`n`nSecond line`n" 'SRT normalization was not deterministic.'
+    Assert-Equal ([IO.File]::ReadAllText($env:FAKE_FABRIC_STDIN)) "Hello`nworld`n`nSecond line`n" 'Fabric did not receive the normalized UTF-8 transcript on stdin.'
 
     # VTT metadata, cue identifiers, timing settings, and voice tags must not enter transcript text.
     $vtt = Join-Path $inputRoot 'captions.vtt'
@@ -206,30 +253,81 @@ try {
     Assert-Equal $vttRun.ExitCode 0 "VTT run failed: $($vttRun.Stderr)"
     Assert-Equal ([IO.File]::ReadAllText((Join-Path $outputRoot 'captions\transcript.txt'))) "Hi there`n`nFinal`n" 'VTT normalization retained metadata or lost cue text.'
 
+    # The Fabric process receipt must prove the fixed local vendor/model/context/thinking contract.
+    $receipt = [IO.File]::ReadAllText($env:FAKE_FABRIC_CAPTURE)
+    foreach ($requiredArgument in @('-p', 'extract_wisdom', '-V', 'Ollama', '-m', 'qwen3.5:9b', '--modelContextLength=65536', '--thinking=off', '-o')) {
+        Assert-True (($receipt -split "`n") -ccontains $requiredArgument) "Fabric invocation omitted exact argument: $requiredArgument"
+    }
+    Assert-Equal ([IO.File]::ReadAllText((Join-Path $outputRoot 'captions\knowledge.md'))) "first knowledge`n" 'Runner did not preserve Fabric knowledge output.'
+    Assert-Equal (@(Get-Content -LiteralPath $env:FAKE_FABRIC_TIMEOUT_CAPTURE)[-1]) '60m' 'Fabric child did not receive the exact 60-minute Ollama HTTP timeout.'
+    Assert-Equal $env:OLLAMA_HTTP_TIMEOUT 'parent-sentinel' 'Runner mutated the parent process Ollama HTTP timeout.'
     $runLog = [IO.File]::ReadAllText((Join-Path $outputRoot 'captions\run.log'))
+    Assert-True ($runLog -match 'fallback.*fabric.*PATH') 'Fabric PATH fallback was not recorded in run.log.'
     Assert-True ($runLog -match 'source locator=.*captions\.vtt; source ID=captions') 'Run log omitted its source locator or source ID.'
 
     # Non-empty outputs resume; empty outputs never count as complete; Force regenerates downstream files.
     $plain = Join-Path $inputRoot 'resume.txt'
     [IO.File]::WriteAllText($plain, "original transcript`n", [Text.UTF8Encoding]::new($false))
+    $env:FAKE_FABRIC_BODY = 'resume knowledge'
     $first = Invoke-Runner -Arguments @('-Source', $plain)
     Assert-Equal $first.ExitCode 0 "Initial resume run failed: $($first.Stderr)"
     $runDir = Join-Path $outputRoot 'resume'
+    $countAfterFirst = (Get-Content $env:FAKE_FABRIC_COUNT | Measure-Object).Count
 
     [IO.File]::WriteAllText($plain, "changed source`n", [Text.UTF8Encoding]::new($false))
+    $env:FAKE_FABRIC_BODY = 'must not replace'
     $second = Invoke-Runner -Arguments @('-Source', $plain)
     Assert-Equal $second.ExitCode 0 "Resume run failed: $($second.Stderr)"
     Assert-Equal ([IO.File]::ReadAllText((Join-Path $runDir 'transcript.txt'))) "original transcript`n" 'Resume replaced a non-empty transcript.'
+    Assert-Equal ([IO.File]::ReadAllText((Join-Path $runDir 'knowledge.md'))) "resume knowledge`n" 'Resume replaced non-empty knowledge.'
+    Assert-Equal ((Get-Content $env:FAKE_FABRIC_COUNT | Measure-Object).Count) $countAfterFirst 'Resume called Fabric despite non-empty knowledge.'
 
+    [IO.File]::WriteAllText((Join-Path $runDir 'knowledge.md'), '', [Text.UTF8Encoding]::new($false))
+    $env:FAKE_FABRIC_BODY = 'regenerated empty knowledge'
+    $emptyRetry = Invoke-Runner -Arguments @('-Source', $plain)
+    Assert-Equal $emptyRetry.ExitCode 0 "Empty-output retry failed: $($emptyRetry.Stderr)"
+    Assert-Equal ([IO.File]::ReadAllText((Join-Path $runDir 'knowledge.md'))) "regenerated empty knowledge`n" 'Empty knowledge was incorrectly treated as complete.'
+    Assert-Equal ((Get-Content $env:FAKE_FABRIC_COUNT | Measure-Object).Count) ($countAfterFirst + 1) 'Empty knowledge did not invoke Fabric exactly once.'
+
+    $env:FAKE_FABRIC_BODY = 'forced knowledge'
     $forced = Invoke-Runner -Arguments @('-Source', $plain, '-Force')
     Assert-Equal $forced.ExitCode 0 "Forced run failed: $($forced.Stderr)"
     Assert-Equal ([IO.File]::ReadAllText((Join-Path $runDir 'transcript.txt'))) "changed source`n" 'Force did not regenerate transcript.txt.'
+    Assert-Equal ([IO.File]::ReadAllText((Join-Path $runDir 'knowledge.md'))) "forced knowledge`n" 'Force did not regenerate knowledge.md.'
+
+    # Fabric output is transactional: write-then-fail must not create or replace canonical knowledge.
+    $partial = Join-Path $inputRoot 'partial.txt'
+    [IO.File]::WriteAllText($partial, "partial transcript`n", [Text.UTF8Encoding]::new($false))
+    $partialRunDir = Join-Path $outputRoot 'partial'
+    $fabricCountBeforeFailure = Get-InvocationCount $env:FAKE_FABRIC_COUNT
+    $env:FAKE_FABRIC_BODY = 'poison partial output'
+    $env:FAKE_FABRIC_EXIT_CODE = '23'
+    $partialFailure = Invoke-Runner -Arguments @('-Source', $partial)
+    Assert-True ($partialFailure.ExitCode -ne 0) 'Fabric write-then-fail incorrectly returned success.'
+    Assert-True (-not (Test-Path -LiteralPath (Join-Path $partialRunDir 'knowledge.md'))) 'Failed Fabric output became canonical knowledge.md.'
+    Assert-Equal (Get-InvocationCount $env:FAKE_FABRIC_COUNT) ($fabricCountBeforeFailure + 1) 'Failing Fabric was not invoked exactly once.'
+
+    $env:FAKE_FABRIC_BODY = 'recovered knowledge'
+    $env:FAKE_FABRIC_EXIT_CODE = '0'
+    $partialRetry = Invoke-Runner -Arguments @('-Source', $partial)
+    Assert-Equal $partialRetry.ExitCode 0 "Retry after partial Fabric failure failed: $($partialRetry.Stderr)"
+    Assert-Equal (Get-InvocationCount $env:FAKE_FABRIC_COUNT) ($fabricCountBeforeFailure + 2) 'Retry did not invoke Fabric after partial failure.'
+    Assert-Equal ([IO.File]::ReadAllText((Join-Path $partialRunDir 'knowledge.md'))) "recovered knowledge`n" 'Retry did not promote recovered Fabric output.'
+
+    [IO.File]::WriteAllText((Join-Path $partialRunDir 'knowledge.md'), "trusted knowledge`n", [Text.UTF8Encoding]::new($false))
+    $env:FAKE_FABRIC_BODY = 'failed forced replacement'
+    $env:FAKE_FABRIC_EXIT_CODE = '29'
+    $forcedFailure = Invoke-Runner -Arguments @('-Source', $partial, '-Force')
+    Assert-True ($forcedFailure.ExitCode -ne 0) 'Failed forced Fabric replacement returned success.'
+    Assert-Equal ([IO.File]::ReadAllText((Join-Path $partialRunDir 'knowledge.md'))) "trusted knowledge`n" 'Failed forced Fabric replacement changed canonical knowledge.md.'
+    $env:FAKE_FABRIC_EXIT_CODE = '0'
 
     # URL input exercises metadata ID lookup, acquisition arguments, ASR, final logs, and media reuse.
     Remove-Item -LiteralPath $env:FAKE_YTDLP_CAPTURE, $env:FAKE_YTDLP_COUNT, $env:FAKE_PYTHON_CAPTURE, $env:FAKE_PYTHON_COUNT -Force -ErrorAction SilentlyContinue
     $url = 'https://video.example/watch?v=42'
     $env:FAKE_YTDLP_ID = 'url-source-42'
     $env:FAKE_TRANSCRIPT_BODY = 'url transcript'
+    $env:FAKE_FABRIC_BODY = 'url knowledge'
     $urlRun = Invoke-Runner -Arguments @('-Source', $url, '-Language', 'en')
     Assert-Equal $urlRun.ExitCode 0 "URL run failed: $($urlRun.Stderr)"
     $urlRunDir = Join-Path $outputRoot 'url-source-42'
@@ -275,6 +373,7 @@ try {
     $media = Join-Path $inputRoot 'local recording.wav'
     [IO.File]::WriteAllText($media, 'fake local media bytes', [Text.UTF8Encoding]::new($false))
     $env:FAKE_TRANSCRIPT_BODY = 'local transcript de'
+    $env:FAKE_FABRIC_BODY = 'local knowledge'
     $localRun = Invoke-Runner -Arguments @('-Source', $media, '-Language', 'de')
     Assert-Equal $localRun.ExitCode 0 "Local-media run failed: $($localRun.Stderr)"
     $localRunDir = Join-Path $outputRoot 'local-recording'
@@ -293,10 +392,18 @@ try {
     Assert-Equal ([IO.File]::ReadAllText((Join-Path $localRunDir 'transcript.txt'))) "local transcript de`n" 'Local-media resume replaced transcript.'
 
     $env:FAKE_TRANSCRIPT_BODY = 'forced local transcript'
+    $env:FAKE_FABRIC_BODY = 'forced local knowledge'
     $localForce = Invoke-Runner -Arguments @('-Source', $media, '-Language', 'de', '-Force')
     Assert-Equal $localForce.ExitCode 0 "Forced local-media run failed: $($localForce.Stderr)"
     Assert-Equal (Get-InvocationCount $env:FAKE_PYTHON_COUNT) 2 'Force did not rerun local-media ASR exactly once.'
     Assert-Equal ([IO.File]::ReadAllText((Join-Path $localRunDir 'transcript.txt'))) "forced local transcript`n" 'Force did not promote new local-media transcript.'
+
+    foreach ($receivedTimeout in @(Get-Content -LiteralPath $env:FAKE_FABRIC_TIMEOUT_CAPTURE)) {
+        Assert-Equal $receivedTimeout '60m' 'A Fabric invocation did not receive the uniform 60-minute Ollama HTTP timeout.'
+    }
+    Assert-Equal $env:OLLAMA_HTTP_TIMEOUT 'parent-sentinel' 'Runner mutated the parent process timeout after repeated invocations.'
+    Assert-Equal ([Environment]::GetEnvironmentVariable('OLLAMA_HTTP_TIMEOUT', 'User')) $userOllamaHttpTimeoutBefore 'Runner mutated the user Ollama HTTP timeout.'
+    Assert-Equal ([Environment]::GetEnvironmentVariable('OLLAMA_HTTP_TIMEOUT', 'Machine')) $machineOllamaHttpTimeoutBefore 'Runner mutated the machine Ollama HTTP timeout.'
 
     if ($script:Failures.Count -gt 0) {
         $script:Failures | ForEach-Object { Write-Error $_ -ErrorAction Continue }
@@ -308,6 +415,13 @@ finally {
     $env:PATH = $oldPath
     $env:LOCALAPPDATA = $oldLocalAppData
     $env:TRANSCRIPT_PIPELINE_V4_OUTPUT_ROOT = $oldOutputRoot
+    $env:FAKE_FABRIC_CAPTURE = $oldCapture
+    $env:FAKE_FABRIC_STDIN = $oldStdin
+    $env:FAKE_FABRIC_COUNT = $oldCount
+    $env:FAKE_FABRIC_BODY = $oldBody
+    $env:FAKE_FABRIC_EXIT_CODE = $oldFabricExit
+    $env:FAKE_FABRIC_TIMEOUT_CAPTURE = $oldFabricTimeoutCapture
+    $env:OLLAMA_HTTP_TIMEOUT = $oldOllamaHttpTimeout
     $env:FAKE_YTDLP_CAPTURE = $oldYtDlpCapture
     $env:FAKE_YTDLP_COUNT = $oldYtDlpCount
     $env:FAKE_YTDLP_ID = $oldYtDlpId

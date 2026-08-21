@@ -1,9 +1,10 @@
 <#
 .SYNOPSIS
-Turns a URL, local media file, or existing transcript into local transcript artifacts.
+Turns a URL, local media file, or existing transcript into local transcript and knowledge artifacts.
 
 .DESCRIPTION
-Uses yt-dlp/FFmpeg for URL acquisition and faster-whisper through transcribe.py for ASR.
+Uses yt-dlp/FFmpeg for URL acquisition, faster-whisper through transcribe.py for ASR,
+and Fabric with local Ollama qwen3.5:9b for the extract_wisdom transform.
 
 .PARAMETER Source
 An HTTP/HTTPS media URL or a local audio, video, TXT, Markdown, SRT, or VTT file.
@@ -12,7 +13,7 @@ An HTTP/HTTPS media URL or a local audio, video, TXT, Markdown, SRT, or VTT file
 Optional ASR language hint. Supported values are en and de.
 
 .PARAMETER Force
-Regenerates transcript artifacts. Downloaded source media remains reusable.
+Regenerates transcript and knowledge artifacts. Downloaded source media remains reusable.
 
 .EXAMPLE
 .\scripts\transcript_pipeline_v4\run_v4.ps1 -Source .\recording.mp3 -Language en
@@ -266,16 +267,9 @@ if ($isUrl) {
         $ytDlp = Resolve-Executable -Name 'yt-dlp'
         $idResult = Invoke-ExternalCommand -FilePath $ytDlp -ArgumentList @('--no-playlist', '--skip-download', '--print', '%(id)s', '--', $Source)
         if ($idResult.ExitCode -ne 0) {
-            if ($Source -match '(?:\?|&)v=([a-zA-Z0-9_-]{11})' -or $Source -match 'youtu\.be/([a-zA-Z0-9_-]{11})') {
-                $rawId = $matches[1]
-            }
-            else {
-                throw "yt-dlp metadata lookup failed with exit $($idResult.ExitCode): $($idResult.Stderr.Trim())"
-            }
+            throw "yt-dlp metadata lookup failed with exit $($idResult.ExitCode): $($idResult.Stderr.Trim())"
         }
-        else {
-            $rawId = ($idResult.Stdout -split "`r?`n" | Where-Object { $_.Trim() } | Select-Object -Last 1)
-        }
+        $rawId = ($idResult.Stdout -split "`r?`n" | Where-Object { $_.Trim() } | Select-Object -Last 1)
         if (-not $rawId) { throw 'yt-dlp did not return a source ID.' }
         $sourceId = ConvertTo-SourceId $rawId
     }
@@ -298,6 +292,7 @@ New-Item -ItemType Directory -Path $runDirectory -Force | Out-Null
 $logPath = Join-Path $runDirectory 'run.log'
 $transcriptPath = Join-Path $runDirectory 'transcript.txt'
 $srtPath = Join-Path $runDirectory 'transcript.srt'
+$knowledgePath = Join-Path $runDirectory 'knowledge.md'
 
 function Write-RunLog {
     param([Parameter(Mandatory = $true)][string]$Message)
@@ -382,10 +377,35 @@ try {
         Write-RunLog 'ASR skipped; transcript reused; reason=non-empty existing output'
     }
 
-    if (-not (Test-NonEmptyFile $transcriptPath)) { throw 'No non-empty transcript is available.' }
+    if (-not (Test-NonEmptyFile $transcriptPath)) { throw 'No non-empty transcript is available for Fabric.' }
 
+    if ($Force -or -not (Test-NonEmptyFile $knowledgePath)) {
+        $fabricPreferred = Join-Path $env:LOCALAPPDATA 'Microsoft\WinGet\Links\fabric.exe'
+        $usingFabricFallback = -not (Test-Path -LiteralPath $fabricPreferred -PathType Leaf)
+        $fabric = Resolve-Executable -Name 'fabric' -PreferredPath $fabricPreferred
+        if ($usingFabricFallback) { Write-RunLog "fallback used; component=fabric; source=PATH; executable=$fabric" }
+        $tempKnowledgePath = "$knowledgePath.tmp"
+        Remove-Item -LiteralPath $tempKnowledgePath -Force -ErrorAction SilentlyContinue
+        try {
+            $fabricArguments = @('-p', 'extract_wisdom', '-V', 'Ollama', '-m', 'qwen3.5:9b', '--modelContextLength=65536', '--thinking=off', '-o', $tempKnowledgePath)
+            Write-RunLog 'Fabric started; pattern=extract_wisdom; vendor=Ollama; model=qwen3.5:9b; modelContextLength=65536; thinking=off; OLLAMA_HTTP_TIMEOUT=60m'
+            $fabricResult = Invoke-ExternalCommand -FilePath $fabric -ArgumentList $fabricArguments -StandardInputPath $transcriptPath -EnvironmentVariables @{ OLLAMA_HTTP_TIMEOUT = '60m' }
+            if ($fabricResult.ExitCode -ne 0) {
+                throw "Fabric failed with exit $($fabricResult.ExitCode): $($fabricResult.Stderr.Trim())"
+            }
+            if (-not (Test-NonEmptyFile $tempKnowledgePath)) { throw 'Fabric completed without a non-empty knowledge.md.' }
+            Move-Item -LiteralPath $tempKnowledgePath -Destination $knowledgePath -Force
+        }
+        finally {
+            Remove-Item -LiteralPath $tempKnowledgePath -Force -ErrorAction SilentlyContinue
+        }
+        Write-RunLog 'Fabric completed; output=knowledge.md'
+    }
+    else {
+        Write-RunLog 'Fabric skipped; knowledge reused; reason=non-empty existing output'
+    }
     Write-RunLog 'run completed'
-    Write-Output $transcriptPath
+    Write-Output $knowledgePath
 }
 catch {
     Write-RunLog "run error; exit error=$($_.Exception.Message)"
