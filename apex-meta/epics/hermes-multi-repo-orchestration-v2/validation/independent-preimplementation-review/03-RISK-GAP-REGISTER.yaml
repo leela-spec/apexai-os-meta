@@ -1,0 +1,120 @@
+schema_version: 1
+program: hermes_multi_repo_orchestration_v2
+evaluation_date: 2026-08-24
+status: independent_validation_risk_gap_register
+reference_baseline: apex-meta/epics/hermes-multi-repo-orchestration-v2/12-RISK-REGISTER.yaml
+
+scale:
+  probability: [low, medium, high]
+  impact: [low, medium, high, critical]
+  evidence_strength: [single_primary, multiple_primary, primary_plus_runtime, upstream_open_issue, live_host_inspection]
+
+newly_discovered_and_refined_risks:
+  - id: R21
+    title: hardcoded_docker_volume_in_global_config
+    area: docker_workspace_isolation
+    mapped_baseline_risks: [R03, R04, R05]
+    probability: high
+    impact: critical
+    evidence_strength: live_host_inspection
+    status: active_requires_correction_C01
+    finding: >-
+      Live inspection of the WSL host configuration at /root/.hermes/config.yaml revealed that
+      terminal.docker_volumes currently contains static hardcoded paths:
+      [/root/MasterOfArts:/root/MasterOfArts:rw, /root/MasterOfArts:/workspace:rw].
+      If multi-repo execution is initiated without modifying this setting, workers in Investment,
+      acim-secular, and apexai-os-meta will mount MasterOfArts into /workspace, causing severe
+      cross-repo workspace bleeding and write contamination.
+    control:
+      - sanitize_global_config_before_multi_repo_pilot
+      - remove_hardcoded_static_paths_from_docker_volumes
+      - rely_on_dynamic_docker_mount_cwd_to_workspace_or_per_workspace_overrides
+      - verify_effective_container_mount_before_each_task_execution
+    acceptance_test:
+      - run_disposable_task_in_acim_and_prove_MasterOfArts_is_not_mounted_in_container
+      - confirm_workspace_inside_container_maps_exactly_to_active_repo_directory
+
+  - id: R22
+    title: wsl_root_vs_standard_user_boundary_drift
+    area: filesystem_permissions
+    mapped_baseline_risks: [R15, R16]
+    probability: medium
+    impact: high
+    evidence_strength: live_host_inspection
+    status: active_requires_correction_C02
+    finding: >-
+      The MasterOfArts pilot was executed entirely as root in /root/ (/root/.hermes, /root/MasterOfArts).
+      However, D07 and standard Linux development practices specify ~/workspaces/ (typically
+      /home/<operator>/workspaces/). If Hermes is executed as a non-root user while configuration
+      resides in /root/.hermes, permissions will fail. Conversely, if Hermes runs as root, all files
+      created in ~/workspaces/ will be owned by root:root (mode 0755/0644), causing permission issues
+      for Windows IDEs and non-root tools.
+    control:
+      - establish_explicit_user_identity_and_home_policy_in_roadmap_phase_1
+      - standardize_on_consistent_user_execution_with_umask_022
+      - align_hermes_home_path_consistently_across_all_managed_scripts
+    acceptance_test:
+      - files_created_by_hermes_in_canonical_workspace_are_readable_and_editable_via_windows_interop
+      - no_permission_denied_errors_when_switching_between_cli_tools
+
+  - id: R23
+    title: git_default_branch_asymmetry_across_managed_repos
+    area: git_orchestration
+    mapped_baseline_risks: [R15]
+    probability: medium
+    impact: medium
+    evidence_strength: live_host_inspection
+    status: controlled_by_correction_C05
+    finding: >-
+      Live inspection of the four managed repositories in C:\GitDev revealed branch asymmetry:
+      acim-secular uses default branch 'master', whereas apexai-os-meta, MasterOfArts, and Investment
+      use default branch 'main'. Any automated orchestration, migration, or validation scripts that
+      hardcode 'origin/main' will fail or create detached heads on acim-secular.
+    control:
+      - parameterize_default_branch_in_projects_yaml_and_state_yaml
+      - scripts_must_dynamically_resolve_default_branch_via_git_rev_parse_or_metadata
+      - forbid_hardcoded_branch_names_in_orchestration_tooling
+    acceptance_test:
+      - migration_and_rollup_scripts_execute_successfully_on_both_main_and_master_branches
+
+  - id: R24
+    title: partial_rollup_silent_corruption
+    area: portfolio_sync
+    mapped_baseline_risks: [R06, R07]
+    probability: medium
+    impact: high
+    evidence_strength: static_simulation
+    status: controlled_by_correction_C03
+    finding: >-
+      If one source board query fails or times out during the portfolio rollup run (e.g. SQLite database
+      locked by a concurrent writer), a naive aggregation script might process the remaining three boards
+      and publish an incomplete rollup snapshot. This would falsely present the failed repository's tasks
+      as completed or deleted.
+    control:
+      - enforce_fail_closed_semantics_in_rollup_script
+      - require_atomic_snapshot_writes_via_temporary_file_and_rename
+      - emit_explicit_degraded_health_receipt_with_nonzero_status_on_partial_failure
+      - never_overwrite_previous_valid_snapshot_with_partial_data
+    acceptance_test:
+      - inject_simulated_query_failure_on_one_board_and_verify_existing_snapshot_is_preserved
+      - verify_health_receipt_reports_degraded_status_and_identifies_failed_board
+
+  - id: R25
+    title: qmd_index_stale_state_drift
+    area: retrieval_freshness
+    mapped_baseline_risks: [R12, R14]
+    probability: medium
+    impact: medium
+    evidence_strength: live_host_inspection
+    status: controlled_by_correction_C04
+    finding: >-
+      QMD SQLite vector and keyword indexes are static snapshots. When Git commits or ADR updates occur
+      in a managed repository, QMD does not automatically update its collection index until 'qmd update'
+      is executed. An agent answering architecture or policy questions may retrieve obsolete context if
+      the index is stale.
+    control:
+      - implement_freshness_check_comparing_git_head_timestamp_with_qmd_collection_timestamp
+      - add_pre_task_qmd_update_hook_for_critical_decision_workflows
+      - include_collection_update_timestamps_in_retrieval_prompts
+    acceptance_test:
+      - update_a_markdown_file_and_verify_freshness_check_detects_delta_before_agent_reasoning
