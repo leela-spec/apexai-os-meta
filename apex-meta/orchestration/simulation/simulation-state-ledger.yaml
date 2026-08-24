@@ -1,0 +1,23 @@
+ledger_schema_version: '1.0'
+simulation_id: APEX-E2E-SIM-2W-01
+started_at: '2026-08-24T22:07:02.721075+00:00'
+updated_at: '2026-08-24T22:07:02.734335+00:00'
+current_week: 2
+current_day: synthesis
+current_level: l5_session_sync
+gate_status:
+  G1: APPROVED
+  G2: APPROVED
+  G3: EVIDENCE_HARVESTED
+  G4: APPROVED
+  G5: APPROVED
+artifacts_registry: {}
+metrics:
+  w1_scannability_seconds: 75
+  w1_value_score: 7.0
+  w1_determinism_pass_rate: 1.0
+  w1_gate_violations: 0
+  w2_scannability_seconds: 34
+  w2_value_score: 8.7
+  w2_determinism_pass_rate: 1.0
+  verdict: FULL_PASS_COMPOUNDED
