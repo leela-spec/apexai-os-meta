@@ -1,1 +1,22 @@
-{"day": "mon", "status": "COMMITTED", "sync_recompute": "PASS"}
+{
+  "mutation_id": "MUT-W1-MON",
+  "timestamp": "2026-08-24T22:30:13.689228+00:00",
+  "applied_deltas": [
+    {
+      "project": "MasterOfArts/LHTL",
+      "status": "ADVANCED"
+    },
+    {
+      "project": "MasterOfArts/SuperHeroKids",
+      "status": "ADVANCED"
+    },
+    {
+      "project": "Investment",
+      "status": "ADVANCED"
+    },
+    {
+      "project": "apexai-os-meta",
+      "status": "SYNCED"
+    }
+  ]
+}
