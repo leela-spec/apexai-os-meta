@@ -1,387 +1,167 @@
-# Verified Architecture — Hermes Multi-Repo Orchestration v2
+# 01 — Verified Architecture — Hermes Multi-Repo Orchestration v2
 
-Status: **RESEARCH COMPLETE ENOUGH FOR OPERATOR DECISIONS / IMPLEMENTATION NOT AUTHORIZED**  
+Status: **RESEARCH VERIFIED / D02 OPERATOR DECISION REMAINS / IMPLEMENTATION NOT AUTHORIZED**  
 Date: 2026-08-24
 
-## 1. Verified conclusions
-
-### V1 — One Hermes installation can serve multiple repositories
-
-Hermes' reusable primitives are machine/profile level, while project context and project skills are discovered from the active workspace/repository. Therefore one installation does not need to be cloned per repo.
-
-Use one WSL2 runtime containing the managed repo checkouts, one Hermes installation, one Docker policy, and one QMD installation.
-
-### V2 — Profiles are agent/identity boundaries, not repository boundaries
-
-Hermes profiles have independent configuration, sessions, memory, credentials, and profile-local skills. A profile therefore models a durable agent such as `research-strategist`, not `research-strategist-for-acim`.
-
-Do not simultaneously run multiple independent Hermes processes against the same profile state. Use separate profiles when true concurrent independent identity/state is required.
-
-### V3 — Project context stays project-local
-
-Hermes context discovery reads repository/workdir context such as `AGENTS.md`. Project-local skills are also discovered from supported project skill directories after trust.
-
-Therefore project-specific facts/rules should remain with the repo rather than being copied into profile memory.
-
-### V4 — One shared Kanban board + tenants is the strongest native portfolio candidate
-
-Hermes boards are strong isolation boundaries. Hermes documents that links cannot point across boards.
-
-Tenant is a soft namespace inside a board and can be filtered.
-
-Consequently:
+## 1. Current architecture in one view
 
 ```text
-one board
-  tenant=apex
-  tenant=masterofarts
-  tenant=acim
-  tenant=investment
+Apex AIOS Meta = durable portfolio/control plane
+|
++-- Project truth remains in four independent Git repositories
+|   +-- apexai-os-meta
+|   +-- MasterOfArts
+|   +-- acim-secular
+|   +-- Investment
+|
++-- One machine-level Hermes runtime in WSL2
+|   +-- reusable role profiles, used sequentially across repos
+|   +-- separate repo Kanban boards (current D02 recommendation)
+|   +-- no automatic all-board dispatcher initially
+|
++-- One local QMD engine
+|   +-- curated named collections per repo
+|   +-- QMD MCP configured only in profiles that need retrieval
+|
++-- Docker execution boundary
+|   +-- workspace/mount provenance must pass live host-persistence tests
+|
++-- Apex asynchronous exchange
+    +-- read-only board rollup
+    +-- cross-repo decision/dependency objects
+    +-- reviewed generic skill promotion
+    +-- health/freshness metadata
 ```
 
-preserves a native cross-repository dependency graph better than:
+## 2. Verified principles
+
+### V1 — one Hermes installation, many repos
+
+Hermes project context/workspace and project-local skills are discovered from the active working directory/project, while profiles and runtime configuration are separate from project truth. One Hermes installation can therefore serve multiple repositories; no install clone is required per repo.
+
+### V2 — profile = role, not repo
+
+Hermes profiles own identity/state such as SOUL/config/memory/sessions/skills/credentials. A profile does not inherently belong to one Git repository.
+
+Target reusable roles:
 
 ```text
-apex board
-masterofarts board
-acim board
-investment board
-```
-
-plus a second aggregate board, which would require duplicated tasks or a synchronization mechanism.
-
-This is still a candidate until live acceptance testing.
-
-### V5 — Apex should be control plane, not project-content warehouse
-
-Apex may version:
-
-- portfolio registry;
-- agent/profile specifications;
-- shared skill source;
-- orchestration ADRs;
-- portfolio decision records;
-- cross-project summaries and operating views;
-- policy and onboarding contracts.
-
-Apex should not automatically copy:
-
-- the entire contents of MasterOfArts, ACIM, Investment or other repos;
-- QMD SQLite indexes;
-- Hermes Kanban SQLite DB;
-- raw Hermes `MEMORY.md`/`USER.md` profile data;
-- sessions;
-- credentials.
-
-Those already have native owners.
-
-## 2. User stories — reusable profiles
-
-### US-P1 — Researcher moves between repos
-
-```text
-TASK A
-repo = Investment
-profile = research-strategist
-workspace = ~/workspaces/Investment
-QMD = investment-* collections
-
+portfolio-orchestrator
 research-strategist
-  -> reads Investment AGENTS/context
-  -> uses its stable research identity/procedures
-  -> retrieves Investment evidence
-  -> produces Investment artifact
-  -> may learn a generic research procedure locally
-
-TASK B
-repo = acim-secular
-same profile = research-strategist
-workspace = ~/workspaces/acim-secular
-QMD = acim-site-* collections
-
-same identity/procedural memory
-+ different repo context/evidence
-= cross-repo capability without factual contamination
+independent-reviewer
+workshop-designer       # where useful
+marketing-executive     # where useful
 ```
 
-**Spillover:** generic research methods can persist with the role.  
-**No spillover:** Investment holdings/facts should not become ACIM project truth.
+Critical constraint: Hermes explicitly warns never to point two independent processes at the same profile. Current open issue #78122 also reports multi-board concurrency limits are per-board rather than gateway-wide. Therefore same-role reuse is sequential in initial v2.
 
-### US-P2 — Marketing agent uses shared method but local product truth
+### V3 — repo = facts, evidence, project rules and outputs
+
+Repo-local ownership:
 
 ```text
-marketing-executive
-  |
-  +-- shared MarketingSkills procedures
-  |
-  +-- task: MasterOfArts offer
-  |     -> MasterOfArts local product-marketing context
-  |
-  +-- task: ACIM website
-        -> acim-secular local product-marketing context
+AGENTS.md
+project/source facts
+accepted decisions
+code/content
+project-specific skills
+BMAD state where used
+outputs/evidence
+Git history
 ```
 
-The agent is reused. The product facts are not.
+Do not put this corpus in reusable role MEMORY.
 
-### US-P3 — Reviewer audits another agent across repos
+### V4 — separate repo boards are now recommended
+
+Current Hermes docs describe boards as the hard isolation boundary: separate DB, workspaces and logs; spawned workers are pinned to their board; cross-board links are forbidden.
+
+Tenants are soft namespaces. Open issue #85497 reports the documented tenant memory namespace is not implemented and memory can pollute across tenants.
+
+Therefore current recommendation:
 
 ```text
-research-strategist -> Investment result
-                       |
-                       v
-independent-reviewer --+
-
-marketing-executive -> ACIM result
-                       |
-                       v
-same independent-reviewer
+board=apex
+board=masterofarts
+board=acim
+board=investment
 ```
 
-Reviewer identity remains stable while repo context changes.
+Apex obtains portfolio visibility through an **asynchronous deterministic read-only rollup**, not a second live task database.
 
-### US-P4 — Concurrent work
+D02 remains a human gate because this trades native cross-project dependency links for stronger project isolation.
 
-Do:
+### V5 — Apex is control plane, not warehouse
+
+Apex may own:
 
 ```text
-research-strategist -> Investment
-marketing-executive -> ACIM
-independent-reviewer -> MasterOfArts
+project registry
+portfolio priorities
+orchestration ADRs
+profile specifications
+shared-skill governance
+cross-project decisions
+cross-project dependency references
+derived board rollups
+health/freshness status
+migration/implementation evidence
 ```
 
-Avoid:
+Apex must not automatically own/copy:
 
 ```text
-research-strategist process A -> Investment
-research-strategist process B -> Apex
+all project files
+raw profile MEMORY/USER
+sessions
+API credentials
+Kanban SQLite DBs
+QMD index DB/vectors
+project BMAD state
+project-specific skills
 ```
 
-at the same time if both mutate the same profile state.
+### V6 — QMD is one engine, explicit corpus per task
 
-If parallel research becomes necessary, explicitly create another worker identity/profile.
+QMD's collection registry can point at absolute paths across independent repos. Its `-c` / MCP `collections` scoping works from any directory.
 
-## 3. User stories — shared flows and skills
-
-### Skill class S1 — globally reusable procedure
-
-Examples:
-
-- source-verification checklist;
-- exact-match patch generation;
-- workshop-curriculum method;
-- research synthesis method.
-
-Candidate ownership:
+Thus:
 
 ```text
-apexai-os-meta
-  -> reviewed shared skill source
-  -> installed/synced to Hermes-readable shared external skill directory
-  -> selected profiles discover metadata
+Investment task
+  cwd = ~/workspaces/Investment
+  QMD = investment-control + investment-evidence
+
+ACIM task later
+  cwd = ~/workspaces/acim-secular
+  QMD = acim-control + acim-site-docs
 ```
 
-Rule: procedure only; no repo-specific facts.
+Both use the same local QMD engine.
 
-### Skill class S2 — role-specific reusable procedure
+But Hermes profiles isolate MCP/config. Every profile that needs QMD must have the QMD MCP declaration. A future tested profile distribution can deliver the common MCP declaration while preserving local memory/session/auth.
 
-Example:
+### V7 — cross-repo learning = procedure promotion, not memory sync
+
+Initial spillover:
 
 ```text
-research-strategist
-  -> systematic-evidence-review
-  -> contradiction-review
-  -> source-ranking
+repo task
+  -> facts remain repo-local
+  -> role learns locally
+  -> generic procedure candidate detected later
+  -> independent review/generalization
+  -> accepted Agent Skill in Apex Git
+  -> controlled deployment to applicable profiles
 ```
 
-These can remain profile-local until proven valuable across more than one role.
+No cron copies `MEMORY.md` between repos/profiles.
 
-### Skill class S3 — repository-specific procedure
+### V8 — WSL is canonical runtime filesystem
 
-Example: Apex KB.
+Microsoft independently recommends keeping Linux-heavy Git/build files in the Linux filesystem; its current interop guide explicitly flags `/mnt/c` Git/build use as slow via cross-filesystem 9P. Docker independently recommends code inside the Linux distribution for WSL2 Linux-container development.
 
-```text
-apexai-os-meta/.agents/skills/apex-kb/
-```
-
-or another currently supported project-local Hermes skill path.
-
-Only Apex tasks should discover the Apex-specific behavior through project precedence.
-
-### Promotion process
-
-```text
-repo task exposes useful method
-  -> role-local learned procedure
-  -> repeated successfully in >1 repo/task class
-  -> reviewer removes repo facts and checks overlap
-  -> accepted shared skill committed in Apex
-  -> distributed through documented Hermes external/project skill mechanism
-  -> all intended roles discover metadata
-```
-
-Do not automatically promote every learned behavior.
-
-## 4. BMAD and MarketingSkills placement
-
-### MarketingSkills
-
-Verified upstream:
-
-- universal Agent Skills install uses `.agents/skills/`;
-- `product-marketing` creates/uses project-local `.agents/product-marketing.md`;
-- project-specific product context therefore belongs in each repo that uses the skill.
-
-Target pattern:
-
-```text
-shared/installed MarketingSkills procedure library
-
-MasterOfArts/.agents/product-marketing.md
-acim-secular/.agents/product-marketing.md
-Investment/.agents/product-marketing.md   # only if marketing is relevant
-```
-
-Do not centralize each repo's product facts in Apex.
-
-### BMAD
-
-BMAD currently supports Hermes as a platform target, but its official installer model remains project-oriented. An upstream proposal exists for global shared installations via symlinked project discovery; that proposal is not evidence that global shared BMAD is already production-supported.
-
-Therefore v2 must distinguish:
-
-1. **BMAD method as reusable conceptual capability** — may be available to agents;
-2. **BMAD project state/assets** — remain in the project repos that actually use BMAD;
-3. **future deduplication/global-link behavior** — verify live before adopting.
-
-Do not invent a global BMAD storage scheme before the live installer/runtime proves one.
-
-## 5. Apex information interchange model
-
-The operator idea "repos report upward to Apex and useful learning spills back down" is achievable, but not by copying all data.
-
-Use four channels:
-
-### Channel A — portfolio/task state
-
-Candidate:
-
-```text
-ONE Hermes Kanban board
-  tenants per repo
-```
-
-Apex-level tasks can depend on tasks in project tenants because they remain on one board.
-
-Example:
-
-```text
-Apex task: Weekly CEO review
-  depends on:
-    ACIM launch readiness
-    Investment evidence refresh
-    MasterOfArts workshop delivery
-```
-
-### Channel B — durable cross-project summaries
-
-Apex owns concise durable rollups such as:
-
-```text
-portfolio/projects.yaml
-portfolio/current-priorities.md
-portfolio/cross-project-decisions/
-portfolio/weekly-reviews/
-```
-
-These contain pointers/status/decisions, not copies of full project KBs.
-
-### Channel C — procedural learning
-
-```text
-role-local learned skill
-   -> reviewed generalization
-   -> Apex shared skill source
-   -> distributed to applicable agents
-```
-
-This is the first recommended cross-agent learning mechanism.
-
-### Channel D — retrieval
-
-QMD can index curated collections from multiple independent repos.
-
-Apex/orchestrator can retrieve across explicitly selected collections when a portfolio question genuinely requires cross-project evidence.
-
-Example:
-
-```text
-CEO asks: What are my three biggest execution blockers?
-
-orchestrator
-  -> Kanban tenant filters
-  -> QMD query over selected control/status collections
-  -> concise synthesis
-```
-
-Do not index everything into one unscoped collection.
-
-## 6. QMD deeper explanation
-
-QMD is one local retrieval engine with many named collections.
-
-Example registry:
-
-```text
-qmd
-  +-- apex-control
-  +-- apex-current-epics
-  +-- moa-orchestration
-  +-- moa-lika
-  +-- acim-site-docs
-  +-- acim-site-code
-  +-- investment-control
-  +-- investment-research
-```
-
-A collection is a scoped corpus, not another database-of-truth.
-
-Process:
-
-```text
-repo files change
-  -> qmd update
-  -> qmd embed where required
-  -> derived index refreshes
-
-Hermes task
-  -> decides information is needed
-  -> QMD query(collections=[relevant scopes])
-  -> local retrieval/reranking
-  -> bounded passages returned
-  -> only selected passages reach remote reasoning model
-```
-
-Portfolio query:
-
-```text
-collections=[apex-control, moa-orchestration, investment-control]
-```
-
-Project query:
-
-```text
-collections=[acim-site-docs]
-```
-
-This allows cross-repo knowledge access without physically merging repos.
-
-## 7. Filesystem and CLI clients
-
-### Canonical managed workspace
-
-Current Microsoft/Docker guidance supports keeping Linux-heavy repos in the WSL filesystem for Linux tooling and bind-mounted Docker workloads.
-
-Candidate:
+Target:
 
 ```text
 ~/workspaces/
@@ -391,64 +171,263 @@ Candidate:
   Investment/
 ```
 
-Windows Explorer accesses the same files through `\\wsl.localhost\...`.
+Windows accesses the same files with `\\wsl.localhost\...`.
 
-### Codex
+Migration must reconcile Windows/WSL divergence before freezing old copies; no automatic bidirectional sync is part of v2.
 
-OpenAI's current Codex Windows documentation states the Windows sandbox is experimental and recommends WSL for the best Windows experience, especially when dependencies/tools live there.
+### V9 — Docker is still the single execution-isolation concept, but Kanban integration is gated
 
-Therefore installing/running Codex CLI in the same WSL workspace is the preferred multi-tool path.
+Official Hermes Docker backend supports a persistent hardened container and explicit workspace/env configuration.
 
-### Claude Code
+However current open upstream issues document:
 
-Claude Code supports Windows directly and also supports WSL. It does not require WSL in the same way. For this architecture, however, running Claude Code inside the same WSL environment removes cross-filesystem path translation and lets Claude, Codex, Hermes, Git, QMD and Docker operate on the same canonical files.
+- profile `terminal.cwd` overriding a Kanban workspace and broadening a mount (#73556);
+- host workspace mounted under `/workspace` while container cwd remains host path (#83856);
+- Kanban Docker worker changes/commits disappearing because task workspace was not actually host-backed (#91568).
 
-This is an architectural convenience/performance choice, not a claim that native Windows Claude Code is unsupported.
+Initial v2 therefore runs one repo/role sequentially and proves Docker mount/cwd/host persistence before background Kanban dispatch is enabled.
 
-### Antigravity
+## 3. Detailed user stories
 
-Antigravity CLI can also run in Linux/WSL, but it is not a permanent architectural dependency. The orchestration must remain usable when Antigravity quota/subscription is unavailable.
-
-## 8. Proposed portable operating experience
-
-The operator should be able to switch executor clients without changing project truth:
+### US-01 — Research Strategist works Investment
 
 ```text
-Windows Terminal / WSL
-  |
-  +-- hermes
-  +-- codex
-  +-- claude
-  +-- agy (when available)
-       |
-       +-- same ~/workspaces repositories
-       +-- same Git state
-       +-- same repository AGENTS.md
-       +-- compatible project Agent Skills where supported
+operator selects Investment
+  -> board: investment
+  -> repo: ~/workspaces/Investment
+  -> profile: research-strategist
+  -> project context: Investment AGENTS.md
+  -> QMD: investment-control, investment-evidence
+  -> Docker: exact active workspace verified
+  -> result written to Investment
+  -> task state written to investment board
 ```
 
-Hermes-only state remains Hermes-only:
+If the task discovers:
 
-- Kanban DB;
-- profile memories;
-- Hermes sessions;
-- QMD local MCP/runtime.
+```text
+"Provider X is stale"
+```
 
-Portable state remains Git/repository based:
+that is Investment project truth and stays in Investment.
 
-- AGENTS.md;
-- shared/project skill source where the client supports it;
-- project truth;
-- decisions;
-- outputs;
-- Apex portfolio registry/summaries.
+If it discovers:
 
-## 9. What is not yet proven
+```text
+"When two time-series sources disagree, compare observation date, release date and vintage before declaring contradiction"
+```
 
-- A fully automatic repo -> Apex portfolio status synchronization using only upstream Hermes primitives.
-- Automatic promotion of learned Hermes skills into a reviewed Git-based Apex shared library.
-- A single globally installed BMAD tree reused natively by every repo without project-local installation/linking.
-- Cross-profile shared raw Hermes memory without an external provider.
-- The exact final QMD collection design for Apex's very large historical corpus.
+that is a reusable research procedure candidate.
 
-These remain implementation/research gates; do not fake them with custom scripts until their value is demonstrated.
+### US-02 — same Research Strategist later works ACIM
+
+```text
+Investment execution finishes
+  -> no research-strategist process remains
+
+later:
+
+repo: ~/workspaces/acim-secular
+board: acim
+same profile: research-strategist
+QMD: acim-control, acim-site-docs
+```
+
+The role retains general research capability/learning but project authority comes from ACIM context/retrieval.
+
+### US-03 — daily portfolio overview
+
+```text
+deterministic rollup
+  -> hermes kanban --board apex list --json
+  -> hermes kanban --board masterofarts list --json
+  -> hermes kanban --board acim list --json
+  -> hermes kanban --board investment list --json
+  -> normalize only current status/ID/owner/blocker metadata
+  -> write derived Apex snapshot
+```
+
+Portfolio orchestrator reads this snapshot first. QMD control collections are queried only if deeper evidence is required.
+
+### US-04 — cross-repo dependency
+
+Investment source task cannot depend natively on an Apex-board task.
+
+Instead:
+
+```text
+Investment task
+  -> blocked: "needs Apex portfolio decision D42"
+
+Apex
+  -> one cross-repo decision/dependency object
+  -> references investment board/task ID
+  -> decision recorded durably in Apex
+
+then
+  -> explicit follow-up updates Investment source task
+```
+
+No task mirroring.
+
+### US-05 — learning spills over overnight
+
+```text
+18:00 source work completes
+  -> role-local learned skill candidate
+
+23:00 deterministic no-agent scan
+  -> detects only new/changed candidate hashes
+  -> zero model calls
+
+next review window
+  -> independent-reviewer sees changed candidates only
+  -> rejects project-specific fact
+  -> promotes generic method
+
+accepted method
+  -> Apex shared skill source
+  -> deterministic deployment
+  -> applicable roles discover it later
+```
+
+Synchronization is delayed by design.
+
+## 4. Shared-skill classes
+
+### S1 — project-specific
+
+Lives in source repo.
+
+Examples:
+
+```text
+Apex KB
+ACIM content pipeline
+Investment/IPOS-specific procedure
+MasterOfArts product context
+```
+
+### S2 — role-local learned procedure
+
+Lives with role until proven general.
+
+Examples:
+
+```text
+research-strategist/learned/source-comparison-technique
+```
+
+### S3 — shared reviewed procedure
+
+Apex becomes canonical Git source only after review.
+
+Examples:
+
+```text
+authority-first-navigation
+exact-match-patch-generation
+evidence-contradiction-review
+```
+
+Hermes supports external skill dirs and project/local/external precedence. External directories are not inherently read-only, so runtime deployment must not expose canonical Apex source to uncontrolled self-modification.
+
+## 5. Framework/domain-skill placement
+
+### BMAD
+
+```text
+repo needs BMAD -> install BMAD in that repo
+repo does not -> no BMAD
+```
+
+Current BMAD installer is project-oriented. Global install/link remains an open upstream proposal (#1728).
+
+### MarketingSkills
+
+Current v2 decision:
+
+```text
+MasterOfArts = YES
+ACIM         = NO
+Investment   = NO
+Apex         = NO
+```
+
+Do not infer global domain skills from global role names.
+
+### Apex KB
+
+Remains Apex-specific. One authoritative skill source must be established across Hermes/Claude/Codex without behavior drift.
+
+## 6. Current runtime modes
+
+### Safe Mode A — approved implementation target
+
+```text
+one active execution repo
+one reusable profile process
+explicit repo board
+explicit QMD collections
+Docker mount/cwd inspected and host persistence verified
+background all-board dispatch off
+```
+
+### Mode B — future only after tests
+
+```text
+background multi-board dispatch
++ task-scoped Docker mounts
++ concurrency safety
+```
+
+Required to re-check open Hermes issues before enabling.
+
+## 7. Token/efficiency model
+
+Multi-repo Git storage itself creates no model call.
+
+Costs come from what is loaded/retrieved:
+
+| Mechanism | Provider context/cost behavior |
+|---|---|
+| repo exists on disk | none |
+| AGENTS/project context | loaded as project context; keep concise |
+| role MEMORY/USER | recurring session-start context; keep small |
+| skill catalog | metadata only until activation |
+| full skill | on-demand |
+| QMD BM25/vector/rerank | local compute, no provider tokens |
+| returned QMD passages | may enter provider prompt |
+| deterministic rollup | zero model calls |
+| deterministic learning harvest | zero model calls |
+| semantic learning review | model call only when changed candidates exist |
+
+Efficiency therefore comes from **siloing by default and promoting/querying only what is needed**, not from physically merging repositories.
+
+## 8. What is explicitly not claimed/proven
+
+- Hermes does not natively provide an Apex-style portfolio control plane.
+- Hermes does not natively create one aggregate cross-board dependency graph.
+- Hermes does not natively promote one role's learned skill into a reviewed Git library shared by all roles.
+- BMAD does not currently have a proven production global-link model we rely on.
+- current Kanban Docker task mounts are not assumed safe merely because direct Docker works.
+- global cross-board same-profile concurrency is not assumed safe.
+- profile distributions are promising but must be acceptance-tested before becoming Apex's production delivery mechanism.
+
+## 9. Detailed authority files
+
+Use these rather than expanding this file indefinitely:
+
+- `03-MULTI-REPO-EFFICIENCY-RISKS-AND-SAFETY.md`
+- `04-KANBAN-TOPOLOGY-AND-APEX-ROLLUP.md`
+- `05-REUSABLE-PROFILES-LEARNING-AND-MEMORY.md`
+- `06-SHARED-SKILL-PROMOTION-AND-CRON.md`
+- `07-APEX-CROSS-PROJECT-EXCHANGE-CONTRACT.md`
+- `08-QMD-MULTI-REPO-RETRIEVAL.md`
+- `09-WSL-CANONICAL-WORKSPACE-MIGRATION-PLAN.md`
+- `10-BMAD-AND-DOMAIN-SKILL-POLICY.md`
+- `11-IMPLEMENTATION-ROADMAP.md`
+- `12-RISK-REGISTER.yaml`
+- `13-SOURCE-VERIFICATION-MATRIX.md`
+
+`13-SOURCE-VERIFICATION-MATRIX.md` is the claim-level evidence index and must be refreshed against current upstream versions before implementation phases that depend on rapidly changing Hermes/QMD behavior.
