@@ -1,3 +1,3 @@
-# Compounded Daily Brief — Day 4 (thu)
+# Compounded Daily Brief Day 4 (THU)
 
 Streamlined prompt packs & visual flow cards.

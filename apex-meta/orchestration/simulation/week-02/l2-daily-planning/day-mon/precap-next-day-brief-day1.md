@@ -1,3 +1,3 @@
-# Compounded Daily Brief — Day 1 (mon)
+# Compounded Daily Brief Day 1 (MON)
 
 Streamlined prompt packs & visual flow cards.

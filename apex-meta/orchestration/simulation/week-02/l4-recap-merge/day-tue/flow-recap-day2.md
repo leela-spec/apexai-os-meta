@@ -1,3 +1,3 @@
-# Flow Recap Day 2
+# Compounded Flow Recap Day 2
 
 Deltas merged cleanly.
