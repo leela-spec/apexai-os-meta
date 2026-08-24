@@ -1,0 +1,26 @@
+{
+  "mutation_id": "MUT-CANONICAL-W2-D2",
+  "timestamp": "2026-08-24T22:45:06.710250+00:00",
+  "applied_deltas": [
+    {
+      "flow": "F1",
+      "project": "MasterOfArts/LHTL",
+      "status": "ADVANCED"
+    },
+    {
+      "flow": "F2",
+      "project": "MasterOfArts/SuperHeroKids",
+      "status": "ADVANCED"
+    },
+    {
+      "flow": "F3",
+      "project": "Investment",
+      "status": "ADVANCED"
+    },
+    {
+      "flow": "F4",
+      "project": "apexai-os-meta",
+      "status": "SYNCED"
+    }
+  ]
+}

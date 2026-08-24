@@ -1,0 +1,9 @@
+candidate_id: SMC-W2-D4
+timestamp: '2026-08-24T22:45:06.714733+00:00'
+reconciled_flows:
+- F1
+- F2
+- F3
+- F4
+conflicts_detected: 0
+verdict: MERGE_READY

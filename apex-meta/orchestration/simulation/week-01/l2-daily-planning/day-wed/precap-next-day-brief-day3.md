@@ -1,13 +1,25 @@
-# PreCap Next Day Brief — Day 3 (WED)
+# PreCap Next-Day Brief — Day 3 (WED)
 
-## Day Strategy: Deep Production & Multi-Lane Advancement
-Execute the 4 concurrent flow lanes across LHTL, SuperHeroKids, IPOS expansion, and Control Plane state tracking.
+```yaml
+brief_type: precap_next_day_brief
+producer: PrecapNextDay
+simulation: APEX-E2E-SIM-2W-CANONICAL
+week: 1
+day: wed
+upstream_inputs:
+  - l0-init/projectstatus-snapshot.yaml
+  - l1-weekly-brief/weekly-command-brief.md
+gate: G2-Wed
+```
 
-### Production Flow Execution Cards (F1–F4)
-- **Card F1 (LHTL):** Extract active recall mechanics & Feynman extraction engine. Output: `lhtl_learning_os.md`, `social_posts.md`.
-- **Card F2 (SuperHeroKids & Meditation):** Package 2-Day workshop curricula & neurobiology whitepaper. Output: `superherokids_workshops.md`, `science_of_meditation.md`.
-- **Card F3 (IPOS):** Ingest 38 new candidate indicators from `registry_120.yaml` to expand active registry from 22 to 60. Output: `configs/registry.yaml`.
-- **Card F4 (Apex Control):** Verify level-by-level state ledger checksums in `simulation-state-ledger.yaml`.
+## 1. Strategy & Focus for Day 3
+Execute deep multi-lane production across MasterOfArts (LHTL & SuperHeroKids), Investment (IPOS 60-indicator coverage), and Apex Control Plane synchronization.
 
-### Operator Decision & Gate G2 Sign-Off
-Option C approved for production flow cards. Gate G2: **APPROVED**.
+| Priority | Flow Lane | Target Project | Primary Sprint Deliverable | Success Signal |
+|:---:|---|---|---|---|
+| 🥇 | **F1** | `MasterOfArts/LHTL` | 4-Pillar Active Recall & Feynman Extraction Engine | Story closed with AC evidence |
+| 🥈 | **F2** | `MasterOfArts/SuperHeroKids` | 2-Day Workshop Lesson Plans & Parent Guidebook | Complete curriculum packaged |
+| 🥉 | **F3** | `Investment` | IPOS 60-Indicator Expansion & Pandera Schemas | 100% QA Test Pass |
+| 4️⃣ | **F4** | `apexai-os-meta` | Level-by-Level State Ledger Tracking & Session Mutation | Checksums verified on disk |
+
+FreeT Allocation: AM 09:00–12:00 -> F1 & F4 · PM 14:00–17:00 -> F2, F3, F4.
