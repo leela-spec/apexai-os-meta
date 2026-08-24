@@ -1,64 +1,25 @@
 # Hermes Multi-Repo Orchestration v2
 
-Status: **RESEARCH / OPERATOR DECISIONS REQUIRED / NO MIGRATION AUTHORIZED**  
+Status: **RESEARCH VERIFIED / D02 OPERATOR DECISION REMAINS / IMPLEMENTATION NOT AUTHORIZED**  
 Created: 2026-08-24  
+Last research update: 2026-08-24  
 Control repository: `leela-spec/apexai-os-meta`  
 Branch: `main`
 
 ## Objective
 
-Evolve the proven MasterOfArts Hermes pilot into one machine-level operating system for multiple repositories without cloning the pilot architecture per repository.
+Evolve the proven MasterOfArts Hermes pilot into one machine-level operating system for multiple repositories without cloning the pilot architecture per repository and without turning Apex into a mirror of every project.
 
 Initial repository estate:
 
 | Repository | Default branch | Role in v2 |
 |---|---|---|
-| `leela-spec/apexai-os-meta` | `main` | Durable portfolio/control-plane repository and one managed project |
-| `leela-spec/MasterOfArts` | `main` | Managed project/repository; source of proven Hermes pilot evidence |
-| `leela-spec/acim-secular` | `master` | Managed project/repository |
-| `leela-spec/Investment` | `main` | Managed project/repository |
+| `leela-spec/apexai-os-meta` | `main` | Durable portfolio/control-plane repository and managed project |
+| `leela-spec/MasterOfArts` | `main` | Managed project; source of proven Hermes pilot evidence |
+| `leela-spec/acim-secular` | `master` | Managed project |
+| `leela-spec/Investment` | `main` | Managed project |
 
-## Verified architectural boundary
-
-Apex AIOS Meta may become the **durable control plane**, but it must not become a copied mirror of every other repository or of Hermes runtime state.
-
-### Apex should own
-
-- portfolio/repository registry;
-- orchestration architecture and ADRs;
-- approved role/profile specifications;
-- reviewed shared-skill source and promotion policy;
-- cross-repository operating policy;
-- durable portfolio decisions and cross-project summaries;
-- migration manifests and implementation evidence for the orchestration layer;
-- future-development backlog.
-
-### Each managed repository should continue to own
-
-- its actual source files and deliverables;
-- repo/family/project `AGENTS.md` context and authority pointers;
-- repo-specific facts, evidence, decisions and outputs;
-- repo-specific Agent Skills and product context where required;
-- its Git history and native default branch.
-
-### Hermes local runtime should continue to own
-
-- profile-local memory and sessions;
-- credentials;
-- Hermes local/learned skills;
-- Kanban SQLite task state;
-- runtime logs/checkpoints/sandbox state.
-
-### QMD local runtime should continue to own
-
-- its collection registry/configuration;
-- derived search index;
-- local embeddings/reranking models;
-- rebuildable retrieval state.
-
-The control repository may record the intended configuration and durable decisions, but must not copy runtime databases, credentials, raw profile memory, or QMD indexes into Git.
-
-## Current recommended candidate architecture
+## Current verified target
 
 ```text
 WINDOWS USER ENVIRONMENT
@@ -72,81 +33,228 @@ WINDOWS USER ENVIRONMENT
       |   +-- Investment/
       |
       +-- ONE Hermes installation
-      |   +-- portfolio/orchestrator profile
-      |   +-- research-strategist profile
-      |   +-- marketing-executive profile
-      |   +-- workshop-designer profile
-      |   +-- independent-reviewer profile
-      |
-      +-- ONE Hermes Kanban portfolio board (candidate)
-      |   +-- tenant: apex
-      |   +-- tenant: masterofarts
-      |   +-- tenant: acim
-      |   +-- tenant: investment
+      |   +-- reusable role profiles
+      |   |   +-- portfolio-orchestrator
+      |   |   +-- research-strategist
+      |   |   +-- independent-reviewer
+      |   |   +-- workshop-designer where useful
+      |   |   +-- marketing-executive where useful
+      |   |
+      |   +-- SEPARATE repo Kanban boards (recommended D02)
+      |       +-- apex
+      |       +-- masterofarts
+      |       +-- acim
+      |       +-- investment
       |
       +-- ONE local QMD installation
-      |   +-- scoped collections across the four repos
+      |   +-- profile-specific MCP declarations for roles that need retrieval
+      |   +-- curated named collections per repo
       |
-      +-- ONE Docker execution boundary
-          +-- only explicitly authorized workspace root mounted
+      +-- Docker execution boundary
+      |   +-- exact task/repo workspace must be proven host-backed and bounded
+      |
+      +-- delayed deterministic portfolio/learning jobs
+          +-- source boards -> read-only Apex rollup
+          +-- local learned skills -> candidate scan -> review -> shared skill
 ```
 
-Profiles represent durable **roles/agents**. Repositories represent **workspaces and project truth**. Tenants represent candidate per-repository Kanban namespaces inside one portfolio board.
+## Core ownership law
 
-## Why the Kanban topology is still a human decision
+### Apex owns durable portfolio/control-plane state
 
-Current Hermes supports both:
+- repository/project registry;
+- orchestration architecture and ADRs;
+- reviewed role/profile specifications;
+- shared-skill promotion policy and accepted generic procedures;
+- cross-repository operating/safety policy;
+- cross-project decisions/dependency objects;
+- derived portfolio snapshots and health/freshness metadata;
+- migration manifests and orchestration implementation evidence;
+- future-development backlog.
 
-1. many separate boards, including one per repo/domain; and
-2. tenant namespaces inside a board.
+### Each source repo owns its project truth
 
-However, Hermes explicitly forbids task links across separate boards. Therefore the naive topology "one board per repo plus one Apex aggregate board" does **not** provide a native single dependency graph. It would require manual duplicate summary tasks or a synchronization layer.
+- source files/deliverables;
+- repo/project `AGENTS.md` context and authority pointers;
+- project facts/evidence/decisions/outputs;
+- project-specific Agent Skills;
+- BMAD/project framework state where used;
+- native Git history/default branch.
 
-The current candidate is therefore one portfolio board with one tenant per repo, because it preserves one durable task graph while allowing tenant filters. This must still be acceptance-tested with real cross-repository tasks before being locked.
+### Hermes local runtime owns
 
-## Non-negotiables
+- profile-local memory and sessions;
+- credentials;
+- local/learned skills before promotion;
+- per-board Kanban SQLite state;
+- runtime logs/checkpoints/sandbox state;
+- per-profile MCP/config state.
 
-- Do not move/copy the project contents of managed repos into Apex merely to make them visible to Apex.
-- Do not create one Hermes profile per repo; profiles are agent-state boundaries, not project boundaries.
-- Do not share one Hermes profile concurrently across multiple worker processes.
-- Do not put profile memories/sessions/API keys in Git.
-- Do not invent a custom cross-board synchronizer merely to preserve the phrase "one board per repo".
-- Do not add an external memory service until built-in profile memory + shared reviewed skills are shown insufficient.
-- Do not index giant repositories wholesale in QMD without authority/collection design and retrieval benchmarks.
-- Do not maintain duplicate Windows and WSL live checkouts as parallel sources of truth.
+### QMD local runtime owns
 
-## Current verified upstream evidence
+- collection registry/config;
+- derived indexes/vectors;
+- local models;
+- rebuildable retrieval state.
 
-- Hermes profiles: https://hermes-agent.nousresearch.com/docs/user-guide/profiles
-- Hermes Kanban / boards / tenants: https://hermes-agent.nousresearch.com/docs/user-guide/features/kanban
-- Hermes skills / external dirs / project skills: https://hermes-agent.nousresearch.com/docs/user-guide/features/skills/
-- Hermes built-in memory: https://hermes-agent.nousresearch.com/docs/user-guide/features/memory/
-- Hermes external memory providers: https://hermes-agent.nousresearch.com/docs/user-guide/features/memory-providers/
-- Hermes profile distributions: https://hermes-agent.nousresearch.com/docs/user-guide/profile-distributions
-- QMD: https://github.com/tobi/qmd
-- Claude Code setup: https://code.claude.com/docs/en/setup
-- Codex Windows/WSL: https://developers.openai.com/codex/windows
-- BMAD platform mappings: https://github.com/bmad-code-org/BMAD-METHOD/blob/main/tools/installer/ide/platform-codes.yaml
-- BMAD global-link proposal/open issue: https://github.com/bmad-code-org/BMAD-METHOD/issues/1728
-- MarketingSkills: https://github.com/coreyhaines31/marketingskills
+Apex may record desired state and health metadata. It must not copy runtime DBs, credentials, raw profile memory, sessions or QMD indexes into Git.
+
+## Major research correction — D02 Kanban
+
+The original candidate `one board + repo tenants` is superseded.
+
+Current Hermes evidence shows:
+
+1. boards are the hard isolation boundary with separate DB/workspaces/logs;
+2. tenants are soft namespaces;
+3. cross-board dependency links are intentionally forbidden;
+4. open issue #85497 reports tenant memory namespacing described by documentation is not actually implemented;
+5. open issue #78122 reports concurrency limits can multiply per board rather than protect the gateway globally.
+
+Therefore the current **recommended** D02 is:
+
+```text
+one board per repo
++ no background multi-board dispatch initially
++ asynchronous deterministic read-only Apex rollup
++ explicit Apex cross-repo dependency/decision objects
+```
+
+D02 remains the only primary architecture choice awaiting explicit operator acceptance.
+
+## Verified learning model
+
+```text
+PROJECT FACT
+  -> source repo / source board / QMD
+
+ROLE-LOCAL LEARNING
+  -> small profile MEMORY when truly session-global
+  OR role-local learned skill for procedure
+
+CROSS-REPO/CROSS-ROLE PROCEDURE
+  -> deterministic candidate harvest later
+  -> independent review/generalization
+  -> accepted shared Agent Skill in Apex
+  -> controlled runtime deployment
+```
+
+Raw `MEMORY.md` is never synchronized between repos/profiles.
+
+Same role may work multiple repos **sequentially**. Do not concurrently run independent workers against the same writable profile state.
+
+## Verified QMD model
+
+One QMD engine can index absolute paths from all managed repos. Collection scoping is name-based and works from any current directory.
+
+A role working only in `Investment` can therefore use:
+
+```text
+QMD MCP configured in that Hermes profile
+collections=[investment-control, investment-evidence]
+```
+
+without opening Apex.
+
+Important: Hermes profiles isolate their config/MCP connections, so every profile that should use QMD needs the QMD MCP declaration. A future tested profile distribution may carry this shared declaration without distributing memory/session/auth.
+
+## Domain-framework policy
+
+### BMAD
+
+Project-local wherever actually used. Current BMAD installer is project-oriented; global link/install remains an upstream proposal (#1728), not a production capability to assume.
+
+### MarketingSkills
+
+MasterOfArts only for now. Do not globalize MarketingSkills or install it in ACIM/Investment/Apex without a real future need.
+
+### Apex KB
+
+Apex-specific. Current Apex root instructions point to `.claude/skills/apex-kb/`; Hermes project skill paths differ. The v2 implementation must establish one authoritative source with verified adapters/re-homing rather than duplicate divergent copies.
+
+### Generic shared skills
+
+Only reviewed project-neutral procedures belong in the Apex shared-skill layer.
+
+## Safety/runtime constraint
+
+Current upstream Hermes issues show task-scoped Kanban Docker workspaces can be mis-mounted, non-host-backed or overridden by a profile cwd in some configurations.
+
+Initial v2 therefore uses **safe sequential execution mode**:
+
+```text
+select one repo
+-> select explicit board/project
+-> launch reusable role from canonical repo/workspace
+-> verify Docker effective mount/cwd
+-> explicit QMD collections
+-> execute
+-> verify host-side artifact/commit
+-> update source board
+-> later roll up to Apex
+```
+
+Background Kanban dispatch becomes a later gate only after the installed Hermes version proves task-scoped host persistence, mount isolation and machine-wide profile concurrency behavior.
 
 ## Files in this epic
 
-- `01-VERIFIED-ARCHITECTURE.md` — evidence-backed architecture, user stories and process flows.
-- `02-MASTEROFARTS-SOURCE-MIGRATION-MANIFEST.md` — exact MasterOfArts source material another AI must preserve/re-home later.
-- `FUTURE-DEVELOPMENT.md` — explicitly deferred ideas, including external memory.
-- `state.yaml` — machine-readable decisions/open gates.
+1. `epic.md` — current authority/index.
+2. `01-VERIFIED-ARCHITECTURE.md` — concise current architecture/user stories.
+3. `02-MASTEROFARTS-SOURCE-MIGRATION-MANIFEST.md` — pilot provenance to preserve/re-home.
+4. `03-MULTI-REPO-EFFICIENCY-RISKS-AND-SAFETY.md` — cost/complexity and safety analysis.
+5. `04-KANBAN-TOPOLOGY-AND-APEX-ROLLUP.md` — D02 option analysis and recommended separate-board rollup.
+6. `05-REUSABLE-PROFILES-LEARNING-AND-MEMORY.md` — D03/D04 profile/memory/concurrency model.
+7. `06-SHARED-SKILL-PROMOTION-AND-CRON.md` — delayed reviewed learning spillover.
+8. `07-APEX-CROSS-PROJECT-EXCHANGE-CONTRACT.md` — exact information buses/owners.
+9. `08-QMD-MULTI-REPO-RETRIEVAL.md` — one-engine/per-profile MCP/scoped retrieval design.
+10. `09-WSL-CANONICAL-WORKSPACE-MIGRATION-PLAN.md` — D07 data-safe filesystem migration.
+11. `10-BMAD-AND-DOMAIN-SKILL-POLICY.md` — framework/domain skill placement.
+12. `11-IMPLEMENTATION-ROADMAP.md` — phased executor plan and acceptance gates.
+13. `12-RISK-REGISTER.yaml` — machine-readable risk controls/watch conditions.
+14. `13-SOURCE-VERIFICATION-MATRIX.md` — claim-by-claim upstream verification.
+15. `FUTURE-DEVELOPMENT.md` — deferred architecture including external shared memory.
+16. `state.yaml` — machine-readable current decisions.
 
-## Operator decision gates
+## Current operator decisions
 
-- **D01 — Apex ownership:** Accept Apex as durable portfolio/control-plane repo while project truth remains in the source repos.
-- **D02 — Kanban:** Select one portfolio board + repo tenants (recommended candidate) versus isolated boards + explicitly accepted lack of native aggregate dependency graph.
-- **D03 — Profiles:** Accept durable role profiles reused across repos rather than repo-specific profile copies.
-- **D04 — Learning:** Accept role-local raw memory plus reviewed shared-skill promotion as the initial spillover mechanism.
-- **D05 — Shared skills:** Decide the first shared-skill source and promotion workflow in Apex after a live multi-repo test.
-- **D06 — BMAD:** Decide which repos actually need full BMAD project state; do not assume one global `_bmad` installation is available today.
-- **D07 — WSL workspace:** Converge managed repos to one canonical WSL workspace root while Windows accesses those same files through `\\wsl.localhost`.
-- **D08 — QMD:** Accept one local QMD installation with curated cross-repo collections and explicit retrieval scopes.
-- **D09 — External memory:** Keep external memory deferred until a measured cross-profile memory gap exists.
+- **D01 — Apex control plane:** accepted. Apex owns portfolio/orchestration state; project truth stays in source repos.
+- **D02 — Kanban topology:** **decision pending**. Current verified recommendation = separate repo boards + asynchronous Apex rollup.
+- **D03 — Reusable role profiles:** accepted with constraint: sequential same-profile use until global concurrency is proven safe.
+- **D04 — Learning spillover:** accepted with constraint: raw memory stays local; reviewed generalized procedures spill over as skills.
+- **D05 — Shared skill source:** accepted direction; Apex becomes reviewed canonical source only after promotion/deployment pilot.
+- **D06 — BMAD/domain skills:** accepted: BMAD per repo where needed; MarketingSkills MasterOfArts-only now.
+- **D07 — WSL workspace:** research verified/accepted direction; migration requires per-repo divergence audit and is not yet authorized.
+- **D08 — QMD:** research verified/accepted direction: one engine, curated named collections, QMD MCP configured only for intended profiles; live multi-profile acceptance pending.
+- **D09 — External memory:** deferred until a measured cross-profile memory gap exists.
 
-No repo migration, deletion, runtime reconfiguration, or source-file movement is authorized by creating this epic.
+## Current upstream evidence
+
+Primary source map and issue evidence are maintained in `13-SOURCE-VERIFICATION-MATRIX.md` and `12-RISK-REGISTER.yaml`.
+
+Key current sources:
+
+- Hermes Kanban: https://hermes-agent.nousresearch.com/docs/user-guide/features/kanban
+- Hermes Profiles: https://hermes-agent.nousresearch.com/docs/user-guide/profiles
+- Hermes Profile Distributions: https://hermes-agent.nousresearch.com/docs/user-guide/profile-distributions
+- Hermes Skills: https://hermes-agent.nousresearch.com/docs/user-guide/features/skills/
+- Hermes QMD: https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/research/research-qmd
+- QMD: https://github.com/tobi/qmd
+- Agent Skills: https://agentskills.io/specification
+- Microsoft WSL filesystems: https://learn.microsoft.com/en-us/windows/wsl/filesystems
+- Microsoft WSL interop: https://learn.microsoft.com/en-us/windows/dev-environment/wsl-interop
+- Docker WSL development: https://docs.docker.com/desktop/features/wsl/use-wsl/
+- BMAD install: https://github.com/bmad-code-org/BMAD-METHOD/blob/main/docs/how-to/install-bmad.md
+- MarketingSkills: https://github.com/coreyhaines31/marketingskills/blob/main/README.md
+
+## Implementation status
+
+```text
+research: substantially complete
+D02 human architecture gate: OPEN
+runtime migration: NOT AUTHORIZED
+repo file movement: NOT AUTHORIZED
+background multi-board dispatch: NOT APPROVED
+external memory: DEFERRED
+```
+
+No repo migration, deletion, runtime reconfiguration, source-file movement or scheduler installation is authorized by these research files.
