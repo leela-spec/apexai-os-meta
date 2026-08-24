@@ -122,11 +122,22 @@ meaningful_drift
 phase_consequence
 ```
 
-Do not hard-code the MasterOfArts Antigravity baseline (`agy 1.1.19`) as current truth. Recheck Antigravity itself at P00.
+Do not hard-code the MasterOfArts Antigravity baseline (`agy 1.1.19`) as current truth. Recheck Antigravity.
 
 ## 5. Context-management protocol
 
-One major phase = one Antigravity execution context.
+Keep one **primary Antigravity conversation as the thin program coordinator** across the implementation run while it remains healthy. Do not restart the primary conversation merely because a phase ended.
+
+The coordinator owns only:
+
+- the current roadmap position;
+- `implementation-state.yaml`;
+- active blockers and operator gates;
+- delegation of the next bounded task;
+- acceptance of returned evidence;
+- the decision to advance, retry once with evidence, or block.
+
+Do not make the coordinator ingest deep research, large logs, repository-wide dumps, or full subagent transcripts. Detailed work belongs in fresh bounded subagent contexts or targeted tool calls and returns as concise evidence plus file/path references.
 
 At the first authorized implementation mutation, create:
 
@@ -171,46 +182,50 @@ It contains only:
 - unresolved blocker if any;
 - final phase verdict.
 
-Do not paste giant terminal logs into context. Save large logs separately only when necessary and cite the exact relevant excerpt/path.
+Do not paste giant terminal logs into the coordinator context. Save large logs separately only when necessary and cite the exact relevant excerpt/path.
 
 At phase end:
 
 1. update implementation state;
 2. write evidence;
 3. verify Git diff is phase-scoped;
-4. summarize in <=15 lines;
-5. end the context.
+4. return a concise result to the coordinator;
+5. let the coordinator advance to the next phase without reloading completed phase detail.
 
-Next context loads only:
+For each new phase, load only:
 
 - this v2 plan;
-- implementation state;
-- previous phase summary/evidence;
-- authority files required by the next phase.
+- current implementation state;
+- the authority/source files actually required by that phase.
+
+Use Antigravity's `/context` view to notice context pressure. If the primary conversation becomes materially degraded, repetitive, or confused, persist state first and resume from the durable state in a fresh coordinator conversation. A context reset is recovery, not the normal phase boundary.
 
 ## 6. Main-agent / subagent policy
 
-Main Antigravity agent:
+The primary Antigravity agent is the **coordinator**. It keeps the high-level plan and durable state, delegates bounded work, reviews returned evidence, and decides whether a phase passes.
 
-- owns phase state;
-- performs mutations;
-- performs final phase verification;
-- writes the checkpoint/evidence.
+Use fresh subagents when they reduce coordinator context or provide valuable independent verification. Do not spawn them by default for trivial deterministic steps.
 
-Optional subagents:
+A delegated task must be narrow enough to state in a short contract containing:
 
-- maximum two per phase;
-- read-only research or independent verification only;
-- never concurrently edit/install/configure;
-- never make architecture decisions;
-- never hold independent authoritative state.
+- goal;
+- allowed workspace/files;
+- required source(s);
+- whether mutation is allowed;
+- acceptance check;
+- expected concise return.
 
-Preferred when useful:
+Subagent rules:
 
-1. one current-source researcher;
-2. one independent verifier.
+- each starts from the minimum task-specific context, not the parent transcript;
+- return conclusions, evidence paths, changed paths, tests, and blockers rather than a narrative transcript;
+- read-only research/verification tasks may run in parallel when independent;
+- writable tasks against the canonical checkout run one at a time and must not overlap on shared files or runtime state;
+- a writable subagent may execute a bounded phase task, but the coordinator remains the authority for phase acceptance and state advancement;
+- subagents do not redesign architecture or create independent authoritative state;
+- do not create a permanent custom-agent hierarchy merely for this implementation run.
 
-If subagents are unreliable, continue sequentially in the main agent. Do not debug the subagent framework inside this program.
+At P00, probe the installed Antigravity version's current subagent behavior before depending on it. If subagents are unavailable or unreliable, execute the same bounded task sequentially in the primary agent; do not stop the Hermes implementation to debug Antigravity orchestration internals.
 
 ## 7. Git law
 
