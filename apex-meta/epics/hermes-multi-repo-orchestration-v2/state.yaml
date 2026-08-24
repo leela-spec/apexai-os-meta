@@ -4,12 +4,15 @@ repository: leela-spec/apexai-os-meta
 branch: main
 created: 2026-08-24
 last_updated: 2026-08-24
-status: research_verified_D02_operator_gate_remaining
+status: architecture_decisions_D01_D10_recorded_implementation_not_authorized
 implementation_authorized: false
 migration_authorized: false
 background_multi_board_dispatch_authorized: false
 
-entrypoint: apex-meta/epics/hermes-multi-repo-orchestration-v2/epic.md
+entrypoint: apex-meta/epics/hermes-multi-repo-orchestration-v2/README.md
+decision_ledger: apex-meta/epics/hermes-multi-repo-orchestration-v2/DECISIONS.md
+decision_appendices_root: apex-meta/epics/hermes-multi-repo-orchestration-v2/decisions
+incidents_root: apex-meta/epics/hermes-multi-repo-orchestration-v2/incidents
 architecture: apex-meta/epics/hermes-multi-repo-orchestration-v2/01-VERIFIED-ARCHITECTURE.md
 implementation_roadmap: apex-meta/epics/hermes-multi-repo-orchestration-v2/11-IMPLEMENTATION-ROADMAP.md
 risk_register: apex-meta/epics/hermes-multi-repo-orchestration-v2/12-RISK-REGISTER.yaml
@@ -67,7 +70,7 @@ runtime_target:
   autonomous_multi_board_mode: gated_future_option
 
 kanban_recommendation:
-  status: operator_decision_required
+  status: accepted_2026_08_24
   previous_candidate: one_board_with_repo_tenants
   previous_candidate_status: superseded_by_current_research
   recommended_topology: separate_board_per_repo_plus_async_apex_rollup
@@ -292,8 +295,8 @@ operator_decisions:
     status: accepted_2026_08_24
     decision: Apex_control_plane_project_truth_stays_source_repos
   D02_kanban_topology:
-    status: operator_decision_required_after_research_revision
-    recommendation: separate_repo_boards_plus_async_read_only_Apex_rollup
+    status: accepted_2026_08_24
+    decision: separate_repo_boards_plus_async_deterministic_read_only_Apex_rollup
   D03_role_profiles:
     status: accepted_with_constraints_2026_08_24
     decision: reusable_role_profiles_sequential_across_repos
@@ -315,9 +318,14 @@ operator_decisions:
   D09_external_memory:
     status: deferred_accepted_2026_08_24
     decision: no_external_memory_until_measured_gap
+  D10_background_multi_board_autonomy:
+    status: deferred_safety_gate_2026_08_24
+    decision: no_unattended_concurrent_multi_board_execution_until_installed_version_passes_workspace_persistence_mount_scope_and_profile_concurrency_acceptance
+    appendix: apex-meta/epics/hermes-multi-repo-orchestration-v2/decisions/D10-BACKGROUND-MULTI-BOARD-AUTONOMY.md
+    incident: apex-meta/epics/hermes-multi-repo-orchestration-v2/incidents/INC-001-HERMES-KANBAN-DOCKER-WORKSPACE-CONCURRENCY.md
 
 next_action:
   owner: human_operator
-  gate: D02
-  instruction: decide_separate_repo_boards_plus_async_Apex_rollup_before_runtime_reconfiguration
-  after_acceptance: execute_11_IMPLEMENTATION_ROADMAP_phase_by_phase
+  gate: implementation_authorization
+  instruction: review_README_DECISIONS_appendices_and_authorize_11_IMPLEMENTATION_ROADMAP_only_when_ready
+  D10_constraint: background_multi_board_execution_remains_forbidden_until_D10_acceptance_tests_pass

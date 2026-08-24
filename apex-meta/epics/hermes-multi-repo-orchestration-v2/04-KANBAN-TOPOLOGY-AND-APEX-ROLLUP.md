@@ -1,6 +1,6 @@
 # 04 — Kanban Topology and Apex Portfolio Rollup
 
-Status: **D02 RESEARCH REVISED / RECOMMENDATION READY**  
+Status: **D02 ACCEPTED 2026-08-24 / IMPLEMENTATION NOT AUTHORIZED**  
 Date: 2026-08-24
 
 ## Decision-changing finding

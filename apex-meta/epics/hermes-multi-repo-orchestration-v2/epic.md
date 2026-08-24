@@ -1,6 +1,6 @@
 # Hermes Multi-Repo Orchestration v2
 
-Status: **RESEARCH VERIFIED / D02 OPERATOR DECISION REMAINS / IMPLEMENTATION NOT AUTHORIZED**  
+Status: **ARCHITECTURE DECISIONS D01-D10 RECORDED / IMPLEMENTATION NOT AUTHORIZED**  
 Created: 2026-08-24  
 Last research update: 2026-08-24  
 Control repository: `leela-spec/apexai-os-meta`  
@@ -40,7 +40,7 @@ WINDOWS USER ENVIRONMENT
       |   |   +-- workshop-designer where useful
       |   |   +-- marketing-executive where useful
       |   |
-      |   +-- SEPARATE repo Kanban boards (recommended D02)
+      |   +-- SEPARATE repo Kanban boards (accepted D02)
       |       +-- apex
       |       +-- masterofarts
       |       +-- acim
@@ -120,7 +120,7 @@ one board per repo
 + explicit Apex cross-repo dependency/decision objects
 ```
 
-D02 remains the only primary architecture choice awaiting explicit operator acceptance.
+D02 was explicitly accepted by the operator on 2026-08-24. The selected topology is separate repo boards plus asynchronous deterministic read-only Apex rollup.
 
 ## Verified learning model
 
@@ -198,9 +198,13 @@ Background Kanban dispatch becomes a later gate only after the installed Hermes 
 
 ## Files in this epic
 
-1. `epic.md` — current authority/index.
-2. `01-VERIFIED-ARCHITECTURE.md` — concise current architecture/user stories.
-3. `02-MASTEROFARTS-SOURCE-MIGRATION-MANIFEST.md` — pilot provenance to preserve/re-home.
+1. `README.md` — human/agent entrypoint, authority order and complete index.
+2. `DECISIONS.md` — compact D01-D10 decision ledger.
+3. `decisions/` — one reasoning/risk/forces/shortcomings appendix per decision.
+4. `incidents/` — separately maintained upstream/runtime incident evidence linked from decisions.
+5. `epic.md` — project overview and architecture summary.
+6. `01-VERIFIED-ARCHITECTURE.md` — concise current architecture/user stories.
+7. `02-MASTEROFARTS-SOURCE-MIGRATION-MANIFEST.md` — pilot provenance to preserve/re-home.
 4. `03-MULTI-REPO-EFFICIENCY-RISKS-AND-SAFETY.md` — cost/complexity and safety analysis.
 5. `04-KANBAN-TOPOLOGY-AND-APEX-ROLLUP.md` — D02 option analysis and recommended separate-board rollup.
 6. `05-REUSABLE-PROFILES-LEARNING-AND-MEMORY.md` — D03/D04 profile/memory/concurrency model.
@@ -218,7 +222,7 @@ Background Kanban dispatch becomes a later gate only after the installed Hermes 
 ## Current operator decisions
 
 - **D01 — Apex control plane:** accepted. Apex owns portfolio/orchestration state; project truth stays in source repos.
-- **D02 — Kanban topology:** **decision pending**. Current verified recommendation = separate repo boards + asynchronous Apex rollup.
+- **D02 — Kanban topology:** accepted 2026-08-24. Separate repo boards + asynchronous deterministic read-only Apex rollup.
 - **D03 — Reusable role profiles:** accepted with constraint: sequential same-profile use until global concurrency is proven safe.
 - **D04 — Learning spillover:** accepted with constraint: raw memory stays local; reviewed generalized procedures spill over as skills.
 - **D05 — Shared skill source:** accepted direction; Apex becomes reviewed canonical source only after promotion/deployment pilot.
@@ -226,6 +230,9 @@ Background Kanban dispatch becomes a later gate only after the installed Hermes 
 - **D07 — WSL workspace:** research verified/accepted direction; migration requires per-repo divergence audit and is not yet authorized.
 - **D08 — QMD:** research verified/accepted direction: one engine, curated named collections, QMD MCP configured only for intended profiles; live multi-profile acceptance pending.
 - **D09 — External memory:** deferred until a measured cross-profile memory gap exists.
+- **D10 — Background multi-board autonomy:** deferred safety gate. Do not enable unattended concurrent execution across repo boards until the acceptance tests in `decisions/D10-BACKGROUND-MULTI-BOARD-AUTONOMY.md` pass against the installed Hermes version. Incident evidence: `incidents/INC-001-HERMES-KANBAN-DOCKER-WORKSPACE-CONCURRENCY.md`.
+
+See `DECISIONS.md` for the compact authoritative decision ledger and `decisions/` for the separate reasoning appendices.
 
 ## Current upstream evidence
 
@@ -250,7 +257,7 @@ Key current sources:
 
 ```text
 research: substantially complete
-D02 human architecture gate: OPEN
+D01-D10 architecture decisions: RECORDED
 runtime migration: NOT AUTHORIZED
 repo file movement: NOT AUTHORIZED
 background multi-board dispatch: NOT APPROVED

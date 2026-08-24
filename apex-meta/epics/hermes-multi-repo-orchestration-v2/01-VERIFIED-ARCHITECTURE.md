@@ -1,6 +1,6 @@
 # 01 — Verified Architecture — Hermes Multi-Repo Orchestration v2
 
-Status: **RESEARCH VERIFIED / D02 OPERATOR DECISION REMAINS / IMPLEMENTATION NOT AUTHORIZED**  
+Status: **RESEARCH VERIFIED / D02 ACCEPTED / IMPLEMENTATION NOT AUTHORIZED**  
 Date: 2026-08-24
 
 ## 1. Current architecture in one view
@@ -16,7 +16,7 @@ Apex AIOS Meta = durable portfolio/control plane
 |
 +-- One machine-level Hermes runtime in WSL2
 |   +-- reusable role profiles, used sequentially across repos
-|   +-- separate repo Kanban boards (current D02 recommendation)
+|   +-- separate repo Kanban boards (accepted D02)
 |   +-- no automatic all-board dispatcher initially
 |
 +-- One local QMD engine
@@ -72,13 +72,13 @@ Git history
 
 Do not put this corpus in reusable role MEMORY.
 
-### V4 — separate repo boards are now recommended
+### V4 — separate repo boards are accepted
 
 Current Hermes docs describe boards as the hard isolation boundary: separate DB, workspaces and logs; spawned workers are pinned to their board; cross-board links are forbidden.
 
 Tenants are soft namespaces. Open issue #85497 reports the documented tenant memory namespace is not implemented and memory can pollute across tenants.
 
-Therefore current recommendation:
+Therefore accepted D02 topology:
 
 ```text
 board=apex
@@ -89,7 +89,7 @@ board=investment
 
 Apex obtains portfolio visibility through an **asynchronous deterministic read-only rollup**, not a second live task database.
 
-D02 remains a human gate because this trades native cross-project dependency links for stronger project isolation.
+The operator accepted this trade on 2026-08-24: stronger repo/project isolation plus asynchronous Apex references/rollup is preferred over one tenant-shared board.
 
 ### V5 — Apex is control plane, not warehouse
 
