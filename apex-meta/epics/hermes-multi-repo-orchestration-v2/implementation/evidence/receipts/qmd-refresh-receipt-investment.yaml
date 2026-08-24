@@ -2,11 +2,11 @@ schema_version: 1
 collection: investment
 source_repo: leela-spec/Investment
 source_branch: main
-source_head_sha: 69bc6c0ce19c7a34c4dd4242efffcc49c77417b0
+source_head_sha: 0192b7eb2443204355ce7a0df8c041d4da8c3a8a
 qmd_version: 2.8.3 (facd35e)
-refresh_completed_at: '2026-08-24T19:01:25Z'
+refresh_completed_at: '2026-08-24T22:50:35Z'
 qmd_update: pass
 embedding_state: current
 collection_status: healthy
-documents_indexed: 79
-vectors_embedded: 442
+documents_indexed: 84
+vectors_embedded: 448

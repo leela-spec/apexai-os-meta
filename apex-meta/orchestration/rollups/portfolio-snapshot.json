@@ -1,14 +1,14 @@
 {
   "schema_version": 1,
   "program": "hermes_multi_repo_orchestration_v2",
-  "generated_at": "2026-08-24T17:36:32.531721+00:00",
+  "generated_at": "2026-08-24T20:50:42.968944+00:00",
   "status": "PASS",
   "repositories": {
     "apex": {
       "name": "Apex AIOS Meta",
       "repo": "leela-spec/apexai-os-meta",
       "branch": "main",
-      "head": "03d940fc0b4f521f829ed8716c57debfbb0851be",
+      "head": "81c98147ce8977758aad56c3659c74c7f5a77ec4",
       "board": "apex",
       "active_tasks_count": 1,
       "tasks": [
@@ -65,7 +65,7 @@
       "name": "Investment",
       "repo": "leela-spec/Investment",
       "branch": "main",
-      "head": "69bc6c0ce19c7a34c4dd4242efffcc49c77417b0",
+      "head": "40dc442f26e3c2bb24305e876ecd4ec1328d989b",
       "board": "investment",
       "active_tasks_count": 1,
       "tasks": [
