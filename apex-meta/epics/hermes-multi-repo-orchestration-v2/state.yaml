@@ -1,0 +1,131 @@
+schema_version: 1
+program: hermes_multi_repo_orchestration_v2
+repository: leela-spec/apexai-os-meta
+branch: main
+created: 2026-08-24
+status: operator_decisions_required
+implementation_authorized: false
+migration_authorized: false
+
+control_plane:
+  repository: leela-spec/apexai-os-meta
+  role: durable_portfolio_orchestration_control_plane
+  project_content_warehouse: false
+  runtime_state_store: false
+
+managed_repositories:
+  apex:
+    repository: leela-spec/apexai-os-meta
+    default_branch: main
+    tenant_candidate: apex
+  masterofarts:
+    repository: leela-spec/MasterOfArts
+    default_branch: main
+    tenant_candidate: masterofarts
+  acim:
+    repository: leela-spec/acim-secular
+    default_branch: master
+    tenant_candidate: acim
+  investment:
+    repository: leela-spec/Investment
+    default_branch: main
+    tenant_candidate: investment
+
+runtime_candidate:
+  canonical_workspace_root: ~/workspaces
+  one_hermes_installation: true
+  one_qmd_installation: true
+  one_docker_execution_boundary: true
+  duplicate_live_windows_wsl_checkouts: false
+
+profiles_candidate:
+  model: durable_roles_reused_across_repositories
+  profiles:
+    - portfolio_orchestrator
+    - research_strategist
+    - marketing_executive
+    - workshop_designer
+    - independent_reviewer
+  repo_specific_profile_copies: false
+  concurrent_use_same_profile_state: forbidden
+
+kanban_candidate:
+  topology: one_portfolio_board_with_repo_tenants
+  reason: separate_boards_cannot_native_link_across_boards
+  tenants:
+    - apex
+    - masterofarts
+    - acim
+    - investment
+  acceptance_test_required: true
+
+learning_candidate:
+  raw_memory_scope: profile_local
+  project_facts_scope: source_repository
+  cross_repo_same_role_learning: native_profile_reuse
+  cross_agent_spillover: reviewed_shared_skill_promotion
+  automatic_promotion: false
+  external_shared_memory: deferred
+
+skills_candidate:
+  apex_role: versioned_source_for_reviewed_shared_skills_and_agent_specs
+  project_specific_skills: remain_in_source_repo
+  marketing_skills:
+    shared_procedure_library: candidate
+    project_product_context: repo_local
+  bmad:
+    global_single_install_proven: false
+    project_state: repo_local_where_used
+    future_global_link_research: deferred
+
+qmd_candidate:
+  one_local_engine: true
+  collections_cross_repo: curated_named_collections
+  unscoped_whole_estate_collection: forbidden
+  project_truth_owner: repositories
+  index_is_canonical: false
+
+client_portability:
+  hermes: primary_orchestration_runtime
+  codex:
+    preferred_windows_environment: WSL
+    shares_repo_truth: true
+  claude_code:
+    native_windows_supported: true
+    WSL_supported: true
+    preferred_for_this_architecture: WSL_for_same_workspace
+  antigravity:
+    permanent_dependency: false
+
+operator_decisions:
+  D01_apex_control_plane:
+    status: open
+    recommendation: accept
+  D02_kanban_topology:
+    status: open
+    recommendation: one_board_with_repo_tenants
+  D03_role_profiles:
+    status: open
+    recommendation: accept_reusable_role_profiles
+  D04_learning_spillover:
+    status: open
+    recommendation: profile_local_memory_plus_reviewed_shared_skills
+  D05_shared_skill_source:
+    status: open
+    recommendation: apex_versioned_source_after_live_two_repo_pilot
+  D06_bmad_placement:
+    status: open
+    recommendation: repo_local_project_state_no_unproven_global_linker
+  D07_workspace:
+    status: open
+    recommendation: single_WSL_canonical_workspace_root
+  D08_qmd:
+    status: open
+    recommendation: one_local_engine_curated_cross_repo_collections
+  D09_external_memory:
+    status: deferred
+    recommendation: no_external_service_until_measured_gap
+
+next_action:
+  owner: human_operator
+  instruction: decide_D01_through_D08_before_multi_repo_runtime_reconfiguration
