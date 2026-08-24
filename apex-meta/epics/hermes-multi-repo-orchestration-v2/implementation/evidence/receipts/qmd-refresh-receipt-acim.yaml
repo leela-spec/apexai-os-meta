@@ -1,0 +1,12 @@
+schema_version: 1
+collection: acim
+source_repo: leela-spec/acim-secular
+source_branch: master
+source_head_sha: b7aff0f2af5d86c58b74c73e3abf76d2271fc6d6
+qmd_version: 2.8.3 (facd35e)
+refresh_completed_at: '2026-08-24T18:54:32Z'
+qmd_update: pass
+embedding_state: current
+collection_status: healthy
+documents_indexed: 51
+vectors_embedded: 408

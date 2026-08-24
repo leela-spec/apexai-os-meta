@@ -1,0 +1,10 @@
+schema_version: 1
+collection: moa-lika
+source_repo: leela-spec/MasterOfArts
+source_branch: main
+source_head_sha: bebae25a29f4840e63961cf7421ee4d24d93dc12
+qmd_version: 2.8.3 (facd35e)
+refresh_completed_at: '2026-08-24T19:04:00Z'
+qmd_update: pass
+embedding_state: current
+collection_status: healthy

@@ -1,0 +1,75 @@
+schema_version: 1
+program: hermes_multi_repo_orchestration_v2
+executor: antigravity
+branch: main
+current_phase: P18_COMPLETE
+last_completed_phase: P18
+phase_status: MULTI_REPO_V2_PASS_SAFE_SEQUENTIAL
+program_status: COMPLETED
+verdict: MULTI_REPO_V2_PASS_SAFE_SEQUENTIAL
+last_verified_commit: 03d940fc0b4f521f829ed8716c57debfbb0851be
+last_verified_repo: leela-spec/apexai-os-meta
+last_verified_workdir: c:/GitDev/apexai-os-meta
+d10_autonomy_status: KEEP_SAFE_MODE_A
+scheduler:
+  mechanism: wsl_systemd_timer
+  service: /etc/systemd/system/apex-portfolio-rollup.service
+  timer: /etc/systemd/system/apex-portfolio-rollup.timer
+  cadence: "daily at 09:00:00 (Persistent=true)"
+  model_calls_per_run: 0
+capability_registry: apex-meta/orchestration/registry/capability-registry.yaml
+portfolio_snapshot: apex-meta/orchestration/rollups/portfolio-snapshot.json
+managed_repo_heads:
+  apex:
+    branch: main
+    head: 03d940fc0b4f521f829ed8716c57debfbb0851be
+    wsl_canonical_path: /root/workspaces/apexai-os-meta
+    board: apex
+    project: apex
+    qmd_collections:
+      - apex
+  masterofarts:
+    branch: main
+    head: bebae25a29f4840e63961cf7421ee4d24d93dc12
+    wsl_canonical_path: /root/workspaces/MasterOfArts
+    board: masterofarts
+    project: masterofarts
+    qmd_collections:
+      - moa-lika
+      - moa-ipos
+      - moa-acim
+      - moa-health
+  acim:
+    branch: master
+    head: b7aff0f2af5d86c58b74c73e3abf76d2271fc6d6
+    wsl_canonical_path: /root/workspaces/acim-secular
+    board: acim
+    project: acim
+    qmd_collections:
+      - acim
+  investment:
+    branch: main
+    head: 69bc6c0ce19c7a34c4dd4242efffcc49c77417b0
+    wsl_canonical_path: /root/workspaces/Investment
+    board: investment
+    project: investment
+    qmd_collections:
+      - investment
+installed_versions:
+  antigravity_cli: "1.1.15"
+  upstream_antigravity_latest: "1.1.19"
+  hermes_agent: "0.20.5 (2026.8.19)"
+  qmd: "2.8.3 (facd35e)"
+  systemd: "259 (259.5-0ubuntu3.4)"
+corrections:
+  C01: SATISFIED
+  C02: SATISFIED
+  C03: SATISFIED
+  C04: SATISFIED
+  C05: SATISFIED
+  C06: SATISFIED
+  C07: SATISFIED
+  C08: SATISFIED
+blockers: []
+next_phase: null
+next_exact_action: "Program execution complete. Operational state healthy in Safe Mode A."

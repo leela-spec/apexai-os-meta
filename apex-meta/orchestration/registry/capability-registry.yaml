@@ -1,0 +1,76 @@
+schema_version: 1
+program: hermes_multi_repo_orchestration_v2
+scanned_at: '2026-08-24T19:36:00Z'
+status: PASS
+scopes:
+  bmad:
+    scope: repo_local
+    authorized_repos:
+    - masterofarts
+    prohibited_global: true
+  marketingskills:
+    scope: repo_local
+    authorized_repos:
+    - masterofarts
+    prohibited_global: true
+  apex_kb:
+    scope: repo_local
+    authorized_repos:
+    - apex
+    prohibited_global: true
+  reviewed_shared_skills:
+    scope: global_reviewed_after_pilot
+    canonical_source: leela-spec/apexai-os-meta (apex-meta/skills/shared/)
+    runtime_path: /root/.hermes/skills/learned/
+repositories:
+  apex:
+    workspace: /root/workspaces/apexai-os-meta
+    has_agents_md: true
+    has_bmad: false
+    has_marketingskills: false
+    has_apex_kb: true
+  masterofarts:
+    workspace: /root/workspaces/MasterOfArts
+    has_agents_md: true
+    has_bmad: true
+    has_marketingskills: false
+    has_apex_kb: false
+  acim:
+    workspace: /root/workspaces/acim-secular
+    has_agents_md: true
+    has_bmad: false
+    has_marketingskills: false
+    has_apex_kb: false
+  investment:
+    workspace: /root/workspaces/Investment
+    has_agents_md: true
+    has_bmad: false
+    has_marketingskills: false
+    has_apex_kb: false
+profiles:
+  research-strategist:
+    has_qmd_mcp: true
+    memory_files_count: 0
+    shadow_copies_detected: false
+  independent-reviewer:
+    has_qmd_mcp: true
+    memory_files_count: 0
+    shadow_copies_detected: false
+  workshop-designer:
+    has_qmd_mcp: true
+    memory_files_count: 0
+    shadow_copies_detected: false
+  marketing-executive:
+    has_qmd_mcp: true
+    memory_files_count: 0
+    shadow_copies_detected: false
+global_skills:
+  bundled_and_hub_count: 21
+  learned_shared_skills:
+  - markdown-table-formatter
+  - markdown-table-lint
+security_assertions:
+  no_global_bmad_linker: true
+  no_global_marketingskills: true
+  no_raw_memory_sync: true
+  no_shadow_profile_copies: true

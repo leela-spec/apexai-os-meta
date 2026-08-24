@@ -1,0 +1,10 @@
+schema_version: 1
+collection: apex
+source_repo: leela-spec/apexai-os-meta
+source_branch: main
+source_head_sha: 03d940fc0b4f521f829ed8716c57debfbb0851be
+qmd_version: 2.8.3 (facd35e)
+refresh_completed_at: '2026-08-24T19:04:30Z'
+qmd_update: pass
+embedding_state: current
+collection_status: healthy
