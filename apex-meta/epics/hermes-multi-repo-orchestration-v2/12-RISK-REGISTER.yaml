@@ -1,0 +1,395 @@
+schema_version: 1
+program: hermes_multi_repo_orchestration_v2
+updated: 2026-08-24
+status: research_verified_implementation_not_authorized
+
+scale:
+  probability: [low, medium, high]
+  impact: [low, medium, high, critical]
+  evidence_strength: [single_primary, multiple_primary, primary_plus_runtime, upstream_open_issue]
+
+risks:
+  - id: R01
+    title: tenant_memory_isolation_not_implemented
+    area: kanban_memory
+    probability: high
+    impact: high
+    evidence_strength: upstream_open_issue
+    status: active
+    upstream:
+      - https://hermes-agent.nousresearch.com/docs/user-guide/features/kanban
+      - https://github.com/NousResearch/hermes-agent/issues/85497
+    finding: >-
+      Hermes documentation describes tenant memory key prefixing, but open issue #85497
+      reports that tenant workers still write to the same persistent memory store.
+    control:
+      - use_separate_board_per_repo
+      - do_not_use_tenant_as_security_or_memory_boundary
+      - keep_project_facts_out_of_role_memory
+    acceptance_test:
+      - no_tenant_based_isolation_assumption_exists_in_runtime_config
+
+  - id: R02
+    title: reusable_profile_concurrent_writers
+    area: profiles_memory
+    probability: high
+    impact: high
+    evidence_strength: multiple_primary
+    status: active
+    upstream:
+      - https://hermes-agent.nousresearch.com/docs/user-guide/profiles
+      - https://github.com/NousResearch/hermes-agent/issues/78122
+    finding: >-
+      Hermes explicitly warns not to point two processes at one profile, while current
+      multi-board dispatcher behavior can multiply concurrency because limits are enforced per board.
+    control:
+      - sequential_role_reuse
+      - one_active_execution_board_at_a_time_initially
+      - background_multi_board_dispatch_disabled_until_proven
+    acceptance_test:
+      - prove_no_two_worker_processes_share_same_role_profile_concurrently
+
+  - id: R03
+    title: kanban_docker_workspace_not_host_backed
+    area: docker_kanban
+    probability: medium
+    impact: critical
+    evidence_strength: upstream_open_issue
+    status: active
+    upstream:
+      - https://github.com/NousResearch/hermes-agent/issues/91568
+      - https://hermes-agent.nousresearch.com/docs/user-guide/configuration
+    finding: >-
+      A Kanban Docker worker can make apparently successful file changes/commits inside an
+      ephemeral container when the intended task workspace was not actually host bind-mounted.
+    control:
+      - safe_mode_direct_sequential_execution_first
+      - host_side_artifact_verification
+      - host_side_git_commit_verification
+      - fail_closed_before_background_dispatch
+    acceptance_test:
+      - disposable_file_created_by_worker_persists_host_side
+      - disposable_commit_is_visible_in_host_repo
+
+  - id: R04
+    title: profile_cwd_overrides_task_workspace
+    area: docker_kanban
+    probability: medium
+    impact: critical
+    evidence_strength: upstream_open_issue
+    status: active
+    upstream:
+      - https://github.com/NousResearch/hermes-agent/issues/73556
+    finding: >-
+      A profile terminal.cwd can override dispatcher workspace and broaden the Docker mount.
+    control:
+      - reusable_profiles_have_no_repo_specific_terminal_cwd_for_kanban
+      - inspect_effective_mount_before_autonomy
+    acceptance_test:
+      - effective_mount_equals_intended_workspace
+      - sibling_repos_not_visible_when_not_authorized
+
+  - id: R05
+    title: host_container_cwd_provenance_mismatch
+    area: docker_tools
+    probability: medium
+    impact: high
+    evidence_strength: upstream_open_issue
+    status: active
+    upstream:
+      - https://github.com/NousResearch/hermes-agent/issues/83856
+    finding: >-
+      Host workspace may be mounted at /workspace while terminal/file/code execution still
+      resolve a host path as container cwd, causing tool disagreement or failure.
+    control:
+      - direct_acceptance_test_terminal_file_execute_code
+      - do_not_assume_path_translation
+    acceptance_test:
+      - terminal_file_and_execute_code_report_same_effective_workspace
+
+  - id: R06
+    title: separate_boards_lack_native_cross_board_dependencies
+    area: kanban_portfolio
+    probability: high
+    impact: medium
+    evidence_strength: multiple_primary
+    status: accepted_constraint
+    upstream:
+      - https://hermes-agent.nousresearch.com/docs/user-guide/features/kanban
+      - https://hermes-agent.nousresearch.com/docs/reference/cli-commands
+    finding: cross-board kanban_link is intentionally forbidden.
+    control:
+      - asynchronous_read_only_apex_rollup
+      - explicit_apex_cross_repo_dependency_objects
+      - source_task_ids_remain_authoritative
+    acceptance_test:
+      - source_board_failure_makes_rollup_fail
+      - apex_rollup_does_not_write_source_boards
+
+  - id: R07
+    title: apex_rollup_becomes_second_task_truth
+    area: portfolio_sync
+    probability: medium
+    impact: high
+    evidence_strength: architecture_control
+    status: controlled_by_design
+    finding: >-
+      Copying full task state into Apex and mutating it independently would create a second source of truth.
+    control:
+      - rollup_is_derived_read_only_snapshot
+      - source_board_and_task_id_always_recorded
+      - no_bidirectional_sync_v2
+      - rebuildability_required
+    acceptance_test:
+      - delete_and_rebuild_snapshot_from_source_boards
+
+  - id: R08
+    title: raw_memory_cross_repo_contamination
+    area: learning
+    probability: high
+    impact: high
+    evidence_strength: primary_plus_runtime
+    status: active
+    upstream:
+      - https://hermes-agent.nousresearch.com/docs/user-guide/profiles
+      - https://github.com/NousResearch/hermes-agent/blob/main/website/docs/user-guide/features/memory.md
+      - https://github.com/NousResearch/hermes-agent/blob/main/website/docs/user-guide/which-file-does-what.md
+    finding: >-
+      Reusable profiles persist MEMORY across sessions. Project facts placed there can leak into later repo work.
+    control:
+      - no_memory_sync
+      - project_facts_in_repo_AGENTS_QMD
+      - promote_general_procedures_as_reviewed_skills
+      - memory_small_role_or_user_only
+    acceptance_test:
+      - inspect_memory_after_two_repo_test_for_project_fact_contamination
+
+  - id: R09
+    title: learned_skill_promotion_copies_project_facts
+    area: learning_promotion
+    probability: medium
+    impact: high
+    evidence_strength: architecture_control
+    status: controlled_by_design
+    upstream:
+      - https://agentskills.io/specification
+      - https://hermes-agent.nousresearch.com/docs/user-guide/features/skills/
+    control:
+      - independent_review_before_promotion
+      - no_secrets_or_project_facts
+      - overlap_check
+      - explicit_trigger_and_verification
+      - provenance_pointer_only
+    acceptance_test:
+      - generic_candidate_promoted
+      - project_specific_candidate_rejected_or_kept_local
+
+  - id: R10
+    title: canonical_shared_skill_mutated_by_runtime
+    area: skills
+    probability: medium
+    impact: high
+    evidence_strength: single_primary
+    status: active
+    upstream:
+      - https://hermes-agent.nousresearch.com/docs/user-guide/features/skills/
+    finding: writable external skill directories can be edited by Hermes skill management.
+    control:
+      - canonical_Apex_source_not_routine_runtime_scratch
+      - test_read_only_or_deployed_copy_or_skills_tap
+      - git_review_for_promotions
+    acceptance_test:
+      - normal_self_improvement_cannot_silently_modify_canonical_Apex_source
+
+  - id: R11
+    title: cron_silent_or_stale_success
+    area: automation
+    probability: medium
+    impact: medium
+    evidence_strength: upstream_open_issue
+    status: active
+    upstream:
+      - https://hermes-agent.nousresearch.com/docs/user-guide/features/cron
+      - https://github.com/NousResearch/hermes-agent/issues/20353
+      - https://github.com/NousResearch/hermes-agent/issues/77131
+      - https://github.com/NousResearch/hermes-agent/issues/80624
+    control:
+      - manual_deterministic_run_before_schedule
+      - nonzero_exit_on_failure
+      - last_attempt_last_success_health_receipt
+      - input_output_fingerprints
+      - restart_test
+    acceptance_test:
+      - intentionally_broken_input_surfaces_failure
+      - successful_job_persists_across_restart
+
+  - id: R12
+    title: qmd_unscoped_cross_repo_retrieval
+    area: retrieval
+    probability: high
+    impact: medium
+    evidence_strength: multiple_primary
+    status: active
+    upstream:
+      - https://github.com/tobi/qmd/blob/main/README.md
+      - https://github.com/tobi/qmd/blob/main/docs/SYNTAX.md
+    finding: >-
+      Unscoped QMD search covers all default-included collections, creating relevance and context bleed.
+    control:
+      - exclude_large_project_collections_from_default
+      - explicit_collections_per_project_task
+      - tiny_control_collections_for_portfolio_queries
+    acceptance_test:
+      - investment_task_returns_only_investment_scopes_when_instructed
+      - excluded_collections_absent_from_unscoped_results
+
+  - id: R13
+    title: qmd_mcp_not_present_in_new_profile
+    area: retrieval_profiles
+    probability: high
+    impact: medium
+    evidence_strength: multiple_primary
+    status: active
+    upstream:
+      - https://hermes-agent.nousresearch.com/docs/user-guide/profiles
+      - https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/research/research-qmd
+      - https://hermes-agent.nousresearch.com/docs/user-guide/profile-distributions
+    finding: >-
+      One machine-level QMD engine does not automatically configure the MCP connection for every isolated profile.
+    control:
+      - configure_QMD_MCP_only_in_profiles_that_need_it
+      - optionally_distribute_MCP_via_tested_profile_distribution
+    acceptance_test:
+      - fresh_profile_session_discovers_qmd_tools
+
+  - id: R14
+    title: qmd_project_local_config_trust
+    area: qmd_security
+    probability: medium
+    impact: high
+    evidence_strength: upstream_issue_history
+    status: watch
+    upstream:
+      - https://github.com/tobi/qmd/issues/886
+      - https://github.com/tobi/qmd/issues/889
+    control:
+      - prefer_machine_owned_global_registry_for_multi_repo_map
+      - recheck_installed_QMD_trust_behavior
+      - no_unreviewed_update_hooks
+      - no_repo_config_pointing_to_unrelated_repos
+    acceptance_test:
+      - inspect_effective_index_config_and_update_hooks
+
+  - id: R15
+    title: duplicate_windows_wsl_live_truth
+    area: filesystem
+    probability: high
+    impact: high
+    evidence_strength: multiple_primary
+    status: active
+    upstream:
+      - https://learn.microsoft.com/en-us/windows/wsl/filesystems
+      - https://learn.microsoft.com/en-us/windows/dev-environment/wsl-interop
+      - https://docs.docker.com/desktop/features/wsl/use-wsl/
+    control:
+      - one_canonical_WSL_checkout_per_managed_repo
+      - divergence_audit_before_freeze
+      - no_bidirectional_sync
+      - delete_old_copy_only_after_approval
+    acceptance_test:
+      - one_declared_writable_canonical_path_per_repo
+
+  - id: R16
+    title: WSL_unc_high_frequency_windows_io
+    area: filesystem_performance
+    probability: medium
+    impact: medium
+    evidence_strength: multiple_primary
+    status: accepted_tradeoff
+    upstream:
+      - https://learn.microsoft.com/en-us/windows/dev-environment/wsl-interop
+      - https://docs.docker.com/desktop/features/wsl/use-wsl/
+    finding: >-
+      Windows processes repeatedly scanning Linux files through \\wsl$ also pay cross-filesystem overhead.
+    control:
+      - run_heavy_build_git_node_python_AI_workloads_in_WSL
+      - use_Windows_Explorer_for_operator_access_not_tight_IO_loops
+    acceptance_test:
+      - key_workloads_measured_after_pilot
+
+  - id: R17
+    title: bmad_global_link_not_shipped
+    area: bmad
+    probability: high
+    impact: medium
+    evidence_strength: upstream_open_issue
+    status: accepted_constraint
+    upstream:
+      - https://github.com/bmad-code-org/BMAD-METHOD/blob/main/docs/how-to/install-bmad.md
+      - https://github.com/bmad-code-org/BMAD-METHOD/issues/1728
+    control:
+      - install_BMAD_project_locally_only_where_needed
+      - do_not_build_custom_global_linker
+    acceptance_test:
+      - each_BMAD_repo_operates_independently_from_its_project_install
+
+  - id: R18
+    title: irrelevant_domain_skill_globalization
+    area: skills_efficiency
+    probability: medium
+    impact: medium
+    evidence_strength: multiple_primary
+    status: controlled_by_policy
+    upstream:
+      - https://github.com/coreyhaines31/marketingskills/blob/main/README.md
+      - https://agentskills.io/specification
+    control:
+      - MarketingSkills_MasterOfArts_only_for_now
+      - install_domain_skills_only_when_real_repo_need_exists
+      - use_selected_skill_install_when_possible
+    acceptance_test:
+      - non_marketing_repos_do_not_gain_MarketingSkills_by_default
+
+  - id: R19
+    title: hermes_project_dangling_board_binding
+    area: hermes_projects
+    probability: medium
+    impact: low
+    evidence_strength: upstream_open_issue
+    status: active
+    upstream:
+      - https://hermes-agent.nousresearch.com/docs/reference/cli-commands
+      - https://github.com/NousResearch/hermes-agent/issues/76285
+    control:
+      - verify_board_exists_before_bind
+      - verify_project_show_after_bind
+      - never_trust_exit_zero_alone
+    acceptance_test:
+      - project_binding_resolves_to_existing_board
+
+  - id: R20
+    title: Apex_KB_skill_source_drift_across_clients
+    area: agent_skill_interop
+    probability: medium
+    impact: high
+    evidence_strength: repository_specific
+    status: open_implementation_gate
+    finding: >-
+      Apex currently points to .claude/skills/apex-kb while Hermes native project skill paths differ.
+      Naive copying would create two authoritative behavior definitions.
+    control:
+      - identify_single_authoritative_source
+      - test_Hermes_Claude_Codex_discovery
+      - use_adapter_or_rehome_only_after_equivalence_test
+    acceptance_test:
+      - one_source_produces_identical_required_Apex_KB_dispatch_behavior_across_enabled_clients
+
+watch_policy:
+  before_each_major_implementation_phase:
+    - check_current_Hermes_release_and_relevant_open_issues
+    - check_current_QMD_release_and_security_trust_behavior
+    - compare_installed_runtime_help_schema_to_research
+  before_enabling_background_multi_board_dispatch:
+    - recheck_R01_R02_R03_R04_R05
+  before_enabling_scheduled_learning_promotion:
+    - recheck_R08_R09_R10_R11
