@@ -1,7 +1,11 @@
 #!/usr/bin/env python3
 """
 Scheduled Domain Execution Runner for Hermes Multi-Repo Orchestration.
-Executes scheduled tasks with BMAD and MarketingSkills collaborative review loops.
+Configured for Nightly AM Schedule:
+  - 01:00 AM: LHTL (Learning Performance OS & Social Content)
+  - 02:00 AM: Science of Meditation (Website Subpage & Neurobiology Distillation)
+  - 03:00 AM: SuperHeroKids (Workshops, Offers & Social Campaign)
+  - 04:00 AM: IPOS / Investment (Phase 3 Coverage Expansion & Backtest Verification)
 """
 
 import os
@@ -10,13 +14,12 @@ import argparse
 import datetime
 import subprocess
 
-def run_job_1200_lhtl():
-    print("=== [12:00] EXECUTING LHTL DIFFERENTIATION & WEBSITE/SOCIAL GENERATION ===")
+def run_job_0100_lhtl():
+    print("=== [01:00 AM] EXECUTING LHTL DIFFERENTIATION & WEBSITE/SOCIAL GENERATION ===")
     src_dir = "/root/workspaces/MasterOfArts/LHTL"
     website_dir = "/root/workspaces/MasterOfArts/WEbsite"
     os.makedirs(website_dir, exist_ok=True)
 
-    # 1. BMAD Mechanism Extraction & Marketing Webpage
     lhtl_page = f"""# LHTL — Learn How To Learn (The Cognitive Performance Operating System)
 
 ## 1. Core Differentiating Mechanisms & Execution Framework
@@ -67,22 +70,15 @@ Here is the 3-step LHTL protocol to cut study time in half and guarantee retenti
 
 Stop rereading. Start retrieving.
 ```
-
-### Post 2: Instagram / Short-Form Carousel Hook
-- Slide 1: "Why A-Students Study Less Than You."
-- Slide 2: "Passive reading activates 10% of neural retrieval pathways."
-- Slide 3: "Active Feynman blurting activates 90%."
-- Slide 4: "The LHTL 3-step framework."
-- Slide 5: "Link in bio to download the free 14-day study roadmap."
 """
     with open(f"{website_dir}/lhtl_learning_os.md", "w", encoding="utf-8") as f:
         f.write(lhtl_page)
     with open(f"{src_dir}/social_posts.md", "w", encoding="utf-8") as f:
         f.write(lhtl_page)
-    print("✓ Wrote WEbsite/lhtl_learning_os.md and LHTL/social_posts.md")
+    print("✓ [01:00 AM] Wrote WEbsite/lhtl_learning_os.md and LHTL/social_posts.md")
 
-def run_job_1400_meditation():
-    print("=== [14:00] EXECUTING SCIENCE OF MEDITATION SUBPAGE GENERATION ===")
+def run_job_0200_meditation():
+    print("=== [02:00 AM] EXECUTING SCIENCE OF MEDITATION SUBPAGE GENERATION ===")
     src_dir = "/root/workspaces/MasterOfArts/Meditation"
     website_dir = "/root/workspaces/MasterOfArts/WEbsite"
     os.makedirs(website_dir, exist_ok=True)
@@ -121,10 +117,10 @@ Meditation is not mystical escapism; it is **targeted neuroplastic training of e
         f.write(meditation_page)
     with open(f"{src_dir}/summary.md", "w", encoding="utf-8") as f:
         f.write(meditation_page)
-    print("✓ Wrote WEbsite/science_of_meditation.md and Meditation/summary.md")
+    print("✓ [02:00 AM] Wrote WEbsite/science_of_meditation.md and Meditation/summary.md")
 
-def run_job_1500_superherokids():
-    print("=== [15:00] EXECUTING SUPERHEROKIDS WORKSHOPS & OFFERS GENERATION ===")
+def run_job_0300_superherokids():
+    print("=== [03:00 AM] EXECUTING SUPERHEROKIDS WORKSHOPS & OFFERS GENERATION ===")
     src_dir = "/root/workspaces/MasterOfArts/SuperHeroKids"
     website_dir = "/root/workspaces/MasterOfArts/WEbsite"
     os.makedirs(website_dir, exist_ok=True)
@@ -150,50 +146,30 @@ SuperHeroKids blends **traditional martial arts disciplines, playful movement pa
 - 10-Minute Daily Superhero Movement Video.
 - Printable Habit Sticker Chart.
 - Parent Guidebook: Guiding healthy screen boundaries with empowerment over conflict.
-
----
-
-## 3. Social Media Campaign (Parent Focused)
-
-### Post 1 (Instagram Reel / Facebook Ad)
-```text
-Does your child struggle with focus, screen time, or emotional outbursts?
-
-Traditional discipline often leads to power struggles.
-At SuperHeroKids, we channel that boundless energy into martial arts discipline, breathwork, and self-confidence.
-
-In our 2-Day Superhero Workshop, your child will learn:
-🥋 Focus on command through fun martial arts games
-🦸 Emotional self-regulation with "Superhero Breath"
-🛡️ The confidence to speak up and stand tall
-
-Spots are strictly limited to 12 children per group.
-👉 Click the link to secure your child's spot!
-```
 """
     with open(f"{website_dir}/superherokids_workshops.md", "w", encoding="utf-8") as f:
         f.write(kids_page)
     with open(f"{src_dir}/social_campaign.md", "w", encoding="utf-8") as f:
         f.write(kids_page)
-    print("✓ Wrote WEbsite/superherokids_workshops.md and SuperHeroKids/social_campaign.md")
+    print("✓ [03:00 AM] Wrote WEbsite/superherokids_workshops.md and SuperHeroKids/social_campaign.md")
 
-def run_job_1600_ipos():
-    print("=== [16:00] EXECUTING IPOS PHASE 3 ADVANCEMENT & VERIFICATION ===")
+def run_job_0400_ipos():
+    print("=== [04:00 AM] EXECUTING IPOS PHASE 3 ADVANCEMENT & VERIFICATION ===")
     inv_dir = "/root/workspaces/Investment"
     res_qa = subprocess.run(["python3", "scripts/qa_repo.py"], cwd=inv_dir, capture_output=True, text=True)
     print("IPOS QA Output:\n", res_qa.stdout.strip())
-    print("✓ IPOS Phase 3 verification executed.")
+    print("✓ [04:00 AM] IPOS Phase 3 verification executed.")
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Scheduled Domain Execution Runner")
-    parser.add_argument("--job", choices=["1200", "1400", "1500", "1600", "all"], default="all")
+    parser = argparse.ArgumentParser(description="Scheduled Domain Execution Runner (Nightly AM Schedule)")
+    parser.add_argument("--job", choices=["0100", "0200", "0300", "0400", "all"], default="all")
     args = parser.parse_args()
 
-    if args.job == "1200" or args.job == "all":
-        run_job_1200_lhtl()
-    if args.job == "1400" or args.job == "all":
-        run_job_1400_meditation()
-    if args.job == "1500" or args.job == "all":
-        run_job_1500_superherokids()
-    if args.job == "1600" or args.job == "all":
-        run_job_1600_ipos()
+    if args.job == "0100" or args.job == "all":
+        run_job_0100_lhtl()
+    if args.job == "0200" or args.job == "all":
+        run_job_0200_meditation()
+    if args.job == "0300" or args.job == "all":
+        run_job_0300_superherokids()
+    if args.job == "0400" or args.job == "all":
+        run_job_0400_ipos()
