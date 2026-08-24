@@ -1,120 +1,334 @@
-schema_version: 1
-program: hermes_multi_repo_orchestration_v2
+schema_version: 2
+record_type: independent_preimplementation_risk_gap_register
+program: hermes-multi-repo-orchestration-v2
 evaluation_date: 2026-08-24
-status: independent_validation_risk_gap_register
-reference_baseline: apex-meta/epics/hermes-multi-repo-orchestration-v2/12-RISK-REGISTER.yaml
+verdict: REVISE
+prior_review_commit: 49b716a21ee82b94fcd26a6adac7bb2809ad2303
+evidence_labels:
+  - EXECUTED
+  - STATIC_SIMULATION
+  - SOURCE_VERIFIED
+  - INFERENCE
+scope_note: >-
+  This register supplements the architecture risk register for the independent
+  pre-implementation review only. It does not mutate D01-D10 or authorize D10.
 
-scale:
-  probability: [low, medium, high]
-  impact: [low, medium, high, critical]
-  evidence_strength: [single_primary, multiple_primary, primary_plus_runtime, upstream_open_issue, live_host_inspection]
+risks:
+  - id: IPV-R21
+    title: Legacy static MasterOfArts Docker mount reused across repositories
+    severity: critical
+    likelihood: high_if_pilot_config_reused
+    evidence_label: SOURCE_VERIFIED
+    evidence:
+      - MasterOfArts implementation-evidence/P07-hermes-docker-backend.md
+      - MasterOfArts Orchestration/Implementation/OKF-EXECUTION-OBSERVATIONS.yaml
+      - Hermes issue 91568
+      - Hermes issue 83856
+    scenario: >-
+      A non-MasterOfArts task launches with /root/MasterOfArts still bound to
+      /workspace, or its task path is not an actual host-backed workspace.
+    consequence:
+      - wrong-repository writes
+      - data exposure across projects
+      - ephemeral false-success commits
+    mitigation: C01
+    acceptance: >-
+      For each repository, pre-command diagnostics prove the exact authorized
+      host workspace -> container workspace mapping, and a disposable host-side
+      file/commit persists after worker exit.
+    status: open_preimplementation
 
-newly_discovered_and_refined_risks:
-  - id: R21
-    title: hardcoded_docker_volume_in_global_config
-    area: docker_workspace_isolation
-    mapped_baseline_risks: [R03, R04, R05]
-    probability: high
-    impact: critical
-    evidence_strength: live_host_inspection
-    status: active_requires_correction_C01
-    finding: >-
-      Live inspection of the WSL host configuration at /root/.hermes/config.yaml revealed that
-      terminal.docker_volumes currently contains static hardcoded paths:
-      [/root/MasterOfArts:/root/MasterOfArts:rw, /root/MasterOfArts:/workspace:rw].
-      If multi-repo execution is initiated without modifying this setting, workers in Investment,
-      acim-secular, and apexai-os-meta will mount MasterOfArts into /workspace, causing severe
-      cross-repo workspace bleeding and write contamination.
-    control:
-      - sanitize_global_config_before_multi_repo_pilot
-      - remove_hardcoded_static_paths_from_docker_volumes
-      - rely_on_dynamic_docker_mount_cwd_to_workspace_or_per_workspace_overrides
-      - verify_effective_container_mount_before_each_task_execution
-    acceptance_test:
-      - run_disposable_task_in_acim_and_prove_MasterOfArts_is_not_mounted_in_container
-      - confirm_workspace_inside_container_maps_exactly_to_active_repo_directory
+  - id: IPV-R22
+    title: Root-owned pilot paths become multi-repo filesystem convention
+    severity: high
+    likelihood: medium
+    evidence_label: SOURCE_VERIFIED
+    evidence:
+      - MasterOfArts pilot uses /root/MasterOfArts
+      - D07 and migration plan target normal-user ~/workspaces
+      - Microsoft WSL filesystem guidance
+    scenario: >-
+      New repositories are cloned under /root or mixed ownership while roles,
+      QMD, Docker and Windows access expect a normal WSL user.
+    consequence:
+      - permission drift
+      - hidden administrative coupling
+      - brittle path assumptions
+    mitigation: C02
+    acceptance: >-
+      Canonical paths resolve under the selected normal WSL user's home;
+      ownership/UID/GID and required read/write operations pass without sudo.
+    status: open_preimplementation
 
-  - id: R22
-    title: wsl_root_vs_standard_user_boundary_drift
-    area: filesystem_permissions
-    mapped_baseline_risks: [R15, R16]
-    probability: medium
-    impact: high
-    evidence_strength: live_host_inspection
-    status: active_requires_correction_C02
-    finding: >-
-      The MasterOfArts pilot was executed entirely as root in /root/ (/root/.hermes, /root/MasterOfArts).
-      However, D07 and standard Linux development practices specify ~/workspaces/ (typically
-      /home/<operator>/workspaces/). If Hermes is executed as a non-root user while configuration
-      resides in /root/.hermes, permissions will fail. Conversely, if Hermes runs as root, all files
-      created in ~/workspaces/ will be owned by root:root (mode 0755/0644), causing permission issues
-      for Windows IDEs and non-root tools.
-    control:
-      - establish_explicit_user_identity_and_home_policy_in_roadmap_phase_1
-      - standardize_on_consistent_user_execution_with_umask_022
-      - align_hermes_home_path_consistently_across_all_managed_scripts
-    acceptance_test:
-      - files_created_by_hermes_in_canonical_workspace_are_readable_and_editable_via_windows_interop
-      - no_permission_denied_errors_when_switching_between_cli_tools
+  - id: IPV-R23
+    title: Partial or non-atomic Apex rollup publishes false portfolio state
+    severity: high
+    likelihood: medium
+    evidence_label: STATIC_SIMULATION
+    evidence:
+      - D01 derived-state boundary
+      - D02 asynchronous rollup design
+    scenario: >-
+      One board/repository read fails after other sources were collected and a
+      naive script replaces the prior snapshot with an incomplete result.
+    consequence:
+      - missing work appears complete or absent
+      - downstream decisions use a false portfolio view
+    mitigation: C03
+    acceptance: >-
+      All configured sources must validate before atomic replacement; failure
+      preserves last-known-good output and emits a degraded receipt.
+    status: open_preimplementation
 
-  - id: R23
-    title: git_default_branch_asymmetry_across_managed_repos
-    area: git_orchestration
-    mapped_baseline_risks: [R15]
-    probability: medium
-    impact: medium
-    evidence_strength: live_host_inspection
-    status: controlled_by_correction_C05
-    finding: >-
-      Live inspection of the four managed repositories in C:\GitDev revealed branch asymmetry:
-      acim-secular uses default branch 'master', whereas apexai-os-meta, MasterOfArts, and Investment
-      use default branch 'main'. Any automated orchestration, migration, or validation scripts that
-      hardcode 'origin/main' will fail or create detached heads on acim-secular.
-    control:
-      - parameterize_default_branch_in_projects_yaml_and_state_yaml
-      - scripts_must_dynamically_resolve_default_branch_via_git_rev_parse_or_metadata
-      - forbid_hardcoded_branch_names_in_orchestration_tooling
-    acceptance_test:
-      - migration_and_rollup_scripts_execute_successfully_on_both_main_and_master_branches
+  - id: IPV-R24
+    title: Healthy QMD index is stale relative to current Git HEAD
+    severity: high
+    likelihood: medium
+    evidence_label: STATIC_SIMULATION
+    evidence:
+      - D08 QMD derived-state contract
+      - MasterOfArts P08/P09 pilot evidence
+    scenario: >-
+      Source repo advances after the last QMD refresh; qmd status remains healthy
+      and a high-stakes task retrieves prior content.
+    consequence:
+      - stale decisions
+      - plausible but obsolete citations
+    mitigation: C04
+    acceptance: >-
+      Per-collection refresh receipt records source repo/branch/head SHA and
+      successful update/embed state; high-stakes query refuses mismatched HEAD.
+    status: open_preimplementation
 
-  - id: R24
-    title: partial_rollup_silent_corruption
-    area: portfolio_sync
-    mapped_baseline_risks: [R06, R07]
-    probability: medium
-    impact: high
-    evidence_strength: static_simulation
-    status: controlled_by_correction_C03
-    finding: >-
-      If one source board query fails or times out during the portfolio rollup run (e.g. SQLite database
-      locked by a concurrent writer), a naive aggregation script might process the remaining three boards
-      and publish an incomplete rollup snapshot. This would falsely present the failed repository's tasks
-      as completed or deleted.
-    control:
-      - enforce_fail_closed_semantics_in_rollup_script
-      - require_atomic_snapshot_writes_via_temporary_file_and_rename
-      - emit_explicit_degraded_health_receipt_with_nonzero_status_on_partial_failure
-      - never_overwrite_previous_valid_snapshot_with_partial_data
-    acceptance_test:
-      - inject_simulated_query_failure_on_one_board_and_verify_existing_snapshot_is_preserved
-      - verify_health_receipt_reports_degraded_status_and_identifies_failed_board
+  - id: IPV-R25
+    title: Repository default branch mismatch
+    severity: medium
+    likelihood: low_after_current_state_lock
+    evidence_label: SOURCE_VERIFIED
+    evidence:
+      - apex state.yaml
+      - D07
+      - migration manifest
+      - acim-secular default branch master
+      - other managed repos main
+    scenario: >-
+      A generic script assumes main for acim-secular and reads or updates the
+      wrong ref.
+    consequence:
+      - stale checkout
+      - incorrect provenance
+    mitigation: existing_authority_acceptance_check
+    acceptance: >-
+      Every repo operation resolves branch from the managed repository registry;
+      no hard-coded global default is allowed.
+    status: controlled_by_existing_architecture
 
-  - id: R25
-    title: qmd_index_stale_state_drift
-    area: retrieval_freshness
-    mapped_baseline_risks: [R12, R14]
-    probability: medium
-    impact: medium
-    evidence_strength: live_host_inspection
-    status: controlled_by_correction_C04
-    finding: >-
-      QMD SQLite vector and keyword indexes are static snapshots. When Git commits or ADR updates occur
-      in a managed repository, QMD does not automatically update its collection index until 'qmd update'
-      is executed. An agent answering architecture or policy questions may retrieve obsolete context if
-      the index is stale.
-    control:
-      - implement_freshness_check_comparing_git_head_timestamp_with_qmd_collection_timestamp
-      - add_pre_task_qmd_update_hook_for_critical_decision_workflows
-      - include_collection_update_timestamps_in_retrieval_prompts
-    acceptance_test:
-      - update_a_markdown_file_and_verify_freshness_check_detects_delta_before_agent_reasoning
+  - id: IPV-R26
+    title: Reusable role profile carries project schedules or facts across repos
+    severity: critical
+    likelihood: high_if_pilot_profile_reused
+    evidence_label: SOURCE_VERIFIED
+    evidence:
+      - MasterOfArts Orchestration/Implementation/AUTONOMOUS_LEARNINGS_SUMMARY.md
+      - Hermes issue 85497
+      - D03 and D04
+    scenario: >-
+      Existing USER.md/MEMORY.md includes 05:00/06:00/08:00 project milestones
+      or other project knowledge and is then reused for Investment or ACIM.
+    consequence:
+      - semantic contamination
+      - unintended background work
+      - recurring token waste
+    mitigation: C05
+    acceptance: >-
+      Reusable profile review finds only stable role identity and operator
+      preferences; no repository names, task schedules, project facts, fixed cwd
+      or project-specific mount configuration remain.
+    status: open_preimplementation
+
+  - id: IPV-R27
+    title: Global or learned skill copies shadow repository-scoped policy
+    severity: high
+    likelihood: high_if_pilot_install_reused
+    evidence_label: SOURCE_VERIFIED
+    evidence:
+      - MasterOfArts P11 BMAD global + project install
+      - MasterOfArts P12 MarketingSkills global + project install
+      - AUTONOMOUS_LEARNINGS_SUMMARY learned-library list
+      - BMAD issue 1728 remains open
+      - D05 and D06
+    scenario: >-
+      A profile working in ACIM or Investment discovers global BMAD or
+      MarketingSkills even though the target architecture did not authorize them.
+    consequence:
+      - prompt/routing ambiguity
+      - version drift
+      - accidental domain-method bleed
+    mitigation: C06
+    acceptance: >-
+      Runtime skill inventory is provenance-labelled and matches the repository
+      capability registry; same-name shadowing active copies are rejected.
+    status: open_preimplementation
+
+  - id: IPV-R28
+    title: Ambient host credentials enter Docker despite filesystem isolation
+    severity: critical
+    likelihood: medium
+    evidence_label: SOURCE_VERIFIED
+    evidence:
+      - MasterOfArts OKF-EXECUTION-OBSERVATIONS OBS-004
+      - D10 security acceptance intent
+    scenario: >-
+      Sensitive environment variables exported in the Hermes/gateway process are
+      inherited by the action container even though unrelated host paths are not mounted.
+    consequence:
+      - credential exposure
+      - cross-project/provider data leak
+    mitigation: C07
+    acceptance: >-
+      Canary environment variables absent from explicit docker_forward_env
+      allowlist are not present inside the worker; only named task-required vars pass.
+    status: open_preimplementation
+
+  - id: IPV-R29
+    title: Repository activation lacks intentional root context/authority entrypoint
+    severity: high
+    likelihood: high_for_two_repos
+    evidence_label: SOURCE_VERIFIED
+    evidence:
+      - acim-secular root AGENTS.md not found on master
+      - Investment root AGENTS.md not found on main
+      - Apex root AGENTS.md is Codex/Apex-KB oriented
+      - D03/D07/D08 context assumptions
+    scenario: >-
+      A reusable Hermes profile enters a repository without a concise automatic
+      route to current authority and relies on model search or stale memory.
+    consequence:
+      - context drift
+      - unnecessary token loading
+      - wrong authority selection
+    mitigation: C08
+    acceptance: >-
+      Before board activation each repository has a validated, upstream-consumed
+      root context path (AGENTS or documented equivalent) pointing to current truth
+      without copying the truth body.
+    status: open_preimplementation
+
+  - id: IPV-R30
+    title: Dangling project-board binding reports success
+    severity: high
+    likelihood: low_to_medium
+    evidence_label: SOURCE_VERIFIED
+    evidence:
+      - Hermes issue 76285 open
+    scenario: >-
+      A typo or stale board slug is persisted by hermes project bind-board with exit 0.
+    consequence:
+      - orchestration believes project is connected when no board exists
+      - tasks never dispatch as expected
+    mitigation: acceptance_test_board_existence
+    acceptance: >-
+      Preflight independently enumerates board slugs and rejects a configured
+      binding not present in the live board registry.
+    status: open_acceptance
+
+  - id: IPV-R31
+    title: No-agent scheduled job can fail silently
+    severity: high
+    likelihood: medium_if_no_agent_cron_used
+    evidence_label: SOURCE_VERIFIED
+    evidence:
+      - Hermes issue 20353 open
+      - Hermes issues 77131 and 80624 closed
+    scenario: >-
+      Deterministic harvest/rollup script exits without useful output or swallows
+      an exception; scheduler provides no heartbeat and the operator assumes it ran.
+    consequence:
+      - stale rollups
+      - stale skill harvest
+      - false automation health
+    mitigation: d10_scheduler_acceptance_extension
+    acceptance: >-
+      Every unattended deterministic job has verifiable last-run/exit/success
+      receipt or heartbeat; missing evidence is unhealthy, never success.
+    status: blocked_while_d10_disabled
+
+  - id: IPV-R32
+    title: Same-profile concurrency bypasses per-board limits
+    severity: critical
+    likelihood: high_if_d10_enabled_early
+    evidence_label: SOURCE_VERIFIED
+    evidence:
+      - Hermes issue 78122 open
+      - Hermes issue 85497 open
+    scenario: >-
+      Multiple active boards each dispatch a worker for the same reusable profile.
+    consequence:
+      - shared memory write race
+      - SQLite/profile state corruption
+      - cross-project contamination
+    mitigation: existing_d03_plus_d10_gate
+    acceptance: >-
+      Safe Mode A proves one process per writable profile; D10 cannot enable until
+      an installed-version global profile/concurrency gate passes adversarial tests.
+    status: controlled_while_d10_disabled
+
+  - id: IPV-R33
+    title: QMD collection omission causes cross-repository retrieval bleed
+    severity: high
+    likelihood: medium_if_unscoped_queries_allowed
+    evidence_label: STATIC_SIMULATION
+    evidence:
+      - D08 explicit collection design
+      - QMD current collections contract
+    scenario: >-
+      A project task issues unscoped semantic retrieval and receives content from
+      another included-by-default collection.
+    consequence:
+      - factual contamination
+      - privacy boundary violation
+    mitigation: existing_d08_plus_c04
+    acceptance: >-
+      Project-heavy task requires explicit allowed collection list and negative
+      tests assert unrelated repository paths never appear.
+    status: open_live_acceptance
+
+  - id: IPV-R34
+    title: Prior execution receipts overclaimed as current live verification
+    severity: medium
+    likelihood: medium
+    evidence_label: SOURCE_VERIFIED
+    evidence:
+      - prior review commit 49b716a2 labels direct live host observations EXECUTED
+      - this independent reviewer had no WSL/Hermes shell access
+    scenario: >-
+      A future reviewer assumes a repository receipt is proof the current installed
+      runtime has not changed and skips current-version validation.
+    consequence:
+      - stale runtime assumptions
+      - incorrect authorization
+    mitigation: evidence_discipline
+    acceptance: >-
+      Durable receipts are cited as evidence of prior execution; current-runtime
+      claims require a fresh installed-version receipt or are labelled SOURCE_VERIFIED/INFERENCE.
+    status: open_process_guard
+
+summary:
+  critical_open:
+    - IPV-R21
+    - IPV-R26
+    - IPV-R28
+  high_open:
+    - IPV-R22
+    - IPV-R23
+    - IPV-R24
+    - IPV-R27
+    - IPV-R29
+    - IPV-R30
+    - IPV-R31
+    - IPV-R33
+  controlled_by_current_gates:
+    - IPV-R25
+    - IPV-R32
+  architecture_replacement_required: false
+  new_runtime_or_service_required: false

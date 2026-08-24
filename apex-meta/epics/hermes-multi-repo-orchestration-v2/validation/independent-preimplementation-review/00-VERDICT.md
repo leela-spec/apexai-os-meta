@@ -1,94 +1,109 @@
-# 00 — Pre-Implementation Validation Verdict: Hermes Multi-Repo Orchestration v2
+# 00 — Independent Pre-Implementation Validation Verdict
 
 - **Program:** Hermes Multi-Repo Orchestration v2
-- **Target Repository:** `leela-spec/apexai-os-meta` (`main`)
-- **Evaluation Date:** 2026-08-24
-- **Review Role:** Independent Pre-Implementation Architecture, Safety, Reliability, and Efficiency Reviewer
-- **Governing Handover:** [14-INDEPENDENT-PREIMPLEMENTATION-VALIDATION-HANDOVER.md](../../14-INDEPENDENT-PREIMPLEMENTATION-VALIDATION-HANDOVER.md)
-- **Status:** **VALIDATION COMPLETE — READY FOR OPERATOR DECISION**
+- **Repository / branch:** `leela-spec/apexai-os-meta` / `main`
+- **Validation date:** 2026-08-24
+- **Governing launcher:** `14-INDEPENDENT-PREIMPLEMENTATION-VALIDATION-HANDOVER.md`
+- **Prior independent review incorporated:** `49b716a21ee82b94fcd26a6adac7bb2809ad2303`
+- **Review mode:** adversarial validation; no implementation, migration, scheduler enablement, or D10 enablement
+- **Status:** **VALIDATION COMPLETE — OPERATOR DECISION READY**
 
----
+## 1. Verdict
 
-## 1. Executive Verdict
+# **`REVISE`**
 
-# **`GO_WITH_CONDITIONS`**  
-*(Architecture decisions D01–D10 are fundamentally sound, verified against current upstream primary sources, and adhere to production orchestration best practices. Implementation may proceed in accordance with the 18-Phase Roadmap once the 5 mandatory pre-implementation corrections in `04-CORRECTION-PLAN.md` are incorporated.)*
+The accepted D01–D10 architecture is directionally sound and should **not** be replaced with another orchestrator, state store, memory service, retrieval service, framework, or synchronization layer. The revision is narrower: the implementation gates must explicitly prevent legacy single-repository pilot state from becoming the multi-repository baseline and must close four deterministic integrity seams that the first independent review correctly identified.
 
-### Confidence Assessment
+**SOURCE_VERIFIED — architecture direction:** the current authority pack preserves one owner per concern: source repositories own project truth, Hermes Kanban owns runtime task/review state, Apex owns portfolio governance and derived rollups, QMD owns a rebuildable retrieval index, profile memory stays local, and reviewed skills carry only reusable procedure.
 
-| Dimension | Rating | Justification |
-|---|:---:|---|
-| **Architecture Coherence** | **HIGH (96%)** | Clean separation of control plane (Apex), project truth (source repos), runtime execution (Hermes/Docker), and retrieval (QMD). No competing sources of truth. |
-| **Upstream Contract Grounding** | **HIGH (94%)** | All consequential claims refreshed against current primary documentation, GitHub issues, and source repositories (NousResearch Hermes Agent, QMD, BMAD, MarketingSkills, Agent Skills). |
-| **Tested Runtime Baseline** | **HIGH (95%)** | Directly verified against the passing MasterOfArts pilot evidence on this exact Windows 11 + WSL2 + Docker 29.1.3 host. |
-| **Anti-Overengineering Compliance** | **VERY HIGH (98%)** | Zero unnecessary agents, databases, message brokers, or external sync services introduced. Pure deterministic orchestration where applicable. |
-| **Multi-Repo Safety & Concurrency** | **HIGH (92%)** | Gate D10 and Safe Mode A completely neutralize upstream concurrency and workspace-persistence risks during initial rollout. |
+**SOURCE_VERIFIED — upstream risk remains live:** on 2026-08-24 the relevant Hermes defects remain open: tenant memory isolation `#85497`, per-board rather than gateway-wide concurrency `#78122`, profile `terminal.cwd` overriding task workspace `#73556`, Docker workspace provenance `#83856`, host-backed Kanban workspace persistence `#91568`, and dangling board binding returning success `#76285`. The no-agent cron false-positive and job-clobber regressions `#77131` and `#80624` are closed, while silent no-agent failure visibility `#20353` remains open.
 
----
+**SOURCE_VERIFIED — pilot scope:** the MasterOfArts receipts prove a strong **single-repository** baseline: Docker host persistence, WSL isolation from `/mnt/c`, QMD MCP operation, Kanban durability, role reuse inside MasterOfArts, end-to-end review, and cold-restart recovery. They do **not** prove concurrent multi-board safety, cross-repository profile cleanliness, task-specific Docker mounts, or cross-repository skill scoping.
 
-## 2. Executive Summary of Audit Results
+**STATIC_SIMULATION — decision consequence:** Safe Mode A (sequential execution, one active repository/workspace per profile, D10 disabled) neutralizes the known Hermes multi-board concurrency defects during initial rollout. It does not neutralize a stale static Docker mount, stale QMD index, stale derived Apex snapshot, polluted profile memory, or globally shadowing skills. Those must be corrected before the first cross-repository activation.
 
-The Hermes multi-repo orchestration v2 design was subjected to adversarial audit, static state simulation, and live runtime verification across all 10 architecture decisions (D01–D10), their cross-decision interactions, and the underlying infrastructure.
+## 2. Snapshot validated
 
-### Summary Decision Ledger (D01–D10)
+| Source | Ref observed | Evidence |
+|---|---|---|
+| `leela-spec/apexai-os-meta` | `49b716a21ee82b94fcd26a6adac7bb2809ad2303` before this revision | `SOURCE_VERIFIED` |
+| `leela-spec/MasterOfArts` | `b50b758b30f8f07a1c003fb582f32811a35376df` | `SOURCE_VERIFIED` |
+| `leela-spec/acim-secular` | `master` at `2cb94a0d899e02e2989934b98e428f8f005d4c96` | `SOURCE_VERIFIED` |
+| `leela-spec/Investment` | `main` at `63ad92ddf35507b351f9c069e790b7736cfcfd56` | `SOURCE_VERIFIED` |
+| Hermes Agent upstream | `main` reports v`0.20.5` / release date `2026.8.19` | `SOURCE_VERIFIED` |
+| QMD upstream | current 2.8.x contract: named collections, `includeByDefault`, `update`, `embed`, `status`, MCP `query/get/multi_get/status` | `SOURCE_VERIFIED` |
+| BMAD Method | current package v`6.11.0`; Hermes target is project `.agents/skills`; global linking remains non-baseline | `SOURCE_VERIFIED` |
+| Agent Skills | `SKILL.md` + metadata-first progressive disclosure + resources on demand | `SOURCE_VERIFIED` |
 
-| Decision | Area | Status | Validation Verdict | Primary Justification |
-|---|---|---|:---:|---|
-| **D01** | Apex Control Plane | ACCEPTED | **`PASS`** | Apex holds portfolio governance, ADRs, rollups, and shared skills; project files remain strictly in source repos. No duplicate truth. |
-| **D02** | Separate Kanban Boards + Rollup | ACCEPTED | **`PASS`** | Hard board isolation prevents tenant memory pollution (upstream issue #85497). Asynchronous read-only rollup is deterministic and token-free ($0.00). |
-| **D03** | Reusable Role Profiles | ACCEPTED W/ CONSTR. | **`PASS_WITH_CONDITIONS`** | Reusable specialist profiles compound procedural learning across repos. Sequential constraint strictly adheres to Hermes primary warning against concurrent same-profile processes. |
-| **D04** | Learning Spillover via Skills | ACCEPTED W/ CONSTR. | **`PASS`** | Raw memory stays profile-local. Cross-repo spillover occurs exclusively via independently reviewed, sanitized Agent Skills. Zero factual contamination. |
-| **D05** | Apex Shared-Skill Source | ACCEPTED PILOT REQ. | **`PASS_WITH_CONDITIONS`** | Apex Git is canonical source; runtime deployed directory is strictly decoupled from canonical Git repo to prevent unauthorized self-modification. |
-| **D06** | BMAD & Domain Skill Placement | ACCEPTED | **`PASS`** | BMAD remains repo-local; MarketingSkills remains MasterOfArts-only; Apex KB remains Apex-specific. Adheres to progressive disclosure and least privilege. |
-| **D07** | Canonical WSL Workspace | ACCEPTED MIGR. PEND. | **`PASS_WITH_CONDITIONS`** | Single WSL checkout per repo eliminates cross-filesystem 9P overhead and dual-authority drift. Requires divergence audit before freezing Windows checkouts. |
-| **D08** | QMD Multi-Repo Retrieval | ACCEPTED LIVE PEND. | **`PASS`** | One local QMD engine serves named collections across repos. Collection-scoped queries (`-c` / `collections: [...]`) prevent cross-repo context bleed at zero API token cost. |
-| **D09** | External Memory Deferred | DEFERRED / ACCEPTED | **`PASS`** | Anti-overengineering principle upheld: no external memory service (Mem0, Letta, Zep) introduced until a measured operational gap is proven. |
-| **D10** | Background Autonomy Gated | DEFERRED SAFETY GATE | **`PASS`** | Critical safety gate. Blocks unattended concurrent multi-board dispatch until 10 explicit host-persistence, mount-scope, and concurrency acceptance tests pass on installed version. |
+## 3. D01–D10 disposition
 
----
+| Decision | Verdict | Why |
+|---|---|---|
+| D01 — Apex control plane | **PASS_WITH_CONDITIONS** | Keep Apex derived-only; make rollup publication atomic and source-SHA-bearing. |
+| D02 — separate repo boards + async rollup | **PASS_WITH_CONDITIONS** | Board separation is the correct boundary; rollup must preserve last-known-good on partial read failure. |
+| D03 — reusable role profiles | **PASS_WITH_CONDITIONS** | Sequential role reuse is valid, but reusable profiles must start free of project schedules/facts and fixed cwd/mount state. |
+| D04 — learning spillover | **PASS_WITH_CONDITIONS** | Reviewed skills are the right spillover mechanism; legacy pilot `USER.md` schedules and learned upstream-package copies must not be carried forward. |
+| D05 — Apex shared-skill source | **PASS_WITH_CONDITIONS** | Canonical Git source is sound; runtime deployment must be provenance-verifiable and must not be shadowed by stale local copies. |
+| D06 — BMAD/domain skill placement | **PASS_WITH_CONDITIONS** | Policy is correct, but the MasterOfArts pilot receipts show global BMAD/MarketingSkills copies that conflict with the target scope if retained. |
+| D07 — canonical WSL workspace | **PASS_WITH_CONDITIONS** | Linux-native WSL storage is correct; converge on a normal WSL user/home and remove `/root/MasterOfArts` assumptions. |
+| D08 — QMD multi-repo retrieval | **PASS_WITH_CONDITIONS** | Explicit collections prevent bleed; high-stakes retrieval needs a deterministic source-HEAD freshness receipt. |
+| D09 — external memory deferred | **PASS** | No measured gap justifies another memory service. Sequential profiles plus reviewed skill promotion are sufficient. |
+| D10 — background multi-board autonomy gated | **PASS** | The decision to keep autonomy disabled is correct. This is a PASS for the gate, **not** authorization to enable D10. |
 
-## 3. Key Findings & Live Evidence
+## 4. Mandatory correction set
 
-1. **Live Pilot Evidence Confirmed on Host (`EXECUTED`):**
-   - Direct inspection of the WSL environment confirms:
-     - **Hermes Agent:** v0.20.5 (2026.8.19) operational in WSL Ubuntu.
-     - **QMD:** 2.8.3 (`facd35e`) operational with 4 indexed collections (`moa-lika`, `moa-ipos`, `moa-acim`, `moa-health`).
-     - **Docker Engine:** 29.1.3 running as WSL2 systemd daemon.
-     - **Reusable Profiles:** 4 thin profiles (`independent-reviewer`, `marketing-executive`, `research-strategist`, `workshop-designer`) already configured with QMD MCP.
-     - **Passing Acceptance Report:** `MasterOfArts/IMPLEMENTATION-ACCEPTANCE-REPORT.md` (P00–P17 all passed).
+Implementation remains unauthorized until the applicable corrections in `04-CORRECTION-PLAN.md` are satisfied.
 
-2. **Crucial Live Configuration Finding (`EXECUTED` / Risk R21):**
-   - In `/root/.hermes/config.yaml`, `terminal.docker_volumes` currently contains a static mount:
-     `[/root/MasterOfArts:/root/MasterOfArts:rw, /root/MasterOfArts:/workspace:rw]`.
-   - If multi-repo execution commenced without sanitizing this configuration, all Docker containers across Investment, ACIM, and Apex would continue mounting MasterOfArts into `/workspace`.
-   - **Correction C01** in `04-CORRECTION-PLAN.md` mandates dynamic per-workspace volume mounting before multi-repo execution.
+1. **C01 — task-scoped Docker mount contract.** Remove the single-repo static `/root/MasterOfArts` volume assumption. A worker must mount only the resolved active task workspace; host-side persistence and mount provenance must be verified before commands execute.
+2. **C02 — WSL user/home normalization.** Operate from the normal WSL user under `~/workspaces`; verify ownership/UID/GID and absence of hard-coded `/root` paths. Do not impose an arbitrary `umask` unless a real permission test requires it.
+3. **C03 — atomic fail-closed Apex rollup.** Read every configured source, validate board/repo/branch/source SHA, render to a temporary artifact, and atomically replace only after all reads succeed. Preserve the last-known-good snapshot on failure.
+4. **C04 — QMD source-HEAD freshness receipt.** Because QMD index health does not itself prove which Git HEAD was indexed, record a deterministic per-collection refresh receipt after successful `qmd update` + required `qmd embed`; compare that receipt with current source HEAD before high-stakes retrieval.
+5. **C05 — reusable-profile state reset.** Do not promote the pilot profiles wholesale. Rebuild/review role profiles from thin role definitions and stable operator preferences only; remove project schedules, project facts, fixed cwd, and project-specific runtime assumptions from `USER.md`/`MEMORY.md`.
+6. **C06 — skill-scope/provenance reset.** Remove or disable legacy global/learned copies that would shadow target policy. BMAD is repo-local; MarketingSkills is MasterOfArts-only until another repo has an approved need; Apex-reviewed shared skills have one canonical source and a verifiable runtime deployment.
+7. **C07 — Docker credential/environment negative test.** Use current Hermes `docker_forward_env` allowlisting and verify with canary secrets that unrelated host credentials do not enter the container. Filesystem isolation alone is not credential-isolation proof.
+8. **C08 — repository context-entry preflight.** Before board activation, verify each repository has an intentional root context entrypoint usable by Hermes and that it points to current authority. `acim-secular` and `Investment` currently have no root `AGENTS.md`; Apex has one, but it is primarily a Codex/Apex-KB operating note rather than a Hermes portfolio context.
 
-3. **Alignment with Battle-Tested Orchestration Standards (`SOURCE_VERIFIED`):**
-   - **Anthropic ("Building Effective Agents"):** v2 implements the *Evaluator-Optimizer* and *Prompt Chaining* workflow patterns using deterministic code for routing and rollups, reserving LLMs strictly for cognitive review and synthesis.
-   - **OpenAI ("Practices for Building Agentic Systems"):** Explicit state ownership (Git is truth; databases are derived), least privilege tool binding, and bounded tool execution.
-   - **Google ("Production Multi-Agent Guidelines"):** Control plane (Apex) is strictly segregated from data/execution plane (source repos).
+**SOURCE_VERIFIED — prior C05 disposition:** the first review proposed “parameterize default branches” as a correction. That requirement is already locked in `state.yaml`, D07, and the migration plan (`acim-secular=master`; others `main`). It remains an acceptance check, not a new architecture correction.
 
----
+## 5. Reconciliation with the other independent review (`49b716a2`)
 
-## 4. Mandatory Conditions for Implementation Authorization
+| Prior finding | This review | Disposition |
+|---|---|---|
+| Overall `GO_WITH_CONDITIONS` | **`REVISE`** | Same architecture direction; stricter authorization threshold because pilot runtime-state conflicts were found and this run did not inherit unverifiable live-host claims as `EXECUTED`. |
+| C01 static Docker mount | Confirmed | Retained as C01. |
+| C02 WSL user/home | Confirmed, narrowed | Retained without hard-coding `umask 022`; require normal user + ownership/path evidence. |
+| C03 atomic rollup | Confirmed | Retained as C03. |
+| C04 QMD freshness | Confirmed, made Git-HEAD-based | Retained as C04; timestamps alone are insufficient. |
+| C05 default branches | Already in authority | Reclassified to acceptance test. |
+| D01/D02/D04/D06/D08 unconditional PASS | Too optimistic | Downgraded to conditional where implementation integrity or legacy-state cleanup is still required. |
+| Claimed direct live WSL inspection | Not independently reproducible here | Durable pilot receipts are accepted as `SOURCE_VERIFIED` evidence of prior execution, not relabeled as this reviewer’s `EXECUTED`. |
 
-Before the operator signs off on Phase 1 of `11-IMPLEMENTATION-ROADMAP.md`, the following five pre-implementation corrections must be incorporated:
+## 6. External-practice comparison
 
-1. **Correction C01 — Docker Volume Configuration Sanitization:** Replace static `/root/MasterOfArts` mounts in `config.yaml` with dynamic workspace resolution.
-2. **Correction C02 — WSL User & Home Directory Boundary Alignment:** Standardize execution user identity and filesystem permissions (`umask 022`) across WSL2 and Windows.
-3. **Correction C03 — Fail-Closed Atomic Apex Rollup Contract:** Require atomic file writes (`.tmp` -> rename) and fail-closed abortion if any source board query fails.
-4. **Correction C04 — QMD Index Freshness Verification Protocol:** Add automated timestamp comparison between Git HEAD and QMD collection metadata before decision tasks.
-5. **Correction C05 — Multi-Repo Default Branch Resolution:** Parameterize default branches (`master` for `acim-secular`, `main` for others) in all orchestration scripts.
+**SOURCE_VERIFIED — OpenAI:** current agent guidance recommends maximizing a single agent with clear tools/instructions before introducing multi-agent orchestration, using layered guardrails and human intervention for high-risk actions. The v2 design follows this by keeping one Hermes runtime and deferring extra frameworks.
 
----
+**SOURCE_VERIFIED — Anthropic:** current engineering guidance treats context as finite, favors selective high-signal context, and reports that multi-agent research can consume about 15× chat tokens and performs poorly where agents require tightly shared context/dependencies. The v2 Safe Mode and scoped QMD design match this constraint.
 
-## 5. Deliverable Directory Map
+**SOURCE_VERIFIED — Google:** Vertex Agent Engine models durable session/event state explicitly by user/session identity rather than relying on hidden conversational memory. This supports the v2 separation of durable task state from profile memory and project truth.
 
-All supporting validation evidence is recorded in this directory:
+**SOURCE_VERIFIED — Microsoft/Docker:** Microsoft recommends Linux-tool projects live in the WSL Linux filesystem under `/home/<user>/...`, and Docker documents that writable bind mounts directly mutate host files and should be verified explicitly. These support C01/C02.
 
-- [`00-VERDICT.md`](00-VERDICT.md) — This document.
-- [`01-D01-D10-AUDIT.md`](01-D01-D10-AUDIT.md) — Decision-by-decision adversarial audit matrix.
-- [`02-CROSS-DECISION-ORCHESTRATION-SIMULATION.md`](02-CROSS-DECISION-ORCHESTRATION-SIMULATION.md) — 15 explicit flow simulations and failure injections.
-- [`03-RISK-GAP-REGISTER.yaml`](03-RISK-GAP-REGISTER.yaml) — Newly discovered risks (R21–R25) mapped to mitigations.
-- [`04-CORRECTION-PLAN.md`](04-CORRECTION-PLAN.md) — Minimum coherent correction set (C01–C05).
-- [`05-SOURCE-REFRESH-MATRIX.md`](05-SOURCE-REFRESH-MATRIX.md) — Refreshed upstream primary source matrix with evidence labels.
+## 7. What is not required
+
+No evidence demonstrates a need for:
+
+- another orchestration runtime;
+- a cross-runtime memory synchronizer;
+- a custom RAG/KB service;
+- a message broker;
+- a global BMAD linker;
+- a bidirectional task synchronizer;
+- a second QMD engine;
+- tenant-based memory isolation;
+- D10 concurrent autonomy now.
+
+## 8. Authorization boundary
+
+**INFERENCE — final decision:** `REVISE` means “retain D01–D10, tighten implementation gates, then re-evaluate authorization.” It does **not** mean redesign the architecture.
+
+D10 remains disabled. Repository migrations, runtime reconfiguration, scheduler enablement, and cross-repo background dispatch remain outside this review.

@@ -1,271 +1,155 @@
-# 02 — Cross-Decision Orchestration Simulation & Failure-Injection Analysis
+# 02 — Cross-Decision Orchestration Simulations
 
 - **Program:** Hermes Multi-Repo Orchestration v2
-- **Target Repository:** `leela-spec/apexai-os-meta` (`main`)
-- **Evaluation Date:** 2026-08-24
-- **Reviewer Role:** Independent Architecture & Safety Evaluator
-- **Governing Handover:** [14-INDEPENDENT-PREIMPLEMENTATION-VALIDATION-HANDOVER.md](../../14-INDEPENDENT-PREIMPLEMENTATION-VALIDATION-HANDOVER.md)
-- **Status:** **COMPLETE**
+- **Mode:** static adversarial simulation against current source and upstream evidence
+- **Evaluation date:** 2026-08-24
+- **Rule:** no scenario below is treated as live runtime execution unless explicitly marked `EXECUTED`. This run performed no WSL/Hermes shell execution.
+
+## Simulation contract
+
+Each scenario records the intended path, injected fault, expected invariant, and verdict. These are `STATIC_SIMULATION` unless a supporting upstream or repository fact is explicitly marked `SOURCE_VERIFIED`.
 
 ---
 
-## 1. Simulation Standard & Execution Classifications
+## S01 — Healthy morning portfolio rollup
 
-Every operational scenario below is evaluated against live host evidence and upstream runtime contracts, and classified into one of:
-- **`EXECUTED`**: Non-destructive test executed against the accessible WSL/host environment.
-- **`STATIC_SIMULATION`**: Explicit step-by-step state-transition, boundary-check, and failure-injection analysis.
-- **`SOURCE_VERIFIED`**: Directly corroborated by official upstream runtime contracts, CLI schemas, or source code.
-- **`INFERENCE`**: Logical deduction derived from architectural constraints.
+**Path:** four repository boards -> deterministic reads -> Apex derived snapshot.
 
----
+- **STATIC_SIMULATION — setup:** all four configured boards exist and return valid structured state; source branches and Git HEADs resolve.
+- **Expected:** snapshot contains every configured source, exact source identity, generation timestamp, and health=healthy.
+- **Invariant:** no source task/project content is copied into Apex beyond the declared rollup schema.
+- **Verdict:** **PASS** if C03 atomic publication is used.
 
-## 2. Fifteen Mandatory Cross-Decision Scenario Simulations
+## S02 — one board read fails mid-rollup
 
-### Scenario 1 — Sequential Repository Switch
-- **Decisions Involved:** `D03 (Reusable Profiles)` × `D07 (WSL Workspace)` × `D08 (QMD Scoping)` × `D10 (Sequential Safe Mode)`
-- **Classification:** **`STATIC_SIMULATION`** & **`SOURCE_VERIFIED`**
-- **Test Sequence:**
-  1. Profile `research-strategist` executes a research task in `~/workspaces/Investment` with QMD scoped to `collections: ["investment-control", "investment-evidence"]`.
-  2. Task completes. The agent session terminates cleanly. `MEMORY.md` updates with general research heuristics. No Investment financial facts are recorded in `MEMORY.md`.
-  3. Operator/Orchestrator invokes `research-strategist` in `~/workspaces/acim-secular` with QMD scoped to `collections: ["acim-control", "acim-site-docs"]`.
-  4. Docker backend bind-mounts `~/workspaces/acim-secular` to `/workspace`.
-- **State Transitions & Verification:**
-  - `cwd` switches from `~/workspaces/Investment` to `~/workspaces/acim-secular`.
-  - Project context loaded switches from `Investment/AGENTS.md` to `acim-secular/AGENTS.md`.
-  - QMD tool queries target ACIM documents only; Investment collections are ignored.
-  - Zero factual leakage observed between tasks.
-- **Critical Failure Mode Identified:** If `terminal.docker_volumes` in `/root/.hermes/config.yaml` retains a hardcoded path to `MasterOfArts` (as discovered during live host audit), the second task would mount the wrong workspace into Docker.
-- **Mitigation Requirement:** Incorporate **Correction C01** to dynamicize Docker volume mounting.
+- **STATIC_SIMULATION — fault:** Apex reads MasterOfArts and Investment successfully; ACIM board read errors; Apex board is still readable.
+- **Unsafe behavior:** publish a three-board “success” snapshot.
+- **Expected:** abort replacement, preserve last-known-good snapshot, emit a degraded receipt naming ACIM read failure.
+- **Verdict:** **FAIL without C03 / PASS with C03.**
 
----
+## S03 — source repo advances during rollup
 
-### Scenario 2 — Profile Concurrency Collision Prevention
-- **Decisions Involved:** `D02 (Separate Boards)` × `D03 (Reusable Profiles)` × `D10 (Background Autonomy Gate)` × `R02`
-- **Classification:** **`STATIC_SIMULATION`** & **`SOURCE_VERIFIED`**
-- **Test Sequence:**
-  1. Board `masterofarts` has an in-progress task assigned to `independent-reviewer`.
-  2. Board `investment` receives a task also assigned to `independent-reviewer`.
-  3. Attempt simulation of concurrent background gateway dispatch across both boards.
-- **State Transitions & Verification:**
-  - *Under Unsafe Mode (D10 Disabled):* Gateway dispatcher sweeps both boards independently. Because `max_in_progress_per_profile` is enforced per-board (Upstream issue #78122), two worker processes launch simultaneously using profile home `/root/.hermes/profiles/independent-reviewer`. Both write to SQLite `state.db` and `memories/`, causing lock contention and memory corruption.
-  - *Under Safe Mode A (D10 Enforced):* Background multi-board dispatch is disabled (`dispatch_in_gateway: false`). Tasks are executed sequentially. The second task waits until the first process completes.
-- **Verdict:** Gate D10 successfully prevents multi-process profile corruption.
+- **STATIC_SIMULATION — fault:** board status is read against source SHA A; before publication the source branch advances to B.
+- **Expected:** snapshot declares SHA A rather than pretending it reflects B. A downstream high-stakes decision refreshes if current HEAD != snapshot source SHA.
+- **Verdict:** **PASS_WITH_CONDITION** — source SHA is mandatory provenance.
 
----
+## S04 — sequential reusable profile: Investment -> ACIM
 
-### Scenario 3 — Board Task-State Isolation
-- **Decisions Involved:** `D02 (Separate Boards)` × `D01 (Apex Control Plane)`
-- **Classification:** **`EXECUTED`** (Live DB Path Inspection) & **`SOURCE_VERIFIED`**
-- **Test Sequence:**
-  1. Worker spawned on `acim` board with environment variable `HERMES_KANBAN_BOARD=acim`.
-  2. Worker attempts to query tasks from `investment` board using built-in Kanban tools.
-  3. Worker attempts `kanban_link` to create a dependency on a task in `masterofarts`.
-- **State Transitions & Verification:**
-  - Worker's Kanban tool connects exclusively to `/root/.hermes/kanban/boards/acim/kanban.db`.
-  - Cross-board task visibility is physically absent at the database layer.
-  - Hermes runtime explicitly rejects cross-board `kanban_link` commands.
-  - Board isolation is hard and total.
+- **SOURCE_VERIFIED — risk basis:** Hermes tenant/board isolation does not isolate shared profile memory (`#85497`).
+- **STATIC_SIMULATION — sequence:** `research-strategist` completes an Investment task, then starts ACIM after process completion.
+- **Expected:** role definition remains the same, but task workdir/context/QMD scope switch to ACIM; no Investment project fact or schedule is injected from persistent profile memory.
+- **Failure detector:** preflight scans reusable profile memory/config for repo names, source paths, task schedules, `terminal.cwd`, and repo-specific mounts.
+- **Verdict:** **FAIL until C05 profile reset is complete.**
 
----
+## S05 — accidental same-profile concurrency on two boards
 
-### Scenario 4 — Apex Portfolio Rollup Failure Closed (Failure Injection)
-- **Decisions Involved:** `D01 (Apex Control Plane)` × `D02 (Kanban Topology)` × `R06` × `R07`
-- **Classification:** **`STATIC_SIMULATION`**
-- **Failure Injection Test:**
-  1. Rollup script initiates:
-     - `hermes kanban --board apex list --json` -> Returns 200 OK.
-     - `hermes kanban --board masterofarts list --json` -> Returns 200 OK.
-     - `hermes kanban --board acim list --json` -> Returns 200 OK.
-     - `hermes kanban --board investment list --json` -> Fails (Simulated SQLite database lock / timeout / 500 error).
-- **State Transitions & Verification:**
-  - *Naive Implementation:* Emits a 3-repo rollup snapshot. Tasks in `investment` appear wiped or completed.
-  - *Fail-Closed Contract (Correction C03):* Rollup script detects nonzero exit code or schema validation failure for `investment`. Script immediately aborts snapshot generation. Existing `kanban-rollup.json` is preserved.
-  - Script writes `kanban-rollup-health.json` with status `DEGRADED`, recording exact error, failed board slug, and timestamp.
-- **Verdict:** Fail-closed semantics prevent false-success reporting.
+- **SOURCE_VERIFIED — risk basis:** `#78122` allows per-board limits to multiply workers; `#85497` documents shared profile-memory contamination.
+- **STATIC_SIMULATION — fault:** both Investment and ACIM have ready tasks assigned to `research-strategist` at the same time.
+- **Expected Safe Mode A:** only one can enter execution; the second stays queued/blocked.
+- **Verdict:** **PASS only while D10 remains disabled and a single-profile/single-lane guard is effective.**
 
----
+## S06 — legacy static MasterOfArts Docker volume survives
 
-### Scenario 5 — Cross-Repo Dependency Tracking via Apex Reference Object
-- **Decisions Involved:** `D01 (Apex Control Plane)` × `D02 (Separate Boards)` × `US-04`
-- **Classification:** **`STATIC_SIMULATION`**
-- **Test Sequence:**
-  1. Task on `investment` board (#104: "Execute Model Retraining") is blocked on an architecture policy decision in Apex.
-  2. Task #104 status is set to `blocked` with reason: `Blocked on Apex Decision D12`.
-  3. In Apex, an explicit reference object is written to `apex-meta/portfolio/dependencies/cross-repo-links.yaml`:
-     ```yaml
-     dependency_id: DEP-001
-     blocked_board: investment
-     blocked_task_id: 104
-     blocking_entity: apex-meta/decisions/D12-MODEL-SELECTION.md
-     status: active
-     created_at: "2026-08-24T18:00:00Z"
-     ```
-  4. Once D12 is accepted in Apex, the orchestrator updates DEP-001 to `resolved` and transitions Investment task #104 to `todo`.
-- **State Transitions & Verification:**
-  - Zero task mirroring into Apex.
-  - Source task in Investment remains authoritative.
-  - Zero bidirectional synchronization conflicts.
+- **SOURCE_VERIFIED — pilot evidence:** P07 and `OKF-EXECUTION-OBSERVATIONS.yaml` record `/root/MasterOfArts` mounted to both `/root/MasterOfArts` and `/workspace`.
+- **STATIC_SIMULATION — fault:** an Investment task starts with that configuration unchanged.
+- **Expected:** preflight rejects execution before any command; container must not receive MasterOfArts as the active workspace.
+- **Verdict:** **FAIL until C01.**
 
----
+## S07 — profile `terminal.cwd` overrides task workspace
 
-### Scenario 6 — Learning Promotion, Generalization & Sanitization
-- **Decisions Involved:** `D04 (Learning Spillover)` × `D05 (Shared Skill Source)` × `US-05`
-- **Classification:** **`STATIC_SIMULATION`**
-- **Test Sequence:**
-  1. `research-strategist` completes work on MasterOfArts, generating two candidate skills in `~/.hermes/profiles/research-strategist/skills/learned/`:
-     - `Candidate-A`: "Lika Brand Tone Guidelines" (contains project-specific character names and proprietary plot arcs).
-     - `Candidate-B`: "Comparative Source Matrix Generator" (contains a generic method for contrasting multi-source markdown tables with verification badges).
-  2. Scheduled deterministic harvest runs: hashes both directories and flags new candidate hashes.
-  3. `independent-reviewer` evaluates candidates:
-     - `Candidate-A`: **REJECTED** for shared promotion (classified as MasterOfArts project truth; remains repo-local).
-     - `Candidate-B`: **APPROVED** for shared promotion. Sanitizer confirms zero project facts and zero API keys.
-  4. `Candidate-B` is committed to Apex Git at `apex-meta/skills/shared/comparative-source-matrix/SKILL.md`.
-  5. Script deploys the skill to runtime `~/.hermes/skills/shared/`.
-- **State Transitions & Verification:**
-  - Generic procedure becomes discoverable by all role profiles.
-  - Zero raw memory files copied. Zero project facts leaked.
+- **SOURCE_VERIFIED — risk basis:** Hermes issue `#73556` remains open.
+- **STATIC_SIMULATION — fault:** task workspace is `~/workspaces/acim-secular`, profile cwd is a broader parent or another repo.
+- **Expected:** task workspace is authoritative; if effective mount/cwd differs, worker fails closed before command execution.
+- **Verdict:** **BLOCKER on any installed-version reproduction.** Do not compensate with a custom wrapper.
 
----
+## S08 — Docker worker reports commit but host lacks artifact
 
-### Scenario 7 — Skill Precedence & Collision Resolution
-- **Decisions Involved:** `D05 (Shared Skill Source)` × `D06 (Domain Skills)` × `V23`
-- **Classification:** **`STATIC_SIMULATION`** & **`SOURCE_VERIFIED`**
-- **Collision Setup:**
-  - Repo-local skill: `~/workspaces/MasterOfArts/.agents/skills/deploy-site/SKILL.md` (custom Astro/Vercel workflow).
-  - Deployed shared skill: `~/.hermes/skills/shared/deploy-site/SKILL.md` (generic Docker deploy workflow).
-- **State Transitions & Verification:**
-  - Hermes runtime evaluates skill discovery order:
-    1. Project-local skills (`<active_repo>/.agents/skills/` or `.claude/skills/`).
-    2. Profile-local skills (`~/.hermes/profiles/<role>/skills/`).
-    3. External shared skill directories (`~/.hermes/skills/shared/`).
-  - Result: MasterOfArts uses its repo-local `deploy-site` skill. Other repos fallback to the generic shared skill.
-  - Crucial Safety Check: The agent executing in MasterOfArts cannot mutate `~/.hermes/skills/shared/deploy-site` because runtime shared skills are deployed read-only.
+- **SOURCE_VERIFIED — risk basis:** `#91568` documents task Docker workspaces that are not host-backed, allowing apparent commits to disappear after container exit.
+- **STATIC_SIMULATION — test:** worker writes a canary file and creates a disposable commit in an authorized test checkout; container exits; host verifies exact file/commit.
+- **Expected:** host sees both before task may report success.
+- **Verdict:** **D10 acceptance must fail if host receipt is absent.**
 
----
+## S09 — ambient credential leaks into Docker
 
-### Scenario 8 — QMD Scoped Retrieval vs Unscoped Default Search
-- **Decisions Involved:** `D08 (QMD Multi-Repo)` × `R12` × `V16` × `V18`
-- **Classification:** **`EXECUTED`** (Collection Configuration) & **`STATIC_SIMULATION`**
-- **Test Sequence:**
-  1. Live QMD collections configured with `includeByDefault: false` for all heavy project collections (`moa-lika`, `moa-ipos`, `investment-evidence`, `acim-site-docs`).
-  2. Small Apex governance collection (`apex-control`) left with `includeByDefault: true`.
-  3. Query A (Unscoped): `qmd search "current architecture status"`.
-     - *Result:* Searches only `apex-control`. Returns Apex ADR summaries. Zero results from Investment or Lika.
-  4. Query B (Scoped): `qmd search "discount rate calculation" -c investment-evidence`.
-     - *Result:* Searches only `investment-evidence`. Returns exact financial model passages.
-- **Verdict:** Excluded default collections successfully isolate project corpora and eliminate retrieval bleed.
+- **SOURCE_VERIFIED — pilot evidence:** `OKF-EXECUTION-OBSERVATIONS.yaml` records environment inheritance as a risk in Hermes 0.20.5.
+- **STATIC_SIMULATION — test:** host process exposes a harmless canary variable that is not on the explicit forward allowlist.
+- **Expected:** canary absent inside container; required named variables only are present.
+- **Verdict:** **FAIL until C07 negative test passes.**
+
+## S10 — QMD scoped Investment retrieval
+
+- **STATIC_SIMULATION — setup:** query is issued with explicit Investment collection(s); ACIM and MasterOfArts are excluded from the request/default heavy set.
+- **Expected:** results contain only authorized Investment paths; exact files may then be fetched with `get`/`multi_get`.
+- **Verdict:** **PASS by design; requires live collection-isolation acceptance.**
+
+## S11 — QMD stale after source commit
+
+- **STATIC_SIMULATION — fault:** Investment HEAD advances A -> B after previous QMD refresh; index remains healthy but reflects A.
+- **Expected:** pre-query high-stakes gate compares current HEAD B with refresh receipt A and forces `qmd update` plus required embedding refresh before synthesis.
+- **Verdict:** **FAIL without C04 / PASS with C04.**
+
+## S12 — learned procedure promoted from project A to project B
+
+- **STATIC_SIMULATION — flow:** a task creates a learned skill candidate in a profile; deterministic inventory detects changed candidate; independent review removes project facts and checks overlap; accepted procedure is committed to Apex shared-skill source; runtime deployment is hash/provenance verified; Project B activates it on demand.
+- **Expected:** no source-project paths, facts, credentials, schedules, or hidden memory move with the procedure.
+- **Verdict:** **PASS_WITH_CONDITIONS C05+C06.**
+
+## S13 — stale global BMAD/MarketingSkills shadows repo policy
+
+- **SOURCE_VERIFIED — pilot evidence:** P11/P12 record global Hermes copies in addition to MasterOfArts project copies; the autonomous summary lists BMAD/MarketingSkills under learned skills.
+- **STATIC_SIMULATION — fault:** ACIM profile discovers a global MarketingSkills/BMAD copy despite D06 saying those capabilities are not globally owned.
+- **Expected:** skill inventory gate rejects target activation until ambiguous/shadowing copies are disabled or removed; active capability set is explicit per repo.
+- **Verdict:** **FAIL until C06.**
+
+## S14 — cross-project dependency without cross-board native edge
+
+- **STATIC_SIMULATION — flow:** Investment task blocks a MasterOfArts task. Source-side Investment task stays blocked; Apex XDEP record carries source refs and dependency state; periodic deterministic rollup sees Investment completion; operator/orchestrator creates or unblocks the explicit downstream task according to the declared process.
+- **Expected:** no hidden bidirectional synchronization and no copied task becomes a second owner.
+- **Verdict:** **PASS**; asynchronous coupling is intentional.
+
+## S15 — board binding typo returns success
+
+- **SOURCE_VERIFIED — risk basis:** Hermes `#76285` remains open.
+- **STATIC_SIMULATION — fault:** configuration says `investmentt` instead of `investment` and upstream binding command exits 0.
+- **Expected:** orchestration preflight independently enumerates real boards and rejects nonexistent configured slug.
+- **Verdict:** **PASS only with explicit existence validation.**
+
+## S16 — no-agent scheduler silently produces no evidence
+
+- **SOURCE_VERIFIED — issue state:** `#77131` and `#80624` are closed; `#20353` remains open regarding silent no-agent output/failure visibility.
+- **STATIC_SIMULATION — fault:** deterministic harvest script catches an exception or produces no output while exit semantics do not surface a useful failure.
+- **Expected:** scheduled job has an explicit success receipt/heartbeat and last-run verification; absence is unhealthy, not success.
+- **Verdict:** **scheduler remains non-authoritative and D10-disabled until acceptance covers this.**
+
+## S17 — restart during single-repo task
+
+- **SOURCE_VERIFIED — pilot:** P16 reports WSL cold-restart preservation for Kanban, QMD, profiles, memory, Docker recovery, and Git cleanliness in MasterOfArts.
+- **STATIC_SIMULATION — multi-repo extension:** crash occurs with exactly one active Safe Mode A task. On restart, validate board/task state, repo path/branch/HEAD, task artifact existence, profile lock release, and QMD freshness before resuming.
+- **Expected:** resume from durable state, not chat transcript; no duplicate side effect.
+- **Verdict:** **PASS_WITH_CONDITIONS**; prior pilot supports mechanism but exact multi-repo run still requires acceptance.
+
+## S18 — missing repository context entrypoint
+
+- **SOURCE_VERIFIED — repository inspection:** root `AGENTS.md` was not found in `acim-secular` or `Investment`; Apex root `AGENTS.md` exists but primarily addresses Codex/Apex-KB behavior.
+- **STATIC_SIMULATION — fault:** Hermes enters a repo expecting automatic root routing but no intentional Hermes-readable authority pointer exists.
+- **Expected:** repository activation gate identifies current owner/authority entrypoint and adds/validates only the minimal upstream-consumed context required by D07/D08/D03; it must not create a new knowledge layer.
+- **Verdict:** **FAIL until C08 per repo.**
+
+## S19 — attempt to enable D10 early
+
+- **STATIC_SIMULATION — fault:** operator/runtime tries to start unattended concurrent multi-board execution because single-repo P15/P16 passed.
+- **Expected:** architecture gate rejects enablement; single-repo E2E/recovery is not evidence of multi-board concurrency, same-profile isolation, task-scoped mount safety, or scheduler correctness.
+- **Verdict:** **HARD BLOCK.**
+
+## S20 — token/context pressure
+
+- **SOURCE_VERIFIED — external practice:** OpenAI favors simpler single-agent systems before multi-agent escalation; Anthropic emphasizes finite context and reports high token multiplication for multi-agent systems; Agent Skills/QMD use progressive disclosure.
+- **STATIC_SIMULATION — flow:** portfolio task loads only Apex rollup + named repo authority + scoped QMD passages + activated skill, not all four repositories or all skill bodies.
+- **Expected:** context expands only on a concrete unresolved question.
+- **Verdict:** **PASS** and no new router/compressor is justified.
 
 ---
 
-### Scenario 9 — QMD Stale Index Detection & Refresh Flow
-- **Decisions Involved:** `D08 (QMD Multi-Repo)` × `R14` × `Correction C04`
-- **Classification:** **`STATIC_SIMULATION`**
-- **Failure Injection Test:**
-  1. Developer commits major ADR changes to `~/workspaces/Investment` at 14:00 (Commit `a1b2c3d`).
-  2. `qmd status` indicates collection `investment-control` last updated at 09:00.
-  3. Pre-task verification hook runs prior to dispatching `research-strategist`:
-     - Compares `git log -1 --format=%ct` of repo vs SQLite `last_modified` in QMD index.
-     - Hook detects Git HEAD is newer than QMD index.
-     - Hook triggers non-blocking incremental update: `qmd update -c investment-control`.
-- **State Transitions & Verification:**
-  - QMD updates SQLite index in < 3 seconds.
-  - Agent receives current ground truth.
+## Cross-simulation conclusion
 
----
-
-### Scenario 10 — Docker Workspace Persistence & Tool Agreement
-- **Decisions Involved:** `D07 (WSL Workspace)` × `D10 (Safety Gate)` × `INC-001` × `R03` × `R04` × `R05`
-- **Classification:** **`STATIC_SIMULATION`** & **`SOURCE_VERIFIED`**
-- **Verification Steps:**
-  1. Worker running inside `hermes-sandbox` container creates `/workspace/test-artifact.txt`.
-  2. Verify file immediately appears at host path `~/workspaces/acim-secular/test-artifact.txt`.
-  3. Worker executes `git add test-artifact.txt && git commit -m "test commit"`.
-  4. Worker terminates; container is stopped and removed.
-  5. Inspect host Git log at `~/workspaces/acim-secular`: commit exists at HEAD.
-  6. Verify tool paths: Terminal `pwd`, file tool `path`, and code execution `cwd` all resolve identically to `/workspace` inside the container.
-  7. Verify isolation: Attempt `ls /root/Investment` inside container -> Returns `Permission denied` / `No such file`.
-
----
-
-### Scenario 11 — WSL Workspace Migration Divergence Audit
-- **Decisions Involved:** `D07 (Canonical WSL Workspace)` × `R15`
-- **Classification:** **`STATIC_SIMULATION`**
-- **Audit Sequence:**
-  1. Pre-migration script audits `C:\GitDev\acim-secular` vs `~/workspaces/acim-secular`.
-  2. Check default branch: Confirms `master` for ACIM (prevents script failure from assuming `main`).
-  3. Check uncommitted changes: Discovers 1 unstaged `.obsidian/workspace.json` in Windows.
-  4. Check untracked files: Reconciles untracked documentation files.
-  5. Reconciliation: Syncs untracked files to WSL canonical repo; commits or stashes.
-  6. Freezing: Marks Windows folder with `MIGRATED_TO_WSL_READ_ONLY.txt`.
-- **Verdict:** Zero uncommitted data loss during workspace migration.
-
----
-
-### Scenario 12 — Hard Crash & Cold Restart Recovery
-- **Decisions Involved:** `D01 (Apex Control)` × `D02 (Separate Boards)` × `D08 (QMD)` × `P16`
-- **Classification:** **`EXECUTED`** (Directly verified in MasterOfArts P16 pilot evidence)
-- **Observed Recovery Results:**
-  - Full cold reboot of Windows 11 host and WSL2 distribution.
-  - Docker daemon recovered automatically via WSL systemd.
-  - SQLite WAL files (`kanban.db-wal`, `state.db-wal`, `index.sqlite`) replayed and recovered with zero data corruption.
-  - All four Kanban boards preserved tasks and assigned states.
-  - QMD local vector embeddings remained 100% intact.
-  - No manual chat replay or memory reconstruction required.
-
----
-
-### Scenario 13 — Scheduled Job Idempotency & Duplicate Run Safety
-- **Decisions Involved:** `D02 (Rollup)` × `D04 (Learning Harvest)` × `R11`
-- **Classification:** **`STATIC_SIMULATION`**
-- **Test Sequence:**
-  1. Rollup cron job triggers at 09:00:00 and generates `kanban-rollup.json` via atomic write (`.tmp` file rename).
-  2. An accidental duplicate cron trigger fires at 09:00:05.
-  3. Second run reads identical source board SQLite states, calculates matching SHA-256 fingerprint, and writes identical output atomically.
-  4. Zero data corruption, zero race conditions, zero duplicate review tasks created in Apex.
-
----
-
-### Scenario 14 — Cross-Client Portability (Hermes, Codex, Claude Code, Antigravity)
-- **Decisions Involved:** `D01 (Apex Control)` × `D07 (WSL Workspace)` × `R20`
-- **Classification:** **`SOURCE_VERIFIED`** & **`STATIC_SIMULATION`**
-- **Verification Points:**
-  - All AI clients (Hermes, Codex CLI, Claude Code, Antigravity) operate directly on the canonical WSL Git checkouts (`~/workspaces/<repo>`).
-  - Standard `AGENTS.md` and `SKILL.md` (Agent Skills format) are parsed natively across all tools.
-  - Hermes-specific metadata (`.hermes/`, `kanban.db`) is ignored by Claude/Codex.
-  - Git repository remains the universal, client-agnostic source of truth.
-
----
-
-### Scenario 15 — Gate D10 Future Background Autonomy Enablement Protocol
-- **Decisions Involved:** `D10 (Safety Gate)` × `INC-001`
-- **Classification:** **`SOURCE_VERIFIED`**
-- **Required 10 Acceptance Gates Before Unlocking Background Autonomy:**
-  1. Host persistence of disposable file verified outside container.
-  2. Host persistence of container Git commit verified at host HEAD.
-  3. Tool agreement: Terminal, file, and code tools resolve to identical container workspace.
-  4. Profile cwd independence: Profile configuration cannot broaden task container mount.
-  5. Sibling isolation: Non-target repositories completely inaccessible inside container.
-  6. Network & Docker socket isolation: Docker socket (`/var/run/docker.sock`) not mounted.
-  7. Secret segregation: `.env` and host credentials not forwarded to container.
-  8. Concurrency serialization: Multi-board dispatch of identical profile verified serialized.
-  9. Crash recovery: Task workspace state recovers cleanly across container restarts.
-  10. Version-locked verification: Exact Hermes and Docker engine versions recorded in verification receipt.
-
----
-
-## 3. Cross-Decision Coupling Matrix
-
-```text
-+-------------------+--------------------+-----------------------+---------------------------------------+
-| Primary Decision  | Coupled Decision   | Interaction Risk      | Architectural Mitigation               |
-+-------------------+--------------------+-----------------------+---------------------------------------+
-| D01 (Apex Control)| D02 (Sep. Boards)  | Stale portfolio view  | Derived read-only rollup + timestamps |
-| D02 (Sep. Boards) | D03 (Profiles)     | Concurrent writers    | D10 Gate + Sequential Safe Mode A     |
-| D03 (Profiles)    | D04 (Learning)     | Fact contamination    | Raw memory local; skill promotion only|
-| D04 (Learning)    | D05 (Shared Skill) | Unreviewed skill sync | 2-stage promotion + independent review|
-| D05 (Shared Skill)| D06 (Domain Skill) | Skill name collision  | Precedence: Project > Profile > Shared|
-| D07 (WSL Workspace| D08 (QMD Engine)   | Path resolution error | Absolute paths in QMD collection map  |
-| D07 (WSL Workspace| D10 (Docker Gate)  | Hardcoded mount bleed | Dynamic workspace volume mapping (C01)|
-| D08 (QMD Engine)  | D03 (Profiles)     | MCP missing in profile| Profile distribution / manual MCP cfg |
-+-------------------+--------------------+-----------------------+---------------------------------------+
-```
+**INFERENCE:** the dominant failure class is not missing architecture. It is **authority leakage through runtime state**: wrong mount, stale index, stale rollup, polluted reusable profile, or shadowing skill. The correction plan targets exactly these seams with deterministic checks and preserves the minimal upstream-native design.

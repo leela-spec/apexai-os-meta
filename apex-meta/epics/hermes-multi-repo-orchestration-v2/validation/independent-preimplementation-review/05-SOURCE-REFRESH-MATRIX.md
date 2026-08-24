@@ -1,76 +1,129 @@
-# 05 — Upstream Source Refresh Matrix & Contract Grounding
+# 05 — Refreshed Source and Claim Matrix
 
 - **Program:** Hermes Multi-Repo Orchestration v2
-- **Target Repository:** `leela-spec/apexai-os-meta` (`main`)
-- **Evaluation Date:** 2026-08-24
-- **Reviewer Role:** Independent Architecture & Safety Evaluator
-- **Governing Handover:** [14-INDEPENDENT-PREIMPLEMENTATION-VALIDATION-HANDOVER.md](../../14-INDEPENDENT-PREIMPLEMENTATION-VALIDATION-HANDOVER.md)
-- **Status:** **COMPLETE — ALL PRIMARY SOURCES CURRENT AS OF 2026-08-24**
+- **Refresh date:** 2026-08-24
+- **Purpose:** record current primary evidence used by this independent review and distinguish current source verification from prior runtime execution receipts
+- **Evidence labels:** `EXECUTED`, `STATIC_SIMULATION`, `SOURCE_VERIFIED`, `INFERENCE`
 
----
+## 1. Repository and authority sources
 
-## 1. Refresh Methodology & Evidence Hierarchy
+| Claim / concern | Current primary source | Ref / state observed | Label | Validation consequence |
+|---|---|---|---|---|
+| Project index and authority order | `apex-meta/epics/hermes-multi-repo-orchestration-v2/README.md` | `main` | `SOURCE_VERIFIED` | Used as authoritative project index. |
+| Independent validation scope and output boundary | `14-INDEPENDENT-PREIMPLEMENTATION-VALIDATION-HANDOVER.md` | `main` | `SOURCE_VERIFIED` | Adversarial review only; no implementation or D10 enablement. |
+| Machine-readable architecture state | `state.yaml` | `main` | `SOURCE_VERIFIED` | Confirms statuses, managed repos and branch registry. |
+| D01–D10 current decisions | `decisions/D01...D10` | `main` | `SOURCE_VERIFIED` | Decisions retained; review changes no authority file. |
+| Architecture synthesis | `01-VERIFIED-ARCHITECTURE.md` | `main` | `SOURCE_VERIFIED` | Confirms one-owner boundaries and Safe Mode. |
+| Implementation sequence | `11-IMPLEMENTATION-ROADMAP.md` | `main` | `SOURCE_VERIFIED` | Corrections gate implementation; no roadmap execution here. |
+| Existing architecture risks | `12-RISK-REGISTER.yaml` | `main` | `SOURCE_VERIFIED` | Independent register supplements rather than replaces it. |
+| Existing source matrix | `13-SOURCE-VERIFICATION-MATRIX.md` | `main` | `SOURCE_VERIFIED` | Refreshed against current upstream issue/repo state. |
+| MasterOfArts migration manifest | `02-MASTEROFARTS-SOURCE-MIGRATION-MANIFEST.md` | `main` | `SOURCE_VERIFIED` | Migration remains controlled and unauthorised by this run. |
+| Prior independent review | commit `49b716a21ee82b94fcd26a6adac7bb2809ad2303` | 2026-08-24 | `SOURCE_VERIFIED` | Incorporated as comparison evidence, not authority. |
 
-To guarantee that the multi-repo orchestration v2 architecture rests on verified, live facts rather than outdated assumptions, every consequential claim was re-checked against primary sources on the execution date:
-1. **Primary Upstream Documentation:** Official guides and specifications from NousResearch, QMD, Agent Skills, BMAD, MarketingSkills, Microsoft, Docker, Anthropic, and OpenAI.
-2. **Primary Repository Source & Issue Trackers:** Live inspection of active and closed issues, pull requests, and commit logs.
-3. **Live Host Execution (`EXECUTED`):** Direct inspection and testing on the Windows 11 + WSL2 Ubuntu + Docker host.
+## 2. Managed repository snapshots
 
----
+| Repository | Branch | Current observed commit | Label | Note |
+|---|---|---|---|---|
+| `leela-spec/apexai-os-meta` | `main` | `49b716a21ee82b94fcd26a6adac7bb2809ad2303` before this review commit | `SOURCE_VERIFIED` | Validation target/control plane. |
+| `leela-spec/MasterOfArts` | `main` | `b50b758b30f8f07a1c003fb582f32811a35376df` | `SOURCE_VERIFIED` | Pilot evidence source. |
+| `leela-spec/acim-secular` | `master` | `2cb94a0d899e02e2989934b98e428f8f005d4c96` | `SOURCE_VERIFIED` | Confirms non-`main` default branch. |
+| `leela-spec/Investment` | `main` | `63ad92ddf35507b351f9c069e790b7736cfcfd56` | `SOURCE_VERIFIED` | Separate source repo. |
 
-## 2. Upstream Component Status & Contract Verification
+## 3. MasterOfArts pilot evidence refresh
 
-| Component | Installed / Target Version | Current Upstream Status | Primary Verification Source | Evidence Grade & Label | Multi-Repo Impact / Architectural Consequence |
-|---|---|---|---|:---:|---|
-| **Hermes Agent** | v0.20.5 (2026.8.19) · upstream `057dcdf2` | Active release; Kanban, Profiles, Cron, MCP supported | [NousResearch Docs](https://hermes-agent.nousresearch.com/docs/) & Live Runtime | **A (`EXECUTED`)** | Single machine-level install in WSL serves multiple repositories without per-repo clones. |
-| **QMD Search** | 2.8.3 (`facd35e`) | Active release; MCP stdio/http supported | [tobi/qmd](https://github.com/tobi/qmd) & Live Runtime | **A (`EXECUTED`)** | Single local engine indexes all managed repos via named collections at zero API token cost. |
-| **Docker Engine** | 29.1.3 (API 1.52) | Active WSL2 systemd daemon | [Docker Docs](https://docs.docker.com/desktop/features/wsl/) & Live Runtime | **A (`EXECUTED`)** | Single execution-isolation boundary for containerized terminal, code, and file execution. |
-| **WSL 2** | Kernel 6.18.33.2 (Ubuntu 26.04) | Default Windows distribution | [Microsoft WSL Docs](https://learn.microsoft.com/en-us/windows/wsl/) | **A (`EXECUTED`)** | High-performance ext4 Linux filesystem hosts canonical checkouts; Windows accesses via `\\wsl.localhost`. |
-| **Agent Skills Standard** | v1.0 Specification | Open Industry Standard | [Agent Skills](https://agentskills.io/specification) | **A (`SOURCE_VERIFIED`)** | Progressive disclosure (~30–50 token startup index; on-demand activation) for shared procedures. |
-| **BMAD Method** | Current Release (Node 20.12+) | Project-oriented installer (`npx bmad-method`) | [BMAD Repo](https://github.com/bmad-code-org/BMAD-METHOD) | **A (`SOURCE_VERIFIED`)** | BMAD installed repo-locally where needed; no custom global symlink plumbing. |
-| **MarketingSkills** | v2.1.0 | Universal Agent Skills format | [MarketingSkills Repo](https://github.com/coreyhaines31/marketingskills) | **A (`SOURCE_VERIFIED`)** | Scoped strictly to MasterOfArts; `.agents/product-marketing.md` context remains MasterOfArts-local. |
+| Pilot claim | Durable primary receipt | Label in this review | Scope / correction |
+|---|---|---|---|
+| Windows + WSL2 + Docker baseline passed | `IMPLEMENTATION-ACCEPTANCE-REPORT.md` | `SOURCE_VERIFIED` | Evidence of prior execution, not current live-host re-execution. |
+| Docker reachable from WSL and disposable mount write works | `implementation-evidence/P03-docker-baseline.md` | `SOURCE_VERIFIED` | Supports baseline only. |
+| Hermes action tools executed in Docker; `/mnt/c` absent; host repo writes landed | `implementation-evidence/P07-hermes-docker-backend.md` | `SOURCE_VERIFIED` | Strong single-repo evidence; static `/root/MasterOfArts` binds create C01. |
+| QMD MCP uses `query/get/multi_get/status` | `implementation-evidence/P08-qmd-hermes-integration.md` | `SOURCE_VERIFIED` | Confirms native stdio path. |
+| Lika QMD retrieval worked | `implementation-evidence/P09-lika-knowledge-package.md` | `SOURCE_VERIFIED` | Does not prove cross-repo collection isolation. |
+| Kanban deps/context/persistence worked | `implementation-evidence/P10-kanban-baseline.md` | `SOURCE_VERIFIED` | One default board, not multi-board concurrency. |
+| BMAD discovery worked | `implementation-evidence/P11-bmad-integration.md` | `SOURCE_VERIFIED` | Receipt shows both global and project copies; target D06 requires scope cleanup. |
+| MarketingSkills worked across two MoA families | `implementation-evidence/P12-marketing-skills.md` | `SOURCE_VERIFIED` | Same repo; receipt shows global + project copies. |
+| Shared profiles adapted across Lika/Dance Fusion | `implementation-evidence/P13-shared-specialists.md` | `SOURCE_VERIFIED` | Proves family reuse, not independent-repo reuse. |
+| Memory/learning persisted | `implementation-evidence/P14-autonomous-learning.md` | `SOURCE_VERIFIED` | Useful mechanism; target governance is stricter than pilot. |
+| E2E maker/reviewer loop passed | `implementation-evidence/P15-e2e-integration.md` | `SOURCE_VERIFIED` | Single-repo flow only. |
+| Cold-restart recovery passed | `implementation-evidence/P16-recovery-test.md` | `SOURCE_VERIFIED` | Does not prove duplicate scheduler/multi-board behavior. |
+| Static Docker mounts and environment inheritance observation | `Orchestration/Implementation/OKF-EXECUTION-OBSERVATIONS.yaml` | `SOURCE_VERIFIED` | Drives C01/C07. |
+| Project schedules stored in Hermes USER memory; BMAD/MarketingSkills listed in learned library | `Orchestration/Implementation/AUTONOMOUS_LEARNINGS_SUMMARY.md` | `SOURCE_VERIFIED` | Drives C05/C06. |
+| MasterOfArts has root Hermes context | `AGENTS.md` | `SOURCE_VERIFIED` | Useful model for C08. |
 
----
+## 4. Current Hermes upstream refresh
 
-## 3. Consequential Upstream Claim & Issue Verification Matrix
+| Claim / defect | Primary source | Current state observed 2026-08-24 | Label | Impact |
+|---|---|---|---|---|
+| Current Hermes source version | `NousResearch/hermes-agent` `hermes_cli/__init__.py` | `0.20.5`, release date `2026.8.19` | `SOURCE_VERIFIED` | Match pilot version family; upstream main continues moving. |
+| Tenant does not isolate profile memory | issue `#85497` | **OPEN** | `SOURCE_VERIFIED` | Supports separate boards + no raw-memory isolation assumption. |
+| `max_in_progress` is per board, not gateway-wide | issue `#78122` | **OPEN** | `SOURCE_VERIFIED` | D10 must remain disabled; per-profile sequential guard required. |
+| Profile cwd can override task workspace and broaden mount | issue `#73556` | **OPEN** | `SOURCE_VERIFIED` | C01 and D10 exact-workspace acceptance. |
+| Host mount provenance and container cwd can diverge | issue `#83856` | **OPEN** | `SOURCE_VERIFIED` | C01; test terminal/file/execute-code consistency. |
+| Docker Kanban workspace may not be host-backed; apparent commit can disappear | issue `#91568` | **OPEN** | `SOURCE_VERIFIED` | C01 host persistence test mandatory. |
+| Project board binding can accept nonexistent slug / exit 0 | issue `#76285` | **OPEN** | `SOURCE_VERIFIED` | Explicit board-existence acceptance required. |
+| No-agent job may silently fail/no heartbeat | issue `#20353` | **OPEN** | `SOURCE_VERIFIED` | D10 scheduler observability requirement. |
+| Python no-agent cron lifecycle false positive | issue `#77131` | **CLOSED / completed** | `SOURCE_VERIFIED` | Do not preserve obsolete blocker. |
+| No-agent jobs clobbered/disappearing | issue `#80624` | **CLOSED / completed** | `SOURCE_VERIFIED` | Do not preserve obsolete blocker; still live-test installed version. |
+| Latest upstream changes after release include MCP timeout work | Hermes `main` recent commits, including `057dcdf...` | current main newer than release commit | `SOURCE_VERIFIED` | Installed-release acceptance remains more important than memory of upstream behavior. |
 
-| Claim ID | Upstream Subject | Primary Source & Issue Reference | Live Status / Finding | Grade | Architectural Consequence |
-|---|---|---|---|:---:|---|
-| **C-01** | Hermes Kanban Boards | [Kanban Docs](https://hermes-agent.nousresearch.com/docs/user-guide/features/kanban) | Boards are hard isolation boundaries with separate SQLite DBs and workspaces. | **A (`EXECUTED`)** | Adopt separate repo boards (`apex`, `masterofarts`, `acim`, `investment`). |
-| **C-02** | Hermes Tenant Memory Defect | [Issue #85497](https://github.com/NousResearch/hermes-agent/issues/85497) | Tenant memory namespace prefixing is not implemented; profiles write to shared memory. | **BLOCKED (`UPSTREAM_ISSUE`)** | Reject single-board-with-tenants as the repo isolation mechanism (D02). |
-| **C-03** | Profile Concurrency Warning | [Profiles Docs](https://hermes-agent.nousresearch.com/docs/user-guide/profiles) | Hermes explicitly warns: *"Never point two agent processes at the same profile."* | **A (`SOURCE_VERIFIED`)** | Profile reuse across repos must be sequential in initial v2 (D03). |
-| **C-04** | Multi-Board Concurrency Scope | [Issue #78122](https://github.com/NousResearch/hermes-agent/issues/78122) | `max_in_progress_per_profile` is enforced per board, not gateway-wide. | **BLOCKED (`UPSTREAM_ISSUE`)** | Defer background multi-board autonomy (D10) to avoid concurrent profile writers. |
-| **C-05** | Project Bind-Board Bug | [Issue #76285](https://github.com/NousResearch/hermes-agent/issues/76285) | `project bind-board` can accept non-existent board slugs with exit code 0. | **A (`UPSTREAM_ISSUE`)** | Verify board existence before and after binding; never trust exit 0 alone. |
-| **C-06** | Docker CWD Mount Override | [Issue #73556](https://github.com/NousResearch/hermes-agent/issues/73556) | Profile `terminal.cwd` can override Kanban task workspace and broaden mount. | **BLOCKED (`UPSTREAM_ISSUE`)** | Reusable profiles must not hardcode repo-specific cwd (D03 / D10). |
-| **C-07** | Host/Container CWD Discrepancy | [Issue #83856](https://github.com/NousResearch/hermes-agent/issues/83856) | Tools can disagree on effective workspace when host path is mounted at `/workspace`. | **BLOCKED (`UPSTREAM_ISSUE`)** | Acceptance tests must prove terminal, file, and code tools report same workspace. |
-| **C-08** | Kanban Task Workspace Host-Persistence | [Issue #91568](https://github.com/NousResearch/hermes-agent/issues/91568) | Kanban worker changes/commits inside container failed to persist to host filesystem. | **BLOCKED (`UPSTREAM_ISSUE`)** | Gate D10 requires host-side disposable file & commit verification before autonomy. |
-| **C-09** | QMD Collection Scoping | [QMD Docs](https://github.com/tobi/qmd/blob/main/docs/SYNTAX.md) | `-c <collection>` and MCP `collections` work from any current directory. | **A (`EXECUTED`)** | Roles in any repo query specific collections without entering Apex (D08). |
-| **C-10** | QMD MCP Plural Parameter | [QMD SYNTAX.md](https://github.com/tobi/qmd/blob/main/docs/SYNTAX.md) | QMD MCP strictly parses plural `collections`; singular `collection` is ignored. | **A (`SOURCE_VERIFIED`)** | All tool prompts and configs must use plural `collections: ["..."]`. |
-| **C-11** | QMD Default Exclusion | [QMD Example Index](https://github.com/tobi/qmd/blob/main/example-index.yml) | `includeByDefault: false` (`qmd collection exclude`) excludes collections from unscoped search. | **A (`EXECUTED`)** | Large project corpora excluded from default search to prevent retrieval bleed. |
-| **C-12** | BMAD Global Link Status | [BMAD Issue #1728](https://github.com/bmad-code-org/BMAD-METHOD/issues/1728) | `--global` and `bmad-link` remain an open community proposal, not production code. | **A (`UPSTREAM_ISSUE`)** | BMAD stays project-local where needed; no custom global symlink linker (D06). |
-| **C-13** | WSL Cross-Filesystem Latency | [Microsoft WSL Guidance](https://learn.microsoft.com/en-us/windows/wsl/filesystems) | Linux tools accessing `/mnt/c` suffer 9P latency; ext4 Linux root is recommended. | **A (`SOURCE_VERIFIED`)** | Move canonical managed checkouts to WSL Linux filesystem `~/workspaces/` (D07). |
-| **C-14** | External Skill Write Exposure | [Hermes Skills Docs](https://hermes-agent.nousresearch.com/docs/user-guide/features/skills/) | Writable `skills.external_dirs` can be modified in-place by `skill_manage`. | **A (`SOURCE_VERIFIED`)** | Canonical Apex Git source must remain decoupled from writable runtime directories (D05). |
+## 5. Hermes architecture/practice sources retained
 
----
+| Topic | Primary source | Label | What it supports |
+|---|---|---|---|
+| Profiles | Hermes official profile docs / upstream source | `SOURCE_VERIFIED` | Persistent role identity is distinct from project facts; concurrency requires care. |
+| Context files | Hermes official context-file docs | `SOURCE_VERIFIED` | Git-root-to-workdir progressive context; use concise routing not copied KBs. |
+| Kanban | Hermes official Kanban docs | `SOURCE_VERIFIED` | Durable task/dependency/review/workspace state; cross-board limitations remain. |
+| Skills | Hermes official skills docs | `SOURCE_VERIFIED` | Project/profile/global precedence and progressive loading; provenance matters. |
+| Memory/Curator | Hermes official memory/Curator docs | `SOURCE_VERIFIED` | Runtime learning is not project truth and needs governance. |
+| Cron | Hermes official cron docs + current issues | `SOURCE_VERIFIED` | Native scheduling exists but unattended multi-board use remains gated. |
+| Security / Docker backend | Hermes official security/configuration docs | `SOURCE_VERIFIED` | Use native isolation/allowlists; do not invent policy middleware. |
 
-## 4. Industry Orchestration Standards Comparison
+## 6. QMD refresh
 
-| Proven Orchestration Lens | Production Source Reference | How Hermes Multi-Repo v2 Complies | Validation Verdict |
-|---|---|---|:---:|
-| **1. Simplest Sufficient Architecture** | Anthropic: *"Building Effective Agents"* (Dec 2024) | Starts with deterministic scripts for rollups, candidate harvesting, and routing. Reserves LLMs for cognitive review. | **COMPLIANT (`SOURCE_VERIFIED`)** |
-| **2. Single Source of Truth** | OpenAI: *"Practices for Building Agentic Systems"* (2025) | Git repositories own project truth; Apex owns portfolio state; SQLite DBs hold point-in-time runtime state. No competing stores. | **COMPLIANT (`SOURCE_VERIFIED`)** |
-| **3. Control vs Data Plane Segregation** | Google: *"Production Multi-Agent Systems"* (2025) | Apex acts purely as the portfolio control plane without warehousing project files or credentials. | **COMPLIANT (`SOURCE_VERIFIED`)** |
-| **4. Progressive Disclosure & Context Hygiene** | Agent Skills Specification (`agentskills.io`) | Metadata loaded at startup (~30–50 tokens); full instructions loaded on activation; raw profile memory bounded (~2,200 chars). | **COMPLIANT (`SOURCE_VERIFIED`)** |
-| **5. Evaluator-Optimizer Pattern** | Anthropic: *"Evaluator-Optimizer Workflow"* | Two-stage learning promotion: deterministic harvest -> `independent-reviewer` quality/safety gate before Apex commit. | **COMPLIANT (`SOURCE_VERIFIED`)** |
-| **6. Least Privilege & Bounded Execution** | OpenAI / NIST AI Agent Security Guidance | Docker execution sandbox with dynamic task-scoped bind mounts; host credentials and Docker socket excluded. | **COMPLIANT (`SOURCE_VERIFIED`)** |
-| **7. Observability & Fail-Closed Receipts** | Production SRE / Distributed Systems Standards | Rollup and scheduled jobs emit JSON receipts (`last_attempt`, `last_success`, SHA); partial failures fail closed. | **COMPLIANT (`SOURCE_VERIFIED`)** |
+| Claim | Current primary source | State | Label | Impact |
+|---|---|---|---|---|
+| QMD supports one engine with multiple named collections | `tobi/qmd` current repository/docs | current | `SOURCE_VERIFIED` | D08 remains valid. |
+| QMD MCP exposes typed retrieval and exact fetch | current QMD MCP contract; pilot P08 | `query`, `get`, `multi_get`, `status` | `SOURCE_VERIFIED` | No custom MCP/RAG wrapper needed. |
+| Explicit collection scope is required for project-heavy work | QMD collection/query contract + D08 | current | `SOURCE_VERIFIED` | Negative isolation test required. |
+| Refresh uses native `qmd update` and embedding refresh as needed | QMD docs | current | `SOURCE_VERIFIED` | C04 adds only source-HEAD receipt, not another index. |
+| QMD index is derived, not canonical | D08 + QMD behavior | current | `SOURCE_VERIFIED` | Git files remain truth. |
 
----
+## 7. BMAD / Agent Skills refresh
 
-## 5. Summary of Verification Refresh
+| Claim | Primary source | State | Label | Impact |
+|---|---|---|---|---|
+| BMAD current package version | `bmad-code-org/BMAD-METHOD/package.json` | `6.11.0` | `SOURCE_VERIFIED` | Refreshes old version assumptions. |
+| BMAD global install/link proposal | BMAD issue `#1728` | **OPEN** | `SOURCE_VERIFIED` | Do not build a global BMAD linker; D06 repo-local placement remains sound. |
+| Agent Skills package model | `agentskills.io/specification` | current | `SOURCE_VERIFIED` | `SKILL.md`, metadata-first discovery, on-demand resources support D04/D05. |
+| Apex KB is Apex-specific | Apex `.claude/skills/apex-kb/SKILL.md` | current | `SOURCE_VERIFIED` | Do not copy as generic domain skill. |
 
-- **Total Claims Audited:** 21 primary claims.
-- **Claims Verified by Upstream Docs/Source:** 15 (`SOURCE_VERIFIED` / `UPSTREAM_DOC`).
-- **Claims Verified by Live Execution:** 6 (`EXECUTED`).
-- **Open Upstream Defects Confirmed & Mitigated:** 4 (`BLOCKED` -> Gated by D02, D03, D10, and Safe Mode A).
-- **Architecture Integrity:** 100% of consequential claims are grounded in verifiable primary evidence as of 2026-08-24.
+## 8. Repository context-entry refresh
+
+| Repo | Root context result | Label | Impact |
+|---|---|---|---|
+| MasterOfArts | root `AGENTS.md` present, Hermes-oriented | `SOURCE_VERIFIED` | Existing example of macro routing. |
+| apexai-os-meta | root `AGENTS.md` present, primarily Codex/Apex-KB execution note | `SOURCE_VERIFIED` | C08 must decide/adapt Hermes-relevant portfolio routing without duplicating truth. |
+| acim-secular | root `AGENTS.md` not found on `master` | `SOURCE_VERIFIED` | C08 preflight required before Hermes board activation. |
+| Investment | root `AGENTS.md` not found on `main` | `SOURCE_VERIFIED` | C08 preflight required before Hermes board activation. |
+
+## 9. External battle-proven practice comparison
+
+| Practice | Current primary source | Label | Relevance to v2 |
+|---|---|---|---|
+| Prefer simpler single-agent/tool systems before adding agents; add guardrails/human intervention for risk | OpenAI current practical agent-building guidance | `SOURCE_VERIFIED` | Supports one Hermes runtime, D10 gating, no extra orchestrator. |
+| Context is finite; retrieve high-signal context selectively | Anthropic current context-engineering guidance | `SOURCE_VERIFIED` | Supports scoped QMD + concise context files. |
+| Multi-agent systems impose major token overhead and work best when tasks are parallelizable rather than tightly interdependent | Anthropic multi-agent engineering/research guidance | `SOURCE_VERIFIED` | Supports Safe Mode/sequential roles and asynchronous cross-project coupling. |
+| Durable agent/session state should have explicit session/user identity rather than hidden conversation state | Google Vertex Agent Engine session/event documentation | `SOURCE_VERIFIED` | Supports Kanban/repo truth separation from profile memory. |
+| Keep Linux-tool projects in WSL Linux filesystem for performance | Microsoft WSL filesystem guidance | `SOURCE_VERIFIED` | Supports D07 and C02. |
+| Writable Docker bind mounts can modify host files and must be deliberately scoped | Docker bind-mount documentation | `SOURCE_VERIFIED` | Supports C01 exact mount/persistence acceptance. |
+
+## 10. Evidence limitations
+
+- **SOURCE_VERIFIED:** this run inspected current repositories, commit history, primary-source issue state, and web documentation.
+- **SOURCE_VERIFIED:** MasterOfArts receipts are durable evidence that prior live tests reported PASS on the recorded environment.
+- **INFERENCE:** they do not prove the current machine/runtime is unchanged after those receipts.
+- **INFERENCE:** no current host-runtime statement should be labeled `EXECUTED` by this reviewer because no WSL/Hermes shell execution was available in this run.
+- **STATIC_SIMULATION:** cross-repo and failure-injection results in `02-CROSS-DECISION-ORCHESTRATION-SIMULATION.md` are explicit tabletop tests to be converted into installed-version acceptance tests later.
+
+## 11. Refresh conclusion
+
+**INFERENCE:** refreshed primary evidence strengthens rather than overturns the selected architecture. It specifically justifies keeping D10 disabled, preserving explicit state ownership, limiting skill/memory scope, using WSL-native checkouts, and adding deterministic fail-closed receipts around mounts, rollups, QMD freshness, board identity, and scheduler health.

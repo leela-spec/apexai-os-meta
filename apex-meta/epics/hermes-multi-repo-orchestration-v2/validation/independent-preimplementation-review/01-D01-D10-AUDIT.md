@@ -1,342 +1,183 @@
-# 01 — D01–D10 Decision-by-Decision Adversarial Audit
+# 01 — D01–D10 Independent Adversarial Audit
 
 - **Program:** Hermes Multi-Repo Orchestration v2
-- **Repository:** `leela-spec/apexai-os-meta` (`main`)
-- **Evaluation Date:** 2026-08-24
-- **Reviewer Role:** Independent Architecture & Safety Evaluator
-- **Governing Handover:** [14-INDEPENDENT-PREIMPLEMENTATION-VALIDATION-HANDOVER.md](../../14-INDEPENDENT-PREIMPLEMENTATION-VALIDATION-HANDOVER.md)
-- **Status:** **COMPLETE**
+- **Repository / branch:** `leela-spec/apexai-os-meta` / `main`
+- **Evaluation date:** 2026-08-24
+- **Prior review incorporated:** `49b716a21ee82b94fcd26a6adac7bb2809ad2303`
+- **Evidence labels:** `EXECUTED`, `STATIC_SIMULATION`, `SOURCE_VERIFIED`, `INFERENCE`
+
+## Evidence discipline
+
+`EXECUTED` is reserved for a check performed in this independent run. This reviewer had repository/API/web access but no shell path into the installed WSL/Hermes runtime, so prior host runs are not relabeled as this reviewer's `EXECUTED`. Durable MasterOfArts phase receipts are `SOURCE_VERIFIED` evidence that those prior tests occurred and reported the recorded result.
 
 ---
 
-## Audit Methodology & Evidence Standard
+## D01 — Apex as portfolio control plane
 
-Every claim, test, and risk in this audit is classified using the strict validation labels:
-- `EXECUTED` — Non-destructive verification performed directly on the live host/runtime.
-- `STATIC_SIMULATION` — Explicit tabletop state-transition and failure-injection analysis.
-- `SOURCE_VERIFIED` — Confirmed directly via official upstream documentation or repository source code.
-- `INFERENCE` — Logical deduction derived from architectural constraints (not treated as raw fact).
-- `UPSTREAM_DOC` / `UPSTREAM_ISSUE` / `REPO_EVIDENCE` — Specific primary source classifications.
+**Architecture claim:** Apex owns portfolio governance, shared orchestration contracts, cross-project dependency records, derived rollups, and reviewed shared skills; each source repository owns its project truth and Git history.
 
----
+**Verdict:** **PASS_WITH_CONDITIONS**
 
-## Decision D01 — Apex AIOS Meta as Portfolio Control Plane
-
-- **Status in Architecture Ledger:** `ACCEPTED`
-- **Validation Verdict:** **`PASS`**
-- **Decision File:** [`decisions/D01-APEX-CONTROL-PLANE.md`](../../decisions/D01-APEX-CONTROL-PLANE.md)
-
-### 1. Exact Claim Validated
-`leela-spec/apexai-os-meta` serves as the durable portfolio and orchestration control plane, while managed repositories (`MasterOfArts`, `acim-secular`, `Investment`, `apexai-os-meta`) retain canonical ownership of their own project truth, files, and Git histories. No project-content warehouse or wholesale file mirroring into Apex is permitted.
-
-### 2. Strongest Supporting Evidence
-- **Single Source of Truth (`SOURCE_VERIFIED` / `UPSTREAM_DOC`):** Aligns with Google Multi-Agent Architecture and Anthropic Agentic Design Principles by isolating the control plane from the execution/data plane.
-- **Git Authority Boundary (`REPO_EVIDENCE`):** Each managed repo possesses independent commit histories, distinct branch structures (`acim-secular` on `master`, others on `main`), and project-specific licensing.
-- **Zero Token Duplication (`SOURCE_VERIFIED`):** Storing project files in source repos avoids multi-megabyte context pollution in Apex orchestrator sessions.
-
-### 3. Strongest Contradicting & Risk Evidence
-- **Drift Risk (`STATIC_SIMULATION`):** Cross-project decision objects in Apex can drift from actual implementation state in source repos if references are not validated during reviews.
-- **Stale Rollup Illusion (`INFERENCE`):** Operators may mistakenly treat derived Apex rollup summaries as authoritative project facts rather than point-in-time snapshots.
-
-### 4. Hidden Couplings & Dependencies
-- Depends on source repositories maintaining clear internal governance (`AGENTS.md`) and standard Git hygiene.
-- Relies on read-only reference pointers (`source_board`, `source_task_id`, `repo_path`) rather than active synchronization.
-
-### 5. Token, Latency & Operational Cost
-- **Provider Tokens:** 0 tokens for storage; on-demand tokens only when reading derived summaries.
-- **Latency:** Instantaneous local access.
-- **Operational Cost:** Minimal; standard Git version control.
-
-### 6. Failure Modes & Mitigations
-- *Failure Mode:* Apex starts copying project KBs to "ease access".
-  - *Mitigation:* Explicit decision invariant forbidding project mirroring (`V5`); enforced via PR review and directory structure policies.
-- *Failure Mode:* Stale portfolio decisions.
-  - *Mitigation:* Rollup and decision objects must include mandatory ISO 8601 generation timestamps and source Git commit SHAs.
-
-### 7. Revisit / Invalidation Triggers
-- Upstream Hermes introduces a native, zero-copy multi-repo workspace manager that provides transactional cross-repo guarantees without file duplication.
+- **SOURCE_VERIFIED — support:** D01, `01-VERIFIED-ARCHITECTURE.md`, and `state.yaml` consistently prohibit project-content mirroring into Apex and distinguish source truth from derived control-plane state.
+- **SOURCE_VERIFIED — repository reality:** the four managed repositories have independent histories and branches; `acim-secular` uses `master`, while Apex, MasterOfArts, and Investment use `main`.
+- **STATIC_SIMULATION — failure:** if a derived Apex portfolio snapshot is published after one source read failed, “missing” can be mistaken for “zero work” and become false control-plane truth.
+- **INFERENCE — hidden coupling:** every rollup or cross-project decision that claims current source state needs immutable source identity (`repo`, `branch`, `head_sha`, board/task identifiers) and generation time.
+- **Token/cost:** deterministic source reads and rollup generation require no model call; semantic review belongs only where a human-level synthesis is actually required.
+- **Required mitigation:** C03 atomic fail-closed rollup plus source-SHA receipts.
+- **Revisit trigger:** only if a proven upstream primitive provides transactional cross-repository state without copying project truth.
 
 ---
 
-## Decision D02 — Kanban Topology: Separate Repo Boards + Asynchronous Apex Rollup
+## D02 — separate repository boards + asynchronous Apex rollup
 
-- **Status in Architecture Ledger:** `ACCEPTED 2026-08-24`
-- **Validation Verdict:** **`PASS`**
-- **Decision File:** [`decisions/D02-KANBAN-TOPOLOGY.md`](../../decisions/D02-KANBAN-TOPOLOGY.md)
+**Architecture claim:** use one Hermes board per managed repository; reject tenant namespacing as the memory/security boundary; aggregate board state read-only into Apex.
 
-### 1. Exact Claim Validated
-Use one dedicated Hermes Kanban board per managed repository (`apex`, `masterofarts`, `acim`, `investment`) backed by isolated SQLite databases. Reject Hermes tenants as the security/memory boundary. Aggregate board statuses asynchronously into a read-only Apex portfolio rollup via deterministic scripting.
+**Verdict:** **PASS_WITH_CONDITIONS**
 
-### 2. Strongest Supporting Evidence
-- **Hard Storage Isolation (`EXECUTED` / `UPSTREAM_DOC`):** Live execution of `hermes kanban boards list --json` confirms each board receives an independent SQLite database (e.g., `/root/.hermes/kanban.db` vs `/root/.hermes/kanban/boards/website-research/kanban.db`).
-- **Tenant Memory Pollution Defect (`UPSTREAM_ISSUE` #85497):** Primary upstream issue #85497 proves tenant-level memory namespacing is not enforced by the Hermes runtime; workers across tenants write to shared profile memory. Board isolation avoids this bug entirely.
-- **Zero Model Cost Rollup (`SOURCE_VERIFIED`):** `hermes kanban --board <slug> list --json` enables 100% deterministic, zero-token JSON aggregation.
-
-### 3. Strongest Contradicting & Risk Evidence
-- **Lack of Native Cross-Board DAG (`UPSTREAM_DOC`):** Hermes explicitly forbids `kanban_link` dependencies across boards, preventing native automatic task triggers across repos.
-- **Partial Query Publication Risk (`STATIC_SIMULATION`):** A transient failure in reading one board's SQLite database could cause a naive rollup script to omit that repo, falsely reporting zero active tasks.
-
-### 4. Hidden Couplings & Dependencies
-- The rollup script depends on the stability of `hermes kanban --board <slug> list --json` output schema.
-- Cross-project dependencies require explicit Apex tracking records.
-
-### 5. Token, Latency & Operational Cost
-- **Provider Tokens:** $0.00 (Zero remote LLM calls for rollup generation).
-- **Compute:** < 250ms local CPU execution per rollup run.
-
-### 6. Failure Modes & Mitigations
-- *Failure Mode:* Rollup script publishes incomplete data when one board query times out.
-  - *Mitigation:* Rollup script must implement **Fail-Closed Semantics** (Correction C03): if any configured board fails, abort snapshot generation and record a degraded health receipt.
-
-### 7. Revisit / Invalidation Triggers
-- Upstream Hermes resolves #85497, implements verified tenant memory isolation, and provides cross-tenant dependency graphs within a single board.
+- **SOURCE_VERIFIED — support:** Hermes issue `#85497` remains open and documents that `HERMES_TENANT` does not isolate profile memory. Separate boards isolate task databases and are therefore the safer task-state topology.
+- **SOURCE_VERIFIED — limitation:** Hermes issue `#78122` remains open and shows `max_in_progress` is counted per board rather than gateway-wide. Board separation does not create a global concurrency safety boundary.
+- **SOURCE_VERIFIED — false-success seam:** issue `#76285` remains open; project-to-board binding can accept a nonexistent board slug and exit success.
+- **STATIC_SIMULATION — consequence:** four healthy board databases can still dispatch four same-profile workers concurrently unless the external operating mode prevents it. Therefore D02 depends on D03 sequential execution and D10 remaining disabled.
+- **Token/cost:** a JSON rollup is deterministic and should remain zero-model-call.
+- **Required mitigations:** C03; validate configured board existence before accepting a binding; preserve last-known-good rollup on partial failure.
+- **Revisit trigger:** upstream resolves tenant memory isolation and provides a verified gateway-wide cross-board concurrency contract plus cross-board dependency semantics.
 
 ---
 
-## Decision D03 — Reusable Role Profiles Across Repositories (Sequential Execution)
+## D03 — reusable role profiles, sequentially reused
 
-- **Status in Architecture Ledger:** `ACCEPTED WITH CONSTRAINTS`
-- **Validation Verdict:** **`PASS_WITH_CONDITIONS`**
-- **Decision File:** [`decisions/D03-REUSABLE-ROLE-PROFILES.md`](../../decisions/D03-REUSABLE-ROLE-PROFILES.md)
+**Architecture claim:** profiles represent reusable roles rather than repositories; one writable profile must not serve concurrent workers.
 
-### 1. Exact Claim Validated
-Hermes profiles represent durable roles (`research-strategist`, `independent-reviewer`, `portfolio-orchestrator`, `workshop-designer`, `marketing-executive`) rather than repositories. Profiles are reused sequentially across repositories. Concurrent execution of multiple worker processes sharing the same writable profile is strictly forbidden.
+**Verdict:** **PASS_WITH_CONDITIONS**
 
-### 2. Strongest Supporting Evidence
-- **Upstream Process Isolation Rule (`UPSTREAM_DOC` / `SOURCE_VERIFIED`):** Official Hermes Profiles documentation states: *"Never point two agent processes at the same profile."* Agents automatically write to profile memory at session end; concurrent writers corrupt memory and SQLite state.
-- **Concurrency Limit Scope Defect (`UPSTREAM_ISSUE` #78122):** Upstream issue #78122 confirms `max_in_progress_per_profile` is enforced per board, not gateway-wide. If four boards run simultaneously, four workers with the same profile could be spawned concurrently.
-- **Compounding Procedural Skill (`REPO_EVIDENCE`):** MasterOfArts pilot evidence (`P13`, `P14`) proved specialist profiles build procedural proficiency when applied to different tasks.
-
-### 3. Strongest Contradicting & Risk Evidence
-- **Throughput Constraint (`INFERENCE`):** Sequential execution restricts parallel execution throughput across repositories.
-- **Path Leakage via Profile Config (`EXECUTED`):** Live inspection of `/root/.hermes/profiles/*/config.yaml` shows profile configs can inherit global cwd or tool configurations. If a profile hardcodes a workspace, cross-repo reuse breaks.
-
-### 4. Hidden Couplings & Dependencies
-- Requires global execution locking or Safe Mode A orchestration to prevent accidental concurrent dispatch of the same profile across boards.
-
-### 5. Token, Latency & Operational Cost
-- **Provider Tokens:** Profile `MEMORY.md` (~2,200 chars / ~550 tokens) and `USER.md` (~1,375 chars / ~350 tokens) are loaded on session start. Reusing thin profiles keeps startup overhead under 1,000 tokens.
-
-### 6. Required Conditions & Mitigations
-- **Condition:** All reusable role profile definitions must be strictly stripped of repo-specific `terminal.cwd` and static volume mounts.
-- **Condition:** Enforce single-process execution per profile via Safe Mode A or deterministic script locks.
+- **SOURCE_VERIFIED — support:** MasterOfArts P13 demonstrates that the same thin `marketing-executive` profile produced family-specific outputs in Lika and Dance Fusion without embedding those family facts in the profile definition.
+- **SOURCE_VERIFIED — concurrency risk:** `#78122` and `#85497` jointly show why board/tenant state cannot protect one shared writable profile from simultaneous use.
+- **SOURCE_VERIFIED — workspace risk:** `#73556` remains open and documents that profile `terminal.cwd` can override the Kanban task workspace and broaden a Docker mount.
+- **SOURCE_VERIFIED — pilot-state contamination:** `AUTONOMOUS_LEARNINGS_SUMMARY.md` states that 05:00/06:00/08:00 project-work milestones were stored in Hermes `USER.md`. Those are not stable role identity/preferences and must not be inherited by a reusable cross-repository role.
+- **STATIC_SIMULATION — failure:** `research-strategist` finishes Investment, writes Investment-specific memory, then starts ACIM. Even sequential use can contaminate ACIM if persistent memory contains project facts. Sequential execution solves write races, not semantic contamination.
+- **Required mitigations:** C05 profile reset; no fixed `terminal.cwd`; no repo-specific Docker mounts; stable operator preference only in reusable profile memory.
+- **Token/cost:** thin profile memory is small and recurring; project facts in profile memory create recurring token waste as well as correctness risk.
+- **Revisit trigger:** only after upstream supplies verified scoped memory namespaces and same-profile concurrent safety on the deployed release.
 
 ---
 
-## Decision D04 — Learning Spillover via Reviewed Agent Skills
+## D04 — learning spillover through reviewed procedures, not raw memory
 
-- **Status in Architecture Ledger:** `ACCEPTED WITH CONSTRAINTS`
-- **Validation Verdict:** **`PASS`**
-- **Decision File:** [`decisions/D04-LEARNING-SPILLOVER.md`](../../decisions/D04-LEARNING-SPILLOVER.md)
+**Architecture claim:** project facts stay in repositories, raw memory stays profile-local, and only generalized reviewed procedures may spill across projects via skills.
 
-### 1. Exact Claim Validated
-Raw Hermes profile memory stays profile-local. Project facts remain in their source repository. Cross-repo and cross-role knowledge spillover occurs exclusively through independently reviewed, generalized procedures promoted as Agent Skills. No raw `MEMORY.md` synchronization between profiles or repos.
+**Verdict:** **PASS_WITH_CONDITIONS**
 
-### 2. Strongest Supporting Evidence
-- **Context Hygiene & Factual Contamination (`STATIC_SIMULATION`):** Copying raw memory across repos would inject Investment ticker facts or confidential credentials into ACIM spiritual analysis, causing severe context pollution and privacy breach.
-- **Progressive Disclosure Standard (`SOURCE_VERIFIED` / `UPSTREAM_DOC`):** Agent Skills (`agentskills.io`) use progressive disclosure: metadata (~30–50 tokens) is indexed at startup; instructions load only upon explicit activation.
-- **Zero-Token Candidate Discovery (`SOURCE_VERIFIED`):** Deterministic SHA-256 hash comparison of learned skills in `~/.hermes/profiles/<role>/skills/learned/` identifies new candidates at zero model token cost.
-
-### 3. Strongest Contradicting & Risk Evidence
-- **Spillover Latency (`INFERENCE`):** Learning is delayed (batched/scheduled) rather than instantaneous.
-- **Cognitive Review Overhead (`STATIC_SIMULATION`):** Semantic generalization review consumes model tokens when candidates change.
-
-### 4. Hidden Couplings & Dependencies
-- Depends on the `independent-reviewer` role properly sanitizing domain-specific paths, credentials, and project facts before promoting to Apex Git.
-
-### 5. Token, Latency & Operational Cost
-- **Candidate Detection:** $0.00 (Local Python/Bash hashing script).
-- **Semantic Review:** ~2,000–4,000 tokens per changed candidate (only when new procedures are detected).
-
-### 6. Failure Modes & Mitigations
-- *Failure Mode:* Unreviewed auto-promotion of learned skills causes skill catalog bloat.
-  - *Mitigation:* Two-stage promotion gate: Stage 1 (deterministic hash inventory) -> Stage 2 (mandatory `independent-reviewer` evaluation).
+- **SOURCE_VERIFIED — support:** Agent Skills uses metadata-first progressive disclosure; full instructions/resources load only when selected. This is a suitable portable unit for reviewed procedure reuse.
+- **SOURCE_VERIFIED — pilot tension:** P14 shows a learned procedural skill can persist, but the autonomous summary also lists `bmad-method` and `marketingskills` among the learned library. Upstream packages must not be silently reclassified as agent-learned procedures or allowed to shadow approved package copies.
+- **STATIC_SIMULATION — promotion test:** a Lika-specific lesson containing file paths, organization names, customer facts, or task schedules is not reusable merely because it is phrased procedurally. Independent review must remove facts and prove generality before Apex promotion.
+- **INFERENCE — batching:** delayed spillover is a benefit: it provides an explicit review boundary and prevents every task observation becoming permanent startup context.
+- **Required mitigations:** C05 and C06. Hash-based candidate discovery may remain deterministic; semantic generalization happens only for changed candidates.
+- **Revisit trigger:** measured evidence that reviewed-skill promotion is too slow or loses necessary reusable procedure despite correct use.
 
 ---
 
-## Decision D05 — Apex as Reviewed Shared-Skill Canonical Source
+## D05 — Apex as canonical reviewed shared-skill source
 
-- **Status in Architecture Ledger:** `ACCEPTED DIRECTION / PILOT REQUIRED`
-- **Validation Verdict:** **`PASS_WITH_CONDITIONS`**
-- **Decision File:** [`decisions/D05-SHARED-SKILL-SOURCE.md`](../../decisions/D05-SHARED-SKILL-SOURCE.md)
+**Architecture claim:** approved project-neutral shared skills have one canonical Git owner in Apex; runtime scratch/learned state remains separate.
 
-### 1. Exact Claim Validated
-Apex becomes the canonical Git source for reviewed project-neutral shared skills after a live pilot. Runtime learned-skill scratch state remains separate from canonical Git source.
+**Verdict:** **PASS_WITH_CONDITIONS**
 
-### 2. Strongest Supporting Evidence
-- **Self-Modification Vulnerability (`UPSTREAM_DOC` / `SOURCE_VERIFIED`):** Hermes official skills documentation confirms that writable directories configured under `skills.external_dirs` can be modified in-place by the agent's built-in `skill_manage` tool.
-- **Version Control & Rollback (`REPO_EVIDENCE`):** Storing reviewed skills in Apex Git provides commit history, diff auditing, and instantaneous rollback capability.
-
-### 3. Strongest Contradicting & Risk Evidence
-- **Deployment Divergence Risk (`STATIC_SIMULATION`):** If the deployment mechanism from Apex Git to the runtime skills directory is manual or ad-hoc, runtime skills will drift from Git truth.
-
-### 4. Hidden Couplings & Dependencies
-- Requires a deterministic deployment step (symlink or export script) that synchronizes Apex Git skills to the runtime environment without granting the agent write-access to Apex Git.
-
-### 5. Token, Latency & Operational Cost
-- Zero token overhead; standard filesystem discovery.
-
-### 6. Required Conditions & Mitigations
-- **Condition:** The runtime deployment path must be strictly read-only for agent processes or maintained via a deterministic promotion script with SHA verification.
-- **Condition:** Phase 10 pilot must validate discovery across at least two distinct role profiles before general enablement.
+- **SOURCE_VERIFIED — support:** Git gives reviewable provenance, exact version identity, diff, and rollback. D05 correctly forbids direct runtime self-modification of the canonical Apex source.
+- **SOURCE_VERIFIED — conflict risk:** project skills have high discovery precedence in Hermes. Stale same-name copies in profile/global/project paths can shadow or conflict with a deployed Apex-reviewed skill.
+- **STATIC_SIMULATION — drift:** Git skill `S@abc` is reviewed, but runtime profile still loads prior local `S@def`; operator believes Git is truth while execution uses different instructions.
+- **Required mitigation:** C06: deterministic runtime inventory, exact source/provenance/hash, reject duplicate same-name active copies, pilot discovery from at least two role profiles.
+- **No new subsystem:** a copy/symlink/export mechanism is acceptable only if it is a simple deterministic deployment of existing files and the runtime cannot write the canonical source. If the installed runtime cannot satisfy that safely, stop the pilot rather than inventing a skill service.
+- **Revisit trigger:** upstream provides a first-class signed/read-only shared-skill distribution mechanism that is simpler than the selected deterministic deployment.
 
 ---
 
-## Decision D06 — BMAD and Domain-Specific Skill Placement Policy
+## D06 — BMAD and domain-skill placement
 
-- **Status in Architecture Ledger:** `ACCEPTED`
-- **Validation Verdict:** **`PASS`**
-- **Decision File:** [`decisions/D06-BMAD-AND-DOMAIN-SKILLS.md`](../../decisions/D06-BMAD-AND-DOMAIN-SKILLS.md)
+**Architecture claim:** BMAD is installed only in repositories that use it; MarketingSkills remains MasterOfArts-only until another repository has a demonstrated need; Apex KB remains Apex-specific.
 
-### 1. Exact Claim Validated
-BMAD remains repo-local in every repository that actively uses it. MarketingSkills remains MasterOfArts-only until another repo establishes a concrete marketing requirement. Apex KB remains Apex-specific. No custom global BMAD linker or global domain-skill dumping.
+**Verdict:** **PASS_WITH_CONDITIONS**
 
-### 2. Strongest Supporting Evidence
-- **BMAD Project Architecture (`SOURCE_VERIFIED` / `UPSTREAM_DOC`):** Official BMAD Method documentation (`npx bmad-method install`) establishes project-local `_bmad/` and `_bmad-output/` state structures.
-- **BMAD Global Link Proposal Status (`UPSTREAM_ISSUE` #1728):** Upstream issue #1728 (global link/unlink) is an open community proposal, not a stabilized feature. Relying on custom global symlinks would introduce brittle unverified plumbing.
-- **MarketingSkills Context Scope (`SOURCE_VERIFIED`):** MarketingSkills v2.1 relies on `.agents/product-marketing.md`, which is strictly MasterOfArts product context. Installing 49 marketing skills into ACIM or Investment adds prompt clutter and tool-selection ambiguity without benefit.
-
-### 3. Strongest Contradicting & Risk Evidence
-- **Disk Redundancy (`INFERENCE`):** Minor duplication of BMAD tool files across repos on disk (~15MB per repo). (Negligible compared to context isolation benefits).
-
-### 4. Hidden Couplings & Dependencies
-- Apex capability registry must record which repos use which framework versions.
-
-### 5. Token, Latency & Operational Cost
-- **Prompt Token Savings:** Saves ~1,500–3,000 tokens of skill catalog metadata per session in ACIM, Investment, and Apex by omitting irrelevant marketing and agile tools.
-
-### 6. Failure Modes & Mitigations
-- *Failure Mode:* Uncontrolled version drift between BMAD installations across repos.
-  - *Mitigation:* Document installed BMAD versions in `state.yaml` and update deliberately per repo.
+- **SOURCE_VERIFIED — current BMAD:** upstream `package.json` reports BMAD Method `6.11.0`. The open upstream proposal `#1728` still asks for a global install/link mechanism, so a global BMAD linker is not the baseline.
+- **SOURCE_VERIFIED — pilot conflict:** MasterOfArts P11 records both a project BMAD copy and `/root/.hermes/skills/agile/bmad-method/`; P12 similarly records project MarketingSkills and a global `/root/.hermes/skills/marketing/` copy. These were valid single-repo pilot choices but conflict with D06 if carried unchanged into a multi-repo profile environment.
+- **SOURCE_VERIFIED — Apex specificity:** Apex's `apex-kb` skill explicitly wraps the Apex KB Python CLI and is not a generic project method.
+- **STATIC_SIMULATION — ambiguity:** a cross-repo profile sees global BMAD/MarketingSkills plus repo-local skills. Duplicate names or irrelevant catalog metadata can alter routing and increase context even when the active repository never opted in.
+- **Required mitigation:** C06: inventory and disable/remove shadowing global or learned copies; verify exact skill set per repository and profile.
+- **Token/cost:** repo-scoped catalogs reduce recurring discovery metadata and activation ambiguity.
+- **Revisit trigger:** another repository demonstrates a real MarketingSkills use case or upstream BMAD ships a stable supported global-link model that preserves per-project configuration cleanly.
 
 ---
 
-## Decision D07 — Canonical WSL Workspace Migration
+## D07 — canonical WSL2 workspace per repository
 
-- **Status in Architecture Ledger:** `ACCEPTED / MIGRATION NOT AUTHORIZED`
-- **Validation Verdict:** **`PASS_WITH_CONDITIONS`**
-- **Decision File:** [`decisions/D07-WSL-CANONICAL-WORKSPACE.md`](../../decisions/D07-WSL-CANONICAL-WORKSPACE.md)
+**Architecture claim:** converge to one Linux-native WSL checkout per managed repo under a common normal-user workspace root; Windows copies become non-authoritative after reconciliation.
 
-### 1. Exact Claim Validated
-Converge each managed repository to one canonical WSL2 Linux ext4 checkout under a common root (`~/workspaces/`). Windows accesses files via `\\wsl.localhost\Ubuntu\...`. Maintain no parallel live Windows checkouts. Reconcile differences via pre-migration divergence audit; do not delete old Windows copies automatically.
+**Verdict:** **PASS_WITH_CONDITIONS**
 
-### 2. Strongest Supporting Evidence
-- **WSL Filesystem Performance Guidance (`UPSTREAM_DOC` / `SOURCE_VERIFIED`):** Microsoft official documentation explicitly advises keeping Linux development files in the Linux filesystem; accessing `/mnt/c/GitDev` from WSL Linux tools incurs heavy 9P cross-filesystem protocol latency during Git and build operations.
-- **Docker Desktop Recommendation (`UPSTREAM_DOC`):** Docker independently recommends storing source files in the Linux distribution for high-performance Linux container bind mounts.
-- **Elimination of Dual-Authority Drift (`STATIC_SIMULATION`):** Running two active checkouts (one in Windows, one in WSL) inevitably leads to untracked local edits, merge conflicts, and lost work.
-
-### 3. Strongest Contradicting & Risk Evidence
-- **Windows File Explorer Latency (`UPSTREAM_DOC`):** High-frequency file indexing from Windows applications over `\\wsl.localhost` can experience 9P overhead. (Mitigated because heavy tool execution runs natively inside WSL).
-- **Root vs Non-Root User Discrepancy (`EXECUTED` / Risk R22):** Live inspection reveals the MasterOfArts pilot was installed under `/root/` as the root user. Migrating to `~/workspaces/` under a standard Linux user requires reconciling Linux file ownership (`chown`) and Hermes configuration paths (`/root/.hermes` vs `~/.hermes`).
-
-### 4. Hidden Couplings & Dependencies
-- Requires updating Windows IDE paths, scripts, and terminal shortcuts to point to `\\wsl.localhost\Ubuntu\...`.
-
-### 5. Required Conditions & Mitigations
-- **Condition:** Enforce pre-migration divergence audit script (comparing HEAD SHA, uncommitted diffs, untracked files, and branch names) before freezing any Windows repository.
-- **Condition:** Standardize Linux execution identity (Root vs Standard User) and file creation mask (`umask 022`) prior to migration.
+- **SOURCE_VERIFIED — support:** Microsoft recommends storing Linux-tool development projects in the WSL Linux filesystem rather than `/mnt/c`; the MasterOfArts pilot independently observed `/mnt/c` performance/credential friction.
+- **SOURCE_VERIFIED — pilot mismatch:** the pilot operational checkout is `/root/MasterOfArts`. The v2 migration plan instead targets a normal WSL user under `~/workspaces`, which is the safer reusable baseline.
+- **STATIC_SIMULATION — dual-authority failure:** Windows checkout receives an unpushed local edit after WSL becomes “canonical”; deleting/freezing it without divergence audit loses work.
+- **Required mitigation:** C02 plus the existing per-repo divergence/reconciliation gate. Verify normal user, ownership/UID/GID, branch, upstream, working tree, ignored/untracked files, and Windows-vs-WSL differences before authority switch.
+- **Important narrowing:** do not hard-code a specific `umask` as architecture. Pick permissions from the installed user/group model and prove required reads/writes.
+- **Revisit trigger:** none expected unless the platform/storage model changes materially.
 
 ---
 
-## Decision D08 — QMD Multi-Repo Retrieval (Single Local Engine, Scoped Collections)
+## D08 — one local QMD engine, explicit repository collections
 
-- **Status in Architecture Ledger:** `ACCEPTED / LIVE ACCEPTANCE PENDING`
-- **Validation Verdict:** **`PASS`**
-- **Decision File:** [`decisions/D08-QMD-MULTI-REPO.md`](../../decisions/D08-QMD-MULTI-REPO.md)
+**Architecture claim:** one QMD installation indexes named, non-overlapping repository collections; project-heavy collections are excluded from unscoped default queries; repository files remain truth.
 
-### 1. Exact Claim Validated
-One machine-level QMD engine indexes curated named collections across all managed repositories. Collection scoping (`-c` / `collections: [...]`) is explicit per task. Large project collections are excluded from default unscoped search (`includeByDefault: false`). Every profile needing retrieval receives the QMD MCP configuration.
+**Verdict:** **PASS_WITH_CONDITIONS**
 
-### 2. Strongest Supporting Evidence
-- **Live QMD Verification on Host (`EXECUTED`):** QMD 2.8.3 (`facd35e`) is operational in WSL with 4 collections (`moa-lika`, `moa-ipos`, `moa-acim`, `moa-health`). Retrieval operates with sub-second latency.
-- **CWD Independence (`EXECUTED` / `UPSTREAM_DOC`):** `qmd query -c <collection>` and MCP `collections: ["..."]` execute accurately from any working directory, allowing an agent in `~/workspaces/Investment` to query Investment collections without changing directories.
-- **Zero API Egress & Zero Provider Token Cost (`SOURCE_VERIFIED`):** Hybrid BM25, local vector embeddings (`embeddinggemma-300M`), and local reranking run 100% locally on CPU/GPU without cloud API dependencies.
-- **Context Isolation via Default Exclusion (`UPSTREAM_DOC`):** Setting `includeByDefault: false` prevents accidental cross-repo context pollution during general search queries.
-
-### 3. Strongest Contradicting & Risk Evidence
-- **MCP Plural Syntax Requirement (`UPSTREAM_DOC` / `SOURCE_VERIFIED`):** QMD MCP strictly parses plural `collections`; singular `collection` is silently ignored.
-- **Index Staleness (`STATIC_SIMULATION` / Risk R25):** QMD indexes are snapshots in SQLite. Edits in Git repositories do not automatically reflect in QMD until `qmd update` is triggered.
-
-### 4. Hidden Couplings & Dependencies
-- Profiles isolate MCP configurations; each new role profile requiring retrieval must have the QMD MCP block in its `config.yaml`.
-
-### 5. Token, Latency & Operational Cost
-- **Indexing / Retrieval Token Cost:** $0.00.
-- **Query Latency:** ~150–400ms for hybrid local search.
-
-### 6. Failure Modes & Mitigations
-- *Failure Mode:* Agent makes decisions based on stale indexed documentation.
-  - *Mitigation:* Implement pre-task freshness check comparing Git commit timestamps against QMD collection metadata (Correction C04).
+- **SOURCE_VERIFIED — pilot:** P08 proves QMD 2.8.3 stdio MCP with `query`, `get`, `multi_get`, `status`; P09 proves a real named `moa-lika` collection and scoped retrieval in MasterOfArts.
+- **SOURCE_VERIFIED — current contract:** current QMD/Hermes research identifies explicit `collections: [...]` as the MCP scoping input and warns against unscoped whole-estate retrieval.
+- **STATIC_SIMULATION — retrieval bleed:** an Investment task omits collection scope; an included-by-default ACIM collection returns semantically similar material. Even a high-scoring result is wrong-context evidence.
+- **STATIC_SIMULATION — stale index:** source repo advances from SHA A to B, but QMD still reflects A. `qmd status` can be healthy while semantic answer is stale.
+- **Required mitigation:** C04 source-HEAD freshness receipt plus explicit collection requirement on project tasks. Re-run `qmd update`, required embeddings, then bind the refresh receipt to current source HEAD.
+- **Token/cost:** QMD local retrieval reduces provider context by returning bounded passages. Do not build another RAG router.
+- **Revisit trigger:** measured retrieval quality/freshness failure after correct collection scoping and refresh discipline.
 
 ---
 
-## Decision D09 — External Shared Memory Deferred
+## D09 — external memory service deferred
 
-- **Status in Architecture Ledger:** `DEFERRED / ACCEPTED`
-- **Validation Verdict:** **`PASS`**
-- **Decision File:** [`decisions/D09-EXTERNAL-MEMORY-DEFERRED.md`](../../decisions/D09-EXTERNAL-MEMORY-DEFERRED.md)
+**Architecture claim:** do not add Mem0/Letta/Zep/another memory plane without a measured capability gap.
 
-### 1. Exact Claim Validated
-Do not add an external shared-memory provider (e.g. Mem0, Letta, Zep) in initial v2. Reconsider only if the combination of profile-local memory, Git repository truth, QMD retrieval, and reviewed skill promotion demonstrates a measured operational gap.
+**Verdict:** **PASS**
 
-### 2. Strongest Supporting Evidence
-- **Anti-Overengineering Compliance (`SOURCE_VERIFIED`):** Directly follows OpenAI, Anthropic, and Google production guidance: do not add external state services when local deterministic files and scoped RAG satisfy the operational requirement.
-- **Privacy & Security Boundaries (`REPO_EVIDENCE`):** Avoids external cloud memory sync, API egress risks, subscription costs, and vendor lock-in.
-- **Single Source of Truth Protection (`STATIC_SIMULATION`):** External memory services frequently create shadow truth that conflicts with Git-versioned documentation.
-
-### 3. Strongest Contradicting & Risk Evidence
-- **Tacit Memory Transfer Gap (`INFERENCE`):** Non-procedural operator nuances must be explicitly recorded in `USER.md` or repo documentation rather than automatically synced across all agent profiles.
-
-### 4. Reopen Triggers
-- Reopen only if multiple independent roles repeatedly fail to perform tasks due to lack of shared evolving state, despite QMD and shared skills.
+- **SOURCE_VERIFIED — present owners:** Git repositories already own facts/decisions, Kanban owns execution state, QMD owns derived retrieval, profiles own small preferences/process memory, and skills own reviewed reusable procedure.
+- **STATIC_SIMULATION — added-service cost:** another memory service introduces a new write path, stale/conflicting state, privacy surface, lifecycle policy, and retrieval/routing burden without fixing the currently identified defects.
+- **INFERENCE — correct trigger:** reconsider only if the sequential profile + reviewed skill + repo/QMD design measurably fails a required user story after correct implementation.
 
 ---
 
-## Decision D10 — Background Multi-Board Autonomy Deferred (Safety Gate)
+## D10 — background multi-board autonomy remains gated
 
-- **Status in Architecture Ledger:** `DEFERRED SAFETY GATE`
-- **Validation Verdict:** **`PASS`**
-- **Decision File:** [`decisions/D10-BACKGROUND-MULTI-BOARD-AUTONOMY.md`](../../decisions/D10-BACKGROUND-MULTI-BOARD-AUTONOMY.md)
-- **Incident Link:** [`incidents/INC-001-HERMES-KANBAN-DOCKER-WORKSPACE-CONCURRENCY.md`](../../incidents/INC-001-HERMES-KANBAN-DOCKER-WORKSPACE-CONCURRENCY.md)
+**Architecture claim:** unattended concurrent multi-board autonomy is not enabled until installed-version acceptance tests prove host persistence, workspace isolation, concurrency control, recovery, and false-success resistance.
 
-### 1. Exact Claim Validated
-Do not enable autonomous background gateway dispatch across multiple repo boards in initial v2. Operate in Safe Mode A (sequential execution on one active repo board). Reconsider background autonomy only after the installed Hermes version passes 10 explicit host-persistence, mount-scope, and profile-concurrency acceptance tests.
+**Verdict:** **PASS** — **for the gate itself; NOT authorization to enable D10.**
 
-### 2. Strongest Supporting Evidence
-- **Upstream Defect Cluster (`UPSTREAM_ISSUE` / `SOURCE_VERIFIED`):**
-  - Issue #73556: Profile `terminal.cwd` overrides Kanban workspace and broadens Docker mounts.
-  - Issue #83856: Host/container cwd provenance mismatch across terminal, file, and code tools.
-  - Issue #91568: Kanban Docker worker changes/commits fail to persist to host filesystem.
-  - Issue #78122: Concurrency limits apply per-board, multiplying concurrent workers.
-- **Live Host Configuration Proof (`EXECUTED` / Risk R21):** Live inspection of `/root/.hermes/config.yaml` revealed a static volume mount `[/root/MasterOfArts:/root/MasterOfArts:rw, /root/MasterOfArts:/workspace:rw]`. Running multi-board background workers today would cause immediate mount collisions across repositories!
-
-### 3. Strongest Contradicting & Risk Evidence
-- **Throughput Limitation (`INFERENCE`):** Initial v2 cannot run parallel autonomous worker swarms across all four repositories overnight. (Accepted by operator: user explicitly stated multi-repo work does not require simultaneous execution).
-
-### 4. Hidden Couplings & Dependencies
-- Safe Mode A relies on `dispatch_in_gateway: false` in Hermes configuration.
-
-### 5. Failure Modes & Mitigations
-- *Failure Mode:* Unattended worker reports `git commit` successful, but code was committed inside an ephemeral container and lost upon container exit.
-  - *Mitigation:* Gate D10 strictly blocks background dispatch until the 10 acceptance tests prove host-side Git commit persistence on the installed runtime.
+- **SOURCE_VERIFIED — concurrency:** `#78122` remains open; per-board concurrency can multiply gateway-wide workers.
+- **SOURCE_VERIFIED — memory:** `#85497` remains open; tenants/boards do not isolate shared profile memory.
+- **SOURCE_VERIFIED — workspace precedence:** `#73556` remains open; profile cwd can override task workspace.
+- **SOURCE_VERIFIED — Docker provenance:** `#83856` remains open; host mount and container cwd may diverge.
+- **SOURCE_VERIFIED — persistence:** `#91568` remains open; Docker Kanban workers can report successful commits that disappear because the task workspace was not host-backed.
+- **SOURCE_VERIFIED — false success:** `#76285` remains open; nonexistent board binding can return exit 0.
+- **SOURCE_VERIFIED — scheduler:** no-agent cron regressions `#77131` and `#80624` are closed, but `#20353` remains open and documents silent no-agent failure/no heartbeat visibility.
+- **STATIC_SIMULATION — conclusion:** Safe Mode A, with one active repository execution lane and no unattended cross-board scheduler, is the correct initial operating mode. It converts these defects into acceptance-test items instead of production incidents.
+- **Required acceptance additions:** exact task mount, host artifact/commit persistence, environment-canary isolation, board existence validation, last-run/heartbeat evidence for any no-agent scheduler job, same-profile cross-board dispatch refusal, crash/restart no duplicate side effects.
+- **Revisit trigger:** only after all D10 tests pass on the exact installed Hermes release and configuration, with repeatable receipts.
 
 ---
 
-## Decision Audit Summary Matrix
+## Cross-decision consistency verdict
 
-```text
-+----------+--------------------------------------+-----------------------+---------------------+
-| Decision | Subject Area                         | Architecture Status   | Validation Verdict  |
-+----------+--------------------------------------+-----------------------+---------------------+
-| D01      | Apex Control Plane                   | ACCEPTED              | PASS                |
-| D02      | Separate Kanban Boards + Rollup      | ACCEPTED              | PASS                |
-| D03      | Reusable Role Profiles (Sequential)  | ACCEPTED W/ CONSTR.   | PASS_WITH_CONDITIONS|
-| D04      | Learning Spillover via Skills        | ACCEPTED W/ CONSTR.   | PASS                |
-| D05      | Apex Shared-Skill Canonical Source   | ACCEPTED PILOT REQ.   | PASS_WITH_CONDITIONS|
-| D06      | BMAD & Domain Skill Placement        | ACCEPTED              | PASS                |
-| D07      | Canonical WSL Workspace Migration    | ACCEPTED MIGR. PEND.  | PASS_WITH_CONDITIONS|
-| D08      | QMD Multi-Repo Retrieval             | ACCEPTED LIVE PEND.   | PASS                |
-| D09      | External Memory Deferred             | DEFERRED / ACCEPTED   | PASS                |
-| D10      | Background Multi-Board Autonomy Gate | DEFERRED SAFETY GATE  | PASS                |
-+----------+--------------------------------------+-----------------------+---------------------+
-```
+**INFERENCE:** the architecture is coherent because the decisions constrain each other in the right direction:
+
+- D01 + D02 prevent task-state/project-truth conflation.
+- D02 + D03 + D10 compensate for current Hermes board/profile concurrency defects.
+- D03 + D04 + D05 define a controlled learning path without raw-memory synchronization.
+- D05 + D06 prevent a global skill dump from becoming hidden policy.
+- D07 + D08 give one path model and one derived retrieval engine without duplicating project truth.
+- D09 prevents an unnecessary memory layer while those owners are sufficient.
+
+The remaining defects are implementation-gate defects and pilot-state cleanup, not evidence for a replacement architecture.
