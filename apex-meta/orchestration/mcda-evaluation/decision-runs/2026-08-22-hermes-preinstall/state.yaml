@@ -1,0 +1,365 @@
+schema_version: 2
+project: master-of-arts-hermes-preinstall-validation
+repository: leela-spec/MasterOfArts
+branch: main
+created: 2026-08-22
+last_updated: 2026-08-23
+status: architecture_accepted_preinstall_validation_in_progress
+implementation_authorized: false
+human_decision_required: true
+
+entrypoint: Orchestration/decision-runs/2026-08-22-hermes-preinstall/QA-VALIDATION-RUNBOOK-v2.md
+decision_record: Orchestration/decision-runs/2026-08-22-hermes-preinstall/ADR-002-full-functional-hermes-target.md
+folder_index: Orchestration/decision-runs/2026-08-22-hermes-preinstall/README.md
+historical_decision_record: Orchestration/decision-runs/2026-08-22-hermes-preinstall/ADR-001-provisional-hermes-stack.md
+historical_runbook: Orchestration/decision-runs/2026-08-22-hermes-preinstall/QA-VALIDATION-RUNBOOK.md
+parent_selection_handover: Orchestration/09-PRIMARY-ORCHESTRATION-SELECTION-HANDOVER.md
+parent_selection_handover_status: historical_background_only
+parent_mcda_state: Orchestration/mcda-state.yaml
+future_alternative_backlog: Orchestration/future-development/OPENCLAW-ALTERNATIVE-EVALUATION.md
+
+selection:
+  active_target: hermes_agent_full_stack
+  architecture_human_decision: accepted_2026_08_23
+  production_winner: null
+  confidence_active_target: B+
+  confidence_production_fit: C
+  openclaw_active_comparison: false
+  openclaw_status: deferred_future_operator_decision
+  agency_agents_status: deferred_future_no_preinstall_pilot
+  anythingllm_status: deferred_future
+  semantic_router_status: deferred_future
+
+non_negotiables:
+  full_end_to_end_functionality_required: true
+  reduced_scope_mvp_substitute_for_required_capability: forbidden
+  custom_orchestration_runtime: forbidden
+  custom_memory_sync: forbidden
+  custom_kb_engine: forbidden
+  custom_rag_server: forbidden
+  custom_mcp_server_for_qmd: forbidden
+  duplicate_canonical_task_systems: forbidden_by_default
+  install_before_human_approval: forbidden
+  mass_repo_reorganization_before_validation: forbidden
+  custom_code_before_explicit_blocker_decision: forbidden
+  implementation_size_is_not_success_metric: true
+  upstream_existing_complete_functionality_is_success_metric: true
+
+locked_target_components:
+  - hermes_agent
+  - hermes_kanban
+  - existing_masterofarts_project_folders
+  - hermes_hierarchical_project_context
+  - bmad
+  - marketingskills
+  - qmd_official_hermes_integration
+  - hermes_memory
+  - hermes_curator
+  - verified_model_provider_path
+  - verified_local_safety_configuration
+
+provisional_stack:
+  orchestrator:
+    component: Hermes Agent
+    status: verified_upstream
+    mandatory_if_target_approved: true
+    custom_connection: none
+  task_state:
+    component: Hermes Kanban
+    status: verified_upstream
+    role: durable_tasks_dependencies_review_retry_workspaces
+    custom_connection: none
+  project_estate:
+    component: existing MasterOfArts repository folders
+    status: existing
+    role: project_sources_artifacts_workspaces
+    migration_authorized: false
+  project_context:
+    component: Hermes hierarchical context files
+    mechanism: AGENTS.md / .hermes.md native discovery
+    status: verified_upstream_mechanism_moa_fit_unproven
+    token_behavior: root_to_workdir_chain_at_startup_plus_progressive_subdirectory_discovery
+  specialist_skills:
+    component: Agent Skills
+    status: verified_upstream_hermes_support
+    project_location_candidate: .agents/skills
+  bmad:
+    component: BMAD Method
+    status: verified_upstream_install_target_for_hermes
+    target_dir: .agents/skills
+    global_target_dir: ~/.hermes/skills
+    custom_middleware_required: false
+    installation_locked_after_validation: true
+  marketingskills:
+    component: coreyhaines31/marketingskills
+    status: verified_upstream_agent_skills_package
+    documented_universal_target_dir: .agents/skills
+    foundational_context_file: .agents/product-marketing.md
+    multi_project_context_fit: research_required
+    installation_locked_after_validation: true
+  memory:
+    component: Hermes MEMORY.md and USER.md
+    status: verified_upstream
+    role: profile_runtime_memory_not_canonical_project_truth
+  curator:
+    component: Hermes Curator
+    status: verified_upstream
+    role: agent_created_skill_lifecycle_audit_backup_rollback
+    configuration_fit: research_required
+  retrieval:
+    component: QMD
+    target_status: locked_required_component_research_pass_live_qa_pending
+    qmd_status: official_hermes_integration_verified
+    qmd_connection: Hermes native MCP client -> local QMD MCP server/process
+    qmd_cloud_required: false
+    qmd_canonical_truth: false
+    qmd_role: derived_local_retrieval_index_over_project_files
+    qmd_invocation: on_demand_not_automatic_for_every_task
+    qmd_available_to: authorized_hermes_workers_with_skill_and_mcp_access
+    qmd_scope_rule: use_explicit_authorized_collection_or_path_for_project_retrieval
+    qmd_provider_context_rule: only_selected_retrieved_passages_need_enter_provider_context
+    qmd_freshness: qmd_update_then_qmd_embed_after_material_accepted_change_or_when_freshness_uncertain
+    qmd_platform_gate: WSL2_combined_Hermes_QMD_path_research_confirmed_live_qa_pending
+  safety:
+    component: Hermes official security controls
+    status: research_pass_live_qa_pending
+    target: protect_local_host_and_credentials_without_blocking_normal_moa_work
+    normal_backend: WSL2_local_terminal
+    normal_approval_mode: smart
+    required_layers:
+      - explicit_hard_denies
+      - write_safe_roots
+      - checkpoints
+      - loopback_services
+      - explicit_secret_forwarding_only
+    stronger_isolation_backend: Hermes_official_Docker
+    stronger_isolation_use:
+      - untrusted_skills
+      - command_heavy_tasks
+      - tasks_requiring_stronger_process_or_filesystem_boundary
+    custom_guardrail_system: forbidden
+  model_execution:
+    supported_verified_paths:
+      - openai_codex_chatgpt_oauth
+      - github_copilot_oauth
+      - nous_portal_subscription
+      - openrouter_api
+      - api_providers
+      - local_self_hosted_endpoints
+    openrouter_required: false
+    selected_path: openrouter_api_first_trial
+    selected_provider: openrouter
+    selected_model: stealth/ox-alpha
+    selected_model_name: Ox Alpha
+    credential_env: OPENROUTER_API_KEY
+    selection_scope: first_non_sensitive_Hermes_project_integration_trial
+    cost_status: free_preview_verified_2026_08_23
+    model_status: stealth_preview_anonymous_provider
+    provider_data_status: prompts_and_completions_retained_provider_states_not_used_for_training
+    sensitive_project_use: blocked_pending_explicit_privacy_and_isolation_decision
+    production_provider_locked: false
+  web_ai:
+    repo_file_access: per_client_connector_test_required
+    native_repo_skill_activation: unproven_per_client
+    local_hermes_or_qmd_execution: do_not_assume
+
+source_of_truth_policy:
+  project_files: existing_repo_and_validated_project_local_artifacts
+  kanban_task_state: hermes_if_target_selected
+  runtime_memory: noncanonical
+  qmd_index: derived_noncanonical
+  skills:
+    approved_shared: repo_or_pinned_upstream_skill_files
+    hermes_learned: hermes_local_until_reviewed
+  openclaw_state: not_active
+
+research_tracks:
+  R01_safety:
+    spec: Orchestration/decision-runs/2026-08-22-hermes-preinstall/research/R01-HERMES-LOCAL-SAFETY-GUARDRAILS.md
+    status: pass
+    blocks_installation: false
+  R02_project_knowledge_pm:
+    spec: Orchestration/decision-runs/2026-08-22-hermes-preinstall/research/R02-HERMES-MACRO-MESO-MICRO-PROJECT-KNOWLEDGE.md
+    status: pass
+    blocks_installation: false
+  R03_qmd_repo:
+    spec: Orchestration/decision-runs/2026-08-22-hermes-preinstall/research/R03-HERMES-QMD-REPO-INTEGRATION.md
+    status: pass
+    blocks_installation: false
+    depends_on: R02_project_knowledge_pm
+  R04_knowledge_lifecycle:
+    spec: Orchestration/decision-runs/2026-08-22-hermes-preinstall/research/R04-HERMES-PROJECT-KNOWLEDGE-LIFECYCLE.md
+    status: pass
+    blocks_installation: false
+    depends_on:
+      - R02_project_knowledge_pm
+      - R03_qmd_repo
+  R05_specialist_priming:
+    spec: Orchestration/decision-runs/2026-08-22-hermes-preinstall/research/R05-HERMES-SPECIALIST-AGENT-AND-SKILL-PRIMING.md
+    status: pass
+    blocks_installation: false
+    depends_on: R02_project_knowledge_pm
+  R06_continuous_learning:
+    spec: Orchestration/decision-runs/2026-08-22-hermes-preinstall/research/R06-HERMES-CONTINUOUS-LEARNING.md
+    status: pass
+    blocks_installation: false
+    depends_on:
+      - R04_knowledge_lifecycle
+      - R05_specialist_priming
+  R07_marketingskills:
+    spec: Orchestration/decision-runs/2026-08-22-hermes-preinstall/research/R07-MARKETINGSKILLS-HERMES-INTEGRATION.md
+    status: pass
+    blocks_installation: false
+    depends_on:
+      - R02_project_knowledge_pm
+      - R05_specialist_priming
+
+hypotheses:
+  H1_shared_specialist_across_projects:
+    status: open
+    pass_condition: one_specialist_definition_same_skills_correct_project_context_no_contamination_no_manual_context_paste
+  H2_macro_meso_micro:
+    status: open
+    pass_condition: hermes_native_boards_tasks_dependencies_workdirs_context_cover_required_levels_without_second_pm_system
+  H3_project_knowledge_native:
+    status: open
+    pass_condition: existing_projects_become_reliably_operable_with_complete_upstream_consumed_context_and_file_organization_no_custom_kb
+  H4_qmd_integration:
+    status: open_required
+    pass_condition: official_hermes_qmd_path_supported_on_target_environment_scoped_to_real_repo_and_measurably_reduces_retrieval_context_waste_without_custom_connection
+  H5_learning_boundary:
+    status: open
+    pass_condition: runtime_learning_reusable_without_becoming_competing_project_truth_and_without_cross_runtime_sync
+  H6_web_ai_portability:
+    status: open
+    pass_condition: useful_repo_backed_tasks_possible_with_clear_distinction_between_file_access_and_native_skill_execution
+  H7_full_stack_completeness:
+    status: open
+    pass_condition: all_required_user_stories_execute_end_to_end_through_upstream_native_official_or_established_skill_mechanisms_without_reduced_substitutes
+  H8_safety_usability:
+    status: open
+    pass_condition: official_safety_controls_protect_host_credentials_and_high_risk_operations_while_normal_moa_work_remains_practical
+  H9_marketingskills_multi_project:
+    status: open
+    pass_condition: one_upstream_marketingskills_installation_and_shared_marketing_specialist_can_serve_multiple_projects_with_correct_scoped_product_marketing_context
+
+user_stories:
+  US1_research_to_knowledge_to_workshop:
+    status: not_simulated
+    required: true
+  US2_workshop_to_marketing_launch:
+    status: not_simulated
+    required: true
+  US3_same_marketing_specialist_second_project:
+    status: not_simulated
+    required: true
+  US4_weekly_ceo_cycle:
+    status: not_simulated
+    required: true
+  US5_failure_recovery:
+    status: not_simulated
+    required: true
+  US6_learning_after_success:
+    status: not_simulated
+    required: true
+  US7_qmd_scoped_retrieval_and_refresh:
+    status: not_simulated
+    required: true
+  US8_safety_allowed_and_blocked_operations:
+    status: not_simulated
+    required: true
+  US9_web_subscription_ai_repo_work:
+    status: not_simulated
+    required: true
+
+execution_classification:
+  D: deterministic
+  AI: semantic_model_reasoning
+  H: deterministic_or_tool_retrieval_plus_ai_reasoning
+
+required_step_fields:
+  - input
+  - trigger
+  - component
+  - execution_class
+  - model_call
+  - token_cost_driver
+  - output
+  - persistence
+  - review
+  - upstream_status
+  - data_egress
+
+phase_gates:
+  A_component_map:
+    status: accepted_by_operator_2026_08_23
+    operator_confirmation_required: false
+  B_safety:
+    status: pending
+  C_project_knowledge_pm:
+    status: pending
+  D_qmd_integration:
+    status: pending
+  E_project_knowledge_lifecycle:
+    status: pending
+  F_shared_specialists_priming:
+    status: pending
+  G_continuous_learning:
+    status: pending
+  H_marketingskills:
+    status: pending
+  I_integrated_user_story_simulations:
+    status: pending
+  J_token_cost_privacy:
+    status: pending
+  K_installation_blueprint:
+    status: pending
+  L_final_decision:
+    status: pending
+    allowed_decisions:
+      - APPROVE_INSTALL_HERMES_TARGET_STACK
+      - RESEARCH_BLOCKER
+      - REJECT_HERMES_TARGET_STACK
+
+hard_fail_conditions:
+  - custom_core_orchestration_required
+  - custom_memory_synchronization_required
+  - custom_kb_or_rag_required_for_basic_operation
+  - custom_qmd_or_mcp_wrapper_required
+  - more_than_one_canonical_task_state_required
+  - specialist_definitions_must_be_duplicated_per_project
+  - manual_context_copy_paste_required_for_normal_handoffs
+  - no_durable_failure_recovery
+  - unacceptable_private_data_egress_without_operator_approval
+  - required_capability_replaced_with_reduced_or_mvp_substitute
+  - safety_configuration_blocks_normal_required_work
+  - qmd_target_environment_requires_unsupported_hack
+  - marketingskills_requires_custom_fork_for_basic_multi_project_use
+
+verified_sources:
+  hermes_context: https://hermes-agent.nousresearch.com/docs/user-guide/features/context-files/
+  hermes_kanban: https://hermes-agent.nousresearch.com/docs/user-guide/features/kanban
+  hermes_skills: https://hermes-agent.nousresearch.com/docs/user-guide/features/skills/
+  hermes_memory: https://hermes-agent.nousresearch.com/docs/user-guide/features/memory/
+  hermes_curator: https://hermes-agent.nousresearch.com/docs/user-guide/features/curator
+  hermes_security: https://hermes-agent.nousresearch.com/docs/user-guide/security/
+  hermes_secure_work_machine: https://hermes-agent.nousresearch.com/docs/guides/secure-hermes-on-a-work-machine
+  hermes_providers: https://hermes-agent.nousresearch.com/docs/integrations/providers
+  openrouter_ox_alpha: https://openrouter.ai/stealth/ox-alpha
+  hermes_qmd: https://hermes-agent.nousresearch.com/docs/user-guide/skills/optional/research/research-qmd
+  hermes_platform_support: https://hermes-agent.nousresearch.com/docs/getting-started/platform-support
+  qmd_repo: https://github.com/tobi/qmd
+  bmad_platform_targets: https://github.com/bmad-code-org/BMAD-METHOD/blob/main/tools/installer/ide/platform-codes.yaml
+  marketingskills_repo: https://github.com/coreyhaines31/marketingskills
+  marketingskills_product_marketing: https://github.com/coreyhaines31/marketingskills/blob/main/skills/product-marketing/SKILL.md
+  project_scope: Orchestration/03-SCOPE-LOCK.md
+  operating_model: Orchestration/07-INTEGRATED-AGENT-OPERATING-MODEL.md
+  existing_pilot_protocol: Orchestration/02-PILOT-PROTOCOL.md
+
+next_action:
+  owner: separate_validation_chat
+  instruction: resolve_remaining_operator_policy_choices_for_sensitive_project_isolation_and_learning_autonomy_then_execute_remaining_live_preinstall_QA_and_produce_phase_K_installation_blueprint
+  optional_stack_expansion_pilot: skipped
+  first_model_trial: openrouter_stealth_ox_alpha_non_sensitive_scope
+  installation_before_completion: forbidden
+  completion_condition: explicit_human_decision_from_phase_L

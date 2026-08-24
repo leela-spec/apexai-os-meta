@@ -1,0 +1,156 @@
+schema_version: 2
+workflow: chatgpt_work_hermes_preinstall_research
+repository: leela-spec/MasterOfArts
+branch: main
+created: 2026-08-23
+last_updated: 2026-08-23
+status: completed_pass
+research_executed: true
+installation_authorized: false
+
+chatgpt_work:
+  project_name: "MoA — Hermes Pre-Install Research"
+  experience: Work
+  preferred_surface: web_or_desktop_cloud_work
+  project_instructions_file: Orchestration/decision-runs/2026-08-22-hermes-preinstall/workflows/chatgpt-work-research/PROJECT-INSTRUCTIONS.md
+  autonomous_program_launcher: Orchestration/decision-runs/2026-08-22-hermes-preinstall/workflows/chatgpt-work-research/AUTONOMOUS-PROGRAM-LAUNCHER.md
+  legacy_per_track_launchers_file: Orchestration/decision-runs/2026-08-22-hermes-preinstall/workflows/chatgpt-work-research/WORK-RESEARCH-LAUNCHERS.md
+  legacy_per_track_launchers_role: recovery_or_manual_rerun_only
+  review_file: Orchestration/decision-runs/2026-08-22-hermes-preinstall/workflows/chatgpt-work-research/WORK-RESEARCH-REVIEW-PROTOCOL.md
+
+autonomy:
+  default: continue_without_operator
+  routine_plan_approval_required: false
+  routine_source_selection_approval_required: false
+  routine_repo_inspection_approval_required: false
+  routine_revision_approval_required: false
+  designated_result_persistence_approval_required_by_workflow: false
+  platform_permission_prompts_may_still_require_human: true
+  pause_only_for:
+    - unresolved_required_access_failure
+    - locked_component_fails_required_function
+    - prohibited_custom_infrastructure_required
+    - material_security_or_privacy_tradeoff
+    - authoritative_contradiction_that_changes_architecture
+    - architecture_or_installation_or_migration_decision
+    - product_ui_permission_gate
+
+capabilities:
+  chatgpt_project:
+    required: true
+    role: persistent_shared_instructions_and_program_context
+  work:
+    required: true
+    role: autonomous_multi_step_research_review_revision_and_finished_reports
+  github_plugin:
+    required: true
+    role: live_repo_read_and_designated_result_write
+    private_repo_access_must_be_confirmed_in_work: true
+  web_research:
+    required: true
+    source_policy: current_official_sources_for_load_bearing_claims
+  skills:
+    required_at_start: false
+    policy: save_only_after_research_and_review_methods_have_worked_reliably
+    planned_after_proof:
+      - moa-official-source-research
+      - moa-research-evidence-review
+  scheduled_tasks:
+    required: false
+  codex:
+    required_for_semantic_research: false
+
+source_policy:
+  priority:
+    - official_documentation
+    - official_repository_release_source
+    - official_package_catalog
+    - first_party_example
+    - secondary_only_for_unresolved_operational_evidence
+  claim_states:
+    - VERIFIED_OFFICIAL
+    - SUPPORTED_INFERENCE
+    - OPEN
+    - CONTRADICTED
+  current_claims_may_not_rely_only_on_model_memory: true
+
+shared_repo_context:
+  decision_record: Orchestration/decision-runs/2026-08-22-hermes-preinstall/ADR-002-full-functional-hermes-target.md
+  decision_state: Orchestration/decision-runs/2026-08-22-hermes-preinstall/state.yaml
+  scope: Orchestration/03-SCOPE-LOCK.md
+  operating_model: Orchestration/07-INTEGRATED-AGENT-OPERATING-MODEL.md
+  pilot_protocol: Orchestration/02-PILOT-PROTOCOL.md
+
+tracks:
+  R01:
+    title: Hermes Local Safety Guardrails
+    spec: Orchestration/decision-runs/2026-08-22-hermes-preinstall/research/R01-HERMES-LOCAL-SAFETY-GUARDRAILS.md
+    result: Orchestration/decision-runs/2026-08-22-hermes-preinstall/research-results/chatgpt-work/R01-HERMES-LOCAL-SAFETY-GUARDRAILS-WORK-RESULT.md
+    status: pass
+    dependencies: []
+  R02:
+    title: Hermes Macro Meso Micro Project Knowledge
+    spec: Orchestration/decision-runs/2026-08-22-hermes-preinstall/research/R02-HERMES-MACRO-MESO-MICRO-PROJECT-KNOWLEDGE.md
+    result: Orchestration/decision-runs/2026-08-22-hermes-preinstall/research-results/chatgpt-work/R02-HERMES-MACRO-MESO-MICRO-PROJECT-KNOWLEDGE-WORK-RESULT.md
+    status: pass
+    dependencies: []
+  R03:
+    title: Hermes QMD Repository Integration
+    spec: Orchestration/decision-runs/2026-08-22-hermes-preinstall/research/R03-HERMES-QMD-REPO-INTEGRATION.md
+    result: Orchestration/decision-runs/2026-08-22-hermes-preinstall/research-results/chatgpt-work/R03-HERMES-QMD-REPO-INTEGRATION-WORK-RESULT.md
+    status: pass
+    dependencies: [R02]
+  R04:
+    title: Hermes Project Knowledge Lifecycle
+    spec: Orchestration/decision-runs/2026-08-22-hermes-preinstall/research/R04-HERMES-PROJECT-KNOWLEDGE-LIFECYCLE.md
+    result: Orchestration/decision-runs/2026-08-22-hermes-preinstall/research-results/chatgpt-work/R04-HERMES-PROJECT-KNOWLEDGE-LIFECYCLE-WORK-RESULT.md
+    status: pass
+    dependencies: [R02]
+  R05:
+    title: Hermes Specialist Agent And Skill Priming
+    spec: Orchestration/decision-runs/2026-08-22-hermes-preinstall/research/R05-HERMES-SPECIALIST-AGENT-AND-SKILL-PRIMING.md
+    result: Orchestration/decision-runs/2026-08-22-hermes-preinstall/research-results/chatgpt-work/R05-HERMES-SPECIALIST-AGENT-AND-SKILL-PRIMING-WORK-RESULT.md
+    status: pass
+    dependencies: [R02]
+  R06:
+    title: Hermes Continuous Learning
+    spec: Orchestration/decision-runs/2026-08-22-hermes-preinstall/research/R06-HERMES-CONTINUOUS-LEARNING.md
+    result: Orchestration/decision-runs/2026-08-22-hermes-preinstall/research-results/chatgpt-work/R06-HERMES-CONTINUOUS-LEARNING-WORK-RESULT.md
+    status: pass
+    dependencies: [R02]
+  R07:
+    title: MarketingSkills Hermes Integration
+    spec: Orchestration/decision-runs/2026-08-22-hermes-preinstall/research/R07-MARKETINGSKILLS-HERMES-INTEGRATION.md
+    result: Orchestration/decision-runs/2026-08-22-hermes-preinstall/research-results/chatgpt-work/R07-MARKETINGSKILLS-HERMES-INTEGRATION-WORK-RESULT.md
+    status: pass
+    dependencies: [R05]
+
+program_execution:
+  roots: [R01, R02]
+  roots_are_human_gates: false
+  parallelize_roots_if_work_supports_it_natively: true
+  otherwise_sequence_autonomously: true
+  downstream_after_R02: [R03, R04, R05, R06]
+  downstream_after_R05: [R07]
+  per_track:
+    - read_spec_and_required_repo_context
+    - research_current_official_sources
+    - produce_complete_result
+    - evidence_review
+    - revise_automatically_until_pass_or_block
+    - persist_pass_result
+    - unlock_dependents
+  after_tracks:
+    - cross_track_consistency_review
+    - final_synthesis_for_QA_VALIDATION_RUNBOOK_v2
+
+research_output_rules:
+  overwrite_prompt: false
+  change_architecture_state_automatically: false
+  install_components: false
+  custom_infrastructure: false
+  full_required_capability_may_not_be_replaced_by_reduced_substitute: true
+
+next_action:
+  owner: human_ceo
+  action: review_completed_research_and_decide_whether_to_authorize_existing_QA_VALIDATION_RUNBOOK_v2

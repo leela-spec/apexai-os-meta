@@ -1,0 +1,178 @@
+schema_version: 1
+researcher_id: chatgpt-deep-research
+research_date: 2026-08-21
+scope_commit_or_ref: b4dceb52abb7327d50887f085fe4db7326969d40
+complete_system_ranking:
+  - rank: 1
+    architecture: "OpenClaw + bundled Workboard + builtin memory + curated ClawHub/bundle skills"
+    score: 89.5
+    confidence: B
+    hard_gates: conditional
+    primary_failure_mode: "Community skill trust/quality and missing MoA-specific workshop/coaching/sensitivity/Leela specialists."
+    architecture_map:
+      L1_knowledge: "OpenClaw builtin memory over canonical repository Markdown; hybrid BM25/vector retrieval; provenance stored in derived SQLite index."
+      L2_portfolio: "Bundled Workboard relational SQLite boards/cards with dependencies, claims, lifecycle, comments, proof and artifacts."
+      L3_orchestrator: "Workboard dispatch/task ledger + subagents/swarm + automations."
+      L4_workflows: "OpenClaw skills, task-flow/OpenProse/automations, curated ClawHub skills and compatible Agent/Codex/Claude/Cursor bundles."
+      L5_specialists: "Curated research/content/social skill packages; reviewer agents configured separately; MoA-specific workshop/coaching/sensitivity/Leela roles missing."
+      L6_tools: "OpenClaw web/browser/files/exec/media/PDF/MCP/plugin tool surface."
+      L7_executors: "ChatGPT/Codex OAuth, Claude/Gemini CLI reuse, API providers and local/self-hosted providers."
+      L8_review: "Workboard review state, operator read/write permissions, separate reviewer cards/agents, explicit CEO acceptance for consequential items."
+      L9_artifacts: "MasterOfArts Git repository as canonical artifact store; Workboard keeps artifact/proof references and execution evidence."
+      L10_learning: "Accepted canonical Markdown becomes retrievable organizational knowledge; procedural learning can be packaged as approved skills; CEO promotion rule still required."
+  - rank: 2
+    architecture: "Hermes Agent + BMAD Method/BMM/CIS via documented SKILL.md mechanisms"
+    score: 87.7
+    confidence: B
+    hard_gates: conditional
+    primary_failure_mode: "Cross-product BMAD-to-Hermes skill execution is standards-compatible but not an upstream-tested named integration."
+    architecture_map:
+      L1_knowledge: "Repository Markdown + Hermes memory + optional official qmd skill."
+      L2_portfolio: "Hermes Kanban SQLite boards/tasks."
+      L3_orchestrator: "Hermes Kanban dispatcher, named profiles, dependencies, retries and review/change loops."
+      L4_workflows: "BMAD core/BMM/CIS generated SKILL.md workflows/tasks/tools plus Hermes skills."
+      L5_specialists: "BMAD Analyst/PM/UX and CIS creative/problem-solving specialists; workshop/pedagogy/coaching/sensitivity/Leela roles missing."
+      L6_tools: "Hermes terminal/files/web/browser/code tools and skill toolsets."
+      L7_executors: "Codex subscription, Nous subscription, supported provider paths and local/custom endpoints."
+      L8_review: "Hermes request-review/request-changes plus BMAD adversarial document review."
+      L9_artifacts: "MasterOfArts Git repository plus Kanban attachments/handoff metadata."
+      L10_learning: "Hermes procedural learning/memory + qmd indexing of accepted repository knowledge; governed fact promotion remains local policy."
+  - rank: 3
+    architecture: "Hermes Agent native + official/established skills + qmd"
+    score: 84.7
+    confidence: B
+    hard_gates: conditional
+    primary_failure_mode: "Verified prebuilt specialist breadth is insufficient for several Master of Arts families."
+    architecture_map:
+      L1_knowledge: "Canonical repository Markdown + Hermes memory + official optional qmd retrieval skill."
+      L2_portfolio: "Hermes Kanban SQLite."
+      L3_orchestrator: "Hermes Kanban dispatcher + named profiles + cron."
+      L4_workflows: "Hermes bundled/official/Agent-Skills-compatible skills."
+      L5_specialists: "Existing research/creative skills, but substantial MoA specialist gaps."
+      L6_tools: "Hermes toolsets, web/browser/files/terminal/code and trusted skills."
+      L7_executors: "Codex subscription, Nous subscription, supported API providers and local/self-hosted endpoints."
+      L8_review: "Kanban review/change/block/unblock plus separate reviewer profile and human-only CEO gate where configured."
+      L9_artifacts: "MasterOfArts Git repository + Kanban evidence/attachments."
+      L10_learning: "Skill/memory write approval + qmd over accepted Markdown; explicit organizational promotion rule needed."
+  - rank: 4
+    architecture: "Dify + GitHub artifact/portfolio boundary + official LangGenius templates"
+    score: 77.2
+    confidence: B
+    hard_gates: conditional
+    primary_failure_mode: "Dify-centric workflow/model state and weak subscription repo-capable executor portability."
+    architecture_map:
+      L1_knowledge: "Dify Knowledge/RAG."
+      L2_portfolio: "External GitHub boundary required."
+      L3_orchestrator: "Dify workflow/agent runtime."
+      L4_workflows: "Dify workflow templates."
+      L5_specialists: "First-party LangGenius research/writing/support templates, not a deep durable persona library."
+      L6_tools: "Dify plugins/tools."
+      L7_executors: "Provider plugins and local-model integrations; weak subscription-client portability."
+      L8_review: "Human Input pause/approve/feedback nodes."
+      L9_artifacts: "Dify outputs plus GitHub canonical artifacts."
+      L10_learning: "Knowledge-base update patterns; governance/promotion semantics need configuration."
+  - rank: 5
+    architecture: "n8n + GitHub + local/vector knowledge layer + Ollama"
+    score: 77.1
+    confidence: B
+    hard_gates: conditional
+    primary_failure_mode: "Multi-service glue and weaker reusable specialist-agent standard."
+    architecture_map:
+      L1_knowledge: "n8n vector-store/RAG composition."
+      L2_portfolio: "GitHub Issues/Projects boundary."
+      L3_orchestrator: "n8n workflows/subworkflows/waits/execution history."
+      L4_workflows: "n8n workflow/template ecosystem."
+      L5_specialists: "AI Agent nodes and community workflow roles; less standardized than Agent Skills."
+      L6_tools: "Large SaaS/business integration catalog and deterministic nodes."
+      L7_executors: "Ollama/local plus API model providers; subscription CLI reuse not native."
+      L8_review: "Human-in-the-loop approval before AI tool calls and wait patterns."
+      L9_artifacts: "GitHub/files/external application outputs."
+      L10_learning: "External/vector knowledge-update workflows; no single native governed promotion loop."
+component_winners:
+  L1_knowledge: "OpenClaw builtin memory"
+  L2_portfolio: "OpenClaw Workboard for small local agent operations; GitHub Projects for broader human-visible portfolio control"
+  L3_orchestrator: "Hermes Kanban / OpenClaw Workboard"
+  L4_workflows: "GitHub Spec Kit for generic durable workflows; BMAD for methodology/research/review workflows"
+  L5_specialists: "BMAD/CIS for first-party specialist roles; ClawHub for breadth with stronger vetting burden"
+  L6_tools: "OpenClaw for agent-native execution; n8n for SaaS/business integration breadth"
+  L7_executors: "Hermes / OpenClaw"
+  L8_review: "Hermes Kanban + BMAD review"
+  L9_artifacts: "Git/GitHub repository"
+  L10_learning: "No complete winner; OpenClaw strongest factual retrieval/provenance, Hermes strongest explicit procedural skill-memory/write approval"
+disqualified:
+  - candidate: "Ruflo / Claude Flow"
+    failed_gates: [H10, H11]
+    reason: "Strong swarm/memory/runtime capability, but official ecosystem remains software-engineering heavy and operational surface is too large for the MoA simplicity constraint."
+  - candidate: "Gas City"
+    failed_gates: [H10, H11]
+    reason: "Strong multi-agent factory and packs, but official scope is software-factory/coding workflows and the stack is too operationally heavy."
+insufficient_evidence:
+  - candidate: "Agno AgentOS as complete MoA system"
+    reason: "Strong agents, task mode, knowledge and HITL, but no sufficiently mature reusable specialist/workflow ecosystem to avoid authoring most MoA organization logic."
+  - candidate: "CrewAI as complete MoA system"
+    reason: "Capable crews/flows/knowledge, but H3/H4 would require substantial custom role/workflow authoring."
+  - candidate: "LangGraph / Deep Agents as complete MoA system"
+    reason: "Excellent durable orchestration building blocks, but primarily a framework requiring the MoA organization to be designed rather than reused."
+  - candidate: "Langflow as complete MoA system"
+    reason: "Visual agent/RAG runtime is useful but does not supply enough proven specialist/portfolio organization out of the box."
+  - candidate: "AutoGen as complete MoA system"
+    reason: "Strong agent-team framework but would require substantial custom operating organization."
+  - candidate: "Letta as complete MoA system"
+    reason: "Excellent stateful memory-agent component but not a complete portfolio/workflow/specialist organization."
+  - candidate: "Spec Kit + GitHub as complete MoA system"
+    reason: "Excellent L3/L4/L9 component with durable workflows and gates; lacks integrated semantic KB and broad specialist-agent organization."
+  - candidate: "BMAD standalone as complete MoA system"
+    reason: "Excellent L4/L5 donor but lacks durable runtime/portfolio/semantic-KB ownership."
+  - candidate: "Beads as complete MoA system"
+    reason: "Excellent agent task graph but not a corpus KB or specialist organization; coding-agent bias remains."
+  - candidate: "OpenSpec as complete MoA system"
+    reason: "Strong change/spec artifact lifecycle, not a whole agent operating organization."
+  - candidate: "Task Master as complete MoA system"
+    reason: "Strong task decomposition, but development/PRD centered and incomplete on knowledge/governance/specialists."
+  - candidate: "Superpowers as complete MoA system"
+    reason: "Excellent process/reviewer donor but not portfolio state, KB or general runtime."
+  - candidate: "GitHub Issues/Projects + Agent Skills as complete MoA system"
+    reason: "Excellent human-visible control and portability boundary, but no first-class semantic KB or AI workflow runtime."
+sensitivity:
+  balanced:
+    OpenClaw: 89.5
+    Hermes_BMAD: 87.7
+    Hermes_native: 84.7
+    Dify_GitHub: 77.2
+    n8n_GitHub_vector_Ollama: 77.1
+  autonomy_first:
+    OpenClaw: 88.4
+    Hermes_BMAD: 87.9
+    Hermes_native: 84.6
+    n8n_GitHub_vector_Ollama: 78.4
+    Dify_GitHub: 77.1
+  knowledge_first:
+    OpenClaw: 90.9
+    Hermes_BMAD: 87.6
+    Hermes_native: 84.2
+    Dify_GitHub: 80.4
+    n8n_GitHub_vector_Ollama: 77.9
+  simplicity_portability_first:
+    OpenClaw: 88.6
+    Hermes_BMAD: 87.7
+    Hermes_native: 87.1
+    Dify_GitHub: 71.9
+    n8n_GitHub_vector_Ollama: 71.9
+recommended_pilots:
+  - id: P1
+    architecture: "OpenClaw integrated"
+    purpose: "Run one real research-to-knowledge workflow using Workboard + builtin memory + one audited research skill + independent review + CEO gate + Git artifact + accepted memory promotion."
+  - id: P2
+    architecture: "Hermes + BMAD/BMM/CIS"
+    purpose: "Prove BMAD-generated SKILL.md executes unmodified under Hermes and persists correctly through Hermes Kanban; reject composition if shim/fork is required."
+  - id: P3
+    architecture: "Hermes native"
+    purpose: "Run the same research and weekly-CEO scenarios as a simplicity control and measure manual prompting, context burden, recovery and review independence."
+critical_unknowns:
+  - "Is OpenClaw Workboard sufficient as the single CEO portfolio SSOT for Master of Arts, or will broader portfolio visibility require GitHub Projects?"
+  - "Can a small audited ClawHub/bundle allowlist provide useful specialist reuse without introducing unacceptable prompt/permission/update risk?"
+  - "Do BMAD-generated skills execute unmodified under Hermes with references and relative paths intact?"
+  - "Does Hermes qmd run reliably on the target host and match OpenClaw builtin-memory retrieval quality?"
+  - "Can non-code independent reviewers be kept genuinely isolated from maker context in both top stacks?"
+  - "What exact CEO approval rule governs promotion of factual organizational knowledge versus procedural skills?"
+  - "Are upstream workshop-design, pedagogy, coaching-method, sensitivity/public-private and Leela-bridge specialist packages discoverable before any MoA-specific skill is authored?"

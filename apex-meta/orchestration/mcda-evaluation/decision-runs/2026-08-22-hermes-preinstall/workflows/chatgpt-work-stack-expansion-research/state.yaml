@@ -1,0 +1,212 @@
+schema_version: 1
+workflow: chatgpt_work_stack_expansion_research
+repository: leela-spec/MasterOfArts
+branch: main
+created: 2026-08-23
+completed: 2026-08-23
+status: research_complete_operator_decision_recorded
+research_executed: true
+installation_authorized: false
+architecture_change_authorized: false
+operator_decision_recorded: true
+operator_decision_date: 2026-08-23
+
+work:
+  project_name: "MoA — Hermes Pre-Install Research"
+  experience: Work
+  project_instructions: Orchestration/decision-runs/2026-08-22-hermes-preinstall/workflows/chatgpt-work-stack-expansion-research/PROJECT-INSTRUCTIONS.md
+  launcher: Orchestration/decision-runs/2026-08-22-hermes-preinstall/workflows/chatgpt-work-stack-expansion-research/AUTONOMOUS-PROGRAM-LAUNCHER.md
+  review_protocol: Orchestration/decision-runs/2026-08-22-hermes-preinstall/workflows/chatgpt-work-stack-expansion-research/REVIEW-PROTOCOL.md
+  source_registry: Orchestration/decision-runs/2026-08-22-hermes-preinstall/workflows/chatgpt-work-stack-expansion-research/SOURCE-REGISTRY.md
+  matrix_schema: Orchestration/decision-runs/2026-08-22-hermes-preinstall/workflows/chatgpt-work-stack-expansion-research/MATRIX-SCHEMA.yaml
+
+baseline:
+  adr: Orchestration/decision-runs/2026-08-22-hermes-preinstall/ADR-002-full-functional-hermes-target.md
+  completed_workflow_state: Orchestration/decision-runs/2026-08-22-hermes-preinstall/workflows/chatgpt-work-research/state.yaml
+  completed_results_root: Orchestration/decision-runs/2026-08-22-hermes-preinstall/research-results/chatgpt-work
+  completed_tracks:
+    - R01_Hermes_safety
+    - R02_macro_meso_micro_project_knowledge
+    - R03_Hermes_QMD
+    - R04_project_knowledge_lifecycle
+    - R05_specialist_priming
+    - R06_continuous_learning
+    - R07_MarketingSkills
+
+candidate_identities:
+  crewai:
+    repo: crewAIInc/crewAI
+    docs: https://docs.crewai.com
+  agency_agents:
+    repo: msitarzewski/agency-agents
+  superpowers:
+    repo: obra/superpowers
+  semantic_router:
+    repo: aurelio-labs/semantic-router
+  anythingllm:
+    repo: Mintplex-Labs/anything-llm
+    docs: https://docs.anythingllm.com
+
+comparison_scope:
+  baseline_modules:
+    - hermes_runtime_orchestration
+    - hermes_kanban_task_review_state
+    - repo_project_truth_and_artifacts
+    - hierarchical_project_context
+    - shared_specialist_profiles
+    - bmad_methods_personas_workflows
+    - marketingskills
+    - qmd_retrieval
+    - hermes_memory_curator_learning
+    - model_provider_execution
+    - safety_controls
+  candidate_roles:
+    - whole_stack_replacement
+    - module_replacement
+    - supplement
+    - specialist_package
+    - workflow_method
+    - routing_component
+    - knowledge_component
+    - duplicate
+    - no_fit
+
+source_policy:
+  current_web_search_required: true
+  load_bearing_claim_requires_current_source: true
+  primary_priority:
+    - official_docs
+    - official_repo_source
+    - official_release_test_ci
+    - first_party_operational_case
+    - current_issue_pr_discussion_for_limitations
+    - secondary_independent_supplement_only
+  vendor_marketing_claim_is_proof: false
+  stars_alone_are_reliability_proof: false
+  model_reasoning_is_evidence: false
+  evidence_states:
+    - VERIFIED_CAPABILITY
+    - VERIFIED_INTEGRATION
+    - VERIFIED_LIMITATION
+    - REPORTED_OPERATIONAL_EVIDENCE
+    - VENDOR_CLAIM_ONLY
+    - SUPPORTED_INFERENCE
+    - OPEN
+    - CONTRADICTED
+
+integration_classes:
+  - NATIVE_SAME_SYSTEM
+  - OFFICIAL_PLUGIN
+  - OFFICIAL_PROTOCOL_BOTH_SIDES
+  - ESTABLISHED_PACKAGE
+  - DOCUMENTED_CONFIGURATION
+  - CUSTOM_REQUIRED
+  - NO_INTEGRATION_FOUND
+
+hard_rules:
+  every_matrix_cell_evidence_backed: true
+  unsupported_cell: OPEN_UNVERIFIED
+  custom_glue_may_not_be_designed: true
+  full_required_capability_may_not_be_reduced: true
+  duplicate_canonical_state_requires_explicit_value_case: true
+  installation_forbidden: true
+  production_repo_reorganization_forbidden: true
+  adr_change_forbidden: true
+
+tracks:
+  R00:
+    title: Verified Current Pipeline Baseline
+    spec: Orchestration/decision-runs/2026-08-22-hermes-preinstall/workflows/chatgpt-work-stack-expansion-research/research/R00-VERIFIED-CURRENT-PIPELINE-BASELINE.md
+    result: Orchestration/decision-runs/2026-08-22-hermes-preinstall/research-results/chatgpt-work-stack-expansion/R00-VERIFIED-CURRENT-PIPELINE-BASELINE-RESULT.md
+    status: completed
+    dependencies: []
+  R01:
+    title: General Alternative Landscape
+    spec: Orchestration/decision-runs/2026-08-22-hermes-preinstall/workflows/chatgpt-work-stack-expansion-research/research/R01-GENERAL-ALTERNATIVE-LANDSCAPE.md
+    result: Orchestration/decision-runs/2026-08-22-hermes-preinstall/research-results/chatgpt-work-stack-expansion/R01-GENERAL-ALTERNATIVE-LANDSCAPE-RESULT.md
+    status: completed
+    dependencies: [R00]
+  R02:
+    title: CrewAI Integration And Fit
+    spec: Orchestration/decision-runs/2026-08-22-hermes-preinstall/workflows/chatgpt-work-stack-expansion-research/research/R02-CREWAI-INTEGRATION-AND-FIT.md
+    result: Orchestration/decision-runs/2026-08-22-hermes-preinstall/research-results/chatgpt-work-stack-expansion/R02-CREWAI-INTEGRATION-AND-FIT-RESULT.md
+    status: completed
+    dependencies: [R01]
+  R03:
+    title: Agency Agents Integration And Fit
+    spec: Orchestration/decision-runs/2026-08-22-hermes-preinstall/workflows/chatgpt-work-stack-expansion-research/research/R03-AGENCY-AGENTS-INTEGRATION-AND-FIT.md
+    result: Orchestration/decision-runs/2026-08-22-hermes-preinstall/research-results/chatgpt-work-stack-expansion/R03-AGENCY-AGENTS-INTEGRATION-AND-FIT-RESULT.md
+    status: completed
+    dependencies: [R01]
+  R04:
+    title: Superpowers Integration And Fit
+    spec: Orchestration/decision-runs/2026-08-22-hermes-preinstall/workflows/chatgpt-work-stack-expansion-research/research/R04-SUPERPOWERS-INTEGRATION-AND-FIT.md
+    result: Orchestration/decision-runs/2026-08-22-hermes-preinstall/research-results/chatgpt-work-stack-expansion/R04-SUPERPOWERS-INTEGRATION-AND-FIT-RESULT.md
+    status: completed
+    dependencies: [R01]
+  R05:
+    title: Semantic Router Integration And Fit
+    spec: Orchestration/decision-runs/2026-08-22-hermes-preinstall/workflows/chatgpt-work-stack-expansion-research/research/R05-SEMANTIC-ROUTER-INTEGRATION-AND-FIT.md
+    result: Orchestration/decision-runs/2026-08-22-hermes-preinstall/research-results/chatgpt-work-stack-expansion/R05-SEMANTIC-ROUTER-INTEGRATION-AND-FIT-RESULT.md
+    status: completed
+    dependencies: [R01]
+  R06:
+    title: AnythingLLM Integration And Fit
+    spec: Orchestration/decision-runs/2026-08-22-hermes-preinstall/workflows/chatgpt-work-stack-expansion-research/research/R06-ANYTHINGLLM-INTEGRATION-AND-FIT.md
+    result: Orchestration/decision-runs/2026-08-22-hermes-preinstall/research-results/chatgpt-work-stack-expansion/R06-ANYTHINGLLM-INTEGRATION-AND-FIT-RESULT.md
+    status: completed
+    dependencies: [R01]
+  R07:
+    title: Evidence Matrix V1
+    spec: Orchestration/decision-runs/2026-08-22-hermes-preinstall/workflows/chatgpt-work-stack-expansion-research/research/R07-EVIDENCE-MATRIX-V1.md
+    result: Orchestration/decision-runs/2026-08-22-hermes-preinstall/research-results/chatgpt-work-stack-expansion/R07-EVIDENCE-MATRIX-V1-RESULT.md
+    status: completed
+    dependencies: [R02, R03, R04, R05, R06]
+  R08:
+    title: Adversarial Evidence Audit
+    spec: Orchestration/decision-runs/2026-08-22-hermes-preinstall/workflows/chatgpt-work-stack-expansion-research/research/R08-ADVERSARIAL-EVIDENCE-AUDIT.md
+    result: Orchestration/decision-runs/2026-08-22-hermes-preinstall/research-results/chatgpt-work-stack-expansion/R08-ADVERSARIAL-EVIDENCE-AUDIT-RESULT.md
+    status: completed
+    dependencies: [R07]
+  R09:
+    title: Sophisticated V2 Synthesis
+    spec: Orchestration/decision-runs/2026-08-22-hermes-preinstall/workflows/chatgpt-work-stack-expansion-research/research/R09-SOPHISTICATED-V2-SYNTHESIS.md
+    result: Orchestration/decision-runs/2026-08-22-hermes-preinstall/research-results/chatgpt-work-stack-expansion/R09-SOPHISTICATED-V2-SYNTHESIS-RESULT.md
+    status: completed
+    dependencies: [R08]
+
+autonomy:
+  default: continue_without_operator
+  routine_plan_approval_required: false
+  routine_source_selection_approval_required: false
+  routine_review_revision_approval_required: false
+  pause_only_for:
+    - unrecoverable_required_access_failure
+    - candidate_identity_ambiguity
+    - decision_changing_authoritative_contradiction
+    - material_security_privacy_consent
+    - install_or_architecture_or_migration_decision
+    - product_permission_gate
+
+methodology:
+  hard_filters_first: true
+  matrix_completion_before_ranking: true
+  mcda_swing_weighting: true
+  simple_arbitrary_weighted_MCA_forbidden: true
+  sensitivity_analysis_required: true
+  switching_conditions_required: true
+  uncertainty_reduction_only_if_ranking_may_change: true
+  references:
+    - https://www.gov.uk/government/publications/the-green-book-appraisal-and-evaluation-in-central-government/the-green-book-2026
+    - https://www.nasa.gov/reference/6-8-decision-analysis/
+
+operator_decision:
+  architecture: accept_R09_Hermes_centered_baseline
+  agency_agents: defer_future_no_preinstall_pilot
+  anythingllm: defer_future
+  semantic_router: defer_future
+  future_backlog: Orchestration/future-development/OPENCLAW-ALTERNATIVE-EVALUATION.md
+
+next_action:
+  owner: hermes_preinstall_validation
+  action: continue_baseline_only_resolve_remaining_operator_policies_then_complete_live_QA_and_phase_K_blueprint

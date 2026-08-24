@@ -1,23 +1,14 @@
-# OpenClaw execution inbox
+# Apex AIOS Meta — Orchestration Control Plane
 
-This directory is the repository handoff for the Option 1 pilot.
+This directory houses the primary orchestration control plane, workflow blueprints, evaluation matrices, and multi-domain simulations.
 
-The planning AI publishes one complete `apex.execution-request/v2` file as
-`inbox/<execution-id>.request.json`. OpenClaw Cron runs the deterministic inbox
-processor every 15 seconds. The processor claims the file by moving it to
-`processing/`, invokes the existing dispatcher once, then moves the unchanged
-request and a `apex.execution-inbox-receipt/v1` receipt to either `completed/`
-or `failed/`.
-
-Only names ending in `.request.json` are eligible. Publish through a temporary
-name first and rename only after the final bytes are present. An existing file
-in `processing/` is reconciled before a new inbox file. A queue lock prevents
-overlapping Cron ticks from dispatching the same request twice.
-
-File placement is the trigger; the processor does not use an AI model for
-polling, routing, validation, or retry. The existing request validator,
-dispatcher, and evidence verifier remain authoritative for execution.
-
-The first real provider request remains blocked until its normal external-submit
-approval is represented by the approved request handoff. Empty-inbox Cron runs
-are safe canaries and submit nothing.
+## Contents
+- `simulations/` — Multi-domain simulations:
+  - `5-week-progressive-simulation/` — The 5-week progressive orchestration stress-test (`00_SIMULATION_OVERVIEW.md`, `Week-01`–`Week-05` daily runs).
+  - `US-IDEA-01-20260711/`, `US-SEQ-01-20260712/` — Prior scenario simulations.
+- `mcda-evaluation/` — Multi-Criteria Decision Analysis (MCDA) framework, candidate screening, pilot protocols, and selection handover (`00-MCDA-CHARTER.md` through `09-PRIMARY-ORCHESTRATION-SELECTION-HANDOVER.md`).
+- `workflows/` — Standardized execution blueprints:
+  - `WEEKLY_ORCHESTRATION_BLUEPRINT.md` — The Monday–Friday operating cadence and milestone gates (`G1`–`G5`).
+- `rollups/` — Zero-token automated portfolio snapshots (`portfolio-snapshot.json`, `portfolio-snapshot.md`, `health-receipt.yaml`).
+- `registry/` — Live capability registry (`capability-registry.yaml`).
+- `docs/` — Architecture showcases and interaction guides (`HERMES_MULTI_REPO_CURRENT_STATE_SHOWCASE.md`).

@@ -1,0 +1,114 @@
+schema_version: 1
+researcher_id: perplexity-research
+research_date: "2026-08-21"
+scope_commit_or_ref: "b4dceb52abb7327d50887f085fe4db7326969d40"
+grounding_limitation: >
+  07-INTEGRATED-AGENT-OPERATING-MODEL.md, 03-SCOPE-LOCK.md, 06-USER-STORIES-AND-EXECUTOR-MATRIX.md,
+  04-EVIDENCE-MATRIX.md, and 05-MCDA-SCORES.md could not be read as text via the available GitHub tool
+  in this session (only download confirmations were returned; repo is private so raw.githubusercontent.com
+  fetch also failed). This run is grounded in the fully-specified research prompt itself plus fresh web
+  research, not in the prose of those five files.
+complete_system_ranking:
+  - rank: 1
+    architecture: "Composition A: GitHub (SSOT/KB/review/artifacts) + BMAD-METHOD (orchestrator/workflow/specialists incl. Creative Intelligence Suite) + Anthropic Agent Skills (portable executor-level specialists)"
+    score: 65.6
+    confidence: B
+    hard_gates: conditional
+    primary_failure_mode: "No native semantic retrieval layer (L1 is flat-file/manual search); reviewer and CEO-gate roles are a project convention, not a shipped feature"
+    architecture_map:
+      L1_knowledge: "Git repo (leela-spec/MasterOfArts) as canonical markdown KB; no native embeddings/RAG"
+      L2_portfolio: "GitHub Issues/Projects custom fields (status, priority, dependencies)"
+      L3_orchestrator: "BMad module agents (BMM/CIS/BMB) select workflows; persona-driven, not a deterministic state machine"
+      L4_workflows: "BMM (34+ agile/product workflows), CIS (brainstorming/design thinking), BMB (agent/module builder)"
+      L5_specialists: "BMM personas (PM, architect, dev, SM, tech-writer, UX-designer, analyst); CIS innovation personas; Anthropic document-skills (docx/pptx/xlsx/pdf)"
+      L6_tools: "GitHub Actions, repo scripts, local PowerShell/Python tooling"
+      L7_executors: "Claude Code, Claude.ai (Agent Skills native); Gemini Gems and ChatGPT Custom GPTs via BMAD web-bundles"
+      L8_review: "GitHub PR review + CODEOWNERS + branch protection (human maker/reviewer separation); no shipped adversarial-reviewer agent"
+      L9_artifacts: "Repo files, PRs, releases with git history/provenance"
+      L10_learning: "Merge-to-main as promotion convention; not a shipped feature"
+  - rank: 2
+    architecture: "Composition B: GitHub + GitHub Spec Kit (resumable workflow/gate engine) + Anthropic Agent Skills + BMAD Creative Intelligence Suite module bolted on for non-code specialists"
+    score: 58.5
+    confidence: B
+    hard_gates: conditional
+    primary_failure_mode: "Native specialist catalog is software-development-only (constitution/specify/plan/tasks/implement); requires importing a second framework (BMAD CIS) for any non-code specialist coverage"
+    architecture_map:
+      L1_knowledge: "Git repo, same as Composition A"
+      L2_portfolio: "GitHub Issues/Projects"
+      L3_orchestrator: "Spec Kit's resumable YAML workflow engine (conditional logic, fan-out/fan-in, pause/resume)"
+      L4_workflows: "Spec Kit SDD lifecycle (constitution, specify, clarify, plan, checklist, tasks, analyze, implement, converge); BMAD CIS workflows bolted on"
+      L5_specialists: "Near-empty natively; BMAD CIS personas imported; Anthropic Agent Skills for document generation"
+      L6_tools: "GitHub Actions, Spec Kit shell-step integrations"
+      L7_executors: "Documented multi-agent-CLI integrations (Claude, Codex, etc.)"
+      L8_review: "Built-in human checkpoints/gates in the workflow engine + GitHub PR review"
+      L9_artifacts: "Repo files, workflow state files, PRs"
+      L10_learning: "Manual promotion convention, same as Composition A"
+  - rank: 3
+    architecture: "Composition C: GitHub Issues/Projects + Anthropic Agent Skills only, human-run orchestration (simplest control)"
+    score: 41.2
+    confidence: B
+    hard_gates: pass
+    primary_failure_mode: "No automated orchestrator/router at all; the CEO manually performs workflow selection and handoffs"
+    architecture_map:
+      L1_knowledge: "Git repo, manual search"
+      L2_portfolio: "GitHub Issues/Projects"
+      L3_orchestrator: "Human CEO manually selects workflow and invokes tools"
+      L4_workflows: "None packaged; ad hoc per task"
+      L5_specialists: "Anthropic Agent Skills only, invoked manually"
+      L6_tools: "GitHub Actions, ad hoc scripts"
+      L7_executors: "Claude.ai / Claude Code / ChatGPT, invoked manually per task"
+      L8_review: "GitHub PR/issue approval, manual"
+      L9_artifacts: "Repo files, PRs"
+      L10_learning: "Manual convention"
+component_winners:
+  L1_knowledge_substrate: "GitHub repo (git-as-KB) — proven pattern already used by leela-spec/MasterOfArts; no candidate ships native semantic retrieval"
+  L2_portfolio_ssot: "GitHub Issues/Projects custom fields"
+  L3_orchestrator_router: "GitHub Spec Kit (resumable YAML workflow engine with gates/fan-out/fan-in/pause-resume)"
+  L4_workflow_library: "BMAD-METHOD (BMM 34+ workflows) for breadth; Spec Kit for mechanical rigor"
+  L5_specialist_agent_library: "BMAD-METHOD personas (BMM+CIS) for non-code breadth; Anthropic Agent Skills for portable execution"
+  L6_tool_script_layer: "GitHub Actions + repo scripts"
+  L7_executor_adapters: "Anthropic Agent Skills (native across Claude.ai/Claude Code/Agent SDK) + BMAD web-bundles (Gemini/ChatGPT)"
+  L8_review_governance: "GitHub PR review + CODEOWNERS + branch protection"
+  L9_artifact_output_system: "GitHub repo/releases (git provenance)"
+  L10_learning_loop: "No shipped winner; merge-to-main convention is the best available practice found"
+disqualified:
+  - candidate: "Ruflo / Claude-Flow (ruvnet)"
+    failed_gates: ["H10 non_software_fit", "H11 bounded_operational_complexity"]
+    note: "74-100+ agents and swarm topologies are proven and actively maintained (56k+ GitHub stars) but every documented use case, agent, and example found is software engineering; multi-package footprint (cli/memory/swarm/nexus) is heavy for a small operator-led org"
+  - candidate: "Superpowers (obra)"
+    failed_gates: ["H10 non_software_fit"]
+    note: "Explicitly described by its author as 'a complete software development methodology'; 14-20+ skills are TDD/debugging/code-review focused"
+  - candidate: "GitHub Spec Kit (standalone, without a specialist layer)"
+    failed_gates: ["H4 integrated_specialists (as standalone complete system)"]
+    note: "Retained as a component (L3/L4) inside Composition B, not disqualified outright as a component"
+  - candidate: "Task Master AI / OpenSpec / Beads (each standalone)"
+    failed_gates: ["H4 integrated_specialists", "H10 non_software_fit"]
+    note: "Each is a narrow, well-maintained coding-agent utility (task graph, spec lifecycle, agent memory respectively); none ships specialist agents or non-code use cases"
+insufficient_evidence:
+  - candidate: "Hermes Agent"
+    reason: "No P1-P3 primary or first-party source located in this research pass establishing a maintained public ecosystem matching the required specialist/workflow criteria"
+  - candidate: "OpenClaw"
+    reason: "Same as above"
+  - candidate: "CrewAI"
+    reason: "Existing and maintained, but H4 (specialist marketplace) and H10 (non-code fit) not verified with primary sources in this pass"
+  - candidate: "LangGraph / LangGraph Platform"
+    reason: "Durable graph orchestration plausible (H6) but no specialist catalog verified; API-centric cost model needs confirmation against H8"
+  - candidate: "Microsoft AutoGen / AutoGen Studio"
+    reason: "Sample agents exist but no maintained non-code specialist marketplace verified"
+  - candidate: "Dify"
+    reason: "Built-in KB/RAG and visual workflows are real, but MoA-relevant specialist role coverage not verified"
+sensitivity:
+  autonomy_first: "Increasing C2+C4+C7 narrows the gap between Composition A and B (Spec Kit's deterministic engine scores well on C4/C7) but does not change the rank order."
+  knowledge_first: "Increasing C3+C6 widens Composition A's lead because BMAD CIS/web-bundles remain the only verified non-code output path found; no candidate scores above 2/5 on C3."
+  simplicity_portability_first: "Increasing C5+C9+C10 raises Composition C relative to A/B but does not overtake either due to near-floor C2/C4 scores."
+  top_tier_change: "No — Composition A remains rank 1 under all three lenses."
+recommended_pilots:
+  - "Run one full non-code workflow (e.g., a workshop-design cycle) through Composition A using BMAD BMM+CIS personas with GitHub PR review as the CEO gate."
+  - "Test a BMAD web-bundle (Gemini Gem or ChatGPT Custom GPT) on a real market/industry-research question end-to-end to validate H7/H8 claims."
+  - "Time-box a head-to-head of Spec Kit's resumable workflow engine vs. BMAD's file-based state on the same interrupted-and-resumed task."
+  - "Author one MISSING role (e.g., independent reviewer) as a BMad custom agent via BMad Builder or a new Claude Agent Skill and confirm reuse across two subsequent workflows."
+critical_unknowns:
+  - "No maintained general-purpose specialist marketplace was found for the workshop_coaching_method or business_operations families as defined in the prompt — a genuine ecosystem gap, not a scoring artifact."
+  - "independent reviewer, completion verifier, and most workshop/coaching and business-operations specialist roles are MISSING (not shipped) in every surviving architecture."
+  - "No candidate ships a native semantic-retrieval / provenance-aware KB (L1); every architecture relies on flat-file/manual search over the git repo as an adaptation (A), not a native capability (N)."
+  - "Prior repository MCDA content (03/04/05/06/07) could not be verified or challenged in this pass due to a tool-access limitation, not a deliberate skip."

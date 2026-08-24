@@ -1,0 +1,157 @@
+schema_version: 1
+researcher_id: gemini-deep-research
+research_date: "2026-08-21"
+scope_commit_or_ref: "b4dceb5"
+complete_system_ranking:
+  - rank: 1
+    architecture: "GitHub Spec Kit + GitHub Issues/Projects + Portable Agent Skills (with Superpowers & BMAD skill donor packs)"
+    score: 89.05
+    confidence: A
+    hard_gates: pass
+    primary_failure_mode: "Operator friction if software-centric SDLC defaults and vocabulary in Spec Kit are not cleanly abstracted for MoA non-software business workflows"
+    architecture_map:
+      L1_knowledge: "Git Repository Markdown Knowledge Base (docs/, concepts/, methods/) with progressive disclosure via Agent Skills"
+      L2_portfolio: "GitHub Issues + GitHub Projects (hierarchical sub-issues, blocking dependencies, custom fields for priority/horizon/status, table/board/roadmap views)"
+      L3_orchestrator: "GitHub Spec Kit Workflow Engine (specify run <workflow>, .specify/workflows/runs/<id>/state.json, resume, gates, fan-out/fan-in)"
+      L4_workflows: "Spec Kit Workflows & Community Presets (.specify/workflows/*.yaml for research, workshop design, content repurposing, weekly operating reviews)"
+      L5_specialists: "Agent Skills Standard (SKILL.md) importing Superpowers verification/review loops and BMAD planning/research roles"
+      L6_tools: "Spec Kit command/shell steps, GitHub Actions, deterministic CLI scripts, web search & document generation tools"
+      L7_executors: "Multi-client CLI & Web suite: Claude Code, OpenAI Codex CLI, Google Antigravity (gy), ChatGPT Web (via repo/issues), and local CLI LLMs"
+      L8_review: "Spec Kit interactive gate steps + Superpowers erification-before-completion discipline + isolated subagent review passes + GitHub PR/Issue approvals"
+      L9_artifacts: "Canonical Git Repository structured Markdown documents with git commit history, frontmatter metadata, and issue traceability"
+      L10_learning: "Curator workflow promoting validated project findings into canonical KB folders + issue closure retrospectives"
+
+  - rank: 2
+    architecture: "GitHub Projects/Issues + Portable Agent Skills + GitHub Actions + BMAD Web Bundles (Complexity Control)"
+    score: 84.80
+    confidence: A
+    hard_gates: pass
+    primary_failure_mode: "Excessive manual human orchestration overhead and agent prompt-chaining burden due to lack of a dedicated local workflow execution engine"
+    architecture_map:
+      L1_knowledge: "Git Repository Markdown Tree + Agent Skills progressive context references"
+      L2_portfolio: "GitHub Issues + Projects (custom fields, sub-issues, dependencies, roadmaps)"
+      L3_orchestrator: "Human CEO + CLI agent prompt chaining + GitHub Actions dispatch triggers"
+      L4_workflows: "Standard Operating Procedures (SOPs), Issue Templates, and Action workflows (.github/workflows/)"
+      L5_specialists: "Agent Skills standard directory (.agents/skills/, skills/) covering MoA roles"
+      L6_tools: "GitHub Actions, bash/powershell scripts, CLI utilities"
+      L7_executors: "Any Agent Skills-compatible runtime (Codex, Claude Code, Antigravity, Hermes, OpenClaw, ChatGPT)"
+      L8_review: "GitHub issue assignment, required PR reviews, custom status columns ('Awaiting CEO Review')"
+      L9_artifacts: "Git repository Markdown files and release tags"
+      L10_learning: "Manual and script-assisted promotion of accepted issue findings into KB markdown files"
+
+  - rank: 3
+    architecture: "Beads + Dolt Work Graph + Agent Skills + GitHub Artifacts (Graph Agent Challenger)"
+    score: 74.60
+    confidence: B
+    hard_gates: pass
+    primary_failure_mode: "Dual state divergence between Dolt SQL graph and Git repository, plus high friction for browser-only subscription AIs accessing Dolt"
+    architecture_map:
+      L1_knowledge: "Git Repository Markdown files + Beads persistent memories & semantic compaction"
+      L2_portfolio: "Beads Dolt issue tracker (d ready, atomic claims, graph links) with optional GitHub export"
+      L3_orchestrator: "Beads formula runner / molecule execution + CLI agent loops"
+      L4_workflows: "Beads formulas and molecules"
+      L5_specialists: "Agent Skills standard (AGENTS.md, skills/)"
+      L6_tools: "CLI tools, d commands, deterministic hooks"
+      L7_executors: "Local CLI agents (Codex, Claude Code, Antigravity, local models)"
+      L8_review: "Multi-persona formula gates (architect/implementer/reviewer) + CEO review checkpoints"
+      L9_artifacts: "Git Repository Markdown files"
+      L10_learning: "Beads memory compaction + Git KB updates"
+
+  - rank: 4
+    architecture: "Ruflo (Claude Flow) + AgentDB / RAG-Memory + GitHub Artifacts (Swarm/Memory Meta-Harness)"
+    score: 71.80
+    confidence: B
+    hard_gates: conditional
+    primary_failure_mode: "High operational complexity (MCP servers, vector daemons, 60+ agents), token overhead, and strong software-engineering bias"
+    architecture_map:
+      L1_knowledge: "Ruflo AgentDB (HNSW vector store) + 
+uflo-rag-memory (hybrid graph/semantic search)"
+      L2_portfolio: "Ruflo task/workflow state + Git repo"
+      L3_orchestrator: "Ruflo Swarm Coordinator + 
+uflo-workflows plugin"
+      L4_workflows: "
+uflo-workflows templates"
+      L5_specialists: "Ruflo 60+ specialized agent catalog + MCP agent plugins"
+      L6_tools: "100+ MCP tools, hooks, CLI commands"
+      L7_executors: "Claude Code, Codex CLI, MCP-compatible clients"
+      L8_review: "Workflow approval gates + specialized reviewer swarms"
+      L9_artifacts: "Git repo + AgentDB memory records"
+      L10_learning: "Self-learning memory pattern storage (
+uflo-rag-memory)"
+
+component_winners:
+  L1_knowledge_substrate: "Git Repository Structured Markdown Tree (docs/, concepts/, methods/) + Agent Skills Progressive Disclosure (SKILL.md)"
+  L2_portfolio_ssot: "GitHub Issues + GitHub Projects (hierarchies, blocking dependencies, custom metadata, visual roadmaps)"
+  L3_orchestrator_router: "GitHub Spec Kit Workflow Engine (specify run <workflow>, state persistence, resume, human gates)"
+  L4_workflow_library: "Spec Kit Workflows & Community Presets + BMAD Planning Web Bundles"
+  L5_specialist_agent_library: "Open Agent Skills Standard (SKILL.md) + Superpowers Process Skills (subagent-driven-development, erification-before-completion)"
+  L6_tool_script_layer: "GitHub Actions + Deterministic Shell/Python Scripts + Spec Kit Command Steps"
+  L7_executor_adapters: "Cross-platform CLI/Web Suite: Claude Code, OpenAI Codex CLI, Google Antigravity (gy), ChatGPT Web"
+  L8_review_governance: "Superpowers Verification Discipline ('Iron Law') + Spec Kit Interactive Gates + Independent Subagent Reviewers"
+  L9_artifact_output_system: "Git Repository Structured Versioned Markdown Outputs"
+  L10_learning_loop: "Curator Workflow & Skill (knowledge-curator) with explicit CEO promotion gate"
+
+disqualified:
+  - name: "Agency Swarm"
+    failed_gates: ["H7", "H8"]
+    rationale: "Tightly coupled exclusively to OpenAI Assistants API threads; requires pay-per-token API calls for all operations; lacks multi-executor portability."
+  - name: "MetaGPT"
+    failed_gates: ["H10"]
+    rationale: "Rigidly hardcoded around software company roles (Architect, Engineer, QA) and SOPs; lacks extensible business/workshop/coaching workflows."
+  - name: "LangGraph (as standalone complete OS)"
+    failed_gates: ["H3", "H4"]
+    rationale: "A low-level programmatic orchestration SDK, not an off-the-shelf agent operating organization; requires building all 10 layers and all specialist roles from scratch in Python."
+  - name: "AutoGen / AG2 (as standalone complete OS)"
+    failed_gates: ["H3", "H4", "H10"]
+    rationale: "Conversational agent SDK; lacks prebuilt business specialist libraries, portfolio SSOT, and native document knowledge promotion without extensive custom coding."
+  - name: "CrewAI (as standalone complete OS)"
+    failed_gates: ["H7", "H8", "H11"]
+    rationale: "Python framework requiring custom persistence backend (Postgres/Enterprise) for durable portfolio state; weak integration with CLI subscription agents (Claude Code / Codex / Antigravity) without wrapping them in API proxies."
+  - name: "Gas City"
+    failed_gates: ["H10", "H11"]
+    rationale: "Designed exclusively for multi-agent software coding factories; high operational complexity (SDK + Dolt + packs); no verified non-software business case studies."
+  - name: "Letta / MemGPT"
+    failed_gates: ["H11", "H2"]
+    rationale: "Stateful agent memory server requiring dedicated daemon/database infrastructure; heavy operational footprint for a solo operator without providing portfolio SSOT or workflow engine."
+
+insufficient_evidence: []
+
+sensitivity:
+  autonomy_first:
+    winner: "GitHub Spec Kit + GitHub Issues/Projects + Portable Agent Skills"
+    score: 91.3
+    rationale: "Spec Kit workflow engine natively provides automated DAG execution, step resumption, and structured fan-out/fan-in."
+  knowledge_first:
+    winner: "GitHub Spec Kit + GitHub Issues/Projects + Portable Agent Skills"
+    score: 89.2
+    rationale: "Spec Kit cleanly pairs with transparent Git markdown knowledge structures and explicit curator promotion gates."
+  simplicity_portability_first:
+    winner: "GitHub Projects/Issues + Portable Agent Skills (Complexity Control)"
+    score: 90.1
+    rationale: "Eliminates all local workflow engine dependencies, relying 100% on standard GitHub web/API surfaces and portable markdown skills."
+
+recommended_pilots:
+  - pilot_id: "PILOT-01-SPECKIT-CORE"
+    target_architecture: "GitHub Spec Kit + GitHub Issues/Projects + Portable Agent Skills"
+    hypothesis: "Spec Kit workflows can govern non-software research, workshop design, and content creation with low cognitive overhead and robust crash recovery."
+    tasks:
+      - "Run US-A research synthesis workflow with independent reviewer step and human gate"
+      - "Run US-B workshop design workflow generating 90-minute workshop skeleton"
+      - "Verify 	askstoissues materialization of workshop preparation tasks into GitHub Issues"
+    pass_criteria:
+      - "Workflow runs to completion or pauses at human gate without manual prompt repair"
+      - "Interrupted workflow resumes from exact step using .specify/workflows/runs/<id>/state.json"
+      - "Non-software terminology feels natural to operator"
+
+  - pilot_id: "PILOT-02-GITHUB-CONTROL"
+    target_architecture: "GitHub Projects/Issues + Portable Agent Skills (Complexity Control)"
+    hypothesis: "Pure GitHub Issues + Agent Skills can coordinate the same multi-agent workflow using manual prompt chaining, measuring the exact cost of omitting Spec Kit."
+    tasks:
+      - "Execute US-A and US-B using GitHub Issues, sub-issues, and Agent Skills directly with Claude Code / Codex / Antigravity"
+    pass_criteria:
+      - "Measure operator time spent copy-pasting context vs Spec Kit automated execution"
+
+critical_unknowns:
+  - "Whether Spec Kit's default SDD prompts can be cleanly configured via presets without triggering software-centric assumptions in underlying LLMs"
+  - "Whether web-based subscription models (ChatGPT Plus / Gemini Advanced) can reliably participate in Spec Kit workflows via exported Git issue artifacts"
+  - "Whether long-term knowledge retrieval across 500+ MoA markdown documents requires an automated local CLI vector index (e.g. gentdb or paperqa2) or if structured Agent Skills progressive references suffice"

@@ -1,0 +1,258 @@
+schema_version: 3
+project: master-of-arts-integrated-agent-operating-system-selection
+initialized: 2026-08-21
+last_updated: 2026-08-22
+repository: leela-spec/MasterOfArts
+branch: main
+phase: hermes_full_functional_preinstall_validation
+selection_status: provisional_hermes_target_selected_for_realization
+implementation_authorized: false
+
+operator_decisions:
+  weight_profile: balanced
+  scope_status: corrected_and_locked
+  scope_authority: operator_supplied_master_of_arts_project_description_plus_2026_08_22_realization_feedback
+  active_target: hermes_agent_full_stack
+  qmd_target: required_pending_validation
+  marketingskills_target: required_pending_validation
+  openclaw_status: deferred_future_operator_decision
+  reduced_scope_or_mvp_substitute: prohibited
+
+objective: >-
+  Validate whether the complete Hermes-centered Master of Arts operating stack works
+  end to end using existing upstream mechanisms: Hermes Agent, Hermes Kanban, existing
+  project folders, hierarchical project context, BMAD, MarketingSkills, official QMD
+  integration, provider execution, memory/Curator learning and low-friction official
+  safety controls. Do not install until the complete stack and real user stories are
+  verified and the human CEO explicitly approves installation.
+
+hard_rule: >-
+  Reuse before invention. A required capability must work completely through an
+  upstream-native capability, official integration/plugin/skill, established portable
+  Agent Skills package, or documented configuration. Do not replace a required capability
+  with a smaller, minimal, MVP, toy or reduced substitute simply because that substitute
+  is easy to implement. Custom orchestration, KB, memory synchronization, retrieval/MCP
+  wrappers and other replacement subsystems are not authorized in this validation phase.
+
+key_distinction:
+  specialist_agent: >-
+    Durable role/capability package defining objective, activation conditions, context,
+    tools, method/skill, output contract, review criteria, handoff and escalation.
+  ai_executor: >-
+    Model/client/runtime such as ChatGPT, Codex, Claude Code, Antigravity or Hermes that
+    temporarily embodies a specialist role and executes its work.
+  requirement: >-
+    Business logic for specialist roles should not live only in one provider's hidden
+    chat/session state; roles/workflows should be durable and ideally executable by
+    multiple compatible AI clients.
+
+integrated_operating_loop:
+  - ceo_intent_and_portfolio_state
+  - orchestrator_selects_proven_workflow
+  - retrieve_relevant_knowledge_and_project_context
+  - activate_specialist_agents
+  - available_ai_executors_embody_roles
+  - invoke_tools_scripts_web_and_repo_operations
+  - create_draft_artifacts
+  - independent_specialist_review
+  - deterministic_validation_where_possible
+  - ceo_gate_for_consequential_decisions
+  - persist_final_output_and_provenance
+  - update_portfolio_state
+  - promote_validated_learning_into_knowledge_system
+
+infrastructure_layers:
+  L1_knowledge_substrate:
+    owns: sources_concepts_decisions_outputs_retrieval_provenance
+  L2_portfolio_ssot:
+    owns: goals_projects_priorities_dependencies_status_ceo_decisions
+  L3_orchestrator_router:
+    owns: workflow_selection_agent_activation_sequence_parallelism_gates_recovery
+  L4_workflow_library:
+    owns: proven_repeatable_processes_for_output_classes
+  L5_specialist_agent_library:
+    owns: reusable_expert_roles_context_tool_and_output_contracts
+  L6_tool_script_layer:
+    owns: web_files_github_documents_deterministic_validators_schedulers
+  L7_executor_runtime_adapters:
+    owns: subscription_local_ai_clients_that_execute_roles
+  L8_review_governance:
+    owns: maker_reviewer_separation_evidence_checks_ceo_gates_visibility_rules
+  L9_artifact_output_system:
+    owns: final_research_workshops_content_sops_decisions_business_actions
+  L10_learning_loop:
+    owns: extraction_validation_and_promotion_of_reusable_organizational_knowledge
+
+required_specialist_agent_families:
+  control_orchestration:
+    - portfolio_manager
+    - project_controller
+    - workflow_router_orchestrator
+    - decomposition_planner
+    - handoff_coordinator
+    - independent_reviewer
+    - completion_verifier
+    - knowledge_curator
+  research_knowledge:
+    - research_strategist
+    - web_deep_researcher
+    - source_evidence_verifier
+    - comparative_analyst
+    - synthesis_writer
+    - contradiction_uncertainty_reviewer
+    - taxonomy_knowledge_curator
+  creative_content:
+    - creative_strategist
+    - creative_writer
+    - editor
+    - brand_voice_reviewer
+    - website_copywriter
+    - long_form_content_creator
+    - social_media_strategist
+    - short_form_post_writer
+    - video_script_writer
+    - content_repurposing_agent
+  workshops_coaching_method:
+    - workshop_designer
+    - learning_pedagogy_reviewer
+    - coaching_method_analyst
+    - session_process_designer
+    - operations_logistics_reviewer
+    - public_private_sensitivity_reviewer
+    - offer_pricing_market_test_agent
+  business_operations:
+    - admin_sop_agent
+    - customer_communication_agent
+    - project_portfolio_reporting_agent
+    - offer_product_agent
+    - recurring_review_agent
+    - deterministic_compliance_check_agents
+  leela_bridge:
+    - use_case_translator
+    - workflow_process_formalizer
+    - product_specification_agent
+    - human_vs_software_boundary_reviewer
+
+reuse_order_per_capability:
+  - existing_integrated_ecosystem_with_relevant_agent_workflow_skill
+  - official_upstream_marketplace_pack_plugin_or_skill
+  - portable_established_agent_or_skill_package
+  - documented_project_specific_configuration_of_established_component
+  - stop_and_record_blocker_if_complete_required_function_would_need_custom_subsystem
+
+candidate_reclassification:
+  github_issues_projects:
+    role: foundational_portfolio_state_component
+    not_full_system: true
+    active_target: false
+  github_spec_kit:
+    role: foundational_workflow_control_component
+    not_full_system: true
+    active_target: false
+  beads:
+    role: agent_task_graph_component
+    not_full_system: true
+    active_target: false
+  openspec:
+    role: change_control_component_or_method_donor
+    not_full_system: true
+    active_target: false
+  task_master:
+    role: task_decomposition_component
+    not_full_system: true
+    active_target: false
+  bmad_method:
+    role: required_upstream_agent_and_workflow_package_in_hermes_target
+    active_target: true
+  marketingskills:
+    role: required_upstream_marketing_agent_skills_package_in_hermes_target
+    active_target: true
+  qmd:
+    role: required_official_hermes_retrieval_integration_pending_validation
+    active_target: true
+  hermes:
+    role: active_primary_orchestration_runtime_target
+    active_target: true
+  openclaw:
+    role: deferred_alternative_orchestration_system
+    active_target: false
+    deferred_to: Orchestration/future-development/OPENCLAW-ALTERNATIVE-EVALUATION.md
+
+previous_mcda_status:
+  complete_system_research:
+    status: closed_for_current_phase
+    result: hermes_selected_as_first_full_stack_realization_target
+    note: selection_is_not_production_install_approval
+  spec_kit_github_score_91_2:
+    valid_for: project_and_workflow_control_layer_only
+    invalid_for: complete_integrated_master_of_arts_agent_operating_system
+  prior_alternatives:
+    status: historical_evidence_only_until_explicitly_reopened
+
+complete_candidate_architecture_schema:
+  required_fields:
+    - portfolio_ssot
+    - knowledge_system
+    - orchestrator
+    - workflow_library
+    - specialist_agent_library
+    - skill_tool_library
+    - executor_clients
+    - review_governance
+    - artifact_store
+    - learning_promotion
+
+complete_system_proof_questions:
+  - do_all_required_components_have_current_upstream_install_and_integration_paths
+  - can_hermes_operate_macro_meso_micro_projects_without_custom_project_framework
+  - can_existing_project_files_become_current_retrievable_context_without_custom_kb
+  - can_qmd_index_and_retrieve_real_repo_content_through_official_hermes_integration
+  - can_bmad_and_marketingskills_be_installed_and_used_without_custom_middleware_or_fork
+  - can_one_shared_specialist_work_across_multiple_projects_without_context_contamination
+  - can_hermes_continuous_learning_reuse_procedures_without_competing_project_truth
+  - can_official_safety_controls_protect_the_local_machine_without_blocking_normal_work
+  - which_steps_are_deterministic_and_which_require_semantic_model_calls
+  - what_context_tokens_and_external_data_egress_each_step_causes
+  - can_web_subscription_ai_clients_use_the_same_repo_artifacts_truthfully_with_their_actual_capabilities
+  - can_interrupted_work_resume_from_durable_state_without_chat_archaeology
+  - do_research_workshop_content_operations_and_portfolio_user_stories_work_end_to_end
+
+active_decision_run:
+  root: Orchestration/decision-runs/2026-08-22-hermes-preinstall
+  decision_record: Orchestration/decision-runs/2026-08-22-hermes-preinstall/ADR-002-full-functional-hermes-target.md
+  runbook: Orchestration/decision-runs/2026-08-22-hermes-preinstall/QA-VALIDATION-RUNBOOK-v2.md
+  machine_state: Orchestration/decision-runs/2026-08-22-hermes-preinstall/state.yaml
+  research_specs:
+    - Orchestration/decision-runs/2026-08-22-hermes-preinstall/research/R01-HERMES-LOCAL-SAFETY-GUARDRAILS.md
+    - Orchestration/decision-runs/2026-08-22-hermes-preinstall/research/R02-HERMES-MACRO-MESO-MICRO-PROJECT-KNOWLEDGE.md
+    - Orchestration/decision-runs/2026-08-22-hermes-preinstall/research/R03-HERMES-QMD-REPO-INTEGRATION.md
+    - Orchestration/decision-runs/2026-08-22-hermes-preinstall/research/R04-HERMES-PROJECT-KNOWLEDGE-LIFECYCLE.md
+    - Orchestration/decision-runs/2026-08-22-hermes-preinstall/research/R05-HERMES-SPECIALIST-AGENT-AND-SKILL-PRIMING.md
+    - Orchestration/decision-runs/2026-08-22-hermes-preinstall/research/R06-HERMES-CONTINUOUS-LEARNING.md
+    - Orchestration/decision-runs/2026-08-22-hermes-preinstall/research/R07-MARKETINGSKILLS-HERMES-INTEGRATION.md
+
+next_decision:
+  owner: separate_validation_chat_plus_human_ceo
+  action: execute_full_functional_hermes_preinstall_validation
+  sequence:
+    - verify_target_component_edges
+    - research_and_select_low_friction_official_hermes_safety_profile
+    - validate_macro_meso_micro_project_and_knowledge_model
+    - validate_qmd_integration_against_real_repo
+    - validate_project_knowledge_freshness_and_lifecycle
+    - validate_shared_specialist_and_skill_priming
+    - validate_hermes_continuous_learning_and_curator_boundaries
+    - validate_marketingskills_multi_project_context
+    - run_integrated_user_story_simulations
+    - audit_tokens_determinism_cost_privacy_and_web_ai_access
+    - produce_official_installation_blueprint_without_executing_it
+    - obtain_explicit_ceo_install_or_reject_decision
+  allowed_outcomes:
+    - APPROVE_INSTALL_HERMES_TARGET_STACK
+    - RESEARCH_BLOCKER
+    - REJECT_HERMES_TARGET_STACK
+
+explanatory_artifacts:
+  - Orchestration/06-USER-STORIES-AND-EXECUTOR-MATRIX.md
+  - Orchestration/07-INTEGRATED-AGENT-OPERATING-MODEL.md
+  - Orchestration/decision-runs/2026-08-22-hermes-preinstall/README.md

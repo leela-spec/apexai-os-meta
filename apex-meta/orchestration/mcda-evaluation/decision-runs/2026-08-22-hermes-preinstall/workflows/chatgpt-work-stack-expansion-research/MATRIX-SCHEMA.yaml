@@ -1,0 +1,141 @@
+schema_version: 1
+matrix_name: moa_stack_expansion_evidence_matrix
+purpose: evidence_backed_module_comparison
+
+row_dimensions:
+  - orchestration_runtime
+  - durable_task_state_and_recovery
+  - project_macro_meso_micro_context
+  - project_knowledge_truth
+  - retrieval_and_rag
+  - reusable_specialist_agents
+  - workflow_method_library
+  - marketing_capabilities
+  - semantic_routing
+  - learning_and_memory
+  - maker_reviewer_separation
+  - deterministic_validation
+  - provider_and_subscription_path
+  - local_model_support
+  - security_and_permissions
+  - windows_wsl_support
+  - web_ai_artifact_portability
+  - setup_and_maintenance_burden
+  - maturity_and_operational_evidence
+  - licensing_and_cost
+
+columns:
+  - current_hermes_stack
+  - crewai
+  - agency_agents
+  - superpowers
+  - semantic_router
+  - anythingllm
+
+cell_schema:
+  capability: string
+  role:
+    enum:
+      - KEEP
+      - REPLACE
+      - SUPPLEMENT
+      - DUPLICATE
+      - ORTHOGONAL
+      - NO_FIT
+      - OPEN
+  evidence_status:
+    enum:
+      - VERIFIED_CAPABILITY
+      - VERIFIED_INTEGRATION
+      - VERIFIED_LIMITATION
+      - REPORTED_OPERATIONAL_EVIDENCE
+      - VENDOR_CLAIM_ONLY
+      - SUPPORTED_INFERENCE
+      - OPEN
+      - CONTRADICTED
+  evidence_ids:
+    type: array
+    min_items_if_substantive_claim: 1
+  exact_mechanism: string
+  integration_class:
+    enum:
+      - NATIVE_SAME_SYSTEM
+      - OFFICIAL_PLUGIN
+      - OFFICIAL_PROTOCOL_BOTH_SIDES
+      - ESTABLISHED_PACKAGE
+      - DOCUMENTED_CONFIGURATION
+      - CUSTOM_REQUIRED
+      - NO_INTEGRATION_FOUND
+      - NOT_APPLICABLE
+  local_remote: string
+  model_api_requirement: string
+  subscription_compatibility: string
+  persistent_state: string
+  data_egress: string
+  token_context_effect: string
+  windows_wsl: string
+  maturity_operational_evidence: string
+  limitations: string
+  confidence:
+    enum: [A, B, C, D]
+
+hard_filters:
+  - id: F01
+    question: Does the required function exist in the current maintained product/package?
+  - id: F02
+    question: If it must connect to Hermes, is the integration native, official, protocol-backed on both sides, established-package-based, or only custom?
+  - id: F03
+    question: Does adoption create a second canonical task/project/knowledge truth without a verified value case?
+  - id: F04
+    question: Does the candidate require an API billing model or data-egress path that materially conflicts with the target constraints?
+  - id: F05
+    question: Is there a supported Windows/WSL execution path where local operation is required?
+  - id: F06
+    question: Does the candidate actually fit non-software Master of Arts workflows, rather than only software-development examples?
+  - id: F07
+    question: Would use require a custom subsystem prohibited by the project decision law?
+
+mcda_dimensions:
+  note: Swing weights are assigned only after R02-R06 establish the real performance spread. Do not preassign arbitrary weights.
+  candidates_only_after_hard_filters: true
+  dimensions:
+    - full_moa_workflow_fit
+    - verified_upstream_integration
+    - demonstrated_operational_value
+    - specialist_and_method_quality
+    - knowledge_and_context_fit
+    - durable_state_and_recovery
+    - privacy_security_and_locality
+    - subscription_local_execution_economics
+    - context_token_efficiency
+    - cross_client_portability
+    - operator_comprehensibility
+    - maintenance_and_update_burden
+
+sensitivity:
+  required_scenarios:
+    - simplicity_and_low_maintenance_first
+    - knowledge_and_retrieval_first
+    - specialist_quality_first
+    - autonomy_and_parallelism_first
+    - privacy_and_local_execution_first
+    - subscription_cost_first
+  switching_values_required: true
+
+recommendation_actions:
+  enum:
+    - KEEP
+    - ADD_NOW
+    - PILOT
+    - REPLACE
+    - DEFER
+    - REJECT
+
+validation_rules:
+  unsupported_substantive_cell_must_be_open: true
+  vendor_claim_alone_cannot_receive_A_or_B_confidence: true
+  stars_or_downloads_alone_cannot_receive_verified_operational_value: true
+  current_issue_must_be_checked_against_release_and_status: true
+  protocol_presence_alone_does_not_prove_product_integration: true
+  custom_required_cannot_be_designed_inside_research: true
+  final_recommendation_must_trace_to_cells_and_evidence: true
