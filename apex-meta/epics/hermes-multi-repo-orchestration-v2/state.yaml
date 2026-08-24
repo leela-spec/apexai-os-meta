@@ -14,7 +14,9 @@ decision_ledger: apex-meta/epics/hermes-multi-repo-orchestration-v2/DECISIONS.md
 decision_appendices_root: apex-meta/epics/hermes-multi-repo-orchestration-v2/decisions
 incidents_root: apex-meta/epics/hermes-multi-repo-orchestration-v2/incidents
 architecture: apex-meta/epics/hermes-multi-repo-orchestration-v2/01-VERIFIED-ARCHITECTURE.md
-implementation_roadmap: apex-meta/epics/hermes-multi-repo-orchestration-v2/11-IMPLEMENTATION-ROADMAP.md
+implementation_roadmap: apex-meta/epics/hermes-multi-repo-orchestration-v2/15-IMPLEMENTATION-ROADMAP-v2-ANTIGRAVITY.md
+implementation_roadmap_v1_reference: apex-meta/epics/hermes-multi-repo-orchestration-v2/11-IMPLEMENTATION-ROADMAP.md
+implementation_validation_corrections: apex-meta/epics/hermes-multi-repo-orchestration-v2/validation/independent-preimplementation-review/04-CORRECTION-PLAN.md
 risk_register: apex-meta/epics/hermes-multi-repo-orchestration-v2/12-RISK-REGISTER.yaml
 verification_matrix: apex-meta/epics/hermes-multi-repo-orchestration-v2/13-SOURCE-VERIFICATION-MATRIX.md
 validation_handover: apex-meta/epics/hermes-multi-repo-orchestration-v2/14-INDEPENDENT-PREIMPLEMENTATION-VALIDATION-HANDOVER.md
@@ -69,6 +71,22 @@ runtime_target:
   duplicate_live_windows_wsl_checkouts: false
   safe_mode_initial: sequential_single_repo_execution
   autonomous_multi_board_mode: gated_future_option
+
+implementation_execution:
+  executor: Google_Antigravity
+  executor_role: bounded_phase_executor_and_verifier
+  architecture_dependency_on_executor: false
+  implementation_run_uses_executor: true
+  implementation_status: not_authorized
+  branch_policy: canonical_branch_only_no_branches_or_PRs
+  worktrees: forbidden
+  existing_control_file_mutation: exact_match_patch_only
+  whole_file_rewrite_existing_control_files: forbidden
+  new_files_direct_creation: allowed
+  context_policy: one_major_phase_per_Antigravity_context
+  evidence_policy: one_compact_phase_evidence_file_plus_implementation_state
+  upstream_refresh_before_mutation: required
+  D10_enablement: separate_explicit_operator_gate
 
 kanban_recommendation:
   status: accepted_2026_08_24
@@ -285,6 +303,9 @@ client_portability:
   hermes: primary_orchestration_runtime
   antigravity:
     permanent_dependency: false
+    implementation_executor_for_v2_realization: true
+    executor_authority: 15_IMPLEMENTATION_ROADMAP_v2_ANTIGRAVITY
+    post_realization_architecture_must_not_require_Antigravity: true
   codex:
     target: same_canonical_WSL_repos_when_using_this_architecture
   claude_code:
@@ -328,5 +349,8 @@ operator_decisions:
 next_action:
   owner: human_operator
   gate: implementation_authorization
-  instruction: review_README_DECISIONS_appendices_and_authorize_11_IMPLEMENTATION_ROADMAP_only_when_ready
-  D10_constraint: background_multi_board_execution_remains_forbidden_until_D10_acceptance_tests_pass
+  instruction: apply_v2_activation_patch_then_authorize_15_IMPLEMENTATION_ROADMAP_v2_ANTIGRAVITY_when_ready
+  executor: Google_Antigravity
+  implementation_authorized: false
+  migration_authorized: false
+  D10_constraint: background_multi_board_execution_remains_forbidden_until_D10_acceptance_tests_pass_and_explicit_operator_approval

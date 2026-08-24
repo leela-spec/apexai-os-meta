@@ -13,18 +13,20 @@ Future agents must read in this order:
 2. `DECISIONS.md` — compact accepted/deferred decision ledger D01–D10.
 3. `state.yaml` — machine-readable current state after the pending patch is applied.
 4. `decisions/Dxx-*.md` — decision-specific reasoning/risk appendices.
-5. `11-IMPLEMENTATION-ROADMAP.md` — phased implementation plan.
-6. `12-RISK-REGISTER.yaml` — machine-readable operational risks.
-7. `13-SOURCE-VERIFICATION-MATRIX.md` — claim-to-source verification grades.
-8. `incidents/` — upstream/runtime incidents that constrain decisions.
-9. `02-MASTEROFARTS-SOURCE-MIGRATION-MANIFEST.md` — pilot provenance that must survive re-homing.
-10. `FUTURE-DEVELOPMENT.md` — explicitly deferred capabilities.
+5. `15-IMPLEMENTATION-ROADMAP-v2-ANTIGRAVITY.md` — current implementation execution plan; Antigravity is the bounded executor, not an architecture dependency.
+6. `11-IMPLEMENTATION-ROADMAP.md` — preserved v1 technical phase catalog; use only where v2 explicitly imports its detail.
+7. `12-RISK-REGISTER.yaml` — machine-readable operational risks.
+8. `13-SOURCE-VERIFICATION-MATRIX.md` — claim-to-source verification grades.
+9. `incidents/` — upstream/runtime incidents that constrain decisions.
+10. `02-MASTEROFARTS-SOURCE-MIGRATION-MANIFEST.md` — pilot provenance that must survive re-homing.
+11. `FUTURE-DEVELOPMENT.md` — explicitly deferred capabilities.
 
 Independent pre-implementation validation launcher:
 
 - `14-INDEPENDENT-PREIMPLEMENTATION-VALIDATION-HANDOVER.md` — adversarial handover/prompt for double/triple-checking the accepted architecture, tools, agent orchestration, risks, simulations, and current upstream contracts before implementation authorization.
+- `validation/independent-preimplementation-review/04-CORRECTION-PLAN.md` — mandatory correction gates incorporated by implementation roadmap v2.
 
-The D02/D10 decision patch has landed. `README.md` is the current entrypoint and `state.yaml` is the current machine-readable state. Continue to use `patches/` for future edits to existing control files.
+The D02/D10 decision patch has landed. `README.md` is the current entrypoint and `state.yaml` is the current machine-readable state. Continue to use `patches/` for future edits to existing control files. Existing control files remain patch-only; new files may be created directly.
 
 ## Decision ledger and appendices
 

@@ -1,7 +1,9 @@
 # 11 — Hermes Multi-Repo v2 Implementation Roadmap
 
-Status: **PLAN COMPLETE / IMPLEMENTATION NOT AUTHORIZED**  
+Status: **V1 TECHNICAL PHASE CATALOG / SUPERSEDED AS EXECUTION AUTHORITY BY `15-IMPLEMENTATION-ROADMAP-v2-ANTIGRAVITY.md` / IMPLEMENTATION NOT AUTHORIZED**  
 Date: 2026-08-24
+
+> Preservation rule: keep this file intact as detailed v1 technical planning evidence. The v2 plan imports useful phase detail from this file but governs execution order, Antigravity behavior, validation corrections, and patch-only mutation law.
 
 ## Target outcome
 
