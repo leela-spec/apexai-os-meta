@@ -1,14 +1,14 @@
 {
   "schema_version": 1,
   "program": "hermes_multi_repo_orchestration_v2",
-  "generated_at": "2026-08-24T21:21:04.006038+00:00",
+  "generated_at": "2026-08-24T21:24:26.159799+00:00",
   "status": "PASS",
   "repositories": {
     "apex": {
       "name": "Apex AIOS Meta",
       "repo": "leela-spec/apexai-os-meta",
       "branch": "main",
-      "head": "6c8ab22570ef95ca7f43864938e221a4ebc11a41",
+      "head": "9db80abd34cc5400d45de8efeaf253da375dab90",
       "board": "apex",
       "active_tasks_count": 1,
       "tasks": [
@@ -27,9 +27,9 @@
       "name": "Master of Arts",
       "repo": "leela-spec/MasterOfArts",
       "branch": "main",
-      "head": "b50b758b30f8f07a1c003fb582f32811a35376df",
+      "head": "325924fdd6e12e92607add5cde9250251e700530",
       "board": "masterofarts",
-      "active_tasks_count": 1,
+      "active_tasks_count": 4,
       "tasks": [
         {
           "id": "t_21e9ddce",
@@ -39,6 +39,33 @@
           "priority": 0,
           "created_at": 1787590147,
           "completed_at": 1787590159
+        },
+        {
+          "id": "task_moa_1200_lhtl",
+          "title": "[SCHEDULED 12:00] LHTL Differentiating Value Extraction, Website Pages & Social Content",
+          "status": "todo",
+          "assignee": null,
+          "priority": 1,
+          "created_at": 1787606598,
+          "completed_at": null
+        },
+        {
+          "id": "task_moa_1400_meditation",
+          "title": "[SCHEDULED 14:00] Science of Meditation Website Subpage & Scientific Distillation",
+          "status": "todo",
+          "assignee": null,
+          "priority": 1,
+          "created_at": 1787606598,
+          "completed_at": null
+        },
+        {
+          "id": "task_moa_1500_superherokids",
+          "title": "[SCHEDULED 15:00] SuperHeroKids Workshop Subpage, Offers & Social Media Posts",
+          "status": "todo",
+          "assignee": null,
+          "priority": 1,
+          "created_at": 1787606598,
+          "completed_at": null
         }
       ]
     },
@@ -67,7 +94,7 @@
       "branch": "main",
       "head": "40dc442f26e3c2bb24305e876ecd4ec1328d989b",
       "board": "investment",
-      "active_tasks_count": 1,
+      "active_tasks_count": 2,
       "tasks": [
         {
           "id": "t_99b5c9f6",
@@ -77,6 +104,15 @@
           "priority": 0,
           "created_at": 1787590147,
           "completed_at": 1787590159
+        },
+        {
+          "id": "task_inv_1600_ipos_phase3",
+          "title": "[SCHEDULED 16:00] IPOS Phase 3 Indicator Coverage Expansion (22 -> 60) & Backtesting Pipeline",
+          "status": "todo",
+          "assignee": null,
+          "priority": 1,
+          "created_at": 1787606598,
+          "completed_at": null
         }
       ]
     }
