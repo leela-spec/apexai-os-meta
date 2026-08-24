@@ -1,15 +1,17 @@
 # Future Development — Hermes Multi-Repo Orchestration v2
 
-Status: **DEFERRED / NOT REQUIRED FOR FIRST MULTI-REPO BASELINE**  
+Status: **DEFERRED / NOT REQUIRED FOR FIRST SAFE MULTI-REPO BASELINE**  
 Date: 2026-08-24
+
+Current v2 intentionally stops before adding layers that are not proven necessary.
 
 ## External shared memory service
 
 Trigger for reevaluation:
 
-- role-local Hermes memory + reviewed shared skill promotion is measurably insufficient;
+- role-local Hermes memory + reviewed shared-skill promotion is measurably insufficient;
 - multiple independent profiles must recall the same evolving non-project state automatically;
-- manual/shared-skill promotion creates material operator burden;
+- reviewed skill promotion creates material operator burden;
 - cross-profile memory inconsistency becomes a demonstrated failure mode.
 
 Current Hermes supports external memory-provider plugins and recommends an external provider when profiles genuinely need shared memory. Candidate providers documented by Hermes include Honcho, OpenViking, Mem0, Hindsight, Holographic, RetainDB, ByteRover and Supermemory.
@@ -30,61 +32,134 @@ A future research run must compare:
 
 Project facts must remain in project repositories even if external shared memory is later adopted.
 
-## Automatic repo -> Apex portfolio synchronization
+## Bidirectional repo <-> Apex task synchronization
 
-Desired capability:
+Current v2 includes a **read-only asynchronous source-board -> Apex portfolio rollup**.
 
-```text
-managed repo events
- -> concise current state
- -> Apex portfolio view
-```
-
-Do not implement until the single-board/tenant Kanban experiment proves whether Hermes already provides enough portfolio visibility.
-
-If a gap remains, prefer an existing native/export/reporting mechanism before any custom synchronizer.
-
-## Automatic learned-skill promotion
-
-Desired capability:
+Future-only capability:
 
 ```text
-profile learns reusable procedure
- -> evaluator verifies multi-repo generality
- -> sanitized version committed to Apex shared skill source
- -> distributed to applicable agents
+Apex decision/task mutation
+  -> automatically changes one or more source repo boards
+  -> conflict resolution / acknowledgement
 ```
 
-Do not automate promotion initially. First prove a manual reviewed promotion loop across at least two repositories.
+Do not implement yet.
+
+Why deferred:
+
+- separate Hermes boards deliberately have no native cross-board dependency graph;
+- source boards are the project task authority;
+- bidirectional replication introduces conflict, ordering and source-of-truth problems;
+- current user requirement does not need real-time synchronization.
+
+Reopen only if explicit source-task updates from Apex become a measured repetitive burden.
+
+## Fully automatic learned-skill promotion
+
+Current v2 target:
+
+```text
+role learns reusable procedure
+ -> deterministic changed-candidate harvest
+ -> independent semantic/human-reviewable evaluation
+ -> accepted sanitized skill committed to Apex
+ -> controlled deployment
+```
+
+Future-only:
+
+```text
+candidate
+ -> fully automatic acceptance
+ -> autonomous write to canonical shared skill source
+ -> autonomous deployment everywhere
+```
+
+Do not enable until the reviewed promotion loop has demonstrated low false-promotion and no project-fact/secret contamination across multiple repositories.
 
 ## Global/shared BMAD installation
 
-BMAD supports Hermes as an installation platform, but current upstream installation remains project-oriented. A proposal exists for a global installation linked into projects; treat that as future/unproven until shipped and verified.
+BMAD current official installer is project-oriented. Open issue #1728 proposes a global installation with project links, which confirms this is not a capability v2 should assume today.
 
-Initial multi-repo implementation should not depend on a custom global BMAD linker.
+Current baseline:
 
-## External/shared skill package distribution
+```text
+BMAD installed separately only in repos that actually need BMAD.
+```
 
-Potential later improvement:
+Reopen global deduplication only after upstream ships a supported mechanism and it is live-tested.
 
-- make approved Apex shared skills an installable/versioned skill package;
-- use one documented upstream install mechanism across Hermes, Codex and Claude where compatibility is proven;
-- pin versions and provide rollback.
+## External/shared skill package distribution optimization
+
+Current v2 will first test the simplest safe delivery for reviewed Apex skills:
+
+- deployed protected external skill directory; and/or
+- Hermes Skills Tap; and/or
+- profile distribution for role-owned skills/config.
+
+Future improvement:
+
+- one versioned package/release process across Hermes, Claude and Codex where their current skill mechanisms actually overlap;
+- dependency pinning;
+- rollback;
+- compatibility matrix.
 
 Do not create a bespoke package manager.
 
-## Portfolio dashboard
+## Fully autonomous multi-board Hermes dispatch
 
-Potential human-facing dashboard over:
+Current v2 safe mode keeps all repo boards persisted but does not automatically dispatch all of them concurrently.
 
-- repo/tenant status;
-- cross-project dependencies;
+Reopen only after current upstream/runtime risks are proven resolved:
+
+- tenant/memory isolation assumptions are not needed;
+- machine-wide/per-profile concurrency across boards is safe;
+- Kanban Docker task workspace is host-backed;
+- task workspace cannot be overridden by profile cwd;
+- host/container cwd provenance agrees across terminal/file/code execution;
+- worker swarm/recovery behavior passes live stress test.
+
+The safe sequential mode is an acceptable production endpoint if simultaneous repo execution has no demonstrated value.
+
+## Broad multi-repo Hermes Project
+
+Hermes Projects can group multiple folders/repos, but v2 starts with one project object per repo.
+
+A future orchestrator-only `portfolio` project may span all managed repos if it materially improves navigation or portfolio analysis.
+
+Do not give routine workers broad multi-repo project scope merely for convenience.
+
+## Portfolio dashboard beyond existing Hermes/Apex surfaces
+
+Potential later UI over:
+
+- repo/board status;
+- cross-project dependency objects;
 - blockers;
 - reviews;
 - recent accepted outputs;
-- operational model/cost telemetry.
+- QMD freshness;
+- learning-promotion queue;
+- model/cost telemetry.
 
-First determine whether Hermes Kanban dashboard plus Apex repository summaries already meet the requirement.
+First use:
+
+```text
+Hermes per-board dashboard
++ deterministic Apex portfolio snapshot
++ Apex daily/weekly review artifacts
+```
+
+Only build/add another UI if those are insufficient.
+
+## QMD HTTP warm daemon
+
+Hermes' official QMD integration documents an HTTP daemon option that keeps local models warm for frequent querying at the cost of persistent RAM (~2 GB class in current docs).
+
+Current baseline can remain stdio unless measured QMD cold-start latency becomes an actual productivity problem.
+
+Reopen daemon mode based on observed query frequency/latency and available memory.
 
 ## Sensitive customer-data routing
 
