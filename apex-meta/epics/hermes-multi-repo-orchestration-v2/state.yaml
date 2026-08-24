@@ -1,131 +1,323 @@
-schema_version: 1
+schema_version: 2
 program: hermes_multi_repo_orchestration_v2
 repository: leela-spec/apexai-os-meta
 branch: main
 created: 2026-08-24
-status: operator_decisions_required
+last_updated: 2026-08-24
+status: research_verified_D02_operator_gate_remaining
 implementation_authorized: false
 migration_authorized: false
+background_multi_board_dispatch_authorized: false
+
+entrypoint: apex-meta/epics/hermes-multi-repo-orchestration-v2/epic.md
+architecture: apex-meta/epics/hermes-multi-repo-orchestration-v2/01-VERIFIED-ARCHITECTURE.md
+implementation_roadmap: apex-meta/epics/hermes-multi-repo-orchestration-v2/11-IMPLEMENTATION-ROADMAP.md
+risk_register: apex-meta/epics/hermes-multi-repo-orchestration-v2/12-RISK-REGISTER.yaml
+verification_matrix: apex-meta/epics/hermes-multi-repo-orchestration-v2/13-SOURCE-VERIFICATION-MATRIX.md
+future_development: apex-meta/epics/hermes-multi-repo-orchestration-v2/FUTURE-DEVELOPMENT.md
 
 control_plane:
   repository: leela-spec/apexai-os-meta
   role: durable_portfolio_orchestration_control_plane
+  accepted: true
   project_content_warehouse: false
   runtime_state_store: false
+  owns:
+    - portfolio_registry
+    - orchestration_architecture_and_ADRs
+    - reviewed_role_profile_specifications
+    - reviewed_generic_shared_skill_source_after_pilot
+    - cross_repo_operating_and_safety_policy
+    - cross_project_decisions_and_dependencies
+    - derived_portfolio_rollups
+    - health_and_freshness_metadata
+    - migration_and_orchestration_evidence
 
 managed_repositories:
   apex:
     repository: leela-spec/apexai-os-meta
     default_branch: main
-    tenant_candidate: apex
+    board_candidate: apex
+    qmd_prefix_candidate: apex
   masterofarts:
     repository: leela-spec/MasterOfArts
     default_branch: main
-    tenant_candidate: masterofarts
+    board_candidate: masterofarts
+    qmd_prefix_candidate: moa
   acim:
     repository: leela-spec/acim-secular
     default_branch: master
-    tenant_candidate: acim
+    board_candidate: acim
+    qmd_prefix_candidate: acim
   investment:
     repository: leela-spec/Investment
     default_branch: main
-    tenant_candidate: investment
+    board_candidate: investment
+    qmd_prefix_candidate: investment
 
-runtime_candidate:
-  canonical_workspace_root: ~/workspaces
+runtime_target:
+  canonical_workspace_root: "~/workspaces"
+  canonical_filesystem: WSL2_linux_filesystem
+  windows_access: "\\\\wsl.localhost\\Ubuntu\\home\\<operator>\\workspaces"
   one_hermes_installation: true
   one_qmd_installation: true
-  one_docker_execution_boundary: true
+  docker_execution_boundary: true
   duplicate_live_windows_wsl_checkouts: false
+  safe_mode_initial: sequential_single_repo_execution
+  autonomous_multi_board_mode: gated_future_option
 
-profiles_candidate:
-  model: durable_roles_reused_across_repositories
-  profiles:
-    - portfolio_orchestrator
-    - research_strategist
-    - marketing_executive
-    - workshop_designer
-    - independent_reviewer
-  repo_specific_profile_copies: false
-  concurrent_use_same_profile_state: forbidden
-
-kanban_candidate:
-  topology: one_portfolio_board_with_repo_tenants
-  reason: separate_boards_cannot_native_link_across_boards
-  tenants:
+kanban_recommendation:
+  status: operator_decision_required
+  previous_candidate: one_board_with_repo_tenants
+  previous_candidate_status: superseded_by_current_research
+  recommended_topology: separate_board_per_repo_plus_async_apex_rollup
+  boards:
     - apex
     - masterofarts
     - acim
     - investment
-  acceptance_test_required: true
+  tenants_as_repo_isolation: forbidden
+  source_board_is_authoritative: true
+  apex_rollup:
+    mode: asynchronous_deterministic_read_only
+    realtime_required: false
+    bidirectional_sync_initial: false
+    source_task_mirroring: false
+  cross_board_native_links: unsupported_by_Hermes
+  cross_repo_dependency_owner: apex_explicit_reference_or_decision_object
+  evidence:
+    - Hermes_boards_are_hard_isolation_boundary
+    - Hermes_tenants_are_soft_namespaces
+    - upstream_issue_85497_tenant_memory_isolation_not_implemented
+    - upstream_issue_78122_concurrency_limits_per_board_not_gateway_wide
 
-learning_candidate:
+execution_concurrency:
+  same_profile_parallel_processes: forbidden
+  same_role_cross_repo: sequential_initially
+  one_active_execution_board_at_a_time_initially: true
+  all_boards_may_exist_and_be_read: true
+  background_gateway_dispatch_initially: false
+  reason:
+    - official_profiles_warn_against_two_processes_same_profile
+    - current_cross_board_concurrency_limit_is_not_gateway_wide
+
+profiles:
+  model: durable_roles_reused_across_repositories
+  decision_status: accepted_with_constraints_2026_08_24
+  repo_specific_profile_copies_by_default: false
+  profiles_candidate:
+    - portfolio_orchestrator
+    - research_strategist
+    - independent_reviewer
+    - workshop_designer
+    - marketing_executive
+  constraints:
+    - sequential_single_writer_per_profile
+    - no_repo_specific_terminal_cwd_for_kanban_workers
+    - project_facts_not_in_raw_role_memory
+  profile_distributions:
+    candidate_use: apex_versioned_role_spec_and_common_MCP_config
+    production_status: acceptance_test_required
+    must_preserve_local:
+      - memories
+      - sessions
+      - auth
+      - env_secrets
+      - runtime_state
+
+learning:
+  decision_status: accepted_with_constraints_2026_08_24
   raw_memory_scope: profile_local
   project_facts_scope: source_repository
-  cross_repo_same_role_learning: native_profile_reuse
-  cross_agent_spillover: reviewed_shared_skill_promotion
-  automatic_promotion: false
+  source_task_state_scope: source_repo_board
+  same_role_cross_repo_learning: sequential_profile_reuse
+  cross_agent_spillover: reviewed_generic_Agent_Skill_promotion
+  raw_memory_sync: forbidden
+  automatic_unreviewed_promotion: forbidden
+  delayed_sync_allowed: true
+  candidate_harvest:
+    desired_mode: deterministic_script
+    provider_model_calls: 0
+    schedule_candidate: daily_or_end_of_execution_batch
+  semantic_review:
+    runs_only_when_candidates_change: true
+    reviewer_candidate: independent_reviewer
+  canonical_shared_source:
+    owner_candidate: apexai-os-meta
+    production_path: not_locked_until_pilot
+    routine_self_improvement_write_access: forbidden
   external_shared_memory: deferred
 
-skills_candidate:
-  apex_role: versioned_source_for_reviewed_shared_skills_and_agent_specs
-  project_specific_skills: remain_in_source_repo
+skills:
+  generic_shared:
+    decision_status: accepted_direction_pilot_required
+    format_candidate: Agent_Skills
+    apex_role: reviewed_versioned_canonical_source_after_pilot
+  project_specific:
+    owner: source_repository
+    distribution_to_other_repos: false_by_default
   marketing_skills:
-    shared_procedure_library: candidate
-    project_product_context: repo_local
+    current_scope: MasterOfArts_only
+    global_install: false
+    other_repo_install: only_on_future_real_need
   bmad:
+    placement: repo_local_where_used
     global_single_install_proven: false
-    project_state: repo_local_where_used
-    future_global_link_research: deferred
+    global_link_issue: upstream_open_proposal_1728
+    custom_global_linker: forbidden
+  apex_kb:
+    scope: Apex_only
+    current_authority_path: .claude/skills/apex-kb/SKILL.md
+    cross_client_interop: implementation_gate
+    duplicate_drifting_copies: forbidden
 
-qmd_candidate:
+qmd:
+  decision_status: accepted_research_verified_live_acceptance_pending
   one_local_engine: true
+  collection_registry: machine_local
   collections_cross_repo: curated_named_collections
+  cwd_independent_collection_selection: verified
+  profile_connection_rule: each_Hermes_profile_that_needs_QMD_requires_MCP_declaration
+  routine_project_query: explicit_repo_collections
+  portfolio_query: explicit_selected_control_collections
   unscoped_whole_estate_collection: forbidden
+  large_project_collections_default_included: false
+  MCP_collection_field: collections_plural
+  singular_collection_field: forbidden_silently_ignored_current_QMD
   project_truth_owner: repositories
   index_is_canonical: false
+  profile_distribution_for_MCP: candidate_acceptance_test_required
+  project_local_QMD_config:
+    default_preference: machine_owned_global_registry_for_multi_repo_map
+    unreviewed_update_hooks: forbidden
+    installed_version_trust_behavior_recheck_required: true
+
+filesystem:
+  decision_status: accepted_research_verified_migration_pending
+  target: single_WSL_canonical_checkout_per_managed_repo
+  evidence:
+    - Microsoft_WSL_filesystem_guidance
+    - Microsoft_current_WSL_interop_9P_guidance
+    - Docker_WSL_source_location_guidance
+  target_layout:
+    - "~/workspaces/apexai-os-meta"
+    - "~/workspaces/MasterOfArts"
+    - "~/workspaces/acim-secular"
+    - "~/workspaces/Investment"
+  migration_method: per_repo_inventory_compare_reconcile_verify_freeze_old_copy
+  delete_old_windows_copy_automatically: false
+  bidirectional_sync_long_term: forbidden
+  normal_wsl_user_preferred_over_root: true
+
+sandbox:
+  backend: Hermes_official_Docker
+  direct_sequential_repo_execution: initial_target
+  background_kanban_worker_dispatch: blocked_until_acceptance
+  current_upstream_risks:
+    - issue_73556_profile_cwd_can_broaden_task_mount
+    - issue_83856_host_container_cwd_provenance_mismatch
+    - issue_91568_kanban_worker_workspace_may_not_be_host_backed
+  required_acceptance:
+    - intended_repo_readable
+    - disposable_write_persists_host_side
+    - disposable_git_commit_persists_host_side
+    - unrelated_host_paths_inaccessible
+    - Docker_socket_not_exposed
+    - secrets_not_unintentionally_forwarded
+    - terminal_file_execute_code_same_workspace
+    - role_profile_no_fixed_repo_cwd_override
+
+apex_exchange:
+  status: contract_defined
+  status_bus: source_boards_to_read_only_derived_rollup
+  dependency_bus: apex_reference_objects_to_source_task_ids
+  learning_bus: reviewed_generic_skills_only
+  knowledge_bus: repo_and_QMD_routing_metadata_plus_explicit_retrieval
+  decision_bus: durable_cross_project_decisions_in_Apex
+  health_bus: freshness_and_last_success_metadata
+  forbidden_exchange:
+    - raw_profile_memory
+    - USER_md_copies
+    - sessions
+    - credentials
+    - Kanban_SQLite_DBs
+    - QMD_indexes
+    - entire_repo_mirrors
+    - BMAD_project_state_between_repos
+    - automatic_bidirectional_task_sync_initially
+
+scheduled_automation:
+  status: design_verified_live_scheduler_test_pending
+  simultaneous_sync_required: false
+  initial_rollup_cadence: on_demand_plus_daily
+  learning_harvest_cadence: daily_or_end_of_batch
+  semantic_learning_review: only_when_candidates_exist
+  deterministic_preferred: true
+  no_agent_cron_candidate: true
+  OS_scheduler_alternative: true
+  scheduler_selection: choose_simpler_one_that_passes_reliability_test
+  health_receipt_required: true
+  empty_stdout_as_health_signal: forbidden
+
+hermes_projects:
+  status: optional_native_primitive_to_test
+  mappings_candidate:
+    - project: apex
+      board: apex
+      primary: "~/workspaces/apexai-os-meta"
+    - project: masterofarts
+      board: masterofarts
+      primary: "~/workspaces/MasterOfArts"
+    - project: acim
+      board: acim
+      primary: "~/workspaces/acim-secular"
+    - project: investment
+      board: investment
+      primary: "~/workspaces/Investment"
+  broad_multi_repo_worker_project_initially: false
+  bind_board_exit_zero_trusted_without_verification: false
 
 client_portability:
   hermes: primary_orchestration_runtime
-  codex:
-    preferred_windows_environment: WSL
-    shares_repo_truth: true
-  claude_code:
-    native_windows_supported: true
-    WSL_supported: true
-    preferred_for_this_architecture: WSL_for_same_workspace
   antigravity:
     permanent_dependency: false
+  codex:
+    target: same_canonical_WSL_repos_when_using_this_architecture
+  claude_code:
+    target: same_canonical_WSL_repos_when_using_this_architecture
+  canonical_truth_independent_of_client: true
 
 operator_decisions:
   D01_apex_control_plane:
-    status: open
-    recommendation: accept
+    status: accepted_2026_08_24
+    decision: Apex_control_plane_project_truth_stays_source_repos
   D02_kanban_topology:
-    status: open
-    recommendation: one_board_with_repo_tenants
+    status: operator_decision_required_after_research_revision
+    recommendation: separate_repo_boards_plus_async_read_only_Apex_rollup
   D03_role_profiles:
-    status: open
-    recommendation: accept_reusable_role_profiles
+    status: accepted_with_constraints_2026_08_24
+    decision: reusable_role_profiles_sequential_across_repos
   D04_learning_spillover:
-    status: open
-    recommendation: profile_local_memory_plus_reviewed_shared_skills
+    status: accepted_with_constraints_2026_08_24
+    decision: raw_memory_local_reviewed_generic_skill_promotion
   D05_shared_skill_source:
-    status: open
-    recommendation: apex_versioned_source_after_live_two_repo_pilot
-  D06_bmad_placement:
-    status: open
-    recommendation: repo_local_project_state_no_unproven_global_linker
+    status: accepted_direction_pilot_required_2026_08_24
+    decision: Apex_reviewed_canonical_source_after_live_promotion_deployment_test
+  D06_bmad_domain_skills:
+    status: accepted_2026_08_24
+    decision: BMAD_repo_local_where_needed_MarketingSkills_MasterOfArts_only
   D07_workspace:
-    status: open
-    recommendation: single_WSL_canonical_workspace_root
+    status: accepted_research_verified_migration_not_authorized
+    decision: single_WSL_canonical_workspace_after_per_repo_divergence_audit
   D08_qmd:
-    status: open
-    recommendation: one_local_engine_curated_cross_repo_collections
+    status: accepted_research_verified_live_acceptance_pending
+    decision: one_local_engine_per_profile_MCP_explicit_collections
   D09_external_memory:
-    status: deferred
-    recommendation: no_external_service_until_measured_gap
+    status: deferred_accepted_2026_08_24
+    decision: no_external_memory_until_measured_gap
 
 next_action:
   owner: human_operator
-  instruction: decide_D01_through_D08_before_multi_repo_runtime_reconfiguration
+  gate: D02
+  instruction: decide_separate_repo_boards_plus_async_Apex_rollup_before_runtime_reconfiguration
+  after_acceptance: execute_11_IMPLEMENTATION_ROADMAP_phase_by_phase
