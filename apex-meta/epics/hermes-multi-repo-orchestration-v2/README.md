@@ -20,7 +20,11 @@ Future agents must read in this order:
 9. `02-MASTEROFARTS-SOURCE-MIGRATION-MANIFEST.md` — pilot provenance that must survive re-homing.
 10. `FUTURE-DEVELOPMENT.md` — explicitly deferred capabilities.
 
-`epic.md` remains the historical project authority/index until the exact-match patch in `patches/` is applied. Do not silently edit existing control files outside the patch process.
+Independent pre-implementation validation launcher:
+
+- `14-INDEPENDENT-PREIMPLEMENTATION-VALIDATION-HANDOVER.md` — adversarial handover/prompt for double/triple-checking the accepted architecture, tools, agent orchestration, risks, simulations, and current upstream contracts before implementation authorization.
+
+The D02/D10 decision patch has landed. `README.md` is the current entrypoint and `state.yaml` is the current machine-readable state. Continue to use `patches/` for future edits to existing control files.
 
 ## Decision ledger and appendices
 

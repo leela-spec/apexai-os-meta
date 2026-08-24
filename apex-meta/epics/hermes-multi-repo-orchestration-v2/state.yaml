@@ -17,6 +17,7 @@ architecture: apex-meta/epics/hermes-multi-repo-orchestration-v2/01-VERIFIED-ARC
 implementation_roadmap: apex-meta/epics/hermes-multi-repo-orchestration-v2/11-IMPLEMENTATION-ROADMAP.md
 risk_register: apex-meta/epics/hermes-multi-repo-orchestration-v2/12-RISK-REGISTER.yaml
 verification_matrix: apex-meta/epics/hermes-multi-repo-orchestration-v2/13-SOURCE-VERIFICATION-MATRIX.md
+validation_handover: apex-meta/epics/hermes-multi-repo-orchestration-v2/14-INDEPENDENT-PREIMPLEMENTATION-VALIDATION-HANDOVER.md
 future_development: apex-meta/epics/hermes-multi-repo-orchestration-v2/FUTURE-DEVELOPMENT.md
 
 control_plane:
