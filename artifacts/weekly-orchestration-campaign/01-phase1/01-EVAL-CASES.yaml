@@ -1,0 +1,236 @@
+# 01-EVAL-CASES.yaml — Weekly Orchestration eval suite
+# Grounded in 01-FINDINGS.okf.md. Operator tasks Q1-Q20 per campaign spec.
+# Measurement rules:
+#   - No invented elapsed times. `human_timed` measures require an operator-run
+#     record with methodology; absent that, the metric is `not_measured`.
+#   - Deterministic graders run on artifact text; LLM-judged dimensions are
+#     marked judge: llm and must be run in fresh contexts (Phase 6 rule).
+#   - Every case names its evidence source so a grader can re-derive the check.
+
+suite: weekly-orchestration-operator-tasks
+version: 1
+owner_authority:
+  control_plane: .claude/skills/weekly-orchestrator/SKILL.md
+  weekly: [.claude/skills/PrecapWeek/SKILL.md, .claude/skills/PrecapWeek/weekly-command-brief-template.md]
+  daily:
+    - .claude/skills/PrecapNextDay/SKILL.md
+    - .claude/skills/PrecapNextDay/templates/precap-next-day-brief-template.md
+    - .claude/skills/PrecapNextDay/templates/flow-execution-card-template.md
+    - .claude/skills/PrecapNextDay/templates/prompt-files-and-index-template.md
+
+dimensions:
+  factual_correctness:      {type: deterministic_or_judge}
+  missing_critical_answer:  {type: judge, fail_if: required_job_unanswerable}
+  false_assertion:          {type: judge, definition: claim contradicts inputs or sources}
+  source_hops:              {type: deterministic, unit: file_opens_to_answer}
+  duplicate_encounters:     {type: deterministic, unit: non_boilerplate_shingle_hits_across_artifacts}
+  unresolved_ambiguity:     {type: judge}
+  wrong_layer_information:  {type: deterministic_plus_judge}
+  traceability_failure:     {type: deterministic}
+  prompt_specificity_fail:  {type: deterministic_plus_inspection}
+
+cases:
+
+  # ---------- Weekly Command Brief tasks ----------
+  - id: W-Q1-changed-since-last-week
+    finding_ids: [F03, F02]
+    artifact: weekly_command_brief
+    task: Q1 What changed from the previous week/state?
+    input_seed: injected_carryforward_delta   # evaluator seeds a named change vs prior state
+    grader:
+      type: judge_plus_deterministic
+      must: brief_names_injected_change_or_marks_none_with_source
+
+  - id: W-Q2-top-outcomes
+    finding_ids: [F01]
+    artifact: weekly_command_brief
+    task: Q2 What are the 2-4 highest-leverage outcomes?
+    grader:
+      type: deterministic_plus_judge
+      must: "at most 4 outcomes ranked; derivable from top sections"
+    metric: [missing_critical_answer, source_hops]
+
+  - id: W-Q3-why-now
+    finding_ids: [F01]
+    artifact: weekly_command_brief
+    task: Q3 Why are they important now?
+    grader: {type: judge, must: per-outcome timing/leverage reason present}
+
+  - id: W-Q4-monday-intent
+    finding_ids: [F01, F05]
+    artifact: weekly_command_brief
+    task: Q4 What is Monday intended to advance?
+    grader: {type: judge, must: directional day emphasis without sprint detail}
+    wrong_layer_check: no S-token or per-day sprint goals (F01)
+
+  - id: W-Q5-capacity-constraints
+    finding_ids: [F05]
+    artifact: weekly_command_brief
+    task: Q5 Where is capacity constrained?
+    input_seed: case_B_meeting_heavy_calendar
+    grader:
+      type: deterministic_plus_judge
+      must: constrained day(s) identified structurally distinct from open days
+
+  - id: W-Q6-blocked-deferred
+    finding_ids: [F03]
+    artifact: weekly_command_brief
+    task: Q6 What is blocked or deliberately deferred?
+    grader: {type: deterministic, must: explicit blocked/deferred entries with reasons-or-none}
+
+  - id: W-Q7-operator-decision
+    finding_ids: [F04]
+    artifact: weekly_command_brief
+    task: Q7 What decision requires operator input?
+    grader: {type: judge, must: decision surface reachable in first screen; no fabricated approvals}
+
+  - id: W-Q8-confirmed-vs-assumed
+    finding_ids: [F04, F07]
+    artifact: weekly_command_brief
+    task: Q8 Which facts are confirmed versus assumed?
+    grader:
+      type: deterministic
+      must: every decisive fact carries status confirmed|assumed with basis
+
+  - id: W-Q9-fact-provenance
+    finding_ids: [F04]
+    artifact: weekly_command_brief
+    task: Q9 Where did each consequential planning fact come from?
+    grader:
+      type: deterministic
+      must: inline source marker per decisive fact resolving within 1 hop to authority path+date
+    baseline_fail_evidence: zero 'provenance' matches across simulated weekly/daily/card artifacts
+
+  - id: W-Q10-wrong-layer-content
+    finding_ids: [F01, F02]
+    artifact: weekly_command_brief
+    task: Q10 What belongs to PrecapNextDay rather than this artifact?
+    grader:
+      type: deterministic
+      must: zero sprint-goal cells outside directional seed block
+    metric: [wrong_layer_information, duplicate_encounters]
+
+  # ---------- Daily Brief tasks ----------
+  - id: D-Q11-day-delta
+    finding_ids: [F03]
+    artifact: precap_next_day_brief
+    task: Q11 What changed since the weekly plan/yesterday?
+    input_seed: injected_day_delta   # e.g., F2 becomes blocked overnight
+    grader:
+      type: deterministic_plus_judge
+      must: delta block above flow details naming injected change
+    baseline_fail_evidence: daily template has no delta section; corpus day files identical for 10 days
+
+  - id: D-Q12-execution-order
+    finding_ids: [F02]
+    artifact: precap_next_day_brief
+    task: Q12 What is the execution order today and why?
+    grader:
+      type: judge_plus_deterministic
+      must: ordered flows with per-position reason; no restated weekly matrix
+    metric: [duplicate_encounters, source_hops]
+
+  - id: D-Q13-compressed-blocked-omitted
+    finding_ids: [F05, F09]
+    artifact: precap-next-day-brief
+    task: Q13 Which flows were compressed, blocked or omitted?
+    input_seed: case_B_constrained_day
+    grader:
+      type: deterministic
+      must: FULL/COMPRESSED/MINIMAL/OMITTED vocabulary present with capacity reason
+
+  - id: D-Q14-next-operator-action
+    finding_ids: [F09]
+    artifact: precap_next_day_brief
+    task: Q14 What is the exact next operator action?
+    grader: {type: judge, must: single concrete action reachable before any routing decoration}
+    optional_human_measure:
+      metric: seconds_to_locate
+      rule: recorded only if operator runs the timed task and logs methodology; otherwise not_measured
+
+  - id: D-Q15-detail-location
+    finding_ids: [F02]
+    artifact: precap_next_day_brief
+    task: Q15 Where is detailed sprint execution located?
+    grader:
+      type: deterministic
+      must: references resolve to existing card paths; brief does not inline sprint tasks
+
+  # ---------- Flow / Prompt tasks ----------
+  - id: P-Q16-worker-self-sufficiency
+    finding_ids: [F06, F02]
+    artifact: flow_execution_card_and_prompt_file
+    task: Q16 Can a worker execute without reopening the entire portfolio?
+    grader:
+      type: inspection
+      must: prompt binds concrete inputs and bounded return artifact; card carries needed execution context
+
+  - id: P-Q17-task-specific-inputs
+    finding_ids: [F06]
+    artifact: prompt_file
+    task: Q17 Does each sprint prompt contain task-specific inputs?
+    grader:
+      type: deterministic
+      must: "at least one concrete input ref unique to this sprint/day; sibling-body similarity below ceiling"
+
+  - id: P-Q18-concrete-output
+    finding_ids: [F06]
+    artifact: prompt_file
+    task: Q18 Is the expected output concrete?
+    grader:
+      type: deterministic
+      must: expected return artifact named and bounded (rejects unbounded phrases like complete deliverable)
+
+  - id: P-Q19-done-stop-evidence
+    finding_ids: [F06]
+    artifact: prompt_file_plus_flow_execution_card
+    task: Q19 Are done/stop/evidence conditions concrete?
+    grader:
+      type: deterministic_plus_inspection
+      must: done condition verifiable against stated evidence item
+
+  - id: P-Q20-sprint-semantic-difference
+    finding_ids: [F06]
+    artifact: prompt_set_per_flow
+    task: Q20 Are S1/S2/S3 semantically different rather than renamed boilerplate?
+    grader:
+      type: deterministic_plus_inspection
+      must: pairwise body divergence beyond label swap; sampled prompts independently inspected in Phase 9
+    baseline_fail_evidence: f1-s1 vs f1-s2 bodies differ only by the words Sprint 1/2 (corpus)
+
+  # ---------- Cross-cutting process cases ----------
+  - id: X-gate-namespace
+    finding_ids: [F10]
+    artifact: any_campaign_output
+    task: control-plane integrity — qualified gate identifiers
+    grader:
+      type: deterministic
+      must: no bare G1-G5 reference outside owning skill schema; loop-G*/milestone-lock-G* used
+
+  - id: X-reviewer-receipts
+    finding_ids: [F07]
+    artifact: any_reviewer_or_score_claim
+    task: evidence discipline — receipts or unmeasured labels
+    grader:
+      type: deterministic
+      must: every score or elapsed claim carries context receipt + method OR is labeled not_measured/unmeasured
+
+  - id: X-synthesis-completeness
+    finding_ids: [F08]
+    artifact: reviewer_synthesis
+    task: synthesis integrity — full finding disposition
+    grader:
+      type: deterministic
+      must: all material findings disposed adopted/rejected/deferred with reasons
+
+scenarios:   # Phase 2 shadow-case mapping (classes A-E)
+  A_normal_week: uses [W-Q*, D-Q*] with clean inputs
+  B_constrained_week: adds input_seed case_B_meeting_heavy_calendar; emphasizes W-Q5, D-Q13
+  C_dependency_conflict: deadline-vs-high-impact conflict seeded; emphasizes W-Q6, D-Q12
+  D_stale_state: stale project-state input; emphasizes W-Q8, W-Q9, D-Q11
+  E_usage_scarcity: quota-depletion context; emphasizes D-Q13, P-Q17 degraded-prompt path
+
+forbidden_metrics:
+  - invented elapsed seconds
+  - self-reported scannability without measurement record
+  - rubric-only improvement claims without output-visible deltas
