@@ -40,3 +40,7 @@ scripts/transcript_pipeline_v4/models/
 artifacts/transcript_pipeline_v4/*/source/*
 !artifacts/transcript_pipeline_v4/*/source/*.info.json
 
+# Downloaded third-party reference repos - kept on disk, not version-controlled (ARCH-IMP-01, module 06).
+# Re-enable tracking by deleting the next line, then: git add source-knowledge/ProjectRepos
+source-knowledge/ProjectRepos/
+
