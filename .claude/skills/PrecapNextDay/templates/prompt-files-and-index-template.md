@@ -39,10 +39,14 @@ Copy this block into one file per prompt. The prompt file presents final prompt 
 ```markdown
 # {{PROMPT_TITLE}}
 
-**Recommended surface:** {{STABLE_SURFACE_OR_VERIFIED_MODEL}}  
-**Use when:** {{TRIGGER_OR_SPRINT_NEED}}  
-**Expected return artifact:** {{RETURN_ARTIFACT_LABEL}}  
-**Routing reference:** [{{ROUTING_LABEL}}]({{ROUTING_REF}}) - `{{ROUTING_REF}}`
+inputs:
+  - {{CONCRETE_INPUT_REF_1}}  
+return: {{NAMED_RETURN_BLOCK}}  
+done: {{VERIFIABLE_DONE_CONDITION}}  
+stop: {{STOP_CONDITION_OR_NONE}}  
+surface: {{STABLE_SURFACE_OR_VERIFIED_MODEL}}  
+use when: {{TRIGGER_OR_SPRINT_NEED}}  
+routing: {{SINGLE_AUTHORITATIVE_ROUTE_STATEMENT}}
 
 > **Degraded warning:** {{WARNING_OR_REMOVE_LINE}}
 

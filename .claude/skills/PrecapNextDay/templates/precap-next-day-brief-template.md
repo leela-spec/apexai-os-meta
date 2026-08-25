@@ -15,6 +15,20 @@
 
 **Decision or instruction:** {{OPERATOR_DECISION_OR_PENDING}}
 
+## Changed since the weekly plan / since yesterday
+
+Lead with what changed. "No changes since yesterday." is a valid entry.
+
+| What | From -> To | Why | Source tag |
+| :--- | :--- | :--- | :--- |
+| {{CHANGE}} | {{FROM_TO}} | {{REASON}} | {{SRC_TAG}} |
+
+## Sources ledger
+
+| Tag | Source | Freshness class (CURRENT / AGED / STALE / UNKNOWN) |
+| :--- | :--- | :--- |
+| {{SRC_TAG}} | {{SOURCE_REF}} | {{FRESHNESS_CLASS}} |
+
 ## Day frame
 
 **Primary day outcomes:**
