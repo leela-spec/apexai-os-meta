@@ -1,0 +1,56 @@
+schema: transcript-pipeline-selection.v2
+selected_at: '2026-08-18T20:28:33.790542+00:00'
+selection_verdict: PRODUCTION_PIPELINE_SELECTED
+selected_composition:
+  source_acquisition: source_existing
+  asr: faster_whisper_small
+  alignment_diarization: NONE
+  custody: custody_ttk
+  preextract: NONE
+  map: direct_agent_map
+  structured_output: native_schema_plus_ttk_validation
+  support_advisory: []
+  reduce: direct_agent_reduce
+  external_verification: verify_ttk_queue
+  compiler: custody_ttk
+component_decisions:
+- stage: source_acquisition
+  selected: source_existing
+  verdict: RETAIN
+  rationale: Existing yt-dlp/ffmpeg pipeline acquires video/audio reliably.
+- stage: asr
+  selected: faster_whisper_small
+  verdict: PROMOTE
+  rationale: Proved 100% stable local execution with word-level timestamps and robust
+    English/German domain vocabulary without requiring GPU or cloud API.
+- stage: custody
+  selected: custody_ttk
+  verdict: RETAIN
+  rationale: Locked deterministic spine for source SHA custody, segment IDs, processing
+    windows, packet hashes, and stale detection.
+- stage: map
+  selected: direct_agent_map
+  verdict: PROMOTE
+  rationale: Agent/subagent semantic Map worker delivers 100% schema-compliant grounded
+    output with exact verbatim quotes and zero pseudo-semantic fallback.
+- stage: reduce
+  selected: direct_agent_reduce
+  verdict: PROMOTE
+  rationale: Synthesizes rich Macro thesis, coherent Meso chapters, and atomic Micro
+    claims over the validated evidence ledger.
+- stage: verification
+  selected: verify_ttk_queue
+  verdict: RETAIN
+  rationale: Selectively routes checkworthy factual claims into verification queue
+    while keeping opinions/predictions UNVERIFIED/NOT_APPLICABLE.
+- stage: compiler
+  selected: custody_ttk
+  verdict: RETAIN
+  rationale: Deterministic Obsidian Wiki markdown compilation with full hash-based
+    staleness detection.
+evidence_references:
+- artifacts/transcript_pipeline_v2/corrective-run/scorecards/asr-scorecard.yaml
+- artifacts/transcript_pipeline_v2/corrective-run/scorecards/map-scorecard.yaml
+- artifacts/transcript_pipeline_v2/corrective-run/scorecards/support-scorecard.yaml
+- artifacts/transcript_pipeline_v2/corrective-run/scorecards/reduce-scorecard.yaml
+- artifacts/transcript_pipeline_v2/corrective-run/scorecards/conditional-trigger-decisions.yaml

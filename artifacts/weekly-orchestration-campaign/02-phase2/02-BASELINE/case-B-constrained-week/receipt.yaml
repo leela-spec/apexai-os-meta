@@ -1,0 +1,29 @@
+# receipt.yaml - Case B (meeting-heavy/constrained week)
+case: B-constrained-week
+week_id: "2026-W37"
+scenario_facts:
+  calendar_injections:
+    - "TUE 09:00-12:00 external meetings"
+    - "WED full-day workshop prep + 2h review call"
+    - "FRI half-day"
+  capacity_effect: "~55% of standard blueprint flow blocks"
+generated_by:
+  agent: "ox-alpha (Hermes Agent session orchestrator)"
+  execution_context: "same session as Case A; NOT independent by design (baseline generation)"
+inputs_supplied:
+  - IN-1 trajectory facts + scenario calendar injections (see 02-INPUT-CORPUS.md case B)
+  - PrecapWeek deformation doctrine: calendar-planning-guidance.md, weekly-blueprint-meeting-example.md
+templates_used:
+  - weekly-command-brief-template.md (04ed2662)
+  - precap-next-day-brief-template.md (c96747e2)
+  - flow-execution-card-template.md (ca404e60)
+  - prompt-files-and-index-template.md (b4e95f47)
+material_constraints:
+  operator_validation: not_requested anywhere
+  elapsed_time_claims: none
+budget:
+  tokens_turns: not_measured
+deterministic_validation:
+  template_sections_present: PASS
+  placeholder_completeness: PASS
+validation_result: "mechanical checks pass; semantic quality NOT claimed"

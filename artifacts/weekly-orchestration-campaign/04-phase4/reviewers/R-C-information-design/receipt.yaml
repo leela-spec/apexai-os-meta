@@ -1,0 +1,17 @@
+# receipt.yaml - R-C
+reviewer_id: R-C
+lens: information_design
+model_profile: "ox-alpha via Hermes Agent session (openrouter/stealth-ox-alpha)"
+execution_primitive: "bounded packet dispatch; fresh task context"
+isolation_status: "isolated from sibling reviewer and generator conversation; same base model family as orchestrator - disclosed"
+files_read:
+  - artifacts/weekly-orchestration-campaign/04-phase4/packets/R-C-information-design-PACKET.md
+  - artifacts/weekly-orchestration-campaign/00-phase0/00-AUTHORITY-MAP.md (prior turn context within this session's campaign work)
+  - artifacts/weekly-orchestration-campaign/01-phase1/01-FINDINGS.okf.md (same)
+  - artifacts/weekly-orchestration-campaign/02-phase2/02-BASELINE/case-A-normal-week/** (generated this session)
+  - artifacts/weekly-orchestration-campaign/02-phase2/02-BASELINE/case-B-constrained-week/**
+  - artifacts/weekly-orchestration-campaign/02-phase2/02-BASELINE/case-E-usage-scarcity/**
+  - .claude/skills/PrecapWeek/weekly-command-brief-template.md
+  - .claude/skills/PrecapNextDay/templates/precap-next-day-brief-template.md
+tools_used: [read_file, write_file]
+measurements_performed: none - structural/content inspection only

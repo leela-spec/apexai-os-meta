@@ -1,0 +1,50 @@
+# receipt.yaml — Case A (normal week)
+case: A-normal-week
+week_id: "2026-W36"
+generated_by:
+  agent: "ox-alpha (Hermes Agent session orchestrator)"
+  provider_profile: "openrouter / stealth-ox-alpha"
+  execution_context: "single session context; docker workspace /workspace; campaign parent conversation"
+  isolation_note: "baseline generated in the SAME session as findings/eval-cases authorship - labeled NOT independent by design; baselines are generation inputs, not review evidence"
+inputs_supplied:
+  - id: IN-1
+    path: apex-meta/orchestration/simulations/5-week-progressive-simulation/Week-01/weekly_plan.md
+    class: historical_simulation_trajectory
+    use: portfolio facts, block structure, exit criteria
+  - id: IN-2
+    path: apex-meta/kb/Weekly-Orchestrator/indexes/APEX_Weekly_Orchestration_Index_v3.yaml
+    class: repository_kb_index
+    use: artifact lifecycle references
+  - id: IN-4
+    path: .claude/skills/PrecapWeek/SKILL.md + PrecapNextDay/SKILL.md
+    class: live_domain_authority_rank1
+    use: output boundaries and gates
+templates_used:
+  - .claude/skills/PrecapWeek/weekly-command-brief-template.md (blob 04ed26629719247f25ae3cc186d157b8d8d33f41)
+  - .claude/skills/PrecapNextDay/templates/precap-next-day-brief-template.md (blob c96747e21fca5a02debcc397a9c88d33c3f0f53c)
+  - .claude/skills/PrecapNextDay/templates/flow-execution-card-template.md (blob ca404e6027e3be60c22a9fd500edc0e82f500255)
+  - .claude/skills/PrecapNextDay/templates/prompt-files-and-index-template.md (blob b4e95f47a5b8da3dda38a4488818e825f45ca7e3)
+template_fidelity_note: >
+  All four production templates followed structurally. Deviations from the
+  weekly template: Matrix1/Matrix2 sprint-grid replaced by a directional day
+  emphasis table per Phase-0 authority ruling that the template's own skill
+  contract (output_boundary.must_not_be detailed_daily_plan) outranks the grid;
+  this deviation is itself a Phase-3/4 evaluation subject (F01), recorded here
+  for transparency. Daily/card/prompt templates followed without structural
+  change.
+provenance_references:
+  weekly_brief_provenance_section: "present, names historical-simulation input class explicitly"
+  freshness_labels: "all artifacts carry MEDIUM/MEDIUM-HIGH confidence with historical-input caveat"
+model_and_tools:
+  tool_access_used: [read_file, write_file, terminal(read-only git/grep)]
+  external_apis: none
+material_constraints:
+  operator_validation: "not_requested anywhere; no approvals fabricated"
+  elapsed_time_claims: none
+budget:
+  tokens_turns: "not metered by an instrumented counter - not_measured"
+deterministic_validation:
+  template_sections_present: PASS (manual structural check at write time)
+  placeholder_completeness: PASS (no unfilled {{...}} placeholders remain)
+  yaml_blocks_parse: not_machine_verified (visual check only)
+validation_result: "mechanical checks pass; semantic quality NOT claimed"

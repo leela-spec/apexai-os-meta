@@ -1,0 +1,38 @@
+schema: transcript-pipeline-final-report.v2
+evaluated_at: '2026-08-18T20:58:04.299490+00:00'
+verdict: PASS
+repository: leela-spec/apexai-os-meta
+branch: main
+selected_architecture:
+  source_acquisition: source_existing
+  asr: faster_whisper_small
+  alignment_diarization: NONE
+  custody: custody_ttk
+  preextract: NONE
+  map: direct_agent_map
+  structured_output: native_schema_plus_ttk_validation
+  support_advisory: []
+  reduce: direct_agent_reduce
+  external_verification: verify_ttk_queue
+  compiler: custody_ttk
+tests:
+  ttk_unit_tests: 16/16 PASSED
+  v2_harness_tests: 28/28 PASSED
+  resume_clean_room: PASS
+  evidence_closure_validator: PASS
+four_source_regression:
+  status: PASS
+  sources:
+  - P-h5WSQG1Sw
+  - CygwqaNg2PY
+  - vFTuLylvYnA
+  - oZIsMX6WgFs
+fresh_bilingual_end_to_end:
+  status: PASS
+  runs:
+  - CygwqaNg2PY (EN)
+  - vFTuLylvYnA (DE)
+resume_proofs:
+  l1_unchanged_resume: PASS
+  l2_targeted_invalidation: PASS
+exact_next_step: Production integration is validated; ready for operator signoff.

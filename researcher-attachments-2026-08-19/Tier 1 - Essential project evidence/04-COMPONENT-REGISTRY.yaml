@@ -1,0 +1,460 @@
+schema: transcript-pipeline-component-registry.v2
+created: '2026-08-18'
+repository: leela-spec/apexai-os-meta
+branch_policy: main_only_unless_operator_explicitly_changes_it
+purpose: >-
+  Machine-readable registry of all researched components that are relevant to the
+  V2 transcript-to-knowledge bake-off. Installation is not promotion. Each
+  component has an explicit hypothesis, lane, required evidence, and reversal
+  trigger.
+
+rules:
+  - id: REG-01
+    text: 'Measure before remove: plausible high-value reusable components receive a bounded benchmark before architectural rejection.'
+  - id: REG-02
+    text: 'Do not put every installed component into the production hot path.'
+  - id: REG-03
+    text: 'Use isolated environments for dependency-heavy candidates.'
+  - id: REG-04
+    text: 'No component may become semantic authority merely because it runs locally or cheaply.'
+  - id: REG-05
+    text: 'Deterministic TTK invariants remain authoritative unless a measured replacement is explicitly selected.'
+  - id: REG-06
+    text: 'Record exact version/commit/model revision after install; do not rely only on floating latest versions.'
+  - id: REG-07
+    text: 'A failed install is BLOCKED/FAIL evidence, not permission to silently substitute a custom implementation.'
+  - id: REG-08
+    text: 'Trial 1 strong-AI transport is subscription-CLI-only: Claude Code CLI, Codex CLI, or Antigravity CLI after a successful local headless smoke test.'
+  - id: REG-09
+    text: 'API-key, pay-as-you-go, hosted model API, and browser-AI transport are post-Trial-1 options. If a framework cannot use an allowed CLI adapter in Trial 1, mark it BLOCKED_FOR_TRIAL1 instead of changing transport.'
+
+paths:
+  tools_root: scripts/transcript_pipeline_v2/tools
+  experiment_root: artifacts/transcript_pipeline_v2
+  environment_pattern: scripts/transcript_pipeline_v2/tools/<component_id>/.venv
+  install_receipt_pattern: artifacts/transcript_pipeline_v2/receipts/install/<component_id>.json
+  smoke_receipt_pattern: artifacts/transcript_pipeline_v2/receipts/smoke/<component_id>.json
+
+components:
+  - id: source_existing
+    name: existing_source_acquisition
+    lane: core
+    class: deterministic_external_tools
+    production_status: retained
+    install_policy: reuse_existing
+    role: 'Acquire audio/video and metadata using the existing P1/yt-dlp/ffmpeg path.'
+    hypothesis: 'Existing acquisition already solves the mechanical source-fetch problem adequately.'
+    required_evidence:
+      - existing benchmark sources are addressable without new downloader framework
+      - source file/hash can be recorded
+    reject_if:
+      - source class required by product cannot be acquired reproducibly
+    do_not_build:
+      - new downloader abstraction without observed missing source support
+
+  - id: asr_faster_whisper
+    name: faster-whisper
+    lane: primary_candidate
+    class: local_ml
+    production_status: benchmark_required
+    role: 'Reference ASR with word timestamps, VAD, word probabilities, and segment diagnostics.'
+    source: 'https://github.com/SYSTRAN/faster-whisper'
+    install:
+      strategy: isolated_or_existing_env
+      powershell:
+        - 'py -m venv scripts/transcript_pipeline_v2/tools/asr_faster_whisper/.venv'
+        - '& scripts/transcript_pipeline_v2/tools/asr_faster_whisper/.venv/Scripts/python.exe -m pip install -U pip'
+        - '& scripts/transcript_pipeline_v2/tools/asr_faster_whisper/.venv/Scripts/python.exe -m pip install faster-whisper'
+    benchmark_configs:
+      - model: base
+      - model: small
+      - model: medium
+    required_features:
+      - word_timestamps
+      - vad_filter
+      - word_probability_serialization
+      - avg_logprob
+      - no_speech_prob
+      - compression_ratio
+    hypothesis: 'One calibrated faster-whisper model/config clears EN/DE quality gates with acceptable local runtime.'
+    promote_if:
+      - passes ASR hard gates
+      - is best or near-best after quality/runtime/complexity scoring
+    fallback: asr_parakeet
+
+  - id: asr_parakeet
+    name: nvidia-parakeet-tdt-0.6b-v3
+    lane: challenger
+    class: local_ml
+    production_status: benchmark_required
+    role: 'Multilingual ASR challenger for English/German domain vocabulary and timestamps.'
+    source: 'https://huggingface.co/nvidia/parakeet-tdt-0.6b-v3'
+    install:
+      strategy: isolated_env
+      note: 'Receiving AI must verify the current official NeMo/Transformers install path on Windows before executing; pin what actually succeeds.'
+      target_path: scripts/transcript_pipeline_v2/tools/asr_parakeet/.venv
+    required_evidence:
+      - smoke transcription on a short English clip
+      - smoke transcription on a short German clip
+      - timestamp output if supported by selected runtime
+      - exact model revision recorded
+    hypothesis: 'Parakeet materially improves German/domain-term accuracy or runtime without unacceptable integration burden.'
+    promote_if:
+      - materially beats selected faster-whisper quality or quality/runtime tradeoff
+      - Windows/Intel runtime is stable on benchmark corpus
+    reject_if:
+      - install/runtime is fragile enough to outweigh quality benefit
+      - no material quality/runtime gain
+
+  - id: align_whisperx
+    name: WhisperX
+    lane: conditional
+    class: local_ml
+    production_status: benchmark_required
+    role: 'Forced word alignment and optional speaker diarization for multi-speaker provenance.'
+    source: 'https://github.com/m-bain/whisperX'
+    install:
+      strategy: isolated_env
+      powershell:
+        - 'py -m venv scripts/transcript_pipeline_v2/tools/align_whisperx/.venv'
+        - '& scripts/transcript_pipeline_v2/tools/align_whisperx/.venv/Scripts/python.exe -m pip install -U pip'
+        - '& scripts/transcript_pipeline_v2/tools/align_whisperx/.venv/Scripts/python.exe -m pip install whisperx'
+    known_caveats:
+      - 'Diarization is probabilistic and overlapping speech may remain incorrect.'
+      - 'pyannote models may require Hugging Face access/token acceptance; do not expose secrets in receipts.'
+      - 'This component is unnecessary for single-speaker sources if timestamp quality is already adequate.'
+    hypothesis: 'On an interview, speaker attribution/timing provenance improves enough to justify a conditional stage.'
+    benchmark_source_ids:
+      - P-h5WSQG1Sw
+    promote_if:
+      - speaker attribution precision/utility gain is material
+      - runtime/install burden remains acceptable
+    production_mode_if_promoted: conditional_multi_speaker_only
+
+  - id: custody_ttk
+    name: transcript-to-knowledge
+    lane: core
+    class: deterministic_repo_code
+    production_status: retained
+    role: 'Canonical source custody, segment IDs, windows, packet hashes, validation, resume, verify queue, compiler.'
+    source_path: .claude/skills/transcript-to-knowledge
+    required_invariants:
+      - source_sha256
+      - stable_segment_ids
+      - core_vs_context_only
+      - packet_sha256
+      - stale_result_rejection
+      - exact_reference_validation
+      - factual_quote_validation
+      - coverage_validation
+      - resumability_from_files
+      - compile_staleness_detection
+    hypothesis: 'TTK remains the best transcript-specific deterministic spine even if semantic extraction/orchestration components change.'
+    reject_or_replace_only_if:
+      - a measured alternative preserves all hard invariants and materially reduces complexity or improves correctness
+
+  - id: preextract_gliner2
+    name: GLiNER2
+    lane: challenger
+    class: local_ml
+    production_status: benchmark_required
+    role: 'CPU-first entities/classification/relations/structured extraction before strong-AI Map.'
+    source: 'https://github.com/fastino-ai/GLiNER2'
+    install:
+      strategy: isolated_env
+      powershell:
+        - 'py -m venv scripts/transcript_pipeline_v2/tools/preextract_gliner2/.venv'
+        - '& scripts/transcript_pipeline_v2/tools/preextract_gliner2/.venv/Scripts/python.exe -m pip install -U pip'
+        - '& scripts/transcript_pipeline_v2/tools/preextract_gliner2/.venv/Scripts/python.exe -m pip install "gliner2[local]"'
+    hypothesis: 'Cheap local pre-extraction lowers strong-CLI input/output work or improves structured recall without biasing semantic quality.'
+    benchmark_against:
+      - map_direct_cli
+    required_metrics:
+      - entity_precision_recall_on_gold
+      - strong_ai_input_tokens
+      - strong_ai_output_tokens
+      - insight_recall_delta
+      - false_hint_rate
+      - runtime_seconds
+    promote_if:
+      - material token/quota reduction or structured-recall gain
+      - no material semantic-quality regression
+    reject_if:
+      - hints increase errors or complexity without material savings
+    fallback: preextract_nuextract
+
+  - id: preextract_nuextract
+    name: NuExtract-2.x
+    lane: secondary_challenger
+    class: local_ml
+    production_status: deferred_until_trigger
+    role: 'Schema-driven multilingual structured extraction, including verbatim fields.'
+    source: 'https://huggingface.co/numind/NuExtract-2.0-2B'
+    trigger: 'Run only if GLiNER2 does not satisfy the cheap pre-extraction role or multilingual schema extraction is demonstrably weak.'
+    hypothesis: 'NuExtract provides materially better multilingual structured extraction at acceptable local cost.'
+
+  - id: map_direct_cli
+    name: direct-strong-cli-map
+    lane: primary_candidate
+    class: strong_remote_ai_local_cli
+    production_status: benchmark_required
+    role: 'Reference semantic Map: TTK packet directly to a strong subscription CLI AI.'
+    providers:
+      primary:
+        id: claude
+        transport: subscription_cli
+        docs:
+          - 'https://code.claude.com/docs/en/headless'
+          - 'https://code.claude.com/docs/en/cli-usage'
+          - 'https://code.claude.com/docs/en/authentication'
+        capabilities:
+          - noninteractive_print_mode
+          - json_output
+          - json_schema
+          - max_turns
+      challenger:
+        id: codex
+        transport: subscription_cli
+        docs:
+          - 'https://github.com/openai/codex'
+          - 'https://github.com/openai/codex/blob/main/codex-rs/exec/src/cli.rs'
+        capabilities:
+          - noninteractive_exec
+          - output_schema
+          - jsonl_events
+      challenger_conditional:
+        id: antigravity
+        transport: subscription_or_account_cli
+        docs:
+          - 'https://github.com/google-antigravity/antigravity-cli'
+        requirements:
+          - local_headless_subprocess_smoke_pass
+          - capturable_output
+          - bounded_timeout
+          - no_api_key_billing
+        on_failure: BLOCKED_FOR_TRIAL1
+      deferred_after_trial1:
+        id: gemini
+        docs:
+          - 'https://github.com/google-gemini/gemini-cli/blob/main/docs/cli/headless.md'
+    constraints:
+      - no tools needed during normal Map
+      - packet content is bounded input
+      - result must pass TTK validator
+      - retry is validation-informed and bounded
+    hypothesis: 'Direct CLI is the simplest semantic reference with high enough insight recall and grounding.'
+
+  - id: map_langextract
+    name: LangExtract-grounded-map
+    lane: challenger
+    class: llm_extraction_framework
+    production_status: benchmark_required
+    role: 'Grounded structured Map extraction with exact source locations and provider plugin.'
+    sources:
+      - 'https://github.com/google/langextract'
+      - 'https://github.com/google/langextract/blob/main/examples/custom_provider_plugin/README.md'
+    install:
+      strategy: isolated_env
+      powershell:
+        - 'py -m venv scripts/transcript_pipeline_v2/tools/map_langextract/.venv'
+        - '& scripts/transcript_pipeline_v2/tools/map_langextract/.venv/Scripts/python.exe -m pip install -U pip'
+        - '& scripts/transcript_pipeline_v2/tools/map_langextract/.venv/Scripts/python.exe -m pip install langextract'
+    adapter_required:
+      type: external_provider_plugin
+      allowed_scope: scripts/transcript_pipeline_v2/tools/map_langextract/provider_cli
+      requirement: 'Do not fork LangExtract core. Use its documented external provider mechanism.'
+    hypotheses:
+      - 'Exact source-location mapping improves grounding/diagnostics over direct CLI extraction.'
+      - 'LangExtract eliminates enough custom extraction/source-span plumbing to justify the adapter.'
+    benchmark_against:
+      - map_direct_cli
+      - map_gliner2_assisted
+    reject_if:
+      - same/lower quality with materially more complexity
+      - provider adapter is brittle or destroys CLI subscription economics
+
+  - id: structured_instructor
+    name: Instructor
+    lane: conditional_challenger
+    class: structured_output_library
+    production_status: deferred_until_trigger
+    role: 'Pydantic structured outputs, validation, and automatic retry across provider backends.'
+    source: 'https://github.com/567-labs/instructor'
+    trigger_any:
+      - native_cli_schema_support_is_insufficient
+      - retry_logic_becomes_duplicated_across_providers
+      - provider_abstraction_is_selected_as_a_product_requirement
+    hypothesis: 'Instructor reduces provider-specific schema/retry code enough to justify an extra library.'
+    do_not_add_if:
+      - direct Claude/Codex schema plus TTK validation remains simple and reliable
+
+  - id: support_mdeberta
+    name: mDeBERTa-v3-base-mnli-xnli
+    lane: advisory_safety
+    class: local_ml
+    production_status: benchmark_required
+    role: 'Multilingual entailment/neutral/contradiction warning for source-evidence versus proposition pairs.'
+    source: 'https://huggingface.co/MoritzLaurer/mDeBERTa-v3-base-mnli-xnli'
+    install:
+      strategy: isolated_env
+      note: 'Use official Transformers model instructions and record transformers/torch/model revisions.'
+    authority: advisory_only
+    hypothesis: 'The model catches a useful subset of source-support errors cheaply across English and German.'
+    benchmark_gold: support_pairs
+    promote_if:
+      - warning signal has useful precision/recall and low operational cost
+    never_do:
+      - silently overwrite semantic worker support status solely from NLI score
+
+  - id: support_hhem
+    name: Vectara-HHEM
+    lane: advisory_safety
+    class: local_ml
+    production_status: benchmark_required_english_only
+    role: 'Independent factual-consistency/hallucination score on English evidence/claim pairs.'
+    source: 'https://huggingface.co/vectara/hallucination_evaluation_model'
+    authority: advisory_only
+    scope: english_benchmark_subset
+    hypothesis: 'HHEM provides a useful independent consistency signal complementary to multilingual NLI.'
+
+  - id: reduce_direct_cli
+    name: direct-strong-cli-reduce
+    lane: primary_candidate
+    class: strong_remote_ai_local_cli
+    production_status: benchmark_required
+    role: 'Reference global synthesis from TTK validated evidence ledger.'
+    constraints:
+      - no raw full transcript reread
+      - real semantic Meso boundaries
+      - macro synthesis must be informative, not generic process text
+      - source_support remains separate from external truth
+    hypothesis: 'Direct strong CLI Reduce is high quality and simple enough that no orchestration framework is needed.'
+
+  - id: reduce_docetl
+    name: DocETL
+    lane: challenger
+    class: llm_etl_framework
+    production_status: benchmark_required
+    role: 'Declarative Map/Reduce/gather orchestration challenger with caching/parallelism/optimizer capability.'
+    source: 'https://github.com/ucbepic/docetl'
+    install:
+      strategy: isolated_env
+      powershell:
+        - 'py -m venv scripts/transcript_pipeline_v2/tools/reduce_docetl/.venv'
+        - '& scripts/transcript_pipeline_v2/tools/reduce_docetl/.venv/Scripts/python.exe -m pip install -U pip'
+        - '& scripts/transcript_pipeline_v2/tools/reduce_docetl/.venv/Scripts/python.exe -m pip install docetl'
+    first_experiment:
+      optimizer_enabled: false
+      reason: 'Preserve attribution. Compare a fixed pipeline before automatic rewrites.'
+    provider_policy:
+      trial1_transport: subscription_cli_only
+      trial1_allowed_semantic_clis:
+        - claude
+        - codex
+        - antigravity_if_headless_smoke_passes
+      trial1_api_experiment_allowed: false
+      if_cli_adapter_not_practical: BLOCKED_FOR_TRIAL1
+      post_trial_capped_api_experiment_allowed: true_only_with_explicit_operator_approval
+      production_api_default_allowed: false
+    hypothesis: 'DocETL improves semantic recall/cost/maintenance or removes enough custom orchestration to justify itself.'
+    reject_if:
+      - similar/lower quality and no meaningful maintenance/cost gain
+      - integration requires disproportionate provider plumbing
+
+  - id: verify_ttk_queue
+    name: TTK-selective-verification
+    lane: core
+    class: deterministic_repo_code_plus_strong_ai
+    production_status: retained
+    role: 'Route only checkworthy factual claims for external verification.'
+    authority:
+      routing: deterministic_TTK
+      evidence_judgment: strong_semantic_worker
+    provider_options_trial1:
+      - Claude Code subscription CLI WebSearch/WebFetch
+      - Codex subscription CLI web search
+      - Antigravity CLI research/tooling only if its headless smoke test passes
+    provider_options_post_trial1:
+      - Gemini CLI
+      - OpenClaw browser subscription AI
+      - capped paid API if explicitly approved
+    policy:
+      default_claim_types: factual_only
+      nonfactual_external_status: NOT_APPLICABLE
+      insufficient_evidence: UNVERIFIED
+
+  - id: eval_deepeval
+    name: DeepEval
+    lane: evaluation
+    class: eval_framework
+    production_status: benchmark_required_not_runtime_required
+    role: 'Repeatable semantic quality/regression metrics where they add value.'
+    source: 'https://github.com/confident-ai/deepeval'
+    install:
+      strategy: isolated_env
+      powershell:
+        - 'py -m venv scripts/transcript_pipeline_v2/tools/eval_deepeval/.venv'
+        - '& scripts/transcript_pipeline_v2/tools/eval_deepeval/.venv/Scripts/python.exe -m pip install -U pip'
+        - '& scripts/transcript_pipeline_v2/tools/eval_deepeval/.venv/Scripts/python.exe -m pip install -U deepeval'
+    caveat: 'Do not make English-only judge prompts the sole authority for German quality. Human gold/deterministic metrics remain primary.'
+    hypothesis: 'DeepEval reduces repeated subjective evaluation work and catches semantic regressions.'
+
+  - id: baseline_fabric
+    name: Fabric
+    lane: product_baseline
+    class: external_application
+    production_status: benchmark_only
+    role: 'Cheap transcript-to-wisdom/operator-value baseline.'
+    source: 'https://github.com/danielmiessler/Fabric'
+    install_policy: 'Verify current official Windows installation before running; do not alter production architecture.'
+    hypothesis: 'The selected APEX artifact should clearly beat or complement a mature simple prompt baseline.'
+
+  - id: baseline_open_notebook
+    name: Open-Notebook
+    lane: product_baseline
+    class: external_application
+    production_status: benchmark_or_downstream_view
+    role: 'Existing notebook/knowledge UX comparator; possible downstream consumption layer.'
+    source: 'https://github.com/lfnovo/open-notebook'
+    hypothesis: 'Existing UI may remove need for custom knowledge browsing interface if canonical artifacts can feed it acceptably.'
+
+  - id: baseline_yt_distill
+    name: yt-distill-or-close-transcript-tools
+    lane: product_baseline
+    class: external_application
+    production_status: optional_benchmark
+    role: 'Close external transcript distillation/citation implementation for architecture and output comparison.'
+    install_policy: 'Run only if current repository/install remains straightforward; do not block core benchmark.'
+
+  - id: optional_paid_oracle
+    name: capped_paid_api_oracle
+    lane: optional_external_oracle
+    class: hosted_service
+    production_status: disabled_by_default
+    role: 'Small capped experiment to establish quality ceiling or unlock framework comparison when subscription CLI integration is impractical.'
+    policy:
+      default: disabled
+      allowed_when:
+        - cost is explicitly recorded
+        - experiment is capped
+        - result answers a material architecture question
+      production_promotion_requires_operator_decision: true
+
+promotion_states:
+  - PROMOTE
+  - CONDITIONAL
+  - KEEP_AS_CHALLENGER
+  - REJECT
+  - BLOCKED
+  - UNMEASURED
+
+required_receipt_fields:
+  - component_id
+  - version_or_revision
+  - environment_path
+  - install_command_or_method
+  - installed_at
+  - smoke_test_command
+  - smoke_test_exit_code
+  - hardware_summary
+  - notes

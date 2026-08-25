@@ -1,0 +1,21 @@
+--- a/.claude/skills/PrecapWeek/weekly-command-brief-template.md
++++ b/.claude/skills/PrecapWeek/weekly-command-brief-template.md
+@@ -100,11 +100,14 @@
+ 
+ ## Provenance and confidence
+ 
+-**Project-state input:** [{{J1_LABEL}}]({{J1_REF}}) - `{{J1_VISIBLE_REF}}`  
+-**Other decisive sources:** {{SOURCE_REFS_OR_NONE}}  
+-**Freshness:** {{FRESHNESS_STATUS}}  
++Every consequential claim in this artifact carries an inline source tag `[src: <TAG>]`. Tags resolve here - exactly one hop:
++
++| Tag | Source | Freshness class (CURRENT / AGED / STALE / UNKNOWN) |
++| :--- | :--- | :--- |
++| {{TAG_1}} | [{{J1_LABEL}}]({{J1_REF}}) - `{{J1_VISIBLE_REF}}` | {{FRESHNESS_CLASS_1}} |
++
+ **Confidence:** {{HIGH | MEDIUM | LOW_AND_WHY}}  
+-**Assumptions:** {{ASSUMPTIONS_OR_NONE}}
++**Assumptions:** {{ASSUMPTIONS_WITH_TAGS_OR_NONE}}
+ 
+ ## Compact downstream handoff
+ 

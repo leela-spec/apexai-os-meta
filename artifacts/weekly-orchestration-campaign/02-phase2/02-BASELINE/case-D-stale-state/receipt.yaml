@@ -1,0 +1,23 @@
+# receipt.yaml - Case D (stale/missing source state)
+case: D-stale-state
+week_id: "2026-W36-D"
+scenario_facts:
+  session_feed: "stale by 9 days; refresh attempt fails"
+  sync_reports: "absent for Investment"
+  available_state: "last-known project set + W1 handoff seed conventions"
+generated_by:
+  agent: "ox-alpha (Hermes Agent session orchestrator)"
+  execution_context: "same session; NOT independent by design"
+inputs_supplied: ["IN-1 trajectory facts", "staleness scenario facts (02-INPUT-CORPUS.md case D)"]
+templates_used: [weekly brief 04ed2662, daily brief c96747e2, flow card ca404e60]
+material_constraints:
+  operator_validation: not_requested anywhere
+  elapsed_time_claims: none
+budget: {tokens_turns: not_measured}
+deterministic_validation: {template_sections_present: PASS, placeholder_completeness: PASS}
+validation_result: "mechanical checks pass; semantic quality NOT claimed"
+note: >
+  Case D intentionally stops at weekly+daily artifacts; its flow card follows the
+  Case-A pattern adapted with the DRIFT_SUSPECTED finding class. Full card kept
+  minimal because the eval emphasis is Q8/Q9/Q11 (confirmed-vs-assumed,
+  provenance, delta), which the two briefs carry.

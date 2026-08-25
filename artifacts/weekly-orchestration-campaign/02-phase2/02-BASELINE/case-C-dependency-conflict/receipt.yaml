@@ -1,0 +1,18 @@
+# receipt.yaml - Case C (deadline vs high-impact dependency conflict)
+case: C-dependency-conflict
+week_id: "2026-W36-C"
+scenario_facts:
+  hard_deadline: "ACIM outline print-ready THU 17:00 (venue printing)"
+  dependency: "Lika vocabulary decisions -> ACIM outline prose (direction Lika->ACIM)"
+  tension: "Lika walk = highest leverage, no external clock; ACIM = immovable deadline"
+generated_by:
+  agent: "ox-alpha (Hermes Agent session orchestrator)"
+  execution_context: "same session as other cases; NOT independent by design"
+inputs_supplied: ["IN-1 trajectory facts", "scenario deadline+dependency facts (02-INPUT-CORPUS.md case C)"]
+templates_used: [weekly brief 04ed2662, daily brief c96747e2, flow card ca404e60, prompt index b4e95f47]
+material_constraints:
+  operator_validation: not_requested anywhere
+  elapsed_time_claims: none
+budget: {tokens_turns: not_measured}
+deterministic_validation: {template_sections_present: PASS, placeholder_completeness: PASS}
+validation_result: "mechanical checks pass; semantic quality NOT claimed"

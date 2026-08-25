@@ -1,0 +1,16 @@
+# receipt.yaml - R-D
+reviewer_id: R-D
+lens: systems_contract_architecture
+model_profile: "ox-alpha via Hermes Agent session (openrouter/stealth-ox-alpha)"
+execution_primitive: "bounded packet dispatch; fresh task context"
+isolation_status: "isolated from sibling reviewer outputs and generator conversation; same base model family as orchestrator - disclosed"
+files_read:
+  - artifacts/weekly-orchestration-campaign/04-phase4/packets/R-D-systems-contract-PACKET.md
+  - artifacts/weekly-orchestration-campaign/00-phase0/00-CONTRADICTION-REGISTER.md
+  - artifacts/weekly-orchestration-campaign/01-phase1/01-FINDINGS.okf.md
+  - artifacts/weekly-orchestration-campaign/01-phase1/01-EVAL-CASES.yaml
+  - artifacts/weekly-orchestration-campaign/02-phase2/02-BASELINE/** (all five cases)
+  - .claude/skills/PrecapWeek/SKILL.md
+  - .claude/skills/PrecapNextDay/templates/**
+tools_used: [read_file, write_file]
+measurements_performed: none

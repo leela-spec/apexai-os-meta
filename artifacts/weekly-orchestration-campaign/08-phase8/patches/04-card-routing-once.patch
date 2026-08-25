@@ -1,0 +1,22 @@
+--- a/.claude/skills/PrecapNextDay/templates/flow-execution-card-template.md
++++ b/.claude/skills/PrecapNextDay/templates/flow-execution-card-template.md
+@@ -71,8 +71,7 @@
+ ### Prompt access
+ 
+ - [Open S1 prompt file]({{S1_PROMPT_FILE}}) - `{{S1_PROMPT_FILE}}`
+-- **Recommended surface:** {{S1_TARGET_SURFACE}}
+-- **Routing reference:** `{{S1_ROUTING_REF}}`
++- **Surface + routing:** see the prompt file - it carries the single authoritative route statement for this sprint
+ - **Prompt readiness:** {{READY | DEGRADED | MISSING | NOT_REQUIRED}}
+ 
+ ### Expected outputs
+@@ -107,8 +106,7 @@
+ ### Prompt access
+ 
+ - [Open S2 prompt file]({{S2_PROMPT_FILE}}) - `{{S2_PROMPT_FILE}}`
+-- **Recommended surface:** {{S2_TARGET_SURFACE}}
+-- **Routing reference:** `{{S2_ROUTING_REF}}`
++- **Surface + routing:** see the prompt file - single authoritative route statement lives there
+ - **Prompt readiness:** {{READY | DEGRADED | MISSING | NOT_REQUIRED}}
+ 
+ ### Expected outputs

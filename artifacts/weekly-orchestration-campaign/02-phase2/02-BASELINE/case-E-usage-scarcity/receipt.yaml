@@ -1,0 +1,18 @@
+# receipt.yaml - Case E (usage scarcity / routing degradation)
+case: E-usage-scarcity
+week_id: "2026-W36-E"
+scenario_facts:
+  quota: "primary recommended AI surface exhausted for the entire week"
+  fallback: "local model - slower, unproven on large contexts"
+  affected_sprints: "F1-S2 full walk DEGRADED; chunked variant prepared as mitigation"
+generated_by:
+  agent: "ox-alpha (Hermes Agent session orchestrator)"
+  execution_context: "same session; NOT independent by design"
+inputs_supplied: ["IN-1 trajectory facts", "quota/routing scenario facts (02-INPUT-CORPUS.md case E)", "PrecapNextDay usage-tracking-dependency-contract.md semantics"]
+templates_used: [weekly brief 04ed2662, daily brief c96747e2, flow card ca404e60, prompt index b4e95f47]
+material_constraints:
+  operator_validation: not_requested anywhere
+  elapsed_time_claims: none
+budget: {tokens_turns: not_measured}
+deterministic_validation: {template_sections_present: PASS, placeholder_completeness: PASS}
+validation_result: "mechanical checks pass; semantic quality NOT claimed"

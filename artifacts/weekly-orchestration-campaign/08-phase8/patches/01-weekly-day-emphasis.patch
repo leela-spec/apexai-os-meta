@@ -1,0 +1,27 @@
+--- a/.claude/skills/PrecapWeek/weekly-command-brief-template.md
++++ b/.claude/skills/PrecapWeek/weekly-command-brief-template.md
+@@ -35,14 +35,17 @@
+ | :--- | :--- | :--- | :--- |
+ | **{{PROJECT_NAME}}** | {{PROJECT_STRATEGIC_TARGET}} | • **`[{{PROJ_TAG}}-T1]`** {{SUB_TARGET_1_NAME}}: {{SUB_TARGET_1_DESC}}<br>• **`[{{PROJ_TAG}}-T2]`** {{SUB_TARGET_2_NAME}}: {{SUB_TARGET_2_DESC}} | **{{LEVERAGE_SUMMARY}}**<br>📦 *Deliverable:* {{EXPECTED_MAJOR_DELIVERABLE}} |
+ 
+-### Matrix 2: Flow-by-day calendar & execution grid
++### Day emphasis (directional only - detail belongs to PrecapNextDay)
+ 
+-| Flow | MON {{MON_DATE}} ({{MON_ROLE}})<br>FreeT: {{MON_FREET}} \| Meets: {{MON_MEETS}}<br>*{{MON_MEETING_NOTES}}* | TUE {{TUE_DATE}} ({{TUE_ROLE}})<br>FreeT: {{TUE_FREET}} \| Meets: {{TUE_MEETS}}<br>*{{TUE_MEETING_NOTES}}* | WED {{WED_DATE}} ({{WED_ROLE}})<br>FreeT: {{WED_FREET}} \| Meets: {{WED_MEETS}}<br>*{{WED_MEETING_NOTES}}* | THU {{THU_DATE}} ({{THU_ROLE}})<br>FreeT: {{THU_FREET}} \| Meets: {{THU_MEETS}}<br>*{{THU_MEETING_NOTES}}* | FRI {{FRI_DATE}} ({{FRI_ROLE}})<br>FreeT: {{FRI_FREET}} \| Meets: {{FRI_MEETS}}<br>*{{FRI_MEETING_NOTES}}* |
+-| :--- | :--- | :--- | :--- | :--- | :--- |
+-| **F1**<br>*({{F1_ROLE}})* | **[{{F1_MON_PROJECT}}] · `[{{F1_MON_TAG}}]`**<br>• S1: {{F1_MON_S1_GOAL}}<br>• S2: {{F1_MON_S2_GOAL}}<br>• S3: {{F1_MON_S3_GOAL}} | **[{{F1_TUE_PROJECT}}] · `[{{F1_TUE_TAG}}]`**<br>• S1: {{F1_TUE_S1_GOAL}}<br>• S2: {{F1_TUE_S2_GOAL}}<br>• S3: {{F1_TUE_S3_GOAL}} | **[{{F1_WED_PROJECT}}] · `[{{F1_WED_TAG}}]`**<br>• S1: {{F1_WED_S1_GOAL}}<br>• S2: {{F1_WED_S2_GOAL}}<br>• S3: {{F1_WED_S3_GOAL}} | **[{{F1_THU_PROJECT}}] · `[{{F1_THU_TAG}}]`**<br>• S1: {{F1_THU_S1_GOAL}}<br>• S2: {{F1_THU_S2_GOAL}}<br>• S3: {{F1_THU_S3_GOAL}} | **[{{F1_FRI_PROJECT}}] · `[{{F1_FRI_TAG}}]`**<br>• S1: {{F1_FRI_S1_GOAL}}<br>• S2: {{F1_FRI_S2_GOAL}}<br>• S3: {{F1_FRI_S3_GOAL}} |
+-| **F2**<br>*({{F2_ROLE}})* | **[{{F2_MON_PROJECT}}] · `[{{F2_MON_TAG}}]`**<br>• S1: {{F2_MON_S1_GOAL}}<br>• S2: {{F2_MON_S2_GOAL}}<br>• S3: {{F2_MON_S3_GOAL}} | **[{{F2_TUE_PROJECT}}] · `[{{F2_TUE_TAG}}]`**<br>• S1: {{F2_TUE_S1_GOAL}}<br>• S2: {{F2_TUE_S2_GOAL}}<br>• S3: {{F2_TUE_S3_GOAL}} | **[{{F2_WED_PROJECT}}] · `[{{F2_WED_TAG}}]`**<br>• S1: {{F2_WED_S1_GOAL}}<br>• S2: {{F2_WED_S2_GOAL}}<br>• S3: {{F2_WED_S3_GOAL}} | **[{{F2_THU_PROJECT}}] · `[{{F2_THU_TAG}}]`**<br>• S1: {{F2_THU_S1_GOAL}}<br>• S2: {{F2_THU_S2_GOAL}}<br>• S3: {{F2_THU_S3_GOAL}} | **[{{F2_FRI_PROJECT}}] · `[{{F2_FRI_TAG}}]`**<br>• S1: {{F2_FRI_S1_GOAL}}<br>• S2: {{F2_FRI_S2_GOAL}}<br>• S3: {{F2_FRI_S3_GOAL}} |
+-| **F3**<br>*({{F3_ROLE}})* | **[{{F3_MON_PROJECT}}] · `[{{F3_MON_TAG}}]`**<br>• S1: {{F3_MON_S1_GOAL}}<br>• S2: {{F3_MON_S2_GOAL}}<br>• S3: {{F3_MON_S3_GOAL}} | **[{{F3_TUE_PROJECT}}] · `[{{F3_TUE_TAG}}]`**<br>• S1: {{F3_TUE_S1_GOAL}}<br>• S2: {{F3_TUE_S2_GOAL}}<br>• S3: {{F3_TUE_S3_GOAL}} | **[{{F3_WED_PROJECT}}] · `[{{F3_WED_TAG}}]`**<br>• S1: {{F3_WED_S1_GOAL}}<br>• S2: {{F3_WED_S2_GOAL}}<br>• S3: {{F3_WED_S3_GOAL}} | **[{{F3_THU_PROJECT}}] · `[{{F3_THU_TAG}}]`**<br>• S1: {{F3_THU_S1_GOAL}}<br>• S2: {{F3_THU_S2_GOAL}}<br>• S3: {{F3_THU_S3_GOAL}} | **[{{F3_FRI_PROJECT}}] · `[{{F3_FRI_TAG}}]`**<br>• S1: {{F3_FRI_S1_GOAL}}<br>• S2: {{F3_FRI_S2_GOAL}}<br>• S3: {{F3_FRI_S3_GOAL}} |
+-| **F4**<br>*({{F4_ROLE}})* | **[{{F4_MON_PROJECT}}] · `[{{F4_MON_TAG}}]`**<br>• S1: {{F4_MON_S1_GOAL}}<br>• S2: {{F4_MON_S2_GOAL}}<br>• S3: {{F4_MON_S3_GOAL}} | **[{{F4_TUE_PROJECT}}] · `[{{F4_TUE_TAG}}]`**<br>• S1: {{F4_TUE_S1_GOAL}}<br>• S2: {{F4_TUE_S2_GOAL}}<br>• S3: {{F4_TUE_S3_GOAL}} | **[{{F4_WED_PROJECT}}] · `[{{F4_WED_TAG}}]`**<br>• S1: {{F4_WED_S1_GOAL}}<br>• S2: {{F4_WED_S2_GOAL}}<br>• S3: {{F4_WED_S3_GOAL}} | **[{{F4_THU_PROJECT}}] · `[{{F4_THU_TAG}}]`**<br>• S1: {{F4_THU_S1_GOAL}}<br>• S2: {{F4_THU_S2_GOAL}}<br>• S3: {{F4_THU_S3_GOAL}} | **[{{F4_FRI_PROJECT}}] · `[{{F4_FRI_TAG}}]`**<br>• S1: {{F4_FRI_S1_GOAL}}<br>• S2: {{F4_FRI_S2_GOAL}}<br>• S3: {{F4_FRI_S3_GOAL}} |
++| Day | Emphasis | Reason |
++| :--- | :--- | :--- |
++| MON | {{MON_EMPHASIS}} | {{MON_REASON}} |
++| TUE | {{TUE_EMPHASIS}} | {{TUE_REASON}} |
++| WED | {{WED_EMPHASIS}} | {{WED_REASON}} |
++| THU | {{THU_EMPHASIS}} | {{THU_REASON}} |
++| FRI | {{FRI_EMPHASIS}} | {{FRI_REASON}} |
++
++Day-level sprint goals and per-flow daily grids belong to the daily layer (PrecapNextDay), not this artifact. Constrained days must state a capacity class (STANDARD / REDUCED / CRITICAL) and the reason.
+ 
+ ## Project - {{PROJECT_NAME}} (repeat per active project)
+ 
