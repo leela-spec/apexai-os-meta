@@ -7,6 +7,7 @@
 - Ignore: Unrelated dirty files are irrelevant and must not trigger inspection, stashing, worktrees, branches, or discussion.
 - Escalate: Investigate only an actual command failure involving the requested files, validation, authentication, or merge conflicts.
 - Stop: Report success immediately after the push completes.
+- Filesystem: Linux agents run in ext4 workspaces (`/root/workspaces/<repo>`), never `/mnt/c` (the slow WSL 9p bridge that stalls git and causes unkillable D-state locks).
 
 ## Directness
 - Rule: For a simple push, commit, or file move, take the shortest correct path and finish it.
