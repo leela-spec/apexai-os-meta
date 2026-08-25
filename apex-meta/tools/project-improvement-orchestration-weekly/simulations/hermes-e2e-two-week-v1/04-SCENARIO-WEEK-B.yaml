@@ -1,0 +1,32 @@
+scenario_id: WEEK-B-ADAPTIVE-STRESS
+description: Stress-tested adaptive week starting from W01 state
+perturbations:
+- id: P1
+  surface: subscription_frontier_reasoning
+  state: scarce
+  capacity_pct: 22
+- id: P2
+  project: investment
+  event: external_sec_edgar_down
+  flow: F3
+- id: P3
+  project: masterofarts
+  event: hard_workshop_print_deadline
+  flow: F2
+- id: P4
+  day: wednesday
+  event: meeting_heavy_compression
+  flows_run:
+  - F1
+  - F2
+  - F4
+  omitted:
+  - F3
+- id: P5
+  flow: F1
+  event: prompt_token_overrun_2x
+  cost: 18
+- id: P6
+  board: acim
+  event: snapshot_stale_18h
+  handled: true

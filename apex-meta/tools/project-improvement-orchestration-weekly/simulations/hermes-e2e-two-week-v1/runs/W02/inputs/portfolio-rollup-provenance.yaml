@@ -1,0 +1,10 @@
+provenance_schema_version: '1.0'
+facts:
+- fact: masterofarts_lhtl_ready
+  origin: real_board_snapshot
+- fact: superherokids_workshop_priority
+  origin: apex_portfolio_decision
+- fact: ipos_indicator_expansion
+  origin: real_board_snapshot
+- fact: quota_scarcity_overlay
+  origin: synthetic_simulation_overlay

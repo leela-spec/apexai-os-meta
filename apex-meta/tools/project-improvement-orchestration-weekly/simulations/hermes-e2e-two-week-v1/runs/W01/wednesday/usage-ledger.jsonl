@@ -1,0 +1,12 @@
+{"timestamp": "2026-08-24T23:05:30.324220+00:00", "flow": "F1", "sprint": "S1", "surface": "subscription_frontier_reasoning", "credits_consumed": 6, "remaining_credits": 70}
+{"timestamp": "2026-08-24T23:05:30.328681+00:00", "flow": "F1", "sprint": "S2", "surface": "subscription_frontier_chat", "credits_consumed": 4, "remaining_credits": 66}
+{"timestamp": "2026-08-24T23:05:30.328681+00:00", "flow": "F1", "sprint": "S3", "surface": "code_agent_surface", "credits_consumed": 5, "remaining_credits": 53}
+{"timestamp": "2026-08-24T23:05:30.332332+00:00", "flow": "F2", "sprint": "S1", "surface": "subscription_frontier_chat", "credits_consumed": 4, "remaining_credits": 62}
+{"timestamp": "2026-08-24T23:05:30.335845+00:00", "flow": "F2", "sprint": "S2", "surface": "subscription_frontier_chat", "credits_consumed": 4, "remaining_credits": 58}
+{"timestamp": "2026-08-24T23:05:30.335845+00:00", "flow": "F2", "sprint": "S3", "surface": "supplemental_api_low_cost", "credits_consumed": 2, "remaining_credits": 94}
+{"timestamp": "2026-08-24T23:05:30.340627+00:00", "flow": "F3", "sprint": "S1", "surface": "deep_research_surface", "credits_consumed": 7, "remaining_credits": 79}
+{"timestamp": "2026-08-24T23:05:30.340627+00:00", "flow": "F3", "sprint": "S2", "surface": "code_agent_surface", "credits_consumed": 6, "remaining_credits": 47}
+{"timestamp": "2026-08-24T23:05:30.340627+00:00", "flow": "F3", "sprint": "S3", "surface": "code_agent_surface", "credits_consumed": 5, "remaining_credits": 42}
+{"timestamp": "2026-08-24T23:05:30.343397+00:00", "flow": "F4", "sprint": "S1", "surface": "subscription_frontier_reasoning", "credits_consumed": 6, "remaining_credits": 64}
+{"timestamp": "2026-08-24T23:05:30.343397+00:00", "flow": "F4", "sprint": "S2", "surface": "code_agent_surface", "credits_consumed": 5, "remaining_credits": 37}
+{"timestamp": "2026-08-24T23:05:30.343397+00:00", "flow": "F4", "sprint": "S3", "surface": "subscription_frontier_chat", "credits_consumed": 3, "remaining_credits": 55}

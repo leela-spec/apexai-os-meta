@@ -1,0 +1,9 @@
+receipt_id: RECEIPT-W02-WEDNESDAY
+day: wednesday
+prompts_materialized: 12
+flows_planned: 4
+flows_executed: 3
+flows_deferred: [F3]
+deferred_reason: P4_meeting_heavy_compression
+gate_G5: APPROVED
+signed_at: '2026-08-24T23:05:30.515691+00:00'

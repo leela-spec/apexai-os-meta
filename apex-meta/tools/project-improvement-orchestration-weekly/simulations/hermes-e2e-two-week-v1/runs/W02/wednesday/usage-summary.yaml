@@ -1,0 +1,17 @@
+day: wednesday
+credits_consumed_today: 57
+remaining_quota_ledger:
+  subscription_frontier_chat: 0
+  subscription_frontier_reasoning: 4
+  deep_research_surface: 44
+  agent_run_surface: 100
+  code_agent_surface: 0
+  long_context_surface: 100
+  supplemental_api_low_cost: 84
+
+net_consumed_today: 39
+reserved_and_released: 18
+deferral_note: >
+  F3 deferred under P4 meeting-heavy compression. Gross reservations (57) include
+  18 released credits for F3; net execution consumption was 39. Remaining-quota
+  figures reflect reservations held through day close and released before Thursday.

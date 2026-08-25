@@ -1,0 +1,20 @@
+{
+  "repo": "masterofarts",
+  "branch": "main",
+  "board": "masterofarts-kanban",
+  "snapshot_timestamp": "2026-08-24T23:05:30.254463+00:00",
+  "head_sha_when_available": "425dc10ccb1e",
+  "ready_count": 8,
+  "running_count": 2,
+  "blocked_count": 0,
+  "review_count": 1,
+  "consequential_ready_tasks": [
+    "masterofarts-task-01",
+    "masterofarts-task-02"
+  ],
+  "consequential_blockers": [],
+  "cross_repo_dependencies": [
+    "apexai-os-meta/control"
+  ],
+  "freshness": "live_current"
+}

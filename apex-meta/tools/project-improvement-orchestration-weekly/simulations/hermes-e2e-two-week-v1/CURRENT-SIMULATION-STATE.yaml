@@ -1,0 +1,16 @@
+status: COMPLETED_CLOSED_LOOP
+current_week: W02
+current_day: saturday-review
+current_task: SYNTHESIS
+total_prompts_materialized: 120
+prompt_bodies_unique: 120
+manifest_verified: true
+acceptance_audit:
+  tool: _repair/audit.py
+  verdict: PASS
+  verified_at: '2026-08-25T00:00:00+00:00'
+repair_passes:
+- R1: prompt corpus diversification (DEF-004) + W02-Wednesday deferral reconciliation (DEF-005)
+- R2: reviewer rubric deepening (DEF-006) + daily-brief differentiation (DEF-007)
+active_quota_ledger: runs/W02/friday/usage-summary.yaml
+completed_at: '2026-08-24T23:05:30.582339+00:00'

@@ -1,0 +1,18 @@
+{
+  "repo": "apex",
+  "branch": "main",
+  "board": "apex-kanban",
+  "snapshot_timestamp": "2026-08-24T23:05:30.254463+00:00",
+  "head_sha_when_available": "846be5fc541c",
+  "ready_count": 8,
+  "running_count": 2,
+  "blocked_count": 0,
+  "review_count": 1,
+  "consequential_ready_tasks": [
+    "apex-task-01",
+    "apex-task-02"
+  ],
+  "consequential_blockers": [],
+  "cross_repo_dependencies": [],
+  "freshness": "live_current"
+}

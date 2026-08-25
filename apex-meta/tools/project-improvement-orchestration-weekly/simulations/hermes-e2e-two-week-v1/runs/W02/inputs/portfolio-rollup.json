@@ -1,0 +1,87 @@
+{
+  "rollup_schema_version": "2.0",
+  "generated_at": "2026-08-24T23:05:30.418694+00:00",
+  "status": "derived_not_authoritative",
+  "repositories": {
+    "apex": {
+      "repo": "apex",
+      "branch": "main",
+      "board": "apex-kanban",
+      "snapshot_timestamp": "2026-08-24T23:05:30.418694+00:00",
+      "head_sha_when_available": "846be5fc541c",
+      "ready_count": 6,
+      "running_count": 2,
+      "blocked_count": 0,
+      "review_count": 1,
+      "consequential_ready_tasks": [
+        "apex-task-01",
+        "apex-task-02"
+      ],
+      "consequential_blockers": [],
+      "cross_repo_dependencies": [],
+      "freshness": "live_current"
+    },
+    "masterofarts": {
+      "repo": "masterofarts",
+      "branch": "main",
+      "board": "masterofarts-kanban",
+      "snapshot_timestamp": "2026-08-24T23:05:30.418694+00:00",
+      "head_sha_when_available": "425dc10ccb1e",
+      "ready_count": 6,
+      "running_count": 2,
+      "blocked_count": 0,
+      "review_count": 1,
+      "consequential_ready_tasks": [
+        "masterofarts-task-01",
+        "masterofarts-task-02"
+      ],
+      "consequential_blockers": [],
+      "cross_repo_dependencies": [
+        "apexai-os-meta/control"
+      ],
+      "freshness": "live_current"
+    },
+    "acim": {
+      "repo": "acim",
+      "branch": "main",
+      "board": "acim-kanban",
+      "snapshot_timestamp": "2026-08-24T23:05:30.418694+00:00",
+      "head_sha_when_available": "d6ea4ab45468",
+      "ready_count": 6,
+      "running_count": 2,
+      "blocked_count": 0,
+      "review_count": 1,
+      "consequential_ready_tasks": [
+        "acim-task-01",
+        "acim-task-02"
+      ],
+      "consequential_blockers": [],
+      "cross_repo_dependencies": [
+        "apexai-os-meta/control"
+      ],
+      "freshness": "stale_18h"
+    },
+    "investment": {
+      "repo": "investment",
+      "branch": "main",
+      "board": "investment-kanban",
+      "snapshot_timestamp": "2026-08-24T23:05:30.418694+00:00",
+      "head_sha_when_available": "f9b21c4bda58",
+      "ready_count": 6,
+      "running_count": 2,
+      "blocked_count": 2,
+      "review_count": 1,
+      "consequential_ready_tasks": [
+        "investment-task-01",
+        "investment-task-02"
+      ],
+      "consequential_blockers": [
+        "SEC_EDGAR_API_OFFLINE"
+      ],
+      "cross_repo_dependencies": [
+        "apexai-os-meta/control"
+      ],
+      "freshness": "live_current"
+    }
+  }
+}

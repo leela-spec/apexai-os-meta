@@ -1,0 +1,9 @@
+handoff_version: '1.0'
+week: W01
+active_flows:
+- F1
+- F2
+- F3
+- F4
+governing_brief: weekly-command-brief.md
+status: HANDOFF_SEALED

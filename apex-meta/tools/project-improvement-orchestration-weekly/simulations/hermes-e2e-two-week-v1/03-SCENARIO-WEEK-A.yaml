@@ -1,0 +1,13 @@
+scenario_id: WEEK-A-BASELINE
+description: Baseline operational week across 4 repos
+managed_repos:
+- apex
+- masterofarts
+- acim
+- investment
+calendar_state: normal
+initial_credits_per_surface: 100
+forced_failure:
+  day: wednesday
+  flow: F3
+  type: upstream_api_timeout

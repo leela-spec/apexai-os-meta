@@ -1,0 +1,22 @@
+{
+  "repo": "investment",
+  "branch": "main",
+  "board": "investment-kanban",
+  "snapshot_timestamp": "2026-08-24T23:05:30.418694+00:00",
+  "head_sha_when_available": "f9b21c4bda58",
+  "ready_count": 6,
+  "running_count": 2,
+  "blocked_count": 2,
+  "review_count": 1,
+  "consequential_ready_tasks": [
+    "investment-task-01",
+    "investment-task-02"
+  ],
+  "consequential_blockers": [
+    "SEC_EDGAR_API_OFFLINE"
+  ],
+  "cross_repo_dependencies": [
+    "apexai-os-meta/control"
+  ],
+  "freshness": "live_current"
+}
