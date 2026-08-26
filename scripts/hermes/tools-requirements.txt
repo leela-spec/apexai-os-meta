@@ -1,0 +1,12 @@
+# APEX shared Python tools for the Hermes single-container runtime (ARCH-IMP-02).
+# Installed by scripts/hermes/bootstrap-tools.sh into a persistent venv.
+#
+# Pins: after the FIRST successful bootstrap, copy the exact versions from
+# tools-resolved-versions.txt (written next to the venv) into this file so the
+# environment is fully reproducible. Until then these float to the latest.
+
+docx2python
+# add more shared tools here as needed, e.g.:
+# python-docx
+# openpyxl
+# pypdf
