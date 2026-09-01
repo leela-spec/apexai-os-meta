@@ -79,6 +79,8 @@ Historical V2.1 files reported completed implementation and satisfied hard gates
 | Priority | Document / Asset | Status | Purpose |
 | :---: | :--- | :--- | :--- |
 | **00** | `00-INDEX.md` | **Current** | Master catalog and current decision-workspace route. |
+| **00.F** | `FEEDBACK_AND_TODO_IMPROVEMENTS_V4.1.md` | **Active Backlog** | Architectural review, evaluation scorecard, and prioritized P0/P1/P2 improvement TODOs for V4.1. |
+| **00.R** | `SOURCE_TO_KB_TOOLS_RANKING_AND_ANALYSIS.md` | **Active Research** | Master 1–100 Impact/Evidence/Risk ranking and detailed profiles of 31 Source-to-KB tools/frameworks. |
 | **00.C** | `current-decision-workspace/**` | **Current authority** | Current decisions, recommendation, matrix, scenarios, open tests and source captures. |
 | **00.V3** | `v3-proven-infrastructure/**` | Research/process evidence | Evidence-first process correction and component registry. |
 | **00.V2** | `v2-reuse-bakeoff/**` | Historical/candidate evidence | Reuse-first research, old bake-off and prior implementation. |

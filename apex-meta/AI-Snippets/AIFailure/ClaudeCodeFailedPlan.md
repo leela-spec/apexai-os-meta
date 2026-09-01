@@ -1,0 +1,189 @@
+# G0.2 — Hermes Single-Container Runtime: Migration Runbook
+
+**For:** the engineer / execution session performing the migration.
+**Goal:** move Hermes from the current *split* setup (agent on WSL host + separate Docker
+sandbox) to **Architecture 3** — the whole agent in **one persistent container**, with
+`terminal.backend: local`, so there are no cross-environment bridges.
+**Companion docs:** `apex-meta/AI-Snippets/AIFailure/HERMES-ARCHITECTURE-HISTORY-AND-DECISION.md`
+(the why); `scripts/hermes/bootstrap-tools.sh` (the tool installer this runbook calls).
+
+> Execute the gates in order. Each gate has a **check** that must pass before continuing.
+> If a check fails, STOP and use §Rollback. Do not improvise around a failed gate.
+
+---
+
+## Operator (non-engineer) responsibilities — only two things
+
+1. **GitHub token** (the one secret nobody but you can supply): create a fine-grained
+   Personal Access Token, **Contents: Read and write**, scoped to `leela-spec/apexai-os-meta`,
+   `leela-spec/MasterOfArts`, `leela-spec/Investment`, `leela-spec/acim-secular`.
+   **Do NOT grant access to any `leela` / `Leela-Cloud` / `leela-openclaw` repo.**
+2. **Approve the go/no-go** at the final gate.
+
+Everything else is mechanical and belongs to the execution session.
+
+---
+
+## Hard constraints (do not violate)
+
+- **Leela exclusion:** never clone or mount `leela`, `Leela-Cloud-2026`, or `leela-openclaw-beta`.
+  Only the four canonical repos below.
+- **No `/mnt/c`:** never mount the Windows filesystem into the container (that reintroduces the
+  slow 9p bridge and a door to Windows files).
+- **No second sandbox:** `terminal.backend` must be `local` (the container is the sandbox).
+- Existing-file edits must be exact-match patches, not whole-file rewrites.
+
+Canonical repos (ext4 host copies, all already synced to origin):
+`/root/workspaces/{apexai-os-meta, MasterOfArts, Investment, acim-secular}`
+
+---
+
+## Gate 0 — Backup (safety net)
+
+```bash
+# from WSL, as root
+cp -a /root/.hermes /root/.hermes.backup-pre-arch3
+ls -la /root/.hermes.backup-pre-arch3   # confirm it exists
+docker --version                         # confirm docker is available in WSL
+```
+**Check:** backup dir exists AND `docker --version` prints a version.
+*(The backup contains secrets — keep it local, root-only.)*
+
+---
+
+## Gate 1 — Stop the old runtime
+
+```bash
+# stop any host-run Hermes + its old spawned sandbox containers
+pkill -f 'hermes-agent' 2>/dev/null || true
+docker ps    # note any hermes* containers from the OLD split setup
+# docker stop / docker rm those OLD sandbox containers if present
+```
+**Check:** `docker ps` shows no old Hermes sandbox containers running.
+
+---
+
+## Gate 2 — Configure for the container runtime
+
+Edit `/root/.hermes/config.yaml` (exact-match patches) so the containerized agent runs
+commands in its own container:
+
+```yaml
+terminal:
+  backend: local          # was: docker   → the container IS the sandbox now
+```
+Leave `container_persistent`, kanban, model, etc. as-is. The old
+`docker_volumes` / `docker_mount_cwd_to_workspace` keys are now irrelevant (no sub-sandbox).
+
+**Check:** `grep 'backend:' /root/.hermes/config.yaml` shows `local`.
+
+---
+
+## Gate 3 — Launch Hermes as ONE container
+
+Repos are shared into the container per **decision §5b** (single ext4 copy, mounted; excludes
+Leela by construction). Kanban/config/memory come in via the `/opt/data` volume.
+
+```bash
+docker run -d \
+  --name hermes \
+  --restart unless-stopped \
+  -v /root/.hermes:/opt/data \
+  -v /root/workspaces:/root/workspaces \
+  -p 8642:8642 \
+  -p 9119:9119 \
+  -e HERMES_DASHBOARD=1 \
+  --memory 4g --cpus 2 \
+  nousresearch/hermes-agent:latest gateway run
+```
+> `-e HERMES_DASHBOARD=1` is **required** to enable the dashboard on port 9119 (verified against
+> the Hermes Docker docs). Without it, `http://localhost:9119` will not come up.
+- `/opt/data` ← `~/.hermes`: brings the **5 existing kanban boards**, config, memory, skills.
+- `/root/workspaces` mounted read-write: the **4 canonical repos** at the same path. **No Leela, no `/mnt/c`.**
+
+**Check:**
+```bash
+docker ps --filter name=hermes            # STATUS = Up
+docker exec hermes ls /root/workspaces    # lists exactly the 4 repos, no leela
+docker exec hermes ls /opt/data/kanban/boards   # lists the 5 boards
+# DATA-SAFETY: the git-ignored on-disk materials must still be there (mount, not copy):
+docker exec hermes bash -lc 'git -C /root/workspaces/apexai-os-meta ls-files --others --ignored --exclude-standard | wc -l'  # expect ~42,780 (vendor repos)
+docker exec hermes bash -lc 'git -C /root/workspaces/MasterOfArts   ls-files --others --ignored --exclude-standard | wc -l'  # expect ~460 (books/media/source materials)
+```
+If either count is ~0, the mount is wrong — STOP and fix before continuing (do NOT proceed on a fresh clone; those files are not on GitHub).
+
+---
+
+## Gate 4 — Provide the GitHub token (operator hands it over — DEFERRABLE)
+
+> **This gate can be skipped during the initial migration.** The 4 repos are already cloned and
+> synced on disk and come in via the mount (Gate 3), so Hermes works immediately without a token.
+> You only need this when Hermes must **push/pull** the private repos itself. Do it now or later.
+
+Inside the container's git HOME, create the credential (operator supplies `<GITHUB_USERNAME>` and
+`<TOKEN>`). Documented format is `username:token`:
+
+```bash
+docker exec -it hermes bash -lc '
+  mkdir -p /opt/data/home &&
+  printf "https://<GITHUB_USERNAME>:<TOKEN>@github.com\n" > /opt/data/home/.git-credentials &&
+  chmod 600 /opt/data/home/.git-credentials &&
+  git config --global credential.helper store &&
+  git config --global user.name  "AlexOG" &&
+  git config --global user.email "gehmalexander@gmail.com"
+'
+```
+> If you are unsure of your exact GitHub username, `https://<TOKEN>@github.com` (token as username)
+> also authenticates a fine-grained PAT.
+**Check:** private-repo access works from inside the container:
+```bash
+docker exec hermes git -C /root/workspaces/MasterOfArts ls-remote --heads origin | head -1
+```
+(prints a ref = success; hang/error = token wrong).
+
+---
+
+## Gate 5 — Bootstrap the tools (self-healing installer)
+
+```bash
+docker exec hermes bash -lc 'cd /root/workspaces/apexai-os-meta && bash scripts/hermes/bootstrap-tools.sh'
+```
+**Check:** the script ends with `OK — all tools present and verified.` and prints versions for
+pandoc, pdftotext, pdftoppm, docx2python.
+
+---
+
+## Gate 6 — Final verification (go/no-go)
+
+```bash
+# dashboard reachable (from Windows browser: http://localhost:9119)
+curl -sfo /dev/null http://127.0.0.1:9119 && echo "dashboard OK"
+# boards visible to Hermes' own tools (native, host-side process): confirm in a Hermes session
+# git round-trip on a private repo:
+docker exec hermes git -C /root/workspaces/acim-secular fetch origin --quiet && echo "git OK"
+```
+**Check:** dashboard OK + git OK + a Hermes session lists all boards and can read a repo.
+**Operator go/no-go:** if all green, the migration is complete.
+
+---
+
+## Rollback (if any gate fails)
+
+```bash
+docker stop hermes && docker rm hermes           # remove the new container
+rm -rf /root/.hermes && mv /root/.hermes.backup-pre-arch3 /root/.hermes   # restore state
+# revert config.yaml terminal.backend to its previous value if you changed it
+# restart the previous host Hermes the way you launched it before
+```
+Nothing is lost: repos are on ext4 + GitHub; `~/.hermes` is restored from the Gate-0 backup.
+
+---
+
+## After success — what changed for good
+
+- One environment. No 9p, no separate sandbox, no bridges.
+- Tools live in the container (via `/opt/data/tools/venv`), reinstallable anytime by re-running
+  `bootstrap-tools.sh` — so a rebuild self-heals.
+- The old host-side launcher guards (`/usr/local/bin/hermes*`, `~/.bashrc` ext4 guard) become
+  moot (Hermes now runs from the image); they are harmless and can be left or cleaned up later.
+- Windows-side work (`C:\GitDev`, other CLI agents) is unchanged and syncs via GitHub as before.

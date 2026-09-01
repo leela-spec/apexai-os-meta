@@ -1,14 +1,14 @@
 {
   "schema_version": 1,
   "program": "hermes_multi_repo_orchestration_v2",
-  "generated_at": "2026-08-24T21:24:26.159799+00:00",
+  "generated_at": "2026-08-31T07:43:36.144936+00:00",
   "status": "PASS",
   "repositories": {
     "apex": {
       "name": "Apex AIOS Meta",
       "repo": "leela-spec/apexai-os-meta",
       "branch": "main",
-      "head": "9db80abd34cc5400d45de8efeaf253da375dab90",
+      "head": "92aa8b45af61965404ae2253bb7f5d8beb1d6546",
       "board": "apex",
       "active_tasks_count": 1,
       "tasks": [
@@ -27,7 +27,7 @@
       "name": "Master of Arts",
       "repo": "leela-spec/MasterOfArts",
       "branch": "main",
-      "head": "325924fdd6e12e92607add5cde9250251e700530",
+      "head": "5f126d4cc48cea4f60e17b6aa6734d561ec1e9bd",
       "board": "masterofarts",
       "active_tasks_count": 4,
       "tasks": [
@@ -41,30 +41,30 @@
           "completed_at": 1787590159
         },
         {
-          "id": "task_moa_1200_lhtl",
-          "title": "[SCHEDULED 12:00] LHTL Differentiating Value Extraction, Website Pages & Social Content",
-          "status": "todo",
+          "id": "task_moa_0300_lhtl",
+          "title": "[SCHEDULED 03:00 AM] LHTL Differentiating Value Extraction, Website Pages & Social Content",
+          "status": "ready",
           "assignee": null,
           "priority": 1,
-          "created_at": 1787606598,
+          "created_at": 1787609374,
           "completed_at": null
         },
         {
-          "id": "task_moa_1400_meditation",
-          "title": "[SCHEDULED 14:00] Science of Meditation Website Subpage & Scientific Distillation",
-          "status": "todo",
+          "id": "task_moa_0400_meditation",
+          "title": "[SCHEDULED 04:00 AM] Science of Meditation Website Subpage & Scientific Distillation",
+          "status": "ready",
           "assignee": null,
           "priority": 1,
-          "created_at": 1787606598,
+          "created_at": 1787609374,
           "completed_at": null
         },
         {
-          "id": "task_moa_1500_superherokids",
-          "title": "[SCHEDULED 15:00] SuperHeroKids Workshop Subpage, Offers & Social Media Posts",
-          "status": "todo",
+          "id": "task_moa_0500_superherokids",
+          "title": "[SCHEDULED 05:00 AM] SuperHeroKids Workshop Subpage, Offers & Social Media Posts",
+          "status": "ready",
           "assignee": null,
           "priority": 1,
-          "created_at": 1787606598,
+          "created_at": 1787609374,
           "completed_at": null
         }
       ]
@@ -92,7 +92,7 @@
       "name": "Investment",
       "repo": "leela-spec/Investment",
       "branch": "main",
-      "head": "40dc442f26e3c2bb24305e876ecd4ec1328d989b",
+      "head": "16a80aa2ea5af542638eda9e23a3d2f78b4c81e5",
       "board": "investment",
       "active_tasks_count": 2,
       "tasks": [
@@ -106,12 +106,12 @@
           "completed_at": 1787590159
         },
         {
-          "id": "task_inv_1600_ipos_phase3",
-          "title": "[SCHEDULED 16:00] IPOS Phase 3 Indicator Coverage Expansion (22 -> 60) & Backtesting Pipeline",
-          "status": "todo",
+          "id": "task_inv_0600_ipos_phase3",
+          "title": "[SCHEDULED 06:00 AM] IPOS Phase 3 Indicator Coverage Expansion (22 -> 60) & Backtesting Pipeline",
+          "status": "ready",
           "assignee": null,
           "priority": 1,
-          "created_at": 1787606598,
+          "created_at": 1787609374,
           "completed_at": null
         }
       ]

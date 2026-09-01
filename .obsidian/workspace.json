@@ -20,8 +20,23 @@
               "icon": "lucide-file",
               "title": "Snippets"
             }
+          },
+          {
+            "id": "aeb9ff58649f6be2",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "apex-meta/kb/claude-code-orchestration-design/wiki/summaries/informatics-design-formats-practice-guide.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "informatics-design-formats-practice-guide"
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -55,7 +70,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "\"C:\\GitDev\\WorkingPatchInstructionFormat.md",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -161,7 +176,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "apex-meta/AI-Snippets/Snippets.md",
+                "file": "apex-meta/kb/claude-code-orchestration-design/wiki/summaries/informatics-design-formats-practice-guide.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
@@ -175,7 +190,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 200
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -188,43 +203,43 @@
       "bases:Create new base": false
     }
   },
-  "active": "936801a0bdf106d3",
+  "active": "aeb9ff58649f6be2",
   "lastOpenFiles": [
-    "FEE/PossiblyOld&Wrong/OPENCLAW-LOCAL-LLM-MASTER-BRIEF.md",
-    "FEE/PossiblyOld&Wrong/apexai-os-meta-updates.bundle",
-    "FEE/PossiblyOld&Wrong/apexai-os-meta-qwen3-8b-handover.bundle",
-    "FEE/PossiblyOld&Wrong/apexai-os-meta-prompt-g.bundle",
-    "FEE/PossiblyOld&Wrong/apexai-os-meta-prompt-g-results.bundle",
-    "FEE/PossiblyOld&Wrong/apexai-os-meta-moe-fix.bundle",
-    "FEE/PossiblyOld&Wrong/apexai-os-meta-fix.bundle",
-    "FEE/PossiblyOld&Wrong/apexai-os-meta-ai-browser-orchestration.bundle",
-    "FEE/PossiblyOld&Wrong",
-    "SourceTranscriptionAnalysisPipeline_Research/v3-proven-infrastructure/execution-modules/README.md",
-    "SourceTranscriptionAnalysisPipeline_Research/v3-proven-infrastructure/execution-modules/M07-THREE-SOURCE-E2E-REGRESSION.md",
-    "SourceTranscriptionAnalysisPipeline_Research/v3-proven-infrastructure/execution-modules/M05-EVALUATION-AND-SELECTION.md",
-    "SourceTranscriptionAnalysisPipeline_Research/v3-proven-infrastructure/execution-modules/M06-PRODUCTION-INTEGRATION.md",
-    "SourceTranscriptionAnalysisPipeline_Research/v3-proven-infrastructure/execution-modules/M04-GLOBAL-SYNTHESIS-AND-KNOWLEDGE-BAKEOFF.md",
-    "SourceTranscriptionAnalysisPipeline_Research/v3-proven-infrastructure/execution-modules/M03-GROUNDED-EXTRACTION-BAKEOFF.md",
-    "SourceTranscriptionAnalysisPipeline_Research/v3-proven-infrastructure/execution-modules/M02-ASR-AND-TRANSCRIPT-BASELINE.md",
-    "SourceTranscriptionAnalysisPipeline_Research/v3-proven-infrastructure/execution-modules/M01-PROVEN-SYSTEMS-LANDSCAPE-AND-BASELINES.md",
-    "SourceTranscriptionAnalysisPipeline_Research/v3-proven-infrastructure/execution-modules/M00-ORCHESTRATION-SMOKE.md",
-    "SourceTranscriptionAnalysisPipeline_Research/v3-proven-infrastructure/execution-modules",
-    "SourceTranscriptionAnalysisPipeline_Research/v3-proven-infrastructure/CURRENT-WORK.md",
-    "SourceTranscriptionAnalysisPipeline_Research/v3-proven-infrastructure/06-V3-ORCHESTRATOR-HANDOVER.md",
-    "SourceTranscriptionAnalysisPipeline_Research/v3-proven-infrastructure/05-V3-OPENCLAW-ANTIGRAVITY-ORCHESTRATION.md",
-    "SourceTranscriptionAnalysisPipeline_Research/v3-proven-infrastructure/03-V3-BENCHMARK-AND-TEST-SPEC.yaml",
-    "SourceTranscriptionAnalysisPipeline_Research/v3-proven-infrastructure/02-V3-IMPLEMENTATION-PLAN.md",
-    "SourceTranscriptionAnalysisPipeline_Research/v3-proven-infrastructure/01-V3-ARCHITECTURE.md",
-    "SourceTranscriptionAnalysisPipeline_Research/v3-proven-infrastructure/00-START-HERE.md",
-    "SourceTranscriptionAnalysisPipeline_Research/v2-reuse-bakeoff/archive-pre-v3-authority/execution-modules-README.original.md",
-    "SourceTranscriptionAnalysisPipeline_Research/v2-reuse-bakeoff/archive-pre-v3-authority/11-V2.1-STAGE-BY-STAGE-IMPLEMENTATION-PLAN.original.md",
-    "SourceTranscriptionAnalysisPipeline_Research/v2-reuse-bakeoff/archive-pre-v3-authority/10-V2.1-RECOMMENDED-END-TO-END-ARCHITECTURE.original.md",
-    "SourceTranscriptionAnalysisPipeline_Research/v2-reuse-bakeoff/archive-pre-v3-authority/00-START-HERE.original.md",
-    "SourceTranscriptionAnalysisPipeline_Research/v2-reuse-bakeoff/archive-pre-v3-authority/00-ORCHESTRATOR-GUIDE.original.md",
-    "artifacts/ttk_runs/P-h5WSQG1Sw/wiki/concepts/caltech.md",
-    "artifacts/ttk_runs/CygwqaNg2PY/wiki/concepts/elliott-wave-principle.md",
-    "apex-meta/AI-Snippets/AIFailure/ClaudePlanContextFuckup.md",
-    "artifacts/transcript_pipeline_v2/runs/ttk_20260819_095347_CygwqaNg2PY_069f8a/handoffs/S00-HANDOVER.md",
-    "artifacts/transcript_pipeline_v2/runs/ttk_20260819_094549_CygwqaNg2PY_fe83d6/handoffs/S00-HANDOVER.md"
+    "apex-meta/SmallSkills/OKF_Format/adoption-project/informatics-design-research-location.md",
+    "apex-meta/AI-Snippets/Active State 2.0s Pulsating Ambient Core Glow.okf.md",
+    "apex-meta/SmallSkills/OKF_Format/index.md.tmp.79416.4b821801c863",
+    "apex-meta/SmallSkills/OKF_Format/adoption-project/log.md",
+    "apex-meta/SmallSkills/OKF_Format/adoption-project/log.md.tmp.79416.5fb58ccc07fd",
+    "apex-meta/SmallSkills/OKF_Format/adoption-project/next-steps.md",
+    "apex-meta/SmallSkills/OKF_Format/adoption-project/next-steps.md.tmp.79416.af4ba01fdf1e",
+    "apex-meta/SmallSkills/OKF_Format/adoption-project/apex-meta-okf-usage-audit.md",
+    "apex-meta/SmallSkills/OKF_Format/adoption-project/apex-meta-okf-usage-audit.md.tmp.79416.aee63dcf4d2b",
+    "apex-meta/SmallSkills/OKF_Format/adoption-project/informatics-design-research-location.md.tmp.79416.978696c1842c",
+    "apex-meta/SmallSkills/OKF_Format/adoption-project/leela-ssot-migration-assessment.md",
+    "apex-meta/SmallSkills/OKF_Format/adoption-project/leela-ssot-migration-assessment.md.tmp.79416.2d6e0d2282ad",
+    "apex-meta/SmallSkills/OKF_Format/adoption-project/tooling-option-comparison.md",
+    "apex-meta/SmallSkills/OKF_Format/adoption-project/tooling-option-comparison.md.tmp.79416.6f9375aecbef",
+    "apex-meta/SmallSkills/OKF_Format/adoption-project/index.md",
+    "apex-meta/SmallSkills/OKF_Format/adoption-project/index.md.tmp.79416.014f9a3f3dcb",
+    "apex-meta/SmallSkills/OKF_Format/adoption-project",
+    "apex-meta/SmallSkills/OKF_Format/log.md",
+    "apex-meta/SmallSkills/OKF_Format/log.md.tmp.79416.1186c03d53a1",
+    "apex-meta/SmallSkills/OKF_Format/conformance-rules.md",
+    "apex-meta/SmallSkills/OKF_Format/attested-computation.md",
+    "apex-meta/SmallSkills/OKF_Format/cross-linking-and-citations.md",
+    "apex-meta/SmallSkills/OKF_Format/provenance-and-trust.md",
+    "apex-meta/SmallSkills/OKF_Format/frontmatter-fields.md",
+    "apex-meta/SmallSkills/OKF_Format/bundle-structure.md",
+    "apex-meta/SmallSkills/OKF_Format/index.md",
+    "apex-meta/SmallSkills/Prompting/Claude_Design/log.md",
+    "apex-meta/SmallSkills/Prompting/Claude_Design/manual-editing-modes.md",
+    "apex-meta/SmallSkills/Prompting/Claude_Design/known-issues-and-quota.md",
+    "apex-meta/SmallSkills/Prompting/Claude_Design/iteration-workflow.md",
+    "apex-meta/SmallSkills/Prompting/Claude_Design/index.md",
+    "apex-meta/SmallSkills/Prompting/Claude_Design/garment-app-prompting.md",
+    "apex-meta/SmallSkills/Prompting/Claude_Design/design-system-lock.md",
+    "apex-meta/SmallSkills/Prompting/Claude_Design/context-persistence.md",
+    "apex-meta/SmallSkills/Prompting/Claude_Design/anti-slop-constraints.md",
+    "apex-meta/tools/project-improvement-orchestration-weekly/simulations/hermes-e2e-two-week-v1/runs/W01/friday/status-merge.md"
   ]
 }
