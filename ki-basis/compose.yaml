@@ -26,12 +26,31 @@ volumes:
     name: ki-basis-openproject-assets
 
 services:
-  # Base stack network anchor / placeholder during skeleton initialization
-  # Individual application services (postgres, valkey, firefly, paperless, openproject, nginx, hermes)
-  # are added module-by-module in sequence M2 through M8.
-  stack-init:
-    image: alpine:latest
-    command: ["echo", "ki-basis stack skeleton initialized"]
-    restart: "no"
+  postgres:
+    image: pgvector/pgvector:pg16
+    container_name: ki-basis-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgres_secure_placeholder_password}
+      POSTGRES_DB: ${POSTGRES_DB:-postgres}
+      FIREFLY_DB_USER: ${FIREFLY_DB_USER:-firefly_app}
+      FIREFLY_DB_PASSWORD: ${FIREFLY_DB_PASSWORD:-firefly_secure_placeholder_password}
+      FIREFLY_DB_NAME: ${FIREFLY_DB_NAME:-firefly}
+      PAPERLESS_DB_USER: ${PAPERLESS_DB_USER:-paperless_app}
+      PAPERLESS_DB_PASSWORD: ${PAPERLESS_DB_PASSWORD:-paperless_secure_placeholder_password}
+      PAPERLESS_DB_NAME: ${PAPERLESS_DB_NAME:-paperless}
+      OPENPROJECT_DB_USER: ${OPENPROJECT_DB_USER:-openproject_app}
+      OPENPROJECT_DB_PASSWORD: ${OPENPROJECT_DB_PASSWORD:-openproject_secure_placeholder_password}
+      OPENPROJECT_DB_NAME: ${OPENPROJECT_DB_NAME:-openproject}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./docker/postgres/init:/docker-entrypoint-initdb.d:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-postgres}"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
     networks:
       - ki-basis-net
