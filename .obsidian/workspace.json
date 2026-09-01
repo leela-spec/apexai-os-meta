@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "apex-meta/kb/claude-code-orchestration-design/wiki/summaries/informatics-design-formats-practice-guide.md",
+                "file": "apex-meta/Alpine/ARCHITEKTUR-BASIS.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "informatics-design-formats-practice-guide"
+              "title": "ARCHITEKTUR-BASIS"
             }
           }
         ],
@@ -176,7 +176,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "apex-meta/kb/claude-code-orchestration-design/wiki/summaries/informatics-design-formats-practice-guide.md",
+                "file": "apex-meta/Alpine/ARCHITEKTUR-BASIS.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
@@ -205,6 +205,26 @@
   },
   "active": "aeb9ff58649f6be2",
   "lastOpenFiles": [
+    "apex-meta/Alpine/ImplementationPlans/README.md",
+    "apex-meta/Alpine/ImplementationPlans/08-INTEGRATION-ACCEPTANCE-CHECKLIST.md",
+    "apex-meta/Alpine/ImplementationPlans/07-HERMES-IMPLEMENTATION-PLAN.md",
+    "apex-meta/Alpine/ImplementationPlans/06-OPENPROJECT-IMPLEMENTATION-PLAN.md",
+    "apex-meta/Alpine/ImplementationPlans/05-PAPERLESS-NGX-IMPLEMENTATION-PLAN.md",
+    "apex-meta/Alpine/ImplementationPlans/04-FIREFLY-IMPLEMENTATION-PLAN.md",
+    "apex-meta/Alpine/ImplementationPlans/03-VALKEY-IMPLEMENTATION-PLAN.md",
+    "apex-meta/Alpine/ImplementationPlans/02-POSTGRES-PGVECTOR-IMPLEMENTATION-PLAN.md",
+    "apex-meta/Alpine/ImplementationPlans/01-NGINX-IMPLEMENTATION-PLAN.md",
+    "apex-meta/Alpine/ImplementationPlans/00-META-IMPLEMENTATION-PLAN.md",
+    "apex-meta/Alpine/ImplementationPlans",
+    "apex-meta/Alpine/New folder",
+    "apex-meta/Alpine/README.md",
+    "apex-meta/Alpine/08-INTEGRATION-ACCEPTANCE-CHECKLIST.md",
+    "apex-meta/Alpine/00-META-IMPLEMENTATION-PLAN.md",
+    "apex-meta/Alpine/2026-09-01-alpine-image-build.md",
+    "apex-meta/Alpine/ARCHITEKTUR-BASIS.md",
+    "apex-meta/kb/claude-code-orchestration-design/wiki/summaries/informatics-design-formats-practice-guide.md",
+    "apex-meta/Alpine",
+    "apex-meta/New folder",
     "apex-meta/SmallSkills/OKF_Format/adoption-project/informatics-design-research-location.md",
     "apex-meta/AI-Snippets/Active State 2.0s Pulsating Ambient Core Glow.okf.md",
     "apex-meta/SmallSkills/OKF_Format/index.md.tmp.79416.4b821801c863",
@@ -218,28 +238,8 @@
     "apex-meta/SmallSkills/OKF_Format/adoption-project/leela-ssot-migration-assessment.md",
     "apex-meta/SmallSkills/OKF_Format/adoption-project/leela-ssot-migration-assessment.md.tmp.79416.2d6e0d2282ad",
     "apex-meta/SmallSkills/OKF_Format/adoption-project/tooling-option-comparison.md",
-    "apex-meta/SmallSkills/OKF_Format/adoption-project/tooling-option-comparison.md.tmp.79416.6f9375aecbef",
     "apex-meta/SmallSkills/OKF_Format/adoption-project/index.md",
-    "apex-meta/SmallSkills/OKF_Format/adoption-project/index.md.tmp.79416.014f9a3f3dcb",
-    "apex-meta/SmallSkills/OKF_Format/adoption-project",
     "apex-meta/SmallSkills/OKF_Format/log.md",
-    "apex-meta/SmallSkills/OKF_Format/log.md.tmp.79416.1186c03d53a1",
-    "apex-meta/SmallSkills/OKF_Format/conformance-rules.md",
-    "apex-meta/SmallSkills/OKF_Format/attested-computation.md",
-    "apex-meta/SmallSkills/OKF_Format/cross-linking-and-citations.md",
-    "apex-meta/SmallSkills/OKF_Format/provenance-and-trust.md",
-    "apex-meta/SmallSkills/OKF_Format/frontmatter-fields.md",
-    "apex-meta/SmallSkills/OKF_Format/bundle-structure.md",
-    "apex-meta/SmallSkills/OKF_Format/index.md",
-    "apex-meta/SmallSkills/Prompting/Claude_Design/log.md",
-    "apex-meta/SmallSkills/Prompting/Claude_Design/manual-editing-modes.md",
-    "apex-meta/SmallSkills/Prompting/Claude_Design/known-issues-and-quota.md",
-    "apex-meta/SmallSkills/Prompting/Claude_Design/iteration-workflow.md",
-    "apex-meta/SmallSkills/Prompting/Claude_Design/index.md",
-    "apex-meta/SmallSkills/Prompting/Claude_Design/garment-app-prompting.md",
-    "apex-meta/SmallSkills/Prompting/Claude_Design/design-system-lock.md",
-    "apex-meta/SmallSkills/Prompting/Claude_Design/context-persistence.md",
-    "apex-meta/SmallSkills/Prompting/Claude_Design/anti-slop-constraints.md",
-    "apex-meta/tools/project-improvement-orchestration-weekly/simulations/hermes-e2e-two-week-v1/runs/W01/friday/status-merge.md"
+    "apex-meta/SmallSkills/OKF_Format/conformance-rules.md"
   ]
 }
