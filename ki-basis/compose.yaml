@@ -136,3 +136,23 @@ services:
       start_period: 30s
     networks:
       - ki-basis-net
+
+  openproject:
+    image: openproject/openproject:14
+    container_name: ki-basis-openproject
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:${OPENPROJECT_HOST_PORT:-8082}:80"
+    environment:
+      OPENPROJECT_HTTPS: "false"
+      OPENPROJECT_HOST__NAME: 127.0.0.1:${OPENPROJECT_HOST_PORT:-8082}
+      OPENPROJECT_SECRET_KEY_BASE: ${OPENPROJECT_SECRET_KEY_BASE:-openproject_placeholder_secret_key_base_change_me}
+      DATABASE_URL: postgres://${OPENPROJECT_DB_USER:-openproject_app}:${OPENPROJECT_DB_PASSWORD:-openproject_secure_placeholder_password}@postgres:5432/${OPENPROJECT_DB_NAME:-openproject}
+      PG_STARTUP_WAIT_TIME: "30"
+    volumes:
+      - openproject_assets:/var/openproject/assets
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - ki-basis-net
