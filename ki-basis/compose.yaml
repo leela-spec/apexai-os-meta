@@ -177,3 +177,33 @@ services:
       start_period: 5s
     networks:
       - ki-basis-net
+
+  hermes:
+    image: nousresearch/hermes-agent:latest
+    container_name: ki-basis-hermes
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:${HERMES_DASHBOARD_HOST_PORT:-8642}:8642"
+      - "127.0.0.1:${HERMES_GATEWAY_HOST_PORT:-9119}:9119"
+    environment:
+      HERMES_DASHBOARD: "1"
+      HERMES_GATEWAY_EXTERNAL_SUPERVISOR: "1"
+      HERMES_DASHBOARD_BASIC_AUTH_USERNAME: ${HERMES_DASHBOARD_BASIC_AUTH_USERNAME:-admin}
+      HERMES_DASHBOARD_BASIC_AUTH_PASSWORD: ${HERMES_DASHBOARD_BASIC_AUTH_PASSWORD:-hermes_secure_placeholder_password}
+      HERMES_HOME: /opt/data
+      HERMES_WRITE_SAFE_ROOT: /opt/data
+      HERMES_DISABLE_LAZY_INSTALLS: "1"
+      HERMES_LAZY_INSTALL_TARGET: /opt/data/lazy-packages
+      FIREFLY_API_URL: http://firefly:8080
+      PAPERLESS_API_URL: http://paperless:8000
+      OPENPROJECT_API_URL: http://openproject:80
+    volumes:
+      - /root/.hermes:/opt/data
+      - /root/workspaces:/root/workspaces
+    depends_on:
+      - firefly
+      - paperless
+      - openproject
+      - nginx
+    networks:
+      - ki-basis-net
