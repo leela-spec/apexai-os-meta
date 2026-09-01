@@ -1,0 +1,37 @@
+﻿name: ki-basis
+
+networks:
+  ki-basis-net:
+    name: ${KI_NETWORK_NAME:-ki-basis-net}
+    driver: bridge
+
+volumes:
+  postgres_data:
+    name: ki-basis-postgres-data
+  valkey_data:
+    name: ki-basis-valkey-data
+  firefly_upload:
+    name: ki-basis-firefly-upload
+  paperless_data:
+    name: ki-basis-paperless-data
+  paperless_media:
+    name: ki-basis-paperless-media
+  paperless_export:
+    name: ki-basis-paperless-export
+  paperless_consume:
+    name: ki-basis-paperless-consume
+  openproject_data:
+    name: ki-basis-openproject-data
+  openproject_assets:
+    name: ki-basis-openproject-assets
+
+services:
+  # Base stack network anchor / placeholder during skeleton initialization
+  # Individual application services (postgres, valkey, firefly, paperless, openproject, nginx, hermes)
+  # are added module-by-module in sequence M2 through M8.
+  stack-init:
+    image: alpine:latest
+    command: ["echo", "ki-basis stack skeleton initialized"]
+    restart: "no"
+    networks:
+      - ki-basis-net
