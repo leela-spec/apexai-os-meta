@@ -70,3 +70,30 @@ services:
       start_period: 5s
     networks:
       - ki-basis-net
+
+  firefly:
+    image: fireflyiii/core:latest
+    container_name: ki-basis-firefly
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:${FIREFLY_HOST_PORT:-8086}:8080"
+    environment:
+      APP_KEY: ${FIREFLY_APP_KEY:-SomeRandomStringOf32CharsExact!!}
+      APP_URL: http://127.0.0.1:${FIREFLY_HOST_PORT:-8086}
+      APP_ENV: local
+      APP_DEBUG: "false"
+      SITE_OWNER: admin@example.com
+      TZ: Europe/Berlin
+      DB_CONNECTION: pgsql
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_DATABASE: ${FIREFLY_DB_NAME:-firefly}
+      DB_USERNAME: ${FIREFLY_DB_USER:-firefly_app}
+      DB_PASSWORD: ${FIREFLY_DB_PASSWORD:-firefly_secure_placeholder_password}
+    volumes:
+      - firefly_upload:/var/www/html/storage/upload
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - ki-basis-net
