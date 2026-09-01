@@ -2,6 +2,7 @@
 
 Working notes for rolling out OKF 0.2 as the standard for this repo's knowledge files, and for the Leela-Cloud-2026 SSOT. Nested under [OKF_Format](../index.md) because it's specifically about operationalizing that reference bundle, not a standalone concern.
 
+* [Canonical Informatics Standard](../../informatics/index.md) - The ratified Apex informatics standard package and conformance profile.
 * [Implementation Waves W0-W2](implementation-waves-w0-w2.md) - Approved compatibility-first implementation plan for baseline measurement, canonical informatics/routing lock, and deterministic validation/authoring support.
 * [Patch Sequences A1-A2](patch-sequences-a1-a2.md) - Reviewable patch sequence for W1/A1 and W2/A2, including file sets, verification gates, stop boundaries, and rollback discipline.
 * [Tooling Option Comparison](tooling-option-comparison.md) - Home-grown validator vs. installing the `okf-skills` community toolkit, with due-diligence findings.

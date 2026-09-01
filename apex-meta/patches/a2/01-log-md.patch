@@ -1,0 +1,15 @@
+<file>
+apex-meta/SmallSkills/OKF_Format/adoption-project/log.md
+</file>
+<old>
+## 2026-09-01
+
+**Wave 1 / A1 Execution**
+</old>
+<new>
+## 2026-09-01
+
+**Wave 2 / A2 Execution** — Implemented deterministic OKF v0.2 / Apex Profile validator (`apex-meta/scripts/okf_validator.py`) with tri-class diagnostics (`OKF`, `APEX_PROFILE`, `ADVISORY`), created automated RED/GREEN test suite (`apex-meta/scripts/tests/test_okf_validator.py`), established minimal authoring procedure skill (`.claude/skills/informatics-authoring/`), and validated governed bundles.
+
+**Wave 1 / A1 Execution**
+</new>

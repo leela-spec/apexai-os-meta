@@ -1,0 +1,23 @@
+<file>
+.claude/CLAUDE.md
+</file>
+<old>
+## Navigation
+
+- Repository map: `apex-meta/ORCHESTRATION-SYSTEMS-INDEX.md`.
+- Weekly design and evidence: `apex-meta/kb/Weekly-Orchestrator/00-START-HERE.md`.
+- Multi-Agent architecture and terminology: `apex-meta/orchestration/ARCHITECTURE.md` and `apex-meta/orchestration/GLOSSARY.md`.
+- Skill-specific triggers, failure behavior, gates, and output contracts remain owned by each selected `SKILL.md`.
+- Agent-specific delegation conditions remain owned by the selected `.claude/agents/*.md` contract.
+</old>
+<new>
+## Navigation
+
+- Repository map: `apex-meta/ORCHESTRATION-SYSTEMS-INDEX.md`.
+- Informatics standard & knowledge authoring: `apex-meta/informatics/index.md`.
+- Weekly design and evidence: `apex-meta/kb/Weekly-Orchestrator/00-START-HERE.md`.
+- Multi-Agent architecture and terminology: `apex-meta/orchestration/ARCHITECTURE.md` and `apex-meta/orchestration/GLOSSARY.md`.
+- Universal invariants & patch safety: `AGENTS.md`.
+- Skill-specific triggers, failure behavior, gates, and output contracts remain owned by each selected `SKILL.md`.
+- Agent-specific delegation conditions remain owned by the selected `.claude/agents/*.md` contract.
+</new>

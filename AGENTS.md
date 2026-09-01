@@ -28,6 +28,10 @@
 - Current-truth: Keep working content limited to live guidance; place history in a dedicated log or memory.
 - No-changelog: Do not retain old errors, rejected options, prior versions, incident narratives, or "what changed" explanations in current-truth content.
 
+## Informatics & Knowledge Routing
+- Trigger: Requests to create, edit, audit, or validate repository knowledge files or documentation follow the canonical standard at `apex-meta/informatics/index.md`.
+- Authority: The canonical profile in `apex-meta/informatics/standard.md` overrides ad-hoc formatting conventions or generic agent habits.
+
 ## Apex KB Dispatch
 - Trigger: Requests to create, start, set up, build, intake, compile, query, retrieve, audit, or maintain an Apex KB use the repository-local `.claude/skills/apex-kb/SKILL.md`.
 - New KB: For a new KB or Setup request, follow the skill's Start route. Do not manually construct `control init` arguments.

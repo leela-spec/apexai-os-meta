@@ -1,0 +1,29 @@
+<file>
+apex-meta/SmallSkills/OKF_Format/adoption-project/index.md
+</file>
+<old>
+* [Implementation Waves W0-W2](implementation-waves-w0-w2.md) - Approved compatibility-first implementation plan for baseline measurement, canonical informatics/routing lock, and deterministic validation/authoring support.
+* [Patch Sequences A1-A2](patch-sequences-a1-a2.md) - Reviewable patch sequence for W1/A1 and W2/A2, including file sets, verification gates, stop boundaries, and rollback discipline.
+</old>
+<new>
+* [Canonical Informatics Standard](../../informatics/index.md) - The ratified Apex informatics standard package and conformance profile.
+* [Implementation Waves W0-W2](implementation-waves-w0-w2.md) - Approved compatibility-first implementation plan for baseline measurement, canonical informatics/routing lock, and deterministic validation/authoring support.
+* [Patch Sequences A1-A2](patch-sequences-a1-a2.md) - Reviewable patch sequence for W1/A1 and W2/A2, including file sets, verification gates, stop boundaries, and rollback discipline.
+</new>
+<file>
+apex-meta/SmallSkills/OKF_Format/adoption-project/log.md
+</file>
+<old>
+## 2026-09-01
+
+**Implementation planning** — Added the approved compatibility-first implementation plan for W0-W2 and the bounded A1/A2 patch sequence. These artifacts define baseline measurement, canonical informatics/routing lock, deterministic validation, minimal authoring support, verification gates, and explicit stop boundaries. They are plans only: no W0-W2 production migration, later knowledge-zone migration, cross-repository rollout, or mass retrofit is recorded as executed.
+</old>
+<new>
+## 2026-09-01
+
+**Wave 1 / A1 Execution** — Executed Wave 1 / Patch Sequence A1: ratified the canonical informatics package (`apex-meta/informatics/`), surgically updated `AGENTS.md`, `.claude/CLAUDE.md`, and `.github/copilot-instructions.md` via exact-match patch runner, created scoped adapters in `.claude/rules/` and `.github/instructions/`, and verified routing.
+
+**Wave 0 Baseline Recorded** — Generated read-only baseline inventory (`w0-baseline-inventory.md`) and 24-task baseline retrieval benchmark (`w0-retrieval-eval.md`).
+
+**Implementation planning** — Added the approved compatibility-first implementation plan for W0-W2 and the bounded A1/A2 patch sequence. These artifacts define baseline measurement, canonical informatics/routing lock, deterministic validation, minimal authoring support, verification gates, and explicit stop boundaries.
+</new>
