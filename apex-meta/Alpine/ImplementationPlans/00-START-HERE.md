@@ -10,9 +10,9 @@ This folder adapts the Docker stack implementation plans to the proven Antigravi
 
 Before any stack work, read in this order:
 
-1. `../antigravity-instruction-orchestrator/SKILL.md`
-2. `../antigravity-instruction-orchestrator/references/lessons-learned.md`
-3. `../antigravity-instruction-orchestrator/references/prompt-patterns.md`
+1. `../../SmallSkills/Prompting/Antigravity/antigravity-instruction-orchestrator/SKILL.md`
+2. `../../SmallSkills/Prompting/Antigravity/antigravity-instruction-orchestrator/references/lessons-learned.md`
+3. `../../SmallSkills/Prompting/Antigravity/antigravity-instruction-orchestrator/references/prompt-patterns.md`
 4. `01-META-IMPLEMENTATION-PLAN-ANTIGRAVITY.md`
 5. exactly one active tool/module plan from this folder
 

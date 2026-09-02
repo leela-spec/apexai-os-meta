@@ -44,3 +44,6 @@ artifacts/transcript_pipeline_v4/*/source/*
 # Re-enable tracking by deleting the next line, then: git add source-knowledge/ProjectRepos
 source-knowledge/ProjectRepos/
 
+
+# ki-basis local secrets
+/ki-basis/.env

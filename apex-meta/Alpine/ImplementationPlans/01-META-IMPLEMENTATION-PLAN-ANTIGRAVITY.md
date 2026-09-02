@@ -10,7 +10,7 @@ Hermes is the AI control surface. Human-facing tools retain one dedicated Homepa
 
 Read first:
 - `00-START-HERE.md`
-- `../antigravity-instruction-orchestrator/SKILL.md`
+- `../../SmallSkills/Prompting/Antigravity/antigravity-instruction-orchestrator/SKILL.md`
 - its `references/lessons-learned.md`
 - its `references/prompt-patterns.md`
 

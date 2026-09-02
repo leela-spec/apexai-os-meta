@@ -1,19 +1,20 @@
-# Docker Stack Implementation Plan Bundle
+# Alpine / Docker Stack Implementation Plans
 
-Files:
-- `00-META-IMPLEMENTATION-PLAN.md`
-- `01-NGINX-IMPLEMENTATION-PLAN.md`
-- `02-POSTGRES-PGVECTOR-IMPLEMENTATION-PLAN.md`
-- `03-VALKEY-IMPLEMENTATION-PLAN.md`
-- `04-FIREFLY-IMPLEMENTATION-PLAN.md`
-- `05-PAPERLESS-NGX-IMPLEMENTATION-PLAN.md`
-- `06-OPENPROJECT-IMPLEMENTATION-PLAN.md`
-- `07-HERMES-IMPLEMENTATION-PLAN.md`
-- `08-INTEGRATION-ACCEPTANCE-CHECKLIST.md`
+## Execution authority
 
-Basis:
-- supplied Alpine image-build runbook;
-- supplied `ARCHITEKTUR-BASIS.md`;
-- current official upstream documentation.
+For Google Antigravity, start at `00-START-HERE.md`.
 
-Key decision: independent containers/services on one Docker network, but **no forced Alpine rebuild of complex vendor applications**.
+Canonical execution files:
+- `01-META-IMPLEMENTATION-PLAN-ANTIGRAVITY.md`
+- `02-NGINX-ANTIGRAVITY.md`
+- `03-POSTGRES-PGVECTOR-ANTIGRAVITY.md`
+- `04-VALKEY-ANTIGRAVITY.md`
+- `05-FIREFLY-ANTIGRAVITY.md`
+- `06-PAPERLESS-NGX-ANTIGRAVITY.md`
+- `07-OPENPROJECT-ANTIGRAVITY.md`
+- `08-HERMES-ANTIGRAVITY.md`
+- `09-INTEGRATION-ACCEPTANCE-ANTIGRAVITY.md`
+
+The earlier generic implementation-plan family was removed after integration because it duplicated execution authority. Git history retains it for provenance.
+
+Alpine remains an image choice, not a requirement for every service.

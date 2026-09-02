@@ -1,75 +1,62 @@
-# ki-basis — Platform-Architektur (Startpunkt)
+# ki-basis — Current Platform Architecture
 
-> **Startpunkt-Diagramm** für den Full-Stack. ki-basis ist die **gemeinsame Platform**,
-> auf der Domain-Stacks wie [ki-pm](~/dev/ki-pm) aufsetzen.
-> Full-Stack-Architektur (ki-basis + ki-pm, **alles via MCP**): siehe
-> [`~/dev/ki-pm/docs/FULL-STACK-ARCHITEKTUR.md`](~/dev/ki-pm/docs/FULL-STACK-ARCHITEKTUR.md).
+> **Current runtime authority:** `ki-basis/compose.yaml`.  
+> This document describes the implemented local Docker stack on Windows 11 with Docker Desktop (Hyper-V backend). The older AnythingLLM/Psono/Authentik/Envoy/oMLX/Ollama/Speaches topology is superseded for the current runtime and remains available through Git history for provenance.
 
 ```mermaid
 flowchart TB
-    subgraph edge [KI-BASIS — HTTP-Edge]
-        NGX[Platform-nginx<br/>127.0.0.1:3003 · 10200 · 8086 · 8084]
+    subgraph host [WINDOWS 11 — DOCKER DESKTOP HYPER-V BACKEND]
+        subgraph edge [KI-BASIS — HTTP Edge]
+            NGX[nginx<br/>127.0.0.1:8084<br/>nginx:80]
+        end
+        subgraph control [KI-BASIS — AI Operating Surface]
+            HERMES[Hermes Agent<br/>host :8642 · :9119<br/>internal hermes:8642 · hermes:9119]
+        end
+        subgraph apps [KI-BASIS — Applications]
+            FIREFLY[Firefly III<br/>127.0.0.1:8086<br/>firefly:8080]
+            PAPERLESS[Paperless-ngx<br/>127.0.0.1:8010<br/>paperless:8000]
+            OPENPROJECT[OpenProject<br/>127.0.0.1:8082<br/>openproject:80]
+        end
+        subgraph data [KI-BASIS — Shared Data Services]
+            PG[(PostgreSQL + pgvector<br/>postgres:5432<br/>internal only)]
+            VALKEY[(Valkey<br/>valkey:6379<br/>internal only)]
+            DBF[(firefly DB)]
+            DBP[(paperless DB)]
+            DBO[(openproject DB)]
+        end
     end
-
-    subgraph core [KI-BASIS — Kern-Services]
-        ANYTHING[AnythingLLM<br/>Chat-UI · RAG · Agent · MCP-Host]
-        VALKEY[(Valkey<br/>Shared Redis)]
-        PG[(Postgres + pgvector<br/>Multi-DB Plattform)]
-        PSONO[Psono<br/>Passwort-Tresor]
-    end
-
-    subgraph domain [Domain — Belegstack]
-        FIREFLY[Firefly III<br/>Beleg-/Buchhaltung<br/>firefly-iii:8080]
-    end
-
-    subgraph svc [KI-BASIS — Dienste]
-        ENVOY[Envoy + Semantic Router<br/>LLM-Front-Door :8801]
-        OMLX[(oMLX<br/>:8000 · Multi-Model)]
-        OLLAMA[(Ollama · Fallback)]
-        SPEACH[Speaches<br/>STT / SSE / TTS]
-        AUTH[Authentik<br/>SSO / IdP]
-    end
-
-    subgraph db [Postgres — je Tool eine DB]
-        DB1[(anythingllm db)]
-        DB3[(openproject db)]
-        DB4[(authentik db)]
-        DB5[(psono db)]
-        DB6[(firefly db)]
-    end
-
-    PG --> DB1
-    PG --> DB3
-    PG --> DB4
-    PG --> DB5
-    PG --> DB6
-
-    ANYTHING -->|"LLM /v1"| ENVOY
-    ENVOY --> OMLX
-    ANYTHING -.->|"Fallback"| OLLAMA
-    ANYTHING --> DB1
-    SPEACH -.->|"Voice-Chat (Profil)"| ENVOY
-    AUTH -->|"REDIS"| VALKEY
-    FIREFLY -->|"REDIS"| VALKEY
-
-    NGX --> ANYTHING
-    NGX --> PSONO
+    PG --> DBF
+    PG --> DBP
+    PG --> DBO
+    FIREFLY --> PG
+    PAPERLESS --> PG
+    PAPERLESS --> VALKEY
+    OPENPROJECT --> PG
+    HERMES -->|supported REST API| FIREFLY
+    HERMES -->|supported REST API| PAPERLESS
+    HERMES -->|API v3| OPENPROJECT
     NGX --> FIREFLY
-    AUTH -.->|"SSO optional"| ANYTHING
+    NGX --> PAPERLESS
+    NGX --> OPENPROJECT
 ```
 
-> **Kern-Service-Linie (`bash docker/scripts/start-basis.sh`):**
-> `postgres`, `valkey`, `anythingllm`, `psono`, `authentik`, `semantic-router`, `envoy`, `nginx`;
-> optional per Profil `ollama` (+`--ollama`), `speaches`.
-> Firefly III: Domain `belegstack` (nicht Kern) — siehe [FIREFLY.md](FIREFLY.md).
+> **Current service line (`ki-basis/compose.yaml`):**
+> `postgres`, `valkey`, `firefly`, `paperless`, `openproject`, `nginx`, `hermes`.
 >
-> **LLM-Default:** Host-natives **oMLX** (Metal) — optional hinter **Envoy + Semantic Router** in Compose.
-> Chat-Clients: `http://envoy:8801/v1` oder direkt `http://host.docker.internal:8000/v1`.
-> Host-Port `:8000` für oMLX und lokale Healthchecks — siehe [DEC-0031](knowledge/decisions/dec-0031-semantic-router-compose-front-door.md).
+> **Target host:** Windows 11 running Docker Desktop with Hyper-V Linux-container backend (ONE dedicated Docker Engine).
+>
+> **Network:** all services join `ki-basis-net` and use Docker service-name DNS. PostgreSQL and Valkey are internal-only.
+>
+> **Persistence:** PostgreSQL, Valkey, Firefly uploads, Paperless data/media/export/consume, OpenProject assets, and Hermes `/opt/data` are persisted into target-local Docker volumes.
+>
+> **Hermes role:** Hermes is the AI operating surface and reaches Firefly, Paperless and OpenProject through supported application APIs. It does not mount a Docker socket or rely on Ubuntu WSL filesystem binds.
+>
+> **Alpine policy:** Alpine is an image choice, not the platform architecture. nginx and Valkey use Alpine-compatible upstream images; complex vendor applications retain supported upstream images.
 
-### Betreffende Doku
-- [docs/DOCKER.md](DOCKER.md) · [docs/NGINX.md](NGINX.md)
-- [docs/SPEACHES.md](SPEACHES.md)
-- [docs/PSONO.md](PSONO.md) · [docs/FIREFLY.md](FIREFLY.md) · [docs/DATENBANK.md](DATENBANK.md)
-- [docs/ANYTHINGLLM.md](ANYTHINGLLM.md) (Workspaces, RAG, MCP `autoStart`)
-- [config/semantic-router/README.md](../config/semantic-router/README.md) · [DEC-0031](knowledge/decisions/dec-0031-semantic-router-compose-front-door.md)
+### Current authority / evidence
+- Runtime: [`../../ki-basis/compose.yaml`](../../ki-basis/compose.yaml)
+- Stack environment template: [`../../ki-basis/.env.example`](../../ki-basis/.env.example)
+- Integration evidence: [`INTEGRATION-ACCEPTANCE-REPORT.md`](INTEGRATION-ACCEPTANCE-REPORT.md)
+- Antigravity implementation authority: [`ImplementationPlans/00-START-HERE.md`](ImplementationPlans/00-START-HERE.md)
+- Alpine image-build reference: [`2026-09-01-alpine-image-build.md`](2026-09-01-alpine-image-build.md)
+
