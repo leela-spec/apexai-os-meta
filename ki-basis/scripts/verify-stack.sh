@@ -4,6 +4,7 @@ ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$ROOT"
 ENV_FILE="${ENV_FILE:-.env}"
 STRICT_AUTH="${STRICT_AUTH:-0}"
+export MSYS_NO_PATHCONV=1
 PASS=0; WARN=0; FAIL=0
 ok(){ echo "[PASS] $*"; PASS=$((PASS+1)); }
 warn(){ echo "[WARN] $*"; WARN=$((WARN+1)); }
@@ -20,8 +21,10 @@ for c in ki-basis-postgres ki-basis-valkey ki-basis-firefly ki-basis-paperless k
 PGUSER="$(env_get POSTGRES_USER)"; PGUSER="${PGUSER:-postgres}"
 PGDB="$(env_get POSTGRES_DB)"; PGDB="${PGDB:-postgres}"
 compose exec -T postgres pg_isready -U "$PGUSER" >/dev/null 2>&1 && ok "PostgreSQL pg_isready" || fail "PostgreSQL pg_isready"
-vec="$(compose exec -T postgres psql -U "$PGUSER" -d "$PGDB" -tAc "SELECT extversion FROM pg_extension WHERE extname='vector';" 2>/dev/null | tr -d '[:space:]' || true)"
-[[ -n "$vec" ]] && ok "pgvector extension present ($vec)" || fail "pgvector extension missing"
+for db in postgres firefly paperless openproject; do
+  vec="$(compose exec -T postgres psql -U "$PGUSER" -d "$db" -tAc "SELECT extversion FROM pg_extension WHERE extname='vector';" 2>/dev/null | tr -d '[:space:]' || true)"
+  [[ -n "$vec" ]] && ok "pgvector extension present in $db ($vec)" || fail "pgvector extension missing in $db"
+done
 pong="$(compose exec -T valkey valkey-cli ping 2>/dev/null | tr -d '\r\n' || true)"
 [[ "$pong" == "PONG" ]] && ok "Valkey PONG" || fail "Valkey PING -> $pong"
 
@@ -35,7 +38,9 @@ http_check(){ local label="$1" url="$2" code; code="$(curl -L -sS -m 15 -o /dev/
 http_check "Firefly UI" "http://127.0.0.1:${FIREFLY_PORT}/"
 http_check "Paperless UI" "http://127.0.0.1:${PAPERLESS_PORT}/"
 http_check "OpenProject health" "http://127.0.0.1:${OPENPROJECT_PORT}/health_checks/default"
-http_check "nginx health" "http://127.0.0.1:${NGINX_PORT}/healthz"
+http_check "nginx edge /healthz" "http://127.0.0.1:${NGINX_PORT}/healthz"
+http_check "nginx edge /" "http://127.0.0.1:${NGINX_PORT}/"
+compose exec -T nginx nginx -t >/dev/null 2>&1 && ok "nginx config syntax" || fail "nginx config syntax"
 http_check "Hermes dashboard surface" "http://127.0.0.1:${HDASH_PORT}/"
 
 [[ -z "$(docker port ki-basis-postgres 5432/tcp 2>/dev/null || true)" ]] && ok "PostgreSQL has no host-published 5432" || fail "PostgreSQL 5432 is host-published"
@@ -53,25 +58,28 @@ then ok "Hermes execution context resolves/reaches all internal services"; else 
 FIREFLY_TOKEN="$(env_get FIREFLY_API_TOKEN)"
 PAPERLESS_TOKEN="$(env_get PAPERLESS_API_TOKEN)"
 OPENPROJECT_KEY="$(env_get OPENPROJECT_API_KEY)"
-auth_missing=0
-[[ -z "$FIREFLY_TOKEN" ]] && auth_missing=1
-[[ -z "$PAPERLESS_TOKEN" ]] && auth_missing=1
-[[ -z "$OPENPROJECT_KEY" ]] && auth_missing=1
-if [[ "$auth_missing" -eq 1 ]]; then
-  if [[ "$STRICT_AUTH" == "1" ]]; then fail "Authenticated connector tokens missing from local .env"; else warn "Authenticated API tests skipped; add FIREFLY_API_TOKEN, PAPERLESS_API_TOKEN, OPENPROJECT_API_KEY and rerun STRICT_AUTH=1"; fi
-else
-  if docker exec -e TOKEN="$FIREFLY_TOKEN" ki-basis-hermes python - <<'PY' >/dev/null 2>&1
-import os,urllib.request
-r=urllib.request.Request('http://firefly:8080/api/v1/about',headers={'Authorization':'Bearer '+os.environ['TOKEN']})
-with urllib.request.urlopen(r,timeout=10) as x: assert x.status==200
-PY
-  then ok "Hermes -> Firefly authenticated API"; else fail "Hermes -> Firefly authenticated API"; fi
+
+if [[ -n "$PAPERLESS_TOKEN" ]]; then
   if docker exec -e TOKEN="$PAPERLESS_TOKEN" ki-basis-hermes python - <<'PY' >/dev/null 2>&1
 import os,urllib.request
 r=urllib.request.Request('http://paperless:8000/api/documents/?page_size=1',headers={'Authorization':'Token '+os.environ['TOKEN']})
 with urllib.request.urlopen(r,timeout=10) as x: assert x.status==200
 PY
   then ok "Hermes -> Paperless authenticated API"; else fail "Hermes -> Paperless authenticated API"; fi
+else
+  if [[ "$STRICT_AUTH" == "1" ]]; then fail "PAPERLESS_API_TOKEN missing from local .env"; else warn "PAPERLESS_API_TOKEN not set"; fi
+fi
+
+if [[ -n "$FIREFLY_TOKEN" ]]; then
+  if docker exec -e TOKEN="$FIREFLY_TOKEN" ki-basis-hermes python - <<'PY' >/dev/null 2>&1
+import os,urllib.request
+r=urllib.request.Request('http://firefly:8080/api/v1/about',headers={'Authorization':'Bearer '+os.environ['TOKEN']})
+with urllib.request.urlopen(r,timeout=10) as x: assert x.status==200
+PY
+  then ok "Hermes -> Firefly authenticated API"; else fail "Hermes -> Firefly authenticated API"; fi
+fi
+
+if [[ -n "$OPENPROJECT_KEY" ]]; then
   if docker exec -e KEY="$OPENPROJECT_KEY" ki-basis-hermes python - <<'PY' >/dev/null 2>&1
 import os,urllib.request,base64
 a=base64.b64encode(('apikey:'+os.environ['KEY']).encode()).decode(); r=urllib.request.Request('http://openproject:80/api/v3/work_packages?pageSize=1',headers={'Authorization':'Basic '+a})

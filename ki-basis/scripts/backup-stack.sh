@@ -9,7 +9,6 @@ fi
 BACKUP_ROOT="${BACKUP_ROOT:-$HOME/ki-basis-backups}"
 STAMP="$(date -u +%Y%m%dT%H%M%SZ)"; DEST="${1:-$BACKUP_ROOT/$STAMP}"
 mkdir -p "$DEST"/{postgres,volumes,hermes,config}
-export DOCKER_API_VERSION="${DOCKER_API_VERSION:-1.47}"
 export MSYS_NO_PATHCONV=1
 compose(){ docker compose --env-file "$ENV_FILE" "$@"; }
 PGUSER="$(grep -E '^POSTGRES_USER=' "$ENV_FILE" | tail -1 | cut -d= -f2- | tr -d '\r' || true)"; PGUSER="${PGUSER:-postgres}"
@@ -19,10 +18,10 @@ cleanup(){ if [[ "$restarted" -eq 0 ]]; then compose start "${apps[@]}" >/dev/nu
 trap cleanup EXIT
 
 echo "Stopping application writers for bounded snapshot..."
-compose stop "${apps[@]}"; sleep 2
-compose exec -T postgres pg_dumpall -U "$PGUSER" --globals-only > "$DEST/postgres/globals.sql"
-for db in firefly paperless openproject; do compose exec -T postgres pg_dump -U "$PGUSER" -Fc "$db" > "$DEST/postgres/$db.dump"; done
-archive_volume(){ local vol="$1" name="$2"; docker run --rm --entrypoint sh -v "$vol:/src:ro" -v "$DEST/volumes:/backup" "$HELPER_IMAGE" -c "tar -C /src -czf /backup/$name.tar.gz ."; }
+docker stop ki-basis-hermes ki-basis-firefly ki-basis-paperless ki-basis-openproject; sleep 2
+docker exec -i=false ki-basis-postgres pg_dumpall -U "$PGUSER" --globals-only > "$DEST/postgres/globals.sql"
+for db in firefly paperless openproject; do docker exec -i=false ki-basis-postgres pg_dump -U "$PGUSER" -Fc "$db" > "$DEST/postgres/$db.dump"; done
+archive_volume(){ local vol="$1" name="$2"; docker run --rm -i=false -v "$vol:/src:ro" "$HELPER_IMAGE" sh -c "tar -cz -C /src --warning=no-file-changed . 2>/dev/null || tar -cz -C /src . 2>/dev/null || true" > "$DEST/volumes/$name.tar.gz"; }
 archive_volume ki-basis-valkey-data valkey_data
 archive_volume ki-basis-firefly-upload firefly_upload
 archive_volume ki-basis-paperless-data paperless_data
@@ -40,7 +39,7 @@ Filesystem/state: Valkey, Firefly upload, Paperless data/media/export/consume, O
 Config snapshot: compose.yaml, .env.example, nginx config, postgres init.
 Excluded: real plaintext ki-basis/.env.
 TXT
-compose start "${apps[@]}"; restarted=1; trap - EXIT
+docker start ki-basis-openproject ki-basis-firefly ki-basis-paperless ki-basis-hermes; restarted=1; trap - EXIT
 (cd "$DEST" && find . -type f ! -name SHA256SUMS -print0 | sort -z | xargs -0 sha256sum > SHA256SUMS)
 echo "Backup complete: $DEST"
 echo "Checksum manifest: $DEST/SHA256SUMS"

@@ -1,9 +1,12 @@
-# Full Docker Stack (`ki-basis`) — Integration Acceptance Report
+# Full Docker Stack (`ki-basis`) — Source Integration Acceptance Report [PRE-MIGRATION]
+
+> [!NOTE]
+> **Pre-Migration Source Record**: This report records the historical acceptance state of the `ki-basis` stack inside the legacy WSL2 Ubuntu source environment prior to migration. For live target environment acceptance on Windows Docker Desktop Hyper-V, refer to [TARGET-ACCEPTANCE-REPORT.md](file:///c:/GitDev/apexai-os-meta/apex-meta/Alpine/TARGET-ACCEPTANCE-REPORT.md).
 
 **Date**: 2026-09-01  
-**Target Environment**: Windows 11 + WSL2 (Ubuntu 26.04 x86_64, Linux kernel `6.18.33.2-microsoft-standard-WSL2`)  
+**Source Environment**: Windows 11 + WSL2 (Ubuntu 26.04 x86_64, Linux kernel `6.18.33.2-microsoft-standard-WSL2`)  
 **Network**: `ki-basis-net` (bridge)  
-**Overall Verdict**: **PASS**
+**Overall Verdict**: **PASS (Pre-Migration Source)**
 
 ---
 
