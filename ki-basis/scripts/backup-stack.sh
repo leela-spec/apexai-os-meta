@@ -9,6 +9,8 @@ fi
 BACKUP_ROOT="${BACKUP_ROOT:-$HOME/ki-basis-backups}"
 STAMP="$(date -u +%Y%m%dT%H%M%SZ)"; DEST="${1:-$BACKUP_ROOT/$STAMP}"
 mkdir -p "$DEST"/{postgres,volumes,hermes,config}
+export DOCKER_API_VERSION="${DOCKER_API_VERSION:-1.47}"
+export MSYS_NO_PATHCONV=1
 compose(){ docker compose --env-file "$ENV_FILE" "$@"; }
 PGUSER="$(grep -E '^POSTGRES_USER=' "$ENV_FILE" | tail -1 | cut -d= -f2- | tr -d '\r' || true)"; PGUSER="${PGUSER:-postgres}"
 HELPER_IMAGE="$(docker inspect ki-basis-valkey --format '{{.Config.Image}}')"
@@ -28,12 +30,13 @@ archive_volume ki-basis-paperless-media paperless_media
 archive_volume ki-basis-paperless-export paperless_export
 archive_volume ki-basis-paperless-consume paperless_consume
 archive_volume ki-basis-openproject-assets openproject_assets
+archive_volume ki-basis-hermes-data hermes_data
+archive_volume ki-basis-hermes-workspaces hermes_workspaces
 
-docker run --rm --entrypoint sh -v /root/.hermes:/src:ro -v "$DEST/hermes:/backup" "$HELPER_IMAGE" -c "tar -C /src -czf /backup/hermes_state.tar.gz ."
 cp compose.yaml "$DEST/config/compose.yaml"; cp .env.example "$DEST/config/.env.example"; cp docker/nginx/default.conf "$DEST/config/nginx-default.conf"; cp docker/postgres/init/01-init-databases.sh "$DEST/config/postgres-init.sh"
 cat > "$DEST/BACKUP-COVERAGE.txt" <<'TXT'
 Logical DB: PostgreSQL globals, firefly, paperless, openproject.
-Filesystem/state: Valkey, Firefly upload, Paperless data/media/export/consume, OpenProject assets, Hermes /root/.hermes.
+Filesystem/state: Valkey, Firefly upload, Paperless data/media/export/consume, OpenProject assets, Hermes ki-basis-hermes-data (/opt/data), Hermes ki-basis-hermes-workspaces (/root/workspaces).
 Config snapshot: compose.yaml, .env.example, nginx config, postgres init.
 Excluded: real plaintext ki-basis/.env.
 TXT

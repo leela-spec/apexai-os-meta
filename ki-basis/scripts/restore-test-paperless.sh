@@ -9,10 +9,14 @@ if [[ ! -f "$ENV_FILE" && -f ".env.example" ]]; then
   ENV_FILE=".env.example"
 fi
 [[ -f "$ENV_FILE" ]] || { echo "Missing $ENV_FILE" >&2; exit 1; }
+export DOCKER_API_VERSION="${DOCKER_API_VERSION:-1.47}"
+export MSYS_NO_PATHCONV=1
 TOKEN="${PAPERLESS_API_TOKEN:-}"; [[ -n "$TOKEN" ]] || { echo "PAPERLESS_API_TOKEN required." >&2; exit 1; }
 EXPECT_TITLE="${PAPERLESS_RESTORE_EXPECT_TITLE:-Antigravity M5 Test Document}"
 getenv_file(){ grep -E "^$1=" "$ENV_FILE" | tail -1 | cut -d= -f2- | tr -d '\r'; }
-SECRET_KEY="$(getenv_file PAPERLESS_SECRET_KEY)"; SECRET_KEY="${SECRET_KEY:-paperless_placeholder_secret_key_change_me}"
+SECRET_KEY="${PAPERLESS_SECRET_KEY:-$(getenv_file PAPERLESS_SECRET_KEY)}"
+[[ -n "$SECRET_KEY" ]] || { echo "PAPERLESS_SECRET_KEY required and cannot be empty (fail-closed)." >&2; exit 1; }
+
 for f in "$BACKUP_DIR/postgres/paperless.dump" "$BACKUP_DIR/volumes/paperless_data.tar.gz" "$BACKUP_DIR/volumes/paperless_media.tar.gz" "$BACKUP_DIR/volumes/paperless_export.tar.gz" "$BACKUP_DIR/volumes/paperless_consume.tar.gz"; do [[ -f "$f" ]] || { echo "Missing backup artifact: $f" >&2; exit 1; }; done
 SUFFIX="$(date +%s)-$$"; NET="kb-restore-$SUFFIX"; PG="kb-restore-pg-$SUFFIX"; VK="kb-restore-vk-$SUFFIX"; PL="kb-restore-paperless-$SUFFIX"
 V_DATA="kb-restore-paperless-data-$SUFFIX"; V_MEDIA="kb-restore-paperless-media-$SUFFIX"; V_EXPORT="kb-restore-paperless-export-$SUFFIX"; V_CONSUME="kb-restore-paperless-consume-$SUFFIX"
@@ -40,7 +44,7 @@ PY
 then break; fi; sleep 2; done
 
 docker exec -e TEST_TOKEN="$TOKEN" -e EXPECT_TITLE="$EXPECT_TITLE" "$PL" python - <<'PY'
-import os,urllib.request,urllib.parse,json
+import os,urllib.request,urllib.parse,json,hashlib
 token=os.environ['TEST_TOKEN']; title=os.environ['EXPECT_TITLE']; headers={'Authorization':'Token '+token}
 q=urllib.parse.urlencode({'query':title,'page_size':20}); req=urllib.request.Request('http://127.0.0.1:8000/api/documents/?'+q,headers=headers)
 with urllib.request.urlopen(req,timeout=20) as r: data=json.load(r)
@@ -48,7 +52,8 @@ matches=[x for x in data.get('results',[]) if x.get('title')==title]; assert mat
 doc_id=matches[0]['id']; req=urllib.request.Request(f'http://127.0.0.1:8000/api/documents/{doc_id}/download/',headers=headers)
 with urllib.request.urlopen(req,timeout=30) as r: body=r.read()
 assert len(body)>0, 'Metadata restored but physical document download is empty'
-print(json.dumps({'id':doc_id,'title':title,'download_bytes':len(body)}))
+sha256 = hashlib.sha256(body).hexdigest()
+print(json.dumps({'id':doc_id,'title':title,'download_bytes':len(body),'sha256':sha256}))
 PY
 
-echo "RESTORE TEST PASS: actual Paperless API + physical document content recovered in disposable restore."
+echo "RESTORE TEST PASS: actual Paperless API + physical document content and SHA256 verified in disposable restore."
