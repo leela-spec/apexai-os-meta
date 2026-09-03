@@ -12,7 +12,8 @@ mkdir -p "$DEST"/{postgres,volumes,hermes,config}
 export MSYS_NO_PATHCONV=1
 compose(){ docker compose --env-file "$ENV_FILE" "$@"; }
 PGUSER="$(grep -E '^POSTGRES_USER=' "$ENV_FILE" | tail -1 | cut -d= -f2- | tr -d '\r' || true)"; PGUSER="${PGUSER:-postgres}"
-HELPER_IMAGE="$(docker inspect ki-basis-valkey --format '{{.Config.Image}}')"
+HELPER_IMAGE="$(docker inspect ki-basis-valkey --format '{{.Config.Image}}' | tr -d '\r\n')"
+[[ -n "$HELPER_IMAGE" ]] || { echo "Could not determine backup helper image" >&2; exit 1; }
 apps=(firefly paperless openproject hermes); restarted=0
 cleanup(){ if [[ "$restarted" -eq 0 ]]; then compose start "${apps[@]}" >/dev/null 2>&1 || true; restarted=1; fi; }
 trap cleanup EXIT
@@ -21,7 +22,16 @@ echo "Stopping application writers for bounded snapshot..."
 docker stop ki-basis-hermes ki-basis-firefly ki-basis-paperless ki-basis-openproject; sleep 2
 docker exec -i=false ki-basis-postgres pg_dumpall -U "$PGUSER" --globals-only > "$DEST/postgres/globals.sql"
 for db in firefly paperless openproject; do docker exec -i=false ki-basis-postgres pg_dump -U "$PGUSER" -Fc "$db" > "$DEST/postgres/$db.dump"; done
-archive_volume(){ local vol="$1" name="$2"; docker run --rm -i=false -v "$vol:/src:ro" "$HELPER_IMAGE" sh -c "tar -cz -C /src --warning=no-file-changed . 2>/dev/null || tar -cz -C /src . 2>/dev/null || true" > "$DEST/volumes/$name.tar.gz"; }
+archive_volume(){
+  local vol="$1" name="$2" archive="$DEST/volumes/$2.tar.gz"
+  local -a tar_args=()
+  [[ "$name" == "hermes_data" ]] && tar_args+=(--exclude=./.env)
+  docker volume inspect "$vol" >/dev/null
+  docker run --rm -i=false --entrypoint sh -v "$vol:/src:ro" "$HELPER_IMAGE" \
+    -c 'tar -cz -C /src "$@" .' sh "${tar_args[@]}" > "$archive"
+  [[ -s "$archive" ]] || { echo "Archive is missing or empty: $archive" >&2; return 1; }
+  tar -tzf "$archive" >/dev/null
+}
 archive_volume ki-basis-valkey-data valkey_data
 archive_volume ki-basis-firefly-upload firefly_upload
 archive_volume ki-basis-paperless-data paperless_data
@@ -37,7 +47,7 @@ cat > "$DEST/BACKUP-COVERAGE.txt" <<'TXT'
 Logical DB: PostgreSQL globals, firefly, paperless, openproject.
 Filesystem/state: Valkey, Firefly upload, Paperless data/media/export/consume, OpenProject assets, Hermes ki-basis-hermes-data (/opt/data), Hermes ki-basis-hermes-workspaces (/root/workspaces).
 Config snapshot: compose.yaml, .env.example, nginx config, postgres init.
-Excluded: real plaintext ki-basis/.env.
+Excluded: real plaintext ki-basis/.env and Hermes /opt/data/.env credentials.
 TXT
 docker start ki-basis-openproject ki-basis-firefly ki-basis-paperless ki-basis-hermes; restarted=1; trap - EXIT
 (cd "$DEST" && find . -type f ! -name SHA256SUMS -print0 | sort -z | xargs -0 sha256sum > SHA256SUMS)
