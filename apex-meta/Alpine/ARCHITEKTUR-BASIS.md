@@ -53,10 +53,17 @@ flowchart TB
 >
 > **Alpine policy:** Alpine is an image choice, not the platform architecture. nginx and Valkey use Alpine-compatible upstream images; complex vendor applications retain supported upstream images.
 
+### Deferred performance tuning — measure first
+
+**Status:** future candidate / no runtime change now.
+
+Do not add hard container CPU/RAM ceilings, reduce Paperless/OpenProject workers, or tune PostgreSQL/Valkey solely from generic recommendations. Open a dedicated tuning module only after measurements show a real bottleneck. Minimum evidence: `docker stats --no-stream` and product symptoms during idle, normal Hermes use, Paperless OCR, OpenProject use, backup, and restore. If no bottleneck is observed, the correct outcome is `NO_CHANGE_REQUIRED`. In particular, do not apply Valkey `allkeys-lru` eviction merely to cap memory because Valkey participates in Paperless' operational path.
+
 ### Current authority / evidence
 - Runtime: [`../../ki-basis/compose.yaml`](../../ki-basis/compose.yaml)
 - Stack environment template: [`../../ki-basis/.env.example`](../../ki-basis/.env.example)
-- Integration evidence: [`INTEGRATION-ACCEPTANCE-REPORT.md`](INTEGRATION-ACCEPTANCE-REPORT.md)
+- Current target acceptance: [`TARGET-ACCEPTANCE-REPORT.md`](TARGET-ACCEPTANCE-REPORT.md)
+- Historical pre-migration source evidence: [`INTEGRATION-ACCEPTANCE-REPORT.md`](INTEGRATION-ACCEPTANCE-REPORT.md)
 - Antigravity implementation authority: [`ImplementationPlans/00-START-HERE.md`](ImplementationPlans/00-START-HERE.md)
 - Alpine image-build reference: [`2026-09-01-alpine-image-build.md`](2026-09-01-alpine-image-build.md)
 

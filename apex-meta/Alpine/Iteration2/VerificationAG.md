@@ -1,5 +1,8 @@
 # Orchestrator AI Audit & Verification Report: `ki-basis` Migration
 
+> **Historical snapshot:** This file records an earlier migration verification state. Do not use its branch/head or remote-status statements as current repository authority; verify live Git and use `../TARGET-ACCEPTANCE-REPORT.md` for the current target.
+
+
 **Audit Target:** `ki-basis` Platform Environment Migration & Hardening  
 **Repository:** `C:\GitDev\apexai-os-meta` (`main` @ commit `251768b1`)  
 **Execution Agent:** Antigravity  

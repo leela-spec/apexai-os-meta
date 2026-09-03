@@ -4,7 +4,7 @@
 **Stack**: `ki-basis` (PostgreSQL + pgvector, Valkey, Firefly III, Paperless-ngx, OpenProject, Nginx Edge, Hermes Agent)  
 **Host Target**: Windows 11 Pro (Docker Desktop Hyper-V Linux VM backend)  
 **Timestamp**: 2026-09-03T08:38:00+02:00  
-**Status**: All 8 Correction Modules (C1–C8) Executed; 17/17 Independent Auditor PASS; No Git Push Performed.
+**Status**: All 8 Correction Modules (C1–C8) Executed; 17/17 Independent Auditor PASS; repository-state claims must be verified against live Git; this dossier is tracked and must not be used as no-push evidence.
 
 ---
 
@@ -22,7 +22,7 @@ This section details all external runtime states, host environments, secrets, an
 
 ### 1.2 Untracked Real Secrets & Configuration (`ki-basis/.env`)
 * **File Path**: `C:\GitDev\apexai-os-meta\ki-basis\.env` (Strictly untracked; excluded via `.gitignore`).
-* **Paperless API Token (Rotated in C1)**: `e59c9dd1aa91ae406871cb5c6dca9be4152034c4`
+* **Paperless API Token (Rotated in C1)**: `<REDACTED_PAPERLESS_API_TOKEN>`
 * **Paperless Secret Key**: High-entropy secret key configured; verified non-empty fail-closed.
 * **Internal Database Credentials**: `POSTGRES_PASSWORD`, `FIREFLY_DB_PASSWORD`, `PAPERLESS_DB_PASSWORD`, `OPENPROJECT_DB_PASSWORD` set to unique random 32-character hex strings.
 * **OpenProject Secret Key Base**: 64-character random hex string.
@@ -58,7 +58,7 @@ This section details all external runtime states, host environments, secrets, an
 * **Starting Commit**: `251768b1eed96c748bee6372cbada522b77dc04e`
 * **Commit 1 (`0eb4dc56`)**: `fix(security): sanitize exposed Paperless verification token` (Redacted exposed token in `apex-meta/Alpine/Iteration2/VerificationAG.md:156`).
 * **Commit 2 (`ac5e1c83`)**: `fix(ki-basis): harden target scripts and record Docker Desktop acceptance report` (Updated `backup-stack.sh`, `restore-test-paperless.sh`, `verify-stack.sh`, labeled `INTEGRATION-ACCEPTANCE-REPORT.md`, added `TARGET-ACCEPTANCE-REPORT.md`).
-* **Remote Status**: **NO PUSH ENFORCED** (`main` is ahead of `origin/main` by 3 local commits, strictly kept on the local machine).
+* **Remote Status**: Historical no-push intent is superseded. Verify current branch/remote state with live Git; this dossier itself is tracked and therefore is not evidence that no push occurred.
 
 ---
 
@@ -197,7 +197,7 @@ services:
 | **6** | Port Isolation (DB 5432 & Cache 6379 Internal Only) | **PASS** | `TARGET-ACCEPTANCE-REPORT.md:34-37` |
 | **7** | Docker Socket Isolation (Hermes has no docker.sock) | **PASS** | `TARGET-ACCEPTANCE-REPORT.md:38` |
 | **8** | Network Topology (`ki-basis-net` bridge) | **PASS** | `TARGET-ACCEPTANCE-REPORT.md:6` |
-| **9** | Multi-DB pgvector (6 Databases active with pgvector 0.8.6) | **PASS** | `TARGET-ACCEPTANCE-REPORT.md:27-32` |
+| **9** | pgvector acceptance scope (current designated/application DB checks; template DBs are not an application requirement) | **PASS** | `TARGET-ACCEPTANCE-REPORT.md:27-32` |
 | **10** | Valkey PING / PONG Healthcheck | **PASS** | `TARGET-ACCEPTANCE-REPORT.md:16` |
 | **11** | Nginx Edge Health (`GET :8084/healthz` -> HTTP 200) | **PASS** | `TARGET-ACCEPTANCE-REPORT.md:43` |
 | **12** | Application UIs (8086, 8010, 8082, 9119 -> HTTP 200) | **PASS** | `TARGET-ACCEPTANCE-REPORT.md:44-47` |

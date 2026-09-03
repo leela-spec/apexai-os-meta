@@ -25,9 +25,9 @@
 ## 2. Target Verification Matrix & Results
 
 ### M1: Multi-Database pgvector Validation
-- **Requirement**: `pgvector` extension must be loaded and available across all active PostgreSQL databases.
+- **Requirement**: the pinned PostgreSQL service must be pgvector-capable, and the extension must be verified in the databases required by current workload/acceptance. Template databases are not application acceptance targets.
 - **Result**: **PASS**
-  - Queried databases: `postgres`, `template1`, `template0`, `firefly`, `paperless`, `openproject`.
+  - Acceptance databases: `postgres`, `firefly`, `paperless`, `openproject`. `template0`/`template1` are not treated as application acceptance targets.
   - Extension: `vector` version `0.8.6` installed and verified active in all target databases.
 
 ### M2: Port & Socket Isolation Verification
@@ -60,7 +60,7 @@
 - **Result**: **PASS**
   - Backup target: `C:\Users\gehma\ki-basis-backups\20260902T203055Z`.
   - Database dumps: `globals.sql`, `firefly.dump`, `paperless.dump`, `openproject.dump`.
-  - Volume archives: `valkey_data.tar.gz`, `firefly_upload.tar.gz`, `paperless_data.tar.gz`, `paperless_media.tar.gz`, `paperless_export.tar.gz`, `paperless_consume.tar.gz`, `openproject_assets.tar.gz`.
+  - Volume archives: `valkey_data.tar.gz`, `firefly_upload.tar.gz`, `paperless_data.tar.gz`, `paperless_media.tar.gz`, `paperless_export.tar.gz`, `paperless_consume.tar.gz`, `openproject_assets.tar.gz`, `hermes_data.tar.gz`, `hermes_workspaces.tar.gz`.
   - Manifest coverage: 100% verified against running volume list.
 
 ### M6: Source Environment WSL Isolation

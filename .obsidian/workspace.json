@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "apex-meta/Alpine/ARCHITEKTUR-BASIS.md",
+                "file": "apex-meta/AI-Snippets/AIFailure/TBD.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "ARCHITEKTUR-BASIS"
+              "title": "TBD"
             }
           }
         ],
@@ -176,7 +176,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "apex-meta/Alpine/ARCHITEKTUR-BASIS.md",
+                "file": "apex-meta/AI-Snippets/AIFailure/TBD.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
@@ -190,7 +190,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 504.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -203,43 +203,43 @@
       "bases:Create new base": false
     }
   },
-  "active": "aeb9ff58649f6be2",
+  "active": "541b21c6148d1b9c",
   "lastOpenFiles": [
-    "apex-meta/Alpine/ImplementationPlans/README.md",
-    "apex-meta/Alpine/ImplementationPlans/08-INTEGRATION-ACCEPTANCE-CHECKLIST.md",
-    "apex-meta/Alpine/ImplementationPlans/07-HERMES-IMPLEMENTATION-PLAN.md",
-    "apex-meta/Alpine/ImplementationPlans/06-OPENPROJECT-IMPLEMENTATION-PLAN.md",
-    "apex-meta/Alpine/ImplementationPlans/05-PAPERLESS-NGX-IMPLEMENTATION-PLAN.md",
-    "apex-meta/Alpine/ImplementationPlans/04-FIREFLY-IMPLEMENTATION-PLAN.md",
-    "apex-meta/Alpine/ImplementationPlans/03-VALKEY-IMPLEMENTATION-PLAN.md",
-    "apex-meta/Alpine/ImplementationPlans/02-POSTGRES-PGVECTOR-IMPLEMENTATION-PLAN.md",
-    "apex-meta/Alpine/ImplementationPlans/01-NGINX-IMPLEMENTATION-PLAN.md",
-    "apex-meta/Alpine/ImplementationPlans/00-META-IMPLEMENTATION-PLAN.md",
-    "apex-meta/Alpine/ImplementationPlans",
-    "apex-meta/Alpine/New folder",
-    "apex-meta/Alpine/README.md",
-    "apex-meta/Alpine/08-INTEGRATION-ACCEPTANCE-CHECKLIST.md",
-    "apex-meta/Alpine/00-META-IMPLEMENTATION-PLAN.md",
-    "apex-meta/Alpine/2026-09-01-alpine-image-build.md",
-    "apex-meta/Alpine/ARCHITEKTUR-BASIS.md",
+    "apex-meta/informatics/Agent_Setup",
+    "apex-meta/informatics/New folder",
+    "apex-meta/AI-Snippets/AIFailure/Secrecy_API_Pushed2Git.md",
+    "apex-meta/Alpine/ImplementationPlans/2026-09-03-ki-basis-finalization/02-BACKUP-HARDENING-MINIMAL.md",
+    "apex-meta/Alpine/ImplementationPlans/2026-09-03-ki-basis-finalization/01-SECURITY-SECRET-ROTATION-AND-OPERATOR-GATE.md",
+    "apex-meta/Alpine/ImplementationPlans/2026-09-03-ki-basis-finalization/00-START-HERE.md",
+    "apex-meta/Alpine/ImplementationPlans/2026-09-03-ki-basis-finalization",
+    "apex-meta/AI-Snippets/AIFailure/TBD.md",
+    "apex-meta/informatics/index.md",
+    "apex-meta/Alpine/HANDOVER-REVIEWER-DOSSIER.md",
+    "apex-meta/Alpine/TARGET-ACCEPTANCE-REPORT.md",
+    "apex-meta/informatics/standard.md",
+    "apex-meta/Alpine/Iteration2/VerificationAG.md",
+    "apex-meta/AI-Snippets/AIFailure/CC_insanedrift_savingALessonGoesWrong.md",
+    "apex-meta/SmallSkills/OKF_Format/adoption-project/post-w2-verification/99-completion-index.md",
+    "apex-meta/SmallSkills/OKF_Format/adoption-project/post-w2-verification/00-verification-report.md",
+    "apex-meta/Alpine/Iteration2/Correction_Implementation Plan_ ki-basis Environment Recovery.md",
+    "apex-meta/Alpine/Iteration2",
+    "apex-meta/SmallSkills/OKF_Format/adoption-project/post-w2-verification/PATCH-05-cross-client-instruction-drift.md",
+    "apex-meta/SmallSkills/OKF_Format/adoption-project/post-w2-verification/PATCH-04-terminology-and-ambiguity.md",
+    "apex-meta/SmallSkills/OKF_Format/adoption-project/post-w2-verification/PATCH-03-weekly-runtime-and-topology.md",
+    "apex-meta/SmallSkills/OKF_Format/adoption-project/post-w2-verification/PATCH-02-okf-validator-correctness.md",
+    "apex-meta/SmallSkills/OKF_Format/adoption-project/post-w2-verification/PATCH-01-informatics-scope-and-standard.md",
+    "apex-meta/SmallSkills/OKF_Format/adoption-project/post-w2-verification",
+    "apex-meta/AI-Fuckups/Over-engineering a design task — redundant verification and premature subagents.md",
+    "apex-meta/AI-Fuckups/Over-engineering a design task — redundant verification and premature subagents.md.tmp.79044.26136bc592ce",
+    "apex-meta/kb/claude-code-orchestration-design/wiki/summaries/token-efficient-information-design.md",
     "apex-meta/kb/claude-code-orchestration-design/wiki/summaries/informatics-design-formats-practice-guide.md",
-    "apex-meta/Alpine",
-    "apex-meta/New folder",
     "apex-meta/SmallSkills/OKF_Format/adoption-project/informatics-design-research-location.md",
-    "apex-meta/AI-Snippets/Active State 2.0s Pulsating Ambient Core Glow.okf.md",
-    "apex-meta/SmallSkills/OKF_Format/index.md.tmp.79416.4b821801c863",
-    "apex-meta/SmallSkills/OKF_Format/adoption-project/log.md",
-    "apex-meta/SmallSkills/OKF_Format/adoption-project/log.md.tmp.79416.5fb58ccc07fd",
-    "apex-meta/SmallSkills/OKF_Format/adoption-project/next-steps.md",
-    "apex-meta/SmallSkills/OKF_Format/adoption-project/next-steps.md.tmp.79416.af4ba01fdf1e",
-    "apex-meta/SmallSkills/OKF_Format/adoption-project/apex-meta-okf-usage-audit.md",
-    "apex-meta/SmallSkills/OKF_Format/adoption-project/apex-meta-okf-usage-audit.md.tmp.79416.aee63dcf4d2b",
-    "apex-meta/SmallSkills/OKF_Format/adoption-project/informatics-design-research-location.md.tmp.79416.978696c1842c",
-    "apex-meta/SmallSkills/OKF_Format/adoption-project/leela-ssot-migration-assessment.md",
-    "apex-meta/SmallSkills/OKF_Format/adoption-project/leela-ssot-migration-assessment.md.tmp.79416.2d6e0d2282ad",
-    "apex-meta/SmallSkills/OKF_Format/adoption-project/tooling-option-comparison.md",
-    "apex-meta/SmallSkills/OKF_Format/adoption-project/index.md",
-    "apex-meta/SmallSkills/OKF_Format/log.md",
-    "apex-meta/SmallSkills/OKF_Format/conformance-rules.md"
+    "apex-meta/SmallSkills/Prompting/Antigravity/docker-stack-integrity/15-M13-INDEPENDENT-FINAL-VERIFIER.md",
+    "apex-meta/SmallSkills/Prompting/Antigravity/docker-stack-integrity/14-M12-ARCHITECTURE-DOC-INTEGRITY.md",
+    "apex-meta/SmallSkills/Prompting/Antigravity/docker-stack-integrity",
+    "apex-meta/scripts/__pycache__/okf_validator.cpython-312.pyc",
+    "apex-meta/scripts/tests/__pycache__/test_okf_validator.cpython-312.pyc",
+    "apex-meta/scripts/__pycache__/apply_exact_patch.cpython-312.pyc",
+    "apex-meta/scripts/tests/__pycache__/test_apply_exact_patch.cpython-312.pyc"
   ]
 }
