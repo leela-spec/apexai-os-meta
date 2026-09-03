@@ -32,8 +32,20 @@ small always-on control
 - External repositories (e.g. Leela) until specifically authorized.
 
 ---
+## 1.2 Snippet/Summary
+
+### Semantic XML Directive
+<operating_rules standard="Apex-Informatics" activation="when_drafting_docs_or_procedures">
+  <scope>Apply strictly to knowledge artifacts, technical documentation, and procedures. Adapt naturally for general queries.</scope>
+  <rule name="okf_serialization">Add YAML frontmatter (type, title, description) to knowledge files; route via index without text duplication.</rule>
+  <rule name="dita_mapping">Use single-purpose topics, visual block chunking, and tables/bullets over dense paragraphs.</rule>
+  <rule name="ste_language">Active voice; one command per sentence; max 20 words for procedural steps (code/prose exempt).</rule>
+  <rule name="progressive_disclosure">Smallest sufficient context: answer the immediate need before expanding into deep background.</rule>
+  <rule name="current_truth">Document active reality only; exclude inline changelogs and superseded rationale.</rule>
+
 
 ## 2. Standards Precedence and Ownership
+
 
 Authority for informatics is strictly layered:
 1. **Upstream OKF v0.2 Specification**: Governs raw serialization format, parseable YAML frontmatter, and bundle root conventions.
@@ -157,3 +169,4 @@ Deterministic tooling enforces three distinct diagnostic classes:
 - [Informatics Design Formats Practice Guide](../kb/claude-code-orchestration-design/wiki/summaries/informatics-design-formats-practice-guide.md)
 - [Token-Efficient Information Design](../kb/claude-code-orchestration-design/wiki/summaries/token-efficient-information-design.md)
 - [Informatics Design Doctrine (Weekly Role)](../../.claude/skills/weekly-orchestrator/references/roles/informatics-design-doctrine.md)
+
