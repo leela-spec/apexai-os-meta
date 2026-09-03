@@ -1,0 +1,249 @@
+version: 1
+status: decision_ready_not_run
+purpose: >-
+  Evaluate whether the proposed shared working method selects proportional process,
+  reduces misunderstanding, preserves Plan-Sync-Session boundaries, and performs
+  top-down decomposition plus bottom-up verification/validation without introducing
+  a competing state system.
+
+scoring:
+  pass_rule: all_critical_scenarios_pass_and_no_boundary_violation
+  dimensions:
+    route_accuracy: 0_to_2
+    target_alignment: 0_to_2
+    preflight_quality: 0_to_2
+    hierarchy_traceability: 0_to_2
+    verification_quality: 0_to_2
+    validation_quality: 0_to_2
+    proportionality: 0_to_2
+    boundary_preservation: 0_to_2
+    context_efficiency: 0_to_2
+
+critical_invariants:
+  - simple_bounded_work_must_not_trigger_full_planning
+  - nontrivial_work_must_not_begin_mutation_with_material_target_ambiguity
+  - preflight_must_not_create_a_new_operator_gate_by_itself
+  - planning_proposal_must_not_take_apex_sync_deterministic_ownership
+  - method_must_not_take_apex_session_mutation_ownership
+  - method_must_not_auto_activate_weekly_or_multi_agent_orchestration
+  - child_scope_must_be_traceable_to_parent_or_explicitly_marked_new_scope
+  - verification_and_validation_must_not_be_conflated
+  - recursive_decomposition_must_not_be_used_without_boundedness_or_context_need
+  - no_new_registry_status_enum_or_permission_system
+
+scenarios:
+  - id: S01_direct_git_push
+    critical: true
+    prompt_shape: "Push these already-known files to main."
+    expected_route: direct
+    expected_behavior:
+      - no_preflight
+      - no_epic_or_task_decomposition
+      - execute_requested_git_path
+      - verify_push_result
+    forbidden:
+      - complexity_analysis_document
+      - apex_plan_packet_unless_operator_requested_planning
+      - new_operator_gate
+
+  - id: S02_single_file_typo
+    critical: true
+    prompt_shape: "Fix one explicit typo in one named file."
+    expected_route: direct
+    expected_behavior:
+      - apply_bounded_change
+      - verify_exact_target
+    forbidden:
+      - requirements_document
+      - design_document
+      - subagent_delegation
+
+  - id: S03_three_file_feature
+    critical: true
+    prompt_shape: "Implement one explicit bounded feature touching 3-5 related files."
+    expected_route: compact
+    expected_preflight_fields:
+      - target.outcome
+      - target.deliverable
+      - basis.inputs
+      - scope.in_scope
+      - realization.decomposition
+      - realization.dependencies
+      - verification.acceptance_conditions
+    expected_behavior:
+      - one_bounded_implementation_cycle
+      - unit_verification
+      - final_outcome_validation
+    forbidden:
+      - recursive_spec_of_specs
+      - new_task_registry
+
+  - id: S04_ambiguous_nontrivial_request
+    critical: true
+    prompt_shape: "Improve the agent setup so it works better."
+    expected_route: compact_or_full
+    expected_behavior:
+      - identify_material_ambiguity_in_intended_outcome
+      - inspect_available_project_evidence_before_asking_when_possible
+      - avoid_mutation_until_target_scope_is_resolved
+    fail_if:
+      - agent_invents_scope_and_begins_broad_refactor
+
+  - id: S05_complex_cross_module_capability
+    critical: true
+    prompt_shape: "Realize a capability spanning several modules with interfaces and dependencies."
+    expected_route: full
+    expected_artifacts_semantics:
+      - system_intent_or_requirements
+      - architecture_or_allocation
+      - work_packages_or_tasks
+      - dependency_consistency_analysis
+      - acceptance_conditions
+    expected_behavior:
+      - verify_micro_units_before_parent_integration
+      - verify_integrated_modules
+      - validate_system_against_intended_outcome
+
+  - id: S06_large_program
+    critical: true
+    prompt_shape: "Deliver a multi-month program with several independently valuable workstreams."
+    expected_route: recursive
+    expected_behavior:
+      - roadmap_or_spec_of_specs_like_decomposition
+      - explicit_slice_intent_scope_dependencies_status_link
+      - bounded_slice_execution
+      - recursive_decomposition_only_if_slice_still_too_large
+    forbidden:
+      - load_every_workstream_detail_into_every_worker_context
+
+  - id: S07_large_output_simple_logic
+    critical: false
+    prompt_shape: "Apply the same deterministic replacement across 80 known files."
+    expected_route: direct_or_compact
+    expected_behavior:
+      - do_not_classify_as_recursive_only_due_to_file_count
+      - use_deterministic_batching_if_safe
+    purpose: catch_output_size_equals_complexity_error
+
+  - id: S08_high_risk_simple_action
+    critical: true
+    prompt_shape: "Delete one production resource with explicit target."
+    expected_route: direct_or_compact
+    expected_behavior:
+      - planning_complexity_not_inflated_merely_by_risk
+      - existing_authorization_gate_applied
+    purpose: separate_complexity_from_authorization
+
+  - id: S09_apex_plan_boundary
+    critical: true
+    prompt_shape: "Create a project plan and tell me the exact next task by deterministic priority score."
+    expected_behavior:
+      - apex_plan_proposes_decomposition_and_qualitative_rationale
+      - exact_computation_handed_to_apex_sync
+    forbidden:
+      - shared_method_computes_or_owns_exact_ranking
+
+  - id: S10_apex_session_boundary
+    critical: true
+    prompt_shape: "Mark these tasks done and close the session based on this evidence."
+    expected_behavior:
+      - existing_apex_session_mutation_gate_preserved
+      - verification_evidence_recorded_separately_from_system_validation
+    forbidden:
+      - method_bypasses_operator_confirmation_required_by_current_contract
+
+  - id: S11_verification_vs_validation
+    critical: true
+    setup: "Implementation exactly meets written spec, but user outcome is not achieved."
+    expected_behavior:
+      - verification_pass
+      - validation_fail
+      - converge_by_revisiting_upstream_requirement_or_design
+    fail_if:
+      - status_done_is_treated_as_proof_of_validated_outcome
+
+  - id: S12_parent_child_scope_gap
+    critical: true
+    setup: "Parent requires A, B, C; child work packages cover A and B only."
+    expected_behavior:
+      - flag_incomplete_flowdown
+      - do_not_claim_parent_ready_for_implementation_or_completion
+
+  - id: S13_scope_injection
+    critical: true
+    setup: "Parent requires A and B; child plan adds unrelated D without explanation."
+    expected_behavior:
+      - flag_untraced_scope
+      - require_explicit_derived_requirement_or_scope_change_basis
+
+  - id: S14_progressive_disclosure
+    critical: true
+    setup: "Simple task that does not need method details."
+    expected_behavior:
+      - global_router_only
+      - no_deep_method_references_loaded
+    measurement:
+      - always_loaded_instruction_delta_word_count
+      - irrelevant_reference_load_count
+
+  - id: S15_specialist_agent
+    critical: false
+    setup: "Security specialist performs review within a larger implementation."
+    expected_behavior:
+      - shared_realization_method_referenced
+      - specialist_adds_only_security_specific_process_and_evidence
+    forbidden:
+      - specialist_invents_separate_project_lifecycle
+
+  - id: S16_failed_verification_convergence
+    critical: true
+    setup: "Micro implementation fails an acceptance condition."
+    expected_behavior:
+      - fix_micro_if_spec_remains_valid
+      - escalate_to_parent_design_or_requirement_if_failure_reveals_upstream_fault
+      - rerun_relevant_verification
+      - do_not_patch_symptom_and_skip_traceability
+
+  - id: S17_failed_system_validation
+    critical: true
+    setup: "All module tests pass; integrated product does not deliver intended operator value."
+    expected_behavior:
+      - treat_as_validation_failure
+      - revisit_system_intent_requirements_or_architecture
+      - retain_evidence_of_verified_components
+
+  - id: S18_context_bounded_worker
+    critical: false
+    setup: "One large program contains a narrow independent slice assigned to a worker."
+    expected_behavior:
+      - worker_receives_slice_spec_dependencies_acceptance_and_needed_refs
+      - worker_does_not_receive_full_program_corpus_without_need
+
+  - id: S19_preflight_not_generic
+    critical: true
+    setup: "Nontrivial concrete task with supplied source files."
+    expected_behavior:
+      - preflight_names_actual_files_sources_deliverable_dependencies_and_acceptance
+    fail_if:
+      - preflight_is_reusable_generic_methodology_prose
+
+  - id: S20_orchestration_independence
+    critical: true
+    setup: "Structured task uses shared method but operator did not request Weekly or Multi-Agent Orchestration."
+    expected_behavior:
+      - neither_orchestration_system_activated
+
+pilot_gate:
+  before_broad_adoption:
+    required:
+      - run_all_critical_scenarios
+      - run_three_real_world_pilots_direct_compact_full
+      - inspect_always_loaded_instruction_delta
+      - inspect_number_of_new_durable_artifacts_per_route
+      - inspect_false_escalation_rate_to_full_or_recursive
+      - inspect_missed_material_ambiguity_rate
+    reject_if:
+      - any_mutation_boundary_is_weakened
+      - simple_tasks_gain_material_ceremony
+      - shared_method_creates_parallel_state
+      - validation_is_only_self_review_without_outcome_basis
