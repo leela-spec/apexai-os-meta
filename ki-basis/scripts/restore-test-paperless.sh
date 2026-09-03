@@ -16,6 +16,15 @@ TOKEN="${PAPERLESS_API_TOKEN:-$(getenv_file PAPERLESS_API_TOKEN)}"; [[ -n "$TOKE
 EXPECT_TITLE="${PAPERLESS_RESTORE_EXPECT_TITLE:-Antigravity M5 Test Document}"
 SECRET_KEY="${PAPERLESS_SECRET_KEY:-$(getenv_file PAPERLESS_SECRET_KEY)}"
 [[ -n "$SECRET_KEY" ]] || { echo "PAPERLESS_SECRET_KEY required and cannot be empty (fail-closed)." >&2; exit 1; }
+EXPECT_SHA_FILE="${PAPERLESS_RESTORE_EXPECT_SHA256_FILE:-$ROOT/tests/fixtures/paperless-m5.expected.sha256}"
+EXPECT_SHA256="${PAPERLESS_RESTORE_EXPECT_SHA256:-}"
+if [[ -z "$EXPECT_SHA256" && -f "$EXPECT_SHA_FILE" ]]; then
+  EXPECT_SHA256="$(tr -d '\r\n[:space:]' < "$EXPECT_SHA_FILE" | tr '[:upper:]' '[:lower:]')"
+fi
+[[ "$EXPECT_SHA256" =~ ^[0-9a-f]{64}$ ]] || {
+  echo "Expected Paperless restore SHA256 is required and must be 64 lowercase hex characters." >&2
+  exit 1
+}
 
 for f in "$BACKUP_DIR/postgres/paperless.dump" "$BACKUP_DIR/volumes/paperless_data.tar.gz" "$BACKUP_DIR/volumes/paperless_media.tar.gz" "$BACKUP_DIR/volumes/paperless_export.tar.gz" "$BACKUP_DIR/volumes/paperless_consume.tar.gz"; do [[ -f "$f" ]] || { echo "Missing backup artifact: $f" >&2; exit 1; }; done
 SUFFIX="$(date +%s | tr -d '\r')-$$"; NET="kb-restore-$SUFFIX"; PG="kb-restore-pg-$SUFFIX"; VK="kb-restore-vk-$SUFFIX"; PL="kb-restore-paperless-$SUFFIX"
@@ -29,10 +38,11 @@ for v in "$V_DATA" "$V_MEDIA" "$V_EXPORT" "$V_CONSUME"; do docker volume create 
 docker run -d --name "$PG" --network "$NET" -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD="$PGPASS" -e POSTGRES_DB=postgres "$PG_IMAGE" >/dev/null
 for _ in $(seq 1 60); do docker exec -i=false "$PG" pg_isready -U postgres >/dev/null 2>&1 && break; sleep 1; done
 docker exec -i=false "$PG" pg_isready -U postgres >/dev/null
-docker exec -i=false "$PG" psql -U postgres -d postgres -v ON_ERROR_STOP=1 -c "CREATE USER paperless_app WITH PASSWORD '$APPDBPASS';" -c "CREATE DATABASE paperless OWNER paperless_app;" >/dev/null
+docker exec -i=false "$PG" psql -U postgres -d postgres -v ON_ERROR_STOP=1 -c "CREATE USER paperless_app WITH PASSWORD '$APPDBPASS' SUPERUSER;" -c "CREATE DATABASE paperless OWNER paperless_app;" >/dev/null
 docker cp "$BACKUP_DIR_WIN/postgres/paperless.dump" "${PG}:/tmp/paperless.dump"
 docker exec -i=false "$PG" pg_restore -U postgres -d paperless --no-owner --no-privileges /tmp/paperless.dump
 docker exec -i=false "$PG" rm -f /tmp/paperless.dump
+docker exec -i=false "$PG" psql -U postgres -d paperless -v ON_ERROR_STOP=1 -c "GRANT ALL ON SCHEMA public TO paperless_app;" -c "GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO paperless_app;" -c "GRANT ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA public TO paperless_app;" -c "ALTER SCHEMA public OWNER TO paperless_app;" >/dev/null
 restore_volume(){ local vol="$1" tarfile="$2" cid; cid="$(docker create --entrypoint sh -v "$vol:/dst" "$HELPER_IMAGE" -c "rm -rf /dst/* /dst/.[!.]* /dst/..?* 2>/dev/null || true; tar -C /dst -xzf /tmp/vol.tar.gz" | tr -d '\r\n[:space:]')"; docker cp "$BACKUP_DIR_WIN/volumes/$tarfile" "${cid}:/tmp/vol.tar.gz"; docker start "${cid}" >/dev/null; docker wait "${cid}" >/dev/null; docker rm -f "${cid}" >/dev/null; }
 restore_volume "$V_DATA" paperless_data.tar.gz; restore_volume "$V_MEDIA" paperless_media.tar.gz; restore_volume "$V_EXPORT" paperless_export.tar.gz; restore_volume "$V_CONSUME" paperless_consume.tar.gz
 docker run -d --name "$VK" --network "$NET" "$VK_IMAGE" >/dev/null
@@ -41,12 +51,18 @@ for _ in $(seq 1 120); do
   if docker exec -i=false "$PL" curl -sf http://127.0.0.1:8000/ >/dev/null 2>&1; then break; fi
   sleep 2
 done
+if ! docker exec -i=false "$PL" curl -sf http://127.0.0.1:8000/ >/dev/null 2>&1; then
+  echo "Paperless failed to become ready. Container logs:" >&2
+  docker logs --tail 50 "$PL" >&2 || true
+  exit 1
+fi
 
 cat <<'EOF' > "$BACKUP_DIR/verify_restore.py"
 import os, urllib.request, urllib.parse, json, hashlib
 
 token = os.environ['TEST_TOKEN']
 title = os.environ['EXPECT_TITLE']
+expected_sha256 = os.environ['EXPECT_SHA256']
 headers = {'Authorization': 'Token ' + token}
 q = urllib.parse.urlencode({'query': title, 'page_size': 20})
 req = urllib.request.Request('http://127.0.0.1:8000/api/documents/?' + q, headers=headers)
@@ -60,11 +76,12 @@ r = urllib.request.urlopen(req, timeout=30)
 body = r.read()
 assert len(body) > 0, 'Metadata restored but physical document download is empty'
 sha256 = hashlib.sha256(body).hexdigest()
+assert sha256 == expected_sha256, f'Restored document SHA256 mismatch: expected {expected_sha256}, got {sha256}'
 print(json.dumps({'id': doc_id, 'title': title, 'download_bytes': len(body), 'sha256': sha256}))
 EOF
 
 docker cp "$BACKUP_DIR_WIN/verify_restore.py" "${PL}:/tmp/verify_restore.py"
-docker exec -i=false -e TEST_TOKEN="$TOKEN" -e EXPECT_TITLE="$EXPECT_TITLE" "$PL" python3 /tmp/verify_restore.py
+docker exec -i=false -e TEST_TOKEN="$TOKEN" -e EXPECT_TITLE="$EXPECT_TITLE" -e EXPECT_SHA256="$EXPECT_SHA256" "$PL" python3 /tmp/verify_restore.py
 rm -f "$BACKUP_DIR/verify_restore.py"
 
 echo "RESTORE TEST PASS: actual Paperless API + physical document content and SHA256 verified in disposable restore."
