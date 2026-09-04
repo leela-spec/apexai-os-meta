@@ -184,18 +184,23 @@ services:
     image: nousresearch/hermes-agent@sha256:09d743f5e012e41503829d06ca129c7d3e87ea3f943f7228d520c5c53c6f7db5
     container_name: ki-basis-hermes
     restart: unless-stopped
+    command: gateway run
     ports:
       - "127.0.0.1:${HERMES_GATEWAY_HOST_PORT:-8642}:8642"
       - "127.0.0.1:${HERMES_DASHBOARD_HOST_PORT:-9119}:9119"
     environment:
       HERMES_DASHBOARD: "1"
       HERMES_GATEWAY_EXTERNAL_SUPERVISOR: "1"
+      HERMES_GATEWAY_BOOTSTRAP_STATE: "running"
       HERMES_DASHBOARD_BASIC_AUTH_USERNAME: ${HERMES_DASHBOARD_BASIC_AUTH_USERNAME:-admin}
       HERMES_DASHBOARD_BASIC_AUTH_PASSWORD: ${HERMES_DASHBOARD_BASIC_AUTH_PASSWORD:?HERMES_DASHBOARD_BASIC_AUTH_PASSWORD is required}
       HERMES_HOME: /opt/data
       HERMES_WRITE_SAFE_ROOT: /opt/data
       HERMES_DISABLE_LAZY_INSTALLS: "1"
       HERMES_LAZY_INSTALL_TARGET: /opt/data/lazy-packages
+      API_SERVER_ENABLED: "true"
+      API_SERVER_HOST: "0.0.0.0"
+      API_SERVER_KEY: ${HERMES_API_SERVER_KEY:?HERMES_API_SERVER_KEY is required}
       FIREFLY_API_URL: http://firefly:8080
       PAPERLESS_API_URL: http://paperless:8000
       OPENPROJECT_API_URL: http://openproject:80
