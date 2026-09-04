@@ -19,11 +19,17 @@ Do not reconstruct the project from old chats or historical plans.
 Do not redesign the architecture.
 Do not build the final product skills.
 
-READ FIRST — AND ONLY THESE FOUR FILES
+CONTEXT ENTRYPOINT
+First read:
 1. apex-meta/SmallSkills/Prompting/Antigravity/antigravity-instruction-orchestrator/SKILL.md
-2. ki-basis/CURRENT-STATE.md
-3. ki-basis/AGENT-OPERATING-CONTEXT.md
-4. apex-meta/Alpine/ImplementationPlans/2026-09-03-ki-basis-finalization/OPERATOR-ONBOARDING-WALKTHROUGH.md
+2. ki-basis/AGENTS.md
+
+`ki-basis/AGENTS.md` is the scoped KI Basis agent entrypoint. Follow its routing rules rather than preloading all KI Basis documentation.
+
+For THIS onboarding task, its routing requires only:
+3. ki-basis/CURRENT-STATE.md
+4. ki-basis/AGENT-OPERATING-CONTEXT.md
+5. apex-meta/Alpine/ImplementationPlans/2026-09-03-ki-basis-finalization/OPERATOR-ONBOARDING-WALKTHROUGH.md
 
 Do NOT preload:
 - Antigravity lessons-learned/prompt-pattern references;
@@ -33,8 +39,11 @@ Do NOT preload:
 - the entire Compose file;
 - all scripts.
 
+Historical plans stay in the repository for provenance. They are not normal operating context.
+
 Load deeper material only when the CURRENT STEP requires it.
 If the Antigravity skill itself explicitly requires a reference for the current action, load only that reference JIT.
+If a step needs exact runtime truth, inspect only the relevant Compose/env/script section for that step.
 
 CURRENT TARGET
 heavy-reasoning CLI agent
