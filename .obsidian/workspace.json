@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "apex-meta/AI-Snippets/Docker_Feedback.md",
+                "file": "apex-meta/AI-Snippets/Snippets.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Docker_Feedback"
+              "title": "Snippets"
             }
           }
         ],
@@ -205,6 +205,28 @@
   },
   "active": "541b21c6148d1b9c",
   "lastOpenFiles": [
+    "apex-meta/AI-Snippets/SnippetDocs/AnitOverEng.md",
+    "apex-meta/AI-Snippets/SnippetDocs",
+    "apex-meta/handoff/universal-ai-instruction-system/handoffs/M08-output-and-deliverable-contract.md",
+    "apex-meta/handoff/universal-ai-instruction-system/handoffs/M07-research-and-evidence-discipline.md",
+    "apex-meta/handoff/universal-ai-instruction-system/handoffs/M06-decision-elicitation-and-trade-studies.md",
+    "apex-meta/handoff/universal-ai-instruction-system/handoffs/M04-workflow-complexity-routing.md",
+    "apex-meta/handoff/universal-ai-instruction-system/handoffs/M05-target-value-reuse-anti-drift.md",
+    "apex-meta/handoff/universal-ai-instruction-system/handoffs/M03-context-management.md",
+    "apex-meta/handoff/universal-ai-instruction-system/handoffs/M02-hierarchical-realization-mmm.md",
+    "apex-meta/handoff/universal-ai-instruction-system/handoffs/M01-intent-alignment-and-preflight.md",
+    "apex-meta/handoff/universal-ai-instruction-system/README.md",
+    "apex-meta/handoff/universal-ai-instruction-system/handoffs",
+    "apex-meta/handoff/universal-ai-instruction-system/06-RECOMMENDED-AGENT-CONSTITUTION-AND-MODULES.md",
+    "apex-meta/handoff/universal-ai-instruction-system/05-INSTRUCTION-ACCESS-AND-SERIALIZATION-MATRIX.md",
+    "apex-meta/handoff/universal-ai-instruction-system/04-FRAMEWORK-LANDSCAPE-MATRIX.md",
+    "apex-meta/handoff/universal-ai-instruction-system/03-EVALUATION-PLAN.md",
+    "apex-meta/handoff/universal-ai-instruction-system/02-GLOBAL-SNIPPET-GRAMMAR.md",
+    "apex-meta/handoff/universal-ai-instruction-system/01-MODULE-MAP.md",
+    "apex-meta/handoff/universal-ai-instruction-system/00-ARCHITECTURE-DECISION.md",
+    "apex-meta/handoff/universal-ai-instruction-system",
+    "apex-meta/handoff/2026-09-04-universal-ai-instruction-system-orchestrator-handover.md",
+    "apex-meta/Alpine/ImplementationPlans/2026-09-03-ki-basis-finalization/OPERATOR-ONBOARDING-WALKTHROUGH.md",
     "apex-meta/Alpine/research/Docker-Desktop-Windows.md",
     "apex-meta/Alpine/research",
     "ki-basis/scripts/invoke-hermes.ps1",
@@ -214,32 +236,10 @@
     "apex-meta/AI-Snippets/Docker_Feedback.md",
     "apex-meta/AI-Snippets/Active State 2.0s Pulsating Ambient Core Glow.okf.md",
     "apex-meta/AI-Snippets/ki-basis_Expl.md",
-    "apex-meta/Alpine/Maybe3rdIt/03Completion.md",
     "ki-basis/tests/fixtures/paperless-m5.expected.sha256",
     "ki-basis/tests/fixtures",
     "ki-basis/tests",
     "ki-basis/scripts/test-restore-oracle.sh",
-    "ki-basis/scripts/test-backup-stack.sh",
-    "apex-meta/informatics/MMM/working-method.md",
-    "apex-meta/informatics/MMM/index.md",
-    "apex-meta/informatics/MMM/established-concepts.md",
-    "apex-meta/informatics/MMM",
-    "apex-meta/informatics/Agent_Setup/Master of Arts Business/todo.md",
-    "apex-meta/informatics/Agent_Setup/Master of Arts Business/system-intent.md",
-    "apex-meta/informatics/Agent_Setup/Master of Arts Business/decisions.md",
-    "apex-meta/informatics/Agent_Setup/Master of Arts Business/log.md",
-    "apex-meta/informatics/Agent_Setup/Master of Arts Business/index.md",
-    "apex-meta/informatics/Agent_Setup/Master of Arts Business/architecture.md",
-    "apex-meta/informatics/Agent_Setup/Master of Arts Business",
-    "apex-meta/informatics/Agent_Setup/Lika Charity/system-intent.md",
-    "apex-meta/informatics/Agent_Setup/Lika Charity/index.md",
-    "apex-meta/informatics/Agent_Setup/Lika Charity/todo.md",
-    "apex-meta/informatics/Agent_Setup/Lika Charity/log.md",
-    "apex-meta/informatics/Agent_Setup/Lika Charity/decisions.md",
-    "apex-meta/informatics/Agent_Setup/Lika Charity/architecture.md",
-    "apex-meta/informatics/Agent_Setup/Lika Charity",
-    "Agent Setup/Iterative-Vee/README.md",
-    "Agent Setup/Iterative-Vee/method.md",
-    "apex-meta/Alpine/Iteration2/Untitled.md"
+    "ki-basis/scripts/test-backup-stack.sh"
   ]
 }
