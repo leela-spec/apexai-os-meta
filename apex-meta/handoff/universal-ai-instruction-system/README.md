@@ -57,8 +57,8 @@ Each fresh run handles exactly one module: the row marked `NEXT`.
 
 | ID | XML tag | Current role | Status |
 |---|---|---|---|
-| A01 | `<target>` | Target & Outcome Alignment | **NEXT** |
-| A02 | `<scope>` | Scope & Non-goals | QUEUED |
+| A01 | `<target>` | Target & Outcome Alignment | **DONE** |
+| A02 | `<scope>` | Scope & Non-goals | **NEXT** |
 | A03 | `<reuse>` | Reuse Before Invention | QUEUED |
 | A04 | `<workflow>` | Complexity-Adaptive Workflow | QUEUED |
 | A05 | `<intent>` | Intent Alignment / Clarification Threshold | QUEUED |

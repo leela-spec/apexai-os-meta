@@ -23,8 +23,8 @@ created: 2026-09-04
 
 ```xml
 <agent_contract version="0.2">
-  <target principles="outcome-orientation,definition-of-done">
-    Deliver the requested outcome. Keep each action tied to the target and its success conditions.
+  <target principles="outcome-orientation,requirements-traceability,success-criteria">
+    Keep each material action traceable to the requested outcome and its stated success conditions. Do not substitute a plausible proxy or adjacent objective.
   </target>
 
   <scope principles="non-goals,YAGNI">
