@@ -36,6 +36,7 @@ Locked decisions:
   - conceptual guidance or explanation -> focused reference;
   - deterministic file/path relevance -> scoped rule;
   - no additional method needed -> no deeper artifact.
+- A01 `<target>` owns both **intent-preserving realization and substantive completion validation**. Files, tests, checklists, schemas, and metrics are evidence of success, not substitutes for the requested useful outcome. The former standalone A09 `<verification>` module is merged into A01 and removed from the universal module set.
 - Do not install or propagate candidate Skills or rewrite live root agent instructions during this module-deepening program.
 - Do not reopen the overall architecture unless new evidence directly falsifies a locked decision.
 
@@ -57,7 +58,7 @@ Each fresh run handles exactly one module: the row marked `NEXT`.
 
 | ID | XML tag | Current role | Status |
 |---|---|---|---|
-| A01 | `<target>` | Target & Outcome Alignment | **DONE** |
+| A01 | `<target>` | Intent-Preserving Target Realization & Validation | **DONE** |
 | A02 | `<scope>` | Scope & Non-goals | **NEXT** |
 | A03 | `<reuse>` | Reuse Before Invention | QUEUED |
 | A04 | `<workflow>` | Complexity-Adaptive Workflow | QUEUED |
@@ -65,7 +66,6 @@ Each fresh run handles exactly one module: the row marked `NEXT`.
 | A06 | `<context>` | Context Engineering / Progressive Disclosure | QUEUED |
 | A07 | `<realization>` | Hierarchical Realization & Verification/Validation | QUEUED |
 | A08 | `<evidence>` | Evidence & Uncertainty Discipline | QUEUED |
-| A09 | `<verification>` | Acceptance & Completion Verification | QUEUED |
 | A10 | `<recovery>` | Error Recovery & Escalation | QUEUED |
 | A11 | `<current_truth>` | Current-Truth / Single-Source Discipline | QUEUED |
 | A12 | `<communication>` | Communication Economy | QUEUED |

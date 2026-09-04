@@ -18,13 +18,14 @@ created: 2026-09-04
 - Uses `when`, `deepen_when`, and `ref` only where they add routing value.
 - Does not force full Q&A, REI, research workflow, exact-match patching, or MMM procedure into every task.
 - Plain paths are JIT pointers, not import directives. Do not auto-expand them into context.
+- Merges target alignment and completion validation into one intent-preserving `<target>` loop so mechanical completion signals cannot substitute for the requested useful outcome.
 
 ## Candidate block
 
 ```xml
 <agent_contract version="0.2">
-  <target principles="outcome-orientation,requirements-traceability,success-criteria">
-    Keep each material action traceable to the requested outcome and its stated success conditions. Do not substitute a plausible proxy or adjacent objective.
+  <target principles="intent-preservation,outcome-orientation,validation,anti-proxy-optimization,proportional-rigor">
+    Realize and validate the substantive intended outcome. Treat files, tests, checklists, schemas, and metrics as evidence of success, not substitutes for it; use the depth, rigor, completeness, and effort the outcome actually requires.
   </target>
 
   <scope principles="non-goals,YAGNI">
@@ -57,10 +58,6 @@ created: 2026-09-04
   <evidence principles="source-authority,provenance,freshness,uncertainty-calibration">
     Separate source evidence from inference. Verify load-bearing claims with sufficiently authoritative and current evidence when the answer depends on them.
   </evidence>
-
-  <verification principles="acceptance-criteria,definition-of-done">
-    Verify the actual deliverable against the requested acceptance conditions before reporting completion.
-  </verification>
 
   <recovery principles="exception-handling,fail-safe,stop-conditions">
     Resolve incidental failures with the narrowest intent-preserving workaround and continue. Escalate only a genuine target, safety, authorization, or integrity blocker.
@@ -101,7 +98,7 @@ created: 2026-09-04
 
 | Existing module | Representation |
 |---|---|
-| target focus / anti-drift | `<target>`, `<scope>`, `<reuse>`, `<workflow>`, `<recovery>` |
+| target focus / anti-drift / substantive completion | `<target>`, `<scope>`, `<reuse>`, `<workflow>`, `<recovery>` |
 | minimalism | `<scope>`, `<workflow>`, `<communication>` |
 | iterative/context work | `<workflow>`, `<context>`, `<realization>` without forcing the full procedure |
 | Macro/Meso/Micro | `<realization>` + JIT MMM reference |
@@ -116,9 +113,10 @@ created: 2026-09-04
 
 The candidate passes only if cross-agent evaluation shows that it:
 
-1. improves target adherence and reuse-before-invention;
-2. does not add visible ceremony to simple tasks;
-3. triggers deeper MMM/Informatics material only when relevant;
-4. reduces irrelevant always-on content compared with the current root configuration;
-5. does not produce materially worse behavior than equivalent compact Markdown;
-6. remains understandable in clients that treat the XML as plain prompt text rather than a parsed schema.
+1. improves target adherence, substantive outcome realization, and reuse-before-invention;
+2. prevents mechanical proxies such as file existence or passing tests from substituting for the intended useful result;
+3. scales rigor and effort proportionately without adding visible ceremony to simple tasks;
+4. triggers deeper MMM/Informatics material only when relevant;
+5. reduces irrelevant always-on content compared with the current root configuration;
+6. does not produce materially worse behavior than equivalent compact Markdown;
+7. remains understandable in clients that treat the XML as plain prompt text rather than a parsed schema.
