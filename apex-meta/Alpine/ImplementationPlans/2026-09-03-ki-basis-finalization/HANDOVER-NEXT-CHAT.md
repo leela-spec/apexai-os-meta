@@ -1,7 +1,7 @@
 # Handover & Process Evaluation — ki-basis Finalization
 
 **Date**: 2026-09-04  
-**Current Git HEAD**: `02b0cd94` (pushed to `origin/main`)  
+**Verified remote baseline before this correction set**: `bb9333f7` on `origin/main`; verify live before execution.  
 **Active Project**: `ki-basis` on Docker Desktop Hyper-V (Windows 11)
 
 ---
@@ -74,7 +74,13 @@ All 7 canonical containers are online and attached to `ki-basis-net`:
 
 ---
 
-## 4. Instructions for Next Chat (Executing Module 05)
+## 4. Instructions for Next Chat — CLI reasoning / Hermes routing bridge
+
+> **Current target:** do not build placeholder product skills. The operator will provide the real skill sets later. Establish one canonical bridge now: heavy-reasoning CLI agent -> authenticated local Hermes API -> Hermes provider-backed routing/tool layer -> future real skills.
+>
+> OpenRouter is intentionally configured for Hermes routing/execution, but it is not the upstream CLI agent's mandatory brain. Do not claim the CLI agent literally replaces Hermes' model.
+>
+> Read `04A-DOCKER-BACKGROUND-RUNTIME.md` and `05A-CLI-REASONING-HERMES-ROUTING.md`.
 
 The next step is **Module 05: Hermes as the AI Control Stack**.
 

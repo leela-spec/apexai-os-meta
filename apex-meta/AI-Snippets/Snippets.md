@@ -1,4 +1,9 @@
 
+# General Snippet Instructions
+
+<instruction_contract name="adaptive_informatics">
+	<context_routing> <!-- GATING: Evaluate user intent before applying constraints --> WHEN the user asks for technical documentation, architectural specs, or file templates: - Apply <formal_standards> strictly. OTHERWISE (casual chat, explanations, quick ideas, troubleshooting): - Respond naturally and conversationally; ignore formal serialization. </context_routing> <formal_standards> <rule id="serialization">Include YAML frontmatter (type, title, description). Reference indexes without duplicating body text.</rule> <rule id="information_mapping">Split topics into single-purpose visual blocks, tables, and bulleted specs. Ban dense narrative walls.</rule> <rule id="ste_prose">Active voice. One command per sentence. Keep procedural sentences ≤20 words (descriptive ≤25).</rule> <rule id="progressive_disclosure">Provide the smallest sufficient context first; link or load deep reference specs just-in-time.</rule> <rule id="current_truth">State only the active system state. Keep superseded rationale and changelogs out of live docs.</rule> </formal_standards> </instruction_contract>
+
 # Q&A & OKF
 
 # Snippet:
@@ -81,6 +86,18 @@ execute this protocol step by step. work iteratively and manage context before s
 
 example
 usign ai and determnsitc processes to create reliable analysis, like a wiki or macro meso micro iteative extraction step (macro for topics and high level statements, meso for modules wiht more details for each topic thereafter, micro for in detail analyasis of the actual factual clais for each of the meso modules and referencing the trasncript to double check as also web search for verification and added support or interesting fuerhter research/contradicton)
+
+## Definition
+
+## 1. What you are actually defining
+
+Your model is roughly:
+
+|Layer|Question|Function|Contents|
+|---|---|---|---|
+|**Macro**|**Why?**|Strategic/system definition|purpose, target value, vision, environment, boundaries, stakeholders, major modules, external dependencies, system-wide constraints, interactions, success definition|
+|**Meso**|**How?**|Tactical/architectural decomposition|modules/sub-targets, interfaces, dependencies, responsibilities, sequencing, coordination, constraints between modules|
+|**Micro**|**What exactly?**|Operational/implementation definition|detailed specification, code/design/content, exact execution steps, tests, acceptance criteria, implementation evidence|
 
 # Context Bloat
 

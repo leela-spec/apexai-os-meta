@@ -4,47 +4,29 @@
 
 Prove lifecycle resilience after the architecture/skills are complete.
 
-## Part A — Windows cold reboot
+## Part A — background-runtime + Hermes-bridge lifecycle proof
 
-This is an operator gate because the machine must reboot.
+A forced Windows reboot is not required for the current phase.
 
-Before asking:
+Required now:
 
-- ensure repo working tree is safe;
-- ensure a fresh target backup exists;
-- ensure no long-running unrelated job will be interrupted;
-- record target Docker Engine ID and seven-service state.
+1. keep Docker Dashboard closed;
+2. record seven-service state;
+3. restart Docker Desktop through the supported CLI/background path;
+4. verify all seven services recover;
+5. verify Hermes API server recovers on loopback;
+6. run `ki-basis/scripts/invoke-hermes.ps1` with a non-sensitive prompt;
+7. re-run existing isolation checks.
 
-Ask operator to reboot Windows normally.
-
-After reboot verify:
-
-1. Docker Desktop starts successfully.
-2. Target Docker Engine is Docker Desktop, not Ubuntu WSL Docker.
-3. Ubuntu WSL remains stopped unless explicitly opened.
-4. Exactly seven ki-basis services return healthy/running.
-5. Persistent Paperless/Firefly/OpenProject/Hermes fixture state remains.
-6. Hermes provider starts and can answer a non-sensitive prompt.
-7. Each of the three Hermes application skills completes one read-only real-product call.
-8. PostgreSQL/Valkey host isolation and no Hermes Docker socket still hold.
+At the next natural Windows reboot, run the same proof once. Open a correction only if the natural reboot exposes a real startup/persistence defect.
 
 ## Part B — second-copy/off-host backup
 
-The current backup on the same laptop protects against container/operator errors but not laptop/SSD loss.
+Keep as a future resilience requirement, not a blocker for the current bridge phase.
 
-Do not install a new backup platform automatically.
+When the operator selects an already-trusted encrypted second failure domain, copy one verified backup plus checksum manifest there and verify it.
 
-Ask the operator to choose an already trusted second failure domain, for example:
-
-- encrypted external SSD;
-- existing encrypted cloud backup location;
-- another trusted machine/storage destination.
-
-Because databases/documents themselves may be sensitive, the second copy must be encrypted at rest by the chosen destination or by an existing trusted encryption workflow.
-
-Do not add a new encryption product without operator choice.
-
-Copy one already-verified backup plus checksum manifest to that destination and verify checksums after transfer.
+Do not install a new backup platform, cloud-sync daemon, retention service or encryption product merely to close this phase.
 
 ## Overengineering guard
 
@@ -52,7 +34,19 @@ One verified second copy is enough for this phase. Do not implement rotation sch
 
 ## Acceptance
 
-- cold reboot target acceptance PASS;
-- one verified second-copy backup exists outside the laptop's primary storage failure domain.
+Blocking now:
+
+- Docker Dashboard remained closed during normal operation;
+- supported Docker Desktop restart PASS;
+- seven services recovered;
+- authenticated Hermes API bridge recovered;
+- non-sensitive bridge invocation succeeded;
+- isolation boundaries remained intact.
+
+Future, non-blocking:
+
+- natural Windows reboot check;
+- encrypted second-copy backup after operator selects a destination;
+- final real-skill persistence/cross-app proof after the skill set is installed.
 
 Runtime evidence only unless a small sanitized receipt is explicitly required. STOP.

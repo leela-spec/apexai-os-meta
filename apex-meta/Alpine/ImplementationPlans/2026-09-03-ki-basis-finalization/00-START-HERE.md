@@ -18,6 +18,29 @@ Close the remaining security/evidence defects, then turn Hermes from a container
 
 This is **not** another architecture migration.
 
+## Current execution authority — one reasoning/routing logic
+
+No earlier patch bundle from this chat has been applied. This program therefore defines the single current path directly from the existing baseline.
+
+The final application skill sets will be supplied later.
+
+Current canonical control path:
+
+`heavy-reasoning CLI agent -> Hermes local API -> Hermes routing/skills -> product APIs`
+
+Do not create a parallel permanent path where CLI agents independently implement Firefly/Paperless/OpenProject business logic.
+
+Read before further execution:
+
+1. `04A-DOCKER-BACKGROUND-RUNTIME.md`
+2. `05A-CLI-REASONING-HERMES-ROUTING.md`
+
+OpenRouter is intentionally configured as a Hermes routing/execution provider, while the upstream CLI agent may use its own model/provider for heavy reasoning.
+
+Important: the upstream CLI agent does not literally replace Hermes' own inference model. Hermes still runs its own AIAgent for routing/tool execution.
+
+The full product skill/bundle implementation in `05-HERMES-AI-CONTROL-STACK.md` is deferred until the real skill set is available.
+
 ## Antigravity authority
 
 Before any module, read:
@@ -48,19 +71,32 @@ Rules:
 - Do not reset/stash/commit unrelated work.
 - Prefer bounded patches over full-file rewrites.
 
-## Module order
+## Current state and remaining order
 
-1. `01-SECURITY-SECRET-ROTATION-AND-OPERATOR-GATE.md`
-2. `02-BACKUP-HARDENING-MINIMAL.md`
-3. `03-RESTORE-INDEPENDENT-ORACLE.md`
-4. `06-DOCUMENTATION-TRUTH-CORRECTION.md` (the supplied patch may be used)
-5. `08-PERFORMANCE-TUNING-DEFERRED.md` (documentation-only patch; no tuning)
-6. `05-HERMES-AI-CONTROL-STACK.md` — main next capability, operator interactive
-7. `04-STRICT-AUTH-AND-STACK-VERIFICATION.md`
-8. `07-COLD-REBOOT-AND-OFFHOST-BACKUP.md`
-9. `09-FINAL-INDEPENDENT-CLOSURE.md`
+Already completed and retained:
 
-Module 05 intentionally precedes final strict verification so final acceptance proves the **real Hermes skills**, not only manually injected `docker exec` HTTP calls.
+1. M01 security / secret sanitation.
+2. M02 backup fail-close hardening.
+3. M03 independent Paperless restore SHA oracle.
+4. M04 strict application-auth / topology verification.
+5. M08 evidence-gated performance deferral.
+
+Execute now:
+
+1. `04A-DOCKER-BACKGROUND-RUNTIME.md`
+2. `05A-CLI-REASONING-HERMES-ROUTING.md`
+3. M06 only for concrete documentation/provenance updates created by this correction.
+4. M07 lifecycle proof against the background runtime + Hermes bridge.
+5. M09 independent closure of this bridge/platform phase.
+
+Defer until the real skill set arrives:
+
+- Firefly/Paperless/OpenProject Hermes skill implementation;
+- `ki-basis-control` bundle;
+- cross-application skill orchestration;
+- selected write workflows.
+
+Do not rerun M01-M04 for ceremony. Do not create placeholder skills or a direct-product CLI-agent architecture.
 
 ## Required status vocabulary
 

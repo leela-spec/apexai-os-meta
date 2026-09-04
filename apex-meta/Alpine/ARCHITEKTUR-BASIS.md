@@ -43,13 +43,13 @@ flowchart TB
 > **Current service line (`ki-basis/compose.yaml`):**
 > `postgres`, `valkey`, `firefly`, `paperless`, `openproject`, `nginx`, `hermes`.
 >
-> **Target host:** Windows 11 running Docker Desktop with Hyper-V Linux-container backend (ONE dedicated Docker Engine).
+> **Target host/runtime:** Windows 11 with Docker Desktop's Hyper-V Linux-container backend and one Docker Engine. Routine operation is CLI-first/background-only: the Docker Dashboard is kept closed. Fully stopping Docker Desktop stops the current managed Linux runtime; a genuine no-Desktop Docker Engine would require a separate Linux-VM migration.
 >
 > **Network:** all services join `ki-basis-net` and use Docker service-name DNS. PostgreSQL and Valkey are internal-only.
 >
 > **Persistence:** PostgreSQL, Valkey, Firefly uploads, Paperless data/media/export/consume, OpenProject assets, and Hermes `/opt/data` are persisted into target-local Docker volumes.
 >
-> **Hermes role:** Hermes is the AI operating surface and reaches Firefly, Paperless and OpenProject through supported application APIs. It does not mount a Docker socket or rely on Ubuntu WSL filesystem binds.
+> **Hermes role:** Hermes is the canonical local routing/execution plane for future application skills. heavy-reasoning CLI agents call Hermes through its authenticated loopback API server; Hermes then performs its own provider-backed routing/tool execution. The final product skill set is intentionally deferred until the real skills are supplied. Hermes does not mount a Docker socket or rely on Ubuntu WSL filesystem binds.
 >
 > **Alpine policy:** Alpine is an image choice, not the platform architecture. nginx and Valkey use Alpine-compatible upstream images; complex vendor applications retain supported upstream images.
 
@@ -66,4 +66,5 @@ Do not add hard container CPU/RAM ceilings, reduce Paperless/OpenProject workers
 - Historical pre-migration source evidence: [`INTEGRATION-ACCEPTANCE-REPORT.md`](INTEGRATION-ACCEPTANCE-REPORT.md)
 - Antigravity implementation authority: [`ImplementationPlans/00-START-HERE.md`](ImplementationPlans/00-START-HERE.md)
 - Alpine image-build reference: [`2026-09-01-alpine-image-build.md`](2026-09-01-alpine-image-build.md)
+- Docker Desktop/Windows performance research input (non-authoritative): [`research/Docker-Desktop-Windows.md`](research/Docker-Desktop-Windows.md)
 

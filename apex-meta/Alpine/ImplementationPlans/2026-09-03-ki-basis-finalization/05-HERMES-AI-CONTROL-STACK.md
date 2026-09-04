@@ -1,5 +1,9 @@
 # Module 05 — Hermes as the AI Control Stack
 
+> **Execution status:** FUTURE REAL-SKILL INTEGRATION. The operator will supply the actual skill sets later. Do not execute the product-skill implementation from this file during the current bridge phase. Current authority is `05A-CLI-REASONING-HERMES-ROUTING.md`.
+>
+> Preserve this file as design/research for the later phase, especially: supported app APIs, Hermes secret handling, `ki-basis-control`, read/write safety, and operator acceptance.
+
 ## Purpose
 
 This is the main next capability.
