@@ -3,7 +3,7 @@ type: ExecutionHandover
 title: Universal AI Instruction System — Module Deepening Handover
 description: Reusable one-module-at-a-time research and design contract for refining the compact agent XML and its justified deeper method.
 status: active_reusable_handover
-updated: 2026-09-04
+updated: 2026-09-07
 ---
 
 # Universal AI Instruction System — Module Deepening Handover
@@ -25,10 +25,13 @@ Read these live files first and in this order:
 1. `apex-meta/handoff/universal-ai-instruction-system/README.md`
 2. `apex-meta/handoff/universal-ai-instruction-system/08-TIER-A-XML-EMBEDDED-PILOT-v0.2.md`
 3. the operator-source material or supporting audit only when needed:
+   - `apex-meta/handoff/universal-ai-instruction-system/10-AI-NATIVE-RETROACTIVE-AUDIT-A01-A05.md`
    - `apex-meta/handoff/universal-ai-instruction-system/07-TIER-A-COVERAGE-AND-LIVE-AGENT-AUDIT.md`
    - `apex-meta/AI-Snippets/Snippets.md`
 
 The README is current truth for architecture, module identity, sequence, output shape, and stop conditions.
+
+The AI-native audit records the corrected evidence hierarchy and pending A01-A05 patch proposals. Its proposed module wording is **not** live pilot wording until explicitly applied; its AI-native-first research order is now incorporated directly into this handover and the live README.
 
 Do not reconstruct current state from older research files. Do not import an older module taxonomy when it conflicts with the live README.
 
@@ -77,15 +80,55 @@ Do not continue into the next module unless the operator explicitly overrides th
 
 For the selected module answer:
 
-> What is the best evidence-backed, token-efficient way to make an AI agent reliably exhibit this behavior, using established concepts and proven methods, while keeping the always-loaded rule tiny and loading deeper guidance only when necessary?
+> What is the best evidence-backed, token-efficient way to make a current AI agent reliably exhibit this behavior, using current model/product guidance and proven agent implementations first, established external disciplines where they add durable value, and deeper guidance only when necessary?
 
 ## Research requirements
 
-### A. Establish the underlying discipline
+### A. Current AI-native guidance first
 
-Find the established concept(s) that genuinely match the target behavior.
+Research the **current primary guidance for the actual target AI runtimes before importing an older external discipline**.
 
-Search outside prompt-engineering vocabulary when appropriate. Depending on the module this may include:
+Begin with current OpenAI / ChatGPT / Codex model and product guidance when relevant. Extract only evidence that matters to the active module, such as:
+
+- current model behavior and known changes from earlier models;
+- prompting/instruction recommendations;
+- autonomy and approval boundaries;
+- context-window and persistent-instruction guidance;
+- planning, tool-use, subagent, Skill/plugin, and progressive-disclosure patterns;
+- documented production-agent experience or measured evaluation findings;
+- known over-triggering, under-triggering, context-bloat, or legacy-prompt failure modes.
+
+Current model/product evidence has higher direct relevance to this AI instruction system than an older discipline merely because the older discipline has more formal terminology.
+
+Do not copy vendor wording mechanically. Extract the behavioral principle and evidence.
+
+### B. Cross-agent convergence
+
+Check independent mature agent systems when relevant, prioritizing current primary documentation and proven implementations such as:
+
+- Claude / Claude Code instructions, permissions, Skills, plugins, subagents, and hooks;
+- GitHub Copilot instructions, planning, agents, and Skills;
+- Gemini CLI context, Plan Mode, subagents, and Skills/extensions;
+- Kiro steering/specs/Powers;
+- Cursor rules/Skills/plugins;
+- Windsurf rules/Skills/MCP;
+- AGENTS.md conventions and Agent Skills where they add distinct evidence.
+
+For a material universal rule, prefer evidence that converges across at least two independent agent systems when practical.
+
+Distinguish:
+
+- genuine cross-agent behavioral convergence;
+- one vendor's product mechanic;
+- current model-specific advice that should not become a universal rule without evidence.
+
+The target is not a vendor feature survey. Extract the pattern that matters to this one module.
+
+### C. Establish the underlying external discipline
+
+Only **after** the AI-native evidence is understood, find established external concepts that genuinely add durable vocabulary, trade-off methods, failure modes, or validation logic.
+
+Depending on the module this may include:
 
 - requirements engineering;
 - systems engineering;
@@ -98,28 +141,9 @@ Search outside prompt-engineering vocabulary when appropriate. Depending on the 
 - technical communication / information design;
 - source-of-truth / configuration-management practice.
 
-Do not invent a local term when an established one already covers the behavior.
+Do not invent a local term when an established one already covers the behavior, but do not let formal vocabulary override current measured agent behavior merely because it is older or more established.
 
-### B. Find existing proven agent implementations
-
-Research how mature agent systems already express or operationalize the same behavior.
-
-Prioritize current primary documentation and proven systems such as relevant parts of:
-
-- AGENTS.md conventions;
-- Agent Skills;
-- Claude Code instructions/rules/Skills;
-- OpenAI Codex/agent guidance where public;
-- Cursor rules/Skills;
-- Windsurf rules/Skills;
-- Kiro steering/Skills;
-- Gemini CLI context/rules;
-- GitHub Copilot instructions;
-- other mature frameworks only when they add distinct evidence.
-
-The target is not a vendor feature survey. Extract the patterns that matter to this one module.
-
-### C. Compare alternatives
+### D. Compare alternatives
 
 Where more than one legitimate method exists, compare them.
 
@@ -127,28 +151,30 @@ For each viable alternative capture:
 
 - mechanism;
 - evidence/maturity;
+- fit with current AI behavior;
 - token/context cost;
 - activation reliability;
-- likely failure mode;
+- likely over-triggering or under-triggering failure;
 - portability across agents;
 - whether it fits an always-on rule, Skill, scoped rule, reference, or no deeper artifact.
 
-Reject alternatives explicitly when they are too vague, too heavy, too runtime-specific, or duplicate another module.
+Reject alternatives explicitly when they are too vague, too heavy, too runtime-specific, stale for current models, or duplicate another module.
 
-### D. Test the current pilot wording
+### E. Test the current pilot wording
 
 Treat the current XML block as a hypothesis.
 
 Ask:
 
-- Does it name the right established concepts?
+- Does current AI-native evidence show that this instruction is still needed?
+- Does it name the right concepts for current agents?
 - Is the local rule precise enough to disambiguate those concepts?
 - Is it too broad or too narrow?
-- Could it create unwanted ceremony on simple tasks?
+- Could it create unwanted ceremony or over-trigger on current models?
 - Does it overlap another module?
 - Does it need `when`, `deepen_when`, or `ref`?
 - Does a referenced method actually need to exist?
-- Can the wording be shorter without losing the behavior?
+- Can the wording be shorter without losing measured behavioral value?
 - Would equivalent compact Markdown behave as well or better?
 
 Produce 2–4 materially different wording candidates before selecting the final one when there is a real wording trade-off. Do not manufacture variants that differ only cosmetically.
@@ -199,13 +225,14 @@ This file is the single current result for that module and must contain:
 
 ### 2. Why this is the right method
 
-Dense synthesis of the strongest external evidence and proven implementations.
+Dense synthesis of the strongest evidence, **in this order**:
 
-Separate:
+1. current OpenAI / ChatGPT / Codex evidence relevant to the module;
+2. independent mature-agent convergence;
+3. established external discipline evidence;
+4. local inference/decision.
 
-- underlying discipline evidence;
-- agent-delivery/loading evidence;
-- local inference/decision.
+Do not lead with NASA, PMI, INCOSE, Lean, or another external discipline when current AI-native primary evidence exists for the behavior.
 
 ### 3. Semantic contract
 
@@ -264,20 +291,23 @@ List the important alternatives and why they lost.
 
 ### 7. Sources
 
-Use current primary/authoritative sources. Include publication/update context where freshness matters.
+Use current primary/authoritative sources. Put AI-native primary sources first, independent agent-system sources second, and external-discipline sources third. Include publication/update context where freshness matters.
 
 ## Wording acceptance criteria
 
 The final root module should pass all applicable checks:
 
+- **Behaviorally necessary:** it corrects or improves a material behavior that current agents do not already handle reliably enough without the instruction.
 - **Self-sufficient:** an agent can act reasonably without opening the reference.
 - **Small:** one behavior, typically one short semantic rule.
+- **Current:** compatible with current frontier-agent behavior; do not preserve legacy anti-laziness or permission scaffolding without evidence it remains useful.
 - **Established:** uses recognized concepts where they improve meaning.
 - **Disambiguated:** principle names are not left to interpretation alone.
 - **Non-ceremonial:** does not force a complex process onto simple work.
 - **Non-duplicative:** does not restate another module's job.
 - **Routable:** a deep trigger/reference is present only when it adds real value.
 - **Portable:** does not depend on one vendor unless the behavior itself is vendor-specific.
+- **Context-efficient:** earns its always-on token cost; deeper details remain JIT.
 - **Testable:** its effect can be observed in scenarios.
 
 ## Modification rules
