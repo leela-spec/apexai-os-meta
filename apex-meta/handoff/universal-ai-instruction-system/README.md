@@ -60,8 +60,8 @@ Each fresh run handles exactly one module: the row marked `NEXT`.
 |---|---|---|---|
 | A01 | `<target>` | Intent-Preserving Target Realization & Validation | **DONE** |
 | A02 | `<scope>` | Scope & Non-goals | **DONE** |
-| A03 | `<reuse>` | Reuse Before Invention | **NEXT** |
-| A04 | `<workflow>` | Complexity-Adaptive Workflow | QUEUED |
+| A03 | `<reuse>` | Reuse Before Invention | **DONE** |
+| A04 | `<workflow>` | Complexity-Adaptive Workflow | **NEXT** |
 | A05 | `<intent>` | Intent Alignment / Clarification Threshold | QUEUED |
 | A06 | `<context>` | Context Engineering / Progressive Disclosure | QUEUED |
 | A07 | `<realization>` | Hierarchical Realization & Verification/Validation | QUEUED |

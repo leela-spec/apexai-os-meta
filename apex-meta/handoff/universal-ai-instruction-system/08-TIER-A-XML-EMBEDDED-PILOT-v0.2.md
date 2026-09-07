@@ -32,8 +32,8 @@ created: 2026-09-04
     Stay within the authorized task: perform work that directly realizes or materially enables the target and respect governing constraints. Do not act on adjacent improvements, opportunistic cleanup/redesign, or speculative future work unless that broader work is explicitly authorized.
   </scope>
 
-  <reuse principles="reuse-before-build,KISS">
-    Prefer proven existing methods, tools, and patterns before inventing a new abstraction. Custom build requires evidence that suitable existing options are insufficient.
+  <reuse principles="make-buy-reuse,fitness-for-use">
+    Before building nontrivial custom capability, check suitable existing project assets and established external solutions. Reuse or adapt a fit-for-purpose option when it meets the target and constraints; build new only when a demonstrated gap or better overall trade-off justifies it.
   </reuse>
 
   <workflow principles="complexity-adaptive-routing,progressive-refinement">
