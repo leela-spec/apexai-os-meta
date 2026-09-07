@@ -1,241 +1,209 @@
 ---
 type: architectural_handover
 title: Apex OS & Dual KI-Basis Orchestration Handover
-description: Master reasoning handover for ChatGPT GitHub connector to analyze, validate, and evolve the two-tier orchestration system and infrastructure substrate.
-version: 4.1.0
+description: Master reasoning handover for ChatGPT GitHub connector to conduct an empirical audit of executed workflows, ground learnings via excessive web research, author Antigravity implementation packets, and verify bottom-up alignment.
+version: 5.0.0
 target_model: o3-mini / o1 / gpt-5-thinking
 repository: leela-spec/apexai-os-meta
 branch: main
 root_path: apex-meta/orchestration/new_final_v4/
+authority_references:
+  - apex-meta/handoff/universal-ai-instruction-system/13-HUMAN-AI-COMPLEX-TASK-EXECUTION.md
+  - apex-meta/SmallSkills/Prompting/Antigravity/antigravity-instruction-orchestrator/SKILL.md
+  - apex-meta/SmallSkills/Prompting/Antigravity/ANTIGRAVITY_PROMPTING_LESSONS_LEARNED.md
 ---
 
 # Apex OS & Dual KI-Basis Orchestration Handover
+## Empirical Workflow Audit, Web-Grounded Analysis & Antigravity Instruction Architecture
 
-## 1. Role & Mission Objective
+## 1. Role & Substantive Target
 
-You are the Principal Systems Architect executing in excessive thinking mode.
-Connect to repository `leela-spec/apexai-os-meta` via the GitHub connector.
-Analyze all files located under `apex-meta/orchestration/new_final_v4/`.
-Validate system workflows, audit observed bottlenecks, and author the next evolution specifications.
+You are the **Principal Orchestration Architect** executing in **excessive thinking mode** with access to repository `leela-spec/apexai-os-meta` via the GitHub connector.
+
+### A. Substantive Outcome
+Execute an empirical audit of the 10 executed workflows (WF01–WF10), diagnosed runtime bottlenecks, and proposed corrections. Conduct intensive external web research against authoritative primary documentation to validate the macro topology, meso workspace boundaries, and micro configuration parameters. Produce modular, actionable **Execution Packets specifically formatted for Antigravity** as the executor AI, and establish a closed bottom-up verification loop ensuring zero invariant drift.
+
+### B. Iterative File-Backed Execution
+Do **not** attempt to retain the multi-stage analysis in ephemeral chat context. Execute iteratively by creating and committing discrete markdown artifacts under:
+`apex-meta/orchestration/new_final_v4/evolution/`
 
 ```mermaid
 flowchart TD
-    subgraph Phase1 ["Phase 1: Top-Down Reasoning"]
-        Macro["Macro: Global Topology & Interdependencies"]
-        Meso["Meso: Peer Workspace Boundaries & Docker Protocols"]
-        Micro["Micro: Actionable Implementation Blueprints"]
-        Macro --> Meso --> Micro
+    subgraph IterativeEvolution ["Iterative File-Backed Architecture Pipeline"]
+        direction TB
+        S1["Step 1: 01_MACRO_TOPOLOGY_ASSESSMENT.md<br/>(Global Topology, Workspaces, Docker Stacks, Invariants)"]
+        S2["Step 2: 02_MESO_WORKSPACE_AND_SERVICES_AUDIT.md<br/>(4 Peer Repos, Dual Clones, Interface Contracts, Ports)"]
+        S3["Step 3: 03_MICRO_ANTIGRAVITY_EXECUTION_PACKETS.md<br/>(Actionable Packets tailored for Antigravity CLI)"]
+        S4["Step 4: 04_BOTTOM_UP_VERIFICATION_REPORT.md<br/>(Micro-to-Macro Invariant Alignment & Grounded Proof)"]
+        S1 -->|Committed to Repo| S2
+        S2 -->|Committed to Repo| S3
+        S3 -->|Committed to Repo| S4
     end
-    
-    subgraph Phase2 ["Phase 2: Bottom-Up Empirical Verification"]
-        VerifyMicro["Micro Check: Concrete Commands & Scripts"]
-        VerifyMeso["Meso Check: Boundary & Protocol Integrity"]
-        VerifyMacro["Macro Check: Invariant Compliance & Zero Drift"]
-        VerifyMicro --> VerifyMeso --> VerifyMacro
-    end
-
-    Micro --> VerifyMicro
 ```
 
 ---
 
-## 2. Architectural Invariants (Non-Negotiable)
+## 2. Governing Authority & Instruction Doctrine
 
-Adhere strictly to the four core governing invariants.
+Adhere strictly to the operational doctrine established in the project repository:
+
+1. **Human-AI Orchestration Protocol**:
+   - Follow [`13-HUMAN-AI-COMPLEX-TASK-EXECUTION.md`](file:///C:/GitDev/apexai-os-meta/apex-meta/handoff/universal-ai-instruction-system/13-HUMAN-AI-COMPLEX-TASK-EXECUTION.md).
+   - Your role is the **Orchestrator AI**. Antigravity is the **Executor AI**.
+   - Establish current truth from repository files before proposing changes.
+   - Ground material decisions in external reality via live web research.
+   - Prefer battle-proven reuse before custom invention.
+   - Enforce the **Repository Mutation Boundary**: propose patches using **Aider `editor-diff` / SEARCH-REPLACE blocks** or specify complete new authorized files.
+2. **Antigravity Instruction Standard**:
+   - Follow [`antigravity-instruction-orchestrator/SKILL.md`](file:///C:/GitDev/apexai-os-meta/apex-meta/SmallSkills/Prompting/Antigravity/antigravity-instruction-orchestrator/SKILL.md) and [`ANTIGRAVITY_PROMPTING_LESSONS_LEARNED.md`](file:///C:/GitDev/apexai-os-meta/apex-meta/SmallSkills/Prompting/Antigravity/ANTIGRAVITY_PROMPTING_LESSONS_LEARNED.md).
+   - Antigravity requires: bounded single-module scope, concrete commands, explicit forbidden facades, independent oracles (non-self-referential), negative/denial tests, and explicit commit/stop boundaries.
+
+---
+
+## 3. Core Architectural Invariants (Non-Negotiable)
+
+Every analysis and patch proposal must strictly comply with these four invariants:
 
 | Invariant ID | Name | Operational Rule |
 |---|---|---|
-| **INV-01** | **Two-Tier Cognitive Hierarchy + Substrate** | **Tier 1**: High-Reasoning Strategic CLI Agents direct architecture and code. **Tier 2**: Hermes Orchestration Agent via OpenRouter automates bounded workflows. **Infrastructure Substrate**: Deterministic code and local Docker services (KI-Basis) provide data and utility execution. Zero "Tier 3 AI" layer. |
-| **INV-02** | **Peer Workspace Parity & Dual-Clone Topology** | All 4 repositories are architectural peers with dual clones: Windows Host (`C:\GitDev\<repo>`) and Linux WSL2 (`/root/workspaces/<repo>`). Direct execution runs natively on ext4 to avoid 9p filesystem latency. |
-| **INV-03** | **Universal Computational Determinism** | Deterministic code (Python, DuckDB, Shell, SQL) computes 100% of numeric calculations, scores, regime states, ledger entries, and mutations. LLMs strictly narrate and structure human-readable text. Zero automated broker/financial mutations. |
-| **INV-04** | **Local Utility Docker Isolation & Quarantine** | KI-Basis consists of standard local utility Docker containers running on localhost. Private solopreneur operations (`:8080–:8089`) and Community non-profit operations (`:9080–:9089`, Safer Space e.V. / Equinox 2026) run in strictly disjoint stacks to enforce German statutory tax isolation (§ 14 UStG / AO § 52). |
+| **INV-01** | **Two-Tier Cognitive Hierarchy + Substrate** | **Tier 1**: High-Reasoning Strategic CLI Agents (Antigravity CLI, Claude Code, ChatGPT Thinking) direct architecture, planning, and code changes.<br/>**Tier 2**: Hermes Orchestration Agent via OpenRouter (`/usr/local/bin/hermes`) automates bounded workflows, scheduled sweeps, and intake triage.<br/>**Infrastructure Substrate**: Deterministic code (Python, DuckDB, Bash, pytest) and local utility Docker services (KI-Basis on localhost) execute without autonomous decision-making. No "Tier 3 AI" exists; local Ollama is parked in R&D. |
+| **INV-02** | **Peer Workspace Parity & Dual-Clone Topology** | All 4 repositories (`apexai-os-meta`, `Investment`, `MasterOfArts`, `acim-secular`) have equal architectural parity. Each is cloned twice:<br/>- **Windows Host (NTFS)**: `C:\GitDev\<repo>\`<br/>- **Linux WSL2 (ext4)**: `/root/workspaces/<repo>/`<br/>All automated runtime execution must occur on native ext4 to avoid 9p filesystem penalties. |
+| **INV-03** | **Universal Computational Determinism** | Deterministic code (Python, DuckDB, Shell, SQL) computes 100% of numeric calculations, regime scores, invoice figures, and mutations. LLMs strictly narrate, synthesize text, and structure output. Zero autonomous financial/broker mutations. |
+| **INV-04** | **Local Utility Docker Isolation & Quarantine** | KI-Basis consists of standard local Docker utility containers running on localhost. Private solopreneur operations (`:8080–:8089`) and Community non-profit operations (`:9080–:9089`, Safer Space e.V. / Equinox 2026) are strictly quarantined into separate stacks with disjoint ports and zero database commingling (§ 14 UStG / AO § 52). |
 
 ---
 
-## 3. System Topology & Dual-Clone Mapping
+## 4. Empirical Baseline: Executed Workflows & Observed Bottlenecks
 
-The architecture consists of four peer repositories and local Docker utility services across a dual-clone environment:
+Inspect the live execution receipts and learning dossiers before authoring plans:
 
-### A. The Four Peer Workspaces
+### A. Execution State & Workflows
+- `apex-meta/orchestration/new_final_v4/State/TEST_RUN_RECEIPTS.md`: Empirical receipts for all 10 executed workflows (WF01 to WF10). All 10 passed functional checks, but revealed critical runtime latency and environment bottlenecks.
+- `apex-meta/orchestration/new_final_v4/workflow_plans/`: The 10 workflow definition plans (WF01–WF10) and `00_META_PROGRAM_PLAN.md`.
 
-| Repository Name | Windows Host Clone (NTFS) | Linux WSL2 Clone (ext4) | Primary Role & Domain |
-|---|---|---|---|
-| **`apexai-os-meta`** | `C:\GitDev\apexai-os-meta\` | `/root/workspaces/apexai-os-meta/` | Meta-orchestration, workflow plans, CI/CD runbooks, health rollups, and dual KI-Basis Docker configs. |
-| **`Investment`** | `C:\GitDev\Investment\` | `/root/workspaces/Investment/` | Quantitative models (pytest/DuckDB), IPOS macro indicators, financial ledger scripts, and local Karakeep evidence storage. |
-| **`MasterOfArts`** | `C:\GitDev\MasterOfArts\` | `/root/workspaces/MasterOfArts/` | Creative writing syntheses, workshop curricula (Transcendents 2026), coaching lifecycle, and static website builds. |
-| **`acim-secular`** | `C:\GitDev\acim-secular\` | `/root/workspaces/acim-secular/` | Secular philosophical corpus, semantic search, thematic text extraction, and cross-referencing. |
-
-### B. Cognitive Hierarchy & Infrastructure Substrate
-
-```mermaid
-graph TD
-    subgraph Tier1 ["Tier 1: High-Reasoning Strategic CLI Agents"]
-        T1A["Antigravity CLI"]
-        T1B["Claude Code / ChatGPT Thinking"]
-        T1Desc["Strategic Architecture • Multi-Repo Refactoring • Master Planning • Code Authoring"]
-    end
-
-    subgraph Tier2 ["Tier 2: Hermes Orchestration Agent via OpenRouter"]
-        HermesRunner["/usr/local/bin/hermes"]
-        OpenRouterPool["OpenRouter Models (e.g. z-ai/glm-5.3-flash, DeepSeek)"]
-        T2Desc["Automated Workflows • Scheduled Sweeps • Intake Bridges • Triage Prompts"]
-        HermesRunner --> OpenRouterPool
-    end
-
-    subgraph Substrate ["Infrastructure Substrate (Deterministic Code & Utility Services)"]
-        CodeSub["Deterministic Code: Python 3 • DuckDB • Pytest • Bash • SQL"]
-        KIPrivate["KI-Basis Private Utility Stack (:8080-:8089)<br/>Paperless (:8010), Firefly III (:8086), Postgres (:8081), OpenProject (:8082)"]
-        KICommunity["KI-Basis Community Utility Stack (:9080-:9089)<br/>Quarantined for Safer Space e.V. / Equinox 2026"]
-        Filesystems["Dual Clones: Windows NTFS (C:\GitDev\) & WSL2 ext4 (/root/workspaces/)"]
-    end
-
-    Tier1 -->|Directs / Reviews| Tier2
-    Tier1 -->|Direct Code Execution| Substrate
-    Tier2 -->|Automates Workflows via| Substrate
-```
-
-> [!NOTE]
-> Local LLMs (Ollama on host) are categorized as experimental research under `FutureDevelopments&Research/` and are not part of the current active operational hierarchy.
+### B. Diagnosed Inefficiencies & Optimization Dossiers
+Load the 8 learning dossiers under `apex-meta/orchestration/new_final_v4/learnings_and_corrections/`:
+1. `00_INDEX_AND_EXECUTIVE_SUMMARY.md`: Telemetry overview across workflows.
+2. `01_WORKFLOW_EFFICIENCY_MATRIX_AND_BOTTLENECK_AUDIT.md`: Latency spectrum and classification.
+3. `02_ROOT_CAUSE_WF03_AND_WF10_LATENCY_ANALYSIS.md`: Diagnosis of WF03 (11m 34s) and WF10 (3m) latencies caused by monolithic prompt submission, sequential file crawling in LLM evaluation loops, and lack of chunking.
+4. `03_LOCAL_OLLAMA_INTEGRATION_RUNBOOK.md`: Analysis of Windows Ollama `127.0.0.1:11434` loopback isolation from WSL2. Parked for future R&D; do not treat as an active operational tier.
+5. `04_OPENROUTER_FREE_MODEL_POOL_AND_FALLBACK_ENGINE.md`: Mitigation for OpenRouter rate limits via multi-model fallback array (`glm-5.3-flash`, `deepseek-chat`, etc.).
+6. `05_EXT4_STARTUP_OPT_AND_9P_ZERO_TOUCH_GUIDE.md`: Elimination of `/mnt` startup checks by invoking WSL2 directly via `--cd /root/workspaces/<repo>`.
+7. `06_ACTIONABLE_LEARNINGS_AND_ARCHITECTURAL_INSTRUCTIONS.md`: Mandatory prompt chunking rules (capping prompts at 80 lines, preprocessing citations deterministically).
+8. `07_LEAN_ARCHITECTURE_REDUCTION_AUDIT.md`: Removal of redundant abstraction layers, duplicate wrappers, and over-engineered interfaces.
 
 ---
 
-## 4. Essential File Directory (Read Just-In-Time)
+## 5. Required 4-Step Iterative Evolution Workflow
 
-Load these files through the GitHub connector to establish baseline truth.
-
-### A. Execution State & Master Plans
-- `apex-meta/orchestration/new_final_v4/State/TEST_RUN_RECEIPTS.md`: Full audit receipts for all 10 executed workflows.
-- `apex-meta/orchestration/new_final_v4/State/health-receipt.yaml`: Workspace branch and container status rollup.
-- `apex-meta/orchestration/new_final_v4/workflow_plans/00_META_PROGRAM_PLAN.md`: Master program orchestration plan.
-
-### B. Core Blueprints & Handover Packages
-- `apex-meta/orchestration/new_final_v4/architecture_dossier/00_ARCHITECT_EXECUTIVE_SUMMARY.md`: Unified cognitive master architecture diagram.
-- `apex-meta/orchestration/new_final_v4/architecture_dossier/01_DUAL_INSTANCE_ARCHITECTURE.md`: Separation of private vs. community stacks.
-- `apex-meta/orchestration/new_final_v4/architecture_dossier/02_DUAL_INSTANCE_RUNBOOK.md`: Operational commands and port configurations.
-- `apex-meta/orchestration/new_final_v4/architecture_dossier/HANDOVER_AUTOMATION_TESTS.md`: Investment automation handover.
-- `apex-meta/orchestration/new_final_v4/architecture_dossier/HANDOVER_OPERATIONAL_LAYER.md`: Investment operational layer handover.
-
-### C. Architectural Learnings & Optimization Dossiers
-- `apex-meta/orchestration/new_final_v4/learnings_and_corrections/00_INDEX_AND_EXECUTIVE_SUMMARY.md`: Index and telemetry quadrant.
-- `apex-meta/orchestration/new_final_v4/learnings_and_corrections/01_WORKFLOW_EFFICIENCY_MATRIX_AND_BOTTLENECK_AUDIT.md`: 10-workflow performance metrics.
-- `apex-meta/orchestration/new_final_v4/learnings_and_corrections/02_ROOT_CAUSE_WF03_AND_WF10_LATENCY_ANALYSIS.md`: Root cause analysis of WF03 (11.5m) and WF10 (3m).
-- `apex-meta/orchestration/new_final_v4/learnings_and_corrections/03_LOCAL_OLLAMA_INTEGRATION_RUNBOOK.md`: Windows Ollama bridge to WSL2 (Future R&D).
-- `apex-meta/orchestration/new_final_v4/learnings_and_corrections/04_OPENROUTER_FREE_MODEL_POOL_AND_FALLBACK_ENGINE.md`: Free model pool and failover.
-- `apex-meta/orchestration/new_final_v4/learnings_and_corrections/05_EXT4_STARTUP_OPT_AND_9P_ZERO_TOUCH_GUIDE.md`: Elimination of `/mnt` startup checks.
-- `apex-meta/orchestration/new_final_v4/learnings_and_corrections/06_ACTIONABLE_LEARNINGS_AND_ARCHITECTURAL_INSTRUCTIONS.md`: Mandatory prompt chunking rules.
-- `apex-meta/orchestration/new_final_v4/learnings_and_corrections/07_LEAN_ARCHITECTURE_REDUCTION_AUDIT.md`: Removal of redundant wrappers.
-
----
-
-## 5. Required Analysis Process
-
-Execute this structured two-phase analysis.
-
-### Phase 1: Top-Down Synthesis
+Execute the analysis and specification authoring in four distinct, sequential steps. Each step must produce a dedicated markdown file committed under `apex-meta/orchestration/new_final_v4/evolution/`:
 
 ```text
-Macro (Global Topology) ➔ Meso (Peer Workspaces & Services) ➔ Micro (Implementation)
+Step 1: Macro Topology Assessment ➔ apex-meta/orchestration/new_final_v4/evolution/01_MACRO_TOPOLOGY_ASSESSMENT.md
+Step 2: Meso Workspace & Services Audit ➔ apex-meta/orchestration/new_final_v4/evolution/02_MESO_WORKSPACE_AND_SERVICES_AUDIT.md
+Step 3: Micro Antigravity Execution Packets ➔ apex-meta/orchestration/new_final_v4/evolution/03_MICRO_ANTIGRAVITY_EXECUTION_PACKETS.md
+Step 4: Bottom-Up Verification Report ➔ apex-meta/orchestration/new_final_v4/evolution/04_BOTTOM_UP_VERIFICATION_REPORT.md
 ```
 
-1. **Macro Layer Analysis**:
-   - Map interdependencies across all 4 peer repositories (`apexai-os-meta`, `Investment`, `MasterOfArts`, `acim-secular`) and the dual KI-Basis Docker stacks.
-   - Contrast private solopreneur boundaries against non-profit community operations.
-   - Evaluate network, filesystem (NTFS vs. ext4), and cognitive boundaries.
+### Step 1: Macro Topology Assessment
+**Output Target**: `apex-meta/orchestration/new_final_v4/evolution/01_MACRO_TOPOLOGY_ASSESSMENT.md`
+- **Scope**:
+  - Global topological model connecting the 4 peer workspaces across Windows Host (NTFS) and Linux WSL2 (ext4).
+  - Cross-cutting evaluation of the Dual KI-Basis local utility Docker stacks (Private vs. Community).
+  - Assessment of network boundaries, filesystem bridges, and cognitive hierarchy.
+- **External Web Grounding Requirements**:
+  - Research official Docker Desktop for Windows documentation regarding WSL2 backend port forwarding and loopback routing.
+  - Research Microsoft WSL2 kernel documentation on filesystem cross-talk performance (NTFS 9p bridge vs. native ext4 VHDX).
+- **Deliverable Content**: Global architecture diagram (Mermaid), interdependency matrix, invariant compliance confirmation.
 
-2. **Meso Layer Analysis**:
-   - Audit the four individual peer workspaces:
-     1. `apexai-os-meta` (`C:\GitDev\apexai-os-meta\` and `/root/workspaces/apexai-os-meta/`).
-     2. `Investment` (`C:\GitDev\Investment\` and `/root/workspaces/Investment/`).
-     3. `MasterOfArts` (`C:\GitDev\MasterOfArts\` and `/root/workspaces/MasterOfArts/`).
-     4. `acim-secular` (`C:\GitDev\acim-secular\` and `/root/workspaces/acim-secular/`).
-   - Audit the Dual KI-Basis local utility Docker stacks: Private (`:8080–:8089`) vs. Community (`:9080–:9089`).
-   - Identify interface contracts, shared volumes, and port mappings.
+### Step 2: Meso Workspace & Services Audit
+**Output Target**: `apex-meta/orchestration/new_final_v4/evolution/02_MESO_WORKSPACE_AND_SERVICES_AUDIT.md`
+- **Scope**:
+  - Detailed audit of the 4 individual peer workspaces:
+    1. `apexai-os-meta`: Master orchestration engine, shell runbooks, health rollups, and Docker configurations.
+    2. `Investment`: Quantitative models, IPOS macro indicators (pytest/DuckDB), financial ledgers, and local Karakeep evidence storage.
+    3. `MasterOfArts`: Creative synthesis, workshop curriculum generation, coaching client lifecycle, and static website pipeline.
+    4. `acim-secular`: Philosophical corpus, text extraction, and semantic citation search.
+  - Detailed audit of Dual KI-Basis services: Paperless-ngx (`:8010`/`:8080`), Firefly III (`:8086`), PostgreSQL (`:8081`), OpenProject (`:8082`), Pretix (`:9080`), Mailpit (`:8025`/`:9025`).
+  - Analysis of interface contracts, storage volumes, and port mappings.
+- **External Web Grounding Requirements**:
+  - Research OpenRouter API documentation regarding model routing, free pool rate limits, and fallback arrays.
+  - Research Hermes Agent CLI profile specifications and eval execution parameters.
+  - Research statutory tax compliance rules (§ 14 UStG, § 19 UStG Kleinunternehmer, AO § 52 non-profit segregation).
+- **Deliverable Content**: Subsystem interface specifications, port collision audits, data flow contracts.
 
-3. **Micro Layer Implementation**:
-   - Author concrete patch files, configuration updates, and shell scripts.
-   - Address the known workflow bottlenecks:
-     - OpenRouter model rotation and fallback array for Hermes.
-     - WSL direct `--cd /root/workspaces/<repo>` execution syntax to eliminate 9p checks.
-     - Hermes prompt chunking rules (capping monolithic prompts at 80 lines).
-     - Nginx static route mapping for `:8084/moa/`.
-     - Deferral and host binding architecture for experimental local Ollama serving.
+### Step 3: Micro Implementation Packets for Antigravity
+**Output Target**: `apex-meta/orchestration/new_final_v4/evolution/03_MICRO_ANTIGRAVITY_EXECUTION_PACKETS.md`
+- **Scope**:
+  - Author concrete, modular **Execution Packets** specifically tailored for execution by Antigravity CLI.
+  - Every packet must resolve a concrete bottleneck identified in the audit:
+    - **Packet 1: Hermes Prompt Chunking Engine**: Implementation of deterministic text chunking (Python script) to cap evaluation prompts at 80 lines and eliminate WF03/WF10 latencies.
+    - **Packet 2: OpenRouter Dynamic Fallback Array**: Configuration patch for Hermes profiles (`research-strategist`, `workshop-designer`, `default`) with automated model rotation.
+    - **Packet 3: Direct WSL2 ext4 Execution Wrapper**: Standardized CLI launch commands utilizing `wsl.exe -d Ubuntu -u root --cd /root/workspaces/<repo>` to eliminate 9p startup checks.
+    - **Packet 4: Nginx Edge Routing Alignment**: Configuration patch for Nginx static route `:8084/moa/` for multi-variant website previews.
+    - **Packet 5: Lean Architecture De-Wrapper**: Refactoring script to remove redundant wrappers and simplify test suites.
+- **Antigravity Packet Formatting Contract** (Mandatory):
+  - Every packet must follow the structure defined in Section 6 below.
 
-### Phase 2: Bottom-Up Empirical Verification
-
-```text
-Micro Checks ➔ Meso Boundaries ➔ Macro Invariants
-```
-
-1. **Micro Verification**:
-   - Verify every shell command syntax for both Windows PowerShell and WSL2 Bash.
-   - Check every configuration key against official software documentation.
-   - Ban invented flags or hallucinated parameters.
-
-2. **Meso Verification**:
-   - Confirm changes maintain strict isolation between private and community containers.
-   - Ensure port allocations remain disjoint.
-   - Validate that ext4 paths remain isolated from DrvFs mounts during model execution.
-
-3. **Macro Verification**:
-   - Verify zero violation of Governing Invariants INV-01 through INV-04.
-   - Confirm deterministic code computes all numbers.
-   - Confirm LLM usage remains strictly descriptive and narrative.
-
----
-
-## 6. Evidence Standards & Source Gating
-
-Do not rely on unverified model intuition.
-Support every recommendation with primary documentation standards.
-
-- **Docker Networking & Bind Mounts**: Official Docker Engine Reference.
-- **WSL2 Architecture**: Microsoft WSL Kernel & DrvFs Storage Documentation.
-- **Hermes CLI**: Hermes Agent Framework Profile Specification.
-- **OpenRouter API**: OpenRouter API & Model Routing Specifications.
-- **Invoicing & Tax Compliance**: German § 14 UStG & § 19 UStG Statutory Code.
-- **Non-Profit Accounting**: German Fiscal Code (AO § 52 Gemeinnützigkeit / Zweckbetrieb).
+### Step 4: Bottom-Up Empirical Verification Report
+**Output Target**: `apex-meta/orchestration/new_final_v4/evolution/04_BOTTOM_UP_VERIFICATION_REPORT.md`
+- **Scope**:
+  - Verify every proposed micro patch against the meso boundaries and macro invariants.
+  - Traceability matrix proving that every micro change directly solves an empirical bottleneck without introducing new abstractions.
+  - Verification checklist:
+    * Micro check: Every command syntax tested for PowerShell / Bash compatibility.
+    * Meso check: Zero port collisions, zero volume cross-contamination, strict tax quarantine maintained.
+    * Macro check: Zero violation of INV-01 through INV-04. Code computes, LLM narrates.
+- **Deliverable Content**: Bottom-up verification matrix, evidence citations, stop/approval gates for the human operator.
 
 ---
 
-## 7. Required Output Deliverables
+## 6. Antigravity Execution Packet Standard
 
-Deliver the analysis using this exact file structure:
-
-1. **`MACRO_TOPOLOGY_ASSESSMENT.md`**:
-   - Interdependency matrix across repositories, dual clone paths, and container runtimes.
-   - Verified boundaries and isolation mechanisms.
-
-2. **`MESO_SUBSYSTEM_ANALYSIS.md`**:
-   - Modular breakdown of `apexai-os-meta`, `Investment`, `MasterOfArts`, `acim-secular`, and the dual KI-Basis Docker stacks.
-   - Contract review of all cross-boundary API and file interfaces.
-
-3. **`MICRO_ACTIONABLE_PATCH_SET.md`**:
-   - Ready-to-apply configuration patches for Hermes profiles, Nginx configs, and WSL2 scripts.
-   - Python and shell commands formatted for immediate Antigravity CLI execution.
-
-4. **`BOTTOM_UP_VERIFICATION_REPORT.md`**:
-   - Rigorous proof demonstrating zero invariant drift.
-   - Official documentation citations validating each architectural modification.
-
----
-
-## 8. Ready-to-Paste ChatGPT Prompt
+When authoring Step 3 (`03_MICRO_ANTIGRAVITY_EXECUTION_PACKETS.md`), you must format each actionable task using this rigorous contract derived from `antigravity-instruction-orchestrator/SKILL.md` and `13-HUMAN-AI-COMPLEX-TASK-EXECUTION.md`:
 
 ```markdown
-You are the Principal Systems Architect executing in excessive thinking mode.
-Connect to repository `leela-spec/apexai-os-meta` (branch: `main`) via your GitHub connector.
+### Execution Packet [ID]: [Name]
 
-Read the master orchestration handover file:
-`apex-meta/orchestration/new_final_v4/CHATGPT_GITHUB_CONNECTOR_HANDOVER.md`
+#### 1. Target & Bounded Outcome
+- Exact substantive outcome (not merely creating a file, but the verifiable operational capability).
 
-Follow its instructions strictly:
-1. Adhere to Governing Invariants INV-01 to INV-04 (Tier 1 Strategic CLI Agent, Tier 2 Hermes Orchestration Agent via OpenRouter, Infrastructure Substrate for deterministic code & local Docker utilities; 4 peer workspaces cloned on Windows NTFS C:\GitDev\<repo> and WSL2 ext4 /root/workspaces/<repo>; Universal Computational Determinism).
-2. Execute the Two-Phase Analysis (Top-Down: Macro -> Meso -> Micro; followed by Bottom-Up: Micro -> Meso -> Macro).
-3. Produce the four required deliverables:
-   - MACRO_TOPOLOGY_ASSESSMENT.md
-   - MESO_SUBSYSTEM_ANALYSIS.md
-   - MICRO_ACTIONABLE_PATCH_SET.md
-   - BOTTOM_UP_VERIFICATION_REPORT.md
-Format all outputs using Concise Technical English, structured tables, and verified primary commands.
+#### 2. Workspace & Authority
+- Repository: [exact repo name, e.g. apexai-os-meta / Investment / MasterOfArts / acim-secular]
+- Working Directory: [Windows: C:\GitDev\<repo>\ OR Linux WSL2: /root/workspaces/<repo>/]
+- Branch: main (or feature branch)
+- Authority Files: [exact files to read first]
+
+#### 3. Real Product Participation & Anti-Facade Rules
+- Real product/library that must execute at runtime (e.g. pytest, DuckDB, Hermes CLI, Docker Engine).
+- **Forbidden Substitutes**: List explicit mock/stub/imitation patterns that do NOT count as success (e.g. "Do not simulate Hermes with echo", "Do not mock DuckDB with in-memory dict").
+
+#### 4. Independent Oracle & Verification Design
+- **Independent Oracle**: External reference fixture, independent arithmetic, or separate system output that does NOT come from the code under test.
+- **Negative / Adversarial Test**: An explicit denial test or mismatch fixture that MUST fail if the target is bypassed or disconnected.
+
+#### 5. Concrete Code & Patch Specification
+- For existing files: Provide precise **Aider `editor-diff` / SEARCH-REPLACE blocks**.
+- For new files: Provide complete, copy-paste-ready script or configuration code.
+
+#### 6. Verification Command & Stop Boundary
+- Concrete command string to run in PowerShell or WSL2 Bash.
+- Expected exit code, stdout receipt, and pass/fail condition.
+- Explicit STOP condition (do not proceed to adjacent tasks autonomously).
 ```
+
+---
+
+## 7. External Web Grounding & Source Gating
+
+Do **not** rely on unverified internal model weights for software behavior, configuration keys, or legal compliance.
+You must use web research to verify and cite primary documentation for:
+
+1. **Docker Engine**: Docker Compose specification, network drivers (`bridge`), port binding semantics.
+2. **Microsoft WSL2**: WSL kernel documentation, memory allocation (`.wslconfig`), DrvFs mount flags, direct `--cd` behavior.
+3. **OpenRouter API**: Endpoint specifications, header requirements (`HTTP-Referer`, `X-Title`), free tier rate limits, model fallback arrays.
+4. **Hermes Agent Framework**: Profile schema, command-line arguments (`--profile`, `--eval`), backend provider configurations.
+5. **German Tax Law**: § 14 UStG (Mandatory invoice elements), § 19 UStG (Small business regulation), AO § 52 (Charitable purpose and non-profit asset quarantine).
+
+Any parameter or command that cannot be validated against primary sources must be flagged as `[PROVISIONAL - REQUIRES OPERATOR VALIDATION]`.
 
