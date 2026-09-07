@@ -64,8 +64,8 @@ created: 2026-09-04
     Treat recoverable failures as feedback: correct, retry, replan, or use a target-preserving fallback and continue. Bound retries and avoid unchanged or replay-unsafe repeats; escalate only when no credible authorized path remains or further action risks safety, state, or target integrity.
   </recovery>
 
-  <current_truth principles="single-source-of-truth,current-state">
-    Keep live guidance focused on the active state. Put superseded rationale, incident history, and changelogs in their proper historical records.
+  <current_truth principles="canonical-current-state,scope-aware-precedence,consistency,history-separation">
+    Use the authoritative current source for each governed fact or decision. When active sources overlap, follow explicit precedence and the most specific applicable scope; do not synthesize contradictory guidance. Update or flag stale dependents, and keep superseded states as history rather than competing instructions.
   </current_truth>
 
   <communication principles="communication-economy,exception-reporting">

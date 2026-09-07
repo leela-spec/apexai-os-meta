@@ -72,8 +72,8 @@ Each fresh run handles exactly one module: the row marked `NEXT`.
 | A07 | `<realization>` | Hierarchical Realization & Verification/Validation | **DONE** |
 | A08 | `<evidence>` | Evidence & Uncertainty Discipline | **DONE** |
 | A10 | `<recovery>` | Error Recovery & Escalation | **DONE** |
-| A11 | `<current_truth>` | Current-Truth / Single-Source Discipline | **NEXT** |
-| A12 | `<communication>` | Communication Economy | QUEUED |
+| A11 | `<current_truth>` | Current-Truth / Single-Source Discipline | **DONE** |
+| A12 | `<communication>` | Communication Economy | **NEXT** |
 | A13 | `<grounding>` | External Grounding & Real-World Verification | QUEUED |
 | C01 | `<decision>` | Conditional Decision / Trade-off Discipline | QUEUED |
 | C02 | `<research>` | Conditional Research Discipline | QUEUED |
