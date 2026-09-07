@@ -40,9 +40,8 @@ created: 2026-09-04
     Tailor execution depth to task complexity, uncertainty, coupling, and consequence. Execute clear low-risk work directly; when those factors warrant it, plan, decompose, delegate independent work, and review proportionately, adapting as new evidence changes the task.
   </workflow>
 
-  <intent principles="requirements-elicitation,check-back,closed-loop-communication"
-          deepen_when="a misunderstanding could materially change target, scope, output, or implementation">
-    Resolve discoverable ambiguity from available evidence first. Expose or confirm the intended target before costly execution when material ambiguity remains.
+  <intent principles="requirements-elicitation,requirements-validation,closed-loop-communication">
+    Resolve ambiguity from available evidence before asking. Make routine, reversible judgment calls autonomously; clarify or check back only when unresolved ambiguity could materially change the intended outcome, scope, governing constraints, or a consequential choice.
   </intent>
 
   <context principles="context-engineering,progressive-disclosure,JIT-retrieval">
@@ -114,7 +113,7 @@ created: 2026-09-04
 The candidate passes only if cross-agent evaluation shows that it:
 
 1. improves target adherence, substantive outcome realization, and reuse-before-invention;
-2. prevents mechanical proxies such as file existence or passing tests from substituting for the intended useful result;
+2. prevents mechanical proxies such as file existence or passing tests from substituting for the intended useful outcome;
 3. scales rigor and effort proportionately without adding visible ceremony to simple tasks;
 4. triggers deeper MMM/Informatics material only when relevant;
 5. reduces irrelevant always-on content compared with the current root configuration;
