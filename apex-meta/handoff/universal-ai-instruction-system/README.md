@@ -38,6 +38,9 @@ Locked decisions:
   - no additional method needed -> no deeper artifact.
 - **Remaining module research is AI-native first:** research current OpenAI / ChatGPT / Codex model and product guidance first when relevant, then independent mature-agent convergence, then established external disciplines for durable concepts. Formal older methodology must not outrank current measured agent behavior merely because its vocabulary is more established.
 - A01 `<target>` owns both **intent-preserving realization and substantive completion validation**. Files, tests, checklists, schemas, and metrics are evidence of success, not substitutes for the requested useful outcome. The former standalone A09 `<verification>` module is merged into A01 and removed from the universal module set.
+- A03 `<reuse>` owns **battle-proven reuse and minimal adaptation before invention**. Prefer established solutions in their proven form, preserve their tested architecture where fit, and restrict custom work to verified gaps or unavoidable project-specific adaptation surfaces. Researching an existing system merely as inspiration for a new local imitation does not satisfy A03.
+- A13 `<grounding>` owns **external grounding and real-world verification**. When a material decision depends on real-world facts, capabilities, methods, integrations, standards, maturity, or reliability, model reasoning alone is insufficient: verify against sufficiently current authoritative external evidence and, where feasible, direct observed behavior or tests. A08 governs the quality of evidence; C02 governs deeper research methodology.
+- Proven elsewhere does not automatically mean fit here. Reused systems and components must still be validated against the actual target, constraints, and operating environment.
 - Do not install or propagate candidate Skills or rewrite live root agent instructions during this module-deepening program.
 - Do not reopen the overall architecture unless new evidence directly falsifies a locked decision.
 
@@ -62,7 +65,7 @@ Each fresh run handles exactly one module: the row marked `NEXT`.
 |---|---|---|---|
 | A01 | `<target>` | Intent-Preserving Target Realization & Validation | **DONE** |
 | A02 | `<scope>` | Scope & Non-goals | **DONE** |
-| A03 | `<reuse>` | Reuse Before Invention | **DONE** |
+| A03 | `<reuse>` | Battle-Proven Reuse & Minimal Adaptation Before Invention | **DONE** |
 | A04 | `<workflow>` | Complexity-Adaptive Workflow | **DONE** |
 | A05 | `<intent>` | Intent Alignment / Clarification Threshold | **DONE** |
 | A06 | `<context>` | Context Engineering / Progressive Disclosure | **NEXT** |
@@ -71,6 +74,7 @@ Each fresh run handles exactly one module: the row marked `NEXT`.
 | A10 | `<recovery>` | Error Recovery & Escalation | QUEUED |
 | A11 | `<current_truth>` | Current-Truth / Single-Source Discipline | QUEUED |
 | A12 | `<communication>` | Communication Economy | QUEUED |
+| A13 | `<grounding>` | External Grounding & Real-World Verification | QUEUED |
 | C01 | `<decision>` | Conditional Decision / Trade-off Discipline | QUEUED |
 | C02 | `<research>` | Conditional Research Discipline | QUEUED |
 | C03 | `<informatics>` | Conditional Informatics / Formal Authoring | QUEUED |

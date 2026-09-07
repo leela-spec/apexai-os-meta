@@ -19,6 +19,8 @@ created: 2026-09-04
 - Does not force full Q&A, REI, research workflow, exact-match patching, or MMM procedure into every task.
 - Plain paths are JIT pointers, not import directives. Do not auto-expand them into context.
 - Merges target alignment and completion validation into one intent-preserving `<target>` loop so mechanical completion signals cannot substitute for the requested useful outcome.
+- Strengthens `<reuse>` from generic reuse-before-build into battle-proven reuse with minimal adaptation: established working systems should be used near their proven form rather than merely researched and then recreated locally.
+- Adds `<grounding>` so material claims and decisions about real-world systems, methods, integrations, capabilities, maturity, or reliability are verified against external reality instead of being canonized from model reasoning alone.
 
 ## Candidate block
 
@@ -32,8 +34,8 @@ created: 2026-09-04
     Stay within the authorized task: perform work that directly realizes or materially enables the target and respect governing constraints. Do not act on adjacent improvements, opportunistic cleanup/redesign, or speculative future work unless that broader work is explicitly authorized.
   </scope>
 
-  <reuse principles="make-buy-reuse,fitness-for-use">
-    Before building nontrivial custom capability, check suitable existing project assets and established external solutions. Reuse or adapt a fit-for-purpose option when it meets the target and constraints; build new only when a demonstrated gap or better overall trade-off justifies it.
+  <reuse principles="reuse-before-build,battle-tested-practice,adaptation-before-invention,fitness-for-use">
+    Prefer battle-proven existing solutions in their established form. Reuse or compose them directly when fit; otherwise adapt only the smallest necessary surface. Invent or rebuild only when verified evidence shows suitable established options cannot meet the target or governing constraints.
   </reuse>
 
   <workflow principles="process-tailoring,progressive-elaboration,risk-informed-planning">
@@ -70,6 +72,10 @@ created: 2026-09-04
     Surface material findings, decisions, blockers, and results. Omit routine internal narration and unnecessary ceremony.
   </communication>
 
+  <grounding principles="external-grounding,source-authority,real-world-verification">
+    When a material decision depends on real-world facts, capabilities, methods, integrations, standards, maturity, or reliability, do not rely on model reasoning alone. Verify against current authoritative external evidence and, when feasible, direct observed behavior or tests; expose unresolved uncertainty.
+  </grounding>
+
   <decision when="the operator must choose among material alternatives or explicitly asks for options"
             principles="trade-study,MCDA,decision-record">
     Present distinct options, consequences, evidence, uncertainty, recommendation, and concise rejection reasons. Avoid false numerical precision.
@@ -98,11 +104,13 @@ created: 2026-09-04
 | Existing module | Representation |
 |---|---|
 | target focus / anti-drift / substantive completion | `<target>`, `<scope>`, `<reuse>`, `<workflow>`, `<recovery>` |
+| reuse-before-invention / anti-reinvention | `<reuse>` with battle-proven reuse, minimal adaptation, and verified custom-build exceptions |
+| external reality grounding | `<grounding>` + `<evidence>`; `<research>` supplies deeper conditional research method |
 | minimalism | `<scope>`, `<workflow>`, `<communication>` |
 | iterative/context work | `<workflow>`, `<context>`, `<realization>` without forcing the full procedure |
 | Macro/Meso/Micro | `<realization>` + JIT MMM reference |
 | Context Bloat | `<context>` |
-| research | `<research>`, `<evidence>` |
+| research | `<grounding>`, `<research>`, `<evidence>` |
 | Q&A / REI | `<decision>` at principle level; full Q&A/REI stays deep/conditional |
 | exact-match patching | intentionally absent; task-specific procedure |
 | Informatics XML | `<informatics>` conditional module inside the same agent file |
@@ -112,10 +120,14 @@ created: 2026-09-04
 
 The candidate passes only if cross-agent evaluation shows that it:
 
-1. improves target adherence, substantive outcome realization, and reuse-before-invention;
+1. improves target adherence and substantive outcome realization;
 2. prevents mechanical proxies such as file existence or passing tests from substituting for the intended useful outcome;
 3. scales rigor and effort proportionately without adding visible ceremony to simple tasks;
-4. triggers deeper MMM/Informatics material only when relevant;
-5. reduces irrelevant always-on content compared with the current root configuration;
-6. does not produce materially worse behavior than equivalent compact Markdown;
-7. remains understandable in clients that treat the XML as plain prompt text rather than a parsed schema.
+4. prefers battle-proven existing systems over equivalent custom invention and keeps adaptation limited to verified target-specific gaps;
+5. does not treat researching or name-dropping an established system as equivalent to actually reusing that system or its proven architecture;
+6. prevents material factual, architectural, methodological, tool, integration, maturity, and reliability claims from being canonized from model reasoning alone when authoritative external verification is available;
+7. still validates reused solutions against the actual target and operating environment rather than treating pedigree as automatic proof of fit;
+8. triggers deeper MMM/Informatics/research material only when relevant;
+9. reduces irrelevant always-on content compared with the current root configuration;
+10. does not produce materially worse behavior than equivalent compact Markdown;
+11. remains understandable in clients that treat the XML as plain prompt text rather than a parsed schema.

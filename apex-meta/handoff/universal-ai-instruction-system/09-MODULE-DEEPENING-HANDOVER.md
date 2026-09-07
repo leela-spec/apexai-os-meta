@@ -143,6 +143,8 @@ Depending on the module this may include:
 
 Do not invent a local term when an established one already covers the behavior, but do not let formal vocabulary override current measured agent behavior merely because it is older or more established.
 
+For load-bearing claims about real-world tools, frameworks, methods, integrations, standards, capabilities, maturity, support, reliability, or established practice, model reasoning and plausibility are not evidence. Verify the claim against current primary/authoritative external sources and, where feasible and material, direct observed behavior or reproducible tests. Distinguish documented capability from inferred compatibility, and preserve unresolved uncertainty rather than filling it with a plausible design assumption.
+
 ### D. Compare alternatives
 
 Where more than one legitimate method exists, compare them.

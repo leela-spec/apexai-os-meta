@@ -1,34 +1,35 @@
 ---
 type: ModuleDeepeningResult
-title: A03 Reuse Before Invention
-description: Evidence-backed deepening result for the universal <reuse> module, favoring fit-for-purpose reuse/adaptation over unnecessary custom construction without creating dependency maximalism.
+title: A03 Battle-Proven Reuse & Minimal Adaptation Before Invention
+description: Evidence-backed deepening result for the universal <reuse> module, strengthened by operator direction to preserve battle-proven implementations near their established form and restrict custom construction to verified fit gaps.
 status: DONE
 updated: 2026-09-07
 ---
 
-# A03 — Reuse Before Invention
+# A03 — Battle-Proven Reuse & Minimal Adaptation Before Invention
 
 ## 1. Final decision
 
 - **Module:** A03
 - **XML tag:** `<reuse>`
-- **Semantic purpose:** Gain leverage from existing proven capability before creating new custom capability, while requiring fitness for the actual target and allowing custom work when reuse would be a worse overall trade-off.
+- **Semantic purpose:** Obtain required capability from established, proven implementations before creating custom equivalents; preserve proven architecture and behavior where fit; concentrate adaptation only at verified project-specific gaps.
 - **Selected deeper owner:** **No deeper artifact**
-- **Selected established principles:** make/buy/reuse analysis; software/system reuse; COTS/OSS evaluation; fitness for intended use; trade-off analysis.
+- **Selected established principles:** make/buy/reuse analysis; software/system reuse; COTS/OSS evaluation; fitness for intended use; proven operational capability; adaptation before invention.
+- **Operator-directed strengthening:** research of existing systems is not sufficient if the agent then recreates their capability as a custom local imitation. The preferred realization order is reuse directly -> compose proven components -> minimally adapt -> custom-build only the verified irreducible gap.
 - **Removed as primary anchor:** `KISS`. Simplicity matters, but KISS is an implementation-complexity principle and overlaps A04; it does not itself answer reuse-vs-build.
 
 ### Final root XML
 
 ```xml
-<reuse principles="make-buy-reuse,fitness-for-use">
-  Before building nontrivial custom capability, check suitable existing project assets and established external solutions. Reuse or adapt a fit-for-purpose option when it meets the target and constraints; build new only when a demonstrated gap or better overall trade-off justifies it.
+<reuse principles="reuse-before-build,battle-tested-practice,adaptation-before-invention,fitness-for-use">
+  Prefer battle-proven existing solutions in their established form. Reuse or compose them directly when fit; otherwise adapt only the smallest necessary surface. Invent or rebuild only when verified evidence shows suitable established options cannot meet the target or governing constraints.
 </reuse>
 ```
 
 ### Equivalent compact Markdown control
 
 ```markdown
-**Reuse — make/buy/reuse / fitness for use:** Before building nontrivial custom capability, check suitable existing project assets and established external solutions. Reuse or adapt a fit-for-purpose option when it meets the target and constraints; build new only when a demonstrated gap or better overall trade-off justifies it.
+**Reuse — battle-proven reuse / minimal adaptation:** Prefer battle-proven existing solutions in their established form. Reuse or compose them directly when fit; otherwise adapt only the smallest necessary surface. Invent or rebuild only when verified evidence shows suitable established options cannot meet the target or governing constraints.
 ```
 
 ## 2. Why this is the right method
@@ -135,21 +136,24 @@ The replacement therefore adds:
 
 ### MUST
 
-- Before creating a **nontrivial custom capability**, inspect suitable existing project/repository assets that may already satisfy or substantially satisfy the need.
-- When relevant existing external solutions are likely to exist, consider established methods, tools, libraries, standards, components, services, plugins, Skills, or products before deciding to build equivalent capability.
-- Prefer reuse or bounded adaptation when an option is fit for the target, governing constraints, operating environment, and material lifecycle needs.
-- Treat fit as more than feature presence: include relevant integration, support, maintenance, licensing, security/privacy, platform, cost, and operational implications when they materially affect the decision.
-- Allow composition of multiple proven components when that is a better fit than either one monolith or fully custom construction.
-- Permit custom implementation when existing options leave a material gap or when their total integration/lifecycle burden makes custom work the better overall trade-off.
-- Preserve evidence of why existing options were rejected when the decision is consequential enough to require comparison.
+- Before creating a **nontrivial custom capability**, inspect suitable existing project/repository assets and established external solutions that may already satisfy or substantially satisfy the need.
+- When an established ecosystem exists, identify solutions with credible evidence of real use, maintenance, operational maturity, or established practice before authorizing an equivalent custom implementation.
+- Prefer using a fit-for-purpose proven solution in its established form so its accumulated testing, architecture, maintenance knowledge, ecosystem behavior, and documented operating patterns are preserved.
+- When no single solution fits completely, prefer composition of proven components or the smallest project-specific adapter over rebuilding the proven capability itself.
+- Treat fitness as more than feature presence: verify the target, governing constraints, intended environment, integration surface, maintenance, licensing, security/privacy, platform, and other load-bearing requirements when relevant.
+- Require verified evidence of a material fit gap, incompatible governing constraint, or genuinely project-specific boundary before replacing proven capability with custom construction.
+- Keep custom code concentrated at the verified gap. Do not use a local adapter requirement as justification to recreate the surrounding mature system.
+- Preserve evidence of why established options were rejected when the choice is consequential.
 
 ### MUST NOT
 
-- Invent a custom framework, subsystem, parser, workflow, adapter, policy layer, or reusable abstraction merely because the model is capable of writing one.
-- Assume no suitable existing option exists without checking when the task concerns a nontrivial capability with an established solution ecosystem.
-- Treat “open source,” “popular,” “official,” “battle-tested,” or “already installed” as sufficient proof of fitness by themselves.
-- Install or integrate a dependency merely to satisfy the reuse principle when a simpler fit-for-purpose approach is better.
-- Force reuse of an option that materially compromises the target, governing constraints, reliability, maintainability, privacy/security, performance, or lifecycle viability.
+- Invent a custom framework, subsystem, parser, workflow, agent layer, adapter ecosystem, policy system, or reusable abstraction merely because the model can generate a plausible version.
+- Research an established system, borrow its concepts, then present a newly invented local imitation as equivalent to reuse.
+- Assume no suitable existing option exists without checking when the task concerns nontrivial capability with an established solution ecosystem.
+- Treat model intuition that custom code is “simpler,” “cleaner,” “more flexible,” or a “better trade-off” as sufficient justification to discard proven solutions.
+- Treat “open source,” “popular,” “official,” “battle-tested,” or “already installed” as automatic proof of fitness; A13/A08 must verify load-bearing claims and the option must still fit A01.
+- Modify, fork, wrap, or replace more of an established solution than the target-specific gap actually requires.
+- Install unrelated dependencies merely to claim reuse.
 - Turn a trivial local edit into a market survey, package comparison, or architecture study.
 - Use A03 to decide what work is in scope; A02 owns authorization boundaries.
 - Use A03 to prescribe workflow ceremony; A04 owns execution complexity.
@@ -167,11 +171,12 @@ A03 itself has no separate deep artifact.
 
 When reuse selection becomes consequential:
 
-- **C02 `<research>`** should govern external landscape/source verification;
+- **A13 `<grounding>`** requires the decision to be grounded in current external reality rather than model reasoning alone and, where feasible, observed behavior or direct tests;
+- **C02 `<research>`** should govern the deeper external landscape/source-verification method;
 - **C01 `<decision>`** should govern trade-study presentation where material alternatives require an operator choice;
 - **A08 `<evidence>`** should govern source authority, provenance, freshness, and uncertainty.
 
-A03 should not duplicate those methods.
+A03 should not duplicate those methods. Its responsibility is the realization preference: proven reuse first, minimal adaptation second, invention only at a verified gap.
 
 ## 4. Minimal observable reuse decision
 
@@ -267,7 +272,7 @@ No merge is recommended now; the three responsibilities are distinct.
 
 **Why it loses:** creates unnecessary ceremony, exhaustive-search pressure, and latency even for trivial/local tasks. It also duplicates C02/C01.
 
-### Candidate C — fit-for-purpose reuse/adapt/build — SELECTED
+### Candidate C — fit-for-purpose reuse/adapt/build — ORIGINAL RESEARCH SELECTION, SUPERSEDED
 
 ```xml
 <reuse principles="make-buy-reuse,fitness-for-use">
@@ -275,7 +280,19 @@ No merge is recommended now; the three responsibilities are distinct.
 </reuse>
 ```
 
-**Why it wins:** it adds positive leverage, makes local/external reuse explicit, allows adaptation/composition, and keeps a principled custom-build path without turning reuse into dependency accumulation.
+**Why it originally won:** it added positive leverage, made local/external reuse explicit, allowed adaptation/composition, and prevented blind dependency accumulation.
+
+**Why it is superseded:** the operator identified that “better overall trade-off” leaves too much room for model-generated rationalization. In repeated real workflows, agents can research a proven system, decide that recreating it locally appears cleaner or simpler, and then build an unproven imitation. The governing policy therefore requires preservation of battle-proven solutions near their established form and verified evidence before custom replacement.
+
+### Candidate E — battle-proven reuse with minimal adaptation — SELECTED
+
+```xml
+<reuse principles="reuse-before-build,battle-tested-practice,adaptation-before-invention,fitness-for-use">
+  Prefer battle-proven existing solutions in their established form. Reuse or compose them directly when fit; otherwise adapt only the smallest necessary surface. Invent or rebuild only when verified evidence shows suitable established options cannot meet the target or governing constraints.
+</reuse>
+```
+
+**Why it wins:** it retains fitness-for-use and legitimate project-specific adaptation while closing the model-rationalization loophole. Existing operational capability is preserved rather than treated merely as design inspiration.
 
 ### Candidate D — existing project assets only
 
@@ -330,9 +347,9 @@ No merge is recommended now; the three responsibilities are distinct.
 **Input:** Implement a deterministic 15-line normalization whose requirements are stable and already fully specified.
 
 - **Bad reuse behavior:** add a large workflow/data-processing framework solely because it already exists.
-- **Candidate behavior:** compare total trade-off. A tiny local implementation may legitimately win when the framework adds configuration, dependency, runtime, or maintenance burden without meaningful benefit.
-- **Observable PASS:** A03 does not force an external dependency; custom is justified by better overall trade-off.
-- **Deep guidance:** none.
+- **Candidate behavior:** first determine whether there is an established directly fitting mechanism already available in the project/runtime. Do not adopt a large framework whose established capability is materially broader than the target merely to satisfy reuse. A tiny target-specific implementation is acceptable when there is no fit-for-purpose reusable capability to preserve.
+- **Observable PASS:** A03 prevents both framework cargo-culting and reinvention. The local implementation is confined to a genuinely small target-specific gap rather than replacing an established equivalent capability.
+- **Deep guidance:** none unless the existence or fitness of external equivalents is materially uncertain.
 
 ### Scenario F — popular but poor fit
 
@@ -350,13 +367,13 @@ No merge is recommended now; the three responsibilities are distinct.
 - **Observable PASS:** custom code is concentrated at the proven gap, not used to replace the working 85%.
 - **Deep guidance:** none unless adapter/maintenance risk is material.
 
-### Scenario H — build is actually better
+### Scenario H — established options fail verified governing constraints
 
-**Input:** Available tools are unmaintained, cloud-only despite a local-only constraint, or require a brittle multi-service integration for a simple capability.
+**Input:** Available tools are unmaintained, cloud-only despite a local-only constraint, or require an unsupported integration that prevents the target from being realized.
 
-- **Candidate behavior:** reject them with observable fit/trade-off reasons and build the bounded custom capability.
-- **Observable PASS:** reuse is not treated as dogma; the rejection basis is concrete.
-- **Deep guidance:** C02/A08 if current claims need verification.
+- **Candidate behavior:** verify those incompatibilities through A13/A08. Preserve any proven subcomponents or established methods that remain usable, and custom-build only the residual capability that established options cannot provide within the governing constraints.
+- **Observable PASS:** custom construction follows verified incompatibility rather than model preference, and it does not unnecessarily recreate reusable proven capability.
+- **Deep guidance:** A13/C02/A08 when current claims require external verification.
 
 ### Scenario I — explicit user constraint
 
@@ -412,7 +429,7 @@ If final cross-agent testing shows that models routinely assert “no suitable o
 | **KISS as the main reuse anchor** | Simplicity is not the same as reuse selection; overlaps A04. |
 | **Never build when an existing option exists** | Ignores fit, constraints, integration burden, lifecycle costs, and legitimate custom advantages. |
 | **Always perform a formal market scan** | Excessive on simple tasks; duplicates C02/C01. |
-| **Only reuse battle-tested external products** | Misses project-local assets and useful standards/patterns; “battle-tested” does not guarantee fit. |
+| **Blindly reuse any battle-tested external product** | Battle-proven pedigree is a strong preference, not automatic fitness. Project-local proven assets, established standards/patterns, and actual target/environment constraints still matter. |
 | **Local-only reuse preference** | Encourages local reinvention when mature external capability exists. |
 | **Install-first experimentation** | Candidate existence is not enough; evaluation should precede integration when the dependency is material. |
 | **Create an A03 Skill now** | No unique multi-step procedure remains after assigning research/trade-study mechanics to C02/C01. |
@@ -489,8 +506,9 @@ For final synthesis/evaluation, specifically test:
 - **A01+A03:** mature-but-inadequate product must not redefine the target;
 - **A02+A03:** reuse must not broaden authorization or install unrelated systems;
 - **A03+A04:** simple tasks must not trigger market-research ceremony;
+- **A03+A13:** a decision to reject established capability and build custom must not rest on model reasoning alone when real-world evidence is available;
 - **A03+C02:** nontrivial new capability with a mature ecosystem should cause an actual external scan rather than a claim that none exists;
 - **A03+C01:** consequential reuse/adapt/build choices should become a clear trade study without duplicating A03 wording;
-- **A03+A08:** “proven,” “maintained,” and “fit” claims should be source-grounded when load-bearing.
+- **A03+A08:** “proven,” “maintained,” “supported,” and “fit” claims should be source-grounded when load-bearing.
 
 No merge or module-count reduction is recommended from A03 research.
