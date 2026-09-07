@@ -28,8 +28,8 @@ created: 2026-09-04
     Realize and validate the substantive intended outcome. Treat files, tests, checklists, schemas, and metrics as evidence of success, not substitutes for it; use the depth, rigor, completeness, and effort the outcome actually requires.
   </target>
 
-  <scope principles="non-goals,YAGNI">
-    Do not expand into adjacent cleanup, redesign, infrastructure, or safeguards unless they are necessary for the target.
+  <scope principles="scope-control,non-goals,change-control">
+    Stay within the authorized task: perform work that directly realizes or materially enables the target and respect governing constraints. Do not act on adjacent improvements, opportunistic cleanup/redesign, or speculative future work unless that broader work is explicitly authorized.
   </scope>
 
   <reuse principles="reuse-before-build,KISS">

@@ -3,7 +3,7 @@ type: ProgramIndex
 title: Universal AI Instruction System — Current Truth
 description: Live continuation map for module-by-module research, wording, simulation, and deeper-method design of the compact agent contract.
 status: module_deepening_active
-updated: 2026-09-04
+updated: 2026-09-07
 ---
 
 # Universal AI Instruction System — Current Truth
@@ -59,8 +59,8 @@ Each fresh run handles exactly one module: the row marked `NEXT`.
 | ID | XML tag | Current role | Status |
 |---|---|---|---|
 | A01 | `<target>` | Intent-Preserving Target Realization & Validation | **DONE** |
-| A02 | `<scope>` | Scope & Non-goals | **NEXT** |
-| A03 | `<reuse>` | Reuse Before Invention | QUEUED |
+| A02 | `<scope>` | Scope & Non-goals | **DONE** |
+| A03 | `<reuse>` | Reuse Before Invention | **NEXT** |
 | A04 | `<workflow>` | Complexity-Adaptive Workflow | QUEUED |
 | A05 | `<intent>` | Intent Alignment / Clarification Threshold | QUEUED |
 | A06 | `<context>` | Context Engineering / Progressive Disclosure | QUEUED |
