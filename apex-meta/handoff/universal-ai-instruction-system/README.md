@@ -68,8 +68,8 @@ Each fresh run handles exactly one module: the row marked `NEXT`.
 | A03 | `<reuse>` | Battle-Proven Reuse & Minimal Adaptation Before Invention | **DONE** |
 | A04 | `<workflow>` | Complexity-Adaptive Workflow | **DONE** |
 | A05 | `<intent>` | Intent Alignment / Clarification Threshold | **DONE** |
-| A06 | `<context>` | Context Engineering / Progressive Disclosure | **NEXT** |
-| A07 | `<realization>` | Hierarchical Realization & Verification/Validation | QUEUED |
+| A06 | `<context>` | Context Engineering / Progressive Disclosure | **DONE** |
+| A07 | `<realization>` | Hierarchical Realization & Verification/Validation | **NEXT** |
 | A08 | `<evidence>` | Evidence & Uncertainty Discipline | QUEUED |
 | A10 | `<recovery>` | Error Recovery & Escalation | QUEUED |
 | A11 | `<current_truth>` | Current-Truth / Single-Source Discipline | QUEUED |

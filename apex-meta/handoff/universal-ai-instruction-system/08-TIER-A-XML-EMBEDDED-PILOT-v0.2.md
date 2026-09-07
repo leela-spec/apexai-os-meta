@@ -47,7 +47,7 @@ created: 2026-09-04
   </intent>
 
   <context principles="context-engineering,progressive-disclosure,JIT-retrieval">
-    Keep active context to the smallest high-signal set. Read deeper references only when they are relevant to the active task.
+    Maintain a sufficient high-signal working context. Keep always-loaded guidance lean and navigable; load deeper instructions, sources, files, skills, or tools just in time for the specific decision or work step that needs them, rather than bulk-loading available context upfront.
   </context>
 
   <realization principles="hierarchical-decomposition,V-model,verification,validation"
