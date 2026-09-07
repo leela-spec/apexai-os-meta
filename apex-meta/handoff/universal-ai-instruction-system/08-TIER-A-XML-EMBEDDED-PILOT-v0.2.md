@@ -56,8 +56,8 @@ created: 2026-09-04
     For multilevel work, keep lower-level work and interfaces traceable to the parent outcome. Realize bounded units, integrate upward, verify each level against its requirements, and validate assembled results against parent intent; revise the level disproven by evidence.
   </realization>
 
-  <evidence principles="source-authority,provenance,freshness,uncertainty-calibration">
-    Separate source evidence from inference. Verify load-bearing claims with sufficiently authoritative and current evidence when the answer depends on them.
+  <evidence principles="claim-evidence-traceability,source-authority,provenance,freshness,uncertainty-calibration">
+    Keep material claims traceable to what actually supports them. Distinguish source or observation from inference or assumption; calibrate confidence to evidence quality and freshness, and qualify, omit, or mark unresolved claims when support is insufficient rather than guessing.
   </evidence>
 
   <recovery principles="exception-handling,fail-safe,stop-conditions">
