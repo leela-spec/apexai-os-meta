@@ -1,112 +1,200 @@
-# Handover — align the PATH Weekly accordion with the live Skill-Tree elements
+Yes. We found the real mistake.
 
-**Date:** 2026-09-07 · **For:** Claude Code (implementation) · **From:** operator corrections, 2026-09-07 · **Status:** ready to implement; three decisions confirmed by operator, two assumptions flagged for review.
+## The actual mismatch
 
-## Goal
+Your **Weekly Orchestrator is not a Hermes-native orchestrator**. It is explicitly designed as a **file-driven `.claude` main-thread control plane** with isolated stage forks. Its contract says it reads Session/Sync artifacts and dispatches `PrecapWeek`/`PrecapNextDay`; it does not depend on Hermes Kanban tooling.
 
-The PATH Weekly accordion must stop using its own flat/neutral elements and instead reuse the **exact Skill-Tree elements, connectors, colours and animation that are already live**. The Skill-Tree _list view_ (`../../../lib/features/skill_tree/accessible_outline_view.dart`) is the reference for how each accordion row should look. This is a **realization on the existing codebase**, not a new design — almost every element already exists and must be reused, not re-invented.
+Meanwhile, native `kanban_list` is a Hermes-profile capability. Current Hermes documentation confirms that it only appears in a Hermes session with the Kanban toolset explicitly enabled. ([Hermes Agent](https://hermes-agent.nousresearch.com/docs/reference/toolsets-reference?utm_source=chatgpt.com "Toolsets Reference | Hermes Agent"))
 
-## Grounding — read these first (they already do most of this)
+So we kept trying to bridge the **tool surface** between two runtimes.
 
-- **The reference list view:** `../../../lib/features/skill_tree/accessible_outline_view.dart` — renders `LeelaCube(size, state, branchColor, gridDivisions: gridDivisionsForNodeType(type))` per row, Epic 3×3 / Block 2×2 / Chunk 1×1, with branch colour, level chip, and type. Copy this row grammar.
-- **The cube element:** `../../../lib/design_system/components/leela_cube.dart`
-    - `../../../lib/design_system/components/leela_cube_state.dart` — the real 3D illuminated cube. `gridDivisions` 3/2/1; `branchColor`; `state` carries lifecycle/fill/progress; optional `pulseListenable` (at most ONE pulsing cube per screen — use it for the selected row only).
-- **Branch colours:** `../../../lib/design_system/tokens/leela_branch.dart` — P Physical `#FF5252`, M Mental `#40C4FF`, **C Craft `#FFD54F` (yellow)**, R Regeneration `#69F0AE`.
-- **The connectors:** `../../../lib/features/skill_tree/cluster_connector_painter.dart` — the illuminated animated pulse/shimmer connectors. Reuse this painter (build `ConnectorSpec`s parent-cube → child-cube); do NOT keep the bespoke `path_accordion_connector.dart` shimmer.
-- **The symbols:** `../../../lib/s_t_icon_map.dart` (`activityType`, `mediaType`, `branch`, `hierarchy` maps) + `../../../lib/design_system/tokens/leela_node_icon.dart` (`leelaIconForNode` resolves activity → media → generic).
-- **The content data:** `../../../assets/mock/entities/epic_c5f6f061008d/chunk_dim.csv` — columns include `branch`, `activity_types`, `media_type`, `lvl`. This is the source the join must read.
-- **The bar reference:** the Aug-1 accordion (`d8249b7d`) lane instrument; reconstruction at `../../design/reconstructions/path-weekly-accordion-d8249b7d.html`.
-- **Current PATH code to change:** `../../../lib/features/path/presentation/path_weekly_accordion.dart`, `../../../lib/features/path/presentation/path_weekly_projection_builder.dart`, `../../../lib/features/path/presentation/path_chunk_detail_sheet.dart`, `../../../lib/pages/s_c_r_path_main.dart`. Retire `../../../lib/features/path/presentation/path_accordion_connector.dart`.
+That is unnecessary.
 
-## Confirmed decisions (operator, 2026-09-07)
+## The architecture you had already chosen was right
 
-1. **Realized progress = sample values for this design pass**, clearly flagged as placeholder. Branch, level, activity type and media/app are **real** (content join); only _realized/placed TP_ is sample until a Run/Stats producer lands. Do not present sample realized data as real anywhere (label it in code + UI).
-2. **Bar only** for the realization-vs-plan indicator this pass. Do **not** build the ring version yet.
-3. **"App" symbol = `media_type`** icon (app / website / video / book / audiobook …) from `STIconMap.mediaType`.
+Your accepted D02 already says:
 
-## Work items
+```text
+Hermes repo boards
+        ↓
+asynchronous deterministic read-only rollup
+        ↓
+Apex portfolio state
+```
 
-### W1 — Join PATH → content so rows carry branch, level, activity, media
+and explicitly says **do not mirror tasks into Apex**.
 
-The projection (`../../../lib/features/path/presentation/path_weekly_projection_builder.dart`) sets `branchCode:''` and has no level/activity/media. The catalog (`../../../lib/features/path/domain/path_target_catalog.dart` `PathTargetReference`) carries only `type/id/epicId/title/ancestorBlockIds`.
+We accidentally tried to bypass that design.
 
-- Extend `PathTargetReference` (and the fixture catalog loader `../../../lib/features/path/data/fixture_path_target_catalog.dart`) to read `branch`, `lvl`, `activity_types`, `media_type` from the same content source the Skill Tree uses (`chunk_dim.csv` / `v_skill_tree_node_list`). Reuse the Skill-Tree adapter path rather than a parallel loader if practical.
-- Populate `PathWeeklyChunkRow.branchCode` (real) and add `level`, `activityType`, `mediaType` fields. Give Epic/Block their branch where the content defines one (an Epic may span branches → may stay neutral; match Skill-Tree behaviour, `STF-11`).
-- Epic/Block cube subdivision comes from type (3/2/1) via `gridDivisionsForNodeType`.
+### Correct target
 
-### W2 — Replace the neutral cube with the real `LeelaCube`
+```text
+HERMES PM RUNTIME
+4 isolated Kanban boards
+        │
+        │ deterministic / 0 LLM
+        ▼
+PORTFOLIO STATE PUBLISHER
+runs in WSL beside Hermes
+        │
+        ├── full machine snapshot
+        └── compact weekly-frontier.json
+                    │
+                    ▼
+          APEX REPO / FILE INTERFACE
+                    │
+                    ▼
+       Weekly Orchestrator
+       PrecapWeek → NextDay
+```
 
-In `../../../lib/features/path/presentation/path_weekly_accordion.dart` delete the local `_levelCube` neutral helper and render `LeelaCube` exactly as `AccessibleOutlineView` does: `branchColor: LeelaBranch.colorOrUnknown(code)`, `gridDivisions` per level, `state: LeelaNodeVisualState(...)` carrying lifecycle + progress (progress = sample). Selected row's cube may take a `pulseListenable`; all others render statically illuminated (the cube's own gradient/rim/glow). Epic 3×3, Block 2×2, Chunk 1×1.
+**The Weekly Orchestrator never needs Kanban tools.**
 
-### W3 — Reuse the Skill-Tree connectors (illuminated + animated)
+It only needs a fresh file.
 
-Retire `../../../lib/features/path/presentation/path_accordion_connector.dart`. Reuse `../../../lib/features/skill_tree/cluster_connector_painter.dart`: build `ConnectorSpec`s from measured cube anchor points (parent cube → each child cube), branch-coloured, and drive `shimmerProgress` / `selectionPulseProgress` / `revealProgress` from accordion-owned controllers with the same cadence the cluster uses. Keep the existing reduced-motion + suite-wide freeze discipline (`debugFreeze`). The connector links the **cube elements** across levels (Epic 3×3 → Block 2×2 → Chunk 1×1), not the row edges.
+That also makes the architecture client-independent: Claude Code, Hermes, Antigravity, or something else can all consume the same state feed.
 
-### W4 — Row layout, strictly left → right
+---
 
-Rebuild `_PathWeeklyRow` (and the parent header row) to this order:
+## What actually needs fixing
 
-1. **Connector** (W3) — illuminated line from the parent cube to this element's cube.
-2. **Cube** (W2) — the element, in its branch colour.
-3. **Name** — e.g. "L2L German" / "Flashcards" / "Quizlet".
-4. **Three symbols** — Activity Type (`STIconMap.activityType[activity_types]`), App (`STIconMap.mediaType[media_type]`), Level (the `lvl` value — reuse the Skill-Tree `lvl` chip/plate treatment). Compact, monochrome-ish, in the space between name and selectors.
-5. **TP selector**, then **Priority selector** (W5), far right.
+|Problem|Fix|
+|---|---|
+|Snapshot is 1 day stale|refresh publisher much more frequently|
+|Weekly session can't access Kanban|irrelevant — it reads the feed|
+|Current rollup uses legacy Windows paths for Apex/MoA|patch to canonical `/root/workspaces/*`|
+|Full snapshot too noisy for LLM|produce a compact `portfolio-frontier.json`|
+|Frequent updates would dirty Git|live frontier should be runtime/gitignored; durable checkpoints separate|
+|PrecapWeek currently expects Session/Sync|add Frontier as project-execution-state input|
+|Apex Sync duplicates Hermes PM|don't feed Hermes tasks into Apex Sync|
 
-The realization Bar (W6) sits under the name/symbols row (its own line), not in the L→R strip.
+There is a **real bug** in the current publisher: Apex and MasterOfArts still prefer `/mnt/c/GitDev/...`, despite the implemented architecture having moved the canonical repos to `/root/workspaces/*`. The recovery evidence confirms `/root/workspaces/*` is now canonical.
 
-### W5 — TP & priority selectors (dual input)
+And the current systemd publisher only runs daily at 09:00. That explains the stale state.
 
-Each selector offers **both**:
+### I would use a 5-minute deterministic refresh
 
-- **− / +** buttons on the left and right of the number (keep the 48×48 targets; TP step 5, priority step 1), wired to the existing serialized/optimistic commit path in `s_c_r_path_main.dart`.
-- **Tap the number → dropdown of presets** for bigger jumps without repeated taps. **Proposed presets (confirm):** TP = 15 / 30 / 45 / 60 / 90 / 120 / 180 / 240; Priority = 1…10. Commit the chosen preset the same way as a stepper change.
+Four SQLite reads plus four `git rev-parse` calls every five minutes are trivial. No model calls.
 
-### W6 — Realization-vs-plan **Bar** (single, lila, pattern-coded)
+But **do not continually modify tracked Git files**.
 
-One horizontal bar per chunk, in the standard lila. **Interpretation to confirm at review:**
+Use:
 
-- Track = planned TP (the target amount).
-- **Solid lila** = realized (how much is already done) — the part the Aug-1 chevron got right.
-- **Patterned lila** (shades / broken lines, same hue) = planned-but-not-yet-realized remainder.
-- A **TimeTarget marker** on the track = where realization _should_ be by now.
-- **Over-plan** (realized > planned) = a denser pattern extending past the plan boundary.
-- **Never a second colour** — only pattern differentiates realized / unrealized / over / under.
-- Realized values are **sample** this pass (flag in code + a subtle "sample" affordance). Bar only — no ring.
+```text
+apex-meta/orchestration/runtime/
+    portfolio-snapshot.json
+    portfolio-frontier.json
+    health-receipt.yaml
+```
 
-### W7 — Surprise row placement
+as gitignored live runtime state.
 
-Move the derived Surprise row to the **top** of the children of the Epic/Block that has unassigned TP (right under that parent's header, before its children), and render it **only when that parent's unassigned TP > 0**. Keep the `PA-B12` semantics (derived, never authored, no demand-line id). Remove the tail placement.
+Then optionally preserve a durable snapshot only:
 
-### W8 — Symbols in the detail sheet
+```text
+when Weekly planning starts
+or
+when explicitly requested
+```
 
-The three symbols (Activity Type, App/media, Level) must also appear in the per-chunk detail sheet (`../../../lib/features/path/presentation/path_chunk_detail_sheet.dart`) with the "more info" the sheet already carries (status / carryover / cadence / notes / remove).
+This gives you:
 
-## Data availability (be honest in UI + code)
+> Hermes Kanban = live PM truth  
+> runtime Frontier = cross-runtime read model  
+> Git = durable architecture/evidence  
+> Weekly = semantic portfolio planner
 
-|Element|Source|Real on master?|
-|---|---|---|
-|Branch colour|content `branch` (join)|**Yes**|
-|Level symbol|content `lvl` (join)|**Yes**|
-|Activity Type symbol|content `activity_types` (join)|**Yes**|
-|App symbol|content `media_type` (join)|**Yes**|
-|Cube shape (3×3/2×2/1×1)|node type|**Yes**|
-|Connectors (shape + animation)|Skill-Tree painter|**Yes**|
-|Realized / placed progress (bar fill, cube fill)|Run/Stats|**No — sample this pass**|
-|TimeTarget marker|Algorithm|**No — sample this pass**|
+---
 
-## SSOT / materialization follow-up (do after the code lands)
+## Don't do these anymore
 
-- The cube/symbols now realize `STF-15` with **real** branch/level/activity/media in PATH → update the PATH↔STF-15 materialization edge and the PA-B13 edges; the realized-progress bar stays `to_write`/sample.
-- Amend or add a decision-record note under `SSOT-D-043` recording: elements/connectors now reuse the live Skill-Tree grammar; branch/level/activity/media joined from content; realized progress remains sample pending a Run producer. Rebuild the registry + regenerate views; run `scripts/gates.py --since origin/master`.
+Do **not**:
 
-## Verification
+- expose `~/.hermes` to the Weekly Docker container;
+    
+- enable Kanban tools just to make Weekly work;
+    
+- build a Kanban MCP bridge;
+    
+- make Weekly shell out to Hermes;
+    
+- import Hermes tasks into Apex epics;
+    
+- require ProjectStatus to reconstruct local PM state.
+    
 
-- `flutter analyze` clean on every touched file; `flutter test` green (extend the accordion widget tests: real `LeelaCube` present per level, branch colour applied, three symbols present, Surprise at top when >0 and absent at 0, selector dropdown opens and commits, bar renders with sample realized).
-- Freeze any perpetual connector animation suite-wide (as today) so `pumpAndSettle` settles.
-- Verify in the running app that the accordion visually matches `AccessibleOutlineView`'s element grammar.
+Those are all extra coupling.
 
-## Open items to confirm during review
+---
 
-1. **Bar semantics** (W6) — the "target vs plan vs total" reading above; confirm what "total" adds beyond plan, and the exact pattern for over- vs under-realized.
-2. **Selector presets** (W5) — the proposed TP/priority preset lists.
-3. **Epic/Block branch** — whether a multi-branch Epic stays neutral (Skill-Tree behaviour) or takes a dominant branch colour.
+## The next implementation should happen outside the failed Weekly session
+
+Use the host-capable WSL/Antigravity executor once to repair the **publisher**, then rerun Weekly normally.
+
+A much shorter instruction is enough:
+
+Implement the smallest bridge between Hermes Kanban PM and Apex Weekly Orchestration.
+
+Authority:
+
+- `apex-meta/epics/hermes-multi-repo-orchestration-v2/decisions/D02-KANBAN-TOPOLOGY.md`
+    
+- `scripts/hermes/apex_portfolio_rollup.py`
+    
+- current canonical workspace architecture under `/root/workspaces/*`
+    
+
+Do NOT try to expose Hermes `kanban_*` tools to Weekly Orchestrator.
+
+Target architecture:
+
+Hermes boards → deterministic WSL publisher → compact file-based Frontier → Weekly Orchestrator.
+
+Required work:
+
+1. Inspect the current publisher and systemd service/timer in the actual WSL runtime.
+    
+2. Patch the publisher so all Git HEAD checks use canonical `/root/workspaces/*` repos only; remove legacy `/mnt/c/GitDev/*` preference.
+    
+3. Keep board reads read-only and fail-closed.
+    
+4. Add a compact `portfolio-frontier.json` containing per project:  
+    board, repo HEAD, freshness, status counts, running/review/blocked work, and a bounded set of ready candidates with source task IDs.
+    
+5. Put frequently refreshed live outputs in a gitignored runtime directory so the repository is not continuously dirty.
+    
+6. Change the deterministic systemd refresh from daily-only to a reasonable near-live cadence, initially 5 minutes.
+    
+7. Verify two consecutive refreshes, board completeness, current repo HEADs, atomic publication, and zero model calls.
+    
+8. Do not modify Weekly/Precap/ProjectStatus yet.
+    
+
+Existing-file changes must be exact-match patches, not whole-file rewrites.
+
+Return:
+
+- exact patches;
+    
+- runtime paths;
+    
+- timer/service configuration;
+    
+- verification evidence;
+    
+- fresh Frontier contents;
+    
+- no Weekly production changes yet.
+    
+
+Then the **next** Weekly test becomes almost boring:
+
+```text
+Read fresh portfolio-frontier.json
++
+read Apex-native Session/Sync state
+→ PrecapWeek
+→ PrecapNextDay
+```
+
+That is exactly what we want. If the connection is good, it should become boring infrastructure rather than another agent-integration problem.
