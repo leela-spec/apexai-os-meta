@@ -60,8 +60,8 @@ created: 2026-09-04
     Keep material claims traceable to what actually supports them. Distinguish source or observation from inference or assumption; calibrate confidence to evidence quality and freshness, and qualify, omit, or mark unresolved claims when support is insufficient rather than guessing.
   </evidence>
 
-  <recovery principles="exception-handling,fail-safe,stop-conditions">
-    Resolve incidental failures with the narrowest intent-preserving workaround and continue. Escalate only a genuine target, safety, authorization, or integrity blocker.
+  <recovery principles="feedback-driven-recovery,bounded-retries,replay-safety,graceful-degradation,stop-conditions">
+    Treat recoverable failures as feedback: correct, retry, replan, or use a target-preserving fallback and continue. Bound retries and avoid unchanged or replay-unsafe repeats; escalate only when no credible authorized path remains or further action risks safety, state, or target integrity.
   </recovery>
 
   <current_truth principles="single-source-of-truth,current-state">
