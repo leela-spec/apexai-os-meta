@@ -1,0 +1,17 @@
+server {
+    listen 80;
+    server_name localhost 127.0.0.1;
+
+    # Edge healthcheck endpoint
+    location = /healthz {
+        access_log off;
+        add_header Content-Type text/plain;
+        return 200 'ki-basis nginx edge proxy healthy\n';
+    }
+
+    # Stack index page dynamically generated via envsubst
+    location = / {
+        add_header Content-Type text/html;
+        return 200 '<!DOCTYPE html><html><head><meta charset="utf-8"><title>ki-basis Platform - ${COMPOSE_PROJECT_NAME}</title><style>body{font-family:system-ui,sans-serif;padding:2rem;background:#0f172a;color:#f8fafc;}a{color:#38bdf8;text-decoration:none;}li{margin:0.75rem 0;}ul{list-style:none;padding:0;}</style></head><body><h1>ki-basis Platform Edge (${COMPOSE_PROJECT_NAME})</h1><ul><li><a href="http://127.0.0.1:${FIREFLY_HOST_PORT}">Firefly III (Finance) — :${FIREFLY_HOST_PORT}</a></li><li><a href="http://127.0.0.1:${PAPERLESS_HOST_PORT}">Paperless-ngx (Documents) — :${PAPERLESS_HOST_PORT}</a></li><li><a href="http://127.0.0.1:${OPENPROJECT_HOST_PORT}">OpenProject (Projects) — :${OPENPROJECT_HOST_PORT}</a></li><li><a href="http://127.0.0.1:${HERMES_GATEWAY_HOST_PORT}">Hermes Gateway (AI) — :${HERMES_GATEWAY_HOST_PORT}</a></li><li><a href="http://127.0.0.1:${HERMES_DASHBOARD_HOST_PORT}">Hermes Dashboard (AI) — :${HERMES_DASHBOARD_HOST_PORT}</a></li></ul></body></html>\n';
+    }
+}

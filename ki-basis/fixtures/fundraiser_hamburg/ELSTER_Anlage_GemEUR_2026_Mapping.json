@@ -1,0 +1,31 @@
+{
+  "elster_header": {
+    "version": "2026.1",
+    "steuernummer": "17/451/08912",
+    "finanzamt": "Hamburg für Körperschaften",
+    "verein": "Safer Space e.V.",
+    "wirtschaftsjahr": 2026,
+    "rechtsform": "Eingetragener Verein (e.V.)",
+    "gemeinnuetzig": true
+  },
+  "anlage_gemeuer": {
+    "zeile_10_ideeller_bereich_einnahmen": 1800.0,
+    "zeile_15_ideeller_bereich_ausgaben": 0.0,
+    "zeile_20_ideeller_bereich_ueberschuss": 1800.0,
+    "zeile_30_vermoegensverwaltung_einnahmen": 0.0,
+    "zeile_35_vermoegensverwaltung_ausgaben": 0.0,
+    "zeile_40_zweckbetrieb_einnahmen": 20800.0,
+    "zeile_45_zweckbetrieb_ausgaben": 11264.0,
+    "zeile_50_zweckbetrieb_ueberschuss": 9536.0,
+    "zeile_60_wgb_einnahmen": 0.0,
+    "zeile_65_wgb_ausgaben": 0.0,
+    "zeile_70_gesamtergebnis_verein": 11336.0
+  },
+  "umsatzsteuererklaerung": {
+    "kennziffer_86_steuerpflichtige_umsaetze_7_prozent": 20800.0,
+    "kennziffer_87_entfallende_steuer_7_prozent": 1360.75,
+    "kennziffer_66_abziehbare_vorsteuer_19_prozent": 999.92,
+    "kennziffer_67_abziehbare_vorsteuer_7_prozent": 37.24,
+    "kennziffer_83_verbleibende_zahllast": 323.59
+  }
+}

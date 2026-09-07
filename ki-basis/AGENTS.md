@@ -28,6 +28,8 @@ Keep these rules without further lookup:
 - do not use direct DB writes as product behavior;
 - PostgreSQL and Valkey stay internal-only;
 - Hermes stays loopback-only and gets no Docker socket;
+- Hermes operates as a flexible frontline triage and intake interface for user messages, ideas, and receipts;
+- Hermes files structured tasks into OpenProject and stages files in Paperless, leaving deep execution, bank reconciliation, and tax math to trusted local CLI agents;
 - secrets never enter chat or tracked files;
 - do not update/uninstall/move the executing CLI agent as part of a KI Basis task;
 - stop at a real secret/operator/architecture gate instead of inventing a workaround.

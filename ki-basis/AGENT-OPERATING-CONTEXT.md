@@ -95,8 +95,18 @@ Hermes must not mount `/var/run/docker.sock` and must not depend on legacy Ubunt
 ### Hermes owns
 
 - local routing/tool-execution layer;
-- future product skill selection/execution;
-- interaction with supported product APIs once real skills exist.
+- frontline user intake, triage, and conversational interaction (Telegram bot, chat intake);
+- parsing rough intent from user inputs, photos, receipts, and ideas;
+- filing structured Work Packages into OpenProject and staging raw assets in Paperless-ngx (`Needs-Review`);
+- operating intersections and interconnections between services.
+
+### Hermes does NOT do alone (Pragmatic Handoff Boundary)
+
+To prevent over-engineering while protecting institutional integrity, Hermes operates in the **Intake & Triage Lane** rather than acting as an autonomous final executor:
+- Hermes **welcomes** user receipts, messages, and ideas flexibly without throwing brittle security errors if a receipt has a name or address printed on it;
+- Hermes **does not** post final double-entry transactions to Firefly III or modify bank balances autonomously;
+- Hermes **does not** execute tax arithmetic, VAT returns, or statutory EÜR filings;
+- Hermes **files tasks into OpenProject** so trusted local CLI agents (with high reasoning depth and full local privacy trust) can inspect, reconcile, and execute the deep accounting and legal workflows.
 
 ### Product applications own
 
@@ -196,6 +206,22 @@ If a secret or account action is required:
 2. tell the operator exactly what local action is needed;
 3. do not ask the operator to paste the secret into the agent conversation;
 4. verify only non-secret state afterward.
+
+### 8.1 Pragmatic Tiered Autonomy & Task Handoff
+
+To prevent over-engineering while ensuring legal and financial integrity:
+
+1. **Frontline Flexibility for User Intake:**
+   - When volunteers interact with the Hermes Telegram bot, the system maintains flexibility. It does not crash or reject inputs merely because a receipt photo contains a store name or a volunteer's note mentions an amount.
+   - Hermes extracts rough intent and stages the document into Paperless-ngx with a `Needs-Review` tag.
+
+2. **Handoff to Trusted Local Enclave:**
+   - Hermes files a structured task in OpenProject rather than executing final banking or tax ledger mutations on its own.
+   - Deep execution, bank reconciliation (matching CAMT.053 / CSV against GLS Bank), and tax categorization belong to trusted local CLI agents (Antigravity / local scripts) operating in the secure local enclave.
+
+3. **Deterministic Financial Math:**
+   - Core tax calculations, EÜR aggregation, and VAT returns are performed strictly by audited local CLI scripts (`generate_euer_tax_report.py`), never generated through LLM inference.
+   - Hermes may schedule or trigger tasks, but financial math remains 100% deterministic and auditable.
 
 ---
 

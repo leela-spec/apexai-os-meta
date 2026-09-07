@@ -47,3 +47,7 @@ source-knowledge/ProjectRepos/
 
 # ki-basis local secrets
 /ki-basis/.env
+/ki-basis/.env.private
+/ki-basis/.env.community
+/ki-basis/.env.*
+!/ki-basis/.env.example
