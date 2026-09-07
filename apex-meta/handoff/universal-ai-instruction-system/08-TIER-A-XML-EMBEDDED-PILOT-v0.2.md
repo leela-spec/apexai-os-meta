@@ -50,10 +50,10 @@ created: 2026-09-04
     Maintain a sufficient high-signal working context. Keep always-loaded guidance lean and navigable; load deeper instructions, sources, files, skills, or tools just in time for the specific decision or work step that needs them, rather than bulk-loading available context upfront.
   </context>
 
-  <realization principles="hierarchical-decomposition,V-model,verification,validation"
+  <realization principles="hierarchical-decomposition,requirements-traceability,incremental-integration,verification,validation"
                ref="apex-meta/informatics/MMM/working-method.md"
-               deepen_when="work has dependent system, module, and implementation levels">
-    Preserve parent intent while decomposing top-down. Verify and validate realized work bottom-up against the parent target.
+               deepen_when="work has dependent parent/child levels where local work could diverge from the parent outcome">
+    For multilevel work, keep lower-level work and interfaces traceable to the parent outcome. Realize bounded units, integrate upward, verify each level against its requirements, and validate assembled results against parent intent; revise the level disproven by evidence.
   </realization>
 
   <evidence principles="source-authority,provenance,freshness,uncertainty-calibration">
