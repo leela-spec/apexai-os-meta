@@ -1,7 +1,7 @@
 ---
 type: ExactMatchPatch
 title: P03 — Preserve A13 research erased by successive replacements
-status: NOT_APPLIED
+status: APPLIED
 target: apex-meta/handoff/universal-ai-instruction-system/module-deepening/A13-external-grounding-real-world-verification/README.md
 base_verified: 9a165f92f62f4ed18862995652f2cf3ee3d140fb
 ---

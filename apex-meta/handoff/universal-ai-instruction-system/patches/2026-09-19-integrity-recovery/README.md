@@ -1,7 +1,7 @@
 ---
 type: RepositoryIntegrityRecoveryPacket
 title: Universal AI Instruction System — Whole-File Rewrite Integrity Audit
-status: PATCHES_NOT_APPLIED
+status: PATCHES_APPLIED
 created: 2026-09-19
 repository: leela-spec/apexai-os-meta
 branch: main

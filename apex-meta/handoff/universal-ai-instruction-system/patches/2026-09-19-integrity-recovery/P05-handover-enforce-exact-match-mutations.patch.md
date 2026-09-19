@@ -1,7 +1,7 @@
 ---
 type: ExactMatchPatch
 title: P05 — Enforce deterministic bounded edits for existing files
-status: NOT_APPLIED
+status: APPLIED
 target: apex-meta/handoff/universal-ai-instruction-system/09-MODULE-DEEPENING-HANDOVER.md
 base_verified: 9a165f92f62f4ed18862995652f2cf3ee3d140fb
 ---

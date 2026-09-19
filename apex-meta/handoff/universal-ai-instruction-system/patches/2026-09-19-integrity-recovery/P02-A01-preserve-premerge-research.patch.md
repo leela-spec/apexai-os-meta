@@ -1,7 +1,7 @@
 ---
 type: ExactMatchPatch
 title: P02 — Preserve A01 pre-merge research
-status: NOT_APPLIED
+status: APPLIED
 target: apex-meta/handoff/universal-ai-instruction-system/module-deepening/A01-target-outcome-alignment/README.md
 base_verified: 9a165f92f62f4ed18862995652f2cf3ee3d140fb
 ---

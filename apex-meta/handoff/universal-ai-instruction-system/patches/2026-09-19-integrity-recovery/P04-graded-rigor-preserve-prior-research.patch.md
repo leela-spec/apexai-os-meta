@@ -1,7 +1,7 @@
 ---
 type: ExactMatchPatch
 title: P04 — Preserve original graded-rigor research
-status: NOT_APPLIED
+status: APPLIED
 target: apex-meta/epics/universal-ai-instruction-system-graded-rigor/epic.md
 base_verified: 9a165f92f62f4ed18862995652f2cf3ee3d140fb
 ---
