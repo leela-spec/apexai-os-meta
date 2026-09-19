@@ -98,8 +98,8 @@ Each fresh run handles exactly one module: the row marked `NEXT`.
 | A11 | `<current_truth>` | Current-Truth / Single-Source Discipline | **DONE** |
 | A12 | `<communication>` | Communication Economy | **DONE** |
 | A13 | `<grounding>` | External Grounding & Real-World Verification | **DONE** |
-| C01 | `<decision>` | Conditional Decision / Trade-off Discipline | **NEXT** |
-| C02 | `<research>` | Conditional Research Discipline | QUEUED |
+| C01 | `<decision>` | Conditional Decision / Trade-off Discipline | **DONE** |
+| C02 | `<research>` | Conditional Research Discipline | **NEXT** |
 | C03 | `<informatics>` | Conditional Informatics / Formal Authoring | QUEUED |
 
 `A*` modules are candidates for the always-on universal constitution. `C*` modules remain embedded conditional modules: their trigger is visible, but their deeper method is activated only when relevant.
