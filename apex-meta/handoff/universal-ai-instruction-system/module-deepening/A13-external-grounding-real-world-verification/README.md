@@ -1,430 +1,364 @@
 ---
 type: ModuleDeepeningResult
 title: A13 External Grounding & Real-World Verification
-description: Corrected AI-native-first deepening result for the universal <grounding> module. External grounding is the default for non-creative factual work whose correctness depends on information outside supplied/local context; model reasoning synthesizes grounded evidence rather than substituting for it.
+description: Corrected result for the universal <grounding> module. Normal factual AI work should use web grounding and multiple verified sources before model reasoning; research expands only when complexity or source disagreement requires it.
 status: DONE_CORRECTED
-updated: 2026-09-18
-supersedes_commit: 1fee4df44f4ac87acd2b2074d6b162b0ec430451
+updated: 2026-09-19
+supersedes_commits:
+  - 1fee4df44f4ac87acd2b2074d6b162b0ec430451
+  - bdc9a657e1237cc02519cc4cfbf0beaa15053f3a
 ---
 
 # A13 — External Grounding & Real-World Verification
 
-## 1. Correction summary
+## 1. Final decision
 
-The first A13 pass was **too restrictive**. It treated external grounding as an exception activated mainly by current/changeable/niche claims. That misses the operator's actual failure mode:
+A13 is **not a deep-research protocol**.
 
-> The AI often invents a plausible reasoning path from latent knowledge when it should first ground itself in the specific external reality of the task, environment, version, setting, phrase, method, or named system.
-
-The corrected design is therefore:
+It is a normal operating rule for AI work:
 
 ```text
-EXTERNAL GROUNDING = DEFAULT
-for non-creative factual work whose correctness depends on information
-outside the supplied/local context.
+specific frame + problem + task + environment
+        ↓
+normal web search for established best practice
+        ↓
+at least 3 verified-quality sources
+        ↓
+check whether the sources materially agree
+        ↓
+reason from the evidence
+        ↓
+answer / design / implement
 
-MODEL REASONING = SYNTHESIS OVER GROUNDED EVIDENCE
-not a substitute for finding the evidence.
+ONLY IF:
+- the task/environment is materially complex, OR
+- reliable sources materially disagree
 
-DEPTH = ADAPTIVE
-one bounded authoritative lookup by default;
-direct environment observation when the environment is load-bearing;
-multi-source/deep research only when the question actually requires it.
+THEN:
+- expand the research proportionately
+- surface the disagreement / uncertainty
 ```
 
-This is stronger than the prior A13 but deliberately avoids “deep research every time.”
+The failure A13 exists to prevent is:
 
-## 2. Final root wording
+```text
+model remembers something plausible
+→ invents a reasoning chain
+→ treats that reasoning as if it were established practice
+```
 
-### XML
+The intended replacement is:
+
+```text
+find established practice first
+→ verify it across reliable sources
+→ reason from that evidence
+```
+
+## 2. Final root XML
 
 ```xml
-<grounding principles="grounding-by-default,source-first-reasoning,real-world-verification">
-  Ground non-creative factual work in external evidence by default whenever correctness depends on information outside the supplied or local context. Before relying on model reasoning for a concrete claim, method, recommendation, or implementation, check the most specific authoritative evidence available for the actual task, environment, version, setting, phrase, or named system; prefer established primary or battle-tested sources and direct observation when applicable. Use reasoning to interpret grounded evidence, not substitute for it; skip external grounding only when outside facts cannot materially affect correctness.
+<grounding principles="web-grounding-by-default,lateral-verification,evidence-first-reasoning">
+  For normal factual, methodological, design, recommendation, or implementation work, search the web before relying on model reasoning. Ground the search in the actual frame, problem, task, environment, version, and constraints; use at least three verified-quality sources by default, prioritizing authoritative primary and established/battle-tested evidence. If they materially agree, reason from that evidence and proceed; if the task is materially complex or the sources conflict, widen the research proportionately and tell the user what remains disputed. Skip external grounding only when outside facts cannot affect correctness.
 </grounding>
 ```
 
 ### Compact Markdown control
 
 ```markdown
-**Grounding — grounding-by-default / source-first reasoning / real-world verification:** Ground non-creative factual work externally by default when correctness depends on information outside supplied/local context. Check the most specific authoritative evidence for the actual task/environment/version/setting before relying on model reasoning; prefer established primary or battle-tested sources and direct observation where applicable. Reason from grounded evidence; do not replace it with plausible internal reasoning.
+**Grounding — web grounding / lateral verification / evidence-first reasoning:** For normal factual, methodological, design, recommendation, or implementation work, search the web before relying on model reasoning. Use the actual frame, problem, task, environment, version, and constraints; verify against at least three high-quality sources, prioritizing authoritative and battle-tested evidence. If sources agree, proceed from that evidence. If the task is materially complex or sources disagree, widen the research and surface the conflict.
 ```
 
-## 3. What changed from the rejected first pass
+## 3. What is established versus local
 
-| Dimension | First A13 pass | Corrected A13 |
-|---|---|---|
-| Default posture | model reasoning first; ground when trigger fires | **ground first when outside facts matter** |
-| Trigger | current/changeable/niche/material | **non-creative factual work dependent on external reality** |
-| Stable technical/domain fact | often no retrieval | **bounded authoritative grounding by default** |
-| Environment-specific fact | test when triggered | **environment evidence is first-class whenever load-bearing** |
-| Model reasoning | allowed until grounding threshold crossed | **used after evidence retrieval to interpret/synthesize** |
-| Search depth | conditional | **grounding default; depth adaptive** |
-| Deep research | sometimes coupled to grounding | **only escalation path through C02** |
-| Source selection | authoritative | **most specific authoritative / established / battle-tested source for the actual setting** |
+### Established
 
-## 4. Current OpenAI evidence
+The following behaviors are well-established:
 
-Research date: **2026-09-18**.
+1. **Ground model answers in retrieved web evidence rather than relying only on training knowledge.**
+2. **Prefer authoritative sources when accuracy matters.**
+3. **Compare a claim/source against multiple trusted sources instead of evaluating it in isolation.**
+4. **Use multiple sources to strengthen credibility and detect weaknesses or contradictions.**
+5. **Increase evidence-gathering depth when the evidence is insufficient or contradictory.**
 
-### 4.1 OpenAI's own research-agent example is explicitly grounding-by-default
+### Local control
 
-Current OpenAI model guidance provides an example web-research prompt whose factuality rule says to browse for **all non-creative queries** unless the user explicitly says not to or the request is purely creative. It also says that if there is doubt whether browsing would help, browse.
+The exact rule **“minimum three verified-quality sources”** is an operator-selected baseline, not a universal AI industry standard.
 
-The same guidance separately says:
+It is nevertheless consistent with established verification practice:
 
-> Prefer web research over assumptions whenever facts may be uncertain or incomplete.
+- Stanford lateral reading explicitly recommends comparing a source/claim with multiple trusted sources and suggests finding **four or five other sources**.
+- CDC says multiple data sources can enhance credibility and that quantity/quality should be sufficient for the question.
+- Established triangulation practice uses cross-verification from more than two sources.
+- OpenAI and Google both implement normal web grounding as ordinary tool use, with cited sources and multiple searches when needed.
 
-This directly contradicts the weaker design that waits for a special “current/niche” trigger.
+Therefore three sources is a reasonable **minimum floor**, not a claim about universal standardization.
 
-Portable lesson:
+## 4. Current verified guidance
 
-```text
-non-creative factual task
-    ↓
-external grounding by default
-    ↓
-reason/synthesize
-```
+### 4.1 OpenAI — browse instead of assuming
+
+Current OpenAI model guidance explicitly says:
+
+- prefer web research over assumptions when facts may be uncertain or incomplete;
+- its web-research example requires browsing for non-creative queries;
+- include citations for web-derived information;
+- resolve contradictions rather than silently choosing a convenient source.
 
 Primary source:
 https://developers.openai.com/api/docs/guides/latest-model?model=gpt-5.2
 
-### 4.2 Current OpenAI retrieval-budget guidance supports a CHEAP default, not a research project every time
+This directly supports A13's core rule:
 
-Current GPT-5.5 guidance gives a bounded retrieval pattern for ordinary Q&A:
+> external evidence first; model reasoning second.
 
-```text
-start with one broad search
-if enough citable support exists -> answer
-search again only if an important fact/source is missing
-or an important factual claim would otherwise be unsupported
-```
+### 4.2 OpenAI Search — use authoritative sources and inspect citations
 
-This is the strongest evidence for the corrected architecture:
-
-> **Default grounding + retrieval stopping rule** is preferable to both “reason first” and “deep research every time.”
+OpenAI's current Search guidance says search can provide current web information with cited links, and warns that search results can be incomplete, outdated, or wrong. Users should inspect cited sources and use authoritative sources when accuracy matters.
 
 Primary source:
-https://developers.openai.com/api/docs/guides/latest-model?model=gpt-5.5
+https://help.openai.com/en/articles/9237897-chatgpt-search
 
-### 4.3 OpenAI's 2026 evaluation guidance says the environment/setup changes what is actually true about agent capability
+This supports **verified-source quality**, not blind trust in search output.
 
-OpenAI's May 2026 evaluation playbook says modern agent performance depends on the model **and** the environment/harness/tool setup. It warns that claims are only as strong as the conditions and evidence under which they were tested.
+### 4.3 Google Gemini — grounding is ordinary answer production
 
-That maps directly onto the operator's requirement:
+Google's grounding workflow is not presented as a special research project:
 
-```text
-generic product/model knowledge
-!=
-truth about THIS environment / THIS setup / THIS tool surface
-```
+1. analyze the prompt;
+2. generate one or multiple searches if useful;
+3. process search results;
+4. synthesize an answer;
+5. attach citations.
+
+Google states that grounding increases factual accuracy and reduces hallucination by basing answers on real-world information.
 
 Primary source:
-https://openai.com/index/trustworthy-third-party-evaluations-foundations/
-
-## 5. Independent mature-system convergence
-
-### Google Gemini
-
-Google's current prompt guidance says Grounding with Google Search should be enabled whenever the model may need **obscure or recent facts**. Its grounding docs say grounding increases factual accuracy and reduces hallucinations by basing responses on real-world information.
-
-This is narrower than OpenAI's research-agent default, but it independently supports the principle that internal model reasoning is not the correct source for externally checkable facts.
-
-Sources:
-https://ai.google.dev/gemini-api/docs/prompting-strategies
 https://ai.google.dev/gemini-api/docs/google-search
 
-### GitHub Copilot
+This is close to the desired ordinary-AI behavior.
 
-GitHub documents two relevant production controls:
+### 4.4 Stanford — lateral reading
 
-1. web search for recent/new/highly specific topics;
-2. generated code should be reviewed/tested against the actual repository, architecture, dependencies, and environment.
+Stanford defines lateral reading as evaluating credibility by comparing a source with multiple sources so the user can:
 
-GitHub's AI-code review guidance specifically tells users to use README/docs/recent PRs as context, tell the AI which sources to trust, verify suggested packages, and watch for hallucinated APIs.
+- verify evidence;
+- contextualize information;
+- find weaknesses.
 
-Sources:
-https://docs.github.com/copilot/responsible-use/chat-in-github
-https://docs.github.com/en/enterprise-cloud@latest/copilot/tutorials/review-ai-generated-code
+Its practical guidance says to search deliberately and read what trusted/reliable sources say, suggesting four or five other sources.
 
-Portable lesson:
+Primary source:
+https://sml.stanford.edu/digital-strength/digital-strength-tools-training
 
-> factual grounding is not only “web search”; it includes the most authoritative task-local evidence: repository state, exact docs, actual dependencies, runtime/tool surface, and executed tests.
+This is the strongest existing behavioral analogy for the **three-source verification floor**.
 
-## 6. Empirical efficacy evidence
+### 4.5 CDC — credible evidence uses relevant multiple sources
 
-### 6.1 Retrieval measurably improves factuality
+CDC's evaluation framework says evidence sources should align with the actual evaluation question and purpose. It explicitly notes that using multiple data sources can enhance credibility and says evidence quantity and quality should be sufficient to answer the question without unnecessary burden.
 
-Muhlgay et al. (EACL 2024) built FACTOR benchmarks for factuality and report that benchmark scores **improve when the language model is augmented with retrieval**.
+Primary source:
+https://www.cdc.gov/evaluation/php/evaluation-framework-action-guide/step-4-gather-credible-evidence.html
 
-Source:
-https://aclanthology.org/2024.eacl-long.4/
+This supports both:
+- context-specific source selection;
+- proportional escalation rather than unlimited research.
 
-### 6.2 Retrieval is not sufficient by itself
+## 5. Normal A13 procedure
 
-RAGTruth (ACL 2024) analyzes nearly 18,000 RAG responses and shows that retrieval-augmented systems can still produce unsupported or contradictory claims.
+### Step 1 — construct the search from the real task
 
-Source:
-https://aclanthology.org/2024.acl-long.585/
+Do not search only the abstract topic.
 
-A 2025 EMNLP industry benchmark likewise emphasizes that RAG aims to reduce hallucination but modern models still introduce unsupported information even when relevant context is supplied.
+Include the relevant:
 
-Source:
-https://aclanthology.org/2025.emnlp-industry.54/
+- frame;
+- problem;
+- requested task;
+- active environment;
+- version;
+- platform;
+- constraints;
+- named product/system/method;
+- desired outcome.
 
-Therefore:
+Example:
 
+Bad:
 ```text
-retrieval ON
-does not imply
-answer GROUNDED
+best AI repository editing
 ```
 
-The useful control is source-first reasoning plus evidence checking, not merely tool activation.
-
-### 6.3 Stronger factuality systems use retrieved evidence explicitly
-
-LongFact/SAFE (2024) evaluates individual factual claims by generating search queries and checking whether search evidence supports each claim. The work shows that search-grounded evaluation can scale factuality checking across thousands of claims.
-
-Source:
-https://arxiv.org/abs/2403.18802
-
-### 6.4 Production validation must match the actual setting
-
-NIST's Generative AI Profile says:
-
-- do not extrapolate capabilities from narrow/anecdotal assessment;
-- review/verify sources and citations;
-- verify that retrieval-augmented data is grounded;
-- document limits of generalization beyond tested conditions.
-
-Source:
-https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf
-
-This directly supports task/environment-specific grounding instead of generic model reasoning.
-
-## 7. Candidate policy comparison
-
-### Scoring convention
-
-These are **comparative design scores, not measured probabilities**.
-
-- **Impact (1–100):** expected reduction in wrong/unverified reasoning and improvement in task correctness. Higher = better.
-- **Evidence (1–100):** strength/convergence of current official guidance + empirical support. Higher = stronger.
-- **Risk (1–100):** risk of over-triggering, latency/cost, context pollution, bad retrieval, or operational harm. Higher = worse.
-
-| Option | Policy | Impact | Evidence | Risk | Assessment |
-|---|---|---:|---:|---:|---|
-| **A** | **Exception grounding** — reason first; browse only for explicit/latest/current/niche triggers | **52** | **62** | **72** | **Reject.** This is close to the first A13 and misses the operator's core failure: plausible but ungrounded reasoning. |
-| **B** | **Browse every non-creative query, full stop** | **88** | **92** | **58** | Strong OpenAI support, but too blunt for local/self-contained work and may add irrelevant retrieval. |
-| **C** | **One bounded grounding lookup by default** when outside facts can affect correctness; stop once core claims are citable | **94** | **96** | **31** | Strong. Directly matches current OpenAI retrieval-budget guidance. |
-| **D** | **Adaptive source-first grounding**: C + exact task/environment source priority + direct observation when environment-specific + triangulation only when needed | **98** | **96** | **24** | **SELECTED.** Best fit to the operator's failure mode and strongest balance of correctness vs overhead. |
-| **E** | **Multi-source triangulation for every factual task** | **95** | **90** | **62** | High correctness potential but too much latency/context and source-conflict noise for ordinary tasks. |
-| **F** | **Direct runtime test first for every technical claim** | **91** | **89** | **69** | Excellent for “works here?” claims, poor as universal rule; tests can be costly/destructive and do not establish general maturity/support. |
-| **G** | **Deep research for every non-creative task** | **94** | **85** | **86** | Over-engineered. Good research quality, poor operating efficiency; defeats the compact universal-contract goal. |
-
-### Selected policy: D
-
+Better:
 ```text
-DEFAULT
-  Ground externally before factual reasoning.
-
-DEPTH 1 — bounded source lookup
-  Find the most specific authoritative source for this exact question.
-
-DEPTH 2 — local/environment evidence
-  If the claim is about THIS runtime/repo/configuration/version:
-  inspect or test that environment.
-
-DEPTH 3 — triangulate
-  If sources conflict, maturity/reliability is claimed, or stakes are high:
-  use multiple independent authoritative/production sources.
-
-DEPTH 4 — C02 deep research
-  Only for broad/contested/comparative questions.
-
-EXEMPT
-  Pure transformation/creative work,
-  arithmetic/formal derivation,
-  or tasks fully determined by supplied/local evidence
-  where outside facts cannot alter correctness.
+best practice localized existing-file editing
+GitHub browser connector
+no shell access
+main-only repository
+avoid whole-file overwrite
 ```
 
-## 8. “Battle-tested source” hierarchy
+The purpose is to find practice that actually fits the operating environment rather than generic advice.
 
-A13 should prefer evidence in this order, while leaving detailed authority/conflict semantics to A08/A11/source governance:
+### Step 2 — establish a minimum evidence set
 
-1. **Actual governing/project-local state** when the claim is about the current project or environment.
-2. **Direct observation/test** when the claim is “works/exists here.”
-3. **Official primary/version-specific source** for product/API/standard/law/capability.
-4. **Mature reference implementation / official repository / maintained specification.**
-5. **Independent production evidence** for maturity/reliability/battle-tested claims.
-6. **High-quality secondary analysis** only when primary/production evidence is insufficient.
-7. **Community discussion/search snippets** as discovery leads, not load-bearing proof.
-8. **Model memory/internal reasoning** as hypothesis generation only when the fact is externally verifiable.
+Default target:
 
-This is not a rigid universal source-ranking schema; the fuller P0-P3 source-governance contract remains a later synthesis item.
+> **At least 3 verified-quality sources.**
 
-## 9. Direct observation rule
+Prefer:
 
-The first A13 pass framed direct tests as an optional add-on after external docs.
+1. authoritative primary / official source;
+2. another established primary, standard, mature reference implementation, or direct environment observation;
+3. independent high-quality / production / battle-tested corroboration.
 
-Corrected rule:
+Do not satisfy the count with three copies of the same weak claim.
 
-> If the question is about the active environment, observed environment state is itself part of the grounding basis.
+If fewer than three meaningful quality sources exist, do not pad the count with weak material. Report the evidence limitation.
 
-Examples:
+### Step 3 — test congruence
 
-| Claim | Grounding basis |
-|---|---|
-| “Does GitHub support feature X?” | current GitHub docs |
-| “Can this connected GitHub tool perform X?” | inspect the actual tool surface |
-| “Does this repo build with dependency Y?” | current repo + dependency metadata + run/build/test |
-| “Is library Y battle-tested?” | official project state + release/maintenance history + independent production evidence |
-| “Is this sentence/phrase used by standard Z?” | exact current standard/source text |
-| “Will this implementation work here?” | actual environment/config + execution/test where safe |
+Ask only:
 
-A generic web source cannot substitute for evidence about a specific active environment.
+> Do the reliable sources materially support the same practical conclusion for this task and environment?
 
-## 10. A13 vs neighboring modules
+If **yes**:
+- stop searching;
+- reason from the grounded evidence;
+- execute/answer.
 
-### A08 `<evidence>`
+If **no**:
+- do not average them into an invented compromise;
+- expand the search;
+- identify why they differ: version, environment, scope, source authority, maturity, or real disagreement;
+- tell the user that the evidence is not congruent if it affects the result.
 
-- A13 gets the agent out of its own head and into external/task-specific evidence.
-- A08 decides what the obtained evidence actually supports and how uncertainty is represented.
+### Step 4 — use reasoning in the correct role
 
-### A11 `<current_truth>`
+Reasoning is still necessary for:
 
-- A11 determines which current project/instruction state governs.
-- A13 says external/task-specific facts should be grounded rather than invented.
+- applying evidence to the specific task;
+- comparing applicability;
+- integrating local constraints;
+- resolving interfaces;
+- deriving implementation consequences.
 
-### A03 `<reuse>`
+But reasoning must not substitute for externally discoverable best practice.
 
-- A03 says prefer battle-proven reuse.
-- A13 makes “battle-proven,” “supported,” “maintained,” and “works here” evidence-backed rather than model intuition.
+```text
+WRONG
+reason -> proposed best practice -> optional sources
 
-### C02 `<research>`
+RIGHT
+verified best practice -> task-specific reasoning -> result
+```
 
-- A13 is the **default epistemic posture**.
-- C02 is the **deeper research workflow** when one lookup/test is not enough.
+## 6. Escalation / graded approach
+
+The graded approach is **only an escalation rule**.
+
+Baseline stays fixed:
+
+```text
+normal search
++ >= 3 verified-quality sources
++ congruence check
+```
+
+Escalate research intensity when:
+
+- the task/frame/environment is materially complex;
+- high-quality sources materially conflict;
+- the active environment contradicts general documentation;
+- the recommendation depends on maturity/reliability claims not established by the first source set;
+- the consequence of being wrong is materially high;
+- the first source set exposes unresolved gaps that could change the result.
+
+Escalation means:
+
+- search more broadly or more specifically;
+- inspect additional primary/production sources;
+- test the actual environment where applicable;
+- investigate the source conflict;
+- report the increased uncertainty/research need.
+
+It does **not** automatically mean invoking a dedicated Deep Research product or running an exhaustive research workflow.
+
+## 7. Relationship to other modules
+
+### A08 evidence
+
+A13:
+> get out of model-only reasoning and obtain external evidence.
+
+A08:
+> ensure the resulting claim is actually supported by that evidence.
+
+### A11 current truth
+
+Project/repository authority still governs the current local state.
+
+Internet best practice supplements the task; it does not silently overwrite an explicit local authority.
+
+### A03 reuse
+
+A03 says use battle-proven solutions.
+
+A13 makes claims such as “battle-proven,” “recommended practice,” “supported,” and “mature” externally verified rather than inferred.
+
+### C02 research
+
+C02 is **not required for ordinary A13 grounding**.
+
+C02 activates only if the task genuinely needs a deeper research procedure after the ordinary three-source grounding pass proves insufficient.
 
 ### Source-Governed Execution Contract
 
-Candidate 14 remains separate. It should later specify which provided sources are governing, verification-only, discovery-only, etc.
+The separate source-governance candidate still owns explicit operator-selected source priorities and must-use sources.
 
-A13 must obey that contract rather than using “external grounding” as permission to replace operator-designated sources.
+A13 cannot use web research to displace those governing inputs.
 
-## 11. Failure modes prevented
+## 8. Failure modes
 
-1. **Plausible-reasoning substitution** — the model reasons from memory instead of checking the real source.
-2. **Environment abstraction error** — generic docs are mistaken for evidence about the actual runtime/configuration.
-3. **Familiarity-as-proof** — a famous tool/library is labeled “battle-tested” without maturity evidence.
-4. **Outdated-method assumption** — the model recommends a method based on stale training-time norms.
-5. **Invented phrase/standard semantics** — the model paraphrases a named standard instead of reading it.
-6. **Search-without-grounding** — search is performed but retrieved evidence does not actually govern the answer.
-7. **RAG complacency** — retrieved context exists, therefore the model assumes the answer is faithful.
-8. **Deep-research inflation** — every simple question becomes a multi-source research project.
+A13 exists to stop:
 
-## 12. Bounded scenario evaluation
+1. **Reasoning-first invention** — plausible logic replaces established practice.
+2. **Generic best-practice drift** — research ignores the actual environment.
+3. **Single-source dependence** — one convenient result becomes the truth.
+4. **Search-result trust** — citations exist but source quality is not checked.
+5. **Source-count gaming** — three weak/duplicative pages satisfy a numeric target.
+6. **False consensus** — conflicting sources are silently merged.
+7. **Research inflation** — ordinary grounding becomes an elaborate research program.
+8. **Environment mismatch** — generic documentation is applied despite contradictory local reality.
 
-### Scenario A — stable conceptual explanation
+## 9. Scenario checks
 
-User: “Explain verification vs validation.”
+| Task | Expected A13 behavior |
+|---|---|
+| Rewrite supplied text | No external search unless factual content must be changed/verified. |
+| Recommend an implementation method | Search exact task/environment; >=3 quality sources; use established best practice. |
+| Explain a factual professional method | Ground with >=3 quality sources before presenting it as guidance. |
+| Choose a library/tool | Verify current capability, maturity, support, environment fit across >=3 quality sources. |
+| “Does this work in our repo/runtime?” | External best practice + inspect/test actual environment where feasible. |
+| Three strong sources agree | Stop and proceed. |
+| Three strong sources conflict | Expand research and surface conflict. |
+| Complex coupled architecture | Expand search proportionately; do not jump automatically to an exhaustive research mode. |
+| Arithmetic / deterministic derivation | No web grounding required. |
 
-**Corrected A13:** one lightweight authoritative grounding source is appropriate by default if the explanation is being presented as factual/domain guidance. Do not launch deep research.
-
-**Why:** this differs from the rejected first pass. Stable does not mean model memory should automatically become the source.
-
-### Scenario B — rewrite supplied paragraph
-
-User: “Rewrite this paragraph more clearly.”
-
-**Corrected A13:** no external grounding unless the rewrite introduces/changes factual claims.
-
-### Scenario C — software architecture choice
-
-User: “Use battle-tested tooling, not custom infrastructure.”
-
-**Corrected A13:** research actual mature implementations before proposing architecture. Model reasoning alone cannot establish maturity/capability.
-
-### Scenario D — current repository/tool environment
-
-User: “Can this GitHub connector make a localized patch?”
-
-**Corrected A13:** inspect the actual connected tool surface; do not infer from GitHub API/CLI capabilities.
-
-### Scenario E — known method/standard
-
-User: “Use the official method for X.”
-
-**Corrected A13:** read the current authoritative method/standard before designing the procedure.
-
-### Scenario F — arithmetic
-
-User: “Calculate 17% of 240.”
-
-**Corrected A13:** no web; deterministic calculation is sufficient.
-
-### Scenario G — source conflict
-
-Official docs say a feature exists; active environment does not expose it.
-
-**Corrected A13:** preserve both:
-- generally documented support;
-- unavailable/unverified in current environment.
-
-Use the latter for the immediate implementation decision.
-
-### Scenario H — RAG/search result present
-
-A retrieval system returns a plausible source.
-
-**Corrected A13:** do not stop at retrieval. A08 still requires the actual claim to be supported by the source.
-
-## 13. Context-budget defense
-
-The stronger wording is longer than the first A13, but it addresses a root failure that affects research, architecture, implementation, recommendations, standards, and tool use.
-
-Its token cost can later be compressed if controlled evals show a shorter sentence preserves:
-
-- grounding default;
-- task/environment specificity;
-- source-first reasoning;
-- narrow exemptions;
-- adaptive retrieval depth.
-
-A possible compressed candidate for final synthesis is:
-
-```xml
-<grounding principles="grounding-by-default,source-first-reasoning">
-  For factual work, ground externally by default before relying on model reasoning. Use the most specific authoritative evidence for the actual task and environment, escalating from a bounded lookup to direct testing or broader research only as needed; skip grounding only when outside facts cannot affect correctness.
-</grounding>
-```
-
-Do **not** replace the selected pilot wording with this shorter version until cross-agent evaluation shows no loss.
-
-## 14. Final decision
-
-**Selected architecture: D — adaptive source-first grounding.**
-
-Core invariant:
+## 10. Final invariant
 
 ```text
-DO NOT:
-model reasoning -> plausible conclusion -> optional verification
+NORMAL AI WORK:
+do not trust model-only reasoning for externally knowable best practice
 
-DO:
-specific task/environment
-    ↓
-most authoritative available external/local evidence
-    ↓
-direct observation/test when the environment itself matters
-    ↓
-model reasoning / synthesis
-    ↓
-A08 claim-evidence validation
+INSTEAD:
+search the web for the actual task + frame + environment
+verify with >= 3 high-quality sources
+prefer authoritative / established / battle-tested evidence
+check whether sources materially agree
+reason from the grounded evidence
+
+IF complex or incongruent:
+research further
+and tell the user why
 ```
-
-The external evidence step is **default**, not something the user must request repeatedly.
-
-The remaining optimization problem is **how much grounding**, not **whether grounding should happen at all**.
