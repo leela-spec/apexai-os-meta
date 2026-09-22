@@ -38,18 +38,19 @@ def run_docker_compose_config(project_name: str, env_file: Path) -> dict:
     return json.loads(res.stdout)
 
 
+@pytest.fixture(scope="module")
+def private_config():
+    return run_docker_compose_config("ki-basis-private", ENV_PRIVATE_FILE)
+
+@pytest.fixture(scope="module")
+def community_config():
+    return run_docker_compose_config("ki-basis-community", ENV_COMMUNITY_FILE)
+
+
 # =============================================================================
 # 1. Authoritative Docker Compose CLI Render Verification
 # =============================================================================
 class TestDockerComposeAuthoritativeConfig:
-    @pytest.fixture(scope="class")
-    def private_config(self):
-        return run_docker_compose_config("ki-basis-private", ENV_PRIVATE_FILE)
-
-    @pytest.fixture(scope="class")
-    def community_config(self):
-        return run_docker_compose_config("ki-basis-community", ENV_COMMUNITY_FILE)
-
     def test_project_names(self, private_config, community_config):
         assert private_config.get("name") == "ki-basis-private"
         assert community_config.get("name") == "ki-basis-community"
@@ -87,14 +88,6 @@ class TestDockerComposeAuthoritativeConfig:
 # 2. Port Collision, Loopback Binding, & Exposure Stress Tests
 # =============================================================================
 class TestPortAllocationAndIsolation:
-    @pytest.fixture(scope="class")
-    def private_config(self):
-        return run_docker_compose_config("ki-basis-private", ENV_PRIVATE_FILE)
-
-    @pytest.fixture(scope="class")
-    def community_config(self):
-        return run_docker_compose_config("ki-basis-community", ENV_COMMUNITY_FILE)
-
     def _extract_published_ports(self, config):
         published = []
         for svc_name, svc in config["services"].items():
@@ -299,3 +292,37 @@ class TestClientScriptPortability:
         assert "docker exec -i" in content
         assert "docker exec -t" not in content
         assert "project_name" in content
+
+
+# =============================================================================
+# 7. Verification of Remediation R2: Telegram Intake Community Fallbacks
+# =============================================================================
+class TestTelegramIntakeIsolationRemediation:
+    """Verifies that hermes_telegram_intake.py defaults to community-scoped endpoints and never private ports."""
+
+    INTAKE_SCRIPT = KI_BASIS_DIR / "scripts" / "hermes_telegram_intake.py"
+
+    def test_intake_script_source_has_no_private_ports(self):
+        content = self.INTAKE_SCRIPT.read_text(encoding="utf-8")
+        assert "127.0.0.1:8010" not in content, "Found private paperless port 8010 in hermes_telegram_intake.py"
+        assert "127.0.0.1:8082" not in content, "Found private openproject port 8082 in hermes_telegram_intake.py"
+        assert "127.0.0.1:9010" in content, "Missing community paperless port 9010 in hermes_telegram_intake.py"
+        assert "127.0.0.1:9082" in content, "Missing community openproject port 9082 in hermes_telegram_intake.py"
+
+    def test_intake_script_runtime_defaults_to_community(self, monkeypatch):
+        import importlib.util
+        spec = importlib.util.spec_from_file_location("hermes_telegram_intake", str(self.INTAKE_SCRIPT))
+        intake_mod = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(intake_mod)
+
+        monkeypatch.delenv("PAPERLESS_URL", raising=False)
+        monkeypatch.delenv("OPENPROJECT_URL", raising=False)
+        monkeypatch.delenv("COMMUNITY_PAPERLESS_URL", raising=False)
+        monkeypatch.delenv("COMMUNITY_OPENPROJECT_URL", raising=False)
+
+        # Force unreachable container hostnames to test local fallback
+        monkeypatch.setattr(intake_mod, "check_reachable", lambda h, p, timeout=1: False)
+
+        paperless_url, openproject_url = intake_mod.get_base_urls()
+        assert paperless_url == "http://127.0.0.1:9010"
+        assert openproject_url == "http://127.0.0.1:9082"

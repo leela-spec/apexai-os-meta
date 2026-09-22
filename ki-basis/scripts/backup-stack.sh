@@ -13,7 +13,7 @@ export MSYS_NO_PATHCONV=1
 
 BACKUP_ROOT="${BACKUP_ROOT:-$HOME/ki-basis-backups}"
 STAMP="$(date -u +%Y%m%dT%H%M%SZ)"
-TARGET_INSTANCE="all"
+TARGET_INSTANCE="private"
 CUSTOM_DEST=""
 
 print_usage() {
@@ -62,7 +62,11 @@ done
 
 backup_instance() {
     local instance="$1"
-    local project_name="ki-basis-${instance}"
+    if [[ "$instance" == "community" ]]; then
+        bash "$ROOT/../../lika-community/scripts/backup-stack.sh" community "${CUSTOM_DEST:-}"
+        return
+    fi
+    local project_name="ki-basis"
     local env_file=".env.${instance}"
 
     if [[ ! -f "$env_file" ]]; then

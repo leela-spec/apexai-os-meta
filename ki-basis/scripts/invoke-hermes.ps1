@@ -1,10 +1,10 @@
 <#
 .SYNOPSIS
-    Invokes Hermes Agent LLM Gateway via loopback REST API with dual-instance support.
+    Invokes Hermes Agent LLM Gateway via loopback REST API for this stack.
 .PARAMETER Prompt
     The user prompt text to send to Hermes.
 .PARAMETER Instance
-    The instance to target: 'private' (port 8642) or 'community' (port 9642). Default: 'private'.
+    Targets private only.
 .PARAMETER HermesUrl
     Explicit Hermes Gateway base URL (e.g. http://127.0.0.1:8642). Overrides -Instance.
 .PARAMETER ApiKey
@@ -18,14 +18,14 @@ param(
     [Parameter(Mandatory=$true)]
     [string]$Prompt,
 
-    [ValidateSet("private", "community")]
+    [ValidateSet("private")]
     [string]$Instance = "private",
 
     [string]$HermesUrl,
 
     [string]$ApiKey,
 
-    [string]$RepoRoot = "C:\GitDev\apexai-os-meta",
+    [string]$RepoRoot = (Split-Path -Parent $PSScriptRoot),
 
     [string]$Model = "hermes-agent"
 )
@@ -35,17 +35,14 @@ $ErrorActionPreference = "Stop"
 # Determine target URL
 if (-not [string]::IsNullOrWhiteSpace($HermesUrl)) {
     $targetBaseUrl = $HermesUrl.TrimEnd('/')
-} elseif (-not [string]::IsNullOrWhiteSpace($env:HERMES_URL)) {
-    $targetBaseUrl = $env:HERMES_URL.TrimEnd('/')
 } else {
     $port = if ($Instance -eq "community") { "9642" } else { "8642" }
     $targetBaseUrl = "http://127.0.0.1:$port"
 }
 
 # Determine target environment file
-$instanceEnvFile = Join-Path $RepoRoot "ki-basis\.env.$Instance"
-$legacyEnvFile = Join-Path $RepoRoot "ki-basis\.env"
-$envFile = if (Test-Path $instanceEnvFile) { $instanceEnvFile } elseif (Test-Path $legacyEnvFile) { $legacyEnvFile } else { $null }
+$instanceEnvFile = Join-Path (Split-Path -Parent $PSScriptRoot) '.env.private'
+$envFile = $instanceEnvFile
 
 function Get-DotEnvValue([string]$Path, [string]$Name) {
     if (-not (Test-Path $Path)) { return $null }
@@ -62,14 +59,11 @@ function Get-DotEnvValue([string]$Path, [string]$Name) {
 }
 
 $key = $ApiKey
-if ([string]::IsNullOrWhiteSpace($key)) {
-    $key = $env:HERMES_API_SERVER_KEY
-}
 if ([string]::IsNullOrWhiteSpace($key) -and $envFile) {
     $key = Get-DotEnvValue -Path $envFile -Name "HERMES_API_SERVER_KEY"
 }
 if ([string]::IsNullOrWhiteSpace($key)) {
-    throw "HERMES_API_SERVER_KEY could not be resolved from -ApiKey, env:HERMES_API_SERVER_KEY, or $instanceEnvFile"
+    throw "HERMES_API_SERVER_KEY could not be resolved from -ApiKey, $instanceEnvFile"
 }
 
 $headers = @{

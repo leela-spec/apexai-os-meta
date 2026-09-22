@@ -1,6 +1,8 @@
 # KI Basis — Scoped Agent Entrypoint
 
-**Scope:** tasks operating in or on `ki-basis/**`.
+**Scope:** Private stack tasks operating in or on `ki-basis/**`.
+
+Private uses the existing `ki-basis` Docker project, `ki-basis-net`, and `ki-basis-*` volumes. Start/stop through `scripts/start-ki-basis.ps1` and `scripts/stop-ki-basis.ps1`; active configuration is `.env.private` with existing runtime credentials. Telegram is disabled. Community is independently configured in `C:\GitDev\lika-community`; do not launch it through this Compose file. Do not substitute nonexistent `ki-basis-private-*` storage.
 
 **What this file is:** the small always-on agent entrypoint for KI Basis. Runtimes that support hierarchical `AGENTS.md` discovery can load this automatically when working in this directory.
 

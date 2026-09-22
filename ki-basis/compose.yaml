@@ -1,36 +1,46 @@
-name: ${COMPOSE_PROJECT_NAME:-ki-basis}
-
+name: ki-basis
 networks:
   ki-basis-net:
-    name: ${KI_NETWORK_NAME:-ki-basis-net}
+    name: ki-basis-net
     driver: bridge
-
 volumes:
   postgres_data:
-    name: ${COMPOSE_PROJECT_NAME:-ki-basis}-postgres-data
+    external: true
+    name: ki-basis-postgres-data
   valkey_data:
-    name: ${COMPOSE_PROJECT_NAME:-ki-basis}-valkey-data
+    external: true
+    name: ki-basis-valkey-data
   firefly_upload:
-    name: ${COMPOSE_PROJECT_NAME:-ki-basis}-firefly-upload
+    external: true
+    name: ki-basis-firefly-upload
   paperless_data:
-    name: ${COMPOSE_PROJECT_NAME:-ki-basis}-paperless-data
+    external: true
+    name: ki-basis-paperless-data
   paperless_media:
-    name: ${COMPOSE_PROJECT_NAME:-ki-basis}-paperless-media
+    external: true
+    name: ki-basis-paperless-media
   paperless_export:
-    name: ${COMPOSE_PROJECT_NAME:-ki-basis}-paperless-export
+    external: true
+    name: ki-basis-paperless-export
   paperless_consume:
-    name: ${COMPOSE_PROJECT_NAME:-ki-basis}-paperless-consume
+    external: true
+    name: ki-basis-paperless-consume
   openproject_assets:
-    name: ${COMPOSE_PROJECT_NAME:-ki-basis}-openproject-assets
+    external: true
+    name: ki-basis-openproject-assets
   hermes_data:
-    name: ${COMPOSE_PROJECT_NAME:-ki-basis}-hermes-data
+    external: true
+    name: ki-basis-hermes-data
   hermes_workspaces:
-    name: ${COMPOSE_PROJECT_NAME:-ki-basis}-hermes-workspaces
-
+    external: true
+    name: ki-basis-hermes-workspaces
+  openproject_pgdata:
+    external: true
+    name: cccc9d0959023561035453683a7f81f0cab0eef3bcc93baf6943683d6556802b
 services:
   postgres:
     image: pgvector/pgvector@sha256:ccc6e83d6e35e931dc7c5def2022729d5a6c370318d099181995567ff1fb4d6b
-    container_name: ${COMPOSE_PROJECT_NAME:-ki-basis}-postgres
+    container_name: ki-basis-postgres
     restart: unless-stopped
     environment:
       POSTGRES_USER: ${POSTGRES_USER:-postgres}
@@ -43,47 +53,57 @@ services:
       PAPERLESS_DB_PASSWORD: ${PAPERLESS_DB_PASSWORD:?PAPERLESS_DB_PASSWORD is required}
       PAPERLESS_DB_NAME: ${PAPERLESS_DB_NAME:-paperless}
       OPENPROJECT_DB_USER: ${OPENPROJECT_DB_USER:-openproject_app}
-      OPENPROJECT_DB_PASSWORD: ${OPENPROJECT_DB_PASSWORD:?OPENPROJECT_DB_PASSWORD is required}
+      OPENPROJECT_DB_PASSWORD: ${OPENPROJECT_DB_PASSWORD:?OPENPROJECT_DB_PASSWORD
+        is required}
       OPENPROJECT_DB_NAME: ${OPENPROJECT_DB_NAME:-openproject}
     volumes:
-      - postgres_data:/var/lib/postgresql/data
-      - ./docker/postgres/init:/docker-entrypoint-initdb.d:ro
+    - postgres_data:/var/lib/postgresql/data
+    - ./docker/postgres/init:/docker-entrypoint-initdb.d:ro
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-postgres}"]
+      test:
+      - CMD-SHELL
+      - pg_isready -U ${POSTGRES_USER:-postgres}
       interval: 5s
       timeout: 5s
       retries: 5
       start_period: 10s
     networks:
-      - ki-basis-net
-
+    - ki-basis-net
   valkey:
     image: valkey/valkey@sha256:f110e5df168de4cdbd17afec848c6efe88e4b5e51c5b1ec6109de0c1b6a0c60b
-    container_name: ${COMPOSE_PROJECT_NAME:-ki-basis}-valkey
+    container_name: ki-basis-valkey
     restart: unless-stopped
-    command: ["valkey-server", "--save", "60", "1", "--loglevel", "notice"]
+    command:
+    - valkey-server
+    - --save
+    - '60'
+    - '1'
+    - --loglevel
+    - notice
     volumes:
-      - valkey_data:/data
+    - valkey_data:/data
     healthcheck:
-      test: ["CMD", "valkey-cli", "ping"]
+      test:
+      - CMD
+      - valkey-cli
+      - ping
       interval: 5s
       timeout: 3s
       retries: 5
       start_period: 5s
     networks:
-      - ki-basis-net
-
+    - ki-basis-net
   firefly:
     image: fireflyiii/core@sha256:ae69fdd95cdef9038cd7a460a5aec731f14813973e4f096511d5a4ea9ff0e972
-    container_name: ${COMPOSE_PROJECT_NAME:-ki-basis}-firefly
+    container_name: ki-basis-firefly
     restart: unless-stopped
     ports:
-      - "127.0.0.1:${FIREFLY_HOST_PORT:-8086}:8080"
+    - 127.0.0.1:${FIREFLY_HOST_PORT:-8086}:8080
     environment:
       APP_KEY: ${FIREFLY_APP_KEY:?FIREFLY_APP_KEY is required}
       APP_URL: http://127.0.0.1:${FIREFLY_HOST_PORT:-8086}
       APP_ENV: local
-      APP_DEBUG: "false"
+      APP_DEBUG: 'false'
       SITE_OWNER: admin@example.com
       TZ: Europe/Berlin
       DB_CONNECTION: pgsql
@@ -93,23 +113,19 @@ services:
       DB_USERNAME: ${FIREFLY_DB_USER:-firefly_app}
       DB_PASSWORD: ${FIREFLY_DB_PASSWORD:?FIREFLY_DB_PASSWORD is required}
     volumes:
-      - firefly_upload:/var/www/html/storage/upload
+    - firefly_upload:/var/www/html/storage/upload
     depends_on:
       postgres:
         condition: service_healthy
     networks:
-      - ki-basis-net
-
+    - ki-basis-net
   paperless:
     image: ghcr.io/paperless-ngx/paperless-ngx@sha256:5ab4f4f9bb099a36bec3e092906ea3e611323c5f18dc5cc38c76a1d540bdca9c
-    container_name: ${COMPOSE_PROJECT_NAME:-ki-basis}-paperless
+    container_name: ki-basis-paperless
     restart: unless-stopped
     ports:
-      - "127.0.0.1:${PAPERLESS_HOST_PORT:-8010}:8000"
+    - 127.0.0.1:${PAPERLESS_HOST_PORT:-8010}:8000
     environment:
-      PAPERLESS_WORKERS: "${PAPERLESS_WORKERS:-1}"
-      PAPERLESS_TASK_WORKERS: "${PAPERLESS_TASK_WORKERS:-1}"
-      PAPERLESS_THREADS_PER_WORKER: "${PAPERLESS_THREADS_PER_WORKER:-1}"
       PAPERLESS_REDIS: redis://valkey:6379
       PAPERLESS_DBENGINE: postgresql
       PAPERLESS_DBHOST: postgres
@@ -122,100 +138,119 @@ services:
       PAPERLESS_TIME_ZONE: Europe/Berlin
       PAPERLESS_OCR_LANGUAGE: deu+eng
       PAPERLESS_ADMIN_USER: ${PAPERLESS_ADMIN_USER:-admin}
-      PAPERLESS_ADMIN_PASSWORD: ${PAPERLESS_ADMIN_PASSWORD:?PAPERLESS_ADMIN_PASSWORD is required}
+      PAPERLESS_ADMIN_PASSWORD: ${PAPERLESS_ADMIN_PASSWORD:?PAPERLESS_ADMIN_PASSWORD
+        is required}
     volumes:
-      - paperless_data:/usr/src/paperless/data
-      - paperless_media:/usr/src/paperless/media
-      - paperless_export:/usr/src/paperless/export
-      - paperless_consume:/usr/src/paperless/consume
+    - paperless_data:/usr/src/paperless/data
+    - paperless_media:/usr/src/paperless/media
+    - paperless_export:/usr/src/paperless/export
+    - paperless_consume:/usr/src/paperless/consume
     depends_on:
       postgres:
         condition: service_healthy
       valkey:
         condition: service_healthy
     healthcheck:
-      test: ["CMD", "curl", "-fs", "-S", "--max-time", "2", "http://localhost:8000"]
+      test:
+      - CMD
+      - curl
+      - -fs
+      - -S
+      - --max-time
+      - '2'
+      - http://localhost:8000
       interval: 10s
       timeout: 5s
       retries: 5
       start_period: 30s
     networks:
-      - ki-basis-net
-
+    - ki-basis-net
   openproject:
     image: openproject/openproject@sha256:73d4ee76fb3edb33b0eb1a3a2ddc036f0a45f9083459f445e3d0b634044cf8fb
-    container_name: ${COMPOSE_PROJECT_NAME:-ki-basis}-openproject
+    container_name: ki-basis-openproject
     restart: unless-stopped
     ports:
-      - "127.0.0.1:${OPENPROJECT_HOST_PORT:-8082}:80"
+    - 127.0.0.1:${OPENPROJECT_HOST_PORT:-8082}:80
     environment:
-      OPENPROJECT_WEB_WORKERS: "${OPENPROJECT_WEB_WORKERS:-1}"
-      OPENPROJECT_BACKGROUND_WORKERS: "${OPENPROJECT_BACKGROUND_WORKERS:-1}"
-      PG_STARTUP_WAIT_TIME: "${PG_STARTUP_WAIT_TIME:-60}"
-      OPENPROJECT_HTTPS: "false"
+      PG_STARTUP_WAIT_TIME: '30'
+      OPENPROJECT_HTTPS: 'false'
       OPENPROJECT_HOST__NAME: 127.0.0.1:${OPENPROJECT_HOST_PORT:-8082}
-      OPENPROJECT_SECRET_KEY_BASE: ${OPENPROJECT_SECRET_KEY_BASE:?OPENPROJECT_SECRET_KEY_BASE is required}
-      DATABASE_URL: postgres://${OPENPROJECT_DB_USER:-openproject_app}:${OPENPROJECT_DB_PASSWORD:?OPENPROJECT_DB_PASSWORD is required}@postgres:5432/${OPENPROJECT_DB_NAME:-openproject}
+      OPENPROJECT_SECRET_KEY_BASE: ${OPENPROJECT_SECRET_KEY_BASE:?OPENPROJECT_SECRET_KEY_BASE
+        is required}
+      DATABASE_URL: postgres://${OPENPROJECT_DB_USER:-openproject_app}:${OPENPROJECT_DB_PASSWORD:?OPENPROJECT_DB_PASSWORD
+        is required}@postgres:5432/${OPENPROJECT_DB_NAME:-openproject}
     volumes:
-      - openproject_assets:/var/openproject/assets
+    - openproject_assets:/var/openproject/assets
+    - openproject_pgdata:/var/openproject/pgdata
     depends_on:
       postgres:
         condition: service_healthy
     networks:
-      - ki-basis-net
-
+    - ki-basis-net
   nginx:
     image: nginx@sha256:65645c7bb6a0661892a8b03b89d0743208a18dd2f3f17a54ef4b76fb8e2f2a10
-    container_name: ${COMPOSE_PROJECT_NAME:-ki-basis}-nginx
+    container_name: ki-basis-nginx
     restart: unless-stopped
     ports:
-      - "127.0.0.1:${NGINX_HOST_PORT:-8084}:80"
+    - 127.0.0.1:${NGINX_HOST_PORT:-8084}:80
     volumes:
-      - ./docker/nginx:/etc/nginx/conf.d:ro
+    - ./docker/nginx:/etc/nginx/conf.d:ro
     depends_on:
-      - firefly
-      - paperless
-      - openproject
+    - firefly
+    - paperless
+    - openproject
     healthcheck:
-      test: ["CMD", "wget", "-q", "-O", "/dev/null", "http://127.0.0.1:80/healthz"]
+      test:
+      - CMD
+      - wget
+      - -q
+      - -O
+      - /dev/null
+      - http://127.0.0.1:80/healthz
       interval: 5s
       timeout: 3s
       retries: 5
       start_period: 5s
     networks:
-      - ki-basis-net
-
+    - ki-basis-net
   hermes:
     image: nousresearch/hermes-agent@sha256:09d743f5e012e41503829d06ca129c7d3e87ea3f943f7228d520c5c53c6f7db5
-    container_name: ${COMPOSE_PROJECT_NAME:-ki-basis}-hermes
+    container_name: ki-basis-hermes
     restart: unless-stopped
     command: gateway run
     ports:
-      - "127.0.0.1:${HERMES_GATEWAY_HOST_PORT:-8642}:8642"
-      - "127.0.0.1:${HERMES_DASHBOARD_HOST_PORT:-9119}:9119"
+    - 127.0.0.1:${HERMES_GATEWAY_HOST_PORT:-8642}:8642
+    - 127.0.0.1:${HERMES_DASHBOARD_HOST_PORT:-9119}:9119
     environment:
-      HERMES_DASHBOARD: "1"
-      HERMES_GATEWAY_EXTERNAL_SUPERVISOR: "1"
-      HERMES_GATEWAY_BOOTSTRAP_STATE: "running"
+      HERMES_DASHBOARD: '1'
+      HERMES_GATEWAY_EXTERNAL_SUPERVISOR: '1'
+      HERMES_GATEWAY_BOOTSTRAP_STATE: running
       HERMES_DASHBOARD_BASIC_AUTH_USERNAME: ${HERMES_DASHBOARD_BASIC_AUTH_USERNAME:-admin}
-      HERMES_DASHBOARD_BASIC_AUTH_PASSWORD: ${HERMES_DASHBOARD_BASIC_AUTH_PASSWORD:?HERMES_DASHBOARD_BASIC_AUTH_PASSWORD is required}
+      HERMES_DASHBOARD_BASIC_AUTH_PASSWORD: ${HERMES_DASHBOARD_BASIC_AUTH_PASSWORD:?HERMES_DASHBOARD_BASIC_AUTH_PASSWORD
+        is required}
       HERMES_HOME: /opt/data
       HERMES_WRITE_SAFE_ROOT: /opt/data
-      HERMES_DISABLE_LAZY_INSTALLS: "1"
+      HERMES_DISABLE_LAZY_INSTALLS: '1'
       HERMES_LAZY_INSTALL_TARGET: /opt/data/lazy-packages
-      API_SERVER_ENABLED: "true"
-      API_SERVER_HOST: "0.0.0.0"
+      API_SERVER_ENABLED: 'true'
+      API_SERVER_HOST: 0.0.0.0
       API_SERVER_KEY: ${HERMES_API_SERVER_KEY:?HERMES_API_SERVER_KEY is required}
       FIREFLY_API_URL: http://firefly:8080
       PAPERLESS_API_URL: http://paperless:8000
       OPENPROJECT_API_URL: http://openproject:80
+      PAPERLESS_TOKEN: ${PAPERLESS_API_TOKEN:-}
+      PAPERLESS_URL: http://paperless:8000
+      OPENPROJECT_KEY: ${OPENPROJECT_API_KEY:-}
+      OPENPROJECT_URL: http://openproject:80
+      TELEGRAM_BOT_TOKEN: ''
     volumes:
-      - hermes_data:/opt/data
-      - hermes_workspaces:/root/workspaces
+    - hermes_data:/opt/data
+    - hermes_workspaces:/root/workspaces
+    - ./SOUL.md:/opt/data/SOUL.md:ro
     depends_on:
-      - firefly
-      - paperless
-      - openproject
-      - nginx
+    - firefly
+    - paperless
+    - openproject
+    - nginx
     networks:
-      - ki-basis-net
+    - ki-basis-net

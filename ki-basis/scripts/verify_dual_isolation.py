@@ -222,6 +222,12 @@ class DualInstanceValidator:
             len(pvt_vols & comm_vols) == 0,
             "Zero shared volumes between Private and Community (100% storage segregation)"
         )
+        pvt_external = all(v.get("external") is True for v in doc_pvt.get("volumes", {}).values())
+        comm_external = all(v.get("external") is True for v in doc_comm.get("volumes", {}).values())
+        self.assert_true(
+            pvt_external and comm_external,
+            "All volumes in compose.yaml declare 'external: true' (immunized against down -v destruction)"
+        )
 
         print("\n--- 6. Native ext4 Storage Compliance & 9P Exclusion ---")
         # Ensure that no persistent database, queue, document, or asset volume uses a host bind mount

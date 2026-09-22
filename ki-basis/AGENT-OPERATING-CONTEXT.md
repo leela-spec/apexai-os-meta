@@ -1,6 +1,8 @@
 # KI Basis — Agent Operating Context
 
-**Scope:** any nontrivial task touching `ki-basis/**`, its Docker runtime, Hermes bridge, or the installed KI Basis applications.
+**Scope:** the Private `ki-basis` project, its Docker runtime, Hermes bridge and applications. Community owns its separate Compose, credentials and host mounts at `C:\GitDev\lika-community`.
+
+**Current entrypoints:** `scripts/start-ki-basis.ps1`, `scripts/stop-ki-basis.ps1`, and `scripts/invoke-hermes.ps1` target Private only using `.env.private`. Keep the existing `ki-basis-*` volumes. Private Telegram is disabled; Community Telegram operates through its own gateway. The data volume and existing workspace are preserved; this separation does not provision missing repository clones.
 
 **Purpose:** stable operating handbook for agents. This file explains what KI Basis is, how it is supposed to be operated, what interfaces are legitimate, and which safety boundaries are locked.
 
