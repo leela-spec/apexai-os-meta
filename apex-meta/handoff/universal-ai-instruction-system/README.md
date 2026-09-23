@@ -100,7 +100,7 @@ Each fresh run handles exactly one module: the row marked `NEXT`.
 | A13 | `<grounding>` | External Grounding & Real-World Verification | **DONE** |
 | C01 | `<decision>` | Conditional Decision / Trade-off Discipline | **DONE** |
 | C02 | `<research>` | Conditional Research Discipline | **DONE** |
-| C03 | `<informatics>` | Conditional Informatics / Formal Authoring | **NEXT** |
+| C03 | `<informatics>` | Conditional Informatics / Formal Authoring | **DONE** |
 
 `A*` modules are candidates for the always-on universal constitution. `C*` modules remain embedded conditional modules: their trigger is visible, but their deeper method is activated only when relevant.
 

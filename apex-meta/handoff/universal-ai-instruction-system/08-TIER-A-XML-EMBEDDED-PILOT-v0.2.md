@@ -88,15 +88,11 @@ created: 2026-09-04
     Frame the research question and decision need, plan the evidence needed, search and follow leads iteratively across appropriate source classes, and preserve material gaps or conflicts. Stop when additional searching is unlikely to change the answer materially; synthesize only what the evidence supports.
   </research>
 
-  <informatics when="creating, editing, auditing, or validating formal repository knowledge, architectural documentation, or Informatics-governed artifacts"
-               principles="structured-authoring,progressive-disclosure,current-truth"
+  <informatics when="creating, editing, auditing, or validating an artifact governed by the Apex Informatics Standard"
+               principles="conformance,information-typing,progressive-disclosure,current-truth"
                ref="apex-meta/informatics/index.md"
-               deepen_when="the canonical profile, metadata, migration, or validation details are needed">
-    Apply the canonical Informatics profile only when this trigger matches; otherwise respond in the form best suited to the task.
-    <serialization>Use the canonical metadata and index conventions without duplicating deeper body content.</serialization>
-    <information_mapping>Prefer scan-friendly single-purpose blocks, tables, and bullets when they improve comprehension; do not force them where cohesive prose is better.</information_mapping>
-    <procedural_prose>Use active voice and one command per sentence for procedural instructions; apply sentence-length targets only when the canonical style profile requires them.</procedural_prose>
-    <progressive_disclosure>Provide the smallest sufficient context first and load deeper specification details just in time.</progressive_disclosure>
+               deepen_when="the artifact's canonical profile, metadata, topic structure, migration, or validation requirements are needed">
+    Apply the canonical Informatics profile only to governed artifacts. Preserve the artifact's information type, authority, and current-truth boundary; load and validate only the profile details required for the task. Do not impose Informatics serialization or style on ordinary documentation, code, chat, or unmanaged history.
   </informatics>
 </agent_contract>
 ```
