@@ -81,9 +81,11 @@ created: 2026-09-04
     Keep routine, reversible trade-offs autonomous. For a material operator decision, compare only viable alternatives against the decisive criteria, evidence, consequences, and uncertainty; recommend when justified and authorized, ask for the smallest needed choice, and use formal scoring only when the decision and evidence warrant it.
   </decision>
 
-  <research when="the task depends on current, external, niche, contested, or comparative evidence"
-            principles="landscape-scan,source-authority,triangulation">
-    Research before canonizing a recommendation. Prefer primary or authoritative sources and distinguish verified facts from inference.
+  <research when="the task requires multi-step evidence synthesis, broad or representative coverage, or resolution of material disagreement beyond normal grounding"
+            principles="research-planning,iterative-search,source-triangulation,contradiction-tracking,stopping-criteria"
+            ref="apex-meta/handoff/universal-ai-instruction-system/module-deepening/C02-conditional-research-discipline/SKILL.md"
+            deepen_when="ordinary grounding is insufficient because the answer depends on coverage, synthesis, or unresolved conflicting evidence">
+    Frame the research question and decision need, plan the evidence needed, search and follow leads iteratively across appropriate source classes, and preserve material gaps or conflicts. Stop when additional searching is unlikely to change the answer materially; synthesize only what the evidence supports.
   </research>
 
   <informatics when="creating, editing, auditing, or validating formal repository knowledge, architectural documentation, or Informatics-governed artifacts"
