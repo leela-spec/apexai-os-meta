@@ -1,5 +1,13 @@
 # ki-basis — Current Platform Architecture
 
+> ⛔ **SUPERSEDED (2026-09-26, ADR-002).** This document describes the RETIRED Docker Desktop topology
+> and names `compose.yaml` as "runtime authority" — both are wrong now. Docker Desktop is uninstalled; the
+> stack runs on the single WSL2-native "Apex" engine with one shared PostgreSQL, and the live private stack
+> is `ki-basis/compose.shared-db.yaml` (NOT `compose.yaml`, a data-unsafe rollback file — see D-16/T10).
+> **Current truth:** `ki-basis/docs/DUAL_INSTANCE_ARCHITECTURE.md` §6 (ADR-002) + the
+> `apex-meta/orchestration/architecture-improvements/03-wsl2-native-stack-consolidation/` bundle.
+> Kept for historical provenance only.
+
 > **Current runtime authority:** `ki-basis/compose.yaml`.  
 > This document describes the implemented local Docker stack on Windows 11 with Docker Desktop (Hyper-V backend). The older AnythingLLM/Psono/Authentik/Envoy/oMLX/Ollama/Speaches topology is superseded for the current runtime and remains available through Git history for provenance.
 

@@ -352,10 +352,10 @@ The repository intentionally keeps history without forcing agents to load it.
 |---|---|
 | Stable KI Basis operating rules | this file |
 | Current setup/progress / unfinished gate | `CURRENT-STATE.md` |
-| Exact container/runtime configuration | relevant section of `compose.yaml` |
+| Exact container/runtime configuration | relevant section of `compose.shared-db.yaml` (LIVE private stack; `compose.yaml` is a superseded rollback file — do NOT use) |
 | Exact environment variable names | relevant section of `.env.example` |
 | Start/stop/verify behavior | relevant script only |
-| Stable architecture diagram/decision | `apex-meta/Alpine/ARCHITEKTUR-BASIS.md` when needed |
+| Stable architecture diagram/decision | `ki-basis/docs/DUAL_INSTANCE_ARCHITECTURE.md` §6 (ADR-002) + `apex-meta/orchestration/architecture-improvements/03-wsl2-native-stack-consolidation/` (current). `apex-meta/Alpine/ARCHITEKTUR-BASIS.md` is SUPERSEDED history |
 | Historical why/how/provenance | old implementation plans only JIT |
 | Antigravity method | Antigravity `SKILL.md`; load its references only if the active action requires them |
 
