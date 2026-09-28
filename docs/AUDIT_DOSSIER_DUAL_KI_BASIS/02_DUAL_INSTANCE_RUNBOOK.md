@@ -1,5 +1,7 @@
 # Operations & Migration Runbook: ki-basis Dual-Instance Architecture
 
+> ⛔ **SUPERSEDED (pre-2026-09-26).** This describes the OLD topology (two per-stack PostgreSQL + Docker Desktop). Current truth: `ki-basis/docs/INFRASTRUCTURE.md` (+ ADR-002 §6). Kept for provenance.
+
 **Document Version:** 1.0.0  
 **Date:** 2026-09-07  
 **Status:** PRODUCTION OPERATIONAL RUNBOOK  

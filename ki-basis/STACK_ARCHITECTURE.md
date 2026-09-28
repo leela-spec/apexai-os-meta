@@ -1,5 +1,7 @@
 # Lika OS & KI-Basis System Architecture
 
+> ⛔ **SUPERSEDED (pre-2026-09-26).** This describes the OLD topology (names the deleted OpenProject v14 and a per-stack `ki-basis-postgres`). Current truth: `ki-basis/docs/INFRASTRUCTURE.md` (+ ADR-002 §6). Kept for provenance.
+
 A complete map of the current containerized stack, external inputs, internal service communication, automated bridges, and operational outputs for Safer Space e.V. and the Equinox 2026 event.
 
 ---

@@ -1,5 +1,7 @@
 # Architecture Audit & Design Dossier: Meta-Orchestrator Topology & Multi-Instance Infrastructure
 
+> ⛔ **SUPERSEDED (pre-2026-09-26).** This describes the OLD topology (all containers in Docker Desktop; Strategy-B split-daemon). Current truth: `ki-basis/docs/INFRASTRUCTURE.md` (+ ADR-002 §6). Kept for provenance.
+
 **Date:** 2026-09-07  
 **Prepared For:** Systems Architect Review & Operator Evaluation  
 **Scope:** Hermes Global Meta-Orchestrator Across All Workspaces (`apexai-os-meta`, `Investment`, `MasterOfArts`, `acim-secular`), Karakeep in the Investment Workspace, KI-Basis Access to Workspaces, Dual-Instance Separation Analysis, and Preservation of Windows Alpine Docker.
