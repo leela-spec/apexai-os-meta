@@ -105,3 +105,27 @@ discovery surfaces; the two-phase write-gate and instance fingerprint hold on ev
   that overrides its config dir (Claude `CLAUDE_CONFIG_DIR`, or a Codex profile with a different `HOME`) needs
   the per-skill link created in *that* dir too, or it won't see the skill.
 - **Antigravity multi-account** remains the undocumented gap flagged above — confirm or record unsupported.
+
+## Live agent-initiated run (2026-09-28) — operator-driven, Prompt A
+Prompt (no skill/command named): *"On the private Leela OpenProject instance, what are the subject and
+current status of work package 38? Please show how you retrieved it."* All three returned the correct
+answer (subject "User-story census — Stage-4 coverage closure verification (189 IDs)", status **Closed**).
+
+| Agent | Auto-invoked the skill? | How it retrieved | Verdict |
+|---|---|---|---|
+| **Codex** | ✅ YES | ran `opCall.js root/whoami/project.list/wp.get --id 38/doctor` — through the skill, safety preflight passed | **PASS** |
+| **Claude** | ✅ YES | ran `opCall.js wp.get --id 38` via `~/.claude/skills/openproject`, auth from `~/.config/openproject/op.env` | **PASS** |
+| **Antigravity (`agy`, Windows)** | ❌ NO | **bypassed the skill** — read the token directly from `op.env` and hand-rolled a raw `curl` with `Authorization: Bearer <token>` (wrong scheme: OpenProject API keys are Basic `apikey:` — narrated method suspect); ~2 min (slow path) | **FINDING** |
+
+**Root cause of the Antigravity finding:** `agy` (the CLI) discovers skills under `~/.gemini/antigravity-cli/skills/`,
+but only `~/.gemini/config/skills/` (the IDE/2.0 path) had been linked — so the CLI never saw the skill and
+fell back to reading the credential file + curl. **This bypasses the skill's safety gates (instance
+fingerprint, token redaction, two-phase write-confirm)** — harmless for this read, but unsafe for a write.
+**Fix applied 2026-09-28:** linked the canonical skill into `~/.gemini/antigravity-cli/skills/openproject`
+and the legacy `~/.gemini/antigravity/skills/openproject` (Windows junctions + WSL symlinks). **Re-test `agy`
+with Prompt A** to confirm it now auto-invokes the skill (and returns to the fast path).
+
+**Fleet coverage:** one live session per tool was run (Codex, Claude, Antigravity). Codex ×2 and Claude ×2
+second accounts were not separately run — they share their tool's discovery dir, so they inherit the same
+result *unless* an account overrides its config dir (`CLAUDE_CONFIG_DIR` / a Codex profile with a different
+`HOME`), which would need its own link. Antigravity multi-account still unconfirmed.
