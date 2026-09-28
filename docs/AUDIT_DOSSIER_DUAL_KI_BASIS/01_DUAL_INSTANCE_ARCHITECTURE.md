@@ -463,6 +463,10 @@ We decisively select Strategy A as the canonical architecture for `ki-basis`.
 
 ## 6. Architectural Decision Record (ADR-002)
 
+> **↩️ MIRROR — not canonical.** The canonical ADR-002 of record is
+> `ki-basis/docs/DUAL_INSTANCE_ARCHITECTURE.md` §6. This is a **hand-synced copy**; do not treat it as the
+> source — change the canonical file, then re-sync this mirror by hand.
+
 ### ADR-002: Retire Docker Desktop; Consolidate Both Instances onto a Single WSL2-Native Engine with a Shared PostgreSQL Cluster
 
 **Status:** APPROVED / IMPLEMENTED  

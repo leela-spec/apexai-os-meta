@@ -1,3 +1,11 @@
+---
+status: amended
+amended_on: 2026-09-26
+superseded_scope: "engine/DB architecture & topology only — operating/safety guidance still applies until re-verified"
+current: "ki-basis/docs/DUAL_INSTANCE_ARCHITECTURE.md §6 (ADR-002)"
+current_bundle: apex-meta/orchestration/architecture-improvements/03-wsl2-native-stack-consolidation/
+---
+
 # KI Basis — Agent Operating Context
 
 > **⛔ SUPERSEDED for architecture/topology (2026-09-26).** This file's locked directives —
@@ -5,7 +13,7 @@
 > **single WSL2-native engine "Apex"** with **one shared PostgreSQL** (Docker Desktop retired).
 > **→ Current source of truth:**
 > `C:\GitDev\apexai-os-meta\apex-meta\orchestration\architecture-improvements\03-wsl2-native-stack-consolidation\`
-> → **`01-architecture-and-gaps.md`** (live topology + Mermaid) · **`02-decisions-log.md`** (D-01…D-12) · **`05-handover.md`** (resume).
+> → **`01-architecture-and-gaps.md`** (live topology + Mermaid) · **`02-decisions-log.md`** (D-01…D-18, incl. incident decisions D-13–D-18) · **`05-handover.md`** (resume).
 > Operating/safety guidance in this file that is unrelated to engine/DB topology still applies until re-verified.
 
 **Scope:** any nontrivial task touching `ki-basis/**`, its Docker runtime, Hermes bridge, or the installed KI Basis applications.

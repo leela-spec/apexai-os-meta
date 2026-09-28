@@ -1,9 +1,9 @@
 ---
 plan_id: PLAN-2026-09-28-program-closeout
 title: Program close-out — remaining work across the ki-basis consolidation + Leela OpenProject pilot
-status: not_started            # not_started | in_progress | blocked | done
+status: in_progress            # not_started | in_progress | blocked | done
 updated: 2026-09-28
-current_task: T01              # the single next task to execute
+current_task: T08              # the single next task to execute
 blocked_by: null
 owner: operator + takeover-agent
 authority_order: "live runtime + code > accepted decisions/ADRs > this plan. Surface conflicts; never invent a winner."
@@ -52,22 +52,22 @@ authority_order: "live runtime + code > accepted decisions/ADRs > this plan. Sur
 - deps: [] · **why urgent:** live private prod runs on **untracked** `ki-basis/compose.shared-db.yaml`.
 - scope: the `03-` and `04-` bundles; `ki-basis/compose.shared-db.yaml`; modified `ki-basis/compose.yaml`, `ki-basis/docker/postgres/init/01-init-databases.sh`, the 3 stale docs + 2 ADR-002 mirrors, `BOT_WIRING_AND_PERSONA_HANDOVER.md`. Decide the `codex/separate-community-stack` branch (merge or delete).
 - acceptance: WHEN `git ls-files ki-basis/compose.shared-db.yaml` runs THE SYSTEM SHALL list it; `git status` shows no untracked consolidation paths. Preserve unrelated dirty files.
-- rollback: n/a (additive). · status: not_started · evidence: —
+- rollback: n/a (additive). · status: done · evidence: commit `5636027` on `main` (22 files, incl. `ki-basis/compose.shared-db.yaml` now tracked; verified via `git ls-files`). Commit-only (not pushed). `codex/separate-community-stack` branch **parked** (not merged/deleted) per operator instruction. Branch = **2 unique local commits** (`60c22c31`, `c039699c`), not on any remote; main is 10 commits past the shared base. Usefulness/staleness assessment delegated → `HANDOVER-codex-community-stack-investigation.md`; **investigation complete (2026-09-28)** → `FINDINGS-codex-community-stack-2026-09-28.md`. Verdict: community stack already runs consolidated (shared Postgres, `comm_*`/`priv_*` `REVOKE CONNECT`, verified live) and is already its own repo (`lika-community`); branch premise superseded, all added docs/tests stale, 9 deleted scripts safe on `main` + relocated to `lika-community`. **Recommendation (b) keep parked**; do NOT merge (would delete live scripts). Operator-gated.
 
 **T02 — Update write-policy, then commit + push the skill (Leela).** `gate: human-approval` (push)
 - deps: [] · scope: add `project.delete` (Destructive), `wp.attach`, `project.update` to `references/write-policy.md`; commit the 5 modified skill files; **push `master`** (currently ahead 1, unpushed).
 - acceptance: write-policy lists every mutating op incl. `project.delete`; `git status -sb` shows not-ahead; skill files clean.
-- status: not_started
+- status: done — write-policy rewritten to enumerate all 10 mutating ops (incl. `project.delete` Destructive); 5 skill files committed `4e3d805e` and **pushed** to `origin/master` (operator-approved 2026-09-28). Verified: local==remote tip `4e3d805e`, `git status -sb` not-ahead.
 
 ### Bucket 1 — Doc-truth reconciliation (apexai-os-meta) — no destructive gate
 **T03 — Fix stale cross-references in the `03-` bundle + banners.** deps: []
 - Fix: banner/index "D-01…D-12" → "D-01…D-18 (incl. incident decisions D-13–D-18)"; `04-open-questions.md` "→ D-10 (pending)" → ADR-002 **written**; clear the `[UNVERIFIED]` extension marker (resolved by D-15); `05-handover` "D-01…D-17" → include D-18.
 - acceptance: no `D-01…D-12`, `pending` ADR, or `[UNVERIFIED]` stale strings remain in the bundle or the three redirect banners.
-- status: not_started
-**T04 — Update `CURRENT-STATE.md` BODY (not just its banner).** deps: [] — body still describes "one Docker Engine / Docker Desktop runtime"; rewrite to single WSL2 engine + shared Postgres. acceptance: body has no pre-migration topology as current.
-**T05 — Add machine-readable `status:` frontmatter to the 3 stale ki-basis docs.** deps: [] — `status: superseded|amended`, `superseded_by:`/`current:` pointer. acceptance: a gate/agent can detect staleness from frontmatter, not just the banner.
-**T06 — Wire the entry point.** deps: [] — make root `apexai-os-meta/AGENTS.md` + `CLAUDE.md`, `apex-meta/orchestration/00-START-HERE.md`, and `ki-basis/AGENTS.md` point to the current-truth `03-` bundle + ADR-002 + this PLAN. acceptance: a fresh agent from any root entry discovers current architecture without opening a stale doc. *(A minimal root-AGENTS.md pointer is added by this plan's author as a starting point — extend it.)*
-**T07 — ADR-002 mirror-drift guard.** deps: [] — mark the canonical copy (`ki-basis/docs/DUAL_INSTANCE_ARCHITECTURE.md` §6) and note the 2 mirrors are hand-synced. acceptance: each of the 3 copies states which is canonical.
+- status: done — banners → D-01…D-18; `04-open-questions` D-10 marked ADR-002 **written**; `[UNVERIFIED]` extension marker → RESOLVED→D-15 (open-questions + execution-plan); `05-handover` D-17→D-18. Verified: grep for all four stale strings returns NONE.
+**T04 — Update `CURRENT-STATE.md` BODY (not just its banner).** deps: [] — body still describes "one Docker Engine / Docker Desktop runtime"; rewrite to single WSL2 engine + shared Postgres. acceptance: body has no pre-migration topology as current. · **status: done** — body rewritten to post-consolidation topology (single WSL2 "Apex" engine, two compose projects, one shared Postgres priv_*/comm_*, ADR-002 authority); stale "Current target"/"no WSL2 migration"/next-step lists removed; invariants (D-16/D-18) retained.
+**T05 — Add machine-readable `status:` frontmatter to the 3 stale ki-basis docs.** deps: [] — `status: superseded|amended`, `superseded_by:`/`current:` pointer. acceptance: a gate/agent can detect staleness from frontmatter, not just the banner. · **status: done** — YAML frontmatter added: `CURRENT-STATE.md` (superseded), `AGENT-OPERATING-CONTEXT.md` (amended — topology only), `docs/DUAL_INSTANCE_ARCHITECTURE.md` (amended; `canonical:` marks §6 as ADR-002 of record). Each carries `current:`/`current_bundle:` pointers.
+**T06 — Wire the entry point.** deps: [] — make root `apexai-os-meta/AGENTS.md` + `CLAUDE.md`, `apex-meta/orchestration/00-START-HERE.md`, and `ki-basis/AGENTS.md` point to the current-truth `03-` bundle + ADR-002 + this PLAN. acceptance: a fresh agent from any root entry discovers current architecture without opening a stale doc. *(A minimal root-AGENTS.md pointer is added by this plan's author as a starting point — extend it.)* · **status: done** — pointer banners (ADR-002 §6 + 03 bundle + this PLAN) added to root `CLAUDE.md`, `apex-meta/orchestration/00-START-HERE.md`, and `ki-basis/AGENTS.md`; root `AGENTS.md` pointer already present (T01). Each also flags CURRENT-STATE/AGENT-OPERATING-CONTEXT as superseded for topology.
+**T07 — ADR-002 mirror-drift guard.** deps: [] — mark the canonical copy (`ki-basis/docs/DUAL_INSTANCE_ARCHITECTURE.md` §6) and note the 2 mirrors are hand-synced. acceptance: each of the 3 copies states which is canonical. · **status: done** — §6 in the canonical file marked `✅ CANONICAL` and names both mirrors; each mirror's §6 marked `↩️ MIRROR — not canonical` pointing back to the canonical. Frontmatter `canonical:` also set (T05).
 
 ### Bucket 2 — Non-blocking infra follow-ups (apexai-os-meta)
 **T08 — Confirm WSL memory ceiling 16 GB.** deps: [] — `.wslconfig` shows `memory=16GB` (appears DONE). acceptance: `.wslconfig` = 16GB AND live `docker stats` limit ≈16 GiB after next restart. If a change is needed it requires `wsl --shutdown` → `gate: human-approval`. status: likely_done — verify.

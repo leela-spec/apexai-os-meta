@@ -1,5 +1,14 @@
 # Codex Operating Note
 
+> **📍 Current architecture & open work (start here).** The stack runs on a **single WSL2-native Docker
+> engine** with **one shared PostgreSQL** (Docker Desktop retired). Current-truth (paths from repo root):
+> - Architecture decision: `ki-basis/docs/DUAL_INSTANCE_ARCHITECTURE.md` **§6 (ADR-002)** — canonical copy.
+> - Verified topology + decisions (D-01…D-18): `apex-meta/orchestration/architecture-improvements/03-wsl2-native-stack-consolidation/`.
+> - **Remaining work / close-out plan:** `apex-meta/orchestration/architecture-improvements/05-program-closeout/PLAN.md`.
+>
+> `ki-basis/CURRENT-STATE.md` and `ki-basis/AGENT-OPERATING-CONTEXT.md` are **superseded for engine/DB
+> topology** (see their `status:` frontmatter + banners). Do not ground current architecture in them.
+
 ## Git Dispatch
 - Trigger: A request to push known files starts with the Git commands, not repository analysis.
 - Sequence: Run `git add -- <requested paths>`, `git commit`, and `git push`.

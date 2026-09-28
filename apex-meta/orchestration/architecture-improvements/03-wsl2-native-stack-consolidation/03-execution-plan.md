@@ -97,7 +97,7 @@ Extensions (confirmed from the 2026-09-26 backup TOC): **OpenProject's DB uses `
 `pg_trgm`**; the pgvector DB uses `vector`. All ship in `pgvector/pgvector:pg16` (contrib + pgvector),
 so the binaries are present — the dumps' `CREATE EXTENSION` runs at restore; if ordering errors appear,
 create the DB, run `CREATE EXTENSION ...;` as superuser, then restore. This resolves the prior
-[UNVERIFIED] item: OpenProject needs those two extensions but **not** a shared-cluster superuser. Restore non-DB volumes into fresh
+open item (ratified in D-15): OpenProject needs those two extensions but **not** a shared-cluster superuser. Restore non-DB volumes into fresh
 named volumes on WSL2 (reverse of the Phase 2 tar). *Rollback:* drop restored DBs and re-restore;
 community originals intact.
 
@@ -161,4 +161,4 @@ networks; PostgreSQL 17 `pg_dump`/`pg_restore` docs; pgvector restore notes; Ope
 config; Firefly III Docker; Paperless-ngx configuration; Microsoft WSL advanced-config; "Docker in
 WSL2 without Docker Desktop" (Janetakis). Full URLs in the migration-research source.[^migration-research]
 
-[^migration-research]: Web research subagent, 2026-09-26 — official Docker/PostgreSQL/OpenProject/Firefly/Paperless/Microsoft-WSL docs plus named community guides; two items flagged UNVERIFIED there (OpenProject DB privilege/extension needs; some sizing/boot recommendations are reasoned, tune from live metrics).
+[^migration-research]: Web research subagent, 2026-09-26 — official Docker/PostgreSQL/OpenProject/Firefly/Paperless/Microsoft-WSL docs plus named community guides; two items flagged UNVERIFIED there (OpenProject DB privilege/extension needs — since resolved in D-15; some sizing/boot recommendations are reasoned, tune from live metrics).

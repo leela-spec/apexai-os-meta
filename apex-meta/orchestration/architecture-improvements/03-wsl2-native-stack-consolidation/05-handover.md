@@ -26,7 +26,7 @@ The WSL2-native stack consolidation is **complete**. Both stacks (private `ki-ba
 (`comm_*`/`priv_*` databases, isolation via `REVOKE CONNECT`, verified live). Docker Desktop is
 uninstalled. `ADR-002` is written (`ki-basis/docs/DUAL_INSTANCE_ARCHITECTURE.md` §6, mirrored to its two
 duplicate copies). Read [index.md](index.md) once for orientation and [02-decisions-log.md](02-decisions-log.md)
-D-01 through D-17 if you need the *why* behind anything below — do not re-run the migration or
+D-01 through D-18 if you need the *why* behind anything below — do not re-run the migration or
 re-investigate topology; it's done and verified.
 
 **What this handover is for:** four small, independent, non-blocking follow-up items were left open.

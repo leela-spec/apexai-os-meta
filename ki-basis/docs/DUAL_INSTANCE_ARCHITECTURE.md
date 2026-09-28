@@ -1,3 +1,12 @@
+---
+status: amended
+amended_on: 2026-09-26
+amended_by: "ADR-002 (§6 of this file)"
+canonical: "this file §6 is the CANONICAL ADR-002 copy; 2 hand-synced mirrors exist (see §6 / T07)"
+superseded_scope: "body §4 engine either-or and R2 zero-shared-DB isolation model; §6 ADR-002 is current"
+current_bundle: apex-meta/orchestration/architecture-improvements/03-wsl2-native-stack-consolidation/
+---
+
 # Architectural Specification & Evaluation: ki-basis Dual-Instance Separation Architecture
 
 **Document Version:** 1.1.0  
@@ -13,7 +22,7 @@ in §4 reflects the evaluation as originally conducted — ADR-002 resolves it d
 > **reversed** by decision **D-07**: private and community now share **one PostgreSQL container** (separate
 > databases + roles). **→ Ground CURRENT architecture in the bundle, not this file's body:**
 > `C:\GitDev\apexai-os-meta\apex-meta\orchestration\architecture-improvements\03-wsl2-native-stack-consolidation\`
-> → **`01-architecture-and-gaps.md`** (live topology + Mermaid) · **`02-decisions-log.md`** (D-01…D-12) · **`05-handover.md`** (resume).
+> → **`01-architecture-and-gaps.md`** (live topology + Mermaid) · **`02-decisions-log.md`** (D-01…D-18, incl. incident decisions D-13–D-18) · **`05-handover.md`** (resume).
 
 ---
 
@@ -469,6 +478,11 @@ We decisively select Strategy A as the canonical architecture for `ki-basis`.
 ---
 
 ## 6. Architectural Decision Record (ADR-002)
+
+> **✅ CANONICAL copy.** This §6 is the ADR-002 of record. Two **hand-synced** mirrors exist and must be
+> updated by hand whenever this changes (no automation keeps them in sync):
+> `apex-meta/orchestration/new_final_v4/architecture_dossier/01_DUAL_INSTANCE_ARCHITECTURE.md` and
+> `docs/AUDIT_DOSSIER_DUAL_KI_BASIS/01_DUAL_INSTANCE_ARCHITECTURE.md`.
 
 ### ADR-002: Retire Docker Desktop; Consolidate Both Instances onto a Single WSL2-Native Engine with a Shared PostgreSQL Cluster
 

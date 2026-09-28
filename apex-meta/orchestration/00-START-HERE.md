@@ -10,6 +10,13 @@ created: 2026-07-11
 
 # Multi-Agent Orchestration
 
+> **📍 Infra architecture cross-reference.** For the current `ki-basis` runtime architecture — a **single
+> WSL2-native Docker engine** with **one shared PostgreSQL** (Docker Desktop retired) — and its remaining
+> close-out work, see `ki-basis/docs/DUAL_INSTANCE_ARCHITECTURE.md` §6 (ADR-002), the bundle
+> `apex-meta/orchestration/architecture-improvements/03-wsl2-native-stack-consolidation/`, and the close-out
+> plan `apex-meta/orchestration/architecture-improvements/05-program-closeout/PLAN.md`. This is infra context
+> only; it does not change this system's activation boundary below.
+
 Multi-Agent Orchestration is one of two orchestration systems inside APEX OS. It is the live package developed under the former working name Fable Orchestrator. Activate it only when the operator explicitly requests a Multi-Agent Orchestration run or explicitly routes a bounded problem into this system.
 
 It does not include or replace the Weekly Orchestrator. A Weekly Orchestrator run does not activate this system, and this system does not absorb the weekly loop. Cross-system input is accepted only through explicit operator instruction, an explicit handoff packet, or a confirmed durable-artifact reference.

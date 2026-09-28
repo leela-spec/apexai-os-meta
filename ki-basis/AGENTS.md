@@ -1,5 +1,12 @@
 # KI Basis — Scoped Agent Entrypoint
 
+> **📍 Current architecture (start here).** KI Basis runs on the **single WSL2-native Docker engine "Apex"**
+> with **one shared PostgreSQL** (Docker Desktop retired). Canonical decision: `docs/DUAL_INSTANCE_ARCHITECTURE.md`
+> **§6 (ADR-002)**. Verified topology + decisions D-01…D-18:
+> `../apex-meta/orchestration/architecture-improvements/03-wsl2-native-stack-consolidation/`. Remaining work:
+> `../apex-meta/orchestration/architecture-improvements/05-program-closeout/PLAN.md`. **`CURRENT-STATE.md` and
+> `AGENT-OPERATING-CONTEXT.md` are superseded for engine/DB topology** — do not ground current architecture in them.
+
 **Scope:** tasks operating in or on `ki-basis/**`.
 
 **What this file is:** the small always-on agent entrypoint for KI Basis. Runtimes that support hierarchical `AGENTS.md` discovery can load this automatically when working in this directory.

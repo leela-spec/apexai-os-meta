@@ -58,10 +58,11 @@ reservation); tune from live metrics. → D-10.
 
 ## Q8 — Update the authoritative records after ratification?
 **Answer (2026-09-26):** **Yes** — write a superseding ADR in `apexai-os-meta` capturing the single
-WSL2-engine choice and the shared-Postgres isolation decision. → D-10 (pending).
+WSL2-engine choice and the shared-Postgres isolation decision. → D-10; **ADR-002 written** — `ki-basis/docs/DUAL_INSTANCE_ARCHITECTURE.md` §6.
 
 ## Still to decide during execution (non-blocking)
 - Exact per-role `CONNECTION LIMIT` and `max_connections`/`shared_buffers` values — tune from live
   `pg_stat_activity` (starting points in the [execution plan](03-execution-plan.md) Phase 1).
-- **[UNVERIFIED]** whether OpenProject's DB role needs specific extensions (e.g. `pg_trgm`) created by
-  a superuser at restore — confirm against the running schema; do not grant a shared-cluster superuser.
+- **[RESOLVED → D-15]** OpenProject's DB role uses `btree_gist`/`pg_trgm`, both PostgreSQL "trusted"
+  extensions (self-installable by the DB-owning role, no superuser). Only `priv_paperless`'s `vector`
+  needed superuser pre-creation; no shared-cluster superuser was granted to any app role.
