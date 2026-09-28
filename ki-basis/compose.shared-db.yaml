@@ -1,13 +1,28 @@
+# Shared-Postgres variant of the private stack — drops the local `postgres`
+# service; firefly/paperless join the external shared-db-net cluster instead.
+# Companion to compose.yaml (kept as rollback reference).
+# nginx/valkey/hermes stay on ki-basis-net only, same as before.
+#
+# Deliberately has NO `openproject` service. `ki-basis-openproject` is the
+# retired v14 duplicate (D-05, meant to stay stopped) -- NOT the authoritative
+# private OpenProject. The real one is leela-op178-openproject, a separate
+# compose project with its own compose.shared-db.yaml. Including this service
+# here once caused a real incident: it resurrected the stopped v14 container
+# and pointed its old-version migrations at priv_openproject's already-17.8
+# restored schema, crash-looping on "table already exists". Do not re-add it.
+#
+# Usage (from WSL2 Apex engine, cwd = this file's directory):
+#   docker compose -f compose.shared-db.yaml --env-file .env.shared-db -p ki-basis up -d
 name: ${COMPOSE_PROJECT_NAME:-ki-basis}
 
 networks:
   ki-basis-net:
     name: ${KI_NETWORK_NAME:-ki-basis-net}
     driver: bridge
+  shared-db-net:
+    external: true
 
 volumes:
-  postgres_data:
-    name: ${COMPOSE_PROJECT_NAME:-ki-basis}-postgres-data
   valkey_data:
     name: ${COMPOSE_PROJECT_NAME:-ki-basis}-valkey-data
   firefly_upload:
@@ -20,38 +35,7 @@ volumes:
     name: ${COMPOSE_PROJECT_NAME:-ki-basis}-paperless-export
   paperless_consume:
     name: ${COMPOSE_PROJECT_NAME:-ki-basis}-paperless-consume
-  hermes_data:
-    name: ${COMPOSE_PROJECT_NAME:-ki-basis}-hermes-data
-  hermes_workspaces:
-    name: ${COMPOSE_PROJECT_NAME:-ki-basis}-hermes-workspaces
-
 services:
-  postgres:
-    image: pgvector/pgvector@sha256:ccc6e83d6e35e931dc7c5def2022729d5a6c370318d099181995567ff1fb4d6b
-    container_name: ${COMPOSE_PROJECT_NAME:-ki-basis}-postgres
-    restart: unless-stopped
-    environment:
-      POSTGRES_USER: ${POSTGRES_USER:-postgres}
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?POSTGRES_PASSWORD is required}
-      POSTGRES_DB: ${POSTGRES_DB:-postgres}
-      FIREFLY_DB_USER: ${FIREFLY_DB_USER:-firefly_app}
-      FIREFLY_DB_PASSWORD: ${FIREFLY_DB_PASSWORD:?FIREFLY_DB_PASSWORD is required}
-      FIREFLY_DB_NAME: ${FIREFLY_DB_NAME:-firefly}
-      PAPERLESS_DB_USER: ${PAPERLESS_DB_USER:-paperless_app}
-      PAPERLESS_DB_PASSWORD: ${PAPERLESS_DB_PASSWORD:?PAPERLESS_DB_PASSWORD is required}
-      PAPERLESS_DB_NAME: ${PAPERLESS_DB_NAME:-paperless}
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
-      - ./docker/postgres/init:/docker-entrypoint-initdb.d:ro
-    healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-postgres}"]
-      interval: 5s
-      timeout: 5s
-      retries: 5
-      start_period: 10s
-    networks:
-      - ki-basis-net
-
   valkey:
     image: valkey/valkey@sha256:f110e5df168de4cdbd17afec848c6efe88e4b5e51c5b1ec6109de0c1b6a0c60b
     container_name: ${COMPOSE_PROJECT_NAME:-ki-basis}-valkey
@@ -84,16 +68,14 @@ services:
       DB_CONNECTION: pgsql
       DB_HOST: postgres
       DB_PORT: 5432
-      DB_DATABASE: ${FIREFLY_DB_NAME:-firefly}
-      DB_USERNAME: ${FIREFLY_DB_USER:-firefly_app}
+      DB_DATABASE: ${FIREFLY_DB_NAME:-priv_firefly}
+      DB_USERNAME: ${FIREFLY_DB_USER:-priv_firefly_app}
       DB_PASSWORD: ${FIREFLY_DB_PASSWORD:?FIREFLY_DB_PASSWORD is required}
     volumes:
       - firefly_upload:/var/www/html/storage/upload
-    depends_on:
-      postgres:
-        condition: service_healthy
     networks:
       - ki-basis-net
+      - shared-db-net
 
   paperless:
     image: ghcr.io/paperless-ngx/paperless-ngx@sha256:5ab4f4f9bb099a36bec3e092906ea3e611323c5f18dc5cc38c76a1d540bdca9c
@@ -102,15 +84,12 @@ services:
     ports:
       - "127.0.0.1:${PAPERLESS_HOST_PORT:-8010}:8000"
     environment:
-      PAPERLESS_WORKERS: "${PAPERLESS_WORKERS:-1}"
-      PAPERLESS_TASK_WORKERS: "${PAPERLESS_TASK_WORKERS:-1}"
-      PAPERLESS_THREADS_PER_WORKER: "${PAPERLESS_THREADS_PER_WORKER:-1}"
       PAPERLESS_REDIS: redis://valkey:6379
       PAPERLESS_DBENGINE: postgresql
       PAPERLESS_DBHOST: postgres
       PAPERLESS_DBPORT: 5432
-      PAPERLESS_DBNAME: ${PAPERLESS_DB_NAME:-paperless}
-      PAPERLESS_DBUSER: ${PAPERLESS_DB_USER:-paperless_app}
+      PAPERLESS_DBNAME: ${PAPERLESS_DB_NAME:-priv_paperless}
+      PAPERLESS_DBUSER: ${PAPERLESS_DB_USER:-priv_paperless_app}
       PAPERLESS_DBPASS: ${PAPERLESS_DB_PASSWORD:?PAPERLESS_DB_PASSWORD is required}
       PAPERLESS_SECRET_KEY: ${PAPERLESS_SECRET_KEY:?PAPERLESS_SECRET_KEY is required}
       PAPERLESS_URL: http://127.0.0.1:${PAPERLESS_HOST_PORT:-8010}
@@ -124,8 +103,6 @@ services:
       - paperless_export:/usr/src/paperless/export
       - paperless_consume:/usr/src/paperless/consume
     depends_on:
-      postgres:
-        condition: service_healthy
       valkey:
         condition: service_healthy
     healthcheck:
@@ -136,6 +113,7 @@ services:
       start_period: 30s
     networks:
       - ki-basis-net
+      - shared-db-net
 
   nginx:
     image: nginx@sha256:65645c7bb6a0661892a8b03b89d0743208a18dd2f3f17a54ef4b76fb8e2f2a10
@@ -180,9 +158,20 @@ services:
       API_SERVER_KEY: ${HERMES_API_SERVER_KEY:?HERMES_API_SERVER_KEY is required}
       FIREFLY_API_URL: http://firefly:8080
       PAPERLESS_API_URL: http://paperless:8000
+      # Phase 7: re-wired to the authoritative 17.8 instance (leela-op178-openproject),
+      # replacing the dead retired-v14 reference. Targets the CONTAINER NAME, not a
+      # generic "openproject" alias -- avoids repeating the D-17 alias-collision
+      # incident if the old v14 duplicate is ever (mistakenly) started again.
+      OPENPROJECT_API_URL: http://leela-op178-openproject:80
+      OPENPROJECT_KEY: ${OPENPROJECT_API_KEY:?OPENPROJECT_API_KEY is required}
     volumes:
-      - hermes_data:/opt/data
-      - hermes_workspaces:/root/workspaces
+      # Matches the LIVE container's actual mounts (bind, not named volumes) --
+      # the checked-in compose.yaml drifted from this some time after the
+      # container was created 2026-09-01; using named volumes here would make
+      # Compose recreate hermes onto fresh EMPTY volumes and wipe its real state
+      # at /root/.hermes and /root/workspaces on the WSL2 filesystem. See D-16.
+      - /root/.hermes:/opt/data
+      - /root/workspaces:/root/workspaces
     depends_on:
       - firefly
       - paperless

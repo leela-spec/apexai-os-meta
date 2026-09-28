@@ -1,5 +1,11 @@
 # KI Basis — Current State Snapshot
 
+> **⛔ OUTDATED for engine/DB architecture (2026-09-26).** This snapshot's **"no WSL2 migration"** stance is
+> reversed: the stack now targets the **single WSL2-native engine "Apex"** with **one shared PostgreSQL**
+> (Docker Desktop being retired). **→ Current source of truth:**
+> `C:\GitDev\apexai-os-meta\apex-meta\orchestration\architecture-improvements\03-wsl2-native-stack-consolidation\`
+> → **`01-architecture-and-gaps.md`** (live topology + Mermaid) · **`02-decisions-log.md`** (D-01…D-12) · **`05-handover.md`** (resume).
+
 **Purpose:** compact handover for agents. Read this instead of reconstructing the last implementation rounds from historical plans or chat logs.
 
 ## Current target

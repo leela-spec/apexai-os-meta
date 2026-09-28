@@ -1,5 +1,13 @@
 # KI Basis — Agent Operating Context
 
+> **⛔ SUPERSEDED for architecture/topology (2026-09-26).** This file's locked directives —
+> **"one Docker Engine"** and **"do not migrate to WSL2"** — are **reversed**: the stack now runs on the
+> **single WSL2-native engine "Apex"** with **one shared PostgreSQL** (Docker Desktop retired).
+> **→ Current source of truth:**
+> `C:\GitDev\apexai-os-meta\apex-meta\orchestration\architecture-improvements\03-wsl2-native-stack-consolidation\`
+> → **`01-architecture-and-gaps.md`** (live topology + Mermaid) · **`02-decisions-log.md`** (D-01…D-12) · **`05-handover.md`** (resume).
+> Operating/safety guidance in this file that is unrelated to engine/DB topology still applies until re-verified.
+
 **Scope:** any nontrivial task touching `ki-basis/**`, its Docker runtime, Hermes bridge, or the installed KI Basis applications.
 
 **Purpose:** stable operating handbook for agents. This file explains what KI Basis is, how it is supposed to be operated, what interfaces are legitimate, and which safety boundaries are locked.

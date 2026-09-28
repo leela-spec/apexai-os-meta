@@ -1,10 +1,12 @@
 # Architectural Specification & Evaluation: ki-basis Dual-Instance Separation Architecture
 
-**Document Version:** 1.0.0  
-**Date:** 2026-09-07  
-**Status:** APPROVED / IMPLEMENTED  
+**Document Version:** 1.1.0  
+**Date:** 2026-09-07 (amended 2026-09-26, see ADR-002)  
+**Status:** APPROVED / IMPLEMENTED — amended by ADR-002 (§6)  
 **System Scope:** `ki-basis` Enterprise & Community Infrastructure  
-**Target Hosts:** Windows 11 Pro / Enterprise (WSL2 / Docker Desktop Hyper-V Linux VM backend)
+**Target Hosts:** Windows 11 Pro / Enterprise — **WSL2-native `dockerd` only** (Ubuntu distro, the "Apex"
+engine). Docker Desktop is retired (uninstalled); the "WSL2 / Docker Desktop" either-or framing below
+in §4 reflects the evaluation as originally conducted — ADR-002 resolves it decisively to WSL2.
 
 ---
 
@@ -385,7 +387,13 @@ Every service persists state to an isolated named volume tagged with the project
 
 ### 3.4 Database & Queue Isolation
 
-- **PostgreSQL Segregation**: Two physically separate PostgreSQL containers run. Each maintains its own Write-Ahead Log, memory buffers, and database catalog. There are no shared superusers, schemas, or database connections.
+> **Amended by ADR-002 (§6, 2026-09-26):** the PostgreSQL segregation described below is the
+> **original** (ADR-001) invariant. As of ADR-002, both stacks share **one** PostgreSQL cluster
+> (separate `comm_*`/`priv_*` databases and roles, cross-database `CONNECT` revoked). Data isolation is
+> now enforced by database ACLs, not by separate processes — see ADR-002 for the accepted trade-off.
+> Valkey/queue and credential segregation below are unchanged and still current.
+
+- **PostgreSQL Segregation** *(superseded by ADR-002 — see note above)*: ~~Two physically separate PostgreSQL containers run. Each maintains its own Write-Ahead Log, memory buffers, and database catalog. There are no shared superusers, schemas, or database connections.~~
 - **Valkey Broker Segregation**: Two distinct Valkey containers run. Paperless Celery OCR jobs and caching entries in Community cannot cross-contaminate the Private task pipeline.
 - **Credential Segregation**: Cryptographic keys (`FIREFLY_APP_KEY`, `PAPERLESS_SECRET_KEY`, `OPENPROJECT_SECRET_KEY_BASE`, `HERMES_API_SERVER_KEY`) are uniquely generated per stack.
 - **Telegram Bot Conflict Prevention**: Community Hermes handles volunteer Telegram intake (`LikasKinkyBot` token configured). Private Hermes operates via loopback REST API with Telegram polling disabled, avoiding Telegram API `HTTP 409 Conflict: terminated by other getUpdates request`.
@@ -453,7 +461,94 @@ We decisively select Strategy A as the canonical architecture for `ki-basis`.
 
 ---
 
-## 6. Verification and Compliance Matrix
+## 6. Architectural Decision Record (ADR-002)
+
+### ADR-002: Retire Docker Desktop; Consolidate Both Instances onto a Single WSL2-Native Engine with a Shared PostgreSQL Cluster
+
+**Status:** APPROVED / IMPLEMENTED  
+**Date:** 2026-09-26  
+**Deciders:** Operator, executed by Claude (migration session)  
+**Supersedes:** ADR-001 §3.4 ("no shared superusers, schemas, or database connections") and the
+Docker-Desktop-or-WSL2 engine ambiguity left open in ADR-001's header and §4.
+
+#### Context & Problem Statement
+ADR-001 established the single-engine, dual-Compose-project principle (Strategy A) but left the
+**engine choice** open ("Docker Desktop (or unified WSL2)") and mandated a zero-shared-database
+invariant per instance. In practice, a Strategy-B-like split had emerged — the community stack ran on
+Docker Desktop's Hyper-V VM while the private stack ran natively on WSL2 — reproducing exactly the
+risks ADR-001's evaluation matrix (§4.1) catalogued against Strategy B. This was confirmed the hard
+way during the consolidation migration: Docker Desktop's VM crashed and refused to restart
+(`'DockerDesktopVM' is unable to allocate 8192 MB of RAM`) once both stacks needed to coexist —
+independent evidence that Strategy A, decisively on one engine, was the correct call ADR-001 had
+already made in principle but not finished making in practice.
+
+Separately, running two full per-stack PostgreSQL clusters (as ADR-001 required) meant duplicated
+connection-pool tuning, duplicated backup tooling, and no way to reason about combined resource
+headroom now that both stacks share one host and one engine.
+
+#### Decision Drivers
+1. Docker Desktop's Hyper-V VM is a second, RAM-hungry virtualization layer with no benefit once WSL2
+   already hosts a full engine — its failure mode (VM won't allocate RAM, entire engine unreachable,
+   no partial degradation) is worse than any risk introduced by consolidating engines.
+2. ADR-001 already accepted single-engine operation in principle (§4.1: "Strategy A preserves host
+   laptop responsiveness"); this record resolves *which* engine, closing the gap that let a
+   Strategy-B-like split re-emerge.
+3. A shared PostgreSQL cluster (separate databases + roles, cross-database `CONNECT` revoked)
+   preserves the *data* isolation ADR-001's R2 required, trading *failure-domain* isolation (ADR-001's
+   original guarantee) for a smaller, simpler, single-cluster operational footprint — a deliberate,
+   operator-accepted trade, not an oversight.
+
+#### Considered Options
+- **Option 1**: Retain ADR-001 as-is — two fully separate PostgreSQL clusters, one per stack, engine
+  choice per-stack as it happened to be running.
+- **Option 2 (chosen)**: One shared PostgreSQL cluster (`comm_*`/`priv_*` database and role prefixes,
+  `REVOKE CONNECT` for cross-tenant isolation) on the single WSL2-native engine; Docker Desktop
+  uninstalled entirely.
+
+#### Decision Outcome
+**Chosen Option: Option 2.** Both stacks now run as separate Compose projects on the single WSL2-native
+"Apex" engine (the `Ubuntu` distro's native `dockerd`), against one shared PostgreSQL container.
+Docker Desktop has been uninstalled from the host.
+
+#### Detailed Rationale
+1. **Engine choice resolved, not just single-engine-in-principle.** ADR-001 established "single
+   engine" but left open whether that engine was Docker Desktop or WSL2; a Strategy-B-like split
+   nonetheless emerged in practice. Retiring Docker Desktop closes that gap for good — there is now
+   exactly one engine, matching what ADR-001 argued for.
+2. **Data isolation preserved at the database-ACL layer, not the process layer.** ADR-001 §3.4's intent
+   was preventing cross-tenant data leakage. That guarantee is preserved: cross-tenant `CONNECT` is
+   revoked and was verified live (a tenant's application role genuinely cannot `\connect` to the other
+   tenant's database — tested directly, not assumed from configuration alone). What is given up is
+   *failure-domain* isolation: one shared PostgreSQL outage now affects both stacks simultaneously.
+3. **Operational simplicity gain matches ADR-001's own R3 verdict.** One backup/tuning surface instead
+   of two; one set of connection-limit knobs sized for combined load instead of two independent
+   budgets; one engine to keep alive, which ADR-001's resource-efficiency argument already implied was
+   the goal.
+
+#### Consequences
+- **Positive**:
+  - Docker Desktop's Hyper-V VM — and its demonstrated crash/resource risk — is eliminated entirely.
+  - A single PostgreSQL cluster to back up, tune, and monitor for both tenants.
+  - Cross-tenant data isolation is enforced by database-level ACLs (`REVOKE CONNECT`), verified live.
+- **Negative / Tradeoffs**:
+  - **Coupled failure domain**: a shared-PostgreSQL outage takes down both stacks' database access
+    simultaneously — previously an independent-failure property under ADR-001. Accepted explicitly by
+    the operator as part of this decision.
+  - Per-role `CONNECTION LIMIT` and cluster-wide `max_connections` / `shared_buffers` must be sized for
+    the **sum** of both tenants' load, not tuned independently as under ADR-001.
+  - This formally supersedes the "no shared … database connections" clause of ADR-001 §3.4 and the
+    R2 "Zero shared database tables or volumes" acceptance criterion previously in this section (now
+    §7) — both now point here.
+
+**Reference:** full execution detail, incidents encountered and fixed, and live verification evidence
+are recorded at
+`apex-meta/orchestration/architecture-improvements/03-wsl2-native-stack-consolidation/`
+(`02-decisions-log.md` D-04, D-07, D-09, D-10 for the ratified decisions; D-13–D-17 for incidents hit
+during execution; `log.md` for the full dated narrative).
+
+---
+
+## 7. Verification and Compliance Matrix
 
 | Requirement | Acceptance Criteria | Architectural Enforcement |
 | :--- | :--- | :--- |
@@ -463,5 +558,5 @@ We decisively select Strategy A as the canonical architecture for `ki-basis`.
 | **R2. Namespace Isolation** | Independent Compose projects. | Dynamic `${COMPOSE_PROJECT_NAME}` in `compose.yaml`, `.env.private`, and `.env.community`. |
 | **R2. Network Isolation** | Disjoint bridge networks, zero inter-stack routing. | Parameterized `${KI_NETWORK_NAME}` (`ki-basis-private-net` vs `ki-basis-community-net`). |
 | **R2. Non-Overlapping Ports** | Zero port collisions; loopback only. | Private (8080–8089, 8642, 9119) vs Community (9080–9089, 9642, 9219) bound to `127.0.0.1`. |
-| **R2. Data Segregation** | Zero shared database tables or volumes. | 20 distinct named volumes (10 per stack); independent PostgreSQL and Valkey containers. |
-| **R3. Strategy Verdict** | Formal ADR evaluating Strategy A vs B. | ADR-001 formally documents selection of Strategy A and rejection of Strategy B. |
+| **R2. Data Segregation** *(superseded — see ADR-002, §6)* | Cross-tenant data isolation, not necessarily zero shared infrastructure. | `comm_*`/`priv_*` database and role prefixes on one shared PostgreSQL cluster; `REVOKE CONNECT` enforced and verified live. Independent Valkey containers per stack (unchanged). |
+| **R3. Strategy Verdict** | Formal ADR evaluating Strategy A vs B. | ADR-001 documents selection of Strategy A (single engine); ADR-002 (§6) resolves the engine choice to WSL2-native and supersedes the zero-shared-DB invariant. |

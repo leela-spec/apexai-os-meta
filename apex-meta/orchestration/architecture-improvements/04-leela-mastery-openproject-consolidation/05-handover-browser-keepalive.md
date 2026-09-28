@@ -3,12 +3,28 @@ type: Handover
 title: OpenProject browser keepalive — end the idle-sleep cold boots
 description: Make the private Leela OpenProject reliably reachable from the Windows browser (and agents) without the ~80s WSL cold-boot on every access. Transport is already fixed; only idle-sleep remains.
 tags: [handover, openproject, wsl2, keepalive, idle-sleep]
-status: ready
+status: done
 generated: { by: "claude/opus-4.8", at: "2026-09-27" }
+resolved: { at: "2026-09-28", tasks: "OpenProject #122–125 Closed" }
 implementation_authority: operator-gated
 ---
 
 # Handover: OpenProject browser keepalive (idle-sleep fix)
+
+## ✅ RESOLVED 2026-09-28
+**Root cause (measured):** the WSL2 VM idle-shuts down even with systemd + dockerd + an *internal* keepalive
+loop running inside it — **only a Windows-held `wsl.exe` session resets WSL2's idle timer.** The existing
+Startup keepalive session (`wsl-keepalive.vbs`) had **died and was not running**, so every access cold-booted
+(~80s). Proof: after 95s idle the instance returned `http=000` (cold) with only internal keepalive; after a
+Windows-held `wsl … sleep infinity` session was restored it returned **401 in 0.93s** (warm).
+**Fix applied:** relaunched the held session and upgraded `C:\Users\gehma\…\Startup\wsl-keepalive.vbs` to a
+**self-healing supervisor** (hidden, no admin) that relaunches the `wsl` session within 5s if it ever exits;
+plus a secondary WSL **systemd** service `openproject-keepalive` that pings the app to keep it warm.
+`http://127.0.0.1:8083` is now reliably reachable. Option A (Windows scheduled task) was attempted but needs
+admin — the Startup-folder session is the non-admin equivalent and is what works.
+The options analysis below is retained for history.
+
+---
 
 ## Goal
 The operator can open `http://127.0.0.1:8083` at any time and it responds within a few seconds — no
