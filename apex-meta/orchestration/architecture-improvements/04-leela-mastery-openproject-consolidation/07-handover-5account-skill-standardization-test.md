@@ -3,7 +3,7 @@ type: Handover
 title: 5-account OpenProject skill standardization test
 description: Prove all five AI agent accounts (Codex ×2, Claude Code ×2, Antigravity ×1) discover and use the SAME OpenProject skill identically — same reads, same write-confirmation gate, same instance fingerprint.
 tags: [handover, openproject, skill, multi-agent, standardization-test]
-status: ready
+status: standardization-verified (live-fleet auto-invocation operator-run)
 generated: { by: "claude/opus-4.8", at: "2026-09-27" }
 implementation_authority: operator-gated
 ---
@@ -75,3 +75,33 @@ reread. Record any divergence plainly — a divergence is a real finding, not a 
 A results table: for each of the 5 accounts — discovery ✓/✗, identity (root/whoami/doctor) identical ✓/✗,
 read output identical ✓/✗, gated write + reread behaved identically ✓/✗ — with any divergence described.
 Antigravity multi-account feasibility explicitly confirmed or flagged as unsupported.
+
+## Results — standardization run (2026-09-28)
+
+**Method:** the canonical skill was exercised **through each tool's discovery-path link**, under a *stripped*
+environment (no `OPENPROJECT_*` vars — the harshest case, since Codex strips `*TOKEN*`), so the file-fallback
+loader was the only credential path. Multiple accounts of one tool share that tool's discovery dir, so
+per-tool identity == per-account identity (see caveat).
+
+| Discovery path (tool) | link→canonical, sha256 identical | root / whoami | doctor --project 3 | read (project.list) | write-gate (no `--confirmed`) |
+|---|---|---|---|---|---|
+| Claude `~/.claude/skills/openproject` | ✓ YES | OpenProject 17.8.0 / admin | pass (exit 0) | 10 projects | blocked (exit 3, "NOT executed") |
+| Codex `~/.agents/skills/openproject` | ✓ YES | 17.8.0 / admin | pass | 10 | blocked |
+| Antigravity `~/.gemini/config/skills/openproject` | ✓ YES | 17.8.0 / admin | pass | 10 | blocked |
+
+All three links (Windows junctions + WSL symlinks) resolve to the ONE canonical file
+`agent-skills/skills/openproject` (`SKILL.md` + `opClient.js` sha256 identical). Behaviour identical on every
+path. Confirmed-write + reread is identical **by construction** (byte-identical client) and was demonstrated
+this session (MoA-Content / MoA-Business / ApexAI-OS creates, read-back verified).
+
+**Verdict: skill standardization PASS** — one identical skill, identical behaviour, across all agent
+discovery surfaces; the two-phase write-gate and instance fingerprint hold on every path.
+
+### Still requires operator-driven live sessions (not provable by one assistant session)
+- **Agent-initiated auto-invocation:** the skill was driven *through* each path here; proving each live agent
+  PROCESS (`agy`, `codex`) autonomously *chooses* to invoke it needs those agents run fresh — protocol in
+  `Leela-Cloud-2026/docs/ProjectMM/openproject/VERIFICATION-2026-09-28-agent-invocation.md`.
+- **The fleet:** Codex ×2 + Claude ×2 + Antigravity ×1 must be confirmed configured. **Caveat:** an account
+  that overrides its config dir (Claude `CLAUDE_CONFIG_DIR`, or a Codex profile with a different `HOME`) needs
+  the per-skill link created in *that* dir too, or it won't see the skill.
+- **Antigravity multi-account** remains the undocumented gap flagged above — confirm or record unsupported.

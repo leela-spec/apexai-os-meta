@@ -29,7 +29,8 @@ allowlist that forbids new top-level handovers there.
 * [06-handover-mastery-taxonomy](06-handover-mastery-taxonomy.md) — **DONE 2026-09-28**: live design with
   operator → created `MoA-Content` (id 6), `MoA-Business` (id 7), `ApexAI-OS` (id 8) under root; containers only.
 * [07-handover-5account-skill-standardization-test](07-handover-5account-skill-standardization-test.md) —
-  open task 3: prove all 5 agent accounts use the identical skill.
+  **standardization VERIFIED 2026-09-28** (all discovery paths → one identical skill, identical behaviour);
+  remaining: live agent-initiated auto-invocation + confirming the 5-account fleet (operator-run).
 * [08-handover-audit-and-improve](08-handover-audit-and-improve.md) — auditor/improver brief: quantify the
   WSL drag, best-practice web research (incl. custom skill vs official MCP server), and prove multi-repo
   (MasterOfArts) access with a real agent.
