@@ -131,7 +131,12 @@ skill's **Basic `apikey:` auth** (through the fingerprint/redaction/write gates)
 Correct WP#38 read returned. **All three tool surfaces (Codex, Claude, Antigravity) now auto-invoke the one
 canonical skill.** ✅
 
-**Fleet coverage:** one live session per tool was run (Codex, Claude, Antigravity). Codex ×2 and Claude ×2
-second accounts were not separately run — they share their tool's discovery dir, so they inherit the same
-result *unless* an account overrides its config dir (`CLAUDE_CONFIG_DIR` / a Codex profile with a different
-`HOME`), which would need its own link. Antigravity multi-account still unconfirmed.
+**Fleet coverage (accounts actually tested):**
+- **Claude — `AOG` ✅ tested.** Second Claude account **`agehm` ⏳ STILL OPEN** (not yet run).
+- **Codex — `axelg` ✅ tested.** Second Codex account **`alexg` ⏳ STILL OPEN** (not yet run).
+- **Antigravity — the one account ✅ tested** (after the antigravity-cli fix). Multi-account feasibility still unconfirmed.
+
+The untested second accounts share their tool's discovery dir, so they should inherit the same PASS —
+*unless* an account overrides its config dir (`CLAUDE_CONFIG_DIR`, or a Codex profile with a different
+`HOME`), which would need the per-skill link created in that dir too. Confirm by running Prompt A in a fresh
+session of `agehm` (Claude) and `alexg` (Codex).
