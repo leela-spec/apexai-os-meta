@@ -20,10 +20,6 @@ volumes:
     name: ${COMPOSE_PROJECT_NAME:-ki-basis}-paperless-export
   paperless_consume:
     name: ${COMPOSE_PROJECT_NAME:-ki-basis}-paperless-consume
-  hermes_data:
-    name: ${COMPOSE_PROJECT_NAME:-ki-basis}-hermes-data
-  hermes_workspaces:
-    name: ${COMPOSE_PROJECT_NAME:-ki-basis}-hermes-workspaces
 
 services:
   postgres:
@@ -181,8 +177,11 @@ services:
       FIREFLY_API_URL: http://firefly:8080
       PAPERLESS_API_URL: http://paperless:8000
     volumes:
-      - hermes_data:/opt/data
-      - hermes_workspaces:/root/workspaces
+      # Live ki-basis-hermes runs on BIND mounts (D-16 / FINDINGS-t10-hermes-compose-drift-2026-09-28).
+      # Named volumes here would make `docker compose up` recreate hermes onto EMPTY volumes and
+      # orphan ~7.9 GB of state at /root/.hermes and /root/workspaces. Matches compose.shared-db.yaml.
+      - /root/.hermes:/opt/data
+      - /root/workspaces:/root/workspaces
     depends_on:
       - firefly
       - paperless

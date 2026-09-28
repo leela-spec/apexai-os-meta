@@ -20,6 +20,16 @@ param(
 )
 
 $ErrorActionPreference = "Stop"
+
+# --- FAIL-CLOSED GUARD (T10 / ADR-002) — added 2026-09-28 ---
+Write-Host "REFUSING TO RUN: superseded by ADR-002 (WSL2-native + shared Postgres). See FINDINGS-t10-hermes-compose-drift-2026-09-28.md." -ForegroundColor Red
+Write-Host "This script targets the pre-consolidation compose.yaml; running it would recreate the private stack onto the retired topology." -ForegroundColor Yellow
+Write-Host "Private stack (run inside the WSL2 Apex engine):" -ForegroundColor Cyan
+Write-Host "  cd ki-basis; docker compose -f compose.shared-db.yaml --env-file .env.shared-db -p ki-basis up -d   # use stop/down to halt" -ForegroundColor Cyan
+Write-Host "Community stack: managed from C:\GitDev\lika-community (compose.wsl.yaml --env-file .env.wsl -p community)." -ForegroundColor Cyan
+exit 2
+# --- end guard ---
+
 $kiBasisDir = Join-Path $RepoRoot "ki-basis"
 $composeFile = Join-Path $kiBasisDir "compose.yaml"
 $envPrivate = Join-Path $kiBasisDir ".env.private"

@@ -4,6 +4,19 @@
 # =============================================================================
 set -euo pipefail
 
+# --- FAIL-CLOSED GUARD (T10 / ADR-002) — added 2026-09-28 -------------------
+# SUPERSEDED: this script targets the pre-consolidation compose.yaml (local
+# postgres, no shared-db-net) via .env.private/.env.community + project names
+# ki-basis-private/community. The LIVE stack runs from compose.shared-db.yaml on
+# the single WSL2-native "Apex" engine (ADR-002); running this would recreate the
+# private stack onto the retired topology. See FINDINGS-t10-hermes-compose-drift-2026-09-28.md.
+echo "REFUSING TO RUN: superseded by ADR-002 (see guard comment / FINDINGS-t10)." >&2
+echo "Private (inside WSL2): cd ki-basis && docker compose -f compose.shared-db.yaml --env-file .env.shared-db -p ki-basis up -d   # stop/down to halt" >&2
+echo "Community: managed from C:\\GitDev\\lika-community (compose.wsl.yaml --env-file .env.wsl -p community)." >&2
+exit 2
+# --- end guard -------------------------------------------------------------
+
+
 INSTANCE="all"
 TIMEOUT=90
 
