@@ -26,8 +26,8 @@ allowlist that forbids new top-level handovers there.
 * [05-handover-browser-keepalive](05-handover-browser-keepalive.md) — **DONE 2026-09-28**: idle-sleep fixed
   via a self-healing Windows-held `wsl` session (Startup vbs) + systemd app-warmer; verified 401 in <1s after
   95s idle. OpenProject #122–125 Closed.
-* [06-handover-mastery-taxonomy](06-handover-mastery-taxonomy.md) — open task 2: design (live) + build the
-  Mastery-of-Arts sub-projects under the root.
+* [06-handover-mastery-taxonomy](06-handover-mastery-taxonomy.md) — **DONE 2026-09-28**: live design with
+  operator → created `MoA-Content` (id 6), `MoA-Business` (id 7), `ApexAI-OS` (id 8) under root; containers only.
 * [07-handover-5account-skill-standardization-test](07-handover-5account-skill-standardization-test.md) —
   open task 3: prove all 5 agent accounts use the identical skill.
 * [08-handover-audit-and-improve](08-handover-audit-and-improve.md) — auditor/improver brief: quantify the

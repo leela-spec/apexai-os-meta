@@ -86,7 +86,7 @@ authority_order: "live runtime + code > accepted decisions/ADRs > this plan. Sur
 - *(Real task + fresh-session resume, draft Phase G/H: substantially demonstrated by census WP #38 — treat as satisfied; T15 covers the fresh-session/generalization proof.)*
 
 ### Bucket 4 — Adjacent workstream (apexai-os-meta `04-` bundle)
-**T19 — Close the 3 operator-gated tasks in `04-leela-mastery-openproject-consolidation`.** `gate: operator` — deps: [] — (05) OpenProject browser idle-sleep keepalive; (06) Mastery-of-Arts sub-project taxonomy (design live with operator); (07) 5-account skill-standardization test. acceptance: per that bundle's own criteria; update its state.
+**T19 — Close the 3 operator-gated tasks in `04-leela-mastery-openproject-consolidation`.** `gate: operator` — deps: [] — (05) OpenProject browser idle-sleep keepalive; (06) Mastery-of-Arts sub-project taxonomy (design live with operator); (07) 5-account skill-standardization test. acceptance: per that bundle's own criteria; update its state. · **status: 2 of 3 done.** (05) **done** (keepalive fixed 2026-09-28, WPs #122–125 closed). (06) **done** 2026-09-28 — live design → created `MoA-Content` (id 6), `MoA-Business` (id 7), `ApexAI-OS` (id 8) under `Leela & Mastery` (id 4) via the skill, verified by read-back; containers only; IPOS left to its own agent, Lika excluded, PM Infrastructure untouched. (07) **open** — 5-account skill-standardization test remains.
 
 ## 7. Definition of done (whole program)
 - [ ] Both repos committed; Leela `master` pushed; apexai-os-meta consolidation + live compose tracked.

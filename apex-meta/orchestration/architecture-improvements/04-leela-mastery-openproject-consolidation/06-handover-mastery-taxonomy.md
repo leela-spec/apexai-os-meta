@@ -3,12 +3,20 @@ type: Handover
 title: Mastery of Arts — sub-project taxonomy (design live, then build under the root)
 description: Design the Mastery-of-Arts sub-project structure WITH the operator (not unilaterally), then create the agreed sub-projects under the existing "Leela & Mastery" root in OpenProject.
 tags: [handover, openproject, mastery-of-arts, taxonomy, sub-projects]
-status: ready
+status: done
 generated: { by: "claude/opus-4.8", at: "2026-09-27" }
 implementation_authority: operator-gated
 ---
 
 # Handover: Mastery of Arts sub-project taxonomy
+
+> **✅ DONE 2026-09-28.** Live design session held with the operator. Decision: a small set of themed
+> container projects (not per-vertical projects), plus the AI-infrastructure project. Created under
+> `Leela & Mastery` (id 4) via the skill (confirmed by read-back):
+> **`MoA-Content` (id 6)** — all creative/personal/wellness/movement/kids/spiritual verticals;
+> **`MoA-Business` (id 7)** — business + legal; **`ApexAI-OS` (id 8)** — AI infrastructure.
+> IPOS left as a separate project (another agent owns it); Lika still excluded; `PM Infrastructure`
+> untouched. This round created **containers only** (no verticals-as-projects, no seeded work items).
 
 ## Goal
 Fill in the **Mastery** half of "Leela & Mastery" in OpenProject: agree a sub-project taxonomy **together
