@@ -10,6 +10,14 @@ implementation_authority: research-and-recommend (no infra/data changes without 
 
 # Handover: audit & improve the OpenProject agent setup
 
+> **✅ PARTLY ADDRESSED (2026-09-28).** The "is the skill setup best practice?" question was researched and
+> acted on: the skill is now a single canonical source at `C:\GitDev\agent-skills\skills\openproject\`
+> (was `Leela-Cloud-2026\.agents\skills\openproject\` — path references below are historical), linked into
+> each agent's user-global dir; token at `~/.config/openproject/op.env`; client hardened (atomic config +
+> host guard). Reasoning/research: `agent-skills/README.md`, `agent-skills/research/FINDINGS.md` +
+> `LEARNINGS.md`, and `Leela-Cloud-2026/docs/ProjectMM/openproject/DECISION-2026-09-28-canonical-skill-architecture.md`.
+> Still open from this brief: WSL drag quantification and multi-repo access proof (the 5-account test, T07).
+
 ## 0. Your role
 You are an **auditor and improver**, not just an implementer. Verify claims against evidence and official
 sources (do not approve by fluency). Produce a **verdict** for each question: *best practice as-is* /

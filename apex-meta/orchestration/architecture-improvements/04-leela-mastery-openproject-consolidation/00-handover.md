@@ -10,6 +10,12 @@ stale_after: "2026-10-31"
 
 # Handover: Leela & Mastery OpenProject consolidation
 
+> **⛔ SKILL LOCATION SUPERSEDED (2026-09-28).** References below to the skill at
+> `C:\GitDev\Leela-Cloud-2026\.agents\skills\openproject\` are historical. The skill is now a single
+> canonical source at `C:\GitDev\agent-skills\skills\openproject\`, linked into each agent's user-global
+> dir (Claude `~/.claude/skills`, Codex `~/.agents/skills`, Antigravity `~/.gemini/config/skills`); token at
+> `~/.config/openproject/op.env`. See `Leela-Cloud-2026/docs/ProjectMM/openproject/DECISION-2026-09-28-canonical-skill-architecture.md`.
+
 ## Mission
 
 The operator runs multiple projects (Leela — a Flutter app; Mastery of Arts — an entrepreneurship

@@ -16,9 +16,11 @@ behavior: same instance identity, same read output, same preview→confirm write
 reread. Record any divergence plainly — a divergence is a real finding, not a failure to hide.
 
 ## What already exists (verified 2026-09-27 — do not re-derive)
-- Skill lives at `C:\GitDev\Leela-Cloud-2026\.agents\skills\openproject\` (router `SKILL.md` + Node client
-  `client/opCall.js` + `opClient.js`). Antigravity & Codex discover it natively via `.agents/skills/`;
-  Claude Code reaches the identical files via the `.claude/skills/openproject` junction.
+- Skill canonical source (since 2026-09-28): `C:\GitDev\agent-skills\skills\openproject\` (router `SKILL.md`
+  + Node client `client/opCall.js` + `opClient.js`), linked into each agent's **user-global** dir — Claude
+  `~/.claude/skills/openproject`, Codex `~/.agents/skills/openproject`, Antigravity `~/.gemini/config/skills/openproject`
+  (no per-repo copy; token at `~/.config/openproject/op.env`). **This 5-account test now verifies THIS layout.**
+  See `Leela-Cloud-2026/docs/ProjectMM/openproject/DECISION-2026-09-28-canonical-skill-architecture.md`.
 - **The skill now runs and is behaviorally verified** (this session): `doctor` passes; `type.list --project`,
   `wp.create --type "<name>"` name-resolution, and the preview→`--confirmed`→reread write-gate all work.
 - **Transport is solved both ways:** the instance answers on `127.0.0.1:8083` from **inside WSL** (Node

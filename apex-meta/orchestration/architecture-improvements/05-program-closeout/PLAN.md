@@ -35,7 +35,7 @@ authority_order: "live runtime + code > accepted decisions/ADRs > this plan. Sur
 - Detailed truth lives in the linked bundles — do **not** duplicate it here:
   consolidation = `../03-wsl2-native-stack-consolidation/` (index, 02-decisions-log **D-01…D-18**, 03-execution-plan, 05-handover, log.md);
   adjacent = `../04-leela-mastery-openproject-consolidation/`;
-  pilot = `C:\GitDev\Leela-Cloud-2026\docs\ProjectMM\openproject\**` + the skill `C:\GitDev\Leela-Cloud-2026\.agents\skills\openproject\`.
+  pilot = `C:\GitDev\Leela-Cloud-2026\docs\ProjectMM\openproject\**` + the skill (canonical, since 2026-09-28) `C:\GitDev\agent-skills\skills\openproject\` (linked into each agent's global dir; token at `~/.config/openproject/op.env`).
 - ADR-002 (current architecture decision) = `C:\GitDev\apexai-os-meta\ki-basis\docs\DUAL_INSTANCE_ARCHITECTURE.md` §6.
 - Do NOT preload completed work or unrelated research.
 
