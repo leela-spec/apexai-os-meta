@@ -36,7 +36,7 @@ parent_plan: apex-meta/orchestration/architecture-improvements/05-program-closeo
 - **Decision matrix:** same FUTURE-DEVELOPMENT doc (Item 2).
 
 ### R4 — Hermes compose-drift (T10) · gate: human-approval · DEFERRED/GATED
-- `ki-basis/compose.yaml` declares named volumes but live `ki-basis-hermes` runs bind mounts (`/root/.hermes` 4.4 GB + `/root/workspaces` 3.5 GB ≈ 7.9 GB). **Do NOT `docker compose up` on `ki-basis/compose.yaml`** — a naive up recreates hermes on empty volumes and wipes bot state (D-16). Live stack runs from `compose.shared-db.yaml`. Fix needs a deliberate operator-chosen migration. Evidence: `EVIDENCE-infra-soak-2026-09-28.md`.
+- `ki-basis/compose.yaml` declares named volumes but live `ki-basis-hermes` runs bind mounts (`/root/.hermes` 4.4 GB + `/root/workspaces` 3.5 GB ≈ 7.9 GB). **Do NOT `docker compose up` on `ki-basis/compose.yaml`** — a naive up recreates hermes on empty volumes and wipes bot state (D-16). Live stack runs from `compose.shared-db.yaml`. Fix needs a deliberate operator-chosen migration. Evidence: `EVIDENCE-infra-soak-2026-09-28.md`. **A dedicated, research-first handover exists for exactly this → `HANDOVER-t10-hermes-compose-drift.md`** (has the verified ground truth for both Hermes and explicit anti-overcorrection rules — use it).
 
 ### R5 — `codex/separate-community-stack` branch · PARKED (keep)
 - Investigation concluded **keep parked, do NOT `git merge`** (a merge would delete 9 live community scripts). Community already works consolidated and is its own repo (`lika-community`). Full analysis: `FINDINGS-codex-community-stack-2026-09-28.md`. Only delete the branch if the operator later says so, and only if nothing is merged first.
