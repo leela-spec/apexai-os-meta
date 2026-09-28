@@ -3,7 +3,7 @@ type: Handover
 title: 5-account OpenProject skill standardization test
 description: Prove all five AI agent accounts (Codex ×2, Claude Code ×2, Antigravity ×1) discover and use the SAME OpenProject skill identically — same reads, same write-confirmation gate, same instance fingerprint.
 tags: [handover, openproject, skill, multi-agent, standardization-test]
-status: standardization-verified (live-fleet auto-invocation operator-run)
+status: done — all 3 tool surfaces auto-invoke the canonical skill (Codex/Claude/Antigravity verified live 2026-09-28); optional: confirm 2nd Codex/2nd Claude accounts + Antigravity multi-account
 generated: { by: "claude/opus-4.8", at: "2026-09-27" }
 implementation_authority: operator-gated
 ---
@@ -124,6 +124,12 @@ fingerprint, token redaction, two-phase write-confirm)** — harmless for this r
 **Fix applied 2026-09-28:** linked the canonical skill into `~/.gemini/antigravity-cli/skills/openproject`
 and the legacy `~/.gemini/antigravity/skills/openproject` (Windows junctions + WSL symlinks). **Re-test `agy`
 with Prompt A** to confirm it now auto-invokes the skill (and returns to the fast path).
+
+**Re-test PASS (2026-09-28):** after the antigravity-cli link, `agy` discovered the canonical skill and ran
+`node C:\GitDev\agent-skills\skills\openproject\client\opCall.js root` + `wp.get --id 38` — now using the
+skill's **Basic `apikey:` auth** (through the fingerprint/redaction/write gates), not the raw Bearer curl.
+Correct WP#38 read returned. **All three tool surfaces (Codex, Claude, Antigravity) now auto-invoke the one
+canonical skill.** ✅
 
 **Fleet coverage:** one live session per tool was run (Codex, Claude, Antigravity). Codex ×2 and Claude ×2
 second accounts were not separately run — they share their tool's discovery dir, so they inherit the same

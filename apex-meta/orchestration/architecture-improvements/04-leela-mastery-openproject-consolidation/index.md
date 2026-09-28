@@ -29,8 +29,8 @@ allowlist that forbids new top-level handovers there.
 * [06-handover-mastery-taxonomy](06-handover-mastery-taxonomy.md) — **DONE 2026-09-28**: live design with
   operator → created `MoA-Content` (id 6), `MoA-Business` (id 7), `ApexAI-OS` (id 8) under root; containers only.
 * [07-handover-5account-skill-standardization-test](07-handover-5account-skill-standardization-test.md) —
-  **standardization VERIFIED 2026-09-28** (all discovery paths → one identical skill, identical behaviour);
-  remaining: live agent-initiated auto-invocation + confirming the 5-account fleet (operator-run).
+  **DONE 2026-09-28** — all 3 tool surfaces (Codex/Claude/Antigravity) auto-invoke the one canonical skill,
+  verified live (Antigravity fixed via the antigravity-cli link). Optional: 2nd Codex/Claude accounts + Antigravity multi-account.
 * [08-handover-audit-and-improve](08-handover-audit-and-improve.md) — auditor/improver brief: quantify the
   WSL drag, best-practice web research (incl. custom skill vs official MCP server), and prove multi-repo
   (MasterOfArts) access with a real agent.
