@@ -41,7 +41,7 @@ authority_order: "live runtime + code > accepted decisions/ADRs > this plan. Sur
 
 ## 5. Environment & safety facts
 - **Two engines? No — one now.** Single WSL2-native "Apex" engine (Ubuntu 26.04). Run `wsl -d Ubuntu -u root -- docker …`; prefix `/mnt/c` commands with `MSYS_NO_PATHCONV=1`; pipe `| tr -d '\0'`.
-- **Secrets** (never print/commit): `C:\GitDev\ki-basis-shared\.env`, `C:\GitDev\leela-op178\op.env`, community bot `.env` backup. Backups at `C:\GitDev\leela-op178\backups\community-2026-09-26\`.
+- **Secrets** (never print/commit): `C:\Users\gehma\.config\openproject\op.env` (live OpenProject token since 2026-09-28), `C:\GitDev\ki-basis-shared\.env`, `C:\GitDev\leela-op178\op.env` (retained migration source), community bot `.env` backup. Backups at `C:\GitDev\leela-op178\backups\community-2026-09-26\`.
 - **Destructive/irreversible actions require `gate: human-approval`:** any `git push`, deleting projects/data, `wsl --shutdown`, `docker compose up` on `ki-basis/compose.yaml` (its hermes service drifts from live bind mounts — a naive up can wipe ~4.4 GB bot state, D-16), uninstalls.
 - Verify after every write (reread/compare). A partial/unexpected result is a stop.
 

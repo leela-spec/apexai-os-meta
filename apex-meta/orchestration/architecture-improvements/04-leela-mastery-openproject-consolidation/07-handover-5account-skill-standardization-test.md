@@ -27,8 +27,9 @@ reread. Record any divergence plainly — a divergence is a real finding, not a 
   installed at `/home/gehma/nodejs/bin/node`) **and** from the **Windows host** (container republished on
   `0.0.0.0:8083`). So an agent can run the skill either as a Windows process (Windows has Node at
   `…\ApexNode\…`) or inside WSL.
-- Config: `OPENPROJECT_*` env from `C:\GitDev\leela-op178\op.env` (base `http://127.0.0.1:8083`, admin
-  token, expect-version `17.`, expect-host `127.0.0.1:8083`).
+- Config: **auto-loaded by the skill** from `~/.config/openproject/op.env` (base `http://127.0.0.1:8083`,
+  admin token, expect-version `17.`, expect-host `127.0.0.1:8083`) — no per-session env setup needed. The
+  old `C:\GitDev\leela-op178\op.env` is retained only as the migration source.
 - **Idle-sleep caveat:** cold access takes ~80s; wrap the test in a boot-wait or hold the instance warm
   (see `05-handover-browser-keepalive.md`).
 
