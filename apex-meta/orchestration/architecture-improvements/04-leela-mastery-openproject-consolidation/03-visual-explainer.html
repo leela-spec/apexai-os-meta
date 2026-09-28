@@ -1,0 +1,367 @@
+<title>Why the agents can't reach OpenProject — a visual explainer</title>
+<style>
+  :root{
+    --bg:#f4f6f9; --panel:#ffffff; --ink:#1b2530; --ink-soft:#48576a; --line:#d9e0e8;
+    --accent:#2f6f8f; --accent-soft:#e7f0f6;
+    --ok:#2e7d5b; --bad:#c0432f; --warn:#b5852a;
+    --ok-bg:#e3f2ea; --bad-bg:#fbe4de; --warn-bg:#f8eecf;
+    --blueprint:#fbfdff; --blueprint-line:#dfe8ef;
+    --mono:ui-monospace,"Cascadia Code","Consolas",monospace;
+    --sans:system-ui,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  }
+  @media (prefers-color-scheme:dark){
+    :root{
+      --bg:#10151c; --panel:#161d26; --ink:#e6edf3; --ink-soft:#9fb0c0; --line:#2a3644;
+      --accent:#6cb6d6; --accent-soft:#17323f;
+      --ok:#5cc295; --bad:#e88a76; --warn:#e0b354;
+      --ok-bg:#12291f; --bad-bg:#2e1712; --warn-bg:#2c2410;
+    }
+  }
+  :root[data-theme="light"]{
+    --bg:#f4f6f9; --panel:#ffffff; --ink:#1b2530; --ink-soft:#48576a; --line:#d9e0e8;
+    --accent:#2f6f8f; --accent-soft:#e7f0f6; --ok:#2e7d5b; --bad:#c0432f; --warn:#b5852a;
+    --ok-bg:#e3f2ea; --bad-bg:#fbe4de; --warn-bg:#f8eecf;
+  }
+  :root[data-theme="dark"]{
+    --bg:#10151c; --panel:#161d26; --ink:#e6edf3; --ink-soft:#9fb0c0; --line:#2a3644;
+    --accent:#6cb6d6; --accent-soft:#17323f; --ok:#5cc295; --bad:#e88a76; --warn:#e0b354;
+    --ok-bg:#12291f; --bad-bg:#2e1712; --warn-bg:#2c2410;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.6;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:900px;margin:0 auto;padding:48px 22px 80px}
+  header.masthead{border-bottom:2px solid var(--accent);padding-bottom:22px;margin-bottom:14px}
+  .kicker{font-family:var(--mono);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin:0 0 10px}
+  h1{font-size:clamp(1.7rem,4vw,2.5rem);line-height:1.12;margin:0 0 12px;text-wrap:balance;letter-spacing:-.01em}
+  .lede{font-size:1.06rem;color:var(--ink-soft);margin:0;max-width:64ch}
+  h2{font-size:1.35rem;margin:0 0 4px;letter-spacing:-.01em;text-wrap:balance}
+  .sec-no{font-family:var(--mono);font-size:.8rem;color:var(--accent);letter-spacing:.1em}
+  section{margin-top:52px}
+  p{margin:.7em 0;max-width:66ch}
+  .panel{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:22px 24px;margin:16px 0}
+  .diagram{background:var(--blueprint);border:1px solid var(--blueprint-line);border-radius:12px;padding:20px;margin:18px 0;overflow-x:auto}
+  .diagram .mermaid{display:flex;justify-content:center;min-width:min-content}
+  .cap{font-size:.9rem;color:var(--ink-soft);margin:.4em 0 0;font-style:italic}
+  .plainsay{border-left:3px solid var(--accent);background:var(--accent-soft);padding:12px 16px;border-radius:0 8px 8px 0;margin:14px 0}
+  .plainsay strong{color:var(--accent)}
+  code,.addr{font-family:var(--mono);font-size:.9em;background:color-mix(in srgb,var(--accent) 12%,transparent);padding:.1em .4em;border-radius:5px}
+  .legend{display:flex;flex-wrap:wrap;gap:10px 20px;font-size:.86rem;margin-top:14px}
+  .legend span{display:inline-flex;align-items:center;gap:7px}
+  .dot{width:13px;height:13px;border-radius:3px;border:1.5px solid}
+  .d-ok{background:var(--ok-bg);border-color:var(--ok)} .d-bad{background:var(--bad-bg);border-color:var(--bad)}
+  .d-comp{background:var(--accent-soft);border-color:var(--accent)} .d-warn{background:var(--warn-bg);border-color:var(--warn)}
+  .cards{display:grid;grid-template-columns:1fr;gap:14px;margin-top:16px}
+  @media(min-width:680px){.cards.three{grid-template-columns:repeat(3,1fr)}}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:18px 18px 20px}
+  .card.rec{border-color:var(--ok);box-shadow:0 0 0 1px var(--ok) inset}
+  .card h3{margin:0 0 4px;font-size:1.05rem}
+  .tag{display:inline-block;font-family:var(--mono);font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;padding:.2em .55em;border-radius:20px;margin-bottom:10px}
+  .tag.rec{background:var(--ok-bg);color:var(--ok)} .tag.meh{background:var(--warn-bg);color:var(--warn)} .tag.no{background:var(--bad-bg);color:var(--bad)}
+  .pro{color:var(--ok)} .con{color:var(--bad)}
+  .card ul{margin:.4em 0 0;padding-left:1.1em;font-size:.9rem} .card li{margin:.25em 0}
+  dl.glo{display:grid;grid-template-columns:auto 1fr;gap:10px 18px;margin:10px 0 0}
+  @media(max-width:560px){dl.glo{grid-template-columns:1fr;gap:4px 0} dl.glo dd{margin:0 0 10px}}
+  dl.glo dt{font-family:var(--mono);font-size:.85rem;color:var(--accent);font-weight:600}
+  dl.glo dd{margin:0;color:var(--ink-soft);font-size:.94rem}
+  .num{font-variant-numeric:tabular-nums}
+  table.chk{width:100%;border-collapse:collapse;margin-top:14px;font-size:.9rem}
+  table.chk th,table.chk td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+  table.chk th{font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft)}
+  .st{font-family:var(--mono);font-size:.78rem;font-weight:700;white-space:nowrap}
+  .st.done{color:var(--ok)} .st.open{color:var(--bad)} .st.part{color:var(--warn)}
+  footer{margin-top:64px;border-top:1px solid var(--line);padding-top:18px;font-size:.82rem;color:var(--ink-soft)}
+  footer a{color:var(--accent)}
+  .tldr{background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--bad);border-radius:0 12px 12px 0;padding:18px 22px;margin:22px 0}
+  .tldr h2{font-size:1.05rem;margin-bottom:6px}
+</style>
+
+<div class="wrap">
+<header class="masthead">
+  <p class="kicker">OpenProject setup · plain-language diagnosis</p>
+  <h1>Why the AI agents can't reach OpenProject yet</h1>
+  <p class="lede">Two separate, fixable problems are in the way. This page shows — with pictures — where every
+  piece lives, how they're meant to talk to each other, where the wire is broken, and the choices for fixing it.
+  No prior technical knowledge needed.</p>
+</header>
+
+<div class="tldr">
+  <h2>The 15-second version</h2>
+  <p style="margin:.3em 0">Your computer is really <em>two</em> computers: <strong>Windows</strong>, and a smaller
+  private computer inside it called <strong>WSL</strong>. OpenProject lives in the WSL one and only opens its
+  door on WSL's <em>private</em> hallway. The AI agents live in the Windows one and knock on Windows's hallway —
+  so nobody answers. <strong>Problem 2:</strong> even once they get in, the "Leela" project hasn't switched on the
+  kinds of work-item it needs (Epic, Feature, Story). Nothing is broken or lost — both are setup steps, and the
+  first decision is <em>which side the skill should run on.</em></p>
+</div>
+
+<div class="legend panel" style="padding:14px 18px">
+  <span><span class="dot d-comp"></span> a component (a program or file)</span>
+  <span><span class="dot d-ok"></span> works / the goal</span>
+  <span><span class="dot d-bad"></span> where it breaks</span>
+  <span><span class="dot d-warn"></span> a choice / a gate</span>
+</div>
+
+<section>
+  <p class="sec-no">01 · WHERE</p>
+  <h2>Where everything actually lives</h2>
+  <p>Think of one physical PC that contains two "houses." The <strong>Windows house</strong> is where you work
+  and where every AI agent runs. Inside it there's also a second, smaller house — <strong>WSL</strong> — a
+  complete little Linux computer Microsoft builds into Windows. Docker and OpenProject live in that WSL house.</p>
+  <div class="diagram"><pre class="mermaid">
+flowchart TB
+  subgraph WIN["🪟 WINDOWS house — where you and the agents live"]
+    direction TB
+    A1["AI agents<br/>Claude Code, Codex ×2, Antigravity"]:::comp
+    NODE["Node.js runtime<br/>(installed on Windows)"]:::comp
+    SKILL["The OpenProject 'skill' package<br/>C:\\GitDev\\...\\openproject\\opCall.js"]:::comp
+    A1 --> NODE --> SKILL
+  end
+  subgraph WSL["🐧 WSL house — a private Linux computer inside Windows"]
+    direction TB
+    DOCK["Docker engine"]:::comp
+    OP["OpenProject 17.8<br/>(door at :8083)"]:::comp
+    PG["PostgreSQL database<br/>(all your work packages)"]:::comp
+    DOCK --> OP --> PG
+  end
+  SKILL -. "needs to reach OpenProject" .-> OP
+  classDef comp fill:#e7f0f6,stroke:#2f6f8f,color:#12303d,rx:6,ry:6;
+  </pre></div>
+  <p class="cap">The dotted line is the connection we need to work. Everything above the line is on Windows;
+  everything below is inside the WSL computer.</p>
+  <div class="plainsay"><strong>Key idea:</strong> the "skill package" is just a small program (a file called
+  <code>opCall.js</code>) that the agents run to talk to OpenProject in a safe, controlled way. The agents don't
+  poke OpenProject directly — they always go through this one skill.</div>
+</section>
+
+<section>
+  <p class="sec-no">02 · HOW IT SHOULD WORK</p>
+  <h2>How it's supposed to flow</h2>
+  <p>When everything is wired correctly, one request travels a short, tidy path — and every change is previewed
+  and confirmed before it's written. That safety gate is the whole point of using the skill.</p>
+  <div class="diagram"><pre class="mermaid">
+flowchart LR
+  OP2["You / an agent<br/>'create these work items'"]:::comp
+  SK["Skill (opCall.js)<br/>checks, previews, confirms"]:::warn
+  API["OpenProject API<br/>(the official 'service window')"]:::comp
+  DB["OpenProject<br/>saves it"]:::ok
+  OP2 --> SK --> API --> DB
+  classDef comp fill:#e7f0f6,stroke:#2f6f8f,color:#12303d,rx:6,ry:6;
+  classDef warn fill:#f8eecf,stroke:#b5852a,color:#4d3708,rx:6,ry:6;
+  classDef ok fill:#e3f2ea,stroke:#2e7d5b,color:#14432f,rx:6,ry:6;
+  </pre></div>
+  <p class="cap">Left to right: request → the skill's safety checks → OpenProject's official service window → saved.</p>
+</section>
+
+<section>
+  <p class="sec-no">03 · WHAT BREAKS</p>
+  <h2>What actually happens right now</h2>
+  <p>The skill sends its request to the address it was told to use — <code>127.0.0.1:8083</code>. The catch:
+  <span class="addr">127.0.0.1</span> means <em>"this same house"</em>. From the Windows house, that points at the
+  <em>Windows</em> hallway. But OpenProject's door is in the <em>WSL</em> hallway. Same address written down —
+  two different hallways. So the knock lands on an empty wall.</p>
+  <div class="diagram"><pre class="mermaid">
+flowchart TB
+  subgraph WIN["🪟 WINDOWS house"]
+    SK["Skill knocks on<br/>127.0.0.1:8083"]:::comp
+    WH["Windows hallway<br/>127.0.0.1 — nothing here"]:::bad
+    SK --> WH
+  end
+  subgraph WSL["🐧 WSL house"]
+    OP["OpenProject door<br/>opens only on WSL's<br/>127.0.0.1:8083"]:::ok
+  end
+  WH -. "knock is refused<br/>(connection refused)" .-x OP
+  classDef comp fill:#e7f0f6,stroke:#2f6f8f,color:#12303d,rx:6,ry:6;
+  classDef bad fill:#fbe4de,stroke:#c0432f,color:#5c1a10,rx:6,ry:6;
+  classDef ok fill:#e3f2ea,stroke:#2e7d5b,color:#14432f,rx:6,ry:6;
+  </pre></div>
+  <p class="cap">This was <strong>reproduced from the real agent context</strong>: at the moment OpenProject was
+  answering inside WSL, Windows couldn't open the connection at all. So it isn't "OpenProject is down" — it points
+  to the hallways not being joined. (The forwarding cause is confirmed by the listener + HTTP tests below.)</p>
+  <div class="plainsay"><strong>Why this was missed earlier:</strong> the setup was written assuming
+  <code>127.0.0.1:8083</code> works from both houses — a note in the config file even says so. Nobody tested it
+  from the Windows side until now. That was the blind spot.</div>
+</section>
+
+<section>
+  <p class="sec-no">04 · WHY</p>
+  <h2>Why: the "private door" vs the "all-doors" setting</h2>
+  <p>When OpenProject was started, its door was set to open only on the WSL house's <em>private</em> address
+  (<span class="addr">127.0.0.1</span>). There's another setting: open on <em>all</em> of the WSL computer's
+  network addresses (<span class="addr">0.0.0.0</span>) — a binding that WSL <em>can</em> forward to Windows's
+  localhost. Whether that forwarding works here is something we test, not assume. Same OpenProject — just which
+  addresses its door listens on.</p>
+  <div class="diagram"><pre class="mermaid">
+flowchart LR
+  subgraph NOW["Now — private address only"]
+    direction TB
+    N1["OpenProject opens on<br/>127.0.0.1 (WSL-private)"]:::bad
+    N2["Windows can't reach it"]:::bad
+    N1 --> N2
+  end
+  subgraph FIX["If we open all WSL addresses"]
+    direction TB
+    F1["OpenProject opens on<br/>0.0.0.0 (all WSL interfaces)"]:::ok
+    F2["Windows can reach it via<br/>localhost:8083 (to verify)"]:::warn
+    F1 --> F2
+  end
+  NOW -. "config change<br/>+ a firewall guard + a test" .-> FIX
+  classDef bad fill:#fbe4de,stroke:#c0432f,color:#5c1a10,rx:6,ry:6;
+  classDef ok fill:#e3f2ea,stroke:#2e7d5b,color:#14432f,rx:6,ry:6;
+  classDef warn fill:#f8eecf,stroke:#b5852a,color:#4d3708,rx:6,ry:6;
+  </pre></div>
+  <p class="cap">This matches Microsoft's documented WSL behaviour and a widely-reported issue — but the
+  forwarding must be verified from Windows after the change, not taken for granted.</p>
+</section>
+
+<section>
+  <p class="sec-no">05 · THE SECOND, SEPARATE PROBLEM</p>
+  <h2>The Leela project hasn't switched on the right work-item types</h2>
+  <p>This one has nothing to do with the connection. Work-item types are set by each instance's admin, and each
+  <em>project</em> then chooses which of them it uses. As checked on <strong>2026-09-27</strong>, this instance
+  defines seven types, and the <strong>Leela</strong> project has only three switched on. The plan needs Epic,
+  Feature and User story too — so creating an "Epic" there is correctly refused until they're enabled for that
+  project (an admin toggle, ~1 minute).</p>
+  <div class="diagram"><pre class="mermaid">
+flowchart TB
+  GLOBAL["This instance currently defines 7 types<br/>(admins can change this):<br/>Task · Milestone · Summary task ·<br/>Feature · Epic · User story · Bug"]:::comp
+  subgraph L["'Leela' project — switched ON as of 2026-09-27"]
+    ON["✓ Task ✓ Milestone ✓ Summary task"]:::ok
+    OFF["✗ Epic ✗ Feature ✗ User story ✗ Bug<br/>(need to be turned on for this project)"]:::warn
+  end
+  GLOBAL --> ON
+  GLOBAL --> OFF
+  classDef comp fill:#e7f0f6,stroke:#2f6f8f,color:#12303d,rx:6,ry:6;
+  classDef ok fill:#e3f2ea,stroke:#2e7d5b,color:#14432f,rx:6,ry:6;
+  classDef warn fill:#f8eecf,stroke:#b5852a,color:#4d3708,rx:6,ry:6;
+  </pre></div>
+  <p class="cap">The "Scrum" sample project already has Epic/Feature/Story switched on — which is where those sample
+  items came from. Leela just needs the same per-project toggles (not a global change).</p>
+</section>
+
+<section>
+  <p class="sec-no">06 · THE REAL FIRST QUESTION</p>
+  <h2>First decide: which side should the skill run on?</h2>
+  <p>The three fixes below aren't really ranked best-to-worst — they follow from one architecture choice:
+  <strong>should the skill run inside WSL (next to OpenProject), or stay a Windows program?</strong> For a
+  privacy-first, self-hosted setup, running it inside WSL (option C) is a strong, clean choice — and it's also the
+  quickest way to finish testing the real skill, because inside WSL the connection already works.</p>
+  <div class="cards three">
+    <div class="card rec">
+      <span class="tag rec">Recommended for this setup</span>
+      <h3>C · Skill runs inside WSL</h3>
+      <p style="font-size:.92rem;margin:.2em 0">Install Node inside WSL; every agent calls it through one identical
+      Windows launcher (<code>wsl … node opCall.js …</code>).</p>
+      <ul>
+        <li class="pro">✓ Same skill code, guards & config for all 5 agents</li>
+        <li class="pro">✓ OpenProject stays private (loopback) — nothing newly exposed</li>
+        <li class="pro">✓ No networking change; unblocks the real skill test today</li>
+        <li class="con">✗ A second Node runtime + a uniform launcher to maintain</li>
+      </ul>
+    </div>
+    <div class="card">
+      <span class="tag meh">Viable, needs hardening</span>
+      <h3>A · Open all WSL addresses</h3>
+      <p style="font-size:.92rem;margin:.2em 0">Publish OpenProject on <code>0.0.0.0</code> so Windows can reach it;
+      add a firewall guard so only your PC can.</p>
+      <ul>
+        <li class="pro">✓ Skill runs on Windows as originally designed</li>
+        <li class="con">✗ Widens exposure — needs a firewall rule + a 3-way test</li>
+        <li class="con">✗ Needs a one-time Docker permission</li>
+      </ul>
+    </div>
+    <div class="card">
+      <span class="tag meh">Bigger switch</span>
+      <h3>B · "Mirrored" networking</h3>
+      <p style="font-size:.92rem;margin:.2em 0">Flip a Windows-wide setting so both houses share one hallway.</p>
+      <ul>
+        <li class="pro">✓ Keeps the private-address setting</li>
+        <li class="con">✗ Affects every WSL app (incl. your other stack)</li>
+        <li class="con">✗ Known quirks; needs a full WSL restart</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section>
+  <p class="sec-no">07 · THE PLAN</p>
+  <h2>The order of operations (revised)</h2>
+  <p>Evidence first (the network fault is reproduced; the full skill test is still to come), then decide the
+  architecture, then a self-check, then types, then a no-write dry run, and only last a controlled creation.</p>
+  <div class="diagram"><pre class="mermaid">
+flowchart TB
+  P0["P0 · Evidence — PARTIAL<br/>network fault reproduced; changed nothing.<br/>Full skill preflight still to run"]:::warn
+  P1{"P1 · Decide the trust boundary<br/>skill in WSL (C) · or Windows-native (A)"}:::warn
+  P2["P2 · Skill self-check ('doctor')<br/>reachability · auth · right instance ·<br/>project access · allowed types · write-gate"]:::comp
+  P3["P3 · Switch on Epic/Feature/Story<br/>in the Leela project; read back via API"]:::comp
+  P4["P4 · Dry run<br/>read → resolve types by name → preview → NO change"]:::comp
+  P5["P5 · Controlled creation<br/>you confirm → exact payload → create once → re-read & log"]:::ok
+  P0 --> P1 --> P2 --> P3 --> P4 --> P5
+  GATE["Standing rule: no real writes until the real skill<br/>passes its own read + type + write-gate checks<br/>from the agent's own context"]:::bad
+  P2 -. proves .-> GATE
+  classDef ok fill:#e3f2ea,stroke:#2e7d5b,color:#14432f,rx:6,ry:6;
+  classDef comp fill:#e7f0f6,stroke:#2f6f8f,color:#12303d,rx:6,ry:6;
+  classDef warn fill:#f8eecf,stroke:#b5852a,color:#4d3708,rx:6,ry:6;
+  classDef bad fill:#fbe4de,stroke:#c0432f,color:#5c1a10,rx:6,ry:6;
+  </pre></div>
+</section>
+
+<section>
+  <p class="sec-no">08 · PREFLIGHT CHECKLIST</p>
+  <h2>What a complete preflight must show</h2>
+  <p>A real preflight isn't done until all twelve of these are proven from the agent's own context. Items 9–12 —
+  the ones that use the <em>real</em> skill — are still open, which is why P0 is "partial," not "done."</p>
+  <div class="panel" style="padding:6px 18px 14px">
+  <table class="chk">
+    <tr><th>#</th><th>Check</th><th>Status</th></tr>
+    <tr><td class="num">1</td><td>Which Windows process runs the skill (the agent context)</td><td class="st done">DONE</td></tr>
+    <tr><td class="num">2</td><td>Which node.exe is used</td><td class="st done">DONE</td></tr>
+    <tr><td class="num">3</td><td>Which base URL the skill config uses</td><td class="st done">DONE</td></tr>
+    <tr><td class="num">4</td><td>Which Docker engine runs OpenProject</td><td class="st done">DONE</td></tr>
+    <tr><td class="num">5</td><td>The real Docker port mapping</td><td class="st done">DONE</td></tr>
+    <tr><td class="num">6</td><td>Which WSL address the port listens on</td><td class="st done">DONE</td></tr>
+    <tr><td class="num">7</td><td>Is Windows localhost:8083 reachable by TCP</td><td class="st done">DONE (no)</td></tr>
+    <tr><td class="num">8</td><td>Does Windows localhost:8083 return an HTTP reply</td><td class="st done">DONE (no)</td></tr>
+    <tr><td class="num">9</td><td>Can the <em>real</em> opCall.js make a read-only API call</td><td class="st open">OPEN</td></tr>
+    <tr><td class="num">10</td><td>Types OpenProject reports for Leela <em>via the skill</em></td><td class="st part">PARTIAL (raw API only)</td></tr>
+    <tr><td class="num">11</td><td>Is a preview possible without any write</td><td class="st open">OPEN</td></tr>
+    <tr><td class="num">12</td><td>Is a write blocked without an explicit confirmation</td><td class="st open">OPEN</td></tr>
+  </table>
+  </div>
+  <p class="cap">Items 9–12 need the skill to actually run against the instance — which is exactly what the trust-boundary
+  decision (P1) unblocks. Option C can complete them today with no networking change.</p>
+</section>
+
+<section>
+  <p class="sec-no">09 · GLOSSARY</p>
+  <h2>Plain-language glossary</h2>
+  <div class="panel">
+  <dl class="glo">
+    <dt>Windows host</dt><dd>Your actual PC and its main operating system — where you work and where the AI agents run.</dd>
+    <dt>WSL</dt><dd>"Windows Subsystem for Linux" — a small, complete Linux computer running inside Windows. It has its own separate network.</dd>
+    <dt>Container / Docker</dt><dd>Docker packages an app (like OpenProject) into a self-contained box called a container. All the containers here run inside the WSL computer.</dd>
+    <dt>OpenProject</dt><dd>The project-management app itself — the thing that will hold all your epics, tasks and dependencies.</dd>
+    <dt>Port :8083</dt><dd>A numbered "door" on a computer. OpenProject answers on door 8083.</dd>
+    <dt>127.0.0.1 / localhost</dt><dd>Means "this same computer." The problem: Windows and WSL each have their own "this computer," so the same address points to different places.</dd>
+    <dt>0.0.0.0</dt><dd>Means "listen on all of this computer's network addresses" — the binding WSL can forward to Windows's localhost.</dd>
+    <dt>The agents</dt><dd>Your AI accounts (Claude Code, Codex ×2, Antigravity) — all running as Windows programs.</dd>
+    <dt>The skill package</dt><dd>A small program (opCall.js) the agents run to talk to OpenProject safely — with a preview-and-confirm step before any change.</dd>
+    <dt>doctor / self-check</dt><dd>A read-only command the skill should have that verifies everything (reachability, login, right instance, project, allowed types, write-gate) before any real work.</dd>
+    <dt>API</dt><dd>OpenProject's official "service window" that other programs are allowed to talk to.</dd>
+    <dt>Work-item types</dt><dd>The shapes of work: Epic, Feature, User story, Task, Milestone, etc. Each instance's admin defines them; each project switches on the ones it uses.</dd>
+  </dl>
+  </div>
+</section>
+
+<footer>
+  <p>Diagnosis performed read-only from the real agent context on 2026-09-27; nothing in OpenProject or the
+  system configuration was changed. P0 evidence is partial — the network fault is reproduced, but the full
+  skill preflight (checklist items 9–12) has not yet run. Approach follows the C4 model (big picture first,
+  detail in layers) and standard flowchart-clarity practice.</p>
+  <p>Sources:
+  <a href="https://learn.microsoft.com/en-us/windows/wsl/networking">Microsoft — Accessing network applications with WSL</a> ·
+  <a href="https://github.com/microsoft/WSL/issues/9515">microsoft/WSL #9515 (127.0.0.1 container ports)</a> ·
+  <a href="https://www.openproject.org/docs/api/endpoints/types/">OpenProject API — project types</a> ·
+  <a href="https://c4model.com/">C4 model</a> ·
+  <a href="https://mermaid.js.org/syntax/flowchart.html">Mermaid flowcharts</a></p>
+</footer>
+</div>
