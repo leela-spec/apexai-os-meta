@@ -7,7 +7,7 @@ description: >
   verified against the LIVE system. Nothing here is executed; each step is gated, git-reversible, and
   gets an independent adversarial review before push.
 created: 2026-09-28
-status: awaiting operator GO (per-step)
+status: R1-R7 DONE (executed 2026-09-28/29, per-step gated); SEC (hard-coded SECRET_KEY_BASE) remaining on a separate track
 baseline: "VALID CURRENT STATE = the environment created 2026-09-26 + the optimizations that followed (node moved outside, skills re-placed). Anything predating that which conflicts with it is SUPERSEDED history."
 authority_order: "LIVE running system > single most-recent authoritative decision (ADR-002 / latest D-xx) > everything older. Superseded ≠ authoritative, even if it was once deliberate."
 companion_audit: apex-meta/orchestration/architecture-improvements/05-program-closeout/FINDINGS-infra-docs-audit-2026-09-28.md
@@ -86,3 +86,15 @@ byte-identical — this is documentation only.**
 One authoritative current-infra description that every entrypoint routes to; no doc asserts retired topology
 without a superseded banner; general infra no longer in the Leela product repo; the spec has one maintained
 source; both test scripts pass; nothing on the live system changed (health test still GREEN).
+
+## 8. Execution log (2026-09-28 / 2026-09-29 — per-step gated, adversarial-reviewed, health-tested)
+Each step: diff shown → independent adversarial review → infra-health-test.sh GREEN 29/29 → atomic commit → push.
+- **R1** live routing hazard fixed — `d0fafc5c` (AGENT-OPERATING-CONTEXT §13 repointed; ARCHITEKTUR-BASIS.md bannered).
+- **R2** single source of truth — `99b335c4` (`ki-basis/docs/INFRASTRUCTURE.md`).
+- **R3** 6 stale docs bannered → INFRASTRUCTURE.md — `d5707786`.
+- **R4** OpenProject infra cluster relocated Leela → `ki-basis/docs/openproject/` (197 files, byte-identical) —
+  apexai `93700253` (add+repoint) + `c99a3571` (lint) ; Leela `4e9a48a4` (remove + redirect stub + AGENTS.md).
+- **R5-R7** mirror-drift banners, pre-baseline history banners, entrypoint pointers, CURRENT-STATE pointer — `a5d64e1f`.
+- **SEC** hard-coded `SECRET_KEY_BASE` in `leela-op178` compose → move to `.env`: **STILL OPEN** (separate track).
+Audit source: `FINDINGS-infra-docs-audit-2026-09-28.md`. Tests: `tests/infra-health-test.sh`, `tests/doc-integrity-lint.sh`.
+
