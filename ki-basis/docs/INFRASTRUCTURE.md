@@ -31,6 +31,38 @@ canonical: "This is the single infra-description entrypoint. Superseded infra do
 | Private OpenProject | `leela-op178` | `leela-op178/compose.shared-db.yaml` | private PM authority — **OpenProject 17.8** |
 | Shared PostgreSQL | `ki-basis-infra` | `ki-basis-shared/compose.yaml` | the one shared DB cluster |
 
+## 1.1 Documentation map — where the architecture is described
+
+```mermaid
+flowchart TB
+  HUB["★ ki-basis/docs/INFRASTRUCTURE.md<br/>single source of truth — what is true now"]:::cur
+  subgraph EP["Entry points — route to the hub"]
+    E1["CLAUDE.md · AGENTS.md (root)"]:::cur
+    E2["GEMINI.md · .hermes.md"]:::cur
+    E3["AGENT-OPERATING-CONTEXT.md §13"]:::cur
+    E4["CURRENT-STATE.md"]:::cur
+  end
+  subgraph SUP["Hub links down to — supporting layers"]
+    S1["DUAL_INSTANCE_ARCHITECTURE.md §6 · ADR-002<br/>why / decisions"]:::cur
+    S2["03-consolidation + 02-decisions-log D-01–18<br/>how / history"]:::cur
+    S3["4× compose*.yaml<br/>runtime truth"]:::cur
+    S4["ki-basis/docs/openproject/<br/>OpenProject ops · moved R4"]:::cur
+  end
+  subgraph OLD["Superseded / history — bannered, point back"]
+    O1["STACK_ARCHITECTURE.md<br/>names OpenProject v14"]:::old
+    O2["docs/DUAL_INSTANCE_RUNBOOK.md<br/>two-postgres / Docker Desktop"]:::old
+    O3["Alpine/ARCHITEKTUR-BASIS.md<br/>Docker Desktop era"]:::old
+    O4["dossier 00_ + 02_ — ×2 trees"]:::old
+    O5["2× 01_ spec mirrors<br/>partly superseded — read §6"]:::old
+    O6["Alpine ImplementationPlans 2026-09-03<br/>+ TARGET-ACCEPTANCE · pre-baseline"]:::old
+  end
+  EP --> HUB
+  HUB --> SUP
+  OLD -.->|point back to| HUB
+  classDef cur fill:#f0fdf4,stroke:#16a34a,color:#166534;
+  classDef old fill:#f4f4f5,stroke:#9ca3af,color:#52525b;
+```
+
 ## 2. Engine (WSL2 "Apex")
 - Runs as the `Ubuntu` distro's native `dockerd`. Invoke: `wsl -d Ubuntu -u root -- docker …`.
 - Docker Desktop uninstalled (ADR-002); `docker.exe` is not on the Windows PATH.
