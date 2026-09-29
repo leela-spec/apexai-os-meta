@@ -1,0 +1,47 @@
+{
+  "active": true,
+  "hubId": "openproject-previewing",
+  "name": "OpenProject Previewing",
+  "schema": "skill-1.0.0",
+  "version": "1.0.0",
+  "description": "OpenProject Previewing API",
+  "author": "ki-basis",
+  "license": "MIT",
+  "imported": true,
+  "entrypoint": {
+    "file": "handler.js",
+    "params": {
+      "operation": {
+        "type": "string",
+        "description": "One of: preview_markdown_document|preview_plain_document"
+      },
+      "context": {
+        "type": "string",
+        "description": "API-Link to the context in which the rendering occurs, for example a specific work package.\n\nIf left out only context-agnostic rendering takes place.\nPlease note that OpenProject features markdown-extensions on top of the extensions GitHub Flavored Markdown (gfm) already\nprovides that can only work given a context (e.g. display attached images).\n\n**Supported contexts:**\n\n* `/api/v3/work_packages/{id}` - an existing work package (operations: preview_markdown_document)"
+      },
+      "confirmed": {
+        "type": "string",
+        "description": "Optional. Two-Phase write confirm: set confirmed=true (or ja/yes/1) to execute POST/PATCH/PUT/DELETE. Without it, mutating calls return a confirmation ask."
+      }
+    }
+  },
+  "setup_args": {
+    "openproject_base_url": {
+      "type": "string",
+      "required": true,
+      "input": {
+        "type": "text",
+        "default": "http://web:8080",
+        "hint": "Interne OpenProject-API-Basis (im Docker-Netz, Port 8080)"
+      }
+    },
+    "openproject_token": {
+      "type": "string",
+      "required": true,
+      "input": {
+        "type": "password",
+        "hint": "OpenProject-API-Key (Basic apikey:<key>; aus Benutzerprofil)"
+      }
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "name": "@ki-basis/anythingllm-openproject-principals-skill",
+  "version": "0.1.0",
+  "private": true,
+  "description": "OpenProject Principals API",
+  "type": "commonjs",
+  "main": "handler.js",
+  "engines": {
+    "node": ">=20"
+  }
+}

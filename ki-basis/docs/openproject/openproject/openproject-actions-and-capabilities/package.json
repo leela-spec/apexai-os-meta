@@ -1,0 +1,11 @@
+{
+  "name": "@ki-basis/anythingllm-openproject-actions-and-capabilities-skill",
+  "version": "0.1.0",
+  "private": true,
+  "description": "OpenProject Actions And Capabilities API",
+  "type": "commonjs",
+  "main": "handler.js",
+  "engines": {
+    "node": ">=20"
+  }
+}

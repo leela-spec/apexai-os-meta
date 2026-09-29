@@ -1,0 +1,71 @@
+{
+  "active": true,
+  "hubId": "openproject-notifications",
+  "name": "OpenProject Notifications",
+  "schema": "skill-1.0.0",
+  "version": "1.0.0",
+  "description": "OpenProject Notifications API",
+  "author": "ki-basis",
+  "license": "MIT",
+  "imported": true,
+  "entrypoint": {
+    "file": "handler.js",
+    "params": {
+      "operation": {
+        "type": "string",
+        "description": "One of: list|read|unread|get|read_notification|unread_notification|get_detail"
+      },
+      "offset": {
+        "type": "integer",
+        "description": "Page number inside the requested collection. — integer (numeric string ok) (operations: list)"
+      },
+      "pageSize": {
+        "type": "integer",
+        "description": "Number of elements to display per page. — integer (numeric string ok) (operations: list)"
+      },
+      "sortBy": {
+        "type": "string",
+        "description": "JSON specifying sort criteria.\nAccepts the same format as returned by the [queries](https://www.openproject.org/docs/api/endpoints/queries/) endpoint. Currently supported sorts are:\n\n+ id: Sort by primary key\n\n+ reason: Sort by notification reason\n\n+ readIAN: Sort by read status (operations: list)"
+      },
+      "groupBy": {
+        "type": "string",
+        "description": "string specifying group_by criteria.\n\n+ reason: Group by notification reason\n\n+ project: Sort by associated project (operations: list)"
+      },
+      "filters": {
+        "type": "string",
+        "description": "JSON specifying filter conditions.\nAccepts the same format as returned by the [queries](https://www.openproject.org/docs/api/endpoints/queries/) endpoint. Currently supported filters are:\n\n+ id: Filter by primary key\n\n+ project: Filter by the project the notification was created in\n\n+ readIAN: Filter by read status\n\n+ reason: Filter by the reason, e.g. 'mentioned' or 'assigned' the notification was created because of\n\n+ resourceId: Filter by the id of the resource the notification was created for. Ideally used together with the `resourceType` filter.\n\n+ resourceType: Filter by the type of the resource the notification was created for. Ideally used together with the `resourceId` filter. (operations: list, read, unread)"
+      },
+      "id": {
+        "type": "integer",
+        "description": "notification id — integer (numeric string ok) (operations: get, read_notification, unread_notification, get_detail)"
+      },
+      "notification_id": {
+        "type": "integer",
+        "description": "notification id — integer (numeric string ok) (operations: get_detail)"
+      },
+      "confirmed": {
+        "type": "string",
+        "description": "Optional. Two-Phase write confirm: set confirmed=true (or ja/yes/1) to execute POST/PATCH/PUT/DELETE. Without it, mutating calls return a confirmation ask."
+      }
+    }
+  },
+  "setup_args": {
+    "openproject_base_url": {
+      "type": "string",
+      "required": true,
+      "input": {
+        "type": "text",
+        "default": "http://web:8080",
+        "hint": "Interne OpenProject-API-Basis (im Docker-Netz, Port 8080)"
+      }
+    },
+    "openproject_token": {
+      "type": "string",
+      "required": true,
+      "input": {
+        "type": "password",
+        "hint": "OpenProject-API-Key (Basic apikey:<key>; aus Benutzerprofil)"
+      }
+    }
+  }
+}

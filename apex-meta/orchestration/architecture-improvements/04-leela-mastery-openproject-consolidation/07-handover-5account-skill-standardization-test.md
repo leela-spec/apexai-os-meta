@@ -20,7 +20,7 @@ reread. Record any divergence plainly — a divergence is a real finding, not a 
   + Node client `client/opCall.js` + `opClient.js`), linked into each agent's **user-global** dir — Claude
   `~/.claude/skills/openproject`, Codex `~/.agents/skills/openproject`, Antigravity `~/.gemini/config/skills/openproject`
   (no per-repo copy; token at `~/.config/openproject/op.env`). **This 5-account test now verifies THIS layout.**
-  See `Leela-Cloud-2026/docs/ProjectMM/openproject/DECISION-2026-09-28-canonical-skill-architecture.md`.
+  See `ki-basis/docs/openproject/DECISION-2026-09-28-canonical-skill-architecture.md`.
 - **The skill now runs and is behaviorally verified** (this session): `doctor` passes; `type.list --project`,
   `wp.create --type "<name>"` name-resolution, and the preview→`--confirmed`→reread write-gate all work.
 - **Transport is solved both ways:** the instance answers on `127.0.0.1:8083` from **inside WSL** (Node
@@ -100,7 +100,7 @@ discovery surfaces; the two-phase write-gate and instance fingerprint hold on ev
 ### Still requires operator-driven live sessions (not provable by one assistant session)
 - **Agent-initiated auto-invocation:** the skill was driven *through* each path here; proving each live agent
   PROCESS (`agy`, `codex`) autonomously *chooses* to invoke it needs those agents run fresh — protocol in
-  `Leela-Cloud-2026/docs/ProjectMM/openproject/VERIFICATION-2026-09-28-agent-invocation.md`.
+  `ki-basis/docs/openproject/VERIFICATION-2026-09-28-agent-invocation.md`.
 - **The fleet:** Codex ×2 + Claude ×2 + Antigravity ×1 must be confirmed configured. **Caveat:** an account
   that overrides its config dir (Claude `CLAUDE_CONFIG_DIR`, or a Codex profile with a different `HOME`) needs
   the per-skill link created in *that* dir too, or it won't see the skill.

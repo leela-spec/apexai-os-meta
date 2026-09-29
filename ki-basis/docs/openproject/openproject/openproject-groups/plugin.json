@@ -1,0 +1,59 @@
+{
+  "active": true,
+  "hubId": "openproject-groups",
+  "name": "OpenProject Groups",
+  "schema": "skill-1.0.0",
+  "version": "1.0.0",
+  "description": "OpenProject Groups API",
+  "author": "ki-basis",
+  "license": "MIT",
+  "imported": true,
+  "entrypoint": {
+    "file": "handler.js",
+    "params": {
+      "operation": {
+        "type": "string",
+        "description": "One of: list|create|delete|get|update"
+      },
+      "sortBy": {
+        "type": "string",
+        "description": "JSON specifying sort criteria.\nAccepts the same format as returned by the [queries](https://www.openproject.org/docs/api/endpoints/queries/) endpoint. Currently supported sorts are:\n\n+ id: Sort by primary key\n\n+ created_at: Sort by group creation datetime\n\n+ updated_at: Sort by the time the group was updated last (operations: list)"
+      },
+      "select": {
+        "type": "string",
+        "description": "Comma separated list of properties to include. (operations: list)"
+      },
+      "name": {
+        "type": "string",
+        "description": "The new group name. (operations: create, update)"
+      },
+      "id": {
+        "type": "integer",
+        "description": "Group id — integer (numeric string ok) (operations: delete, get, update)"
+      },
+      "confirmed": {
+        "type": "string",
+        "description": "Optional. Two-Phase write confirm: set confirmed=true (or ja/yes/1) to execute POST/PATCH/PUT/DELETE. Without it, mutating calls return a confirmation ask."
+      }
+    }
+  },
+  "setup_args": {
+    "openproject_base_url": {
+      "type": "string",
+      "required": true,
+      "input": {
+        "type": "text",
+        "default": "http://web:8080",
+        "hint": "Interne OpenProject-API-Basis (im Docker-Netz, Port 8080)"
+      }
+    },
+    "openproject_token": {
+      "type": "string",
+      "required": true,
+      "input": {
+        "type": "password",
+        "hint": "OpenProject-API-Key (Basic apikey:<key>; aus Benutzerprofil)"
+      }
+    }
+  }
+}

@@ -14,7 +14,7 @@ stale_after: "2026-10-31"
 > `C:\GitDev\Leela-Cloud-2026\.agents\skills\openproject\` are historical. The skill is now a single
 > canonical source at `C:\GitDev\agent-skills\skills\openproject\`, linked into each agent's user-global
 > dir (Claude `~/.claude/skills`, Codex `~/.agents/skills`, Antigravity `~/.gemini/config/skills`); token at
-> `~/.config/openproject/op.env`. See `Leela-Cloud-2026/docs/ProjectMM/openproject/DECISION-2026-09-28-canonical-skill-architecture.md`.
+> `~/.config/openproject/op.env`. See `ki-basis/docs/openproject/DECISION-2026-09-28-canonical-skill-architecture.md`.
 
 ## Mission
 

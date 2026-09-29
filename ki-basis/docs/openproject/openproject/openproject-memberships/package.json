@@ -1,0 +1,11 @@
+{
+  "name": "@ki-basis/anythingllm-openproject-memberships-skill",
+  "version": "0.1.0",
+  "private": true,
+  "description": "OpenProject Memberships API",
+  "type": "commonjs",
+  "main": "handler.js",
+  "engines": {
+    "node": ">=20"
+  }
+}

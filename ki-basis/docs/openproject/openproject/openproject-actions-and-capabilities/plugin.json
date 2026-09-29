@@ -1,0 +1,55 @@
+{
+  "active": true,
+  "hubId": "openproject-actions-and-capabilities",
+  "name": "OpenProject Actions And Capabilities",
+  "schema": "skill-1.0.0",
+  "version": "1.0.0",
+  "description": "OpenProject Actions And Capabilities API",
+  "author": "ki-basis",
+  "license": "MIT",
+  "imported": true,
+  "entrypoint": {
+    "file": "handler.js",
+    "params": {
+      "operation": {
+        "type": "string",
+        "description": "One of: list_actions|get_action|list_capabilities|get_global_context|get_capabilities"
+      },
+      "filters": {
+        "type": "string",
+        "description": "JSON specifying filter conditions.\nAccepts the same format as returned by the [queries](https://www.openproject.org/docs/api/endpoints/queries/) endpoint.\nCurrently supported filters are:\n\n+ id: Returns only the action having the id or all actions except those having the id(s). (operations: list_actions, list_capabilities)"
+      },
+      "sortBy": {
+        "type": "string",
+        "description": "JSON specifying sort criteria.\nAccepts the same format as returned by the [queries](https://www.openproject.org/docs/api/endpoints/queries/) endpoint. Currently supported sorts are:\n\n+ *No sort supported yet* (operations: list_actions, list_capabilities)"
+      },
+      "id": {
+        "type": "string",
+        "description": "action id which is the name of the action (operations: get_action, get_capabilities)"
+      },
+      "confirmed": {
+        "type": "string",
+        "description": "Optional. Two-Phase write confirm: set confirmed=true (or ja/yes/1) to execute POST/PATCH/PUT/DELETE. Without it, mutating calls return a confirmation ask."
+      }
+    }
+  },
+  "setup_args": {
+    "openproject_base_url": {
+      "type": "string",
+      "required": true,
+      "input": {
+        "type": "text",
+        "default": "http://web:8080",
+        "hint": "Interne OpenProject-API-Basis (im Docker-Netz, Port 8080)"
+      }
+    },
+    "openproject_token": {
+      "type": "string",
+      "required": true,
+      "input": {
+        "type": "password",
+        "hint": "OpenProject-API-Key (Basic apikey:<key>; aus Benutzerprofil)"
+      }
+    }
+  }
+}

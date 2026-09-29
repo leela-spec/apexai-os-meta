@@ -1,0 +1,11 @@
+{
+  "name": "@ki-basis/anythingllm-openproject-time-entries-skill",
+  "version": "0.1.0",
+  "private": true,
+  "description": "OpenProject Time Entries API",
+  "type": "commonjs",
+  "main": "handler.js",
+  "engines": {
+    "node": ">=20"
+  }
+}

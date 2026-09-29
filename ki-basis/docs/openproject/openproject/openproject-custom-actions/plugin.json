@@ -1,0 +1,51 @@
+{
+  "active": true,
+  "hubId": "openproject-custom-actions",
+  "name": "OpenProject Custom Actions",
+  "schema": "skill-1.0.0",
+  "version": "1.0.0",
+  "description": "OpenProject Custom Actions API",
+  "author": "ki-basis",
+  "license": "MIT",
+  "imported": true,
+  "entrypoint": {
+    "file": "handler.js",
+    "params": {
+      "operation": {
+        "type": "string",
+        "description": "One of: get|execute"
+      },
+      "id": {
+        "type": "integer",
+        "description": "The id of the custom action to fetch — integer (numeric string ok)"
+      },
+      "lockVersion": {
+        "type": "string",
+        "description": "Body field lockVersion (operations: execute)"
+      },
+      "confirmed": {
+        "type": "string",
+        "description": "Optional. Two-Phase write confirm: set confirmed=true (or ja/yes/1) to execute POST/PATCH/PUT/DELETE. Without it, mutating calls return a confirmation ask."
+      }
+    }
+  },
+  "setup_args": {
+    "openproject_base_url": {
+      "type": "string",
+      "required": true,
+      "input": {
+        "type": "text",
+        "default": "http://web:8080",
+        "hint": "Interne OpenProject-API-Basis (im Docker-Netz, Port 8080)"
+      }
+    },
+    "openproject_token": {
+      "type": "string",
+      "required": true,
+      "input": {
+        "type": "password",
+        "hint": "OpenProject-API-Key (Basic apikey:<key>; aus Benutzerprofil)"
+      }
+    }
+  }
+}

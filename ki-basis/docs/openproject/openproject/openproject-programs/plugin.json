@@ -1,0 +1,99 @@
+{
+  "active": true,
+  "hubId": "openproject-programs",
+  "name": "OpenProject Programs",
+  "schema": "skill-1.0.0",
+  "version": "1.0.0",
+  "description": "OpenProject Programs API",
+  "author": "ki-basis",
+  "license": "MIT",
+  "imported": true,
+  "entrypoint": {
+    "file": "handler.js",
+    "params": {
+      "operation": {
+        "type": "string",
+        "description": "One of: list|delete|get|update|update_form"
+      },
+      "filters": {
+        "type": "string",
+        "description": "JSON specifying filter conditions.\nAccepts the same format as returned by the [queries](https://www.openproject.org/docs/api/endpoints/queries/) endpoint.\nCurrently supported filters are:\n\n+ active: based on the active property of the program\n+ ancestor: filters programs by their ancestor. A program is not considered to be its own ancestor.\n+ available_project_attributes: filters programs based on the activated project attributes.\n+ created_at: based on the time the program was created\n+ favorited: based on the favorited property of the program\n+ id: based on programs' id.\n+ latest_activity_at: based on the time the last activity was registered on a program.\n+ name_and_identifier: based on both the name and the identifier.\n+ parent_id: filters programs by their parent.\n+ principal: based on members of the program.\n+ project_phase_any: based on the project phases active in a program.\n+ project_status_code: based on status code of the program\n+ storage_id: filters programs by linked storages\n+ storage_url: filters programs by linked storages identified by the host url\n+ type_id: based on the types active in a program.\n+ user_action: based on the actions the current user has in the program.\n+ visible: based on the visibility for the user (id) provided as the filter value. This filter is useful for admins to identify the programs visible to a user.\n\nThere might also be additional filters based on the custom fields that have been configured.\n\nEach defined lifecycle step will also define a filter in this list endpoint. Given that the elements are not\nstatic but rather dynamically created on each OpenProject instance, a list cannot be provided. Those filters follow the schema:\n+ project_start_gate_[id]: a filter on a project phase's start gate active in a program. The id is the id of the phase the gate belongs to.\n+ project_finish_gate_[id]: a filter on a project phase's finish gate active in a program. The id is the id of the phase the gate belongs to.\n+ project_phase_[id]: a filter on a project phase active in a program. The id is the id of the phase queried for. (operations: list)"
+      },
+      "sortBy": {
+        "type": "string",
+        "description": "JSON specifying sort criteria.\nCurrently supported orders are:\n\n+ id\n+ name\n+ typeahead (sorting by hierarchy and name)\n+ created_at\n+ public\n+ latest_activity_at\n+ required_disk_space\n\nThere might also be additional orders based on the custom fields that have been configured. (operations: list)"
+      },
+      "select": {
+        "type": "string",
+        "description": "Comma separated list of properties to include. (operations: list)"
+      },
+      "id": {
+        "type": "integer",
+        "description": "Program id — integer (numeric string ok) (operations: delete, get, update, update_form)"
+      },
+      "_type": {
+        "type": "string",
+        "description": "Body field _type — enum: Program (operations: update)"
+      },
+      "identifier": {
+        "type": "string",
+        "description": "Body field identifier (operations: update)"
+      },
+      "name": {
+        "type": "string",
+        "description": "Body field name (operations: update)"
+      },
+      "active": {
+        "type": "boolean",
+        "description": "Indicates whether the program is currently active or already archived (operations: update)"
+      },
+      "favorited": {
+        "type": "boolean",
+        "description": "Indicates whether the program is favorited by the current user (operations: update)"
+      },
+      "statusExplanation": {
+        "type": "string",
+        "description": "Body field statusExplanation (operations: update)"
+      },
+      "public": {
+        "type": "boolean",
+        "description": "Indicates whether the program is accessible for everybody (operations: update)"
+      },
+      "description": {
+        "type": "object",
+        "description": "{format: string, raw: string, html: string} (operations: update)"
+      },
+      "createdAt": {
+        "type": "string",
+        "description": "Time of creation. Can be writable by admins with the `apiv3_write_readonly_attributes` setting enabled. (operations: update)"
+      },
+      "updatedAt": {
+        "type": "string",
+        "description": "Time of the most recent change to the program (operations: update)"
+      },
+      "confirmed": {
+        "type": "string",
+        "description": "Optional. Two-Phase write confirm: set confirmed=true (or ja/yes/1) to execute POST/PATCH/PUT/DELETE. Without it, mutating calls return a confirmation ask."
+      }
+    }
+  },
+  "setup_args": {
+    "openproject_base_url": {
+      "type": "string",
+      "required": true,
+      "input": {
+        "type": "text",
+        "default": "http://web:8080",
+        "hint": "Interne OpenProject-API-Basis (im Docker-Netz, Port 8080)"
+      }
+    },
+    "openproject_token": {
+      "type": "string",
+      "required": true,
+      "input": {
+        "type": "password",
+        "hint": "OpenProject-API-Key (Basic apikey:<key>; aus Benutzerprofil)"
+      }
+    }
+  }
+}

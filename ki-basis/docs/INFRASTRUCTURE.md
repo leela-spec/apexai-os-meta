@@ -100,5 +100,5 @@ See §3.
 - **How it got here / verified topology + D-01…D-18:** `apex-meta/orchestration/architecture-improvements/03-wsl2-native-stack-consolidation/`.
 - **Close-out + T10 (Hermes drift) + this audit:** `apex-meta/orchestration/architecture-improvements/05-program-closeout/`.
 - **Runtime definitions (authoritative for services/volumes/networks):** the four `compose*.yaml` in §1.
-- **OpenProject 17.8 operations:** the `leela-op178` runbook (currently under `Leela-Cloud-2026/docs/ProjectMM/openproject/`; relocation tracked as R4).
+- **OpenProject 17.8 operations:** the `leela-op178` runbook at `ki-basis/docs/openproject/` (`RUNBOOK-openproject-17.8-operations.md`; the OpenProject infra cluster was moved here from the Leela repo 2026-09-29).
 - **Tests:** `…/05-program-closeout/tests/` (`infra-health-test.sh`, `doc-integrity-lint.sh`).

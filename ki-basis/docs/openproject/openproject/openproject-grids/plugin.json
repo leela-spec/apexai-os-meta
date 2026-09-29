@@ -1,0 +1,71 @@
+{
+  "active": true,
+  "hubId": "openproject-grids",
+  "name": "OpenProject Grids",
+  "schema": "skill-1.0.0",
+  "version": "1.0.0",
+  "description": "OpenProject Grids API",
+  "author": "ki-basis",
+  "license": "MIT",
+  "imported": true,
+  "entrypoint": {
+    "file": "handler.js",
+    "params": {
+      "operation": {
+        "type": "string",
+        "description": "One of: list|create|create_form|get|update|update_form"
+      },
+      "offset": {
+        "type": "integer",
+        "description": "Page number inside the requested collection. — integer (numeric string ok) (operations: list)"
+      },
+      "pageSize": {
+        "type": "integer",
+        "description": "Number of elements to display per page. — integer (numeric string ok) (operations: list)"
+      },
+      "filters": {
+        "type": "string",
+        "description": "JSON specifying filter conditions. Accepts the same format as returned by\nthe [queries](https://www.openproject.org/docs/api/endpoints/queries/) endpoint. Currently supported filters\nare:\n\n- page: Filter grid by work package (operations: list)"
+      },
+      "rowCount": {
+        "type": "integer",
+        "description": "The number of rows the grid has — integer >= 1 (numeric string ok) (operations: create, update)"
+      },
+      "columnCount": {
+        "type": "integer",
+        "description": "The number of columns the grid has — integer >= 1 (numeric string ok) (operations: create, update)"
+      },
+      "widgets": {
+        "type": "array",
+        "description": "The set of `GridWidget`s selected for the grid.\n\n# Conditions\n\n- The widgets must not overlap. (operations: create, update)"
+      },
+      "id": {
+        "type": "integer",
+        "description": "Grid id — integer (numeric string ok) (operations: get, update, update_form)"
+      },
+      "confirmed": {
+        "type": "string",
+        "description": "Optional. Two-Phase write confirm: set confirmed=true (or ja/yes/1) to execute POST/PATCH/PUT/DELETE. Without it, mutating calls return a confirmation ask."
+      }
+    }
+  },
+  "setup_args": {
+    "openproject_base_url": {
+      "type": "string",
+      "required": true,
+      "input": {
+        "type": "text",
+        "default": "http://web:8080",
+        "hint": "Interne OpenProject-API-Basis (im Docker-Netz, Port 8080)"
+      }
+    },
+    "openproject_token": {
+      "type": "string",
+      "required": true,
+      "input": {
+        "type": "password",
+        "hint": "OpenProject-API-Key (Basic apikey:<key>; aus Benutzerprofil)"
+      }
+    }
+  }
+}

@@ -1,0 +1,14 @@
+# candidate regression from agent_ops feedback 79bcc634-2ce3-4ddf-8a80-e68f969490c3
+# Owner reopened smoke → new for Slice C (wrong_assignment → correct OP hub)
+id: 79bcc634-2ce3-4ddf-8a80-e68f969490c3
+skill: openproject-work-packages.create
+status: approved
+source: agent_ops.feedback
+prompt: "Lege ein Arbeitspaket an im Projekt Demo"
+expect:
+  project_id: "1"
+  required_tools:
+    - openproject-work-packages:create
+  forbidden_hubs:
+    - firefly-accounts
+    - openproject-users

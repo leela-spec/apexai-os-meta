@@ -1,0 +1,71 @@
+{
+  "active": true,
+  "hubId": "openproject-relations",
+  "name": "OpenProject Relations",
+  "schema": "skill-1.0.0",
+  "version": "1.0.0",
+  "description": "OpenProject Relations API",
+  "author": "ki-basis",
+  "license": "MIT",
+  "imported": true,
+  "entrypoint": {
+    "file": "handler.js",
+    "params": {
+      "operation": {
+        "type": "string",
+        "description": "One of: list|delete|get|update|create"
+      },
+      "filters": {
+        "type": "string",
+        "description": "JSON specifying filter conditions. Accepts the same format as returned by\nthe [queries](https://www.openproject.org/docs/api/endpoints/queries/) endpoint. Valid fields to filter by are:\n\n- id - ID of relation\n- from - ID of work package from which the filtered relations emanates.\n- to - ID of work package to which this related points.\n- involved - ID of either the `from` or the `to` work package.\n- type - The type of relation to filter by, e.g. \"follows\". (operations: list)"
+      },
+      "sortBy": {
+        "type": "string",
+        "description": "JSON specifying sort criteria.\nAccepts the same format as returned by the [queries](https://www.openproject.org/docs/api/endpoints/queries/) endpoint. (operations: list)"
+      },
+      "id": {
+        "type": "integer",
+        "description": "The unique identifier of the relation resource — integer (numeric string ok) (operations: delete, get, update, create)"
+      },
+      "type": {
+        "type": "string",
+        "description": "The relation type. — enum: relates|duplicates|duplicated|blocks|blocked|precedes|follows|includes|partof|requires|required (operations: update, create)"
+      },
+      "description": {
+        "type": "string",
+        "description": "A descriptive text for the relation. (operations: update, create)"
+      },
+      "lag": {
+        "type": "integer",
+        "description": "The lag in days between closing of `from` and start of `to` — integer >= 0 (numeric string ok) (operations: update, create)"
+      },
+      "to_id": {
+        "description": "Target work package id for relation create (_links.to). Required for create.",
+        "type": "string"
+      },
+      "confirmed": {
+        "type": "string",
+        "description": "Optional. Two-Phase write confirm: set confirmed=true (or ja/yes/1) to execute POST/PATCH/PUT/DELETE. Without it, mutating calls return a confirmation ask."
+      }
+    }
+  },
+  "setup_args": {
+    "openproject_base_url": {
+      "type": "string",
+      "required": true,
+      "input": {
+        "type": "text",
+        "default": "http://web:8080",
+        "hint": "Interne OpenProject-API-Basis (im Docker-Netz, Port 8080)"
+      }
+    },
+    "openproject_token": {
+      "type": "string",
+      "required": true,
+      "input": {
+        "type": "password",
+        "hint": "OpenProject-API-Key (Basic apikey:<key>; aus Benutzerprofil)"
+      }
+    }
+  }
+}

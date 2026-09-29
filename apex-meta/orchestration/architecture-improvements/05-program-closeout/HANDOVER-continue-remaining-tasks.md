@@ -15,7 +15,7 @@ parent_plan: apex-meta/orchestration/architecture-improvements/05-program-closeo
 - **Buckets 0–2:** consolidation committed; doc-truth reconciled; infra soak green (T08/T09/T11); T10 inspected.
 - **Bucket 3 (pilot):** handovers reconciled (T12), 17.8 runbook (T17), cruft cleanup (T18). T13/T16 deferred; T14 cancelled (demos stay).
 - **Bucket 4 (T19):** browser keepalive done (05); Mastery taxonomy — `MoA-Content`/`MoA-Business`/`ApexAI-OS` created under `Leela & Mastery` id 4 (06); skill-standardization + agent-invocation proven (07/T15).
-- **Canonical agent-skill architecture:** one source `C:\GitDev\agent-skills\` (private GitHub `leela-spec/agent-skills`), linked into every agent's global dir; token at `~/.config/openproject/op.env`; client hardened (atomic config + host guard). Reasoning: `agent-skills/README.md`, `research/FINDINGS.md`, `research/LEARNINGS.md`, and `Leela-Cloud-2026/docs/ProjectMM/openproject/DECISION-2026-09-28-canonical-skill-architecture.md`.
+- **Canonical agent-skill architecture:** one source `C:\GitDev\agent-skills\` (private GitHub `leela-spec/agent-skills`), linked into every agent's global dir; token at `~/.config/openproject/op.env`; client hardened (atomic config + host guard). Reasoning: `agent-skills/README.md`, `research/FINDINGS.md`, `research/LEARNINGS.md`, and `ki-basis/docs/openproject/DECISION-2026-09-28-canonical-skill-architecture.md`.
 - **T15 done:** Codex (`axelg`), Claude (`AOG`), and Antigravity (`agy`) all autonomously invoke the canonical skill (live Prompt-A runs).
 
 ## Remaining items
@@ -29,7 +29,7 @@ parent_plan: apex-meta/orchestration/architecture-improvements/05-program-closeo
 
 ### R2 — Least-privilege OpenProject identity (T13) · gate: human-approval (admin + credential) · DEFERRED
 - Replace the admin API token with a dedicated non-admin, project-scoped user. Operator deferred 2026-09-28 (trusted agents, single-user local). Revisit when autonomy/exposure grows.
-- **Recipe + revisit triggers:** `Leela-Cloud-2026/docs/ProjectMM/openproject/FUTURE-DEVELOPMENT-least-privilege-agent-identity.md` (Item 1). The credential/account steps are operator-run.
+- **Recipe + revisit triggers:** `ki-basis/docs/openproject/FUTURE-DEVELOPMENT-least-privilege-agent-identity.md` (Item 1). The credential/account steps are operator-run.
 
 ### R3 — Write-autonomy policy (T16) · gate: operator-decision · DEFERRED
 - Decide which write classes agents may run without per-action `--confirmed`; promote `agent-skills/skills/openproject/references/write-policy.md` from provisional to accepted. Operator deferred 2026-09-28 (keep confirm-everything default).
@@ -50,5 +50,5 @@ parent_plan: apex-meta/orchestration/architecture-improvements/05-program-closeo
 
 ## Pointers
 - Master plan (statuses in place): `PLAN.md` (this bundle).
-- Pilot hub: `Leela-Cloud-2026/docs/ProjectMM/openproject/README.md`.
+- Pilot hub: `ki-basis/docs/openproject/README.md`.
 - Canonical skill: `C:\GitDev\agent-skills\README.md`.

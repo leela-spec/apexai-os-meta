@@ -1,0 +1,11 @@
+{
+  "name": "@ki-basis/anythingllm-openproject-categories-skill",
+  "version": "0.1.0",
+  "private": true,
+  "description": "OpenProject Categories API",
+  "type": "commonjs",
+  "main": "handler.js",
+  "engines": {
+    "node": ">=20"
+  }
+}

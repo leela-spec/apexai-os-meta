@@ -15,7 +15,7 @@ implementation_authority: research-and-recommend (no infra/data changes without 
 > (was `Leela-Cloud-2026\.agents\skills\openproject\` — path references below are historical), linked into
 > each agent's user-global dir; token at `~/.config/openproject/op.env`; client hardened (atomic config +
 > host guard). Reasoning/research: `agent-skills/README.md`, `agent-skills/research/FINDINGS.md` +
-> `LEARNINGS.md`, and `Leela-Cloud-2026/docs/ProjectMM/openproject/DECISION-2026-09-28-canonical-skill-architecture.md`.
+> `LEARNINGS.md`, and `ki-basis/docs/openproject/DECISION-2026-09-28-canonical-skill-architecture.md`.
 > Still open from this brief: WSL drag quantification and multi-repo access proof (the 5-account test, T07).
 
 ## 0. Your role

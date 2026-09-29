@@ -1,0 +1,107 @@
+{
+  "active": true,
+  "hubId": "openproject-queries",
+  "name": "OpenProject Queries",
+  "schema": "skill-1.0.0",
+  "version": "1.0.0",
+  "description": "OpenProject Queries API",
+  "author": "ki-basis",
+  "license": "MIT",
+  "imported": true,
+  "entrypoint": {
+    "file": "handler.js",
+    "params": {
+      "operation": {
+        "type": "string",
+        "description": "One of: get_default_for_project|get_schema_for_project|list|create|available_projects_for|get_default|create_form|get_schema_for_global|delete|get|edit|update_form|star|unstar|get_schema_for_workspace|get_default_for_workspace"
+      },
+      "id": {
+        "type": "integer",
+        "description": "Id of the project the default query is requested for — integer (numeric string ok) (operations: get_default_for_project, get_schema_for_project, delete, get, edit, update_form, star, unstar, get_schema_for_workspace, get_default_for_workspace)"
+      },
+      "filters": {
+        "type": "string",
+        "description": "JSON specifying filter conditions.\nThe filters provided as parameters are not applied to the query but are instead used to override the query's persisted filters.\nAll filters also accepted by the work packages endpoint are accepted. If no filter is to be applied, the client should send an empty array (`[]`). (operations: get_default_for_project, list, get_default, get, get_default_for_workspace)"
+      },
+      "offset": {
+        "type": "integer",
+        "description": "Page number inside the queries' result collection of work packages. — integer (numeric string ok) (operations: get_default_for_project, get_default, get, get_default_for_workspace)"
+      },
+      "pageSize": {
+        "type": "integer",
+        "description": "Number of elements to display per page for the queries' result collection of work packages. — integer (numeric string ok) (operations: get_default_for_project, get_default, get, get_default_for_workspace)"
+      },
+      "sortBy": {
+        "type": "string",
+        "description": "JSON specifying sort criteria. The sort criteria is applied to the query's result collection of work packages overriding the query's persisted sort criteria. (operations: get_default_for_project, get_default, get, get_default_for_workspace)"
+      },
+      "groupBy": {
+        "type": "string",
+        "description": "The column to group by. The grouping criteria is applied to the to the query's result collection of work packages overriding the query's persisted group criteria. (operations: get_default_for_project, get_default, get, get_default_for_workspace)"
+      },
+      "showSums": {
+        "type": "boolean",
+        "description": "Indicates whether properties should be summed up if they support it. The showSums parameter is applied to the to the query's result collection of work packages overriding the query's persisted sums property. (operations: get_default_for_project, get_default, get, get_default_for_workspace)"
+      },
+      "timestamps": {
+        "type": "string",
+        "description": "Indicates the timestamps to filter by when showing changed attributes on work packages. Values can be either ISO8601 dates, ISO8601 durations and the following relative date keywords: \"oneDayAgo@HH:MM+HH:MM\", \"lastWorkingDay@HH:MM+HH:MM\", \"oneWeekAgo@HH:MM+HH:MM\", \"oneMonthAgo@HH:MM+HH:MM\". The first \"HH:MM\" part represents the zero paded hours and minutes. The last \"+HH:MM\" part represents the timezone offset from UTC associated with the time. Values older than 1 day are accepted only with valid Enterprise Token available.\n (operations: get_default_for_project, get_default, get, get_default_for_workspace)"
+      },
+      "timelineVisible": {
+        "type": "boolean",
+        "description": "Indicates whether the timeline should be shown. (operations: get_default_for_project, get_default, get, get_default_for_workspace)"
+      },
+      "showHierarchies": {
+        "type": "boolean",
+        "description": "Indicates whether the hierarchy mode should be enabled. (operations: get_default_for_project, get_default, get, get_default_for_workspace)"
+      },
+      "name": {
+        "type": "string",
+        "description": "Query name. (operations: create, create_form, edit, update_form)"
+      },
+      "timelineZoomLevel": {
+        "type": "string",
+        "description": "Indicates in what zoom level the timeline should be shown. Valid values are  `days`, `weeks`, `months`, `quarters`, and `years`. (operations: get_default)"
+      },
+      "columns": {
+        "type": "string",
+        "description": "Selected columns for the table view. (operations: get)"
+      },
+      "timelineLabels": {
+        "type": "string",
+        "description": "Overridden labels in the timeline view (operations: get)"
+      },
+      "highlightingMode": {
+        "type": "string",
+        "description": "Highlighting mode for the table view. (operations: get)"
+      },
+      "highlightedAttributes": {
+        "type": "string",
+        "description": "Highlighted attributes mode for the table view when `highlightingMode` is `inline`. When set to `[]` all highlightable attributes will be returned as `highlightedAttributes`. (operations: get)"
+      },
+      "confirmed": {
+        "type": "string",
+        "description": "Optional. Two-Phase write confirm: set confirmed=true (or ja/yes/1) to execute POST/PATCH/PUT/DELETE. Without it, mutating calls return a confirmation ask."
+      }
+    }
+  },
+  "setup_args": {
+    "openproject_base_url": {
+      "type": "string",
+      "required": true,
+      "input": {
+        "type": "text",
+        "default": "http://web:8080",
+        "hint": "Interne OpenProject-API-Basis (im Docker-Netz, Port 8080)"
+      }
+    },
+    "openproject_token": {
+      "type": "string",
+      "required": true,
+      "input": {
+        "type": "password",
+        "hint": "OpenProject-API-Key (Basic apikey:<key>; aus Benutzerprofil)"
+      }
+    }
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "active": true,
+  "hubId": "openproject-work-schedule",
+  "name": "OpenProject Work Schedule",
+  "schema": "skill-1.0.0",
+  "version": "1.0.0",
+  "description": "OpenProject Work Schedule API",
+  "author": "ki-basis",
+  "license": "MIT",
+  "imported": true,
+  "entrypoint": {
+    "file": "handler.js",
+    "params": {
+      "operation": {
+        "type": "string",
+        "description": "One of: list_days|list_non_working_days|create_non_working_day|delete_non_working_day|get_non_working_day|update_non_working_day|list_week_days|update_week_days|get_week_day|update_week_day|get_day"
+      },
+      "filters": {
+        "type": "string",
+        "description": "JSON specifying filter conditions.\n\nAccepts the same format as returned by the [queries](https://www.openproject.org/docs/api/endpoints/queries/)\nendpoint. Currently supported filters are:\n\n+ date: the inclusive date interval to scope days to look up. When\n  unspecified, default is from the beginning of current month to the end\n  of following month.\n\n  Example: `{ \"date\": { \"operator\": \"<>d\", \"values\": [\"2022-05-02\",\"2022-05-26\"] } }`\n  would return days between May 5 and May 26 2022, inclusive.\n\n+ working: when `true`, returns only the working days. When `false`,\n  returns only the non-working days (weekend days and non-working days).\n  When unspecified, returns both working and non-working days.\n\n  Example: `{ \"working\": { \"operator\": \"=\", \"values\": [\"t\"] } }`\n  would exclude non-working days from the response. (operations: list_days, list_non_working_days)"
+      },
+      "_type": {
+        "type": "string",
+        "description": "Body field _type — enum: NonWorkingDay (operations: create_non_working_day, update_non_working_day, update_week_days, update_week_day)"
+      },
+      "date": {
+        "type": "string",
+        "description": "Date of the non-working day. (operations: create_non_working_day, delete_non_working_day, get_non_working_day, update_non_working_day, get_day)"
+      },
+      "name": {
+        "type": "string",
+        "description": "Descriptive name for the non-working day. (operations: create_non_working_day, update_non_working_day)"
+      },
+      "_embedded": {
+        "type": "object",
+        "description": "{elements: array} (operations: update_week_days)"
+      },
+      "day": {
+        "type": "integer",
+        "description": "The week day from 1 to 7. 1 is Monday. 7 is Sunday. — integer >= 1 (numeric string ok) (operations: get_week_day, update_week_day)"
+      },
+      "working": {
+        "type": "boolean",
+        "description": "`true` for a working day. `false` for a weekend day. (operations: update_week_day)"
+      },
+      "confirmed": {
+        "type": "string",
+        "description": "Optional. Two-Phase write confirm: set confirmed=true (or ja/yes/1) to execute POST/PATCH/PUT/DELETE. Without it, mutating calls return a confirmation ask."
+      }
+    }
+  },
+  "setup_args": {
+    "openproject_base_url": {
+      "type": "string",
+      "required": true,
+      "input": {
+        "type": "text",
+        "default": "http://web:8080",
+        "hint": "Interne OpenProject-API-Basis (im Docker-Netz, Port 8080)"
+      }
+    },
+    "openproject_token": {
+      "type": "string",
+      "required": true,
+      "input": {
+        "type": "password",
+        "hint": "OpenProject-API-Key (Basic apikey:<key>; aus Benutzerprofil)"
+      }
+    }
+  }
+}
