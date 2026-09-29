@@ -1,5 +1,7 @@
 # Bot Wiring & Persona Handover: LikasKinkyBot (@LikasSlave_bot)
 
+> ⚠️ **Community-scoped; canonical copy lives in the `lika-community` repo.** Documents the community stack (project `community`, ports 908x), NOT the private ki-basis stack. Infra index: `ki-basis/docs/INFRASTRUCTURE.md`.
+
 This document provides a comprehensive handover of the configuration, prompt engineering, container wiring, and troubleshooting steps for the **Lika Community Operations Stack** (`ki-basis-community`, Port Band 908x).
 
 ---

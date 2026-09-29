@@ -1,5 +1,7 @@
 # ki-basis Finalization Program — START HERE
 
+> ⛔ **SUPERSEDED HISTORY (pre-2026-09-26).** Pre-consolidation implementation/acceptance artifact (Docker Desktop era). Kept for provenance only. Current infrastructure: `ki-basis/docs/INFRASTRUCTURE.md` (+ `DUAL_INSTANCE_ARCHITECTURE.md` §6 / ADR-002).
+
 **Date:** 2026-09-03  
 **Repository:** `C:\GitDev\apexai-os-meta`  
 **Branch:** `main`  

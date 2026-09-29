@@ -1,5 +1,7 @@
 ﻿# Full Docker Stack (`ki-basis`) — Target Acceptance Report [DOCKER DESKTOP]
 
+> ⛔ **SUPERSEDED HISTORY (pre-2026-09-26).** Pre-consolidation implementation/acceptance artifact (Docker Desktop era). Kept for provenance only. Current infrastructure: `ki-basis/docs/INFRASTRUCTURE.md` (+ `DUAL_INSTANCE_ARCHITECTURE.md` §6 / ADR-002).
+
 **Date**: 2026-09-02  
 **Target Host**: Windows 11 Pro (Host Engine: Docker Desktop Linux VM / Hyper-V backend)  
 **Target Docker Engine ID**: `e9c8ec3c-5306-43e3-8b37-a0803aa830d2`  

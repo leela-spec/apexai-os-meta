@@ -1,5 +1,7 @@
 # Architectural Specification & Evaluation: ki-basis Dual-Instance Separation Architecture
 
+> ⛔ **Model partly SUPERSEDED — read §6 (ADR-002) first.** The body's R2 "airtight isolation / zero shared DBs" + two-engine framing were reversed 2026-09-26: ONE WSL2-native engine + ONE shared PostgreSQL. This is a hand-synced MIRROR (canonical = `ki-basis/docs/DUAL_INSTANCE_ARCHITECTURE.md`). Current-state: `ki-basis/docs/INFRASTRUCTURE.md`.
+
 **Document Version:** 1.1.0  
 **Date:** 2026-09-07 (amended 2026-09-26, see ADR-002)  
 **Status:** APPROVED / IMPLEMENTED — amended by ADR-002 (§6)  

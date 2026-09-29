@@ -2,7 +2,7 @@
 status: superseded
 superseded_on: 2026-09-26
 superseded_scope: engine/DB architecture & topology
-current: "ki-basis/docs/DUAL_INSTANCE_ARCHITECTURE.md §6 (ADR-002)"
+current: "ki-basis/docs/INFRASTRUCTURE.md (current-state) + ki-basis/docs/DUAL_INSTANCE_ARCHITECTURE.md §6 (ADR-002)"
 current_bundle: apex-meta/orchestration/architecture-improvements/03-wsl2-native-stack-consolidation/
 ---
 

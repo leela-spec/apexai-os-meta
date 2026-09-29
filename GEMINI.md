@@ -1,5 +1,7 @@
 # Codex Operating Note
 
+> **📍 Current infrastructure:** `ki-basis/docs/INFRASTRUCTURE.md` (single source of truth) + `ki-basis/docs/DUAL_INSTANCE_ARCHITECTURE.md` §6 (ADR-002). Do not ground architecture in older docs.
+
 ## Git Dispatch
 - Trigger: A request to push known files starts with the Git commands, not repository analysis.
 - Sequence: Run `git add -- <requested paths>`, `git commit`, and `git push`.
