@@ -18,6 +18,8 @@ scope: "apexai-os-meta only. EXCLUDED: source-knowledge/, apex-meta/kb/, ApexDef
 their provenance stays findable. These plans are **kept, not deleted**. For what is true *now*, read
 [`ki-basis/docs/INFRASTRUCTURE.md`](../INFRASTRUCTURE.md) (+ `DUAL_INSTANCE_ARCHITECTURE.md` §6 / ADR-002).
 
+**Companion:** [`REBUILD-AND-FAILURE-HISTORY.md`](REBUILD-AND-FAILURE-HISTORY.md) — the ranked, truthful failure/rebuild history (why we rebuilt for ~2 months) and the install-script requirements it implies.
+
 **How to read it.** All paths are **relative to the repo root** (`C:\GitDev\apexai-os-meta\`). Status legend:
 
 | Status | Meaning |
