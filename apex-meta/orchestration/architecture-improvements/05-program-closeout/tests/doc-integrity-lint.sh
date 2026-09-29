@@ -57,12 +57,12 @@ for f in "$CAN" "$M1" "$M2"; do
 done
 echo "  (canonical differing from the two mirrors = drift; two mirrors equal each other = they were synced to each other only)"
 
-hr "D. Known broken cross-repo pointer"
-BR="$LEELA/docs/ProjectMM/openproject/openproject-cli-agent-handover/openproject-cli-agent-handover.md"
+hr "D. Cross-repo pointer in the moved handover (should be FIXED)"
+BR="$APEX/ki-basis/docs/openproject/openproject-cli-agent-handover/openproject-cli-agent-handover.md"
 if [ -f "$BR" ]; then
   if grep -q "apexai-os-meta/docs/DUAL_INSTANCE_ARCHITECTURE.md" "$BR" 2>/dev/null; then
     echo "  [BROKEN] $BR references .../docs/DUAL_INSTANCE_ARCHITECTURE.md (real path is .../ki-basis/docs/...)"
-  else echo "  [ok] broken pointer not present (already fixed?)"; fi
+  else echo "  [ok] pointer fixed (references ki-basis/docs/... or absent)"; fi
 else echo "  (file not found: $BR)"; fi
 
 echo; echo "done."
