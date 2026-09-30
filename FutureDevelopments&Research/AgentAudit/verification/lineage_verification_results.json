@@ -1,0 +1,218 @@
+{
+  "empty_states": {
+    "managed\\agent_kb\\alfred\\BEST_PRACTICES.md": {
+      "exists": true,
+      "size_bytes": 509,
+      "line_count": 31,
+      "has_EMPTY_STATE": true,
+      "empty_state_snippets": [
+        "- EMPTY_STATE: no accepted Alfred practices have been promoted yet."
+      ]
+    },
+    "managed\\agent_kb\\alfred\\MISTAKES.md": {
+      "exists": true,
+      "size_bytes": 556,
+      "line_count": 32,
+      "has_EMPTY_STATE": true,
+      "empty_state_snippets": [
+        "- EMPTY_STATE: no accepted Alfred mistake patterns have been promoted yet."
+      ]
+    },
+    "managed\\agent_kb\\alfred\\TEMPLATES.md": {
+      "exists": true,
+      "size_bytes": 507,
+      "line_count": 31,
+      "has_EMPTY_STATE": true,
+      "empty_state_snippets": [
+        "- EMPTY_STATE: no accepted Alfred templates have been promoted yet."
+      ]
+    },
+    "managed\\agent_kb\\alfred\\LEARNING_QUEUE.md": {
+      "exists": true,
+      "size_bytes": 1027,
+      "line_count": 45,
+      "has_EMPTY_STATE": true,
+      "empty_state_snippets": [
+        "- EMPTY_STATE: no pending Alfred learning entries."
+      ]
+    },
+    "managed\\agent_kb\\meta_ops\\BEST_PRACTICES.md": {
+      "exists": true,
+      "size_bytes": 521,
+      "line_count": 31,
+      "has_EMPTY_STATE": true,
+      "empty_state_snippets": [
+        "- EMPTY_STATE: no accepted Meta Ops practices have been promoted yet."
+      ]
+    },
+    "managed\\agent_kb\\meta_ops\\MISTAKES.md": {
+      "exists": true,
+      "size_bytes": 568,
+      "line_count": 32,
+      "has_EMPTY_STATE": true,
+      "empty_state_snippets": [
+        "- EMPTY_STATE: no accepted Meta Ops mistake patterns have been promoted yet."
+      ]
+    },
+    "managed\\agent_kb\\meta_ops\\TEMPLATES.md": {
+      "exists": true,
+      "size_bytes": 519,
+      "line_count": 31,
+      "has_EMPTY_STATE": true,
+      "empty_state_snippets": [
+        "- EMPTY_STATE: no accepted Meta Ops templates have been promoted yet."
+      ]
+    },
+    "managed\\agent_kb\\meta_ops\\LEARNING_QUEUE.md": {
+      "exists": true,
+      "size_bytes": 1004,
+      "line_count": 44,
+      "has_EMPTY_STATE": true,
+      "empty_state_snippets": [
+        "- EMPTY_STATE: no pending Meta Ops learning entries."
+      ]
+    },
+    "managed\\agent_kb\\meta_strategy\\BEST_PRACTICES.md": {
+      "exists": true,
+      "size_bytes": 536,
+      "line_count": 31,
+      "has_EMPTY_STATE": true,
+      "empty_state_snippets": [
+        "- EMPTY_STATE: no accepted Meta Strategy practices have been promoted yet."
+      ]
+    },
+    "managed\\agent_kb\\meta_strategy\\MISTAKES.md": {
+      "exists": true,
+      "size_bytes": 583,
+      "line_count": 32,
+      "has_EMPTY_STATE": true,
+      "empty_state_snippets": [
+        "- EMPTY_STATE: no accepted Meta Strategy mistake patterns have been promoted yet."
+      ]
+    },
+    "managed\\agent_kb\\meta_strategy\\TEMPLATES.md": {
+      "exists": true,
+      "size_bytes": 534,
+      "line_count": 31,
+      "has_EMPTY_STATE": true,
+      "empty_state_snippets": [
+        "- EMPTY_STATE: no accepted Meta Strategy templates have been promoted yet."
+      ]
+    },
+    "managed\\agent_kb\\meta_strategy\\LEARNING_QUEUE.md": {
+      "exists": true,
+      "size_bytes": 1024,
+      "line_count": 44,
+      "has_EMPTY_STATE": true,
+      "empty_state_snippets": [
+        "- EMPTY_STATE: no pending Meta Strategy learning entries."
+      ]
+    },
+    "managed\\agent_kb\\meta_detective\\BEST_PRACTICES.md": {
+      "exists": true,
+      "size_bytes": 14472,
+      "line_count": 356,
+      "has_EMPTY_STATE": false,
+      "empty_state_snippets": []
+    },
+    "managed\\agent_kb\\meta_detective\\MISTAKES.md": {
+      "exists": true,
+      "size_bytes": 10997,
+      "line_count": 295,
+      "has_EMPTY_STATE": false,
+      "empty_state_snippets": []
+    },
+    "managed\\agent_kb\\meta_detective\\TEMPLATES.md": {
+      "exists": true,
+      "size_bytes": 10113,
+      "line_count": 334,
+      "has_EMPTY_STATE": false,
+      "empty_state_snippets": []
+    }
+  },
+  "assets": {
+    "asset_1_2Do_context_file_authority": {
+      "exists_legacy": true,
+      "path_legacy": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\Previous_OpenClaw\\07_finalopenclawsystem\\managed\\agent_kb\\special_ops__ai_handling_routing\\2Do_context_file_authority_reference.md",
+      "size_bytes": 17480,
+      "lines": 391,
+      "exists_in_modern_AIRouting_references": false,
+      "has_directive_ceilings": true,
+      "has_500_token_rule": true,
+      "has_modal_verb_ban": true,
+      "has_MVT": true,
+      "has_file_taxonomy": true
+    },
+    "asset_2_DecisionMakingProcessReseearch": {
+      "exists_legacy": true,
+      "exists_repo": true,
+      "size_legacy": 5442,
+      "size_repo": 5538,
+      "lines": 97,
+      "has_first_principles": true,
+      "has_cynefin": true,
+      "has_wrap": true,
+      "has_aoa": true,
+      "has_ooda": true,
+      "referenced_in_meta_strategy_contract": false
+    },
+    "asset_3_FAILURE_AND_ANTI_DRIFT_LEDGER": {
+      "exists_legacy": true,
+      "exists_repo": false,
+      "size_bytes": 116262,
+      "lines": 201,
+      "kb_entry_count": 195,
+      "unique_kb_entries": 195,
+      "has_safeguards_column": true,
+      "has_validator_column": true,
+      "has_score_column": true
+    },
+    "asset_4_preimage_and_patch_transport": {
+      "exists_4a": true,
+      "size_4a": 19884,
+      "lines_4a": 465,
+      "exists_4b": true,
+      "size_4b": 21936,
+      "lines_4b": 373,
+      "has_deterministic_storage_concept": true,
+      "has_probabilistic_construction_concept": true,
+      "has_5_way_chooser": true
+    },
+    "asset_5_AGENT_PATCH_CONTRACT": {
+      "exists": true,
+      "size_bytes": 12063,
+      "lines": 380,
+      "has_blocker_prevention_rules": true,
+      "has_v2_workaround_ban": true,
+      "has_single_halt_line": true,
+      "has_task_naming_pattern": true,
+      "has_fence_ban": true
+    },
+    "asset_6_qa_and_escalation": {
+      "exists_6a": true,
+      "size_6a": 15103,
+      "lines_6a": 424,
+      "exists_6b": true,
+      "size_6b": 11788,
+      "lines_6b": 259,
+      "has_p0_p3": true,
+      "finding_classes_found": 7,
+      "finding_classes_total": 8,
+      "has_e0_e3": true
+    }
+  },
+  "core_compression": {
+    "core_size_bytes": 9581,
+    "core_lines": 137,
+    "bp_size_bytes": 14828,
+    "mis_size_bytes": 11292,
+    "tpl_size_bytes": 10447,
+    "bp_count_in_full_file": 10,
+    "mis_count_in_full_file": 10,
+    "tpl_count_in_full_file": 8,
+    "tpl_003_in_core": true,
+    "tpl_004_in_core": false,
+    "tpl_005_in_core": false,
+    "manifest_read_only_core_rule": false
+  }
+}
