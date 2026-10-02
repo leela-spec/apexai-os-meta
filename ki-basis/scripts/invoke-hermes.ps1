@@ -8,7 +8,11 @@
 .PARAMETER HermesUrl
     Explicit Hermes Gateway base URL (e.g. http://127.0.0.1:8642). Overrides -Instance.
 .PARAMETER ApiKey
-    Explicit Hermes API key. Overrides environment file.
+    Explicit Hermes API key. Overrides the live lookup and environment file.
+    Key resolution order: -ApiKey > live value read from the running instance's own
+    API_SERVER_KEY (authoritative — Hermes loads its own .env with override=True at
+    runtime, see hermes-agent issue #19201) > env:HERMES_API_SERVER_KEY > the static
+    ki-basis\.env.<instance> copy (can drift from the live value; last resort).
 .PARAMETER RepoRoot
     Root directory of the repository.
 .PARAMETER Model
@@ -61,7 +65,30 @@ function Get-DotEnvValue([string]$Path, [string]$Name) {
     return $value
 }
 
+function Get-LiveApiServerKey([string]$Instance) {
+    # Hermes loads its own persisted .env with override=True at runtime, so that file
+    # (not the container environment, not ki-basis\.env.<instance>) is the authoritative
+    # value. Private is a bind mount (readable straight from the WSL host); community is
+    # a named volume (read via docker exec). Returns $null on any failure so callers fall
+    # back to the older resolution chain instead of hard-failing.
+    try {
+        if ($Instance -eq "private") {
+            $raw = wsl -d Ubuntu -u root -- bash -c "grep -oP '^API_SERVER_KEY=\K.*' /root/.hermes/.env" 2>$null
+        } else {
+            $raw = wsl -d Ubuntu -u root -- docker exec community-hermes bash -c "grep -oP '^API_SERVER_KEY=\K.*' /opt/data/.env" 2>$null
+        }
+        $raw = ($raw | Select-Object -Last 1)
+        if ([string]::IsNullOrWhiteSpace($raw)) { return $null }
+        return $raw.Trim()
+    } catch {
+        return $null
+    }
+}
+
 $key = $ApiKey
+if ([string]::IsNullOrWhiteSpace($key)) {
+    $key = Get-LiveApiServerKey -Instance $Instance
+}
 if ([string]::IsNullOrWhiteSpace($key)) {
     $key = $env:HERMES_API_SERVER_KEY
 }
@@ -69,7 +96,7 @@ if ([string]::IsNullOrWhiteSpace($key) -and $envFile) {
     $key = Get-DotEnvValue -Path $envFile -Name "HERMES_API_SERVER_KEY"
 }
 if ([string]::IsNullOrWhiteSpace($key)) {
-    throw "HERMES_API_SERVER_KEY could not be resolved from -ApiKey, env:HERMES_API_SERVER_KEY, or $instanceEnvFile"
+    throw "API server key could not be resolved from -ApiKey, the live instance's own .env, env:HERMES_API_SERVER_KEY, or $instanceEnvFile"
 }
 
 $headers = @{

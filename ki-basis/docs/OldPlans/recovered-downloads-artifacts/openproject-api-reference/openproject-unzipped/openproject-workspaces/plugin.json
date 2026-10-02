@@ -1,0 +1,59 @@
+{
+  "active": true,
+  "hubId": "openproject-workspaces",
+  "name": "OpenProject Workspaces",
+  "schema": "skill-1.0.0",
+  "version": "1.0.0",
+  "description": "OpenProject Workspaces API",
+  "author": "ki-basis",
+  "license": "MIT",
+  "imported": true,
+  "entrypoint": {
+    "file": "handler.js",
+    "params": {
+      "operation": {
+        "type": "string",
+        "description": "One of: list|get_schema|unfavorite|favorite"
+      },
+      "filters": {
+        "type": "string",
+        "description": "JSON specifying filter conditions.\nAccepts the same format as returned by the [queries](https://www.openproject.org/docs/api/endpoints/queries/) endpoint.\nCurrently supported filters are:\n\n+ active: based on the active property of the workspace\n+ ancestor: filters workspace by their ancestor. A workspace is not considered to be its own ancestor.\n+ available_project_attributes: filters workspace based on the activated project attributes.\n+ created_at: based on the time the workspace was created\n+ favorited: based on the favorited property of the workspace\n+ id: based on workspace' id.\n+ latest_activity_at: based on the time the last activity was registered on a workspace.\n+ name_and_identifier: based on both the name and the identifier.\n+ parent_id: filters workspace by their parent.\n+ principal: based on members of the workspace.\n+ project_phase_any: based on the project phases active in a workspace.\n+ project_status_code: based on status code of the workspace\n+ storage_id: filters workspace by linked storages\n+ storage_url: filters workspace by linked storages identified by the host url\n+ type_id: based on the types active in a workspace.\n+ user_action: based on the actions the current user has in the workspace.\n+ visible: based on the visibility for the user (id) provided as the filter value. This filter is useful for admins to identify the workspace visible to a user.\n\nThere might also be additional filters based on the custom fields that have been configured.\n\nEach defined lifecycle step will also define a filter in this list endpoint. Given that the elements are not\nstatic but rather dynamically created on each OpenProject instance, a list cannot be provided. Those filters follow the schema:\n+ project_start_gate_[id]: a filter on a project phase's start gate active in a workspace. The id is the id of the phase the gate belongs to.\n+ project_finish_gate_[id]: a filter on a project phase's finish gate active in a workspace. The id is the id of the phase the gate belongs to.\n+ project_phase_[id]: a filter on a project phase active in a workspace. The id is the id of the phase queried for. (operations: list)"
+      },
+      "sortBy": {
+        "type": "string",
+        "description": "JSON specifying sort criteria.\nCurrently supported orders are:\n\n+ id\n+ name\n+ typeahead (sorting by hierarchy and name)\n+ created_at\n+ public\n+ latest_activity_at\n+ required_disk_space\n\nThere might also be additional orders based on the custom fields that have been configured. (operations: list)"
+      },
+      "select": {
+        "type": "string",
+        "description": "Comma separated list of properties to include. (operations: list)"
+      },
+      "id": {
+        "type": "integer",
+        "description": "Workspace id — integer (numeric string ok) (operations: unfavorite, favorite)"
+      },
+      "confirmed": {
+        "type": "string",
+        "description": "Optional. Two-Phase write confirm: set confirmed=true (or ja/yes/1) to execute POST/PATCH/PUT/DELETE. Without it, mutating calls return a confirmation ask."
+      }
+    }
+  },
+  "setup_args": {
+    "openproject_base_url": {
+      "type": "string",
+      "required": true,
+      "input": {
+        "type": "text",
+        "default": "http://web:8080",
+        "hint": "Interne OpenProject-API-Basis (im Docker-Netz, Port 8080)"
+      }
+    },
+    "openproject_token": {
+      "type": "string",
+      "required": true,
+      "input": {
+        "type": "password",
+        "hint": "OpenProject-API-Key (Basic apikey:<key>; aus Benutzerprofil)"
+      }
+    }
+  }
+}

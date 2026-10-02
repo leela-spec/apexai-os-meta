@@ -1,0 +1,83 @@
+{
+  "active": true,
+  "hubId": "openproject-memberships",
+  "name": "OpenProject Memberships",
+  "schema": "skill-1.0.0",
+  "version": "1.0.0",
+  "description": "OpenProject Memberships API",
+  "author": "ki-basis",
+  "license": "MIT",
+  "imported": true,
+  "entrypoint": {
+    "file": "handler.js",
+    "params": {
+      "operation": {
+        "type": "string",
+        "description": "One of: list|create|get_available_projects|form_create|get_schema|delete|get|update|form_update"
+      },
+      "project": {
+        "type": "string",
+        "description": "Project id (or /api/v3/projects/{id} href). Alias of project_id. Maps to _links.project. Required for create|form_create (v1)."
+      },
+      "project_id": {
+        "type": "string",
+        "description": "Project id. Alias of project. Maps to _links.project href /api/v3/projects/{id}. Required for create|form_create (v1)."
+      },
+      "principal": {
+        "type": "string",
+        "description": "User/principal id (or /api/v3/users/{id} href). Aliases: user_id, principal_id. Maps to _links.principal. Required for create|form_create (v1; users only)."
+      },
+      "user_id": {
+        "type": "string",
+        "description": "User id. Alias of principal. Maps to _links.principal href /api/v3/users/{id}."
+      },
+      "principal_id": {
+        "type": "string",
+        "description": "Principal id. Alias of principal. Maps to _links.principal href /api/v3/users/{id}."
+      },
+      "roles": {
+        "type": "string",
+        "description": "Role id(s) for the membership. Accepts array, comma-separated list, or JSON string of ids (e.g. [4] or \"4\" or \"6\"). Maps to _links.roles = [{href: /api/v3/roles/{id}}, …]. Default Member role id is 4; Project admin is typically 6. Required for create|form_create; optional for update|form_update (when present, replaces membership roles)."
+      },
+      "filters": {
+        "type": "string",
+        "description": "JSON specifying filter conditions.\nAccepts the same format as returned by the [queries](https://www.openproject.org/docs/api/endpoints/queries/)\nendpoint. Currently supported filters are:\n\n+ any_name_attribute: filters memberships based on the name of the principal. All possible name variants\n  (and also email and login) are searched.\n+ blocked: reduces the result set to all memberships that are temporarily blocked or that are not blocked\n  temporarily.\n+ group: filters memberships based on the name of a group. The group however is not the principal used for\n  filtering. Rather, the memberships of the group are used as the filter values.\n+ name: filters memberships based on the name of the principal. Note that only the name is used which depends\n  on a setting in the OpenProject instance.\n+ principal: filters memberships based on the id of the principal.\n+ project: filters memberships based on the id of the project.\n+ role: filters memberships based on the id of any role assigned to the membership.\n+ status: filters memberships based on the status of the principal.\n+ created_at: filters memberships based on the time the membership was created.\n+ updated_at: filters memberships based on the time the membership was updated last. (operations: list)"
+      },
+      "sortBy": {
+        "type": "string",
+        "description": "JSON specifying sort criteria.\nAccepts the same format as returned by the [queries](https://www.openproject.org/docs/api/endpoints/queries/)\nendpoint. Currently supported sorts are:\n\n+ id: Sort by primary key\n+ name: Sort by the name of the principal. Note that this depends on the setting for how the name is to be\n  displayed at least for users.\n+ email: Sort by the email address of the principal. Groups and principal users, which do not have an email,\n  are sorted last.\n+ status: Sort by the status of the principal. Groups and principal users, which do not have a status, are\n  sorted together with the active users.\n+ created_at: Sort by membership creation datetime\n+ updated_at: Sort by the time the membership was updated last (operations: list)"
+      },
+      "_meta": {
+        "type": "object",
+        "description": "{notificationMessage: any, sendNotification: boolean} (operations: create, form_create, update, form_update)"
+      },
+      "id": {
+        "type": "integer",
+        "description": "Membership id — integer (numeric string ok) (operations: delete, get, update, form_update)"
+      },
+      "confirmed": {
+        "type": "string",
+        "description": "Optional. Two-Phase write confirm: set confirmed=true (or ja/yes/1) to execute POST/PATCH/PUT/DELETE. Without it, mutating calls return a confirmation ask."
+      }
+    }
+  },
+  "setup_args": {
+    "openproject_base_url": {
+      "type": "string",
+      "required": true,
+      "input": {
+        "type": "text",
+        "default": "http://web:8080",
+        "hint": "Interne OpenProject-API-Basis (im Docker-Netz, Port 8080)"
+      }
+    },
+    "openproject_token": {
+      "type": "string",
+      "required": true,
+      "input": {
+        "type": "password",
+        "hint": "OpenProject-API-Key (Basic apikey:<key>; aus Benutzerprofil)"
+      }
+    }
+  }
+}

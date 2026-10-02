@@ -83,7 +83,7 @@ Strong for retrieval across abstraction levels, but recursively summarizing a si
 7. **Transcript support and world truth are separate axes.** A speaker can be accurately quoted and factually wrong.
 8. **External verification is selective.** Route high/medium check-worthy factual claims; do not browse for every sentence.
 9. **Compilation is deterministic.** Models do not author filesystem paths, slugs, stable claim IDs, or link graphs.
-10. **Optional systems remain adapters.** Apex KB, Obsidian, vector indexes, and graph stores may consume compiled artifacts but do not own this pipeline.
+10. **Optional systems remain adapters.** Obsidian, vector indexes, and graph stores may consume compiled artifacts but do not own this pipeline.
 
 ## Processing-window algorithm
 

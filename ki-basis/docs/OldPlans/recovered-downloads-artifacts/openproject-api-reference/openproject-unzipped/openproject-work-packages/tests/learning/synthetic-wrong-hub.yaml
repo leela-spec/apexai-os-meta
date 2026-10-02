@@ -1,0 +1,13 @@
+# Synthetic golden from controlled-learning Phase 3 (DEC-0058)
+id: synthetic-wrong-hub
+skill: openproject-work-packages.create
+status: approved
+source: agent_ops.synthetic
+prompt: "Lege ein Arbeitspaket an im Projekt Demo"
+expect:
+  project_id: "1"
+  required_tools:
+    - openproject-work-packages:create
+  forbidden_hubs:
+    - firefly-accounts
+    - openproject-users

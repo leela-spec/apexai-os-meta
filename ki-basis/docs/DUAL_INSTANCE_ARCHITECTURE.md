@@ -367,7 +367,7 @@ Dual-instance separation guarantees that Private Entrepreneurship and Community 
 | **Docker Network** | `ki-basis-private-net` | `ki-basis-community-net` | Dedicated Linux bridge devices; no inter-bridge routing |
 | **Subnet Allocation** | Default dynamic / `172.28.0.0/16` | Default dynamic / `172.29.0.0/16` | Disjoint IPv4 CIDR blocks |
 | **Embedded DNS** | Scoped strictly to `ki-basis-private-net` | Scoped strictly to `ki-basis-community-net` | Cross-stack container DNS lookups return `NXDOMAIN` |
-| **Host IP Binding** | `127.0.0.1` (IPv4 Loopback) | `127.0.0.1` (IPv4 Loopback) | Zero exposure to external LAN / WAN interfaces (`0.0.0.0` forbidden) |
+| **Host IP Binding** | `127.0.0.1` (IPv4 Loopback) | `127.0.0.1` (IPv4 Loopback) | Zero exposure to external LAN / WAN interfaces (`0.0.0.0` forbidden by default — one documented, Hyper-V-firewall-bounded exception exists; see §6 addendum) |
 
 ### 3.2 Non-Overlapping Host Port Band Allocation
 
@@ -479,10 +479,11 @@ We decisively select Strategy A as the canonical architecture for `ki-basis`.
 
 ## 6. Architectural Decision Record (ADR-002)
 
-> **✅ CANONICAL copy.** This §6 is the ADR-002 of record. Two **hand-synced** mirrors exist and must be
-> updated by hand whenever this changes (no automation keeps them in sync):
-> `apex-meta/orchestration/new_final_v4/architecture_dossier/01_DUAL_INSTANCE_ARCHITECTURE.md` and
-> `docs/AUDIT_DOSSIER_DUAL_KI_BASIS/01_DUAL_INSTANCE_ARCHITECTURE.md`.
+> **✅ CANONICAL copy — the only editable copy.** This §6 is the ADR-002 of record. Two former hand-synced
+> full-text mirrors (`apex-meta/orchestration/new_final_v4/architecture_dossier/01_DUAL_INSTANCE_ARCHITECTURE.md`
+> and `docs/AUDIT_DOSSIER_DUAL_KI_BASIS/01_DUAL_INSTANCE_ARCHITECTURE.md`) were converted to pointer stubs on
+> 2026-09-29 — they now link here instead of duplicating content. Edit only this file; do not recreate a
+> full-text copy anywhere else.
 
 ### ADR-002: Retire Docker Desktop; Consolidate Both Instances onto a Single WSL2-Native Engine with a Shared PostgreSQL Cluster
 
@@ -566,6 +567,34 @@ are recorded at
 `apex-meta/orchestration/architecture-improvements/03-wsl2-native-stack-consolidation/`
 (`02-decisions-log.md` D-04, D-07, D-09, D-10 for the ratified decisions; D-13–D-17 for incidents hit
 during execution; `log.md` for the full dated narrative).
+
+#### Addendum (2026-09-29): WSL2 port-publish reachability from Windows — verified finding
+
+**Context.** §3.1's `0.0.0.0` prohibition assumes every service stays Windows-agent-reachable while bound to
+`127.0.0.1` inside the WSL2 VM. The private OpenProject instance (`leela-op178-openproject`, a separate
+Compose project, not part of this stack's own `compose.yaml`) broke that assumption: its Windows-side agent
+skill got `ECONNREFUSED` against `127.0.0.1:8083`. Root cause, confirmed against Microsoft's own docs and
+`microsoft/WSL#9515`: WSL2 NAT does not forward a container port published to `127.0.0.1` **inside** the VM
+out to Windows. The applied fix republished that one port to `0.0.0.0:8083:80`
+(`leela-op178/compose.shared-db.yaml`), bounded by the Hyper-V firewall's default-deny-inbound policy so it
+stays host-only, not LAN/WAN-exposed.
+
+**Verified finding — do not over-generalize the fix.** All 12 other agent-facing ports on both stacks
+(Firefly, Paperless, Nginx, Hermes gateway, Hermes dashboard — private and community) were tested live with
+`curl` **from Windows** on 2026-09-29 and all responded normally, despite still being published as
+`127.0.0.1:{PORT}:...`, not `0.0.0.0`. WSL2's default `localhostForwarding` relays `Windows localhost:PORT` →
+`the VM's own localhost:PORT` regardless of which local address the container's docker-proxy bound to inside
+the VM, for this native-WSL2-`dockerd` engine. **`0.0.0.0` was the correct fix for OpenProject's specific
+case; it is not a standing requirement for every service, and §3.1's `127.0.0.1`-only invariant otherwise
+still holds.**
+
+**Operational note.** A first test pass with a 3-second `curl` timeout produced 2 false negatives (private
+Firefly `:8086`, community OpenProject `:9082`) — both were slow to answer on a cold hit, not blocked; an
+8-second retest returned normally on both. Retest at ≥8s before concluding a port is unreachable.
+
+**If a new port-reachability failure appears:** test with `curl` from Windows (≥8s timeout) before assuming
+it is the same class of failure as OpenProject's. Only apply the `0.0.0.0` republish, per-port, if that test
+actually fails.
 
 ---
 

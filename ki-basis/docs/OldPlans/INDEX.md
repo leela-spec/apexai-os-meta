@@ -151,8 +151,38 @@ their provenance stays findable. These plans are **kept, not deleted**. For what
 
 ---
 
+## 13. Recovered out-of-git artifacts (operator Downloads, 2026-09-02 → 2026-09-27; moved into repo 2026-09-29)
+Companion: [`../InstallationInsights.md`](../InstallationInsights.md) §4 (ranked register extension) and §6 (provenance table).
+These files existed only in the operator's Downloads folder, never committed. Moved verbatim into
+`OldPlans/recovered-downloads-artifacts/` on 2026-09-29 — the exact out-of-git gap `SEARCH-LOG.md` §5.2 flagged
+as missing. Six same-named Downloads files were checked against the repo first: four were byte-identical
+(not moved, already tracked — `2026-09-01-alpine-image-build.md`, `01_MACRO_TOPOLOGY_ASSESSMENT.md`,
+`Performance_Problem.md`, `skills & openproject dont work.md`); two had diverged (moved under a
+`.old-downloads-version.md` suffix to preserve the pre-edit state).
+
+| Path (under `recovered-downloads-artifacts/`) | Date | Status | What it was |
+|---|---|---|---|
+| `Fehleranalyse.md` | 2026-09-02 | OLD | Meta failure-analysis: agent silently assumed the existing Ubuntu-WSL2 Docker host could be reused, instead of asking |
+| `## Kurzantwort_Correction.md` | 2026-09-02 | CORRECTED | Corrects a "native Docker Engine on Windows" claim to the real Hyper-V-VM topology |
+| `ARCHITEKTUR-BASIS.old-downloads-version.md` | 2026-09-02 | SUPERSEDED | Pre-patch stale diagram (AnythingLLM/Envoy/Authentik/Psono/oMLX); diverges from the current `apex-meta/Alpine/ARCHITEKTUR-BASIS.md` |
+| `docker-desktop-correction-patches/` (+ .zip) | 2026-09-02 | SUPERSEDED | 4-file patch set targeting Docker Desktop Hyper-V; its gate script fails the build if the engine resolves to WSL2 — the opposite of the eventual 2026-09-26 direction |
+| `w2_target_provisioning_and_isolation_evidence.md`, `w3_repository_portability_evidence.md`, `w4_w5_target_acceptance_evidence.md` | 2026-09-02 | SUPERSEDED | Migration evidence for Ubuntu-WSL2 → Docker Desktop Hyper-V (the direction later reversed by ADR-002) |
+| `ki-basis-local-patch-program/` | 2026-09-02 | SUPERSEDED | 14-file repo-hygiene patch set (secrets, stale-doc correction, port-label fixes) for the Docker-Desktop-era stack |
+| `ki-basis-finalization-program/` (+ .zip) | 2026-09-03 | SUPERSEDED | 9-module finalization program (security, backup, restore, Hermes control) on the Docker-Desktop-era stack; `HANDOVER-NEXT-CHAT.md` inside flags a re-leaked Paperless token |
+| `Docker-Desktop-Windows.old-downloads-version.md` | 2026-09-04 | SUPERSEDED | Pre-expansion draft of the RAM/DWM diagnosis; diverges from the current `apex-meta/Alpine/research/Docker-Desktop-Windows.md` |
+| `docker_performance_investigation_report.md` | 2026-09-04 | OLD | Root-causes the Docker-Desktop-Hyper-V-VM-default-2GB OOM/freeze incident |
+| `ki-basis-cli-reasoning-hermes-routing-patches/` (+ .zip) | 2026-09-04 | SUPERSEDED | Hermes CLI-routing patch bundle; its own README states "the operator confirmed none of the earlier patch bundles have been applied" |
+| `README-HERMES-ACTIVATION.md`, `hermes-activation-patches/` | 2026-09-02 | OLD | Hermes credential/activation patch pair |
+| `README-STEP-BY-STEP.md` | 2026-09-02 | OLD | Step-by-step companion to the local patch program |
+| `implementation_plan_tailscale.md` | 2026-09-15 | OLD | Tailscale Funnel exposure plan; targets "Docker Desktop," an engine since retired — re-validate against the WSL2 engine before use |
+| `implementation_plan_privvate&community_seperation_AG.md` (+ `_v2.md`) | 2026-09-22 | SUPERSEDED | Design precursor to the `codex/separate-community-stack` branch; surviving outcome is the standalone `lika-community` repo |
+| `openproject-api-reference/` (+ .zip) | 2026-09-25 | OLD | Offline OpenProject API v3 doc copy, used as Hermes skill reference material (not a plan) |
+| `openproject_handover_surgical_guardrails.patch` | 2026-09-25 | OLD | Diff tightening Phase-0 evidence-refresh rules for the OpenProject Windows-agent handover |
+| `Skills - OpenProject.md` | 2026-09-27 | CORRECTED | Critiques a premature "Preflight — DONE" claim; precursor to `.../04-leela-mastery-openproject-consolidation/02-preflight-and-transport-diagnosis.md` |
+
 ## Counts (approximate)
-- **OLD** ~40 · **SUPERSEDED** ~15 · **CORRECTED** ~9 · **FAILED** ~6 · **DEFERRED** ~4 → **~70–75 plan files** total.
+- **OLD** ~40 · **SUPERSEDED** ~15 · **CORRECTED** ~9 · **FAILED** ~6 · **DEFERRED** ~4 → **~70–75 plan files** total (groups 1–12).
+- **Group 13 (recovered Downloads artifacts):** 17 additional path entries (~30 files including patch-bundle contents).
 
 ## Deliberately NOT listed (still active — do not archive)
 - `apex-meta/orchestration/architecture-improvements/03-wsl2-native-stack-consolidation/03-execution-plan.md` — the current 2026-09-26 consolidation baseline.

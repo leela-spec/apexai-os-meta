@@ -35,7 +35,6 @@ source_package_status:
   apex_plan: verified_current
   project_kb_manager: verified_current
   ProjectStatus: verified_current
-  apex_kb: verified_current
   apex_sync: extraction_report_only
   apex_session: extraction_report_only
 ```
@@ -218,7 +217,7 @@ snapshot:
 
 ```yaml
 snapshot:
-  owner: apex-kb
+  owner: repository-sources
   source_state: synthetic
   source_refs:
     - synthetic_fixture:evidence_snapshot

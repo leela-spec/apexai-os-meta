@@ -102,6 +102,29 @@ find /c/Users/gehma -iname '*.pdf' -newermt 2026-06-20 ! -newermt 2026-07-05 2>/
 
 _Anything a later search adds should be appended here so this log stays the single provenance record._
 
+## 8. Out-of-git Downloads sweep (run 2026-09-29, later same day)
+Directly addresses §5.2 above ("out-of-git execution steps... only artifacts/decisions are in git").
+
+**Method:** listed `C:\Users\gehma\Downloads` (not a repo search — the operator's OS Downloads folder),
+filtered to ki-basis/Docker/Alpine/Ubuntu/OpenProject content dated 2026-07-21 → 2026-09-29, read each
+candidate file, then `md5sum` + `diff` each same-named file against its repo counterpart before moving
+anything (never assume same filename means same content).
+
+**Result:**
+- 4 files were **byte-identical** to an existing repo copy (`2026-09-01-alpine-image-build.md`,
+  `01_MACRO_TOPOLOGY_ASSESSMENT.md`, `Performance_Problem.md`, `skills & openproject dont work.md`) —
+  left in place, not moved, not duplicated.
+- 2 files **shared a name but diverged in content** (`ARCHITEKTUR-BASIS.md`, `Docker-Desktop-Windows.md`) —
+  the Downloads copy was the pre-edit draft; moved under a `.old-downloads-version.md` suffix so both states
+  are traceable.
+- 17 further paths (~30 files, incl. 3 patch-bundle zips + their already-extracted folders) had **no repo
+  counterpart at all** — genuinely out-of-git. Moved verbatim into `OldPlans/recovered-downloads-artifacts/`.
+  Indexed at [`INDEX.md`](INDEX.md) §13; synthesized into [`../InstallationInsights.md`](../InstallationInsights.md).
+- The 2026-06-27 "Docker-Fließband" PDF was **not** among the recovered files — still not recovered.
+
+**Still open:** the manual Docker-Desktop-build and live-cutover terminal commands themselves (not their
+artifacts) remain unrecoverable — no `.bash_history`/`ConsoleHost_history.txt` was found in this sweep either.
+
 ## 7. Results of the branch + out-of-git sweep (run 2026-09-29)
 Actually ran the §6 searches. Recorded so the next AI doesn't redo them:
 - **More 9P/ext4 commits exist than the message-search showed** (`git log --all`): `5d17c536` (DrvFs package),

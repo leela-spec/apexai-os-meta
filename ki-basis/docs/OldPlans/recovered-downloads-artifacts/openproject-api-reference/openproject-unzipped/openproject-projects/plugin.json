@@ -1,0 +1,107 @@
+{
+  "active": true,
+  "hubId": "openproject-projects",
+  "name": "OpenProject Projects",
+  "schema": "skill-1.0.0",
+  "version": "1.0.0",
+  "description": "OpenProject Projects API",
+  "author": "ki-basis",
+  "license": "MIT",
+  "imported": true,
+  "entrypoint": {
+    "file": "handler.js",
+    "params": {
+      "operation": {
+        "type": "string",
+        "description": "One of: get_status|list|create|list_available_parent_candidates|create_form|get_schema|delete|get|update|create_copy|copy_form|unfavorite|favorite|update_form|list_with_version|list_workspaces_with_version"
+      },
+      "id": {
+        "type": "string",
+        "description": "Project status id (operations: get_status, create, delete, get, update, create_copy, copy_form, unfavorite, favorite, update_form, list_with_version, list_workspaces_with_version)"
+      },
+      "filters": {
+        "type": "string",
+        "description": "JSON specifying filter conditions.\nAccepts the same format as returned by the [queries](https://www.openproject.org/docs/api/endpoints/queries/) endpoint.\nCurrently supported filters are:\n\n+ active: based on the active property of the project\n+ ancestor: filters projects by their ancestor. A project is not considered to be its own ancestor.\n+ available_project_attributes: filters projects based on the activated project project attributes.\n+ created_at: based on the time the project was created\n+ favorited: based on the favorited property of the project\n+ id: based on projects' id.\n+ latest_activity_at: based on the time the last activity was registered on a project.\n+ name_and_identifier: based on both the name and the identifier.\n+ parent_id: filters projects by their parent.\n+ principal: based on members of the project.\n+ project_phase_any: based on the project phases active in a project.\n+ project_status_code: based on status code of the project\n+ storage_id: filters projects by linked storages\n+ storage_url: filters projects by linked storages identified by the host url\n+ type_id: based on the types active in a project.\n+ user_action: based on the actions the current user has in the project.\n+ visible: based on the visibility for the user (id) provided as the filter value. This filter is useful for admins to identify the projects visible to a user.\n\nThere might also be additional filters based on the custom fields that have been configured.\n\nEach defined lifecycle step will also define a filter in this list endpoint. Given that the elements are not\nstatic but rather dynamically created on each OpenProject instance, a list cannot be provided. Those filters follow the schema:\n+ project_start_gate_[id]: a filter on a project phase's start gate active in a project. The id is the id of the phase the gate belongs to.\n+ project_finish_gate_[id]: a filter on a project phase's finish gate active in a project. The id is the id of the phase the gate belongs to.\n+ project_phase_[id]: a filter on a project phase active in a project. The id is the id of the phase queried for. (operations: list, list_available_parent_candidates)"
+      },
+      "sortBy": {
+        "type": "string",
+        "description": "JSON specifying sort criteria.\nCurrently supported orders are:\n\n+ id\n+ name\n+ typeahead (sorting by hierarchy and name)\n+ created_at\n+ public\n+ latest_activity_at\n+ required_disk_space\n\nThere might also be additional orders based on the custom fields that have been configured. (operations: list, list_available_parent_candidates)"
+      },
+      "select": {
+        "type": "string",
+        "description": "Comma separated list of properties to include. (operations: list)"
+      },
+      "_type": {
+        "type": "string",
+        "description": "Body field _type — enum: Project (operations: create, update)"
+      },
+      "identifier": {
+        "type": "string",
+        "description": "Body field identifier (operations: create, update)"
+      },
+      "name": {
+        "type": "string",
+        "description": "Body field name (operations: create, update)"
+      },
+      "active": {
+        "type": "boolean",
+        "description": "Indicates whether the project is currently active or already archived (operations: create, update)"
+      },
+      "favorited": {
+        "type": "boolean",
+        "description": "Indicates whether the project is favorited by the current user (operations: create, update)"
+      },
+      "statusExplanation": {
+        "type": "string",
+        "description": "Body field statusExplanation (operations: create, update)"
+      },
+      "public": {
+        "type": "boolean",
+        "description": "Indicates whether the project is accessible for everybody (operations: create, update)"
+      },
+      "description": {
+        "type": "object",
+        "description": "{format: string, raw: string, html: string} (operations: create, update)"
+      },
+      "createdAt": {
+        "type": "string",
+        "description": "Time of creation. Can be writable by admins with the `apiv3_write_readonly_attributes` setting enabled. (operations: create, update)"
+      },
+      "updatedAt": {
+        "type": "string",
+        "description": "Time of the most recent change to the project (operations: create, update)"
+      },
+      "of": {
+        "type": "string",
+        "description": "The id or identifier of the project the parent candidate is determined for (operations: list_available_parent_candidates)"
+      },
+      "workspace_type": {
+        "type": "string",
+        "description": "The workspace type of the new project the parent candidate is determined for. Ignored when `of` parameter is provided.\nNote that while 'portfolio' is supported as a type (since it is a type of Workspace), the endpoint will currently always return an empty resultset as portfolios cannot have parents. — enum: project|program|portfolio (operations: list_available_parent_candidates)"
+      },
+      "confirmed": {
+        "type": "string",
+        "description": "Optional. Two-Phase write confirm: set confirmed=true (or ja/yes/1) to execute POST/PATCH/PUT/DELETE. Without it, mutating calls return a confirmation ask."
+      }
+    }
+  },
+  "setup_args": {
+    "openproject_base_url": {
+      "type": "string",
+      "required": true,
+      "input": {
+        "type": "text",
+        "default": "http://web:8080",
+        "hint": "Interne OpenProject-API-Basis (im Docker-Netz, Port 8080)"
+      }
+    },
+    "openproject_token": {
+      "type": "string",
+      "required": true,
+      "input": {
+        "type": "password",
+        "hint": "OpenProject-API-Key (Basic apikey:<key>; aus Benutzerprofil)"
+      }
+    }
+  }
+}

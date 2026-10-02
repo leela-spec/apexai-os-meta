@@ -121,13 +121,11 @@ Strengths:
 - only ~4.4 KB;
 - strong target/directness language;
 - clear stop/escalation behavior;
-- points to canonical Informatics and Apex KB owners instead of embedding them.
+- points to canonical Informatics owners instead of embedding them.
 
 Problems:
 
 - `Git Dispatch` is operationally specific but always loaded.
-- `Apex KB Patch Safety` is a specialized exact-match mutation protocol but always loaded.
-- `Apex KB Dispatch` is domain-specific and occupies root context for unrelated tasks.
 - `Directness`, `Core Intent Execution`, and `Scope` repeat overlapping semantics.
 - missing or incomplete Tier A principles: reuse-before-invention, explicit complexity routing, intent/clarification threshold, context engineering, MMM/V&V, evidence/uncertainty, general acceptance verification, decision discipline.
 
@@ -187,7 +185,6 @@ The agents are usually short, role-bounded, explicit about what they own/must no
 | Agent | Assessment | Main strength | Main improvement |
 |---|---:|---|---|
 | `alfred.md` | 8.5/10 | clear operator-interface accountability and explicit no-inference confirmation rule | repeated orchestration/Weekly disclaimers partly duplicate shared routing; keep only what materially improves activation precision |
-| `apex-kb-operator.md` | 9/10 | compact, Skill-backed, CLI-as-authority contract | strongest pattern; use as model for other operational agents |
 | `apex-plan-ops.md` | 9/10 | tiny role shell around `apex-plan` Skill | little to change |
 | `apex-sync-ops.md` | 9/10 | tiny deterministic worker shell around `apex-sync` | little to change |
 | `apex-review-validity.md` | 8/10 | strong bounded output schema and independent-review lens | large prompt is acceptable because conditional, but duplicated review mechanics may belong in one review Skill/reference |

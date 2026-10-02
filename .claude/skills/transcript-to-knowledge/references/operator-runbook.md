@@ -192,4 +192,4 @@ py -3 "$Skill\scripts\ttk.py" next "$Run" --json-output
 
 ## 10. What not to install by default
 
-Do not install or configure a vector database, graph database, LangChain/LlamaIndex runtime, workflow engine, hosted LLM SDK, or Apex KB to run this pipeline. Add those only as downstream adapters after a concrete retrieval/export requirement justifies them.
+Do not install or configure a vector database, graph database, LangChain/LlamaIndex runtime, workflow engine, or hosted LLM SDK to run this pipeline. Add those only as downstream adapters after a concrete retrieval/export requirement justifies them.

@@ -1,0 +1,6 @@
+| Folder Path                                                           | Purpose                                                                                                                                       |
+| --------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| **`C:\GitDev\apexai-os-meta\ki-basis`** _(or your standalone folder)_ | **Primary Infrastructure Directory:** Contains `compose.yaml`, `.env.community`, startup scripts, docs, and Telegram bot persona (`SOUL.md`). |
+| **`C:\GitDev\MasterOfArts\Lika`** _(Optional)_                        | **Lika Knowledge Base:** Event management, Equinox fundraiser documents, brand assets, and accounting spreadsheets.                           |
+ eher so gelesen das mein ungutes Gefühl nach unserem Schreiben seine Bestätigung gefunden hat und ich meine Löwin nach allem tatsächlich verliere, vllt sogar ohne Widersehen.
+Worauf ich mich btw schon innerlich vorbereitet habe  

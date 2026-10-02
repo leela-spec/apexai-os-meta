@@ -1,0 +1,95 @@
+{
+  "active": true,
+  "hubId": "openproject-time-entries",
+  "name": "OpenProject Time Entries",
+  "schema": "skill-1.0.0",
+  "version": "1.0.0",
+  "description": "OpenProject Time Entries API",
+  "author": "ki-basis",
+  "license": "MIT",
+  "imported": true,
+  "entrypoint": {
+    "file": "handler.js",
+    "params": {
+      "operation": {
+        "type": "string",
+        "description": "One of: list|create|available_projects_for|create_form|get_schema|delete|get|update|update_form"
+      },
+      "offset": {
+        "type": "integer",
+        "description": "Page number inside the requested collection. — integer (numeric string ok) (operations: list)"
+      },
+      "pageSize": {
+        "type": "integer",
+        "description": "Number of elements to display per page. — integer (numeric string ok) (operations: list)"
+      },
+      "sortBy": {
+        "type": "string",
+        "description": "JSON specifying sort criteria.\nAccepts the same format as returned by the [queries](https://www.openproject.org/docs/api/endpoints/queries/) endpoint. Currently supported sorts are:\n\n+ id: Sort by primary key\n\n+ hours: Sort by logged hours\n\n+ spent_on: Sort by spent on date\n\n+ created_at: Sort by time entry creation datetime\n\n+ updated_at: Sort by the time the time entry was updated last (operations: list)"
+      },
+      "filters": {
+        "type": "string",
+        "description": "JSON specifying filter conditions.\nAccepts the same format as returned by the [queries](https://www.openproject.org/docs/api/endpoints/queries/) endpoint. Currently supported filters are:\n\n+ entity_type: Filter time entries depending on the entity they are logged on. Can either be `WorkPackage` or `Meeting`.\n\n+ entity_id: Filter time entries for the specified entity IDs.\n\n+ project_id: Filter time entries by project\n\n+ user_id: Filter time entries by users\n\n+ ongoing: Filter to only recevie ongoing timers\n\n+ spent_on: Filter time entries by spent on date\n\n+ created_at: Filter time entries by creation datetime\n\n+ updated_at: Filter time entries by the last time they where updated\n\n+ activity_id: Filter time entries by time entry activity (operations: list)"
+      },
+      "id": {
+        "type": "integer",
+        "description": "The id of the time entry — integer >= 1 (numeric string ok) (operations: create, delete, get, update, update_form)"
+      },
+      "comment": {
+        "type": "string",
+        "description": "Body field comment (operations: create)"
+      },
+      "spentOn": {
+        "type": "string",
+        "description": "The date the expenditure is booked for (operations: create)"
+      },
+      "hours": {
+        "type": "string",
+        "description": "The time quantifying the expenditure (operations: create)"
+      },
+      "ongoing": {
+        "type": "boolean",
+        "description": "Whether the time entry is actively tracking time (operations: create)"
+      },
+      "createdAt": {
+        "type": "string",
+        "description": "The time the time entry was created (operations: create)"
+      },
+      "startTime": {
+        "type": "string",
+        "description": "The time the time entry was started, or null if the time entry does not have a start time.\n\nThe time is returned as UTC time, if presented to the user it should be converted to the user's timezone.\n\nThis field is only available if the global `allow_tracking_start_and_end_times` setting is enabled. (operations: create)"
+      },
+      "endTime": {
+        "type": "string",
+        "description": "The time the time entry was ended, or null if the time entry does not have a start time.\n\nThe time is returned as UTC time, if presented to the user it should be converted to the user's timezone.\n\nThis field is only available if the global `allow_tracking_start_and_end_times` setting is enabled. (operations: create)"
+      },
+      "updatedAt": {
+        "type": "string",
+        "description": "The time the time entry was last updated (operations: create)"
+      },
+      "confirmed": {
+        "type": "string",
+        "description": "Optional. Two-Phase write confirm: set confirmed=true (or ja/yes/1) to execute POST/PATCH/PUT/DELETE. Without it, mutating calls return a confirmation ask."
+      }
+    }
+  },
+  "setup_args": {
+    "openproject_base_url": {
+      "type": "string",
+      "required": true,
+      "input": {
+        "type": "text",
+        "default": "http://web:8080",
+        "hint": "Interne OpenProject-API-Basis (im Docker-Netz, Port 8080)"
+      }
+    },
+    "openproject_token": {
+      "type": "string",
+      "required": true,
+      "input": {
+        "type": "password",
+        "hint": "OpenProject-API-Key (Basic apikey:<key>; aus Benutzerprofil)"
+      }
+    }
+  }
+}

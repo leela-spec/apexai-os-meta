@@ -1,0 +1,107 @@
+{
+  "active": true,
+  "hubId": "openproject-recurring-meetings",
+  "name": "OpenProject Recurring Meetings",
+  "schema": "skill-1.0.0",
+  "version": "1.0.0",
+  "description": "OpenProject Recurring Meetings API",
+  "author": "ki-basis",
+  "license": "MIT",
+  "imported": true,
+  "entrypoint": {
+    "file": "handler.js",
+    "params": {
+      "operation": {
+        "type": "string",
+        "description": "One of: list|create|delete|get|update|list_occurrences_cancelled|list_occurrences_open|list_occurrences_past|list_occurrences_upcoming|cancel_occurrence|init_occurrence"
+      },
+      "title": {
+        "type": "string",
+        "description": "The recurring meeting's title (operations: create, update)"
+      },
+      "frequency": {
+        "type": "string",
+        "description": "The recurrence frequency. Possible values:\n\n- *daily*\n- *working_days*\n- *weekly*\n- *monthly_day_of_month*\n- *monthly_nth_weekday* — enum: daily|working_days|weekly|monthly_day_of_month|monthly_nth_weekday (operations: create, update)"
+      },
+      "interval": {
+        "type": "integer",
+        "description": "The interval between occurrences. Not applicable for working_days frequency. — integer >= 1 (numeric string ok) (operations: create, update)"
+      },
+      "monthlyDay": {
+        "type": "integer",
+        "description": "Day of month for `monthly_day_of_month` frequency.\nRequired for `monthly_day_of_month` unless inferred from `startTime`. — integer >= 1 (numeric string ok) (operations: create, update)"
+      },
+      "monthlyOrdinal": {
+        "type": "integer",
+        "description": "Ordinal position for `monthly_nth_weekday` frequency.\nRequired for `monthly_nth_weekday` unless inferred from `startTime`.\nAllowed values:\n- `1` (first)\n- `2` (second)\n- `3` (third)\n- `4` (fourth)\n- `-1` (last) — integer (numeric string ok); enum: 1|2|3|4|-1 (operations: create, update)"
+      },
+      "monthlyWeekday": {
+        "type": "string",
+        "description": "Weekday for `monthly_nth_weekday` frequency.\nRequired for `monthly_nth_weekday` unless inferred from `startTime`. — enum: sunday|monday|tuesday|wednesday|thursday|friday|saturday (operations: create, update)"
+      },
+      "endAfter": {
+        "type": "string",
+        "description": "How the recurrence ends. Possible values:\n\n- *specific_date*\n- *iterations*\n- *never* — enum: specific_date|iterations|never (operations: create, update)"
+      },
+      "endDate": {
+        "type": "string",
+        "description": "The date on which the recurrence ends. Required when endAfter is `specific_date`. (operations: create, update)"
+      },
+      "iterations": {
+        "type": "integer",
+        "description": "The number of occurrences after which the recurrence ends.\nRequired when endAfter is `iterations`. — integer >= 1 (numeric string ok) (operations: create, update)"
+      },
+      "startTime": {
+        "type": "string",
+        "description": "The scheduled start time of the recurring meeting. (operations: create, update)"
+      },
+      "location": {
+        "type": "string",
+        "description": "The meeting's location. (operations: create, update)"
+      },
+      "duration": {
+        "type": "number",
+        "description": "The meeting duration in hours. (operations: create, update)"
+      },
+      "notify": {
+        "type": "boolean",
+        "description": "Whether to send email notifications to participants. (operations: create, update)"
+      },
+      "id": {
+        "type": "integer",
+        "description": "Recurring meeting identifier — integer (numeric string ok) (operations: delete, get, update, list_occurrences_cancelled, list_occurrences_open, list_occurrences_past, list_occurrences_upcoming, cancel_occurrence, init_occurrence)"
+      },
+      "limit": {
+        "type": "integer",
+        "description": "Maximum number of occurrences to return. Defaults to 20. — integer (numeric string ok) (operations: list_occurrences_upcoming)"
+      },
+      "start_time": {
+        "type": "string",
+        "description": "The ISO 8601 start time of the occurrence to cancel (e.g. `2025-06-02T10:00:00Z`) (operations: cancel_occurrence, init_occurrence)"
+      },
+      "confirmed": {
+        "type": "string",
+        "description": "Optional. Two-Phase write confirm: set confirmed=true (or ja/yes/1) to execute POST/PATCH/PUT/DELETE. Without it, mutating calls return a confirmation ask."
+      }
+    }
+  },
+  "setup_args": {
+    "openproject_base_url": {
+      "type": "string",
+      "required": true,
+      "input": {
+        "type": "text",
+        "default": "http://web:8080",
+        "hint": "Interne OpenProject-API-Basis (im Docker-Netz, Port 8080)"
+      }
+    },
+    "openproject_token": {
+      "type": "string",
+      "required": true,
+      "input": {
+        "type": "password",
+        "hint": "OpenProject-API-Key (Basic apikey:<key>; aus Benutzerprofil)"
+      }
+    }
+  }
+}

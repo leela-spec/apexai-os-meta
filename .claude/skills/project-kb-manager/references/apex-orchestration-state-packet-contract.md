@@ -10,7 +10,7 @@ purpose:
   goals:
     - Define the compact glue artifact consumed by PreCapWeek and PreCapNextDay.
     - Reference existing state and project-management owners instead of replacing them.
-    - Prevent schema duplication across project-kb-manager, ProjectStatus, apex-plan, apex-sync, apex-session, and apex-kb.
+    - Prevent schema duplication across project-kb-manager, ProjectStatus, apex-plan, apex-sync, and apex-session.
     - Separate verified repository sources from candidate, stale, partial, or synthetic sources.
   primary_consumers:
     - PreCapWeek
@@ -91,17 +91,6 @@ ownership_boundary:
       - session_delta_summary
       - promotion_status
 
-  apex-kb:
-    owns:
-      - source_preserving_knowledge_base
-      - source_refs
-      - artifact_refs
-      - retrieval_outputs
-    may_contribute:
-      - source_map_refs
-      - artifact_index_refs
-      - kb_query_refs
-      - evidence_confidence_notes
 ```
 
 Boundary rule: each snapshot may reference or summarize an upstream package output, but must not redefine the upstream package's schema or compute work reserved for that package.
@@ -119,7 +108,6 @@ source_package_map:
       - apex-session
       - project-kb-manager
       - ProjectStatus
-      - apex-kb
     downstream_consumers:
       - PreCapWeek
       - PreCapNextDay
@@ -131,7 +119,6 @@ source_package_map:
     project-kb-manager: .claude/skills/project-kb-manager/SKILL.md
     project-schema: .claude/skills/project-kb-manager/references/project-schema.md
     ProjectStatus: .claude/skills/ProjectStatus/SKILL.md
-    apex-kb: .claude/skills/apex-kb/SKILL.md
     PreCapWeek: .claude/skills/PrecapWeek/SKILL.md
     PreCapNextDay: .claude/skills/PrecapNextDay/SKILL.md
 ```
@@ -192,11 +179,6 @@ apex_orchestration_state_packet:
           type: string
           allowed:
             - verified_current
-        apex_kb:
-          type: string
-          allowed:
-            - verified_current
-            - missing
         apex_sync:
           type: string
           allowed:
@@ -263,7 +245,7 @@ apex_orchestration_state_packet:
         - source_package_promotion_status
 
     evidence_snapshot:
-      owner: apex-kb
+      owner: repository-sources
       type: object
       allowed_content:
         - source_map_refs
@@ -350,7 +332,7 @@ field_mapping:
     packet_rule: Include session deltas and next-session references only when verified or explicitly label them as candidate/extraction-report-only.
 
   evidence_snapshot:
-    source_package: apex-kb
+    source_package: repository-sources
     source_authority:
       - source_map_refs
       - artifact_index_refs

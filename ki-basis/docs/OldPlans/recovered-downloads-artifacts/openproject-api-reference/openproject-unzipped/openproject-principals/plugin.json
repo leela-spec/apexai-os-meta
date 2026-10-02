@@ -1,0 +1,59 @@
+{
+  "active": true,
+  "hubId": "openproject-principals",
+  "name": "OpenProject Principals",
+  "schema": "skill-1.0.0",
+  "version": "1.0.0",
+  "description": "OpenProject Principals API",
+  "author": "ki-basis",
+  "license": "MIT",
+  "imported": true,
+  "entrypoint": {
+    "file": "handler.js",
+    "params": {
+      "operation": {
+        "type": "string",
+        "description": "One of: list_placeholder_users|create_placeholder_user|delete_placeholder_user|get_placeholder_user|update_placeholder_user|list"
+      },
+      "filters": {
+        "type": "string",
+        "description": "JSON specifying filter conditions.\nAccepts the same format as returned by the [queries](https://www.openproject.org/docs/api/endpoints/queries/) endpoint.\nCurrently supported filters are:\n\n- name: filters placeholder users by the name.\n- group: filters placeholder by the group it is contained in.\n- status: filters placeholder by the status it has. (operations: list_placeholder_users, list)"
+      },
+      "select": {
+        "type": "string",
+        "description": "Comma separated list of properties to include. (operations: list_placeholder_users, list)"
+      },
+      "name": {
+        "type": "string",
+        "description": "The new name of the placeholder user to be created. (operations: create_placeholder_user, update_placeholder_user)"
+      },
+      "id": {
+        "type": "integer",
+        "description": "Placeholder user id — integer (numeric string ok) (operations: delete_placeholder_user, get_placeholder_user, update_placeholder_user)"
+      },
+      "confirmed": {
+        "type": "string",
+        "description": "Optional. Two-Phase write confirm: set confirmed=true (or ja/yes/1) to execute POST/PATCH/PUT/DELETE. Without it, mutating calls return a confirmation ask."
+      }
+    }
+  },
+  "setup_args": {
+    "openproject_base_url": {
+      "type": "string",
+      "required": true,
+      "input": {
+        "type": "text",
+        "default": "http://web:8080",
+        "hint": "Interne OpenProject-API-Basis (im Docker-Netz, Port 8080)"
+      }
+    },
+    "openproject_token": {
+      "type": "string",
+      "required": true,
+      "input": {
+        "type": "password",
+        "hint": "OpenProject-API-Key (Basic apikey:<key>; aus Benutzerprofil)"
+      }
+    }
+  }
+}

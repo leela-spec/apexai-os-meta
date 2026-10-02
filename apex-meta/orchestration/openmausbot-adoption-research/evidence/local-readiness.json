@@ -1,0 +1,25 @@
+{
+  "observed_date": "2026-09-27",
+  "installed_app": {
+    "path": "C:\\Users\\gehma\\AppData\\Local\\Programs\\OpenMausBot\\OpenMausBot.exe",
+    "product_version": "0.1.88.0"
+  },
+  "installer": {
+    "path": "C:\\Users\\gehma\\Downloads\\OpenMausBot-setup.exe",
+    "product_version": "0.1.88",
+    "bytes": 235204516,
+    "sha256": "08d737c86ddc40a6d4bc003f238aada0a32c872c1bda9e8bd1b3f57d32d49d6b",
+    "official_asset_digest_match": true
+  },
+  "official_release": {
+    "tag": "v0.1.88",
+    "published_at": "2026-09-26T06:15:52Z",
+    "url": "https://github.com/milind-soni/openmausbot-releases/releases/tag/v0.1.88"
+  },
+  "python_version": "3.12.10",
+  "claude_executable_present": true,
+  "codex_executable_present": true,
+  "authentication_tested": false,
+  "app_launched_by_research": false,
+  "live_workflow_tested": false
+}

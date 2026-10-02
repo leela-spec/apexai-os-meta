@@ -295,7 +295,7 @@ axes:
 1. Each finding converts to ONE exact-match patch block in `patch-pack-w1-to-w2.md`, targeting templates/cards/scripts (e.g., Flow Card template, Weekly Brief matrix template, normalizer script, PrecapWeek checklist).
 2. Block format: literal `<file>`, `<old>` (byte-for-byte from live target, verified unique), `<new>`.
 3. Status lifecycle: `draft → operator_review → approved → applied`.
-4. HARD RULE (Apex KB Patch Safety): nothing is committed or auto-applied without explicit operator approval; application requires the executor's exact-match success result plus test evidence (deterministic rerun hash, schema validation, scannability retest) recorded in the ledger.
+4. HARD RULE: nothing is committed or auto-applied without explicit operator approval; application requires the executor's exact-match success result plus test evidence (deterministic rerun hash, schema validation, scannability retest) recorded in the ledger.
 5. Only after `applied` + evidence does `current_week: 2` unlock in the ledger.
 
 ---

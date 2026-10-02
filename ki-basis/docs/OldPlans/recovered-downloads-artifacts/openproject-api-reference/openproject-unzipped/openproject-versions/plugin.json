@@ -1,0 +1,79 @@
+{
+  "active": true,
+  "hubId": "openproject-versions",
+  "name": "OpenProject Versions",
+  "schema": "skill-1.0.0",
+  "version": "1.0.0",
+  "description": "OpenProject Versions API",
+  "author": "ki-basis",
+  "license": "MIT",
+  "imported": true,
+  "entrypoint": {
+    "file": "handler.js",
+    "params": {
+      "operation": {
+        "type": "string",
+        "description": "One of: list_available_in_a_project|list|create|available_projects_for|create_form|get_schema|delete|get|update|update_form|list_available_in_a_workspace"
+      },
+      "id": {
+        "type": "integer",
+        "description": "ID of the project whose versions will be listed — integer (numeric string ok) (operations: list_available_in_a_project, delete, get, update, update_form, list_available_in_a_workspace)"
+      },
+      "filters": {
+        "type": "string",
+        "description": "JSON specifying filter conditions. Accepts the same format as returned by\nthe [queries](https://www.openproject.org/docs/api/endpoints/queries/) endpoint. Currently supported\nfilters are:\n\n- sharing: filters versions by how they are shared within the server (*none*, *descendants*, *hierarchy*, *tree*, *system*).\n- name: filters versions by their name. (operations: list)"
+      },
+      "sortBy": {
+        "type": "string",
+        "description": "JSON specifying sort criteria. Accepts the same format as returned by\nthe [queries](https://www.openproject.org/docs/api/endpoints/queries/) endpoint. Currently supported\nattributes are:\n\n- id: Sort by the version id\n- name: Sort by the version name using numeric collation, comparing sequences of decimal digits by their numeric value (operations: list)"
+      },
+      "name": {
+        "type": "string",
+        "description": "Version name (operations: create, update)"
+      },
+      "description": {
+        "type": "object",
+        "description": "{format: string, raw: string, html: string} (operations: create, update)"
+      },
+      "startDate": {
+        "type": "string",
+        "description": "Body field startDate (operations: create, update)"
+      },
+      "endDate": {
+        "type": "string",
+        "description": "Body field endDate (operations: create, update)"
+      },
+      "status": {
+        "type": "string",
+        "description": "The current status of the version. This could be:\n\n- *open*: if the version is available to be assigned to work packages in all shared projects\n- *locked*: if the version is not finished, but locked for further assignments to work packages\n- *closed*: if the version is finished — enum: open|locked|closed (operations: create, update)"
+      },
+      "sharing": {
+        "type": "string",
+        "description": "The indicator of how the version is shared between projects. This could be:\n\n- *none*: if the version is only available in the defining project\n- *descendants*: if the version is shared with the descendants of the defining project\n- *hierarchy*: if the version is shared with the descendants and the ancestors of the defining project\n- *tree*: if the version is shared with the root project of the defining project and all descendants of the root project\n- *system*: if the version is shared globally — enum: none|descendants|hierarchy|tree|system (operations: create, update)"
+      },
+      "confirmed": {
+        "type": "string",
+        "description": "Optional. Two-Phase write confirm: set confirmed=true (or ja/yes/1) to execute POST/PATCH/PUT/DELETE. Without it, mutating calls return a confirmation ask."
+      }
+    }
+  },
+  "setup_args": {
+    "openproject_base_url": {
+      "type": "string",
+      "required": true,
+      "input": {
+        "type": "text",
+        "default": "http://web:8080",
+        "hint": "Interne OpenProject-API-Basis (im Docker-Netz, Port 8080)"
+      }
+    },
+    "openproject_token": {
+      "type": "string",
+      "required": true,
+      "input": {
+        "type": "password",
+        "hint": "OpenProject-API-Key (Basic apikey:<key>; aus Benutzerprofil)"
+      }
+    }
+  }
+}

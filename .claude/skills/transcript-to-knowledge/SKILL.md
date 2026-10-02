@@ -1,6 +1,6 @@
 ---
 name: transcript-to-knowledge
-description: Build a standalone, resumable Macro/Meso/Micro knowledge set from Whisper, faster-whisper, WhisperX, SRT, VTT, JSON, or plain-text transcripts. Use when converting podcasts, meetings, lectures, interviews, or videos into source-grounded Markdown/wiki artifacts with exact quote anchors, atomic claims, selective fact verification, deterministic validation, and no dependency on Apex KB or an external LLM API.
+description: Build a standalone, resumable Macro/Meso/Micro knowledge set from Whisper, faster-whisper, WhisperX, SRT, VTT, JSON, or plain-text transcripts. Use when converting podcasts, meetings, lectures, interviews, or videos into source-grounded Markdown/wiki artifacts with exact quote anchors, atomic claims, selective fact verification, deterministic validation, and no dependency on an external LLM API.
 ---
 
 # Transcript to Knowledge
@@ -72,7 +72,7 @@ Treat the transcript as immutable evidence. Use deterministic code for custody, 
 
 ## Non-negotiable boundaries
 
-- **Standalone:** Do not require Apex KB, a graph database, vector database, workflow engine, or hosted API for correctness.
+- **Standalone:** Do not require a graph database, vector database, workflow engine, or hosted API for correctness.
 - **Processing windows are not chapters:** deterministic lexical/pause segmentation creates bounded transport windows; the Reduce pass decides final Meso structure.
 - **Context halo is not evidence:** semantic Map results may cite only core segment IDs.
 - **One raw semantic pass:** extract themes, mechanisms, claims, quotes, entities, and uncertainty together in each Map pass to avoid rereading the raw transcript for separate jobs.

@@ -1,0 +1,21 @@
+diff --git a/docs/ProjectMM/openproject/openproject-windows-agent-integration-v2/HANDOVER.md b/docs/ProjectMM/openproject/openproject-windows-agent-integration-v2/HANDOVER.md
+--- a/docs/ProjectMM/openproject/openproject-windows-agent-integration-v2/HANDOVER.md
++++ b/docs/ProjectMM/openproject/openproject-windows-agent-integration-v2/HANDOVER.md
+@@ -329,7 +329,7 @@ Research remains required where implementation facts are unresolved.
+
+ ## Phase 0 — refresh reality
+
+-Read the required evidence and then refresh only the facts that can have changed.
++Read the required evidence and refresh only facts that both can have changed and are required for the next implementation step. Reuse still-valid evidence; do not rerun broad environment checks unless a concrete blocker or migration risk requires them.
+
+ Verify:
+
+@@ -421,6 +421,8 @@ Do not throw away the imported package and do not trust it blindly.
+
+ Use QMD for ranking and open full files for conclusions.
+
++Census all 58 units so none disappear from scope, but deeply validate and patch only operations required by the pilot or affected by the OpenProject upgrade; expand just-in-time as implementation reaches additional operations.
++
+ Produce deterministic catalog:
+
+ ```yaml

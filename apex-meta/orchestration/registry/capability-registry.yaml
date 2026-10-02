@@ -13,11 +13,6 @@ scopes:
     authorized_repos:
     - masterofarts
     prohibited_global: true
-  apex_kb:
-    scope: repo_local
-    authorized_repos:
-    - apex
-    prohibited_global: true
   reviewed_shared_skills:
     scope: global_reviewed_after_pilot
     canonical_source: leela-spec/apexai-os-meta (apex-meta/skills/shared/)
@@ -28,25 +23,21 @@ repositories:
     has_agents_md: true
     has_bmad: false
     has_marketingskills: false
-    has_apex_kb: true
   masterofarts:
     workspace: /root/workspaces/MasterOfArts
     has_agents_md: true
     has_bmad: true
     has_marketingskills: false
-    has_apex_kb: false
   acim:
     workspace: /root/workspaces/acim-secular
     has_agents_md: true
     has_bmad: false
     has_marketingskills: false
-    has_apex_kb: false
   investment:
     workspace: /root/workspaces/Investment
     has_agents_md: true
     has_bmad: false
     has_marketingskills: false
-    has_apex_kb: false
 profiles:
   research-strategist:
     has_qmd_mcp: true

@@ -1,0 +1,11 @@
+{
+  "name": "@ki-basis/anythingllm-openproject-portfolios-skill",
+  "version": "0.1.0",
+  "private": true,
+  "description": "OpenProject Portfolios API",
+  "type": "commonjs",
+  "main": "handler.js",
+  "engines": {
+    "node": ">=20"
+  }
+}

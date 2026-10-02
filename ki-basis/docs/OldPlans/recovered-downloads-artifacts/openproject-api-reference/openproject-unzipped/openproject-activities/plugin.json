@@ -1,0 +1,59 @@
+{
+  "active": true,
+  "hubId": "openproject-activities",
+  "name": "OpenProject Activities",
+  "schema": "skill-1.0.0",
+  "version": "1.0.0",
+  "description": "OpenProject Activities API",
+  "author": "ki-basis",
+  "license": "MIT",
+  "imported": true,
+  "entrypoint": {
+    "file": "handler.js",
+    "params": {
+      "operation": {
+        "type": "string",
+        "description": "One of: get|update|list_attachments|add_attachment|list_emoji_reactions|toggle_emoji_reaction"
+      },
+      "id": {
+        "type": "integer",
+        "description": "Activity id — integer >= 1 (numeric string ok)"
+      },
+      "comment": {
+        "type": "object",
+        "description": "Formattable {raw: string, html: string} (operations: update)"
+      },
+      "internal": {
+        "type": "boolean",
+        "description": "Whether the comment is internal (operations: update)"
+      },
+      "reaction": {
+        "type": "string",
+        "description": "Emoji reaction to toggle — enum: thumbs_up|thumbs_down|grinning_face_with_smiling_eyes|confused_face|heart|party_popper|rocket|eyes (operations: toggle_emoji_reaction)"
+      },
+      "confirmed": {
+        "type": "string",
+        "description": "Optional. Two-Phase write confirm: set confirmed=true (or ja/yes/1) to execute POST/PATCH/PUT/DELETE. Without it, mutating calls return a confirmation ask."
+      }
+    }
+  },
+  "setup_args": {
+    "openproject_base_url": {
+      "type": "string",
+      "required": true,
+      "input": {
+        "type": "text",
+        "default": "http://web:8080",
+        "hint": "Interne OpenProject-API-Basis (im Docker-Netz, Port 8080)"
+      }
+    },
+    "openproject_token": {
+      "type": "string",
+      "required": true,
+      "input": {
+        "type": "password",
+        "hint": "OpenProject-API-Key (Basic apikey:<key>; aus Benutzerprofil)"
+      }
+    }
+  }
+}

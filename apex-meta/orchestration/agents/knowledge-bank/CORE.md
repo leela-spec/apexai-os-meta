@@ -4,8 +4,8 @@ purpose: >
   Single always-read doctrine core for knowledge-bank spawns, replacing a fresh full re-read of
   ESSENCE+BEST_PRACTICES+MISTAKES+TEMPLATES (~470 lines) on every invocation. The migrated v2
   doctrine was written for a different KB architecture (appendix-first "Special Ops" scaffolds under
-  OpenClaw); the live system's actual contract is the runtime `.claude/agents/knowledge-bank.md` +
-  the `apex-kb` skill. This core keeps only the anti-patterns and practices that generalize to
+  OpenClaw); the live system's actual contract is the runtime `.claude/agents/knowledge-bank.md`.
+  This core keeps only the anti-patterns and practices that generalize to
   placement in `apex-meta/kb/` and drops appendix pointers to files that were never migrated (there
   is no source-manifest/candidate-ledger/promotion-trace appendix set in this checkout).
 distilled_from: "ESSENCE.md, BEST_PRACTICES.md, MISTAKES.md, TEMPLATES.md (kept, verbatim, as

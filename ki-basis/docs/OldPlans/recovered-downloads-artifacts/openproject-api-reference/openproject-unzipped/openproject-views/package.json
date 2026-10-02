@@ -1,0 +1,11 @@
+{
+  "name": "@ki-basis/anythingllm-openproject-views-skill",
+  "version": "0.1.0",
+  "private": true,
+  "description": "OpenProject Views API",
+  "type": "commonjs",
+  "main": "handler.js",
+  "engines": {
+    "node": ">=20"
+  }
+}

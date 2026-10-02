@@ -114,7 +114,7 @@ The next session does not need to rebuild the whole agent architecture.
 
 ## 4.1 Compact routing already exists
 
-`AGENTS.md` currently establishes directness, scope discipline, current-truth discipline, Informatics routing, Apex KB routing, and patch safety. It explicitly says simple operations should take the shortest correct path rather than accumulate workflow ceremony.
+`AGENTS.md` currently establishes directness, scope discipline, current-truth discipline, Informatics routing, and patch safety. It explicitly says simple operations should take the shortest correct path rather than accumulate workflow ceremony.
 
 `.claude/CLAUDE.md` is already a compact project activation/router. It states that detailed instructions should be loaded only from the entrypoint selected by operator intent and that agents should read only the active entrypoint plus the state/packets/references needed for the request.
 

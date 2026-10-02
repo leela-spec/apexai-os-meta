@@ -1,0 +1,1561 @@
+{
+  "Meta Ops": {
+    "slug": "meta-ops",
+    "upper_slug": "META_OPS",
+    "total": 280,
+    "gitdev_count": 168,
+    "quasidev_count": 112,
+    "status_counts": {
+      "Canonical / Active": 105,
+      "Distilled / Migrated": 12,
+      "Reference-Only / Historical": 150,
+      "Empty Scaffold / Stub": 13
+    },
+    "stub_count": 13,
+    "stubs": [
+      {
+        "name": ".gitkeep",
+        "path": "C:\\GitDev\\apexai-os-meta\\apex-meta\\orchestration\\new_final_v4\\evolution\\.gitkeep",
+        "score": 2.0
+      },
+      {
+        "name": ".gitkeep",
+        "path": "C:\\GitDev\\apexai-os-meta\\.claude\\skills\\status-merge\\examples\\.gitkeep",
+        "score": 2.0
+      },
+      {
+        "name": ".gitkeep",
+        "path": "C:\\GitDev\\apexai-os-meta\\.claude\\skills\\status-merge\\references\\.gitkeep",
+        "score": 2.0
+      },
+      {
+        "name": ".gitkeep",
+        "path": "C:\\GitDev\\apexai-os-meta\\.claude\\skills\\status-merge\\templates\\.gitkeep",
+        "score": 2.0
+      },
+      {
+        "name": "BEST_PRACTICES.md",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\Previous_OpenClaw\\07_finalopenclawsystem\\managed\\agent_kb\\meta_ops\\BEST_PRACTICES.md",
+        "score": 3.4
+      },
+      {
+        "name": "LEARNING_QUEUE.md",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\Previous_OpenClaw\\07_finalopenclawsystem\\managed\\agent_kb\\meta_ops\\LEARNING_QUEUE.md",
+        "score": 3.4
+      },
+      {
+        "name": "MISTAKES.md",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\Previous_OpenClaw\\07_finalopenclawsystem\\managed\\agent_kb\\meta_ops\\MISTAKES.md",
+        "score": 3.4
+      },
+      {
+        "name": "TEMPLATES.md",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\Previous_OpenClaw\\07_finalopenclawsystem\\managed\\agent_kb\\meta_ops\\TEMPLATES.md",
+        "score": 3.4
+      },
+      {
+        "name": "GAP_REGISTER.md",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\OpenClaw Infrastructure Files\\GAP_REGISTER.md",
+        "score": 1.0
+      },
+      {
+        "name": "BEST_PRACTICES.md",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\OpenClaw_Setup\\migration_payload\\07_finalopenclawsystem\\managed\\agent_kb\\meta_ops\\BEST_PRACTICES.md",
+        "score": 3.4
+      },
+      {
+        "name": "LEARNING_QUEUE.md",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\OpenClaw_Setup\\migration_payload\\07_finalopenclawsystem\\managed\\agent_kb\\meta_ops\\LEARNING_QUEUE.md",
+        "score": 3.4
+      },
+      {
+        "name": "MISTAKES.md",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\OpenClaw_Setup\\migration_payload\\07_finalopenclawsystem\\managed\\agent_kb\\meta_ops\\MISTAKES.md",
+        "score": 3.4
+      },
+      {
+        "name": "TEMPLATES.md",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\OpenClaw_Setup\\migration_payload\\07_finalopenclawsystem\\managed\\agent_kb\\meta_ops\\TEMPLATES.md",
+        "score": 3.4
+      }
+    ],
+    "top_10": [
+      {
+        "name": "DOCTRINE-MANIFEST.md",
+        "score": 9.75,
+        "q": 10,
+        "qt": 9,
+        "mr": 10,
+        "ov": 10,
+        "size": 5950,
+        "lines": 60,
+        "status": "Canonical / Active",
+        "path": "C:\\GitDev\\apexai-os-meta\\apex-meta\\orchestration\\agents\\DOCTRINE-MANIFEST.md",
+        "exists": true,
+        "rationale": "Foundational architecture document defining canonical multi-agent law, state invariants, and runtime boundaries (60 lines)."
+      },
+      {
+        "name": "00-START-HERE.md",
+        "score": 9.75,
+        "q": 10,
+        "qt": 9,
+        "mr": 10,
+        "ov": 10,
+        "size": 4628,
+        "lines": 58,
+        "status": "Canonical / Active",
+        "path": "C:\\GitDev\\apexai-os-meta\\apex-meta\\orchestration\\00-START-HERE.md",
+        "exists": true,
+        "rationale": "Foundational architecture document defining canonical multi-agent law, state invariants, and runtime boundaries (58 lines)."
+      },
+      {
+        "name": "ARCHITECTURE.md",
+        "score": 9.75,
+        "q": 10,
+        "qt": 9,
+        "mr": 10,
+        "ov": 10,
+        "size": 8811,
+        "lines": 89,
+        "status": "Canonical / Active",
+        "path": "C:\\GitDev\\apexai-os-meta\\apex-meta\\orchestration\\ARCHITECTURE.md",
+        "exists": true,
+        "rationale": "Foundational architecture document defining canonical multi-agent law, state invariants, and runtime boundaries (89 lines)."
+      },
+      {
+        "name": "SKILL.md",
+        "score": 9.0,
+        "q": 8,
+        "qt": 9,
+        "mr": 10,
+        "ov": 9,
+        "size": 12123,
+        "lines": 323,
+        "status": "Canonical / Active",
+        "path": "C:\\GitDev\\apexai-os-meta\\.claude\\skills\\apex-session\\SKILL.md",
+        "exists": true,
+        "rationale": "Active skill entrypoint definition with standardized operational instructions (323 lines)."
+      },
+      {
+        "name": "SKILL.md",
+        "score": 9.0,
+        "q": 8,
+        "qt": 9,
+        "mr": 10,
+        "ov": 9,
+        "size": 15083,
+        "lines": 306,
+        "status": "Canonical / Active",
+        "path": "C:\\GitDev\\apexai-os-meta\\.claude\\skills\\cross-linker\\SKILL.md",
+        "exists": true,
+        "rationale": "Active skill entrypoint definition with standardized operational instructions (306 lines)."
+      },
+      {
+        "name": "AGENT_SWARM_INTERACTION_CANON.md",
+        "score": 8.85,
+        "q": 9,
+        "qt": 9,
+        "mr": 8,
+        "ov": 9,
+        "size": 20808,
+        "lines": 545,
+        "status": "Distilled / Migrated",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\Previous_OpenClaw\\07_finalopenclawsystem\\managed\\rules\\AGENT_SWARM_INTERACTION_CANON.md",
+        "exists": true,
+        "rationale": "Authoritative system canon defining execution boundaries, swarm interactions, and strict handoff contracts."
+      },
+      {
+        "name": "ESCALATION_EXCEPTION_BLOCK.md",
+        "score": 8.85,
+        "q": 9,
+        "qt": 9,
+        "mr": 8,
+        "ov": 9,
+        "size": 11788,
+        "lines": 259,
+        "status": "Distilled / Migrated",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\Previous_OpenClaw\\07_finalopenclawsystem\\managed\\rules\\ESCALATION_EXCEPTION_BLOCK.md",
+        "exists": true,
+        "rationale": "Authoritative system canon defining execution boundaries, swarm interactions, and strict handoff contracts."
+      },
+      {
+        "name": "OPERATING_SPINE_CANON.md",
+        "score": 8.85,
+        "q": 9,
+        "qt": 9,
+        "mr": 8,
+        "ov": 9,
+        "size": 13202,
+        "lines": 291,
+        "status": "Distilled / Migrated",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\Previous_OpenClaw\\07_finalopenclawsystem\\managed\\rules\\OPERATING_SPINE_CANON.md",
+        "exists": true,
+        "rationale": "Authoritative system canon defining execution boundaries, swarm interactions, and strict handoff contracts."
+      },
+      {
+        "name": "AGENT_SWARM_INTERACTION_CANON.md",
+        "score": 8.85,
+        "q": 9,
+        "qt": 9,
+        "mr": 8,
+        "ov": 9,
+        "size": 20264,
+        "lines": 545,
+        "status": "Distilled / Migrated",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\OpenClaw_Setup\\migration_payload\\07_finalopenclawsystem\\managed\\rules\\AGENT_SWARM_INTERACTION_CANON.md",
+        "exists": true,
+        "rationale": "Authoritative system canon defining execution boundaries, swarm interactions, and strict handoff contracts."
+      },
+      {
+        "name": "ESCALATION_EXCEPTION_BLOCK.md",
+        "score": 8.85,
+        "q": 9,
+        "qt": 9,
+        "mr": 8,
+        "ov": 9,
+        "size": 11788,
+        "lines": 259,
+        "status": "Distilled / Migrated",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\OpenClaw_Setup\\migration_payload\\07_finalopenclawsystem\\managed\\rules\\ESCALATION_EXCEPTION_BLOCK.md",
+        "exists": true,
+        "rationale": "Authoritative system canon defining execution boundaries, swarm interactions, and strict handoff contracts."
+      }
+    ]
+  },
+  "Meta Detective": {
+    "slug": "meta-detective",
+    "upper_slug": "META_DETECTIVE",
+    "total": 102,
+    "gitdev_count": 30,
+    "quasidev_count": 72,
+    "status_counts": {
+      "Canonical / Active": 9,
+      "Distilled / Migrated": 10,
+      "Reference-Only / Historical": 73,
+      "Empty Scaffold / Stub": 10
+    },
+    "stub_count": 10,
+    "stubs": [
+      {
+        "name": "BEST_PRACTICES.md",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\Previous_OpenClaw\\07_finalopenclawsystem\\NewFinals\\MetaHeadsKBUpdateState\\mirror\\OpenClaw\\07_finalopenclawsystem\\managed\\agent_kb\\meta_detective\\BEST_PRACTICES.md",
+        "score": 3.4
+      },
+      {
+        "name": "LEARNING_QUEUE.md",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\Previous_OpenClaw\\07_finalopenclawsystem\\NewFinals\\MetaHeadsKBUpdateState\\mirror\\OpenClaw\\07_finalopenclawsystem\\managed\\agent_kb\\meta_detective\\LEARNING_QUEUE.md",
+        "score": 3.4
+      },
+      {
+        "name": "MISTAKES.md",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\Previous_OpenClaw\\07_finalopenclawsystem\\NewFinals\\MetaHeadsKBUpdateState\\mirror\\OpenClaw\\07_finalopenclawsystem\\managed\\agent_kb\\meta_detective\\MISTAKES.md",
+        "score": 3.4
+      },
+      {
+        "name": "TEMPLATES.md",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\Previous_OpenClaw\\07_finalopenclawsystem\\NewFinals\\MetaHeadsKBUpdateState\\mirror\\OpenClaw\\07_finalopenclawsystem\\managed\\agent_kb\\meta_detective\\TEMPLATES.md",
+        "score": 3.4
+      },
+      {
+        "name": "Unbenannt.md",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\How to AI general\\Update process GitHub Repo\\Unbenannt.md",
+        "score": 1.0
+      },
+      {
+        "name": "newprocess4audio2ssot.md",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\How to AI general\\Update process GitHub Repo\\newprocess4audio2ssot.md",
+        "score": 1.0
+      },
+      {
+        "name": "BEST_PRACTICES.md",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\OpenClaw_Setup\\migration_payload\\07_finalopenclawsystem\\managed\\agent_kb\\meta_detective\\BEST_PRACTICES.md",
+        "score": 3.4
+      },
+      {
+        "name": "LEARNING_QUEUE.md",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\OpenClaw_Setup\\migration_payload\\07_finalopenclawsystem\\managed\\agent_kb\\meta_detective\\LEARNING_QUEUE.md",
+        "score": 3.4
+      },
+      {
+        "name": "MISTAKES.md",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\OpenClaw_Setup\\migration_payload\\07_finalopenclawsystem\\managed\\agent_kb\\meta_detective\\MISTAKES.md",
+        "score": 3.4
+      },
+      {
+        "name": "TEMPLATES.md",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\OpenClaw_Setup\\migration_payload\\07_finalopenclawsystem\\managed\\agent_kb\\meta_detective\\TEMPLATES.md",
+        "score": 3.4
+      }
+    ],
+    "top_10": [
+      {
+        "name": "AnotherConstantFailure.md",
+        "score": 9.05,
+        "q": 9,
+        "qt": 10,
+        "mr": 8,
+        "ov": 9,
+        "size": 4284,
+        "lines": 46,
+        "status": "Reference-Only / Historical",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\Previous_OpenClaw\\07_finalopenclawsystem\\managed\\agent_kb\\meta_detective\\appendices\\Failures\\AnotherConstantFailure.md",
+        "exists": true,
+        "rationale": "Exhaustive empirical ledger documenting failure modes, prompt drift patterns, and anti-drift validation rules."
+      },
+      {
+        "name": "FAILURE_AND_ANTI_DRIFT_LEDGER.md",
+        "score": 9.05,
+        "q": 9,
+        "qt": 10,
+        "mr": 8,
+        "ov": 9,
+        "size": 116262,
+        "lines": 201,
+        "status": "Reference-Only / Historical",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\Previous_OpenClaw\\07_finalopenclawsystem\\managed\\agent_kb\\meta_detective\\appendices\\Failures\\FAILURE_AND_ANTI_DRIFT_LEDGER.md",
+        "exists": true,
+        "rationale": "Exhaustive empirical ledger documenting failure modes, prompt drift patterns, and anti-drift validation rules."
+      },
+      {
+        "name": "apex-review-alignment.md",
+        "score": 9.0,
+        "q": 9,
+        "qt": 7,
+        "mr": 10,
+        "ov": 10,
+        "size": 3444,
+        "lines": 47,
+        "status": "Canonical / Active",
+        "path": "C:\\GitDev\\apexai-os-meta\\.claude\\agents\\apex-review-alignment.md",
+        "exists": true,
+        "rationale": "Active agent contract in .claude/agents defining canonical operational roles, tools, and execution boundaries (47 lines)."
+      },
+      {
+        "name": "apex-review-validity.md",
+        "score": 9.0,
+        "q": 9,
+        "qt": 7,
+        "mr": 10,
+        "ov": 10,
+        "size": 3427,
+        "lines": 47,
+        "status": "Canonical / Active",
+        "path": "C:\\GitDev\\apexai-os-meta\\.claude\\agents\\apex-review-validity.md",
+        "exists": true,
+        "rationale": "Active agent contract in .claude/agents defining canonical operational roles, tools, and execution boundaries (47 lines)."
+      },
+      {
+        "name": "CORE.md",
+        "score": 9.0,
+        "q": 9,
+        "qt": 8,
+        "mr": 10,
+        "ov": 9,
+        "size": 9581,
+        "lines": 137,
+        "status": "Canonical / Active",
+        "path": "C:\\GitDev\\apexai-os-meta\\apex-meta\\orchestration\\agents\\meta-detective\\CORE.md",
+        "exists": true,
+        "rationale": "Distilled operational core with verified doctrine translation rules and preserved boundaries (137 lines)."
+      },
+      {
+        "name": "review-verdict.schema.md",
+        "score": 8.75,
+        "q": 9,
+        "qt": 7,
+        "mr": 10,
+        "ov": 9,
+        "size": 5030,
+        "lines": 96,
+        "status": "Canonical / Active",
+        "path": "C:\\GitDev\\apexai-os-meta\\apex-meta\\orchestration\\schemas\\review-verdict.schema.md",
+        "exists": true,
+        "rationale": "Canonical operational specification/schema directly defining live execution loops and contract invariants (96 lines)."
+      },
+      {
+        "name": "FINDINGS-t10-hermes-compose-drift-2026-09-28.md",
+        "score": 8.75,
+        "q": 8,
+        "qt": 9,
+        "mr": 10,
+        "ov": 8,
+        "size": 26431,
+        "lines": 309,
+        "status": "Reference-Only / Historical",
+        "path": "C:\\GitDev\\apexai-os-meta\\apex-meta\\orchestration\\architecture-improvements\\05-program-closeout\\FINDINGS-t10-hermes-compose-drift-2026-09-28.md",
+        "exists": true,
+        "rationale": "Program closeout plan documenting architecture migration tasks and closeout verification (309 lines)."
+      },
+      {
+        "name": "SKILL.md",
+        "score": 8.75,
+        "q": 8,
+        "qt": 8,
+        "mr": 10,
+        "ov": 9,
+        "size": 5092,
+        "lines": 118,
+        "status": "Canonical / Active",
+        "path": "C:\\GitDev\\apexai-os-meta\\.claude\\skills\\impl-validator\\SKILL.md",
+        "exists": true,
+        "rationale": "Active skill entrypoint definition with standardized operational instructions (118 lines)."
+      },
+      {
+        "name": "SKILL.md",
+        "score": 8.75,
+        "q": 8,
+        "qt": 8,
+        "mr": 10,
+        "ov": 9,
+        "size": 6406,
+        "lines": 130,
+        "status": "Canonical / Active",
+        "path": "C:\\GitDev\\apexai-os-meta\\.claude\\skills\\source-authority-and-verdict-packet\\SKILL.md",
+        "exists": true,
+        "rationale": "Active skill entrypoint definition with standardized operational instructions (130 lines)."
+      },
+      {
+        "name": "meta-detective.md",
+        "score": 8.5,
+        "q": 9,
+        "qt": 5,
+        "mr": 10,
+        "ov": 10,
+        "size": 2801,
+        "lines": 26,
+        "status": "Canonical / Active",
+        "path": "C:\\GitDev\\apexai-os-meta\\.claude\\agents\\meta-detective.md",
+        "exists": true,
+        "rationale": "Active agent contract in .claude/agents defining canonical operational roles, tools, and execution boundaries (26 lines)."
+      }
+    ]
+  },
+  "Meta Strategy": {
+    "slug": "meta-strategy",
+    "upper_slug": "META_STRATEGY",
+    "total": 41,
+    "gitdev_count": 14,
+    "quasidev_count": 27,
+    "status_counts": {
+      "Canonical / Active": 3,
+      "Distilled / Migrated": 7,
+      "Reference-Only / Historical": 19,
+      "Empty Scaffold / Stub": 12
+    },
+    "stub_count": 12,
+    "stubs": [
+      {
+        "name": "BEST_PRACTICES.md",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\Previous_OpenClaw\\07_finalopenclawsystem\\managed\\agent_kb\\meta_strategy\\BEST_PRACTICES.md",
+        "score": 3.4
+      },
+      {
+        "name": "LEARNING_QUEUE.md",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\Previous_OpenClaw\\07_finalopenclawsystem\\managed\\agent_kb\\meta_strategy\\LEARNING_QUEUE.md",
+        "score": 3.4
+      },
+      {
+        "name": "MISTAKES.md",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\Previous_OpenClaw\\07_finalopenclawsystem\\managed\\agent_kb\\meta_strategy\\MISTAKES.md",
+        "score": 3.4
+      },
+      {
+        "name": "TEMPLATES.md",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\Previous_OpenClaw\\07_finalopenclawsystem\\managed\\agent_kb\\meta_strategy\\TEMPLATES.md",
+        "score": 3.4
+      },
+      {
+        "name": "BEST_PRACTICES.md",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\Previous_OpenClaw\\07_finalopenclawsystem\\NewFinals\\MetaHeadsKBUpdateState\\mirror\\OpenClaw\\07_finalopenclawsystem\\managed\\agent_kb\\meta_strategy\\BEST_PRACTICES.md",
+        "score": 3.4
+      },
+      {
+        "name": "LEARNING_QUEUE.md",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\Previous_OpenClaw\\07_finalopenclawsystem\\NewFinals\\MetaHeadsKBUpdateState\\mirror\\OpenClaw\\07_finalopenclawsystem\\managed\\agent_kb\\meta_strategy\\LEARNING_QUEUE.md",
+        "score": 3.4
+      },
+      {
+        "name": "MISTAKES.md",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\Previous_OpenClaw\\07_finalopenclawsystem\\NewFinals\\MetaHeadsKBUpdateState\\mirror\\OpenClaw\\07_finalopenclawsystem\\managed\\agent_kb\\meta_strategy\\MISTAKES.md",
+        "score": 3.4
+      },
+      {
+        "name": "TEMPLATES.md",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\Previous_OpenClaw\\07_finalopenclawsystem\\NewFinals\\MetaHeadsKBUpdateState\\mirror\\OpenClaw\\07_finalopenclawsystem\\managed\\agent_kb\\meta_strategy\\TEMPLATES.md",
+        "score": 3.4
+      },
+      {
+        "name": "BEST_PRACTICES.md",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\OpenClaw_Setup\\migration_payload\\07_finalopenclawsystem\\managed\\agent_kb\\meta_strategy\\BEST_PRACTICES.md",
+        "score": 3.4
+      },
+      {
+        "name": "LEARNING_QUEUE.md",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\OpenClaw_Setup\\migration_payload\\07_finalopenclawsystem\\managed\\agent_kb\\meta_strategy\\LEARNING_QUEUE.md",
+        "score": 3.4
+      },
+      {
+        "name": "MISTAKES.md",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\OpenClaw_Setup\\migration_payload\\07_finalopenclawsystem\\managed\\agent_kb\\meta_strategy\\MISTAKES.md",
+        "score": 3.4
+      },
+      {
+        "name": "TEMPLATES.md",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\OpenClaw_Setup\\migration_payload\\07_finalopenclawsystem\\managed\\agent_kb\\meta_strategy\\TEMPLATES.md",
+        "score": 3.4
+      }
+    ],
+    "top_10": [
+      {
+        "name": "meta-strategy.md",
+        "score": 8.5,
+        "q": 9,
+        "qt": 5,
+        "mr": 10,
+        "ov": 10,
+        "size": 2012,
+        "lines": 23,
+        "status": "Canonical / Active",
+        "path": "C:\\GitDev\\apexai-os-meta\\.claude\\agents\\meta-strategy.md",
+        "exists": true,
+        "rationale": "Active agent contract in .claude/agents defining canonical operational roles, tools, and execution boundaries (23 lines)."
+      },
+      {
+        "name": "meta_strategy.md",
+        "score": 7.8,
+        "q": 8,
+        "qt": 7,
+        "mr": 8,
+        "ov": 8,
+        "size": 2278,
+        "lines": 110,
+        "status": "Distilled / Migrated",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\Previous_OpenClaw\\07_finalopenclawsystem\\managed\\agents\\meta_strategy.md",
+        "exists": true,
+        "rationale": "Core role definition and agent boundary specification; foundational doctrine distilled into modern contracts."
+      },
+      {
+        "name": "meta_strategy.md",
+        "score": 7.8,
+        "q": 8,
+        "qt": 7,
+        "mr": 8,
+        "ov": 8,
+        "size": 2278,
+        "lines": 110,
+        "status": "Distilled / Migrated",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\Previous_OpenClaw\\07_finalopenclawsystem\\NewFinals\\MetaHeadsKBUpdateState\\mirror\\OpenClaw\\07_finalopenclawsystem\\managed\\agents\\meta_strategy.md",
+        "exists": true,
+        "rationale": "Core role definition and agent boundary specification; foundational doctrine distilled into modern contracts."
+      },
+      {
+        "name": "AI Mastery \u2014 Executive Summary_Short.pdf",
+        "score": 7.8,
+        "q": 8,
+        "qt": 10,
+        "mr": 6,
+        "ov": 7,
+        "size": 98208,
+        "lines": 2755,
+        "status": "Reference-Only / Historical",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\Apex_Vision_previous_Mastery\\AI Mastery \u2014 Executive Summary_Short.pdf",
+        "exists": true,
+        "rationale": "Academic research paper and empirical study analyzing multi-agent failures, long-context dynamics, and diffusion processes."
+      },
+      {
+        "name": "AI Mastery \u2014 Executive Vision Narrative.pdf",
+        "score": 7.8,
+        "q": 8,
+        "qt": 10,
+        "mr": 6,
+        "ov": 7,
+        "size": 161674,
+        "lines": 4665,
+        "status": "Reference-Only / Historical",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\Apex_Vision_previous_Mastery\\AI Mastery \u2014 Executive Vision Narrative.pdf",
+        "exists": true,
+        "rationale": "Academic research paper and empirical study analyzing multi-agent failures, long-context dynamics, and diffusion processes."
+      },
+      {
+        "name": "meta_strategy.md",
+        "score": 7.8,
+        "q": 8,
+        "qt": 7,
+        "mr": 8,
+        "ov": 8,
+        "size": 2278,
+        "lines": 110,
+        "status": "Distilled / Migrated",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\OpenClaw_Setup\\migration_payload\\07_finalopenclawsystem\\managed\\agents\\meta_strategy.md",
+        "exists": true,
+        "rationale": "Core role definition and agent boundary specification; foundational doctrine distilled into modern contracts."
+      },
+      {
+        "name": "01_MACRO_TOPOLOGY_ASSESSMENT.md",
+        "score": 7.75,
+        "q": 7,
+        "qt": 9,
+        "mr": 10,
+        "ov": 5,
+        "size": 41955,
+        "lines": 405,
+        "status": "Reference-Only / Historical",
+        "path": "C:\\GitDev\\apexai-os-meta\\apex-meta\\orchestration\\new_final_v4\\evolution\\01_MACRO_TOPOLOGY_ASSESSMENT.md",
+        "exists": true,
+        "rationale": "Historical v4 architecture handover/evolution documentation (405 lines); superseded by current single-engine WSL2 topology."
+      },
+      {
+        "name": "ESSENCE.md",
+        "score": 7.4,
+        "q": 8,
+        "qt": 5,
+        "mr": 8,
+        "ov": 8,
+        "size": 3275,
+        "lines": 88,
+        "status": "Distilled / Migrated",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\Previous_OpenClaw\\07_finalopenclawsystem\\NewFinals\\MetaHeadsKBUpdateState\\mirror\\OpenClaw\\07_finalopenclawsystem\\managed\\agent_kb\\meta_strategy\\ESSENCE.md",
+        "exists": true,
+        "rationale": "Core role definition and agent boundary specification; foundational doctrine distilled into modern contracts."
+      },
+      {
+        "name": "ESSENCE.md",
+        "score": 7.25,
+        "q": 8,
+        "qt": 7,
+        "mr": 6,
+        "ov": 8,
+        "size": 1093,
+        "lines": 47,
+        "status": "Canonical / Active",
+        "path": "C:\\GitDev\\apexai-os-meta\\apex-meta\\orchestration\\agents\\meta-strategy\\ESSENCE.md",
+        "exists": true,
+        "rationale": "Active operational code or supporting specification in live skill/orchestration tree (47 lines)."
+      },
+      {
+        "name": "DecisionMakingProcessReseearch_gem.md",
+        "score": 7.25,
+        "q": 8,
+        "qt": 7,
+        "mr": 6,
+        "ov": 8,
+        "size": 5538,
+        "lines": 97,
+        "status": "Canonical / Active",
+        "path": "C:\\GitDev\\apexai-os-meta\\.claude\\skills\\DecisionMakingProcessReseearch_gem.md",
+        "exists": true,
+        "rationale": "Active operational code or supporting specification in live skill/orchestration tree (97 lines)."
+      }
+    ]
+  },
+  "Prompts & Workflows": {
+    "slug": "prompts-workflows",
+    "upper_slug": "PROMPTS_WORKFLOWS",
+    "total": 186,
+    "gitdev_count": 73,
+    "quasidev_count": 113,
+    "status_counts": {
+      "Canonical / Active": 61,
+      "Distilled / Migrated": 19,
+      "Reference-Only / Historical": 101,
+      "Empty Scaffold / Stub": 5
+    },
+    "stub_count": 5,
+    "stubs": [
+      {
+        "name": "__init__.py",
+        "path": "C:\\GitDev\\apexai-os-meta\\.claude\\skills\\skill-creator\\scripts\\__init__.py",
+        "score": 3.0
+      },
+      {
+        "name": "Untitled.md",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\Previous_OpenClaw\\07_finalopenclawsystem\\managed\\agent_kb\\special_ops__prompts_workflows\\appendices\\NewResearchBecauseOfConstantFailure\\Untitled.md",
+        "score": 1.0
+      },
+      {
+        "name": "promptworkflowsChat.py",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\Previous_OpenClaw\\07_finalopenclawsystem\\managed\\agent_kb\\special_ops__prompts_workflows\\appendices\\NewResearchBecauseOfConstantFailure\\promptworkflowsChat.py",
+        "score": 1.0
+      },
+      {
+        "name": "RESTART-01_BEST_PRACTICES.patch.md",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\Previous_OpenClaw\\07_finalopenclawsystem\\managed\\agent_kb\\special_ops__prompts_workflows\\appendices\\patches\\RESTART-01_BEST_PRACTICES.patch.md",
+        "score": 1.15
+      },
+      {
+        "name": "LEARNING_QUEUE.md",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\OpenClaw_Setup\\migration_payload\\07_finalopenclawsystem\\managed\\agent_kb\\special_ops__prompts_workflows\\LEARNING_QUEUE.md",
+        "score": 3.4
+      }
+    ],
+    "top_10": [
+      {
+        "name": "AnotherConstantFailure.md",
+        "score": 9.05,
+        "q": 9,
+        "qt": 10,
+        "mr": 8,
+        "ov": 9,
+        "size": 4284,
+        "lines": 46,
+        "status": "Reference-Only / Historical",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\Previous_OpenClaw\\07_finalopenclawsystem\\managed\\agent_kb\\special_ops__prompts_workflows\\appendices\\KBAudit\\AnotherConstantFailure.md",
+        "exists": true,
+        "rationale": "Exhaustive empirical ledger documenting failure modes, prompt drift patterns, and anti-drift validation rules."
+      },
+      {
+        "name": "AnotherConstantFailure.md",
+        "score": 9.05,
+        "q": 9,
+        "qt": 10,
+        "mr": 8,
+        "ov": 9,
+        "size": 4284,
+        "lines": 46,
+        "status": "Reference-Only / Historical",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\Previous_OpenClaw\\07_finalopenclawsystem\\managed\\agent_kb\\special_ops__prompts_workflows\\appendices\\NewResearchBecauseOfConstantFailure\\AnotherConstantFailure.md",
+        "exists": true,
+        "rationale": "Exhaustive empirical ledger documenting failure modes, prompt drift patterns, and anti-drift validation rules."
+      },
+      {
+        "name": "SKILL.md",
+        "score": 9.0,
+        "q": 8,
+        "qt": 9,
+        "mr": 10,
+        "ov": 9,
+        "size": 33653,
+        "lines": 485,
+        "status": "Canonical / Active",
+        "path": "C:\\GitDev\\apexai-os-meta\\.claude\\skills\\skill-creator\\SKILL.md",
+        "exists": true,
+        "rationale": "Active skill entrypoint definition with standardized operational instructions (485 lines)."
+      },
+      {
+        "name": "AGENT_HANDOFF_CONTRACTS.md",
+        "score": 8.85,
+        "q": 9,
+        "qt": 9,
+        "mr": 8,
+        "ov": 9,
+        "size": 25687,
+        "lines": 591,
+        "status": "Distilled / Migrated",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\Previous_OpenClaw\\07_finalopenclawsystem\\managed\\processes\\AGENT_HANDOFF_CONTRACTS.md",
+        "exists": true,
+        "rationale": "Authoritative system canon defining execution boundaries, swarm interactions, and strict handoff contracts."
+      },
+      {
+        "name": "AGENT_HANDOFF_CONTRACTS.md",
+        "score": 8.85,
+        "q": 9,
+        "qt": 9,
+        "mr": 8,
+        "ov": 9,
+        "size": 25649,
+        "lines": 591,
+        "status": "Distilled / Migrated",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\OpenClaw_Setup\\migration_payload\\07_finalopenclawsystem\\managed\\processes\\AGENT_HANDOFF_CONTRACTS.md",
+        "exists": true,
+        "rationale": "Authoritative system canon defining execution boundaries, swarm interactions, and strict handoff contracts."
+      },
+      {
+        "name": "CORE.md",
+        "score": 8.75,
+        "q": 9,
+        "qt": 7,
+        "mr": 10,
+        "ov": 9,
+        "size": 5303,
+        "lines": 76,
+        "status": "Canonical / Active",
+        "path": "C:\\GitDev\\apexai-os-meta\\apex-meta\\orchestration\\agents\\prompts-workflows\\CORE.md",
+        "exists": true,
+        "rationale": "Distilled operational core with verified doctrine translation rules and preserved boundaries (76 lines)."
+      },
+      {
+        "name": "SKILL.md",
+        "score": 8.75,
+        "q": 8,
+        "qt": 8,
+        "mr": 10,
+        "ov": 9,
+        "size": 7863,
+        "lines": 221,
+        "status": "Canonical / Active",
+        "path": "C:\\GitDev\\apexai-os-meta\\.claude\\skills\\prompt-engineering-patterns\\SKILL.md",
+        "exists": true,
+        "rationale": "Active skill entrypoint definition with standardized operational instructions (221 lines)."
+      },
+      {
+        "name": "SKILL.md",
+        "score": 8.75,
+        "q": 8,
+        "qt": 8,
+        "mr": 10,
+        "ov": 9,
+        "size": 10304,
+        "lines": 238,
+        "status": "Canonical / Active",
+        "path": "C:\\GitDev\\apexai-os-meta\\.claude\\skills\\PromptEngineer\\SKILL.md",
+        "exists": true,
+        "rationale": "Active skill entrypoint definition with standardized operational instructions (238 lines)."
+      },
+      {
+        "name": "SKILL.md",
+        "score": 8.75,
+        "q": 8,
+        "qt": 8,
+        "mr": 10,
+        "ov": 9,
+        "size": 10201,
+        "lines": 266,
+        "status": "Canonical / Active",
+        "path": "C:\\GitDev\\apexai-os-meta\\.claude\\skills\\Workflow&Processes\\SKILL.md",
+        "exists": true,
+        "rationale": "Active skill entrypoint definition with standardized operational instructions (266 lines)."
+      },
+      {
+        "name": "prompts-workflows.md",
+        "score": 8.5,
+        "q": 9,
+        "qt": 5,
+        "mr": 10,
+        "ov": 10,
+        "size": 1994,
+        "lines": 22,
+        "status": "Canonical / Active",
+        "path": "C:\\GitDev\\apexai-os-meta\\.claude\\agents\\prompts-workflows.md",
+        "exists": true,
+        "rationale": "Active agent contract in .claude/agents defining canonical operational roles, tools, and execution boundaries (22 lines)."
+      }
+    ]
+  },
+  "Informatics Design": {
+    "slug": "informatics-design",
+    "upper_slug": "INFORMATICS_DESIGN",
+    "total": 91,
+    "gitdev_count": 64,
+    "quasidev_count": 27,
+    "status_counts": {
+      "Canonical / Active": 39,
+      "Distilled / Migrated": 32,
+      "Reference-Only / Historical": 16,
+      "Empty Scaffold / Stub": 4
+    },
+    "stub_count": 4,
+    "stubs": [
+      {
+        "name": "BEST_PRACTICES.md",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\OpenClaw_Setup\\migration_payload\\07_finalopenclawsystem\\managed\\agent_kb\\special_ops__informatics_design\\BEST_PRACTICES.md",
+        "score": 3.4
+      },
+      {
+        "name": "LEARNING_QUEUE.md",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\OpenClaw_Setup\\migration_payload\\07_finalopenclawsystem\\managed\\agent_kb\\special_ops__informatics_design\\LEARNING_QUEUE.md",
+        "score": 3.4
+      },
+      {
+        "name": "MISTAKES.md",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\OpenClaw_Setup\\migration_payload\\07_finalopenclawsystem\\managed\\agent_kb\\special_ops__informatics_design\\MISTAKES.md",
+        "score": 3.4
+      },
+      {
+        "name": "TEMPLATES.md",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\OpenClaw_Setup\\migration_payload\\07_finalopenclawsystem\\managed\\agent_kb\\special_ops__informatics_design\\TEMPLATES.md",
+        "score": 3.4
+      }
+    ],
+    "top_10": [
+      {
+        "name": "CORE.md",
+        "score": 8.75,
+        "q": 9,
+        "qt": 7,
+        "mr": 10,
+        "ov": 9,
+        "size": 3670,
+        "lines": 58,
+        "status": "Canonical / Active",
+        "path": "C:\\GitDev\\apexai-os-meta\\apex-meta\\orchestration\\agents\\informatics-design\\CORE.md",
+        "exists": true,
+        "rationale": "Distilled operational core with verified doctrine translation rules and preserved boundaries (58 lines)."
+      },
+      {
+        "name": "handoff-packet.schema.md",
+        "score": 8.75,
+        "q": 9,
+        "qt": 7,
+        "mr": 10,
+        "ov": 9,
+        "size": 5607,
+        "lines": 90,
+        "status": "Canonical / Active",
+        "path": "C:\\GitDev\\apexai-os-meta\\apex-meta\\orchestration\\schemas\\handoff-packet.schema.md",
+        "exists": true,
+        "rationale": "Canonical operational specification/schema directly defining live execution loops and contract invariants (90 lines)."
+      },
+      {
+        "name": "SKILL.md",
+        "score": 8.75,
+        "q": 8,
+        "qt": 8,
+        "mr": 10,
+        "ov": 9,
+        "size": 6865,
+        "lines": 153,
+        "status": "Canonical / Active",
+        "path": "C:\\GitDev\\apexai-os-meta\\.claude\\skills\\deterministic-markdown-patcher2\\SKILL.md",
+        "exists": true,
+        "rationale": "Active skill entrypoint definition with standardized operational instructions (153 lines)."
+      },
+      {
+        "name": "SKILL.md",
+        "score": 8.75,
+        "q": 8,
+        "qt": 8,
+        "mr": 10,
+        "ov": 9,
+        "size": 8642,
+        "lines": 180,
+        "status": "Canonical / Active",
+        "path": "C:\\GitDev\\apexai-os-meta\\.claude\\skills\\graph-colorize\\SKILL.md",
+        "exists": true,
+        "rationale": "Active skill entrypoint definition with standardized operational instructions (180 lines)."
+      },
+      {
+        "name": "SKILL.md",
+        "score": 8.75,
+        "q": 8,
+        "qt": 8,
+        "mr": 10,
+        "ov": 9,
+        "size": 10655,
+        "lines": 226,
+        "status": "Canonical / Active",
+        "path": "C:\\GitDev\\apexai-os-meta\\.claude\\skills\\obsidian-layout-adjustment\\SKILL.md",
+        "exists": true,
+        "rationale": "Active skill entrypoint definition with standardized operational instructions (226 lines)."
+      },
+      {
+        "name": "informatics-design.md",
+        "score": 8.5,
+        "q": 9,
+        "qt": 5,
+        "mr": 10,
+        "ov": 10,
+        "size": 1947,
+        "lines": 22,
+        "status": "Canonical / Active",
+        "path": "C:\\GitDev\\apexai-os-meta\\.claude\\agents\\informatics-design.md",
+        "exists": true,
+        "rationale": "Active agent contract in .claude/agents defining canonical operational roles, tools, and execution boundaries (22 lines)."
+      },
+      {
+        "name": "patch-intent-schema.json",
+        "score": 8.5,
+        "q": 8,
+        "qt": 9,
+        "mr": 9,
+        "ov": 8,
+        "size": 7202,
+        "lines": 321,
+        "status": "Canonical / Active",
+        "path": "C:\\GitDev\\apexai-os-meta\\.claude\\skills\\deterministic-markdown-patcher2\\references\\patch-intent-schema.json",
+        "exists": true,
+        "rationale": "Active operational code or supporting specification in live skill/orchestration tree (321 lines)."
+      },
+      {
+        "name": "patch_executor.py",
+        "score": 8.5,
+        "q": 8,
+        "qt": 10,
+        "mr": 8,
+        "ov": 8,
+        "size": 41998,
+        "lines": 935,
+        "status": "Canonical / Active",
+        "path": "C:\\GitDev\\apexai-os-meta\\.claude\\skills\\deterministic-markdown-patcher2\\scripts\\patch_executor.py",
+        "exists": true,
+        "rationale": "Active operational code or supporting specification in live skill/orchestration tree (935 lines)."
+      },
+      {
+        "name": "fixture_spec.json",
+        "score": 8.5,
+        "q": 8,
+        "qt": 9,
+        "mr": 9,
+        "ov": 8,
+        "size": 53772,
+        "lines": 316,
+        "status": "Canonical / Active",
+        "path": "C:\\GitDev\\apexai-os-meta\\.claude\\skills\\deterministic-markdown-patcher2\\repair-packs\\002-executor-dirty-tree-scope-repair\\fixture_spec.json",
+        "exists": true,
+        "rationale": "Active operational code or supporting specification in live skill/orchestration tree (316 lines)."
+      },
+      {
+        "name": "workspace.json",
+        "score": 8.25,
+        "q": 8,
+        "qt": 8,
+        "mr": 9,
+        "ov": 8,
+        "size": 5407,
+        "lines": 197,
+        "status": "Canonical / Active",
+        "path": "C:\\GitDev\\apexai-os-meta\\.claude\\skills\\.obsidian\\workspace.json",
+        "exists": true,
+        "rationale": "Active operational code or supporting specification in live skill/orchestration tree (197 lines)."
+      }
+    ]
+  },
+  "Knowledge Bank": {
+    "slug": "knowledge-bank",
+    "upper_slug": "KNOWLEDGE_BANK",
+    "total": 207,
+    "gitdev_count": 165,
+    "quasidev_count": 42,
+    "status_counts": {
+      "Canonical / Active": 156,
+      "Distilled / Migrated": 12,
+      "Reference-Only / Historical": 35,
+      "Empty Scaffold / Stub": 4
+    },
+    "stub_count": 4,
+    "stubs": [
+      {
+        "name": "BEST_PRACTICES.md",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\OpenClaw_Setup\\migration_payload\\07_finalopenclawsystem\\managed\\agent_kb\\special_ops__knowledge_bank\\BEST_PRACTICES.md",
+        "score": 3.4
+      },
+      {
+        "name": "LEARNING_QUEUE.md",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\OpenClaw_Setup\\migration_payload\\07_finalopenclawsystem\\managed\\agent_kb\\special_ops__knowledge_bank\\LEARNING_QUEUE.md",
+        "score": 3.4
+      },
+      {
+        "name": "MISTAKES.md",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\OpenClaw_Setup\\migration_payload\\07_finalopenclawsystem\\managed\\agent_kb\\special_ops__knowledge_bank\\MISTAKES.md",
+        "score": 3.4
+      },
+      {
+        "name": "TEMPLATES.md",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\OpenClaw_Setup\\migration_payload\\07_finalopenclawsystem\\managed\\agent_kb\\special_ops__knowledge_bank\\TEMPLATES.md",
+        "score": 3.4
+      }
+    ],
+    "top_10": [
+      {
+        "name": "SKILL.md",
+        "score": 9.0,
+        "q": 8,
+        "qt": 9,
+        "mr": 10,
+        "ov": 9,
+        "size": 22697,
+        "lines": 460,
+        "status": "Canonical / Active",
+        "path": "C:\\GitDev\\apexai-os-meta\\.claude\\skills\\claude-history-ingest\\SKILL.md",
+        "exists": true,
+        "rationale": "Active skill entrypoint definition with standardized operational instructions (460 lines)."
+      },
+      {
+        "name": "SKILL.md",
+        "score": 9.0,
+        "q": 8,
+        "qt": 9,
+        "mr": 10,
+        "ov": 9,
+        "size": 18333,
+        "lines": 373,
+        "status": "Canonical / Active",
+        "path": "C:\\GitDev\\apexai-os-meta\\.claude\\skills\\copilot-history-ingest\\SKILL.md",
+        "exists": true,
+        "rationale": "Active skill entrypoint definition with standardized operational instructions (373 lines)."
+      },
+      {
+        "name": "SKILL.md",
+        "score": 9.0,
+        "q": 8,
+        "qt": 9,
+        "mr": 10,
+        "ov": 9,
+        "size": 35827,
+        "lines": 640,
+        "status": "Canonical / Active",
+        "path": "C:\\GitDev\\apexai-os-meta\\.claude\\skills\\llm-wiki\\SKILL.md",
+        "exists": true,
+        "rationale": "Active skill entrypoint definition with standardized operational instructions (640 lines)."
+      },
+      {
+        "name": "SKILL.md",
+        "score": 9.0,
+        "q": 8,
+        "qt": 9,
+        "mr": 10,
+        "ov": 9,
+        "size": 14266,
+        "lines": 309,
+        "status": "Canonical / Active",
+        "path": "C:\\GitDev\\apexai-os-meta\\.claude\\skills\\pi-history-ingest\\SKILL.md",
+        "exists": true,
+        "rationale": "Active skill entrypoint definition with standardized operational instructions (309 lines)."
+      },
+      {
+        "name": "SKILL.md",
+        "score": 9.0,
+        "q": 8,
+        "qt": 9,
+        "mr": 10,
+        "ov": 9,
+        "size": 14457,
+        "lines": 319,
+        "status": "Canonical / Active",
+        "path": "C:\\GitDev\\apexai-os-meta\\.claude\\skills\\wiki-agent\\SKILL.md",
+        "exists": true,
+        "rationale": "Active skill entrypoint definition with standardized operational instructions (319 lines)."
+      },
+      {
+        "name": "SKILL.md",
+        "score": 9.0,
+        "q": 8,
+        "qt": 9,
+        "mr": 10,
+        "ov": 9,
+        "size": 15461,
+        "lines": 334,
+        "status": "Canonical / Active",
+        "path": "C:\\GitDev\\apexai-os-meta\\.claude\\skills\\wiki-capture\\SKILL.md",
+        "exists": true,
+        "rationale": "Active skill entrypoint definition with standardized operational instructions (334 lines)."
+      },
+      {
+        "name": "SKILL.md",
+        "score": 9.0,
+        "q": 8,
+        "qt": 9,
+        "mr": 10,
+        "ov": 9,
+        "size": 13274,
+        "lines": 469,
+        "status": "Canonical / Active",
+        "path": "C:\\GitDev\\apexai-os-meta\\.claude\\skills\\wiki-dashboard\\SKILL.md",
+        "exists": true,
+        "rationale": "Active skill entrypoint definition with standardized operational instructions (469 lines)."
+      },
+      {
+        "name": "SKILL.md",
+        "score": 9.0,
+        "q": 8,
+        "qt": 9,
+        "mr": 10,
+        "ov": 9,
+        "size": 15188,
+        "lines": 317,
+        "status": "Canonical / Active",
+        "path": "C:\\GitDev\\apexai-os-meta\\.claude\\skills\\wiki-dedup\\SKILL.md",
+        "exists": true,
+        "rationale": "Active skill entrypoint definition with standardized operational instructions (317 lines)."
+      },
+      {
+        "name": "SKILL.md",
+        "score": 9.0,
+        "q": 8,
+        "qt": 9,
+        "mr": 10,
+        "ov": 9,
+        "size": 23144,
+        "lines": 389,
+        "status": "Canonical / Active",
+        "path": "C:\\GitDev\\apexai-os-meta\\.claude\\skills\\wiki-export\\SKILL.md",
+        "exists": true,
+        "rationale": "Active skill entrypoint definition with standardized operational instructions (389 lines)."
+      },
+      {
+        "name": "SKILL.md",
+        "score": 9.0,
+        "q": 8,
+        "qt": 9,
+        "mr": 10,
+        "ov": 9,
+        "size": 37406,
+        "lines": 558,
+        "status": "Canonical / Active",
+        "path": "C:\\GitDev\\apexai-os-meta\\.claude\\skills\\wiki-ingest\\SKILL.md",
+        "exists": true,
+        "rationale": "Active skill entrypoint definition with standardized operational instructions (558 lines)."
+      }
+    ]
+  },
+  "AI Handling & Routing": {
+    "slug": "ai-handling-routing",
+    "upper_slug": "AI_HANDLING_ROUTING",
+    "total": 119,
+    "gitdev_count": 28,
+    "quasidev_count": 91,
+    "status_counts": {
+      "Canonical / Active": 18,
+      "Reference-Only / Historical": 78,
+      "Distilled / Migrated": 16,
+      "Empty Scaffold / Stub": 7
+    },
+    "stub_count": 7,
+    "stubs": [
+      {
+        "name": ".gitkeep",
+        "path": "C:\\GitDev\\apexai-os-meta\\.claude\\skills\\model-usage-log\\examples\\.gitkeep",
+        "score": 2.0
+      },
+      {
+        "name": ".gitkeep",
+        "path": "C:\\GitDev\\apexai-os-meta\\.claude\\skills\\model-usage-log\\references\\.gitkeep",
+        "score": 2.0
+      },
+      {
+        "name": ".gitkeep",
+        "path": "C:\\GitDev\\apexai-os-meta\\.claude\\skills\\model-usage-log\\templates\\.gitkeep",
+        "score": 2.0
+      },
+      {
+        "name": "BEST_PRACTICES.md",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\OpenClaw_Setup\\migration_payload\\07_finalopenclawsystem\\managed\\agent_kb\\special_ops__ai_handling_routing\\BEST_PRACTICES.md",
+        "score": 3.4
+      },
+      {
+        "name": "LEARNING_QUEUE.md",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\OpenClaw_Setup\\migration_payload\\07_finalopenclawsystem\\managed\\agent_kb\\special_ops__ai_handling_routing\\LEARNING_QUEUE.md",
+        "score": 3.4
+      },
+      {
+        "name": "MISTAKES.md",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\OpenClaw_Setup\\migration_payload\\07_finalopenclawsystem\\managed\\agent_kb\\special_ops__ai_handling_routing\\MISTAKES.md",
+        "score": 3.4
+      },
+      {
+        "name": "TEMPLATES.md",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\OpenClaw_Setup\\migration_payload\\07_finalopenclawsystem\\managed\\agent_kb\\special_ops__ai_handling_routing\\TEMPLATES.md",
+        "score": 3.4
+      }
+    ],
+    "top_10": [
+      {
+        "name": "SKILL.md",
+        "score": 9.0,
+        "q": 8,
+        "qt": 9,
+        "mr": 10,
+        "ov": 9,
+        "size": 10900,
+        "lines": 310,
+        "status": "Canonical / Active",
+        "path": "C:\\GitDev\\apexai-os-meta\\.claude\\skills\\AIRouting\\SKILL.md",
+        "exists": true,
+        "rationale": "Active skill entrypoint definition with standardized operational instructions (310 lines)."
+      },
+      {
+        "name": "SKILL.md",
+        "score": 8.75,
+        "q": 8,
+        "qt": 8,
+        "mr": 10,
+        "ov": 9,
+        "size": 8118,
+        "lines": 194,
+        "status": "Canonical / Active",
+        "path": "C:\\GitDev\\apexai-os-meta\\.claude\\skills\\model-usage-log\\SKILL.md",
+        "exists": true,
+        "rationale": "Active skill entrypoint definition with standardized operational instructions (194 lines)."
+      },
+      {
+        "name": "SPECIAL_OPS_KB_BASE_BUILD_INDEX.md",
+        "score": 8.15,
+        "q": 8,
+        "qt": 8,
+        "mr": 9,
+        "ov": 8,
+        "size": 20986,
+        "lines": 245,
+        "status": "Distilled / Migrated",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\agent_kb_source_indexes\\SPECIAL_OPS_KB_BASE_BUILD_INDEX.md",
+        "exists": true,
+        "rationale": "Curated source authority index mapping external repo baselines to agent KB build requirements."
+      },
+      {
+        "name": "planned-usage-budget-contract.md",
+        "score": 8.0,
+        "q": 8,
+        "qt": 10,
+        "mr": 6,
+        "ov": 8,
+        "size": 22491,
+        "lines": 895,
+        "status": "Canonical / Active",
+        "path": "C:\\GitDev\\apexai-os-meta\\.claude\\skills\\AIRouting\\planned-usage-budget-contract.md",
+        "exists": true,
+        "rationale": "Active operational code or supporting specification in live skill/orchestration tree (895 lines)."
+      },
+      {
+        "name": "routing-decision-contract.md",
+        "score": 8.0,
+        "q": 8,
+        "qt": 10,
+        "mr": 6,
+        "ov": 8,
+        "size": 24253,
+        "lines": 899,
+        "status": "Canonical / Active",
+        "path": "C:\\GitDev\\apexai-os-meta\\.claude\\skills\\AIRouting\\routing-decision-contract.md",
+        "exists": true,
+        "rationale": "Active operational code or supporting specification in live skill/orchestration tree (899 lines)."
+      },
+      {
+        "name": "usage-delta-contract.md",
+        "score": 8.0,
+        "q": 8,
+        "qt": 10,
+        "mr": 6,
+        "ov": 8,
+        "size": 25433,
+        "lines": 989,
+        "status": "Canonical / Active",
+        "path": "C:\\GitDev\\apexai-os-meta\\.claude\\skills\\AIRouting\\usage-delta-contract.md",
+        "exists": true,
+        "rationale": "Active operational code or supporting specification in live skill/orchestration tree (989 lines)."
+      },
+      {
+        "name": "TEMPLATES.md",
+        "score": 7.8,
+        "q": 8,
+        "qt": 7,
+        "mr": 8,
+        "ov": 8,
+        "size": 5535,
+        "lines": 175,
+        "status": "Distilled / Migrated",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\Previous_OpenClaw\\07_finalopenclawsystem\\managed\\agent_kb\\special_ops__ai_handling_routing\\TEMPLATES.md",
+        "exists": true,
+        "rationale": "Populated domain knowledge base containing concrete production rules, error patterns, and template schemas."
+      },
+      {
+        "name": "AI-surface-inventory-contract.md",
+        "score": 7.75,
+        "q": 8,
+        "qt": 9,
+        "mr": 6,
+        "ov": 8,
+        "size": 18227,
+        "lines": 623,
+        "status": "Canonical / Active",
+        "path": "C:\\GitDev\\apexai-os-meta\\.claude\\skills\\AIRouting\\AI-surface-inventory-contract.md",
+        "exists": true,
+        "rationale": "Active operational code or supporting specification in live skill/orchestration tree (623 lines)."
+      },
+      {
+        "name": "cost-class-and-scarcity-rules.md",
+        "score": 7.75,
+        "q": 8,
+        "qt": 9,
+        "mr": 6,
+        "ov": 8,
+        "size": 14772,
+        "lines": 384,
+        "status": "Canonical / Active",
+        "path": "C:\\GitDev\\apexai-os-meta\\.claude\\skills\\AIRouting\\cost-class-and-scarcity-rules.md",
+        "exists": true,
+        "rationale": "Active operational code or supporting specification in live skill/orchestration tree (384 lines)."
+      },
+      {
+        "name": "monthly-quota-map-contract.md",
+        "score": 7.75,
+        "q": 8,
+        "qt": 9,
+        "mr": 6,
+        "ov": 8,
+        "size": 20167,
+        "lines": 764,
+        "status": "Canonical / Active",
+        "path": "C:\\GitDev\\apexai-os-meta\\.claude\\skills\\AIRouting\\monthly-quota-map-contract.md",
+        "exists": true,
+        "rationale": "Active operational code or supporting specification in live skill/orchestration tree (764 lines)."
+      }
+    ]
+  },
+  "Hygiene Clean": {
+    "slug": "hygiene-clean",
+    "upper_slug": "HYGIENE_CLEAN",
+    "total": 45,
+    "gitdev_count": 5,
+    "quasidev_count": 40,
+    "status_counts": {
+      "Distilled / Migrated": 13,
+      "Canonical / Active": 1,
+      "Reference-Only / Historical": 27,
+      "Empty Scaffold / Stub": 4
+    },
+    "stub_count": 4,
+    "stubs": [
+      {
+        "name": "BEST_PRACTICES.md",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\OpenClaw_Setup\\migration_payload\\07_finalopenclawsystem\\managed\\agent_kb\\special_ops__hygiene_clean\\BEST_PRACTICES.md",
+        "score": 3.4
+      },
+      {
+        "name": "LEARNING_QUEUE.md",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\OpenClaw_Setup\\migration_payload\\07_finalopenclawsystem\\managed\\agent_kb\\special_ops__hygiene_clean\\LEARNING_QUEUE.md",
+        "score": 3.4
+      },
+      {
+        "name": "MISTAKES.md",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\OpenClaw_Setup\\migration_payload\\07_finalopenclawsystem\\managed\\agent_kb\\special_ops__hygiene_clean\\MISTAKES.md",
+        "score": 3.4
+      },
+      {
+        "name": "TEMPLATES.md",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\OpenClaw_Setup\\migration_payload\\07_finalopenclawsystem\\managed\\agent_kb\\special_ops__hygiene_clean\\TEMPLATES.md",
+        "score": 3.4
+      }
+    ],
+    "top_10": [
+      {
+        "name": "QA_HYGIENE_PROTOCOL.md",
+        "score": 8.85,
+        "q": 9,
+        "qt": 9,
+        "mr": 8,
+        "ov": 9,
+        "size": 15103,
+        "lines": 424,
+        "status": "Distilled / Migrated",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\Previous_OpenClaw\\07_finalopenclawsystem\\managed\\rules\\QA_HYGIENE_PROTOCOL.md",
+        "exists": true,
+        "rationale": "Authoritative system canon defining execution boundaries, swarm interactions, and strict handoff contracts."
+      },
+      {
+        "name": "QA_HYGIENE_PROTOCOL.md",
+        "score": 8.85,
+        "q": 9,
+        "qt": 9,
+        "mr": 8,
+        "ov": 9,
+        "size": 15103,
+        "lines": 424,
+        "status": "Distilled / Migrated",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\OpenClaw_Setup\\migration_payload\\07_finalopenclawsystem\\managed\\rules\\QA_HYGIENE_PROTOCOL.md",
+        "exists": true,
+        "rationale": "Authoritative system canon defining execution boundaries, swarm interactions, and strict handoff contracts."
+      },
+      {
+        "name": "TEMPLATES.md",
+        "score": 8.2,
+        "q": 8,
+        "qt": 9,
+        "mr": 8,
+        "ov": 8,
+        "size": 7127,
+        "lines": 243,
+        "status": "Distilled / Migrated",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\Previous_OpenClaw\\07_finalopenclawsystem\\managed\\agent_kb\\special_ops__hygiene_clean\\TEMPLATES.md",
+        "exists": true,
+        "rationale": "Populated domain knowledge base containing concrete production rules, error patterns, and template schemas."
+      },
+      {
+        "name": "ESSENCE.md",
+        "score": 8.0,
+        "q": 8,
+        "qt": 8,
+        "mr": 8,
+        "ov": 8,
+        "size": 7098,
+        "lines": 143,
+        "status": "Distilled / Migrated",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\Previous_OpenClaw\\07_finalopenclawsystem\\managed\\agent_kb\\special_ops__hygiene_clean\\ESSENCE.md",
+        "exists": true,
+        "rationale": "Core role definition and agent boundary specification; foundational doctrine distilled into modern contracts."
+      },
+      {
+        "name": "BEST_PRACTICES.md",
+        "score": 7.4,
+        "q": 8,
+        "qt": 5,
+        "mr": 8,
+        "ov": 8,
+        "size": 4362,
+        "lines": 85,
+        "status": "Distilled / Migrated",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\Previous_OpenClaw\\07_finalopenclawsystem\\managed\\agent_kb\\special_ops__hygiene_clean\\BEST_PRACTICES.md",
+        "exists": true,
+        "rationale": "Populated domain knowledge base containing concrete production rules, error patterns, and template schemas."
+      },
+      {
+        "name": "LEARNING_QUEUE.md",
+        "score": 7.4,
+        "q": 8,
+        "qt": 5,
+        "mr": 8,
+        "ov": 8,
+        "size": 5033,
+        "lines": 100,
+        "status": "Distilled / Migrated",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\Previous_OpenClaw\\07_finalopenclawsystem\\managed\\agent_kb\\special_ops__hygiene_clean\\LEARNING_QUEUE.md",
+        "exists": true,
+        "rationale": "Populated domain knowledge base containing concrete production rules, error patterns, and template schemas."
+      },
+      {
+        "name": "MISTAKES.md",
+        "score": 7.4,
+        "q": 8,
+        "qt": 5,
+        "mr": 8,
+        "ov": 8,
+        "size": 4141,
+        "lines": 82,
+        "status": "Distilled / Migrated",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\Previous_OpenClaw\\07_finalopenclawsystem\\managed\\agent_kb\\special_ops__hygiene_clean\\MISTAKES.md",
+        "exists": true,
+        "rationale": "Populated domain knowledge base containing concrete production rules, error patterns, and template schemas."
+      },
+      {
+        "name": "ESSENCE.md",
+        "score": 7.4,
+        "q": 8,
+        "qt": 5,
+        "mr": 8,
+        "ov": 8,
+        "size": 4386,
+        "lines": 88,
+        "status": "Distilled / Migrated",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\kb4agents\\special_ops_kb_factory_output\\special_ops_kb_factory_output\\agents\\hygiene_clean\\ESSENCE.md",
+        "exists": true,
+        "rationale": "Core role definition and agent boundary specification; foundational doctrine distilled into modern contracts."
+      },
+      {
+        "name": "hygiene-clean-doctrine.md",
+        "score": 7.25,
+        "q": 8,
+        "qt": 7,
+        "mr": 6,
+        "ov": 8,
+        "size": 4792,
+        "lines": 59,
+        "status": "Canonical / Active",
+        "path": "C:\\GitDev\\apexai-os-meta\\.claude\\skills\\weekly-orchestrator\\references\\roles\\hygiene-clean-doctrine.md",
+        "exists": true,
+        "rationale": "Active operational code or supporting specification in live skill/orchestration tree (59 lines)."
+      },
+      {
+        "name": "Q&A&HygieneFuture.md",
+        "score": 7.25,
+        "q": 7,
+        "qt": 9,
+        "mr": 8,
+        "ov": 6,
+        "size": 19191,
+        "lines": 490,
+        "status": "Reference-Only / Historical",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\Previous_OpenClaw\\07_finalopenclawsystem\\managed\\agent_kb\\special_ops__hygiene_clean\\appendices\\Q&A&HygieneFuture.md",
+        "exists": true,
+        "rationale": "Legacy reference document containing 490 lines of domain-specific specifications and working context."
+      }
+    ]
+  }
+}

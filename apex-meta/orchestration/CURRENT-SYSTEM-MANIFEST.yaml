@@ -59,9 +59,6 @@ shared_backbone:
     - { path: .claude/skills/apex-session/, role: confirmed_mutation_and_closure }
   multi_agent_integration: apex-meta/orchestration/agents/meta-ops/INTEGRATION-apex-plan-sync-session.md
 
-supporting_capabilities:
-  - { path: .claude/skills/apex-kb/, role: kb_lifecycle }
-
 durable_state:
   registry: apex-meta/registry/index.md
   epics: apex-meta/epics/

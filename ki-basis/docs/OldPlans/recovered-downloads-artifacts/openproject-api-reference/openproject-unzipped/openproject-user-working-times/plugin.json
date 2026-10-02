@@ -1,0 +1,107 @@
+{
+  "active": true,
+  "hubId": "openproject-user-working-times",
+  "name": "OpenProject User Working Times",
+  "schema": "skill-1.0.0",
+  "version": "1.0.0",
+  "description": "OpenProject User Working Times API",
+  "author": "ki-basis",
+  "license": "MIT",
+  "imported": true,
+  "entrypoint": {
+    "file": "handler.js",
+    "params": {
+      "operation": {
+        "type": "string",
+        "description": "One of: list_user_non_working_times|create_user_non_working_time|delete_user_non_working_time|get_user_non_working_time|update_user_non_working_time|list_user_working_hours|create_user_working_hours|delete_user_working_hours_record|get_user_working_hours_record|update_user_working_hours_record"
+      },
+      "id": {
+        "type": "string",
+        "description": "User id. Use `me` to reference the current user."
+      },
+      "year": {
+        "type": "integer",
+        "description": "Filter results to the given year. Defaults to the current year if not provided. — integer (numeric string ok) (operations: list_user_non_working_times)"
+      },
+      "_type": {
+        "type": "string",
+        "description": "Body field _type — enum: UserNonWorkingTime (operations: create_user_non_working_time, update_user_non_working_time, create_user_working_hours, update_user_working_hours_record)"
+      },
+      "startDate": {
+        "type": "string",
+        "description": "The first date of the non-working time range in ISO 8601 format (YYYY-MM-DD). (operations: create_user_non_working_time, update_user_non_working_time)"
+      },
+      "endDate": {
+        "type": "string",
+        "description": "The last date of the non-working time range in ISO 8601 format (YYYY-MM-DD).\nMust be greater than or equal to `startDate`. (operations: create_user_non_working_time, update_user_non_working_time)"
+      },
+      "non_working_time_id": {
+        "type": "integer",
+        "description": "The id of the personal non-working time record. — integer (numeric string ok) (operations: delete_user_non_working_time, get_user_non_working_time, update_user_non_working_time)"
+      },
+      "validFrom": {
+        "type": "string",
+        "description": "The date from which this working hours configuration is in effect (ISO 8601 format).\nMultiple records may exist for a user; the one with the latest `validFrom` that is\nnot in the future is the currently active record. (operations: create_user_working_hours, update_user_working_hours_record)"
+      },
+      "mondayHours": {
+        "type": "number",
+        "description": "Hours worked on Monday. — number >= 0 (operations: create_user_working_hours, update_user_working_hours_record)"
+      },
+      "tuesdayHours": {
+        "type": "number",
+        "description": "Hours worked on Tuesday. — number >= 0 (operations: create_user_working_hours, update_user_working_hours_record)"
+      },
+      "wednesdayHours": {
+        "type": "number",
+        "description": "Hours worked on Wednesday. — number >= 0 (operations: create_user_working_hours, update_user_working_hours_record)"
+      },
+      "thursdayHours": {
+        "type": "number",
+        "description": "Hours worked on Thursday. — number >= 0 (operations: create_user_working_hours, update_user_working_hours_record)"
+      },
+      "fridayHours": {
+        "type": "number",
+        "description": "Hours worked on Friday. — number >= 0 (operations: create_user_working_hours, update_user_working_hours_record)"
+      },
+      "saturdayHours": {
+        "type": "number",
+        "description": "Hours worked on Saturday. — number >= 0 (operations: create_user_working_hours, update_user_working_hours_record)"
+      },
+      "sundayHours": {
+        "type": "number",
+        "description": "Hours worked on Sunday. — number >= 0 (operations: create_user_working_hours, update_user_working_hours_record)"
+      },
+      "availabilityFactor": {
+        "type": "integer",
+        "description": "The percentage of working hours the user is available. Must be between 0 and 100. — integer >= 0 (numeric string ok) (operations: create_user_working_hours, update_user_working_hours_record)"
+      },
+      "working_hours_id": {
+        "type": "integer",
+        "description": "Working hours record id. — integer (numeric string ok) (operations: delete_user_working_hours_record, get_user_working_hours_record, update_user_working_hours_record)"
+      },
+      "confirmed": {
+        "type": "string",
+        "description": "Optional. Two-Phase write confirm: set confirmed=true (or ja/yes/1) to execute POST/PATCH/PUT/DELETE. Without it, mutating calls return a confirmation ask."
+      }
+    }
+  },
+  "setup_args": {
+    "openproject_base_url": {
+      "type": "string",
+      "required": true,
+      "input": {
+        "type": "text",
+        "default": "http://web:8080",
+        "hint": "Interne OpenProject-API-Basis (im Docker-Netz, Port 8080)"
+      }
+    },
+    "openproject_token": {
+      "type": "string",
+      "required": true,
+      "input": {
+        "type": "password",
+        "hint": "OpenProject-API-Key (Basic apikey:<key>; aus Benutzerprofil)"
+      }
+    }
+  }
+}

@@ -1,0 +1,247 @@
+{
+  "active": true,
+  "hubId": "openproject-work-packages",
+  "name": "OpenProject Work Packages",
+  "schema": "skill-1.0.0",
+  "version": "1.0.0",
+  "description": "OpenProject Work Packages API. Create in a project: operation=create_project, id=<project_id>, subject=<title>.",
+  "author": "ki-basis",
+  "license": "MIT",
+  "imported": true,
+  "entrypoint": {
+    "file": "handler.js",
+    "params": {
+      "operation": {
+        "type": "string",
+        "description": "Required. Prefer create_project to create a work package inside a project (needs id=project_id + subject). One of: project_available_assignees|get_project_collection|create_project|form_create_in_project|list|create|form_create|list_schemas|get_schema|delete|get|update|list_activities|comment|list_activities_emoji_reactions|available_assignees|available_projects_for|list_available_relation_candidates|available_watchers|list_file_links|create_file_link|form_edit|revisions|list_watchers|add_watcher|delete_watcher|list_reminders|create_reminder|workspace_available_assignees|get_workspace_collection|create_workspace|form_create_in_workspace"
+      },
+      "id": {
+        "type": "integer",
+        "description": "For create_project / form_create_in_project / get_project_collection: PROJECT id (ki-pm → 3). For get|update|delete|comment: WORK PACKAGE id. Integer or numeric string."
+      },
+      "offset": {
+        "type": "integer",
+        "description": "Page number inside the requested collection. — integer (numeric string ok) (operations: get_project_collection, list, get_workspace_collection)"
+      },
+      "pageSize": {
+        "type": "integer",
+        "description": "Optional chunk size for a single list request (operations: get_project_collection, list, …). Prefer fetchAll=1 for „alle …“ prompts — do not ask the user to paginate."
+      },
+      "fetchAll": {
+        "type": "string",
+        "description": "When 1/true/all on operation=list: return the complete result set. The handler loads OP pages internally (HAL next / high pageSize); the reply must not expose pagination UX. Safety caps: OPENPROJECT_LIST_MAX_ITEMS / MAX_PAGES (if hit: say how many omitted). Auto-set for list prompts containing „alle“."
+      },
+      "filters": {
+        "type": "string",
+        "description": "JSON specifying filter conditions.\nAccepts the same format as returned by the [queries](https://www.openproject.org/docs/api/endpoints/queries/) endpoint. If no filter is to be applied, the client should send an empty array (`[]`). (operations: get_project_collection, list, list_schemas, list_available_relation_candidates, list_file_links, get_workspace_collection)"
+      },
+      "sortBy": {
+        "type": "string",
+        "description": "JSON specifying sort criteria.\nAccepts the same format as returned by the [queries](https://www.openproject.org/docs/api/endpoints/queries/) endpoint. (operations: get_project_collection, list, list_available_relation_candidates, get_workspace_collection)"
+      },
+      "groupBy": {
+        "type": "string",
+        "description": "The column to group by. (operations: get_project_collection, list, get_workspace_collection)"
+      },
+      "showSums": {
+        "type": "boolean",
+        "description": "Indicates whether properties should be summed up if they support it. (operations: get_project_collection, list, get_workspace_collection)"
+      },
+      "select": {
+        "type": "string",
+        "description": "Comma separated list of properties to include. (operations: get_project_collection, list, get_workspace_collection)"
+      },
+      "notify": {
+        "type": "boolean",
+        "description": "Indicates whether change notifications (e.g. via E-Mail) should be sent.\nNote that this controls notifications for all users interested in changes to the work package (e.g. watchers, author and assignee),\nnot just the current user. (operations: create_project, create, update, comment, create_workspace)"
+      },
+      "displayId": {
+        "type": "string",
+        "description": "The user-facing identifier for the work package.\nIts format depends on the `work_packages_identifier` setting.\nWhen set to `semantic`: the project-based identifier (e.g. \"PROJ-42\").\nWhen set to `classic`: the numeric ID as a string (e.g. \"123\"). (operations: create_project, create, create_workspace)"
+      },
+      "lockVersion": {
+        "type": "integer",
+        "description": "The version of the item as used for optimistic locking — integer (numeric string ok) (operations: create_project, create, update, create_workspace)"
+      },
+      "status_id": {
+        "type": "integer",
+        "description": "Work package status id. On update, sets HAL _links.status.href to /api/v3/statuses/{id}. Resolve names (e.g. abgeschlossen) via openproject-statuses list first."
+      },
+      "category_id": {
+        "type": "integer",
+        "description": "OpenProject Category id (NL: Tag/Label/Schlagwort). On create/update sets HAL _links.category. Prefer category=name when id unknown — handler resolves via project categories."
+      },
+      "category": {
+        "type": "string",
+        "description": "Category id or name (NL Tag/Label). Resolved against /projects/{id}/categories on create_project/update/list filters."
+      },
+      "subject": {
+        "type": "string",
+        "description": "Work package title/Betreff. Map user phrases Aufgabe/Task/Ticket/„nennen/heißen X“ → subject=X. Required for create_project|create|update. Never ask the user again if the title was already in the message."
+      },
+      "_type": {
+        "type": "string",
+        "description": "Body field _type — enum: WorkPackage (operations: create_project, create, create_workspace)"
+      },
+      "description": {
+        "type": "string",
+        "description": "Body field description (operations: create_project, form_create_in_project, create, form_create, update, form_edit, create_workspace, form_create_in_workspace)"
+      },
+      "scheduleManually": {
+        "type": "boolean",
+        "description": "Uses manual scheduling mode when true (default). Uses automatic scheduling\nmode when false. Can be automatic only when predecessors or children are\npresent. (operations: create_project, form_create_in_project, create, form_create, update, form_edit, create_workspace, form_create_in_workspace)"
+      },
+      "readonly": {
+        "type": "boolean",
+        "description": "If true, the work package is in a readonly status so with the exception of the status, no other property can be altered. (operations: create_project, create, create_workspace)"
+      },
+      "hasProjectAttributes": {
+        "type": "boolean",
+        "description": "If true, the work package's type has at least one project custom field activated and visible to the current user. (operations: create_project, create, create_workspace)"
+      },
+      "startDate": {
+        "type": "string",
+        "description": "Scheduled beginning of a work package (operations: create_project, form_create_in_project, create, form_create, update, form_edit, create_workspace, form_create_in_workspace)"
+      },
+      "dueDate": {
+        "type": "string",
+        "description": "Scheduled end of a work package (operations: create_project, form_create_in_project, create, form_create, update, form_edit, create_workspace, form_create_in_workspace)"
+      },
+      "date": {
+        "type": "string",
+        "description": "Date on which a milestone is achieved (operations: create_project, create, create_workspace)"
+      },
+      "derivedStartDate": {
+        "type": "string",
+        "description": "Similar to start date but is not set by a client but rather deduced by the work packages' descendants. If manual scheduleManually is active, the two dates can deviate. (operations: create_project, create, create_workspace)"
+      },
+      "derivedDueDate": {
+        "type": "string",
+        "description": "Similar to due date but is not set by a client but rather deduced by the work packages' descendants. If manual scheduleManually is active, the two dates can deviate. (operations: create_project, create, create_workspace)"
+      },
+      "duration": {
+        "type": "string",
+        "description": "**(NOT IMPLEMENTED)** The amount of time in hours the work package needs to be completed.\nNot available for milestone type of work packages. (operations: create_project, form_create_in_project, create, form_create, update, form_edit, create_workspace, form_create_in_workspace)"
+      },
+      "estimatedTime": {
+        "type": "string",
+        "description": "Time a work package likely needs to be completed excluding its descendants (operations: create_project, form_create_in_project, create, form_create, update, form_edit, create_workspace, form_create_in_workspace)"
+      },
+      "derivedEstimatedTime": {
+        "type": "string",
+        "description": "Time a work package likely needs to be completed including its descendants (operations: create_project, create, create_workspace)"
+      },
+      "ignoreNonWorkingDays": {
+        "type": "boolean",
+        "description": "**(NOT IMPLEMENTED)** When scheduling, whether or not to ignore the non working days being defined.\nA work package with the flag set to true will be allowed to be scheduled to a non working day. (operations: create_project, form_create_in_project, create, form_create, update, form_edit, create_workspace, form_create_in_workspace)"
+      },
+      "position": {
+        "type": "integer",
+        "description": "The position this work package has in a version configured to be backlog (sprint or product).\n\n# Conditions\n\n**Permission** Backlogs needs to be enabled in the work package's project and the work package's type is configured to be a backlog type. — integer (numeric string ok) (operations: create_project, create, create_workspace)"
+      },
+      "spentTime": {
+        "type": "string",
+        "description": "The time booked for this work package by users working on it\n\n# Conditions\n\n**Permission** view time entries (operations: create_project, create, create_workspace)"
+      },
+      "storyPoints": {
+        "type": "integer",
+        "description": "The estimation in story points on how long this work package will take to complete\n\n# Conditions\n\n**Permission** Backlogs needs to be enabled in the work package's project and the work package's type is configured to be a backlog type. — integer (numeric string ok) (operations: create_project, create, create_workspace)"
+      },
+      "percentageDone": {
+        "type": "integer",
+        "description": "Amount of total completion for a work package — integer >= 0 (numeric string ok) (operations: create_project, create, create_workspace)"
+      },
+      "derivedPercentageDone": {
+        "type": "integer",
+        "description": "Amount of total completion for a work package derived from itself and its descendant work packages — integer >= 0 (numeric string ok) (operations: create_project, create, create_workspace)"
+      },
+      "createdAt": {
+        "type": "string",
+        "description": "Time of creation. Can be writable by admins with the `apiv3_write_readonly_attributes` setting enabled. (operations: create_project, create, create_workspace)"
+      },
+      "updatedAt": {
+        "type": "string",
+        "description": "Time of the most recent change to the work package. (operations: create_project, create, create_workspace)"
+      },
+      "_meta": {
+        "type": "object",
+        "description": "Meta information for the work package request {validateCustomFields: boolean} (operations: form_create_in_project, form_create, update, form_edit, form_create_in_workspace)"
+      },
+      "timestamps": {
+        "type": "string",
+        "description": "In order to perform a [baseline comparison](/docs/api/baseline-comparisons), you may provide one or several timestamps\nin ISO-8601 format as comma-separated list. The timestamps may be absolute or relative,\nsuch as ISO8601 dates, ISO8601 durations and the following relative date keywords: \"oneDayAgo@HH:MM+HH:MM\",\n\"lastWorkingDay@HH:MM+HH:MM\", \"oneWeekAgo@HH:MM+HH:MM\", \"oneMonthAgo@HH:MM+HH:MM\".\nThe first \"HH:MM\" part represents the zero paded hours and minutes.\nThe last \"+HH:MM\" part represents the timezone offset from UTC associated with the time,\nthe offset can be positive or negative e.g.\"oneDayAgo@01:00+01:00\", \"oneDayAgo@01:00-01:00\".\n\nUsually, the first timestamp is the baseline date, the last timestamp is the current date.\nValues older than 1 day are accepted only with valid Enterprise Token available. (operations: list, get)"
+      },
+      "identifier": {
+        "type": "string",
+        "description": "Identifier of the schema (operations: get_schema)"
+      },
+      "comment": {
+        "type": "object",
+        "description": "{raw: string} (operations: comment)"
+      },
+      "internal": {
+        "type": "boolean",
+        "description": "Determines whether this comment is internal. This is only available to users\nwith `add_internal_comments` permission. It defaults to `false`, if unset. (operations: comment)"
+      },
+      "query": {
+        "type": "string",
+        "description": "Shortcut for filtering by ID or subject (operations: list_available_relation_candidates)"
+      },
+      "type": {
+        "type": "string",
+        "description": "Type of relation to find candidates for (default \"relates\") (operations: list_available_relation_candidates)"
+      },
+      "_embedded": {
+        "type": "object",
+        "description": "{elements: array} (operations: create_file_link)"
+      },
+      "user": {
+        "type": "object",
+        "description": "{href: string} (operations: add_watcher)"
+      },
+      "user_id": {
+        "type": "integer",
+        "description": "User id — integer (numeric string ok) (operations: delete_watcher)"
+      },
+      "work_package_id": {
+        "type": "integer",
+        "description": "Work package id — integer (numeric string ok) (operations: list_reminders, create_reminder)"
+      },
+      "remindAt": {
+        "type": "string",
+        "description": "The date and time when the reminder is due (operations: create_reminder)"
+      },
+      "note": {
+        "type": "string",
+        "description": "The note of the reminder (operations: create_reminder)"
+      },
+      "parent_id": {
+        "description": "Optional parent work package id. Sets _links.parent on create_project/create/update (hierarchy). Alias: parent.",
+        "type": "string"
+      },
+      "confirmed": {
+        "type": "string",
+        "description": "Optional. Two-Phase write confirm: set confirmed=true (or ja/yes/1) to execute POST/PATCH/PUT/DELETE. Without it, mutating calls return a confirmation ask."
+      }
+    }
+  },
+  "setup_args": {
+    "openproject_base_url": {
+      "type": "string",
+      "required": true,
+      "input": {
+        "type": "text",
+        "default": "http://web:8080",
+        "hint": "Interne OpenProject-API-Basis (im Docker-Netz, Port 8080)"
+      }
+    },
+    "openproject_token": {
+      "type": "string",
+      "required": true,
+      "input": {
+        "type": "password",
+        "hint": "OpenProject-API-Key (Basic apikey:<key>; aus Benutzerprofil)"
+      }
+    }
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "date": "2026-09-27",
+  "working_directory": "C:\\GitDev\\apexai-os-meta",
+  "command_shape": "python scripts/orchestration_check.py --json <subcommand> apex-meta/orchestration/tests/negative/<fixture>",
+  "results": [
+    {
+      "subcommand": "packet",
+      "fixture": "f1-candidate-to-canon.md",
+      "expected_exit": 1,
+      "actual_exit": 1,
+      "matched": true
+    },
+    {
+      "subcommand": "canon-write",
+      "fixture": "f2-stale-digest.md",
+      "expected_exit": 1,
+      "actual_exit": 1,
+      "matched": true
+    },
+    {
+      "subcommand": "packet",
+      "fixture": "f3-missing-evidence.md",
+      "expected_exit": 1,
+      "actual_exit": 1,
+      "matched": true
+    },
+    {
+      "subcommand": "verdict",
+      "fixture": "f4-reviewer-mutation.md",
+      "expected_exit": 1,
+      "actual_exit": 1,
+      "matched": true
+    },
+    {
+      "subcommand": "canon-write",
+      "fixture": "f5-unauthorized-write.md",
+      "expected_exit": 1,
+      "actual_exit": 1,
+      "matched": true
+    },
+    {
+      "subcommand": "canon-write",
+      "fixture": "p0-positive-control.md",
+      "expected_exit": 0,
+      "actual_exit": 0,
+      "matched": true
+    }
+  ],
+  "in_memory_probe": {
+    "fixture": "verified declaration with correct input digest and deliberately-nonexistent-review.md sidecar",
+    "sidecar_exists": false,
+    "violations": [],
+    "accepted_by_current_checker": true,
+    "writes_performed": false,
+    "interpretation": "canon-write does not resolve the declared review sidecar; this is not authorization or a real confirmed mutation"
+  }
+}

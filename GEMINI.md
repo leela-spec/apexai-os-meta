@@ -30,20 +30,9 @@
 - Current-truth: Keep working content limited to live guidance; place history in a dedicated log or memory.
 - No-changelog: Do not retain old errors, rejected options, prior versions, incident narratives, or "what changed" explanations in current-truth content.
 
-## Apex KB Dispatch
-- Trigger: Requests to create, start, set up, build, intake, compile, query, retrieve, audit, or maintain an Apex KB use the repository-local `.claude/skills/apex-kb/SKILL.md`.
-- New KB: For a new KB or Setup request, follow the skill's Start route. Do not manually construct `control init` arguments.
-- Existing KB: For an existing controlled KB, resume from `manifests/run-state.json` and use `control next`, `control run`, or `control reconcile` as directed by the skill.
-- Authority: Runtime results and canonical repository files override chat memory or generic agent habits.
-
 ## Scope
 - Rule: Keep actions tied to the user's stated target.
 - Rule: Do not expand the task into adjacent cleanup, redesign, or general hardening.
 - Rule: Prefer one clear action over a long plan when the outcome is already obvious.
 
-## Apex KB Patch Safety
-- Rule: For Apex KB implementation work, never edit repository files directly through a connector, whole-file replacement API, autonomous workflow, or unreviewed branch.
-- Rule: First read the complete live target files, then generate an operator-reviewable exact-match patch pack using literal `<file>`, `<old>`, and `<new>` blocks.
-- Rule: One change belongs in one block. Every `<old>` block must be copied byte-for-byte from the current live file and must match exactly once.
-- Rule: Do not create commits, branches, pull requests, or automation workflows until the operator explicitly approves the patch pack and authorizes deterministic application.
 - Rule: Never describe a proposed block as applied. Completion requires the executor's exact-match result plus the required test evidence.

@@ -1,0 +1,1795 @@
+{
+  "Meta Ops": {
+    "total_files": 280,
+    "status_breakdown": {
+      "Canonical / Active": 105,
+      "Distilled / Migrated": 12,
+      "Reference-Only / Historical": 150,
+      "Empty Scaffold / Stub": 13
+    },
+    "path_clusters": {
+      "GitDev: .claude\\skills": 95,
+      "GitDev: apex-meta": 70,
+      "QuasiDesktop: openclaw infrastructure files": 38,
+      "QuasiDesktop: aihowto": 33,
+      "QuasiDesktop: previous_openclaw\\07_finalopenclawsystem": 24,
+      "QuasiDesktop: openclaw_setup": 17,
+      "GitDev: .claude\\agents": 3
+    },
+    "stub_count": 13,
+    "stubs": [
+      {
+        "file_name": ".gitkeep",
+        "path": "C:\\GitDev\\apexai-os-meta\\apex-meta\\orchestration\\new_final_v4\\evolution\\.gitkeep",
+        "exists": true,
+        "score": 2.0,
+        "rationale": "Placeholder stub file (0 lines, 0 bytes) with zero substantive doctrine."
+      },
+      {
+        "file_name": ".gitkeep",
+        "path": "C:\\GitDev\\apexai-os-meta\\.claude\\skills\\status-merge\\examples\\.gitkeep",
+        "exists": true,
+        "score": 2.0,
+        "rationale": "Placeholder stub file (0 lines, 0 bytes) with zero substantive doctrine."
+      },
+      {
+        "file_name": ".gitkeep",
+        "path": "C:\\GitDev\\apexai-os-meta\\.claude\\skills\\status-merge\\references\\.gitkeep",
+        "exists": true,
+        "score": 2.0,
+        "rationale": "Placeholder stub file (0 lines, 0 bytes) with zero substantive doctrine."
+      },
+      {
+        "file_name": ".gitkeep",
+        "path": "C:\\GitDev\\apexai-os-meta\\.claude\\skills\\status-merge\\templates\\.gitkeep",
+        "exists": true,
+        "score": 2.0,
+        "rationale": "Placeholder stub file (0 lines, 0 bytes) with zero substantive doctrine."
+      },
+      {
+        "file_name": "BEST_PRACTICES.md",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\Previous_OpenClaw\\07_finalopenclawsystem\\managed\\agent_kb\\meta_ops\\BEST_PRACTICES.md",
+        "exists": true,
+        "score": 3.4,
+        "rationale": "Unpopulated template scaffold containing only placeholder schema and EMPTY_STATE marker."
+      },
+      {
+        "file_name": "LEARNING_QUEUE.md",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\Previous_OpenClaw\\07_finalopenclawsystem\\managed\\agent_kb\\meta_ops\\LEARNING_QUEUE.md",
+        "exists": true,
+        "score": 3.4,
+        "rationale": "Unpopulated template scaffold containing only placeholder schema and EMPTY_STATE marker."
+      },
+      {
+        "file_name": "MISTAKES.md",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\Previous_OpenClaw\\07_finalopenclawsystem\\managed\\agent_kb\\meta_ops\\MISTAKES.md",
+        "exists": true,
+        "score": 3.4,
+        "rationale": "Unpopulated template scaffold containing only placeholder schema and EMPTY_STATE marker."
+      },
+      {
+        "file_name": "TEMPLATES.md",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\Previous_OpenClaw\\07_finalopenclawsystem\\managed\\agent_kb\\meta_ops\\TEMPLATES.md",
+        "exists": true,
+        "score": 3.4,
+        "rationale": "Unpopulated template scaffold containing only placeholder schema and EMPTY_STATE marker."
+      },
+      {
+        "file_name": "GAP_REGISTER.md",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\OpenClaw Infrastructure Files\\GAP_REGISTER.md",
+        "exists": true,
+        "score": 1.0,
+        "rationale": "0-byte file containing zero bytes of data or instructions."
+      },
+      {
+        "file_name": "BEST_PRACTICES.md",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\OpenClaw_Setup\\migration_payload\\07_finalopenclawsystem\\managed\\agent_kb\\meta_ops\\BEST_PRACTICES.md",
+        "exists": true,
+        "score": 3.4,
+        "rationale": "Unpopulated template scaffold containing only placeholder schema and EMPTY_STATE marker."
+      },
+      {
+        "file_name": "LEARNING_QUEUE.md",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\OpenClaw_Setup\\migration_payload\\07_finalopenclawsystem\\managed\\agent_kb\\meta_ops\\LEARNING_QUEUE.md",
+        "exists": true,
+        "score": 3.4,
+        "rationale": "Unpopulated template scaffold containing only placeholder schema and EMPTY_STATE marker."
+      },
+      {
+        "file_name": "MISTAKES.md",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\OpenClaw_Setup\\migration_payload\\07_finalopenclawsystem\\managed\\agent_kb\\meta_ops\\MISTAKES.md",
+        "exists": true,
+        "score": 3.4,
+        "rationale": "Unpopulated template scaffold containing only placeholder schema and EMPTY_STATE marker."
+      },
+      {
+        "file_name": "TEMPLATES.md",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\OpenClaw_Setup\\migration_payload\\07_finalopenclawsystem\\managed\\agent_kb\\meta_ops\\TEMPLATES.md",
+        "exists": true,
+        "score": 3.4,
+        "rationale": "Unpopulated template scaffold containing only placeholder schema and EMPTY_STATE marker."
+      }
+    ],
+    "top_10": [
+      {
+        "file_name": "DOCTRINE-MANIFEST.md",
+        "path": "C:\\GitDev\\apexai-os-meta\\apex-meta\\orchestration\\agents\\DOCTRINE-MANIFEST.md",
+        "exists": true,
+        "reported_size": 5950,
+        "actual_size": 5950,
+        "score": 9.75,
+        "quality": 10,
+        "quantity": 9,
+        "machine_readability": 10,
+        "operational_value": 10,
+        "status": "Canonical / Active",
+        "rationale": "Foundational architecture document defining canonical multi-agent law, state invariants, and runtime boundaries (60 lines).",
+        "lineage_notes": "Era 2 consolidation manifest (2026-07-11) recording audit of 227 legacy OpenClaw files, 39 sha256-verified moves, 5 translation rules, and empty scaffold skip decisions."
+      },
+      {
+        "file_name": "00-START-HERE.md",
+        "path": "C:\\GitDev\\apexai-os-meta\\apex-meta\\orchestration\\00-START-HERE.md",
+        "exists": true,
+        "reported_size": 4628,
+        "actual_size": 4561,
+        "score": 9.75,
+        "quality": 10,
+        "quantity": 9,
+        "machine_readability": 10,
+        "operational_value": 10,
+        "status": "Canonical / Active",
+        "rationale": "Foundational architecture document defining canonical multi-agent law, state invariants, and runtime boundaries (58 lines).",
+        "lineage_notes": "Modern Era 3 canonical system architecture and operating invariants governing single WSL2 engine and file-backed state."
+      },
+      {
+        "file_name": "ARCHITECTURE.md",
+        "path": "C:\\GitDev\\apexai-os-meta\\apex-meta\\orchestration\\ARCHITECTURE.md",
+        "exists": true,
+        "reported_size": 8811,
+        "actual_size": 8811,
+        "score": 9.75,
+        "quality": 10,
+        "quantity": 9,
+        "machine_readability": 10,
+        "operational_value": 10,
+        "status": "Canonical / Active",
+        "rationale": "Foundational architecture document defining canonical multi-agent law, state invariants, and runtime boundaries (89 lines).",
+        "lineage_notes": "Modern Era 3 canonical system architecture and operating invariants governing single WSL2 engine and file-backed state."
+      },
+      {
+        "file_name": "SKILL.md",
+        "path": "C:\\GitDev\\apexai-os-meta\\.claude\\skills\\apex-session\\SKILL.md",
+        "exists": true,
+        "reported_size": 12123,
+        "actual_size": 12123,
+        "score": 9.0,
+        "quality": 8,
+        "quantity": 9,
+        "machine_readability": 10,
+        "operational_value": 9,
+        "status": "Canonical / Active",
+        "rationale": "Active skill entrypoint definition with standardized operational instructions (323 lines).",
+        "lineage_notes": "Modern Era 3 skill definition package for Meta Ops domain operations in live APEX OS."
+      },
+      {
+        "file_name": "SKILL.md",
+        "path": "C:\\GitDev\\apexai-os-meta\\.claude\\skills\\cross-linker\\SKILL.md",
+        "exists": true,
+        "reported_size": 15083,
+        "actual_size": 15083,
+        "score": 9.0,
+        "quality": 8,
+        "quantity": 9,
+        "machine_readability": 10,
+        "operational_value": 9,
+        "status": "Canonical / Active",
+        "rationale": "Active skill entrypoint definition with standardized operational instructions (306 lines).",
+        "lineage_notes": "Modern Era 3 skill definition package for Meta Ops domain operations in live APEX OS."
+      },
+      {
+        "file_name": "AGENT_SWARM_INTERACTION_CANON.md",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\Previous_OpenClaw\\07_finalopenclawsystem\\managed\\rules\\AGENT_SWARM_INTERACTION_CANON.md",
+        "exists": true,
+        "reported_size": 20808,
+        "actual_size": 20808,
+        "score": 8.85,
+        "quality": 9,
+        "quantity": 9,
+        "machine_readability": 8,
+        "operational_value": 9,
+        "status": "Distilled / Migrated",
+        "rationale": "Authoritative system canon defining execution boundaries, swarm interactions, and strict handoff contracts.",
+        "lineage_notes": "Era 1 historical staging corpus and research notes in legacy preparation archive (AGENT_SWARM_INTERACTION_CANON.md); retained for provenance."
+      },
+      {
+        "file_name": "ESCALATION_EXCEPTION_BLOCK.md",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\Previous_OpenClaw\\07_finalopenclawsystem\\managed\\rules\\ESCALATION_EXCEPTION_BLOCK.md",
+        "exists": true,
+        "reported_size": 11788,
+        "actual_size": 11788,
+        "score": 8.85,
+        "quality": 9,
+        "quantity": 9,
+        "machine_readability": 8,
+        "operational_value": 9,
+        "status": "Distilled / Migrated",
+        "rationale": "Authoritative system canon defining execution boundaries, swarm interactions, and strict handoff contracts.",
+        "lineage_notes": "Era 1 governance rule defining 4-tier E0-E3 escalation levels, authority ambiguity triggers, and truth-leakage stop conditions; foundational for handoff exception handling."
+      },
+      {
+        "file_name": "OPERATING_SPINE_CANON.md",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\Previous_OpenClaw\\07_finalopenclawsystem\\managed\\rules\\OPERATING_SPINE_CANON.md",
+        "exists": true,
+        "reported_size": 13202,
+        "actual_size": 13202,
+        "score": 8.85,
+        "quality": 9,
+        "quantity": 9,
+        "machine_readability": 8,
+        "operational_value": 9,
+        "status": "Distilled / Migrated",
+        "rationale": "Authoritative system canon defining execution boundaries, swarm interactions, and strict handoff contracts.",
+        "lineage_notes": "Era 1 historical staging corpus and research notes in legacy preparation archive (OPERATING_SPINE_CANON.md); retained for provenance."
+      },
+      {
+        "file_name": "AGENT_SWARM_INTERACTION_CANON.md",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\OpenClaw_Setup\\migration_payload\\07_finalopenclawsystem\\managed\\rules\\AGENT_SWARM_INTERACTION_CANON.md",
+        "exists": true,
+        "reported_size": 20264,
+        "actual_size": 20264,
+        "score": 8.85,
+        "quality": 9,
+        "quantity": 9,
+        "machine_readability": 8,
+        "operational_value": 9,
+        "status": "Distilled / Migrated",
+        "rationale": "Authoritative system canon defining execution boundaries, swarm interactions, and strict handoff contracts.",
+        "lineage_notes": "Era 1 historical staging corpus and research notes in legacy preparation archive (AGENT_SWARM_INTERACTION_CANON.md); retained for provenance."
+      },
+      {
+        "file_name": "ESCALATION_EXCEPTION_BLOCK.md",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\OpenClaw_Setup\\migration_payload\\07_finalopenclawsystem\\managed\\rules\\ESCALATION_EXCEPTION_BLOCK.md",
+        "exists": true,
+        "reported_size": 11788,
+        "actual_size": 11788,
+        "score": 8.85,
+        "quality": 9,
+        "quantity": 9,
+        "machine_readability": 8,
+        "operational_value": 9,
+        "status": "Distilled / Migrated",
+        "rationale": "Authoritative system canon defining execution boundaries, swarm interactions, and strict handoff contracts.",
+        "lineage_notes": "Era 1 governance rule defining 4-tier E0-E3 escalation levels, authority ambiguity triggers, and truth-leakage stop conditions; foundational for handoff exception handling."
+      }
+    ]
+  },
+  "Meta Detective": {
+    "total_files": 102,
+    "status_breakdown": {
+      "Canonical / Active": 9,
+      "Distilled / Migrated": 10,
+      "Reference-Only / Historical": 73,
+      "Empty Scaffold / Stub": 10
+    },
+    "path_clusters": {
+      "QuasiDesktop: how to ai general": 35,
+      "QuasiDesktop: previous_openclaw\\07_finalopenclawsystem": 31,
+      "GitDev: apex-meta": 24,
+      "QuasiDesktop: openclaw_setup": 6,
+      "GitDev: .claude\\agents": 3,
+      "GitDev: .claude\\skills": 3
+    },
+    "stub_count": 10,
+    "stubs": [
+      {
+        "file_name": "BEST_PRACTICES.md",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\Previous_OpenClaw\\07_finalopenclawsystem\\NewFinals\\MetaHeadsKBUpdateState\\mirror\\OpenClaw\\07_finalopenclawsystem\\managed\\agent_kb\\meta_detective\\BEST_PRACTICES.md",
+        "exists": true,
+        "score": 3.4,
+        "rationale": "Unpopulated template scaffold containing only placeholder schema and EMPTY_STATE marker."
+      },
+      {
+        "file_name": "LEARNING_QUEUE.md",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\Previous_OpenClaw\\07_finalopenclawsystem\\NewFinals\\MetaHeadsKBUpdateState\\mirror\\OpenClaw\\07_finalopenclawsystem\\managed\\agent_kb\\meta_detective\\LEARNING_QUEUE.md",
+        "exists": true,
+        "score": 3.4,
+        "rationale": "Unpopulated template scaffold containing only placeholder schema and EMPTY_STATE marker."
+      },
+      {
+        "file_name": "MISTAKES.md",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\Previous_OpenClaw\\07_finalopenclawsystem\\NewFinals\\MetaHeadsKBUpdateState\\mirror\\OpenClaw\\07_finalopenclawsystem\\managed\\agent_kb\\meta_detective\\MISTAKES.md",
+        "exists": true,
+        "score": 3.4,
+        "rationale": "Unpopulated template scaffold containing only placeholder schema and EMPTY_STATE marker."
+      },
+      {
+        "file_name": "TEMPLATES.md",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\Previous_OpenClaw\\07_finalopenclawsystem\\NewFinals\\MetaHeadsKBUpdateState\\mirror\\OpenClaw\\07_finalopenclawsystem\\managed\\agent_kb\\meta_detective\\TEMPLATES.md",
+        "exists": true,
+        "score": 3.4,
+        "rationale": "Unpopulated template scaffold containing only placeholder schema and EMPTY_STATE marker."
+      },
+      {
+        "file_name": "Unbenannt.md",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\How to AI general\\Update process GitHub Repo\\Unbenannt.md",
+        "exists": true,
+        "score": 1.0,
+        "rationale": "0-byte file containing zero bytes of data or instructions."
+      },
+      {
+        "file_name": "newprocess4audio2ssot.md",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\How to AI general\\Update process GitHub Repo\\newprocess4audio2ssot.md",
+        "exists": true,
+        "score": 1.0,
+        "rationale": "0-byte file containing zero bytes of data or instructions."
+      },
+      {
+        "file_name": "BEST_PRACTICES.md",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\OpenClaw_Setup\\migration_payload\\07_finalopenclawsystem\\managed\\agent_kb\\meta_detective\\BEST_PRACTICES.md",
+        "exists": true,
+        "score": 3.4,
+        "rationale": "Unpopulated template scaffold containing only placeholder schema and EMPTY_STATE marker."
+      },
+      {
+        "file_name": "LEARNING_QUEUE.md",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\OpenClaw_Setup\\migration_payload\\07_finalopenclawsystem\\managed\\agent_kb\\meta_detective\\LEARNING_QUEUE.md",
+        "exists": true,
+        "score": 3.4,
+        "rationale": "Unpopulated template scaffold containing only placeholder schema and EMPTY_STATE marker."
+      },
+      {
+        "file_name": "MISTAKES.md",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\OpenClaw_Setup\\migration_payload\\07_finalopenclawsystem\\managed\\agent_kb\\meta_detective\\MISTAKES.md",
+        "exists": true,
+        "score": 3.4,
+        "rationale": "Unpopulated template scaffold containing only placeholder schema and EMPTY_STATE marker."
+      },
+      {
+        "file_name": "TEMPLATES.md",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\OpenClaw_Setup\\migration_payload\\07_finalopenclawsystem\\managed\\agent_kb\\meta_detective\\TEMPLATES.md",
+        "exists": true,
+        "score": 3.4,
+        "rationale": "Unpopulated template scaffold containing only placeholder schema and EMPTY_STATE marker."
+      }
+    ],
+    "top_10": [
+      {
+        "file_name": "AnotherConstantFailure.md",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\Previous_OpenClaw\\07_finalopenclawsystem\\managed\\agent_kb\\meta_detective\\appendices\\Failures\\AnotherConstantFailure.md",
+        "exists": true,
+        "reported_size": 4284,
+        "actual_size": 4284,
+        "score": 9.05,
+        "quality": 9,
+        "quantity": 10,
+        "machine_readability": 8,
+        "operational_value": 9,
+        "status": "Reference-Only / Historical",
+        "rationale": "Exhaustive empirical ledger documenting failure modes, prompt drift patterns, and anti-drift validation rules.",
+        "lineage_notes": "Era 1 historical staging corpus and research notes in legacy preparation archive (AnotherConstantFailure.md); retained for provenance."
+      },
+      {
+        "file_name": "FAILURE_AND_ANTI_DRIFT_LEDGER.md",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\Previous_OpenClaw\\07_finalopenclawsystem\\managed\\agent_kb\\meta_detective\\appendices\\Failures\\FAILURE_AND_ANTI_DRIFT_LEDGER.md",
+        "exists": true,
+        "reported_size": 116262,
+        "actual_size": 116262,
+        "score": 9.05,
+        "quality": 9,
+        "quantity": 10,
+        "machine_readability": 8,
+        "operational_value": 9,
+        "status": "Reference-Only / Historical",
+        "rationale": "Exhaustive empirical ledger documenting failure modes, prompt drift patterns, and anti-drift validation rules.",
+        "lineage_notes": "Era 1 legacy Meta Detective empirical failure archive cataloging 202 granular real-world AI failures, observed errors, tested safeguards, and validation rules; classified as reference-only and omitted from modern core."
+      },
+      {
+        "file_name": "apex-review-alignment.md",
+        "path": "C:\\GitDev\\apexai-os-meta\\.claude\\agents\\apex-review-alignment.md",
+        "exists": true,
+        "reported_size": 3444,
+        "actual_size": 3444,
+        "score": 9.0,
+        "quality": 9,
+        "quantity": 7,
+        "machine_readability": 10,
+        "operational_value": 10,
+        "status": "Canonical / Active",
+        "rationale": "Active agent contract in .claude/agents defining canonical operational roles, tools, and execution boundaries (47 lines).",
+        "lineage_notes": "Modern Era 3 active agent contract governing Meta Detective execution boundaries, tools, and handoffs in the live APEX OS operating spine."
+      },
+      {
+        "file_name": "apex-review-validity.md",
+        "path": "C:\\GitDev\\apexai-os-meta\\.claude\\agents\\apex-review-validity.md",
+        "exists": true,
+        "reported_size": 3427,
+        "actual_size": 3427,
+        "score": 9.0,
+        "quality": 9,
+        "quantity": 7,
+        "machine_readability": 10,
+        "operational_value": 10,
+        "status": "Canonical / Active",
+        "rationale": "Active agent contract in .claude/agents defining canonical operational roles, tools, and execution boundaries (47 lines).",
+        "lineage_notes": "Modern Era 3 active agent contract governing Meta Detective execution boundaries, tools, and handoffs in the live APEX OS operating spine."
+      },
+      {
+        "file_name": "CORE.md",
+        "path": "C:\\GitDev\\apexai-os-meta\\apex-meta\\orchestration\\agents\\meta-detective\\CORE.md",
+        "exists": true,
+        "reported_size": 9581,
+        "actual_size": 9581,
+        "score": 9.0,
+        "quality": 9,
+        "quantity": 8,
+        "machine_readability": 10,
+        "operational_value": 9,
+        "status": "Canonical / Active",
+        "rationale": "Distilled operational core with verified doctrine translation rules and preserved boundaries (137 lines).",
+        "lineage_notes": "Era 2 distilled operational core for Meta Detective created 2026-07-11; condenses 80/20 domain rules, practices, and templates into compact working reference to minimize token load."
+      },
+      {
+        "file_name": "review-verdict.schema.md",
+        "path": "C:\\GitDev\\apexai-os-meta\\apex-meta\\orchestration\\schemas\\review-verdict.schema.md",
+        "exists": true,
+        "reported_size": 5030,
+        "actual_size": 5030,
+        "score": 8.75,
+        "quality": 9,
+        "quantity": 7,
+        "machine_readability": 10,
+        "operational_value": 9,
+        "status": "Canonical / Active",
+        "rationale": "Canonical operational specification/schema directly defining live execution loops and contract invariants (96 lines).",
+        "lineage_notes": "Modern Era 3 canonical machine-readable schema defining universal handoff, authority-state, and review-verdict contracts (review-verdict.schema.md)."
+      },
+      {
+        "file_name": "FINDINGS-t10-hermes-compose-drift-2026-09-28.md",
+        "path": "C:\\GitDev\\apexai-os-meta\\apex-meta\\orchestration\\architecture-improvements\\05-program-closeout\\FINDINGS-t10-hermes-compose-drift-2026-09-28.md",
+        "exists": true,
+        "reported_size": 26431,
+        "actual_size": 26431,
+        "score": 8.75,
+        "quality": 8,
+        "quantity": 9,
+        "machine_readability": 10,
+        "operational_value": 8,
+        "status": "Reference-Only / Historical",
+        "rationale": "Program closeout plan documenting architecture migration tasks and closeout verification (309 lines).",
+        "lineage_notes": "Modern Era 3 architectural migration dossier and ADR closeout plans (e.g. ADR-002 single-engine WSL2 consolidation) in Meta Detective."
+      },
+      {
+        "file_name": "SKILL.md",
+        "path": "C:\\GitDev\\apexai-os-meta\\.claude\\skills\\impl-validator\\SKILL.md",
+        "exists": true,
+        "reported_size": 5092,
+        "actual_size": 5092,
+        "score": 8.75,
+        "quality": 8,
+        "quantity": 8,
+        "machine_readability": 10,
+        "operational_value": 9,
+        "status": "Canonical / Active",
+        "rationale": "Active skill entrypoint definition with standardized operational instructions (118 lines).",
+        "lineage_notes": "Modern Era 3 skill definition package for Meta Detective domain operations in live APEX OS."
+      },
+      {
+        "file_name": "SKILL.md",
+        "path": "C:\\GitDev\\apexai-os-meta\\.claude\\skills\\source-authority-and-verdict-packet\\SKILL.md",
+        "exists": true,
+        "reported_size": 6406,
+        "actual_size": 6406,
+        "score": 8.75,
+        "quality": 8,
+        "quantity": 8,
+        "machine_readability": 10,
+        "operational_value": 9,
+        "status": "Canonical / Active",
+        "rationale": "Active skill entrypoint definition with standardized operational instructions (130 lines).",
+        "lineage_notes": "Modern Era 3 skill definition package for Meta Detective domain operations in live APEX OS."
+      },
+      {
+        "file_name": "meta-detective.md",
+        "path": "C:\\GitDev\\apexai-os-meta\\.claude\\agents\\meta-detective.md",
+        "exists": true,
+        "reported_size": 2801,
+        "actual_size": 2801,
+        "score": 8.5,
+        "quality": 9,
+        "quantity": 5,
+        "machine_readability": 10,
+        "operational_value": 10,
+        "status": "Canonical / Active",
+        "rationale": "Active agent contract in .claude/agents defining canonical operational roles, tools, and execution boundaries (26 lines).",
+        "lineage_notes": "Modern Era 3 active agent contract governing Meta Detective execution boundaries, tools, and handoffs in the live APEX OS operating spine."
+      }
+    ]
+  },
+  "Meta Strategy": {
+    "total_files": 41,
+    "status_breakdown": {
+      "Canonical / Active": 3,
+      "Distilled / Migrated": 7,
+      "Reference-Only / Historical": 19,
+      "Empty Scaffold / Stub": 12
+    },
+    "path_clusters": {
+      "QuasiDesktop: previous_openclaw\\07_finalopenclawsystem": 16,
+      "GitDev: apex-meta": 12,
+      "QuasiDesktop: openclaw_setup": 7,
+      "QuasiDesktop: apex_vision_previous_mastery": 4,
+      "GitDev: .claude\\agents": 1,
+      "GitDev: .claude\\skills": 1
+    },
+    "stub_count": 12,
+    "stubs": [
+      {
+        "file_name": "BEST_PRACTICES.md",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\Previous_OpenClaw\\07_finalopenclawsystem\\managed\\agent_kb\\meta_strategy\\BEST_PRACTICES.md",
+        "exists": true,
+        "score": 3.4,
+        "rationale": "Unpopulated template scaffold containing only placeholder schema and EMPTY_STATE marker."
+      },
+      {
+        "file_name": "LEARNING_QUEUE.md",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\Previous_OpenClaw\\07_finalopenclawsystem\\managed\\agent_kb\\meta_strategy\\LEARNING_QUEUE.md",
+        "exists": true,
+        "score": 3.4,
+        "rationale": "Unpopulated template scaffold containing only placeholder schema and EMPTY_STATE marker."
+      },
+      {
+        "file_name": "MISTAKES.md",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\Previous_OpenClaw\\07_finalopenclawsystem\\managed\\agent_kb\\meta_strategy\\MISTAKES.md",
+        "exists": true,
+        "score": 3.4,
+        "rationale": "Unpopulated template scaffold containing only placeholder schema and EMPTY_STATE marker."
+      },
+      {
+        "file_name": "TEMPLATES.md",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\Previous_OpenClaw\\07_finalopenclawsystem\\managed\\agent_kb\\meta_strategy\\TEMPLATES.md",
+        "exists": true,
+        "score": 3.4,
+        "rationale": "Unpopulated template scaffold containing only placeholder schema and EMPTY_STATE marker."
+      },
+      {
+        "file_name": "BEST_PRACTICES.md",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\Previous_OpenClaw\\07_finalopenclawsystem\\NewFinals\\MetaHeadsKBUpdateState\\mirror\\OpenClaw\\07_finalopenclawsystem\\managed\\agent_kb\\meta_strategy\\BEST_PRACTICES.md",
+        "exists": true,
+        "score": 3.4,
+        "rationale": "Unpopulated template scaffold containing only placeholder schema and EMPTY_STATE marker."
+      },
+      {
+        "file_name": "LEARNING_QUEUE.md",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\Previous_OpenClaw\\07_finalopenclawsystem\\NewFinals\\MetaHeadsKBUpdateState\\mirror\\OpenClaw\\07_finalopenclawsystem\\managed\\agent_kb\\meta_strategy\\LEARNING_QUEUE.md",
+        "exists": true,
+        "score": 3.4,
+        "rationale": "Unpopulated template scaffold containing only placeholder schema and EMPTY_STATE marker."
+      },
+      {
+        "file_name": "MISTAKES.md",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\Previous_OpenClaw\\07_finalopenclawsystem\\NewFinals\\MetaHeadsKBUpdateState\\mirror\\OpenClaw\\07_finalopenclawsystem\\managed\\agent_kb\\meta_strategy\\MISTAKES.md",
+        "exists": true,
+        "score": 3.4,
+        "rationale": "Unpopulated template scaffold containing only placeholder schema and EMPTY_STATE marker."
+      },
+      {
+        "file_name": "TEMPLATES.md",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\Previous_OpenClaw\\07_finalopenclawsystem\\NewFinals\\MetaHeadsKBUpdateState\\mirror\\OpenClaw\\07_finalopenclawsystem\\managed\\agent_kb\\meta_strategy\\TEMPLATES.md",
+        "exists": true,
+        "score": 3.4,
+        "rationale": "Unpopulated template scaffold containing only placeholder schema and EMPTY_STATE marker."
+      },
+      {
+        "file_name": "BEST_PRACTICES.md",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\OpenClaw_Setup\\migration_payload\\07_finalopenclawsystem\\managed\\agent_kb\\meta_strategy\\BEST_PRACTICES.md",
+        "exists": true,
+        "score": 3.4,
+        "rationale": "Unpopulated template scaffold containing only placeholder schema and EMPTY_STATE marker."
+      },
+      {
+        "file_name": "LEARNING_QUEUE.md",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\OpenClaw_Setup\\migration_payload\\07_finalopenclawsystem\\managed\\agent_kb\\meta_strategy\\LEARNING_QUEUE.md",
+        "exists": true,
+        "score": 3.4,
+        "rationale": "Unpopulated template scaffold containing only placeholder schema and EMPTY_STATE marker."
+      },
+      {
+        "file_name": "MISTAKES.md",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\OpenClaw_Setup\\migration_payload\\07_finalopenclawsystem\\managed\\agent_kb\\meta_strategy\\MISTAKES.md",
+        "exists": true,
+        "score": 3.4,
+        "rationale": "Unpopulated template scaffold containing only placeholder schema and EMPTY_STATE marker."
+      },
+      {
+        "file_name": "TEMPLATES.md",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\OpenClaw_Setup\\migration_payload\\07_finalopenclawsystem\\managed\\agent_kb\\meta_strategy\\TEMPLATES.md",
+        "exists": true,
+        "score": 3.4,
+        "rationale": "Unpopulated template scaffold containing only placeholder schema and EMPTY_STATE marker."
+      }
+    ],
+    "top_10": [
+      {
+        "file_name": "meta-strategy.md",
+        "path": "C:\\GitDev\\apexai-os-meta\\.claude\\agents\\meta-strategy.md",
+        "exists": true,
+        "reported_size": 2012,
+        "actual_size": 2012,
+        "score": 8.5,
+        "quality": 9,
+        "quantity": 5,
+        "machine_readability": 10,
+        "operational_value": 10,
+        "status": "Canonical / Active",
+        "rationale": "Active agent contract in .claude/agents defining canonical operational roles, tools, and execution boundaries (23 lines).",
+        "lineage_notes": "Modern Era 3 active agent contract governing Meta Strategy execution boundaries, tools, and handoffs in the live APEX OS operating spine."
+      },
+      {
+        "file_name": "meta_strategy.md",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\Previous_OpenClaw\\07_finalopenclawsystem\\managed\\agents\\meta_strategy.md",
+        "exists": true,
+        "reported_size": 2278,
+        "actual_size": 2278,
+        "score": 7.8,
+        "quality": 8,
+        "quantity": 7,
+        "machine_readability": 8,
+        "operational_value": 8,
+        "status": "Distilled / Migrated",
+        "rationale": "Core role definition and agent boundary specification; foundational doctrine distilled into modern contracts.",
+        "lineage_notes": "Era 1 historical staging corpus and research notes in legacy preparation archive (meta_strategy.md); retained for provenance."
+      },
+      {
+        "file_name": "meta_strategy.md",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\Previous_OpenClaw\\07_finalopenclawsystem\\NewFinals\\MetaHeadsKBUpdateState\\mirror\\OpenClaw\\07_finalopenclawsystem\\managed\\agents\\meta_strategy.md",
+        "exists": true,
+        "reported_size": 2278,
+        "actual_size": 2278,
+        "score": 7.8,
+        "quality": 8,
+        "quantity": 7,
+        "machine_readability": 8,
+        "operational_value": 8,
+        "status": "Distilled / Migrated",
+        "rationale": "Core role definition and agent boundary specification; foundational doctrine distilled into modern contracts.",
+        "lineage_notes": "Era 1 intermediate modernization revision or KB factory artifact (meta_strategy.md) from legacy staging."
+      },
+      {
+        "file_name": "AI Mastery \u2014 Executive Summary_Short.pdf",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\Apex_Vision_previous_Mastery\\AI Mastery \u2014 Executive Summary_Short.pdf",
+        "exists": true,
+        "reported_size": 98208,
+        "actual_size": 98208,
+        "score": 7.8,
+        "quality": 8,
+        "quantity": 10,
+        "machine_readability": 6,
+        "operational_value": 7,
+        "status": "Reference-Only / Historical",
+        "rationale": "Academic research paper and empirical study analyzing multi-agent failures, long-context dynamics, and diffusion processes.",
+        "lineage_notes": "Era 1 intermediate modernization revision or KB factory artifact (AI Mastery \u2014 Executive Summary_Short.pdf) from legacy staging."
+      },
+      {
+        "file_name": "AI Mastery \u2014 Executive Vision Narrative.pdf",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\Apex_Vision_previous_Mastery\\AI Mastery \u2014 Executive Vision Narrative.pdf",
+        "exists": true,
+        "reported_size": 161674,
+        "actual_size": 161674,
+        "score": 7.8,
+        "quality": 8,
+        "quantity": 10,
+        "machine_readability": 6,
+        "operational_value": 7,
+        "status": "Reference-Only / Historical",
+        "rationale": "Academic research paper and empirical study analyzing multi-agent failures, long-context dynamics, and diffusion processes.",
+        "lineage_notes": "Era 1 intermediate modernization revision or KB factory artifact (AI Mastery \u2014 Executive Vision Narrative.pdf) from legacy staging."
+      },
+      {
+        "file_name": "meta_strategy.md",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\OpenClaw_Setup\\migration_payload\\07_finalopenclawsystem\\managed\\agents\\meta_strategy.md",
+        "exists": true,
+        "reported_size": 2278,
+        "actual_size": 2278,
+        "score": 7.8,
+        "quality": 8,
+        "quantity": 7,
+        "machine_readability": 8,
+        "operational_value": 8,
+        "status": "Distilled / Migrated",
+        "rationale": "Core role definition and agent boundary specification; foundational doctrine distilled into modern contracts.",
+        "lineage_notes": "Era 1 historical staging corpus and research notes in legacy preparation archive (meta_strategy.md); retained for provenance."
+      },
+      {
+        "file_name": "01_MACRO_TOPOLOGY_ASSESSMENT.md",
+        "path": "C:\\GitDev\\apexai-os-meta\\apex-meta\\orchestration\\new_final_v4\\evolution\\01_MACRO_TOPOLOGY_ASSESSMENT.md",
+        "exists": true,
+        "reported_size": 41955,
+        "actual_size": 41955,
+        "score": 7.75,
+        "quality": 7,
+        "quantity": 9,
+        "machine_readability": 10,
+        "operational_value": 5,
+        "status": "Reference-Only / Historical",
+        "rationale": "Historical v4 architecture handover/evolution documentation (405 lines); superseded by current single-engine WSL2 topology.",
+        "lineage_notes": "Modern Era 3 workflow and specification draft in finalization track for Meta Strategy."
+      },
+      {
+        "file_name": "ESSENCE.md",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\Previous_OpenClaw\\07_finalopenclawsystem\\NewFinals\\MetaHeadsKBUpdateState\\mirror\\OpenClaw\\07_finalopenclawsystem\\managed\\agent_kb\\meta_strategy\\ESSENCE.md",
+        "exists": true,
+        "reported_size": 3275,
+        "actual_size": 3275,
+        "score": 7.4,
+        "quality": 8,
+        "quantity": 5,
+        "machine_readability": 8,
+        "operational_value": 8,
+        "status": "Distilled / Migrated",
+        "rationale": "Core role definition and agent boundary specification; foundational doctrine distilled into modern contracts.",
+        "lineage_notes": "Era 1 intermediate modernization revision or KB factory artifact (ESSENCE.md) from legacy staging."
+      },
+      {
+        "file_name": "ESSENCE.md",
+        "path": "C:\\GitDev\\apexai-os-meta\\apex-meta\\orchestration\\agents\\meta-strategy\\ESSENCE.md",
+        "exists": true,
+        "reported_size": 1093,
+        "actual_size": 1093,
+        "score": 7.25,
+        "quality": 8,
+        "quantity": 7,
+        "machine_readability": 6,
+        "operational_value": 8,
+        "status": "Canonical / Active",
+        "rationale": "Active operational code or supporting specification in live skill/orchestration tree (47 lines).",
+        "lineage_notes": "Era 2 sha256-verified verbatim copy of legacy OpenClaw v2 Meta Strategy boundary specification, preserved during 2026-07-11 consolidation."
+      },
+      {
+        "file_name": "DecisionMakingProcessReseearch_gem.md",
+        "path": "C:\\GitDev\\apexai-os-meta\\.claude\\skills\\DecisionMakingProcessReseearch_gem.md",
+        "exists": true,
+        "reported_size": 5538,
+        "actual_size": 5538,
+        "score": 7.25,
+        "quality": 8,
+        "quantity": 7,
+        "machine_readability": 6,
+        "operational_value": 8,
+        "status": "Canonical / Active",
+        "rationale": "Active operational code or supporting specification in live skill/orchestration tree (97 lines).",
+        "lineage_notes": "Legacy Meta Strategy appendix copied loose to .claude/skills/ as an unreferenced orphan file; codifies 5 formal cognitive decision frameworks (First Principles, Cynefin, WRAP, AoA, OODA Loop). Requires formal integration into meta-strategy contract."
+      }
+    ]
+  },
+  "Prompts & Workflows": {
+    "total_files": 186,
+    "status_breakdown": {
+      "Canonical / Active": 61,
+      "Distilled / Migrated": 19,
+      "Reference-Only / Historical": 101,
+      "Empty Scaffold / Stub": 5
+    },
+    "path_clusters": {
+      "QuasiDesktop: previous_openclaw\\07_finalopenclawsystem": 89,
+      "GitDev: .claude\\skills": 64,
+      "QuasiDesktop: kb4agents": 12,
+      "GitDev: apex-meta": 8,
+      "QuasiDesktop: openclaw_setup": 8,
+      "QuasiDesktop: aihowto": 4,
+      "GitDev: .claude\\agents": 1
+    },
+    "stub_count": 5,
+    "stubs": [
+      {
+        "file_name": "__init__.py",
+        "path": "C:\\GitDev\\apexai-os-meta\\.claude\\skills\\skill-creator\\scripts\\__init__.py",
+        "exists": true,
+        "score": 3.0,
+        "rationale": "Placeholder stub file (0 lines, 0 bytes) with zero substantive doctrine."
+      },
+      {
+        "file_name": "Untitled.md",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\Previous_OpenClaw\\07_finalopenclawsystem\\managed\\agent_kb\\special_ops__prompts_workflows\\appendices\\NewResearchBecauseOfConstantFailure\\Untitled.md",
+        "exists": true,
+        "score": 1.0,
+        "rationale": "0-byte file containing zero bytes of data or instructions."
+      },
+      {
+        "file_name": "promptworkflowsChat.py",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\Previous_OpenClaw\\07_finalopenclawsystem\\managed\\agent_kb\\special_ops__prompts_workflows\\appendices\\NewResearchBecauseOfConstantFailure\\promptworkflowsChat.py",
+        "exists": true,
+        "score": 1.0,
+        "rationale": "0-byte file containing zero bytes of data or instructions."
+      },
+      {
+        "file_name": "RESTART-01_BEST_PRACTICES.patch.md",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\Previous_OpenClaw\\07_finalopenclawsystem\\managed\\agent_kb\\special_ops__prompts_workflows\\appendices\\patches\\RESTART-01_BEST_PRACTICES.patch.md",
+        "exists": true,
+        "score": 1.15,
+        "rationale": "Truncated or abandoned scaffold fragment without executable content."
+      },
+      {
+        "file_name": "LEARNING_QUEUE.md",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\OpenClaw_Setup\\migration_payload\\07_finalopenclawsystem\\managed\\agent_kb\\special_ops__prompts_workflows\\LEARNING_QUEUE.md",
+        "exists": true,
+        "score": 3.4,
+        "rationale": "Unpopulated template scaffold containing only placeholder schema and EMPTY_STATE marker."
+      }
+    ],
+    "top_10": [
+      {
+        "file_name": "AnotherConstantFailure.md",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\Previous_OpenClaw\\07_finalopenclawsystem\\managed\\agent_kb\\special_ops__prompts_workflows\\appendices\\KBAudit\\AnotherConstantFailure.md",
+        "exists": true,
+        "reported_size": 4284,
+        "actual_size": 4284,
+        "score": 9.05,
+        "quality": 9,
+        "quantity": 10,
+        "machine_readability": 8,
+        "operational_value": 9,
+        "status": "Reference-Only / Historical",
+        "rationale": "Exhaustive empirical ledger documenting failure modes, prompt drift patterns, and anti-drift validation rules.",
+        "lineage_notes": "Era 1 historical staging corpus and research notes in legacy preparation archive (AnotherConstantFailure.md); retained for provenance."
+      },
+      {
+        "file_name": "AnotherConstantFailure.md",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\Previous_OpenClaw\\07_finalopenclawsystem\\managed\\agent_kb\\special_ops__prompts_workflows\\appendices\\NewResearchBecauseOfConstantFailure\\AnotherConstantFailure.md",
+        "exists": true,
+        "reported_size": 4284,
+        "actual_size": 4284,
+        "score": 9.05,
+        "quality": 9,
+        "quantity": 10,
+        "machine_readability": 8,
+        "operational_value": 9,
+        "status": "Reference-Only / Historical",
+        "rationale": "Exhaustive empirical ledger documenting failure modes, prompt drift patterns, and anti-drift validation rules.",
+        "lineage_notes": "Era 1 historical staging corpus and research notes in legacy preparation archive (AnotherConstantFailure.md); retained for provenance."
+      },
+      {
+        "file_name": "SKILL.md",
+        "path": "C:\\GitDev\\apexai-os-meta\\.claude\\skills\\skill-creator\\SKILL.md",
+        "exists": true,
+        "reported_size": 33653,
+        "actual_size": 33653,
+        "score": 9.0,
+        "quality": 8,
+        "quantity": 9,
+        "machine_readability": 10,
+        "operational_value": 9,
+        "status": "Canonical / Active",
+        "rationale": "Active skill entrypoint definition with standardized operational instructions (485 lines).",
+        "lineage_notes": "Modern Era 3 skill definition package for Prompts & Workflows domain operations in live APEX OS."
+      },
+      {
+        "file_name": "AGENT_HANDOFF_CONTRACTS.md",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\Previous_OpenClaw\\07_finalopenclawsystem\\managed\\processes\\AGENT_HANDOFF_CONTRACTS.md",
+        "exists": true,
+        "reported_size": 25687,
+        "actual_size": 25687,
+        "score": 8.85,
+        "quality": 9,
+        "quantity": 9,
+        "machine_readability": 8,
+        "operational_value": 9,
+        "status": "Distilled / Migrated",
+        "rationale": "Authoritative system canon defining execution boundaries, swarm interactions, and strict handoff contracts.",
+        "lineage_notes": "Era 1 historical staging corpus and research notes in legacy preparation archive (AGENT_HANDOFF_CONTRACTS.md); retained for provenance."
+      },
+      {
+        "file_name": "AGENT_HANDOFF_CONTRACTS.md",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\OpenClaw_Setup\\migration_payload\\07_finalopenclawsystem\\managed\\processes\\AGENT_HANDOFF_CONTRACTS.md",
+        "exists": true,
+        "reported_size": 25649,
+        "actual_size": 25649,
+        "score": 8.85,
+        "quality": 9,
+        "quantity": 9,
+        "machine_readability": 8,
+        "operational_value": 9,
+        "status": "Distilled / Migrated",
+        "rationale": "Authoritative system canon defining execution boundaries, swarm interactions, and strict handoff contracts.",
+        "lineage_notes": "Era 1 historical staging corpus and research notes in legacy preparation archive (AGENT_HANDOFF_CONTRACTS.md); retained for provenance."
+      },
+      {
+        "file_name": "CORE.md",
+        "path": "C:\\GitDev\\apexai-os-meta\\apex-meta\\orchestration\\agents\\prompts-workflows\\CORE.md",
+        "exists": true,
+        "reported_size": 5303,
+        "actual_size": 5303,
+        "score": 8.75,
+        "quality": 9,
+        "quantity": 7,
+        "machine_readability": 10,
+        "operational_value": 9,
+        "status": "Canonical / Active",
+        "rationale": "Distilled operational core with verified doctrine translation rules and preserved boundaries (76 lines).",
+        "lineage_notes": "Era 2 distilled operational core for Prompts & Workflows created 2026-07-11; condenses 80/20 domain rules, practices, and templates into compact working reference to minimize token load."
+      },
+      {
+        "file_name": "SKILL.md",
+        "path": "C:\\GitDev\\apexai-os-meta\\.claude\\skills\\prompt-engineering-patterns\\SKILL.md",
+        "exists": true,
+        "reported_size": 7863,
+        "actual_size": 7863,
+        "score": 8.75,
+        "quality": 8,
+        "quantity": 8,
+        "machine_readability": 10,
+        "operational_value": 9,
+        "status": "Canonical / Active",
+        "rationale": "Active skill entrypoint definition with standardized operational instructions (221 lines).",
+        "lineage_notes": "Modern Era 3 skill definition package for Prompts & Workflows domain operations in live APEX OS."
+      },
+      {
+        "file_name": "SKILL.md",
+        "path": "C:\\GitDev\\apexai-os-meta\\.claude\\skills\\PromptEngineer\\SKILL.md",
+        "exists": true,
+        "reported_size": 10304,
+        "actual_size": 10304,
+        "score": 8.75,
+        "quality": 8,
+        "quantity": 8,
+        "machine_readability": 10,
+        "operational_value": 9,
+        "status": "Canonical / Active",
+        "rationale": "Active skill entrypoint definition with standardized operational instructions (238 lines).",
+        "lineage_notes": "Modern Era 3 skill definition package for Prompts & Workflows domain operations in live APEX OS."
+      },
+      {
+        "file_name": "SKILL.md",
+        "path": "C:\\GitDev\\apexai-os-meta\\.claude\\skills\\Workflow&Processes\\SKILL.md",
+        "exists": true,
+        "reported_size": 10201,
+        "actual_size": 10201,
+        "score": 8.75,
+        "quality": 8,
+        "quantity": 8,
+        "machine_readability": 10,
+        "operational_value": 9,
+        "status": "Canonical / Active",
+        "rationale": "Active skill entrypoint definition with standardized operational instructions (266 lines).",
+        "lineage_notes": "Modern Era 3 skill definition package for Prompts & Workflows domain operations in live APEX OS."
+      },
+      {
+        "file_name": "prompts-workflows.md",
+        "path": "C:\\GitDev\\apexai-os-meta\\.claude\\agents\\prompts-workflows.md",
+        "exists": true,
+        "reported_size": 1994,
+        "actual_size": 1994,
+        "score": 8.5,
+        "quality": 9,
+        "quantity": 5,
+        "machine_readability": 10,
+        "operational_value": 10,
+        "status": "Canonical / Active",
+        "rationale": "Active agent contract in .claude/agents defining canonical operational roles, tools, and execution boundaries (22 lines).",
+        "lineage_notes": "Modern Era 3 active agent contract governing Prompts & Workflows execution boundaries, tools, and handoffs in the live APEX OS operating spine."
+      }
+    ]
+  },
+  "Informatics Design": {
+    "total_files": 91,
+    "status_breakdown": {
+      "Canonical / Active": 39,
+      "Distilled / Migrated": 32,
+      "Reference-Only / Historical": 16,
+      "Empty Scaffold / Stub": 4
+    },
+    "path_clusters": {
+      "GitDev: .claude\\skills": 57,
+      "QuasiDesktop: previous_openclaw\\07_finalopenclawsystem": 13,
+      "GitDev: apex-meta": 6,
+      "QuasiDesktop: openclaw_setup": 6,
+      "QuasiDesktop: kb4agents": 5,
+      "QuasiDesktop: aihowto": 2,
+      "GitDev: .claude\\agents": 1,
+      "QuasiDesktop: agent_kb_source_indexes": 1
+    },
+    "stub_count": 4,
+    "stubs": [
+      {
+        "file_name": "BEST_PRACTICES.md",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\OpenClaw_Setup\\migration_payload\\07_finalopenclawsystem\\managed\\agent_kb\\special_ops__informatics_design\\BEST_PRACTICES.md",
+        "exists": true,
+        "score": 3.4,
+        "rationale": "Unpopulated template scaffold containing only placeholder schema and EMPTY_STATE marker."
+      },
+      {
+        "file_name": "LEARNING_QUEUE.md",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\OpenClaw_Setup\\migration_payload\\07_finalopenclawsystem\\managed\\agent_kb\\special_ops__informatics_design\\LEARNING_QUEUE.md",
+        "exists": true,
+        "score": 3.4,
+        "rationale": "Unpopulated template scaffold containing only placeholder schema and EMPTY_STATE marker."
+      },
+      {
+        "file_name": "MISTAKES.md",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\OpenClaw_Setup\\migration_payload\\07_finalopenclawsystem\\managed\\agent_kb\\special_ops__informatics_design\\MISTAKES.md",
+        "exists": true,
+        "score": 3.4,
+        "rationale": "Unpopulated template scaffold containing only placeholder schema and EMPTY_STATE marker."
+      },
+      {
+        "file_name": "TEMPLATES.md",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\OpenClaw_Setup\\migration_payload\\07_finalopenclawsystem\\managed\\agent_kb\\special_ops__informatics_design\\TEMPLATES.md",
+        "exists": true,
+        "score": 3.4,
+        "rationale": "Unpopulated template scaffold containing only placeholder schema and EMPTY_STATE marker."
+      }
+    ],
+    "top_10": [
+      {
+        "file_name": "CORE.md",
+        "path": "C:\\GitDev\\apexai-os-meta\\apex-meta\\orchestration\\agents\\informatics-design\\CORE.md",
+        "exists": true,
+        "reported_size": 3670,
+        "actual_size": 3670,
+        "score": 8.75,
+        "quality": 9,
+        "quantity": 7,
+        "machine_readability": 10,
+        "operational_value": 9,
+        "status": "Canonical / Active",
+        "rationale": "Distilled operational core with verified doctrine translation rules and preserved boundaries (58 lines).",
+        "lineage_notes": "Era 2 distilled operational core for Informatics Design created 2026-07-11; condenses 80/20 domain rules, practices, and templates into compact working reference to minimize token load."
+      },
+      {
+        "file_name": "handoff-packet.schema.md",
+        "path": "C:\\GitDev\\apexai-os-meta\\apex-meta\\orchestration\\schemas\\handoff-packet.schema.md",
+        "exists": true,
+        "reported_size": 5607,
+        "actual_size": 5607,
+        "score": 8.75,
+        "quality": 9,
+        "quantity": 7,
+        "machine_readability": 10,
+        "operational_value": 9,
+        "status": "Canonical / Active",
+        "rationale": "Canonical operational specification/schema directly defining live execution loops and contract invariants (90 lines).",
+        "lineage_notes": "Modern Era 3 canonical machine-readable schema defining universal handoff, authority-state, and review-verdict contracts (handoff-packet.schema.md)."
+      },
+      {
+        "file_name": "SKILL.md",
+        "path": "C:\\GitDev\\apexai-os-meta\\.claude\\skills\\deterministic-markdown-patcher2\\SKILL.md",
+        "exists": true,
+        "reported_size": 6865,
+        "actual_size": 6865,
+        "score": 8.75,
+        "quality": 8,
+        "quantity": 8,
+        "machine_readability": 10,
+        "operational_value": 9,
+        "status": "Canonical / Active",
+        "rationale": "Active skill entrypoint definition with standardized operational instructions (153 lines).",
+        "lineage_notes": "Modern Era 3 skill definition package for Informatics Design domain operations in live APEX OS."
+      },
+      {
+        "file_name": "SKILL.md",
+        "path": "C:\\GitDev\\apexai-os-meta\\.claude\\skills\\graph-colorize\\SKILL.md",
+        "exists": true,
+        "reported_size": 8642,
+        "actual_size": 8642,
+        "score": 8.75,
+        "quality": 8,
+        "quantity": 8,
+        "machine_readability": 10,
+        "operational_value": 9,
+        "status": "Canonical / Active",
+        "rationale": "Active skill entrypoint definition with standardized operational instructions (180 lines).",
+        "lineage_notes": "Modern Era 3 skill definition package for Informatics Design domain operations in live APEX OS."
+      },
+      {
+        "file_name": "SKILL.md",
+        "path": "C:\\GitDev\\apexai-os-meta\\.claude\\skills\\obsidian-layout-adjustment\\SKILL.md",
+        "exists": true,
+        "reported_size": 10655,
+        "actual_size": 10655,
+        "score": 8.75,
+        "quality": 8,
+        "quantity": 8,
+        "machine_readability": 10,
+        "operational_value": 9,
+        "status": "Canonical / Active",
+        "rationale": "Active skill entrypoint definition with standardized operational instructions (226 lines).",
+        "lineage_notes": "Modern Era 3 skill definition package for Informatics Design domain operations in live APEX OS."
+      },
+      {
+        "file_name": "informatics-design.md",
+        "path": "C:\\GitDev\\apexai-os-meta\\.claude\\agents\\informatics-design.md",
+        "exists": true,
+        "reported_size": 1947,
+        "actual_size": 1947,
+        "score": 8.5,
+        "quality": 9,
+        "quantity": 5,
+        "machine_readability": 10,
+        "operational_value": 10,
+        "status": "Canonical / Active",
+        "rationale": "Active agent contract in .claude/agents defining canonical operational roles, tools, and execution boundaries (22 lines).",
+        "lineage_notes": "Modern Era 3 active agent contract governing Informatics Design execution boundaries, tools, and handoffs in the live APEX OS operating spine."
+      },
+      {
+        "file_name": "patch-intent-schema.json",
+        "path": "C:\\GitDev\\apexai-os-meta\\.claude\\skills\\deterministic-markdown-patcher2\\references\\patch-intent-schema.json",
+        "exists": true,
+        "reported_size": 7202,
+        "actual_size": 7202,
+        "score": 8.5,
+        "quality": 8,
+        "quantity": 9,
+        "machine_readability": 9,
+        "operational_value": 8,
+        "status": "Canonical / Active",
+        "rationale": "Active operational code or supporting specification in live skill/orchestration tree (321 lines).",
+        "lineage_notes": "Modern Era 3 active skill asset supporting Informatics Design domain execution in live repository (patch-intent-schema.json)."
+      },
+      {
+        "file_name": "patch_executor.py",
+        "path": "C:\\GitDev\\apexai-os-meta\\.claude\\skills\\deterministic-markdown-patcher2\\scripts\\patch_executor.py",
+        "exists": true,
+        "reported_size": 41998,
+        "actual_size": 41998,
+        "score": 8.5,
+        "quality": 8,
+        "quantity": 10,
+        "machine_readability": 8,
+        "operational_value": 8,
+        "status": "Canonical / Active",
+        "rationale": "Active operational code or supporting specification in live skill/orchestration tree (935 lines).",
+        "lineage_notes": "Modern Era 3 active skill asset supporting Informatics Design domain execution in live repository (patch_executor.py)."
+      },
+      {
+        "file_name": "fixture_spec.json",
+        "path": "C:\\GitDev\\apexai-os-meta\\.claude\\skills\\deterministic-markdown-patcher2\\repair-packs\\002-executor-dirty-tree-scope-repair\\fixture_spec.json",
+        "exists": true,
+        "reported_size": 53772,
+        "actual_size": 53772,
+        "score": 8.5,
+        "quality": 8,
+        "quantity": 9,
+        "machine_readability": 9,
+        "operational_value": 8,
+        "status": "Canonical / Active",
+        "rationale": "Active operational code or supporting specification in live skill/orchestration tree (316 lines).",
+        "lineage_notes": "Modern Era 3 active skill asset supporting Informatics Design domain execution in live repository (fixture_spec.json)."
+      },
+      {
+        "file_name": "workspace.json",
+        "path": "C:\\GitDev\\apexai-os-meta\\.claude\\skills\\.obsidian\\workspace.json",
+        "exists": true,
+        "reported_size": 5407,
+        "actual_size": 5407,
+        "score": 8.25,
+        "quality": 8,
+        "quantity": 8,
+        "machine_readability": 9,
+        "operational_value": 8,
+        "status": "Canonical / Active",
+        "rationale": "Active operational code or supporting specification in live skill/orchestration tree (197 lines).",
+        "lineage_notes": "Modern Era 3 active skill asset supporting Informatics Design domain execution in live repository (workspace.json)."
+      }
+    ]
+  },
+  "Knowledge Bank": {
+    "total_files": 207,
+    "status_breakdown": {
+      "Canonical / Active": 156,
+      "Distilled / Migrated": 12,
+      "Reference-Only / Historical": 35,
+      "Empty Scaffold / Stub": 4
+    },
+    "path_clusters": {
+      "GitDev: .claude\\skills": 156,
+      "QuasiDesktop: previous_openclaw\\07_finalopenclawsystem": 25,
+      "QuasiDesktop: openclaw_setup": 12,
+      "GitDev: apex-meta": 7,
+      "QuasiDesktop: kb4agents": 4,
+      "GitDev: .claude\\agents": 2,
+      "QuasiDesktop: agent_kb_source_indexes": 1
+    },
+    "stub_count": 4,
+    "stubs": [
+      {
+        "file_name": "BEST_PRACTICES.md",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\OpenClaw_Setup\\migration_payload\\07_finalopenclawsystem\\managed\\agent_kb\\special_ops__knowledge_bank\\BEST_PRACTICES.md",
+        "exists": true,
+        "score": 3.4,
+        "rationale": "Unpopulated template scaffold containing only placeholder schema and EMPTY_STATE marker."
+      },
+      {
+        "file_name": "LEARNING_QUEUE.md",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\OpenClaw_Setup\\migration_payload\\07_finalopenclawsystem\\managed\\agent_kb\\special_ops__knowledge_bank\\LEARNING_QUEUE.md",
+        "exists": true,
+        "score": 3.4,
+        "rationale": "Unpopulated template scaffold containing only placeholder schema and EMPTY_STATE marker."
+      },
+      {
+        "file_name": "MISTAKES.md",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\OpenClaw_Setup\\migration_payload\\07_finalopenclawsystem\\managed\\agent_kb\\special_ops__knowledge_bank\\MISTAKES.md",
+        "exists": true,
+        "score": 3.4,
+        "rationale": "Unpopulated template scaffold containing only placeholder schema and EMPTY_STATE marker."
+      },
+      {
+        "file_name": "TEMPLATES.md",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\OpenClaw_Setup\\migration_payload\\07_finalopenclawsystem\\managed\\agent_kb\\special_ops__knowledge_bank\\TEMPLATES.md",
+        "exists": true,
+        "score": 3.4,
+        "rationale": "Unpopulated template scaffold containing only placeholder schema and EMPTY_STATE marker."
+      }
+    ],
+    "top_10": [
+      {
+        "file_name": "SKILL.md",
+        "path": "C:\\GitDev\\apexai-os-meta\\.claude\\skills\\claude-history-ingest\\SKILL.md",
+        "exists": true,
+        "reported_size": 22697,
+        "actual_size": 22697,
+        "score": 9.0,
+        "quality": 8,
+        "quantity": 9,
+        "machine_readability": 10,
+        "operational_value": 9,
+        "status": "Canonical / Active",
+        "rationale": "Active skill entrypoint definition with standardized operational instructions (460 lines).",
+        "lineage_notes": "Modern Era 3 skill definition package for Knowledge Bank domain operations in live APEX OS."
+      },
+      {
+        "file_name": "SKILL.md",
+        "path": "C:\\GitDev\\apexai-os-meta\\.claude\\skills\\copilot-history-ingest\\SKILL.md",
+        "exists": true,
+        "reported_size": 18333,
+        "actual_size": 18333,
+        "score": 9.0,
+        "quality": 8,
+        "quantity": 9,
+        "machine_readability": 10,
+        "operational_value": 9,
+        "status": "Canonical / Active",
+        "rationale": "Active skill entrypoint definition with standardized operational instructions (373 lines).",
+        "lineage_notes": "Modern Era 3 skill definition package for Knowledge Bank domain operations in live APEX OS."
+      },
+      {
+        "file_name": "SKILL.md",
+        "path": "C:\\GitDev\\apexai-os-meta\\.claude\\skills\\llm-wiki\\SKILL.md",
+        "exists": true,
+        "reported_size": 35827,
+        "actual_size": 35827,
+        "score": 9.0,
+        "quality": 8,
+        "quantity": 9,
+        "machine_readability": 10,
+        "operational_value": 9,
+        "status": "Canonical / Active",
+        "rationale": "Active skill entrypoint definition with standardized operational instructions (640 lines).",
+        "lineage_notes": "Modern Era 3 skill definition package for Knowledge Bank domain operations in live APEX OS."
+      },
+      {
+        "file_name": "SKILL.md",
+        "path": "C:\\GitDev\\apexai-os-meta\\.claude\\skills\\pi-history-ingest\\SKILL.md",
+        "exists": true,
+        "reported_size": 14266,
+        "actual_size": 14266,
+        "score": 9.0,
+        "quality": 8,
+        "quantity": 9,
+        "machine_readability": 10,
+        "operational_value": 9,
+        "status": "Canonical / Active",
+        "rationale": "Active skill entrypoint definition with standardized operational instructions (309 lines).",
+        "lineage_notes": "Modern Era 3 skill definition package for Knowledge Bank domain operations in live APEX OS."
+      },
+      {
+        "file_name": "SKILL.md",
+        "path": "C:\\GitDev\\apexai-os-meta\\.claude\\skills\\wiki-agent\\SKILL.md",
+        "exists": true,
+        "reported_size": 14457,
+        "actual_size": 14457,
+        "score": 9.0,
+        "quality": 8,
+        "quantity": 9,
+        "machine_readability": 10,
+        "operational_value": 9,
+        "status": "Canonical / Active",
+        "rationale": "Active skill entrypoint definition with standardized operational instructions (319 lines).",
+        "lineage_notes": "Modern Era 3 skill definition package for Knowledge Bank domain operations in live APEX OS."
+      },
+      {
+        "file_name": "SKILL.md",
+        "path": "C:\\GitDev\\apexai-os-meta\\.claude\\skills\\wiki-capture\\SKILL.md",
+        "exists": true,
+        "reported_size": 15461,
+        "actual_size": 15461,
+        "score": 9.0,
+        "quality": 8,
+        "quantity": 9,
+        "machine_readability": 10,
+        "operational_value": 9,
+        "status": "Canonical / Active",
+        "rationale": "Active skill entrypoint definition with standardized operational instructions (334 lines).",
+        "lineage_notes": "Modern Era 3 skill definition package for Knowledge Bank domain operations in live APEX OS."
+      },
+      {
+        "file_name": "SKILL.md",
+        "path": "C:\\GitDev\\apexai-os-meta\\.claude\\skills\\wiki-dashboard\\SKILL.md",
+        "exists": true,
+        "reported_size": 13274,
+        "actual_size": 13274,
+        "score": 9.0,
+        "quality": 8,
+        "quantity": 9,
+        "machine_readability": 10,
+        "operational_value": 9,
+        "status": "Canonical / Active",
+        "rationale": "Active skill entrypoint definition with standardized operational instructions (469 lines).",
+        "lineage_notes": "Modern Era 3 skill definition package for Knowledge Bank domain operations in live APEX OS."
+      },
+      {
+        "file_name": "SKILL.md",
+        "path": "C:\\GitDev\\apexai-os-meta\\.claude\\skills\\wiki-dedup\\SKILL.md",
+        "exists": true,
+        "reported_size": 15188,
+        "actual_size": 15188,
+        "score": 9.0,
+        "quality": 8,
+        "quantity": 9,
+        "machine_readability": 10,
+        "operational_value": 9,
+        "status": "Canonical / Active",
+        "rationale": "Active skill entrypoint definition with standardized operational instructions (317 lines).",
+        "lineage_notes": "Modern Era 3 skill definition package for Knowledge Bank domain operations in live APEX OS."
+      },
+      {
+        "file_name": "SKILL.md",
+        "path": "C:\\GitDev\\apexai-os-meta\\.claude\\skills\\wiki-export\\SKILL.md",
+        "exists": true,
+        "reported_size": 23144,
+        "actual_size": 23144,
+        "score": 9.0,
+        "quality": 8,
+        "quantity": 9,
+        "machine_readability": 10,
+        "operational_value": 9,
+        "status": "Canonical / Active",
+        "rationale": "Active skill entrypoint definition with standardized operational instructions (389 lines).",
+        "lineage_notes": "Modern Era 3 skill definition package for Knowledge Bank domain operations in live APEX OS."
+      },
+      {
+        "file_name": "SKILL.md",
+        "path": "C:\\GitDev\\apexai-os-meta\\.claude\\skills\\wiki-ingest\\SKILL.md",
+        "exists": true,
+        "reported_size": 37406,
+        "actual_size": 37406,
+        "score": 9.0,
+        "quality": 8,
+        "quantity": 9,
+        "machine_readability": 10,
+        "operational_value": 9,
+        "status": "Canonical / Active",
+        "rationale": "Active skill entrypoint definition with standardized operational instructions (558 lines).",
+        "lineage_notes": "Modern Era 3 skill definition package for Knowledge Bank domain operations in live APEX OS."
+      }
+    ]
+  },
+  "AI Handling & Routing": {
+    "total_files": 119,
+    "status_breakdown": {
+      "Canonical / Active": 18,
+      "Reference-Only / Historical": 78,
+      "Distilled / Migrated": 16,
+      "Empty Scaffold / Stub": 7
+    },
+    "path_clusters": {
+      "QuasiDesktop: previous_openclaw\\07_finalopenclawsystem": 43,
+      "QuasiDesktop: openclaw_setup": 31,
+      "GitDev: .claude\\skills": 28,
+      "QuasiDesktop: kb4agents": 15,
+      "QuasiDesktop: agent_kb_source_indexes": 1,
+      "QuasiDesktop: ai api cost & performance": 1
+    },
+    "stub_count": 7,
+    "stubs": [
+      {
+        "file_name": ".gitkeep",
+        "path": "C:\\GitDev\\apexai-os-meta\\.claude\\skills\\model-usage-log\\examples\\.gitkeep",
+        "exists": true,
+        "score": 2.0,
+        "rationale": "Placeholder stub file (0 lines, 0 bytes) with zero substantive doctrine."
+      },
+      {
+        "file_name": ".gitkeep",
+        "path": "C:\\GitDev\\apexai-os-meta\\.claude\\skills\\model-usage-log\\references\\.gitkeep",
+        "exists": true,
+        "score": 2.0,
+        "rationale": "Placeholder stub file (0 lines, 0 bytes) with zero substantive doctrine."
+      },
+      {
+        "file_name": ".gitkeep",
+        "path": "C:\\GitDev\\apexai-os-meta\\.claude\\skills\\model-usage-log\\templates\\.gitkeep",
+        "exists": true,
+        "score": 2.0,
+        "rationale": "Placeholder stub file (0 lines, 0 bytes) with zero substantive doctrine."
+      },
+      {
+        "file_name": "BEST_PRACTICES.md",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\OpenClaw_Setup\\migration_payload\\07_finalopenclawsystem\\managed\\agent_kb\\special_ops__ai_handling_routing\\BEST_PRACTICES.md",
+        "exists": true,
+        "score": 3.4,
+        "rationale": "Unpopulated template scaffold containing only placeholder schema and EMPTY_STATE marker."
+      },
+      {
+        "file_name": "LEARNING_QUEUE.md",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\OpenClaw_Setup\\migration_payload\\07_finalopenclawsystem\\managed\\agent_kb\\special_ops__ai_handling_routing\\LEARNING_QUEUE.md",
+        "exists": true,
+        "score": 3.4,
+        "rationale": "Unpopulated template scaffold containing only placeholder schema and EMPTY_STATE marker."
+      },
+      {
+        "file_name": "MISTAKES.md",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\OpenClaw_Setup\\migration_payload\\07_finalopenclawsystem\\managed\\agent_kb\\special_ops__ai_handling_routing\\MISTAKES.md",
+        "exists": true,
+        "score": 3.4,
+        "rationale": "Unpopulated template scaffold containing only placeholder schema and EMPTY_STATE marker."
+      },
+      {
+        "file_name": "TEMPLATES.md",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\OpenClaw_Setup\\migration_payload\\07_finalopenclawsystem\\managed\\agent_kb\\special_ops__ai_handling_routing\\TEMPLATES.md",
+        "exists": true,
+        "score": 3.4,
+        "rationale": "Unpopulated template scaffold containing only placeholder schema and EMPTY_STATE marker."
+      }
+    ],
+    "top_10": [
+      {
+        "file_name": "SKILL.md",
+        "path": "C:\\GitDev\\apexai-os-meta\\.claude\\skills\\AIRouting\\SKILL.md",
+        "exists": true,
+        "reported_size": 10900,
+        "actual_size": 10900,
+        "score": 9.0,
+        "quality": 8,
+        "quantity": 9,
+        "machine_readability": 10,
+        "operational_value": 9,
+        "status": "Canonical / Active",
+        "rationale": "Active skill entrypoint definition with standardized operational instructions (310 lines).",
+        "lineage_notes": "Modern Era 3 skill definition package for AI Routing / Special Ops domain operations in live APEX OS."
+      },
+      {
+        "file_name": "SKILL.md",
+        "path": "C:\\GitDev\\apexai-os-meta\\.claude\\skills\\model-usage-log\\SKILL.md",
+        "exists": true,
+        "reported_size": 8118,
+        "actual_size": 8118,
+        "score": 8.75,
+        "quality": 8,
+        "quantity": 8,
+        "machine_readability": 10,
+        "operational_value": 9,
+        "status": "Canonical / Active",
+        "rationale": "Active skill entrypoint definition with standardized operational instructions (194 lines).",
+        "lineage_notes": "Modern Era 3 skill definition package for AI Routing / Special Ops domain operations in live APEX OS."
+      },
+      {
+        "file_name": "SPECIAL_OPS_KB_BASE_BUILD_INDEX.md",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\agent_kb_source_indexes\\SPECIAL_OPS_KB_BASE_BUILD_INDEX.md",
+        "exists": true,
+        "reported_size": 20986,
+        "actual_size": 20986,
+        "score": 8.15,
+        "quality": 8,
+        "quantity": 8,
+        "machine_readability": 9,
+        "operational_value": 8,
+        "status": "Distilled / Migrated",
+        "rationale": "Curated source authority index mapping external repo baselines to agent KB build requirements.",
+        "lineage_notes": "Era 1 OpenClaw source intake index (SPECIAL_OPS_KB_BASE_BUILD_INDEX.md) used during initial KB compilation; historical reference."
+      },
+      {
+        "file_name": "planned-usage-budget-contract.md",
+        "path": "C:\\GitDev\\apexai-os-meta\\.claude\\skills\\AIRouting\\planned-usage-budget-contract.md",
+        "exists": true,
+        "reported_size": 22491,
+        "actual_size": 22491,
+        "score": 8.0,
+        "quality": 8,
+        "quantity": 10,
+        "machine_readability": 6,
+        "operational_value": 8,
+        "status": "Canonical / Active",
+        "rationale": "Active operational code or supporting specification in live skill/orchestration tree (895 lines).",
+        "lineage_notes": "Modern Era 3 active skill asset supporting AI Routing / Special Ops domain execution in live repository (planned-usage-budget-contract.md)."
+      },
+      {
+        "file_name": "routing-decision-contract.md",
+        "path": "C:\\GitDev\\apexai-os-meta\\.claude\\skills\\AIRouting\\routing-decision-contract.md",
+        "exists": true,
+        "reported_size": 24253,
+        "actual_size": 24253,
+        "score": 8.0,
+        "quality": 8,
+        "quantity": 10,
+        "machine_readability": 6,
+        "operational_value": 8,
+        "status": "Canonical / Active",
+        "rationale": "Active operational code or supporting specification in live skill/orchestration tree (899 lines).",
+        "lineage_notes": "Modern Era 3 active skill asset supporting AI Routing / Special Ops domain execution in live repository (routing-decision-contract.md)."
+      },
+      {
+        "file_name": "usage-delta-contract.md",
+        "path": "C:\\GitDev\\apexai-os-meta\\.claude\\skills\\AIRouting\\usage-delta-contract.md",
+        "exists": true,
+        "reported_size": 25433,
+        "actual_size": 25433,
+        "score": 8.0,
+        "quality": 8,
+        "quantity": 10,
+        "machine_readability": 6,
+        "operational_value": 8,
+        "status": "Canonical / Active",
+        "rationale": "Active operational code or supporting specification in live skill/orchestration tree (989 lines).",
+        "lineage_notes": "Modern Era 3 active skill asset supporting AI Routing / Special Ops domain execution in live repository (usage-delta-contract.md)."
+      },
+      {
+        "file_name": "TEMPLATES.md",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\Previous_OpenClaw\\07_finalopenclawsystem\\managed\\agent_kb\\special_ops__ai_handling_routing\\TEMPLATES.md",
+        "exists": true,
+        "reported_size": 5535,
+        "actual_size": 5535,
+        "score": 7.8,
+        "quality": 8,
+        "quantity": 7,
+        "machine_readability": 8,
+        "operational_value": 8,
+        "status": "Distilled / Migrated",
+        "rationale": "Populated domain knowledge base containing concrete production rules, error patterns, and template schemas.",
+        "lineage_notes": "Era 1 historical staging corpus and research notes in legacy preparation archive (TEMPLATES.md); retained for provenance."
+      },
+      {
+        "file_name": "AI-surface-inventory-contract.md",
+        "path": "C:\\GitDev\\apexai-os-meta\\.claude\\skills\\AIRouting\\AI-surface-inventory-contract.md",
+        "exists": true,
+        "reported_size": 18227,
+        "actual_size": 18227,
+        "score": 7.75,
+        "quality": 8,
+        "quantity": 9,
+        "machine_readability": 6,
+        "operational_value": 8,
+        "status": "Canonical / Active",
+        "rationale": "Active operational code or supporting specification in live skill/orchestration tree (623 lines).",
+        "lineage_notes": "Modern Era 3 active skill asset supporting AI Routing / Special Ops domain execution in live repository (AI-surface-inventory-contract.md)."
+      },
+      {
+        "file_name": "cost-class-and-scarcity-rules.md",
+        "path": "C:\\GitDev\\apexai-os-meta\\.claude\\skills\\AIRouting\\cost-class-and-scarcity-rules.md",
+        "exists": true,
+        "reported_size": 14772,
+        "actual_size": 14772,
+        "score": 7.75,
+        "quality": 8,
+        "quantity": 9,
+        "machine_readability": 6,
+        "operational_value": 8,
+        "status": "Canonical / Active",
+        "rationale": "Active operational code or supporting specification in live skill/orchestration tree (384 lines).",
+        "lineage_notes": "Modern Era 3 active skill asset supporting AI Routing / Special Ops domain execution in live repository (cost-class-and-scarcity-rules.md)."
+      },
+      {
+        "file_name": "monthly-quota-map-contract.md",
+        "path": "C:\\GitDev\\apexai-os-meta\\.claude\\skills\\AIRouting\\monthly-quota-map-contract.md",
+        "exists": true,
+        "reported_size": 20167,
+        "actual_size": 20167,
+        "score": 7.75,
+        "quality": 8,
+        "quantity": 9,
+        "machine_readability": 6,
+        "operational_value": 8,
+        "status": "Canonical / Active",
+        "rationale": "Active operational code or supporting specification in live skill/orchestration tree (764 lines).",
+        "lineage_notes": "Modern Era 3 active skill asset supporting AI Routing / Special Ops domain execution in live repository (monthly-quota-map-contract.md)."
+      }
+    ]
+  },
+  "Hygiene Clean": {
+    "total_files": 45,
+    "status_breakdown": {
+      "Distilled / Migrated": 13,
+      "Canonical / Active": 1,
+      "Reference-Only / Historical": 27,
+      "Empty Scaffold / Stub": 4
+    },
+    "path_clusters": {
+      "QuasiDesktop: previous_openclaw\\07_finalopenclawsystem": 28,
+      "QuasiDesktop: openclaw_setup": 7,
+      "QuasiDesktop: kb4agents": 5,
+      "GitDev: apex-meta": 4,
+      "GitDev: .claude\\skills": 1
+    },
+    "stub_count": 4,
+    "stubs": [
+      {
+        "file_name": "BEST_PRACTICES.md",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\OpenClaw_Setup\\migration_payload\\07_finalopenclawsystem\\managed\\agent_kb\\special_ops__hygiene_clean\\BEST_PRACTICES.md",
+        "exists": true,
+        "score": 3.4,
+        "rationale": "Unpopulated template scaffold containing only placeholder schema and EMPTY_STATE marker."
+      },
+      {
+        "file_name": "LEARNING_QUEUE.md",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\OpenClaw_Setup\\migration_payload\\07_finalopenclawsystem\\managed\\agent_kb\\special_ops__hygiene_clean\\LEARNING_QUEUE.md",
+        "exists": true,
+        "score": 3.4,
+        "rationale": "Unpopulated template scaffold containing only placeholder schema and EMPTY_STATE marker."
+      },
+      {
+        "file_name": "MISTAKES.md",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\OpenClaw_Setup\\migration_payload\\07_finalopenclawsystem\\managed\\agent_kb\\special_ops__hygiene_clean\\MISTAKES.md",
+        "exists": true,
+        "score": 3.4,
+        "rationale": "Unpopulated template scaffold containing only placeholder schema and EMPTY_STATE marker."
+      },
+      {
+        "file_name": "TEMPLATES.md",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\OpenClaw_Setup\\migration_payload\\07_finalopenclawsystem\\managed\\agent_kb\\special_ops__hygiene_clean\\TEMPLATES.md",
+        "exists": true,
+        "score": 3.4,
+        "rationale": "Unpopulated template scaffold containing only placeholder schema and EMPTY_STATE marker."
+      }
+    ],
+    "top_10": [
+      {
+        "file_name": "QA_HYGIENE_PROTOCOL.md",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\Previous_OpenClaw\\07_finalopenclawsystem\\managed\\rules\\QA_HYGIENE_PROTOCOL.md",
+        "exists": true,
+        "reported_size": 15103,
+        "actual_size": 15103,
+        "score": 8.85,
+        "quality": 9,
+        "quantity": 9,
+        "machine_readability": 8,
+        "operational_value": 9,
+        "status": "Distilled / Migrated",
+        "rationale": "Authoritative system canon defining execution boundaries, swarm interactions, and strict handoff contracts.",
+        "lineage_notes": "Era 1 system governance protocol defining 8 formal QA finding classes and 4-tier P0-P3 severity model with concrete remediation gates; partially distilled into Meta Ops templates."
+      },
+      {
+        "file_name": "QA_HYGIENE_PROTOCOL.md",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\OpenClaw_Setup\\migration_payload\\07_finalopenclawsystem\\managed\\rules\\QA_HYGIENE_PROTOCOL.md",
+        "exists": true,
+        "reported_size": 15103,
+        "actual_size": 15103,
+        "score": 8.85,
+        "quality": 9,
+        "quantity": 9,
+        "machine_readability": 8,
+        "operational_value": 9,
+        "status": "Distilled / Migrated",
+        "rationale": "Authoritative system canon defining execution boundaries, swarm interactions, and strict handoff contracts.",
+        "lineage_notes": "Era 1 system governance protocol defining 8 formal QA finding classes and 4-tier P0-P3 severity model with concrete remediation gates; partially distilled into Meta Ops templates."
+      },
+      {
+        "file_name": "TEMPLATES.md",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\Previous_OpenClaw\\07_finalopenclawsystem\\managed\\agent_kb\\special_ops__hygiene_clean\\TEMPLATES.md",
+        "exists": true,
+        "reported_size": 7127,
+        "actual_size": 7127,
+        "score": 8.2,
+        "quality": 8,
+        "quantity": 9,
+        "machine_readability": 8,
+        "operational_value": 8,
+        "status": "Distilled / Migrated",
+        "rationale": "Populated domain knowledge base containing concrete production rules, error patterns, and template schemas.",
+        "lineage_notes": "Era 1 historical staging corpus and research notes in legacy preparation archive (TEMPLATES.md); retained for provenance."
+      },
+      {
+        "file_name": "ESSENCE.md",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\Previous_OpenClaw\\07_finalopenclawsystem\\managed\\agent_kb\\special_ops__hygiene_clean\\ESSENCE.md",
+        "exists": true,
+        "reported_size": 7098,
+        "actual_size": 7098,
+        "score": 8.0,
+        "quality": 8,
+        "quantity": 8,
+        "machine_readability": 8,
+        "operational_value": 8,
+        "status": "Distilled / Migrated",
+        "rationale": "Core role definition and agent boundary specification; foundational doctrine distilled into modern contracts.",
+        "lineage_notes": "Era 1 historical staging corpus and research notes in legacy preparation archive (ESSENCE.md); retained for provenance."
+      },
+      {
+        "file_name": "BEST_PRACTICES.md",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\Previous_OpenClaw\\07_finalopenclawsystem\\managed\\agent_kb\\special_ops__hygiene_clean\\BEST_PRACTICES.md",
+        "exists": true,
+        "reported_size": 4362,
+        "actual_size": 4362,
+        "score": 7.4,
+        "quality": 8,
+        "quantity": 5,
+        "machine_readability": 8,
+        "operational_value": 8,
+        "status": "Distilled / Migrated",
+        "rationale": "Populated domain knowledge base containing concrete production rules, error patterns, and template schemas.",
+        "lineage_notes": "Era 1 historical staging corpus and research notes in legacy preparation archive (BEST_PRACTICES.md); retained for provenance."
+      },
+      {
+        "file_name": "LEARNING_QUEUE.md",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\Previous_OpenClaw\\07_finalopenclawsystem\\managed\\agent_kb\\special_ops__hygiene_clean\\LEARNING_QUEUE.md",
+        "exists": true,
+        "reported_size": 5033,
+        "actual_size": 5033,
+        "score": 7.4,
+        "quality": 8,
+        "quantity": 5,
+        "machine_readability": 8,
+        "operational_value": 8,
+        "status": "Distilled / Migrated",
+        "rationale": "Populated domain knowledge base containing concrete production rules, error patterns, and template schemas.",
+        "lineage_notes": "Era 1 historical staging corpus and research notes in legacy preparation archive (LEARNING_QUEUE.md); retained for provenance."
+      },
+      {
+        "file_name": "MISTAKES.md",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\Previous_OpenClaw\\07_finalopenclawsystem\\managed\\agent_kb\\special_ops__hygiene_clean\\MISTAKES.md",
+        "exists": true,
+        "reported_size": 4141,
+        "actual_size": 4141,
+        "score": 7.4,
+        "quality": 8,
+        "quantity": 5,
+        "machine_readability": 8,
+        "operational_value": 8,
+        "status": "Distilled / Migrated",
+        "rationale": "Populated domain knowledge base containing concrete production rules, error patterns, and template schemas.",
+        "lineage_notes": "Era 1 historical staging corpus and research notes in legacy preparation archive (MISTAKES.md); retained for provenance."
+      },
+      {
+        "file_name": "ESSENCE.md",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\kb4agents\\special_ops_kb_factory_output\\special_ops_kb_factory_output\\agents\\hygiene_clean\\ESSENCE.md",
+        "exists": true,
+        "reported_size": 4386,
+        "actual_size": 4386,
+        "score": 7.4,
+        "quality": 8,
+        "quantity": 5,
+        "machine_readability": 8,
+        "operational_value": 8,
+        "status": "Distilled / Migrated",
+        "rationale": "Core role definition and agent boundary specification; foundational doctrine distilled into modern contracts.",
+        "lineage_notes": "Era 1 intermediate modernization revision or KB factory artifact (ESSENCE.md) from legacy staging."
+      },
+      {
+        "file_name": "hygiene-clean-doctrine.md",
+        "path": "C:\\GitDev\\apexai-os-meta\\.claude\\skills\\weekly-orchestrator\\references\\roles\\hygiene-clean-doctrine.md",
+        "exists": true,
+        "reported_size": 4792,
+        "actual_size": 4792,
+        "score": 7.25,
+        "quality": 8,
+        "quantity": 7,
+        "machine_readability": 6,
+        "operational_value": 8,
+        "status": "Canonical / Active",
+        "rationale": "Active operational code or supporting specification in live skill/orchestration tree (59 lines).",
+        "lineage_notes": "Modern Era 3 core operational skill implementation powering deterministic agent tooling and review loops (hygiene-clean-doctrine.md)."
+      },
+      {
+        "file_name": "Q&A&HygieneFuture.md",
+        "path": "C:\\Quasi Desktop\\AI_PreperationUntil_06-26\\Previous_OpenClaw\\07_finalopenclawsystem\\managed\\agent_kb\\special_ops__hygiene_clean\\appendices\\Q&A&HygieneFuture.md",
+        "exists": true,
+        "reported_size": 19191,
+        "actual_size": 19191,
+        "score": 7.25,
+        "quality": 7,
+        "quantity": 9,
+        "machine_readability": 8,
+        "operational_value": 6,
+        "status": "Reference-Only / Historical",
+        "rationale": "Legacy reference document containing 490 lines of domain-specific specifications and working context.",
+        "lineage_notes": "Era 1 historical staging corpus and research notes in legacy preparation archive (Q&A&HygieneFuture.md); retained for provenance."
+      }
+    ]
+  }
+}

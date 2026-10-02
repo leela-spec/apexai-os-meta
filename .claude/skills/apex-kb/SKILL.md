@@ -1,5 +1,6 @@
 ---
 name: apex-kb
+disable-model-invocation: true
 description: >
   Optional launcher for the installed Apex KB Python CLI. Use to invoke the
   public commands apex-kb start, status, continue, drive, query, doctor, and

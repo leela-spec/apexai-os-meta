@@ -1,0 +1,11 @@
+{
+  "name": "@ki-basis/anythingllm-openproject-custom-fields-skill",
+  "version": "0.1.0",
+  "private": true,
+  "description": "OpenProject Custom Fields API",
+  "type": "commonjs",
+  "main": "handler.js",
+  "engines": {
+    "node": ">=20"
+  }
+}

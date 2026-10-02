@@ -8,10 +8,10 @@
 
 # Snippet:
 
-Create a Q&A to nail our understanding. here is the format:
+Create as many Q&As as high impact necessary to nail our shared understanding. here is the format:
 
 - *Question:* the exact problem/decision being resolved
-- *Options:* letter, mechanism (2–4 lines), Grounding (process/user story/example), giving as much practical real life example explanation so another person wihtpout great understanding can understand it. for each option a metric estimate from 1-100 for impact, evidence, risk so e.g. **Syntax:** `(I90/E95/R20: 77)`
+- *Options:* letter, mechanism (2–4 lines), Grounding (process/user story/example), giving as much practical real life example explanation so another person wihtpout great understanding can understand it. for each option a metric estimate from 1-100 for impact, evidence, risk so e.g. **Syntax:** `(I90/E95/R20)
 - *Recommendation:* letter 
 - *Reasoning:* dense justification for the recommended option 
 - *Notes:* letter — rejection reason, one line per rejected option 

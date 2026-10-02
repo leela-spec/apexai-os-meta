@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "apex-meta/AI-Snippets/Snippets.md",
+                "file": "apex-meta/AI-Snippets/Orga/2Dos.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Snippets"
+              "title": "2Dos"
             }
           },
           {
@@ -27,16 +27,15 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "apex-meta/AI-Snippets/Snippets.md",
+                "file": "docs/AUDIT_DOSSIER_DUAL_KI_BASIS/01_DUAL_INSTANCE_ARCHITECTURE.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Snippets"
+              "title": "01_DUAL_INSTANCE_ARCHITECTURE"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -70,7 +69,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "a01",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -98,7 +97,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 417.5
   },
   "right": {
     "id": "4b79dc9b23d6981f",
@@ -176,9 +175,9 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "apex-meta/AI-Snippets/Docker_Feedback.md",
+                "file": "apex-meta/AI-Snippets/Orga/2Dos.md",
                 "followCursor": false,
-                "showSearch": false,
+                "showSearch": true,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
@@ -203,43 +202,48 @@
       "bases:Create new base": false
     }
   },
-  "active": "541b21c6148d1b9c",
+  "active": "936801a0bdf106d3",
   "lastOpenFiles": [
-    "apex-meta/AI-Snippets/SnippetDocs/AnitOverEng.md",
-    "apex-meta/AI-Snippets/SnippetDocs",
-    "apex-meta/handoff/universal-ai-instruction-system/handoffs/M08-output-and-deliverable-contract.md",
-    "apex-meta/handoff/universal-ai-instruction-system/handoffs/M07-research-and-evidence-discipline.md",
-    "apex-meta/handoff/universal-ai-instruction-system/handoffs/M06-decision-elicitation-and-trade-studies.md",
-    "apex-meta/handoff/universal-ai-instruction-system/handoffs/M04-workflow-complexity-routing.md",
-    "apex-meta/handoff/universal-ai-instruction-system/handoffs/M05-target-value-reuse-anti-drift.md",
-    "apex-meta/handoff/universal-ai-instruction-system/handoffs/M03-context-management.md",
-    "apex-meta/handoff/universal-ai-instruction-system/handoffs/M02-hierarchical-realization-mmm.md",
-    "apex-meta/handoff/universal-ai-instruction-system/handoffs/M01-intent-alignment-and-preflight.md",
-    "apex-meta/handoff/universal-ai-instruction-system/README.md",
-    "apex-meta/handoff/universal-ai-instruction-system/handoffs",
-    "apex-meta/handoff/universal-ai-instruction-system/06-RECOMMENDED-AGENT-CONSTITUTION-AND-MODULES.md",
-    "apex-meta/handoff/universal-ai-instruction-system/05-INSTRUCTION-ACCESS-AND-SERIALIZATION-MATRIX.md",
-    "apex-meta/handoff/universal-ai-instruction-system/04-FRAMEWORK-LANDSCAPE-MATRIX.md",
-    "apex-meta/handoff/universal-ai-instruction-system/03-EVALUATION-PLAN.md",
-    "apex-meta/handoff/universal-ai-instruction-system/02-GLOBAL-SNIPPET-GRAMMAR.md",
-    "apex-meta/handoff/universal-ai-instruction-system/01-MODULE-MAP.md",
-    "apex-meta/handoff/universal-ai-instruction-system/00-ARCHITECTURE-DECISION.md",
-    "apex-meta/handoff/universal-ai-instruction-system",
-    "apex-meta/handoff/2026-09-04-universal-ai-instruction-system-orchestrator-handover.md",
-    "apex-meta/Alpine/ImplementationPlans/2026-09-03-ki-basis-finalization/OPERATOR-ONBOARDING-WALKTHROUGH.md",
-    "apex-meta/Alpine/research/Docker-Desktop-Windows.md",
-    "apex-meta/Alpine/research",
-    "ki-basis/scripts/invoke-hermes.ps1",
-    "apex-meta/Alpine/ImplementationPlans/2026-09-03-ki-basis-finalization/05A-CLI-REASONING-HERMES-ROUTING.md",
-    "apex-meta/Alpine/ImplementationPlans/2026-09-03-ki-basis-finalization/04A-DOCKER-BACKGROUND-RUNTIME.md",
-    "apex-meta/AI-Snippets/Snippets.md",
-    "apex-meta/AI-Snippets/Docker_Feedback.md",
-    "apex-meta/AI-Snippets/Active State 2.0s Pulsating Ambient Core Glow.okf.md",
-    "apex-meta/AI-Snippets/ki-basis_Expl.md",
-    "ki-basis/tests/fixtures/paperless-m5.expected.sha256",
-    "ki-basis/tests/fixtures",
-    "ki-basis/tests",
-    "ki-basis/scripts/test-restore-oracle.sh",
-    "ki-basis/scripts/test-backup-stack.sh"
+    "apex-meta/SmallSkills/Transcription2KnowledgeBase/SKILL.md.tmp.29760.06c9aab5ee90",
+    "apex-meta/SmallSkills/Transcription2KnowledgeBase/SKILL.md",
+    "apex-meta/SmallSkills/Transcription2KnowledgeBase/00_README.md",
+    "apex-meta/SmallSkills/Transcription2KnowledgeBase/00_README.md.tmp.47952.350a4b2721b0",
+    "apex-meta/SmallSkills/Transcription2KnowledgeBase/RESEARCH-HANDOVER-adaptive-schema-selection.md",
+    "ki-basis/docs/INFRASTRUCTURE.md",
+    "apex-meta/AI-Snippets/Inbetween_Delete/TBD 3.md",
+    "apex-meta/SmallSkills/Transcription2KnowledgeBase",
+    "ki-basis/docs/FEEDBACK-NAECHSTE-SCHRITTE.md",
+    "FutureDevelopments&Research/AgentAudit/PerAgentDeepDives/ALL_AGENTS_DEEP_AUDIT_INDEX.md",
+    "FutureDevelopments&Research/AgentAudit/PerAgentDeepDives/KNOWLEDGE_BANK_DEEP_AUDIT.md",
+    "FutureDevelopments&Research/AgentAudit/PerAgentDeepDives/INFORMATICS_DESIGN_DEEP_AUDIT.md",
+    "FutureDevelopments&Research/AgentAudit/PerAgentDeepDives/AI_HANDLING_AND_ROUTING_DEEP_AUDIT.md",
+    "FutureDevelopments&Research/AgentAudit/PerAgentDeepDives/PROMPTS_AND_WORKFLOWS_DEEP_AUDIT.md",
+    "FutureDevelopments&Research/AgentAudit/PerAgentDeepDives/HYGIENE_CLEAN_DEEP_AUDIT.md",
+    "FutureDevelopments&Research/AgentAudit/PerAgentDeepDives/META_OPS_DEEP_AUDIT.md",
+    "FutureDevelopments&Research/AgentAudit/PerAgentDeepDives/META_DETECTIVE_DEEP_AUDIT.md",
+    "FutureDevelopments&Research/AgentAudit/PerAgentDeepDives/META_STRATEGY_DEEP_AUDIT.md",
+    "FutureDevelopments&Research/AgentAudit/PerAgentDeepDives/META_STRATEGY_UNIFIED_DOCTRINE.md",
+    "FutureDevelopments&Research/AgentAudit/PerAgentDeepDives",
+    "ki-basis/docs/OldPlans/recovered-downloads-artifacts/openproject-api-reference/openproject-unzipped/openproject-posts/package.json",
+    "ki-basis/docs/OldPlans/recovered-downloads-artifacts/openproject-api-reference/openproject-unzipped/openproject-posts/plugin.json",
+    "ki-basis/docs/OldPlans/recovered-downloads-artifacts/openproject-api-reference/openproject-unzipped/openproject-posts/handler.js",
+    "ki-basis/docs/OldPlans/recovered-downloads-artifacts/openproject-api-reference/openproject-unzipped/openproject-posts",
+    "ki-basis/docs/OldPlans/recovered-downloads-artifacts/openproject-api-reference/openproject-unzipped/openproject-portfolios/package.json",
+    "ki-basis/docs/OldPlans/recovered-downloads-artifacts/openproject-api-reference/openproject-unzipped/openproject-portfolios/plugin.json",
+    "ki-basis/docs/OldPlans/recovered-downloads-artifacts/openproject-api-reference/openproject-unzipped/openproject-portfolios/handler.js",
+    "FutureDevelopments&Research/AgentAudit/ALFRED_EVALUATION_REPORT.md",
+    "FutureDevelopments&Research/AgentAudit/ALFRED_UNIFIED_DOCTRINE.md",
+    "FutureDevelopments&Research/AgentAudit/ALFRED_AUDIT_HANDOVER.md",
+    "FutureDevelopments&Research/AgentAudit/OperatorNote.md",
+    "ki-basis/docs/OPEN-ISSUES.md",
+    "ki-basis/docs/OldPlans/recovered-downloads-artifacts/ki-basis-cli-reasoning-hermes-routing-patches/sources/Docker-Desktop-Windows.md",
+    "ki-basis/docs/HANDOVER-2026-09-29-open-items.md",
+    "ki-basis/OpenMouseBot/OMB_Integration.md",
+    "ki-basis/docs/OldPlans/recovered-downloads-artifacts/ki-basis-cli-reasoning-hermes-routing-patches/templates/05A-CLI-REASONING-HERMES-ROUTING.md",
+    "Pasted image 20260927104956.png",
+    "Pasted image 20260927104936.png",
+    "ki-basis/fixtures/fundraiser_hamburg/Lika_OS_Volunteer_Shift_Overview.png",
+    "ki-basis/fixtures/fundraiser_hamburg/Equinox_Venue_Floorplan_Zones.png",
+    "ki-basis/fixtures/fundraiser_hamburg/Lika_Equinox_Event_Poster.png"
   ]
 }

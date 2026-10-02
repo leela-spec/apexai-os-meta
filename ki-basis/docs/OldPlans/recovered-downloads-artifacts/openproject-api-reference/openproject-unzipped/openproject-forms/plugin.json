@@ -1,0 +1,55 @@
+{
+  "active": true,
+  "hubId": "openproject-forms",
+  "name": "OpenProject Forms",
+  "schema": "skill-1.0.0",
+  "version": "1.0.0",
+  "description": "OpenProject Forms API",
+  "author": "ki-basis",
+  "license": "MIT",
+  "imported": true,
+  "entrypoint": {
+    "file": "handler.js",
+    "params": {
+      "operation": {
+        "type": "string",
+        "description": "One of: get_or_validate"
+      },
+      "_type": {
+        "type": "string",
+        "description": "Body field _type (operations: get_or_validate)"
+      },
+      "lockVersion": {
+        "type": "number",
+        "description": "Body field lockVersion (operations: get_or_validate)"
+      },
+      "subject": {
+        "type": "string",
+        "description": "Body field subject (operations: get_or_validate)"
+      },
+      "confirmed": {
+        "type": "string",
+        "description": "Optional. Two-Phase write confirm: set confirmed=true (or ja/yes/1) to execute POST/PATCH/PUT/DELETE. Without it, mutating calls return a confirmation ask."
+      }
+    }
+  },
+  "setup_args": {
+    "openproject_base_url": {
+      "type": "string",
+      "required": true,
+      "input": {
+        "type": "text",
+        "default": "http://web:8080",
+        "hint": "Interne OpenProject-API-Basis (im Docker-Netz, Port 8080)"
+      }
+    },
+    "openproject_token": {
+      "type": "string",
+      "required": true,
+      "input": {
+        "type": "password",
+        "hint": "OpenProject-API-Key (Basic apikey:<key>; aus Benutzerprofil)"
+      }
+    }
+  }
+}

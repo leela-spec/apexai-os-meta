@@ -1,0 +1,11 @@
+{
+  "name": "@ki-basis/anythingllm-openproject-query-operators-skill",
+  "version": "0.1.0",
+  "private": true,
+  "description": "OpenProject Query Operators API",
+  "type": "commonjs",
+  "main": "handler.js",
+  "engines": {
+    "node": ">=20"
+  }
+}

@@ -26,7 +26,6 @@ source_package_status:
   apex_plan: <verified_current>
   project_kb_manager: <verified_current>
   ProjectStatus: <verified_current>
-  apex_kb: <verified_current|missing>
   apex_sync: <verified_current|extraction_report_only|missing>
   apex_session: <verified_current|extraction_report_only|missing>
 ```
@@ -174,7 +173,7 @@ snapshot:
 
 ```yaml
 snapshot:
-  owner: apex-kb
+  owner: repository-sources
   source_refs:
     - <source map, artifact index, KB query, or retrieval ref>
   source_state: <verified|partial|stale|missing|synthetic>
@@ -214,7 +213,7 @@ weekly_planning_view:
 **<Candidate 1>**
 - **Why this week:** <reason>
 - **Source confidence:** <high|medium|low|unknown>
-- **Owner source:** <project-kb-manager|ProjectStatus|apex-plan|apex-sync|apex-session|apex-kb|synthetic>
+- **Owner source:** <project-kb-manager|ProjectStatus|apex-plan|apex-sync|apex-session|repository-sources|synthetic>
 
 ## Next-Day Planning View
 

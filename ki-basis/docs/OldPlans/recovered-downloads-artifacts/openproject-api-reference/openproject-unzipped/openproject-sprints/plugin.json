@@ -1,0 +1,59 @@
+{
+  "active": true,
+  "hubId": "openproject-sprints",
+  "name": "OpenProject Sprints",
+  "schema": "skill-1.0.0",
+  "version": "1.0.0",
+  "description": "OpenProject Sprints API",
+  "author": "ki-basis",
+  "license": "MIT",
+  "imported": true,
+  "entrypoint": {
+    "file": "handler.js",
+    "params": {
+      "operation": {
+        "type": "string",
+        "description": "One of: list_in_project|list|get"
+      },
+      "id": {
+        "type": "integer",
+        "description": "ID of the project whose sprints will be listed — integer (numeric string ok) (operations: list_in_project, get)"
+      },
+      "filters": {
+        "type": "string",
+        "description": "JSON specifying filter conditions.\n\nAccepts the same format and filters as returned by the [sprints](https://www.openproject.org/docs/api/endpoints/sprints/) endpoint. (operations: list_in_project, list)"
+      },
+      "offset": {
+        "type": "integer",
+        "description": "Page number inside the requested collection. — integer (numeric string ok) (operations: list_in_project, list)"
+      },
+      "pageSize": {
+        "type": "integer",
+        "description": "Number of elements to display per page. — integer (numeric string ok) (operations: list_in_project, list)"
+      },
+      "confirmed": {
+        "type": "string",
+        "description": "Optional. Two-Phase write confirm: set confirmed=true (or ja/yes/1) to execute POST/PATCH/PUT/DELETE. Without it, mutating calls return a confirmation ask."
+      }
+    }
+  },
+  "setup_args": {
+    "openproject_base_url": {
+      "type": "string",
+      "required": true,
+      "input": {
+        "type": "text",
+        "default": "http://web:8080",
+        "hint": "Interne OpenProject-API-Basis (im Docker-Netz, Port 8080)"
+      }
+    },
+    "openproject_token": {
+      "type": "string",
+      "required": true,
+      "input": {
+        "type": "password",
+        "hint": "OpenProject-API-Key (Basic apikey:<key>; aus Benutzerprofil)"
+      }
+    }
+  }
+}

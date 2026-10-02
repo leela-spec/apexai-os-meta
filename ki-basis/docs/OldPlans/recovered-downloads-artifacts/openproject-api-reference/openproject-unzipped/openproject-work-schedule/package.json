@@ -1,0 +1,11 @@
+{
+  "name": "@ki-basis/anythingllm-openproject-work-schedule-skill",
+  "version": "0.1.0",
+  "private": true,
+  "description": "OpenProject Work Schedule API",
+  "type": "commonjs",
+  "main": "handler.js",
+  "engines": {
+    "node": ">=20"
+  }
+}

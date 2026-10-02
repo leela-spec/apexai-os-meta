@@ -1,0 +1,11 @@
+{
+  "name": "@ki-basis/anythingllm-openproject-query-filter-instance-schema-skill",
+  "version": "0.1.0",
+  "private": true,
+  "description": "OpenProject Query Filter Instance Schema API",
+  "type": "commonjs",
+  "main": "handler.js",
+  "engines": {
+    "node": ">=20"
+  }
+}

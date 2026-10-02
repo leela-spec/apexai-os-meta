@@ -50,7 +50,6 @@ The system translates the old Apex agent-swarm doctrine without reviving an alwa
 | APEX OS activation router | `.claude/CLAUDE.md` |
 | Multi-Agent accountabilities & lanes (7 definitions) | `.claude/agents/` — alfred, meta-strategy, meta-ops, meta-detective, knowledge-bank, informatics-design, prompts-workflows |
 | Shared Plan-Sync-Session Backbone | `.claude/skills/apex-plan`, `.claude/skills/apex-sync`, `.claude/skills/apex-session` |
-| Supporting KB lifecycle capability | `.claude/skills/apex-kb` |
 | Deterministic compute | `scripts/apex_sync.py` (stdlib-only, dry-run-first) |
 | Detective's validation skill | `.claude/skills/source-authority-and-verdict-packet` |
 | Separate Weekly Orchestrator entrypoint | `.claude/skills/weekly-orchestrator/SKILL.md` |
