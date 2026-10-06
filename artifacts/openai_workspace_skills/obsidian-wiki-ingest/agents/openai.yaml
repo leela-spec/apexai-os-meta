@@ -1,0 +1,21 @@
+interface:
+  display_name: "Obsidian Wiki Ingest"
+  short_description: "Distill long documents and transcripts into a source-grounded Obsidian vault"
+  icon: "book-open"
+  accent_color: "purple"
+routing:
+  skill_name: "obsidian-wiki-ingest"
+  primary_inputs:
+    - transcript_text
+    - transcript_srt
+    - transcript_json
+    - document_file
+    - transcript_bundle
+  primary_outputs:
+    - obsidian_markdown_vault
+    - downloadable_vault_zip
+instructions:
+  - Use SKILL.md as the primary instruction control plane.
+  - Preserve the original ingest rules for provenance, reasoning, contradictions, relationships, and vault structure.
+  - Use the long-source integrity protocol when coverage is not guaranteed.
+  - Package only validated files and deliver obsidian_vault.zip without rewriting file contents.

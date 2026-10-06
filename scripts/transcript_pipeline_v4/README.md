@@ -16,6 +16,7 @@ Outputs are written below `artifacts/transcript_pipeline_v4/<source_id>/`:
 
 - `transcript.txt` — deterministic UTF-8 text. SRT/VTT cue numbers, timestamps, metadata, and inline markup are removed without semantic rewriting.
 - `transcript.srt` — timestamped ASR output for media inputs.
+- `transcript.segments.json` — source-order segments plus available Whisper decoder metadata. These values are warning proxies, not accuracy scores.
 - `run.log` — timestamped stage, tool/model, reuse, fallback, and error facts. It does not claim semantic quality.
 - `source/` — downloaded URL media and yt-dlp metadata when available.
 
@@ -29,6 +30,17 @@ Run the fast behavioral and ASR interface tests without downloading media or loa
 powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\scripts\transcript_pipeline_v4\tests\test_run_v4.ps1
 python -m unittest discover -s .\scripts\transcript_pipeline_v4\tests -p 'test_*.py'
 ```
+
+Prepare a deterministic upload bundle for a long transcript when needed:
+
+```powershell
+python .\scripts\transcript_pipeline_v4\prepare_web_bundle.py `
+  --input .\artifacts\transcript_pipeline_v4\<source_id>\transcript.srt `
+  --asr-json .\artifacts\transcript_pipeline_v4\<source_id>\transcript.segments.json `
+  --output .\artifacts\transcript_pipeline_v4\<source_id>\transcript-bundle
+```
+
+The bundle partitions complete cues without overlap. Its manifest records source and part hashes, structural findings, coverage, and any original Whisper warning proxies.
 
 Vault verification and health checks:
 

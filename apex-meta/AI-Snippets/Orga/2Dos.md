@@ -26,6 +26,10 @@ Task: transforming the worked out files, information and data bases of different
 - for handling teh api use these skills as a possible role model (they describe the handling of the openproject api: "C:\GitDev\agent-skills\skills\openproject"  
 - I want the following  
 C:\Quasi Desktop\AI_PreperationUntil_06-26\Previous_OpenClaw\07_finalopenclawsystem\managed\agent_kb
+
+# lika
+- machne temu rechnungen nicht steuer genug aber trotzdem passieren
+- 
 # next
 
 Why
@@ -66,6 +70,9 @@ feedback:
 - too little value:
 	- recovery
 
+## ifs
+
+if listing files: reate them with an embedded link so i can quickly open them/see path
 
 missing:
 - overcorrection: tendency to shift focus and delete valid info when a correction/feedback is send. only surguical

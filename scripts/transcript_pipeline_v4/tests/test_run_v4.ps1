@@ -123,12 +123,15 @@ public static class FakeTools
         Append("FAKE_PYTHON_COUNT", "1\n");
         var textOutput = FindValue(args, "--text-out");
         var srtOutput = FindValue(args, "--srt-out");
+        var segmentsJsonOutput = FindValue(args, "--segments-json-out");
         if (string.IsNullOrEmpty(textOutput) || string.IsNullOrEmpty(srtOutput))
             return 37;
         Directory.CreateDirectory(Path.GetDirectoryName(textOutput));
         var body = Environment.GetEnvironmentVariable("FAKE_TRANSCRIPT_BODY") ?? "fake transcript";
         File.WriteAllText(textOutput, body + "\n", new UTF8Encoding(false));
         File.WriteAllText(srtOutput, "1\n00:00:00,000 --> 00:00:01,000\n" + body + "\n", new UTF8Encoding(false));
+        if (!string.IsNullOrEmpty(segmentsJsonOutput))
+            File.WriteAllText(segmentsJsonOutput, "{\"schema_version\":\"1.0\",\"segments\":[]}", new UTF8Encoding(false));
         return 0;
     }
 }
@@ -279,9 +282,10 @@ try {
     Assert-Equal $localRun.ExitCode 0 "Local-media run failed: $($localRun.Stderr)"
     $localRunDir = Join-Path $outputRoot 'local-recording'
     Assert-Equal ([IO.File]::ReadAllText((Join-Path $localRunDir 'transcript.txt'))) "local transcript de`n" 'Local media did not produce fake ASR transcript.'
+    Assert-True (Test-Path -LiteralPath (Join-Path $localRunDir 'transcript.segments.json') -PathType Leaf) 'Local media did not preserve ASR segment metadata.'
     Assert-True (-not (Test-Path -LiteralPath (Join-Path $localRunDir 'source'))) 'Local media was unnecessarily copied into the run directory.'
     $pythonReceipt = [IO.File]::ReadAllText($env:FAKE_PYTHON_CAPTURE)
-    foreach ($argument in @('--input', $media, '--text-out', '--srt-out', '--language', 'de')) {
+    foreach ($argument in @('--input', $media, '--text-out', '--srt-out', '--segments-json-out', '--language', 'de')) {
         Assert-True (($pythonReceipt -split "`n") -ccontains $argument) "Local-media Python receipt omitted exact argument: $argument"
     }
     Assert-Equal (Get-InvocationCount $env:FAKE_PYTHON_COUNT) 1 'Initial local-media run did not invoke ASR exactly once.'

@@ -298,6 +298,7 @@ New-Item -ItemType Directory -Path $runDirectory -Force | Out-Null
 $logPath = Join-Path $runDirectory 'run.log'
 $transcriptPath = Join-Path $runDirectory 'transcript.txt'
 $srtPath = Join-Path $runDirectory 'transcript.srt'
+$segmentsJsonPath = Join-Path $runDirectory 'transcript.segments.json'
 
 function Write-RunLog {
     param([Parameter(Mandatory = $true)][string]$Message)
@@ -365,8 +366,15 @@ try {
         if ($usingPythonFallback) { Write-RunLog "fallback used; component=python; source=PATH; executable=$python" }
         $tempTranscript = "$transcriptPath.tmp"
         $tempSrt = "$srtPath.tmp"
-        Remove-Item -LiteralPath $tempTranscript, $tempSrt -Force -ErrorAction SilentlyContinue
-        $transcribeArguments = @((Join-Path $scriptRoot 'transcribe.py'), '--input', $mediaPath, '--text-out', $tempTranscript, '--srt-out', $tempSrt)
+        $tempSegmentsJson = "$segmentsJsonPath.tmp"
+        Remove-Item -LiteralPath $tempTranscript, $tempSrt, $tempSegmentsJson -Force -ErrorAction SilentlyContinue
+        $transcribeArguments = @(
+            (Join-Path $scriptRoot 'transcribe.py'),
+            '--input', $mediaPath,
+            '--text-out', $tempTranscript,
+            '--srt-out', $tempSrt,
+            '--segments-json-out', $tempSegmentsJson
+        )
         if ($Language) { $transcribeArguments += @('--language', $Language) }
         Write-RunLog 'ASR started; implementation=faster-whisper; model=large-v3-turbo; device=cpu; compute_type=int8; vad_filter=true'
         $transcribeResult = Invoke-ExternalCommand -FilePath $python -ArgumentList $transcribeArguments
@@ -376,7 +384,8 @@ try {
         if (-not (Test-NonEmptyFile $tempTranscript)) { throw 'Transcription completed without a non-empty transcript.' }
         Move-Item -LiteralPath $tempTranscript -Destination $transcriptPath -Force
         if (Test-NonEmptyFile $tempSrt) { Move-Item -LiteralPath $tempSrt -Destination $srtPath -Force }
-        Write-RunLog 'ASR completed; transcript=transcript.txt; subtitles=transcript.srt'
+        if (Test-NonEmptyFile $tempSegmentsJson) { Move-Item -LiteralPath $tempSegmentsJson -Destination $segmentsJsonPath -Force }
+        Write-RunLog 'ASR completed; transcript=transcript.txt; subtitles=transcript.srt; segments=transcript.segments.json'
     }
     else {
         Write-RunLog 'ASR skipped; transcript reused; reason=non-empty existing output'
