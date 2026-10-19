@@ -1,19 +1,60 @@
 ---
 okf_version: "0.2"
-title: Apex Informatics Standard
-description: Canonical entrypoint and routing index for the Apex OS knowledge and instruction architecture standard.
+title: Apex Informatics Standard & Consolidated General Router
+description: Canonical entrypoint, OKF v0.2 bundle index, and conditional JIT routing layer for Apex OS AI agents.
 ---
 
-# Apex Informatics Standard
+# Apex Informatics Standard & Consolidated General Router
 
-This bundle defines the canonical informatics standard, conformance profiles, and progressive disclosure rules for knowledge and instruction surfaces across APEX OS.
+Canonical entrypoint and conditional JIT routing index for the Apex OS knowledge and instruction architecture.
 
-## Core Documents
+## 1. Core Operational Invariants
 
-- [Apex Informatics Standard](standard.md) — The durable 14-section conformance profile combining OKF v0.2, Information Mapping, DITA topic principles, STE-derived prose, and agent instruction scoping.
+- [P0 | I98/E98/R05] Target Dominance: Optimize for the most balanced, value-efficient, and effective path to the target.
+- [P0 | I96/E95/R05] Strict JIT & Step-by-Step Context: Zero eager @path imports. Load context step-by-step and create files per iteration.
+- [P0 | I95/E95/R08] Surgical Mutation: Never rewrite whole files. Modify existing files strictly via exact-match patch blocks.
+- [P0 | I95/E98/R05] Substance Over Ceremony: Technical correctness overrides mechanical metrics. Ceilings yield to truth.
+
+## 2. Conditional JIT Dispatch Gates
+
+<informatics when="writing_or_documentation" ref="writing-profile.md" deepen_when="prose_tables_or_ranking">
+  [P1 | I92/E95/R08] Apply active language, Information Mapping, tables vs lists, and 3-metric ranking.
+</informatics>
+
+<informatics when="file_creation_or_structure" ref="file-architecture.md" deepen_when="five_plane_isolation">
+  [P1 | I90/E92/R10] Apply Five-Plane IA, flat OKF frontmatter, and current-truth separation.
+</informatics>
+
+<informatics when="task_execution_adapter" ref="execution-modes.md" deepen_when="qa_patches_or_iteration">
+  [P1 | I92/E94/R08] Apply IF-routed QA Matrices, Bake-Offs, Patches, Handovers, or File-Backed Iteration.
+</informatics>
+
+<informatics when="operational_anti_drift" ref="anti-drift-rules.md" deepen_when="drift_or_failure_modes">
+  [P1 | I94/E95/R08] Apply Anti-Drift Laws, Two-Strike pivot, anti-overcorrection, and Not-To-Dos.
+</informatics>
+
+<informatics when="governance_and_schemas" ref="governance-schemas.md" deepen_when="schemas_or_validation">
+  [P1 | I88/E92/R08] Validate frontmatter schemas, AST patch intent, and universal instruction parsimony.
+</informatics>
+
+## 3. Governed Modular Specification Suite
+
+- [Writing Profile & Prose Ergonomics](writing-profile.md) — Active language, Information Mapping, table vs list selection, durable IDs, and 3-metric ranking.
+- [File Architecture & Bundle Structure](file-architecture.md) — Five-Plane Architecture, OKF v0.2 frontmatter schemas, and current-truth separation.
+- [Execution Modes & Task Adapters](execution-modes.md) — IF-routed adapters for Q&A Decision Matrices, Bake-Offs, Exact-Match Patching, Handover, and File-Backed Iteration.
+- [Anti-Drift Rules & Operational Lore](anti-drift-rules.md) — Anti-Drift Laws, step-by-step context management, anti-overcorrection, and Failure Modes / Not-To-Dos.
+- [Governance Schemas & Directive Ceilings](governance-schemas.md) — Frontmatter schemas, AST patch intent specifications, and universal instruction parsimony.
+- [General Informatics Router](general-informatics-router.md) — Compact standalone agent-facing embeddable JIT router template.
+
+## 4. Supporting Governance & History
+
+- [Apex Informatics Standard](standard.md) — Master 14-section governance standard combining OKF v0.2, Information Mapping, and STE prose.
 - [Migration & Onboarding Policy](migration.md) — Rules governing how existing and new repository knowledge conforms to the standard.
-- [Change Log](log.md) — Version history and maintenance log for this standard bundle.
+- [Change Log](log.md) — Chronological version history and audit log.
+- [Agent Setup Sub-Bundle](Agent_Setup/index.md) — Sub-bundle boundary index for agent setup and legacy artifacts.
 
-## Underlying Reference
+## 5. Sizing & Formatting Orientations
 
-- [OKF v0.2 Specification Reference](../SmallSkills/OKF_Format/index.md) — Grounded reference bundle for the upstream Open Knowledge Format v0.2 serialization, frontmatter, and trust model.
+- [P2 | I85/E90/R10] Operational Sizing: Sizing targets (~100L / ~400T) orient router efficiency; substantive target realization governs.
+- [P2 | I80/E85/R12] Autonomous Decisions: Resolve routine reversible choices autonomously from evidence.
+- [P3 | I70/E80/R08] Heading Scannability: Prefer up to ~3 Markdown heading levels unless deep nesting aids clarity.
