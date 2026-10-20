@@ -161,13 +161,25 @@ removed content was not being used.
 
 ## 5. Open questions on this blueprint
 
-1. **Does `.claude/CLAUDE.md` also need updating?** It carries its own 1,028 tokens of orchestration
-   routing and names `apex-meta/informatics/index.md` as the informatics entry point. Under `DEC-14`
-   that pointer becomes wrong — `index.md` stops being a router. **Not addressed here.**
-2. **Does the contract belong in `AGENTS.md`, `.claude/CLAUDE.md`, or both?** They are loaded by
-   different tools. Duplicating the block across both would recreate exactly the two-copies problem
-   this effort removed. Needs a decision before installation.
+**Question 2 below is resolved.** See `DEC-21` in
+[01-decision-register.md](01-decision-register.md) Part F2: the contract goes to **all** surfaces
+that carry the shared operating rules, because that is how the operator wants every agent to work.
+There are **five** instruction surfaces, not two, and three of them are already hand-maintained
+copies that have measurably drifted.
+
+1. **`.claude/CLAUDE.md` names `apex-meta/informatics/index.md` as the informatics entry point.**
+   Under `DEC-14` that pointer becomes wrong — `index.md` stops being a router. It needs updating
+   to point at the contract, but it is **not** a carrier of the block: it holds orchestration
+   routing, a different job.
+2. ~~Does the contract belong in `AGENTS.md`, `.claude/CLAUDE.md`, or both?~~ **Resolved — `DEC-21`.**
+   Owner `AGENTS.md`; carriers `CLAUDE.md` and `GEMINI.md`; pointer only in `.claude/CLAUDE.md` and
+   `.github/copilot-instructions.md`; byte-identity enforced by test.
 3. **The infrastructure banner** must not be copied into any derivative file. The blueprint omits it
-   on purpose; a real merge leaves it in place at the top.
-4. **Rule 2 above is the blocker.** Installing into one file while the other still points at
-   `index.md` leaves two different stories about where informatics rules live.
+   on purpose; a real merge leaves it in place at the top. Note that this banner is **itself one of
+   the already-drifted sections** between `AGENTS.md` and `CLAUDE.md`.
+4. **`D10` is live and independent of this work.** `GEMINI.md` is missing the entire
+   `## Informatics & Knowledge Routing` section, so Gemini agents currently receive no informatics
+   routing at all. It can be fixed now without waiting for the contract.
+5. **New blocker, replacing the old one:** the byte-identity test must exist *before* three copies
+   of a 1,622-token block are created, not after. Creating the copies first repeats `D9` at triple
+   scale.

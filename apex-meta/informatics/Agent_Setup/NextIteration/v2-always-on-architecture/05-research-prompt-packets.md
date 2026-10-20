@@ -260,6 +260,12 @@ your view."* This packet exists to answer that rather than defend against it.
 > - Developments in agent instruction architecture, context management, or memory from the last
 >   twelve months that change any of the above.
 > - Whether runtime features now handle any of this automatically, making manual design obsolete.
+> - **How cross-tool instruction files are kept in sync.** This repository has five agent instruction
+>   surfaces (`AGENTS.md`, `CLAUDE.md`, `GEMINI.md`, `.claude/CLAUDE.md`,
+>   `.github/copilot-instructions.md`) and three are hand-maintained copies that have already
+>   drifted. Is there an established mechanism — a convention, an import syntax supported across
+>   tools, a generator, a linter — for keeping one rule set consistent across several
+>   tool-specific files? Name it if it exists, and say which tools honour it.
 > - Whether caching behaviour changes the cost calculus — if an always-loaded block is cached,
 >   does its token cost still matter the way the author assumes?
 > - Any mechanism for conditional loading other than hand-authored rules or semantic retrieval.

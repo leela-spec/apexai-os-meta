@@ -255,6 +255,76 @@ loaded unconditionally, so it does not depend on gating) but `DEC-16` collapses 
 
 ---
 
+## Part F2 — `DEC-21`: which instruction surfaces carry the contract
+
+**Operator decision: all of them.** *"All AIs are going to get the same thing because this is how I
+want all AIs to work."*
+
+### My earlier objection is withdrawn
+
+I repeatedly flagged "both would rebuild the two-copies problem" as a blocker. That framing was
+wrong in two ways.
+
+**First, the scope is five surfaces, not two:**
+
+| Surface | Lines | Loaded by |
+|---|---:|---|
+| `AGENTS.md` | 50 | Codex and the `AGENTS.md` convention |
+| `CLAUDE.md` | 50 | Claude Code, repo root |
+| `GEMINI.md` | 38 | Gemini |
+| `.claude/CLAUDE.md` | 53 | Claude Code, project scope — **different content**, orchestration routing |
+| `.github/copilot-instructions.md` | 18 | Copilot — **different content**, navigation only |
+
+The first three share headings (`Git Dispatch`, `Directness`, `Core Intent Execution`, `Scope`) and
+are manual copies of one another. The last two carry different content and are not part of the same
+copy set.
+
+**Second, the problem already exists and is unmanaged.** Measured:
+
+| Comparison | Drift found |
+|---|---|
+| `AGENTS.md` vs `CLAUDE.md` | Infrastructure banner diverged — different wording, different ordering, different description of the superseded files |
+| `AGENTS.md` vs `GEMINI.md` | **`GEMINI.md` is missing the entire `## Informatics & Knowledge Routing` section** |
+
+### `D10` — live defect, found while resolving `DEC-21`
+
+`[P1 | I86/E100/R10]` **Gemini agents receive no informatics routing.** The section that points an
+agent at `apex-meta/informatics/index.md` exists in `AGENTS.md` and `CLAUDE.md` and is absent from
+`GEMINI.md`. Nothing detected it. This is the same class as `D2` and `D9` — a hand-maintained copy
+that silently stopped agreeing — and it is live today, independent of this contract work.
+
+### Resolution
+
+Installing the contract into all five surfaces does **not** create the duplication problem. The
+problem is already there, across three files, with no mechanism. The contract is the occasion to
+add one.
+
+| Element | Decision |
+|---|---|
+| **Owner** | `AGENTS.md` — the cross-tool convention, and the file the other two already mirror |
+| **Carriers** | `CLAUDE.md` and `GEMINI.md` carry a byte-identical copy of the contract block |
+| **`.claude/CLAUDE.md` and `.github/copilot-instructions.md`** | Out of the copy set — different content, different job. They get a pointer, not the block |
+| **Mechanism** | A test asserting the contract block is byte-identical across the three carriers. Same pattern that closed `D9`: one owner, mechanical verification, no trust in discipline |
+
+### Why a test and not `@path` imports
+
+Imports would give one copy instead of three, which is structurally better. Rejected for three
+reasons, all checkable:
+
+1. **No instruction file in this repository uses an import today** — verified by grep. It would be a
+   new mechanism, not an existing one.
+2. **Not all five tools support it.** Claude Code does; Copilot and Gemini conventions do not
+   reliably. An import that silently no-ops on two surfaces is worse than a verified copy.
+3. **The suite's own P0 rule forbids it** — `index.md` and the router both state *"Zero eager @path
+   imports."* Using one for the contract would require a carve-out in a P0 invariant, and the rule's
+   intent (do not eagerly pull in knowledge modules) is sound even if an always-on contract is a
+   legitimate exception.
+
+**Remaining open:** `RP-03` should be asked whether cross-tool instruction files have a current
+standard mechanism for staying in sync that this analysis has missed. If one exists, revisit.
+
+---
+
 ## Part G — Test queue
 
 Everything below is **marked for testing before adoption**, at operator instruction. Status
