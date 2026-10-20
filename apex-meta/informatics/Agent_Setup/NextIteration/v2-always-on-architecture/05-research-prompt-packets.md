@@ -783,6 +783,120 @@ prompt_learning_hints:
 
 ---
 
+---
+
+## Packet 10 — Instruction layering across tools and repositories
+
+```yaml
+prompt_packet:
+  id: RP-10-surface-layering
+  prompt_task_type: architecture_fact_and_design_review
+  expected_output_type: factual_map_plus_layering_recommendation
+  provider_target: provider_unspecified
+  prompt_design_rationale: >
+    Deliberately one packet, not two. The factual question — which tool reads which file — determines
+    the design answer, so splitting them would produce a design recommendation built on unverified
+    facts. Facts first, design second, in the same pass.
+  usage_tracking_tags: [architecture, surfaces, layering, portability]
+  validation_status: valid
+```
+
+**Decides:** whether `DEC-21`'s three-copy resolution is necessary at all, and whether universal
+rules should be separated from repository-specific facts.
+
+**Why this is one packet:** the design recommendation is worthless if the tool-reading facts are
+wrong. A single pass gets both, in dependency order.
+
+### Copy-paste prompt
+
+> **Part 1 is factual and must be answered before Part 2.** Do not design on assumptions.
+>
+> ### Part 1 — which agent reads which file?
+>
+> A repository contains five agent instruction files:
+>
+> ```
+> AGENTS.md
+> CLAUDE.md
+> GEMINI.md
+> .claude/CLAUDE.md
+> .github/copilot-instructions.md
+> ```
+>
+> Establish, with sources, for each major coding agent in current use — Claude Code, Codex, Gemini
+> CLI, Copilot, Cursor, and any other in wide use:
+>
+> 1. **Which file or files does it actually read**, and in what precedence order when several exist?
+> 2. **Does it read only its own tool-specific file, or does it also honour `AGENTS.md`?** This is
+>    the decisive question. `AGENTS.md` has been promoted as a cross-tool standard — establish how
+>    many tools genuinely honour it today, as opposed to how many are claimed to.
+> 3. **Does every repository get an `AGENTS.md` by convention**, or is it opt-in per project?
+> 4. **Nested and scoped files** — do any tools read a file in a subdirectory for work touching that
+>    subdirectory, and does precedence cascade or replace?
+> 5. **Import or include syntax** — which tools support pulling content from another file, with what
+>    syntax, and which silently ignore it?
+>
+> Produce a matrix: tool × file × reads it (yes / no / with caveats) × source.
+>
+> ### Part 2 — how should universal and repository-specific rules be layered?
+>
+> The instruction content splits into two kinds:
+>
+> - **Universal** — how the agent should work in any repository. Target discipline, scope control,
+>   grounding, reuse, editing discipline, anti-sycophancy. Identical everywhere.
+> - **Repository-specific** — facts true only here. Filesystem constraints learned from an incident,
+>   current infrastructure topology, paths to this repo's knowledge files, this repo's git
+>   conventions.
+>
+> Currently both are mixed in one block of about twenty rules, which means the universal part cannot
+> be reused in another repository without editing it.
+>
+> **Recommend a layering.** Compare at least:
+> 1. **One file, two clearly marked sections.**
+> 2. **Two files** — a portable universal file plus a repo-specific file, one importing or
+>    referencing the other.
+> 3. **Universal content as an installable package** — a shared artifact several repositories pull
+>    from, versioned independently.
+> 4. **Universal content moved out of instruction files entirely** — into a skill, a tool
+>    description, or another surface loaded anyway.
+> 5. Anything in production practice not listed.
+>
+> For each: does it survive Part 1's facts? Portability, drift risk, maintenance cost, and whether
+> any tool's file-reading behaviour makes it unworkable.
+>
+> ### Part 3 — two direct questions
+>
+> - **Is maintaining byte-identical copies of a rule set across three tool-specific files the right
+>   answer in 2026, or has something superseded it?** If a generator, linter, import convention or
+>   shared-package pattern is standard practice, name it and say which tools honour it.
+> - **Where should portable universal instruction content live** so several repositories can share
+>   one copy? Name real mechanisms, not hypotheticals.
+>
+> **Output contract.** The Part 1 matrix with a source per cell. A ranked layering recommendation
+> with trade-offs. Direct answers to both Part 3 questions. A section titled "What this invalidates"
+> naming any assumption in the description above that your facts contradict.
+>
+> **Validation criteria.** Part 1 cells are sourced or marked unverified — never inferred from a
+> tool's name or from what a convention's website claims without checking adoption. Distinguish "the
+> tool documents that it reads this" from "a blog says it does." If tool behaviour has changed
+> recently, date it. If Part 1 shows the copy-set problem does not exist, say so plainly — that
+> result saves more work than any recommendation.
+>
+> **Stop when** Part 1 question 2 has a sourced answer for every listed tool.
+
+```yaml
+prompt_failure_hints:
+  - "Designing the layering before establishing the facts. Part 1 gates Part 2."
+  - "Treating the AGENTS.md convention's own claims about adoption as evidence of adoption."
+  - "Returning a tool list without precedence order when several files coexist."
+prompt_learning_hints:
+  - "If AGENTS.md is genuinely cross-tool, DEC-21's three-copy resolution is unnecessary and the byte-identity test should not be built."
+  - "If each tool reads only its own file, the copy set is mandatory and the test is the right answer."
+  - "A portable universal layer would make the sizing debate per-repo rather than absolute - worth noting even though it does not reduce what any one agent loads."
+```
+
+---
+
 ## Dispatch guidance
 
 | | |

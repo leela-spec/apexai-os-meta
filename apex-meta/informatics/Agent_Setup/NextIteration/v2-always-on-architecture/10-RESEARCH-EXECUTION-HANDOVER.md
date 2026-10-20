@@ -1,16 +1,16 @@
 ---
 type: ExecutionHandover
 id: V2-RESEARCH-EXECUTION-HANDOVER-v1.0
-title: Research Execution Handover — Nine Packets, Iterative
-description: Self-contained handover instructing a high-reasoning AI to execute nine research packets iteratively against the Apex Informatics always-on contract architecture, writing one result file per packet.
+title: Research Execution Handover — Ten Packets, Iterative
+description: Self-contained handover instructing a high-reasoning AI to execute ten research packets iteratively against the Apex Informatics always-on contract architecture, writing one result file per packet.
 status: current
 tags: [handover, research-execution, iterative, prompt-packets]
 ---
 
-# Research Execution Handover — Nine Research Packets
+# Research Execution Handover — Ten Research Packets
 
 **You are executing research, not implementing changes.** Nothing you produce modifies the contract
-block or any live file. You write nine result files and one synthesis. That is the whole job.
+block or any live file. You write ten result files and one synthesis. That is the whole job.
 
 ---
 
@@ -35,20 +35,33 @@ a **single always-loaded contract block** that would be embedded in the reposito
 instruction file, with conditional pointers to the detail files.
 
 The candidate block is **1,622 tokens** and carries ~20 rules. Several of its design decisions rest
-on assumptions nobody has verified. **Your nine packets are those assumptions.**
+on assumptions nobody has verified. **Your ten packets are those assumptions.**
 
-The three that could invalidate or reshape the architecture:
+The four that could invalidate or reshape the architecture:
 
 - **Does conditional gating work at all?** Every `when="…"` attribute assumes an agent honours the
   condition rather than reading everything anyway. (Packet `RP-01`)
+- **Which agent actually reads which instruction file?** The repository has five instruction
+  surfaces and three are hand-maintained copies that have already drifted. The plan is to maintain
+  byte-identical copies across them — which is unnecessary work if `AGENTS.md` is genuinely honoured
+  cross-tool. **This is unverified.** (Packet `RP-10`, Part 1)
 - **Is static hand-authored routing the right mechanism**, or has semantic retrieval superseded it?
   (Packet `RP-02`)
 - **Does the token count even matter the way the author assumes?** If prompt caching makes an
   always-loaded block effectively free after the first request, a large part of this effort
   optimized the wrong variable. (Packet `RP-09`, question 1)
 
-Treat all three as genuinely open. The architecture's author — a previous AI session — has a stake
+Treat all four as genuinely open. The architecture's author — a previous AI session — has a stake
 in them being true. You do not.
+
+### One structural question the author only recognized late
+
+The contract mixes two kinds of rule in one block: **universal** behaviour that should hold in any
+repository, and **facts specific to this repository** (a filesystem constraint from a local
+incident, current infrastructure topology, paths into this repo's knowledge files). Mixed together,
+the universal part cannot be reused elsewhere without editing it. `RP-10` Part 2 asks how these
+should be layered. The author's provisional position is weakly held and documented as such in
+`11-instruction-surface-architecture.md` §5.
 
 ### A known weakness in the author's own reasoning
 
@@ -67,14 +80,15 @@ Load these **in order, one stage at a time**. Do not bulk-read the repository.
 
 | Priority | File | What to take from it | Load when |
 |---|---|---|---|
-| **1** | `apex-meta/informatics/Agent_Setup/NextIteration/v2-always-on-architecture/05-research-prompt-packets.md` | **The nine prompts you will execute.** This is your primary input | Start |
+| **1** | `apex-meta/informatics/Agent_Setup/NextIteration/v2-always-on-architecture/05-research-prompt-packets.md` | **The ten prompts you will execute.** This is your primary input | Start |
 | **2** | `apex-meta/informatics/Agent_Setup/NextIteration/v2-always-on-architecture/09-contract-block-v0.5.md` | The current block, its measured token decomposition, and the open items | Start |
 | **3** | `apex-meta/informatics/Agent_Setup/NextIteration/v2-always-on-architecture/01-decision-register.md` | What is settled, what was superseded, falsification conditions. **Part B and Part F matter most** | Start |
 | 4 | `apex-meta/informatics/Agent_Setup/NextIteration/v2-always-on-architecture/08-discussion-and-open-threads.md` | Why each open question exists, in the operator's own words | Before `RP-04`–`RP-08` |
 | 5 | `apex-meta/informatics/Agent_Setup/NextIteration/v2-always-on-architecture/04-empirical-test-protocol.md` | The local experiment that will test the same assumptions empirically | Before `RP-01` only |
-| 6 | `apex-meta/informatics/Agent_Setup/NextIteration/v2-always-on-architecture/index.md` | Navigation if you need a file not listed here | As needed |
-| 7 | `apex-meta/informatics/writing-profile.md`, `file-architecture.md`, `execution-modes.md`, `anti-drift-rules.md`, `governance-schemas.md` | The live rules the contract compresses. **Only if a packet needs the original wording** | Rarely |
-| 8 | `apex-meta/informatics/Agent_Setup/NextIteration/DeepReasoning/` | The earlier, partly superseded pass. **Consult only if a packet explicitly needs its history** | Rarely |
+| 6 | `apex-meta/informatics/Agent_Setup/NextIteration/v2-always-on-architecture/11-instruction-surface-architecture.md` | The five-surface map, the measured drift between them, and the universal-vs-repo-specific layering question. **Marks explicitly which claims are verified and which are assumed** | Before `RP-10` |
+| 7 | `apex-meta/informatics/Agent_Setup/NextIteration/v2-always-on-architecture/index.md` | Navigation if you need a file not listed here | As needed |
+| 8 | `apex-meta/informatics/writing-profile.md`, `file-architecture.md`, `execution-modes.md`, `anti-drift-rules.md`, `governance-schemas.md` | The live rules the contract compresses. **Only if a packet needs the original wording** | Rarely |
+| 9 | `apex-meta/informatics/Agent_Setup/NextIteration/DeepReasoning/` | The earlier, partly superseded pass. **Consult only if a packet explicitly needs its history** | Rarely |
 
 **Ignore** everything else in the repository. `ki-basis/`, `apex-meta/orchestration/`,
 `source-knowledge/` and the rest are unrelated to this work.
@@ -83,7 +97,7 @@ Load these **in order, one stage at a time**. Do not bulk-read the repository.
 
 ## 4. Process — iterative, one packet at a time
 
-**You must work iteratively. Do not attempt all nine in one pass, and do not hold all nine in
+**You must work iteratively. Do not attempt all ten in one pass, and do not hold all ten in
 context simultaneously.** The loop per packet:
 
 1. **Load** the packet from file `05-…` — that packet only.
@@ -99,28 +113,33 @@ context simultaneously.** The loop per packet:
 results inform the rest:
 
 ```
-RP-01 → RP-02 → RP-09 → RP-03 → RP-08 → RP-06 → RP-05 → RP-07 → RP-04 → synthesis
+RP-01 → RP-10 → RP-02 → RP-09 → RP-03 → RP-08 → RP-06 → RP-05 → RP-07 → RP-04 → synthesis
 ```
 
 | # | Packet ID | Question | Why this position |
 |---|---|---|---|
 | 1 | `RP-01` | Does conditional instruction gating actually work? | Can invalidate every `when=` in the design |
-| 2 | `RP-02` | Could vector retrieval replace static dispatch? | Can replace the architecture outright |
-| 3 | **`RP-09`** | **Every remaining token-efficiency lever; is ~1,000 achievable?** | **Its caching question can make the whole optimization premise moot. Run before the narrower format packets** |
-| 4 | `RP-03` | What is this design's reasoning missing or stale about? | Reframes everything downstream |
-| 5 | `RP-08` | How does `deepen_when` actually work? | Narrow case of `RP-01`; worth 99 tokens |
-| 6 | `RP-06` | Full serialization comparison — XML vs bullets vs table vs other | Depends on `RP-01`, `RP-08` and `RP-09` |
-| 7 | `RP-05` | Stopping self-authored acceptance criteria | Independent |
-| 8 | `RP-07` | What reduces over-building | Independent |
-| 9 | `RP-04` | The communication register term | Smallest; last |
+| 2 | **`RP-10`** | **Which agent reads which instruction file, and how should universal rules be layered against repo-specific facts?** | **Part 1 is pure fact-finding and settles whether three byte-identical copies are needed at all. Everything downstream assumes an answer** |
+| 3 | `RP-02` | Could vector retrieval replace static dispatch? | Can replace the architecture outright |
+| 4 | **`RP-09`** | **Every remaining token-efficiency lever; is ~1,000 achievable?** | **Its caching question can make the whole optimization premise moot. Run before the narrower format packets** |
+| 5 | `RP-03` | What is this design's reasoning missing or stale about? | Reframes everything downstream |
+| 6 | `RP-08` | How does `deepen_when` actually work? | Narrow case of `RP-01`; worth 99 tokens |
+| 7 | `RP-06` | Full serialization comparison — XML vs bullets vs table vs other | Depends on `RP-01`, `RP-08` and `RP-09` |
+| 8 | `RP-05` | Stopping self-authored acceptance criteria | Independent |
+| 9 | `RP-07` | What reduces over-building | Independent |
+| 10 | `RP-04` | The communication register term | Smallest; last |
 
-**Two carry-forward rules:**
+**Three carry-forward rules:**
 
 - **If `RP-01` concludes gating does not work, do not stop.** Record it and carry it into `RP-06`
   and `RP-08`, both of which assume gating functions. That finding changes their answers.
 - **If `RP-09` concludes caching makes always-on token cost largely irrelevant, say so loudly and
   carry it into `RP-06`.** A format change that saves 12% of a cost that does not matter is not
   worth the comprehension risk.
+- **If `RP-10` Part 1 finds that `AGENTS.md` is genuinely honoured across tools, say so immediately
+  and prominently.** It would mean `DEC-21`'s three-copy resolution and its byte-identity test are
+  solving a problem that no longer exists — a result that cancels planned work rather than adding
+  any.
 
 ---
 
@@ -140,7 +159,8 @@ apex-meta/informatics/Agent_Setup/NextIteration/v2-always-on-architecture/
 ├── RESULTS-07-over-building.md
 ├── RESULTS-08-deepen-when-mechanics.md
 ├── RESULTS-09-efficiency-audit.md
-└── RESULTS-10-synthesis.md         ← written last
+├── RESULTS-10-surface-layering.md
+└── RESULTS-11-synthesis.md         ← written last
 ```
 
 ### Every result file must contain
@@ -179,7 +199,7 @@ In particular: do not edit `01-decision-register.md`, `09-contract-block-v0.5.md
 
 ### The synthesis file
 
-Written after all nine. It must state:
+Written after all ten. It must state:
 
 1. **Which recorded decisions survive and which are falsified**, by ID — `DEC-16`, `DEC-17`,
    `DEC-18`, `DEC-19`, `DEC-20`, `DEC-M1`…`DEC-M6`. The falsification conditions are pre-registered
@@ -209,7 +229,7 @@ These are the repository's own operating rules. Follow them.
   had a stake in its assumptions holding. Several prompts instruct you to argue against it. Do that
   genuinely.
 - **Do not implement.** No changes to the contract block, the live suite, or the decision register.
-- **Do not add machinery.** No scripts, no validators, no tooling. Nine result files and a
+- **Do not add machinery.** No scripts, no validators, no tooling. Ten result files and a
   synthesis.
 - **Do not expand scope.** If you find an unrelated problem, note it in the synthesis under "out of
   scope" and move on.
@@ -226,7 +246,7 @@ These are the repository's own operating rules. Follow them.
 
 ## 7. Definition of Done
 
-- [ ] Ten files exist in the work root: nine `RESULTS-NN-*.md` plus `RESULTS-10-synthesis.md`.
+- [ ] Eleven files exist in the work root: ten `RESULTS-NN-*.md` plus `RESULTS-11-synthesis.md`.
 - [ ] `RESULTS-00-progress.md` has one line per packet.
 - [ ] Every result file has a **Verdict** with an explicit confidence level.
 - [ ] Every quantitative claim carries a source link.
@@ -250,7 +270,7 @@ These are the repository's own operating rules. Follow them.
 
 ## 8. What success looks like
 
-The operator can read `RESULTS-10-synthesis.md` and know:
+The operator can read `RESULTS-11-synthesis.md` and know:
 
 - whether the conditional-gating architecture is sound, needs modification, or should be abandoned;
 - whether a fundamentally different mechanism supersedes it;

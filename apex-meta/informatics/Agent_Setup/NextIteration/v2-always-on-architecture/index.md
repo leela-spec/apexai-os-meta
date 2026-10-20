@@ -29,7 +29,8 @@ partly supersedes it. Nothing in `DeepReasoning/` has been edited or overwritten
 | [07-contract-block-v0.4.md](07-contract-block-v0.4.md) | The v0.4 block, 1,357 tokens, named tags and observable-action gates | **Superseded by 09.** Retained as the record |
 | [08-discussion-and-open-threads.md](08-discussion-and-open-threads.md) | Operator feedback on v0.4 item by item, draft reformulations, two new rules, and the regression I introduced | Open discussion |
 | [09-contract-block-v0.5.md](09-contract-block-v0.5.md) | **The current candidate block** — 1,622 tokens, operator decisions applied, three gates restored, measured token decomposition | **Current candidate** |
-| [10-RESEARCH-EXECUTION-HANDOVER.md](10-RESEARCH-EXECUTION-HANDOVER.md) | **Handover for another AI** to execute the eight research packets iteratively and write nine result files | **Ready to dispatch** |
+| [10-RESEARCH-EXECUTION-HANDOVER.md](10-RESEARCH-EXECUTION-HANDOVER.md) | **Handover for another AI** to execute the ten research packets iteratively and write eleven result files | **Ready to dispatch** |
+| [11-instruction-surface-architecture.md](11-instruction-surface-architecture.md) | The five instruction surfaces, the drift measured between them (`D10`), and the universal-vs-repo-specific layering question | **Open architecture** |
 
 ## Why this folder exists
 
