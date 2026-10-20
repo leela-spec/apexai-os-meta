@@ -707,21 +707,62 @@ considered. **This is the packet that covers everything the other eight do not.*
 >    reliably without being told? A rule that restates default behaviour is pure cost.
 > 7. **Anything else in production practice.**
 >
+> ### Search creatively — the list above is a floor, not a ceiling
+>
+> **There is no limit on where you look.** The seven items above are what one author happened to
+> think of. Go wider. Any field that has solved "maximum meaning per character under a hard budget"
+> is fair game, and most of them are not AI fields at all. Consider, and go beyond:
+>
+> - **Controlled natural languages** — Simplified Technical English, ASD-STE100, AECMA, and the
+>   aviation and defence documentation standards behind them.
+> - **Constrained-channel writing** — telegraphic style, telex and cablese, newspaper headline
+>   grammar, radio and aviation phraseology, military message formats.
+> - **Legal and regulatory drafting** — defined-term tables, incorporation by reference, numbered
+>   clause schemes that avoid restating conditions.
+> - **Information theory and compression** — what a shared vocabulary or dictionary buys, and
+>   whether any of it survives tokenization.
+> - **Code and config minification** — what transfers to natural language and what does not.
+> - **Instructional design and checklist discipline** — aviation and surgical checklists are
+>   extremely compressed instruction sets with measured compliance outcomes.
+> - **Tokenizer-level tactics** — word choices that happen to tokenize cheaply, punctuation and
+>   casing effects, whether common words cost less than synonyms.
+> - **Anything else at all.** If you find a technique in a field nobody would expect, that is the
+>   most valuable kind of finding here.
+>
+> ### But evidence gates adoption
+>
+> Creativity applies to **where you search**. It does not apply to what you claim. Classify every
+> technique you surface into exactly one tier, and label it in the output:
+>
+> | Tier | Meaning | Usable? |
+> |---|---|---|
+> | **Proven** | A real standard, a published measurement, or documented production use with results | Recommend |
+> | **Plausible** | Used somewhere real, but no measurement for this use case | Propose as a local test, never as a recommendation |
+> | **Speculative** | Your own idea, or an untested extrapolation | List separately, clearly marked, never mixed in with the above |
+>
+> **Do not invent a technique and present it as established.** An idea of your own is welcome in the
+> Speculative tier and worthless anywhere else. Equally, do not discard a genuinely proven technique
+> because it comes from an unglamorous field — a 1950s telex convention with a measured track record
+> outranks a 2026 blog post.
+>
 > **Then answer the central question directly: is ~1,000 tokens achievable for a twenty-rule
 > always-on instruction block without deleting rules — and if not, what is the realistic floor?**
 >
-> **Output contract.** A ranked table: lever, estimated saving, confidence, cost or risk, evidence.
-> A section titled "Not on the author's list" for anything genuinely new. A direct verdict on the
-> 1,000-token question with a realistic floor figure. A direct verdict on whether caching changes
-> the premise.
+> **Output contract.** A ranked table: lever, **tier** (Proven / Plausible / Speculative), estimated
+> saving, cost or risk, evidence link. A section titled "Not on the author's list" for anything
+> genuinely new, with its source field named. A separate clearly-marked Speculative section. A direct
+> verdict on the 1,000-token question with a realistic floor figure. A direct verdict on whether
+> caching changes the premise.
 >
 > **Validation criteria.** Estimate savings in tokens, not vaguely. Flag any lever that trades
-> tokens for correctness and say which way the trade goes. **Point 6 matters most and is the easiest
-> to skip** — identify specific rules in the categories listed that a current model likely follows
-> by default. If the honest answer is that 1,622 is close to the floor and the author should accept
-> it, say so plainly; that is a useful finding, not a failure.
+> tokens for correctness and say which way the trade goes. Every Proven-tier claim carries a source.
+> **Point 6 matters most and is the easiest to skip** — identify specific rules in the categories
+> listed that a current model likely follows by default. If the honest answer is that 1,622 is close
+> to the floor and the author should accept it, say so plainly; that is a useful finding, not a
+> failure.
 >
-> **Stop when** the 1,000-token question has a direct answer with a floor figure.
+> **Stop when** the 1,000-token question has a direct answer with a floor figure, and you have
+> searched at least three fields outside AI and prompt engineering.
 
 ```yaml
 prompt_failure_hints:

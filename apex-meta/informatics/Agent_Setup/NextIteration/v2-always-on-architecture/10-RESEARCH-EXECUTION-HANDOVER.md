@@ -213,6 +213,12 @@ These are the repository's own operating rules. Follow them.
   synthesis.
 - **Do not expand scope.** If you find an unrelated problem, note it in the synthesis under "out of
   scope" and move on.
+- **Search widely, claim narrowly.** There is no limit on where you look for answers — `RP-09` in
+  particular should range far outside AI and prompt engineering, into any field that has solved
+  dense instruction under a hard budget. But a technique only reaches a recommendation if it has a
+  real standard, a published measurement, or documented production use behind it. Your own ideas go
+  in a clearly-marked Speculative section and nowhere else. **Creativity governs where you search;
+  evidence governs what you recommend.**
 - **Stop and ask** only if a packet is genuinely unexecutable. Everything else: make a reasonable
   call, record it, continue.
 
@@ -232,6 +238,8 @@ These are the repository's own operating rules. Follow them.
 - [ ] The synthesis answers whether token count is the right variable at all.
 - [ ] `RESULTS-09` contains a "Not on the author's list" section with at least one genuinely new
       lever, or an explicit statement that the author's list is complete.
+- [ ] `RESULTS-09` draws on **at least three fields outside AI and prompt engineering**, and every
+      lever is labelled Proven / Plausible / Speculative with Speculative kept in its own section.
 - [ ] `RESULTS-09` names specific rules that a current model likely follows by default and therefore
       cost tokens for nothing — or states that none do.
 - [ ] No file outside the work root has been modified. Verify with `git status`.
