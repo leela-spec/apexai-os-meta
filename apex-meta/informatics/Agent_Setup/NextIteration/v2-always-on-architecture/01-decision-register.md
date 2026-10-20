@@ -77,6 +77,41 @@ pilot file at runtime
 ([08-TIER-A-XML-EMBEDDED-PILOT-v0.2.md](../../../../handoff/universal-ai-instruction-system/08-TIER-A-XML-EMBEDDED-PILOT-v0.2.md)).
 Replaced by `DEC-14`.
 
+### `DEC-C1` — "The named-tag design is the operator's own" → `CORRECTED`
+
+In [06-contract-block-revision-proposal.md](06-contract-block-revision-proposal.md) §1 I justified
+adopting one-named-tag-per-rule by calling it *"your own prior design"* and said I had *"regressed
+from it."*
+
+**I did not verify that.** Checked afterwards: `08-TIER-A-XML-EMBEDDED-PILOT-v0.2.md` is committed
+under the operator's git identity, but every commit touching it follows this repository's
+AI-assisted pattern (`docs(agent-contract): deepen C01 …`). It carries no authorship marker, and
+`standard.md` shows the repo does mark AI generation when the convention is applied
+(`generated: { by: gemini-3.7-flash }`). Absence of a marker is not evidence of human authorship.
+
+**Correct statement:** it is a prior candidate in this repository, most likely AI-drafted, carrying
+no more authority than my own draft. Appealing to it as operator design was an unverified appeal to
+authority, and it is exactly what `<ground>` forbids. The design choice has to stand on evidence —
+see `DEC-17`.
+
+### `DEC-C2` — "Named tags cost ~150 tokens more than bullets" → `CORRECTED`
+
+Also from the revision proposal. **Measured: the difference is 17 tokens**, 1.3% of the block.
+
+The estimate was wrong because bullets still need a label (`- Target: `) which costs nearly what a
+tag pair costs (`<target>` … `</target>`). Actual accounting of the v0.3 → v0.4 growth of +585:
+
+| Source of growth | Tokens | Share |
+|---|---:|---:|
+| Three rules that did not exist (`product_first`, `new_machinery`, `detour`) | 226 | 39% |
+| `trade_off` + `schemas` promoted from one-line pointers to full blocks | 187 | 32% |
+| `editing` expanded from one line to the full protocol + overcorrection | 123 | 21% |
+| `ground` expanded to carry checkable-ambiguity | 44 | 7% |
+| **Named tags** | **17** | **3%** |
+
+**The growth is new content, not formatting.** The proposal misattributed it, which would have sent
+review effort at the wrong target.
+
 ### Vocabulary correction
 
 "Level 1 / Level 2 / Level 3" was imported jargon that obscured rather than explained. The
@@ -217,6 +252,62 @@ What evidence would overturn each position. Recorded **before** the test runs.
 **The sharpest single risk:** `DEC-16` and `DEC-M2` both assume an agent honours a gate. Nobody has
 measured that in this repository. If that assumption fails, `DEC-12` survives (always-on content is
 loaded unconditionally, so it does not depend on gating) but `DEC-16` collapses entirely.
+
+---
+
+## Part G — Test queue
+
+Everything below is **marked for testing before adoption**, at operator instruction. Status
+`NEEDS_TEST` means: the reasoning is recorded, the artifact exists, and it must not be installed
+until evidence exists. Test vehicle is
+[04-empirical-test-protocol.md](04-empirical-test-protocol.md) unless stated otherwise.
+
+| ID | Item | What must be shown | Falsified if |
+|---|---|---|---|
+| **DEC-17** | **Named tags vs bullets** for the 10 unconditional rules | Whether per-rule tags improve rule application over a bulleted list inside one `<always>` tag | No measurable difference → **use bullets**, as the operator asked |
+| **DEC-18** | `<surgical>` always-on stub | Whether the 18-token stub is needed, i.e. whether whole-file rewrites occur when patch discipline is gated only | Gated-only shows no rewrites → **drop the stub** |
+| **DEC-19** | `<stop_repairing>` placement | Whether an agent inside a repair loop acts on an always-on stopping rule at all, and whether gating it would be worse | Ignored in both placements → the rule needs a different mechanism entirely, not a different location |
+| **DEC-20** | `<new_machinery>` + `<detour>` as the drift replacement | Whether observable-action gates actually fire before drift, where the self-diagnosis gate could not | Agents add scripts and propose detours without the gates firing → **the observable-action principle fails** and drift needs a non-instruction mechanism |
+
+### `DEC-17` — current evidence, pending the local test
+
+Literature is **mixed and does not support per-rule tags here**:
+
+- XML's measured benefit is in **separating heterogeneous content** — instructions from reference
+  data — because *"when a section has no defined end, the model has to guess where your reference
+  text stops and your instruction resumes"*
+  ([XML vs Markdown](https://www.ud.com.hk/en/blogs/insight/article/xml-tags-prompting-2026-07-15)).
+- For short homogeneous instruction content, measured results go the other way: one test found XML
+  **marginally worse** on accuracy (96.4% vs 97.6%) while adding **31% input token overhead**
+  ([XML Tags Don't Help Short Prompts](https://dev.to/manishramavat/xml-tags-dont-help-short-prompts-heres-when-they-actually-matter-2026-25gf)).
+- Published guidance: *"Use Markdown when the prompt is mostly instruction prose, because it costs
+  the fewest tokens"* ([Structured Prompting](https://www.ml4devs.com/what-is/structured-prompting/)).
+
+**Our `<always>` content is ten homogeneous one-line rules with no embedded reference text** — the
+case where the evidence says tags are not indicated. The gated blocks are the opposite case: they
+carry `when` / `ref` / `deepen_when` attributes, which Markdown cannot express at all.
+
+**Provisional position pending `DEC-17`:** bullets for the unconditional list, XML only where
+attributes are required. Since the token difference is 17 either way (`DEC-C2`), this is a
+**clarity decision, not a cost decision** — and the operator asked for bullets.
+
+### Operator-verified
+
+| Item | Status |
+|---|---|
+| `anti-drift-rules.md` now has **no inbound gate**; its strongest rules were promoted to the always-on tier and the file becomes a deep-review artifact rather than a runtime one | **VERIFIED by operator** — deliberate role change, accepted |
+
+### Standing correction on "the tokens are gated, so this is fine"
+
+Recorded here because it changes how the 1,306 figure should be read.
+
+**Gated blocks inside an always-on file are still loaded every session.** `when=` does not defer
+their cost — all 1,306 tokens are paid on every task, matching rule (`DEC-M1`). What the gate buys
+is (a) the agent not opening the referenced module file, worth 2,400–4,200 tokens, and (b) fewer
+instructions competing for compliance.
+
+So "it's gated, therefore fine" holds for the **downstream** files, not for the contract itself. If
+1,306 is acceptable, it must be acceptable as a flat per-session cost.
 
 ---
 

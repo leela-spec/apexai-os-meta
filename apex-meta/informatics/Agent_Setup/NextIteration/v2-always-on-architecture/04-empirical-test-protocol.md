@@ -172,6 +172,41 @@ should be simplified to reduced-form rules plus plain pointers.
 
 ---
 
+## 8b. Additional arms for the Part G test queue
+
+Added at operator instruction. These reuse the same task matrix and read-trace method, so they cost
+extra runs but no extra design.
+
+| Arm | Instruction surface | Decides |
+|---|---|---|
+| **E — Bulleted unconditional rules** | v0.4 contract, 10 unconditional rules as bullets inside one `<always>` tag instead of per-rule named tags | **`DEC-17`.** Token difference is 17 either way, so this is purely about whether tags improve rule application |
+| **F — No `<surgical>` stub** | v0.4 with the 18-token always-on stub removed; patch discipline reachable only via the `<editing>` gate | **`DEC-18`.** Does any whole-file rewrite occur? |
+| **G — `<stop_repairing>` gated** | Same rule moved behind `when="a fix to the same thing has already failed once"` | **`DEC-19`.** Does an agent inside a repair loop act on it in either placement? |
+| **H — Drift gates removed** | v0.4 with `<new_machinery>` and `<detour>` deleted | **`DEC-20`.** Do agents add scripts and propose detours more often without them? |
+
+### Metrics specific to these arms
+
+| Arm | Primary metric | Needs tasks |
+|---|---|---|
+| E | Rule-application rate per unconditional rule — did the agent obey `Scope`, `Ground`, `Current truth`? | Existing T1–T12 |
+| F | Count of whole-file rewrites | T7 plus two new edit-heavy tasks |
+| G | Did the agent stop after two failed fixes, or continue to a third? | **New task T13** — a task with a deliberately unfixable subsystem, so a third attempt is observable |
+| H | Count of unprompted scripts/tests/gates created, and detours proposed | **New task T14** — a task where building a helper script is tempting but unnecessary |
+
+**T13 and T14 are the only genuinely new fixtures required.** Both are adversarial by design: T13
+must be unfixable so persistence is measurable, and T14 must make machinery tempting so restraint is
+measurable. Neither should hint at the rule being tested.
+
+### `DEC-20` is the one that could invalidate the design
+
+`<new_machinery>` and `<detour>` replaced a gate that could not work (self-diagnosed drift) with
+gates keyed on observable actions. **If arm H shows no difference, the observable-action principle
+itself fails** — and drift would need a mechanism outside the instruction file entirely, since
+neither self-diagnosis nor pre-action gating would have worked.
+
+That is a bigger result than any single rule, and it is why arm H matters more than its size
+suggests.
+
 ## 9. Cost
 
 | | |
