@@ -155,9 +155,17 @@ rather than fat. The 47-token result from hard compression is the evidence — I
 wording does not have 300 tokens of slack in it.
 
 If a number near ~1,000 is required, the decision is **which rules to drop**, not how to phrase
-them. That is a substance decision and yours to make. The blueprint's option D — moving the
-215-token infrastructure banner into the file it already declares the source of truth — remains the
-cheapest real saving anywhere in the stack, and costs no rules at all.
+them. That is a substance decision and yours to make.
+
+### Two options closed by operator decision
+
+| Option | Verdict |
+|---|---|
+| **Blueprint option D** — move the 215-token infrastructure banner out of `AGENTS.md` | **Withdrawn.** The operator requires an agent to always know the current architecture state; it cannot be reduced to a pointer. The banner stays always-on |
+| **Drop unconditional tag names for bullets** | **Not worth reopening.** Measured at **~39 net tokens (2.4%)** — the nine gated blocks must keep their tags because they carry attributes, so only 13 unconditional blocks are in play, and bullet labels cost back most of the saving. `DEC-17` stands; the confirmation test remains queued |
+
+With option D withdrawn, the blueprint total is **~2,057** (435 kept + 1,622 block). The remaining
+levers are `deepen_when` (−99, pending `RP-08`) and dropping rules.
 
 ---
 

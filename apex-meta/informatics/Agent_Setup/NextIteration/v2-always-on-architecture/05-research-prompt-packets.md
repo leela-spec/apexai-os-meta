@@ -377,20 +377,248 @@ prompt_learning_hints:
 
 ---
 
-## Packets 5–7 — Queued, not yet written
+## Packet 5 — Stopping self-authored acceptance criteria
 
-Recorded in [08-discussion-and-open-threads.md](08-discussion-and-open-threads.md) §10. To be
-drafted to the same contract when the first four return.
+```yaml
+prompt_packet:
+  id: RP-05-self-authored-criteria
+  prompt_task_type: instruction_design_evidence_review
+  expected_output_type: phrasing_recommendation_with_evidence
+  provider_target: provider_unspecified
+  prompt_design_rationale: >
+    Asks which of three directive forms measurably works, rather than which sounds best, because
+    the failure mode is specific and observable.
+  usage_tracking_tags: [wording, target, acceptance-criteria]
+  validation_status: valid
+```
 
-| ID | Question | Decides |
-|---|---|---|
-| `RQ-1` | How should an instruction stop an agent substituting self-authored acceptance criteria for the operator's stated requirements — prohibition, positive validation duty, or ordering rule? | `<target>` wording, currently provisional |
-| `RQ-2` | Is there an XML form cheaper than paired tags that keeps unambiguous block boundaries? Measured parsing difference between paired tags, attribute form, and bullets at this scale | `DEC-17` final form |
-| `RQ-3` | What actually reduces over-building in agents — a pre-action check, a budget, a post-hoc review, or something else? | `<new_machinery>`, and `DEC-20` |
+**Decides:** the `<target>` wording, currently provisional.
 
-`RQ-2` has a sharper framing now that the decomposition is measured: tag names cost 111 tokens (7%)
-while **attributes cost 319 (20%)**. The expensive part is `when` / `ref` / `deepen_when`, not the
-names — so `RQ-2` should ask about compact *condition* syntax, not compact tag syntax.
+### Copy-paste prompt
+
+> An AI coding agent is given a task with stated requirements. A recurring failure: the agent writes
+> its own test, schema or checklist, that artifact passes, and the agent reports success — but the
+> self-authored artifact was weak and never actually checked the stated requirement. The agent's own
+> criteria silently replaced the operator's.
+>
+> **Find what measurably prevents this.** Compare at least these directive forms:
+> 1. **Prohibition** — "never invent your own acceptance criteria."
+> 2. **Positive validation duty** — "before reporting completion, check the result against each
+>    stated requirement."
+> 3. **Ordering rule** — "operator-stated criteria outrank anything you infer or author."
+> 4. **Conflict rule** — "where your artifact and the stated requirement disagree, the requirement
+>    wins."
+> 5. Any form used in practice that is not on this list.
+>
+> Investigate: evidence on reward hacking and specification gaming in agents; whether models comply
+> better with prohibitions or with positive duties; whether an explicit completion checklist against
+> stated requirements measurably reduces false completion claims; and any published agent
+> instruction set that solves this, quoted verbatim.
+>
+> **Output contract.** A recommendation naming which form or combination to use, with evidence. A
+> comparison table: form, mechanism, evidence, failure mode. One directive usable verbatim, under 50
+> words. An explicit note on whether combining forms helps or whether it just adds instruction count.
+>
+> **Validation criteria.** Distinguish measured results from advice. If the evidence is thin, say so
+> rather than ranking on plausibility. Flag any form that could cause the opposite failure — an
+> agent that refuses to write any test at all.
+>
+> **Stop when** you can name a form with evidence behind it, or state that none has been measured.
+
+```yaml
+prompt_failure_hints:
+  - "Recommending all four forms. Instruction count has a cost; pick."
+  - "Conflating this with general hallucination research - the failure is criteria substitution."
+prompt_learning_hints:
+  - "If positive duties beat prohibitions, several other rules in the contract should be reworded the same way."
+```
+
+---
+
+## Packet 6 — Compact condition syntax
+
+```yaml
+prompt_packet:
+  id: RP-06-condition-syntax
+  prompt_task_type: format_efficiency_evaluation
+  expected_output_type: syntax_recommendation_with_measurements
+  provider_target: provider_unspecified
+  prompt_design_rationale: >
+    Reframed after measurement. The expensive part is the condition and pointer machinery, not the
+    tag names, so the prompt asks about conditions specifically.
+  usage_tracking_tags: [format, conditions, token-efficiency]
+  validation_status: valid
+```
+
+**Decides:** `DEC-17` final form. **Reframed:** measurement showed tag names cost 111 tokens (7%)
+while attributes cost **319 (20%)**. The question is about conditions, not names.
+
+### Copy-paste prompt
+
+> An always-loaded instruction file for an AI coding agent contains ~20 rules. Nine carry a
+> machine-readable condition plus a file pointer, in this shape:
+>
+> ```
+> <editing when="changing, moving or deleting a file that already exists"
+>          ref="informatics/execution-modes.md"
+>          deepen_when="the edit spans multiple blocks or goes to a deterministic executor">
+> rule body
+> </editing>
+> ```
+>
+> Measured: rule bodies are 73% of the block, **attributes 20%**, tag names 7%.
+>
+> **Find the most compact syntax that keeps the agent correctly deciding when a rule applies and
+> when to open the pointer.** Compare: XML attributes as above; a compact inline prefix
+> (`IF <condition> → <file>`); a markdown table of condition/file/rule; attribute abbreviation
+> (`w=` / `r=`); and dropping the secondary depth condition entirely.
+>
+> For each: token cost, whether models reliably parse it, and whether any is known to degrade
+> condition-matching accuracy. Then answer directly: **is a separate "go deeper" condition worth its
+> tokens, or does a file pointer alone carry enough signal?**
+>
+> **Output contract.** A ranked recommendation with token estimates per form. A table: form, tokens,
+> parse reliability, evidence. A direct verdict on the secondary depth condition. One rewritten
+> example of the block above in the recommended syntax.
+>
+> **Validation criteria.** Do not recommend a format on aesthetics; cite measurement or say it is
+> unmeasured. Flag any form that saves tokens by making the condition ambiguous — that defeats the
+> purpose. Treat "no published measurement exists" as a valid finding.
+>
+> **Stop when** the depth-condition question has a clear answer.
+
+```yaml
+prompt_failure_hints:
+  - "Returning generic XML-vs-markdown advice. The question is condition syntax at ~20 rules."
+  - "Ignoring the direct question about the secondary depth condition."
+prompt_learning_hints:
+  - "A verdict against the depth condition saves ~99 tokens immediately."
+```
+
+---
+
+## Packet 7 — What actually reduces over-building
+
+```yaml
+prompt_packet:
+  id: RP-07-over-building
+  prompt_task_type: intervention_effectiveness_review
+  expected_output_type: intervention_recommendation
+  provider_target: provider_unspecified
+  prompt_design_rationale: >
+    Asks which intervention point works, since the current design bets on a pre-action check and
+    that bet is untested.
+  usage_tracking_tags: [over-building, ceremony, intervention]
+  validation_status: valid
+```
+
+**Decides:** `<new_machinery>`, and feeds `DEC-20`.
+
+### Copy-paste prompt
+
+> AI coding agents reliably over-build: they add scripts, tests, gates, schemas, wrappers and
+> abstractions that were not asked for and do not advance the product. A documented case had an
+> autonomous run spend almost its entire budget on process and verification work, then stop without
+> delivering.
+>
+> **Find what measurably reduces this.** Compare intervention points:
+> 1. **Pre-action check** — before adding machinery, confirm ordinary use does not already surface
+>    the problem. *(the current design's bet)*
+> 2. **Budget** — a cap on files, steps or tool calls.
+> 3. **Post-hoc review** — a separate pass that flags unnecessary additions.
+> 4. **Output contract** — specifying the deliverable so tightly that extras are visibly out of scope.
+> 5. **Explicit permission gate** — agent must ask before adding machinery.
+> 6. Anything in practice not listed.
+>
+> Also answer: is over-building better treated as a **scope** failure, a **reward/completion-signal**
+> failure, or a **planning** failure? The framing determines where the fix belongs.
+>
+> **Output contract.** A ranked recommendation with evidence. A table: intervention, mechanism,
+> evidence, failure mode, cost. A verdict on whether a pre-action check is the right point of
+> intervention. One directive usable verbatim, under 40 words.
+>
+> **Validation criteria.** Distinguish measured interventions from proposed ones. Note any
+> intervention that causes the opposite failure — an agent too timid to build what is genuinely
+> needed. If the honest answer is that no instruction reliably fixes this and it needs a runtime
+> mechanism, say so.
+>
+> **Stop when** the pre-action-check question has a verdict.
+
+```yaml
+prompt_failure_hints:
+  - "Generic 'be concise' advice. The question is which intervention point measurably works."
+prompt_learning_hints:
+  - "If over-building is a completion-signal failure, the fix belongs with the target rule, not a separate gate."
+  - "A finding that no instruction fixes it would be the strongest possible argument for a runtime mechanism."
+```
+
+---
+
+## Packet 8 — How conditional depth signals actually work
+
+```yaml
+prompt_packet:
+  id: RP-08-deepen-when-mechanics
+  prompt_task_type: mechanism_explanation
+  expected_output_type: mechanism_explanation_with_verdict
+  provider_target: provider_unspecified
+  prompt_design_rationale: >
+    The operator asked directly how this works. Written as an explanation request first and an
+    evaluation second, so the answer is usable without prior knowledge.
+  usage_tracking_tags: [deepen-when, progressive-disclosure, mechanism]
+  validation_status: valid
+```
+
+**Decides:** whether to keep `deepen_when`, worth **99 tokens** across six rules.
+
+### Copy-paste prompt
+
+> **Explain, then evaluate.** Assume no prior knowledge.
+>
+> An always-loaded instruction file for an AI coding agent carries rules in this shape:
+>
+> ```
+> <authoring when="creating or editing a governed knowledge file"
+>            ref="informatics/index.md"
+>            deepen_when="you need the frontmatter contract, tier definitions or bundle layout">
+> a short summary of the rules
+> </authoring>
+> ```
+>
+> Three signals: `when` says the rule applies; `ref` names a fuller file; `deepen_when` says the
+> inline summary is insufficient and the file should be opened.
+>
+> **Part 1 — explain the mechanism in plain language.** There is no parser. The model reads these as
+> text. So what actually happens when a model encounters `deepen_when`? Does it meaningfully change
+> whether the model opens the file, or is it inert decoration? Explain how a model decides to use a
+> tool to read a referenced file at all, and what in the surrounding text influences that.
+>
+> **Part 2 — evaluate.** Does a separate depth condition earn its tokens, given the file pointer is
+> already present? Compare: all three signals; `when` + `ref` only; `when` + a single sentence inside
+> the rule body saying when to read further; and `ref` alone.
+>
+> **Part 3 — failure modes.** What goes wrong? Opening the file every time regardless; never opening
+> it; opening it for the wrong reason. Any measured rates.
+>
+> **Output contract.** A plain-language mechanism explanation a non-specialist can follow. A
+> comparison table: variant, tokens, expected behaviour, evidence. A direct verdict: keep or drop,
+> and why. If keeping, the most compact phrasing that preserves the effect.
+>
+> **Validation criteria.** Part 1 must be understandable without prompt-engineering background. Do
+> not assume the attribute does something merely because it is named as if it does. Separate what is
+> measured from what is plausible. If the honest answer is "no evidence either way, and it is
+> probably weak," say that.
+>
+> **Stop when** Parts 1 and 2 are both answered.
+
+```yaml
+prompt_failure_hints:
+  - "Jargon-heavy Part 1. The operator asked how it works because they do not know - explain plainly."
+  - "Assuming the attribute works because of its name. It is text, not a parsed directive."
+prompt_learning_hints:
+  - "A verdict of 'inert' drops 99 tokens and applies to every attribute whose effect is assumed rather than measured."
+  - "This generalises: any attribute in the contract may be decorative. deepen_when is the test case."
+```
 
 ---
 
