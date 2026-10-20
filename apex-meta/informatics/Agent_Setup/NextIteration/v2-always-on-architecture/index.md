@@ -27,6 +27,7 @@ partly supersedes it. Nothing in `DeepReasoning/` has been edited or overwritten
 | [05-research-prompt-packets.md](05-research-prompt-packets.md) | Provider-unspecified prompt packets for the three open research questions | Prompts, not executed |
 | [06-contract-block-revision-proposal.md](06-contract-block-revision-proposal.md) | Answers to the operator's ten questions on v0.3, and the reasoning behind every v0.4 change | Record |
 | [07-contract-block-v0.4.md](07-contract-block-v0.4.md) | **The current candidate block** — 1,357 tokens, one named tag per rule, observable-action gates | **Current candidate** |
+| [08-discussion-and-open-threads.md](08-discussion-and-open-threads.md) | Operator feedback on v0.4 item by item, draft reformulations, two new rules, and the regression I introduced | **Open discussion** |
 
 ## Why this folder exists
 
