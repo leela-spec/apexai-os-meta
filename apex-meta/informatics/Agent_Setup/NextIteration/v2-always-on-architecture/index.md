@@ -18,8 +18,12 @@ partly supersedes it. Nothing in `DeepReasoning/` has been edited or overwritten
 
 ## Contents
 
+**Start at [12-status-index.md](12-status-index.md)** — a single coverage view of every finding,
+decision, open question and defect, with its status and owning document.
+
 | File | What it is | Status |
 |---|---|---|
+| [12-status-index.md](12-status-index.md) | **Coverage index.** Everything tracked, with status. Two items need operator action and block on nothing | **Read first** |
 | [01-decision-register.md](01-decision-register.md) | Every settled decision, every superseded position, the open calls, and the falsification conditions | Record |
 | [02-informatics-contract-block.md](02-informatics-contract-block.md) | The v0.3 block, 721 tokens, with per-rule provenance | **Superseded by 07.** Kept as the earlier record |
 | [03-BLUEPRINT-agents.md](03-BLUEPRINT-agents.md) | A **copy** of the real `AGENTS.md` with the block integrated, plus the merge map and trim options | Blueprint, non-active. Updated to v0.4 |

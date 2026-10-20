@@ -96,7 +96,7 @@ requirement. Where your artifact and the operator's requirement disagree, the re
 environment inference; names self-authored criteria as the specific danger rather than evidence in
 general; adds a conflict-resolution rule. Four sentences, ~85 tokens (was 60).
 
-**Still needs research** — `RQ-1` below. I do not know whether "never invent your own acceptance
+**Still needs research** — `RP-05` below. I do not know whether "never invent your own acceptance
 criteria" is the most effective phrasing, or whether a positive construction ("validate against
 the stated requirement before reporting completion") outperforms a prohibition.
 
@@ -267,7 +267,7 @@ also shortens by ~30 tokens.
 
 > *"The new machinery looks kind of good, but I want more research on that too."*
 
-No change proposed pending `RQ-3`. It is already in the test queue as `DEC-20`, which tests whether
+No change proposed pending `RP-07`. It is already in the test queue as `DEC-20`, which tests whether
 observable-action gates fire at all. The additional research question is narrower: whether a
 *pre-action* check is the right intervention for over-building, or whether something else works
 better.
@@ -289,7 +289,7 @@ Fair — `<target>…</target>` writes the name twice. Candidate forms, unmeasur
 | Bullets | `- Target: …` | 17 tokens cheaper total; you found it less clear |
 
 `DEC-17` is already recorded as decided on clarity grounds with the cost measured at 1.3%. The open
-part is whether a cheaper form keeps the clarity. Added as `RQ-2`.
+part is whether a cheaper form keeps the clarity. Added as `RP-06`.
 
 ---
 
@@ -300,9 +300,9 @@ Three new questions, to be written as prompt packets alongside the existing thre
 
 | ID | Question | Decides |
 |---|---|---|
-| **RQ-1** | How should an instruction prevent an agent substituting self-authored acceptance criteria for the operator's stated requirements? Is a prohibition, a positive validation duty, or an ordering rule most effective? | `<target>` wording |
-| **RQ-2** | Is there an XML form cheaper than paired tags that keeps unambiguous block boundaries? What is the measured parsing difference between paired tags, attribute form, and bullets at this scale? | `DEC-17` final form |
-| **RQ-3** | What actually reduces over-building in agents — a pre-action check, a budget, a post-hoc review, or something else? Is `<new_machinery>`'s "confirm ordinary use doesn't already surface it" the right intervention? | `<new_machinery>` |
+| **RP-05** | How should an instruction prevent an agent substituting self-authored acceptance criteria for the operator's stated requirements? Is a prohibition, a positive validation duty, or an ordering rule most effective? | `<target>` wording |
+| **RP-06** | Is there an XML form cheaper than paired tags that keeps unambiguous block boundaries? What is the measured parsing difference between paired tags, attribute form, and bullets at this scale? | `DEC-17` final form |
+| **RP-07** | What actually reduces over-building in agents — a pre-action check, a budget, a post-hoc review, or something else? Is `<new_machinery>`'s "confirm ordinary use doesn't already surface it" the right intervention? | `<new_machinery>` |
 
 ---
 
@@ -311,7 +311,7 @@ Three new questions, to be written as prompt packets alongside the existing thre
 | # | Change | Token delta | Status |
 |---|---|---:|---|
 | 0 | **Restore `<handover>`, `<iterative>`, `<sync>` gates** | +180 | **Regression fix — should happen regardless** |
-| 1 | `<target>` rewritten around self-authored criteria | +25 | Pending `RQ-1` |
+| 1 | `<target>` rewritten around self-authored criteria | +25 | Pending `RP-05` |
 | 1b | Delete the green-check line (now owned by `<product_first>`) | −15 | Ready |
 | 3 | `<ground>` gains external-source verification | +26 | Ready |
 | 4 | `<reuse>` names asset classes and modularity | +32 | Ready |

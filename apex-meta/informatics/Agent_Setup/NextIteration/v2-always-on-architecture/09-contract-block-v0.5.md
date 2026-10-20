@@ -28,7 +28,7 @@ lexical — see §4.
 | Git behaviour stated once | ✅ `<sync>` carries it; the blueprint's `Git Dispatch` section keeps only the repo-specific ext4/`/mnt/c` fact |
 | Sources "roughly three", no numerical minimum | ✅ `<ground>` says *"roughly three"* |
 | Growth accepted, compress formulations | ✅ Full compression pass; measured floor in §4 |
-| Tonality term unknown → research it | ⏳ `<communication>` carries a descriptive placeholder; `RQ-4` added |
+| Tonality term unknown → research it | ⏳ `<communication>` carries a descriptive placeholder; `RP-04` added |
 
 ---
 
@@ -173,14 +173,14 @@ levers are `deepen_when` (−99, pending `RP-08`) and dropping rules.
 
 | Item | Status |
 |---|---|
-| Tonality term | `RQ-4` — `<communication>` carries a descriptive placeholder until the research returns |
+| Tonality term | `RP-04` — `<communication>` carries a descriptive placeholder until the research returns |
 | `deepen_when` — keep or drop | **Needs your call.** 99 tokens for a signal that may be redundant with `ref` |
 | `DEC-17` named tags | Decided (clarity); confirmation test queued |
 | `DEC-18` `<surgical>` stub | `NEEDS_TEST` |
 | `DEC-19` `<stop_repairing>` placement | `NEEDS_TEST` |
-| `DEC-20` `<new_machinery>` + `<detour>` | `NEEDS_TEST` — and `RQ-3` |
-| `RQ-1` anti-self-authored-criteria phrasing | Queued; `<target>` wording is provisional |
-| `RQ-2` cheaper XML form | Queued |
+| `DEC-20` `<new_machinery>` + `<detour>` | `NEEDS_TEST` — and `RP-07` |
+| `RP-05` anti-self-authored-criteria phrasing | Queued; `<target>` wording is provisional |
+| `RP-06` cheaper XML form | Queued |
 
 **Still blocking installation:** does the contract go in `AGENTS.md`, `.claude/CLAUDE.md`, or both?
 Both would rebuild the two-copies problem this effort removed.
