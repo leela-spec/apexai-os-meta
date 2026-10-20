@@ -21,6 +21,11 @@ tags: [blueprint, agents-md, merge-map, non-active]
 >   operational state that would rot in a copy, and reproducing it here would create exactly the
 >   stale-duplicate problem this whole effort exists to remove. In a real merge it stays at the top,
 >   untouched.
+>
+> **Updated to contract v0.4.** This blueprint previously embedded v0.3. It was revised in place
+> rather than copied, because a blueprint showing a superseded block is stale guidance — the exact
+> failure `<current_truth>` forbids. The v0.3 block is preserved in
+> [02-informatics-contract-block.md](02-informatics-contract-block.md) and in git history.
 
 ---
 
@@ -33,7 +38,7 @@ The real `AGENTS.md` is 51 lines / ~998 tokens across six sections. Measured dis
 | Infrastructure banner | 190 | none | **Keep verbatim.** Live operational state, unrelated to this contract |
 | **Git Dispatch** (7 rules) | 185 | none | **Keep verbatim.** Repo-specific operational knowledge — the exact `git` sequence, the ext4/`/mnt/c` constraint. Nothing in the contract covers it, and nothing should |
 | **Directness** (5 rules) | 115 | `Scope`, `Target` | **Replace.** All five rules restate "take the shortest correct path, don't invent workflow, ignore unrelated dirty files" — covered by `Scope` and `Target`, plus Git Dispatch's own `Ignore` rule |
-| **Core Intent Execution** (10 rules) | 240 | `Target`, `Scope`, `Current-truth`, `Substance` | **Partially replace.** 7 of 10 are covered. 3 are not: `Workaround` (resolve incidental failures with the narrowest safe alternative), `Decide` (resolve low-stakes choices with a default rather than gating delivery), `Classify` (stop only for a genuine blocker). Those three are **promoted into `<always>`** |
+| **Core Intent Execution** (10 rules) | 240 | `target`, `scope`, `current_truth` | **Replace.** 8 of 10 are covered. `Workaround` and `Classify` are not, and are carried by the new `<recovery>` tag inside the block. `Decide` is covered by `<trade_off>` |
 | **Informatics & Knowledge Routing** (2 rules) | 85 | entire `<dispatch>` + `<writing>` + `<files>` | **Replace.** This is the two-line prose pointer that the contract exists to supersede |
 | **Scope** (3 rules) | 70 | `Scope` | **Replace.** Direct restatement |
 | Final rule — "never describe a proposed block as applied" | 35 | partial (`Ground`) | **Keep.** It is a completion-reporting rule, sharper than `Ground`, and has clearly been earned |
@@ -43,17 +48,17 @@ The real `AGENTS.md` is 51 lines / ~998 tokens across six sections. Measured dis
 | | Tokens |
 |---|---:|
 | Real `AGENTS.md` today | 998 |
-| Sections kept verbatim (banner, Git Dispatch, final rule) | 410 |
-| Sections replaced (Directness, Core Intent, Informatics Routing, Scope) | −510 |
-| Contract block added | +721 |
-| Three promoted rules from Core Intent Execution | +45 |
-| **Blueprint total** | **~1,176** |
+| Sections kept verbatim (banner 215, Git Dispatch 185, final rule 34) | 435 |
+| Sections replaced (Directness, Core Intent, Informatics Routing, Scope) | −563 |
+| Contract block v0.4 added | +1,357 |
+| **Blueprint total** | **~1,792** |
 
-**+178 tokens over today, for:** conditional routing that does not exist today, writing and file
-rules in reduced form that are not present today at all, and the elimination of four sections that
-restate each other.
+**+794 tokens over today, for:** conditional routing that does not exist today, writing and file
+rules in reduced form that are not present at all today, an anti-machinery guard, an
+operator-challenge gate, and the elimination of four sections that restate each other.
 
-Against your ~1,000-token target this is **176 over**. Options in §4.
+Against the ~1,000-token orientation this is **792 over** — a real cost that needs a deliberate
+decision, not a shrug. Options in §4.
 
 ---
 
@@ -71,41 +76,19 @@ instructions to you.
 > [infrastructure banner kept verbatim from the real file — omitted in this blueprint copy
 >  because it is live state that must not be duplicated]
 
-<apex_contract v="0.3">
+<!--
+  CONTRACT BLOCK v0.4 IS INSERTED HERE VERBATIM.
 
-<always>
-Target: realize the substantive outcome asked for. Files, tests and schemas are evidence of success, never substitutes for it.
-Scope: do only the authorized task. No adjacent cleanup, redesign or speculative work.
-Surgical: never rewrite a whole existing file. Edit by exact-match replacement. Move files with git mv/cp, never by regenerating content.
-Context: load just-in-time. Never bulk-read directories or long manuals upfront. Materialize each iteration's output to a file.
-Substance: technical correctness overrides every numeric target below. Exceed any ceiling when adherence would omit load-bearing context or break accuracy.
-Ground: verify claims against the originating artifact (path:line) or tool output, never memory or a secondary summary. Absence and count claims carry their command.
-Reuse: prefer an existing proven solution in its established form. Invent only when evidence shows nothing suitable fits.
-Two-strike: if two fixes to one subsystem fail to advance the product, stop and change approach.
-Current-truth: state active truth only. History goes to a changelog, never inline.
-Parsimony: ~30-50 directives max per instruction file. Split a domain out before a file becomes a rule-wall.
-Workaround: resolve incidental failures with the narrowest safe, intent-preserving alternative and continue.
-Decide: resolve low-stakes procedural choices with a reasonable default instead of gating delivery.
-Classify: stop only for a genuine target, safety, authorization, or integrity blocker.
-</always>
+  It is NOT reproduced in this blueprint on purpose. The block is owned by
+  07-contract-block-v0.4.md; copying its 1,357 tokens into a second document would
+  re-create exactly the drift channel this whole effort removed (see D9, and WP-23
+  single-owner instruction reuse). A real merge pastes the block from its owner file.
 
-<writing when="producing_prose_docs_or_rules" ref="apex-meta/informatics/writing-profile.md" deepen_when="ranking_tags_or_information_mapping">
-Active voice, explicit actor. One imperative command per sentence. No modal hedging. Conclusion first, then rationale. ~20-word procedural, ~25-word descriptive sentences. Tables for multi-attribute comparison, bullets for inventories, numbered lists only for sequences. Durable IDs (WP-01) carry no priority tier. Tag governed rules [P0-P3 | I/E/R] on 1-100, never aggregated. Link files you list so the reader can open them.
-</writing>
-
-<files when="creating_or_restructuring_governed_files" ref="apex-meta/informatics/file-architecture.md" deepen_when="five_planes_or_bundle_layout">
-Flat YAML frontmatter only, every line has a colon, inline [brackets] for lists, never multiline dashes. Concept files declare type, id, title, description, status. Bundle roots declare okf_version "0.2". One responsibility per file. Front-load P0 rules in the first ~500 tokens; close on the failure-mode guard.
-</files>
-
-<dispatch>
-IF resolving a trade-off, comparing candidates, patching a file, writing a handover, or running multi-step iterative work THEN ref="apex-meta/informatics/execution-modes.md"
-IF work is drifting into ceremony, orchestration or test infrastructure instead of the product THEN ref="apex-meta/informatics/anti-drift-rules.md"
-IF validating schemas, patch intents, or bundle conformance THEN ref="apex-meta/informatics/governance-schemas.md"
-Paths are just-in-time pointers. Do not expand them into context unless the condition matches.
-</dispatch>
-
-</apex_contract>
-
+  Structure, for orientation:
+    unconditional : target, product_first, scope, communication, ground, reuse,
+                    context, recovery, stop_repairing, current_truth, surgical, pointers
+    gated         : editing, new_machinery, detour, authoring, trade_off, schemas
+-->
 ## Git Dispatch
 - Trigger: A request to push known files starts with the Git commands, not repository analysis.
 - Sequence: Run `git add -- <requested paths>`, `git commit`, and `git push`.
@@ -132,10 +115,10 @@ Paths are just-in-time pointers. Do not expand them into context unless the cond
 
 | Added | Source |
 |---|---|
-| `<always>` 10 lines | Rule-of-Three extraction from the five modules |
-| `<always>` 3 further lines — `Workaround`, `Decide`, `Classify` | **Promoted** from Core Intent Execution; genuinely not covered elsewhere |
-| `<writing>`, `<files>` | Reduced-form rules, new capability — the real file has none today |
-| `<dispatch>` | Conditional routing, new capability — the real file has none today |
+| 11 unconditional rule tags | Rule-of-Three extraction from the five modules |
+| `<recovery>` | **Promoted** from Core Intent Execution (`Workaround` + `Classify`), covered nowhere else |
+| `<authoring>` | Reduced-form file and prose rules — the real file has none today |
+| `<editing>`, `<new_machinery>`, `<detour>`, `<trade_off>`, `<schemas>` | Conditional gates on observable actions — the real file has no routing at all today |
 
 | Kept | Because |
 |---|---|
@@ -144,27 +127,35 @@ Paths are just-in-time pointers. Do not expand them into context unless the cond
 | Final completion rule | Sharper than `Ground`, clearly earned, cheap at 35 tokens |
 
 **The one rule I would flag as a judgment call:** Git Dispatch's `Retry` and `Escalate` rules
-arguably overlap `<always>` `Workaround`. I kept them because the git sequence is a concrete
-procedure, not a principle, and because this section reads as hard-won incident knowledge. Your
-call.
+arguably overlap `<recovery>`. I kept them because the git sequence is a concrete procedure, not a
+principle, and because this section reads as hard-won incident knowledge. Your call.
 
 ---
 
 ## 4. Getting to ~1,000 tokens
 
-The blueprint lands at ~1,176. Three ways down, measured:
+The blueprint lands at **~1,792** — 792 over the orientation. That is a much bigger gap than the
+v0.3 blueprint's 176, and it needs a real decision rather than an appeal to `<substance>`.
 
 | Option | Saves | Cost |
 |---|---:|---|
-| **A.** Move Git Dispatch to a gated on-demand file (`IF the task is a git push THEN ref=...`) | −185 | Git operations are frequent; a gate miss means an agent pushes without the ext4 rule. **Not recommended** |
-| **B.** Drop the 3 promoted Core Intent rules (`Workaround`, `Decide`, `Classify`) | −45 | They are the only three not covered by the contract. Losing them loses real behavior |
-| **C.** Tighten `<always>` wording — the 13 lines average 27 tokens each and several carry explanatory clauses | ~−90 | Lossy; each line is already a compression |
-| **A+B+C** | −320 | ~856 tokens |
-| **Accept 1,176** | — | 176 over target, in exchange for routing and writing/file rules that do not exist today |
+| **A.** `<trade_off>` + `<schemas>` back to one-line pointers | −160 | Both are genuinely conditional; the agent would open the module anyway |
+| **B.** Trim `<authoring>` — largest block at 180, duplicates what its `ref` points at | −90 | Mild |
+| **C.** Compress the 12 unconditional rules by ~20% | −130 | Lossy; each is already compressed |
+| **D.** Move the infrastructure banner out of `AGENTS.md` into the file it already points at | −215 | It is live operational state that arguably belongs in `ki-basis/docs/INFRASTRUCTURE.md`, which it already names as the source of truth. **Highest value per unit of risk** |
+| **E.** Move Git Dispatch to a gated file | −185 | Git operations are frequent; a gate miss means pushing without the ext4 rule. **Not recommended** |
+| **F.** Drop the `<surgical>` stub | −18 | Removes gate-failure insurance. **Not until `DEC-18` resolves** |
+| **A+B+D** | **−465** | **≈1,327** |
+| **A+B+C+D** | −595 | ≈1,197 |
+| **Accept 1,792** | — | 792 over, for capability that does not exist today |
 
-**My lean: accept ~1,176.** The ~1,000 figure is an orientation, not a wall — `Substance` in the
-contract itself says so. The alternative is cutting operational knowledge that was earned from
-incidents. If you want it under 1,000, **C then B**, never A.
+**My lean: A+B+D → ~1,327, and accept that.** Option D is the interesting one: the banner is a
+215-token pointer to `ki-basis/docs/INFRASTRUCTURE.md`, which it *already declares* to be the single
+source of truth. By `<current_truth>`, a pointer that long is itself a duplicate.
+
+Reaching a true ~1,000 would require option C or E, both of which cut substance rather than
+duplication. **I would not go below ~1,200 without evidence from the read-trace test** that the
+removed content was not being used.
 
 ---
 

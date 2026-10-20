@@ -264,7 +264,7 @@ until evidence exists. Test vehicle is
 
 | ID | Item | What must be shown | Falsified if |
 |---|---|---|---|
-| **DEC-17** | **Named tags vs bullets** for the 10 unconditional rules | Whether per-rule tags improve rule application over a bulleted list inside one `<always>` tag | No measurable difference → **use bullets**, as the operator asked |
+| **DEC-17** | **Named tags vs bullets** — **DECIDED: named tags.** Operator decision on clarity grounds, measured cost 17 tokens. Still queued as a *confirmation* test, not a blocking one | Whether per-rule tags measurably worsen rule application | Tags measurably worse → revisit; otherwise the operator's clarity preference stands |
 | **DEC-18** | `<surgical>` always-on stub | Whether the 18-token stub is needed, i.e. whether whole-file rewrites occur when patch discipline is gated only | Gated-only shows no rewrites → **drop the stub** |
 | **DEC-19** | `<stop_repairing>` placement | Whether an agent inside a repair loop acts on an always-on stopping rule at all, and whether gating it would be worse | Ignored in both placements → the rule needs a different mechanism entirely, not a different location |
 | **DEC-20** | `<new_machinery>` + `<detour>` as the drift replacement | Whether observable-action gates actually fire before drift, where the self-diagnosis gate could not | Agents add scripts and propose detours without the gates firing → **the observable-action principle fails** and drift needs a non-instruction mechanism |
@@ -287,9 +287,23 @@ Literature is **mixed and does not support per-rule tags here**:
 case where the evidence says tags are not indicated. The gated blocks are the opposite case: they
 carry `when` / `ref` / `deepen_when` attributes, which Markdown cannot express at all.
 
-**Provisional position pending `DEC-17`:** bullets for the unconditional list, XML only where
-attributes are required. Since the token difference is 17 either way (`DEC-C2`), this is a
-**clarity decision, not a cost decision** — and the operator asked for bullets.
+### `DEC-17` — RESOLVED: named tags
+
+**Operator decision: named tags, because they read more clearly.**
+
+The evidence above argues against tags for this content type, but it argues on **token-efficiency**
+grounds — and the measured difference here is 17 tokens, 1.3% (`DEC-C2`). At that magnitude the
+efficiency argument has no force, and the decision turns entirely on clarity, which is the
+operator's call and which named tags win.
+
+Recorded honestly: **this decision goes against the literature's direction while being consistent
+with its magnitude.** The published results showing XML worse (96.4% vs 97.6% accuracy) came with a
+31% token overhead; our overhead is 1.3%, so that trade is not the one being made here. Kept in the
+test queue as a **confirmation** test rather than a blocking one — the block ships with tags unless
+the test shows them actively harmful.
+
+**Consequence:** the `v0.4` block in
+[07-contract-block-v0.4.md](07-contract-block-v0.4.md) uses one named tag per rule throughout.
 
 ### Operator-verified
 

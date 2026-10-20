@@ -21,10 +21,12 @@ partly supersedes it. Nothing in `DeepReasoning/` has been edited or overwritten
 | File | What it is | Status |
 |---|---|---|
 | [01-decision-register.md](01-decision-register.md) | Every settled decision, every superseded position, the open calls, and the falsification conditions | Record |
-| [02-informatics-contract-block.md](02-informatics-contract-block.md) | The standalone ~721-token contract block, with per-rule provenance | Candidate artifact |
-| [03-BLUEPRINT-agents.md](03-BLUEPRINT-agents.md) | A **copy** of the real `AGENTS.md` with the block integrated as a worked example, plus the merge map | Blueprint, non-active |
-| [04-empirical-test-protocol.md](04-empirical-test-protocol.md) | The read-trace experiment that decides whether IF-gating works at all | Design, not run |
+| [02-informatics-contract-block.md](02-informatics-contract-block.md) | The v0.3 block, 721 tokens, with per-rule provenance | **Superseded by 07.** Kept as the earlier record |
+| [03-BLUEPRINT-agents.md](03-BLUEPRINT-agents.md) | A **copy** of the real `AGENTS.md` with the block integrated, plus the merge map and trim options | Blueprint, non-active. Updated to v0.4 |
+| [04-empirical-test-protocol.md](04-empirical-test-protocol.md) | The read-trace experiment that decides whether IF-gating works at all, arms A–H | Design, not run |
 | [05-research-prompt-packets.md](05-research-prompt-packets.md) | Provider-unspecified prompt packets for the three open research questions | Prompts, not executed |
+| [06-contract-block-revision-proposal.md](06-contract-block-revision-proposal.md) | Answers to the operator's ten questions on v0.3, and the reasoning behind every v0.4 change | Record |
+| [07-contract-block-v0.4.md](07-contract-block-v0.4.md) | **The current candidate block** — 1,357 tokens, one named tag per rule, observable-action gates | **Current candidate** |
 
 ## Why this folder exists
 
