@@ -37,9 +37,10 @@ small always-on control
 
 Authority for informatics is strictly layered:
 1. **Upstream OKF v0.2 Specification**: Governs raw serialization format, parseable YAML frontmatter, and bundle root conventions.
-2. **Apex Informatics Standard (This Document)**: Governs information architecture, topic boundaries, technical prose profile, agent instruction scoping, and durable IDs.
-3. **Repository Deterministic Validator**: Checks conformance deterministically; separates official OKF errors from Apex Profile errors and advisory warnings.
-4. **Agent Skills / Scoped Instructions**: Provide task-specific procedures and local adapters that point to, rather than duplicate, this standard.
+2. **Governed Modular Specification Suite**: [writing-profile.md](writing-profile.md), [file-architecture.md](file-architecture.md), [execution-modes.md](execution-modes.md), [anti-drift-rules.md](anti-drift-rules.md), and [governance-schemas.md](governance-schemas.md) govern prose ergonomics, file architecture, task adapters, anti-drift discipline, and machine-readable contracts. Where a modular rule (`WP-XX`, `FA-XX`, `EM-XX`, `AD-XX`, `GS-XX`) addresses the same subject as a section below, **the modular rule governs**. Enter the suite at [index.md](index.md).
+3. **Apex Informatics Standard (This Document)**: Governs the scope boundary (§1), this precedence ladder (§2), and any subject the modular suite does not yet cover.
+4. **Repository Deterministic Validator**: Checks conformance deterministically; separates official OKF errors from Apex Profile errors and advisory warnings.
+5. **Agent Skills / Scoped Instructions**: Provide task-specific procedures and local adapters that point to, rather than duplicate, this standard.
 
 ---
 

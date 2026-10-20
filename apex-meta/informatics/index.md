@@ -2,6 +2,7 @@
 okf_version: "0.2"
 title: Apex Informatics Standard & Consolidated General Router
 description: Canonical entrypoint, OKF v0.2 bundle index, and conditional JIT routing layer for Apex OS AI agents.
+tags: [informatics, index, router, okf-v0.2]
 ---
 
 # Apex Informatics Standard & Consolidated General Router
@@ -39,12 +40,16 @@ Canonical entrypoint and conditional JIT routing index for the Apex OS knowledge
 
 ## 3. Governed Modular Specification Suite
 
-- [Writing Profile & Prose Ergonomics](writing-profile.md) — Active language, Information Mapping, table vs list selection, durable IDs, and 3-metric ranking.
-- [File Architecture & Bundle Structure](file-architecture.md) — Five-Plane Architecture, OKF v0.2 frontmatter schemas, and current-truth separation.
-- [Execution Modes & Task Adapters](execution-modes.md) — IF-routed adapters for Q&A Decision Matrices, Bake-Offs, Exact-Match Patching, Handover, and File-Backed Iteration.
-- [Anti-Drift Rules & Operational Lore](anti-drift-rules.md) — Anti-Drift Laws, step-by-step context management, anti-overcorrection, and Failure Modes / Not-To-Dos.
-- [Governance Schemas & Directive Ceilings](governance-schemas.md) — Frontmatter schemas, AST patch intent specifications, and universal instruction parsimony.
-- [General Informatics Router](general-informatics-router.md) — Compact standalone agent-facing embeddable JIT router template.
+Each module owns its domain; §2 states what each one carries. Canonical owners across modules:
+`WP` prose and ranking, `FA` architecture and frontmatter, `EM` task adapters, `AD` drift laws,
+`GS` machine-readable contracts and diagnostics.
+
+- [Writing Profile & Prose Ergonomics](writing-profile.md) — `WP-01..25`
+- [File Architecture & Bundle Structure](file-architecture.md) — `FA-01..13`
+- [Execution Modes & Task Adapters](execution-modes.md) — `EM-01..12`
+- [Anti-Drift Rules & Operational Lore](anti-drift-rules.md) — `AD-01..28`
+- [Governance Schemas & Directive Ceilings](governance-schemas.md) — `GS-01..22`
+- [General Informatics Router](general-informatics-router.md) — standalone embeddable derivative of §1–2 for use in other repositories.
 
 ## 4. Supporting Governance & History
 

@@ -20,8 +20,8 @@ The following invariants apply across all execution modes. Front-load these boun
 - **EM-01 [P0 | I98/E96/R05] Whole-File Rewrite Prohibition**: Never overwrite existing repository files via full-file rewrites. Modify existing files strictly using surgical exact-match patch blocks or verified AST patch intents.
 - **EM-02 [P0 | I96/E95/R05] Handover Non-Paralysis Invariant**: Never write a handover to defer an action or ambiguity that available tools can resolve immediately. If a fact is checkable, invoke the tool and check it now.
 - **EM-03 [P0 | I96/E95/R06] Step-by-Step Context & File Iteration Invariant**: Never front-load massive amounts of files or documentation at session start. Load context step-by-step per active stage and materialize each iteration's output into a dedicated file.
-- **EM-04 [P0 | I95/E95/R08] Target Dominance**: Optimize for the most balanced, value-efficient, and effective path to the stated user outcome. Do not substitute process ceremony, secondary schemas, or self-verifying scripts for the required deliverable.
-- **EM-05 [P0 | I94/E92/R10] Two-Strike Pivot Rule**: Stop repairing a failing subsystem if two consecutive fix attempts fail to advance the product. Reconsider the architecture and select an alternative approach.
+- **EM-04 [P0 | I95/E95/R08] Target Dominance**: Optimize for the most balanced, value-efficient, and effective path to the stated user outcome. Do not substitute process ceremony, secondary schemas, or self-verifying scripts for the required deliverable. Canonical: `AD-01`.
+- **EM-05 [P0 | I94/E92/R10] Two-Strike Pivot Rule**: Stop repairing a failing subsystem if two consecutive fix attempts fail to advance the product. Reconsider the architecture and select an alternative approach. Canonical: `AD-02`; per-subsystem tracking mechanics in `AD-24`.
 
 ### Conditional Execution Mode Dispatch (`IF`-Routing)
 
@@ -137,7 +137,7 @@ including surrounding context
 ```
 
 ### 4.2 Mode B: Structured AST Patch Intent (`patch_intent.v1`)
-When interfacing with automated AST patch tools, output JSON conforming to `patch_intent.v1` (see [Governance Schemas](file:///c:/GitDev/apexai-os-meta/apex-meta/informatics/governance-schemas.md)):
+When interfacing with automated AST patch tools, output JSON conforming to `patch_intent.v1`. The operative contract is in [governance-schemas.md](governance-schemas.md) §2.2; the authoritative schema is [patch-intent-schema.json](../../.claude/skills/deterministic-markdown-patcher2/references/patch-intent-schema.json). This block is the worked example, not a second copy of the schema (`WP-23`):
 
 ```json
 {

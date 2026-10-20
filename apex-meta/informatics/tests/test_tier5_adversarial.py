@@ -417,18 +417,39 @@ class TestTaskAdapterSemanticSoundness(unittest.TestCase):
         Safety invariants: require_unique_match=true, fail_on_ambiguity=true, allow_full_file_rewrite=false.
         Prohibited: line numbers/ranges/hunks.
         """
-        # Extract patch_intent schema from governance-schemas.md
-        schema_match = re.search(r'```json\s*(\{[\s\S]*?"title":\s*"patch_intent"[\s\S]*?\})\s*```', self.gov_text)
-        self.assertIsNotNone(schema_match, "Failed to extract patch_intent JSON schema from governance-schemas.md")
-        schema = json.loads(schema_match.group(1))
+        # Load the AUTHORITATIVE schema the deterministic patcher validates against.
+        # `governance-schemas.md` deliberately no longer embeds a copy (WP-23): an embedded copy
+        # had already drifted from this file, dropping every maxLength bound it enforces.
+        schema_path = (
+            REPO_ROOT / ".claude" / "skills" / "deterministic-markdown-patcher2"
+            / "references" / "patch-intent-schema.json"
+        )
+        self.assertTrue(schema_path.exists(), f"Authoritative patch intent schema missing: {schema_path}")
+        schema = json.loads(schema_path.read_text(encoding="utf-8"))
 
         self.assertEqual(schema["properties"]["schema_version"]["const"], "patch_intent.v1")
 
-        # Validate mandatory safety invariants in schema
-        safety_props = schema["properties"]["intents"]["items"]["properties"]["safety"]["properties"]
+        def deref(node):
+            """Resolve a local $ref against the schema's $defs."""
+            if "$ref" in node:
+                return schema["$defs"][node["$ref"].split("/")[-1]]
+            return node
+
+        # Validate mandatory safety invariants in the authoritative schema
+        intent_schema = deref(schema["properties"]["intents"]["items"])
+        safety_props = deref(intent_schema["properties"]["safety"])["properties"]
         self.assertEqual(safety_props["require_unique_match"]["const"], True)
         self.assertEqual(safety_props["fail_on_ambiguity"]["const"], True)
         self.assertEqual(safety_props["allow_full_file_rewrite"]["const"], False)
+
+        # The specification must state the same operative contract it points at.
+        # This is the anti-drift guard that replaces the removed inline copy.
+        self.assertIn("patch_intent.v1", self.gov_text)
+        self.assertIn("patch-intent-schema.json", self.gov_text)
+        for invariant in ("require_unique_match", "fail_on_ambiguity", "allow_full_file_rewrite"):
+            self.assertIn(invariant, self.gov_text, f"GS must state safety invariant {invariant}")
+        for operation in deref(intent_schema["properties"]["operation"]).get("enum", []):
+            self.assertIn(operation, self.gov_text, f"GS must list operation '{operation}'")
 
         # Valid payload example conforming to schema
         valid_intent = {
