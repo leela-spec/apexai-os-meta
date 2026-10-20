@@ -1,16 +1,16 @@
 ---
 type: ExecutionHandover
 id: V2-RESEARCH-EXECUTION-HANDOVER-v1.0
-title: Research Execution Handover — Eight Packets, Iterative
-description: Self-contained handover instructing a high-reasoning AI to execute eight research packets iteratively against the Apex Informatics always-on contract architecture, writing one result file per packet.
+title: Research Execution Handover — Nine Packets, Iterative
+description: Self-contained handover instructing a high-reasoning AI to execute nine research packets iteratively against the Apex Informatics always-on contract architecture, writing one result file per packet.
 status: current
 tags: [handover, research-execution, iterative, prompt-packets]
 ---
 
-# Research Execution Handover — Eight Research Packets
+# Research Execution Handover — Nine Research Packets
 
 **You are executing research, not implementing changes.** Nothing you produce modifies the contract
-block or any live file. You write eight result files and one synthesis. That is the whole job.
+block or any live file. You write nine result files and one synthesis. That is the whole job.
 
 ---
 
@@ -18,8 +18,7 @@ block or any live file. You write eight result files and one synthesis. That is 
 
 ```
 repository : https://github.com/leela-spec/apexai-os-meta
-branch     : main
-commit     : c1550ea7 (or later — pull first)
+branch     : main — pull latest; do not pin to a commit
 work root  : apex-meta/informatics/Agent_Setup/NextIteration/v2-always-on-architecture/
 ```
 
@@ -36,17 +35,29 @@ a **single always-loaded contract block** that would be embedded in the reposito
 instruction file, with conditional pointers to the detail files.
 
 The candidate block is **1,622 tokens** and carries ~20 rules. Several of its design decisions rest
-on assumptions nobody has verified. **Your eight packets are those assumptions.**
+on assumptions nobody has verified. **Your nine packets are those assumptions.**
 
-The two that could invalidate the architecture:
+The three that could invalidate or reshape the architecture:
 
 - **Does conditional gating work at all?** Every `when="…"` attribute assumes an agent honours the
-  condition rather than reading everything anyway. (Packet 1)
+  condition rather than reading everything anyway. (Packet `RP-01`)
 - **Is static hand-authored routing the right mechanism**, or has semantic retrieval superseded it?
-  (Packet 2)
+  (Packet `RP-02`)
+- **Does the token count even matter the way the author assumes?** If prompt caching makes an
+  always-loaded block effectively free after the first request, a large part of this effort
+  optimized the wrong variable. (Packet `RP-09`, question 1)
 
-Treat both as genuinely open. The architecture's author — a previous AI session — has a stake in
-them being true. You do not.
+Treat all three as genuinely open. The architecture's author — a previous AI session — has a stake
+in them being true. You do not.
+
+### A known weakness in the author's own reasoning
+
+The author concluded that **~1,476 tokens is the floor** after an aggressive rewording pass
+recovered only 47 tokens (3%). That conclusion may be wrong: the same author also measured a
+wholesale table reformat at ~190 tokens (12%) and initially dismissed the format question on the
+strength of a narrower 39-token measurement before correcting themselves.
+
+**`RP-09` exists specifically to challenge the floor claim.** Do not take 1,476 as given.
 
 ---
 
@@ -56,11 +67,11 @@ Load these **in order, one stage at a time**. Do not bulk-read the repository.
 
 | Priority | File | What to take from it | Load when |
 |---|---|---|---|
-| **1** | `apex-meta/informatics/Agent_Setup/NextIteration/v2-always-on-architecture/05-research-prompt-packets.md` | **The eight prompts you will execute.** This is your primary input | Start |
+| **1** | `apex-meta/informatics/Agent_Setup/NextIteration/v2-always-on-architecture/05-research-prompt-packets.md` | **The nine prompts you will execute.** This is your primary input | Start |
 | **2** | `apex-meta/informatics/Agent_Setup/NextIteration/v2-always-on-architecture/09-contract-block-v0.5.md` | The current block, its measured token decomposition, and the open items | Start |
 | **3** | `apex-meta/informatics/Agent_Setup/NextIteration/v2-always-on-architecture/01-decision-register.md` | What is settled, what was superseded, falsification conditions. **Part B and Part F matter most** | Start |
-| 4 | `apex-meta/informatics/Agent_Setup/NextIteration/v2-always-on-architecture/08-discussion-and-open-threads.md` | Why each open question exists, in the operator's own words | Before packets 4–8 |
-| 5 | `apex-meta/informatics/Agent_Setup/NextIteration/v2-always-on-architecture/04-empirical-test-protocol.md` | The local experiment that will test the same assumptions empirically | Before packet 1 only |
+| 4 | `apex-meta/informatics/Agent_Setup/NextIteration/v2-always-on-architecture/08-discussion-and-open-threads.md` | Why each open question exists, in the operator's own words | Before `RP-04`–`RP-08` |
+| 5 | `apex-meta/informatics/Agent_Setup/NextIteration/v2-always-on-architecture/04-empirical-test-protocol.md` | The local experiment that will test the same assumptions empirically | Before `RP-01` only |
 | 6 | `apex-meta/informatics/Agent_Setup/NextIteration/v2-always-on-architecture/index.md` | Navigation if you need a file not listed here | As needed |
 | 7 | `apex-meta/informatics/writing-profile.md`, `file-architecture.md`, `execution-modes.md`, `anti-drift-rules.md`, `governance-schemas.md` | The live rules the contract compresses. **Only if a packet needs the original wording** | Rarely |
 | 8 | `apex-meta/informatics/Agent_Setup/NextIteration/DeepReasoning/` | The earlier, partly superseded pass. **Consult only if a packet explicitly needs its history** | Rarely |
@@ -72,7 +83,7 @@ Load these **in order, one stage at a time**. Do not bulk-read the repository.
 
 ## 4. Process — iterative, one packet at a time
 
-**You must work iteratively. Do not attempt all eight in one pass, and do not hold all eight in
+**You must work iteratively. Do not attempt all nine in one pass, and do not hold all nine in
 context simultaneously.** The loop per packet:
 
 1. **Load** the packet from file `05-…` — that packet only.
@@ -84,26 +95,32 @@ context simultaneously.** The loop per packet:
 5. **Update** `RESULTS-00-progress.md` with one line: packet, status, headline finding.
 6. **Move** to the next packet.
 
-**Execution order — this matters.** Packets 1 and 2 can invalidate the architecture, so they run
-first and their results inform the rest:
+**Execution order — this matters.** Packets that can invalidate the architecture run first, so their
+results inform the rest:
 
 ```
-1 → 2 → 3 → 8 → 6 → 5 → 7 → 4 → synthesis
+RP-01 → RP-02 → RP-09 → RP-03 → RP-08 → RP-06 → RP-05 → RP-07 → RP-04 → synthesis
 ```
 
 | # | Packet ID | Question | Why this position |
 |---|---|---|---|
 | 1 | `RP-01` | Does conditional instruction gating actually work? | Can invalidate every `when=` in the design |
 | 2 | `RP-02` | Could vector retrieval replace static dispatch? | Can replace the architecture outright |
-| 3 | `RP-03` | What is this design's reasoning missing or stale about? | Reframes everything downstream |
-| 4 | `RP-08` | How does `deepen_when` actually work? | Narrow case of packet 1; worth 99 tokens |
-| 5 | `RP-06` | Compact condition syntax | Depends on packets 1 and 8 |
-| 6 | `RP-05` | Stopping self-authored acceptance criteria | Independent |
-| 7 | `RP-07` | What reduces over-building | Independent |
-| 8 | `RP-04` | The communication register term | Smallest; last |
+| 3 | **`RP-09`** | **Every remaining token-efficiency lever; is ~1,000 achievable?** | **Its caching question can make the whole optimization premise moot. Run before the narrower format packets** |
+| 4 | `RP-03` | What is this design's reasoning missing or stale about? | Reframes everything downstream |
+| 5 | `RP-08` | How does `deepen_when` actually work? | Narrow case of `RP-01`; worth 99 tokens |
+| 6 | `RP-06` | Full serialization comparison — XML vs bullets vs table vs other | Depends on `RP-01`, `RP-08` and `RP-09` |
+| 7 | `RP-05` | Stopping self-authored acceptance criteria | Independent |
+| 8 | `RP-07` | What reduces over-building | Independent |
+| 9 | `RP-04` | The communication register term | Smallest; last |
 
-**If packet 1 concludes gating does not work, do not stop.** Record it, and carry it into packets 6
-and 8, both of which assume gating functions. That finding changes their answers.
+**Two carry-forward rules:**
+
+- **If `RP-01` concludes gating does not work, do not stop.** Record it and carry it into `RP-06`
+  and `RP-08`, both of which assume gating functions. That finding changes their answers.
+- **If `RP-09` concludes caching makes always-on token cost largely irrelevant, say so loudly and
+  carry it into `RP-06`.** A format change that saves 12% of a cost that does not matter is not
+  worth the comprehension risk.
 
 ---
 
@@ -122,7 +139,8 @@ apex-meta/informatics/Agent_Setup/NextIteration/v2-always-on-architecture/
 ├── RESULTS-06-condition-syntax.md
 ├── RESULTS-07-over-building.md
 ├── RESULTS-08-deepen-when-mechanics.md
-└── RESULTS-09-synthesis.md         ← written last
+├── RESULTS-09-efficiency-audit.md
+└── RESULTS-10-synthesis.md         ← written last
 ```
 
 ### Every result file must contain
@@ -161,15 +179,19 @@ In particular: do not edit `01-decision-register.md`, `09-contract-block-v0.5.md
 
 ### The synthesis file
 
-Written after all eight. It must state:
+Written after all nine. It must state:
 
 1. **Which recorded decisions survive and which are falsified**, by ID — `DEC-16`, `DEC-17`,
    `DEC-18`, `DEC-19`, `DEC-20`, `DEC-M1`…`DEC-M6`. The falsification conditions are pre-registered
    in `01-decision-register.md` Part F — check your findings against them literally.
-2. **The token consequence.** The block is 1,622 tokens. State what your findings add or remove, with
-   numbers.
-3. **Contradictions between packets**, if any. Do not smooth them over.
-4. **What should now be tested locally** rather than researched further.
+2. **The token consequence, as a single arithmetic table.** The block is 1,622 tokens. List every
+   saving your findings support, with its token figure and its risk, and give a recommended total.
+   State whether ~1,000 is reachable and what the realistic floor is.
+3. **A verdict on whether token count is the right variable at all** — `RP-09`'s caching question.
+   If it is not, say so first, because it reframes items 1 and 2.
+4. **Contradictions between packets**, if any. Do not smooth them over. `RP-06` and `RP-09` may
+   disagree about format; `RP-01` and `RP-08` may disagree about whether conditions are honoured.
+5. **What should now be tested locally** rather than researched further.
 
 ---
 
@@ -187,7 +209,7 @@ These are the repository's own operating rules. Follow them.
   had a stake in its assumptions holding. Several prompts instruct you to argue against it. Do that
   genuinely.
 - **Do not implement.** No changes to the contract block, the live suite, or the decision register.
-- **Do not add machinery.** No scripts, no validators, no tooling. Eight result files and a
+- **Do not add machinery.** No scripts, no validators, no tooling. Nine result files and a
   synthesis.
 - **Do not expand scope.** If you find an unrelated problem, note it in the synthesis under "out of
   scope" and move on.
@@ -198,27 +220,36 @@ These are the repository's own operating rules. Follow them.
 
 ## 7. Definition of Done
 
-- [ ] Nine files exist in the work root: eight `RESULTS-NN-*.md` plus `RESULTS-09-synthesis.md`.
+- [ ] Ten files exist in the work root: nine `RESULTS-NN-*.md` plus `RESULTS-10-synthesis.md`.
 - [ ] `RESULTS-00-progress.md` has one line per packet.
 - [ ] Every result file has a **Verdict** with an explicit confidence level.
 - [ ] Every quantitative claim carries a source link.
 - [ ] Every result file has a **What I could not find** section that is not empty unless genuinely so.
 - [ ] The synthesis checks findings against **every** pre-registered falsification condition in
       `01-decision-register.md` Part F, by ID.
-- [ ] The synthesis states the token consequence in numbers.
+- [ ] The synthesis contains a single arithmetic table of every supported saving, with a recommended
+      total and a realistic floor figure.
+- [ ] The synthesis answers whether token count is the right variable at all.
+- [ ] `RESULTS-09` contains a "Not on the author's list" section with at least one genuinely new
+      lever, or an explicit statement that the author's list is complete.
+- [ ] `RESULTS-09` names specific rules that a current model likely follows by default and therefore
+      cost tokens for nothing — or states that none do.
 - [ ] No file outside the work root has been modified. Verify with `git status`.
-- [ ] Packets 1 and 2 each contain a genuine "strongest case against" section, not a token one.
+- [ ] `RP-01`, `RP-02` and `RP-09` each contain a genuine "strongest case against" section, not a
+      token one.
 
 ---
 
 ## 8. What success looks like
 
-The operator can read `RESULTS-09-synthesis.md` and know:
+The operator can read `RESULTS-10-synthesis.md` and know:
 
 - whether the conditional-gating architecture is sound, needs modification, or should be abandoned;
 - whether a fundamentally different mechanism supersedes it;
+- **whether optimizing token count is worth doing at all**, given caching;
+- **how small the block can realistically get, and by which specific levers** — the operator has
+  pushed on this repeatedly and deserves a defensible floor figure rather than another estimate;
 - what the contract block should say where its wording is currently provisional;
-- how many tokens the findings add or remove;
 - what remains genuinely unknown and must be settled by local measurement instead.
 
 **A result that says "three of your assumptions are wrong" is a success.** A result that confirms

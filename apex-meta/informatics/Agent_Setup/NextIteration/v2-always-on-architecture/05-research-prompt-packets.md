@@ -450,13 +450,26 @@ prompt_packet:
   validation_status: valid
 ```
 
-**Decides:** `DEC-17` final form. **Reframed:** measurement showed tag names cost 111 tokens (7%)
-while attributes cost **319 (20%)**. The question is about conditions, not names.
+**Decides:** `DEC-17` final form, and the serialization of the whole block.
+
+**Scope correction:** this packet was briefly narrowed to conditions only, on the strength of a
+measurement showing tag names cost just 7%. That measurement tested one narrow swap — unconditional
+tags to bullets, same structure — and found 39 tokens. A **wholesale reformat is a different and
+larger lever.** Measured locally on identical content across three gated rules:
+
+| Serialization | Tokens | vs XML |
+|---|---:|---:|
+| XML tags + attributes | 221 | — |
+| Bullets with `IF … →` prefix | 198 | **−10%** |
+| Markdown table | 190 | **−14%** |
+
+Extrapolated across the block that is roughly **190 tokens (12%)**, not 39. The packet is therefore
+widened back to the full format question.
 
 ### Copy-paste prompt
 
-> An always-loaded instruction file for an AI coding agent contains ~20 rules. Nine carry a
-> machine-readable condition plus a file pointer, in this shape:
+> An always-loaded instruction file for an AI coding agent contains about twenty rules. Twelve are
+> unconditional. Nine carry a machine-readable condition plus a file pointer, in this shape:
 >
 > ```
 > <editing when="changing, moving or deleting a file that already exists"
@@ -466,26 +479,42 @@ while attributes cost **319 (20%)**. The question is about conditions, not names
 > </editing>
 > ```
 >
-> Measured: rule bodies are 73% of the block, **attributes 20%**, tag names 7%.
+> Measured composition: rule bodies 73%, **attributes 20%**, tag names 7%. A local test on identical
+> content found bullets ~10% cheaper than XML and a markdown table ~14% cheaper.
 >
-> **Find the most compact syntax that keeps the agent correctly deciding when a rule applies and
-> when to open the pointer.** Compare: XML attributes as above; a compact inline prefix
-> (`IF <condition> → <file>`); a markdown table of condition/file/rule; attribute abbreviation
-> (`w=` / `r=`); and dropping the secondary depth condition entirely.
+> **Find the most token-efficient serialization that does not degrade how reliably the agent applies
+> the right rule.** Compare at minimum:
 >
-> For each: token cost, whether models reliably parse it, and whether any is known to degrade
-> condition-matching accuracy. Then answer directly: **is a separate "go deeper" condition worth its
-> tokens, or does a file pointer alone carry enough signal?**
+> 1. **Paired XML tags with attributes** (current).
+> 2. **Bullets with an inline condition prefix** — `- IF <condition> → <file>: <rule>`.
+> 3. **A markdown table** — columns for condition, pointer, rule.
+> 4. **Abbreviated attributes** — `w=` / `r=` instead of `when=` / `ref=`.
+> 5. **Headings per rule** with conditions in the body text.
+> 6. **A hybrid** — unconditional rules as a bullet list, conditional rules as a table.
+> 7. **Any serialization in production use** that none of the above captures.
 >
-> **Output contract.** A ranked recommendation with token estimates per form. A table: form, tokens,
-> parse reliability, evidence. A direct verdict on the secondary depth condition. One rewritten
-> example of the block above in the recommended syntax.
+> For each report: token cost; whether models reliably parse it; and crucially **whether any is
+> known to degrade condition-matching accuracy or rule application**. A format that saves 14% and
+> loses 10% of rule compliance is a bad trade — say so if the evidence supports it.
 >
-> **Validation criteria.** Do not recommend a format on aesthetics; cite measurement or say it is
-> unmeasured. Flag any form that saves tokens by making the condition ambiguous — that defeats the
-> purpose. Treat "no published measurement exists" as a valid finding.
+> Then answer three direct questions:
+> - **Is a separate "go deeper" condition worth its tokens**, or does a file pointer alone carry
+>   enough signal?
+> - **Do tables degrade multi-sentence rule bodies?** Several rules here are three or four sentences,
+>   and a long table cell is hard to scan.
+> - **Does the right answer differ between the unconditional and conditional rules?** They have
+>   different structural needs.
 >
-> **Stop when** the depth-condition question has a clear answer.
+> **Output contract.** A ranked recommendation with token estimates. A table: form, tokens, parse
+> reliability, evidence quality, failure mode. Direct verdicts on all three questions above. One
+> rewritten example of the block above in the recommended form.
+>
+> **Validation criteria.** Do not recommend on aesthetics; cite measurement or label it unmeasured.
+> Flag any form that buys tokens with ambiguity. Distinguish evidence about short prompts from
+> evidence at twenty-rule scale — they are not the same regime. "No published measurement exists" is
+> a valid finding.
+>
+> **Stop when** all three direct questions are answered.
 
 ```yaml
 prompt_failure_hints:
@@ -618,6 +647,91 @@ prompt_failure_hints:
 prompt_learning_hints:
   - "A verdict of 'inert' drops 99 tokens and applies to every attribute whose effect is assumed rather than measured."
   - "This generalises: any attribute in the contract may be decorative. deepen_when is the test case."
+```
+
+---
+
+---
+
+## Packet 9 — Every remaining token-efficiency lever
+
+```yaml
+prompt_packet:
+  id: RP-09-efficiency-audit
+  prompt_task_type: comprehensive_optimization_audit
+  expected_output_type: ranked_lever_inventory
+  provider_target: provider_unspecified
+  prompt_design_rationale: >
+    The other packets each test one lever. This one asks what the author has not thought of, because
+    the local compression attempt recovered only 3% and the author may be out of ideas rather than
+    out of slack.
+  usage_tracking_tags: [token-efficiency, audit, levers]
+  validation_status: valid
+```
+
+**Decides:** whether ~1,476 is genuinely the floor, or whether levers exist that were never
+considered. **This is the packet that covers everything the other eight do not.**
+
+### Copy-paste prompt
+
+> An always-loaded instruction block for an AI coding agent measures **1,622 tokens** across about
+> twenty rules. It is paid on every session regardless of task. The author wants it near 1,000 and
+> has concluded that is impossible without deleting rules. **Challenge that conclusion. Find every
+> lever they have not considered.**
+>
+> **What they have already tried or measured:**
+>
+> | Lever | Result |
+> |---|---|
+> | Aggressive rewording of the six largest rules | **−47 tokens (3%)** — wording appears to be at its floor |
+> | Swapping XML tags for bullets on unconditional rules | −39 tokens (2.4%) |
+> | Wholesale reformat to a markdown table | ~−190 tokens (12%), untested for comprehension cost |
+> | Dropping the secondary depth condition from nine rules | −99 tokens |
+> | Moving content into separately-gated files | Works, but only for content that is genuinely conditional |
+>
+> **Composition:** rule bodies 73%, condition and pointer attributes 20%, tag names 7%.
+>
+> **Find what is missing from that list.** Consider at least:
+> 1. **Prompt caching** — if the block is cached across requests, does its token count still cost
+>    what the author assumes? Does this change the entire premise of optimizing it?
+> 2. **Rule merging** — can rules with adjacent meaning be combined without losing behaviour? Is
+>    there evidence on whether fewer longer rules outperform more shorter ones, or the reverse?
+> 3. **Relocation** — can instruction content live in tool descriptions, function schemas, or other
+>    surfaces that are loaded anyway, instead of in the instruction block?
+> 4. **Compression techniques** — telegraphic register, dropping articles, symbols for common words,
+>    abbreviation schemes. Do these actually save tokens after tokenization, and do they cost
+>    comprehension? Be specific: many "compression" tricks tokenize worse than plain English.
+> 5. **Model-side features** — anything in current agent runtimes that handles this automatically
+>    and makes manual optimization obsolete.
+> 6. **Elimination by default** — are any of these rules things a current model already does
+>    reliably without being told? A rule that restates default behaviour is pure cost.
+> 7. **Anything else in production practice.**
+>
+> **Then answer the central question directly: is ~1,000 tokens achievable for a twenty-rule
+> always-on instruction block without deleting rules — and if not, what is the realistic floor?**
+>
+> **Output contract.** A ranked table: lever, estimated saving, confidence, cost or risk, evidence.
+> A section titled "Not on the author's list" for anything genuinely new. A direct verdict on the
+> 1,000-token question with a realistic floor figure. A direct verdict on whether caching changes
+> the premise.
+>
+> **Validation criteria.** Estimate savings in tokens, not vaguely. Flag any lever that trades
+> tokens for correctness and say which way the trade goes. **Point 6 matters most and is the easiest
+> to skip** — identify specific rules in the categories listed that a current model likely follows
+> by default. If the honest answer is that 1,622 is close to the floor and the author should accept
+> it, say so plainly; that is a useful finding, not a failure.
+>
+> **Stop when** the 1,000-token question has a direct answer with a floor figure.
+
+```yaml
+prompt_failure_hints:
+  - "Repeating levers already in the author's table. The value is in what is missing."
+  - "Recommending compression tricks without checking how they tokenize - many make things worse."
+  - "Skipping the caching question, which could invalidate the whole optimization premise."
+prompt_learning_hints:
+  - "If caching makes always-on token cost largely irrelevant, most of this work was optimizing the wrong variable."
+  - "Rules that restate default model behaviour are the cheapest possible deletion - they cost tokens and buy nothing."
+  - "A floor figure materially above 1,000 closes the question and lets the operator stop pushing on it."
 ```
 
 ---
