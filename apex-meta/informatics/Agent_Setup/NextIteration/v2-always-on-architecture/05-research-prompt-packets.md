@@ -297,6 +297,103 @@ prompt_learning_hints:
 
 ---
 
+---
+
+## Packet 4 — What is the established term for this communication register?
+
+```yaml
+prompt_packet:
+  id: RP-04-register-terminology
+  prompt_task_type: terminology_identification
+  workflow_stage: contract_wording
+  process_stage: rule_authoring
+  expected_output_type: named_term_with_definition_and_usage
+  provider_target: provider_unspecified
+  provider_rationale: Retrieval and terminology synthesis; no provider-specific capability needed.
+  prompt_design_rationale: >
+    The operator recalls a named concept for a specific writing register but not the name. The
+    prompt describes the register behaviourally and asks for the established term, explicitly
+    warning against inventing one or forcing a weak match.
+  usage_tracking_tags: [wording, register, terminology]
+  validation_status: valid
+```
+
+**Why this matters:** `<communication>` currently carries a descriptive placeholder. A named,
+established register would be shorter and more reliably understood than a list of adjectives.
+
+### Copy-paste prompt
+
+> I am writing a style directive for an AI agent and need the **established term** for a specific
+> communication register. I recall there is a recognised name for it but cannot retrieve it.
+>
+> **The register, described behaviourally:**
+> - scientific and rational
+> - neutral and unemotional
+> - fact-oriented; claims are tied to evidence
+> - no decorative prose, no filler, no flattery, no enthusiasm padding
+> - high information density — maximum content per sentence
+> - precise and questioning rather than agreeable
+>
+> **Find the term.** Check all of these families and say which, if any, actually fits:
+> 1. Technical-writing and documentation standards (controlled languages, plain-language standards,
+>    editorial register names).
+> 2. Linguistics and register theory — formal names for this kind of writing.
+> 3. Journalism and encyclopedic editorial standards.
+> 4. Scientific and academic writing conventions.
+> 5. AI and prompt-engineering vocabulary — named output styles, personas or modes, **including any
+>    colour-coded scheme that labels AI communication styles.** The operator recalls seeing a
+>    colour association and suspects it may be outdated; confirm whether such a scheme exists, name
+>    it, and say whether it is current or superseded.
+> 6. Personality and communication-style frameworks that use colour coding, and whether any maps to
+>    this register.
+>
+> **Output contract.**
+> - The single best-fitting established term, with its source and definition. If several fit
+>   different facets, name each and say which facet it covers.
+> - A short table: term, field of origin, what it captures, what it misses.
+> - A verdict on the colour scheme specifically: does one exist for AI communication styles, what is
+>   it called, is it current, and does it match the description above?
+> - One directive sentence usable verbatim in an instruction file that invokes this register as
+>   compactly as possible.
+>
+> **Validation criteria.**
+> - **Do not invent a term.** If no established term covers this precisely, say so and give the
+>   closest partial matches instead.
+> - Distinguish terms with a formal standard behind them from informal community vocabulary.
+> - Flag any term that carries unwanted connotations alongside the intended meaning.
+> - Keep the usable sentence under 20 words.
+>
+> **Stop when** you have either a well-sourced term or a clear statement that none exists.
+
+```yaml
+prompt_failure_hints:
+  - "Inventing a plausible-sounding term. The honest answer may be that no single term exists."
+  - "Returning generic 'be concise and professional' advice instead of a named register."
+  - "Ignoring question 5, which is the operator's actual recollection."
+prompt_learning_hints:
+  - "If no single term exists, the descriptive placeholder in <communication> stays and this closes."
+  - "A colour scheme that turns out to be real and current may carry other useful style vocabulary."
+```
+
+---
+
+## Packets 5–7 — Queued, not yet written
+
+Recorded in [08-discussion-and-open-threads.md](08-discussion-and-open-threads.md) §10. To be
+drafted to the same contract when the first four return.
+
+| ID | Question | Decides |
+|---|---|---|
+| `RQ-1` | How should an instruction stop an agent substituting self-authored acceptance criteria for the operator's stated requirements — prohibition, positive validation duty, or ordering rule? | `<target>` wording, currently provisional |
+| `RQ-2` | Is there an XML form cheaper than paired tags that keeps unambiguous block boundaries? Measured parsing difference between paired tags, attribute form, and bullets at this scale | `DEC-17` final form |
+| `RQ-3` | What actually reduces over-building in agents — a pre-action check, a budget, a post-hoc review, or something else? | `<new_machinery>`, and `DEC-20` |
+
+`RQ-2` has a sharper framing now that the decomposition is measured: tag names cost 111 tokens (7%)
+while **attributes cost 319 (20%)**. The expensive part is `when` / `ref` / `deepen_when`, not the
+names — so `RQ-2` should ask about compact *condition* syntax, not compact tag syntax.
+
+---
+
 ## Dispatch guidance
 
 | | |
