@@ -54,7 +54,7 @@ with the designated owner, so restatement never becomes contradiction.
 | B6 | Module descriptions | **`index`** §2 gate payloads | `index` §3 repeated descriptions | ~6 |
 
 > **B1 rationale — ownership moves out of the bundle.** `GS` §5 already cites
-> [patch-intent-schema.json](file:///c:/GitDev/apexai-os-meta/.claude/skills/deterministic-markdown-patcher2/references/patch-intent-schema.json)
+> [patch-intent-schema.json](../../../../../.claude/skills/deterministic-markdown-patcher2/references/patch-intent-schema.json)
 > as the "Patch Intent Source Schema" while simultaneously embedding a full copy of it. A spec that
 > names an upstream source and then restates it has created a drift channel, and the drift already
 > happened (see **D9** in §4). The authoritative JSON is what the patcher skill validates against;
@@ -102,21 +102,21 @@ with the designated owner, so restatement never becomes contradiction.
 Intra-file duplication has no isolation benefit whatsoever and matches a defect pattern the
 operator's own prior forensic review already named — *"Internal duplication inside `AGENTS.md`'s own
 Git-and-branches section (the preserve-dirty-files rule and the packet-authority rule each stated
-twice in the same file)"* ([2Dos Ai Instructions.md:144-145](file:///c:/GitDev/apexai-os-meta/apex-meta/AI-Snippets/Orga/2Dos%20Ai%20Instructions.md)).
+twice in the same file)"* ([2Dos Ai Instructions.md:144-145](../../../../AI-Snippets/Orga/2Dos.md)).
 
 ## 3. Precedent: the operator's own prior design used this model
 
 The canonical-owner-plus-pointer treatment is not imported from outside. The prior forensic
 analysis of the `CLAUDE.md` / `AGENTS.md` stack resolved its duplicate "Single source of truth"
 section by making it *"owned here, pointer-only in `AGENTS.md`"*
-([2Dos Ai Instructions.md:235](file:///c:/GitDev/apexai-os-meta/apex-meta/AI-Snippets/Orga/2Dos%20Ai%20Instructions.md)),
+([2Dos Ai Instructions.md:235](../../../../AI-Snippets/Orga/2Dos.md)),
 and diagnosed the root cause of instruction bloat as a **placement defect** — content sitting in an
 always-loaded file when it is only relevant to one task domain (lines 116-121). The same document
 records the operator's direct complaint about this suite's ancestor: *"too much overlap"* (line 28).
 
 `Snippets.md` states the governing principle outright: **"Reuse existing instructions instead of
 restating them. Prefer one direct rule over a defensive procedure."**
-([Snippets.md:60-61](file:///c:/GitDev/apexai-os-meta/apex-meta/AI-Snippets/Snippets.md)). That
+([Snippets.md:60-61](../../../../AI-Snippets/Snippets.md)). That
 directive is **not currently codified anywhere in the live suite** — see new rule `WP-23` in
 [02-new-rules-discovery-and-qa-bakeoff.md](02-new-rules-discovery-and-qa-bakeoff.md).
 

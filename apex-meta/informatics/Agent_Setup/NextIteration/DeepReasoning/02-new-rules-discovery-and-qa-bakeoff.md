@@ -143,9 +143,17 @@ This matches what `okf_validator.py` actually enforces, so the published contrac
 
 ## 3. Operator-Lore Coverage Cross-Check
 
-Every operational insight in [Snippets.md](file:///c:/GitDev/apexai-os-meta/apex-meta/AI-Snippets/Snippets.md)
-and [2Dos Ai Instructions.md](file:///c:/GitDev/apexai-os-meta/apex-meta/AI-Snippets/Orga/2Dos%20Ai%20Instructions.md)
-lines 1–265, checked against the live suite.
+Every operational insight in [Snippets.md](../../../../AI-Snippets/Snippets.md)
+and `2Dos Ai Instructions.md` lines 1–265, checked against the live suite.
+
+> **Source resolution.** `2Dos Ai Instructions.md` is **not tracked in git** and exists only on the
+> operator's machine. The tracked equivalent on `origin/main` is
+> [2Dos.md](../../../../AI-Snippets/Orga/2Dos.md), which carries the same content at **different line
+> numbers** — the offset is inconsistent (+35 to +52 across spot checks), so the `2Dos:NN` references
+> below are **against the untracked file and will not match `2Dos.md` line-for-line**. Locate the
+> content by searching rather than by line number. Verified anchors: `2Dos:28` → `2Dos.md:63`,
+> `2Dos:41` → `2Dos.md:84`, `2Dos:144-145` → `2Dos.md:196`, `2Dos:199-203` → `2Dos.md:250`,
+> `2Dos:204-206` → `2Dos.md:177`, `2Dos:235` → `2Dos.md:286`.
 
 | Lore source | Insight | Status |
 |---|---|---|
@@ -190,9 +198,9 @@ specified below.
 - **Statement:** Reuse an existing instruction instead of restating it. When a concept already has a
   canonical owner in the suite, reference it; never copy its schema, table, or worked example into a
   second file. Restate only the one-line operative imperative a module needs to stay self-sufficient.
-- **Grounding:** [Snippets.md:60-61](file:///c:/GitDev/apexai-os-meta/apex-meta/AI-Snippets/Snippets.md)
+- **Grounding:** [Snippets.md:60-61](../../../../AI-Snippets/Snippets.md)
   states it as an operator directive; the operator's prior forensic pass applied it as
-  *"owned here, pointer-only"* ([2Dos:235](file:///c:/GitDev/apexai-os-meta/apex-meta/AI-Snippets/Orga/2Dos%20Ai%20Instructions.md));
+  *"owned here, pointer-only"* ([2Dos:235](../../../../AI-Snippets/Orga/2Dos.md));
   and this suite's defects **D2**, **D6** and **D9** are three independent realizations of its
   absence. R2 supplies the mechanism: copies drift, drift becomes contradiction, contradiction
   degrades compliance sharply.
@@ -207,7 +215,7 @@ specified below.
 - **Proposed tag:** `[P2 | I82/E90/R06]`
 - **Statement:** When listing, citing, or recommending repository files, render each as a clickable
   Markdown link to its path rather than as bare text, so the reader can open it directly.
-- **Grounding:** [2Dos:41](file:///c:/GitDev/apexai-os-meta/apex-meta/AI-Snippets/Orga/2Dos%20Ai%20Instructions.md)
+- **Grounding:** [2Dos:41](../../../../AI-Snippets/Orga/2Dos.md)
   — *"if listing files: create them with an embedded link so i can quickly open them/see path."*
   A standing operator ergonomics requirement that the suite never codified, despite `AD-27` and the
   traceability sections already practising it informally.

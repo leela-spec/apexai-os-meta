@@ -24,7 +24,7 @@ project exists to prevent.
 
 | Item | What | Status |
 |---|---|---|
-| **`RBL-07`** | **Plaintext password and API token for OpenProject in a git-tracked file** — `apex-meta/AI-Snippets/Orga/2Dos Ai Instructions.md` lines 66-69. Outside this project's scope and never acted on. Requires **rotation**, not just deletion — git history retains it | 🔴 **Open, unaddressed** |
+| **`RBL-07`** | **Plaintext password and API token for OpenProject — PUBLISHED ON `origin/main`.** Earlier recorded as being in `2Dos Ai Instructions.md`, which is untracked. **Verified during the reference audit: the same credentials are in `apex-meta/AI-Snippets/Orga/2Dos.md` lines 109 and 111, which IS tracked and IS pushed.** The repository is private, but the credentials are in remote git history and cannot be removed by deleting the lines | 🔴 **Escalated — rotate now** |
 | **`D10`** | `GEMINI.md` is missing the entire `## Informatics & Knowledge Routing` section, so Gemini agents receive no informatics routing. Independent of the contract work | 🔴 **Open, fixable now** |
 
 These two are the only items that need nothing from anyone else first.
@@ -154,6 +154,30 @@ Ten packets, handover ready at [10-RESEARCH-EXECUTION-HANDOVER.md](10-RESEARCH-E
 **Designed, not run.**
 
 ---
+
+## 7b. Reference audit — verified against `origin/main`
+
+Run because citations that resolve locally but not on the remote would leave the executing AI unable
+to find its sources. Checked against `git ls-tree -r origin/main`, not the working tree.
+
+| Check | Result |
+|---|---|
+| Every path cited in the handover | ✅ **22 of 22 resolve** on `origin/main` |
+| Every markdown link in both research folders | 200 checked, **11 broken — all fixed** |
+| `ref=` paths inside the v0.5 contract block | 🔴 **All three were unresolvable** — `informatics/…` instead of `apex-meta/informatics/…`. **Fixed.** An agent following them from the repo root would have failed |
+| Links in both research folders after fix | ✅ 0 broken |
+
+### What the audit found
+
+1. **The contract's own pointers were wrong.** Shortening `ref=` paths to `informatics/…` in v0.5 to
+   save tokens produced three paths that do not exist from the repo root. The live contract would
+   have pointed every agent at nothing. Cost of the fix: ~6 tokens.
+2. **Nine absolute `file:///c:/GitDev/…` links** in `DeepReasoning/01` and `02` — the `RBL-05` class,
+   fixed in the governed files but missed in the research files. Resolve only on one machine.
+3. **A cited source is not on the remote at all.** `2Dos Ai Instructions.md` is untracked. All
+   citations repointed to the tracked `2Dos.md`, with the line-number offset documented rather than
+   guessed — see that file's source-resolution note.
+4. **The credential escalation in §1** was found by this audit, not by the original backlog entry.
 
 ## 8. Known gaps in this index
 

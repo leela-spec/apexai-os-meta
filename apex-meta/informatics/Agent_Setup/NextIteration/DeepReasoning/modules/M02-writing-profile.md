@@ -19,7 +19,7 @@ files, and gains the three rules the suite was missing.
 |---|---|
 | [writing-profile.md](../../../../writing-profile.md) | Module under audit, all 22 baseline rules |
 | [Snippets.md](../../../../../AI-Snippets/Snippets.md) | Operator lore; source of `WP-23` |
-| [2Dos Ai Instructions.md](../../../../../AI-Snippets/Orga/2Dos%20Ai%20Instructions.md) line 41 | Source of `WP-24` |
+| [2Dos Ai Instructions.md](../../../../../AI-Snippets/Orga/2Dos.md) line 41 | Source of `WP-24` |
 | `okf_validator.py:100-127` | Actual `STE-SENTENCE-LENGTH` threshold (**D5**) |
 | `test_informatics_e2e.py` `validate_tags_descending_order` | Tier-order constraint on insertions |
 

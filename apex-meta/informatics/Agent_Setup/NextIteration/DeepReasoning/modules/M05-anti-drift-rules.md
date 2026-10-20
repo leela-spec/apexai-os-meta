@@ -19,7 +19,7 @@ lines, `+5` tokens.
 |---|---|
 | [anti-drift-rules.md](../../../../anti-drift-rules.md) | Module under audit, `AD-01..28` |
 | [Snippets.md](../../../../../AI-Snippets/Snippets.md) §anti-drift 1–8, §overcorrecting | Upstream source of `AD-01`..`AD-13` |
-| [2Dos Ai Instructions.md](../../../../../AI-Snippets/Orga/2Dos%20Ai%20Instructions.md) | Incident record behind `AD-05`, `AD-06`, `AD-25` |
+| [2Dos Ai Instructions.md](../../../../../AI-Snippets/Orga/2Dos.md) | Incident record behind `AD-05`, `AD-06`, `AD-25` |
 | `test_tier5_adversarial.py:260-362` | Asserts the 8 Anti-Drift Laws by name |
 
 ## 2. Applied Patches

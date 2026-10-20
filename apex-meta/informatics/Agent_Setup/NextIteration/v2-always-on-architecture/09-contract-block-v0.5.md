@@ -61,7 +61,7 @@ lexical — see §4.
 
 <surgical>Never regenerate or overwrite a whole existing file.</surgical>
 
-<editing when="changing, moving or deleting a file that already exists" ref="informatics/execution-modes.md" deepen_when="the edit spans multiple blocks or goes to a deterministic executor">
+<editing when="changing, moving or deleting a file that already exists" ref="apex-meta/informatics/execution-modes.md" deepen_when="the edit spans multiple blocks or goes to a deterministic executor">
 Replace only the exact lines that must change, copied character-for-character from the file you just read. One change per edit. Move or copy with git mv or cp, never by rewriting contents.
 </editing>
 
@@ -73,23 +73,23 @@ First confirm ordinary use does not already surface the problem in about two ste
 Ask whether this must be fixed before the product can be tested. If not, defer it in one line.
 </detour>
 
-<authoring when="creating, editing or validating a governed knowledge or specification file" ref="informatics/index.md" deepen_when="you need the frontmatter contract, tier definitions or bundle layout">
+<authoring when="creating, editing or validating a governed knowledge or specification file" ref="apex-meta/informatics/index.md" deepen_when="you need the frontmatter contract, tier definitions or bundle layout">
 Flat YAML frontmatter: every line has a colon, lists use inline brackets, never multiline dashes. Concept files declare type, id, title, description, status. Front-load critical rules; close on the failure-mode guard. Tag governed rules [P0-P3 | I/E/R] 1-100, never combined. One responsibility per file. Link every file you list. Do not impose this on chat, code or logs.
 </authoring>
 
-<trade_off when="the operator must choose between material alternatives, or asks for options" ref="informatics/execution-modes.md" deepen_when="the comparison needs a scored rubric or candidate bake-off">
+<trade_off when="the operator must choose between material alternatives, or asks for options" ref="apex-meta/informatics/execution-modes.md" deepen_when="the comparison needs a scored rubric or candidate bake-off">
 Decide routine reversible choices yourself. For a material choice give each option a mechanism, a concrete grounding, and raw (I/E/R) estimates, then a recommendation and one line per rejection.
 </trade_off>
 
-<handover when="ending a session, delegating to a subagent, or writing any handoff" ref="informatics/execution-modes.md" deepen_when="the handover needs input ledger, process, output contract and definition of done">
+<handover when="ending a session, delegating to a subagent, or writing any handoff" ref="apex-meta/informatics/execution-modes.md" deepen_when="the handover needs input ledger, process, output contract and definition of done">
 Never write a handover to defer what you can resolve now. When genuinely needed: what was observed, the reasoning chain, caveats, conclusion, and exact commands to reproduce.
 </handover>
 
-<iterative when="the task spans multiple modules, needs research, or cannot finish in one pass" ref="informatics/execution-modes.md" deepen_when="you need the route ladder or macro/meso/micro decomposition">
+<iterative when="the task spans multiple modules, needs research, or cannot finish in one pass" ref="apex-meta/informatics/execution-modes.md" deepen_when="you need the route ladder or macro/meso/micro decomposition">
 Execute a clear single-step task directly. For multi-step work write a short preflight — target, inputs, scope, output, active step — then proceed step by step. For a multi-module project create a file per step.
 </iterative>
 
-<schemas when="emitting a patch intent, or validating bundle or schema conformance" ref="informatics/governance-schemas.md">
+<schemas when="emitting a patch intent, or validating bundle or schema conformance" ref="apex-meta/informatics/governance-schemas.md">
 Satisfy the declared schema exactly. Never invent fields. Target edits by heading path and surrounding text, never line number.
 </schemas>
 
