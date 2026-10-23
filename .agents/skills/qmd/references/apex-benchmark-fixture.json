@@ -1,0 +1,47 @@
+{
+  "description": "Apex Informatics Final - Quality & Retrieval Benchmark",
+  "version": 1,
+  "collection": "apex-informatics-final",
+  "queries": [
+    {
+      "id": "q1-specbench-failure",
+      "query": "SpecBench self-authored acceptance criteria proxy failure",
+      "type": "exact",
+      "description": "RP-05 empirical finding on proxy test failure rates",
+      "expected_files": [
+        "research/03-research-of-file-10/Apex_Informatics_Research_Results_2026-10-21/RESULTS-05-self-authored-criteria.md"
+      ],
+      "expected_in_top_k": 3
+    },
+    {
+      "id": "q2-fixedbench-bias",
+      "query": "FixedBench over-building unwanted modifications on already-fixed states",
+      "type": "semantic",
+      "description": "RP-07 finding on RLHF modification bias and no-op legitimacy",
+      "expected_files": [
+        "research/03-research-of-file-10/Apex_Informatics_Research_Results_2026-10-21/RESULTS-07-over-building.md"
+      ],
+      "expected_in_top_k": 3
+    },
+    {
+      "id": "q3-two-strike-rule",
+      "query": "two-strike rule subsystem failure stop repairing bounded iterations",
+      "type": "topical",
+      "description": "Rule 10 and AD-02 stop repairing invariant",
+      "expected_files": [
+        "research/06-layered-rule-kb/rule-10-stop-repairing.md"
+      ],
+      "expected_in_top_k": 3
+    },
+    {
+      "id": "q4-cool-blue-register",
+      "query": "Cool Blue register warranted uncertainty calibration Insights Discovery",
+      "type": "alias",
+      "description": "RP-04 communication tone and uncertainty calibration",
+      "expected_files": [
+        "research/03-research-of-file-10/Apex_Informatics_Research_Results_2026-10-21/RESULTS-04-register-terminology.md"
+      ],
+      "expected_in_top_k": 3
+    }
+  ]
+}

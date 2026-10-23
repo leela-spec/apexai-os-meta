@@ -36,7 +36,7 @@ Knowledge and instructions across APEX OS decompose into five distinct planes. E
 
 | Plane | Name | Purpose | Primary Artifacts | Loading Rule | Token Orientation |
 |---|---|---|---|---|:---:|
-| **1** | **Control Plane** | Universal invariants, security boundaries, and root routing | `AGENTS.md`, `.claude/CLAUDE.md`, root router | Always-on at session start | ~2,000 |
+| **1** | **Control Plane** | Universal invariants, security boundaries, and root routing | `AGENTS.md`, `CLAUDE.md`, `GEMINI.md`, root router | Always-on at session start | ~2,000 |
 | **2** | **Scoped Instructions Plane** | Path-specific and subsystem-specific constraints | `.claude/rules/*.md`, `.github/instructions/*.md` | Activated on path match | ~1,500 |
 | **3** | **Procedures Plane (Skills)** | Reusable, repeatable operational workflows | `.claude/skills/*/SKILL.md` | Task-intent trigger only | ~4,000 |
 | **4** | **Knowledge Bundles Plane** | Curated, verified, conceptual system truth | OKF bundles (`index.md` + concept files) | JIT retrieval via index pointer | Scoped |
@@ -132,6 +132,8 @@ apex-meta/informatics/
 ├── migration.md                    # Migration & onboarding policy
 ├── log.md                          # Dedicated bundle change log
 ├── tests/                          # Conformance and adversarial test suites
+├── MMM/                            # Modular Multi-File Methodology sub-bundle
+│   └── index.md                    # Sub-bundle boundary index
 └── Agent_Setup/                    # Isolated sub-bundle
     └── index.md                    # Sub-bundle boundary index
 ```
@@ -149,4 +151,15 @@ apex-meta/informatics/
 [P2 | I75/E80/R18] Record version history and modification milestones exclusively in `log.md`. The validator exempts `log.md` from mandatory concept frontmatter checks. Keeping changelogs in a dedicated file prevents historical clutter from diluting model attention.
 
 ### FA-12: Plane Sizing & Instruction Parsimony
-[P2 | I82/E88/R10] Keep every persistent instruction surface within its plane's token orientation in the §2 table, and decompose a domain into JIT sub-modules before a single file becomes an overloaded rule-wall. Canonical directive ceiling: `WP-18`.
+[P2 | I82/E88/R10] Keep every persistent instruction surface within its plane's §2 token orientation. Decompose domains into JIT sub-modules before any file becomes an overloaded rule-wall. Structure Plane 1 carrier files into two distinct layers: an immutable cross-project `<apex_contract>` layer first (maximizing prompt-cache reuse) followed by a repo-specific layer. Canonical directive ceiling: `WP-18`.
+
+---
+
+## 5. Architecture Failure Modes & Not-To-Dos
+
+Guard actively against these recurring file-architecture failure modes.
+
+- **Do not embed inline changelogs in live specifications**: Never record historical version notes, rejected options, or audit trails inside active specification files (`FA-01`); isolate all history in `log.md`.
+- **Do not use multiline YAML lists in OKF frontmatter**: Always serialize frontmatter arrays using inline bracket syntax (`tags: [a, b]`) so zero-dependency parsers succeed (`FA-13`).
+- **Do not mix architecture planes in a single file**: Keep Control Plane invariants, Scoped rules, Skills, Knowledge Bundles, and raw Evidence in their dedicated planes (`FA-03`).
+- **Do not rely on `@path` imports across heterogenous runtimes**: Keep the `<apex_contract>` block byte-identical across root `AGENTS.md`, `CLAUDE.md`, and `GEMINI.md` so raw-file IDE loaders parse the full contract.

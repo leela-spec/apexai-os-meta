@@ -1,5 +1,6 @@
 ---
 type: Standard
+id: STD-APEX-INFORMATICS-v0.2
 title: Apex Informatics Standard & Conformance Profile
 description: The canonical Apex OS standard governing knowledge serialization, topic structuring, technical prose, agent instruction scoping, and deterministic validation.
 tags: [informatics, standard, okf, information-architecture, progressive-disclosure]
@@ -50,7 +51,7 @@ Knowledge within APEX OS is organized across five distinct planes:
 
 | Plane | Purpose | Primary Artifacts | Loading Rule |
 |---|---|---|---|
-| **Control** | Universal invariants, security boundaries, repo routing | `AGENTS.md`, `.claude/CLAUDE.md` | Always-on / Session start |
+| **Control** | Universal invariants, security boundaries, repo routing | `AGENTS.md`, `CLAUDE.md`, `GEMINI.md`, `.claude/CLAUDE.md` | Always-on / Session start |
 | **Scoped Instructions** | Path-specific or domain-specific constraints | `.claude/rules/*.md`, `.github/instructions/*.md` | Path or domain trigger only |
 | **Procedures (Skills)** | Reusable, repeatable operational workflows | `.claude/skills/*/SKILL.md` | Task-intent trigger only |
 | **Knowledge Bundles** | Curated, distilled, verified conceptual truth | OKF bundles (`index.md` + concept files) | JIT reference via index |
@@ -158,3 +159,12 @@ Deterministic tooling enforces three distinct diagnostic classes:
 - [Informatics Design Formats Practice Guide](../kb/claude-code-orchestration-design/wiki/summaries/informatics-design-formats-practice-guide.md)
 - [Token-Efficient Information Design](../kb/claude-code-orchestration-design/wiki/summaries/token-efficient-information-design.md)
 - [Informatics Design Doctrine (Weekly Role)](../../.claude/skills/weekly-orchestrator/references/roles/informatics-design-doctrine.md)
+
+
+---
+
+## 15. Standard Failure Modes & Not-To-Dos
+
+- **Precedence**: Modular rules (WP-XX, FA-XX, EM-XX, AD-XX, GS-XX) govern over §3–§12 (§2).
+- **Diagnostics**: Keep OKF and APEX_PROFILE errors separate (GS-03).
+- **Onboarding**: Follow [migration.md](migration.md) before validating legacy zones.

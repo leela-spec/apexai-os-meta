@@ -1,9 +1,19 @@
 
 
 
+# 2DO: Informatics Test Suite Audit & Anti-Fake-Verification Review
+- [ ] Audit the 338 tests in `apex-meta/informatics/tests/` (moving to `final/verification/`):
+  - Identify and prune over-engineered, mechanical checks (e.g. strict sentence word limits and tight character ceilings that cause unnecessary prose shaving).
+  - Verify that tests measure genuine system invariants (broken links, ID uniqueness, carrier immutability, context isolation) rather than self-verifying AI tautologies or fake green lights.
+  - Establish the Test Knowledge Base (`test-kb/`) with explicit rationale documents linking tests to real user requirements, enforcing `<target>` ("self-authored tests are evidence, never replacement criteria") and `<new_machinery>` ("build no more verification machinery than risk justifies").
+
 2Day
+- Chris: Machine, Idee Snacks, 
+- Sonstiges:
+	- Ma
+	- Bahn & bahncard	
 - Thomas: 
-	- Anleitungen nicht detailiert genug. zu viele freiheitsgerade für AI falsches Environment aufzubauen 
+	- Anleitungen nicht detailliert genug. zu viele freiheitsgerade für AI falsches Environment aufzubauen 
 		- Node.js outside of envrionment
 		- tokens nicht als env
 		- skill package nicht lesbar für alle agents
@@ -15,7 +25,28 @@
 - New KI Basis: Why 2 different environemtns mount compose oder sth. for private and community?
 - Kilian
 - 
+# leela
 
+- t0µ-pt repo efficency2
+
+execute this handover /C:/GitDev/Leela-Cloud-2026/docs/ssot/architecture/always-loaded-rules-audit/LOCAL-CLI-overengineering-research-brief.md
+
+you need to be very careful not to fall into the traps every other ai fell into for the last motnhs. the inefficency of the repo was never bettered, only worsend.
+# prompt repo efficency
+**On your framing — I think you’re right, with one correction.** The always-loaded rules were _not_ the dominant token sink (that was the 91× raw-validator problem, now fixed). But your actual question is different and sharper: whether ~118 atomic imperatives in 21,385 B are _well-written and well-organized_. That’s unmeasured, and the byte cuts I made didn’t touch it. A rule can be small and still be unfollowable.
+
+The brief points the next session at exactly that, and carries forward what’s already measured so it doesn’t get re-derived:
+
+- The restatement clusters I found — “keep context small” stated ~7×, “grounding ≠ citation” ~6×, “lean verification” ~6×
+- `ENTRY_SURFACE_BUDGET = 21_500` with only **115 B headroom**, so any addition trips the gate
+- The ETH Zurich (+2.4%, p=0.21 benefit vs 20–23% cost), IFScale primacy-bias, and context-rot baselines
+- That `LEARNINGS_anti_drift.md` is no longer mandated, and its 13 rules sit in the last 7% of the file — which IFScale predicts were never operative anyway
+
+Two QMD findings look immediately load-bearing for this repo: **SpecBench self-authored acceptance criteria at 42.7% compliance** (this repo is built almost entirely on self-authored acceptance IDs) and **`RESULTS-07-over-building.md` `#dac4f3`** on unwanted edits to already-correct work. I flagged both as the starting point.
+
+The brief also records the traps, including the one you’ve been fighting: every prior fix here became another check layer, and named subtractive proposals are 0-for-7. It’s marked **analysis only** — no edits, no commits, no new gates or documents — so the next session reports findings and you decide.
+
+I’m near the end of my budget, so I’ll stop here rather than start the audit badly.
 # prompt AG OMB
 /plan  
   
@@ -70,6 +101,15 @@ feedback:
 - too little value:
 	- recovery
 
+
+## Chris Leela
+
+- Light Variante: 
+	- Wird definiert durch Chris Use Case
+- Kooperationsvertrag:
+	- Aufwandsentschädigung bei Bruch
+	- 
+
 ## ifs
 
 if listing files: reate them with an embedded link so i can quickly open them/see path
@@ -106,9 +146,9 @@ Fails
 
 
 pw openproject leela
-LeelaOP77!#
+[REDACTED — stored in ~/.config/openproject/op.env]
 token
-opapi-3e87f2201189f447492430dabe8df5a189831d08c41d60c01a4f653ad0776f98
+[REDACTED — stored in ~/.config/openproject/op.env]
 
 # Process-ceremony drift — forensic findings and solution options
 

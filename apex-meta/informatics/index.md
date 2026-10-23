@@ -7,7 +7,7 @@ tags: [informatics, index, router, okf-v0.2]
 
 # Apex Informatics Standard & Consolidated General Router
 
-Canonical entrypoint and conditional JIT routing index for the Apex OS knowledge and instruction architecture.
+Canonical entrypoint and conditional JIT routing index for Apex OS.
 
 ## 1. Core Operational Invariants
 
@@ -38,11 +38,13 @@ Canonical entrypoint and conditional JIT routing index for the Apex OS knowledge
   [P1 | I88/E92/R08] Validate frontmatter schemas, AST patch intent, and universal instruction parsimony.
 </informatics>
 
+<informatics when="evidence_retrieval_or_grounding" ref="../../.agents/skills/qmd/SKILL.md" deepen_when="speed_or_slicing">
+  [P1 | I95/E96/R05] Fast BM25 search (0.3s) before hybrid query; surgical 20-40 line slice fetching via qmd get.
+</informatics>
+
 ## 3. Governed Modular Specification Suite
 
-Each module owns its domain; §2 states what each one carries. Canonical owners across modules:
-`WP` prose and ranking, `FA` architecture and frontmatter, `EM` task adapters, `AD` drift laws,
-`GS` machine-readable contracts and diagnostics.
+Each module owns its domain; §2 states what each carries. Canonical owners: `WP` prose, `FA` architecture, `EM` adapters, `AD` drift, `GS` contracts.
 
 - [Writing Profile & Prose Ergonomics](writing-profile.md) — `WP-01..25`
 - [File Architecture & Bundle Structure](file-architecture.md) — `FA-01..13`
@@ -53,13 +55,15 @@ Each module owns its domain; §2 states what each one carries. Canonical owners 
 
 ## 4. Supporting Governance & History
 
-- [Apex Informatics Standard](standard.md) — Master 14-section governance standard combining OKF v0.2, Information Mapping, and STE prose.
-- [Migration & Onboarding Policy](migration.md) — Rules governing how existing and new repository knowledge conforms to the standard.
-- [Change Log](log.md) — Chronological version history and audit log.
-- [Agent Setup Sub-Bundle](Agent_Setup/index.md) — Sub-bundle boundary index for agent setup and legacy artifacts.
+- [Apex Informatics Standard](standard.md) — OKF v0.2 governance standard and STE prose.
+- [QMD Operational Plan](final/07-INTEGRATION-PLAN-AND-OPERATIONAL-DECISIONS.md) — Windows native decisions DEC-QMD-01..06.
+- [QMD Skill](../../.agents/skills/qmd/SKILL.md) — Plane 3 two-tier retrieval and surgical slicing.
+- [Migration Policy](migration.md) — Rules governing knowledge onboarding into the standard.
+- [Change Log](log.md) — Version history.
+- [Agent Setup](Agent_Setup/index.md) — Sub-bundle boundary index.
 
 ## 5. Sizing & Formatting Orientations
 
-- [P2 | I85/E90/R10] Operational Sizing: Sizing targets (~100L / ~400T) orient router efficiency; substantive target realization governs.
+- [P2 | I85/E90/R10] Operational Sizing: Sizing targets (~100L/~400T) orient efficiency; target realization governs.
 - [P2 | I80/E85/R12] Autonomous Decisions: Resolve routine reversible choices autonomously from evidence.
-- [P3 | I70/E80/R08] Heading Scannability: Prefer up to ~3 Markdown heading levels unless deep nesting aids clarity.
+- [P3 | I70/E80/R08] Heading Scannability: Prefer up to ~3 heading levels unless nesting aids clarity.

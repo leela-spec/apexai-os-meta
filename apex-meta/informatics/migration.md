@@ -1,5 +1,6 @@
 ---
 type: Policy
+id: POL-APEX-MIGRATION-v0.2
 title: Apex Informatics Migration & Onboarding Policy
 description: Migration rules governing how existing, modified, and newly created repository files enter the Apex Informatics Standard.
 tags: [informatics, migration, policy, okf]
