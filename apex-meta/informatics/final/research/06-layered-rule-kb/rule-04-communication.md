@@ -12,7 +12,7 @@ tags: [layered-kb, rule-04, communication, semantic-blocks, token-compression, r
 > **Position in Layered Knowledge Base:**
 > - **Layer 0 (Essence Contract):** [13-candidate-3A-xml.md](../../candidates/13-candidate-3A-xml.md) (format siblings: [14-candidate-3B-hybrid.md](../../candidates/14-candidate-3B-hybrid.md), [15-candidate-3C-bullet-hybrid.md](../../candidates/15-candidate-3C-bullet-hybrid.md))
 > - **Layer 1 (This File — Rule-Level Semantic Block Audit):** Decomposes `<communication>` into 4 atomic semantic blocks (`SB-04.1`..`SB-04.4`), audits token value against RLHF sycophancy and narrative bloat, and presents scored compression options.
-> - **Layer 2 (Downstream Infrastructure Modules):** [writing-profile.md](../../../writing-profile.md) (`WP-02`, `WP-03`, `WP-04`, `WP-05`, `WP-12`), [anti-drift-rules.md](../../../anti-drift-rules.md) (`AD-17`).
+> - **Layer 2 (Downstream Infrastructure Modules):** [writing-profile.md](../../specs/writing-profile.md) (`WP-02`, `WP-03`, `WP-04`, `WP-05`, `WP-12`), [anti-drift-rules.md](../../specs/anti-drift-rules.md) (`AD-17`).
 
 ---
 
@@ -116,8 +116,8 @@ Every token in `<communication>` belongs to one of four distinct semantic blocks
 - **Minto Pyramid Principle (BLUF):** Classic information architecture pattern prioritizing actionable conclusions before supporting derivations.
 
 ### 4.3 Canonical Plane 4 Infrastructure Modules & Operational Lore
-- **Canonical Writing Profile Owner (`WP-02`, `WP-03`, `WP-04`, `WP-05`, `WP-12`):** [writing-profile.md](../../../writing-profile.md)
-- **Canonical Anti-Drift Owner (`AD-17`):** [anti-drift-rules.md](../../../anti-drift-rules.md)
+- **Canonical Writing Profile Owner (`WP-02`, `WP-03`, `WP-04`, `WP-05`, `WP-12`):** [writing-profile.md](../../specs/writing-profile.md)
+- **Canonical Anti-Drift Owner (`AD-17`):** [anti-drift-rules.md](../../specs/anti-drift-rules.md)
 - **Operational Lore Grounding:** [2Dos Ai Instructions.md](../../../../AI-Snippets/Orga/2Dos%20Ai%20Instructions.md) (*"Cool Blue Register"*), [Snippets.md](../../../../AI-Snippets/Snippets.md) (*"Directness & BLUF"*).
 
 ---

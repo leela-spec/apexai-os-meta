@@ -12,7 +12,7 @@ tags: [layered-kb, rule-09, recovery, semantic-blocks, token-compression, resear
 > **Position in Layered Knowledge Base:**
 > - **Layer 0 (Essence Contract):** [13-candidate-3A-xml.md](../../candidates/13-candidate-3A-xml.md) (format siblings: [14-candidate-3B-hybrid.md](../../candidates/14-candidate-3B-hybrid.md), [15-candidate-3C-bullet-hybrid.md](../../candidates/15-candidate-3C-bullet-hybrid.md))
 > - **Layer 1 (This File — Rule-Level Semantic Block Audit):** Decomposes `<recovery>` into 2 atomic semantic blocks (`SB-09.1`..`SB-09.2`), audits token value against premature abortion and false blockers, and presents scored compression options.
-> - **Layer 2 (Downstream Infrastructure Modules):** [anti-drift-rules.md](../../../anti-drift-rules.md) (`AD-07`, `AD-16`, `AD-21`), [writing-profile.md](../../../writing-profile.md) (`WP-01`).
+> - **Layer 2 (Downstream Infrastructure Modules):** [anti-drift-rules.md](../../specs/anti-drift-rules.md) (`AD-07`, `AD-16`, `AD-21`), [writing-profile.md](../../specs/writing-profile.md) (`WP-01`).
 
 ---
 
@@ -86,8 +86,8 @@ Every token in `<recovery>` belongs to one of two distinct semantic blocks (`SB-
 - **SpecBench (2026):** [Benchmarking Specification Alignment in Coding Agents](https://arxiv.org/abs/2605.21384) — Demonstrates that preserving intent during intermediate error recovery prevents drift into unrelated codebase modifications.
 
 ### 4.3 Canonical Plane 4 Infrastructure Modules & Operational Lore
-- **Canonical Anti-Drift Owner (`AD-07`, `AD-16`, `AD-21`):** [anti-drift-rules.md](../../../anti-drift-rules.md)
-- **Canonical Writing Profile Owner (`WP-01`):** [writing-profile.md](../../../writing-profile.md)
+- **Canonical Anti-Drift Owner (`AD-07`, `AD-16`, `AD-21`):** [anti-drift-rules.md](../../specs/anti-drift-rules.md)
+- **Canonical Writing Profile Owner (`WP-01`):** [writing-profile.md](../../specs/writing-profile.md)
 - **Operational Lore Grounding:** [2Dos Ai Instructions.md](../../../../AI-Snippets/Orga/2Dos%20Ai%20Instructions.md) (*"Resolve incidental failures pragmatically"*), [Snippets.md](../../../../AI-Snippets/Snippets.md) (*"Core Intent Execution"*).
 
 ---

@@ -12,7 +12,7 @@ tags: [layered-kb, rule-01, target, semantic-blocks, token-compression, research
 > **Position in Layered Knowledge Base:**
 > - **Layer 0 (Essence Contract):** [13-candidate-3A-xml.md](../../candidates/13-candidate-3A-xml.md) (format siblings: [14-candidate-3B-hybrid.md](../../candidates/14-candidate-3B-hybrid.md), [15-candidate-3C-bullet-hybrid.md](../../candidates/15-candidate-3C-bullet-hybrid.md))
 > - **Layer 1 (This File — Rule-Level Semantic Block Audit):** Decomposes `<target>` into 4 atomic semantic blocks (`SB-01.1`..`SB-01.4`), audits whether each token bundle earns its place, and presents scored compression options.
-> - **Layer 2 (Downstream Infrastructure Modules):** [anti-drift-rules.md](../../../anti-drift-rules.md) (`AD-01`, `AD-09`, `AD-12`), [execution-modes.md](../../../execution-modes.md) (`EM-04`), [writing-profile.md](../../../writing-profile.md) (`WP-01`).
+> - **Layer 2 (Downstream Infrastructure Modules):** [anti-drift-rules.md](../../specs/anti-drift-rules.md) (`AD-01`, `AD-09`, `AD-12`), [execution-modes.md](../../specs/execution-modes.md) (`EM-04`), [writing-profile.md](../../specs/writing-profile.md) (`WP-01`).
 
 ---
 
@@ -116,9 +116,9 @@ Every token in `<target>` belongs to one of four distinct semantic blocks (`SB-0
 - **FixedBench (2026):** [Evaluating Over-Modification on Already-Fixed States](https://arxiv.org/abs/2605.07769) — Proves 68%–91% unnecessary modification rate without explicit no-op legitimacy (`SB-01.4`).
 
 ### 4.3 Canonical Plane 4 Infrastructure Modules & Operational Lore
-- **Canonical Anti-Drift Owner (`AD-01`, `AD-09`, `AD-12`):** [anti-drift-rules.md](../../../anti-drift-rules.md)
-- **Canonical Execution Adapter Owner (`EM-04`):** [execution-modes.md](../../../execution-modes.md)
-- **Canonical Writing Profile Owner (`WP-01`):** [writing-profile.md](../../../writing-profile.md)
+- **Canonical Anti-Drift Owner (`AD-01`, `AD-09`, `AD-12`):** [anti-drift-rules.md](../../specs/anti-drift-rules.md)
+- **Canonical Execution Adapter Owner (`EM-04`):** [execution-modes.md](../../specs/execution-modes.md)
+- **Canonical Writing Profile Owner (`WP-01`):** [writing-profile.md](../../specs/writing-profile.md)
 - **Upstream Operational Lore:** [2Dos Ai Instructions.md](../../../../AI-Snippets/Orga/2Dos%20Ai%20Instructions.md), [Snippets.md](../../../../AI-Snippets/Snippets.md), and [A01-target-outcome-alignment/README.md](../../research/01-universal-instruction-research/module-deepening/A01-target-outcome-alignment/README.md).
 
 ---

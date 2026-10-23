@@ -137,7 +137,7 @@ including surrounding context
 ```
 
 ### 4.2 Mode B: Structured AST Patch Intent (`patch_intent.v1`)
-When interfacing with automated AST patch tools, output JSON conforming to `patch_intent.v1`. The operative contract is in [governance-schemas.md](governance-schemas.md) §2.2; the authoritative schema is [patch-intent-schema.json](../../.claude/skills/deterministic-markdown-patcher2/references/patch-intent-schema.json). This block is the worked example, not a second copy of the schema (`WP-23`):
+When interfacing with automated AST patch tools, output JSON conforming to `patch_intent.v1`. The operative contract is in [governance-schemas.md](governance-schemas.md) §2.2; the authoritative schema is [patch-intent-schema.json](../../../../.claude/skills/deterministic-markdown-patcher2/references/patch-intent-schema.json). This block is the worked example, not a second copy of the schema (`WP-23`):
 
 ```json
 {

@@ -29,12 +29,21 @@ from typing import Dict, List, Optional, Tuple
 import unittest
 
 # Ensure apex-meta/scripts is discoverable for okf_validator imports
-REPO_ROOT = Path(__file__).resolve().parents[3]
-INFORMATICS_DIR = REPO_ROOT / "apex-meta" / "informatics"
+REPO_ROOT = Path(__file__).resolve().parents[5]
+INFORMATICS_DIR = REPO_ROOT / "apex-meta" / "informatics" / "final"
 SCRIPTS_DIR = REPO_ROOT / "apex-meta" / "scripts"
+FINAL_TOOLS_DIR = INFORMATICS_DIR / "tools"
 
-if str(SCRIPTS_DIR) not in sys.path:
-    sys.path.insert(0, str(SCRIPTS_DIR))
+for p in (SCRIPTS_DIR, FINAL_TOOLS_DIR):
+    if str(p) not in sys.path:
+        sys.path.insert(0, str(p))
+
+def resolve_informatics_file(path_str: str) -> Path:
+    for base in (INFORMATICS_DIR, INFORMATICS_DIR / "specs", INFORMATICS_DIR / "sub-bundles"):
+        candidate = base / path_str
+        if candidate.exists():
+            return candidate
+    return INFORMATICS_DIR / path_str
 
 try:
     import okf_validator
@@ -1484,7 +1493,7 @@ class TestLiveInformaticsBundleAudit(unittest.TestCase):
     """
 
     def test_live_01_agent_setup_sub_bundle_isolation(self):
-        agent_setup_index = INFORMATICS_DIR / "Agent_Setup" / "index.md"
+        agent_setup_index = resolve_informatics_file("Agent_Setup/index.md")
         if not agent_setup_index.exists():
             self.skipTest("Agent_Setup/index.md is pending creation in Milestone M1.")
         content = agent_setup_index.read_text(encoding="utf-8")
@@ -1493,7 +1502,7 @@ class TestLiveInformaticsBundleAudit(unittest.TestCase):
         self.assertEqual(fm.get("okf_version"), "0.2")
 
     def test_live_02_writing_profile_compliance(self):
-        target = INFORMATICS_DIR / "writing-profile.md"
+        target = resolve_informatics_file("writing-profile.md")
         if not target.exists():
             self.skipTest("writing-profile.md is pending creation in Milestone M1.")
         content = target.read_text(encoding="utf-8")
@@ -1506,7 +1515,7 @@ class TestLiveInformaticsBundleAudit(unittest.TestCase):
         self.assertTrue(valid_order, msg)
 
     def test_live_03_file_architecture_compliance(self):
-        target = INFORMATICS_DIR / "file-architecture.md"
+        target = resolve_informatics_file("file-architecture.md")
         if not target.exists():
             self.skipTest("file-architecture.md is pending creation in Milestone M1.")
         content = target.read_text(encoding="utf-8")
@@ -1517,7 +1526,7 @@ class TestLiveInformaticsBundleAudit(unittest.TestCase):
         self.assertGreater(len(tags), 0)
 
     def test_live_04_execution_modes_compliance(self):
-        target = INFORMATICS_DIR / "execution-modes.md"
+        target = resolve_informatics_file("execution-modes.md")
         if not target.exists():
             self.skipTest("execution-modes.md is pending creation in Milestone M1.")
         content = target.read_text(encoding="utf-8")
@@ -1526,7 +1535,7 @@ class TestLiveInformaticsBundleAudit(unittest.TestCase):
         self.assertTrue(fm.get("type"))
 
     def test_live_05_anti_drift_rules_compliance(self):
-        target = INFORMATICS_DIR / "anti-drift-rules.md"
+        target = resolve_informatics_file("anti-drift-rules.md")
         if not target.exists():
             self.skipTest("anti-drift-rules.md is pending creation in Milestone M2.")
         content = target.read_text(encoding="utf-8")
@@ -1536,7 +1545,7 @@ class TestLiveInformaticsBundleAudit(unittest.TestCase):
         self.assertTrue(is_top, f"Critical P0 anti-drift laws must be top-loaded (found at token {token_pos})")
 
     def test_live_06_governance_schemas_compliance(self):
-        target = INFORMATICS_DIR / "governance-schemas.md"
+        target = resolve_informatics_file("governance-schemas.md")
         if not target.exists():
             self.skipTest("governance-schemas.md is pending creation in Milestone M2.")
         content = target.read_text(encoding="utf-8")
@@ -1544,7 +1553,7 @@ class TestLiveInformaticsBundleAudit(unittest.TestCase):
         self.assertIsNone(err)
 
     def test_live_07_general_router_compactness(self):
-        router_path = INFORMATICS_DIR / "general-informatics-router.md"
+        router_path = resolve_informatics_file("general-informatics-router.md")
         if not router_path.exists():
             self.skipTest("general-informatics-router.md is pending creation in Milestone M2.")
         content = router_path.read_text(encoding="utf-8")

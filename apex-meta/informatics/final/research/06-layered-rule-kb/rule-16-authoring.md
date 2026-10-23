@@ -12,7 +12,7 @@ tags: [layered-kb, rule-16, authoring, semantic-blocks, token-compression, resea
 > **Position in Layered Knowledge Base:**
 > - **Layer 0 (Essence Contract):** [13-candidate-3A-xml.md](../../candidates/13-candidate-3A-xml.md) (format siblings: [14-candidate-3B-hybrid.md](../../candidates/14-candidate-3B-hybrid.md), [15-candidate-3C-bullet-hybrid.md](../../candidates/15-candidate-3C-bullet-hybrid.md))
 > - **Layer 1 (This File — Rule-Level Semantic Block Audit):** Decomposes `<authoring>` into 6 atomic semantic blocks (`SB-16.1`..`SB-16.6`), audits token value, and presents scored compression options.
-> - **Layer 2 (Downstream Infrastructure Modules):** [file-architecture.md](../../../file-architecture.md) (`FA-13`, `FA-06`, `FA-02`, `FA-10`), [writing-profile.md](../../../writing-profile.md) (`WP-06`, `WP-07`, `WP-10`, `WP-19`, `WP-24`, `WP-25`), [governance-schemas.md](../../../governance-schemas.md) (`GS-03`, `GS-04`, `GS-14`..`GS-17`), [index.md](../../../index.md).
+> - **Layer 2 (Downstream Infrastructure Modules):** [file-architecture.md](../../specs/file-architecture.md) (`FA-13`, `FA-06`, `FA-02`, `FA-10`), [writing-profile.md](../../specs/writing-profile.md) (`WP-06`, `WP-07`, `WP-10`, `WP-19`, `WP-24`, `WP-25`), [governance-schemas.md](../../specs/governance-schemas.md) (`GS-03`, `GS-04`, `GS-14`..`GS-17`), [index.md](../../index.md).
 
 ---
 
@@ -150,10 +150,10 @@ Every token in `<authoring>` belongs to one of six distinct semantic blocks (`SB
 - **SpecBench (2026):** Specification alignment in coding agents and the necessity of front-loaded invariants in long contexts.
 
 ### 4.3 Canonical Plane 4 Infrastructure Modules & Operational Lore
-- **Canonical File Architecture Owner (`FA-13`, `FA-06`, `FA-02`, `FA-10`):** [file-architecture.md](../../../file-architecture.md)
-- **Canonical Writing Profile Owner (`WP-06`, `WP-07`, `WP-10`, `WP-19`, `WP-24`, `WP-25`):** [writing-profile.md](../../../writing-profile.md)
-- **Canonical Governance Schemas Owner (`GS-03`, `GS-04`, `GS-14`..`GS-17`):** [governance-schemas.md](../../../governance-schemas.md)
-- **Canonical Root Router:** [index.md](../../../index.md)
+- **Canonical File Architecture Owner (`FA-13`, `FA-06`, `FA-02`, `FA-10`):** [file-architecture.md](../../specs/file-architecture.md)
+- **Canonical Writing Profile Owner (`WP-06`, `WP-07`, `WP-10`, `WP-19`, `WP-24`, `WP-25`):** [writing-profile.md](../../specs/writing-profile.md)
+- **Canonical Governance Schemas Owner (`GS-03`, `GS-04`, `GS-14`..`GS-17`):** [governance-schemas.md](../../specs/governance-schemas.md)
+- **Canonical Root Router:** [index.md](../../index.md)
 - **Operational Lore Grounding:** [2Dos Ai Instructions.md](../../../../AI-Snippets/Orga/2Dos%20Ai%20Instructions.md) (*"Flat YAML Serialization"*), [Snippets.md](../../../../AI-Snippets/Snippets.md) (*"Significance Ranking Architecture"*).
 
 ---

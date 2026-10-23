@@ -21,8 +21,8 @@ import re
 import unittest
 from pathlib import Path
 
-REPO_ROOT = Path(__file__).resolve().parents[3]
-INFORMATICS_DIR = REPO_ROOT / "apex-meta" / "informatics"
+REPO_ROOT = Path(__file__).resolve().parents[5]
+INFORMATICS_DIR = REPO_ROOT / "apex-meta" / "informatics" / "final"
 
 # The seven governed files of the live suite.
 GOVERNED_FILES = [
@@ -49,8 +49,16 @@ CANONICAL_POINTER_PATTERN = re.compile(r"[Cc]anonical[^:\n]*:\s*`((?:WP|FA|EM|AD
 MARKDOWN_LINK_PATTERN = re.compile(r"\[[^\]]*\]\(([^)\s]+)\)")
 
 
+def get_path(name: str) -> Path:
+    if (INFORMATICS_DIR / name).exists():
+        return INFORMATICS_DIR / name
+    if (INFORMATICS_DIR / "specs" / name).exists():
+        return INFORMATICS_DIR / "specs" / name
+    return INFORMATICS_DIR / name
+
+
 def read(name: str) -> str:
-    return (INFORMATICS_DIR / name).read_text(encoding="utf-8")
+    return get_path(name).read_text(encoding="utf-8")
 
 
 def strip_code(content: str) -> str:
@@ -175,10 +183,11 @@ class TestLinkPortability(unittest.TestCase):
                 if not target:
                     continue
                 with self.subTest(file=name, link=link):
-                    resolved = (INFORMATICS_DIR / target.replace("%20", " ")).resolve()
+                    base_dir = get_path(name).parent
+                    resolved = (base_dir / target.replace("%20", " ")).resolve()
                     self.assertTrue(
                         resolved.exists(),
-                        f"{name} links to '{link}', which does not resolve to an existing path.",
+                        f"{name} links to '{link}', which does not resolve to an existing path (looked at {resolved}).",
                     )
 
 

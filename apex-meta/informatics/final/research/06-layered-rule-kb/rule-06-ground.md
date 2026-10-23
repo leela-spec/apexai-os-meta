@@ -12,7 +12,7 @@ tags: [layered-kb, rule-06, ground, semantic-blocks, token-compression, research
 > **Position in Layered Knowledge Base:**
 > - **Layer 0 (Essence Contract):** [13-candidate-3A-xml.md](../../candidates/13-candidate-3A-xml.md) (format siblings: [14-candidate-3B-hybrid.md](../../candidates/14-candidate-3B-hybrid.md), [15-candidate-3C-bullet-hybrid.md](../../candidates/15-candidate-3C-bullet-hybrid.md))
 > - **Layer 1 (This File — Rule-Level Semantic Block Audit):** Decomposes `<ground>` into 4 atomic semantic blocks (`SB-06.1`..`SB-06.4`), audits token value against hallucination and lazy handoffs, and presents scored compression options.
-> - **Layer 2 (Downstream Infrastructure Modules):** [anti-drift-rules.md](../../../anti-drift-rules.md) (`AD-19`, `AD-20`, `AD-06`), [writing-profile.md](../../../writing-profile.md) (`WP-04`, `WP-16`).
+> - **Layer 2 (Downstream Infrastructure Modules):** [anti-drift-rules.md](../../specs/anti-drift-rules.md) (`AD-19`, `AD-20`, `AD-06`), [writing-profile.md](../../specs/writing-profile.md) (`WP-04`, `WP-16`).
 
 ---
 
@@ -116,8 +116,8 @@ Every token in `<ground>` belongs to one of four distinct semantic blocks (`SB-0
 - **BEIR Information Retrieval Benchmark:** Demonstrates the value of multi-source cross-verification in suppressing ungrounded model generations.
 
 ### 4.3 Canonical Plane 4 Infrastructure Modules & Operational Lore
-- **Canonical Anti-Drift Owner (`AD-19`, `AD-20`, `AD-06`):** [anti-drift-rules.md](../../../anti-drift-rules.md)
-- **Canonical Writing Profile Owner (`WP-04`, `WP-16`):** [writing-profile.md](../../../writing-profile.md)
+- **Canonical Anti-Drift Owner (`AD-19`, `AD-20`, `AD-06`):** [anti-drift-rules.md](../../specs/anti-drift-rules.md)
+- **Canonical Writing Profile Owner (`WP-04`, `WP-16`):** [writing-profile.md](../../specs/writing-profile.md)
 - **Canonical Plane 3 Retrieval Skill:** [qmd/SKILL.md](../../../../../.agents/skills/qmd/SKILL.md) (`qmd get <path:line:count>` provides line-precise evidence citations grounding every claim).
 - **Canonical Operational Decision Record:** [07-INTEGRATION-PLAN-AND-OPERATIONAL-DECISIONS.md](../../07-INTEGRATION-PLAN-AND-OPERATIONAL-DECISIONS.md) (`DEC-QMD-01` two-tier escalation and `DEC-QMD-04` surgical slicing).
 - **Operational Lore Grounding:** [2Dos Ai Instructions.md](../../../../AI-Snippets/Orga/2Dos%20Ai%20Instructions.md) (*"Primary Grounding vs Secondary Citation"*), [Snippets.md](../../../../AI-Snippets/Snippets.md) (*"Command-Carrying Claims"*).

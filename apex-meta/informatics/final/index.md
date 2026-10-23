@@ -16,9 +16,9 @@ tags: [informatics, final, master-index, candidates, research-corpus, v1.0]
 > - **Carrier Integration Blueprint:** [candidates/03-BLUEPRINT-agents.md](candidates/03-BLUEPRINT-agents.md) (Two-Layer integration for `AGENTS.md`, `CLAUDE.md`, `GEMINI.md`)
 > - **Layered Rule Knowledge Base:** [research/06-layered-rule-kb/index.md](research/06-layered-rule-kb/index.md) (All 22 rules decomposed into semantic blocks, 5 Plane 4 module audits, and recomposition rollups)
 > - **Empirical Test Protocol:** [candidates/04-empirical-test-protocol.md](candidates/04-empirical-test-protocol.md) (16-task, 9-arm pre-registered testing harness)
-> - **Idea Incubator & Close Cuts:** [05-LONG-LIST-IDEAS-AND-CLOSE-CUTS.md](05-LONG-LIST-IDEAS-AND-CLOSE-CUTS.md) (Long list of ideas, close cuts, and deferred models)
-> - **Architecture & Thinking Process:** [06-EXECUTION-PLAN-AND-THINKING-PROCESS.md](06-EXECUTION-PLAN-AND-THINKING-PROCESS.md) (Comprehensive design rationale, milestone status, and QMD vector retrieval strategy)
-> - **Operational Decisions & Integration Plan:** [07-INTEGRATION-PLAN-AND-OPERATIONAL-DECISIONS.md](07-INTEGRATION-PLAN-AND-OPERATIONAL-DECISIONS.md) (Authoritative decisions DEC-QMD-01..06, Windows workstation execution protocol, and QMD skill architecture)
+> - **Idea Incubator & Close Cuts:** [05-LONG-LIST-IDEAS-AND-CLOSE-CUTS.md](operations/05-LONG-LIST-IDEAS-AND-CLOSE-CUTS.md) (Long list of ideas, close cuts, and deferred models)
+> - **Architecture & Thinking Process:** [06-EXECUTION-PLAN-AND-THINKING-PROCESS.md](operations/06-EXECUTION-PLAN-AND-THINKING-PROCESS.md) (Comprehensive design rationale, milestone status, and QMD vector retrieval strategy)
+> - **Operational Decisions & Integration Plan:** [07-INTEGRATION-PLAN-AND-OPERATIONAL-DECISIONS.md](operations/07-INTEGRATION-PLAN-AND-OPERATIONAL-DECISIONS.md) (Authoritative decisions DEC-QMD-01..06, Windows workstation execution protocol, and QMD skill architecture)
 
 ---
 
@@ -98,4 +98,4 @@ Every rule in the canonical `3A` contract block maps to its underlying research 
 | [`<iterative>`](research/06-layered-rule-kb/rule-19-iterative.md) | [`module-deepening/A04-complexity-adaptive-workflow/README.md`](research/01-universal-instruction-research/module-deepening/A04-complexity-adaptive-workflow/README.md), `A07` | `RP-08` (Kept Route Ladder & MMM cue) | `EM-10`, `EM-11`, `AD-04` |
 | [`<schemas>`](research/06-layered-rule-kb/rule-20-schemas.md) | [`module-deepening/C03-conditional-informatics-formal-authoring/README.md`](research/01-universal-instruction-research/module-deepening/C03-conditional-informatics-formal-authoring/README.md) | `RP-08` (Kept exact JSON/YAML schema cue) | `GS-01`, `GS-09`..`11` |
 | [`<sync>`](research/06-layered-rule-kb/rule-21-sync.md) | [`patches/2026-09-22-c02-conditional-research-discipline/`](research/01-universal-instruction-research/patches/2026-09-22-c02-conditional-research-discipline/) | `RP-10` (Single owner of Git sync) | `EM-12`, `AD-23` |
-| [`<pointers>`](research/06-layered-rule-kb/rule-22-pointers.md) | [`general-informatics-router.md`](../general-informatics-router.md) | `RP-08` (Folded 2-threshold rule into pointers) | `WP-18`, `WP-25`, `AD-26` |
+| [`<pointers>`](research/06-layered-rule-kb/rule-22-pointers.md) | [`general-informatics-router.md`](specs/general-informatics-router.md) | `RP-08` (Folded 2-threshold rule into pointers) | `WP-18`, `WP-25`, `AD-26` |

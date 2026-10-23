@@ -14,7 +14,7 @@ tags: [layered-kb, rules, semantic-blocks, audits, index, v1.0, token-compressio
 > This directory houses the comprehensive atomic decomposition of all 22 rules in the Apex Informatics Instruction Contract ([`13-candidate-3A-xml.md`](../../candidates/13-candidate-3A-xml.md)), evaluating the necessity and token value of each individual semantic block (`SB-XX.k`), formulating surgical compressions (Option B), and auditing all 5 canonical Plane 4 infrastructure modules.
 >
 > - **Essence Contracts (Layer 0):** Master [`13-candidate-3A-xml.md`](../../candidates/13-candidate-3A-xml.md) (`1,350` BPE), format siblings [`14-candidate-3B-hybrid.md`](../../candidates/14-candidate-3B-hybrid.md) & [`15-candidate-3C-bullet-hybrid.md`](../../candidates/15-candidate-3C-bullet-hybrid.md), and compiled ultra candidate [`16-candidate-3A-ultra.md`](../../candidates/16-candidate-3A-ultra.md) (`1,225` empirical BPE / `~950` BPE prompt target).
-> - **Downstream Specifications (Layer 2):** Canonical Plane 4 modules: [`writing-profile.md`](../../../writing-profile.md), [`file-architecture.md`](../../../file-architecture.md), [`execution-modes.md`](../../../execution-modes.md), [`anti-drift-rules.md`](../../../anti-drift-rules.md), [`governance-schemas.md`](../../../governance-schemas.md), and [`general-informatics-router.md`](../../../general-informatics-router.md).
+> - **Downstream Specifications (Layer 2):** Canonical Plane 4 modules: [`writing-profile.md`](../../specs/writing-profile.md), [`file-architecture.md`](../../specs/file-architecture.md), [`execution-modes.md`](../../specs/execution-modes.md), [`anti-drift-rules.md`](../../specs/anti-drift-rules.md), [`governance-schemas.md`](../../specs/governance-schemas.md), and [`general-informatics-router.md`](../../specs/general-informatics-router.md).
 > - **Parent Final Index:** [`apex-meta/informatics/final/index.md`](../../index.md).
 
 ---
@@ -59,11 +59,11 @@ The 5 infrastructure module audits evaluate semantic block density, purge cross-
 
 | Module Audit | Audited Canonical Specification | Governed Rule IDs | Size | Single-Ownership (`WP-23`) Status | Key Refactoring & Purge Findings |
 |---|---|---|---:|---|---|
-| [**`audit-module-01-writing-profile.md`**](audit-module-01-writing-profile.md) | [`writing-profile.md`](../../../writing-profile.md) | `WP-01` through `WP-25` (25 rules) | 35.3 KB | 22 Canonically Owned, 3 Delegations | Purges redundant STE word counters; clarifies informational ceiling exception authority (`WP-01`). |
-| [**`audit-module-02-file-architecture.md`**](audit-module-02-file-architecture.md) | [`file-architecture.md`](../../../file-architecture.md) | `FA-01` through `FA-13` (13 rules) | 25.3 KB | 13 Canonically Owned, 0 Delegations | Enforces strict current-truth separation; standardizes OKF v0.2 frontmatter schemas (`FA-06`). |
-| [**`audit-module-03-execution-modes.md`**](audit-module-03-execution-modes.md) | [`execution-modes.md`](../../../execution-modes.md) | `EM-01` through `EM-12` (12 rules) | 25.5 KB | 12 Canonically Owned, 0 Delegations | Codifies exact-match AST patch intent discipline (`EM-08`) and the 4D delegation contract (`EM-09`). |
-| [**`audit-module-04-anti-drift-rules.md`**](audit-module-04-anti-drift-rules.md) | [`anti-drift-rules.md`](../../../anti-drift-rules.md) | `AD-01` through `AD-28` (28 rules) | 35.5 KB | 28 Canonically Owned, 0 Delegations | Formalizes target dominance (`AD-01`), the two-strike loop cut (`AD-02`), and no-op legitimacy (`AD-09`). |
-| [**`audit-module-05-governance-schemas.md`**](audit-module-05-governance-schemas.md) | [`governance-schemas.md`](../../../governance-schemas.md) | `GS-01` through `GS-22` (19 active, 3 retired) | 30.2 KB | 19 Canonically Owned, 3 Retired (`GS-16, 18, 19`) | Establishes `patch_intent.v1` schema compliance and directive budget accounting across frontier LLMs. |
+| [**`audit-module-01-writing-profile.md`**](audit-module-01-writing-profile.md) | [`writing-profile.md`](../../specs/writing-profile.md) | `WP-01` through `WP-25` (25 rules) | 35.3 KB | 22 Canonically Owned, 3 Delegations | Purges redundant STE word counters; clarifies informational ceiling exception authority (`WP-01`). |
+| [**`audit-module-02-file-architecture.md`**](audit-module-02-file-architecture.md) | [`file-architecture.md`](../../specs/file-architecture.md) | `FA-01` through `FA-13` (13 rules) | 25.3 KB | 13 Canonically Owned, 0 Delegations | Enforces strict current-truth separation; standardizes OKF v0.2 frontmatter schemas (`FA-06`). |
+| [**`audit-module-03-execution-modes.md`**](audit-module-03-execution-modes.md) | [`execution-modes.md`](../../specs/execution-modes.md) | `EM-01` through `EM-12` (12 rules) | 25.5 KB | 12 Canonically Owned, 0 Delegations | Codifies exact-match AST patch intent discipline (`EM-08`) and the 4D delegation contract (`EM-09`). |
+| [**`audit-module-04-anti-drift-rules.md`**](audit-module-04-anti-drift-rules.md) | [`anti-drift-rules.md`](../../specs/anti-drift-rules.md) | `AD-01` through `AD-28` (28 rules) | 35.5 KB | 28 Canonically Owned, 0 Delegations | Formalizes target dominance (`AD-01`), the two-strike loop cut (`AD-02`), and no-op legitimacy (`AD-09`). |
+| [**`audit-module-05-governance-schemas.md`**](audit-module-05-governance-schemas.md) | [`governance-schemas.md`](../../specs/governance-schemas.md) | `GS-01` through `GS-22` (19 active, 3 retired) | 30.2 KB | 19 Canonically Owned, 3 Retired (`GS-16, 18, 19`) | Establishes `patch_intent.v1` schema compliance and directive budget accounting across frontier LLMs. |
 
 ---
 
@@ -87,5 +87,5 @@ The 5 infrastructure module audits evaluate semantic block density, purge cross-
 - **Deep Reasoning Sub-Bundle:** [`research/02-deep-reasoning/index.md`](../02-deep-reasoning/index.md)
 - **Ten-Packet Research Synthesis:** [`research/03-research-of-file-10/RESULTS-11-synthesis.md`](../03-research-of-file-10/RESULTS-11-synthesis.md)
 - **Finalization Audit Dossier:** [`research/04-finalization-dossier/index.md`](../04-finalization-dossier/index.md)
-- **Canonical Plane 4 Library Root:** [`apex-meta/informatics/index.md`](../../../index.md)
-- **General Informatics Router:** [`apex-meta/informatics/general-informatics-router.md`](../../../general-informatics-router.md)
+- **Canonical Plane 4 Library Root:** [`apex-meta/informatics/index.md`](../../index.md)
+- **General Informatics Router:** [`apex-meta/informatics/general-informatics-router.md`](../../specs/general-informatics-router.md)

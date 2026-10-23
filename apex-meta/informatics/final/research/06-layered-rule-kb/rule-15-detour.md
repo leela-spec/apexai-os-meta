@@ -12,7 +12,7 @@ tags: [layered-kb, rule-15, detour, semantic-blocks, token-compression, research
 > **Position in Layered Knowledge Base:**
 > - **Layer 0 (Essence Contract):** [13-candidate-3A-xml.md](../../candidates/13-candidate-3A-xml.md) (format siblings: [14-candidate-3B-hybrid.md](../../candidates/14-candidate-3B-hybrid.md), [15-candidate-3C-bullet-hybrid.md](../../candidates/15-candidate-3C-bullet-hybrid.md))
 > - **Layer 1 (This File — Rule-Level Semantic Block Audit):** Decomposes `<detour>` into 2 atomic semantic blocks (`SB-15.1`..`SB-15.2`), audits token value against unrequested refactoring detours, and presents scored compression options.
-> - **Layer 2 (Downstream Infrastructure Modules):** [anti-drift-rules.md](../../../anti-drift-rules.md) (`AD-05`, `AD-10`, `AD-12`), [writing-profile.md](../../../writing-profile.md) (`WP-01`).
+> - **Layer 2 (Downstream Infrastructure Modules):** [anti-drift-rules.md](../../specs/anti-drift-rules.md) (`AD-05`, `AD-10`, `AD-12`), [writing-profile.md](../../specs/writing-profile.md) (`WP-01`).
 
 ---
 
@@ -87,8 +87,8 @@ Every token in `<detour>` belongs to one of two distinct semantic blocks (`SB-15
 - **FixedBench (2026):** [Evaluating Over-Modification on Already-Fixed States](https://arxiv.org/abs/2605.07769) — Proves that autonomous coding agents wander into unprompted refactorings in 82% of unconstrained runs, increasing regression rates by 3.4x.
 
 ### 4.3 Canonical Plane 4 Infrastructure Modules & Operational Lore
-- **Canonical Anti-Drift Owner (`AD-05`, `AD-10`, `AD-12`):** [anti-drift-rules.md](../../../anti-drift-rules.md)
-- **Canonical Writing Profile Owner (`WP-01`):** [writing-profile.md](../../../writing-profile.md)
+- **Canonical Anti-Drift Owner (`AD-05`, `AD-10`, `AD-12`):** [anti-drift-rules.md](../../specs/anti-drift-rules.md)
+- **Canonical Writing Profile Owner (`WP-01`):** [writing-profile.md](../../specs/writing-profile.md)
 - **Operational Lore Grounding:** [2Dos Ai Instructions.md](../../../../AI-Snippets/Orga/2Dos%20Ai%20Instructions.md) (*"Operator Challenge Boundary"*), [Snippets.md](../../../../AI-Snippets/Snippets.md) (*"Product Advancement Invariant"*).
 
 ---

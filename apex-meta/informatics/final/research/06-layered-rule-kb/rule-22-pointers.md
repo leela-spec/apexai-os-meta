@@ -12,7 +12,7 @@ tags: [layered-kb, rule-22, pointers, semantic-blocks, token-compression, resear
 > **Position in Layered Knowledge Base:**
 > - **Layer 0 (Essence Contract):** [13-candidate-3A-xml.md](../../candidates/13-candidate-3A-xml.md) (format siblings: [14-candidate-3B-hybrid.md](../../candidates/14-candidate-3B-hybrid.md), [15-candidate-3C-bullet-hybrid.md](../../candidates/15-candidate-3C-bullet-hybrid.md))
 > - **Layer 1 (This File — Rule-Level Semantic Block Audit):** Decomposes `<pointers>` into 2 atomic semantic blocks (`SB-22.1`..`SB-22.2`), audits token value as the terminal guard, and presents scored compression options.
-> - **Layer 2 (Downstream Infrastructure Modules):** [general-informatics-router.md](../../../general-informatics-router.md), [writing-profile.md](../../../writing-profile.md) (`WP-25`, `WP-18`), [anti-drift-rules.md](../../../anti-drift-rules.md) (`AD-26`).
+> - **Layer 2 (Downstream Infrastructure Modules):** [general-informatics-router.md](../../specs/general-informatics-router.md), [writing-profile.md](../../specs/writing-profile.md) (`WP-25`, `WP-18`), [anti-drift-rules.md](../../specs/anti-drift-rules.md) (`AD-26`).
 
 ---
 
@@ -87,9 +87,9 @@ Every token in `<pointers>` belongs to one of two distinct semantic blocks (`SB-
 - **SpecBench (2026):** Progressive context retrieval and the quantitative hazards of premature, eager reference loading in coding agents.
 
 ### 4.3 Canonical Plane 4 Infrastructure Modules & Operational Lore
-- **Canonical General Router Owner:** [general-informatics-router.md](../../../general-informatics-router.md)
-- **Canonical Writing Profile Owner (`WP-25`, `WP-18`):** [writing-profile.md](../../../writing-profile.md)
-- **Canonical Anti-Drift Owner (`AD-26`):** [anti-drift-rules.md](../../../anti-drift-rules.md)
+- **Canonical General Router Owner:** [general-informatics-router.md](../../specs/general-informatics-router.md)
+- **Canonical Writing Profile Owner (`WP-25`, `WP-18`):** [writing-profile.md](../../specs/writing-profile.md)
+- **Canonical Anti-Drift Owner (`AD-26`):** [anti-drift-rules.md](../../specs/anti-drift-rules.md)
 - **Operational Lore Grounding:** [2Dos Ai Instructions.md](../../../../AI-Snippets/Orga/2Dos%20Ai%20Instructions.md) (*"Two-threshold JIT routing"*), [Snippets.md](../../../../AI-Snippets/Snippets.md) (*"Terminal Guard"*).
 
 ---

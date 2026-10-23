@@ -12,7 +12,7 @@ tags: [layered-kb, rule-10, stop-repairing, semantic-blocks, token-compression, 
 > **Position in Layered Knowledge Base:**
 > - **Layer 0 (Essence Contract):** [13-candidate-3A-xml.md](../../candidates/13-candidate-3A-xml.md) (format siblings: [14-candidate-3B-hybrid.md](../../candidates/14-candidate-3B-hybrid.md), [15-candidate-3C-bullet-hybrid.md](../../candidates/15-candidate-3C-bullet-hybrid.md))
 > - **Layer 1 (This File — Rule-Level Semantic Block Audit):** Decomposes `<stop_repairing>` into 2 atomic semantic blocks (`SB-10.1`..`SB-10.2`), audits token value against repair loop thrashing, and presents scored compression options.
-> - **Layer 2 (Downstream Infrastructure Modules):** [anti-drift-rules.md](../../../anti-drift-rules.md) (`AD-02`, `AD-07`, `AD-24`), [execution-modes.md](../../../execution-modes.md) (`EM-05`), [writing-profile.md](../../../writing-profile.md) (`WP-01`).
+> - **Layer 2 (Downstream Infrastructure Modules):** [anti-drift-rules.md](../../specs/anti-drift-rules.md) (`AD-02`, `AD-07`, `AD-24`), [execution-modes.md](../../specs/execution-modes.md) (`EM-05`), [writing-profile.md](../../specs/writing-profile.md) (`WP-01`).
 
 ---
 
@@ -85,9 +85,9 @@ Every token in `<stop_repairing>` belongs to one of two distinct semantic blocks
 - **FixedBench (2026):** [Evaluating Over-Modification on Already-Fixed States](https://arxiv.org/abs/2605.07769) — Demonstrates that without strict loop-breaker constraints, language model agents enter cyclic repair states with failure rates exceeding 85% on 3rd and subsequent attempts.
 
 ### 4.3 Canonical Plane 4 Infrastructure Modules & Operational Lore
-- **Canonical Anti-Drift Owner (`AD-02`, `AD-07`, `AD-24`):** [anti-drift-rules.md](../../../anti-drift-rules.md)
-- **Canonical Execution Adapter Owner (`EM-05`):** [execution-modes.md](../../../execution-modes.md)
-- **Canonical Writing Profile Owner (`WP-01`):** [writing-profile.md](../../../writing-profile.md)
+- **Canonical Anti-Drift Owner (`AD-02`, `AD-07`, `AD-24`):** [anti-drift-rules.md](../../specs/anti-drift-rules.md)
+- **Canonical Execution Adapter Owner (`EM-05`):** [execution-modes.md](../../specs/execution-modes.md)
+- **Canonical Writing Profile Owner (`WP-01`):** [writing-profile.md](../../specs/writing-profile.md)
 - **Operational Lore Grounding:** [2Dos Ai Instructions.md](../../../../AI-Snippets/Orga/2Dos%20Ai%20Instructions.md) (*"Two-Strike Rule"*), [Snippets.md](../../../../AI-Snippets/Snippets.md) (*"Sunk-Cost Prohibition"*).
 
 ---

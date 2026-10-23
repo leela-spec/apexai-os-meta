@@ -155,10 +155,10 @@ Deterministic tooling enforces three distinct diagnostic classes:
 
 ## 14. Grounded References
 
-- [OKF v0.2 Conformance Rules](../SmallSkills/OKF_Format/conformance-rules.md)
-- [Informatics Design Formats Practice Guide](../kb/claude-code-orchestration-design/wiki/summaries/informatics-design-formats-practice-guide.md)
-- [Token-Efficient Information Design](../kb/claude-code-orchestration-design/wiki/summaries/token-efficient-information-design.md)
-- [Informatics Design Doctrine (Weekly Role)](../../.claude/skills/weekly-orchestrator/references/roles/informatics-design-doctrine.md)
+- [OKF v0.2 Conformance Rules](../../../SmallSkills/OKF_Format/conformance-rules.md)
+- [Informatics Design Formats Practice Guide](../../../kb/claude-code-orchestration-design/wiki/summaries/informatics-design-formats-practice-guide.md)
+- [Token-Efficient Information Design](../../../kb/claude-code-orchestration-design/wiki/summaries/token-efficient-information-design.md)
+- [Informatics Design Doctrine (Weekly Role)](../../../../.claude/skills/weekly-orchestrator/references/roles/informatics-design-doctrine.md)
 
 
 ---

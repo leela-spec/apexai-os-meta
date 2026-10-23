@@ -12,7 +12,7 @@ tags: [layered-kb, rule-12, surgical, semantic-blocks, token-compression, resear
 > **Position in Layered Knowledge Base:**
 > - **Layer 0 (Essence Contract):** [13-candidate-3A-xml.md](../../candidates/13-candidate-3A-xml.md) (format siblings: [14-candidate-3B-hybrid.md](../../candidates/14-candidate-3B-hybrid.md), [15-candidate-3C-bullet-hybrid.md](../../candidates/15-candidate-3C-bullet-hybrid.md))
 > - **Layer 1 (This File — Rule-Level Semantic Block Audit):** Decomposes `<surgical>` into its single atomic semantic block (`SB-12.1`), audits token value as an always-on destructive action barrier, and presents scored compression options.
-> - **Layer 2 (Downstream Infrastructure Modules):** [execution-modes.md](../../../execution-modes.md) (`EM-01`), [anti-drift-rules.md](../../../anti-drift-rules.md) (`AD-03`), [governance-schemas.md](../../../governance-schemas.md) (`GS-02`), [writing-profile.md](../../../writing-profile.md) (`WP-01`).
+> - **Layer 2 (Downstream Infrastructure Modules):** [execution-modes.md](../../specs/execution-modes.md) (`EM-01`), [anti-drift-rules.md](../../specs/anti-drift-rules.md) (`AD-03`), [governance-schemas.md](../../specs/governance-schemas.md) (`GS-02`), [writing-profile.md](../../specs/writing-profile.md) (`WP-01`).
 
 ---
 
@@ -71,10 +71,10 @@ Every token in `<surgical>` belongs to a single core semantic block (`SB-12.1`),
 - **SWE-bench (2024–2026):** Resolving Real-World GitHub Issues — Demonstrates that over 60% of agent-induced regression failures stem from unintended deletions caused by full-file regenerations.
 
 ### 4.3 Canonical Plane 4 Infrastructure Modules & Operational Lore
-- **Canonical Execution Adapter Owner (`EM-01`):** [execution-modes.md](../../../execution-modes.md)
-- **Canonical Anti-Drift Owner (`AD-03`):** [anti-drift-rules.md](../../../anti-drift-rules.md)
-- **Canonical Governance Owner (`GS-02`):** [governance-schemas.md](../../../governance-schemas.md)
-- **Canonical Writing Profile Owner (`WP-01`):** [writing-profile.md](../../../writing-profile.md)
+- **Canonical Execution Adapter Owner (`EM-01`):** [execution-modes.md](../../specs/execution-modes.md)
+- **Canonical Anti-Drift Owner (`AD-03`):** [anti-drift-rules.md](../../specs/anti-drift-rules.md)
+- **Canonical Governance Owner (`GS-02`):** [governance-schemas.md](../../specs/governance-schemas.md)
+- **Canonical Writing Profile Owner (`WP-01`):** [writing-profile.md](../../specs/writing-profile.md)
 - **Operational Lore Grounding:** [2Dos Ai Instructions.md](../../../../AI-Snippets/Orga/2Dos%20Ai%20Instructions.md) (*"Prohibit whole-file rewrites"*), [Snippets.md](../../../../AI-Snippets/Snippets.md) (*"Exact-match editing"*).
 
 ---

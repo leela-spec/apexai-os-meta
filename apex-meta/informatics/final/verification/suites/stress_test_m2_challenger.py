@@ -23,12 +23,24 @@ import xml.etree.ElementTree as ET
 from pathlib import Path
 from typing import Dict, List, Tuple
 
-REPO_ROOT = Path(__file__).resolve().parents[3]
-INFORMATICS_DIR = REPO_ROOT / "apex-meta" / "informatics"
+REPO_ROOT = Path(__file__).resolve().parents[5]
+INFORMATICS_DIR = REPO_ROOT / "apex-meta" / "informatics" / "final"
 SCRIPTS_DIR = REPO_ROOT / "apex-meta" / "scripts"
+FINAL_TOOLS_DIR = INFORMATICS_DIR / "tools"
 
-if str(SCRIPTS_DIR) not in sys.path:
-    sys.path.insert(0, str(SCRIPTS_DIR))
+for p in (SCRIPTS_DIR, FINAL_TOOLS_DIR):
+    if str(p) not in sys.path:
+        sys.path.insert(0, str(p))
+
+def resolve_file(fname: str) -> Path:
+    p_root = REPO_ROOT / "apex-meta" / "informatics" / fname
+    if p_root.exists():
+        return p_root
+    for base in (INFORMATICS_DIR, INFORMATICS_DIR / "specs", INFORMATICS_DIR / "sub-bundles"):
+        cand = base / fname
+        if cand.exists():
+            return cand
+    return p_root
 
 import okf_validator
 
@@ -57,7 +69,7 @@ def run_checks() -> Dict[str, any]:
 
     # 1. Existence and metrics
     for fname in M2_AUTHORED_FILES:
-        fpath = INFORMATICS_DIR / fname
+        fpath = resolve_file(fname)
         if not fpath.exists():
             results["failures"].append(f"Missing authored file: {fname}")
             continue
@@ -97,7 +109,7 @@ def run_checks() -> Dict[str, any]:
 
     # 3. XML Tag Validation (in general-informatics-router.md and index.md)
     for rname in ["general-informatics-router.md", "index.md"]:
-        rpath = INFORMATICS_DIR / rname
+        rpath = resolve_file(rname)
         rc = rpath.read_text(encoding="utf-8")
 
         open_tags = list(re.finditer(r'<informatics\s+([^>]*?)>', rc))
@@ -119,7 +131,7 @@ def run_checks() -> Dict[str, any]:
             if "ref" not in attr_dict or not attr_dict["ref"].strip():
                 results["failures"].append(f"{rname} Tag #{idx}: Missing or empty 'ref' attribute")
             else:
-                target_file = INFORMATICS_DIR / attr_dict["ref"]
+                target_file = resolve_file(attr_dict["ref"])
                 if not target_file.exists():
                     results["failures"].append(f"{rname} Tag #{idx}: Referenced file does not exist: {attr_dict['ref']}")
 
@@ -144,7 +156,7 @@ def run_checks() -> Dict[str, any]:
 
     # 4. YAML Frontmatter & No Multiline Lists
     for fname in M2_AUTHORED_FILES:
-        fpath = INFORMATICS_DIR / fname
+        fpath = resolve_file(fname)
         content = fpath.read_text(encoding="utf-8")
 
         if not content.startswith("---"):
@@ -183,7 +195,7 @@ def run_checks() -> Dict[str, any]:
 
     # 5. Significance Ranking & Zero Math Formulas
     for fname in M2_AUTHORED_FILES:
-        fpath = INFORMATICS_DIR / fname
+        fpath = resolve_file(fname)
         content = fpath.read_text(encoding="utf-8")
         content_no_code = re.sub(r"```[\s\S]*?```", "", content)
 
@@ -253,12 +265,12 @@ def run_checks() -> Dict[str, any]:
 
     # 6. Relative Link Integrity across all authored files
     for fname in M2_AUTHORED_FILES:
-        fpath = INFORMATICS_DIR / fname
+        fpath = resolve_file(fname)
         content = fpath.read_text(encoding="utf-8")
         links = okf_validator.extract_links(content)
         broken_links = []
         for l in links:
-            resolved = (INFORMATICS_DIR / l).resolve()
+            resolved = (fpath.parent / l).resolve()
             if not resolved.exists():
                 broken_links.append(l)
                 results["failures"].append(f"{fname}: Broken link '{l}' (target does not exist)")
@@ -268,7 +280,7 @@ def run_checks() -> Dict[str, any]:
     results["adversarial"] = {}
 
     # 7.1 Router Headroom & CRLF Sensitivity
-    router_content = (INFORMATICS_DIR / "general-informatics-router.md").read_text(encoding="utf-8")
+    router_content = resolve_file("general-informatics-router.md").read_text(encoding="utf-8")
     router_crlf_bytes = len(router_content.replace("\n", "\r\n").encode("utf-8"))
     results["adversarial"]["router_crlf_bytes"] = router_crlf_bytes
     results["adversarial"]["router_char_headroom"] = 2000 - len(router_content)
@@ -277,7 +289,7 @@ def run_checks() -> Dict[str, any]:
     # 7.2 Headings with periods that could trigger STE regex splitting
     period_in_headings = []
     for fname in M2_AUTHORED_FILES:
-        content = (INFORMATICS_DIR / fname).read_text(encoding="utf-8")
+        content = resolve_file(fname).read_text(encoding="utf-8")
         for line_num, line in enumerate(content.splitlines(), start=1):
             if line.strip().startswith("#"):
                 if re.search(r"#+\s+\d+\.", line):

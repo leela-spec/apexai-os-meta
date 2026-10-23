@@ -12,7 +12,7 @@ tags: [layered-kb, rule-21, sync, semantic-blocks, token-compression, research-l
 > **Position in Layered Knowledge Base:**
 > - **Layer 0 (Essence Contract):** [13-candidate-3A-xml.md](../../candidates/13-candidate-3A-xml.md) (format siblings: [14-candidate-3B-hybrid.md](../../candidates/14-candidate-3B-hybrid.md), [15-candidate-3C-bullet-hybrid.md](../../candidates/15-candidate-3C-bullet-hybrid.md))
 > - **Layer 1 (This File — Rule-Level Semantic Block Audit):** Decomposes `<sync>` into 3 atomic semantic blocks (`SB-21.1`..`SB-21.3`), audits token value against repository over-analysis, and presents scored compression options.
-> - **Layer 2 (Downstream Infrastructure Modules):** [execution-modes.md](../../../execution-modes.md) (`EM-12`), [anti-drift-rules.md](../../../anti-drift-rules.md) (`AD-23`).
+> - **Layer 2 (Downstream Infrastructure Modules):** [execution-modes.md](../../specs/execution-modes.md) (`EM-12`), [anti-drift-rules.md](../../specs/anti-drift-rules.md) (`AD-23`).
 
 ---
 
@@ -104,8 +104,8 @@ Every token in `<sync>` belongs to one of three distinct semantic blocks (`SB-21
 - **SWE-bench (2024):** Evaluating coding agents on repository maintenance and git commit hygiene.
 
 ### 4.3 Canonical Plane 4 Infrastructure Modules & Operational Lore
-- **Canonical Execution Modes Owner (`EM-12`):** [execution-modes.md](../../../execution-modes.md)
-- **Canonical Anti-Drift Owner (`AD-23`):** [anti-drift-rules.md](../../../anti-drift-rules.md)
+- **Canonical Execution Modes Owner (`EM-12`):** [execution-modes.md](../../specs/execution-modes.md)
+- **Canonical Anti-Drift Owner (`AD-23`):** [anti-drift-rules.md](../../specs/anti-drift-rules.md)
 - **Operational Lore Grounding:** [2Dos.md](../../../../AI-Snippets/Orga/2Dos.md) (*"Git Dispatch Primacy"*), [Snippets.md](../../../../AI-Snippets/Snippets.md) (*"Asset Preservation & Deterministic Moves"*).
 
 ---

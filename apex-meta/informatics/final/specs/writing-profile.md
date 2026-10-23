@@ -79,8 +79,8 @@ This section governs durable rule identifiers, evidence-backed claims, example d
 ## 4. Traceability & Reference Grounding
 
 - **Upstream Reference**: [Apex Informatics Standard](standard.md) (Sections 5, 6, 10, 12, 13)
-- **Operational Lore**: [Snippets.md](../AI-Snippets/Snippets.md) & [2Dos Ai Instructions.md](../AI-Snippets/Orga/2Dos%20Ai%20Instructions.md)
-- **Conformance Engine**: [okf_validator.py](../scripts/okf_validator.py)
+- **Operational Lore**: [Snippets.md](../../../AI-Snippets/Snippets.md) & [2Dos Ai Instructions.md](../../../AI-Snippets/Orga/2Dos%20Ai%20Instructions.md)
+- **Conformance Engine**: [okf_validator.py](../tools/okf_validator.py)
 
 ---
 

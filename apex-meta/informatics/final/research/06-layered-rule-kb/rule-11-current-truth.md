@@ -12,7 +12,7 @@ tags: [layered-kb, rule-11, current-truth, semantic-blocks, token-compression, r
 > **Position in Layered Knowledge Base:**
 > - **Layer 0 (Essence Contract):** [13-candidate-3A-xml.md](../../candidates/13-candidate-3A-xml.md) (format siblings: [14-candidate-3B-hybrid.md](../../candidates/14-candidate-3B-hybrid.md), [15-candidate-3C-bullet-hybrid.md](../../candidates/15-candidate-3C-bullet-hybrid.md))
 > - **Layer 1 (This File — Rule-Level Semantic Block Audit):** Decomposes `<current_truth>` into 3 atomic semantic blocks (`SB-11.1`..`SB-11.3`), audits token value against prompt semantic priming, and presents scored compression options.
-> - **Layer 2 (Downstream Infrastructure Modules):** [file-architecture.md](../../../file-architecture.md) (`FA-01`, `FA-09`, `FA-11`), [writing-profile.md](../../../writing-profile.md) (`WP-08`), [anti-drift-rules.md](../../../anti-drift-rules.md) (`AD-15`).
+> - **Layer 2 (Downstream Infrastructure Modules):** [file-architecture.md](../../specs/file-architecture.md) (`FA-01`, `FA-09`, `FA-11`), [writing-profile.md](../../specs/writing-profile.md) (`WP-08`), [anti-drift-rules.md](../../specs/anti-drift-rules.md) (`AD-15`).
 
 ---
 
@@ -100,9 +100,9 @@ Every token in `<current_truth>` belongs to one of three distinct semantic block
 - **Semantic Priming in Large Language Models (NeurIPS 2024):** Demonstrates that mentioning negative tokens or prohibited component names increases model generation probability of those exact entities by up to 34% compared to positive-only specification.
 
 ### 4.3 Canonical Plane 4 Infrastructure Modules & Operational Lore
-- **Canonical File Architecture Owner (`FA-01`, `FA-09`, `FA-11`):** [file-architecture.md](../../../file-architecture.md)
-- **Canonical Writing Profile Owner (`WP-08`):** [writing-profile.md](../../../writing-profile.md)
-- **Canonical Anti-Drift Owner (`AD-15`):** [anti-drift-rules.md](../../../anti-drift-rules.md)
+- **Canonical File Architecture Owner (`FA-01`, `FA-09`, `FA-11`):** [file-architecture.md](../../specs/file-architecture.md)
+- **Canonical Writing Profile Owner (`WP-08`):** [writing-profile.md](../../specs/writing-profile.md)
+- **Canonical Anti-Drift Owner (`AD-15`):** [anti-drift-rules.md](../../specs/anti-drift-rules.md)
 - **Operational Lore Grounding:** [2Dos Ai Instructions.md](../../../../AI-Snippets/Orga/2Dos%20Ai%20Instructions.md) (*"Residual Name Eradication"*), [Snippets.md](../../../../AI-Snippets/Snippets.md) (*"Current-truth discipline"*).
 
 ---

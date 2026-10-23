@@ -12,7 +12,7 @@ tags: [layered-kb, rule-08, context, semantic-blocks, token-compression, researc
 > **Position in Layered Knowledge Base:**
 > - **Layer 0 (Essence Contract):** [13-candidate-3A-xml.md](../../candidates/13-candidate-3A-xml.md) (format siblings: [14-candidate-3B-hybrid.md](../../candidates/14-candidate-3B-hybrid.md), [15-candidate-3C-bullet-hybrid.md](../../candidates/15-candidate-3C-bullet-hybrid.md))
 > - **Layer 1 (This File — Rule-Level Semantic Block Audit):** Decomposes `<context>` into 2 atomic semantic blocks (`SB-08.1`..`SB-08.2`), audits token value against prompt saturation and memory decay, and presents scored compression options.
-> - **Layer 2 (Downstream Infrastructure Modules):** [anti-drift-rules.md](../../../anti-drift-rules.md) (`AD-04`), [execution-modes.md](../../../execution-modes.md) (`EM-03`, `EM-10`).
+> - **Layer 2 (Downstream Infrastructure Modules):** [anti-drift-rules.md](../../specs/anti-drift-rules.md) (`AD-04`), [execution-modes.md](../../specs/execution-modes.md) (`EM-03`, `EM-10`).
 
 ---
 
@@ -86,8 +86,8 @@ Every token in `<context>` belongs to one of two distinct semantic blocks (`SB-0
 - **Liu et al. (2024):** [Lost in the Middle: How Language Models Use Long Contexts](https://arxiv.org/abs/2307.03172) — Demonstrates sharp drop-offs in retrieval fidelity when critical facts are buried amidst large context windows.
 
 ### 4.3 Canonical Plane 4 Infrastructure Modules & Operational Lore
-- **Canonical Anti-Drift Owner (`AD-04`):** [anti-drift-rules.md](../../../anti-drift-rules.md)
-- **Canonical Execution Adapter Owner (`EM-03`, `EM-10`):** [execution-modes.md](../../../execution-modes.md)
+- **Canonical Anti-Drift Owner (`AD-04`):** [anti-drift-rules.md](../../specs/anti-drift-rules.md)
+- **Canonical Execution Adapter Owner (`EM-03`, `EM-10`):** [execution-modes.md](../../specs/execution-modes.md)
 - **Canonical Plane 3 Slicing Skill:** [qmd/SKILL.md](../../../../../.agents/skills/qmd/SKILL.md) (`qmd get <path:line:count>` fulfills JIT retrieval and anti-bulk invariants by extracting 20–40 line windows).
 - **Canonical Operational Decision Record:** [07-INTEGRATION-PLAN-AND-OPERATIONAL-DECISIONS.md](../../07-INTEGRATION-PLAN-AND-OPERATIONAL-DECISIONS.md) (`DEC-QMD-04` mandatory slice fetching).
 - **Operational Lore Grounding:** [2Dos Ai Instructions.md](../../../../AI-Snippets/Orga/2Dos%20Ai%20Instructions.md) (*"Conscious context loading"*), [Snippets.md](../../../../AI-Snippets/Snippets.md) (*"Input Priority Ledger"*).

@@ -12,7 +12,7 @@ tags: [layered-kb, rule-20, schemas, semantic-blocks, token-compression, researc
 > **Position in Layered Knowledge Base:**
 > - **Layer 0 (Essence Contract):** [13-candidate-3A-xml.md](../../candidates/13-candidate-3A-xml.md) (format siblings: [14-candidate-3B-hybrid.md](../../candidates/14-candidate-3B-hybrid.md), [15-candidate-3C-bullet-hybrid.md](../../candidates/15-candidate-3C-bullet-hybrid.md))
 > - **Layer 1 (This File — Rule-Level Semantic Block Audit):** Decomposes `<schemas>` into 4 atomic semantic blocks (`SB-20.1`..`SB-20.4`), audits token value against schema drift and brittle patch targeting, and presents scored compression options.
-> - **Layer 2 (Downstream Infrastructure Modules):** [governance-schemas.md](../../../governance-schemas.md) (`GS-01`, `GS-09`, `GS-10`, `GS-11`).
+> - **Layer 2 (Downstream Infrastructure Modules):** [governance-schemas.md](../../specs/governance-schemas.md) (`GS-01`, `GS-09`, `GS-10`, `GS-11`).
 
 ---
 
@@ -119,7 +119,7 @@ Every token in `<schemas>` belongs to one of four distinct semantic blocks (`SB-
 - **AST-Based Source Transformation Benchmarks:** Demonstrating that line-number targeted patches experience high failure rates in automated pipelines due to offset shifts.
 
 ### 4.3 Canonical Plane 4 Infrastructure Modules & Operational Lore
-- **Canonical Governance Schemas Owner (`GS-01`, `GS-09`, `GS-10`, `GS-11`):** [governance-schemas.md](../../../governance-schemas.md)
+- **Canonical Governance Schemas Owner (`GS-01`, `GS-09`, `GS-10`, `GS-11`):** [governance-schemas.md](../../specs/governance-schemas.md)
 - **Operational Lore Grounding:** [2Dos Ai Instructions.md](../../../../AI-Snippets/Orga/2Dos%20Ai%20Instructions.md) (*"Prohibit line numbers in patch intents"*), [Snippets.md](../../../../AI-Snippets/Snippets.md) (*"Mandatory Schema Conformance"*).
 
 ---

@@ -12,7 +12,7 @@ tags: [layered-kb, rule-02, product-first, semantic-blocks, token-compression, r
 > **Position in Layered Knowledge Base:**
 > - **Layer 0 (Essence Contract):** [13-candidate-3A-xml.md](../../candidates/13-candidate-3A-xml.md) (format siblings: [14-candidate-3B-hybrid.md](../../candidates/14-candidate-3B-hybrid.md), [15-candidate-3C-bullet-hybrid.md](../../candidates/15-candidate-3C-bullet-hybrid.md))
 > - **Layer 1 (This File — Rule-Level Semantic Block Audit):** Decomposes `<product_first>` into 3 atomic semantic blocks (`SB-02.1`..`SB-02.3`), audits token value against RLHF biases, and presents scored compression options.
-> - **Layer 2 (Downstream Infrastructure Modules):** [anti-drift-rules.md](../../../anti-drift-rules.md) (`AD-10`, `AD-09`, `AD-12`), [writing-profile.md](../../../writing-profile.md) (`WP-01`).
+> - **Layer 2 (Downstream Infrastructure Modules):** [anti-drift-rules.md](../../specs/anti-drift-rules.md) (`AD-10`, `AD-09`, `AD-12`), [writing-profile.md](../../specs/writing-profile.md) (`WP-01`).
 
 ---
 
@@ -102,8 +102,8 @@ Every token in `<product_first>` belongs to one of three distinct semantic block
 - **FixedBench (2026):** [Evaluating Over-Modification on Already-Fixed States](https://arxiv.org/abs/2605.07769) — Demonstrates that explicit restriction whitelists reduce extraneous tool actions and unproductive refactoring detours by up to 84%.
 
 ### 4.3 Canonical Plane 4 Infrastructure Modules & Operational Lore
-- **Canonical Anti-Drift Owner (`AD-10`, `AD-09`, `AD-12`):** [anti-drift-rules.md](../../../anti-drift-rules.md)
-- **Canonical Writing Profile Owner (`WP-01`):** [writing-profile.md](../../../writing-profile.md)
+- **Canonical Anti-Drift Owner (`AD-10`, `AD-09`, `AD-12`):** [anti-drift-rules.md](../../specs/anti-drift-rules.md)
+- **Canonical Writing Profile Owner (`WP-01`):** [writing-profile.md](../../specs/writing-profile.md)
 - **Operational Lore Grounding:** [2Dos Ai Instructions.md](../../../../AI-Snippets/Orga/2Dos%20Ai%20Instructions.md) (*"Product before ceremony"*), [Snippets.md](../../../../AI-Snippets/Snippets.md) (*"Product Advancement Invariant"*).
 
 ---

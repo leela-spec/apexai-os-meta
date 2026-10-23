@@ -12,8 +12,8 @@ tags: [module-audit, plane-4, execution-modes, single-owner, semantic-blocks, tr
 > **Position in Layered Knowledge Base:**
 > - **Layer 0 (Essence Contract):** [13-candidate-3A-xml.md](../../candidates/13-candidate-3A-xml.md) (`<surgical>`, `<editing>`, `<handover>`, `<context>`, `<target>`, `<stop_repairing>`, `<trade_off>`, `<iterative>`, `<sync>`)
 > - **Layer 1 (Layered Rule KB):** [rule-01-target.md](rule-01-target.md), [rule-08-context.md](rule-08-context.md), [rule-10-stop-repairing.md](rule-10-stop-repairing.md), [rule-12-surgical.md](rule-12-surgical.md), [rule-13-editing.md](rule-13-editing.md), [rule-17-trade-off.md](rule-17-trade-off.md), [rule-18-handover.md](rule-18-handover.md), [rule-19-iterative.md](rule-19-iterative.md), [rule-21-sync.md](rule-21-sync.md)
-> - **Layer 2 (Audited Canonical Module):** [execution-modes.md](../../../execution-modes.md) (`EM-01` through `EM-12`)
-> - **Upstream Research & Empirical Lore:** [standard.md](../../../standard.md), [RESULTS-01-gating-efficacy.md](../03-research-of-file-10/Apex_Informatics_Research_Results_2026-10-21/RESULTS-01-gating-efficacy.md), [RESULTS-06-condition-syntax.md](../03-research-of-file-10/Apex_Informatics_Research_Results_2026-10-21/RESULTS-06-condition-syntax.md), [C01-decision-trade-off-discipline/README.md](../01-universal-instruction-research/module-deepening/C01-decision-trade-off-discipline/README.md), [Snippets.md](../../../../AI-Snippets/Snippets.md), [2Dos Ai Instructions.md](../../../../AI-Snippets/Orga/2Dos%20Ai%20Instructions.md)
+> - **Layer 2 (Audited Canonical Module):** [execution-modes.md](../../specs/execution-modes.md) (`EM-01` through `EM-12`)
+> - **Upstream Research & Empirical Lore:** [standard.md](../../specs/standard.md), [RESULTS-01-gating-efficacy.md](../03-research-of-file-10/Apex_Informatics_Research_Results_2026-10-21/RESULTS-01-gating-efficacy.md), [RESULTS-06-condition-syntax.md](../03-research-of-file-10/Apex_Informatics_Research_Results_2026-10-21/RESULTS-06-condition-syntax.md), [C01-decision-trade-off-discipline/README.md](../01-universal-instruction-research/module-deepening/C01-decision-trade-off-discipline/README.md), [Snippets.md](../../../../AI-Snippets/Snippets.md), [2Dos Ai Instructions.md](../../../../AI-Snippets/Orga/2Dos%20Ai%20Instructions.md)
 
 ---
 
@@ -22,7 +22,7 @@ tags: [module-audit, plane-4, execution-modes, single-owner, semantic-blocks, tr
 ### 1.1 Architectural Domain & Loading Lifecycle
 `execution-modes.md` (`ADPT-EXEC-MODES-v0.2`) is the canonical Plane 4 specification governing operational task adapters, exact-match patching, AST patch intents, Q&A decision matrices, comparison bake-offs, forensic handover protocols, MMM iterative execution, and Git file preservation across Apex OS.
 
-Within the **Five-Plane Information Architecture** ([file-architecture.md](../../../file-architecture.md) `FA-03`), `execution-modes.md` provides conditional operational adapters:
+Within the **Five-Plane Information Architecture** ([file-architecture.md](../../specs/file-architecture.md) `FA-03`), `execution-modes.md` provides conditional operational adapters:
 - **JIT Activation Trigger (`IF`-Routing):** Rather than loading the entire file unconditionally, an autonomous agent evaluates the top-level `<execution_dispatch>` table and loads only the specific section matching its active task:
   1. `architectural_tradeoff_or_qa_alignment` $\rightarrow$ `#2-adapter-1-qa-decision-matrix` (`EM-06`)
   2. `multi_candidate_comparison_or_bakeoff` $\rightarrow$ `#3-adapter-2-comparison--bake-off-rubric` (`EM-07`)
@@ -223,7 +223,7 @@ The execution adapters in `execution-modes.md` directly reflect proven empirical
 - **`EM-01` & `EM-08`:** Grounded in Research Packet [RESULTS-01-gating-efficacy.md](../03-research-of-file-10/Apex_Informatics_Research_Results_2026-10-21/RESULTS-01-gating-efficacy.md), which demonstrated that exact-match block replacements eliminate 92% of hallucinated whole-file truncations compared to full-file generation.
 - **`EM-02` & `EM-09`:** Grounded in [C01-decision-trade-off-discipline/README.md](../01-universal-instruction-research/module-deepening/C01-decision-trade-off-discipline/README.md) and [Snippets.md](../../../../AI-Snippets/Snippets.md), establishing the 5-component forensic completion report and ending "handover paralysis."
 - **`EM-06`:** Grounded in operational lore from [Snippets.md](../../../../AI-Snippets/Snippets.md) and [2Dos Ai Instructions.md](../../../../AI-Snippets/Orga/2Dos%20Ai%20Instructions.md), codifying the standardized Q&A Decision Matrix format.
-- **`EM-10` & `EM-11`:** Grounded in the Modular Multi-File Methodology (MMM) architecture from [standard.md](../../../standard.md), ensuring that complex tasks materialize intermediate progress files on disk rather than accumulating massive hidden context.
+- **`EM-10` & `EM-11`:** Grounded in the Modular Multi-File Methodology (MMM) architecture from [standard.md](../../specs/standard.md), ensuring that complex tasks materialize intermediate progress files on disk rather than accumulating massive hidden context.
 
 ---
 

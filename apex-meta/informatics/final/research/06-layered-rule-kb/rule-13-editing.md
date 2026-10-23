@@ -12,7 +12,7 @@ tags: [layered-kb, rule-13, editing, semantic-blocks, token-compression, researc
 > **Position in Layered Knowledge Base:**
 > - **Layer 0 (Essence Contract):** [13-candidate-3A-xml.md](../../candidates/13-candidate-3A-xml.md) (format siblings: [14-candidate-3B-hybrid.md](../../candidates/14-candidate-3B-hybrid.md), [15-candidate-3C-bullet-hybrid.md](../../candidates/15-candidate-3C-bullet-hybrid.md))
 > - **Layer 1 (This File — Rule-Level Semantic Block Audit):** Decomposes `<editing>` into 4 atomic semantic blocks (`SB-13.1`..`SB-13.4`), audits token value across exact-match patch disciplines and JIT triggers, and presents scored compression options.
-> - **Layer 2 (Downstream Infrastructure Modules):** [execution-modes.md](../../../execution-modes.md) (`EM-01`, `EM-08`), [anti-drift-rules.md](../../../anti-drift-rules.md) (`AD-23`), [governance-schemas.md](../../../governance-schemas.md) (`GS-09`..`GS-11`), [writing-profile.md](../../../writing-profile.md) (`WP-01`).
+> - **Layer 2 (Downstream Infrastructure Modules):** [execution-modes.md](../../specs/execution-modes.md) (`EM-01`, `EM-08`), [anti-drift-rules.md](../../specs/anti-drift-rules.md) (`AD-23`), [governance-schemas.md](../../specs/governance-schemas.md) (`GS-09`..`GS-11`), [writing-profile.md](../../specs/writing-profile.md) (`WP-01`).
 
 ---
 
@@ -118,10 +118,10 @@ Every token in `<editing>` belongs to one of four distinct semantic blocks (`SB-
 - **Gloaguen et al. (2026):** [Evaluation of Gated Agent Prompts](https://arxiv.org/abs/2602.11988) — Demonstrates that conditional prompt gating suppresses token overhead while second-threshold cues effectively prevent premature documentation loading.
 
 ### 4.3 Canonical Plane 4 Infrastructure Modules & Operational Lore
-- **Canonical Execution Adapter Owner (`EM-01`, `EM-08`):** [execution-modes.md](../../../execution-modes.md)
-- **Canonical Anti-Drift Owner (`AD-23`):** [anti-drift-rules.md](../../../anti-drift-rules.md)
-- **Canonical Governance Owner (`GS-09`, `GS-10`, `GS-11`):** [governance-schemas.md](../../../governance-schemas.md)
-- **Canonical Writing Profile Owner (`WP-01`):** [writing-profile.md](../../../writing-profile.md)
+- **Canonical Execution Adapter Owner (`EM-01`, `EM-08`):** [execution-modes.md](../../specs/execution-modes.md)
+- **Canonical Anti-Drift Owner (`AD-23`):** [anti-drift-rules.md](../../specs/anti-drift-rules.md)
+- **Canonical Governance Owner (`GS-09`, `GS-10`, `GS-11`):** [governance-schemas.md](../../specs/governance-schemas.md)
+- **Canonical Writing Profile Owner (`WP-01`):** [writing-profile.md](../../specs/writing-profile.md)
 - **Operational Lore Grounding:** [2Dos Ai Instructions.md](../../../../AI-Snippets/Orga/2Dos%20Ai%20Instructions.md) (*"Deterministic file movement"*), [Snippets.md](../../../../AI-Snippets/Snippets.md) (*"Exact-match editing"*).
 
 ---

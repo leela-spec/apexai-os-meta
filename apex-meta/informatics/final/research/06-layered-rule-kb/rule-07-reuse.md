@@ -12,7 +12,7 @@ tags: [layered-kb, rule-07, reuse, semantic-blocks, token-compression, research-
 > **Position in Layered Knowledge Base:**
 > - **Layer 0 (Essence Contract):** [13-candidate-3A-xml.md](../../candidates/13-candidate-3A-xml.md) (format siblings: [14-candidate-3B-hybrid.md](../../candidates/14-candidate-3B-hybrid.md), [15-candidate-3C-bullet-hybrid.md](../../candidates/15-candidate-3C-bullet-hybrid.md))
 > - **Layer 1 (This File — Rule-Level Semantic Block Audit):** Decomposes `<reuse>` into 4 atomic semantic blocks (`SB-07.1`..`SB-07.4`), audits token value against NIH (Not-Invented-Here) syndrome and over-abstraction, and presents scored compression options.
-> - **Layer 2 (Downstream Infrastructure Modules):** [anti-drift-rules.md](../../../anti-drift-rules.md) (`AD-11`, `AD-14`), [writing-profile.md](../../../writing-profile.md) (`WP-23`).
+> - **Layer 2 (Downstream Infrastructure Modules):** [anti-drift-rules.md](../../specs/anti-drift-rules.md) (`AD-11`, `AD-14`), [writing-profile.md](../../specs/writing-profile.md) (`WP-23`).
 
 ---
 
@@ -115,8 +115,8 @@ Every token in `<reuse>` belongs to one of four distinct semantic blocks (`SB-07
 - **DITA Single-Source Architecture:** Canonical documentation standard demonstrating reuse of atomic semantic components over custom page generation.
 
 ### 4.3 Canonical Plane 4 Infrastructure Modules & Operational Lore
-- **Canonical Anti-Drift Owner (`AD-11`, `AD-14`):** [anti-drift-rules.md](../../../anti-drift-rules.md)
-- **Canonical Writing Profile Owner (`WP-23`):** [writing-profile.md](../../../writing-profile.md)
+- **Canonical Anti-Drift Owner (`AD-11`, `AD-14`):** [anti-drift-rules.md](../../specs/anti-drift-rules.md)
+- **Canonical Writing Profile Owner (`WP-23`):** [writing-profile.md](../../specs/writing-profile.md)
 - **Operational Lore Grounding:** [2Dos Ai Instructions.md](../../../../AI-Snippets/Orga/2Dos%20Ai%20Instructions.md) (*"Reuse before invention"*), [Snippets.md](../../../../AI-Snippets/Snippets.md) (*"Asset Preservation"*).
 
 ---

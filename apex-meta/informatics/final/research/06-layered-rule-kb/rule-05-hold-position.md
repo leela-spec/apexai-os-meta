@@ -12,7 +12,7 @@ tags: [layered-kb, rule-05, hold-position, semantic-blocks, token-compression, r
 > **Position in Layered Knowledge Base:**
 > - **Layer 0 (Essence Contract):** [13-candidate-3A-xml.md](../../candidates/13-candidate-3A-xml.md) (format siblings: [14-candidate-3B-hybrid.md](../../candidates/14-candidate-3B-hybrid.md), [15-candidate-3C-bullet-hybrid.md](../../candidates/15-candidate-3C-bullet-hybrid.md))
 > - **Layer 1 (This File — Rule-Level Semantic Block Audit):** Decomposes `<hold_position>` into 3 atomic semantic blocks (`SB-05.1`..`SB-05.3`), audits token value against RLHF sycophancy and over-correction, and presents scored compression options.
-> - **Layer 2 (Downstream Infrastructure Modules):** [anti-drift-rules.md](../../../anti-drift-rules.md) (`AD-22`).
+> - **Layer 2 (Downstream Infrastructure Modules):** [anti-drift-rules.md](../../specs/anti-drift-rules.md) (`AD-22`).
 
 ---
 
@@ -101,7 +101,7 @@ Every token in `<hold_position>` belongs to one of three distinct semantic block
 - **Perez et al. (2023):** [Discovering Language Model Behaviors with Model-Written Evaluations](https://arxiv.org/abs/2212.09251) — Quantifies that models prioritize sycophantic alignment over factual correctness when confronted with operator doubt.
 
 ### 4.3 Canonical Plane 4 Infrastructure Modules & Operational Lore
-- **Canonical Anti-Drift Owner (`AD-22`):** [anti-drift-rules.md](../../../anti-drift-rules.md)
+- **Canonical Anti-Drift Owner (`AD-22`):** [anti-drift-rules.md](../../specs/anti-drift-rules.md)
 - **Operational Lore Grounding:** [2Dos Ai Instructions.md](../../../../AI-Snippets/Orga/2Dos%20Ai%20Instructions.md) (*"Hold position on unevidenced pushback"*), [Snippets.md](../../../../AI-Snippets/Snippets.md) (*"Anti-Overcorrection"*).
 
 ---

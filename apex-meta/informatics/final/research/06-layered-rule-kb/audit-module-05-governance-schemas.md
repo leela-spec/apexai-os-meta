@@ -12,9 +12,9 @@ tags: [module-audit, plane-4, governance-schemas, single-owner, semantic-blocks,
 > **Position in Layered Knowledge Base:**
 > - **Layer 0 (Essence Contract):** [13-candidate-3A-xml.md](../../candidates/13-candidate-3A-xml.md) (`<schemas>`, `<surgical>`, `<editing>`, `<authoring>`, `<trade_off>`)
 > - **Layer 1 (Layered Rule KB):** [rule-12-surgical.md](rule-12-surgical.md), [rule-13-editing.md](rule-13-editing.md), [rule-16-authoring.md](rule-16-authoring.md), [rule-17-trade-off.md](rule-17-trade-off.md), [rule-20-schemas.md](rule-20-schemas.md)
-> - **Layer 2 (Audited Canonical Module):** [governance-schemas.md](../../../governance-schemas.md) (`GS-01` through `GS-22`)
+> - **Layer 2 (Audited Canonical Module):** [governance-schemas.md](../../specs/governance-schemas.md) (`GS-01` through `GS-22`)
 > - **Machine-Readable Schema:** [patch-intent-schema.json](../../../../../.claude/skills/deterministic-markdown-patcher2/references/patch-intent-schema.json)
-> - **Upstream Research & Empirical Lore:** [standard.md](../../../standard.md), [RESULTS-06-condition-syntax.md](../03-research-of-file-10/Apex_Informatics_Research_Results_2026-10-21/RESULTS-06-condition-syntax.md), [RESULTS-09-efficiency-audit.md](../03-research-of-file-10/Apex_Informatics_Research_Results_2026-10-21/RESULTS-09-efficiency-audit.md), [C03-conditional-informatics-formal-authoring/README.md](../01-universal-instruction-research/module-deepening/C03-conditional-informatics-formal-authoring/README.md), [Snippets.md](../../../../AI-Snippets/Snippets.md)
+> - **Upstream Research & Empirical Lore:** [standard.md](../../specs/standard.md), [RESULTS-06-condition-syntax.md](../03-research-of-file-10/Apex_Informatics_Research_Results_2026-10-21/RESULTS-06-condition-syntax.md), [RESULTS-09-efficiency-audit.md](../03-research-of-file-10/Apex_Informatics_Research_Results_2026-10-21/RESULTS-09-efficiency-audit.md), [C03-conditional-informatics-formal-authoring/README.md](../01-universal-instruction-research/module-deepening/C03-conditional-informatics-formal-authoring/README.md), [Snippets.md](../../../../AI-Snippets/Snippets.md)
 
 ---
 
@@ -23,7 +23,7 @@ tags: [module-audit, plane-4, governance-schemas, single-owner, semantic-blocks,
 ### 1.1 Architectural Domain & Loading Lifecycle
 `governance-schemas.md` (`GOV-SCHEMAS-v0.2`) is the canonical Plane 4 governance specification establishing machine-readable schemas, deterministic AST patch intent specifications (`patch_intent.v1`), validation rules for OKF metadata, decision matrix protocols, model directive accounting, and CI conformance diagnostics across Apex OS.
 
-Within the **Five-Plane Information Architecture** ([file-architecture.md](../../../file-architecture.md) `FA-03`), `governance-schemas.md` serves as the repository's machine-governance contract:
+Within the **Five-Plane Information Architecture** ([file-architecture.md](../../specs/file-architecture.md) `FA-03`), `governance-schemas.md` serves as the repository's machine-governance contract:
 - **JIT Activation Trigger:** Autonomous agents retrieve `governance-schemas.md` when generating structured AST patch intents, validating frontmatter compliance, measuring cognitive directive density, formatting architectural decisions, or debugging validation gate failures.
 - **Top-Loaded Invariants:** The module front-loads five critical P0 invariants (`GS-01` through `GS-05`) in the first ~500 tokens: mandatory schema conformance, prohibited whole-file patch rewrites, attention primacy, raw 3-metric significance tagging, and flat YAML frontmatter serialization.
 - **Active vs Retired Rules:** The module defines **19 active governed rules** and documents **3 retired rules** (`GS-16`, `GS-18`, `GS-19`). In strict accordance with `WP-15` (*Tier-Agnostic Durable IDs*), retired IDs are preserved as explicit gaps rather than renumbering subsequent rules.
@@ -256,7 +256,7 @@ Embedding automated CI diagnostic codes into an always-on instruction contract w
 The governance schemas in `governance-schemas.md` codify critical empirical research:
 - **`GS-09`, `GS-10` & `GS-11`:** Grounded in Research Packet [RESULTS-06-condition-syntax.md](../03-research-of-file-10/Apex_Informatics_Research_Results_2026-10-21/RESULTS-06-condition-syntax.md), proving that structural AST heading targeting prevents 100% of line-offset drift errors across concurrent agent edits.
 - **`GS-14` & `GS-15`:** Grounded in Research Packet [RESULTS-09-efficiency-audit.md](../03-research-of-file-10/Apex_Informatics_Research_Results_2026-10-21/RESULTS-09-efficiency-audit.md), demonstrating that directive density degrades instruction compliance when files exceed ~50 imperative rules.
-- **`GS-01` & `GS-21`:** Grounded in [C03-conditional-informatics-formal-authoring/README.md](../01-universal-instruction-research/module-deepening/C03-conditional-informatics-formal-authoring/README.md) and [standard.md](../../../standard.md), establishing zero-error deterministic validation gates.
+- **`GS-01` & `GS-21`:** Grounded in [C03-conditional-informatics-formal-authoring/README.md](../01-universal-instruction-research/module-deepening/C03-conditional-informatics-formal-authoring/README.md) and [standard.md](../../specs/standard.md), establishing zero-error deterministic validation gates.
 
 ---
 

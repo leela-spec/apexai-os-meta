@@ -12,8 +12,8 @@ tags: [module-audit, plane-4, file-architecture, single-owner, semantic-blocks, 
 > **Position in Layered Knowledge Base:**
 > - **Layer 0 (Essence Contract):** [13-candidate-3A-xml.md](../../candidates/13-candidate-3A-xml.md) (`<current_truth>`, `<authoring>`, `<target>`, `<pointers>`)
 > - **Layer 1 (Layered Rule KB):** [rule-01-target.md](rule-01-target.md), [rule-11-current-truth.md](rule-11-current-truth.md), [rule-16-authoring.md](rule-16-authoring.md), [rule-22-pointers.md](rule-22-pointers.md)
-> - **Layer 2 (Audited Canonical Module):** [file-architecture.md](../../../file-architecture.md) (`FA-01` through `FA-13`)
-> - **Upstream Research & Empirical Lore:** [standard.md](../../../standard.md), [RESULTS-10-surface-layering.md](../03-research-of-file-10/Apex_Informatics_Research_Results_2026-10-21/RESULTS-10-surface-layering.md), [RESULTS-03-currency-check.md](../03-research-of-file-10/Apex_Informatics_Research_Results_2026-10-21/RESULTS-03-currency-check.md), [A11-current-truth-authoritative-state/README.md](../01-universal-instruction-research/module-deepening/A11-current-truth-authoritative-state/README.md), [Snippets.md](../../../../AI-Snippets/Snippets.md)
+> - **Layer 2 (Audited Canonical Module):** [file-architecture.md](../../specs/file-architecture.md) (`FA-01` through `FA-13`)
+> - **Upstream Research & Empirical Lore:** [standard.md](../../specs/standard.md), [RESULTS-10-surface-layering.md](../03-research-of-file-10/Apex_Informatics_Research_Results_2026-10-21/RESULTS-10-surface-layering.md), [RESULTS-03-currency-check.md](../03-research-of-file-10/Apex_Informatics_Research_Results_2026-10-21/RESULTS-03-currency-check.md), [A11-current-truth-authoritative-state/README.md](../01-universal-instruction-research/module-deepening/A11-current-truth-authoritative-state/README.md), [Snippets.md](../../../../AI-Snippets/Snippets.md)
 
 ---
 
@@ -222,7 +222,7 @@ These 6 rules govern **repository topology, directory boundaries, and bundle val
 The rules in `file-architecture.md` are grounded in foundational research:
 - **`FA-01` & `FA-11`:** Grounded in [A11-current-truth-authoritative-state/README.md](../01-universal-instruction-research/module-deepening/A11-current-truth-authoritative-state/README.md) and [RESULTS-03-currency-check.md](../03-research-of-file-10/Apex_Informatics_Research_Results_2026-10-21/RESULTS-03-currency-check.md), which showed that inline changelogs dilute model attention and cause 37% more regressions on updated APIs.
 - **`FA-03` & `FA-12`:** Grounded in [RESULTS-10-surface-layering.md](../03-research-of-file-10/Apex_Informatics_Research_Results_2026-10-21/RESULTS-10-surface-layering.md) (Research Packet RP-09/RP-10), demonstrating that separating prompt carriers into an immutable Layer 1 universal block and a Layer 2 repo-specific block enables 90%+ prompt cache hit rates across major LLM providers.
-- **`FA-13`:** Grounded in operational incident D9 and parser testing in [standard.md](../../../standard.md), proving that zero-dependency line parsers require a colon on every frontmatter line.
+- **`FA-13`:** Grounded in operational incident D9 and parser testing in [standard.md](../../specs/standard.md), proving that zero-dependency line parsers require a colon on every frontmatter line.
 
 ---
 

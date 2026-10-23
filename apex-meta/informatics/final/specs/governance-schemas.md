@@ -58,7 +58,7 @@ This section defines the formal structural schemas for repository metadata, patc
 #### `patch_intent.v1` Operative Contract:
 
 The machine-readable schema is owned by
-[patch-intent-schema.json](../../.claude/skills/deterministic-markdown-patcher2/references/patch-intent-schema.json),
+[patch-intent-schema.json](../../../../.claude/skills/deterministic-markdown-patcher2/references/patch-intent-schema.json),
 which the deterministic patcher validates against. Never restate that schema here (`WP-23`) — an
 embedded copy silently weakens into a different contract. Satisfy the following when authoring an
 intent:
@@ -102,9 +102,9 @@ This section establishes model-agnostic instruction sizing and sorting disciplin
 ## 4. Traceability & Reference Grounding
 
 - **Upstream Standard**: [Apex Informatics Standard](standard.md) (Sections 4, 10, 12, 14)
-- **Patch Intent Source Schema**: [patch-intent-schema.json](../../.claude/skills/deterministic-markdown-patcher2/references/patch-intent-schema.json)
-- **Operational Lore**: [Snippets.md](../AI-Snippets/Snippets.md) & [2Dos Ai Instructions.md](../AI-Snippets/Orga/2Dos%20Ai%20Instructions.md)
-- **Deterministic Validation Engine**: [okf_validator.py](../scripts/okf_validator.py)
+- **Patch Intent Source Schema**: [patch-intent-schema.json](../../../../.claude/skills/deterministic-markdown-patcher2/references/patch-intent-schema.json)
+- **Operational Lore**: [Snippets.md](../../../AI-Snippets/Snippets.md) & [2Dos Ai Instructions.md](../../../AI-Snippets/Orga/2Dos%20Ai%20Instructions.md)
+- **Deterministic Validation Engine**: [okf_validator.py](../tools/okf_validator.py)
 
 ---
 

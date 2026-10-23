@@ -12,7 +12,7 @@ tags: [layered-kb, rule-17, trade-off, semantic-blocks, token-compression, resea
 > **Position in Layered Knowledge Base:**
 > - **Layer 0 (Essence Contract):** [13-candidate-3A-xml.md](../../candidates/13-candidate-3A-xml.md) (format siblings: [14-candidate-3B-hybrid.md](../../candidates/14-candidate-3B-hybrid.md), [15-candidate-3C-bullet-hybrid.md](../../candidates/15-candidate-3C-bullet-hybrid.md))
 > - **Layer 1 (This File — Rule-Level Semantic Block Audit):** Decomposes `<trade_off>` into 3 atomic semantic blocks (`SB-17.1`..`SB-17.3`), audits token value against decision paralysis, and presents scored compression options.
-> - **Layer 2 (Downstream Infrastructure Modules):** [execution-modes.md](../../../execution-modes.md) (`EM-06`, `EM-07`), [governance-schemas.md](../../../governance-schemas.md) (`GS-12`, `GS-13`).
+> - **Layer 2 (Downstream Infrastructure Modules):** [execution-modes.md](../../specs/execution-modes.md) (`EM-06`, `EM-07`), [governance-schemas.md](../../specs/governance-schemas.md) (`GS-12`, `GS-13`).
 
 ---
 
@@ -104,8 +104,8 @@ Every token in `<trade_off>` belongs to one of three distinct semantic blocks (`
 - **SpecBench (2026):** Autonomous decision-making benchmarks in coding agents.
 
 ### 4.3 Canonical Plane 4 Infrastructure Modules & Operational Lore
-- **Canonical Execution Modes Owner (`EM-06`, `EM-07`):** [execution-modes.md](../../../execution-modes.md)
-- **Canonical Governance Schemas Owner (`GS-12`, `GS-13`):** [governance-schemas.md](../../../governance-schemas.md)
+- **Canonical Execution Modes Owner (`EM-06`, `EM-07`):** [execution-modes.md](../../specs/execution-modes.md)
+- **Canonical Governance Schemas Owner (`GS-12`, `GS-13`):** [governance-schemas.md](../../specs/governance-schemas.md)
 - **Operational Lore Grounding:** [2Dos Ai Instructions.md](../../../../AI-Snippets/Orga/2Dos%20Ai%20Instructions.md) (*"Q&A Decision Matrix Structure"*), [Snippets.md](../../../../AI-Snippets/Snippets.md) (*"Decision Triggers"*).
 
 ---

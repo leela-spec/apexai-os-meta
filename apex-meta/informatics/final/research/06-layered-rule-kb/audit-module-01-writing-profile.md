@@ -12,8 +12,8 @@ tags: [module-audit, plane-4, writing-profile, single-owner, semantic-blocks, tr
 > **Position in Layered Knowledge Base:**
 > - **Layer 0 (Essence Contract):** [13-candidate-3A-xml.md](../../candidates/13-candidate-3A-xml.md) (`<communication>`, `<authoring>`, `<target>`, `<ground>`, `<reuse>`)
 > - **Layer 1 (Layered Rule KB):** [rule-01-target.md](rule-01-target.md), [rule-04-communication.md](rule-04-communication.md), [rule-06-ground.md](rule-06-ground.md), [rule-07-reuse.md](rule-07-reuse.md), [rule-16-authoring.md](rule-16-authoring.md)
-> - **Layer 2 (Audited Canonical Module):** [writing-profile.md](../../../writing-profile.md) (`WP-01` through `WP-25`)
-> - **Upstream Research & Empirical Lore:** [standard.md](../../../standard.md), [RESULTS-09-efficiency-audit.md](../03-research-of-file-10/Apex_Informatics_Research_Results_2026-10-21/RESULTS-09-efficiency-audit.md), [RESULTS-04-register-terminology.md](../03-research-of-file-10/Apex_Informatics_Research_Results_2026-10-21/RESULTS-04-register-terminology.md), [A01-target-outcome-alignment/README.md](../01-universal-instruction-research/module-deepening/A01-target-outcome-alignment/README.md), [Snippets.md](../../../../AI-Snippets/Snippets.md), [2Dos Ai Instructions.md](../../../../AI-Snippets/Orga/2Dos%20Ai%20Instructions.md)
+> - **Layer 2 (Audited Canonical Module):** [writing-profile.md](../../specs/writing-profile.md) (`WP-01` through `WP-25`)
+> - **Upstream Research & Empirical Lore:** [standard.md](../../specs/standard.md), [RESULTS-09-efficiency-audit.md](../03-research-of-file-10/Apex_Informatics_Research_Results_2026-10-21/RESULTS-09-efficiency-audit.md), [RESULTS-04-register-terminology.md](../03-research-of-file-10/Apex_Informatics_Research_Results_2026-10-21/RESULTS-04-register-terminology.md), [A01-target-outcome-alignment/README.md](../01-universal-instruction-research/module-deepening/A01-target-outcome-alignment/README.md), [Snippets.md](../../../../AI-Snippets/Snippets.md), [2Dos Ai Instructions.md](../../../../AI-Snippets/Orga/2Dos%20Ai%20Instructions.md)
 
 ---
 
@@ -22,7 +22,7 @@ tags: [module-audit, plane-4, writing-profile, single-owner, semantic-blocks, tr
 ### 1.1 Architectural Domain & Loading Lifecycle
 `writing-profile.md` is the canonical Plane 4 specification governing technical prose ergonomics, Information Mapping, Simplified Technical English (STE), visual block sizing, durable identifiers, and significance ranking across Apex OS.
 
-Within the **Five-Plane Information Architecture** ([file-architecture.md](../../../file-architecture.md) `FA-03`), `writing-profile.md` operates as a specialized knowledge module:
+Within the **Five-Plane Information Architecture** ([file-architecture.md](../../specs/file-architecture.md) `FA-03`), `writing-profile.md` operates as a specialized knowledge module:
 - **JIT Activation Trigger:** An autonomous agent loads `writing-profile.md` when drafting, refactoring, or auditing repository documentation, technical specifications, governance schemas, prompt cards, or architectural decision records.
 - **Scope Containment (`WP-09`):** Formal writing profile constraints are strictly restricted to governed repository knowledge artifacts. Casual chat interactions, raw application source code, and unformatted execution logs are explicitly exempt.
 - **Top-Loaded Ergonomics:** The module front-loads its non-negotiable clarity invariants (`WP-01` through `WP-09`) in the first ~500 tokens, establishing substance over ceremony, imperative single-command sentences, active voice, and raw 3-metric significance tagging.

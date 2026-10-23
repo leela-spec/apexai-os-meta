@@ -12,7 +12,7 @@ tags: [layered-kb, rule-03, scope, semantic-blocks, token-compression, research-
 > **Position in Layered Knowledge Base:**
 > - **Layer 0 (Essence Contract):** [13-candidate-3A-xml.md](../../candidates/13-candidate-3A-xml.md) (format siblings: [14-candidate-3B-hybrid.md](../../candidates/14-candidate-3B-hybrid.md), [15-candidate-3C-bullet-hybrid.md](../../candidates/15-candidate-3C-bullet-hybrid.md))
 > - **Layer 1 (This File — Rule-Level Semantic Block Audit):** Decomposes `<scope>` into 3 atomic semantic blocks (`SB-03.1`..`SB-03.3`), audits token value against prompt expansion biases, and presents scored compression options.
-> - **Layer 2 (Downstream Infrastructure Modules):** [anti-drift-rules.md](../../../anti-drift-rules.md) (`AD-18`, `AD-05`), [writing-profile.md](../../../writing-profile.md) (`WP-09`).
+> - **Layer 2 (Downstream Infrastructure Modules):** [anti-drift-rules.md](../../specs/anti-drift-rules.md) (`AD-18`, `AD-05`), [writing-profile.md](../../specs/writing-profile.md) (`WP-09`).
 
 ---
 
@@ -100,8 +100,8 @@ Every token in `<scope>` belongs to one of three distinct semantic blocks (`SB-0
 - **FixedBench (2026):** [Evaluating Over-Modification on Already-Fixed States](https://arxiv.org/abs/2605.07769) — Demonstrates that coding agents suffer from severe action bias, performing unrequested refactorings in over 80% of test scenarios unless explicitly constrained to authorized boundaries.
 
 ### 4.3 Canonical Plane 4 Infrastructure Modules & Operational Lore
-- **Canonical Anti-Drift Owner (`AD-18`, `AD-05`):** [anti-drift-rules.md](../../../anti-drift-rules.md)
-- **Canonical Writing Profile Owner (`WP-09`):** [writing-profile.md](../../../writing-profile.md)
+- **Canonical Anti-Drift Owner (`AD-18`, `AD-05`):** [anti-drift-rules.md](../../specs/anti-drift-rules.md)
+- **Canonical Writing Profile Owner (`WP-09`):** [writing-profile.md](../../specs/writing-profile.md)
 - **Operational Lore Grounding:** [2Dos Ai Instructions.md](../../../../AI-Snippets/Orga/2Dos%20Ai%20Instructions.md) (*"Zero-Speculation Scope Boundary"*), [Snippets.md](../../../../AI-Snippets/Snippets.md) (*"Scope boundary"*).
 
 ---

@@ -28,15 +28,25 @@ from typing import Any, Dict, List, Optional, Set, Tuple
 import unittest
 import xml.etree.ElementTree as ET
 
-REPO_ROOT = Path(__file__).resolve().parents[3]
-INFORMATICS_DIR = REPO_ROOT / "apex-meta" / "informatics"
-TESTS_DIR = INFORMATICS_DIR / "tests"
+REPO_ROOT = Path(__file__).resolve().parents[5]
+INFORMATICS_DIR = REPO_ROOT / "apex-meta" / "informatics" / "final"
+TESTS_DIR = INFORMATICS_DIR / "verification" / "suites"
 SCRIPTS_DIR = REPO_ROOT / "apex-meta" / "scripts"
+FINAL_TOOLS_DIR = INFORMATICS_DIR / "tools"
 
-if str(SCRIPTS_DIR) not in sys.path:
-    sys.path.insert(0, str(SCRIPTS_DIR))
-if str(TESTS_DIR) not in sys.path:
-    sys.path.insert(0, str(TESTS_DIR))
+for p in (SCRIPTS_DIR, FINAL_TOOLS_DIR, TESTS_DIR):
+    if str(p) not in sys.path:
+        sys.path.insert(0, str(p))
+
+def resolve_file(fname: str) -> Path:
+    p_root = REPO_ROOT / "apex-meta" / "informatics" / fname
+    if p_root.exists():
+        return p_root
+    for base in (INFORMATICS_DIR, INFORMATICS_DIR / "specs", INFORMATICS_DIR / "sub-bundles"):
+        cand = base / fname
+        if cand.exists():
+            return cand
+    return p_root
 
 import okf_validator
 
@@ -79,8 +89,8 @@ class TestContextIsolationSimulation(unittest.TestCase):
     """
 
     def setUp(self):
-        self.router_text = (INFORMATICS_DIR / "general-informatics-router.md").read_text(encoding="utf-8")
-        self.index_text = (INFORMATICS_DIR / "index.md").read_text(encoding="utf-8")
+        self.router_text = resolve_file("general-informatics-router.md").read_text(encoding="utf-8")
+        self.index_text = resolve_file("index.md").read_text(encoding="utf-8")
 
     def test_cis_01_pure_writing_task_isolation(self):
         """
@@ -181,7 +191,7 @@ class TestContextIsolationSimulation(unittest.TestCase):
         Detects and rejects any prohibited eager `@path` imports in both router files.
         """
         for rfile in ["general-informatics-router.md", "index.md"]:
-            content = (INFORMATICS_DIR / rfile).read_text(encoding="utf-8")
+            content = resolve_file(rfile).read_text(encoding="utf-8")
             # Strip code blocks to check live router prose
             clean = strip_code_blocks(content)
             eager_matches = re.findall(r"@[\w./\-]+\.md", clean)
@@ -198,12 +208,12 @@ class TestContextIsolationSimulation(unittest.TestCase):
         # Full stack token estimate
         full_stack_tokens = 0
         for f in ALL_DELIVERABLES:
-            content = (INFORMATICS_DIR / f).read_text(encoding="utf-8")
+            content = resolve_file(f).read_text(encoding="utf-8")
             full_stack_tokens += estimate_tokens(content)
 
         # JIT writing slice = router tokens + writing-profile tokens
         router_tokens = estimate_tokens(self.router_text)
-        wp_tokens = estimate_tokens((INFORMATICS_DIR / "writing-profile.md").read_text(encoding="utf-8"))
+        wp_tokens = estimate_tokens(resolve_file("writing-profile.md").read_text(encoding="utf-8"))
         jit_slice_tokens = router_tokens + wp_tokens
 
         savings_ratio = 1.0 - (jit_slice_tokens / full_stack_tokens)
@@ -216,11 +226,11 @@ class TestContextIsolationSimulation(unittest.TestCase):
         """
         Validates that all `<informatics>` blocks in the routers are syntactically valid XML elements.
         """
-        for rname in ["general-informatics-router.md", "index.md"]:
-            content = (INFORMATICS_DIR / rname).read_text(encoding="utf-8")
+        for rpath in [resolve_file("general-informatics-router.md"), REPO_ROOT / "apex-meta" / "informatics" / "index.md"]:
+            content = rpath.read_text(encoding="utf-8")
             # Extract XML blocks
             xml_blocks = re.findall(r"(<informatics[\s\S]*?</informatics>)", content)
-            self.assertGreaterEqual(len(xml_blocks), 5, f"Expected at least 5 XML blocks in {rname}")
+            self.assertGreaterEqual(len(xml_blocks), 5, f"Expected at least 5 XML blocks in {rpath.name}")
             for block in xml_blocks:
                 try:
                     root = ET.fromstring(block)
@@ -228,7 +238,7 @@ class TestContextIsolationSimulation(unittest.TestCase):
                     self.assertIn("when", root.attrib)
                     self.assertIn("ref", root.attrib)
                     # Verify target ref actually exists on disk
-                    ref_path = INFORMATICS_DIR / root.attrib["ref"]
+                    ref_path = resolve_file(root.attrib["ref"])
                     self.assertTrue(ref_path.exists(), f"Broken ref in XML tag: {root.attrib['ref']}")
                 except ET.ParseError as pe:
                     self.fail(f"Invalid XML syntax in {rname}: {block} -> {pe}")
@@ -251,11 +261,11 @@ class TestOperationalLoreTraceability(unittest.TestCase):
     """
 
     def setUp(self):
-        self.adr_text = (INFORMATICS_DIR / "anti-drift-rules.md").read_text(encoding="utf-8")
-        self.exec_text = (INFORMATICS_DIR / "execution-modes.md").read_text(encoding="utf-8")
-        self.wp_text = (INFORMATICS_DIR / "writing-profile.md").read_text(encoding="utf-8")
-        self.fa_text = (INFORMATICS_DIR / "file-architecture.md").read_text(encoding="utf-8")
-        self.gs_text = (INFORMATICS_DIR / "governance-schemas.md").read_text(encoding="utf-8")
+        self.adr_text = resolve_file("anti-drift-rules.md").read_text(encoding="utf-8")
+        self.exec_text = resolve_file("execution-modes.md").read_text(encoding="utf-8")
+        self.wp_text = resolve_file("writing-profile.md").read_text(encoding="utf-8")
+        self.fa_text = resolve_file("file-architecture.md").read_text(encoding="utf-8")
+        self.gs_text = resolve_file("governance-schemas.md").read_text(encoding="utf-8")
 
     def test_olt_01_eight_anti_drift_laws_presence(self):
         """
@@ -348,8 +358,8 @@ class TestOperationalLoreTraceability(unittest.TestCase):
             ("anti-drift-rules.md", self.adr_text),
             ("writing-profile.md", self.wp_text),
             ("file-architecture.md", self.fa_text),
-            ("index.md", (INFORMATICS_DIR / "index.md").read_text(encoding="utf-8")),
-            ("general-informatics-router.md", (INFORMATICS_DIR / "general-informatics-router.md").read_text(encoding="utf-8")),
+            ("index.md", (REPO_ROOT / "apex-meta" / "informatics" / "index.md").read_text(encoding="utf-8")),
+            ("general-informatics-router.md", resolve_file("general-informatics-router.md").read_text(encoding="utf-8")),
         ]:
             self.assertIn(authority_phrase, text, f"Missing Substance Over Ceremony in {name}")
 
@@ -376,8 +386,8 @@ class TestTaskAdapterSemanticSoundness(unittest.TestCase):
     """
 
     def setUp(self):
-        self.exec_text = (INFORMATICS_DIR / "execution-modes.md").read_text(encoding="utf-8")
-        self.gov_text = (INFORMATICS_DIR / "governance-schemas.md").read_text(encoding="utf-8")
+        self.exec_text = resolve_file("execution-modes.md").read_text(encoding="utf-8")
+        self.gov_text = resolve_file("governance-schemas.md").read_text(encoding="utf-8")
 
     def test_tas_01_exact_match_patch_mode_a_block_replacement(self):
         """
@@ -559,7 +569,6 @@ NORMATIVE_DELIVERABLES = [
     "execution-modes.md",
     "anti-drift-rules.md",
     "governance-schemas.md",
-    "index.md",
     "general-informatics-router.md",
 ]
 
@@ -580,7 +589,7 @@ class TestSignificanceAndRankingEngine(unittest.TestCase):
         """
         total_tags = 0
         for fname in NORMATIVE_DELIVERABLES:
-            fpath = INFORMATICS_DIR / fname
+            fpath = resolve_file(fname)
             content = fpath.read_text(encoding="utf-8")
             content_no_code = strip_code_blocks(content)
             matches = SIG_TAG_REGEX.findall(content_no_code)
@@ -601,7 +610,7 @@ class TestSignificanceAndRankingEngine(unittest.TestCase):
         across all normative specification files.
         """
         for fname in NORMATIVE_DELIVERABLES:
-            content = (INFORMATICS_DIR / fname).read_text(encoding="utf-8")
+            content = resolve_file(fname).read_text(encoding="utf-8")
             content_no_code = strip_code_blocks(content)
             match = SIG_TAG_REGEX.search(content_no_code)
             self.assertIsNotNone(match, f"No tag found in {fname}")
@@ -623,7 +632,7 @@ class TestSignificanceAndRankingEngine(unittest.TestCase):
         """
         rank_map = {"P0": 0, "P1": 1, "P2": 2, "P3": 3}
         for fname in NORMATIVE_DELIVERABLES:
-            content = (INFORMATICS_DIR / fname).read_text(encoding="utf-8")
+            content = resolve_file(fname).read_text(encoding="utf-8")
             content_no_code = strip_code_blocks(content)
             matches = SIG_TAG_REGEX.findall(content_no_code)
             ranks = [rank_map[tier] for tier, _, _, _ in matches]
@@ -644,7 +653,7 @@ class TestSignificanceAndRankingEngine(unittest.TestCase):
             r"Score\s*=\s*I\s*\*",
         ]
         for fname in ALL_DELIVERABLES:
-            content = (INFORMATICS_DIR / fname).read_text(encoding="utf-8")
+            content = resolve_file(fname).read_text(encoding="utf-8")
             # Strip code blocks (since Snippets might mention formula historically)
             content_no_code = strip_code_blocks(content)
             for pat in formula_patterns:
@@ -670,7 +679,7 @@ class TestFrontmatterAndOKFIntegrity(unittest.TestCase):
         Multiline lists (`- item`) are strictly forbidden.
         """
         for fname in ALL_DELIVERABLES:
-            fpath = INFORMATICS_DIR / fname
+            fpath = resolve_file(fname)
             content = fpath.read_text(encoding="utf-8")
             fm, body, err = okf_validator.parse_frontmatter(content)
             self.assertIsNone(err, f"Frontmatter parse error in {fname}: {err}")
@@ -690,7 +699,7 @@ class TestFrontmatterAndOKFIntegrity(unittest.TestCase):
         """
         seen_ids: Dict[str, str] = {}
         for fname in ALL_DELIVERABLES:
-            content = (INFORMATICS_DIR / fname).read_text(encoding="utf-8")
+            content = resolve_file(fname).read_text(encoding="utf-8")
             fm, _, _ = okf_validator.parse_frontmatter(content)
             if fm and "id" in fm:
                 doc_id = str(fm["id"]).strip()
@@ -704,18 +713,19 @@ class TestFrontmatterAndOKFIntegrity(unittest.TestCase):
         """
         Every relative markdown link in root `index.md` must resolve to an existing file.
         """
-        content = (INFORMATICS_DIR / "index.md").read_text(encoding="utf-8")
+        root_index_path = REPO_ROOT / "apex-meta" / "informatics" / "index.md"
+        content = root_index_path.read_text(encoding="utf-8")
         links = okf_validator.extract_links(content)
         self.assertGreater(len(links), 0)
         for link in links:
-            resolved = (INFORMATICS_DIR / link).resolve()
+            resolved = (root_index_path.parent / link).resolve()
             self.assertTrue(resolved.exists(), f"Broken relative link in index.md: '{link}'")
 
     def test_okf_04_agent_setup_sub_bundle_isolation(self):
         """
         Verifies `Agent_Setup/index.md` creates a valid sub-bundle boundary with `okf_version: "0.2"`.
         """
-        agent_setup_index = INFORMATICS_DIR / "Agent_Setup" / "index.md"
+        agent_setup_index = resolve_file("Agent_Setup/index.md")
         self.assertTrue(agent_setup_index.exists())
         content = agent_setup_index.read_text(encoding="utf-8")
         fm, _, err = okf_validator.parse_frontmatter(content)
@@ -739,7 +749,7 @@ class TestRouterCompactnessAndBudgets(unittest.TestCase):
         - Characters <= 2,000
         - Tokens <= 500
         """
-        content = (INFORMATICS_DIR / "general-informatics-router.md").read_text(encoding="utf-8")
+        content = resolve_file("general-informatics-router.md").read_text(encoding="utf-8")
         lines = len(content.splitlines())
         chars = len(content)
         tokens = estimate_tokens(content)
@@ -755,7 +765,7 @@ class TestRouterCompactnessAndBudgets(unittest.TestCase):
         - Characters <= 4,000
         - Tokens <= 1,000
         """
-        content = (INFORMATICS_DIR / "index.md").read_text(encoding="utf-8")
+        content = (REPO_ROOT / "apex-meta" / "informatics" / "index.md").read_text(encoding="utf-8")
         lines = len(content.splitlines())
         chars = len(content)
         tokens = estimate_tokens(content)
@@ -813,7 +823,7 @@ class TestAdversarialBoundaryAndEdgeCases(unittest.TestCase):
         self.assertEqual(found_banned, ["line_number"])
 
         # Confirm governance-schemas.md explicitly bans these keys
-        gov_text = (INFORMATICS_DIR / "governance-schemas.md").read_text(encoding="utf-8")
+        gov_text = resolve_file("governance-schemas.md").read_text(encoding="utf-8")
         for k in banned_keys:
             self.assertIn(k, gov_text, f"Governance schemas must explicitly ban brittle identifier: {k}")
 
@@ -878,8 +888,8 @@ class TestAdversarialBoundaryAndEdgeCases(unittest.TestCase):
         Adversarial test: Verifies that Substance Over Ceremony Exception Authority
         is non-negotiably positioned as a P0 invariant in all core specifications.
         """
-        adr_p0 = (INFORMATICS_DIR / "anti-drift-rules.md").read_text(encoding="utf-8")
-        wp_p0 = (INFORMATICS_DIR / "writing-profile.md").read_text(encoding="utf-8")
+        adr_p0 = resolve_file("anti-drift-rules.md").read_text(encoding="utf-8")
+        wp_p0 = resolve_file("writing-profile.md").read_text(encoding="utf-8")
 
         self.assertIn("AD-08 [P0 | I95/E95/R05] Substance Over Ceremony", adr_p0)
         self.assertIn("WP-01 [P0 | I98/E98/R05] Substance Over Ceremony", wp_p0)
@@ -889,7 +899,7 @@ class TestAdversarialBoundaryAndEdgeCases(unittest.TestCase):
         Adversarial test: Paired directive examples in writing-profile.md
         must reference existing declared durable IDs in the same file.
         """
-        wp_content = (INFORMATICS_DIR / "writing-profile.md").read_text(encoding="utf-8")
+        wp_content = resolve_file("writing-profile.md").read_text(encoding="utf-8")
         # Extract referenced rule IDs in table
         table_matches = re.findall(r"\*\*(WP-\d{2})\*\*", wp_content)
         self.assertGreater(len(table_matches), 0)
@@ -904,7 +914,7 @@ class TestAdversarialBoundaryAndEdgeCases(unittest.TestCase):
         or references instructing the agent to eagerly load `file-architecture.md`,
         `execution-modes.md`, `anti-drift-rules.md`, or `governance-schemas.md`.
         """
-        wp_content = (INFORMATICS_DIR / "writing-profile.md").read_text(encoding="utf-8")
+        wp_content = resolve_file("writing-profile.md").read_text(encoding="utf-8")
         transitive_targets = [
             "file-architecture.md",
             "execution-modes.md",
@@ -922,7 +932,7 @@ class TestAdversarialBoundaryAndEdgeCases(unittest.TestCase):
         Adversarial test: okf_validator.py correctly prunes the Agent_Setup directory
         from root traversal and does not fail on legacy files inside Agent_Setup.
         """
-        report = okf_validator.validate_bundle(str(INFORMATICS_DIR))
+        report = okf_validator.validate_bundle(str(REPO_ROOT / "apex-meta" / "informatics"))
         self.assertEqual(report.okf_errors, 0)
         self.assertEqual(report.apex_profile_errors, 0)
         self.assertTrue(report.passed)
