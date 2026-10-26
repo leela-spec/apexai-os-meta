@@ -1,3 +1,7 @@
+---
+paths: ["apex-meta/informatics/**", "apex-meta/SmallSkills/OKF_Format/**"]
+---
+
 # Scoped Informatics Rule — Claude Code
 
 When creating, editing, or validating knowledge files under `apex-meta/informatics/` or `apex-meta/SmallSkills/OKF_Format/`:

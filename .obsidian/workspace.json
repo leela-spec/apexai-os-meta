@@ -8,31 +8,17 @@
         "type": "tabs",
         "children": [
           {
-            "id": "936801a0bdf106d3",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "apex-meta/AI-Snippets/Orga/2Dos.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "2Dos"
-            }
-          },
-          {
             "id": "aeb9ff58649f6be2",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "docs/AUDIT_DOSSIER_DUAL_KI_BASIS/01_DUAL_INSTANCE_ARCHITECTURE.md",
+                "file": "apex-meta/informatics/final/candidates/02-informatics-contract-block.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "01_DUAL_INSTANCE_ARCHITECTURE"
+              "title": "02-informatics-contract-block"
             }
           }
         ]
@@ -69,7 +55,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "a01",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -175,7 +161,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "apex-meta/AI-Snippets/Orga/2Dos.md",
+                "file": "apex-meta/informatics/final/candidates/02-informatics-contract-block.md",
                 "followCursor": false,
                 "showSearch": true,
                 "searchQuery": ""
@@ -202,44 +188,44 @@
       "bases:Create new base": false
     }
   },
-  "active": "936801a0bdf106d3",
+  "active": "aeb9ff58649f6be2",
   "lastOpenFiles": [
-    "apex-meta/AI-Snippets/Snippets.md",
-    "ki-basis/docs/openproject/INCIDENT-cache-staleness-work-package-visibility.md",
-    "scripts/transcript_pipeline_v4/__pycache__/prepare_web_bundle.cpython-312.pyc",
-    "artifacts/openai_workspace_skills/obsidian-wiki-ingest/references/long-source-integrity.md",
-    "artifacts/openai_workspace_skills/obsidian-wiki-ingest/references/url-sources.md",
-    "artifacts/openai_workspace_skills/obsidian-wiki-ingest/references/pageindex.md",
-    "artifacts/openai_workspace_skills/obsidian-wiki-ingest/references/ingest-prompts.md",
-    "scripts/transcript_pipeline_v4/prepare_web_bundle.py",
-    "artifacts/openai_workspace_skills/tests/__pycache__/test_obsidian_wiki_ingest.cpython-312.pyc",
-    "artifacts/openai_workspace_skills/tests/__pycache__",
-    "scripts/transcript_pipeline_v4/tests/__pycache__/test_prepare_web_bundle.cpython-312.pyc",
-    "artifacts/openai_workspace_skills/tests/test_obsidian_wiki_ingest.py",
-    "artifacts/openai_workspace_skills/tests",
-    "scripts/transcript_pipeline_v4/tests/test_prepare_web_bundle.py",
-    "ki-basis/docs/openproject/FUTURE-DEVELOPMENT-type-defaults-for-new-projects.md",
-    "ki-basis/docs/openproject/FUTURE-DEVELOPMENT-type-defaults-for-new-projects.md.tmp.27688.8a770263329d",
-    "artifacts/openai_workspace_skills/wiki-ingest.zip",
-    "artifacts/openai_workspace_skills/authentic-obsidian-wiki-ingest/wiki-ingest/references/url-sources.md",
-    "artifacts/openai_workspace_skills/authentic-obsidian-wiki-ingest/wiki-ingest/references/ingest-prompts.md",
-    "artifacts/openai_workspace_skills/authentic-obsidian-wiki-ingest/wiki-ingest/references/pageindex.md",
-    "artifacts/openai_workspace_skills/authentic-obsidian-wiki-ingest/wiki-ingest/references/karpathy-pattern.md",
-    "artifacts/openai_workspace_skills/authentic-obsidian-wiki-ingest/wiki-ingest/SKILL.md",
-    "artifacts/openai_workspace_skills/obsidian-wiki-ingest/SKILL.md",
-    "artifacts/openai_workspace_skills/obsidian-wiki-ingest/references/vault-schema.md",
-    "artifacts/openai_workspace_skills/obsidian-wiki-ingest/references/karpathy-pattern.md",
+    "apex-meta/informatics/final/candidates/16-candidate-3A-ultra.md",
     "apex-meta/AI-Snippets/Orga/2Dos.md",
-    "apex-meta/AI-Snippets/AIFailure/create-a-plan-for-kind-toucan.md",
-    "apex-meta/AI-Snippets/AIFailure/TBD 3.md",
-    "apex-meta/AI-Snippets/AIFailure/TBD 1.md",
-    "apex-meta/AI-Snippets/AIFailure/Secrecy_API_Pushed2Git.md",
-    "apex-meta/AI-Snippets/AIFailure/HERMES-OPTION2-DOCKER-DOWNGRADE-PLAN.md",
-    "apex-meta/AI-Snippets/AIFailure/HERMES-MIGRATION-HANDOVER-OKF-v0.2.md",
-    "apex-meta/AI-Snippets/AIFailure/HERMES-ARCHITECTURE-HISTORY-AND-DECISION.md",
-    "apex-meta/SmallSkills/Transcription2KnowledgeBase/LEARNINGS-2026-10-02-first-extraction-run.md",
-    "apex-meta/orchestration/architecture-improvements/05-program-closeout/FUTURE-DEVELOPMENT-qmd-install.md",
-    "apex-meta/SmallSkills/Transcription2KnowledgeBase/SKILL.md",
+    "apex-meta/informatics/final/operations/12-RESTRUCTURING-AND-NEXT-PHASE-HANDOVER.md",
+    "apex-meta/informatics/final/verification/suites/__pycache__/test_m6_two_layer_carrier_drafts.cpython-312-pytest-9.1.1.pyc",
+    "apex-meta/informatics/final/verification/suites/test_m6_two_layer_carrier_drafts.py",
+    "apex-meta/informatics/final/operations/11-TWO-LAYER-CARRIER-DRAFTS-MULTI-REPO.md",
+    "apex-meta/informatics/final/operations/10-MULTI-CLI-MULTI-REPO-INSTRUCTION-AUDIT-HANDOVER.md",
+    "apex-meta/informatics/final/operations/09-TRIAL-RUN-EVALUATION-REPORT.md",
+    "apex-meta/informatics/final/tools/agent_eval_runner.py",
+    "apex-meta/informatics/final/operations/08-AGENT-EVALUATION-AND-HANDOVER-RUNBOOK.md",
+    "apex-meta/informatics/final/verification/test-kb/03-contract-token-math-rationale.md",
+    "apex-meta/informatics/final/verification/test-kb/02-single-ownership-rationale.md",
+    "apex-meta/informatics/final/verification/test-kb/01-context-isolation-rationale.md",
+    "apex-meta/informatics/final/verification/README.md",
+    "apex-meta/informatics/final/verification/suites/__pycache__/test_informatics_e2e.cpython-312.pyc",
+    "apex-meta/informatics/final/verification/suites/__pycache__/stress_test_m2_challenger.cpython-312-pytest-9.1.1.pyc",
+    "apex-meta/informatics/final/tools/__pycache__/okf_validator.cpython-312.pyc",
+    "apex-meta/informatics/final/tools/__pycache__",
+    "apex-meta/informatics/final/verification/suites/__pycache__/verify_m3_rules.cpython-312-pytest-9.1.1.pyc",
+    "apex-meta/informatics/final/candidates/index.md",
+    "apex-meta/informatics/final/candidates/15-candidate-3C-bullet-hybrid.md",
+    "apex-meta/informatics/final/candidates/14-candidate-3B-hybrid.md",
+    "apex-meta/informatics/final/candidates/13-candidate-3A-xml.md",
+    "apex-meta/informatics/final/candidates/12-status-index.md",
+    "apex-meta/informatics/final/candidates/11-instruction-surface-architecture.md",
+    "apex-meta/informatics/final/candidates/10-RESEARCH-EXECUTION-HANDOVER.md",
+    "apex-meta/informatics/final/candidates/09-contract-block-v0.5.md",
+    "apex-meta/informatics/final/candidates/08-discussion-and-open-threads.md",
+    "apex-meta/informatics/final/candidates/07-contract-block-v0.4.md",
+    "apex-meta/informatics/final/candidates/06-contract-block-revision-proposal.md",
+    "apex-meta/informatics/final/candidates/05-research-prompt-packets.md",
+    "apex-meta/informatics/final/candidates/03-BLUEPRINT-agents.md",
+    "apex-meta/informatics/final/candidates/04-empirical-test-protocol.md",
+    "apex-meta/informatics/final/candidates/02-informatics-contract-block.md",
+    "apex-meta/informatics/final/candidates",
+    "apex-meta/informatics/final/verification/suites/__pycache__/test_tier5_adversarial.cpython-312-pytest-9.1.1.pyc",
     "Pasted image 20260927104956.png",
     "Pasted image 20260927104936.png",
     "ki-basis/fixtures/fundraiser_hamburg/Lika_OS_Volunteer_Shift_Overview.png",

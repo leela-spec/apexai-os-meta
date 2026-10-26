@@ -2,6 +2,7 @@
 
 > **📍 Current architecture & open work (start here).** The stack now runs on a **single WSL2-native
 > Docker engine** with **one shared PostgreSQL** (Docker Desktop retired). Current-truth docs:
+> - **Single source of truth (live state):** `ki-basis/docs/INFRASTRUCTURE.md`.
 > - Architecture decision: `ki-basis/docs/DUAL_INSTANCE_ARCHITECTURE.md` **§6 (ADR-002)**.
 > - Verified topology + decisions (D-01…D-18): `apex-meta/orchestration/architecture-improvements/03-wsl2-native-stack-consolidation/`.
 > - **Remaining work / close-out plan (execute from here):** `apex-meta/orchestration/architecture-improvements/05-program-closeout/PLAN.md`.

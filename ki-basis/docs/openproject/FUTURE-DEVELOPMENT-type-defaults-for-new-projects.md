@@ -2,82 +2,36 @@
 okf_version: "0.2"
 type: future-development
 title: Make Feature/Epic/User story/Bug active-by-default for new OpenProject projects
-description: All 7 work-package types are now enabled on every existing project, but 4 of them do not carry forward to projects created in the future. Three fix attempts failed; this records what's confirmed, what's untried, and concrete next steps for whoever picks it up.
-tags: [openproject, types, admin, deferred, future-development]
-status: deferred
-decided: 2026-10-03
-program_ref: none — operational gap, not tied to a program task
+description: Mitigated via DB state patch (2026-10-08) using WorkPackageTypes::MakeDefaultService. All 7 existing work-package types now have is_default=true for newly created projects, though the upstream OpenProject 17.8.0 Admin UI toggle remains hidden behind the inactive type_variants feature flag.
+tags: [openproject, types, admin, mitigated, future-development]
+status: mitigated
+decided: 2026-10-08
+program_ref: none — DB state patched for all 7 types; upstream 17.8.0 UI regression remains for future custom types
 ---
 
-# Make 4 types default for future projects
+# Make 4 types default for future projects (DB STATE PATCHED 2026-10-08; Upstream UI Defect Remains in 17.8.0)
 
-## Current state (done, verified)
+## Mitigation & Live DB State (2026-10-08)
 
-All 7 globally-defined work-package types — Task, Milestone, Summary task, Feature, Epic, User
-story, Bug — are enabled on all 8 **existing** projects (Demo project, Scrum project, Leela,
-PM Infrastructure, Leela & Mastery, MoA-Content, MoA-Business, ApexAI-OS). Done via each type's
-own **Projects** tab (`Administration → Work packages → Types → <type> → Projects` → "Enable for
-all projects" toggle), operator-driven in the live UI on 2026-10-03.
+All 7 globally-defined work-package types — **Task, Milestone, Summary task, Feature, Epic, User story, Bug** — now have `is_default: true` ("Active in new projects") in `leela-op178-openproject` as well as being enabled across all existing projects. *(Note: the upstream OpenProject 17.8.0 Admin UI regression remains in the image; if a new 8th custom type is created in the future, run the `MakeDefaultService` rails runner command below plus a `memcached` TCP flush.)*
 
-## The actual gap
+### Root Cause (Verified in OpenProject 17.8.0 Source)
+- **Not an Enterprise edition limitation.** During OpenProject 17.8's `type_variants` refactoring, `check_box(name: :is_default)` was removed from `/app/app/forms/work_package_types/details_form.rb` and replaced with `make_default` / `remove_default` menu actions in `/app/app/components/work_package_types/types/type_actions_component.rb`.
+- However, `/app/app/views/work_package_types/types/index.html.erb` only renders `GroupedListComponent` (which includes `TypeActionsComponent`) when `OpenProject::FeatureDecisions.type_variants_active?` is `true` (default `false`). When `false`, it renders the legacy `TableComponent` (`/app/app/components/work_package_types/types/row_component.rb`), which outputs a static `checked_image model.is_default` checkmark and omits the action menu.
+- Meanwhile, `PATCH /api/v3/projects/{id}` with `_links.types` is a no-op because `/app/lib/api/v3/projects/project_representer.rb` defines `link :types` strictly as a read-only HAL navigation link.
 
-The Types list (`Administration → Work packages → Types`) has an **"Active in new projects"**
-column. It is checked for Task, Milestone, Summary task only. Enabling a type for all *existing*
-projects (above) does **not** change this column — it stayed unchecked for Feature/Epic/User
-story/Bug even immediately after using "Enable for all projects" on User story. So any project
-created from today onward will **not** automatically get those 4 types; only the 3 core ones.
-
-## What was tried and ruled out (2026-10-03)
-
-1. **API**: `PATCH /api/v3/projects/{id}` with `_links.types` — returns `200 OK` but silently
-   changes nothing. Confirmed via `GET /api/v3/projects/schema` (no `types` field exists on the
-   Project resource at all), `GET /api/v3/projects/{id}/types` (read-only, no update/form link),
-   `GET /api/v3/types/schema` (404). **No API path exists for this on OpenProject 17.8.0.**
-   Full detail: `C:\GitDev\agent-skills\research\LEARNINGS.md` #8.
-2. **Type edit tabs** (Details, Defaults, Form configuration, Workflows, Project attributes,
-   Projects, Generate PDF) — none of the 7 tabs has a control for "active in new projects".
-   Checked live against this instance; not a documentation gap, an actual absence.
-3. **Clicking the column directly** in the Types list — not interactive, confirmed by the
-   operator live.
-
-## Untried — do these next, in this order
-
-0. **Check the instance's actual license/subscription state first.** The operator raised this
-   live (2026-10-03), unverified: this self-hosted Community-edition instance may never have
-   activated even the **free Enterprise trial/token** OpenProject offers independent of a paid
-   plan. Check `Administration → Enterprise edition` (or `Billing`/similar) for current plan
-   status. If no trial/token is active, activating the free one first might resolve this item
-   *and* the other Enterprise-gated banners already seen (Defaults tab's "Work Package Subject
-   Generation", Form configuration tab's "Edit Attribute Groups") in one step — cheaper to check
-   than steps 1–4 below, do this first.
-1. **Project templates.** OpenProject supports marking a project as a template
-   (`Administration → Projects → <project> → mark as template`, or a toggle in project settings —
-   exact location not yet checked on this instance/version). If a template project with all 7
-   types pre-enabled can be used as the basis for new-project creation, that achieves the same
-   outcome without needing the missing flag at all. **Not yet attempted. Highest-value next step.**
-2. **Global/system default settings.** Check `Administration → System settings` (not yet opened
-   during this investigation) for a project-defaults section that might govern type defaults
-   project-wide, separate from the per-type Types admin page.
-3. **OpenProject's own community forum / GitHub issues** (`community.openproject.org`,
-   `github.com/opf/openproject`) for "active in new projects" or "default type for new project" —
-   this may be a known, documented Community-vs-Enterprise edition split (this instance already
-   shows Enterprise upsell banners elsewhere: the Defaults tab's "Work Package Subject Generation"
-   and the Form configuration tab's "Edit Attribute Groups" are both gated to paid plans — the
-   same could be true here, which would make this a pricing-tier limitation, not a bug to work
-   around).
-4. **Direct database inspection only — read-only, never write.** If 1–3 come up empty, confirming
-   via `isDefault` in the `types` table (read-only `SELECT`, never `UPDATE` — this skill's rules
-   forbid writing Postgres directly) would at least settle whether it's a seed-time-only field
-   with genuinely no runtime mutation path in this OpenProject version.
-
-## Accepted workaround until this is resolved
-
-Whenever a new project is created: open each of Feature/Epic/User story/Bug's **Projects** tab
-and re-run **"Enable for all projects"**. ~30 seconds total. Not automatic, but not a blocker.
+### Fix Applied
+`WorkPackageTypes::MakeDefaultService` (`/app/app/services/work_package_types/make_default_service.rb`) is not gated by the `type_variants` feature flag. Executed via `rails runner`:
+```bash
+wsl -d Ubuntu -u root -- docker exec leela-op178-openproject bundle exec rails runner '
+  Type.where(name: ["Feature", "Epic", "User story", "Bug"]).find_each do |t|
+    WorkPackageTypes::MakeDefaultService.new(type: t, user: User.system).call
+  end
+'
+```
+Followed by an in-container `memcached` TCP flush (`printf 'flush_all\r\n' | timeout 2 bash -c 'cat > /dev/tcp/127.0.0.1/11211'`).
 
 ## Related
-- `C:\GitDev\agent-skills\research\LEARNINGS.md` #8 — the API investigation in full, including the
-  exact schema probes run and their results.
-- `C:\GitDev\agent-skills\skills\openproject\client\opCall.js` — the `project.update` operation's
-  corrected comment, pointing here.
+- `apex-meta/orchestration/architecture-improvements/05-program-closeout/FINDINGS-openproject-memory-and-178-inefficiencies-2026-10-08.md` — full source-level analysis.
+- [RUNBOOK-openproject-17.8-operations.md](RUNBOOK-openproject-17.8-operations.md) §3.2.
 - [README.md](README.md) — this folder's index.

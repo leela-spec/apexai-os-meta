@@ -11,22 +11,23 @@
 # =============================================================================
 set -uo pipefail
 APEX=/mnt/c/GitDev/apexai-os-meta
+LIKA=/mnt/c/GitDev/lika-community
 LEELA=/mnt/c/GitDev/Leela-Cloud-2026
 GLOBAL=/mnt/c/Users/gehma/.claude
 SKILLS=/mnt/c/GitDev/agent-skills
 INC=(--include=*.md --include=*.json --include=*.sh --include=*.ps1 --include=*.yaml --include=*.yml --include=SKILL.md)
-EXC=(--exclude-dir=.git --exclude-dir=node_modules --exclude-dir=_archive)
+EXC=(--exclude-dir=.git --exclude-dir=node_modules --exclude-dir=_archive --exclude-dir=kb)
 
 hr(){ echo; echo "########## $* ##########"; }
 
-hr "A. Retired-topology assertions in ki-basis + apex-meta docs (candidates to banner/archive)"
+hr "A. Retired-topology assertions in ki-basis + apex-meta + lika-community docs (candidates to banner/archive)"
 echo "-- files mentioning 'Docker Desktop' (excluding ones that also say superseded/retired/historical) --"
-grep -rl "${INC[@]}" "${EXC[@]}" -i "docker desktop" "$APEX/ki-basis" "$APEX/apex-meta" 2>/dev/null | while read -r f; do
-  if grep -qiE "superseded|retired|rollback reference|historical|MIRROR" "$f"; then :; else echo "  [STALE?] ${f#$APEX/}"; fi
+grep -rl "${INC[@]}" "${EXC[@]}" -i "docker desktop" "$APEX/ki-basis" "$APEX/apex-meta" "$LIKA" 2>/dev/null | while read -r f; do
+  if grep -qiE "superseded|retired|rollback reference|historical|MIRROR" "$f"; then :; else echo "  [STALE?] $f"; fi
 done
 echo "-- files naming OpenProject v14 (openproject:14 / 'OpenProject 14' / ki-basis-openproject as live) --"
-grep -rl "${INC[@]}" "${EXC[@]}" -iE "openproject:14|openproject 14" "$APEX/ki-basis" "$APEX/apex-meta" 2>/dev/null | while read -r f; do
-  grep -qiE "superseded|deleted|retired|D-18|historical" "$f" || echo "  [STALE?] ${f#$APEX/}"
+grep -rl "${INC[@]}" "${EXC[@]}" -iE "openproject:14|openproject 14" "$APEX/ki-basis" "$APEX/apex-meta" "$LIKA" 2>/dev/null | while read -r f; do
+  grep -qiE "superseded|deleted|retired|D-18|historical" "$f" || echo "  [STALE?] $f"
 done
 
 hr "B. Automated-consumer scan (is a candidate doc referenced by skills/scripts/manifests?)"
@@ -34,7 +35,7 @@ consumer_scan(){ # filename-or-path
   local needle="$1" hits
   hits=$(grep -rl "${INC[@]}" "${EXC[@]}" -F "$needle" \
         "$APEX/.claude" "$APEX"/**/.claude 2>/dev/null; \
-        grep -rl -F "$needle" "$GLOBAL" "$SKILLS" 2>/dev/null; \
+        grep -rl "${INC[@]}" "${EXC[@]}" --exclude-dir=projects -F "$needle" "$GLOBAL" "$SKILLS" 2>/dev/null; \
         grep -rl "${INC[@]}" "${EXC[@]}" -F "$needle" "$APEX" 2>/dev/null | grep -E "/(scripts|\.agents)/|run-state|manifest|\.json$" )
   hits=$(echo "$hits" | sort -u | sed '/^$/d')
   if [ -z "$hits" ]; then

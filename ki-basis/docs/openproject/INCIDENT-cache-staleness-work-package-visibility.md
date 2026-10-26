@@ -1,15 +1,16 @@
 ---
 okf_version: "0.2"
 type: incident
-title: Work-package writes intermittently invisible until OpenProject restart — cache architecture needs review
-description: Creating Epic/Feature/User story/Bug work packages, and separately a Hermes/Telegram-bot write, have each appeared to fail or go missing, then shown up correctly only after an OpenProject container restart or the next day. Root cause not proven; the instance's memcache-backed Rails cache (with no confirmed invalidation on type-to-project changes) is the leading suspect. A separate, confirmed DNS-alias collision on the shared Docker network was found during this investigation and is recorded as a related latent risk, not a proven cause.
-tags: [openproject, caching, memcache, docker, dns, architecture, incident]
-status: open
+title: Work-package writes intermittently invisible until OpenProject restart — root cause verified & mitigated (ProjectType missing touch: true)
+description: Root cause verified in OpenProject 17.8.0 source (2026-10-08): ProjectType (/app/app/models/project_type.rb) declares belongs_to :project without touch: true, so enabling types on a project leaves projects.updated_at unchanged while API::Caching::CachedRepresenter keys memcache off projects.updated_at. Upstream defect remains in 17.8.0 image; mitigated via mandatory TCP memcached flush (127.0.0.1:11211) after admin type/project association changes.
+tags: [openproject, caching, memcache, docker, dns, architecture, incident, mitigated]
+status: mitigated
 opened: 2026-10-03
-program_ref: none — operational gap, not tied to a program task
+mitigated: 2026-10-08
+program_ref: none — upstream OpenProject 17.8.0 defect (ProjectType missing touch: true); operational TCP flush workaround active
 ---
 
-# Work-package writes intermittently invisible until restart — cache/staleness investigation
+# Work-package writes intermittently invisible until restart — cache/staleness investigation (MITIGATED 2026-10-08; Upstream Defect Active in 17.8.0)
 
 ## Symptom (reported twice, two different access paths)
 
@@ -157,16 +158,20 @@ overlaps with "What's untried" below.
    instance, what was read versus written, whether a restart happened in between. Without that, item 2
    stays an analogous prior incident, not a confirmed match to item 1's root cause.
 
-## Accepted workaround until this is resolved
+## Resolution & Standard Procedure (2026-10-08)
 
-If a work-package create fails right after an admin enables a type for a project, don't assume the
-enablement itself didn't take — retry in a few minutes, or restart the `leela-op178-openproject`
-container (`docker restart leela-op178-openproject`, ~80s cold boot per
-`RUNBOOK-openproject-17.8-operations.md` §4) before concluding the enablement is broken.
+- **Root Cause Confirmed in 17.8.0 Source:** `/app/app/models/project_type.rb` declares `belongs_to :project` and `belongs_to :type` **without `touch: true`**. When `WorkPackageTypes::ProjectsTabController` invokes `Projects::Types::AddService`, `model.project_types.create!(...)` inserts rows into `project_types` without advancing `projects.updated_at`. Because `API::Caching::CachedRepresenter` (`/app/lib/api/caching/cached_representer.rb`) keys `memcache` entries off `projects.updated_at`, cached API v3 project/schema payloads remain stale until `memcache` is flushed.
+- **Why `memcache` is retained:** Even with `OPENPROJECT_WEB_WORKERS=0` (Puma single-mode), `supervisord` runs `puma` (`web`) and `good_job` (`worker`) as separate OS processes, requiring a shared cache store (`memcached` on `127.0.0.1:11211`).
+- **Adopted Standard Procedure (0s downtime, no restart):** Immediately after changing project/type settings in the UI or via `rails runner`, flush in-container `memcached` over TCP:
+  ```bash
+  wsl -d Ubuntu -u root -- docker exec leela-op178-openproject \
+    bash -lc "printf 'flush_all\r\n' | timeout 2 bash -c 'cat > /dev/tcp/127.0.0.1/11211'"
+  ```
 
 ## Related
-- [FUTURE-DEVELOPMENT-type-defaults-for-new-projects.md](FUTURE-DEVELOPMENT-type-defaults-for-new-projects.md) — the type-enablement gap this may have been masking or compounding.
-- [RUNBOOK-openproject-17.8-operations.md](RUNBOOK-openproject-17.8-operations.md) §4 (keepalive) and §7 (ports) — container restart/health commands used in this investigation.
+- `apex-meta/orchestration/architecture-improvements/05-program-closeout/FINDINGS-openproject-memory-and-178-inefficiencies-2026-10-08.md` — full source-level analysis.
+- [FUTURE-DEVELOPMENT-type-defaults-for-new-projects.md](FUTURE-DEVELOPMENT-type-defaults-for-new-projects.md) — resolved via `WorkPackageTypes::MakeDefaultService`.
+- [RUNBOOK-openproject-17.8-operations.md](RUNBOOK-openproject-17.8-operations.md) §3.1 (memcache flush) and §4 (keepalive).
 - `C:\GitDev\apexai-os-meta\ki-basis\scripts\hermes_telegram_intake.py` — the generic
   `check_reachable("openproject", 80)` hostname-resolution pattern that would be exposed if the
   `shared-db-net` alias collision above were ever triggered by a new service.

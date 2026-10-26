@@ -61,18 +61,18 @@ Paths are just-in-time pointers. Do not expand them into context unless the cond
 Each `<always>` line is a lossy compression of one or more live rules. **This table is what you need
 to review** — it shows exactly what was dropped.
 
-| Contract line | Compresses | What is lost |
-|---|---|---|
-| Target | `AD-01`, `EM-04`, `AD-09` stop-on-drift, `AD-12` product advancement | The explicit drift list (ceremony, orchestration, schemas, wrappers, test infra) and the "every work unit must advance the product" test |
-| Scope | `AD-18` zero-speculation, `AD-05` operator challenge boundary | The operator-challenge question — *"does this need fixing before we can test the product?"* — which is a concrete decision procedure, not a principle |
-| Surgical | `EM-01`, `AD-03`, `GS-02`, `AD-23` deterministic moves | The 8-step Mode A protocol (one change per block, copy verbatim, no line numbers, disambiguating context, exact whitespace, honest uncertainty, no assumed application). **Heavy loss** — mitigated only by the `execution-modes.md` pointer |
-| Context | `EM-03`, `AD-04`, `EM-10` route 0/1/2 | The Input Priority Ledger structure and the three-route complexity ladder |
-| Substance | `WP-01`, `FA-04`, `AD-08` | The explicit grant of authority to *authors as well as agents*, and the "unnatural prose" trigger |
-| Ground | `AD-19`, `WP-04`, `AD-20`, `WP-16` | Nothing material — these compress cleanly |
-| Reuse | `AD-11`, `EM-07` ELSE-IF | The "battle-proven in established form" nuance from the pilot's `<reuse>` — adapted rather than merely researched |
-| Two-strike | `AD-02`, `EM-05`, `AD-24` | Per-subsystem strike tracking and the reset-on-success mechanic |
-| Current-truth | `FA-01`, `AD-15`, `WP-08`, `FA-09` | The residual-name mechanism: *why* stale names cause ghost-reasoning, and the migration-file escape hatch |
-| Parsimony | `WP-18`, `FA-12`, `GS-14`, `AD-26`, `GS-15` | How to *count* directives (`GS-15`: compliance directives counted separately from declarative content) |
+| Contract line | Compresses                                                           | What is lost                                                                                                                                                                                                                                 |
+| ------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Target        | `AD-01`, `EM-04`, `AD-09` stop-on-drift, `AD-12` product advancement | The explicit drift list (ceremony, orchestration, schemas, wrappers, test infra) and the "every work unit must advance the product" test                                                                                                     |
+| Scope         | `AD-18` zero-speculation, `AD-05` operator challenge boundary        | The operator-challenge question — *"does this need fixing before we can test the product?"* — which is a concrete decision procedure, not a principle                                                                                        |
+| Surgical      | `EM-01`, `AD-03`, `GS-02`, `AD-23` deterministic moves               | The 8-step Mode A protocol (one change per block, copy verbatim, no line numbers, disambiguating context, exact whitespace, honest uncertainty, no assumed application). **Heavy loss** — mitigated only by the `execution-modes.md` pointer |
+| Context       | `EM-03`, `AD-04`, `EM-10` route 0/1/2                                | The Input Priority Ledger structure and the three-route complexity ladder                                                                                                                                                                    |
+| Substance     | `WP-01`, `FA-04`, `AD-08`                                            | The explicit grant of authority to *authors as well as agents*, and the "unnatural prose" trigger                                                                                                                                            |
+| Ground        | `AD-19`, `WP-04`, `AD-20`, `WP-16`                                   | Nothing material — these compress cleanly                                                                                                                                                                                                    |
+| Reuse         | `AD-11`, `EM-07` ELSE-IF                                             | The "battle-proven in established form" nuance from the pilot's `<reuse>` — adapted rather than merely researched                                                                                                                            |
+| Two-strike    | `AD-02`, `EM-05`, `AD-24`                                            | Per-subsystem strike tracking and the reset-on-success mechanic                                                                                                                                                                              |
+| Current-truth | `FA-01`, `AD-15`, `WP-08`, `FA-09`                                   | The residual-name mechanism: *why* stale names cause ghost-reasoning, and the migration-file escape hatch                                                                                                                                    |
+| Parsimony     | `WP-18`, `FA-12`, `GS-14`, `AD-26`, `GS-15`                          | How to *count* directives (`GS-15`: compliance directives counted separately from declarative content)                                                                                                                                       |
 
 | `<writing>` clause | Compresses |
 |---|---|

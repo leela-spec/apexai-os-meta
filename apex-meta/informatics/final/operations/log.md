@@ -1,5 +1,13 @@
 # Apex Informatics Standard — Change Log
 
+## 2026-10-23
+
+**Multi-CLI & Multi-Repo Two-Layer Carrier Formulation (`RUNBOOK-TWO-LAYER-CARRIER-DRAFTS-v1.0`)** — Synthesized and staged concrete Two-Layer Carrier drafts across all 3 primary `C:\GitDev\` repositories (`apexai-os-meta`, `MasterOfArts`, `Leela-Cloud-2026`) preserving 100% of local domain invariants and safety sandboxes while coupling them to the byte-identical `<apex_contract v="1.0-ultra">` kernel:
+- **`apexai-os-meta`:** Windows 11 host environment isolation, QMD speed protocol (`DEC-QMD-01`/`04`), and canonical OpenProject skill routing.
+- **`MasterOfArts`:** Hermes operating doctrine (ADR-002), project family isolation, Docker sandboxed terminal execution (`terminal.backend = docker`), untracked source materials manifest (`UNTRACKED-SOURCE-MATERIALS.md`), and QMD scopes.
+- **`Leela-Cloud-2026`:** 3-tier product authority hierarchy (decisions + authored materialization > code > SSOT specs), materialization contracts (`target_status`), OpenProject commitment routing (SSOT-D-054), blast radius guard, operator-selected framework restriction (BMAD/Superpowers), 6-step decision batch transactions, and gates runner.
+- **Deterministic Validation:** 348 passing tests in 0.9s (including 10 tests in `test_m6_two_layer_carrier_drafts.py`) verifying zero link, schema, or carrier immutability regressions and 100% byte-exact Layer 2 preservation.
+
 ## 2026-10-21
 
 **Wave 2 / `v1.0` Architecture & Library Finalization (`DEC-21`..`DEC-24`)** — Integrated verified findings from the 10-packet deep research campaign (`ResearchOfFile10/`) across the modular specification suite (`index.md`, `writing-profile.md`, `file-architecture.md`, `execution-modes.md`, `anti-drift-rules.md`, `governance-schemas.md`) and finalized the `v1.0` Always-On Architecture candidates (`13-candidate-3A-xml.md` and `14-candidate-3B-hybrid.md`) and carrier blueprint (`03-BLUEPRINT-agents.md`):

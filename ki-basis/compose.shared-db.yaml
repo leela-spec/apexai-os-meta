@@ -55,7 +55,7 @@ services:
   firefly:
     image: fireflyiii/core@sha256:ae69fdd95cdef9038cd7a460a5aec731f14813973e4f096511d5a4ea9ff0e972
     container_name: ${COMPOSE_PROJECT_NAME:-ki-basis}-firefly
-    restart: unless-stopped
+    restart: "no"
     ports:
       - "127.0.0.1:${FIREFLY_HOST_PORT:-8086}:8080"
     environment:
@@ -80,7 +80,7 @@ services:
   paperless:
     image: ghcr.io/paperless-ngx/paperless-ngx@sha256:5ab4f4f9bb099a36bec3e092906ea3e611323c5f18dc5cc38c76a1d540bdca9c
     container_name: ${COMPOSE_PROJECT_NAME:-ki-basis}-paperless
-    restart: unless-stopped
+    restart: "no"
     ports:
       - "127.0.0.1:${PAPERLESS_HOST_PORT:-8010}:8000"
     environment:
@@ -118,7 +118,7 @@ services:
   nginx:
     image: nginx@sha256:65645c7bb6a0661892a8b03b89d0743208a18dd2f3f17a54ef4b76fb8e2f2a10
     container_name: ${COMPOSE_PROJECT_NAME:-ki-basis}-nginx
-    restart: unless-stopped
+    restart: "no"
     ports:
       - "127.0.0.1:${NGINX_HOST_PORT:-8084}:80"
     volumes:
@@ -172,9 +172,5 @@ services:
       # at /root/.hermes and /root/workspaces on the WSL2 filesystem. See D-16.
       - /root/.hermes:/opt/data
       - /root/workspaces:/root/workspaces
-    depends_on:
-      - firefly
-      - paperless
-      - nginx
     networks:
       - ki-basis-net

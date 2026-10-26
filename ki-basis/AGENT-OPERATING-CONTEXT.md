@@ -2,7 +2,7 @@
 status: amended
 amended_on: 2026-09-26
 superseded_scope: "engine/DB architecture & topology only — operating/safety guidance still applies until re-verified"
-current: "ki-basis/docs/DUAL_INSTANCE_ARCHITECTURE.md §6 (ADR-002)"
+current: "ki-basis/docs/INFRASTRUCTURE.md (live state) + ki-basis/docs/DUAL_INSTANCE_ARCHITECTURE.md §6 (ADR-002)"
 current_bundle: apex-meta/orchestration/architecture-improvements/03-wsl2-native-stack-consolidation/
 ---
 
@@ -11,7 +11,7 @@ current_bundle: apex-meta/orchestration/architecture-improvements/03-wsl2-native
 > **⛔ SUPERSEDED for architecture/topology (2026-09-26).** This file's locked directives —
 > **"one Docker Engine"** and **"do not migrate to WSL2"** — are **reversed**: the stack now runs on the
 > **single WSL2-native engine "Apex"** with **one shared PostgreSQL** (Docker Desktop retired).
-> **→ Current source of truth:**
+> **→ Current source of truth:** `ki-basis/docs/INFRASTRUCTURE.md` (single source of truth for live state) +
 > `C:\GitDev\apexai-os-meta\apex-meta\orchestration\architecture-improvements\03-wsl2-native-stack-consolidation\`
 > → **`01-architecture-and-gaps.md`** (live topology + Mermaid) · **`02-decisions-log.md`** (D-01…D-18, incl. incident decisions D-13–D-18) · **`05-handover.md`** (resume).
 > Operating/safety guidance in this file that is unrelated to engine/DB topology still applies until re-verified.
@@ -355,7 +355,7 @@ The repository intentionally keeps history without forcing agents to load it.
 | Exact container/runtime configuration | relevant section of `compose.shared-db.yaml` (LIVE private stack; `compose.yaml` is a superseded rollback file — do NOT use) |
 | Exact environment variable names | relevant section of `.env.example` |
 | Start/stop/verify behavior | relevant script only |
-| Stable architecture diagram/decision | `ki-basis/docs/DUAL_INSTANCE_ARCHITECTURE.md` §6 (ADR-002) + `apex-meta/orchestration/architecture-improvements/03-wsl2-native-stack-consolidation/` (current). `apex-meta/Alpine/ARCHITEKTUR-BASIS.md` is SUPERSEDED history |
+| Stable architecture diagram/decision | `ki-basis/docs/INFRASTRUCTURE.md` (single source of truth for live state) + `ki-basis/docs/DUAL_INSTANCE_ARCHITECTURE.md` §6 (ADR-002) + `apex-meta/orchestration/architecture-improvements/03-wsl2-native-stack-consolidation/` (current). `apex-meta/Alpine/ARCHITEKTUR-BASIS.md` is SUPERSEDED history |
 | Historical why/how/provenance | old implementation plans only JIT |
 | Antigravity method | Antigravity `SKILL.md`; load its references only if the active action requires them |
 

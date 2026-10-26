@@ -1,0 +1,37 @@
+TOTAL RULE FILES: 22
+TOTAL AUDIT FILES: 5
+
+| Rule | File | Tag | Baseline (BPE) | Option B (BPE) | Savings vs 3A | Option C (BPE) | Canonical Owner | Research |
+|---|---|---|---:|---:|---|---:|---|---|
+| 01 | [rule-01-target.md](rule-01-target.md) | `<target>` | 40 | 0 |  | 36 | AD-01, AD-09, AD-12 | RP-05, RP-07, RP-09 |
+| 02 | [rule-02-product-first.md](rule-02-product-first.md) | `<product_first>` | 62 | 46 | −16 BPE (−25.8%) with 100% invariant preservation | 32 | AD-09, AD-10, AD-12 | RP-05, RP-07, RP-09 |
+| 03 | [rule-03-scope.md](rule-03-scope.md) | `<scope>` | 43 | 38 | −5 BPE (−11.6%) with 100% invariant preservation | 30 | AD-05, AD-18, WP-09 | RP-07, RP-09 |
+| 04 | [rule-04-communication.md](rule-04-communication.md) | `<communication>` | 73 | 64 | −9 BPE (−12.3%) with 100% invariant preservation | 53 | AD-17, WP-02, WP-03 | RP-04, RP-09 |
+| 05 | [rule-05-hold-position.md](rule-05-hold-position.md) | `<hold_position>` | 55 | 47 | −8 BPE (−14.5%) with 100% invariant preservation | 38 | AD-22, WP-25 | RP-04, RP-09 |
+| 06 | [rule-06-ground.md](rule-06-ground.md) | `<ground>` | 81 | 70 | −11 BPE (−13.6%) with 100% invariant preservation | 50 | AD-06, AD-19, AD-20 | RP-03, RP-05 |
+| 07 | [rule-07-reuse.md](rule-07-reuse.md) | `<reuse>` | 56 | 40 | −16 BPE (−28.6%) with 100% invariant preservation | 36 | AD-11, AD-14, WP-23 | RP-09 |
+| 08 | [rule-08-context.md](rule-08-context.md) | `<context>` | 42 | 42 | 0 BPE (0.0%) with 100% invariant preservation | 36 | AD-04, EM-03, EM-10 | RP-03, RP-09 |
+| 09 | [rule-09-recovery.md](rule-09-recovery.md) | `<recovery>` | 38 | 34 | −4 BPE (−10.5%) with 100% invariant preservation | 34 | AD-07, AD-16, AD-21 | RP-09 |
+| 10 | [rule-10-stop-repairing.md](rule-10-stop-repairing.md) | `<stop_repairing>` | 41 | 35 | −6 BPE (−14.6%) with 100% invariant preservation | 42 | AD-02, AD-07, AD-24 | RP-07, RP-09 |
+| 11 | [rule-11-current-truth.md](rule-11-current-truth.md) | `<current_truth>` | 38 | 38 | +0 BPE (0.0%) with 100% invariant preservation & active voice | 38 | AD-15, FA-01, FA-09 | RP-03, RP-09 |
+| 12 | [rule-12-surgical.md](rule-12-surgical.md) | `<surgical>` | 15 | 16 | +1 BPE (+6.7%) with 100% invariant preservation & enhanced precision | 13 | AD-03, EM-01, GS-02 | RP-01 |
+| 13 | [rule-13-editing.md](rule-13-editing.md) | `<editing>` | 75 | 67 | −8 BPE (−10.7%) with 100% invariant preservation | 62 | AD-23, EM-01, EM-08 | RP-01, RP-08 |
+| 14 | [rule-14-new-machinery.md](rule-14-new-machinery.md) | `<new_machinery>` | 70 | 68 | −2 BPE (−2.9%) with 100% invariant preservation | 59 | AD-10, AD-13, AD-25 | RP-07, RP-09 |
+| 15 | [rule-15-detour.md](rule-15-detour.md) | `<detour>` | 44 | 40 | −4 BPE (−9.1%) with 100% invariant preservation | 40 | AD-05, AD-10, AD-12 | RP-07, RP-09 |
+| 16 | [rule-16-authoring.md](rule-16-authoring.md) | `<authoring>` | 1 | 1 | 113 | 1 | FA-02, FA-06, FA-10 | RP-08, RP-09 |
+| 17 | [rule-17-trade-off.md](rule-17-trade-off.md) | `<trade_off>` | 77 | 77 | +0 BPE (0.0%) with 100% invariant preservation | 75 | EM-06, EM-07, GS-12 | RP-08, RP-09 |
+| 18 | [rule-18-handover.md](rule-18-handover.md) | `<handover>` | 85 | 78 | −7 BPE (−8.2%) with 100% invariant preservation | 78 | AD-06, EM-02, EM-09 | RP-08 |
+| 19 | [rule-19-iterative.md](rule-19-iterative.md) | `<iterative>` | 88 | 85 | −3 BPE (−3.4%) with 100% invariant preservation | 85 | AD-04, EM-10, EM-11 | RP-08, RP-09 |
+| 20 | [rule-20-schemas.md](rule-20-schemas.md) | `<schemas>` | 64 | 64 | +0 BPE (0.0%) with 100% invariant preservation | 62 | GS-01, GS-09, GS-10 | RP-08, RP-09 |
+| 21 | [rule-21-sync.md](rule-21-sync.md) | `<sync>` | 53 | 52 | −1 BPE (−1.9%) with 100% invariant preservation | 51 | AD-23, EM-12, WP-25 | RP-09, RP-10 |
+| 22 | [rule-22-pointers.md](rule-22-pointers.md) | `<pointers>` | 32 | 33 | +1 BPE (+3.1%) with 100% invariant preservation | 31 | AD-26, WP-18, WP-25 | RP-08, RP-09, RP-10 |
+| **Total** | **22 Rules** | **All 22 Tags** | **1173** | **1035** | **-138 BPE (-11.8%)** | **982** | | |
+
+## Module Audits Summary
+| Audit File | Canonical Module | Governed Rules | ID |
+|---|---|---|---|
+| [audit-module-01-writing-profile.md](audit-module-01-writing-profile.md) | 01-writing-profile | Module Audit 01 — Writing Profile & Prose Ergonomics Semantic Block & Ownership Audit | V2-AUDIT-MODULE-01-WRITING-PROFILE |
+| [audit-module-02-file-architecture.md](audit-module-02-file-architecture.md) | 02-file-architecture | Module Audit 02 — File Architecture & Bundle Specification Semantic Block & Ownership Audit | V2-AUDIT-MODULE-02-FILE-ARCHITECTURE |
+| [audit-module-03-execution-modes.md](audit-module-03-execution-modes.md) | 03-execution-modes | Module Audit 03 — Execution Modes & Task Adapters Semantic Block & Ownership Audit | V2-AUDIT-MODULE-03-EXECUTION-MODES |
+| [audit-module-04-anti-drift-rules.md](audit-module-04-anti-drift-rules.md) | 04-anti-drift-rules | Module Audit 04 — Anti-Drift Laws & Operational Lore Semantic Block & Ownership Audit | V2-AUDIT-MODULE-04-ANTI-DRIFT-RULES |
+| [audit-module-05-governance-schemas.md](audit-module-05-governance-schemas.md) | 05-governance-schemas | Module Audit 05 — Governance Schemas & Directive Ceilings Semantic Block & Ownership Audit | V2-AUDIT-MODULE-05-GOVERNANCE-SCHEMAS |
