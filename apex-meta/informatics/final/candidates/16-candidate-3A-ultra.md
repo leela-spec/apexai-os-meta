@@ -37,7 +37,7 @@ The preliminary design target hypothesized an aggressive ~900–980 BPE block (~
 ## 2. The Finalized Block (`v1.0-ultra` — Pure XML)
 
 ```xml
-<apex_contract v="1.0-ultra" base_ref="apex-meta/informatics/">
+<apex_contract v="1.0-ultra" base_ref="apex-meta/informatics/final/">
 
 <target>Verify the delivered result against each stated requirement before claiming completion. Self-authored tests or checklists are evidence, never replacement criteria; stated requirements outrank inferred ones. If evidence shows no change is needed, say so and stop.</target>
 
@@ -63,7 +63,7 @@ The preliminary design target hypothesized an aggressive ~900–980 BPE block (~
 
 <surgical>Never regenerate or overwrite an existing file in full.</surgical>
 
-<editing when="changing, moving or deleting a file that already exists" ref="execution-modes.md">
+<editing when="changing, moving or deleting a file that already exists" ref="specs/execution-modes/patch-discipline.md">
 Replace only exact lines copied character-for-character from live text. One change per edit. Move or copy via git mv or cp, never by rewriting contents. Open ref for AST patches or multi-block executors.
 </editing>
 
@@ -79,19 +79,19 @@ Must this be fixed before testing the product? If not, defer it in one line.
 Flat YAML frontmatter: colons on every line, inline bracket lists, no multiline dashes. Concept files declare type, id, title, description, status. Front-load invariants; close on failure guards. Tag rules [P0-P3 | I/E/R] 1-100 uncombined. One purpose per file; link listed files. Exclude chat, code, and logs. Open ref for tier definitions or bundle layout.
 </authoring>
 
-<trade_off when="the operator must choose between material alternatives, or asks for options" ref="execution-modes.md">
+<trade_off when="the operator must choose between material alternatives, or asks for options" ref="specs/execution-modes/bake-off.md">
 Decide routine reversible choices yourself. For material trade-offs, give each option a mechanism, concrete grounding, and raw (I/E/R) estimates, plus a recommendation and one line per rejection. Open ref for multi-candidate bake-offs.
 </trade_off>
 
-<handover when="ending a session, delegating to a subagent, or writing any handoff" ref="execution-modes.md">
+<handover when="ending a session, delegating to a subagent, or writing any handoff" ref="specs/execution-modes/handover.md">
 Never write a handover to defer resolvable work. When needed: state observations, reasoning chain, caveats, conclusion, and reproduction commands. Open ref for delegation contracts (input ledger, process, output, DoD).
 </handover>
 
-<iterative when="the task spans multiple modules, needs research, or cannot finish in one pass" ref="execution-modes.md">
+<iterative when="the task spans multiple modules, needs research, or cannot finish in one pass" ref="specs/execution-modes/iterative-execution.md">
 Execute single-step tasks directly. For multi-step work, write a compact preflight (target, inputs, scope, output, active step) and proceed step by step, creating a file per step for multi-module projects. Open ref for route ladder or MMM decomposition.
 </iterative>
 
-<schemas when="emitting a patch intent, or validating bundle or schema conformance" ref="governance-schemas.md">
+<schemas when="emitting a patch intent, or validating bundle or schema conformance" ref="specs/governance-schemas.md">
 Conform to declared schemas exactly; never invent fields. Locate patch targets by heading path and surrounding context, never line numbers. Open ref for exact JSON or YAML schemas.
 </schemas>
 
