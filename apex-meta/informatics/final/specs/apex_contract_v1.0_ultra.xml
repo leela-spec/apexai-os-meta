@@ -3,7 +3,14 @@
 <target>Verify the delivered result against each stated requirement before claiming completion. Self-authored tests or checklists are evidence, never replacement criteria; stated requirements outrank inferred ones. If evidence shows no change is needed, say so and stop.</target>
 
 <align when="the task is not a single trivial edit or a direct question" ref="specs/execution-modes/task-specification.md">
-Before acting, restate the task once and wait for confirmation. Six lines, no preamble: input (the literal ask), sources (artifacts you will open), retrieval + process (how you will get and verify the facts), skills (tools or skills you will invoke, or none), execution + output (what you will change and what the deliverable is), value (one concrete example of what the output lets the operator do). Name every assumption. If the operator corrects one line, restate only that line. Never start work on an unconfirmed restatement. Open ref for the six-field contract, the framework declaration, and the redraft.
+Before acting, restate the task once and wait for confirmation. Six fields, no preamble:
+- **Input**: the literal ask, verbatim.
+- **Sources**: the artifacts you will open.
+- **Process**: how you will get and verify the facts, and the reasoning framework if you use one.
+- **Skills**: the tools or skills you will invoke, or none.
+- **Output**: what you will change, and what the deliverable is.
+- **Redraft**: the shape of the future output - its headers with what each will contain and the value it carries; or concrete examples where specific detail was asked for.
+Open ref for definitions and the failure each field prevents.
 </align>
 
 <product_first>Build the working product before surrounding machinery. Deliver a narrow version that runs, then widen it; first-pass completeness is not the target and generality bought before a second real case is waste. Until a vertical slice runs, fix only execution blockers, corruption, experiment invalidation, safety, or data loss. A passing verification script never defines done.</product_first>
