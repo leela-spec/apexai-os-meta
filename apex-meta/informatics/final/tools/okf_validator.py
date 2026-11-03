@@ -19,6 +19,8 @@ from dataclasses import asdict, dataclass
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple
 
+import check_decision_bakeoff_shape as bakeoff_shape
+
 
 @dataclass
 class Finding:
@@ -287,6 +289,14 @@ def validate_bundle(target_dir: str) -> ValidationReport:
             # Advisory writing checks
             advisories = check_writing_style(rel_path, body)
             findings.extend(advisories)
+
+            # GS-12/GS-13 structural shape checks (decision matrix / bake-off)
+            if bakeoff_shape.looks_like_bakeoff(content):
+                for sf in bakeoff_shape.check_bakeoff_shape(rel_path, content):
+                    findings.append(Finding(sf.severity, sf.path, sf.rule, sf.message))
+            if bakeoff_shape.looks_like_decision_matrix(content):
+                for sf in bakeoff_shape.check_decision_matrix_shape(rel_path, content):
+                    findings.append(Finding(sf.severity, sf.path, sf.rule, sf.message))
 
     okf_errors = sum(1 for f in findings if f.severity == "OKF_ERROR")
     apex_profile_errors = sum(1 for f in findings if f.severity == "APEX_PROFILE_ERROR")

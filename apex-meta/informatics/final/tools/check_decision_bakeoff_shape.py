@@ -10,9 +10,11 @@ Deliberately checks SHAPE only (are the required elements present, in the right 
 substance (is the recommendation actually correct) -- substance is Class C, see
 operations/15-PROSE-TO-DETERMINISTIC-TRANSLATION-FINDINGS.md.
 
-Standalone by design, not merged into okf_validator.py this session -- lower risk than editing a
-production validator without having read every one of its call sites. Reuses its Finding
-severity vocabulary (APEX_PROFILE_ERROR) for consistency, not its code.
+Wired into tools/okf_validator.py's validate_bundle() (okf_validator.py read in full first, same
+directory so the plain top-level import resolves regardless of invocation cwd). Reuses this
+module's severity vocabulary (APEX_PROFILE_ERROR) for consistency, not its code -- okf_validator.py
+converts this module's Finding into its own dataclass of the same shape. Also still runs standalone
+via the CLI below for ad hoc checks.
 
 Usage:
     python tools/check_decision_bakeoff_shape.py <file.md> [<file.md> ...]
@@ -66,13 +68,21 @@ def looks_like_bakeoff(text: str) -> bool:
     )
 
 
+DECISION_MATRIX_HEADING_RE = re.compile(r"(?im)^#{1,6}\s.*decision matri")
+
+
 def looks_like_decision_matrix(text: str) -> bool:
-    """Matches on structural evidence (>=1 'Option X (...)' header near a 'Grounding:' label) as
-    well as the literal phrase, singular or plural -- 'decision matrix' vs 'Decision Matrices'
-    diverge after 5 characters and the original regex silently missed the plural, the second bug
-    this exact real-file test found."""
+    """Matches on structural evidence (>=1 'Option X (...)' header near a 'Grounding:' label), a
+    '| Question |' table header, or the literal phrase -- singular or plural, 'decision matrix' vs
+    'Decision Matrices' diverge after 5 characters and the original regex silently missed the
+    plural, the second bug the real-file test found -- but ONLY when that phrase is in a heading
+    line. Requiring the heading was added after wiring into okf_validator.py surfaced two false
+    positives in the same bundle as the real fixture: a table row just naming a file
+    ("Q&A Decision Matrix | 627") and retrospective prose discussing a past "Option C" choice --
+    neither is a decision matrix being authored in that file, both matched the old bare phrase
+    search anywhere in the text."""
     return bool(
-        re.search(r"(?i)decision matri", text)
+        DECISION_MATRIX_HEADING_RE.search(text)
         or re.search(r"\|\s*question\s*\|", text, re.IGNORECASE)
         or (OPTION_HEADER_RE.search(text) and GROUNDING_RE.search(text))
     )
