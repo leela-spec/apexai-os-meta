@@ -1,0 +1,10 @@
+ARM_C_MARKER
+```diff
+diff --git a/apex-meta/informatics/final/log.md b/apex-meta/informatics/final/log.md
+--- a/apex-meta/informatics/final/log.md
++++ b/apex-meta/informatics/final/log.md
+@@
++## Upload retry limit increased to five
++
++The upload retry limit increased from three to five because transient failures sometimes persisted through the third retry but cleared during the next two attempts. The five-retry ceiling improves recovery while retaining a hard bound that prevents indefinite retries and excessive load.
+```

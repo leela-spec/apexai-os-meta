@@ -1,0 +1,27 @@
+ARM_B_MARKER
+```diff
+diff --git a/changelog/2026-11-03-upload-retry-limit.md b/changelog/2026-11-03-upload-retry-limit.md
+new file mode 100644
+--- /dev/null
++++ b/changelog/2026-11-03-upload-retry-limit.md
+@@ -0,0 +1,18 @@
++---
++type: changelog
++id: upload-retry-limit-five
++title: Upload retry limit raised to five
++description: Records why failed uploads now receive at most five retries.
++status: accepted
++---
++
++# Upload retry limit raised to five
++
++## Change
++
++The maximum number of retries for a failed upload increased from three to five.
++
++## Rationale
++
++Upload failures are often transient. Some uploads recover on the fourth or fifth retry, so the previous three-retry limit stopped recoverable uploads too early. Five retries improve completion while preserving a hard upper bound that prevents indefinite retries and uncontrolled request load.
++
++This decision changes only the retry limit. Existing retry eligibility and backoff rules remain unchanged.
+```

@@ -1,0 +1,739 @@
+ARM_B_MARKER
+---
+type: specification
+id: data-import-rules
+title: Data Import System Rules
+description: Normative rules for validating, transforming, importing, retrying, observing, and securing external data.
+status: active
+version: 1.0.0
+owners: [data-platform, security, operations]
+applies_to: [batch-imports, streaming-imports, file-imports, api-imports]
+related_files: []
+---
+
+# Data Import System Rules
+
+## 1. Purpose
+
+This specification defines the mandatory behavior of the data-import system from source acceptance through durable publication. It applies to batch, streaming, file-based, and API-based imports.
+
+The words **MUST**, **MUST NOT**, **SHOULD**, **SHOULD NOT**, and **MAY** express requirement strength.
+
+## 2. Core Invariants
+
+1. **Preserve source evidence.** `[P0 | I | 100]`
+   The system MUST retain an immutable reference to the received source payload before applying transformations.
+
+2. **Prevent partial publication.** `[P0 | I | 100]`
+   The system MUST NOT expose a partially committed import as complete.
+
+3. **Make repeated execution safe.** `[P0 | I | 100]`
+   The system MUST make each import idempotent at the configured identity boundary.
+
+4. **Reject unverifiable input.** `[P0 | I | 100]`
+   The system MUST reject input whose origin, format, integrity, or authorization cannot be established.
+
+5. **Separate invalid data from unavailable infrastructure.** `[P0 | I | 98]`
+   The system MUST classify deterministic data failures separately from transient operational failures.
+
+6. **Preserve deterministic behavior.** `[P0 | I | 98]`
+   The same payload, configuration version, reference-data version, and transformation version MUST produce the same canonical output.
+
+7. **Protect sensitive data.** `[P0 | I | 100]`
+   The system MUST apply least privilege, encryption, redaction, and retention controls throughout the import lifecycle.
+
+8. **Make every accepted record accountable.** `[P0 | I | 98]`
+   The system MUST associate every accepted, rejected, quarantined, and published record with an import identifier and source position.
+
+9. **Fail closed at trust boundaries.** `[P0 | I | 100]`
+   The system MUST deny processing when authentication, authorization, integrity validation, or security policy evaluation fails.
+
+10. **Publish only verified output.** `[P0 | I | 100]`
+    The system MUST complete post-transformation validation before committing output.
+
+## 3. Import Identity and Lifecycle
+
+### 3.1 Import identity
+
+Each import MUST receive a globally unique `import_id`. `[P0 | I | 95]`
+
+Each delivery attempt MUST receive a unique `attempt_id`. `[P1 | I | 90]`
+
+Each record MUST receive a stable `record_id` derived from an approved source key or a deterministic identity function. `[P0 | I | 96]`
+
+The system MUST retain the following identity fields:
+
+- `import_id`
+- `attempt_id`
+- `source_system`
+- `source_object`
+- `source_position`
+- `received_at`
+- `schema_version`
+- `transformation_version`
+- `configuration_version`
+- `payload_digest`
+- `record_id`, when the input contains records
+
+The system MUST calculate `payload_digest` from the exact received bytes before decompression, decoding, or transformation. `[P0 | I | 96]`
+
+The system MUST reject a duplicate `import_id` when its payload digest differs from the digest already registered for that identifier. `[P0 | I | 100]`
+
+The system MUST treat a repeated `import_id` with the same payload digest as an idempotent replay. `[P0 | I | 96]`
+
+### 3.2 Lifecycle states
+
+An import MUST occupy exactly one of these states:
+
+- `RECEIVED`
+- `VALIDATING`
+- `TRANSFORMING`
+- `READY_TO_COMMIT`
+- `COMMITTING`
+- `COMPLETED`
+- `RETRY_PENDING`
+- `QUARANTINED`
+- `FAILED`
+- `CANCELLED`
+
+`COMPLETED`, `QUARANTINED`, `FAILED`, and `CANCELLED` are terminal states.
+
+The system MUST persist each state transition with its timestamp, actor, reason, and attempt identifier. `[P0 | I | 94]`
+
+The system MUST reject an invalid state transition. `[P0 | I | 96]`
+
+The system MUST NOT change a terminal state except through an explicit, audited replay operation that creates a new attempt. `[P0 | I | 97]`
+
+Cancellation MUST stop uncommitted work at a safe boundary. `[P1 | I | 88]`
+
+Cancellation MUST NOT roll back output already confirmed as durable unless the destination supports a verified atomic rollback. `[P0 | I | 95]`
+
+## 4. Source Acceptance
+
+The system MUST authenticate the source before reading its content. `[P0 | I | 100]`
+
+The system MUST authorize the source for the requested dataset and import mode. `[P0 | I | 100]`
+
+The system MUST enforce configured limits for payload size, record count, archive expansion ratio, nesting depth, field count, and processing duration. `[P0 | I | 98]`
+
+The system MUST reject unsupported media types, encodings, compression formats, and archive formats. `[P1 | I | 90]`
+
+The system MUST detect encrypted or password-protected containers and reject them unless an approved decryption path exists. `[P0 | I | 97]`
+
+The system MUST verify a checksum or digital signature when the source contract provides one. `[P0 | I | 97]`
+
+The system MUST compare the verified digest with the declared digest before parsing. `[P0 | I | 97]`
+
+The system MUST scan files for malicious content before parsing when file scanning is available for the source class. `[P0 | I | 98]`
+
+The system MUST prevent archive entries from escaping the extraction directory. `[P0 | I | 100]`
+
+The system MUST reject archives containing absolute paths, parent-directory traversal, device files, or symbolic links unless the source contract explicitly permits and safely handles them. `[P0 | I | 100]`
+
+The system MUST apply resource limits during decompression and parsing. `[P0 | I | 96]`
+
+The system MUST preserve the original filename as metadata without trusting it as a filesystem path. `[P0 | I | 98]`
+
+## 5. Validation
+
+### 5.1 Validation order
+
+The system MUST validate imports in this order:
+
+1. Authenticate and authorize the source.
+2. Verify transport and payload integrity.
+3. Enforce resource limits.
+4. Identify the declared format and schema.
+5. Parse the payload.
+6. Validate envelope structure.
+7. Validate record structure.
+8. Validate field types and constraints.
+9. Validate cross-field rules.
+10. Validate cross-record rules.
+11. Validate referential rules.
+12. Apply transformations.
+13. Validate canonical output.
+14. Evaluate commit preconditions.
+
+The system MUST stop before transformation when envelope or parsing validation fails. `[P0 | I | 96]`
+
+The system MAY continue record-level validation after an individual record fails when the import policy permits partial acceptance. `[P2 | E | 65]`
+
+### 5.2 Schema validation
+
+Every import MUST identify an approved schema version. `[P0 | I | 98]`
+
+The system MUST reject unknown, retired, or disabled schema versions. `[P0 | I | 97]`
+
+The system MUST NOT infer a schema version from ambiguous content. `[P0 | I | 96]`
+
+The system MAY select a schema version from an authenticated endpoint or source configuration when the source contract defines that behavior. `[P1 | E | 78]`
+
+Schema validation MUST enforce:
+
+- Required fields
+- Allowed fields
+- Data types
+- Nullability
+- String length
+- Numeric range and precision
+- Enumerated values
+- Collection size
+- Object nesting
+- Format constraints
+- Uniqueness constraints
+- Conditional requirements
+
+Unknown fields MUST follow the dataset policy: reject, ignore, or preserve in an extension container. `[P1 | I | 88]`
+
+The policy for unknown fields MUST be explicit and versioned. `[P0 | I | 93]`
+
+The system MUST NOT silently coerce an unknown field into a known field. `[P0 | I | 95]`
+
+### 5.3 Field validation
+
+The system MUST distinguish missing values, explicit nulls, empty strings, and empty collections. `[P0 | I | 93]`
+
+The system MUST validate text after decoding but before semantic transformation. `[P1 | I | 87]`
+
+The system MUST reject malformed character sequences unless the source contract defines a replacement policy. `[P1 | I | 88]`
+
+The system MUST validate dates and times against an explicit format and calendar. `[P0 | I | 92]`
+
+The system MUST require a timezone or an explicit default-timezone rule for timestamps representing instants. `[P0 | I | 95]`
+
+The system MUST reject nonexistent local times caused by daylight-saving transitions unless the contract defines a resolution rule. `[P1 | I | 86]`
+
+The system MUST preserve numeric precision required by the destination contract. `[P0 | I | 94]`
+
+The system MUST reject numeric overflow instead of wrapping or truncating values. `[P0 | I | 98]`
+
+The system MUST validate identifiers as opaque values unless their contract declares semantic structure. `[P1 | I | 84]`
+
+The system MUST reject control characters and prohibited Unicode code points in constrained text fields. `[P0 | I | 94]`
+
+### 5.4 Semantic validation
+
+The system MUST evaluate cross-field constraints after field-level validation succeeds. `[P1 | I | 86]`
+
+The system MUST evaluate cross-record uniqueness at the configured scope. `[P0 | I | 92]`
+
+The system MUST define whether uniqueness applies within the payload, destination, tenant, or global dataset. `[P0 | I | 94]`
+
+The system MUST validate references against the declared reference-data snapshot. `[P0 | I | 92]`
+
+The system MUST record the version or timestamp of reference data used during validation. `[P1 | I | 88]`
+
+The system MUST classify unavailable reference data as an operational failure rather than invalid input. `[P0 | I | 96]`
+
+The system MUST classify a verified missing reference as a data-validation failure. `[P0 | I | 95]`
+
+### 5.5 Partial acceptance
+
+Partial acceptance MUST be disabled unless the dataset policy explicitly enables it. `[P0 | I | 94]`
+
+When partial acceptance is enabled, the system MUST validate each record independently where possible. `[P1 | I | 86]`
+
+The system MUST quarantine rejected records with their source positions and validation errors. `[P0 | I | 96]`
+
+The system MUST enforce configured maximum rejected-record counts and ratios. `[P0 | I | 94]`
+
+The system MUST fail the entire import when either rejection threshold is exceeded. `[P0 | I | 95]`
+
+The system MUST NOT partially accept records when cross-record invariants require atomic acceptance. `[P0 | I | 98]`
+
+The completion report MUST state accepted, rejected, quarantined, skipped, and published counts. `[P1 | I | 90]`
+
+## 6. Transformation
+
+### 6.1 General transformation rules
+
+Every transformation MUST have a stable identifier and version. `[P0 | I | 94]`
+
+The system MUST record the ordered transformation chain used for each import. `[P0 | I | 93]`
+
+Transformations MUST be deterministic unless the contract explicitly identifies and controls an external dependency. `[P0 | I | 96]`
+
+A transformation MUST NOT depend on the wall clock, random values, process identity, or mutable global state unless the dependency is supplied as versioned input. `[P0 | I | 95]`
+
+The system MUST preserve the original source value when a transformation can lose information. `[P1 | I | 88]`
+
+The system MUST distinguish normalization from correction. `[P1 | I | 82]`
+
+Normalization MAY produce an equivalent canonical representation. `[P2 | E | 70]`
+
+Correction MUST require an explicit, versioned business rule. `[P0 | I | 92]`
+
+The system MUST NOT invent values for missing required data. `[P0 | I | 98]`
+
+A default value MUST identify its rule, scope, and effective version. `[P1 | I | 88]`
+
+### 6.2 Canonicalization
+
+The system MUST define canonical representations for identifiers, text, numbers, dates, timestamps, booleans, and enumerations. `[P0 | I | 92]`
+
+Whitespace trimming MUST be field-specific. `[P1 | I | 85]`
+
+Case normalization MUST be field-specific and locale-independent unless the contract declares a locale. `[P1 | I | 88]`
+
+Unicode normalization MUST use the form declared by the destination contract. `[P1 | I | 86]`
+
+Unit conversion MUST identify source units, destination units, rounding mode, and permitted precision loss. `[P0 | I | 94]`
+
+Currency conversion MUST identify the rate source, rate timestamp, rate version, and rounding rule. `[P0 | I | 96]`
+
+The system MUST reject ambiguous locale-dependent numeric and date formats. `[P0 | I | 95]`
+
+### 6.3 Mapping and enrichment
+
+Field mappings MUST identify the source path and destination path. `[P1 | I | 87]`
+
+Conditional mappings MUST define their precedence. `[P1 | I | 86]`
+
+The system MUST reject configurations containing overlapping mappings with unresolved precedence. `[P0 | I | 94]`
+
+Lookup-based enrichment MUST use a pinned lookup version or snapshot. `[P0 | I | 92]`
+
+The system MUST define behavior for missing, duplicate, and conflicting lookup results. `[P0 | I | 93]`
+
+The system MUST NOT call an unapproved external service during transformation. `[P0 | I | 98]`
+
+External enrichment calls MUST use bounded timeouts, authentication, rate limits, and retry rules. `[P0 | I | 96]`
+
+The system MUST classify an unavailable enrichment service as an operational failure unless the field is explicitly optional. `[P0 | I | 94]`
+
+### 6.4 Output validation
+
+The system MUST validate transformed records against the destination schema. `[P0 | I | 100]`
+
+The system MUST re-evaluate destination uniqueness and referential constraints before commit. `[P0 | I | 97]`
+
+The system MUST reject transformation output containing undeclared fields unless the destination policy permits them. `[P1 | I | 89]`
+
+The system MUST detect prohibited precision loss, truncation, overflow, and encoding loss. `[P0 | I | 98]`
+
+The system MUST compare output counts with the expected transformation cardinality. `[P0 | I | 95]`
+
+A transformation that drops, duplicates, splits, or merges records MUST declare that behavior. `[P0 | I | 93]`
+
+## 7. Commit and Publication
+
+The system MUST define the atomic commit boundary for each destination. `[P0 | I | 98]`
+
+The system MUST use a transaction when the destination supports transactions at the required boundary. `[P0 | I | 97]`
+
+The system MUST use staging and atomic promotion when a single destination transaction cannot cover the import. `[P0 | I | 97]`
+
+The system MUST NOT mark an import `COMPLETED` until the destination confirms durable publication. `[P0 | I | 100]`
+
+The system MUST verify committed record counts and destination checksums when supported. `[P0 | I | 96]`
+
+The system MUST store a commit token, transaction identifier, or equivalent destination evidence. `[P0 | I | 95]`
+
+The system MUST reconcile an uncertain commit outcome before retrying the commit. `[P0 | I | 100]`
+
+The system MUST NOT blindly repeat a commit after a timeout. `[P0 | I | 100]`
+
+Upsert behavior MUST define conflict keys and update semantics. `[P0 | I | 94]`
+
+Delete behavior MUST require explicit source authorization and dataset policy. `[P0 | I | 100]`
+
+The system MUST NOT interpret a missing source record as a deletion unless the import mode explicitly provides full-snapshot semantics. `[P0 | I | 100]`
+
+Snapshot replacement MUST validate completeness before retiring the prior snapshot. `[P0 | I | 99]`
+
+## 8. Error Handling
+
+### 8.1 Error structure
+
+Every surfaced error MUST include:
+
+- Stable error code
+- Error category
+- Human-readable summary
+- Import identifier
+- Attempt identifier
+- Processing stage
+- Retryability
+- Timestamp
+- Correlation identifier
+- Source position when applicable
+
+Errors MAY include a safe field path, rule identifier, expected constraint, and redacted observed value.
+
+Errors MUST NOT expose credentials, access tokens, secrets, encryption keys, raw personal data, or unrestricted payload fragments. `[P0 | I | 100]`
+
+Error codes MUST remain stable within a major contract version. `[P1 | I | 88]`
+
+The system MUST support multiple record-level errors without duplicating the source record. `[P1 | I | 84]`
+
+### 8.2 Error categories
+
+The system MUST classify errors into these categories:
+
+- `AUTHENTICATION`
+- `AUTHORIZATION`
+- `INTEGRITY`
+- `RESOURCE_LIMIT`
+- `FORMAT`
+- `SCHEMA`
+- `VALIDATION`
+- `TRANSFORMATION`
+- `REFERENCE_DATA`
+- `DESTINATION_CONFLICT`
+- `DEPENDENCY_UNAVAILABLE`
+- `RATE_LIMIT`
+- `TIMEOUT`
+- `CAPACITY`
+- `COMMIT_UNCERTAIN`
+- `INTERNAL`
+- `CANCELLED`
+
+Authentication, authorization, integrity, format, schema, validation, and deterministic transformation failures MUST default to non-retryable. `[P0 | I | 96]`
+
+Dependency unavailability, rate limiting, timeouts, and temporary capacity failures MAY be retryable. `[P1 | E | 80]`
+
+A commit-uncertain error MUST enter reconciliation before retry evaluation. `[P0 | I | 100]`
+
+An internal error MUST preserve diagnostic context while returning a sanitized external response. `[P0 | I | 98]`
+
+### 8.3 Quarantine
+
+The system MUST quarantine data that cannot be safely processed but remains useful for diagnosis or correction. `[P1 | I | 90]`
+
+A quarantine entry MUST include the payload reference, source position, error details, policy version, and retention deadline. `[P1 | I | 88]`
+
+Quarantined data MUST inherit the source data classification. `[P0 | I | 98]`
+
+Access to quarantine storage MUST require a dedicated authorization scope. `[P0 | I | 100]`
+
+Quarantine replay MUST create a new attempt and preserve the original error history. `[P0 | I | 94]`
+
+The system MUST NOT modify quarantined source evidence in place. `[P0 | I | 98]`
+
+## 9. Retry and Recovery
+
+### 9.1 Retry eligibility
+
+The system MUST retry only errors classified as transient. `[P0 | I | 98]`
+
+The system MUST NOT retry deterministic validation, authorization, integrity, or transformation failures without a changed input or versioned configuration. `[P0 | I | 100]`
+
+The system MUST assign a retry budget by dependency, import, and tenant. `[P1 | I | 90]`
+
+The system MUST stop retrying when the retry budget or import deadline is exhausted. `[P0 | I | 96]`
+
+The system MUST preserve the original import identifier across retries. `[P0 | I | 92]`
+
+The system MUST assign a new attempt identifier to each retry. `[P0 | I | 94]`
+
+### 9.2 Retry schedule
+
+Retries MUST use bounded exponential backoff with jitter. `[P0 | I | 96]`
+
+The retry policy MUST define:
+
+- Initial delay
+- Multiplier
+- Maximum delay
+- Maximum attempts
+- Maximum elapsed time
+- Jitter strategy
+- Retryable error categories
+
+The system MUST honor a valid dependency-provided retry delay when it does not exceed policy limits. `[P1 | I | 88]`
+
+The system MUST prevent synchronized retry bursts across workers. `[P0 | I | 94]`
+
+The system MUST use circuit breaking or equivalent admission control for persistently failing dependencies. `[P1 | I | 89]`
+
+### 9.3 Resume behavior
+
+A retry MUST resume only from a durable checkpoint whose prerequisites remain valid. `[P0 | I | 98]`
+
+A checkpoint MUST identify the payload digest, configuration version, schema version, transformation version, and completed stage. `[P0 | I | 95]`
+
+The system MUST invalidate a checkpoint when any required version or digest changes. `[P0 | I | 98]`
+
+The system MUST revalidate expiring authorization and reference-data assumptions before resuming. `[P0 | I | 94]`
+
+The system MUST restart from source acceptance when checkpoint integrity cannot be established. `[P0 | I | 97]`
+
+### 9.4 Poison inputs and dead letters
+
+The system MUST detect repeated failure of the same payload at the same deterministic stage. `[P1 | I | 89]`
+
+The system MUST stop automated retries when poison-input criteria are met. `[P0 | I | 97]`
+
+The system MUST route exhausted transient failures and poison inputs to a dead-letter or quarantine path. `[P0 | I | 94]`
+
+The system MUST alert an operator when a high-priority import enters a terminal failure path. `[P1 | I | 89]`
+
+A dead-letter replay MUST require an explicit actor, reason, and selected configuration version. `[P0 | I | 95]`
+
+## 10. Observability
+
+### 10.1 Structured logging
+
+The system MUST emit structured logs. `[P0 | I | 92]`
+
+Logs MUST include the import identifier, attempt identifier, stage, state, source system, dataset, and correlation identifier. `[P1 | I | 88]`
+
+Record identifiers MAY appear in logs only when classification policy permits them. `[P0 | I | 96]`
+
+Logs MUST NOT contain raw payloads, credentials, secrets, or unrestricted sensitive fields. `[P0 | I | 100]`
+
+The system MUST log state transitions, retry decisions, threshold violations, commit outcomes, and security denials. `[P0 | I | 94]`
+
+The system MUST distinguish expected data rejections from internal system errors. `[P1 | I | 88]`
+
+### 10.2 Metrics
+
+The system MUST publish metrics for:
+
+- Imports received
+- Imports completed
+- Imports failed
+- Imports quarantined
+- Imports retrying
+- Records received
+- Records accepted
+- Records rejected
+- Records published
+- Bytes received
+- Stage duration
+- End-to-end latency
+- Queue age
+- Retry count
+- Dependency failures
+- Validation failures by rule
+- Transformation failures by rule
+- Commit uncertainty
+- Security denials
+
+Metric labels MUST use bounded-cardinality dimensions. `[P0 | I | 95]`
+
+The system MUST NOT use import identifiers, record identifiers, filenames, or raw error messages as metric labels. `[P0 | I | 98]`
+
+Count metrics MUST reconcile with the terminal import report. `[P0 | I | 93]`
+
+### 10.3 Tracing
+
+The system SHOULD create one trace for each attempt. `[P2 | R | 70]`
+
+The trace SHOULD contain spans for acceptance, parsing, validation, transformation, enrichment, staging, commit, and reconciliation. `[P2 | R | 68]`
+
+Trace attributes MUST follow the same data-classification restrictions as logs. `[P0 | I | 96]`
+
+The system MUST propagate approved correlation context across asynchronous boundaries. `[P1 | I | 88]`
+
+### 10.4 Alerts and service objectives
+
+The system MUST define service objectives for availability, completion latency, freshness, and correctness. `[P1 | I | 89]`
+
+Alerts MUST identify an actionable failure condition. `[P1 | I | 84]`
+
+Alerts MUST cover sustained terminal failures, retry exhaustion, queue-age breaches, commit uncertainty, security denials, and reconciliation mismatches. `[P0 | I | 94]`
+
+The system MUST suppress duplicate alerts without suppressing changes in severity or affected scope. `[P1 | I | 84]`
+
+The system MUST retain enough telemetry to reconstruct the lifecycle of an import within the applicable retention period. `[P0 | I | 94]`
+
+## 11. Security
+
+### 11.1 Authentication and authorization
+
+Every machine source MUST use an approved machine identity. `[P0 | I | 100]`
+
+Every human-triggered import MUST record the authenticated actor. `[P0 | I | 98]`
+
+The system MUST authorize imports by actor, source, tenant, dataset, operation, and environment. `[P0 | I | 100]`
+
+Administrative, replay, quarantine, and deletion operations MUST use separate authorization scopes. `[P0 | I | 100]`
+
+The system MUST deny access when policy evaluation is unavailable. `[P0 | I | 100]`
+
+Service credentials MUST be short-lived where supported. `[P0 | I | 96]`
+
+The system MUST rotate long-lived credentials under the approved rotation policy. `[P0 | I | 95]`
+
+### 11.2 Encryption and secret handling
+
+The system MUST encrypt source data, staging data, quarantine data, checkpoints, and destination data in transit and at rest. `[P0 | I | 100]`
+
+The system MUST use approved cryptographic protocols and algorithms. `[P0 | I | 100]`
+
+The system MUST store secrets in an approved secret-management system. `[P0 | I | 100]`
+
+The system MUST NOT place secrets in payloads, configuration files, command-line arguments, logs, metrics, or error responses. `[P0 | I | 100]`
+
+Encryption keys MUST follow access, rotation, revocation, and audit policies. `[P0 | I | 98]`
+
+### 11.3 Data minimization and retention
+
+The system MUST collect and retain only data required for the declared import purpose. `[P0 | I | 98]`
+
+The system MUST classify imported fields before production processing. `[P0 | I | 96]`
+
+Retention policies MUST cover source evidence, staging data, canonical output, quarantine data, logs, traces, checkpoints, and audit events. `[P0 | I | 96]`
+
+The system MUST delete expired temporary and quarantined data according to policy. `[P0 | I | 96]`
+
+Deletion MUST include replicas and derived temporary artifacts within the policy deadline. `[P0 | I | 95]`
+
+A legal or regulatory hold MUST override normal deletion without permitting unrelated access. `[P0 | I | 98]`
+
+Non-production environments MUST use synthetic or approved de-identified data. `[P0 | I | 98]`
+
+### 11.4 Input and execution safety
+
+The system MUST treat all imported content as untrusted. `[P0 | I | 100]`
+
+The system MUST use parsers that do not execute embedded code. `[P0 | I | 100]`
+
+The system MUST disable external entity resolution and uncontrolled network retrieval during parsing. `[P0 | I | 100]`
+
+The system MUST prevent formula injection when exporting imported text to spreadsheet-compatible formats. `[P0 | I | 96]`
+
+The system MUST parameterize destination queries. `[P0 | I | 100]`
+
+The system MUST encode output for its destination context. `[P0 | I | 98]`
+
+Transformation extensions MUST execute in a constrained environment with explicit CPU, memory, time, filesystem, and network limits. `[P0 | I | 98]`
+
+The system MUST verify the provenance and integrity of transformation packages before execution. `[P0 | I | 98]`
+
+### 11.5 Tenant isolation
+
+The system MUST bind each import to one tenant before payload processing. `[P0 | I | 100]`
+
+The system MUST enforce tenant isolation in storage, processing, telemetry, quarantine, and destination writes. `[P0 | I | 100]`
+
+A record MUST NOT override its tenant binding through payload content. `[P0 | I | 100]`
+
+Cross-tenant imports MUST require an explicit privileged workflow and separate audit evidence. `[P0 | I | 100]`
+
+### 11.6 Audit
+
+The system MUST create immutable audit events for:
+
+- Import submission
+- Authorization decisions
+- Configuration changes
+- Schema activation
+- Transformation activation
+- Replay initiation
+- Quarantine access
+- Manual correction
+- Commit completion
+- Cancellation
+- Deletion
+- Administrative override
+
+Each audit event MUST identify the actor, action, target, time, outcome, reason, and correlation identifier. `[P0 | I | 98]`
+
+Audit records MUST be protected against unauthorized modification and deletion. `[P0 | I | 100]`
+
+Administrative overrides MUST require an explicit reason and elevated authorization. `[P0 | I | 100]`
+
+## 12. Configuration and Change Control
+
+Import configuration MUST be versioned and immutable after activation. `[P0 | I | 96]`
+
+Each attempt MUST reference the exact configuration version it used. `[P0 | I | 95]`
+
+Configuration validation MUST reject missing dependencies, invalid mappings, unresolved precedence, unsafe limits, and unsupported versions. `[P0 | I | 96]`
+
+A configuration change MUST NOT alter an in-progress attempt. `[P0 | I | 95]`
+
+Schema and transformation changes MUST define compatibility with supported source versions. `[P0 | I | 94]`
+
+Breaking changes MUST use a new major contract version. `[P0 | I | 92]`
+
+Rollback MUST select a previously approved immutable version. `[P1 | I | 88]`
+
+The system MUST retain sufficient version history to reproduce imports during the required audit period. `[P0 | I | 96]`
+
+## 13. Capacity and Backpressure
+
+The system MUST enforce concurrency limits by source, tenant, dataset, and destination. `[P0 | I | 93]`
+
+The system MUST apply backpressure before resource exhaustion. `[P0 | I | 96]`
+
+The system MUST reject or defer work when accepting it would violate configured safety limits. `[P0 | I | 95]`
+
+Deferred work MUST retain its identity, priority, submission time, and deadline. `[P1 | I | 86]`
+
+Priority scheduling MUST prevent indefinite starvation of lower-priority imports. `[P1 | I | 84]`
+
+The system MUST expose queue depth, queue age, worker utilization, and throttling metrics. `[P1 | I | 88]`
+
+The system MUST preserve correctness when scaling workers horizontally. `[P0 | I | 98]`
+
+Workers MUST coordinate ownership through leases, transactions, or equivalent concurrency controls. `[P0 | I | 95]`
+
+Expired work ownership MUST not permit concurrent commits. `[P0 | I | 100]`
+
+## 14. Completion Report
+
+Every terminal import MUST produce a completion report. `[P0 | I | 96]`
+
+The report MUST include:
+
+- Import identifier
+- Terminal state
+- Source system
+- Dataset
+- Payload digest
+- Schema version
+- Transformation version
+- Configuration version
+- Attempt count
+- Received timestamp
+- Completion timestamp
+- Records received
+- Records accepted
+- Records rejected
+- Records quarantined
+- Records skipped
+- Records published
+- Error summary
+- Commit evidence when completed
+
+The report MUST distinguish zero records from an unavailable count. `[P0 | I | 92]`
+
+The report MUST identify whether partial acceptance occurred. `[P0 | I | 90]`
+
+The report MUST contain redacted examples or references instead of unrestricted invalid values. `[P0 | I | 96]`
+
+A `COMPLETED` report MUST reconcile accepted, rejected, skipped, and published counts with the configured cardinality rules. `[P0 | I | 98]`
+
+## 15. Failure Guards
+
+The system MUST stop processing immediately when source authentication or authorization fails. `[P0 | I | 100]`
+
+The system MUST stop processing immediately when payload integrity verification fails. `[P0 | I | 100]`
+
+The system MUST stop parsing before configured resource limits are exceeded. `[P0 | I | 100]`
+
+The system MUST stop before transformation when the schema cannot be established. `[P0 | I | 100]`
+
+The system MUST stop before commit when canonical output validation fails. `[P0 | I | 100]`
+
+The system MUST stop before commit when required audit evidence cannot be written. `[P0 | I | 100]`
+
+The system MUST stop automated retries after the configured retry budget expires. `[P0 | I | 100]`
+
+The system MUST stop replay when the source payload or required version evidence is unavailable. `[P0 | I | 98]`
+
+The system MUST block publication when tenant binding is absent or inconsistent. `[P0 | I | 100]`
+
+The system MUST block publication when the destination cannot establish an atomic or reconcilable commit outcome. `[P0 | I | 100]`
+
+The system MUST quarantine affected data when safe processing cannot continue and retention is permitted. `[P0 | I | 96]`
+
+The system MUST discard affected data securely when quarantine is prohibited by policy. `[P0 | I | 98]`
+
+The system MUST raise an actionable alert for commit uncertainty, suspected cross-tenant access, integrity failure, or repeated internal failure. `[P0 | I | 100]`
+
+The system MUST never report success when validation, transformation, commit verification, or required audit recording remains incomplete. `[P0 | I | 100]`

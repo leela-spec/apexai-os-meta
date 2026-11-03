@@ -1,0 +1,6 @@
+ARM_B_MARKER
+```ts
+function displayNameOrAnonymous(displayName: string | null | undefined): string {
+  return displayName?.trim() || "Anonymous";
+}
+```

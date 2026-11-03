@@ -1,0 +1,17 @@
+ARM_A_MARKER
+```diff
+diff --git a/docs/upload-retry-policy.md b/docs/upload-retry-policy.md
+new file mode 100644
+--- /dev/null
++++ b/docs/upload-retry-policy.md
+@@
++# Upload retry policy
++
++Failed uploads are retried at most five times.
++
++The previous three-retry limit could exhaust all attempts during brief,
++recoverable connectivity or service interruptions. Two additional attempts
++give transient failures more time to clear and improve the chance of
++completion, while the five-attempt cap still prevents indefinite retries and
++limits unnecessary network and server load.
+```

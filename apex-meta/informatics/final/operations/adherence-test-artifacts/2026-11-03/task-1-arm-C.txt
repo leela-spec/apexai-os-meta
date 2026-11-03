@@ -1,0 +1,77 @@
+ARM_C_MARKER
+---
+type: Specification
+id: SPEC-FOCUS-MODE-001
+title: "Focus Mode"
+description: "Defines the activation, presentation, persistence, accessibility, and failure behavior of Focus Mode."
+status: current
+tags: [focus-mode, attention, interface, accessibility]
+---
+
+# Focus Mode
+
+Focus Mode reduces interface distractions while preserving the user’s active work, navigation control, and ability to exit.
+
+## 1. Critical Invariants
+
+- **FM-01 [P0 | I98/E92/R05] Preserve Active Work**: The application MUST preserve content, selections, cursor position, and unsaved changes when Focus Mode starts or ends.
+- **FM-02 [P0 | I97/E94/R05] Keep Exit Available**: The application MUST provide a visible exit control and a documented keyboard shortcut while Focus Mode is active.
+- **FM-03 [P0 | I95/E90/R08] Prevent Destructive Activation**: Activating Focus Mode MUST NOT submit forms, execute commands, stop running work, or change document content.
+- **FM-04 [P0 | I94/E92/R08] Preserve Accessibility**: Focus Mode MUST retain keyboard navigation, screen-reader semantics, visible focus indicators, and required status announcements.
+- **FM-05 [P0 | I92/E88/R10] Retain Essential Feedback**: Focus Mode MUST display errors, permission requests, security warnings, progress states, and actions required to continue.
+
+## 2. Activation and Exit
+
+- **FM-06 [P1 | I90/E88/R08] Provide Explicit Activation**: The application MUST expose a labeled Focus Mode action in the primary interface.
+- **FM-07 [P1 | I88/E86/R08] Support Keyboard Activation**: The application MUST provide a configurable keyboard shortcut for entering and leaving Focus Mode.
+- **FM-08 [P1 | I87/E90/R06] Announce State Changes**: The application MUST announce activation and exit through visible state text and an accessible status message.
+- **FM-09 [P1 | I86/E84/R08] Make Activation Idempotent**: Repeated activation requests MUST leave the application in one stable Focus Mode state.
+- **FM-10 [P1 | I85/E86/R08] Restore Prior Layout**: Exiting Focus Mode MUST restore the interface layout that existed immediately before activation.
+
+## 3. Focus Presentation
+
+- **FM-11 [P1 | I90/E87/R08] Prioritize Primary Content**: Focus Mode MUST keep the active document, editor, task, or primary content surface visible.
+- **FM-12 [P1 | I88/E84/R10] Suppress Distractions**: Focus Mode MUST hide or collapse nonessential navigation, secondary panels, promotional surfaces, and passive activity feeds.
+- **FM-13 [P1 | I87/E88/R08] Preserve Required Controls**: Focus Mode MUST retain controls required to edit, save, complete, cancel, or safely recover the active work.
+- **FM-14 [P1 | I85/E83/R08] Avoid Content Reflow Loss**: Layout changes MUST NOT obscure content or move the active position outside the visible viewport.
+- **FM-15 [P1 | I83/E86/R06] Identify Active State**: The interface MUST display a persistent, nonintrusive Focus Mode indicator.
+
+## 4. Notifications and Interruptions
+
+- **FM-16 [P1 | I91/E89/R10] Deliver Critical Interruptions**: The application MUST present security, data-loss, session-expiry, and blocking error notifications immediately.
+- **FM-17 [P2 | I78/E82/R08] Defer Noncritical Notifications**: The application MUST queue noncritical notifications until Focus Mode ends.
+- **FM-18 [P2 | I76/E80/R08] Preserve Deferred Notifications**: The application MUST retain deferred notifications without duplication or loss.
+- **FM-19 [P2 | I74/E78/R06] Summarize Deferred Activity**: The application MUST present a compact summary of deferred notifications after Focus Mode ends.
+
+## 5. State and Persistence
+
+- **FM-20 [P1 | I87/E86/R10] Scope State to the Active Context**: Focus Mode MUST apply only to the current application workspace unless the user selects a broader supported scope.
+- **FM-21 [P2 | I79/E81/R08] Preserve State During Reload**: The application MUST restore Focus Mode after a recoverable reload in the same workspace.
+- **FM-22 [P2 | I77/E79/R08] Respect Explicit Exit**: The application MUST record an explicit exit before restoring any previously persisted Focus Mode state.
+- **FM-23 [P2 | I75/E78/R10] Isolate Concurrent Contexts**: Focus Mode state in one workspace MUST NOT silently change another workspace.
+
+## 6. Accessibility and Input
+
+- **FM-24 [P1 | I90/E92/R08] Maintain Logical Focus**: Activation MUST keep keyboard focus on the active control or move it to the primary content region.
+- **FM-25 [P1 | I89/E91/R08] Prevent Focus Traps**: Every interactive element available in Focus Mode MUST remain reachable and escapable by keyboard.
+- **FM-26 [P1 | I88/E90/R06] Preserve User Preferences**: Focus Mode MUST respect text scaling, contrast, reduced-motion, and assistive-technology settings.
+- **FM-27 [P2 | I80/E85/R06] Limit Motion**: Focus Mode transitions MUST avoid nonessential animation when reduced motion is enabled.
+
+## 7. Acceptance Criteria
+
+Focus Mode conforms to this specification when verification confirms all of the following:
+
+1. Activation preserves active content, selection, cursor position, and unsaved changes.
+2. The visible exit control and keyboard shortcut both restore the prior layout.
+3. Nonessential interface surfaces disappear without hiding required controls.
+4. Critical notifications remain immediate.
+5. Noncritical notifications reappear once without loss after exit.
+6. Keyboard and screen-reader users can activate, use, and exit the mode.
+7. Reload recovery restores the correct state without overriding an explicit exit.
+8. Concurrent workspaces retain independent Focus Mode states.
+
+## 8. Failure Guards
+
+- **FM-28 [P0 | I98/E94/R05] Fail Without Data Loss**: If Focus Mode cannot initialize or restore safely, the application MUST retain the standard interface and all active work.
+- **FM-29 [P0 | I96/E92/R06] Never Conceal Blocking Conditions**: Focus Mode MUST NOT hide any condition that requires user action to prevent data loss, security exposure, or execution failure.
+- **FM-30 [P0 | I95/E91/R05] Guarantee Immediate Escape**: The application MUST always provide a direct, non-destructive path out of Focus Mode.

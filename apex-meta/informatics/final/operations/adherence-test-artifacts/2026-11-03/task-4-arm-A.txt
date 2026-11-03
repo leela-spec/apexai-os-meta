@@ -1,0 +1,1713 @@
+ARM_A_MARKER
+# Data Import System Rules
+
+## 1. Purpose
+
+This document defines the mandatory rules for importing data from external sources into the system. It covers validation, transformation, error handling, retries, observability, and security.
+
+The goals are to ensure that every import is:
+
+- Correct and deterministic.
+- Safe to repeat.
+- Traceable from ingestion through persistence.
+- Resilient to transient failures.
+- Explicit about rejected or transformed data.
+- Secure against unauthorized access and malicious input.
+- Compatible with operational recovery and audit requirements.
+
+The terms **MUST**, **MUST NOT**, **SHOULD**, **SHOULD NOT**, and **MAY** indicate requirement strength.
+
+## 2. Scope
+
+These rules apply to all import mechanisms, including:
+
+- File uploads.
+- Object-storage ingestion.
+- API-based imports.
+- Message and event consumption.
+- Scheduled synchronization jobs.
+- Database replication or extraction.
+- Manual administrative imports.
+- Backfills and migrations.
+- Third-party connector ingestion.
+
+These rules apply regardless of file format, transport, source system, or destination.
+
+## 3. Core Principles
+
+1. Raw input MUST be treated as untrusted.
+2. Validation MUST occur before authoritative data is changed.
+3. An import MUST produce the same logical result when repeated with identical input and configuration.
+4. Every accepted, rejected, skipped, and transformed record MUST be explainable.
+5. Partial success MUST be explicit rather than inferred.
+6. Transient failures MUST be distinguished from permanent data errors.
+7. Sensitive information MUST be minimized in logs and error reports.
+8. Import behavior MUST be versioned when it affects interpretation of data.
+9. Operations MUST be bounded by configured limits.
+10. Recovery MUST not depend on undocumented manual intervention.
+
+## 4. Terminology
+
+- **Import job:** One execution that processes a defined source or input set.
+- **Batch:** A bounded group of records processed together.
+- **Record:** The smallest independently validated logical item.
+- **Raw input:** The original bytes or source payload received.
+- **Canonical record:** A validated, normalized representation used internally.
+- **Quarantine:** Isolated storage for data that cannot safely proceed.
+- **Checkpoint:** Durable progress information used to resume an import.
+- **Idempotency key:** A stable identifier used to prevent duplicate effects.
+- **Source identifier:** An identifier supplied by or derived from the source.
+- **Validation error:** A failure caused by data that violates an input rule.
+- **Operational error:** A failure caused by infrastructure, availability, or execution conditions.
+- **Dead-letter record:** A record that has exhausted automated processing attempts.
+- **Commit unit:** The smallest group of writes committed atomically.
+
+## 5. Import Lifecycle
+
+Every import job MUST follow these logical stages:
+
+1. Receive and authenticate the request or source.
+2. Assign a unique job identifier.
+3. Capture source metadata.
+4. Apply admission controls.
+5. Preserve or reference the raw input.
+6. Parse the input.
+7. Validate structure and types.
+8. Validate business rules.
+9. Normalize and transform records.
+10. Resolve identities and references.
+11. detect duplicates and conflicts.
+12. Write records using defined transaction boundaries.
+13. Verify committed outcomes.
+14. Emit metrics, logs, and audit events.
+15. Produce a final import report.
+16. Apply retention or deletion rules.
+
+Stages MAY be combined operationally, but their outcomes MUST remain distinguishable.
+
+## 6. Job Identity and Metadata
+
+Every import job MUST have a globally unique `job_id`.
+
+The following metadata MUST be recorded:
+
+- Job identifier.
+- Import type.
+- Source system.
+- Source location or opaque reference.
+- Initiating principal or service.
+- Submission time.
+- Processing start and completion times.
+- Input format and declared schema version.
+- Validator version.
+- Transformation version.
+- Configuration version.
+- Idempotency key, when applicable.
+- Current state.
+- Record and byte counts.
+- Final outcome.
+- Parent job identifier for retries, replays, or continuations.
+- Correlation or trace identifier.
+
+Source locations containing secrets or sensitive query parameters MUST be redacted.
+
+## 7. Job States
+
+A job MUST have exactly one current state. Supported states SHOULD include:
+
+- `received`
+- `admitted`
+- `queued`
+- `running`
+- `paused`
+- `retry_wait`
+- `completed`
+- `completed_with_errors`
+- `failed`
+- `cancelled`
+- `quarantined`
+- `expired`
+
+State transitions MUST be validated. Invalid transitions MUST be rejected and logged.
+
+Terminal states are:
+
+- `completed`
+- `completed_with_errors`
+- `failed`
+- `cancelled`
+- `quarantined`
+- `expired`
+
+A terminal job MUST NOT return to a nonterminal state. Reprocessing MUST create a new job linked to the prior job.
+
+## 8. Admission Controls
+
+Before parsing begins, the system MUST validate:
+
+- The caller is authenticated and authorized.
+- The source type is allowed.
+- The declared content type is supported.
+- The actual format is consistent with the declared format.
+- The input size is within configured limits.
+- Compression type and expansion ratio are within limits.
+- The schema version is supported.
+- Required import configuration exists.
+- Tenant, environment, and destination are valid.
+- Resource quotas have not been exceeded.
+- The input has not already been processed when duplicate submission is prohibited.
+
+Rejected jobs MUST receive a stable error code and MUST NOT modify authoritative destination data.
+
+## 9. Input Acquisition
+
+Input acquisition MUST be bounded by:
+
+- Maximum object size.
+- Maximum stream duration.
+- Connection timeout.
+- Read timeout.
+- Maximum redirect count.
+- Maximum archive depth.
+- Maximum number of archive entries.
+- Maximum decompressed size.
+- Maximum compression ratio.
+
+Remote inputs MUST be fetched only from approved destinations or through an outbound access policy.
+
+Redirects MUST be revalidated at every hop.
+
+The system MUST defend against:
+
+- Path traversal.
+- Zip bombs.
+- Archive nesting attacks.
+- Server-side request forgery.
+- Symlink extraction attacks.
+- Malformed encodings.
+- Parser resource exhaustion.
+- Unexpected executable content.
+
+Raw input SHOULD be hashed using an approved cryptographic hash. The hash SHOULD be recorded with the job metadata.
+
+## 10. Raw Input Preservation
+
+Raw input SHOULD be retained long enough to support investigation and replay, subject to privacy and retention policies.
+
+If raw input is retained:
+
+- It MUST be encrypted at rest.
+- Access MUST be restricted.
+- Its integrity MUST be verifiable.
+- Its retention period MUST be documented.
+- Deletion MUST be enforceable.
+- Sensitive classifications MUST be attached.
+- Audit logging MUST cover access and deletion.
+
+If policy prohibits retaining raw input, the system MUST retain enough non-sensitive metadata to diagnose the import without reconstructing protected content.
+
+## 11. Parsing Rules
+
+Parsers MUST operate in strict mode unless a compatibility profile explicitly permits leniency.
+
+Parsing MUST:
+
+- Use an explicit character encoding.
+- Reject invalid byte sequences unless replacement behavior is documented.
+- Apply configured delimiter and quoting rules.
+- Enforce maximum field lengths.
+- Enforce maximum nesting depth.
+- Enforce maximum collection sizes.
+- Reject duplicate object keys unless a defined policy resolves them.
+- Preserve source positions where practical.
+- Avoid executing macros, formulas, scripts, or embedded code.
+- Avoid automatically resolving external references.
+- Avoid unsafe object deserialization.
+
+A parser warning MUST NOT silently become acceptance unless the warning class is explicitly approved.
+
+## 12. Schema Validation
+
+Each input MUST be validated against a versioned schema.
+
+Schema validation MUST cover, as applicable:
+
+- Required fields.
+- Allowed fields.
+- Primitive data types.
+- Nullability.
+- String length.
+- Numeric range and precision.
+- Enumerated values.
+- Date and time formats.
+- Array cardinality.
+- Object structure.
+- Identifier syntax.
+- Pattern constraints.
+- Conditional requirements.
+- Mutual exclusivity.
+- Cross-field dependencies.
+
+Unknown fields MUST follow one configured policy:
+
+- Reject the record.
+- Ignore the field and emit a warning.
+- Preserve it in an extensions container.
+- Route the record to quarantine.
+
+The chosen policy MUST be documented per import type.
+
+## 13. Type Rules
+
+Type coercion MUST be explicit and deterministic.
+
+The system MUST NOT rely on locale-dependent implicit conversion.
+
+Specific requirements include:
+
+- Boolean values MUST use an approved value set.
+- Numbers MUST define decimal separators and grouping behavior.
+- Integers outside supported ranges MUST be rejected.
+- Floating-point values MUST NOT be used for exact currency calculations.
+- Decimal scale and rounding mode MUST be specified.
+- Dates MUST define accepted calendars and formats.
+- Timestamps MUST define timezone behavior.
+- Empty strings MUST NOT automatically become null unless configured.
+- Null, missing, empty, and zero values MUST remain distinguishable where semantically relevant.
+- Binary values MUST use a specified encoding.
+- Identifiers MUST remain strings when numeric conversion could lose leading zeros or precision.
+
+## 14. Date and Time Rules
+
+All timestamps MUST be normalized to a documented canonical representation, preferably UTC.
+
+When source timestamps lack a timezone:
+
+- A configured source timezone MAY be applied.
+- The assumption MUST be recorded.
+- Ambiguous daylight-saving times MUST follow a documented rule.
+- Nonexistent local times MUST be rejected or adjusted according to an explicit policy.
+
+The system MUST NOT use the worker machine’s local timezone as an implicit default.
+
+Original timestamp text SHOULD be retained when required for auditability.
+
+## 15. Character and Text Rules
+
+Text normalization MUST be deliberate.
+
+The system MUST define:
+
+- Accepted encodings.
+- Unicode normalization form.
+- Line-ending treatment.
+- Whitespace trimming rules.
+- Case normalization rules.
+- Control-character handling.
+- Maximum text length.
+- Handling of bidirectional text controls.
+- Handling of null bytes.
+- Handling of invalid or non-printable characters.
+
+Semantic identifiers MUST NOT be case-folded unless their domain defines them as case-insensitive.
+
+User-authored content SHOULD preserve meaningful whitespace and capitalization.
+
+## 16. Business Validation
+
+After schema validation, records MUST be checked against business rules.
+
+Business validation MAY include:
+
+- Allowed state transitions.
+- Referential integrity.
+- Uniqueness.
+- Effective-date constraints.
+- Ownership constraints.
+- Tenant boundaries.
+- Value relationships.
+- Eligibility rules.
+- Capacity constraints.
+- Domain-specific invariants.
+
+Business rules MUST be versioned when changes could alter historical import outcomes.
+
+Validation requiring external state MUST record the relevant reference version or observation time when practical.
+
+## 17. Cross-Record Validation
+
+Rules involving multiple records MUST define their scope:
+
+- Within a file.
+- Within a batch.
+- Within a job.
+- Within a tenant.
+- Against the destination dataset.
+- Across a specified time window.
+
+The system MUST define how it handles:
+
+- Duplicate source identifiers.
+- Conflicting versions.
+- Missing parent records.
+- Cycles.
+- Ordering dependencies.
+- Aggregate limits.
+- Records that refer to later records.
+
+If ordering affects results, ordering rules MUST be explicit and stable.
+
+## 18. Validation Severity
+
+Every validation finding MUST have a severity:
+
+- `info`: No action required.
+- `warning`: Record may continue, but the condition is reported.
+- `error`: Record cannot continue.
+- `fatal`: The job cannot safely continue.
+
+Warnings MUST NOT alter data without an associated transformation rule.
+
+A configurable error threshold MAY stop a job early. Thresholds MUST be based on one or more of:
+
+- Absolute error count.
+- Error percentage.
+- Consecutive failures.
+- Fatal error class.
+- Security finding.
+- Resource limit.
+- Corruption indicator.
+
+## 19. Transformation Rules
+
+Transformations MUST be:
+
+- Deterministic.
+- Versioned.
+- Tested.
+- Ordered.
+- Side-effect free until the persistence stage.
+- Documented when they alter meaning.
+- Traceable to source fields.
+
+Transformations MAY include:
+
+- Renaming fields.
+- Mapping enumerations.
+- Normalizing units.
+- Parsing compound values.
+- Splitting or combining fields.
+- Applying defaults.
+- Deriving fields.
+- Standardizing identifiers.
+- Resolving references.
+- Redacting prohibited values.
+- Converting legacy representations.
+
+A transformation MUST NOT conceal an invalid value by substituting a default unless the rule explicitly permits it.
+
+## 20. Transformation Ordering
+
+The transformation pipeline MUST have a stable order.
+
+A recommended order is:
+
+1. Decode and parse.
+2. Apply structural normalization.
+3. Normalize text.
+4. Coerce approved types.
+5. Validate schema.
+6. Apply source-to-canonical mappings.
+7. Normalize units and timestamps.
+8. Resolve references.
+9. Derive values.
+10. Validate business rules.
+11. Apply destination mappings.
+12. Persist.
+
+If a different order is used, it MUST be documented and covered by tests.
+
+## 21. Defaults
+
+Default values MUST be classified as one of:
+
+- Source-defined default.
+- Import-configuration default.
+- Domain default.
+- Destination default.
+- Runtime-generated default.
+
+The origin of each applied default MUST be traceable.
+
+Runtime-generated defaults such as current time or generated identifiers MUST be captured once and reused during retries.
+
+A default MUST NOT overwrite a valid explicit source value.
+
+## 22. Data Loss and Precision
+
+A transformation that may lose information MUST:
+
+- Be explicitly approved.
+- Emit a warning or audit event.
+- Record the original value when policy permits.
+- Define rounding or truncation behavior.
+- Be covered by boundary tests.
+
+Silent truncation is prohibited.
+
+Examples include:
+
+- Decimal rounding.
+- Timestamp precision reduction.
+- String shortening.
+- Character replacement.
+- Unit conversion.
+- Dropping unknown fields.
+- Flattening nested structures.
+
+## 23. Identity Resolution
+
+Identity resolution MUST use documented matching rules.
+
+Matching rules MUST define:
+
+- Exact-match fields.
+- Normalized-match fields.
+- Candidate selection.
+- Confidence thresholds.
+- Tie-breaking.
+- Ambiguity handling.
+- Tenant boundaries.
+- Manual-review conditions.
+
+Ambiguous matches MUST NOT be resolved arbitrarily.
+
+Probabilistic matching MUST record the model or rule version and relevant confidence score.
+
+## 24. Duplicate Handling
+
+The system MUST distinguish:
+
+- Duplicate job submissions.
+- Duplicate records within one input.
+- Duplicate records across inputs.
+- Records that repeat an existing destination entity.
+- Legitimate updates to an existing entity.
+
+Each import type MUST define a duplicate policy:
+
+- Reject.
+- Ignore.
+- Replace.
+- Merge.
+- Update.
+- Create a new version.
+- Route for review.
+
+Duplicate decisions MUST be visible in the final report.
+
+## 25. Idempotency
+
+Imports that may be retried or replayed MUST be idempotent.
+
+Idempotency SHOULD be based on a stable combination of:
+
+- Tenant.
+- Import type.
+- Source identifier.
+- Source version.
+- Record identifier.
+- Operation type.
+
+Idempotency records MUST survive worker restarts and MUST be retained for at least the maximum replay window.
+
+The system MUST prevent concurrent processing of the same idempotency key from producing duplicate effects.
+
+A repeated request with the same key but different content MUST be rejected as a conflict.
+
+## 26. Upsert and Merge Rules
+
+Upsert behavior MUST define:
+
+- Which fields identify an entity.
+- Which fields may be updated.
+- Which fields are immutable.
+- Whether null clears an existing value.
+- Whether missing fields preserve existing values.
+- How arrays and collections are merged.
+- How concurrent changes are detected.
+- Which source has precedence.
+- Whether older source versions may overwrite newer versions.
+
+Whole-object replacement MUST NOT be used when partial-update semantics are intended.
+
+## 27. Transaction Boundaries
+
+The system MUST document its commit unit.
+
+Possible commit units include:
+
+- Entire job.
+- Entire file.
+- Batch.
+- Record.
+- Related record group.
+
+The selected boundary MUST balance atomicity, scalability, and recovery.
+
+A failed commit MUST leave no partially applied effects inside the commit unit.
+
+External side effects that cannot participate in the transaction MUST use an outbox, saga, or equivalent recovery pattern.
+
+## 28. Partial Success
+
+Partial success MAY be supported only when explicitly defined.
+
+For partial success:
+
+- Successful records MUST be distinguishable from failed records.
+- Failed records MUST include actionable error details.
+- The final state MUST be `completed_with_errors`.
+- Counts MUST reconcile with total records.
+- Retrying failures MUST not repeat successful effects.
+- Referential dependencies MUST not be left inconsistent.
+- The report MUST state whether failures can be replayed independently.
+
+If partial success is not supported, any record failure MUST cause the relevant commit unit to roll back.
+
+## 29. Error Taxonomy
+
+Every error MUST have a stable machine-readable code.
+
+Errors MUST be classified into at least:
+
+- `authentication`
+- `authorization`
+- `admission`
+- `format`
+- `schema`
+- `validation`
+- `transformation`
+- `conflict`
+- `dependency`
+- `rate_limit`
+- `timeout`
+- `resource_exhaustion`
+- `infrastructure`
+- `security`
+- `internal`
+
+Each error class MUST specify whether it is:
+
+- Retryable.
+- User-correctable.
+- Record-scoped.
+- Batch-scoped.
+- Job-scoped.
+- Security-sensitive.
+
+## 30. Error Structure
+
+An error record SHOULD contain:
+
+```json
+{
+  "code": "IMPORT_FIELD_INVALID",
+  "category": "validation",
+  "severity": "error",
+  "retryable": false,
+  "job_id": "job-identifier",
+  "record_id": "source-record-identifier",
+  "location": {
+    "file": "opaque-source-name",
+    "line": 42,
+    "column": 7,
+    "field": "customer.email"
+  },
+  "message": "The value does not satisfy the required format.",
+  "safe_value": "<redacted>",
+  "rule_version": "2026-01",
+  "correlation_id": "trace-identifier"
+}
+```
+
+Error messages MUST NOT expose:
+
+- Credentials.
+- Access tokens.
+- Encryption keys.
+- Full sensitive values.
+- Internal stack traces to untrusted users.
+- Database connection strings.
+- Private network details.
+- Unnecessary personal data.
+
+## 31. Error Reporting
+
+Every job MUST produce a summary containing:
+
+- Total records discovered.
+- Total records parsed.
+- Accepted count.
+- Created count.
+- Updated count.
+- Unchanged count.
+- Skipped count.
+- Warning count.
+- Rejected count.
+- Quarantined count.
+- Retry count.
+- Unknown or unreconciled count.
+- Final job state.
+- Processing duration.
+- Error counts grouped by code.
+
+The counts MUST reconcile. If they do not, the job MUST be marked failed or explicitly marked as having an integrity exception.
+
+Per-record reports SHOULD be downloadable for authorized users when volume permits.
+
+## 32. Quarantine
+
+Records MUST be quarantined when they:
+
+- Trigger a security rule.
+- Cannot be safely parsed.
+- Contain prohibited content.
+- Have unresolved identity ambiguity.
+- Exceed retry limits due to record-specific behavior.
+- Require manual adjudication.
+- Cannot be classified reliably.
+
+Quarantined data MUST:
+
+- Be isolated from production processing.
+- Be encrypted.
+- Have restricted access.
+- Retain its job and source relationship.
+- Record the quarantine reason.
+- Follow a retention policy.
+- Support authorized release or deletion.
+- Never be automatically reintroduced without revalidation.
+
+## 33. Dead-Letter Handling
+
+A retryable unit that exhausts its attempts SHOULD be moved to a dead-letter store.
+
+Dead-letter entries MUST contain:
+
+- Original job relationship.
+- Safe source reference.
+- Failure code.
+- Attempt count.
+- First and last failure times.
+- Last safe error details.
+- Applicable processing version.
+- Replay eligibility.
+- Expiration time.
+
+Replaying a dead-letter entry MUST create a new attempt identity while preserving lineage.
+
+## 34. Retry Eligibility
+
+Only transient failures MUST be retried automatically.
+
+Examples of retryable conditions include:
+
+- Temporary network failures.
+- Dependency unavailability.
+- Rate limiting.
+- Lock contention.
+- Temporary storage errors.
+- Worker interruption.
+- Explicitly retryable timeouts.
+
+Examples of non-retryable conditions include:
+
+- Invalid schema.
+- Unsupported format.
+- Failed authentication.
+- Failed authorization.
+- Business-rule violations.
+- Permanent conflicts.
+- Prohibited content.
+- Missing mandatory data.
+
+Unknown errors SHOULD default to non-retryable until classified, unless job safety and idempotency are proven.
+
+## 35. Retry Policy
+
+Retry policies MUST define:
+
+- Maximum attempt count.
+- Initial delay.
+- Maximum delay.
+- Backoff multiplier.
+- Jitter.
+- Overall retry deadline.
+- Retryable error codes.
+- Per-dependency limits.
+- Cancellation behavior.
+
+Exponential backoff with jitter SHOULD be used.
+
+A representative delay rule is:
+
+```text
+delay = random(0, min(max_delay, initial_delay × 2^attempt))
+```
+
+The exact formula MUST be bounded to prevent overflow and unreasonably long delays.
+
+Servers providing a valid retry interval SHOULD be respected within configured limits.
+
+## 36. Retry Safety
+
+Before retrying, the system MUST determine whether the previous attempt could have committed.
+
+If the commit outcome is unknown, the system MUST:
+
+1. Query the destination using the idempotency key, or
+2. Reconcile the transaction state, or
+3. Mark the operation for manual recovery.
+
+Blindly repeating a non-idempotent write is prohibited.
+
+Retry counters MUST be durable across process restarts.
+
+## 37. Resume and Checkpointing
+
+Long-running imports SHOULD support resume from durable checkpoints.
+
+A checkpoint MUST identify:
+
+- Job.
+- Source version or hash.
+- Last safe position.
+- Batch or partition.
+- Transformation version.
+- Configuration version.
+- Committed record boundary.
+- Idempotency state.
+
+A checkpoint MUST be written only after the associated commit succeeds.
+
+Resume MUST be rejected when source content or relevant processing versions have changed incompatibly.
+
+## 38. Timeouts
+
+Timeouts MUST be configured for:
+
+- Input acquisition.
+- Parsing.
+- Validation dependencies.
+- Destination reads.
+- Destination writes.
+- Batch processing.
+- Entire jobs.
+- Cancellation grace periods.
+
+Timeouts MUST produce distinct error codes.
+
+A timed-out operation MUST be cancelled when supported. The system MUST not assume that a timed-out remote write failed.
+
+## 39. Cancellation
+
+Authorized users or services MAY cancel an import.
+
+Cancellation MUST:
+
+- Stop scheduling new work.
+- Attempt to interrupt cancellable operations.
+- Preserve already committed work unless atomic-job semantics require rollback.
+- Record the initiator and reason.
+- Produce a terminal report.
+- Preserve sufficient state for investigation.
+
+Cancellation MUST NOT be represented as an internal failure.
+
+## 40. Concurrency
+
+Concurrency limits MUST exist at appropriate levels:
+
+- Global.
+- Tenant.
+- Source.
+- Destination.
+- Connector.
+- Job.
+- Partition.
+
+Concurrent jobs that may update the same entities MUST use conflict detection, serialization, or deterministic precedence.
+
+A concurrency increase MUST NOT weaken ordering or idempotency guarantees.
+
+## 41. Backpressure
+
+The system MUST apply backpressure when downstream capacity is constrained.
+
+Backpressure mechanisms MAY include:
+
+- Queue limits.
+- Admission throttling.
+- Batch-size reduction.
+- Worker concurrency reduction.
+- Rate limiting.
+- Circuit breaking.
+- Temporary job pausing.
+
+The system MUST NOT accept unbounded work into memory.
+
+## 42. Resource Limits
+
+Every import type MUST define limits for:
+
+- Input bytes.
+- Record count.
+- Field count.
+- Field length.
+- Nesting depth.
+- Processing duration.
+- Memory consumption.
+- CPU consumption.
+- Temporary storage.
+- Error-report size.
+- External requests.
+- Transformation expansion.
+
+Limit violations MUST produce specific error codes and MUST not cause uncontrolled service degradation.
+
+## 43. Observability Principles
+
+Observability MUST support answering:
+
+- What was imported?
+- Who initiated it?
+- Which versions processed it?
+- Where is it currently?
+- How many records succeeded or failed?
+- Why did a record fail?
+- Was a failure retried?
+- What destination effects occurred?
+- Did security controls trigger?
+- Can the job be safely replayed?
+
+Logs, metrics, and traces MUST use consistent job and correlation identifiers.
+
+## 44. Logging
+
+Structured logs MUST be used.
+
+Each relevant log event SHOULD include:
+
+- Timestamp.
+- Severity.
+- Event name.
+- Job identifier.
+- Batch or partition identifier.
+- Safe record identifier.
+- Tenant identifier.
+- Connector or source type.
+- Processing stage.
+- Attempt number.
+- Error code.
+- Duration.
+- Trace identifier.
+- Processing version.
+
+Logs MUST NOT contain raw records by default.
+
+Debug logging containing data MUST require explicit authorization, be time-limited, and still apply redaction.
+
+## 45. Required Log Events
+
+The system SHOULD emit events for:
+
+- Job received.
+- Admission accepted or rejected.
+- Job started.
+- Input acquisition completed.
+- Parsing completed.
+- Validation completed.
+- Batch started and completed.
+- Checkpoint committed.
+- Retry scheduled.
+- Circuit breaker opened or closed.
+- Record quarantined.
+- Dead-letter entry created.
+- Job cancelled.
+- Job completed.
+- Job failed.
+- Security policy triggered.
+- Raw input accessed or deleted.
+
+High-volume per-record success logs SHOULD be avoided unless required for audit.
+
+## 46. Metrics
+
+The system MUST expose metrics for:
+
+- Jobs received.
+- Jobs completed by outcome.
+- Jobs in progress.
+- Queue depth.
+- Queue age.
+- Records processed.
+- Records rejected.
+- Records quarantined.
+- Records dead-lettered.
+- Bytes processed.
+- Processing latency.
+- Time spent per stage.
+- Retry attempts.
+- Retry exhaustion.
+- Dependency failures.
+- Timeout count.
+- Validation failures by code.
+- Transformation warnings by code.
+- Duplicate detection.
+- Checkpoint lag.
+- Worker saturation.
+- Resource-limit violations.
+
+Metric labels MUST avoid unbounded cardinality. Job IDs, record IDs, and raw error messages MUST NOT be metric labels.
+
+## 47. Tracing
+
+Distributed traces SHOULD cover external acquisition, queueing, validation dependencies, transformation, and destination writes.
+
+Trace propagation MUST use approved headers or message attributes.
+
+Spans SHOULD include:
+
+- Stage.
+- Import type.
+- Tenant-safe identifier.
+- Batch size.
+- Attempt number.
+- Outcome.
+- Error code.
+
+Sensitive data MUST NOT be placed in span attributes.
+
+Sampling rules SHOULD preserve failed, slow, and security-relevant traces at a higher rate than routine successful traces.
+
+## 48. Service-Level Indicators
+
+Import systems SHOULD define:
+
+- Job success rate.
+- Record acceptance rate.
+- End-to-end job latency.
+- Queue delay.
+- Freshness lag.
+- Retry recovery rate.
+- Destination consistency rate.
+- Dead-letter rate.
+- Observability completeness.
+
+Service objectives MUST distinguish platform failures from invalid customer data where appropriate.
+
+## 49. Alerting
+
+Alerts SHOULD be based on actionable conditions, including:
+
+- Sustained job failure rate.
+- Queue age exceeding objectives.
+- Dead-letter growth.
+- Retry exhaustion.
+- Destination outage.
+- Checkpoint stagnation.
+- Unusual rejection spikes.
+- Security-rule triggers.
+- Reconciliation mismatches.
+- Missing telemetry.
+- Resource saturation.
+- Unexpected import volume.
+
+Alerts MUST include a runbook reference, affected scope, and correlation details.
+
+## 50. Audit Logging
+
+Security- and compliance-relevant actions MUST generate immutable audit events.
+
+Audit events MUST cover:
+
+- Job submission.
+- Configuration changes.
+- Schema and transformation deployment.
+- Authorization failures.
+- Access to raw or quarantined data.
+- Manual overrides.
+- Record release from quarantine.
+- Replay operations.
+- Cancellation.
+- Report download.
+- Retention override.
+- Data deletion.
+
+Audit events MUST record actor, action, target, time, outcome, and reason when applicable.
+
+## 51. Reconciliation
+
+The system SHOULD reconcile:
+
+- Source record count.
+- Parsed record count.
+- Outcome counts.
+- Commit acknowledgments.
+- Destination state.
+- Idempotency records.
+- Checkpoints.
+- Final reports.
+
+For high-integrity imports, reconciliation MUST compare source and destination control totals, hashes, or aggregate values.
+
+A reconciliation failure MUST prevent an unqualified success state.
+
+## 52. Authentication
+
+All import entry points MUST authenticate callers.
+
+Authentication mechanisms MUST:
+
+- Use approved protocols.
+- Reject expired or revoked credentials.
+- Validate token audience and issuer.
+- Avoid credentials in URLs.
+- Support rotation.
+- Fail closed.
+- Generate audit events for repeated failures.
+
+Anonymous imports MUST be prohibited unless explicitly approved and isolated.
+
+## 53. Authorization
+
+Authorization MUST be checked for:
+
+- Submitting an import.
+- Selecting a tenant.
+- Selecting a destination.
+- Using a connector.
+- Viewing job status.
+- Downloading reports.
+- Accessing raw data.
+- Accessing quarantined data.
+- Retrying or replaying.
+- Cancelling.
+- Changing configuration.
+- Overriding validation.
+- Deleting data.
+
+Possession of a job identifier MUST NOT grant access.
+
+Authorization MUST be enforced server-side at every relevant operation.
+
+## 54. Tenant Isolation
+
+Tenant context MUST be explicit and immutable within a job.
+
+All reads, writes, logs, checkpoints, idempotency keys, reports, and temporary objects MUST be scoped to the tenant.
+
+Cross-tenant identity resolution is prohibited unless explicitly designed and authorized.
+
+The system MUST test tenant isolation, including failure and retry paths.
+
+## 55. Least Privilege
+
+Import workers MUST use the minimum required permissions.
+
+Separate credentials SHOULD be used for:
+
+- Reading sources.
+- Writing destinations.
+- Reading configuration.
+- Writing telemetry.
+- Managing quarantine.
+- Performing administrative replay.
+
+Workers MUST NOT have permission to alter their own security policies.
+
+## 56. Secret Management
+
+Secrets MUST:
+
+- Be stored in an approved secret manager.
+- Be encrypted in transit and at rest.
+- Be rotated.
+- Never be committed to source control.
+- Never appear in logs or reports.
+- Be exposed only to workloads that need them.
+- Be removed from memory and temporary files when practical.
+
+Configuration references SHOULD identify secrets indirectly rather than embedding values.
+
+## 57. Transport Security
+
+Data in transit MUST use approved encrypted protocols.
+
+The system MUST validate certificates and hostnames.
+
+Plaintext fallback is prohibited.
+
+Mutual authentication SHOULD be used for sensitive machine-to-machine integrations.
+
+Weak protocols and cipher suites MUST be disabled according to organizational policy.
+
+## 58. Encryption at Rest
+
+Raw inputs, temporary files, checkpoints, reports, quarantine data, and destination data MUST use encryption appropriate to their classification.
+
+Encryption keys MUST be managed separately from encrypted data.
+
+Key access MUST be auditable.
+
+Key rotation MUST not make retained data unrecoverable before its scheduled deletion.
+
+## 59. Sensitive Data Handling
+
+Fields MUST be classified where practical.
+
+Sensitive values MUST be:
+
+- Collected only when required.
+- Redacted from logs.
+- Masked in user-facing reports.
+- Excluded from metric labels.
+- Restricted in traces.
+- Protected in temporary storage.
+- Deleted according to policy.
+- Accessible only to authorized roles.
+
+Error reports SHOULD display safe identifiers or partial masking rather than full values.
+
+## 60. Input Security
+
+The system MUST treat all imported content as potentially malicious.
+
+Controls MUST address:
+
+- Formula injection.
+- SQL injection.
+- Command injection.
+- Template injection.
+- XML external entities.
+- Unsafe deserialization.
+- Regular-expression denial of service.
+- Embedded scripts.
+- Malware.
+- Path traversal.
+- Oversized payloads.
+- Decompression bombs.
+- Unicode spoofing.
+- CSV injection.
+- Header injection.
+- Log injection.
+
+Imported strings MUST never be used to construct commands or queries without safe parameterization.
+
+## 61. Spreadsheet and CSV Security
+
+Spreadsheet-like imports MUST treat cells beginning with formula-control characters as potentially dangerous.
+
+When exporting error files or corrected records, values beginning with characters such as `=`, `+`, `-`, or `@` MUST be escaped according to the target format’s safety policy.
+
+Macros and external links MUST NOT be executed.
+
+Delimiter, quoting, and newline handling MUST prevent record boundary confusion.
+
+## 62. Malware Scanning
+
+Files capable of containing executable or embedded content SHOULD be scanned using an approved malware-detection service.
+
+A positive or indeterminate scan result MUST follow policy:
+
+- Reject.
+- Quarantine.
+- Require security review.
+
+Scanning failure MUST NOT silently permit processing when scanning is mandatory.
+
+## 63. Temporary Storage
+
+Temporary files MUST:
+
+- Use unpredictable names.
+- Be created with restrictive permissions.
+- Reside in approved locations.
+- Be encrypted when required.
+- Be scoped to the job.
+- Be deleted after use.
+- Not be shared across tenants.
+- Not contain secrets in filenames.
+
+Cleanup MUST occur after success, failure, cancellation, and worker restart.
+
+A periodic sweeper SHOULD remove abandoned temporary artifacts.
+
+## 64. Configuration Security
+
+Import configuration MUST be version-controlled or otherwise auditable.
+
+Configuration changes MUST:
+
+- Require authorization.
+- Be validated before activation.
+- Record the actor and reason.
+- Support rollback.
+- Avoid exposing secrets.
+- Become immutable for an active job.
+
+A running job MUST use a captured configuration version rather than mutable latest values.
+
+## 65. Schema and Rule Versioning
+
+Schema, validation, and transformation versions MUST be recorded for each job.
+
+Breaking changes MUST create a new version.
+
+Older versions MAY remain available for replay when policy permits.
+
+A job MUST NOT switch processing versions after it begins unless the job is restarted under a new identity.
+
+Version retirement MUST consider retained replay obligations.
+
+## 66. Manual Overrides
+
+Manual overrides SHOULD be rare and narrowly scoped.
+
+An override MUST require:
+
+- Explicit authorization.
+- A reason.
+- Affected job and records.
+- The overridden rule.
+- Expiration or one-time scope.
+- An audit event.
+- Revalidation of unaffected rules.
+
+Security controls, tenant isolation, and immutable-field protections MUST NOT be bypassed by ordinary overrides.
+
+## 67. Privacy and Retention
+
+Retention periods MUST be defined for:
+
+- Raw input.
+- Canonical records.
+- Error reports.
+- Logs.
+- Traces.
+- Audit events.
+- Quarantine.
+- Dead-letter data.
+- Temporary artifacts.
+- Idempotency records.
+- Checkpoints.
+
+Retention MUST reflect legal, contractual, operational, and privacy requirements.
+
+Deletion requests MUST propagate to retained import artifacts where required.
+
+Retention expiration MUST be observable and auditable.
+
+## 68. Data Residency
+
+Imports MUST respect data-residency restrictions.
+
+Data MUST NOT be transferred to an unapproved region through:
+
+- Processing workers.
+- Temporary storage.
+- Logs.
+- Monitoring systems.
+- Support tools.
+- Quarantine services.
+- Backup systems.
+- Malware scanners.
+
+Residency decisions MUST be based on authoritative tenant and data classification.
+
+## 69. Recovery and Replay
+
+Replay MUST be an explicit operation.
+
+Before replay, the system MUST establish:
+
+- The source is available and unchanged, or its changed state is acknowledged.
+- The processing version is selected.
+- The destination effects of the original job are understood.
+- Idempotency safeguards are active.
+- Authorization is valid.
+- Retention and privacy policies permit replay.
+
+Replay MUST preserve lineage to the original job and produce a new report.
+
+## 70. Disaster Recovery
+
+Import state required for safe recovery MUST be backed up or reconstructible.
+
+Recovery plans MUST cover:
+
+- Queued jobs.
+- Running jobs.
+- Checkpoints.
+- Idempotency records.
+- Raw-input references.
+- Quarantine.
+- Dead-letter entries.
+- Configuration versions.
+- Audit records.
+
+Recovery tests MUST verify that jobs are not duplicated, lost, or incorrectly marked successful.
+
+## 71. Circuit Breakers
+
+Dependencies with repeated transient failures SHOULD use circuit breakers.
+
+Circuit breakers MUST define:
+
+- Failure threshold.
+- Observation window.
+- Open duration.
+- Half-open probe behavior.
+- Scope.
+- Metrics and alerts.
+
+Opening a circuit MUST pause or fail affected work with a specific retryable error.
+
+Security and validation errors MUST NOT contribute to dependency circuit-breaker thresholds.
+
+## 72. Deployment Safety
+
+Changes to import logic SHOULD support:
+
+- Automated tests.
+- Backward compatibility checks.
+- Canary processing.
+- Shadow validation.
+- Rollback.
+- Version pinning.
+- Schema compatibility analysis.
+
+A deployment MUST NOT change the behavior of already-running jobs unless designed and tested to do so.
+
+High-risk changes SHOULD be tested against representative sanitized samples.
+
+## 73. Testing Requirements
+
+The test suite MUST cover:
+
+- Valid inputs.
+- Missing required values.
+- Invalid types.
+- Boundary values.
+- Null, empty, and missing distinctions.
+- Duplicate fields.
+- Duplicate records.
+- Unknown fields.
+- Unsupported versions.
+- Malformed input.
+- Oversized input.
+- Encoding errors.
+- Timezone ambiguity.
+- Decimal precision.
+- Transformation ordering.
+- Partial success.
+- Transaction rollback.
+- Retryable failures.
+- Non-retryable failures.
+- Unknown commit outcomes.
+- Worker restart.
+- Checkpoint resume.
+- Cancellation.
+- Tenant isolation.
+- Authorization.
+- Redaction.
+- Quarantine.
+- Dead-letter replay.
+- Reconciliation.
+- Resource exhaustion.
+
+## 74. Property and Fuzz Testing
+
+Parsers and transformations SHOULD use fuzz testing.
+
+Useful properties include:
+
+- Parsing never causes uncontrolled crashes.
+- Processing remains within configured resource bounds.
+- Identical inputs produce identical canonical output.
+- Reprocessing does not duplicate effects.
+- Serialization round trips preserve supported values.
+- Counts always reconcile.
+- Sensitive test markers never appear in telemetry.
+- Invalid inputs cannot cross tenant boundaries.
+
+## 75. Performance Testing
+
+Performance tests MUST use realistic:
+
+- File sizes.
+- Record sizes.
+- Error rates.
+- Transformation complexity.
+- Destination latency.
+- Concurrency.
+- Compression ratios.
+- Tenant distribution.
+
+Performance acceptance criteria SHOULD include throughput, latency, memory, CPU, temporary storage, and recovery time.
+
+Tests MUST include slow dependencies and backpressure conditions.
+
+## 76. Compatibility Testing
+
+Connector and schema compatibility tests MUST verify:
+
+- Supported source versions.
+- Deprecated fields.
+- Added optional fields.
+- Added required fields.
+- Enumeration changes.
+- Precision changes.
+- Timestamp changes.
+- Ordering changes.
+- Authentication changes.
+- Pagination changes.
+- Rate-limit behavior.
+
+Compatibility failures MUST be detected before production rollout where feasible.
+
+## 77. Operational Runbooks
+
+Runbooks MUST exist for:
+
+- Stuck jobs.
+- Queue backlog.
+- Destination outage.
+- Repeated retries.
+- Dead-letter growth.
+- Reconciliation failure.
+- Security quarantine.
+- Credential expiration.
+- Schema incompatibility.
+- Data corruption.
+- Incorrect transformation deployment.
+- Replay.
+- Cancellation.
+- Privacy deletion.
+- Disaster recovery.
+
+Runbooks SHOULD include safe diagnostic queries and escalation paths.
+
+## 78. Final Report
+
+Every terminal job MUST have a final report.
+
+The report MUST include:
+
+- Job identity.
+- Source description.
+- Processing versions.
+- Start and end times.
+- Final state.
+- Total bytes and records.
+- Outcome counts.
+- Warning and error summaries.
+- Retry summary.
+- Quarantine and dead-letter summary.
+- Reconciliation result.
+- Safe links or references to detailed errors.
+- Replay eligibility.
+- Correlation identifier.
+
+A success report MUST not be issued until required commits and reconciliation are complete.
+
+## 79. Acceptance Criteria
+
+An import is `completed` only when:
+
+- Admission succeeded.
+- Required parsing completed.
+- Required validation completed.
+- All accepted commit units were durably written.
+- Required external side effects were durably scheduled or completed.
+- Checkpoints are consistent.
+- Outcome counts reconcile.
+- Required telemetry was emitted.
+- The final report was persisted.
+- No unresolved fatal error remains.
+
+An import is `completed_with_errors` only when partial success is permitted and all successful and failed records are accounted for.
+
+All other terminal outcomes MUST use a more specific non-success state.
+
+## 80. Prohibited Behaviors
+
+The system MUST NOT:
+
+- Trust source data without validation.
+- Silently discard invalid records.
+- Silently truncate values.
+- Retry permanent validation failures.
+- Repeat non-idempotent writes blindly.
+- Log secrets or complete sensitive records.
+- Use mutable configuration without recording its version.
+- Infer tenant identity from untrusted record content.
+- Execute imported formulas, scripts, or macros.
+- Permit unbounded files, records, fields, nesting, or retries.
+- Mark a job successful before commits are confirmed.
+- Hide partial success behind a success state.
+- Reuse a job identifier for a replay.
+- Apply manual overrides without audit evidence.
+- Allow raw or quarantined data access based only on job-ID knowledge.
+- Continue after an integrity failure without an explicit policy.
+- Treat a timeout as proof that a remote write failed.
+- Use worker-local state as the sole retry or checkpoint record.
+- Expose internal stack traces to untrusted users.
+- Cross tenant boundaries during matching, caching, retrying, or reporting.
+
+## 81. Recommended Defaults
+
+Unless an import type defines stricter rules, recommended defaults are:
+
+- Strict parsing.
+- Reject unknown required structures.
+- Preserve unknown optional data only in a bounded extensions field.
+- UTC timestamp normalization.
+- Explicit decimal arithmetic.
+- Record-level error reporting.
+- Exponential backoff with full jitter.
+- Durable idempotency.
+- Batch-level transactions.
+- Encrypted raw-input retention for a limited period.
+- Structured redacted logs.
+- Trace propagation across all stages.
+- Quarantine for security-sensitive anomalies.
+- Fail closed for authentication, authorization, and policy checks.
+- No automatic manual-rule overrides.
+- No unlimited replay.
+
+## 82. Example Processing Contract
+
+```yaml
+import_type: customer_records
+schema_version: "3"
+processing:
+  validator_version: "2026-11"
+  transformer_version: "2026-11"
+  atomicity: batch
+  batch_size: 500
+  partial_success: true
+  unknown_fields: preserve_in_extensions
+  timezone_default: Europe/Berlin
+  unicode_normalization: NFC
+
+limits:
+  maximum_input_bytes: 1073741824
+  maximum_records: 5000000
+  maximum_field_bytes: 1048576
+  maximum_nesting_depth: 32
+  maximum_errors_reported: 10000
+
+duplicates:
+  job_policy: return_existing_result
+  record_policy: update_if_newer
+  idempotency_fields:
+    - tenant_id
+    - source_system
+    - source_record_id
+    - source_version
+
+retry:
+  maximum_attempts: 6
+  initial_delay_seconds: 2
+  maximum_delay_seconds: 300
+  overall_deadline_seconds: 1800
+  jitter: full
+  retryable_categories:
+    - dependency
+    - rate_limit
+    - timeout
+    - infrastructure
+
+security:
+  malware_scan: required
+  retain_raw_input: true
+  raw_input_retention_days: 30
+  quarantine_retention_days: 90
+  redact_sensitive_values: true
+
+observability:
+  structured_logs: true
+  distributed_tracing: true
+  reconciliation_required: true
+  audit_access_to_raw_input: true
+```
+
+## 83. Governance
+
+Each import type MUST have an owner responsible for:
+
+- Schema lifecycle.
+- Transformation correctness.
+- Error-code documentation.
+- Security classification.
+- Retention.
+- Operational objectives.
+- Connector compatibility.
+- Incident response.
+- Deprecation.
+
+Exceptions to these rules MUST be:
+
+- Documented.
+- Risk-assessed.
+- Approved by authorized owners.
+- Time-bounded where possible.
+- Observable.
+- Reviewed periodically.
+
+## 84. Change Management
+
+Changes to this rules file MUST include:
+
+- Rationale.
+- Effective date.
+- Compatibility impact.
+- Migration requirements.
+- Security impact.
+- Operational impact.
+- Owner approval.
+
+Implementations MUST track which revision of these rules they conform to.
+
+## 85. Compliance Checklist
+
+Before enabling an import in production, verify that:
+
+- [ ] Authentication and authorization are enforced.
+- [ ] Tenant isolation is tested.
+- [ ] Input and decompression limits are configured.
+- [ ] The schema is versioned.
+- [ ] Validation errors have stable codes.
+- [ ] Transformations are deterministic and versioned.
+- [ ] Identity and duplicate policies are documented.
+- [ ] Idempotency is durable.
+- [ ] Transaction boundaries are defined.
+- [ ] Partial-success behavior is explicit.
+- [ ] Retryable errors are classified.
+- [ ] Retry limits and jitter are configured.
+- [ ] Unknown commit outcomes are reconciled.
+- [ ] Checkpoints follow successful commits.
+- [ ] Logs are structured and redacted.
+- [ ] Metrics avoid high-cardinality labels.
+- [ ] Traces exclude sensitive values.
+- [ ] Required audit events are emitted.
+- [ ] Raw, temporary, quarantined, and dead-letter data are protected.
+- [ ] Retention and deletion policies are implemented.
+- [ ] Reconciliation is tested.
+- [ ] Cancellation and recovery are tested.
+- [ ] Final reports reconcile all records.
+- [ ] Operational runbooks exist.
+- [ ] Security testing has been completed.
+- [ ] Production ownership is assigned.

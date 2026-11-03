@@ -1,0 +1,12 @@
+ARM_D_MARKER
+```diff
+diff --git a/CHANGELOG.md b/CHANGELOG.md
+--- a/CHANGELOG.md
++++ b/CHANGELOG.md
+@@
++## 2026-11-03
++
++### Upload retry limit
++
++Raised the failed-upload retry limit from three to five. Transient failures sometimes persisted through the third retry but cleared on the fourth or fifth attempt. The higher limit reduces avoidable terminal upload failures while retaining a finite cap on delay and service load.
+```

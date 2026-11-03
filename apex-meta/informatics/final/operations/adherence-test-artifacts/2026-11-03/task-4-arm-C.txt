@@ -1,0 +1,428 @@
+ARM_C_MARKER
+---
+type: Policy
+id: POLICY-DATA-IMPORT-001
+title: "Data Import System Rules"
+description: "Normative rules for secure, reliable, observable, and deterministic data import."
+tags: [data-import, validation, transformation, errors, retries, observability, security]
+status: current
+version: "1.0.0"
+---
+
+# Data Import System Rules
+
+## 1. Critical Invariants
+
+- **DI-001 [P0 | I99/E96/R04] Preserve source evidence**: Store the original input or its cryptographic digest before transformation.
+- **DI-002 [P0 | I99/E97/R04] Prevent partial publication**: Publish no records from an atomic import until every required validation and persistence step succeeds.
+- **DI-003 [P0 | I99/E96/R05] Enforce tenant isolation**: Bind every import, staging object, record, log, metric, and error artifact to one authorized tenant.
+- **DI-004 [P0 | I98/E96/R05] Reject invalid trust boundaries**: Treat every uploaded file, remote response, field value, archive member, and metadata attribute as untrusted input.
+- **DI-005 [P0 | I98/E95/R05] Guarantee idempotency**: Ensure that replaying the same accepted import cannot create duplicate business effects.
+- **DI-006 [P0 | I98/E95/R06] Fail closed**: Stop processing when authorization, schema identity, integrity, or policy status cannot be established.
+- **DI-007 [P0 | I97/E95/R05] Bound resource use**: Enforce explicit limits for bytes, records, fields, nesting, expansion ratio, processing time, and concurrent work.
+- **DI-008 [P0 | I97/E94/R06] Protect sensitive data**: Exclude secrets and unnecessary personal data from logs, metrics, traces, notifications, and error messages.
+- **DI-009 [P0 | I97/E94/R06] Make transformations deterministic**: Produce the same canonical output from the same input, configuration, schema, and reference-data versions.
+- **DI-010 [P0 | I96/E95/R05] Separate stages**: Keep receipt, validation, transformation, persistence, and publication as explicit state transitions.
+- **DI-011 [P0 | I96/E94/R06] Preserve provenance**: Retain the source location and transformation lineage of every accepted or rejected record.
+- **DI-012 [P0 | I96/E94/R06] Prevent executable interpretation**: Never execute formulas, macros, templates, scripts, serialized objects, or imported markup.
+
+## 2. Scope and Terminology
+
+This policy governs batch files, streamed records, API-fed datasets, archive uploads, and operator-triggered reprocessing.
+
+| Term | Definition |
+|---|---|
+| Import | One identified attempt to ingest a bounded source dataset. |
+| Source | The uploaded object, stream, remote response, or immutable source reference. |
+| Record | One independently addressable business-data unit. |
+| Schema | A versioned contract defining structure, types, constraints, and compatibility. |
+| Staging | Isolated storage that remains invisible to production consumers. |
+| Canonical record | A validated record after deterministic normalization and transformation. |
+| Publication | The transition that makes imported effects visible to downstream consumers. |
+| Quarantine | Restricted storage for suspicious, invalid, or policy-blocked inputs. |
+| Dead-letter queue | Restricted storage for work that exhausted permitted automated retries. |
+| Import fingerprint | A digest derived from source identity, content, tenant, schema, and relevant configuration. |
+| Permanent error | A failure that cannot succeed without changing input, configuration, authorization, or code. |
+| Transient error | A failure expected to resolve without changing the import payload. |
+
+## 3. Import Lifecycle
+
+Each import follows this state model:
+
+```text
+RECEIVED
+  -> INSPECTING
+  -> VALIDATING
+  -> TRANSFORMING
+  -> STAGING
+  -> READY
+  -> PUBLISHED
+```
+
+A failed transition ends in one of these terminal states:
+
+```text
+REJECTED
+QUARANTINED
+FAILED
+CANCELLED
+DEAD_LETTERED
+```
+
+- **DI-013 [P1 | I94/E93/R07] Assign identity at receipt**: Create an immutable import identifier before reading business records.
+- **DI-014 [P1 | I94/E93/R07] Record state transitions**: Persist each transition with its timestamp, actor, reason, and attempt number.
+- **DI-015 [P1 | I93/E92/R08] Validate legal transitions**: Reject any state change that the lifecycle does not define.
+- **DI-016 [P1 | I93/E92/R08] Isolate staging data**: Deny production readers access to records before publication.
+- **DI-017 [P1 | I92/E92/R08] Finalize terminal states**: Permit no further mutation after a terminal state except an explicit reprocessing request.
+- **DI-018 [P1 | I92/E91/R09] Create new attempts**: Represent reprocessing as a new attempt linked to the original import.
+- **DI-019 [P1 | I91/E91/R09] Support cancellation**: Check cancellation at safe boundaries before starting another unit of work.
+- **DI-020 [P1 | I91/E90/R10] Preserve atomicity choice**: Declare each import mode as atomic or record-tolerant before processing begins.
+
+## 4. Input Admission
+
+- **DI-021 [P1 | I96/E94/R06] Authenticate the caller**: Establish a verified principal before accepting source data.
+- **DI-022 [P1 | I96/E94/R06] Authorize the operation**: Confirm that the principal can import the selected resource type into the target tenant.
+- **DI-023 [P1 | I95/E94/R06] Verify source integrity**: Compare a supplied checksum or signature before parsing when one exists.
+- **DI-024 [P1 | I95/E93/R07] Detect actual media type**: Inspect content signatures instead of trusting names or client-supplied media types.
+- **DI-025 [P1 | I95/E93/R07] Apply an allowlist**: Accept only explicitly supported formats, encodings, compression methods, and schema identifiers.
+- **DI-026 [P1 | I95/E92/R08] Limit source size**: Reject the source before full processing when its declared or observed size exceeds policy.
+- **DI-027 [P1 | I94/E92/R08] Limit archive expansion**: Reject archives that exceed member-count, depth, total-size, or compression-ratio limits.
+- **DI-028 [P1 | I94/E92/R08] Normalize names safely**: Remove path traversal, control characters, ambiguous separators, and reserved path forms from display names.
+- **DI-029 [P1 | I94/E92/R08] Scan suspicious content**: Quarantine inputs that trigger malware or content-policy detection.
+- **DI-030 [P1 | I93/E91/R09] Pin remote sources**: Bind remote imports to an immutable object version, entity tag, digest, or equivalent source identity.
+- **DI-031 [P1 | I93/E91/R09] Prevent request forgery**: Restrict remote retrieval to approved schemes, destinations, ports, redirects, and address ranges.
+- **DI-032 [P1 | I92/E91/R09] Enforce deadlines**: Abort receipt or retrieval when configured connection, read, or total deadlines expire.
+
+## 5. Schema Selection and Compatibility
+
+- **DI-033 [P1 | I96/E94/R06] Require schema identity**: Resolve every import to one explicit schema identifier and version.
+- **DI-034 [P1 | I95/E94/R06] Reject unknown schemas**: Stop processing when the schema is absent, disabled, expired, or unsupported.
+- **DI-035 [P1 | I95/E93/R07] Pin schema versions**: Keep one schema version constant throughout an attempt.
+- **DI-036 [P1 | I94/E93/R07] Enforce compatibility policy**: Accept older producers only through a documented compatibility rule.
+- **DI-037 [P1 | I94/E92/R08] Reject undeclared fields by default**: Permit extensions only in an explicitly defined extension container.
+- **DI-038 [P1 | I93/E92/R08] Version transformation logic**: Bind transformation behavior to the selected schema version.
+- **DI-039 [P1 | I92/E91/R09] Version reference data**: Record the exact lookup-table or reference-dataset version used by the attempt.
+
+## 6. Validation Rules
+
+Validation proceeds from inexpensive structural checks to business and cross-record constraints.
+
+### 6.1 Structural Validation
+
+- **DI-040 [P1 | I96/E95/R05] Validate syntax first**: Reject malformed framing, quoting, escaping, delimiters, encoding, or document structure.
+- **DI-041 [P1 | I95/E94/R06] Enforce record limits**: Reject sources that exceed the configured record count.
+- **DI-042 [P1 | I95/E94/R06] Enforce field limits**: Reject records that exceed field count, field length, nesting depth, or collection size.
+- **DI-043 [P1 | I95/E93/R07] Validate required fields**: Reject records missing mandatory values after parsing.
+- **DI-044 [P1 | I94/E93/R07] Validate primitive types**: Parse numbers, booleans, dates, identifiers, and enumerations using schema-defined rules.
+- **DI-045 [P1 | I94/E92/R08] Reject ambiguous values**: Refuse values whose meaning depends on an undeclared locale, timezone, unit, or encoding.
+- **DI-046 [P1 | I94/E92/R08] Reject non-finite numbers**: Refuse `NaN`, positive infinity, and negative infinity unless the schema explicitly defines them.
+- **DI-047 [P1 | I93/E92/R08] Validate Unicode**: Reject malformed byte sequences and disallowed control characters.
+- **DI-048 [P1 | I93/E92/R08] Distinguish null from absence**: Apply separate schema semantics to missing, null, empty, and whitespace-only values.
+
+### 6.2 Semantic Validation
+
+- **DI-049 [P1 | I96/E94/R06] Validate domain constraints**: Enforce ranges, lengths, patterns, precision, scale, units, and allowed values.
+- **DI-050 [P1 | I95/E94/R06] Validate identifiers**: Enforce canonical identifier grammar before lookup or persistence.
+- **DI-051 [P1 | I95/E93/R07] Validate temporal values**: Reject impossible dates, prohibited future values, and out-of-policy historical values.
+- **DI-052 [P1 | I95/E93/R07] Validate business invariants**: Reject records that violate declared domain relationships.
+- **DI-053 [P1 | I94/E93/R07] Validate references**: Confirm that required external entities exist and belong to the authorized scope.
+- **DI-054 [P1 | I94/E92/R08] Detect duplicate keys**: Identify duplicates within the source and against the destination.
+- **DI-055 [P1 | I94/E92/R08] Apply explicit duplicate policy**: Handle duplicates through one declared mode such as reject, ignore, replace, or merge.
+- **DI-056 [P1 | I93/E92/R08] Validate conditional fields**: Enforce dependencies between discriminator values and required fields.
+- **DI-057 [P1 | I93/E91/R09] Validate aggregate constraints**: Check batch totals, balances, counts, and uniqueness before publication.
+
+### 6.3 Validation Outcomes
+
+| Outcome | Meaning | Required action |
+|---|---|---|
+| Accept | Every required rule passed. | Continue to transformation. |
+| Reject record | The record contains a permanent defect. | Record a structured error. |
+| Reject import | An atomic import contains any blocking defect. | Publish nothing. |
+| Quarantine | The source presents a security or integrity concern. | Restrict access and stop automation. |
+| Warn | A non-blocking quality condition exists. | Preserve the warning with provenance. |
+
+- **DI-058 [P1 | I94/E93/R07] Cap reported errors**: Stop collecting detailed validation failures after the configured threshold.
+- **DI-059 [P1 | I93/E92/R08] Continue safe scanning**: Count remaining invalid records only when continued parsing cannot amplify risk.
+- **DI-060 [P1 | I93/E92/R08] Separate warnings from errors**: Never promote or suppress a condition through message wording alone.
+- **DI-061 [P1 | I92/E91/R09] Preserve validation versions**: Record the rule-set version that produced each outcome.
+
+## 7. Transformation Rules
+
+- **DI-062 [P1 | I96/E94/R06] Transform only validated inputs**: Prevent invalid fields from reaching normalization or enrichment logic.
+- **DI-063 [P1 | I95/E94/R06] Define transformation order**: Execute transformations in a stable, versioned sequence.
+- **DI-064 [P1 | I95/E93/R07] Preserve raw values**: Keep original source values available through provenance or immutable source storage.
+- **DI-065 [P1 | I95/E93/R07] Normalize text explicitly**: Apply declared Unicode normalization, whitespace, and case rules per field.
+- **DI-066 [P1 | I95/E93/R07] Normalize time explicitly**: Convert timestamps using a declared timezone and daylight-saving policy.
+- **DI-067 [P1 | I94/E93/R07] Normalize units explicitly**: Convert measurements with declared source units, target units, and rounding rules.
+- **DI-068 [P1 | I94/E92/R08] Use decimal arithmetic**: Avoid binary floating-point for currency and fixed-precision domain values.
+- **DI-069 [P1 | I94/E92/R08] Define rounding behavior**: Apply schema-defined precision and rounding at the declared transformation stage.
+- **DI-070 [P1 | I94/E92/R08] Make defaults visible**: Record each defaulted field and the rule that supplied its value.
+- **DI-071 [P1 | I93/E92/R08] Restrict lossy conversion**: Reject truncation or precision loss unless the schema explicitly permits it.
+- **DI-072 [P1 | I93/E92/R08] Pin enrichment inputs**: Use immutable or versioned reference data during enrichment.
+- **DI-073 [P1 | I93/E91/R09] Bound enrichment calls**: Apply deadlines, concurrency limits, and circuit breakers to external lookups.
+- **DI-074 [P1 | I92/E91/R09] Cache safely**: Scope cached enrichment results by tenant, version, and authorization context.
+- **DI-075 [P1 | I92/E91/R09] Preserve lineage**: Record the source fields and transformation rule that produced each derived value.
+- **DI-076 [P1 | I92/E91/R09] Prevent hidden mutation**: Keep transformation functions free from undeclared time, randomness, environment, and network dependencies.
+
+## 8. Persistence and Publication
+
+- **DI-077 [P1 | I97/E95/R05] Stage before publication**: Write canonical records to isolated storage before exposing business effects.
+- **DI-078 [P1 | I96/E94/R06] Use stable idempotency keys**: Derive each effect key from tenant, source identity, record identity, and operation semantics.
+- **DI-079 [P1 | I96/E94/R06] Enforce idempotency in storage**: Back application checks with a unique constraint or equivalent atomic guard.
+- **DI-080 [P1 | I95/E94/R06] Verify staged counts**: Compare parsed, accepted, rejected, and staged counts before publication.
+- **DI-081 [P1 | I95/E93/R07] Verify staged integrity**: Confirm staged digests or reconciliation totals before publication.
+- **DI-082 [P1 | I95/E93/R07] Publish atomically**: Use one transaction or an equivalent commit protocol for atomic imports.
+- **DI-083 [P1 | I94/E93/R07] Make tolerant imports explicit**: Publish accepted records only when the import contract permits partial success.
+- **DI-084 [P1 | I94/E92/R08] Record partial outcomes**: Persist accepted and rejected counts with stable record-level dispositions.
+- **DI-085 [P1 | I94/E92/R08] Coordinate emitted events**: Use an outbox or equivalent mechanism to prevent database and event-stream divergence.
+- **DI-086 [P1 | I93/E92/R08] Avoid blind overwrites**: Apply version checks when imports update existing records.
+- **DI-087 [P1 | I93/E91/R09] Reconcile completion**: Verify that committed records and emitted effects match the final import summary.
+- **DI-088 [P1 | I92/E91/R09] Retain recovery metadata**: Preserve enough state to diagnose or compensate for an interrupted publication.
+
+## 9. Error Handling
+
+### 9.1 Error Taxonomy
+
+| Category | Examples | Retry class |
+|---|---|---|
+| Authentication | Invalid credential, expired signature | Permanent until credentials change |
+| Authorization | Tenant mismatch, denied resource | Permanent until policy changes |
+| Integrity | Digest mismatch, invalid signature | Permanent and quarantine-eligible |
+| Format | Malformed CSV, invalid JSON, corrupt archive | Permanent |
+| Schema | Unknown version, missing field, wrong type | Permanent |
+| Business validation | Invalid state, broken reference, duplicate key | Permanent |
+| Resource limit | File too large, expansion limit, deadline | Permanent for the same policy |
+| Dependency throttle | Rate limit, temporary capacity rejection | Transient |
+| Dependency unavailable | Timeout, connection reset, service outage | Transient |
+| Concurrency conflict | Lock timeout, serialization conflict | Transient within a limit |
+| Internal defect | Invariant violation, unexpected exception | Non-retryable by default |
+
+### 9.2 Error Envelope
+
+Every persisted error uses this logical shape:
+
+```yaml
+error_id: stable opaque identifier
+import_id: owning import identifier
+attempt: positive integer
+stage: receipt | inspection | validation | transformation | staging | publication
+category: stable machine-readable category
+code: stable machine-readable code
+message: sanitized operator-facing summary
+retryable: true | false
+record_locator: optional safe source location
+field_path: optional schema field path
+rule_id: optional violated rule identifier
+dependency: optional approved dependency name
+occurred_at: UTC timestamp
+correlation_id: request or trace correlation identifier
+```
+
+- **DI-089 [P1 | I95/E94/R06] Use stable error codes**: Keep programmatic behavior independent from human-readable messages.
+- **DI-090 [P1 | I95/E93/R07] Sanitize error messages**: Remove secrets, credentials, raw payloads, internal paths, and query text.
+- **DI-091 [P1 | I94/E93/R07] Locate record failures safely**: Report row, object path, or record key without exposing unnecessary business data.
+- **DI-092 [P1 | I94/E92/R08] Preserve root causes internally**: Link sanitized errors to restricted diagnostic details through an opaque error identifier.
+- **DI-093 [P1 | I94/E92/R08] Classify before retrying**: Assign one retry class before scheduling another attempt.
+- **DI-094 [P1 | I93/E92/R08] Aggregate repeated errors**: Group identical high-volume failures while preserving counts and representative locations.
+- **DI-095 [P1 | I93/E91/R09] Prevent error cascades**: Stop dependent stages after a blocking upstream failure.
+- **DI-096 [P1 | I92/E91/R09] Return bounded responses**: Limit synchronous error payload size and provide a protected report reference for additional details.
+
+## 10. Retry Rules
+
+- **DI-097 [P1 | I96/E94/R06] Retry only transient failures**: Never retry malformed data, failed authorization, integrity defects, or deterministic validation failures.
+- **DI-098 [P1 | I95/E94/R06] Reuse idempotency identity**: Keep the same logical effect keys across retry attempts.
+- **DI-099 [P1 | I95/E93/R07] Increment attempt identity**: Assign a distinct attempt number to every execution.
+- **DI-100 [P1 | I95/E93/R07] Apply exponential backoff**: Increase delay between attempts until the configured ceiling.
+- **DI-101 [P1 | I94/E93/R07] Add randomized jitter**: Spread retries to prevent synchronized load spikes.
+- **DI-102 [P1 | I94/E92/R08] Honor server guidance**: Respect a valid dependency-provided retry delay within local safety bounds.
+- **DI-103 [P1 | I94/E92/R08] Enforce retry budgets**: Limit attempts, elapsed retry time, and total dependency calls.
+- **DI-104 [P1 | I94/E92/R08] Enforce processing deadlines**: Stop retries when the import deadline or source-validity window expires.
+- **DI-105 [P1 | I93/E92/R08] Use circuit breakers**: Suspend calls to a failing dependency after the configured threshold.
+- **DI-106 [P1 | I93/E91/R09] Revalidate retry assumptions**: Confirm authorization, schema availability, and source identity before resuming.
+- **DI-107 [P1 | I93/E91/R09] Resume from durable boundaries**: Restart only from a checkpoint whose inputs and outputs are verifiably complete.
+- **DI-108 [P1 | I92/E91/R09] Dead-letter exhausted work**: Move attempts beyond the retry budget into restricted dead-letter storage.
+- **DI-109 [P1 | I92/E91/R09] Require explicit redrive**: Start dead-letter reprocessing through an audited operator or policy action.
+- **DI-110 [P1 | I92/E90/R10] Prevent infinite redrive**: Apply a separate bound to dead-letter reprocessing cycles.
+
+A recommended delay function is:
+
+```text
+delay = min(max_delay, base_delay * 2^(attempt - 1))
+actual_delay = random(0, delay)
+```
+
+Configuration defines `base_delay`, `max_delay`, maximum attempts, and maximum elapsed time.
+
+## 11. Observability
+
+### 11.1 Structured Logging
+
+- **DI-111 [P1 | I95/E94/R06] Emit structured logs**: Use stable field names and machine-readable values.
+- **DI-112 [P1 | I95/E93/R07] Correlate every event**: Include import, attempt, tenant-safe, request, and trace identifiers where applicable.
+- **DI-113 [P1 | I94/E93/R07] Log stage boundaries**: Emit one event for each stage start, completion, failure, cancellation, and retry schedule.
+- **DI-114 [P1 | I94/E92/R08] Log policy decisions**: Record the rule identifier and outcome without copying protected input values.
+- **DI-115 [P1 | I94/E92/R08] Redact before emission**: Apply centralized field-aware redaction before data reaches any logging sink.
+- **DI-116 [P1 | I93/E92/R08] Control log cardinality**: Keep raw record identifiers, filenames, and error text out of indexed labels.
+- **DI-117 [P1 | I93/E91/R09] Synchronize timestamps**: Emit UTC timestamps with sufficient precision and a declared format.
+
+### 11.2 Metrics
+
+The system records at least these measurements:
+
+| Metric | Type | Purpose |
+|---|---|---|
+| `imports_received_total` | Counter | Measure admitted workload. |
+| `imports_completed_total` | Counter | Count terminal outcomes by bounded status. |
+| `import_records_total` | Counter | Count accepted and rejected records. |
+| `import_bytes_total` | Counter | Measure source volume. |
+| `import_stage_duration_seconds` | Histogram | Measure stage latency. |
+| `import_queue_age_seconds` | Histogram | Detect scheduling delay. |
+| `import_retries_total` | Counter | Measure transient instability. |
+| `import_dead_letters_total` | Counter | Detect exhausted automation. |
+| `import_validation_errors_total` | Counter | Track bounded error categories. |
+| `import_active` | Gauge | Measure current concurrency. |
+| `import_quarantined_total` | Counter | Detect security or integrity events. |
+
+- **DI-118 [P1 | I94/E93/R07] Bound metric labels**: Use controlled enumerations for stage, status, category, schema family, and retry class.
+- **DI-119 [P1 | I93/E92/R08] Exclude sensitive labels**: Never label metrics with tenant names, filenames, record keys, emails, or raw error messages.
+- **DI-120 [P1 | I93/E92/R08] Reconcile metric totals**: Compare accepted, rejected, staged, and published record counts.
+- **DI-121 [P1 | I92/E91/R09] Measure end-to-end latency**: Track receipt-to-terminal duration separately from execution time.
+- **DI-122 [P1 | I92/E91/R09] Measure data freshness**: Track source-event time to publication time when the source supplies trustworthy timestamps.
+
+### 11.3 Tracing
+
+- **DI-123 [P1 | I93/E92/R08] Create one import trace**: Represent each attempt with child spans for processing stages and approved dependency calls.
+- **DI-124 [P1 | I93/E91/R09] Propagate trace context safely**: Forward only standard correlation headers to approved dependencies.
+- **DI-125 [P1 | I92/E91/R09] Sample failures preferentially**: Retain failed and unusually slow traces at a higher bounded rate.
+- **DI-126 [P1 | I92/E90/R10] Exclude payloads from spans**: Store counts, versions, digests, and bounded classifications instead of source values.
+
+### 11.4 Alerts and Service Objectives
+
+- **DI-127 [P2 | I86/E88/R12] Alert on user impact**: Trigger alerts from sustained failure rate, queue age, publication latency, or reconciliation mismatch.
+- **DI-128 [P2 | I85/E87/R13] Alert on security signals**: Trigger restricted alerts for quarantine spikes, authorization failures, signature failures, and malware detections.
+- **DI-129 [P2 | I84/E87/R13] Avoid single-event paging**: Aggregate transient isolated failures unless one event indicates corruption or active compromise.
+- **DI-130 [P2 | I84/E86/R14] Define service objectives**: Set measurable objectives for availability, latency, freshness, and successful publication.
+- **DI-131 [P2 | I83/E86/R14] Track error budgets**: Compare qualifying import failures against the declared service objective.
+
+## 12. Security Controls
+
+### 12.1 Identity and Access
+
+- **DI-132 [P1 | I97/E95/R05] Apply least privilege**: Grant import workers only the source, staging, destination, and key access required by their stage.
+- **DI-133 [P1 | I97/E94/R06] Separate service identities**: Use distinct identities for receipt, processing, publication, and administration.
+- **DI-134 [P1 | I96/E94/R06] Recheck publication authority**: Verify the active principal or delegated service authority before making data visible.
+- **DI-135 [P1 | I96/E93/R07] Scope operator access**: Restrict error reports, quarantine, dead letters, and raw sources by tenant and role.
+- **DI-136 [P1 | I95/E93/R07] Audit privileged actions**: Record configuration changes, redrives, overrides, exports, deletions, and quarantine releases.
+- **DI-137 [P1 | I95/E92/R08] Require stronger authentication**: Protect privileged import administration with approved multi-factor authentication.
+
+### 12.2 Data Protection
+
+- **DI-138 [P1 | I97/E95/R05] Encrypt data in transit**: Use authenticated encryption for every network transfer.
+- **DI-139 [P1 | I97/E94/R06] Encrypt data at rest**: Protect source, staging, quarantine, dead-letter, report, backup, and destination storage.
+- **DI-140 [P1 | I96/E94/R06] Manage keys centrally**: Use approved key management with rotation, access logging, and separation of duties.
+- **DI-141 [P1 | I96/E93/R07] Minimize retention**: Retain raw sources and record-level errors only for declared operational or legal periods.
+- **DI-142 [P1 | I95/E93/R07] Enforce deletion policy**: Remove expired source, staging, report, quarantine, and dead-letter artifacts through auditable lifecycle controls.
+- **DI-143 [P1 | I95/E92/R08] Protect temporary storage**: Use isolated encrypted storage with restrictive permissions and bounded lifetime.
+- **DI-144 [P1 | I94/E92/R08] Prevent data remanence**: Avoid plaintext spill files, crash dumps, and unrestricted caches containing imported values.
+
+### 12.3 Parser and Execution Safety
+
+- **DI-145 [P1 | I97/E95/R05] Use non-executing parsers**: Disable external entities, code hooks, dynamic constructors, macro execution, and unsafe deserialization.
+- **DI-146 [P1 | I97/E94/R06] Sandbox high-risk parsing**: Run complex document and archive parsers with restricted filesystem, network, process, and memory access.
+- **DI-147 [P1 | I96/E94/R06] Patch parser dependencies**: Maintain supported parser versions through the approved dependency process.
+- **DI-148 [P1 | I96/E93/R07] Verify parser provenance**: Admit parser packages only from approved sources with integrity verification.
+- **DI-149 [P1 | I95/E93/R07] Neutralize spreadsheet formulas**: Treat leading formula characters as data during import and export.
+- **DI-150 [P1 | I95/E92/R08] Prevent injection**: Bind database values through typed parameters and keep imported values out of executable query structure.
+- **DI-151 [P1 | I95/E92/R08] Encode rendered output**: Apply context-specific encoding before imported data reaches HTML, shell, logs, or templates.
+- **DI-152 [P1 | I94/E92/R08] Disable outbound access by default**: Permit network calls only for declared enrichment dependencies.
+
+### 12.4 Secrets and Privacy
+
+- **DI-153 [P1 | I97/E95/R05] Keep secrets outside imports**: Reject credentials and private keys in fields that do not explicitly permit secret material.
+- **DI-154 [P1 | I96/E94/R06] Retrieve secrets at runtime**: Load dependency credentials from an approved secret store.
+- **DI-155 [P1 | I96/E93/R07] Rotate exposed credentials**: Treat any credential found in source data, logs, or errors as potentially compromised.
+- **DI-156 [P1 | I95/E93/R07] Classify imported fields**: Apply declared sensitivity classes to storage, access, logging, and retention.
+- **DI-157 [P1 | I95/E92/R08] Minimize personal data**: Import only fields required by the destination purpose.
+- **DI-158 [P1 | I94/E92/R08] Preserve consent boundaries**: Prevent transformations from expanding the authorized purpose of personal data.
+- **DI-159 [P1 | I94/E91/R09] Support subject controls**: Maintain sufficient lineage to locate and govern imported personal data.
+
+## 13. Configuration and Change Control
+
+- **DI-160 [P2 | I88/E90/R10] Version import configuration**: Assign an immutable version to schema mappings, limits, retry policy, and transformation rules.
+- **DI-161 [P2 | I88/E89/R11] Validate configuration before activation**: Reject incomplete, contradictory, or unsafe configuration.
+- **DI-162 [P2 | I87/E89/R11] Separate configuration by environment**: Prevent development endpoints, keys, and policy limits from entering production.
+- **DI-163 [P2 | I87/E88/R12] Review high-impact changes**: Require independent approval for authorization, publication, retention, and destructive mapping changes.
+- **DI-164 [P2 | I86/E88/R12] Roll out compatibly**: Keep in-flight attempts pinned to their original configuration version.
+- **DI-165 [P2 | I86/E87/R13] Test representative samples**: Exercise valid, invalid, boundary, malicious, duplicate, and replayed inputs before activation.
+- **DI-166 [P2 | I85/E87/R13] Compare reconciliation results**: Verify record counts, keys, totals, and digests against expected outcomes.
+- **DI-167 [P2 | I85/E86/R14] Preserve rollback paths**: Retain the last approved configuration while no incompatible publication has occurred.
+- **DI-168 [P2 | I84/E86/R14] Expire temporary overrides**: Attach an owner, justification, scope, and automatic expiration to every override.
+
+## 14. Operational Rules
+
+- **DI-169 [P2 | I88/E90/R10] Control concurrency**: Bound active imports globally, per tenant, per schema, and per dependency.
+- **DI-170 [P2 | I87/E89/R11] Apply fair scheduling**: Prevent one tenant or large import from starving unrelated work.
+- **DI-171 [P2 | I87/E89/R11] Apply backpressure**: Slow admission when queue age, storage, memory, or dependency pressure crosses policy thresholds.
+- **DI-172 [P2 | I86/E88/R12] Prefer bounded streaming**: Process large sources incrementally without retaining the full decoded dataset in memory.
+- **DI-173 [P2 | I86/E88/R12] Checkpoint durable progress**: Persist only checkpoints that correspond to complete and verifiable processing boundaries.
+- **DI-174 [P2 | I85/E87/R13] Reclaim abandoned work**: Detect expired worker leases before safely rescheduling an attempt.
+- **DI-175 [P2 | I85/E87/R13] Protect maintenance operations**: Pause publication safely during incompatible destination maintenance.
+- **DI-176 [P2 | I84/E86/R14] Test capacity limits**: Verify configured throughput and resource ceilings with representative record shapes.
+- **DI-177 [P2 | I84/E86/R14] Reserve emergency capacity**: Preserve enough capacity for cancellation, diagnosis, quarantine, and recovery actions.
+
+## 15. Record-Tolerant Import Policy
+
+A record-tolerant import remains valid only when the contract explicitly permits partial success.
+
+- **DI-178 [P2 | I89/E91/R09] Declare tolerance thresholds**: Define maximum rejected records as both an absolute count and a percentage.
+- **DI-179 [P2 | I88/E90/R10] Enforce threshold crossing**: Reject the import when either declared rejection threshold is exceeded.
+- **DI-180 [P2 | I87/E89/R11] Preserve record independence**: Use tolerant mode only when one record cannot invalidate another accepted record.
+- **DI-181 [P2 | I87/E89/R11] Block broken aggregates**: Reject tolerant publication when omitted records invalidate totals or cross-record invariants.
+- **DI-182 [P2 | I86/E88/R12] Produce a disposition report**: Assign every source record one terminal disposition.
+- **DI-183 [P2 | I86/E87/R13] Protect error reports**: Apply the same access, encryption, retention, and redaction controls used for imported data.
+- **DI-184 [P2 | I85/E87/R13] Make replay semantics explicit**: Define whether corrected records replace, merge with, or coexist with prior accepted records.
+
+## 16. Operator Actions
+
+- **DI-185 [P2 | I88/E90/R10] Require a reason for overrides**: Record the operator, ticket or case, scope, reason, and expiration.
+- **DI-186 [P2 | I88/E89/R11] Prohibit validation bypass**: Permit operators to correct inputs or configuration instead of marking invalid records valid.
+- **DI-187 [P2 | I87/E89/R11] Preview material effects**: Show bounded counts and operation classes before a manual redrive or publication.
+- **DI-188 [P2 | I87/E88/R12] Require confirmation for publication**: Protect manual publication and quarantine release with an explicit confirmation step.
+- **DI-189 [P2 | I86/E88/R12] Separate review from execution**: Require another authorized principal for high-impact overrides where policy demands dual control.
+- **DI-190 [P2 | I86/E87/R13] Preserve audit immutability**: Prevent import operators from modifying or deleting their audit records.
+- **DI-191 [P2 | I85/E87/R13] Rate-limit manual actions**: Prevent repeated operator requests from bypassing automated retry and capacity controls.
+
+## 17. Verification Criteria
+
+An implementation conforms only when evidence demonstrates all applicable behaviors.
+
+| Area | Minimum verification |
+|---|---|
+| Validation | Exercise valid, malformed, missing, excessive, ambiguous, duplicate, and cross-record inputs. |
+| Transformation | Replay identical inputs and compare canonical outputs and lineage. |
+| Atomicity | Inject failures before, during, and after staging and publication. |
+| Idempotency | Replay the source and verify that business effects remain singular. |
+| Errors | Verify stable codes, bounded responses, safe locations, and redaction. |
+| Retries | Simulate transient and permanent failures and inspect attempt behavior. |
+| Observability | Reconcile logs, metrics, traces, state transitions, and terminal counts. |
+| Security | Exercise tenant boundaries, parser isolation, archive limits, injection defenses, and secret handling. |
+| Recovery | Interrupt workers at every durable boundary and verify safe resumption. |
+| Retention | Verify lifecycle expiration across source, staging, error, quarantine, and dead-letter storage. |
+
+- **DI-192 [P2 | I90/E92/R08] Verify negative cases**: Demonstrate that prohibited inputs and unauthorized operations fail closed.
+- **DI-193 [P2 | I89/E91/R09] Verify replay behavior**: Demonstrate idempotency under duplicate delivery, timeout ambiguity, and concurrent attempts.
+- **DI-194 [P2 | I89/E91/R09] Verify reconciliation**: Demonstrate that source, validation, staging, publication, and event totals agree.
+- **DI-195 [P2 | I88/E90/R10] Verify redaction**: Inspect every observability channel with seeded sensitive values.
+- **DI-196 [P2 | I88/E90/R10] Verify resource bounds**: Exercise maximum sizes, nesting, expansion ratios, concurrency, and deadlines.
+- **DI-197 [P2 | I87/E89/R11] Verify deterministic output**: Compare canonical results across repeated executions with pinned dependencies.
+- **DI-198 [P2 | I87/E89/R11] Verify recovery boundaries**: Terminate processing between stages and confirm safe continuation or rollback.
+- **DI-199 [P2 | I86/E88/R12] Verify audit coverage**: Confirm that privileged actions produce immutable, attributable audit events.
+
+## 18. Failure Guards
+
+- **DI-200 [P0 | I99/E97/R03] Never publish uncertain data**: Stop publication when validation, lineage, reconciliation, authorization, or integrity evidence is incomplete.
+- **DI-201 [P0 | I99/E96/R04] Never convert failure into success**: Keep rejected, quarantined, failed, and dead-lettered outcomes distinct from completed imports.
+- **DI-202 [P0 | I99/E96/R04] Never bypass isolation**: Prevent any code path from moving unverified staging data directly into a production-visible state.
+- **DI-203 [P0 | I98/E96/R05] Never retry unsafe effects blindly**: Require durable idempotency protection before repeating any operation with external effects.
+- **DI-204 [P0 | I98/E95/R05] Never expose source contents diagnostically**: Use protected evidence references, digests, counts, and sanitized locations instead of raw payloads.
+- **DI-205 [P0 | I98/E95/R05] Never weaken a blocking rule silently**: Require a versioned, reviewed, attributable policy change before altering validation or security behavior.

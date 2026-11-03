@@ -1,0 +1,101 @@
+ARM_D_MARKER
+---
+type: specification
+id: focus-mode
+title: Focus Mode
+description: Defines a temporary interface state that reduces nonessential distractions while preserving user control and work state.
+status: draft
+tags: [P1, I]
+---
+
+# Focus Mode
+
+## Purpose
+
+Focus Mode gives the user a temporary, reversible workspace that emphasizes the active task and suppresses nonessential interface elements.
+
+## Invariants
+
+- The user explicitly enters and exits Focus Mode.
+- Focus Mode preserves the active document, selection, cursor position, unsaved changes, and navigation history.
+- Focus Mode never deletes, submits, publishes, or otherwise mutates user content solely because the mode changes.
+- The interface always exposes a visible exit control.
+- The `Escape` key exits Focus Mode unless a modal surface owns the key event.
+- Focus Mode does not disable required safety, authentication, error, or system-status messages.
+- The system restores the pre-entry interface state when the user exits Focus Mode.
+
+## Entry
+
+The system shall offer a Focus Mode command from the primary view controls and command interface.
+
+When the user activates the command, the system shall:
+
+1. Capture the current interface state.
+2. Keep the active work surface unchanged.
+3. Hide or collapse nonessential navigation, sidebars, toolbars, notifications, and secondary panels.
+4. Display a persistent Focus Mode indicator and exit control.
+5. Move focus only when necessary to keep keyboard interaction within the active work surface.
+
+The system shall treat repeated entry commands as idempotent.
+
+## Active Behavior
+
+While Focus Mode is active:
+
+- The active work surface remains fully editable.
+- Essential commands remain available through keyboard shortcuts or the command interface.
+- Blocking errors and required confirmations remain visible.
+- Passive notifications remain deferred unless they require immediate user action.
+- Opening a modal does not exit Focus Mode.
+- Navigating between supported work surfaces retains Focus Mode.
+- Reloading the application restores Focus Mode only when the interface state can be restored safely.
+
+## Exit
+
+The user may exit Focus Mode through:
+
+- The persistent exit control.
+- The Focus Mode command.
+- The `Escape` key when no modal surface owns the event.
+
+On exit, the system shall restore the captured interface state. If an interface element is no longer available, the system shall restore every remaining element and use the current default for the missing element.
+
+## State Model
+
+Focus Mode has two states:
+
+- `inactive`: The standard interface is displayed.
+- `active`: Nonessential interface elements are suppressed.
+
+The transition from `inactive` to `active` shall capture one restoration snapshot. The transition from `active` to `inactive` shall consume that snapshot. The system shall not stack restoration snapshots.
+
+## Accessibility
+
+- The entry and exit controls shall have accessible names.
+- The active state shall be programmatically exposed.
+- Entry and exit shall not trap keyboard focus.
+- Hidden controls shall be removed from the accessibility tree.
+- Status changes shall be announced without interrupting active input.
+- Focus Mode shall preserve configured text size, contrast, motion, and input preferences.
+
+## Acceptance Criteria
+
+1. Activating Focus Mode suppresses nonessential interface elements without changing the active content or selection.
+2. A visible, keyboard-accessible exit control remains available while Focus Mode is active.
+3. Exiting restores the interface state captured at entry.
+4. Repeated activation does not create nested states or additional restoration snapshots.
+5. Required errors, confirmations, and safety messages remain visible.
+6. Modal interaction preserves Focus Mode and receives `Escape` before the mode does.
+7. Unsaved work remains unchanged across entry, active use, and exit.
+8. Assistive technology can determine whether Focus Mode is active.
+9. Hidden controls are unavailable to pointer, keyboard, and assistive-technology navigation.
+10. A failed restoration leaves the active work surface usable and reports the failure.
+
+## Failure Guards
+
+- Do not enter Focus Mode when the active work surface cannot remain usable.
+- Do not hide the exit control, required system status, blocking errors, or safety controls.
+- Do not discard the restoration snapshot until exit completes or recovery establishes a usable interface.
+- Do not replace unavailable interface state with stale or incompatible data.
+- If entry fails, retain the standard interface and preserve all user work.
+- If exit fails, expose the standard navigation controls, preserve all user work, and report the restoration failure.

@@ -1,0 +1,4 @@
+ARM_C_MARKER
+```ts
+const displayText = displayName?.trim() || "Anonymous";
+```
