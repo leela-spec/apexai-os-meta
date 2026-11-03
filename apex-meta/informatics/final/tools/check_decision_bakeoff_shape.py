@@ -49,12 +49,33 @@ DECISION_MATRIX_FIELDS = ["Question", "Grounding", "Recommendation", "Reasoning"
 IER_TAG_RE = re.compile(r"\(I\d{1,3}/E\d{1,3}/R\d{1,3}\)")
 
 
+OPTION_HEADER_RE = re.compile(r"(?im)^\s*-?\s*\*{0,2}option\s+[a-z]\b")
+GROUNDING_RE = re.compile(r"(?i)\*?\*?grounding\*?\*?:")
+
+
 def looks_like_bakeoff(text: str) -> bool:
-    return bool(re.search(r"(?i)bake-?off|comparison matrix", text))
+    """Structural evidence only -- a file merely *mentioning* 'bake-off' (common as loose,
+    colloquial framing in this corpus's own titles/tags) is not enough; require the comparison
+    table or an actual phase marker. Fixed 2026-11-03 after this exact false-positive was found
+    by running against a real file, not a synthetic fixture -- see
+    operations/15-PROSE-TO-DETERMINISTIC-TRANSLATION-FINDINGS.md."""
+    return bool(
+        re.search(r"(?i)comparison matrix", text)
+        or "Primary Failure Mode" in text
+        or re.search(r"(?i)phase\s*[1-4]\b", text)
+    )
 
 
 def looks_like_decision_matrix(text: str) -> bool:
-    return bool(re.search(r"(?i)decision matrix|\|\s*question\s*\|", text, re.IGNORECASE))
+    """Matches on structural evidence (>=1 'Option X (...)' header near a 'Grounding:' label) as
+    well as the literal phrase, singular or plural -- 'decision matrix' vs 'Decision Matrices'
+    diverge after 5 characters and the original regex silently missed the plural, the second bug
+    this exact real-file test found."""
+    return bool(
+        re.search(r"(?i)decision matri", text)
+        or re.search(r"\|\s*question\s*\|", text, re.IGNORECASE)
+        or (OPTION_HEADER_RE.search(text) and GROUNDING_RE.search(text))
+    )
 
 
 def check_bakeoff_shape(path: str, text: str) -> list[Finding]:
