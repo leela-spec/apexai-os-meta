@@ -80,28 +80,10 @@ Every decision matrix block contains the following components:
   - **IF** conducting a landscape scan or comparing multiple competing libraries, frameworks, tools, or architectures → **THEN** execute the 4-Phase Analytical Workflow below.
   - **ELSE IF** an existing repository tool already satisfies the requirement (`Reuse Before Build`) → **THEN** reuse the existing tool and **SKIP** this adapter.
 
-### 3.1 4-Phase Analytical Workflow
-
-1. **Phase 1: Candidate Discovery & Hard Gating**:
-   - Identify ~3–5 viable candidates.
-   - Screen each candidate against non-negotiable hard filters; disqualify failing candidates before scoring.
-2. **Phase 2: Multi-Metric Evaluation Matrix**:
-   - Score surviving candidates on a 1–5 scale across weighted criteria.
-   - Record trade-offs in a structured Markdown comparison table including a `Primary Failure Mode` column.
-3. **Phase 3: Ranked Verdicts**:
-   - Rank candidates from highest to lowest and state a one-sentence placement verdict per candidate.
-4. **Phase 4: Functional Prototypes & Decision Triggers**:
-   - Provide syntactically complete implementation boilerplate for the winning candidates.
-   - Define explicit conditional decision boundaries:
-     - `"Select this if..."` `[Exact condition]`
-     - `"Avoid this if..."` `[Exact disqualifying edge case]`
-
-### 3.2 Canonical Comparison Matrix Format
-| Candidate | Velocity (40%) | Scalability (35%) | Ecosystem (25%) | Weighted Total | Primary Failure Mode |
-|---|---|---|---|---|---|
-| Candidate A | 4 | 5 | 5 | 4.60 | Steep onboarding learning curve |
-| Candidate B | 5 | 3 | 4 | 4.05 | Memory degradation under heavy throughput |
-| Candidate C | 2 | 4 | 3 | 2.95 | Lack of community plugins and active maintenance |
+The 4-phase workflow (candidate discovery, weighted scoring, ranked verdicts, prototypes with
+decision triggers) and the canonical candidate-scoring table format are owned by
+[specs/execution-modes/bake-off.md](execution-modes/bake-off.md) §3.1–3.2 — open it when this
+adapter fires; not restated here (`WP-23`).
 
 ---
 
@@ -112,60 +94,10 @@ Every decision matrix block contains the following components:
   - **IF** exact live target lines have not been inspected in the current session → **THEN** read the target file range first; never guess `<old>` lines from memory.
   - **IF** moving or copying files → **THEN** use deterministic filesystem/git commands (`git mv`, `cp`), never whole-file content rewrites.
 
-### 4.1 Mode A: Block Replacement Protocol (`<file>/<old>/<new>`)
-When generating file edits for deterministic executors:
-
-1. **One Change Per Block**: Isolate edits into single distinct operations.
-2. **Copy Verbatim**: Copy `<old>` text directly from the live inspected file character-for-character.
-3. **No Line Numbers**: Identify edit locations purely by exact text matching.
-4. **Disambiguating Context**: Include 1–2 surrounding lines so `<old>` matches a single unique location.
-5. **Exact Whitespace**: Preserve all indentation, tabs, and line breaks byte-for-byte.
-6. **Explicit Uncertainty**: State uncertainty honestly if exact text is unconfirmed rather than guessing.
-7. **Unconfirmed Edits**: Never declare an edit complete until tool output confirms application and test evidence passes.
-8. **Iterative Application & Git Sync**: Apply patches iteratively, resolve minor incidental friction pragmatically, and synchronize via `git add`, `git commit`, and `git push` (`git pull --rebase` on non-fast-forward).
-
-```xml
-<file>path/to/target/file.md</file>
-<old>
-exact live lines to replace
-including surrounding context
-</old>
-<new>
-replacement lines to insert
-including surrounding context
-</new>
-```
-
-### 4.2 Mode B: Structured AST Patch Intent (`patch_intent.v1`)
-When interfacing with automated AST patch tools, output JSON conforming to `patch_intent.v1`. The operative contract is in [governance-schemas.md](governance-schemas.md) §2.2; the authoritative schema is [patch-intent-schema.json](../../../../.claude/skills/deterministic-markdown-patcher2/references/patch-intent-schema.json). This block is the worked example, not a second copy of the schema (`WP-23`):
-
-```json
-{
-  "schema_version": "patch_intent.v1",
-  "intents": [
-    {
-      "intent_id": "update-auth-port",
-      "operation": "replace-once",
-      "target": {
-        "target_file_guess": "config/services.yaml"
-      },
-      "hints": {
-        "nearby_phrases": ["auth_service:", "port: 8080"]
-      },
-      "replacement": {
-        "content": "  port: 8085\n",
-        "content_role": "span_replacement"
-      },
-      "safety": {
-        "require_unique_match": true,
-        "fail_on_ambiguity": true,
-        "allow_full_file_rewrite": false,
-        "max_files_touched": 1
-      }
-    }
-  ]
-}
-```
+Mode A's block-replacement protocol and worked `<file>/<old>/<new>` example, and Mode B's
+`patch_intent.v1` contract and worked JSON example, are owned by
+[specs/execution-modes/patch-discipline.md](execution-modes/patch-discipline.md) §4.1–4.2 — open it
+when this adapter fires; not restated here (`WP-23`).
 
 ---
 
@@ -175,19 +107,9 @@ When interfacing with automated AST patch tools, output JSON conforming to `patc
   - **IF** concluding an agent session, delegating work to a subagent, or transferring context across boundaries → **THEN** structure the handover using the Dimensional Contract and 5-Component Report below.
   - **IF** an open question or ambiguity is checkable right now using available tools or parallel subagents → **THEN** **DO NOT write a handover**; invoke the tool and resolve it in the current turn (`EM-02`).
 
-### 5.1 4-Dimensional Handover Contract (Intent & Outcome Focus)
-Define every delegated task or handover around concrete outcomes and anti-drift boundaries:
-- **Input & Priority Ledger**: Authoritative source files, what specific information is important per source, priority ranking, and what to ignore/exclude.
-- **Process**: Expected thinking process, transformation logic, and explicit anti-drift / anti-hallucination boundaries.
-- **Output (Predefined Meta-Layer & Examples)**: Target file paths, predefined structure, and concrete example bullets showing expected depth and style.
-- **Definition of Done (DoD & Independent Verification)**: Objective simulation, execution run, and output evaluation criteria (explicitly forbidding self-verifying scripts that only check superficial string presence).
-
-### 5.2 5-Component Forensic & Completion Report Structure
-1. **Observation**: Direct observations with clickable file links (`path:line`) and exact command outputs.
-2. **Logic Chain**: Unbroken step-by-step reasoning connecting observations to the conclusion.
-3. **Caveats**: Remaining assumptions, unverified edges, or alternative interpretations (`"No caveats"` if none).
-4. **Conclusion**: Actionable final assessment or state of the deliverable.
-5. **Verification Method**: Exact reproducible commands, files to inspect, and concrete invalidation conditions.
+The 4-Dimensional Handover Contract and the 5-Component Forensic & Completion Report structure are
+owned by [specs/execution-modes/handover.md](execution-modes/handover.md) §5.1–5.2 — open it when
+this adapter fires; not restated here (`WP-23`).
 
 ---
 
@@ -198,39 +120,11 @@ Define every delegated task or handover around concrete outcomes and anti-drift 
   - **ELSE IF** the task has moderate multi-step uncertainty (`Route 1`) → **THEN** write a compact preflight block (Target, Inputs, Scope, Output, Active Step) and execute step-by-step.
   - **ELSE IF** the task is a multi-module, research-heavy, or architectural project (`Route 2 / MMM`) → **THEN** execute the **File-Backed Iterative & Step-by-Step Context Protocol** below, creating dedicated files at each iteration.
 
-### 6.1 Step-by-Step Conscious Context Management (Anti-Front-Loading)
-Never bulk-load massive amounts of files or directories at the start of a task:
-1. **Build an Input Priority Ledger First**: List candidate sources, rank their priority, note what specific aspect is needed from each file, and mark unrelated files as excluded.
-2. **Load Context Per Active Step Only**: Read only the sources required for the current step/module.
-3. **Externalize to Disk & Drop Raw Context**: Write the distilled findings and decisions of the current step into a dedicated step file so subsequent steps read the compact step artifact rather than re-reading raw source dumps.
+The anti-front-loading context protocol, the file-producing iterative execution loop (the four
+numbered iterations), and the Macro-Meso-Micro decomposition table are owned by
+[specs/execution-modes/iterative-execution.md](execution-modes/iterative-execution.md) §6.1–6.3 —
+open it when this adapter fires; not restated here (`WP-23`).
 
-### 6.2 File-Producing Iterative Execution Loop (`Each Iteration Creates Files`)
-Work iteratively from a rough meta-layer skeleton down to verified module details, materializing files at every stage:
-
-1. **Iteration 1 — Master Matrix & Meta-Layer Draft (`00-master-matrix.md`)**:
-   - Create a rough draft of all planned files, processes, steps, and expected outcomes (the **meta-layer**) first.
-   - Include a matrix of all steps and options so the overall structure can be verified before investing tokens in deep detail ("meat").
-2. **Iteration 2 — Implementation Map & Theoretical Simulation (`01-implementation-map.md`)**:
-   - Map out all recommended options and architectural connections.
-   - Test or simulate the workflow theoretically to catch structural flaws early.
-3. **Iteration 3 — Per-Step / Per-Module Files (`step-XX-<module>.md`)**:
-   - Create a dedicated file for each step or module covering all options and recording:
-     - **Existing Assets to Copy/Reuse**: What already exists in the repo and can be deterministically reused or copied.
-     - **Input & Context Scope**: The exact sources loaded for this step.
-     - **Surfaced Details & Realization**: The concrete implementation/prose meat plus new edge cases or details discovered during this step.
-     - **Step Verification**: Concrete validation of the step's output against target intent.
-4. **Iteration 4 — Master File Consolidation & Work-Finish Protocol**:
-   - Recreate/update the Master Matrix file incorporating all newly surfaced details and verified outcomes from each step file.
-   - Execute the **Work-Finish Protocol**: update relevant `README.md` / `index.md` / plan files with completed work and next steps, verify branch status, and synchronize via Git.
-
-### 6.3 Macro-Meso-Micro (MMM) Decomposition & Bottom-Up Return
-| Layer | Focus Question | Scope | Core Contents |
-|---|---|---|---|
-| **Macro** | **Why?** | System Intent | Purpose, target value, external boundaries, global constraints, whole-target acceptance criteria |
-| **Meso** | **How?** | Architecture | Sub-modules, component responsibilities, interfaces, dependencies, sequencing constraints |
-| **Micro** | **What exactly?** | Realization | Exact code/prose, surgical patch blocks, concrete steps, unit tests, completion evidence |
-
-- **Top-Down Decomposition, Bottom-Up Verification**: Decompose intent `Macro → Meso → Micro`, then verify each realized `Micro` unit against its `Meso` interface and validate the assembled system against `Macro` intent.
 - **EM-11 [P2 | I82/E86/R12] Upward Invalidation Rule**: Update only the specific architectural layer disproven by concrete evidence. Never alter high-level Macro strategy solely because low-level Micro implementation details changed.
 
 ---

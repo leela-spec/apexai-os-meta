@@ -115,6 +115,28 @@ Four layers, read in full for this sweep (not sampled):
 5. Everything marked **C** in §3.1-§3.3 — explicitly not recommended. Building a brittle proxy check
    for a judgment call produces false confidence worse than no check at all; a hook that intercepts
    the specific *action* (as done for `verification_scope`) is the better lever where one applies.
+6. ~~Fix the 4 `WP-23` violations `check_governed_markdown_duplicates.py` found~~ — **done
+   2026-11-03, but the tool's suggested direction was backwards and had to be corrected before
+   acting on it.** The detector was first run with `--owner specs/execution-modes.md
+   specs/execution-modes/patch-discipline.md`, which reported "retain the block in
+   execution-modes.md." Checking `git log` before editing anything (the discipline this whole
+   project keeps re-learning) showed the opposite: `specs/execution-modes/{bake-off,patch-
+   discipline,handover,iterative-execution}.md` were created 2026-10-26 specifically "to execute
+   the `DEC-16` adapter split," *after* `execution-modes.md`'s last full-content commit
+   (2026-10-23) — they are the newer, canonical split files; `execution-modes.md` is the pre-split
+   monolith that was never trimmed down to a router. Re-running with the corrected direction found
+   **15 duplicate blocks across 4 adapters, not 4 across 1** — the original scope undersold the
+   real extent of the incomplete split. Fixed: all four `execution-modes.md` adapter sections now
+   point to their canonical file instead of restating it, keeping the heading/anchor intact so the
+   file's own `<execution_dispatch>` `IF`-routing still resolves. One self-inflicted bug caught
+   immediately after: the pointer wording for Adapter 2 contained the literal phrase "comparison
+   matrix," which tripped this project's own `GS-13` checker into flagging `execution-modes.md` as
+   an incomplete bake-off record; reworded, reverified clean. Four trigger-line duplicates remain
+   by design — the one-sentence `EM-0X [P... ] Conditional ... Trigger` line is the inline summary
+   this corpus's own `<pointers>` pattern calls for at the dispatch point; removing it would break
+   the documented just-in-time design, not fix a drift risk. **This is the fifth time in this
+   project that a plausible first answer was wrong until checked against a live artifact** — see
+   §3 "the meta-lesson" in `operations/16`.
 
 ## 5. Sources
 

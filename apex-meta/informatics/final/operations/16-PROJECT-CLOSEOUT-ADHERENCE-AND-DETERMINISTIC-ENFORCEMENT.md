@@ -77,12 +77,21 @@ catch its own bugs, and every time one did, it found something real:**
    self-matching output — not a bug in the tool, but the owner file passed twice (once via `--owner`,
    once in the candidate list), a misuse the tool now rejects with a clear error specifically because
    someone hit it for real and reported it back.
+5. Fixing the 4 `WP-23` violations the detector found meant trusting its own suggested
+   direction first — "retain the block in `execution-modes.md`." Checking `git log` before editing
+   showed the opposite: the split adapter files are the newer, canonical ones (created 2026-10-26
+   to execute `DEC-16`), and `execution-modes.md` is the pre-split monolith nobody trimmed. Acting
+   on the tool's literal suggestion would have deleted the correct content and kept the stale copy.
+   Re-checking with the corrected direction also found the real scope was 15 duplicate blocks
+   across 4 adapters, not the 4 originally reported — see `operations/15` §4 item 6.
 
-**The pattern in all four**: self-test and documentation-grounded assumptions are necessary but not
-sufficient. Nothing in this project was trusted as "done" until it had been run against something
-real — a real decision, a real harness, a real repo file, a real misuse — and three of the four times
-that real-world check found a genuine bug self-test had missed. If you are extending this work:
-run the thing against real data before reporting it as working, and expect to find something.
+**The pattern in all five**: self-test and documentation-grounded assumptions are necessary but not
+sufficient, and neither is a tool's own suggested fix direction. Nothing in this project was trusted
+as "done" until it had been run against something real — a real decision, a real harness, a real
+repo file, a real misuse, a real commit history — and four of the five times that real-world check
+found a genuine bug or a wrong assumption. If you are extending this work: run the thing against
+real data before reporting it as working, check a tool's suggested direction against the artifact's
+own history before acting on it, and expect to find something.
 
 ## 4. Full file index
 
