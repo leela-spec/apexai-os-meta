@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Q13 — Weekly Sequence View Prototypes (Operator Decision Pending)</title>
+<style>
+:root{font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;color-scheme:dark;--bg:#0b1220;--card:#111e32;--card2:#162640;--stroke:#31425b;--ink:#edf3fa;--dim:#a7b8cb;--blue:#5ba7ff;--orange:#f0b26b;--violet:#bd9aff;--green:#80d6b0}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 90% 0%,#183452 0%,transparent 35%),var(--bg);color:var(--ink)}main{max-width:1520px;margin:auto;padding:clamp(18px,3vw,40px)}
+header{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:start}
+h1{font-size:clamp(23px,3vw,40px);line-height:1.13;letter-spacing:-.04em;margin:6px 0 12px}h2{font-size:20px;letter-spacing:-.02em;margin:0 0 6px}
+p{color:var(--dim);margin:5px 0 14px;max-width:850px;line-height:1.55}small{color:var(--dim)}.eyebrow{font-size:11px;text-transform:uppercase;letter-spacing:.14em;color:var(--green);font-weight:800}
+.notice{border:1px solid #7e593c;background:#2c241f;color:#ffe0b5;padding:12px 16px;border-radius:12px;font-size:13px;max-width:350px;line-height:1.5}
+.toolbar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:25px 0 24px;padding:8px;background:var(--card);border:1px solid var(--stroke);border-radius:15px}
+.toolbar button{appearance:none;border:0;border-radius:9px;background:transparent;color:var(--dim);padding:13px 18px;font:600 14px inherit;cursor:pointer;min-width:135px}.toolbar button.active{background:#294568;color:white;box-shadow:inset 0 0 0 1px #497bb1}.toolbar button:focus-visible,.seq:focus-visible{outline:3px solid var(--green);outline-offset:3px}
+.legend{display:flex;flex-wrap:wrap;gap:12px;margin:12px 0 20px;color:var(--dim);font-size:12px}.legend span{display:inline-flex;gap:6px;align-items:center}
+.dot{width:9px;height:9px;border-radius:50%;display:inline-block}.moa{background:var(--blue)}.investment{background:var(--orange)}.apex{background:var(--violet)}.leela{background:var(--green)}
+.view{display:none}.view.active{display:block}.intro{margin-bottom:18px}
+.sheet{overflow-x:auto;background:#102039;border:1px solid var(--stroke);border-radius:16px}
+.weekgrid{border-collapse:separate;border-spacing:0;min-width:1140px;width:100%;table-layout:fixed}
+.weekgrid th{background:#1a2c47;text-align:left;font-size:13px;padding:16px;border-right:1px solid var(--stroke);position:sticky;top:0}
+.weekgrid td{padding:12px;vertical-align:top;min-height:260px;border-top:1px solid var(--stroke);border-right:1px solid var(--stroke);width:16.67%}
+.seq{border:1px solid #4c637b;border-radius:12px;background:linear-gradient(125deg,#172d48,#14243a);margin-bottom:10px;padding:11px;cursor:pointer;text-align:left;color:inherit;width:100%;font:inherit}
+.seq:hover{border-color:#71b4fa}.seq .meta{color:#93b3d3;font-size:11px;display:flex;justify-content:space-between;gap:8px}.seq .name{font-weight:750;margin:7px 0;font-size:13px}.chips{display:flex;flex-wrap:wrap;gap:5px}.chip{font-size:10px;display:inline-flex;padding:3px 6px;border-radius:5px;border:1px solid;color:inherit}.chip.moa{background:#1b3d62;border-color:#437ab1}.chip.investment{background:#483526;border-color:#b17c48}.chip.apex{background:#382d57;border-color:#7760b4}.chip.leela{background:#1d463f;border-color:#467e73}
+.days{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.day{border-radius:16px;border:1px solid var(--stroke);background:var(--card);padding:18px}.day h3{display:flex;justify-content:space-between;align-items:center;margin:0 0 14px;letter-spacing:-.02em;font-size:17px}
+.day .seq{background:var(--card2)}.sprint{padding:9px 0;border-top:1px solid #33475d;display:grid;grid-template-columns:66px 1fr;gap:10px;font-size:12px}.sprint .step{color:#a7bfd9;font-weight:700}.task{line-height:1.4;margin:2px 0}.task .chip{margin-right:5px;vertical-align:middle}
+.board{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(310px,1fr);gap:18px}.board-main,.inspector{background:var(--card);border:1px solid var(--stroke);border-radius:16px;padding:18px}.lane{border-bottom:1px solid #33445b;padding:13px 0}.lane:last-child{border-bottom:0}.lane-head{display:flex;justify-content:space-between;font-weight:700;gap:12px;font-size:13px}.bars{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:8px;margin-top:10px}.daybar{min-height:64px;border:1px solid var(--stroke);border-radius:8px;background:#0e1b2d;padding:7px;color:var(--dim);font-size:11px;cursor:pointer;display:flex;flex-direction:column;gap:5px}.daybar:hover{border-color:var(--blue)}.daybar strong{color:var(--ink);font-size:10px}.stripe{display:flex;height:7px;border-radius:5px;overflow:hidden;gap:2px;margin-top:auto}.stripe i{flex:1}.summary-row{border-bottom:1px solid var(--stroke);padding:10px 0;font-size:12px;line-height:1.5}.summary-row:last-child{border-bottom:0}.detail-blank{color:var(--dim);font-size:13px;line-height:1.6}.inspector{position:sticky;top:20px;align-self:start}
+.footer{border-top:1px solid var(--stroke);margin-top:30px;padding-top:15px;color:var(--dim);font-size:12px}
+@media(max-width:1000px){.days{grid-template-columns:repeat(2,minmax(0,1fr))}.board{grid-template-columns:1fr}.inspector{position:static}}@media(max-width:620px){.days{grid-template-columns:1fr}.toolbar button{min-width:0;flex:1}.toolbar{gap:3px}.toolbar button{padding:12px 6px;font-size:11px}.bars{gap:3px}.daybar{padding:3px;font-size:10px}.lane-head{font-size:12px}}
+</style>
+</head>
+<body><main>
+<header><div><div class="eyebrow">Module 01 / Q13 · Design comparison</div><h1>One illustrative week. Three different views.</h1><p>Sequences are movable time blocks, not project identities. A sequence may contain several projects, and sprint-level mixing is deliberately shown as a design candidate.</p></div>
+<div class="notice"><strong>Fixture only · Not a live plan</strong><br>No OpenProject IDs or meetings have been verified. Saturday is a normal day; Sunday off unless the operator chooses otherwise. These views do not select the future canonical data format.</div></header>
+<div class="toolbar" role="tablist" aria-label="Presentation alternatives">
+<button type="button" role="tab" aria-selected="true" aria-controls="view-a" class="active" data-view="view-a">A · Calendar Grid</button>
+<button type="button" role="tab" aria-selected="false" aria-controls="view-b" data-view="view-b">B · Day Cards</button>
+<button type="button" role="tab" aria-selected="false" aria-controls="view-c" data-view="view-c">C · Sequence Board</button>
+</div>
+<div class="legend"><span><i class="dot moa"></i>Master of Arts</span><span><i class="dot investment"></i>Investment</span><span><i class="dot apex"></i>Apex OS</span><span><i class="dot leela"></i>Leela</span><span>Project labels remain stable even when their time block changes</span></div>
+<section class="view active" id="view-a" role="tabpanel"><div class="intro"><h2>Variation A — Weekly Calendar Grid</h2><p>Mon–Sat overview with sequence cards inside actual day columns. Best for cross-day scheduling and spotting overloaded days. Horizontal scroll preserves readable sprint content on smaller screens.</p></div><div class="sheet"><table class="weekgrid"><thead><tr><th>Monday</th><th>Tuesday</th><th>Wednesday</th><th>Thursday</th><th>Friday</th><th>Saturday</th></tr></thead><tbody><tr id="grid-row"></tr></tbody></table></div></section>
+<section class="view" id="view-b" role="tabpanel"><div class="intro"><h2>Variation B — Day Cards</h2><p>Each day is a readable vertical set of sequence blocks, with sprint topics directly below them. Best for daily clarity and mobile reading; harder to compare exact free windows across six days at once.</p></div><div class="days" id="day-cards"></div></section>
+<section class="view" id="view-c" role="tabpanel"><div class="intro"><h2>Variation C — Sequence Board + Inspector</h2><p>Sequence rows show how block composition changes across the week. Select a block to inspect source work references, sprint topics and mixed-project allocation. Best for coordinated planning/review, but more complex than a static document.</p></div><div class="board"><div class="board-main" id="sequence-board"></div><div class="inspector"><h2>Selected sequence</h2><div id="inspect"><p class="detail-blank">Choose a sequence block to see project composition and its sprint outcomes.</p></div></div></div></section>
+<div class="footer">Decision still open: the canonical source could be durable Markdown, interactive HTML with export, or a neutral structured record rendering both. These layouts are a separate display comparison, not proof of source-authority choice. No calendar or project-management writes are performed.</div>
+</main><script>
+(function(){
+const projects={moa:"Master of Arts",investment:"Investment",apex:"Apex OS",leela:"Leela"};
+const days=["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+const data=[
+{day:0,id:"MON-A",start:"09:00",end:"11:00",name:"Invoice + ingestion progress",sprints:[
+ [{p:"moa",t:"Invoice schema check"},{p:"investment",t:"Ingestion sample review"}],
+ [{p:"moa",t:"Validate tax fields"}],
+ [{p:"investment",t:"Trace timeout blocker"}],
+ []]},
+{day:0,id:"MON-B",start:"13:30",end:"14:30",name:"Leela DAG planning",sprints:[[{p:"leela",t:"Prerequisite edges"}],[{p:"leela",t:"Cycle-guard acceptance"}]]},
+{day:1,id:"TUE-A",start:"10:00",end:"11:30",name:"Driver + skill tree checks",sprints:[
+ [{p:"apex",t:"Button event mapping"}],[{p:"leela",t:"Graph resolution review"}],[{p:"apex",t:"Capture timing evidence"}]]},
+{day:2,id:"WED-A",start:"13:00",end:"15:00",name:"Website + dashboard",sprints:[
+ [{p:"moa",t:"Navigation breakpoint audit"}],[{p:"investment",t:"Query dashboard wiring"}],[{p:"moa",t:"Asset acceptance"}],[{p:"investment",t:"Data parity review"}]]},
+{day:3,id:"THU-A",start:"08:30",end:"09:30",name:"Investment focus",sprints:[
+ [{p:"investment",t:"Ingestion error cases"}],[{p:"investment",t:"Retry outcome evidence"}]]},
+{day:3,id:"THU-B",start:"15:45",end:"17:15",name:"Mixed unblockers",sprints:[
+ [{p:"apex",t:"Driver test trace"}],[{p:"leela",t:"Tree node review"},{p:"moa",t:"Invoice artifact check"}],[{p:"leela",t:"Readiness decision"}]]},
+{day:4,id:"FRI-A",start:"11:00",end:"13:00",name:"Portfolio delivery gates",sprints:[
+ [{p:"moa",t:"PDF generation check"}],[{p:"apex",t:"Button integration test"}],[{p:"moa",t:"Accounting export review"}],[{p:"apex",t:"Hardware release evidence"}]]},
+{day:5,id:"SAT-A",start:"10:00",end:"12:00",name:"Normal workday: continuation",sprints:[
+ [{p:"investment",t:"Dashboard parity"}],[{p:"leela",t:"Skill tree quality check"}],[{p:"investment",t:"Ingestion docs"},{p:"leela",t:"Node dependency notes"}],[]]}
+];
+function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;")}
+function ps(x){return [...new Set(x.sprints.flat().map(t=>t.p))]}
+function chips(x){return ps(x).map(p=>'<span class="chip '+p+'">'+projects[p]+'</span>').join("")}
+function sprintRows(x){return x.sprints.map((ss,i)=>'<div class="sprint"><span class="step">Sprint '+(i+1)+'</span><div>'+(ss.length?ss.map(t=>'<div class="task"><span class="chip '+t.p+'">'+projects[t.p]+'</span>'+esc(t.t)+'</div>').join(""):'<div class="task">Buffer / review</div>')+'</div></div>').join("")}
+function button(x,full){return '<button type="button" class="seq" data-seq="'+x.id+'"><div class="meta"><span>'+x.id+'</span><span>'+x.start+'–'+x.end+'</span></div><div class="name">'+esc(x.name)+'</div><div class="chips">'+chips(x)+'</div>'+(full?sprintRows(x):'')+'</button>'}
+document.getElementById("grid-row").innerHTML=days.map((d,i)=>'<td>'+(data.filter(x=>x.day===i).map(x=>button(x,false)).join("")||'<small>No allocated sequence</small>')+'</td>').join("");
+document.getElementById("day-cards").innerHTML=days.map((d,i)=>'<article class="day"><h3>'+d+' <small>'+data.filter(x=>x.day===i).length+' block(s)</small></h3>'+data.filter(x=>x.day===i).map(x=>button(x,true)).join("")+'</article>').join("");
+const n=Math.max(...days.map((d,i)=>data.filter(x=>x.day===i).length));let rows='<div class="lane"><div class="lane-head"><strong>Blocks are not project lanes</strong><span>Mon → Sat</span></div><div class="bars">'+days.map(d=>'<div style="font-size:11px;color:var(--dim)">'+d.slice(0,3)+'</div>').join("")+'</div></div>';
+for(let q=0;q<n;q++){rows+='<div class="lane"><div class="lane-head"><span>Daily block '+String.fromCharCode(65+q)+'</span><small>time varies by day</small></div><div class="bars">'+days.map((d,i)=>{const x=data.filter(y=>y.day===i)[q];return x?'<button type="button" class="daybar" data-seq="'+x.id+'"><strong>'+x.start+'–'+x.end+'</strong><span>'+esc(x.name)+'</span><div class="stripe">'+ps(x).map(p=>'<i class="'+p+'"></i>').join("")+'</div></button>':'<div class="daybar">—</div>'}).join("")+'</div></div>'}
+document.getElementById("sequence-board").innerHTML=rows;
+function inspect(id){const x=data.find(y=>y.id===id);if(!x)return;document.getElementById("inspect").innerHTML='<div class="summary-row"><strong>'+days[x.day]+' · '+x.id+'</strong><div>'+x.start+'–'+x.end+' · '+esc(x.name)+'</div></div><div class="summary-row">Projects involved: <div class="chips">'+chips(x)+'</div></div>'+sprintRows(x)+'<div class="summary-row"><small>Task source references in this fixture are illustrative only. Live WP links must be resolved before planning.</small></div>';document.querySelectorAll("[data-view]").forEach(b=>{});}
+document.querySelectorAll(".toolbar button").forEach(b=>b.addEventListener("click",()=>{document.querySelectorAll(".toolbar button").forEach(v=>{v.classList.remove("active");v.setAttribute("aria-selected","false")});b.classList.add("active");b.setAttribute("aria-selected","true");document.querySelectorAll(".view").forEach(v=>v.classList.remove("active"));document.getElementById(b.dataset.view).classList.add("active")}));
+document.addEventListener("click",e=>{const b=e.target.closest("[data-seq]");if(!b)return;inspect(b.dataset.seq);if(!document.getElementById("view-c").classList.contains("active")){document.querySelector(".toolbar [data-view='view-c']").click()}});
+inspect("MON-A");
+})();
+</script></body></html>
