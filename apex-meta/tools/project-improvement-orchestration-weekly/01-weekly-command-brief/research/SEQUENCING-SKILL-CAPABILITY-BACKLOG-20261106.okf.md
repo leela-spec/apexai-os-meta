@@ -21,7 +21,10 @@ The operator explicitly requested: **record creation of a sequencing skill as a 
 
 ## Operator-confirmed definitions
 
-- **Sequence** = one time/capacity block/container; not a project, project identity, permanent order or fixed morning slot.
+- **Sequence** = The holistic organization of the operator's whole week and day:
+  - Encompasses both technical work streams and non-work life blocks (hobbies, meditation, personal routines, fitness, buffers).
+  - Acts as the parent container that defines and enriches each downstream **Flow Execution Card** with context, energy/focus state, and schedule boundaries.
+  - Schedulable time/capacity container; not a project identity or fixed morning slot.
 - Sequence timing, duration and project membership may vary by day.
 - Sequence can contain tasks from several projects.
 - Sprint is a smaller segment inside a sequence and **may** contain multiple projects; exact mixing strategy is **open**.
