@@ -17,6 +17,17 @@ operator_acceptance_of_new_design: pending
 
 # Weekly Orchestration — verified macro interfaces and decision gates
 
+
+## Operator acceptance delta — later on 2026-11-06 (OVERRIDES earlier recommendations below)
+
+- **OpenProject-first:** inspect the real live WP/dependency graph before constructing any current critical-path claim or Matrix 1/2 plan. This is now the first execution gate, with a bounded read-only handover at `../../00-openproject-dependency-intake/HANDOVER-20261106.okf.md` (path relative to this file's module research directory must be resolved against improvement project root; canonical repo-relative path is `apex-meta/tools/project-improvement-orchestration-weekly/00-openproject-dependency-intake/HANDOVER-20261106.okf.md`).
+- **M02=B ACCEPTED** owner-aware OP vs Apex-native status update routing; target accepted, not production implemented.
+- **M05=B ACCEPTED** dedicated stateless sequencing Skill for later design; the recommendation in section 6 to start with only existing skills is superseded. Reuse-first remains a constraint on its internals.
+- **M06=A ACCEPTED** Saturday Precap, normal Mon–Sat working eligibility, Sunday OFF by default; runtime patch pending.
+- **M04 OPEN:** sequence is broader than flow; operator explicitly deferred exact relationship. Section 4's option B remains a discarded early recommendation, NOT an accepted mapping.
+- Full accepted decisions are recorded as D014–D017 in the improvement project's `DECISIONS.md`; current next action is updated in `CURRENT-STATE.md`.
+
+
 ## 0. Scope and precedence
 
 This is an implementation-independent design packet for the temporary Master improvement role, NOT a new runtime orchestrator, PM backend, Skill, approved schema, or blanket authorization for changes. Read it after D012/D013 and the explicit operator decision delta Q06/Q08/Q09/Q12/Q13 (2026-11-06). Do not reinterpret accepted Q01-Q14. Current Skill files remain runtime authority until selectively patched, reviewed, and fresh-tested. Historical wrapper architecture and W34/W45 examples are provenance/fixtures, not today's project state.
