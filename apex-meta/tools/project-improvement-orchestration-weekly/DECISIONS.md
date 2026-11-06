@@ -236,3 +236,59 @@ Two readings, not resolved here:
 **Scope:** orchestration spine architecture (Module 00 topology) — an amendment here would touch D012 directly, so this is recorded as a question rather than silently resolved either way.
 
 **Source:** post-Module-00 repair-pass verification, 2026-08-18
+
+---
+
+## D014 — OpenProject dependency frontier precedes weekly critical-path selection
+
+**Status:** operator accepted design priority; live source verification OPEN (2026-11-06).
+
+**Decision:** P1 must first read the current private OpenProject work-package and dependency graph for projects actually enrolled. Use verified relation types, source identities, status, and freshness to derive dependency readiness and blocked work before ranking or shaping Matrix 1 and Matrix 2. The repository's historical WP hierarchy is not a current live read. Do not claim a mathematically proven critical path without trustworthy durations and calendar assumptions; otherwise report dependency-driven chains/blockers.
+
+**Execution:** bounded, read-only local-agent handover `00-openproject-dependency-intake/HANDOVER-20261106.okf.md`. Current ChatGPT GitHub access does not reach the private `127.0.0.1` OpenProject API. Missing identity, pagination, dependency direction or cross-project counterpart must be flagged rather than invented.
+
+**Scope:** global weekly planning input order, project PM authority, Matrix 1/2 data provenance; no production mutation.
+
+**Source:** operator, 2026-11-06 (follow-up to macro handover).
+
+---
+
+## D015 — M02=B accepted: owner-aware PM writeback after recap
+
+**Status:** operator accepted target; NOT YET production-implemented/tested (2026-11-06).
+
+**Decision:** After evidence -> FlowRecap candidates -> StatusMerge -> operator G5, verified OpenProject-owned WPs must be updated through the canonical OpenProject skill with per-action authorization, current lockVersion and post-write reread. Apex Session remains for verified Apex-native objects only. Never mirror canonical OP task state into the old Apex PM graph or elevate a draft recap to confirmed state. No new RecapDay stage by assumption.
+
+**Dependency:** D014 real OP owner/enrollment/source evidence and later narrow multi-WP recap interface verification. Write autonomy is NOT granted here.
+
+**Scope:** StatusMerge/G5, weekly router, next-day intake, owner-aware mutation receipt.
+
+**Source:** operator M02=B, 2026-11-06.
+
+---
+
+## D016 — M05=B accepted: dedicated, stateless sequencing skill (definition deferred)
+
+**Status:** operator accepted capability choice; design/build DEFERRED until OpenProject intake and later sequence semantics (2026-11-06).
+
+**Decision:** Provide a dedicated stateless sequencing Skill rather than only an inlined PrecapNextDay helper. It may be on-demand under the existing D012 orchestrator. Reuse existing Workflow&Processes, PrecapWeek, PrecapNextDay and source OP client; do not duplicate their workflow validation, PM state, scheduler, agents or calendar writers. Concrete input/output/connector examples and ownership must be designed after the OpenProject dependency contract and operator's broader sequence definition.
+
+**Critical reservation:** M04 remains OPEN. The operator explicitly said **a sequence is more than a flow and will be defined later**. Previous M04-B recommendation (one sequence to one or several flows) is NOT accepted; neither 1:1 nor 1:N nor N:M is decided. Do not build a premature flow mapping or sprint model into the new skill.
+
+**Placement:** assess canonical `leela-spec/agent-skills` for cross-agent reuse, not a copied skill in product repos. No new Skill files created in this decision step.
+
+**Source:** operator M05=B and M04 correction, 2026-11-06.
+
+---
+
+## D017 — M06=A accepted: Saturday weekly Precap; Sunday off
+
+**Status:** operator accepted design timing; runtime PrecapWeek still contradictory and requires bounded patch (2026-11-06).
+
+**Decision:** Normally run weekly Precap on Saturday. Monday–Saturday remain eligible workdays subject to actual constraints and finite capacity. Sunday is OFF by default; a special exception requires explicit operator choice. Weekly Precap on Saturday consumes actual capacity, rather than presuming Saturday is only a buffer or blindly scheduling project work at the same time.
+
+**Implementation gap:** PrecapWeek skill, blueprint, validation and weekly router still encode Mon–Fri planning/Sunday Precap. Do not claim the accepted timing is in production before exact-context patch, independent diff verification and fresh test.
+
+**Scope:** calendar/week scope, PrecapWeek, validation, trigger/dispatch.
+
+**Source:** operator M06=A, 2026-11-06.
