@@ -13,7 +13,7 @@ tags: [layered-kb, rules, semantic-blocks, audits, index, v1.0, token-compressio
 > **Architectural Plane:** Layer 1 (Rule-Level Semantic Block Knowledge Base & Audit Suite)  
 > This directory houses the comprehensive atomic decomposition of all 22 rules in the Apex Informatics Instruction Contract ([`13-candidate-3A-xml.md`](../../candidates/13-candidate-3A-xml.md)), evaluating the necessity and token value of each individual semantic block (`SB-XX.k`), formulating surgical compressions (Option B), and auditing all 5 canonical Plane 4 infrastructure modules.
 >
-> - **Essence Contracts (Layer 0):** Master [`13-candidate-3A-xml.md`](../../candidates/13-candidate-3A-xml.md) (`1,350` BPE), format siblings [`14-candidate-3B-hybrid.md`](../../candidates/14-candidate-3B-hybrid.md) & [`15-candidate-3C-bullet-hybrid.md`](../../candidates/15-candidate-3C-bullet-hybrid.md), and compiled ultra candidate [`16-candidate-3A-ultra.md`](../../candidates/16-candidate-3A-ultra.md) (`1,225` empirical BPE / `~950` BPE prompt target).
+> - **Essence Contracts (Layer 0):** Master [`13-candidate-3A-xml.md`](../../candidates/13-candidate-3A-xml.md) (`1,350` BPE), format siblings [`14-candidate-3B-hybrid.md`](../../candidates/14-candidate-3B-hybrid.md) & [`15-candidate-3C-bullet-hybrid.md`](../../candidates/15-candidate-3C-bullet-hybrid.md), and compiled ultra candidate [`16-candidate-3A-ultra.md`](../../candidates/_archive/16-candidate-3A-ultra.md) (`1,225` empirical BPE / `~950` BPE prompt target).
 > - **Downstream Specifications (Layer 2):** Canonical Plane 4 modules: [`writing-profile.md`](../../specs/writing-profile.md), [`file-architecture.md`](../../specs/file-architecture.md), [`execution-modes.md`](../../specs/execution-modes.md), [`anti-drift-rules.md`](../../specs/anti-drift-rules.md), [`governance-schemas.md`](../../specs/governance-schemas.md), and [`general-informatics-router.md`](../../specs/general-informatics-router.md).
 > - **Parent Final Index:** [`apex-meta/informatics/final/index.md`](../../index.md).
 
@@ -49,7 +49,7 @@ Every rule in the canonical `3A` contract block is systematically audited across
 | 22 | [**`rule-22-pointers.md`**](rule-22-pointers.md) | `<pointers>` | 32 | 33 | +1 BPE (+3.1%) | 31 | `AD-26`, `WP-18`, `WP-25` | `RP-08`, `RP-09`, `RP-10` (JIT pointers) |
 | **Totals** | **All 22 Rules** | **All Tags** | **1,311** | **1,187** | **−124 BPE (−9.5%) inner** | **1,061** | — | — |
 
-*Compiled Contract Metrics:* When assembled with the root tag `<apex_contract v="1.0-ultra" base_ref="apex-meta/informatics/">` and standard spacing, the contract achieves **1,225 BPE tokens** (1,479 repo tokens / 5,917 chars / 769 words / 65 lines) in [`16-candidate-3A-ultra.md`](../../candidates/16-candidate-3A-ultra.md), representing a **9.3% net token reduction** from `3A` (`1,350` BPE) while preserving 100% of non-default operational disciplines.
+*Compiled Contract Metrics:* When assembled with the root tag `<apex_contract v="1.0-ultra" base_ref="apex-meta/informatics/">` and standard spacing, the contract achieves **1,225 BPE tokens** (1,479 repo tokens / 5,917 chars / 769 words / 65 lines) in [`16-candidate-3A-ultra.md`](../../candidates/_archive/16-candidate-3A-ultra.md), representing a **9.3% net token reduction** from `3A` (`1,350` BPE) while preserving 100% of non-default operational disciplines.
 
 ---
 
@@ -83,7 +83,7 @@ The 5 infrastructure module audits evaluate semantic block density, purge cross-
 
 - **Parent Final Master Index:** [`apex-meta/informatics/final/index.md`](../../index.md)
 - **Candidate Suite Index:** [`apex-meta/informatics/final/candidates/index.md`](../../candidates/index.md)
-- **Compiled Ultra Candidate:** [`candidates/16-candidate-3A-ultra.md`](../../candidates/16-candidate-3A-ultra.md)
+- **Compiled Ultra Candidate:** [`candidates/_archive/16-candidate-3A-ultra.md`](../../candidates/_archive/16-candidate-3A-ultra.md)
 - **Deep Reasoning Sub-Bundle:** [`research/02-deep-reasoning/index.md`](../02-deep-reasoning/index.md)
 - **Ten-Packet Research Synthesis:** [`research/03-research-of-file-10/RESULTS-11-synthesis.md`](../03-research-of-file-10/RESULTS-11-synthesis.md)
 - **Finalization Audit Dossier:** [`research/04-finalization-dossier/index.md`](../04-finalization-dossier/index.md)

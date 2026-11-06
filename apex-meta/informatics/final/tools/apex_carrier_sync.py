@@ -1,0 +1,138 @@
+#!/usr/bin/env python3
+"""Keep every carrier of the Apex always-on block equal to its master.
+
+Question this answers: which files carry a copy of the always-on block, and does each still match
+`specs/apex_contract_v1.0_ultra.xml` on the `main` branch of apexai-os-meta?
+
+  python apex-meta/informatics/final/tools/apex_carrier_sync.py                     # check, exit 1 on drift
+  python apex-meta/informatics/final/tools/apex_carrier_sync.py --sync              # rewrite drifted carriers (backup first)
+  python apex-meta/informatics/final/tools/apex_carrier_sync.py --source worktree   # compare against the uncommitted master
+
+Scope: the <apex_contract>...</apex_contract> span only. Module files (specs/**) are checked by
+Leela-Cloud-2026/docs/apex/check_vendor_drift.py, which this script runs and reports. Nothing here edits the
+master. Hand-written text around the block in a carrier is never touched. Not wired into any gate: it reads
+files outside any one repo, so a gate would be red on a clean clone (see operations/18-APEX-CARRIER-MAP.md).
+"""
+import argparse, os, re, subprocess, sys, shutil
+
+HOME = os.path.expanduser("~")
+META = "C:/GitDev/apexai-os-meta"
+LEELA = "C:/GitDev/Leela-Cloud-2026"
+MASTER_REL = "apex-meta/informatics/final/specs/apex_contract_v1.0_ultra.xml"
+SPAN = re.compile(r"<apex_contract[^>]*>.*?</apex_contract>", re.S)
+
+# Every carrier holds an inline copy of the block. allowed = deliberate departures from the master (base_ref,
+# per-tag ref attribute). optional = a launch may select this config dir (CLAUDE_CONFIG_DIR, CODEX_HOME);
+# absence is reported, not failed, because whether it is launched is not knowable from the files.
+ABS = f"{META}/apex-meta/informatics/final/"
+CARRIERS = [
+    dict(name="Claude global", path=f"{HOME}/.claude/CLAUDE.md", kind="inline", base_ref=None, ref_override={}),
+    dict(name="Gemini/Antigravity global", path=f"{HOME}/.gemini/GEMINI.md", kind="inline", base_ref=ABS, ref_override={}),
+    dict(name="Codex global", path=f"{HOME}/.codex/AGENTS.md", kind="inline", base_ref=ABS, ref_override={}),
+    dict(name="Leela vendored copy", path=f"{LEELA}/docs/apex/apex-contract.md", kind="inline",
+         base_ref="docs/apex/", ref_override={"authoring": "specs/file-architecture.md"}),
+    dict(name="Claude account agehm", path=f"{HOME}/.claude-agehm/CLAUDE.md", kind="inline", base_ref=None, ref_override={}, optional=True),
+    dict(name="Claude account wimmer", path=f"{HOME}/.claude-wimmer/CLAUDE.md", kind="inline", base_ref=None, ref_override={}, optional=True),
+    dict(name="Antigravity config/GEMINI.md", path=f"{HOME}/.gemini/config/GEMINI.md", kind="inline", base_ref=ABS, ref_override={}, optional=True),
+    dict(name="Codex account 1", path=f"{HOME}/.codex-acc1/AGENTS.md", kind="inline", base_ref=ABS, ref_override={}, optional=True),
+    dict(name="Codex account 2", path=f"{HOME}/.codex-acc2/AGENTS.md", kind="inline", base_ref=ABS, ref_override={}, optional=True),
+]
+
+
+def master_text(source):
+    if source == "worktree":
+        return open(f"{META}/{MASTER_REL}", encoding="utf-8").read()
+    r = subprocess.run(["git", "-C", META, "show", "main:" + MASTER_REL], capture_output=True, text=True, encoding="utf-8")
+    if r.returncode:
+        sys.exit("cannot read master from git: " + r.stderr.strip())
+    return r.stdout
+
+
+def tags(block):
+    inner = re.sub(r"^<apex_contract[^>]*>|</apex_contract>\s*$", "", block.strip())
+    out = {}
+    for m in re.finditer(r"<(\w+)([^>]*)>(.*?)</\1>", inner, re.S):
+        out[m.group(1)] = (re.sub(r"\s+", " ", m.group(2).strip()), re.sub(r"\s+", " ", m.group(3).strip()))
+    return out
+
+
+def expected_block(master_block, c):
+    """The master block with this carrier's allowed departures applied."""
+    b = master_block
+    if c["base_ref"]:
+        b = re.sub(r'base_ref="[^"]*"', f'base_ref="{c["base_ref"]}"', b, count=1)
+    for tag, ref in c["ref_override"].items():
+        b = re.sub(rf'(<{tag}\b[^>]*\bref=")[^"]*(")', rf"\g<1>{ref}\g<2>", b, count=1)
+    return b
+
+
+def diff(expected, actual):
+    e, a, out = tags(expected), tags(actual), []
+    for k in e:
+        if k not in a: out.append(f"missing <{k}>")
+        elif a[k][1] != e[k][1]: out.append(f"<{k}> body differs")
+        elif a[k][0] != e[k][0]: out.append(f"<{k}> attributes differ ({a[k][0]!r} vs {e[k][0]!r})")
+    out += [f"extra <{k}>" for k in a if k not in e]
+    ba = re.search(r'base_ref="([^"]*)"', actual); be = re.search(r'base_ref="([^"]*)"', expected)
+    if ba and be and ba.group(1).lower() != be.group(1).lower(): out.append(f"base_ref {ba.group(1)!r} vs {be.group(1)!r}")
+    return out
+
+
+def unresolved_refs(block, cwd_roots):
+    """Refs that cannot be opened from any known working root (base_ref relative or absolute)."""
+    base = re.search(r'base_ref="([^"]*)"', block).group(1)
+    bad = []
+    for m in re.finditer(r'<(\w+)[^>]*\bref="([^"]+)"', block):
+        roots = [base] if re.match(r"^[A-Za-z]:|^/", base) else [os.path.join(r, base) for r in cwd_roots]
+        if not any(os.path.exists(os.path.join(r, m.group(2))) for r in roots):
+            bad.append(f"<{m.group(1)}> ref={m.group(2)}")
+    return bad
+
+
+def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--sync", action="store_true")
+    ap.add_argument("--source", choices=["main", "worktree"], default="main")
+    args = ap.parse_args()
+    master = master_text(args.source)
+    mblock = SPAN.search(master).group(0)
+    bad = 0
+    print(f"master: {MASTER_REL} ({args.source}), {len(tags(mblock))} rules; meta repo checked out on "
+          + subprocess.run(["git", "-C", META, "branch", "--show-current"], capture_output=True, text=True).stdout.strip())
+    sha = lambda ref: subprocess.run(["git", "-C", META, "rev-parse", ref], capture_output=True, text=True).stdout.strip()
+    if sha("main") != sha("origin/main"):
+        print("  WARN local main differs from origin/main: run `git fetch origin main:main` (or push) so carriers follow the shared master")
+    st = subprocess.run(["git", "-C", META, "status", "--short", "--", MASTER_REL.rsplit('/', 1)[0]], capture_output=True, text=True).stdout.strip()
+    if st: print("  master repo has uncommitted spec changes (not yet in any carrier unless --source worktree):\n   " + st.replace("\n", "\n   "))
+    for c in CARRIERS:
+        p = c["path"]
+        if not os.path.exists(p):
+            if c.get("optional"): print(f"ABSENT   {c['name']}: {p} (optional; an agent launched with this config dir gets no always-on block)")
+            else: print(f"MISSING  {c['name']}: {p}"); bad += 1
+            continue
+        text = open(p, encoding="utf-8").read()
+        found = SPAN.search(text)
+        if c.get("optional") and c["kind"] == "inline" and not found:
+            print(f"ABSENT   {c['name']}: file exists but carries no <apex_contract> block ({p})"); continue
+        exp = expected_block(mblock, c)
+        if not found:
+            print(f"DRIFT    {c['name']}: no <apex_contract> block in {p}"); bad += 1; continue
+        d = diff(exp, found.group(0))
+        refs = unresolved_refs(found.group(0), [LEELA])
+        print(("OK       " if not d else "DRIFT    ") + f"{c['name']}: " + ("identical to master" + (" (allowed departures applied)" if c['base_ref'] or c['ref_override'] else "") if not d else "; ".join(d)))
+        if refs: print(f"  WARN   {len(refs)} ref(s) do not resolve when the agent works in {LEELA}, e.g. {refs[0]}")
+        if d:
+            bad += 1
+            if args.sync:
+                shutil.copyfile(p, p + ".apex-sync.bak")
+                open(p, "w", encoding="utf-8", newline="").write(text[:found.start()] + exp + text[found.end():])
+                print(f"  SYNCED {p} (backup: {p}.apex-sync.bak)")
+    r = subprocess.run([sys.executable, f"{LEELA}/docs/apex/check_vendor_drift.py"], capture_output=True, text=True)
+    tail = [l for l in r.stdout.splitlines() if not l.startswith("OK")]
+    print("modules (check_vendor_drift.py): " + ("all OK" if not tail else "; ".join(tail)))
+    bad += any(l.startswith(("DRIFTED", "MISSING")) for l in tail)
+    return 1 if bad and not args.sync else 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

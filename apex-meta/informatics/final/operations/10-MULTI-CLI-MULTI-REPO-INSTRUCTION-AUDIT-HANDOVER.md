@@ -21,7 +21,7 @@ All current-truth assets of the Universal AI Instruction Architecture live insid
 ### Verified State:
 - **Consolidation Complete:** Specs, candidates, verification suites, research iterations, and operations live strictly under `final/`. Root pointer [`index.md`](../../index.md) is under 100 lines / 4,000 chars.
 - **Verification Engine:** **338 local pytest tests pass in 0.67–0.79s** (`python -m pytest apex-meta/informatics/final/verification/suites`).
-- **Validated Candidate:** [`16-candidate-3A-ultra.md`](../candidates/16-candidate-3A-ultra.md) (1,225 BPE tokens, 22 surgical Option B rules) and [`03-BLUEPRINT-agents.md`](../candidates/03-BLUEPRINT-agents.md) (Two-Layer Carrier Blueprint).
+- **Validated Candidate:** [`16-candidate-3A-ultra.md`](../candidates/_archive/16-candidate-3A-ultra.md) (1,225 BPE tokens, 22 surgical Option B rules) and [`03-BLUEPRINT-agents.md`](../candidates/03-BLUEPRINT-agents.md) (Two-Layer Carrier Blueprint).
 - **Live Empirical Trial Validated:** Native Antigravity subagent A/B trial executed (`09-TRIAL-RUN-EVALUATION-REPORT.md`) proving that XML `<when="..." ref="...">` gates bypass index bloat and enforce surgical 20–40 line reading windows in practice.
 
 ---

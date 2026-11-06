@@ -26,7 +26,7 @@ import tiktoken
 
 REPO_ROOT = Path(__file__).resolve().parents[5]
 KB_DIR = REPO_ROOT / "apex-meta" / "informatics" / "final" / "research" / "06-layered-rule-kb"
-CANDIDATE_16 = REPO_ROOT / "apex-meta" / "informatics" / "final" / "candidates" / "16-candidate-3A-ultra.md"
+CANDIDATE_16 = REPO_ROOT / "apex-meta" / "informatics" / "final" / "candidates" / "_archive" / "16-candidate-3A-ultra.md"
 CANDIDATE_13 = REPO_ROOT / "apex-meta" / "informatics" / "final" / "candidates" / "13-candidate-3A-xml.md"
 
 enc = tiktoken.get_encoding("cl100k_base")

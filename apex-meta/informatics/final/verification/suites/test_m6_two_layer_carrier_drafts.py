@@ -34,7 +34,7 @@ import tiktoken
 REPO_ROOT = Path(__file__).resolve().parents[5]
 INFORMATICS_FINAL = REPO_ROOT / "apex-meta" / "informatics" / "final"
 DRAFTS_FILE = INFORMATICS_FINAL / "operations" / "11-TWO-LAYER-CARRIER-DRAFTS-MULTI-REPO.md"
-CANDIDATE_16 = INFORMATICS_FINAL / "candidates" / "16-candidate-3A-ultra.md"
+CANDIDATE_16 = INFORMATICS_FINAL / "candidates" / "_archive" / "16-candidate-3A-ultra.md"
 
 MOA_ROOT = REPO_ROOT.parent / "MasterOfArts"
 LEELA_ROOT = REPO_ROOT.parent / "Leela-Cloud-2026"

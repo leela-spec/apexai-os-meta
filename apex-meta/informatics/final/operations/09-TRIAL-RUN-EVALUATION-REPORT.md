@@ -14,7 +14,7 @@ Both agents were spawned concurrently using native Antigravity subagent orchestr
 | Configuration | Arm A: Baseline | Arm B: Challenger (`v1.0-ultra`) |
 |---|---|---|
 | **Subagent ID** | `2b21692d-df2b-4161-a7e3-851583f85639` | `30b27053-e97f-404c-bd18-9d9966008ffd` |
-| **System Rules** | Root [`GEMINI.md`](../../../../GEMINI.md) (prose rules, WSL2 banner, no XML gates) | [`16-candidate-3A-ultra.md`](../candidates/16-candidate-3A-ultra.md) + Layer 2 Workstation Blueprint |
+| **System Rules** | Root [`GEMINI.md`](../../../../GEMINI.md) (prose rules, WSL2 banner, no XML gates) | [`16-candidate-3A-ultra.md`](../candidates/_archive/16-candidate-3A-ultra.md) + Layer 2 Workstation Blueprint |
 | **Instruction Surface** | 639 BPE tokens | 1,475 BPE tokens (22 Option B XML rules + QMD guidelines) |
 | **Transcript Path** | `.../2b21692d-df2b-4161-a7e3-851583f85639/transcript.jsonl` | `.../30b27053-e97f-404c-bd18-9d9966008ffd/transcript.jsonl` |
 

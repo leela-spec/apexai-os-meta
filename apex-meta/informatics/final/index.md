@@ -11,7 +11,7 @@ tags: [informatics, final, master-index, candidates, research-corpus, v1.0]
 > **Consolidated Zone:** `apex-meta/informatics/final/`
 > This directory brings together into **one unified, permanent location** the entire lineage of research, decision registers, candidate blocks, carrier blueprints, and testing protocols developed across all project phases.
 > - **Canonical Production Master:** [candidates/13-candidate-3A-xml.md](candidates/13-candidate-3A-xml.md) (`3A` Pure Named XML, `1,350` BPE)
-> - **Ultra-Compressed Contract (Milestone 5):** [candidates/16-candidate-3A-ultra.md](candidates/16-candidate-3A-ultra.md) (Surgical Option B synthesis, `1,225` empirical BPE / `~950` BPE prompt target)
+> - **Live Always-On Contract (`v1.0-ultra`, 23 rules):** [specs/apex_contract_v1.0_ultra.xml](specs/apex_contract_v1.0_ultra.xml) — the master every carrier copies. Carrier state and sync: [operations/18-APEX-CARRIER-MAP.md](operations/18-APEX-CARRIER-MAP.md), [tools/apex_carrier_sync.py](tools/apex_carrier_sync.py). The Milestone 5 candidate (22 rules) is archived: [candidates/_archive/16-candidate-3A-ultra.md](candidates/_archive/16-candidate-3A-ultra.md)
 > - **Format Projections:** [candidates/14-candidate-3B-hybrid.md](candidates/14-candidate-3B-hybrid.md) (`3B` Table) & [candidates/15-candidate-3C-bullet-hybrid.md](candidates/15-candidate-3C-bullet-hybrid.md) (`3C` Bold Bullets)
 > - **Carrier Integration Blueprint:** [candidates/03-BLUEPRINT-agents.md](candidates/03-BLUEPRINT-agents.md) (Two-Layer integration for `AGENTS.md`, `CLAUDE.md`, `GEMINI.md`)
 > - **Layered Rule Knowledge Base:** [research/06-layered-rule-kb/index.md](research/06-layered-rule-kb/index.md) (All 22 rules decomposed into semantic blocks, 5 Plane 4 module audits, and recomposition rollups)
@@ -29,7 +29,7 @@ All candidate contract blocks, blueprints, and decision registers live together 
 | File | Type | Description |
 |---|---|---|
 | [**`13-candidate-3A-xml.md`**](candidates/13-candidate-3A-xml.md) | **Production Default** | Finalized `v1.0-3A` Pure Named XML contract (`1,632` repo / `1,350` BPE tokens). Canonical content master. |
-| [**`16-candidate-3A-ultra.md`**](candidates/16-candidate-3A-ultra.md) | **Ultra Compression** | Synthesized `v1.0-ultra` contract block (`1,479` repo / `1,225` BPE tokens) compiling all 22 Option B surgical compressions from the Layered Rule KB (~30% prompt target / 9.3% lossless empirical reduction from `3A`). |
+| [**`_archive/16-candidate-3A-ultra.md`**](candidates/_archive/16-candidate-3A-ultra.md) | **Archived** (superseded by `specs/apex_contract_v1.0_ultra.xml`; see [`_archive/README.md`](candidates/_archive/README.md)) | Synthesized `v1.0-ultra` contract block (`1,479` repo / `1,225` BPE tokens) compiling all 22 Option B surgical compressions from the Layered Rule KB (~30% prompt target / 9.3% lossless empirical reduction from `3A`). |
 | [**`14-candidate-3B-hybrid.md`**](candidates/14-candidate-3B-hybrid.md) | Format Variant | Finalized `v1.0-3B` Hybrid Named XML + 3-column Markdown table (`1,586` repo / `1,314` BPE tokens). |
 | [**`15-candidate-3C-bullet-hybrid.md`**](candidates/15-candidate-3C-bullet-hybrid.md) | Format Variant | Finalized `v1.0-3C` Bold-Bullet unconditionals (`- **Target**: [paragraph]`) + XML gates (`1,610` repo / `1,335` BPE). |
 | [**`03-BLUEPRINT-agents.md`**](candidates/03-BLUEPRINT-agents.md) | Carrier Blueprint | Two-layer integration map for live `AGENTS.md`, `CLAUDE.md`, and `GEMINI.md` (`DEC-21`, `DEC-22`). |

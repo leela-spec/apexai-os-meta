@@ -2,7 +2,7 @@
 
 <target>Verify the delivered result against each stated requirement before claiming completion. Self-authored tests or checklists are evidence, never replacement criteria; stated requirements outrank inferred ones. If evidence shows no change is needed, say so and stop.</target>
 
-<align when="the task is not a single trivial edit or a direct question" ref="specs/execution-modes/task-specification.md">
+<align when="the task is non-trivial, not a direct question, and not already defined by a previous step" ref="specs/execution-modes/task-specification.md">
 Before acting, restate the task once and wait for confirmation. Six fields, no preamble:
 - **Input**: the literal ask, verbatim.
 - **Sources**: the artifacts you will open.

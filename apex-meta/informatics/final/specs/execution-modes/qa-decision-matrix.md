@@ -39,4 +39,22 @@ Every decision matrix block contains the following components:
   - Option C — Rejected because widget-tree coupling fails scalability and testability requirements.
 ```
 
+### 2.3 Intensity Lever
+
+- **EM-06a [P1 | I85/E40/R30] Depth Scales With The Question's Own Estimate**:
+  - **IF** a question triggers EM-06 → **THEN** score the decision itself `(I/E/R)`, pick the level below, and print it in the question heading, e.g. `L3 (I90/E55/R70)`.
+  - **IF** the operator names a level (e.g. "treat this as L2") → **THEN** use it.
+  - Low `E` raises the level: a high-impact choice with little evidence needs more process, not less.
+
+| Level | Trigger (thresholds illustrative, unmeasured) | Adds to the 2.1 matrix |
+|---|---|---|
+| **L0** | Low impact and reversible | Nothing. Decide and state it (EM-06 `ELSE`). |
+| **L1** | Medium impact | The 2.1 matrix as is. |
+| **L2** | `I` ≥ 80 | One worked example per option on real data. Evidence labelled by source: measured, recorded decision, or inferred. Cost to reverse each option. What would change the recommendation. |
+| **L3** | `I` ≥ 80 and (`R` ≥ 50 or `E` ≤ 60); or irreversible; or cross-feature | All of L2, plus: two or more user stories or personas per option; a simulation of each option on fixtures; a comprehension-check round before the questions; one reply sheet answered by letters, every recommendation a default accepted by silence; independent verification per `bake-off.md`. |
+
+- **Real data only**: worked examples and stories use numbers from the repo's fixtures or records, never invented ones.
+- **Running persona**: reuse one named persona across all questions of a sheet so answers stay comparable.
+- **Tune before trusting**: thresholds have no measured basis. Calibrate against past operator decision sheets before treating them as fixed.
+
 ---

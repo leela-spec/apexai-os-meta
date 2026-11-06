@@ -39,7 +39,7 @@ The 5 active CLI accounts map to the carriers as follows:
 
 <!-- ===================================================================== -->
 <!-- LAYER 1: PORTABLE UNIVERSAL AI OPERATING CONTRACT (v1.0-ultra)         -->
-<!-- Canonical Owner: 16-candidate-3A-ultra.md                              -->
+<!-- Canonical Owner: specs/apex_contract_v1.0_ultra.xml                     -->
 <!-- Byte-identical across all 3 repositories and all 5 CLI accounts.       -->
 <!-- ===================================================================== -->
 

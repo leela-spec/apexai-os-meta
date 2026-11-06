@@ -11,7 +11,7 @@ tags: [integration-plan, operational-decisions, qmd, 16-ultra, layered-kb, windo
 # QMD & Informatics Integration Plan & Operational Decision Ledger
 
 > **Location:** `apex-meta/informatics/final/07-INTEGRATION-PLAN-AND-OPERATIONAL-DECISIONS.md`  
-> **Complements:** [index.md](index.md), [06-EXECUTION-PLAN-AND-THINKING-PROCESS.md](06-EXECUTION-PLAN-AND-THINKING-PROCESS.md), [candidates/16-candidate-3A-ultra.md](candidates/16-candidate-3A-ultra.md), and [research/06-layered-rule-kb/index.md](research/06-layered-rule-kb/index.md).
+> **Complements:** [index.md](index.md), [06-EXECUTION-PLAN-AND-THINKING-PROCESS.md](06-EXECUTION-PLAN-AND-THINKING-PROCESS.md), [candidates/_archive/16-candidate-3A-ultra.md](candidates/_archive/16-candidate-3A-ultra.md), and [research/06-layered-rule-kb/index.md](research/06-layered-rule-kb/index.md).
 
 ---
 
@@ -47,7 +47,7 @@ The integration of candidate specifications into live agent operating surfaces i
 ```text
 ┌─────────────────────────────────────────────────────────────────────────────┐
 │ LAYER 0: ALWAYS-ON CORE CONTRACT (Carried in Memory)                        │
-│ • Source: candidates/16-candidate-3A-ultra.md (1,225 BPE / 1,479 repo tkns)│
+│ • Source: candidates/_archive/16-candidate-3A-ultra.md (1,225 BPE / 1,479 repo tkns)│
 │ • Carried by: AGENTS.md, CLAUDE.md, GEMINI.md (Byte-Identical Layer 1)     │
 │ • Contents: 22 XML semantic tags (<target> through <pointers>)              │
 └─────────────────────────────────────────────────────────────────────────────┘

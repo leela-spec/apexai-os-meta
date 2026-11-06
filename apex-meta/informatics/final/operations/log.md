@@ -1,5 +1,12 @@
 # Apex Informatics Standard — Change Log
 
+## 2026-11-06
+
+**Carrier sync, intensity lever, and retirement of candidate 16** — Added `EM-06a` (Intensity Lever, `L0`–`L3`, thresholds unmeasured) to `specs/execution-modes/qa-decision-matrix.md`. Changed the `<align>` trigger (and `EM-13` in `task-specification.md`) so an already-defined step does not need a new restatement. Added `tools/apex_carrier_sync.py` and `operations/18-APEX-CARRIER-MAP.md`: the script compares the always-on block in every carrier with `specs/apex_contract_v1.0_ultra.xml` on `main`, and `--sync` rewrites drifted inline copies (block only, with a backup).
+- **Codex restored.** `~/.codex/AGENTS.md` lost its inline block on 2026-11-04 when the MausBot installation replaced it with a pointer. The block is inline again; Codex is a synced carrier like Claude and Gemini.
+- **Candidate 16 archived.** `candidates/16-candidate-3A-ultra.md` (22 rules, no `<align>`) moved to `candidates/_archive/` with a README. The master XML is the only live always-on source. Markdown links to it were rewritten; bare mentions in dated historical records were left.
+- **Why:** the vendored copy in Leela named candidate 16 as its source, so an agent following that header would audit or copy a stale block, and nothing compared the vendored block with the master.
+
 ## 2026-10-23
 
 **Multi-CLI & Multi-Repo Two-Layer Carrier Formulation (`RUNBOOK-TWO-LAYER-CARRIER-DRAFTS-v1.0`)** — Synthesized and staged concrete Two-Layer Carrier drafts across all 3 primary `C:\GitDev\` repositories (`apexai-os-meta`, `MasterOfArts`, `Leela-Cloud-2026`) preserving 100% of local domain invariants and safety sandboxes while coupling them to the byte-identical `<apex_contract v="1.0-ultra">` kernel:

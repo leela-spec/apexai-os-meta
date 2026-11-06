@@ -20,4 +20,4 @@ tags: [informatics, verification, test-kb, token-math, option-b]
 
 ## 3. Grounding in Research
 - Provenance: [`final/research/06-layered-rule-kb/`](../../research/06-layered-rule-kb/) (Chapters 1.1, 1.2, and 3 Rollups across all 22 rules).
-- Operational Codification: [`16-candidate-3A-ultra.md`](../../candidates/16-candidate-3A-ultra.md) (`1,225` empirical BPE tokens).
+- Operational Codification: [`16-candidate-3A-ultra.md`](../../candidates/_archive/16-candidate-3A-ultra.md) (`1,225` empirical BPE tokens).

@@ -14,7 +14,7 @@ tags: [blueprint, agents-md, merge-map, non-active, v1.0, two-layer]
 > This is a **blueprint** showing how [`AGENTS.md`](../../../AGENTS.md) (and its byte-identical carrier sections in [`CLAUDE.md`](../../../CLAUDE.md) and [`GEMINI.md`](../../../GEMINI.md)) will look when the finalized `v1.0` / `v1.0-ultra` contract is introduced into the live system.
 >
 > - The **real** `AGENTS.md`, `CLAUDE.md`, and `GEMINI.md` remain untouched during this staging phase (enforced by `test_carrier_immutability`).
-> - **Updated to `v1.0-ultra` ([16-candidate-3A-ultra.md](16-candidate-3A-ultra.md) / [13-candidate-3A-xml.md](13-candidate-3A-xml.md)):**
+> - **Updated to `v1.0-ultra` ([16-candidate-3A-ultra.md](_archive/16-candidate-3A-ultra.md) / [13-candidate-3A-xml.md](13-candidate-3A-xml.md)):**
 >   1. Incorporates the finalized 22-rule Option B compressed XML block (1,225 BPE / 1,479 repo tokens).
 >   2. Applies the `Git Dispatch` deduplication decided in `09-contract-block-v0.5.md` §1 (`<sync>` owns general git behavior; Layer 2 keeps only the 45-token repo-specific WSL2 ext4 / `/mnt/c` constraint, saving 140 tokens).
 >   3. Explicitly separates **Layer 1 (Portable Universal Contract)** from **Layer 2 (Repository-Specific Operating Context)** per `RP-10`.
@@ -51,14 +51,14 @@ The real `AGENTS.md` is 50 lines / ~998 tokens across six sections. Measured `v1
 
 ## 2. The Complete Two-Layer Blueprint (`AGENTS.md` / `CLAUDE.md` / `GEMINI.md`)
 
-Everything inside the block below is the exact structure prepared for future installation into `AGENTS.md` (with single-source owner [16-candidate-3A-ultra.md](16-candidate-3A-ultra.md) or [13-candidate-3A-xml.md](13-candidate-3A-xml.md) pasted at the marker):
+Everything inside the block below is the exact structure prepared for future installation into `AGENTS.md` (with single-source owner [16-candidate-3A-ultra.md](_archive/16-candidate-3A-ultra.md) or [13-candidate-3A-xml.md](13-candidate-3A-xml.md) pasted at the marker):
 
 ```markdown
 # Codex Operating Note
 
 <!-- ===================================================================== -->
 <!-- LAYER 1: PORTABLE UNIVERSAL AI OPERATING CONTRACT (v1.0-ultra)         -->
-<!-- Canonical Owner: 16-candidate-3A-ultra.md                              -->
+<!-- Canonical Owner: specs/apex_contract_v1.0_ultra.xml                     -->
 <!-- To port to another repository: copy <apex_contract>...</apex_contract>-->
 <!-- verbatim and adjust only base_ref if the informatics path differs.    -->
 <!-- ===================================================================== -->

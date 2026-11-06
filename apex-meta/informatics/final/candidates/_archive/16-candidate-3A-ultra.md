@@ -10,7 +10,7 @@ tags: [candidate, contract-block, v1.0-ultra, xml, compression, layered-kb]
 # Contract Block Candidate 3A-Ultra — Finalized `v1.0-Ultra` Pure Named XML
 
 > **Status: Finalized `v1.0-ultra` Candidate (Ready for Future System Integration).**
-> - Assembled from all 22 recommended Option B surgical compressions in [06-layered-rule-kb/](../research/06-layered-rule-kb/). Compare side-by-side with [13-candidate-3A-xml.md](13-candidate-3A-xml.md) (Baseline Pure XML) and [14-candidate-3B-hybrid.md](14-candidate-3B-hybrid.md) (Hybrid Table).
+> - Assembled from all 22 recommended Option B surgical compressions in [06-layered-rule-kb/](../../research/06-layered-rule-kb/). Compare side-by-side with [13-candidate-3A-xml.md](../13-candidate-3A-xml.md) (Baseline Pure XML) and [14-candidate-3B-hybrid.md](../14-candidate-3B-hybrid.md) (Hybrid Table).
 > - **Measured Size:** `5,917` chars | **`1,479` repo tokens (`chars // 4`)** | **`1,225` BPE tokens (`cl100k_base`)** | `769` words | `65` lines (**−153 repo tokens / −125 BPE tokens / −612 chars / −130 words** vs. `3A-v1.0`).
 
 ---
@@ -140,32 +140,32 @@ Execute git commands immediately, not repo analysis. Preserve all files: commit 
 
 | Tag | Mode | Layer 1 Rule Deep Dive | Canonical Layer 2 Owner(s) |
 |---|---|---|---|
-| `<target>` | Unconditional | [rule-01-target.md](../research/06-layered-rule-kb/rule-01-target.md) | `AD-01`, `EM-04`, `WP-01` |
-| `<product_first>` | Unconditional | [rule-02-product-first.md](../research/06-layered-rule-kb/rule-02-product-first.md) | `AD-10`, `AD-09`, `AD-12` |
-| `<scope>` | Unconditional | [rule-03-scope.md](../research/06-layered-rule-kb/rule-03-scope.md) | `AD-18`, `AD-05`, `WP-09` |
-| `<communication>` | Unconditional | [rule-04-communication.md](../research/06-layered-rule-kb/rule-04-communication.md) | `WP-02`..`05`, `WP-12`, `AD-17` |
-| `<hold_position>` | Unconditional | [rule-05-hold-position.md](../research/06-layered-rule-kb/rule-05-hold-position.md) | `AD-22` |
-| `<ground>` | Unconditional | [rule-06-ground.md](../research/06-layered-rule-kb/rule-06-ground.md) | `AD-19`, `AD-20`, `AD-06`, `WP-04` |
-| `<reuse>` | Unconditional | [rule-07-reuse.md](../research/06-layered-rule-kb/rule-07-reuse.md) | `AD-11`, `AD-14`, `WP-23` |
-| `<context>` | Unconditional | [rule-08-context.md](../research/06-layered-rule-kb/rule-08-context.md) | `AD-04`, `EM-03`, `EM-10` |
-| `<recovery>` | Unconditional | [rule-09-recovery.md](../research/06-layered-rule-kb/rule-09-recovery.md) | `AD-07`, `AD-16`, `AD-21` |
-| `<stop_repairing>` | Unconditional | [rule-10-stop-repairing.md](../research/06-layered-rule-kb/rule-10-stop-repairing.md) | `AD-02`, `AD-07`, `AD-24`, `EM-05` |
-| `<current_truth>` | Unconditional | [rule-11-current-truth.md](../research/06-layered-rule-kb/rule-11-current-truth.md) | `FA-01`, `FA-09`, `FA-11`, `WP-08` |
-| `<surgical>` | Unconditional | [rule-12-surgical.md](../research/06-layered-rule-kb/rule-12-surgical.md) | `EM-01`, `AD-03`, `GS-02` |
-| `<editing>` | Gated | [rule-13-editing.md](../research/06-layered-rule-kb/rule-13-editing.md) | `EM-01`, `EM-08`, `AD-23`, `GS-09`..`11` |
-| `<new_machinery>` | Gated | [rule-14-new-machinery.md](../research/06-layered-rule-kb/rule-14-new-machinery.md) | `AD-25`, `AD-10`, `AD-13` |
-| `<detour>` | Gated | [rule-15-detour.md](../research/06-layered-rule-kb/rule-15-detour.md) | `AD-05`, `AD-10`, `AD-12` |
-| `<authoring>` | Gated | [rule-16-authoring.md](../research/06-layered-rule-kb/rule-16-authoring.md) | `FA-13`, `FA-06`, `WP-06`..`10`, `WP-19` |
-| `<trade_off>` | Gated | [rule-17-trade-off.md](../research/06-layered-rule-kb/rule-17-trade-off.md) | `EM-06`, `EM-07`, `GS-12`, `GS-13` |
-| `<handover>` | Gated | [rule-18-handover.md](../research/06-layered-rule-kb/rule-18-handover.md) | `EM-09`, `EM-02`, `AD-06` |
-| `<iterative>` | Gated | [rule-19-iterative.md](../research/06-layered-rule-kb/rule-19-iterative.md) | `EM-10`, `EM-11`, `AD-04` |
-| `<schemas>` | Gated | [rule-20-schemas.md](../research/06-layered-rule-kb/rule-20-schemas.md) | `GS-01`, `GS-09`..`11` |
-| `<sync>` | Gated | [rule-21-sync.md](../research/06-layered-rule-kb/rule-21-sync.md) | `EM-12`, `AD-23` |
-| `<pointers>` | Terminal Guard | [rule-22-pointers.md](../research/06-layered-rule-kb/rule-22-pointers.md) | `general-informatics-router.md`, `WP-25` |
+| `<target>` | Unconditional | [rule-01-target.md](../../research/06-layered-rule-kb/rule-01-target.md) | `AD-01`, `EM-04`, `WP-01` |
+| `<product_first>` | Unconditional | [rule-02-product-first.md](../../research/06-layered-rule-kb/rule-02-product-first.md) | `AD-10`, `AD-09`, `AD-12` |
+| `<scope>` | Unconditional | [rule-03-scope.md](../../research/06-layered-rule-kb/rule-03-scope.md) | `AD-18`, `AD-05`, `WP-09` |
+| `<communication>` | Unconditional | [rule-04-communication.md](../../research/06-layered-rule-kb/rule-04-communication.md) | `WP-02`..`05`, `WP-12`, `AD-17` |
+| `<hold_position>` | Unconditional | [rule-05-hold-position.md](../../research/06-layered-rule-kb/rule-05-hold-position.md) | `AD-22` |
+| `<ground>` | Unconditional | [rule-06-ground.md](../../research/06-layered-rule-kb/rule-06-ground.md) | `AD-19`, `AD-20`, `AD-06`, `WP-04` |
+| `<reuse>` | Unconditional | [rule-07-reuse.md](../../research/06-layered-rule-kb/rule-07-reuse.md) | `AD-11`, `AD-14`, `WP-23` |
+| `<context>` | Unconditional | [rule-08-context.md](../../research/06-layered-rule-kb/rule-08-context.md) | `AD-04`, `EM-03`, `EM-10` |
+| `<recovery>` | Unconditional | [rule-09-recovery.md](../../research/06-layered-rule-kb/rule-09-recovery.md) | `AD-07`, `AD-16`, `AD-21` |
+| `<stop_repairing>` | Unconditional | [rule-10-stop-repairing.md](../../research/06-layered-rule-kb/rule-10-stop-repairing.md) | `AD-02`, `AD-07`, `AD-24`, `EM-05` |
+| `<current_truth>` | Unconditional | [rule-11-current-truth.md](../../research/06-layered-rule-kb/rule-11-current-truth.md) | `FA-01`, `FA-09`, `FA-11`, `WP-08` |
+| `<surgical>` | Unconditional | [rule-12-surgical.md](../../research/06-layered-rule-kb/rule-12-surgical.md) | `EM-01`, `AD-03`, `GS-02` |
+| `<editing>` | Gated | [rule-13-editing.md](../../research/06-layered-rule-kb/rule-13-editing.md) | `EM-01`, `EM-08`, `AD-23`, `GS-09`..`11` |
+| `<new_machinery>` | Gated | [rule-14-new-machinery.md](../../research/06-layered-rule-kb/rule-14-new-machinery.md) | `AD-25`, `AD-10`, `AD-13` |
+| `<detour>` | Gated | [rule-15-detour.md](../../research/06-layered-rule-kb/rule-15-detour.md) | `AD-05`, `AD-10`, `AD-12` |
+| `<authoring>` | Gated | [rule-16-authoring.md](../../research/06-layered-rule-kb/rule-16-authoring.md) | `FA-13`, `FA-06`, `WP-06`..`10`, `WP-19` |
+| `<trade_off>` | Gated | [rule-17-trade-off.md](../../research/06-layered-rule-kb/rule-17-trade-off.md) | `EM-06`, `EM-07`, `GS-12`, `GS-13` |
+| `<handover>` | Gated | [rule-18-handover.md](../../research/06-layered-rule-kb/rule-18-handover.md) | `EM-09`, `EM-02`, `AD-06` |
+| `<iterative>` | Gated | [rule-19-iterative.md](../../research/06-layered-rule-kb/rule-19-iterative.md) | `EM-10`, `EM-11`, `AD-04` |
+| `<schemas>` | Gated | [rule-20-schemas.md](../../research/06-layered-rule-kb/rule-20-schemas.md) | `GS-01`, `GS-09`..`11` |
+| `<sync>` | Gated | [rule-21-sync.md](../../research/06-layered-rule-kb/rule-21-sync.md) | `EM-12`, `AD-23` |
+| `<pointers>` | Terminal Guard | [rule-22-pointers.md](../../research/06-layered-rule-kb/rule-22-pointers.md) | `general-informatics-router.md`, `WP-25` |
 
 ---
 
 ## 5. Verification Guard (`WP-25`)
 
-- **Single-Source Rule Text:** Every rule body in `3A-Ultra` is directly derived from the recommended Option B formulation in [06-layered-rule-kb/](../research/06-layered-rule-kb/). Any future modification to contract wording must first update the underlying Layer 1 rule deep dive.
+- **Single-Source Rule Text:** Every rule body in `3A-Ultra` is directly derived from the recommended Option B formulation in [06-layered-rule-kb/](../../research/06-layered-rule-kb/). Any future modification to contract wording must first update the underlying Layer 1 rule deep dive.
 - **Carrier Immutability:** Never inject `3A-Ultra` into live carrier files (`AGENTS.md`, `CLAUDE.md`, `GEMINI.md`) during candidate compilation.

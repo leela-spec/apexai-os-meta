@@ -10,7 +10,7 @@ status: current
 ## 8. Adapter 7: Task Specification Contract
 
 - **EM-13 [P0 | I94/E88/R10] Pre-Work Task Contract**:
-  - **IF** a task is anything other than a single trivial edit or a direct question → **THEN**
+  - **IF** a task is non-trivial, not a direct question, and not already defined by a previous step → **THEN**
     state the six fields below and obtain confirmation before starting (`<align>`).
   - **IF** the task is a delegation or a session handover → **THEN** `EM-09`'s 4-Dimensional
     Handover Contract governs; this adapter supplies the Redraft and Framework fields it lacks.

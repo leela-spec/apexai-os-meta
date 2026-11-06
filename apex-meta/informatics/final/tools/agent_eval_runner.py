@@ -212,7 +212,7 @@ def simulate_carrier_execution(carrier: CarrierProfile, scenario: TaskScenario) 
     }
 
 def extract_challenger_carrier(repo_root: Path) -> str:
-    ultra_path = repo_root / "apex-meta/informatics/final/candidates/16-candidate-3A-ultra.md"
+    ultra_path = repo_root / "apex-meta/informatics/final/candidates/_archive/16-candidate-3A-ultra.md"
     ultra_content = ultra_path.read_text(encoding="utf-8")
     xml_match = re.search(r'(<apex_contract[\s\S]*?</apex_contract>)', ultra_content)
     xml_block = xml_match.group(1) if xml_match else ""
