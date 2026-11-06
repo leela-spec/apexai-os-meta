@@ -6,74 +6,203 @@
 > **Review needed:** {{HIGHEST_IMPACT_WEEKLY_DECISION_OR_NONE}}  
 > **Scope:** {{ACTIVE_PROJECT_COUNT}} projects; {{MAJOR_OUTCOME_COUNT}} major outcomes
 
-## Operator decision
+## Operator Decisions (Informatics Governed)
 
-- [ ] Approve the week as the planning basis.
-- [ ] Edit project priorities or planned work.
-- [ ] Reduce scope or defer a named outcome.
-- [ ] Resolve a capacity, dependency, or decision constraint.
-- [ ] Reject and reframe the weekly direction.
+- **DEC-01 [P0 | I95/E30/R20] {{DECISION_TITLE}}**
+  - • Context: {{DECISION_CONTEXT_OR_CONSTRAINT}}
+  - • OpenProject Anchor: `[OP-WP#{{WP_ID}}]`
+  - • Action Required: {{OPERATOR_ACTION_OR_CHOICE}}
+  - • Status: `{{PROPOSED | APPROVED | REJECTED | DEFERRED}}`
 
-**Decision or instruction:** {{OPERATOR_DECISION_OR_PENDING}}
+## Weekly Direction
 
-## Weekly direction
+**Portfolio North Star:** {{PORTFOLIO_WEEKLY_INTENT}}
 
-**Weekly intent:** {{WHAT_THE_PORTFOLIO_SHOULD_ACCOMPLISH}}  
-**Success at week end:**
+### Highlight Goals by Project Sequence:
+- **Seq 1 (Priority Master of Arts Website & Invoices):** {{MA_HIGHLIGHT_GOAL}}
+- **Seq 2 (Investment Pipeline & Dashboard):** {{INV_HIGHLIGHT_GOAL}}
+- **Seq 3 (Apex OS OpenMouse Integration):** {{APEX_HIGHLIGHT_GOAL}}
+- **Seq 4 (Leela Skill Tree Completion):** {{LEELA_HIGHLIGHT_GOAL}}
 
-- {{MAJOR_CROSS_PROJECT_OUTCOME}}
+**Cross-Portfolio Capacity Floor:** {{AVAILABLE_CAPACITY_AND_FIXED_CALENDAR_CONSTRAINTS}}
 
-**Capacity and constraints:**
+## Weekly Architecture
 
-- {{AVAILABLE_CAPACITY_OR_FIXED_CONSTRAINT}}
+### Matrix 1: Project Architecture & Process Flow (Non-Temporal)
 
-## Weekly architecture
+*(Repeat for each active project: Priority Master of Arts, Investment, Apex OS, Lila)*
 
-### Matrix 1: Project strategy, sub-targets & leverage ledger
+#### Project: {{PROJECT_NAME}} (OP ID: {{PROJECT_SLUG_OR_ID}})
+- **Strategic Target:** {{PROJECT_STRATEGIC_TARGET}}
+- **Baseline State:** {{WHERE_THE_PROJECT_STANDS_NOW}}
 
-| Project / Stream | Weekly Strategic Target | Granular Sub-Targets | Strategic Leverage & Expected Deliverables |
-| :--- | :--- | :--- | :--- |
-| **{{PROJECT_NAME}}** | {{PROJECT_STRATEGIC_TARGET}} | • **`[{{PROJ_TAG}}-T1]`** {{SUB_TARGET_1_NAME}}: {{SUB_TARGET_1_DESC}}<br>• **`[{{PROJ_TAG}}-T2]`** {{SUB_TARGET_2_NAME}}: {{SUB_TARGET_2_DESC}} | **{{LEVERAGE_SUMMARY}}**<br>📦 *Deliverable:* {{EXPECTED_MAJOR_DELIVERABLE}} |
+- **Process Flow & Iterations:**
+  - `Step 1: [OP-WP#{{ID_1}}] {{STEP_1_NAME}}` ➔ `Step 2: [OP-WP#{{ID_2}}] {{STEP_2_NAME}}` ↻ `Iteration [OP-WP#{{ID_3}}] {{ITERATION_NAME}}` ➔ `Step 3: [OP-WP#{{ID_4}}] {{STEP_3_NAME}}`
+  - *Evolution Commentary:*
+    - "This is there now": {{CURRENT_STATE_OR_EXISTING_ASSET}}
+    - "This goes where": {{DESTINATION_FILE_OR_PIPELINE_HANDOFF}}
 
-### Day emphasis (directional only - detail belongs to PrecapNextDay)
+- **Shortlist (Weekly Commitments):**
+  - [ ] **[OP-WP#{{ID_1}}] {{TASK_NAME}}** (I{{IMP}}/R{{RISK}}/E{{EVID}})
+    - • Subtask: {{SUBTASK_NAME}} — Output: `{{OUTPUT_PATH}}`
+    - • Subtask: {{SUBTASK_NAME}} — Dependency: `[OP-WP#{{PARENT_ID}}]`
+    - • *Handshake*: {{HANDOFF_NOTES}}
 
-| Day | Emphasis | Reason |
-| :--- | :--- | :--- |
-| MON | {{MON_EMPHASIS}} | {{MON_REASON}} |
-| TUE | {{TUE_EMPHASIS}} | {{TUE_REASON}} |
-| WED | {{WED_EMPHASIS}} | {{WED_REASON}} |
-| THU | {{THU_EMPHASIS}} | {{THU_REASON}} |
-| FRI | {{FRI_EMPHASIS}} | {{FRI_REASON}} |
+- **Longlist (Backlog / Staged / Next in Queue):**
+  - [ ] **[OP-WP#{{ID_STAGED}}] {{STAGED_TASK_NAME}}**: {{STAGED_REASON_OR_TRIGGER}}
+  - [ ] **[OP-WP#{{ID_DEFERRED}}] {{FUTURE_PHASE_NAME}}**: {{DEPENDENCY_CONDITION}}
 
-Day-level sprint goals and per-flow daily grids belong to the daily layer (PrecapNextDay), not this artifact. Constrained days must state a capacity class (STANDARD / REDUCED / CRITICAL) and the reason.
+### Matrix 2: Timeline & Calendar View (Temporal / Sequences & Sprints)
 
-## Project - {{PROJECT_NAME}} (repeat per active project)
+<div class="weekly-calendar-matrix" style="width: 100%; overflow-x: auto; margin: 16px 0;">
+  <table style="width: 100%; min-width: 1050px; border-collapse: collapse; font-family: system-ui, sans-serif; font-size: 0.85em; border: 1px solid rgba(128,128,128,0.3);">
+    <thead>
+      <tr style="background: rgba(128,128,128,0.15); border-bottom: 2px solid #555;">
+        <th style="width: 16%; padding: 8px; text-align: left;">Sequence / Project</th>
+        <th style="width: 8%; padding: 8px; text-align: center;">Sprint</th>
+        <th style="width: 13%; padding: 8px; text-align: left;">Monday</th>
+        <th style="width: 13%; padding: 8px; text-align: left;">Tuesday</th>
+        <th style="width: 13%; padding: 8px; text-align: left;">Wednesday</th>
+        <th style="width: 13%; padding: 8px; text-align: left;">Thursday</th>
+        <th style="width: 13%; padding: 8px; text-align: left;">Friday</th>
+        <th style="width: 11%; padding: 8px; text-align: left;">Saturday</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Sequence 1: Priority Master of Arts -->
+      <tr>
+        <td rowspan="3" style="padding: 8px; vertical-align: top; background: rgba(128,128,128,0.05); border-bottom: 2px solid #555;">
+          <strong>Seq 1: Master of Arts</strong><br>
+          <span style="font-size: 0.85em; color: #888;">Website & Invoices</span>
+        </td>
+        <td style="padding: 6px; text-align: center; font-weight: 600; border-bottom: 1px solid rgba(128,128,128,0.2);">Sprint 1</td>
+        <td style="padding: 6px; vertical-align: top; border-bottom: 1px solid rgba(128,128,128,0.2);">{{S1_MON_TASK}}</td>
+        <td style="padding: 6px; vertical-align: top; border-bottom: 1px solid rgba(128,128,128,0.2);">{{S1_TUE_TASK}}</td>
+        <td style="padding: 6px; vertical-align: top; border-bottom: 1px solid rgba(128,128,128,0.2);">{{S1_WED_TASK}}</td>
+        <td style="padding: 6px; vertical-align: top; border-bottom: 1px solid rgba(128,128,128,0.2);">{{S1_THU_TASK}}</td>
+        <td style="padding: 6px; vertical-align: top; border-bottom: 1px solid rgba(128,128,128,0.2);">{{S1_FRI_TASK}}</td>
+        <td style="padding: 6px; vertical-align: top; color: #888; border-bottom: 1px solid rgba(128,128,128,0.2);">Buffer</td>
+      </tr>
+      <tr>
+        <td style="padding: 6px; text-align: center; font-weight: 600; border-bottom: 1px solid rgba(128,128,128,0.2);">Sprint 2</td>
+        <td style="padding: 6px; vertical-align: top; border-bottom: 1px solid rgba(128,128,128,0.2);">{{S2_MON_TASK}}</td>
+        <td style="padding: 6px; vertical-align: top; border-bottom: 1px solid rgba(128,128,128,0.2);">{{S2_TUE_TASK}}</td>
+        <td style="padding: 6px; vertical-align: top; border-bottom: 1px solid rgba(128,128,128,0.2);">{{S2_WED_TASK}}</td>
+        <td style="padding: 6px; vertical-align: top; border-bottom: 1px solid rgba(128,128,128,0.2);">{{S2_THU_TASK}}</td>
+        <td style="padding: 6px; vertical-align: top; border-bottom: 1px solid rgba(128,128,128,0.2);">{{S2_FRI_TASK}}</td>
+        <td style="padding: 6px; vertical-align: top; color: #888; border-bottom: 1px solid rgba(128,128,128,0.2);">Review Gate</td>
+      </tr>
+      <tr style="border-bottom: 2px solid #555;">
+        <td style="padding: 6px; text-align: center; font-weight: 600;">Sprint 3</td>
+        <td style="padding: 6px; vertical-align: top;">{{S3_MON_TASK}}</td>
+        <td style="padding: 6px; vertical-align: top;">{{S3_TUE_TASK}}</td>
+        <td style="padding: 6px; vertical-align: top;">{{S3_WED_TASK}}</td>
+        <td style="padding: 6px; vertical-align: top;">{{S3_THU_TASK}}</td>
+        <td style="padding: 6px; vertical-align: top;">{{S3_FRI_TASK}}</td>
+        <td style="padding: 6px; vertical-align: top; color: #888;">Archival</td>
+      </tr>
 
-**Weekly target:** {{PROJECT_LEVEL_TARGET}}  
-**Why this week:** {{TIMING_OR_LEVERAGE_REASON}}  
-**Success evidence:** {{WHAT_WILL_DEMONSTRATE_PROGRESS}}
+      <!-- Sequence 2: Investment -->
+      <tr>
+        <td rowspan="3" style="padding: 8px; vertical-align: top; background: rgba(128,128,128,0.05); border-bottom: 2px solid #555;">
+          <strong>Seq 2: Investment</strong><br>
+          <span style="font-size: 0.85em; color: #888;">Pipeline & Dashboard</span>
+        </td>
+        <td style="padding: 6px; text-align: center; font-weight: 600; border-bottom: 1px solid rgba(128,128,128,0.2);">Sprint 1</td>
+        <td style="padding: 6px; vertical-align: top; border-bottom: 1px solid rgba(128,128,128,0.2);">{{S1_MON_TASK}}</td>
+        <td style="padding: 6px; vertical-align: top; border-bottom: 1px solid rgba(128,128,128,0.2);">{{S1_TUE_TASK}}</td>
+        <td style="padding: 6px; vertical-align: top; border-bottom: 1px solid rgba(128,128,128,0.2);">{{S1_WED_TASK}}</td>
+        <td style="padding: 6px; vertical-align: top; border-bottom: 1px solid rgba(128,128,128,0.2);">{{S1_THU_TASK}}</td>
+        <td style="padding: 6px; vertical-align: top; border-bottom: 1px solid rgba(128,128,128,0.2);">{{S1_FRI_TASK}}</td>
+        <td style="padding: 6px; vertical-align: top; color: #888; border-bottom: 1px solid rgba(128,128,128,0.2);">Buffer</td>
+      </tr>
+      <tr>
+        <td style="padding: 6px; text-align: center; font-weight: 600; border-bottom: 1px solid rgba(128,128,128,0.2);">Sprint 2</td>
+        <td style="padding: 6px; vertical-align: top; border-bottom: 1px solid rgba(128,128,128,0.2);">{{S2_MON_TASK}}</td>
+        <td style="padding: 6px; vertical-align: top; border-bottom: 1px solid rgba(128,128,128,0.2);">{{S2_TUE_TASK}}</td>
+        <td style="padding: 6px; vertical-align: top; border-bottom: 1px solid rgba(128,128,128,0.2);">{{S2_WED_TASK}}</td>
+        <td style="padding: 6px; vertical-align: top; border-bottom: 1px solid rgba(128,128,128,0.2);">{{S2_THU_TASK}}</td>
+        <td style="padding: 6px; vertical-align: top; border-bottom: 1px solid rgba(128,128,128,0.2);">{{S2_FRI_TASK}}</td>
+        <td style="padding: 6px; vertical-align: top; color: #888; border-bottom: 1px solid rgba(128,128,128,0.2);">Signoff Gate</td>
+      </tr>
+      <tr style="border-bottom: 2px solid #555;">
+        <td style="padding: 6px; text-align: center; font-weight: 600;">Sprint 3</td>
+        <td style="padding: 6px; vertical-align: top;">{{S3_MON_TASK}}</td>
+        <td style="padding: 6px; vertical-align: top;">{{S3_TUE_TASK}}</td>
+        <td style="padding: 6px; vertical-align: top;">{{S3_WED_TASK}}</td>
+        <td style="padding: 6px; vertical-align: top;">{{S3_THU_TASK}}</td>
+        <td style="padding: 6px; vertical-align: top;">{{S3_FRI_TASK}}</td>
+        <td style="padding: 6px; vertical-align: top; color: #888;">Data Freeze</td>
+      </tr>
 
-### Priorities and desired results
+      <!-- Sequence 3: Apex OS -->
+      <tr>
+        <td rowspan="3" style="padding: 8px; vertical-align: top; background: rgba(128,128,128,0.05); border-bottom: 2px solid #555;">
+          <strong>Seq 3: Apex OS</strong><br>
+          <span style="font-size: 0.85em; color: #888;">OpenMouse Integration</span>
+        </td>
+        <td style="padding: 6px; text-align: center; font-weight: 600; border-bottom: 1px solid rgba(128,128,128,0.2);">Sprint 1</td>
+        <td style="padding: 6px; vertical-align: top; border-bottom: 1px solid rgba(128,128,128,0.2);">{{S1_MON_TASK}}</td>
+        <td style="padding: 6px; vertical-align: top; border-bottom: 1px solid rgba(128,128,128,0.2);">{{S1_TUE_TASK}}</td>
+        <td style="padding: 6px; vertical-align: top; border-bottom: 1px solid rgba(128,128,128,0.2);">{{S1_WED_TASK}}</td>
+        <td style="padding: 6px; vertical-align: top; border-bottom: 1px solid rgba(128,128,128,0.2);">{{S1_THU_TASK}}</td>
+        <td style="padding: 6px; vertical-align: top; border-bottom: 1px solid rgba(128,128,128,0.2);">{{S1_FRI_TASK}}</td>
+        <td style="padding: 6px; vertical-align: top; color: #888; border-bottom: 1px solid rgba(128,128,128,0.2);">Bench Signoff</td>
+      </tr>
+      <tr>
+        <td style="padding: 6px; text-align: center; font-weight: 600; border-bottom: 1px solid rgba(128,128,128,0.2);">Sprint 2</td>
+        <td style="padding: 6px; vertical-align: top; border-bottom: 1px solid rgba(128,128,128,0.2);">{{S2_MON_TASK}}</td>
+        <td style="padding: 6px; vertical-align: top; border-bottom: 1px solid rgba(128,128,128,0.2);">{{S2_TUE_TASK}}</td>
+        <td style="padding: 6px; vertical-align: top; border-bottom: 1px solid rgba(128,128,128,0.2);">{{S2_WED_TASK}}</td>
+        <td style="padding: 6px; vertical-align: top; border-bottom: 1px solid rgba(128,128,128,0.2);">{{S2_THU_TASK}}</td>
+        <td style="padding: 6px; vertical-align: top; border-bottom: 1px solid rgba(128,128,128,0.2);">{{S2_FRI_TASK}}</td>
+        <td style="padding: 6px; vertical-align: top; color: #888; border-bottom: 1px solid rgba(128,128,128,0.2);">Driver Gate</td>
+      </tr>
+      <tr style="border-bottom: 2px solid #555;">
+        <td style="padding: 6px; text-align: center; font-weight: 600;">Sprint 3</td>
+        <td style="padding: 6px; vertical-align: top;">{{S3_MON_TASK}}</td>
+        <td style="padding: 6px; vertical-align: top;">{{S3_TUE_TASK}}</td>
+        <td style="padding: 6px; vertical-align: top;">{{S3_WED_TASK}}</td>
+        <td style="padding: 6px; vertical-align: top;">{{S3_THU_TASK}}</td>
+        <td style="padding: 6px; vertical-align: top;">{{S3_FRI_TASK}}</td>
+        <td style="padding: 6px; vertical-align: top; color: #888;">Artifact Build</td>
+      </tr>
 
-1. **{{PRIORITY}}** - {{DESIRED_RESULT}}
-
-### Planned work
-
-- **Work item:** {{ACTIONABLE_WORK_ITEM}}
-  - Expected output: {{OUTPUT_OR_ARTIFACT}}
-  - Owner or executor: {{OWNER_OR_OPERATOR}}
-  - Dependency: {{DEPENDENCY_OR_NONE}}
-  - Candidate day: {{DAY_OR_UNASSIGNED}}
-
-### Blockers, risks, and decisions
-
-- **Blocker or risk:** {{ITEM_OR_NONE}}
-- **Decision needed:** {{DECISION_OR_NONE}}
-- **Response this week:** {{MITIGATION_OR_OPERATOR_ACTION}}
-
-### Expected outputs
-
-- [{{OUTPUT_LABEL}}]({{OUTPUT_REF_OR_PLANNED_PATH}}) - `{{VISIBLE_REF_OR_PATH}}`
+      <!-- Sequence 4: Leela -->
+      <tr>
+        <td rowspan="3" style="padding: 8px; vertical-align: top; background: rgba(128,128,128,0.05); border-bottom: 2px solid #555;">
+          <strong>Seq 4: Leela</strong><br>
+          <span style="font-size: 0.85em; color: #888;">Skill Tree Completion</span>
+        </td>
+        <td style="padding: 6px; text-align: center; font-weight: 600; border-bottom: 1px solid rgba(128,128,128,0.2);">Sprint 1</td>
+        <td style="padding: 6px; vertical-align: top; border-bottom: 1px solid rgba(128,128,128,0.2);">{{S1_MON_TASK}}</td>
+        <td style="padding: 6px; vertical-align: top; border-bottom: 1px solid rgba(128,128,128,0.2);">{{S1_TUE_TASK}}</td>
+        <td style="padding: 6px; vertical-align: top; border-bottom: 1px solid rgba(128,128,128,0.2);">{{S1_WED_TASK}}</td>
+        <td style="padding: 6px; vertical-align: top; border-bottom: 1px solid rgba(128,128,128,0.2);">{{S1_THU_TASK}}</td>
+        <td style="padding: 6px; vertical-align: top; border-bottom: 1px solid rgba(128,128,128,0.2);">{{S1_FRI_TASK}}</td>
+        <td style="padding: 6px; vertical-align: top; color: #888; border-bottom: 1px solid rgba(128,128,128,0.2);">Documentation</td>
+      </tr>
+      <tr>
+        <td style="padding: 6px; text-align: center; font-weight: 600; border-bottom: 1px solid rgba(128,128,128,0.2);">Sprint 2</td>
+        <td style="padding: 6px; vertical-align: top; border-bottom: 1px solid rgba(128,128,128,0.2);">{{S2_MON_TASK}}</td>
+        <td style="padding: 6px; vertical-align: top; border-bottom: 1px solid rgba(128,128,128,0.2);">{{S2_TUE_TASK}}</td>
+        <td style="padding: 6px; vertical-align: top; border-bottom: 1px solid rgba(128,128,128,0.2);">{{S2_WED_TASK}}</td>
+        <td style="padding: 6px; vertical-align: top; border-bottom: 1px solid rgba(128,128,128,0.2);">{{S2_THU_TASK}}</td>
+        <td style="padding: 6px; vertical-align: top; border-bottom: 1px solid rgba(128,128,128,0.2);">{{S2_FRI_TASK}}</td>
+        <td style="padding: 6px; vertical-align: top; color: #888; border-bottom: 1px solid rgba(128,128,128,0.2);">Logic Gate</td>
+      </tr>
+      <tr style="border-bottom: 2px solid #555;">
+        <td style="padding: 6px; text-align: center; font-weight: 600;">Sprint 3</td>
+        <td style="padding: 6px; vertical-align: top;">{{S3_MON_TASK}}</td>
+        <td style="padding: 6px; vertical-align: top;">{{S3_TUE_TASK}}</td>
+        <td style="padding: 6px; vertical-align: top;">{{S3_WED_TASK}}</td>
+        <td style="padding: 6px; vertical-align: top;">{{S3_THU_TASK}}</td>
+        <td style="padding: 6px; vertical-align: top;">{{S3_FRI_TASK}}</td>
+        <td style="padding: 6px; vertical-align: top; color: #888;">Package Validate</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
 ## Cross-project sequence
 

@@ -1,0 +1,1019 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Weekly Command Brief — 2026-W45 (Decoupled Project Epics & True Calendar Sprints)</title>
+  <style>
+    :root {
+      --bg: #0d1117;
+      --card-bg: #161b22;
+      --border: #30363d;
+      --text: #c9d1d9;
+      --heading: #f0f6fc;
+      --accent: #58a6ff;
+      --accent-subtle: rgba(56, 139, 253, 0.12);
+      --success: #3fb950;
+      --warning: #d29922;
+      --danger: #f85149;
+      --anchor-bg: rgba(110, 118, 129, 0.15);
+      --sprint-bg: #1c2128;
+    }
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.5;
+      padding: 24px;
+      margin: 0;
+    }
+    .container {
+      max-width: 1440px;
+      margin: 0 auto;
+    }
+    h1, h2, h3, h4, h5 {
+      color: var(--heading);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 6px;
+      margin-top: 24px;
+    }
+    .badge {
+      display: inline-block;
+      padding: 3px 8px;
+      font-size: 0.78em;
+      font-weight: 600;
+      border-radius: 6px;
+      margin-right: 6px;
+    }
+    .badge-critical { background: var(--danger); color: #fff; }
+    .badge-review { background: var(--warning); color: #0d1117; }
+    .badge-approved { background: var(--success); color: #0d1117; }
+    .badge-op { background: #238636; color: #fff; }
+    .badge-epic { background: var(--accent); color: #0d1117; font-weight: 700; }
+    
+    .meta-box {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--accent);
+      border-radius: 6px;
+      padding: 12px 16px;
+      margin-bottom: 20px;
+    }
+    .decision-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 12px 16px;
+      margin-bottom: 12px;
+    }
+    .project-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px;
+      margin-bottom: 24px;
+    }
+    .epic-block {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(48, 54, 61, 0.6);
+      border-radius: 6px;
+      padding: 12px;
+      margin-top: 12px;
+    }
+    .task-item {
+      margin: 8px 0;
+      padding: 8px;
+      background: #1c2128;
+      border-radius: 4px;
+    }
+    .sprint-units-list {
+      margin: 6px 0 0 16px;
+      padding: 0;
+      font-size: 0.88em;
+      color: #79c0ff;
+      list-style-type: none;
+    }
+    .sprint-units-list li::before {
+      content: "↳ ";
+      color: var(--accent);
+      font-weight: bold;
+    }
+
+    /* Hourly Calendar Styles */
+    .calendar-container {
+      width: 100%;
+      overflow-x: auto;
+      margin: 20px 0;
+    }
+    table.calendar-table {
+      width: 100%;
+      min-width: 1200px;
+      border-collapse: collapse;
+      font-size: 0.82em;
+      border: 1px solid var(--border);
+      background: var(--card-bg);
+    }
+    table.calendar-table th, table.calendar-table td {
+      border: 1px solid var(--border);
+      padding: 8px 8px;
+      vertical-align: top;
+    }
+    table.calendar-table th {
+      background: #21262d;
+      color: var(--heading);
+      text-align: left;
+    }
+    .time-col {
+      width: 8%;
+      text-align: center;
+      font-family: monospace;
+      font-weight: 600;
+      background: #161b22;
+      color: #8b949e;
+    }
+    .day-col {
+      width: 15.3%;
+    }
+    .anchor-row {
+      background: var(--anchor-bg);
+      color: #8b949e;
+      text-align: center;
+      font-weight: 600;
+    }
+    .sequence-header {
+      font-weight: 700;
+      color: var(--heading);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 4px;
+      margin-bottom: 6px;
+    }
+    .sprint-card {
+      background: var(--sprint-bg);
+      border-left: 3px solid var(--success);
+      border-radius: 4px;
+      padding: 5px 7px;
+      margin-bottom: 6px;
+    }
+    .sprint-card-title {
+      font-weight: 600;
+      font-size: 0.9em;
+      color: #56d364;
+      margin-bottom: 3px;
+    }
+    .sprint-items-list {
+      margin: 0;
+      padding-left: 14px;
+      font-size: 0.92em;
+      color: #c9d1d9;
+    }
+    .meeting-slot {
+      background: rgba(210, 153, 34, 0.15);
+      border-left: 3px solid var(--warning);
+      padding: 6px 8px;
+      border-radius: 4px;
+      color: #f0f6fc;
+      font-weight: 600;
+    }
+    pre {
+      background: #0d1117;
+      border: 1px solid var(--border);
+      padding: 14px;
+      border-radius: 6px;
+      overflow-x: auto;
+      color: #e6edf3;
+      font-size: 0.88em;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <h1>Weekly Command Brief — 2026-W45</h1>
+
+  <div class="meta-box">
+    <div><span class="badge badge-review">STATE: READY_WITH_REVIEW</span> <strong>Direction:</strong> Execute Apex OS OpenMouse hardware bindings, lock Leela skill tree DAG, verify Investment retry pipeline & dashboard, and complete Master of Arts website nav & invoices.</div>
+    <div style="margin-top:6px;"><strong>Next Action:</strong> <code>APPROVE_WEEK</code> | <strong>Scope:</strong> 5 Projects · 8 Epics · 4 Daily 2h Sequences · 30m Sprints (3 items/sprint)</div>
+    <div style="margin-top:6px;"><strong>Review Needed:</strong> DEC-01 (OpenProject daemon offline; reconciliation gate upon container wake).</div>
+  </div>
+
+  <h2>1. Operator Decisions (Informatics Governed)</h2>
+  
+  <div class="decision-card">
+    <div>
+      <span class="badge badge-op">P0</span>
+      <strong>DEC-01 [I95/E20/R15] OpenProject Service Reconnection & ID Reconciliation</strong>
+      <span class="badge badge-review">PROPOSED</span>
+    </div>
+    <div style="font-size:0.9em; margin-top:6px; padding-left:14px;">
+      • <strong>Context:</strong> Canonical runner <code>opCall.js doctor</code> returned <code>ECONNREFUSED</code> on port 8083.<br>
+      • <strong>OpenProject Anchor:</strong> <code>[OP-OFFLINE: SYSTEM-01]</code><br>
+      • <strong>Action Required:</strong> Reconcile temporary <code>[OP-OFFLINE: WP-*]</code> tags with live work package IDs once host container is active.
+    </div>
+  </div>
+
+  <div class="decision-card">
+    <div>
+      <span class="badge badge-op">P1</span>
+      <strong>DEC-02 [I90/E40/R20] Apex OpenMouse Hardware Event Intercept Priority</strong>
+      <span class="badge badge-approved">APPROVED</span>
+    </div>
+    <div style="font-size:0.9em; margin-top:6px; padding-left:14px;">
+      • <strong>Context:</strong> OpenMouse button handler requires driver interrupt stability before HUD overlay integration.<br>
+      • <strong>OpenProject Anchor:</strong> <code>[OP-OFFLINE: WP-APEX-01]</code><br>
+      • <strong>Action Required:</strong> Allocate Monday–Tuesday 09:00–11:00 deep focus sequences strictly to hardware loop latency benchmarking.
+    </div>
+  </div>
+
+  <div class="decision-card">
+    <div>
+      <span class="badge badge-op">P1</span>
+      <strong>DEC-03 [I88/E35/R10] Master of Arts Invoicing Engine Logic Lock</strong>
+      <span class="badge badge-review">PROPOSED</span>
+    </div>
+    <div style="font-size:0.9em; margin-top:6px; padding-left:14px;">
+      • <strong>Context:</strong> Invoicing calculation and tax logic must be frozen before automated batch PDF generation runs.<br>
+      • <strong>OpenProject Anchor:</strong> <code>[OP-OFFLINE: WP-MA-03]</code><br>
+      • <strong>Action Required:</strong> Sign off on formula verification unit test suite during Wednesday afternoon review.
+    </div>
+  </div>
+
+  <h2>2. Weekly Direction</h2>
+  <p><strong>Portfolio North Star:</strong> Ship the functional OpenMouse hardware button intercept loop in Apex OS, lock the Leela skill tree progression mechanics, verify the Investment ingestion harness and dashboard query pipeline, and deploy the modernized website header and automated billing flow for Master of Arts.</p>
+
+  <h2>3. Weekly Architecture</h2>
+
+  <h3>Matrix 1: Project Architecture, Epics & Critical Path (Non-Temporal)</h3>
+
+  <!-- Project 1: Apex OS -->
+  <div class="project-card">
+    <h4>Project 1: Apex OS (OpenMouse Integration)</h4>
+    <p><strong>Strategic Target:</strong> Establish kernel event bindings and hardware button click intercept.<br>
+    <strong>Critical Path:</strong> <code>[WP-APEX-01]</code> Driver Hook ➔ <code>[WP-APEX-02]</code> Intercept ➔ <code>[WP-APEX-03]</code> Latency Bench ➔ Release Gate.</p>
+
+    <div class="epic-block">
+      <h5><span class="badge badge-epic">EPIC 1</span> Hardware Driver Bus Bindings</h5>
+      <div class="task-item">
+        <strong>[OP-OFFLINE: WP-APEX-01] USB HID Polling Hook</strong> <span class="badge badge-critical">CRITICAL PATH</span> (I95/E90/R20: 81)
+        <div>• <em>Subtasks:</em> Parse raw HID tables; register kernel interrupt callback handler.</div>
+        <div>• <em>Dependency:</em> Baseline input bus active | <em>Unblocks:</em> [WP-APEX-02]</div>
+        <ul class="sprint-units-list">
+          <li>Sprint Unit A: Map button register bitmasks.</li>
+          <li>Sprint Unit B: Implement interrupt service routine.</li>
+          <li>Sprint Unit C: Verify zero packet drop in ring buffer.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="epic-block">
+      <h5><span class="badge badge-epic">EPIC 2</span> Button Event Interceptor & Dispatcher</h5>
+      <div class="task-item">
+        <strong>[OP-OFFLINE: WP-APEX-02] Click & Hold Event Listener</strong> <span class="badge badge-critical">CRITICAL PATH</span> (I92/E85/R25: 75)
+        <div>• <em>Subtasks:</em> Implement software debounce filter (5ms threshold); wire userland IPC socket dispatcher.</div>
+        <div>• <em>Dependency:</em> [WP-APEX-01] | <em>Unblocks:</em> [WP-APEX-04] HUD Overlay hook</div>
+        <ul class="sprint-units-list">
+          <li>Sprint Unit A: Write debounce timer state machine.</li>
+          <li>Sprint Unit B: IPC event packet serialization.</li>
+          <li>Sprint Unit C: Local socket loopback test.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Project 2: Leela -->
+  <div class="project-card">
+    <h4>Project 2: Leela (Skill Tree Completion)</h4>
+    <p><strong>Strategic Target:</strong> Finalize skill tree node schema, prerequisite dependencies, and visual progression.<br>
+    <strong>Critical Path:</strong> <code>[WP-LEELA-01]</code> Schema ➔ <code>[WP-LEELA-02]</code> DAG Engine ➔ <code>[WP-LEELA-03]</code> Cycle Guard ➔ Logic Gate.</p>
+
+    <div class="epic-block">
+      <h5><span class="badge badge-epic">EPIC 1</span> Node Hierarchy & Data Architecture</h5>
+      <div class="task-item">
+        <strong>[OP-OFFLINE: WP-LEELA-01] Node JSON Hierarchy Schema</strong> <span class="badge badge-critical">CRITICAL PATH</span> (I94/E92/R15: 84)
+        <div>• <em>Subtasks:</em> Define typed skill tiers (Tier 1 Core to Tier 4 Mastery); establish cost and unlock prerequisites.</div>
+        <div>• <em>Dependency:</em> None | <em>Unblocks:</em> [WP-LEELA-02] DAG Resolver</div>
+        <ul class="sprint-units-list">
+          <li>Sprint Unit A: Draft JSON Schema definition.</li>
+          <li>Sprint Unit B: Validate sample node definitions against schema.</li>
+          <li>Sprint Unit C: Build automated schema validation test.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="epic-block">
+      <h5><span class="badge badge-epic">EPIC 2</span> Prerequisite Resolution Engine</h5>
+      <div class="task-item">
+        <strong>[OP-OFFLINE: WP-LEELA-02] DAG Dependency Engine</strong> <span class="badge badge-critical">CRITICAL PATH</span> (I96/E85/R20: 79)
+        <div>• <em>Subtasks:</em> Topological graph traversal; circular dependency lockout guard.</div>
+        <div>• <em>Dependency:</em> [WP-LEELA-01] | <em>Unblocks:</em> Visual rendering</div>
+        <ul class="sprint-units-list">
+          <li>Sprint Unit A: Implement graph adjacency list builder.</li>
+          <li>Sprint Unit B: Implement recursive dependency resolver.</li>
+          <li>Sprint Unit C: Unit test multi-branch unlock cascades.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Project 3: Master of Arts -->
+  <div class="project-card">
+    <h4>Project 3: Master of Arts (Website & Invoices)</h4>
+    <p><strong>Strategic Target:</strong> Modernize website frontend layout and deploy operational invoice billing flow.<br>
+    <strong>Critical Path:</strong> <code>[WP-MA-03]</code> Invoice Schema ➔ <code>[WP-MA-04]</code> PDF Engine ➔ <code>[WP-MA-05]</code> Export Gate.</p>
+
+    <div class="epic-block">
+      <h5><span class="badge badge-epic">EPIC 1</span> Responsive Website Navigation</h5>
+      <div class="task-item">
+        <strong>[OP-OFFLINE: WP-MA-01] Responsive Navigation Bar</strong> (I88/E95/R15: 82)
+        <div>• <em>Subtasks:</em> Refactor CSS navigation bar with flexbox; test breakpoints across mobile/tablet/desktop.</div>
+        <ul class="sprint-units-list">
+          <li>Sprint Unit A: CSS flexbox structure and link states.</li>
+          <li>Sprint Unit B: Mobile toggle menu and slide-out drawer.</li>
+          <li>Sprint Unit C: Asset minification and cross-browser test.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="epic-block">
+      <h5><span class="badge badge-epic">EPIC 2</span> Automated Invoicing Engine</h5>
+      <div class="task-item">
+        <strong>[OP-OFFLINE: WP-MA-03] Invoice Generator Engine</strong> <span class="badge badge-critical">CRITICAL PATH</span> (I92/E80/R30: 71)
+        <div>• <em>Subtasks:</em> Define billing line-item JSON schema; tax/subtotal calculation test pass; connect PDF export renderer.</div>
+        <div>• <em>Dependency:</em> Line items defined | <em>Unblocks:</em> [WP-MA-05] Export gate</div>
+        <ul class="sprint-units-list">
+          <li>Sprint Unit A: Data schema and currency formatter.</li>
+          <li>Sprint Unit B: Tax calculation logic and edge case test.</li>
+          <li>Sprint Unit C: HTML-to-PDF template binding pass.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Project 4: Investment -->
+  <div class="project-card">
+    <h4>Project 4: Investment (Pipeline & Dashboard)</h4>
+    <p><strong>Strategic Target:</strong> Recheck data ingestion pipeline and connect live queries to dashboard.<br>
+    <strong>Critical Path:</strong> <code>[WP-INV-01]</code> Timeout Audit ➔ <code>[WP-INV-02]</code> Retry Harness ➔ <code>[WP-INV-04]</code> Dashboard Wire.</p>
+
+    <div class="epic-block">
+      <h5><span class="badge badge-epic">EPIC 1</span> Ingestion Reliability & Retry Harness</h5>
+      <div class="task-item">
+        <strong>[OP-OFFLINE: WP-INV-01] Ingestion Timeout Trace & Retry Wrapper</strong> <span class="badge badge-critical">CRITICAL PATH</span> (I94/E85/R25: 76)
+        <div>• <em>Subtasks:</em> Profile upstream API latency; implement exponential backoff with persistent queue.</div>
+        <ul class="sprint-units-list">
+          <li>Sprint Unit A: Add request logging and timeout instrumentation.</li>
+          <li>Sprint Unit B: Build retry wrapper with jittered backoff.</li>
+          <li>Sprint Unit C: Stress test simulated network dropouts.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <h3>Matrix 2: Timeline & Real Calendar View (2h Sequences, 30m Sprints & 3 Items/Slot)</h3>
+
+  <div class="calendar-container">
+    <table class="calendar-table">
+      <thead>
+        <tr>
+          <th class="time-col">Time Window</th>
+          <th class="day-col">Monday</th>
+          <th class="day-col">Tuesday</th>
+          <th class="day-col">Wednesday</th>
+          <th class="day-col">Thursday</th>
+          <th class="day-col">Friday</th>
+          <th class="day-col">Saturday</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Routine Anchor: 08:00 - 09:00 -->
+        <tr class="anchor-row">
+          <td class="time-col">08:00 – 09:00</td>
+          <td colspan="6">🔒 Protected Anchor: Morning Routine, Daily Orchestrator Setup & Agenda Lock</td>
+        </tr>
+
+        <!-- Sequence 1: 09:00 - 11:00 (2h Deep Focus) -->
+        <tr>
+          <td class="time-col">09:00 – 11:00<br><span style="color:#58a6ff; font-size:0.85em;">Seq 1 (2h)</span></td>
+          
+          <!-- Monday Seq 1 -->
+          <td>
+            <div class="sequence-header">Apex OS: Driver Hook</div>
+            <div class="sprint-card">
+              <div class="sprint-card-title">Sp 1 (09:00–09:30)</div>
+              <ol class="sprint-items-list">
+                <li>Parse raw HID tables</li>
+                <li>Map bitmask registers</li>
+                <li>Stub kernel hook</li>
+              </ol>
+            </div>
+            <div class="sprint-card">
+              <div class="sprint-card-title">Sp 2 (09:30–10:00)</div>
+              <ol class="sprint-items-list">
+                <li>Interrupt service routine</li>
+                <li>Ring buffer allocate</li>
+                <li>Zero drop verify</li>
+              </ol>
+            </div>
+            <div class="sprint-card">
+              <div class="sprint-card-title">Sp 3 (10:00–10:30)</div>
+              <ol class="sprint-items-list">
+                <li>Latency bench pass</li>
+                <li>Timestamp delta log</li>
+                <li>Kernel trace audit</li>
+              </ol>
+            </div>
+          </td>
+
+          <!-- Tuesday Seq 1 -->
+          <td>
+            <div class="sequence-header">Apex OS: Interceptor</div>
+            <div class="sprint-card">
+              <div class="sprint-card-title">Sp 1 (09:00–09:30)</div>
+              <ol class="sprint-items-list">
+                <li>Click event listener</li>
+                <li>5ms debounce timer</li>
+                <li>State machine test</li>
+              </ol>
+            </div>
+            <div class="sprint-card">
+              <div class="sprint-card-title">Sp 2 (09:30–10:00)</div>
+              <ol class="sprint-items-list">
+                <li>Hold event listener</li>
+                <li>Long-press threshold</li>
+                <li>Release event hook</li>
+              </ol>
+            </div>
+            <div class="sprint-card">
+              <div class="sprint-card-title">Sp 3 (10:00–10:30)</div>
+              <ol class="sprint-items-list">
+                <li>IPC socket serialize</li>
+                <li>Event loop dispatch</li>
+                <li>Loopback verify</li>
+              </ol>
+            </div>
+          </td>
+
+          <!-- Wednesday Seq 1 -->
+          <td>
+            <div class="sequence-header">Leela: DAG Resolver</div>
+            <div class="sprint-card">
+              <div class="sprint-card-title">Sp 1 (09:00–09:30)</div>
+              <ol class="sprint-items-list">
+                <li>Adjacency list builder</li>
+                <li>Graph node indexing</li>
+                <li>Root node traversal</li>
+              </ol>
+            </div>
+            <div class="sprint-card">
+              <div class="sprint-card-title">Sp 2 (09:30–10:00)</div>
+              <ol class="sprint-items-list">
+                <li>Recursive dependency</li>
+                <li>State cache lookup</li>
+                <li>Branch cascade test</li>
+              </ol>
+            </div>
+            <div class="sprint-card">
+              <div class="sprint-card-title">Sp 3 (10:00–10:30)</div>
+              <ol class="sprint-items-list">
+                <li>Circular guard rule</li>
+                <li>Cycle lockout test</li>
+                <li>Recursion guard pass</li>
+              </ol>
+            </div>
+          </td>
+
+          <!-- Thursday Seq 1 -->
+          <td>
+            <div class="sequence-header">Leela: Tree Render</div>
+            <div class="sprint-card">
+              <div class="sprint-card-title">Sp 1 (09:00–09:30)</div>
+              <ol class="sprint-items-list">
+                <li>SVG canvas setup</li>
+                <li>Node position calc</li>
+                <li>Tier level lanes</li>
+              </ol>
+            </div>
+            <div class="sprint-card">
+              <div class="sprint-card-title">Sp 2 (09:30–10:00)</div>
+              <ol class="sprint-items-list">
+                <li>Connector bezier curve</li>
+                <li>Locked state tint</li>
+                <li>Available state tint</li>
+              </ol>
+            </div>
+            <div class="sprint-card">
+              <div class="sprint-card-title">Sp 3 (10:00–10:30)</div>
+              <ol class="sprint-items-list">
+                <li>Tooltip cost card</li>
+                <li>Prereq highlight</li>
+                <li>Click unlock handler</li>
+              </ol>
+            </div>
+          </td>
+
+          <!-- Friday Seq 1 -->
+          <td>
+            <div class="sequence-header">Apex OS: Release Gate</div>
+            <div class="sprint-card">
+              <div class="sprint-card-title">Sp 1 (09:00–09:30)</div>
+              <ol class="sprint-items-list">
+                <li>End-to-end input test</li>
+                <li>Sustained load run</li>
+                <li>Memory leak audit</li>
+              </ol>
+            </div>
+            <div class="sprint-card">
+              <div class="sprint-card-title">Sp 2 (09:30–10:00)</div>
+              <ol class="sprint-items-list">
+                <li>Build binary package</li>
+                <li>Install script verify</li>
+                <li>Rollback script test</li>
+              </ol>
+            </div>
+            <div class="sprint-card">
+              <div class="sprint-card-title">Sp 3 (10:00–10:30)</div>
+              <ol class="sprint-items-list">
+                <li>Signoff checklist</li>
+                <li>Artifact hash write</li>
+                <li>Archive binary</li>
+              </ol>
+            </div>
+          </td>
+
+          <!-- Saturday Seq 1 -->
+          <td style="background:rgba(255,255,255,0.01);">
+            <div class="sequence-header" style="color:#8b949e;">Weekly Review</div>
+            <div style="font-size:0.9em; padding:8px; color:#8b949e;">
+              • Retrospective notes<br>
+              • Architecture sync<br>
+              • Next week seed review
+            </div>
+          </td>
+        </tr>
+
+        <!-- Mid-morning Buffer / Meeting Row: 11:00 - 11:30 -->
+        <tr>
+          <td class="time-col">11:00 – 11:30</td>
+          <td style="color:#8b949e; text-align:center;">☕ Transition Break</td>
+          <td>
+            <div class="meeting-slot">
+              📅 11:00–11:30<br>Stakeholder Sync
+            </div>
+          </td>
+          <td style="color:#8b949e; text-align:center;">☕ Transition Break</td>
+          <td style="color:#8b949e; text-align:center;">☕ Transition Break</td>
+          <td style="color:#8b949e; text-align:center;">☕ Transition Break</td>
+          <td style="color:#8b949e; text-align:center;">Clean Room Reset</td>
+        </tr>
+
+        <!-- Sequence 2: 11:30 - 12:30 (1h Compressed Focus) -->
+        <tr>
+          <td class="time-col">11:30 – 12:30<br><span style="color:#58a6ff; font-size:0.85em;">Seq 2 (1h)</span></td>
+          <td>
+            <div class="sequence-header">Leela: Schema Design</div>
+            <div class="sprint-card">
+              <div class="sprint-card-title">Sp 1 (11:30–12:00)</div>
+              <ol class="sprint-items-list">
+                <li>Draft JSON schema</li>
+                <li>Define tier enum</li>
+                <li>Set cost properties</li>
+              </ol>
+            </div>
+            <div class="sprint-card">
+              <div class="sprint-card-title">Sp 2 (12:00–12:30)</div>
+              <ol class="sprint-items-list">
+                <li>Sample node fixtures</li>
+                <li>Validator unit test</li>
+                <li>Error message check</li>
+              </ol>
+            </div>
+          </td>
+          <td>
+            <div class="sequence-header">Leela: Schema Review</div>
+            <div class="sprint-card">
+              <div class="sprint-card-title">Sp 1 (11:30–12:00)</div>
+              <ol class="sprint-items-list">
+                <li>Edge cases check</li>
+                <li>Multi-parent rules</li>
+                <li>Orphan node lockout</li>
+              </ol>
+            </div>
+            <div class="sprint-card">
+              <div class="sprint-card-title">Sp 2 (12:00–12:30)</div>
+              <ol class="sprint-items-list">
+                <li>Freeze schema v1</li>
+                <li>Commit definitions</li>
+                <li>Tag release</li>
+              </ol>
+            </div>
+          </td>
+          <td>
+            <div class="sequence-header">Investment: Trace</div>
+            <div class="sprint-card">
+              <div class="sprint-card-title">Sp 1 (11:30–12:00)</div>
+              <ol class="sprint-items-list">
+                <li>Latency log audit</li>
+                <li>Drop point trace</li>
+                <li>Payload size check</li>
+              </ol>
+            </div>
+            <div class="sprint-card">
+              <div class="sprint-card-title">Sp 2 (12:00–12:30)</div>
+              <ol class="sprint-items-list">
+                <li>Upstream probe test</li>
+                <li>Endpoint status log</li>
+                <li>Diagnostic report</li>
+              </ol>
+            </div>
+          </td>
+          <td>
+            <div class="sequence-header">Investment: Cleanse</div>
+            <div class="sprint-card">
+              <div class="sprint-card-title">Sp 1 (11:30–12:00)</div>
+              <ol class="sprint-items-list">
+                <li>Schema field cast</li>
+                <li>Null value sanitizer</li>
+                <li>Date format normalize</li>
+              </ol>
+            </div>
+            <div class="sprint-card">
+              <div class="sprint-card-title">Sp 2 (12:00–12:30)</div>
+              <ol class="sprint-items-list">
+                <li>Cleansing batch run</li>
+                <li>Row count checksum</li>
+                <li>Database load test</li>
+              </ol>
+            </div>
+          </td>
+          <td>
+            <div class="sequence-header">Leela: Freeze Gate</div>
+            <div class="sprint-card">
+              <div class="sprint-card-title">Sp 1 (11:30–12:00)</div>
+              <ol class="sprint-items-list">
+                <li>Full E2E tree pass</li>
+                <li>Lock state assert</li>
+                <li>Unlock state assert</li>
+              </ol>
+            </div>
+            <div class="sprint-card">
+              <div class="sprint-card-title">Sp 2 (12:00–12:30)</div>
+              <ol class="sprint-items-list">
+                <li>Logic freeze signoff</li>
+                <li>Package version bump</li>
+                <li>Readme update</li>
+              </ol>
+            </div>
+          </td>
+          <td style="color:#8b949e; text-align:center;">Buffer</td>
+        </tr>
+
+        <!-- Midday Reset Anchor: 12:30 - 13:30 -->
+        <tr class="anchor-row">
+          <td class="time-col">12:30 – 13:30</td>
+          <td colspan="6">🔒 Protected Anchor: Midday Reset, Walking & Lunch</td>
+        </tr>
+
+        <!-- Sequence 3: 13:30 - 15:30 (2h Deep Focus) -->
+        <tr>
+          <td class="time-col">13:30 – 15:30<br><span style="color:#58a6ff; font-size:0.85em;">Seq 3 (2h)</span></td>
+          <td>
+            <div class="sequence-header">Master of Arts: Nav</div>
+            <div class="sprint-card">
+              <div class="sprint-card-title">Sp 1 (13:30–14:00)</div>
+              <ol class="sprint-items-list">
+                <li>CSS flexbox header</li>
+                <li>Nav link list styling</li>
+                <li>Active state selector</li>
+              </ol>
+            </div>
+            <div class="sprint-card">
+              <div class="sprint-card-title">Sp 2 (14:00–14:30)</div>
+              <ol class="sprint-items-list">
+                <li>Tablet breakpoint</li>
+                <li>Mobile drawer layout</li>
+                <li>Hamburger animation</li>
+              </ol>
+            </div>
+            <div class="sprint-card">
+              <div class="sprint-card-title">Sp 3 (14:30–15:00)</div>
+              <ol class="sprint-items-list">
+                <li>Asset minification</li>
+                <li>Cross-browser check</li>
+                <li>Lighthouse audit</li>
+              </ol>
+            </div>
+          </td>
+          <td>
+            <div class="sequence-header">Master of Arts: Copy</div>
+            <div class="sprint-card">
+              <div class="sprint-card-title">Sp 1 (13:30–14:00)</div>
+              <ol class="sprint-items-list">
+                <li>Page copy sync</li>
+                <li>Typography verify</li>
+                <li>Image aspect ratios</li>
+              </ol>
+            </div>
+            <div class="sprint-card">
+              <div class="sprint-card-title">Sp 2 (14:00–14:30)</div>
+              <ol class="sprint-items-list">
+                <li>Broken link scan</li>
+                <li>Internal link routing</li>
+                <li>Meta tags verify</li>
+              </ol>
+            </div>
+            <div class="sprint-card">
+              <div class="sprint-card-title">Sp 3 (14:30–15:00)</div>
+              <ol class="sprint-items-list">
+                <li>Form validation pass</li>
+                <li>Submit hook wire</li>
+                <li>Success modal test</li>
+              </ol>
+            </div>
+          </td>
+          <td>
+            <div class="sequence-header">Master of Arts: Invoices</div>
+            <div class="sprint-card">
+              <div class="sprint-card-title">Sp 1 (13:30–14:00)</div>
+              <ol class="sprint-items-list">
+                <li>Invoice JSON schema</li>
+                <li>Line-item fields</li>
+                <li>Currency formatting</li>
+              </ol>
+            </div>
+            <div class="sprint-card">
+              <div class="sprint-card-title">Sp 2 (14:00–14:30)</div>
+              <ol class="sprint-items-list">
+                <li>Subtotal calculation</li>
+                <li>Tax formula test</li>
+                <li>Zero discount edge</li>
+              </ol>
+            </div>
+            <div class="sprint-card">
+              <div class="sprint-card-title">Sp 3 (14:30–15:00)</div>
+              <ol class="sprint-items-list">
+                <li>Invoice template HTML</li>
+                <li>CSS print stylesheet</li>
+                <li>Dynamic data bind</li>
+              </ol>
+            </div>
+          </td>
+          <td>
+            <div class="sequence-header">Master of Arts: PDF</div>
+            <div class="sprint-card">
+              <div class="sprint-card-title">Sp 1 (13:30–14:00)</div>
+              <ol class="sprint-items-list">
+                <li>HTML-to-PDF engine</li>
+                <li>Page break logic</li>
+                <li>Header/footer stamp</li>
+              </ol>
+            </div>
+            <div class="sprint-card">
+              <div class="sprint-card-title">Sp 2 (14:00–14:30)</div>
+              <ol class="sprint-items-list">
+                <li>File naming schema</li>
+                <li>Accounting path wire</li>
+                <li>PDF metadata inject</li>
+              </ol>
+            </div>
+            <div class="sprint-card">
+              <div class="sprint-card-title">Sp 3 (14:30–15:00)</div>
+              <ol class="sprint-items-list">
+                <li>Batch invoice run</li>
+                <li>File size optimize</li>
+                <li>Visual diff check</li>
+              </ol>
+            </div>
+          </td>
+          <td>
+            <div class="sequence-header">Investment: Dashboard</div>
+            <div class="sprint-card">
+              <div class="sprint-card-title">Sp 1 (13:30–14:00)</div>
+              <ol class="sprint-items-list">
+                <li>Query adapter hook</li>
+                <li>DB aggregate view</li>
+                <li>Metric card wire</li>
+              </ol>
+            </div>
+            <div class="sprint-card">
+              <div class="sprint-card-title">Sp 2 (14:00–14:30)</div>
+              <ol class="sprint-items-list">
+                <li>Summary table render</li>
+                <li>Sort/filter controls</li>
+                <li>Timestamp displays</li>
+              </ol>
+            </div>
+            <div class="sprint-card">
+              <div class="sprint-card-title">Sp 3 (14:30–15:00)</div>
+              <ol class="sprint-items-list">
+                <li>Ledger audit pass</li>
+                <li>Parity check vs raw</li>
+                <li>Performance verify</li>
+              </ol>
+            </div>
+          </td>
+          <td style="color:#8b949e; text-align:center;">Signoff Gate</td>
+        </tr>
+
+        <!-- Sequence 4: 15:45 - 17:45 (2h Deep Focus) -->
+        <tr>
+          <td class="time-col">15:45 – 17:45<br><span style="color:#58a6ff; font-size:0.85em;">Seq 4 (2h)</span></td>
+          <td>
+            <div class="sequence-header">Investment: Retry</div>
+            <div class="sprint-card">
+              <div class="sprint-card-title">Sp 1 (15:45–16:15)</div>
+              <ol class="sprint-items-list">
+                <li>Exponential backoff</li>
+                <li>Jitter calculator</li>
+                <li>Max retry threshold</li>
+              </ol>
+            </div>
+            <div class="sprint-card">
+              <div class="sprint-card-title">Sp 2 (16:15–16:45)</div>
+              <ol class="sprint-items-list">
+                <li>Persistent retry queue</li>
+                <li>Error state logging</li>
+                <li>Dead-letter queue</li>
+              </ol>
+            </div>
+            <div class="sprint-card">
+              <div class="sprint-card-title">Sp 3 (16:45–17:15)</div>
+              <ol class="sprint-items-list">
+                <li>Dropout simulation</li>
+                <li>Recovery verify</li>
+                <li>Log trace check</li>
+              </ol>
+            </div>
+          </td>
+          <td>
+            <div class="sequence-header">Priority Website</div>
+            <div class="sprint-card">
+              <div class="sprint-card-title">Sp 1 (15:45–16:15)</div>
+              <ol class="sprint-items-list">
+                <li>Layout audit pass</li>
+                <li>CSS reset verify</li>
+                <li>Container widths</li>
+              </ol>
+            </div>
+            <div class="sprint-card">
+              <div class="sprint-card-title">Sp 2 (16:15–16:45)</div>
+              <ol class="sprint-items-list">
+                <li>Image optimization</li>
+                <li>WebP conversion</li>
+                <li>Lazy loading flags</li>
+              </ol>
+            </div>
+            <div class="sprint-card">
+              <div class="sprint-card-title">Sp 3 (16:45–17:15)</div>
+              <ol class="sprint-items-list">
+                <li>Contrast ratio audit</li>
+                <li>Accessibility test</li>
+                <li>Semantic HTML pass</li>
+              </ol>
+            </div>
+          </td>
+          <td>
+            <div class="sequence-header">Investment: Feed Loop</div>
+            <div class="sprint-card">
+              <div class="sprint-card-title">Sp 1 (15:45–16:15)</div>
+              <ol class="sprint-items-list">
+                <li>Ingest loop worker</li>
+                <li>Threading/async pool</li>
+                <li>CPU memory profile</li>
+              </ol>
+            </div>
+            <div class="sprint-card">
+              <div class="sprint-card-title">Sp 2 (16:15–16:45)</div>
+              <ol class="sprint-items-list">
+                <li>Database batch insert</li>
+                <li>Transaction safety</li>
+                <li>Rollback verify</li>
+              </ol>
+            </div>
+            <div class="sprint-card">
+              <div class="sprint-card-title">Sp 3 (16:45–17:15)</div>
+              <ol class="sprint-items-list">
+                <li>10k row stress test</li>
+                <li>Ingest rate metric</li>
+                <li>Health endpoint test</li>
+              </ol>
+            </div>
+          </td>
+          <td>
+            <div class="sequence-header">Apex OS: HUD Wire</div>
+            <div class="sprint-card">
+              <div class="sprint-card-title">Sp 1 (15:45–16:15)</div>
+              <ol class="sprint-items-list">
+                <li>HUD overlay window</li>
+                <li>Event listener bind</li>
+                <li>Click animation hook</li>
+              </ol>
+            </div>
+            <div class="sprint-card">
+              <div class="sprint-card-title">Sp 2 (16:15–16:45)</div>
+              <ol class="sprint-items-list">
+                <li>State feedback icon</li>
+                <li>Hold duration gauge</li>
+                <li>Tooltip text hook</li>
+              </ol>
+            </div>
+            <div class="sprint-card">
+              <div class="sprint-card-title">Sp 3 (16:45–17:15)</div>
+              <ol class="sprint-items-list">
+                <li>Frame rate profile</li>
+                <li>Window focus test</li>
+                <li>IPC latency check</li>
+              </ol>
+            </div>
+          </td>
+          <td>
+            <div class="sequence-header">Master of Arts: Billing</div>
+            <div class="sprint-card">
+              <div class="sprint-card-title">Sp 1 (15:45–16:15)</div>
+              <ol class="sprint-items-list">
+                <li>E2E invoice run</li>
+                <li>Test email send</li>
+                <li>PDF receipt verify</li>
+              </ol>
+            </div>
+            <div class="sprint-card">
+              <div class="sprint-card-title">Sp 2 (16:15–16:45)</div>
+              <ol class="sprint-items-list">
+                <li>Export ledger match</li>
+                <li>Tax ledger match</li>
+                <li>Audit archive save</li>
+              </ol>
+            </div>
+            <div class="sprint-card">
+              <div class="sprint-card-title">Sp 3 (16:45–17:15)</div>
+              <ol class="sprint-items-list">
+                <li>Signoff checklist</li>
+                <li>Production smoke run</li>
+                <li>Tag release v1.0</li>
+              </ol>
+            </div>
+          </td>
+          <td style="color:#8b949e; text-align:center;">Off-duty</td>
+        </tr>
+
+        <!-- Routine Anchor: 18:00 - 18:30 -->
+        <tr class="anchor-row">
+          <td class="time-col">18:00 – 18:30</td>
+          <td colspan="6">🔒 Protected Anchor: Evening Shutdown, FlowRecap & Git Commit Sync</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>4. Compact Downstream Handoff</h2>
+  <pre><code>presentation_handoff:
+  artifact_type: "Weekly_Command_Brief"
+  artifact_ref: "apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/WEEKLY_PRECAP_DRAFT_W45.md"
+  week: "2026-W45"
+  result_state: "READY_WITH_REVIEW"
+  weekly_intent: "Implement Apex OS OpenMouse button bindings, Leela skill tree DAG, Investment ingestion/dashboard pipeline, and Master of Arts website/invoice workflows."
+  project_priority_refs:
+    - project_ref: "apex-os"
+      priority_ref: "WP-APEX-01"
+    - project_ref: "leela"
+      priority_ref: "WP-LEELA-01"
+    - project_ref: "master-of-arts"
+      priority_ref: "WP-MA-03"
+    - project_ref: "investment"
+      priority_ref: "WP-INV-01"
+  fixed_constraints:
+    - "OpenProject daemon offline; temporary OP-OFFLINE tags require reconciliation on wake"
+    - "Tuesday 11:00-11:30 Stakeholder Sync external meeting"
+    - "Standard protected routine anchors: 08:00-09:00, 12:30-13:30, 18:00-18:30"
+  review_status: "OPERATOR_REVIEW_PENDING"
+  next_consumer: "PreCap_Next_Day_Brief"
+  next_target_day: "Monday"
+  monday_hourly_schedule:
+    08_00_09_00: "Morning Setup Anchor"
+    09_00_11_00:
+      sequence: "Seq 1 (Apex OS: Driver Hook)"
+      sprints:
+        sp_1: ["1. Parse HID tables", "2. Map bitmask registers", "3. Stub kernel hook"]
+        sp_2: ["1. Interrupt service routine", "2. Ring buffer allocate", "3. Zero drop verify"]
+        sp_3: ["1. Latency bench pass", "2. Timestamp delta log", "3. Kernel trace audit"]
+    11_30_12_30:
+      sequence: "Seq 2 (Leela: Schema Design)"
+      sprints:
+        sp_1: ["1. Draft JSON schema", "2. Define tier enum", "3. Set cost properties"]
+        sp_2: ["1. Sample node fixtures", "2. Schema validator unit", "3. Error message check"]
+    12_30_13_30: "Midday Reset & Lunch Anchor"
+    13_30_15_30:
+      sequence: "Seq 3 (Master of Arts: Nav Bar)"
+      sprints:
+        sp_1: ["1. CSS flexbox header", "2. Nav link list styling", "3. Active state selector"]
+        sp_2: ["1. Tablet breakpoint", "2. Mobile drawer layout", "3. Hamburger animation"]
+        sp_3: ["1. Asset minification", "2. Cross-browser check", "3. Lighthouse audit"]
+    15_45_17_45:
+      sequence: "Seq 4 (Investment: Retry Harness)"
+      sprints:
+        sp_1: ["1. Exponential backoff", "2. Jitter calculator", "3. Max retry threshold"]
+        sp_2: ["1. Persistent retry queue", "2. Error state logging", "3. Dead-letter queue"]
+        sp_3: ["1. Dropout simulation", "2. Recovery verification", "3. Log trace check"]
+    18_00_18_30: "Evening Shutdown Anchor"
+</code></pre>
+
+</div>
+</body>
+</html>
