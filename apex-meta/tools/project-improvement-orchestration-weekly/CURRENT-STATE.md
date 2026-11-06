@@ -1,5 +1,20 @@
 # Current State
 
+
+## Active improvement continuation — 2026-11-06 (supersedes older "awaiting Module 01" next-action statement)
+
+**Operator directive:** Begin at the live OpenProject WP/dependency frontier before selecting the real weekly critical path or refining Matrix 1/2. P0 static repository audit DONE; P1 private OP read NOT DONE. The design handover is ready for local read-only execution at `00-openproject-dependency-intake/HANDOVER-20261106.okf.md`. GitHub and this ChatGPT environment cannot query the locally hosted private OpenProject service; do not mistake the 2026-10-08 repository hierarchy snapshot for live data.
+
+**Accepted operator decisions:** D014 OpenProject-first dependency intake; D015 M02=B owner-aware OP vs Apex write routing; D016 M05=B dedicated stateless sequencing skill **later**, with M04 sequence/flow semantics explicitly OPEN; D017 M06=A Saturday weekly Precap, Sunday off. Previously proposed M04-B and M05-A are NOT accepted. No user reapproval of Q01–Q14 required.
+
+**Current task:** P1 source/relationship verification. Read real OP identity/project/work-package/status/relation data with pagination, dependency direction, enrollment, cross-project links and freshness through canonical local `leela-spec/agent-skills` OpenProject skill; report qualified critical-chain candidates when effort/calendar data is insufficient for critical path. P1 output must return precise source-backed work refs to the Master; no production skill patch or OP write.
+
+**Next dependency-ready design:** once P1 produces current source evidence, agree on minimal source frontier -> Matrix 1 handoff; then detailed Matrix 1; then Matrix 2; defer broad sequence/flow semantics until operator definition; design dedicated stateless sequencing skill after inputs/consumers can be specified. Saturday scope/writeback implementation comes via bounded patches after acceptance/test.
+
+**No current runtime verification:** private OP read, current calendar events, and post-write OP mutation are all unverified. Production remains unchanged by these planning documents.
+
+---
+
 **Project phase:** Module 00 CLOSED. Ready for Module 01 (Weekly Command Brief).
 
 **Active module:** none — awaiting operator instruction to open `01-weekly-command-brief`.
