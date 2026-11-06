@@ -1,0 +1,16 @@
+[
+  {
+    "id": "sha256:befde85d6b9fc781293fc8327691808fac7aa6f829aaa3abc05f4abb9a61559b",
+    "architecture": "amd64",
+    "tags": [
+      "ki-basis-paperless:6757923f7dd-amd64"
+    ]
+  },
+  {
+    "id": "sha256:4a0edf4c3a75bb95b3fbafbf52af96d646912cf527c07d4f7eb20dd51d6e21d4",
+    "architecture": "amd64",
+    "tags": [
+      "ki-basis-firefly:6757923f7dd-amd64"
+    ]
+  }
+]

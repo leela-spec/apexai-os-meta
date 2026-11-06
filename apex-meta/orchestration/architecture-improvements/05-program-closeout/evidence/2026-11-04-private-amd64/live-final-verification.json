@@ -1,0 +1,41 @@
+{
+  "http_checks": [
+    {
+      "url": "http://127.0.0.1:8010/",
+      "http": 200
+    },
+    {
+      "url": "http://127.0.0.1:8086/",
+      "http": 200
+    },
+    {
+      "url": "http://127.0.0.1:8082/",
+      "http": 200
+    },
+    {
+      "url": "http://127.0.0.1:8082/tools/asn-labels/",
+      "http": 200
+    },
+    {
+      "url": "http://127.0.0.1:8087/",
+      "http": 200
+    },
+    {
+      "url": "http://127.0.0.1:8083/health_checks/default",
+      "http": 200
+    },
+    {
+      "url": "http://127.0.0.1:9119/",
+      "http": 200
+    }
+  ],
+  "application_keys_preserved": true,
+  "original_volumes_preserved": true,
+  "unrelated_containers_and_states_preserved": true,
+  "stirling_login_after_restart": 200,
+  "cron_schedule": "0 3 * * * Europe/Berlin",
+  "cron_token_matches": true,
+  "private_tools_restart_policy": "no",
+  "published_ports_loopback_only": true,
+  "internal_helpers_no_published_ports": true
+}

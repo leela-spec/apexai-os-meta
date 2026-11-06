@@ -1,0 +1,60 @@
+== 1. Engine reachable ==
+  [PASS] docker engine reachable
+== 2a. Core always-on containers running (4) ==
+  [PASS] ki-basis-hermes running
+  [PASS] ki-basis-valkey running
+  [PASS] leela-op178-openproject running
+  [PASS] ki-basis-shared-postgres running
+== 2b. Private peripheral on-demand containers (3 — restart=no, stopped by default) ==
+  [PASS] ki-basis-paperless state=running restart=no (on-demand)
+  [PASS] ki-basis-firefly state=running restart=no (on-demand)
+  [PASS] ki-basis-nginx state=running restart=no (on-demand)
+== 2c. Community on-demand containers (6 — restart=no, stopped by default) ==
+  [PASS] community-hermes state=exited restart=no (on-demand)
+  [PASS] community-paperless state=exited restart=no (on-demand)
+  [PASS] community-firefly state=exited restart=no (on-demand)
+  [PASS] community-nginx state=exited restart=no (on-demand)
+  [PASS] community-openproject state=exited restart=no (on-demand)
+  [PASS] community-valkey state=exited restart=no (on-demand)
+== 3. Endpoints respond + latency (warm should be < 2.0s) ==
+  [PASS] priv-hermes http://127.0.0.1:8642/health -> 200 in 0.016642s
+  [PASS] priv-nginx http://127.0.0.1:8084/healthz -> 200 in 0.000622s
+  [PASS] openproject-17.8 http://127.0.0.1:8083/ -> 302 in 0.113288s
+  [PASS] comm-hermes skipped (community stopped on-demand)
+  [PASS] comm-nginx skipped (community stopped on-demand)
+== 4. No bottleneck: per-container CPU/mem snapshot (flag CPU > 80%) ==
+  [ok]   ki-basis-tika CPU 0.27% mem 174.4MiB / 15.62GiB
+  [ok]   ki-basis-gotenberg CPU 0.03% mem 6.574MiB / 15.62GiB
+  [ok]   ki-basis-stirling-pdf CPU 1.28% mem 638.6MiB / 15.62GiB
+  [ok]   ki-basis-nginx CPU 0.00% mem 7.562MiB / 15.62GiB
+  [ok]   ki-basis-firefly-cron CPU 0.00% mem 564KiB / 15.62GiB
+  [ok]   ki-basis-paperless CPU 2.51% mem 725MiB / 15.62GiB
+  [ok]   ki-basis-firefly CPU 0.01% mem 63.65MiB / 15.62GiB
+  [ok]   leela-op178-openproject CPU 0.31% mem 1.394GiB / 1.5GiB
+  [ok]   ki-basis-hermes CPU 0.22% mem 361.6MiB / 15.62GiB
+  [ok]   ki-basis-valkey CPU 0.22% mem 12.83MiB / 15.62GiB
+  [ok]   ki-basis-shared-postgres CPU 0.10% mem 157.8MiB / 15.62GiB
+== 5. Postgres connection headroom (flag any role > 80% of its limit) ==
+  [PASS] role comm_firefly_app 0/20 (0%)
+  [PASS] role comm_openproject_app 0/40 (0%)
+  [PASS] role comm_paperless_app 0/30 (0%)
+  [PASS] role priv_firefly_app 0/20 (0%)
+  [PASS] role priv_openproject_app 5/40 (13%)
+  [PASS] role priv_paperless_app 2/30 (7%)
+== 6. Cross-DB isolation (REVOKE CONNECT must hold) ==
+  [PASS] priv_openproject_app -> comm_openproject CONNECT=f (expected f)
+  [PASS] comm_openproject_app -> priv_openproject CONNECT=f (expected f)
+  [PASS] priv_openproject_app -> priv_openproject CONNECT=t (expected t)
+== 7. Claimed facts actually true (anti-hallucination) ==
+  [PASS] priv Hermes OPENPROJECT_API_URL=http://leela-op178-openproject:80
+  [PASS] OpenProject image openproject/openproject:17.8.0
+  [PASS] priv Hermes on bind mounts (/root/.hermes,/root/workspaces)
+  [PASS] drift target volume ki-basis-hermes-data absent
+  [PASS] shared-db-net includes ki-basis-shared-postgres
+  [PASS] openproject-keepalive systemd service active
+  [PASS] a held 'sleep infinity' keepalive session exists
+  [PASS] OpenProject bounds, live Puma /proc environ & hocuspocus-disabled guard active (priv 1536M WEB_WORKERS=0 jemalloc_bg_thd no-hocuspocus; comm 1792M WEB_WORKERS=0)
+  [PASS] leela-op178-openproject shared-db-net aliases isolated (leela-op178-openproject leela-openproject )
+
+================ RESULT: PASS=31  FAIL=0  WARN=0 ================
+OVERALL: GREEN (no failures)

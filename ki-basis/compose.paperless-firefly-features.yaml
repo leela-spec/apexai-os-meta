@@ -1,0 +1,119 @@
+# x86-64 integration of the pinned paperless-firefly package.
+# Use together with compose.shared-db.yaml; retain its database, keys and data volumes.
+volumes:
+  stirling_configs:
+    name: ki-basis-stirling-configs
+
+services:
+  paperless:
+    image: ki-basis-paperless:6757923f7dd-amd64
+    platform: linux/amd64
+    environment:
+      PAPERLESS_APPS: prebarcode_prep.apps.PrebarcodePrepConfig
+      PYTHONPATH: /usr/src/paperless/overlays/prebarcode_prep
+      PAPERLESS_PREBARCODE_PREP: "1"
+      PREBARCODE_ORIENT: "1"
+      PREBARCODE_DESKEW: "0"
+      PREBARCODE_ORIENT_SCRIPT: /usr/src/paperless/scripts/pre-consume-orient.sh
+      PAPERLESS_PRE_CONSUME_SCRIPT: /usr/src/paperless/scripts/pre-consume-orient.sh
+      PAPERLESS_CONSUMER_ENABLE_BARCODES: "true"
+      PAPERLESS_CONSUMER_ENABLE_ASN_BARCODE: "true"
+      PAPERLESS_CONSUMER_ASN_BARCODE_PREFIX: ASN
+      PAPERLESS_CONSUMER_BARCODE_DPI: "600"
+      PAPERLESS_TIKA_ENABLED: "1"
+      PAPERLESS_TIKA_ENDPOINT: http://tika:9998
+      PAPERLESS_TIKA_GOTENBERG_ENDPOINT: http://gotenberg:3000
+    volumes:
+      - ${FEATURES_ROOT:-/root/builds/ki-basis-amd64-6757923f7dd}/paperless-stack/scripts:/usr/src/paperless/scripts:ro
+      - ${FEATURES_ROOT:-/root/builds/ki-basis-amd64-6757923f7dd}/paperless-stack/docker/overlays/prebarcode_prep:/usr/src/paperless/overlays/prebarcode_prep:ro
+    depends_on:
+      tika:
+        condition: service_started
+      gotenberg:
+        condition: service_started
+
+  firefly:
+    image: ki-basis-firefly:6757923f7dd-amd64
+    platform: linux/amd64
+    environment:
+      APP_ENV: production
+      STATIC_CRON_TOKEN: ${FIREFLY_CRON_TOKEN:?FIREFLY_CRON_TOKEN is required}
+      CACHE_DRIVER: redis
+      SESSION_DRIVER: redis
+      REDIS_HOST: valkey
+      REDIS_PORT: "6379"
+      REDIS_DB: "2"
+      DATEV_BERATER_NR: ${DATEV_BERATER_NR:-1001}
+      DATEV_MANDANT_NR: ${DATEV_MANDANT_NR:-1}
+      DATEV_WJ_BEGINN: ${DATEV_WJ_BEGINN:-20260101}
+      DATEV_SACHKONTENLAENGE: ${DATEV_SACHKONTENLAENGE:-4}
+      DATEV_KONTENRAHMEN: ${DATEV_KONTENRAHMEN:-SKR03}
+      DATEV_WAEHRUNG: EUR
+    volumes:
+      - ${FEATURES_ROOT:-/root/builds/ki-basis-amd64-6757923f7dd}/runtime-secrets/firefly/oauth-private.key:/var/www/html/storage/oauth-private.key
+      - ${FEATURES_ROOT:-/root/builds/ki-basis-amd64-6757923f7dd}/runtime-secrets/firefly/oauth-public.key:/var/www/html/storage/oauth-public.key
+    depends_on:
+      valkey:
+        condition: service_healthy
+
+  tika:
+    image: apache/tika:3.3.1.0@sha256:90b7fa1dc018434075fce9e1d9b88b1e3d0ea6979d0cf86e116c79a8073ae973
+    platform: linux/amd64
+    container_name: ki-basis-tika
+    restart: "no"
+    networks:
+      - ki-basis-net
+
+  gotenberg:
+    image: gotenberg/gotenberg:8.37.0@sha256:3fdee07e0dcd5005c3db4d81d1600d081fc6fb424da87e409e1c1f9624a249b8
+    platform: linux/amd64
+    container_name: ki-basis-gotenberg
+    restart: "no"
+    command: ["gotenberg", "--chromium-disable-javascript=true", "--chromium-allow-list=^file:///tmp/.*"]
+    networks:
+      - ki-basis-net
+
+  stirling-pdf:
+    image: stirlingtools/stirling-pdf:3.2.2@sha256:0d3fa730272ddb037c71db6ae760e1af991722d88c2129f41c31feee6fca30e6
+    platform: linux/amd64
+    container_name: ki-basis-stirling-pdf
+    restart: "no"
+    environment:
+      PREMIUM_ENABLED: "false"
+      SECURITY_INITIALLOGIN_USERNAME: admin
+      SECURITY_INITIALLOGIN_PASSWORD: ${STIRLING_ADMIN_PASSWORD:?STIRLING_ADMIN_PASSWORD is required}
+    volumes:
+      - stirling_configs:/configs
+    ports:
+      - "127.0.0.1:8087:8080"
+    networks:
+      - ki-basis-net
+
+  firefly-cron:
+    image: alpine:3.21.9@sha256:f765c92e59538d44c6946f8073bdbffd2e8d5916981161faed1b30aa0ef0c2c5
+    platform: linux/amd64
+    container_name: ki-basis-firefly-cron
+    restart: "no"
+    environment:
+      TZ: Europe/Berlin
+      STATIC_CRON_TOKEN: ${FIREFLY_CRON_TOKEN:?FIREFLY_CRON_TOKEN is required}
+    command:
+      - sh
+      - -c
+      - |
+        apk add --no-cache tzdata wget \
+          && ln -sf /usr/share/zoneinfo/Europe/Berlin /etc/localtime \
+          && echo "0 3 * * * wget -qO- http://firefly:8080/api/v1/cron/$$STATIC_CRON_TOKEN; echo" | crontab - \
+          && crond -f -L /dev/stdout
+    depends_on:
+      firefly:
+        condition: service_started
+    networks:
+      - ki-basis-net
+
+  nginx:
+    ports:
+      - "127.0.0.1:8082:8082"
+    volumes:
+      - ./docker/features-homepage:/usr/share/nginx/html:ro
+      - ${FEATURES_ROOT:-/root/builds/ki-basis-amd64-6757923f7dd}/paperless-stack/tools/asn-label-generator:/usr/share/nginx/asn-labels:ro

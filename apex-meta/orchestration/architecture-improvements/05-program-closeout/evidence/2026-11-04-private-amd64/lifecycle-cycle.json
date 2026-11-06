@@ -1,0 +1,23 @@
+{
+  "sleep_stopped_tools": [
+    "ki-basis-paperless",
+    "ki-basis-firefly",
+    "ki-basis-nginx",
+    "ki-basis-tika",
+    "ki-basis-gotenberg",
+    "ki-basis-stirling-pdf",
+    "ki-basis-firefly-cron"
+  ],
+  "always_on_preserved": [
+    "ki-basis-hermes",
+    "ki-basis-valkey",
+    "ki-basis-shared-postgres",
+    "leela-op178-openproject"
+  ],
+  "wake_http_ready": [
+    "http://127.0.0.1:8010/",
+    "http://127.0.0.1:8086/",
+    "http://127.0.0.1:8082/",
+    "http://127.0.0.1:8087/api/v1/info/status"
+  ]
+}

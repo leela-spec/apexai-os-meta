@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>KI-Büro</title>
+  <style>
+    body { font-family: -apple-system, system-ui, sans-serif; margin: 2rem; background: #f6f7f9; color: #222; }
+    h1 { font-weight: 600; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr)); gap: 1rem; }
+    a.tile { display: block; padding: 1.25rem; border-radius: .75rem; background: #fff; color: inherit;
+             text-decoration: none; box-shadow: 0 1px 3px rgba(0,0,0,.12); }
+    a.tile:hover { box-shadow: 0 2px 8px rgba(0,0,0,.2); }
+    .t { font-size: 1.15rem; font-weight: 600; }
+    .d { font-size: .9rem; color: #666; margin-top: .35rem; }
+  </style>
+  <script src="config.js"></script>
+</head>
+<body>
+  <h1>KI-Büro</h1>
+  <div class="grid" id="tiles"></div>
+  <script>
+    // Tiles: Paperless, Firefly, Stirling-PDF, ASN (Spec §4 Nr. 15); links = hostname + port (§4 Nr. 11).
+    var host = location.protocol + "//" + location.hostname;
+    var tiles = [
+      { t: "Paperless", d: "Dokumente", href: host + ":8010/" },
+      { t: "Firefly III", d: "Finanzen / DATEV", href: host + ":8086/" },
+      { t: "Stirling-PDF", d: "PDF-Werkzeuge", href: host + ":8087/" },
+      { t: "ASN-Etiketten", d: "Barcode-Etiketten drucken", href: "/tools/asn-labels/" }
+    ];
+    if (window.KMM_ZETTELROBBE_URL) {
+      tiles.push({ t: "Zettelrobbe", d: "optional", href: window.KMM_ZETTELROBBE_URL });
+    }
+    var root = document.getElementById("tiles");
+    tiles.forEach(function (x) {
+      var a = document.createElement("a");
+      a.className = "tile";
+      a.href = x.href;
+      var t = document.createElement("div"); t.className = "t"; t.textContent = x.t;
+      var d = document.createElement("div"); d.className = "d"; d.textContent = x.d;
+      a.appendChild(t); a.appendChild(d); root.appendChild(a);
+    });
+  </script>
+</body>
+</html>
