@@ -225,3 +225,36 @@ R2: M1-D06...D11 and D13...D15: source evidence vs OP status, uncertainty/freshn
 - Every fixture is historical draft-only; no project completion, PM enrollment or critical path asserted as current.
 - No production SKILL/template, OP task, calendar, recap path or sequencing Skill was altered.
 - No operator decisions have yet been approved by silence. Later acceptance should create a durable R1 decision ledger and bounded patch-only implementation handover after the design rounds.
+
+## Operator feedback delta — 2026-11-06 (later than R1 defaults)
+
+**Latest explicit preferences override conflicting earlier R1 recommendations.** Unanswered design choices stay open.
+
+- **V3 preferred:** Progressive project drilldown is the selected direction for further Matrix 1 exploration. Sophisticated dependency graphs are useful selectively, rather than as a permanent portfolio-wide task maze. Global Q13 source/rendering architecture remains OPEN.
+- **Shortlist plus longlist required:** Shortlist is comparatively highest-priority weekly work; longlist holds nice-to-haves, later opportunities and work staged behind prerequisites. Keep hierarchical priority and reasons for selection/deferral.
+- **M1-D05 count revised:** Do NOT impose a 1-target/2–4-subtarget hard rule. Per-project shortlist size varies by goal intensity, project and capacity. The operator sets the scope during weekly briefing. No numeric composite task priority score.
+- **M1-D02 still OPEN:** The operator did not understand native OP hierarchy vs repo/operator grouping, and requests concrete examples. Do not treat recommendation B as accepted.
+- **M1-D03 still OPEN:** The operator wants several different ways to present serial dependencies, branches/joins, evidence gates, cross-project links and feedback. No W45 draft arrow is current verified fact.
+- **M1-D04 still OPEN:** No explicit cross-project representation choice this turn.
+- **M1-D12 direction:** V3 is preferred as the high-level experience; a final hybrid and its rendering/serialization choice are not approved.
+- **No production authorization:** Do not patch runtime Skills, OpenProject, calendar or recap stages during this design iteration.
+
+### Companion exploratory artifacts (chat-delivered, not yet tracked in repo)
+
+- matrix1-design-showroom.html — twelve genuinely different interactive layout prototypes with the same illustrative W45-derived four-project fixture; all employ progressive project/epic expansion where it serves the design.
+- Q2 hierarchy lab: three explicit hypothetical mappings (MoA invoice, Investment pipeline, Leela/Apex integration) distinguishing original OP owner, repository organization and display-only workstream.
+- Q3 dependency lab: five visual grammars (ribbon, fork/join, gate checklist, cross-project swimlane, feedback annotation).
+- Local-only shortlist/longlist priority toggles and JSON export, explicitly unapproved and without PM mutation.
+- matrix1-twelve-designs-overview.png — visual contact sheet. QA: twelve layouts rendered, hierarchy and dependency labs rendered, local priority interaction tested, mobile overflow corrected.
+
+### Post-feedback decision state
+
+| Choice | State |
+|---|---|
+| V3 progressive drilldown | OPERATOR_PREFERRED; further design selection pending |
+| M1-D01 | Largely aligned with V3; fine detail still open |
+| M1-D02 | OPEN; concrete examples requested |
+| M1-D03 | OPEN; diverse visual implementations requested |
+| M1-D04 | OPEN |
+| M1-D05 | FLEXIBLE_OPERATOR_SET_SCOPE_CONFIRMED; reject fixed shortlist count |
+| M1-D12 | V3 preferred, final hybrid and cross-device QA pending |
