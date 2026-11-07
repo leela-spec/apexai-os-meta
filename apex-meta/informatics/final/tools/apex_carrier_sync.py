@@ -40,6 +40,16 @@ CARRIERS = [
 ]
 
 
+_BACKED = set()
+
+
+def backup(path):
+    """One .apex-sync.bak per file per run, holding the state before this run touched it."""
+    if path not in _BACKED:
+        shutil.copyfile(path, path + ".apex-sync.bak")
+        _BACKED.add(path)
+
+
 SHARED_REL = "apex-meta/informatics/final/specs/carrier-layer2-shared.md"
 
 
@@ -163,7 +173,7 @@ def main():
         if d:
             bad += 1
             if args.sync:
-                shutil.copyfile(p, p + ".apex-sync.bak")
+                backup(p)
                 open(p, "w", encoding="utf-8", newline="").write(text[:found.start()] + exp + text[found.end():])
                 print(f"  SYNCED {p} (backup: {p}.apex-sync.bak)")
     shared = shared_layer2(args.source)
@@ -177,7 +187,7 @@ def main():
         if d2:
             bad += 1
             if args.sync:
-                shutil.copyfile(c["path"], c["path"] + ".apex-sync.bak")
+                backup(c["path"])
                 open(c["path"], "w", encoding="utf-8", newline="").write(layer2_sync(c["path"], text, shared))
                 print(f"  SYNCED {c['path']} layer 2 (backup: {c['path']}.apex-sync.bak)")
     r = subprocess.run([sys.executable, f"{LEELA}/docs/apex/check_vendor_drift.py"], capture_output=True, text=True)
