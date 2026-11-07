@@ -11,6 +11,7 @@
 > topology** — see their redirect banners. Do not ground current architecture in them.
 
 ## Git Dispatch
+- Branch: Work on `main` by default. Create or switch to another branch only when the operator explicitly requests it.
 - Trigger: A request to push known files starts with the Git commands, not repository analysis.
 - Sequence: Run `git add -- <requested paths>`, `git commit`, and `git push`.
 - Retry: On non-fast-forward, run `git pull --rebase` and retry the push.
