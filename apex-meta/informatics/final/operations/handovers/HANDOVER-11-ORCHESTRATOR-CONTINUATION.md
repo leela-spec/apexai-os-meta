@@ -81,8 +81,8 @@ Status values: `open`, `needs operator`, `ready to delegate`. Update the status 
 | T3 | G5: which Gemini file does Antigravity read? | ready to delegate | Probe P3 in Antigravity. | `HANDOVER-10`, map G5 |
 | T4 | MausBot: list deviations of its apex skills from the master (notably `<align>`), propose exact patches. Operator picks option A, B or C (recommended: C). | needs operator for the option; the handover itself can run | Run `HANDOVER-09` in a MausBot conversation. | record 19 section 4 |
 | T5 | G8: hook ownership (Leela or here), Codex and Gemini adapters, gates with no trigger (`align`, `iterative`, `schemas`, `editing`). | needs operator | Decision sheet at level L2. Context: the operator deferred this on 2026-11-05; the hook was changed on 2026-11-07 (C13). | map G8 |
-| T6 | About 20 verification tests in the meta repo fail at baseline (stale after the monolith split). | open, checkable | List with `python -m pytest -q apex-meta/informatics/final/verification/suites` in the short-path clone; fix, or archive with a README. | change record M12 |
-| T7 | The OKF validator is unmeasured (crashed on long paths). | open, checkable | Run `python apex-meta/informatics/final/tools/okf_validator.py --target apex-meta/informatics/final` in the short-path clone at `5a316e6b` and at `main`; compare error counts. | change record G |
+| T6 | About 20 verification tests in the meta repo fail at baseline (stale after the monolith split). | measured 2026-11-07: 20 failed, 328 passed (clone `C:/tmp/meta-work` at `1f896860`); classification below; fix or archive needs operator | List with `python -m pytest -q apex-meta/informatics/final/verification/suites` in the short-path clone; fix, or archive with a README. | change record M12 |
+| T7 | The OKF validator is unmeasured (crashed on long paths). | measured 2026-11-07: `5a316e6b` = 7 OKF / 13 profile / 304 advisory; `main` = 7 OKF / 17 profile / 340 advisory; the 4 new profile errors are GS-12 in `operations/17-READ-TRACE-...` and `specs/execution-modes.md` | Run `python apex-meta/informatics/final/tools/okf_validator.py --target apex-meta/informatics/final` in the short-path clone at `5a316e6b` and at `main`; compare error counts. | change record G |
 | T8 | The Layered Rule KB is a 22-rule snapshot that lags the master; `<align>` has no semantic block audit; "already defined by a previous step" is undefined. | needs operator | Decide: refresh rules 1-22 to the master text, or declare the KB historical. Then audit `<align>`. | change record M6-M9, M11; `rule-23-align.md` |
 | T9 | Old block text in handover templates `01`-`05`, `11` and candidates `06`, `07`, `09`, `13`-`15`. | needs operator | Replace with a pointer to the master and the sync tool, or keep as dated records. | change record M17 |
 | T10 | `EM-06a` thresholds are unmeasured. | open | Calibrate against past decision sheets in `C:/GitDev/Leela-Cloud-2026/docs/ssot/decisions/DECISION-SHEET-*.md`. | change record C2 |
@@ -130,3 +130,14 @@ git -C C:/GitDev/Leela-Cloud-2026 log --oneline -8 -- docs/apex scripts/check_ji
 ## Orchestrator report
 
 Not started.
+
+### Batch 1 (2026-11-07): grounding, T6, T7
+
+Findings (commands: `git ls-remote` of the GitHub URL; `python apex_carrier_sync.py`; `python docs/apex/check_vendor_drift.py`; `python -m pytest -q apex-meta/informatics/final/verification/suites`; `python okf_validator.py --target apex-meta/informatics/final`, each in the short-path clone):
+- Ground: GitHub `main` = `1f896860`. The carrier sync prints OK for Claude, Gemini, Codex and the Leela copy, and OK for the three Layer 2 checks. Leela `check_vendor_drift.py` prints "in sync". The handover text matches the files.
+- T6, 20 failures in four files, in three classes:
+  - 4 stale (m6 `test_all_carriers_contain_identical_layer1_rules`, 4 params): they compare each carrier with archived candidate 16, whose `<editing>` ref differs from the master.
+  - 4 path-dependent (m6 layer2 x3 and immutability): they resolve `C:/tmp/MasterOfArts` and `C:/tmp/Leela-Cloud-2026` as siblings of the clone, which do not exist. Not measured in the real checkout (it is on another branch).
+  - 12 stale from the monolith split or archiving (m3 research preservation; m5 x9; tier5 TAS-04 and TAS-05): expected strings and char counts no longer match the files. Reasons for m3 and m5 read from the assertion text only.
+- T7: the validator runs in the short-path clone. `main` has 4 more profile errors than `5a316e6b` (GS-12 decision-matrix checks in `operations/17-READ-TRACE-PILOT-AND-BASE-REF-FRAGILITY-FINDINGS.md` and `specs/execution-modes.md`). The 7 OKF errors are the same files at both commits.
+- Not done: T1 and T13 need the operator's yes; T2-T5, T8-T12, T17 need delegation or a decision; T14-T16 wait on T1 or are read-only and not started.

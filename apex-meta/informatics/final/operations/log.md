@@ -1,5 +1,9 @@
 # Apex Informatics Standard — Change Log
 
+## 2026-11-07 (orchestrator batch 1)
+
+**T6 and T7 measured** — `HANDOVER-11` ledger rows T6 and T7 now hold numbers: 20 failing verification tests (4 stale against candidate 16, 4 path-dependent on sibling repos missing from the short-path clone, 12 stale from the monolith split or archiving) and OKF validator counts at `5a316e6b` and `main` (profile errors 13 and 17). No tests or validator output were changed. Details under `## Orchestrator report`, Batch 1.
+
 ## 2026-11-07
 
 **Carrier gaps closed; MausBot record; shared Layer 2 text** — `<trade_off>` in `specs/apex_contract_v1.0_ultra.xml` now names the intensity lever (`EM-06a`, `qa-decision-matrix.md`). `specs/execution-modes.md` section 2 points at the split matrix file, as sections 3-7 already did. `tools/apex_carrier_sync.py` now compares the three global files' shared Layer 2 sections against the new `specs/carrier-layer2-shared.md` (found drift: Gemini lacked the Windows defaults, worded the other sections differently, and carried a corrupted dash), and Claude's `base_ref` is absolute.
