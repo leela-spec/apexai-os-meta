@@ -9,7 +9,7 @@ Question this answers: which files carry a copy of the always-on block, and does
   python apex-meta/informatics/final/tools/apex_carrier_sync.py --source worktree   # compare against the uncommitted master
 
 Scope: the <apex_contract>...</apex_contract> span, plus the shared Layer 2 sections listed in specs/carrier-layer2-shared.md for the three global files. Module files (specs/**) are checked by
-Leela-Cloud-2026/docs/apex/check_vendor_drift.py, which this script runs and reports. Nothing here edits the
+tools/check_vendor_drift.py (vendored into Leela and Mindful Bar), which this script runs and reports. Nothing here edits the
 master. Hand-written text around the block in a carrier is never touched. Not wired into any gate: it reads
 files outside any one repo, so a gate would be red on a clean clone (see operations/18-APEX-CARRIER-MAP.md).
 """
@@ -19,6 +19,10 @@ HOME = os.path.expanduser("~")
 META = "C:/GitDev/apexai-os-meta"
 META_SRC = os.environ.get("APEX_META_SRC", META)  # only for testing --source worktree against another checkout
 LEELA = "C:/GitDev/Leela-Cloud-2026"
+MB = "C:/GitDev/mindful-bar"
+# repos that vendor the instruction layer: (name, repo root, folder holding MANIFEST.sha256)
+VENDORS = [("Leela", LEELA, f"{LEELA}/docs/apex"), ("Mindful Bar", MB, f"{MB}/systems/apex")]
+TOOL_REL = "apex-meta/informatics/final/tools/check_vendor_drift.py"
 MASTER_REL = "apex-meta/informatics/final/specs/apex_contract_v1.0_ultra.xml"
 SPAN = re.compile(r"<apex_contract[^>]*>.*?</apex_contract>", re.S)
 
@@ -32,6 +36,8 @@ CARRIERS = [
     dict(name="Codex global", path=f"{HOME}/.codex/AGENTS.md", kind="inline", layer2=True, base_ref=ABS, ref_override={}),
     dict(name="Leela vendored copy", path=f"{LEELA}/docs/apex/apex-contract.md", kind="inline",
          base_ref="docs/apex/", ref_override={"authoring": "specs/file-architecture.md"}),
+    dict(name="Mindful Bar AGENTS.md", path=f"{MB}/AGENTS.md", kind="inline", base_ref="systems/apex/",
+         ref_override={"authoring": "specs/file-architecture.md"}, root=MB, optional=True),
     dict(name="Claude account agehm", path=f"{HOME}/.claude-agehm/CLAUDE.md", kind="inline", base_ref=ABS, ref_override={}, optional=True),
     dict(name="Claude account wimmer", path=f"{HOME}/.claude-wimmer/CLAUDE.md", kind="inline", base_ref=ABS, ref_override={}, optional=True),
     dict(name="Antigravity config/GEMINI.md", path=f"{HOME}/.gemini/config/GEMINI.md", kind="inline", base_ref=ABS, ref_override={}, optional=True),
@@ -86,6 +92,19 @@ def layer2_sync(path, text, shared):
         else:
             text = text.rstrip() + eol + eol + block
     return text
+
+
+def norm_bytes(b):
+    return b.replace(b"\r\n", b"\n")
+
+
+def tool_master(source):
+    if source == "worktree":
+        return open(f"{META_SRC}/{TOOL_REL}", "rb").read()
+    r = subprocess.run(["git", "-C", META, "show", "main:" + TOOL_REL], capture_output=True)
+    if r.returncode:
+        sys.exit("cannot read tools/check_vendor_drift.py from git: " + r.stderr.decode(errors="replace").strip())
+    return r.stdout
 
 
 def master_text(source):
@@ -167,9 +186,9 @@ def main():
         if not found:
             print(f"DRIFT    {c['name']}: no <apex_contract> block in {p}"); bad += 1; continue
         d = diff(exp, found.group(0))
-        refs = unresolved_refs(found.group(0), [LEELA])
+        refs = unresolved_refs(found.group(0), [c.get("root", LEELA)])
         print(("OK       " if not d else "DRIFT    ") + f"{c['name']}: " + ("identical to master" + (" (allowed departures applied)" if c['base_ref'] or c['ref_override'] else "") if not d else "; ".join(d)))
-        if refs: print(f"  WARN   {len(refs)} ref(s) do not resolve when the agent works in {LEELA}, e.g. {refs[0]}")
+        if refs: print(f"  WARN   {len(refs)} ref(s) do not resolve when the agent works in {c.get("root", LEELA)}, e.g. {refs[0]}")
         if d:
             bad += 1
             if args.sync:
@@ -190,10 +209,27 @@ def main():
                 backup(c["path"])
                 open(c["path"], "w", encoding="utf-8", newline="").write(layer2_sync(c["path"], text, shared))
                 print(f"  SYNCED {c['path']} layer 2 (backup: {c['path']}.apex-sync.bak)")
-    r = subprocess.run([sys.executable, f"{LEELA}/docs/apex/check_vendor_drift.py"], capture_output=True, text=True)
-    tail = [l for l in r.stdout.splitlines() if not l.startswith("OK")]
-    print("modules (check_vendor_drift.py): " + ("all OK" if not tail else "; ".join(tail)))
-    bad += any(l.startswith(("DRIFTED", "MISSING")) for l in tail)
+    tool = tool_master(args.source)
+    for vname, _root, vdir in VENDORS:
+        checker = f"{vdir}/check_vendor_drift.py"
+        if not os.path.isdir(vdir):
+            print(f"ABSENT   {vname} vendor folder {vdir} (repo not on this machine)")
+            continue
+        if not os.path.exists(checker):
+            print(f"DRIFT    {vname}: {checker} is missing"); bad += 1
+        else:
+            same = norm_bytes(open(checker, "rb").read()) == norm_bytes(tool)
+            print(("OK       " if same else "DRIFT    ") + f"{vname} checker: " + ("identical to tools/check_vendor_drift.py" if same else "differs from tools/check_vendor_drift.py"))
+            if not same:
+                bad += 1
+                if args.sync:
+                    backup(checker)
+                    open(checker, "wb").write(tool)
+                    print(f"  SYNCED {checker} (backup: {checker}.apex-sync.bak)")
+        r = subprocess.run([sys.executable, checker], capture_output=True, text=True)
+        tail = [l for l in r.stdout.splitlines() if l.strip() and not l.startswith("OK")]
+        print(f"modules ({vname}): " + ("all OK" if not tail else "; ".join(tail)))
+        bad += any(l.startswith(("DRIFTED", "MISSING", "LOCAL-EDIT")) for l in tail)
     return 1 if bad and not args.sync else 0
 
 

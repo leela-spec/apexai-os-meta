@@ -93,6 +93,7 @@ Status values: `open`, `needs operator`, `ready to delegate`. Update the status 
 | T15 | A second MausBot bot `c68d0dad-b3d0-4baf-8505-8f4eadbd7141` was not inspected. | open | Read its `SOUL.md`; report only. | record 19 section 5 |
 | T16 | Two bullets carried over from MausBot sit under "Completion Reporting"; the first is about precedence. | open | Move to a fitting heading in `specs/carrier-layer2-shared.md`, then `--sync`. | change record C11 |
 | T17 | Confirm `prior-research-and-rule-proposal.md` stays in Leela (accepted decision SSOT-D-068 depends on it). | needs operator | One question. | change record C14 |
+| T18 | Mindful Bar: the architecture changes (APEX copy under `systems/apex/`, contract block inline in `AGENTS.md`, new README, slimmer blueprint, design 02 flag) are uncommitted in `C:/GitDev/mindful-bar`. Question A22 (project agents and skills) is still open there. | needs operator | Operator reviews and commits; confirm the inline-contract choice is acceptable to Chris (a recorded founder answer to A22 does not exist). | change record section H |
 
 ## Output
 

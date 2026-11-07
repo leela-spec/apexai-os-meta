@@ -10,6 +10,7 @@
 - **MausBot:** `operations/19-MAUSBOT-INSTALLATION-RECORD.md` records the 2026-11-04 installation, including the change MausBot applied to the global Codex file, and why its apex skills exist only in its workspace. `HANDOVER-09` asks MausBot to list its deviations from the master (notably `<align>`). `HANDOVER-10` holds the probes for the Claude account folders and the two Gemini files.
 - **Moved in:** the two ultra-style-audit files from Leela (`research/07-ultra-style-audit/`), because they are Apex material. Three carrier templates now name the master instead of candidate 16.
 - **Documented:** `operations/20-CHANGE-RECORD-2026-11-06-07.md` records every change (before, problem, solution, after) and the mistakes found. `research/06-layered-rule-kb/` got update blocks in `rule-17-trade-off.md`, `audit-module-03-execution-modes.md` and `index.md`, and a new `rule-23-align.md` (the KB covers 22 rules; the master has 23). `operations/handovers/HANDOVER-11-ORCHESTRATOR-CONTINUATION.md` holds the open-task ledger for a new orchestrating chat.
+- **Mindful Bar and one drift checker:** `tools/check_vendor_drift.py` is now the single source of the vendored drift check (reads `main`, line-ending insensitive, reports `DELETED`), vendored into Leela and Mindful Bar. Mindful Bar's root `AGENTS.md` carries the contract block inline and is a registered carrier; its APEX copy moved from `docs/apex/` to `systems/apex/`. Details: `operations/20-CHANGE-RECORD-2026-11-06-07.md`, section H.
 
 ## 2026-11-06
 

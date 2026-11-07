@@ -12,7 +12,7 @@ tags: [apex, carriers, sync, always-on, gaps]
 ## At a glance
 
 - **Master:** `specs/apex_contract_v1.0_ultra.xml` on branch `main` of `leela-spec/apexai-os-meta`. 23 rules. Local copy: `C:/GitDev/apexai-os-meta/apex-meta/informatics/final/specs/apex_contract_v1.0_ultra.xml`.
-- **Four carriers hold an inline copy and equal the master:** Claude global, Gemini/Antigravity global, Codex global, and the Leela vendored copy. Each differs only in the allowed `base_ref` (and, in Leela, one `ref`). All three global files use the absolute `base_ref`.
+- **Five carriers hold an inline copy and equal the master:** Claude global, Gemini/Antigravity global, Codex global, the Leela vendored copy, and Mindful Bar's root `AGENTS.md`. Each differs only in the allowed `base_ref` (and, in Leela, one `ref`). All three global files use the absolute `base_ref`.
 - **The three global files also share Layer 2 text** (QMD protocol, workstation, completion reporting, Windows defaults). Its owner is `specs/carrier-layer2-shared.md`; the tool compares and repairs it.
 - **One tool compares everything:** `apex-meta/informatics/final/tools/apex_carrier_sync.py`. It reads the master from `main`, not from the checked-out branch.
 - **Not a Leela document.** Leela keeps only its vendored copy (`docs/apex/`) and pointers. Anything about the contract, its carriers or its sync lives here.
@@ -40,11 +40,12 @@ MODULES (the files the gated refs open)
 | Gemini/Antigravity global | `C:/Users/gehma/.gemini/GEMINI.md` | Yes (block and Layer 2) | absolute `base_ref` | `--sync` |
 | Codex global | `C:/Users/gehma/.codex/AGENTS.md` | Yes (block and Layer 2) | absolute `base_ref` | `--sync` |
 | Leela vendored copy | `C:/GitDev/Leela-Cloud-2026/docs/apex/apex-contract.md` | Yes | `base_ref="docs/apex/"`, `authoring` ref `specs/file-architecture.md` | `--sync`, then `check_vendor_drift.py --write` |
+| Mindful Bar `AGENTS.md` | `C:/GitDev/mindful-bar/AGENTS.md` | Yes (uncommitted in that repo) | `base_ref="systems/apex/"`, `authoring` ref `specs/file-architecture.md` | `--sync` |
 | Claude accounts `agehm`, `wimmer` | `C:/Users/gehma/.claude-agehm/CLAUDE.md`, `.claude-wimmer/CLAUDE.md` | **No file.** Launched through the PowerShell functions `claude-agehm` and `claude-wimmer`, which set `CLAUDE_CONFIG_DIR`. | n/a | `HANDOVER-10` |
 | Codex accounts 1 and 2 | `C:/Users/gehma/.codex-acc1/AGENTS.md`, `.codex-acc2/AGENTS.md` | Folders do not exist; no `CODEX_HOME` set | n/a | `HANDOVER-10` |
 | Antigravity second file | `C:/Users/gehma/.gemini/config/GEMINI.md` | Carries no block (OpenProject routing only) | n/a | `HANDOVER-10` |
 | MausBot | `C:/Users/gehma/.openmausbot/bots/bb2f252e-4050-4dac-a7ad-3ca3161f55ce/SOUL.md` and its skills | Not a carrier: short core plus skills that read the master live. Deviates on `<align>`. | n/a | `HANDOVER-09`, `19-MAUSBOT-INSTALLATION-RECORD.md` |
-| Modules | `C:/GitDev/Leela-Cloud-2026/docs/apex/specs/execution-modes/` | In sync (`check_vendor_drift.py`, line-ending insensitive) | none | copy, then `check_vendor_drift.py --write` |
+| Modules | `C:/GitDev/Leela-Cloud-2026/docs/apex/specs/`, `C:/GitDev/mindful-bar/systems/apex/specs/` | In sync (`tools/check_vendor_drift.py`, vendored byte for byte into both; reads `main`; line-ending insensitive) | none | copy, then `check_vendor_drift.py --write` in that folder |
 
 Hand-written text around the block (OpenProject routing, harness facts) is per carrier and never touched by the script.
 
