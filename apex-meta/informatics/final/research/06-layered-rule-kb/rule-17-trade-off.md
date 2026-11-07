@@ -14,6 +14,12 @@ tags: [layered-kb, rule-17, trade-off, semantic-blocks, token-compression, resea
 > - **Layer 1 (This File — Rule-Level Semantic Block Audit):** Decomposes `<trade_off>` into 3 atomic semantic blocks (`SB-17.1`..`SB-17.3`), audits token value against decision paralysis, and presents scored compression options.
 > - **Layer 2 (Downstream Infrastructure Modules):** [execution-modes.md](../../specs/execution-modes.md) (`EM-06`, `EM-07`), [governance-schemas.md](../../specs/governance-schemas.md) (`GS-12`, `GS-13`).
 
+> **Update 2026-11-07, read before the analysis below** (change record [`C3`](../../operations/20-CHANGE-RECORD-2026-11-06-07.md)):
+> - **Before:** this file analyses the `v1.0-3A` text: `ref="execution-modes.md"` and "For a material choice give each option…".
+> - **Problem:** the live master (`specs/apex_contract_v1.0_ultra.xml`) already differs (`ref` is `specs/execution-modes/bake-off.md`; the wording is "For material trade-offs, give each option a mechanism, concrete grounding, …"), and it had no pointer to the intensity lever `EM-06a`, so the lever was invisible from the always-on block.
+> - **Solution:** the master now ends: "… one line per rejection. Scale depth with the decision's own impact and evidence (levels L0-L3 in specs/execution-modes/qa-decision-matrix.md). Open ref for multi-candidate bake-offs."
+> - **After:** sections 1-2 below stay as the historical 3A analysis. The new sentence is a fourth semantic block (`SB-17.4`, depth pointer); its token value is not audited or measured. Layer 2 owner of `EM-06`/`EM-06a` is now `specs/execution-modes/qa-decision-matrix.md`.
+
 ---
 
 ## 1. Original Rule & Atomic Semantic Block Inventory

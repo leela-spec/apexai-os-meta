@@ -15,6 +15,12 @@ tags: [module-audit, plane-4, execution-modes, single-owner, semantic-blocks, tr
 > - **Layer 2 (Audited Canonical Module):** [execution-modes.md](../../specs/execution-modes.md) (`EM-01` through `EM-12`)
 > - **Upstream Research & Empirical Lore:** [standard.md](../../specs/standard.md), [RESULTS-01-gating-efficacy.md](../03-research-of-file-10/Apex_Informatics_Research_Results_2026-10-21/RESULTS-01-gating-efficacy.md), [RESULTS-06-condition-syntax.md](../03-research-of-file-10/Apex_Informatics_Research_Results_2026-10-21/RESULTS-06-condition-syntax.md), [C01-decision-trade-off-discipline/README.md](../01-universal-instruction-research/module-deepening/C01-decision-trade-off-discipline/README.md), [Snippets.md](../../../../AI-Snippets/Snippets.md), [2Dos Ai Instructions.md](../../../../AI-Snippets/Orga/2Dos%20Ai%20Instructions.md)
 
+> **Update 2026-11-07** (change records [`C1`](../../operations/20-CHANGE-RECORD-2026-11-06-07.md), [`C2`](../../operations/20-CHANGE-RECORD-2026-11-06-07.md), [`C4`](../../operations/20-CHANGE-RECORD-2026-11-06-07.md)):
+> - **Before:** this audit treats `execution-modes.md` as one file holding `EM-01`..`EM-12`, with `EM-06` and its matrix owned in its section 2 (sections 1.2, 2.1 and 4.1 below).
+> - **Problem:** since commit `a6792617` the adapters live in `specs/execution-modes/*.md`. Section 2 of the monolith still held the old matrix until today, and neither `EM-06a`, `EM-13` nor the `<align>` rule is covered here.
+> - **Solution:** monolith section 2 now points at `specs/execution-modes/qa-decision-matrix.md`. `EM-06a` (intensity lever, `L0`-`L3`) is defined there, section 2.3. `EM-13` lives in `specs/execution-modes/task-specification.md` and its trigger was reworded (`C1`).
+> - **After:** `qa-decision-matrix.md` owns `EM-06` and `EM-06a`. The inventory and ownership tables below are the pre-split snapshot and still name `execution-modes.md` as owner; they are stale and were not re-audited.
+
 ---
 
 ## 1. Module Scope, Architectural Role & Governed Rule Inventory
