@@ -67,7 +67,7 @@ Write the following content to `C:\Users\gehma\.codex\AGENTS.md`:
 
 <!-- ===================================================================== -->
 <!-- LAYER 1: PORTABLE UNIVERSAL AI OPERATING CONTRACT (v1.0-ultra)         -->
-<!-- Canonical Owner: 16-candidate-3A-ultra.md                              -->
+<!-- Canonical Owner: specs/apex_contract_v1.0_ultra.xml                     -->
 <!-- ===================================================================== -->
 
 <apex_contract v="1.0-ultra" base_ref="c:/GitDev/apexai-os-meta/apex-meta/informatics/final/">

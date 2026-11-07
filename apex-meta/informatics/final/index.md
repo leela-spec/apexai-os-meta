@@ -10,8 +10,8 @@ tags: [informatics, final, master-index, candidates, research-corpus, v1.0]
 
 > **Consolidated Zone:** `apex-meta/informatics/final/`
 > This directory brings together into **one unified, permanent location** the entire lineage of research, decision registers, candidate blocks, carrier blueprints, and testing protocols developed across all project phases.
-> - **Canonical Production Master:** [candidates/13-candidate-3A-xml.md](candidates/13-candidate-3A-xml.md) (`3A` Pure Named XML, `1,350` BPE)
-> - **Live Always-On Contract (`v1.0-ultra`, 23 rules):** [specs/apex_contract_v1.0_ultra.xml](specs/apex_contract_v1.0_ultra.xml) — the master every carrier copies. Carrier state and sync: [operations/18-APEX-CARRIER-MAP.md](operations/18-APEX-CARRIER-MAP.md), [tools/apex_carrier_sync.py](tools/apex_carrier_sync.py). The Milestone 5 candidate (22 rules) is archived: [candidates/_archive/16-candidate-3A-ultra.md](candidates/_archive/16-candidate-3A-ultra.md)
+> - **3A Format Source (historical, `v1.0-3A`):** [candidates/13-candidate-3A-xml.md](candidates/13-candidate-3A-xml.md) (`3A` Pure Named XML, `1,350` BPE). The live master is the next bullet.
+> - **Live Always-On Contract (`v1.0-ultra`, 23 rules):** [specs/apex_contract_v1.0_ultra.xml](specs/apex_contract_v1.0_ultra.xml) — the master every carrier copies. Carrier state and sync: [operations/18-APEX-CARRIER-MAP.md](operations/18-APEX-CARRIER-MAP.md), [tools/apex_carrier_sync.py](tools/apex_carrier_sync.py). Shared workstation text for the global carriers: [specs/carrier-layer2-shared.md](specs/carrier-layer2-shared.md). MausBot record: [operations/19-MAUSBOT-INSTALLATION-RECORD.md](operations/19-MAUSBOT-INSTALLATION-RECORD.md). Open handovers: [HANDOVER-09](operations/handovers/HANDOVER-09-MAUSBOT-ALIGNMENT-WITH-MASTER.md), [HANDOVER-10](operations/handovers/HANDOVER-10-ACCOUNTS-AND-ANTIGRAVITY-PROBES.md). The Milestone 5 candidate (22 rules) is archived: [candidates/_archive/16-candidate-3A-ultra.md](candidates/_archive/16-candidate-3A-ultra.md)
 > - **Format Projections:** [candidates/14-candidate-3B-hybrid.md](candidates/14-candidate-3B-hybrid.md) (`3B` Table) & [candidates/15-candidate-3C-bullet-hybrid.md](candidates/15-candidate-3C-bullet-hybrid.md) (`3C` Bold Bullets)
 > - **Carrier Integration Blueprint:** [candidates/03-BLUEPRINT-agents.md](candidates/03-BLUEPRINT-agents.md) (Two-Layer integration for `AGENTS.md`, `CLAUDE.md`, `GEMINI.md`)
 > - **Layered Rule Knowledge Base:** [research/06-layered-rule-kb/index.md](research/06-layered-rule-kb/index.md) (All 22 rules decomposed into semantic blocks, 5 Plane 4 module audits, and recomposition rollups)
@@ -55,7 +55,8 @@ research/
 ├── 03-research-of-file-10/              <- Yesterday's 10-packet research results (RESULTS-01 through RESULTS-11-synthesis)
 ├── 04-finalization-dossier/             <- Step-by-step audit dossier (00-research-critique through 08-complete-comparison)
 ├── 05-analysis-after-research/          <- Post-research analysis notes
-└── 06-layered-rule-kb/                  <- Layered Rule Knowledge Base (all 22 rules, 5 module audits, index.md)
+├── 06-layered-rule-kb/                  <- Layered Rule Knowledge Base (all 22 rules, 5 module audits, index.md)
+└── 07-ultra-style-audit/                <- Style audit of the ultra block (handover and findings)
 ```
 
 ### 2.1 Research Directory Index
@@ -68,6 +69,7 @@ research/
 | [**`04-finalization-dossier/`**](research/04-finalization-dossier/) | `NextIteration/v2-always-on-architecture/FinalizationDossier/` | **`v1.0` Finalization Audit Dossier:** Steps `00` through `08`, including `00-research-critique-and-architecture-design.md`, `07-teamwork-independent-validation.md`, and `08-complete-rule-and-decision-comparison.md`. |
 | [**`05-analysis-after-research/`**](research/05-analysis-after-research/) | `NextIteration/v2-always-on-architecture/AnalysisAfterResearch/` | Working analysis and synthesis logs. |
 | [**`06-layered-rule-kb/`**](research/06-layered-rule-kb/index.md) | `apex-meta/informatics/final/research/06-layered-rule-kb/` | **Layered Rule Knowledge Base:** Complete 22-rule semantic block decomposition ([`rule-01`](research/06-layered-rule-kb/rule-01-target.md)..`22`), 5 Plane 4 infrastructure module audits ([`audit-module-01`](research/06-layered-rule-kb/audit-module-01-writing-profile.md)..`05`), WP-23 ownership ledgers, and Option B surgical recomposition rollup. |
+| [**`07-ultra-style-audit/`**](research/07-ultra-style-audit/research-handover-ultra-style-audit.md) | moved from `Leela-Cloud-2026/docs/ssot/architecture/spec-organization/` (2026-11-07) | **Ultra block style audit:** the deferred handover and the findings file (prose vs signal-bullet clauses, token measurements, rewrite proposals). |
 
 ---
 

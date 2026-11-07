@@ -506,20 +506,22 @@ class TestTaskAdapterSemanticSoundness(unittest.TestCase):
         - Reasoning
         - Notes (one concise line per rejected option)
         """
-        self.assertIn("Question", self.exec_text)
-        self.assertIn("Grounding", self.exec_text)
-        self.assertIn("Recommendation", self.exec_text)
-        self.assertIn("Reasoning", self.exec_text)
-        self.assertIn("Notes", self.exec_text)
-        self.assertTrue("one concise line per rejected option" in self.exec_text.lower() or "one line per rejected option" in self.exec_text.lower())
+        # The matrix moved to its own module (DEC-16 split); the monolith keeps only the trigger.
+        qa_text = resolve_file("execution-modes/qa-decision-matrix.md").read_text(encoding="utf-8")
+        self.assertIn("Question", qa_text)
+        self.assertIn("Grounding", qa_text)
+        self.assertIn("Recommendation", qa_text)
+        self.assertIn("Reasoning", qa_text)
+        self.assertIn("Notes", qa_text)
+        self.assertTrue("one concise line per rejected option" in qa_text.lower() or "one line per rejected option" in qa_text.lower())
 
         # Test canonical example in execution-modes.md
-        self.assertIn("Option A (Bloc)", self.exec_text)
-        self.assertIn("Option B (Riverpod)", self.exec_text)
-        self.assertIn("Option C (SetState / Vanilla)", self.exec_text)
-        self.assertIn("(I85/E95/R20)", self.exec_text)
-        self.assertIn("(I90/E90/R15)", self.exec_text)
-        self.assertIn("(I40/E80/R70)", self.exec_text)
+        self.assertIn("Option A (Bloc)", qa_text)
+        self.assertIn("Option B (Riverpod)", qa_text)
+        self.assertIn("Option C (SetState / Vanilla)", qa_text)
+        self.assertIn("(I85/E95/R20)", qa_text)
+        self.assertIn("(I90/E90/R15)", qa_text)
+        self.assertIn("(I40/E80/R70)", qa_text)
 
     def test_tas_04_comparison_bakeoff_rubric(self):
         """

@@ -52,7 +52,7 @@ Flat YAML frontmatter: colons on every line, inline bracket lists, no multiline 
 </authoring>
 
 <trade_off when="the operator must choose between material alternatives, or asks for options" ref="specs/execution-modes/bake-off.md">
-Decide routine reversible choices yourself. For material trade-offs, give each option a mechanism, concrete grounding, and raw (I/E/R) estimates, plus a recommendation and one line per rejection. Open ref for multi-candidate bake-offs.
+Decide routine reversible choices yourself. For material trade-offs, give each option a mechanism, concrete grounding, and raw (I/E/R) estimates, plus a recommendation and one line per rejection. Scale depth with the decision's own impact and evidence (levels L0-L3 in specs/execution-modes/qa-decision-matrix.md). Open ref for multi-candidate bake-offs.
 </trade_off>
 
 <handover when="ending a session, delegating to a subagent, or writing any handoff" ref="specs/execution-modes/handover.md">

@@ -8,7 +8,7 @@ Question this answers: which files carry a copy of the always-on block, and does
   python apex-meta/informatics/final/tools/apex_carrier_sync.py --sync              # rewrite drifted carriers (backup first)
   python apex-meta/informatics/final/tools/apex_carrier_sync.py --source worktree   # compare against the uncommitted master
 
-Scope: the <apex_contract>...</apex_contract> span only. Module files (specs/**) are checked by
+Scope: the <apex_contract>...</apex_contract> span, plus the shared Layer 2 sections listed in specs/carrier-layer2-shared.md for the three global files. Module files (specs/**) are checked by
 Leela-Cloud-2026/docs/apex/check_vendor_drift.py, which this script runs and reports. Nothing here edits the
 master. Hand-written text around the block in a carrier is never touched. Not wired into any gate: it reads
 files outside any one repo, so a gate would be red on a clean clone (see operations/18-APEX-CARRIER-MAP.md).
@@ -17,6 +17,7 @@ import argparse, os, re, subprocess, sys, shutil
 
 HOME = os.path.expanduser("~")
 META = "C:/GitDev/apexai-os-meta"
+META_SRC = os.environ.get("APEX_META_SRC", META)  # only for testing --source worktree against another checkout
 LEELA = "C:/GitDev/Leela-Cloud-2026"
 MASTER_REL = "apex-meta/informatics/final/specs/apex_contract_v1.0_ultra.xml"
 SPAN = re.compile(r"<apex_contract[^>]*>.*?</apex_contract>", re.S)
@@ -26,22 +27,60 @@ SPAN = re.compile(r"<apex_contract[^>]*>.*?</apex_contract>", re.S)
 # absence is reported, not failed, because whether it is launched is not knowable from the files.
 ABS = f"{META}/apex-meta/informatics/final/"
 CARRIERS = [
-    dict(name="Claude global", path=f"{HOME}/.claude/CLAUDE.md", kind="inline", base_ref=None, ref_override={}),
-    dict(name="Gemini/Antigravity global", path=f"{HOME}/.gemini/GEMINI.md", kind="inline", base_ref=ABS, ref_override={}),
-    dict(name="Codex global", path=f"{HOME}/.codex/AGENTS.md", kind="inline", base_ref=ABS, ref_override={}),
+    dict(name="Claude global", path=f"{HOME}/.claude/CLAUDE.md", kind="inline", layer2=True, base_ref=ABS, ref_override={}),
+    dict(name="Gemini/Antigravity global", path=f"{HOME}/.gemini/GEMINI.md", kind="inline", layer2=True, base_ref=ABS, ref_override={}),
+    dict(name="Codex global", path=f"{HOME}/.codex/AGENTS.md", kind="inline", layer2=True, base_ref=ABS, ref_override={}),
     dict(name="Leela vendored copy", path=f"{LEELA}/docs/apex/apex-contract.md", kind="inline",
          base_ref="docs/apex/", ref_override={"authoring": "specs/file-architecture.md"}),
-    dict(name="Claude account agehm", path=f"{HOME}/.claude-agehm/CLAUDE.md", kind="inline", base_ref=None, ref_override={}, optional=True),
-    dict(name="Claude account wimmer", path=f"{HOME}/.claude-wimmer/CLAUDE.md", kind="inline", base_ref=None, ref_override={}, optional=True),
+    dict(name="Claude account agehm", path=f"{HOME}/.claude-agehm/CLAUDE.md", kind="inline", base_ref=ABS, ref_override={}, optional=True),
+    dict(name="Claude account wimmer", path=f"{HOME}/.claude-wimmer/CLAUDE.md", kind="inline", base_ref=ABS, ref_override={}, optional=True),
     dict(name="Antigravity config/GEMINI.md", path=f"{HOME}/.gemini/config/GEMINI.md", kind="inline", base_ref=ABS, ref_override={}, optional=True),
     dict(name="Codex account 1", path=f"{HOME}/.codex-acc1/AGENTS.md", kind="inline", base_ref=ABS, ref_override={}, optional=True),
     dict(name="Codex account 2", path=f"{HOME}/.codex-acc2/AGENTS.md", kind="inline", base_ref=ABS, ref_override={}, optional=True),
 ]
 
 
+SHARED_REL = "apex-meta/informatics/final/specs/carrier-layer2-shared.md"
+
+
+def sections(text):
+    """{heading: normalized body} for every '## ' section after the contract block."""
+    t = text.replace("\r\n", "\n")
+    k = t.find("</apex_contract>")
+    t = t[k + len("</apex_contract>"):] if k >= 0 else t
+    out = {}
+    for m in re.finditer(r"^## (.+?)\n(.*?)(?=^## |\Z)", t, re.S | re.M):
+        out[m.group(1).strip()] = "\n".join(l.strip() for l in m.group(2).splitlines() if l.strip())
+    return out
+
+
+def shared_layer2(source):
+    if source == "worktree":
+        raw = open(f"{META_SRC}/{SHARED_REL}", encoding="utf-8").read()
+    else:
+        r = subprocess.run(["git", "-C", META, "show", "main:" + SHARED_REL], capture_output=True, text=True, encoding="utf-8")
+        if r.returncode:
+            sys.exit("cannot read shared Layer 2 spec from git: " + r.stderr.strip())
+        raw = r.stdout
+    return sections("</apex_contract>\n" + raw)
+
+
+def layer2_sync(path, text, shared):
+    """Replace or append each shared section in the carrier text; keeps the carrier's line endings."""
+    eol = "\r\n" if "\r\n" in text else "\n"
+    for head, body in shared.items():
+        block = f"## {head}{eol}{eol}" + eol.join(body.splitlines()) + eol
+        pat = re.compile(r"^## " + re.escape(head) + r"[ \t]*\r?\n.*?(?=^## |\Z)", re.S | re.M)
+        if pat.search(text):
+            text = pat.sub(lambda m: block + (eol if not m.group(0).endswith(eol + eol) else ""), text, count=1)
+        else:
+            text = text.rstrip() + eol + eol + block
+    return text
+
+
 def master_text(source):
     if source == "worktree":
-        return open(f"{META}/{MASTER_REL}", encoding="utf-8").read()
+        return open(f"{META_SRC}/{MASTER_REL}", encoding="utf-8").read()
     r = subprocess.run(["git", "-C", META, "show", "main:" + MASTER_REL], capture_output=True, text=True, encoding="utf-8")
     if r.returncode:
         sys.exit("cannot read master from git: " + r.stderr.strip())
@@ -127,6 +166,20 @@ def main():
                 shutil.copyfile(p, p + ".apex-sync.bak")
                 open(p, "w", encoding="utf-8", newline="").write(text[:found.start()] + exp + text[found.end():])
                 print(f"  SYNCED {p} (backup: {p}.apex-sync.bak)")
+    shared = shared_layer2(args.source)
+    for c in CARRIERS:
+        if not c.get("layer2") or not os.path.exists(c["path"]):
+            continue
+        text = open(c["path"], encoding="utf-8").read()
+        have = sections(text)
+        d2 = [f"## {h}: " + ("missing" if h not in have else "differs") for h, b in shared.items() if have.get(h) != b]
+        print(("OK       " if not d2 else "DRIFT    ") + f"{c['name']} layer 2: " + ("shared sections identical" if not d2 else "; ".join(d2)))
+        if d2:
+            bad += 1
+            if args.sync:
+                shutil.copyfile(c["path"], c["path"] + ".apex-sync.bak")
+                open(c["path"], "w", encoding="utf-8", newline="").write(layer2_sync(c["path"], text, shared))
+                print(f"  SYNCED {c['path']} layer 2 (backup: {c['path']}.apex-sync.bak)")
     r = subprocess.run([sys.executable, f"{LEELA}/docs/apex/check_vendor_drift.py"], capture_output=True, text=True)
     tail = [l for l in r.stdout.splitlines() if not l.startswith("OK")]
     print("modules (check_vendor_drift.py): " + ("all OK" if not tail else "; ".join(tail)))

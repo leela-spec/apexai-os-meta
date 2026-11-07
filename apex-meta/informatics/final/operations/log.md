@@ -1,5 +1,11 @@
 # Apex Informatics Standard — Change Log
 
+## 2026-11-07
+
+**Carrier gaps closed; MausBot record; shared Layer 2 text** — `<trade_off>` in `specs/apex_contract_v1.0_ultra.xml` now names the intensity lever (`EM-06a`, `qa-decision-matrix.md`). `specs/execution-modes.md` section 2 points at the split matrix file, as sections 3-7 already did. `tools/apex_carrier_sync.py` now compares the three global files' shared Layer 2 sections against the new `specs/carrier-layer2-shared.md` (found drift: Gemini lacked the Windows defaults, worded the other sections differently, and carried a corrupted dash), and Claude's `base_ref` is absolute.
+- **MausBot:** `operations/19-MAUSBOT-INSTALLATION-RECORD.md` records the 2026-11-04 installation, including the change MausBot applied to the global Codex file, and why its apex skills exist only in its workspace. `HANDOVER-09` asks MausBot to list its deviations from the master (notably `<align>`). `HANDOVER-10` holds the probes for the Claude account folders and the two Gemini files.
+- **Moved in:** the two ultra-style-audit files from Leela (`research/07-ultra-style-audit/`), because they are Apex material. Three carrier templates now name the master instead of candidate 16.
+
 ## 2026-11-06
 
 **Carrier sync, intensity lever, and retirement of candidate 16** — Added `EM-06a` (Intensity Lever, `L0`–`L3`, thresholds unmeasured) to `specs/execution-modes/qa-decision-matrix.md`. Changed the `<align>` trigger (and `EM-13` in `task-specification.md`) so an already-defined step does not need a new restatement. Added `tools/apex_carrier_sync.py` and `operations/18-APEX-CARRIER-MAP.md`: the script compares the always-on block in every carrier with `specs/apex_contract_v1.0_ultra.xml` on `main`, and `--sync` rewrites drifted inline copies (block only, with a backup).
