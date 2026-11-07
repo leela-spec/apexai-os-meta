@@ -1,0 +1,32 @@
+{
+  "status": "PASS",
+  "sourceIds": [
+    215,
+    216,
+    217,
+    218,
+    219,
+    220
+  ],
+  "csvRowsCompared": 6,
+  "descriptionCellsCompared": 6,
+  "relationRowsCompared": 4,
+  "atomEntries": 6,
+  "portfolioWorkbookRows": 186,
+  "pdfs": {
+    "example-pdf-table.pdf": {
+      "pages": 1,
+      "rendered": true
+    },
+    "example-pdf-report.pdf": {
+      "pages": 10,
+      "rendered": true
+    },
+    "example-pdf-report-with-images.pdf": {
+      "pages": 10,
+      "rendered": true
+    }
+  },
+  "sourceImageReferences": 0,
+  "crossFormatJoinPreservesNativeFields": true
+}

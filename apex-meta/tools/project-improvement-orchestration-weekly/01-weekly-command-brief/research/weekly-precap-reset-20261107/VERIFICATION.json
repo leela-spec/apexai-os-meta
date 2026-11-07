@@ -1,0 +1,58 @@
+{
+  "status": "PASS",
+  "checkedAt": "2026-11-07T10:49:23.451Z",
+  "scope": "Identified task-owned conversation paths, modified showroom and handover packet",
+  "newConversationFiles": 157,
+  "modifiedExistingFiles": 1,
+  "newPacketFiles": 6,
+  "totalIndexedFiles": 164,
+  "localMarkdownLinksChecked": 232,
+  "missingFiles": [],
+  "unindexedTaskRootFiles": [],
+  "sourceEvidenceChecks": [
+    {
+      "file": ".claude/skills/PrecapWeek/SKILL.md",
+      "phrase": "primary_operator_output: Weekly_Command_Brief",
+      "present": true
+    },
+    {
+      "file": ".claude/skills/PrecapWeek/weekly-command-brief-template.md",
+      "phrase": "Matrix 1: Project Architecture",
+      "present": true
+    },
+    {
+      "file": "apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/DESIGN-DECISIONS.md",
+      "phrase": "compact control/result layer",
+      "present": true
+    },
+    {
+      "file": "apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/HANDOVER-MATRIX-1-DESIGN-ASSUMPTION-FIRST-20261106.okf.md",
+      "phrase": "epic/workstream",
+      "present": true
+    },
+    {
+      "file": "apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/OPERATOR-DECISION-DELTA-Q06-Q08-Q09-Q12-Q13-20261106.okf.md",
+      "phrase": "Saturday is a **normal workday**",
+      "present": true
+    }
+  ],
+  "commands": {
+    "inventory": "rg --files --hidden --no-ignore <scopeRoots listed in ARTIFACT-MANIFEST.json>",
+    "runtimeDiff": "git -C C:/GitDev/apexai-os-meta diff --name-only -- .claude/skills/PrecapWeek/SKILL.md .claude/skills/PrecapWeek/weekly-command-brief-template.md"
+  },
+  "runtimeDiffPaths": [],
+  "requirementsReviewed": {
+    "specLocationsAndPrecedence": true,
+    "layeredIntentExplicit": true,
+    "driftAndBaselineConflictsSeparated": true,
+    "allScopedArtifactsLinked": true,
+    "resourcePlanningRecordedAsFutureScope": true,
+    "readmeIndexHandoverPresent": true,
+    "noProductionOrPMWrites": true
+  },
+  "limitations": [
+    "No assertion of authorship outside the identified task-owned locations.",
+    "Technical receipts do not establish usefulness or requirement compliance of the prototypes.",
+    "Project/resource planning remains a future operator-guided design task."
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "exactMatchEdits": 65,
+  "identityEdgesRoutedAroundOwnershipNodes": true,
+  "coreTransitiveDuplicateArrowsOmitted": [
+    37,
+    36,
+    35,
+    34
+  ],
+  "nativeRelationsRemainInSource": true,
+  "arrowConvention": "prerequisite → dependent; labels use required by / followed by"
+}

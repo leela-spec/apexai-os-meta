@@ -1,0 +1,25 @@
+{
+  "status": "PASS",
+  "graphs": 8,
+  "windows": 38,
+  "sourceRows": 186,
+  "layouts": [
+    {
+      "width": 1440,
+      "scroll": 1425
+    },
+    {
+      "width": 430,
+      "scroll": 430
+    },
+    {
+      "width": 360,
+      "scroll": 360
+    }
+  ],
+  "staticChartsWithoutJavaScript": true,
+  "identitySkipEdgesRoutedAroundChildren": true,
+  "ganttConnectorsPreserved": true,
+  "sourceRecordsUnchanged": true,
+  "checkedAt": "2026-11-07T09:54:27.274Z"
+}

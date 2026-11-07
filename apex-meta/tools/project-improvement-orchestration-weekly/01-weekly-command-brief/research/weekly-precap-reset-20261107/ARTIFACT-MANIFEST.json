@@ -1,0 +1,1169 @@
+{
+  "purpose": "Informational scoped inventory, not a PM data schema",
+  "scopeRoots": [
+    "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/northstar-mock",
+    "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/northstar-exports-week-20261109",
+    "C:/Users/gehma/Documents/Codex/2026-11-06/recently-in-the-apex-ai-os/design-previews",
+    "C:/Users/gehma/Documents/Codex/2026-11-06/recently-in-the-apex-ai-os/visual-render-work"
+  ],
+  "exclusions": [
+    "User-provided attachments",
+    "Unrelated dirty repository files",
+    "Temporary browser/runtime caches",
+    "Archive members counted separately from their containing files"
+  ],
+  "newConversationArtifacts": 157,
+  "modifiedExistingArtifacts": 1,
+  "newPacketFiles": 6,
+  "totalIndexedFiles": 164,
+  "entries": [
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/northstar-exports-week-20261109/openproject-outputs-and-northstar.zip",
+      "change": "created",
+      "group": "Download bundles",
+      "role": "Packaged artifact snapshot; contents may represent a specific prototype stage",
+      "authority": "Convenience archive; do not infer production authority from packaging"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/northstar-exports-week-20261109/portfolio-visual-bundle.zip",
+      "change": "created",
+      "group": "Download bundles",
+      "role": "Packaged artifact snapshot; contents may represent a specific prototype stage",
+      "authority": "Convenience archive; do not infer production authority from packaging"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/northstar-exports-week-20261109/example-descriptions.xlsx",
+      "change": "created",
+      "group": "Export and report examples",
+      "role": "Locally generated XLSX equivalent / portfolio workbook",
+      "authority": "API-derived example; not a native OpenProject export download or accepted plan"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/northstar-exports-week-20261109/example-pdf-report-with-images.pdf",
+      "change": "created",
+      "group": "Export and report examples",
+      "role": "Locally rendered report/table",
+      "authority": "API-derived example; not a native OpenProject export download or accepted plan"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/northstar-exports-week-20261109/example-pdf-report.pdf",
+      "change": "created",
+      "group": "Export and report examples",
+      "role": "Locally rendered report/table",
+      "authority": "API-derived example; not a native OpenProject export download or accepted plan"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/northstar-exports-week-20261109/example-pdf-table.pdf",
+      "change": "created",
+      "group": "Export and report examples",
+      "role": "Locally rendered report/table",
+      "authority": "API-derived example; not a native OpenProject export download or accepted plan"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/northstar-exports-week-20261109/example-relations.xlsx",
+      "change": "created",
+      "group": "Export and report examples",
+      "role": "Locally generated XLSX equivalent / portfolio workbook",
+      "authority": "API-derived example; not a native OpenProject export download or accepted plan"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/northstar-exports-week-20261109/example-snapshot.atom",
+      "change": "created",
+      "group": "Export and report examples",
+      "role": "Locally rendered snapshot feed, not journal history",
+      "authority": "API-derived example; not a native OpenProject export download or accepted plan"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/northstar-exports-week-20261109/example-table.xlsx",
+      "change": "created",
+      "group": "Export and report examples",
+      "role": "Locally generated XLSX equivalent / portfolio workbook",
+      "authority": "API-derived example; not a native OpenProject export download or accepted plan"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/northstar-exports-week-20261109/example-work-packages.csv",
+      "change": "created",
+      "group": "Export and report examples",
+      "role": "Locally generated source table",
+      "authority": "API-derived example; not a native OpenProject export download or accepted plan"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/northstar-exports-week-20261109/gantt-data-readiness.csv",
+      "change": "created",
+      "group": "Export and report examples",
+      "role": "Native date-readiness report",
+      "authority": "API-derived example; not a native OpenProject export download or accepted plan"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/northstar-exports-week-20261109/northstar-portfolio-visual-report.pdf",
+      "change": "created",
+      "group": "Export and report examples",
+      "role": "Locally rendered report/table",
+      "authority": "API-derived example; not a native OpenProject export download or accepted plan"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/northstar-exports-week-20261109/northstar-portfolio-visuals.pdf",
+      "change": "created",
+      "group": "Export and report examples",
+      "role": "Locally rendered report/table",
+      "authority": "API-derived example; not a native OpenProject export download or accepted plan"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/northstar-exports-week-20261109/openproject-outputs-and-northstar/example-descriptions.xlsx",
+      "change": "created",
+      "group": "Export and report examples",
+      "role": "Locally generated XLSX equivalent / portfolio workbook",
+      "authority": "API-derived example; not a native OpenProject export download or accepted plan"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/northstar-exports-week-20261109/openproject-outputs-and-northstar/example-pdf-report-with-images.pdf",
+      "change": "created",
+      "group": "Export and report examples",
+      "role": "Locally rendered report/table",
+      "authority": "API-derived example; not a native OpenProject export download or accepted plan"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/northstar-exports-week-20261109/openproject-outputs-and-northstar/example-pdf-report.pdf",
+      "change": "created",
+      "group": "Export and report examples",
+      "role": "Locally rendered report/table",
+      "authority": "API-derived example; not a native OpenProject export download or accepted plan"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/northstar-exports-week-20261109/openproject-outputs-and-northstar/example-pdf-table.pdf",
+      "change": "created",
+      "group": "Export and report examples",
+      "role": "Locally rendered report/table",
+      "authority": "API-derived example; not a native OpenProject export download or accepted plan"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/northstar-exports-week-20261109/openproject-outputs-and-northstar/example-relations.xlsx",
+      "change": "created",
+      "group": "Export and report examples",
+      "role": "Locally generated XLSX equivalent / portfolio workbook",
+      "authority": "API-derived example; not a native OpenProject export download or accepted plan"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/northstar-exports-week-20261109/openproject-outputs-and-northstar/example-snapshot.atom",
+      "change": "created",
+      "group": "Export and report examples",
+      "role": "Locally rendered snapshot feed, not journal history",
+      "authority": "API-derived example; not a native OpenProject export download or accepted plan"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/northstar-exports-week-20261109/openproject-outputs-and-northstar/example-table.xlsx",
+      "change": "created",
+      "group": "Export and report examples",
+      "role": "Locally generated XLSX equivalent / portfolio workbook",
+      "authority": "API-derived example; not a native OpenProject export download or accepted plan"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/northstar-exports-week-20261109/openproject-outputs-and-northstar/example-work-packages.csv",
+      "change": "created",
+      "group": "Export and report examples",
+      "role": "Locally generated source table",
+      "authority": "API-derived example; not a native OpenProject export download or accepted plan"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/northstar-exports-week-20261109/openproject-outputs-and-northstar/gantt-data-readiness.csv",
+      "change": "created",
+      "group": "Export and report examples",
+      "role": "Native date-readiness report",
+      "authority": "API-derived example; not a native OpenProject export download or accepted plan"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/northstar-exports-week-20261109/openproject-outputs-and-northstar/portfolio-and-proposed-week.xlsx",
+      "change": "created",
+      "group": "Export and report examples",
+      "role": "Locally generated XLSX equivalent / portfolio workbook",
+      "authority": "API-derived example; not a native OpenProject export download or accepted plan"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/northstar-exports-week-20261109/openproject-outputs-and-northstar/portfolio-projects.csv",
+      "change": "created",
+      "group": "Export and report examples",
+      "role": "Locally generated source table",
+      "authority": "API-derived example; not a native OpenProject export download or accepted plan"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/northstar-exports-week-20261109/openproject-outputs-and-northstar/portfolio-relations.csv",
+      "change": "created",
+      "group": "Export and report examples",
+      "role": "Locally generated source table",
+      "authority": "API-derived example; not a native OpenProject export download or accepted plan"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/northstar-exports-week-20261109/openproject-outputs-and-northstar/portfolio-work-packages.csv",
+      "change": "created",
+      "group": "Export and report examples",
+      "role": "Locally generated source table",
+      "authority": "API-derived example; not a native OpenProject export download or accepted plan"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/northstar-exports-week-20261109/portfolio-and-proposed-week.xlsx",
+      "change": "created",
+      "group": "Export and report examples",
+      "role": "Locally generated XLSX equivalent / portfolio workbook",
+      "authority": "API-derived example; not a native OpenProject export download or accepted plan"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/northstar-exports-week-20261109/portfolio-projects.csv",
+      "change": "created",
+      "group": "Export and report examples",
+      "role": "Locally generated source table",
+      "authority": "API-derived example; not a native OpenProject export download or accepted plan"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/northstar-exports-week-20261109/portfolio-relations.csv",
+      "change": "created",
+      "group": "Export and report examples",
+      "role": "Locally generated source table",
+      "authority": "API-derived example; not a native OpenProject export download or accepted plan"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/northstar-exports-week-20261109/portfolio-work-packages.csv",
+      "change": "created",
+      "group": "Export and report examples",
+      "role": "Locally generated source table",
+      "authority": "API-derived example; not a native OpenProject export download or accepted plan"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/weekly-precap-reset-20261107/ARTIFACT-MANIFEST.json",
+      "change": "created",
+      "group": "Handover packet",
+      "role": "Machine-readable inventory",
+      "authority": "Review documentation; no production behavior change"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/weekly-precap-reset-20261107/HANDOVER.md",
+      "change": "created",
+      "group": "Handover packet",
+      "role": "Next-session contract and recovery route",
+      "authority": "Review documentation; no production behavior change"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/weekly-precap-reset-20261107/INDEX.md",
+      "change": "created",
+      "group": "Handover packet",
+      "role": "Complete scoped artifact links",
+      "authority": "Review documentation; no production behavior change"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/weekly-precap-reset-20261107/README.md",
+      "change": "created",
+      "group": "Handover packet",
+      "role": "Entry point and spec locations",
+      "authority": "Review documentation; no production behavior change"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/weekly-precap-reset-20261107/SOURCE-FINDINGS.md",
+      "change": "created",
+      "group": "Handover packet",
+      "role": "Specification authority and drift evidence",
+      "authority": "Review documentation; no production behavior change"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/weekly-precap-reset-20261107/VERIFICATION.json",
+      "change": "created",
+      "group": "Handover packet",
+      "role": "Packet verification receipt",
+      "authority": "Review documentation; no production behavior change"
+    },
+    {
+      "path": "C:/Users/gehma/Documents/Codex/2026-11-06/recently-in-the-apex-ai-os/design-previews/atlas.png",
+      "change": "created",
+      "group": "Individual design screenshots",
+      "role": "Static top-of-design screenshot from the original twelve-design showroom",
+      "authority": "Viewing aid; not interactive or a planning specification"
+    },
+    {
+      "path": "C:/Users/gehma/Documents/Codex/2026-11-06/recently-in-the-apex-ai-os/design-previews/command.png",
+      "change": "created",
+      "group": "Individual design screenshots",
+      "role": "Static top-of-design screenshot from the original twelve-design showroom",
+      "authority": "Viewing aid; not interactive or a planning specification"
+    },
+    {
+      "path": "C:/Users/gehma/Documents/Codex/2026-11-06/recently-in-the-apex-ai-os/design-previews/constellation.png",
+      "change": "created",
+      "group": "Individual design screenshots",
+      "role": "Static top-of-design screenshot from the original twelve-design showroom",
+      "authority": "Viewing aid; not interactive or a planning specification"
+    },
+    {
+      "path": "C:/Users/gehma/Documents/Codex/2026-11-06/recently-in-the-apex-ai-os/design-previews/dossier.png",
+      "change": "created",
+      "group": "Individual design screenshots",
+      "role": "Static top-of-design screenshot from the original twelve-design showroom",
+      "authority": "Viewing aid; not interactive or a planning specification"
+    },
+    {
+      "path": "C:/Users/gehma/Documents/Codex/2026-11-06/recently-in-the-apex-ai-os/design-previews/editorial.png",
+      "change": "created",
+      "group": "Individual design screenshots",
+      "role": "Static top-of-design screenshot from the original twelve-design showroom",
+      "authority": "Viewing aid; not interactive or a planning specification"
+    },
+    {
+      "path": "C:/Users/gehma/Documents/Codex/2026-11-06/recently-in-the-apex-ai-os/design-previews/focus.png",
+      "change": "created",
+      "group": "Individual design screenshots",
+      "role": "Static top-of-design screenshot from the original twelve-design showroom",
+      "authority": "Viewing aid; not interactive or a planning specification"
+    },
+    {
+      "path": "C:/Users/gehma/Documents/Codex/2026-11-06/recently-in-the-apex-ai-os/design-previews/kanban.png",
+      "change": "created",
+      "group": "Individual design screenshots",
+      "role": "Static top-of-design screenshot from the original twelve-design showroom",
+      "authority": "Viewing aid; not interactive or a planning specification"
+    },
+    {
+      "path": "C:/Users/gehma/Documents/Codex/2026-11-06/recently-in-the-apex-ai-os/design-previews/ledger.png",
+      "change": "created",
+      "group": "Individual design screenshots",
+      "role": "Static top-of-design screenshot from the original twelve-design showroom",
+      "authority": "Viewing aid; not interactive or a planning specification"
+    },
+    {
+      "path": "C:/Users/gehma/Documents/Codex/2026-11-06/recently-in-the-apex-ai-os/design-previews/northstar.png",
+      "change": "created",
+      "group": "Individual design screenshots",
+      "role": "Static top-of-design screenshot from the original twelve-design showroom",
+      "authority": "Viewing aid; not interactive or a planning specification"
+    },
+    {
+      "path": "C:/Users/gehma/Documents/Codex/2026-11-06/recently-in-the-apex-ai-os/design-previews/signal.png",
+      "change": "created",
+      "group": "Individual design screenshots",
+      "role": "Static top-of-design screenshot from the original twelve-design showroom",
+      "authority": "Viewing aid; not interactive or a planning specification"
+    },
+    {
+      "path": "C:/Users/gehma/Documents/Codex/2026-11-06/recently-in-the-apex-ai-os/design-previews/stair.png",
+      "change": "created",
+      "group": "Individual design screenshots",
+      "role": "Static top-of-design screenshot from the original twelve-design showroom",
+      "authority": "Viewing aid; not interactive or a planning specification"
+    },
+    {
+      "path": "C:/Users/gehma/Documents/Codex/2026-11-06/recently-in-the-apex-ai-os/design-previews/switchboard.png",
+      "change": "created",
+      "group": "Individual design screenshots",
+      "role": "Static top-of-design screenshot from the original twelve-design showroom",
+      "authority": "Viewing aid; not interactive or a planning specification"
+    },
+    {
+      "path": "C:/Users/gehma/Documents/Codex/2026-11-06/recently-in-the-apex-ai-os/visual-render-work/render-charts.cjs",
+      "change": "created",
+      "group": "Local render helpers",
+      "role": "Local generation helper; may lag exact-match output refinements",
+      "authority": "Diagnostic source only; reconcile before reuse"
+    },
+    {
+      "path": "C:/Users/gehma/Documents/Codex/2026-11-06/recently-in-the-apex-ai-os/visual-render-work/render-pages.cjs",
+      "change": "created",
+      "group": "Local render helpers",
+      "role": "Local generation helper; may lag exact-match output refinements",
+      "authority": "Diagnostic source only; reconcile before reuse"
+    },
+    {
+      "path": "C:/Users/gehma/Documents/Codex/2026-11-06/recently-in-the-apex-ai-os/visual-render-work/visual.css",
+      "change": "created",
+      "group": "Local render helpers",
+      "role": "Local generation helper; may lag exact-match output refinements",
+      "authority": "Diagnostic source only; reconcile before reuse"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/northstar-mock/northstar-portfolio-mock.json",
+      "change": "created",
+      "group": "Mock data and stress research",
+      "role": "Native records with labelled hypothetical detail, state, priority or dependency overlays",
+      "authority": "Mock proposal; not accepted project truth"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/northstar-mock/northstar-portfolio-review.html",
+      "change": "created",
+      "group": "Mock data and stress research",
+      "role": "Static portfolio/data review fixture",
+      "authority": "Prototype; not accepted PrecapWeek behavior"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/northstar-mock/northstar-stress-test.html",
+      "change": "created",
+      "group": "Mock data and stress research",
+      "role": "Northstar stress fixture with recursive hierarchy and optional controls",
+      "authority": "Prototype; not accepted PrecapWeek behavior"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/northstar-mock/scenario-proposals.json",
+      "change": "created",
+      "group": "Mock data and stress research",
+      "role": "Native records with labelled hypothetical detail, state, priority or dependency overlays",
+      "authority": "Mock proposal; not accepted project truth"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/prototypes/matrix1-design-showroom.html",
+      "change": "modified_existing",
+      "group": "Modified pre-existing source",
+      "role": "Original twelve-design showroom; added initial hash-based design selection",
+      "authority": "Source design gallery; not a verified per-design mobile viewer link"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/northstar-exports-week-20261109/portfolio-visual-manifest.json",
+      "change": "created",
+      "group": "Other generated evidence",
+      "role": "Generated study output",
+      "authority": "Inspect provenance before reuse"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/northstar-exports-week-20261109/openproject-outputs-and-northstar/pdf-qa/report-contact-sheet.png",
+      "change": "created",
+      "group": "PDF page renders and QA",
+      "role": "Rasterized PDF page or contact sheet for layout inspection",
+      "authority": "QA derivative; not planning input"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/northstar-exports-week-20261109/openproject-outputs-and-northstar/pdf-qa/table-1.png",
+      "change": "created",
+      "group": "PDF page renders and QA",
+      "role": "Rasterized PDF page or contact sheet for layout inspection",
+      "authority": "QA derivative; not planning input"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/northstar-exports-week-20261109/pdf-qa/report-01.png",
+      "change": "created",
+      "group": "PDF page renders and QA",
+      "role": "Rasterized PDF page or contact sheet for layout inspection",
+      "authority": "QA derivative; not planning input"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/northstar-exports-week-20261109/pdf-qa/report-02.png",
+      "change": "created",
+      "group": "PDF page renders and QA",
+      "role": "Rasterized PDF page or contact sheet for layout inspection",
+      "authority": "QA derivative; not planning input"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/northstar-exports-week-20261109/pdf-qa/report-03.png",
+      "change": "created",
+      "group": "PDF page renders and QA",
+      "role": "Rasterized PDF page or contact sheet for layout inspection",
+      "authority": "QA derivative; not planning input"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/northstar-exports-week-20261109/pdf-qa/report-04.png",
+      "change": "created",
+      "group": "PDF page renders and QA",
+      "role": "Rasterized PDF page or contact sheet for layout inspection",
+      "authority": "QA derivative; not planning input"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/northstar-exports-week-20261109/pdf-qa/report-05.png",
+      "change": "created",
+      "group": "PDF page renders and QA",
+      "role": "Rasterized PDF page or contact sheet for layout inspection",
+      "authority": "QA derivative; not planning input"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/northstar-exports-week-20261109/pdf-qa/report-06.png",
+      "change": "created",
+      "group": "PDF page renders and QA",
+      "role": "Rasterized PDF page or contact sheet for layout inspection",
+      "authority": "QA derivative; not planning input"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/northstar-exports-week-20261109/pdf-qa/report-07.png",
+      "change": "created",
+      "group": "PDF page renders and QA",
+      "role": "Rasterized PDF page or contact sheet for layout inspection",
+      "authority": "QA derivative; not planning input"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/northstar-exports-week-20261109/pdf-qa/report-08.png",
+      "change": "created",
+      "group": "PDF page renders and QA",
+      "role": "Rasterized PDF page or contact sheet for layout inspection",
+      "authority": "QA derivative; not planning input"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/northstar-exports-week-20261109/pdf-qa/report-09.png",
+      "change": "created",
+      "group": "PDF page renders and QA",
+      "role": "Rasterized PDF page or contact sheet for layout inspection",
+      "authority": "QA derivative; not planning input"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/northstar-exports-week-20261109/pdf-qa/report-10.png",
+      "change": "created",
+      "group": "PDF page renders and QA",
+      "role": "Rasterized PDF page or contact sheet for layout inspection",
+      "authority": "QA derivative; not planning input"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/northstar-exports-week-20261109/pdf-qa/report-contact-sheet.png",
+      "change": "created",
+      "group": "PDF page renders and QA",
+      "role": "Rasterized PDF page or contact sheet for layout inspection",
+      "authority": "QA derivative; not planning input"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/northstar-exports-week-20261109/pdf-qa/report-images-01.png",
+      "change": "created",
+      "group": "PDF page renders and QA",
+      "role": "Rasterized PDF page or contact sheet for layout inspection",
+      "authority": "QA derivative; not planning input"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/northstar-exports-week-20261109/pdf-qa/report-images-02.png",
+      "change": "created",
+      "group": "PDF page renders and QA",
+      "role": "Rasterized PDF page or contact sheet for layout inspection",
+      "authority": "QA derivative; not planning input"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/northstar-exports-week-20261109/pdf-qa/report-images-03.png",
+      "change": "created",
+      "group": "PDF page renders and QA",
+      "role": "Rasterized PDF page or contact sheet for layout inspection",
+      "authority": "QA derivative; not planning input"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/northstar-exports-week-20261109/pdf-qa/report-images-04.png",
+      "change": "created",
+      "group": "PDF page renders and QA",
+      "role": "Rasterized PDF page or contact sheet for layout inspection",
+      "authority": "QA derivative; not planning input"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/northstar-exports-week-20261109/pdf-qa/report-images-05.png",
+      "change": "created",
+      "group": "PDF page renders and QA",
+      "role": "Rasterized PDF page or contact sheet for layout inspection",
+      "authority": "QA derivative; not planning input"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/northstar-exports-week-20261109/pdf-qa/report-images-06.png",
+      "change": "created",
+      "group": "PDF page renders and QA",
+      "role": "Rasterized PDF page or contact sheet for layout inspection",
+      "authority": "QA derivative; not planning input"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/northstar-exports-week-20261109/pdf-qa/report-images-07.png",
+      "change": "created",
+      "group": "PDF page renders and QA",
+      "role": "Rasterized PDF page or contact sheet for layout inspection",
+      "authority": "QA derivative; not planning input"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/northstar-exports-week-20261109/pdf-qa/report-images-08.png",
+      "change": "created",
+      "group": "PDF page renders and QA",
+      "role": "Rasterized PDF page or contact sheet for layout inspection",
+      "authority": "QA derivative; not planning input"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/northstar-exports-week-20261109/pdf-qa/report-images-09.png",
+      "change": "created",
+      "group": "PDF page renders and QA",
+      "role": "Rasterized PDF page or contact sheet for layout inspection",
+      "authority": "QA derivative; not planning input"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/northstar-exports-week-20261109/pdf-qa/report-images-10.png",
+      "change": "created",
+      "group": "PDF page renders and QA",
+      "role": "Rasterized PDF page or contact sheet for layout inspection",
+      "authority": "QA derivative; not planning input"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/northstar-exports-week-20261109/pdf-qa/table-1.png",
+      "change": "created",
+      "group": "PDF page renders and QA",
+      "role": "Rasterized PDF page or contact sheet for layout inspection",
+      "authority": "QA derivative; not planning input"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/northstar-exports-week-20261109/visual-final-pdf-qa/page-1.png",
+      "change": "created",
+      "group": "PDF page renders and QA",
+      "role": "Rasterized PDF page or contact sheet for layout inspection",
+      "authority": "QA derivative; not planning input"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/northstar-exports-week-20261109/visual-final-pdf-qa/page-2.png",
+      "change": "created",
+      "group": "PDF page renders and QA",
+      "role": "Rasterized PDF page or contact sheet for layout inspection",
+      "authority": "QA derivative; not planning input"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/northstar-exports-week-20261109/visual-final-pdf-qa/page-3.png",
+      "change": "created",
+      "group": "PDF page renders and QA",
+      "role": "Rasterized PDF page or contact sheet for layout inspection",
+      "authority": "QA derivative; not planning input"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/northstar-exports-week-20261109/visual-final-pdf-qa/page-4.png",
+      "change": "created",
+      "group": "PDF page renders and QA",
+      "role": "Rasterized PDF page or contact sheet for layout inspection",
+      "authority": "QA derivative; not planning input"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/northstar-exports-week-20261109/visual-final-pdf-qa/page-5.png",
+      "change": "created",
+      "group": "PDF page renders and QA",
+      "role": "Rasterized PDF page or contact sheet for layout inspection",
+      "authority": "QA derivative; not planning input"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/northstar-exports-week-20261109/visual-final-pdf-qa/page-6.png",
+      "change": "created",
+      "group": "PDF page renders and QA",
+      "role": "Rasterized PDF page or contact sheet for layout inspection",
+      "authority": "QA derivative; not planning input"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/northstar-exports-week-20261109/visual-final-pdf-qa/page-7.png",
+      "change": "created",
+      "group": "PDF page renders and QA",
+      "role": "Rasterized PDF page or contact sheet for layout inspection",
+      "authority": "QA derivative; not planning input"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/northstar-exports-week-20261109/visual-final-pdf-qa/page-8.png",
+      "change": "created",
+      "group": "PDF page renders and QA",
+      "role": "Rasterized PDF page or contact sheet for layout inspection",
+      "authority": "QA derivative; not planning input"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/northstar-exports-week-20261109/visual-pdf-qa/page-1.png",
+      "change": "created",
+      "group": "PDF page renders and QA",
+      "role": "Rasterized PDF page or contact sheet for layout inspection",
+      "authority": "QA derivative; not planning input"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/northstar-exports-week-20261109/visual-pdf-qa/page-2.png",
+      "change": "created",
+      "group": "PDF page renders and QA",
+      "role": "Rasterized PDF page or contact sheet for layout inspection",
+      "authority": "QA derivative; not planning input"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/northstar-exports-week-20261109/visual-pdf-qa/page-3.png",
+      "change": "created",
+      "group": "PDF page renders and QA",
+      "role": "Rasterized PDF page or contact sheet for layout inspection",
+      "authority": "QA derivative; not planning input"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/northstar-exports-week-20261109/visual-pdf-qa/page-4.png",
+      "change": "created",
+      "group": "PDF page renders and QA",
+      "role": "Rasterized PDF page or contact sheet for layout inspection",
+      "authority": "QA derivative; not planning input"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/northstar-exports-week-20261109/visual-pdf-qa/page-5.png",
+      "change": "created",
+      "group": "PDF page renders and QA",
+      "role": "Rasterized PDF page or contact sheet for layout inspection",
+      "authority": "QA derivative; not planning input"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/northstar-exports-week-20261109/visual-pdf-qa/page-6.png",
+      "change": "created",
+      "group": "PDF page renders and QA",
+      "role": "Rasterized PDF page or contact sheet for layout inspection",
+      "authority": "QA derivative; not planning input"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/northstar-exports-week-20261109/visual-pdf-qa/page-7.png",
+      "change": "created",
+      "group": "PDF page renders and QA",
+      "role": "Rasterized PDF page or contact sheet for layout inspection",
+      "authority": "QA derivative; not planning input"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/northstar-exports-week-20261109/visual-pdf-qa/page-8.png",
+      "change": "created",
+      "group": "PDF page renders and QA",
+      "role": "Rasterized PDF page or contact sheet for layout inspection",
+      "authority": "QA derivative; not planning input"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/northstar-exports-week-20261109/export-example-data.json",
+      "change": "created",
+      "group": "Proposed planning data",
+      "role": "Normalized example/export scope and actual portfolio data",
+      "authority": "Source mapping evidence, not acceptance or calendar proof"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/northstar-exports-week-20261109/export-to-northstar-trace.json",
+      "change": "created",
+      "group": "Proposed planning data",
+      "role": "Read-back join of generated CSV/XLSX files by native ID",
+      "authority": "Source mapping evidence, not acceptance or calendar proof"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/northstar-exports-week-20261109/northstar-weekly-feed.json",
+      "change": "created",
+      "group": "Proposed planning data",
+      "role": "Actual non-sample PM records joined with six proposed attention candidates",
+      "authority": "Dated source facts plus unapproved planning interpretation"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/northstar-exports-week-20261109/openproject-outputs-and-northstar/export-example-data.json",
+      "change": "created",
+      "group": "Proposed planning data",
+      "role": "Normalized example/export scope and actual portfolio data",
+      "authority": "Source mapping evidence, not acceptance or calendar proof"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/northstar-exports-week-20261109/openproject-outputs-and-northstar/export-to-northstar-trace.json",
+      "change": "created",
+      "group": "Proposed planning data",
+      "role": "Read-back join of generated CSV/XLSX files by native ID",
+      "authority": "Source mapping evidence, not acceptance or calendar proof"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/northstar-exports-week-20261109/openproject-outputs-and-northstar/northstar-weekly-feed.json",
+      "change": "created",
+      "group": "Proposed planning data",
+      "role": "Actual non-sample PM records joined with six proposed attention candidates",
+      "authority": "Dated source facts plus unapproved planning interpretation"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/northstar-exports-week-20261109/portfolio-visual-plan.json",
+      "change": "created",
+      "group": "Proposed planning data",
+      "role": "Illustrative day focus and four-week review windows; proposed workflow edges",
+      "authority": "Hypothetical dates/order; no resource-feasible commitment"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/NORTHSTAR-DECISIONS-AND-2DO-20261106.md",
+      "change": "created",
+      "group": "Recorded conversation decisions",
+      "role": "Northstar choices, proposed information ranking and open dependency visualization 2do",
+      "authority": "Accepted display choices plus separately labelled proposals"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/northstar-exports-week-20261109/gallery-desktop.png",
+      "change": "created",
+      "group": "Rendered previews",
+      "role": "Browser/layout preview",
+      "authority": "Viewing/QA aid; underlying source and assumptions still govern"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/northstar-exports-week-20261109/gallery-mobile.png",
+      "change": "created",
+      "group": "Rendered previews",
+      "role": "Browser/layout preview",
+      "authority": "Viewing/QA aid; underlying source and assumptions still govern"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/northstar-exports-week-20261109/northstar-desktop.png",
+      "change": "created",
+      "group": "Rendered previews",
+      "role": "Browser/layout preview",
+      "authority": "Viewing/QA aid; underlying source and assumptions still govern"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/northstar-exports-week-20261109/northstar-mobile.png",
+      "change": "created",
+      "group": "Rendered previews",
+      "role": "Browser/layout preview",
+      "authority": "Viewing/QA aid; underlying source and assumptions still govern"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/northstar-exports-week-20261109/openproject-outputs-and-northstar/gallery-desktop.png",
+      "change": "created",
+      "group": "Rendered previews",
+      "role": "Browser/layout preview",
+      "authority": "Viewing/QA aid; underlying source and assumptions still govern"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/northstar-exports-week-20261109/openproject-outputs-and-northstar/gallery-mobile.png",
+      "change": "created",
+      "group": "Rendered previews",
+      "role": "Browser/layout preview",
+      "authority": "Viewing/QA aid; underlying source and assumptions still govern"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/northstar-exports-week-20261109/openproject-outputs-and-northstar/northstar-desktop.png",
+      "change": "created",
+      "group": "Rendered previews",
+      "role": "Browser/layout preview",
+      "authority": "Viewing/QA aid; underlying source and assumptions still govern"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/northstar-exports-week-20261109/openproject-outputs-and-northstar/northstar-mobile.png",
+      "change": "created",
+      "group": "Rendered previews",
+      "role": "Browser/layout preview",
+      "authority": "Viewing/QA aid; underlying source and assumptions still govern"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/northstar-exports-week-20261109/portfolio-dependencies-checked.png",
+      "change": "created",
+      "group": "Rendered previews",
+      "role": "Checked visual preview",
+      "authority": "Viewing/QA aid; underlying source and assumptions still govern"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/northstar-exports-week-20261109/portfolio-gantt-preview.png",
+      "change": "created",
+      "group": "Rendered previews",
+      "role": "Gantt scenario image",
+      "authority": "Viewing/QA aid; underlying source and assumptions still govern"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/northstar-exports-week-20261109/portfolio-visual-dependencies.png",
+      "change": "created",
+      "group": "Rendered previews",
+      "role": "Browser/layout preview",
+      "authority": "Viewing/QA aid; underlying source and assumptions still govern"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/northstar-exports-week-20261109/portfolio-visual-gantt-view.png",
+      "change": "created",
+      "group": "Rendered previews",
+      "role": "Gantt scenario image",
+      "authority": "Viewing/QA aid; underlying source and assumptions still govern"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/northstar-exports-week-20261109/portfolio-visual-mobile.png",
+      "change": "created",
+      "group": "Rendered previews",
+      "role": "Browser/layout preview",
+      "authority": "Viewing/QA aid; underlying source and assumptions still govern"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/northstar-exports-week-20261109/portfolio-visual-overview.png",
+      "change": "created",
+      "group": "Rendered previews",
+      "role": "Browser/layout preview",
+      "authority": "Viewing/QA aid; underlying source and assumptions still govern"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/northstar-exports-week-20261109/portfolio-visual-report-contact.png",
+      "change": "created",
+      "group": "Rendered previews",
+      "role": "PDF contact sheet",
+      "authority": "Viewing/QA aid; underlying source and assumptions still govern"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/northstar-exports-week-20261109/portfolio-week-checked.png",
+      "change": "created",
+      "group": "Rendered previews",
+      "role": "Checked visual preview",
+      "authority": "Viewing/QA aid; underlying source and assumptions still govern"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/northstar-mock/northstar-stress-desktop.png",
+      "change": "created",
+      "group": "Rendered previews",
+      "role": "Browser/layout preview",
+      "authority": "Viewing/QA aid; underlying source and assumptions still govern"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/northstar-mock/northstar-stress-detail.png",
+      "change": "created",
+      "group": "Rendered previews",
+      "role": "Browser/layout preview",
+      "authority": "Viewing/QA aid; underlying source and assumptions still govern"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/northstar-mock/northstar-stress-mobile.png",
+      "change": "created",
+      "group": "Rendered previews",
+      "role": "Browser/layout preview",
+      "authority": "Viewing/QA aid; underlying source and assumptions still govern"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/northstar-exports-week-20261109/openproject-outputs-and-northstar/README.md",
+      "change": "created",
+      "group": "Research notes and local READMEs",
+      "role": "Findings, assumptions, boundaries and links for an experiment",
+      "authority": "Research/reference; not the governing runtime specification"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/northstar-exports-week-20261109/portfolio-visual-notes.md",
+      "change": "created",
+      "group": "Research notes and local READMEs",
+      "role": "Findings, assumptions, boundaries and links for an experiment",
+      "authority": "Research/reference; not the governing runtime specification"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/northstar-exports-week-20261109/README.md",
+      "change": "created",
+      "group": "Research notes and local READMEs",
+      "role": "Findings, assumptions, boundaries and links for an experiment",
+      "authority": "Research/reference; not the governing runtime specification"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/northstar-mock/README.md",
+      "change": "created",
+      "group": "Research notes and local READMEs",
+      "role": "Findings, assumptions, boundaries and links for an experiment",
+      "authority": "Research/reference; not the governing runtime specification"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/northstar-exports-week-20261109/live-snapshot.json",
+      "change": "created",
+      "group": "Source snapshots and checks",
+      "role": "Dated all-status OpenProject API snapshot",
+      "authority": "PM observation at retrieval; not current implementation proof"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/northstar-exports-week-20261109/native-export-status.json",
+      "change": "created",
+      "group": "Source snapshots and checks",
+      "role": "HTTP receipts for native export routes under the available API credential",
+      "authority": "Dated read receipts; native-export failures do not prove browser export unavailable"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/northstar-exports-week-20261109/openproject-outputs-and-northstar/live-snapshot.json",
+      "change": "created",
+      "group": "Source snapshots and checks",
+      "role": "Dated all-status OpenProject API snapshot",
+      "authority": "PM observation at retrieval; not current implementation proof"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/northstar-exports-week-20261109/openproject-outputs-and-northstar/native-export-status.json",
+      "change": "created",
+      "group": "Source snapshots and checks",
+      "role": "HTTP receipts for native export routes under the available API credential",
+      "authority": "Dated read receipts; native-export failures do not prove browser export unavailable"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/northstar-mock/endpoint-checks-20261106.json",
+      "change": "created",
+      "group": "Source snapshots and checks",
+      "role": "Direct reads resolving initially missing relation endpoints",
+      "authority": "Dated read receipts; native-export failures do not prove browser export unavailable"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/northstar-mock/openproject-all-statuses-20261106.json",
+      "change": "created",
+      "group": "Source snapshots and checks",
+      "role": "Dated all-status OpenProject API snapshot",
+      "authority": "PM observation at retrieval; not current implementation proof"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/northstar-mock/openproject-snapshot-20261106.json",
+      "change": "created",
+      "group": "Source snapshots and checks",
+      "role": "Initial default-status discovery snapshot; incomplete for closed prerequisites",
+      "authority": "Dated discovery evidence only"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/northstar-exports-week-20261109/openproject-outputs-and-northstar/verification-browser.json",
+      "change": "created",
+      "group": "Verification and refinement receipts",
+      "role": "Machine/file/layout or exact-match refinement receipt",
+      "authority": "Technical evidence only; not requirement or operator acceptance"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/northstar-exports-week-20261109/openproject-outputs-and-northstar/verification-files.json",
+      "change": "created",
+      "group": "Verification and refinement receipts",
+      "role": "Machine/file/layout or exact-match refinement receipt",
+      "authority": "Technical evidence only; not requirement or operator acceptance"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/northstar-exports-week-20261109/portfolio-visual-final-check.json",
+      "change": "created",
+      "group": "Verification and refinement receipts",
+      "role": "Machine/file/layout or exact-match refinement receipt",
+      "authority": "Technical evidence only; not requirement or operator acceptance"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/northstar-exports-week-20261109/portfolio-visual-refinement.json",
+      "change": "created",
+      "group": "Verification and refinement receipts",
+      "role": "Machine/file/layout or exact-match refinement receipt",
+      "authority": "Technical evidence only; not requirement or operator acceptance"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/northstar-exports-week-20261109/portfolio-visual-verification.json",
+      "change": "created",
+      "group": "Verification and refinement receipts",
+      "role": "Machine/file/layout or exact-match refinement receipt",
+      "authority": "Technical evidence only; not requirement or operator acceptance"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/northstar-exports-week-20261109/verification-browser.json",
+      "change": "created",
+      "group": "Verification and refinement receipts",
+      "role": "Machine/file/layout or exact-match refinement receipt",
+      "authority": "Technical evidence only; not requirement or operator acceptance"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/northstar-exports-week-20261109/verification-files.json",
+      "change": "created",
+      "group": "Verification and refinement receipts",
+      "role": "Machine/file/layout or exact-match refinement receipt",
+      "authority": "Technical evidence only; not requirement or operator acceptance"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/northstar-mock/northstar-stress-verification.json",
+      "change": "created",
+      "group": "Verification and refinement receipts",
+      "role": "Machine/file/layout or exact-match refinement receipt",
+      "authority": "Technical evidence only; not requirement or operator acceptance"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/northstar-exports-week-20261109/dependency-core.svg",
+      "change": "created",
+      "group": "Visual planning experiments",
+      "role": "Native/proposed dependency illustration; inspect legend",
+      "authority": "Reference visual; dates/proposed edges remain assumptions"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/northstar-exports-week-20261109/dependency-identity.svg",
+      "change": "created",
+      "group": "Visual planning experiments",
+      "role": "Native/proposed dependency illustration; inspect legend",
+      "authority": "Reference visual; dates/proposed edges remain assumptions"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/northstar-exports-week-20261109/dependency-ipos.svg",
+      "change": "created",
+      "group": "Visual planning experiments",
+      "role": "Native/proposed dependency illustration; inspect legend",
+      "authority": "Reference visual; dates/proposed edges remain assumptions"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/northstar-exports-week-20261109/dependency-rhythm.svg",
+      "change": "created",
+      "group": "Visual planning experiments",
+      "role": "Native/proposed dependency illustration; inspect legend",
+      "authority": "Reference visual; dates/proposed edges remain assumptions"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/northstar-exports-week-20261109/dependency-runtime.svg",
+      "change": "created",
+      "group": "Visual planning experiments",
+      "role": "Native/proposed dependency illustration; inspect legend",
+      "authority": "Reference visual; dates/proposed edges remain assumptions"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/northstar-exports-week-20261109/dependency-taxonomy.svg",
+      "change": "created",
+      "group": "Visual planning experiments",
+      "role": "Native/proposed dependency illustration; inspect legend",
+      "authority": "Reference visual; dates/proposed edges remain assumptions"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/northstar-exports-week-20261109/dependency-waves.svg",
+      "change": "created",
+      "group": "Visual planning experiments",
+      "role": "Native/proposed dependency illustration; inspect legend",
+      "authority": "Reference visual; dates/proposed edges remain assumptions"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/northstar-exports-week-20261109/dependency-website.svg",
+      "change": "created",
+      "group": "Visual planning experiments",
+      "role": "Native/proposed dependency illustration; inspect legend",
+      "authority": "Reference visual; dates/proposed edges remain assumptions"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/northstar-exports-week-20261109/index.html",
+      "change": "created",
+      "group": "Visual planning experiments",
+      "role": "Export gallery with link to visual dashboard",
+      "authority": "Prototype, not approved layered weekly workflow"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/northstar-exports-week-20261109/northstar-next-week.html",
+      "change": "created",
+      "group": "Visual planning experiments",
+      "role": "Weekly priorities/project-detail example",
+      "authority": "Prototype, not approved layered weekly workflow"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/northstar-exports-week-20261109/northstar-portfolio-print.html",
+      "change": "created",
+      "group": "Visual planning experiments",
+      "role": "Print-layout source",
+      "authority": "Prototype, not approved layered weekly workflow"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/northstar-exports-week-20261109/northstar-portfolio-visual.html",
+      "change": "created",
+      "group": "Visual planning experiments",
+      "role": "Whole-portfolio visual prototype; project task source list remains flat",
+      "authority": "Prototype, not approved layered weekly workflow"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/northstar-exports-week-20261109/openproject-outputs-and-northstar/index.html",
+      "change": "created",
+      "group": "Visual planning experiments",
+      "role": "Export gallery with link to visual dashboard",
+      "authority": "Prototype, not approved layered weekly workflow"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/northstar-exports-week-20261109/openproject-outputs-and-northstar/northstar-next-week.html",
+      "change": "created",
+      "group": "Visual planning experiments",
+      "role": "Weekly priorities/project-detail example",
+      "authority": "Prototype, not approved layered weekly workflow"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/northstar-exports-week-20261109/portfolio-gantt-a.svg",
+      "change": "created",
+      "group": "Visual planning experiments",
+      "role": "Four-week Gantt scenario",
+      "authority": "Reference visual; dates/proposed edges remain assumptions"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/northstar-exports-week-20261109/portfolio-gantt-b.svg",
+      "change": "created",
+      "group": "Visual planning experiments",
+      "role": "Four-week Gantt scenario",
+      "authority": "Reference visual; dates/proposed edges remain assumptions"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/northstar-exports-week-20261109/portfolio-gantt.svg",
+      "change": "created",
+      "group": "Visual planning experiments",
+      "role": "Four-week Gantt scenario",
+      "authority": "Reference visual; dates/proposed edges remain assumptions"
+    },
+    {
+      "path": "C:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/research/northstar-exports-week-20261109/portfolio-status.svg",
+      "change": "created",
+      "group": "Visual planning experiments",
+      "role": "Native state-count chart",
+      "authority": "Reference visual; dates/proposed edges remain assumptions"
+    },
+    {
+      "path": "C:/Users/gehma/Documents/Codex/2026-11-06/recently-in-the-apex-ai-os/northstar-portfolio-final.png",
+      "change": "created",
+      "group": "Workspace diagnostic previews",
+      "role": "Browser capture / layout diagnostic",
+      "authority": "Diagnostic only; not acceptance proof"
+    },
+    {
+      "path": "C:/Users/gehma/Documents/Codex/2026-11-06/recently-in-the-apex-ai-os/northstar-portfolio-mobile-verified.png",
+      "change": "created",
+      "group": "Workspace diagnostic previews",
+      "role": "Browser capture / layout diagnostic",
+      "authority": "Diagnostic only; not acceptance proof"
+    },
+    {
+      "path": "C:/Users/gehma/Documents/Codex/2026-11-06/recently-in-the-apex-ai-os/northstar-portfolio-mobile.png",
+      "change": "created",
+      "group": "Workspace diagnostic previews",
+      "role": "Browser capture / layout diagnostic",
+      "authority": "Diagnostic only; not acceptance proof"
+    }
+  ]
+}

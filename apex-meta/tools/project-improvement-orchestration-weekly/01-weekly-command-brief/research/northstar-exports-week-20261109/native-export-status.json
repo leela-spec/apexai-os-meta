@@ -1,0 +1,94 @@
+{
+  "checkedAt": "2026-11-07T09:14:26.944Z",
+  "exampleIds": [
+    215,
+    216,
+    217,
+    218,
+    219,
+    220
+  ],
+  "attempts": [
+    {
+      "identifier": "pdf",
+      "title": "PDF Table",
+      "path": "/work_packages.pdf?filters=%5B%7B%22id%22%3A%7B%22operator%22%3A%22%3D%22%2C%22values%22%3A%5B%22215%22%2C%22216%22%2C%22217%22%2C%22218%22%2C%22219%22%2C%22220%22%5D%7D%7D%2C%7B%22status%22%3A%7B%22operator%22%3A%22%2A%22%2C%22values%22%3A%5B%5D%7D%7D%5D&includeSubprojects=true&offset=1&pageSize=100&showHierarchies=true&showSums=false&sortBy=%5B%5B%22id%22%2C%22asc%22%5D%5D&pdf_export_type=table",
+      "httpStatus": 406,
+      "contentType": "application/pdf",
+      "bytes": 0,
+      "redirect": null,
+      "nativeFileObtained": false
+    },
+    {
+      "identifier": "pdf-with-descriptions",
+      "title": "PDF Report with images",
+      "path": "/work_packages.pdf?filters=%5B%7B%22id%22%3A%7B%22operator%22%3A%22%3D%22%2C%22values%22%3A%5B%22215%22%2C%22216%22%2C%22217%22%2C%22218%22%2C%22219%22%2C%22220%22%5D%7D%7D%2C%7B%22status%22%3A%7B%22operator%22%3A%22%2A%22%2C%22values%22%3A%5B%5D%7D%7D%5D&includeSubprojects=true&offset=1&pageSize=100&showHierarchies=true&showSums=false&sortBy=%5B%5B%22id%22%2C%22asc%22%5D%5D&pdf_export_type=report&show_images=true",
+      "httpStatus": 406,
+      "contentType": "application/pdf",
+      "bytes": 0,
+      "redirect": null,
+      "nativeFileObtained": false
+    },
+    {
+      "identifier": "pdf-descr",
+      "title": "PDF Report",
+      "path": "/work_packages.pdf?filters=%5B%7B%22id%22%3A%7B%22operator%22%3A%22%3D%22%2C%22values%22%3A%5B%22215%22%2C%22216%22%2C%22217%22%2C%22218%22%2C%22219%22%2C%22220%22%5D%7D%7D%2C%7B%22status%22%3A%7B%22operator%22%3A%22%2A%22%2C%22values%22%3A%5B%5D%7D%7D%5D&includeSubprojects=true&offset=1&pageSize=100&showHierarchies=true&showSums=false&sortBy=%5B%5B%22id%22%2C%22asc%22%5D%5D&pdf_export_type=report",
+      "httpStatus": 406,
+      "contentType": "application/pdf",
+      "bytes": 0,
+      "redirect": null,
+      "nativeFileObtained": false
+    },
+    {
+      "identifier": "xls",
+      "title": "XLS",
+      "path": "/work_packages.xls?filters=%5B%7B%22id%22%3A%7B%22operator%22%3A%22%3D%22%2C%22values%22%3A%5B%22215%22%2C%22216%22%2C%22217%22%2C%22218%22%2C%22219%22%2C%22220%22%5D%7D%7D%2C%7B%22status%22%3A%7B%22operator%22%3A%22%2A%22%2C%22values%22%3A%5B%5D%7D%7D%5D&includeSubprojects=true&offset=1&pageSize=100&showHierarchies=true&showSums=false&sortBy=%5B%5B%22id%22%2C%22asc%22%5D%5D",
+      "httpStatus": 406,
+      "contentType": "application/vnd.ms-excel",
+      "bytes": 0,
+      "redirect": null,
+      "nativeFileObtained": false
+    },
+    {
+      "identifier": "xls-with-descriptions",
+      "title": "XLS with descriptions",
+      "path": "/work_packages.xls?filters=%5B%7B%22id%22%3A%7B%22operator%22%3A%22%3D%22%2C%22values%22%3A%5B%22215%22%2C%22216%22%2C%22217%22%2C%22218%22%2C%22219%22%2C%22220%22%5D%7D%7D%2C%7B%22status%22%3A%7B%22operator%22%3A%22%2A%22%2C%22values%22%3A%5B%5D%7D%7D%5D&includeSubprojects=true&offset=1&pageSize=100&showHierarchies=true&showSums=false&sortBy=%5B%5B%22id%22%2C%22asc%22%5D%5D&show_descriptions=true",
+      "httpStatus": 406,
+      "contentType": "application/vnd.ms-excel",
+      "bytes": 0,
+      "redirect": null,
+      "nativeFileObtained": false
+    },
+    {
+      "identifier": "xls-with-relations",
+      "title": "XLS with relations",
+      "path": "/work_packages.xls?filters=%5B%7B%22id%22%3A%7B%22operator%22%3A%22%3D%22%2C%22values%22%3A%5B%22215%22%2C%22216%22%2C%22217%22%2C%22218%22%2C%22219%22%2C%22220%22%5D%7D%7D%2C%7B%22status%22%3A%7B%22operator%22%3A%22%2A%22%2C%22values%22%3A%5B%5D%7D%7D%5D&includeSubprojects=true&offset=1&pageSize=100&showHierarchies=true&showSums=false&sortBy=%5B%5B%22id%22%2C%22asc%22%5D%5D&show_relations=true",
+      "httpStatus": 406,
+      "contentType": "application/vnd.ms-excel",
+      "bytes": 0,
+      "redirect": null,
+      "nativeFileObtained": false
+    },
+    {
+      "identifier": "csv",
+      "title": "CSV",
+      "path": "/work_packages.csv?filters=%5B%7B%22id%22%3A%7B%22operator%22%3A%22%3D%22%2C%22values%22%3A%5B%22215%22%2C%22216%22%2C%22217%22%2C%22218%22%2C%22219%22%2C%22220%22%5D%7D%7D%2C%7B%22status%22%3A%7B%22operator%22%3A%22%2A%22%2C%22values%22%3A%5B%5D%7D%7D%5D&includeSubprojects=true&offset=1&pageSize=100&showHierarchies=true&showSums=false&sortBy=%5B%5B%22id%22%2C%22asc%22%5D%5D",
+      "httpStatus": 406,
+      "contentType": "text/csv",
+      "bytes": 0,
+      "redirect": null,
+      "nativeFileObtained": false
+    },
+    {
+      "identifier": "atom",
+      "title": "Atom",
+      "path": "/work_packages.atom?filters=%5B%7B%22id%22%3A%7B%22operator%22%3A%22%3D%22%2C%22values%22%3A%5B%22215%22%2C%22216%22%2C%22217%22%2C%22218%22%2C%22219%22%2C%22220%22%5D%7D%7D%2C%7B%22status%22%3A%7B%22operator%22%3A%22%2A%22%2C%22values%22%3A%5B%5D%7D%7D%5D&includeSubprojects=true&offset=1&pageSize=100&showHierarchies=true&showSums=false&sortBy=%5B%5B%22id%22%2C%22asc%22%5D%5D",
+      "httpStatus": 302,
+      "contentType": "application/atom+xml; charset=utf-8",
+      "bytes": 0,
+      "redirect": "http://127.0.0.1:8083/login",
+      "nativeFileObtained": false
+    }
+  ],
+  "interpretation": "Routes advertised by this instance were tested via existing API credential; these responses do not prove exports unavailable in a signed-in browser. No browser login attempted."
+}

@@ -1,0 +1,14 @@
+﻿Project ID,Project,Parent project,Description
+16,Investment / IPOS,,Sovereign quantitative investment process operating system and research intake operations.
+15,Rhythm,Leela,"Feature subproject for Rhythm under Leela. Tracks Rhythm product, architecture, evidence, and materialization work."
+14,Website,MoA-Content,Master of Arts official website project (Alexander Otto Gehm).
+12,General,Leela,Cross-feature Leela product and design work whose ownership spans multiple feature subprojects. Use for shared interaction patterns and app-wide design-system decisions.
+11,Sequencing,Leela,Feature subproject for Sequencing under Leela. Tracks current Sequencing work while keeping rejected or high-drift historical implementations quarantined.
+10,Skill Tree,Leela,Feature subproject for Skill Tree under Leela. Tracks canonical Skill Tree product work and explicit cross-feature dependencies.
+9,Path,Leela,Feature subproject for Path. Leela feature work is organized in one feature-specific subproject per feature; cross-feature dependencies remain explicit rather than being reassigned to another feature.
+8,ApexAI-OS,Leela & Mastery,
+7,MoA-Business,Leela & Mastery,
+6,MoA-Content,Leela & Mastery,
+5,PM Infrastructure,Leela & Mastery,"Initiative-level PM/infra tasks (not Leela product, not a Mastery vertical): keepalive, Mastery taxonomy build-out, 5-account skill test."
+4,Leela & Mastery,,Root portfolio project: Leela + Mastery of Arts. Sub-projects hang under this.
+3,Leela,Leela & Mastery,"Leela Cloud 2026 program work, tracked via the Antigravity OpenProject pilot."

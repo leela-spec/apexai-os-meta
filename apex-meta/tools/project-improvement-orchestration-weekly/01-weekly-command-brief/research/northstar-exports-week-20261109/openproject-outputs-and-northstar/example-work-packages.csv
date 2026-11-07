@@ -1,0 +1,7 @@
+﻿ID,Subject,Project,Type,Status,Priority,Parent ID,Assignee,Start date,Finish date,Estimated time,Updated UTC
+215,Sequencing delivery waves — A → B1 → C (dependency map),Sequencing,Epic,New,Normal,,,,,,2026-11-03T10:27:28.538Z
+216,"Wave A — Sequencing domain, serializers, typed IDs and structure hashes",Sequencing,Task,New,Normal,215,,,,,2026-10-28T12:25:48.094Z
+217,Wave B1 — database-neutral repository seam,Sequencing,Task,New,Normal,215,,,,,2026-10-28T12:26:03.817Z
+218,Wave C3 — scoring validation memo and formula objective,Sequencing,Task,New,Normal,215,,,,,2026-10-28T12:26:04.086Z
+219,Wave C4 — ranking and resolver (ST-022 candidate comparator),Sequencing,Task,New,Normal,215,,,,,2026-10-28T12:26:04.385Z
+220,Wave C5 — fixtures parity and Wave C exit proof,Sequencing,Task,New,Normal,215,,,,,2026-10-28T12:26:04.639Z
