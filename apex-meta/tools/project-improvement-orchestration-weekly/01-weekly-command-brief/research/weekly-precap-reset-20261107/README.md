@@ -24,6 +24,8 @@ scope: [weekly_precap, handover, layered_project_overview]
 4. [ARTIFACT-MANIFEST.json](ARTIFACT-MANIFEST.json): machine-readable paths and classifications for the index.
 5. [VERIFICATION.json](VERIFICATION.json): file existence, link coverage and source-evidence checks for this packet.
 
+Repository copies of the externally saved screenshots, diagnostics and render helpers are linked in [workspace-artifacts/README.md](workspace-artifacts/README.md). The original index retains their originating workstation paths for provenance.
+
 ## Where the actual specifications are
 
 | Need | File |
