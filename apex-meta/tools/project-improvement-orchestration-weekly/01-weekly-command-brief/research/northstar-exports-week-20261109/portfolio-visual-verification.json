@@ -1,0 +1,41 @@
+{
+  "status": "PASS",
+  "sourceItems": 186,
+  "projects": 13,
+  "graphs": 8,
+  "weekDays": 7,
+  "proposedWindows": 38,
+  "plannedProjectAreas": 10,
+  "remainingUnplacedItems": 148,
+  "observedScheduledEdgesChecked": 19,
+  "checks": [
+    "All project areas retained",
+    "Native graph node IDs and ownership valid",
+    "No duplicate HTML/SVG IDs",
+    "Chart task selection",
+    "Project highlight",
+    "Source search",
+    "Task/owner reveal",
+    "No page overflow including all details expanded",
+    "Static charts visible without JavaScript",
+    "Native scheduling fields unchanged; all windows separately labelled",
+    "Conditional ordering consistent for every in-scope follows/requires relation",
+    "PDF generated with charts",
+    "No runtime exceptions"
+  ],
+  "layouts": [
+    {
+      "width": 1440,
+      "scroll": 1425
+    },
+    {
+      "width": 430,
+      "scroll": 430
+    },
+    {
+      "width": 360,
+      "scroll": 360
+    }
+  ],
+  "checkedAt": "2026-11-07T09:49:39.519Z"
+}

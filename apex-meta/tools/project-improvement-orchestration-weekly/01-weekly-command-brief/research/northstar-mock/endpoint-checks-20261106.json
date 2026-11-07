@@ -1,0 +1,110 @@
+{
+  "retrievedAt": "2026-11-06T21:53:46.608Z",
+  "checks": [
+    {
+      "id": 207,
+      "status": 200,
+      "available": true,
+      "subject": "Fail safely when the slot-run outbox cannot persist",
+      "interpretation": "Visible by direct read"
+    },
+    {
+      "id": 122,
+      "status": 200,
+      "available": true,
+      "subject": "[F1] Browser keepalive (end idle-sleep)",
+      "interpretation": "Visible by direct read"
+    },
+    {
+      "id": 101,
+      "status": 200,
+      "available": true,
+      "subject": "[ssot-materialization-rhythm-pilot] Rhythm pilot (01)",
+      "interpretation": "Visible by direct read"
+    },
+    {
+      "id": 111,
+      "status": 200,
+      "available": true,
+      "subject": "[ssot-materialization-algorithm-rhythm-current-master-contract-recovery] Algorithm/Rhythm current-master C1 contract recovery (09)",
+      "interpretation": "Visible by direct read"
+    },
+    {
+      "id": 108,
+      "status": 200,
+      "available": true,
+      "subject": "[ssot-materialization-algorithm-rhythm-week-decision-gate] Algorithm/Rhythm week decision gate (08)",
+      "interpretation": "Visible by direct read"
+    },
+    {
+      "id": 107,
+      "status": 200,
+      "available": true,
+      "subject": "[ssot-materialization-algorithm-second-iteration-rhythm] Algorithm 2nd-iteration Rhythm/whole-week (07)",
+      "interpretation": "Visible by direct read"
+    },
+    {
+      "id": 106,
+      "status": 200,
+      "available": true,
+      "subject": "[ssot-materialization-algorithm-second-iteration-home] Algorithm 2nd-iteration Home/current-window (06)",
+      "interpretation": "Visible by direct read"
+    },
+    {
+      "id": 95,
+      "status": 200,
+      "available": true,
+      "subject": "[integration-merge-differential-audit-15] Fifteen-case merge differential audit",
+      "interpretation": "Visible by direct read"
+    },
+    {
+      "id": 94,
+      "status": 200,
+      "available": true,
+      "subject": "[wave-integration-three-branch-stabilization] Three-branch stabilization and master candidate",
+      "interpretation": "Visible by direct read"
+    },
+    {
+      "id": 105,
+      "status": 200,
+      "available": true,
+      "subject": "[ssot-materialization-algorithm-source-convergence] Algorithm source convergence + materialization (05)",
+      "interpretation": "Visible by direct read"
+    },
+    {
+      "id": 104,
+      "status": 200,
+      "available": true,
+      "subject": "[ssot-materialization-rhythm-alignment-run] Rhythm alignment run (04)",
+      "interpretation": "Visible by direct read"
+    },
+    {
+      "id": 103,
+      "status": 200,
+      "available": true,
+      "subject": "[ssot-materialization-feature-discovery-control-plane] All-feature discovery control plane (03)",
+      "interpretation": "Visible by direct read"
+    },
+    {
+      "id": 102,
+      "status": 200,
+      "available": true,
+      "subject": "[ssot-materialization-algorithm-truth-convergence] Algorithm truth convergence (02)",
+      "interpretation": "Visible by direct read"
+    },
+    {
+      "id": 87,
+      "status": 200,
+      "available": true,
+      "subject": "[C2-feasibility-timeline] Wave C2 feasibility and timeline",
+      "interpretation": "Visible by direct read"
+    },
+    {
+      "id": 86,
+      "status": 200,
+      "available": true,
+      "subject": "[C1-contract-freeze] Wave C1 recover and freeze contracts",
+      "interpretation": "Visible by direct read"
+    }
+  ]
+}

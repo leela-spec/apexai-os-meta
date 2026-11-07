@@ -1,0 +1,33 @@
+{
+  "result": "PASS",
+  "items": 249,
+  "projects": 15,
+  "tests": [
+    "Static content coverage",
+    "Search preserves parent context",
+    "Status filter matches exact state",
+    "Hash opens target and ancestors",
+    "Expand/collapse controls",
+    "No horizontal overflow with every detail expanded",
+    "No-JavaScript content and hidden inactive controls",
+    "No browser runtime exceptions"
+  ],
+  "layouts": [
+    {
+      "width": 1440,
+      "scroll": 1425,
+      "open": 762
+    },
+    {
+      "width": 430,
+      "scroll": 430,
+      "open": 762
+    },
+    {
+      "width": 360,
+      "scroll": 360,
+      "open": 762
+    }
+  ],
+  "checkedAt": "2026-11-06T22:09:48.943Z"
+}

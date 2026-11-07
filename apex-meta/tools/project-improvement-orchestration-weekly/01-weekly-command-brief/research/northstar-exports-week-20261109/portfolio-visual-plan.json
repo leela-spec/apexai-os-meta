@@ -1,0 +1,499 @@
+{
+  "sourceObservedAt": "2026-11-07T09:14:26.576Z",
+  "sourceFeed": "northstar-weekly-feed.json",
+  "planningHorizon": {
+    "start": "2026-11-09",
+    "end": "2026-12-06"
+  },
+  "assumptions": [
+    "Dates are illustrative review/decision windows, not native dates, effort estimates or commitments.",
+    "Parallel windows do not imply the operator can execute every lane concurrently.",
+    "Downstream windows are conditional on accepted prerequisite evidence.",
+    "The seven-day board is an alternative focus scenario; choose/reduce it against actual capacity.",
+    "No source task status, priority or dependency has been changed."
+  ],
+  "windows": [
+    {
+      "projectId": 11,
+      "workPackageId": 211,
+      "start": "2026-11-09",
+      "end": "2026-11-13",
+      "slice": "Review / one runtime slice",
+      "condition": "Verify #207 acceptance; select only a currently reproduced defect.",
+      "provenance": "ILLUSTRATIVE_PLANNING_ASSUMPTION",
+      "isNativeSchedule": false
+    },
+    {
+      "projectId": 11,
+      "workPackageId": 212,
+      "start": "2026-11-09",
+      "end": "2026-11-13",
+      "slice": "Parallel review / lifecycle slice",
+      "condition": "Independent candidate; no invented #211 → #212 blocker.",
+      "provenance": "ILLUSTRATIVE_PLANNING_ASSUMPTION",
+      "isNativeSchedule": false
+    },
+    {
+      "projectId": 10,
+      "workPackageId": 159,
+      "start": "2026-11-09",
+      "end": "2026-11-13",
+      "slice": "Identity decision / contract slice",
+      "condition": "Acceptance checkpoint assumed at window end, not claimed complete.",
+      "provenance": "ILLUSTRATIVE_PLANNING_ASSUMPTION",
+      "isNativeSchedule": false
+    },
+    {
+      "projectId": 10,
+      "workPackageId": 187,
+      "start": "2026-11-09",
+      "end": "2026-11-10",
+      "slice": "Canonical identity evidence",
+      "condition": "Local planning window; native parent remains #159.",
+      "provenance": "ILLUSTRATIVE_PLANNING_ASSUMPTION",
+      "isNativeSchedule": false
+    },
+    {
+      "projectId": 10,
+      "workPackageId": 188,
+      "start": "2026-11-11",
+      "end": "2026-11-13",
+      "slice": "Placement decision example",
+      "condition": "Local coordination proposal, not an observed dependency on #187.",
+      "provenance": "ILLUSTRATIVE_PLANNING_ASSUMPTION",
+      "isNativeSchedule": false
+    },
+    {
+      "projectId": 14,
+      "workPackageId": 163,
+      "start": "2026-11-09",
+      "end": "2026-11-20",
+      "slice": "One content slice only",
+      "condition": "This does not schedule completion of the entire content-transformation program.",
+      "provenance": "ILLUSTRATIVE_PLANNING_ASSUMPTION",
+      "isNativeSchedule": false
+    },
+    {
+      "projectId": 14,
+      "workPackageId": 204,
+      "start": "2026-11-16",
+      "end": "2026-11-18",
+      "slice": "Credits review",
+      "condition": "Independent source goal; no native prerequisite on #163 is invented.",
+      "provenance": "ILLUSTRATIVE_PLANNING_ASSUMPTION",
+      "isNativeSchedule": false
+    },
+    {
+      "projectId": 16,
+      "workPackageId": 228,
+      "start": "2026-11-09",
+      "end": "2026-11-10",
+      "slice": "Architecture inventory",
+      "condition": "Review actual working assets; do not execute the framework named in the subject.",
+      "provenance": "ILLUSTRATIVE_PLANNING_ASSUMPTION",
+      "isNativeSchedule": false
+    },
+    {
+      "projectId": 16,
+      "workPackageId": 225,
+      "start": "2026-11-11",
+      "end": "2026-11-13",
+      "slice": "Benchmark question / bounded trial",
+      "condition": "Proposed after inventory; no native relation says so.",
+      "provenance": "ILLUSTRATIVE_PLANNING_ASSUMPTION",
+      "isNativeSchedule": false
+    },
+    {
+      "projectId": 16,
+      "workPackageId": 226,
+      "start": "2026-11-16",
+      "end": "2026-11-20",
+      "slice": "Intake example",
+      "condition": "Conditional after scope review; no production infrastructure change performed.",
+      "provenance": "ILLUSTRATIVE_PLANNING_ASSUMPTION",
+      "isNativeSchedule": false
+    },
+    {
+      "projectId": 16,
+      "workPackageId": 227,
+      "start": "2026-11-16",
+      "end": "2026-11-20",
+      "slice": "Digest verification example",
+      "condition": "Use local test doubles; no real message sent.",
+      "provenance": "ILLUSTRATIVE_PLANNING_ASSUMPTION",
+      "isNativeSchedule": false
+    },
+    {
+      "projectId": 16,
+      "workPackageId": 224,
+      "start": "2026-11-23",
+      "end": "2026-11-25",
+      "slice": "Retirement decision checkpoint",
+      "condition": "Conditional on replacement evidence and explicit authorization.",
+      "provenance": "ILLUSTRATIVE_PLANNING_ASSUMPTION",
+      "isNativeSchedule": false
+    },
+    {
+      "projectId": 15,
+      "workPackageId": 174,
+      "start": "2026-11-14",
+      "end": "2026-11-14",
+      "slice": "Evidence review",
+      "condition": "Maintenance example, not proof of a feature defect.",
+      "provenance": "ILLUSTRATIVE_PLANNING_ASSUMPTION",
+      "isNativeSchedule": false
+    },
+    {
+      "projectId": 15,
+      "workPackageId": 175,
+      "start": "2026-11-16",
+      "end": "2026-11-16",
+      "slice": "Metrics evidence review",
+      "condition": "No observed serial dependency between Rhythm reviews.",
+      "provenance": "ILLUSTRATIVE_PLANNING_ASSUMPTION",
+      "isNativeSchedule": false
+    },
+    {
+      "projectId": 15,
+      "workPackageId": 176,
+      "start": "2026-11-17",
+      "end": "2026-11-17",
+      "slice": "Fit-feedback evidence review",
+      "condition": "No observed serial dependency between Rhythm reviews.",
+      "provenance": "ILLUSTRATIVE_PLANNING_ASSUMPTION",
+      "isNativeSchedule": false
+    },
+    {
+      "projectId": 12,
+      "workPackageId": 205,
+      "start": "2026-11-16",
+      "end": "2026-11-17",
+      "slice": "Release evidence checkpoint",
+      "condition": "Requires all seven criteria by source description; relates edges are not blockers.",
+      "provenance": "ILLUSTRATIVE_PLANNING_ASSUMPTION",
+      "isNativeSchedule": false
+    },
+    {
+      "projectId": 11,
+      "workPackageId": 216,
+      "start": "2026-11-09",
+      "end": "2026-11-09",
+      "slice": "Reconcile landed claim",
+      "condition": "Native New preserved; this is an evidence review, not reimplementation.",
+      "provenance": "ILLUSTRATIVE_PLANNING_ASSUMPTION",
+      "isNativeSchedule": false
+    },
+    {
+      "projectId": 11,
+      "workPackageId": 217,
+      "start": "2026-11-10",
+      "end": "2026-11-10",
+      "slice": "Reconcile landed claim",
+      "condition": "Native follows #216 preserved; verify source acceptance.",
+      "provenance": "ILLUSTRATIVE_PLANNING_ASSUMPTION",
+      "isNativeSchedule": false
+    },
+    {
+      "projectId": 11,
+      "workPackageId": 218,
+      "start": "2026-11-16",
+      "end": "2026-11-20",
+      "slice": "Bound C3 remaining objective",
+      "condition": "Conditional on A/B1 evidence and current execution authority.",
+      "provenance": "ILLUSTRATIVE_PLANNING_ASSUMPTION",
+      "isNativeSchedule": false
+    },
+    {
+      "projectId": 11,
+      "workPackageId": 219,
+      "start": "2026-11-23",
+      "end": "2026-11-27",
+      "slice": "Conditional comparator slice",
+      "condition": "Requires accepted C3 outcome for this proposed window; follows remains source relation.",
+      "provenance": "ILLUSTRATIVE_PLANNING_ASSUMPTION",
+      "isNativeSchedule": false
+    },
+    {
+      "projectId": 11,
+      "workPackageId": 220,
+      "start": "2026-11-30",
+      "end": "2026-12-04",
+      "slice": "Conditional exit-proof review",
+      "condition": "No acceptance or passing tests are assumed.",
+      "provenance": "ILLUSTRATIVE_PLANNING_ASSUMPTION",
+      "isNativeSchedule": false
+    },
+    {
+      "projectId": 9,
+      "workPackageId": 164,
+      "start": "2026-11-23",
+      "end": "2026-11-27",
+      "slice": "Conditional Path gate slice",
+      "condition": "Native requires #159; later-window example only after identity acceptance.",
+      "provenance": "ILLUSTRATIVE_PLANNING_ASSUMPTION",
+      "isNativeSchedule": false
+    },
+    {
+      "projectId": 9,
+      "workPackageId": 192,
+      "start": "2026-11-23",
+      "end": "2026-11-25",
+      "slice": "Versioned gate example",
+      "condition": "Parent #164; ownership nesting is not dependency.",
+      "provenance": "ILLUSTRATIVE_PLANNING_ASSUMPTION",
+      "isNativeSchedule": false
+    },
+    {
+      "projectId": 9,
+      "workPackageId": 193,
+      "start": "2026-11-26",
+      "end": "2026-11-27",
+      "slice": "Evaluated-state example",
+      "condition": "Native follows #192; proposed consumer evidence review.",
+      "provenance": "ILLUSTRATIVE_PLANNING_ASSUMPTION",
+      "isNativeSchedule": false
+    },
+    {
+      "projectId": 10,
+      "workPackageId": 196,
+      "start": "2026-11-16",
+      "end": "2026-11-20",
+      "slice": "Conditional structural relations",
+      "condition": "Native requires #159; never turn structural relations into unlock rules.",
+      "provenance": "ILLUSTRATIVE_PLANNING_ASSUMPTION",
+      "isNativeSchedule": false
+    },
+    {
+      "projectId": 5,
+      "workPackageId": 127,
+      "start": "2026-11-12",
+      "end": "2026-11-12",
+      "slice": "Operator session placeholder",
+      "condition": "Illustrative date; operator availability not checked.",
+      "provenance": "ILLUSTRATIVE_PLANNING_ASSUMPTION",
+      "isNativeSchedule": false
+    },
+    {
+      "projectId": 5,
+      "workPackageId": 128,
+      "start": "2026-11-13",
+      "end": "2026-11-13",
+      "slice": "Human approval gate",
+      "condition": "Native On hold preserved; approval not assumed.",
+      "provenance": "ILLUSTRATIVE_PLANNING_ASSUMPTION",
+      "isNativeSchedule": false
+    },
+    {
+      "projectId": 5,
+      "workPackageId": 129,
+      "start": "2026-11-16",
+      "end": "2026-11-16",
+      "slice": "Conditional creation window",
+      "condition": "No real project creation; requires separate authorization.",
+      "provenance": "ILLUSTRATIVE_PLANNING_ASSUMPTION",
+      "isNativeSchedule": false
+    },
+    {
+      "projectId": 5,
+      "workPackageId": 130,
+      "start": "2026-11-17",
+      "end": "2026-11-17",
+      "slice": "Verification window",
+      "condition": "Proposed order only; native edges absent.",
+      "provenance": "ILLUSTRATIVE_PLANNING_ASSUMPTION",
+      "isNativeSchedule": false
+    },
+    {
+      "projectId": 8,
+      "workPackageId": 222,
+      "start": "2026-11-10",
+      "end": "2026-11-10",
+      "slice": "Reconcile stale PM claim",
+      "condition": "Verify repository tracking before scheduling new work; separate stack work excluded.",
+      "provenance": "ILLUSTRATIVE_PLANNING_ASSUMPTION",
+      "isNativeSchedule": false
+    },
+    {
+      "projectId": 3,
+      "workPackageId": 60,
+      "start": "2026-11-16",
+      "end": "2026-11-17",
+      "slice": "Home runtime evidence",
+      "condition": "Conditional comparison window, not current completion proof.",
+      "provenance": "ILLUSTRATIVE_PLANNING_ASSUMPTION",
+      "isNativeSchedule": false
+    },
+    {
+      "projectId": 3,
+      "workPackageId": 61,
+      "start": "2026-11-16",
+      "end": "2026-11-17",
+      "slice": "Skill Tree runtime evidence",
+      "condition": "Parallel native branch before #62.",
+      "provenance": "ILLUSTRATIVE_PLANNING_ASSUMPTION",
+      "isNativeSchedule": false
+    },
+    {
+      "projectId": 3,
+      "workPackageId": 62,
+      "start": "2026-11-18",
+      "end": "2026-11-19",
+      "slice": "Navigation slice",
+      "condition": "Native follows #60 and #61.",
+      "provenance": "ILLUSTRATIVE_PLANNING_ASSUMPTION",
+      "isNativeSchedule": false
+    },
+    {
+      "projectId": 3,
+      "workPackageId": 63,
+      "start": "2026-11-20",
+      "end": "2026-11-20",
+      "slice": "Scope-handoff contract",
+      "condition": "Native follows #62.",
+      "provenance": "ILLUSTRATIVE_PLANNING_ASSUMPTION",
+      "isNativeSchedule": false
+    },
+    {
+      "projectId": 3,
+      "workPackageId": 64,
+      "start": "2026-11-23",
+      "end": "2026-11-24",
+      "slice": "Legacy-state quarantine review",
+      "condition": "Native follows #63; parallel to #65.",
+      "provenance": "ILLUSTRATIVE_PLANNING_ASSUMPTION",
+      "isNativeSchedule": false
+    },
+    {
+      "projectId": 3,
+      "workPackageId": 65,
+      "start": "2026-11-23",
+      "end": "2026-11-24",
+      "slice": "Resolution-context review",
+      "condition": "Native follows #63; parallel to #64.",
+      "provenance": "ILLUSTRATIVE_PLANNING_ASSUMPTION",
+      "isNativeSchedule": false
+    },
+    {
+      "projectId": 3,
+      "workPackageId": 66,
+      "start": "2026-11-25",
+      "end": "2026-11-25",
+      "slice": "Home adapter slice",
+      "condition": "Native follows #64 and #65.",
+      "provenance": "ILLUSTRATIVE_PLANNING_ASSUMPTION",
+      "isNativeSchedule": false
+    },
+    {
+      "projectId": 3,
+      "workPackageId": 67,
+      "start": "2026-11-26",
+      "end": "2026-11-27",
+      "slice": "Integration acceptance checkpoint",
+      "condition": "Native branch join; proof not assumed.",
+      "provenance": "ILLUSTRATIVE_PLANNING_ASSUMPTION",
+      "isNativeSchedule": false
+    }
+  ],
+  "week": [
+    {
+      "date": "2026-11-09",
+      "day": "Monday",
+      "refs": [
+        211,
+        212
+      ],
+      "label": "Runtime reliability",
+      "kind": "Proposed focus",
+      "slice": "Review current completion / timer failures; select a bounded gap."
+    },
+    {
+      "date": "2026-11-10",
+      "day": "Tuesday",
+      "refs": [
+        159,
+        187,
+        188
+      ],
+      "label": "Identity & placement",
+      "kind": "Proposed focus",
+      "slice": "Inspect canonical identity and the placement decision."
+    },
+    {
+      "date": "2026-11-11",
+      "day": "Wednesday",
+      "refs": [
+        163
+      ],
+      "label": "Website content",
+      "kind": "Alternative focus",
+      "slice": "Review one authentic source-to-public-content slice."
+    },
+    {
+      "date": "2026-11-12",
+      "day": "Thursday",
+      "refs": [
+        228,
+        225
+      ],
+      "label": "IPOS operations",
+      "kind": "Alternative focus",
+      "slice": "Inventory working assets before choosing a bounded benchmark."
+    },
+    {
+      "date": "2026-11-13",
+      "day": "Friday",
+      "refs": [
+        216,
+        217,
+        218
+      ],
+      "label": "Sequencing readiness",
+      "kind": "Proposed focus",
+      "slice": "Reconcile landed claims; bound the remaining C3 objective."
+    },
+    {
+      "date": "2026-11-14",
+      "day": "Saturday",
+      "refs": [
+        174
+      ],
+      "label": "Rhythm evidence / review",
+      "kind": "Alternative focus",
+      "slice": "Re-attest one boundary, then review what to carry forward."
+    },
+    {
+      "date": "2026-11-15",
+      "day": "Sunday",
+      "refs": [],
+      "label": "Off",
+      "kind": "No work planned",
+      "slice": "Off by default."
+    }
+  ],
+  "proposedRelations": [
+    {
+      "from": 228,
+      "to": 225,
+      "type": "proposed ordering",
+      "why": "Inventory before benchmark selection; no native edge."
+    },
+    {
+      "from": 127,
+      "to": 128,
+      "type": "proposed approval sequence",
+      "why": "Discuss the list before requesting approval."
+    },
+    {
+      "from": 128,
+      "to": 129,
+      "type": "proposed approval gate",
+      "why": "Creation requires approval; no action executed."
+    },
+    {
+      "from": 129,
+      "to": 130,
+      "type": "proposed verification order",
+      "why": "Verify after separately authorized creation."
+    }
+  ]
+}

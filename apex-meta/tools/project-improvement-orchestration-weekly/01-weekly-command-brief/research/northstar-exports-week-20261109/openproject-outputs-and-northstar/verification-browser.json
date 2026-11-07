@@ -1,0 +1,50 @@
+{
+  "status": "PASS",
+  "checkedAt": "2026-11-07T09:20:23.384Z",
+  "nativeItemsPreserved": 186,
+  "projects": 13,
+  "relationsPreserved": 83,
+  "proposals": 6,
+  "checks": [
+    "Local downloadable links resolve",
+    "HTML source records match live snapshot exactly",
+    "Proposals reference real native records",
+    "Search preserves native parent context",
+    "Hash reveals item and parent",
+    "Full detail expansion at desktop and mobile widths",
+    "No-JavaScript content preserved",
+    "No runtime exceptions"
+  ],
+  "layouts": [
+    {
+      "file": "index.html",
+      "width": 1440,
+      "scroll": 1425
+    },
+    {
+      "file": "index.html",
+      "width": 430,
+      "scroll": 430
+    },
+    {
+      "file": "index.html",
+      "width": 360,
+      "scroll": 360
+    },
+    {
+      "file": "northstar-next-week.html",
+      "width": 1440,
+      "scroll": 1425
+    },
+    {
+      "file": "northstar-next-week.html",
+      "width": 430,
+      "scroll": 430
+    },
+    {
+      "file": "northstar-next-week.html",
+      "width": 360,
+      "scroll": 360
+    }
+  ]
+}

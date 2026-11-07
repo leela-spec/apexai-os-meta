@@ -1,0 +1,7 @@
+﻿ID,Subject,Start date,Finish date,Interpretation
+215,Sequencing delivery waves — A → B1 → C (dependency map),,,No native dates; do not invent a schedule
+216,"Wave A — Sequencing domain, serializers, typed IDs and structure hashes",,,No native dates; do not invent a schedule
+217,Wave B1 — database-neutral repository seam,,,No native dates; do not invent a schedule
+218,Wave C3 — scoring validation memo and formula objective,,,No native dates; do not invent a schedule
+219,Wave C4 — ranking and resolver (ST-022 candidate comparator),,,No native dates; do not invent a schedule
+220,Wave C5 — fixtures parity and Wave C exit proof,,,No native dates; do not invent a schedule

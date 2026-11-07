@@ -1,0 +1,171 @@
+{
+  "provenance": "Actual read-back of generated example exports; source was the live API snapshot",
+  "inputFiles": [
+    "example-work-packages.csv",
+    "example-descriptions.xlsx",
+    "example-relations.xlsx"
+  ],
+  "joinKey": "native work-package ID",
+  "items": [
+    {
+      "ref": "WP-215",
+      "name": "Sequencing delivery waves — A → B1 → C (dependency map)",
+      "nativeState": "New",
+      "nativePriority": "Normal",
+      "project": "Sequencing",
+      "parentRef": null,
+      "description": "Parent for the Sequencing delivery waves. Created 2026-10-28 because \"Wave A / B1 / C\" were three undefined terms inside an agent instruction file with no tracked dependency structure — which is what a tracker is for, not an instruction file.\n\nScope read from `docs/orchestration/context/02_MESO_WAVE_CONTRACTS.md` and `docs/orchestration/WAVE-C_resolver_and_scientific_values.md`, not invented.\n\n| Wave | Delivers | State |\n|---|---|---|\n| **A** | Sequencing domain: types, serializers, typed IDs, invariants, structure hashes, canonical fixtures (`lib/features/sequencing/domain`) | landed on `master` |\n| **B1** | Database-neutral repository seam | landed on `master` (three B1 packets) |\n| **C** | Resolver and scientific values; deterministic feasible candidates, policy-versioned projections, ranked resolution | partly landed, C3–C5 open |\n\n**Wave C depends on A + B1. Cloud persistence is NOT a prerequisite** — that is SSOT-D-059 territory and deliberately deferred.\n\n**Wave C exit proof, verbatim:** \"RES-01–RES-18 and SCI-01–SCI-09 pass.\" Plus: all claimed IDs have executable tests, generation is deterministic, and Wave A/B1 hashes and APIs remain stable.\n\n**The standing invariant this structure protects:** a storage decision never changes the domain layer. Wave A types, serializers, IDs and structure hashes are storage-neutral. That rule stays in the repo rule file; the *work* lives here.\n\nCaveat carried from the source: these wave contracts are dependency/provenance maps and were marked not-executable while the SSOT-materialization Micro is active. Confirm before scheduling C4/C5.\n---\n\n## Sequencing screen design and execution package — 2026-11-03\n\n**Status:** screen contracts and materialization are written and pushed; the screens are not yet implemented in the app. This section is the durable execution map. Repository snapshot: [`d9965b39`](https://github.com/leela-spec/Leela-Cloud-2026/tree/d9965b39ae0e0a493b8acb6752f92dc19a37df7c).\n\n### Authority and design rule\n\nFor this screen-design task, resolve evidence in this order: **screen contracts → current code → operator-authored fixture data → older SSOT narrative**. Domain ownership remains with the domain artifacts. Do not let a screen invent, flatten, rerank, mutate, or recalculate owner facts.\n\n### Owned screen contracts\n\n- [Family owner: inventory, artifact ledger, 12 conflicts, 10 open aspects, critical path](https://github.com/leela-spec/Leela-Cloud-2026/blob/d9965b39ae0e0a493b8acb6752f92dc19a37df7c/docs/ssot/screens/sequencing-family.md)\n- [Recommendation Feed](https://github.com/leela-spec/Leela-Cloud-2026/blob/d9965b39ae0e0a493b8acb6752f92dc19a37df7c/docs/ssot/screens/sequencing-recommendations.md)\n- [Manual Selection](https://github.com/leela-spec/Leela-Cloud-2026/blob/d9965b39ae0e0a493b8acb6752f92dc19a37df7c/docs/ssot/screens/sequencing-manual-selection.md)\n- [Details](https://github.com/leela-spec/Leela-Cloud-2026/blob/d9965b39ae0e0a493b8acb6752f92dc19a37df7c/docs/ssot/screens/sequencing-details.md)\n- [Modification](https://github.com/leela-spec/Leela-Cloud-2026/blob/d9965b39ae0e0a493b8acb6752f92dc19a37df7c/docs/ssot/screens/sequencing-modification.md)\n- [Run](https://github.com/leela-spec/Leela-Cloud-2026/blob/d9965b39ae0e0a493b8acb6752f92dc19a37df7c/docs/ssot/screens/sequencing-run.md)\n- [Finished](https://github.com/leela-spec/Leela-Cloud-2026/blob/d9965b39ae0e0a493b8acb6752f92dc19a37df7c/docs/ssot/screens/sequencing-finished.md)\n- [Structure Gallery](https://github.com/leela-spec/Leela-Cloud-2026/blob/d9965b39ae0e0a493b8acb6752f92dc19a37df7c/docs/ssot/screens/sequencing-structure-gallery.md)\n- [Screen contract index](https://github.com/leela-spec/Leela-Cloud-2026/blob/d9965b39ae0e0a493b8acb6752f92dc19a37df7c/docs/ssot/screens/index.md)\n- [Sequencing materialization rows](https://github.com/leela-spec/Leela-Cloud-2026/blob/d9965b39ae0e0a493b8acb6752f92dc19a37df7c/docs/ssot/features/sequencing/materialization.csv#L181-L187)\n\n### End-to-end flow\n\n`Canonical fixtures → shared presentation projection → Structure Gallery verification → Recommendations/Details → Accept or Modify → Run → Finished`\n\n#### 1. Structure Gallery — first visual checkpoint\n\n- **Input:** canonical fixtures, `LeelaSequenceEnvelope`, current `LeelaChunkDisplay`, structural relations, points and bindings.\n- **Process:** add `/lab/sequencing/structures`; load fixtures through `FixtureSequencingRepository`; select a fixture; render real shared widgets; show IDs/facts; exercise narrow/wide, text scale, reduced motion and failure states.\n- **Output:** one read-only lab screen where every canonical structure can be checked before production screens reuse it.\n- **Example:** selecting `inst_parallel_audio_001` must show both simultaneous occurrences, their roles/bindings and shared timing without converting them into a fake sequence.\n\n#### 2. Shared presentation projection — one interpretation\n\n- **Input:** `SequenceInstance`, `SlotOccurrence`, `ExecutionBinding`, `CompositeRelation`, `ParallelLayer`, Chunk facts and TP/XP/BP projections.\n- **Process:** preserve IDs; resolve each occurrence and binding; create typed display models; nest relation groups; feed the envelope and Chunk display; fail visibly on inconsistent identity instead of inventing data.\n- **Output:** one projection reused by Gallery, Recommendations, Details, Modification, Run and Finished.\n- **Example:** a Bundle with three occurrences becomes one Bundle presentation containing three independently identifiable Chunk presentations, not three unrelated icons.\n\n#### 3. Recommendations and Details — first production vertical slice\n\n- **Input:** owner-ranked complete candidates plus classification, duration, points, evidence and explicit favorite state.\n- **Process:** preserve owner ordering; render the shared projection; open a candidate or accepted Instance by typed ID; distinguish candidate actions from immutable Instance actions; never accept or start implicitly.\n- **Output:** a read-only browse-and-inspect path.\n- **Example:** a 25-minute Focus Session shows TP/XP/BP, occurrence/support structure and evidence, then exposes `Accept`, `Modify` or `Back`; an accepted Instance exposes `Start Run` or `Create modified copy`.\n\n#### 4. Manual Selection, acceptance and Modification\n\n- **Input:** Mode, subtype, scope, context, timing constraints, a baseline candidate/Instance, supported edit commands and validation rules.\n- **Process:** send intent to the resolution owner; receive a complete candidate; keep the baseline immutable; edit a transient proposal; revalidate after each edit; calculate exact signed TP/XP/BP deltas; accept only a complete valid proposal.\n- **Output:** a new accepted Instance with its own typed ID and structure hash; the baseline remains unchanged.\n- **Example:** removing an optional occurrence may change 30→24 minutes, TP 40→33, XP 18→16 and BP 4→4; the UI shows `−6`, `−7`, `−2`, `0`.\n\n#### 5. Run — factual execution\n\n- **Input:** accepted Instance, valid `runId`, exact occurrences/relations/bindings, lifecycle timestamps and persisted Run events.\n- **Process:** restore Run state; derive the active occurrence from facts; render the real Chunk display; derive time from timestamps/monotonic deadline; append start/pause/resume/complete/skip/substitution events; never rewrite the accepted Instance.\n- **Output:** resumable execution with an append-only factual history.\n- **Example:** substituting Chunk B for accepted Chunk A appends a deviation containing `occurrenceId`, accepted Chunk, actual Chunk and reason; it does not edit the Instance.\n\n#### 6. Finished — accepted versus actual\n\n- **Input:** accepted projection, closed Run, realized timeline, deviations and actualizer-produced TP/XP/BP.\n- **Process:** compare accepted and actual occurrences; show completed/skipped/shortened/substituted facts; show projected versus actual duration and points; hand longitudinal history to Stats.\n- **Output:** an auditable completion summary.\n- **Example:** accepted 30 min / TP40 / XP18 / BP4 versus actual 24 min / TP32 / XP16 / BP4, with substitution and shortening reasons. Never pro-rate rewards from elapsed percentage.\n\n#### 7. Route convergence and legacy retirement\n\n- **Input:** verified new screens, current routes/prototypes, compatibility needs and navigation tests.\n- **Process:** add typed routes; point normal navigation to them; redirect legacy routes when needed; reject empty or timestamp-generated fake Instance IDs; prove workflow parity before archiving old screens.\n- **Output:** `Recommendations → Details → Accept or Modify → Run → Finished`.\n- **Example:** replace `/sequences/run` with empty Instance ID by `/sequences/runs/:runId`, which loads a real Run, its accepted Instance and event history.\n\n### Settled conflicts that implementation must not reopen\n\n1. Favorites means explicit saved/starred state, not “most done”.\n2. Display `Free Time`; normalize legacy `Recharge` only on read.\n3. Display `Mix It Up`; wire code remains `mixItUp`.\n4. Start requires valid accepted Instance and Run IDs; no placeholders/timestamps.\n5. Actual TP/XP/BP comes from the versioned actualizer, not elapsed-percentage proration.\n6. Preserve occurrences, repetitions, roles, Bundle, Fusion, Parallel Layers and timing; never flatten to icon lists.\n7. Finished centers accepted projection versus actual Run; account totals belong to Stats.\n8. BP means Balance Points, never Bonus Points.\n9. Every `LeelaChunkDisplay` receives owner-published facts for its exact binding.\n10. Run timing derives from persisted timestamps or a monotonic deadline and reconciles after lifecycle resume.\n11. Substitution appends a deviation event and preserves the accepted Instance.\n12. Platform/activity strips are metadata; typed relations and `LeelaSequenceEnvelope` carry structure.\n\n### Open aspects and safe defaults\n\n1. Separate Play Mode landing versus direct Manual Selection: do not build an extra route first.\n2. Dominant-versus-Mixed threshold: show per-occurrence symbols or `Mixed`; do not invent a threshold.\n3. Notifications by platform: Run must remain correct without notifications.\n4. Auto-advance versus confirmation: show declared ending policy; do not infer it from duration.\n5. Prev/Next semantics: no silent completion; state changes append events.\n6. Substitution alternatives: show only owner-returned feasible choices and reasons.\n7. Sharing Finished: no functional Share CTA until Community/privacy owns it.\n8. Feedback persistence: no saveable form without an owner-backed command/schema.\n9. Celebration: one short motion-gated confirmation; reduced motion shows final state immediately.\n10. Gallery release status: keep it lab-only and read-only until explicitly promoted.\n\n### Grounding artifacts\n\n- [Canonical sequencing fixtures](https://github.com/leela-spec/Leela-Cloud-2026/tree/d9965b39ae0e0a493b8acb6752f92dc19a37df7c/assets/mock/sequencing)\n- [Fixture repository](https://github.com/leela-spec/Leela-Cloud-2026/blob/d9965b39ae0e0a493b8acb6752f92dc19a37df7c/lib/features/sequencing/data/repositories/fixture_sequencing_repository.dart)\n- [Sequence envelope](https://github.com/leela-spec/Leela-Cloud-2026/blob/d9965b39ae0e0a493b8acb6752f92dc19a37df7c/lib/design_system/components/leela_sequence_envelope.dart)\n- [Chunk display](https://github.com/leela-spec/Leela-Cloud-2026/blob/d9965b39ae0e0a493b8acb6752f92dc19a37df7c/lib/design_system/components/leela_chunk_display.dart)\n- [Current Run prototype](https://github.com/leela-spec/Leela-Cloud-2026/blob/d9965b39ae0e0a493b8acb6752f92dc19a37df7c/lib/pages/scr_sequence_run.dart)\n- [Current Finished prototype](https://github.com/leela-spec/Leela-Cloud-2026/blob/d9965b39ae0e0a493b8acb6752f92dc19a37df7c/lib/pages/scr_sequence_finished.dart)\n- [Current harmonized Run prototype](https://github.com/leela-spec/Leela-Cloud-2026/blob/d9965b39ae0e0a493b8acb6752f92dc19a37df7c/lib/features/harmonization/harmonized_run_screen.dart)\n- [Current builder prototype](https://github.com/leela-spec/Leela-Cloud-2026/blob/d9965b39ae0e0a493b8acb6752f92dc19a37df7c/lib/features/harmonization/harmonized_sequence_builder_screen.dart)\n- [Historical screen-spec source directory](https://github.com/leela-spec/Leela-Cloud-2026/tree/d9965b39ae0e0a493b8acb6752f92dc19a37df7c/docs/reference-corpus/spec_repo/LeelaAppDevelopment/StatusQuo/Sequencing)\n\n### Verification and delivery order\n\nFirst deliver the Structure Gallery plus shared projection. Then deliver the read-only Recommendations/Details slice. Add acceptance/Modification next. Add factual Run events and lifecycle timing after that. Build Finished from closed-Run facts. Converge routes and retire legacy prototypes last.\n\nRepository evidence: screen contracts commit `acbbad39`; materialization commit `d9965b39`; `python scripts/gates.py --since origin/master` reported **all 5 executed gates passed, 10 correctly parked** at delivery time.",
+      "observedRelations": [],
+      "nativeStartDate": null,
+      "nativeFinishDate": null
+    },
+    {
+      "ref": "WP-216",
+      "name": "Wave A — Sequencing domain, serializers, typed IDs and structure hashes",
+      "nativeState": "New",
+      "nativePriority": "Normal",
+      "project": "Sequencing",
+      "parentRef": "WP-215",
+      "description": "**Landed on `master`.** Tracked for dependency provenance, not as open work.\n\nDelivers the Sequencing domain layer: types, serializers, typed IDs, invariants, structure hashes and canonical fixtures under `lib/features/sequencing/domain/`.\n\n**The invariant it establishes, which every later wave must preserve:** a storage decision never changes the domain layer. Wave A types, serializers, IDs and structure hashes are storage-neutral. Preserve the Wave A structure-hash projection exactly unless the Canon changes it explicitly — this sentence has been lost from the repo instruction surface twice, once for 57 minutes.\n\nCanonical fixture manifest entries are `{path, sha256}` and the hash is verified before decoding.\n\nRule home: `.claude/rules/sequencing.md` (SSOT-D-060). Spec: `docs/ssot/features/sequencing/spec.md`.",
+      "observedRelations": [
+        {
+          "id": 88,
+          "type": "follows",
+          "from": 217,
+          "to": 216,
+          "fromName": "Wave B1 — database-neutral repository seam",
+          "toName": "Wave A — Sequencing domain, serializers, typed IDs and structure hashes",
+          "description": "Wave dependency, from docs/orchestration/context/02_MESO_WAVE_CONTRACTS.md"
+        }
+      ],
+      "nativeStartDate": null,
+      "nativeFinishDate": null
+    },
+    {
+      "ref": "WP-217",
+      "name": "Wave B1 — database-neutral repository seam",
+      "nativeState": "New",
+      "nativePriority": "Normal",
+      "project": "Sequencing",
+      "parentRef": "WP-215",
+      "description": "**Landed on `master`** via three B1 implementation packets. Tracked for dependency provenance.\n\nDelivers the repository seam that lets the domain run without committing to a storage engine. Pairs with SSOT-D-059: fixture-first and database-neutral, cloud persistence deferred.\n\n**Depends on:** Wave A.\n\n**Blocks:** Wave C. `WAVE-C_resolver_and_scientific_values.md` states the dependency as \"Wave A (domain) + Wave B1 (database-neutral repositories). Cloud persistence is not a prerequisite.\"",
+      "observedRelations": [
+        {
+          "id": 89,
+          "type": "follows",
+          "from": 218,
+          "to": 217,
+          "fromName": "Wave C3 — scoring validation memo and formula objective",
+          "toName": "Wave B1 — database-neutral repository seam",
+          "description": "Wave dependency, from docs/orchestration/context/02_MESO_WAVE_CONTRACTS.md"
+        },
+        {
+          "id": 88,
+          "type": "follows",
+          "from": 217,
+          "to": 216,
+          "fromName": "Wave B1 — database-neutral repository seam",
+          "toName": "Wave A — Sequencing domain, serializers, typed IDs and structure hashes",
+          "description": "Wave dependency, from docs/orchestration/context/02_MESO_WAVE_CONTRACTS.md"
+        }
+      ],
+      "nativeStartDate": null,
+      "nativeFinishDate": null
+    },
+    {
+      "ref": "WP-218",
+      "name": "Wave C3 — scoring validation memo and formula objective",
+      "nativeState": "New",
+      "nativePriority": "Normal",
+      "project": "Sequencing",
+      "parentRef": "WP-215",
+      "description": "**OPEN.** The part of C3 that did not land.\n\nSSOT-D-031's extraction (session packets 10–13) landed real Algorithm/Sequencing capability on `master` — `lib/features/algorithm/**` and `lib/features/sequencing/{application,domain/scoring}/**` — which substantially satisfies C1/C2 and *part* of C3's scoring-contract scaffolding.\n\n**What remains, verbatim from the source:** \"no XP/TP/BP formula arithmetic was ever on the branch, so C3's actual validation-memo/formula objective remains open.\"\n\n**Depends on:** Wave A + Wave B1 (both landed).",
+      "observedRelations": [
+        {
+          "id": 90,
+          "type": "follows",
+          "from": 219,
+          "to": 218,
+          "fromName": "Wave C4 — ranking and resolver (ST-022 candidate comparator)",
+          "toName": "Wave C3 — scoring validation memo and formula objective",
+          "description": "Wave dependency, from docs/orchestration/context/02_MESO_WAVE_CONTRACTS.md"
+        },
+        {
+          "id": 89,
+          "type": "follows",
+          "from": 218,
+          "to": 217,
+          "fromName": "Wave C3 — scoring validation memo and formula objective",
+          "toName": "Wave B1 — database-neutral repository seam",
+          "description": "Wave dependency, from docs/orchestration/context/02_MESO_WAVE_CONTRACTS.md"
+        }
+      ],
+      "nativeStartDate": null,
+      "nativeFinishDate": null
+    },
+    {
+      "ref": "WP-219",
+      "name": "Wave C4 — ranking and resolver (ST-022 candidate comparator)",
+      "nativeState": "New",
+      "nativePriority": "Normal",
+      "project": "Sequencing",
+      "parentRef": "WP-215",
+      "description": "**BLOCKED.** Packet `docs/orchestration/wave-c/04-ranking-and-resolver.md`, revised in place to cite the real landed files.\n\nDelivers the `ST-022` candidate comparator: deterministic ranked resolution over Algorithm-produced feasible candidates.\n\n**Prohibited donor inputs, explicitly:** XP/min ranking, flat slots, equal-duration division, and old harmonization authority.\n\n**Depends on:** Wave C3.",
+      "observedRelations": [
+        {
+          "id": 91,
+          "type": "follows",
+          "from": 220,
+          "to": 219,
+          "fromName": "Wave C5 — fixtures parity and Wave C exit proof",
+          "toName": "Wave C4 — ranking and resolver (ST-022 candidate comparator)",
+          "description": "Wave dependency, from docs/orchestration/context/02_MESO_WAVE_CONTRACTS.md"
+        },
+        {
+          "id": 90,
+          "type": "follows",
+          "from": 219,
+          "to": 218,
+          "fromName": "Wave C4 — ranking and resolver (ST-022 candidate comparator)",
+          "toName": "Wave C3 — scoring validation memo and formula objective",
+          "description": "Wave dependency, from docs/orchestration/context/02_MESO_WAVE_CONTRACTS.md"
+        }
+      ],
+      "nativeStartDate": null,
+      "nativeFinishDate": null
+    },
+    {
+      "ref": "WP-220",
+      "name": "Wave C5 — fixtures parity and Wave C exit proof",
+      "nativeState": "New",
+      "nativePriority": "Normal",
+      "project": "Sequencing",
+      "parentRef": "WP-215",
+      "description": "**BLOCKED.** Packet `docs/orchestration/wave-c/05-fixtures-parity-and-exit.md`.\n\nDelivers generated fixtures plus fixture/session parity proof, and carries the Wave C exit gate.\n\n**Exit proof, verbatim:** \"RES-01–RES-18 and SCI-01–SCI-09 pass.\" Plus: every claimed ID has an executable test, generation is deterministic, and Wave A/B1 hashes and APIs remain stable.\n\n**Depends on:** Wave C4.",
+      "observedRelations": [
+        {
+          "id": 91,
+          "type": "follows",
+          "from": 220,
+          "to": 219,
+          "fromName": "Wave C5 — fixtures parity and Wave C exit proof",
+          "toName": "Wave C4 — ranking and resolver (ST-022 candidate comparator)",
+          "description": "Wave dependency, from docs/orchestration/context/02_MESO_WAVE_CONTRACTS.md"
+        }
+      ],
+      "nativeStartDate": null,
+      "nativeFinishDate": null
+    }
+  ],
+  "northstarJoin": "refs match northstar-weekly-feed.json and work-package anchors in northstar-next-week.html",
+  "exampleInterpretation": {
+    "ref": "WP-218",
+    "facts": [
+      "CSV status is New",
+      "Description says validation-memo/formula objective remains open",
+      "Observed REL#89 says #218 follows #217"
+    ],
+    "proposal": "Verify A/B1 source evidence and current execution gate; identify a bounded C3 gap before selecting implementation.",
+    "distinction": "The proposal is interpretation, not a changed source status or a native priority."
+  }
+}

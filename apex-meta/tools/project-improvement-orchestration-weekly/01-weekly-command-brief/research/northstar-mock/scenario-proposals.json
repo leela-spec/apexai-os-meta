@@ -1,0 +1,112 @@
+{
+  "status": "MOCK_PROPOSAL_NOT_APPROVED_PLAN",
+  "purpose": "Examples grounded in actual work packages; no OpenProject mutations",
+  "scenarios": [
+    {
+      "id": "content", "complexity": "medium: parallel content branches and publication join", "roots": [163, 204],
+      "reason": "The Website backlog explicitly requires source transformation and public components; credits are a separate native item, not a prerequisite for all website work.",
+      "mockItems": [
+        {"id":"MOCK-CONTENT-01","parent":"WP-163","name":"Select a source-backed content slice","acceptance":"One selected source, intended audience and public destination recorded.","state":"In progress"},
+        {"id":"MOCK-CONTENT-02","parent":"WP-163","name":"Transform selected material into structured content","acceptance":"Structured draft preserves source traceability and distinguishes editorial interpretation.","state":"New"},
+        {"id":"MOCK-CONTENT-03","parent":"WP-163","name":"Review the public component against its source","acceptance":"Rendered content is checked for meaning, readability and mobile presentation.","state":"New"},
+        {"id":"MOCK-CREDITS-01","parent":"WP-204","name":"Review commentary credits and source links","acceptance":"Named source acknowledgments are accurate and do not inject third-party citations into daily lesson text.","state":"New"},
+        {"id":"MOCK-CONTENT-04","parent":"WP-163","name":"Approve the ACIM content slice with linked credits","acceptance":"Operator approves the selected ACIM slice and its separate acknowledgments link.","state":"New"}
+      ],
+      "edges": [
+        ["MOCK-CONTENT-02","MOCK-CONTENT-01","requires","Choose the material before transforming it."],
+        ["MOCK-CONTENT-03","MOCK-CONTENT-02","requires","Review the resulting public component."],
+        ["MOCK-CONTENT-04","MOCK-CONTENT-03","requires","Accept the content only after review."],
+        ["MOCK-CONTENT-04","MOCK-CREDITS-01","requires","This illustrative ACIM publication joins content and credit review; it does not block other content clusters."]
+      ]
+    },
+    {
+      "id":"ipos", "complexity":"medium: alternative evaluation, parallel ingestion and dispatch, controlled retirement", "roots":[223],
+      "reason":"Preserve the five native child goals. An architecture inventory should inform the replacement experiment; retirement is proposed after replacement evidence, not before it.",
+      "mockItems":[
+        {"id":"MOCK-IPOS-01","parent":"WP-226","name":"Check one PDF and one article intake example","acceptance":"Both produce source-attributed inbox artifacts with explicit parse failures and no persistent daemon.","state":"New"},
+        {"id":"MOCK-IPOS-02","parent":"WP-227","name":"Validate digest output with a local dispatch double","acceptance":"Precomputed values remain unchanged; formatting and retry/failure behavior are inspectable without sending a message.","state":"New"},
+        {"id":"MOCK-IPOS-03","parent":"WP-225","name":"Compare replacement operation and rollback paths","acceptance":"Record observed replacement behavior, operator trade-off and recovery path; do not assume a benchmark winner.","state":"New"},
+        {"id":"MOCK-IPOS-04","parent":"WP-224","name":"Approve a retirement checkpoint","acceptance":"Replacement evidence, rollback plan and operator approval are recorded before any service retirement.","state":"On hold"}
+      ],
+      "edges":[
+        ["WP-225","WP-228","follows","Inventory clarifies the native automation experiment; proposed ordering only."],
+        ["MOCK-IPOS-03","WP-225","requires","Compare after collecting the native benchmark evidence."],
+        ["MOCK-IPOS-04","MOCK-IPOS-03","requires","Do not retire the old path before deciding how it is replaced."],
+        ["MOCK-IPOS-04","MOCK-IPOS-01","requires","Prove the replacement intake on a bounded sample."],
+        ["MOCK-IPOS-04","MOCK-IPOS-02","requires","Check digest behavior with a local double; live transmission remains separately gated."]
+      ]
+    },
+    {
+      "id":"rhythm", "complexity":"simple: independent evidence re-attestation", "roots":[174,175,176],
+      "reason":"Three evidence maintenance goals can be reviewed independently; do not invent serial dependencies between them.",
+      "mockItems":[
+        {"id":"MOCK-RHYTHM-01","parent":"WP-174","name":"Re-open the BP boundary evidence","acceptance":"Record whether the current source still supports the BP boundary; implementation discrepancies remain explicit.","state":"In progress"},
+        {"id":"MOCK-RHYTHM-02","parent":"WP-175","name":"Inspect planning metrics and focused proof","acceptance":"Planning UI keeps the accepted metric boundary and the focused evidence is current.","state":"New"},
+        {"id":"MOCK-RHYTHM-03","parent":"WP-176","name":"Check whole-week fit feedback channels","acceptance":"Review compute-on-pickup behavior plus color, shape/icon and text evidence; missing channels remain gaps.","state":"New"}
+      ],
+      "edges":[]
+    },
+    {
+      "id":"sequencing", "complexity":"advanced: serial waves with provenance and conflicting status", "roots":[215],
+      "reason":"Keep the observed follows chain 216 → 217 → 218 → 219 → 220. Descriptions say A/B1 landed although their native statuses remain New; readiness requires reconciliation.",
+      "mockItems":[
+        {"id":"MOCK-SEQ-01","parent":"WP-218","name":"Review the scoring objective and validation memo","acceptance":"Memo explains the permitted formula objective and unresolved arithmetic using current artifacts.","state":"New"},
+        {"id":"MOCK-SEQ-02","parent":"WP-219","name":"Check deterministic comparator cases","acceptance":"Same feasible inputs produce stable ranking without prohibited donor semantics.","state":"New"},
+        {"id":"MOCK-SEQ-03","parent":"WP-220","name":"Review fixture parity and Wave C exit evidence","acceptance":"Every claimed RES/SCI acceptance ID has executable evidence and preserved domain hashes; no passing proof is fabricated.","state":"New"}
+      ],
+      "edges":[
+        ["MOCK-SEQ-02","MOCK-SEQ-01","requires","Comparator examples follow validation of their scoring objective."],
+        ["MOCK-SEQ-03","MOCK-SEQ-02","requires","Exit review consumes comparator proof."]
+      ]
+    },
+    {
+      "id":"identity-progression", "complexity":"advanced: cross-project fan-out, separate ownership and shared prerequisites", "roots":[159,196,164],
+      "reason":"Native requires relations connect identity to Skill Tree relations and Path progression. Parentage is not a blocker. Structural relations must not become progression locks.",
+      "mockItems":[
+        {"id":"MOCK-ID-01","parent":"WP-187","name":"Check canonical identity across two placements","acceptance":"The same canonical Chunk is referenced twice without duplicating intrinsic identity.","state":"In progress"},
+        {"id":"MOCK-ID-02","parent":"WP-188","name":"Check placement identity through reorder","acceptance":"Placement identity survives reorder while canonical identity remains shared.","state":"New"},
+        {"id":"MOCK-GATE-01","parent":"WP-192","name":"Review a versioned evidence predicate example","acceptance":"Predicate ownership is Path and target identities are canonical.","state":"New"},
+        {"id":"MOCK-GATE-02","parent":"WP-193","name":"Check unknown evidence across consumers","acceptance":"Missing evidence remains unknown and all consumers use the same Path evaluation.","state":"New"}
+      ],
+      "edges":[
+        ["MOCK-ID-02","MOCK-ID-01","follows","Coordinate identity examples before validating reorder; ordering proposal, not a new native blocker."],
+        ["MOCK-GATE-01","MOCK-ID-01","requires","An example gate needs a known canonical target."],
+        ["MOCK-GATE-01","MOCK-ID-02","requires","The placement example must preserve identity before consumer provenance is tested."],
+        ["MOCK-GATE-02","MOCK-GATE-01","requires","Evaluate only against a defined versioned predicate."]
+      ]
+    },
+    {
+      "id":"runtime", "complexity":"advanced: cross-project release gate and independent fixes", "roots":[205,211,212],
+      "reason":"#205 requires all seven accepted fixes by its description, but its relations to #211/#212 are only relates. Preserve that difference. #211 requires #207, whose native status is Closed.",
+      "mockItems":[
+        {"id":"MOCK-RUN-01","parent":"WP-211","name":"Check final occurrence completes exactly once","acceptance":"A real-instance fixture reaches final completion once without demo production content.","state":"New"},
+        {"id":"MOCK-RUN-02","parent":"WP-212","name":"Check resume after delayed timer callbacks","acceptance":"Injected-clock example reconciles elapsed time and fires the final transition exactly once.","state":"New"},
+        {"id":"MOCK-RELEASE-01","parent":"WP-205","name":"Review the seven-fix release acceptance bundle","acceptance":"All seven native fix criteria and their focused evidence are reviewed; closed status alone is not execution proof.","state":"On hold"}
+      ],
+      "edges":[
+        ["MOCK-RELEASE-01","MOCK-RUN-01","requires","Release review joins verified run completion and lifecycle behavior."],
+        ["MOCK-RELEASE-01","MOCK-RUN-02","requires","Both runtime branches need evidence."],
+        ["MOCK-RELEASE-01","WP-206","requires","Include bounded-read acceptance evidence."],
+        ["MOCK-RELEASE-01","WP-207","requires","Include safe outbox acceptance evidence."],
+        ["MOCK-RELEASE-01","WP-208","requires","Include startup acceptance evidence."],
+        ["MOCK-RELEASE-01","WP-209","requires","Include web routing acceptance evidence."],
+        ["MOCK-RELEASE-01","WP-210","requires","Include dependency-cleanup acceptance evidence."]
+      ]
+    },
+    {
+      "id":"taxonomy", "complexity":"medium: three native hierarchy levels and human approval", "roots":[126],
+      "reason":"Native PM tasks describe a session, approval, creation and verification; explicit proposal edges make that sequence inspectable without moving records.",
+      "mockItems":[],
+      "edges":[
+        ["WP-128","WP-127","requires","Approve the list produced by the operator session."],
+        ["WP-129","WP-128","requires","Project creation requires the operator-approved list."],
+        ["WP-130","WP-129","follows","Verify after authorized creation; this mock performs neither action."]
+      ]
+    },
+    {
+      "id":"core-join", "complexity":"advanced: native parallel branches and integration join", "roots":[59],
+      "reason":"Observed follows relations already describe Home/Skill Tree verification, scope handoff, parallel contract repair and final vertical-slice verification.",
+      "mockItems":[], "edges":[]
+    }
+  ]
+}

@@ -1,0 +1,119 @@
+{
+  "graphs": [
+    {
+      "id": "identity",
+      "title": "Identity unlocks two project areas",
+      "subtitle": "Skill Tree → Path. Solid requires edges are native prerequisites; grey ownership edges are not blockers.",
+      "nodeIds": [
+        159,
+        187,
+        188,
+        196,
+        164,
+        192,
+        193
+      ],
+      "file": "dependency-identity.svg"
+    },
+    {
+      "id": "runtime",
+      "title": "Runtime reliability and release acceptance",
+      "subtitle": "#207 is PM-closed; current acceptance evidence still needs review. Blue relates edges do not imply blockers.",
+      "nodeIds": [
+        207,
+        211,
+        212,
+        205
+      ],
+      "file": "dependency-runtime.svg"
+    },
+    {
+      "id": "core",
+      "title": "Home / Skill Tree: branches and a join",
+      "subtitle": "Leela. Observed follows edges preserve the actual parallel branches and integration order.",
+      "nodeIds": [
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67
+      ],
+      "file": "dependency-core.svg"
+    },
+    {
+      "id": "waves",
+      "title": "Sequencing: ordering and status conflict",
+      "subtitle": "All five native states are New. Descriptions say landed or BLOCKED; reconcile them before execution.",
+      "nodeIds": [
+        216,
+        217,
+        218,
+        219,
+        220
+      ],
+      "file": "dependency-waves.svg"
+    },
+    {
+      "id": "ipos",
+      "title": "IPOS: inventory and parallel intake goals",
+      "subtitle": "Purple dashed ordering is a proposal. No native dependency is invented between the other goals.",
+      "nodeIds": [
+        228,
+        225,
+        226,
+        227,
+        224
+      ],
+      "file": "dependency-ipos.svg"
+    },
+    {
+      "id": "taxonomy",
+      "title": "PM Infrastructure: human approval gate",
+      "subtitle": "All arrows are proposed workflow interpretation. #128 is actually On hold; approval is not assumed.",
+      "nodeIds": [
+        127,
+        128,
+        129,
+        130
+      ],
+      "file": "dependency-taxonomy.svg"
+    },
+    {
+      "id": "website",
+      "title": "Website: two actual goals",
+      "subtitle": "No native dependency is recorded between Content Transformation and the separate credits page.",
+      "nodeIds": [
+        163,
+        204
+      ],
+      "file": "dependency-website.svg"
+    },
+    {
+      "id": "rhythm",
+      "title": "Rhythm: independent review candidates",
+      "subtitle": "No native serial edges between these three tasks. Gantt dates are illustrative review windows only.",
+      "nodeIds": [
+        174,
+        175,
+        176
+      ],
+      "file": "dependency-rhythm.svg"
+    }
+  ],
+  "nativeItems": 186,
+  "projects": 13,
+  "observedRelations": 83,
+  "ganttWindows": 38,
+  "unscheduledNativeItems": 148,
+  "ganttRows": 54,
+  "stateColors": {
+    "New": "#b9c8d3",
+    "In progress": "#507967",
+    "In specification": "#8b78a3",
+    "On hold": "#c49b5c",
+    "Closed": "#556879"
+  }
+}
