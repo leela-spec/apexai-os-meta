@@ -2,7 +2,7 @@
 """
 generate_ics.py
 Generates RFC 5545 compliant .ics calendar files for the APEX Weekly Command Brief flows.
-Grounded in operator decisions and live OpenProject Work Packages.
+Grounded in operator decisions: MoA (Website, Content, Invoices), IPOS, Sequencing, and Residual Flow.
 """
 
 import os
@@ -13,49 +13,49 @@ def generate_ics(output_path: str):
         # Monday Nov 9
         {
             "uid": "apex-20261109-f1@apexai-os",
-            "summary": "[APEX F1] Master of Arts: Content Creation & ACIM Commentary (3x3)",
+            "summary": "[APEX F1] Master of Arts: Content Production & Essay Pipeline (3x3)",
             "start": "20261109T090000",
             "end": "20261109T104500",
             "desc": (
-                "Project: Master of Arts (Content Creation / Strategy)\n"
-                "Weekly Target: Secular ACIM Commentary & Publishing Pipeline\n\n"
+                "Project: Master of Arts (Content Production)\n"
+                "Weekly Target: Creative Essay & Media Publishing Pipeline\n\n"
                 "=== 3x3 SPRINT CHECKLIST ===\n"
-                "• S1 (Commentary Framework):\n"
-                "  1. Outline core ACIM secular theme\n"
-                "  2. Reconcile philosophical distinctions\n"
+                "• S1 (Essay Framework):\n"
+                "  1. Outline core thesis & field notes\n"
+                "  2. Reconcile intellectual distinctions\n"
                 "  3. Draft script outline\n"
                 "• S2 (Asset Creation):\n"
-                "  1. Record / draft spoken-word content\n"
-                "  2. Edit audio / visual hooks\n"
+                "  1. Record spoken-word narration\n"
+                "  2. Edit audio hooks & balance frequencies\n"
                 "  3. Format quotes and captions\n"
                 "• S3 (Publishing Pipeline):\n"
                 "  1. Format multi-channel distribution copy\n"
                 "  2. Schedule publishing draft\n"
-                "  3. Archive source recordings\n\n"
+                "  3. Archive raw master recordings\n\n"
                 "Flow Card: file:///artifacts/flows/2026-11-09/F1-card.md"
             ),
         },
         {
             "uid": "apex-20261109-f2@apexai-os",
-            "summary": "[APEX F2] Master of Arts: Website & ACIM Credits Page (3x3)",
+            "summary": "[APEX F2] Master of Arts: Website Flexbox Navigation (3x3)",
             "start": "20261109T111500",
             "end": "20261109T123000",
             "desc": (
-                "Project: Master of Arts Website ([OP #14, WP #204 & #163])\n"
-                "Weekly Target: Dedicated ACIM Credits & Content Transformation\n\n"
+                "Project: Master of Arts Website ([OP #14, WP #163])\n"
+                "Weekly Target: Modern Responsive Flexbox Navigation & Mobile Drawer\n\n"
                 "=== 3x3 SPRINT CHECKLIST ===\n"
-                "• S1 (WP #204 Credits Page Layout):\n"
-                "  1. Build layout for Sean Reagan & Kenneth Wapnick credits\n"
-                "  2. Verify Circle of Atonement & Original ACIM citations\n"
-                "  3. Format typography & responsive styles\n"
-                "• S2 (WP #163 Content Transformation):\n"
-                "  1. Wire content transformation markdown parser\n"
-                "  2. Map article metadata headers\n"
-                "  3. Test local component render\n"
+                "• S1 (CSS Flexbox Header):\n"
+                "  1. Refactor CSS navigation bar with modern flexbox\n"
+                "  2. Style navigation link states & active indicator\n"
+                "  3. Format typography & container widths\n"
+                "• S2 (Mobile Drawer Layout):\n"
+                "  1. Implement mobile drawer layout & toggle hook\n"
+                "  2. Build smooth slide-out hamburger animation\n"
+                "  3. Test tablet and smartphone breakpoints\n"
                 "• S3 (Deploy & Verification):\n"
                 "  1. Cross-browser layout verification\n"
-                "  2. Mobile drawer & header audit\n"
-                "  3. Staging deploy check\n\n"
+                "  2. Lighthouse performance & accessibility audit\n"
+                "  3. Commit layout branch & staging deploy\n\n"
                 "Flow Card: file:///artifacts/flows/2026-11-09/F2-card.md"
             ),
         },
@@ -111,28 +111,28 @@ def generate_ics(output_path: str):
         # Tuesday Nov 10
         {
             "uid": "apex-20261110-f1@apexai-os",
-            "summary": "[APEX F1] Master of Arts: Content Creation & Video Scripts (3x3)",
+            "summary": "[APEX F1] Master of Arts: Content Production & Video Slicing (3x3)",
             "start": "20261110T090000",
             "end": "20261110T104500",
             "desc": (
-                "Project: Master of Arts (Content Creation)\n"
+                "Project: Master of Arts (Content Production)\n"
                 "=== 3x3 SPRINT CHECKLIST ===\n"
-                "• S1: Script key ACIM secular principles\n"
-                "• S2: Visual asset generation & clip curation\n"
-                "• S3: Content batch packaging & preview review"
+                "• S1: Cut short reel video clips from audio\n"
+                "• S2: Generate visual cards & thumbnail graphics\n"
+                "• S3: Multi-channel queue formatting & preview"
             ),
         },
         {
             "uid": "apex-20261110-f2@apexai-os",
-            "summary": "[APEX F2] Master of Arts: Website Transformation & Metadata (3x3)",
+            "summary": "[APEX F2] Master of Arts: Content Engine & Dynamic Routing (3x3)",
             "start": "20261110T111500",
             "end": "20261110T123000",
             "desc": (
                 "Project: Master of Arts Website ([OP #14, WP #163])\n"
                 "=== 3x3 SPRINT CHECKLIST ===\n"
-                "• S1: Wire metadata frontmatter schema\n"
+                "• S1: Connect dynamic markdown content feed\n"
                 "• S2: Responsive article layout test\n"
-                "• S3: Internal link validation pass"
+                "• S3: Internal link validation & static build"
             ),
         },
         {
@@ -165,17 +165,17 @@ def generate_ics(output_path: str):
         # Wednesday Nov 11
         {
             "uid": "apex-20261111-f1@apexai-os",
-            "summary": "[APEX F1] Master of Arts: Content Creation & Long-form Synthesis (3x3)",
+            "summary": "[APEX F1] Master of Arts: Content Production & Longform Writing (3x3)",
             "start": "20261111T090000",
             "end": "20261111T104500",
-            "desc": "Project: Master of Arts (Content)\n=== 3x3 SPRINT CHECKLIST ===\n• S1: Long-form article draft\n• S2: Diagram & visual card generation\n• S3: Copy editing & proofing",
+            "desc": "Project: Master of Arts (Content Production)\n=== 3x3 SPRINT CHECKLIST ===\n• S1: Long-form deep dive essay draft\n• S2: Diagram & visual card generation\n• S3: Editorial polish & proofreading pass",
         },
         {
             "uid": "apex-20261111-f2@apexai-os",
-            "summary": "[APEX F2] Master of Arts: Website Search & Citation Index (3x3)",
+            "summary": "[APEX F2] Master of Arts: Invoicing Schema & Tax Engine (3x3)",
             "start": "20261111T111500",
             "end": "20261111T123000",
-            "desc": "Project: Master of Arts Website ([OP #14, WP #204])\n=== 3x3 SPRINT CHECKLIST ===\n• S1: Citation index table build\n• S2: Search filter for ACIM commentaries\n• S3: Performance & Lighthouse score check",
+            "desc": "Project: Master of Arts Business ([OP #7])\n=== 3x3 SPRINT CHECKLIST ===\n• S1: Define line-item JSON invoice schema\n• S2: Implement tax and subtotal formula unit tests\n• S3: Connect accounting export path & test schema",
         },
         {
             "uid": "apex-20261111-f3@apexai-os",
@@ -195,17 +195,17 @@ def generate_ics(output_path: str):
         # Thursday Nov 12
         {
             "uid": "apex-20261112-f1@apexai-os",
-            "summary": "[APEX F1] Master of Arts: Content Creation & Audio Synthesis (3x3)",
+            "summary": "[APEX F1] Master of Arts: Content Production & Audio Narration (3x3)",
             "start": "20261112T090000",
             "end": "20261112T104500",
-            "desc": "Project: Master of Arts (Content)\n=== 3x3 SPRINT CHECKLIST ===\n• S1: Voiceover narration capture\n• S2: Background audio balancing\n• S3: Reel / short format slicing",
+            "desc": "Project: Master of Arts (Content Production)\n=== 3x3 SPRINT CHECKLIST ===\n• S1: Narrative voiceover recording cut\n• S2: Background audio balancing & mastering\n• S3: Podcast / audio package bundling",
         },
         {
             "uid": "apex-20261112-f2@apexai-os",
-            "summary": "[APEX F2] Master of Arts: Website Production Staging & Forms (3x3)",
+            "summary": "[APEX F2] Master of Arts: Automated PDF Billing Generator (3x3)",
             "start": "20261112T111500",
             "end": "20261112T123000",
-            "desc": "Project: Master of Arts Website ([OP #14])\n=== 3x3 SPRINT CHECKLIST ===\n• S1: Newsletter intake form integration\n• S2: Privacy & GDPR compliance links\n• S3: Production deployment preview",
+            "desc": "Project: Master of Arts Business ([OP #7])\n=== 3x3 SPRINT CHECKLIST ===\n• S1: HTML invoice template & print stylesheet\n• S2: HTML-to-PDF rendering engine\n• S3: Batch billing run & visual diff audit",
         },
         {
             "uid": "apex-20261112-f3@apexai-os",
@@ -225,17 +225,17 @@ def generate_ics(output_path: str):
         # Friday Nov 13
         {
             "uid": "apex-20261113-f1@apexai-os",
-            "summary": "[APEX F1] Master of Arts: Content Creation & Weekly Wrap (3x3)",
+            "summary": "[APEX F1] Master of Arts: Content Production & Weekly Newsletter (3x3)",
             "start": "20261113T090000",
             "end": "20261113T104500",
-            "desc": "Project: Master of Arts (Content)\n=== 3x3 SPRINT CHECKLIST ===\n• S1: Weekly intellectual synthesis newsletter\n• S2: Social post formatting & queuing\n• S3: Audience feedback & discussion review",
+            "desc": "Project: Master of Arts (Content Production)\n=== 3x3 SPRINT CHECKLIST ===\n• S1: Synthesis newsletter drafting\n• S2: Email template build & test dispatch\n• S3: Multi-channel broadcast release",
         },
         {
             "uid": "apex-20261113-f2@apexai-os",
-            "summary": "[APEX F2] Master of Arts: Website Production Release (3x3)",
+            "summary": "[APEX F2] Master of Arts: Invoicing E2E & Production Deploy (3x3)",
             "start": "20261113T111500",
             "end": "20261113T123000",
-            "desc": "Project: Master of Arts Website ([OP #14, WP #204 & #163])\n=== 3x3 SPRINT CHECKLIST ===\n• S1: Final responsive checks\n• S2: Production merge & deployment\n• S3: Live URL smoke test",
+            "desc": "Project: Master of Arts ([OP #14 & #7])\n=== 3x3 SPRINT CHECKLIST ===\n• S1: End-to-end invoice generation & PDF verify\n• S2: Production website build & staging merge\n• S3: Live release smoke test & signoff",
         },
         {
             "uid": "apex-20261113-f3@apexai-os",
@@ -261,7 +261,7 @@ def generate_ics(output_path: str):
             "desc": (
                 "Weekly Precap & Retrospective Session (Decision D017)\n\n"
                 "=== 3x3 SPRINT CHECKLIST ===\n"
-                "• S1: Audit week completion evidence & flow metrics\n"
+                "• S1: Audit week evidence receipts & flow metrics\n"
                 "• S2: Scan OpenProject status shifts & dependency changes\n"
                 "• S3: Formulate next week's Command Brief & Flow proposals"
             ),

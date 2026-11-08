@@ -1,6 +1,15 @@
-# Durable Decisions
+---
+type: decision_log
+id: DEC-WEEKLY-ORCHESTRATION-MASTER
+title: Durable Decisions — Weekly Orchestration Architecture
+description: Canonical register of locked architectural, process, and interface decisions for the weekly orchestration system.
+status: approved
+tags: [weekly-orchestration, decisions, governance, informatics, v1.0-ultra]
+---
 
-## D001 — Production Weekly Orchestrator remains the canonical runtime control plane
+# Durable Decisions — Weekly Orchestration Architecture
+
+## D001 [P0 | I95/E20/R10] — Production Weekly Orchestrator remains the canonical runtime control plane
 
 **Status:** locked
 
@@ -14,7 +23,7 @@
 
 ---
 
-## D002 — Create a durable project-improvement coordination home
+## D002 [P1 | I85/E15/R05] — Create a durable project-improvement coordination home
 
 **Status:** locked
 
