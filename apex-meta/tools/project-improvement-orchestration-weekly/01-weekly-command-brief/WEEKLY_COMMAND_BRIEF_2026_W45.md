@@ -50,8 +50,8 @@ tags: [weekly-orchestration, precap-week, command-brief, w45-2026, northstar-des
   - • Sunday Rule: Off by default for deep rest and regeneration.
   - • Status: `ACTIVE_TRUTH`
 
-- **DEC-018 / OP-02 [P1 | I92/E20/R10] Master of Arts Scope Boundary Lock**
-  - • Context: Operator instruction restricts Master of Arts strictly to **Website**, **Content Production**, and **Business (Invoicing)**. ACIM is confirmed zero priority and removed entirely.
+- **DEC-018 / OP-02 [P1 | I92/E20/R10] Master of Arts Weekly Scope Focus**
+  - • Context: Operator instruction restricts Master of Arts this week strictly to **Website**, **Content Production**, and **Business (Invoicing)**. ACIM (WP #204) remains intact in OpenProject but is unlinked from this week's active deliverables.
   - • Status: `ACTIVE_TRUTH`
 
 ---
@@ -124,6 +124,7 @@ flowchart TD
   - • Expected Evidence: Passing unit test suite and sample PDF invoice receipt.
 
 #### Longlist (Staged / Backlog):
+- [ ] **[OP #14: WP #204] ACIM Secular: Dedicated Sources & Commentary Credits Page**: Retained in OpenProject project record; unlinked from this week's active focus per operator instruction.
 - [ ] **[OP-WP#7] Bank Reconciliation & Stripe Payment Webhook Integration**: Staged for Month 2.
 - [ ] **[OP-WP#14] Automated Dark/Light Theme Switching**: Deferred behind core navigation lock.
 
