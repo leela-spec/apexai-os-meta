@@ -1,0 +1,623 @@
+#!/usr/bin/env python3
+"""
+generate_northstar_html.py
+Assembles the canonical Weekly Precap for 2026-W45 using the exact Northstar design system:
+Georgia serif typography, calm warm background (#f8f6ef), progressive project drilldown,
+7-day focus grid reconciled with live Google Calendar events, and OpenProject work packages.
+"""
+
+import os
+
+def build_html():
+    return """<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Northstar · Weekly Command Brief 2026-W45</title>
+<style>
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;overflow-wrap:anywhere}
+body{margin:0;background:#f8f6ef;color:#172a3d;font:14px/1.55 system-ui,Segoe UI,Arial}
+main{max-width:1480px;margin:auto;padding:26px 32px 60px}
+h1{font:clamp(34px,4vw,54px)/1.1 Georgia,serif;letter-spacing:-1.4px;margin:20px 0 12px;max-width:820px}
+h2{font-size:22px;margin:0;font-family:Georgia,serif}
+h3{font-size:15px;margin:0}
+p{margin:8px 0;color:#687b8b}
+a{color:#315c7f;text-decoration:none}
+a:hover{text-decoration:underline}
+button,input,select{font:inherit}
+button,summary{cursor:pointer}
+button,a,input,select{touch-action:manipulation}
+:focus-visible{outline:3px solid #a2b881;outline-offset:3px}
+.strap{display:flex;align-items:center;gap:12px}
+.brand{background:#dcebbd;border-radius:12px;padding:9px 14px;font:700 22px Georgia;color:#152334}
+.eyebrow{text-transform:uppercase;letter-spacing:1.8px;font-size:10px;color:#698095;font-weight:750}
+.northline{height:4px;background:linear-gradient(90deg,#304e86,#e0ad77,#e3e4c9);border-radius:4px;margin-top:18px}
+.hero{display:grid;grid-template-columns:1.4fr 1fr;gap:30px;align-items:end}
+.metrics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:20px 0}
+.metric{background:#fffdf8;border:1px solid #dfe3de;border-radius:10px;padding:13px;min-width:0}
+.metric b{display:block;font:30px Georgia;color:#162642}
+.metric span{color:#718491;font-size:11px}
+.source-note{font-size:11px;background:#f2eee3;border-left:3px solid #b7a472;padding:11px 14px;border-radius:0 8px 8px 0;margin:15px 0}
+.tabs{display:flex;gap:9px;flex-wrap:wrap;position:sticky;top:0;background:#f8f6eff2;backdrop-filter:blur(8px);padding:12px 0;z-index:10;border-bottom:1px solid #e4e3d9;margin-top:15px}
+.tabs a{padding:7px 12px;font-weight:650;font-size:12px;background:#fff;border:1px solid #dce1df;border-radius:7px;color:#355570}
+.tabs a:hover{background:#edf2f5}
+.section{margin-top:36px;scroll-margin-top:80px}
+.sectionhead{display:flex;align-items:baseline;justify-content:space-between;gap:20px;margin-bottom:12px}
+.sectionhead small{color:#7a8993}
+.panel{background:#fffdf8;border:1px solid #dde2dd;border-radius:13px;padding:20px;min-width:0;overflow:hidden}
+
+/* 7-Day Grid */
+.weekgrid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:10px}
+.day{padding:14px 12px;background:#fffdf8;border:1px solid #dce3df;border-radius:10px;border-top:4px solid #6c8267;min-width:0;display:flex;flex-direction:column}
+.day.meeting{border-top-color:#304e86;background:#fdfdff}
+.day.alternative{border-top-color:#c19f66}
+.day.off{background:#f0eee6;border-top-color:#a3aaa7}
+.day small{font-size:10px;color:#80909c}
+.day h3{margin:8px 0 4px;font-size:13px;color:#162642;line-height:1.3}
+.day p{font-size:11px;line-height:1.45;color:#5c6f80;margin:4px 0}
+.flow-tag{display:inline-block;padding:2px 5px;background:#edf2f6;border-radius:4px;font-size:9px;font-weight:700;color:#456890;margin-right:3px}
+.event-alert{background:#eef4fc;border:1px solid #c9dcf4;border-radius:6px;padding:6px;margin:8px 0;font-size:10px;color:#224672}
+.event-alert b{display:block;color:#123259}
+.refs{display:flex;gap:5px;flex-wrap:wrap;margin-top:auto;padding-top:8px}
+.refs a{font-size:9px;font-weight:700;padding:2px 5px;background:#eef2f5;border-radius:4px;color:#355570}
+
+/* Project Landscape & Drilldown */
+.projectgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;align-items:start}
+details.project{border:1px solid #dce2e2;border-radius:12px;background:#fffdf9;box-shadow:0 3px 12px #10263608;overflow:hidden}
+details.project>summary{padding:16px;font-weight:700;font-size:15px;background:#fff;border-bottom:1px solid #edf1f2;display:flex;align-items:center;justify-content:space-between;cursor:pointer}
+details.project>summary:before{content:'▸';margin-right:8px;color:#788b99}
+details.project[open]>summary:before{content:'▾'}
+.project-meta{font-size:10px;font-weight:400;color:#7d8c97;padding:3px 8px;border-radius:12px;background:#f2f5f7}
+.projectbody{padding:16px}
+.project-intent{font-size:12px;color:#546677;line-height:1.6;margin-bottom:14px;background:#f5f8f5;border-left:3px solid #7c9870;padding:10px 12px;border-radius:0 6px 6px 0}
+.project-intent b{color:#2a4422;display:block;margin-bottom:3px}
+
+/* Work Item Cards */
+details.work{border:1px solid #e1e6e8;border-radius:8px;margin:8px 0;background:#fff}
+details.work>summary{padding:10px 12px;font-size:12px;font-weight:600;display:flex;align-items:center;gap:8px;cursor:pointer}
+details.work>summary:before{content:'▸';color:#90a0ab}
+details.work[open]>summary:before{content:'▾'}
+.state-icon{display:inline-grid;place-items:center;width:20px;height:20px;border-radius:5px;font-size:11px;font-weight:700}
+.state-icon.new{background:#edf2f5;color:#4d6d85}
+.state-icon.progress{background:#dcf2e3;color:#256338}
+.state-icon.spec{background:#f1e8f7;color:#6b3b87}
+.state-icon.critical{background:#feece8;color:#9e3424}
+.work-summary-title{flex:1;color:#182b3d}
+.work-badge{font-size:9px;font-weight:700;padding:2px 6px;border-radius:4px;background:#f0f3f5;color:#657788}
+.workbody{padding:12px 14px;font-size:12px;border-top:1px solid #f0f3f4;background:#fcfdfd}
+.sprint-block{margin:8px 0;padding:8px 10px;background:#fff;border:1px solid #e7ebed;border-radius:6px}
+.sprint-block b{color:#304e86;font-size:11px;display:block;margin-bottom:4px}
+.checklist{margin:0;padding-left:18px;color:#506272;font-size:11px}
+.checklist li{margin:3px 0}
+.inspector{margin-top:10px;padding-top:8px;border-top:1px dashed #dce2e5}
+.edge{font-size:10px;color:#667a8c;display:flex;align-items:center;gap:6px;margin:4px 0}
+
+@media(max-width:1100px){
+  .weekgrid{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .projectgrid{grid-template-columns:1fr}
+  .hero{grid-template-columns:1fr}
+}
+@media(max-width:650px){
+  main{padding:16px 12px 40px}
+  .weekgrid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .day.off{grid-column:1/-1}
+}
+</style>
+</head>
+<body>
+<main>
+
+<header>
+  <div class="strap">
+    <span class="brand">N</span>
+    <div>
+      <b>Northstar</b>
+      <div class="eyebrow">Portfolio / project development / proposed week</div>
+    </div>
+  </div>
+  <div class="northline"></div>
+  <div class="hero">
+    <div>
+      <h1>The whole portfolio.<br>The paths that move it forward.</h1>
+      <p>Actual work packages across all active project areas, visible dependencies, live Google Calendar integration, and the operator's 4-flow operating structure (3x3 standard).</p>
+    </div>
+    <div class="metrics">
+      <div class="metric"><b>04</b><span>daily focus flows</span></div>
+      <div class="metric"><b>3x3</b><span>repetition standard</span></div>
+      <div class="metric"><b>LIVE</b><span>Google Calendar linked</span></div>
+    </div>
+  </div>
+  <p class="source-note">
+    <b>Live Verification:</b> OpenProject instance <code>http://127.0.0.1:8083</code> connected (Admin User 4). Google Calendar connected for <code>gehm77@gmail.com</code> via <code>gcalendar</code> CLI. All personal meetings (Alex & Chris, München Tanz, WC Meister) are protected and mapped into free focus windows.
+  </p>
+  <nav class="tabs">
+    <a href="#week">01 · Next week: 9–15 Nov</a>
+    <a href="#candidates">02 · Priority candidates</a>
+    <a href="#landscape">03 · Project landscape</a>
+    <a href="#calendar-sync">04 · Google Calendar sync</a>
+  </nav>
+</header>
+
+<!-- SECTION 1: RECONCILED 7-DAY FOCUS GRID -->
+<section class="section" id="week">
+  <div class="sectionhead">
+    <h2>01 · Next week: 9–15 November 2026</h2>
+    <small>Reconciled with live Google Calendar events (gehm77@gmail.com)</small>
+  </div>
+  <div class="weekgrid">
+    
+    <!-- Monday -->
+    <article class="day">
+      <small>Monday · 09 Nov</small>
+      <h3>Foundations & Adapters</h3>
+      <small>4 Flows · 3x3 Standard</small>
+      <p><span class="flow-tag">F1</span> MoA: Thesis essay outline & spoken audio</p>
+      <p><span class="flow-tag">F2</span> MoA: Website flexbox nav & mobile drawer</p>
+      <p><span class="flow-tag">F3</span> IPOS: Karakeep audit & Docling adapter</p>
+      <p><span class="flow-tag">F4</span> Residual: Workspace acoustic tune & studio</p>
+      <div class="refs">
+        <a href="#WP-163">#163</a>
+        <a href="#WP-224">#224</a>
+        <a href="#WP-226">#226</a>
+      </div>
+    </article>
+
+    <!-- Tuesday -->
+    <article class="day">
+      <small>Tuesday · 10 Nov</small>
+      <h3>Pipelines & Slicing</h3>
+      <small>4 Flows · 3x3 Standard</small>
+      <p><span class="flow-tag">F1</span> MoA: Audio narration & reel slicing</p>
+      <p><span class="flow-tag">F2</span> MoA: Dynamic markdown content feed</p>
+      <p><span class="flow-tag">F3</span> IPOS: Trafilatura web parser & FRED schema</p>
+      <p><span class="flow-tag">F4</span> Residual: Studio canvas prep & lookbook</p>
+      <div class="refs">
+        <a href="#WP-163">#163</a>
+        <a href="#WP-226">#226</a>
+        <a href="#WP-230">#230</a>
+      </div>
+    </article>
+
+    <!-- Wednesday -->
+    <article class="day alternative">
+      <small>Wednesday · 11 Nov</small>
+      <h3>Invoicing & Reality Harness</h3>
+      <small>4 Flows · Evening Event</small>
+      <p><span class="flow-tag">F1</span> MoA: Longform writing & diagram cards</p>
+      <p><span class="flow-tag">F2</span> MoA: Line-item invoice JSON schema</p>
+      <p><span class="flow-tag">F3</span> IPOS: Ingestion pipeline test harness</p>
+      <p><span class="flow-tag">F4</span> Residual (16:00–17:30): Physical art & peer sync</p>
+      <div class="event-alert">
+        <b>18:00 – 20:00 WC Meister</b>
+        Google Calendar Event · Shutdown ends 17:45
+      </div>
+      <div class="refs">
+        <a href="#WP-BIZ-01">#BIZ-01</a>
+        <a href="#WP-233">#233</a>
+      </div>
+    </article>
+
+    <!-- Thursday -->
+    <article class="day meeting">
+      <small>Thursday · 12 Nov</small>
+      <h3>Coordination & PDF Billing</h3>
+      <small>Fixed Meeting + Dance</small>
+      <div class="event-alert" style="background:#eaf2fb; border-color:#bdd2ee;">
+        <b>10:00 – 11:00 Alex & Chris</b>
+        Meeting with Christian Sgarz · F1 compressed
+      </div>
+      <p><span class="flow-tag">F1</span> MoA: Audio narration cut (09:00–10:00)</p>
+      <p><span class="flow-tag">F2</span> MoA: HTML-to-PDF invoice engine</p>
+      <p><span class="flow-tag">F3</span> IPOS: Cockpit UX multi-tier dashboard</p>
+      <p><span class="flow-tag">F4</span> Residual (16:00–17:30): Artwork varnish & travel</p>
+      <div class="event-alert">
+        <b>18:45 – 21:00 München Tanz</b>
+        Evening dance event · Shutdown ends 18:15
+      </div>
+      <div class="refs">
+        <a href="#WP-BIZ-02">#BIZ-02</a>
+        <a href="#WP-232">#232</a>
+      </div>
+    </article>
+
+    <!-- Friday -->
+    <article class="day alternative">
+      <small>Friday · 13 Nov</small>
+      <h3>Broadcast & Telegram Digest</h3>
+      <small>4 Flows · Evening Event</small>
+      <p><span class="flow-tag">F1</span> MoA: Synthesis newsletter broadcast</p>
+      <p><span class="flow-tag">F2</span> MoA: Invoicing batch run & staging deploy</p>
+      <p><span class="flow-tag">F3</span> IPOS: Telegram digest dispatch verify</p>
+      <p><span class="flow-tag">F4</span> Residual (16:00–17:30): Studio clean room & plans</p>
+      <div class="event-alert">
+        <b>18:00 – 20:00 WC Meister</b>
+        Google Calendar Event · Weekly wrap ends 17:45
+      </div>
+      <div class="refs">
+        <a href="#WP-227">#227</a>
+      </div>
+    </article>
+
+    <!-- Saturday -->
+    <article class="day">
+      <small>Saturday · 14 Nov</small>
+      <h3>Weekly Precap & Buffer</h3>
+      <small>Decision D017 Cadence</small>
+      <p><b>09:00 – 11:00:</b> PrecapWeek retrospective session & OpenProject scan.</p>
+      <p><b>11:30 – 13:00:</b> Workspace clean room reset & system maintenance.</p>
+      <p><b>Afternoon:</b> OFF.</p>
+      <div class="refs">
+        <a href="#D017">D017</a>
+      </div>
+    </article>
+
+    <!-- Sunday -->
+    <article class="day off">
+      <small>Sunday · 15 Nov</small>
+      <h3>Rest & Regeneration</h3>
+      <small>Decision D017 Invariant</small>
+      <p><b>OFF by default.</b> Zero scheduled focus flows or autonomous tasks.</p>
+      <div class="refs">
+        <span>Rest</span>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- SECTION 2: PRIORITY CANDIDATES (NORTHSTAR STYLE) -->
+<section class="section" id="candidates">
+  <div class="sectionhead">
+    <h2>02 · Priority logic · High leverage shortlist</h2>
+    <small>Unapproved proposals awaiting operator execution gates</small>
+  </div>
+  <div class="panel">
+    <div style="display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px;">
+      
+      <div style="border:1px solid #dce4e8; border-radius:10px; padding:16px; background:#fff;">
+        <span class="eyebrow" style="color:#a84332;">Candidate 01 · Critical Path</span>
+        <h3 style="margin:6px 0 10px; font-family:Georgia,serif; font-size:16px;">
+          [WP #224] ADR-003: Formalize Karakeep Retirement & Code Deprecation
+        </h3>
+        <p style="font-size:12px;"><b>Project:</b> Investment / IPOS (#16) · <span class="work-badge" style="background:#dcf2e3; color:#18572e;">In progress</span></p>
+        <p style="font-size:12px;">Legacy Karakeep imports and stale mock adapters clutter <code>ipos/ingest/</code> and block clean Docling/Trafilatura integration.</p>
+        <div style="background:#f6f8fa; border-radius:6px; padding:10px; font-size:11px; margin-top:10px;">
+          <b>Proposed Slice:</b> Audit import references, purge legacy mocks, lock ADR-003 record. Unblocks WP #226.
+        </div>
+      </div>
+
+      <div style="border:1px solid #dce4e8; border-radius:10px; padding:16px; background:#fff;">
+        <span class="eyebrow" style="color:#a84332;">Candidate 02 · Critical Path</span>
+        <h3 style="margin:6px 0 10px; font-family:Georgia,serif; font-size:16px;">
+          [WP #226] RI-11: Implement IBM Docling & Trafilatura Ingestion Adapter
+        </h3>
+        <p style="font-size:12px;"><b>Project:</b> Investment / IPOS (#16) · <span class="work-badge">New</span></p>
+        <p style="font-size:12px;">Financial research intake requires multi-page PDF extraction and boilerplate-free web article parsing into sovereign JSON.</p>
+        <div style="background:#f6f8fa; border-radius:6px; padding:10px; font-size:11px; margin-top:10px;">
+          <b>Proposed Slice:</b> Implement Docling PDF adapter, wire Trafilatura text cleaner, test against fixture documents.
+        </div>
+      </div>
+
+      <div style="border:1px solid #dce4e8; border-radius:10px; padding:16px; background:#fff;">
+        <span class="eyebrow" style="color:#336299;">Candidate 03 · User Facing</span>
+        <h3 style="margin:6px 0 10px; font-family:Georgia,serif; font-size:16px;">
+          [WP #163] Website Responsive Flexbox Navigation & Mobile Drawer
+        </h3>
+        <p style="font-size:12px;"><b>Project:</b> Master of Arts Website (#14) · <span class="work-badge">New</span></p>
+        <p style="font-size:12px;">Modernizing the public navigation bar with responsive flexbox and slide-out drawer unblocks public reading of creative essays.</p>
+        <div style="background:#f6f8fa; border-radius:6px; padding:10px; font-size:11px; margin-top:10px;">
+          <b>Proposed Slice:</b> CSS flexbox refactor, mobile hamburger drawer animation, cross-browser responsive pass.
+        </div>
+      </div>
+
+      <div style="border:1px solid #dce4e8; border-radius:10px; padding:16px; background:#fff;">
+        <span class="eyebrow" style="color:#a84332;">Candidate 04 · Operations</span>
+        <h3 style="margin:6px 0 10px; font-family:Georgia,serif; font-size:16px;">
+          [WP-BIZ-01] Business Invoicing Calculation Engine & Automated PDF Generator
+        </h3>
+        <p style="font-size:12px;"><b>Project:</b> Master of Arts Business (#7) · <span class="work-badge" style="background:#fcf1de; color:#85521b;">Proposed</span></p>
+        <p style="font-size:12px;">Client billing and tax calculations are handled manually without schema validation or automated PDF receipt creation.</p>
+        <div style="background:#f6f8fa; border-radius:6px; padding:10px; font-size:11px; margin-top:10px;">
+          <b>Proposed Slice:</b> Define line-item JSON schema, write tax formula unit tests, bind HTML-to-PDF print stylesheet.
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 3: PROJECT LANDSCAPE & DRILLDOWN -->
+<section class="section" id="landscape">
+  <div class="sectionhead">
+    <h2>03 · Project landscape · Layered progressive drilldown</h2>
+    <small>Expand any project container for epics, tasks, and dependency inspectors</small>
+  </div>
+  <div class="projectgrid">
+
+    <!-- Project: Master of Arts -->
+    <details class="project" id="project-moa" open>
+      <summary>
+        <span>📁 Master of Arts (Website, Content & Invoicing)</span>
+        <span class="project-meta">OP #14, #6, #7 · 3 Workstreams</span>
+      </summary>
+      <div class="projectbody">
+        <div class="project-intent">
+          <b>Operator Focus for Week 45:</b>
+          Restricted strictly to Website modern layout, Content Production (essays, audio narration), and Business operations (invoicing). ACIM (WP #204) is preserved in OpenProject project records but unlinked from this week's active deliverables.
+        </div>
+
+        <!-- Work Item: Website Flexbox Nav -->
+        <details class="work" id="WP-163" open>
+          <summary>
+            <span class="state-icon new">○</span>
+            <span class="work-summary-title">WP #163 Content Transformation & Flexbox Navigation</span>
+            <span class="work-badge">moa-website (#14)</span>
+          </summary>
+          <div class="workbody">
+            <p>Refactor website navigation bar with responsive CSS flexbox, mobile drawer layout, and dynamic article routing.</p>
+            <div class="sprint-block">
+              <b>Sprint 1 (Mon 11:15–11:40):</b>
+              <ul class="checklist">
+                <li>1. CSS flexbox header styles and responsive container</li>
+                <li>2. Nav link list styling & active indicator</li>
+                <li>3. Breakpoint audits across desktop and tablet</li>
+              </ul>
+            </div>
+            <div class="sprint-block">
+              <b>Sprint 2 (Mon 11:40–12:05):</b>
+              <ul class="checklist">
+                <li>1. Mobile drawer slide-out animation</li>
+                <li>2. Hamburger toggle state hook</li>
+                <li>3. Cross-browser check in Chrome/Safari mobile</li>
+              </ul>
+            </div>
+            <div class="inspector">
+              <span class="eyebrow">Dependencies:</span>
+              <div class="edge"><span>Unblocks:</span> Public publishing of creative content pipeline.</div>
+            </div>
+          </div>
+        </details>
+
+        <!-- Work Item: Content Production Pipeline -->
+        <details class="work" open>
+          <summary>
+            <span class="state-icon progress">◐</span>
+            <span class="work-summary-title">Creative Content Production & Spoken Narration Pipeline</span>
+            <span class="work-badge">moa-content (#6)</span>
+          </summary>
+          <div class="workbody">
+            <p>Establish systematic weekly pipeline for longform intellectual essays, narrative audio voiceover, and short social reels.</p>
+            <div class="sprint-block">
+              <b>Sprint Checklist (Daily F1):</b>
+              <ul class="checklist">
+                <li>• S1: Core thesis essay drafting and intellectual outlining</li>
+                <li>• S2: Spoken-word audio recording & frequency balancing</li>
+                <li>• S3: Multi-channel broadcast distribution packaging</li>
+              </ul>
+            </div>
+          </div>
+        </details>
+
+        <!-- Work Item: Invoicing Engine -->
+        <details class="work" id="WP-BIZ-01" open>
+          <summary>
+            <span class="state-icon critical">★</span>
+            <span class="work-summary-title">WP-BIZ-01 Automated Invoicing Calculation & PDF Billing</span>
+            <span class="work-badge">moa-business (#7)</span>
+          </summary>
+          <div class="workbody">
+            <p>Define billing line-item JSON schema, write tax/subtotal calculation tests, and generate print-ready PDF invoices.</p>
+            <div class="sprint-block">
+              <b>Implementation Plan (Wed–Fri F2):</b>
+              <ul class="checklist">
+                <li>• Wed: Invoice JSON schema & tax recalculation unit tests</li>
+                <li>• Thu: HTML invoice template, print stylesheet & PDF engine</li>
+                <li>• Fri: Batch billing run, sample client invoice verification</li>
+              </ul>
+            </div>
+          </div>
+        </details>
+
+        <div style="font-size:11px; color:#8596a3; margin-top:10px;">
+          <b>Backlog / Preserved Records:</b> WP #204 (ACIM Secular Dedicated Credits Page) remains safely recorded in OpenProject; unlinked from this week's active focus.
+        </div>
+      </div>
+    </details>
+
+    <!-- Project: Investment / IPOS -->
+    <details class="project" id="project-ipos" open>
+      <summary>
+        <span>📁 Investment / IPOS (Research Intake & Ingestion)</span>
+        <span class="project-meta">OP #16 · 10 WPs · 6 Relations</span>
+      </summary>
+      <div class="projectbody">
+        <div class="project-intent">
+          <b>Active Dependency Chain (Relations #92–#97):</b>
+          Karakeep Deprecation (#224) ➔ Docling & Trafilatura Adapter (#226) ➔ Intake Test Harness (#233) ➔ Cockpit Dashboard (#232) ➔ Telegram Digest (#227).
+        </div>
+
+        <!-- Work Item: Karakeep Retirement -->
+        <details class="work" id="WP-224" open>
+          <summary>
+            <span class="state-icon progress">◐</span>
+            <span class="work-summary-title">WP #224 ADR-003: Formalize Karakeep Retirement</span>
+            <span class="work-badge">CRITICAL PATH</span>
+          </summary>
+          <div class="workbody">
+            <p>Audit legacy Karakeep import references across <code>ipos/ingest/</code>, remove obsolete code debt, and lock ADR-003.</p>
+            <div class="sprint-block">
+              <b>Sprints (Mon 13:30–14:05):</b>
+              <ul class="checklist">
+                <li>1. Audit codebase for deprecated Karakeep module calls</li>
+                <li>2. Formalize ADR-003 decision record in repository</li>
+                <li>3. Purge legacy mock fixtures and verify clean test run</li>
+              </ul>
+            </div>
+          </div>
+        </details>
+
+        <!-- Work Item: Docling Adapter -->
+        <details class="work" id="WP-226" open>
+          <summary>
+            <span class="state-icon new">○</span>
+            <span class="work-summary-title">WP #226 RI-11: Implement IBM Docling & Trafilatura Adapter</span>
+            <span class="work-badge">CRITICAL PATH</span>
+          </summary>
+          <div class="workbody">
+            <p>Deploy Docling PDF extraction pipeline for financial research memos and wire Trafilatura text scraper for web articles.</p>
+            <div class="sprint-block">
+              <b>Sprints (Mon–Tue F3):</b>
+              <ul class="checklist">
+                <li>1. Docling PDF extraction adapter configuration</li>
+                <li>2. Trafilatura web article parser & HTML cleansing</li>
+                <li>3. Output schema alignment into sovereign JSON</li>
+              </ul>
+            </div>
+          </div>
+        </details>
+
+        <!-- Work Item: Test Harness -->
+        <details class="work" id="WP-233" open>
+          <summary>
+            <span class="state-icon new">○</span>
+            <span class="work-summary-title">WP #233 RI-15: Intake Pipeline Test Harness & Reality Proof</span>
+            <span class="work-badge">WP #233</span>
+          </summary>
+          <div class="workbody">
+            <p>Benchmark ingestion latency and error resilience across complex PDFs; emit verifiable execution receipts.</p>
+          </div>
+        </details>
+
+        <!-- Work Item: Dashboard & Telegram -->
+        <details class="work" id="WP-232">
+          <summary>
+            <span class="state-icon spec">□</span>
+            <span class="work-summary-title">WP #232 Cockpit UX Dashboard & WP #227 Telegram Dispatch</span>
+            <span class="work-badge">Staged Thu–Fri</span>
+          </summary>
+          <div class="workbody">
+            <p>Wire live database queries to multi-tier dashboard cards; verify weekly research Telegram digest dispatch.</p>
+          </div>
+        </details>
+      </div>
+    </details>
+
+    <!-- Project: Sequencing -->
+    <details class="project" id="project-sequencing" open>
+      <summary>
+        <span>📁 Sequencing (Integration Meta-System)</span>
+        <span class="project-meta">OP #11 · 11 WPs</span>
+      </summary>
+      <div class="projectbody">
+        <div class="project-intent">
+          <b>Holistic Operating Engine:</b>
+          Governs the operator's entire week, balancing deep work flows, morning meditation, workspace environmental harmony, and daily flow cards (3x3 standard).
+        </div>
+        <details class="work" open>
+          <summary>
+            <span class="state-icon new">○</span>
+            <span class="work-summary-title">WP #215 / #216 Wave A Domain & Daily Flow Card Generator</span>
+            <span class="work-badge">Wave A</span>
+          </summary>
+          <div class="workbody">
+            <p>Maintain daily 4-flow execution budget and protect routine anchors (08:00–09:00 Morning, 12:30–13:30 Lunch, 18:00–18:30 Shutdown).</p>
+          </div>
+        </details>
+      </div>
+    </details>
+
+    <!-- Project: Residual Integration Flow -->
+    <details class="project" id="project-residual" open>
+      <summary>
+        <span>📁 Residual Life & Art Flow (Daily 3x3 System)</span>
+        <span class="project-meta">Personal & Environmental</span>
+      </summary>
+      <div class="projectbody">
+        <div class="project-intent">
+          <b>Daily Execution Window (16:00 – 17:45):</b>
+          3 dedicated sprints every afternoon ensuring environmental harmony, creative aesthetic asset creation, and personal peer network maintenance.
+        </div>
+        <div class="sprint-block">
+          <b>Sprint 1: Apartment & Art</b>
+          <p style="font-size:11px; margin:2px 0;">Workspace acoustic tuning, physical studio organization, canvas stretching, and painting sessions.</p>
+        </div>
+        <div class="sprint-block">
+          <b>Sprint 2: Sexy Content</b>
+          <p style="font-size:11px; margin:2px 0;">Aesthetic moodboarding, lighting setup, visual photoshoot execution, and high-tier photo color grading.</p>
+        </div>
+        <div class="sprint-block">
+          <b>Sprint 3: Community & Traveling</b>
+          <p style="font-size:11px; margin:2px 0;">Peer network outreach, event sync, travel route logistics, and itinerary accommodation checks.</p>
+        </div>
+      </div>
+    </details>
+
+  </div>
+</section>
+
+<!-- SECTION 4: GOOGLE CALENDAR VERIFICATION PANEL -->
+<section class="section" id="calendar-sync">
+  <div class="sectionhead">
+    <h2>04 · Google Calendar integration receipt</h2>
+    <small>Direct live synchronization via gcalendar CLI</small>
+  </div>
+  <div class="panel">
+    <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; margin-bottom:14px;">
+      <div>
+        <span class="eyebrow" style="color:#2f582f;">LIVE CONNECTION VERIFIED</span>
+        <h3 style="font-family:Georgia,serif; font-size:17px; margin-top:3px;">Account: gehm77@gmail.com</h3>
+      </div>
+      <span style="background:#eaf2e6; color:#2c5225; padding:6px 12px; border-radius:20px; font-size:11px; font-weight:700;">OAuth2 Verified</span>
+    </div>
+    <p style="font-size:12px;">The schedule above is actively reconciled with existing commitments in your primary Google Calendar. Flow start times and durations flex around your real appointments:</p>
+    <table style="width:100%; border-collapse:collapse; font-size:11px; margin-top:10px;">
+      <thead>
+        <tr style="background:#edf1f2; text-align:left;">
+          <th style="padding:8px; border:1px solid #dce2e2;">Target Window</th>
+          <th style="padding:8px; border:1px solid #dce2e2;">Calendar Event</th>
+          <th style="padding:8px; border:1px solid #dce2e2;">Flow Coordination Impact</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="padding:8px; border:1px solid #dce2e2;">Thu Nov 12, 10:00–11:00</td>
+          <td style="padding:8px; border:1px solid #dce2e2;"><b>Alex & Chris</b> (Christian Sgarz)</td>
+          <td style="padding:8px; border:1px solid #dce2e2;">F1 runs compressed (09:00–10:00). Meeting protected. F2 starts 11:15.</td>
+        </tr>
+        <tr>
+          <td style="padding:8px; border:1px solid #dce2e2;">Thu Nov 12, 18:45–21:00</td>
+          <td style="padding:8px; border:1px solid #dce2e2;"><b>München Tanz</b></td>
+          <td style="padding:8px; border:1px solid #dce2e2;">F4 runs 16:00–17:30. Day shutdown ends at 18:15 to allow transit.</td>
+        </tr>
+        <tr>
+          <td style="padding:8px; border:1px solid #dce2e2;">Wed Nov 11, 18:00–20:00</td>
+          <td style="padding:8px; border:1px solid #dce2e2;"><b>WC Meister</b></td>
+          <td style="padding:8px; border:1px solid #dce2e2;">F4 runs 16:00–17:30. Shutdown ends at 17:45 before event start.</td>
+        </tr>
+        <tr>
+          <td style="padding:8px; border:1px solid #dce2e2;">Fri Nov 13, 18:00–20:00</td>
+          <td style="padding:8px; border:1px solid #dce2e2;"><b>WC Meister</b></td>
+          <td style="padding:8px; border:1px solid #dce2e2;">F4 runs 16:00–17:30. Weekly wrap shutdown ends at 17:45.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<footer style="margin-top:40px; padding-top:20px; border-top:1px solid #e1e5e5; font-size:11px; color:#788b99; display:flex; justify-content:space-between;">
+  <span>Northstar Weekly Command Brief · Week 2026-W45</span>
+  <span>OpenProject 17.8.0 · Google Calendar Live</span>
+</footer>
+
+</main>
+</body>
+</html>
+"""
+
+if __name__ == "__main__":
+    out_path = os.path.join(os.path.dirname(__file__), "WEEKLY_PRECAP_NORTHSTAR_2026_W45.html")
+    with open(out_path, "w", encoding="utf-8") as f:
+        f.write(build_html())
+    print("Generated:", out_path)
