@@ -1,15 +1,15 @@
 ---
 type: specification
-id: SPEC-PRECAP-WEEK-ITERATIONS-v1.1
-title: "Precap Week Iterations Specification — Operator Research, Ranked Information Architecture & Dual-Matrix Execution"
-description: "Canonical layout, epistemology, ranking, and execution specification for Precap Week iterations: Operator Decision Brief, Matrix 1 (Repos: MoA, Leela, IPOS, ApexOS, Residuals), Matrix 2 (Calendar Snapshot 08:00–24:00, Shutdown 21:00), and Operator Research."
+id: SPEC-PRECAP-WEEK-ITERATIONS-v1.2
+title: "Precap Week Iterations Specification — Three-Level Process Flow, Critical Path & Calendar Execution"
+description: "Canonical layout, epistemology, and execution specification for Precap Week iterations: Header Metrics, Operator Decision Brief, Matrix 1 (Stacked, 3-Level Output & Critical Path: MoA, Leela Skill Tree, IPOS, ApexOS, Residuals), and Matrix 2 (Calendar Flows 08:00–24:00, Shutdown 21:00)."
 status: approved_specification
 date: 2026-11-08
-scope: [weekly-orchestration, precap-week, matrix-1, matrix-2, operator-research, information-ranking]
-tags: [weekly-orchestration, precap-week, specification, matrix-1, matrix-2, operator-research, information-ranking]
+scope: [weekly-orchestration, precap-week, matrix-1, matrix-2, critical-path, process-flows]
+tags: [weekly-orchestration, precap-week, specification, matrix-1, matrix-2, critical-path, process-flows]
 ---
 
-# Precap Week Iterations Specification — Operator Research, Ranked Information Architecture & Dual-Matrix Execution
+# Precap Week Iterations Specification — Three-Level Process Flow, Critical Path & Calendar Execution
 
 ## 1. Executive Summary & Core Architectural Invariants
 
@@ -17,22 +17,22 @@ This specification is the **canonical source of truth** for authoring, evaluatin
 
 ### Core Architectural Invariants
 
-- [P0 | I98/E95/R05] **Three-Part Sequential Building**: Every Precap Week artifact must strictly follow a three-part sequential building structure:
-  1. **Part 1: Operator Decision Brief**: Governance decisions, weekly intent, trade-offs, and critical path locks.
-  2. **Part 2: Matrix 1 — Project Overview & Critical Path (Non-Temporal)**: High-level motivational project overviews, process flows, and critical path DAGs across the five defined repository boundaries.
-  3. **Part 3: Matrix 2 — Calendar Snapshot & Visualization (Temporal)**: Hourly timeline mapping flows and sprints into the daily operating window (`08:00–24:00`, shutdown `21:00`) around live calendar commitments.
-- [P0 | I97/E94/R06] **Five Repository Boundaries**: Matrix 1 organizes all portfolio initiatives into five distinct repository frontiers:
-  1. **Master of Arts** (`MasterOfArts` / OP #14, #6, #7): Website experience, content production (essays, audio voiceover, reels), business operations (invoicing engine & PDF billing), studio fine art, and aesthetic creative assets.
-  2. **Leela** (`Leela-Cloud-2026` / OP #3, #10, #9, #11): Skill Tree architecture, Path progression models, and Sequencing integration core.
-  3. **Investment / IPOS** (`investment-ipos` / OP #16): Sovereign financial research intake, document ingestion adapters, Cockpit dashboard, and Telegram digest dispatch.
-  4. **Apex OS** (`apexai-os-meta` / OP #8): Dedicated standalone systems project covering kernel HID polling, hardware button click interceptors, latency benchmarks, and driver release gates.
-  5. **Residuals** (Housing auxiliary projects, overflow & personal life integration): System infrastructure maintenance (PM Infrastructure, Rhythm pilot, QMD indexing), community relations, travel logistics, and open life backlog.
-- [P0 | I96/E94/R08] **OpenProject Default vs Operator Decision State**: OpenProject is the default scanning, prioritization, and proposal engine. When Precap Week is synthesized, candidate flows are extracted directly from OpenProject work packages. The operator exercises sovereign governance by overriding, reprioritizing, or restructuring flows for the specific week. These choices are explicitly recorded in Part 1 (Operator Decision Brief) as the active operator state.
-- [P0 | I95/E95/R05] **Matrix 2 Operating Window & Shutdown Times**: Matrix 2 operates on a fixed daily time geometry:
+- [P0 | I98/E95/R05] **Header Framing & Identity**: The artifact title is strictly **Precap Week** followed by the specific calendar date range (e.g. `Precap Week · 09 – 15 November 2026`). Abstract slogans are prohibited. The header features high-density portfolio statistics: total planned focus hours, total flow blocks, sprint units, and target key deliverables.
+- [P0 | I97/E94/R06] **Three-Part Sequential Building**: Every Precap Week artifact strictly follows a three-part sequential building structure:
+  1. **Part 1: Operator Decision Brief**: Governance decisions, sequence and flow allocation choices, meeting decisions, and critical path gates.
+  2. **Part 2: Matrix 1 — Project Overview & Critical Path (Non-Temporal)**: Full-width stacked project views (one underneath the other, never multi-column) structured into **three distinct levels**: High-Level Strategic Intent, Mid-Level Process & Output Pipeline, and Detail-Level Tasks & Deliverables. **Matrix 1 contains zero sprint allocations**.
+  3. **Part 3: Matrix 2 — Calendar Snapshot & Visualization (Temporal)**: Hourly timeline mapping all four daily focus flows and their 30-minute sprint units across Monday through Saturday, within the `08:00–24:00` operating window, anchoring daily shutdown at `21:00`.
+- [P0 | I96/E94/R08] **Five Repository Boundaries**: All portfolio initiatives are organized into five distinct repository frontiers:
+  1. **Master of Arts** (`MasterOfArts` / OP #14, #6, #7): Website content draft, content production week (7 videos), and business operations (invoicing engine & automated PDF billing).
+  2. **Leela** (`Leela-Cloud-2026` / OP #10): Focused **strictly on the Skill Tree** (spatial node contracts, Chunk library, and durable placement identity). Path and Sequencing are explicitly paused for this weekly iteration.
+  3. **Investment / IPOS** (`investment-ipos` / OP #16): Complete recheck of the whole pipeline and external possibilities, modularizing and establishing sovereign data visualization over time.
+  4. **Apex OS** (`apexai-os-meta` / OP #8): Dedicated standalone systems repo covering OpenMouse kernel bindings, mindful repo orchestration, and dark factory integration.
+  5. **Residuals** (Holding personal creative sprints & auxiliary infrastructure): Studio fine art & apartment setup (Sprint 1), Sexy Content creation (Sprint 2), Community & Travel logistics (Sprint 3), and PM Infrastructure.
+- [P0 | I95/E95/R05] **OpenProject Default vs Operator Decision State**: OpenProject provides the default intake and priority proposals. The operator exercises sovereign governance by overriding, reprioritizing, or restructuring flows for the specific week. These choices are explicitly recorded in Part 1 as the active operator state.
+- [P0 | I94/E92/R10] **Matrix 2 Operating Window & Shutdown Times**: Matrix 2 operates on a fixed daily time geometry:
   - **Operating Window:** `08:00 – 24:00` daily.
-  - **Daily Shutdown:** `21:00` sharp (followed by evening wrap and overnight recovery from `21:00–24:00`).
-- [P0 | I94/E92/R10] **First 10 Seconds Motivational Overview**: The initial view of each project must provide an immediate, motivating, high-level summary answering what this week will accomplish and why it matters, without requiring the operator to inspect technical task schemas.
-- [P0 | I93/E90/R08] **Specification Invariant (No Hardcoded Session Data)**: This document is a **universal specification**. It defines schemas, rules, structural slots, and abstract templates (`{{PROJECT_NAME}}`, `[OP-WP#<id>]`). Concrete task names, specific calendar events, or momentary week assignments appear strictly as illustrative examples and must never be treated as immutable specification rules.
+  - **Daily Shutdown:** `21:00` sharp.
+- [P0 | I93/E90/R08] **Universal Specification Invariant**: This document is a **universal specification**. It defines schemas, rules, structural slots, and abstract templates (`{{PROJECT_NAME}}`, `[OP-WP#<id>]`). Concrete task names, specific calendar events, or momentary week assignments appear strictly as illustrative examples and must never be treated as immutable specification rules.
 
 ---
 
@@ -41,7 +41,7 @@ This specification is the **canonical source of truth** for authoring, evaluatin
 This specification incorporates and links the following canonical system documents as the definitive authorities for weekly orchestration:
 
 1. **Matrix 1 Architectural Specification:**
-   [`HANDOVER-01-PROJECT-MATRIX-EPICS-CRITICAL-PATH.md`](file:///c:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/HANDOVER-01-PROJECT-MATRIX-EPICS-CRITICAL-PATH.md) (`HANDOVER-01-PROJECT-MATRIX-EPICS-CRITICAL-PATH-v1.0`). Defines project/epic decomposition, subtasks, 30-minute sprint units, and non-temporal critical path topological DAGs.
+   [`HANDOVER-01-PROJECT-MATRIX-EPICS-CRITICAL-PATH.md`](file:///c:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/HANDOVER-01-PROJECT-MATRIX-EPICS-CRITICAL-PATH.md) (`HANDOVER-01-PROJECT-MATRIX-EPICS-CRITICAL-PATH-v1.0`). Defines project/epic decomposition, subtasks, and non-temporal critical path topological DAGs.
 2. **Matrix 2 Architectural Specification:**
    [`HANDOVER-02-TIMELINE-CALENDAR-SEQUENCE-SPRINT-VIEW.md`](file:///c:/GitDev/apexai-os-meta/apex-meta/tools/project-improvement-orchestration-weekly/01-weekly-command-brief/HANDOVER-02-TIMELINE-CALENDAR-SEQUENCE-SPRINT-VIEW.md) (`HANDOVER-02-TIMELINE-CALENDAR-SEQUENCE-SPRINT-VIEW-v1.0`). Defines full-width responsive HTML calendar views, sprint slot depth (minimum 3 items per sprint), routine anchors, and calendar placement algorithms.
 3. **Master Dual-Matrix Layout Specification:**
@@ -67,31 +67,31 @@ The operator needs **calm, grounded clarity** and **tangible momentum**. Rather 
 * How the week fits realistically into the physical calendar without burnout.
 
 ### 3.2 The First 10 Seconds Motivational Contract (Principle D2)
-The top of the brief and the head of each repository section must immediately communicate:
-1. **Strategic Leverage & Excitement:** A clear, inspiring headline stating the tangible outcome (e.g. *"This week Master of Arts launches public reading for creative essays and automates client PDF invoicing"*).
-2. **Current Grounded Baseline:** One sentence stating verified truth from source commits and OpenProject.
-3. **Weekly Direction:** The primary milestone to celebrate upon Saturday review.
-4. **Immediate Human Action:** The single button or choice required from the operator to unlock execution.
+The head of the brief must immediately communicate:
+1. **Strategic Leverage & Excitement:** Clear, inspiring headlines stating what the week will accomplish.
+2. **Current Grounded Baseline:** Verified truth from source commits and OpenProject.
+3. **Weekly Direction:** The primary milestones to celebrate upon Saturday review.
+4. **Immediate Human Action:** The single choice or confirmation required to unlock execution.
 
 ### 3.3 Core Presentation Principles
 - **Decision Before Detail (D1):** Governance decisions, trade-offs, and critical path gates are presented first. Deeper task decompositions are progressively disclosed.
 - **Value Over Machinery (D3):** Focus on human, user-facing, and operational deliverables. Internal test suites and lint runs are background evidence, never primary headlines.
 - **Planning Is Directional, Not Executable:** Precap Week establishes directional allocation and capacity balance. Detailed intra-day sprint cards, prompt packets, and executable micro-steps remain strictly with `PrecapNextDay` (`J3`/`J4`).
-- **Open Design Decision on Matrix 1 Presentation:** Whether Matrix 1 presents as an interactive accordion, a progressive card drilldown, or an expandable bullet list is governed by Decision `NS-T01` and remains subject to operator evaluation.
+- **Matrix 1 Contains No Sprints:** Sprints belong strictly in Matrix 2. Matrix 1 visualizes project mechanics, outputs, and dependencies.
 
 ---
 
 ## 4. Part 1 Specification: Operator Decision Brief
 
-The Operator Decision Brief anchors the weekly artifact. It enforces human sovereignty over weekly scope, tradeoffs, and critical path locks.
+The Operator Decision Brief anchors the weekly artifact. It enforces human sovereignty over weekly scope, tradeoffs, meeting participations, and critical path locks.
 
 ### 4.1 Header & Metric Strap Standards
-* **Visual Anchor:** Northstar brand strap (`<span class="brand">N</span>`), title `"Northstar"`, eyebrow `"Portfolio / Operator Decisions / Proposed Week"`, and gradient `northline`.
-* **Hero Headline:** Executive summary of the portfolio direction in Georgia serif display typography.
-* **Metrics Strap:** Three compact metric cards highlighting:
-  1. Active Focus Repositories (`05`).
-  2. Operating Flow Standard (e.g. `4 Focus Flows · 3x3 Standard`).
-  3. Live Integration Status (e.g. `Google Calendar Reconciled` & `OpenProject Verified`).
+* **Visual Anchor:** Clean title `"Precap Week"` followed by the exact date span (e.g. `09 – 15 November 2026`).
+* **Portfolio Metrics Strap:** Four high-density metric cards:
+  1. Total Planned Focus Working Time (e.g. `38.5h Focus`).
+  2. Total Focus Flows (e.g. `24 Flows`).
+  3. Planned Sprint Units (e.g. `72 Sprints · 3x3 Standard`).
+  4. Major Milestone Outputs (e.g. `7 Videos · Invoicing · Skill Tree`).
 * **Source Note:** Explicit timestamp, live tool read receipts, and authenticated account markers.
 
 ### 4.2 Decision Block Schema
@@ -99,9 +99,9 @@ Every decision must follow structured bullet nesting and carry informatics taggi
 
 ```markdown
 ### Decision ID: [P# | I#/E#/R#] — {{DECISION_TITLE}}
-- **Context:** The underlying architectural constraint, dependency join, or capacity tradeoff.
+- **Context:** The underlying architectural constraint, dependency join, capacity tradeoff, or calendar collision.
 - **OpenProject Anchor:** Associated work package link (`[OP-WP#<id>]`) or repository container.
-- **Action Required:** Explicit choice required from the operator (e.g. *"Approve proposal"*, *"Defer to next cycle"*, *"Select Option A vs B"*).
+- **Action Required:** Explicit choice required from the operator (e.g. *"Approve 4-flow structure"*, *"Decline external meeting"*, *"Lock critical path"*).
 - **Status:** `[PROPOSED | APPROVED | REJECTED | DEFERRED]`
 ```
 
@@ -111,105 +111,101 @@ Every decision must follow structured bullet nesting and carry informatics taggi
 
 Matrix 1 visualizes *how* each project evolves mechanically from its current baseline to the target milestone, without calendar dates or clock hours.
 
-### 5.1 Repository Grouping (Five Frontiers)
+### 5.1 Presentation Layout: Stacked Full-Width Containers
+All project sections must render in a **single full-width stacked column** (one project underneath the other). Multi-column grid layouts (such as two projects side-by-side) are strictly prohibited.
 
-All initiatives must be grouped strictly under the five designated repository containers:
+### 5.2 The Three-Level Project Decomposition Standard
+
+Every repository container in Matrix 1 must present three distinct, progressive levels of detail:
+
+1. **Level 1: High Level — Strategic Intent & Milestone Output**
+   - A bold, motivating headline summarizing the project's primary deliverable for the week.
+   - The verified baseline state and the core problem being solved.
+2. **Level 2: Mid Level — Process & Output Pipeline Flow**
+   - A visual milestone sequence / process pipeline of concrete outputs:
+     `[Current Baseline]` ➔ `[Intermediate Output A]` ➔ `[Intermediate Output B]` ➔ `[Final Milestone Deliverable]`
+   - Clearly flags which output is on the **CRITICAL PATH** and which outputs can proceed in parallel.
+   - Identifies the handshakes between outputs ("Output A unblocks Output B").
+3. **Level 3: Detail Level — Tasks, Deliverables & Evidence (NO SPRINTS)**
+   - Concrete work packages producing each output in the pipeline.
+   - OpenProject identifiers, dependencies ("Depends on", "Unblocks"), expected artifact paths, and definition of done.
+   - Shortlist (Weekly Commitments) vs. Longlist (Backlog / Deferred Work with explicit triggers).
+
+### 5.3 Repository Scope Mapping (Five Frontiers)
 
 ```text
 1. Master of Arts (MasterOfArts)
-   ├── moa-website: Responsive navigation, mobile drawer layout, dynamic reading experience.
-   ├── moa-content: Intellectual essays, spoken audio narration voiceovers, social reels.
-   ├── moa-business: Invoicing calculation engine, line-item schema, automated PDF billing.
-   └── moa-art: Physical studio clean room, acoustic tuning, canvas stretching, painting.
+   ├── Level 1: Launch public reading experience, produce 7 thesis videos, automate PDF invoicing.
+   ├── Level 2: [Static Layout] ➔ [Flexbox & Drawer Output] ➔ [7 Mastered Videos] ➔ [Validated PDF Engine].
+   └── Level 3:
+       ├── moa-website: Content draft, responsive navigation, dynamic reading routes.
+       ├── moa-content: Content production week (7 videos scripted, voiced, edited, captioned).
+       └── moa-business: Invoicing calculation engine, line-item JSON schema, automated PDF billing.
 
 2. Leela (Leela-Cloud-2026)
-   ├── Skill Tree: Spatial node hierarchy, Chunk library identity, durable placement.
-   ├── Path: Progression gates, evaluated state publishing, Path–Rhythm balance.
-   └── Sequencing: Integration meta-system, Wave A domain, lifecycle stability.
+   ├── Level 1: Solidify Skill Tree node contracts and durable placement identities (Path & Sequencing PAUSED).
+   ├── Level 2: [Pure Projection Node] ➔ [Durable Placement ID] ➔ [Chunk Library Schema Freeze].
+   └── Level 3:
+       └── Skill Tree: Spatial node hierarchy, Chunk library identity, durable placement contracts.
 
 3. Investment / IPOS (investment-ipos)
-   ├── Ingestion Pipeline: Docling PDF extractor, Trafilatura article parser, legacy code retirement.
-   ├── Test Harness: Ingestion latency benchmarks and fixture validation receipts.
-   └── Operations: Multi-tier Cockpit dashboard and weekly Telegram research digest.
+   ├── Level 1: Complete pipeline recheck & sovereign data visualization over time.
+   ├── Level 2: [Legacy Karakeep Audit] ➔ [Modular Ingestion Seam] ➔ [Time-Series Charting Engine].
+   └── Level 3:
+       ├── Ingestion Pipeline: Trafilatura cleaner, Docling extractor, modular adapter recheck.
+       └── Data Operations: Financial research intake, multi-tier dashboard, telegram export.
 
 4. Apex OS (apexai-os-meta)
-   ├── Hardware Drivers: Kernel HID polling hooks, raw input table parsers.
-   ├── Event Pipeline: Button click/hold interceptors, userland IPC event dispatchers.
-   └── Release Gate: Latency benchmarks, HUD overlay bindings, driver release candidate.
+   ├── Level 1: Establish low-latency OpenMouse kernel input interception and mindful repo orchestration.
+   ├── Level 2: [Raw HID Parser] ➔ [Kernel Interrupt Hook] ➔ [Userland IPC Dispatcher] ➔ [Dark Factory Gate].
+   └── Level 3:
+       ├── Hardware Drivers: USB HID polling hooks, raw input table parsers, debounce filters.
+       └── Systems Architecture: Mindful repo orchestration, dark factory automated integration.
 
-5. Residuals (Auxiliary Projects & Life Integration)
-   ├── System Infrastructure: PM Infrastructure maintenance, Rhythm pilot, QMD local index.
-   ├── Personal Creative: Sexy Content moodboarding, photoshoot lighting, color grading.
-   └── Logistics: Community peer network outreach, travel route logistics, itinerary checks.
+5. Residuals (Personal Creative Sprints & Auxiliary Infrastructure)
+   ├── Level 1: Maintain environmental harmony, fine art creation, aesthetic assets, and network sync.
+   ├── Level 2: [Studio Acoustics] ➔ [Stretched Canvas / Paintings] ➔ [Aesthetic Visuals] ➔ [Travel Logistics].
+   └── Level 3:
+       ├── Apartment & Studio Art: Workspace acoustic tuning, organization, canvas stretching, painting.
+       ├── Sexy Content: Moodboarding, lighting setup, photoshoots, color grading.
+       ├── Community & Traveling: Peer sync, community dinners, travel routes, accommodation verification.
+       └── System Infrastructure: PM Infrastructure maintenance, Rhythm pilot, QMD indexing.
 ```
 
-### 5.2 Mandatory Template per Repository
+### 5.4 Topological Critical Path Representation
 
-Each repository section must adhere to this structural standard:
-
-```markdown
-### Repository: {{REPO_NAME}} (Container: #{{ID}})
-
-- **Strategic Outcome:** {{ONE_SENTENCE_MEASURABLE_WEEKLY_TARGET_AND_MOTIVATION}}
-- **Baseline State:** {{VERIFIED_CURRENT_CODE_AND_OPENPROJECT_REALITY}}
-
-- **Process Flow & Iterations:**
-  - `Step 1: [OP-WP#<id>] {{NAME}}` ➔ `Step 2: [OP-WP#<id>] {{NAME}}` ↻ `Iteration: [OP-WP#<id>] {{NAME}}` ➔ `Step 3: [OP-WP#<id>] {{NAME}}`
-  - *Evolution Narrative:*
-    - "This is there now": {{CURRENT_STATE_OR_EXISTING_ASSET}}
-    - "This goes where": {{DESTINATION_FILE_OR_PIPELINE_HANDOFF}}
-
-- **Shortlist (Weekly Commitments):**
-  - [ ] **[OP-WP#<id>] {{TASK_NAME}}** `({{I/E/R_SCORE}})` **[CRITICAL PATH]**
-    - • Subtask 1: {{NAME}} — Expected Output: `{{ARTIFACT_PATH}}`
-    - • Subtask 2: {{NAME}} — Dependency: `[OP-WP#<parent_id>]`
-    - • **Sprint Units (30m each):**
-      - ↳ Sprint Unit A: {{CONCRETE_ACTION_1}}
-      - ↳ Sprint Unit B: {{CONCRETE_ACTION_2}}
-      - ↳ Sprint Unit C: {{CONCRETE_ACTION_3}}
-
-- **Longlist (Backlog / Staged / Deferred Work):**
-  - [ ] **[OP-WP#<id>] {{STAGED_TASK_NAME}}:** Staged trigger or deferral rationale.
-  - [ ] **[OP-WP#<id>] {{DORMANT_ITEM_NAME}}:** Preserved in repository records; unlinked from active weekly deliverables.
-```
-
-### 5.3 Topological Critical Path DAG (Mermaid Standard)
-
-Matrix 1 must include a consolidated Mermaid diagram showing cross-repository and intra-project prerequisites:
+Matrix 1 must conclude with a Mermaid topological diagram highlighting the critical paths across all five repositories:
 
 ```mermaid
 flowchart TD
-  subgraph MoA["Master of Arts"]
-    M1["[WP #163] Flexbox Nav<br/><b>CRITICAL PATH</b>"] --> M2["[WP #163] Content Feed"]
-    M3["[WP-BIZ-01] Invoice Schema<br/><b>CRITICAL PATH</b>"] --> M4["[WP-BIZ-02] PDF Engine"]
-    M2 --> M5["Public Release Gate"]
-    M4 --> M5
+  subgraph MoA["Master of Arts (Content, Website & Invoicing)"]
+    M1["Content Draft<br/><b>CRITICAL PATH</b>"] --> M2["7 Videos Produced<br/><b>CRITICAL PATH</b>"]
+    M3["Nav Flexbox Drawer"] --> M4["Public Reading Live"]
+    M5["Invoice Schema<br/><b>CRITICAL PATH</b>"] --> M6["PDF Billing Engine"]
   end
 
-  subgraph IPOS["Investment / IPOS"]
-    I1["[WP #224] Karakeep Deprecation<br/><b>CRITICAL PATH</b>"] --> I2["[WP #226] Docling / Trafilatura<br/><b>CRITICAL PATH</b>"]
-    I2 --> I3["[WP #233] Intake Harness"]
-    I3 --> I4["[WP #232] Cockpit Dashboard"]
-    I3 --> I5["[WP #227] Telegram Digest"]
+  subgraph Leela["Leela (Skill Tree ONLY)"]
+    L1["Node Contract<br/><b>CRITICAL PATH</b>"] --> L2["Durable Placement ID"]
+    L2 --> L3["Skill Tree Freeze Gate"]
   end
 
-  subgraph Apex["Apex OS"]
-    A1["[WP #101] Kernel HID Hook<br/><b>CRITICAL PATH</b>"] --> A2["[WP #102] Button Interceptor"]
-    A2 --> A3["[WP #105] Driver Release Gate"]
+  subgraph IPOS["Investment / IPOS (Pipeline Recheck)"]
+    I1["Pipeline Recheck<br/><b>CRITICAL PATH</b>"] --> I2["Modular Ingestion Seam"]
+    I2 --> I3["Data Viz Over Time<br/><b>CRITICAL PATH</b>"]
   end
 
-  subgraph Leela["Leela"]
-    L1["[WP #216] Wave A Domain<br/><b>CRITICAL PATH</b>"] --> L2["[WP #217] Seam Adapter"]
+  subgraph Apex["Apex OS (OpenMouse & Systems)"]
+    A1["HID Kernel Hook<br/><b>CRITICAL PATH</b>"] --> A2["Button Interceptor"]
+    A2 --> A3["Dark Factory Gate"]
   end
 
-  subgraph Residuals["Residuals"]
-    R1["Studio Art Setup"]
+  subgraph Residuals["Residuals (Life & Art Sprints)"]
+    R1["Studio Art Painting"]
     R2["Sexy Content Shoots"]
-    R3["Community & Travel"]
+    R3["Travel & Community"]
   end
 
-  I1 -.->|Unblocks Billing Schema| M3
-  L1 -.->|Integrates Flow Cards| Residuals
+  M5 -.->|Unblocks Billing| I2
 ```
 
 ---
@@ -224,20 +220,23 @@ Matrix 2 maps the selected work packages from Matrix 1 across the calendar days,
 * **Daily Shutdown:** `21:00` sharp.
 * **Routine Anchors & Time Architecture:**
   - `08:00 – 09:00`: Morning Routine, Meditation, Daily Setup (60m).
-  - `09:00 – 12:30`: Morning Focus Block (Flows 1 & 2).
-  - `12:30 – 13:30`: Midday Reset, Healthy Lunch & Outdoor Walk (60m).
-  - `13:30 – 17:45`: Afternoon Build & Residual Sprints (Flows 3 & 4).
-  - `17:45 – 21:00`: Evening Work Window / Dinner / External Social Commitments.
-  - `21:00 – 21:30`: Daily Shutdown & System Review (30m).
-  - `21:30 – 24:00`: Evening Regeneration, Rest & Night Routine.
+  - `09:00 – 11:00`: **Flow 1** — Master of Arts: Creative Content Production (7 videos production pass).
+  - `11:15 – 12:30`: **Flow 2** — Master of Arts: Website Content Draft & Invoicing Engine.
+  - `12:30 – 13:30`: Protected Anchor: Midday Reset, Healthy Lunch & Outdoor Walk (60m).
+  - `13:30 – 15:30`: **Flow 3** — Investment / IPOS: Pipeline Recheck & Data Visualization Over Time.
+  - `16:00 – 17:45`: **Flow 4** — Residual Flow: Personal Sprints (Apartment & Art, Sexy Content, Community & Travel).
+  - `17:45 – 21:00`: Evening Work Window / Dinner / External Personal Commitments.
+  - `21:00 – 21:30`: **Daily Shutdown (21:00)**: Outro, Day Evidence Commit & Workspace Reset.
+  - `21:30 – 24:00`: Evening Regeneration, Rest, Reading & Night Recovery.
 
 ### 6.2 External Calendar Meeting Collision Handling
-- Existing external Google Calendar events (`gehm77@gmail.com`) take absolute non-destructive priority.
-- Schedulable focus flows flex around verified appointments. If a meeting intersects a focus block, the block is compressed, shifted into open buffers, or concluded early.
+- Existing external Google Calendar events take absolute non-destructive priority unless explicitly overridden by an operator decision.
+- **Operator Decision Override:** The operator may explicitly elect to ignore or decline specific meetings (e.g. Meister meetings ignored for Week 45), freeing up evening focus blocks.
+- Schedulable focus flows flex around active verified appointments (e.g. `Alex & Chris` Thursday 10:00–11:00 compresses Flow 1 to `09:00–10:00`; `München Tanz` Thursday 18:45–21:00 wraps evening flow before `18:15`).
 
 ### 6.3 Full-Width Responsive HTML Calendar Specification
 
-Matrix 2 is rendered using a full-width, horizontally scrollable HTML table spanning Monday through Saturday. Every sprint slot must display **at least three distinct actionable items**:
+Matrix 2 is rendered using a full-width, horizontally scrollable HTML table spanning Monday through Saturday. All four flows are explicitly displayed, with sprint slots containing **at least three distinct actionable items**:
 
 ```html
 <div class="calendar-viewport" style="width:100%; overflow-x:auto; margin:20px 0;">
@@ -267,7 +266,7 @@ Matrix 2 is rendered using a full-width, horizontally scrollable HTML table span
         <td rowspan="3" style="padding:10px; vertical-align:top; background:#f5f8f5;">
           <b style="color:#2a5035;">Flow 1 (2h)</b><br>
           <span style="font-size:10px; color:#687b8b;">09:00–11:00</span><br>
-          <span style="font-size:11px; font-weight:700;">{{FLOW_1_TITLE}}</span>
+          <span style="font-size:11px; font-weight:700;">MoA: Content (Videos)</span>
         </td>
         <td style="padding:6px; text-align:center; font-weight:700; border-bottom:1px solid #eef1f4;">Sprint 1</td>
         <td style="padding:6px; vertical-align:top; border-bottom:1px solid #eef1f4;">
@@ -278,7 +277,6 @@ Matrix 2 is rendered using a full-width, horizontally scrollable HTML table span
             <li>3. {{ITEM_3}}</li>
           </ul>
         </td>
-        <!-- Repeat for Tue–Sat -->
         <td colspan="5" style="padding:6px; vertical-align:top; border-bottom:1px solid #eef1f4;">
           <em>Sprint allocations dynamically populated per day</em>
         </td>
@@ -296,22 +294,97 @@ Matrix 2 is rendered using a full-width, horizontally scrollable HTML table span
         </td>
       </tr>
 
+      <!-- Flow 2: MoA Website & Invoicing -->
+      <tr style="border-top:2px solid #355570;">
+        <td rowspan="3" style="padding:10px; vertical-align:top; background:#f0f5fa;">
+          <b style="color:#1d3859;">Flow 2 (1.25h)</b><br>
+          <span style="font-size:10px; color:#687b8b;">11:15–12:30</span><br>
+          <span style="font-size:11px; font-weight:700;">MoA: Website/Invoicing</span>
+        </td>
+        <td style="padding:6px; text-align:center; font-weight:700; border-bottom:1px solid #eef1f4;">Sprint 1</td>
+        <td colspan="6" style="padding:6px; vertical-align:top; border-bottom:1px solid #eef1f4;">
+          <em>Website content draft & invoicing schema sprints</em>
+        </td>
+      </tr>
+      <tr>
+        <td style="padding:6px; text-align:center; font-weight:700; border-bottom:1px solid #eef1f4;">Sprint 2</td>
+        <td colspan="6" style="padding:6px; vertical-align:top; border-bottom:1px solid #eef1f4;">
+          <em>PDF template & tax calculation unit tests</em>
+        </td>
+      </tr>
+      <tr style="border-bottom:2px solid #355570;">
+        <td style="padding:6px; text-align:center; font-weight:700;">Sprint 3</td>
+        <td colspan="6" style="padding:6px; vertical-align:top;">
+          <em>Staging validation & client billing test run</em>
+        </td>
+      </tr>
+
       <!-- Protected Routine Anchor: Lunch -->
       <tr style="background:#f4f1ea; color:#687b8b;">
         <td style="padding:6px; text-align:center; font-family:monospace;">12:30–13:30</td>
         <td colspan="7" style="padding:6px; text-align:center;">🔒 Protected Anchor: Midday Reset, Healthy Lunch & Fresh Air Walk</td>
       </tr>
 
-      <!-- Protected Routine Anchor: Daily Shutdown -->
-      <tr style="background:#eef2f7; color:#355570; font-weight:700; border-top:2px solid #304e86;">
-        <td style="padding:6px; text-align:center; font-family:monospace;">21:00–21:30</td>
-        <td colspan="7" style="padding:6px; text-align:center;">🔒 Daily Shutdown (21:00): Outro, Day Evidence Commit & Workspace Reset</td>
+      <!-- Flow 3: IPOS Pipeline Recheck -->
+      <tr style="border-top:2px solid #b08445;">
+        <td rowspan="3" style="padding:10px; vertical-align:top; background:#fdf9f2;">
+          <b style="color:#784f1e;">Flow 3 (2h)</b><br>
+          <span style="font-size:10px; color:#687b8b;">13:30–15:30</span><br>
+          <span style="font-size:11px; font-weight:700;">IPOS: Pipeline Recheck</span>
+        </td>
+        <td style="padding:6px; text-align:center; font-weight:700; border-bottom:1px solid #eef1f4;">Sprint 1</td>
+        <td colspan="6" style="padding:6px; vertical-align:top; border-bottom:1px solid #eef1f4;">
+          <em>Pipeline architecture audit & external ingestion possibilities</em>
+        </td>
+      </tr>
+      <tr>
+        <td style="padding:6px; text-align:center; font-weight:700; border-bottom:1px solid #eef1f4;">Sprint 2</td>
+        <td colspan="6" style="padding:6px; vertical-align:top; border-bottom:1px solid #eef1f4;">
+          <em>Data visualization over time modularization</em>
+        </td>
+      </tr>
+      <tr style="border-bottom:2px solid #b08445;">
+        <td style="padding:6px; text-align:center; font-weight:700;">Sprint 3</td>
+        <td colspan="6" style="padding:6px; vertical-align:top;">
+          <em>Test harness & sovereign JSON schema benchmarks</em>
+        </td>
       </tr>
 
-      <!-- Evening Regeneration Window -->
+      <!-- Flow 4: Residual Life & Creative Sprints -->
+      <tr style="border-top:2px solid #806655;">
+        <td rowspan="3" style="padding:10px; vertical-align:top; background:#f9f5f0;">
+          <b style="color:#684f3e;">Flow 4 (1.75h)</b><br>
+          <span style="font-size:10px; color:#687b8b;">16:00–17:45</span><br>
+          <span style="font-size:11px; font-weight:700;">Residual Life Flows</span>
+        </td>
+        <td style="padding:6px; text-align:center; font-weight:700; border-bottom:1px solid #eef1f4;">Sprint 1</td>
+        <td colspan="6" style="padding:6px; vertical-align:top; border-bottom:1px solid #eef1f4;">
+          <b>Apartment & Studio Art:</b> Workspace acoustic tuning, studio clean room, canvas stretching, painting.
+        </td>
+      </tr>
+      <tr>
+        <td style="padding:6px; text-align:center; font-weight:700; border-bottom:1px solid #eef1f4;">Sprint 2</td>
+        <td colspan="6" style="padding:6px; vertical-align:top; border-bottom:1px solid #eef1f4;">
+          <b>Sexy Content:</b> Aesthetic moodboards, photoshoot lighting, high-resolution portrait capture, color grading.
+        </td>
+      </tr>
+      <tr style="border-bottom:2px solid #806655;">
+        <td style="padding:6px; text-align:center; font-weight:700;">Sprint 3</td>
+        <td colspan="6" style="padding:6px; vertical-align:top;">
+          <b>Community & Traveling:</b> Peer network outreach, community dinner sync, travel route planning, logistics.
+        </td>
+      </tr>
+
+      <!-- Protected Routine Anchor: Daily Shutdown at 21:00 -->
+      <tr style="background:#eef2f7; color:#355570; font-weight:700; border-top:2px solid #304e86;">
+        <td style="padding:8px; text-align:center; font-family:monospace;">21:00–21:30</td>
+        <td colspan="7" style="padding:8px; text-align:center;">🔒 Daily Shutdown (21:00): Outro, Day Evidence Commit & Workspace Reset</td>
+      </tr>
+
+      <!-- Evening Regeneration Window: 21:30 to 24:00 -->
       <tr style="background:#f9f8f5; color:#788b99;">
-        <td style="padding:6px; text-align:center; font-family:monospace;">21:30–24:00</td>
-        <td colspan="7" style="padding:6px; text-align:center;">Evening Regeneration, Rest, Reading & Night Recovery</td>
+        <td style="padding:8px; text-align:center; font-family:monospace;">21:30–24:00</td>
+        <td colspan="7" style="padding:8px; text-align:center;">Evening Regeneration, Rest, Reading & Night Recovery</td>
       </tr>
 
     </tbody>
@@ -328,7 +401,7 @@ Precap Week concludes with an embedded YAML `presentation_handoff` block consume
 ```yaml
 ```yaml
 presentation_handoff:
-  specification: "SPEC-PRECAP-WEEK-ITERATIONS-v1.1"
+  specification: "SPEC-PRECAP-WEEK-ITERATIONS-v1.2"
   produced_at: "2026-11-08T21:00:00Z"
   operator_governance_status: "APPROVED_FOR_EXECUTION"
   active_week: "{{ACTIVE_ISO_WEEK}}"
@@ -336,20 +409,20 @@ presentation_handoff:
   
   repository_priorities:
     master_of_arts:
-      weekly_outcome: "{{MOA_OUTCOME}}"
-      active_workstreams: ["website", "content", "business", "studio_art"]
+      weekly_outcome: "7 videos produced, website content draft complete, PDF invoicing engine deployed"
+      active_workstreams: ["website_content", "content_week_7_videos", "business_invoicing"]
     leela:
-      weekly_outcome: "{{LEELA_OUTCOME}}"
-      active_workstreams: ["skill_tree", "path", "sequencing"]
+      weekly_outcome: "Skill tree spatial node contracts and durable placement frozen (Path/Seq paused)"
+      active_workstreams: ["skill_tree_contracts"]
     investment_ipos:
-      weekly_outcome: "{{IPOS_OUTCOME}}"
-      active_workstreams: ["ingest", "harness", "dashboard", "telegram"]
+      weekly_outcome: "Full pipeline recheck and data visualization over time modularized"
+      active_workstreams: ["pipeline_recheck", "data_viz_over_time"]
     apex_os:
-      weekly_outcome: "{{APEX_OUTCOME}}"
-      active_workstreams: ["driver_hooks", "interceptor", "benchmark"]
+      weekly_outcome: "Kernel HID polling hook bound and dark factory pipeline verified"
+      active_workstreams: ["openmouse_integration", "mindful_repo_orchestration", "dark_factory"]
     residuals:
-      weekly_outcome: "{{RESIDUAL_OUTCOME}}"
-      active_workstreams: ["infrastructure", "sexy_content", "travel_community"]
+      weekly_outcome: "Acoustic studio setup, physical art painting, sexy content photoshoots, travel sync"
+      active_workstreams: ["apartment_studio_art", "sexy_content", "community_travel"]
 
   operating_geometry:
     daily_window: "08:00-24:00"
@@ -365,7 +438,8 @@ presentation_handoff:
 
 ## 8. Failure Guards & Anti-Drift Gates
 
-- [ ] **FG-01 (No Synthetic IDs):** All cited work packages must reference verified numeric OpenProject IDs (`[OP-WP#<id>]`). Unassigned or offline tasks use `[OP-UNRESOLVED: <label>]`.
-- [ ] **FG-02 (De-sequencing Verification):** Matrix 1 headings contain zero references to calendar sequences or clock hours. All content is organized strictly under the five repositories.
-- [ ] **FG-03 (Calendar Window Conformance):** Matrix 2 timeline spans `08:00–24:00` with daily shutdown at `21:00`. Verified meetings are explicitly displayed and protected.
-- [ ] **FG-04 (Depth Containment):** Precap Week stops at 30-minute sprint allocations. It does not author executable prompts or Flow Execution Cards, preserving the `PrecapNextDay` boundary.
+- [ ] **FG-01 (No Sprints in Matrix 1):** Matrix 1 must **never** contain sprint allocations or 30-minute breakdown units. Sprints belong strictly in Matrix 2.
+- [ ] **FG-02 (Stacked Layout Conformance):** Matrix 1 repositories render in a single full-width column, one underneath the other. Multi-column grids are prohibited.
+- [ ] **FG-03 (Three-Level Decomposition):** Every repository in Matrix 1 must present Level 1 Strategic Intent, Level 2 Process & Output Pipeline, and Level 3 Actionable Tasks.
+- [ ] **FG-04 (Calendar Operating Window):** Matrix 2 timeline spans `08:00–24:00` with daily shutdown at `21:00`. Schedulable focus flows explicitly display all four daily flows.
+- [ ] **FG-05 (No Synthetic IDs):** All cited work packages must reference verified numeric OpenProject IDs (`[OP-WP#<id>]`). Unassigned or offline tasks use `[OP-UNRESOLVED: <label>]`.
