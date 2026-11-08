@@ -292,3 +292,19 @@ Two readings, not resolved here:
 **Scope:** calendar/week scope, PrecapWeek, validation, trigger/dispatch.
 
 **Source:** operator M06=A, 2026-11-06.
+
+---
+
+## D018 — Operator weekly flow architecture: 4 flows daily (3x3 standard) & Sequencing integration
+
+**Status:** locked operator decision (2026-11-08).
+
+**Decision:** The weekly operating structure operates on 4 daily flows. Sequencing is the holistic integration system organizing the entire week (routines, habits, meditation, flow cards). A flow follows the 3x3 repetition standard (3 sprints per flow, 3 checklist items per sprint; flexes to 3x1 or 3x2 as capacity requires). Daily domain budget:
+1. Two flows per day: Master of Arts (Website & Content Creation in general).
+2. One flow per day: Investment / IPOS.
+3. One residual flow per day (3x3): Sprint 1: Apartment & Art; Sprint 2: Sexy Content; Sprint 3: Community & Traveling.
+Calendar integration time-blocks these flows in free windows between protected routine anchors (08:00–09:00 Morning, 12:30–13:30 Lunch, 18:00–18:30 Shutdown) without modifying external events.
+
+**Scope:** weekly orchestration, daily flow budget, sprint checklist structure, calendar integration.
+
+**Source:** operator, 2026-11-08.

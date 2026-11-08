@@ -1,17 +1,20 @@
 # Current State
 
 
-## Active improvement continuation — 2026-11-06 (supersedes older "awaiting Module 01" next-action statement)
+## Active improvement continuation — 2026-11-08 (supersedes older 2026-11-06 statement)
 
-**Operator directive:** Begin at the live OpenProject WP/dependency frontier before selecting the real weekly critical path or refining Matrix 1/2. P0 static repository audit DONE; P1 private OP read NOT DONE. The design handover is ready for local read-only execution at `00-openproject-dependency-intake/HANDOVER-20261106.okf.md`. GitHub and this ChatGPT environment cannot query the locally hosted private OpenProject service; do not mistake the 2026-10-08 repository hierarchy snapshot for live data.
+**Operator directive:** Ground the weekly command brief in live OpenProject work packages, the 4-flow daily structure (3x3 standard repetition), the Sequencing integration system, and Google Calendar time-blocking.
 
-**Accepted operator decisions:** D014 OpenProject-first dependency intake; D015 M02=B owner-aware OP vs Apex write routing; D016 M05=B dedicated stateless sequencing skill **later**, with M04 sequence/flow semantics explicitly OPEN; D017 M06=A Saturday weekly Precap, Sunday off. Previously proposed M04-B and M05-A are NOT accepted. No user reapproval of Q01–Q14 required.
+**Accepted operator decisions:** D014 OpenProject-first dependency intake (P1 live read executed against `http://127.0.0.1:8083` via `opCall.js`); D016/OP-01 Sequencing as the holistic integration system (3x3 standard, 4 flows daily: 2 MoA, 1 IPOS, 1 Residual); D017 M06=A Saturday weekly Precap, Sunday off. Canonical production command brief `01-weekly-command-brief/WEEKLY_COMMAND_BRIEF_2026_W45.md` and calendar export `2026-W45-flows.ics` generated.
 
-**Current task:** P1 source/relationship verification. Read real OP identity/project/work-package/status/relation data with pagination, dependency direction, enrollment, cross-project links and freshness through canonical local `leela-spec/agent-skills` OpenProject skill; report qualified critical-chain candidates when effort/calendar data is insufficient for critical path. P1 output must return precise source-backed work refs to the Master; no production skill patch or OP write.
+**Current state & verified deliverables:**
+1. Live OpenProject read executed: mapped active WPs (#204, #163, #224, #226, #233, #232, #227, #215, #216).
+2. Production Command Brief produced: `01-weekly-command-brief/WEEKLY_COMMAND_BRIEF_2026_W45.md`.
+3. Deterministic Google Calendar export: `01-weekly-command-brief/calendar-export/2026-W45-flows.ics` (22 events, RFC 5545).
 
-**Next dependency-ready design:** once P1 produces current source evidence, agree on minimal source frontier -> Matrix 1 handoff; then detailed Matrix 1; then Matrix 2; defer broad sequence/flow semantics until operator definition; design dedicated stateless sequencing skill after inputs/consumers can be specified. Saturday scope/writeback implementation comes via bounded patches after acceptance/test.
+**Next action:** PrecapNextDay intake targeting Monday Nov 9 using the generated downstream handoff payload.
 
-**No current runtime verification:** private OP read, current calendar events, and post-write OP mutation are all unverified. Production remains unchanged by these planning documents.
+**Verification note:** Live OpenProject read executed; ics calendar export validated; post-write OP mutations remain dry-run pending operator execution gates.
 
 ---
 
