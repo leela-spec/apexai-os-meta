@@ -35,8 +35,13 @@ of which day, and how that reaches Precap Week Matrix 2.
 The specification carries `status: operator_review_pending`. The three blockers are closed: the
 operator declared the weekday re-cut (`DD-32`), the project night at `20:00-21:30` (`DD-33`) and
 **Knee** at 15% (`DD-34`, now 11 slots a week). The weekday geometry is read from the operator's
-own calendar and the declared shares sit on the 5% ladder (`DD-35`). Nine decisions remain open
-(`SPEC-WEEKLY-DISPERSAL.okf.md` §7.2); none blocks the calendar.
+own calendar and the declared shares sit on the 5% ladder (`DD-35`). Ten decisions remain open
+(`SPEC-WEEKLY-DISPERSAL.okf.md` §7.2).
+
+**One of them blocks the allocator.** `DD-40`: the physical focus block counts toward the quota
+(`DD-38`), and its pre-bound 90-minute blocks already exceed the declared shares for Martial Arts
+and Dance, leaving the other three Epics owed more minutes than the Flows contain. Either the shares
+move or the block stops counting.
 
 Next in the product, not yet built: the slot-filling algorithm, the Epic database, and
 `week-demand.json`. Until the allocator exists the inventory describes capacity only, so no
