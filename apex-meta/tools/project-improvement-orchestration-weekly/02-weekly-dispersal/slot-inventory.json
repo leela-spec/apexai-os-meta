@@ -14,10 +14,10 @@
       "flows_per_day": 4,
       "evening": {
         "label": "Project night",
-        "start": "20:00",
-        "end": "21:30",
+        "start": "20:15",
+        "end": "21:45",
         "minutes": 90,
-        "time_status": "DECLARED by the operator 2026-11-09 (DD-33 closed)"
+        "time_status": "DECLARED by the operator 2026-11-09 (OD-53)"
       }
     },
     "weekday_plain": {
@@ -70,76 +70,77 @@
   "anchors": [
     {
       "anchor": "morning",
-      "start": "07:30",
-      "end": "08:00",
+      "start": "08:00",
+      "end": "08:30",
       "minutes": 30,
       "label": "Morning Routine",
       "branch_hint": "M",
-      "span_status": "declared: operator calendar, 30 min"
+      "span_status": "declared: day starts 30 min later (OD-52)"
     },
     {
       "anchor": "breakfast",
-      "start": "12:00",
-      "end": "13:00",
+      "start": "12:30",
+      "end": "13:30",
       "minutes": 60,
       "label": "Fruehstueck Prep & Fruehstueck Mental",
       "branch_hint": "M",
-      "span_status": "declared: operator calendar, two 30-min rows"
+      "span_status": "declared: shifted 30 min later with the day (OD-52)"
     },
     {
       "anchor": "lunch",
-      "start": "15:00",
+      "start": "15:30",
       "end": "16:00",
-      "minutes": 60,
+      "minutes": 30,
       "label": "Mittag Prep & Mittag Stephen",
       "branch_hint": "R",
-      "span_status": "declared: operator calendar, two 30-min rows"
+      "span_status": "DERIVED: halved from 60 min. It is the only flexible element between the shifted morning and the fixed 18:00 evening, so it absorbs the 30-minute start shift. The operator did not declare this - see DD-39"
     },
     {
       "anchor": "physical_focus",
       "start": "18:00",
-      "end": "19:00",
-      "minutes": 60,
+      "end": "19:30",
+      "minutes": 90,
       "label": "Physical Focus Block",
       "branch_hint": "P",
-      "span_status": "declared: operator calendar shows 'VWC Strikes' on Monday, shifted 30 min earlier by OD-50",
-      "note": "per-day content comes from the week table (Strikes Mon, Kicks Tue and Fri, Dance Wed, Moves Thu). Whether this block draws on the physical quota or sits outside it is DD-38."
+      "quota_bearing": true,
+      "span_status": "declared 2026-11-09 (OD-53)",
+      "note": "DD-38 closed: these 90 minutes COUNT toward the physical quota, and their content is pre-designed per day from the week table - Strikes Monday, Kicks Tuesday and Friday, Dance Wednesday, Moves Thursday. The solver does not choose it; it is pre-bound."
     },
     {
       "anchor": "evening",
-      "start": "19:00",
-      "end": "20:00",
-      "minutes": 60,
+      "start": "19:30",
+      "end": "20:15",
+      "minutes": 45,
       "label": "Abend",
       "branch_hint": null,
       "bindable": false,
-      "span_status": "declared: operator calendar, shifted 30 min earlier (OD-50)"
+      "span_status": "declared 2026-11-09 (OD-53)"
     },
     {
       "anchor": "freizeit",
-      "start": "21:30",
-      "end": "22:30",
+      "start": "21:45",
+      "end": "22:45",
       "minutes": 60,
       "label": "Freizeit",
       "branch_hint": "R",
       "bindable": false,
-      "span_status": "declared: operator calendar, shifted 30 min earlier (OD-50)"
+      "span_status": "DERIVED: follows the 20:15-21:45 project night (OD-53)"
     },
     {
       "anchor": "day_outro",
-      "start": "22:30",
-      "end": "23:00",
+      "start": "22:45",
+      "end": "23:15",
       "minutes": 30,
       "label": "Day Outro",
       "branch_hint": null,
       "bindable": false,
-      "span_status": "declared: operator calendar, shifted 30 min earlier (OD-50)"
+      "span_status": "DERIVED: shifted with Freizeit (OD-53)"
     },
     {
       "anchor": "night",
-      "start": "23:00",
+      "start": "23:15",
       "end": "24:00",
-      "minutes": 60,
+      "minutes": 45,
       "label": "Sleep Routine & Night Recovery",
       "branch_hint": "R",
       "bindable": false,
@@ -150,32 +151,32 @@
     "note": "every placed element per regime in clock order; generated and overlap-checked, so a shifted time cannot silently collide with a flow",
     "weekday_project": [
       {
-        "start": "07:30",
-        "end": "08:00",
+        "start": "08:00",
+        "end": "08:30",
         "element": "morning"
       },
       {
-        "start": "08:00",
-        "end": "10:00",
+        "start": "08:30",
+        "end": "10:30",
         "element": "F1"
       },
       {
-        "start": "10:00",
-        "end": "12:00",
+        "start": "10:30",
+        "end": "12:30",
         "element": "F2"
       },
       {
-        "start": "12:00",
-        "end": "13:00",
+        "start": "12:30",
+        "end": "13:30",
         "element": "breakfast"
       },
       {
-        "start": "13:00",
-        "end": "15:00",
+        "start": "13:30",
+        "end": "15:30",
         "element": "F3"
       },
       {
-        "start": "15:00",
+        "start": "15:30",
         "end": "16:00",
         "element": "lunch"
       },
@@ -186,63 +187,63 @@
       },
       {
         "start": "18:00",
-        "end": "19:00",
+        "end": "19:30",
         "element": "physical_focus"
       },
       {
-        "start": "19:00",
-        "end": "20:00",
+        "start": "19:30",
+        "end": "20:15",
         "element": "evening"
       },
       {
-        "start": "20:00",
-        "end": "21:30",
+        "start": "20:15",
+        "end": "21:45",
         "element": "Project night"
       },
       {
-        "start": "21:30",
-        "end": "22:30",
+        "start": "21:45",
+        "end": "22:45",
         "element": "freizeit"
       },
       {
-        "start": "22:30",
-        "end": "23:00",
+        "start": "22:45",
+        "end": "23:15",
         "element": "day_outro"
       },
       {
-        "start": "23:00",
+        "start": "23:15",
         "end": "24:00",
         "element": "night"
       }
     ],
     "weekday_plain": [
       {
-        "start": "07:30",
-        "end": "08:00",
+        "start": "08:00",
+        "end": "08:30",
         "element": "morning"
       },
       {
-        "start": "08:00",
-        "end": "10:00",
+        "start": "08:30",
+        "end": "10:30",
         "element": "F1"
       },
       {
-        "start": "10:00",
-        "end": "12:00",
+        "start": "10:30",
+        "end": "12:30",
         "element": "F2"
       },
       {
-        "start": "12:00",
-        "end": "13:00",
+        "start": "12:30",
+        "end": "13:30",
         "element": "breakfast"
       },
       {
-        "start": "13:00",
-        "end": "15:00",
+        "start": "13:30",
+        "end": "15:30",
         "element": "F3"
       },
       {
-        "start": "15:00",
+        "start": "15:30",
         "end": "16:00",
         "element": "lunch"
       },
@@ -253,26 +254,26 @@
       },
       {
         "start": "18:00",
-        "end": "19:00",
+        "end": "19:30",
         "element": "physical_focus"
       },
       {
-        "start": "19:00",
-        "end": "20:00",
+        "start": "19:30",
+        "end": "20:15",
         "element": "evening"
       },
       {
-        "start": "21:30",
-        "end": "22:30",
+        "start": "21:45",
+        "end": "22:45",
         "element": "freizeit"
       },
       {
-        "start": "22:30",
-        "end": "23:00",
+        "start": "22:45",
+        "end": "23:15",
         "element": "day_outro"
       },
       {
-        "start": "23:00",
+        "start": "23:15",
         "end": "24:00",
         "element": "night"
       }
@@ -295,8 +296,8 @@
       "day": "Monday",
       "regime": "weekday",
       "flow": "F1",
-      "start": "08:00",
-      "end": "10:00",
+      "start": "08:30",
+      "end": "10:30",
       "duration_min": 120,
       "craft_block_min": 30,
       "fixed_overhead_min": 30,
@@ -402,14 +403,14 @@
           "note": "corpus annotates this slot 'Light snack & audiobook'"
         }
       ],
-      "span_status": "declared: operator calendar"
+      "span_status": "declared: day starts 30 min later (OD-52)"
     },
     {
       "day": "Monday",
       "regime": "weekday",
       "flow": "F2",
-      "start": "10:00",
-      "end": "12:00",
+      "start": "10:30",
+      "end": "12:30",
       "duration_min": 120,
       "craft_block_min": 30,
       "fixed_overhead_min": 30,
@@ -521,8 +522,8 @@
       "day": "Monday",
       "regime": "weekday",
       "flow": "F3",
-      "start": "13:00",
-      "end": "15:00",
+      "start": "13:30",
+      "end": "15:30",
       "duration_min": 120,
       "craft_block_min": 30,
       "fixed_overhead_min": 30,
@@ -628,7 +629,7 @@
           "note": "corpus annotates this slot 'Light snack & audiobook'"
         }
       ],
-      "span_status": "declared: operator calendar"
+      "span_status": "declared: day starts 30 min later (OD-52)"
     },
     {
       "day": "Monday",
@@ -741,14 +742,14 @@
           "note": "corpus annotates this slot 'Light snack & audiobook'"
         }
       ],
-      "span_status": "declared: the 16:00 row is Flow 4, not a separate block; everything after it moves 30 min earlier (OD-50)"
+      "span_status": "HELD at 16:00, not shifted with the rest of the day. The operator declared the evening chain from 18:00 absolutely (OD-53), so F4 must end at 18:00. The 30-minute start shift is absorbed by the Mittag anchor - DERIVED, see DD-39"
     },
     {
       "day": "Tuesday",
       "regime": "weekday",
       "flow": "F1",
-      "start": "08:00",
-      "end": "10:00",
+      "start": "08:30",
+      "end": "10:30",
       "duration_min": 120,
       "craft_block_min": 30,
       "fixed_overhead_min": 30,
@@ -854,14 +855,14 @@
           "note": "corpus annotates this slot 'Light snack & audiobook'"
         }
       ],
-      "span_status": "declared: operator calendar"
+      "span_status": "declared: day starts 30 min later (OD-52)"
     },
     {
       "day": "Tuesday",
       "regime": "weekday",
       "flow": "F2",
-      "start": "10:00",
-      "end": "12:00",
+      "start": "10:30",
+      "end": "12:30",
       "duration_min": 120,
       "craft_block_min": 30,
       "fixed_overhead_min": 30,
@@ -973,8 +974,8 @@
       "day": "Tuesday",
       "regime": "weekday",
       "flow": "F3",
-      "start": "13:00",
-      "end": "15:00",
+      "start": "13:30",
+      "end": "15:30",
       "duration_min": 120,
       "craft_block_min": 30,
       "fixed_overhead_min": 30,
@@ -1080,7 +1081,7 @@
           "note": "corpus annotates this slot 'Light snack & audiobook'"
         }
       ],
-      "span_status": "declared: operator calendar"
+      "span_status": "declared: day starts 30 min later (OD-52)"
     },
     {
       "day": "Tuesday",
@@ -1193,14 +1194,14 @@
           "note": "corpus annotates this slot 'Light snack & audiobook'"
         }
       ],
-      "span_status": "declared: the 16:00 row is Flow 4, not a separate block; everything after it moves 30 min earlier (OD-50)"
+      "span_status": "HELD at 16:00, not shifted with the rest of the day. The operator declared the evening chain from 18:00 absolutely (OD-53), so F4 must end at 18:00. The 30-minute start shift is absorbed by the Mittag anchor - DERIVED, see DD-39"
     },
     {
       "day": "Wednesday",
       "regime": "weekday",
       "flow": "F1",
-      "start": "08:00",
-      "end": "10:00",
+      "start": "08:30",
+      "end": "10:30",
       "duration_min": 120,
       "craft_block_min": 30,
       "fixed_overhead_min": 30,
@@ -1306,14 +1307,14 @@
           "note": "corpus annotates this slot 'Light snack & audiobook'"
         }
       ],
-      "span_status": "declared: operator calendar"
+      "span_status": "declared: day starts 30 min later (OD-52)"
     },
     {
       "day": "Wednesday",
       "regime": "weekday",
       "flow": "F2",
-      "start": "10:00",
-      "end": "12:00",
+      "start": "10:30",
+      "end": "12:30",
       "duration_min": 120,
       "craft_block_min": 30,
       "fixed_overhead_min": 30,
@@ -1425,8 +1426,8 @@
       "day": "Wednesday",
       "regime": "weekday",
       "flow": "F3",
-      "start": "13:00",
-      "end": "15:00",
+      "start": "13:30",
+      "end": "15:30",
       "duration_min": 120,
       "craft_block_min": 30,
       "fixed_overhead_min": 30,
@@ -1532,7 +1533,7 @@
           "note": "corpus annotates this slot 'Light snack & audiobook'"
         }
       ],
-      "span_status": "declared: operator calendar"
+      "span_status": "declared: day starts 30 min later (OD-52)"
     },
     {
       "day": "Wednesday",
@@ -1645,14 +1646,14 @@
           "note": "corpus annotates this slot 'Light snack & audiobook'"
         }
       ],
-      "span_status": "declared: the 16:00 row is Flow 4, not a separate block; everything after it moves 30 min earlier (OD-50)"
+      "span_status": "HELD at 16:00, not shifted with the rest of the day. The operator declared the evening chain from 18:00 absolutely (OD-53), so F4 must end at 18:00. The 30-minute start shift is absorbed by the Mittag anchor - DERIVED, see DD-39"
     },
     {
       "day": "Thursday",
       "regime": "weekday",
       "flow": "F1",
-      "start": "08:00",
-      "end": "10:00",
+      "start": "08:30",
+      "end": "10:30",
       "duration_min": 120,
       "craft_block_min": 30,
       "fixed_overhead_min": 30,
@@ -1758,14 +1759,14 @@
           "note": "corpus annotates this slot 'Light snack & audiobook'"
         }
       ],
-      "span_status": "declared: operator calendar"
+      "span_status": "declared: day starts 30 min later (OD-52)"
     },
     {
       "day": "Thursday",
       "regime": "weekday",
       "flow": "F2",
-      "start": "10:00",
-      "end": "12:00",
+      "start": "10:30",
+      "end": "12:30",
       "duration_min": 120,
       "craft_block_min": 30,
       "fixed_overhead_min": 30,
@@ -1877,8 +1878,8 @@
       "day": "Thursday",
       "regime": "weekday",
       "flow": "F3",
-      "start": "13:00",
-      "end": "15:00",
+      "start": "13:30",
+      "end": "15:30",
       "duration_min": 120,
       "craft_block_min": 30,
       "fixed_overhead_min": 30,
@@ -1984,7 +1985,7 @@
           "note": "corpus annotates this slot 'Light snack & audiobook'"
         }
       ],
-      "span_status": "declared: operator calendar"
+      "span_status": "declared: day starts 30 min later (OD-52)"
     },
     {
       "day": "Thursday",
@@ -2097,14 +2098,14 @@
           "note": "corpus annotates this slot 'Light snack & audiobook'"
         }
       ],
-      "span_status": "declared: the 16:00 row is Flow 4, not a separate block; everything after it moves 30 min earlier (OD-50)"
+      "span_status": "HELD at 16:00, not shifted with the rest of the day. The operator declared the evening chain from 18:00 absolutely (OD-53), so F4 must end at 18:00. The 30-minute start shift is absorbed by the Mittag anchor - DERIVED, see DD-39"
     },
     {
       "day": "Friday",
       "regime": "weekday",
       "flow": "F1",
-      "start": "08:00",
-      "end": "10:00",
+      "start": "08:30",
+      "end": "10:30",
       "duration_min": 120,
       "craft_block_min": 30,
       "fixed_overhead_min": 30,
@@ -2210,14 +2211,14 @@
           "note": "corpus annotates this slot 'Light snack & audiobook'"
         }
       ],
-      "span_status": "declared: operator calendar"
+      "span_status": "declared: day starts 30 min later (OD-52)"
     },
     {
       "day": "Friday",
       "regime": "weekday",
       "flow": "F2",
-      "start": "10:00",
-      "end": "12:00",
+      "start": "10:30",
+      "end": "12:30",
       "duration_min": 120,
       "craft_block_min": 30,
       "fixed_overhead_min": 30,
@@ -2329,8 +2330,8 @@
       "day": "Friday",
       "regime": "weekday",
       "flow": "F3",
-      "start": "13:00",
-      "end": "15:00",
+      "start": "13:30",
+      "end": "15:30",
       "duration_min": 120,
       "craft_block_min": 30,
       "fixed_overhead_min": 30,
@@ -2436,7 +2437,7 @@
           "note": "corpus annotates this slot 'Light snack & audiobook'"
         }
       ],
-      "span_status": "declared: operator calendar"
+      "span_status": "declared: day starts 30 min later (OD-52)"
     },
     {
       "day": "Friday",
@@ -2549,7 +2550,7 @@
           "note": "corpus annotates this slot 'Light snack & audiobook'"
         }
       ],
-      "span_status": "declared: the 16:00 row is Flow 4, not a separate block; everything after it moves 30 min earlier (OD-50)"
+      "span_status": "HELD at 16:00, not shifted with the rest of the day. The operator declared the evening chain from 18:00 absolutely (OD-53), so F4 must end at 18:00. The 30-minute start shift is absorbed by the Mittag anchor - DERIVED, see DD-39"
     },
     {
       "day": "Saturday",
@@ -3095,6 +3096,41 @@
       "dropped": [
         "EFX"
       ],
+      "budget": {
+        "basis": "minutes, because a 90-min focus block and a 2-min in-flow slot cannot both count as one unit (DD-38)",
+        "inflow_min": 144,
+        "focus_block_min_per_day": 90,
+        "focus_day_activity": {
+          "Monday": "Strikes",
+          "Tuesday": "Kicks",
+          "Wednesday": "Dance",
+          "Thursday": "Moves",
+          "Friday": "Kicks"
+        },
+        "prebound_min": {
+          "Martial Arts": 270,
+          "Dance": 180,
+          "S/BJJ": 0,
+          "General": 0,
+          "Knee": 0
+        },
+        "total_physical_min": 594,
+        "entitlement_min": {
+          "Martial Arts": 207.9,
+          "Dance": 148.5,
+          "S/BJJ": 59.4,
+          "General": 89.1,
+          "Knee": 89.1
+        },
+        "over_allocated_min": {
+          "Martial Arts": 62.1,
+          "Dance": 31.5
+        },
+        "free_minutes_available": 144,
+        "free_minutes_needed": 237.6,
+        "feasible": false,
+        "verdict": "INFEASIBLE: the pre-bound focus blocks alone exceed the declared shares for Dance, Martial Arts, and the Epics that are still owed minutes need 238 against 144 available in-flow. Either the shares move or the focus block stops counting (DD-40)."
+      },
       "shares_status": "Knee 15% DECLARED by the operator 2026-11-09 (DD-34 closed); the remaining 85% keeps the week-table proportions 3:2:1:1 (OD-49)",
       "open_question": "DD-35: 'optimized to 5-minute iterations' is not yet applied - see the spec ledger for the two candidate readings",
       "denominator": 72,

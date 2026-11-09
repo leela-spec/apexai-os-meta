@@ -81,12 +81,14 @@ Companion artifacts: [ASSUMPTIONS-AND-DECISIONS-REGISTER.md](ASSUMPTIONS-AND-DEC
 - **WD-13 [P2 | I85/E88/R07] Project Night Is Not A Flow**: The Monday-to-Wednesday project night
   runs `20:00-21:30` and is an evening block, not a Flow; it contributes no slot occurrences
   (`DD-33` closed).
-- **WD-14 [P1 | I92/E94/R04] The Declared Weekday Cut**: Read from the operator's own calendar.
-  Morning Routine `07:30-08:00`, Flows `08:00-10:00 / 10:00-12:00 / 13:00-15:00 / 16:00-18:00`,
-  Fruehstueck `12:00-13:00`, Mittag `15:00-16:00`, physical focus block `18:00-19:00`, Abend
-  `19:00-20:00`, project night `20:00-21:30`, Freizeit `21:30-22:30`, Day Outro `22:30-23:00`.
-  The `16:00` row is Flow 4 itself, not a separate block, which moves everything after it 30
-  minutes earlier. `DD-32` closed.
+- **WD-14 [P1 | I92/E94/R04] The Declared Weekday Cut**: Morning Routine `08:00-08:30`, Flows
+  `08:30-10:30 / 10:30-12:30 / 13:30-15:30 / 16:00-18:00`, Fruehstueck `12:30-13:30`, Mittag
+  `15:30-16:00`, physical focus block `18:00-19:30`, Abend `19:30-20:15`, project night
+  `20:15-21:45`, Freizeit `21:45-22:45`, Day Outro `22:45-23:15`. `DD-32` closed.
+- **WD-14e [P1 | I88/E90/R08] The Evening Chain Is Absolute, The Morning Floats**: The operator
+  declared `18:00 / 19:30 / 20:15 / 21:45` as clock times, so Flow 4 must end at `18:00` and cannot
+  shift with the day. A 30-minute later start therefore has to be absorbed before `18:00`, and only
+  the two meal anchors can absorb it — a Flow is fixed at 120 minutes. Mittag absorbs it (`DD-39`).
 - **WD-14d [P2 | I86/E92/R05] The Weekday Has No Turnarounds**: Every element abuts its neighbour.
   This is consistent rather than tight: each Flow already closes on its own 12-minute `R` break,
   so the break between Flows is inside them.
@@ -175,6 +177,11 @@ Companion artifacts: [ASSUMPTIONS-AND-DECISIONS-REGISTER.md](ASSUMPTIONS-AND-DEC
   5 percentage points, so each one ends on a 0 or a 5. Snapping uses largest remainder in units of
   5 points — the same rule the slot quota uses — and a tie goes to the Epic covering more
   week-table activities. Mental `40/20/20/20`, Physical `35/25/10/15/15`.
+- **WD-32b [P1 | I92/E96/R03] Pre-Bound Minutes Are Checked Before The Solver Runs**: The physical
+  focus block is 90 minutes of pre-designed content, so it is an allocation the solver inherits.
+  Where a pre-bound Epic already exceeds its share, no assignment of the remaining slots can repair
+  it. Check this on minutes, never on slot counts: a 90-minute block and a 2-minute slot both count
+  as one slot, which hides the entire problem. **Currently infeasible** (`DD-40`).
 
 ---
 
@@ -237,7 +244,8 @@ Companion artifacts: [ASSUMPTIONS-AND-DECISIONS-REGISTER.md](ASSUMPTIONS-AND-DEC
 | DD-33 | Project-night times | `20:00-21:30` |
 | DD-34 | Physical shares | Knee raised to 15%; the remaining 85% keeps the week-table proportions `3:2:1:1` |
 | DD-35 | "Optimized to 5-minute iterations" | Operator clarified: **5% steps.** Every declared share lands on a 0 or a 5. Physical resolves to `35 / 25 / 10 / 15 / 15`; Mental already sat on the ladder at `40 / 20 / 20 / 20` |
-| DD-36 | Evening block content | The `19:00-20:00` block is `Abend` in the operator calendar. Not a slot source |
+| DD-36 | Evening block content | The `19:30-20:15` block is `Abend` in the operator calendar. Not a slot source |
+| DD-38 | The physical focus block | Its 90 minutes **count toward the physical quota**, and their content is pre-designed per day from the week table — Strikes Monday, Kicks Tuesday and Friday, Dance Wednesday, Moves Thursday. The solver inherits this allocation rather than choosing it |
 | DD-31 | Week table to Epics | Five physical Epics; EFX dropped |
 | A-09 | Wednesday Special Project Day | Doubles: project night and slot share both |
 | A-10 | Night window | Withdrawn as malformed; `R` is an ordinary branch (`WD-19`) |
@@ -256,7 +264,8 @@ Companion artifacts: [ASSUMPTIONS-AND-DECISIONS-REGISTER.md](ASSUMPTIONS-AND-DEC
 | DD-26 | Dependency-view choice | No recommendation; its own DoD requires an unrun OpenProject edge count |
 | DD-28 | HANDOVER-05 XP chip amendment | Amend now; the definition is already a `[P0]` spec invariant |
 | DD-37 | Thursday and Friday evening | `20:00-21:30` is unallocated on those two days, since only Monday to Wednesday carry a project night |
-| DD-38 | The physical focus block | `18:00-19:00` carries the week table's focus activity (Strikes Monday, Kicks Tuesday and Friday, Dance Wednesday, Moves Thursday). Whether its 60 minutes draw on the physical quota or sit outside it is unresolved, and it is five times the in-Flow physical minutes per day |
+| DD-39 | Which element absorbs the later start | Mittag, halved to 30 minutes. **Derived, not declared.** Fruehstueck could absorb it instead |
+| DD-40 | The physical quota is infeasible | The pre-bound focus blocks give Martial Arts 270 min against a 207.9 entitlement and Dance 180 against 148.5, while S/BJJ, General and Knee are owed 238 min with only 144 in-Flow minutes left. Either the declared shares move, or the focus block stops counting. No recommendation: the shares are the operator's dial |
 
 ---
 

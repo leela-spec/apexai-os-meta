@@ -117,6 +117,35 @@ def quota_table(branch, q):
     )
 
 
+def budget_table(b):
+    """Pre-bound minutes against entitlement. Over-allocation is the headline."""
+    rows = []
+    for epic, ent in b["entitlement_min"].items():
+        pre = b["prebound_min"][epic]
+        over = b["over_allocated_min"].get(epic)
+        owed = max(0.0, ent - pre)
+        cls = ' class="zero"' if over else ""
+        mark = f"+{over:.0f} over" if over else f"{owed:.0f} owed"
+        rows.append(
+            f"<tr{cls}><td>{esc(epic)}</td><td>{ent:.0f}</td><td>{pre}</td>"
+            f"<td>{esc(mark)}</td></tr>"
+        )
+    verdict = (
+        f'<p class="note"><strong>{esc(b["verdict"])}</strong></p>'
+        if not b["feasible"] else '<p class="note">Feasible.</p>'
+    )
+    return (
+        f'<table class="q"><thead><tr><th>Epic</th><th>Entitled min</th>'
+        f"<th>Pre-bound min</th><th>Balance</th></tr></thead>"
+        f"<tbody>{''.join(rows)}"
+        f'<tr class="sum"><td>total</td><td>{b["total_physical_min"]}</td>'
+        f'<td>{sum(b["prebound_min"].values())}</td>'
+        f'<td>{b["free_minutes_needed"]:.0f} needed / '
+        f'{b["free_minutes_available"]} free</td></tr>'
+        f"</tbody></table>{verdict}"
+    )
+
+
 def build_html(data):
     t = data["totals"]
     ft = data["flow_template"]
@@ -260,6 +289,12 @@ This is the surface the binding rules act on.</p>
 <h2>Physical shares</h2>
 <p class="note">{esc(data['quota']['physical']['shares_status'])}</p>
 {quota_table('physical', data['quota']['physical'])}
+
+<h2>Physical minute budget</h2>
+<p>The 18:00&ndash;19:30 focus block is 90 minutes of pre-designed content, so it is an
+allocation the solver inherits rather than makes. Slot counts hide this &mdash; a 90-minute
+block and a 2-minute in-flow slot both count as one &mdash; so the check runs on minutes.</p>
+{budget_table(data['quota']['physical']['budget'])}
 
 <h2>Not yet built</h2>
 <p>The grid shows <em>capacity</em>. It does not show which Epic occupies which slot,

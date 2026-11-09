@@ -29,9 +29,9 @@ REGIMES = {
     "weekday_project": {
         "days": ["Monday", "Tuesday", "Wednesday"],
         "flows_per_day": 4,
-        "evening": {"label": "Project night", "start": "20:00", "end": "21:30",
+        "evening": {"label": "Project night", "start": "20:15", "end": "21:45",
                     "minutes": 90,
-                    "time_status": "DECLARED by the operator 2026-11-09 (DD-33 closed)"},
+                    "time_status": "DECLARED by the operator 2026-11-09 (OD-53)"},
     },
     "weekday_plain": {
         "days": ["Thursday", "Friday"],
@@ -65,15 +65,18 @@ FLOW_MIN = 120
 # No turnarounds exist anywhere in this day. Every element abuts its neighbour,
 # which is consistent: each Flow already closes on its own 12-minute R break.
 WEEKDAY_FLOWS = [
-    {"flow": "F1", "start": "08:00", "end": "10:00", "duration_min": FLOW_MIN,
-     "span_status": "declared: operator calendar"},
-    {"flow": "F2", "start": "10:00", "end": "12:00", "duration_min": FLOW_MIN,
+    {"flow": "F1", "start": "08:30", "end": "10:30", "duration_min": FLOW_MIN,
+     "span_status": "declared: day starts 30 min later (OD-52)"},
+    {"flow": "F2", "start": "10:30", "end": "12:30", "duration_min": FLOW_MIN,
      "span_status": "declared: adjacent to F1, no turnaround (OD-46)"},
-    {"flow": "F3", "start": "13:00", "end": "15:00", "duration_min": FLOW_MIN,
-     "span_status": "declared: operator calendar"},
+    {"flow": "F3", "start": "13:30", "end": "15:30", "duration_min": FLOW_MIN,
+     "span_status": "declared: day starts 30 min later (OD-52)"},
     {"flow": "F4", "start": "16:00", "end": "18:00", "duration_min": FLOW_MIN,
-     "span_status": "declared: the 16:00 row is Flow 4, not a separate block; "
-                    "everything after it moves 30 min earlier (OD-50)"},
+     "span_status": "HELD at 16:00, not shifted with the rest of the day. The "
+                    "operator declared the evening chain from 18:00 absolutely "
+                    "(OD-53), so F4 must end at 18:00. The 30-minute start "
+                    "shift is absorbed by the Mittag anchor - DERIVED, see "
+                    "DD-39"},
 ]
 
 # OD-47: weekend flows start at noon and run back-to-back, no pause between.
@@ -173,32 +176,35 @@ PHYSICAL_FOCUS_CAPACITY = {"Martial Arts": 36, "Dance": 24,
 
 # Practice surface outside the flows. Not quota-bearing (A-08).
 ANCHORS = [
-    {"anchor": "morning", "start": "07:30", "end": "08:00", "minutes": 30,
+    {"anchor": "morning", "start": "08:00", "end": "08:30", "minutes": 30,
      "label": "Morning Routine", "branch_hint": "M",
-     "span_status": "declared: operator calendar, 30 min"},
-    {"anchor": "breakfast", "start": "12:00", "end": "13:00", "minutes": 60,
+     "span_status": "declared: day starts 30 min later (OD-52)"},
+    {"anchor": "breakfast", "start": "12:30", "end": "13:30", "minutes": 60,
      "label": "Fruehstueck Prep & Fruehstueck Mental", "branch_hint": "M",
-     "span_status": "declared: operator calendar, two 30-min rows"},
-    {"anchor": "lunch", "start": "15:00", "end": "16:00", "minutes": 60,
+     "span_status": "declared: shifted 30 min later with the day (OD-52)"},
+    {"anchor": "lunch", "start": "15:30", "end": "16:00", "minutes": 30,
      "label": "Mittag Prep & Mittag Stephen", "branch_hint": "R",
-     "span_status": "declared: operator calendar, two 30-min rows"},
-    {"anchor": "physical_focus", "start": "18:00", "end": "19:00", "minutes": 60,
-     "label": "Physical Focus Block", "branch_hint": "P",
-     "span_status": "declared: operator calendar shows 'VWC Strikes' on Monday, "
-                    "shifted 30 min earlier by OD-50",
-     "note": "per-day content comes from the week table (Strikes Mon, Kicks Tue "
-             "and Fri, Dance Wed, Moves Thu). Whether this block draws on the "
-             "physical quota or sits outside it is DD-38."},
-    {"anchor": "evening", "start": "19:00", "end": "20:00", "minutes": 60,
+     "span_status": "DERIVED: halved from 60 min. It is the only flexible "
+                    "element between the shifted morning and the fixed 18:00 "
+                    "evening, so it absorbs the 30-minute start shift. The "
+                    "operator did not declare this - see DD-39"},
+    {"anchor": "physical_focus", "start": "18:00", "end": "19:30", "minutes": 90,
+     "label": "Physical Focus Block", "branch_hint": "P", "quota_bearing": True,
+     "span_status": "declared 2026-11-09 (OD-53)",
+     "note": "DD-38 closed: these 90 minutes COUNT toward the physical quota, "
+             "and their content is pre-designed per day from the week table - "
+             "Strikes Monday, Kicks Tuesday and Friday, Dance Wednesday, Moves "
+             "Thursday. The solver does not choose it; it is pre-bound."},
+    {"anchor": "evening", "start": "19:30", "end": "20:15", "minutes": 45,
      "label": "Abend", "branch_hint": None, "bindable": False,
-     "span_status": "declared: operator calendar, shifted 30 min earlier (OD-50)"},
-    {"anchor": "freizeit", "start": "21:30", "end": "22:30", "minutes": 60,
+     "span_status": "declared 2026-11-09 (OD-53)"},
+    {"anchor": "freizeit", "start": "21:45", "end": "22:45", "minutes": 60,
      "label": "Freizeit", "branch_hint": "R", "bindable": False,
-     "span_status": "declared: operator calendar, shifted 30 min earlier (OD-50)"},
-    {"anchor": "day_outro", "start": "22:30", "end": "23:00", "minutes": 30,
+     "span_status": "DERIVED: follows the 20:15-21:45 project night (OD-53)"},
+    {"anchor": "day_outro", "start": "22:45", "end": "23:15", "minutes": 30,
      "label": "Day Outro", "branch_hint": None, "bindable": False,
-     "span_status": "declared: operator calendar, shifted 30 min earlier (OD-50)"},
-    {"anchor": "night", "start": "23:00", "end": "24:00", "minutes": 60,
+     "span_status": "DERIVED: shifted with Freizeit (OD-53)"},
+    {"anchor": "night", "start": "23:15", "end": "24:00", "minutes": 45,
      "label": "Sleep Routine & Night Recovery",
      "branch_hint": "R", "bindable": False,
      "note": "not a slot source. R is an ordinary branch (OD-41); its slots are "
@@ -229,6 +235,61 @@ def allocate_quota(total, shares, tie_capacity):
         "rounding_rule": "largest remainder at the week (DD-27); ties to the "
                          "Epic with the least focus-day capacity",
         "tie_capacity": tie_capacity,
+    }
+
+
+# OD-53 / DD-38: the 18:00-19:30 focus block counts toward the physical quota
+# and its content is pre-designed per day, taken from the operator week table.
+FOCUS_BLOCK_MIN = 90
+FOCUS_DAY_ACTIVITY = {
+    "Monday": "Strikes", "Tuesday": "Kicks", "Wednesday": "Dance",
+    "Thursday": "Moves", "Friday": "Kicks",
+}
+
+
+def physical_budget(inflow_min):
+    """Can the declared shares still be met once the focus blocks are pre-bound?
+
+    The focus blocks are 90 minutes each and their Epic is fixed in advance, so
+    they are an allocation the solver inherits rather than makes. If a pre-bound
+    Epic already exceeds its share, no assignment of the remaining slots can
+    repair it: the quota is infeasible before the solver starts. Reporting that
+    here is the whole point - it is invisible in slot counts, because a 90-minute
+    block and a 2-minute slot both count as one.
+    """
+    prebound = {e: 0 for e in PHYSICAL_EPICS}
+    for day, activity in FOCUS_DAY_ACTIVITY.items():
+        epic = WEEK_TABLE_MAP.get(activity)
+        if epic is None:
+            raise ValueError(f"focus activity '{activity}' ({day}) maps to no Epic")
+        prebound[epic] += FOCUS_BLOCK_MIN
+
+    total = inflow_min + sum(prebound.values())
+    entitlement = {e: PHYSICAL_SHARES[e] * total for e in PHYSICAL_EPICS}
+    over = {e: prebound[e] - entitlement[e]
+            for e in PHYSICAL_EPICS if prebound[e] > entitlement[e]}
+    free_need = sum(max(0.0, entitlement[e] - prebound[e]) for e in PHYSICAL_EPICS)
+
+    return {
+        "basis": "minutes, because a 90-min focus block and a 2-min in-flow slot "
+                 "cannot both count as one unit (DD-38)",
+        "inflow_min": inflow_min,
+        "focus_block_min_per_day": FOCUS_BLOCK_MIN,
+        "focus_day_activity": FOCUS_DAY_ACTIVITY,
+        "prebound_min": prebound,
+        "total_physical_min": total,
+        "entitlement_min": {e: round(v, 1) for e, v in entitlement.items()},
+        "over_allocated_min": {e: round(v, 1) for e, v in over.items()},
+        "free_minutes_available": inflow_min,
+        "free_minutes_needed": round(free_need, 1),
+        "feasible": not over and free_need <= inflow_min,
+        "verdict": (
+            "INFEASIBLE: the pre-bound focus blocks alone exceed the declared "
+            "shares for " + ", ".join(sorted(over)) + ", and the Epics that are "
+            f"still owed minutes need {free_need:.0f} against {inflow_min} "
+            "available in-flow. Either the shares move or the focus block stops "
+            "counting (DD-40)."
+        ) if (over or free_need > inflow_min) else "feasible",
     }
 
 
@@ -389,6 +450,7 @@ def build():
                 epics=PHYSICAL_EPICS,
                 week_table_mapping=WEEK_TABLE_MAP,
                 dropped=["EFX"],
+                budget=physical_budget(minutes["P"]),
                 shares_status="Knee 15% DECLARED by the operator 2026-11-09 "
                               "(DD-34 closed); the remaining 85% keeps the "
                               "week-table proportions 3:2:1:1 (OD-49)",
