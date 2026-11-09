@@ -70,48 +70,77 @@
   "anchors": [
     {
       "anchor": "morning",
-      "start": "08:00",
-      "end": "08:30",
+      "start": "07:30",
+      "end": "08:00",
       "minutes": 30,
-      "label": "Morning Routine, Meditation & Setup",
+      "label": "Morning Routine",
       "branch_hint": "M",
-      "span_status": "declared: reduced from 60 min (OD-45)"
+      "span_status": "declared: operator calendar, 30 min"
     },
     {
-      "anchor": "midday",
-      "start": "12:30",
-      "end": "13:30",
+      "anchor": "breakfast",
+      "start": "12:00",
+      "end": "13:00",
       "minutes": 60,
-      "label": "Midday Reset, Healthy Lunch & Fresh Air Walk",
+      "label": "Fruehstueck Prep & Fruehstueck Mental",
+      "branch_hint": "M",
+      "span_status": "declared: operator calendar, two 30-min rows"
+    },
+    {
+      "anchor": "lunch",
+      "start": "15:00",
+      "end": "16:00",
+      "minutes": 60,
+      "label": "Mittag Prep & Mittag Stephen",
       "branch_hint": "R",
-      "span_status": "DERIVED: held at 12:30 because F2 now ends there. The 30-minute shift would have put it at 12:00, inside F2 (OD-46 adjacency wins)"
+      "span_status": "declared: operator calendar, two 30-min rows"
+    },
+    {
+      "anchor": "physical_focus",
+      "start": "18:00",
+      "end": "19:00",
+      "minutes": 60,
+      "label": "Physical Focus Block",
+      "branch_hint": "P",
+      "span_status": "declared: operator calendar shows 'VWC Strikes' on Monday, shifted 30 min earlier by OD-50",
+      "note": "per-day content comes from the week table (Strikes Mon, Kicks Tue and Fri, Dance Wed, Moves Thu). Whether this block draws on the physical quota or sits outside it is DD-38."
     },
     {
       "anchor": "evening",
       "start": "19:00",
       "end": "20:00",
       "minutes": 60,
-      "label": "Evening Block",
+      "label": "Abend",
       "branch_hint": null,
       "bindable": false,
-      "span_status": "declared 2026-11-09 (OD-48); content not yet specified"
+      "span_status": "declared: operator calendar, shifted 30 min earlier (OD-50)"
     },
     {
-      "anchor": "shutdown",
+      "anchor": "freizeit",
       "start": "21:30",
-      "end": "22:00",
+      "end": "22:30",
+      "minutes": 60,
+      "label": "Freizeit",
+      "branch_hint": "R",
+      "bindable": false,
+      "span_status": "declared: operator calendar, shifted 30 min earlier (OD-50)"
+    },
+    {
+      "anchor": "day_outro",
+      "start": "22:30",
+      "end": "23:00",
       "minutes": 30,
-      "label": "Daily Shutdown: Outro, Day Evidence Commit & Workspace Reset",
+      "label": "Day Outro",
       "branch_hint": null,
       "bindable": false,
-      "span_status": "DERIVED: follows the 20:00-21:30 project night (DD-33)"
+      "span_status": "declared: operator calendar, shifted 30 min earlier (OD-50)"
     },
     {
       "anchor": "night",
-      "start": "22:00",
+      "start": "23:00",
       "end": "24:00",
-      "minutes": 120,
-      "label": "Evening Regeneration, Rest, Reading & Night Recovery",
+      "minutes": 60,
+      "label": "Sleep Routine & Night Recovery",
       "branch_hint": "R",
       "bindable": false,
       "note": "not a slot source. R is an ordinary branch (OD-41); its slots are the 24 in-flow breaks, which carry R content such as Yoga Nidra or reading. This window is life, not schedule."
@@ -121,34 +150,44 @@
     "note": "every placed element per regime in clock order; generated and overlap-checked, so a shifted time cannot silently collide with a flow",
     "weekday_project": [
       {
-        "start": "08:00",
-        "end": "08:30",
+        "start": "07:30",
+        "end": "08:00",
         "element": "morning"
       },
       {
-        "start": "08:30",
-        "end": "10:30",
+        "start": "08:00",
+        "end": "10:00",
         "element": "F1"
       },
       {
-        "start": "10:30",
-        "end": "12:30",
+        "start": "10:00",
+        "end": "12:00",
         "element": "F2"
       },
       {
-        "start": "12:30",
-        "end": "13:30",
-        "element": "midday"
+        "start": "12:00",
+        "end": "13:00",
+        "element": "breakfast"
       },
       {
-        "start": "13:45",
-        "end": "15:45",
+        "start": "13:00",
+        "end": "15:00",
         "element": "F3"
+      },
+      {
+        "start": "15:00",
+        "end": "16:00",
+        "element": "lunch"
       },
       {
         "start": "16:00",
         "end": "18:00",
         "element": "F4"
+      },
+      {
+        "start": "18:00",
+        "end": "19:00",
+        "element": "physical_focus"
       },
       {
         "start": "19:00",
@@ -162,45 +201,60 @@
       },
       {
         "start": "21:30",
-        "end": "22:00",
-        "element": "shutdown"
+        "end": "22:30",
+        "element": "freizeit"
       },
       {
-        "start": "22:00",
+        "start": "22:30",
+        "end": "23:00",
+        "element": "day_outro"
+      },
+      {
+        "start": "23:00",
         "end": "24:00",
         "element": "night"
       }
     ],
     "weekday_plain": [
       {
-        "start": "08:00",
-        "end": "08:30",
+        "start": "07:30",
+        "end": "08:00",
         "element": "morning"
       },
       {
-        "start": "08:30",
-        "end": "10:30",
+        "start": "08:00",
+        "end": "10:00",
         "element": "F1"
       },
       {
-        "start": "10:30",
-        "end": "12:30",
+        "start": "10:00",
+        "end": "12:00",
         "element": "F2"
       },
       {
-        "start": "12:30",
-        "end": "13:30",
-        "element": "midday"
+        "start": "12:00",
+        "end": "13:00",
+        "element": "breakfast"
       },
       {
-        "start": "13:45",
-        "end": "15:45",
+        "start": "13:00",
+        "end": "15:00",
         "element": "F3"
+      },
+      {
+        "start": "15:00",
+        "end": "16:00",
+        "element": "lunch"
       },
       {
         "start": "16:00",
         "end": "18:00",
         "element": "F4"
+      },
+      {
+        "start": "18:00",
+        "end": "19:00",
+        "element": "physical_focus"
       },
       {
         "start": "19:00",
@@ -209,11 +263,16 @@
       },
       {
         "start": "21:30",
-        "end": "22:00",
-        "element": "shutdown"
+        "end": "22:30",
+        "element": "freizeit"
       },
       {
-        "start": "22:00",
+        "start": "22:30",
+        "end": "23:00",
+        "element": "day_outro"
+      },
+      {
+        "start": "23:00",
         "end": "24:00",
         "element": "night"
       }
@@ -236,8 +295,8 @@
       "day": "Monday",
       "regime": "weekday",
       "flow": "F1",
-      "start": "08:30",
-      "end": "10:30",
+      "start": "08:00",
+      "end": "10:00",
       "duration_min": 120,
       "craft_block_min": 30,
       "fixed_overhead_min": 30,
@@ -343,14 +402,14 @@
           "note": "corpus annotates this slot 'Light snack & audiobook'"
         }
       ],
-      "span_status": "declared: morning anchor shortened to 30 min (OD-45)"
+      "span_status": "declared: operator calendar"
     },
     {
       "day": "Monday",
       "regime": "weekday",
       "flow": "F2",
-      "start": "10:30",
-      "end": "12:30",
+      "start": "10:00",
+      "end": "12:00",
       "duration_min": 120,
       "craft_block_min": 30,
       "fixed_overhead_min": 30,
@@ -462,8 +521,8 @@
       "day": "Monday",
       "regime": "weekday",
       "flow": "F3",
-      "start": "13:45",
-      "end": "15:45",
+      "start": "13:00",
+      "end": "15:00",
       "duration_min": 120,
       "craft_block_min": 30,
       "fixed_overhead_min": 30,
@@ -569,7 +628,7 @@
           "note": "corpus annotates this slot 'Light snack & audiobook'"
         }
       ],
-      "span_status": "DERIVED: prior 14:15 shifted 30 min earlier (OD-45); the 15-min turnaround after the midday anchor is preserved"
+      "span_status": "declared: operator calendar"
     },
     {
       "day": "Monday",
@@ -682,14 +741,14 @@
           "note": "corpus annotates this slot 'Light snack & audiobook'"
         }
       ],
-      "span_status": "DERIVED: prior 16:30 shifted 30 min earlier (OD-45)"
+      "span_status": "declared: the 16:00 row is Flow 4, not a separate block; everything after it moves 30 min earlier (OD-50)"
     },
     {
       "day": "Tuesday",
       "regime": "weekday",
       "flow": "F1",
-      "start": "08:30",
-      "end": "10:30",
+      "start": "08:00",
+      "end": "10:00",
       "duration_min": 120,
       "craft_block_min": 30,
       "fixed_overhead_min": 30,
@@ -795,14 +854,14 @@
           "note": "corpus annotates this slot 'Light snack & audiobook'"
         }
       ],
-      "span_status": "declared: morning anchor shortened to 30 min (OD-45)"
+      "span_status": "declared: operator calendar"
     },
     {
       "day": "Tuesday",
       "regime": "weekday",
       "flow": "F2",
-      "start": "10:30",
-      "end": "12:30",
+      "start": "10:00",
+      "end": "12:00",
       "duration_min": 120,
       "craft_block_min": 30,
       "fixed_overhead_min": 30,
@@ -914,8 +973,8 @@
       "day": "Tuesday",
       "regime": "weekday",
       "flow": "F3",
-      "start": "13:45",
-      "end": "15:45",
+      "start": "13:00",
+      "end": "15:00",
       "duration_min": 120,
       "craft_block_min": 30,
       "fixed_overhead_min": 30,
@@ -1021,7 +1080,7 @@
           "note": "corpus annotates this slot 'Light snack & audiobook'"
         }
       ],
-      "span_status": "DERIVED: prior 14:15 shifted 30 min earlier (OD-45); the 15-min turnaround after the midday anchor is preserved"
+      "span_status": "declared: operator calendar"
     },
     {
       "day": "Tuesday",
@@ -1134,14 +1193,14 @@
           "note": "corpus annotates this slot 'Light snack & audiobook'"
         }
       ],
-      "span_status": "DERIVED: prior 16:30 shifted 30 min earlier (OD-45)"
+      "span_status": "declared: the 16:00 row is Flow 4, not a separate block; everything after it moves 30 min earlier (OD-50)"
     },
     {
       "day": "Wednesday",
       "regime": "weekday",
       "flow": "F1",
-      "start": "08:30",
-      "end": "10:30",
+      "start": "08:00",
+      "end": "10:00",
       "duration_min": 120,
       "craft_block_min": 30,
       "fixed_overhead_min": 30,
@@ -1247,14 +1306,14 @@
           "note": "corpus annotates this slot 'Light snack & audiobook'"
         }
       ],
-      "span_status": "declared: morning anchor shortened to 30 min (OD-45)"
+      "span_status": "declared: operator calendar"
     },
     {
       "day": "Wednesday",
       "regime": "weekday",
       "flow": "F2",
-      "start": "10:30",
-      "end": "12:30",
+      "start": "10:00",
+      "end": "12:00",
       "duration_min": 120,
       "craft_block_min": 30,
       "fixed_overhead_min": 30,
@@ -1366,8 +1425,8 @@
       "day": "Wednesday",
       "regime": "weekday",
       "flow": "F3",
-      "start": "13:45",
-      "end": "15:45",
+      "start": "13:00",
+      "end": "15:00",
       "duration_min": 120,
       "craft_block_min": 30,
       "fixed_overhead_min": 30,
@@ -1473,7 +1532,7 @@
           "note": "corpus annotates this slot 'Light snack & audiobook'"
         }
       ],
-      "span_status": "DERIVED: prior 14:15 shifted 30 min earlier (OD-45); the 15-min turnaround after the midday anchor is preserved"
+      "span_status": "declared: operator calendar"
     },
     {
       "day": "Wednesday",
@@ -1586,14 +1645,14 @@
           "note": "corpus annotates this slot 'Light snack & audiobook'"
         }
       ],
-      "span_status": "DERIVED: prior 16:30 shifted 30 min earlier (OD-45)"
+      "span_status": "declared: the 16:00 row is Flow 4, not a separate block; everything after it moves 30 min earlier (OD-50)"
     },
     {
       "day": "Thursday",
       "regime": "weekday",
       "flow": "F1",
-      "start": "08:30",
-      "end": "10:30",
+      "start": "08:00",
+      "end": "10:00",
       "duration_min": 120,
       "craft_block_min": 30,
       "fixed_overhead_min": 30,
@@ -1699,14 +1758,14 @@
           "note": "corpus annotates this slot 'Light snack & audiobook'"
         }
       ],
-      "span_status": "declared: morning anchor shortened to 30 min (OD-45)"
+      "span_status": "declared: operator calendar"
     },
     {
       "day": "Thursday",
       "regime": "weekday",
       "flow": "F2",
-      "start": "10:30",
-      "end": "12:30",
+      "start": "10:00",
+      "end": "12:00",
       "duration_min": 120,
       "craft_block_min": 30,
       "fixed_overhead_min": 30,
@@ -1818,8 +1877,8 @@
       "day": "Thursday",
       "regime": "weekday",
       "flow": "F3",
-      "start": "13:45",
-      "end": "15:45",
+      "start": "13:00",
+      "end": "15:00",
       "duration_min": 120,
       "craft_block_min": 30,
       "fixed_overhead_min": 30,
@@ -1925,7 +1984,7 @@
           "note": "corpus annotates this slot 'Light snack & audiobook'"
         }
       ],
-      "span_status": "DERIVED: prior 14:15 shifted 30 min earlier (OD-45); the 15-min turnaround after the midday anchor is preserved"
+      "span_status": "declared: operator calendar"
     },
     {
       "day": "Thursday",
@@ -2038,14 +2097,14 @@
           "note": "corpus annotates this slot 'Light snack & audiobook'"
         }
       ],
-      "span_status": "DERIVED: prior 16:30 shifted 30 min earlier (OD-45)"
+      "span_status": "declared: the 16:00 row is Flow 4, not a separate block; everything after it moves 30 min earlier (OD-50)"
     },
     {
       "day": "Friday",
       "regime": "weekday",
       "flow": "F1",
-      "start": "08:30",
-      "end": "10:30",
+      "start": "08:00",
+      "end": "10:00",
       "duration_min": 120,
       "craft_block_min": 30,
       "fixed_overhead_min": 30,
@@ -2151,14 +2210,14 @@
           "note": "corpus annotates this slot 'Light snack & audiobook'"
         }
       ],
-      "span_status": "declared: morning anchor shortened to 30 min (OD-45)"
+      "span_status": "declared: operator calendar"
     },
     {
       "day": "Friday",
       "regime": "weekday",
       "flow": "F2",
-      "start": "10:30",
-      "end": "12:30",
+      "start": "10:00",
+      "end": "12:00",
       "duration_min": 120,
       "craft_block_min": 30,
       "fixed_overhead_min": 30,
@@ -2270,8 +2329,8 @@
       "day": "Friday",
       "regime": "weekday",
       "flow": "F3",
-      "start": "13:45",
-      "end": "15:45",
+      "start": "13:00",
+      "end": "15:00",
       "duration_min": 120,
       "craft_block_min": 30,
       "fixed_overhead_min": 30,
@@ -2377,7 +2436,7 @@
           "note": "corpus annotates this slot 'Light snack & audiobook'"
         }
       ],
-      "span_status": "DERIVED: prior 14:15 shifted 30 min earlier (OD-45); the 15-min turnaround after the midday anchor is preserved"
+      "span_status": "declared: operator calendar"
     },
     {
       "day": "Friday",
@@ -2490,7 +2549,7 @@
           "note": "corpus annotates this slot 'Light snack & audiobook'"
         }
       ],
-      "span_status": "DERIVED: prior 16:30 shifted 30 min earlier (OD-45)"
+      "span_status": "declared: the 16:00 row is Flow 4, not a separate block; everything after it moves 30 min earlier (OD-50)"
     },
     {
       "day": "Saturday",
@@ -3040,31 +3099,31 @@
       "open_question": "DD-35: 'optimized to 5-minute iterations' is not yet applied - see the spec ledger for the two candidate readings",
       "denominator": 72,
       "declared_shares": {
-        "Martial Arts": 0.3643,
-        "Dance": 0.2429,
-        "S/BJJ": 0.1214,
-        "General": 0.1214,
+        "Martial Arts": 0.35,
+        "Dance": 0.25,
+        "S/BJJ": 0.1,
+        "General": 0.15,
         "Knee": 0.15
       },
       "raw": {
-        "Martial Arts": 26.23,
-        "Dance": 17.49,
-        "S/BJJ": 8.74,
-        "General": 8.74,
+        "Martial Arts": 25.2,
+        "Dance": 18.0,
+        "S/BJJ": 7.2,
+        "General": 10.8,
         "Knee": 10.8
       },
       "allocated": {
-        "Martial Arts": 26,
-        "Dance": 17,
-        "S/BJJ": 9,
-        "General": 9,
+        "Martial Arts": 25,
+        "Dance": 18,
+        "S/BJJ": 7,
+        "General": 11,
         "Knee": 11
       },
       "realized_share": {
-        "Martial Arts": 0.3611,
-        "Dance": 0.2361,
-        "S/BJJ": 0.125,
-        "General": 0.125,
+        "Martial Arts": 0.3472,
+        "Dance": 0.25,
+        "S/BJJ": 0.0972,
+        "General": 0.1528,
         "Knee": 0.1528
       },
       "rounding_rule": "largest remainder at the week (DD-27); ties to the Epic with the least focus-day capacity",

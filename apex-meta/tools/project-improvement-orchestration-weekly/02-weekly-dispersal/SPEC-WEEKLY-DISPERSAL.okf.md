@@ -81,10 +81,15 @@ Companion artifacts: [ASSUMPTIONS-AND-DECISIONS-REGISTER.md](ASSUMPTIONS-AND-DEC
 - **WD-13 [P2 | I85/E88/R07] Project Night Is Not A Flow**: The Monday-to-Wednesday project night
   runs `20:00-21:30` and is an evening block, not a Flow; it contributes no slot occurrences
   (`DD-33` closed).
-- **WD-14 [P1 | I90/E90/R06] The Declared Weekday Cut**: The morning anchor runs 30 minutes
-  (`08:00-08:30`) and everything after it moves 30 minutes earlier against the inherited geometry.
-  Flows run `08:30-10:30 / 10:30-12:30 / 13:45-15:45 / 16:00-18:00`, the midday anchor
-  `12:30-13:30`, the evening block `19:00-20:00`, shutdown `21:30-22:00`. `DD-32` closed.
+- **WD-14 [P1 | I92/E94/R04] The Declared Weekday Cut**: Read from the operator's own calendar.
+  Morning Routine `07:30-08:00`, Flows `08:00-10:00 / 10:00-12:00 / 13:00-15:00 / 16:00-18:00`,
+  Fruehstueck `12:00-13:00`, Mittag `15:00-16:00`, physical focus block `18:00-19:00`, Abend
+  `19:00-20:00`, project night `20:00-21:30`, Freizeit `21:30-22:30`, Day Outro `22:30-23:00`.
+  The `16:00` row is Flow 4 itself, not a separate block, which moves everything after it 30
+  minutes earlier. `DD-32` closed.
+- **WD-14d [P2 | I86/E92/R05] The Weekday Has No Turnarounds**: Every element abuts its neighbour.
+  This is consistent rather than tight: each Flow already closes on its own 12-minute `R` break,
+  so the break between Flows is inside them.
 - **WD-14a [P2 | I84/E92/R05] Flows 1 And 2 Are Adjacent**: No turnaround separates Flow 1 from
   Flow 2. Each Flow already closes on its own 12-minute `R` break, so adjacency removes the
   inter-Flow gap only and never the break.
@@ -164,7 +169,12 @@ Companion artifacts: [ASSUMPTIONS-AND-DECISIONS-REGISTER.md](ASSUMPTIONS-AND-DEC
   particular percentage as fixed.
 - **WD-32 [P1 | I88/E94/R06] A Zero Share Is Schedulable Silence**: An Epic with a zero share draws
   no slots and the algorithm will never place it. Detect and surface this rather than letting an
-  Epic vanish. Currently applies to **Knee**, which has no entry in the operator week table.
+  Epic vanish. **Knee** was the case that proved it and is now at 15%, so no Epic currently
+  holds a zero share.
+- **WD-32a [P2 | I84/E94/R04] Shares Land On The 5% Ladder**: Every declared share is a multiple of
+  5 percentage points, so each one ends on a 0 or a 5. Snapping uses largest remainder in units of
+  5 points — the same rule the slot quota uses — and a tie goes to the Epic covering more
+  week-table activities. Mental `40/20/20/20`, Physical `35/25/10/15/15`.
 
 ---
 
@@ -226,6 +236,8 @@ Companion artifacts: [ASSUMPTIONS-AND-DECISIONS-REGISTER.md](ASSUMPTIONS-AND-DEC
 | DD-32 | Weekday re-cut | Declared: 30-minute morning anchor, everything after it 30 minutes earlier, Flows 1 and 2 adjacent (`WD-14`) |
 | DD-33 | Project-night times | `20:00-21:30` |
 | DD-34 | Physical shares | Knee raised to 15%; the remaining 85% keeps the week-table proportions `3:2:1:1` |
+| DD-35 | "Optimized to 5-minute iterations" | Operator clarified: **5% steps.** Every declared share lands on a 0 or a 5. Physical resolves to `35 / 25 / 10 / 15 / 15`; Mental already sat on the ladder at `40 / 20 / 20 / 20` |
+| DD-36 | Evening block content | The `19:00-20:00` block is `Abend` in the operator calendar. Not a slot source |
 | DD-31 | Week table to Epics | Five physical Epics; EFX dropped |
 | A-09 | Wednesday Special Project Day | Doubles: project night and slot share both |
 | A-10 | Night window | Withdrawn as malformed; `R` is an ordinary branch (`WD-19`) |
@@ -243,9 +255,8 @@ Companion artifacts: [ASSUMPTIONS-AND-DECISIONS-REGISTER.md](ASSUMPTIONS-AND-DEC
 | DD-24 | Stale weekend text in Handovers 04, 05 | Fix now, before ratification reintroduces `Sun OFF` |
 | DD-26 | Dependency-view choice | No recommendation; its own DoD requires an unrun OpenProject edge count |
 | DD-28 | HANDOVER-05 XP chip amendment | Amend now; the definition is already a `[P0]` spec invariant |
-| DD-35 | "Optimized to 5-minute iterations" | Not applied. Two readings: (a) declared shares round to 5-percentage-point steps, giving `35/25/10/15/15`; (b) the `P`+`M` pair is the 5-minute iteration unit and allocations must fill whole pairs. Reading (b) is already true of the Flow — 2 + 3 = 5 — which makes (a) the likelier ask |
-| DD-36 | Evening block content | `19:00-20:00` is declared but unnamed. Not yet a slot source |
-| DD-37 | Thursday and Friday evening | Those days have `18:00-19:00` and `20:00-21:30` unallocated, since only Monday to Wednesday carry a project night |
+| DD-37 | Thursday and Friday evening | `20:00-21:30` is unallocated on those two days, since only Monday to Wednesday carry a project night |
+| DD-38 | The physical focus block | `18:00-19:00` carries the week table's focus activity (Strikes Monday, Kicks Tuesday and Friday, Dance Wednesday, Moves Thursday). Whether its 60 minutes draw on the physical quota or sit outside it is unresolved, and it is five times the in-Flow physical minutes per day |
 
 ---
 

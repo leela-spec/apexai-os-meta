@@ -58,20 +58,22 @@ FIXED_OVERHEAD = ITERATIONS * (P_MIN + M_MIN + RECAP_MIN) + BREAK_MIN  # 30
 # operator declared the re-cut on 2026-11-09 and DD-32 is closed.
 FLOW_MIN = 120
 
-# OD-45: the operator re-cut the weekday on 2026-11-09. The morning anchor loses
-# 30 minutes and everything after it moves 30 minutes earlier. F1 and F2 run
-# back-to-back with no turnaround between them; the 12-minute in-flow break
-# closes each flow regardless, so adjacency removes only the inter-flow gap.
+# OD-45: read off the operator's own Monday calendar (screenshot 2026-11-09),
+# with the operator's correction that the 16:00 "Finanzen / 2Dos" row is already
+# Flow 4, so everything from 16:00 moves 30 minutes earlier.
+#
+# No turnarounds exist anywhere in this day. Every element abuts its neighbour,
+# which is consistent: each Flow already closes on its own 12-minute R break.
 WEEKDAY_FLOWS = [
-    {"flow": "F1", "start": "08:30", "end": "10:30", "duration_min": FLOW_MIN,
-     "span_status": "declared: morning anchor shortened to 30 min (OD-45)"},
-    {"flow": "F2", "start": "10:30", "end": "12:30", "duration_min": FLOW_MIN,
+    {"flow": "F1", "start": "08:00", "end": "10:00", "duration_min": FLOW_MIN,
+     "span_status": "declared: operator calendar"},
+    {"flow": "F2", "start": "10:00", "end": "12:00", "duration_min": FLOW_MIN,
      "span_status": "declared: adjacent to F1, no turnaround (OD-46)"},
-    {"flow": "F3", "start": "13:45", "end": "15:45", "duration_min": FLOW_MIN,
-     "span_status": "DERIVED: prior 14:15 shifted 30 min earlier (OD-45); the "
-                    "15-min turnaround after the midday anchor is preserved"},
+    {"flow": "F3", "start": "13:00", "end": "15:00", "duration_min": FLOW_MIN,
+     "span_status": "declared: operator calendar"},
     {"flow": "F4", "start": "16:00", "end": "18:00", "duration_min": FLOW_MIN,
-     "span_status": "DERIVED: prior 16:30 shifted 30 min earlier (OD-45)"},
+     "span_status": "declared: the 16:00 row is Flow 4, not a separate block; "
+                    "everything after it moves 30 min earlier (OD-50)"},
 ]
 
 # OD-47: weekend flows start at noon and run back-to-back, no pause between.
@@ -105,9 +107,62 @@ MENTAL_SHARES = {"Intention": 0.40, "ACIM": 0.20, "Surrender": 0.20, "Breathing"
 # 3:2:1:1, so one declared number drives the whole table and no second
 # transformation is invented on top of the operator's instruction.
 KNEE_SHARE = 0.15
+SHARE_STEP = 0.05  # OD-51: every declared share lands on a 0 or a 5
+
 _REST = {"Martial Arts": 3 / 7, "Dance": 2 / 7, "S/BJJ": 1 / 7, "General": 1 / 7}
-PHYSICAL_SHARES = {k: v * (1 - KNEE_SHARE) for k, v in _REST.items()}
-PHYSICAL_SHARES["Knee"] = KNEE_SHARE
+
+
+def _tie_order(epics):
+    """Deterministic order for breaking a rounding tie on the 5% ladder.
+
+    The Epic covering more week-table activities takes the spare step: it has
+    more ground to cover in the same allocation. Name breaks a remaining tie so
+    the result never depends on dict order.
+    """
+    breadth = {e: 0 for e in epics}
+    for _, epic in WEEK_TABLE_MAP.items():
+        if epic in breadth:
+            breadth[epic] += 1
+    return sorted(epics, key=lambda e: (-breadth[e], e))
+
+
+def round_shares_to_step(shares, fixed_keys, tie_order):
+    """Snap declared shares onto the 5-percentage-point ladder (OD-51).
+
+    Largest remainder again, the same rule the slot quota uses (DD-27), but in
+    units of 5 points rather than whole slots. Fixed keys keep their declared
+    value exactly; the rest divide what is left, preserving their proportions.
+    """
+    step_units = round(1 / SHARE_STEP)
+    fixed = {k: round(shares[k] / SHARE_STEP) for k in fixed_keys}
+    rest = [k for k in shares if k not in fixed_keys]
+    rest_units = step_units - sum(fixed.values())
+    weight = sum(shares[k] for k in rest)
+    raw = {k: shares[k] / weight * rest_units for k in rest}
+    out = {k: int(v) for k, v in raw.items()}
+    short = rest_units - sum(out.values())
+    order = sorted(rest, key=lambda k: (-(raw[k] - out[k]), tie_order.index(k)))
+    for k in order[:short]:
+        out[k] += 1
+    out.update(fixed)
+    if sum(out.values()) != step_units:
+        raise ValueError(f"5% ladder does not sum to 100%: {out}")
+    return {k: out[k] * SHARE_STEP for k in shares}
+
+
+_PHYS_EXACT = {k: v * (1 - KNEE_SHARE) for k, v in _REST.items()}
+_PHYS_EXACT["Knee"] = KNEE_SHARE
+PHYSICAL_SHARES = round_shares_to_step(
+    _PHYS_EXACT, fixed_keys=("Knee",), tie_order=_tie_order(_PHYS_EXACT)
+)
+
+# Mental already sits on the ladder (40/20/20/20). Assert it rather than
+# re-derive it, so a future edit off the ladder fails here instead of shipping.
+for _epic, _share in MENTAL_SHARES.items():
+    if abs(_share / SHARE_STEP - round(_share / SHARE_STEP)) > 1e-9:
+        raise ValueError(
+            f"mental share {_epic}={_share} is off the {SHARE_STEP:.0%} ladder (OD-51)"
+        )
 
 # Focus-day mental capacity, used only to break quota ties deterministically.
 MENTAL_FOCUS_CAPACITY = {"Intention": 36, "Surrender": 12, "Breathing": 12, "ACIM": 6}
@@ -118,23 +173,33 @@ PHYSICAL_FOCUS_CAPACITY = {"Martial Arts": 36, "Dance": 24,
 
 # Practice surface outside the flows. Not quota-bearing (A-08).
 ANCHORS = [
-    {"anchor": "morning", "start": "08:00", "end": "08:30", "minutes": 30,
-     "label": "Morning Routine, Meditation & Setup", "branch_hint": "M",
-     "span_status": "declared: reduced from 60 min (OD-45)"},
-    {"anchor": "midday", "start": "12:30", "end": "13:30", "minutes": 60,
-     "label": "Midday Reset, Healthy Lunch & Fresh Air Walk", "branch_hint": "R",
-     "span_status": "DERIVED: held at 12:30 because F2 now ends there. The "
-                    "30-minute shift would have put it at 12:00, inside F2 "
-                    "(OD-46 adjacency wins)"},
+    {"anchor": "morning", "start": "07:30", "end": "08:00", "minutes": 30,
+     "label": "Morning Routine", "branch_hint": "M",
+     "span_status": "declared: operator calendar, 30 min"},
+    {"anchor": "breakfast", "start": "12:00", "end": "13:00", "minutes": 60,
+     "label": "Fruehstueck Prep & Fruehstueck Mental", "branch_hint": "M",
+     "span_status": "declared: operator calendar, two 30-min rows"},
+    {"anchor": "lunch", "start": "15:00", "end": "16:00", "minutes": 60,
+     "label": "Mittag Prep & Mittag Stephen", "branch_hint": "R",
+     "span_status": "declared: operator calendar, two 30-min rows"},
+    {"anchor": "physical_focus", "start": "18:00", "end": "19:00", "minutes": 60,
+     "label": "Physical Focus Block", "branch_hint": "P",
+     "span_status": "declared: operator calendar shows 'VWC Strikes' on Monday, "
+                    "shifted 30 min earlier by OD-50",
+     "note": "per-day content comes from the week table (Strikes Mon, Kicks Tue "
+             "and Fri, Dance Wed, Moves Thu). Whether this block draws on the "
+             "physical quota or sits outside it is DD-38."},
     {"anchor": "evening", "start": "19:00", "end": "20:00", "minutes": 60,
-     "label": "Evening Block", "branch_hint": None, "bindable": False,
-     "span_status": "declared 2026-11-09 (OD-48); content not yet specified"},
-    {"anchor": "shutdown", "start": "21:30", "end": "22:00", "minutes": 30,
-     "label": "Daily Shutdown: Outro, Day Evidence Commit & Workspace Reset",
-     "branch_hint": None, "bindable": False,
-     "span_status": "DERIVED: follows the 20:00-21:30 project night (DD-33)"},
-    {"anchor": "night", "start": "22:00", "end": "24:00", "minutes": 120,
-     "label": "Evening Regeneration, Rest, Reading & Night Recovery",
+     "label": "Abend", "branch_hint": None, "bindable": False,
+     "span_status": "declared: operator calendar, shifted 30 min earlier (OD-50)"},
+    {"anchor": "freizeit", "start": "21:30", "end": "22:30", "minutes": 60,
+     "label": "Freizeit", "branch_hint": "R", "bindable": False,
+     "span_status": "declared: operator calendar, shifted 30 min earlier (OD-50)"},
+    {"anchor": "day_outro", "start": "22:30", "end": "23:00", "minutes": 30,
+     "label": "Day Outro", "branch_hint": None, "bindable": False,
+     "span_status": "declared: operator calendar, shifted 30 min earlier (OD-50)"},
+    {"anchor": "night", "start": "23:00", "end": "24:00", "minutes": 60,
+     "label": "Sleep Routine & Night Recovery",
      "branch_hint": "R", "bindable": False,
      "note": "not a slot source. R is an ordinary branch (OD-41); its slots are "
              "the 24 in-flow breaks, which carry R content such as Yoga Nidra "
